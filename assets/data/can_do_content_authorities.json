@@ -62566,7 +62566,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_a2_0059",
@@ -62576,7 +62576,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_a2_0060",
@@ -62586,7 +62586,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_a2_0061",
@@ -62596,7 +62596,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_a2_0062",
@@ -62620,7 +62620,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_a2_0064",
@@ -62630,7 +62630,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_a2_0065",
@@ -62640,7 +62640,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_a2_0066",
@@ -62664,7 +62664,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_a2_0068",
@@ -62688,7 +62688,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_a2_0070",
@@ -62698,7 +62698,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_a2_0071",
@@ -62722,7 +62722,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_a2_0073",
@@ -62732,7 +62732,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_a2_0074",
@@ -62756,7 +62756,7 @@
           "canDoFingerprintSha256": "c063f6602f0aa7dac6d1128268a6820c655feb8b2f1a40edc1c3bc3aadae5f12",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0076",
@@ -62766,7 +62766,7 @@
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0077",
@@ -62776,7 +62776,7 @@
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0078",
@@ -62786,7 +62786,7 @@
           "canDoFingerprintSha256": "44f037f3b53b77f475f0cd4d14f8f9c676c899a908c6b32e6b47687cb3625c13",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0079",
@@ -62796,7 +62796,7 @@
           "canDoFingerprintSha256": "44f037f3b53b77f475f0cd4d14f8f9c676c899a908c6b32e6b47687cb3625c13",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0080",
@@ -62806,7 +62806,7 @@
           "canDoFingerprintSha256": "44f037f3b53b77f475f0cd4d14f8f9c676c899a908c6b32e6b47687cb3625c13",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0081",
@@ -62816,7 +62816,7 @@
           "canDoFingerprintSha256": "44f037f3b53b77f475f0cd4d14f8f9c676c899a908c6b32e6b47687cb3625c13",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0082",
@@ -62826,7 +62826,7 @@
           "canDoFingerprintSha256": "44f037f3b53b77f475f0cd4d14f8f9c676c899a908c6b32e6b47687cb3625c13",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0083",
@@ -62836,7 +62836,7 @@
           "canDoFingerprintSha256": "44f037f3b53b77f475f0cd4d14f8f9c676c899a908c6b32e6b47687cb3625c13",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0084",
@@ -62846,7 +62846,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0085",
@@ -62856,7 +62856,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0086",
@@ -62866,7 +62866,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0087",
@@ -62876,7 +62876,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0088",
@@ -62886,7 +62886,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0089",
@@ -62896,7 +62896,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0090",
@@ -62906,7 +62906,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_a2_0091",
@@ -62916,7 +62916,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0092",
@@ -62926,7 +62926,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_a2_0093",
@@ -62936,7 +62936,7 @@
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0001",
@@ -63482,7 +63482,7 @@
           "canDoFingerprintSha256": "4be1c31b7e3d878fc9ff6a172e71388046eecd8ebdbdff40c59840c890f3d95c",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0054",
@@ -63492,7 +63492,7 @@
           "canDoFingerprintSha256": "4be1c31b7e3d878fc9ff6a172e71388046eecd8ebdbdff40c59840c890f3d95c",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0055",
@@ -63502,7 +63502,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b1_0056",
@@ -63512,7 +63512,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b1_0057",
@@ -63536,7 +63536,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b1_0059",
@@ -63546,7 +63546,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b1_0060",
@@ -63556,7 +63556,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b1_0061",
@@ -63566,7 +63566,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b1_0062",
@@ -63576,7 +63576,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b1_0063",
@@ -63586,7 +63586,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b1_0064",
@@ -63596,7 +63596,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b1_0065",
@@ -63606,7 +63606,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b1_0066",
@@ -63630,7 +63630,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b1_0068",
@@ -63654,7 +63654,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b1_0070",
@@ -63664,7 +63664,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b1_0071",
@@ -63688,7 +63688,7 @@
           "canDoFingerprintSha256": "94fc5a228818e26c760738f32fd0a61021013e0e1732ec0af2d8fe87edbc07e9",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0073",
@@ -63698,7 +63698,7 @@
           "canDoFingerprintSha256": "bab502a04681afd1380caba6da4f53b356cfe91570f92891217ac77bd946eb49",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0074",
@@ -63708,7 +63708,7 @@
           "canDoFingerprintSha256": "bab502a04681afd1380caba6da4f53b356cfe91570f92891217ac77bd946eb49",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0075",
@@ -63718,7 +63718,7 @@
           "canDoFingerprintSha256": "bab502a04681afd1380caba6da4f53b356cfe91570f92891217ac77bd946eb49",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0076",
@@ -63728,7 +63728,7 @@
           "canDoFingerprintSha256": "bab502a04681afd1380caba6da4f53b356cfe91570f92891217ac77bd946eb49",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0077",
@@ -63738,7 +63738,7 @@
           "canDoFingerprintSha256": "bab502a04681afd1380caba6da4f53b356cfe91570f92891217ac77bd946eb49",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0078",
@@ -63748,7 +63748,7 @@
           "canDoFingerprintSha256": "bab502a04681afd1380caba6da4f53b356cfe91570f92891217ac77bd946eb49",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0079",
@@ -63758,7 +63758,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0080",
@@ -63768,7 +63768,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0081",
@@ -63778,7 +63778,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0082",
@@ -63788,7 +63788,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b1_0083",
@@ -63798,7 +63798,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0084",
@@ -63808,7 +63808,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0085",
@@ -63818,7 +63818,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0086",
@@ -63828,7 +63828,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0087",
@@ -63838,7 +63838,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b1_0088",
@@ -63848,7 +63848,7 @@
           "canDoFingerprintSha256": "f8713bca25f894a761f3f3e85c70102c3e03c905ca5125dec427c8c3f8484828",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0001",
@@ -64682,7 +64682,7 @@
           "canDoFingerprintSha256": "a1be69870db12624788b3f2de3d2d0e7f9f8a1fa0b9f1578f8e866c55cbcdf9a",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0082",
@@ -64692,7 +64692,7 @@
           "canDoFingerprintSha256": "a1be69870db12624788b3f2de3d2d0e7f9f8a1fa0b9f1578f8e866c55cbcdf9a",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0083",
@@ -64894,7 +64894,7 @@
           "canDoFingerprintSha256": "beef75c8d40b74b12b27536e52bea0a9bcc91e675508ae291d32bf8c1dad8ff6",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0102",
@@ -64904,7 +64904,7 @@
           "canDoFingerprintSha256": "beef75c8d40b74b12b27536e52bea0a9bcc91e675508ae291d32bf8c1dad8ff6",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0103",
@@ -64914,7 +64914,7 @@
           "canDoFingerprintSha256": "768fa31b6996a5f9301abb1afcbd1512c4da29a045544e5a17bde41ac2dcf666",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0104",
@@ -64924,7 +64924,7 @@
           "canDoFingerprintSha256": "768fa31b6996a5f9301abb1afcbd1512c4da29a045544e5a17bde41ac2dcf666",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0105",
@@ -64934,7 +64934,7 @@
           "canDoFingerprintSha256": "c83491c425c40921067a348e97f186b5db76baf9de47508d70d417e6446882e1",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0106",
@@ -64944,7 +64944,7 @@
           "canDoFingerprintSha256": "c83491c425c40921067a348e97f186b5db76baf9de47508d70d417e6446882e1",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0107",
@@ -64954,7 +64954,7 @@
           "canDoFingerprintSha256": "c83491c425c40921067a348e97f186b5db76baf9de47508d70d417e6446882e1",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0108",
@@ -64964,7 +64964,7 @@
           "canDoFingerprintSha256": "c83491c425c40921067a348e97f186b5db76baf9de47508d70d417e6446882e1",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0109",
@@ -64984,7 +64984,7 @@
           "canDoFingerprintSha256": "768fa31b6996a5f9301abb1afcbd1512c4da29a045544e5a17bde41ac2dcf666",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0111",
@@ -64994,7 +64994,7 @@
           "canDoFingerprintSha256": "c83491c425c40921067a348e97f186b5db76baf9de47508d70d417e6446882e1",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0112",
@@ -65004,7 +65004,7 @@
           "canDoFingerprintSha256": "c83491c425c40921067a348e97f186b5db76baf9de47508d70d417e6446882e1",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0113",
@@ -65024,7 +65024,7 @@
           "canDoFingerprintSha256": "c83491c425c40921067a348e97f186b5db76baf9de47508d70d417e6446882e1",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0115",
@@ -65044,7 +65044,7 @@
           "canDoFingerprintSha256": "768fa31b6996a5f9301abb1afcbd1512c4da29a045544e5a17bde41ac2dcf666",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0117",
@@ -65054,7 +65054,7 @@
           "canDoFingerprintSha256": "c83491c425c40921067a348e97f186b5db76baf9de47508d70d417e6446882e1",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0118",
@@ -65064,7 +65064,7 @@
           "canDoFingerprintSha256": "c83491c425c40921067a348e97f186b5db76baf9de47508d70d417e6446882e1",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0119",
@@ -65074,7 +65074,7 @@
           "canDoFingerprintSha256": "beef75c8d40b74b12b27536e52bea0a9bcc91e675508ae291d32bf8c1dad8ff6",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0120",
@@ -65084,7 +65084,7 @@
           "canDoFingerprintSha256": "beef75c8d40b74b12b27536e52bea0a9bcc91e675508ae291d32bf8c1dad8ff6",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0121",
@@ -65094,7 +65094,7 @@
           "canDoFingerprintSha256": "beef75c8d40b74b12b27536e52bea0a9bcc91e675508ae291d32bf8c1dad8ff6",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0122",
@@ -65104,7 +65104,7 @@
           "canDoFingerprintSha256": "beef75c8d40b74b12b27536e52bea0a9bcc91e675508ae291d32bf8c1dad8ff6",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0123",
@@ -65114,7 +65114,7 @@
           "canDoFingerprintSha256": "beef75c8d40b74b12b27536e52bea0a9bcc91e675508ae291d32bf8c1dad8ff6",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0124",
@@ -65124,7 +65124,7 @@
           "canDoFingerprintSha256": "beef75c8d40b74b12b27536e52bea0a9bcc91e675508ae291d32bf8c1dad8ff6",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 4
         },
         {
           "phraseId": "smalltalk_b2_0125",
@@ -65134,7 +65134,7 @@
           "canDoFingerprintSha256": "beef75c8d40b74b12b27536e52bea0a9bcc91e675508ae291d32bf8c1dad8ff6",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0126",
@@ -65144,7 +65144,7 @@
           "canDoFingerprintSha256": "beef75c8d40b74b12b27536e52bea0a9bcc91e675508ae291d32bf8c1dad8ff6",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0127",
@@ -65154,7 +65154,7 @@
           "canDoFingerprintSha256": "beef75c8d40b74b12b27536e52bea0a9bcc91e675508ae291d32bf8c1dad8ff6",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         },
         {
           "phraseId": "smalltalk_b2_0128",
@@ -65164,7 +65164,7 @@
           "canDoFingerprintSha256": "beef75c8d40b74b12b27536e52bea0a9bcc91e675508ae291d32bf8c1dad8ff6",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 3
         }
       ],
       "unresolvedAmbiguousIds": []

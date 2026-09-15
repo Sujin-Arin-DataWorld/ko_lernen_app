@@ -7,6 +7,7 @@ import csv
 import copy
 import importlib.util
 import json
+import re
 import subprocess
 import sys
 import tempfile
@@ -671,6 +672,75 @@ class ABSpecScenarioReferencesLiveTest(unittest.TestCase):
             [],
             missing,
             f"dead scenario references (spec_key, scenario_id): {missing}",
+        )
+
+
+class GeneratedCatalogScenarioReferencesLiveTest(unittest.TestCase):
+    """The *generated* catalog must never re-emit a retired scenario seed.
+
+    C7 (2026-09-15): `_preserve_cluster_history`'s append-only reconciliation
+    unconditionally carried every previously-published sourceSeedId and
+    contentReference forward into the regenerated cluster, even ones the
+    canonical_120_v1_retired_seeds.json ledger records as legitimately
+    retired. can_do_content_authorities.json never resurrects a retired
+    seed's authority (`_validate_authority_history` only tolerates its
+    absence), so the two files disagreed: the cluster still pointed at a
+    scenario id that had no authority and no live scenario row, which is the
+    "unknown source seed" `course_segment_catalog.dart` rejected.
+
+    ABSpecScenarioReferencesLiveTest (above) checks the *input* SegmentSpecs
+    and would not have caught this -- the dead reference was introduced by
+    the reconciliation step itself, after the specs are read. This test
+    exercises the actual `build_assets()` output (unconditionally, like
+    ABSpecScenarioReferencesLiveTest, so it is not silently disabled by the
+    CanDoSegmentGeneratorTest skipIf once canonical_120_v1 is live) and
+    fails if any regenerated cluster ships a scenario reference -- via
+    sourceSeedIds or contentReferences -- that does not resolve to a live
+    row in assets/data/scenarios_*.json.
+    """
+
+    KNOWN_MISSING_SCENARIO_SLOTS = (
+        ABSpecScenarioReferencesLiveTest.KNOWN_MISSING_SCENARIO_SLOTS
+    )
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.catalog, _ = builder.build_assets()
+
+    @staticmethod
+    def _cluster_spec_key(cluster_id: str) -> str:
+        match = re.fullmatch(r"cluster_(.+)_v\d+", cluster_id)
+        return match.group(1) if match else cluster_id
+
+    def test_no_generated_cluster_references_a_dead_scenario(self) -> None:
+        live_ids = {row["id"] for row in scenario_store.load_root(DATA)["scenarios"]}
+        dead: list[tuple[str, str]] = []
+        for cluster in self.catalog["contentClusters"]:
+            spec_key = self._cluster_spec_key(cluster["id"])
+            for seed_id in cluster["sourceSeedIds"]:
+                if seed_id.startswith("seed_scenario_") and seed_id.endswith("_v1"):
+                    scenario_id = seed_id[len("seed_scenario_") : -len("_v1")]
+                    if (
+                        scenario_id not in live_ids
+                        and (spec_key, scenario_id)
+                        not in self.KNOWN_MISSING_SCENARIO_SLOTS
+                    ):
+                        dead.append((cluster["id"], seed_id))
+            for reference in cluster["contentReferences"]:
+                if reference["kind"] != "scenario":
+                    continue
+                scenario_id = reference["id"]
+                if (
+                    scenario_id not in live_ids
+                    and (spec_key, scenario_id)
+                    not in self.KNOWN_MISSING_SCENARIO_SLOTS
+                ):
+                    dead.append((cluster["id"], f"scenario:{scenario_id}"))
+        self.assertEqual(
+            [],
+            dead,
+            "regenerated cluster ships a scenario reference with no live "
+            f"scenario row (cluster_id, seed_or_reference): {dead}",
         )
 
 

@@ -4191,8 +4191,25 @@ def _preserve_cluster_history(
             raise ValueError(
                 f"published cluster {cluster_id!r} cannot remove seeds: {unresolved_seeds}"
             )
-        cluster["sourceSeedIds"] = old_seed_ids + [
-            seed_id for seed_id in new_seed_ids if seed_id not in set(old_seed_ids)
+        # A retired (cluster, seed) pair is accepted above as historically
+        # gone -- it must not then be carried back into the runtime cluster.
+        # can_do_content_authorities.json never re-emits a retired seed's
+        # authority (_validate_authority_history only tolerates its absence,
+        # it does not resurrect it), so blindly re-adding every old_seed_id
+        # here would leave sourceSeedIds pointing at a seed with no matching
+        # authority entry -- the exact "unknown source seed" the Dart loaders
+        # reject. Only seeds that are NOT retired for this cluster (or that
+        # the fresh build still produces) are carried forward.
+        carried_old_seed_ids = [
+            seed_id
+            for seed_id in old_seed_ids
+            if (cluster_id, seed_id) not in retired_pairs
+            or seed_id in new_seed_id_set
+        ]
+        cluster["sourceSeedIds"] = carried_old_seed_ids + [
+            seed_id
+            for seed_id in new_seed_ids
+            if seed_id not in set(carried_old_seed_ids)
         ]
 
         old_references = list(old["contentReferences"])
@@ -4210,10 +4227,21 @@ def _preserve_cluster_history(
                 f"published cluster {cluster_id!r} cannot remove or move refs: "
                 f"{missing_references}"
             )
+        # Same reasoning as sourceSeedIds: a retired scenario's
+        # contentReference key must not be re-emitted once the fresh build
+        # has dropped it, or the cluster ends up pointing at a scenario key
+        # with no live content authority.
+        carried_old_keys = [
+            key
+            for key in old_keys
+            if key not in retired_scenario_keys or key in current_by_key
+        ]
         cluster["contentReferences"] = [
-            current_by_key.get(key, old_by_key[key]) for key in old_keys
+            current_by_key.get(key, old_by_key[key]) for key in carried_old_keys
         ] + [
-            row for row in new_references if _reference_key(row) not in set(old_keys)
+            row
+            for row in new_references
+            if _reference_key(row) not in set(carried_old_keys)
         ]
         changed = (
             cluster["sourceSeedIds"] != old_seed_ids

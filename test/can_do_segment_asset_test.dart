@@ -165,9 +165,13 @@ void main() {
       decisionById['smalltalk_b2_0043']!['semanticStatus'],
       'bestAvailable',
     );
+    // C7b (2026-09-15): smalltalk_b1_0012 gained an explicit Jin-approved
+    // SMALLTALK_REVIEW_APPROVALS entry (reviewRevision 2) during the
+    // canDo re-binding pass, so its semanticStatus is now "approved"
+    // rather than the closest-match "bestAvailable" fallback.
     expect(
       decisionById['smalltalk_b1_0012']!['semanticStatus'],
-      'bestAvailable',
+      'approved',
     );
     for (final decision in decisions) {
       if (decision['semanticStatus'] == 'approved') {

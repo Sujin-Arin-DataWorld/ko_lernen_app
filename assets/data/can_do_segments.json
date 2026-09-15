@@ -73,14 +73,13 @@
     {
       "id": "cluster_a1_02_self_intro_identity_v1",
       "level": "a1",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_scenario_introduce_yourself_v1",
         "seed_vocab_pack_a1_self_intro_v1",
         "seed_grammar_grammar_a1_copula_polite_v1",
         "seed_cloze_cloze_a1_0003_v1",
         "seed_cloze_cloze_a1_0006_v1",
-        "seed_scenario_a1_kpop_my_bias_v1",
         "seed_cloze_cloze_a1_0301_v1",
         "seed_cloze_cloze_a1_0302_v1",
         "seed_cloze_cloze_a1_0305_v1"
@@ -107,10 +106,6 @@
           "id": "cloze_a1_0006"
         },
         {
-          "kind": "scenario",
-          "id": "a1_kpop_my_bias"
-        },
-        {
           "kind": "cloze",
           "id": "cloze_a1_0301"
         },
@@ -127,7 +122,7 @@
     {
       "id": "cluster_a1_03_topic_subject_particles_v1",
       "level": "a1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_scenario_mart_grocery_v1",
         "seed_grammar_grammar_a1_subject_particle_v1",
@@ -143,8 +138,7 @@
         "seed_cloze_cloze_a1_0312_v1",
         "seed_cloze_cloze_a1_0313_v1",
         "seed_cloze_cloze_a1_0314_v1",
-        "seed_cloze_cloze_a1_0315_v1",
-        "seed_scenario_a1_city_service_route_batch20_v1"
+        "seed_cloze_cloze_a1_0315_v1"
       ],
       "contentReferences": [
         {
@@ -206,17 +200,13 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0315"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_city_service_route_batch20"
         }
       ]
     },
     {
       "id": "cluster_a1_04_order_request_object_v1",
       "level": "a1",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_scenario_bunshik_tteokbokki_v1",
         "seed_vocab_pack_a1_food_1_v1",
@@ -240,7 +230,6 @@
         "seed_cloze_cloze_a1_0043_v1",
         "seed_cloze_cloze_a1_0044_v1",
         "seed_smalltalk_smalltalk_a1_0082_v1",
-        "seed_scenario_a1_gaming_one_more_round_v1",
         "seed_smalltalk_smalltalk_a1_0089_v1",
         "seed_scenario_a1_w10_eat_v1"
       ],
@@ -334,10 +323,6 @@
           "id": "smalltalk_a1_0082"
         },
         {
-          "kind": "scenario",
-          "id": "a1_gaming_one_more_round"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_a1_0089"
         },
@@ -350,7 +335,7 @@
     {
       "id": "cluster_a1_05_numbers_time_v1",
       "level": "a1",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_numbers_1_v1",
         "seed_vocab_pack_a1_numbers_2_v1",
@@ -364,10 +349,6 @@
         "seed_cloze_cloze_a1_0071_v1",
         "seed_cloze_cloze_a1_0074_v1",
         "seed_cloze_cloze_a1_0093_v1",
-        "seed_scenario_a1_numbers_floor_and_room_v1",
-        "seed_scenario_a1_numbers_how_many_left_v1",
-        "seed_scenario_a1_numbers_open_hours_v1",
-        "seed_scenario_a1_numbers_total_price_v1",
         "seed_smalltalk_smalltalk_a1_0088_v1",
         "seed_grammar_grammar_b1_before_v1",
         "seed_grammar_grammar_b1_after_v1",
@@ -424,22 +405,6 @@
           "id": "cloze_a1_0093"
         },
         {
-          "kind": "scenario",
-          "id": "a1_numbers_floor_and_room"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_numbers_how_many_left"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_numbers_open_hours"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_numbers_total_price"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_a1_0088"
         },
@@ -464,7 +429,7 @@
     {
       "id": "cluster_a1_06_transport_directions_v1",
       "level": "a1",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_scenario_taxi_kakao_v1",
         "seed_vocab_pack_a1_position_v1",
@@ -484,10 +449,6 @@
         "seed_smalltalk_smalltalk_a1_0043_v1",
         "seed_smalltalk_smalltalk_a1_0061_v1",
         "seed_smalltalk_smalltalk_a1_0062_v1",
-        "seed_scenario_a1_wayfinding_exit_number_v1",
-        "seed_scenario_a1_wayfinding_how_long_walk_v1",
-        "seed_scenario_a1_wayfinding_sign_says_v1",
-        "seed_scenario_a1_wayfinding_this_way_right_v1",
         "seed_vocab_pack_a1_city_services_2026_1_v1",
         "seed_grammar_grammar_a1_service_location_question_v1",
         "seed_grammar_grammar_a1_service_request_v1",
@@ -571,22 +532,6 @@
           "id": "smalltalk_a1_0062"
         },
         {
-          "kind": "scenario",
-          "id": "a1_wayfinding_exit_number"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_wayfinding_how_long_walk"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_wayfinding_sign_says"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_wayfinding_this_way_right"
-        },
-        {
           "kind": "vocabPack",
           "id": "a1_city_services_2026_1"
         },
@@ -623,37 +568,23 @@
     {
       "id": "cluster_a1_07_contact_address_v1",
       "level": "a1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
-        "seed_scenario_phone_messenger_reply_v1",
         "seed_grammar_grammar_a1_possessive_particle_v1",
-        "seed_scenario_hotel_checkin_v1",
         "seed_smalltalk_smalltalk_a1_0034_v1",
         "seed_smalltalk_smalltalk_a1_0035_v1",
         "seed_smalltalk_smalltalk_a1_0050_v1",
         "seed_smalltalk_smalltalk_a1_0051_v1",
         "seed_smalltalk_smalltalk_a1_0052_v1",
         "seed_vocab_pack_a1_post_office_1_v1",
-        "seed_scenario_a1_phone_call_later_v1",
-        "seed_scenario_a1_phone_read_back_address_v1",
-        "seed_scenario_a1_phone_text_instead_v1",
-        "seed_scenario_a1_phone_wrong_number_v1",
         "seed_grammar_grammar_a2_dative_person_v1",
         "seed_scenario_kakao_contact_after_class_v1",
         "seed_scenario_a1_w10_phone_v1"
       ],
       "contentReferences": [
         {
-          "kind": "scenario",
-          "id": "phone_messenger_reply"
-        },
-        {
           "kind": "grammar",
           "id": "grammar_a1_possessive_particle"
-        },
-        {
-          "kind": "scenario",
-          "id": "hotel_checkin"
         },
         {
           "kind": "smalltalk",
@@ -678,22 +609,6 @@
         {
           "kind": "vocabPack",
           "id": "a1_post_office_1"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_phone_call_later"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_phone_read_back_address"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_phone_text_instead"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_phone_wrong_number"
         },
         {
           "kind": "grammar",
@@ -816,7 +731,7 @@
     {
       "id": "cluster_a1_09_home_daily_life_v1",
       "level": "a1",
-      "revision": 10,
+      "revision": 11,
       "sourceSeedIds": [
         "seed_scenario_home_morning_routine_v1",
         "seed_vocab_pack_a1_colors_v1",
@@ -843,7 +758,6 @@
         "seed_cloze_cloze_a1_0033_v1",
         "seed_cloze_cloze_a1_0034_v1",
         "seed_vocab_pack_a1_weekend_promise_1_v1",
-        "seed_scenario_a1_daily_recycling_day_v1",
         "seed_grammar_grammar_a2_cause_sequence_v1",
         "seed_grammar_grammar_a2_cause_nikka_v1",
         "seed_grammar_grammar_a2_progressive_v1",
@@ -951,10 +865,6 @@
           "id": "a1_weekend_promise_1"
         },
         {
-          "kind": "scenario",
-          "id": "a1_daily_recycling_day"
-        },
-        {
           "kind": "grammar",
           "id": "grammar_a2_cause_sequence"
         },
@@ -975,9 +885,8 @@
     {
       "id": "cluster_a1_10_health_safety_v1",
       "level": "a1",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
-        "seed_scenario_clinic_safety_v1",
         "seed_vocab_pack_a1_body_v1",
         "seed_smalltalk_smalltalk_a1_0013_v1",
         "seed_smalltalk_smalltalk_a1_0036_v1",
@@ -993,10 +902,6 @@
         "seed_scenario_break_glass_apology_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "clinic_safety"
-        },
         {
           "kind": "vocabPack",
           "id": "a1_body"
@@ -1054,9 +959,8 @@
     {
       "id": "cluster_a1_11_titles_relationships_v1",
       "level": "a1",
-      "revision": 15,
+      "revision": 16,
       "sourceSeedIds": [
-        "seed_scenario_titles_relationship_distance_v1",
         "seed_vocab_pack_a1_family_1_v1",
         "seed_vocab_pack_a1_family_2_v1",
         "seed_grammar_grammar_a1_also_particle_v1",
@@ -1076,13 +980,6 @@
         "seed_vocab_pack_a1_partner_meet_names_1_v1",
         "seed_vocab_pack_a1_partner_seollal_basic_1_v1",
         "seed_vocab_pack_a1_partner_table_basic_1_v1",
-        "seed_scenario_a1_partner_first_door_v1",
-        "seed_scenario_a1_partner_gift_too_big_v1",
-        "seed_scenario_a1_partner_more_side_dishes_v1",
-        "seed_scenario_a1_partner_new_year_money_v1",
-        "seed_scenario_a1_partner_seollal_bow_v1",
-        "seed_scenario_a1_partner_songpyeon_too_big_v1",
-        "seed_scenario_a1_partner_wrong_seat_v1",
         "seed_smalltalk_smalltalk_a1_0065_v1",
         "seed_smalltalk_smalltalk_a1_0066_v1",
         "seed_smalltalk_smalltalk_a1_0067_v1",
@@ -1099,7 +996,6 @@
         "seed_smalltalk_smalltalk_a1_0078_v1",
         "seed_smalltalk_smalltalk_a1_0079_v1",
         "seed_smalltalk_smalltalk_a1_0080_v1",
-        "seed_scenario_a1_dating_what_to_call_you_v1",
         "seed_scenario_a1_theme_park_date_choices_v1",
         "seed_smalltalk_smalltalk_a1_0091_v1",
         "seed_smalltalk_smalltalk_a1_0092_v1",
@@ -1119,10 +1015,6 @@
         "seed_scenario_korea_stay_smalltalk_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "titles_relationship_distance"
-        },
         {
           "kind": "vocabPack",
           "id": "a1_family_1"
@@ -1200,34 +1092,6 @@
           "id": "a1_partner_table_basic_1"
         },
         {
-          "kind": "scenario",
-          "id": "a1_partner_first_door"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_partner_gift_too_big"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_partner_more_side_dishes"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_partner_new_year_money"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_partner_seollal_bow"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_partner_songpyeon_too_big"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_partner_wrong_seat"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_a1_0065"
         },
@@ -1290,10 +1154,6 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a1_0080"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_dating_what_to_call_you"
         },
         {
           "kind": "scenario",
@@ -1368,7 +1228,7 @@
     {
       "id": "cluster_a1_12_daily_negation_v1",
       "level": "a1",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_daily_1_v1",
         "seed_vocab_pack_a1_daily_2_v1",
@@ -1392,7 +1252,6 @@
         "seed_cloze_cloze_a1_0078_v1",
         "seed_cloze_cloze_a1_0097_v1",
         "seed_smalltalk_smalltalk_a1_0081_v1",
-        "seed_scenario_a1_youtube_shorts_last_night_v1",
         "seed_smalltalk_smalltalk_a1_0090_v1",
         "seed_grammar_grammar_a2_inability_v1",
         "seed_scenario_cafe_dessert_sold_out_v1"
@@ -1487,10 +1346,6 @@
           "id": "smalltalk_a1_0081"
         },
         {
-          "kind": "scenario",
-          "id": "a1_youtube_shorts_last_night"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_a1_0090"
         },
@@ -1507,12 +1362,11 @@
     {
       "id": "cluster_a1_13_register_switching_v1",
       "level": "a1",
-      "revision": 9,
+      "revision": 10,
       "sourceSeedIds": [
         "seed_cloze_cloze_a1_0076_v1",
         "seed_cloze_cloze_a1_0077_v1",
         "seed_vocab_pack_a1_sorry_thanks_1_v1",
-        "seed_scenario_a1_register_first_day_choice_v1",
         "seed_grammar_grammar_a2_intention_guess_v1",
         "seed_grammar_grammar_b1_honorific_si_v1",
         "seed_grammar_grammar_b1_honorific_subject_kkeyseo_v1",
@@ -1533,10 +1387,6 @@
         {
           "kind": "vocabPack",
           "id": "a1_sorry_thanks_1"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_register_first_day_choice"
         },
         {
           "kind": "grammar",
@@ -1571,10 +1421,8 @@
     {
       "id": "cluster_a1_14_payment_delivery_v1",
       "level": "a1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
-        "seed_scenario_delivery_address_confirmation_v1",
-        "seed_scenario_convenience_store_v1",
         "seed_vocab_pack_a1_payment_delivery_1_v1",
         "seed_smalltalk_smalltalk_a1_0083_v1",
         "seed_smalltalk_smalltalk_a1_0084_v1",
@@ -1588,14 +1436,6 @@
         "seed_scenario_bakery_payment_bag_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "delivery_address_confirmation"
-        },
-        {
-          "kind": "scenario",
-          "id": "convenience_store"
-        },
         {
           "kind": "vocabPack",
           "id": "a1_payment_delivery_1"
@@ -1645,7 +1485,7 @@
     {
       "id": "cluster_a1_15_first_class_work_v1",
       "level": "a1",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_scenario_first_class_meeting_v1",
         "seed_smalltalk_smalltalk_a1_0011_v1",
@@ -1654,7 +1494,6 @@
         "seed_smalltalk_smalltalk_a1_0031_v1",
         "seed_smalltalk_smalltalk_a1_0032_v1",
         "seed_smalltalk_smalltalk_a1_0033_v1",
-        "seed_scenario_a1_friends_major_and_number_v1",
         "seed_grammar_grammar_a2_ability_v1",
         "seed_vocab_pack_a1_first_class_1_v1"
       ],
@@ -1688,10 +1527,6 @@
           "id": "smalltalk_a1_0033"
         },
         {
-          "kind": "scenario",
-          "id": "a1_friends_major_and_number"
-        },
-        {
           "kind": "grammar",
           "id": "grammar_a2_ability"
         },
@@ -1704,56 +1539,11 @@
     {
       "id": "cluster_a1_16_survival_capstone_v1",
       "level": "a1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_scenario_survival_day_capstone_v1",
         "seed_vocab_pack_a1_misc_1_v1",
         "seed_vocab_pack_a1_misc_2_v1",
-        "seed_scenario_a1_airport_cart_v1",
-        "seed_scenario_a1_ask_again_v1",
-        "seed_scenario_a1_bus_late_v1",
-        "seed_scenario_a1_cafe_wifi_v1",
-        "seed_scenario_a1_cancel_walk_v1",
-        "seed_scenario_a1_card_topup_v1",
-        "seed_scenario_a1_class_pencil_v1",
-        "seed_scenario_a1_direction_left_v1",
-        "seed_scenario_a1_door_bell_v1",
-        "seed_scenario_a1_dust_mask_v1",
-        "seed_scenario_a1_excuse_pass_v1",
-        "seed_scenario_a1_floor_number_v1",
-        "seed_scenario_a1_gate_code_v1",
-        "seed_scenario_a1_hall_shoes_v1",
-        "seed_scenario_a1_home_light_v1",
-        "seed_scenario_a1_hotel_key_v1",
-        "seed_scenario_a1_last_train_v1",
-        "seed_scenario_a1_late_text_v1",
-        "seed_scenario_a1_locker_key_v1",
-        "seed_scenario_a1_market_bag_v1",
-        "seed_scenario_a1_mask_pack_v1",
-        "seed_scenario_a1_meet_station_v1",
-        "seed_scenario_a1_neighbor_box_v1",
-        "seed_scenario_a1_office_print_v1",
-        "seed_scenario_a1_parcel_weight_v1",
-        "seed_scenario_a1_pharmacy_hours_v1",
-        "seed_scenario_a1_pharmacy_ointment_v1",
-        "seed_scenario_a1_platform_line_v1",
-        "seed_scenario_a1_post_queue_v1",
-        "seed_scenario_a1_rain_jacket_v1",
-        "seed_scenario_a1_rice_shop_v1",
-        "seed_scenario_a1_slow_speech_v1",
-        "seed_scenario_a1_sorry_late_v1",
-        "seed_scenario_a1_stamp_ask_v1",
-        "seed_scenario_a1_station_rest_v1",
-        "seed_scenario_a1_submit_name_v1",
-        "seed_scenario_a1_subway_exit_v1",
-        "seed_scenario_a1_taxi_address_v1",
-        "seed_scenario_a1_tea_order_v1",
-        "seed_scenario_a1_thanks_seat_v1",
-        "seed_scenario_a1_trash_sort_v1",
-        "seed_scenario_a1_water_shop_v1",
-        "seed_scenario_a1_weather_layer_v1",
-        "seed_scenario_a1_weekend_rain_v1",
-        "seed_scenario_a1_whiteboard_word_v1",
         "seed_cloze_cloze_a1_0335_v1",
         "seed_cloze_cloze_a1_0336_v1",
         "seed_cloze_cloze_a1_0337_v1",
@@ -1779,186 +1569,6 @@
         {
           "kind": "vocabPack",
           "id": "a1_misc_2"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_airport_cart"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_ask_again"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_bus_late"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_cafe_wifi"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_cancel_walk"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_card_topup"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_class_pencil"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_direction_left"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_door_bell"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_dust_mask"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_excuse_pass"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_floor_number"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_gate_code"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_hall_shoes"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_home_light"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_hotel_key"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_last_train"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_late_text"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_locker_key"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_market_bag"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_mask_pack"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_meet_station"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_neighbor_box"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_office_print"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_parcel_weight"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_pharmacy_hours"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_pharmacy_ointment"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_platform_line"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_post_queue"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_rain_jacket"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_rice_shop"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_slow_speech"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_sorry_late"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_stamp_ask"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_station_rest"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_submit_name"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_subway_exit"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_taxi_address"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_tea_order"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_thanks_seat"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_trash_sort"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_water_shop"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_weather_layer"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_weekend_rain"
-        },
-        {
-          "kind": "scenario",
-          "id": "a1_whiteboard_word"
         },
         {
           "kind": "cloze",
@@ -2013,7 +1623,7 @@
     {
       "id": "cluster_a2_haeyo_register_transition_v1",
       "level": "a2",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_vocab_pack_a2_change_verbs_1_v1",
         "seed_vocab_pack_a2_daily_1_v1",
@@ -2044,8 +1654,6 @@
         "seed_cloze_cloze_a2_0059_v1",
         "seed_cloze_cloze_a2_0060_v1",
         "seed_cloze_cloze_a2_0061_v1",
-        "seed_scenario_a2_kpop_concert_queue_v1",
-        "seed_scenario_a2_flat_viewing_terms_batch20_v1",
         "seed_scenario_a2_w10_fandom_v1",
         "seed_scenario_favorite_drama_chat_v1",
         "seed_scenario_samgyeopsal_first_time_v1"
@@ -2169,14 +1777,6 @@
         },
         {
           "kind": "scenario",
-          "id": "a2_kpop_concert_queue"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_flat_viewing_terms_batch20"
-        },
-        {
-          "kind": "scenario",
           "id": "a2_w10_fandom"
         },
         {
@@ -2192,7 +1792,7 @@
     {
       "id": "cluster_a2_plans_with_friend_v1",
       "level": "a2",
-      "revision": 9,
+      "revision": 10,
       "sourceSeedIds": [
         "seed_scenario_plans_with_friend_v1",
         "seed_grammar_grammar_a2_gentle_question_v1",
@@ -2223,15 +1823,9 @@
         "seed_grammar_grammar_a2_busy_cause_v1",
         "seed_grammar_grammar_a2_noun_cause_v1",
         "seed_grammar_grammar_a2_spoken_result_v1",
-        "seed_scenario_a2_friends_weekend_slot_v1",
-        "seed_scenario_a2_booking_change_date_v1",
-        "seed_scenario_a2_booking_extra_person_v1",
-        "seed_scenario_a2_booking_no_show_fee_v1",
-        "seed_scenario_a2_booking_table_time_v1",
         "seed_vocab_pack_a2_plans_proposals_1_v1",
         "seed_grammar_grammar_a2_available_if_v1",
         "seed_grammar_grammar_a2_shall_we_time_v1",
-        "seed_scenario_a2_plan_weather_change_v1",
         "seed_smalltalk_smalltalk_a2_0076_v1",
         "seed_smalltalk_smalltalk_a2_0077_v1",
         "seed_cloze_cloze_a2_0268_v1",
@@ -2361,26 +1955,6 @@
           "id": "grammar_a2_spoken_result"
         },
         {
-          "kind": "scenario",
-          "id": "a2_friends_weekend_slot"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_booking_change_date"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_booking_extra_person"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_booking_no_show_fee"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_booking_table_time"
-        },
-        {
           "kind": "vocabPack",
           "id": "a2_plans_proposals_1"
         },
@@ -2391,10 +1965,6 @@
         {
           "kind": "grammar",
           "id": "grammar_a2_shall_we_time"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_plan_weather_change"
         },
         {
           "kind": "smalltalk",
@@ -2441,16 +2011,11 @@
     {
       "id": "cluster_a2_friend_birthday_v1",
       "level": "a2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
-        "seed_scenario_friend_birthday_v1",
         "seed_scenario_a2_w10_booking_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "friend_birthday"
-        },
         {
           "kind": "scenario",
           "id": "a2_w10_booking"
@@ -2460,7 +2025,7 @@
     {
       "id": "cluster_a2_running_late_v1",
       "level": "a2",
-      "revision": 21,
+      "revision": 22,
       "sourceSeedIds": [
         "seed_scenario_running_late_v1",
         "seed_vocab_pack_a2_nature_1_v1",
@@ -2495,12 +2060,6 @@
         "seed_vocab_pack_a2_partner_overnight_1_v1",
         "seed_vocab_pack_a2_partner_seollal_day_1_v1",
         "seed_grammar_grammar_a2_humble_give_v1",
-        "seed_scenario_a2_partner_banmal_slip_v1",
-        "seed_scenario_a2_partner_group_chat_join_v1",
-        "seed_scenario_a2_partner_hanbok_rental_v1",
-        "seed_scenario_a2_partner_holiday_train_v1",
-        "seed_scenario_a2_partner_leftover_bags_v1",
-        "seed_scenario_a2_partner_morning_greeting_v1",
         "seed_smalltalk_smalltalk_a2_0058_v1",
         "seed_smalltalk_smalltalk_a2_0059_v1",
         "seed_smalltalk_smalltalk_a2_0060_v1",
@@ -2518,7 +2077,6 @@
         "seed_smalltalk_smalltalk_a2_0072_v1",
         "seed_smalltalk_smalltalk_a2_0073_v1",
         "seed_smalltalk_smalltalk_a2_0074_v1",
-        "seed_scenario_a2_youtube_send_the_link_v1",
         "seed_scenario_a2_theme_park_date_break_v1",
         "seed_smalltalk_smalltalk_a2_0084_v1",
         "seed_smalltalk_smalltalk_a2_0085_v1",
@@ -2675,30 +2233,6 @@
           "id": "grammar_a2_humble_give"
         },
         {
-          "kind": "scenario",
-          "id": "a2_partner_banmal_slip"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_partner_group_chat_join"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_partner_hanbok_rental"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_partner_holiday_train"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_partner_leftover_bags"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_partner_morning_greeting"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_a2_0058"
         },
@@ -2765,10 +2299,6 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a2_0074"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_youtube_send_the_link"
         },
         {
           "kind": "scenario",
@@ -2859,9 +2389,8 @@
     {
       "id": "cluster_a2_pharmacy_headache_v1",
       "level": "a2",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
-        "seed_scenario_pharmacy_headache_v1",
         "seed_vocab_pack_a2_health_misc_1_v1",
         "seed_vocab_pack_a2_health_misc_2_v1",
         "seed_smalltalk_smalltalk_a2_0035_v1",
@@ -2870,10 +2399,6 @@
         "seed_scenario_pharmacy_cold_medicine_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "pharmacy_headache"
-        },
         {
           "kind": "vocabPack",
           "id": "a2_health_misc_1"
@@ -2903,17 +2428,12 @@
     {
       "id": "cluster_a2_gym_signup_v1",
       "level": "a2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
-        "seed_scenario_gym_signup_v1",
         "seed_smalltalk_smalltalk_a2_0012_v1",
         "seed_scenario_a2_w10_enrolment_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "gym_signup"
-        },
         {
           "kind": "smalltalk",
           "id": "smalltalk_a2_0012"
@@ -2927,9 +2447,8 @@
     {
       "id": "cluster_a2_feeling_sick_v1",
       "level": "a2",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
-        "seed_scenario_feeling_sick_v1",
         "seed_vocab_pack_a2_feelings_1_v1",
         "seed_vocab_pack_a2_feelings_2_v1",
         "seed_grammar_grammar_a2_prohibition_v1",
@@ -2941,7 +2460,6 @@
         "seed_cloze_cloze_a2_0009_v1",
         "seed_vocab_pack_a2_gym_class_1_v1",
         "seed_smalltalk_smalltalk_a2_0075_v1",
-        "seed_scenario_a2_dating_slow_replies_v1",
         "seed_vocab_pack_a1_weather_layer_1_v1",
         "seed_grammar_grammar_a1_honorific_kke_v1",
         "seed_grammar_grammar_b1_realization_v1",
@@ -2950,10 +2468,6 @@
         "seed_scenario_delivery_dinner_spicy_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "feeling_sick"
-        },
         {
           "kind": "vocabPack",
           "id": "a2_feelings_1"
@@ -2999,10 +2513,6 @@
           "id": "smalltalk_a2_0075"
         },
         {
-          "kind": "scenario",
-          "id": "a2_dating_slow_replies"
-        },
-        {
           "kind": "vocabPack",
           "id": "a2_weather_layer_1"
         },
@@ -3031,9 +2541,8 @@
     {
       "id": "cluster_a2_cafe_starbucks_basic_v1",
       "level": "a2",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
-        "seed_scenario_cafe_starbucks_basic_v1",
         "seed_vocab_pack_a2_food_1_v1",
         "seed_vocab_pack_a2_food_2_v1",
         "seed_vocab_pack_a2_food_more_1_v1",
@@ -3057,7 +2566,6 @@
         "seed_cloze_cloze_a2_0048_v1",
         "seed_cloze_cloze_a2_0049_v1",
         "seed_vocab_pack_a2_salon_visit_1_v1",
-        "seed_scenario_a2_daily_late_delivery_v1",
         "seed_grammar_grammar_a1_or_particle_v1",
         "seed_scenario_a2_w10_buy_v1",
         "seed_scenario_a2_w10_apt_v1",
@@ -3065,10 +2573,6 @@
         "seed_scenario_package_wrong_door_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "cafe_starbucks_basic"
-        },
         {
           "kind": "vocabPack",
           "id": "a2_food_1"
@@ -3162,10 +2666,6 @@
           "id": "a2_salon_visit_1"
         },
         {
-          "kind": "scenario",
-          "id": "a2_daily_late_delivery"
-        },
-        {
           "kind": "grammar",
           "id": "grammar_a1_or_particle"
         },
@@ -3190,9 +2690,8 @@
     {
       "id": "cluster_a2_myeongdong_shopping_v1",
       "level": "a2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
-        "seed_scenario_myeongdong_shopping_v1",
         "seed_vocab_pack_a2_clothing_1_v1",
         "seed_vocab_pack_a2_shopping_1_v1",
         "seed_vocab_pack_a2_shopping_2_v1",
@@ -3206,10 +2705,6 @@
         "seed_scenario_clothing_refund_size_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "myeongdong_shopping"
-        },
         {
           "kind": "vocabPack",
           "id": "a2_clothing_1"
@@ -3259,9 +2754,8 @@
     {
       "id": "cluster_a2_cafe_study_v1",
       "level": "a2",
-      "revision": 13,
+      "revision": 14,
       "sourceSeedIds": [
-        "seed_scenario_cafe_study_v1",
         "seed_vocab_pack_a2_education_v1",
         "seed_vocab_pack_a2_people_jobs_1_v1",
         "seed_vocab_pack_a2_school_uni_1_v1",
@@ -3283,10 +2777,6 @@
         "seed_cloze_cloze_a2_0054_v1",
         "seed_cloze_cloze_a2_0055_v1",
         "seed_cloze_cloze_a2_0056_v1",
-        "seed_scenario_a2_enrolment_change_class_v1",
-        "seed_scenario_a2_enrolment_class_signup_v1",
-        "seed_scenario_a2_enrolment_level_test_v1",
-        "seed_scenario_a2_enrolment_missing_document_v1",
         "seed_vocab_pack_a1_school_supplies_1_v1",
         "seed_grammar_grammar_b1_nominalizer_gi_v1",
         "seed_grammar_grammar_a1_future_modifier_v1",
@@ -3298,10 +2788,6 @@
         "seed_scenario_forgot_presentation_cable_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "cafe_study"
-        },
         {
           "kind": "vocabPack",
           "id": "a2_education"
@@ -3387,22 +2873,6 @@
           "id": "cloze_a2_0056"
         },
         {
-          "kind": "scenario",
-          "id": "a2_enrolment_change_class"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_enrolment_class_signup"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_enrolment_level_test"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_enrolment_missing_document"
-        },
-        {
           "kind": "vocabPack",
           "id": "a2_school_supplies_1"
         },
@@ -3443,18 +2913,13 @@
     {
       "id": "cluster_a2_subway_transfer_v1",
       "level": "a2",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
-        "seed_scenario_subway_transfer_v1",
         "seed_smalltalk_smalltalk_a2_0038_v1",
         "seed_vocab_pack_a1_subway_card_1_v1",
         "seed_scenario_train_seat_swap_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "subway_transfer"
-        },
         {
           "kind": "smalltalk",
           "id": "smalltalk_a2_0038"
@@ -3472,18 +2937,13 @@
     {
       "id": "cluster_a2_taxi_street_v1",
       "level": "a2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
-        "seed_scenario_taxi_street_v1",
         "seed_smalltalk_smalltalk_a2_0040_v1",
         "seed_smalltalk_smalltalk_a2_0041_v1",
         "seed_scenario_taxi_slow_down_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "taxi_street"
-        },
         {
           "kind": "smalltalk",
           "id": "smalltalk_a2_0040"
@@ -3501,9 +2961,8 @@
     {
       "id": "cluster_a2_subway_directions_v1",
       "level": "a2",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
-        "seed_scenario_subway_directions_v1",
         "seed_vocab_pack_a2_transport_v1",
         "seed_grammar_grammar_a2_only_negative_v1",
         "seed_grammar_grammar_a2_purpose_v1",
@@ -3519,61 +2978,11 @@
         "seed_cloze_cloze_a2_0051_v1",
         "seed_cloze_cloze_a2_0052_v1",
         "seed_cloze_cloze_a2_0053_v1",
-        "seed_scenario_a2_airport_sim_v1",
-        "seed_scenario_a2_apt_sticker_v1",
-        "seed_scenario_a2_auto_debit_v1",
-        "seed_scenario_a2_bank_number_v1",
-        "seed_scenario_a2_bill_high_v1",
-        "seed_scenario_a2_booth_line_v1",
-        "seed_scenario_a2_cafe_plug_v1",
-        "seed_scenario_a2_card_balance_v1",
-        "seed_scenario_a2_contract_read_v1",
-        "seed_scenario_a2_convenience_copy_v1",
-        "seed_scenario_a2_data_roam_v1",
-        "seed_scenario_a2_direction_bus_v1",
-        "seed_scenario_a2_dye_dark_v1",
-        "seed_scenario_a2_festival_stamp_v1",
-        "seed_scenario_a2_food_bag_v1",
-        "seed_scenario_a2_found_umbrella_v1",
-        "seed_scenario_a2_front_desk_v1",
-        "seed_scenario_a2_guest_pass_v1",
-        "seed_scenario_a2_gym_lock_v1",
-        "seed_scenario_a2_hair_time_v1",
-        "seed_scenario_a2_handover_note_v1",
-        "seed_scenario_a2_hotel_late_v1",
-        "seed_scenario_a2_hours_six_v1",
-        "seed_scenario_a2_id_pickup_v1",
-        "seed_scenario_a2_label_phone_v1",
-        "seed_scenario_a2_lost_wallet_v1",
-        "seed_scenario_a2_manager_leave_v1",
-        "seed_scenario_a2_market_change_v1",
-        "seed_scenario_a2_night_pay_v1",
-        "seed_scenario_a2_office_badge_v1",
-        "seed_scenario_a2_phone_plan_v1",
-        "seed_scenario_a2_quiet_ten_v1",
-        "seed_scenario_a2_rain_cancel_v1",
-        "seed_scenario_a2_recycle_box_v1",
-        "seed_scenario_a2_restaurant_split_v1",
-        "seed_scenario_a2_salon_cut_v1",
-        "seed_scenario_a2_seat_hold_v1",
-        "seed_scenario_a2_shift_table_v1",
-        "seed_scenario_a2_station_lost_v1",
-        "seed_scenario_a2_stretch_start_v1",
-        "seed_scenario_a2_taxi_wait_v1",
-        "seed_scenario_a2_tea_taste_v1",
-        "seed_scenario_a2_transfer_limit_v1",
-        "seed_scenario_a2_volunteer_vest_v1",
-        "seed_scenario_a2_water_set_v1",
-        "seed_scenario_a2_gaming_cant_connect_v1",
         "seed_grammar_grammar_b1_experience_v1",
         "seed_grammar_grammar_a2_no_choice_but_v1",
         "seed_scenario_jeju_bus_missed_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "subway_directions"
-        },
         {
           "kind": "vocabPack",
           "id": "a2_transport"
@@ -3635,190 +3044,6 @@
           "id": "cloze_a2_0053"
         },
         {
-          "kind": "scenario",
-          "id": "a2_airport_sim"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_apt_sticker"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_auto_debit"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_bank_number"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_bill_high"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_booth_line"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_cafe_plug"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_card_balance"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_contract_read"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_convenience_copy"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_data_roam"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_direction_bus"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_dye_dark"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_festival_stamp"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_food_bag"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_found_umbrella"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_front_desk"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_guest_pass"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_gym_lock"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_hair_time"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_handover_note"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_hotel_late"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_hours_six"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_id_pickup"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_label_phone"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_lost_wallet"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_manager_leave"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_market_change"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_night_pay"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_office_badge"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_phone_plan"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_quiet_ten"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_rain_cancel"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_recycle_box"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_restaurant_split"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_salon_cut"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_seat_hold"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_shift_table"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_station_lost"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_stretch_start"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_taxi_wait"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_tea_taste"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_transfer_limit"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_volunteer_vest"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_water_set"
-        },
-        {
-          "kind": "scenario",
-          "id": "a2_gaming_cant_connect"
-        },
-        {
           "kind": "grammar",
           "id": "grammar_b1_experience"
         },
@@ -3864,17 +3089,12 @@
     {
       "id": "cluster_a2_ktx_ticket_v1",
       "level": "a2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
-        "seed_scenario_ktx_ticket_v1",
         "seed_smalltalk_smalltalk_a2_0042_v1",
         "seed_scenario_library_card_problem_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "ktx_ticket"
-        },
         {
           "kind": "smalltalk",
           "id": "smalltalk_a2_0042"
@@ -3888,9 +3108,8 @@
     {
       "id": "cluster_a2_rent_bank_transfer_v1",
       "level": "a2",
-      "revision": 10,
+      "revision": 11,
       "sourceSeedIds": [
-        "seed_scenario_rent_bank_transfer_v1",
         "seed_vocab_pack_a2_home_1_v1",
         "seed_vocab_pack_a2_household_1_v1",
         "seed_vocab_pack_a2_money_1_v1",
@@ -3926,10 +3145,6 @@
         "seed_scenario_forgot_house_key_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "rent_bank_transfer"
-        },
         {
           "kind": "vocabPack",
           "id": "a2_home_1"
@@ -4067,9 +3282,8 @@
     {
       "id": "cluster_b1_plans_with_reasons_v1",
       "level": "b1",
-      "revision": 13,
+      "revision": 14,
       "sourceSeedIds": [
-        "seed_scenario_postpone_plans_v1",
         "seed_vocab_pack_b1_city_places_1_v1",
         "seed_vocab_pack_b1_daily_1_v1",
         "seed_vocab_pack_b1_daily_2_v1",
@@ -4083,7 +3297,6 @@
         "seed_grammar_grammar_b1_negative_cause_v1",
         "seed_grammar_grammar_b1_recalled_past_v1",
         "seed_grammar_grammar_b1_takes_time_v1",
-        "seed_scenario_cancel_plans_v1",
         "seed_smalltalk_smalltalk_b1_0001_v1",
         "seed_smalltalk_smalltalk_b1_0002_v1",
         "seed_smalltalk_smalltalk_b1_0003_v1",
@@ -4127,8 +3340,6 @@
         "seed_cloze_cloze_b1_0055_v1",
         "seed_vocab_pack_b1_travel_change_1_v1",
         "seed_smalltalk_smalltalk_b1_0072_v1",
-        "seed_scenario_b1_youtube_up_all_night_v1",
-        "seed_scenario_b1_job_offer_conditions_batch20_v1",
         "seed_scenario_jeju_rain_plan_change_v1",
         "seed_scenario_b1_w10_fandom_v1",
         "seed_scenario_b1_w10_incident_v1",
@@ -4137,10 +3348,6 @@
         "seed_scenario_running_injury_training_plan_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "postpone_plans"
-        },
         {
           "kind": "vocabPack",
           "id": "b1_city_places_1"
@@ -4192,10 +3399,6 @@
         {
           "kind": "grammar",
           "id": "grammar_b1_takes_time"
-        },
-        {
-          "kind": "scenario",
-          "id": "cancel_plans"
         },
         {
           "kind": "smalltalk",
@@ -4371,14 +3574,6 @@
         },
         {
           "kind": "scenario",
-          "id": "b1_youtube_up_all_night"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_job_offer_conditions_batch20"
-        },
-        {
-          "kind": "scenario",
           "id": "jeju_rain_plan_change"
         },
         {
@@ -4440,9 +3635,8 @@
     {
       "id": "cluster_b1_relay_social_speech_v1",
       "level": "b1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
-        "seed_scenario_company_dinner_hoeshik_v1",
         "seed_vocab_pack_b1_communication_lang_1_v1",
         "seed_vocab_pack_b1_tech_society_1_v1",
         "seed_vocab_pack_b1_tech_society_2_v1",
@@ -4468,19 +3662,10 @@
         "seed_cloze_cloze_b1_0049_v1",
         "seed_cloze_cloze_b1_0052_v1",
         "seed_cloze_cloze_b1_0053_v1",
-        "seed_scenario_b1_friends_he_said_that_v1",
-        "seed_scenario_b1_incident_leak_from_upstairs_v1",
-        "seed_scenario_b1_incident_lost_item_desk_v1",
-        "seed_scenario_b1_incident_parking_scratch_v1",
-        "seed_scenario_b1_incident_witness_note_v1",
         "seed_scenario_team_update_indirect_speech_v1",
         "seed_scenario_reel_caption_misunderstanding_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "company_dinner_hoeshik"
-        },
         {
           "kind": "vocabPack",
           "id": "b1_communication_lang_1"
@@ -4583,26 +3768,6 @@
         },
         {
           "kind": "scenario",
-          "id": "b1_friends_he_said_that"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_incident_leak_from_upstairs"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_incident_lost_item_desk"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_incident_parking_scratch"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_incident_witness_note"
-        },
-        {
-          "kind": "scenario",
           "id": "team_update_indirect_speech"
         },
         {
@@ -4652,9 +3817,8 @@
     {
       "id": "cluster_b1_team_role_coordination_v1",
       "level": "b1",
-      "revision": 12,
+      "revision": 13,
       "sourceSeedIds": [
-        "seed_scenario_b1_team_meeting_coordination_v1",
         "seed_vocab_pack_b1_work_v1",
         "seed_vocab_pack_b1_work_career_1_v1",
         "seed_vocab_pack_b1_work_coordination_1_v1",
@@ -4684,15 +3848,9 @@
         "seed_grammar_grammar_b1_self_should_v1",
         "seed_grammar_grammar_b1_while_already_v1",
         "seed_smalltalk_smalltalk_b1_0071_v1",
-        "seed_scenario_b1_gaming_team_voice_v1",
-        "seed_scenario_b1_cancellation_auto_payment_v1",
-        "seed_scenario_b1_cancellation_early_penalty_v1",
-        "seed_scenario_b1_cancellation_gym_membership_v1",
-        "seed_scenario_b1_cancellation_move_out_notice_v1",
         "seed_vocab_pack_b1_work_softening_1_v1",
         "seed_grammar_grammar_b1_reason_context_v1",
         "seed_grammar_grammar_b1_soft_request_batch19_v1",
-        "seed_scenario_b1_work_deadline_soft_request_v1",
         "seed_vocab_pack_b1_work_entry_2026_1_v1",
         "seed_grammar_grammar_b1_conceded_context_batch20_v1",
         "seed_grammar_grammar_b1_tentative_plan_batch20_v1",
@@ -4706,10 +3864,6 @@
         "seed_scenario_work_message_too_direct_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "b1_team_meeting_coordination"
-        },
         {
           "kind": "vocabPack",
           "id": "b1_work"
@@ -4827,26 +3981,6 @@
           "id": "smalltalk_b1_0071"
         },
         {
-          "kind": "scenario",
-          "id": "b1_gaming_team_voice"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_cancellation_auto_payment"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_cancellation_early_penalty"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_cancellation_gym_membership"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_cancellation_move_out_notice"
-        },
-        {
           "kind": "vocabPack",
           "id": "b1_work_softening_1"
         },
@@ -4857,10 +3991,6 @@
         {
           "kind": "grammar",
           "id": "grammar_b1_soft_request_batch19"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_work_deadline_soft_request"
         },
         {
           "kind": "vocabPack",
@@ -4911,10 +4041,8 @@
     {
       "id": "cluster_b1_attendance_and_coverage_v1",
       "level": "b1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
-        "seed_scenario_b1_attendance_followup_v1",
-        "seed_scenario_b1_covering_absence_v1",
         "seed_smalltalk_smalltalk_b1_0049_v1",
         "seed_smalltalk_smalltalk_b1_0050_v1",
         "seed_smalltalk_smalltalk_b1_0051_v1",
@@ -4922,14 +4050,6 @@
         "seed_scenario_company_instagram_wrong_account_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "b1_attendance_followup"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_covering_absence"
-        },
         {
           "kind": "smalltalk",
           "id": "smalltalk_b1_0049"
@@ -4955,19 +4075,14 @@
     {
       "id": "cluster_b1_schedule_softening_v1",
       "level": "b1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
-        "seed_scenario_b1_reschedule_request_v1",
         "seed_smalltalk_smalltalk_b1_0041_v1",
         "seed_smalltalk_smalltalk_b1_0047_v1",
         "seed_smalltalk_smalltalk_b1_0048_v1",
         "seed_scenario_community_festival_shift_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "b1_reschedule_request"
-        },
         {
           "kind": "smalltalk",
           "id": "smalltalk_b1_0041"
@@ -4989,16 +4104,11 @@
     {
       "id": "cluster_b1_encouragement_v1",
       "level": "b1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
-        "seed_scenario_warm_encouragement_v1",
         "seed_scenario_speech_level_after_friendship_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "warm_encouragement"
-        },
         {
           "kind": "scenario",
           "id": "speech_level_after_friendship"
@@ -5008,9 +4118,8 @@
     {
       "id": "cluster_b1_intimate_feelings_v1",
       "level": "b1",
-      "revision": 12,
+      "revision": 13,
       "sourceSeedIds": [
-        "seed_scenario_love_confession_v1",
         "seed_vocab_pack_b1_character_feelings_1_v1",
         "seed_vocab_pack_b1_emotions_relations_1_v1",
         "seed_vocab_pack_b1_emotions_relations_2_v1",
@@ -5031,12 +4140,6 @@
         "seed_vocab_pack_b1_partner_job_visa_1_v1",
         "seed_vocab_pack_b1_partner_sleep_room_1_v1",
         "seed_vocab_pack_b1_partner_translating_1_v1",
-        "seed_scenario_b1_partner_drink_table_v1",
-        "seed_scenario_b1_partner_heavy_bags_home_v1",
-        "seed_scenario_b1_partner_interpret_skip_v1",
-        "seed_scenario_b1_partner_marriage_question_v1",
-        "seed_scenario_b1_partner_overnight_door_v1",
-        "seed_scenario_b1_partner_salary_deflect_v1",
         "seed_smalltalk_smalltalk_b1_0055_v1",
         "seed_smalltalk_smalltalk_b1_0056_v1",
         "seed_smalltalk_smalltalk_b1_0057_v1",
@@ -5055,7 +4158,6 @@
         "seed_smalltalk_smalltalk_b1_0070_v1",
         "seed_vocab_pack_b1_parent_school_1_v1",
         "seed_vocab_pack_b1_roommate_talk_1_v1",
-        "seed_scenario_b1_dating_anniversary_gap_v1",
         "seed_scenario_b1_theme_park_date_thrill_v1",
         "seed_smalltalk_smalltalk_b1_0079_v1",
         "seed_smalltalk_smalltalk_b1_0080_v1",
@@ -5078,10 +4180,6 @@
         "seed_scenario_cancelled_trip_hurt_feelings_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "love_confession"
-        },
         {
           "kind": "vocabPack",
           "id": "b1_character_feelings_1"
@@ -5163,30 +4261,6 @@
           "id": "b1_partner_translating_1"
         },
         {
-          "kind": "scenario",
-          "id": "b1_partner_drink_table"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_partner_heavy_bags_home"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_partner_interpret_skip"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_partner_marriage_question"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_partner_overnight_door"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_partner_salary_deflect"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_b1_0055"
         },
@@ -5257,10 +4331,6 @@
         {
           "kind": "vocabPack",
           "id": "b1_roommate_talk_1"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_dating_anniversary_gap"
         },
         {
           "kind": "scenario",
@@ -5371,9 +4441,8 @@
     {
       "id": "cluster_b1_delivery_resolution_v1",
       "level": "b1",
-      "revision": 9,
+      "revision": 10,
       "sourceSeedIds": [
-        "seed_scenario_food_delivery_v1",
         "seed_vocab_pack_b1_health_education_v1",
         "seed_vocab_pack_b1_money_bank_1_v1",
         "seed_grammar_grammar_b1_near_miss_v1",
@@ -5386,43 +4455,6 @@
         "seed_cloze_cloze_b1_0043_v1",
         "seed_vocab_pack_b1_insurance_claim_1_v1",
         "seed_vocab_pack_b1_repair_words_1_v1",
-        "seed_scenario_b1_bill_split_v1",
-        "seed_scenario_b1_cafe_invoice_v1",
-        "seed_scenario_b1_case_status_v1",
-        "seed_scenario_b1_civil_ticket_v1",
-        "seed_scenario_b1_claim_same_day_v1",
-        "seed_scenario_b1_connecting_v1",
-        "seed_scenario_b1_deductible_v1",
-        "seed_scenario_b1_extra_paper_v1",
-        "seed_scenario_b1_followup_mail_v1",
-        "seed_scenario_b1_guest_notice_v1",
-        "seed_scenario_b1_hotel_shift_v1",
-        "seed_scenario_b1_intranet_form_v1",
-        "seed_scenario_b1_laundry_turn_v1",
-        "seed_scenario_b1_mail_cc_v1",
-        "seed_scenario_b1_market_claim_v1",
-        "seed_scenario_b1_missing_file_v1",
-        "seed_scenario_b1_parent_slot_v1",
-        "seed_scenario_b1_pickup_delay_v1",
-        "seed_scenario_b1_proxy_form_v1",
-        "seed_scenario_b1_quiet_exam_v1",
-        "seed_scenario_b1_quote_change_v1",
-        "seed_scenario_b1_refund_rule_v1",
-        "seed_scenario_b1_repair_photo_v1",
-        "seed_scenario_b1_return_visit_v1",
-        "seed_scenario_b1_safety_vest_v1",
-        "seed_scenario_b1_scan_note_v1",
-        "seed_scenario_b1_school_letter_v1",
-        "seed_scenario_b1_taxi_receipt_v1",
-        "seed_scenario_b1_typhoon_change_v1",
-        "seed_scenario_b1_volunteer_gap_v1",
-        "seed_scenario_b1_waitlist_v1",
-        "seed_scenario_b1_warranty_week_v1",
-        "seed_scenario_b1_kpop_missing_goods_v1",
-        "seed_scenario_b1_insurance_claim_documents_v1",
-        "seed_scenario_b1_insurance_claim_rejected_v1",
-        "seed_scenario_b1_insurance_deductible_share_v1",
-        "seed_scenario_b1_insurance_what_is_covered_v1",
         "seed_vocab_pack_a2_bank_counter_1_v1",
         "seed_vocab_pack_a2_phone_plan_1_v1",
         "seed_vocab_pack_a2_lost_found_1_v1",
@@ -5433,10 +4465,6 @@
         "seed_scenario_subscription_cancel_charge_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "food_delivery"
-        },
         {
           "kind": "vocabPack",
           "id": "b1_health_education"
@@ -5486,154 +4514,6 @@
           "id": "b1_repair_words_1"
         },
         {
-          "kind": "scenario",
-          "id": "b1_bill_split"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_cafe_invoice"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_case_status"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_civil_ticket"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_claim_same_day"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_connecting"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_deductible"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_extra_paper"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_followup_mail"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_guest_notice"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_hotel_shift"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_intranet_form"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_laundry_turn"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_mail_cc"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_market_claim"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_missing_file"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_parent_slot"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_pickup_delay"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_proxy_form"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_quiet_exam"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_quote_change"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_refund_rule"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_repair_photo"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_return_visit"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_safety_vest"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_scan_note"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_school_letter"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_taxi_receipt"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_typhoon_change"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_volunteer_gap"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_waitlist"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_warranty_week"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_kpop_missing_goods"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_insurance_claim_documents"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_insurance_claim_rejected"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_insurance_deductible_share"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_insurance_what_is_covered"
-        },
-        {
           "kind": "vocabPack",
           "id": "b1_bank_counter_1"
         },
@@ -5670,11 +4550,9 @@
     {
       "id": "cluster_b1_property_damage_report_v1",
       "level": "b1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
-        "seed_scenario_b1_leak_report_v1",
         "seed_smalltalk_smalltalk_b1_0043_v1",
-        "seed_scenario_b1_repair_visit_followup_v1",
         "seed_smalltalk_smalltalk_b1_0053_v1",
         "seed_smalltalk_smalltalk_b1_0054_v1",
         "seed_cloze_cloze_b1_0080_v1",
@@ -5691,16 +4569,8 @@
       ],
       "contentReferences": [
         {
-          "kind": "scenario",
-          "id": "b1_leak_report"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_b1_0043"
-        },
-        {
-          "kind": "scenario",
-          "id": "b1_repair_visit_followup"
         },
         {
           "kind": "smalltalk",
@@ -5759,19 +4629,14 @@
     {
       "id": "cluster_b1_housing_contract_v1",
       "level": "b1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
-        "seed_scenario_b1_contract_appointment_v1",
         "seed_vocab_pack_b1_housing_contract_1_v1",
         "seed_smalltalk_smalltalk_b1_0034_v1",
         "seed_vocab_pack_a2_housing_search_2026_1_v1",
         "seed_scenario_b1_w10_cancellation_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "b1_contract_appointment"
-        },
         {
           "kind": "vocabPack",
           "id": "b1_housing_contract_1"
@@ -5793,9 +4658,8 @@
     {
       "id": "cluster_b1_safety_health_concern_v1",
       "level": "b1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
-        "seed_scenario_b1_heating_safety_call_v1",
         "seed_vocab_pack_b1_health_hospital_1_v1",
         "seed_smalltalk_smalltalk_b1_0012_v1",
         "seed_smalltalk_smalltalk_b1_0024_v1",
@@ -5805,10 +4669,6 @@
         "seed_scenario_b1_w10_insurance_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "b1_heating_safety_call"
-        },
         {
           "kind": "vocabPack",
           "id": "b1_health_hospital_1"
@@ -5842,16 +4702,11 @@
     {
       "id": "cluster_b1_relationship_conflict_repair_v1",
       "level": "b1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
-        "seed_scenario_couple_argument_v1",
         "seed_scenario_park_pet_manners_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "couple_argument"
-        },
         {
           "kind": "scenario",
           "id": "park_pet_manners"
@@ -5861,19 +4716,14 @@
     {
       "id": "cluster_b1_move_in_handover_v1",
       "level": "b1",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
-        "seed_scenario_b1_move_in_handover_v1",
         "seed_smalltalk_smalltalk_b1_0033_v1",
         "seed_vocab_pack_a1_neighbors_hall_1_v1",
         "seed_vocab_pack_a2_apt_rules_1_v1",
         "seed_scenario_apartment_recycling_mixup_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "b1_move_in_handover"
-        },
         {
           "kind": "smalltalk",
           "id": "smalltalk_b1_0033"
@@ -5895,7 +4745,7 @@
     {
       "id": "cluster_b1_life_course_narrative_v1",
       "level": "b1",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_time_life_1_v1",
         "seed_vocab_pack_b1_descriptions_adj_1_v1",
@@ -5906,7 +4756,6 @@
         "seed_grammar_grammar_b1_prepared_state_v1",
         "seed_grammar_grammar_b1_self_prompt_v1",
         "seed_vocab_pack_b1_volunteer_shift_1_v1",
-        "seed_scenario_b1_daily_cut_the_bills_v1",
         "seed_vocab_pack_a2_festival_booth_1_v1",
         "seed_scenario_ai_summary_wrong_fact_v1",
         "seed_scenario_b1_w10_form_v1",
@@ -5950,10 +4799,6 @@
           "id": "b1_volunteer_shift_1"
         },
         {
-          "kind": "scenario",
-          "id": "b1_daily_cut_the_bills"
-        },
-        {
           "kind": "vocabPack",
           "id": "b1_festival_booth_1"
         },
@@ -5974,9 +4819,8 @@
     {
       "id": "cluster_b2_formal_meeting_opening_v1",
       "level": "b2",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
-        "seed_scenario_business_meeting_intro_v1",
         "seed_vocab_pack_b2_communication_v1",
         "seed_vocab_pack_b2_manners_society_1_v1",
         "seed_grammar_grammar_b2_formal_intention_v1",
@@ -5984,18 +4828,12 @@
         "seed_smalltalk_smalltalk_b2_0041_v1",
         "seed_smalltalk_smalltalk_b2_0042_v1",
         "seed_smalltalk_smalltalk_b2_0100_v1",
-        "seed_scenario_b2_youtube_collab_pitch_v1",
-        "seed_scenario_b2_rent_increase_meeting_batch20_v1",
         "seed_scenario_meeting_opening_context_v1",
         "seed_scenario_b2_w10_authorities_v1",
         "seed_scenario_filming_permission_v1",
         "seed_scenario_wedding_invitation_expectation_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "business_meeting_intro"
-        },
         {
           "kind": "vocabPack",
           "id": "b2_communication"
@@ -6023,14 +4861,6 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0100"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_youtube_collab_pitch"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_rent_increase_meeting_batch20"
         },
         {
           "kind": "scenario",
@@ -6067,9 +4897,8 @@
     {
       "id": "cluster_b2_decision_criteria_v1",
       "level": "b2",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
-        "seed_scenario_b2_decision_criteria_workshop_v1",
         "seed_vocab_pack_b2_decisions_perspectives_1_v1",
         "seed_vocab_pack_b2_education_v1",
         "seed_vocab_pack_b2_life_values_v1",
@@ -6158,9 +4987,7 @@
         "seed_grammar_grammar_b2_granted_limit_v1",
         "seed_grammar_grammar_b2_including_start_v1",
         "seed_grammar_grammar_b2_whether_or_not_v1",
-        "seed_scenario_b2_friends_split_the_bill_v1",
         "seed_grammar_grammar_b2_not_by_one_metric_v1",
-        "seed_scenario_b2_daily_migration_neighborhood_meeting_v1",
         "seed_smalltalk_smalltalk_b2_0105_v1",
         "seed_smalltalk_smalltalk_b2_0106_v1",
         "seed_smalltalk_smalltalk_b2_0107_v1",
@@ -6180,10 +5007,6 @@
         "seed_scenario_ai_image_disclosure_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "b2_decision_criteria_workshop"
-        },
         {
           "kind": "vocabPack",
           "id": "b2_decisions_perspectives_1"
@@ -6537,16 +5360,8 @@
           "id": "grammar_b2_whether_or_not"
         },
         {
-          "kind": "scenario",
-          "id": "b2_friends_split_the_bill"
-        },
-        {
           "kind": "grammar",
           "id": "grammar_b2_not_by_one_metric"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_daily_migration_neighborhood_meeting"
         },
         {
           "kind": "smalltalk",
@@ -6621,16 +5436,11 @@
     {
       "id": "cluster_b2_public_wording_revision_v1",
       "level": "b2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
-        "seed_scenario_b2_public_wording_feedback_v1",
         "seed_scenario_direct_feedback_misread_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "b2_public_wording_feedback"
-        },
         {
           "kind": "scenario",
           "id": "direct_feedback_misread"
@@ -6766,9 +5576,8 @@
     {
       "id": "cluster_b2_medical_precision_v1",
       "level": "b2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
-        "seed_scenario_doctor_consultation_v1",
         "seed_smalltalk_smalltalk_b2_0012_v1",
         "seed_smalltalk_smalltalk_b2_0024_v1",
         "seed_smalltalk_smalltalk_b2_0035_v1",
@@ -6776,10 +5585,6 @@
         "seed_scenario_b2_w10_health_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "doctor_consultation"
-        },
         {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0012"
@@ -6805,9 +5610,8 @@
     {
       "id": "cluster_b2_contract_scope_v1",
       "level": "b2",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
-        "seed_scenario_b2_signature_scope_confirmation_v1",
         "seed_vocab_pack_b2_formal_agreement_1_v1",
         "seed_vocab_pack_b2_language_grammar_1_v1",
         "seed_grammar_grammar_b2_as_long_as_v1",
@@ -6815,19 +5619,12 @@
         "seed_grammar_grammar_b2_formal_reason_v1",
         "seed_grammar_grammar_b2_inclusion_v1",
         "seed_grammar_grammar_b2_worry_v1",
-        "seed_scenario_b2_contract_clause_inquiry_v1",
         "seed_smalltalk_smalltalk_b2_0034_v1",
         "seed_smalltalk_smalltalk_b2_0039_v1",
         "seed_smalltalk_smalltalk_b2_0040_v1",
         "seed_cloze_cloze_b2_0035_v1",
         "seed_vocab_pack_b2_team_negotiation_1_v1",
-        "seed_scenario_b2_daily_upstairs_noise_v1",
-        "seed_scenario_b2_privacy_data_scope_v1",
-        "seed_scenario_b2_privacy_delete_request_v1",
-        "seed_scenario_b2_privacy_retention_period_v1",
-        "seed_scenario_b2_privacy_third_party_v1",
         "seed_grammar_grammar_b2_include_total_scope_v1",
-        "seed_scenario_b2_moving_rent_heating_budget_v1",
         "seed_smalltalk_smalltalk_b2_0101_v1",
         "seed_smalltalk_smalltalk_b2_0102_v1",
         "seed_cloze_cloze_b2_0362_v1",
@@ -6851,10 +5648,6 @@
         "seed_scenario_neighborhood_filming_notice_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "b2_signature_scope_confirmation"
-        },
         {
           "kind": "vocabPack",
           "id": "b2_formal_agreement_1"
@@ -6884,10 +5677,6 @@
           "id": "grammar_b2_worry"
         },
         {
-          "kind": "scenario",
-          "id": "b2_contract_clause_inquiry"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0034"
         },
@@ -6908,32 +5697,8 @@
           "id": "b2_team_negotiation_1"
         },
         {
-          "kind": "scenario",
-          "id": "b2_daily_upstairs_noise"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_privacy_data_scope"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_privacy_delete_request"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_privacy_retention_period"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_privacy_third_party"
-        },
-        {
           "kind": "grammar",
           "id": "grammar_b2_include_total_scope"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_moving_rent_heating_budget"
         },
         {
           "kind": "smalltalk",
@@ -7024,16 +5789,11 @@
     {
       "id": "cluster_b2_terms_deferral_v1",
       "level": "b2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
-        "seed_scenario_b2_deadline_deferral_request_v1",
         "seed_scenario_b2_w10_negotiate_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "b2_deadline_deferral_request"
-        },
         {
           "kind": "scenario",
           "id": "b2_w10_negotiate"
@@ -7062,9 +5822,8 @@
     {
       "id": "cluster_b2_formal_complaint_v1",
       "level": "b2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
-        "seed_scenario_complaint_delivery_v1",
         "seed_vocab_pack_b2_household_practical_1_v1",
         "seed_grammar_grammar_b2_counterfactual_past_v1",
         "seed_grammar_grammar_b2_established_premise_v1",
@@ -7075,43 +5834,6 @@
         "seed_smalltalk_smalltalk_b2_0046_v1",
         "seed_vocab_pack_b2_customer_escalation_1_v1",
         "seed_vocab_pack_b2_housing_dispute_1_v1",
-        "seed_scenario_b2_agenda_swap_v1",
-        "seed_scenario_b2_airport_reseat_v1",
-        "seed_scenario_b2_assumption_v1",
-        "seed_scenario_b2_cafe_brief_v1",
-        "seed_scenario_b2_case_id_v1",
-        "seed_scenario_b2_certified_mail_v1",
-        "seed_scenario_b2_chart_axes_v1",
-        "seed_scenario_b2_convenience_scan_v1",
-        "seed_scenario_b2_counter_offer_v1",
-        "seed_scenario_b2_cross_check_v1",
-        "seed_scenario_b2_direction_risk_v1",
-        "seed_scenario_b2_evidence_date_v1",
-        "seed_scenario_b2_hold_share_v1",
-        "seed_scenario_b2_hotel_clause_v1",
-        "seed_scenario_b2_limit_line_v1",
-        "seed_scenario_b2_market_source_v1",
-        "seed_scenario_b2_metric_clear_v1",
-        "seed_scenario_b2_minutes_draft_v1",
-        "seed_scenario_b2_must_have_v1",
-        "seed_scenario_b2_next_level_v1",
-        "seed_scenario_b2_on_site_v1",
-        "seed_scenario_b2_one_pager_v1",
-        "seed_scenario_b2_pharmacy_claim_v1",
-        "seed_scenario_b2_public_question_v1",
-        "seed_scenario_b2_quorum_wait_v1",
-        "seed_scenario_b2_read_receipt_v1",
-        "seed_scenario_b2_restaurant_note_v1",
-        "seed_scenario_b2_restore_scope_v1",
-        "seed_scenario_b2_review_three_v1",
-        "seed_scenario_b2_selective_edit_v1",
-        "seed_scenario_b2_self_fail_v1",
-        "seed_scenario_b2_source_check_v1",
-        "seed_scenario_b2_station_hold_v1",
-        "seed_scenario_b2_taxi_escalate_v1",
-        "seed_scenario_b2_time_box_v1",
-        "seed_scenario_b2_vacate_short_v1",
-        "seed_scenario_b2_gaming_ban_appeal_v1",
         "seed_scenario_delivery_refund_evidence_v1",
         "seed_scenario_b2_w10_travel_v1",
         "seed_scenario_library_quiet_zone_conflict_v1",
@@ -7119,10 +5841,6 @@
         "seed_scenario_train_delay_connection_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "complaint_delivery"
-        },
         {
           "kind": "vocabPack",
           "id": "b2_household_practical_1"
@@ -7165,154 +5883,6 @@
         },
         {
           "kind": "scenario",
-          "id": "b2_agenda_swap"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_airport_reseat"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_assumption"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_cafe_brief"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_case_id"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_certified_mail"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_chart_axes"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_convenience_scan"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_counter_offer"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_cross_check"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_direction_risk"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_evidence_date"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_hold_share"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_hotel_clause"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_limit_line"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_market_source"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_metric_clear"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_minutes_draft"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_must_have"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_next_level"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_on_site"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_one_pager"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_pharmacy_claim"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_public_question"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_quorum_wait"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_read_receipt"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_restaurant_note"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_restore_scope"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_review_three"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_selective_edit"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_self_fail"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_source_check"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_station_hold"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_taxi_escalate"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_time_box"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_vacate_short"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_gaming_ban_appeal"
-        },
-        {
-          "kind": "scenario",
           "id": "delivery_refund_evidence"
         },
         {
@@ -7336,18 +5906,15 @@
     {
       "id": "cluster_b2_remedy_and_appeal_v1",
       "level": "b2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
-        "seed_scenario_b2_remedy_plan_request_v1",
         "seed_vocab_pack_b2_formal_complaint_1_v1",
-        "seed_scenario_b2_objection_status_request_v1",
         "seed_smalltalk_smalltalk_b2_0047_v1",
         "seed_smalltalk_smalltalk_b2_0048_v1",
         "seed_smalltalk_smalltalk_b2_0049_v1",
         "seed_smalltalk_smalltalk_b2_0050_v1",
         "seed_smalltalk_smalltalk_b2_0051_v1",
         "seed_smalltalk_smalltalk_b2_0052_v1",
-        "seed_scenario_b2_device_failure_escalation_v1",
         "seed_smalltalk_smalltalk_b2_0081_v1",
         "seed_smalltalk_smalltalk_b2_0082_v1",
         "seed_cloze_cloze_b2_0166_v1",
@@ -7365,16 +5932,8 @@
       ],
       "contentReferences": [
         {
-          "kind": "scenario",
-          "id": "b2_remedy_plan_request"
-        },
-        {
           "kind": "vocabPack",
           "id": "b2_formal_complaint_1"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_objection_status_request"
         },
         {
           "kind": "smalltalk",
@@ -7399,10 +5958,6 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0052"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_device_failure_escalation"
         },
         {
           "kind": "smalltalk",
@@ -7657,9 +6212,8 @@
     {
       "id": "cluster_b2_interview_experience_v1",
       "level": "b2",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
-        "seed_scenario_job_interview_v1",
         "seed_vocab_pack_b2_relationships_people_1_v1",
         "seed_vocab_pack_b2_work_v1",
         "seed_smalltalk_smalltalk_b2_0029_v1",
@@ -7677,13 +6231,7 @@
         "seed_cloze_cloze_b2_0034_v1",
         "seed_vocab_pack_b2_performance_review_1_v1",
         "seed_smalltalk_smalltalk_b2_0099_v1",
-        "seed_scenario_b2_kpop_staff_interview_v1",
-        "seed_scenario_b2_hiring_reference_consent_v1",
-        "seed_scenario_b2_hiring_role_scope_v1",
-        "seed_scenario_b2_hiring_salary_band_v1",
-        "seed_scenario_b2_hiring_start_date_v1",
         "seed_grammar_grammar_b2_verify_human_review_v1",
-        "seed_scenario_b2_job_hunting_ai_screening_v1",
         "seed_smalltalk_smalltalk_b2_0103_v1",
         "seed_smalltalk_smalltalk_b2_0104_v1",
         "seed_smalltalk_smalltalk_b2_0110_v1",
@@ -7695,10 +6243,6 @@
         "seed_scenario_b2_w10_hiring_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "job_interview"
-        },
         {
           "kind": "vocabPack",
           "id": "b2_relationships_people_1"
@@ -7768,32 +6312,8 @@
           "id": "smalltalk_b2_0099"
         },
         {
-          "kind": "scenario",
-          "id": "b2_kpop_staff_interview"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_hiring_reference_consent"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_hiring_role_scope"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_hiring_salary_band"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_hiring_start_date"
-        },
-        {
           "kind": "grammar",
           "id": "grammar_b2_verify_human_review"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_job_hunting_ai_screening"
         },
         {
           "kind": "smalltalk",
@@ -7836,9 +6356,8 @@
     {
       "id": "cluster_b2_literary_cultural_response_v1",
       "level": "b2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
-        "seed_scenario_b2_reading_circle_response_v1",
         "seed_vocab_pack_b2_events_culture_1_v1",
         "seed_vocab_pack_b2_literature_emotion_v1",
         "seed_vocab_pack_b2_reading_response_1_v1",
@@ -7855,10 +6374,6 @@
         "seed_scenario_b2_w10_fandom_v1"
       ],
       "contentReferences": [
-        {
-          "kind": "scenario",
-          "id": "b2_reading_circle_response"
-        },
         {
           "kind": "vocabPack",
           "id": "b2_events_culture_1"
@@ -7920,7 +6435,7 @@
     {
       "id": "cluster_b2_formal_soft_reformulation_v1",
       "level": "b2",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_grammar_grammar_b2_only_course_v1",
         "seed_vocab_pack_b2_misc_v1",
@@ -7946,11 +6461,6 @@
         "seed_vocab_pack_b2_partner_marriage_talk_1_v1",
         "seed_vocab_pack_b2_partner_public_intro_1_v1",
         "seed_grammar_grammar_b2_rather_than_direct_v1",
-        "seed_scenario_b2_partner_dowry_joke_v1",
-        "seed_scenario_b2_partner_holiday_labor_chart_v1",
-        "seed_scenario_b2_partner_inlaw_rotation_v1",
-        "seed_scenario_b2_partner_photo_permission_v1",
-        "seed_scenario_b2_partner_public_intro_v1",
         "seed_smalltalk_smalltalk_b2_0083_v1",
         "seed_smalltalk_smalltalk_b2_0084_v1",
         "seed_smalltalk_smalltalk_b2_0085_v1",
@@ -7968,10 +6478,8 @@
         "seed_smalltalk_smalltalk_b2_0097_v1",
         "seed_smalltalk_smalltalk_b2_0098_v1",
         "seed_vocab_pack_b2_policy_brief_1_v1",
-        "seed_scenario_b2_dating_moving_in_terms_v1",
         "seed_vocab_pack_b2_2026_social_topics_1_v1",
         "seed_grammar_grammar_b2_instead_supplement_v1",
-        "seed_scenario_b2_kpop_local_festival_program_v1",
         "seed_smalltalk_smalltalk_b2_0109_v1",
         "seed_cloze_cloze_b2_0371_v1",
         "seed_cloze_cloze_b2_0372_v1",
@@ -8083,26 +6591,6 @@
           "id": "grammar_b2_rather_than_direct"
         },
         {
-          "kind": "scenario",
-          "id": "b2_partner_dowry_joke"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_partner_holiday_labor_chart"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_partner_inlaw_rotation"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_partner_photo_permission"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_partner_public_intro"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0083"
         },
@@ -8171,20 +6659,12 @@
           "id": "b2_policy_brief_1"
         },
         {
-          "kind": "scenario",
-          "id": "b2_dating_moving_in_terms"
-        },
-        {
           "kind": "vocabPack",
           "id": "b2_2026_social_topics_1"
         },
         {
           "kind": "grammar",
           "id": "grammar_b2_instead_supplement"
-        },
-        {
-          "kind": "scenario",
-          "id": "b2_kpop_local_festival_program"
         },
         {
           "kind": "smalltalk",
@@ -8239,11 +6719,10 @@
     {
       "id": "cluster_c1_evidence_validity_v1",
       "level": "c1",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
-        "seed_scenario_c1_youtube_health_claims_v1",
         "seed_vocab_pack_c1_media_evidence_1_v1",
         "seed_grammar_grammar_c1_limited_to_v1",
         "seed_smalltalk_smalltalk_c1_0025_v1",
@@ -8272,12 +6751,7 @@
         "seed_satz_satz_c1_0184_v1",
         "seed_satz_satz_c1_0185_v1",
         "seed_satz_satz_c1_0186_v1",
-        "seed_scenario_c1_conflict_interest_disclose_stake_v1",
-        "seed_scenario_c1_conflict_interest_dual_role_v1",
-        "seed_scenario_c1_conflict_interest_recuse_request_v1",
-        "seed_scenario_c1_conflict_interest_sponsored_talk_v1",
         "seed_grammar_grammar_c1_while_also_consider_v1",
-        "seed_scenario_c1_work_ai_hiring_pilot_review_v1",
         "seed_smalltalk_smalltalk_c1_0035_v1",
         "seed_smalltalk_smalltalk_c1_0036_v1",
         "seed_smalltalk_smalltalk_c1_0042_v1",
@@ -8363,10 +6837,6 @@
         {
           "kind": "project",
           "id": "project_c1_evidence_v1"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_youtube_health_claims"
         },
         {
           "kind": "vocabPack",
@@ -8481,28 +6951,8 @@
           "id": "satz_c1_0186"
         },
         {
-          "kind": "scenario",
-          "id": "c1_conflict_interest_disclose_stake"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_conflict_interest_dual_role"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_conflict_interest_recuse_request"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_conflict_interest_sponsored_talk"
-        },
-        {
           "kind": "grammar",
           "id": "grammar_c1_while_also_consider"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_work_ai_hiring_pilot_review"
         },
         {
           "kind": "smalltalk",
@@ -8589,11 +7039,10 @@
     {
       "id": "cluster_c1_evidence_limits_conclusion_v1",
       "level": "c1",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
-        "seed_scenario_c1_survey_limits_briefing_v1",
         "seed_smalltalk_smalltalk_c1_0017_v1",
         "seed_smalltalk_smalltalk_c1_0018_v1",
         "seed_cloze_cloze_c1_0049_v1",
@@ -8614,14 +7063,6 @@
         "seed_grammar_grammar_c1_given_situation_v1",
         "seed_grammar_grammar_c1_leaning_on_v1",
         "seed_grammar_grammar_c1_regardless_noun_v1",
-        "seed_scenario_c1_access_time_v1",
-        "seed_scenario_c1_briefing_number_v1",
-        "seed_scenario_c1_leading_item_v1",
-        "seed_scenario_c1_question_window_v1",
-        "seed_scenario_c1_relative_risk_v1",
-        "seed_scenario_c1_sample_bias_v1",
-        "seed_scenario_c1_speaking_slot_v1",
-        "seed_scenario_c1_uncertainty_v1",
         "seed_smalltalk_smalltalk_c1_0023_v1",
         "seed_cloze_cloze_c1_0077_v1",
         "seed_cloze_cloze_c1_0078_v1",
@@ -8719,11 +7160,6 @@
         "seed_satz_satz_c1_0124_v1",
         "seed_satz_satz_c1_0125_v1",
         "seed_satz_satz_c1_0126_v1",
-        "seed_scenario_c1_daily_prices_vs_data_v1",
-        "seed_scenario_c1_critique_anonymous_limits_v1",
-        "seed_scenario_c1_critique_metric_gaming_v1",
-        "seed_scenario_c1_critique_public_wording_v1",
-        "seed_scenario_c1_critique_work_not_person_v1",
         "seed_smalltalk_smalltalk_c1_0066_v1",
         "seed_smalltalk_smalltalk_c1_0067_v1",
         "seed_smalltalk_smalltalk_c1_0068_v1",
@@ -8731,7 +7167,6 @@
         "seed_vocab_pack_c1_ai_culture_labor_2026_1_v1",
         "seed_grammar_grammar_c1_burden_recipient_batch20_v1",
         "seed_grammar_grammar_c1_difficult_to_conclude_batch20_v1",
-        "seed_scenario_c1_ai_labeling_policy_batch20_v1",
         "seed_smalltalk_smalltalk_c1_0072_v1",
         "seed_smalltalk_smalltalk_c1_0073_v1",
         "seed_smalltalk_smalltalk_c1_0074_v1",
@@ -8819,10 +7254,6 @@
           "id": "project_c1_evidence_v1"
         },
         {
-          "kind": "scenario",
-          "id": "c1_survey_limits_briefing"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_c1_0017"
         },
@@ -8901,38 +7332,6 @@
         {
           "kind": "grammar",
           "id": "grammar_c1_regardless_noun"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_access_time"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_briefing_number"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_leading_item"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_question_window"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_relative_risk"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_sample_bias"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_speaking_slot"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_uncertainty"
         },
         {
           "kind": "smalltalk",
@@ -9323,26 +7722,6 @@
           "id": "satz_c1_0126"
         },
         {
-          "kind": "scenario",
-          "id": "c1_daily_prices_vs_data"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_critique_anonymous_limits"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_critique_metric_gaming"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_critique_public_wording"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_critique_work_not_person"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_c1_0066"
         },
@@ -9369,10 +7748,6 @@
         {
           "kind": "grammar",
           "id": "grammar_c1_difficult_to_conclude_batch20"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_ai_labeling_policy_batch20"
         },
         {
           "kind": "smalltalk",
@@ -9459,12 +7834,11 @@
     {
       "id": "cluster_c1_risk_uncertainty_v1",
       "level": "c1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_batch05_c1_risk_communication_1_v1",
         "seed_project_c1_risk_v1",
         "seed_smalltalk_smalltalk_c1_0024_v1",
-        "seed_scenario_c1_gaming_playtime_policy_v1",
         "seed_smalltalk_smalltalk_c1_0047_v1",
         "seed_smalltalk_smalltalk_c1_0048_v1",
         "seed_smalltalk_smalltalk_c1_0049_v1",
@@ -9550,10 +7924,6 @@
           "id": "smalltalk_c1_0024"
         },
         {
-          "kind": "scenario",
-          "id": "c1_gaming_playtime_policy"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_c1_0047"
         },
@@ -9582,14 +7952,10 @@
     {
       "id": "cluster_c1_risk_update_correction_v1",
       "level": "c1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c1_risk_communication_1_v1",
-        "seed_project_c1_risk_v1",
-        "seed_scenario_c1_facework_accept_correction_v1",
-        "seed_scenario_c1_facework_correct_in_private_v1",
-        "seed_scenario_c1_facework_decline_without_wound_v1",
-        "seed_scenario_c1_facework_praise_before_others_v1"
+        "seed_project_c1_risk_v1"
       ],
       "contentReferences": [
         {
@@ -9663,37 +8029,16 @@
         {
           "kind": "project",
           "id": "project_c1_risk_v1"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_facework_accept_correction"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_facework_correct_in_private"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_facework_decline_without_wound"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_facework_praise_before_others"
         }
       ]
     },
     {
       "id": "cluster_c1_accessibility_barrier_diagnosis_v1",
       "level": "c1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_batch05_c1_accessible_participation_1_v1",
-        "seed_project_c1_accessibility_v1",
-        "seed_scenario_c1_friends_venue_access_v1",
-        "seed_scenario_c1_mediation_ground_rules_v1",
-        "seed_scenario_c1_mediation_partial_agreement_v1",
-        "seed_scenario_c1_mediation_restate_position_v1",
-        "seed_scenario_c1_mediation_walk_away_line_v1"
+        "seed_project_c1_accessibility_v1"
       ],
       "contentReferences": [
         {
@@ -9759,41 +8104,19 @@
         {
           "kind": "project",
           "id": "project_c1_accessibility_v1"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_friends_venue_access"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_mediation_ground_rules"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_mediation_partial_agreement"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_mediation_restate_position"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_mediation_walk_away_line"
         }
       ]
     },
     {
       "id": "cluster_c1_participatory_access_remedy_v1",
       "level": "c1",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
         "seed_batch05_c1_accessible_participation_1_v1",
         "seed_project_c1_accessibility_v1",
         "seed_vocab_pack_c1_partner_family_framing_1_v1",
         "seed_vocab_pack_c1_partner_holiday_labor_1_v1",
         "seed_grammar_grammar_c1_family_framing_v1",
-        "seed_scenario_c1_partner_guest_or_family_v1",
-        "seed_scenario_c1_partner_invisible_labor_v1",
         "seed_smalltalk_smalltalk_c1_0019_v1",
         "seed_smalltalk_smalltalk_c1_0020_v1",
         "seed_smalltalk_smalltalk_c1_0021_v1",
@@ -9896,7 +8219,6 @@
         "seed_cloze_cloze_c1_0170_v1",
         "seed_cloze_cloze_c1_0171_v1",
         "seed_cloze_cloze_c1_0172_v1",
-        "seed_scenario_c1_dating_app_safety_v1",
         "seed_vocab_pack_c1_intimacy_safety_1_v1",
         "seed_grammar_grammar_c1_but_not_v1",
         "seed_smalltalk_smalltalk_c1_0031_v1",
@@ -9925,10 +8247,6 @@
         "seed_satz_satz_c1_0220_v1",
         "seed_satz_satz_c1_0221_v1",
         "seed_satz_satz_c1_0222_v1",
-        "seed_scenario_c1_clinical_data_reuse_v1",
-        "seed_scenario_c1_clinical_informed_consent_v1",
-        "seed_scenario_c1_clinical_second_opinion_v1",
-        "seed_scenario_c1_clinical_trial_withdrawal_v1",
         "seed_scenario_c1_theme_park_date_next_time_v1",
         "seed_smalltalk_smalltalk_c1_0078_v1",
         "seed_smalltalk_smalltalk_c1_0079_v1",
@@ -10022,14 +8340,6 @@
         {
           "kind": "grammar",
           "id": "grammar_c1_family_framing"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_partner_guest_or_family"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_partner_invisible_labor"
         },
         {
           "kind": "smalltalk",
@@ -10440,10 +8750,6 @@
           "id": "cloze_c1_0172"
         },
         {
-          "kind": "scenario",
-          "id": "c1_dating_app_safety"
-        },
-        {
           "kind": "vocabPack",
           "id": "c1_intimacy_safety_1"
         },
@@ -10557,22 +8863,6 @@
         },
         {
           "kind": "scenario",
-          "id": "c1_clinical_data_reuse"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_clinical_informed_consent"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_clinical_second_opinion"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_clinical_trial_withdrawal"
-        },
-        {
-          "kind": "scenario",
           "id": "c1_theme_park_date_next_time"
         },
         {
@@ -10640,11 +8930,10 @@
     {
       "id": "cluster_c1_sustainable_lifecycle_v1",
       "level": "c1",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
         "seed_project_c1_sustainability_v1",
-        "seed_scenario_c1_kpop_fan_labor_v1",
         "seed_vocab_pack_c1_fan_labor_1_v1",
         "seed_grammar_grammar_c1_insufficient_for_v1",
         "seed_smalltalk_smalltalk_c1_0029_v1",
@@ -10673,12 +8962,7 @@
         "seed_satz_satz_c1_0208_v1",
         "seed_satz_satz_c1_0209_v1",
         "seed_satz_satz_c1_0210_v1",
-        "seed_scenario_c1_attribution_author_order_v1",
-        "seed_scenario_c1_attribution_collective_byline_v1",
-        "seed_scenario_c1_attribution_reuse_without_credit_v1",
-        "seed_scenario_c1_attribution_unpaid_translation_v1",
         "seed_grammar_grammar_c1_excluded_in_process_v1",
-        "seed_scenario_c1_kpop_platform_localization_review_v1",
         "seed_smalltalk_smalltalk_c1_0039_v1",
         "seed_smalltalk_smalltalk_c1_0040_v1",
         "seed_smalltalk_smalltalk_c1_0044_v1",
@@ -10769,10 +9053,6 @@
         {
           "kind": "project",
           "id": "project_c1_sustainability_v1"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_kpop_fan_labor"
         },
         {
           "kind": "vocabPack",
@@ -10887,28 +9167,8 @@
           "id": "satz_c1_0210"
         },
         {
-          "kind": "scenario",
-          "id": "c1_attribution_author_order"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_attribution_collective_byline"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_attribution_reuse_without_credit"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_attribution_unpaid_translation"
-        },
-        {
           "kind": "grammar",
           "id": "grammar_c1_excluded_in_process"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_kpop_platform_localization_review"
         },
         {
           "kind": "smalltalk",
@@ -10983,7 +9243,7 @@
     {
       "id": "cluster_c1_local_tradeoff_adaptation_v1",
       "level": "c1",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
         "seed_project_c1_sustainability_v1",
@@ -11065,15 +9325,9 @@
         "seed_satz_satz_c1_0196_v1",
         "seed_satz_satz_c1_0197_v1",
         "seed_satz_satz_c1_0198_v1",
-        "seed_scenario_c1_policy_exemption_edge_v1",
-        "seed_scenario_c1_policy_pilot_before_rollout_v1",
-        "seed_scenario_c1_policy_sunset_clause_v1",
-        "seed_scenario_c1_policy_who_bears_cost_v1",
         "seed_vocab_pack_c1_2026_social_topics_1_v1",
         "seed_grammar_grammar_c1_effect_varies_by_v1",
         "seed_grammar_grammar_c1_even_accounting_for_v1",
-        "seed_scenario_c1_daily_migration_demography_policy_forum_v1",
-        "seed_scenario_c1_moving_rent_relief_roundtable_v1",
         "seed_smalltalk_smalltalk_c1_0033_v1",
         "seed_smalltalk_smalltalk_c1_0034_v1",
         "seed_smalltalk_smalltalk_c1_0037_v1",
@@ -11523,22 +9777,6 @@
           "id": "satz_c1_0198"
         },
         {
-          "kind": "scenario",
-          "id": "c1_policy_exemption_edge"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_policy_pilot_before_rollout"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_policy_sunset_clause"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_policy_who_bears_cost"
-        },
-        {
           "kind": "vocabPack",
           "id": "c1_2026_social_topics_1"
         },
@@ -11549,14 +9787,6 @@
         {
           "kind": "grammar",
           "id": "grammar_c1_even_accounting_for"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_daily_migration_demography_policy_forum"
-        },
-        {
-          "kind": "scenario",
-          "id": "c1_moving_rent_relief_roundtable"
         },
         {
           "kind": "smalltalk",
@@ -11811,14 +10041,10 @@
     {
       "id": "cluster_c2_procedural_legitimacy_v1",
       "level": "c2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c2_institutional_mediation_1_v1",
-        "seed_project_c2_institution_v1",
-        "seed_scenario_c2_jurisdiction_cross_border_premise_v1",
-        "seed_scenario_c2_jurisdiction_even_if_authorized_escalate_v1",
-        "seed_scenario_c2_jurisdiction_neither_claims_authority_v1",
-        "seed_scenario_c2_jurisdiction_provisional_ruling_no_authority_v1"
+        "seed_project_c2_institution_v1"
       ],
       "contentReferences": [
         {
@@ -11892,37 +10118,19 @@
         {
           "kind": "project",
           "id": "project_c2_institution_v1"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_jurisdiction_cross_border_premise"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_jurisdiction_even_if_authorized_escalate"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_jurisdiction_neither_claims_authority"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_jurisdiction_provisional_ruling_no_authority"
         }
       ]
     },
     {
       "id": "cluster_c2_institutional_deliberation_v1",
       "level": "c2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_batch05_c2_institutional_mediation_1_v1",
         "seed_project_c2_institution_v1",
         "seed_vocab_pack_c2_partner_inlaw_power_1_v1",
         "seed_vocab_pack_c2_partner_name_memory_1_v1",
         "seed_grammar_grammar_c2_regardless_of_kin_v1",
-        "seed_scenario_c2_partner_document_the_place_v1",
-        "seed_scenario_c2_partner_name_and_memory_v1",
         "seed_smalltalk_smalltalk_c2_0019_v1",
         "seed_smalltalk_smalltalk_c2_0020_v1",
         "seed_smalltalk_smalltalk_c2_0021_v1",
@@ -12077,11 +10285,7 @@
         "seed_satz_satz_c2_0123_v1",
         "seed_satz_satz_c2_0124_v1",
         "seed_satz_satz_c2_0125_v1",
-        "seed_satz_satz_c2_0126_v1",
-        "seed_scenario_c2_ethics_consent_form_scope_gap_v1",
-        "seed_scenario_c2_ethics_embargo_disclosure_window_v1",
-        "seed_scenario_c2_ethics_misconduct_review_procedure_defined_v1",
-        "seed_scenario_c2_ethics_reviewer_dual_appointment_disclosure_v1"
+        "seed_satz_satz_c2_0126_v1"
       ],
       "contentReferences": [
         {
@@ -12163,14 +10367,6 @@
         {
           "kind": "grammar",
           "id": "grammar_c2_regardless_of_kin"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_partner_document_the_place"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_partner_name_and_memory"
         },
         {
           "kind": "smalltalk",
@@ -12791,33 +10987,16 @@
         {
           "kind": "satz",
           "id": "satz_c2_0126"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_ethics_consent_form_scope_gap"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_ethics_embargo_disclosure_window"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_ethics_misconduct_review_procedure_defined"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_ethics_reviewer_dual_appointment_disclosure"
         }
       ]
     },
     {
       "id": "cluster_c2_narrative_perspective_v1",
       "level": "c2",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_batch05_c2_narrative_perspective_1_v1",
         "seed_project_c2_narrative_v1",
-        "seed_scenario_c2_dating_romance_frames_v1",
         "seed_vocab_pack_c2_relationship_narratives_1_v1",
         "seed_grammar_grammar_c2_as_if_framing_v1",
         "seed_smalltalk_smalltalk_c2_0029_v1",
@@ -12846,10 +11025,6 @@
         "seed_satz_satz_c2_0208_v1",
         "seed_satz_satz_c2_0209_v1",
         "seed_satz_satz_c2_0210_v1",
-        "seed_scenario_c2_aesthetic_dialect_subtitle_flatten_v1",
-        "seed_scenario_c2_aesthetic_poem_rhythm_meaning_loss_v1",
-        "seed_scenario_c2_aesthetic_translator_editor_dispute_v1",
-        "seed_scenario_c2_aesthetic_word_without_equivalent_v1",
         "seed_smalltalk_smalltalk_c2_0055_v1",
         "seed_smalltalk_smalltalk_c2_0056_v1",
         "seed_scenario_c2_theme_park_date_reflection_v1",
@@ -12938,10 +11113,6 @@
         {
           "kind": "project",
           "id": "project_c2_narrative_v1"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_dating_romance_frames"
         },
         {
           "kind": "vocabPack",
@@ -13056,22 +11227,6 @@
           "id": "satz_c2_0210"
         },
         {
-          "kind": "scenario",
-          "id": "c2_aesthetic_dialect_subtitle_flatten"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_aesthetic_poem_rhythm_meaning_loss"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_aesthetic_translator_editor_dispute"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_aesthetic_word_without_equivalent"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_c2_0055"
         },
@@ -13152,15 +11307,10 @@
     {
       "id": "cluster_c2_interpretation_justification_v1",
       "level": "c2",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_batch05_c2_narrative_perspective_1_v1",
-        "seed_project_c2_narrative_v1",
-        "seed_scenario_c2_friends_quoted_privately_v1",
-        "seed_scenario_c2_history_compile_committee_wording_dispute_v1",
-        "seed_scenario_c2_history_merging_conflicting_testimonies_v1",
-        "seed_scenario_c2_history_monument_inscription_agreement_v1",
-        "seed_scenario_c2_history_sealed_records_disclosure_timing_v1"
+        "seed_project_c2_narrative_v1"
       ],
       "contentReferences": [
         {
@@ -13226,33 +11376,13 @@
         {
           "kind": "project",
           "id": "project_c2_narrative_v1"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_friends_quoted_privately"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_history_compile_committee_wording_dispute"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_history_merging_conflicting_testimonies"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_history_monument_inscription_agreement"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_history_sealed_records_disclosure_timing"
         }
       ]
     },
     {
       "id": "cluster_c2_framing_responsibility_v1",
       "level": "c2",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_batch05_c2_language_framing_1_v1",
         "seed_project_c2_framing_v1",
@@ -13261,8 +11391,6 @@
         "seed_vocab_pack_c2_2026_social_topics_1_v1",
         "seed_grammar_grammar_c2_responsibility_remains_v1",
         "seed_grammar_grammar_c2_take_as_premise_v1",
-        "seed_scenario_c2_daily_integration_metric_editorial_v1",
-        "seed_scenario_c2_moving_affordability_definition_hearing_v1",
         "seed_smalltalk_smalltalk_c2_0033_v1",
         "seed_smalltalk_smalltalk_c2_0034_v1",
         "seed_smalltalk_smalltalk_c2_0037_v1",
@@ -13421,14 +11549,6 @@
         {
           "kind": "grammar",
           "id": "grammar_c2_take_as_premise"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_daily_integration_metric_editorial"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_moving_affordability_definition_hearing"
         },
         {
           "kind": "smalltalk",
@@ -13727,11 +11847,10 @@
     {
       "id": "cluster_c2_discourse_boundary_power_v1",
       "level": "c2",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_batch05_c2_language_framing_1_v1",
         "seed_project_c2_framing_v1",
-        "seed_scenario_c2_kpop_fandom_language_v1",
         "seed_vocab_pack_c2_fandom_discourse_1_v1",
         "seed_grammar_grammar_c2_no_matter_how_v1",
         "seed_smalltalk_smalltalk_c2_0031_v1",
@@ -13760,12 +11879,7 @@
         "seed_satz_satz_c2_0220_v1",
         "seed_satz_satz_c2_0221_v1",
         "seed_satz_satz_c2_0222_v1",
-        "seed_scenario_c2_representation_fan_rep_mandate_defined_v1",
-        "seed_scenario_c2_representation_minority_view_regardless_v1",
-        "seed_scenario_c2_representation_press_quote_not_official_v1",
-        "seed_scenario_c2_representation_spokesperson_handover_concession_v1",
         "seed_grammar_grammar_c2_cannot_reduce_to_v1",
-        "seed_scenario_c2_kpop_authenticity_platform_panel_v1",
         "seed_smalltalk_smalltalk_c2_0039_v1",
         "seed_smalltalk_smalltalk_c2_0040_v1",
         "seed_smalltalk_smalltalk_c2_0044_v1",
@@ -13847,10 +11961,6 @@
         {
           "kind": "project",
           "id": "project_c2_framing_v1"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_kpop_fandom_language"
         },
         {
           "kind": "vocabPack",
@@ -13965,28 +12075,8 @@
           "id": "satz_c2_0222"
         },
         {
-          "kind": "scenario",
-          "id": "c2_representation_fan_rep_mandate_defined"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_representation_minority_view_regardless"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_representation_press_quote_not_official"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_representation_spokesperson_handover_concession"
-        },
-        {
           "kind": "grammar",
           "id": "grammar_c2_cannot_reduce_to"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_kpop_authenticity_platform_panel"
         },
         {
           "kind": "smalltalk",
@@ -14057,11 +12147,10 @@
     {
       "id": "cluster_c2_technology_traceability_appeal_v1",
       "level": "c2",
-      "revision": 9,
+      "revision": 10,
       "sourceSeedIds": [
         "seed_batch05_c2_technology_ethics_1_v1",
         "seed_project_c2_technology_v1",
-        "seed_scenario_c2_automated_decision_appeal_v1",
         "seed_smalltalk_smalltalk_c2_0017_v1",
         "seed_smalltalk_smalltalk_c2_0018_v1",
         "seed_cloze_cloze_c2_0049_v1",
@@ -14078,14 +12167,6 @@
         "seed_vocab_pack_c2_audit_trail_1_v1",
         "seed_vocab_pack_c2_automated_harm_1_v1",
         "seed_vocab_pack_c2_withdrawal_right_1_v1",
-        "seed_scenario_c2_appeal_bot_v1",
-        "seed_scenario_c2_archive_gap_v1",
-        "seed_scenario_c2_discourse_premise_v1",
-        "seed_scenario_c2_mandate_edge_v1",
-        "seed_scenario_c2_passive_hide_v1",
-        "seed_scenario_c2_trace_log_v1",
-        "seed_scenario_c2_uneven_impact_v1",
-        "seed_scenario_c2_withdraw_deep_v1",
         "seed_smalltalk_smalltalk_c2_0024_v1",
         "seed_cloze_cloze_c2_0125_v1",
         "seed_cloze_cloze_c2_0126_v1",
@@ -14183,8 +12264,6 @@
         "seed_satz_satz_c2_0172_v1",
         "seed_satz_satz_c2_0173_v1",
         "seed_satz_satz_c2_0174_v1",
-        "seed_scenario_c2_daily_automation_redress_v1",
-        "seed_scenario_c2_gaming_auto_sanction_v1",
         "seed_vocab_pack_c2_automation_redress_1_v1",
         "seed_grammar_grammar_c2_no_more_than_doing_v1",
         "seed_smalltalk_smalltalk_c2_0025_v1",
@@ -14213,16 +12292,11 @@
         "seed_satz_satz_c2_0184_v1",
         "seed_satz_satz_c2_0185_v1",
         "seed_satz_satz_c2_0186_v1",
-        "seed_scenario_c2_limitation_define_accrual_date_v1",
-        "seed_scenario_c2_limitation_ex_officio_review_path_v1",
-        "seed_scenario_c2_limitation_extension_premise_error_proof_v1",
-        "seed_scenario_c2_limitation_notice_delay_appeal_window_v1",
         "seed_smalltalk_smalltalk_c2_0059_v1",
         "seed_smalltalk_smalltalk_c2_0060_v1",
         "seed_smalltalk_smalltalk_c2_0061_v1",
         "seed_smalltalk_smalltalk_c2_0063_v1",
         "seed_smalltalk_smalltalk_c2_0064_v1",
-        "seed_scenario_c2_automated_redress_record_batch20_v1",
         "seed_scenario_ai_hiring_appeal_v1"
       ],
       "contentReferences": [
@@ -14299,10 +12373,6 @@
           "id": "project_c2_technology_v1"
         },
         {
-          "kind": "scenario",
-          "id": "c2_automated_decision_appeal"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_c2_0017"
         },
@@ -14365,38 +12435,6 @@
         {
           "kind": "vocabPack",
           "id": "c2_withdrawal_right_1"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_appeal_bot"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_archive_gap"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_discourse_premise"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_mandate_edge"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_passive_hide"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_trace_log"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_uneven_impact"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_withdraw_deep"
         },
         {
           "kind": "smalltalk",
@@ -14787,14 +12825,6 @@
           "id": "satz_c2_0174"
         },
         {
-          "kind": "scenario",
-          "id": "c2_daily_automation_redress"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_gaming_auto_sanction"
-        },
-        {
           "kind": "vocabPack",
           "id": "c2_automation_redress_1"
         },
@@ -14907,22 +12937,6 @@
           "id": "satz_c2_0186"
         },
         {
-          "kind": "scenario",
-          "id": "c2_limitation_define_accrual_date"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_limitation_ex_officio_review_path"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_limitation_extension_premise_error_proof"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_limitation_notice_delay_appeal_window"
-        },
-        {
           "kind": "smalltalk",
           "id": "smalltalk_c2_0059"
         },
@@ -14944,10 +12958,6 @@
         },
         {
           "kind": "scenario",
-          "id": "c2_automated_redress_record_batch20"
-        },
-        {
-          "kind": "scenario",
           "id": "ai_hiring_appeal"
         }
       ]
@@ -14955,11 +12965,10 @@
     {
       "id": "cluster_c2_technology_responsibility_rights_v1",
       "level": "c2",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_batch05_c2_technology_ethics_1_v1",
         "seed_project_c2_technology_v1",
-        "seed_scenario_c2_youtube_algorithm_duty_v1",
         "seed_vocab_pack_c2_sanction_accountability_1_v1",
         "seed_grammar_grammar_c2_merely_on_grounds_v1",
         "seed_smalltalk_smalltalk_c2_0027_v1",
@@ -14989,7 +12998,6 @@
         "seed_satz_satz_c2_0197_v1",
         "seed_satz_satz_c2_0198_v1",
         "seed_grammar_grammar_c2_definition_by_viewpoint_v1",
-        "seed_scenario_c2_work_ai_accountability_board_v1",
         "seed_smalltalk_smalltalk_c2_0035_v1",
         "seed_smalltalk_smalltalk_c2_0036_v1",
         "seed_smalltalk_smalltalk_c2_0042_v1",
@@ -15096,10 +13104,6 @@
         {
           "kind": "project",
           "id": "project_c2_technology_v1"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_youtube_algorithm_duty"
         },
         {
           "kind": "vocabPack",
@@ -15216,10 +13220,6 @@
         {
           "kind": "grammar",
           "id": "grammar_c2_definition_by_viewpoint"
-        },
-        {
-          "kind": "scenario",
-          "id": "c2_work_ai_accountability_board"
         },
         {
           "kind": "smalltalk",
