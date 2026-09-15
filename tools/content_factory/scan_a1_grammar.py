@@ -128,6 +128,40 @@ _LOCATIVE_BAKKE_RE = re.compile(r"^밖에\b")
 #   - "TV를 봐요." -- `grammar_a2_nominalizer_eum`'s matched text is the
 #     bare Latin letter "V" (from "TV"), not a Hangul nominalizer -- a
 #     detector artifact, not Korean grammar at all.
+# Fable R8 (2026-09-15): 관형사형 (attributive) -는/-은/-ㄴ + noun is a
+# grade-2 전성어미 (nikl_kiiq_2017_grammar.csv grade 2, category 전성어미)
+# that GrammarIndex.build() deliberately never regex-matches -- it only
+# processes 표현/연결어미/종결어미 categories, skipping 조사/전성어미 rows
+# as "too short to regex-match reliably" (see that module's own comment).
+# A general "는/은/ㄴ + noun" regex would collide with the 1급 topic
+# particle 은/는 homograph (e.g. "저는 친구예요" -- 는 marks the topic, not
+# an attributive clause; "친구" only follows across the space by
+# coincidence) and can't be disambiguated without a POS tagger, so per
+# Fable's ruling we use an EXPLICIT collocation list instead of a general
+# regex (documented, low-recall-by-design -- extend it when a new instance
+# is found, the mirror image of how EXACT_SENTENCE_ALLOWLIST works).
+ATTRIBUTIVE_NOUN_PATTERNS = (
+    "만난 분", "만난 사람", "만난 친구",
+    "가는 친구", "가는 손님", "나가는 손님", "오는 손님",
+    "있는 사람", "아는 사람", "모르는 사람",
+    "온 손님", "간 친구", "온 친구",
+)
+
+# Fable R8 (2026-09-15): a few A1 headwords are themselves a multi-word
+# expression whose lexical form embeds a grade>=2 morpheme (e.g. "늦을 것
+# 같다" bakes in the grade-2 표현 -을 것 같다). The example sentence can't
+# fix this without dropping the headword itself -- ruling: keep the
+# headword verbatim in its example and record the row here as a pack-
+# design exception (relevel follow-up, LCP F9) instead of having the
+# scanner keep re-flagging a sentence that is correctly teaching its own
+# headword. Keyed by (kind, id); extend only with a comment naming the
+# embedded grade>=2 item.
+HEADWORD_EMBEDDED_GRAMMAR = {
+    ("vocab", "vocab_a1_0341"): "늦을 것 같다 embeds -을 것 같다 (nikl grade 2, 표현)",
+    ("cloze", "cloze_a1_0229"): "mirrors vocab_a1_0341",
+    ("satz", "satz_a1_0193"): "mirrors vocab_a1_0341",
+}
+
 EXACT_SENTENCE_ALLOWLIST = {
     "나이가 어떻게 되세요?",
     "우리 누나 진짜 예뻐요.",
@@ -183,8 +217,19 @@ def _grammar_hits_ge2(lexicon: CefrLexicon, grammar_index: GrammarIndex, text: s
     return hits
 
 
+def _attributive_noun_hits(text: str):
+    """Explicit 전성어미 (attributive) collocation check -- see
+    ATTRIBUTIVE_NOUN_PATTERNS' docstring for why this is a curated list
+    rather than a regex."""
+    return [
+        ("attributive_noun_전성어미", 2, collocation)
+        for collocation in ATTRIBUTIVE_NOUN_PATTERNS
+        if collocation in text
+    ]
+
+
 def scan_corpus(lexicon, grammar_index, rows, *, id_key, text_key, level_key,
-                 target_level, id_regex_level=None):
+                 target_level, kind, id_regex_level=None):
     """Return (flagged, id_level_mismatches) for one corpus.
 
     flagged: list of dict(id, text, patterns=[(pattern_id, grade, matched_text)])
@@ -220,6 +265,9 @@ def scan_corpus(lexicon, grammar_index, rows, *, id_key, text_key, level_key,
             quote_hits.add(("bare_quote_하셔서", m.group(0)))
         for pid, matched in quote_hits:
             patterns.append((pid, 3, matched))
+        patterns.extend(_attributive_noun_hits(text))
+        if (kind, rid) in HEADWORD_EMBEDDED_GRAMMAR:
+            patterns = []  # documented pack-design exception, see module docstring
         if patterns:
             flagged.append({"id": rid, "level": level, "text": text, "patterns": patterns})
     return flagged, mismatches
@@ -321,6 +369,24 @@ def build_report(vocab_flagged, vocab_mismatch, cloze_flagged, cloze_mismatch,
     _corpus_section("cloze.json (A1 `fullKo`)", cloze_flagged, cloze_mismatch)
     _corpus_section("satz_sentences.json (A1 `targetKo`)", satz_flagged, satz_mismatch)
 
+    lines.append("## Headword-embedded grammar (Fable R8, relevel follow-up / LCP F9)")
+    lines.append("")
+    lines.append(
+        "These A1 headwords are themselves a multi-word expression whose "
+        "lexical form bakes in a grade>=2 morpheme, so no example sentence "
+        "can bring them inside the 45-item 1급 table without dropping the "
+        "headword itself. Kept as A1 (headword used verbatim in its "
+        "example) per Fable's 2026-09-15 ruling, and excluded from the "
+        "scan below -- flagged here for a future relevel (LCP §F9 "
+        "exceptions table) rather than silently exempted."
+    )
+    lines.append("")
+    lines.append("| kind | id | embedded item |")
+    lines.append("|---|---|---|")
+    for (kind, rid), note in sorted(HEADWORD_EMBEDDED_GRAMMAR.items()):
+        lines.append(f"| {kind} | `{rid}` | {note} |")
+    lines.append("")
+
     lines.append("## A1 vocabulary outside NIKL grade 1 (report only, top offenders)")
     lines.append("")
     lines.append(
@@ -370,17 +436,17 @@ def main() -> int:
     vocab_flagged, vocab_mismatch = scan_corpus(
         lexicon, grammar_index, vocab_rows,
         id_key="id", text_key="example_korean", level_key="level",
-        target_level="a1",
+        target_level="a1", kind="vocab",
     )
     cloze_flagged, cloze_mismatch = scan_corpus(
         lexicon, grammar_index, cloze_items,
         id_key="id", text_key="fullKo", level_key="level",
-        target_level="a1",
+        target_level="a1", kind="cloze",
     )
     satz_flagged, satz_mismatch = scan_corpus(
         lexicon, grammar_index, satz_items,
         id_key="id", text_key="targetKo", level_key="level",
-        target_level="a1",
+        target_level="a1", kind="satz",
     )
     vocab_grade_offenders = scan_vocab_outside_grade1(lexicon, vocab_rows)
 

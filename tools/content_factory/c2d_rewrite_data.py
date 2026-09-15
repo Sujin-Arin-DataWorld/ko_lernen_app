@@ -33,14 +33,19 @@ VOCAB_REWRITES = {
         "Ten side dishes came out, which surprised me.",
     ),
     "vocab_a1_0252": (
-        "배불러요. 하지만 과일을 먹었어요.",
-        "Ich bin satt. Aber ich habe trotzdem Obst gegessen.",
-        "I'm full. But I ate the fruit anyway.",
+        # Fable R8-D: tense clash (배불러요=present, 먹었어요=past) fixed --
+        # both clauses present tense, 을->은 for the contrastive topic.
+        "배불러요. 하지만 과일은 먹어요.",
+        "Ich bin satt. Aber ich esse Obst.",
+        "I'm full. But I eat fruit.",
     ),
     "vocab_a1_0253": (
-        "맛있어요. 그래서 현우가 웃었어요.",
-        "Es ist lecker. Deshalb musste Hyunwoo lachen.",
-        "It's delicious. So Hyunwoo laughed.",
+        # Fable R8-C: 현우 is not one of the 11 canonical personas
+        # (character_profiles.json); this pack is 크리스티안 visiting
+        # 수진's parents (동선·병철, 수원) -- swap to 수진.
+        "맛있어요. 그래서 수진 씨가 웃었어요.",
+        "Es ist lecker. Deshalb musste Sujin lachen.",
+        "It's delicious. So Sujin laughed.",
     ),
     "vocab_a1_0258": (
         "이야기를 듣고 수저를 놓았어요.",
@@ -102,9 +107,14 @@ VOCAB_REWRITES = {
         "Shall we make the weekend plan together?",
     ),
     "vocab_a1_0341": (
-        "버스가 막혀서 늦겠어요.",
-        "Der Bus steckt fest, ich komme wohl zu spät.",
-        "The bus is stuck, I'll probably be late.",
+        # Fable R8-B: headword "늦을 것 같다" must stay verbatim in its own
+        # example -- the headword itself embeds -을 것 같다 (nikl grade 2),
+        # a pack-design fact registered in scan_a1_grammar.py's
+        # HEADWORD_EMBEDDED_GRAMMAR exception list, not something this
+        # example can fix without dropping the headword.
+        "버스가 막혀서 늦을 것 같아요.",
+        "Der Bus steckt fest, ich komme wahrscheinlich zu spät.",
+        "The bus is stuck, so it looks like I'll be late.",
     ),
     "vocab_a1_0343": (
         "저는 먼저 가서 자리를 잡겠어요.",
@@ -145,16 +155,16 @@ CLOZE_MIRROR_REWRITES = {
         "en": "Ten side dishes came out, which surprised me.",
     },
     "cloze_a1_0140": {
-        "answer": "배불러요", "sentenceKo": "＿＿＿. 하지만 과일을 먹었어요.",
-        "fullKo": "배불러요. 하지만 과일을 먹었어요.",
-        "de": "Ich bin satt. Aber ich habe trotzdem Obst gegessen.",
-        "en": "I'm full. But I ate the fruit anyway.",
+        "answer": "배불러요", "sentenceKo": "＿＿＿. 하지만 과일은 먹어요.",
+        "fullKo": "배불러요. 하지만 과일은 먹어요.",
+        "de": "Ich bin satt. Aber ich esse Obst.",
+        "en": "I'm full. But I eat fruit.",
     },
     "cloze_a1_0141": {
-        "answer": "맛있어요", "sentenceKo": "＿＿＿. 그래서 현우가 웃었어요.",
-        "fullKo": "맛있어요. 그래서 현우가 웃었어요.",
-        "de": "Es ist lecker. Deshalb musste Hyunwoo lachen.",
-        "en": "It's delicious. So Hyunwoo laughed.",
+        "answer": "맛있어요", "sentenceKo": "＿＿＿. 그래서 수진 씨가 웃었어요.",
+        "fullKo": "맛있어요. 그래서 수진 씨가 웃었어요.",
+        "de": "Es ist lecker. Deshalb musste Sujin lachen.",
+        "en": "It's delicious. So Sujin laughed.",
     },
     "cloze_a1_0146": {
         "answer": "수저를 놓았어요", "sentenceKo": "이야기를 듣고 ＿＿＿.",
@@ -208,11 +218,11 @@ CLOZE_MIRROR_REWRITES = {
         "en": "Shall we make the weekend plan together?",
     },
     "cloze_a1_0229": {
-        "answer": "늦겠어요", "sentenceKo": "버스가 막혀서 ＿＿＿.",
-        "fullKo": "버스가 막혀서 늦겠어요.",
-        "de": "Der Bus steckt fest, ich komme wohl zu spät.",
-        "en": "The bus is stuck, I'll probably be late.",
-        "distractors": ["빠르겠어요", "춥겠어요", "힘들겠어요"],
+        "answer": "늦을 것 같아요", "sentenceKo": "버스가 막혀서 ＿＿＿.",
+        "fullKo": "버스가 막혀서 늦을 것 같아요.",
+        "de": "Der Bus steckt fest, ich komme wahrscheinlich zu spät.",
+        "en": "The bus is stuck, so it looks like I'll be late.",
+        "distractors": ["빠를 것 같아요", "추울 것 같아요", "힘들 것 같아요"],
     },
     "cloze_a1_0231": {
         "answer": "먼저 가서", "sentenceKo": "저는 ＿＿＿ 자리를 잡겠어요.",
@@ -253,8 +263,8 @@ SATZ_MIRROR_REWRITES = {
         "Es kamen zehn Beilagen auf den Tisch, das hat mich überrascht.",
         "Ten side dishes came out, which surprised me.",
     ),
-    "satz_a1_0104": ("배불러요. 하지만 과일을 먹었어요.", "Ich bin satt. Aber ich habe trotzdem Obst gegessen.", "I'm full. But I ate the fruit anyway."),
-    "satz_a1_0105": ("맛있어요. 그래서 현우가 웃었어요.", "Es ist lecker. Deshalb musste Hyunwoo lachen.", "It's delicious. So Hyunwoo laughed."),
+    "satz_a1_0104": ("배불러요. 하지만 과일은 먹어요.", "Ich bin satt. Aber ich esse Obst.", "I'm full. But I eat fruit."),
+    "satz_a1_0105": ("맛있어요. 그래서 수진 씨가 웃었어요.", "Es ist lecker. Deshalb musste Sujin lachen.", "It's delicious. So Sujin laughed."),
     "satz_a1_0110": ("이야기를 듣고 수저를 놓았어요.", "Ich habe zugehört und das Besteck abgelegt.", "I listened, and I put my spoon down."),
     "satz_a1_0111": ("설거지를 도우려고 일어섰어요.", "Ich bin aufgestanden, um beim Abwasch zu helfen.", "I stood up to help with the dishes."),
     "satz_a1_0116": ("한복을 입고 고름을 맸어요.", "Ich habe den Hanbok angezogen und die Schleife gebunden.", "I put on the hanbok and tied the ribbon."),
@@ -263,7 +273,7 @@ SATZ_MIRROR_REWRITES = {
     "satz_a1_0187": ("비가 와서 산책을 취소했어요.", "Es hat geregnet, deshalb habe ich den Spaziergang abgesagt.", "It rained, so I canceled the walk."),
     "satz_a1_0188": ("늦기 전에 저한테 미리 연락하세요.", "Bitte melde dich vorher bei mir, bevor du zu spät kommst.", "Contact me in advance before you're late."),
     "satz_a1_0192": ("주말 계획을 같이 세울까요?", "Sollen wir den Wochenendplan zusammen machen?", "Shall we make the weekend plan together?"),
-    "satz_a1_0193": ("버스가 막혀서 늦겠어요.", "Der Bus steckt fest, ich komme wohl zu spät.", "The bus is stuck, I'll probably be late."),
+    "satz_a1_0193": ("버스가 막혀서 늦을 것 같아요.", "Der Bus steckt fest, ich komme wahrscheinlich zu spät.", "The bus is stuck, so it looks like I'll be late."),
     "satz_a1_0195": ("저는 먼저 가서 자리를 잡겠어요.", "Ich gehe zuerst und sichere die Plätze.", "I'll go ahead and grab the seats."),
     "satz_a1_0253": ("한국어를 천천히 말해서 이해가 돼요.", "Weil du langsam Koreanisch sprichst, verstehe ich es.", "Because you speak Korean slowly, I understand."),
     "satz_a1_0046": ("옆에 앉을까요?", "Soll ich mich neben dich setzen?", "Shall I sit next to you?"),
@@ -288,24 +298,29 @@ CLOZE_ONLY_REWRITES = {
         "distractors": ["고마워요", "죄송해요", "괜찮아요"],
     },
     "cloze_a1_0294": {
-        "sentenceKo": "처음 만난 분께 ＿＿＿.", "answer": "처음 뵙겠습니다",
-        "fullKo": "처음 만난 분께 처음 뵙겠습니다.",
-        "de": "Bei der ersten Begegnung sage ich das höflich.",
-        "en": "At a first meeting, I say this polite greeting.",
+        # Fable R8-A: "만난 분" is 관형사형(-ㄴ)+분 (nikl grade 2, 전성어미)
+        # -- switched to the situation+greeting two-sentence pattern
+        # (0297/0298's shape); DE/EN rewritten to match literally.
+        "sentenceKo": "처음 만나요. ＿＿＿.", "answer": "처음 뵙겠습니다",
+        "fullKo": "처음 만나요. 처음 뵙겠습니다.",
+        "de": "Ich treffe jemanden zum ersten Mal. Schön, Sie kennenzulernen.",
+        "en": "I meet someone for the first time. Nice to meet you.",
         "distractors": ["잘 먹겠습니다", "다녀오겠습니다", "수고했습니다"],
     },
     "cloze_a1_0295": {
-        "sentenceKo": "집에 가는 친구에게 ＿＿＿.", "answer": "잘 가요",
-        "fullKo": "집에 가는 친구에게 잘 가요.",
-        "de": "Zu einem Freund, der geht, sage ich: Mach's gut.",
-        "en": "I say take care to a friend who is leaving.",
+        # Fable R8-A: "가는 친구" is 관형사형(-는)+친구 (grade 2).
+        "sentenceKo": "친구가 집에 가요. ＿＿＿!", "answer": "잘 가요",
+        "fullKo": "친구가 집에 가요. 잘 가요!",
+        "de": "Ein Freund geht nach Hause. Mach's gut!",
+        "en": "A friend goes home. Take care!",
         "distractors": ["어서 와요", "잘 먹어요", "괜찮아요"],
     },
     "cloze_a1_0296": {
-        "sentenceKo": "가게를 나가는 손님께 ＿＿＿.", "answer": "안녕히 가세요",
-        "fullKo": "가게를 나가는 손님께 안녕히 가세요.",
-        "de": "Zu einem Gast, der geht, sage ich höflich auf Wiedersehen.",
-        "en": "I politely say goodbye to a guest who is leaving.",
+        # Fable R8-A: "나가는 손님" is 관형사형(-는)+손님 (grade 2).
+        "sentenceKo": "손님이 나가요. ＿＿＿.", "answer": "안녕히 가세요",
+        "fullKo": "손님이 나가요. 안녕히 가세요.",
+        "de": "Ein Gast geht hinaus. Auf Wiedersehen!",
+        "en": "A guest leaves. Goodbye!",
         "distractors": ["안녕히 계세요", "다녀오세요", "어서 오세요"],
     },
     "cloze_a1_0297": {
@@ -323,10 +338,13 @@ CLOZE_ONLY_REWRITES = {
         "distractors": ["다녀오세요", "안녕히 계세요", "잘 부탁해요"],
     },
     "cloze_a1_0299": {
-        "sentenceKo": "도움을 받고 ＿＿＿.", "answer": "감사합니다",
-        "fullKo": "도움을 받고 감사합니다.",
-        "de": "Ich bekomme Hilfe und bedanke mich höflich.",
-        "en": "I receive help and say thank you politely.",
+        # Fable R8-A: two-sentence pattern for consistency with the rest
+        # of the pack (0297/0298/0295/0296) -- "받고" left the sentence
+        # register-mixed with the formal 감사합니다.
+        "sentenceKo": "도움을 받았어요. ＿＿＿.", "answer": "감사합니다",
+        "fullKo": "도움을 받았어요. 감사합니다.",
+        "de": "Ich habe Hilfe bekommen. Danke.",
+        "en": "I received help. Thank you.",
         "distractors": ["죄송합니다", "괜찮습니다", "축하합니다"],
     },
     "cloze_a1_0300": {
@@ -337,11 +355,14 @@ CLOZE_ONLY_REWRITES = {
         "distractors": ["감사합니다", "반갑습니다", "축하합니다"],
     },
     "cloze_a1_0344": {
-        "sentenceKo": "시험 전에 친구가 저를 ＿＿＿.", "answer": "응원해요",
-        "fullKo": "시험 전에 친구가 저를 응원해요.",
-        "de": "Vor der Prüfung feuert mich ein Freund an.",
-        "en": "Before the test, a friend cheers me on.",
-        "distractors": ["기다려요", "가르쳐요", "초대해요"],
+        # Fable R8-A: the headword/answer 화이팅 had vanished from the
+        # sentence entirely -- restored, in the situation+greeting
+        # two-sentence pattern.
+        "sentenceKo": "시험 전에 친구가 말해요. ＿＿＿!", "answer": "화이팅",
+        "fullKo": "시험 전에 친구가 말해요. 화이팅!",
+        "de": "Vor der Prüfung sagt mir ein Freund: Fighting!",
+        "en": "Before the test, a friend says to me: Fighting!",
+        "distractors": ["안녕", "축하해", "괜찮아"],
     },
     # standalone -면 되다 (grade 2/3), no vocab source -- 1급 -을까요 asks
     # essentially the same "is it OK if I..." question.

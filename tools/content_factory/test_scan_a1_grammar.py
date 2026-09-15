@@ -45,6 +45,7 @@ class DetectorUnitTest(unittest.TestCase):
             patterns.append(("explicit_quote", 3, m.group(0)))
         for m in S.BARE_QUOTE_HASYEOSEO_RE.finditer(text):
             patterns.append(("bare_quote", 3, m.group(0)))
+        patterns.extend(S._attributive_noun_hits(text))
         return patterns
 
     # -- must catch (real examples pulled from the pre-rewrite A1 corpora) --
@@ -68,6 +69,14 @@ class DetectorUnitTest(unittest.TestCase):
         # vocab_a1_0045 before C2d.
         hits = self._hits("오늘 눈이 좀 피곤하네요.")
         self.assertTrue(any(h[1] >= 2 for h in hits), "-네요 (grade 2) must be flagged")
+
+    def test_catches_attributive_noun_전성어미(self) -> None:
+        # Fable R8: 관형사형 -는/-ㄴ + noun (전성어미, grade 2) is not
+        # covered by GrammarIndex at all -- explicit collocation list.
+        for text in ("처음 만난 분께 인사해요.", "집에 가는 친구가 있어요.",
+                     "가게를 나가는 손님이 많아요."):
+            with self.subTest(text=text):
+                self.assertTrue(self._hits(text), f"{text!r} must be flagged")
 
     def test_catches_bare_quote_하셔서(self) -> None:
         # vocab_a1_0248 before C2d.
@@ -119,7 +128,7 @@ class LiveA1CorpusGuardTest(unittest.TestCase):
         flagged, _mismatch = S.scan_corpus(
             self.lexicon, self.grammar_index, rows,
             id_key=id_key, text_key=text_key, level_key="level",
-            target_level="a1",
+            target_level="a1", kind=kind,
         )
         unexpected = [f for f in flagged if (kind, f["id"]) not in DOCUMENTED_EXCEPTIONS]
         self.assertEqual(
@@ -127,6 +136,19 @@ class LiveA1CorpusGuardTest(unittest.TestCase):
             msg=f"{kind}: A1 rows still carry grade>=2 grammar: "
             f"{[(f['id'], f['text']) for f in unexpected]}",
         )
+
+    def test_headword_embedded_grammar_is_a_documented_exception(self) -> None:
+        # Fable R8: vocab_a1_0341's headword "늦을 것 같다" bakes in a
+        # grade-2 표현; scan_corpus must not flag it (nor its cloze/satz
+        # mirrors) once its example correctly uses the headword verbatim.
+        row = next(r for r in self.vocab_rows if r["id"] == "vocab_a1_0341")
+        self.assertIn("늦을 것 같", row["example_korean"])
+        flagged, _ = S.scan_corpus(
+            self.lexicon, self.grammar_index, [row],
+            id_key="id", text_key="example_korean", level_key="level",
+            target_level="a1", kind="vocab",
+        )
+        self.assertEqual(flagged, [])
 
     def test_vocab_a1_examples_are_grammar_clean(self) -> None:
         self._assert_clean("vocab", self.vocab_rows, "id", "example_korean")

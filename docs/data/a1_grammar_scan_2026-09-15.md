@@ -112,6 +112,16 @@ id-prefix vs level-field mismatches -- EXPECTED by design, not a bug: ids are im
 | `satz_a1_0098` | a2 | a1 |
 | … | (242 more, truncated) | |
 
+## Headword-embedded grammar (Fable R8, relevel follow-up / LCP F9)
+
+These A1 headwords are themselves a multi-word expression whose lexical form bakes in a grade>=2 morpheme, so no example sentence can bring them inside the 45-item 1급 table without dropping the headword itself. Kept as A1 (headword used verbatim in its example) per Fable's 2026-09-15 ruling, and excluded from the scan below -- flagged here for a future relevel (LCP §F9 exceptions table) rather than silently exempted.
+
+| kind | id | embedded item |
+|---|---|---|
+| cloze | `cloze_a1_0229` | mirrors vocab_a1_0341 |
+| satz | `satz_a1_0193` | mirrors vocab_a1_0341 |
+| vocab | `vocab_a1_0341` | 늦을 것 같다 embeds -을 것 같다 (nikl grade 2, 표현) |
+
 ## A1 vocabulary outside NIKL grade 1 (report only, top offenders)
 
 Headword-level check only (`phrase_grade` on the `korean` column), high/medium-confidence sources only. Not rewritten in this task except where the row's example sentence is rewritten anyway.
