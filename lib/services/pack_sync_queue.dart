@@ -1,8 +1,10 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show visibleForTesting;
 
 import '../models/pack_progress.dart';
+import 'auth_service.dart';
 import 'diagnostics_service.dart';
 import 'firestore_progress_service.dart';
 import 'storage_service.dart';
@@ -42,15 +44,26 @@ import 'storage_service.dart';
 /// queue only debounces the Firestore backup mirror. Local-first,
 /// progress-loss-0 is preserved: the worst case of losing a queued entry
 /// is a delayed cloud backup, never the local record.
+///
+/// **No mirror, no Timer**: [enqueue] first checks `canMirror` — by
+/// default, a real Firebase app plus a signed-in backup-eligible uid. When
+/// that's false (no Firebase app at all, as in most widget/unit tests; or
+/// a signed-out learner) [enqueue] is a full no-op — no `_pending` entry,
+/// no [Timer]. Arming a 30s [Timer] that could never fire a real save is
+/// exactly what left a "Timer still pending after dispose" failure across
+/// 55 widget-test files once this queue started scheduling one on every
+/// `_persist` call, including in test environments with no Firebase app.
 class PackSyncQueue {
   PackSyncQueue({
     Future<void> Function(PackProgress p)? savePack,
     this.idleDuration = const Duration(seconds: 30),
     Timer Function(Duration duration, void Function() callback)? createTimer,
     DateTime Function()? clock,
+    bool Function()? canMirror,
   }) : _savePack = savePack ?? FirestoreProgressService.savePack,
        _createTimer = createTimer ?? Timer.new,
-       _clock = clock ?? DateTime.now;
+       _clock = clock ?? DateTime.now,
+       _canMirror = canMirror ?? _defaultCanMirror;
 
   /// Singleton used by production code. Tests may swap it wholesale via
   /// [resetForTesting] to inject a fake `savePack` / timer / clock.
@@ -70,6 +83,7 @@ class PackSyncQueue {
   // the injectable-clock test seam the design calls for; the debounce logic
   // itself is expressed entirely in terms of [Timer].
   final DateTime Function() _clock;
+  final bool Function() _canMirror;
 
   final Map<String, PackProgress> _pending = {};
   final Map<String, PackStatus> _lastKnownStatus = {};
@@ -82,6 +96,31 @@ class PackSyncQueue {
 
   @visibleForTesting
   DateTime get clockNow => _clock();
+
+  @visibleForTesting
+  bool get canMirrorForTesting => _canMirror();
+
+  /// True when a Firestore write for the current user could plausibly
+  /// succeed right now: a Firebase app exists *and* someone is signed in
+  /// with a backup-eligible uid. When false there is nothing to mirror —
+  /// not "mirror later once idle", genuinely nothing (no app, e.g. most
+  /// widget/unit tests; or no uid, e.g. a signed-out learner, whose data
+  /// the daily `CloudAutoSync` picks up once they do sign in).
+  ///
+  /// Mirrors `FirestoreProgressService`'s own private `_db` try/catch
+  /// exactly (that getter isn't accessible from here — a different session
+  /// owns that file for this PR stack) rather than depending on a shared
+  /// accessor that doesn't exist yet.
+  static bool _defaultCanMirror() =>
+      _tryFirestoreInstance() != null && AuthService.cloudBackupUid != null;
+
+  static FirebaseFirestore? _tryFirestoreInstance() {
+    try {
+      return FirebaseFirestore.instance;
+    } catch (_) {
+      return null;
+    }
+  }
 
   /// Records the latest known state for `p.packId`, replacing whatever was
   /// queued before, and persists the pending-id set (durability gap B — a
@@ -105,7 +144,21 @@ class PackSyncQueue {
   ///    status server-side crediting and cross-device restore depend on.
   ///
   /// Otherwise (re)starts the idle timer.
+  ///
+  /// When [canMirrorForTesting] (i.e. [_canMirror]) is false — no Firebase
+  /// app, or nobody signed in — this returns immediately without touching
+  /// `_pending`, `_lastKnownStatus`, `Storage.pendingPackSyncIds`, or
+  /// arming a [Timer] at all. Before this queue existed, `_persist`'s
+  /// fire-and-forget `savePack` was already a silent no-op in exactly that
+  /// situation (`FirestoreProgressService` checks the same two things
+  /// itself); the difference is this queue used to still *schedule a real
+  /// 30s Timer* regardless, which a torn-down widget-test tree then saw as
+  /// "still pending" and failed the test on — see the 55-file CI failure
+  /// this guard fixes.
   void enqueue(PackProgress p, {PackStatus? previousStatus}) {
+    if (!_canMirror()) {
+      return;
+    }
     _pending[p.packId] = p;
     unawaited(_syncPendingIdsToStorage());
 
@@ -169,7 +222,14 @@ class PackSyncQueue {
   /// simply be "after `_startCloudServices()`" — its completion isn't
   /// awaited by the caller) — an id left untouched here just stays in
   /// `Storage` for the next launch to retry.
+  ///
+  /// Respects the same [_canMirror] guard as [enqueue]: if mirroring isn't
+  /// currently possible, this is a no-op and leaves every id exactly where
+  /// it was in `Storage` for a later call to try again.
   Future<void> flushPendingFromStorage() async {
+    if (!_canMirror()) {
+      return;
+    }
     final ids = Storage.pendingPackSyncIds;
     for (final packId in ids) {
       if (_pending.containsKey(packId)) {

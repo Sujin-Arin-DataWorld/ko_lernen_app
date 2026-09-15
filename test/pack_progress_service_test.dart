@@ -293,6 +293,7 @@ void main() {
       () async {
         var enqueued = false;
         PackSyncQueue.instance = PackSyncQueue(
+          canMirror: () => true,
           savePack: (_) async {},
           createTimer: (duration, callback) {
             enqueued = true;

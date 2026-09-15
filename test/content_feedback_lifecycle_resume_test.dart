@@ -24,6 +24,7 @@ void main() {
     (tester) async {
       var flushCalls = 0;
       PackSyncQueue.instance = PackSyncQueue(
+        canMirror: () => true,
         savePack: (PackProgress p) async {
           flushCalls += 1;
         },

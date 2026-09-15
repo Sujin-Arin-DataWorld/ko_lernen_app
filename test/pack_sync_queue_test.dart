@@ -49,6 +49,7 @@ void main() {
       fakeAsync((async) {
         final saved = <PackProgress>[];
         final queue = PackSyncQueue(
+          canMirror: () => true,
           savePack: (p) async {
             saved.add(p);
           },
@@ -79,6 +80,7 @@ void main() {
     fakeAsync((async) {
       final saved = <PackProgress>[];
       final queue = PackSyncQueue(
+        canMirror: () => true,
         savePack: (p) async {
           saved.add(p);
         },
@@ -102,6 +104,7 @@ void main() {
     fakeAsync((async) {
       final saved = <PackProgress>[];
       final queue = PackSyncQueue(
+        canMirror: () => true,
         savePack: (p) async {
           saved.add(p);
         },
@@ -128,6 +131,7 @@ void main() {
         var attempts = 0;
         final saved = <PackProgress>[];
         final queue = PackSyncQueue(
+          canMirror: () => true,
           savePack: (p) async {
             attempts += 1;
             if (attempts == 1) {
@@ -166,6 +170,7 @@ void main() {
     fakeAsync((async) {
       final saved = <PackProgress>[];
       final queue = PackSyncQueue(
+        canMirror: () => true,
         savePack: (p) async {
           saved.add(p);
         },
@@ -200,6 +205,7 @@ void main() {
       fakeAsync((async) {
         final saved = <PackProgress>[];
         final queue = PackSyncQueue(
+          canMirror: () => true,
           savePack: (p) async {
             saved.add(p);
           },
@@ -227,6 +233,7 @@ void main() {
       fakeAsync((async) {
         final saved = <PackProgress>[];
         final queue = PackSyncQueue(
+          canMirror: () => true,
           savePack: (p) async {
             saved.add(p);
           },
@@ -256,6 +263,7 @@ void main() {
       fakeAsync((async) {
         final saved = <PackProgress>[];
         final queue = PackSyncQueue(
+          canMirror: () => true,
           savePack: (p) async {
             saved.add(p);
           },
@@ -290,6 +298,7 @@ void main() {
         progress('a1_greetings_1', status: PackStatus.inProgress).toJson(),
       );
       final queue1 = PackSyncQueue(
+        canMirror: () => true,
         savePack: (p) async {
           fail(
             'queue1 must never actually flush — it is abandoned here to '
@@ -310,6 +319,7 @@ void main() {
       // has zero in-memory knowledge of queue1's abandoned pending entry.
       final saved = <PackProgress>[];
       final queue2 = PackSyncQueue(
+        canMirror: () => true,
         savePack: (p) async {
           saved.add(p);
         },
@@ -338,6 +348,7 @@ void main() {
       );
       var attempts = 0;
       final queue = PackSyncQueue(
+        canMirror: () => true,
         savePack: (p) async {
           attempts += 1;
           throw StateError('firestore unavailable');
