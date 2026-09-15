@@ -147,11 +147,11 @@
     {
       "id": "cloze_a1_0595",
       "level": "a1",
-      "sentenceKo": "오늘 제가 ＿＿＿해요.",
+      "sentenceKo": "오늘 저녁은 제가 ＿＿＿해요!",
       "answer": "요리",
-      "fullKo": "오늘 제가 요리해요.",
-      "de": "Ich koche heute.",
-      "en": "I cook today.",
+      "fullKo": "오늘 저녁은 제가 요리해요!",
+      "de": "Heute Abend koche ich!",
+      "en": "Tonight, I'm cooking!",
       "distractors": [
         "주",
         "달",
@@ -291,15 +291,15 @@
     {
       "id": "cloze_a1_0604",
       "level": "a1",
-      "sentenceKo": "학교에서 ＿＿＿ 봐요.",
-      "answer": "연극을",
-      "fullKo": "학교에서 연극을 봐요.",
-      "de": "Ich schaue mir in der Schule ein Theaterstück an.",
-      "en": "I watch a play at school.",
+      "sentenceKo": "수진 씨, ＿＿＿ 보러 갈까요?",
+      "answer": "연극",
+      "fullKo": "수진 씨, 연극 보러 갈까요?",
+      "de": "Sujin, sollen wir ein Theaterstück ansehen gehen?",
+      "en": "Sujin, shall we go watch a play?",
       "distractors": [
-        "초대를",
-        "운동을",
-        "음식을"
+        "초대",
+        "운동",
+        "음식"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0670"
@@ -435,11 +435,11 @@
     {
       "id": "cloze_a1_0613",
       "level": "a1",
-      "sentenceKo": "저는 ＿＿＿에 걸렸어요.",
+      "sentenceKo": "＿＿＿에 걸렸어요. 머리가 아파요.",
       "answer": "감기",
-      "fullKo": "저는 감기에 걸렸어요.",
-      "de": "Ich habe mich erkältet.",
-      "en": "I caught a cold.",
+      "fullKo": "감기에 걸렸어요. 머리가 아파요.",
+      "de": "Ich bin erkältet. Mein Kopf tut weh.",
+      "en": "I have a cold. My head hurts.",
       "distractors": [
         "운전",
         "사용",
@@ -579,15 +579,15 @@
     {
       "id": "cloze_a1_0622",
       "level": "a1",
-      "sentenceKo": "저는 ＿＿＿ 마셔요.",
-      "answer": "음료수를",
-      "fullKo": "저는 음료수를 마셔요.",
-      "de": "Ich trinke ein Getränk.",
-      "en": "I drink a beverage.",
+      "sentenceKo": "더워요. ＿＿＿ 마실까요?",
+      "answer": "음료수",
+      "fullKo": "더워요. 음료수 마실까요?",
+      "de": "Es ist heiß. Sollen wir ein Getränk trinken?",
+      "en": "It's hot. Shall we drink something?",
       "distractors": [
-        "시작을",
-        "이야기를",
-        "선물을"
+        "시작",
+        "이야기",
+        "선물"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0688"
@@ -723,11 +723,11 @@
     {
       "id": "cloze_a1_0631",
       "level": "a1",
-      "sentenceKo": "직원이 ＿＿＿해요.",
+      "sentenceKo": "직원이 ＿＿＿해요. 저기로 가세요.",
       "answer": "안내",
-      "fullKo": "직원이 안내해요.",
-      "de": "Der Angestellte gibt Auskunft.",
-      "en": "The employee gives information.",
+      "fullKo": "직원이 안내해요. 저기로 가세요.",
+      "de": "Der Angestellte gibt Auskunft. Gehen Sie dorthin.",
+      "en": "The employee gives information. Go over there.",
       "distractors": [
         "그림",
         "프로그램",
