@@ -157,5 +157,26 @@ class A1LiveRatchetTest(unittest.TestCase):
         )
 
 
+class A2LiveRatchetTest(unittest.TestCase):
+    """C2b-2 (2026-09-15): same live ratchet as A1LiveRatchetTest, scoped to
+    `level == A2`. Every raw lint hit against the current A2 corpus must be
+    a documented, justified false positive (see the R3_A2_/R4_A2_/R7_A2_/
+    R8_A2_VERIFIED_FALSE_POSITIVES sets added alongside this test)."""
+
+    def test_a2_corpus_has_zero_unexplained_hits(self):
+        rows = s.load_rows()
+        a2_rows = [r for r in rows if (r.get("level") or "").strip().upper() == "A2"]
+        self.assertGreater(len(a2_rows), 0, "A2 corpus should not be empty")
+        unexplained = []
+        for row in a2_rows:
+            for rule_id, detail in s.scan_row(row):
+                if not s.is_documented_false_positive(rule_id, row["id"]):
+                    unexplained.append((rule_id, row["id"], detail))
+        self.assertEqual(
+            unexplained, [],
+            f"unexplained lint hits against live A2 corpus: {unexplained}",
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

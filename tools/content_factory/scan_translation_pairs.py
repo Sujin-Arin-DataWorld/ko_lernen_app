@@ -251,10 +251,62 @@ R4_VERIFIED_FALSE_POSITIVES = {
     "vocab_a1_0392", "vocab_a1_0397", "vocab_a1_0400", "vocab_a1_0403",
     "vocab_a1_0406", "vocab_a1_0419", "vocab_a1_0437", "vocab_a1_0458",
 }
+# --- C2b-2 (A2, 2026-09-15) additions: verified during the full manual
+# read of all 460 A2 vocab rows (docs/data/c2b2_a2_translation_changes.csv,
+# docs/data/review_packets/c2b2_a2_translation_jin_sample.md). Same false-
+# positive classes as the A1 set above (irregular conjugation for R3,
+# natural KO-elision expansion for R4), plus two new classes this level's
+# corpus surfaces:
+#   R7 (4 ids): a DE/EN gloss pair >8 chars identical is a genuine shared
+#     German/English loanword or cognate (KakaoTalk, Whiteboard/whiteboard,
+#     Restaurant/restaurant, Professor/professor -- German capitalizes
+#     nouns, English doesn't, otherwise identical spelling), not English
+#     leaking into the German field. Same reasoning as the short-cognate
+#     carve-out in scan_row()'s R7 comment, just past its <=8-char cutoff.
+#   R8 (2 ids): English idiomatically phrases a polite request/offer as a
+#     question ("Could we get the check, please?" / "Can I get this to go,
+#     please?") where Korean and German use a direct imperative/request
+#     ("계산 좀 부탁드려요." / "Die Rechnung, bitte!") -- a register
+#     convention difference between the languages, not a mistranslation.
+R3_A2_VERIFIED_FALSE_POSITIVES = {
+    "vocab_a1_0281", "vocab_a2_0045", "vocab_a2_0049", "vocab_a2_0053",
+    "vocab_a2_0054", "vocab_a2_0055", "vocab_a2_0056", "vocab_a2_0060",
+    "vocab_a2_0061", "vocab_a2_0064", "vocab_a2_0065", "vocab_a2_0067",
+    "vocab_a2_0069", "vocab_a2_0070", "vocab_a2_0072", "vocab_a2_0073",
+    "vocab_a2_0078", "vocab_a2_0079", "vocab_a2_0092", "vocab_a2_0093",
+    "vocab_a2_0099", "vocab_a2_0100", "vocab_a2_0111", "vocab_a2_0113",
+    "vocab_a2_0114", "vocab_a2_0115", "vocab_a2_0116", "vocab_a2_0176",
+    "vocab_a2_0193", "vocab_a2_0257", "vocab_a2_0258", "vocab_a2_0259",
+    "vocab_a2_0260", "vocab_a2_0261", "vocab_a2_0264", "vocab_a2_0265",
+    "vocab_a2_0266", "vocab_a2_0267", "vocab_a2_0268", "vocab_a2_0282",
+    "vocab_a2_0345", "vocab_a2_0462", "vocab_a2_0464", "vocab_a2_0494",
+}
+R4_A2_VERIFIED_FALSE_POSITIVES = {
+    "vocab_a1_0239", "vocab_a1_0274", "vocab_a1_0281", "vocab_a1_0299",
+    "vocab_a1_0307", "vocab_a1_0330", "vocab_a1_0365", "vocab_a1_0372",
+    "vocab_a1_0375", "vocab_a1_0381", "vocab_a2_0013", "vocab_a2_0027",
+    "vocab_a2_0054", "vocab_a2_0062", "vocab_a2_0068", "vocab_a2_0094",
+    "vocab_a2_0108", "vocab_a2_0111", "vocab_a2_0114", "vocab_a2_0116",
+    "vocab_a2_0153", "vocab_a2_0158", "vocab_a2_0176", "vocab_a2_0205",
+    "vocab_a2_0208", "vocab_a2_0223", "vocab_a2_0234", "vocab_a2_0251",
+    "vocab_a2_0265", "vocab_a2_0274", "vocab_a2_0293", "vocab_a2_0350",
+    "vocab_a2_0486", "vocab_a2_0489", "vocab_a2_0496",
+}
+R7_A2_VERIFIED_FALSE_POSITIVES = {
+    "vocab_a1_0303", "vocab_a1_0364", "vocab_a2_0012", "vocab_a2_0254",
+}
+R8_A2_VERIFIED_FALSE_POSITIVES = {
+    "vocab_a2_0058", "vocab_a2_0094",
+}
+
 DOCUMENTED_FALSE_POSITIVES = {
-    ("R3", i) for i in R3_VERIFIED_FALSE_POSITIVES
+    ("R3", i) for i in R3_VERIFIED_FALSE_POSITIVES | R3_A2_VERIFIED_FALSE_POSITIVES
 } | {
-    ("R4", i) for i in R4_VERIFIED_FALSE_POSITIVES
+    ("R4", i) for i in R4_VERIFIED_FALSE_POSITIVES | R4_A2_VERIFIED_FALSE_POSITIVES
+} | {
+    ("R7", i) for i in R7_A2_VERIFIED_FALSE_POSITIVES
+} | {
+    ("R8", i) for i in R8_A2_VERIFIED_FALSE_POSITIVES
 }
 
 
