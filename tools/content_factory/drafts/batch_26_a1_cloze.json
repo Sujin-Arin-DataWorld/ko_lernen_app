@@ -3,11 +3,11 @@
     {
       "id": "cloze_a1_0457",
       "level": "a1",
-      "sentenceKo": "와, 마야 씨! ＿＿＿ 진짜 좋아요. 함께 할까요?",
+      "sentenceKo": "마야 씨, 이 ＿＿＿ 정말 재미있어요. 같이 할까요?",
       "answer": "게임",
-      "fullKo": "와, 마야 씨! 게임 진짜 좋아요. 함께 할까요?",
-      "de": "Wow, Maya! Das Spiel ist wirklich gut. Sollen wir zusammen spielen?",
-      "en": "Wow, Maya! This game is really good. Shall we play together?",
+      "fullKo": "마야 씨, 이 게임 정말 재미있어요. 같이 할까요?",
+      "de": "Maya, dieses Spiel ist wirklich lustig. Spielen wir zusammen?",
+      "en": "Maya, this game is really fun. Shall we play together?",
       "distractors": [
         "일월",
         "이월",
@@ -19,11 +19,11 @@
     {
       "id": "cloze_a1_0458",
       "level": "a1",
-      "sentenceKo": "저녁에 ＿＿＿ 좀 볼까요?",
+      "sentenceKo": "아, 저녁에 같이 ＿＿＿ 볼까요?",
       "answer": "텔레비전",
-      "fullKo": "저녁에 텔레비전 좀 볼까요?",
-      "de": "Sollen wir heute Abend ein bisschen fernsehen?",
-      "en": "Shall we watch a bit of TV this evening?",
+      "fullKo": "아, 저녁에 같이 텔레비전 볼까요?",
+      "de": "Ach, sollen wir heute Abend zusammen fernsehen?",
+      "en": "Oh, shall we watch TV together this evening?",
       "distractors": [
         "삼월",
         "사월",
@@ -515,11 +515,11 @@
     {
       "id": "cloze_a1_0489",
       "level": "a1",
-      "sentenceKo": "주말에 ＿＿＿ 할까요?",
+      "sentenceKo": "음, 주말에 ＿＿＿ 할까요?",
       "answer": "농구",
-      "fullKo": "주말에 농구 할까요?",
-      "de": "Sollen wir am Wochenende Basketball spielen?",
-      "en": "Shall we play basketball this weekend?",
+      "fullKo": "음, 주말에 농구 할까요?",
+      "de": "Hmm, sollen wir am Wochenende Basketball spielen?",
+      "en": "Hmm, shall we play basketball this weekend?",
       "distractors": [
         "물건",
         "할머니",
@@ -547,11 +547,11 @@
     {
       "id": "cloze_a1_0491",
       "level": "a1",
-      "sentenceKo": "저녁에 ＿＿＿하러 갈까요?",
+      "sentenceKo": "네, 저녁에 ＿＿＿하러 갈까요?",
       "answer": "수영",
-      "fullKo": "저녁에 수영하러 갈까요?",
-      "de": "Sollen wir heute Abend schwimmen gehen?",
-      "en": "Shall we go swimming this evening?",
+      "fullKo": "네, 저녁에 수영하러 갈까요?",
+      "de": "Na, sollen wir heute Abend schwimmen gehen?",
+      "en": "Well, shall we go swimming this evening?",
       "distractors": [
         "딸",
         "회사원",
@@ -611,15 +611,15 @@
     {
       "id": "cloze_a1_0495",
       "level": "a1",
-      "sentenceKo": "레나 씨, 우리 함께 ＿＿＿ 출까요?",
+      "sentenceKo": "레나 씨, 우리 같이 ＿＿＿을 출까요?",
       "answer": "춤",
-      "fullKo": "레나 씨, 우리 함께 춤 출까요?",
+      "fullKo": "레나 씨, 우리 같이 춤을 출까요?",
       "de": "Lena, sollen wir zusammen tanzen?",
       "en": "Lena, shall we dance together?",
       "distractors": [
-        "생일",
-        "날짜",
-        "참"
+        "이월",
+        "삼월",
+        "좀"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0561"
@@ -627,9 +627,9 @@
     {
       "id": "cloze_a1_0496",
       "level": "a1",
-      "sentenceKo": "마야 씨, 이 ＿＿＿ 진짜 좋아요!",
+      "sentenceKo": "마야 씨, 이 ＿＿＿ 정말 좋아요!",
       "answer": "노래",
-      "fullKo": "마야 씨, 이 노래 진짜 좋아요!",
+      "fullKo": "마야 씨, 이 노래 정말 좋아요!",
       "de": "Maya, dieses Lied ist wirklich toll!",
       "en": "Maya, this song is really great!",
       "distractors": [
@@ -659,11 +659,11 @@
     {
       "id": "cloze_a1_0498",
       "level": "a1",
-      "sentenceKo": "기숙사에서 ＿＿＿ 칠까요?",
+      "sentenceKo": "좋아요, 기숙사에서 ＿＿＿ 칠까요?",
       "answer": "탁구",
-      "fullKo": "기숙사에서 탁구 칠까요?",
-      "de": "Sollen wir im Wohnheim Tischtennis spielen?",
-      "en": "Shall we play table tennis in the dorm?",
+      "fullKo": "좋아요, 기숙사에서 탁구 칠까요?",
+      "de": "Gut, sollen wir im Wohnheim Tischtennis spielen?",
+      "en": "Sounds good, shall we play table tennis in the dorm?",
       "distractors": [
         "일월",
         "이월",
@@ -675,11 +675,11 @@
     {
       "id": "cloze_a1_0499",
       "level": "a1",
-      "sentenceKo": "점심에 ＿＿＿을 먹을까요?",
+      "sentenceKo": "네, 점심에 ＿＿＿을 먹을까요?",
       "answer": "김밥",
-      "fullKo": "점심에 김밥을 먹을까요?",
-      "de": "Sollen wir zum Mittagessen Gimbap essen?",
-      "en": "Shall we have gimbap for lunch?",
+      "fullKo": "네, 점심에 김밥을 먹을까요?",
+      "de": "Na, sollen wir zum Mittagessen Gimbap essen?",
+      "en": "Well, shall we have gimbap for lunch?",
       "distractors": [
         "일월",
         "이월",
@@ -707,9 +707,9 @@
     {
       "id": "cloze_a1_0501",
       "level": "a1",
-      "sentenceKo": "와, 이 ＿＿＿ 진짜 맛있어요!",
+      "sentenceKo": "와, 이 ＿＿＿ 정말 맛있어요!",
       "answer": "김치찌개",
-      "fullKo": "와, 이 김치찌개 진짜 맛있어요!",
+      "fullKo": "와, 이 김치찌개 정말 맛있어요!",
       "de": "Wow, dieser Kimchi-Eintopf ist wirklich lecker!",
       "en": "Wow, this kimchi stew is really delicious!",
       "distractors": [
@@ -787,9 +787,9 @@
     {
       "id": "cloze_a1_0506",
       "level": "a1",
-      "sentenceKo": "이 ＿＿＿가 진짜 맛있어요.",
+      "sentenceKo": "이 ＿＿＿가 정말 맛있어요.",
       "answer": "참외",
-      "fullKo": "이 참외가 진짜 맛있어요.",
+      "fullKo": "이 참외가 정말 맛있어요.",
       "de": "Diese koreanische Melone ist wirklich lecker.",
       "en": "This Korean melon is really delicious.",
       "distractors": [
@@ -883,11 +883,11 @@
     {
       "id": "cloze_a1_0512",
       "level": "a1",
-      "sentenceKo": "이번 주말에 ＿＿＿에 갈까요?",
+      "sentenceKo": "아, 이번 주말에 ＿＿＿에 갈까요?",
       "answer": "부산",
-      "fullKo": "이번 주말에 부산에 갈까요?",
-      "de": "Sollen wir dieses Wochenende nach Busan fahren?",
-      "en": "Shall we go to Busan this weekend?",
+      "fullKo": "아, 이번 주말에 부산에 갈까요?",
+      "de": "Ach, sollen wir dieses Wochenende nach Busan fahren?",
+      "en": "Oh, shall we go to Busan this weekend?",
       "distractors": [
         "책상",
         "안경",
@@ -931,11 +931,11 @@
     {
       "id": "cloze_a1_0515",
       "level": "a1",
-      "sentenceKo": "＿＿＿ 구경 갈까요?",
+      "sentenceKo": "와, ＿＿＿ 같이 구경 갈까요?",
       "answer": "남대문",
-      "fullKo": "남대문 구경 갈까요?",
-      "de": "Sollen wir uns Namdaemun ansehen?",
-      "en": "Shall we go see Namdaemun?",
+      "fullKo": "와, 남대문 같이 구경 갈까요?",
+      "de": "Wow, sollen wir uns zusammen Namdaemun ansehen?",
+      "en": "Wow, shall we go see Namdaemun together?",
       "distractors": [
         "십일월",
         "십이월",
@@ -971,7 +971,7 @@
       "distractors": [
         "책",
         "물건",
-        "좀"
+        "함께"
       ],
       "topic": "Geographie",
       "sourceVocabId": "vocab_a1_0583"
@@ -987,7 +987,7 @@
       "distractors": [
         "케이크",
         "귤",
-        "다니다"
+        "참"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0584"
@@ -1003,7 +1003,7 @@
       "distractors": [
         "설날",
         "월요일",
-        "참"
+        "가끔"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0585"
@@ -1011,15 +1011,15 @@
     {
       "id": "cloze_a1_0520",
       "level": "a1",
-      "sentenceKo": "저녁에 ＿＿＿에 갈까요?",
+      "sentenceKo": "와, 저녁에 ＿＿＿에 갈까요?",
       "answer": "영화관",
-      "fullKo": "저녁에 영화관에 갈까요?",
-      "de": "Sollen wir heute Abend ins Kino gehen?",
-      "en": "Shall we go to the movie theater this evening?",
+      "fullKo": "와, 저녁에 영화관에 갈까요?",
+      "de": "Wow, sollen wir heute Abend ins Kino gehen?",
+      "en": "Wow, shall we go to the movie theater this evening?",
       "distractors": [
         "바나나",
         "우유",
-        "오다"
+        "천천히"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0586"
@@ -1035,7 +1035,7 @@
       "distractors": [
         "밤",
         "생일",
-        "가끔"
+        "참"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0587"
@@ -1051,7 +1051,7 @@
       "distractors": [
         "할머니",
         "할아버지",
-        "알다"
+        "아주"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0588"

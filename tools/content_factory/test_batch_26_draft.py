@@ -41,6 +41,8 @@ VOCAB_CSV = REPO_ROOT / "assets/data/korean_vocab.csv"
 CHARACTER_PROFILES = (
     REPO_ROOT / "tools/content_factory/canonical_scenarios/character_profiles.json"
 )
+BATCH25_VOCAB_CSV = DRAFTS / "batch_25_a1_rows.csv"
+NIKL_GRADE1_CSV = REPO_ROOT / "tools/content_factory/lexicon/nikl_kiiq_2017_vocab.csv"
 
 VOCAB_COLUMNS = [
     "korean", "romanization", "german", "level", "pos_de", "example_korean",
@@ -159,6 +161,94 @@ def _frame_key(example_korean: str, headword: str) -> str:
     two sentences that differ only by which vocab word they use collapse to
     the same key."""
     return example_korean.replace(headword, "￿", 1)
+
+
+# ---------------------------------------------------------------------------
+# Vocabulary authority (Jin ruling, 2026-09-15): A1 word purity is judged
+# against the NIKL KIIQ 2017 lexicon's grade-1 headwords (the F2 source),
+# NOT the live korean_vocab.csv's legacy `level` tags, which are known to be
+# stale for some very common words (e.g. 같이/재미있다/정말 are tagged A2
+# there but are grade-1 in NIKL). The live-A1 set is used only as a fallback
+# for words NIKL doesn't carry at all.
+def _load_nikl_grade1() -> set[str]:
+    with NIKL_GRADE1_CSV.open(encoding="utf-8", newline="") as f:
+        return {r["headword"] for r in csv.DictReader(f) if r["grade"] == "1"}
+
+
+# Common particle/ending suffixes, longest-first, stripped (with a "stem+다"
+# fallback for regular verbs/adjectives) to approximate a dictionary form.
+# This is a best-effort morphological check, not a full analyzer -- new rows
+# that introduce a genuinely new helper word/irregular conjugation may need
+# an addition to _CONJUGATION_OVERRIDES below rather than to the suffix list.
+_HELPER_SUFFIXES = sorted([
+    "이에요", "예요", "습니다", "합니다", "습니까", "으세요", "세요", "으십시오",
+    "을까요", "ㄹ까요", "할까요", "출까요", "칠까요", "갈까요", "올까요", "볼까요",
+    "았어요", "었어요", "했어요", "왔어요", "갔어요", "샀어요", "있어요", "없어요",
+    "아요", "어요", "해요", "라요",
+    "고", "지만", "지만은", "어서", "으니까", "으러", "러", "으려고",
+    "에서", "에게", "한테", "에게서", "한테서", "에",
+    "으로", "로",
+    "이랑", "랑", "하고", "과", "와",
+    "이", "가", "을", "를", "은", "는", "도", "만", "의", "이다",
+], key=len, reverse=True)
+
+# tokens whose stripped stem doesn't survive the generic "stem+다" fallback
+# (irregular conjugations, honorific forms, compounds) -- mapped straight to
+# a form already covered by NIKL/live-A1/headwords/pronouns.
+_CONJUGATION_OVERRIDES = {
+    "갈까요": "가다", "올라갈까요": "올라가다", "먹을까요": "먹다", "볼까요": "보다",
+    "할까요": "하다", "출까요": "추다", "칠까요": "치다",
+    "골랐어요": "고르다", "맞아요": "맞다", "못하지만": "못하다",
+    "어때요": "어떻다", "오셨어요": "오다", "왔어요": "오다",
+    "합니다": "하다", "해요": "하다", "끝나요": "끝나다",
+    "등산하러": "등산", "수영하러": "수영", "타러": "타다",
+    "사람이세요": "사람", "좋아해요": "좋아하다", "만나요": "만나다",
+    "샀어요": "사다", "싶어요": "싶다", "인천공항에서": "공항",
+}
+
+_CLOSED_CLASS_PRONOUNS = {"저", "제", "이", "그", "저는", "제가", "우리"}
+# grammatical auxiliaries that live in nikl_kiiq_2017_grammar.csv (표현/어미),
+# not the vocab lexicon, so they need to be allowed explicitly here.
+_GRAMMAR_AUXILIARIES = {"싶다"}  # -고 싶다, grammar grade 1
+
+
+def _build_helper_word_scanner():
+    nikl = _load_nikl_grade1()
+    live_rows = _load_vocab_rows(VOCAB_CSV)
+    live_a1 = {r["korean"] for r in live_rows if r["level"] == "A1"}
+    b26_rows = _load_vocab_rows(DRAFTS / "batch_26_a1_rows.csv")
+    headwords = {r["korean"] for r in b26_rows}
+    if BATCH25_VOCAB_CSV.exists():
+        headwords |= {r["korean"] for r in _load_vocab_rows(BATCH25_VOCAB_CSV)}
+    persona_names = {
+        c["displayNames"]["ko"]
+        for c in _load_json(CHARACTER_PROFILES)["recurringCharacters"]
+    }
+    safe = nikl | live_a1 | headwords | persona_names | _CLOSED_CLASS_PRONOUNS | _GRAMMAR_AUXILIARIES
+    return safe
+
+
+def _unresolved_helper_tokens(example_korean: str, safe_words: set[str]):
+    tokens = _PUNCT_RE.sub("", example_korean).replace("…", "").split(" ")
+    unresolved = []
+    for t in tokens:
+        if not t:
+            continue
+        if t in safe_words:
+            continue
+        override = _CONJUGATION_OVERRIDES.get(t)
+        if override and override in safe_words:
+            continue
+        candidates = set()
+        for suf in _HELPER_SUFFIXES:
+            if t.endswith(suf) and len(t) > len(suf):
+                stem = t[: -len(suf)]
+                candidates.add(stem)
+                candidates.add(stem + "다")
+        if candidates & safe_words:
+            continue
+        unresolved.append(t)
+    return unresolved
 
 
 class TestBatch26DraftFilesExist(unittest.TestCase):
@@ -338,6 +428,53 @@ class TestBatch26VocabRows(unittest.TestCase):
         offenders = {k: c for k, c in counts.items() if c > 3}
         self.assertEqual(
             offenders, {}, f"frame(s) repeated more than 3 times: {offenders}"
+        )
+
+    def test_helper_words_are_nikl_grade1_or_live_a1(self):
+        """Every non-headword word in example_korean must be judged against
+        the NIKL KIIQ 2017 grade-1 lexicon first, falling back to the live
+        A1 CSV only for words NIKL doesn't carry (Jin ruling, 2026-09-15:
+        the live CSV's `level` tag is not the authority for A1 purity -- it
+        is known stale for some common words, e.g. 같이/재미있다/정말 are
+        tagged A2 there but are NIKL grade-1). This is a best-effort
+        morphological check (suffix-stripping + a small irregular-
+        conjugation override table), not a full analyzer -- see
+        _CONJUGATION_OVERRIDES if a new row's helper word needs adding."""
+        safe_words = _build_helper_word_scanner()
+        offenders = {}
+        for row in self.rows:
+            bad = _unresolved_helper_tokens(row["example_korean"], safe_words)
+            if bad:
+                offenders[row["id"]] = bad
+        self.assertEqual(
+            offenders, {},
+            f"helper word(s) not resolvable against NIKL grade-1 / live A1: {offenders}",
+        )
+
+    def test_woori_gachi_opener_capped_at_6_rows(self):
+        """The exact "우리 같이" invitation opener may not appear in more
+        than 6 rows, so it reads as one flavor among several rather than a
+        copy-pasted template (coordinator R8-3 rule, 2026-09-15)."""
+        count = sum(1 for row in self.rows if "우리 같이" in row["example_korean"])
+        self.assertLessEqual(count, 6, f"'우리 같이' used in {count} rows (cap is 6)")
+
+    def test_reaction_openers_not_identical_in_more_than_3_rows(self):
+        """A sentence-initial reaction interjection (와/아/음/네/좋아요 등,
+        followed by a comma or exclamation mark) must not be the exact same
+        opener in more than 3 rows, so reactions read as varied rather than
+        a single repeated template (coordinator R8-3 rule, 2026-09-15)."""
+        from collections import Counter
+        REACTION_OPENERS = ["와", "아", "음", "네", "좋아요"]
+        counts = Counter()
+        for row in self.rows:
+            ex = row["example_korean"]
+            for op in REACTION_OPENERS:
+                if ex.startswith(op + ",") or ex.startswith(op + "!") or ex.startswith(op + "..."):
+                    counts[op] += 1
+                    break
+        offenders = {op: c for op, c in counts.items() if c > 3}
+        self.assertEqual(
+            offenders, {}, f"reaction opener(s) repeated more than 3 times: {offenders}"
         )
 
 

@@ -3,9 +3,9 @@
     {
       "id": "satz_a1_0438",
       "level": "a1",
-      "targetKo": "와, 마야 씨! 게임 진짜 좋아요. 함께 할까요?",
-      "promptDe": "Wow, Maya! Das Spiel ist wirklich gut. Sollen wir zusammen spielen?",
-      "promptEn": "Wow, Maya! This game is really good. Shall we play together?",
+      "targetKo": "마야 씨, 이 게임 정말 재미있어요. 같이 할까요?",
+      "promptDe": "Maya, dieses Spiel ist wirklich lustig. Spielen wir zusammen?",
+      "promptEn": "Maya, this game is really fun. Shall we play together?",
       "distractors": [
         "설날",
         "월요일"
@@ -16,9 +16,9 @@
     {
       "id": "satz_a1_0439",
       "level": "a1",
-      "targetKo": "저녁에 텔레비전 좀 볼까요?",
-      "promptDe": "Sollen wir heute Abend ein bisschen fernsehen?",
-      "promptEn": "Shall we watch a bit of TV this evening?",
+      "targetKo": "아, 저녁에 같이 텔레비전 볼까요?",
+      "promptDe": "Ach, sollen wir heute Abend zusammen fernsehen?",
+      "promptEn": "Oh, shall we watch TV together this evening?",
       "distractors": [
         "밤",
         "생일"
@@ -419,9 +419,9 @@
     {
       "id": "satz_a1_0470",
       "level": "a1",
-      "targetKo": "주말에 농구 할까요?",
-      "promptDe": "Sollen wir am Wochenende Basketball spielen?",
-      "promptEn": "Shall we play basketball this weekend?",
+      "targetKo": "음, 주말에 농구 할까요?",
+      "promptDe": "Hmm, sollen wir am Wochenende Basketball spielen?",
+      "promptEn": "Hmm, shall we play basketball this weekend?",
       "distractors": [
         "신발",
         "핸드폰"
@@ -445,9 +445,9 @@
     {
       "id": "satz_a1_0472",
       "level": "a1",
-      "targetKo": "저녁에 수영하러 갈까요?",
-      "promptDe": "Sollen wir heute Abend schwimmen gehen?",
-      "promptEn": "Shall we go swimming this evening?",
+      "targetKo": "네, 저녁에 수영하러 갈까요?",
+      "promptDe": "Na, sollen wir heute Abend schwimmen gehen?",
+      "promptEn": "Well, shall we go swimming this evening?",
       "distractors": [
         "케이크",
         "귤"
@@ -497,7 +497,7 @@
     {
       "id": "satz_a1_0476",
       "level": "a1",
-      "targetKo": "레나 씨, 우리 함께 춤 출까요?",
+      "targetKo": "레나 씨, 우리 같이 춤을 출까요?",
       "promptDe": "Lena, sollen wir zusammen tanzen?",
       "promptEn": "Lena, shall we dance together?",
       "distractors": [
@@ -510,7 +510,7 @@
     {
       "id": "satz_a1_0477",
       "level": "a1",
-      "targetKo": "마야 씨, 이 노래 진짜 좋아요!",
+      "targetKo": "마야 씨, 이 노래 정말 좋아요!",
       "promptDe": "Maya, dieses Lied ist wirklich toll!",
       "promptEn": "Maya, this song is really great!",
       "distractors": [
@@ -536,9 +536,9 @@
     {
       "id": "satz_a1_0479",
       "level": "a1",
-      "targetKo": "기숙사에서 탁구 칠까요?",
-      "promptDe": "Sollen wir im Wohnheim Tischtennis spielen?",
-      "promptEn": "Shall we play table tennis in the dorm?",
+      "targetKo": "좋아요, 기숙사에서 탁구 칠까요?",
+      "promptDe": "Gut, sollen wir im Wohnheim Tischtennis spielen?",
+      "promptEn": "Sounds good, shall we play table tennis in the dorm?",
       "distractors": [
         "날짜",
         "작년"
@@ -549,9 +549,9 @@
     {
       "id": "satz_a1_0480",
       "level": "a1",
-      "targetKo": "점심에 김밥을 먹을까요?",
-      "promptDe": "Sollen wir zum Mittagessen Gimbap essen?",
-      "promptEn": "Shall we have gimbap for lunch?",
+      "targetKo": "네, 점심에 김밥을 먹을까요?",
+      "promptDe": "Na, sollen wir zum Mittagessen Gimbap essen?",
+      "promptEn": "Well, shall we have gimbap for lunch?",
       "distractors": [
         "내년",
         "그저께"
@@ -575,7 +575,7 @@
     {
       "id": "satz_a1_0482",
       "level": "a1",
-      "targetKo": "와, 이 김치찌개 진짜 맛있어요!",
+      "targetKo": "와, 이 김치찌개 정말 맛있어요!",
       "promptDe": "Wow, dieser Kimchi-Eintopf ist wirklich lecker!",
       "promptEn": "Wow, this kimchi stew is really delicious!",
       "distractors": [
@@ -640,7 +640,7 @@
     {
       "id": "satz_a1_0487",
       "level": "a1",
-      "targetKo": "이 참외가 진짜 맛있어요.",
+      "targetKo": "이 참외가 정말 맛있어요.",
       "promptDe": "Diese koreanische Melone ist wirklich lecker.",
       "promptEn": "This Korean melon is really delicious.",
       "distractors": [
@@ -718,9 +718,9 @@
     {
       "id": "satz_a1_0493",
       "level": "a1",
-      "targetKo": "이번 주말에 부산에 갈까요?",
-      "promptDe": "Sollen wir dieses Wochenende nach Busan fahren?",
-      "promptEn": "Shall we go to Busan this weekend?",
+      "targetKo": "아, 이번 주말에 부산에 갈까요?",
+      "promptDe": "Ach, sollen wir dieses Wochenende nach Busan fahren?",
+      "promptEn": "Oh, shall we go to Busan this weekend?",
       "distractors": [
         "내년",
         "그저께"
@@ -757,9 +757,9 @@
     {
       "id": "satz_a1_0496",
       "level": "a1",
-      "targetKo": "남대문 구경 갈까요?",
-      "promptDe": "Sollen wir uns Namdaemun ansehen?",
-      "promptEn": "Shall we go see Namdaemun?",
+      "targetKo": "와, 남대문 같이 구경 갈까요?",
+      "promptDe": "Wow, sollen wir uns zusammen Namdaemun ansehen?",
+      "promptEn": "Wow, shall we go see Namdaemun together?",
       "distractors": [
         "신발",
         "핸드폰"
@@ -822,9 +822,9 @@
     {
       "id": "satz_a1_0501",
       "level": "a1",
-      "targetKo": "저녁에 영화관에 갈까요?",
-      "promptDe": "Sollen wir heute Abend ins Kino gehen?",
-      "promptEn": "Shall we go to the movie theater this evening?",
+      "targetKo": "와, 저녁에 영화관에 갈까요?",
+      "promptDe": "Wow, sollen wir heute Abend ins Kino gehen?",
+      "promptEn": "Wow, shall we go to the movie theater this evening?",
       "distractors": [
         "부모님",
         "딸"
