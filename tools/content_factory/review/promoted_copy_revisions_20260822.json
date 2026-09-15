@@ -1131,10 +1131,12 @@
       "id": "cloze_a1_0199",
       "level": "a1",
       "fields": [
-        "distractors"
+        "distractors",
+        "fullKo",
+        "sentenceKo"
       ],
       "beforeSha256": "22ee5b2773be8489618b6f4c923bcffa6adfbd33d5fa10a3421f216b760ec2de",
-      "afterSha256": "b6c008747c85d2aff176d1de0a14333863990878a4b6689451292643b3ad6693"
+      "afterSha256": "186d00d0533f774c12ee3064e19408c1cf913f303675dbb94ed14ea8cdaf8200"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -1175,10 +1177,12 @@
       "id": "cloze_a1_0204",
       "level": "a1",
       "fields": [
-        "distractors"
+        "distractors",
+        "fullKo",
+        "sentenceKo"
       ],
       "beforeSha256": "def14edc43a1d68e7a466ec572c5bc86019423f6f5d249120f1f4e7b3b4fcd4c",
-      "afterSha256": "929b8507fd117ce4fe6089e60997a689c315d5babe328b0ca112c9bb86d891b8"
+      "afterSha256": "57c042e3c60eda1e74922dd906648f954421efe2c75666c344580366f427a1fa"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -4280,6 +4284,132 @@
       ],
       "beforeSha256": "d17abf99316f73e28343e286ad7cbffc73a880708baac99ff34cefc6188bc1fa",
       "afterSha256": "58f6d21edbb21388d48f8a5212b5f617f8726502ffff0958714cf8dad6c8bc04"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0217",
+      "level": "a1",
+      "fields": [
+        "english",
+        "example_english",
+        "example_german",
+        "example_korean",
+        "german"
+      ],
+      "beforeSha256": "8b9870ba571c4b0432211c75fae508e6effe8ff3ff1c22ccca44d4d9d8993c27",
+      "afterSha256": "7042f0e6ae9642e77b2694269feaa7b9b3351fcfb2707270eff0cb97f2d773cd"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0311",
+      "level": "a1",
+      "fields": [
+        "example_korean"
+      ],
+      "beforeSha256": "35904df9cde583d81fc82b3c69e764c184fab545343de4afe8d78e52dabfe239",
+      "afterSha256": "8257962b2c1c612f2c6f7375450aca2a057fe0ec248f1e3c1c584f822642a12c"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0316",
+      "level": "a1",
+      "fields": [
+        "example_korean",
+        "romanization"
+      ],
+      "beforeSha256": "42a255cd3e2c112c004fc224d3bf62644bc6870ed15dfb52646ebe15bbf37189",
+      "afterSha256": "558e33c4ed834d456c6f539b6fe0c972e5b8534437a32b67850a7c8126e7e80d"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0402",
+      "level": "a1",
+      "fields": [
+        "example_korean"
+      ],
+      "beforeSha256": "ffc14fe37201904c3ab67b9f06be18bc1c50e8acc4859638d7b33f01687162d8",
+      "afterSha256": "5b684fee2f4464326b45b32d25b7e149dde18c0349fb79d0171fd0c1a40573c7"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0105",
+      "level": "a1",
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "d9a5bf624b290ebe325633e06c7d0db2516376281d303ad8d706c94bf608f972",
+      "afterSha256": "1b6f4e0e4acc34b4ba832850a08a48d1b612a993932fe9f8503441d9c713bcbb"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0290",
+      "level": "a1",
+      "fields": [
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "3b02b04e9d9bf68286df6c3675f4b722ceed5f7c4176f8af0233d5441c62f940",
+      "afterSha256": "1514701f92bc90fdd900a69b957a0ad97ad53f77fee5669c9ff99b52fca33cb0"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0069",
+      "level": "a1",
+      "fields": [
+        "distractors",
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "a54cdda9e3c6ef29aefad67dddfa7b4693f559ab14cd93e61a509edfe917342c",
+      "afterSha256": "661fbbdc6eda9bcb8f668c0b0007aab9f38bee8da4dc661a8ddeafce6f9c8b7b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0163",
+      "level": "a1",
+      "fields": [
+        "distractors",
+        "targetKo"
+      ],
+      "beforeSha256": "a921a1f2a4f90e751eb865ac573fffd1345718b0c767582d90ecac703e286a2c",
+      "afterSha256": "583831b304072e85c361fb8caf2b78b684c4b34fd0593ea573b4e43d9028a818"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0168",
+      "level": "a1",
+      "fields": [
+        "distractors",
+        "targetKo"
+      ],
+      "beforeSha256": "56c9bb9c0fc004bc943520d3a8c69bf692311f90a83dc7734e3cb3e7153808cf",
+      "afterSha256": "65c593a9b3fde5505f03ef193c267b9382cc5d3a3745a4f1417f4724986edfbc"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0254",
+      "level": "a1",
+      "fields": [
+        "distractors",
+        "targetKo"
+      ],
+      "beforeSha256": "e794ce7c6d65837a856909f3ed7949dd6a4f4197821e334cf840e80965cd77da",
+      "afterSha256": "32aa5cf9158c440c047612bbbe2e13c75d1c31cb7c94e3ee437c2e4bbdd9c003"
     }
   ],
   "routingEntries": [
@@ -4425,6 +4555,13 @@
       "method": "These 6 A1-id/A2-level rows (a2_partner_house_entry_1/chuseok_basic_1/photo_thanks_1 packs) and their cloze/satz mirrors are ALSO tracked by batch_07_partner_family_manifest.json (missed in the first ledger sweep, which only covered the a2_-prefixed ids from this same grammar-rewrite pass) -- same grade>=3 quotative/bare-quote removal as the rest of this PR, plus a Fable round-2 wording fix on vocab_a1_0239 (아랫목 sibling headword instead of unidiomatic '아래로 앉았어요'). Entries fingerprinted with validate_promoted_batch._promotion_projection/_relevel_normalized_live/_fingerprint against current draft/live rows.",
       "added": 18,
       "replaced": 0
+    },
+    {
+      "date": "2026-09-16",
+      "scope": "C2d-2 A1 -아/어 주세요 -> -으세요 rewrite (Jin option a)",
+      "method": "scan_a1_grammar.py's contracted -아/어 주다/주시다/드리다 detector (added in C2d coordinator round 3) flagged 38 rows deferred by C2d as DOCUMENTED_EXCEPTIONS, plus vocab_a1_0402 (+2 mirrors) and 2 rows surfaced by promotions after the 2026-09-15 C2d scan (vocab_a1_0508's headword-embedded 도와주다 + mirrors, registered in HEADWORD_EMBEDDED_GRAMMAR, not rewritten); rewritten to 1급 -으세요 or a softened -을 수 있어요? question per Jin's 2026-09-16 ruling. vocab_a1_0410 (headword 적어 주다) also stays headword-embedded, unchanged. Entries fingerprinted against each row's true historical draft file (manifest.artifacts[].draft); rows with no identifiable owning manifest (a1_numbers_2/time_3/daily_4/repair_language_1/first_class_1 packs, standalone cloze/satz rows) got no ledger entry, same as C2d's own 'Cluster C' rows.",
+      "added": 10,
+      "updated": 2
     }
   ],
   "batchFieldRevisions": [

@@ -314,7 +314,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 구,gu,neun (sino-koreanisch),A1,Nomen,새 학기가 구월에 시작해요.,Das neue Semester fängt im September an.,Zahlen,a1_numbers_2,1,false,nine (Sino-Korean),Noun,The new semester starts in September.,vocab_a1_0138
 십,sip,zehn (sino-koreanisch),A1,Nomen,십 분만 기다려요.,Ich warte nur zehn Minuten.,Zahlen,a1_numbers_2,2,false,ten (Sino-Korean),Noun,I'll wait just ten minutes.,vocab_a1_0139
 백,baek,hundert,A1,Nomen,백 명이 왔어요.,Hundert Leute sind gekommen.,Zahlen,a1_numbers_2,3,false,hundred,Noun,A hundred people came.,vocab_a1_0140
-천,cheon,tausend,A1,Nomen,천 원만 빌려주세요.,Leih mir bitte tausend Won.,Zahlen,a1_numbers_2,4,false,thousand,Noun,Please lend me just a thousand won.,vocab_a1_0141
+천,cheon,tausend,A1,Nomen,천 원만 빌릴 수 있어요?,Kann ich mir nur tausend Won leihen?,Zahlen,a1_numbers_2,4,false,thousand,Noun,Can I just borrow a thousand won?,vocab_a1_0141
 만,man,zehntausend,A1,Nomen,만 원이에요.,Es kostet zehntausend Won.,Zahlen,a1_numbers_2,5,false,ten thousand,Noun,It costs ten thousand won.,vocab_a1_0142
 하나,hana,eins (rein-koreanisch),A1,Nomen,하나만 주세요.,Nur eins bitte.,Zahlen,a1_numbers_2,6,false,one (native Korean),Noun,"Just one, please.",vocab_a1_0143
 둘,dul,zwei (rein-koreanisch),A1,Nomen,둘이 같이 가요.,Wir gehen zu zweit.,Zahlen,a1_numbers_2,7,false,two (native Korean),Noun,"We go together, the two of us.",vocab_a1_0144
@@ -375,8 +375,8 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 같은,gateun,gleich / dasselbe,A1,Adjektiv,같은 학교에 다녀요.,Wir gehen zur gleichen Schule.,Beschreibung,a1_descriptions,13,true,same,Adjective,We go to the same school.,vocab_a1_0199
 모든,modeun,alle / sämtliche,A1,Adjektiv,모든 사람이 좋아해요.,Alle Leute mögen es.,Menge,a1_numbers_3,7,true,all / every,Adjective,Everyone likes it.,vocab_a1_0200
 몇,myeot,wie viele,A1,Adjektiv,몇 명이에요?,Wie viele Personen?,Menge,a1_numbers_3,8,true,how many,Adjective,How many people?,vocab_a1_0201
-잠깐,jamkkan,kurz / einen Moment,A1,Adverb,잠깐만 기다려 주세요.,Warten Sie bitte einen Moment.,Zeit,a1_time_3,6,false,for a moment / briefly,Adverb,Please wait a moment.,vocab_a1_0202
-천천히,cheoncheonhi,langsam,A1,Adverb,천천히 말해 주세요.,Bitte sprechen Sie langsam.,Alltag,a1_daily_4,4,false,slowly,Adverb,Please speak slowly.,vocab_a1_0203
+잠깐,jamkkan,kurz / einen Moment,A1,Adverb,잠깐만 여기서 기다리세요.,Warten Sie bitte hier einen Moment.,Zeit,a1_time_3,6,false,for a moment / briefly,Adverb,Please wait here for a moment.,vocab_a1_0202
+천천히,cheoncheonhi,langsam,A1,Adverb,다시 천천히 말하세요.,Bitte sagen Sie es noch einmal langsam.,Alltag,a1_daily_4,4,false,slowly,Adverb,"Please say it again, slowly.",vocab_a1_0203
 일찍,iljjik,früh,A1,Adverb,오늘 일찍 자고 싶어요.,Ich möchte heute früh schlafen gehen.,Zeit,a1_time_3,7,true,early,Adverb,I want to go to bed early tonight.,vocab_a1_0204
 늦게,neutge,spät,A1,Adverb,어제 늦게 잤어요.,Gestern bin ich spät schlafen gegangen.,Zeit,a1_time_3,8,true,late,Adverb,I went to bed late yesterday.,vocab_a1_0205
 자주,jaju,oft,A1,Adverb,저는 커피를 자주 마셔요.,Ich trinke oft Kaffee.,Alltag,a1_daily_4,5,false,often,Adverb,I drink coffee often.,vocab_a1_0206
@@ -649,7 +649,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 번역하다,beonyeokhada,übersetzen,B1,Verb,이 문장을 독일어로 번역해 주세요.,Übersetzen Sie diesen Satz bitte ins Deutsche.,Sprache & Ausdruck,b1_communication_lang_1,6,false,to translate,Verb,Please translate this sentence into German.,vocab_b1_0193
 통역,tongyeok,Dolmetschen,B1,Nomen,친구가 통역을 해 줬어요.,Ein Freund hat für mich gedolmetscht.,Sprache & Ausdruck,b1_communication_lang_1,7,false,interpretation,Noun,A friend interpreted for me.,vocab_b1_0194
 질문,jilmun,Frage,A2,Nomen,질문이 하나 있어요.,Ich habe eine Frage.,Sprache & Ausdruck,a2_health_misc_2,11,false,question,Noun,I have a question.,vocab_b1_0195
-대답하다,daedaphada,antworten,A1,Verb,질문에 대답해 주세요.,Antworten Sie bitte auf die Frage.,다시 묻기,a1_repair_language_1,7,false,to answer,Verb,Please answer the question.,vocab_b1_0196
+대답하다,daedaphada,antworten,A1,Verb,이 질문에 대답하세요.,Bitte antworten Sie auf diese Frage.,다시 묻기,a1_repair_language_1,7,false,to answer,Verb,Please answer this question.,vocab_b1_0196
 소개하다,sogaehada,vorstellen,B1,Verb,친구를 소개해 줄게요.,Ich stelle dir einen Freund vor.,Sprache & Ausdruck,b1_communication_lang_1,10,true,to introduce,Verb,I will introduce a friend to you.,vocab_b1_0197
 존댓말,jondaenmal,Höflichkeitssprache,B1,Nomen,어른에게는 존댓말을 써요.,Gegenüber Älteren benutzt man die Höflichkeitssprache.,Sprache & Ausdruck,b1_communication_lang_1,11,true,honorific speech,Noun,You use honorific speech with elders.,vocab_b1_0198
 반말,banmal,informelle Sprache,B1,Nomen,친한 친구와는 반말을 해요.,Mit engen Freunden spricht man informell.,Sprache & Ausdruck,b1_communication_lang_1,12,true,casual speech,Noun,You speak casually with close friends.,vocab_b1_0199
@@ -1192,7 +1192,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 장인어른,jangineoreun,Schwiegervater (Vater der Ehefrau),A1,Nomen,오늘은 장인어른께 처음 인사드려요.,Heute begrüße ich zum ersten Mal meinen Schwiegervater.,Partnerschaft & koreanische Familie,a1_partner_meet_names_1,3,false,father-in-law (wife's father),Noun,Today I meet my father-in-law for the first time.,vocab_a1_0214
 장모님,jangmonim,Schwiegermutter (Mutter der Ehefrau),A1,Nomen,장모님께 과일을 드렸어요.,Meiner Schwiegermutter habe ich Obst gegeben.,Partnerschaft & koreanische Familie,a1_partner_meet_names_1,4,false,mother-in-law (wife's mother),Noun,I gave my mother-in-law some fruit.,vocab_a1_0215
 시아버지,siabeoji,Schwiegervater (Vater des Ehemanns),B1,Nomen,남편 집에 가니까 시아버지께서 환하게 반겨주셨어요.,"Als wir bei der Familie meines Mannes ankamen, hat mein Schwiegervater uns herzlich begrüßt.",Partnerschaft & koreanische Familie,b1_partner_after_visit_1,13,false,father-in-law (husband's father),Noun,"When we arrived at my husband's family's home, my father-in-law gave us a warm welcome.",vocab_a1_0216
-시어머니,sieomeoni,Schwiegermutter (Mutter des Ehemanns),A1,Nomen,시어머니께서 웃어 주셨어요.,Meine Schwiegermutter hat mich angelächelt.,Partnerschaft & koreanische Familie,a1_partner_meet_names_1,6,false,mother-in-law (husband's mother),Noun,My mother-in-law smiled at me.,vocab_a1_0217
+시어머니,sieomeoni,Schwiegermutter (Mutter des Ehemanns),A1,Nomen,시어머니께서 저를 보고 웃으셨어요.,Meine Schwiegermutter hat mich angesehen und gelächelt.,Partnerschaft & koreanische Familie,a1_partner_meet_names_1,6,false,mother-in-law (husband's mother),Noun,My mother-in-law looked at me and smiled.,vocab_a1_0217
 호칭,hoching,Anrede,A1,Nomen,호칭이 어려워서 수진 씨에게 물었어요.,"Die Anrede war schwierig, also habe ich Sujin gefragt.",Partnerschaft & koreanische Familie,a1_partner_meet_names_1,7,false,form of address,Noun,"I wasn't sure how to address them, so I asked Sujin.",vocab_a1_0218
 높임말,nopimmal,Höflichkeitsform,A1,Nomen,부모님 앞에서는 높임말을 써요.,Vor seinen Eltern spreche ich in der Höflichkeitsform.,Partnerschaft & koreanische Familie,a1_partner_meet_names_1,8,false,honorific speech,Noun,In front of his parents I use honorific speech.,vocab_a1_0219
 성함을 묻다,seonghameul mutda,nach dem Namen fragen,A1,Ausdruck,성함을 묻기 전에 수진 씨가 저를 봤어요.,"Bevor ich nach dem Namen fragte, sah mich Sujin an.",Partnerschaft & koreanische Familie,a1_partner_meet_names_1,9,false,to ask someone's name politely,Expression,"Before I asked their name, Sujin looked at me.",vocab_a1_0220
@@ -1622,12 +1622,12 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 우표,upyo,Briefmarke,A1,Nomen,우표를 세 장 주세요.,Bitte geben Sie mir drei Briefmarken.,Postamt,a1_post_office_1,1,false,stamp,Noun,Please give me three stamps.,vocab_a1_0308
 소포,sopo,Paket,A1,Nomen,이 소포를 독일로 보내고 싶어요.,Ich möchte dieses Paket nach Deutschland schicken.,Postamt,a1_post_office_1,2,false,parcel,Noun,I want to send this parcel to Germany.,vocab_a1_0309
 편지,pyeonji,Brief,A1,Nomen,이 편지를 독일로 보내 주세요.,Bitte schicken Sie diesen Brief nach Deutschland.,Postamt,a1_post_office_1,3,false,letter,Noun,Please send this letter to Germany.,vocab_a1_0310
-우편함,upyeonham,Briefkasten,A1,Nomen,편지는 아래 우편함에 넣어 주세요.,Bitte legen Sie den Brief in den Briefkasten unten.,Postamt,a1_post_office_1,4,false,mailbox,Noun,Please put the letter in the mailbox downstairs.,vocab_a1_0311
+우편함,upyeonham,Briefkasten,A1,Nomen,편지는 아래 우편함에 넣으세요.,Bitte legen Sie den Brief in den Briefkasten unten.,Postamt,a1_post_office_1,4,false,mailbox,Noun,Please put the letter in the mailbox downstairs.,vocab_a1_0311
 부치다,buchida,aufgeben,A1,Verb,소포를 부치기 전에 주소를 확인해요.,"Bevor ich das Paket aufgebe, prüfe ich die Adresse.",Postamt,a1_post_office_1,5,false,to mail,Verb,"Before I mail the parcel, I check the address.",vocab_a1_0312
 무게,muge,Gewicht,A1,Nomen,무게가 이 킬로그램을 넘어요.,Das Gewicht liegt über zwei Kilogramm.,Postamt,a1_post_office_1,6,false,weight,Noun,The weight is over two kilograms.,vocab_a1_0313
 주소,juso,Adresse,A1,Nomen,받는 사람 주소를 여기에 써 주세요.,Bitte schreiben Sie die Empfängeradresse hierhin.,Postamt,a1_post_office_1,7,false,address,Noun,Please write the recipient address here.,vocab_a1_0314
 보내는 사람,bonaeneun saram,Absender,A1,Nomen,보내는 사람 이름을 크게 썼어요.,Ich habe den Absendernamen groß geschrieben.,Postamt,a1_post_office_1,8,false,sender,Noun,I wrote the sender name in large letters.,vocab_a1_0315
-받는 사람,banneun saram,Empfänger,A1,Nomen,받는 사람 전화번호를 적어 주세요.,Bitte notieren Sie die Telefonnummer des Empfängers.,Postamt,a1_post_office_1,9,false,recipient,Noun,Please write the recipient's phone number.,vocab_a1_0316
+받는 사람,banneun saram,Empfänger,A1,Nomen,받는 사람 전화번호를 적으세요.,Bitte notieren Sie die Telefonnummer des Empfängers.,Postamt,a1_post_office_1,9,false,recipient,Noun,Please write the recipient's phone number.,vocab_a1_0316
 며칠,myeochil,wie viele Tage,A1,Nomen,독일까지 며칠 걸려요?,Wie viele Tage dauert es bis Deutschland?,Postamt,a1_post_office_1,10,true,how many days,Noun,How many days does it take to Germany?,vocab_a1_0317
 가격,gagyeok,Preis,A1,Nomen,우표 가격이 얼마예요?,Was kostet die Briefmarke?,Postamt,a1_post_office_1,11,true,price,Noun,How much is the stamp?,vocab_a1_0318
 창구,changgu,Schalter,A1,Nomen,삼 번 창구에서 기다리세요.,Bitte warten Sie am Schalter drei.,Postamt,a1_post_office_1,12,true,counter,Noun,Please wait at counter number three.,vocab_a1_0319
@@ -1713,7 +1713,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 잠깐만요,jamkkanmanyo,einen Moment,A1,Ausdruck,계산 전에 잠깐만요.,"Vor dem Bezahlen, einen Moment bitte.",Entschuldigung,a1_sorry_thanks_1,8,false,just a moment,Expression,Just a moment before paying.,vocab_a1_0399
 다시 말하다,dasi malhada,noch einmal sagen,A1,Ausdruck,잘 못 들었어요. 다시 말하세요.,Ich habe es nicht gut verstanden. Sagen Sie es bitte noch einmal.,Entschuldigung,a1_sorry_thanks_1,9,false,to say again,Expression,I didn't catch that. Please say it again.,vocab_a1_0400
 천천히 말하다,cheoncheonhi malhada,langsam sprechen,A1,Ausdruck,한국어를 천천히 말해서 이해가 돼요.,"Weil du langsam Koreanisch sprichst, verstehe ich es.",Entschuldigung,a1_sorry_thanks_1,10,true,to speak slowly,Expression,"Because you speak Korean slowly, I understand.",vocab_a1_0401
-정말 감사해요,jeongmal gamsahaeyo,vielen Dank,A1,Ausdruck,자리를 양보해 주셔서 정말 감사해요.,"Vielen Dank, dass Sie den Platz überlassen haben.",Entschuldigung,a1_sorry_thanks_1,11,true,thank you so much,Expression,Thank you so much for giving up the seat.,vocab_a1_0402
+정말 감사해요,jeongmal gamsahaeyo,vielen Dank,A1,Ausdruck,자리를 양보하셔서 정말 감사해요.,"Vielen Dank, dass Sie den Platz überlassen haben.",Entschuldigung,a1_sorry_thanks_1,11,true,thank you so much,Expression,Thank you so much for giving up the seat.,vocab_a1_0402
 정말 죄송해요,jeongmal joesonghaeyo,es tut mir sehr leid,A1,Ausdruck,발을 밟아서 정말 죄송해요.,"Es tut mir sehr leid, dass ich auf Ihren Fuß getreten bin.",Entschuldigung,a1_sorry_thanks_1,12,true,I am very sorry,Expression,I am very sorry I stepped on your foot.,vocab_a1_0403
 요금제,yogeumje,Tarif,B1,Nomen,이 요금제가 데이터량이 더 많아요.,Dieser Tarif hat mehr Datenvolumen.,Handytarif,b1_phone_plan_1,1,false,rate plan,Noun,This rate plan has more data.,vocab_a2_0365
 데이터량,deiteoryang,Datenvolumen,B1,Nomen,이번 달 데이터량이 벌써 끝났어요.,Das Datenvolumen für diesen Monat ist schon aufgebraucht.,Handytarif,b1_phone_plan_1,2,false,data allowance,Noun,This month's data allowance is already gone.,vocab_a2_0366
@@ -2331,8 +2331,8 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 모국어,mogugeo,Muttersprache,B1,Nomen,제 모국어는 독일어예요.,Meine Muttersprache ist Deutsch.,자기소개,b1_communication_lang_1,13,false,first language,Noun,My first language is German.,vocab_a1_0405
 성,seong,Nachname,A1,Nomen,성은 박이고 이름은 수진이에요.,Mein Nachname ist Park und mein Vorname ist Sujin.,자기소개,a1_particles_in_use_1,3,true,family name,Noun,My family name is Park and my given name is Sujin.,vocab_a1_0406
 고향,gohyang,Heimatort,A1,Nomen,제 고향은 부산이에요.,Meine Heimatstadt ist Busan.,자기소개,a1_particles_in_use_1,4,true,hometown,Noun,My hometown is Busan.,vocab_a1_0407
-발음,bareum,Aussprache,A1,Nomen,이 단어 발음을 다시 들려주세요.,Bitte spielen Sie die Aussprache dieses Wortes noch einmal ab.,다시 묻기,a1_repair_language_1,1,false,pronunciation,Noun,Please play the pronunciation of this word again.,vocab_a1_0408
-예문,yemun,Beispielsatz,A1,Nomen,짧은 예문을 하나 적어 주세요.,Bitte schreiben Sie einen kurzen Beispielsatz auf.,다시 묻기,a1_repair_language_1,2,false,example sentence,Noun,Please write down one short example sentence.,vocab_a1_0409
+발음,bareum,Aussprache,A1,Nomen,이 단어 발음을 다시 들을 수 있어요?,Kann ich die Aussprache dieses Wortes noch einmal hören?,다시 묻기,a1_repair_language_1,1,false,pronunciation,Noun,Can I hear the pronunciation of this word again?,vocab_a1_0408
+예문,yemun,Beispielsatz,A1,Nomen,짧은 예문을 하나 적으세요.,Bitte schreiben Sie einen kurzen Beispielsatz auf.,다시 묻기,a1_repair_language_1,2,false,example sentence,Noun,Please write down one short example sentence.,vocab_a1_0409
 적어 주다,jeogeo juda,aufschreiben,A1,Verb,주소를 천천히 적어 주세요.,Bitte schreiben Sie die Adresse langsam auf.,다시 묻기,a1_repair_language_1,3,true,to write down,Verb,Please write the address down slowly.,vocab_a1_0410
 뜻을 묻다,tteuseul mutda,nach der Bedeutung fragen,A1,Verb,모르는 단어의 뜻을 물어요.,Ich frage nach der Bedeutung eines unbekannten Wortes.,다시 묻기,a1_repair_language_1,4,true,to ask the meaning,Verb,I ask the meaning of an unfamiliar word.,vocab_a1_0411
 결제하다,gyeoljehada,bezahlen,A1,Verb,카드로 결제할게요.,Ich bezahle mit Karte.,결제와 배달,a1_payment_delivery_1,1,false,to pay,Verb,I'll pay by card.,vocab_a1_0412
@@ -2429,7 +2429,7 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 살다,salda,"wohnen, leben",A1,Verb,부모님은 독일에 사세요.,Meine Eltern leben in Deutschland.,자기소개,a1_particles_in_use_1,11,false,to live,Verb,My parents live in Germany.,vocab_a1_0435
 수업,sueop,Unterricht,A1,Nomen,한국어 수업은 월요일에 있어요.,Der Koreanischunterricht ist am Montag.,첫 수업,a1_first_class_1,1,false,"class, lesson",Noun,Korean class is on Monday.,vocab_a1_0436
 처음,cheoeum,das erste Mal,A1,Nomen,한국어 수업은 처음이에요.,Koreanischunterricht habe ich zum ersten Mal.,첫 수업,a1_first_class_1,2,false,first time,Noun,It's my first time taking a Korean class.,vocab_a1_0437
-전화번호,jeonhwabeonho,Telefonnummer,A1,Nomen,전화번호를 알려 주세요.,Sagen Sie mir bitte Ihre Telefonnummer.,첫 수업,a1_first_class_1,3,false,phone number,Noun,Please tell me your phone number.,vocab_a1_0438
+전화번호,jeonhwabeonho,Telefonnummer,A1,Nomen,실례지만 전화번호가 뭐예요?,"Entschuldigung, wie ist Ihre Telefonnummer?",첫 수업,a1_first_class_1,3,false,phone number,Noun,"Excuse me, what is your phone number?",vocab_a1_0438
 대학,daehak,"Universität, Hochschule",A1,Nomen,무슨 대학에 다녀요?,An welcher Universität studieren Sie?,첫 수업,a1_first_class_1,4,false,"university, college",Noun,Which university do you go to?,vocab_a1_0439
 책상,chaeksang,Schreibtisch,A1,Nomen,책상 위에 책이 있어요.,Auf dem Schreibtisch liegt ein Buch.,첫 수업,a1_first_class_1,5,false,desk,Noun,There is a book on the desk.,vocab_a1_0440
 연필,yeonpil,Bleistift,A1,Nomen,연필로 이름을 써요.,Ich schreibe meinen Namen mit Bleistift.,첫 수업,a1_first_class_1,6,false,pencil,Noun,I write my name with a pencil.,vocab_a1_0441
@@ -2447,7 +2447,7 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 원,won,Won (Währung),A1,Nomen,커피는 사천 원이에요.,Der Kaffee kostet viertausend Won.,결제와 배달,a1_payment_delivery_1,6,false,won (currency),Noun,The coffee is four thousand won.,vocab_a1_0453
 번호,beonho,Nummer,A1,Nomen,제 번호는 십오 번이에요.,Meine Nummer ist die Fünfzehn.,결제와 배달,a1_payment_delivery_1,7,false,number,Noun,My number is fifteen.,vocab_a1_0454
 기다리다,gidarida,warten,A1,Verb,문 앞에서 기다려요.,Ich warte vor der Tür.,결제와 배달,a1_payment_delivery_1,8,false,to wait,Verb,I'm waiting in front of the door.,vocab_a1_0455
-다시,dasi,"noch einmal, wieder",A1,Adverb,다시 한번 말해 주세요.,Bitte sagen Sie es noch einmal.,다시 묻기,a1_repair_language_1,8,false,"again, once more",Adverb,Please say it once more.,vocab_a1_0456
+다시,dasi,"noch einmal, wieder",A1,Adverb,다시 한번 말하세요.,Bitte sagen Sie es noch einmal.,다시 묻기,a1_repair_language_1,8,false,"again, once more",Adverb,Please say it once more.,vocab_a1_0456
 단어,daneo,"Wort, Vokabel",A1,Nomen,이 단어는 무슨 뜻이에요?,Was bedeutet dieses Wort?,다시 묻기,a1_repair_language_1,9,false,"word, vocabulary",Noun,What does this word mean?,vocab_a1_0457
 사전,sajeon,Wörterbuch,A1,Nomen,사전에서 단어를 찾아요.,Ich schlage das Wort im Wörterbuch nach.,다시 묻기,a1_repair_language_1,10,false,dictionary,Noun,I look the word up in the dictionary.,vocab_a1_0458
 학년,hangnyeon,Schuljahr; Studienjahr,A2,Nomen,저는 지금 대학교 이 학년이에요.,Ich bin jetzt im zweiten Studienjahr.,Bildung,a2_education,8,false,"school year, grade",Noun,I'm in my second year of university now.,vocab_a2_0477
