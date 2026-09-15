@@ -54,7 +54,9 @@ VOCAB = FakeVocab([
     row("결국", "B1", "Adverb"), row("업무", "B1", "Nomen"),
     row("여기", "A1", "Pronomen"), row("교차로", "A2", "Nomen"),
     row("건강하다", "A2", "Verb"), row("숙제", "A1", "Nomen"),
-    row("날씨", "A1", "Nomen"),
+    row("날씨", "A1", "Nomen"), row("연고", "A2", "Nomen"),
+    row("케이크", "A1", "Nomen"), row("우표", "A1", "Nomen"),
+    row("사과", "A1", "Nomen"), row("같이 웃다", "B1", "Ausdruck"),
 ])
 
 
@@ -155,6 +157,42 @@ class OpenSlotWaiverTests(unittest.TestCase):
         self.assertTrue(R.open_slot_distractor_ok("가다"))
         self.assertTrue(R.open_slot_distractor_ok("에서"))
         self.assertFalse(R.open_slot_distractor_ok("친구"))
+
+    def test_noun_coincidentally_ending_in_go_routes_to_noun_matching(self):
+        # R8-2 mechanical-audit fixup: 연고 ("ointment") ends in the same
+        # "고" as the -고 connective, but is a bare noun, not a
+        # conjugated verb -- same-category noun distractors must pass.
+        bad, unresolved, pos = R.check_d3_pos_form("연고", ["케이크", "우표", "사과"], VOCAB)
+        self.assertFalse(unresolved)
+        self.assertEqual(bad, [])
+
+    def test_genuine_predicate_ending_in_da_is_not_misrouted(self):
+        # Only "고" is special-cased -- "다"/"요" endings must still route
+        # to predicate matching even when the answer is an exact
+        # "Ausdruck" vocab match (같이 웃다 "to laugh together" is a
+        # genuine verb phrase, not a coincidental noun tail).
+        bad, unresolved, pos = R.check_d3_pos_form(
+            "같이 웃다", ["빨간색", "연습장", "화분"], VOCAB
+        )
+        self.assertFalse(unresolved)
+        self.assertEqual(len(bad), 3)  # none of these share 같이 웃다's -다 ending
+
+
+class MixedTierTests(unittest.TestCase):
+    """R8-2 mixed composition: 2 Tier-A + 1 OPEN_SLOT_WAIVER distractor,
+    used when only two clashing same-ending candidates exist."""
+
+    def test_mixed_item_accepts_either_same_ending_or_waiver_word(self):
+        R.MIXED_TIER_IDS["cloze_test_mixed"] = "test fixture"
+        try:
+            bad, unresolved, pos = R.check_d3_pos_form(
+                "커피는", ["절하는", "다니다", "먹다"], VOCAB, cloze_id="cloze_test_mixed"
+            )
+            # "절하는" shares "는"; "다니다"/"먹다" are dictionary-form
+            # OPEN_SLOT_WAIVER words -- all 3 should be accepted.
+            self.assertEqual(bad, [])
+        finally:
+            del R.MIXED_TIER_IDS["cloze_test_mixed"]
 
 
 class D4ActivityNounTests(unittest.TestCase):

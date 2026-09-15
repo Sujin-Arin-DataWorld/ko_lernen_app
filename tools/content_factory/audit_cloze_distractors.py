@@ -44,7 +44,11 @@ def audit_item(it: dict, vocab: R.VocabIndex) -> dict:
     # are moot for a distractor no reader would ever parse as a candidate
     # noun/predicate in the first place, so both are skipped for a waived
     # item (D3 already special-cases this; see check_d3_pos_form).
-    waived = cloze_id in R.PREDICATE_SLOT_WAIVER or cloze_id in R.OPEN_SLOT_WAIVER
+    waived = (
+        cloze_id in R.PREDICATE_SLOT_WAIVER
+        or cloze_id in R.OPEN_SLOT_WAIVER
+        or cloze_id in R.MIXED_TIER_IDS
+    )
 
     d1_kind, d1_required = R.detect_required_class(sentence, answer)
     d1_bad = []

@@ -79,12 +79,19 @@ def triggered_rules(result: dict) -> list[str]:
 
 
 def gather_verbadj_candidates(answer, a_sig, level_rank, answer_snapshot):
+    """Other live cloze answers sharing `answer`'s conjugated form. Uses
+    `same_ending` (not a bare `a_sig in ending_signatures(word)` check) so
+    a candidate must pass the SAME strict test the audit's
+    `check_d3_pos_form` applies -- otherwise a dictionary-form answer
+    (제출하다) could pull in a formally-conjugated candidate (잘
+    먹었습니다) that only coincidentally shares the trivial "다" tail,
+    which the generator would accept but the audit would then re-flag."""
     use_rieul = R.rieul_adnominal_ending(answer)
     cands = []
     for word, level in answer_snapshot:
         if word == answer or R.level_rank(level) > level_rank:
             continue
-        if a_sig in R.ending_signatures(word):
+        if R.same_ending(answer, word):
             cands.append(word)
         elif use_rieul and R.rieul_adnominal_ending(word):
             cands.append(word)

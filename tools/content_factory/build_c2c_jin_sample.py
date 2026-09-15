@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """C2c step 6 -- 40-item Jin review sample, stratified by level.
 
-Deterministically samples the changes CSV (542 rows after the R8
-OPEN_SLOT_WAIVER sweep, docs/data/c2c_cloze_distractor_changes.csv)
+Deterministically samples the changes CSV (542 rows after the R8-2 two-tier
+sweep, docs/data/c2c_cloze_distractor_changes.csv -- tier A/B/mixed)
 roughly proportional to each level's share of the live corpus (a1 7, a2 6,
 b1 9, b2 8, c1 5, c2 5 = 40), and writes
 docs/data/review_packets/c2c_cloze_distractors_jin_sample.md: sentence,
-answer, old -> new distractors, and the 3 NEW distractor sentences with a
-plain-language validity call for each.
+answer, tier, old -> new distractors, and the 3 NEW distractor sentences
+with a plain-language validity call for each.
 
 Usage:
     python tools/content_factory/build_c2c_jin_sample.py
@@ -32,10 +32,10 @@ QUOTA = {"a1": 7, "a2": 6, "b1": 9, "b2": 8, "c1": 5, "c2": 5}
 
 
 def judge(sentence_ko: str, answer: str, distractor: str, sub: str) -> str:
-    """Plain-language ✗/✓ judgement note for the substituted sentence --
-    mirrors the reasoning applied by the R8 OPEN_SLOT_WAIVER sweep
-    (tools/content_factory/apply_open_slot_waiver_r8.py) when this
-    distractor was picked."""
+    """Plain-language ✗ judgement note for the substituted sentence --
+    Tier A: same POS/form, semantically-incompatible (reads as
+    grammatical but nonsensical/doesn't-hold). Tier B/mixed-waiver-part:
+    grammatically impossible in the slot (OPEN_SLOT_WAIVER)."""
     if distractor in R.DICTIONARY_FORM_VERBS:
         return "✗ 비문 -- 사전형 동사만으로는 이 자리의 명사/술어를 채울 수 없음 (활용되지 않은 원형은 통사적으로 이 위치에 들어갈 수 없음)"
     if distractor in R.BARE_PARTICLES:
@@ -45,7 +45,7 @@ def judge(sentence_ko: str, answer: str, distractor: str, sub: str) -> str:
         bc = R.batchim_class(distractor, kind)
         if bc is not None and bc != required:
             return "✗ 빈칸 뒤 조사와 받침 불일치 -- 부자연스러움"
-    return "✗ 정답과 다른 의미/카테고리 -- 문장은 성립해도 이 자리의 정답으로 읽히지 않음"
+    return "✗ 같은 품사·같은 활용형이지만 의미가 성립하지 않음 (문법적으로는 그럴듯하나 이 문맥에서는 말이 안 됨)"
 
 
 def main() -> None:
@@ -83,7 +83,7 @@ def main() -> None:
             lines.append("")
             lines.append(f"- 문장: {it['sentenceKo']}")
             lines.append(f"- 정답: **{it['answer']}** ({it['de']} / {it['en']})")
-            lines.append(f"- 규칙: {row['rules']}")
+            lines.append(f"- tier: {row['tier']}")
             lines.append(f"- 기존 배분어: {row['old']}")
             lines.append(f"- 신규 배분어: {row['new']}")
             lines.append("")
