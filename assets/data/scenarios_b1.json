@@ -4653,7 +4653,7 @@
         {
           "speaker": "clerk",
           "ko": "네, 고객센터예요. 어떤 문제가 있으세요?",
-          "de": "Ja, hier ist der Kundendienst. Was für ein Problem haben Sie?",
+          "de": "Ja, hier ist der Kundendienst. Was genau ist das Problem?",
           "en": "Yes, this is customer service. What's the problem?"
         },
         {
@@ -4694,9 +4694,9 @@
         },
         {
           "speaker": "user",
-          "ko": "알겠어요. 그럼 내일 오후로 예약할게요.",
-          "de": "Verstanden. Dann buche ich für morgen Nachmittag.",
-          "en": "Got it. Then I'll book it for tomorrow afternoon."
+          "ko": "알겠어요. 그럼 내일 오후로 예약해 주세요.",
+          "de": "Verstanden. Dann hätte ich gern einen Termin für morgen Nachmittag.",
+          "en": "Got it. Then I'd like to schedule it for tomorrow afternoon."
         }
       ],
       "quests": [
@@ -4875,8 +4875,8 @@
         {
           "speaker": "user",
           "ko": "저기요, 죄송한데 영수증을 보니까 커피가 두 잔 값으로 찍혀 있어요.",
-          "de": "Entschuldigung, ich habe auf die Quittung geschaut und da steht der Preis für zwei Tassen Kaffee.",
-          "en": "Excuse me, I looked at the receipt and it shows the price for two cups of coffee."
+          "de": "Entschuldigung, auf dem Bon wurde der Kaffee zweimal berechnet.",
+          "en": "Excuse me, I just noticed the receipt charged me for two coffees."
         },
         {
           "speaker": "clerk",
@@ -4888,7 +4888,7 @@
           "speaker": "user",
           "ko": "저는 아메리카노 한 잔만 주문했거든요.",
           "de": "Ich habe nämlich nur einen Americano bestellt.",
-          "en": "I only ordered one Americano, you see."
+          "en": "I only ordered one Americano."
         },
         {
           "speaker": "clerk",
@@ -4899,14 +4899,14 @@
         {
           "speaker": "user",
           "ko": "그럼 한 잔 값은 취소해 주실 수 있을까요?",
-          "de": "Könnten Sie dann den Preis für eine Tasse stornieren?",
-          "en": "Could you cancel the price for one cup, then?"
+          "de": "Könnten Sie mir dann den zweiten Kaffee stornieren?",
+          "en": "Could you refund the second coffee, then?"
         },
         {
           "speaker": "clerk",
           "ko": "네, 바로 환불해 드릴게요. 카드 다시 넣어 주시겠어요?",
-          "de": "Ja, ich erstatte es Ihnen sofort. Könnten Sie die Karte noch einmal stecken?",
-          "en": "Yes, I'll refund it right away. Could you insert your card again?"
+          "de": "Ja, ich erstatte Ihnen den Betrag sofort. Könnten Sie Ihre Karte noch einmal einstecken?",
+          "en": "Yes, I'll refund that amount right away. Could you insert your card again?"
         },
         {
           "speaker": "user",
@@ -5108,26 +5108,26 @@
         {
           "speaker": "official",
           "ko": "어서 오세요. 어떤 서류 때문에 오셨어요?",
-          "de": "Willkommen. Weswegen sind Sie wegen eines Dokuments hier?",
-          "en": "Welcome. What document have you come about?"
+          "de": "Guten Tag. Wegen welcher Unterlagen sind Sie hier?",
+          "en": "Hello. What paperwork are you here about?"
         },
         {
           "speaker": "user",
           "ko": "외국인등록증 주소 변경하러 왔는데요.",
-          "de": "Ich bin gekommen, um meine Adresse im Ausländerregistrierungsausweis zu ändern.",
-          "en": "I've come to change my address on my foreign resident registration card."
+          "de": "Ich bin gekommen, um die Adresse auf meiner Ausländerregistrierungskarte ändern zu lassen.",
+          "en": "I've come to change the address on my foreign resident registration card."
         },
         {
           "speaker": "official",
           "ko": "여권이랑 계약서 사본 가져오셨어요?",
-          "de": "Haben Sie den Pass und eine Kopie des Mietvertrags mitgebracht?",
+          "de": "Haben Sie Ihren Pass und eine Kopie des Mietvertrags dabei?",
           "en": "Did you bring your passport and a copy of the lease?"
         },
         {
           "speaker": "user",
           "ko": "여권은 있는데 계약서 사본은 안 가져왔어요.",
-          "de": "Den Pass habe ich, aber die Kopie des Mietvertrags habe ich nicht mitgebracht.",
-          "en": "I have my passport, but I didn't bring the copy of the lease."
+          "de": "Meinen Pass habe ich dabei, aber die Kopie des Mietvertrags nicht.",
+          "en": "I have my passport, but I don't have a copy of the lease with me."
         },
         {
           "speaker": "official",
@@ -5341,8 +5341,8 @@
         {
           "speaker": "user",
           "ko": "수진아, 이번 주말에는 나 혼자 좀 쉬고 싶은데 괜찮을까?",
-          "de": "Sujin, ist es okay, wenn ich dieses Wochenende ein bisschen allein sein möchte?",
-          "en": "Sujin, would it be okay if I wanted to rest alone a bit this weekend?"
+          "de": "Sujin, wäre es okay für dich, wenn ich dieses Wochenende etwas Zeit für mich hätte?",
+          "en": "Sujin, would you be okay with me taking some time to myself this weekend?"
         },
         {
           "speaker": "sujin",
@@ -5377,14 +5377,14 @@
         {
           "speaker": "user",
           "ko": "응, 좋아. 그때는 내가 먼저 연락할게.",
-          "de": "Ja, gerne. Dann melde ich mich zuerst bei dir.",
-          "en": "Yeah, sounds good. I'll reach out first then."
+          "de": "Ja, gerne. Dann melde ich mich von mir aus bei dir.",
+          "en": "Yeah, sounds good. I'll be the one to reach out first."
         },
         {
           "speaker": "sujin",
           "ko": "알겠어. 혼자 있는 시간 잘 보내.",
           "de": "Alles klar. Genieß die Zeit für dich.",
-          "en": "Okay. Enjoy your time alone."
+          "en": "Okay. Enjoy having some time to yourself."
         }
       ],
       "quests": [
@@ -5574,26 +5574,26 @@
         {
           "speaker": "user",
           "ko": "안녕하세요, 실손보험 청구 때문에 전화했는데요.",
-          "de": "Hallo, ich rufe wegen einer Erstattung über meine Zusatzversicherung an.",
-          "en": "Hi, I'm calling about a supplementary insurance claim."
+          "de": "Hallo, ich rufe an, weil ich eine Erstattung über meine Krankenversicherung beantragen möchte.",
+          "en": "Hi, I'm calling to ask about filing a medical insurance claim."
         },
         {
           "speaker": "clerk",
           "ko": "네, 어떤 진료를 받으셨어요?",
-          "de": "Ja, welche Behandlung haben Sie bekommen?",
+          "de": "Ja, welche Behandlung haben Sie erhalten?",
           "en": "Sure, what treatment did you receive?"
         },
         {
           "speaker": "user",
           "ko": "지난주에 병원에서 검사를 받았는데 그게 보장되는지 궁금해서요.",
-          "de": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus und frage mich, ob das gedeckt ist.",
+          "de": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus und wollte wissen, ob die Kosten dafür übernommen werden.",
           "en": "I had a test at the hospital last week, and I'm wondering if that's covered."
         },
         {
           "speaker": "clerk",
           "ko": "진단서랑 영수증만 있으면 대부분 보장돼요.",
-          "de": "Wenn Sie nur die Diagnosebescheinigung und die Quittung haben, ist das meiste gedeckt.",
-          "en": "If you just have the diagnosis certificate and the receipt, most of it is covered."
+          "de": "Mit einem ärztlichen Attest und der Quittung werden die Kosten in der Regel übernommen.",
+          "en": "With a medical certificate and the receipt, it's usually covered."
         },
         {
           "speaker": "user",
@@ -5604,8 +5604,8 @@
         {
           "speaker": "clerk",
           "ko": "앱에서 사진 찍어서 올리시면 처리해 드려요.",
-          "de": "Wenn Sie in der App ein Foto hochladen, kümmern wir uns darum.",
-          "en": "If you take a photo and upload it in the app, we'll process it."
+          "de": "Wenn Sie die Unterlagen in der App fotografieren und hochladen, bearbeiten wir den Antrag.",
+          "en": "Take photos of the documents and upload them in the app, and we'll process the claim."
         },
         {
           "speaker": "user",
@@ -5807,8 +5807,8 @@
         {
           "speaker": "resident",
           "ko": "어, 죄송해요! 못 봤어요, 괜찮으세요?",
-          "de": "Oh, tut mir leid! Ich habe Sie nicht gesehen, geht es Ihnen gut?",
-          "en": "Oh, I'm sorry! I didn't see you, are you okay?"
+          "de": "Oh, tut mir leid! Ich habe Sie nicht gesehen. Geht es Ihnen gut?",
+          "en": "Oh, I'm sorry! I didn't see you. Are you okay?"
         },
         {
           "speaker": "user",
@@ -5819,8 +5819,8 @@
         {
           "speaker": "resident",
           "ko": "정말 죄송해요. 제가 급하게 돌다가 그랬어요.",
-          "de": "Es tut mir wirklich leid. Ich bin in Eile abgebogen und das ist passiert.",
-          "en": "I'm really sorry. I was turning in a hurry and that happened."
+          "de": "Es tut mir wirklich leid. Ich bin zu hastig abgebogen.",
+          "en": "I'm really sorry. I turned too quickly."
         },
         {
           "speaker": "user",
@@ -5837,8 +5837,8 @@
         {
           "speaker": "user",
           "ko": "감사해요. 그런데 상처에 소독약을 좀 발라야 할 것 같아요.",
-          "de": "Danke. Aber ich sollte wohl etwas Desinfektionsmittel auf die Wunde tun.",
-          "en": "Thanks. But I should probably put some antiseptic on the wound."
+          "de": "Danke. Aber ich sollte die Wunde wohl desinfizieren.",
+          "en": "Thanks. But I should probably clean the scrape with some antiseptic."
         },
         {
           "speaker": "resident",
@@ -6058,20 +6058,20 @@
         {
           "speaker": "clerk",
           "ko": "그러시군요. 해지는 한 달 전에 미리 신청하셔야 해요.",
-          "de": "Ach so. Die Kündigung müssen Sie mindestens einen Monat im Voraus beantragen.",
-          "en": "I see. You need to apply for the cancellation at least a month in advance."
+          "de": "Ach so. Die Kündigung müssen Sie mindestens einen Monat im Voraus einreichen.",
+          "en": "I see. You need to submit your cancellation at least one month in advance."
         },
         {
           "speaker": "user",
           "ko": "그럼 위약금 같은 건 따로 없어요?",
-          "de": "Gibt es dann keine gesonderte Vertragsstrafe?",
-          "en": "So there's no separate cancellation penalty?"
+          "de": "Gibt es dann keine zusätzliche Kündigungsgebühr?",
+          "en": "So there isn't a separate cancellation fee?"
         },
         {
           "speaker": "clerk",
           "ko": "남은 기간에 따라 수수료가 조금 있을 수 있어요.",
-          "de": "Je nach verbleibender Zeit kann eine kleine Gebühr anfallen.",
-          "en": "Depending on the remaining period, there may be a small fee."
+          "de": "Je nach Restlaufzeit kann noch eine kleine Gebühr anfallen.",
+          "en": "There may be a small fee depending on how much time is left on your contract."
         },
         {
           "speaker": "user",
@@ -6274,7 +6274,7 @@
           "speaker": "user",
           "ko": "현아야, 저번에 약속 갑자기 취소해서 미안해.",
           "de": "Hyuna, tut mir leid, dass ich das Treffen letztens plötzlich abgesagt habe.",
-          "en": "Hyuna, I'm sorry for suddenly cancelling our plan last time."
+          "en": "Hyuna, I'm sorry I canceled on you so suddenly last time."
         },
         {
           "speaker": "hyuna",
@@ -6285,26 +6285,26 @@
         {
           "speaker": "user",
           "ko": "그때 회사에 급한 일이 생겨서 정신이 없었어.",
-          "de": "Damals gab es plötzlich dringende Sachen bei der Arbeit, und ich war völlig durcheinander.",
+          "de": "Bei der Arbeit ist damals plötzlich etwas Dringendes dazwischengekommen, und ich war völlig überfordert.",
           "en": "Back then something urgent came up at work, and I was completely overwhelmed."
         },
         {
           "speaker": "hyuna",
           "ko": "아, 그랬구나. 그런 줄도 모르고 나 혼자 오해했네.",
-          "de": "Ach so. Ohne das zu wissen, habe ich das ganz allein missverstanden.",
-          "en": "Oh, I see. Without knowing that, I misunderstood it all on my own."
+          "de": "Ach so. Das wusste ich nicht. Ich habe die Situation wohl falsch verstanden.",
+          "en": "Oh, I see. I didn't know that, so I guess I misunderstood."
         },
         {
           "speaker": "user",
           "ko": "미리 문자라도 자세히 보냈어야 했는데. 정말 미안해.",
-          "de": "Ich hätte dir wenigstens vorher eine ausführliche Nachricht schicken sollen. Es tut mir wirklich leid.",
-          "en": "I should have at least sent a detailed text beforehand. I'm really sorry."
+          "de": "Ich hätte dir wenigstens vorher schreiben und kurz erklären sollen, was los ist. Es tut mir wirklich leid.",
+          "en": "I should've at least texted you beforehand and explained what was going on. I'm really sorry."
         },
         {
           "speaker": "hyuna",
           "ko": "괜찮아. 사정이 있었다니까 이해가 돼.",
-          "de": "Ist schon gut. Da es einen Grund gab, verstehe ich das.",
-          "en": "It's okay. Since there was a reason, I understand."
+          "de": "Ist schon okay. Jetzt, wo ich den Grund kenne, verstehe ich es.",
+          "en": "It's okay. Now that I know what happened, I understand."
         },
         {
           "speaker": "user",
@@ -6315,8 +6315,8 @@
         {
           "speaker": "hyuna",
           "ko": "좋아. 그럼 이걸로 화해한 거다?",
-          "de": "Gut. Damit sind wir dann versöhnt, oder?",
-          "en": "Deal. So we're making up with this, right?"
+          "de": "Gut. Dann sind wir wieder gut miteinander, oder?",
+          "en": "Okay. So we're good now, right?"
         }
       ],
       "quests": [
@@ -6495,8 +6495,8 @@
         {
           "speaker": "user",
           "ko": "큰일 났어. 티켓팅 시작하자마자 서버가 다운됐어.",
-          "de": "Großes Problem. Kaum hatte das Ticketing begonnen, ist der Server abgestürzt.",
-          "en": "Big problem. The server crashed the moment ticketing started."
+          "de": "Oh nein. Kaum hatte der Ticketverkauf begonnen, ist der Server abgestürzt.",
+          "en": "This is bad. The server crashed as soon as ticket sales opened."
         },
         {
           "speaker": "lena",
@@ -6513,25 +6513,25 @@
         {
           "speaker": "lena",
           "ko": "그럼 취소표 풀릴 때까지 계속 새로고침 해 보자.",
-          "de": "Dann lass uns immer wieder aktualisieren, bis stornierte Tickets freiwerden.",
+          "de": "Dann lass uns weiter aktualisieren, bis durch Stornierungen wieder Tickets frei werden.",
           "en": "Then let's keep refreshing until cancelled tickets become available."
         },
         {
           "speaker": "user",
           "ko": "근데 암표는 절대 사지 말자. 가격도 너무 비싸고 위험해.",
-          "de": "Aber lass uns auf keinen Fall Schwarzmarkt-Tickets kaufen. Der Preis ist zu hoch und es ist riskant.",
-          "en": "But let's absolutely not buy scalped tickets. The price is too high and it's risky."
+          "de": "Aber lass uns auf keinen Fall Tickets vom Schwarzmarkt kaufen. Die sind viel zu teuer und das ist riskant.",
+          "en": "But let's definitely not buy scalped tickets. They're way too expensive, and it's risky."
         },
         {
           "speaker": "lena",
           "ko": "당연하지. 우리는 응원법도 미리 연습해야지.",
-          "de": "Klar doch. Wir sollten auch die Jubel-Choreografie vorher üben.",
+          "de": "Klar. Wir müssen vorher auch noch die Fanchants üben.",
           "en": "Of course. We should also practice the fan chants beforehand."
         },
         {
           "speaker": "user",
           "ko": "맞아. 이번엔 응원봉 색깔도 맞춰서 준비하자.",
-          "de": "Genau. Dieses Mal sollten wir auch die Farbe der Leuchtstäbe abstimmen.",
+          "de": "Genau. Dieses Mal stimmen wir auch unsere Lightstick-Farben aufeinander ab.",
           "en": "Right. This time let's also coordinate our lightstick colors."
         },
         {

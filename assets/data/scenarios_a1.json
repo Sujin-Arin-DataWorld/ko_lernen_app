@@ -4530,7 +4530,7 @@
         {
           "speaker": "driver",
           "ko": "어디로 가세요?",
-          "de": "Wohin fahren wir?",
+          "de": "Wohin soll es gehen?",
           "en": "Where are you headed?"
         },
         {
@@ -4543,13 +4543,13 @@
           "speaker": "driver",
           "ko": "네, 손님. 공항에서 거기까지 삼십 분쯤 걸려요.",
           "de": "Gut. Vom Flughafen bis dahin dauert es etwa dreißig Minuten.",
-          "en": "Sure. It takes about thirty minutes from the airport to there."
+          "en": "Sure. It takes about thirty minutes to get there from the airport."
         },
         {
           "speaker": "user",
-          "ko": "네, 알겠어요. 가방이 하나 있어요.",
-          "de": "Okay, verstanden. Ich habe eine Tasche.",
-          "en": "Okay, got it. I have one bag."
+          "ko": "네, 알겠어요. 가방 하나 있어요.",
+          "de": "Okay. Ich habe eine Tasche dabei.",
+          "en": "Okay. I have one bag with me."
         },
         {
           "speaker": "driver",
@@ -4578,7 +4578,7 @@
         {
           "speaker": "landlord",
           "ko": "어서 오세요. 성함이 어떻게 되세요?",
-          "de": "Willkommen. Wie ist Ihr Name?",
+          "de": "Willkommen. Wie heißen Sie?",
           "en": "Welcome. What's your name?"
         },
         {
@@ -4790,20 +4790,20 @@
         {
           "speaker": "clerk",
           "ko": "따뜻한 걸로 드릴까요, 아이스로 드릴까요?",
-          "de": "Möchten Sie ihn warm oder als Eiskaffee?",
+          "de": "Möchten Sie ihn heiß oder mit Eis?",
           "en": "Would you like it hot or iced?"
         },
         {
           "speaker": "user",
           "ko": "아이스로 주세요.",
-          "de": "Als Eiskaffee, bitte.",
+          "de": "Mit Eis, bitte.",
           "en": "Iced, please."
         },
         {
           "speaker": "clerk",
-          "ko": "여기서 드시고 가세요, 포장이세요?",
-          "de": "Möchten Sie hier essen oder zum Mitnehmen?",
-          "en": "Will you eat here or take it to go?"
+          "ko": "여기서 드시고 가세요, 아니면 포장이세요?",
+          "de": "Möchten Sie hier essen oder alles zum Mitnehmen?",
+          "en": "For here or to go?"
         },
         {
           "speaker": "user",
@@ -4815,7 +4815,7 @@
           "speaker": "clerk",
           "ko": "더 필요한 거 있으세요?",
           "de": "Brauchen Sie sonst noch etwas?",
-          "en": "Do you need anything else?"
+          "en": "Anything else?"
         },
         {
           "speaker": "user",
@@ -5024,14 +5024,14 @@
         {
           "speaker": "user",
           "ko": "죄송해요. 잘 못 들었어요.",
-          "de": "Entschuldigung, das habe ich nicht verstanden.",
+          "de": "Entschuldigung, ich habe Sie nicht richtig gehört.",
           "en": "Sorry, I didn't quite catch that."
         },
         {
           "speaker": "pharmacist",
           "ko": "하루에 세 번 드시라고요.",
-          "de": "Ich sagte: dreimal am Tag.",
-          "en": "I said: three times a day."
+          "de": "Dreimal am Tag.",
+          "en": "Three times a day."
         },
         {
           "speaker": "user",
@@ -5047,7 +5047,7 @@
         },
         {
           "speaker": "user",
-          "ko": "식사 전에요, 식사 후에요?",
+          "ko": "식사 전이에요, 후예요?",
           "de": "Vor oder nach dem Essen?",
           "en": "Before or after meals?"
         },
@@ -5060,8 +5060,8 @@
         {
           "speaker": "user",
           "ko": "네, 알겠습니다. 감사합니다.",
-          "de": "Okay, verstanden. Danke.",
-          "en": "Okay, understood. Thank you."
+          "de": "Alles klar, danke.",
+          "en": "Okay, got it. Thank you."
         }
       ],
       "quests": [
@@ -5254,7 +5254,7 @@
         {
           "speaker": "sujin",
           "ko": "여기예요. 우리 집은 처음이죠?",
-          "de": "Hier ist es. Du bist zum ersten Mal bei mir zu Hause, oder?",
+          "de": "Da sind wir. Du bist zum ersten Mal bei mir zu Hause, oder?",
           "en": "Here it is. This is your first time at my home, right?"
         },
         {
@@ -5289,9 +5289,9 @@
         },
         {
           "speaker": "sujin",
-          "ko": "엄마가 아주 좋아하세요. 편하게 계세요.",
-          "de": "Meine Mutter freut sich sehr. Mach es dir bequem.",
-          "en": "My mom is very happy. Make yourself at home."
+          "ko": "엄마도 정말 반가워하세요. 편하게 계세요.",
+          "de": "Meine Mutter freut sich auch sehr, dich kennenzulernen. Mach es dir bequem.",
+          "en": "My mom's really happy to meet you too. Make yourself at home."
         },
         {
           "speaker": "user",
@@ -5499,13 +5499,13 @@
         {
           "speaker": "user",
           "ko": "커트 예약하고 싶어요.",
-          "de": "Ich möchte einen Termin zum Haareschneiden.",
+          "de": "Ich möchte einen Termin für einen Haarschnitt.",
           "en": "I'd like to book a haircut."
         },
         {
           "speaker": "clerk",
           "ko": "네. 오늘 세 시 괜찮으세요?",
-          "de": "Gut. Passt Ihnen heute drei Uhr?",
+          "de": "Ja. Passt Ihnen heute um drei?",
           "en": "Sure. Does 3 o'clock today work?"
         },
         {
@@ -5529,7 +5529,7 @@
         {
           "speaker": "clerk",
           "ko": "네, 번호 좀 말씀해 주세요.",
-          "de": "Ja, sagen Sie mir bitte Ihre Nummer.",
+          "de": "Ja, sagen Sie mir bitte Ihre Telefonnummer.",
           "en": "Yes, please tell me your number."
         },
         {
@@ -5738,14 +5738,14 @@
         },
         {
           "speaker": "user",
-          "ko": "여보세요. 자리를 예약하고 싶어요.",
-          "de": "Hallo. Ich möchte einen Tisch reservieren.",
+          "ko": "여보세요. 자리를 예약하고 싶은데요.",
+          "de": "Hallo. Ich würde gern einen Tisch reservieren.",
           "en": "Hello. I'd like to book a table."
         },
         {
           "speaker": "server",
           "ko": "네, 몇 분이세요?",
-          "de": "Gut, für wie viele Personen?",
+          "de": "Gerne. Für wie viele Personen?",
           "en": "Sure, for how many people?"
         },
         {
@@ -5775,8 +5775,8 @@
         {
           "speaker": "user",
           "ko": "그럼 여덟 시는 괜찮아요?",
-          "de": "Geht acht Uhr?",
-          "en": "Is eight o'clock okay then?"
+          "de": "Wäre acht Uhr in Ordnung?",
+          "en": "How about eight o'clock?"
         },
         {
           "speaker": "server",
@@ -5979,7 +5979,7 @@
         {
           "speaker": "resident",
           "ko": "은행이요? 이 길로 쭉 가세요.",
-          "de": "Die Bank? Gehen Sie diese Straße geradeaus.",
+          "de": "Die Bank? Gehen Sie diese Straße einfach geradeaus.",
           "en": "The bank? Go straight down this street."
         },
         {
@@ -5996,9 +5996,9 @@
         },
         {
           "speaker": "user",
-          "ko": "저 간판이 은행이에요?",
-          "de": "Ist das Schild da die Bank?",
-          "en": "Is that sign the bank?"
+          "ko": "저 간판 있는 곳이 은행이에요?",
+          "de": "Ist das da bei dem Schild die Bank?",
+          "en": "Is that the bank over there by the sign?"
         },
         {
           "speaker": "resident",
@@ -6207,8 +6207,8 @@
         {
           "speaker": "user",
           "ko": "와, 진짜 예뻐요. 이 가수 누구예요?",
-          "de": "Wow, wirklich schön. Wer ist das für ein Sänger?",
-          "en": "Wow, really pretty. Who's this singer?"
+          "de": "Wow, wirklich schön. Wer ist dieser Sänger?",
+          "en": "Wow, it's really pretty. Who's this singer?"
         },
         {
           "speaker": "maya",
@@ -6225,8 +6225,8 @@
         {
           "speaker": "maya",
           "ko": "포토카드나 배지도 있어요. 같이 볼까요?",
-          "de": "Es gibt auch Fotokarten oder Anstecker. Wollen wir mal schauen?",
-          "en": "There are photocards or badges too. Want to look together?"
+          "de": "Es gibt auch Fotokarten und Anstecker. Wollen wir mal schauen?",
+          "en": "There are photocards and badges too. Want to take a look?"
         },
         {
           "speaker": "user",
@@ -6237,8 +6237,8 @@
         {
           "speaker": "maya",
           "ko": "이거 어때요? 이번 앨범 거예요.",
-          "de": "Wie wäre es mit der hier? Die ist aus dem neuen Album.",
-          "en": "How about this one? It's from the new album."
+          "de": "Wie wäre es mit der hier? Die ist aus diesem Album.",
+          "en": "How about this one? It's from this album."
         },
         {
           "speaker": "user",

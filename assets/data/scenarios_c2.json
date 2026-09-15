@@ -4486,8 +4486,8 @@
         {
           "speaker": "official",
           "ko": "죄송하지만 1978년 화재로 그 시기 등기부 원본 일부가 사라져서 기록에 공백이 있습니다.",
-          "de": "Es tut mir leid, aber durch einen Brand 1978 ist ein Teil des Original-Grundbuchs verloren gegangen, deshalb gibt es aus dieser Zeit eine Lücke in den Aufzeichnungen.",
-          "en": "I'm sorry, but part of the original land register from that period was lost in a 1978 fire, so there's a gap in the records."
+          "de": "Es tut mir leid, aber bei einem Brand im Jahr 1978 ist ein Teil der damaligen Grundbuchunterlagen verloren gegangen. Deshalb gibt es für diesen Zeitraum Lücken in den Aufzeichnungen.",
+          "en": "I'm sorry, but some of the original land registry records from that period were lost in a fire in 1978, so there are gaps in the records."
         },
         {
           "speaker": "user",
@@ -4498,8 +4498,8 @@
         {
           "speaker": "official",
           "ko": "아무리 자료가 부족하다 한들 세금 고지서나 이웃 증언 같은 간접 자료로 재구성할 여지가 있습니다.",
-          "de": "Wie unzureichend die Unterlagen auch sein mögen, es gibt Spielraum, sie mit indirekten Nachweisen wie Steuerbescheiden oder Zeugenaussagen von Nachbarn zu rekonstruieren.",
-          "en": "No matter how insufficient the materials may be, there's room to reconstruct it using indirect materials like tax notices or neighbor testimony."
+          "de": "Auch wenn die Unterlagen lückenhaft sind, lässt sich der Sachverhalt möglicherweise anhand indirekter Nachweise wie Steuerbescheiden oder Aussagen von Nachbarn rekonstruieren.",
+          "en": "Even if the records are incomplete, we may still be able to reconstruct what happened using indirect evidence such as tax notices or testimony from neighbors."
         },
         {
           "speaker": "user",
@@ -4523,13 +4523,13 @@
           "speaker": "official",
           "ko": "가장 오래된 세금 고지서부터 연도순으로 내시면 검토가 훨씬 빨라집니다.",
           "de": "Wenn Sie mit den ältesten Steuerbescheiden beginnen und sie der Reihe nach vorlegen, geht die Prüfung viel schneller.",
-          "en": "If you submit starting with the oldest tax notices in order, the review goes much faster."
+          "en": "If you submit the oldest tax notices first and then work forward by year, the review will go much faster."
         },
         {
           "speaker": "user",
           "ko": "네, 알겠어요. 이번 주 안에 모아서 다시 방문할게요.",
           "de": "Ja, verstanden. Ich sammle sie diese Woche und komme dann noch einmal vorbei.",
-          "en": "Yes, got it. I'll gather them this week and come back again."
+          "en": "Yes, got it. I'll gather them this week and come back."
         }
       ],
       "quests": [
@@ -4708,13 +4708,13 @@
         {
           "speaker": "official",
           "ko": "이 위임장은 예금 인출과 이체 업무를 대리하는 것을 전제로 작성돼 있습니다.",
-          "de": "Diese Vollmacht ist unter der Voraussetzung erstellt, dass Abhebungen und Überweisungen stellvertretend vorgenommen werden.",
-          "en": "This power of attorney is drawn up on the premise of representing withdrawals and transfers on the person's behalf."
+          "de": "Diese Vollmacht wurde für die Vertretung bei Abhebungen und Überweisungen ausgestellt.",
+          "en": "This power of attorney authorizes someone to make withdrawals and transfers on the account holder's behalf."
         },
         {
           "speaker": "user",
           "ko": "그럼 예금을 다른 상품으로 옮기는 것도 포함되나요?",
-          "de": "Ist es dann auch eingeschlossen, das Guthaben in ein anderes Produkt umzuschichten?",
+          "de": "Umfasst sie auch die Möglichkeit, das Guthaben in ein anderes Finanzprodukt umzuschichten?",
           "en": "Does that also include moving the funds into a different financial product?"
         },
         {
@@ -4941,13 +4941,13 @@
         {
           "speaker": "moderator",
           "ko": "이번 지원책은 평균 통근 시간을 15분 줄인 것으로 나옵니다.",
-          "de": "Diese Förderung senkt laut den Zahlen die durchschnittliche Pendelzeit um 15 Minuten.",
-          "en": "According to the figures, this subsidy cuts the average commute time by 15 minutes."
+          "de": "Den Zahlen zufolge hat diese Maßnahme die durchschnittliche Pendelzeit um 15 Minuten verkürzt.",
+          "en": "According to the figures, this measure reduced the average commute time by 15 minutes."
         },
         {
           "speaker": "user",
           "ko": "평균만 보면 성공처럼 보이지만 야간 근무자 자료는 따로 봐야 합니다.",
-          "de": "Betrachtet man nur den Durchschnitt, wirkt es wie ein Erfolg, aber die Daten der Nachtschichtarbeiter muss man gesondert betrachten.",
+          "de": "Betrachtet man nur den Durchschnitt, wirkt es wie ein Erfolg, aber die Daten der Nachtschichtbeschäftigten müssen wir gesondert betrachten.",
           "en": "Looking only at the average, it seems like a success, but the data for night-shift workers needs to be looked at separately."
         },
         {
@@ -4959,14 +4959,14 @@
         {
           "speaker": "user",
           "ko": "인원 비율만 보면 작은 문제에 불과하지만 그들에게는 통근 자체가 불가능해집니다.",
-          "de": "Sieht man nur den Anteil, ist es nichts weiter als ein kleines Problem, aber für sie wird das Pendeln selbst unmöglich.",
-          "en": "Looking only at the head-count ratio, it's nothing more than a minor issue, but for them, commuting itself becomes impossible."
+          "de": "Sieht man nur ihren Anteil an der Gesamtzahl, wirkt es wie ein kleines Problem, aber für sie wird das Pendeln überhaupt unmöglich.",
+          "en": "If you only look at their share of the total, it seems like a small problem, but for them commuting becomes impossible."
         },
         {
           "speaker": "moderator",
           "ko": "그럼 이 정책의 효과를 누구의 관점에서 정의하느냐에 따라 결론이 달라진다는 말씀이시죠?",
-          "de": "Sie meinen also, das Ergebnis hängt davon ab, aus wessen Sicht man die Wirkung dieser Politik definiert?",
-          "en": "So you're saying the conclusion changes depending on whose viewpoint defines this policy's effect?"
+          "de": "Sie meinen also, die Schlussfolgerung hängt davon ab, aus wessen Sicht man die Wirkung dieser Politik bewertet?",
+          "en": "So you're saying the conclusion depends on whose perspective we use to judge the policy's impact?"
         },
         {
           "speaker": "user",
@@ -4977,8 +4977,8 @@
         {
           "speaker": "moderator",
           "ko": "그렇다면 야간 근무자를 위한 별도 지원 시간대를 검토해 보겠습니다.",
-          "de": "Dann werden wir ein gesondertes Förderzeitfenster für Nachtschichtarbeiter prüfen.",
-          "en": "Then we'll look into a separate support time window for night-shift workers."
+          "de": "Dann prüfen wir gesonderte Unterstützungszeiten für Nachtschichtbeschäftigte.",
+          "en": "Then we'll look into separate support hours for night-shift workers."
         },
         {
           "speaker": "user",
@@ -5181,14 +5181,14 @@
         {
           "speaker": "user",
           "ko": "책임을 인정한다면 피해자 가족한테 직접 설명하는 자리도 있어야지.",
-          "de": "Wenn man die Verantwortung anerkennt, sollte es auch ein Treffen geben, bei dem man es den Familien der Opfer direkt erklärt.",
-          "en": "If they're going to acknowledge responsibility, there should also be a session to explain it directly to the victims' families."
+          "de": "Wenn man die Verantwortung anerkennt, sollte es auch ein Treffen geben, bei dem den Familien der Opfer direkt erklärt wird, was passiert ist.",
+          "en": "If they're going to acknowledge responsibility, there should also be a meeting where they explain directly to the victims' families what happened."
         },
         {
           "speaker": "sujin",
           "ko": "그러네. 그냥 문서로 끝내면 또 형식적이라는 말 나올 거야.",
-          "de": "Stimmt. Wenn sie es nur mit einem Dokument beenden, wird es wieder heißen, es sei nur eine Formsache.",
-          "en": "True. If they just settle it with a document, people will say again that it's just a formality."
+          "de": "Stimmt. Wenn es bei einem Schreiben bleibt, wird es wieder heißen, das Ganze sei nur Formsache.",
+          "en": "True. If it ends with just a written statement, people will say again that it's only a formality."
         },
         {
           "speaker": "user",
@@ -5386,7 +5386,7 @@
           "speaker": "lena",
           "ko": "관람객 설문을 보면 절반이 작품 의도를 전혀 다르게 이해하고 있습니다.",
           "de": "Laut Besucherumfrage versteht die Hälfte die Absicht des Werks völlig anders.",
-          "en": "According to the visitor survey, half of them understand the work's intent completely differently."
+          "en": "According to the visitor survey, half of the respondents interpret the work's intent completely differently."
         },
         {
           "speaker": "user",
@@ -5404,13 +5404,13 @@
           "speaker": "user",
           "ko": "작품의 의미는 제 의도만이 아니라 관객이 만들어 가는 과정까지 포함한다고 봐요.",
           "de": "Ich finde, die Bedeutung eines Werks umfasst nicht nur meine Absicht, sondern auch den Prozess, den das Publikum mitgestaltet.",
-          "en": "I think the meaning of a work includes not just my intention but also the process the audience builds."
+          "en": "I think the meaning of a work includes not just my intention, but also the way the audience participates in creating that meaning."
         },
         {
           "speaker": "lena",
           "ko": "이해는 하지만 개인적 해석과 무관하게 전시 목적이 관람객 참여 유도라는 것도 무시할 수는 없어요.",
-          "de": "Ich verstehe das, aber unabhängig von der persönlichen Interpretation können wir auch nicht ignorieren, dass das Ausstellungsziel die Beteiligung der Besucher ist.",
-          "en": "I understand, but regardless of personal interpretation, we also can't ignore that the exhibition's purpose is to encourage visitor engagement."
+          "de": "Ich verstehe das, aber unabhängig von persönlichen Interpretationen können wir nicht ignorieren, dass die Ausstellung die Besucher zur Beteiligung anregen soll.",
+          "en": "I understand, but regardless of personal interpretation, we can't ignore that the exhibition is meant to encourage visitor participation."
         },
         {
           "speaker": "user",
@@ -5421,8 +5421,8 @@
         {
           "speaker": "lena",
           "ko": "그럼 문구 대신 짧은 작가 노트 정도는 어때요?",
-          "de": "Wie wäre es dann stattdessen mit einer kurzen Künstlernotiz anstelle einer Beschriftung?",
-          "en": "Then how about a short artist's note instead of a label?"
+          "de": "Wie wäre es dann statt einer Beschriftung mit einem kurzen Künstlerstatement?",
+          "en": "Then how about a short artist statement instead of a label?"
         },
         {
           "speaker": "user",
@@ -5626,7 +5626,7 @@
           "speaker": "official",
           "ko": "맞습니다. 그래서 기산일을 나중에 알게 된 시점부터 계산하는 예외 조항이 있습니다.",
           "de": "Das stimmt. Deshalb gibt es eine Ausnahmeregelung, nach der die Frist erst ab dem Zeitpunkt läuft, an dem man davon erfährt.",
-          "en": "That's right. That's why there's an exception clause that calculates the period from when you actually found out."
+          "en": "That's right. There's an exception under which the limitation period starts from the date you became aware of the facts."
         },
         {
           "speaker": "user",
@@ -5637,14 +5637,14 @@
         {
           "speaker": "official",
           "ko": "그 진단서가 남아 있었기에 망정이지, 안 그랬으면 신청 자체가 어려웠을 거예요.",
-          "de": "Zum Glück ist dieses Attest erhalten geblieben. Sonst wäre der Antrag selbst kaum möglich gewesen.",
-          "en": "It's a good thing that certificate was kept. Otherwise, filing at all would have been difficult."
+          "de": "Gut, dass Sie dieses Attest noch haben. Sonst wäre der Antrag kaum möglich gewesen.",
+          "en": "It's fortunate that you still have that certificate. Otherwise, filing the claim would have been difficult."
         },
         {
           "speaker": "user",
           "ko": "그럼 그 서류부터 다시 찾아볼게요.",
           "de": "Dann suche ich zuerst dieses Dokument wieder heraus.",
-          "en": "Then I'll go find that document again first."
+          "en": "Then I'll look for that document first."
         },
         {
           "speaker": "official",
@@ -5841,7 +5841,7 @@
         {
           "speaker": "clerk",
           "ko": "그 하수구는 옆 동네 경계에 있어서 저희 담당이 아니에요.",
-          "de": "Der Abwasserkanal liegt an der Grenze zum Nachbarbezirk, das fällt nicht in unseren Zuständigkeitsbereich.",
+          "de": "Der Abwasserkanal liegt an der Grenze zum Nachbarbezirk. Das fällt nicht in unseren Zuständigkeitsbereich.",
           "en": "That drain is right at the border with the next district, so it's not our department's responsibility."
         },
         {
@@ -5865,8 +5865,8 @@
         {
           "speaker": "official",
           "ko": "제가 시설과 담당자예요. 배관 소유 확인부터 해 드릴게요.",
-          "de": "Ich bin von der Anlagenverwaltung zuständig. Ich prüfe zuerst, wem die Leitung gehört.",
-          "en": "I'm the one responsible from facilities management. Let me first check who owns the pipe."
+          "de": "Ich bin in der Anlagenverwaltung dafür zuständig. Ich prüfe zuerst, wem die Leitung gehört.",
+          "en": "I'm responsible for this in facilities management. Let me first check who owns the pipe."
         },
         {
           "speaker": "user",
@@ -6063,8 +6063,8 @@
         {
           "speaker": "user",
           "ko": "요즘 네가 좀 지쳐 보여서, 우리 이 얘기 한번 제대로 해야 할 것 같아.",
-          "de": "Du wirkst in letzter Zeit ziemlich erschöpft, ich glaube, wir sollten das mal richtig besprechen.",
-          "en": "You've seemed pretty worn out lately, I think we need to really talk this through."
+          "de": "Du wirkst in letzter Zeit ziemlich erschöpft. Ich glaube, wir sollten das mal richtig besprechen.",
+          "en": "You've seemed pretty worn out lately. I think we need to really talk this through."
         },
         {
           "speaker": "daniel",
@@ -6075,14 +6075,14 @@
         {
           "speaker": "user",
           "ko": "우리가 처음에 공동 대표를 전제로 시작했는데 그 부분을 놓쳤네.",
-          "de": "Wir sind ja ursprünglich unter der Voraussetzung gleichberechtigter Gründer gestartet, und genau das haben wir übersehen.",
+          "de": "Wir sind doch ursprünglich als gleichberechtigte Mitgründer gestartet. Da haben wir etwas aus den Augen verloren.",
           "en": "We started on the premise of being equal co-founders, and we overlooked exactly that part."
         },
         {
           "speaker": "daniel",
           "ko": "고마워. 근데 이제는 지분보다 그냥 조용히 나가고 싶은 마음이 더 커.",
-          "de": "Danke. Aber inzwischen wiegt der Wunsch, einfach ruhig auszusteigen, schwerer als die Anteile.",
-          "en": "Thanks. But at this point, the wish to just quietly step away outweighs the shares."
+          "de": "Danke. Aber inzwischen ist mir wichtiger, einfach in Ruhe auszusteigen, als um meine Anteile zu kämpfen.",
+          "en": "Thanks. But at this point, I care more about leaving quietly than holding on to my shares."
         },
         {
           "speaker": "user",
@@ -6099,8 +6099,8 @@
         {
           "speaker": "user",
           "ko": "다음 작품에도 네 이름 크게 넣을게. 그건 진심이야.",
-          "de": "Ich werde deinen Namen auch beim nächsten Projekt groß mit reinnehmen. Das meine ich ernst.",
-          "en": "I'll put your name prominently on the next project too. I mean that sincerely."
+          "de": "Beim nächsten Projekt wird dein Name genauso prominent stehen. Das meine ich ernst.",
+          "en": "I'll make sure your name is just as prominent on the next project. I mean that."
         },
         {
           "speaker": "daniel",
@@ -6284,26 +6284,26 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "제 2차 창작을 그대로 편집해서 유료로 판매한 계정을 신고했는데 아직 조치가 없어요.",
-          "de": "Ich habe einen Account gemeldet, der mein Fanwerk unverändert bearbeitet und kostenpflichtig verkauft hat, aber es gab noch keine Maßnahme.",
-          "en": "I reported an account that edited my fan work as-is and sold it for money, but there's been no action yet."
+          "ko": "제 2차 창작물을 거의 그대로 가져가 편집해서 유료로 판매한 계정을 신고했는데 아직 조치가 없어요.",
+          "de": "Ich habe einen Account gemeldet, der mein Fanwerk fast unverändert übernommen, bearbeitet und verkauft hat, aber bisher ist nichts passiert.",
+          "en": "I reported an account that copied my fan work almost as-is, edited it, and sold it, but nothing has happened yet."
         },
         {
           "speaker": "moderator",
           "ko": "확인해 보니 경고 메시지를 보내는 데 그친 상태였습니다.",
-          "de": "Bei der Prüfung hat sich gezeigt, dass es bei einer Warnmeldung geblieben ist.",
-          "en": "On checking, it turned out things stopped at sending a warning message."
+          "de": "Bei der Prüfung hat sich gezeigt, dass bisher nur eine Verwarnung ausgesprochen wurde.",
+          "en": "I checked, and it looks like only a warning has been sent so far."
         },
         {
           "speaker": "user",
           "ko": "판매까지 한 계정인데 경고만으로 끝내는 건 너무 약한 대응 아닌가요?",
-          "de": "Der Account hat sogar verkauft. Reicht da eine bloße Warnung nicht viel zu schwach?",
-          "en": "The account actually sold it. Isn't a mere warning much too weak a response?"
+          "de": "Der Account hat das Werk sogar verkauft. Ist eine bloße Warnung da nicht viel zu wenig?",
+          "en": "They even sold the work. Isn't a warning far too weak a response?"
         },
         {
           "speaker": "moderator",
           "ko": "장르나 팬덤 규모를 불문하고 상업적 이용은 계정 정지 대상이 맞습니다.",
-          "de": "Unabhängig von Genre oder Fandom-Größe führt kommerzielle Nutzung eigentlich zur Kontosperrung.",
+          "de": "Unabhängig von Genre oder Größe des Fandoms ist kommerzielle Nutzung ein Grund für eine Kontosperrung.",
           "en": "Regardless of genre or fandom size, commercial use is in fact grounds for suspension."
         },
         {
@@ -6315,13 +6315,13 @@
         {
           "speaker": "moderator",
           "ko": "판정 실수였습니다. 다시 검토해서 정지 조치로 올리겠습니다.",
-          "de": "Das war ein Beurteilungsfehler. Wir prüfen es erneut und stufen es zur Sperrung hoch.",
-          "en": "That was a misjudgment. We'll review it again and escalate it to a suspension."
+          "de": "Das war ein Beurteilungsfehler. Wir prüfen den Fall erneut und leiten eine Kontosperrung ein.",
+          "en": "That was a mistake in our review. We'll reassess the case and escalate it to a suspension."
         },
         {
           "speaker": "user",
           "ko": "감사해요. 그리고 이견이 있는 분들도 신고 대신 댓글로 의견을 남겨 주셨으면 해요.",
-          "de": "Danke. Und ich würde mir wünschen, dass Leute mit anderer Meinung ihre Sicht per Kommentar äußern, statt zu melden.",
+          "de": "Danke. Und ich würde mir wünschen, dass Leute mit anderer Meinung ihre Sicht in den Kommentaren äußern, statt den Beitrag zu melden.",
           "en": "Thank you. And I'd also like people who disagree to leave their views in comments instead of reporting."
         },
         {

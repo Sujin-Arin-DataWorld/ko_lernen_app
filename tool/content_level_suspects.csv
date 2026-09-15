@@ -1693,6 +1693,7 @@ scenario,a1_w10_fandom,a1,a2,1,over1 grammar_ids_max=2,,,step_up_or_swap
 scenario,a1_w10_partner,a1,a2,1,over1 grammar_ids_max=2,,,step_up_or_swap
 scenario,a1_w10_phone,a1,a2,1,over1 dialog_p75=1.5,,,step_up_or_swap
 scenario,a1_w10_taxi_stay,a1,a2,1,over1 dialog_p75=1.5,,,step_up_or_swap
+scenario,a2_w10_apt,a2,b1,1,over1 dialog_p75=2.8,,,step_up_or_swap
 scenario,after_hours_messages,c1,b1,-2,under2 grammar_ids_max=3,,,downgrade_candidate
 scenario,ai_hiring_appeal,c2,b2,-2,under2 dialog_p75=4.0,,,downgrade_candidate
 scenario,ai_translation_voice_loss,c1,b1,-2,under2 dialog_p75=3.0,,,downgrade_candidate
