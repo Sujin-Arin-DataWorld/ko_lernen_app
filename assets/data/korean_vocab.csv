@@ -2498,3 +2498,67 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 지식,jisik,Wissen,B2,Nomen,지식보다 경험이 더 중요할 때도 있어요.,Manchmal ist Erfahrung wichtiger als Wissen.,Bildung,b2_education,9,false,knowledge,Noun,Sometimes experience matters more than knowledge.,vocab_b2_0655
 과제,gwaje,Aufgabe; Hausarbeit (Uni),B2,Nomen,이번 학기 과제는 팀으로 진행해요.,Die Hausarbeit in diesem Semester machen wir im Team.,Bildung,b2_education,10,false,assignment,Noun,This semester's assignment is done in teams.,vocab_b2_0656
 성과,seonggwa,"Ergebnis, Leistung",B2,Nomen,일 년 동안의 연구 성과를 발표했어요.,Ich habe die Forschungsergebnisse eines Jahres vorgestellt.,Bildung,b2_education,11,false,"result, achievement",Noun,I presented the results of a year's research.,vocab_b2_0657
+회사원,hoesawon,"Angestellte/r, Büroangestellte/r",A1,Nomen,크리스티안은 회사원이에요.,Christian ist Angestellter.,Person,a1_self_intro,9,false,office worker,Noun,Christian is an office worker.,vocab_a1_0459
+주부,jubu,Hausfrau/Hausmann,A1,Nomen,제 어머니는 주부예요.,Meine Mutter ist Hausfrau.,Person,a1_self_intro,10,false,"housewife, homemaker",Noun,My mother is a housewife.,vocab_a1_0460
+누구,nugu,wer,A1,Pronomen,저 사람은 누구예요?,Wer ist die Person dort?,Person,a1_self_intro,11,false,who,Pronoun,Who is that person?,vocab_a1_0461
+여러분,yeoreobun,alle (Anrede an eine Gruppe),A1,Pronomen,"여러분, 안녕하세요!","Hallo, alle zusammen!",Person,a1_self_intro,12,false,"everyone, all of you",Pronoun,"Hello, everyone!",vocab_a1_0462
+우유,uyu,Milch,A1,Nomen,아침에 우유를 마셔요.,Am Morgen trinke ich Milch.,Essen & Trinken,a1_food_2,9,false,milk,Noun,I drink milk in the morning.,vocab_a1_0463
+귤,gyul,Mandarine,A1,Nomen,저는 귤을 좋아해요.,Ich mag Mandarinen.,Essen & Trinken,a1_food_2,10,false,"tangerine, mandarin orange",Noun,I like tangerines.,vocab_a1_0464
+바나나,banana,Banane,A1,Nomen,저는 바나나를 좋아해요.,Ich mag Bananen.,Essen & Trinken,a1_food_2,11,false,banana,Noun,I like bananas.,vocab_a1_0465
+케이크,keikeu,"Kuchen, Torte",A1,Nomen,생일에 케이크를 먹어요.,Am Geburtstag isst man Kuchen.,Essen & Trinken,a1_food_2,12,false,cake,Noun,We eat cake on birthdays.,vocab_a1_0466
+모레,more,übermorgen,A1,Adverb,모레 다시 만나요.,Wir treffen uns übermorgen wieder.,Zeit,a1_time_2,9,false,the day after tomorrow,Adverb,Let's meet again the day after tomorrow.,vocab_a1_0467
+그저께,geujeokke,vorgestern,A1,Adverb,그저께 학교에 안 갔어요.,Vorgestern bin ich nicht zur Schule gegangen.,Zeit,a1_time_2,10,false,the day before yesterday,Adverb,I didn't go to school the day before yesterday.,vocab_a1_0468
+작년,jangnyeon,letztes Jahr,A1,Nomen,작년에 한국에 왔어요.,Letztes Jahr bin ich nach Korea gekommen.,Zeit,a1_time_2,11,false,last year,Noun,I came to Korea last year.,vocab_a1_0469
+내년,naenyeon,nächstes Jahr,A1,Nomen,내년에 독일에 가요.,Nächstes Jahr fahre ich nach Deutschland.,Zeit,a1_time_2,12,false,next year,Noun,Next year I'm going to Germany.,vocab_a1_0470
+한,han,ein(e) (Zählwort),A1,Adjektiv,친구가 한 명 있어요.,Ich habe einen Freund.,Menge,a1_numbers_3,9,false,one (counter modifier),Adjective,I have one friend.,vocab_a1_0471
+두,du,zwei (Zählwort),A1,Adjektiv,친구가 두 명 있어요.,Ich habe zwei Freunde.,Menge,a1_numbers_3,10,false,two (counter modifier),Adjective,I have two friends.,vocab_a1_0472
+세,se,drei (Zählwort),A1,Adjektiv,가족이 세 명이에요.,Meine Familie hat drei Personen.,Menge,a1_numbers_3,11,false,three (counter modifier),Adjective,My family has three people.,vocab_a1_0473
+어느,eoneu,welche(r/s),A1,Adjektiv,어느 나라에서 왔어요?,Aus welchem Land kommen Sie?,Menge,a1_numbers_3,12,false,which,Adjective,Which country are you from?,vocab_a1_0474
+이따가,ittaga,"später, gleich",A1,Adverb,이따가 학교에 가요.,Ich gehe später zur Schule.,Zeit,a1_time_3,9,false,"later, in a bit",Adverb,I'll go to school later.,vocab_a1_0475
+바로,baro,"sofort, direkt",A1,Adverb,저는 지금 바로 가요.,Ich gehe jetzt sofort.,Zeit,a1_time_3,10,false,"right away, immediately",Adverb,I'm going right now.,vocab_a1_0476
+주로,juro,"hauptsächlich, meistens",A1,Adverb,저는 주로 아침에 커피를 마셔요.,Ich trinke morgens meistens Kaffee.,Zeit,a1_time_3,11,false,"mainly, usually",Adverb,I usually drink coffee in the morning.,vocab_a1_0477
+어서,eoseo,schnell; (어서 오세요) willkommen,A1,Adverb,어서 오세요!,Herzlich willkommen!,Zeit,a1_time_3,12,false,"quickly, please (go ahead)",Adverb,Welcome!,vocab_a1_0478
+예,ye,ja (formell),A1,Ausdruck,"예, 알겠습니다.","Ja, verstanden.",Höflichkeit,a1_greetings_2,9,false,yes (formal),Expression,"Yes, understood.",vocab_a1_0479
+글쎄요,geulsseyo,Na ja... (unsicher),A1,Ausdruck,"글쎄요, 모르겠어요.","Na ja, ich weiß es nicht.",Höflichkeit,a1_greetings_2,10,false,well... (hedging),Expression,Well... I don't know.,vocab_a1_0480
+와,wa,Wow!,A1,Ausdruck,"와, 정말 좋아요!","Wow, das ist wirklich toll!",Höflichkeit,a1_greetings_2,11,false,wow,Expression,"Wow, that's really great!",vocab_a1_0481
+음,eum,Hm...,A1,Ausdruck,"음, 모르겠어요.","Hm, ich weiß es nicht.",Höflichkeit,a1_greetings_2,12,false,hmm,Expression,"Hmm, I don't know.",vocab_a1_0482
+다,da,"alle(s), ganz",A1,Adverb,밥을 다 먹었어요.,Ich habe alles aufgegessen.,Alltag,a1_daily_4,9,false,"all, entirely",Adverb,I ate everything.,vocab_a1_0483
+좀,jom,"ein bisschen, bitte",A1,Adverb,물 좀 주세요.,Bitte geben Sie mir etwas Wasser.,Alltag,a1_daily_4,10,false,"a bit, please",Adverb,Please give me some water.,vocab_a1_0484
+꼭,kkok,"unbedingt, bestimmt",A1,Adverb,내일 꼭 오세요.,Kommen Sie morgen unbedingt.,Alltag,a1_daily_4,11,false,"surely, without fail",Adverb,Please be sure to come tomorrow.,vocab_a1_0485
+함께,hamkke,zusammen,A1,Adverb,우리 함께 가요.,Lass uns zusammen gehen.,Alltag,a1_daily_4,12,false,together,Adverb,Let's go together.,vocab_a1_0486
+물건,mulgeon,"Ding, Sache, Ware",A1,Nomen,이 물건을 주세요.,Geben Sie mir bitte diesen Artikel.,결제와 배달,a1_payment_delivery_1,9,false,"item, thing",Noun,Please give me this item.,vocab_a1_0487
+값,gap,Preis,A1,Nomen,이 신발 값이 싸요.,Diese Schuhe sind billig.,결제와 배달,a1_payment_delivery_1,10,false,price,Noun,These shoes are cheap.,vocab_a1_0488
+필요,piryo,"Bedarf, Notwendigkeit",A1,Nomen,물이 필요해요.,Ich brauche Wasser.,결제와 배달,a1_payment_delivery_1,11,false,"need, necessity",Noun,I need water.,vocab_a1_0489
+가게,gage,"Laden, Geschäft",A1,Nomen,이 가게는 커피가 맛있어요.,In diesem Laden ist der Kaffee lecker.,결제와 배달,a1_payment_delivery_1,12,false,"shop, store",Noun,The coffee at this shop is delicious.,vocab_a1_0490
+인사,insa,"Gruß, Begrüßung",A1,Nomen,저는 매일 인사를 해요.,Ich sage jeden Tag Hallo.,Höflichkeit,a1_greetings_1,10,false,greeting,Noun,I greet people every day.,vocab_a1_0491
+축하,chukha,Glückwunsch,A1,Nomen,생일 축하해요!,Alles Gute zum Geburtstag!,Höflichkeit,a1_greetings_1,11,false,congratulations,Noun,Happy birthday!,vocab_a1_0492
+여보세요,yeoboseyo,Hallo? (am Telefon),A1,Ausdruck,"여보세요, 크리스티안이에요.","Hallo, hier ist Christian.",Begrüßung,a1_greetings_1,12,false,hello (on the phone),Expression,"Hello, this is Christian.",vocab_a1_0493
+안경,angyeong,Brille,A1,Nomen,저는 안경을 써요.,Ich trage eine Brille.,Alltag,a1_daily_1,10,false,glasses,Noun,I wear glasses.,vocab_a1_0494
+모자,moja,"Hut, Mütze",A1,Nomen,오늘 모자를 썼어요.,Heute habe ich eine Mütze getragen.,Alltag,a1_daily_1,11,false,hat,Noun,Today I wore a hat.,vocab_a1_0495
+신발,sinbal,Schuhe,A1,Nomen,신발이 아주 작아요.,Die Schuhe sind sehr klein.,Alltag,a1_daily_1,12,false,shoes,Noun,The shoes are very small.,vocab_a1_0496
+할머니,halmeoni,Oma,A1,Nomen,할머니가 저를 사랑하세요.,Meine Oma liebt mich.,Familie,a1_family_1,10,false,grandmother,Noun,My grandmother loves me.,vocab_a1_0497
+할아버지,harabeoji,Opa,A1,Nomen,할아버지는 신문을 읽으세요.,Mein Opa liest Zeitung.,Familie,a1_family_1,11,false,grandfather,Noun,My grandfather reads the newspaper.,vocab_a1_0498
+부모님,bumonim,Eltern,A1,Nomen,부모님이 이번 주에 오세요.,Meine Eltern kommen diese Woche.,Familie,a1_family_1,12,false,parents,Noun,My parents are coming this week.,vocab_a1_0499
+아이스크림,aiseukeurim,"Eis, Eiscreme",A1,Nomen,저는 아이스크림을 자주 먹어요.,Ich esse oft Eis.,Essen & Trinken,a1_food_1,10,false,ice cream,Noun,I eat ice cream often.,vocab_a1_0500
+초콜릿,chokollit,Schokolade,A1,Nomen,저는 초콜릿을 정말 좋아해요.,Ich mag Schokolade wirklich.,Essen & Trinken,a1_food_1,11,false,chocolate,Noun,I really like chocolate.,vocab_a1_0501
+주스,juseu,Saft,A1,Nomen,오렌지 주스가 맛있어요.,Orangensaft ist lecker.,Essen & Trinken,a1_food_1,12,false,juice,Noun,Orange juice is delicious.,vocab_a1_0502
+낮,nat,Tag(eszeit),A1,Nomen,낮에 친구를 만나요.,Ich treffe tagsüber einen Freund.,Zeit,a1_time_1,10,false,daytime,Noun,I meet a friend during the day.,vocab_a1_0503
+날,nal,Tag,A1,Nomen,오늘은 아주 좋은 날이에요.,Heute ist ein sehr guter Tag.,Zeit,a1_time_1,11,false,day,Noun,Today is a very good day.,vocab_a1_0504
+날짜,naljja,Datum,A1,Nomen,오늘 날짜가 며칠이에요?,Welches Datum ist heute?,Zeit,a1_time_1,12,false,date,Noun,What's today's date?,vocab_a1_0505
+딸,ttal,Tochter,A1,Nomen,제 딸은 다섯 살이에요.,Meine Tochter ist fünf Jahre alt.,Familie,a1_family_2,10,false,daughter,Noun,My daughter is five years old.,vocab_a1_0506
+돕다,dopda,helfen,A1,Verb,저는 친구를 도와요.,Ich helfe meinem Freund.,Beziehungen,a1_family_2,11,false,to help,Verb,I help my friend.,vocab_a1_0507
+도와주다,dowajuda,"(jmdm.) helfen, einen Gefallen tun",A1,Verb,언니가 저를 도와줘요.,Meine große Schwester hilft mir.,Beziehungen,a1_family_2,12,false,"to help (someone), to do a favor",Verb,My older sister helps me.,vocab_a1_0508
+가지다,gajida,"haben, besitzen",A1,Verb,저는 책을 가지고 있어요.,Ich habe ein Buch dabei.,Alltag,a1_daily_2,10,false,"to have, to own",Verb,I have a book with me.,vocab_a1_0509
+끝나다,kkeunnada,"enden, zu Ende sein",A1,Verb,수업이 세 시에 끝나요.,Der Unterricht endet um drei Uhr.,Alltag,a1_daily_2,11,false,"to end, to finish",Verb,Class ends at three o'clock.,vocab_a1_0510
+다니다,danida,"(regelmäßig) besuchen, gehen",A1,Verb,저는 매일 학교에 다녀요.,Ich gehe jeden Tag zur Schule.,Alltag,a1_daily_2,12,false,"to attend, to go regularly",Verb,I go to school every day.,vocab_a1_0511
+고르다,goreuda,(aus)wählen,A1,Verb,저는 이 옷을 골랐어요.,Ich habe diese Kleidung ausgewählt.,Einkaufen,a1_misc_2,10,false,"to choose, to pick",Verb,I chose these clothes.,vocab_a1_0512
+빌리다,billida,"leihen, ausleihen",A1,Verb,저는 친구한테 책을 빌려요.,Ich leihe mir ein Buch von meinem Freund.,Einkaufen,a1_misc_2,11,false,"to borrow, to rent",Verb,I borrow a book from my friend.,vocab_a1_0513
+팔다,palda,verkaufen,A1,Verb,이 가게는 과일을 팔아요.,Dieser Laden verkauft Obst.,Einkaufen,a1_misc_2,12,false,to sell,Verb,This shop sells fruit.,vocab_a1_0514
+이십,isip,zwanzig,A1,Nomen,이 버스는 이십 번이에요.,Dieser Bus hat die Nummer zwanzig.,Zahlen,a1_numbers_1,10,false,twenty,Noun,This bus is number twenty.,vocab_a1_0515
+삼십,samsip,dreißig,A1,Nomen,제 방은 삼십 호예요.,Mein Zimmer ist Nummer dreißig.,Zahlen,a1_numbers_1,11,false,thirty,Noun,My room is number thirty.,vocab_a1_0516
+사십,sasip,vierzig,A1,Nomen,우리 학교에는 학생이 사십 명 있어요.,An unserer Schule gibt es vierzig Schüler.,Zahlen,a1_numbers_1,12,false,forty,Noun,There are forty students at our school.,vocab_a1_0517
+오십,osip,fünfzig,A1,Nomen,이 학교에는 선생님이 오십 명 있어요.,An dieser Schule gibt es fünfzig Lehrer.,Zahlen,a1_numbers_2,10,false,fifty,Noun,This school has fifty teachers.,vocab_a1_0518
+육십,yuksip,sechzig,A1,Nomen,제 방은 육십 층에 있어요.,Mein Zimmer ist im sechzigsten Stock.,Zahlen,a1_numbers_2,11,false,sixty,Noun,My room is on the sixtieth floor.,vocab_a1_0519
+칠십,chilsip,siebzig,A1,Nomen,이 버스는 칠십 번이에요.,Dieser Bus hat die Nummer siebzig.,Zahlen,a1_numbers_2,12,false,seventy,Noun,This bus is number seventy.,vocab_a1_0520
+목,mok,"Hals, Nacken",A1,Nomen,제 목이 길어요.,Mein Hals ist lang.,Körper,a1_body,11,false,"neck, throat",Noun,My neck is long.,vocab_a1_0521
+얼굴,eolgul,Gesicht,A1,Nomen,제 얼굴이 작아요.,Mein Gesicht ist klein.,Körper,a1_body,12,false,face,Noun,My face is small.,vocab_a1_0522

@@ -160,8 +160,8 @@ void main() {
   final items = sourceRows.map(ClozeItem.fromJson).toList(growable: false);
   final canonicalTopics = items.map((item) => item.topic).toSet();
 
-  test('accepted canonical baseline is exactly 1,895 items and 128 topics', () {
-    expect(items, hasLength(1895));
+  test('accepted canonical baseline is exactly 1,959 items and 128 topics', () {
+    expect(items, hasLength(1959));
     expect(canonicalTopics, hasLength(128));
     expect(items.every((item) => item.topic.trim().isNotEmpty), isTrue);
     expect(items.every((item) => item.hasExplicitId), isTrue);

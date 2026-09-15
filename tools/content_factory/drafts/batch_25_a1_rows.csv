@@ -21,7 +21,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 어서,eoseo,schnell; (어서 오세요) willkommen,A1,Adverb,어서 오세요!,Herzlich willkommen!,Zeit,a1_time_3,12,false,"quickly, please (go ahead)",Adverb,Welcome!,vocab_a1_0478
 예,ye,ja (formell),A1,Ausdruck,"예, 알겠습니다.","Ja, verstanden.",Höflichkeit,a1_greetings_2,9,false,yes (formal),Expression,"Yes, understood.",vocab_a1_0479
 글쎄요,geulsseyo,Na ja... (unsicher),A1,Ausdruck,"글쎄요, 모르겠어요.","Na ja, ich weiß es nicht.",Höflichkeit,a1_greetings_2,10,false,well... (hedging),Expression,Well... I don't know.,vocab_a1_0480
-와,wa,Wow!,A1,Ausdruck,"와, 진짜 좋아요!","Wow, das ist wirklich toll!",Höflichkeit,a1_greetings_2,11,false,wow,Expression,"Wow, that's really great!",vocab_a1_0481
+와,wa,Wow!,A1,Ausdruck,"와, 정말 좋아요!","Wow, das ist wirklich toll!",Höflichkeit,a1_greetings_2,11,false,wow,Expression,"Wow, that's really great!",vocab_a1_0481
 음,eum,Hm...,A1,Ausdruck,"음, 모르겠어요.","Hm, ich weiß es nicht.",Höflichkeit,a1_greetings_2,12,false,hmm,Expression,"Hmm, I don't know.",vocab_a1_0482
 다,da,"alle(s), ganz",A1,Adverb,밥을 다 먹었어요.,Ich habe alles aufgegessen.,Alltag,a1_daily_4,9,false,"all, entirely",Adverb,I ate everything.,vocab_a1_0483
 좀,jom,"ein bisschen, bitte",A1,Adverb,물 좀 주세요.,Bitte geben Sie mir etwas Wasser.,Alltag,a1_daily_4,10,false,"a bit, please",Adverb,Please give me some water.,vocab_a1_0484
@@ -41,7 +41,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 할아버지,harabeoji,Opa,A1,Nomen,할아버지는 신문을 읽으세요.,Mein Opa liest Zeitung.,Familie,a1_family_1,11,false,grandfather,Noun,My grandfather reads the newspaper.,vocab_a1_0498
 부모님,bumonim,Eltern,A1,Nomen,부모님이 이번 주에 오세요.,Meine Eltern kommen diese Woche.,Familie,a1_family_1,12,false,parents,Noun,My parents are coming this week.,vocab_a1_0499
 아이스크림,aiseukeurim,"Eis, Eiscreme",A1,Nomen,저는 아이스크림을 자주 먹어요.,Ich esse oft Eis.,Essen & Trinken,a1_food_1,10,false,ice cream,Noun,I eat ice cream often.,vocab_a1_0500
-초콜릿,chokollit,Schokolade,A1,Nomen,저는 초콜릿을 진짜 좋아해요.,Ich mag Schokolade wirklich.,Essen & Trinken,a1_food_1,11,false,chocolate,Noun,I really like chocolate.,vocab_a1_0501
+초콜릿,chokollit,Schokolade,A1,Nomen,저는 초콜릿을 정말 좋아해요.,Ich mag Schokolade wirklich.,Essen & Trinken,a1_food_1,11,false,chocolate,Noun,I really like chocolate.,vocab_a1_0501
 주스,juseu,Saft,A1,Nomen,오렌지 주스가 맛있어요.,Orangensaft ist lecker.,Essen & Trinken,a1_food_1,12,false,juice,Noun,Orange juice is delicious.,vocab_a1_0502
 낮,nat,Tag(eszeit),A1,Nomen,낮에 친구를 만나요.,Ich treffe tagsüber einen Freund.,Zeit,a1_time_1,10,false,daytime,Noun,I meet a friend during the day.,vocab_a1_0503
 날,nal,Tag,A1,Nomen,오늘은 아주 좋은 날이에요.,Heute ist ein sehr guter Tag.,Zeit,a1_time_1,11,false,day,Noun,Today is a very good day.,vocab_a1_0504

@@ -1,13 +1,18 @@
 {
   "version": 1,
   "batch": "c3_batch25_a1_reinforcement",
-  "status": "draft",
+  "status": "merged",
   "provenance": {
     "scope": "A1(1급) vocabulary reinforcement — 64 headwords from the F2 A1 missing-321 list, filling 19 existing A1 packs to 12 words each. Original clean-room authoring (KO/DE/EN), seeded only by NIKL 2017 kiiq grade-1 headword selection (KOGL Type-1).",
     "rights": "original_clean_room",
     "seedSource": "docs/data/level_bible/F2_vocab_coverage.md (1급 결손 321어)",
     "requiresJinReview": true,
-    "approval": {},
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-09-15",
+      "source": "owner chat: 'batch_25_a1_jin_sample 승인'",
+      "sample": "7/64 rows"
+    },
     "modelLanguageQa": "PENDING_FABLE_REVIEW",
     "humanLanguageQaClaim": false
   },
@@ -15,23 +20,26 @@
     {
       "kind": "vocab",
       "draft": "tools/content_factory/drafts/batch_25_a1_rows.csv",
-      "collection": "korean_vocab",
+      "collection": null,
       "count": 64,
-      "level": "A1"
+      "level": "A1",
+      "review": "tools/content_factory/review/batch_25_a1_vocab_review.csv"
     },
     {
       "kind": "cloze",
       "draft": "tools/content_factory/drafts/batch_25_a1_cloze.json",
-      "collection": "cloze_items",
+      "collection": "items",
       "count": 64,
-      "level": "A1"
+      "level": "A1",
+      "review": "tools/content_factory/review/batch_25_a1_cloze_review.csv"
     },
     {
       "kind": "satz",
       "draft": "tools/content_factory/drafts/batch_25_a1_satz.json",
-      "collection": "satz_items",
+      "collection": "items",
       "count": 64,
-      "level": "A1"
+      "level": "A1",
+      "review": "tools/content_factory/review/batch_25_a1_satz_review.csv"
     }
   ],
   "recordCount": 192,
@@ -59,10 +67,10 @@
   "newPacks": [],
   "reviewPacket": "docs/data/review_packets/batch_25_a1_jin_sample.md",
   "promotion": {
-    "runtime": false,
-    "assetsDataWritten": false,
-    "tts": false,
+    "runtime": true,
+    "assetsDataWritten": true,
+    "tts": true,
     "firebase": false,
-    "note": "DRAFT ONLY per level-canon program hard rule — no writes to assets/data/**, no TTS synthesis, no Firebase until Jin approval."
+    "note": "Promoted 2026-09-15 (C3-T2) after Jin approval. TTS synthesized and verified (100 new clips, missing=0 2026-09-15)."
   }
 }
