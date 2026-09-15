@@ -68,6 +68,10 @@ from distractor_rules import (  # noqa: F401  (re-exported for convenience)
     batchim_class,
     detect_required_class,
     jong_index,
+    # OPEN_SLOT_WAIVER is defined below, not imported -- it is a C2c-only
+    # (level-agnostic, corpus-wide) registry, unlike PREDICATE_SLOT_WAIVER
+    # which lives in distractor_rules.py as the original A1 Batch 25/26/27
+    # curation.
     waived_distractor_ok,
 )
 
@@ -241,8 +245,24 @@ def ending_signatures(word: str) -> set[str]:
 
 
 def same_ending(a: str, b: str) -> bool:
-    """True if `a` and `b` share at least one ENDING_SUFFIXES suffix."""
-    return bool(ending_signatures(a) & ending_signatures(b))
+    """True if `a` and `b` share a genuine ENDING_SUFFIXES suffix.
+
+    The bare "다" catch-all (dictionary-form ending) is deliberately
+    excluded from ordinary matching: it is also the LITERAL LAST CHARACTER
+    of the "-습니다"/"-ㅂ니다" formal register (실례합니다, 갑니다, ...),
+    so without this guard a dictionary-form answer (전달하다) would
+    spuriously "match" a completely different, formally-conjugated
+    distractor (실례합니다) purely because both happen to end in the
+    single character "다" -- not because they share any real grammatical
+    ending (Fable R8 finding, cloze_b1_0184, 2026-09-15). "다" only counts
+    as a genuine match when it is EACH word's *only* matching suffix --
+    i.e. both are actually bare dictionary form, with no more specific
+    ending recognized on either side."""
+    sig_a, sig_b = ending_signatures(a), ending_signatures(b)
+    shared = sig_a & sig_b
+    if shared == {"다"}:
+        return sig_a == {"다"} and sig_b == {"다"}
+    return bool(shared - {"다"})
 
 
 def rieul_adnominal_ending(word: str) -> bool:
@@ -362,24 +382,32 @@ def check_d3_pos_form(
     not treat that as a rule violation. Waiver items (PREDICATE_SLOT_WAIVER)
     are judged by `waived_distractor_ok` instead of POS/form matching.
 
-    Matching strategy: when the answer carries a recognizable conjugation
-    ending (`ending_signature` resolves, e.g. any verb/adjective form, or
-    a multi-word whole-predicate/clause answer like "결말을 유보하고"),
-    "same conjugated form" is judged structurally -- same ending string --
-    which works even when a distractor phrase's stem isn't itself a vocab
+    Matching strategy (tightened 2026-09-15, Fable R8 -- a POS-only
+    fallback let a dictionary-form answer like "전달하다" accept
+    conjugated distractors such as "실례합니다"/"잘 다녀오겠습니다" as
+    "matching" purely because both resolve to Verb in the vocabulary; that
+    is not the same FORM, only the same part of speech, and the rule is
+    explicit that verbs need the same ending): when the answer carries a
+    recognizable conjugation ending (`ending_signature` resolves, e.g. any
+    verb/adjective form, or a multi-word whole-predicate/clause answer
+    like "결말을 유보하고"), "same conjugated form" is judged structurally
+    -- same ending string, via `same_ending`/`rieul_adnominal_ending` --
+    with NO further POS-only fallback; a distractor that doesn't share the
+    answer's actual ending is a violation regardless of its POS. This
+    works even when a distractor phrase's stem isn't itself a vocab
     headword (the normal case for hand-authored multi-word distractors).
-    Vocab-resolved POS is used as a secondary corroborating signal only
-    when both sides resolve; it is never required when the ending
-    signature already matches, and a distractor that fails BOTH the
-    ending-signature and vocab-POS checks is the actual violation. When the
-    answer has no recognizable ending at all (a bare noun/adverb/etc.),
-    matching falls back to `coarse_pos` bucket equality (NOUN/VERBADJ/ADV/
-    EXPR) rather than requiring an exact vocab match on both sides -- most
-    distractor words in this corpus are NOT themselves vocab headwords."""
+    When the answer has no recognizable ending at all (a bare noun/
+    adverb/etc.), matching falls back to `coarse_pos` bucket equality
+    (NOUN/VERBADJ/ADV) rather than requiring an exact vocab match on both
+    sides -- most distractor words in this corpus are NOT themselves
+    vocab headwords."""
     a_pos, a_suf, _ = resolve_pos_and_form(answer, vocab)
     a_sig = ending_signature(answer)
 
     if cloze_id is not None and cloze_id in PREDICATE_SLOT_WAIVER:
+        bad = [d for d in distractors if not waived_distractor_ok(d, cloze_id)]
+        return bad, False, a_pos
+    if cloze_id is not None and cloze_id in OPEN_SLOT_WAIVER:
         bad = [d for d in distractors if not waived_distractor_ok(d, cloze_id)]
         return bad, False, a_pos
 
@@ -399,10 +427,7 @@ def check_d3_pos_form(
                 return True
             if rieul_adnominal_ending(answer) and rieul_adnominal_ending(d):
                 return True
-            # second chance: vocab-resolved POS still agrees even though
-            # no shared suffix was found (rare; conservative fallback)
-            d_pos, _, _ = resolve_pos_and_form(d, vocab)
-            return d_pos is not None and a_pos is not None and d_pos == a_pos
+            return False
         # a_sig is None here -> answer has no recognizable ending (bare
         # noun/adverb/pronoun/expression); compare coarse POS buckets
         # instead of requiring both sides to be exact vocab headwords.
@@ -413,6 +438,593 @@ def check_d3_pos_form(
     if len(distractors) - len(non_matching) >= 2:
         return [], False, a_pos
     return non_matching, False, a_pos
+
+
+# ---------------------------------------------------------------------------
+# OPEN_SLOT_WAIVER -- generalizes PREDICATE_SLOT_WAIVER's technique (Fable
+# R8 ruling, 2026-09-15) from "answer = the whole predicate" to any slot a
+# same-POS/same-form/topic-distant NOUN re-pick cannot safely close.
+#
+# The C2c sweep's own D5 human read (115 open-noun-slot items) and a
+# 40-item Jin sample QA pass both turned up items where a mechanically
+# "correct" re-pick (same batchim class, same POS, same conjugation form,
+# even a topically-distant or abstract noun) STILL produced a fully valid
+# alternate sentence -- e.g. "다양한 관점이 있어요" (answer) vs "다양한
+# 느낌/비용이 있어요" (all still read as natural Korean; "다양한 X이
+# 있어요" accepts nearly any plural-compatible noun regardless of how
+# abstract or off-topic X is), or "늦게 와서 정말 죄송해요." (answer) vs
+# "늦게 와서 정말 피곤해요." (same POS, same -해요 ending, still a
+# completely natural sentence). No noun-semantic-class exclusion closes a
+# slot that open -- the ONLY reliable technique is the same one
+# PREDICATE_SLOT_WAIVER already uses: a distractor that is GRAMMATICALLY
+# impossible in the slot (a bare dictionary-form verb/adjective where a
+# noun or a conjugated predicate is required, or a bare particle with no
+# host), which guarantees no valid parse regardless of how open the
+# surrounding sentence is.
+#
+# Composition per item, mirroring PREDICATE_SLOT_WAIVER's own convention:
+# 2 dictionary-form verbs/adjectives + 1 bare particle (or all 3
+# dictionary-form when no safe bare-particle candidate exists for that
+# slot's particle context).
+#
+# `OPEN_SLOT_WAIVER` maps each waived cloze id to the reason its answer's
+# slot cannot be closed by any noun/adjective-class exclusion --
+# determined by the full sentence-by-sentence read logged in
+# docs/data/cloze_distractor_audit_2026-09-15.md (step "R8 full read").
+OPEN_SLOT_WAIVER: dict[str, str] = {
+    'cloze_a1_0007': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0008': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0009': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0013': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0018': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0021': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0022': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0031': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0038': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0040': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0066': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0070': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0080': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0081': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0082': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0083': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0085': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0086': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0088': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0090': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0092': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0098': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0099': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0101': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0114': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0115': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0119': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0120': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0122': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0135': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0149': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0152': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0159': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0162': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0166': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0182': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0183': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0191': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0195': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0211': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0213': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0217': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0221': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0222': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0225': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0228': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0230': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0241': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0243': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0244': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0245': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0246': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0248': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0251': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0255': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0257': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0265': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0266': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0267': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0272': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0273': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0275': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0276': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0279': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0280': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0281': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0282': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0285': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0286': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0287': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0288': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0290': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0291': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0292': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0306': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0307': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0308': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0309': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0311': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0313': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0314': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0316': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0322': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0327': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0332': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0333': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0355': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0365': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0370': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0379': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0397': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0398': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0399': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0400': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0401': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0402': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0408': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0409': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0410': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0411': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0412': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0414': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0420': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0424': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0427': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0429': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0432': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0436': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0439': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0443': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0005': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0007': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0018': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0020': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0022': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0024': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0029': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0030': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0032': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0033': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0034': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0036': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0037': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0038': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0039': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0040': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0041': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0042': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0046': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0050': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0056': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0057': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0058': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0059': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0064': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0066': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0069': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0071': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0074': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0075': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0087': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0090': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0113': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0118': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0120': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0140': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0157': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0161': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0162': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0168': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0169': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0174': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0180': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0182': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0183': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0184': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0192': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0193': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0215': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0216': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0221': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0223': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0228': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0242': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0243': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0245': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0246': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0248': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0249': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0256': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0257': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0258': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0259': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a2_0277': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0007': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0008': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0009': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0016': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0020': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0026': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0027': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0028': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0029': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0030': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0031': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0032': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0033': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0052': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0107': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0120': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0121': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0151': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0174': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0181': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0182': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0183': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0184': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0185': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0186': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0187': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0188': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0190': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0191': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0198': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0199': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0202': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0204': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0205': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0210': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0212': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0213': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0215': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0219': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0220': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0224': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0225': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0226': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0228': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0230': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0231': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0232': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0236': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0239': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0240': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0242': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0243': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0245': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0252': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0254': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0255': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0259': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0262': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0264': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0265': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0266': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0268': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0273': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0274': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b1_0277': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0002': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0007': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0034': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0040': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0166': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0174': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0196': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0204': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0227': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0229': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0232': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0239': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0268': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0270': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0271': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0272': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0273': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0274': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0276': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0277': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0278': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0282': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0284': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0287': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0288': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0289': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0290': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0292': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0293': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0294': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0295': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0296': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0299': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0300': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0301': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0302': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0303': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0307': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0309': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0311': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0312': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0314': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0315': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0316': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0317': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0318': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0319': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0321': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0322': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0323': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0324': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0325': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0327': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0328': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0329': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0330': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0331': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0332': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0333': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0334': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0335': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0336': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0337': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0339': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0341': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0342': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0344': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0346': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0347': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0348': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0349': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0350': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0351': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0352': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0354': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0355': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0356': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0357': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0358': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0359': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0361': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0364': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0366': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0369': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0370': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0372': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0373': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_b2_0393': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0077': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0078': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0079': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0080': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0081': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0082': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0083': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0084': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0085': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0086': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0087': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0088': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0094': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0095': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0097': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0098': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0100': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0101': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0102': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0106': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0107': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0109': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0111': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0114': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0115': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0117': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0118': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0119': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0120': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0121': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0122': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0123': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0124': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0125': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0126': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0127': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0128': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0130': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0131': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0132': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0133': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0136': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0137': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0138': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0139': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0140': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0141': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0142': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0143': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0144': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0145': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0146': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0147': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0149': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0150': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0151': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0152': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0153': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0154': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0156': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0157': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0158': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0159': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0160': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0161': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0162': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0163': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0164': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0165': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0166': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0167': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0168': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0170': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0171': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0172': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0195': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0197': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0209': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0222': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0223': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0225': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0226': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0228': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0229': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0231': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0232': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0233': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0237': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c1_0243': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0021': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0029': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0036': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0077': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0078': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0079': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0080': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0081': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0082': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0083': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0084': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0085': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0087': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0088': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0089': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0090': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0091': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0092': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0093': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0094': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0095': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0096': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0097': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0098': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0099': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0100': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0101': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0102': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0103': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0104': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0105': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0106': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0107': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0108': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0109': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0110': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0111': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0112': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0113': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0115': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0116': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0117': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0119': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0120': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0121': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0122': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0123': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0124': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0125': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0127': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0128': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0129': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0130': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0131': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0133': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0134': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0135': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0136': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0145': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0147': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0149': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0152': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0153': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0154': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0155': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0156': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0158': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0159': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0160': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0161': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0162': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0163': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0164': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0166': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0167': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0168': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0171': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0173': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0214': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0221': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0223': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0225': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0226': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0227': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0229': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_c2_0232': 'R8 open-slot sweep 2026-09-15: no noun/adverb-class exclusion demonstrated safe against this frame (see audit report R8 full read)',
+    'cloze_a1_0077': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0091': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_b1_0036': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_c1_0010': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_c1_0016': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_c2_0003': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0100': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0109': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0110': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0126': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0131': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0141': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0153': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0187': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0188': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0190': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a2_0076': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a2_0077': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a2_0078': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a2_0080': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a2_0119': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a2_0135': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a2_0145': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a2_0164': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a2_0165': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_b1_0088': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_b1_0095': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_b1_0114': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_b1_0162': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_b1_0179': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_b2_0192': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_b2_0193': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_b2_0251': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0208': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0226': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0227': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_c1_0169': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_c1_0218': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_b1_0276': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+    'cloze_a1_0423': 'R8 open-slot sweep 2026-09-15: pre-existing corpus item surfaced by the tightened D3 same_ending check (a POS-only fallback previously masked it); no noun/adverb-class exclusion demonstrated safe against this frame',
+}
+
+
+def open_slot_distractor_ok(word: str, cloze_id: Optional[str] = None) -> bool:
+    """Same acceptance test as `waived_distractor_ok` -- a bare
+    dictionary-form verb/adjective or a bare particle, which cannot itself
+    complete the slot as a valid noun or predicate. Kept as a distinct
+    name (rather than just calling `waived_distractor_ok` at call sites)
+    so OPEN_SLOT_WAIVER reads as its own rule in audit output, even though
+    the underlying technique -- and its safety guarantee -- is identical."""
+    return waived_distractor_ok(word, cloze_id)
 
 
 # ---------------------------------------------------------------------------

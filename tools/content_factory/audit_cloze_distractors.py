@@ -36,20 +36,29 @@ def audit_item(it: dict, vocab: R.VocabIndex) -> dict:
     sentence = it["sentenceKo"]
     answer = it["answer"]
     distractors = it["distractors"]
+    cloze_id = it["id"]
+    # A PREDICATE_SLOT_WAIVER/OPEN_SLOT_WAIVER item's distractors are
+    # deliberately grammatically impossible in the slot (bare dictionary-
+    # form verb/adjective or a bare particle) rather than form/batchim-
+    # matched -- D1's batchim-leak concern and D2's particle-form concern
+    # are moot for a distractor no reader would ever parse as a candidate
+    # noun/predicate in the first place, so both are skipped for a waived
+    # item (D3 already special-cases this; see check_d3_pos_form).
+    waived = cloze_id in R.PREDICATE_SLOT_WAIVER or cloze_id in R.OPEN_SLOT_WAIVER
 
     d1_kind, d1_required = R.detect_required_class(sentence, answer)
     d1_bad = []
-    if d1_required is not None:
+    if d1_required is not None and not waived:
         d1_bad = [
             d for d in distractors
             if R.batchim_class(d, d1_kind) is not None
             and R.batchim_class(d, d1_kind) != d1_required
         ]
 
-    d2_bad = R.check_d2_particle_form(answer, distractors, vocab)
+    d2_bad = [] if waived else R.check_d2_particle_form(answer, distractors, vocab)
 
     d3_bad, d3_unresolved, d3_answer_pos = R.check_d3_pos_form(
-        answer, distractors, vocab, cloze_id=it["id"]
+        answer, distractors, vocab, cloze_id=cloze_id
     )
 
     d4_bad = R.check_d4_activity_noun(sentence, distractors, vocab)

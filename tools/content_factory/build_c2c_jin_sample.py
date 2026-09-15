@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """C2c step 6 -- 40-item Jin review sample, stratified by level.
 
-Deterministically samples the 500-row changes CSV
-(docs/data/c2c_cloze_distractor_changes.csv) roughly proportional to each
-level's share of the live corpus (a1 7, a2 6, b1 9, b2 8, c1 5, c2 5 = 40),
-and writes docs/data/review_packets/c2c_cloze_distractors_jin_sample.md:
-sentence, answer, old -> new distractors, and the 3 NEW distractor
-sentences with a plain-language validity call for each.
+Deterministically samples the changes CSV (542 rows after the R8
+OPEN_SLOT_WAIVER sweep, docs/data/c2c_cloze_distractor_changes.csv)
+roughly proportional to each level's share of the live corpus (a1 7, a2 6,
+b1 9, b2 8, c1 5, c2 5 = 40), and writes
+docs/data/review_packets/c2c_cloze_distractors_jin_sample.md: sentence,
+answer, old -> new distractors, and the 3 NEW distractor sentences with a
+plain-language validity call for each.
 
 Usage:
     python tools/content_factory/build_c2c_jin_sample.py
@@ -32,10 +33,13 @@ QUOTA = {"a1": 7, "a2": 6, "b1": 9, "b2": 8, "c1": 5, "c2": 5}
 
 def judge(sentence_ko: str, answer: str, distractor: str, sub: str) -> str:
     """Plain-language ✗/✓ judgement note for the substituted sentence --
-    mirrors the reasoning already applied by fix_cloze_distractors_c2c.py /
-    fix_cloze_d5_c2c.py when this distractor was picked."""
-    if distractor in R.DICTIONARY_FORM_VERBS or distractor in R.BARE_PARTICLES:
-        return "✗ 사전형 동사/단독 조사만으로는 문장이 끝나지 않음 -- 유효한 문장이 아님"
+    mirrors the reasoning applied by the R8 OPEN_SLOT_WAIVER sweep
+    (tools/content_factory/apply_open_slot_waiver_r8.py) when this
+    distractor was picked."""
+    if distractor in R.DICTIONARY_FORM_VERBS:
+        return "✗ 비문 -- 사전형 동사만으로는 이 자리의 명사/술어를 채울 수 없음 (활용되지 않은 원형은 통사적으로 이 위치에 들어갈 수 없음)"
+    if distractor in R.BARE_PARTICLES:
+        return "✗ 비문 -- 단독 조사이며 붙을 체언이 없어 문장이 성립하지 않음"
     kind, required = R.detect_required_class(sentence_ko, answer)
     if required is not None:
         bc = R.batchim_class(distractor, kind)

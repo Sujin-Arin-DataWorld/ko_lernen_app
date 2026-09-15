@@ -111,6 +111,19 @@ class D3PosFormTests(unittest.TestCase):
         )
         self.assertEqual(bad, [])
 
+    def test_pos_only_match_no_longer_accepted_as_same_form(self):
+        # R8 fix: a dictionary-form answer must not accept a differently
+        # conjugated same-POS distractor as "matching form" (the
+        # cloze_b1_0184 bug: 전달하다 vs 실례합니다/잘 다녀오겠습니다) --
+        # even though both happen to end in the bare character "다".
+        self.assertFalse(R.same_ending("전달하다", "실례합니다"))
+        bad, unresolved, pos = R.check_d3_pos_form(
+            "가다", ["전달했습니다", "맞추다"], VOCAB
+        )
+        self.assertFalse(unresolved)
+        self.assertIn("전달했습니다", bad)  # formal past vs dictionary form: no match
+        self.assertEqual(bad.count("맞추다"), 0)  # 맞추다 IS dictionary form -> matches
+
     def test_same_ending_survives_vowel_contraction(self):
         # 바꾸다+었습니다 contracts to 바꿨습니다 (no literal "었습니다"
         # substring); 들다+었습니다 doesn't contract. Both are the same
@@ -121,6 +134,27 @@ class D3PosFormTests(unittest.TestCase):
         # 가로막다+을 keeps a literal "을"; 늘리다+ㄹ fuses into "릴".
         self.assertTrue(R.rieul_adnominal_ending("가로막을"))
         self.assertTrue(R.rieul_adnominal_ending("늘릴"))
+
+
+class OpenSlotWaiverTests(unittest.TestCase):
+    """R8 (2026-09-15): generalizes PREDICATE_SLOT_WAIVER to any slot no
+    noun-semantic-class exclusion can safely close (open existential/
+    adjective-predicate frames, open subject-topic slots, ...)."""
+
+    def test_open_slot_waiver_item_is_exempt_from_pos_form_matching(self):
+        R.OPEN_SLOT_WAIVER["cloze_test_open_slot"] = "test fixture"
+        try:
+            bad, unresolved, pos = R.check_d3_pos_form(
+                "관점", ["가다", "먹다", "에서"], VOCAB, cloze_id="cloze_test_open_slot"
+            )
+            self.assertEqual(bad, [])
+        finally:
+            del R.OPEN_SLOT_WAIVER["cloze_test_open_slot"]
+
+    def test_open_slot_distractor_ok_matches_waived_distractor_ok(self):
+        self.assertTrue(R.open_slot_distractor_ok("가다"))
+        self.assertTrue(R.open_slot_distractor_ok("에서"))
+        self.assertFalse(R.open_slot_distractor_ok("친구"))
 
 
 class D4ActivityNounTests(unittest.TestCase):
