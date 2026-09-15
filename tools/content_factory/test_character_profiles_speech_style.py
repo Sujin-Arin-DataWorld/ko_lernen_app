@@ -17,6 +17,7 @@ Run with:
 from __future__ import annotations
 
 import json
+import re
 import unittest
 from pathlib import Path
 
@@ -33,6 +34,43 @@ REQUIRED_LANG_KEYS = {"baseRegister", "markers", "sentenceHabits", "avoid"}
 REQUIRED_LEVEL_KEYS = {"A1", "A2", "B1+"}
 EXPECTED_CHARACTER_COUNT = 11
 EXPECTED_STORY_ARC_LEVELS = {"A1", "A2", "B1", "B2", "C1+"}
+
+# R8 (Fable review of PR #337): A1 = 국제통용 1급 45항목 ONLY
+# (docs/CONTENT_LEVEL_BIBLE.md §B.1 ③). Anything past that grammar set is
+# A2+ even if it "sounds simple": -을/ㄹ게요 (2급 intention), 반말 -냐/-야
+# questions (2급 banmal), -으면 (2급 conditional), -을 줄 알다 (3급), and the
+# sentence-enders -네요/-는데/-지요·죠/-을래요.
+#
+# -(으)ㄹ게요/-(으)ㄹ래요 attach their ㄹ/을 as the BATCHIM of a single
+# precomposed syllable for vowel- or ㄹ-final stems (할게요, 갈래요) rather
+# than as a separate character, so a literal "(ㄹ|을)" class only catches
+# the consonant-stem spelling (먹을게요) and silently misses the contracted
+# one that our own draft actually used (할게요, 줄게요). We therefore check
+# the endings themselves against the line with trailing sentence punctuation
+# stripped, with one documented allowlist entry: "그래요" (from the
+# irregular verb 그렇다, a common 1급 reply) coincidentally ends in "래요"
+# but is not the -(으)ㄹ래요 grammar.
+_TRAILING_PUNCT = re.compile(r"[\s.!?…]+$")
+_A1_ALLOWLIST_CORES = {"그래요"}
+_FORBIDDEN_A1_SUFFIXES = ("게요", "래요", "네요", "죠")
+_FORBIDDEN_A1_BANMAL_Q_SUFFIXES = ("냐", "야")
+FORBIDDEN_A1_MIDSENTENCE = re.compile(r"으?면 |줄 알|는데|지요")
+
+
+def _forbidden_a1_pattern(line: str) -> str | None:
+    """Return the offending A2+ pattern in `line`, or None if it is 1급-safe."""
+    core = _TRAILING_PUNCT.sub("", line)
+    if core not in _A1_ALLOWLIST_CORES:
+        for suffix in _FORBIDDEN_A1_SUFFIXES:
+            if core.endswith(suffix):
+                return f"-{suffix}"
+        for suffix in _FORBIDDEN_A1_BANMAL_Q_SUFFIXES:
+            if core.endswith(suffix):
+                return f"반말 -{suffix}"
+    match = FORBIDDEN_A1_MIDSENTENCE.search(line)
+    if match:
+        return match.group()
+    return None
 # Retired persona drafts / facts that the owner explicitly replaced. Kept
 # here so a future edit can't silently reintroduce a superseded detail.
 RETIRED_STRINGS = (
@@ -147,6 +185,27 @@ class CharacterProfilesSpeechStyleTest(unittest.TestCase):
         for retired in RETIRED_STRINGS:
             with self.subTest(retired=retired):
                 self.assertNotIn(retired, raw)
+
+    def test_a1_samples_use_only_international_grade1_grammar(self) -> None:
+        # R8 (Fable review of PR #337): every byLevel.A1 line must stay
+        # inside the 국제통용 1급 45항목 grammar set (§B.1 ③ of
+        # docs/CONTENT_LEVEL_BIBLE.md). A2+ endings (-을게요, -으면, 반말
+        # -냐/-야, -을 줄 알다, -네요/-는데/-지요·죠/-을래요, ...) belong in
+        # byLevel.A2 or later, never in A1.
+        for character in self.payload.get("recurringCharacters", []):
+            char_id = character.get("id")
+            a1_lines = character["speechStyle"]["byLevel"]["A1"]
+            for line in a1_lines:
+                with self.subTest(character=char_id, line=line):
+                    reason = _forbidden_a1_pattern(line)
+                    self.assertIsNone(
+                        reason,
+                        msg=(
+                            f"{char_id} byLevel.A1 line {line!r} contains an "
+                            f"A2+ pattern ({reason!r}); move it to "
+                            "A2/B1+ and give A1 a 1급-only replacement"
+                        ),
+                    )
 
 
 class RelationshipGraphTest(unittest.TestCase):
