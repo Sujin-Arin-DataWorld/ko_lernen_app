@@ -8455,13 +8455,13 @@
     {
       "id": "cloze_a1_0127",
       "level": "a2",
-      "sentenceKo": "＿＿＿이 서늘해서 아래로 앉았어요.",
+      "sentenceKo": "＿＿＿이 서늘해서 아랫목에 앉았어요.",
       "answer": "윗목",
-      "fullKo": "윗목이 서늘해서 아래로 앉았어요.",
-      "de": "Der obere Teil des Zimmers war kühl, deshalb setzte ich mich weiter unten hin.",
-      "en": "The upper part of the room was cool, so I sat down further below.",
+      "fullKo": "윗목이 서늘해서 아랫목에 앉았어요.",
+      "de": "Der obere Teil des Zimmers war kühl, deshalb setzte ich mich auf den warmen Platz am Boden.",
+      "en": "The upper part of the room was cool, so I sat on the warm spot on the floor.",
       "distractors": [
-        "아랫목",
+        "부엌",
         "거실",
         "지갑"
       ],

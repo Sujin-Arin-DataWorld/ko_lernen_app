@@ -13,10 +13,13 @@ REWRITES = {
     # --- grammar cluster: quotative/reported-speech, -자마자, -다 보면,
     # 이라도, 고 해서, 면 되다, 잖아요, -(으)래요 (reported contraction) ---
     "vocab_a1_0239": dict(
-        category="grammar", rule="grade3 quotative -라고 하셨어요 removed",
-        ko="윗목이 서늘해서 아래로 앉았어요.",
-        de="Der obere Teil des Zimmers war kühl, deshalb setzte ich mich weiter unten hin.",
-        en="The upper part of the room was cool, so I sat down further below.",
+        category="grammar",
+        rule="grade3 quotative -라고 하셨어요 removed; Fable round-2: "
+             "'아래로 앉았어요' was unidiomatic, use sibling headword 아랫목 "
+             "(vocab_a1_0240, same pack a2_partner_house_entry_1) instead",
+        ko="윗목이 서늘해서 아랫목에 앉았어요.",
+        de="Der obere Teil des Zimmers war kühl, deshalb setzte ich mich auf den warmen Platz am Boden.",
+        en="The upper part of the room was cool, so I sat on the warm spot on the floor.",
     ),
     "vocab_a1_0242": dict(
         category="grammar", rule="grade3 quotative -다고 했어요 removed",

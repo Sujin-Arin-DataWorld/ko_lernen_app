@@ -71,7 +71,7 @@
 
 | id | headword | verified? | detail | example_korean | example_german | example_english |
 |---|---|---|---|---|---|---|
-| `vocab_a1_0239` | 윗목 | false positive | example_german word count 14 vs KO eojeol 4; example_english word count 14 vs KO eojeol 4 | 윗목이 서늘해서 아래로 앉았어요. | Der obere Teil des Zimmers war kühl, deshalb setzte ich mich weiter unten hin. | The upper part of the room was cool, so I sat down further below. |
+| `vocab_a1_0239` | 윗목 | false positive | example_german word count 17 vs KO eojeol 4; example_english word count 18 vs KO eojeol 4 | 윗목이 서늘해서 아랫목에 앉았어요. | Der obere Teil des Zimmers war kühl, deshalb setzte ich mich auf den warmen Platz am Boden. | The upper part of the room was cool, so I sat on the warm spot on the floor. |
 | `vocab_a1_0274` | 송편 빚다 | false positive | example_english word count 11 vs KO eojeol 4 | 송편 빚다가 만두처럼 커졌어요. | Beim Formen wurden meine Songpyeon so groß wie Teigtaschen. | As I shaped the songpyeon, mine got as big as dumplings. |
 | `vocab_a1_0281` | 솔잎 | false positive | example_german word count 12 vs KO eojeol 4; example_english word count 11 vs KO eojeol 4 | 이건 잎을 떼고 먹어요. | Bei diesem hier zieht man das Blatt ab, bevor man es isst. | With this one, you pull off the leaf before eating it. |
 | `vocab_a1_0299` | 잘 다녀오겠습니다 | false positive | example_german word count 13 vs KO eojeol 5 | 나갈 때 인사했어요. 잘 다녀오겠습니다! | Beim Rausgehen habe ich mich verabschiedet. Ich mache mich dann auf den Weg! | I said goodbye as I left. I'll be heading out now! |

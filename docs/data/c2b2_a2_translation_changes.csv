@@ -224,3 +224,14 @@ cloze_a1_0254,answer,필기하다,필기하면,cloze answer aligned to conjugate
 cloze_a1_0254,sentenceKo,중요한 문장은 빨리 ＿＿＿ 보면 손이 아파요.,중요한 문장을 빨리 ＿＿＿ 손이 아파요.,manual re-blank after grammar fix
 cloze_a1_0279,answer,겹쳐 입다,겹쳐 입어요,cloze answer aligned to conjugated form actually present after grammar fix
 cloze_a1_0279,sentenceKo,일교차가 클 때는 옷을 ＿＿＿ 해요.,일교차가 클 때는 옷을 ＿＿＿.,manual re-blank after grammar fix
+vocab_a1_0239,example_korean,윗목이 서늘해서 아래로 앉았어요.,윗목이 서늘해서 아랫목에 앉았어요.,Fable round-2: use sibling headword 아랫목 instead of unidiomatic '아래로 앉았어요'
+vocab_a1_0239,example_german,"Der obere Teil des Zimmers war kühl, deshalb setzte ich mich weiter unten hin.","Der obere Teil des Zimmers war kühl, deshalb setzte ich mich auf den warmen Platz am Boden.",Fable round-2: use sibling headword 아랫목 instead of unidiomatic '아래로 앉았어요'
+vocab_a1_0239,example_english,"The upper part of the room was cool, so I sat down further below.","The upper part of the room was cool, so I sat on the warm spot on the floor.",Fable round-2: use sibling headword 아랫목 instead of unidiomatic '아래로 앉았어요'
+cloze_a1_0127,fullKo,윗목이 서늘해서 아래로 앉았어요.,윗목이 서늘해서 아랫목에 앉았어요.,mirrors vocab_a1_0239 (Fable round-2: use sibling headword 아랫목 instead of unidiomatic '아래로 앉았어요')
+cloze_a1_0127,sentenceKo,＿＿＿이 서늘해서 아래로 앉았어요.,＿＿＿이 서늘해서 아랫목에 앉았어요.,mirrors vocab_a1_0239 (re-blanked)
+cloze_a1_0127,de,"Der obere Teil des Zimmers war kühl, deshalb setzte ich mich weiter unten hin.","Der obere Teil des Zimmers war kühl, deshalb setzte ich mich auf den warmen Platz am Boden.",mirrors vocab_a1_0239
+cloze_a1_0127,en,"The upper part of the room was cool, so I sat down further below.","The upper part of the room was cool, so I sat on the warm spot on the floor.",mirrors vocab_a1_0239
+satz_a1_0091,targetKo,윗목이 서늘해서 아래로 앉았어요.,윗목이 서늘해서 아랫목에 앉았어요.,mirrors vocab_a1_0239 (Fable round-2: use sibling headword 아랫목 instead of unidiomatic '아래로 앉았어요')
+satz_a1_0091,promptDe,"Der obere Teil des Zimmers war kühl, deshalb setzte ich mich weiter unten hin.","Der obere Teil des Zimmers war kühl, deshalb setzte ich mich auf den warmen Platz am Boden.",mirrors vocab_a1_0239
+satz_a1_0091,promptEn,"The upper part of the room was cool, so I sat down further below.","The upper part of the room was cool, so I sat on the warm spot on the floor.",mirrors vocab_a1_0239
+cloze_a1_0127,distractors[0],아랫목,부엌,"distractor '아랫목' now appears in the sentence remainder after the 아랫목 rewording -- swapped for 부엌 (vocab_a2_0142, also batchim-final, matches distractor_rules.py particle-hiding contract)"

@@ -4021,6 +4021,265 @@
       ],
       "beforeSha256": "cb8283659ee35179417f9fb88eff494b31a55560496f55501d84885a99b38d2a",
       "afterSha256": "70d77ab586c0d8b3211a839cdbdc399fbcb2bf4373fb905d5aef8731f6f8c260"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0239",
+      "level": "a1",
+      "fields": [
+        "english",
+        "example_english",
+        "example_german",
+        "example_korean",
+        "german",
+        "romanization"
+      ],
+      "beforeSha256": "6020ea483ed8d40d0c04497858474a9c6f7abff9e6ba555c185a0b7121e5c265",
+      "afterSha256": "fec75ba36bd1d1aaa74fe89ddb035251e2635d4ddda1e7f4c2daed122aa4ca65"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0242",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean",
+        "romanization"
+      ],
+      "beforeSha256": "71ecdfe2382be1ee2609d8f883e13be42ec01a1f816a9903696dc74841a6d8ef",
+      "afterSha256": "57c2747a2e9ea085a8ebf0ea53e8e273bb76d72fe20a3e1afe040a4abdbfa7c4"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0243",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "8c6c72df0342e86156ba95abe195099e43b68bdbf03866c4fcac4403230530b1",
+      "afterSha256": "f94faacbcc7a020b25bc5df9b48824bdeaa69efa8aa6ecf6a80a74c5fa6f802b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0276",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "4be0382fd4d7143d9961be677bb0fa99c5d6c3a9cfded301e72ffd62a8c46f40",
+      "afterSha256": "4af6bb7fc6b455be73e4e4c297a0ed653f25b7179b71959003589a95f81090ba"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0299",
+      "level": "a1",
+      "fields": [
+        "english",
+        "example_english",
+        "example_german",
+        "example_korean",
+        "german",
+        "romanization"
+      ],
+      "beforeSha256": "8b8f1a1596f4576b2ee7b1e01e9e1441e45ef5a1c1f9b5514e8592928ce03e88",
+      "afterSha256": "2b4dd5aca6f57ae8e7d6f5aeace0e6b5b9c11a3ea5b343ac675e101e456d114f"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0301",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "3bea63e42a5112e13d6f0e69a85180f2b369551c1d21eede099a81b68dec61d2",
+      "afterSha256": "f891bc4495d852e1bb3f8627f5e3754abee5b6c09a007ce7c1d84454f8c3d748"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0130",
+      "level": "a1",
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "e74863f0f8e3acd361728cfb49fe4411f289e1d903c068880e3755d6f46e1f47",
+      "afterSha256": "e455c0b7595b2d9efe78c5b6ad92fbd45cfca87b5c6c55ef20c379ce2e060c27"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0131",
+      "level": "a1",
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "676a25b134f147768c343c17c51f59d51a16805b272b2123a2c155377fd97a4f",
+      "afterSha256": "1f30e9f062c0041f551cc069e379b945f73950f18c91212d36b6b25aeea7b45f"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0164",
+      "level": "a1",
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "e668b503c47802094d35bdcef892866b7761a1cd6d96ac6d0734d9b66420df31",
+      "afterSha256": "5eec6832858290c8ada35aad7dd4491b61666663965f919e849370d517c33612"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0187",
+      "level": "a1",
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "85b9a03258ec19a0298af6025b6b2396f2d09a27dba0278d49bc088b6155ae2b",
+      "afterSha256": "3c2f15b174835650e5dd987b67b0c60fff4dd5ba0b8d63a05d3725ea39f9ced4"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0189",
+      "level": "a1",
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "2c4e3b8563d41c039774b12b920912a4f51a30ead76dc6b0724343a107caad43",
+      "afterSha256": "7245ca80a7948e3943bf30ad0335a47e2f95ce95c68d71edb17b4edc570fd2b6"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0091",
+      "level": "a1",
+      "fields": [
+        "distractors",
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "35cd91ab23ca94933f0a5289c0d870bd0dc8f26e5c180a87956fff6bdcf8d9a9",
+      "afterSha256": "29bb1b7df30c9c7d300208561166fd12c4a5966e66bc5f7db4e89961ae2ba5ef"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0094",
+      "level": "a1",
+      "fields": [
+        "distractors",
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "8bce3ab18fda2703227b4a1ac1e1132db42c8bd048ee62c3fd475cfcc36fe652",
+      "afterSha256": "12b117dbd6fb25b256140ba78289587d16a165c8b297c96d197440920136816f"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0095",
+      "level": "a1",
+      "fields": [
+        "distractors",
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "23bad15bb964e22139d2765093ebba77f2dc94cb43f8bdb781c8cf8f2316416a",
+      "afterSha256": "6362fb4ab41faf86d07d3866a61452e310dc08e37d3b28216e297681d8e86416"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0128",
+      "level": "a1",
+      "fields": [
+        "distractors",
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "614a7a3e5132a35039dcc5212ef197e8e013e36d73c09bab0937439a4a6cbe6e",
+      "afterSha256": "b6f166384d4e47e174b575e518e56f01d350185871d064b6afad08193e6d80c9"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0151",
+      "level": "a1",
+      "fields": [
+        "distractors",
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "dd61fa589339df9cc3037c9e41440bde182aa49b07bb3dcbe988ba31eeeddfa1",
+      "afterSha256": "235fb06136efed6f95c2ff318a6912722d622776b8af9b8ce50d75f1e509860e"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0153",
+      "level": "a1",
+      "fields": [
+        "distractors",
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "639c124d32705be549bfc3db77bab0406472d5f58920c953b47df022b1af98a2",
+      "afterSha256": "0c59ad4052ff2c1e65fc69708b0bf398bed7d7cc24ba81868e2f88c6da5b8859"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0127",
+      "level": "a1",
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "d17abf99316f73e28343e286ad7cbffc73a880708baac99ff34cefc6188bc1fa",
+      "afterSha256": "58f6d21edbb21388d48f8a5212b5f617f8726502ffff0958714cf8dad6c8bc04"
     }
   ],
   "routingEntries": [
@@ -4158,6 +4417,13 @@
       "scope": "C2b-2 bare -다 conjugation bug fix + 필기하다 grammar fix (batch_09_4x)",
       "method": "vocab_a1_0391/cloze_a1_0279/satz_a1_0243 (겹쳐 입다, a2_weather_layer_1): fixed a bare dictionary-form -다 stem left unconjugated before 해요 (겹쳐 입다 해요 -> 겹쳐 입어요), the specific bug named in this task's brief; cloze_a1_0279's answer field also moved from the dictionary form (no longer literally present) to the conjugated form actually in the sentence, matching validate_content.py's cloze sentenceKo contract. vocab_a1_0366/cloze_a1_0254/satz_a1_0218 (필기하다, a2_school_supplies_1): removed nikl grade>=3 -다 보면 (grammar_b1_consequence), replaced with plain -으면. Entries fingerprinted with validate_promoted_batch._promotion_projection/_relevel_normalized_live/_fingerprint against current draft/live rows.",
       "added": 6,
+      "replaced": 0
+    },
+    {
+      "date": "2026-09-15",
+      "scope": "C2b-2 gap fix: 6 more batch_07 partner-family rows (0239/0242/0243/0276/0299/0301 family)",
+      "method": "These 6 A1-id/A2-level rows (a2_partner_house_entry_1/chuseok_basic_1/photo_thanks_1 packs) and their cloze/satz mirrors are ALSO tracked by batch_07_partner_family_manifest.json (missed in the first ledger sweep, which only covered the a2_-prefixed ids from this same grammar-rewrite pass) -- same grade>=3 quotative/bare-quote removal as the rest of this PR, plus a Fable round-2 wording fix on vocab_a1_0239 (아랫목 sibling headword instead of unidiomatic '아래로 앉았어요'). Entries fingerprinted with validate_promoted_batch._promotion_projection/_relevel_normalized_live/_fingerprint against current draft/live rows.",
+      "added": 18,
       "replaced": 0
     }
   ],
