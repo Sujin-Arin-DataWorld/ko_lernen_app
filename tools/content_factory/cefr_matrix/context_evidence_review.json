@@ -84,12 +84,12 @@
       "jsonPointer": "/scenarios/26/dialog/0/ko",
       "sourceLevel": "A1",
       "quote": "다정식당입니다.",
-      "contextSha256": "75e61abfd5ce5a8eeffbf73d95bd1bf09cea567d8a5f405cec1e74b5262e289e",
+      "contextSha256": "d212d76d103e7dc564c8eedf637a2d728f9c16c55c9af66e9c560c69a375df76",
       "decision": "accepted",
       "mode": "R",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
-      "rationaleKo": "전화받은 직원이 격식체 -ㅂ니다로 가게를 밝힌다. 서술격 활용의 격식체 종결 용례다."
+      "rationaleKo": "전화받은 직원이 격식체 -ㅂ니다로 가게를 밝힌다. 서술격 활용의 격식체 종결 용례다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변."
     },
     {
       "phaseId": "KP02",
@@ -129,12 +129,12 @@
       "jsonPointer": "/scenarios/21/dialog/2/ko",
       "sourceLevel": "A1",
       "quote": "공항에서 거기까지 삼십 분쯤 걸려요.",
-      "contextSha256": "b2513c54f54f2fbb5c96ab6513e978b2b3c1b3dbf60cdb815551fd86944be4a2",
+      "contextSha256": "38d150610bbdc5a762e4b60dc4b5d3e606003c70610bb36bb76d579b3b3ffc3e",
       "decision": "accepted",
       "mode": "R",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
-      "rationaleKo": "공항이 출발점이고 앞선 게스트하우스 주소가 거기의 지시 대상이다. 까지의 종착점과 소요 시간을 구별한다."
+      "rationaleKo": "공항이 출발점이고 앞선 게스트하우스 주소가 거기의 지시 대상이다. 까지의 종착점과 소요 시간을 구별한다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변."
     },
     {
       "phaseId": "KP02",
@@ -264,12 +264,12 @@
       "jsonPointer": "/scenarios/21/dialog/0/ko",
       "sourceLevel": "A1",
       "quote": "어디로 가세요?",
-      "contextSha256": "b2513c54f54f2fbb5c96ab6513e978b2b3c1b3dbf60cdb815551fd86944be4a2",
+      "contextSha256": "38d150610bbdc5a762e4b60dc4b5d3e606003c70610bb36bb76d579b3b3ffc3e",
       "decision": "accepted",
       "mode": "R",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
-      "rationaleKo": "택시 기사가 손님의 이동 목적지를 묻고, 이동 주체인 손님을 -시-로 높인다. 사물 주체를 높이는 사례와 구별한다."
+      "rationaleKo": "택시 기사가 손님의 이동 목적지를 묻고, 이동 주체인 손님을 -시-로 높인다. 사물 주체를 높이는 사례와 구별한다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변."
     },
     {
       "phaseId": "KP04",
@@ -309,12 +309,12 @@
       "jsonPointer": "/scenarios/23/dialog/6/ko",
       "sourceLevel": "A1",
       "quote": "식사 후에 드세요.",
-      "contextSha256": "7c6e16e9a01627463e8466f29e07f35d82df2c1885fd1d3e26657761b90bcf54",
+      "contextSha256": "4e647f89df1cd821f4c5d4020773bf713dd2c4948b1dbc691780690e79f36e49",
       "decision": "rejected",
       "mode": "R",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
-      "rationaleKo": "명사 식사와 후에의 결합이다. 동사 관형형 -(으)ㄴ 후에의 직접 용례로는 인정하지 않는다."
+      "rationaleKo": "명사 식사와 후에의 결합이다. 동사 관형형 -(으)ㄴ 후에의 직접 용례로는 인정하지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변."
     },
     {
       "phaseId": "KP03",
@@ -398,13 +398,13 @@
       "recordId": "a1_w10_eat",
       "jsonPointer": "/scenarios/22/dialog/4/ko",
       "sourceLevel": "A1",
-      "quote": "여기서 드시고 가세요, 포장이세요?",
-      "contextSha256": "e09ff1953756c3083c905fee293deb300080dce9f3f0695440d9e3fcbc91b899",
+      "quote": "여기서 드시고 가세요, 아니면 포장이세요?",
+      "contextSha256": "9acb311e6af25318f11c0d5a007e5ba7c75f14bc0d56c26202f0fa55b52341d0",
       "decision": "accepted",
       "mode": "R",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
-      "rationaleKo": "먹고 가는 매장 이용과 포장을 대안으로 묻는다. 드시고에서 두 행동을 -고로 연결하며 이미 먹었다는 뜻은 아니다."
+      "rationaleKo": "먹고 가는 매장 이용과 포장을 대안으로 묻는다. 드시고에서 두 행동을 -고로 연결하며 이미 먹었다는 뜻은 아니다. 2026-09-15 재검수: 대사 자연화로 인용 구절 갱신."
     },
     {
       "phaseId": "KP03",
@@ -474,12 +474,12 @@
       "jsonPointer": "/scenarios/22/dialog/8/ko",
       "sourceLevel": "A1",
       "quote": "다 해서 만 천 원이에요.",
-      "contextSha256": "e09ff1953756c3083c905fee293deb300080dce9f3f0695440d9e3fcbc91b899",
+      "contextSha256": "9acb311e6af25318f11c0d5a007e5ba7c75f14bc0d56c26202f0fa55b52341d0",
       "decision": "rejected",
       "mode": "R",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
-      "rationaleKo": "합계를 제시하는 다 해서이지 원인·결과 설명이 아니다. 표면 문자열로 해당 Phase의 이유 제시를 충족시키지 않는다."
+      "rationaleKo": "합계를 제시하는 다 해서이지 원인·결과 설명이 아니다. 표면 문자열로 해당 Phase의 이유 제시를 충족시키지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변."
     },
     {
       "phaseId": "KP05",
@@ -879,12 +879,12 @@
       "jsonPointer": "/scenarios/22/dialog/5/ko",
       "sourceLevel": "A2",
       "quote": "아, 그렇군요.",
-      "contextSha256": "1299aeccd1c442e5b06d9ee6a436b429f10159dda3bc5e8077901aef57007fad",
+      "contextSha256": "e1ab702e5658362d4e6b1fb05635accc0cf86dfd8bc3acb58b430a9b450f1b53",
       "decision": "accepted",
       "mode": "R",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
-      "rationaleKo": "분리수거 요일 설명을 듣고 새로 알게 된 점을 받아들이는 -군요 활용이다. 요일을 새로 지시하는 발화가 아니다."
+      "rationaleKo": "분리수거 요일 설명을 듣고 새로 알게 된 점을 받아들이는 -군요 활용이다. 요일을 새로 지시하는 발화가 아니다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변."
     },
     {
       "phaseId": "KP08",
@@ -894,12 +894,12 @@
       "jsonPointer": "/scenarios/22/dialog/0/ko",
       "sourceLevel": "A2",
       "quote": "안녕하세요. 이사 오셨죠?",
-      "contextSha256": "1299aeccd1c442e5b06d9ee6a436b429f10159dda3bc5e8077901aef57007fad",
+      "contextSha256": "e1ab702e5658362d4e6b1fb05635accc0cf86dfd8bc3acb58b430a9b450f1b53",
       "decision": "accepted",
       "mode": "R",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
-      "rationaleKo": "막 이사한 상황을 확인하는 -지요 축약형이다. 높임을 포함한 해요체 수용 예이고 합의된 친구 반말 산출을 인증하지 않는다."
+      "rationaleKo": "막 이사한 상황을 확인하는 -지요 축약형이다. 높임을 포함한 해요체 수용 예이고 합의된 친구 반말 산출을 인증하지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변."
     },
     {
       "phaseId": "KP08",
@@ -6039,12 +6039,12 @@
       "jsonPointer": "/scenarios/29/dialog/3/ko",
       "sourceLevel": "C2",
       "quote": "장르나 팬덤 규모를 불문하고",
-      "contextSha256": "5d4626436e0db9c63817dd2a410621f1ecd3386cb778806b18c2524eb75b39ea",
+      "contextSha256": "aa9bd3f6eea4a81fcfde8b2545298b1869f2eb0eb32dd46b7d2e7c6b886ea93e",
       "decision": "rejected",
       "mode": "R",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
-      "rationaleKo": "배제하지 않는 의미는 유사하지만 불문하고는 막론하고의 실제 형태 용례가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다."
+      "rationaleKo": "배제하지 않는 의미는 유사하지만 불문하고는 막론하고의 실제 형태 용례가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변."
     },
     {
       "phaseId": "KP26",
