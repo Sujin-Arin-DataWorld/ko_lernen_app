@@ -547,11 +547,11 @@
     {
       "id": "cloze_a1_0491",
       "level": "a1",
-      "sentenceKo": "네, 저녁에 ＿＿＿하러 갈까요?",
+      "sentenceKo": "수진 씨, 저녁에 ＿＿＿하러 갈까요?",
       "answer": "수영",
-      "fullKo": "네, 저녁에 수영하러 갈까요?",
-      "de": "Na, sollen wir heute Abend schwimmen gehen?",
-      "en": "Well, shall we go swimming this evening?",
+      "fullKo": "수진 씨, 저녁에 수영하러 갈까요?",
+      "de": "Sujin, sollen wir heute Abend schwimmen gehen?",
+      "en": "Sujin, shall we go swimming this evening?",
       "distractors": [
         "딸",
         "회사원",
@@ -659,11 +659,11 @@
     {
       "id": "cloze_a1_0498",
       "level": "a1",
-      "sentenceKo": "좋아요, 기숙사에서 ＿＿＿ 칠까요?",
+      "sentenceKo": "그럼 기숙사에서 ＿＿＿ 칠까요?",
       "answer": "탁구",
-      "fullKo": "좋아요, 기숙사에서 탁구 칠까요?",
-      "de": "Gut, sollen wir im Wohnheim Tischtennis spielen?",
-      "en": "Sounds good, shall we play table tennis in the dorm?",
+      "fullKo": "그럼 기숙사에서 탁구 칠까요?",
+      "de": "Sollen wir dann im Wohnheim Tischtennis spielen?",
+      "en": "Then, shall we play table tennis in the dorm?",
       "distractors": [
         "일월",
         "이월",
@@ -675,15 +675,15 @@
     {
       "id": "cloze_a1_0499",
       "level": "a1",
-      "sentenceKo": "네, 점심에 ＿＿＿을 먹을까요?",
+      "sentenceKo": "그럼 점심에 ＿＿＿ 먹을까요?",
       "answer": "김밥",
-      "fullKo": "네, 점심에 김밥을 먹을까요?",
-      "de": "Na, sollen wir zum Mittagessen Gimbap essen?",
-      "en": "Well, shall we have gimbap for lunch?",
+      "fullKo": "그럼 점심에 김밥 먹을까요?",
+      "de": "Also, sollen wir zum Mittagessen Gimbap essen?",
+      "en": "Then, shall we have gimbap for lunch?",
       "distractors": [
         "일월",
         "이월",
-        "꼭"
+        "항상"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0565"
@@ -747,7 +747,7 @@
       "distractors": [
         "칠월",
         "팔월",
-        "항상"
+        "꼭"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0569"
@@ -763,7 +763,7 @@
       "distractors": [
         "테니스",
         "스키",
-        "다니다"
+        "빨리"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0570"
@@ -779,7 +779,7 @@
       "distractors": [
         "십일월",
         "십이월",
-        "좀"
+        "참"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0571"
@@ -795,7 +795,7 @@
       "distractors": [
         "제주도",
         "모자",
-        "천천히"
+        "다시"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0572"
@@ -811,7 +811,7 @@
       "distractors": [
         "삼월",
         "사월",
-        "함께"
+        "읽다"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0573"
@@ -931,11 +931,11 @@
     {
       "id": "cloze_a1_0515",
       "level": "a1",
-      "sentenceKo": "와, ＿＿＿ 같이 구경 갈까요?",
+      "sentenceKo": "다니엘 씨, ＿＿＿ 같이 구경 갈까요?",
       "answer": "남대문",
-      "fullKo": "와, 남대문 같이 구경 갈까요?",
-      "de": "Wow, sollen wir uns zusammen Namdaemun ansehen?",
-      "en": "Wow, shall we go see Namdaemun together?",
+      "fullKo": "다니엘 씨, 남대문 같이 구경 갈까요?",
+      "de": "Daniel, sollen wir uns zusammen Namdaemun ansehen?",
+      "en": "Daniel, shall we go see Namdaemun together?",
       "distractors": [
         "십일월",
         "십이월",
@@ -971,7 +971,7 @@
       "distractors": [
         "책",
         "물건",
-        "함께"
+        "좀"
       ],
       "topic": "Geographie",
       "sourceVocabId": "vocab_a1_0583"
@@ -987,7 +987,7 @@
       "distractors": [
         "케이크",
         "귤",
-        "참"
+        "다니다"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0584"
@@ -1003,7 +1003,7 @@
       "distractors": [
         "설날",
         "월요일",
-        "가끔"
+        "참"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0585"
@@ -1011,15 +1011,15 @@
     {
       "id": "cloze_a1_0520",
       "level": "a1",
-      "sentenceKo": "와, 저녁에 ＿＿＿에 갈까요?",
+      "sentenceKo": "레나 씨, 저녁에 ＿＿＿에 갈까요?",
       "answer": "영화관",
-      "fullKo": "와, 저녁에 영화관에 갈까요?",
-      "de": "Wow, sollen wir heute Abend ins Kino gehen?",
-      "en": "Wow, shall we go to the movie theater this evening?",
+      "fullKo": "레나 씨, 저녁에 영화관에 갈까요?",
+      "de": "Lena, sollen wir heute Abend ins Kino gehen?",
+      "en": "Lena, shall we go to the movie theater this evening?",
       "distractors": [
         "바나나",
         "우유",
-        "천천히"
+        "오다"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0586"
@@ -1035,7 +1035,7 @@
       "distractors": [
         "밤",
         "생일",
-        "참"
+        "가끔"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0587"
@@ -1051,7 +1051,7 @@
       "distractors": [
         "할머니",
         "할아버지",
-        "아주"
+        "알다"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0588"

@@ -477,6 +477,37 @@ class TestBatch26VocabRows(unittest.TestCase):
             offenders, {}, f"reaction opener(s) repeated more than 3 times: {offenders}"
         )
 
+    def test_wa_opener_only_admires_something_present(self):
+        """"와" reacts to something visible/present -- it must be followed by
+        a demonstrative + noun ("이/그/저 X") or close an adjective
+        exclamation. It is not a valid way to open a bare invitation
+        question, which has nothing yet to admire (Fable pragmatics review,
+        2026-09-15)."""
+        demonstrative_re = re.compile(r"^와[,!]\s*[이그저][가-힣]")
+        for row in self.rows:
+            ex = row["example_korean"]
+            if not (ex.startswith("와,") or ex.startswith("와!")):
+                continue
+            has_demonstrative = bool(demonstrative_re.match(ex))
+            is_bare_invitation_question = ex.rstrip().endswith("까요?")
+            self.assertFalse(
+                is_bare_invitation_question and not has_demonstrative,
+                f"{row['id']}: '와' opens a bare invitation with nothing to admire: {ex!r} "
+                f"-- use a vocative/그럼/우리/context clause instead",
+            )
+
+    def test_ne_or_joayo_never_used_as_a_bare_opener(self):
+        """"네" and "좋아요" answer a question -- valid only inside a reply.
+        Every Batch 26 example is a single free-standing sentence with no
+        preceding question to reply to, so these two may never open a row
+        (Fable pragmatics review, 2026-09-15)."""
+        for row in self.rows:
+            ex = row["example_korean"]
+            self.assertFalse(
+                ex.startswith("네,") or ex.startswith("좋아요,"),
+                f"{row['id']}: starts with a reply-only opener with no preceding question: {ex!r}",
+            )
+
 
 class TestBatch26Cloze(unittest.TestCase):
     @classmethod

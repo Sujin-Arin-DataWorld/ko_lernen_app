@@ -445,9 +445,9 @@
     {
       "id": "satz_a1_0472",
       "level": "a1",
-      "targetKo": "네, 저녁에 수영하러 갈까요?",
-      "promptDe": "Na, sollen wir heute Abend schwimmen gehen?",
-      "promptEn": "Well, shall we go swimming this evening?",
+      "targetKo": "수진 씨, 저녁에 수영하러 갈까요?",
+      "promptDe": "Sujin, sollen wir heute Abend schwimmen gehen?",
+      "promptEn": "Sujin, shall we go swimming this evening?",
       "distractors": [
         "케이크",
         "귤"
@@ -536,9 +536,9 @@
     {
       "id": "satz_a1_0479",
       "level": "a1",
-      "targetKo": "좋아요, 기숙사에서 탁구 칠까요?",
-      "promptDe": "Gut, sollen wir im Wohnheim Tischtennis spielen?",
-      "promptEn": "Sounds good, shall we play table tennis in the dorm?",
+      "targetKo": "그럼 기숙사에서 탁구 칠까요?",
+      "promptDe": "Sollen wir dann im Wohnheim Tischtennis spielen?",
+      "promptEn": "Then, shall we play table tennis in the dorm?",
       "distractors": [
         "날짜",
         "작년"
@@ -549,9 +549,9 @@
     {
       "id": "satz_a1_0480",
       "level": "a1",
-      "targetKo": "네, 점심에 김밥을 먹을까요?",
-      "promptDe": "Na, sollen wir zum Mittagessen Gimbap essen?",
-      "promptEn": "Well, shall we have gimbap for lunch?",
+      "targetKo": "그럼 점심에 김밥 먹을까요?",
+      "promptDe": "Also, sollen wir zum Mittagessen Gimbap essen?",
+      "promptEn": "Then, shall we have gimbap for lunch?",
       "distractors": [
         "내년",
         "그저께"
@@ -757,9 +757,9 @@
     {
       "id": "satz_a1_0496",
       "level": "a1",
-      "targetKo": "와, 남대문 같이 구경 갈까요?",
-      "promptDe": "Wow, sollen wir uns zusammen Namdaemun ansehen?",
-      "promptEn": "Wow, shall we go see Namdaemun together?",
+      "targetKo": "다니엘 씨, 남대문 같이 구경 갈까요?",
+      "promptDe": "Daniel, sollen wir uns zusammen Namdaemun ansehen?",
+      "promptEn": "Daniel, shall we go see Namdaemun together?",
       "distractors": [
         "신발",
         "핸드폰"
@@ -822,9 +822,9 @@
     {
       "id": "satz_a1_0501",
       "level": "a1",
-      "targetKo": "와, 저녁에 영화관에 갈까요?",
-      "promptDe": "Wow, sollen wir heute Abend ins Kino gehen?",
-      "promptEn": "Wow, shall we go to the movie theater this evening?",
+      "targetKo": "레나 씨, 저녁에 영화관에 갈까요?",
+      "promptDe": "Lena, sollen wir heute Abend ins Kino gehen?",
+      "promptEn": "Lena, shall we go to the movie theater this evening?",
       "distractors": [
         "부모님",
         "딸"
