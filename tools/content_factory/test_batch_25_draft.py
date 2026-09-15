@@ -416,21 +416,49 @@ class TestBatch25Cloze(unittest.TestCase):
             self.assertIn(waived_id, item_ids, f"waived id {waived_id} not in Batch 25 cloze set")
 
     def test_predicate_slot_waiver_distractors_are_ungrammatical_in_slot(self):
-        """For every PREDICATE_SLOT_WAIVER item, each distractor must be
-        drawn from one of the three ungrammatical-in-slot techniques
-        (bare dictionary-form verb / bare noun without copula / bare
-        particle-adverb) -- never another same-shape predicate/phrase that
-        could itself complete the slot as a valid sentence."""
+        """For every PREDICATE_SLOT_WAIVER item, each distractor must be a
+        bare dictionary-form verb, a bare grammatical particle, or (for
+        cloze_a1_0407 only) its documented NOUN_EXCEPTIONS word -- never a
+        bare noun/adverb elsewhere, since in a sentence-initial
+        response/predicate slot a bare noun or adverb is itself a valid
+        elliptical Korean answer (e.g. "예, 가끔." = "Yes, sometimes.")."""
         by_id = {item["id"]: item for item in self.items}
         for waived_id in PREDICATE_SLOT_WAIVER:
             item = by_id[waived_id]
             for d in item["distractors"]:
                 self.assertTrue(
-                    waived_distractor_ok(d),
+                    waived_distractor_ok(d, waived_id),
                     f"{waived_id}: distractor {d!r} is not a recognized "
-                    "ungrammatical-in-slot form (dictionary-form verb / bare "
-                    "noun / bare particle-adverb)",
+                    "dictionary-form verb, bare particle, or that item's "
+                    "documented noun exception",
                 )
+
+    def test_predicate_slot_waiver_composition(self):
+        """Composition per waived item: 2 dictionary-form verbs + 1 bare
+        particle, or 3 dictionary-form verbs -- except cloze_a1_0407, whose
+        one documented noun exception (휴대폰) takes one of the three
+        slots alongside dictionary-form verbs/particles."""
+        from distractor_rules import DICTIONARY_FORM_VERBS, BARE_PARTICLES, NOUN_EXCEPTIONS
+        by_id = {item["id"]: item for item in self.items}
+        for waived_id in PREDICATE_SLOT_WAIVER:
+            distractors = by_id[waived_id]["distractors"]
+            n_dict = sum(1 for d in distractors if d in DICTIONARY_FORM_VERBS)
+            n_particle = sum(1 for d in distractors if d in BARE_PARTICLES)
+            n_exception = sum(
+                1 for d in distractors if NOUN_EXCEPTIONS.get(waived_id) == d
+            )
+            self.assertEqual(
+                n_dict + n_particle + n_exception, 3,
+                f"{waived_id}: distractors {distractors} include something "
+                "outside dict-form verbs / bare particles / the one "
+                "documented noun exception",
+            )
+            self.assertLessEqual(
+                n_particle, 1, f"{waived_id}: more than 1 bare particle"
+            )
+            self.assertLessEqual(
+                n_exception, 1, f"{waived_id}: more than 1 noun exception"
+            )
 
 
 class TestBatch25Satz(unittest.TestCase):

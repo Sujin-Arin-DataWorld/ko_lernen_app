@@ -73,7 +73,8 @@ _detect_required_class = detect_required_class
 
 
 # ---------------------------------------------------------------------------
-# PREDICATE_SLOT_WAIVER (Fable R8 review of PR #340, 2026-09-15)
+# PREDICATE_SLOT_WAIVER (Fable R8 review of PR #340, 2026-09-15; narrowed in
+# a second R8 pass the same day)
 # ---------------------------------------------------------------------------
 # The "same POS / same conjugation shape" distractor convention breaks down
 # for a cloze item whose blank spans an entire minimal-response predicate
@@ -81,39 +82,57 @@ _detect_required_class = detect_required_class
 # or an otherwise wide-open slot where almost any real word of the expected
 # shape also produces a fully valid, coherent Korean sentence -- e.g.
 # "가족이 ＿＿＿." with 세 명이에요 vs 선생님이에요/의사예요/학생이에요 (all
-# grammatical copula sentences), or "내일 ＿＿＿." with 꼭 오세요 vs 빨리
-# 가세요/같이 드세요 (both well-formed imperatives). Picking another
-# same-shape predicate/phrase as a distractor there almost always yields
-# ANOTHER valid sentence, violating the primary rule: a distractor must
-# NEVER yield a valid sentence.
+# grammatical copula sentences). Picking another same-shape predicate/phrase
+# as a distractor there almost always yields ANOTHER valid sentence,
+# violating the primary rule: a distractor must NEVER yield a valid
+# sentence.
 #
-# For these items the same-POS/same-conjugation rule is waived, and instead
-# each distractor is deliberately built to be UNGRAMMATICAL in that exact
-# slot, via one of three techniques:
-#   (i)   a bare dictionary-form verb where a conjugated predicate is
-#         required (가다, 먹다, 오다, 읽다, 쓰다, 타다, 보다, 돕다) --
-#         "예, 가다." has no valid conjugation, so it cannot stand as the
-#         sentence's predicate.
-#   (ii)  a bare noun with no copula, dropped into a slot that requires a
-#         complete predicate or an attached particle (책상, 우산, 컴퓨터,
-#         가방, 자동차, 휴대폰, 지갑, 시계) -- "가족이 책상." is missing
-#         "이에요"/"예요" and cannot stand alone as a finished sentence.
-#   (iii) a bare particle or adverb with nothing to attach to (에서, 에게,
-#         한테, 가끔, 자주, 항상, 좀) -- "음, 잘 에서." has no host word for
-#         the particle and completes nothing.
+# First pass (2026-09-15): waived same-POS/conjugation and allowed bare
+# nouns/adverbs alongside dictionary-form verbs and particles. Second pass
+# the same day narrowed this further: in a sentence-INITIAL response slot
+# ("예, ＿＿＿." / "음, ＿＿＿." / "내일 ＿＿＿.") a bare noun or adverb is
+# itself a VALID elliptical answer in Korean ("예, 가끔." = "Yes,
+# sometimes."; "내일 좀." = "Tomorrow, a bit."), and "저는 빨리 좋아해요"
+# (adverb + verb) is fully grammatical -- so nouns/adverbs are NOT safe
+# distractors for these items either.
+#
+# The waiver pool is now exactly two techniques:
+#   (i)  a bare dictionary-form verb/adjective where a conjugated predicate
+#        is required (가다, 먹다, 오다, 읽다, 쓰다, 타다, 보다, 돕다, ...) --
+#        "예, 가다." has no valid conjugation, so it cannot stand as the
+#        sentence's predicate, and (unlike a noun) it cannot be read as an
+#        elliptical answer either.
+#   (ii) a bare grammatical particle with nothing to attach to (에서, 에게,
+#        한테, 으로, 와, 과, 랑) -- "예, 에서." has no host word for the
+#        particle and completes nothing, in an elliptical reading or
+#        otherwise.
+# Composition per item: 2 dictionary-form + 1 particle, or 3
+# dictionary-form.
+#
+# A bare noun is allowed ONLY as a single, individually-justified exception
+# where the slot sits inside a sentence with no separate predicate anywhere
+# (the blank IS the entire predicate, not an interjection-response
+# fragment) AND the preceding word is a real subject/topic that
+# grammatically demands a predicate to complete the clause -- there a bare
+# noun genuinely leaves the sentence unparsable, with no elliptical
+# reading available (unlike an interjection, a subject cannot itself stand
+# as a complete utterance). Only cloze_a1_0407 qualifies (가족이 [subject]
+# + 휴대폰 [bare noun] has no predicate at all, and "가족이" cannot itself
+# be read as a complete utterance the way "예," can) -- see NOUN_EXCEPTIONS.
 #
 # `PREDICATE_SLOT_WAIVER` maps each waived Batch 25 cloze id to the short
 # reason its answer is an open predicate/phrase slot. `waived_distractor_ok`
-# checks a candidate distractor is drawn from one of the three techniques
-# above (used by the regression test, not by content generation itself --
-# these were hand-picked, not auto-generated).
+# checks a candidate distractor is drawn from pool (i)/(ii), or is that
+# item's documented NOUN_EXCEPTIONS entry (used by the regression test, not
+# by content generation itself -- these were hand-picked, not
+# auto-generated).
 PREDICATE_SLOT_WAIVER = {
     "cloze_a1_0398": "저는 ＿＿＿ 좋아해요. -- 좋아하다 accepts almost any object noun+를/을; no real word is a selectional violation there.",
     "cloze_a1_0407": "가족이 ＿＿＿. -- answer spans the full copula predicate (세 명이에요); any profession/role noun+이에요 is also grammatical.",
-    "cloze_a1_0413": "예, ＿＿＿. -- answer spans the full minimal-response predicate (알겠습니다); any -습니다 reply predicate is also grammatical.",
-    "cloze_a1_0415": "와, ＿＿＿! -- answer spans the full exclamation predicate (좋아요); any -아/어요 adjective exclamation is also grammatical.",
-    "cloze_a1_0416": "음, ＿＿＿. -- answer spans the full minimal-response predicate (모르겠어요); any -어요 reply predicate is also grammatical.",
-    "cloze_a1_0419": "내일 ＿＿＿. -- answer spans the full imperative predicate (꼭 오세요); any -세요 imperative is also grammatical.",
+    "cloze_a1_0413": "예, ＿＿＿. -- answer spans the full minimal-response predicate (알겠습니다); a bare noun/adverb here is a valid elliptical answer.",
+    "cloze_a1_0415": "와, ＿＿＿! -- answer spans the full exclamation predicate (좋아요); a bare noun/adverb here is a valid elliptical exclamation.",
+    "cloze_a1_0416": "음, ＿＿＿. -- answer spans the full minimal-response predicate (모르겠어요); a bare noun/adverb here is a valid elliptical answer.",
+    "cloze_a1_0419": "내일 ＿＿＿. -- answer spans the full imperative predicate (꼭 오세요); a bare noun/adverb here is a valid elliptical answer.",
     "cloze_a1_0437": "＿＿＿ 친구를 만나요. -- any time-word+에 fits this frame equally well; no real time word is a selectional violation there.",
     "cloze_a1_0440": "제 ＿＿＿ 다섯 살이에요. -- any family-member noun+은/는 fits equally well; no real family word is a selectional violation there.",
 }
@@ -122,21 +141,29 @@ DICTIONARY_FORM_VERBS = frozenset({
     "가다", "오다", "보다", "읽다", "쓰다", "타다", "입다", "알다", "모르다",
     "돕다", "팔다", "고르다", "빌리다", "끝나다", "다니다", "먹다", "마시다", "자다",
 })
-BARE_NOUNS_NO_COPULA = frozenset({
-    "책상", "우산", "컴퓨터", "가방", "자동차", "휴대폰", "지갑", "시계", "열쇠",
+BARE_PARTICLES = frozenset({
+    "에서", "에게", "한테", "으로", "와", "과", "랑",
 })
-BARE_PARTICLES_OR_ADVERBS = frozenset({
-    "에서", "에게", "한테", "가끔", "자주", "항상", "좀", "빨리", "다시",
-})
+# The single, individually-justified bare-noun exception (see docstring
+# above) -- keyed by cloze id, not a general pool.
+NOUN_EXCEPTIONS = {
+    "cloze_a1_0407": "휴대폰",
+}
 
 
-def waived_distractor_ok(word: str) -> bool:
-    """True if `word` is drawn from one of the three PREDICATE_SLOT_WAIVER
-    techniques (bare dictionary-form verb / bare noun without copula / bare
-    particle-adverb) -- i.e. it cannot itself complete the slot as a valid
-    predicate, regardless of same-POS/same-conjugation matching."""
-    return (
-        word in DICTIONARY_FORM_VERBS
-        or word in BARE_NOUNS_NO_COPULA
-        or word in BARE_PARTICLES_OR_ADVERBS
-    )
+def waived_distractor_ok(word: str, cloze_id: str | None = None) -> bool:
+    """True if `word` is drawn from the (i) dictionary-form-verb or (ii)
+    bare-particle pool -- i.e. it cannot itself complete the slot as a
+    valid predicate or a valid elliptical answer, regardless of same-POS/
+    same-conjugation matching. `cloze_id`, if given, also allows that
+    item's single documented NOUN_EXCEPTIONS word (if any)."""
+    if word in DICTIONARY_FORM_VERBS or word in BARE_PARTICLES:
+        return True
+    if cloze_id is not None and NOUN_EXCEPTIONS.get(cloze_id) == word:
+        return True
+    return False
+
+
+# -- backward-compatible alias: old name, still importable --
+BARE_NOUNS_NO_COPULA = frozenset(NOUN_EXCEPTIONS.values())
+BARE_PARTICLES_OR_ADVERBS = BARE_PARTICLES

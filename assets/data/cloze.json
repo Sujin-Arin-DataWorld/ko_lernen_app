@@ -29300,8 +29300,8 @@
       "de": "Ich mag Mandarinen.",
       "en": "I like tangerines.",
       "distractors": [
-        "빨리",
         "가다",
+        "쓰다",
         "에서"
       ],
       "topic": "Essen & Trinken",
@@ -29455,7 +29455,7 @@
       "distractors": [
         "먹다",
         "휴대폰",
-        "빨리"
+        "에게"
       ],
       "topic": "Menge",
       "sourceVocabId": "vocab_a1_0473",
@@ -29556,8 +29556,8 @@
       "en": "Yes, I understand well.",
       "distractors": [
         "오다",
-        "우산",
-        "가끔"
+        "쓰다",
+        "에서"
       ],
       "topic": "Höflichkeit",
       "sourceVocabId": "vocab_a1_0479",
@@ -29590,8 +29590,8 @@
       "en": "Wow, that's really great!",
       "distractors": [
         "읽다",
-        "컴퓨터",
-        "자주"
+        "타다",
+        "한테"
       ],
       "topic": "Höflichkeit",
       "sourceVocabId": "vocab_a1_0481",
@@ -29606,9 +29606,9 @@
       "de": "Hm, ich weiß es nicht genau.",
       "en": "Hmm, I don't really know.",
       "distractors": [
-        "쓰다",
-        "가방",
-        "항상"
+        "자다",
+        "팔다",
+        "으로"
       ],
       "topic": "Höflichkeit",
       "sourceVocabId": "vocab_a1_0482",
@@ -29657,9 +29657,9 @@
       "de": "Kommen Sie morgen unbedingt.",
       "en": "Please be sure to come tomorrow.",
       "distractors": [
-        "타다",
-        "자동차",
-        "좀"
+        "고르다",
+        "빌리다",
+        "한테"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0485",
@@ -29964,7 +29964,7 @@
       "en": "I meet a friend during the day.",
       "distractors": [
         "보다",
-        "지갑",
+        "끝나다",
         "한테"
       ],
       "topic": "Zeit",
@@ -30014,9 +30014,9 @@
       "de": "Meine Tochter ist fünf Jahre alt.",
       "en": "My daughter is five years old.",
       "distractors": [
-        "돕다",
-        "시계",
-        "다시"
+        "모르다",
+        "다니다",
+        "와"
       ],
       "topic": "Familie",
       "sourceVocabId": "vocab_a1_0506",
