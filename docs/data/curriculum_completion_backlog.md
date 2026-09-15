@@ -2,8 +2,8 @@
 
 > 이 목록은 W0b3의 검토용 분류 큐입니다. 완료된 교육과정, 확정된 카드 누락 수, 전체 요구 분모를 뜻하지 않습니다.
 
-- 고유 작업 항목: 872
-- 고유 sampleLexis 후보: 209 (Phase×단어 맥락 341)
+- 고유 작업 항목: 859
+- 고유 sampleLexis 후보: 201 (Phase×단어 맥락 329)
 - Phase C18 병합 경고 참조: 72; C11 정보성 참조: 5
 - 자동 문법 진단은 의미·원 급·기존 연결 검토 전 확정 결손이 아닙니다.
 
@@ -11,9 +11,9 @@
 
 SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체크아웃의 줄바꿈 차이는 내용 변경으로 세지 않습니다.
 
-- `tool/curriculum_matrix_gaps.csv`: `44fb3ad99736b5ef91785a95eb76d072ee98daf0c2b06bad62ef67173aff6451`
-- `tool/learning_phase_findings.csv`: `9b73ef8ce0ba0087bb3c0221a982391c63e640ffe120df1a30d0e22ebe6516a6`
-- `tool/learning_phase_summary.json`: `c41b77432f15e32078a5fc05f4bb011799eaf6e161689815a7e7036801e66ccd`
+- `tool/curriculum_matrix_gaps.csv`: `fe81c218487a7cb2702ec4beef6f5065d8abc54a474fa8bb0b0b7668c1d7b15c`
+- `tool/learning_phase_findings.csv`: `06909d55415ac3c7ea3da1f994a06e5798e125223d3748aa754f55594f01c496`
+- `tool/learning_phase_summary.json`: `a6c260f7a477a8e5abebf0fdada00c65608a52969bc4c0e2b261091df71d380c`
 - `tools/content_factory/cefr_matrix/phases.json`: `b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9`
 - `tools/content_factory/cefr_matrix/ko.json`: `c642d91721753ea990a5b7c0373b9cb1da8923ae984e0c583de2825fc26cb4cf`
 - `tools/content_factory/lexicon/nikl_kiiq_2017_grammar.csv`: `c7455e22537b8b841529a7da155510a4607ba5b8f33c1516045fa8566dd25014`
@@ -356,14 +356,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 - 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 높임, 말씀, 드리다
 
-### `A1|phase_warning|C16_lexis:KP01 · family_kinship_address_terms|unassigned`
-
-- 항목: KP01 · family_kinship_address_terms
-- 상태: needs_review; 확정 분류: 없음; 후보: 없음
-- 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
-- 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 동생
-
 ### `A1|phase_warning|C16_lexis:KP01 · fixed_expressions_collocations|unassigned`
 
 - 항목: KP01 · fixed_expressions_collocations
@@ -404,14 +396,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 - 근거: C16_lexis: Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 세 개, 만 원
 
-### `A1|phase_warning|C16_lexis:KP02 · time_calendar|unassigned`
-
-- 항목: KP02 · time_calendar
-- 상태: needs_review; 확정 분류: 없음; 후보: 없음
-- 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
-- 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 오전, 오후
-
 ### `A1|phase_warning|C16_lexis:KP02 · transport_travel_vocab|unassigned`
 
 - 항목: KP02 · transport_travel_vocab
@@ -427,14 +411,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 - 근거: C16_lexis: Phase 가 쓰는 어휘 4 개가 앱 어휘(A1 이하)에 없다: 마음에 들다, 도움이 되다, 약속을 지키다, 의견을 나누다
-
-### `A1|phase_warning|C16_lexis:KP03 · food_cooking|unassigned`
-
-- 항목: KP03 · food_cooking
-- 상태: needs_review; 확정 분류: 없음; 후보: 없음
-- 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
-- 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 메뉴
 
 ### `A1|phase_warning|C16_lexis:KP03 · numbers_quantity_units|unassigned`
 
@@ -474,7 +450,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 비, 덥다, 춥다
+- 근거: C16_lexis: Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 덥다, 춥다
 
 ### `A1|phase_warning|C6_coverage:A1 · 주제(선택 포함) · intercultural_globalisation_migration|unassigned`
 
@@ -580,14 +556,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
 - 근거: sampleLexis missing from current app vocabulary audit
 
-### `A1|sample_lexis|동생|unassigned`
-
-- 항목: 동생
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
 ### `A1|sample_lexis|드리다|unassigned`
 
 - 항목: 드리다
@@ -620,25 +588,9 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
 - 근거: sampleLexis missing from current app vocabulary audit
 
-### `A1|sample_lexis|메뉴|unassigned`
-
-- 항목: 메뉴
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
 ### `A1|sample_lexis|배|unassigned`
 
 - 항목: 배
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
-### `A1|sample_lexis|비|unassigned`
-
-- 항목: 비
 - 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
 - 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
@@ -679,22 +631,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 ### `A1|sample_lexis|업무|unassigned`
 
 - 항목: 업무
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
-### `A1|sample_lexis|오전|unassigned`
-
-- 항목: 오전
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
-### `A1|sample_lexis|오후|unassigned`
-
-- 항목: 오후
 - 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
 - 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
@@ -834,15 +770,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: assessment_missing, content_missing, existing_unlinked
 - 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
 - 조치: add_pack_in_domain
-- 근거: thin: words=1
-
-### `A1|vocab_domain|weather_nature|unassigned`
-
-- 항목: 날씨·자연 어휘
-- 상태: needs_review; 확정 분류: 없음; 후보: assessment_missing, content_missing, existing_unlinked
-- 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
-- 조치: add_pack_in_domain
-- 근거: missing: words=0
+- 근거: thin: words=4
 
 ### `A2|grammar_anchor|grammar_a1_future_modifier|unassigned`
 
@@ -1332,14 +1260,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 - 근거: C16_lexis: Phase 가 쓰는 어휘 1 개가 앱 어휘(A2 이하)에 없다: 크기
 
-### `A2|phase_warning|C16_lexis:KP05 · food_cooking|unassigned`
-
-- 항목: KP05 · food_cooking
-- 상태: needs_review; 확정 분류: 없음; 후보: 없음
-- 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
-- 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 1 개가 앱 어휘(A2 이하)에 없다: 메뉴
-
 ### `A2|phase_warning|C16_lexis:KP05 · money_prices_banking|unassigned`
 
 - 항목: KP05 · money_prices_banking
@@ -1354,7 +1274,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(A2 이하)에 없다: 신청, 접수, 안내
+- 근거: C16_lexis: Phase 가 쓰는 어휘 2 개가 앱 어휘(A2 이하)에 없다: 신청, 접수
 
 ### `A2|phase_warning|C16_lexis:KP06 · feelings_emotions_character|unassigned`
 
@@ -1378,7 +1298,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(A2 이하)에 없다: 운동, 산책, 모임
+- 근거: C16_lexis: Phase 가 쓰는 어휘 1 개가 앱 어휘(A2 이하)에 없다: 모임
 
 ### `A2|phase_warning|C16_lexis:KP07 · feelings_emotions_character|unassigned`
 
@@ -1410,7 +1330,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(A2 이하)에 없다: 신청, 접수, 안내
+- 근거: C16_lexis: Phase 가 쓰는 어휘 2 개가 앱 어휘(A2 이하)에 없다: 신청, 접수
 
 ### `A2|phase_warning|C16_lexis:KP08 · technology_devices_internet|unassigned`
 
@@ -1468,25 +1388,9 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
 - 근거: sampleLexis missing from current app vocabulary audit
 
-### `A2|sample_lexis|산책|unassigned`
-
-- 항목: 산책
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
 ### `A2|sample_lexis|신청|unassigned`
 
 - 항목: 신청
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
-### `A2|sample_lexis|안내|unassigned`
-
-- 항목: 안내
 - 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
 - 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
@@ -1511,14 +1415,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 ### `A2|sample_lexis|요금|unassigned`
 
 - 항목: 요금
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
-### `A2|sample_lexis|운동|unassigned`
-
-- 항목: 운동
 - 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
 - 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
@@ -2578,7 +2474,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 신청, 접수, 안내
+- 근거: C16_lexis: Phase 가 쓰는 어휘 2 개가 앱 어휘(B1 이하)에 없다: 신청, 접수
 
 ### `B1|phase_warning|C16_lexis:KP11 · fixed_expressions_collocations|unassigned`
 
@@ -2634,7 +2530,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 신청, 접수, 안내
+- 근거: C16_lexis: Phase 가 쓰는 어휘 2 개가 앱 어휘(B1 이하)에 없다: 신청, 접수
 
 ### `B1|phase_warning|C16_lexis:KP13 · language_metalanguage|unassigned`
 
