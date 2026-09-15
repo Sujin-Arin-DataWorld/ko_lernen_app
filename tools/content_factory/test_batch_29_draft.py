@@ -79,11 +79,16 @@ NOUN_HEADWORDS = {
 # dictionary-form verbs/adjectives (Batch 25-28's PREDICATE_SLOT_WAIVER
 # technique), not same-ending-group conjugated forms. See the manifest's
 # predicateSlotWaiverRows for the per-row reasoning.
-PREDICATE_SLOT_WAIVER_HEADWORDS = {
-    "놀다", "들다", "잘하다", "지내다", "못하다", "울다", "춤추다",
-    "고맙다", "괜찮다", "그렇다", "반갑다", "싫다", "아니다", "어떻다",
-    "특별하다", "한가하다", "멋있다",
-}
+#
+# R8 revision (Fable coordinator review of 09aea5de, 2026-09-16): the first
+# draft over-used this waiver -- 들다, 잘하다, 못하다, 어떻다, 그렇다, 싫다,
+# 괜찮다, 특별하다, 한가하다, 반갑다, 멋있다 all had 3 real same-ending
+# clashing candidates available and are now Tier A (see EXCLUDE in the
+# generator for how each row's collocation risks were closed). Only rows
+# with a genuinely open predicate slot -- an invitation/minimal-response/
+# manner-adverb frame that accepts a wide range of real verbs/adjectives
+# validly -- keep the waiver:
+PREDICATE_SLOT_WAIVER_HEADWORDS = {"놀다", "지내다", "울다", "춤추다", "고맙다", "아니다"}
 
 # Ending "groups" for the non-waiver 용언 rows -- a distractor must share
 # the answer's group (both members conjugated the same tense/mood), not
@@ -358,12 +363,12 @@ class TestBatch29VocabRows(unittest.TestCase):
         )
         overrides = {
             "걸어요": "걸다", "그려요": "그리다", "났어요": "나다", "넣어요": "넣다",
-            "놀까요": "놀다", "되고": "되다", "드세요": "들다", "불러요": "부르다",
+            "놀까요": "놀다", "되고": "되다", "불러요": "부르다",
             "시켜요": "시키다", "찍어요": "찍다", "춰요": "추다", "쳐요": "치다",
             "다녀왔어요": "다녀오다", "돌아가요": "돌아가다", "돌아오세요": "돌아오다",
             "들어가지": "들어가다", "들어와요": "들어오다", "올라갈": "올라가다",
             "불어요": "불다", "울어요": "울다", "잘해요": "잘하다", "지나요": "지나다",
-            "지내요": "지내다", "피우지": "피우다", "말아요": "말다", "못해요": "못하다",
+            "지내요": "지내다", "피우지": "피우다", "못해요": "못하다",
             "알려요": "알리다", "찾아봐요": "찾아보다", "춤춰요": "춤추다",
             "같아요": "같다", "고마워요": "고맙다", "고파요": "고프다",
             "괜찮아요": "괜찮다", "그래요": "그렇다", "깨끗해요": "깨끗하다",

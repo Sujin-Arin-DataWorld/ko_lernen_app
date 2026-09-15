@@ -1,42 +1,47 @@
 {
-  "version": 1,
+  "version": 2,
   "batch": "c3_batch29_a1_reinforcement",
   "status": "draft",
   "provenance": {
-    "scope": "A1(1급) vocabulary reinforcement — 65 headwords (29 verbs, 26 adjectives, 10 nouns) from the NIKL KIIQ 2017 grade-1 gap list (not yet live, not in the Batch 26, 27 or 28 drafts). Batch 29 = all remaining grade-1 verbs + adjectives + nouns; the remaining adverbs (19), pronouns (13), dependent nouns (13) and determiners (11) are deferred to Batch 30. No under-12 A1 pack had a matching candidate (a1_colors needs color adjectives -- none remain grade-1; a1_partner_meet_names_1 needs an honorific kinship-address term -- none remain), so all 65 words went into 6 new packs (5 full 12-word packs + 1 unavoidable 5-word pack, since 65 does not divide evenly by 12). Original clean-room authoring (KO/DE/EN), seeded only by NIKL 2017 kiiq grade-1 headword selection (KOGL Type-1). Follows the persona (character_profiles.json recurringCharacters) and liveliness rules set for Batch 26-28.",
+    "scope": "A1(1급) vocabulary reinforcement — 64 headwords (28 verbs, 26 adjectives, 10 nouns) from the NIKL KIIQ 2017 grade-1 gap list (not yet live, not in the Batch 26, 27 or 28 drafts). Batch 29 = all remaining grade-1 verbs + adjectives + nouns except 말다 (dropped, see malDecisionNote); the remaining adverbs (19), pronouns (13), dependent nouns (13), determiners (11) and 말다 are deferred to Batch 30/Fable. No under-12 A1 pack had a matching candidate (a1_colors needs color adjectives -- none remain grade-1; a1_partner_meet_names_1 needs an honorific kinship-address term -- none remain), so all 64 words went into 6 new packs (5 full 12-word packs + 1 unavoidable 4-word pack, since 64 does not divide evenly by 12). Original clean-room authoring (KO/DE/EN), seeded only by NIKL 2017 kiiq grade-1 headword selection (KOGL Type-1). Follows the persona (character_profiles.json recurringCharacters) and liveliness rules set for Batch 26-28.",
     "rights": "original_clean_room",
     "seedSource": "tools/content_factory/lexicon/nikl_kiiq_2017_vocab.csv (grade=1, minus live assets/data/korean_vocab.csv, tools/content_factory/drafts/batch_26_a1_rows.csv, batch_27_a1_rows.csv and batch_28_a1_rows.csv)",
     "requiresJinReview": true,
     "approval": {},
     "modelLanguageQa": "PENDING_FABLE_REVIEW",
     "humanLanguageQaClaim": false,
-    "predicateSlotWaiverNote": "Verb/adjective rows whose cloze answer spans a wide-open predicate slot (invitation '우리 같이 ＿＿＿?', bare imperative '가방을 ＿＿＿.', minimal-response '정말 ＿＿＿.'/'제 생각도 ＿＿＿.'/'오늘 날씨가 ＿＿＿?' etc., where several real verbs/adjectives of the same shape would also complete the sentence validly) use the Batch 25-28 predicate-slot waiver technique (distractor_rules.py: bare dictionary-form verbs/adjectives, or for 잘하다/못하다's '잘 ＿' slot, a bare dictionary-form verb with '잘' prefixed) instead of same-ending conjugated nouns/verbs -- tagged per-row as waiver='predicate_slot' in the generator data and listed in the review packet.",
-    "malDecisionNote": "말다 (NIKL grade-1 verb) is almost exclusively used in modern Korean as the bound auxiliary of '-지 말다' (prohibitive) or '-고 말다' (completive) -- both supra-1급 grammar not in this batch's permitted ending list (-아/어요, -았/었어요, -(으)세요, -(으)ㄹ까요?, -고 싶어요, -지 않아요, -지 못해요, -(으)ㄹ 수 있어요), and '-지 말다' specifically was already rejected as 2급 in Batch 28's R8 review (늦다 rewrite). Rather than drop the headword, this batch uses 말다's other, non-auxiliary dictionary sense ('to roll/wrap', e.g. 김밥을 말다) with a plain -아/어요 sentence. Flagged 판정 필요 in the review packet."
+    "r8Revision": "2026-09-16 Fable coordinator review of commit 09aea5de (PR #349), 5-point R8: (1) Tier B (predicate-slot dictionary-form waiver) was over-used in the first draft -- 11 rows (들다, 잘하다, 못하다, 어떻다, 그렇다, 싫다, 괜찮다, 특별하다, 한가하다, 반갑다, 멋있다) had 3 real same-ending clashing Tier A candidates available and were converted; only 6 rows with a genuinely open predicate slot (놀다, 지내다, 울다, 춤추다, 고맙다, 아니다) keep the waiver, per predicateSlotWaiverRows below. (2) 되다: '민호 씨는' -> '저는' (a named topic let '의사가' be misread as an independent subject of the distractor verb, e.g. '민호 씨는 의사가 마시고 싶어요' parsed as 'the doctor wants to drink'; '저는' as 1st-person topic makes that double-subject reading ungrammatical). (3) 들다: '가방을 드세요.' -> '저는 가방을 들어요.' (드세요 is ambiguous with 드시다, the honorific of 먹다/마시다). (4) 말다 DROPPED (65 -> 64 words): its only NIKL grade-1 sense is the bound auxiliary '-지 말다' (prohibitive), outside this batch's 8 permitted endings; the 'roll gimbap' free-verb sense substituted in the first draft is not the graded sense. a1_verbs_daily_3 is now 4 words; no verbs remain for Batch 30 (부사/대명사/의존명사/관형사 only). (5) The first draft's 15 flagged 'residual risk' distractor substitutions were re-judged under Tier A first (not left as an allowlisted risk) -- each is now closed either by an EXCLUDE-set addition (14 rows) or a rewritten sentence frame (고프다: added a '점심을 안 먹어서' reason clause so the homophone 배(stomach/boat/pear) can only parse as stomach and dimension-adjective distractors no longer causally follow). See EXCLUDE in the (uncommitted) generator script's inline comments, mirrored in the review packet, for the closed-risk list."
   },
   "artifacts": [
     {
       "kind": "vocab",
       "draft": "tools/content_factory/drafts/batch_29_a1_rows.csv",
       "collection": "korean_vocab",
-      "count": 65,
+      "count": 64,
       "level": "A1"
     },
     {
       "kind": "cloze",
       "draft": "tools/content_factory/drafts/batch_29_a1_cloze.json",
       "collection": "cloze_items",
-      "count": 65,
+      "count": 64,
       "level": "A1"
     },
     {
       "kind": "satz",
       "draft": "tools/content_factory/drafts/batch_29_a1_satz.json",
       "collection": "satz_items",
-      "count": 65,
+      "count": 64,
       "level": "A1"
     }
   ],
-  "recordCount": 195,
+  "recordCount": 192,
+  "tierCounts": {
+    "tierA_sameEndingGroup": 48,
+    "tierB_predicateSlotWaiver": 6,
+    "nounStandardRules": 10,
+    "note": "48 + 6 + 10 = 64. R8 before/after: first draft had 17 Tier B rows (waiver over-used); this revision has 6."
+  },
   "packsFilledTo12": [],
   "packsLeftUnfilled": [
     {
@@ -64,8 +69,8 @@
     {
       "pack_id": "a1_verbs_daily_3",
       "displayName": { "de": "Alltagsverben 3", "en": "Everyday Verbs 3" },
-      "wordCount": 5,
-      "note": "UNAVOIDABLE 5-word pack: 29 verbs / 12 does not divide evenly (12+12+5), and the 5 leftover verbs cannot cleanly join a1_misc_2 (which fills exactly to 12 with the 10 leftover nouns + 2 leftover adjectives). Not one of the 5 pack names Fable listed (a1_verbs_daily_1/2, a1_adjectives_1/2, a1_misc_2) -- added per the brief's 'allow one 5-11 pack only if unavoidable and say so' clause. course-unit/motif assignment deferred to promotion."
+      "wordCount": 4,
+      "note": "UNAVOIDABLE 4-word pack (was 5 in the first draft; R8 dropped 말다, see r8Revision point 4): 못하다/알리다/찾아보다/춤추다. 28 verbs / 12 = 12+12+4, and the leftover 4 cannot cleanly join a1_misc_2 (which fills exactly to 12 with the 10 leftover nouns + 2 leftover adjectives). Not one of the 5 pack names Fable listed (a1_verbs_daily_1/2, a1_adjectives_1/2, a1_misc_2) -- added per the brief's 'allow one 5-11 pack only if unavoidable and say so' clause. No verbs remain for Batch 30 (only 부사/대명사/의존명사/관형사 do). course-unit/motif assignment deferred to promotion."
     },
     {
       "pack_id": "a1_adjectives_1",
@@ -87,9 +92,10 @@
     }
   ],
   "remainingA1Gap": {
-    "count": 56,
-    "note": "NIKL grade-1 headwords still not in live korean_vocab.csv, the Batch 26/27/28 drafts, or this Batch 29 draft, as of 2026-09-16: adverbs (19: 가장/그래서/그러니까/그러면/그런데/그럼/그렇지만/그리고/못/보통/아주/아직/안녕히/얼마나/열심히/왜/잘/참/하지만), pronouns (13: 그/그것/그쪽/내/무엇/뭐/어디/언제/이것/이쪽/저것/저쪽/제), dependent nouns (13: 가지/것/권/년/때/마리/명/번/살/씨/중/쪽/호), determiners (11: 마흔/무슨/백만/서른/십만/어떤/아흔/억/여든/여러/일흔). All go to Batch 30. One additional hybrid-tagged headword ('천만02‧천만', pos '수사‧관형사' -- a numeral/determiner homograph of the noun 천만 used in this batch) exists in the raw NIKL CSV outside these 4 POS buckets; not assigned to any batch yet, flagged for Fable's decision on which POS bucket/batch it belongs to."
+    "count": 57,
+    "note": "NIKL grade-1 headwords still not in live korean_vocab.csv, the Batch 26/27/28 drafts, or this Batch 29 draft, as of 2026-09-16 (R8): adverbs (19: 가장/그래서/그러니까/그러면/그런데/그럼/그렇지만/그리고/못/보통/아주/아직/안녕히/얼마나/열심히/왜/잘/참/하지만), pronouns (13: 그/그것/그쪽/내/무엇/뭐/어디/언제/이것/이쪽/저것/저쪽/제), dependent nouns (13: 가지/것/권/년/때/마리/명/번/살/씨/중/쪽/호), determiners (11: 마흔/무슨/백만/서른/십만/어떤/아흔/억/여든/여러/일흔), and the 1 verb 말다 dropped from this batch (R8 point 4) -- its NIKL grade-1 sense is the bound auxiliary '-지 말다' (prohibitive), outside this batch's permitted 1급 endings; not authored as a workaround-sense substitute this time. Fable/LCP to decide whether 말다 gets its own -지 말다 grammar-focused item in a later batch, or joins a future 문법 확장 pass. One additional hybrid-tagged headword ('천만02‧천만', pos '수사‧관형사' -- a numeral/determiner homograph of the noun 천만 used in this batch) exists in the raw NIKL CSV outside these 4 POS buckets; not assigned to any batch yet, flagged for Fable's decision on which POS bucket/batch it belongs to."
   },
+  "personaRowsNote": "vocab_a1_0720 (되다, 'I want to become a doctor') carries no name in the sentence text after the R8 되다 fix (topic changed 민호 씨는 -> 저는) -- attributed to minho in personaRows below as a general-voice assignment (직업 희망 표현의 대표 화자), not a documented interest match; flagged so Jin can reassign or drop it if that's judged too weak a link. All other 7 rows keep a literal named speaker.",
   "personaRows": {
     "vocab_a1_0719": "jun",
     "vocab_a1_0720": "minho",
@@ -97,25 +103,17 @@
     "vocab_a1_0725": "lena",
     "vocab_a1_0732": "andrea",
     "vocab_a1_0735": "minho",
-    "vocab_a1_0740": "christian",
-    "vocab_a1_0757": "christian"
+    "vocab_a1_0739": "christian",
+    "vocab_a1_0756": "christian"
   },
   "predicateSlotWaiverRows": {
-    "vocab_a1_0719": "놀다 -- '크리스티안 씨, 우리 같이 ＿＿＿?' is an open invitation slot (갈까요/볼까요/먹을까요... all valid); waiver = bare dictionary-form verbs (자다/입다/읽다).",
-    "vocab_a1_0721": "들다(들어요, held-object sense) -- '가방을 ＿＿＿.' is an open imperative slot (파세요/사세요/보세요 all valid); waiver = bare dictionary-form verbs (자다/입다/읽다).",
-    "vocab_a1_0735": "잘하다 -- '민호 씨는 요리를 ＿＿＿.' fused-하다 slot is open for many activities; waiver = '잘 ' + bare dictionary-form verb (잘 읽다/잘 입다/잘 타다), not a conjugated noun.",
-    "vocab_a1_0737": "지내다 -- '요즘 ' + bare predicate '＿＿＿?' (minimal-response shape); waiver = bare dictionary-form verbs (읽다/입다/타다).",
-    "vocab_a1_0740": "못하다 -- '크리스티안 씨는 한국어를 잘 ＿＿＿.' same '잘 + verb' open slot as 잘하다; waiver = '잘 ' + bare dictionary-form verb.",
-    "vocab_a1_0745": "고맙다 -- '정말 ＿＿＿.' minimal-response shape; waiver = bare dictionary-form adjectives is not applicable (고맙다 IS an adjective already used bare) -- distractors are same-ending adjectives (작아요/많아요/비싸요) chosen because none naturally complete '정말 ＿' as a plausible reply either; tagged waiver out of caution, not because a same-form pool was unavailable.",
-    "vocab_a1_0747": "괜찮다 -- '이 음식은 ＿＿＿.' minimal-predicate shape; distractors are same-ending adjectives, tagged waiver out of caution (same reasoning as 고맙다).",
-    "vocab_a1_0748": "그렇다 -- '제 생각도 ＿＿＿.' minimal-response shape; distractors are same-ending adjectives, tagged waiver out of caution.",
-    "vocab_a1_0757": "반갑다 -- '안녕하세요, 만나서 ＿＿＿.' minimal-response greeting shape; distractors are same-ending adjectives, tagged waiver out of caution.",
-    "vocab_a1_0759": "싫다 -- '저는 비가 ＿＿＿.' -- 좋다/싫다-class predicates over N을/를 accept a wide range of nouns as subject; distractors are same-ending adjectives, tagged waiver out of caution.",
-    "vocab_a1_0760": "아니다 -- '저는 학생이 ＿＿＿.' copula-negation minimal-predicate shape (same class as Batch 25's PREDICATE_SLOT_WAIVER cloze_a1_0407); distractors are same-ending adjectives, tagged waiver out of caution.",
-    "vocab_a1_0762": "어떻다 -- '오늘 날씨가 ＿＿＿?' open question-predicate shape; distractors are same-ending adjectives, tagged waiver out of caution.",
-    "vocab_a1_0766": "특별하다 -- '오늘이 ＿＿＿.' minimal-predicate shape; distractors are same-ending adjectives, tagged waiver out of caution.",
-    "vocab_a1_0767": "한가하다 -- '저는 오늘 ＿＿＿.' minimal-predicate shape; distractors are same-ending adjectives, tagged waiver out of caution.",
-    "note": "IDs above are the actual generated ids (verified against the committed batch_29_a1_rows.csv), matching each row flagged waiver=predicate_slot in the generator; see the review packet's evidence table for the full per-row substitution judgement."
+    "vocab_a1_0719": "놀다 -- '크리스티안 씨, 우리 같이 ＿＿＿?' invitation slot: 갈까요/볼까요/먹을까요/잘까요/탈까요/읽을까요 all valid same-ending (-(으)ㄹ까요?) completions; no 3 clean clashing candidates exist. waiver = bare dictionary-form verbs (자다/입다/읽다).",
+    "vocab_a1_0734": "울다 -- '아이가 많이 ＿＿＿.' manner-adverb slot: 자다/오다/웃다(직접 반의어) 등 다수의 아동 행위 동사가 같은 -아/어요 형으로 자연스럽게 성립해 3개를 못 채운다(특히 웃다는 울다의 정반의어라 어떤 서사적 이유를 붙여도 함께 성립하는 경우가 많음, R8 재검토로 확인). waiver = bare dictionary-form verbs (입다/자다/타다).",
+    "vocab_a1_0737": "지내다 -- '요즘 잘 ＿＿＿?' bare minimal-response frame (Fable's own explicit example of an allowed waiver). waiver = bare dictionary-form verbs (가다/보다/팔다).",
+    "vocab_a1_0742": "춤추다 -- '우리는 같이 ＿＿＿.' collective-activity slot, same class as 놀다 (배우다/걸다/기다리다 등 다수의 -아/어요 형 동사가 '우리는 같이' 뒤에서 유효한 문장을 만든다). waiver = bare dictionary-form verbs (읽다/입다/자다).",
+    "vocab_a1_0744": "고맙다 -- '정말 ＿＿＿.' is a maximally open exclamatory frame: '정말 + 어떤 형용사든' 자체로 완전한 감탄문이 되므로(예: 정말 커요/많아요/비싸요 모두 유효), Tier A 후보가 원천적으로 존재하지 않는다. waiver = bare dictionary-form adjectives (작다/많다/무겁다).",
+    "vocab_a1_0759": "아니다 -- '저는 학생이 ＿＿＿.' is a copula-negation predicate unique to 아니다 (X이/가 아니에요) -- no other adjective attaches to '학생이' in this same negation-copula shape, so there is no Tier A same-form pool to draw from at all (same class as Batch 25's PREDICATE_SLOT_WAIVER cloze_a1_0407). waiver = bare dictionary-form adjectives (작다/크다/많다).",
+    "note": "R8 (2026-09-16): reduced from 17 waiver rows to 6 after re-auditing every row for real Tier A same-ending clashing candidates first. The 11 rows moved to Tier A (들다, 잘하다, 못하다, 어떻다, 그렇다, 싫다, 괜찮다, 특별하다, 한가하다, 반갑다, 멋있다) are listed in the review packet's Tier A/B table with their old (waiver) and new (Tier A) distractor sets. IDs above are the actual generated ids verified against the committed batch_29_a1_rows.csv."
   },
   "reviewPacket": "docs/data/review_packets/batch_29_a1_jin_sample.md",
   "promotion": {

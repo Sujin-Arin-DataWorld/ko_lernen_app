@@ -68,9 +68,9 @@
     {
       "id": "satz_a1_0635",
       "level": "a1",
-      "targetKo": "민호 씨는 의사가 되고 싶어요.",
-      "promptDe": "Minho möchte Arzt werden.",
-      "promptEn": "Minho wants to become a doctor.",
+      "targetKo": "저는 의사가 되고 싶어요.",
+      "promptDe": "Ich möchte Arzt werden.",
+      "promptEn": "I want to become a doctor.",
       "distractors": [
         "곳",
         "달"
@@ -81,9 +81,9 @@
     {
       "id": "satz_a1_0636",
       "level": "a1",
-      "targetKo": "가방을 드세요.",
-      "promptDe": "Halten Sie bitte die Tasche.",
-      "promptEn": "Please hold the bag.",
+      "targetKo": "저는 가방을 들어요.",
+      "promptDe": "Ich halte die Tasche.",
+      "promptEn": "I hold the bag.",
       "distractors": [
         "메뉴",
         "생일"
@@ -226,7 +226,7 @@
       "level": "a1",
       "targetKo": "안드레아 씨는 주말에 이 산을 올라갈 수 있어요.",
       "promptDe": "Andrea kann am Wochenende auf diesen Berg steigen.",
-      "promptEn": "Andrea can go up the mountain on the weekend.",
+      "promptEn": "Andrea can go up this mountain on the weekend.",
       "distractors": [
         "선물",
         "잡채"
@@ -315,535 +315,522 @@
     {
       "id": "satz_a1_0654",
       "level": "a1",
-      "targetKo": "저는 김밥을 말아요.",
-      "promptDe": "Ich rolle Gimbap.",
-      "promptEn": "I roll gimbap.",
+      "targetKo": "크리스티안 씨는 한국어를 잘 못해요.",
+      "promptDe": "Christian kann noch nicht gut Koreanisch.",
+      "promptEn": "Christian isn't very good at Korean.",
       "distractors": [
         "키",
         "학교"
       ],
-      "vocabKo": "말다",
+      "vocabKo": "못하다",
       "sourceVocabId": "vocab_a1_0739"
     },
     {
       "id": "satz_a1_0655",
       "level": "a1",
-      "targetKo": "크리스티안 씨는 한국어를 잘 못해요.",
-      "promptDe": "Christian kann noch nicht gut Koreanisch.",
-      "promptEn": "Christian isn't very good at Korean.",
+      "targetKo": "저는 친구한테 시간을 알려요.",
+      "promptDe": "Ich sage meinem Freund die Uhrzeit.",
+      "promptEn": "I tell my friend the time.",
       "distractors": [
         "곳",
         "달"
       ],
-      "vocabKo": "못하다",
+      "vocabKo": "알리다",
       "sourceVocabId": "vocab_a1_0740"
     },
     {
       "id": "satz_a1_0656",
       "level": "a1",
-      "targetKo": "저는 친구한테 시간을 알려요.",
-      "promptDe": "Ich sage meinem Freund die Uhrzeit.",
-      "promptEn": "I tell my friend the time.",
+      "targetKo": "저는 학교를 찾아봐요.",
+      "promptDe": "Ich suche nach der Schule.",
+      "promptEn": "I look for the school.",
       "distractors": [
         "메뉴",
         "생일"
       ],
-      "vocabKo": "알리다",
+      "vocabKo": "찾아보다",
       "sourceVocabId": "vocab_a1_0741"
     },
     {
       "id": "satz_a1_0657",
       "level": "a1",
-      "targetKo": "저는 학교를 찾아봐요.",
-      "promptDe": "Ich suche nach der Schule.",
-      "promptEn": "I look for the school.",
+      "targetKo": "우리는 같이 춤춰요.",
+      "promptDe": "Wir tanzen zusammen.",
+      "promptEn": "We dance together.",
       "distractors": [
         "선물",
         "잡채"
       ],
-      "vocabKo": "찾아보다",
+      "vocabKo": "춤추다",
       "sourceVocabId": "vocab_a1_0742"
     },
     {
       "id": "satz_a1_0658",
       "level": "a1",
-      "targetKo": "우리는 같이 춤춰요.",
-      "promptDe": "Wir tanzen zusammen.",
-      "promptEn": "We dance together.",
-      "distractors": [
-        "장소",
-        "종업원"
-      ],
-      "vocabKo": "춤추다",
-      "sourceVocabId": "vocab_a1_0743"
-    },
-    {
-      "id": "satz_a1_0659",
-      "level": "a1",
       "targetKo": "언니와 저는 키가 같아요.",
       "promptDe": "Meine große Schwester und ich sind gleich groß.",
       "promptEn": "My older sister and I are the same height.",
       "distractors": [
-        "학교",
-        "곳"
+        "장소",
+        "종업원"
       ],
       "vocabKo": "같다",
-      "sourceVocabId": "vocab_a1_0744"
+      "sourceVocabId": "vocab_a1_0743"
     },
     {
-      "id": "satz_a1_0660",
+      "id": "satz_a1_0659",
       "level": "a1",
       "targetKo": "정말 고마워요.",
       "promptDe": "Vielen Dank.",
       "promptEn": "Thank you so much.",
       "distractors": [
         "키",
-        "달"
+        "학교"
       ],
       "vocabKo": "고맙다",
+      "sourceVocabId": "vocab_a1_0744"
+    },
+    {
+      "id": "satz_a1_0660",
+      "level": "a1",
+      "targetKo": "점심을 안 먹어서 배가 고파요.",
+      "promptDe": "Ich habe nicht zu Mittag gegessen, deshalb habe ich Hunger.",
+      "promptEn": "I didn't eat lunch, so I'm hungry.",
+      "distractors": [
+        "곳",
+        "달"
+      ],
+      "vocabKo": "고프다",
       "sourceVocabId": "vocab_a1_0745"
     },
     {
       "id": "satz_a1_0661",
       "level": "a1",
-      "targetKo": "저는 배가 고파요.",
-      "promptDe": "Ich habe Hunger.",
-      "promptEn": "I'm hungry.",
+      "targetKo": "이 음식은 괜찮아요.",
+      "promptDe": "Dieses Essen ist okay.",
+      "promptEn": "This food is fine.",
       "distractors": [
         "메뉴",
         "생일"
       ],
-      "vocabKo": "고프다",
+      "vocabKo": "괜찮다",
       "sourceVocabId": "vocab_a1_0746"
     },
     {
       "id": "satz_a1_0662",
       "level": "a1",
-      "targetKo": "이 음식은 괜찮아요.",
-      "promptDe": "Dieses Essen ist okay.",
-      "promptEn": "This food is fine.",
+      "targetKo": "제 생각도 그래요.",
+      "promptDe": "Das denke ich auch.",
+      "promptEn": "I think so too.",
       "distractors": [
         "선물",
         "잡채"
       ],
-      "vocabKo": "괜찮다",
+      "vocabKo": "그렇다",
       "sourceVocabId": "vocab_a1_0747"
     },
     {
       "id": "satz_a1_0663",
       "level": "a1",
-      "targetKo": "제 생각도 그래요.",
-      "promptDe": "Das denke ich auch.",
-      "promptEn": "I think so too.",
+      "targetKo": "방이 깨끗해요.",
+      "promptDe": "Das Zimmer ist sauber.",
+      "promptEn": "The room is clean.",
       "distractors": [
         "장소",
         "종업원"
       ],
-      "vocabKo": "그렇다",
+      "vocabKo": "깨끗하다",
       "sourceVocabId": "vocab_a1_0748"
     },
     {
       "id": "satz_a1_0664",
       "level": "a1",
-      "targetKo": "방이 깨끗해요.",
-      "promptDe": "Das Zimmer ist sauber.",
-      "promptEn": "The room is clean.",
+      "targetKo": "오늘 날씨가 나빠요.",
+      "promptDe": "Das Wetter ist heute schlecht.",
+      "promptEn": "The weather is bad today.",
       "distractors": [
         "키",
         "학교"
       ],
-      "vocabKo": "깨끗하다",
+      "vocabKo": "나쁘다",
       "sourceVocabId": "vocab_a1_0749"
     },
     {
       "id": "satz_a1_0665",
       "level": "a1",
-      "targetKo": "오늘 날씨가 나빠요.",
-      "promptDe": "Das Wetter ist heute schlecht.",
-      "promptEn": "The weather is bad today.",
+      "targetKo": "이 책상은 낮아요.",
+      "promptDe": "Dieser Tisch ist niedrig.",
+      "promptEn": "This desk is low.",
       "distractors": [
         "곳",
         "달"
       ],
-      "vocabKo": "나쁘다",
+      "vocabKo": "낮다",
       "sourceVocabId": "vocab_a1_0750"
     },
     {
       "id": "satz_a1_0666",
       "level": "a1",
-      "targetKo": "이 책상은 낮아요.",
-      "promptDe": "Dieser Tisch ist niedrig.",
-      "promptEn": "This desk is low.",
+      "targetKo": "그 산이 높아요.",
+      "promptDe": "Der Berg ist hoch.",
+      "promptEn": "That mountain is high.",
       "distractors": [
         "메뉴",
         "생일"
       ],
-      "vocabKo": "낮다",
+      "vocabKo": "높다",
       "sourceVocabId": "vocab_a1_0751"
     },
     {
       "id": "satz_a1_0667",
       "level": "a1",
-      "targetKo": "그 산이 높아요.",
-      "promptDe": "Der Berg ist hoch.",
-      "promptEn": "That mountain is high.",
+      "targetKo": "제 생각은 달라요.",
+      "promptDe": "Meine Meinung ist anders.",
+      "promptEn": "My opinion is different.",
       "distractors": [
         "선물",
         "잡채"
       ],
-      "vocabKo": "높다",
+      "vocabKo": "다르다",
       "sourceVocabId": "vocab_a1_0752"
     },
     {
       "id": "satz_a1_0668",
       "level": "a1",
-      "targetKo": "제 생각은 달라요.",
-      "promptDe": "Meine Meinung ist anders.",
-      "promptEn": "My opinion is different.",
+      "targetKo": "오늘은 날씨가 따뜻해요.",
+      "promptDe": "Das Wetter ist heute warm.",
+      "promptEn": "The weather is warm today.",
       "distractors": [
         "장소",
         "종업원"
       ],
-      "vocabKo": "다르다",
+      "vocabKo": "따뜻하다",
       "sourceVocabId": "vocab_a1_0753"
     },
     {
       "id": "satz_a1_0669",
       "level": "a1",
-      "targetKo": "오늘은 날씨가 따뜻해요.",
-      "promptDe": "Das Wetter ist heute warm.",
-      "promptEn": "The weather is warm today.",
+      "targetKo": "물이 맑아요.",
+      "promptDe": "Das Wasser ist klar.",
+      "promptEn": "The water is clear.",
       "distractors": [
         "키",
         "학교"
       ],
-      "vocabKo": "따뜻하다",
+      "vocabKo": "맑다",
       "sourceVocabId": "vocab_a1_0754"
     },
     {
       "id": "satz_a1_0670",
       "level": "a1",
-      "targetKo": "물이 맑아요.",
-      "promptDe": "Das Wasser ist klar.",
-      "promptEn": "The water is clear.",
+      "targetKo": "이 가방이 멋있어요.",
+      "promptDe": "Diese Tasche ist cool.",
+      "promptEn": "This bag is cool.",
       "distractors": [
         "곳",
         "달"
       ],
-      "vocabKo": "맑다",
+      "vocabKo": "멋있다",
       "sourceVocabId": "vocab_a1_0755"
     },
     {
       "id": "satz_a1_0671",
       "level": "a1",
-      "targetKo": "저 배우가 멋있어요.",
-      "promptDe": "Dieser Schauspieler ist cool.",
-      "promptEn": "That actor is cool.",
+      "targetKo": "안녕하세요, 만나서 반가워요.",
+      "promptDe": "Hallo, freut mich, Sie kennenzulernen.",
+      "promptEn": "Hello, nice to meet you.",
       "distractors": [
         "메뉴",
         "생일"
       ],
-      "vocabKo": "멋있다",
+      "vocabKo": "반갑다",
       "sourceVocabId": "vocab_a1_0756"
     },
     {
       "id": "satz_a1_0672",
       "level": "a1",
-      "targetKo": "안녕하세요, 만나서 반가워요.",
-      "promptDe": "Hallo, freut mich, Sie kennenzulernen.",
-      "promptEn": "Hello, nice to meet you.",
+      "targetKo": "물이 시원해요.",
+      "promptDe": "Das Wasser ist erfrischend.",
+      "promptEn": "The water is refreshing.",
       "distractors": [
         "선물",
         "잡채"
       ],
-      "vocabKo": "반갑다",
+      "vocabKo": "시원하다",
       "sourceVocabId": "vocab_a1_0757"
     },
     {
       "id": "satz_a1_0673",
       "level": "a1",
-      "targetKo": "물이 시원해요.",
-      "promptDe": "Das Wasser ist erfrischend.",
-      "promptEn": "The water is refreshing.",
+      "targetKo": "저는 비가 싫어요.",
+      "promptDe": "Ich mag Regen nicht.",
+      "promptEn": "I dislike rain.",
       "distractors": [
         "장소",
         "종업원"
       ],
-      "vocabKo": "시원하다",
+      "vocabKo": "싫다",
       "sourceVocabId": "vocab_a1_0758"
     },
     {
       "id": "satz_a1_0674",
       "level": "a1",
-      "targetKo": "저는 비가 싫어요.",
-      "promptDe": "Ich mag Regen nicht.",
-      "promptEn": "I dislike rain.",
+      "targetKo": "저는 학생이 아니에요.",
+      "promptDe": "Ich bin kein Student.",
+      "promptEn": "I am not a student.",
       "distractors": [
         "키",
         "학교"
       ],
-      "vocabKo": "싫다",
+      "vocabKo": "아니다",
       "sourceVocabId": "vocab_a1_0759"
     },
     {
       "id": "satz_a1_0675",
       "level": "a1",
-      "targetKo": "저는 학생이 아니에요.",
-      "promptDe": "Ich bin kein Student.",
-      "promptEn": "I am not a student.",
+      "targetKo": "이 꽃이 아름다워요.",
+      "promptDe": "Diese Blume ist schön.",
+      "promptEn": "This flower is beautiful.",
       "distractors": [
         "곳",
         "달"
       ],
-      "vocabKo": "아니다",
+      "vocabKo": "아름답다",
       "sourceVocabId": "vocab_a1_0760"
     },
     {
       "id": "satz_a1_0676",
       "level": "a1",
-      "targetKo": "이 꽃이 아름다워요.",
-      "promptDe": "Diese Blume ist schön.",
-      "promptEn": "This flower is beautiful.",
+      "targetKo": "오늘 날씨가 어때요?",
+      "promptDe": "Wie ist das Wetter heute?",
+      "promptEn": "How is the weather today?",
       "distractors": [
         "메뉴",
         "생일"
       ],
-      "vocabKo": "아름답다",
+      "vocabKo": "어떻다",
       "sourceVocabId": "vocab_a1_0761"
     },
     {
       "id": "satz_a1_0677",
       "level": "a1",
-      "targetKo": "오늘 날씨가 어때요?",
-      "promptDe": "Wie ist das Wetter heute?",
-      "promptEn": "How is the weather today?",
+      "targetKo": "이 영화가 재미없어요.",
+      "promptDe": "Dieser Film ist langweilig.",
+      "promptEn": "This movie is boring.",
       "distractors": [
         "선물",
         "잡채"
       ],
-      "vocabKo": "어떻다",
+      "vocabKo": "재미없다",
       "sourceVocabId": "vocab_a1_0762"
     },
     {
       "id": "satz_a1_0678",
       "level": "a1",
-      "targetKo": "이 영화가 재미없어요.",
-      "promptDe": "Dieser Film ist langweilig.",
-      "promptEn": "This movie is boring.",
+      "targetKo": "사람이 적어요.",
+      "promptDe": "Es gibt wenige Leute.",
+      "promptEn": "There are few people.",
       "distractors": [
         "장소",
         "종업원"
       ],
-      "vocabKo": "재미없다",
+      "vocabKo": "적다",
       "sourceVocabId": "vocab_a1_0763"
     },
     {
       "id": "satz_a1_0679",
       "level": "a1",
-      "targetKo": "사람이 적어요.",
-      "promptDe": "Es gibt wenige Leute.",
-      "promptEn": "There are few people.",
+      "targetKo": "수진 씨와 현아 씨는 친해요.",
+      "promptDe": "Sujin und Hyuna sind eng befreundet.",
+      "promptEn": "Sujin and Hyuna are close friends.",
       "distractors": [
         "키",
         "학교"
       ],
-      "vocabKo": "적다",
+      "vocabKo": "친하다",
       "sourceVocabId": "vocab_a1_0764"
     },
     {
       "id": "satz_a1_0680",
       "level": "a1",
-      "targetKo": "수진 씨와 현아 씨는 친해요.",
-      "promptDe": "Sujin und Hyuna sind eng befreundet.",
-      "promptEn": "Sujin and Hyuna are close friends.",
+      "targetKo": "오늘이 특별해요.",
+      "promptDe": "Heute ist etwas Besonderes.",
+      "promptEn": "Today is special.",
       "distractors": [
         "곳",
         "달"
       ],
-      "vocabKo": "친하다",
+      "vocabKo": "특별하다",
       "sourceVocabId": "vocab_a1_0765"
     },
     {
       "id": "satz_a1_0681",
       "level": "a1",
-      "targetKo": "오늘이 특별해요.",
-      "promptDe": "Heute ist etwas Besonderes.",
-      "promptEn": "Today is special.",
+      "targetKo": "저는 오늘 한가해요.",
+      "promptDe": "Ich habe heute frei.",
+      "promptEn": "I'm free today.",
       "distractors": [
         "메뉴",
         "생일"
       ],
-      "vocabKo": "특별하다",
+      "vocabKo": "한가하다",
       "sourceVocabId": "vocab_a1_0766"
     },
     {
       "id": "satz_a1_0682",
       "level": "a1",
-      "targetKo": "저는 오늘 한가해요.",
-      "promptDe": "Ich habe heute frei.",
-      "promptEn": "I'm free today.",
+      "targetKo": "제가 가운데 앉아요.",
+      "promptDe": "Ich sitze in der Mitte.",
+      "promptEn": "I sit in the middle.",
       "distractors": [
         "선물",
         "잡채"
       ],
-      "vocabKo": "한가하다",
+      "vocabKo": "가운데",
       "sourceVocabId": "vocab_a1_0767"
     },
     {
       "id": "satz_a1_0683",
       "level": "a1",
-      "targetKo": "제가 가운데 앉아요.",
-      "promptDe": "Ich sitze in der Mitte.",
-      "promptEn": "I sit in the middle.",
+      "targetKo": "비가 계속 와요.",
+      "promptDe": "Es regnet weiter.",
+      "promptEn": "It keeps raining.",
       "distractors": [
         "장소",
         "종업원"
       ],
-      "vocabKo": "가운데",
+      "vocabKo": "계속",
       "sourceVocabId": "vocab_a1_0768"
     },
     {
       "id": "satz_a1_0684",
       "level": "a1",
-      "targetKo": "비가 계속 와요.",
-      "promptDe": "Es regnet weiter.",
-      "promptEn": "It keeps raining.",
+      "targetKo": "저는 선생님 말을 잘 들어요.",
+      "promptDe": "Ich höre gut auf die Worte des Lehrers.",
+      "promptEn": "I listen well to the teacher's words.",
       "distractors": [
         "키",
         "학교"
       ],
-      "vocabKo": "계속",
+      "vocabKo": "말",
       "sourceVocabId": "vocab_a1_0769"
     },
     {
       "id": "satz_a1_0685",
       "level": "a1",
-      "targetKo": "저는 선생님 말을 잘 들어요.",
-      "promptDe": "Ich höre gut auf die Worte des Lehrers.",
-      "promptEn": "I listen well to the teacher's words.",
+      "targetKo": "제가 먼저 가요.",
+      "promptDe": "Ich gehe zuerst.",
+      "promptEn": "I go first.",
       "distractors": [
         "곳",
         "달"
       ],
-      "vocabKo": "말",
+      "vocabKo": "먼저",
       "sourceVocabId": "vocab_a1_0770"
     },
     {
       "id": "satz_a1_0686",
       "level": "a1",
-      "targetKo": "제가 먼저 가요.",
-      "promptDe": "Ich gehe zuerst.",
-      "promptEn": "I go first.",
+      "targetKo": "친구들이 모두 와요.",
+      "promptDe": "Alle meine Freunde kommen.",
+      "promptEn": "All my friends are coming.",
       "distractors": [
         "메뉴",
         "생일"
       ],
-      "vocabKo": "먼저",
+      "vocabKo": "모두",
       "sourceVocabId": "vocab_a1_0771"
     },
     {
       "id": "satz_a1_0687",
       "level": "a1",
-      "targetKo": "친구들이 모두 와요.",
-      "promptDe": "Alle meine Freunde kommen.",
-      "promptEn": "All my friends are coming.",
+      "targetKo": "사과가 영 개 있어요.",
+      "promptDe": "Es gibt null Äpfel.",
+      "promptEn": "There are zero apples.",
       "distractors": [
         "선물",
         "잡채"
       ],
-      "vocabKo": "모두",
+      "vocabKo": "영",
       "sourceVocabId": "vocab_a1_0772"
     },
     {
       "id": "satz_a1_0688",
       "level": "a1",
-      "targetKo": "사과가 영 개 있어요.",
-      "promptDe": "Es gibt null Äpfel.",
-      "promptEn": "There are zero apples.",
+      "targetKo": "식사 전에 손을 씻어요.",
+      "promptDe": "Ich wasche mir vor dem Essen die Hände.",
+      "promptEn": "I wash my hands before eating.",
       "distractors": [
         "장소",
         "종업원"
       ],
-      "vocabKo": "영",
+      "vocabKo": "전",
       "sourceVocabId": "vocab_a1_0773"
     },
     {
       "id": "satz_a1_0689",
       "level": "a1",
-      "targetKo": "식사 전에 손을 씻어요.",
-      "promptDe": "Ich wasche mir vor dem Essen die Hände.",
-      "promptEn": "I wash my hands before eating.",
+      "targetKo": "이 음식이 제일 맛있어요.",
+      "promptDe": "Dieses Essen ist am leckersten.",
+      "promptEn": "This food is the most delicious.",
       "distractors": [
         "키",
         "학교"
       ],
-      "vocabKo": "전",
+      "vocabKo": "제일",
       "sourceVocabId": "vocab_a1_0774"
     },
     {
       "id": "satz_a1_0690",
       "level": "a1",
-      "targetKo": "이 음식이 제일 맛있어요.",
-      "promptDe": "Dieses Essen ist am leckersten.",
-      "promptEn": "This food is the most delicious.",
+      "targetKo": "이번 주일에 시험이 있어요.",
+      "promptDe": "Diese Woche gibt es eine Prüfung.",
+      "promptEn": "There's a test this week.",
       "distractors": [
         "곳",
         "달"
       ],
-      "vocabKo": "제일",
+      "vocabKo": "주일",
       "sourceVocabId": "vocab_a1_0775"
     },
     {
       "id": "satz_a1_0691",
       "level": "a1",
-      "targetKo": "이번 주일에 시험이 있어요.",
-      "promptDe": "Diese Woche gibt es eine Prüfung.",
-      "promptEn": "There's a test this week.",
+      "targetKo": "이 자동차는 천만 원이에요.",
+      "promptDe": "Dieses Auto kostet zehn Millionen Won.",
+      "promptEn": "This car costs ten million won.",
       "distractors": [
         "메뉴",
         "생일"
       ],
-      "vocabKo": "주일",
+      "vocabKo": "천만",
       "sourceVocabId": "vocab_a1_0776"
     },
     {
       "id": "satz_a1_0692",
       "level": "a1",
-      "targetKo": "이 자동차는 천만 원이에요.",
-      "promptDe": "Dieses Auto kostet zehn Millionen Won.",
-      "promptEn": "This car costs ten million won.",
+      "targetKo": "내일 날씨가 흐릴까요?",
+      "promptDe": "Wird das Wetter morgen bewölkt sein?",
+      "promptEn": "Will the weather be cloudy tomorrow?",
       "distractors": [
         "선물",
         "잡채"
       ],
-      "vocabKo": "천만",
+      "vocabKo": "흐리다",
       "sourceVocabId": "vocab_a1_0777"
     },
     {
       "id": "satz_a1_0693",
       "level": "a1",
-      "targetKo": "내일 날씨가 흐릴까요?",
-      "promptDe": "Wird das Wetter morgen bewölkt sein?",
-      "promptEn": "Will the weather be cloudy tomorrow?",
-      "distractors": [
-        "장소",
-        "종업원"
-      ],
-      "vocabKo": "흐리다",
-      "sourceVocabId": "vocab_a1_0778"
-    },
-    {
-      "id": "satz_a1_0694",
-      "level": "a1",
       "targetKo": "요즘 일이 힘들어요.",
       "promptDe": "Die Arbeit ist zurzeit anstrengend.",
       "promptEn": "Work has been hard these days.",
       "distractors": [
-        "키",
-        "학교"
+        "장소",
+        "종업원"
       ],
       "vocabKo": "힘들다",
-      "sourceVocabId": "vocab_a1_0779"
+      "sourceVocabId": "vocab_a1_0778"
     }
   ]
 }
