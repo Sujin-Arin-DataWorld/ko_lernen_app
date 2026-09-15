@@ -569,9 +569,9 @@
       "de": "Ich trage eine Brille.",
       "en": "I wear glasses.",
       "distractors": [
-        "일곱",
-        "연필",
-        "물"
+        "빨리",
+        "다시",
+        "항상"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0494"
@@ -729,9 +729,9 @@
       "de": "Heute ist ein sehr guter Tag.",
       "en": "Today is a very good day.",
       "distractors": [
-        "노란색",
-        "한국",
-        "책상"
+        "빨리",
+        "천천히",
+        "가끔"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0504"
