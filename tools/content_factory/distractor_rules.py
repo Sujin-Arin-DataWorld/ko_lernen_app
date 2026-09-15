@@ -135,6 +135,7 @@ PREDICATE_SLOT_WAIVER = {
     "cloze_a1_0419": "내일 ＿＿＿. -- answer spans the full imperative predicate (꼭 오세요); a bare noun/adverb here is a valid elliptical answer.",
     "cloze_a1_0437": "＿＿＿ 친구를 만나요. -- any time-word+에 fits this frame equally well; no real time word is a selectional violation there.",
     "cloze_a1_0440": "제 ＿＿＿ 다섯 살이에요. -- any family-member noun+은/는 fits equally well; no real family word is a selectional violation there.",
+    "cloze_a1_0285": "실수해도 ＿＿＿. -- answer spans the full minimal-response predicate (문제없어요, existential-family 없어요); same pattern as cloze_a1_0413/0416 (C2c cloze distractor hygiene sweep, 2026-09-15).",
 }
 
 DICTIONARY_FORM_VERBS = frozenset({

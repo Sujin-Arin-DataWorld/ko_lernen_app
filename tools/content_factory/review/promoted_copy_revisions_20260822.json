@@ -620,7 +620,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "89ef5fa7aed674b777a07194143daf99ba8771e865fef7553ac932c3b752991d",
-      "afterSha256": "ddc46d9649c2b4917a75e41d7841daa61e0896353daa9efa8f37a18771e8023d"
+      "afterSha256": "18149711bec665bafa30cedd2c904dab722b7b5fcf563524f3994ff7fe929a7d"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -1323,7 +1323,7 @@
         "distractors"
       ],
       "beforeSha256": "c5fa764ec6d41601b9cab920c045d644cf3bc186cf3b02b3a692a937f5546d9e",
-      "afterSha256": "797bae1b9568a8c57dc605fc608a503ab9329199491898fac099c75acbc43af0"
+      "afterSha256": "09f7235d51e707c3e7a3da7e1bda037bbef14b24fb1d8d90b682edb82a4074a1"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -1378,7 +1378,7 @@
         "distractors"
       ],
       "beforeSha256": "8073686b964db776e91e2712f186afa7af1b26a0dccf33dc526a96ffb571b2b3",
-      "afterSha256": "9290d890f1e979df7691c2253fc7fbc2e71b012a158f197e472e270cfc833076"
+      "afterSha256": "8e0b53bd1e99ee74a50f643a8e7be35083972e5a08d8d03f2d1b1771daf1152e"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -1389,7 +1389,7 @@
         "distractors"
       ],
       "beforeSha256": "fd9e1504a216f9751d4c4d13842d4e158580145b201811f4b1a3c59e39ddaefe",
-      "afterSha256": "d14e6d046fc9a90e1b6aab95e49e8542386396ab99f7b5544c25b5719f058da9"
+      "afterSha256": "b5bfba94ff10499a967daa85c4b963edc6adb430aa3a5b5341a681fcb5ce40d8"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -1664,7 +1664,7 @@
         "distractors"
       ],
       "beforeSha256": "b5cc7e63eaf2fc6d77b06f76f4dee7086ea4588cd4d3b53b1d48d4facd8b8aab",
-      "afterSha256": "e3b454ae88dbbcde81a74300805dce83391f71e0671ab73da31e4b3e90543600"
+      "afterSha256": "a3c639b8465ad9eba8031b4c54e5a49e91a3f2fba257da180078f1771e16b96b"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -1906,7 +1906,7 @@
         "distractors"
       ],
       "beforeSha256": "a2410868f8c346c2cdfc1ae5970db99057f9498ec9c4753ca863feb74ef3b5b2",
-      "afterSha256": "e7ec9ecb135697d204144ca72f9cdc67d92a59b1bdb4873fff12be3e0555e648"
+      "afterSha256": "b135c1fcd7a5d57e950f2ac45ae07b1ea7bec7e583ed71b8cf2e978aa4f32f2e"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -2181,7 +2181,7 @@
         "distractors"
       ],
       "beforeSha256": "8d762613101b9bff012efe0b51fd58822d32e80b32fefa8305d1d891516d0791",
-      "afterSha256": "558d7b1728b1c0d4bc9d57045f662ac60c435361f7de06946fe073fb30a0bcf2"
+      "afterSha256": "f1dc3f0d807501add75353356fe2c1e16f966317bf84e1b4be199cbdf980625d"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -2192,7 +2192,7 @@
         "distractors"
       ],
       "beforeSha256": "732691352518ad9c5ca08ceacd7a261de07088c8446baff7939fe47d921decc3",
-      "afterSha256": "be36cf34aea2f9586fa4d5e22e16cc79ebf0fffd2c232eb871e413f85c98838d"
+      "afterSha256": "08aec36e4b6defddb612e2792c5657a8bbba9e0d5558c4d68f41b99e2a8aca8d"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
@@ -2402,7 +2402,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "9063bd0ad9bd7d537fb09dec072eb2a585abe75239c8c00c2949e05f77d065f0",
-      "afterSha256": "99dd901587ab5238a5872904812dd06a2f15e2d58a8d872f3b0a68399574205d"
+      "afterSha256": "928bf9ab3c49db9a6144cede855f4f6a93afaf5ae848f3cacf33e741b84d41e5"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
@@ -2477,7 +2477,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "a4760d857b7eea61f032c1ad64f5ee4dce3315deb863751fd19029904377c21a",
-      "afterSha256": "c338d049b15867a1a6b13458e35b1715fbc6d45a97a6d0a800936776fcc5702b"
+      "afterSha256": "644268f92180cdaee0d349d11b52dd3199d9d599028d24779c96a7a5dc2a2e37"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
@@ -2523,7 +2523,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "05852912baef903899f82566a5c931f63bfd3c6c41f494fc3d9e30cf111da02e",
-      "afterSha256": "79a046a900bf86fa546abe9ab9de996bf1ccfff01347b51a2e1418bd310d05d9"
+      "afterSha256": "fdcc23cbb0166014b3bbcc2d0caac8b7ffd9400a6893724adecad5d4762fee53"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
@@ -3012,7 +3012,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "f7f26e908356a95a27a720332eaace6c7ebdc5715be9ffbba01d14c47fa13236",
-      "afterSha256": "04802c3ba6e5fce2bd4a652e41f787394126141fdc65fa1520c2b8fa9eb914a7"
+      "afterSha256": "2763cae88e07c51adb072c73c2728799f6ba74202a030e01db2a7a95f48b2d52"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
@@ -3486,7 +3486,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "c660020c3ead734f1c4e2c7cbf7a9f229fa03e57625f181a87c7eb49bc7e4696",
-      "afterSha256": "57fb560a77929cb3457af34b6d4e24f592b28591bf2575e004256e7ac0d4843e"
+      "afterSha256": "d2f77bca27902dd84bb2af0fefc50b37e65a823f6c5eb78fc6946efbd5420cf1"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -3673,7 +3673,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "b1928eb773e28aecbab5523ace87367da5f3f27c901e88ce56a4a57c5e0d8007",
-      "afterSha256": "07d33ed8099211881a560a75827d4384321c5f2df65706cf1749126f17e0703e"
+      "afterSha256": "fe831e33cad5de212c90d2de676be46bf14c3395e972422e59041c2126086db0"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -3689,7 +3689,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "35f91716bb10c3f2d3b1d78102b964570986ff352fd65f0abcc16ffcc38f3994",
-      "afterSha256": "2ac0a09ace6e71508f46f2ea370b04e5a0616cac61f12334121bdf9e2fa4f6c1"
+      "afterSha256": "ea00c68270f086462e2dcc81e2894e624b822fcb08cfc294e85101f5a3061209"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -3705,7 +3705,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "639bd659318e3eec8608e321bcf21855972c60d997ef924bbcbd0105449052b6",
-      "afterSha256": "fbd62ffd7d4994790f3d4af6af1414f4a9c6f6beb8b2ad9278c8bc06bc8251c6"
+      "afterSha256": "20e8cffaf8f522c8845106d24830319c225dafe92e54d664272fbb15a6c99264"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -4139,7 +4139,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "676a25b134f147768c343c17c51f59d51a16805b272b2123a2c155377fd97a4f",
-      "afterSha256": "1f30e9f062c0041f551cc069e379b945f73950f18c91212d36b6b25aeea7b45f"
+      "afterSha256": "2f3e2c31947cfd9bbf1b2bcd19d6fd8494a81cfc544f1306e1b80fb1f5ddfd3d"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
@@ -4169,7 +4169,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "85b9a03258ec19a0298af6025b6b2396f2d09a27dba0278d49bc088b6155ae2b",
-      "afterSha256": "3c2f15b174835650e5dd987b67b0c60fff4dd5ba0b8d63a05d3725ea39f9ced4"
+      "afterSha256": "ef521c9c7e12557ac5aa95693ddd866cbc9747235f20a1279a203b2cb8f207e3"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
@@ -4576,6 +4576,18 @@
         "sample": "39/392 rows reviewed by Jin in docs/data/review_packets (RR sample), no issues",
         "source": "Owner chat 2026-09-15: 'C7b·C2a 둘 다 승인, 표본 이상 없음'",
         "postApprovalChanges": "9 rows changed after approval by Codex review fixes (ㄺ/ㄻ/ㄿ liaison, ㄲ tense liaison, ㄴ-insertion overrides, 맛없다 neutralization) — see docs/data/rr_regeneration_report_2026-09-15.md"
+      }
+    },
+    {
+      "kind": "cloze",
+      "field": "distractors",
+      "reason": "C2c distractor hygiene sweep 2026-09-15",
+      "reportRef": "docs/data/cloze_distractor_audit_2026-09-15.md",
+      "approval": {
+        "approvedBy": "Jin",
+        "approvedAt": "2026-09-16",
+        "sample": "40/542 items (docs/data/review_packets/c2c_cloze_distractors_jin_sample.md), no issues",
+        "source": "Owner chat 2026-09-16: 'C2c 표본 승인'"
       }
     }
   ]
