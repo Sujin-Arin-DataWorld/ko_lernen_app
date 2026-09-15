@@ -1,0 +1,62 @@
+korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack_id,pack_order,is_review_boss,english,pos_en,example_english,id
+가장,gajang,am meisten,A1,Adverb,이 케이크가 가장 맛있어요.,Dieser Kuchen ist am leckersten.,Alltag,a1_adverbs_1,1,false,most,Adverb,This cake is the tastiest.,vocab_a1_0779
+그래서,geuraeseo,deshalb,A1,Adverb,저는 배가 아파요. 그래서 병원에 가요.,Mein Bauch tut weh. Deshalb gehe ich ins Krankenhaus.,Gesundheit,a1_adverbs_1,2,false,"so, therefore",Adverb,My stomach hurts. So I'm going to the hospital.,vocab_a1_0780
+그러니까,geureonikka,deswegen,A1,Adverb,저는 시간이 없어요. 그러니까 빨리 가요.,Ich habe keine Zeit. Deswegen gehe ich schnell.,Alltag,a1_adverbs_1,3,false,"so, that's why",Adverb,I have no time. So let's go quickly.,vocab_a1_0781
+그러면,geureomyeon,dann,A1,Adverb,저는 배가 고파요. 그러면 같이 밥을 먹어요.,Ich habe Hunger. Dann lasst uns zusammen essen.,Essen & Trinken,a1_adverbs_1,4,false,"then, if so",Adverb,I'm hungry. Then let's eat together.,vocab_a1_0782
+그런데,geureonde,aber,A1,Adverb,이 가방이 예뻐요. 그런데 너무 비싸요.,Diese Tasche ist hübsch. Aber sie ist zu teuer.,Einkaufen,a1_adverbs_1,5,false,"but, by the way",Adverb,This bag is pretty. But it's too expensive.,vocab_a1_0783
+그럼,geureom,dann,A1,Adverb,저는 오늘 바빠요. 그럼 내일 만나요.,Ich bin heute beschäftigt. Dann treffen wir uns morgen.,Alltag,a1_adverbs_1,6,false,then,Adverb,I'm busy today. Then let's meet tomorrow.,vocab_a1_0784
+그렇지만,geureochiman,"aber, dennoch",A1,Adverb,이 음식이 매워요. 그렇지만 맛있어요.,Dieses Essen ist scharf. Aber es ist lecker.,Essen & Trinken,a1_adverbs_1,7,false,"but, however",Adverb,This food is spicy. But it's delicious.,vocab_a1_0785
+그리고,geurigo,und,A1,Adverb,저는 아침에 빵을 먹어요. 그리고 커피를 마셔요.,Am Morgen esse ich Brot. Und ich trinke Kaffee.,Essen & Trinken,a1_adverbs_1,8,false,and,Adverb,In the morning I eat bread. And I drink coffee.,vocab_a1_0786
+못,mot,nicht können,A1,Adverb,저는 매운 음식을 못 먹어요.,Ich kann kein scharfes Essen essen.,Essen & Trinken,a1_adverbs_1,9,false,cannot,Adverb,I can't eat spicy food.,vocab_a1_0787
+보통,botong,normalerweise,A1,Adverb,저는 보통 아침에 커피를 마셔요.,Normalerweise trinke ich morgens Kaffee.,Alltag,a1_adverbs_1,10,false,usually,Adverb,I usually drink coffee in the morning.,vocab_a1_0788
+아주,aju,sehr,A1,Adverb,이 영화가 아주 재미있어요.,Dieser Film ist sehr interessant.,Freizeit,a1_adverbs_1,11,false,very,Adverb,This movie is very interesting.,vocab_a1_0789
+아직,ajik,noch,A1,Adverb,저는 아직 숙제를 안 했어요.,Ich habe die Hausaufgaben noch nicht gemacht.,Bildung,a1_adverbs_1,12,false,"still, yet",Adverb,I haven't done my homework yet.,vocab_a1_0790
+안녕히,annyeonghi,wohlbehalten,A1,Adverb,"선생님, 안녕히 가세요!","Lehrer, auf Wiedersehen!",Begrüßung,a1_adverbs_2,1,false,(in) peace (farewell),Adverb,"Teacher, goodbye!",vocab_a1_0791
+얼마나,eolmana,wie sehr,A1,Adverb,이 가방이 얼마나 비싸요?,Wie teuer ist diese Tasche?,Einkaufen,a1_adverbs_2,2,false,"how much, how",Adverb,How expensive is this bag?,vocab_a1_0792
+열심히,yeolsimhi,fleißig,A1,Adverb,저는 한국어를 열심히 공부해요.,Ich lerne fleißig Koreanisch.,Bildung,a1_adverbs_2,3,false,"hard, diligently",Adverb,I study Korean hard.,vocab_a1_0793
+왜,wae,warum,A1,Adverb,이 우산이 왜 여기 있어요?,Warum ist dieser Regenschirm hier?,Alltag,a1_adverbs_2,4,false,why,Adverb,Why is this umbrella here?,vocab_a1_0794
+잘,jal,gut,A1,Adverb,저는 잠을 잘 자요.,Ich schlafe gut.,Alltag,a1_adverbs_2,5,false,well,Adverb,I sleep well.,vocab_a1_0795
+참,cham,wirklich,A1,Adverb,이 김치찌개가 참 맛있어요.,Dieser Kimchi-Eintopf ist wirklich lecker.,Essen & Trinken,a1_adverbs_2,6,false,really,Adverb,This kimchi stew is really delicious.,vocab_a1_0796
+하지만,hajiman,aber,A1,Adverb,저는 피곤해요. 하지만 숙제를 해요.,Ich bin müde. Aber ich mache die Hausaufgaben.,Bildung,a1_adverbs_2,7,false,but,Adverb,I'm tired. But I do my homework.,vocab_a1_0797
+그,geu,er (jene Person),A1,Pronomen,그는 한국어 학생이에요.,Er ist ein Koreanisch-Student.,Beruf,a1_pronouns_1,1,false,he (that person),Pronoun,He is a Korean-language student.,vocab_a1_0798
+그것,geugeot,das (da),A1,Pronomen,그것은 안 비싸요.,Das ist nicht teuer.,Einkaufen,a1_pronouns_1,2,false,that (thing),Pronoun,That is not expensive.,vocab_a1_0799
+그쪽,geujjok,die Richtung,A1,Pronomen,이 지하철은 그쪽으로 안 가요.,Diese U-Bahn fährt nicht in die Richtung.,Verkehr,a1_pronouns_1,3,false,that way,Pronoun,This subway doesn't go that way.,vocab_a1_0800
+내,nae,mein,A1,Pronomen,내 이름은 준이에요.,Mein Name ist Jun.,Selbstvorstellung,a1_pronouns_1,4,false,my,Pronoun,My name is Jun.,vocab_a1_0801
+무엇,mueot,was (formell),A1,Pronomen,이것은 정말 무엇이에요?,Was ist das eigentlich?,Alltag,a1_pronouns_1,5,false,what (formal),Pronoun,What on earth is this?,vocab_a1_0802
+뭐,mwo,was,A1,Pronomen,저 사람은 이름이 뭐예요?,Wie heißt diese Person?,Selbstvorstellung,a1_pronouns_1,6,false,what,Pronoun,What is that person's name?,vocab_a1_0803
+어디,eodi,wo,A1,Pronomen,지금 화장실이 어디예요?,Wo ist jetzt die Toilette?,Alltag,a1_pronouns_1,7,false,where,Pronoun,Where is the bathroom right now?,vocab_a1_0804
+언제,eonje,wann,A1,Pronomen,선생님 생일이 언제예요?,Wann ist der Geburtstag des Lehrers?,Alltag,a1_pronouns_1,8,false,when,Pronoun,When is the teacher's birthday?,vocab_a1_0805
+이것,igeot,dies,A1,Pronomen,이것은 제 우산이에요.,Das ist mein Regenschirm.,Alltag,a1_pronouns_1,9,false,this (thing),Pronoun,This is my umbrella.,vocab_a1_0806
+이쪽,ijjok,diese Richtung,A1,Pronomen,저랑 이쪽으로 오세요.,Kommen Sie mit mir hierher.,Alltag,a1_pronouns_1,10,false,this way,Pronoun,Come this way with me.,vocab_a1_0807
+저것,jeogeot,das (dort),A1,Pronomen,저것은 제 우산이 아니에요.,Das dort ist nicht mein Regenschirm.,Alltag,a1_pronouns_1,11,false,"that (thing, far)",Pronoun,That over there is not my umbrella.,vocab_a1_0808
+저쪽,jeojjok,jene Richtung,A1,Pronomen,저쪽에 화장실이 있어요.,Die Toilette ist dort drüben.,Alltag,a1_pronouns_1,12,false,that way (far),Pronoun,The bathroom is over that way.,vocab_a1_0809
+가지,gaji,"Art, Sorte",A1,Nomen,이 가게에 과일이 세 가지 있어요.,Dieser Laden hat drei Sorten Obst.,Einkaufen,a1_counters_1,1,false,"kind, type",Noun,This store has three kinds of fruit.,vocab_a1_0810
+것,geot,"Ding, Sache",A1,Nomen,이 우산은 제 것이에요.,Dieser Regenschirm gehört mir.,Alltag,a1_counters_1,2,false,thing,Noun,This umbrella is mine.,vocab_a1_0811
+권,gwon,Zählwort für Bücher,A1,Nomen,저는 책을 두 권 샀어요.,Ich habe zwei Bücher gekauft.,Bildung,a1_counters_1,3,false,counter for books,Noun,I bought two books.,vocab_a1_0812
+년,nyeon,Jahr,A1,Nomen,저는 한국에서 삼 년 살았어요.,Ich habe drei Jahre in Korea gelebt.,Alltag,a1_counters_1,4,false,year,Noun,I lived in Korea for three years.,vocab_a1_0813
+때,ttae,Zeit(punkt),A1,Nomen,시험 때 저는 커피를 마셔요.,Während der Prüfung trinke ich Kaffee.,Bildung,a1_counters_1,5,false,"time, moment",Noun,"During exams, I drink coffee.",vocab_a1_0814
+마리,mari,Zählwort für Tiere,A1,Nomen,저는 고양이가 두 마리 있어요.,Ich habe zwei Katzen.,Tiere,a1_counters_1,6,false,counter for animals,Noun,I have two cats.,vocab_a1_0815
+명,myeong,Zählwort für Personen,A1,Nomen,교실에 학생이 열 명 있어요.,Im Klassenzimmer sind zehn Schüler.,Bildung,a1_counters_1,7,false,counter for people,Noun,There are ten students in the classroom.,vocab_a1_0816
+번,beon,Zählwort für Nummer,A1,Nomen,이 버스는 삼 번이에요.,Dieser Bus ist Nummer drei.,Verkehr,a1_counters_1,8,false,counter for number,Noun,This bus is number three.,vocab_a1_0817
+살,sal,Zählwort für Alter,A1,Nomen,제 동생은 세 살이에요.,Mein jüngeres Geschwister ist drei Jahre alt.,Familie,a1_counters_1,9,false,counter for age,Noun,My younger sibling is three years old.,vocab_a1_0818
+씨,ssi,Herr/Frau (Anrede),A1,Nomen,"마야 씨, 안녕하세요?","Maya, hallo!",Begrüßung,a1_counters_1,10,false,Mr./Ms. (address),Noun,"Maya, hello!",vocab_a1_0819
+쪽,jjok,"Seite, Stück",A1,Nomen,저는 빵을 한 쪽 먹었어요.,Ich habe eine Scheibe Brot gegessen.,Essen & Trinken,a1_counters_1,11,false,"side, piece",Noun,I ate one slice of bread.,vocab_a1_0820
+호,ho,Zählwort für Nummer (Zimmer),A1,Nomen,제 사무실은 오백 호예요.,Mein Büro ist Zimmer 500.,Alltag,a1_counters_1,12,false,counter for number (room),Noun,My office is room 500.,vocab_a1_0821
+무슨,museun,was für ein,A1,Adjektiv,이것은 무슨 음식이에요?,Was für ein Essen ist das?,Essen & Trinken,a1_determiners_1,1,false,what kind of,Adjective,What kind of food is this?,vocab_a1_0822
+어떤,eotteon,welcher,A1,Adjektiv,어떤 사람이 저를 찾아요.,Eine bestimmte Person sucht mich.,Alltag,a1_determiners_1,2,false,"which, what kind of",Adjective,A certain person is looking for me.,vocab_a1_0823
+여러,yeoreo,mehrere,A1,Adjektiv,저는 여러 나라를 여행했어요.,Ich habe mehrere Länder bereist.,Freizeit,a1_determiners_1,3,false,several,Adjective,I traveled to several countries.,vocab_a1_0824
+마흔,maheun,vierzig,A1,Nomen,제 아버지는 마흔 살이에요.,Mein Vater ist vierzig Jahre alt.,Familie,a1_determiners_1,4,false,forty,Noun,My father is forty years old.,vocab_a1_0825
+백만,baengman,eine Million,A1,Nomen,이 자전거는 백만 원이에요.,Dieses Fahrrad kostet eine Million Won.,Zahlen,a1_determiners_1,5,false,one million,Noun,This watch is a million won.,vocab_a1_0826
+서른,seoreun,dreißig,A1,Nomen,제 형은 서른 살이에요.,Mein älterer Bruder ist dreißig Jahre alt.,Familie,a1_determiners_1,6,false,thirty,Noun,My older brother is thirty years old.,vocab_a1_0827
+십만,simman,hunderttausend,A1,Nomen,이 가방은 십만 원이에요.,Diese Tasche kostet hunderttausend Won.,Zahlen,a1_determiners_1,7,false,hundred thousand,Noun,This bag is a hundred thousand won.,vocab_a1_0828
+아흔,aheun,neunzig,A1,Nomen,제 할머니는 아흔 살이에요.,Meine Großmutter ist neunzig Jahre alt.,Familie,a1_determiners_1,8,false,ninety,Noun,My grandmother is ninety years old.,vocab_a1_0829
+여든,yeodeun,achtzig,A1,Nomen,제 할아버지는 여든 살이에요.,Mein Großvater ist achtzig Jahre alt.,Familie,a1_determiners_1,9,false,eighty,Noun,My grandfather is eighty years old.,vocab_a1_0830
+일흔,ilheun,siebzig,A1,Nomen,제 선생님은 일흔 살이에요.,Mein Lehrer ist siebzig Jahre alt.,Bildung,a1_determiners_1,10,false,seventy,Noun,My teacher is seventy years old.,vocab_a1_0831
+제,je,mein (höflich),A1,Pronomen,이 가방은 제 가방이에요.,Diese Tasche ist meine Tasche.,Alltag,a1_misc_3,1,false,my (polite),Pronoun,This bag is my bag.,vocab_a1_0832
+중,jung,während,A1,Nomen,저는 지금 회의 중이에요.,Ich bin gerade in einer Besprechung.,Beruf,a1_misc_3,2,false,"during, in the middle of",Noun,I'm in a meeting right now.,vocab_a1_0833
+구십,gusip,neunzig,A1,Nomen,이 버스는 구십 번이에요.,Dieser Bus ist Nummer neunzig.,Zahlen,a1_misc_3,3,false,ninety,Noun,This bus is number ninety.,vocab_a1_0834
+스물,seumul,zwanzig (rein-koreanisch),A1,Nomen,제 동생은 올해 스물이에요.,Mein jüngeres Geschwister ist dieses Jahr zwanzig.,Zahlen,a1_misc_3,4,false,twenty (native),Noun,My younger sibling is twenty this year.,vocab_a1_0835
+팔십,palsip,achtzig,A1,Nomen,이 건물은 팔십 층이에요.,Dieses Gebäude hat achtzig Stockwerke.,Zahlen,a1_misc_3,5,false,eighty,Noun,This building is eighty floors.,vocab_a1_0836
+그래,geurae,"ja, genau (informell)",A1,Ausdruck,"우리 이따 만날까? 그래, 좋아.","Sollen wir uns später treffen? Ja, klingt gut.",Freizeit,a1_misc_3,6,false,"yeah, okay (informal)",Expression,"Shall we meet later? Yeah, sounds good.",vocab_a1_0837
+아,a,"ach, oh",A1,Ausdruck,"미안해요! 아, 괜찮아요.","Entschuldigung! Ach, das ist okay.",Alltag,a1_misc_3,7,false,"oh, ah",Expression,"Sorry! Oh, it's okay.",vocab_a1_0838
+억,eok,hundert Millionen,A1,Nomen,이 아파트는 억 원이에요.,Diese Wohnung kostet hundert Millionen Won.,Zahlen,a1_numbers_2,4,false,hundred million,Noun,This apartment is a hundred million won.,vocab_a1_0839
