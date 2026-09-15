@@ -1,0 +1,146 @@
+{
+  "level_label": "sejong_main_5",
+  "cefr_approx": "C1",
+  "source_series": "세종학당 한국어 익힘책 (main course workbook)",
+  "source_files": [
+    "세종학당 한국어 익힘책_5A.pdf",
+    "세종학당 한국어 익힘책_5B.pdf"
+  ],
+  "units": [
+    {
+      "unit": 1,
+      "title": "여가 생활의 변화",
+      "title_page": 6,
+      "grammar": [
+        {
+          "label": "...이라든가",
+          "page": 7
+        }
+      ],
+      "vocab": [],
+      "vocab_note": "NOT_EXTRACTED: this workbook has no separate headword vocab-index appendix; vocabulary appears only as collocations embedded in cloze exercises, which was out of scope for automated extraction this session.",
+      "source_file": "세종학당 한국어 익힘책_5B.pdf"
+    },
+    {
+      "unit": 2,
+      "title": "인구 및 가구의 변화",
+      "title_page": 10,
+      "grammar": [
+        {
+          "label": "-을뿐더러",
+          "page": 11
+        }
+      ],
+      "vocab": [],
+      "vocab_note": "NOT_EXTRACTED: this workbook has no separate headword vocab-index appendix; vocabulary appears only as collocations embedded in cloze exercises, which was out of scope for automated extraction this session.",
+      "source_file": "세종학당 한국어 익힘책_5B.pdf"
+    },
+    {
+      "unit": 3,
+      "title": "살기 좋은 곳",
+      "title_page": 14,
+      "grammar": [
+        {
+          "label": "...은",
+          "page": 15
+        }
+      ],
+      "vocab": [],
+      "vocab_note": "NOT_EXTRACTED: this workbook has no separate headword vocab-index appendix; vocabulary appears only as collocations embedded in cloze exercises, which was out of scope for automated extraction this session.",
+      "source_file": "세종학당 한국어 익힘책_5B.pdf"
+    },
+    {
+      "unit": 4,
+      "title": "도시 속의 건축물",
+      "title_page": 18,
+      "grammar": [
+        {
+          "label": "...은",
+          "page": 19
+        }
+      ],
+      "vocab": [],
+      "vocab_note": "NOT_EXTRACTED: this workbook has no separate headword vocab-index appendix; vocabulary appears only as collocations embedded in cloze exercises, which was out of scope for automated extraction this session.",
+      "source_file": "세종학당 한국어 익힘책_5B.pdf"
+    },
+    {
+      "unit": 5,
+      "title": "통과 의례",
+      "title_page": 22,
+      "grammar": [
+        {
+          "label": "-지 않고서는",
+          "page": 23
+        }
+      ],
+      "vocab": [],
+      "vocab_note": "NOT_EXTRACTED: this workbook has no separate headword vocab-index appendix; vocabulary appears only as collocations embedded in cloze exercises, which was out of scope for automated extraction this session.",
+      "source_file": "세종학당 한국어 익힘책_5B.pdf"
+    },
+    {
+      "unit": 6,
+      "title": "후회하지 않는 삶",
+      "title_page": 26,
+      "grammar": [],
+      "vocab": [],
+      "vocab_note": "NOT_EXTRACTED: this workbook has no separate headword vocab-index appendix; vocabulary appears only as collocations embedded in cloze exercises, which was out of scope for automated extraction this session.",
+      "source_file": "세종학당 한국어 익힘책_5B.pdf"
+    },
+    {
+      "unit": 7,
+      "title": "한국의 수필",
+      "title_page": 30,
+      "grammar": [
+        {
+          "label": "-는 데다가",
+          "page": 31
+        }
+      ],
+      "vocab": [],
+      "vocab_note": "NOT_EXTRACTED: this workbook has no separate headword vocab-index appendix; vocabulary appears only as collocations embedded in cloze exercises, which was out of scope for automated extraction this session.",
+      "source_file": "세종학당 한국어 익힘책_5B.pdf"
+    },
+    {
+      "unit": 8,
+      "title": "생겨나는 말, 사라지는 말",
+      "title_page": 34,
+      "grammar": [
+        {
+          "label": "-다가는",
+          "page": 35
+        }
+      ],
+      "vocab": [],
+      "vocab_note": "NOT_EXTRACTED: this workbook has no separate headword vocab-index appendix; vocabulary appears only as collocations embedded in cloze exercises, which was out of scope for automated extraction this session.",
+      "source_file": "세종학당 한국어 익힘책_5B.pdf"
+    },
+    {
+      "unit": 9,
+      "title": "생활 속 편리한 물건",
+      "title_page": 38,
+      "grammar": [
+        {
+          "label": "-는 가운데",
+          "page": 39
+        }
+      ],
+      "vocab": [],
+      "vocab_note": "NOT_EXTRACTED: this workbook has no separate headword vocab-index appendix; vocabulary appears only as collocations embedded in cloze exercises, which was out of scope for automated extraction this session.",
+      "source_file": "세종학당 한국어 익힘책_5B.pdf"
+    },
+    {
+      "unit": 10,
+      "title": "생활 속 과학",
+      "title_page": 42,
+      "grammar": [
+        {
+          "label": "-으면 몰라도",
+          "page": 43
+        }
+      ],
+      "vocab": [],
+      "vocab_note": "NOT_EXTRACTED: this workbook has no separate headword vocab-index appendix; vocabulary appears only as collocations embedded in cloze exercises, which was out of scope for automated extraction this session.",
+      "source_file": "세종학당 한국어 익힘책_5B.pdf"
+    }
+  ]
+}

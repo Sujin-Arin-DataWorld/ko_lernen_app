@@ -1,0 +1,930 @@
+{"id": "sejong1_u1_title", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 10, "quote": "저는 이지윤이에요", "context": "level 1 unit 1 title"}
+{"id": "sejong1_u1_cando", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 10, "quote": "자신과 친구를 소개할 수 있어요.", "context": "level 1 unit 1 can-do"}
+{"id": "sejong1_u1_dlg0", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 12, "quote": "가: 물이에요?", "context": "level 1 unit 1 dialogue quote"}
+{"id": "sejong1_u1_dlg1", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 16, "quote": "가: 다니엘 씨는 은행원이에요?", "context": "level 1 unit 1 dialogue quote"}
+{"id": "sejong1_u1_voc0_간호사", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "간호사", "context": "level 1 unit 1 vocab"}
+{"id": "sejong1_u1_voc1_기자", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "기자", "context": "level 1 unit 1 vocab"}
+{"id": "sejong1_u1_voc2_대학생", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "대학생", "context": "level 1 unit 1 vocab"}
+{"id": "sejong1_u1_voc3_선생님", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "선생님", "context": "level 1 unit 1 vocab"}
+{"id": "sejong1_u1_voc4_소방관", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "소방관", "context": "level 1 unit 1 vocab"}
+{"id": "sejong1_u1_voc5_은행원", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "은행원", "context": "level 1 unit 1 vocab"}
+{"id": "sejong1_u1_voc6_주부", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "주부", "context": "level 1 unit 1 vocab"}
+{"id": "sejong1_u1_voc7_축구선수", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "축구선수", "context": "level 1 unit 1 vocab"}
+{"id": "sejong1_u1_gram0_이에요/예요", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 96, "quote": "이에요/예요", "context": "level 1 unit 1 grammar label"}
+{"id": "sejong1_u1_gram1_은/는", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 96, "quote": "은/는", "context": "level 1 unit 1 grammar label"}
+{"id": "sejong1_u2_title", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 20, "quote": "회사에 가요", "context": "level 1 unit 2 title"}
+{"id": "sejong1_u2_cando", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 20, "quote": "지금 하는 일을 묻고 답할 수 있어요.", "context": "level 1 unit 2 can-do"}
+{"id": "sejong1_u2_dlg0", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 22, "quote": "가: 다니엘 씨, 지금 일해요?", "context": "level 1 unit 2 dialogue quote"}
+{"id": "sejong1_u2_dlg1", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 24, "quote": "가: 오늘 회의가 있어요?", "context": "level 1 unit 2 dialogue quote"}
+{"id": "sejong1_u2_voc0_과일 가게", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "과일 가게", "context": "level 1 unit 2 vocab"}
+{"id": "sejong1_u2_voc1_놀이공원", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "놀이공원", "context": "level 1 unit 2 vocab"}
+{"id": "sejong1_u2_voc2_도서관", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "도서관", "context": "level 1 unit 2 vocab"}
+{"id": "sejong1_u2_voc3_빵집", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "빵집", "context": "level 1 unit 2 vocab"}
+{"id": "sejong1_u2_voc4_서점", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "서점", "context": "level 1 unit 2 vocab"}
+{"id": "sejong1_u2_voc5_채소 가게", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "채소 가게", "context": "level 1 unit 2 vocab"}
+{"id": "sejong1_u2_voc6_헬스클럽", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "헬스클럽", "context": "level 1 unit 2 vocab"}
+{"id": "sejong1_u2_voc7_호텔", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "호텔", "context": "level 1 unit 2 vocab"}
+{"id": "sejong1_u2_gram0_-아요/-어요/-여요", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 96, "quote": "-아요/-어요/-여요", "context": "level 1 unit 2 grammar label"}
+{"id": "sejong1_u2_gram1_에 가요", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 96, "quote": "에 가요", "context": "level 1 unit 2 grammar label"}
+{"id": "sejong1_u3_title", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 30, "quote": "전화번호가 뭐예요?", "context": "level 1 unit 3 title"}
+{"id": "sejong1_u3_cando", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 30, "quote": "전화번호를 묻고 답할 수 있어요.", "context": "level 1 unit 3 can-do"}
+{"id": "sejong1_u3_dlg0", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 32, "quote": "가: 누가 공부해요?", "context": "level 1 unit 3 dialogue quote"}
+{"id": "sejong1_u3_dlg1", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 33, "quote": "가: 다니엘 씨는 호주 사람이에요?", "context": "level 1 unit 3 dialogue quote"}
+{"id": "sejong1_u3_voc0_만 원", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "만 원", "context": "level 1 unit 3 vocab"}
+{"id": "sejong1_u3_voc1_백 원", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "백 원", "context": "level 1 unit 3 vocab"}
+{"id": "sejong1_u3_voc2_십 원", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "십 원", "context": "level 1 unit 3 vocab"}
+{"id": "sejong1_u3_voc3_오만 원", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "오만 원", "context": "level 1 unit 3 vocab"}
+{"id": "sejong1_u3_voc4_오백 원", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "오백 원", "context": "level 1 unit 3 vocab"}
+{"id": "sejong1_u3_voc5_오십 원", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "오십 원", "context": "level 1 unit 3 vocab"}
+{"id": "sejong1_u3_voc6_오천 원", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "오천 원", "context": "level 1 unit 3 vocab"}
+{"id": "sejong1_u3_voc7_천 원", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "천 원", "context": "level 1 unit 3 vocab"}
+{"id": "sejong1_u3_gram0_이/가", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 96, "quote": "이/가", "context": "level 1 unit 3 grammar label"}
+{"id": "sejong1_u3_gram1_이 아니에요/가 아니에요", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 97, "quote": "이 아니에요/가 아니에요", "context": "level 1 unit 3 grammar label"}
+{"id": "sejong1_u4_title", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 40, "quote": "책상 위에 지갑이 있어요?", "context": "level 1 unit 4 title"}
+{"id": "sejong1_u4_cando", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 40, "quote": "사람이나 사물의 위치를 말할 수 있어요.", "context": "level 1 unit 4 can-do"}
+{"id": "sejong1_u4_dlg0", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 42, "quote": "가: 동생이 방에 있어요?", "context": "level 1 unit 4 dialogue quote"}
+{"id": "sejong1_u4_dlg1", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 43, "quote": "가: 누구의 가방이에요?", "context": "level 1 unit 4 dialogue quote"}
+{"id": "sejong1_u4_voc0_거실", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "거실", "context": "level 1 unit 4 vocab"}
+{"id": "sejong1_u4_voc1_모자", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "모자", "context": "level 1 unit 4 vocab"}
+{"id": "sejong1_u4_voc2_방", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "방", "context": "level 1 unit 4 vocab"}
+{"id": "sejong1_u4_voc3_부엌", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "부엌", "context": "level 1 unit 4 vocab"}
+{"id": "sejong1_u4_voc4_시계", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "시계", "context": "level 1 unit 4 vocab"}
+{"id": "sejong1_u4_voc5_안경", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "안경", "context": "level 1 unit 4 vocab"}
+{"id": "sejong1_u4_voc6_욕실", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "욕실", "context": "level 1 unit 4 vocab"}
+{"id": "sejong1_u4_voc7_지갑", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "지갑", "context": "level 1 unit 4 vocab"}
+{"id": "sejong1_u4_gram0_에 있다/없다", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 97, "quote": "에 있다/없다", "context": "level 1 unit 4 grammar label"}
+{"id": "sejong1_u4_gram1_의", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 97, "quote": "의", "context": "level 1 unit 4 grammar label"}
+{"id": "sejong1_u5_title", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 50, "quote": "사과 두 개하고 오렌지 세 개 주세요", "context": "level 1 unit 5 title"}
+{"id": "sejong1_u5_cando", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 50, "quote": "물건의 이름과 가격을 묻고 답할 수 있어요.", "context": "level 1 unit 5 can-do"}
+{"id": "sejong1_u5_dlg0", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 52, "quote": "가: 뭐 드릴까요?", "context": "level 1 unit 5 dialogue quote"}
+{"id": "sejong1_u5_dlg1", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 53, "quote": "가: 교실에 남학생이 몇 명 있어요?", "context": "level 1 unit 5 dialogue quote"}
+{"id": "sejong1_u5_voc0_귤", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "귤", "context": "level 1 unit 5 vocab"}
+{"id": "sejong1_u5_voc1_린스", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "린스", "context": "level 1 unit 5 vocab"}
+{"id": "sejong1_u5_voc2_맥주", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "맥주", "context": "level 1 unit 5 vocab"}
+{"id": "sejong1_u5_voc3_물티슈", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "물티슈", "context": "level 1 unit 5 vocab"}
+{"id": "sejong1_u5_voc4_샴푸", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "샴푸", "context": "level 1 unit 5 vocab"}
+{"id": "sejong1_u5_voc5_수박", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "수박", "context": "level 1 unit 5 vocab"}
+{"id": "sejong1_u5_voc6_컵라면", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "컵라면", "context": "level 1 unit 5 vocab"}
+{"id": "sejong1_u5_voc7_휴지", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "휴지", "context": "level 1 unit 5 vocab"}
+{"id": "sejong1_u5_gram0_하고", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 97, "quote": "하고", "context": "level 1 unit 5 grammar label"}
+{"id": "sejong1_u6_title", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 60, "quote": "저는 고기를 안 먹어요", "context": "level 1 unit 6 title"}
+{"id": "sejong1_u6_cando", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 60, "quote": "다른 사람과 음식에 대해 이야기할 수 있어요.", "context": "level 1 unit 6 can-do"}
+{"id": "sejong1_u6_dlg0", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 62, "quote": "가: 재석 씨는 지금 뭐 해요?", "context": "level 1 unit 6 dialogue quote"}
+{"id": "sejong1_u6_dlg1", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 66, "quote": "가: 지금 뭐 해요?", "context": "level 1 unit 6 dialogue quote"}
+{"id": "sejong1_u6_voc0_과일", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "과일", "context": "level 1 unit 6 vocab"}
+{"id": "sejong1_u6_voc1_과자", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "과자", "context": "level 1 unit 6 vocab"}
+{"id": "sejong1_u6_voc2_닭고기", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "닭고기", "context": "level 1 unit 6 vocab"}
+{"id": "sejong1_u6_voc3_돼지고기", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "돼지고기", "context": "level 1 unit 6 vocab"}
+{"id": "sejong1_u6_voc4_생선", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "생선", "context": "level 1 unit 6 vocab"}
+{"id": "sejong1_u6_voc5_소고기", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "소고기", "context": "level 1 unit 6 vocab"}
+{"id": "sejong1_u6_voc6_음료수", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "음료수", "context": "level 1 unit 6 vocab"}
+{"id": "sejong1_u6_voc7_채소", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "채소", "context": "level 1 unit 6 vocab"}
+{"id": "sejong1_u6_gram0_을/를", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 98, "quote": "을/를", "context": "level 1 unit 6 grammar label"}
+{"id": "sejong1_u6_gram1_안", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 98, "quote": "안", "context": "level 1 unit 6 grammar label"}
+{"id": "sejong1_u7_title", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 70, "quote": "‘서울행’을 꼭 보세요", "context": "level 1 unit 7 title"}
+{"id": "sejong1_u7_cando", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 70, "quote": "날짜와 시간을 말할 수 있어요.", "context": "level 1 unit 7 can-do"}
+{"id": "sejong1_u7_dlg0", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 78, "quote": "가: 마크 씨, 오늘 오후 1시에 뭐 해요?", "context": "level 1 unit 7 dialogue quote"}
+{"id": "sejong1_u7_dlg1", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 78, "quote": "가: 그러면 오후 3시에는 뭐 해요?", "context": "level 1 unit 7 dialogue quote"}
+{"id": "sejong1_u7_voc0_그제", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "그제", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc1_금요일", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "금요일", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc2_날", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "날", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc3_내년", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "내년", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc4_내일", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "내일", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc5_년/해", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "년/해", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc6_다음 달", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "다음 달", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc7_다음 주", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "다음 주", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc8_달", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "달", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc9_모레", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "모레", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc10_목요일", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "목요일", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc11_수요일", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "수요일", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc12_어제", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "어제", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc13_오늘", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "오늘", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc14_올해", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "올해", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc15_월요일", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "월요일", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc16_이번 달", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "이번 달", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc17_이번 주", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "이번 주", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc18_일요일", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "일요일", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc19_작년", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "작년", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc20_주", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "주", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc21_주말", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "주말", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc22_지난달", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "지난달", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc23_지난주", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "지난주", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc24_토요일", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "토요일", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc25_평일", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "평일", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_voc26_화요일", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 100, "quote": "화요일", "context": "level 1 unit 7 vocab"}
+{"id": "sejong1_u7_gram0_에", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 98, "quote": "에", "context": "level 1 unit 7 grammar label"}
+{"id": "sejong1_u7_gram1_-으세요/-세요", "file": "세종한국어 회화 익힘책_영어판_1-1.pdf", "page": 98, "quote": "-으세요/-세요", "context": "level 1 unit 7 grammar label"}
+{"id": "sejong1_u8_title", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 10, "quote": "공원에서 자전거를 탔어요", "context": "level 1 unit 8 title"}
+{"id": "sejong1_u8_cando", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 10, "quote": "과거에 경험한 것에 대해 묻고 답할 수 있어요.", "context": "level 1 unit 8 can-do"}
+{"id": "sejong1_u8_dlg0", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 12, "quote": "가: 안나 씨는 지금 뭐 해요?", "context": "level 1 unit 8 dialogue quote"}
+{"id": "sejong1_u8_dlg1", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 16, "quote": "가: 도서관에서 뭐 했어요?", "context": "level 1 unit 8 dialogue quote"}
+{"id": "sejong1_u8_voc0_꽃집", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "꽃집", "context": "level 1 unit 8 vocab"}
+{"id": "sejong1_u8_voc1_놀이공원", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "놀이공원", "context": "level 1 unit 8 vocab"}
+{"id": "sejong1_u8_voc2_도서관", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "도서관", "context": "level 1 unit 8 vocab"}
+{"id": "sejong1_u8_voc3_미용실", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "미용실", "context": "level 1 unit 8 vocab"}
+{"id": "sejong1_u8_voc4_박물관", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "박물관", "context": "level 1 unit 8 vocab"}
+{"id": "sejong1_u8_voc5_수영장", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "수영장", "context": "level 1 unit 8 vocab"}
+{"id": "sejong1_u8_voc6_우체국", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "우체국", "context": "level 1 unit 8 vocab"}
+{"id": "sejong1_u8_voc7_운동장", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "운동장", "context": "level 1 unit 8 vocab"}
+{"id": "sejong1_u8_gram0_에서", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 94, "quote": "에서", "context": "level 1 unit 8 grammar label"}
+{"id": "sejong1_u8_gram1_-았어요/-었어요/-였어요", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 94, "quote": "-았어요/-었어요/-였어요", "context": "level 1 unit 8 grammar label"}
+{"id": "sejong1_u9_title", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 20, "quote": "친구들하고 축구를 할 거예요", "context": "level 1 unit 9 title"}
+{"id": "sejong1_u9_cando", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 20, "quote": "자신의 취미를 이야기할 수 있어요.", "context": "level 1 unit 9 can-do"}
+{"id": "sejong1_u9_dlg0", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 22, "quote": "가: 휴가 때 어디에 갈 거예요?", "context": "level 1 unit 9 dialogue quote"}
+{"id": "sejong1_u9_dlg1", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 27, "quote": "가: 마이 씨는 1년 계획이 있어요?", "context": "level 1 unit 9 dialogue quote"}
+{"id": "sejong1_u9_voc0_미술관에 가다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "미술관에 가다", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc1_스케이트를 타다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "스케이트를 타다", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc2_시내를 구경하다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "시내를 구경하다", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc3_야구를 보다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "야구를 보다", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc4_요리를 배우다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "요리를 배우다", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc5_자전거를 타다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "자전거를 타다", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc6_콘서트에 가다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "콘서트에 가다", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc7_피시(PC)방에 가다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "피시(PC)방에 가다", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc8_계시다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "계시다", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc9_드리다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "드리다", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc10_말씀", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "말씀", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc11_말씀하시다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "말씀하시다", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc12_뵈다/뵙다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "뵈다/뵙다", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc13_약주", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "약주", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc14_여쭈다/여쭙다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "여쭈다/여쭙다", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_voc15_진지", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "진지", "context": "level 1 unit 9 vocab"}
+{"id": "sejong1_u9_gram0_-을 거예요/-ㄹ 거예요", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 94, "quote": "-을 거예요/-ㄹ 거예요", "context": "level 1 unit 9 grammar label"}
+{"id": "sejong1_u10_title", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 30, "quote": "할아버지께서 낚시를 좋아하세요?", "context": "level 1 unit 10 title"}
+{"id": "sejong1_u10_cando", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 30, "quote": "가족을 소개할 수 있어요.", "context": "level 1 unit 10 can-do"}
+{"id": "sejong1_u10_dlg0", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 32, "quote": "가: 할아버지께서는 지금 뭐 하세요?", "context": "level 1 unit 10 dialogue quote"}
+{"id": "sejong1_u10_dlg1", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 33, "quote": "가: 시장에 왜 가요?", "context": "level 1 unit 10 dialogue quote"}
+{"id": "sejong1_u10_gram0_-으시-/-시-", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 94, "quote": "-으시-/-시-", "context": "level 1 unit 10 grammar label"}
+{"id": "sejong1_u10_gram1_-으러 가다/-러 가다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 95, "quote": "-으러 가다/-러 가다", "context": "level 1 unit 10 grammar label"}
+{"id": "sejong1_u11_title", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 40, "quote": "공연장 앞에서 만날까요?", "context": "level 1 unit 11 title"}
+{"id": "sejong1_u11_cando", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 40, "quote": "다른 사람과 약속을 할 수 있어요.", "context": "level 1 unit 11 can-do"}
+{"id": "sejong1_u11_dlg0", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 42, "quote": "가: 주말에는 무엇을 하고 싶어요?", "context": "level 1 unit 11 dialogue quote"}
+{"id": "sejong1_u11_dlg1", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 43, "quote": "가: 오늘 같이 점심을 먹을까요?", "context": "level 1 unit 11 dialogue quote"}
+{"id": "sejong1_u11_voc0_가깝다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "가깝다", "context": "level 1 unit 11 vocab"}
+{"id": "sejong1_u11_voc1_같다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "같다", "context": "level 1 unit 11 vocab"}
+{"id": "sejong1_u11_voc2_깨끗하다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "깨끗하다", "context": "level 1 unit 11 vocab"}
+{"id": "sejong1_u11_voc3_다르다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "다르다", "context": "level 1 unit 11 vocab"}
+{"id": "sejong1_u11_voc4_더럽다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "더럽다", "context": "level 1 unit 11 vocab"}
+{"id": "sejong1_u11_voc5_뜨겁다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "뜨겁다", "context": "level 1 unit 11 vocab"}
+{"id": "sejong1_u11_voc6_멀다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "멀다", "context": "level 1 unit 11 vocab"}
+{"id": "sejong1_u11_voc7_밝다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "밝다", "context": "level 1 unit 11 vocab"}
+{"id": "sejong1_u11_voc8_어둡다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "어둡다", "context": "level 1 unit 11 vocab"}
+{"id": "sejong1_u11_voc9_차갑다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "차갑다", "context": "level 1 unit 11 vocab"}
+{"id": "sejong1_u11_gram0_-고 싶다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 95, "quote": "-고 싶다", "context": "level 1 unit 11 grammar label"}
+{"id": "sejong1_u12_title", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 50, "quote": "좀 춥고 눈도 많이 올 거예요", "context": "level 1 unit 12 title"}
+{"id": "sejong1_u12_cando", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 50, "quote": "날씨와 계절에 대해 이야기할 수 있어요.", "context": "level 1 unit 12 can-do"}
+{"id": "sejong1_u12_dlg0", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 52, "quote": "가: 서울의 날씨는 어때요?", "context": "level 1 unit 12 dialogue quote"}
+{"id": "sejong1_u12_dlg1", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 53, "quote": "가: 어떤 책이 좋을까요?", "context": "level 1 unit 12 dialogue quote"}
+{"id": "sejong1_u12_voc0_꽃이 피다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "꽃이 피다", "context": "level 1 unit 12 vocab"}
+{"id": "sejong1_u12_voc1_눈싸움을 하다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "눈싸움을 하다", "context": "level 1 unit 12 vocab"}
+{"id": "sejong1_u12_voc2_눈이 쌓이다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "눈이 쌓이다", "context": "level 1 unit 12 vocab"}
+{"id": "sejong1_u12_voc3_산책하다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "산책하다", "context": "level 1 unit 12 vocab"}
+{"id": "sejong1_u12_voc4_삼계탕을 먹다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "삼계탕을 먹다", "context": "level 1 unit 12 vocab"}
+{"id": "sejong1_u12_voc5_운동회를 하다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "운동회를 하다", "context": "level 1 unit 12 vocab"}
+{"id": "sejong1_u12_voc6_장마가 시작되다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "장마가 시작되다", "context": "level 1 unit 12 vocab"}
+{"id": "sejong1_u12_voc7_하늘이 파랗다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "하늘이 파랗다", "context": "level 1 unit 12 vocab"}
+{"id": "sejong1_u12_gram0_-고", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 95, "quote": "-고", "context": "level 1 unit 12 grammar label"}
+{"id": "sejong1_u12_gram1_-을 거예요/-ㄹ 거예요", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 95, "quote": "-을 거예요/-ㄹ 거예요", "context": "level 1 unit 12 grammar label"}
+{"id": "sejong1_u13_title", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 60, "quote": "가방이 예쁘지만 좀 무거워요", "context": "level 1 unit 13 title"}
+{"id": "sejong1_u13_cando", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 60, "quote": "좋아하는 옷이나 색깔에 대해 이야기할 수 있어요.", "context": "level 1 unit 13 can-do"}
+{"id": "sejong1_u13_dlg0", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 62, "quote": "가: 마크가 뭐 해요?", "context": "level 1 unit 13 dialogue quote"}
+{"id": "sejong1_u13_dlg1", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 63, "quote": "가: 시장이 어때요?", "context": "level 1 unit 13 dialogue quote"}
+{"id": "sejong1_u13_voc0_가방을 메다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "가방을 메다", "context": "level 1 unit 13 vocab"}
+{"id": "sejong1_u13_voc1_귀걸이를 하다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "귀걸이를 하다", "context": "level 1 unit 13 vocab"}
+{"id": "sejong1_u13_voc2_넥타이를 매다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "넥타이를 매다", "context": "level 1 unit 13 vocab"}
+{"id": "sejong1_u13_voc3_마스크를 쓰다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "마스크를 쓰다", "context": "level 1 unit 13 vocab"}
+{"id": "sejong1_u13_voc4_목걸이를 하다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "목걸이를 하다", "context": "level 1 unit 13 vocab"}
+{"id": "sejong1_u13_voc5_목도리를 하다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 99, "quote": "목도리를 하다", "context": "level 1 unit 13 vocab"}
+{"id": "sejong1_u13_voc6_스카프를 매다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 100, "quote": "스카프를 매다", "context": "level 1 unit 13 vocab"}
+{"id": "sejong1_u13_voc7_장화를 신다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 100, "quote": "장화를 신다", "context": "level 1 unit 13 vocab"}
+{"id": "sejong1_u13_gram0_한테", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 96, "quote": "한테", "context": "level 1 unit 13 grammar label"}
+{"id": "sejong1_u13_gram1_-지만", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 96, "quote": "-지만", "context": "level 1 unit 13 grammar label"}
+{"id": "sejong1_u14_title", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 70, "quote": "감기에 걸려서 축제에 못 갔어요", "context": "level 1 unit 14 title"}
+{"id": "sejong1_u14_cando", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 70, "quote": "자신의 행동에 대한 이유를 이야기할 수 있어요.", "context": "level 1 unit 14 can-do"}
+{"id": "sejong1_u14_dlg0", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 72, "quote": "가: 어제 모임에 왜 안 왔어요?", "context": "level 1 unit 14 dialogue quote"}
+{"id": "sejong1_u14_dlg1", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 73, "quote": "가: 우리 저녁에 스파게티를 준비할까요?", "context": "level 1 unit 14 dialogue quote"}
+{"id": "sejong1_u14_voc0_결석하다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 100, "quote": "결석하다", "context": "level 1 unit 14 vocab"}
+{"id": "sejong1_u14_voc1_급한 일이 생기다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 100, "quote": "급한 일이 생기다", "context": "level 1 unit 14 vocab"}
+{"id": "sejong1_u14_voc2_기운이 없다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 100, "quote": "기운이 없다", "context": "level 1 unit 14 vocab"}
+{"id": "sejong1_u14_voc3_약속이 있다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 100, "quote": "약속이 있다", "context": "level 1 unit 14 vocab"}
+{"id": "sejong1_u14_voc4_지각하다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 100, "quote": "지각하다", "context": "level 1 unit 14 vocab"}
+{"id": "sejong1_u14_voc5_출근하다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 100, "quote": "출근하다", "context": "level 1 unit 14 vocab"}
+{"id": "sejong1_u14_voc6_퇴근하다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 100, "quote": "퇴근하다", "context": "level 1 unit 14 vocab"}
+{"id": "sejong1_u14_voc7_피곤하다", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 100, "quote": "피곤하다", "context": "level 1 unit 14 vocab"}
+{"id": "sejong1_u14_gram0_-아서/-어서/-여서", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 96, "quote": "-아서/-어서/-여서", "context": "level 1 unit 14 grammar label"}
+{"id": "sejong1_u14_gram1_못", "file": "세종한국어 회화 익힘책_영어판_1-2.pdf", "page": 96, "quote": "못", "context": "level 1 unit 14 grammar label"}
+{"id": "sejong2_u1_title", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 10, "quote": "꽃다발이나 케이크는 어때요?", "context": "level 2 unit 1 title"}
+{"id": "sejong2_u1_cando", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 10, "quote": "다른 사람에게 어떤 것을 권유할 수 있어요.", "context": "level 2 unit 1 can-do"}
+{"id": "sejong2_u1_dlg0", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 12, "quote": "가: 유진 씨는 주말에 보통 뭐 해요?", "context": "level 2 unit 1 dialogue quote"}
+{"id": "sejong2_u1_dlg1", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 13, "quote": "가: 오늘 수업 후에 뭐 할 거예요?", "context": "level 2 unit 1 dialogue quote"}
+{"id": "sejong2_u1_voc0_기념사진을 찍다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "기념사진을 찍다", "context": "level 2 unit 1 vocab"}
+{"id": "sejong2_u1_voc1_선물을 주다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "선물을 주다", "context": "level 2 unit 1 vocab"}
+{"id": "sejong2_u1_voc2_초대하다/받다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "초대하다/받다", "context": "level 2 unit 1 vocab"}
+{"id": "sejong2_u1_voc3_축의금을 전달하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "축의금을 전달하다", "context": "level 2 unit 1 vocab"}
+{"id": "sejong2_u1_voc4_축하 인사를 하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "축하 인사를 하다", "context": "level 2 unit 1 vocab"}
+{"id": "sejong2_u1_voc5_축하 카드를 쓰다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "축하 카드를 쓰다", "context": "level 2 unit 1 vocab"}
+{"id": "sejong2_u1_voc6_축하 파티를 하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "축하 파티를 하다", "context": "level 2 unit 1 vocab"}
+{"id": "sejong2_u1_gram0_이나/나", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 95, "quote": "이나/나", "context": "level 2 unit 1 grammar label"}
+{"id": "sejong2_u1_gram1_-아서/-어서/-여서", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 95, "quote": "-아서/-어서/-여서", "context": "level 2 unit 1 grammar label"}
+{"id": "sejong2_u2_title", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 20, "quote": "회사 일이 많아서 바빴습니다", "context": "level 2 unit 2 title"}
+{"id": "sejong2_u2_cando", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 20, "quote": "다른 사람과 안부를 묻고 답할 수 있어요.", "context": "level 2 unit 2 can-do"}
+{"id": "sejong2_u2_dlg0", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 22, "quote": "가: 요즘 어떻게 지냅니까?", "context": "level 2 unit 2 dialogue quote"}
+{"id": "sejong2_u2_dlg1", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 23, "quote": "가: 어제 뭐 했어요?", "context": "level 2 unit 2 dialogue quote"}
+{"id": "sejong2_u2_voc0_승진하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "승진하다", "context": "level 2 unit 2 vocab"}
+{"id": "sejong2_u2_voc1_시험을 준비하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "시험을 준비하다", "context": "level 2 unit 2 vocab"}
+{"id": "sejong2_u2_voc2_유학 생활을 마치다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "유학 생활을 마치다", "context": "level 2 unit 2 vocab"}
+{"id": "sejong2_u2_voc3_이사를 하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "이사를 하다", "context": "level 2 unit 2 vocab"}
+{"id": "sejong2_u2_voc4_장학금을 받다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "장학금을 받다", "context": "level 2 unit 2 vocab"}
+{"id": "sejong2_u2_voc5_창업하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "창업하다", "context": "level 2 unit 2 vocab"}
+{"id": "sejong2_u2_voc6_출장을 가다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "출장을 가다", "context": "level 2 unit 2 vocab"}
+{"id": "sejong2_u2_voc7_학위를 받다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "학위를 받다", "context": "level 2 unit 2 vocab"}
+{"id": "sejong2_u2_gram0_-고", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 95, "quote": "-고", "context": "level 2 unit 2 grammar label"}
+{"id": "sejong2_u3_title", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 30, "quote": "버스로 10분쯤 걸릴 거예요", "context": "level 2 unit 3 title"}
+{"id": "sejong2_u3_cando", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 30, "quote": "길을 묻고 대답할 수 있어요.", "context": "level 2 unit 3 can-do"}
+{"id": "sejong2_u3_dlg0", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 32, "quote": "가: 약속에 늦었어요. 경복궁에 어떻게 가는 게 좋아요?", "context": "level 2 unit 3 dialogue quote"}
+{"id": "sejong2_u3_dlg1", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 33, "quote": "가: 아침에 몇 시부터 몇 시까지 운동해요?", "context": "level 2 unit 3 dialogue quote"}
+{"id": "sejong2_u3_voc0_KTX", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "KTX", "context": "level 2 unit 3 vocab"}
+{"id": "sejong2_u3_voc1_마을버스", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "마을버스", "context": "level 2 unit 3 vocab"}
+{"id": "sejong2_u3_voc2_모범택시", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "모범택시", "context": "level 2 unit 3 vocab"}
+{"id": "sejong2_u3_voc3_시내버스", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "시내버스", "context": "level 2 unit 3 vocab"}
+{"id": "sejong2_u3_voc4_시외버스", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "시외버스", "context": "level 2 unit 3 vocab"}
+{"id": "sejong2_u3_voc5_일반 택시", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "일반 택시", "context": "level 2 unit 3 vocab"}
+{"id": "sejong2_u3_voc6_킥보드", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "킥보드", "context": "level 2 unit 3 vocab"}
+{"id": "sejong2_u3_voc7_트램", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "트램", "context": "level 2 unit 3 vocab"}
+{"id": "sejong2_u3_gram0_으로/로", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 96, "quote": "으로/로", "context": "level 2 unit 3 grammar label"}
+{"id": "sejong2_u3_gram1_…에서/부터 …까지", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 96, "quote": "…에서/부터 …까지", "context": "level 2 unit 3 grammar label"}
+{"id": "sejong2_u4_title", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 40, "quote": "점심 먹으러 갈래요?", "context": "level 2 unit 4 title"}
+{"id": "sejong2_u4_cando", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 40, "quote": "음식을 주문하고 맛에 대해 이야기할 수 있어요.", "context": "level 2 unit 4 can-do"}
+{"id": "sejong2_u4_dlg0", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 43, "quote": "가: 지금 집에 들어왔어요? 지금 밖에 비가 오지요?", "context": "level 2 unit 4 dialogue quote"}
+{"id": "sejong2_u4_dlg1", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 46, "quote": "가: 맛이 어때요?", "context": "level 2 unit 4 dialogue quote"}
+{"id": "sejong2_u4_voc0_고소하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "고소하다", "context": "level 2 unit 4 vocab"}
+{"id": "sejong2_u4_voc1_느끼하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "느끼하다", "context": "level 2 unit 4 vocab"}
+{"id": "sejong2_u4_voc2_달콤하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "달콤하다", "context": "level 2 unit 4 vocab"}
+{"id": "sejong2_u4_voc3_매콤하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "매콤하다", "context": "level 2 unit 4 vocab"}
+{"id": "sejong2_u4_voc4_새콤하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "새콤하다", "context": "level 2 unit 4 vocab"}
+{"id": "sejong2_u4_voc5_싱겁다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "싱겁다", "context": "level 2 unit 4 vocab"}
+{"id": "sejong2_u4_voc6_외식하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "외식하다", "context": "level 2 unit 4 vocab"}
+{"id": "sejong2_u4_voc7_주문하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "주문하다", "context": "level 2 unit 4 vocab"}
+{"id": "sejong2_u4_gram0_-을래요/-ㄹ래요", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 96, "quote": "-을래요/-ㄹ래요", "context": "level 2 unit 4 grammar label"}
+{"id": "sejong2_u5_title", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 50, "quote": "저녁 먹은 후에 조깅을 해요", "context": "level 2 unit 5 title"}
+{"id": "sejong2_u5_cando", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 50, "quote": "하루 일과와 생활 습관에 대해 묻고 답할 수 있어요.", "context": "level 2 unit 5 can-do"}
+{"id": "sejong2_u5_dlg0", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 52, "quote": "가: 마크 씨는 언제 신문을 봐요?", "context": "level 2 unit 5 dialogue quote"}
+{"id": "sejong2_u5_dlg1", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 53, "quote": "가: 희철 씨는 영어를 잘해요?", "context": "level 2 unit 5 dialogue quote"}
+{"id": "sejong2_u5_voc0_다림질을 하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "다림질을 하다", "context": "level 2 unit 5 vocab"}
+{"id": "sejong2_u5_voc1_먼지를 털다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "먼지를 털다", "context": "level 2 unit 5 vocab"}
+{"id": "sejong2_u5_voc2_빨래를 널다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "빨래를 널다", "context": "level 2 unit 5 vocab"}
+{"id": "sejong2_u5_voc3_쓰레기를 버리다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "쓰레기를 버리다", "context": "level 2 unit 5 vocab"}
+{"id": "sejong2_u5_voc4_옷을 개다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "옷을 개다", "context": "level 2 unit 5 vocab"}
+{"id": "sejong2_u5_voc5_창문을 닦다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "창문을 닦다", "context": "level 2 unit 5 vocab"}
+{"id": "sejong2_u5_voc6_청소기를 돌리다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "청소기를 돌리다", "context": "level 2 unit 5 vocab"}
+{"id": "sejong2_u5_voc7_화분에 물을 주다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "화분에 물을 주다", "context": "level 2 unit 5 vocab"}
+{"id": "sejong2_u5_gram0_-은 후에/-ㄴ 후에", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 96, "quote": "-은 후에/-ㄴ 후에", "context": "level 2 unit 5 grammar label"}
+{"id": "sejong2_u5_gram1_-고 있다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 97, "quote": "-고 있다", "context": "level 2 unit 5 grammar label"}
+{"id": "sejong2_u6_title", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 60, "quote": "푹 쉬어서 괜찮아졌어요", "context": "level 2 unit 6 title"}
+{"id": "sejong2_u6_cando", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 60, "quote": "날씨와 생활에 대해 이야기할 수 있어요.", "context": "level 2 unit 6 can-do"}
+{"id": "sejong2_u6_dlg0", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 62, "quote": "가: 오늘도 어제처럼 더워요?", "context": "level 2 unit 6 dialogue quote"}
+{"id": "sejong2_u6_dlg1", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 63, "quote": "가: 이제 어디 갈까요?", "context": "level 2 unit 6 dialogue quote"}
+{"id": "sejong2_u6_voc0_건기", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "건기", "context": "level 2 unit 6 vocab"}
+{"id": "sejong2_u6_voc1_꽃샘추위", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "꽃샘추위", "context": "level 2 unit 6 vocab"}
+{"id": "sejong2_u6_voc2_번개", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "번개", "context": "level 2 unit 6 vocab"}
+{"id": "sejong2_u6_voc3_우기", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "우기", "context": "level 2 unit 6 vocab"}
+{"id": "sejong2_u6_voc4_장마", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "장마", "context": "level 2 unit 6 vocab"}
+{"id": "sejong2_u6_voc5_천둥", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "천둥", "context": "level 2 unit 6 vocab"}
+{"id": "sejong2_u6_voc6_환절기", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "환절기", "context": "level 2 unit 6 vocab"}
+{"id": "sejong2_u6_voc7_황사", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 100, "quote": "황사", "context": "level 2 unit 6 vocab"}
+{"id": "sejong2_u6_gram0_-아지다/-어지다/-여지다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 97, "quote": "-아지다/-어지다/-여지다", "context": "level 2 unit 6 grammar label"}
+{"id": "sejong2_u6_gram1_-으니까/-니까", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 97, "quote": "-으니까/-니까", "context": "level 2 unit 6 grammar label"}
+{"id": "sejong2_u7_title", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 70, "quote": "일곱 시로 예약해 주세요", "context": "level 2 unit 7 title"}
+{"id": "sejong2_u7_cando", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 70, "quote": "다른 사람과 전화를 할 수 있어요.", "context": "level 2 unit 7 can-do"}
+{"id": "sejong2_u7_dlg0", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 72, "quote": "가: 어떤 색깔이 마음에 드세요?", "context": "level 2 unit 7 dialogue quote"}
+{"id": "sejong2_u7_dlg1", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 73, "quote": "가: 밤에 잠이 안 오면 뭘 해요?", "context": "level 2 unit 7 dialogue quote"}
+{"id": "sejong2_u7_voc0_김미라 선생님 계세요?", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 101, "quote": "김미라 선생님 계세요?", "context": "level 2 unit 7 vocab"}
+{"id": "sejong2_u7_voc1_김미라 선생님 전화 맞아요?", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 101, "quote": "김미라 선생님 전화 맞아요?", "context": "level 2 unit 7 vocab"}
+{"id": "sejong2_u7_voc2_김미라 선생님 좀 바꿔 주세요.", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 101, "quote": "김미라 선생님 좀 바꿔 주세요.", "context": "level 2 unit 7 vocab"}
+{"id": "sejong2_u7_voc3_다시 연락 드리겠습니다.", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 101, "quote": "다시 연락 드리겠습니다.", "context": "level 2 unit 7 vocab"}
+{"id": "sejong2_u7_voc4_메모 좀 전해 주세요.", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 101, "quote": "메모 좀 전해 주세요.", "context": "level 2 unit 7 vocab"}
+{"id": "sejong2_u7_voc5_메시지를 삭제하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 101, "quote": "메시지를 삭제하다", "context": "level 2 unit 7 vocab"}
+{"id": "sejong2_u7_voc6_메시지를 확인하다", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 101, "quote": "메시지를 확인하다", "context": "level 2 unit 7 vocab"}
+{"id": "sejong2_u7_voc7_별표(*)", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 101, "quote": "별표(*)", "context": "level 2 unit 7 vocab"}
+{"id": "sejong2_u7_voc8_우물 정자(#)", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 101, "quote": "우물 정자(#)", "context": "level 2 unit 7 vocab"}
+{"id": "sejong2_u7_gram0_-으면/-면", "file": "세종한국어 회화 익힘책_영어판_2-1.pdf", "page": 98, "quote": "-으면/-면", "context": "level 2 unit 7 grammar label"}
+{"id": "sejong2_u8_title", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 10, "quote": "부산에 가 봤어요?", "context": "level 2 unit 8 title"}
+{"id": "sejong2_u8_cando", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 10, "quote": "여행 경험과 계획에 대해 이야기할 수 있어요.", "context": "level 2 unit 8 can-do"}
+{"id": "sejong2_u8_dlg0", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 16, "quote": "가: 수업 후에 같이 영화 볼래요?", "context": "level 2 unit 8 dialogue quote"}
+{"id": "sejong2_u8_dlg1", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 16, "quote": "가: 서울에 가 봤어요?", "context": "level 2 unit 8 dialogue quote"}
+{"id": "sejong2_u8_voc0_기념품", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "기념품", "context": "level 2 unit 8 vocab"}
+{"id": "sejong2_u8_voc1_목적지", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "목적지", "context": "level 2 unit 8 vocab"}
+{"id": "sejong2_u8_voc2_숙소 후기", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "숙소 후기", "context": "level 2 unit 8 vocab"}
+{"id": "sejong2_u8_voc3_시차", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "시차", "context": "level 2 unit 8 vocab"}
+{"id": "sejong2_u8_voc4_왕복", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "왕복", "context": "level 2 unit 8 vocab"}
+{"id": "sejong2_u8_voc5_유적지", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "유적지", "context": "level 2 unit 8 vocab"}
+{"id": "sejong2_u8_voc6_출발지", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "출발지", "context": "level 2 unit 8 vocab"}
+{"id": "sejong2_u8_voc7_편도", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "편도", "context": "level 2 unit 8 vocab"}
+{"id": "sejong2_u8_gram0_-으려고 하다/-려고 하다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 94, "quote": "-으려고 하다/-려고 하다", "context": "level 2 unit 8 grammar label"}
+{"id": "sejong2_u8_gram1_-아 보다/-어 보다/-여 보다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 94, "quote": "-아 보다/-어 보다/-여 보다", "context": "level 2 unit 8 grammar label"}
+{"id": "sejong2_u9_title", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 20, "quote": "이번 축제 때 꼭 오세요", "context": "level 2 unit 9 title"}
+{"id": "sejong2_u9_cando", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 20, "quote": "특별한 행사에 친구를 초대할 수 있어요.", "context": "level 2 unit 9 can-do"}
+{"id": "sejong2_u9_dlg0", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 22, "quote": "가: 안나 씨를 어떻게 알아요?", "context": "level 2 unit 9 dialogue quote"}
+{"id": "sejong2_u9_dlg1", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 23, "quote": "가: 음료수를 좀 드릴까요?", "context": "level 2 unit 9 dialogue quote"}
+{"id": "sejong2_u9_voc0_기쁘다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "기쁘다", "context": "level 2 unit 9 vocab"}
+{"id": "sejong2_u9_voc1_긴장되다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "긴장되다", "context": "level 2 unit 9 vocab"}
+{"id": "sejong2_u9_voc2_무섭다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "무섭다", "context": "level 2 unit 9 vocab"}
+{"id": "sejong2_u9_voc3_반갑다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "반갑다", "context": "level 2 unit 9 vocab"}
+{"id": "sejong2_u9_voc4_부끄럽다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "부끄럽다", "context": "level 2 unit 9 vocab"}
+{"id": "sejong2_u9_voc5_섭섭하다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "섭섭하다", "context": "level 2 unit 9 vocab"}
+{"id": "sejong2_u9_voc6_즐겁다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "즐겁다", "context": "level 2 unit 9 vocab"}
+{"id": "sejong2_u9_voc7_지루하다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "지루하다", "context": "level 2 unit 9 vocab"}
+{"id": "sejong2_u9_gram0_-을 때/-ㄹ 때", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 94, "quote": "-을 때/-ㄹ 때", "context": "level 2 unit 9 grammar label"}
+{"id": "sejong2_u9_gram1_-을게요/-ㄹ게요", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 94, "quote": "-을게요/-ㄹ게요", "context": "level 2 unit 9 grammar label"}
+{"id": "sejong2_u10_title", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 30, "quote": "취미가 같은 사람을 만나고 싶었어요", "context": "level 2 unit 10 title"}
+{"id": "sejong2_u10_cando", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 30, "quote": "자신의 이상형에 대해 설명할 수 있어요.", "context": "level 2 unit 10 can-do"}
+{"id": "sejong2_u10_dlg0", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 32, "quote": "가: 미카엘 씨는 어떤 친구를 좋아해요?", "context": "level 2 unit 10 dialogue quote"}
+{"id": "sejong2_u10_dlg1", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 33, "quote": "가: \u0007우리 반에서 한국어를 가장 잘하는 사람은 누구예요?", "context": "level 2 unit 10 dialogue quote"}
+{"id": "sejong2_u10_voc0_게으르다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "게으르다", "context": "level 2 unit 10 vocab"}
+{"id": "sejong2_u10_voc1_내성적이다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "내성적이다", "context": "level 2 unit 10 vocab"}
+{"id": "sejong2_u10_voc2_마음이 따뜻하다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "마음이 따뜻하다", "context": "level 2 unit 10 vocab"}
+{"id": "sejong2_u10_voc3_말이 많다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "말이 많다", "context": "level 2 unit 10 vocab"}
+{"id": "sejong2_u10_voc4_불친절하다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "불친절하다", "context": "level 2 unit 10 vocab"}
+{"id": "sejong2_u10_voc5_예의 바르다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "예의 바르다", "context": "level 2 unit 10 vocab"}
+{"id": "sejong2_u10_voc6_예의가 없다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "예의가 없다", "context": "level 2 unit 10 vocab"}
+{"id": "sejong2_u10_voc7_외향적이다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "외향적이다", "context": "level 2 unit 10 vocab"}
+{"id": "sejong2_u10_gram0_-은/-ㄴ", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 95, "quote": "-은/-ㄴ", "context": "level 2 unit 10 grammar label"}
+{"id": "sejong2_u10_gram1_-는", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 95, "quote": "-는", "context": "level 2 unit 10 grammar label"}
+{"id": "sejong2_u11_title", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 40, "quote": "공연 20분 전에는 입장해야 돼요", "context": "level 2 unit 11 title"}
+{"id": "sejong2_u11_cando", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 40, "quote": "공공예절에 대해 이야기할 수 있어요.", "context": "level 2 unit 11 can-do"}
+{"id": "sejong2_u11_dlg0", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 46, "quote": "가: 집에 가서 뭐 할 거예요?", "context": "level 2 unit 11 dialogue quote"}
+{"id": "sejong2_u11_dlg1", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 49, "quote": "가: 마크 씨, 담배를 피우세요?", "context": "level 2 unit 11 dialogue quote"}
+{"id": "sejong2_u11_voc0_관람 예절을 지키다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "관람 예절을 지키다", "context": "level 2 unit 11 vocab"}
+{"id": "sejong2_u11_voc1_녹음하다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "녹음하다", "context": "level 2 unit 11 vocab"}
+{"id": "sejong2_u11_voc2_동영상을 찍다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "동영상을 찍다", "context": "level 2 unit 11 vocab"}
+{"id": "sejong2_u11_voc3_박수를 치다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "박수를 치다", "context": "level 2 unit 11 vocab"}
+{"id": "sejong2_u11_voc4_사진을 몰래 찍다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "사진을 몰래 찍다", "context": "level 2 unit 11 vocab"}
+{"id": "sejong2_u11_voc5_자리를 바꾸다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "자리를 바꾸다", "context": "level 2 unit 11 vocab"}
+{"id": "sejong2_u11_voc6_전화벨이 울리다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "전화벨이 울리다", "context": "level 2 unit 11 vocab"}
+{"id": "sejong2_u11_voc7_줄을 서다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "줄을 서다", "context": "level 2 unit 11 vocab"}
+{"id": "sejong2_u11_gram0_-지 말다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 95, "quote": "-지 말다", "context": "level 2 unit 11 grammar label"}
+{"id": "sejong2_u12_title", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 50, "quote": "이사 온 지 두 달 됐어요", "context": "level 2 unit 12 title"}
+{"id": "sejong2_u12_cando", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 50, "quote": "시간의 경과에 대해 말할 수 있어요.", "context": "level 2 unit 12 can-do"}
+{"id": "sejong2_u12_dlg0", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 52, "quote": "가: 우리 ‘행복 식당’에 가 볼래요?", "context": "level 2 unit 12 dialogue quote"}
+{"id": "sejong2_u12_dlg1", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 56, "quote": "가: 언제 아침을 먹었어요?", "context": "level 2 unit 12 dialogue quote"}
+{"id": "sejong2_u12_voc0_낮", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "낮", "context": "level 2 unit 12 vocab"}
+{"id": "sejong2_u12_voc1_밤", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "밤", "context": "level 2 unit 12 vocab"}
+{"id": "sejong2_u12_voc2_새벽", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "새벽", "context": "level 2 unit 12 vocab"}
+{"id": "sejong2_u12_voc3_아침", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "아침", "context": "level 2 unit 12 vocab"}
+{"id": "sejong2_u12_voc4_오전", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "오전", "context": "level 2 unit 12 vocab"}
+{"id": "sejong2_u12_voc5_오후", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "오후", "context": "level 2 unit 12 vocab"}
+{"id": "sejong2_u12_voc6_자정", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "자정", "context": "level 2 unit 12 vocab"}
+{"id": "sejong2_u12_voc7_저녁", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "저녁", "context": "level 2 unit 12 vocab"}
+{"id": "sejong2_u12_voc8_정오", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "정오", "context": "level 2 unit 12 vocab"}
+{"id": "sejong2_u12_gram0_-은 지/-ㄴ 지", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 96, "quote": "-은 지/-ㄴ 지", "context": "level 2 unit 12 grammar label"}
+{"id": "sejong2_u12_gram1_-는데, -은데/-ㄴ데", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 96, "quote": "-는데, -은데/-ㄴ데", "context": "level 2 unit 12 grammar label"}
+{"id": "sejong2_u13_title", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 60, "quote": "저 좀 도와줄 수 있어요?", "context": "level 2 unit 13 title"}
+{"id": "sejong2_u13_cando", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 60, "quote": "문제 상황을 말하고 도움을 요청할 수 있어요.", "context": "level 2 unit 13 can-do"}
+{"id": "sejong2_u13_dlg0", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 62, "quote": "가: 치엔 씨, 태권도를 할 수 있어요?", "context": "level 2 unit 13 dialogue quote"}
+{"id": "sejong2_u13_dlg1", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 63, "quote": "가: 메이 씨의 표정이 안 좋아요. 왜 그럴까요?", "context": "level 2 unit 13 dialogue quote"}
+{"id": "sejong2_u13_voc0_바이러스에 걸리다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "바이러스에 걸리다", "context": "level 2 unit 13 vocab"}
+{"id": "sejong2_u13_voc1_소리가 안 나오다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "소리가 안 나오다", "context": "level 2 unit 13 vocab"}
+{"id": "sejong2_u13_voc2_재생이 안 되다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "재생이 안 되다", "context": "level 2 unit 13 vocab"}
+{"id": "sejong2_u13_voc3_전원이 안 들어오다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 99, "quote": "전원이 안 들어오다", "context": "level 2 unit 13 vocab"}
+{"id": "sejong2_u13_voc4_충전이 안 되다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 100, "quote": "충전이 안 되다", "context": "level 2 unit 13 vocab"}
+{"id": "sejong2_u13_voc5_컴퓨터가 다운되다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 100, "quote": "컴퓨터가 다운되다", "context": "level 2 unit 13 vocab"}
+{"id": "sejong2_u13_voc6_화면이 깨지다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 100, "quote": "화면이 깨지다", "context": "level 2 unit 13 vocab"}
+{"id": "sejong2_u14_title", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 70, "quote": "한국어 발음이 정말 좋아졌네요", "context": "level 2 unit 14 title"}
+{"id": "sejong2_u14_cando", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 70, "quote": "자신의 한국어 학습에 대해 설명할 수 있어요.", "context": "level 2 unit 14 can-do"}
+{"id": "sejong2_u14_dlg0", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 73, "quote": "가: 어디에 가요?", "context": "level 2 unit 14 dialogue quote"}
+{"id": "sejong2_u14_voc0_뛰어나다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 100, "quote": "뛰어나다", "context": "level 2 unit 14 vocab"}
+{"id": "sejong2_u14_voc1_부자연스럽다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 100, "quote": "부자연스럽다", "context": "level 2 unit 14 vocab"}
+{"id": "sejong2_u14_voc2_부정확하다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 100, "quote": "부정확하다", "context": "level 2 unit 14 vocab"}
+{"id": "sejong2_u14_voc3_어색하다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 100, "quote": "어색하다", "context": "level 2 unit 14 vocab"}
+{"id": "sejong2_u14_voc4_완벽하다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 100, "quote": "완벽하다", "context": "level 2 unit 14 vocab"}
+{"id": "sejong2_u14_voc5_자신이 없다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 100, "quote": "자신이 없다", "context": "level 2 unit 14 vocab"}
+{"id": "sejong2_u14_voc6_자연스럽다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 100, "quote": "자연스럽다", "context": "level 2 unit 14 vocab"}
+{"id": "sejong2_u14_voc7_정확하다", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 100, "quote": "정확하다", "context": "level 2 unit 14 vocab"}
+{"id": "sejong2_u14_gram0_-네요", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 97, "quote": "-네요", "context": "level 2 unit 14 grammar label"}
+{"id": "sejong2_u14_gram1_-기 위해서", "file": "세종한국어 회화 익힘책_영어판_2-2.pdf", "page": 97, "quote": "-기 위해서", "context": "level 2 unit 14 grammar label"}
+{"id": "sejong3_u1_title", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 10, "quote": "세종학당에서 한국어를 배울까 해요", "context": "level 3 unit 1 title"}
+{"id": "sejong3_u1_cando", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 10, "quote": "자신의 근황에 대해 이야기하고 앞으로의 계획을 세울 수 있어요.", "context": "level 3 unit 1 can-do"}
+{"id": "sejong3_u1_dlg0", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 12, "quote": "가: 수진 씨는 주말에 보통 뭐 해요?", "context": "level 3 unit 1 dialogue quote"}
+{"id": "sejong3_u1_dlg1", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 13, "quote": "가: 오늘 수업 후에 뭐 할 거예요?", "context": "level 3 unit 1 dialogue quote"}
+{"id": "sejong3_u1_voc0_대학원에 진학하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "대학원에 진학하다", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_voc1_동호회 모임에 가다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "동호회 모임에 가다", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_voc2_래프팅을 하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "래프팅을 하다", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_voc3_맛집을 방문하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "맛집을 방문하다", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_voc4_복습을 하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "복습을 하다", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_voc5_사업을 하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "사업을 하다", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_voc6_서핑을 하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "서핑을 하다", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_voc7_수업 후", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "수업 후", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_voc8_요가를 하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "요가를 하다", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_voc9_입대하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "입대하다", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_voc10_졸업 후", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "졸업 후", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_voc11_친구와 영상통화를 하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "친구와 영상통화를 하다", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_voc12_캠핑을 하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "캠핑을 하다", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_voc13_프리랜서로 일하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "프리랜서로 일하다", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_voc14_휴가", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "휴가", "context": "level 3 unit 1 vocab"}
+{"id": "sejong3_u1_gram0_-으면서/-면서", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 96, "quote": "-으면서/-면서", "context": "level 3 unit 1 grammar label"}
+{"id": "sejong3_u1_gram1_-을까/-ㄹ까 하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 96, "quote": "-을까/-ㄹ까 하다", "context": "level 3 unit 1 grammar label"}
+{"id": "sejong3_u2_title", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 20, "quote": "테니스를 치고 나면 스트레스가 풀려요", "context": "level 3 unit 2 title"}
+{"id": "sejong3_u2_cando", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 20, "quote": "여가 활동에 대해 소개할 수 있어요.", "context": "level 3 unit 2 can-do"}
+{"id": "sejong3_u2_dlg0", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 27, "quote": "가: 한자를 쓸 줄 알아요?", "context": "level 3 unit 2 dialogue quote"}
+{"id": "sejong3_u2_dlg1", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 27, "quote": "가: 감기에 걸린 것 같은데 병원에 안 가요?", "context": "level 3 unit 2 dialogue quote"}
+{"id": "sejong3_u2_voc0_경기 관람", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "경기 관람", "context": "level 3 unit 2 vocab"}
+{"id": "sejong3_u2_voc1_그림 그리기", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "그림 그리기", "context": "level 3 unit 2 vocab"}
+{"id": "sejong3_u2_voc2_독서", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "독서", "context": "level 3 unit 2 vocab"}
+{"id": "sejong3_u2_voc3_맛집 탐방", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "맛집 탐방", "context": "level 3 unit 2 vocab"}
+{"id": "sejong3_u2_voc4_사진 촬영", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "사진 촬영", "context": "level 3 unit 2 vocab"}
+{"id": "sejong3_u2_voc5_야외 나들이", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "야외 나들이", "context": "level 3 unit 2 vocab"}
+{"id": "sejong3_u2_voc6_영상 제작", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "영상 제작", "context": "level 3 unit 2 vocab"}
+{"id": "sejong3_u2_voc7_외국어 공부", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "외국어 공부", "context": "level 3 unit 2 vocab"}
+{"id": "sejong3_u2_voc8_헬스", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "헬스", "context": "level 3 unit 2 vocab"}
+{"id": "sejong3_u2_gram0_-을/-ㄹ 줄 알다/모르다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 96, "quote": "-을/-ㄹ 줄 알다/모르다", "context": "level 3 unit 2 grammar label"}
+{"id": "sejong3_u2_gram1_-고 나면", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 96, "quote": "-고 나면", "context": "level 3 unit 2 grammar label"}
+{"id": "sejong3_u3_title", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 30, "quote": "아무 데나 상관없어", "context": "level 3 unit 3 title"}
+{"id": "sejong3_u3_cando", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 30, "quote": "약속을 정하거나 바꿀 수 있어요.", "context": "level 3 unit 3 can-do"}
+{"id": "sejong3_u3_dlg0", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 33, "quote": "가: 선생님, 언제 전화드릴까요?", "context": "level 3 unit 3 dialogue quote"}
+{"id": "sejong3_u3_voc0_길을 헤매다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "길을 헤매다", "context": "level 3 unit 3 vocab"}
+{"id": "sejong3_u3_voc1_길이 정체되다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "길이 정체되다", "context": "level 3 unit 3 vocab"}
+{"id": "sejong3_u3_voc2_(차가) 꼼짝을 못하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "(차가) 꼼짝을 못하다", "context": "level 3 unit 3 vocab"}
+{"id": "sejong3_u3_voc3_밥 한번 먹다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "밥 한번 먹다", "context": "level 3 unit 3 vocab"}
+{"id": "sejong3_u3_voc4_약속을 깨다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "약속을 깨다", "context": "level 3 unit 3 vocab"}
+{"id": "sejong3_u3_voc5_약속을 어기다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "약속을 어기다", "context": "level 3 unit 3 vocab"}
+{"id": "sejong3_u3_voc6_얼굴 한번 보다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "얼굴 한번 보다", "context": "level 3 unit 3 vocab"}
+{"id": "sejong3_u3_voc7_차 한잔하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "차 한잔하다", "context": "level 3 unit 3 vocab"}
+{"id": "sejong3_u3_voc8_(시간을/장소를) 착각하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "(시간을/장소를) 착각하다", "context": "level 3 unit 3 vocab"}
+{"id": "sejong3_u3_gram0_아무…이나/나", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 97, "quote": "아무…이나/나", "context": "level 3 unit 3 grammar label"}
+{"id": "sejong3_u4_title", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 40, "quote": "필요한 물건은 같이 사러 가자", "context": "level 3 unit 4 title"}
+{"id": "sejong3_u4_cando", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 40, "quote": "집안일에 대해 이야기할 수 있어요.", "context": "level 3 unit 4 can-do"}
+{"id": "sejong3_u4_dlg0", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 42, "quote": "가: 수진 씨, 요즘 많이 바빠요?", "context": "level 3 unit 4 dialogue quote"}
+{"id": "sejong3_u4_dlg1", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 47, "quote": "가: 나도 같이 집 정리를 해 줄까?", "context": "level 3 unit 4 dialogue quote"}
+{"id": "sejong3_u4_voc0_겨울/여름옷을 정리하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "겨울/여름옷을 정리하다", "context": "level 3 unit 4 vocab"}
+{"id": "sejong3_u4_voc1_빨래방에 가다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "빨래방에 가다", "context": "level 3 unit 4 vocab"}
+{"id": "sejong3_u4_voc2_애완동물을 돌보다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "애완동물을 돌보다", "context": "level 3 unit 4 vocab"}
+{"id": "sejong3_u4_voc3_에어컨을 청소하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "에어컨을 청소하다", "context": "level 3 unit 4 vocab"}
+{"id": "sejong3_u4_voc4_욕실을 청소하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "욕실을 청소하다", "context": "level 3 unit 4 vocab"}
+{"id": "sejong3_u4_voc5_음식물 쓰레기를 버리다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "음식물 쓰레기를 버리다", "context": "level 3 unit 4 vocab"}
+{"id": "sejong3_u4_voc6_이불을 교체하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "이불을 교체하다", "context": "level 3 unit 4 vocab"}
+{"id": "sejong3_u4_voc7_잔디를 깎다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "잔디를 깎다", "context": "level 3 unit 4 vocab"}
+{"id": "sejong3_u4_voc8_책을 정리하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "책을 정리하다", "context": "level 3 unit 4 vocab"}
+{"id": "sejong3_u4_voc9_커튼을 갈다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "커튼을 갈다", "context": "level 3 unit 4 vocab"}
+{"id": "sejong3_u4_voc10_화초에 물을 주다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "화초에 물을 주다", "context": "level 3 unit 4 vocab"}
+{"id": "sejong3_u4_voc11_환기를 시키다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "환기를 시키다", "context": "level 3 unit 4 vocab"}
+{"id": "sejong3_u4_gram0_…에다(가) …도/까지", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 97, "quote": "…에다(가) …도/까지", "context": "level 3 unit 4 grammar label"}
+{"id": "sejong3_u4_gram1_-아(라)/-어(라)/-여(라)", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 97, "quote": "-아(라)/-어(라)/-여(라)", "context": "level 3 unit 4 grammar label"}
+{"id": "sejong3_u5_title", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 50, "quote": "저도 뉴욕에 가 본 적이 있어요", "context": "level 3 unit 5 title"}
+{"id": "sejong3_u5_cando", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 50, "quote": "여행 경험에 대해 말할 수 있어요.", "context": "level 3 unit 5 can-do"}
+{"id": "sejong3_u5_dlg0", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 52, "quote": "가: 현수 씨는 한복을 입은 적이 있어요?", "context": "level 3 unit 5 dialogue quote"}
+{"id": "sejong3_u5_dlg1", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 57, "quote": "가: 떡볶이를 먹어 본 적이 있어요?", "context": "level 3 unit 5 dialogue quote"}
+{"id": "sejong3_u5_voc0_게스트 하우스", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "게스트 하우스", "context": "level 3 unit 5 vocab"}
+{"id": "sejong3_u5_voc1_국립 공원", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "국립 공원", "context": "level 3 unit 5 vocab"}
+{"id": "sejong3_u5_voc2_드라마 촬영지", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "드라마 촬영지", "context": "level 3 unit 5 vocab"}
+{"id": "sejong3_u5_voc3_민박", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "민박", "context": "level 3 unit 5 vocab"}
+{"id": "sejong3_u5_voc4_숙박시설", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 102, "quote": "숙박시설", "context": "level 3 unit 5 vocab"}
+{"id": "sejong3_u5_voc5_여권", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "여권", "context": "level 3 unit 5 vocab"}
+{"id": "sejong3_u5_voc6_여행 책자", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "여행 책자", "context": "level 3 unit 5 vocab"}
+{"id": "sejong3_u5_voc7_여행용품(목베개, 안대 등)", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "여행용품(목베개, 안대 등)", "context": "level 3 unit 5 vocab"}
+{"id": "sejong3_u5_voc8_여행지", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "여행지", "context": "level 3 unit 5 vocab"}
+{"id": "sejong3_u5_voc9_유적지", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "유적지", "context": "level 3 unit 5 vocab"}
+{"id": "sejong3_u5_voc10_준비물", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "준비물", "context": "level 3 unit 5 vocab"}
+{"id": "sejong3_u5_voc11_콘도", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "콘도", "context": "level 3 unit 5 vocab"}
+{"id": "sejong3_u5_gram0_-은/-ㄴ 적이 있다/없다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 97, "quote": "-은/-ㄴ 적이 있다/없다", "context": "level 3 unit 5 grammar label"}
+{"id": "sejong3_u5_gram1_-아서/-어서/-여서 그런지", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 98, "quote": "-아서/-어서/-여서 그런지", "context": "level 3 unit 5 grammar label"}
+{"id": "sejong3_u6_title", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 60, "quote": "사이즈가 작아서 교환하려고요", "context": "level 3 unit 6 title"}
+{"id": "sejong3_u6_cando", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 60, "quote": "물건을 살 때 원하는 것을 요청할 수 있어요.", "context": "level 3 unit 6 can-do"}
+{"id": "sejong3_u6_dlg0", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 62, "quote": "가: 여기에서 음식을 먹어도 돼요?", "context": "level 3 unit 6 dialogue quote"}
+{"id": "sejong3_u6_dlg1", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 67, "quote": "가: 여기에서 사진을 찍어도 돼요?", "context": "level 3 unit 6 dialogue quote"}
+{"id": "sejong3_u6_voc0_무늬", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "무늬", "context": "level 3 unit 6 vocab"}
+{"id": "sejong3_u6_voc1_생산 일자", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "생산 일자", "context": "level 3 unit 6 vocab"}
+{"id": "sejong3_u6_voc2_식감", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "식감", "context": "level 3 unit 6 vocab"}
+{"id": "sejong3_u6_voc3_에너지 효율 등급", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "에너지 효율 등급", "context": "level 3 unit 6 vocab"}
+{"id": "sejong3_u6_voc4_옷감", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "옷감", "context": "level 3 unit 6 vocab"}
+{"id": "sejong3_u6_voc5_유통 기한", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "유통 기한", "context": "level 3 unit 6 vocab"}
+{"id": "sejong3_u6_voc6_품질 보증 기간", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "품질 보증 기간", "context": "level 3 unit 6 vocab"}
+{"id": "sejong3_u6_voc7_향", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "향", "context": "level 3 unit 6 vocab"}
+{"id": "sejong3_u6_voc8_활용도", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "활용도", "context": "level 3 unit 6 vocab"}
+{"id": "sejong3_u6_gram0_-아도/-어도/-여도 되다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 98, "quote": "-아도/-어도/-여도 되다", "context": "level 3 unit 6 grammar label"}
+{"id": "sejong3_u6_gram1_-으려고(요)/-려고(요)", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 98, "quote": "-으려고(요)/-려고(요)", "context": "level 3 unit 6 grammar label"}
+{"id": "sejong3_u7_title", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 70, "quote": "본선에서 상을 탈 수 있었으면 좋겠어요", "context": "level 3 unit 7 title"}
+{"id": "sejong3_u7_cando", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 70, "quote": "행사 참가 신청을 하고 참가한 소감에 대해 이야기할 수 있어요.", "context": "level 3 unit 7 can-do"}
+{"id": "sejong3_u7_dlg0", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 77, "quote": "가: 유학 생활은 괜찮아요?", "context": "level 3 unit 7 dialogue quote"}
+{"id": "sejong3_u7_dlg1", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 79, "quote": "가: 세종학당에서 말하기와 쓰기 대회를 하네요. 우리 같이 참가해 볼까요?", "context": "level 3 unit 7 dialogue quote"}
+{"id": "sejong3_u7_voc0_대회에 참가하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "대회에 참가하다", "context": "level 3 unit 7 vocab"}
+{"id": "sejong3_u7_voc1_예선에서 떨어지다/탈락하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "예선에서 떨어지다/탈락하다", "context": "level 3 unit 7 vocab"}
+{"id": "sejong3_u7_voc2_예선을 치르다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "예선을 치르다", "context": "level 3 unit 7 vocab"}
+{"id": "sejong3_u7_voc3_오디션에 합격하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "오디션에 합격하다", "context": "level 3 unit 7 vocab"}
+{"id": "sejong3_u7_voc4_우승을 차지하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "우승을 차지하다", "context": "level 3 unit 7 vocab"}
+{"id": "sejong3_u7_voc5_원서를 접수하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "원서를 접수하다", "context": "level 3 unit 7 vocab"}
+{"id": "sejong3_u7_voc6_참가 자격을 확인하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "참가 자격을 확인하다", "context": "level 3 unit 7 vocab"}
+{"id": "sejong3_u7_voc7_프로필을 내다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "프로필을 내다", "context": "level 3 unit 7 vocab"}
+{"id": "sejong3_u7_voc8_프로필을 수정하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 103, "quote": "프로필을 수정하다", "context": "level 3 unit 7 vocab"}
+{"id": "sejong3_u7_gram0_-았으면/-었으면/-였으면 좋겠다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 99, "quote": "-았으면/-었으면/-였으면 좋겠다", "context": "level 3 unit 7 grammar label"}
+{"id": "sejong3_u7_gram1_-기는 하다", "file": "세종한국어 회화 익힘책_영어판_3-1.pdf", "page": 99, "quote": "-기는 하다", "context": "level 3 unit 7 grammar label"}
+{"id": "sejong3_u8_title", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 10, "quote": "내 꿈이 한국어 선생님인데 가능할지 모르겠어", "context": "level 3 unit 8 title"}
+{"id": "sejong3_u8_cando", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 10, "quote": "다른 사람의 고민을 듣고 조언을 할 수 있다.", "context": "level 3 unit 8 can-do"}
+{"id": "sejong3_u8_dlg0", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 11, "quote": "가: 학력이 어떻게 되십니까?", "context": "level 3 unit 8 dialogue quote"}
+{"id": "sejong3_u8_dlg1", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 11, "quote": "가: 그럼 학교에서는 어떤 공부를 했습니까?", "context": "level 3 unit 8 dialogue quote"}
+{"id": "sejong3_u8_voc0_경력", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "경력", "context": "level 3 unit 8 vocab"}
+{"id": "sejong3_u8_voc1_부서", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "부서", "context": "level 3 unit 8 vocab"}
+{"id": "sejong3_u8_voc2_석사", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "석사", "context": "level 3 unit 8 vocab"}
+{"id": "sejong3_u8_voc3_성명", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "성명", "context": "level 3 unit 8 vocab"}
+{"id": "sejong3_u8_voc4_연락처", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "연락처", "context": "level 3 unit 8 vocab"}
+{"id": "sejong3_u8_voc5_인적 사항", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "인적 사항", "context": "level 3 unit 8 vocab"}
+{"id": "sejong3_u8_voc6_전공", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "전공", "context": "level 3 unit 8 vocab"}
+{"id": "sejong3_u8_voc7_직위", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "직위", "context": "level 3 unit 8 vocab"}
+{"id": "sejong3_u8_voc8_학력", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "학력", "context": "level 3 unit 8 vocab"}
+{"id": "sejong3_u8_voc9_학사", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "학사", "context": "level 3 unit 8 vocab"}
+{"id": "sejong3_u8_voc10_학위", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "학위", "context": "level 3 unit 8 vocab"}
+{"id": "sejong3_u8_voc11_한국 문화학", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "한국 문화학", "context": "level 3 unit 8 vocab"}
+{"id": "sejong3_u8_voc12_한국학", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "한국학", "context": "level 3 unit 8 vocab"}
+{"id": "sejong3_u8_gram0_-을지/-ㄹ지", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 95, "quote": "-을지/-ㄹ지", "context": "level 3 unit 8 grammar label"}
+{"id": "sejong3_u9_title", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 20, "quote": "스파게티 면을 살짝 볶고 나서 소스를 넣어", "context": "level 3 unit 9 title"}
+{"id": "sejong3_u9_cando", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 20, "quote": "조리법을 순서대로 설명할 수 있어요.", "context": "level 3 unit 9 can-do"}
+{"id": "sejong3_u9_dlg0", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 27, "quote": "가: 여기에 왜 이렇게 사람들이 많아요?", "context": "level 3 unit 9 dialogue quote"}
+{"id": "sejong3_u9_dlg1", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 27, "quote": "가: 이 음식이 맛있는데 왜 안 먹어요?", "context": "level 3 unit 9 dialogue quote"}
+{"id": "sejong3_u9_voc0_가스레인지", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "가스레인지", "context": "level 3 unit 9 vocab"}
+{"id": "sejong3_u9_voc1_그릇", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "그릇", "context": "level 3 unit 9 vocab"}
+{"id": "sejong3_u9_voc2_냄비", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "냄비", "context": "level 3 unit 9 vocab"}
+{"id": "sejong3_u9_voc3_도마", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "도마", "context": "level 3 unit 9 vocab"}
+{"id": "sejong3_u9_voc4_오븐", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "오븐", "context": "level 3 unit 9 vocab"}
+{"id": "sejong3_u9_voc5_전자레인지", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "전자레인지", "context": "level 3 unit 9 vocab"}
+{"id": "sejong3_u9_voc6_접시", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "접시", "context": "level 3 unit 9 vocab"}
+{"id": "sejong3_u9_voc7_주전자", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "주전자", "context": "level 3 unit 9 vocab"}
+{"id": "sejong3_u9_voc8_찻잔", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "찻잔", "context": "level 3 unit 9 vocab"}
+{"id": "sejong3_u9_voc9_프라이팬", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "프라이팬", "context": "level 3 unit 9 vocab"}
+{"id": "sejong3_u9_gram0_-거든(요)", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 95, "quote": "-거든(요)", "context": "level 3 unit 9 grammar label"}
+{"id": "sejong3_u9_gram1_-고 나서", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 95, "quote": "-고 나서", "context": "level 3 unit 9 grammar label"}
+{"id": "sejong3_u10_title", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 30, "quote": "제가 실수할 뻔했네요", "context": "level 3 unit 10 title"}
+{"id": "sejong3_u10_cando", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 30, "quote": "문화 차이로 인해 겪은 일에 대해 이야기할 수 있어요.", "context": "level 3 unit 10 can-do"}
+{"id": "sejong3_u10_dlg0", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 37, "quote": "가: 어제 영화 잘 봤어요?", "context": "level 3 unit 10 dialogue quote"}
+{"id": "sejong3_u10_dlg1", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 37, "quote": "가: 보통 언제 외식을 해요?", "context": "level 3 unit 10 dialogue quote"}
+{"id": "sejong3_u10_voc0_가방을 대신 들어주다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "가방을 대신 들어주다", "context": "level 3 unit 10 vocab"}
+{"id": "sejong3_u10_voc1_눈인사를 하다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "눈인사를 하다", "context": "level 3 unit 10 vocab"}
+{"id": "sejong3_u10_voc2_(칭찬할 때) 머리를 쓰다듬다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "(칭찬할 때) 머리를 쓰다듬다", "context": "level 3 unit 10 vocab"}
+{"id": "sejong3_u10_voc3_식탁에서 코를 풀다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "식탁에서 코를 풀다", "context": "level 3 unit 10 vocab"}
+{"id": "sejong3_u10_voc4_악수하다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "악수하다", "context": "level 3 unit 10 vocab"}
+{"id": "sejong3_u10_voc5_웃어른이 말할 때 조용히 하다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "웃어른이 말할 때 조용히 하다", "context": "level 3 unit 10 vocab"}
+{"id": "sejong3_u10_voc6_입식 생활을 하다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "입식 생활을 하다", "context": "level 3 unit 10 vocab"}
+{"id": "sejong3_u10_voc7_자리를 양보하다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "자리를 양보하다", "context": "level 3 unit 10 vocab"}
+{"id": "sejong3_u10_voc8_혼잣말을 많이 하다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "혼잣말을 많이 하다", "context": "level 3 unit 10 vocab"}
+{"id": "sejong3_u10_gram0_…마다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 95, "quote": "…마다", "context": "level 3 unit 10 grammar label"}
+{"id": "sejong3_u10_gram1_-을/-ㄹ 뻔하다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 95, "quote": "-을/-ㄹ 뻔하다", "context": "level 3 unit 10 grammar label"}
+{"id": "sejong3_u11_title", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 40, "quote": "배우들이 연기를 정말 잘한다고 해요", "context": "level 3 unit 11 title"}
+{"id": "sejong3_u11_cando", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 40, "quote": "에 가면 유명한 작가의 그림을 자세히 볼 수 있어요.", "context": "level 3 unit 11 can-do"}
+{"id": "sejong3_u11_dlg0", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 47, "quote": "가: 헤리 씨, 요즘 안나 씨가 왜 학교에 안 와요?", "context": "level 3 unit 11 dialogue quote"}
+{"id": "sejong3_u11_dlg1", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 47, "quote": "가: 이번 주말에만 열리는 오케스트라의 야외 공연을 보러 같이 갈래요?", "context": "level 3 unit 11 dialogue quote"}
+{"id": "sejong3_u11_voc0_감동적이다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "감동적이다", "context": "level 3 unit 11 vocab"}
+{"id": "sejong3_u11_voc1_값지다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "값지다", "context": "level 3 unit 11 vocab"}
+{"id": "sejong3_u11_voc2_내용이 뻔하다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "내용이 뻔하다", "context": "level 3 unit 11 vocab"}
+{"id": "sejong3_u11_voc3_돈이 아깝다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "돈이 아깝다", "context": "level 3 unit 11 vocab"}
+{"id": "sejong3_u11_voc4_생생하다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "생생하다", "context": "level 3 unit 11 vocab"}
+{"id": "sejong3_u11_voc5_시간이 짧게 느껴지다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "시간이 짧게 느껴지다", "context": "level 3 unit 11 vocab"}
+{"id": "sejong3_u11_voc6_작품성이 떨어지다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "작품성이 떨어지다", "context": "level 3 unit 11 vocab"}
+{"id": "sejong3_u11_voc7_지루하다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "지루하다", "context": "level 3 unit 11 vocab"}
+{"id": "sejong3_u11_voc8_집중이 안 되다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "집중이 안 되다", "context": "level 3 unit 11 vocab"}
+{"id": "sejong3_u11_voc9_참신하다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "참신하다", "context": "level 3 unit 11 vocab"}
+{"id": "sejong3_u11_gram0_-을/-ㄹ 테니(까)", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 96, "quote": "-을/-ㄹ 테니(까)", "context": "level 3 unit 11 grammar label"}
+{"id": "sejong3_u12_title", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 50, "quote": "무거운 짐을 들다가 손목을 다쳤어", "context": "level 3 unit 12 title"}
+{"id": "sejong3_u12_cando", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 50, "quote": "다친 경험과 증상에 대해 설명할 수 있어요.", "context": "level 3 unit 12 can-do"}
+{"id": "sejong3_u12_dlg0", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 57, "quote": "가: 목소리가 왜 그래요? 감기에 걸렸어요?", "context": "level 3 unit 12 dialogue quote"}
+{"id": "sejong3_u12_dlg1", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 57, "quote": "가: 왜 이렇게 늦게 왔어요?", "context": "level 3 unit 12 dialogue quote"}
+{"id": "sejong3_u12_voc0_내과", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "내과", "context": "level 3 unit 12 vocab"}
+{"id": "sejong3_u12_voc1_메스껍다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "메스껍다", "context": "level 3 unit 12 vocab"}
+{"id": "sejong3_u12_voc2_뼈가 부러지다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "뼈가 부러지다", "context": "level 3 unit 12 vocab"}
+{"id": "sejong3_u12_voc3_속이 쓰리다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "속이 쓰리다", "context": "level 3 unit 12 vocab"}
+{"id": "sejong3_u12_voc4_스케일링을 받다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 99, "quote": "스케일링을 받다", "context": "level 3 unit 12 vocab"}
+{"id": "sejong3_u12_voc5_어깨가 뭉치다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "어깨가 뭉치다", "context": "level 3 unit 12 vocab"}
+{"id": "sejong3_u12_voc6_이가 썩다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "이가 썩다", "context": "level 3 unit 12 vocab"}
+{"id": "sejong3_u12_voc7_이를 뽑다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "이를 뽑다", "context": "level 3 unit 12 vocab"}
+{"id": "sejong3_u12_voc8_정형외과", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "정형외과", "context": "level 3 unit 12 vocab"}
+{"id": "sejong3_u12_voc9_체하다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "체하다", "context": "level 3 unit 12 vocab"}
+{"id": "sejong3_u12_voc10_치과", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "치과", "context": "level 3 unit 12 vocab"}
+{"id": "sejong3_u12_voc11_허리 디스크에 걸리다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "허리 디스크에 걸리다", "context": "level 3 unit 12 vocab"}
+{"id": "sejong3_u12_gram0_-다(가)", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 96, "quote": "-다(가)", "context": "level 3 unit 12 grammar label"}
+{"id": "sejong3_u12_gram1_-을/-ㄹ 정도(로)", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 96, "quote": "-을/-ㄹ 정도(로)", "context": "level 3 unit 12 grammar label"}
+{"id": "sejong3_u13_title", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 60, "quote": "생활비가 많이 절약되더라고요", "context": "level 3 unit 13 title"}
+{"id": "sejong3_u13_cando", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 60, "quote": "경제생활에 관한 정보를 전달할 수 있어요.", "context": "level 3 unit 13 can-do"}
+{"id": "sejong3_u13_dlg0", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 60, "quote": "가: 아, 그렇군요! 그런데 돈을 모을 수 있는 다른 방법이 또 있을까요?", "context": "level 3 unit 13 dialogue quote"}
+{"id": "sejong3_u13_dlg1", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 63, "quote": "가: 인터넷으로 쇼핑을 자주 해요?", "context": "level 3 unit 13 dialogue quote"}
+{"id": "sejong3_u13_voc0_건강보험료", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "건강보험료", "context": "level 3 unit 13 vocab"}
+{"id": "sejong3_u13_voc1_공과금", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "공과금", "context": "level 3 unit 13 vocab"}
+{"id": "sejong3_u13_voc2_관리비", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "관리비", "context": "level 3 unit 13 vocab"}
+{"id": "sejong3_u13_voc3_교육비", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "교육비", "context": "level 3 unit 13 vocab"}
+{"id": "sejong3_u13_voc4_등록금", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "등록금", "context": "level 3 unit 13 vocab"}
+{"id": "sejong3_u13_voc5_수도세", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "수도세", "context": "level 3 unit 13 vocab"}
+{"id": "sejong3_u13_voc6_월세", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "월세", "context": "level 3 unit 13 vocab"}
+{"id": "sejong3_u13_voc7_의료비", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "의료비", "context": "level 3 unit 13 vocab"}
+{"id": "sejong3_u13_voc8_전기세", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "전기세", "context": "level 3 unit 13 vocab"}
+{"id": "sejong3_u13_voc9_전세", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "전세", "context": "level 3 unit 13 vocab"}
+{"id": "sejong3_u13_voc10_주거비", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "주거비", "context": "level 3 unit 13 vocab"}
+{"id": "sejong3_u13_voc11_진료비", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "진료비", "context": "level 3 unit 13 vocab"}
+{"id": "sejong3_u13_voc12_학원비", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "학원비", "context": "level 3 unit 13 vocab"}
+{"id": "sejong3_u13_gram0_-는/-은/-ㄴ 편이다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 97, "quote": "-는/-은/-ㄴ 편이다", "context": "level 3 unit 13 grammar label"}
+{"id": "sejong3_u13_gram1_-더라고(요)", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 97, "quote": "-더라고(요)", "context": "level 3 unit 13 grammar label"}
+{"id": "sejong3_u14_title", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 70, "quote": "한국으로 여행을 한번 가 보지 그래요?", "context": "level 3 unit 14 title"}
+{"id": "sejong3_u14_cando", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 70, "quote": "나의 고민을 이야기하거나 다른 사람의 고민을 듣고 조언해 줄 수 있어요.", "context": "level 3 unit 14 can-do"}
+{"id": "sejong3_u14_dlg0", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 73, "quote": "가: 이번 주 토요일에 콘서트에 가는데 뭘 입고 가면 좋을까요?", "context": "level 3 unit 14 dialogue quote"}
+{"id": "sejong3_u14_dlg1", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 73, "quote": "가: 알겠어요. 그럼 신발은 뭘 신을까요?", "context": "level 3 unit 14 dialogue quote"}
+{"id": "sejong3_u14_voc0_감정 조절이 안 되다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "감정 조절이 안 되다", "context": "level 3 unit 14 vocab"}
+{"id": "sejong3_u14_voc1_건강에 이상이 있다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "건강에 이상이 있다", "context": "level 3 unit 14 vocab"}
+{"id": "sejong3_u14_voc2_고집이 세다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "고집이 세다", "context": "level 3 unit 14 vocab"}
+{"id": "sejong3_u14_voc3_덜렁대다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "덜렁대다", "context": "level 3 unit 14 vocab"}
+{"id": "sejong3_u14_voc4_마음이 잘 안 맞다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "마음이 잘 안 맞다", "context": "level 3 unit 14 vocab"}
+{"id": "sejong3_u14_voc5_신경질적이다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "신경질적이다", "context": "level 3 unit 14 vocab"}
+{"id": "sejong3_u14_voc6_의견 출동이 잦다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "의견 출동이 잦다", "context": "level 3 unit 14 vocab"}
+{"id": "sejong3_u14_voc7_일이 손에 안 잡히다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "일이 손에 안 잡히다", "context": "level 3 unit 14 vocab"}
+{"id": "sejong3_u14_voc8_진로 결정이 어렵다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "진로 결정이 어렵다", "context": "level 3 unit 14 vocab"}
+{"id": "sejong3_u14_voc9_학점이 나쁘다", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 100, "quote": "학점이 나쁘다", "context": "level 3 unit 14 vocab"}
+{"id": "sejong3_u14_gram0_-아도/-어도/-여도", "file": "세종한국어 회화 익힘책_영어판_3-2.pdf", "page": 97, "quote": "-아도/-어도/-여도", "context": "level 3 unit 14 grammar label"}
+{"id": "sejong4_u1_title", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 10, "quote": "성격이 참 좋아 보여요", "context": "level 4 unit 1 title"}
+{"id": "sejong4_u1_cando", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 10, "quote": "사람의 성격이나 특징에 대해 말할 수 있어요.", "context": "level 4 unit 1 can-do"}
+{"id": "sejong4_u1_dlg0", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 17, "quote": "가: 집에서 학교까지 시간이 얼마나 걸려요?", "context": "level 4 unit 1 dialogue quote"}
+{"id": "sejong4_u1_dlg1", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 18, "quote": "가: 내일 우리 등산하기로 했죠? 뭐 입을 거예요?", "context": "level 4 unit 1 dialogue quote"}
+{"id": "sejong4_u1_voc0_계획성이 있다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "계획성이 있다", "context": "level 4 unit 1 vocab"}
+{"id": "sejong4_u1_voc1_긍정적이다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "긍정적이다", "context": "level 4 unit 1 vocab"}
+{"id": "sejong4_u1_voc2_리더십이 있다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "리더십이 있다", "context": "level 4 unit 1 vocab"}
+{"id": "sejong4_u1_voc3_부정적이다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "부정적이다", "context": "level 4 unit 1 vocab"}
+{"id": "sejong4_u1_voc4_서글서글하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "서글서글하다", "context": "level 4 unit 1 vocab"}
+{"id": "sejong4_u1_voc5_속마음을 잘 표현하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "속마음을 잘 표현하다", "context": "level 4 unit 1 vocab"}
+{"id": "sejong4_u1_voc6_자신에게 엄격하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "자신에게 엄격하다", "context": "level 4 unit 1 vocab"}
+{"id": "sejong4_u1_voc7_조심성이 있다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "조심성이 있다", "context": "level 4 unit 1 vocab"}
+{"id": "sejong4_u1_voc8_책임감이 있다/강하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "책임감이 있다/강하다", "context": "level 4 unit 1 vocab"}
+{"id": "sejong4_u1_voc9_타인에게 너그럽다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "타인에게 너그럽다", "context": "level 4 unit 1 vocab"}
+{"id": "sejong4_u1_gram0_-아/-어/-여 보이다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 98, "quote": "-아/-어/-여 보이다", "context": "level 4 unit 1 grammar label"}
+{"id": "sejong4_u1_gram1_-기 때문에", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 98, "quote": "-기 때문에", "context": "level 4 unit 1 grammar label"}
+{"id": "sejong4_u2_title", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 20, "quote": "사이가 나빠질까 봐 참고 있어", "context": "level 4 unit 2 title"}
+{"id": "sejong4_u2_cando", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 20, "quote": "생활 예절에 대해 말할 수 있어요.", "context": "level 4 unit 2 can-do"}
+{"id": "sejong4_u2_dlg0", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 27, "quote": "가: 감기에 걸렸어요?", "context": "level 4 unit 2 dialogue quote"}
+{"id": "sejong4_u2_dlg1", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 27, "quote": "가: 언제까지 이 물건을 배달해 드리면 돼요?", "context": "level 4 unit 2 dialogue quote"}
+{"id": "sejong4_u2_voc0_남을 흉보다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "남을 흉보다", "context": "level 4 unit 2 vocab"}
+{"id": "sejong4_u2_voc1_노발대발하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "노발대발하다", "context": "level 4 unit 2 vocab"}
+{"id": "sejong4_u2_voc2_눈을 흘기다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "눈을 흘기다", "context": "level 4 unit 2 vocab"}
+{"id": "sejong4_u2_voc3_마음을 쓰다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "마음을 쓰다", "context": "level 4 unit 2 vocab"}
+{"id": "sejong4_u2_voc4_손가락질하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "손가락질하다", "context": "level 4 unit 2 vocab"}
+{"id": "sejong4_u2_voc5_신세를 지다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "신세를 지다", "context": "level 4 unit 2 vocab"}
+{"id": "sejong4_u2_voc6_언행이 바르다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "언행이 바르다", "context": "level 4 unit 2 vocab"}
+{"id": "sejong4_u2_voc7_의견을 존중하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "의견을 존중하다", "context": "level 4 unit 2 vocab"}
+{"id": "sejong4_u2_voc8_자신을 낮추다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "자신을 낮추다", "context": "level 4 unit 2 vocab"}
+{"id": "sejong4_u2_voc9_호의적이다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "호의적이다", "context": "level 4 unit 2 vocab"}
+{"id": "sejong4_u2_gram0_-을까/-ㄹ까 봐(서)", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 98, "quote": "-을까/-ㄹ까 봐(서)", "context": "level 4 unit 2 grammar label"}
+{"id": "sejong4_u2_gram1_-도록", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 98, "quote": "-도록", "context": "level 4 unit 2 grammar label"}
+{"id": "sejong4_u3_title", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 30, "quote": "생각 없이 걷다 보면 스트레스가 풀리니까요", "context": "level 4 unit 3 title"}
+{"id": "sejong4_u3_cando", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 30, "quote": "감정이나 기분의 변화를 표현할 수 있어요.", "context": "level 4 unit 3 can-do"}
+{"id": "sejong4_u3_voc0_가슴이 벅차오르다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "가슴이 벅차오르다", "context": "level 4 unit 3 vocab"}
+{"id": "sejong4_u3_voc1_기운이 나다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "기운이 나다", "context": "level 4 unit 3 vocab"}
+{"id": "sejong4_u3_voc2_당당하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "당당하다", "context": "level 4 unit 3 vocab"}
+{"id": "sejong4_u3_voc3_무기력하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "무기력하다", "context": "level 4 unit 3 vocab"}
+{"id": "sejong4_u3_voc4_실망스럽다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "실망스럽다", "context": "level 4 unit 3 vocab"}
+{"id": "sejong4_u3_voc5_의기소침하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "의기소침하다", "context": "level 4 unit 3 vocab"}
+{"id": "sejong4_u3_voc6_절망스럽다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "절망스럽다", "context": "level 4 unit 3 vocab"}
+{"id": "sejong4_u3_voc7_친근하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "친근하다", "context": "level 4 unit 3 vocab"}
+{"id": "sejong4_u3_voc8_혼란스럽다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "혼란스럽다", "context": "level 4 unit 3 vocab"}
+{"id": "sejong4_u3_voc9_홀가분하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "홀가분하다", "context": "level 4 unit 3 vocab"}
+{"id": "sejong4_u3_gram0_-아/-어/-여 가지고", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 98, "quote": "-아/-어/-여 가지고", "context": "level 4 unit 3 grammar label"}
+{"id": "sejong4_u3_gram1_-다(가) 보면", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 99, "quote": "-다(가) 보면", "context": "level 4 unit 3 grammar label"}
+{"id": "sejong4_u4_title", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 40, "quote": "이순신은 조선의 바다를 지켰던 용감한 장군이에요", "context": "level 4 unit 4 title"}
+{"id": "sejong4_u4_cando", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 40, "quote": "위인의 업적을 알고 그에 관해 감탄할 수 있어요.", "context": "level 4 unit 4 can-do"}
+{"id": "sejong4_u4_dlg0", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 47, "quote": "가: 한국 여행은 어땠어요? 재미있었어요?", "context": "level 4 unit 4 dialogue quote"}
+{"id": "sejong4_u4_dlg1", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 48, "quote": "가: 민우 씨, 혹시 ‘소년들’이라는 그룹을 아세요?", "context": "level 4 unit 4 dialogue quote"}
+{"id": "sejong4_u4_voc0_공을 세우다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "공을 세우다", "context": "level 4 unit 4 vocab"}
+{"id": "sejong4_u4_voc1_공헌하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "공헌하다", "context": "level 4 unit 4 vocab"}
+{"id": "sejong4_u4_voc2_나라를 위해 싸우다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "나라를 위해 싸우다", "context": "level 4 unit 4 vocab"}
+{"id": "sejong4_u4_voc3_맞서 싸우다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "맞서 싸우다", "context": "level 4 unit 4 vocab"}
+{"id": "sejong4_u4_voc4_업적을 남기다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "업적을 남기다", "context": "level 4 unit 4 vocab"}
+{"id": "sejong4_u4_voc5_창제하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "창제하다", "context": "level 4 unit 4 vocab"}
+{"id": "sejong4_u4_voc6_탐사하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "탐사하다", "context": "level 4 unit 4 vocab"}
+{"id": "sejong4_u4_voc7_탐험하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "탐험하다", "context": "level 4 unit 4 vocab"}
+{"id": "sejong4_u4_voc8_헌신하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "헌신하다", "context": "level 4 unit 4 vocab"}
+{"id": "sejong4_u4_gram0_-았던/-었던/-였던", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 99, "quote": "-았던/-었던/-였던", "context": "level 4 unit 4 grammar label"}
+{"id": "sejong4_u5_title", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 50, "quote": "늦잠을 자는 바람에 회사에 지각했어요", "context": "level 4 unit 5 title"}
+{"id": "sejong4_u5_cando", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 50, "quote": "자신에게 일어난 사건, 사고의 원인과 결과를 설명할 수 있어요.", "context": "level 4 unit 5 can-do"}
+{"id": "sejong4_u5_dlg0", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 57, "quote": "가: 집 찾기는 쉬웠어요?", "context": "level 4 unit 5 dialogue quote"}
+{"id": "sejong4_u5_dlg1", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 57, "quote": "가: 이메일을 보냈는데 왜 답장을 안 했어요?", "context": "level 4 unit 5 dialogue quote"}
+{"id": "sejong4_u5_voc0_강추위", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "강추위", "context": "level 4 unit 5 vocab"}
+{"id": "sejong4_u5_voc1_건조한 날씨", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "건조한 날씨", "context": "level 4 unit 5 vocab"}
+{"id": "sejong4_u5_voc2_냉해", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "냉해", "context": "level 4 unit 5 vocab"}
+{"id": "sejong4_u5_voc3_무더위", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "무더위", "context": "level 4 unit 5 vocab"}
+{"id": "sejong4_u5_voc4_열사병", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "열사병", "context": "level 4 unit 5 vocab"}
+{"id": "sejong4_u5_voc5_장마", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "장마", "context": "level 4 unit 5 vocab"}
+{"id": "sejong4_u5_voc6_짙은 안개", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "짙은 안개", "context": "level 4 unit 5 vocab"}
+{"id": "sejong4_u5_voc7_추돌 사고", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "추돌 사고", "context": "level 4 unit 5 vocab"}
+{"id": "sejong4_u5_voc8_침수", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "침수", "context": "level 4 unit 5 vocab"}
+{"id": "sejong4_u5_voc9_화재", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "화재", "context": "level 4 unit 5 vocab"}
+{"id": "sejong4_u5_gram0_-는 바람에", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 99, "quote": "-는 바람에", "context": "level 4 unit 5 grammar label"}
+{"id": "sejong4_u5_gram1_-았더라면/-었더라면/-였더라면", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 100, "quote": "-았더라면/-었더라면/-였더라면", "context": "level 4 unit 5 grammar label"}
+{"id": "sejong4_u6_title", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 60, "quote": "야식을 먹었더니 습관이 돼 버렸어", "context": "level 4 unit 6 title"}
+{"id": "sejong4_u6_cando", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 60, "quote": "다른 사람에게 자신의 습관과 버릇에 대해 말할 수 있어요.", "context": "level 4 unit 6 can-do"}
+{"id": "sejong4_u6_dlg0", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 67, "quote": "가: 어제 만난 그 사람은 어땠어요?", "context": "level 4 unit 6 dialogue quote"}
+{"id": "sejong4_u6_dlg1", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 67, "quote": "가: 요즘 케빈 씨가 왜 안 보여요?", "context": "level 4 unit 6 dialogue quote"}
+{"id": "sejong4_u6_voc0_마인드맵을 그리다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "마인드맵을 그리다", "context": "level 4 unit 6 vocab"}
+{"id": "sejong4_u6_voc1_목표 분량을 정하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 102, "quote": "목표 분량을 정하다", "context": "level 4 unit 6 vocab"}
+{"id": "sejong4_u6_voc2_물을 받아서 사용하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "물을 받아서 사용하다", "context": "level 4 unit 6 vocab"}
+{"id": "sejong4_u6_voc3_미세먼지 정보를 확인하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "미세먼지 정보를 확인하다", "context": "level 4 unit 6 vocab"}
+{"id": "sejong4_u6_voc4_밑줄을 긋다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "밑줄을 긋다", "context": "level 4 unit 6 vocab"}
+{"id": "sejong4_u6_voc5_수시로 손을 씻다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "수시로 손을 씻다", "context": "level 4 unit 6 vocab"}
+{"id": "sejong4_u6_voc6_일기예보를 보다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "일기예보를 보다", "context": "level 4 unit 6 vocab"}
+{"id": "sejong4_u6_voc7_일어나자마자 물을 마시다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "일어나자마자 물을 마시다", "context": "level 4 unit 6 vocab"}
+{"id": "sejong4_u6_voc8_자기 전에 스트레칭을 하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "자기 전에 스트레칭을 하다", "context": "level 4 unit 6 vocab"}
+{"id": "sejong4_u6_gram0_-잖아(요)", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 100, "quote": "-잖아(요)", "context": "level 4 unit 6 grammar label"}
+{"id": "sejong4_u6_gram1_-았더니/-었더니/-였더니", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 100, "quote": "-았더니/-었더니/-였더니", "context": "level 4 unit 6 grammar label"}
+{"id": "sejong4_u7_title", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 70, "quote": "경복궁이 가장 오래된 궁이래요", "context": "level 4 unit 7 title"}
+{"id": "sejong4_u7_cando", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 70, "quote": "이라고/라고 할 수 있습니다.", "context": "level 4 unit 7 can-do"}
+{"id": "sejong4_u7_dlg0", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 77, "quote": "가: 가을에 설악산에 갈 건데 좋을까요?", "context": "level 4 unit 7 dialogue quote"}
+{"id": "sejong4_u7_dlg1", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 77, "quote": "가: 친구가 한국에 갔다 왔지요? 어디가 좋았대요?", "context": "level 4 unit 7 dialogue quote"}
+{"id": "sejong4_u7_voc0_남해", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "남해", "context": "level 4 unit 7 vocab"}
+{"id": "sejong4_u7_voc1_대전광역시", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "대전광역시", "context": "level 4 unit 7 vocab"}
+{"id": "sejong4_u7_voc2_독도", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "독도", "context": "level 4 unit 7 vocab"}
+{"id": "sejong4_u7_voc3_동해", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "동해", "context": "level 4 unit 7 vocab"}
+{"id": "sejong4_u7_voc4_서울특별시", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "서울특별시", "context": "level 4 unit 7 vocab"}
+{"id": "sejong4_u7_voc5_서해", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "서해", "context": "level 4 unit 7 vocab"}
+{"id": "sejong4_u7_voc6_울릉도", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "울릉도", "context": "level 4 unit 7 vocab"}
+{"id": "sejong4_u7_voc7_인천광역시", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "인천광역시", "context": "level 4 unit 7 vocab"}
+{"id": "sejong4_u7_voc8_전라도", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "전라도", "context": "level 4 unit 7 vocab"}
+{"id": "sejong4_u7_voc9_제주도", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "제주도", "context": "level 4 unit 7 vocab"}
+{"id": "sejong4_u7_voc10_충청도", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "충청도", "context": "level 4 unit 7 vocab"}
+{"id": "sejong4_u7_voc11_한강", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "한강", "context": "level 4 unit 7 vocab"}
+{"id": "sejong4_u7_voc12_한라산", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 103, "quote": "한라산", "context": "level 4 unit 7 vocab"}
+{"id": "sejong4_u7_gram0_-는대요/-은대요/-ㄴ대요", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 100, "quote": "-는대요/-은대요/-ㄴ대요", "context": "level 4 unit 7 grammar label"}
+{"id": "sejong4_u7_gram1_~이래요/~래요", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 100, "quote": "~이래요/~래요", "context": "level 4 unit 7 grammar label"}
+{"id": "sejong4_u7_gram2_-을/-ㄹ 만하다", "file": "세종한국어 회화 익힘책_영어판_4-1.pdf", "page": 100, "quote": "-을/-ㄹ 만하다", "context": "level 4 unit 7 grammar label"}
+{"id": "sejong4_u8_title", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 10, "quote": "하고 싶은 일을 해야 인생이 행복할 거라고 생각해요", "context": "level 4 unit 8 title"}
+{"id": "sejong4_u8_cando", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 10, "quote": "다른 사람에게 인생의 가치관에 대해 말할 수 있어요.", "context": "level 4 unit 8 can-do"}
+{"id": "sejong4_u8_dlg0", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 17, "quote": "가: 도서관 출입증을 만들고 싶은데 뭘 준비해야 해요?", "context": "level 4 unit 8 dialogue quote"}
+{"id": "sejong4_u8_dlg1", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 19, "quote": "가: 마이클 씨, 컴퓨터를 잘하려면 어떻게 해야 해요?", "context": "level 4 unit 8 dialogue quote"}
+{"id": "sejong4_u8_voc0_검소(하다)", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "검소(하다)", "context": "level 4 unit 8 vocab"}
+{"id": "sejong4_u8_voc1_경쟁력", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "경쟁력", "context": "level 4 unit 8 vocab"}
+{"id": "sejong4_u8_voc2_리더십", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "리더십", "context": "level 4 unit 8 vocab"}
+{"id": "sejong4_u8_voc3_명성", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "명성", "context": "level 4 unit 8 vocab"}
+{"id": "sejong4_u8_voc4_부", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "부", "context": "level 4 unit 8 vocab"}
+{"id": "sejong4_u8_voc5_사회적 지위", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "사회적 지위", "context": "level 4 unit 8 vocab"}
+{"id": "sejong4_u8_voc6_성실(하다)", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "성실(하다)", "context": "level 4 unit 8 vocab"}
+{"id": "sejong4_u8_voc7_정직(하다)", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "정직(하다)", "context": "level 4 unit 8 vocab"}
+{"id": "sejong4_u8_voc8_창의력", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "창의력", "context": "level 4 unit 8 vocab"}
+{"id": "sejong4_u8_gram0_-으려면/-려면", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 98, "quote": "-으려면/-려면", "context": "level 4 unit 8 grammar label"}
+{"id": "sejong4_u8_gram1_-아야/-어야/-여야", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 98, "quote": "-아야/-어야/-여야", "context": "level 4 unit 8 grammar label"}
+{"id": "sejong4_u9_title", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 20, "quote": "자격증을 따 놓으면 도움이 될 거야", "context": "level 4 unit 9 title"}
+{"id": "sejong4_u9_cando", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 20, "quote": "리포터: 지원서와 이력서가 필요한데요. 양식은 홈페이지에서 내려받을 수 있습니다.", "context": "level 4 unit 9 can-do"}
+{"id": "sejong4_u9_dlg0", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 27, "quote": "가: 어제 영화 봤지요? 저도 보고 싶은데 재미있었어요?", "context": "level 4 unit 9 dialogue quote"}
+{"id": "sejong4_u9_dlg1", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 27, "quote": "가: 오늘 파티 때 먹을 케이크는 준비했어요?", "context": "level 4 unit 9 dialogue quote"}
+{"id": "sejong4_u9_voc0_교육직", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "교육직", "context": "level 4 unit 9 vocab"}
+{"id": "sejong4_u9_voc1_금융/보험직", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "금융/보험직", "context": "level 4 unit 9 vocab"}
+{"id": "sejong4_u9_voc2_농림 어업직", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "농림 어업직", "context": "level 4 unit 9 vocab"}
+{"id": "sejong4_u9_voc3_법률직", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "법률직", "context": "level 4 unit 9 vocab"}
+{"id": "sejong4_u9_voc4_보건/의료직", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "보건/의료직", "context": "level 4 unit 9 vocab"}
+{"id": "sejong4_u9_voc5_사무직", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "사무직", "context": "level 4 unit 9 vocab"}
+{"id": "sejong4_u9_voc6_서비스직", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "서비스직", "context": "level 4 unit 9 vocab"}
+{"id": "sejong4_u9_voc7_영업/판매직", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "영업/판매직", "context": "level 4 unit 9 vocab"}
+{"id": "sejong4_u9_voc8_예술/디자인직", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "예술/디자인직", "context": "level 4 unit 9 vocab"}
+{"id": "sejong4_u9_voc9_운송직", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "운송직", "context": "level 4 unit 9 vocab"}
+{"id": "sejong4_u9_gram0_-던데(요)", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 98, "quote": "-던데(요)", "context": "level 4 unit 9 grammar label"}
+{"id": "sejong4_u9_gram1_-아/-어/-여 놓다/두다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 98, "quote": "-아/-어/-여 놓다/두다", "context": "level 4 unit 9 grammar label"}
+{"id": "sejong4_u10_title", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 30, "quote": "태풍으로 인한 해일이라고 하더라고요", "context": "level 4 unit 10 title"}
+{"id": "sejong4_u10_cando", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 30, "quote": "재해의 원인과 결과에 관해 이야기할 수 있어요.", "context": "level 4 unit 10 can-do"}
+{"id": "sejong4_u10_voc0_나무를 심다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "나무를 심다", "context": "level 4 unit 10 vocab"}
+{"id": "sejong4_u10_voc1_댐을 세우다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "댐을 세우다", "context": "level 4 unit 10 vocab"}
+{"id": "sejong4_u10_voc2_복구 활동을 하다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "복구 활동을 하다", "context": "level 4 unit 10 vocab"}
+{"id": "sejong4_u10_voc3_상수도를 정비하다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "상수도를 정비하다", "context": "level 4 unit 10 vocab"}
+{"id": "sejong4_u10_voc4_성금을 모아 전달하다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "성금을 모아 전달하다", "context": "level 4 unit 10 vocab"}
+{"id": "sejong4_u10_voc5_시설물을 관리하다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "시설물을 관리하다", "context": "level 4 unit 10 vocab"}
+{"id": "sejong4_u10_voc6_이재민을 지원하다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "이재민을 지원하다", "context": "level 4 unit 10 vocab"}
+{"id": "sejong4_u10_voc7_재난/재해 경고 문자를 보내다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "재난/재해 경고 문자를 보내다", "context": "level 4 unit 10 vocab"}
+{"id": "sejong4_u10_voc8_전기/수도 시설을 복구하다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "전기/수도 시설을 복구하다", "context": "level 4 unit 10 vocab"}
+{"id": "sejong4_u10_voc9_피해 보상을 받다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "피해 보상을 받다", "context": "level 4 unit 10 vocab"}
+{"id": "sejong4_u10_gram0_…으로/…로 인하다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 98, "quote": "…으로/…로 인하다", "context": "level 4 unit 10 grammar label"}
+{"id": "sejong4_u10_gram1_-는/-은/-ㄴ 데다(가)", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 99, "quote": "-는/-은/-ㄴ 데다(가)", "context": "level 4 unit 10 grammar label"}
+{"id": "sejong4_u11_title", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 40, "quote": "설문 조사를 하는 데 시간이 얼마나 걸릴까요?", "context": "level 4 unit 11 title"}
+{"id": "sejong4_u11_cando", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 40, "quote": "직장 생활과 관련된 내용을 말할 수 있어요.", "context": "level 4 unit 11 can-do"}
+{"id": "sejong4_u11_dlg0", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 43, "quote": "가: 유미 씨, 유학 생활에               익숙해지는 데 얼마나 걸렸어요?", "context": "level 4 unit 11 dialogue quote"}
+{"id": "sejong4_u11_dlg1", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 43, "quote": "가: 그런데 영어를 어느 정도 2)             얼마나 걸렸어요?", "context": "level 4 unit 11 dialogue quote"}
+{"id": "sejong4_u11_voc0_견적서", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "견적서", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_voc1_경력 사원", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "경력 사원", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_voc2_공개 채용", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "공개 채용", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_voc3_명함을 주고받다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "명함을 주고받다", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_voc4_서명하다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "서명하다", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_voc5_신입 사원", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "신입 사원", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_voc6_업무 관련 표현", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "업무 관련 표현", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_voc7_업무일지", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "업무일지", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_voc8_(손님을) 응대하다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "(손님을) 응대하다", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_voc9_제안서", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "제안서", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_voc10_채용 공고", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "채용 공고", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_voc11_특별 채용", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "특별 채용", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_voc12_협상하다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "협상하다", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_voc13_회사 문서 작업", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "회사 문서 작업", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_voc14_회의록", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "회의록", "context": "level 4 unit 11 vocab"}
+{"id": "sejong4_u11_gram0_-는/-은/-ㄴ 만큼", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 99, "quote": "-는/-은/-ㄴ 만큼", "context": "level 4 unit 11 grammar label"}
+{"id": "sejong4_u11_gram1_-는 데", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 99, "quote": "-는 데", "context": "level 4 unit 11 grammar label"}
+{"id": "sejong4_u12_title", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 50, "quote": "프린터에 종이가 걸렸나 봐요", "context": "level 4 unit 12 title"}
+{"id": "sejong4_u12_cando", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 50, "quote": "제품의 문제 상황과 해결 방법을 설명할 수 있어요.", "context": "level 4 unit 12 can-do"}
+{"id": "sejong4_u12_dlg0", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 57, "quote": "가: 보통 집에 도착하면 제일 먼저 하는 일이 뭐예요?", "context": "level 4 unit 12 dialogue quote"}
+{"id": "sejong4_u12_dlg1", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 58, "quote": "가: 제니 씨가 어떤 것 같아요?", "context": "level 4 unit 12 dialogue quote"}
+{"id": "sejong4_u12_voc0_경고 창이 뜨다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "경고 창이 뜨다", "context": "level 4 unit 12 vocab"}
+{"id": "sejong4_u12_voc1_동영상이 재생되지 않다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 104, "quote": "동영상이 재생되지 않다", "context": "level 4 unit 12 vocab"}
+{"id": "sejong4_u12_voc2_바이러스에 감염되다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "바이러스에 감염되다", "context": "level 4 unit 12 vocab"}
+{"id": "sejong4_u12_voc3_비밀번호를 잘 잊어버리다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "비밀번호를 잘 잊어버리다", "context": "level 4 unit 12 vocab"}
+{"id": "sejong4_u12_voc4_시스템이 느려지다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "시스템이 느려지다", "context": "level 4 unit 12 vocab"}
+{"id": "sejong4_u12_voc5_시스템이 멈추다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "시스템이 멈추다", "context": "level 4 unit 12 vocab"}
+{"id": "sejong4_u12_voc6_신호가 잘 안 잡히다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "신호가 잘 안 잡히다", "context": "level 4 unit 12 vocab"}
+{"id": "sejong4_u12_voc7_와이파이 비밀번호를 모르다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "와이파이 비밀번호를 모르다", "context": "level 4 unit 12 vocab"}
+{"id": "sejong4_u12_voc8_인터넷 속도가 느리다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "인터넷 속도가 느리다", "context": "level 4 unit 12 vocab"}
+{"id": "sejong4_u12_voc9_접속이 자주 끊기다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "접속이 자주 끊기다", "context": "level 4 unit 12 vocab"}
+{"id": "sejong4_u12_gram0_-자마자", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 99, "quote": "-자마자", "context": "level 4 unit 12 grammar label"}
+{"id": "sejong4_u12_gram1_-나/-은가/-ㄴ가 보다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 100, "quote": "-나/-은가/-ㄴ가 보다", "context": "level 4 unit 12 grammar label"}
+{"id": "sejong4_u13_title", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 60, "quote": "이 제품은 쓸수록 좋은 것 같아요", "context": "level 4 unit 13 title"}
+{"id": "sejong4_u13_cando", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 60, "quote": "과학기술의 발전으로 인한 사회 변화에 대해 이야기할 수 있어요.", "context": "level 4 unit 13 can-do"}
+{"id": "sejong4_u13_dlg0", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 67, "quote": "가: 어떤 집을 구하세요?", "context": "level 4 unit 13 dialogue quote"}
+{"id": "sejong4_u13_dlg1", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 68, "quote": "가: 많을수록 좋은 것이 뭐예요?", "context": "level 4 unit 13 dialogue quote"}
+{"id": "sejong4_u13_voc0_3D프린팅", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "3D프린팅", "context": "level 4 unit 13 vocab"}
+{"id": "sejong4_u13_voc1_로봇 수술", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "로봇 수술", "context": "level 4 unit 13 vocab"}
+{"id": "sejong4_u13_voc2_로봇 청소기", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "로봇 청소기", "context": "level 4 unit 13 vocab"}
+{"id": "sejong4_u13_voc3_비대면 회의", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "비대면 회의", "context": "level 4 unit 13 vocab"}
+{"id": "sejong4_u13_voc4_원격제어", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "원격제어", "context": "level 4 unit 13 vocab"}
+{"id": "sejong4_u13_voc5_자동 감지", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "자동 감지", "context": "level 4 unit 13 vocab"}
+{"id": "sejong4_u13_voc6_재택근무", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "재택근무", "context": "level 4 unit 13 vocab"}
+{"id": "sejong4_u13_voc7_전자 결재", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "전자 결재", "context": "level 4 unit 13 vocab"}
+{"id": "sejong4_u13_voc8_화상진료", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "화상진료", "context": "level 4 unit 13 vocab"}
+{"id": "sejong4_u13_gram0_-게 하다/만들다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 100, "quote": "-게 하다/만들다", "context": "level 4 unit 13 grammar label"}
+{"id": "sejong4_u13_gram1_-을수록/-ㄹ수록", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 100, "quote": "-을수록/-ㄹ수록", "context": "level 4 unit 13 grammar label"}
+{"id": "sejong4_u14_title", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 70, "quote": "누군가에게 도움이 되는 일을 하기로 했어요", "context": "level 4 unit 14 title"}
+{"id": "sejong4_u14_cando", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 70, "quote": "노력과 각오에 대해 이야기할 수 있어요.", "context": "level 4 unit 14 can-do"}
+{"id": "sejong4_u14_dlg0", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 73, "quote": "가: 이번 주말에 뭐 할 거예요?", "context": "level 4 unit 14 dialogue quote"}
+{"id": "sejong4_u14_dlg1", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 77, "quote": "가: 왜 전화를 못 받았어요?", "context": "level 4 unit 14 dialogue quote"}
+{"id": "sejong4_u14_voc0_기쁨을 누리다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "기쁨을 누리다", "context": "level 4 unit 14 vocab"}
+{"id": "sejong4_u14_voc1_나를 위해 투자하다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "나를 위해 투자하다", "context": "level 4 unit 14 vocab"}
+{"id": "sejong4_u14_voc2_낙담하다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "낙담하다", "context": "level 4 unit 14 vocab"}
+{"id": "sejong4_u14_voc3_보상을 받다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "보상을 받다", "context": "level 4 unit 14 vocab"}
+{"id": "sejong4_u14_voc4_사고방식을 바꾸다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "사고방식을 바꾸다", "context": "level 4 unit 14 vocab"}
+{"id": "sejong4_u14_voc5_시간을 들이다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "시간을 들이다", "context": "level 4 unit 14 vocab"}
+{"id": "sejong4_u14_voc6_위로를 받다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "위로를 받다", "context": "level 4 unit 14 vocab"}
+{"id": "sejong4_u14_voc7_의욕을 잃다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "의욕을 잃다", "context": "level 4 unit 14 vocab"}
+{"id": "sejong4_u14_voc8_한턱내다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 105, "quote": "한턱내다", "context": "level 4 unit 14 vocab"}
+{"id": "sejong4_u14_gram0_-느라(고)", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 100, "quote": "-느라(고)", "context": "level 4 unit 14 grammar label"}
+{"id": "sejong4_u14_gram1_-기로 하다", "file": "세종한국어 회화 익힘책_영어판_4-2.pdf", "page": 100, "quote": "-기로 하다", "context": "level 4 unit 14 grammar label"}
+{"id": "sejong5_세종_u1_title", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 6, "quote": "직업 선택의 기준", "context": "level 5 unit 1 title"}
+{"id": "sejong5_세종_u1_gram0_...에 따르면", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 7, "quote": "...에 따르면", "context": "level 5 unit 1 grammar label"}
+{"id": "sejong5_세종_u2_title", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 10, "quote": "일과 삶의 균형", "context": "level 5 unit 2 title"}
+{"id": "sejong5_세종_u2_gram0_...은", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 11, "quote": "...은", "context": "level 5 unit 2 grammar label"}
+{"id": "sejong5_세종_u3_title", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 14, "quote": "학교생활과 교육", "context": "level 5 unit 3 title"}
+{"id": "sejong5_세종_u3_gram0_...은", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 15, "quote": "...은", "context": "level 5 unit 3 grammar label"}
+{"id": "sejong5_세종_u4_title", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 18, "quote": "교육과 제도", "context": "level 5 unit 4 title"}
+{"id": "sejong5_세종_u4_gram0_-게끔", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 19, "quote": "-게끔", "context": "level 5 unit 4 grammar label"}
+{"id": "sejong5_세종_u5_title", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 22, "quote": "습관의 중요성", "context": "level 5 unit 5 title"}
+{"id": "sejong5_세종_u6_title", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 26, "quote": "건강한 신체", "context": "level 5 unit 6 title"}
+{"id": "sejong5_세종_u6_gram0_...에 이르다", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 27, "quote": "...에 이르다", "context": "level 5 unit 6 grammar label"}
+{"id": "sejong5_세종_u7_title", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 30, "quote": "음악 이야기", "context": "level 5 unit 7 title"}
+{"id": "sejong5_세종_u7_gram0_...은 말할 것도 없고", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 31, "quote": "...은 말할 것도 없고", "context": "level 5 unit 7 grammar label"}
+{"id": "sejong5_세종_u8_title", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 34, "quote": "미술 작품 감상", "context": "level 5 unit 8 title"}
+{"id": "sejong5_세종_u8_gram0_-고도", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 35, "quote": "-고도", "context": "level 5 unit 8 grammar label"}
+{"id": "sejong5_세종_u9_title", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 38, "quote": "행복의 조건", "context": "level 5 unit 9 title"}
+{"id": "sejong5_세종_u9_gram0_-는 법이다", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 39, "quote": "-는 법이다", "context": "level 5 unit 9 grammar label"}
+{"id": "sejong5_세종_u10_title", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 42, "quote": "경제적 여유와 행복", "context": "level 5 unit 10 title"}
+{"id": "sejong5_세종_u10_gram0_-을까?", "file": "세종학당 한국어 익힘책_5A.pdf", "page": 43, "quote": "-을까?", "context": "level 5 unit 10 grammar label"}
+{"id": "sejong5_세종_u1_title", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 6, "quote": "여가 생활의 변화", "context": "level 5 unit 1 title"}
+{"id": "sejong5_세종_u1_gram0_...이라든가", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 7, "quote": "...이라든가", "context": "level 5 unit 1 grammar label"}
+{"id": "sejong5_세종_u2_title", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 10, "quote": "인구 및 가구의 변화", "context": "level 5 unit 2 title"}
+{"id": "sejong5_세종_u2_gram0_-을뿐더러", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 11, "quote": "-을뿐더러", "context": "level 5 unit 2 grammar label"}
+{"id": "sejong5_세종_u3_title", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 14, "quote": "살기 좋은 곳", "context": "level 5 unit 3 title"}
+{"id": "sejong5_세종_u3_gram0_...은", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 15, "quote": "...은", "context": "level 5 unit 3 grammar label"}
+{"id": "sejong5_세종_u4_title", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 18, "quote": "도시 속의 건축물", "context": "level 5 unit 4 title"}
+{"id": "sejong5_세종_u4_gram0_...은", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 19, "quote": "...은", "context": "level 5 unit 4 grammar label"}
+{"id": "sejong5_세종_u5_title", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 22, "quote": "통과 의례", "context": "level 5 unit 5 title"}
+{"id": "sejong5_세종_u5_gram0_-지 않고서는", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 23, "quote": "-지 않고서는", "context": "level 5 unit 5 grammar label"}
+{"id": "sejong5_세종_u6_title", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 26, "quote": "후회하지 않는 삶", "context": "level 5 unit 6 title"}
+{"id": "sejong5_세종_u7_title", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 30, "quote": "한국의 수필", "context": "level 5 unit 7 title"}
+{"id": "sejong5_세종_u7_gram0_-는 데다가", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 31, "quote": "-는 데다가", "context": "level 5 unit 7 grammar label"}
+{"id": "sejong5_세종_u8_title", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 34, "quote": "생겨나는 말, 사라지는 말", "context": "level 5 unit 8 title"}
+{"id": "sejong5_세종_u8_gram0_-다가는", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 35, "quote": "-다가는", "context": "level 5 unit 8 grammar label"}
+{"id": "sejong5_세종_u9_title", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 38, "quote": "생활 속 편리한 물건", "context": "level 5 unit 9 title"}
+{"id": "sejong5_세종_u9_gram0_-는 가운데", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 39, "quote": "-는 가운데", "context": "level 5 unit 9 grammar label"}
+{"id": "sejong5_세종_u10_title", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 42, "quote": "생활 속 과학", "context": "level 5 unit 10 title"}
+{"id": "sejong5_세종_u10_gram0_-으면 몰라도", "file": "세종학당 한국어 익힘책_5B.pdf", "page": 43, "quote": "-으면 몰라도", "context": "level 5 unit 10 grammar label"}
+{"id": "sejong6_세종_u1_title", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 6, "quote": "사람의 성향", "context": "level 6 unit 1 title"}
+{"id": "sejong6_세종_u2_title", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 10, "quote": "심리와 행동", "context": "level 6 unit 2 title"}
+{"id": "sejong6_세종_u2_gram0_-을 바에야", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 11, "quote": "-을 바에야", "context": "level 6 unit 2 grammar label"}
+{"id": "sejong6_세종_u3_title", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 14, "quote": "기업의 생존 전략", "context": "level 6 unit 3 title"}
+{"id": "sejong6_세종_u3_gram0_-는 한이 있어도", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 15, "quote": "-는 한이 있어도", "context": "level 6 unit 3 grammar label"}
+{"id": "sejong6_세종_u4_title", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 18, "quote": "산업의 변화", "context": "level 6 unit 4 title"}
+{"id": "sejong6_세종_u4_gram0_-되", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 19, "quote": "-되", "context": "level 6 unit 4 grammar label"}
+{"id": "sejong6_세종_u5_title", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 22, "quote": "지리와 기후", "context": "level 6 unit 5 title"}
+{"id": "sejong6_세종_u5_gram0_...을 비롯해", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 23, "quote": "...을 비롯해", "context": "level 6 unit 5 grammar label"}
+{"id": "sejong6_세종_u6_title", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 26, "quote": "기후 위기와 탄소 중립", "context": "level 6 unit 6 title"}
+{"id": "sejong6_세종_u6_gram0_-는다고 해도 과언이 아니다", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 27, "quote": "-는다고 해도 과언이 아니다", "context": "level 6 unit 6 grammar label"}
+{"id": "sejong6_세종_u7_title", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 30, "quote": "한국의 역사적인 장면들", "context": "level 6 unit 7 title"}
+{"id": "sejong6_세종_u7_gram0_-기에", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 31, "quote": "-기에", "context": "level 6 unit 7 grammar label"}
+{"id": "sejong6_세종_u8_title", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 34, "quote": "먹거리의 역사", "context": "level 6 unit 8 title"}
+{"id": "sejong6_세종_u8_gram0_...을 불문하고", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 35, "quote": "...을 불문하고", "context": "level 6 unit 8 grammar label"}
+{"id": "sejong6_세종_u9_title", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 38, "quote": "인공 지능 기술의 발달", "context": "level 6 unit 9 title"}
+{"id": "sejong6_세종_u10_title", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 42, "quote": "우주 산업의 전망", "context": "level 6 unit 10 title"}
+{"id": "sejong6_세종_u10_gram0_-는 한", "file": "세종학당 한국어 익힘책_6A.pdf", "page": 43, "quote": "-는 한", "context": "level 6 unit 10 grammar label"}
+{"id": "sejong6_세종_u1_title", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 6, "quote": "문화와 사고방식", "context": "level 6 unit 1 title"}
+{"id": "sejong6_세종_u2_title", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 10, "quote": "언어 속 문화", "context": "level 6 unit 2 title"}
+{"id": "sejong6_세종_u2_gram0_...은", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 11, "quote": "...은", "context": "level 6 unit 2 grammar label"}
+{"id": "sejong6_세종_u3_title", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 14, "quote": "소비자의 선택", "context": "level 6 unit 3 title"}
+{"id": "sejong6_세종_u4_title", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 18, "quote": "시장과 정부", "context": "level 6 unit 4 title"}
+{"id": "sejong6_세종_u4_gram0_-는 만큼", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 19, "quote": "-는 만큼", "context": "level 6 unit 4 grammar label"}
+{"id": "sejong6_세종_u5_title", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 22, "quote": "현대인의 건강", "context": "level 6 unit 5 title"}
+{"id": "sejong6_세종_u5_gram0_-는다는 점에서", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 23, "quote": "-는다는 점에서", "context": "level 6 unit 5 grammar label"}
+{"id": "sejong6_세종_u6_title", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 26, "quote": "내 몸을 살리는 음식", "context": "level 6 unit 6 title"}
+{"id": "sejong6_세종_u6_gram0_-는 데(에) 목적이 있다", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 27, "quote": "-는 데(에) 목적이 있다", "context": "level 6 unit 6 grammar label"}
+{"id": "sejong6_세종_u7_title", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 30, "quote": "한국의 선거와 여론 조사", "context": "level 6 unit 7 title"}
+{"id": "sejong6_세종_u7_gram0_...이란", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 31, "quote": "...이란", "context": "level 6 unit 7 grammar label"}
+{"id": "sejong6_세종_u8_title", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 34, "quote": "사회를 이끄는 사람들", "context": "level 6 unit 8 title"}
+{"id": "sejong6_세종_u8_gram0_...을 계기로", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 35, "quote": "...을 계기로", "context": "level 6 unit 8 grammar label"}
+{"id": "sejong6_세종_u9_title", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 38, "quote": "문학 속의 인생", "context": "level 6 unit 9 title"}
+{"id": "sejong6_세종_u10_title", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 42, "quote": "작가와 작품", "context": "level 6 unit 10 title"}
+{"id": "sejong6_세종_u10_gram0_-을지언정", "file": "세종학당 한국어 익힘책_6B.pdf", "page": 43, "quote": "-을지언정", "context": "level 6 unit 10 grammar label"}

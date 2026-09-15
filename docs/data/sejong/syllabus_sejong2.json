@@ -1,0 +1,962 @@
+{
+  "level_label": "sejong_hoehwa_2",
+  "cefr_approx": "A2",
+  "source_series": "세종한국어 회화 익힘책 (영어판)",
+  "source_files": [
+    "세종한국어 회화 익힘책_영어판_2-1.pdf",
+    "세종한국어 회화 익힘책_영어판_2-2.pdf"
+  ],
+  "units": [
+    {
+      "unit": 1,
+      "title": "꽃다발이나 케이크는 어때요?",
+      "title_page": 10,
+      "cando": "다른 사람에게 어떤 것을 권유할 수 있어요.",
+      "cando_page": 10,
+      "vocab": [
+        {
+          "korean": "기념사진을 찍다",
+          "gloss_en": "\u0007to take a commemorative picture",
+          "page": 100
+        },
+        {
+          "korean": "선물을 주다",
+          "gloss_en": "to give a gift",
+          "page": 100
+        },
+        {
+          "korean": "초대하다/받다",
+          "gloss_en": "to invite/be invited",
+          "page": 100
+        },
+        {
+          "korean": "축의금을 전달하다",
+          "gloss_en": "to give 축의금(money as a gift)",
+          "page": 100
+        },
+        {
+          "korean": "축하 인사를 하다",
+          "gloss_en": "to conglatulate",
+          "page": 100
+        },
+        {
+          "korean": "축하 카드를 쓰다",
+          "gloss_en": "to write a congratulatory card",
+          "page": 100
+        },
+        {
+          "korean": "축하 파티를 하다",
+          "gloss_en": "to have a celebration",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "이나/나",
+          "page": 95
+        },
+        {
+          "label": "-아서/-어서/-여서",
+          "page": 95
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 12,
+          "quote": "가: 유진 씨는 주말에 보통 뭐 해요?"
+        },
+        {
+          "page": 13,
+          "quote": "가: 오늘 수업 후에 뭐 할 거예요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_2-1.pdf"
+    },
+    {
+      "unit": 2,
+      "title": "회사 일이 많아서 바빴습니다",
+      "title_page": 20,
+      "cando": "다른 사람과 안부를 묻고 답할 수 있어요.",
+      "cando_page": 20,
+      "vocab": [
+        {
+          "korean": "승진하다",
+          "gloss_en": "to be promoted",
+          "page": 100
+        },
+        {
+          "korean": "시험을 준비하다",
+          "gloss_en": "to prepare for an exam",
+          "page": 100
+        },
+        {
+          "korean": "유학 생활을 마치다",
+          "gloss_en": "to finish studying abroad",
+          "page": 100
+        },
+        {
+          "korean": "이사를 하다",
+          "gloss_en": "to move",
+          "page": 100
+        },
+        {
+          "korean": "장학금을 받다",
+          "gloss_en": "to receive a scholarship",
+          "page": 100
+        },
+        {
+          "korean": "창업하다",
+          "gloss_en": "to start a business/start-up",
+          "page": 100
+        },
+        {
+          "korean": "출장을 가다",
+          "gloss_en": "to go on a business trip",
+          "page": 100
+        },
+        {
+          "korean": "학위를 받다",
+          "gloss_en": "to receive a degree",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-고",
+          "page": 95
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 22,
+          "quote": "가: 요즘 어떻게 지냅니까?"
+        },
+        {
+          "page": 23,
+          "quote": "가: 어제 뭐 했어요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_2-1.pdf"
+    },
+    {
+      "unit": 3,
+      "title": "버스로 10분쯤 걸릴 거예요",
+      "title_page": 30,
+      "cando": "길을 묻고 대답할 수 있어요.",
+      "cando_page": 30,
+      "vocab": [
+        {
+          "korean": "KTX",
+          "gloss_en": "KTX",
+          "page": 100
+        },
+        {
+          "korean": "마을버스",
+          "gloss_en": "\u0007village bus (bus that only operates",
+          "page": 100
+        },
+        {
+          "korean": "모범택시",
+          "gloss_en": "deluxe taxi",
+          "page": 100
+        },
+        {
+          "korean": "시내버스",
+          "gloss_en": "intra-city bus",
+          "page": 100
+        },
+        {
+          "korean": "시외버스",
+          "gloss_en": "intercity bus",
+          "page": 100
+        },
+        {
+          "korean": "일반 택시",
+          "gloss_en": "taxi",
+          "page": 100
+        },
+        {
+          "korean": "킥보드",
+          "gloss_en": "kickboard",
+          "page": 100
+        },
+        {
+          "korean": "트램",
+          "gloss_en": "tram",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "으로/로",
+          "page": 96
+        },
+        {
+          "label": "…에서/부터 …까지",
+          "page": 96
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 32,
+          "quote": "가: 약속에 늦었어요. 경복궁에 어떻게 가는 게 좋아요?"
+        },
+        {
+          "page": 33,
+          "quote": "가: 아침에 몇 시부터 몇 시까지 운동해요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_2-1.pdf"
+    },
+    {
+      "unit": 4,
+      "title": "점심 먹으러 갈래요?",
+      "title_page": 40,
+      "cando": "음식을 주문하고 맛에 대해 이야기할 수 있어요.",
+      "cando_page": 40,
+      "vocab": [
+        {
+          "korean": "고소하다",
+          "gloss_en": "savory, aromatic",
+          "page": 100
+        },
+        {
+          "korean": "느끼하다",
+          "gloss_en": "greasy, oily, rich",
+          "page": 100
+        },
+        {
+          "korean": "달콤하다",
+          "gloss_en": "sweet",
+          "page": 100
+        },
+        {
+          "korean": "매콤하다",
+          "gloss_en": "spicy",
+          "page": 100
+        },
+        {
+          "korean": "새콤하다",
+          "gloss_en": "tart/sour",
+          "page": 100
+        },
+        {
+          "korean": "싱겁다",
+          "gloss_en": "bland",
+          "page": 100
+        },
+        {
+          "korean": "외식하다",
+          "gloss_en": "to dine out",
+          "page": 100
+        },
+        {
+          "korean": "주문하다",
+          "gloss_en": "to order",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-을래요/-ㄹ래요",
+          "page": 96
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 43,
+          "quote": "가: 지금 집에 들어왔어요? 지금 밖에 비가 오지요?"
+        },
+        {
+          "page": 46,
+          "quote": "가: 맛이 어때요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_2-1.pdf"
+    },
+    {
+      "unit": 5,
+      "title": "저녁 먹은 후에 조깅을 해요",
+      "title_page": 50,
+      "cando": "하루 일과와 생활 습관에 대해 묻고 답할 수 있어요.",
+      "cando_page": 50,
+      "vocab": [
+        {
+          "korean": "다림질을 하다",
+          "gloss_en": "to iron",
+          "page": 100
+        },
+        {
+          "korean": "먼지를 털다",
+          "gloss_en": "to dust",
+          "page": 100
+        },
+        {
+          "korean": "빨래를 널다",
+          "gloss_en": "to hang up the laundry",
+          "page": 100
+        },
+        {
+          "korean": "쓰레기를 버리다",
+          "gloss_en": "to take out trash",
+          "page": 100
+        },
+        {
+          "korean": "옷을 개다",
+          "gloss_en": "to fold one’s clothes/laundry",
+          "page": 100
+        },
+        {
+          "korean": "창문을 닦다",
+          "gloss_en": "to clean the windows",
+          "page": 100
+        },
+        {
+          "korean": "청소기를 돌리다",
+          "gloss_en": "to vacuum",
+          "page": 100
+        },
+        {
+          "korean": "화분에 물을 주다",
+          "gloss_en": "to water plants",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-은 후에/-ㄴ 후에",
+          "page": 96
+        },
+        {
+          "label": "-고 있다",
+          "page": 97
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 52,
+          "quote": "가: 마크 씨는 언제 신문을 봐요?"
+        },
+        {
+          "page": 53,
+          "quote": "가: 희철 씨는 영어를 잘해요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_2-1.pdf"
+    },
+    {
+      "unit": 6,
+      "title": "푹 쉬어서 괜찮아졌어요",
+      "title_page": 60,
+      "cando": "날씨와 생활에 대해 이야기할 수 있어요.",
+      "cando_page": 60,
+      "vocab": [
+        {
+          "korean": "건기",
+          "gloss_en": "dry season",
+          "page": 100
+        },
+        {
+          "korean": "꽃샘추위",
+          "gloss_en": "last cold spell",
+          "page": 100
+        },
+        {
+          "korean": "번개",
+          "gloss_en": "lightening",
+          "page": 100
+        },
+        {
+          "korean": "우기",
+          "gloss_en": "rainy season",
+          "page": 100
+        },
+        {
+          "korean": "장마",
+          "gloss_en": "rainy season/Monsoon",
+          "page": 100
+        },
+        {
+          "korean": "천둥",
+          "gloss_en": "thunder",
+          "page": 100
+        },
+        {
+          "korean": "환절기",
+          "gloss_en": "in-between seasons",
+          "page": 100
+        },
+        {
+          "korean": "황사",
+          "gloss_en": "Yellow Dust/Asian Dust",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-아지다/-어지다/-여지다",
+          "page": 97
+        },
+        {
+          "label": "-으니까/-니까",
+          "page": 97
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 62,
+          "quote": "가: 오늘도 어제처럼 더워요?"
+        },
+        {
+          "page": 63,
+          "quote": "가: 이제 어디 갈까요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_2-1.pdf"
+    },
+    {
+      "unit": 7,
+      "title": "일곱 시로 예약해 주세요",
+      "title_page": 70,
+      "cando": "다른 사람과 전화를 할 수 있어요.",
+      "cando_page": 70,
+      "vocab": [
+        {
+          "korean": "김미라 선생님 계세요?",
+          "gloss_en": "Is Ms. Mira Kim there?",
+          "page": 101
+        },
+        {
+          "korean": "김미라 선생님 전화 맞아요?",
+          "gloss_en": "\u0007Is this Ms. Mira Kim’s",
+          "page": 101
+        },
+        {
+          "korean": "김미라 선생님 좀 바꿔 주세요.",
+          "gloss_en": "\u0007May I speak to Ms. Mira",
+          "page": 101
+        },
+        {
+          "korean": "다시 연락 드리겠습니다.",
+          "gloss_en": "I will call you back.",
+          "page": 101
+        },
+        {
+          "korean": "메모 좀 전해 주세요.",
+          "gloss_en": "\u0007Could you deliver the",
+          "page": 101
+        },
+        {
+          "korean": "메시지를 삭제하다",
+          "gloss_en": "to delete message",
+          "page": 101
+        },
+        {
+          "korean": "메시지를 확인하다",
+          "gloss_en": "to check message",
+          "page": 101
+        },
+        {
+          "korean": "별표(*)",
+          "gloss_en": "asterisk",
+          "page": 101
+        },
+        {
+          "korean": "우물 정자(#)",
+          "gloss_en": "Hash",
+          "page": 101
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-으면/-면",
+          "page": 98
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 72,
+          "quote": "가: 어떤 색깔이 마음에 드세요?"
+        },
+        {
+          "page": 73,
+          "quote": "가: 밤에 잠이 안 오면 뭘 해요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_2-1.pdf"
+    },
+    {
+      "unit": 8,
+      "title": "부산에 가 봤어요?",
+      "title_page": 10,
+      "cando": "여행 경험과 계획에 대해 이야기할 수 있어요.",
+      "cando_page": 10,
+      "vocab": [
+        {
+          "korean": "기념품",
+          "gloss_en": "souvenir",
+          "page": 99
+        },
+        {
+          "korean": "목적지",
+          "gloss_en": "destination",
+          "page": 99
+        },
+        {
+          "korean": "숙소 후기",
+          "gloss_en": "review of accommodations",
+          "page": 99
+        },
+        {
+          "korean": "시차",
+          "gloss_en": "time difference",
+          "page": 99
+        },
+        {
+          "korean": "왕복",
+          "gloss_en": "round trip",
+          "page": 99
+        },
+        {
+          "korean": "유적지",
+          "gloss_en": "historical site",
+          "page": 99
+        },
+        {
+          "korean": "출발지",
+          "gloss_en": "point of departure",
+          "page": 99
+        },
+        {
+          "korean": "편도",
+          "gloss_en": "one-way",
+          "page": 99
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-으려고 하다/-려고 하다",
+          "page": 94
+        },
+        {
+          "label": "-아 보다/-어 보다/-여 보다",
+          "page": 94
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 16,
+          "quote": "가: 수업 후에 같이 영화 볼래요?"
+        },
+        {
+          "page": 16,
+          "quote": "가: 서울에 가 봤어요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_2-2.pdf"
+    },
+    {
+      "unit": 9,
+      "title": "이번 축제 때 꼭 오세요",
+      "title_page": 20,
+      "cando": "특별한 행사에 친구를 초대할 수 있어요.",
+      "cando_page": 20,
+      "vocab": [
+        {
+          "korean": "기쁘다",
+          "gloss_en": "to be happy",
+          "page": 99
+        },
+        {
+          "korean": "긴장되다",
+          "gloss_en": "to be nervous",
+          "page": 99
+        },
+        {
+          "korean": "무섭다",
+          "gloss_en": "to be scary",
+          "page": 99
+        },
+        {
+          "korean": "반갑다",
+          "gloss_en": "to be glad",
+          "page": 99
+        },
+        {
+          "korean": "부끄럽다",
+          "gloss_en": "to be embarassed",
+          "page": 99
+        },
+        {
+          "korean": "섭섭하다",
+          "gloss_en": "disappointing",
+          "page": 99
+        },
+        {
+          "korean": "즐겁다",
+          "gloss_en": "to be happy",
+          "page": 99
+        },
+        {
+          "korean": "지루하다",
+          "gloss_en": "to be boring",
+          "page": 99
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-을 때/-ㄹ 때",
+          "page": 94
+        },
+        {
+          "label": "-을게요/-ㄹ게요",
+          "page": 94
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 22,
+          "quote": "가: 안나 씨를 어떻게 알아요?"
+        },
+        {
+          "page": 23,
+          "quote": "가: 음료수를 좀 드릴까요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_2-2.pdf"
+    },
+    {
+      "unit": 10,
+      "title": "취미가 같은 사람을 만나고 싶었어요",
+      "title_page": 30,
+      "cando": "자신의 이상형에 대해 설명할 수 있어요.",
+      "cando_page": 30,
+      "vocab": [
+        {
+          "korean": "게으르다",
+          "gloss_en": "to be lazy",
+          "page": 99
+        },
+        {
+          "korean": "내성적이다",
+          "gloss_en": "to be introverted",
+          "page": 99
+        },
+        {
+          "korean": "마음이 따뜻하다",
+          "gloss_en": "warm-hearted",
+          "page": 99
+        },
+        {
+          "korean": "말이 많다",
+          "gloss_en": "to be talkative",
+          "page": 99
+        },
+        {
+          "korean": "불친절하다",
+          "gloss_en": "to be unkind",
+          "page": 99
+        },
+        {
+          "korean": "예의 바르다",
+          "gloss_en": "with manner",
+          "page": 99
+        },
+        {
+          "korean": "예의가 없다",
+          "gloss_en": "with no manner/rude",
+          "page": 99
+        },
+        {
+          "korean": "외향적이다",
+          "gloss_en": "to be extroverted",
+          "page": 99
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-은/-ㄴ",
+          "page": 95
+        },
+        {
+          "label": "-는",
+          "page": 95
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 32,
+          "quote": "가: 미카엘 씨는 어떤 친구를 좋아해요?"
+        },
+        {
+          "page": 33,
+          "quote": "가: \u0007우리 반에서 한국어를 가장 잘하는 사람은 누구예요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_2-2.pdf"
+    },
+    {
+      "unit": 11,
+      "title": "공연 20분 전에는 입장해야 돼요",
+      "title_page": 40,
+      "cando": "공공예절에 대해 이야기할 수 있어요.",
+      "cando_page": 40,
+      "vocab": [
+        {
+          "korean": "관람 예절을 지키다",
+          "gloss_en": "to follow etiquettes in theaters",
+          "page": 99
+        },
+        {
+          "korean": "녹음하다",
+          "gloss_en": "to voice record",
+          "page": 99
+        },
+        {
+          "korean": "동영상을 찍다",
+          "gloss_en": "to videorecord",
+          "page": 99
+        },
+        {
+          "korean": "박수를 치다",
+          "gloss_en": "to clap",
+          "page": 99
+        },
+        {
+          "korean": "사진을 몰래 찍다",
+          "gloss_en": "\u0007to take a picture secretly",
+          "page": 99
+        },
+        {
+          "korean": "자리를 바꾸다",
+          "gloss_en": "to change seats",
+          "page": 99
+        },
+        {
+          "korean": "전화벨이 울리다",
+          "gloss_en": "phone rings",
+          "page": 99
+        },
+        {
+          "korean": "줄을 서다",
+          "gloss_en": "to line up",
+          "page": 99
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-지 말다",
+          "page": 95
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 46,
+          "quote": "가: 집에 가서 뭐 할 거예요?"
+        },
+        {
+          "page": 49,
+          "quote": "가: 마크 씨, 담배를 피우세요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_2-2.pdf"
+    },
+    {
+      "unit": 12,
+      "title": "이사 온 지 두 달 됐어요",
+      "title_page": 50,
+      "cando": "시간의 경과에 대해 말할 수 있어요.",
+      "cando_page": 50,
+      "vocab": [
+        {
+          "korean": "낮",
+          "gloss_en": "day",
+          "page": 99
+        },
+        {
+          "korean": "밤",
+          "gloss_en": "night",
+          "page": 99
+        },
+        {
+          "korean": "새벽",
+          "gloss_en": "early morning",
+          "page": 99
+        },
+        {
+          "korean": "아침",
+          "gloss_en": "morning",
+          "page": 99
+        },
+        {
+          "korean": "오전",
+          "gloss_en": "before noon",
+          "page": 99
+        },
+        {
+          "korean": "오후",
+          "gloss_en": "afternoon",
+          "page": 99
+        },
+        {
+          "korean": "자정",
+          "gloss_en": "midnight",
+          "page": 99
+        },
+        {
+          "korean": "저녁",
+          "gloss_en": "evening",
+          "page": 99
+        },
+        {
+          "korean": "정오",
+          "gloss_en": "noon",
+          "page": 99
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-은 지/-ㄴ 지",
+          "page": 96
+        },
+        {
+          "label": "-는데, -은데/-ㄴ데",
+          "page": 96
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 52,
+          "quote": "가: 우리 ‘행복 식당’에 가 볼래요?"
+        },
+        {
+          "page": 56,
+          "quote": "가: 언제 아침을 먹었어요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_2-2.pdf"
+    },
+    {
+      "unit": 13,
+      "title": "저 좀 도와줄 수 있어요?",
+      "title_page": 60,
+      "cando": "문제 상황을 말하고 도움을 요청할 수 있어요.",
+      "cando_page": 60,
+      "vocab": [
+        {
+          "korean": "바이러스에 걸리다",
+          "gloss_en": "to catch a virus",
+          "page": 99
+        },
+        {
+          "korean": "소리가 안 나오다",
+          "gloss_en": "sound not working",
+          "page": 99
+        },
+        {
+          "korean": "재생이 안 되다",
+          "gloss_en": "doesn’t play",
+          "page": 99
+        },
+        {
+          "korean": "전원이 안 들어오다",
+          "gloss_en": "power does not turn on",
+          "page": 99
+        },
+        {
+          "korean": "충전이 안 되다",
+          "gloss_en": "doesn’t charge",
+          "page": 100
+        },
+        {
+          "korean": "컴퓨터가 다운되다",
+          "gloss_en": "the computer has crashed",
+          "page": 100
+        },
+        {
+          "korean": "화면이 깨지다",
+          "gloss_en": "screen breaks",
+          "page": 100
+        }
+      ],
+      "grammar": [],
+      "dialogue_quotes": [
+        {
+          "page": 62,
+          "quote": "가: 치엔 씨, 태권도를 할 수 있어요?"
+        },
+        {
+          "page": 63,
+          "quote": "가: 메이 씨의 표정이 안 좋아요. 왜 그럴까요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_2-2.pdf"
+    },
+    {
+      "unit": 14,
+      "title": "한국어 발음이 정말 좋아졌네요",
+      "title_page": 70,
+      "cando": "자신의 한국어 학습에 대해 설명할 수 있어요.",
+      "cando_page": 70,
+      "vocab": [
+        {
+          "korean": "뛰어나다",
+          "gloss_en": "to be outstanding",
+          "page": 100
+        },
+        {
+          "korean": "부자연스럽다",
+          "gloss_en": "unnatural, awkward",
+          "page": 100
+        },
+        {
+          "korean": "부정확하다",
+          "gloss_en": "to be uncertain",
+          "page": 100
+        },
+        {
+          "korean": "어색하다",
+          "gloss_en": "to be awakward",
+          "page": 100
+        },
+        {
+          "korean": "완벽하다",
+          "gloss_en": "to be perfect",
+          "page": 100
+        },
+        {
+          "korean": "자신이 없다",
+          "gloss_en": "to not have confidence",
+          "page": 100
+        },
+        {
+          "korean": "자연스럽다",
+          "gloss_en": "to be natural",
+          "page": 100
+        },
+        {
+          "korean": "정확하다",
+          "gloss_en": "to be exact, accurate",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-네요",
+          "page": 97
+        },
+        {
+          "label": "-기 위해서",
+          "page": 97
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 73,
+          "quote": "가: 어디에 가요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_2-2.pdf"
+    }
+  ]
+}
