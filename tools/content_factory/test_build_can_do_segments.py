@@ -561,6 +561,82 @@ class SmalltalkCopyRevisionTest(unittest.TestCase):
 
         self.assertEqual(old["reviewRevision"], decision["reviewRevision"])
 
+    def _rebound_copy_revision_case(self) -> tuple[dict, dict, dict]:
+        """A copy-revision phrase whose canDo *text* changed (segment id
+        unchanged) -- the C7b, Jin 승인 2026-09-15 "approved re-binding"
+        scenario: PR #288 shifted canDoFingerprintSha256 without rerouting
+        anything."""
+
+        old = {
+            "phraseId": "smalltalk_a1_demo",
+            "phraseFingerprintSha256": "a" * 64,
+            "routingSource": "exactOverride",
+            "canDoSegmentId": "segment_a1_demo",
+            "canDoFingerprintSha256": "c" * 64,
+            "semanticStatus": "exactMapped",
+            "reasonCode": "explicitSemanticRoute",
+            "reviewRevision": 2,
+        }
+        decision = {
+            **old,
+            "canDoFingerprintSha256": "d" * 64,  # canDo text changed, same segment
+            "copyRevision": 1,
+            "copyReviewStatus": "nativeReviewRequired",
+            "copyRevisionLedger": builder.CONTENT_HUMANIZATION_LEDGER_REF,
+            "previousPhraseFingerprintSha256": old["phraseFingerprintSha256"],
+        }
+        previous = {"coverage": {"smalltalkRoutingAudit": {"phraseDecisions": [old]}}}
+        current = {"coverage": {"smalltalkRoutingAudit": {"phraseDecisions": [decision]}}}
+        return old, decision, {"previous": previous, "current": current}
+
+    def test_approved_rebinding_with_same_segment_id_passes(self) -> None:
+        old, decision, docs = self._rebound_copy_revision_case()
+        approval = {
+            "phraseFingerprintSha256": decision["phraseFingerprintSha256"],
+            "canDoSegmentId": decision["canDoSegmentId"],
+            "canDoFingerprintSha256": decision["canDoFingerprintSha256"],
+            "semanticStatus": "approved",
+            "reviewRevision": old["reviewRevision"] + 1,
+        }
+
+        builder._validate_smalltalk_review_history(
+            docs["current"],
+            docs["previous"],
+            review_approvals={decision["phraseId"]: approval},
+        )
+
+        self.assertEqual(old["reviewRevision"], decision["reviewRevision"])
+
+    def test_route_change_without_approval_still_raises(self) -> None:
+        old, decision, docs = self._rebound_copy_revision_case()
+        decision["canDoSegmentId"] = "segment_a1_other"  # a real reroute
+
+        with self.assertRaisesRegex(ValueError, "changed its semantic route"):
+            builder._validate_smalltalk_review_history(
+                docs["current"],
+                docs["previous"],
+                review_approvals={},
+            )
+
+    def test_approval_with_a_different_segment_id_still_raises(self) -> None:
+        old, decision, docs = self._rebound_copy_revision_case()
+        approval = {
+            "phraseFingerprintSha256": decision["phraseFingerprintSha256"],
+            # Approved against a *different* segment than the phrase is
+            # actually routed to now -- must not be accepted as cover.
+            "canDoSegmentId": "segment_a1_other",
+            "canDoFingerprintSha256": decision["canDoFingerprintSha256"],
+            "semanticStatus": "approved",
+            "reviewRevision": old["reviewRevision"] + 1,
+        }
+
+        with self.assertRaisesRegex(ValueError, "changed its semantic route"):
+            builder._validate_smalltalk_review_history(
+                docs["current"],
+                docs["previous"],
+                review_approvals={decision["phraseId"]: approval},
+            )
+
 
 class ABSpecScenarioReferencesLiveTest(unittest.TestCase):
     """AB_SPECS/A1_PRACTICE의 시나리오 참조는 항상 살아 있는 코퍼스를 가리켜야 한다.

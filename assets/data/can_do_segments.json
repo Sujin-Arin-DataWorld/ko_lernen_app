@@ -216,7 +216,7 @@
     {
       "id": "cluster_a1_04_order_request_object_v1",
       "level": "a1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_scenario_bunshik_tteokbokki_v1",
         "seed_vocab_pack_a1_food_1_v1",
@@ -241,7 +241,8 @@
         "seed_cloze_cloze_a1_0044_v1",
         "seed_smalltalk_smalltalk_a1_0082_v1",
         "seed_scenario_a1_gaming_one_more_round_v1",
-        "seed_smalltalk_smalltalk_a1_0089_v1"
+        "seed_smalltalk_smalltalk_a1_0089_v1",
+        "seed_scenario_a1_w10_eat_v1"
       ],
       "contentReferences": [
         {
@@ -339,13 +340,17 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a1_0089"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_w10_eat"
         }
       ]
     },
     {
       "id": "cluster_a1_05_numbers_time_v1",
       "level": "a1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_numbers_1_v1",
         "seed_vocab_pack_a1_numbers_2_v1",
@@ -365,7 +370,9 @@
         "seed_scenario_a1_numbers_total_price_v1",
         "seed_smalltalk_smalltalk_a1_0088_v1",
         "seed_grammar_grammar_b1_before_v1",
-        "seed_grammar_grammar_b1_after_v1"
+        "seed_grammar_grammar_b1_after_v1",
+        "seed_scenario_a1_w10_numbers_v1",
+        "seed_scenario_meeting_time_v1"
       ],
       "contentReferences": [
         {
@@ -443,13 +450,21 @@
         {
           "kind": "grammar",
           "id": "grammar_b1_after"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_w10_numbers"
+        },
+        {
+          "kind": "scenario",
+          "id": "meeting_time"
         }
       ]
     },
     {
       "id": "cluster_a1_06_transport_directions_v1",
       "level": "a1",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_scenario_taxi_kakao_v1",
         "seed_vocab_pack_a1_position_v1",
@@ -478,7 +493,9 @@
         "seed_grammar_grammar_a1_service_request_v1",
         "seed_smalltalk_smalltalk_a1_0085_v1",
         "seed_smalltalk_smalltalk_a1_0087_v1",
-        "seed_grammar_grammar_b1_intention_v1"
+        "seed_grammar_grammar_b1_intention_v1",
+        "seed_scenario_a1_w10_taxi_stay_v1",
+        "seed_scenario_a1_w10_wayfinding_v1"
       ],
       "contentReferences": [
         {
@@ -592,13 +609,21 @@
         {
           "kind": "grammar",
           "id": "grammar_b1_intention"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_w10_taxi_stay"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_w10_wayfinding"
         }
       ]
     },
     {
       "id": "cluster_a1_07_contact_address_v1",
       "level": "a1",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_scenario_phone_messenger_reply_v1",
         "seed_grammar_grammar_a1_possessive_particle_v1",
@@ -613,7 +638,9 @@
         "seed_scenario_a1_phone_read_back_address_v1",
         "seed_scenario_a1_phone_text_instead_v1",
         "seed_scenario_a1_phone_wrong_number_v1",
-        "seed_grammar_grammar_a2_dative_person_v1"
+        "seed_grammar_grammar_a2_dative_person_v1",
+        "seed_scenario_kakao_contact_after_class_v1",
+        "seed_scenario_a1_w10_phone_v1"
       ],
       "contentReferences": [
         {
@@ -671,13 +698,21 @@
         {
           "kind": "grammar",
           "id": "grammar_a2_dative_person"
+        },
+        {
+          "kind": "scenario",
+          "id": "kakao_contact_after_class"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_w10_phone"
         }
       ]
     },
     {
       "id": "cluster_a1_08_clarify_repair_v1",
       "level": "a1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_scenario_clarify_repeat_v1",
         "seed_grammar_grammar_a1_which_question_v1",
@@ -695,7 +730,9 @@
         "seed_cloze_cloze_a1_0321_v1",
         "seed_cloze_cloze_a1_0322_v1",
         "seed_cloze_cloze_a1_0323_v1",
-        "seed_cloze_cloze_a1_0324_v1"
+        "seed_cloze_cloze_a1_0324_v1",
+        "seed_scenario_a1_w10_repeat_v1",
+        "seed_scenario_bakery_queue_v1"
       ],
       "contentReferences": [
         {
@@ -765,13 +802,21 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0324"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_w10_repeat"
+        },
+        {
+          "kind": "scenario",
+          "id": "bakery_queue"
         }
       ]
     },
     {
       "id": "cluster_a1_09_home_daily_life_v1",
       "level": "a1",
-      "revision": 9,
+      "revision": 10,
       "sourceSeedIds": [
         "seed_scenario_home_morning_routine_v1",
         "seed_vocab_pack_a1_colors_v1",
@@ -801,7 +846,8 @@
         "seed_scenario_a1_daily_recycling_day_v1",
         "seed_grammar_grammar_a2_cause_sequence_v1",
         "seed_grammar_grammar_a2_cause_nikka_v1",
-        "seed_grammar_grammar_a2_progressive_v1"
+        "seed_grammar_grammar_a2_progressive_v1",
+        "seed_scenario_umbrella_weather_v1"
       ],
       "contentReferences": [
         {
@@ -919,13 +965,17 @@
         {
           "kind": "grammar",
           "id": "grammar_a2_progressive"
+        },
+        {
+          "kind": "scenario",
+          "id": "umbrella_weather"
         }
       ]
     },
     {
       "id": "cluster_a1_10_health_safety_v1",
       "level": "a1",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_scenario_clinic_safety_v1",
         "seed_vocab_pack_a1_body_v1",
@@ -938,7 +988,9 @@
         "seed_smalltalk_smalltalk_a1_0057_v1",
         "seed_smalltalk_smalltalk_a1_0058_v1",
         "seed_smalltalk_smalltalk_a1_0086_v1",
-        "seed_grammar_grammar_b1_obligation_v1"
+        "seed_grammar_grammar_b1_obligation_v1",
+        "seed_scenario_subway_step_apology_v1",
+        "seed_scenario_break_glass_apology_v1"
       ],
       "contentReferences": [
         {
@@ -988,13 +1040,21 @@
         {
           "kind": "grammar",
           "id": "grammar_b1_obligation"
+        },
+        {
+          "kind": "scenario",
+          "id": "subway_step_apology"
+        },
+        {
+          "kind": "scenario",
+          "id": "break_glass_apology"
         }
       ]
     },
     {
       "id": "cluster_a1_11_titles_relationships_v1",
       "level": "a1",
-      "revision": 14,
+      "revision": 15,
       "sourceSeedIds": [
         "seed_scenario_titles_relationship_distance_v1",
         "seed_vocab_pack_a1_family_1_v1",
@@ -1052,7 +1112,11 @@
         "seed_smalltalk_smalltalk_a1_0099_v1",
         "seed_smalltalk_smalltalk_a1_0100_v1",
         "seed_grammar_grammar_a2_contrast_v1",
-        "seed_grammar_grammar_a2_comparative_v1"
+        "seed_grammar_grammar_a2_comparative_v1",
+        "seed_scenario_a1_w10_partner_v1",
+        "seed_scenario_a1_w10_fandom_v1",
+        "seed_scenario_favorite_korean_music_v1",
+        "seed_scenario_korea_stay_smalltalk_v1"
       ],
       "contentReferences": [
         {
@@ -1282,13 +1346,29 @@
         {
           "kind": "grammar",
           "id": "grammar_a2_comparative"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_w10_partner"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_w10_fandom"
+        },
+        {
+          "kind": "scenario",
+          "id": "favorite_korean_music"
+        },
+        {
+          "kind": "scenario",
+          "id": "korea_stay_smalltalk"
         }
       ]
     },
     {
       "id": "cluster_a1_12_daily_negation_v1",
       "level": "a1",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_daily_1_v1",
         "seed_vocab_pack_a1_daily_2_v1",
@@ -1314,7 +1394,8 @@
         "seed_smalltalk_smalltalk_a1_0081_v1",
         "seed_scenario_a1_youtube_shorts_last_night_v1",
         "seed_smalltalk_smalltalk_a1_0090_v1",
-        "seed_grammar_grammar_a2_inability_v1"
+        "seed_grammar_grammar_a2_inability_v1",
+        "seed_scenario_cafe_dessert_sold_out_v1"
       ],
       "contentReferences": [
         {
@@ -1416,13 +1497,17 @@
         {
           "kind": "grammar",
           "id": "grammar_a2_inability"
+        },
+        {
+          "kind": "scenario",
+          "id": "cafe_dessert_sold_out"
         }
       ]
     },
     {
       "id": "cluster_a1_13_register_switching_v1",
       "level": "a1",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
         "seed_cloze_cloze_a1_0076_v1",
         "seed_cloze_cloze_a1_0077_v1",
@@ -1433,7 +1518,8 @@
         "seed_grammar_grammar_b1_honorific_subject_kkeyseo_v1",
         "seed_grammar_grammar_a1_formal_command_v1",
         "seed_grammar_grammar_a1_formal_statement_v1",
-        "seed_grammar_grammar_a1_formal_question_v1"
+        "seed_grammar_grammar_a1_formal_question_v1",
+        "seed_scenario_dance_class_register_v1"
       ],
       "contentReferences": [
         {
@@ -1475,13 +1561,17 @@
         {
           "kind": "grammar",
           "id": "grammar_a1_formal_question"
+        },
+        {
+          "kind": "scenario",
+          "id": "dance_class_register"
         }
       ]
     },
     {
       "id": "cluster_a1_14_payment_delivery_v1",
       "level": "a1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_delivery_address_confirmation_v1",
         "seed_scenario_convenience_store_v1",
@@ -1494,7 +1584,8 @@
         "seed_cloze_cloze_a1_0331_v1",
         "seed_cloze_cloze_a1_0332_v1",
         "seed_cloze_cloze_a1_0333_v1",
-        "seed_cloze_cloze_a1_0334_v1"
+        "seed_cloze_cloze_a1_0334_v1",
+        "seed_scenario_bakery_payment_bag_v1"
       ],
       "contentReferences": [
         {
@@ -1544,6 +1635,10 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0334"
+        },
+        {
+          "kind": "scenario",
+          "id": "bakery_payment_bag"
         }
       ]
     },
@@ -1918,7 +2013,7 @@
     {
       "id": "cluster_a2_haeyo_register_transition_v1",
       "level": "a2",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_vocab_pack_a2_change_verbs_1_v1",
         "seed_vocab_pack_a2_daily_1_v1",
@@ -1950,7 +2045,10 @@
         "seed_cloze_cloze_a2_0060_v1",
         "seed_cloze_cloze_a2_0061_v1",
         "seed_scenario_a2_kpop_concert_queue_v1",
-        "seed_scenario_a2_flat_viewing_terms_batch20_v1"
+        "seed_scenario_a2_flat_viewing_terms_batch20_v1",
+        "seed_scenario_a2_w10_fandom_v1",
+        "seed_scenario_favorite_drama_chat_v1",
+        "seed_scenario_samgyeopsal_first_time_v1"
       ],
       "contentReferences": [
         {
@@ -2076,6 +2174,18 @@
         {
           "kind": "scenario",
           "id": "a2_flat_viewing_terms_batch20"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_w10_fandom"
+        },
+        {
+          "kind": "scenario",
+          "id": "favorite_drama_chat"
+        },
+        {
+          "kind": "scenario",
+          "id": "samgyeopsal_first_time"
         }
       ]
     },
@@ -2331,21 +2441,26 @@
     {
       "id": "cluster_a2_friend_birthday_v1",
       "level": "a2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
-        "seed_scenario_friend_birthday_v1"
+        "seed_scenario_friend_birthday_v1",
+        "seed_scenario_a2_w10_booking_v1"
       ],
       "contentReferences": [
         {
           "kind": "scenario",
           "id": "friend_birthday"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_w10_booking"
         }
       ]
     },
     {
       "id": "cluster_a2_running_late_v1",
       "level": "a2",
-      "revision": 20,
+      "revision": 21,
       "sourceSeedIds": [
         "seed_scenario_running_late_v1",
         "seed_vocab_pack_a2_nature_1_v1",
@@ -2420,7 +2535,11 @@
         "seed_vocab_pack_a1_partner_photo_thanks_1_v1",
         "seed_grammar_grammar_b1_background_contrast_v1",
         "seed_grammar_grammar_a2_nominalizer_eum_v1",
-        "seed_grammar_grammar_a2_from_person_v1"
+        "seed_grammar_grammar_a2_from_person_v1",
+        "seed_scenario_a2_w10_friends_v1",
+        "seed_scenario_a2_w10_partner_v1",
+        "seed_scenario_friend_cancelled_plan_v1",
+        "seed_scenario_group_chat_photo_permission_v1"
       ],
       "contentReferences": [
         {
@@ -2718,20 +2837,37 @@
         {
           "kind": "grammar",
           "id": "grammar_a2_from_person"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_w10_friends"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_w10_partner"
+        },
+        {
+          "kind": "scenario",
+          "id": "friend_cancelled_plan"
+        },
+        {
+          "kind": "scenario",
+          "id": "group_chat_photo_permission"
         }
       ]
     },
     {
       "id": "cluster_a2_pharmacy_headache_v1",
       "level": "a2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_pharmacy_headache_v1",
         "seed_vocab_pack_a2_health_misc_1_v1",
         "seed_vocab_pack_a2_health_misc_2_v1",
         "seed_smalltalk_smalltalk_a2_0035_v1",
         "seed_smalltalk_smalltalk_a2_0036_v1",
-        "seed_vocab_pack_a1_pharmacy_ask_1_v1"
+        "seed_vocab_pack_a1_pharmacy_ask_1_v1",
+        "seed_scenario_pharmacy_cold_medicine_v1"
       ],
       "contentReferences": [
         {
@@ -2757,16 +2893,21 @@
         {
           "kind": "vocabPack",
           "id": "a2_pharmacy_ask_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "pharmacy_cold_medicine"
         }
       ]
     },
     {
       "id": "cluster_a2_gym_signup_v1",
       "level": "a2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_gym_signup_v1",
-        "seed_smalltalk_smalltalk_a2_0012_v1"
+        "seed_smalltalk_smalltalk_a2_0012_v1",
+        "seed_scenario_a2_w10_enrolment_v1"
       ],
       "contentReferences": [
         {
@@ -2776,13 +2917,17 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a2_0012"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_w10_enrolment"
         }
       ]
     },
     {
       "id": "cluster_a2_feeling_sick_v1",
       "level": "a2",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_scenario_feeling_sick_v1",
         "seed_vocab_pack_a2_feelings_1_v1",
@@ -2800,7 +2945,9 @@
         "seed_vocab_pack_a1_weather_layer_1_v1",
         "seed_grammar_grammar_a1_honorific_kke_v1",
         "seed_grammar_grammar_b1_realization_v1",
-        "seed_grammar_grammar_a1_polite_prohibition_v1"
+        "seed_grammar_grammar_a1_polite_prohibition_v1",
+        "seed_scenario_gym_class_cancel_v1",
+        "seed_scenario_delivery_dinner_spicy_v1"
       ],
       "contentReferences": [
         {
@@ -2870,13 +3017,21 @@
         {
           "kind": "grammar",
           "id": "grammar_a1_polite_prohibition"
+        },
+        {
+          "kind": "scenario",
+          "id": "gym_class_cancel"
+        },
+        {
+          "kind": "scenario",
+          "id": "delivery_dinner_spicy"
         }
       ]
     },
     {
       "id": "cluster_a2_cafe_starbucks_basic_v1",
       "level": "a2",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_scenario_cafe_starbucks_basic_v1",
         "seed_vocab_pack_a2_food_1_v1",
@@ -2903,7 +3058,11 @@
         "seed_cloze_cloze_a2_0049_v1",
         "seed_vocab_pack_a2_salon_visit_1_v1",
         "seed_scenario_a2_daily_late_delivery_v1",
-        "seed_grammar_grammar_a1_or_particle_v1"
+        "seed_grammar_grammar_a1_or_particle_v1",
+        "seed_scenario_a2_w10_buy_v1",
+        "seed_scenario_a2_w10_apt_v1",
+        "seed_scenario_convenience_parcel_pickup_v1",
+        "seed_scenario_package_wrong_door_v1"
       ],
       "contentReferences": [
         {
@@ -3009,13 +3168,29 @@
         {
           "kind": "grammar",
           "id": "grammar_a1_or_particle"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_w10_buy"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_w10_apt"
+        },
+        {
+          "kind": "scenario",
+          "id": "convenience_parcel_pickup"
+        },
+        {
+          "kind": "scenario",
+          "id": "package_wrong_door"
         }
       ]
     },
     {
       "id": "cluster_a2_myeongdong_shopping_v1",
       "level": "a2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_myeongdong_shopping_v1",
         "seed_vocab_pack_a2_clothing_1_v1",
@@ -3027,7 +3202,8 @@
         "seed_smalltalk_smalltalk_a2_0045_v1",
         "seed_smalltalk_smalltalk_a2_0046_v1",
         "seed_smalltalk_smalltalk_a2_0047_v1",
-        "seed_smalltalk_smalltalk_a2_0048_v1"
+        "seed_smalltalk_smalltalk_a2_0048_v1",
+        "seed_scenario_clothing_refund_size_v1"
       ],
       "contentReferences": [
         {
@@ -3073,13 +3249,17 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a2_0048"
+        },
+        {
+          "kind": "scenario",
+          "id": "clothing_refund_size"
         }
       ]
     },
     {
       "id": "cluster_a2_cafe_study_v1",
       "level": "a2",
-      "revision": 12,
+      "revision": 13,
       "sourceSeedIds": [
         "seed_scenario_cafe_study_v1",
         "seed_vocab_pack_a2_education_v1",
@@ -3113,7 +3293,9 @@
         "seed_grammar_grammar_b1_nominalization_v1",
         "seed_grammar_grammar_b1_duration_v1",
         "seed_grammar_grammar_b1_since_v1",
-        "seed_grammar_grammar_a2_interrupted_action_v1"
+        "seed_grammar_grammar_a2_interrupted_action_v1",
+        "seed_scenario_email_attachment_twice_v1",
+        "seed_scenario_forgot_presentation_cable_v1"
       ],
       "contentReferences": [
         {
@@ -3247,17 +3429,26 @@
         {
           "kind": "grammar",
           "id": "grammar_a2_interrupted_action"
+        },
+        {
+          "kind": "scenario",
+          "id": "email_attachment_twice"
+        },
+        {
+          "kind": "scenario",
+          "id": "forgot_presentation_cable"
         }
       ]
     },
     {
       "id": "cluster_a2_subway_transfer_v1",
       "level": "a2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_subway_transfer_v1",
         "seed_smalltalk_smalltalk_a2_0038_v1",
-        "seed_vocab_pack_a1_subway_card_1_v1"
+        "seed_vocab_pack_a1_subway_card_1_v1",
+        "seed_scenario_train_seat_swap_v1"
       ],
       "contentReferences": [
         {
@@ -3271,17 +3462,22 @@
         {
           "kind": "vocabPack",
           "id": "a2_subway_card_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "train_seat_swap"
         }
       ]
     },
     {
       "id": "cluster_a2_taxi_street_v1",
       "level": "a2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_taxi_street_v1",
         "seed_smalltalk_smalltalk_a2_0040_v1",
-        "seed_smalltalk_smalltalk_a2_0041_v1"
+        "seed_smalltalk_smalltalk_a2_0041_v1",
+        "seed_scenario_taxi_slow_down_v1"
       ],
       "contentReferences": [
         {
@@ -3295,13 +3491,17 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a2_0041"
+        },
+        {
+          "kind": "scenario",
+          "id": "taxi_slow_down"
         }
       ]
     },
     {
       "id": "cluster_a2_subway_directions_v1",
       "level": "a2",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_scenario_subway_directions_v1",
         "seed_vocab_pack_a2_transport_v1",
@@ -3366,7 +3566,8 @@
         "seed_scenario_a2_water_set_v1",
         "seed_scenario_a2_gaming_cant_connect_v1",
         "seed_grammar_grammar_b1_experience_v1",
-        "seed_grammar_grammar_a2_no_choice_but_v1"
+        "seed_grammar_grammar_a2_no_choice_but_v1",
+        "seed_scenario_jeju_bus_missed_v1"
       ],
       "contentReferences": [
         {
@@ -3624,6 +3825,10 @@
         {
           "kind": "grammar",
           "id": "grammar_a2_no_choice_but"
+        },
+        {
+          "kind": "scenario",
+          "id": "jeju_bus_missed"
         }
       ]
     },
@@ -3659,10 +3864,11 @@
     {
       "id": "cluster_a2_ktx_ticket_v1",
       "level": "a2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_ktx_ticket_v1",
-        "seed_smalltalk_smalltalk_a2_0042_v1"
+        "seed_smalltalk_smalltalk_a2_0042_v1",
+        "seed_scenario_library_card_problem_v1"
       ],
       "contentReferences": [
         {
@@ -3672,13 +3878,17 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_a2_0042"
+        },
+        {
+          "kind": "scenario",
+          "id": "library_card_problem"
         }
       ]
     },
     {
       "id": "cluster_a2_rent_bank_transfer_v1",
       "level": "a2",
-      "revision": 9,
+      "revision": 10,
       "sourceSeedIds": [
         "seed_scenario_rent_bank_transfer_v1",
         "seed_vocab_pack_a2_home_1_v1",
@@ -3711,7 +3921,9 @@
         "seed_smalltalk_smalltalk_a2_0083_v1",
         "seed_grammar_grammar_a1_present_modifier_v1",
         "seed_grammar_grammar_a1_past_modifier_v1",
-        "seed_grammar_grammar_b1_resultant_state_v1"
+        "seed_grammar_grammar_b1_resultant_state_v1",
+        "seed_scenario_a2_w10_money_v1",
+        "seed_scenario_forgot_house_key_v1"
       ],
       "contentReferences": [
         {
@@ -3841,13 +4053,21 @@
         {
           "kind": "grammar",
           "id": "grammar_b1_resultant_state"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_w10_money"
+        },
+        {
+          "kind": "scenario",
+          "id": "forgot_house_key"
         }
       ]
     },
     {
       "id": "cluster_b1_plans_with_reasons_v1",
       "level": "b1",
-      "revision": 12,
+      "revision": 13,
       "sourceSeedIds": [
         "seed_scenario_postpone_plans_v1",
         "seed_vocab_pack_b1_city_places_1_v1",
@@ -3908,7 +4128,13 @@
         "seed_vocab_pack_b1_travel_change_1_v1",
         "seed_smalltalk_smalltalk_b1_0072_v1",
         "seed_scenario_b1_youtube_up_all_night_v1",
-        "seed_scenario_b1_job_offer_conditions_batch20_v1"
+        "seed_scenario_b1_job_offer_conditions_batch20_v1",
+        "seed_scenario_jeju_rain_plan_change_v1",
+        "seed_scenario_b1_w10_fandom_v1",
+        "seed_scenario_b1_w10_incident_v1",
+        "seed_scenario_birthday_expectation_gap_v1",
+        "seed_scenario_ktx_sold_out_alternative_v1",
+        "seed_scenario_running_injury_training_plan_v1"
       ],
       "contentReferences": [
         {
@@ -4150,6 +4376,30 @@
         {
           "kind": "scenario",
           "id": "b1_job_offer_conditions_batch20"
+        },
+        {
+          "kind": "scenario",
+          "id": "jeju_rain_plan_change"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_w10_fandom"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_w10_incident"
+        },
+        {
+          "kind": "scenario",
+          "id": "birthday_expectation_gap"
+        },
+        {
+          "kind": "scenario",
+          "id": "ktx_sold_out_alternative"
+        },
+        {
+          "kind": "scenario",
+          "id": "running_injury_training_plan"
         }
       ]
     },
@@ -4190,7 +4440,7 @@
     {
       "id": "cluster_b1_relay_social_speech_v1",
       "level": "b1",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_scenario_company_dinner_hoeshik_v1",
         "seed_vocab_pack_b1_communication_lang_1_v1",
@@ -4222,7 +4472,9 @@
         "seed_scenario_b1_incident_leak_from_upstairs_v1",
         "seed_scenario_b1_incident_lost_item_desk_v1",
         "seed_scenario_b1_incident_parking_scratch_v1",
-        "seed_scenario_b1_incident_witness_note_v1"
+        "seed_scenario_b1_incident_witness_note_v1",
+        "seed_scenario_team_update_indirect_speech_v1",
+        "seed_scenario_reel_caption_misunderstanding_v1"
       ],
       "contentReferences": [
         {
@@ -4348,6 +4600,14 @@
         {
           "kind": "scenario",
           "id": "b1_incident_witness_note"
+        },
+        {
+          "kind": "scenario",
+          "id": "team_update_indirect_speech"
+        },
+        {
+          "kind": "scenario",
+          "id": "reel_caption_misunderstanding"
         }
       ]
     },
@@ -4392,7 +4652,7 @@
     {
       "id": "cluster_b1_team_role_coordination_v1",
       "level": "b1",
-      "revision": 11,
+      "revision": 12,
       "sourceSeedIds": [
         "seed_scenario_b1_team_meeting_coordination_v1",
         "seed_vocab_pack_b1_work_v1",
@@ -4442,7 +4702,8 @@
         "seed_smalltalk_smalltalk_b1_0076_v1",
         "seed_smalltalk_smalltalk_b1_0077_v1",
         "seed_smalltalk_smalltalk_b1_0078_v1",
-        "seed_vocab_pack_a2_part_time_1_v1"
+        "seed_vocab_pack_a2_part_time_1_v1",
+        "seed_scenario_work_message_too_direct_v1"
       ],
       "contentReferences": [
         {
@@ -4640,20 +4901,25 @@
         {
           "kind": "vocabPack",
           "id": "b1_part_time_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "work_message_too_direct"
         }
       ]
     },
     {
       "id": "cluster_b1_attendance_and_coverage_v1",
       "level": "b1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_b1_attendance_followup_v1",
         "seed_scenario_b1_covering_absence_v1",
         "seed_smalltalk_smalltalk_b1_0049_v1",
         "seed_smalltalk_smalltalk_b1_0050_v1",
         "seed_smalltalk_smalltalk_b1_0051_v1",
-        "seed_smalltalk_smalltalk_b1_0052_v1"
+        "seed_smalltalk_smalltalk_b1_0052_v1",
+        "seed_scenario_company_instagram_wrong_account_v1"
       ],
       "contentReferences": [
         {
@@ -4679,18 +4945,23 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b1_0052"
+        },
+        {
+          "kind": "scenario",
+          "id": "company_instagram_wrong_account"
         }
       ]
     },
     {
       "id": "cluster_b1_schedule_softening_v1",
       "level": "b1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_b1_reschedule_request_v1",
         "seed_smalltalk_smalltalk_b1_0041_v1",
         "seed_smalltalk_smalltalk_b1_0047_v1",
-        "seed_smalltalk_smalltalk_b1_0048_v1"
+        "seed_smalltalk_smalltalk_b1_0048_v1",
+        "seed_scenario_community_festival_shift_v1"
       ],
       "contentReferences": [
         {
@@ -4708,27 +4979,36 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b1_0048"
+        },
+        {
+          "kind": "scenario",
+          "id": "community_festival_shift"
         }
       ]
     },
     {
       "id": "cluster_b1_encouragement_v1",
       "level": "b1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
-        "seed_scenario_warm_encouragement_v1"
+        "seed_scenario_warm_encouragement_v1",
+        "seed_scenario_speech_level_after_friendship_v1"
       ],
       "contentReferences": [
         {
           "kind": "scenario",
           "id": "warm_encouragement"
+        },
+        {
+          "kind": "scenario",
+          "id": "speech_level_after_friendship"
         }
       ]
     },
     {
       "id": "cluster_b1_intimate_feelings_v1",
       "level": "b1",
-      "revision": 11,
+      "revision": 12,
       "sourceSeedIds": [
         "seed_scenario_love_confession_v1",
         "seed_vocab_pack_b1_character_feelings_1_v1",
@@ -4791,7 +5071,11 @@
         "seed_vocab_pack_a1_partner_siblings_hello_1_v1",
         "seed_vocab_pack_a2_partner_sibling_tease_1_v1",
         "seed_vocab_pack_a2_partner_banmal_switch_1_v1",
-        "seed_vocab_pack_a2_partner_leftover_bags_1_v1"
+        "seed_vocab_pack_a2_partner_leftover_bags_1_v1",
+        "seed_scenario_date_or_friendly_coffee_v1",
+        "seed_scenario_b1_w10_friends_v1",
+        "seed_scenario_b1_w10_partner_v1",
+        "seed_scenario_cancelled_trip_hurt_feelings_v1"
       ],
       "contentReferences": [
         {
@@ -5041,6 +5325,22 @@
         {
           "kind": "vocabPack",
           "id": "b1_partner_leftover_bags_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "date_or_friendly_coffee"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_w10_friends"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_w10_partner"
+        },
+        {
+          "kind": "scenario",
+          "id": "cancelled_trip_hurt_feelings"
         }
       ]
     },
@@ -5071,7 +5371,7 @@
     {
       "id": "cluster_b1_delivery_resolution_v1",
       "level": "b1",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
         "seed_scenario_food_delivery_v1",
         "seed_vocab_pack_b1_health_education_v1",
@@ -5125,7 +5425,12 @@
         "seed_scenario_b1_insurance_what_is_covered_v1",
         "seed_vocab_pack_a2_bank_counter_1_v1",
         "seed_vocab_pack_a2_phone_plan_1_v1",
-        "seed_vocab_pack_a2_lost_found_1_v1"
+        "seed_vocab_pack_a2_lost_found_1_v1",
+        "seed_scenario_food_delivery_wrong_order_v1",
+        "seed_scenario_b1_w10_bill_v1",
+        "seed_scenario_noisy_neighbor_evening_v1",
+        "seed_scenario_secondhand_hidden_defect_v1",
+        "seed_scenario_subscription_cancel_charge_v1"
       ],
       "contentReferences": [
         {
@@ -5339,13 +5644,33 @@
         {
           "kind": "vocabPack",
           "id": "b1_lost_found_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "food_delivery_wrong_order"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_w10_bill"
+        },
+        {
+          "kind": "scenario",
+          "id": "noisy_neighbor_evening"
+        },
+        {
+          "kind": "scenario",
+          "id": "secondhand_hidden_defect"
+        },
+        {
+          "kind": "scenario",
+          "id": "subscription_cancel_charge"
         }
       ]
     },
     {
       "id": "cluster_b1_property_damage_report_v1",
       "level": "b1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_b1_leak_report_v1",
         "seed_smalltalk_smalltalk_b1_0043_v1",
@@ -5361,7 +5686,8 @@
         "seed_satz_satz_b1_0076_v1",
         "seed_satz_satz_b1_0077_v1",
         "seed_satz_satz_b1_0078_v1",
-        "seed_satz_satz_b1_0079_v1"
+        "seed_satz_satz_b1_0079_v1",
+        "seed_scenario_b1_w10_repair_v1"
       ],
       "contentReferences": [
         {
@@ -5423,18 +5749,23 @@
         {
           "kind": "satz",
           "id": "satz_b1_0079"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_w10_repair"
         }
       ]
     },
     {
       "id": "cluster_b1_housing_contract_v1",
       "level": "b1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_b1_contract_appointment_v1",
         "seed_vocab_pack_b1_housing_contract_1_v1",
         "seed_smalltalk_smalltalk_b1_0034_v1",
-        "seed_vocab_pack_a2_housing_search_2026_1_v1"
+        "seed_vocab_pack_a2_housing_search_2026_1_v1",
+        "seed_scenario_b1_w10_cancellation_v1"
       ],
       "contentReferences": [
         {
@@ -5452,13 +5783,17 @@
         {
           "kind": "vocabPack",
           "id": "b1_housing_search_2026_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_w10_cancellation"
         }
       ]
     },
     {
       "id": "cluster_b1_safety_health_concern_v1",
       "level": "b1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_b1_heating_safety_call_v1",
         "seed_vocab_pack_b1_health_hospital_1_v1",
@@ -5466,7 +5801,8 @@
         "seed_smalltalk_smalltalk_b1_0024_v1",
         "seed_smalltalk_smalltalk_b1_0035_v1",
         "seed_smalltalk_smalltalk_b1_0036_v1",
-        "seed_smalltalk_smalltalk_b1_0044_v1"
+        "seed_smalltalk_smalltalk_b1_0044_v1",
+        "seed_scenario_b1_w10_insurance_v1"
       ],
       "contentReferences": [
         {
@@ -5496,32 +5832,42 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b1_0044"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_w10_insurance"
         }
       ]
     },
     {
       "id": "cluster_b1_relationship_conflict_repair_v1",
       "level": "b1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
-        "seed_scenario_couple_argument_v1"
+        "seed_scenario_couple_argument_v1",
+        "seed_scenario_park_pet_manners_v1"
       ],
       "contentReferences": [
         {
           "kind": "scenario",
           "id": "couple_argument"
+        },
+        {
+          "kind": "scenario",
+          "id": "park_pet_manners"
         }
       ]
     },
     {
       "id": "cluster_b1_move_in_handover_v1",
       "level": "b1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_scenario_b1_move_in_handover_v1",
         "seed_smalltalk_smalltalk_b1_0033_v1",
         "seed_vocab_pack_a1_neighbors_hall_1_v1",
-        "seed_vocab_pack_a2_apt_rules_1_v1"
+        "seed_vocab_pack_a2_apt_rules_1_v1",
+        "seed_scenario_apartment_recycling_mixup_v1"
       ],
       "contentReferences": [
         {
@@ -5539,13 +5885,17 @@
         {
           "kind": "vocabPack",
           "id": "b1_apt_rules_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "apartment_recycling_mixup"
         }
       ]
     },
     {
       "id": "cluster_b1_life_course_narrative_v1",
       "level": "b1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_time_life_1_v1",
         "seed_vocab_pack_b1_descriptions_adj_1_v1",
@@ -5557,7 +5907,10 @@
         "seed_grammar_grammar_b1_self_prompt_v1",
         "seed_vocab_pack_b1_volunteer_shift_1_v1",
         "seed_scenario_b1_daily_cut_the_bills_v1",
-        "seed_vocab_pack_a2_festival_booth_1_v1"
+        "seed_vocab_pack_a2_festival_booth_1_v1",
+        "seed_scenario_ai_summary_wrong_fact_v1",
+        "seed_scenario_b1_w10_form_v1",
+        "seed_scenario_shared_cup_recycling_v1"
       ],
       "contentReferences": [
         {
@@ -5603,13 +5956,25 @@
         {
           "kind": "vocabPack",
           "id": "b1_festival_booth_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "ai_summary_wrong_fact"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_w10_form"
+        },
+        {
+          "kind": "scenario",
+          "id": "shared_cup_recycling"
         }
       ]
     },
     {
       "id": "cluster_b2_formal_meeting_opening_v1",
       "level": "b2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_scenario_business_meeting_intro_v1",
         "seed_vocab_pack_b2_communication_v1",
@@ -5620,7 +5985,11 @@
         "seed_smalltalk_smalltalk_b2_0042_v1",
         "seed_smalltalk_smalltalk_b2_0100_v1",
         "seed_scenario_b2_youtube_collab_pitch_v1",
-        "seed_scenario_b2_rent_increase_meeting_batch20_v1"
+        "seed_scenario_b2_rent_increase_meeting_batch20_v1",
+        "seed_scenario_meeting_opening_context_v1",
+        "seed_scenario_b2_w10_authorities_v1",
+        "seed_scenario_filming_permission_v1",
+        "seed_scenario_wedding_invitation_expectation_v1"
       ],
       "contentReferences": [
         {
@@ -5662,6 +6031,22 @@
         {
           "kind": "scenario",
           "id": "b2_rent_increase_meeting_batch20"
+        },
+        {
+          "kind": "scenario",
+          "id": "meeting_opening_context"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_w10_authorities"
+        },
+        {
+          "kind": "scenario",
+          "id": "filming_permission"
+        },
+        {
+          "kind": "scenario",
+          "id": "wedding_invitation_expectation"
         }
       ]
     },
@@ -5682,7 +6067,7 @@
     {
       "id": "cluster_b2_decision_criteria_v1",
       "level": "b2",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_scenario_b2_decision_criteria_workshop_v1",
         "seed_vocab_pack_b2_decisions_perspectives_1_v1",
@@ -5790,7 +6175,9 @@
         "seed_grammar_grammar_b2_criterion_view_batch20_v1",
         "seed_smalltalk_smalltalk_b2_0114_v1",
         "seed_smalltalk_smalltalk_b2_0117_v1",
-        "seed_smalltalk_smalltalk_b2_0118_v1"
+        "seed_smalltalk_smalltalk_b2_0118_v1",
+        "seed_scenario_meeting_disagreement_evidence_v1",
+        "seed_scenario_ai_image_disclosure_v1"
       ],
       "contentReferences": [
         {
@@ -6220,20 +6607,33 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0118"
+        },
+        {
+          "kind": "scenario",
+          "id": "meeting_disagreement_evidence"
+        },
+        {
+          "kind": "scenario",
+          "id": "ai_image_disclosure"
         }
       ]
     },
     {
       "id": "cluster_b2_public_wording_revision_v1",
       "level": "b2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
-        "seed_scenario_b2_public_wording_feedback_v1"
+        "seed_scenario_b2_public_wording_feedback_v1",
+        "seed_scenario_direct_feedback_misread_v1"
       ],
       "contentReferences": [
         {
           "kind": "scenario",
           "id": "b2_public_wording_feedback"
+        },
+        {
+          "kind": "scenario",
+          "id": "direct_feedback_misread"
         }
       ]
     },
@@ -6366,13 +6766,14 @@
     {
       "id": "cluster_b2_medical_precision_v1",
       "level": "b2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_doctor_consultation_v1",
         "seed_smalltalk_smalltalk_b2_0012_v1",
         "seed_smalltalk_smalltalk_b2_0024_v1",
         "seed_smalltalk_smalltalk_b2_0035_v1",
-        "seed_smalltalk_smalltalk_b2_0036_v1"
+        "seed_smalltalk_smalltalk_b2_0036_v1",
+        "seed_scenario_b2_w10_health_v1"
       ],
       "contentReferences": [
         {
@@ -6394,13 +6795,17 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0036"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_w10_health"
         }
       ]
     },
     {
       "id": "cluster_b2_contract_scope_v1",
       "level": "b2",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_scenario_b2_signature_scope_confirmation_v1",
         "seed_vocab_pack_b2_formal_agreement_1_v1",
@@ -6438,7 +6843,12 @@
         "seed_smalltalk_smalltalk_b2_0125_v1",
         "seed_smalltalk_smalltalk_b2_0126_v1",
         "seed_smalltalk_smalltalk_b2_0127_v1",
-        "seed_smalltalk_smalltalk_b2_0128_v1"
+        "seed_smalltalk_smalltalk_b2_0128_v1",
+        "seed_scenario_freelance_scope_change_v1",
+        "seed_scenario_b2_w10_privacy_v1",
+        "seed_scenario_brand_private_account_boundary_v1",
+        "seed_scenario_feedback_specific_example_v1",
+        "seed_scenario_neighborhood_filming_notice_v1"
       ],
       "contentReferences": [
         {
@@ -6588,20 +6998,45 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0128"
+        },
+        {
+          "kind": "scenario",
+          "id": "freelance_scope_change"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_w10_privacy"
+        },
+        {
+          "kind": "scenario",
+          "id": "brand_private_account_boundary"
+        },
+        {
+          "kind": "scenario",
+          "id": "feedback_specific_example"
+        },
+        {
+          "kind": "scenario",
+          "id": "neighborhood_filming_notice"
         }
       ]
     },
     {
       "id": "cluster_b2_terms_deferral_v1",
       "level": "b2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
-        "seed_scenario_b2_deadline_deferral_request_v1"
+        "seed_scenario_b2_deadline_deferral_request_v1",
+        "seed_scenario_b2_w10_negotiate_v1"
       ],
       "contentReferences": [
         {
           "kind": "scenario",
           "id": "b2_deadline_deferral_request"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_w10_negotiate"
         }
       ]
     },
@@ -6627,7 +7062,7 @@
     {
       "id": "cluster_b2_formal_complaint_v1",
       "level": "b2",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_scenario_complaint_delivery_v1",
         "seed_vocab_pack_b2_household_practical_1_v1",
@@ -6676,7 +7111,12 @@
         "seed_scenario_b2_taxi_escalate_v1",
         "seed_scenario_b2_time_box_v1",
         "seed_scenario_b2_vacate_short_v1",
-        "seed_scenario_b2_gaming_ban_appeal_v1"
+        "seed_scenario_b2_gaming_ban_appeal_v1",
+        "seed_scenario_delivery_refund_evidence_v1",
+        "seed_scenario_b2_w10_travel_v1",
+        "seed_scenario_library_quiet_zone_conflict_v1",
+        "seed_scenario_rental_repair_deposit_v1",
+        "seed_scenario_train_delay_connection_v1"
       ],
       "contentReferences": [
         {
@@ -6870,13 +7310,33 @@
         {
           "kind": "scenario",
           "id": "b2_gaming_ban_appeal"
+        },
+        {
+          "kind": "scenario",
+          "id": "delivery_refund_evidence"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_w10_travel"
+        },
+        {
+          "kind": "scenario",
+          "id": "library_quiet_zone_conflict"
+        },
+        {
+          "kind": "scenario",
+          "id": "rental_repair_deposit"
+        },
+        {
+          "kind": "scenario",
+          "id": "train_delay_connection"
         }
       ]
     },
     {
       "id": "cluster_b2_remedy_and_appeal_v1",
       "level": "b2",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_scenario_b2_remedy_plan_request_v1",
         "seed_vocab_pack_b2_formal_complaint_1_v1",
@@ -6900,7 +7360,8 @@
         "seed_satz_satz_b2_0153_v1",
         "seed_satz_satz_b2_0154_v1",
         "seed_satz_satz_b2_0155_v1",
-        "seed_vocab_pack_b1_public_office_1_v1"
+        "seed_vocab_pack_b1_public_office_1_v1",
+        "seed_scenario_b2_w10_notice_v1"
       ],
       "contentReferences": [
         {
@@ -6994,6 +7455,10 @@
         {
           "kind": "vocabPack",
           "id": "b2_public_office_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_w10_notice"
         }
       ]
     },
@@ -7192,7 +7657,7 @@
     {
       "id": "cluster_b2_interview_experience_v1",
       "level": "b2",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_scenario_job_interview_v1",
         "seed_vocab_pack_b2_relationships_people_1_v1",
@@ -7225,7 +7690,9 @@
         "seed_cloze_cloze_b2_0365_v1",
         "seed_cloze_cloze_b2_0366_v1",
         "seed_cloze_cloze_b2_0367_v1",
-        "seed_smalltalk_smalltalk_b2_0116_v1"
+        "seed_smalltalk_smalltalk_b2_0116_v1",
+        "seed_scenario_portfolio_interview_gap_v1",
+        "seed_scenario_b2_w10_hiring_v1"
       ],
       "contentReferences": [
         {
@@ -7355,13 +7822,21 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0116"
+        },
+        {
+          "kind": "scenario",
+          "id": "portfolio_interview_gap"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_w10_hiring"
         }
       ]
     },
     {
       "id": "cluster_b2_literary_cultural_response_v1",
       "level": "b2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_b2_reading_circle_response_v1",
         "seed_vocab_pack_b2_events_culture_1_v1",
@@ -7376,7 +7851,8 @@
         "seed_smalltalk_smalltalk_b2_0057_v1",
         "seed_smalltalk_smalltalk_b2_0058_v1",
         "seed_smalltalk_smalltalk_b2_0059_v1",
-        "seed_smalltalk_smalltalk_b2_0060_v1"
+        "seed_smalltalk_smalltalk_b2_0060_v1",
+        "seed_scenario_b2_w10_fandom_v1"
       ],
       "contentReferences": [
         {
@@ -7434,13 +7910,17 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0060"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_w10_fandom"
         }
       ]
     },
     {
       "id": "cluster_b2_formal_soft_reformulation_v1",
       "level": "b2",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_grammar_grammar_b2_only_course_v1",
         "seed_vocab_pack_b2_misc_v1",
@@ -7497,7 +7977,13 @@
         "seed_cloze_cloze_b2_0372_v1",
         "seed_cloze_cloze_b2_0373_v1",
         "seed_smalltalk_smalltalk_b2_0113_v1",
-        "seed_smalltalk_smalltalk_b2_0115_v1"
+        "seed_smalltalk_smalltalk_b2_0115_v1",
+        "seed_scenario_accessible_festival_route_v1",
+        "seed_scenario_b2_w10_partner_v1",
+        "seed_scenario_community_event_compromise_v1",
+        "seed_scenario_fremdschaemen_live_v1",
+        "seed_scenario_partner_family_titles_v1",
+        "seed_scenario_recycling_policy_pilot_v1"
       ],
       "contentReferences": [
         {
@@ -7723,13 +8209,37 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_b2_0115"
+        },
+        {
+          "kind": "scenario",
+          "id": "accessible_festival_route"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_w10_partner"
+        },
+        {
+          "kind": "scenario",
+          "id": "community_event_compromise"
+        },
+        {
+          "kind": "scenario",
+          "id": "fremdschaemen_live"
+        },
+        {
+          "kind": "scenario",
+          "id": "partner_family_titles"
+        },
+        {
+          "kind": "scenario",
+          "id": "recycling_policy_pilot"
         }
       ]
     },
     {
       "id": "cluster_c1_evidence_validity_v1",
       "level": "c1",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
@@ -7780,7 +8290,14 @@
         "seed_smalltalk_smalltalk_c1_0059_v1",
         "seed_smalltalk_smalltalk_c1_0060_v1",
         "seed_smalltalk_smalltalk_c1_0061_v1",
-        "seed_smalltalk_smalltalk_c1_0075_v1"
+        "seed_smalltalk_smalltalk_c1_0075_v1",
+        "seed_scenario_c1_w10_clinical_v1",
+        "seed_scenario_c1_w10_conflict_interest_v1",
+        "seed_scenario_c1_w10_uncertainty_v1",
+        "seed_scenario_platform_moderation_appeal_v1",
+        "seed_scenario_public_consultation_access_v1",
+        "seed_scenario_research_limits_presentation_v1",
+        "seed_scenario_youth_housing_plain_language_v1"
       ],
       "contentReferences": [
         {
@@ -8038,13 +8555,41 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c1_0075"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_w10_clinical"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_w10_conflict_interest"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_w10_uncertainty"
+        },
+        {
+          "kind": "scenario",
+          "id": "platform_moderation_appeal"
+        },
+        {
+          "kind": "scenario",
+          "id": "public_consultation_access"
+        },
+        {
+          "kind": "scenario",
+          "id": "research_limits_presentation"
+        },
+        {
+          "kind": "scenario",
+          "id": "youth_housing_plain_language"
         }
       ]
     },
     {
       "id": "cluster_c1_evidence_limits_conclusion_v1",
       "level": "c1",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
@@ -8201,7 +8746,12 @@
         "seed_satz_satz_c1_0249_v1",
         "seed_satz_satz_c1_0250_v1",
         "seed_satz_satz_c1_0251_v1",
-        "seed_satz_satz_c1_0252_v1"
+        "seed_satz_satz_c1_0252_v1",
+        "seed_scenario_ai_interview_screening_transparency_v1",
+        "seed_scenario_ai_translation_voice_loss_v1",
+        "seed_scenario_c1_w10_methodology_v1",
+        "seed_scenario_deepfake_verification_v1",
+        "seed_scenario_training_data_copyright_v1"
       ],
       "contentReferences": [
         {
@@ -8883,13 +9433,33 @@
         {
           "kind": "satz",
           "id": "satz_c1_0252"
+        },
+        {
+          "kind": "scenario",
+          "id": "ai_interview_screening_transparency"
+        },
+        {
+          "kind": "scenario",
+          "id": "ai_translation_voice_loss"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_w10_methodology"
+        },
+        {
+          "kind": "scenario",
+          "id": "deepfake_verification"
+        },
+        {
+          "kind": "scenario",
+          "id": "training_data_copyright"
         }
       ]
     },
     {
       "id": "cluster_c1_risk_uncertainty_v1",
       "level": "c1",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_batch05_c1_risk_communication_1_v1",
         "seed_project_c1_risk_v1",
@@ -8898,7 +9468,9 @@
         "seed_smalltalk_smalltalk_c1_0047_v1",
         "seed_smalltalk_smalltalk_c1_0048_v1",
         "seed_smalltalk_smalltalk_c1_0049_v1",
-        "seed_smalltalk_smalltalk_c1_0050_v1"
+        "seed_smalltalk_smalltalk_c1_0050_v1",
+        "seed_scenario_nightlife_noise_balance_v1",
+        "seed_scenario_school_phone_rule_v1"
       ],
       "contentReferences": [
         {
@@ -8996,6 +9568,14 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c1_0050"
+        },
+        {
+          "kind": "scenario",
+          "id": "nightlife_noise_balance"
+        },
+        {
+          "kind": "scenario",
+          "id": "school_phone_rule"
         }
       ]
     },
@@ -9205,7 +9785,7 @@
     {
       "id": "cluster_c1_participatory_access_remedy_v1",
       "level": "c1",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_batch05_c1_accessible_participation_1_v1",
         "seed_project_c1_accessibility_v1",
@@ -9359,7 +9939,12 @@
         "seed_smalltalk_smalltalk_c1_0084_v1",
         "seed_smalltalk_smalltalk_c1_0085_v1",
         "seed_smalltalk_smalltalk_c1_0086_v1",
-        "seed_smalltalk_smalltalk_c1_0087_v1"
+        "seed_smalltalk_smalltalk_c1_0087_v1",
+        "seed_scenario_after_hours_messages_v1",
+        "seed_scenario_c1_w10_facework_v1",
+        "seed_scenario_c1_w10_friends_v1",
+        "seed_scenario_c1_w10_labor_v1",
+        "seed_scenario_workload_allocation_hidden_labor_v1"
       ],
       "contentReferences": [
         {
@@ -10029,13 +10614,33 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c1_0087"
+        },
+        {
+          "kind": "scenario",
+          "id": "after_hours_messages"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_w10_facework"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_w10_friends"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_w10_labor"
+        },
+        {
+          "kind": "scenario",
+          "id": "workload_allocation_hidden_labor"
         }
       ]
     },
     {
       "id": "cluster_c1_sustainable_lifecycle_v1",
       "level": "c1",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
         "seed_project_c1_sustainability_v1",
@@ -10086,7 +10691,11 @@
         "seed_smalltalk_smalltalk_c1_0053_v1",
         "seed_smalltalk_smalltalk_c1_0054_v1",
         "seed_smalltalk_smalltalk_c1_0076_v1",
-        "seed_smalltalk_smalltalk_c1_0077_v1"
+        "seed_smalltalk_smalltalk_c1_0077_v1",
+        "seed_scenario_c1_w10_fandom_v1",
+        "seed_scenario_fan_translation_credit_v1",
+        "seed_scenario_museum_label_multiple_views_v1",
+        "seed_scenario_tradition_reinterpreted_stage_v1"
       ],
       "contentReferences": [
         {
@@ -10352,13 +10961,29 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c1_0077"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_w10_fandom"
+        },
+        {
+          "kind": "scenario",
+          "id": "fan_translation_credit"
+        },
+        {
+          "kind": "scenario",
+          "id": "museum_label_multiple_views"
+        },
+        {
+          "kind": "scenario",
+          "id": "tradition_reinterpreted_stage"
         }
       ]
     },
     {
       "id": "cluster_c1_local_tradeoff_adaptation_v1",
       "level": "c1",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
         "seed_project_c1_sustainability_v1",
@@ -10504,7 +11129,13 @@
         "seed_smalltalk_smalltalk_c1_0064_v1",
         "seed_smalltalk_smalltalk_c1_0065_v1",
         "seed_smalltalk_smalltalk_c1_0070_v1",
-        "seed_smalltalk_smalltalk_c1_0071_v1"
+        "seed_smalltalk_smalltalk_c1_0071_v1",
+        "seed_scenario_anonymous_survey_trust_v1",
+        "seed_scenario_c1_w10_access_v1",
+        "seed_scenario_delivery_rider_safety_tradeoff_v1",
+        "seed_scenario_gentrification_storefront_v1",
+        "seed_scenario_heatwave_shelter_access_v1",
+        "seed_scenario_kiosk_generation_access_v1"
       ],
       "contentReferences": [
         {
@@ -11150,6 +11781,30 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c1_0071"
+        },
+        {
+          "kind": "scenario",
+          "id": "anonymous_survey_trust"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_w10_access"
+        },
+        {
+          "kind": "scenario",
+          "id": "delivery_rider_safety_tradeoff"
+        },
+        {
+          "kind": "scenario",
+          "id": "gentrification_storefront"
+        },
+        {
+          "kind": "scenario",
+          "id": "heatwave_shelter_access"
+        },
+        {
+          "kind": "scenario",
+          "id": "kiosk_generation_access"
         }
       ]
     },
@@ -12158,7 +12813,7 @@
     {
       "id": "cluster_c2_narrative_perspective_v1",
       "level": "c2",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_batch05_c2_narrative_perspective_1_v1",
         "seed_project_c2_narrative_v1",
@@ -12207,7 +12862,13 @@
         "seed_smalltalk_smalltalk_c2_0083_v1",
         "seed_smalltalk_smalltalk_c2_0084_v1",
         "seed_smalltalk_smalltalk_c2_0085_v1",
-        "seed_smalltalk_smalltalk_c2_0086_v1"
+        "seed_smalltalk_smalltalk_c2_0086_v1",
+        "seed_scenario_c2_w10_friends_v1",
+        "seed_scenario_c2_w10_history_v1",
+        "seed_scenario_diaspora_name_identity_v1",
+        "seed_scenario_family_memory_conflict_v1",
+        "seed_scenario_relationship_story_reframing_v1",
+        "seed_scenario_we_translation_identity_v1"
       ],
       "contentReferences": [
         {
@@ -12461,6 +13122,30 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c2_0086"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_w10_friends"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_w10_history"
+        },
+        {
+          "kind": "scenario",
+          "id": "diaspora_name_identity"
+        },
+        {
+          "kind": "scenario",
+          "id": "family_memory_conflict"
+        },
+        {
+          "kind": "scenario",
+          "id": "relationship_story_reframing"
+        },
+        {
+          "kind": "scenario",
+          "id": "we_translation_identity"
         }
       ]
     },
@@ -12567,7 +13252,7 @@
     {
       "id": "cluster_c2_framing_responsibility_v1",
       "level": "c2",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_batch05_c2_language_framing_1_v1",
         "seed_project_c2_framing_v1",
@@ -12642,7 +13327,15 @@
         "seed_satz_satz_c2_0249_v1",
         "seed_satz_satz_c2_0250_v1",
         "seed_satz_satz_c2_0251_v1",
-        "seed_satz_satz_c2_0252_v1"
+        "seed_satz_satz_c2_0252_v1",
+        "seed_scenario_c2_w10_jurisdiction_v1",
+        "seed_scenario_c2_w10_mandate_v1",
+        "seed_scenario_c2_w10_record_v1",
+        "seed_scenario_housing_tax_intergenerational_v1",
+        "seed_scenario_poll_question_framing_v1",
+        "seed_scenario_protest_order_and_rights_v1",
+        "seed_scenario_replication_failure_response_v1",
+        "seed_scenario_welfare_fraud_presumption_v1"
       ],
       "contentReferences": [
         {
@@ -12996,13 +13689,45 @@
         {
           "kind": "satz",
           "id": "satz_c2_0252"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_w10_jurisdiction"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_w10_mandate"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_w10_record"
+        },
+        {
+          "kind": "scenario",
+          "id": "housing_tax_intergenerational"
+        },
+        {
+          "kind": "scenario",
+          "id": "poll_question_framing"
+        },
+        {
+          "kind": "scenario",
+          "id": "protest_order_and_rights"
+        },
+        {
+          "kind": "scenario",
+          "id": "replication_failure_response"
+        },
+        {
+          "kind": "scenario",
+          "id": "welfare_fraud_presumption"
         }
       ]
     },
     {
       "id": "cluster_c2_discourse_boundary_power_v1",
       "level": "c2",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_batch05_c2_language_framing_1_v1",
         "seed_project_c2_framing_v1",
@@ -13051,7 +13776,12 @@
         "seed_satz_satz_c2_0233_v1",
         "seed_satz_satz_c2_0234_v1",
         "seed_smalltalk_smalltalk_c2_0051_v1",
-        "seed_smalltalk_smalltalk_c2_0052_v1"
+        "seed_smalltalk_smalltalk_c2_0052_v1",
+        "seed_scenario_c2_w10_aesthetic_v1",
+        "seed_scenario_c2_w10_fandom_v1",
+        "seed_scenario_fact_check_label_power_v1",
+        "seed_scenario_hidden_gem_local_impact_v1",
+        "seed_scenario_passive_voice_accountability_v1"
       ],
       "contentReferences": [
         {
@@ -13301,13 +14031,33 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c2_0052"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_w10_aesthetic"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_w10_fandom"
+        },
+        {
+          "kind": "scenario",
+          "id": "fact_check_label_power"
+        },
+        {
+          "kind": "scenario",
+          "id": "hidden_gem_local_impact"
+        },
+        {
+          "kind": "scenario",
+          "id": "passive_voice_accountability"
         }
       ]
     },
     {
       "id": "cluster_c2_technology_traceability_appeal_v1",
       "level": "c2",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
         "seed_batch05_c2_technology_ethics_1_v1",
         "seed_project_c2_technology_v1",
@@ -13472,7 +14222,8 @@
         "seed_smalltalk_smalltalk_c2_0061_v1",
         "seed_smalltalk_smalltalk_c2_0063_v1",
         "seed_smalltalk_smalltalk_c2_0064_v1",
-        "seed_scenario_c2_automated_redress_record_batch20_v1"
+        "seed_scenario_c2_automated_redress_record_batch20_v1",
+        "seed_scenario_ai_hiring_appeal_v1"
       ],
       "contentReferences": [
         {
@@ -14194,13 +14945,17 @@
         {
           "kind": "scenario",
           "id": "c2_automated_redress_record_batch20"
+        },
+        {
+          "kind": "scenario",
+          "id": "ai_hiring_appeal"
         }
       ]
     },
     {
       "id": "cluster_c2_technology_responsibility_rights_v1",
       "level": "c2",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_batch05_c2_technology_ethics_1_v1",
         "seed_project_c2_technology_v1",
@@ -14258,7 +15013,16 @@
         "seed_smalltalk_smalltalk_c2_0070_v1",
         "seed_smalltalk_smalltalk_c2_0071_v1",
         "seed_smalltalk_smalltalk_c2_0072_v1",
-        "seed_smalltalk_smalltalk_c2_0075_v1"
+        "seed_smalltalk_smalltalk_c2_0075_v1",
+        "seed_scenario_automated_benefit_denial_v1",
+        "seed_scenario_autonomous_delivery_liability_v1",
+        "seed_scenario_c2_w10_impact_v1",
+        "seed_scenario_c2_w10_limitation_v1",
+        "seed_scenario_causal_claim_headline_v1",
+        "seed_scenario_central_local_disaster_responsibility_v1",
+        "seed_scenario_climate_model_local_decision_v1",
+        "seed_scenario_emergency_price_controls_v1",
+        "seed_scenario_medical_uncertainty_consent_v1"
       ],
       "contentReferences": [
         {
@@ -14552,6 +15316,42 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c2_0075"
+        },
+        {
+          "kind": "scenario",
+          "id": "automated_benefit_denial"
+        },
+        {
+          "kind": "scenario",
+          "id": "autonomous_delivery_liability"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_w10_impact"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_w10_limitation"
+        },
+        {
+          "kind": "scenario",
+          "id": "causal_claim_headline"
+        },
+        {
+          "kind": "scenario",
+          "id": "central_local_disaster_responsibility"
+        },
+        {
+          "kind": "scenario",
+          "id": "climate_model_local_decision"
+        },
+        {
+          "kind": "scenario",
+          "id": "emergency_price_controls"
+        },
+        {
+          "kind": "scenario",
+          "id": "medical_uncertainty_consent"
         }
       ]
     }
@@ -14564,14 +15364,14 @@
       "level": "a1",
       "order": 1,
       "title": {
-        "ko": "인사와 한글 소리",
-        "de": "Grußformeln und Hangul-Laute",
-        "en": "Greetings and Hangul sounds"
+        "ko": "첫 인사와 다시 묻기",
+        "de": "Erste Begrüßung und Nachfragen",
+        "en": "First greetings and asking again"
       },
       "canDo": {
-        "ko": "한글을 읽으며 처음 만난 사람에게 안전하게 인사할 수 있어요.",
-        "de": "Ich kann Hangul mitlesen und eine unbekannte Person sicher begrüßen.",
-        "en": "I can read along in Hangul and greet a new person safely."
+        "ko": "처음 만난 사람에게 인사하고 짧은 질문을 확인할 수 있어요.",
+        "de": "Ich kann eine neue Person begrüßen und eine kurze Frage klären.",
+        "en": "I can greet someone new and clarify a short question."
       },
       "requiredConceptIds": [
         "concept_hangul_batchim",
@@ -14605,14 +15405,14 @@
       "level": "a1",
       "order": 2,
       "title": {
-        "ko": "자기소개와 입니다",
-        "de": "Vorstellung und 입니다",
-        "en": "Self-introduction and 입니다"
+        "ko": "이름과 출신 말하기",
+        "de": "Name und Herkunft nennen",
+        "en": "Saying your name and where you are from"
       },
       "canDo": {
-        "ko": "저는 …입니다로 자신을 공식적으로 소개하고, 이에요/예요와 이야/야를 구별해 들을 수 있어요.",
-        "de": "Ich kann mich mit 저는 …입니다 formell vorstellen und 이에요/예요 sowie 이야/야 unterscheiden.",
-        "en": "I can introduce myself formally with 저는 …입니다 and distinguish 이에요/예요 from 이야/야."
+        "ko": "이름과 출신을 말하고 상대 이름을 확인할 수 있어요.",
+        "de": "Ich kann meinen Namen und meine Herkunft nennen und den Namen meines Gegenübers bestätigen.",
+        "en": "I can say my name and where I am from, and confirm the other person's name."
       },
       "requiredConceptIds": [
         "concept_identity_formal",
@@ -14647,14 +15447,14 @@
       "level": "a1",
       "order": 3,
       "title": {
-        "ko": "은/는과 이/가",
-        "de": "은/는 und 이/가",
-        "en": "은/는 and 이/가"
+        "ko": "가게에서 물건 찾기",
+        "de": "Im Laden etwas finden",
+        "en": "Finding something in a shop"
       },
       "canDo": {
-        "ko": "수진은/수진이가처럼 주제와 새 정보를 구별해 말할 수 있어요.",
-        "de": "Ich kann Thema und neue Information unterscheiden, etwa 수진은/수진이가.",
-        "en": "I can distinguish topic and new information, for example 수진은/수진이가."
+        "ko": "찾는 물건의 이름을 말하고 어디 있는지 물을 수 있어요.",
+        "de": "Ich kann sagen, was ich suche, und fragen, wo es ist.",
+        "en": "I can say what I am looking for and ask where it is."
       },
       "requiredConceptIds": [
         "concept_topic_particle",
@@ -14688,14 +15488,14 @@
       "level": "a1",
       "order": 4,
       "title": {
-        "ko": "주문·요청과 을/를",
-        "de": "Bestellen, Bitten und 을/를",
-        "en": "Ordering, requests, and 을/를"
+        "ko": "음식과 수량 주문하기",
+        "de": "Essen und Mengen bestellen",
+        "en": "Ordering food and quantities"
       },
       "canDo": {
-        "ko": "밥을/커피를처럼 목적어를 말하고, 서비스 상황에서 데워 주세요라고 요청할 수 있어요.",
-        "de": "Ich kann Objekte wie 밥을/커피를 nennen und im Service 데워 주세요 sagen.",
-        "en": "I can name objects such as 밥을/커피를 and request 데워 주세요 in a service setting."
+        "ko": "원하는 음식과 수량을 말해 주문할 수 있어요.",
+        "de": "Ich kann ein Gericht und die gewünschte Menge bestellen.",
+        "en": "I can order a dish and say how many I want."
       },
       "requiredConceptIds": [
         "concept_object_particle",
@@ -14729,14 +15529,14 @@
       "level": "a1",
       "order": 5,
       "title": {
-        "ko": "시간과 숫자",
-        "de": "Zeit und Zahlen",
-        "en": "Time and numbers"
+        "ko": "시간 확인하기",
+        "de": "Eine Uhrzeit klären",
+        "en": "Confirming a time"
       },
       "canDo": {
-        "ko": "시간, 날짜, 수량을 확인할 수 있어요.",
-        "de": "Ich kann Uhrzeit, Datum und Menge klären.",
-        "en": "I can clarify time, date, and quantity."
+        "ko": "약속 시간을 묻고 맞는 시간을 다시 확인할 수 있어요.",
+        "de": "Ich kann nach einer Uhrzeit fragen und sie noch einmal bestätigen.",
+        "en": "I can ask about a meeting time and confirm it."
       },
       "requiredConceptIds": [
         "concept_a1_time_numbers"
@@ -14769,14 +15569,14 @@
       "level": "a1",
       "order": 6,
       "title": {
-        "ko": "교통과 길찾기",
-        "de": "Verkehr und Wegfragen",
-        "en": "Transport and directions"
+        "ko": "교통에서 내릴 곳 말하기",
+        "de": "Unterwegs sagen, wo man aussteigen möchte",
+        "en": "Saying where you want to get off"
       },
       "canDo": {
-        "ko": "택시와 지하철에서 목적지를 확인할 수 있어요.",
-        "de": "Ich kann in Taxi und U-Bahn mein Ziel bestätigen.",
-        "en": "I can confirm my destination in a taxi or subway."
+        "ko": "택시나 대중교통에서 내릴 곳을 짧게 말할 수 있어요.",
+        "de": "Ich kann im Taxi oder in öffentlichen Verkehrsmitteln kurz sagen, wo ich aussteigen möchte.",
+        "en": "I can briefly say where I want to get off in a taxi or on public transport."
       },
       "requiredConceptIds": [
         "concept_a1_directions"
@@ -14809,14 +15609,14 @@
       "level": "a1",
       "order": 7,
       "title": {
-        "ko": "연락처·주소·호수",
-        "de": "Kontakt, Adresse und Zimmernummer",
-        "en": "Contact details, addresses, and room numbers"
+        "ko": "자연스럽게 연락 방법 정하기",
+        "de": "Eine passende Kontaktmöglichkeit vereinbaren",
+        "en": "Agreeing on a natural way to stay in touch"
       },
       "canDo": {
-        "ko": "전화번호, 주소, 호수를 천천히 확인할 수 있어요.",
-        "de": "Ich kann Telefonnummer, Adresse und Zimmernummer langsam bestätigen.",
-        "en": "I can slowly confirm a phone number, address, and room number."
+        "ko": "카카오톡 같은 연락 방법을 묻고 간단히 확인할 수 있어요.",
+        "de": "Ich kann nach einer passenden Kontaktmöglichkeit wie KakaoTalk fragen und sie bestätigen.",
+        "en": "I can ask about a natural way to stay in touch, such as KakaoTalk, and confirm it."
       },
       "requiredConceptIds": [
         "concept_a1_contact_address"
@@ -14849,14 +15649,14 @@
       "level": "a1",
       "order": 8,
       "title": {
-        "ko": "못 알아들었을 때",
-        "de": "Wenn ich etwas nicht verstehe",
-        "en": "When I do not understand"
+        "ko": "못 들었을 때 다시 묻기",
+        "de": "Nachfragen, wenn man etwas nicht verstanden hat",
+        "en": "Asking again when you did not catch something"
       },
       "canDo": {
-        "ko": "다시 말해 주세요와 천천히 말해 주세요로 대화를 이어 갈 수 있어요.",
-        "de": "Ich kann mit 다시 말해 주세요 und 천천히 말해 주세요 ein Gespräch fortsetzen.",
-        "en": "I can keep a conversation going with 다시 말해 주세요 and 천천히 말해 주세요."
+        "ko": "못 들은 말이나 숫자를 다시 말해 달라고 할 수 있어요.",
+        "de": "Ich kann darum bitten, ein Wort oder eine Zahl zu wiederholen.",
+        "en": "I can ask someone to repeat a word or number I did not catch."
       },
       "requiredConceptIds": [
         "concept_a1_clarification"
@@ -14889,14 +15689,14 @@
       "level": "a1",
       "order": 9,
       "title": {
-        "ko": "집과 생활",
-        "de": "Zuhause und Alltag",
-        "en": "Home and daily life"
+        "ko": "집에서 물건 찾기",
+        "de": "Zu Hause etwas suchen",
+        "en": "Looking for something at home"
       },
       "canDo": {
-        "ko": "집에서 하는 기본 생활을 말할 수 있어요.",
-        "de": "Ich kann grundlegende Dinge des Alltags zu Hause beschreiben.",
-        "en": "I can describe basic things I do at home."
+        "ko": "집에서 필요한 물건이 어디 있는지 묻고 답할 수 있어요.",
+        "de": "Ich kann zu Hause fragen und sagen, wo etwas liegt.",
+        "en": "I can ask and say where something is at home."
       },
       "requiredConceptIds": [
         "concept_a1_home_daily"
@@ -14929,14 +15729,14 @@
       "level": "a1",
       "order": 10,
       "title": {
-        "ko": "병원과 안전",
-        "de": "Gesundheit und Sicherheit",
-        "en": "Health and safety"
+        "ko": "작은 실수에 사과하기",
+        "de": "Sich für ein kleines Missgeschick entschuldigen",
+        "en": "Apologizing for a small accident"
       },
       "canDo": {
-        "ko": "아프거나 도움이 필요할 때 핵심 정보를 말할 수 있어요.",
-        "de": "Ich kann wichtige Informationen sagen, wenn ich krank bin oder Hilfe brauche.",
-        "en": "I can give key information when I am sick or need help."
+        "ko": "작은 실수에 바로 사과하고 상대가 괜찮은지 물을 수 있어요.",
+        "de": "Ich kann mich sofort für ein kleines Missgeschick entschuldigen und fragen, ob alles in Ordnung ist.",
+        "en": "I can apologize right away for a small accident and ask if the other person is okay."
       },
       "requiredConceptIds": [
         "concept_a1_health_safety"
@@ -14969,14 +15769,14 @@
       "level": "a1",
       "order": 11,
       "title": {
-        "ko": "호칭과 관계",
-        "de": "Anrede und Beziehung",
-        "en": "Titles and relationships"
+        "ko": "새 친구와 취향 말하기",
+        "de": "Mit neuen Bekannten über Vorlieben sprechen",
+        "en": "Talking about preferences with someone new"
       },
       "canDo": {
-        "ko": "처음 만난 사람에게 너 대신 안전한 호칭이나 생략을 선택할 수 있어요.",
-        "de": "Ich kann bei neuen Bekanntschaften statt 너 eine sichere Anrede oder Auslassung wählen.",
-        "en": "I can choose a safe title or omission instead of 너 with someone I just met."
+        "ko": "좋아하는 음악이나 콘텐츠를 짧게 묻고 답할 수 있어요.",
+        "de": "Ich kann kurz nach Lieblingsmusik oder -inhalten fragen und darauf antworten.",
+        "en": "I can briefly ask and answer about favorite music or shows."
       },
       "requiredConceptIds": [
         "concept_a1_titles_relationships"
@@ -15009,14 +15809,14 @@
       "level": "a1",
       "order": 12,
       "title": {
-        "ko": "일상과 부정",
-        "de": "Alltag und Verneinung",
-        "en": "Daily life and negation"
+        "ko": "메뉴가 있는지 묻기",
+        "de": "Fragen, ob etwas auf der Karte verfügbar ist",
+        "en": "Asking whether something is available"
       },
       "canDo": {
-        "ko": "일상을 말하고 정중하게 아니에요/안 해요를 사용할 수 있어요.",
-        "de": "Ich kann Alltag beschreiben und höflich 아니에요/안 해요 verwenden.",
-        "en": "I can describe daily life and use 아니에요/안 해요 politely."
+        "ko": "원하는 메뉴가 있는지 묻고 없으면 다른 것을 고를 수 있어요.",
+        "de": "Ich kann fragen, ob etwas verfügbar ist, und sonst etwas anderes wählen.",
+        "en": "I can ask if an item is available and choose something else if it is not."
       },
       "requiredConceptIds": [
         "concept_a1_negation"
@@ -15049,14 +15849,14 @@
       "level": "a1",
       "order": 13,
       "title": {
-        "ko": "말투 바꾸기",
-        "de": "Den Ton wechseln",
-        "en": "Changing speech style"
+        "ko": "친한 말과 공손한 말 알아듣기",
+        "de": "Vertraute und höfliche Sprechweisen erkennen",
+        "en": "Recognizing casual and polite speech"
       },
       "canDo": {
-        "ko": "합니다체를 기본으로 하고, 해요체와 반말은 관계에 따라 듣고 고를 수 있어요.",
-        "de": "Ich kann 합니다체 als Standard nutzen und 해요체 sowie 반말 je nach Beziehung hören und wählen.",
-        "en": "I can use 합니다체 as my baseline and hear and choose 해요체 or 반말 based on the relationship."
+        "ko": "같은 뜻이 친한 말과 공손한 말에서 어떻게 들리는지 구별할 수 있어요.",
+        "de": "Ich kann erkennen, wie dieselbe Aussage vertraut oder höflich klingt.",
+        "en": "I can recognize how the same message sounds in casual and polite speech."
       },
       "requiredConceptIds": [
         "concept_a1_register_switch"
@@ -15089,14 +15889,14 @@
       "level": "a1",
       "order": 14,
       "title": {
-        "ko": "결제와 배달",
-        "de": "Bezahlen und Lieferung",
-        "en": "Payment and delivery"
+        "ko": "가게에서 필요한 것 말하기",
+        "de": "Im Laden sagen, was man braucht",
+        "en": "Saying what you need in a shop"
       },
       "canDo": {
-        "ko": "자동 결제예요 같은 안내를 이해하고 결제·배달 정보를 확인할 수 있어요.",
-        "de": "Ich kann Hinweise wie 자동 결제예요 verstehen und Zahlungs- oder Lieferinfos prüfen.",
-        "en": "I can understand notices such as 자동 결제예요 and check payment or delivery details."
+        "ko": "봉투처럼 필요한 것과 필요 없는 것을 짧게 말할 수 있어요.",
+        "de": "Ich kann kurz sagen, ob ich etwas wie eine Tüte brauche oder nicht.",
+        "en": "I can briefly say whether I need something such as a bag."
       },
       "requiredConceptIds": [
         "concept_a1_payment_delivery"
@@ -15129,14 +15929,14 @@
       "level": "a1",
       "order": 15,
       "title": {
-        "ko": "첫 수업·첫 만남",
-        "de": "Erster Kurs und erstes Treffen",
-        "en": "First class and first meeting"
+        "ko": "첫 수업에서 옆 사람 만나기",
+        "de": "Im ersten Kurs die Person neben sich kennenlernen",
+        "en": "Meeting the person next to you in your first class"
       },
       "canDo": {
-        "ko": "수업이나 직장에서 처음 만난 사람에게 자신을 소개하고 기본 질문을 할 수 있어요.",
-        "de": "Ich kann mich in Kurs oder Arbeit vorstellen und einfache Fragen stellen.",
-        "en": "I can introduce myself and ask basic questions when I first meet someone in class or at work."
+        "ko": "첫 수업에서 인사하고 기본 정보를 주고받을 수 있어요.",
+        "de": "Ich kann mich im ersten Kurs begrüßen und grundlegende Angaben austauschen.",
+        "en": "I can greet someone and exchange basic information in my first class."
       },
       "requiredConceptIds": [
         "concept_a1_first_meeting"
@@ -15169,14 +15969,14 @@
       "level": "a1",
       "order": 16,
       "title": {
-        "ko": "한국 생활 첫 90일",
-        "de": "Die ersten 90 Tage in Korea",
-        "en": "Your first 90 days in Korea"
+        "ko": "첫 주말 계획 세우기",
+        "de": "Das erste Wochenende planen",
+        "en": "Planning your first weekend"
       },
       "canDo": {
-        "ko": "인사, 소개, 주문, 길찾기, 되묻기를 연결해 기본 생활 문제를 해결할 수 있어요.",
-        "de": "Ich kann Begrüßung, Vorstellung, Bestellung, Wegfragen und Rückfragen für Alltagssituationen verbinden.",
-        "en": "I can combine greetings, introduction, ordering, directions, and repair questions for everyday situations."
+        "ko": "익숙한 하루 계획에서 시간과 필요한 물건을 확인할 수 있어요.",
+        "de": "Ich kann bei einem einfachen Tagesplan Zeit und benötigte Dinge klären.",
+        "en": "I can confirm the time and what is needed for a simple day plan."
       },
       "requiredConceptIds": [
         "concept_a1_survival"
@@ -15250,14 +16050,14 @@
       "level": "a2",
       "order": 2,
       "title": {
-        "ko": "친구랑 약속 잡기",
-        "de": "Mit einer Freundin was ausmachen",
-        "en": "Making plans with a friend"
+        "ko": "주말에 전시 보러 가기",
+        "de": "Einen Ausstellungsbesuch planen",
+        "en": "Planning an exhibition visit"
       },
       "canDo": {
-        "ko": "친구랑 약속 잡기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Mit einer Freundin was ausmachen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Making plans with a friend” by connecting appropriate Korean expressions."
+        "ko": "주말에 전시 보러 가기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Einen Ausstellungsbesuch planen“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Planning an exhibition visit” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_proposal_formal",
@@ -15292,14 +16092,14 @@
       "level": "a2",
       "order": 3,
       "title": {
-        "ko": "친구 생일 축하하기",
-        "de": "Einem Freund zum Geburtstag gratulieren",
-        "en": "Wishing a friend a happy birthday"
+        "ko": "식당 예약 전화하기",
+        "de": "Einen Tisch im Restaurant reservieren",
+        "en": "Calling to book a restaurant table"
       },
       "canDo": {
-        "ko": "친구 생일 축하하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Einem Freund zum Geburtstag gratulieren“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Wishing a friend a happy birthday” by connecting appropriate Korean expressions."
+        "ko": "식당 예약 전화하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Einen Tisch im Restaurant reservieren“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Calling to book a restaurant table” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_proposal_formal",
@@ -15334,14 +16134,14 @@
       "level": "a2",
       "order": 4,
       "title": {
-        "ko": "약속에 늦었을 때",
-        "de": "Zu spät zur Verabredung",
-        "en": "Running late"
+        "ko": "늦는다고 카카오톡 보내기",
+        "de": "Per KakaoTalk Bescheid sagen, dass man später kommt",
+        "en": "Texting that you're running late"
       },
       "canDo": {
-        "ko": "약속에 늦었을 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Zu spät zur Verabredung“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Running late” by connecting appropriate Korean expressions."
+        "ko": "늦는다고 카카오톡 보내기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Per KakaoTalk Bescheid sagen, dass man später kommt“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Texting that you're running late” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_a2_relationships"
@@ -15374,14 +16174,14 @@
       "level": "a2",
       "order": 5,
       "title": {
-        "ko": "약국에서 두통약",
-        "de": "In der Apotheke",
-        "en": "At the pharmacy"
+        "ko": "약국에서 감기 증상 말하기",
+        "de": "In der Apotheke Erkältungssymptome erklären",
+        "en": "Describing cold symptoms at a pharmacy"
       },
       "canDo": {
-        "ko": "약국에서 두통약 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „In der Apotheke“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “At the pharmacy” by connecting appropriate Korean expressions."
+        "ko": "약국에서 감기 증상 말하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „In der Apotheke Erkältungssymptome erklären“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Describing cold symptoms at a pharmacy” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_a2_feelings"
@@ -15414,14 +16214,14 @@
       "level": "a2",
       "order": 6,
       "title": {
-        "ko": "헬스장 등록하기",
-        "de": "Sich im Fitnessstudio anmelden",
-        "en": "Signing up at the gym"
+        "ko": "필라테스 수업 등록하기",
+        "de": "Sich für einen Pilates-Kurs anmelden",
+        "en": "Signing up for a Pilates class"
       },
       "canDo": {
-        "ko": "헬스장 등록하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Sich im Fitnessstudio anmelden“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Signing up at the gym” by connecting appropriate Korean expressions."
+        "ko": "필라테스 수업 등록하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Sich für einen Pilates-Kurs anmelden“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Signing up for a Pilates class” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_a2_feelings"
@@ -15454,14 +16254,14 @@
       "level": "a2",
       "order": 7,
       "title": {
-        "ko": "아플 때 친구에게 말하기",
-        "de": "Einem Freund sagen, dass man krank ist",
-        "en": "Telling a friend you're sick"
+        "ko": "운동 수업을 취소하기",
+        "de": "Einen Sportkurs wegen Schmerzen absagen",
+        "en": "Canceling a workout class because of pain"
       },
       "canDo": {
-        "ko": "아플 때 친구에게 말하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Einem Freund sagen, dass man krank ist“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Telling a friend you're sick” by connecting appropriate Korean expressions."
+        "ko": "운동 수업을 취소하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Einen Sportkurs wegen Schmerzen absagen“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Canceling a workout class because of pain” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_a2_feelings"
@@ -15494,14 +16294,14 @@
       "level": "a2",
       "order": 8,
       "title": {
-        "ko": "카페에서 주문하기",
-        "de": "Im Café bestellen",
-        "en": "Ordering at a café"
+        "ko": "시장에서 장보기",
+        "de": "Einkaufen auf dem Markt",
+        "en": "Grocery shopping at the market"
       },
       "canDo": {
-        "ko": "카페에서 주문하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Im Café bestellen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Ordering at a café” by connecting appropriate Korean expressions."
+        "ko": "시장에서 장보기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Einkaufen auf dem Markt“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Grocery shopping at the market” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_a2_services"
@@ -15534,14 +16334,14 @@
       "level": "a2",
       "order": 9,
       "title": {
-        "ko": "명동 쇼핑",
-        "de": "Shopping in Myeong-dong",
-        "en": "Shopping in Myeongdong"
+        "ko": "옷 사이즈를 바꾸기",
+        "de": "Ein Hemd umtauschen",
+        "en": "Exchanging a shirt"
       },
       "canDo": {
-        "ko": "명동 쇼핑 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Shopping in Myeong-dong“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Shopping in Myeongdong” by connecting appropriate Korean expressions."
+        "ko": "옷 사이즈를 바꾸기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Ein Hemd umtauschen“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Exchanging a shirt” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_a2_services"
@@ -15614,14 +16414,14 @@
       "level": "a2",
       "order": 11,
       "title": {
-        "ko": "지하철 환승",
-        "de": "U-Bahn Umsteigen",
-        "en": "Subway transfer"
+        "ko": "기차 좌석을 잘못 앉았을 때",
+        "de": "Auf dem falschen Sitzplatz im Zug",
+        "en": "Sitting in the wrong train seat"
       },
       "canDo": {
-        "ko": "지하철 환승 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „U-Bahn Umsteigen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Subway transfer” by connecting appropriate Korean expressions."
+        "ko": "기차 좌석을 잘못 앉았을 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Auf dem falschen Sitzplatz im Zug“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Sitting in the wrong train seat” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_a2_travel_repair"
@@ -15654,14 +16454,14 @@
       "level": "a2",
       "order": 12,
       "title": {
-        "ko": "택시 타기 — 목적지 말하기",
-        "de": "Mit dem Taxi fahren",
-        "en": "Taking a taxi"
+        "ko": "택시가 무서울 만큼 빠를 때",
+        "de": "Den Taxifahrer bitten, langsamer zu fahren",
+        "en": "Asking a taxi driver to slow down"
       },
       "canDo": {
-        "ko": "택시 타기 — 목적지 말하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Mit dem Taxi fahren“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Taking a taxi” by connecting appropriate Korean expressions."
+        "ko": "택시가 무서울 만큼 빠를 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Den Taxifahrer bitten, langsamer zu fahren“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Asking a taxi driver to slow down” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_a2_travel_repair"
@@ -15694,14 +16494,14 @@
       "level": "a2",
       "order": 13,
       "title": {
-        "ko": "지하철에서 길 묻기",
-        "de": "In der U-Bahn nach dem Weg fragen",
-        "en": "Asking for directions in the subway"
+        "ko": "제주에서 막차를 놓쳤을 때",
+        "de": "Den letzten Bus auf Jeju verpassen",
+        "en": "Missing the last bus on Jeju"
       },
       "canDo": {
-        "ko": "지하철에서 길 묻기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „In der U-Bahn nach dem Weg fragen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Asking for directions in the subway” by connecting appropriate Korean expressions."
+        "ko": "제주에서 막차를 놓쳤을 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Den letzten Bus auf Jeju verpassen“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Missing the last bus on Jeju” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_a2_travel_repair"
@@ -15774,14 +16574,14 @@
       "level": "a2",
       "order": 15,
       "title": {
-        "ko": "KTX 기차표 사기",
-        "de": "Ein KTX-Ticket kaufen",
-        "en": "Buying a KTX ticket"
+        "ko": "도서관 카드가 인식되지 않을 때",
+        "de": "Wenn der Bibliotheksausweis nicht funktioniert",
+        "en": "When your library card doesn't work"
       },
       "canDo": {
-        "ko": "KTX 기차표 사기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Ein KTX-Ticket kaufen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Buying a KTX ticket” by connecting appropriate Korean expressions."
+        "ko": "도서관 카드가 인식되지 않을 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Wenn der Bibliotheksausweis nicht funktioniert“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “When your library card doesn't work” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_a2_home_money"
@@ -15814,14 +16614,14 @@
       "level": "a2",
       "order": 16,
       "title": {
-        "ko": "월세 자동이체 확인하기",
-        "de": "Die Mietüberweisung klären",
-        "en": "Clarifying a rent transfer"
+        "ko": "은행 계좌 만들기",
+        "de": "Ein Bankkonto eröffnen",
+        "en": "Opening a bank account"
       },
       "canDo": {
-        "ko": "월세 자동이체 확인하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Die Mietüberweisung klären“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Clarifying a rent transfer” by connecting appropriate Korean expressions."
+        "ko": "은행 계좌 만들기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Ein Bankkonto eröffnen“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Opening a bank account” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_a2_home_money"
@@ -15854,14 +16654,14 @@
       "level": "b1",
       "order": 1,
       "title": {
-        "ko": "약속 미루기",
-        "de": "Ein Treffen verschieben",
-        "en": "Pushing back plans"
+        "ko": "제주 여행 일정이 비 때문에 꼬였을 때",
+        "de": "Den Jeju-Plan wegen Sturm ändern",
+        "en": "Changing plans on Jeju because of strong winds"
       },
       "canDo": {
-        "ko": "약속 미루기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Ein Treffen verschieben“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Pushing back plans” by connecting appropriate Korean expressions."
+        "ko": "제주 여행 일정이 비 때문에 꼬였을 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Den Jeju-Plan wegen Sturm ändern“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Changing plans on Jeju because of strong winds” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b1_reasons_experience"
@@ -15934,14 +16734,14 @@
       "level": "b1",
       "order": 3,
       "title": {
-        "ko": "회식 — 1차에서 2차로",
-        "de": "Hoeshik: von 1차 zu 2차",
-        "en": "Hoeshik: 1st round to 2nd"
+        "ko": "회의 시간이 바뀌었다고 전달하기",
+        "de": "Eine mögliche Terminänderung weitergeben",
+        "en": "Passing on a possible schedule change"
       },
       "canDo": {
-        "ko": "회식 — 1차에서 2차로 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Hoeshik: von 1차 zu 2차“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Hoeshik: 1st round to 2nd” by connecting appropriate Korean expressions."
+        "ko": "회의 시간이 바뀌었다고 전달하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Eine mögliche Terminänderung weitergeben“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Passing on a possible schedule change” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b1_indirect_speech"
@@ -16054,14 +16854,14 @@
       "level": "b1",
       "order": 6,
       "title": {
-        "ko": "정해진 회의 역할 조율하기",
-        "de": "Rollen für ein geplantes Meeting abstimmen",
-        "en": "Coordinating roles for a scheduled meeting"
+        "ko": "메신저 답장이 너무 딱딱하게 보였을 때",
+        "de": "Wenn eine kurze Arbeitsnachricht wie Druck klingt",
+        "en": "When a short work message sounds pushy"
       },
       "canDo": {
-        "ko": "정해진 회의 역할 조율하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Rollen für ein geplantes Meeting abstimmen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Coordinating roles for a scheduled meeting” by connecting appropriate Korean expressions."
+        "ko": "메신저 답장이 너무 딱딱하게 보였을 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Wenn eine kurze Arbeitsnachricht wie Druck klingt“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “When a short work message sounds pushy” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b1_softening"
@@ -16094,14 +16894,14 @@
       "level": "b1",
       "order": 7,
       "title": {
-        "ko": "참석 답변이 오는 대로",
-        "de": "Sobald die Zusagen eintreffen",
-        "en": "As soon as attendance replies arrive"
+        "ko": "회사 인스타 계정으로 개인 글을 올렸을 때",
+        "de": "Eine private Story über den Firmenaccount posten",
+        "en": "Posting a personal story from the company account"
       },
       "canDo": {
-        "ko": "참석 답변이 오는 대로 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Sobald die Zusagen eintreffen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “As soon as attendance replies arrive” by connecting appropriate Korean expressions."
+        "ko": "회사 인스타 계정으로 개인 글을 올렸을 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Eine private Story über den Firmenaccount posten“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Posting a personal story from the company account” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b1_softening"
@@ -16134,14 +16934,14 @@
       "level": "b1",
       "order": 8,
       "title": {
-        "ko": "회의 일정 부드럽게 바꾸기",
-        "de": "Einen Meetingtermin höflich verschieben",
-        "en": "Rescheduling a meeting politely"
+        "ko": "동네 축제 봉사 시간을 바꿔야 할 때",
+        "de": "Eine Schicht beim Nachbarschaftsfest tauschen",
+        "en": "Changing a volunteer shift at a neighborhood festival"
       },
       "canDo": {
-        "ko": "회의 일정 부드럽게 바꾸기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Einen Meetingtermin höflich verschieben“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Rescheduling a meeting politely” by connecting appropriate Korean expressions."
+        "ko": "동네 축제 봉사 시간을 바꿔야 할 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Eine Schicht beim Nachbarschaftsfest tauschen“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Changing a volunteer shift at a neighborhood festival” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b1_softening"
@@ -16174,14 +16974,14 @@
       "level": "b1",
       "order": 9,
       "title": {
-        "ko": "응원의 말",
-        "de": "Warme Aufmunterung",
-        "en": "Warm encouragement"
+        "ko": "친해진 뒤 말을 놓을지 묻기",
+        "de": "Nach einiger Zeit zum Banmal wechseln",
+        "en": "Switching to casual speech after becoming friends"
       },
       "canDo": {
-        "ko": "응원의 말 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Warme Aufmunterung“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Warm encouragement” by connecting appropriate Korean expressions."
+        "ko": "친해진 뒤 말을 놓을지 묻기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Nach einiger Zeit zum Banmal wechseln“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Switching to casual speech after becoming friends” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b1_relationships"
@@ -16214,14 +17014,14 @@
       "level": "b1",
       "order": 10,
       "title": {
-        "ko": "사랑한다고 말하기",
-        "de": "Sagen, dass man jemanden liebt",
-        "en": "Telling someone you love them"
+        "ko": "이 커피 약속이 데이트인지 헷갈릴 때",
+        "de": "War das ein Date oder nur ein Kaffee?",
+        "en": "Was that a date or just coffee?"
       },
       "canDo": {
-        "ko": "사랑한다고 말하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Sagen, dass man jemanden liebt“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Telling someone you love them” by connecting appropriate Korean expressions."
+        "ko": "이 커피 약속이 데이트인지 헷갈릴 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „War das ein Date oder nur ein Kaffee?“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Was that a date or just coffee?” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b1_relationships"
@@ -16294,14 +17094,14 @@
       "level": "b1",
       "order": 12,
       "title": {
-        "ko": "빠진 배달 음식 해결하기",
-        "de": "Ein Problem mit der Lieferung lösen",
-        "en": "Resolving a delivery problem"
+        "ko": "배달 음식이 다른 메뉴로 왔을 때",
+        "de": "Das falsche Lieferessen erhalten",
+        "en": "Receiving the wrong delivery order"
       },
       "canDo": {
-        "ko": "빠진 배달 음식 해결하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Ein Problem mit der Lieferung lösen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Resolving a delivery problem” by connecting appropriate Korean expressions."
+        "ko": "배달 음식이 다른 메뉴로 왔을 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Das falsche Lieferessen erhalten“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Receiving the wrong delivery order” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b1_complaint_resolution"
@@ -16334,14 +17134,14 @@
       "level": "b1",
       "order": 13,
       "title": {
-        "ko": "누수 신고하기",
-        "de": "Ein Wasserleck melden",
-        "en": "Reporting a water leak"
+        "ko": "세탁기가 안 돌아갈 때",
+        "de": "Wenn die Waschmaschine nicht mehr läuft",
+        "en": "When the washing machine stops working"
       },
       "canDo": {
-        "ko": "누수 신고하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Ein Wasserleck melden“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Reporting a water leak” by connecting appropriate Korean expressions."
+        "ko": "세탁기가 안 돌아갈 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Wenn die Waschmaschine nicht mehr läuft“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “When the washing machine stops working” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b1_complaint_resolution"
@@ -16374,14 +17174,14 @@
       "level": "b1",
       "order": 14,
       "title": {
-        "ko": "계약 약속 다시 확인하기",
-        "de": "Den Vertragstermin noch einmal prüfen",
-        "en": "Confirming a contract appointment"
+        "ko": "헬스장 회원권 해지하기",
+        "de": "Die Fitnessstudio-Mitgliedschaft kündigen",
+        "en": "Cancelling a gym membership"
       },
       "canDo": {
-        "ko": "계약 약속 다시 확인하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Den Vertragstermin noch einmal prüfen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Confirming a contract appointment” by connecting appropriate Korean expressions."
+        "ko": "헬스장 회원권 해지하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Die Fitnessstudio-Mitgliedschaft kündigen“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Cancelling a gym membership” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b1_complaint_resolution"
@@ -16414,14 +17214,14 @@
       "level": "b1",
       "order": 15,
       "title": {
-        "ko": "난방을 켠 채로 외출했을 때",
-        "de": "Wenn die Heizung beim Weggehen anbleibt",
-        "en": "When the heating was left on"
+        "ko": "실손보험 청구가 되는지 확인하기",
+        "de": "Prüfen, ob die Zusatzversicherung zahlt",
+        "en": "Checking whether supplementary insurance covers it"
       },
       "canDo": {
-        "ko": "난방을 켠 채로 외출했을 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Wenn die Heizung beim Weggehen anbleibt“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “When the heating was left on” by connecting appropriate Korean expressions."
+        "ko": "실손보험 청구가 되는지 확인하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Prüfen, ob die Zusatzversicherung zahlt“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Checking whether supplementary insurance covers it” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b1_complaint_resolution"
@@ -16454,14 +17254,14 @@
       "level": "b1",
       "order": 16,
       "title": {
-        "ko": "연인과 다툴 때",
-        "de": "Beim Streit mit dem Partner",
-        "en": "When you argue with your partner"
+        "ko": "공원에서 목줄이 긴 강아지를 만났을 때",
+        "de": "Eine lange Hundeleine auf dem Laufweg",
+        "en": "A long dog leash across a running path"
       },
       "canDo": {
-        "ko": "연인과 다툴 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Beim Streit mit dem Partner“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “When you argue with your partner” by connecting appropriate Korean expressions."
+        "ko": "공원에서 목줄이 긴 강아지를 만났을 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Eine lange Hundeleine auf dem Laufweg“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “A long dog leash across a running path” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b1_life"
@@ -16494,14 +17294,14 @@
       "level": "b1",
       "order": 17,
       "title": {
-        "ko": "입주 전 열쇠 받기",
-        "de": "Schlüsselübergabe vor dem Einzug",
-        "en": "Picking up keys before moving in"
+        "ko": "분리배출을 잘못해서 이웃이 말했을 때",
+        "de": "Beschichtetes Papier falsch entsorgen",
+        "en": "Sorting coated paper incorrectly"
       },
       "canDo": {
-        "ko": "입주 전 열쇠 받기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Schlüsselübergabe vor dem Einzug“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Picking up keys before moving in” by connecting appropriate Korean expressions."
+        "ko": "분리배출을 잘못해서 이웃이 말했을 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Beschichtetes Papier falsch entsorgen“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Sorting coated paper incorrectly” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b1_life"
@@ -16574,14 +17374,14 @@
       "level": "b2",
       "order": 1,
       "title": {
-        "ko": "비즈니스 미팅 — 첫 인사",
-        "de": "Vorstellung beim Geschäftsmeeting",
-        "en": "Business meeting: first introduction"
+        "ko": "처음 참석한 회의에서 목적 확인하기",
+        "de": "Zu Beginn eines Meetings das Ziel klären",
+        "en": "Clarifying the goal at the start of a meeting"
       },
       "canDo": {
-        "ko": "비즈니스 미팅 — 첫 인사 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Vorstellung beim Geschäftsmeeting“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Business meeting: first introduction” by connecting appropriate Korean expressions."
+        "ko": "처음 참석한 회의에서 목적 확인하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Zu Beginn eines Meetings das Ziel klären“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Clarifying the goal at the start of a meeting” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b2_formal_opening"
@@ -16654,14 +17454,14 @@
       "level": "b2",
       "order": 3,
       "title": {
-        "ko": "결정 기준을 설명하고 절충안 찾기",
-        "de": "Entscheidungskriterien erklären und einen Kompromiss finden",
-        "en": "Explaining decision criteria and finding a compromise"
+        "ko": "회의에서 조회 수만으로 성과를 판단할지 논쟁하기",
+        "de": "Reichweite und Käufe gemeinsam bewerten",
+        "en": "Evaluating views and purchases together"
       },
       "canDo": {
-        "ko": "결정 기준을 설명하고 절충안 찾기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Entscheidungskriterien erklären und einen Kompromiss finden“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Explaining decision criteria and finding a compromise” by connecting appropriate Korean expressions."
+        "ko": "회의에서 조회 수만으로 성과를 판단할지 논쟁하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Reichweite und Käufe gemeinsam bewerten“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Evaluating views and purchases together” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b2_opinion"
@@ -16694,14 +17494,14 @@
       "level": "b2",
       "order": 4,
       "title": {
-        "ko": "안내문 말투를 함께 다듬기",
-        "de": "Den Ton eines öffentlichen Hinweises überarbeiten",
-        "en": "Refining the wording of a public notice"
+        "ko": "솔직한 피드백이 무례하게 들렸을 때",
+        "de": "Zu knappes Feedback wieder einordnen",
+        "en": "Repairing feedback that sounded too blunt"
       },
       "canDo": {
-        "ko": "안내문 말투를 함께 다듬기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Den Ton eines öffentlichen Hinweises überarbeiten“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Refining the wording of a public notice” by connecting appropriate Korean expressions."
+        "ko": "솔직한 피드백이 무례하게 들렸을 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Zu knappes Feedback wieder einordnen“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Repairing feedback that sounded too blunt” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b2_opinion"
@@ -16894,14 +17694,14 @@
       "level": "b2",
       "order": 9,
       "title": {
-        "ko": "병원에서 증상 설명하기",
-        "de": "Beim Arzt: Symptome beschreiben",
-        "en": "At the clinic: describing symptoms"
+        "ko": "약 부작용, 미리 확인하기",
+        "de": "Nebenwirkungen vorab abklären",
+        "en": "Checking medication side effects in advance"
       },
       "canDo": {
-        "ko": "병원에서 증상 설명하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Beim Arzt: Symptome beschreiben“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “At the clinic: describing symptoms” by connecting appropriate Korean expressions."
+        "ko": "약 부작용, 미리 확인하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Nebenwirkungen vorab abklären“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Checking medication side effects in advance” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b2_precise_requests"
@@ -16934,14 +17734,14 @@
       "level": "b2",
       "order": 10,
       "title": {
-        "ko": "서명 대상 범위 확인하기",
-        "de": "Den Kreis der Unterzeichnenden bestätigen",
-        "en": "Confirming who must sign"
+        "ko": "수정 요청이 계약 범위를 넘었을 때",
+        "de": "Eine zusätzliche Drehanfrage verhandeln",
+        "en": "Negotiating an extra filming request"
       },
       "canDo": {
-        "ko": "서명 대상 범위 확인하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Den Kreis der Unterzeichnenden bestätigen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Confirming who must sign” by connecting appropriate Korean expressions."
+        "ko": "수정 요청이 계약 범위를 넘었을 때 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Eine zusätzliche Drehanfrage verhandeln“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Negotiating an extra filming request” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b2_precise_requests"
@@ -16974,14 +17774,14 @@
       "level": "b2",
       "order": 11,
       "title": {
-        "ko": "제출 기한 유예 요청하기",
-        "de": "Eine Fristverlängerung beantragen",
-        "en": "Requesting a deadline deferral"
+        "ko": "촬영 조건, 다시 협상하기",
+        "de": "Drehbedingungen neu verhandeln",
+        "en": "Renegotiating the shoot terms"
       },
       "canDo": {
-        "ko": "제출 기한 유예 요청하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Eine Fristverlängerung beantragen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Requesting a deadline deferral” by connecting appropriate Korean expressions."
+        "ko": "촬영 조건, 다시 협상하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Drehbedingungen neu verhandeln“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Renegotiating the shoot terms” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b2_precise_requests"
@@ -17054,14 +17854,14 @@
       "level": "b2",
       "order": 13,
       "title": {
-        "ko": "배송 오류 항의하기",
-        "de": "Reklamation bei einer Lieferung",
-        "en": "Complaining about a wrong delivery"
+        "ko": "배달 지연 환불 범위를 협의하기",
+        "de": "Eine teilweise Erstattung für verspätetes Essen",
+        "en": "Negotiating a partial refund for delayed food"
       },
       "canDo": {
-        "ko": "배송 오류 항의하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Reklamation bei einer Lieferung“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Complaining about a wrong delivery” by connecting appropriate Korean expressions."
+        "ko": "배달 지연 환불 범위를 협의하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Eine teilweise Erstattung für verspätetes Essen“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Negotiating a partial refund for delayed food” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b2_complaint"
@@ -17094,14 +17894,14 @@
       "level": "b2",
       "order": 14,
       "title": {
-        "ko": "시정 계획을 서면으로 요청하기",
-        "de": "Einen schriftlichen Abhilfeplan verlangen",
-        "en": "Requesting a written remedy plan"
+        "ko": "과태료 이의신청, 다시 접수하기",
+        "de": "Einspruch gegen das Bußgeld erneut einreichen",
+        "en": "Resubmitting an objection to a fine"
       },
       "canDo": {
-        "ko": "시정 계획을 서면으로 요청하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Einen schriftlichen Abhilfeplan verlangen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Requesting a written remedy plan” by connecting appropriate Korean expressions."
+        "ko": "과태료 이의신청, 다시 접수하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Einspruch gegen das Bußgeld erneut einreichen“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Resubmitting an objection to a fine” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b2_complaint"
@@ -17254,14 +18054,14 @@
       "level": "b2",
       "order": 18,
       "title": {
-        "ko": "면접 보기",
-        "de": "Im Vorstellungsgespräch",
-        "en": "In a job interview"
+        "ko": "면접에서 포트폴리오 공백 설명하기",
+        "de": "Eine Lücke im Portfolio ehrlich erklären",
+        "en": "Explaining a portfolio gap honestly"
       },
       "canDo": {
-        "ko": "면접 보기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Im Vorstellungsgespräch“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “In a job interview” by connecting appropriate Korean expressions."
+        "ko": "면접에서 포트폴리오 공백 설명하기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Eine Lücke im Portfolio ehrlich erklären“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “Explaining a portfolio gap honestly” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b2_interview"
@@ -17294,14 +18094,14 @@
       "level": "b2",
       "order": 19,
       "title": {
-        "ko": "읽은 글의 여운과 해석 나누기",
-        "de": "Nachklang und Deutung eines Texts teilen",
-        "en": "Sharing a response to a text"
+        "ko": "모금액 공개, 어디까지가 적당할까",
+        "de": "Wie viel von der Spendensumme offenlegen?",
+        "en": "How much of the donation total should be public?"
       },
       "canDo": {
-        "ko": "읽은 글의 여운과 해석 나누기 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
-        "de": "Ich kann die Aufgabe „Nachklang und Deutung eines Texts teilen“ mit passenden koreanischen Ausdrücken bewältigen.",
-        "en": "I can complete “Sharing a response to a text” by connecting appropriate Korean expressions."
+        "ko": "모금액 공개, 어디까지가 적당할까 상황에서 필요한 정보를 연결해 목적을 이룰 수 있어요.",
+        "de": "Ich kann die Aufgabe „Wie viel von der Spendensumme offenlegen?“ mit passenden koreanischen Ausdrücken bewältigen.",
+        "en": "I can complete “How much of the donation total should be public?” by connecting appropriate Korean expressions."
       },
       "requiredConceptIds": [
         "concept_b2_advanced"
