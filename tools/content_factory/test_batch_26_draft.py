@@ -73,6 +73,50 @@ SINO_NUMERAL_AGE_RE = re.compile(
     "(?:" + "|".join(SINO_NUMERALS) + r")\s*살\b"
 )
 
+# R8-2 (Fable, 2026-09-15): when the blank is immediately followed by a
+# batchim-alternating particle, every distractor must share the answer's
+# final-consonant class, or the particle itself gives the answer away.
+_RIEUL_JONG = 8  # index of ㄹ among the 28 possible Hangul syllable finals
+
+def _jong_index(ch: str):
+    code = ord(ch) - 0xAC00
+    return code % 28 if 0 <= code < 11172 else None
+
+def _batchim_class(word: str, particle_kind: str):
+    """particle_kind: 'binary' (이/가, 을/를, 은/는, 과/와, 이에요/예요) or
+    'roro' (으로/로, where a ㄹ-final counts as its own class)."""
+    j = _jong_index(word[-1])
+    if j is None:
+        return None
+    if particle_kind == "roro":
+        if j == 0:
+            return "vowel"
+        return "rieul" if j == _RIEUL_JONG else "consonant"
+    return "consonant" if j != 0 else "vowel"
+
+# (consonant_form, vowel_form, particle_kind) -- the 3-syllable copula is
+# checked before the bare 이/가 subject particle since "이에요" also starts
+# with "이".
+_ALTERNATING_PARTICLES = [
+    ("이에요", "예요", "binary"),
+    ("이", "가", "binary"),
+    ("을", "를", "binary"),
+    ("은", "는", "binary"),
+    ("과", "와", "binary"),
+    ("으로", "로", "roro"),
+]
+
+def _detect_required_class(sentence_ko: str, answer: str):
+    """If the text right after the ＿＿＿ blank is a batchim-alternating
+    particle, return (kind, required_class) for the answer's own class;
+    otherwise (None, None)."""
+    idx = sentence_ko.index("＿＿＿")
+    after = sentence_ko[idx + 3:]
+    for cform, vform, kind in _ALTERNATING_PARTICLES:
+        if after.startswith(cform) or after.startswith(vform):
+            return kind, _batchim_class(answer, kind)
+    return None, None
+
 # Distractor words that are dictionary-form verbs/adjectives or adverbs (not
 # nouns) in this batch's own distractor pools -- used to check the "at least
 # 2 of 3 distractors share the answer's part of speech" rule. Every Batch 26
@@ -342,6 +386,29 @@ class TestBatch26Cloze(unittest.TestCase):
     def test_distractors_are_unique(self):
         for item in self.items:
             self.assertEqual(len(item["distractors"]), len(set(item["distractors"])))
+
+    def test_distractors_match_answer_batchim_class_before_alternating_particle(self):
+        """When ＿＿＿ is immediately followed by a batchim-alternating
+        particle (이/가, 을/를, 은/는, 과/와, 이에요/예요, 으로/로 with a
+        ㄹ-final counted separately), every distractor must share the
+        answer's final-consonant class -- otherwise the fixed particle shown
+        in the sentence gives away whether the real answer has batchim
+        before the learner even considers the vocabulary (Fable R8-2,
+        2026-09-15)."""
+        for item in self.items:
+            kind, required = _detect_required_class(item["sentenceKo"], item["answer"])
+            if required is None:
+                continue
+            for d in item["distractors"]:
+                dc = _batchim_class(d, kind)
+                if dc is None:
+                    continue
+                self.assertEqual(
+                    dc, required,
+                    f"{item['id']}: distractor {d!r} is {dc}-final but answer "
+                    f"{item['answer']!r} is {required}-final before "
+                    f"{item['sentenceKo'][item['sentenceKo'].index('＿＿＿') + 3:][:4]!r}",
+                )
 
     def test_no_distractor_word_reused_more_than_4_times(self):
         """No single distractor word may be reused more than 4 times across

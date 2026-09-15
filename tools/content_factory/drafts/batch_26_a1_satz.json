@@ -68,9 +68,9 @@
     {
       "id": "satz_a1_0443",
       "level": "a1",
-      "targetKo": "마야 씨는 진짜 미국에서 왔어요.",
-      "promptDe": "Maya kommt wirklich aus den USA.",
-      "promptEn": "Maya really is from the USA.",
+      "targetKo": "수진 씨, 저는 진짜 미국에서 왔어요!",
+      "promptDe": "Sujin, ich komme wirklich aus den USA!",
+      "promptEn": "Sujin, I'm really from the USA!",
       "distractors": [
         "안경",
         "모자"
@@ -120,9 +120,9 @@
     {
       "id": "satz_a1_0447",
       "level": "a1",
-      "targetKo": "사월에 크리스티안이 한국에 와요, 맞아요?",
-      "promptDe": "Christian kommt im April nach Korea, oder?",
-      "promptEn": "Christian comes to Korea in April, right?",
+      "targetKo": "수진 씨, 사월에 다시 만나요, 맞아요?",
+      "promptDe": "Sujin, wir treffen uns im April wieder, oder?",
+      "promptEn": "Sujin, we're meeting again in April, right?",
       "distractors": [
         "바나나",
         "우유"
@@ -133,9 +133,9 @@
     {
       "id": "satz_a1_0448",
       "level": "a1",
-      "targetKo": "음... 오월에 크리스티안 생일이에요.",
-      "promptDe": "Ähm... Christians Geburtstag ist im Mai.",
-      "promptEn": "Um... Christian's birthday is in May.",
+      "targetKo": "음... 제 생일이 오월이에요.",
+      "promptDe": "Ähm... mein Geburtstag ist im Mai.",
+      "promptEn": "Um... my birthday is in May.",
       "distractors": [
         "할머니",
         "할아버지"
@@ -237,9 +237,9 @@
     {
       "id": "satz_a1_0456",
       "level": "a1",
-      "targetKo": "다니엘 씨는 일본을 찍고 싶어요.",
-      "promptDe": "Daniel möchte Japan filmen.",
-      "promptEn": "Daniel wants to film Japan.",
+      "targetKo": "마야 씨, 저는 일본을 찍고 싶어요!",
+      "promptDe": "Maya, ich möchte Japan filmen!",
+      "promptEn": "Maya, I want to film Japan!",
       "distractors": [
         "안경",
         "모자"
@@ -432,9 +432,9 @@
     {
       "id": "satz_a1_0471",
       "level": "a1",
-      "targetKo": "다니엘 씨는 테니스를 못하지만 괜찮아요.",
-      "promptDe": "Daniel kann nicht gut Tennis spielen, aber das ist okay.",
-      "promptEn": "Daniel isn't good at tennis, but that's okay.",
+      "targetKo": "마야 씨, 저는 테니스를 못하지만 괜찮아요.",
+      "promptDe": "Maya, ich kann nicht gut Tennis spielen, aber das ist okay.",
+      "promptEn": "Maya, I'm not good at tennis, but that's okay.",
       "distractors": [
         "책",
         "물건"
@@ -471,9 +471,9 @@
     {
       "id": "satz_a1_0474",
       "level": "a1",
-      "targetKo": "안드레아 씨는 주말에 등산을 합니다.",
-      "promptDe": "Andrea geht am Wochenende wandern.",
-      "promptEn": "Andrea goes hiking on weekends.",
+      "targetKo": "현아 씨, 저는 주말에 등산을 합니다.",
+      "promptDe": "Hyuna, ich gehe am Wochenende wandern.",
+      "promptEn": "Hyuna, I go hiking on weekends.",
       "distractors": [
         "할머니",
         "할아버지"
@@ -484,9 +484,9 @@
     {
       "id": "satz_a1_0475",
       "level": "a1",
-      "targetKo": "현아 씨는 왜 산책을 좋아해요?",
-      "promptDe": "Warum mag Hyuna Spaziergänge?",
-      "promptEn": "Why does Hyuna like walking?",
+      "targetKo": "수진 씨, 왜 산책을 좋아해요?",
+      "promptDe": "Sujin, warum magst du Spaziergänge?",
+      "promptEn": "Sujin, why do you like walks?",
       "distractors": [
         "부모님",
         "딸"
@@ -749,7 +749,7 @@
       "promptEn": "I want to go to Jeju Island.",
       "distractors": [
         "안경",
-        "핸드폰"
+        "모자"
       ],
       "vocabKo": "제주도",
       "sourceVocabId": "vocab_a1_0580"
@@ -761,8 +761,8 @@
       "promptDe": "Sollen wir uns Namdaemun ansehen?",
       "promptEn": "Shall we go see Namdaemun?",
       "distractors": [
-        "책",
-        "물건"
+        "신발",
+        "핸드폰"
       ],
       "vocabKo": "남대문",
       "sourceVocabId": "vocab_a1_0581"
@@ -774,8 +774,8 @@
       "promptDe": "Sollen wir auf den Namsan steigen?",
       "promptEn": "Shall we go up Namsan?",
       "distractors": [
-        "케이크",
-        "귤"
+        "책",
+        "물건"
       ],
       "vocabKo": "남산",
       "sourceVocabId": "vocab_a1_0582"
@@ -787,8 +787,8 @@
       "promptDe": "Ich habe in Dongdaemun Kleidung gekauft.",
       "promptEn": "I bought clothes in Dongdaemun.",
       "distractors": [
-        "바나나",
-        "우유"
+        "케이크",
+        "귤"
       ],
       "vocabKo": "동대문",
       "sourceVocabId": "vocab_a1_0583"
@@ -800,8 +800,8 @@
       "promptDe": "Ich habe im Buchladen ein Buch ausgesucht.",
       "promptEn": "I picked out a book at the bookstore.",
       "distractors": [
-        "할머니",
-        "할아버지"
+        "바나나",
+        "우유"
       ],
       "vocabKo": "서점",
       "sourceVocabId": "vocab_a1_0584"
@@ -813,8 +813,8 @@
       "promptDe": "Gibt es hier in der Nähe ein Café?",
       "promptEn": "Is there a coffee shop near here?",
       "distractors": [
-        "부모님",
-        "딸"
+        "할머니",
+        "할아버지"
       ],
       "vocabKo": "커피숍",
       "sourceVocabId": "vocab_a1_0585"
@@ -826,8 +826,8 @@
       "promptDe": "Sollen wir heute Abend ins Kino gehen?",
       "promptEn": "Shall we go to the movie theater this evening?",
       "distractors": [
-        "회사원",
-        "주부"
+        "부모님",
+        "딸"
       ],
       "vocabKo": "영화관",
       "sourceVocabId": "vocab_a1_0586"
@@ -839,8 +839,8 @@
       "promptDe": "Gibt es hier in der Nähe ein Theater?",
       "promptEn": "Is there a theater near here?",
       "distractors": [
-        "설날",
-        "월요일"
+        "회사원",
+        "주부"
       ],
       "vocabKo": "극장",
       "sourceVocabId": "vocab_a1_0587"
@@ -852,8 +852,8 @@
       "promptDe": "Ich gehe oft ins öffentliche Bad.",
       "promptEn": "I often go to the public bathhouse.",
       "distractors": [
-        "밤",
-        "생일"
+        "설날",
+        "월요일"
       ],
       "vocabKo": "목욕탕",
       "sourceVocabId": "vocab_a1_0588"
