@@ -15805,11 +15805,11 @@
     {
       "id": "cloze_a1_0281",
       "level": "a1",
-      "sentenceKo": "도와주셔서 정말 ＿＿＿.",
+      "sentenceKo": "안드레아 씨, 정말 ＿＿＿.",
       "answer": "감사해요",
-      "fullKo": "도와주셔서 정말 감사해요.",
-      "de": "Vielen Dank, dass Sie mir geholfen haben.",
-      "en": "Thank you so much for helping me.",
+      "fullKo": "안드레아 씨, 정말 감사해요.",
+      "de": "Andrea, vielen Dank!",
+      "en": "Andrea, thank you so much!",
       "distractors": [
         "신발",
         "안경",
@@ -15820,11 +15820,11 @@
     {
       "id": "cloze_a1_0282",
       "level": "a1",
-      "sentenceKo": "지나가기 전에 잠깐 ＿＿＿.",
+      "sentenceKo": "잠깐 ＿＿＿, 화장실이 어디예요?",
       "answer": "실례해요",
-      "fullKo": "지나가기 전에 잠깐 실례해요.",
-      "de": "Bevor ich vorbeigehe, sage ich kurz Entschuldigung.",
-      "en": "Before I pass by, I briefly say excuse me.",
+      "fullKo": "잠깐 실례해요, 화장실이 어디예요?",
+      "de": "Entschuldigung, wo ist die Toilette?",
+      "en": "Excuse me, where's the bathroom?",
       "distractors": [
         "편지",
         "단어",
@@ -15910,11 +15910,11 @@
     {
       "id": "cloze_a1_0288",
       "level": "a1",
-      "sentenceKo": "잘 못 들어서 ＿＿＿.",
-      "answer": "다시 말해요",
-      "fullKo": "잘 못 들어서 다시 말해요.",
-      "de": "Ich habe nicht gut gehört, also sage ich es noch einmal.",
-      "en": "I didn't hear well, so I say it again.",
+      "sentenceKo": "잘 못 들었어요. ＿＿＿.",
+      "answer": "다시 말하세요",
+      "fullKo": "잘 못 들었어요. 다시 말하세요.",
+      "de": "Ich habe es nicht gut verstanden. Sagen Sie es bitte noch einmal.",
+      "en": "I didn't catch that. Please say it again.",
       "distractors": [
         "실수",
         "잘못",

@@ -10,14 +10,67 @@ c2b1_a1_translation_changes.csv` for the complete lint scan and change
 ledger) — the corpus was already high quality. Fable's round-2 review then
 put a further **10 rows** back in scope (a KO grammar-bug cluster this
 pass had found but left unfixed as "out of scope", plus 2 new Fable
-finds), for **20 changed rows total**. 10% of 20 rounds to 2 rows, which
-would not give Jin anything meaningful to check, so this packet lists
-**all 20** changed rows instead (still well under the 40-row cap).
+finds), for **20 changed rows total**. Fable's round-3 re-read of those 10
+then sent 3 back for a further fix (see Part -1). 10% of 20 rounds to 2
+rows, which would not give Jin anything meaningful to check, so this
+packet lists **all 20** changed rows instead (still well under the
+40-row cap).
 
 For each row: `Jin 판정:` is left blank for you to fill in (승인 / 반려 +
 사유).
 
-## Part 0 — round 2 (Fable review, KO changes) — read this part first
+## Part -1 — round 3 (Fable's second read) — read this part FIRST
+
+Fable read the round-2 KO fixes (Part 0) and accepted 7/10
+(`vocab_a1_0312/0337/0342/0392/0396/0398/0319`) — those rows in Part 0
+below are final. 3 needed one more pass:
+
+| id | headword | round-2 KO (superseded) | round-3 KO (final) | why |
+|---|---|---|---|---|
+| `vocab_a1_0393` | 감사하다 | 도와주셔서 정말 감사해요. | 안드레아 씨, 정말 감사해요. | still contained a contracted `-아/어 주시-` honorific-benefactive (도와주**셔서**) that `tool/cefr_lexicon.py`'s `GrammarIndex` does not detect — a known gap; even `scan_a1_grammar.py`'s own `AUX_GIVE_RE` regex (re-run over every KO sentence this PR touched, see below) does not catch this specific conjugated form. Fable caught it by reading. Dropped "도와주셔서" entirely and added a persona vocative (Andrea, per `docs/CONTENT_PERSONA_VOICE.md`'s Sie/direct/short-sentences marker). |
+| `vocab_a1_0394` | 실례하다 | 지나가기 전에 잠깐 실례해요. | 잠깐 실례해요, 화장실이 어디예요? | round-2's version was stilted; rewritten into a real situation (asking for directions) — same pattern already established at `vocab_a1_0174`. |
+| `vocab_a1_0400` | 다시 말하다 | 잘 못 들어서 다시 말해요. | 잘 못 들었어요. 다시 말하세요. | round-2 still shifted the meaning (learner repeats themselves instead of asking someone else to repeat); restored via an `-으세요` 1급 request across two short sentences. |
+
+New DE/EN for the 3:
+
+### vocab_a1_0393 (감사하다) — round 3 final
+- DE: `Andrea, vielen Dank!`
+- EN: `Andrea, thank you so much!`
+
+Jin 판정:
+
+### vocab_a1_0394 (실례하다) — round 3 final
+- DE: `Entschuldigung, wo ist die Toilette?`
+- EN: `Excuse me, where's the bathroom?`
+
+Jin 판정:
+
+### vocab_a1_0400 (다시 말하다) — round 3 final
+- DE: `Ich habe es nicht gut verstanden. Sagen Sie es bitte noch einmal.`
+- EN: `I didn't catch that. Please say it again.`
+
+Jin 판정:
+
+**Verification requested by Fable**: `tools/content_factory/scan_a1_grammar.py`'s
+own checking functions (`_grammar_hits_ge2`, `_contracted_aux_hits`,
+`_attributive_noun_hits`, the explicit-quote regexes) were run directly —
+not just `GrammarIndex` — over every `example_korean` this whole PR
+changed (all 15 KO-changed rows across rounds 2-3: the 8-row cluster + 3
+Fable finds + Batch 25's 5 liveliness rows). Result: **0 flags** on all 15
+after the round-3 fixes (the round-3 script run is what caught that
+`AUX_GIVE_RE` itself does *not* match `주셔서`, confirming Fable's finding
+was from reading, not from a gap the automated tool would have caught
+either — see the amendment note in `promoted_copy_revisions_20260822.json`
+for the exact commands run).
+
+**One related observation, not fixed here (out of the 3-row scope
+given)**: `vocab_a1_0402` 정말 감사해요 ("자리를 양보해 주셔서 정말
+감사해요.") has the *same* `주셔서` construction Fable flagged in
+`vocab_a1_0393`, but it's pre-existing content this PR never touched, so
+round 3 left it alone. Flag if you want it swept into this PR or a
+follow-up.
+
+## Part 0 — round 2 (Fable review, KO changes)
 
 Fable spot-checked 14 of the round-1 rows on commit `1ff473db` and
 accepted all 10 DE/EN-only fixes as-is (see Part 1/2 below, unchanged).
@@ -27,7 +80,9 @@ plus flagged 2 more (`vocab_a1_0398`, `vocab_a1_0319`). All 10 are fixed
 here under strict 1급 grammar: every new `example_korean` was verified
 against `tool/cefr_lexicon.py`'s `GrammarIndex` (0 grade>=2 hits) before
 being applied, the headword is preserved (in its natural conjugated
-form), and none exceed 8 어절.
+form), and none exceed 8 어절. **3 of these 10 (0393/0394/0400) were
+superseded in round 3 above — the table below is kept for history; use
+Part -1's versions.**
 
 ### The bug, in one sentence
 
@@ -81,29 +136,20 @@ Jin 판정:
 
 Jin 판정:
 
-### vocab_a1_0393 (감사하다)
-- DE new: `Vielen Dank, dass Sie mir geholfen haben.`
-- EN new: `Thank you so much for helping me.`
+### vocab_a1_0393 (감사하다) — SUPERSEDED, see Part -1 for the final version
+- (round-2 DE/EN, no longer live: `Vielen Dank, dass Sie mir geholfen haben.` / `Thank you so much for helping me.`)
 
-Jin 판정:
+### vocab_a1_0394 (실례하다) — SUPERSEDED, see Part -1 for the final version
+- (round-2 DE/EN, no longer live: `Bevor ich vorbeigehe, sage ich kurz Entschuldigung.` / `Before I pass by, I briefly say excuse me.`)
 
-### vocab_a1_0394 (실례하다)
-- DE new: `Bevor ich vorbeigehe, sage ich kurz Entschuldigung.`
-- EN new: `Before I pass by, I briefly say excuse me.`
-
-Jin 판정:
-
-### vocab_a1_0396 (부탁하다) — meaning simplified (window-closing request dropped, see note below)
+### vocab_a1_0396 (부탁하다) — meaning simplified (window-closing request dropped, see note below) — final, accepted round 3
 - DE new: `Bevor ich einen Freund um einen Gefallen bitte, grüße ich zuerst.`
 - EN new: `Before I ask a friend a favor, I greet them first.`
 
 Jin 판정:
 
-### vocab_a1_0400 (다시 말하다) — meaning shifted from "asked THEM to repeat" to "I repeat myself" (see note below)
-- DE new: `Ich habe nicht gut gehört, also sage ich es noch einmal.`
-- EN new: `I didn't hear well, so I say it again.`
-
-Jin 판정:
+### vocab_a1_0400 (다시 말하다) — SUPERSEDED, see Part -1 for the final version
+- (round-2 DE/EN, no longer live: `Ich habe nicht gut gehört, also sage ich es noch einmal.` / `I didn't hear well, so I say it again.`)
 
 ### vocab_a1_0398 (제가 더요)
 - DE new: `Danke schön! Ich habe zu danken.`
@@ -116,25 +162,22 @@ Jin 판정:
 
 Jin 판정:
 
-### Ambiguities / meaning shifts to flag (round 2)
+### Ambiguities / meaning shifts to flag (round 2 — 0400 resolved in round 3, see Part -1)
 
-- `vocab_a1_0396`/`vocab_a1_0400`: the ORIGINAL sentences depended on a
-  quotative-request construction (`닫아 달라고`/an implied `말해 달라고`)
-  that is nikl grade 3 (not usable at A1 under the "1급 grammar/vocab"
-  instruction for this fix). I could not find a 1급-only way to keep
-  "asking someone else to do X" as the sentence's meaning, so I
-  simplified both to a plain 1급 sentence instead — 0396 now means "I ask
-  a friend a favor" (generic, the window is gone) and 0400 now means "I
-  repeat MYSELF" (not "I ask them to repeat") rather than the original's
-  "I asked them to say it again." If you want the original meaning kept
-  even at the cost of allowing `-다고`/`-아/어 주세요`-class grammar for
-  just these two rows, say so and I'll redo them (already pervasive
-  elsewhere in the live A1 corpus per C2d's own findings — see the
-  "pending -아/어 주세요 decision" census below).
-- `vocab_a1_0394` also dropped the "and passed by" ending (잠깐 실례하다
-  하고 **지나갔어요**) since keeping it required either the same quotative
-  problem or an awkward two-clause 1급 sentence; the new version keeps
-  only "I briefly excuse myself before passing by."
+- `vocab_a1_0396`: the ORIGINAL sentence depended on a quotative-request
+  construction (`닫아 달라고`) that is nikl grade 3 (not usable at A1
+  under the "1급 grammar/vocab" instruction for this fix). I could not
+  find a 1급-only way to keep "asking someone else to close THE WINDOW"
+  as the sentence's meaning, so I simplified to a plain 1급 sentence
+  instead — 0396 now means "I ask a friend a favor" (generic, the window
+  is gone). If you want the original window-specific meaning kept even at
+  the cost of allowing `-다고`-class grammar for this one row, say so and
+  I'll redo it (already pervasive elsewhere in the live A1 corpus per
+  C2d's own findings — see the "pending -아/어 주세요 decision" census
+  below). `vocab_a1_0400`'s equivalent issue was resolved in round 3 via
+  an `-으세요` request instead of a quotative, restoring the original
+  "ask them to repeat" meaning without needing grade-3 grammar — see
+  Part -1.
 - Found but NOT fixed (out of A1 scope): `vocab_a1_0391` 겹쳐 입다 (level
   **A2**) has the identical bare-다 bug ("옷을 겹쳐 입다 해요") — flag for
   a C2b-2 (A2) pass.

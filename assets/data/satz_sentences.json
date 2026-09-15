@@ -11660,9 +11660,9 @@
     {
       "id": "satz_a1_0245",
       "level": "a1",
-      "targetKo": "도와주셔서 정말 감사해요.",
-      "promptDe": "Vielen Dank, dass Sie mir geholfen haben.",
-      "promptEn": "Thank you so much for helping me.",
+      "targetKo": "안드레아 씨, 정말 감사해요.",
+      "promptDe": "Andrea, vielen Dank!",
+      "promptEn": "Andrea, thank you so much!",
       "distractors": [
         "죄송하다",
         "실례하다"
@@ -11672,9 +11672,9 @@
     {
       "id": "satz_a1_0246",
       "level": "a1",
-      "targetKo": "지나가기 전에 잠깐 실례해요.",
-      "promptDe": "Bevor ich vorbeigehe, sage ich kurz Entschuldigung.",
-      "promptEn": "Before I pass by, I briefly say excuse me.",
+      "targetKo": "잠깐 실례해요, 화장실이 어디예요?",
+      "promptDe": "Entschuldigung, wo ist die Toilette?",
+      "promptEn": "Excuse me, where's the bathroom?",
       "distractors": [
         "죄송하다",
         "감사하다"
@@ -11744,9 +11744,9 @@
     {
       "id": "satz_a1_0252",
       "level": "a1",
-      "targetKo": "잘 못 들어서 다시 말해요.",
-      "promptDe": "Ich habe nicht gut gehört, also sage ich es noch einmal.",
-      "promptEn": "I didn't hear well, so I say it again.",
+      "targetKo": "잘 못 들었어요. 다시 말하세요.",
+      "promptDe": "Ich habe es nicht gut verstanden. Sagen Sie es bitte noch einmal.",
+      "promptEn": "I didn't catch that. Please say it again.",
       "distractors": [
         "죄송하다",
         "감사하다"
