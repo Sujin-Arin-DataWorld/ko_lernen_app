@@ -1,0 +1,10 @@
+{
+  "id": "site-06-corrected",
+  "asset": "site/stage_06_boundary_layout.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_06_boundary_layout.png"
+  ],
+  "prompt": "Surgical edit of this site layout image. Remove ALL interior strings and stakes so only the OUTER PERIMETER remains. In particular remove the complete upper-right inner rectangle and its inner crossbar, the entire middle-left inner vertical and horizontal L-shaped string lines, the upper-left inward L-shaped strings, and the isolated center-bottom stake. Keep only stakes that sit on the far external boundary silhouette, including the stepped far top edge. Join the interrupted straight LEFT OUTER edge with one continuous rope between its existing aligned outer stakes. Keep the FRONT/BOTTOM entrance gap completely open between the two lowest perimeter sections; do not draw a rope across it. Keep the gap on the TOP edge between the existing two outer runs. Final result: exactly one irregular OUTER estate boundary traced by low wooden stakes and thin rope, interrupted at entrance openings, with the entire inside EMPTY bare earth. Preserve original camera, every retained outer stake, positions, crop, soil and shadows. No interior subdivisions, no new objects, no labels.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-29c9216d-cb2a-43f1-949d-fe17c06c3c4c.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_06_boundary_layout.png"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "toilet-02",
+  "asset": "toilet/stage_02_foundations.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_03_posts.png"
+  ],
+  "prompt": "Construction stage2 reverse edit: REMOVE every upright post, wooden brace and timber entirely. Retain ONLY the low deep rectangular stone-and-earth foundation/plinth and individual support stones exactly where each front/rear post stood. Clear human entry at front, no invented pit or plumbing. No other objects or text. CRITICAL keep camera scale and foundation at exactly same bottom part of canvas, do not enlarge or center it vertically; lots of blank ivory space above. Finely painted V3 texture.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-4838824b-5519-4e0e-a573-f32e5c2b35c3.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_02_foundations.png"
+}

@@ -1,0 +1,1028 @@
+{
+  "items": [
+    {
+      "id": "cloze_a1_0393",
+      "level": "a1",
+      "sentenceKo": "크리스티안은 ＿＿＿이에요.",
+      "answer": "회사원",
+      "fullKo": "크리스티안은 회사원이에요.",
+      "de": "Christian ist Angestellter.",
+      "en": "Christian is an office worker.",
+      "distractors": [
+        "설날",
+        "월요일",
+        "밤"
+      ],
+      "topic": "Person",
+      "sourceVocabId": "vocab_a1_0459"
+    },
+    {
+      "id": "cloze_a1_0394",
+      "level": "a1",
+      "sentenceKo": "제 어머니는 ＿＿＿예요.",
+      "answer": "주부",
+      "fullKo": "제 어머니는 주부예요.",
+      "de": "Meine Mutter ist Hausfrau.",
+      "en": "My mother is a housewife.",
+      "distractors": [
+        "구",
+        "죄송하다",
+        "천만에요"
+      ],
+      "topic": "Person",
+      "sourceVocabId": "vocab_a1_0460"
+    },
+    {
+      "id": "cloze_a1_0395",
+      "level": "a1",
+      "sentenceKo": "저 사람은 ＿＿＿예요?",
+      "answer": "누구",
+      "fullKo": "저 사람은 누구예요?",
+      "de": "Wer ist die Person dort?",
+      "en": "Who is that person?",
+      "distractors": [
+        "월요일",
+        "공부",
+        "보다"
+      ],
+      "topic": "Person",
+      "sourceVocabId": "vocab_a1_0461"
+    },
+    {
+      "id": "cloze_a1_0396",
+      "level": "a1",
+      "sentenceKo": "＿＿＿, 안녕하세요!",
+      "answer": "여러분",
+      "fullKo": "여러분, 안녕하세요!",
+      "de": "Hallo, alle zusammen!",
+      "en": "Hello, everyone!",
+      "distractors": [
+        "우유",
+        "밤",
+        "많다"
+      ],
+      "topic": "Person",
+      "sourceVocabId": "vocab_a1_0462"
+    },
+    {
+      "id": "cloze_a1_0397",
+      "level": "a1",
+      "sentenceKo": "아침에 ＿＿＿를 마셔요.",
+      "answer": "우유",
+      "fullKo": "아침에 우유를 마셔요.",
+      "de": "Am Morgen trinke ich Milch.",
+      "en": "I drink milk in the morning.",
+      "distractors": [
+        "늦게",
+        "다시",
+        "가게"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0463"
+    },
+    {
+      "id": "cloze_a1_0398",
+      "level": "a1",
+      "sentenceKo": "저는 ＿＿＿을 좋아해요.",
+      "answer": "귤",
+      "fullKo": "저는 귤을 좋아해요.",
+      "de": "Ich mag Mandarinen.",
+      "en": "I like tangerines.",
+      "distractors": [
+        "빨리",
+        "가끔",
+        "천천히"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0464"
+    },
+    {
+      "id": "cloze_a1_0399",
+      "level": "a1",
+      "sentenceKo": "저는 ＿＿＿를 좋아해요.",
+      "answer": "바나나",
+      "fullKo": "저는 바나나를 좋아해요.",
+      "de": "Ich mag Bananen.",
+      "en": "I like bananas.",
+      "distractors": [
+        "항상",
+        "다시",
+        "자주"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0465"
+    },
+    {
+      "id": "cloze_a1_0400",
+      "level": "a1",
+      "sentenceKo": "생일에 ＿＿＿를 먹어요.",
+      "answer": "케이크",
+      "fullKo": "생일에 케이크를 먹어요.",
+      "de": "Am Geburtstag isst man Kuchen.",
+      "en": "We eat cake on birthdays.",
+      "distractors": [
+        "작다",
+        "안녕하세요",
+        "짧다"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0466"
+    },
+    {
+      "id": "cloze_a1_0401",
+      "level": "a1",
+      "sentenceKo": "＿＿＿ 다시 만나요.",
+      "answer": "모레",
+      "fullKo": "모레 다시 만나요.",
+      "de": "Wir treffen uns übermorgen wieder.",
+      "en": "Let's meet again the day after tomorrow.",
+      "distractors": [
+        "밑반찬",
+        "연습",
+        "책상"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0467"
+    },
+    {
+      "id": "cloze_a1_0402",
+      "level": "a1",
+      "sentenceKo": "＿＿＿ 학교에 안 갔어요.",
+      "answer": "그저께",
+      "fullKo": "그저께 학교에 안 갔어요.",
+      "de": "Vorgestern bin ich nicht zur Schule gegangen.",
+      "en": "I didn't go to school the day before yesterday.",
+      "distractors": [
+        "입구",
+        "미안해요",
+        "책상"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0468"
+    },
+    {
+      "id": "cloze_a1_0403",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 한국에 왔어요.",
+      "answer": "작년",
+      "fullKo": "작년에 한국에 왔어요.",
+      "de": "Letztes Jahr bin ich nach Korea gekommen.",
+      "en": "I came to Korea last year.",
+      "distractors": [
+        "손",
+        "젓가락질",
+        "책상"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0469"
+    },
+    {
+      "id": "cloze_a1_0404",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 독일에 가요.",
+      "answer": "내년",
+      "fullKo": "내년에 독일에 가요.",
+      "de": "Nächstes Jahr fahre ich nach Deutschland.",
+      "en": "Next year I'm going to Germany.",
+      "distractors": [
+        "책상",
+        "앉다",
+        "코"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0470"
+    },
+    {
+      "id": "cloze_a1_0405",
+      "level": "a1",
+      "sentenceKo": "친구가 ＿＿＿ 명 있어요.",
+      "answer": "한",
+      "fullKo": "친구가 한 명 있어요.",
+      "de": "Ich habe einen Freund.",
+      "en": "I have one friend.",
+      "distractors": [
+        "저녁",
+        "여기",
+        "코"
+      ],
+      "topic": "Menge",
+      "sourceVocabId": "vocab_a1_0471"
+    },
+    {
+      "id": "cloze_a1_0406",
+      "level": "a1",
+      "sentenceKo": "친구가 ＿＿＿ 명 있어요.",
+      "answer": "두",
+      "fullKo": "친구가 두 명 있어요.",
+      "de": "Ich habe zwei Freunde.",
+      "en": "I have two friends.",
+      "distractors": [
+        "젓가락질",
+        "저녁",
+        "과일"
+      ],
+      "topic": "Menge",
+      "sourceVocabId": "vocab_a1_0472"
+    },
+    {
+      "id": "cloze_a1_0407",
+      "level": "a1",
+      "sentenceKo": "가족이 ＿＿＿ 명이에요.",
+      "answer": "세",
+      "fullKo": "가족이 세 명이에요.",
+      "de": "Meine Familie hat drei Personen.",
+      "en": "My family has three people.",
+      "distractors": [
+        "일요일",
+        "비싸다",
+        "독일어"
+      ],
+      "topic": "Menge",
+      "sourceVocabId": "vocab_a1_0473"
+    },
+    {
+      "id": "cloze_a1_0408",
+      "level": "a1",
+      "sentenceKo": "＿＿＿ 나라에서 왔어요?",
+      "answer": "어느",
+      "fullKo": "어느 나라에서 왔어요?",
+      "de": "Aus welchem Land kommen Sie?",
+      "en": "Which country are you from?",
+      "distractors": [
+        "학생",
+        "댁에",
+        "아내"
+      ],
+      "topic": "Menge",
+      "sourceVocabId": "vocab_a1_0474"
+    },
+    {
+      "id": "cloze_a1_0409",
+      "level": "a1",
+      "sentenceKo": "＿＿＿ 학교에 가요.",
+      "answer": "이따가",
+      "fullKo": "이따가 학교에 가요.",
+      "de": "Ich gehe später zur Schule.",
+      "en": "I'll go to school later.",
+      "distractors": [
+        "책",
+        "공원",
+        "몸"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0475"
+    },
+    {
+      "id": "cloze_a1_0410",
+      "level": "a1",
+      "sentenceKo": "저는 지금 ＿＿＿ 가요.",
+      "answer": "바로",
+      "fullKo": "저는 지금 바로 가요.",
+      "de": "Ich gehe jetzt sofort.",
+      "en": "I'm going right now.",
+      "distractors": [
+        "천만에요",
+        "장인어른",
+        "젓가락질"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0476"
+    },
+    {
+      "id": "cloze_a1_0411",
+      "level": "a1",
+      "sentenceKo": "저는 ＿＿＿ 아침에 커피를 마셔요.",
+      "answer": "주로",
+      "fullKo": "저는 주로 아침에 커피를 마셔요.",
+      "de": "Ich trinke morgens meistens Kaffee.",
+      "en": "I usually drink coffee in the morning.",
+      "distractors": [
+        "오다",
+        "국물",
+        "죄송하다"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0477"
+    },
+    {
+      "id": "cloze_a1_0412",
+      "level": "a1",
+      "sentenceKo": "＿＿＿ 오세요!",
+      "answer": "어서",
+      "fullKo": "어서 오세요!",
+      "de": "Herzlich willkommen!",
+      "en": "Welcome!",
+      "distractors": [
+        "차례상",
+        "있다",
+        "외국인"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0478"
+    },
+    {
+      "id": "cloze_a1_0413",
+      "level": "a1",
+      "sentenceKo": "＿＿＿, 알겠습니다.",
+      "answer": "예",
+      "fullKo": "예, 알겠습니다.",
+      "de": "Ja, verstanden.",
+      "en": "Yes, understood.",
+      "distractors": [
+        "귀엽다",
+        "옆",
+        "월요일"
+      ],
+      "topic": "Höflichkeit",
+      "sourceVocabId": "vocab_a1_0479"
+    },
+    {
+      "id": "cloze_a1_0414",
+      "level": "a1",
+      "sentenceKo": "＿＿＿, 모르겠어요.",
+      "answer": "글쎄요",
+      "fullKo": "글쎄요, 모르겠어요.",
+      "de": "Na ja, ich weiß es nicht.",
+      "en": "Well... I don't know.",
+      "distractors": [
+        "오다",
+        "쓰다",
+        "보다"
+      ],
+      "topic": "Höflichkeit",
+      "sourceVocabId": "vocab_a1_0480"
+    },
+    {
+      "id": "cloze_a1_0415",
+      "level": "a1",
+      "sentenceKo": "＿＿＿, 진짜 좋아요!",
+      "answer": "와",
+      "fullKo": "와, 진짜 좋아요!",
+      "de": "Wow, das ist wirklich toll!",
+      "en": "Wow, that's really great!",
+      "distractors": [
+        "보다",
+        "가다",
+        "읽다"
+      ],
+      "topic": "Höflichkeit",
+      "sourceVocabId": "vocab_a1_0481"
+    },
+    {
+      "id": "cloze_a1_0416",
+      "level": "a1",
+      "sentenceKo": "＿＿＿, 모르겠어요.",
+      "answer": "음",
+      "fullKo": "음, 모르겠어요.",
+      "de": "Hm, ich weiß es nicht.",
+      "en": "Hmm, I don't know.",
+      "distractors": [
+        "가다",
+        "읽다",
+        "타다"
+      ],
+      "topic": "Höflichkeit",
+      "sourceVocabId": "vocab_a1_0482"
+    },
+    {
+      "id": "cloze_a1_0417",
+      "level": "a1",
+      "sentenceKo": "밥을 ＿＿＿ 먹었어요.",
+      "answer": "다",
+      "fullKo": "밥을 다 먹었어요.",
+      "de": "Ich habe alles aufgegessen.",
+      "en": "I ate everything.",
+      "distractors": [
+        "열",
+        "일요일",
+        "문장"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0483"
+    },
+    {
+      "id": "cloze_a1_0418",
+      "level": "a1",
+      "sentenceKo": "물 ＿＿＿ 주세요.",
+      "answer": "좀",
+      "fullKo": "물 좀 주세요.",
+      "de": "Bitte geben Sie mir etwas Wasser.",
+      "en": "Please give me some water.",
+      "distractors": [
+        "배고프다",
+        "월요일",
+        "손"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0484"
+    },
+    {
+      "id": "cloze_a1_0419",
+      "level": "a1",
+      "sentenceKo": "내일 ＿＿＿ 오세요.",
+      "answer": "꼭",
+      "fullKo": "내일 꼭 오세요.",
+      "de": "Kommen Sie morgen unbedingt.",
+      "en": "Please be sure to come tomorrow.",
+      "distractors": [
+        "차",
+        "밥",
+        "소포"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0485"
+    },
+    {
+      "id": "cloze_a1_0420",
+      "level": "a1",
+      "sentenceKo": "우리 ＿＿＿ 가요.",
+      "answer": "함께",
+      "fullKo": "우리 함께 가요.",
+      "de": "Lass uns zusammen gehen.",
+      "en": "Let's go together.",
+      "distractors": [
+        "화이팅",
+        "시끄럽다",
+        "싫어하다"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0486"
+    },
+    {
+      "id": "cloze_a1_0421",
+      "level": "a1",
+      "sentenceKo": "이 ＿＿＿을 주세요.",
+      "answer": "물건",
+      "fullKo": "이 물건을 주세요.",
+      "de": "Geben Sie mir bitte diesen Artikel.",
+      "en": "Please give me this item.",
+      "distractors": [
+        "기다리다",
+        "편의점",
+        "화요일"
+      ],
+      "topic": "결제와 배달",
+      "sourceVocabId": "vocab_a1_0487"
+    },
+    {
+      "id": "cloze_a1_0422",
+      "level": "a1",
+      "sentenceKo": "이 신발 ＿＿＿이 싸요.",
+      "answer": "값",
+      "fullKo": "이 신발 값이 싸요.",
+      "de": "Diese Schuhe sind billig.",
+      "en": "These shoes are cheap.",
+      "distractors": [
+        "일요일",
+        "라면",
+        "처음"
+      ],
+      "topic": "결제와 배달",
+      "sourceVocabId": "vocab_a1_0488"
+    },
+    {
+      "id": "cloze_a1_0423",
+      "level": "a1",
+      "sentenceKo": "물이 ＿＿＿해요.",
+      "answer": "필요",
+      "fullKo": "물이 필요해요.",
+      "de": "Ich brauche Wasser.",
+      "en": "I need water.",
+      "distractors": [
+        "새",
+        "목요일",
+        "주말"
+      ],
+      "topic": "결제와 배달",
+      "sourceVocabId": "vocab_a1_0489"
+    },
+    {
+      "id": "cloze_a1_0424",
+      "level": "a1",
+      "sentenceKo": "이 ＿＿＿는 커피가 맛있어요.",
+      "answer": "가게",
+      "fullKo": "이 가게는 커피가 맛있어요.",
+      "de": "In diesem Laden ist der Kaffee lecker.",
+      "en": "The coffee at this shop is delicious.",
+      "distractors": [
+        "인사드리겠습니다",
+        "다시",
+        "조용하다"
+      ],
+      "topic": "결제와 배달",
+      "sourceVocabId": "vocab_a1_0490"
+    },
+    {
+      "id": "cloze_a1_0425",
+      "level": "a1",
+      "sentenceKo": "저는 매일 ＿＿＿를 해요.",
+      "answer": "인사",
+      "fullKo": "저는 매일 인사를 해요.",
+      "de": "Ich sage jeden Tag Hallo.",
+      "en": "I greet people every day.",
+      "distractors": [
+        "월요일",
+        "감사합니다",
+        "뒤"
+      ],
+      "topic": "Höflichkeit",
+      "sourceVocabId": "vocab_a1_0491"
+    },
+    {
+      "id": "cloze_a1_0426",
+      "level": "a1",
+      "sentenceKo": "생일 ＿＿＿해요!",
+      "answer": "축하",
+      "fullKo": "생일 축하해요!",
+      "de": "Alles Gute zum Geburtstag!",
+      "en": "Happy birthday!",
+      "distractors": [
+        "여동생",
+        "여기",
+        "부탁하다"
+      ],
+      "topic": "Höflichkeit",
+      "sourceVocabId": "vocab_a1_0492"
+    },
+    {
+      "id": "cloze_a1_0427",
+      "level": "a1",
+      "sentenceKo": "＿＿＿, 크리스티안이에요.",
+      "answer": "여보세요",
+      "fullKo": "여보세요, 크리스티안이에요.",
+      "de": "Hallo, hier ist Christian.",
+      "en": "Hello, this is Christian.",
+      "distractors": [
+        "길다",
+        "침대",
+        "내일"
+      ],
+      "topic": "Begrüßung",
+      "sourceVocabId": "vocab_a1_0493"
+    },
+    {
+      "id": "cloze_a1_0428",
+      "level": "a1",
+      "sentenceKo": "저는 ＿＿＿을 써요.",
+      "answer": "안경",
+      "fullKo": "저는 안경을 써요.",
+      "de": "Ich trage eine Brille.",
+      "en": "I wear glasses.",
+      "distractors": [
+        "빨리",
+        "다시",
+        "항상"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0494"
+    },
+    {
+      "id": "cloze_a1_0429",
+      "level": "a1",
+      "sentenceKo": "오늘 ＿＿＿를 썼어요.",
+      "answer": "모자",
+      "fullKo": "오늘 모자를 썼어요.",
+      "de": "Heute habe ich eine Mütze getragen.",
+      "en": "Today I wore a hat.",
+      "distractors": [
+        "기다리다",
+        "늦게",
+        "어렵다"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0495"
+    },
+    {
+      "id": "cloze_a1_0430",
+      "level": "a1",
+      "sentenceKo": "＿＿＿이 아주 작아요.",
+      "answer": "신발",
+      "fullKo": "신발이 아주 작아요.",
+      "de": "Die Schuhe sind sehr klein.",
+      "en": "The shoes are very small.",
+      "distractors": [
+        "처음",
+        "월요일",
+        "다른"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0496"
+    },
+    {
+      "id": "cloze_a1_0431",
+      "level": "a1",
+      "sentenceKo": "＿＿＿가 저를 사랑하세요.",
+      "answer": "할머니",
+      "fullKo": "할머니가 저를 사랑하세요.",
+      "de": "Meine Oma liebt mich.",
+      "en": "My grandmother loves me.",
+      "distractors": [
+        "인사드리겠습니다",
+        "순서",
+        "쓰다"
+      ],
+      "topic": "Familie",
+      "sourceVocabId": "vocab_a1_0497"
+    },
+    {
+      "id": "cloze_a1_0432",
+      "level": "a1",
+      "sentenceKo": "＿＿＿는 신문을 읽으세요.",
+      "answer": "할아버지",
+      "fullKo": "할아버지는 신문을 읽으세요.",
+      "de": "Mein Opa liest Zeitung.",
+      "en": "My grandfather reads the newspaper.",
+      "distractors": [
+        "죄송하다",
+        "창구",
+        "가다"
+      ],
+      "topic": "Familie",
+      "sourceVocabId": "vocab_a1_0498"
+    },
+    {
+      "id": "cloze_a1_0433",
+      "level": "a1",
+      "sentenceKo": "＿＿＿이 이번 주에 오세요.",
+      "answer": "부모님",
+      "fullKo": "부모님이 이번 주에 오세요.",
+      "de": "Meine Eltern kommen diese Woche.",
+      "en": "My parents are coming this week.",
+      "distractors": [
+        "시간",
+        "높임말",
+        "백"
+      ],
+      "topic": "Familie",
+      "sourceVocabId": "vocab_a1_0499"
+    },
+    {
+      "id": "cloze_a1_0434",
+      "level": "a1",
+      "sentenceKo": "저는 ＿＿＿을 자주 먹어요.",
+      "answer": "아이스크림",
+      "fullKo": "저는 아이스크림을 자주 먹어요.",
+      "de": "Ich esse oft Eis.",
+      "en": "I eat ice cream often.",
+      "distractors": [
+        "잘못",
+        "월요일",
+        "한국"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0500"
+    },
+    {
+      "id": "cloze_a1_0435",
+      "level": "a1",
+      "sentenceKo": "저는 ＿＿＿을 진짜 좋아해요.",
+      "answer": "초콜릿",
+      "fullKo": "저는 초콜릿을 진짜 좋아해요.",
+      "de": "Ich mag Schokolade wirklich.",
+      "en": "I really like chocolate.",
+      "distractors": [
+        "자주",
+        "천천히",
+        "가끔"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0501"
+    },
+    {
+      "id": "cloze_a1_0436",
+      "level": "a1",
+      "sentenceKo": "오렌지 ＿＿＿가 맛있어요.",
+      "answer": "주스",
+      "fullKo": "오렌지 주스가 맛있어요.",
+      "de": "Orangensaft ist lecker.",
+      "en": "Orange juice is delicious.",
+      "distractors": [
+        "부탁하다",
+        "듣다",
+        "나"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0502"
+    },
+    {
+      "id": "cloze_a1_0437",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 친구를 만나요.",
+      "answer": "낮",
+      "fullKo": "낮에 친구를 만나요.",
+      "de": "Ich treffe tagsüber einen Freund.",
+      "en": "I meet a friend during the day.",
+      "distractors": [
+        "사귀다",
+        "사람",
+        "옷"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0503"
+    },
+    {
+      "id": "cloze_a1_0438",
+      "level": "a1",
+      "sentenceKo": "오늘은 아주 좋은 ＿＿＿이에요.",
+      "answer": "날",
+      "fullKo": "오늘은 아주 좋은 날이에요.",
+      "de": "Heute ist ein sehr guter Tag.",
+      "en": "Today is a very good day.",
+      "distractors": [
+        "빨리",
+        "천천히",
+        "가끔"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0504"
+    },
+    {
+      "id": "cloze_a1_0439",
+      "level": "a1",
+      "sentenceKo": "오늘 ＿＿＿가 며칠이에요?",
+      "answer": "날짜",
+      "fullKo": "오늘 날짜가 며칠이에요?",
+      "de": "Welches Datum ist heute?",
+      "en": "What's today's date?",
+      "distractors": [
+        "맛있다",
+        "별로",
+        "졸업하다"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0505"
+    },
+    {
+      "id": "cloze_a1_0440",
+      "level": "a1",
+      "sentenceKo": "제 ＿＿＿은 다섯 살이에요.",
+      "answer": "딸",
+      "fullKo": "제 딸은 다섯 살이에요.",
+      "de": "Meine Tochter ist fünf Jahre alt.",
+      "en": "My daughter is five years old.",
+      "distractors": [
+        "안녕",
+        "내일",
+        "아침"
+      ],
+      "topic": "Familie",
+      "sourceVocabId": "vocab_a1_0506"
+    },
+    {
+      "id": "cloze_a1_0441",
+      "level": "a1",
+      "sentenceKo": "저는 친구를 ＿＿＿.",
+      "answer": "도와요",
+      "fullKo": "저는 친구를 도와요.",
+      "de": "Ich helfe meinem Freund.",
+      "en": "I help my friend.",
+      "distractors": [
+        "마셔요",
+        "읽어요",
+        "타요"
+      ],
+      "topic": "Beziehungen",
+      "sourceVocabId": "vocab_a1_0507"
+    },
+    {
+      "id": "cloze_a1_0442",
+      "level": "a1",
+      "sentenceKo": "언니가 저를 ＿＿＿.",
+      "answer": "도와줘요",
+      "fullKo": "언니가 저를 도와줘요.",
+      "de": "Meine große Schwester hilft mir.",
+      "en": "My older sister helps me.",
+      "distractors": [
+        "읽어요",
+        "먹어요",
+        "타요"
+      ],
+      "topic": "Beziehungen",
+      "sourceVocabId": "vocab_a1_0508"
+    },
+    {
+      "id": "cloze_a1_0443",
+      "level": "a1",
+      "sentenceKo": "저는 책을 ＿＿＿ 있어요.",
+      "answer": "가지고",
+      "fullKo": "저는 책을 가지고 있어요.",
+      "de": "Ich habe ein Buch dabei.",
+      "en": "I have a book with me.",
+      "distractors": [
+        "미안해요",
+        "모든",
+        "절하다"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0509"
+    },
+    {
+      "id": "cloze_a1_0444",
+      "level": "a1",
+      "sentenceKo": "수업이 세 시에 ＿＿＿.",
+      "answer": "끝나요",
+      "fullKo": "수업이 세 시에 끝나요.",
+      "de": "Der Unterricht endet um drei Uhr.",
+      "en": "Class ends at three o'clock.",
+      "distractors": [
+        "마셔요",
+        "입어요",
+        "읽어요"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0510"
+    },
+    {
+      "id": "cloze_a1_0445",
+      "level": "a1",
+      "sentenceKo": "저는 매일 학교에 ＿＿＿.",
+      "answer": "다녀요",
+      "fullKo": "저는 매일 학교에 다녀요.",
+      "de": "Ich gehe jeden Tag zur Schule.",
+      "en": "I go to school every day.",
+      "distractors": [
+        "마셔요",
+        "읽어요",
+        "써요"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0511"
+    },
+    {
+      "id": "cloze_a1_0446",
+      "level": "a1",
+      "sentenceKo": "저는 이 옷을 ＿＿＿.",
+      "answer": "골랐어요",
+      "fullKo": "저는 이 옷을 골랐어요.",
+      "de": "Ich habe diese Kleidung ausgewählt.",
+      "en": "I chose these clothes.",
+      "distractors": [
+        "마셨어요",
+        "읽었어요",
+        "탔어요"
+      ],
+      "topic": "Einkaufen",
+      "sourceVocabId": "vocab_a1_0512"
+    },
+    {
+      "id": "cloze_a1_0447",
+      "level": "a1",
+      "sentenceKo": "저는 친구한테 책을 ＿＿＿.",
+      "answer": "빌려요",
+      "fullKo": "저는 친구한테 책을 빌려요.",
+      "de": "Ich leihe mir ein Buch von meinem Freund.",
+      "en": "I borrow a book from my friend.",
+      "distractors": [
+        "마셔요",
+        "입어요",
+        "타요"
+      ],
+      "topic": "Einkaufen",
+      "sourceVocabId": "vocab_a1_0513"
+    },
+    {
+      "id": "cloze_a1_0448",
+      "level": "a1",
+      "sentenceKo": "이 가게는 과일을 ＿＿＿.",
+      "answer": "팔아요",
+      "fullKo": "이 가게는 과일을 팔아요.",
+      "de": "Dieser Laden verkauft Obst.",
+      "en": "This shop sells fruit.",
+      "distractors": [
+        "읽어요",
+        "입어요",
+        "타요"
+      ],
+      "topic": "Einkaufen",
+      "sourceVocabId": "vocab_a1_0514"
+    },
+    {
+      "id": "cloze_a1_0449",
+      "level": "a1",
+      "sentenceKo": "이 버스는 ＿＿＿ 번이에요.",
+      "answer": "이십",
+      "fullKo": "이 버스는 이십 번이에요.",
+      "de": "Dieser Bus hat die Nummer zwanzig.",
+      "en": "This bus is number twenty.",
+      "distractors": [
+        "가게",
+        "신발",
+        "목"
+      ],
+      "topic": "Zahlen",
+      "sourceVocabId": "vocab_a1_0515"
+    },
+    {
+      "id": "cloze_a1_0450",
+      "level": "a1",
+      "sentenceKo": "제 방은 ＿＿＿ 호예요.",
+      "answer": "삼십",
+      "fullKo": "제 방은 삼십 호예요.",
+      "de": "Mein Zimmer ist Nummer dreißig.",
+      "en": "My room is number thirty.",
+      "distractors": [
+        "얼굴",
+        "물건",
+        "값"
+      ],
+      "topic": "Zahlen",
+      "sourceVocabId": "vocab_a1_0516"
+    },
+    {
+      "id": "cloze_a1_0451",
+      "level": "a1",
+      "sentenceKo": "우리 학교에는 학생이 ＿＿＿ 명 있어요.",
+      "answer": "사십",
+      "fullKo": "우리 학교에는 학생이 사십 명 있어요.",
+      "de": "An unserer Schule gibt es vierzig Schüler.",
+      "en": "There are forty students at our school.",
+      "distractors": [
+        "오빠",
+        "한국",
+        "순서"
+      ],
+      "topic": "Zahlen",
+      "sourceVocabId": "vocab_a1_0517"
+    },
+    {
+      "id": "cloze_a1_0452",
+      "level": "a1",
+      "sentenceKo": "이 학교에는 선생님이 ＿＿＿ 명 있어요.",
+      "answer": "오십",
+      "fullKo": "이 학교에는 선생님이 오십 명 있어요.",
+      "de": "An dieser Schule gibt es fünfzig Lehrer.",
+      "en": "This school has fifty teachers.",
+      "distractors": [
+        "장모님",
+        "설거지",
+        "단어"
+      ],
+      "topic": "Zahlen",
+      "sourceVocabId": "vocab_a1_0518"
+    },
+    {
+      "id": "cloze_a1_0453",
+      "level": "a1",
+      "sentenceKo": "제 방은 ＿＿＿ 층에 있어요.",
+      "answer": "육십",
+      "fullKo": "제 방은 육십 층에 있어요.",
+      "de": "Mein Zimmer ist im sechzigsten Stock.",
+      "en": "My room is on the sixtieth floor.",
+      "distractors": [
+        "가게",
+        "신발",
+        "물건"
+      ],
+      "topic": "Zahlen",
+      "sourceVocabId": "vocab_a1_0519"
+    },
+    {
+      "id": "cloze_a1_0454",
+      "level": "a1",
+      "sentenceKo": "이 버스는 ＿＿＿ 번이에요.",
+      "answer": "칠십",
+      "fullKo": "이 버스는 칠십 번이에요.",
+      "de": "Dieser Bus hat die Nummer siebzig.",
+      "en": "This bus is number seventy.",
+      "distractors": [
+        "위",
+        "안녕",
+        "채소"
+      ],
+      "topic": "Zahlen",
+      "sourceVocabId": "vocab_a1_0520"
+    },
+    {
+      "id": "cloze_a1_0455",
+      "level": "a1",
+      "sentenceKo": "제 ＿＿＿이 길어요.",
+      "answer": "목",
+      "fullKo": "제 목이 길어요.",
+      "de": "Mein Hals ist lang.",
+      "en": "My neck is long.",
+      "distractors": [
+        "모든",
+        "어느",
+        "다른"
+      ],
+      "topic": "Körper",
+      "sourceVocabId": "vocab_a1_0521"
+    },
+    {
+      "id": "cloze_a1_0456",
+      "level": "a1",
+      "sentenceKo": "제 ＿＿＿이 작아요.",
+      "answer": "얼굴",
+      "fullKo": "제 얼굴이 작아요.",
+      "de": "Mein Gesicht ist klein.",
+      "en": "My face is small.",
+      "distractors": [
+        "모든",
+        "어느",
+        "다른"
+      ],
+      "topic": "Körper",
+      "sourceVocabId": "vocab_a1_0522"
+    }
+  ]
+}

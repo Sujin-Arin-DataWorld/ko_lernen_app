@@ -1,0 +1,10 @@
+{
+  "id": "gokgan-08",
+  "asset": "gokgan/stage_08_tiles.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_09_floor.png"
+  ],
+  "prompt": "Stage8 before floor finish. Keep exact same Korean5-front-bay2-depth-bay roofed open structure, including ALL rear posts and their supports, camera, roof and foundation. Change ONLY ground within foundation to rough unfinished earth with small loose stones and shallow rake marks instead of smooth finished surface. No wall infill or doors, no objects or text. Same ivory background. Preserve all beam/post connections and continuous human entry.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-a8c454ba-f1c6-4089-881e-867d63d425d7.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_08_tiles.png"
+}

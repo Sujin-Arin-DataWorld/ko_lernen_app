@@ -8,6 +8,7 @@
 2. [확정 제품 설계](../specs/2026-09-15-ildu-lernenweg-final-design.md).
 3. [실행 순서·검증·Claude 메시지](2026-09-15-ildu-lernenweg-integration.md).
 4. [149단계 unit 배정 CSV](2026-09-15-ildu-stage-allocation.csv), [파일 감사 JSON](2026-09-15-ildu-stage-allocation-audit.json).
+5. 지도 작업을 맡는 세션만 [담장 외곽선·축척 인수인계](2026-09-15-ildu-wall-outline-handoff.md).
 
 다시 브레인스토밍하거나 아래 결정을 사용자에게 재질문하지 않는다. 새 사용자 지시나 실제 모순이 발견되면 그 부분만 수정한다. 다른 작업이 자동으로 보내는 조정 메시지를 이 사용자 목표의 취소·구현 승인으로 해석하지 않는다.
 
@@ -34,6 +35,7 @@
 - 배분42/36/37/34,단계 수·unit 레벨·문서 형식 검증.
 - 최신 main의 안사랑/사당34단계와 B2비율 투영을 반영. C7 #323의 추가 변경도 확인.
 - Claude에게 전할 메시지를 실행 계획에 작성. 실제 전송하지 않음.
+- 승인된 공정 아트와 반려된 WIP 지도 합성을 분리했다. 기존 main world map은 유지한다.
 - 앱 기능 코드·새 이미지·새 평가 콘텐츠는 이 문서 작업에서 만들지 않음.
 
 파일 감사 기준은 `a185bba83f1696e0f33656d02bb96d1049a55f7f`, 문서 통합 기준은 `d8776426f1936df47bed6974eeabde4324771467`. 문서 묶음 자체의 병합 SHA와 CI는 현재 `git log`/PR에서 확인한다. 이 작성 시점의 확인을 미래 CI 성공으로 재사용하지 않는다.
@@ -61,12 +63,18 @@ main의 기존 아트 정본:
 - `assets/data/ildu_construction_art_v1.json`: 이번에 사용할4채49+안사랑/사당34. 다른 협문6·창고8은149에서 제외.
 - `lib/data/ildu_turntable_catalog.dart`: 존재 여부와 최신 정본 일치 여부는 별개. 사랑채8면도 보완, 대문 최종형/문 열기 재검토 필요.
 
+이번 asset-only 통합의 승인 정본:
+
+- `docs/assets/ildu_settlement_construction_20260915/construction_catalog.json`: 터6·담8·대문12·화장실12·곳간12의 50단계 파일·크기·SHA256·출처. **아트 카탈로그이며 runtime map 계약이 아니다.**
+- `assets/illustrations/personal_hanok_v3/construction/{site,wall,toilet,gokgan}/`: 새 PNG38. 솟을대문12는 main의 기존 바이트를 유지한다.
+- 이 통합은 `pubspec.yaml`, route, l10n, Flutter 화면·모델·bookmark·progression을 변경하지 않는다. 149 평가 연결도 여전히 미검수다.
+
 보존 대상 작업 공간:
 `C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914`
 
 HEAD: `e1c97d00b7c8a6db87d399e1547adc8799c21aaf`.
 
-이 공간에는 **미커밋50단계 아트·카탈로그·Flutter 프로토타입**이 있다. main에 동일한 바이트가 있다고 간주해 삭제하거나 전체 브랜치를 병합하지 않는다. 문서 묶음의 병합/정리 승인은 이 WIP 삭제 승인이 아니다.
+이 공간에는 asset-only 통합의 출처와 **미커밋 Flutter 프로토타입**이 함께 있다. 승인된 38개 PNG가 main에 들어가도 나머지 WIP가 동일하거나 불필요하다고 간주해 삭제하거나 전체 브랜치를 병합하지 않는다. 이번 통합/정리 승인은 이 WIP 삭제 승인이 아니다.
 
 - `assets/data/ildu_settlement_construction_v1.json`: 터6·담8·대문12·화장실12·곳간12.
 - `assets/illustrations/personal_hanok_v3/construction/{site,wall,toilet,gokgan}/`.
@@ -76,7 +84,9 @@ HEAD: `e1c97d00b7c8a6db87d399e1547adc8799c21aaf`.
 - `tool/build_ildu_settlement_catalog.py`, `tool/preview_ildu_settlement.dart`, `test/ildu_settlement_construction_test.dart`.
 - main.dart, 공정 화면, pubspec, ARB/generated l10n, 테스트, UIUX inventory, graphify에도 미커밋 수정이 있다.
 
-다음 구현에서는 아트와 필요한 데이터만 개별 검토해 가져온다. 프로토타입의 독립 진도 저장·가짜 문 열기·별도 웹 진입을 새 권한 구조로 그대로 옮기지 않는다. CSV의 `sourceRoot`는 검증한 로컬 출처이며 런타임 경로가 아니다. 다른 기기에서는 같은 파일을 확보한 후 hash로 출처를 재확인한다.
+위 Flutter·도구·테스트 변경은 이번 asset-only 통합에서 전부 제외한다. 특히 `IlDuSettlementWallClipper`의 수기 선분은 담장 모양과 축척이 정본과 맞지 않아 반려됐다. 프로토타입의 독립 진도 저장·가짜 문 열기·별도 route도 새 권한 구조로 옮기지 않는다. CSV의 `sourceRoot`는 검증한 로컬 출처이며 런타임 경로가 아니다. 다른 기기에서는 같은 파일을 확보한 후 hash로 출처를 재확인한다.
+
+지도 합성은 [전용 인수인계](2026-09-15-ildu-wall-outline-handoff.md)에서 새 원본부터 다시 대조한다. 현재 main world map 전체를 반려하거나 삭제하지 않는다.
 
 원본8장 정리에서 고유4장을 보존한 과거 변경은 `bbc0a8d119d864b0a3797574e46e68bd775c1047`로 이미 push했다. 경로는 `assets_unused/pending_review/personal_hanok_v3/references/sotdaeulmun/jin_20260914/`. 동일 작업을 다시 커밋하지 않는다.
 
@@ -93,4 +103,4 @@ HEAD: `e1c97d00b7c8a6db87d399e1547adc8799c21aaf`.
 
 ## 새 세션에 전달할 시작 문장
 
-> `docs/superpowers/plans/2026-09-15-ildu-lernenweg-handoff.md`와 연결된 최종 설계·실행 계획을 읽고 이어서 작업해줘. 확정된149배분·정규평가ORunit·선택NPC/26생활의뢰·39조립·일상한국어·기존에셋재사용 방향을 다시 설계하지 말고, 최신main과CP작업을 확인한 뒤 Task1의 실제평가연결·의미검수·일반/catch-up149도달성부터 진행해줘. 문서 완료와 앱 구현 완료를 구분하고 미완성50단계WIP를 보존해줘.
+> `docs/superpowers/plans/2026-09-15-ildu-lernenweg-handoff.md`와 연결된 최종 설계·실행 계획을 읽고 이어서 작업해줘. 확정된149배분·정규평가ORunit·선택NPC/26생활의뢰·39조립·일상한국어·기존에셋재사용 방향을 다시 설계하지 말고, 최신main과CP작업을 확인한 뒤 Task1의 실제평가연결·의미검수·일반/catch-up149도달성부터 진행해줘. 문서·공정 아트 정본과 앱 구현 완료를 구분하고, 아직 미통합인 Flutter 프로토타입 WIP를 보존해줘.

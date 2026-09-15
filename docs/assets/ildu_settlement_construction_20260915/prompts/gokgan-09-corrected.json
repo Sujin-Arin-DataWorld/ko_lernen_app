@@ -1,0 +1,10 @@
+{
+  "id": "gokgan-09-corrected",
+  "asset": "gokgan/stage_09_floor.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_09_floor.png"
+  ],
+  "prompt": "STRUCTURAL CORRECTION ONLY. Existing image has six front posts but lacks intermediate REAR posts. Add FOUR intermediate vertical rear posts between the rear-left post at approximately(630,660) ground and rear-right at(1370,730). Rear post feet at approximately(780,675),(930,690),(1080,705),(1230,720), rising vertically to supporting rear beam beneath roof. They are visibly BEHIND the front posts, on the rear perimeter stone line, not floating midfloor. There must be six rear posts total matching six front structural bays. Retain both side midposts. Add required short connecting depth beams overhead under roof, leaving central floor unobstructed. Preserve all other pixels, roof/camera/scale/base/front posts exactly. No wall infill. Same ivory background.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-953cc736-fa05-4078-a5e6-4b50ce210157.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_09_floor.png"
+}

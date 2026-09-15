@@ -12,9 +12,11 @@ import 'bookshelf_service.dart';
 import 'cloud_sync_service.dart';
 import 'course_progress_service.dart';
 import 'firestore_progress_service.dart';
+import 'diagnostics_service.dart';
 import 'ildu_world_state_service.dart';
 import 'legacy_hanok_v1_importer.dart';
 import 'local_data_lifetime.dart';
+import 'net/sori_net.dart';
 import 'pack_progress_service.dart';
 import 'storage_service.dart';
 import 'privacy_consent_service.dart';
@@ -200,7 +202,10 @@ class CloudSync {
           ..['reconciliation_operation_id'] = FieldValue.delete()
           ..['reconciliation_payload_hash'] = FieldValue.delete();
       },
-      write: () => ref!.set(payload!, SetOptions(merge: true)),
+      write: () => withNetTimeout(
+        ref!.set(payload!, SetOptions(merge: true)),
+        scope: 'cloud_sync.backup_write',
+      ),
       localDataLifetime: localLifetime,
     );
   }
@@ -231,6 +236,19 @@ class CloudSync {
       return lifetime.isCurrent ? result : CloudWriteResult.stale;
     } on StaleLocalDataLifetimeException {
       return CloudWriteResult.stale;
+    } on SoriNetTimeout catch (error, stackTrace) {
+      // The write may still be queued locally by Firestore and flush later —
+      // retrying it here would risk a double-write, so this only reports the
+      // existing "did not complete" result. Never swallowed: recorded for
+      // diagnostics before returning.
+      await DiagnosticsService.reportSwallowed(
+        'cloud_sync.backup_write',
+        error,
+        stackTrace,
+      );
+      return lifetime.isCurrent
+          ? CloudWriteResult.blocked
+          : CloudWriteResult.stale;
     }
   }
 
@@ -1178,7 +1196,10 @@ class CloudSync {
     final ref = _doc;
     if (ref == null) return null;
     try {
-      final snap = await ref.get();
+      final snap = await withNetTimeout(
+        ref.get(),
+        scope: 'cloud_sync.last_backup_at',
+      );
       final ts = snap.data()?['updated_at'] as Timestamp?;
       return ts?.toDate();
     } catch (_) {

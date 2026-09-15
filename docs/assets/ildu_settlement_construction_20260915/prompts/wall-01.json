@@ -1,0 +1,10 @@
+{
+  "id": "wall-01",
+  "asset": "wall/stage_01_footing_trench.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_06_boundary_layout.png"
+  ],
+  "prompt": "Create WALL construction stage01 as an RGBA TRANSPARENT OVERLAY of the supplied exact site map. Retain the exact original portrait canvas extent and all original outer-perimeter surveying stakes, ropes and entrance gaps at identical screen coordinates. Along that same outer boundary, add a narrow shallow excavated foundation trench, open soil sides and a little loosened soil along each edge. No stone footing yet. Remove the vast continuous earth background: only the thin trench/soil strip and stakes/strings remain as opaque pixels, with TRUE transparent alpha everywhere else including the entire central courtyard and outside the footprint. Preserve the original camera, perspective, scale, upper-left light and warm matte hand-painted earth/wood materials. There are no interior divider walls or lines. The wide front entrance and top opening remain unexcavated and completely transparent so people can pass. Do not recenter, crop, zoom, add panels or render a checkerboard/black/white background. Single full-canvas transparent PNG 1202:1308 aspect, no text, arrows, people, walls, buildings or tools. This layer must overlay the prior site image without shifting any stake.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-9e1303e5-396c-47f6-a3d3-ec284f5addbb.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_01_footing_trench.png"
+}

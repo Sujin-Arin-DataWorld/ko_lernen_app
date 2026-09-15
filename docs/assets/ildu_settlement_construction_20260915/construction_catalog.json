@@ -1,0 +1,1420 @@
+{
+  "schemaVersion": 1,
+  "status": "approved_canonical",
+  "approvedBy": "Jin",
+  "approvedOn": "2026-09-15",
+  "approvalScope": "Approved building, dirt-ground and wall-construction artwork only. The prototype wall map outline has incorrect scale and shape; its layout and reveal are excluded and deferred to another session.",
+  "totalStages": 50,
+  "presentation": {
+    "kind": "cumulative_still_sequence",
+    "resampled": false,
+    "bundled": false,
+    "runtimeConsumer": null,
+    "progressionIntegrated": false,
+    "mapCompositingReady": false,
+    "worldOutlineApproved": false,
+    "completedEightDirections": "separate_assets_require_final_canonical_consistency_review"
+  },
+  "languageContentStatus": "existing_illustration_captions_not_published_assessment_bindings",
+  "culture": {
+    "ko": "이 장면은 한국어 학습을 위해 구성한 조립 과정이에요. 방치된 터는 앱의 시작 설정이며 일두고택의 실제 과거 모습이 아니에요. 그림 속 내부 마감은 공간 이해를 위한 표현으로, 실측 복원이나 시공 지침은 아니에요.",
+    "en": "This assembly sequence is designed for Korean learning. The neglected plot is a fictional starting point, not a depiction of Ildu House's past. Interior finishes illustrate space; these images are not measured reconstructions or building instructions.",
+    "de": "Diese Baufolge dient dem Koreanischlernen. Der ungepflegte Bauplatz ist ein fiktiver Anfang und zeigt nicht die Vergangenheit des Ildu-Hauses. Die Innenausstattung veranschaulicht den Raum; die Bilder sind keine maßgetreue Rekonstruktion oder Bauanleitung."
+  },
+  "phases": [
+    {
+      "id": "site",
+      "name": {
+        "ko": "터 정리",
+        "en": "Site preparation",
+        "de": "Bauplatz vorbereiten"
+      },
+      "stages": [
+        {
+          "id": "site-01",
+          "sequence": 1,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/site/stage_01_neglected.png",
+          "width": 1202,
+          "height": 1309,
+          "bytes": 3189478,
+          "sha256": "4713d1580448cb3c1b8ba1b4445223183eb7d52bb50d752b3f8abe45bbefbc32",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "터 살펴보기",
+            "en": "Look at the site",
+            "de": "Den Bauplatz ansehen"
+          },
+          "line": {
+            "ko": "여기에 집을 지어요.",
+            "en": "We will build a house here.",
+            "de": "Hier bauen wir ein Haus."
+          },
+          "observe": {
+            "ko": "낙엽과 풀이 남은 터예요. 집을 지을 자리를 살펴봐요.",
+            "en": "Leaves and weeds cover the site. Look for the building area.",
+            "de": "Laub und Unkraut liegen auf dem Bauplatz. Sieh dir die Baufläche an."
+          }
+        },
+        {
+          "id": "site-02",
+          "sequence": 2,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/site/stage_02_debris_cleared.png",
+          "width": 1201,
+          "height": 1309,
+          "bytes": 2984389,
+          "sha256": "7f1e21c2d0698b1c5d3d019ee5bc28eb6ab6dc7be3548752b0a720474eb0e2f9",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "잔가지와 낙엽 치우기",
+            "en": "Clear branches and leaves",
+            "de": "Zweige und Laub wegräumen"
+          },
+          "line": {
+            "ko": "나뭇가지를 치워요.",
+            "en": "Clear away the branches.",
+            "de": "Räume die Zweige weg."
+          },
+          "observe": {
+            "ko": "잔가지를 치워 사람이 걸어갈 자리가 드러나요.",
+            "en": "Clearing branches reveals a way through.",
+            "de": "Ohne die Zweige wird ein Durchgang sichtbar."
+          }
+        },
+        {
+          "id": "site-03",
+          "sequence": 3,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/site/stage_03_weeded.png",
+          "width": 1201,
+          "height": 1309,
+          "bytes": 2822129,
+          "sha256": "33406c8d27d5f3549e26d867a96e712628bd0a5ec9f20e2609fe9e095be2429f",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "잡초 정리",
+            "en": "Remove weeds",
+            "de": "Unkraut entfernen"
+          },
+          "line": {
+            "ko": "풀을 뽑아요.",
+            "en": "Pull out the weeds.",
+            "de": "Zupfe das Unkraut aus."
+          },
+          "observe": {
+            "ko": "건축할 자리에 풀이 줄고 흙이 드러나요.",
+            "en": "Earth is exposed as weeds are removed from the building area.",
+            "de": "Wo gebaut wird, verschwindet das Unkraut und die Erde wird sichtbar."
+          }
+        },
+        {
+          "id": "site-04",
+          "sequence": 4,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/site/stage_04_levelled.png",
+          "width": 1202,
+          "height": 1309,
+          "bytes": 3052555,
+          "sha256": "bc030a7b1077e8bc0abb5bb87a3ca794ffe35d4d11024a506421ef7ffceb8222",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "땅 고르기",
+            "en": "Level the ground",
+            "de": "Den Boden einebnen"
+          },
+          "line": {
+            "ko": "땅을 고르게 해요.",
+            "en": "Make the ground even.",
+            "de": "Ebne den Boden ein."
+          },
+          "observe": {
+            "ko": "움푹 팬 곳과 솟은 곳을 고르게 해요.",
+            "en": "Hollows and bumps are levelled.",
+            "de": "Vertiefungen und Erhebungen werden ausgeglichen."
+          }
+        },
+        {
+          "id": "site-05",
+          "sequence": 5,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/site/stage_05_compacted.png",
+          "width": 1202,
+          "height": 1308,
+          "bytes": 2440137,
+          "sha256": "a5829624ecaced0933640e6c7d233cd2f308c8d1d14759767d10d01f14815f9c",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "흙 다지기",
+            "en": "Compact the earth",
+            "de": "Die Erde verdichten"
+          },
+          "line": {
+            "ko": "흙을 다져요.",
+            "en": "Compact the earth.",
+            "de": "Verdichte die Erde."
+          },
+          "observe": {
+            "ko": "흙을 다져 걸을 수 있는 바닥을 준비해요.",
+            "en": "The earth is compacted into a walkable surface.",
+            "de": "Die Erde wird zu einem begehbaren Boden verdichtet."
+          }
+        },
+        {
+          "id": "site-06",
+          "sequence": 6,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/site/stage_06_boundary_layout.png",
+          "width": 1202,
+          "height": 1308,
+          "bytes": 2120476,
+          "sha256": "b4183605314ff6e6915e50688f849f5d12f8003d80eaa50b059c20eca0212d98",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "자리 표시",
+            "en": "Mark the positions",
+            "de": "Die Positionen markieren"
+          },
+          "line": {
+            "ko": "여기는 문 자리예요.",
+            "en": "This is where the gate will go.",
+            "de": "Hier kommt das Tor hin."
+          },
+          "observe": {
+            "ko": "말뚝과 줄로 담장을 표시하고 출입할 틈은 남겨요.",
+            "en": "Stakes and strings mark the wall, leaving gaps for access.",
+            "de": "Pflöcke und Schnüre markieren die Mauer. Durchgänge bleiben frei."
+          }
+        }
+      ],
+      "turntableAnchor": null
+    },
+    {
+      "id": "wall",
+      "name": {
+        "ko": "돌담",
+        "en": "Stone wall",
+        "de": "Steinmauer"
+      },
+      "stages": [
+        {
+          "id": "wall-01",
+          "sequence": 1,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_01_footing_trench.png",
+          "width": 1202,
+          "height": 1309,
+          "bytes": 2317526,
+          "sha256": "b17b2137aebb727e833312b56e5cd835f46117bc474eb9f7f02d22b4d23e2ded",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "기초 자리",
+            "en": "Prepare the footing",
+            "de": "Das Fundament vorbereiten"
+          },
+          "line": {
+            "ko": "여기에 담을 쌓아요.",
+            "en": "We will build the wall here.",
+            "de": "Hier bauen wir die Mauer."
+          },
+          "observe": {
+            "ko": "담을 세울 좁은 자리를 파고 문 자리는 비워요.",
+            "en": "A narrow footing is prepared; the gateway stays clear.",
+            "de": "Ein schmaler Fundamentgraben entsteht. Der Torbereich bleibt frei."
+          }
+        },
+        {
+          "id": "wall-02",
+          "sequence": 2,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_02_base_stones.png",
+          "width": 1201,
+          "height": 1309,
+          "bytes": 2200497,
+          "sha256": "7d8a2c966abbf80222d5c836575facbe68a1edb891dd4e0ab2c61061388c32c9",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "바닥돌",
+            "en": "Place foundation stones",
+            "de": "Fundamentsteine setzen"
+          },
+          "line": {
+            "ko": "큰 돌을 아래에 놓아요.",
+            "en": "Put the large stones at the bottom.",
+            "de": "Lege die großen Steine nach unten."
+          },
+          "observe": {
+            "ko": "큰 돌을 아래에 놓아 담의 바닥을 만들어요.",
+            "en": "Large stones form the base of the wall.",
+            "de": "Große Steine bilden den Mauerfuß."
+          }
+        },
+        {
+          "id": "wall-03",
+          "sequence": 3,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_03_corners.png",
+          "width": 1201,
+          "height": 1309,
+          "bytes": 2125197,
+          "sha256": "bd08613d9b0c810c2c67b4d4ca1e578db04d67b2ae1191f3d3021a799aab301c",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "모서리",
+            "en": "Align the corners",
+            "de": "Die Ecken ausrichten"
+          },
+          "line": {
+            "ko": "모서리를 맞춰요.",
+            "en": "Align the corners.",
+            "de": "Richte die Ecken aus."
+          },
+          "observe": {
+            "ko": "모서리와 끝을 먼저 맞추어 이어 쌓을 기준을 잡아요.",
+            "en": "Corners and ends provide guides for the connecting courses.",
+            "de": "Ecken und Enden geben die Richtung für die weiteren Steinlagen vor."
+          }
+        },
+        {
+          "id": "wall-04",
+          "sequence": 4,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_04_two_faces.png",
+          "width": 1201,
+          "height": 1309,
+          "bytes": 2198196,
+          "sha256": "559074233cab03f6bfc097a7c9da12c492b6ecd07093f0c2eeee28e0efeb97b6",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "안팎의 돌",
+            "en": "Build both faces",
+            "de": "Beide Mauerseiten aufbauen"
+          },
+          "line": {
+            "ko": "돌을 쌓아요.",
+            "en": "Stack the stones.",
+            "de": "Schichte die Steine auf."
+          },
+          "observe": {
+            "ko": "안쪽과 바깥쪽을 함께 쌓아 담의 두께를 만들어요.",
+            "en": "Inner and outer faces give the wall its thickness.",
+            "de": "Innen- und Außenseite geben der Mauer ihre Stärke."
+          }
+        },
+        {
+          "id": "wall-05",
+          "sequence": 5,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_05_core_fill.png",
+          "width": 1201,
+          "height": 1309,
+          "bytes": 2077814,
+          "sha256": "dd072ae7083c4ff4c01b06ba55f6093ba4e25352fed76a42ade970d5cf7327a3",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "속 채움",
+            "en": "Fill the core",
+            "de": "Den Zwischenraum füllen"
+          },
+          "line": {
+            "ko": "사이를 채워요.",
+            "en": "Fill the space between them.",
+            "de": "Fülle den Zwischenraum."
+          },
+          "observe": {
+            "ko": "두 면 사이를 작은 돌과 흙으로 채워요.",
+            "en": "Small stones and earth fill the core between the faces.",
+            "de": "Kleine Steine und Erde füllen den Kern zwischen den Mauerseiten."
+          }
+        },
+        {
+          "id": "wall-06",
+          "sequence": 6,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_06_full_height.png",
+          "width": 1201,
+          "height": 1309,
+          "bytes": 2156633,
+          "sha256": "9eaaf8c0cbac1bbfb5ef59dac0d9dbaeb5a527bbc48be8efc1ddf9d953d1aa20",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "몸체 완성",
+            "en": "Finish the wall body",
+            "de": "Den Mauerkörper fertigstellen"
+          },
+          "line": {
+            "ko": "담이 높아졌어요.",
+            "en": "The wall has grown taller.",
+            "de": "Die Mauer ist höher geworden."
+          },
+          "observe": {
+            "ko": "담이 높아져 안과 밖이 나뉘지만 출입구는 남아요.",
+            "en": "The rising wall divides inside from outside while leaving an entrance.",
+            "de": "Die höhere Mauer trennt innen und außen. Der Eingang bleibt frei."
+          }
+        },
+        {
+          "id": "wall-07",
+          "sequence": 7,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_07_cap_bed.png",
+          "width": 1201,
+          "height": 1309,
+          "bytes": 2003913,
+          "sha256": "81d3b9bb52b6db52ab07edc49c33e33116dff06f6dc647bdb0784f93351b1d6c",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "상부 받침",
+            "en": "Prepare the tile bed",
+            "de": "Das Ziegelbett vorbereiten"
+          },
+          "line": {
+            "ko": "위를 고르게 해요.",
+            "en": "Make the top even.",
+            "de": "Ebne die Oberseite ein."
+          },
+          "observe": {
+            "ko": "기와를 얹을 윗부분을 고르게 준비해요.",
+            "en": "The top is prepared for its tile covering.",
+            "de": "Die Oberseite wird für die Ziegelabdeckung vorbereitet."
+          }
+        },
+        {
+          "id": "wall-08",
+          "sequence": 8,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_08_complete.png",
+          "width": 1201,
+          "height": 1309,
+          "bytes": 2091584,
+          "sha256": "93e575deef4951f48ce1221a5e4da45447f4a833ddf9b2915cbf8dc1db217fae",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "기와 마감",
+            "en": "Finish the tile cap",
+            "de": "Die Ziegelabdeckung fertigstellen"
+          },
+          "line": {
+            "ko": "담장이 완성됐어요.",
+            "en": "The boundary wall is complete.",
+            "de": "Die Umfassungsmauer ist fertig."
+          },
+          "observe": {
+            "ko": "담 위에 기와가 놓여요. 다음에는 빈 통로에 대문을 세워요.",
+            "en": "Tiles cover the wall. Next, the gate is built at the opening.",
+            "de": "Ziegel bedecken die Mauer. Als Nächstes entsteht das Tor am Durchgang."
+          }
+        }
+      ],
+      "turntableAnchor": null
+    },
+    {
+      "id": "sotdaeulmun",
+      "name": {
+        "ko": "솟을대문",
+        "en": "Raised main gate",
+        "de": "Erhöhtes Haupttor"
+      },
+      "stages": [
+        {
+          "id": "sotdaeulmun-01",
+          "sequence": 1,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/01_site.png",
+          "width": 1447,
+          "height": 1087,
+          "bytes": 1107083,
+          "sha256": "7eae718ee27b8784805c1e05f75a4320cce17dbce6005b1be16e7150d12224be",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "터와 통로 자리",
+            "en": "Site and passage",
+            "de": "Bauplatz und Durchgang"
+          },
+          "line": {
+            "ko": "입구와 방의 자리를 잡아요.",
+            "en": "Mark the entrance and room positions.",
+            "de": "Markiere Eingang und Räume."
+          },
+          "observe": {
+            "ko": "가운데 통로를 막지 않고 앞뒤 구조와 좌우 방을 이어 만들어요.",
+            "en": "Build the front and rear structure and side rooms while keeping the central passage clear.",
+            "de": "Verbinde die vordere und hintere Struktur und die seitlichen Räume. Halte den mittleren Durchgang frei."
+          }
+        },
+        {
+          "id": "sotdaeulmun-02",
+          "sequence": 2,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/02_foundation.png",
+          "width": 1447,
+          "height": 1087,
+          "bytes": 1079962,
+          "sha256": "8cbd0214b1df9c909231c562ea9b4beb08f9ee0350f3735c1bdd57124a18cd84",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "기초와 초석",
+            "en": "Foundations and post stones",
+            "de": "Fundament und Sockelsteine"
+          },
+          "line": {
+            "ko": "기둥을 받칠 돌을 놓아요.",
+            "en": "Place stones to support the posts.",
+            "de": "Setze Steine als Stützen für die Pfosten."
+          },
+          "observe": {
+            "ko": "가운데 통로를 막지 않고 앞뒤 구조와 좌우 방을 이어 만들어요.",
+            "en": "Build the front and rear structure and side rooms while keeping the central passage clear.",
+            "de": "Verbinde die vordere und hintere Struktur und die seitlichen Räume. Halte den mittleren Durchgang frei."
+          }
+        },
+        {
+          "id": "sotdaeulmun-03",
+          "sequence": 3,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/03_posts.png",
+          "width": 1447,
+          "height": 1087,
+          "bytes": 1219328,
+          "sha256": "3e5b851444c0acf313376872b33bf06be67fba7135360c5c21101c5bf8baa7ab",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "앞뒤 기둥 세우기",
+            "en": "Front and rear posts",
+            "de": "Vordere und hintere Pfosten"
+          },
+          "line": {
+            "ko": "앞뒤 기둥을 세워요.",
+            "en": "Raise the front and rear posts.",
+            "de": "Stelle die vorderen und hinteren Pfosten auf."
+          },
+          "observe": {
+            "ko": "가운데 통로를 막지 않고 앞뒤 구조와 좌우 방을 이어 만들어요.",
+            "en": "Build the front and rear structure and side rooms while keeping the central passage clear.",
+            "de": "Verbinde die vordere und hintere Struktur und die seitlichen Räume. Halte den mittleren Durchgang frei."
+          }
+        },
+        {
+          "id": "sotdaeulmun-04",
+          "sequence": 4,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/04_beams.png",
+          "width": 1447,
+          "height": 1087,
+          "bytes": 1585597,
+          "sha256": "49f134ca67c76431bf7e7f86e7161a9fb6855b6d769c1b1e528c21e62fcc3c4a",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "보와 도리 연결",
+            "en": "Beams and purlins",
+            "de": "Balken und Pfetten"
+          },
+          "line": {
+            "ko": "보와 도리로 기둥을 연결해요.",
+            "en": "Connect the posts with beams and purlins.",
+            "de": "Verbinde die Pfosten mit Balken und Pfetten."
+          },
+          "observe": {
+            "ko": "가운데 통로를 막지 않고 앞뒤 구조와 좌우 방을 이어 만들어요.",
+            "en": "Build the front and rear structure and side rooms while keeping the central passage clear.",
+            "de": "Verbinde die vordere und hintere Struktur und die seitlichen Räume. Halte den mittleren Durchgang frei."
+          }
+        },
+        {
+          "id": "sotdaeulmun-05",
+          "sequence": 5,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/05_rafters.png",
+          "width": 1447,
+          "height": 1087,
+          "bytes": 1646410,
+          "sha256": "b801938a0aa10c16046e2e414ede89e6c090f2a44ee0de6e4068546635d5b3a4",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "서까래와 처마",
+            "en": "Rafters and eaves",
+            "de": "Sparren und Dachüberstand"
+          },
+          "line": {
+            "ko": "서까래를 걸어 지붕 모양을 만들어요.",
+            "en": "Set the rafters to form the roof.",
+            "de": "Lege die Sparren auf, um das Dach zu formen."
+          },
+          "observe": {
+            "ko": "가운데 통로를 막지 않고 앞뒤 구조와 좌우 방을 이어 만들어요.",
+            "en": "Build the front and rear structure and side rooms while keeping the central passage clear.",
+            "de": "Verbinde die vordere und hintere Struktur und die seitlichen Räume. Halte den mittleren Durchgang frei."
+          }
+        },
+        {
+          "id": "sotdaeulmun-06",
+          "sequence": 6,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/06_roof_bed.png",
+          "width": 1447,
+          "height": 1087,
+          "bytes": 1650566,
+          "sha256": "954018872f24fd3353be227d243feb425613b5be6d940f6a48ba6a1ac5fb7238",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "지붕 바탕",
+            "en": "Roof bedding",
+            "de": "Dachunterlage"
+          },
+          "line": {
+            "ko": "서까래 위에 지붕 바탕을 만들어요.",
+            "en": "Build the roof base over the rafters.",
+            "de": "Baue die Dachunterlage über den Sparren."
+          },
+          "observe": {
+            "ko": "가운데 통로를 막지 않고 앞뒤 구조와 좌우 방을 이어 만들어요.",
+            "en": "Build the front and rear structure and side rooms while keeping the central passage clear.",
+            "de": "Verbinde die vordere und hintere Struktur und die seitlichen Räume. Halte den mittleren Durchgang frei."
+          }
+        },
+        {
+          "id": "sotdaeulmun-07",
+          "sequence": 7,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/07_roof_tiles.png",
+          "width": 1447,
+          "height": 1087,
+          "bytes": 1612446,
+          "sha256": "6a552f45dcfa1b3f508d187a37c0667ab50180c35d1dc4624ab8c01660cd284e",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "기와 잇기",
+            "en": "Roof tiles",
+            "de": "Dachziegel"
+          },
+          "line": {
+            "ko": "기와를 차례로 얹어요.",
+            "en": "Lay the roof tiles one after another.",
+            "de": "Lege die Dachziegel nacheinander auf."
+          },
+          "observe": {
+            "ko": "가운데 통로를 막지 않고 앞뒤 구조와 좌우 방을 이어 만들어요.",
+            "en": "Build the front and rear structure and side rooms while keeping the central passage clear.",
+            "de": "Verbinde die vordere und hintere Struktur und die seitlichen Räume. Halte den mittleren Durchgang frei."
+          }
+        },
+        {
+          "id": "sotdaeulmun-08",
+          "sequence": 8,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/08_floors.png",
+          "width": 1447,
+          "height": 1087,
+          "bytes": 1655108,
+          "sha256": "f32764ca9c3fe43d4d69b251e02af1c7ec9717a63cb5b716466e79f9559bed97",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "바닥과 통로",
+            "en": "Floors and passage",
+            "de": "Böden und Durchgang"
+          },
+          "line": {
+            "ko": "방의 바닥과 사람이 지나는 길을 나눠요.",
+            "en": "Separate the room floors from the passage.",
+            "de": "Trenne die Raumböden vom Durchgang."
+          },
+          "observe": {
+            "ko": "가운데 통로를 막지 않고 앞뒤 구조와 좌우 방을 이어 만들어요.",
+            "en": "Build the front and rear structure and side rooms while keeping the central passage clear.",
+            "de": "Verbinde die vordere und hintere Struktur und die seitlichen Räume. Halte den mittleren Durchgang frei."
+          }
+        },
+        {
+          "id": "sotdaeulmun-09",
+          "sequence": 9,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/09_walls.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1738616,
+          "sha256": "4f0c779fbe6b07ce5b7a56d2eb7c713e5ed997683dbd4e725cb71c172d6b44cc",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "돌벽과 회벽",
+            "en": "Stone and plaster walls",
+            "de": "Stein- und Putzwände"
+          },
+          "line": {
+            "ko": "벽을 채우고 문과 창의 자리를 남겨요.",
+            "en": "Fill the walls, leaving space for doors and windows.",
+            "de": "Schließe die Wände und lasse Platz für Türen und Fenster."
+          },
+          "observe": {
+            "ko": "가운데 통로를 막지 않고 앞뒤 구조와 좌우 방을 이어 만들어요.",
+            "en": "Build the front and rear structure and side rooms while keeping the central passage clear.",
+            "de": "Verbinde die vordere und hintere Struktur und die seitlichen Räume. Halte den mittleren Durchgang frei."
+          }
+        },
+        {
+          "id": "sotdaeulmun-10",
+          "sequence": 10,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/10_doors.png",
+          "width": 1447,
+          "height": 1087,
+          "bytes": 1650916,
+          "sha256": "02fa8fbe1a096a3c8bbd519fc5940db29a1d93404e6c450455bb59c0caa41570",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "창호와 두 짝 대문",
+            "en": "Windows and double gate",
+            "de": "Fenster und zweiflügeliges Tor"
+          },
+          "line": {
+            "ko": "창호와 대문을 달아요.",
+            "en": "Fit the windows and gate leaves.",
+            "de": "Baue Fenster und Torflügel ein."
+          },
+          "observe": {
+            "ko": "가운데 통로를 막지 않고 앞뒤 구조와 좌우 방을 이어 만들어요.",
+            "en": "Build the front and rear structure and side rooms while keeping the central passage clear.",
+            "de": "Verbinde die vordere und hintere Struktur und die seitlichen Räume. Halte den mittleren Durchgang frei."
+          }
+        },
+        {
+          "id": "sotdaeulmun-11",
+          "sequence": 11,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/11_identity.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1639964,
+          "sha256": "e91bf5efdf2cd1be19f6e991611dcd207234e0141040c93bc8d1a96bbf604701",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "주련과 편액 마감",
+            "en": "Plaques and inscriptions",
+            "de": "Tafeln und Inschriften"
+          },
+          "line": {
+            "ko": "주련과 편액을 달아 마무리해요.",
+            "en": "Add the inscription panels to finish.",
+            "de": "Bringe zum Abschluss die Inschriftentafeln an."
+          },
+          "observe": {
+            "ko": "가운데 통로를 막지 않고 앞뒤 구조와 좌우 방을 이어 만들어요.",
+            "en": "Build the front and rear structure and side rooms while keeping the central passage clear.",
+            "de": "Verbinde die vordere und hintere Struktur und die seitlichen Räume. Halte den mittleren Durchgang frei."
+          }
+        },
+        {
+          "id": "sotdaeulmun-12",
+          "sequence": 12,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1594929,
+          "sha256": "85e660cb6628042ee6249cc849f390356a2c586bd7c056e183d6101617181d44",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "솟을대문 완성",
+            "en": "Gate complete",
+            "de": "Das Tor ist fertig"
+          },
+          "line": {
+            "ko": "솟을대문이 완성되었어요.",
+            "en": "The raised main gate is complete.",
+            "de": "Das erhöhte Haupttor ist fertig."
+          },
+          "observe": {
+            "ko": "가운데 통로를 막지 않고 앞뒤 구조와 좌우 방을 이어 만들어요.",
+            "en": "Build the front and rear structure and side rooms while keeping the central passage clear.",
+            "de": "Verbinde die vordere und hintere Struktur und die seitlichen Räume. Halte den mittleren Durchgang frei."
+          }
+        }
+      ],
+      "turntableAnchor": "main-gate"
+    },
+    {
+      "id": "toilet",
+      "name": {
+        "ko": "화장실",
+        "en": "Toilet",
+        "de": "Toilette"
+      },
+      "stages": [
+        {
+          "id": "toilet-01",
+          "sequence": 1,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_01_layout.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1332304,
+          "sha256": "bf7c018b551754e863ff64791f0f68724416e2aa2855490a0216ad80adce76d1",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "자리 확인",
+            "en": "Mark the footprint",
+            "de": "Den Grundriss markieren"
+          },
+          "line": {
+            "ko": "화장실은 여기에 있어요.",
+            "en": "The toilet is here.",
+            "de": "Die Toilette ist hier."
+          },
+          "observe": {
+            "ko": "앞면뿐 아니라 뒤쪽까지 건물 자리를 잡아요.",
+            "en": "The footprint includes the rear, not just the front.",
+            "de": "Der Grundriss reicht bis nach hinten."
+          }
+        },
+        {
+          "id": "toilet-02",
+          "sequence": 2,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_02_foundations.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1320342,
+          "sha256": "b74dbcbd76962658b5a0230e151012cf76fb87fd1b075634141d5be36ae8c951",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "기초와 초석",
+            "en": "Foundations and post stones",
+            "de": "Fundament und Sockelsteine"
+          },
+          "line": {
+            "ko": "돌을 놓아요.",
+            "en": "Place the stones.",
+            "de": "Setze die Steine."
+          },
+          "observe": {
+            "ko": "앞뒤 기둥이 놓일 받침돌을 살펴봐요.",
+            "en": "Look at the support stones for the front and rear posts.",
+            "de": "Betrachte die Sockelsteine für die vorderen und hinteren Pfosten."
+          }
+        },
+        {
+          "id": "toilet-03",
+          "sequence": 3,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_03_posts.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1498535,
+          "sha256": "388a353656e468610ea3439153a19ff043332d320b826c544bf40f9193eb1851",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "기둥",
+            "en": "Raise the posts",
+            "de": "Die Pfosten aufstellen"
+          },
+          "line": {
+            "ko": "기둥을 세워요.",
+            "en": "Raise the posts.",
+            "de": "Stelle die Pfosten auf."
+          },
+          "observe": {
+            "ko": "앞뒤 기둥 사이에 사람이 들어갈 공간이 생겨요.",
+            "en": "The space between the front and rear posts can hold people.",
+            "de": "Zwischen vorderen und hinteren Pfosten entsteht Platz für Menschen."
+          }
+        },
+        {
+          "id": "toilet-04",
+          "sequence": 4,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_04_beams.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1519893,
+          "sha256": "f900dcd493bc4035b6bf2097d1dba113c0071784e6cf47dc9bdef55d2d6ce501",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "보와 연결",
+            "en": "Connect the beams",
+            "de": "Die Balken verbinden"
+          },
+          "line": {
+            "ko": "나무를 연결해요.",
+            "en": "Join the timbers.",
+            "de": "Verbinde die Hölzer."
+          },
+          "observe": {
+            "ko": "보가 기둥을 가로와 깊이 방향으로 연결해요.",
+            "en": "Beams join the posts across the width and depth.",
+            "de": "Balken verbinden die Pfosten in Breite und Tiefe."
+          }
+        },
+        {
+          "id": "toilet-05",
+          "sequence": 5,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_05_roof_frame.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1708754,
+          "sha256": "e7354cb4d4731f28bd68af7e0ec9bed154bceb4e3adb2f5fd04f1f63cb1be52f",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "지붕 뼈대",
+            "en": "Build the roof frame",
+            "de": "Das Dachtragwerk bauen"
+          },
+          "line": {
+            "ko": "지붕을 받쳐요.",
+            "en": "Support the roof.",
+            "de": "Stütze das Dach."
+          },
+          "observe": {
+            "ko": "높은 가운데와 낮은 가장자리가 지붕의 부피를 만들어요.",
+            "en": "The raised centre and lower edges establish the roof volume.",
+            "de": "Die erhöhte Mitte und die tieferen Ränder bilden das Dachvolumen."
+          }
+        },
+        {
+          "id": "toilet-06",
+          "sequence": 6,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_06_rafters.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1833387,
+          "sha256": "8b64e956108d4a8f005c0e4ea8c04bd69c68573480509d24f264dae5a4fd0dc3",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "서까래",
+            "en": "Add the rafters",
+            "de": "Die Sparren auflegen"
+          },
+          "line": {
+            "ko": "서까래를 올려요.",
+            "en": "Put the rafters in place.",
+            "de": "Lege die Sparren auf."
+          },
+          "observe": {
+            "ko": "서까래가 지붕의 여러 면과 처마를 만들어요.",
+            "en": "Rafters form the different roof slopes and eaves.",
+            "de": "Sparren bilden die Dachflächen und den Dachüberstand."
+          }
+        },
+        {
+          "id": "toilet-07",
+          "sequence": 7,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_07_roof_bed.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1806895,
+          "sha256": "324722cd4865575379f200387584eb7af92ad62295625b58c157ff8cd2219fe6",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "지붕 바탕",
+            "en": "Cover the roof frame",
+            "de": "Die Dachunterlage verlegen"
+          },
+          "line": {
+            "ko": "지붕을 덮어요.",
+            "en": "Cover the roof.",
+            "de": "Decke das Dach."
+          },
+          "observe": {
+            "ko": "서까래 사이가 덮이고 기와 아래 바탕이 생겨요.",
+            "en": "The gaps over the rafters are covered to form a base for tiles.",
+            "de": "Über den Sparren entsteht eine geschlossene Unterlage für die Ziegel."
+          }
+        },
+        {
+          "id": "toilet-08",
+          "sequence": 8,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_08_tiles.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1800836,
+          "sha256": "1b03eb7792171c853d2889456949f5ad7c9f3454845c31e5dc432234ea6c7a98",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "기와",
+            "en": "Lay the roof tiles",
+            "de": "Die Dachziegel verlegen"
+          },
+          "line": {
+            "ko": "기와를 올려요.",
+            "en": "Lay the roof tiles.",
+            "de": "Lege die Dachziegel auf."
+          },
+          "observe": {
+            "ko": "기와가 올라가고 아래쪽에는 아직 빈 공간이 보여요.",
+            "en": "The tiles are installed while the space below remains open.",
+            "de": "Die Ziegel liegen auf dem Dach. Darunter bleibt der Raum noch offen."
+          }
+        },
+        {
+          "id": "toilet-09",
+          "sequence": 9,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_09_floor.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1819688,
+          "sha256": "72e4b8616b7afe99155eeea3baee3565ed0c98e2279012ee587d03dc082e4de0",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "바닥과 문턱",
+            "en": "Floor and threshold",
+            "de": "Boden und Türschwelle"
+          },
+          "line": {
+            "ko": "문턱을 넘어가요.",
+            "en": "Step over the threshold.",
+            "de": "Steige über die Türschwelle."
+          },
+          "observe": {
+            "ko": "안에 서고 드나들 수 있도록 바닥을 정리해요.",
+            "en": "The floor is prepared for standing and moving through the entrance.",
+            "de": "Der Boden wird zum Stehen und Betreten vorbereitet."
+          }
+        },
+        {
+          "id": "toilet-10",
+          "sequence": 10,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_10_walls.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1830413,
+          "sha256": "737c2fd3932334c5412f15a61e1725ba18cbff68533971c56a8a87eb00b94d84",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "벽",
+            "en": "Build the enclosing walls",
+            "de": "Die Wände schließen"
+          },
+          "line": {
+            "ko": "벽을 만들어요.",
+            "en": "Build the walls.",
+            "de": "Baue die Wände."
+          },
+          "observe": {
+            "ko": "벽이 둘러져도 문 뒤의 내부 공간은 남아 있어요.",
+            "en": "The walls enclose a room that continues beyond the doorway.",
+            "de": "Die Wände umschließen einen Raum, der hinter der Tür weitergeht."
+          }
+        },
+        {
+          "id": "toilet-11",
+          "sequence": 11,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_11_door.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1815034,
+          "sha256": "631ac16dda6b7ecd154300a21c454158ccce65c31063d199dc668fd67f45056d",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "문 달기",
+            "en": "Hang the door",
+            "de": "Die Tür einhängen"
+          },
+          "line": {
+            "ko": "문을 달아요.",
+            "en": "Hang the door.",
+            "de": "Hänge die Tür ein."
+          },
+          "observe": {
+            "ko": "문틀의 두께와 문이 열릴 자리를 함께 살펴봐요.",
+            "en": "Look at the jamb thickness and the space needed to open the door.",
+            "de": "Betrachte die Stärke des Türrahmens und den Platz zum Öffnen."
+          }
+        },
+        {
+          "id": "toilet-12",
+          "sequence": 12,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_12_complete.png",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 1345725,
+          "sha256": "bde2af8fb1cef2095e2ef897a9dce4c65fab2ba7bcfe306a99995f9c0366207d",
+          "mode": "RGBA",
+          "hasAlpha": true,
+          "title": {
+            "ko": "화장실 완성",
+            "en": "Toilet complete",
+            "de": "Die Toilette ist fertig"
+          },
+          "line": {
+            "ko": "화장실이 어디예요?",
+            "en": "Where is the toilet?",
+            "de": "Wo ist die Toilette?"
+          },
+          "observe": {
+            "ko": "완성된 건물을 돌려 보고 실제 쓰임을 말해 봐요.",
+            "en": "Turn the completed building and describe how it is used.",
+            "de": "Drehe das fertige Gebäude und beschreibe seine Nutzung."
+          }
+        }
+      ],
+      "turntableAnchor": "toilet-north"
+    },
+    {
+      "id": "gokgan",
+      "name": {
+        "ko": "곳간채",
+        "en": "Storehouse",
+        "de": "Vorratshaus"
+      },
+      "stages": [
+        {
+          "id": "gokgan-01",
+          "sequence": 1,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_01_layout.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1715605,
+          "sha256": "ebd4dfd0f75b8f188c62d541ad43bf419668e4d5808fd89f330ec5bd1e506969",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "다섯 칸의 자리",
+            "en": "Mark five bays",
+            "de": "Fünf Gefache markieren"
+          },
+          "line": {
+            "ko": "물건을 보관하는 곳이에요.",
+            "en": "This is a place for storing things.",
+            "de": "Hier bewahrt man Dinge auf."
+          },
+          "observe": {
+            "ko": "앞면뿐 아니라 뒤쪽까지 건물 자리를 잡아요.",
+            "en": "The footprint includes the rear, not just the front.",
+            "de": "Der Grundriss reicht bis nach hinten."
+          }
+        },
+        {
+          "id": "gokgan-02",
+          "sequence": 2,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_02_foundations.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1591577,
+          "sha256": "3976c990af1ca9d275f9558f15bde9e27a896e65a42e607a0cb078707feb1312",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "기초와 초석",
+            "en": "Foundations and post stones",
+            "de": "Fundament und Sockelsteine"
+          },
+          "line": {
+            "ko": "돌을 놓아요.",
+            "en": "Place the stones.",
+            "de": "Setze die Steine."
+          },
+          "observe": {
+            "ko": "앞뒤 기둥이 놓일 받침돌을 살펴봐요.",
+            "en": "Look at the support stones for the front and rear posts.",
+            "de": "Betrachte die Sockelsteine für die vorderen und hinteren Pfosten."
+          }
+        },
+        {
+          "id": "gokgan-03",
+          "sequence": 3,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_03_posts.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1670233,
+          "sha256": "218deb191530ae8698aaad4111b4db333c272625824e053c4c13ee97623f02c9",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "기둥",
+            "en": "Raise the posts",
+            "de": "Die Pfosten aufstellen"
+          },
+          "line": {
+            "ko": "기둥을 세워요.",
+            "en": "Raise the posts.",
+            "de": "Stelle die Pfosten auf."
+          },
+          "observe": {
+            "ko": "앞뒤 기둥 사이에 사람이 들어갈 공간이 생겨요.",
+            "en": "The space between the front and rear posts can hold people.",
+            "de": "Zwischen vorderen und hinteren Pfosten entsteht Platz für Menschen."
+          }
+        },
+        {
+          "id": "gokgan-04",
+          "sequence": 4,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_04_beams.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1724515,
+          "sha256": "a355d5ec60382c00a36bdcd3a5fece717d17618fb94b63ea8202446410fc0492",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "보와 연결",
+            "en": "Connect the beams",
+            "de": "Die Balken verbinden"
+          },
+          "line": {
+            "ko": "나무를 연결해요.",
+            "en": "Join the timbers.",
+            "de": "Verbinde die Hölzer."
+          },
+          "observe": {
+            "ko": "보가 기둥을 가로와 깊이 방향으로 연결해요.",
+            "en": "Beams join the posts across the width and depth.",
+            "de": "Balken verbinden die Pfosten in Breite und Tiefe."
+          }
+        },
+        {
+          "id": "gokgan-05",
+          "sequence": 5,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_05_roof_frame.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 1783359,
+          "sha256": "7578a94e397767e81823c7da2c0e28b313d9c29d7ecc62b1c72b6d002969a6c6",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "지붕 뼈대",
+            "en": "Build the roof frame",
+            "de": "Das Dachtragwerk bauen"
+          },
+          "line": {
+            "ko": "지붕을 받쳐요.",
+            "en": "Support the roof.",
+            "de": "Stütze das Dach."
+          },
+          "observe": {
+            "ko": "높은 가운데와 낮은 가장자리가 지붕의 부피를 만들어요.",
+            "en": "The raised centre and lower edges establish the roof volume.",
+            "de": "Die erhöhte Mitte und die tieferen Ränder bilden das Dachvolumen."
+          }
+        },
+        {
+          "id": "gokgan-06",
+          "sequence": 6,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_06_rafters.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2035189,
+          "sha256": "87ae27d31c683da6b9248008321e6497b9b7ae2c07497cefdd39038f63894abb",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "서까래",
+            "en": "Add the rafters",
+            "de": "Die Sparren auflegen"
+          },
+          "line": {
+            "ko": "서까래를 올려요.",
+            "en": "Put the rafters in place.",
+            "de": "Lege die Sparren auf."
+          },
+          "observe": {
+            "ko": "서까래가 지붕의 여러 면과 처마를 만들어요.",
+            "en": "Rafters form the different roof slopes and eaves.",
+            "de": "Sparren bilden die Dachflächen und den Dachüberstand."
+          }
+        },
+        {
+          "id": "gokgan-07",
+          "sequence": 7,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_07_roof_bed.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2047012,
+          "sha256": "1c2b3889148930fec8f2e4365ebdd39057d5c7533d66b667b0ed4c0d319f06c5",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "지붕 바탕",
+            "en": "Cover the roof frame",
+            "de": "Die Dachunterlage verlegen"
+          },
+          "line": {
+            "ko": "지붕을 덮어요.",
+            "en": "Cover the roof.",
+            "de": "Decke das Dach."
+          },
+          "observe": {
+            "ko": "서까래 사이가 덮이고 기와 아래 바탕이 생겨요.",
+            "en": "The gaps over the rafters are covered to form a base for tiles.",
+            "de": "Über den Sparren entsteht eine geschlossene Unterlage für die Ziegel."
+          }
+        },
+        {
+          "id": "gokgan-08",
+          "sequence": 8,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_08_tiles.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2138931,
+          "sha256": "76fc3f686fdf98cf76b4539071ac3dd24ba0eee3920a7f46df5354b3c685eda5",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "기와",
+            "en": "Lay the roof tiles",
+            "de": "Die Dachziegel verlegen"
+          },
+          "line": {
+            "ko": "기와를 올려요.",
+            "en": "Lay the roof tiles.",
+            "de": "Lege die Dachziegel auf."
+          },
+          "observe": {
+            "ko": "기와가 올라가고 아래쪽에는 아직 빈 공간이 보여요.",
+            "en": "The tiles are installed while the space below remains open.",
+            "de": "Die Ziegel liegen auf dem Dach. Darunter bleibt der Raum noch offen."
+          }
+        },
+        {
+          "id": "gokgan-09",
+          "sequence": 9,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_09_floor.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2091844,
+          "sha256": "3ca5a1c93456485a89900b3277a2fb3691e93721b8f9623111ce29ab990d4828",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "바닥과 출입",
+            "en": "Prepare the floor and entrance",
+            "de": "Boden und Eingang vorbereiten"
+          },
+          "line": {
+            "ko": "바닥을 정리해요.",
+            "en": "Prepare the floor.",
+            "de": "Bereite den Boden vor."
+          },
+          "observe": {
+            "ko": "안에 서고 드나들 수 있도록 바닥을 정리해요.",
+            "en": "The floor is prepared for standing and moving through the entrance.",
+            "de": "Der Boden wird zum Stehen und Betreten vorbereitet."
+          }
+        },
+        {
+          "id": "gokgan-10",
+          "sequence": 10,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_10_walls.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2199519,
+          "sha256": "49845705fc9b2d4777910fd7fdcc1fcdffddcd0def771dfeae9511adf36ce8e5",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "벽과 환기창",
+            "en": "Walls and ventilation windows",
+            "de": "Wände und Lüftungsfenster"
+          },
+          "line": {
+            "ko": "창을 만들어요.",
+            "en": "Make the windows.",
+            "de": "Baue die Fenster ein."
+          },
+          "observe": {
+            "ko": "벽이 둘러져도 문 뒤의 내부 공간은 남아 있어요.",
+            "en": "The walls enclose a room that continues beyond the doorway.",
+            "de": "Die Wände umschließen einen Raum, der hinter der Tür weitergeht."
+          }
+        },
+        {
+          "id": "gokgan-11",
+          "sequence": 11,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_11_doors.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2259623,
+          "sha256": "564dc5d7d322511baff9eaac2e95328207f33461fcf55b6ff0514fb87add34a7",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "문",
+            "en": "Hang the doors",
+            "de": "Die Türen einhängen"
+          },
+          "line": {
+            "ko": "문을 열어요.",
+            "en": "Open the door.",
+            "de": "Öffne die Tür."
+          },
+          "observe": {
+            "ko": "문틀의 두께와 문이 열릴 자리를 함께 살펴봐요.",
+            "en": "Look at the jamb thickness and the space needed to open the door.",
+            "de": "Betrachte die Stärke des Türrahmens und den Platz zum Öffnen."
+          }
+        },
+        {
+          "id": "gokgan-12",
+          "sequence": 12,
+          "asset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_12_complete.png",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 2237369,
+          "sha256": "5bc7dc87c578e6dd8b578aa516caa93a265d035bb21325ff10658382c1343406",
+          "mode": "RGB",
+          "hasAlpha": false,
+          "title": {
+            "ko": "곳간채 완성",
+            "en": "Storehouse complete",
+            "de": "Das Vorratshaus ist fertig"
+          },
+          "line": {
+            "ko": "안에 넣어요. 다시 꺼내요.",
+            "en": "Put it inside. Take it out again.",
+            "de": "Lege es hinein. Hole es wieder heraus."
+          },
+          "observe": {
+            "ko": "완성된 건물을 돌려 보고 실제 쓰임을 말해 봐요.",
+            "en": "Turn the completed building and describe how it is used.",
+            "de": "Drehe das fertige Gebäude und beschreibe seine Nutzung."
+          }
+        }
+      ],
+      "turntableAnchor": "gokgan"
+    }
+  ],
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "generatedImages": 37,
+    "preservedCanonicalImages": 13,
+    "export": "byte-preserved PNG copies; no resampling or visual changes",
+    "provenance": "docs/assets/ildu_settlement_construction_20260915/provenance.json",
+    "prompts": "docs/assets/ildu_settlement_construction_20260915/prompts",
+    "promptRule": "Historical production records only; absolute source paths and superseded attempts are not runtime dependencies or approval instructions."
+  },
+  "sources": [
+    {
+      "asset": "assets_unused/pending_review/personal_hanok_v3/화장실.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1345725,
+      "sha256": "bde2af8fb1cef2095e2ef897a9dce4c65fab2ba7bcfe306a99995f9c0366207d",
+      "mode": "RGBA",
+      "hasAlpha": true
+    },
+    {
+      "asset": "assets_unused/pending_review/personal_hanok_v3/gokganchae_try02_5kan.png",
+      "width": 2736,
+      "height": 1536,
+      "bytes": 4685696,
+      "sha256": "6e5f7b91eb60a417906f742c695749b50cf9a471eb01c92e8106b18f06ccb709",
+      "mode": "RGBA",
+      "hasAlpha": true
+    },
+    {
+      "asset": "assets_unused/pending_review/personal_hanok_v3/담장/돌담_v2.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2508084,
+      "sha256": "3f04a85dad2fe6350cbdd1e3431672a80bc4b5c88d551d9c7d831dd40a391e9b",
+      "mode": "RGB",
+      "hasAlpha": false
+    }
+  ],
+  "wallOutlineHandoff": "docs/superpowers/plans/2026-09-15-ildu-wall-outline-handoff.md"
+}

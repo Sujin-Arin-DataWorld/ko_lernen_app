@@ -1,0 +1,11 @@
+{
+  "id": "site-06",
+  "asset": "site/stage_06_boundary_layout.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_05_compacted.png",
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets/illustrations/personal_hanok_v3/world/ildu-wall-masterplan-v1.png"
+  ],
+  "prompt": "ONE portrait full-canvas SITE construction stage 06. Image1 is the EDIT TARGET: keep its exact compacted earth surface and framing. Image2 is ONLY the spatial layout reference. Add small timber surveying stakes and thin natural-fibre strings exactly along the OUTER wall ground footprint from image2, with stakes at existing outer corners and endpoints. Preserve all original entrance gaps: especially the front lower entrance gap, left-mid wide gate opening and right/front side openings. Strings must stop at openings, never cross a human passage. Draw no inner dividing-wall lines yet. Keep the outer polygon crooked/asymmetric exactly as image2, not a rectangle; no camera rotation or zoom. Stakes only knee-height, very small at this estate scale. The result remains mostly clean open earth, with just wooden stakes and thin taut rope: NO stones, walls, buildings, roof tiles, tools, people, lettering, dimension labels, grid or arrows. Identical warm matte hand-painted game style, palette, upper-left light and canvas aspect 1202:1308.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-f21ae6df-6d1b-4c59-bb8a-c2be3daff745.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_06_boundary_layout.png"
+}

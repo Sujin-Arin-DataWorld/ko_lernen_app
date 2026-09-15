@@ -1,0 +1,10 @@
+{
+  "id": "toilet-11",
+  "asset": "toilet/stage_11_door.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/화장실.png"
+  ],
+  "prompt": "Edit the reference Korean hanok outhouse for construction stage11. Preserve EXACT building, camera (front and visible LEFT side), crop, timber positions, single door location, stone footing, plaster, complete charcoal paljak roof silhouette/material. Door is newly installed and swings 60degrees inward so we can see real jamb thickness, a shaded small standing floor and back wall depth beyond doorway. No fixtures, no toilet bowl, no hole or plumbing, no person. No sign or letters. Only door state changes. Render on perfectly plain warm ivory #F5F0E8 background, no checkerboard/no floor plane; subtle local contact shadow. High-quality V3 detailed 3D painted building asset. Same1448x1086 composition.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-0f329370-9bcd-43c0-8ecd-d8e12d8fca85.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_11_door.png"
+}

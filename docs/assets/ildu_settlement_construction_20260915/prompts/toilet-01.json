@@ -1,0 +1,10 @@
+{
+  "id": "toilet-01",
+  "asset": "toilet/stage_01_layout.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_02_foundations.png"
+  ],
+  "prompt": "First construction stage: edit reference foundation down to only the leveled ochre earth plot at SAME location/size/outline near bottom of frame. Remove ALL stonework and raised plinth. Mark exact rectangular building footprint with a few low wooden stakes and thin strings, visibly front and rear edges separated in depth, leave a gap for the central door access. No building/roof/stone/pit/plumbing. Maintain same oblique camera and large blank ivory upper area; do not crop/zoom. Finely painted Korean game asset.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-89358dce-bf98-42b1-93e6-8309d0af4208.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_01_layout.png"
+}

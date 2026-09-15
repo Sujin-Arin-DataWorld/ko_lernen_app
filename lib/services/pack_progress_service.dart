@@ -8,6 +8,7 @@ import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'firestore_progress_service.dart';
 import 'local_data_lifetime.dart';
+import 'pack_sync_queue.dart';
 import 'storage_service.dart';
 import 'stamp_entitlement_reconciler.dart';
 import 'vocab_pack_service.dart';
@@ -520,13 +521,29 @@ class PackProgressService {
   }
 
   static Future<void> _persist(PackProgress p) async {
+    // §S3 (R2/R4 durability fix): captured *before* the write below so it's
+    // the true pre-write status — PackSyncQueue.enqueue uses it to detect a
+    // status transition even on the very first call of a fresh process
+    // (Storage.packProgressJson(p.packId) would otherwise already reflect
+    // `p` itself by the time the queue could read it).
+    final previousStatus = _readPersistedStatus(p.packId);
     await Storage.setPackProgressJson(p.packId, p.toJson());
     if (PackCompletionStorage.admissionClosed) {
       return;
     }
-    // Fire-and-forget Firestore sync.
-    // ignore: discarded_futures, unawaited_futures
-    FirestoreProgressService.savePack(p);
+    // Local write above is immediate/synchronous (progress-loss-0); the
+    // Firestore backup mirror is debounced through PackSyncQueue instead of
+    // a fire-and-forget savePack on every call (was ~90k ops/day @ 1k DAU).
+    // See lib/services/pack_sync_queue.dart.
+    PackSyncQueue.instance.enqueue(p, previousStatus: previousStatus);
+  }
+
+  static PackStatus? _readPersistedStatus(String packId) {
+    final json = Storage.packProgressJson(packId);
+    if (json == null) {
+      return null;
+    }
+    return PackProgress.fromJson(packId, json).status;
   }
 
   // ── Cloud-Sync (Backup / Restore) ──────────────────────────────────

@@ -1,0 +1,10 @@
+{
+  "id": "toilet-05",
+  "asset": "toilet/stage_05_roof_frame.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_06_rafters.png"
+  ],
+  "prompt": "Reverse assembly stage5 remove all closely-spaced small round rafters and rafter tails from reference. Retain only SPARSE primary roof skeleton: ridge timber on short vertical supports, several horizontal purlins, four principal hip/corner beams, connected to the rectangular beam frame below. Show open air through the roof and all the way to rear posts. No continuous boards, no roof tiles. Preserve exact front/rear post positions, base stones, earth footprint, camera/crop/scale and ivory background. This is substantial real depth and a room people can enter, not a facade.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-7f5ed37c-d408-4f6b-9743-644465b2466c.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_05_roof_frame.png"
+}

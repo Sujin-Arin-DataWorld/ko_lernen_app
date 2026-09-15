@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/course_practice_context.dart';
@@ -6,8 +7,17 @@ import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/services/course_activity_reporter.dart';
 import 'package:ko_lernen_app/services/course_mastery_service.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  setUp(() async {
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({});
+    await Storage.init();
+  });
+
   test('scenario quest types retain their specific correction reason', () {
     expect(
       masteryErrorForQuestType(QuestType.particlePop),
@@ -98,6 +108,66 @@ void main() {
         'unlinked_browse_scene',
         passed: 10,
         total: 10,
+      );
+      await Future<void>.delayed(Duration.zero);
+      expect(requestedProjection, 1);
+    },
+  );
+
+  test(
+    '§S3: a second passing life-promise checkpoint the same day does not '
+    'trigger a second full CloudSync backup',
+    () async {
+      var requestedProjection = 0;
+      CourseUpdate makeUpdate(String scenarioId, double score, CoursePracticeContext? courseContext) =>
+          CourseUpdate(
+            snapshot: CourseMasterySnapshot(
+              scenarioCheckpoints: [
+                ScenarioCheckpointEvidence(
+                  scenarioId: scenarioId,
+                  courseUnitId: 'a1_01_greetings_hangul',
+                  missionContentLinkId: courseContext?.contentLinkId,
+                  score: score,
+                  occurredAt: DateTime.utc(2026, 1, 1),
+                  courseEligible: courseContext != null,
+                ),
+              ],
+            ),
+            currentUnit: null,
+          );
+      CourseActivityReporter.recordScenarioCheckpointForTesting =
+          (scenarioId, score, courseContext) async =>
+              makeUpdate(scenarioId, score, courseContext);
+      CourseActivityReporter.lifePromiseProjectionSyncForTesting = () async {
+        requestedProjection += 1;
+      };
+      addTearDown(CourseActivityReporter.resetOverridesForTesting);
+
+      const courseContext = CoursePracticeContext(
+        courseUnitId: 'a1_04_order_request_object',
+        contentKind: CurriculumContentKind.scenario,
+        initialContentId: 'bunshik_tteokbokki',
+        contentLinkId: 'scenario-assess',
+      );
+
+      // First fully-eligible checkpoint of the day → backup requested.
+      await CourseActivityReporter.recordScenarioCheckpoint(
+        'bunshik_tteokbokki',
+        passed: 7,
+        total: 10,
+        courseContext: courseContext,
+      );
+      await Future<void>.delayed(Duration.zero);
+      expect(requestedProjection, 1);
+      expect(Storage.lastLifePromiseBackupDay, isNotNull);
+
+      // Second, independently fully-eligible checkpoint the same day →
+      // the day-dedupe must skip the redundant full-account backup.
+      await CourseActivityReporter.recordScenarioCheckpoint(
+        'bunshik_tteokbokki',
+        passed: 8,
+        total: 10,
+        courseContext: courseContext,
       );
       await Future<void>.delayed(Duration.zero);
       expect(requestedProjection, 1);

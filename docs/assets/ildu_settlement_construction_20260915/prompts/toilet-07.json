@@ -1,0 +1,10 @@
+{
+  "id": "toilet-07",
+  "asset": "toilet/stage_07_roof_bed.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_08_tiles.png"
+  ],
+  "prompt": "Reverse construction stage7: remove ALL black roof tiles, ridge tiles, ceramic ornaments and white tile endcaps from reference, revealing continuous matte warm clay/wood roof bedding beneath in exactly the same Korean hip-and-gable roof shape. Bare curved roof planes with subtle board seams under thin earthy bedding; no tile rows. Keep exposed round rafter ends along eaves, all timber posts front/back/depth beams, earth floor, stones, exact camera/scale/crop unchanged. No walls, door, props, letters. Same ivory background.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-2092a2e5-d80c-4fda-bc0b-d287d0da7ccc.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_07_roof_bed.png"
+}

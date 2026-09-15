@@ -97,6 +97,12 @@ class AccessFunctionsTransport extends FirebaseFunctionsPlatform {
   final List<({String name, String region, bool limitedUse, Object? data})>
   calls = [];
   String? requestedRegion;
+
+  /// S2 (net timeouts/backoff): when set, the *next* call() never completes
+  /// — lets a test prove a hung callable is bounded by withNetTimeout
+  /// instead of hanging the caller forever. Reset to null after being
+  /// consumed once, so later calls in the same test resolve normally again.
+  Completer<void>? hangNextCall;
   @override
   FirebaseFunctionsPlatform delegateFor({
     FirebaseApp? app,
@@ -130,6 +136,12 @@ class _Callable extends HttpsCallablePlatform {
       limitedUse: options.limitedUseAppCheckToken,
       data: parameters,
     ));
+    final hang = transport.hangNextCall;
+    if (hang != null) {
+      transport.hangNextCall = null;
+      await hang.future; // Never completes in a hang test — the caller's
+      // own withNetTimeout is what must bound this, not this transport.
+    }
     final now = DateTime.now().millisecondsSinceEpoch;
     return {
       'schemaVersion': 2,

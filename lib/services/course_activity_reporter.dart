@@ -12,6 +12,7 @@ import 'course_mastery_service.dart';
 import 'course_progress_service.dart';
 import 'curriculum_catalog.dart';
 import 'local_data_lifetime.dart';
+import 'storage_service.dart';
 
 enum CourseContentAttemptResult { persisted, notApplicable }
 
@@ -267,7 +268,18 @@ class CourseActivityReporter {
   /// request. This best-effort backup only mirrors that evidence to the
   /// existing account-root sync channel; it never writes a Gye aggregate from
   /// the client. The server later re-checks course eligibility before credit.
+  ///
+  /// §S3: `CloudSync.backupWithResult()` is a *full* account backup, not a
+  /// single-document write — triggering it on every passing weekly-promise
+  /// checkpoint pass was part of the write-amplification this PR fixes.
+  /// Deduped to at most once per calendar day via [Storage.lastLifePromiseBackupDay].
   static void _scheduleLifePromiseProjectionSync() {
+    final today = DateTime.now().toIso8601String().substring(0, 10);
+    if (Storage.lastLifePromiseBackupDay == today) {
+      debugPrint('Gye life-promise sync skipped: already backed up today.');
+      return;
+    }
+    unawaited(Storage.setLastLifePromiseBackupDay(today));
     final override = lifePromiseProjectionSyncForTesting;
     unawaited(
       (override != null ? override() : _backupCourseEvidence()).then<void>(

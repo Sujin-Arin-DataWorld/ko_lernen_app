@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/access_snapshot.dart';
 import 'access_snapshot_controller.dart';
 import 'account/cloud_write_session.dart';
+import 'net/sori_net.dart';
 
 /// Server policy and quota information remains observable for diagnostics.
 final ValueNotifier<AccessSnapshot?> accessSnapshotNotifier = ValueNotifier(
@@ -61,15 +62,15 @@ class AccessSnapshotService {
         environment: _environment,
         fetch: () async {
           final before = _identity().uid;
-          final response =
-              await FirebaseFunctions.instanceFor(region: 'europe-west3')
-                  .httpsCallable(
-                    'getUniversalAccessSnapshot',
-                    options: HttpsCallableOptions(
-                      limitedUseAppCheckToken: true,
-                    ),
-                  )
-                  .call();
+          final response = await withNetTimeout(
+            FirebaseFunctions.instanceFor(region: 'europe-west3')
+                .httpsCallable(
+                  'getUniversalAccessSnapshot',
+                  options: HttpsCallableOptions(limitedUseAppCheckToken: true),
+                )
+                .call(),
+            scope: 'access_snapshot.fetch',
+          );
           if (_identity().uid != before) {
             throw StateError('Stale access response');
           }

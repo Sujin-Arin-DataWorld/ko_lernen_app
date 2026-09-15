@@ -1,0 +1,10 @@
+{
+  "id": "wall-07",
+  "asset": "wall/stage_07_cap_bed.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_06_full_height.png"
+  ],
+  "prompt": "Precise construction edit stage7 of same stone boundary wall. Preserve entire image geometry camera ground wall stones positions and open gateways. Change ONLY the wall TOP: add a continuous smoothly finished pale ochre earthen tile bedding cap, slightly raised center ridge and shallow slopes to both faces, with subtle overhang at edges to support small Korean wall roof tiles next stage. No tiles yet. This is masonry wall cap bedding, NOT a wooden house roof. Make cap visible on all perimeter stretches, no other changes, no text.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-4257c1d9-31ba-4609-9995-984cc6aa230d.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_07_cap_bed.png"
+}
