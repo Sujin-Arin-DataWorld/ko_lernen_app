@@ -264,32 +264,42 @@ class LiveA1CorpusGuardTest(unittest.TestCase):
 
 
 class F9HeadwordEmbeddedGrammarAgreementTest(unittest.TestCase):
-    """F9 (Jin ruling 2026-09-16): tools/content_factory/lexicon/
-    f9_headword_embedded_grammar.csv is the governance-record source of
-    truth for A1 headwords whose own lexical form embeds a grade>=2
-    grammar item; scan_a1_grammar.py's and scan_grammar_level.py's
-    HEADWORD_EMBEDDED_GRAMMAR dicts are what the scanners actually consult
-    to skip those rows, so a vocab id present in one but not the other
+    """F9 (Jin ruling 2026-09-16, extended round 2): tools/content_factory/
+    lexicon/f9_headword_embedded_grammar.csv is the governance-record
+    source of truth for two kinds of -아/어 주다 (grade 2) A1 exception:
+
+    * kind=headword -- a vocab id whose own headword embeds the grammar;
+      scan_a1_grammar.py's and scan_grammar_level.py's
+      HEADWORD_EMBEDDED_GRAMMAR dicts are what the scanners actually
+      consult to skip those rows.
+    * kind=request_formula -- one of the 3 closed-list learner->stranger
+      request formulas; both scanners' A1_REQUEST_FORMULAS constant is
+      what they actually consult.
+
+    A row present in the CSV but missing from the scanner (or vice versa)
     would silently reintroduce either a false flag or an unflagged
-    violation. This guards the two stay put in sync."""
+    violation, so this guards all three stay in sync."""
 
     @classmethod
     def setUpClass(cls) -> None:
         cls.f9_rows = load_f9_headword_embedded_grammar(REPO_ROOT)
-        cls.f9_vocab_ids = {row["id"].strip() for row in cls.f9_rows}
+        cls.f9_headword_rows = [r for r in cls.f9_rows if r["kind"].strip() == "headword"]
+        cls.f9_formula_rows = [r for r in cls.f9_rows if r["kind"].strip() == "request_formula"]
+        cls.f9_vocab_ids = {row["id"].strip() for row in cls.f9_headword_rows}
+        cls.f9_formula_texts = {row["headword"].strip() for row in cls.f9_formula_rows}
 
     def test_f9_source_has_the_expected_rows(self) -> None:
         # Guards the CSV itself against silent drift (e.g. a bad edit
         # dropping a row or renaming an id) independent of the scanners.
-        self.assertEqual(
-            self.f9_vocab_ids, {"vocab_a1_0410", "vocab_a1_0508"},
-        )
+        self.assertEqual(len(self.f9_headword_rows) + len(self.f9_formula_rows), len(self.f9_rows))
+        self.assertEqual(self.f9_vocab_ids, {"vocab_a1_0410", "vocab_a1_0508"})
+        self.assertEqual(len(self.f9_formula_rows), 3)
         for row in self.f9_rows:
             self.assertEqual(row["level"].strip(), "A1")
             self.assertIn("-아/어 주다", row["embedded_grammar"])
             self.assertIn("A1", row["disposition"])
 
-    def test_scan_a1_grammar_dict_has_a_vocab_entry_for_every_f9_row(self) -> None:
+    def test_scan_a1_grammar_dict_has_a_vocab_entry_for_every_f9_headword_row(self) -> None:
         missing = sorted(
             vid for vid in self.f9_vocab_ids
             if ("vocab", vid) not in S.HEADWORD_EMBEDDED_GRAMMAR
@@ -299,7 +309,7 @@ class F9HeadwordEmbeddedGrammarAgreementTest(unittest.TestCase):
             msg=f"scan_a1_grammar.HEADWORD_EMBEDDED_GRAMMAR is missing F9 id(s): {missing}",
         )
 
-    def test_scan_grammar_level_a1_dict_has_a_vocab_entry_for_every_f9_row(self) -> None:
+    def test_scan_grammar_level_a1_dict_has_a_vocab_entry_for_every_f9_headword_row(self) -> None:
         a1_dict = SL.HEADWORD_EMBEDDED_GRAMMAR["A1"]
         missing = sorted(
             vid for vid in self.f9_vocab_ids if ("vocab", vid) not in a1_dict
@@ -319,6 +329,26 @@ class F9HeadwordEmbeddedGrammarAgreementTest(unittest.TestCase):
         # but this test's scope is specifically the F9 exception table.
         self.assertTrue(self.f9_vocab_ids <= legacy_vocab_ids)
         self.assertTrue(self.f9_vocab_ids <= level_vocab_ids)
+
+    def _formula_text_from_constant_entry(self, entry: str) -> str:
+        # F9's "말해 주세요" row carries its 다시/천천히/한번/조금 variant
+        # note inline in the `headword` column (see the CSV); strip that
+        # parenthetical so it compares equal to the scanner constant's
+        # bare formula string, matching how _is_allowed_request_formula
+        # matches by literal substring, not by modifier (see
+        # scan_a1_grammar.py's A1_REQUEST_FORMULAS docstring).
+        return entry.split(" (", 1)[0].strip()
+
+    def test_f9_formula_rows_match_scan_a1_grammar_constant_exactly(self) -> None:
+        f9_bare = {self._formula_text_from_constant_entry(t) for t in self.f9_formula_texts}
+        self.assertEqual(f9_bare, set(S.A1_REQUEST_FORMULAS))
+
+    def test_f9_formula_rows_match_scan_grammar_level_constant_exactly(self) -> None:
+        f9_bare = {self._formula_text_from_constant_entry(t) for t in self.f9_formula_texts}
+        self.assertEqual(f9_bare, set(SL.A1_REQUEST_FORMULAS))
+
+    def test_both_scanners_agree_on_a1_request_formulas(self) -> None:
+        self.assertEqual(set(S.A1_REQUEST_FORMULAS), set(SL.A1_REQUEST_FORMULAS))
 
 
 if __name__ == "__main__":

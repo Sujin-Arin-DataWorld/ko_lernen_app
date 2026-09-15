@@ -1237,21 +1237,27 @@ def build_f9_md(root: Path, f1_result: F1Result) -> str:
     lines.append("")
     lines.append("## 표제어 내장 문법 -- 레벨 유지(예문 헤드워드 자체가 상위 등급 문법을 내장)")
     lines.append("")
-    lines.append("> Jin 룰링 2026-09-16 추가 --")
+    lines.append("> Jin 룰링 2026-09-16 추가 (round 2에서 `request_formula` 종류로 확장) --")
     lines.append("> `tools/content_factory/lexicon/f9_headword_embedded_grammar.csv`가 정본, 이 표는 그")
-    lines.append("> 스냅샷. 헤드워드 자체가 상위 등급 문법을 어휘화한 다어(多語) 표현이라 예문에서")
-    lines.append("> 헤드워드를 그대로 써야 하는 항목 -- `tools/content_factory/scan_a1_grammar.py`와")
-    lines.append("> `scan_grammar_level.py`의 `HEADWORD_EMBEDDED_GRAMMAR`가 이 표의 id를 그대로")
-    lines.append("> 사용해 스캔에서 제외한다(일치 여부는")
+    lines.append("> 스냅샷. `kind=headword` 행은 헤드워드 자체가 상위 등급 문법을 어휘화한")
+    lines.append("> 다어(多語) 표현이라 예문에서 헤드워드를 그대로 써야 하는 항목 --")
+    lines.append("> `tools/content_factory/scan_a1_grammar.py`와 `scan_grammar_level.py`의")
+    lines.append("> `HEADWORD_EMBEDDED_GRAMMAR`가 이 표의 id를 그대로 사용해 스캔에서 제외한다.")
+    lines.append("> `kind=request_formula` 행은 특정 표제어가 아니라, 낯선 사람에게 요청할 때")
+    lines.append("> 쓰는 고정 정형구 3종의 닫힌 목록(학습자→낯선 사람 요청은 정중한 정형구가")
+    lines.append("> 필요; 생산 문법 -아/어 주다는 A2부터; 맨 -으세요 명령형은 권한 있는")
+    lines.append("> 화자의 지시문에 한정) -- 두 스캐너의 `A1_REQUEST_FORMULAS` 상수가 이 표의")
+    lines.append("> 표제어 칸과 정확히 같아야 한다(일치 여부는")
     lines.append("> `tools/content_factory/test_scan_a1_grammar.py`가 검증).")
     lines.append("")
     headword_embedded_rows = load_f9_headword_embedded_grammar(root)
-    lines.append("| id | 표제어 | 레벨 | 내장 문법 | 처리 | 결정자 | 결정일 | 사유 | 근거 |")
-    lines.append("|---|---|---|---|---|---|---|---|---|")
+    lines.append("| id | 구분 | 표제어/정형구 | 레벨 | 내장 문법 | 처리 | 결정자 | 결정일 | 사유 | 근거 |")
+    lines.append("|---|---|---|---|---|---|---|---|---|---|")
     for row in headword_embedded_rows:
         lines.append(
-            "| {id} | {hw} | {lvl} | {gram} | {disp} | {by} | {at} | {why} | {ref} |".format(
-                id=row["id"].strip(),
+            "| {id} | {kind} | {hw} | {lvl} | {gram} | {disp} | {by} | {at} | {why} | {ref} |".format(
+                id=row["id"].strip() or "—",
+                kind=row["kind"].strip(),
                 hw=row["headword"].strip(),
                 lvl=row["level"].strip(),
                 gram=row["embedded_grammar"].strip(),
