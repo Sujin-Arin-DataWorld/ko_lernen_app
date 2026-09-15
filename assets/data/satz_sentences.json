@@ -5780,9 +5780,9 @@
     {
       "id": "satz_a1_0091",
       "level": "a2",
-      "targetKo": "윗목이 서늘해서 아래로 오라고 하셨어요.",
-      "promptDe": "Der obere Teil des Zimmers war kühl, also sollte ich weiter nach unten rücken.",
-      "promptEn": "The upper part of the room was cool, so they told me to move down.",
+      "targetKo": "윗목이 서늘해서 아랫목에 앉았어요.",
+      "promptDe": "Der obere Teil des Zimmers war kühl, deshalb setzte ich mich auf den warmen Platz am Boden.",
+      "promptEn": "The upper part of the room was cool, so I sat on the warm spot on the floor.",
       "distractors": [
         "처음",
         "처음에는"
@@ -5816,9 +5816,9 @@
     {
       "id": "satz_a1_0094",
       "level": "a2",
-      "targetKo": "방석을 밀어 주셔서 감사하다고 했어요.",
-      "promptDe": "Sie schoben mir ein Sitzkissen zu, und ich bedankte mich.",
-      "promptEn": "They pushed a floor cushion over, and I said thank you.",
+      "targetKo": "방석을 밀어 주셔서 감사했어요.",
+      "promptDe": "Sie schoben mir ein Sitzkissen zu, und ich war dankbar.",
+      "promptEn": "They pushed a floor cushion over, and I was thankful.",
       "distractors": [
         "찍지",
         "차가워"
@@ -5828,9 +5828,9 @@
     {
       "id": "satz_a1_0095",
       "level": "a2",
-      "targetKo": "물 드세요 하셔서 컵을 두 손으로 받았어요.",
-      "promptDe": "Als sie mir Wasser anboten, nahm ich das Glas mit beiden Händen.",
-      "promptEn": "When they offered me water, I took the glass with both hands.",
+      "targetKo": "물 드세요. 두 손으로 컵을 받았어요.",
+      "promptDe": "Trinken Sie etwas Wasser. Ich nahm das Glas mit beiden Händen.",
+      "promptEn": "Please have some water. I took the glass with both hands.",
       "distractors": [
         "드리고",
         "드세요를"
@@ -6224,9 +6224,9 @@
     {
       "id": "satz_a1_0128",
       "level": "a2",
-      "targetKo": "성묘 갈 때는 편한 신발을 신으라고 하셨어요.",
-      "promptDe": "Für den Grabbesuch sollte ich bequeme Schuhe anziehen.",
-      "promptEn": "They told me to wear comfortable shoes for the grave visit.",
+      "targetKo": "성묘 갈 때는 편한 신발을 신었어요.",
+      "promptDe": "Für den Grabbesuch zog ich bequeme Schuhe an.",
+      "promptEn": "I wore comfortable shoes for the grave visit.",
       "distractors": [
         "말렸어요",
         "말하니"
@@ -6500,9 +6500,9 @@
     {
       "id": "satz_a1_0151",
       "level": "a2",
-      "targetKo": "나갈 때 잘 다녀오겠습니다라고 했어요.",
-      "promptDe": "Ich mache mich dann auf den Weg. Danke für heute.",
-      "promptEn": "I'll be heading out now. Thanks for having me.",
+      "targetKo": "나갈 때 인사했어요. 잘 다녀오겠습니다!",
+      "promptDe": "Beim Rausgehen habe ich mich verabschiedet. Ich mache mich dann auf den Weg!",
+      "promptEn": "I said goodbye as I left. I'll be heading out now!",
       "distractors": [
         "단체",
         "달아서"
@@ -6524,9 +6524,9 @@
     {
       "id": "satz_a1_0153",
       "level": "a2",
-      "targetKo": "다음에 또 오세요 하셔서 신발을 거꾸로 신었어요.",
-      "promptDe": "Als sie sagten, ich solle wiederkommen, zog ich die Schuhe verkehrt herum an.",
-      "promptEn": "When they told me to come again, I put my shoes on backwards.",
+      "targetKo": "다음에 또 오세요. 그 말을 듣고 신발을 거꾸로 신었어요.",
+      "promptDe": "Kommen Sie bald wieder. Ich hörte das und zog aus Eile die Schuhe verkehrt herum an.",
+      "promptEn": "Please come again. I heard that and put my shoes on backwards in my hurry.",
       "distractors": [
         "지으셨어요",
         "진지"
@@ -6608,9 +6608,9 @@
     {
       "id": "satz_a2_0039",
       "level": "a2",
-      "targetKo": "어디서 오셨어요 하시길래 독일 베를린이라고 했어요.",
-      "promptDe": "Sie fragten, woher ich komme, also sagte ich Berlin.",
-      "promptEn": "They asked where I am from, so I said Berlin in Germany.",
+      "targetKo": "어디서 오셨어요? 독일 베를린이에요.",
+      "promptDe": "Woher kommen Sie? Aus Berlin in Deutschland.",
+      "promptEn": "Where are you from? Berlin, Germany.",
       "distractors": [
         "보냈어요",
         "보름달을"
@@ -6644,9 +6644,9 @@
     {
       "id": "satz_a2_0042",
       "level": "a2",
-      "targetKo": "언제 왔어요 하시길래 재작년이라고 했어요.",
-      "promptDe": "Auf die Frage, wann ich gekommen sei, sagte ich: vorletztes Jahr.",
-      "promptEn": "When they asked when I came over, I said the year before last.",
+      "targetKo": "언제 왔어요? 재작년에 왔어요.",
+      "promptDe": "Wann sind Sie gekommen? Vorletztes Jahr.",
+      "promptEn": "When did you come? The year before last.",
       "distractors": [
         "열었어요",
         "영상은"
@@ -6668,9 +6668,9 @@
     {
       "id": "satz_a2_0044",
       "level": "a2",
-      "targetKo": "소개팅이 아니라 동아리에서 만났다고 했어요.",
+      "targetKo": "소개팅이 아니라 동아리에서 만났어요.",
       "promptDe": "Wir haben uns nicht über ein Date, sondern im Verein kennengelernt.",
-      "promptEn": "I said we met in a club, not on a set-up date.",
+      "promptEn": "We met in a club, not on a set-up date.",
       "distractors": [
         "그냥",
         "그릇이"
@@ -6728,9 +6728,9 @@
     {
       "id": "satz_a2_0049",
       "level": "a2",
-      "targetKo": "음식 취향을 묻길래 매운 건 조금 먹는다고 했어요.",
-      "promptDe": "Nach den Vorlieben gefragt sagte ich, Scharfes esse ich wenig.",
-      "promptEn": "They asked about my food preferences, so I said I can only handle a little spice.",
+      "targetKo": "제 음식 취향을 물어봤어요. 매운 건 조금만 먹어요.",
+      "promptDe": "Sie fragten nach meinen Essensvorlieben. Scharfes esse ich nur wenig.",
+      "promptEn": "They asked about my food preferences. I only eat a little spicy food.",
       "distractors": [
         "가게가",
         "가는"
@@ -6764,9 +6764,9 @@
     {
       "id": "satz_a2_0052",
       "level": "a2",
-      "targetKo": "떡국 먹다 보면 한 살이 는다는 농담을 들었어요.",
-      "promptDe": "Beim Essen hörte ich den Witz, man werde ein Jahr älter.",
-      "promptEn": "While eating the soup I heard the joke that you gain a year.",
+      "targetKo": "떡국을 먹으면 나이를 한 살 더 먹어요.",
+      "promptDe": "Wenn man die Reiskuchensuppe isst, wird man ein Jahr älter.",
+      "promptEn": "If you eat the rice-cake soup, you turn one year older.",
       "distractors": [
         "제가",
         "제일"
@@ -6836,9 +6836,9 @@
     {
       "id": "satz_a2_0058",
       "level": "a2",
-      "targetKo": "세배 영상은 가족 앨범에만 두래요.",
-      "promptDe": "Das Video sollte nur ins Familienalbum.",
-      "promptEn": "They said keep the bowing video in the family album only.",
+      "targetKo": "세배 영상은 가족 앨범에만 둬요.",
+      "promptDe": "Das Video kommt nur ins Familienalbum.",
+      "promptEn": "The bowing video only goes in the family album.",
       "distractors": [
         "나왔어요",
         "나요"
@@ -6884,9 +6884,9 @@
     {
       "id": "satz_a2_0062",
       "level": "a2",
-      "targetKo": "새해 목표를 묻길래 한국어 일기라고 했어요.",
-      "promptDe": "Nach dem Vorsatz gefragt sagte ich koreanisches Tagebuch.",
-      "promptEn": "They asked for a new-year goal, so I said a Korean diary.",
+      "targetKo": "제 새해 목표는 한국어 일기예요.",
+      "promptDe": "Mein Neujahrsvorsatz ist ein koreanisches Tagebuch.",
+      "promptEn": "My new year's goal is a Korean diary.",
       "distractors": [
         "썼어요",
         "쏟아졌어요"
@@ -6920,9 +6920,9 @@
     {
       "id": "satz_a2_0065",
       "level": "a2",
-      "targetKo": "보름달을 보며 소원을 말하래요.",
-      "promptDe": "Beim Vollmond sollte ich einen Wunsch sagen.",
-      "promptEn": "They told me to make a wish looking at the full moon.",
+      "targetKo": "보름달을 보면서 소원을 말해요.",
+      "promptDe": "Beim Vollmond macht man einen Wunsch.",
+      "promptEn": "You make a wish while looking at the full moon.",
       "distractors": [
         "장갑을",
         "저녁만큼"
@@ -7220,9 +7220,9 @@
     {
       "id": "satz_a2_0090",
       "level": "a2",
-      "targetKo": "아침 인사는 일어나자마자 큰 소리로 했어요.",
-      "promptDe": "Guten Morgen sagte ich laut gleich nach dem Aufstehen.",
-      "promptEn": "I said good morning loudly as soon as I got up.",
+      "targetKo": "아침 인사는 일어나서 바로 크게 했어요.",
+      "promptDe": "Den Morgengruß habe ich gleich nach dem Aufstehen laut gesagt.",
+      "promptEn": "I said my morning greeting loudly right after getting up.",
       "distractors": [
         "쏟아졌어요",
         "아껴"
@@ -7520,9 +7520,9 @@
     {
       "id": "satz_a2_0115",
       "level": "a2",
-      "targetKo": "김치를 짐 부치려다 안 된다고 해서 무릎 위에 올렸어요.",
-      "promptDe": "Das Kimchi durfte ich nicht aufgeben, also kam es auf meine Knie.",
-      "promptEn": "I wasn't allowed to check the kimchi, so it rode on my lap.",
+      "targetKo": "김치는 짐으로 부칠 수 없어서 무릎 위에 올렸어요.",
+      "promptDe": "Das Kimchi durfte ich nicht als Gepäck aufgeben, also kam es auf meine Knie.",
+      "promptEn": "I couldn't check the kimchi as luggage, so it rode on my lap.",
       "distractors": [
         "색이",
         "샐까"
@@ -7568,9 +7568,9 @@
     {
       "id": "satz_a2_0119",
       "level": "a2",
-      "targetKo": "집 마당에 개가 있어서 그냥 앉아 있으라고 하셨어요.",
-      "promptDe": "Im Hof war ein Hund, also sollte ich einfach sitzen bleiben.",
-      "promptEn": "There was a dog in the yard, so they told me to just stay seated.",
+      "targetKo": "집 마당에 개가 있어서 그냥 앉아 있었어요.",
+      "promptDe": "Im Hof war ein Hund, also blieb ich einfach sitzen.",
+      "promptEn": "There was a dog in the yard, so I just stayed seated.",
       "distractors": [
         "아침밥이",
         "안부"
@@ -7580,9 +7580,9 @@
     {
       "id": "satz_a2_0120",
       "level": "a2",
-      "targetKo": "밤참으로 과일만 달라고 했는데 라면이 나왔어요.",
-      "promptDe": "Als Spätimbiss wollte ich nur Obst, aber es kam Ramyeon.",
-      "promptEn": "I asked only for fruit as a late snack, but ramyeon appeared.",
+      "targetKo": "밤참으로 과일만 부탁했는데 라면이 나왔어요.",
+      "promptDe": "Als Spätimbiss bat ich nur um Obst, aber es kam Ramyeon.",
+      "promptEn": "I asked for only fruit as a late snack, but ramyeon came out.",
       "distractors": [
         "해를",
         "해서"
@@ -7604,9 +7604,9 @@
     {
       "id": "satz_a2_0122",
       "level": "a2",
-      "targetKo": "서울 도착하자마자 안부 전화를 드렸어요.",
-      "promptDe": "Kaum in Seoul, rief ich an, dass wir gut angekommen sind.",
-      "promptEn": "As soon as we reached Seoul I made the safe-arrival call.",
+      "targetKo": "서울에 도착해서 바로 안부 전화를 드렸어요.",
+      "promptDe": "Ich bin in Seoul angekommen und habe sofort angerufen, dass wir gut angekommen sind.",
+      "promptEn": "I arrived in Seoul and called right away to say we'd arrived safely.",
       "distractors": [
         "전날",
         "전에"
@@ -11336,9 +11336,9 @@
     {
       "id": "satz_a1_0218",
       "level": "a2",
-      "targetKo": "중요한 문장은 빨리 필기하다 보면 손이 아파요.",
-      "promptDe": "Wenn ich wichtige Sätze schnell mitschreibe, tun die Hände weh.",
-      "promptEn": "If I take notes on important sentences quickly, my hands hurt.",
+      "targetKo": "중요한 문장을 빨리 필기하면 손이 아파요.",
+      "promptDe": "Wenn ich wichtige Sätze schnell mitschreibe, tut mir die Hand weh.",
+      "promptEn": "If I take notes on important sentences quickly, my hand hurts.",
       "distractors": [
         "필통",
         "지우개"
@@ -11636,7 +11636,7 @@
     {
       "id": "satz_a1_0243",
       "level": "a2",
-      "targetKo": "일교차가 클 때는 옷을 겹쳐 입다 해요.",
+      "targetKo": "일교차가 클 때는 옷을 겹쳐 입어요.",
       "promptDe": "Bei großem Temperaturunterschied trage ich Kleidung in Lagen.",
       "promptEn": "When the temperature gap is large, I layer clothes.",
       "distractors": [
@@ -19664,9 +19664,9 @@
     {
       "id": "satz_a2_0308",
       "level": "a2",
-      "targetKo": "여기서 뭐가 제일 맛있어요?",
-      "promptDe": "Was schmeckt hier am besten?",
-      "promptEn": "What's best here?",
+      "targetKo": "여기서 뭐 추천해요?",
+      "promptDe": "Was empfehlen Sie hier?",
+      "promptEn": "What do you recommend here?",
       "distractors": [
         "회사",
         "직업"
@@ -19808,7 +19808,7 @@
     {
       "id": "satz_a2_0320",
       "level": "a2",
-      "targetKo": "여기서 곧장 가시면 돼요.",
+      "targetKo": "여기서 곧장 가세요.",
       "promptDe": "Gehen Sie von hier einfach geradeaus.",
       "promptEn": "Just go straight from here.",
       "distractors": [
@@ -20672,9 +20672,9 @@
     {
       "id": "satz_a2_0349",
       "level": "a2",
-      "targetKo": "매달 조금씩이라도 저축하려고 해요.",
-      "promptDe": "Ich versuche, jeden Monat wenigstens etwas zu sparen.",
-      "promptEn": "I try to save at least a little every month.",
+      "targetKo": "매달 조금씩 저축하려고 해요.",
+      "promptDe": "Ich versuche, jeden Monat ein wenig zu sparen.",
+      "promptEn": "I try to save a little every month.",
       "distractors": [
         "회사",
         "직업"
