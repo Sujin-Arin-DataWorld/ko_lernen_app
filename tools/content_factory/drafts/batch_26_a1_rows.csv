@@ -15,8 +15,8 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 팔월,parwol,August,A1,Nomen,팔월에 방학이 제일 길어요.,Im August ist die Ferienzeit am längsten.,Zeit,a1_months_1,8,false,August,Noun,The vacation is longest in August.,vocab_a1_0536
 구월,guwol,September,A1,Nomen,구월에 학교에 다시 가요.,Im September gehe ich wieder zur Schule.,Zeit,a1_months_1,9,false,September,Noun,I go back to school in September.,vocab_a1_0537
 시월,siwol,Oktober,A1,Nomen,시월에 등산하러 가요.,Im Oktober gehe ich wandern.,Zeit,a1_months_1,10,false,October,Noun,I go hiking in October.,vocab_a1_0538
-십일월,sibirwol,November,A1,Nomen,십일월에 뭐 해요?,Was machen Sie im November?,Zeit,a1_months_1,11,false,November,Noun,What do you do in November?,vocab_a1_0539
-십이월,sibiwol,Dezember,A1,Nomen,십이월에 파티가 있어요.,Im Dezember gibt es eine Party.,Zeit,a1_months_1,12,false,December,Noun,There's a party in December.,vocab_a1_0540
+십일월,sibirwol,November,A1,Nomen,십일월에 뭐 해요?,Was machen Sie im November?,Zeit,a1_months_1,11,true,November,Noun,What do you do in November?,vocab_a1_0539
+십이월,sibiwol,Dezember,A1,Nomen,십이월에 파티가 있어요.,Im Dezember gibt es eine Party.,Zeit,a1_months_1,12,true,December,Noun,There's a party in December.,vocab_a1_0540
 일본,ilbon,Japan,A1,Nomen,"마야 씨, 저는 일본을 찍고 싶어요!","Maya, ich möchte Japan filmen!",Geographie,a1_countries_1,1,false,Japan,Noun,"Maya, I want to film Japan!",vocab_a1_0541
 중국,jungguk,China,A1,Nomen,중국 사람이세요?,Sind Sie aus China?,Geographie,a1_countries_1,2,false,China,Noun,Are you from China?,vocab_a1_0542
 영국,yeongguk,"England, Großbritannien",A1,Nomen,영국에서 오셨어요?,Kommen Sie aus England?,Geographie,a1_countries_1,3,false,"the UK, England",Noun,Are you from England?,vocab_a1_0543
@@ -27,8 +27,8 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 베트남,beteunam,Vietnam,A1,Nomen,베트남에 가고 싶어요.,Ich möchte nach Vietnam fahren.,Geographie,a1_countries_1,8,false,Vietnam,Noun,I want to go to Vietnam.,vocab_a1_0548
 몽골,monggol,die Mongolei,A1,Nomen,몽골에 친구가 살아요.,Ein Freund von mir lebt in der Mongolei.,Geographie,a1_countries_1,9,false,Mongolia,Noun,A friend of mine lives in Mongolia.,vocab_a1_0549
 말레이시아,malleisia,Malaysia,A1,Nomen,말레이시아에서 오셨어요?,Kommen Sie aus Malaysia?,Geographie,a1_countries_1,10,false,Malaysia,Noun,Are you from Malaysia?,vocab_a1_0550
-인도네시아,indonesia,Indonesien,A1,Nomen,인도네시아는 어디에 있어요?,Wo liegt Indonesien?,Geographie,a1_countries_1,11,false,Indonesia,Noun,Where is Indonesia?,vocab_a1_0551
-외국,oeguk,Ausland,A1,Nomen,외국 생활이 어때요?,Wie ist das Leben im Ausland?,Geographie,a1_countries_1,12,false,"foreign country, abroad",Noun,How is life abroad?,vocab_a1_0552
+인도네시아,indonesia,Indonesien,A1,Nomen,인도네시아는 어디에 있어요?,Wo liegt Indonesien?,Geographie,a1_countries_1,11,true,Indonesia,Noun,Where is Indonesia?,vocab_a1_0551
+외국,oeguk,Ausland,A1,Nomen,외국 생활이 어때요?,Wie ist das Leben im Ausland?,Geographie,a1_countries_1,12,true,"foreign country, abroad",Noun,How is life abroad?,vocab_a1_0552
 축구,chukgu,Fußball,A1,Nomen,저는 축구를 잘해요.,Ich bin gut im Fußball.,Freizeit,a1_hobbies_1,1,false,soccer,Noun,I'm good at soccer.,vocab_a1_0553
 야구,yagu,Baseball,A1,Nomen,야구 좋아하세요?,Mögen Sie Baseball?,Freizeit,a1_hobbies_1,2,false,baseball,Noun,Do you like baseball?,vocab_a1_0554
 농구,nonggu,Basketball,A1,Nomen,"음, 주말에 농구 할까요?","Hmm, sollen wir am Wochenende Basketball spielen?",Freizeit,a1_hobbies_1,3,false,basketball,Noun,"Hmm, shall we play basketball this weekend?",vocab_a1_0555
@@ -39,8 +39,8 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 산책,sanchaek,Spaziergang,A1,Nomen,"수진 씨, 왜 산책을 좋아해요?","Sujin, warum magst du Spaziergänge?",Freizeit,a1_hobbies_1,8,false,"walk, stroll",Noun,"Sujin, why do you like walks?",vocab_a1_0560
 춤,chum,Tanz,A1,Nomen,"레나 씨, 우리 같이 춤을 출까요?","Lena, sollen wir zusammen tanzen?",Freizeit,a1_hobbies_1,9,false,dance,Noun,"Lena, shall we dance together?",vocab_a1_0561
 노래,norae,Lied,A1,Nomen,"마야 씨, 이 노래 정말 좋아요!","Maya, dieses Lied ist wirklich toll!",Freizeit,a1_hobbies_1,10,false,song,Noun,"Maya, this song is really great!",vocab_a1_0562
-구경,gugyeong,Besichtigung,A1,Nomen,이번 주말에 구경 가요.,Lass uns dieses Wochenende bummeln gehen.,Freizeit,a1_hobbies_1,11,false,sightseeing,Noun,Let's go sightseeing this weekend.,vocab_a1_0563
-탁구,takgu,Tischtennis,A1,Nomen,그럼 기숙사에서 탁구 칠까요?,Sollen wir dann im Wohnheim Tischtennis spielen?,Freizeit,a1_hobbies_1,12,false,table tennis,Noun,"Then, shall we play table tennis in the dorm?",vocab_a1_0564
+구경,gugyeong,Besichtigung,A1,Nomen,이번 주말에 구경 가요.,Lass uns dieses Wochenende bummeln gehen.,Freizeit,a1_hobbies_1,11,true,sightseeing,Noun,Let's go sightseeing this weekend.,vocab_a1_0563
+탁구,takgu,Tischtennis,A1,Nomen,그럼 기숙사에서 탁구 칠까요?,Sollen wir dann im Wohnheim Tischtennis spielen?,Freizeit,a1_hobbies_1,12,true,table tennis,Noun,"Then, shall we play table tennis in the dorm?",vocab_a1_0564
 김밥,gimbap,Gimbap (Reisrolle),A1,Nomen,그럼 점심에 김밥 먹을까요?,"Also, sollen wir zum Mittagessen Gimbap essen?",Essen & Trinken,a1_korean_food_1,1,false,gimbap,Noun,"Then, shall we have gimbap for lunch?",vocab_a1_0565
 떡볶이,tteokbokki,Tteokbokki (scharfer Reiskuchen),A1,Nomen,어제 수진 씨하고 떡볶이 먹었어요.,Gestern habe ich mit Sujin Tteokbokki gegessen.,Essen & Trinken,a1_korean_food_1,2,false,tteokbokki,Noun,Yesterday I ate tteokbokki with Sujin.,vocab_a1_0566
 김치찌개,gimchijjigae,Kimchi-Eintopf,A1,Nomen,"와, 이 김치찌개 정말 맛있어요!","Wow, dieser Kimchi-Eintopf ist wirklich lecker!",Essen & Trinken,a1_korean_food_1,3,false,kimchi stew,Noun,"Wow, this kimchi stew is really delicious!",vocab_a1_0567
@@ -51,8 +51,8 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 참외,chamoe,Koreanische Melone (Chamoe),A1,Nomen,이 참외가 정말 맛있어요.,Diese koreanische Melone ist wirklich lecker.,Essen & Trinken,a1_korean_food_1,8,false,Korean melon,Noun,This Korean melon is really delicious.,vocab_a1_0572
 포도,podo,Weintraube,A1,Nomen,포도 좀 주세요.,"Etwas Trauben, bitte.",Essen & Trinken,a1_korean_food_1,9,false,grape,Noun,"Some grapes, please.",vocab_a1_0573
 감,gam,Kaki (Persimone),A1,Nomen,할머니가 감을 좋아하세요.,Meine Großmutter mag Kaki.,Essen & Trinken,a1_korean_food_1,10,false,persimmon,Noun,My grandmother likes persimmons.,vocab_a1_0574
-사이다,saida,Zitronenlimonade,A1,Nomen,사이다 있어요?,Haben Sie eine Zitronenlimonade?,Essen & Trinken,a1_korean_food_1,11,false,lemon-lime soda,Noun,Do you have a lemon-lime soda?,vocab_a1_0575
-콜라,kolla,Cola,A1,Nomen,콜라 하나 더 주세요.,"Noch eine Cola, bitte.",Essen & Trinken,a1_korean_food_1,12,false,cola,Noun,"One more cola, please.",vocab_a1_0576
+사이다,saida,Zitronenlimonade,A1,Nomen,사이다 있어요?,Haben Sie eine Zitronenlimonade?,Essen & Trinken,a1_korean_food_1,11,true,lemon-lime soda,Noun,Do you have a lemon-lime soda?,vocab_a1_0575
+콜라,kolla,Cola,A1,Nomen,콜라 하나 더 주세요.,"Noch eine Cola, bitte.",Essen & Trinken,a1_korean_food_1,12,true,cola,Noun,"One more cola, please.",vocab_a1_0576
 서울,seoul,Seoul,A1,Nomen,저는 서울에 살아요.,Ich wohne in Seoul.,Geographie,a1_korean_places_1,1,false,Seoul,Noun,I live in Seoul.,vocab_a1_0577
 부산,busan,Busan,A1,Nomen,"아, 이번 주말에 부산에 갈까요?","Ach, sollen wir dieses Wochenende nach Busan fahren?",Geographie,a1_korean_places_1,2,false,Busan,Noun,"Oh, shall we go to Busan this weekend?",vocab_a1_0578
 인천,incheon,Incheon,A1,Nomen,인천공항에서 만나요.,Wir treffen uns am Flughafen Incheon.,Geographie,a1_korean_places_1,3,false,Incheon,Noun,Let's meet at Incheon Airport.,vocab_a1_0579
@@ -63,5 +63,5 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 서점,seojeom,Buchladen,A1,Nomen,서점에서 책을 골랐어요.,Ich habe im Buchladen ein Buch ausgesucht.,Alltag,a1_korean_places_1,8,false,bookstore,Noun,I picked out a book at the bookstore.,vocab_a1_0584
 커피숍,keopisyop,Café,A1,Nomen,이 근처에 커피숍이 있어요?,Gibt es hier in der Nähe ein Café?,Alltag,a1_korean_places_1,9,false,coffee shop,Noun,Is there a coffee shop near here?,vocab_a1_0585
 영화관,yeonghwagwan,Kino,A1,Nomen,"레나 씨, 저녁에 영화관에 갈까요?","Lena, sollen wir heute Abend ins Kino gehen?",Freizeit,a1_korean_places_1,10,false,movie theater,Noun,"Lena, shall we go to the movie theater this evening?",vocab_a1_0586
-극장,geukjang,Theater,A1,Nomen,이 근처에 극장이 있어요?,Gibt es hier in der Nähe ein Theater?,Freizeit,a1_korean_places_1,11,false,theater,Noun,Is there a theater near here?,vocab_a1_0587
-목욕탕,mogyoktang,öffentliches Bad,A1,Nomen,저는 목욕탕에 자주 가요.,Ich gehe oft ins öffentliche Bad.,Alltag,a1_korean_places_1,12,false,public bathhouse,Noun,I often go to the public bathhouse.,vocab_a1_0588
+극장,geukjang,Theater,A1,Nomen,이 근처에 극장이 있어요?,Gibt es hier in der Nähe ein Theater?,Freizeit,a1_korean_places_1,11,true,theater,Noun,Is there a theater near here?,vocab_a1_0587
+목욕탕,mogyoktang,öffentliches Bad,A1,Nomen,저는 목욕탕에 자주 가요.,Ich gehe oft ins öffentliche Bad.,Alltag,a1_korean_places_1,12,true,public bathhouse,Noun,I often go to the public bathhouse.,vocab_a1_0588

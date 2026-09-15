@@ -93,46 +93,42 @@ C11_depth,info,,,functions,C1/C2 최소치(3) < A1/A2 최소치(4) — 인벤토
 C11_depth,warn,,,vocabDomains,C1/C2 평균(3.5) 이 A1/A2 평균(4.25) 보다 작다,상위 레벨이 얇아지지 않게 보강한다
 C11_depth,info,,,textTypes,C1/C2 최소치(2) < A1/A2 최소치(3) — 인벤토리가 정하는 축이라 축약이 아니다,매트릭스 인벤토리와 대조해 의도된 축소인지 확인한다
 C16_lexis,info,A1,KP01,KP01 · etiquette_honorific_lexis,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 높임, 말씀, 드리다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,A1,KP01,KP01 · family_kinship_address_terms,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 동생,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP01,KP01 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A1 이하)에 없다: 마음에 들다, 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP01,KP01 · professions_workplace,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A1 이하)에 없다: 직업, 회사, 동료, 업무",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP01,KP01 · school_study_terms,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 공책,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP02,KP02 · home_objects_furniture,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 창문,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP02,KP02 · numbers_quantity_units,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 세 개, 만 원",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,A1,KP02,KP02 · time_calendar,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 오전, 오후",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP02,KP02 · transport_travel_vocab,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 기차,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP03,KP03 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A1 이하)에 없다: 마음에 들다, 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,A1,KP03,KP03 · food_cooking,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 메뉴,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP03,KP03 · numbers_quantity_units,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 세 개, 만 원",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP03,KP03 · transport_travel_vocab,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 기차,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP04,KP04 · body_health_symptoms,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 배, 아프다, 약",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP04,KP04 · etiquette_honorific_lexis,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 높임, 말씀, 드리다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,A1,KP04,KP04 · weather_nature,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 비, 덥다, 춥다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP04,KP04 · weather_nature,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 덥다, 춥다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A2,KP05,KP05 · clothing_accessories,Phase 가 쓰는 어휘 1 개가 앱 어휘(A2 이하)에 없다: 크기,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,A2,KP05,KP05 · food_cooking,Phase 가 쓰는 어휘 1 개가 앱 어휘(A2 이하)에 없다: 메뉴,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A2,KP05,KP05 · money_prices_banking,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A2 이하)에 없다: 요금, 결제, 비용, 예산",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,A2,KP05,KP05 · public_services_admin_vocab,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A2 이하)에 없다: 신청, 접수, 안내",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP05,KP05 · public_services_admin_vocab,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A2 이하)에 없다: 신청, 접수",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A2,KP06,KP06 · feelings_emotions_character,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A2 이하)에 없다: 당황하다, 안심하다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A2,KP06,KP06 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A2 이하)에 없다: 마음에 들다, 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,A2,KP06,KP06 · leisure_sport_hobbies_vocab,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A2 이하)에 없다: 운동, 산책, 모임",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP06,KP06 · leisure_sport_hobbies_vocab,Phase 가 쓰는 어휘 1 개가 앱 어휘(A2 이하)에 없다: 모임,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A2,KP07,KP07 · feelings_emotions_character,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A2 이하)에 없다: 당황하다, 안심하다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A2,KP07,KP07 · technology_devices_internet,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A2 이하)에 없다: 파일, 비밀번호, 접속, 화면",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A2,KP08,KP08 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A2 이하)에 없다: 마음에 들다, 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,A2,KP08,KP08 · public_services_admin_vocab,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A2 이하)에 없다: 신청, 접수, 안내",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A2,KP08,KP08 · public_services_admin_vocab,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A2 이하)에 없다: 신청, 접수",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A2,KP08,KP08 · technology_devices_internet,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A2 이하)에 없다: 파일, 비밀번호, 접속, 화면",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,B1,KP09,KP09 · feelings_emotions_character,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B1 이하)에 없다: 당황하다, 안심하다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,B1,KP09,KP09 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,B1,KP09,KP09 · language_metalanguage,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 인용, 맥락, 화자",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,B1,KP10,KP10 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,B1,KP10,KP10 · money_prices_banking,"Phase 가 쓰는 어휘 4 개가 앱 어휘(B1 이하)에 없다: 요금, 결제, 비용, 예산",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,B1,KP10,KP10 · public_services_admin_vocab,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 신청, 접수, 안내",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP10,KP10 · public_services_admin_vocab,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B1 이하)에 없다: 신청, 접수",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,B1,KP11,KP11 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,B1,KP11,KP11 · media_pop_culture_vocab,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B1 이하)에 없다: 기사, 장면",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,B1,KP11,KP11 · money_prices_banking,"Phase 가 쓰는 어휘 4 개가 앱 어휘(B1 이하)에 없다: 요금, 결제, 비용, 예산",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,B1,KP11,KP11 · society_economy_abstract_nouns,"Phase 가 쓰는 어휘 4 개가 앱 어휘(B1 이하)에 없다: 제도, 고용, 소비, 격차",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,B1,KP12,KP12 · feelings_emotions_character,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B1 이하)에 없다: 당황하다, 안심하다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,B1,KP12,KP12 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,B1,KP12,KP12 · public_services_admin_vocab,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 신청, 접수, 안내",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,B1,KP12,KP12 · public_services_admin_vocab,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B1 이하)에 없다: 신청, 접수",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,B1,KP13,KP13 · language_metalanguage,"Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 인용, 맥락, 화자",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,B1,KP13,KP13 · media_pop_culture_vocab,"Phase 가 쓰는 어휘 2 개가 앱 어휘(B1 이하)에 없다: 기사, 장면",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,B1,KP13,KP13 · society_economy_abstract_nouns,"Phase 가 쓰는 어휘 4 개가 앱 어휘(B1 이하)에 없다: 제도, 고용, 소비, 격차",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다

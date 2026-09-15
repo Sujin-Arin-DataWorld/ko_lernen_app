@@ -45,8 +45,7 @@ A1,text_type,menu_pricelist_timetable,메뉴·가격표·시간표,structural_ga
 A1,text_type,personal_note_postcard,메모·엽서·짧은 쪽지,structural_gap,mode=P;count=0;surfaces=none,verify_genre_content_and_placement
 A1,text_type,public_announcement_spoken,안내 방송,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
 A1,text_type,sign_notice_short,표지판·짧은 안내문,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
-A1,vocab_domain,professions_workplace,직업·직장 어휘,thin,words=1,add_pack_in_domain
-A1,vocab_domain,weather_nature,날씨·자연 어휘,missing,words=0,add_pack_in_domain
+A1,vocab_domain,professions_workplace,직업·직장 어휘,thin,words=4,add_pack_in_domain
 A2,grammar_anchor,grammar_a1_future_modifier,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a1_past_modifier,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a1_polite_prohibition,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds

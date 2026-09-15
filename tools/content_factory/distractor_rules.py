@@ -136,6 +136,20 @@ PREDICATE_SLOT_WAIVER = {
     "cloze_a1_0437": "＿＿＿ 친구를 만나요. -- any time-word+에 fits this frame equally well; no real time word is a selectional violation there.",
     "cloze_a1_0440": "제 ＿＿＿ 다섯 살이에요. -- any family-member noun+은/는 fits equally well; no real family word is a selectional violation there.",
     "cloze_a1_0285": "실수해도 ＿＿＿. -- answer spans the full minimal-response predicate (문제없어요, existential-family 없어요); same pattern as cloze_a1_0413/0416 (C2c cloze distractor hygiene sweep, 2026-09-15).",
+    # C3-T3 (2026-09-16): Batch 26/27 A1 reinforcement, discovered when the
+    # freshly-merged C2c D3 rule was run against the new batches. Each
+    # answer is a bare single-verb predicate closing a short exchange
+    # (no object/particle after the blank); a same-conjugated-ending
+    # distractor would itself be a fully grammatical, if nonsensical,
+    # sentence-final predicate, whereas the batch's own bare
+    # dictionary-form verbs are ungrammatical there -- the intended
+    # PREDICATE_SLOT_WAIVER pattern.
+    "cloze_a1_0523": "아, 텔레비전을 ＿＿＿. -- answer spans the full sentence-final predicate (켜요); a bare dictionary-form verb cannot close the slot.",
+    "cloze_a1_0524": "크리스티안 씨, 지금 잘까요? 불을 ＿＿＿. -- answer spans the full sentence-final predicate (꺼요); a bare dictionary-form verb cannot close the slot.",
+    "cloze_a1_0525": "와! 아기가 정말 많이 ＿＿＿. -- answer spans the full sentence-final predicate (웃어요); a bare dictionary-form verb cannot close the slot.",
+    "cloze_a1_0586": "미안해요, 버스가 ＿＿＿. -- answer spans the full sentence-final predicate (늦었어요, past tense); a bare dictionary-form verb cannot close the slot.",
+    "cloze_a1_0587": "선생님한테 다시 ＿＿＿. -- answer spans the full sentence-final predicate (물어요); a bare dictionary-form verb cannot close the slot.",
+    "cloze_a1_0588": "제 대답이 ＿＿＿? -- answer spans the full sentence-final predicate (맞아요); a bare dictionary-form verb cannot close the slot.",
 }
 
 DICTIONARY_FORM_VERBS = frozenset({

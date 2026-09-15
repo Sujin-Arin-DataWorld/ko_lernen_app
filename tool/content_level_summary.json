@@ -1,10 +1,10 @@
 {
   "counts": {
     "cloze": {
-      "fallback_over2": 2,
-      "over1": 148,
-      "over2": 33,
-      "total": 1959,
+      "fallback_over2": 0,
+      "over1": 156,
+      "over2": 27,
+      "total": 2151,
       "under2": 456,
       "unknown": 0
     },
@@ -33,10 +33,10 @@
       "unknown": 0
     },
     "satz": {
-      "fallback_over2": 1,
-      "over1": 146,
-      "over2": 24,
-      "total": 2480,
+      "fallback_over2": 0,
+      "over1": 154,
+      "over2": 18,
+      "total": 2672,
       "under2": 655,
       "unknown": 0
     },
@@ -60,16 +60,16 @@
       "fallback_over2": 66,
       "over1": 312,
       "over2": 159,
-      "total": 2563,
+      "total": 2755,
       "under2": 240,
       "unknown": 56
     }
   },
   "coverage": {
     "grade1": {
-      "at_level": 295,
-      "missing": 257,
-      "present_in_app": 457,
+      "at_level": 473,
+      "missing": 105,
+      "present_in_app": 609,
       "total_unique": 714
     },
     "grade2": {
@@ -89,12 +89,19 @@
           "median": 0.0,
           "n_hm": 12,
           "n_low": 0,
+          "pack_id": "a1_belongings_1",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0.0,
+          "n_hm": 12,
+          "n_low": 0,
           "pack_id": "a1_body",
           "share_ge_plus2": 0.0
         },
         {
           "median": 0.0,
-          "n_hm": 10,
+          "n_hm": 12,
           "n_low": 0,
           "pack_id": "a1_city_services_2026_1",
           "share_ge_plus2": 0.0
@@ -104,6 +111,20 @@
           "n_hm": 6,
           "n_low": 0,
           "pack_id": "a1_colors",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0.0,
+          "n_hm": 12,
+          "n_low": 0,
+          "pack_id": "a1_countries_1",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0.0,
+          "n_hm": 12,
+          "n_low": 0,
+          "pack_id": "a1_culture_hobbies_1",
           "share_ge_plus2": 0.0
         },
         {
@@ -121,8 +142,8 @@
           "share_ge_plus2": 0.0
         },
         {
-          "median": 0,
-          "n_hm": 9,
+          "median": 0.0,
+          "n_hm": 12,
           "n_low": 0,
           "pack_id": "a1_daily_3",
           "share_ge_plus2": 0.0
@@ -132,27 +153,6 @@
           "n_hm": 12,
           "n_low": 0,
           "pack_id": "a1_daily_4",
-          "share_ge_plus2": 0.0
-        },
-        {
-          "median": 0,
-          "n_hm": 13,
-          "n_low": 0,
-          "pack_id": "a1_descriptions",
-          "share_ge_plus2": 0.0
-        },
-        {
-          "median": 0.0,
-          "n_hm": 12,
-          "n_low": 0,
-          "pack_id": "a1_family_1",
-          "share_ge_plus2": 0.0
-        },
-        {
-          "median": 0.0,
-          "n_hm": 12,
-          "n_low": 0,
-          "pack_id": "a1_family_2",
           "share_ge_plus2": 0.0
         }
       ]

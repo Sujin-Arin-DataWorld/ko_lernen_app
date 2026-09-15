@@ -158,6 +158,7 @@ final class ClozeTopicGroups {
     'Freizeit': ClozeTopicGroupId.healthNatureLeisure,
     'Gesundheit': ClozeTopicGroupId.healthNatureLeisure,
     'Körper': ClozeTopicGroupId.healthNatureLeisure,
+    'Natur': ClozeTopicGroupId.healthNatureLeisure,
     'Rhythmus & Grenzen': ClozeTopicGroupId.healthNatureLeisure,
     'Sicherheit & Grenzen': ClozeTopicGroupId.healthNatureLeisure,
     'Umwelt': ClozeTopicGroupId.healthNatureLeisure,
