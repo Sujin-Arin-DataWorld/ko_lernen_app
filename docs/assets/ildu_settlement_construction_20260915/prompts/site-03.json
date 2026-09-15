@@ -1,0 +1,10 @@
+{
+  "id": "site-03",
+  "asset": "site/stage_03_weeded.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_02_debris_cleared.png"
+  ],
+  "prompt": "Precise single-change edit of the supplied construction ground. Make SITE stage 03 after weeding: remove the living weed clumps from the buildable central ground and most weeds at the edges, leaving only a few tiny low natural plants right at the extreme outer border. Where plants were pulled, show small shallow disturbed-earth patches. Preserve the same original uneven ruts and clods and all soil outside the removed plants. Same exact camera, crop, warm ochre palette, dimensions/aspect and lighting. NO large rocks, leaves, branches, walls, foundations, stakes, ropes, paths, tools, buildings, text, arrows or people. Do not smooth the ground yet; it is newly cleared but still rough. One full-frame portrait game PNG, consistent matte hand-painted 2.5D surface.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-91a6391f-4c52-4807-ba3d-6dd8f14fae94.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_03_weeded.png"
+}

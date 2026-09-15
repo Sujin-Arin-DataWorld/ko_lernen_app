@@ -1,0 +1,10 @@
+{
+  "id": "gokgan-10",
+  "asset": "gokgan/stage_10_walls.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_11_doors.png"
+  ],
+  "prompt": "Construction stage10 edit: remove ONLY both central wooden door leaves and their attached hardware. Leave empty central doorway with thick jambs, shaded deep earth-floored room and rear wall visible. Preserve all 5 front bays, 2 right side bays, windows, timber/plaster infill, complete roof, base, camera, scale and ivory background absolutely unchanged. No door leaves anywhere, no goods/people/text.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-acecfe05-5ad5-45df-b6ea-d7baa6969baa.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_10_walls.png"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "gokgan-03",
+  "asset": "gokgan/stage_03_posts.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_04_beams.png"
+  ],
+  "prompt": "Stage3 reverse assembly: REMOVE every horizontal timber beam and header. Leave only all upright structural posts on their existing stones, SIX front posts defining5bays, matching SIX rear posts on the far stone edge (some occluded by front), and side midpoint posts defining2depthbays. Preserve exact ground locations and post heights. Add two slim temporary diagonal braces at end posts only. No other timber, roof, walls, door or floorboards. Same low foundation, camera, scale/crop and plain ivory background; do not enlarge to fill empty top space.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-2cf3d21f-0e47-4c49-8c22-fd0299089063.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_03_posts.png"
+}

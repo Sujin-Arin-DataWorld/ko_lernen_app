@@ -1,0 +1,446 @@
+{
+  "schemaVersion": 1,
+  "sourceWorktree": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\toilet-store-wall-plan-20260914",
+  "sourceHead": "e1c97d00b7c8a6db87d399e1547adc8799c21aaf",
+  "sourceState": "uncommitted artwork; preserved source worktree",
+  "newCanonicalFiles": 38,
+  "existingCanonicalFiles": 12,
+  "originalCopies": [
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_01_neglected.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/site/stage_01_neglected.png",
+      "sha256": "4713d1580448cb3c1b8ba1b4445223183eb7d52bb50d752b3f8abe45bbefbc32",
+      "bytes": 3189478
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_02_debris_cleared.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/site/stage_02_debris_cleared.png",
+      "sha256": "7f1e21c2d0698b1c5d3d019ee5bc28eb6ab6dc7be3548752b0a720474eb0e2f9",
+      "bytes": 2984389
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_03_weeded.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/site/stage_03_weeded.png",
+      "sha256": "33406c8d27d5f3549e26d867a96e712628bd0a5ec9f20e2609fe9e095be2429f",
+      "bytes": 2822129
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_04_levelled.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/site/stage_04_levelled.png",
+      "sha256": "bc030a7b1077e8bc0abb5bb87a3ca794ffe35d4d11024a506421ef7ffceb8222",
+      "bytes": 3052555
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_05_compacted.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/site/stage_05_compacted.png",
+      "sha256": "a5829624ecaced0933640e6c7d233cd2f308c8d1d14759767d10d01f14815f9c",
+      "bytes": 2440137
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_06_boundary_layout.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/site/stage_06_boundary_layout.png",
+      "sha256": "b4183605314ff6e6915e50688f849f5d12f8003d80eaa50b059c20eca0212d98",
+      "bytes": 2120476
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_01_footing_trench.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_01_footing_trench.png",
+      "sha256": "b17b2137aebb727e833312b56e5cd835f46117bc474eb9f7f02d22b4d23e2ded",
+      "bytes": 2317526
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_02_base_stones.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_02_base_stones.png",
+      "sha256": "7d8a2c966abbf80222d5c836575facbe68a1edb891dd4e0ab2c61061388c32c9",
+      "bytes": 2200497
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_03_corners.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_03_corners.png",
+      "sha256": "bd08613d9b0c810c2c67b4d4ca1e578db04d67b2ae1191f3d3021a799aab301c",
+      "bytes": 2125197
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_04_two_faces.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_04_two_faces.png",
+      "sha256": "559074233cab03f6bfc097a7c9da12c492b6ecd07093f0c2eeee28e0efeb97b6",
+      "bytes": 2198196
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_05_core_fill.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_05_core_fill.png",
+      "sha256": "dd072ae7083c4ff4c01b06ba55f6093ba4e25352fed76a42ade970d5cf7327a3",
+      "bytes": 2077814
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_06_full_height.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_06_full_height.png",
+      "sha256": "9eaaf8c0cbac1bbfb5ef59dac0d9dbaeb5a527bbc48be8efc1ddf9d953d1aa20",
+      "bytes": 2156633
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_07_cap_bed.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_07_cap_bed.png",
+      "sha256": "81d3b9bb52b6db52ab07edc49c33e33116dff06f6dc647bdb0784f93351b1d6c",
+      "bytes": 2003913
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_08_complete.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/wall/stage_08_complete.png",
+      "sha256": "93e575deef4951f48ce1221a5e4da45447f4a833ddf9b2915cbf8dc1db217fae",
+      "bytes": 2091584
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_01_layout.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_01_layout.png",
+      "sha256": "bf7c018b551754e863ff64791f0f68724416e2aa2855490a0216ad80adce76d1",
+      "bytes": 1332304
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_02_foundations.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_02_foundations.png",
+      "sha256": "b74dbcbd76962658b5a0230e151012cf76fb87fd1b075634141d5be36ae8c951",
+      "bytes": 1320342
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_03_posts.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_03_posts.png",
+      "sha256": "388a353656e468610ea3439153a19ff043332d320b826c544bf40f9193eb1851",
+      "bytes": 1498535
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_04_beams.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_04_beams.png",
+      "sha256": "f900dcd493bc4035b6bf2097d1dba113c0071784e6cf47dc9bdef55d2d6ce501",
+      "bytes": 1519893
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_05_roof_frame.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_05_roof_frame.png",
+      "sha256": "e7354cb4d4731f28bd68af7e0ec9bed154bceb4e3adb2f5fd04f1f63cb1be52f",
+      "bytes": 1708754
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_06_rafters.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_06_rafters.png",
+      "sha256": "8b64e956108d4a8f005c0e4ea8c04bd69c68573480509d24f264dae5a4fd0dc3",
+      "bytes": 1833387
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_07_roof_bed.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_07_roof_bed.png",
+      "sha256": "324722cd4865575379f200387584eb7af92ad62295625b58c157ff8cd2219fe6",
+      "bytes": 1806895
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_08_tiles.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_08_tiles.png",
+      "sha256": "1b03eb7792171c853d2889456949f5ad7c9f3454845c31e5dc432234ea6c7a98",
+      "bytes": 1800836
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_09_floor.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_09_floor.png",
+      "sha256": "72e4b8616b7afe99155eeea3baee3565ed0c98e2279012ee587d03dc082e4de0",
+      "bytes": 1819688
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_10_walls.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_10_walls.png",
+      "sha256": "737c2fd3932334c5412f15a61e1725ba18cbff68533971c56a8a87eb00b94d84",
+      "bytes": 1830413
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_11_door.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_11_door.png",
+      "sha256": "631ac16dda6b7ecd154300a21c454158ccce65c31063d199dc668fd67f45056d",
+      "bytes": 1815034
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_12_complete.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/toilet/stage_12_complete.png",
+      "sha256": "bde2af8fb1cef2095e2ef897a9dce4c65fab2ba7bcfe306a99995f9c0366207d",
+      "bytes": 1345725
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_01_layout.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_01_layout.png",
+      "sha256": "ebd4dfd0f75b8f188c62d541ad43bf419668e4d5808fd89f330ec5bd1e506969",
+      "bytes": 1715605
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_02_foundations.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_02_foundations.png",
+      "sha256": "3976c990af1ca9d275f9558f15bde9e27a896e65a42e607a0cb078707feb1312",
+      "bytes": 1591577
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_03_posts.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_03_posts.png",
+      "sha256": "218deb191530ae8698aaad4111b4db333c272625824e053c4c13ee97623f02c9",
+      "bytes": 1670233
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_04_beams.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_04_beams.png",
+      "sha256": "a355d5ec60382c00a36bdcd3a5fece717d17618fb94b63ea8202446410fc0492",
+      "bytes": 1724515
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_05_roof_frame.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_05_roof_frame.png",
+      "sha256": "7578a94e397767e81823c7da2c0e28b313d9c29d7ecc62b1c72b6d002969a6c6",
+      "bytes": 1783359
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_06_rafters.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_06_rafters.png",
+      "sha256": "87ae27d31c683da6b9248008321e6497b9b7ae2c07497cefdd39038f63894abb",
+      "bytes": 2035189
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_07_roof_bed.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_07_roof_bed.png",
+      "sha256": "1c2b3889148930fec8f2e4365ebdd39057d5c7533d66b667b0ed4c0d319f06c5",
+      "bytes": 2047012
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_08_tiles.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_08_tiles.png",
+      "sha256": "76fc3f686fdf98cf76b4539071ac3dd24ba0eee3920a7f46df5354b3c685eda5",
+      "bytes": 2138931
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_09_floor.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_09_floor.png",
+      "sha256": "3ca5a1c93456485a89900b3277a2fb3691e93721b8f9623111ce29ab990d4828",
+      "bytes": 2091844
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_10_walls.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_10_walls.png",
+      "sha256": "49845705fc9b2d4777910fd7fdcc1fcdffddcd0def771dfeae9511adf36ce8e5",
+      "bytes": 2199519
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_11_doors.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_11_doors.png",
+      "sha256": "564dc5d7d322511baff9eaac2e95328207f33461fcf55b6ff0514fb87add34a7",
+      "bytes": 2259623
+    },
+    {
+      "sourceAsset": "assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_12_complete.png",
+      "canonicalAsset": "assets/illustrations/personal_hanok_v3/construction/gokgan/stage_12_complete.png",
+      "sha256": "5bc7dc87c578e6dd8b578aa516caa93a265d035bb21325ff10658382c1343406",
+      "bytes": 2237369
+    }
+  ],
+  "promptRecords": [
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/gokgan-01.json",
+      "sha256": "b817a475c8e87775a0f0bdf91732ed3db4b6d23573953d507f92ebb445a7f33d",
+      "bytes": 1152
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/gokgan-02.json",
+      "sha256": "06c45f56181875976d8bdea04afd415ea04226e51ea3e902f7ae8cb9475c6335",
+      "bytes": 1237
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/gokgan-03.json",
+      "sha256": "b065803e0c91fc48d7dd14321213f82337eb8615417c8f08f763563ecc352a5b",
+      "bytes": 1198
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/gokgan-04.json",
+      "sha256": "353f7a7c826b6fca4ffd6ea303e7077f4c3db8f94170d03c7e1028d2bb37cbcb",
+      "bytes": 1265
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/gokgan-05.json",
+      "sha256": "b0823b62a9875c94d85cc788789fa1665447b8bf8f7c6a95612410c25b07ff41",
+      "bytes": 1209
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/gokgan-06.json",
+      "sha256": "c80f5c7edafe062b890a17b64847fba1b7fefde79c1f99450e32693e85fe039f",
+      "bytes": 1203
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/gokgan-07.json",
+      "sha256": "13e675eb52f7404ab8a0523b3cf005ec73d53f918eeff317691b95247c192972",
+      "bytes": 1140
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/gokgan-08.json",
+      "sha256": "c04054643b830754bd60755704250b240ffff186788dc01899ad5c3f10a82e03",
+      "bytes": 1092
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/gokgan-09-corrected.json",
+      "sha256": "ef7eead6b7aa23297f6db0f76532979a3cba9558288b61f82298070bcd43d06b",
+      "bytes": 1419
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/gokgan-09.json",
+      "sha256": "8110ba12530240f75c6f46c2e87cd867ff8d904204a084ac10bbc57ab11728d8",
+      "bytes": 1316
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/gokgan-10.json",
+      "sha256": "6034569b9b3a9e23e396ce2994b50c46df4fe976c15099717c705f81fb548840",
+      "bytes": 1048
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/gokgan-11.json",
+      "sha256": "7c7ed47969cac34bfa1a22b3fa33303a3124e966f20dbc3f12af9e05fd9d617a",
+      "bytes": 1207
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/gokgan-12.json",
+      "sha256": "ee57cd852ea65be3063560f5b69234fcd9956ac84a1b3c6dae53e559a892ac52",
+      "bytes": 1697
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/site-01.json",
+      "sha256": "30c46dd713e38c34551bd3a7d9921f2c6936eb7d80242eb59d339d8e2a15ae57",
+      "bytes": 1709
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/site-02.json",
+      "sha256": "e898b7b2d4be39697eee4a0d1430df7232615473c730a0704e950dc2a808e965",
+      "bytes": 1473
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/site-03.json",
+      "sha256": "9737e045a15249cf11b86870e1f64191cca3c32d4089394fd10512ea6b2db6c0",
+      "bytes": 1417
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/site-04.json",
+      "sha256": "1076788d5f3845aea7fe1bb599bfeed8ed8b4ed54e604df0ce36810ac1959b7f",
+      "bytes": 1654
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/site-05.json",
+      "sha256": "d4a524a59a7c70cb3ffe488ee7446bd8f2bcd49e314507be11beaf1096e38785",
+      "bytes": 1670
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/site-06-corrected.json",
+      "sha256": "cbfd2fc9a37f8f566880fc0db1696b912822751bb956c7245fcb479749db27bb",
+      "bytes": 1759
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/site-06.json",
+      "sha256": "dce64e5ee0de05b81b1ac1ef261ceee6f8d720a43802a7cfa855ab69cfb1c12d",
+      "bytes": 1858
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/toilet-01.json",
+      "sha256": "8ba43b4e459db456dfb96f2ff51bb1753f82b9b2f6de50584b44dffcfb56ff41",
+      "bytes": 1170
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/toilet-02.json",
+      "sha256": "3e06d4757ef08298ab4552b3fb95c6affa2c7a727f8af4500356f0d139f2bb2d",
+      "bytes": 1159
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/toilet-03.json",
+      "sha256": "c28fe06b1d4a62c27b31d7da00119ca0565896c42f7ae197c1a52d4b97827329",
+      "bytes": 1194
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/toilet-04.json",
+      "sha256": "7101858090cb977ffa0239cd41527798b90b968645f42af551f39f5b8357de58",
+      "bytes": 1194
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/toilet-05.json",
+      "sha256": "2a935a140b2279a28e3ff65b3f7b0add573b5c14070ff014a76aa71c7cd710ba",
+      "bytes": 1236
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/toilet-06.json",
+      "sha256": "7fd587496d0ee4b96c6ccc45002923295e391d1f3aaf3ae475e7bbd5d07d58c6",
+      "bytes": 1252
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/toilet-07.json",
+      "sha256": "24622bd7dd6518b18e4aa20c3863dd9f73919d167cb1fd105e6a8792a45f3d09",
+      "bytes": 1180
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/toilet-08.json",
+      "sha256": "7ee4080ad7535b83277a4c807160fb362e73b56b2f9d540a2c64c97923ce777e",
+      "bytes": 1162
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/toilet-09.json",
+      "sha256": "fd413ae33229ae98939d80470181aabcb07ba1073bcbc9e7864738c3eebc85b7",
+      "bytes": 1243
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/toilet-10.json",
+      "sha256": "04920e44506af86bcd87bd66f2c03cbf7a2db2fcc7610a2fc36ba656114ed43d",
+      "bytes": 1065
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/toilet-11.json",
+      "sha256": "301d54729da9b5c5eb89fdadf1fd04358b08f958f91d5a930b827a41ffa8758b",
+      "bytes": 1298
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/wall-01-ground.json",
+      "sha256": "026a555cc5aea48dc1701d4d102f8c690b24c62b810ee3c05f1c191ffdccb5d0",
+      "bytes": 1587
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/wall-01.json",
+      "sha256": "2edc43aa1751ad722cf4a6a9d405eec46b0e68c5930d40ac150f328abff8c492",
+      "bytes": 1849
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/wall-02.json",
+      "sha256": "ee2dccba1d93095a12a0fc77114d1403028e7c53f2c92035380e59297d3cef1e",
+      "bytes": 1305
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/wall-03.json",
+      "sha256": "1a6fdc898564e4df0f83a508a3d921d97b1396ffbaa8c3127ccf3d3a40f3db92",
+      "bytes": 1222
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/wall-04.json",
+      "sha256": "0a7c792181d9ae5de3676791f1d4dc3da49cc8a67744421df3fdf18c201b0e90",
+      "bytes": 1297
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/wall-05.json",
+      "sha256": "c5bc217c236182081dafeafc9f59c221519a79d933ba26e93a637c86a6c84e93",
+      "bytes": 1201
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/wall-06.json",
+      "sha256": "656857bc2eabeb60bdabf085a233810f29e8f53c518331c872449254d0f61b82",
+      "bytes": 1367
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/wall-07.json",
+      "sha256": "9a17d894b3a26ab03549bd9e29f110c9f93efaf2f9b244d80c30e8ed50c10df4",
+      "bytes": 1183
+    },
+    {
+      "asset": "docs/assets/ildu_settlement_construction_20260915/prompts/wall-08.json",
+      "sha256": "ae2c3ad5d5a30981216e72f2f3fcfa72c7fcf8bf6fb88eb50746c0267175c55e",
+      "bytes": 1335
+    }
+  ],
+  "exclusions": [
+    "prototype wall map layout and clip coordinates",
+    "prototype Flutter screen, bookmark and route",
+    "prototype builder runtime and map approval claims"
+  ],
+  "duplicateOriginalPolicy": "Each original PNG is retained byte-for-byte at canonicalAsset; duplicate source-path PNG copies are not added."
+}

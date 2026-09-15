@@ -1,0 +1,10 @@
+{
+  "id": "wall-04",
+  "asset": "wall/stage_04_two_faces.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_03_corners.png"
+  ],
+  "prompt": "Edit this exact portrait estate scene to next construction stage4. Raise ALL long wall stretches to 3 courses of irregular fieldstone. Important: show TWO parallel stone faces, interior and exterior, joined at ends with a narrow exposed central core channel between the two faces on top. Thick wall, not a paper sheet. Small amount of earth already below in the central channel but top core still visibly unfilled in several long stretches. Match original ground, lighting, camera, layout and both entry gap positions. Remove strings and stakes. No roof cap, no internal walls, buildings or text. Bare ochre ground continues through bottom entrance.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-613a38e9-6d0a-46fb-b966-5e032afc8a08.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_04_two_faces.png"
+}

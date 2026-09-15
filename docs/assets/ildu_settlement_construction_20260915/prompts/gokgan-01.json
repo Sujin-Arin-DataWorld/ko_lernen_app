@@ -1,0 +1,10 @@
+{
+  "id": "gokgan-01",
+  "asset": "gokgan/stage_01_layout.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_02_foundations.png"
+  ],
+  "prompt": "Stage1 remove all stone foundations and supports, leaving a flat rectangular ochre earth plot at EXACT same position and proportions in bottom of frame. Trace 5bay long front and matching back edge plus2bay depth with thin strings and low wooden stakes; front central thirdbay entry gap remains free of string across walking path. A deep rectangular footprint, not a thin strip. No structural timber, stones, roof, pit, props/text. Preserve existing camera scale/crop, large ivory empty upper area.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-45a8baf9-18c5-4382-867c-5db3388ac768.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_01_layout.png"
+}

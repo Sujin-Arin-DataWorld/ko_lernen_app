@@ -1,0 +1,10 @@
+{
+  "id": "toilet-09",
+  "asset": "toilet/stage_09_floor.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_10_walls.png"
+  ],
+  "prompt": "Construction stage9 reverse assembly edit. Preserve exact camera, same full finished roof, front doorway posts, main corner posts, stones, scale and ground line. REMOVE ALL plaster and wooden wall infill from FRONT, LEFT, RIGHT and REAR, leaving timber skeleton with visible far-side posts and beams receding in depth. Retain a continuous modest plain timber standing floor and threshold inside on existing low base. This is a real deep small room footprint seen through open framing, not a flat front. No door leaf, no fixtures or props. Same ivory background. Do not shrink/reframe or move roof.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-b7b308ea-24bd-4f53-84cc-41c9388e6fc1.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_09_floor.png"
+}

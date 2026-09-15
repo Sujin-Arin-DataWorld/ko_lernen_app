@@ -1,0 +1,10 @@
+{
+  "id": "toilet-08",
+  "asset": "toilet/stage_08_tiles.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_09_floor.png"
+  ],
+  "prompt": "Construction stage8 edit. Preserve exact roof, framing, camera and stone footings. Remove finished floorboards and finished threshold from the interior, exposing a simple rough packed earth subfloor inside the same volumetric footprint. Keep low structural sill members but leave front doorway passable. All front/back posts and side beams remain in exact positions, walls/door absent. This stage shows completion of tiled roof before interior floor finishing. Same plain ivory background, no letters/props/fixtures.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-82d452b9-08d6-4e5b-b797-ddbefbad601e.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_08_tiles.png"
+}

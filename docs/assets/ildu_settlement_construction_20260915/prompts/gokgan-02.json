@@ -1,0 +1,10 @@
+{
+  "id": "gokgan-02",
+  "asset": "gokgan/stage_02_foundations.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_03_posts.png"
+  ],
+  "prompt": "Construction stage2: remove all upright posts and braces from reference. Retain low broad deep rectangular stone-and-earth base with individual support stones under all original posts. Exactly six FRONT support stones equally spaced defining5bays, six REAR stones equally spaced defining5bays on backedge, plus a side midpoint stone on each side to define2depthbays. Some far stones may be occluded but footprint real9750x5460mm proportions. No timber building, doors, roof, props/text. Keep exact camera, size, low base position and large blank ivory upper portion, do not zoom.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-333d9e6b-96ba-4af8-8925-27d6bb6be677.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_02_foundations.png"
+}

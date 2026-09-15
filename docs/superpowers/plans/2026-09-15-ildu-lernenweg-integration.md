@@ -29,13 +29,16 @@
 
 문서 통합 전 재확인: `d8776426f1936df47bed6974eeabde4324771467`의 C7 #323을 반영했다. 해당 diff는 도구·테스트·AGENTS 수정이며 현재 정규 unit/공정 카탈로그는 바뀌지 않았다.
 
+승인 공정 아트 통합 기준은 `a62c704685ec0907ff6954061abd921ea4b1780e` 이후 별도 asset-only 변경이다. 새 38개 PNG와 기존 솟을대문 12개를 새 canonical 문서 카탈로그에서 검증하지만 `pubspec.yaml`, 앱 경로, 화면, bookmark, 지도 합성은 이 승인에 포함하지 않는다. 149 assessment mapping은 여전히 149/149 미검수다.
+
 | 항목 | 현재 근거 | 계획에서 할 일 |
 |---|---|---|
 | 149 원본 | 동봉 CSV 149행, 파일·SHA256 전부 대조 | 안정 ID와 승인 범위를 보존해 통합 |
 | 149 unit 배정 | 실제 정규 unit ID로 CSV 작성 | 실제 평가 묶음과 의미 검수 추가 |
 | 평가 묶음 | 전체149의 확정 연결은 없음 | 아래 Task 1의 첫 필수 산출물 |
 | 사랑채16·4채49·안사랑/사당34 | 기준 main 카탈로그 | 합계99의 기존 runtime 아트 재사용 |
-| 터·담·대문·화장실·곳간50 | `toilet-store-wall-plan-20260914`의 혼합 WIP | 필요한 아트·카탈로그만 검토해 통합, UI WIP 일괄 병합 금지 |
+| 터·담·대문·화장실·곳간50 | 새 canonical 문서 카탈로그 + 새 PNG38 + main 기존 대문12 | 공정 아트와 hash만 승인; runtime 등록·지도·진도는 미통합 |
+| WIP settlement map | normalized 수기 선분·고정 두께 clipper·prototype bookmark | 형상·축척 반려. 기존 main world map은 유지하고 전용 인수인계 기준으로 다시 제작 |
 | B2 비율34 | #317 이후 main에 투영·영수증 연결 | 새 고정 ID 규칙으로 전환, 소유 보존 |
 | S1·운영 B1 | main에 병합됨 | 같은 작업을 중복 구현하지 않음; 운영 실측은 별도 |
 | C7 | #323이 d8776426에 병합됨 | 최신 도구의 동작을 사용하며 중복 수정하지 않음 |
@@ -96,7 +99,7 @@ abstract interface class HanokAssetResolver {
 **Consumes:** 기존 stage ID/hash, 정규 unit ID/canDo, 기존 평가 정의·통과 로직.
 **Produces:** 149개 검수된 연결과 결손 목록, 내용 버전별 허용 기준, release publication gate.
 
-- [ ] 배정 CSV의 모든 경로와 hash를 다시 검증하고, 50단계 WIP의 필요한 파일과 승인 이력을 개별 대조한다.
+- [ ] 배정 CSV의 모든 경로와 hash를 다시 검증하고, 새 canonical 문서 카탈로그의 승인된 50단계(새 PNG38+main 기존 솟을대문12)를 개별 대조한다. 반려된 WIP map metadata는 assessment 근거로 쓰지 않는다.
 - [ ] 각 stage에 의미가 맞는 정규 평가 묶음을 연결한다. `practiceUnitIds`는 탐색 힌트로만 쓴다. 실제 현재 한국어 목표를 읽는다.
 - [ ] 같은 수준의 다른 Phase 평가도 의미가 맞으면 검수 후 명시 연결한다. 안 맞으면 CP에 정확한 결손을 전달한다.
 - [ ] `a1_07_contact_address`의 연락 방법, `a1_11_titles_relationships`의 음악·콘텐츠 선호 등 ID 이름과 현재 의미가 다른 사례를 우선 검수한다.
@@ -148,13 +151,15 @@ abstract interface class HanokAssetResolver {
 **Consumes:** 획득 ID, authored anchor/occlusion, 실제 단계 그림. **Produces:** 3종 공통 조작·39장면·구조 선행조건·완공 회전과 출입.
 
 - [ ] 먼저 터·담·대문9장면을 각 실제 stage ID와 연결한다. 잔해/돌/기둥/문 부재 위치는 정본 공간에서 지정한다.
+- [ ] `toilet-store-wall-plan-20260914/lib/widgets/ildu_settlement_map.dart`의 `IlDuSettlementWallClipper`를 복사하거나 수정 출발점으로 삼지 않는다. 공정 PNG 승인은 그 clipper의 wall shape·scale·occlusion 승인이 아니다.
+- [ ] 지도 작업은 [담장 외곽선·축척 인수인계](2026-09-15-ildu-wall-outline-handoff.md)에 따라 현재 main의 2412×2622 비교 기준과 실제 원하는 reference를 먼저 대조한다. 검증해 채택한 단일 좌표계, 원본 픽셀 마스크, 출입구, 깊이, 카메라, 기기 육안 게이트를 충족한다.
 - [ ] 잘못 놓은 부재는 권리를 소모하지 않는다. 도움 버튼은 같은 허용 결과를 만든다.
 - [ ] 연속된 획득 단계만 묶어 적용하고 단계별 조립 기록을 남긴다. 중간 종료 후 중복 적용을 막는다.
 - [ ] 대문 바깥→문턱→마당의 이동·가림·역방향 복귀를 실제 화면으로 검증한다.
 - [ ] 사랑채 8면도와 솟을대문 8면도/문 열기 결손만 보완한다. 없는 문 상태를 공정 프레임으로 대체하지 않는다.
 - [ ] 나머지10챕터30장면에 같은 조작을 적용하되 실제 방·벽·문 구조를 각각 검수한다.
 
-검증: `flutter test test/ildu_assembly_scene_test.dart test/restoration_spatial_flow_test.dart test/ildu_turntable_catalog_test.dart`; 폰·태블릿에서 문 통로와 앞뒤 기둥을 육안 확인한다. 조작 위치·48dp 대체 버튼·큰 글자·motion off의 완료 경로를 함께 검증한다.
+검증: `flutter test test/ildu_assembly_scene_test.dart test/restoration_spatial_flow_test.dart test/ildu_turntable_catalog_test.dart`; 폰·태블릿에서 문 통로와 앞뒤 기둥을 육안 확인한다. 조작 위치·48dp 대체 버튼·큰 글자·motion off의 완료 경로를 함께 검증한다. 담장 지도는 수기 점 포함 테스트만으로 통과시키지 않고 채택한 reference overlay와 실제 기기 캡처를 함께 판정한다.
 
 ## Task 5 — 친구 방문·의뢰·기존 에셋 다양성
 
@@ -223,6 +228,8 @@ abstract interface class HanokAssetResolver {
 >
 > CP S5의 자산 전달과 합류하겠습니다.149그림은 현재269,109,572bytes이며, 이 수치는 기기 설치 크기와 다릅니다. Flutter deferred components/Android dynamic feature modules를 한 곳에서 구성하고 `pubspec.yaml`·loading units·pack hash·네이티브 설정을 공동 계약으로 맞춰 주세요. 두 번째 다운로더는 만들지 않습니다. 핵심 학습은 오프라인, 받은 한옥 팩은 이후 오프라인이며 팩 실패가 학습 권리를 막지 않아야 합니다.
 >
+> 터6·돌담8·솟을대문12·화장실12·곳간12의 공정 그림50개는 승인됐고 새 canonical 문서 카탈로그로 추적합니다. 그러나 이전 WIP의 settlement map clipper는 담장 형상과 축척이 맞지 않아 반려됐습니다. 기존 main world map 전체를 철회한 것은 아닙니다. WIP 화면·bookmark·route·`pubspec.yaml`·수기 clip path는 가져오지 말고, 별도 wall-outline 인수인계에 따라 현재 main 기준과 실제 원하는 reference를 대조한 뒤 좌표·입구·깊이·카메라·기기 검증부터 다시 수행해 주세요.
+>
 > CP의 A1/A2 커버리지·B1문법67항목·전 레벨 품질·보안·운영·스토어 기준을 유지합니다. 첫26단계는 중간 체험 검증이며 전체 출시 후보가 아닙니다. 고정10주 대신 첫 작업 묶음의 실제 처리량과 임계경로로 일정을 갱신하되14일 안정성 관찰은 유지합니다. 구현 시작 때 정확한 파일 담당과 PR 순서를 합의하고, 각 PR head와 병합 main의 검증을 구분해 공유하겠습니다.
 
 ## 최종 문서 검수
@@ -232,8 +239,10 @@ abstract interface class HanokAssetResolver {
 - [x] 39조립과26선택의뢰가 모순 없이 분리됨.
 - [x] 진도·legacy·계정·오프라인·클라우드·재시도 게이트 포함.
 - [x] 깊이·출입·8면도·추가 아트 범위 포함.
+- [x] 승인 공정 아트와 반려된 WIP 지도 합성의 경계 포함.
 - [x] 일상 한국어·30스티커/36데코·기존 소유권 계약 포함.
 - [x] Claude에게 전할 메시지 포함, 전송하지 않음.
 - [ ] 구현 착수 산출물: Task1의 실제149 평가 연결·의미 검수·도달성 증명.
+- [ ] 지도 산출물: 전용 인수인계의 wall outline·scale·entrance·depth·device visual 승인.
 
 마지막 미완료 항목은 제품 방향에 대한 재질문이 아니라 구현 작업의 첫 산출물이다. 문서 작성 완료와 앱 구현 완료를 구분한다.
