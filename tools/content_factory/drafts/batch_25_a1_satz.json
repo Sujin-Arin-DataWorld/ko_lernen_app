@@ -3,15 +3,16 @@
     {
       "id": "satz_a1_0374",
       "level": "a1",
-      "targetKo": "크리스티안은 회사원이에요.",
-      "promptDe": "Christian ist Angestellter.",
-      "promptEn": "Christian is an office worker.",
+      "targetKo": "크리스티안은 지금 회사원이에요.",
+      "promptDe": "Christian ist jetzt Angestellter.",
+      "promptEn": "Christian is now an office worker.",
       "distractors": [
         "별로",
         "왼쪽"
       ],
       "vocabKo": "회사원",
-      "sourceVocabId": "vocab_a1_0459"
+      "sourceVocabId": "vocab_a1_0459",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0375",
@@ -24,7 +25,8 @@
         "아침"
       ],
       "vocabKo": "주부",
-      "sourceVocabId": "vocab_a1_0460"
+      "sourceVocabId": "vocab_a1_0460",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0376",
@@ -37,12 +39,13 @@
         "별말씀을요"
       ],
       "vocabKo": "누구",
-      "sourceVocabId": "vocab_a1_0461"
+      "sourceVocabId": "vocab_a1_0461",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0377",
       "level": "a1",
-      "targetKo": "여러분, 안녕하세요!",
+      "targetKo": "여러분, 모두 안녕하세요!",
       "promptDe": "Hallo, alle zusammen!",
       "promptEn": "Hello, everyone!",
       "distractors": [
@@ -50,7 +53,8 @@
         "늦게"
       ],
       "vocabKo": "여러분",
-      "sourceVocabId": "vocab_a1_0462"
+      "sourceVocabId": "vocab_a1_0462",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "id": "satz_a1_0378",
@@ -63,7 +67,8 @@
         "넷"
       ],
       "vocabKo": "우유",
-      "sourceVocabId": "vocab_a1_0463"
+      "sourceVocabId": "vocab_a1_0463",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0379",
@@ -76,7 +81,8 @@
         "고기"
       ],
       "vocabKo": "귤",
-      "sourceVocabId": "vocab_a1_0464"
+      "sourceVocabId": "vocab_a1_0464",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0380",
@@ -89,7 +95,8 @@
         "일요일"
       ],
       "vocabKo": "바나나",
-      "sourceVocabId": "vocab_a1_0465"
+      "sourceVocabId": "vocab_a1_0465",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0381",
@@ -102,7 +109,8 @@
         "도착"
       ],
       "vocabKo": "케이크",
-      "sourceVocabId": "vocab_a1_0466"
+      "sourceVocabId": "vocab_a1_0466",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0382",
@@ -115,7 +123,8 @@
         "고마워요"
       ],
       "vocabKo": "모레",
-      "sourceVocabId": "vocab_a1_0467"
+      "sourceVocabId": "vocab_a1_0467",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0383",
@@ -128,7 +137,8 @@
         "검은색"
       ],
       "vocabKo": "그저께",
-      "sourceVocabId": "vocab_a1_0468"
+      "sourceVocabId": "vocab_a1_0468",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0384",
@@ -141,7 +151,8 @@
         "학생"
       ],
       "vocabKo": "작년",
-      "sourceVocabId": "vocab_a1_0469"
+      "sourceVocabId": "vocab_a1_0469",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0385",
@@ -154,7 +165,8 @@
         "여기"
       ],
       "vocabKo": "내년",
-      "sourceVocabId": "vocab_a1_0470"
+      "sourceVocabId": "vocab_a1_0470",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0386",
@@ -167,7 +179,8 @@
         "천"
       ],
       "vocabKo": "한",
-      "sourceVocabId": "vocab_a1_0471"
+      "sourceVocabId": "vocab_a1_0471",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0387",
@@ -180,7 +193,8 @@
         "결제하다"
       ],
       "vocabKo": "두",
-      "sourceVocabId": "vocab_a1_0472"
+      "sourceVocabId": "vocab_a1_0472",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0388",
@@ -193,7 +207,8 @@
         "단어"
       ],
       "vocabKo": "세",
-      "sourceVocabId": "vocab_a1_0473"
+      "sourceVocabId": "vocab_a1_0473",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0389",
@@ -206,7 +221,8 @@
         "수저"
       ],
       "vocabKo": "어느",
-      "sourceVocabId": "vocab_a1_0474"
+      "sourceVocabId": "vocab_a1_0474",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0390",
@@ -219,7 +235,8 @@
         "요일"
       ],
       "vocabKo": "이따가",
-      "sourceVocabId": "vocab_a1_0475"
+      "sourceVocabId": "vocab_a1_0475",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0391",
@@ -232,7 +249,8 @@
         "살다"
       ],
       "vocabKo": "바로",
-      "sourceVocabId": "vocab_a1_0476"
+      "sourceVocabId": "vocab_a1_0476",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0392",
@@ -245,51 +263,55 @@
         "점심"
       ],
       "vocabKo": "주로",
-      "sourceVocabId": "vocab_a1_0477"
+      "sourceVocabId": "vocab_a1_0477",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0393",
       "level": "a1",
-      "targetKo": "어서 오세요!",
-      "promptDe": "Herzlich willkommen!",
-      "promptEn": "Welcome!",
+      "targetKo": "저희 가게에 어서 오세요!",
+      "promptDe": "Herzlich willkommen in unserem Geschäft!",
+      "promptEn": "Welcome to our shop!",
       "distractors": [
         "사귀다",
         "일곱"
       ],
       "vocabKo": "어서",
-      "sourceVocabId": "vocab_a1_0478"
+      "sourceVocabId": "vocab_a1_0478",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0394",
       "level": "a1",
-      "targetKo": "예, 알겠습니다.",
-      "promptDe": "Ja, verstanden.",
-      "promptEn": "Yes, understood.",
+      "targetKo": "예, 잘 알겠습니다.",
+      "promptDe": "Ja, ich habe es gut verstanden.",
+      "promptEn": "Yes, I understand well.",
       "distractors": [
         "넷",
         "공원"
       ],
       "vocabKo": "예",
-      "sourceVocabId": "vocab_a1_0479"
+      "sourceVocabId": "vocab_a1_0479",
+      "courseUnitId": "a1_01_greetings_hangul"
     },
     {
       "id": "satz_a1_0395",
       "level": "a1",
-      "targetKo": "글쎄요, 모르겠어요.",
-      "promptDe": "Na ja, ich weiß es nicht.",
-      "promptEn": "Well... I don't know.",
+      "targetKo": "글쎄요, 저도 모르겠어요.",
+      "promptDe": "Na ja, ich weiß es auch nicht.",
+      "promptEn": "Well... I don't know either.",
       "distractors": [
         "거기",
         "사"
       ],
       "vocabKo": "글쎄요",
-      "sourceVocabId": "vocab_a1_0480"
+      "sourceVocabId": "vocab_a1_0480",
+      "courseUnitId": "a1_01_greetings_hangul"
     },
     {
       "id": "satz_a1_0396",
       "level": "a1",
-      "targetKo": "와, 진짜 좋아요!",
+      "targetKo": "와, 정말 좋아요!",
       "promptDe": "Wow, das ist wirklich toll!",
       "promptEn": "Wow, that's really great!",
       "distractors": [
@@ -297,20 +319,22 @@
         "한복"
       ],
       "vocabKo": "와",
-      "sourceVocabId": "vocab_a1_0481"
+      "sourceVocabId": "vocab_a1_0481",
+      "courseUnitId": "a1_01_greetings_hangul"
     },
     {
       "id": "satz_a1_0397",
       "level": "a1",
-      "targetKo": "음, 모르겠어요.",
-      "promptDe": "Hm, ich weiß es nicht.",
-      "promptEn": "Hmm, I don't know.",
+      "targetKo": "음, 잘 모르겠어요.",
+      "promptDe": "Hm, ich weiß es nicht genau.",
+      "promptEn": "Hmm, I don't really know.",
       "distractors": [
         "옆",
         "코"
       ],
       "vocabKo": "음",
-      "sourceVocabId": "vocab_a1_0482"
+      "sourceVocabId": "vocab_a1_0482",
+      "courseUnitId": "a1_01_greetings_hangul"
     },
     {
       "id": "satz_a1_0398",
@@ -323,7 +347,8 @@
         "차"
       ],
       "vocabKo": "다",
-      "sourceVocabId": "vocab_a1_0483"
+      "sourceVocabId": "vocab_a1_0483",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0399",
@@ -336,7 +361,8 @@
         "문"
       ],
       "vocabKo": "좀",
-      "sourceVocabId": "vocab_a1_0484"
+      "sourceVocabId": "vocab_a1_0484",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0400",
@@ -349,7 +375,8 @@
         "모든"
       ],
       "vocabKo": "꼭",
-      "sourceVocabId": "vocab_a1_0485"
+      "sourceVocabId": "vocab_a1_0485",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0401",
@@ -362,7 +389,8 @@
         "며칠"
       ],
       "vocabKo": "함께",
-      "sourceVocabId": "vocab_a1_0486"
+      "sourceVocabId": "vocab_a1_0486",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0402",
@@ -375,7 +403,8 @@
         "크다"
       ],
       "vocabKo": "물건",
-      "sourceVocabId": "vocab_a1_0487"
+      "sourceVocabId": "vocab_a1_0487",
+      "courseUnitId": "a1_14_payment_delivery"
     },
     {
       "id": "satz_a1_0403",
@@ -388,20 +417,22 @@
         "뒤"
       ],
       "vocabKo": "값",
-      "sourceVocabId": "vocab_a1_0488"
+      "sourceVocabId": "vocab_a1_0488",
+      "courseUnitId": "a1_14_payment_delivery"
     },
     {
       "id": "satz_a1_0404",
       "level": "a1",
-      "targetKo": "물이 필요해요.",
-      "promptDe": "Ich brauche Wasser.",
-      "promptEn": "I need water.",
+      "targetKo": "지금 물이 필요해요.",
+      "promptDe": "Ich brauche jetzt Wasser.",
+      "promptEn": "I need water now.",
       "distractors": [
         "십",
         "모르다"
       ],
       "vocabKo": "필요",
-      "sourceVocabId": "vocab_a1_0489"
+      "sourceVocabId": "vocab_a1_0489",
+      "courseUnitId": "a1_14_payment_delivery"
     },
     {
       "id": "satz_a1_0405",
@@ -414,7 +445,8 @@
         "결제하다"
       ],
       "vocabKo": "가게",
-      "sourceVocabId": "vocab_a1_0490"
+      "sourceVocabId": "vocab_a1_0490",
+      "courseUnitId": "a1_14_payment_delivery"
     },
     {
       "id": "satz_a1_0406",
@@ -427,33 +459,36 @@
         "배불러요"
       ],
       "vocabKo": "인사",
-      "sourceVocabId": "vocab_a1_0491"
+      "sourceVocabId": "vocab_a1_0491",
+      "courseUnitId": "a1_01_greetings_hangul"
     },
     {
       "id": "satz_a1_0407",
       "level": "a1",
-      "targetKo": "생일 축하해요!",
-      "promptDe": "Alles Gute zum Geburtstag!",
+      "targetKo": "생일 정말 축하해요!",
+      "promptDe": "Herzlichen Glückwunsch zum Geburtstag!",
       "promptEn": "Happy birthday!",
       "distractors": [
         "안",
         "토요일"
       ],
       "vocabKo": "축하",
-      "sourceVocabId": "vocab_a1_0492"
+      "sourceVocabId": "vocab_a1_0492",
+      "courseUnitId": "a1_01_greetings_hangul"
     },
     {
       "id": "satz_a1_0408",
       "level": "a1",
-      "targetKo": "여보세요, 크리스티안이에요.",
-      "promptDe": "Hallo, hier ist Christian.",
+      "targetKo": "여보세요, 저는 크리스티안이에요.",
+      "promptDe": "Hallo, ich bin Christian.",
       "promptEn": "Hello, this is Christian.",
       "distractors": [
         "설빔",
         "십"
       ],
       "vocabKo": "여보세요",
-      "sourceVocabId": "vocab_a1_0493"
+      "sourceVocabId": "vocab_a1_0493",
+      "courseUnitId": "a1_01_greetings_hangul"
     },
     {
       "id": "satz_a1_0409",
@@ -466,7 +501,8 @@
         "밑반찬"
       ],
       "vocabKo": "안경",
-      "sourceVocabId": "vocab_a1_0494"
+      "sourceVocabId": "vocab_a1_0494",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0410",
@@ -479,7 +515,8 @@
         "원"
       ],
       "vocabKo": "모자",
-      "sourceVocabId": "vocab_a1_0495"
+      "sourceVocabId": "vocab_a1_0495",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0411",
@@ -492,7 +529,8 @@
         "오늘"
       ],
       "vocabKo": "신발",
-      "sourceVocabId": "vocab_a1_0496"
+      "sourceVocabId": "vocab_a1_0496",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0412",
@@ -505,7 +543,8 @@
         "문제없어요"
       ],
       "vocabKo": "할머니",
-      "sourceVocabId": "vocab_a1_0497"
+      "sourceVocabId": "vocab_a1_0497",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0413",
@@ -518,7 +557,8 @@
         "손"
       ],
       "vocabKo": "할아버지",
-      "sourceVocabId": "vocab_a1_0498"
+      "sourceVocabId": "vocab_a1_0498",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0414",
@@ -531,7 +571,8 @@
         "저거"
       ],
       "vocabKo": "부모님",
-      "sourceVocabId": "vocab_a1_0499"
+      "sourceVocabId": "vocab_a1_0499",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0415",
@@ -544,12 +585,13 @@
         "하다"
       ],
       "vocabKo": "아이스크림",
-      "sourceVocabId": "vocab_a1_0500"
+      "sourceVocabId": "vocab_a1_0500",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0416",
       "level": "a1",
-      "targetKo": "저는 초콜릿을 진짜 좋아해요.",
+      "targetKo": "저는 초콜릿을 정말 좋아해요.",
       "promptDe": "Ich mag Schokolade wirklich.",
       "promptEn": "I really like chocolate.",
       "distractors": [
@@ -557,7 +599,8 @@
         "점심"
       ],
       "vocabKo": "초콜릿",
-      "sourceVocabId": "vocab_a1_0501"
+      "sourceVocabId": "vocab_a1_0501",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0417",
@@ -570,7 +613,8 @@
         "많다"
       ],
       "vocabKo": "주스",
-      "sourceVocabId": "vocab_a1_0502"
+      "sourceVocabId": "vocab_a1_0502",
+      "courseUnitId": "a1_04_order_request_object"
     },
     {
       "id": "satz_a1_0418",
@@ -583,7 +627,8 @@
         "다섯"
       ],
       "vocabKo": "낮",
-      "sourceVocabId": "vocab_a1_0503"
+      "sourceVocabId": "vocab_a1_0503",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0419",
@@ -596,7 +641,8 @@
         "처음"
       ],
       "vocabKo": "날",
-      "sourceVocabId": "vocab_a1_0504"
+      "sourceVocabId": "vocab_a1_0504",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0420",
@@ -609,7 +655,8 @@
         "사"
       ],
       "vocabKo": "날짜",
-      "sourceVocabId": "vocab_a1_0505"
+      "sourceVocabId": "vocab_a1_0505",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0421",
@@ -622,7 +669,8 @@
         "우리"
       ],
       "vocabKo": "딸",
-      "sourceVocabId": "vocab_a1_0506"
+      "sourceVocabId": "vocab_a1_0506",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0422",
@@ -635,7 +683,8 @@
         "번호"
       ],
       "vocabKo": "돕다",
-      "sourceVocabId": "vocab_a1_0507"
+      "sourceVocabId": "vocab_a1_0507",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0423",
@@ -648,7 +697,8 @@
         "저기"
       ],
       "vocabKo": "도와주다",
-      "sourceVocabId": "vocab_a1_0508"
+      "sourceVocabId": "vocab_a1_0508",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0424",
@@ -661,7 +711,8 @@
         "잠깐"
       ],
       "vocabKo": "가지다",
-      "sourceVocabId": "vocab_a1_0509"
+      "sourceVocabId": "vocab_a1_0509",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0425",
@@ -674,7 +725,8 @@
         "모르다"
       ],
       "vocabKo": "끝나다",
-      "sourceVocabId": "vocab_a1_0510"
+      "sourceVocabId": "vocab_a1_0510",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0426",
@@ -687,7 +739,8 @@
         "이름"
       ],
       "vocabKo": "다니다",
-      "sourceVocabId": "vocab_a1_0511"
+      "sourceVocabId": "vocab_a1_0511",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0427",
@@ -700,7 +753,8 @@
         "매일"
       ],
       "vocabKo": "고르다",
-      "sourceVocabId": "vocab_a1_0512"
+      "sourceVocabId": "vocab_a1_0512",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0428",
@@ -713,7 +767,8 @@
         "별로"
       ],
       "vocabKo": "빌리다",
-      "sourceVocabId": "vocab_a1_0513"
+      "sourceVocabId": "vocab_a1_0513",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0429",
@@ -726,7 +781,8 @@
         "잘못"
       ],
       "vocabKo": "팔다",
-      "sourceVocabId": "vocab_a1_0514"
+      "sourceVocabId": "vocab_a1_0514",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0430",
@@ -739,7 +795,8 @@
         "젓가락질"
       ],
       "vocabKo": "이십",
-      "sourceVocabId": "vocab_a1_0515"
+      "sourceVocabId": "vocab_a1_0515",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0431",
@@ -752,7 +809,8 @@
         "하나"
       ],
       "vocabKo": "삼십",
-      "sourceVocabId": "vocab_a1_0516"
+      "sourceVocabId": "vocab_a1_0516",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0432",
@@ -765,7 +823,8 @@
         "시"
       ],
       "vocabKo": "사십",
-      "sourceVocabId": "vocab_a1_0517"
+      "sourceVocabId": "vocab_a1_0517",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0433",
@@ -778,7 +837,8 @@
         "죄송합니다"
       ],
       "vocabKo": "오십",
-      "sourceVocabId": "vocab_a1_0518"
+      "sourceVocabId": "vocab_a1_0518",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0434",
@@ -791,7 +851,8 @@
         "시간"
       ],
       "vocabKo": "육십",
-      "sourceVocabId": "vocab_a1_0519"
+      "sourceVocabId": "vocab_a1_0519",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0435",
@@ -804,7 +865,8 @@
         "있다"
       ],
       "vocabKo": "칠십",
-      "sourceVocabId": "vocab_a1_0520"
+      "sourceVocabId": "vocab_a1_0520",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0436",
@@ -817,7 +879,8 @@
         "의자"
       ],
       "vocabKo": "목",
-      "sourceVocabId": "vocab_a1_0521"
+      "sourceVocabId": "vocab_a1_0521",
+      "courseUnitId": "a1_10_health_safety"
     },
     {
       "id": "satz_a1_0437",
@@ -830,7 +893,8 @@
         "육"
       ],
       "vocabKo": "얼굴",
-      "sourceVocabId": "vocab_a1_0522"
+      "sourceVocabId": "vocab_a1_0522",
+      "courseUnitId": "a1_10_health_safety"
     }
   ]
 }

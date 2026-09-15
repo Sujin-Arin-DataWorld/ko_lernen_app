@@ -611,7 +611,7 @@ class TestVocabUnknownRatio(unittest.TestCase):
         for word, count in top[:30]:
             print("  %s x%d" % (word, count))
         self.assertLessEqual(ratio, 0.10)
-        self.assertEqual(len(self.rows), 2499)
+        self.assertEqual(len(self.rows), 2563)
 
 
 class TestSentenceUnknownRatio(unittest.TestCase):

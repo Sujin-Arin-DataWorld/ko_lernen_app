@@ -36,6 +36,14 @@ import unittest
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+SCRIPT_DIR = Path(__file__).resolve().parent
+import sys as _sys
+if str(SCRIPT_DIR) not in _sys.path:
+    _sys.path.insert(0, str(SCRIPT_DIR))
+from distractor_rules import (  # noqa: E402
+    batchim_class as _batchim_class,
+    detect_required_class as _detect_required_class,
+)
 DRAFTS = REPO_ROOT / "tools/content_factory/drafts"
 VOCAB_CSV = REPO_ROOT / "assets/data/korean_vocab.csv"
 CHARACTER_PROFILES = (
@@ -78,46 +86,8 @@ SINO_NUMERAL_AGE_RE = re.compile(
 # R8-2 (Fable, 2026-09-15): when the blank is immediately followed by a
 # batchim-alternating particle, every distractor must share the answer's
 # final-consonant class, or the particle itself gives the answer away.
-_RIEUL_JONG = 8  # index of ㄹ among the 28 possible Hangul syllable finals
-
-def _jong_index(ch: str):
-    code = ord(ch) - 0xAC00
-    return code % 28 if 0 <= code < 11172 else None
-
-def _batchim_class(word: str, particle_kind: str):
-    """particle_kind: 'binary' (이/가, 을/를, 은/는, 과/와, 이에요/예요) or
-    'roro' (으로/로, where a ㄹ-final counts as its own class)."""
-    j = _jong_index(word[-1])
-    if j is None:
-        return None
-    if particle_kind == "roro":
-        if j == 0:
-            return "vowel"
-        return "rieul" if j == _RIEUL_JONG else "consonant"
-    return "consonant" if j != 0 else "vowel"
-
-# (consonant_form, vowel_form, particle_kind) -- the 3-syllable copula is
-# checked before the bare 이/가 subject particle since "이에요" also starts
-# with "이".
-_ALTERNATING_PARTICLES = [
-    ("이에요", "예요", "binary"),
-    ("이", "가", "binary"),
-    ("을", "를", "binary"),
-    ("은", "는", "binary"),
-    ("과", "와", "binary"),
-    ("으로", "로", "roro"),
-]
-
-def _detect_required_class(sentence_ko: str, answer: str):
-    """If the text right after the ＿＿＿ blank is a batchim-alternating
-    particle, return (kind, required_class) for the answer's own class;
-    otherwise (None, None)."""
-    idx = sentence_ko.index("＿＿＿")
-    after = sentence_ko[idx + 3:]
-    for cform, vform, kind in _ALTERNATING_PARTICLES:
-        if after.startswith(cform) or after.startswith(vform):
-            return kind, _batchim_class(answer, kind)
-    return None, None
+# (_batchim_class / _detect_required_class now imported from
+# distractor_rules.py -- see the module import above.)
 
 # Distractor words that are dictionary-form verbs/adjectives or adverbs (not
 # nouns) in this batch's own distractor pools -- used to check the "at least
