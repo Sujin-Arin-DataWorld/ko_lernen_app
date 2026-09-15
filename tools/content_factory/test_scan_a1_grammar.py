@@ -226,6 +226,29 @@ class LiveA1CorpusGuardTest(unittest.TestCase):
     def test_satz_a1_items_are_grammar_clean(self) -> None:
         self._assert_clean("satz", self.satz_items, "id", "targetKo")
 
+    def test_rewritten_satz_meets_the_satz_test_build_contract(self) -> None:
+        # CI (test/satz_test.dart "every item satisfies the build
+        # contract"): a satz item needs >=3 whitespace-separated 어절, or
+        # SatzArcadeQuest.build() has too few tiles to make a real puzzle.
+        # vocab_a1_0181's rewrite ("옆에 앉을까요?") originally missed this
+        # -- guard every id this PR's rewrite table touches so a future
+        # edit can't reintroduce a too-short satz sentence.
+        import c2d_rewrite_data as D  # local import: dev-only module
+        satz_by_id = {x["id"]: x for x in self.satz_items}
+        rewritten_ids = set(D.SATZ_MIRROR_REWRITES) | set(D.SATZ_ONLY_REWRITES)
+        too_short = []
+        for rid in sorted(rewritten_ids):
+            item = satz_by_id.get(rid)
+            if item is None:
+                continue
+            token_count = len(item["targetKo"].split())
+            if token_count < 3:
+                too_short.append((rid, token_count, item["targetKo"]))
+        self.assertEqual(
+            too_short, [],
+            msg=f"satz rows below the 3-token build contract: {too_short}",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

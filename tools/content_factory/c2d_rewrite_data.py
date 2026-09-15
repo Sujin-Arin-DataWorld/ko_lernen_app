@@ -106,9 +106,12 @@ VOCAB_REWRITES = {
         "My eyes are a bit tired today.",
     ),
     "vocab_a1_0181": (
-        "옆에 앉을까요?",
-        "Soll ich mich neben dich setzen?",
-        "Shall I sit next to you?",
+        # CI (satz_test.dart "build contract"): satz needs >=3 어절; "옆에
+        # 앉을까요?" was only 2. Coordinator's fix -- vocative + explicit
+        # 제 disambiguates direction (invite Sujin to sit beside ME).
+        "수진 씨, 제 옆에 앉을까요?",
+        "Sujin, sollen wir uns nebeneinander setzen?",
+        "Sujin, shall we sit next to each other?",
     ),
     # -- cluster D: a1_weekend_promise_1 / a1_sorry_thanks_1 (also fixes the
     # pre-existing broken dictionary-form insertion, e.g. old "취소하다
@@ -320,7 +323,7 @@ SATZ_MIRROR_REWRITES = {
     "satz_a1_0193": ("버스가 막혀서 늦을 것 같아요.", "Der Bus steckt fest, ich komme wahrscheinlich zu spät.", "The bus is stuck, so it looks like I'll be late."),
     "satz_a1_0195": ("저는 먼저 가서 자리를 잡겠어요.", "Ich gehe zuerst und sichere die Plätze.", "I'll go ahead and grab the seats."),
     "satz_a1_0253": ("한국어를 천천히 말해서 이해가 돼요.", "Weil du langsam Koreanisch sprichst, verstehe ich es.", "Because you speak Korean slowly, I understand."),
-    "satz_a1_0046": ("옆에 앉을까요?", "Soll ich mich neben dich setzen?", "Shall I sit next to you?"),
+    "satz_a1_0046": ("수진 씨, 제 옆에 앉을까요?", "Sujin, sollen wir uns nebeneinander setzen?", "Sujin, shall we sit next to each other?"),
     "satz_a1_0257": ("아니요, 저는 안 가요.", "Nein, ich gehe nicht.", "No, I'm not going."),
     "satz_a1_0265": ("오늘 눈이 좀 피곤해요.", "Meine Augen sind heute etwas müde.", "My eyes are a bit tired today."),
 }

@@ -354,7 +354,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 아래,arae,unten / unter,A1,Nomen,의자 아래에 가방이 있어요.,Unter dem Stuhl steht eine Tasche.,Position,a1_position,2,false,bottom / below,Noun,There's a bag under the chair.,vocab_a1_0178
 앞,ap,vorne / vor,A1,Nomen,학교 앞에서 만나요.,Wir treffen uns vor der Schule.,Position,a1_position,3,false,front / in front of,Noun,We meet in front of the school.,vocab_a1_0179
 뒤,dwi,hinten / hinter,A1,Nomen,집 뒤에 공원이 있어요.,Hinter dem Haus ist ein Park.,Position,a1_position,4,false,back / behind,Noun,There's a park behind the house.,vocab_a1_0180
-옆,yeop,neben / Seite,A1,Nomen,옆에 앉을까요?,Soll ich mich neben dich setzen?,Position,a1_position,5,false,next to / side,Noun,Shall I sit next to you?,vocab_a1_0181
+옆,yeop,neben / Seite,A1,Nomen,"수진 씨, 제 옆에 앉을까요?","Sujin, sollen wir uns nebeneinander setzen?",Position,a1_position,5,false,next to / side,Noun,"Sujin, shall we sit next to each other?",vocab_a1_0181
 안,an,drinnen / in,A1,Nomen,가방 안에 책이 있어요.,In der Tasche ist ein Buch.,Position,a1_position,6,false,inside / in,Noun,There's a book in the bag.,vocab_a1_0182
 밖,bak,draußen / außerhalb,A1,Nomen,밖에 비가 와요.,Draußen regnet es.,Position,a1_position,7,false,outside,Noun,It's raining outside.,vocab_a1_0183
 사이,sai,Verhältnis / dazwischen,A1,Nomen,우리 사이는 좋아요.,Wir verstehen uns gut.,Beziehungen,a1_family_2,9,true,relationship / between,Noun,We get along well.,vocab_a1_0184
