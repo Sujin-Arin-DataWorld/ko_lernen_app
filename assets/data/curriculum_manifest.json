@@ -7101,7 +7101,10 @@
     "a2:beschreibung": "a2_01_haeyo_transition",
     "b1:직장 소통": "b1_03_work_softening",
     "b2:abstrakte begriffe": "b2_02_professional_opinion",
-    "a1:einkaufen": "a1_16_survival_capstone"
+    "a1:einkaufen": "a1_16_survival_capstone",
+    "a1:natur": "a1_16_survival_capstone",
+    "a1:gefühle": "a1_11_titles_relationships",
+    "a1:kommunikation": "a1_11_titles_relationships"
   },
   "scenarioCorpusGeneration": "canonical_120_v1",
   "scenarioCorpusSupplements": [

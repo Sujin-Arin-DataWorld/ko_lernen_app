@@ -11,7 +11,8 @@
         "볼펜"
       ],
       "vocabKo": "켜다",
-      "sourceVocabId": "vocab_a1_0589"
+      "sourceVocabId": "vocab_a1_0589",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0505",
@@ -24,7 +25,8 @@
         "카메라"
       ],
       "vocabKo": "끄다",
-      "sourceVocabId": "vocab_a1_0590"
+      "sourceVocabId": "vocab_a1_0590",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0506",
@@ -37,7 +39,8 @@
         "바지"
       ],
       "vocabKo": "웃다",
-      "sourceVocabId": "vocab_a1_0591"
+      "sourceVocabId": "vocab_a1_0591",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0507",
@@ -50,7 +53,8 @@
         "오전"
       ],
       "vocabKo": "가방",
-      "sourceVocabId": "vocab_a1_0592"
+      "sourceVocabId": "vocab_a1_0592",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0508",
@@ -63,7 +67,8 @@
         "사무실"
       ],
       "vocabKo": "볼펜",
-      "sourceVocabId": "vocab_a1_0593"
+      "sourceVocabId": "vocab_a1_0593",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0509",
@@ -76,7 +81,8 @@
         "수영장"
       ],
       "vocabKo": "수첩",
-      "sourceVocabId": "vocab_a1_0594"
+      "sourceVocabId": "vocab_a1_0594",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0510",
@@ -89,7 +95,8 @@
         "노래방"
       ],
       "vocabKo": "카메라",
-      "sourceVocabId": "vocab_a1_0595"
+      "sourceVocabId": "vocab_a1_0595",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0511",
@@ -102,7 +109,8 @@
         "건물"
       ],
       "vocabKo": "티셔츠",
-      "sourceVocabId": "vocab_a1_0596"
+      "sourceVocabId": "vocab_a1_0596",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0512",
@@ -115,7 +123,8 @@
         "근처"
       ],
       "vocabKo": "바지",
-      "sourceVocabId": "vocab_a1_0597"
+      "sourceVocabId": "vocab_a1_0597",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0513",
@@ -128,7 +137,8 @@
         "층"
       ],
       "vocabKo": "운동화",
-      "sourceVocabId": "vocab_a1_0598"
+      "sourceVocabId": "vocab_a1_0598",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0514",
@@ -141,7 +151,8 @@
         "나중"
       ],
       "vocabKo": "잔",
-      "sourceVocabId": "vocab_a1_0599"
+      "sourceVocabId": "vocab_a1_0599",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0515",
@@ -154,7 +165,8 @@
         "이번"
       ],
       "vocabKo": "표",
-      "sourceVocabId": "vocab_a1_0600"
+      "sourceVocabId": "vocab_a1_0600",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0516",
@@ -167,7 +179,8 @@
         "지난주"
       ],
       "vocabKo": "신문",
-      "sourceVocabId": "vocab_a1_0601"
+      "sourceVocabId": "vocab_a1_0601",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0517",
@@ -180,7 +193,8 @@
         "일주일"
       ],
       "vocabKo": "학생증",
-      "sourceVocabId": "vocab_a1_0602"
+      "sourceVocabId": "vocab_a1_0602",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0518",
@@ -193,7 +207,8 @@
         "후"
       ],
       "vocabKo": "여권",
-      "sourceVocabId": "vocab_a1_0603"
+      "sourceVocabId": "vocab_a1_0603",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0519",
@@ -206,7 +221,8 @@
         "잔"
       ],
       "vocabKo": "기숙사",
-      "sourceVocabId": "vocab_a1_0604"
+      "sourceVocabId": "vocab_a1_0604",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0520",
@@ -219,7 +235,8 @@
         "신문"
       ],
       "vocabKo": "사무실",
-      "sourceVocabId": "vocab_a1_0605"
+      "sourceVocabId": "vocab_a1_0605",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0521",
@@ -232,7 +249,8 @@
         "여권"
       ],
       "vocabKo": "아파트",
-      "sourceVocabId": "vocab_a1_0606"
+      "sourceVocabId": "vocab_a1_0606",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0522",
@@ -245,7 +263,8 @@
         "고양이"
       ],
       "vocabKo": "수영장",
-      "sourceVocabId": "vocab_a1_0607"
+      "sourceVocabId": "vocab_a1_0607",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0523",
@@ -258,7 +277,8 @@
         "나무"
       ],
       "vocabKo": "운동장",
-      "sourceVocabId": "vocab_a1_0608"
+      "sourceVocabId": "vocab_a1_0608",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0524",
@@ -271,7 +291,8 @@
         "바다"
       ],
       "vocabKo": "노래방",
-      "sourceVocabId": "vocab_a1_0609"
+      "sourceVocabId": "vocab_a1_0609",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0525",
@@ -284,7 +305,8 @@
         "불"
       ],
       "vocabKo": "대사관",
-      "sourceVocabId": "vocab_a1_0610"
+      "sourceVocabId": "vocab_a1_0610",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0526",
@@ -297,7 +319,8 @@
         "아이"
       ],
       "vocabKo": "여행사",
-      "sourceVocabId": "vocab_a1_0611"
+      "sourceVocabId": "vocab_a1_0611",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0527",
@@ -310,7 +333,8 @@
         "여자"
       ],
       "vocabKo": "건물",
-      "sourceVocabId": "vocab_a1_0612"
+      "sourceVocabId": "vocab_a1_0612",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0528",
@@ -323,7 +347,8 @@
         "마음"
       ],
       "vocabKo": "근처",
-      "sourceVocabId": "vocab_a1_0613"
+      "sourceVocabId": "vocab_a1_0613",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0529",
@@ -336,7 +361,8 @@
         "피곤"
       ],
       "vocabKo": "건너편",
-      "sourceVocabId": "vocab_a1_0614"
+      "sourceVocabId": "vocab_a1_0614",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0530",
@@ -349,7 +375,8 @@
         "미안"
       ],
       "vocabKo": "층",
-      "sourceVocabId": "vocab_a1_0615"
+      "sourceVocabId": "vocab_a1_0615",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "satz_a1_0531",
@@ -362,7 +389,8 @@
         "실례"
       ],
       "vocabKo": "다음",
-      "sourceVocabId": "vocab_a1_0616"
+      "sourceVocabId": "vocab_a1_0616",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0532",
@@ -375,7 +403,8 @@
         "대답"
       ],
       "vocabKo": "나중",
-      "sourceVocabId": "vocab_a1_0617"
+      "sourceVocabId": "vocab_a1_0617",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0533",
@@ -388,7 +417,8 @@
         "설명"
       ],
       "vocabKo": "동안",
-      "sourceVocabId": "vocab_a1_0618"
+      "sourceVocabId": "vocab_a1_0618",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0534",
@@ -401,7 +431,8 @@
         "볼펜"
       ],
       "vocabKo": "오전",
-      "sourceVocabId": "vocab_a1_0619"
+      "sourceVocabId": "vocab_a1_0619",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0535",
@@ -414,7 +445,8 @@
         "카메라"
       ],
       "vocabKo": "오후",
-      "sourceVocabId": "vocab_a1_0620"
+      "sourceVocabId": "vocab_a1_0620",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0536",
@@ -427,7 +459,8 @@
         "바지"
       ],
       "vocabKo": "이번",
-      "sourceVocabId": "vocab_a1_0621"
+      "sourceVocabId": "vocab_a1_0621",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0537",
@@ -440,7 +473,8 @@
         "잔"
       ],
       "vocabKo": "지난달",
-      "sourceVocabId": "vocab_a1_0622"
+      "sourceVocabId": "vocab_a1_0622",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0538",
@@ -453,7 +487,8 @@
         "신문"
       ],
       "vocabKo": "지난주",
-      "sourceVocabId": "vocab_a1_0623"
+      "sourceVocabId": "vocab_a1_0623",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0539",
@@ -466,7 +501,8 @@
         "여권"
       ],
       "vocabKo": "지난해",
-      "sourceVocabId": "vocab_a1_0624"
+      "sourceVocabId": "vocab_a1_0624",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0540",
@@ -479,7 +515,8 @@
         "사무실"
       ],
       "vocabKo": "일주일",
-      "sourceVocabId": "vocab_a1_0625"
+      "sourceVocabId": "vocab_a1_0625",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0541",
@@ -492,7 +529,8 @@
         "수영장"
       ],
       "vocabKo": "하루",
-      "sourceVocabId": "vocab_a1_0626"
+      "sourceVocabId": "vocab_a1_0626",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0542",
@@ -505,7 +543,8 @@
         "노래방"
       ],
       "vocabKo": "후",
-      "sourceVocabId": "vocab_a1_0627"
+      "sourceVocabId": "vocab_a1_0627",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0543",
@@ -518,7 +557,8 @@
         "여행사"
       ],
       "vocabKo": "개",
-      "sourceVocabId": "vocab_a1_0628"
+      "sourceVocabId": "vocab_a1_0628",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0544",
@@ -531,7 +571,8 @@
         "근처"
       ],
       "vocabKo": "고양이",
-      "sourceVocabId": "vocab_a1_0629"
+      "sourceVocabId": "vocab_a1_0629",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0545",
@@ -544,7 +585,8 @@
         "층"
       ],
       "vocabKo": "꽃",
-      "sourceVocabId": "vocab_a1_0630"
+      "sourceVocabId": "vocab_a1_0630",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0546",
@@ -557,7 +599,8 @@
         "오전"
       ],
       "vocabKo": "나무",
-      "sourceVocabId": "vocab_a1_0631"
+      "sourceVocabId": "vocab_a1_0631",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0547",
@@ -570,7 +613,8 @@
         "나중"
       ],
       "vocabKo": "산",
-      "sourceVocabId": "vocab_a1_0632"
+      "sourceVocabId": "vocab_a1_0632",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0548",
@@ -583,7 +627,8 @@
         "지난주"
       ],
       "vocabKo": "바다",
-      "sourceVocabId": "vocab_a1_0633"
+      "sourceVocabId": "vocab_a1_0633",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0549",
@@ -596,7 +641,8 @@
         "이번"
       ],
       "vocabKo": "비",
-      "sourceVocabId": "vocab_a1_0634"
+      "sourceVocabId": "vocab_a1_0634",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0550",
@@ -609,7 +655,8 @@
         "일주일"
       ],
       "vocabKo": "불",
-      "sourceVocabId": "vocab_a1_0635"
+      "sourceVocabId": "vocab_a1_0635",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0551",
@@ -622,7 +669,8 @@
         "후"
       ],
       "vocabKo": "아기",
-      "sourceVocabId": "vocab_a1_0636"
+      "sourceVocabId": "vocab_a1_0636",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0552",
@@ -635,7 +683,8 @@
         "마음"
       ],
       "vocabKo": "아이",
-      "sourceVocabId": "vocab_a1_0637"
+      "sourceVocabId": "vocab_a1_0637",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0553",
@@ -648,7 +697,8 @@
         "피곤"
       ],
       "vocabKo": "남자",
-      "sourceVocabId": "vocab_a1_0638"
+      "sourceVocabId": "vocab_a1_0638",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0554",
@@ -661,7 +711,8 @@
         "친절"
       ],
       "vocabKo": "여자",
-      "sourceVocabId": "vocab_a1_0639"
+      "sourceVocabId": "vocab_a1_0639",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0555",
@@ -674,7 +725,8 @@
         "고양이"
       ],
       "vocabKo": "기분",
-      "sourceVocabId": "vocab_a1_0640"
+      "sourceVocabId": "vocab_a1_0640",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0556",
@@ -687,7 +739,8 @@
         "나무"
       ],
       "vocabKo": "마음",
-      "sourceVocabId": "vocab_a1_0641"
+      "sourceVocabId": "vocab_a1_0641",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0557",
@@ -700,7 +753,8 @@
         "바다"
       ],
       "vocabKo": "사랑",
-      "sourceVocabId": "vocab_a1_0642"
+      "sourceVocabId": "vocab_a1_0642",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0558",
@@ -713,7 +767,8 @@
         "불"
       ],
       "vocabKo": "피곤",
-      "sourceVocabId": "vocab_a1_0643"
+      "sourceVocabId": "vocab_a1_0643",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0559",
@@ -726,7 +781,8 @@
         "아이"
       ],
       "vocabKo": "감사",
-      "sourceVocabId": "vocab_a1_0644"
+      "sourceVocabId": "vocab_a1_0644",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0560",
@@ -739,7 +795,8 @@
         "여자"
       ],
       "vocabKo": "미안",
-      "sourceVocabId": "vocab_a1_0645"
+      "sourceVocabId": "vocab_a1_0645",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0561",
@@ -752,7 +809,8 @@
         "볼펜"
       ],
       "vocabKo": "친절",
-      "sourceVocabId": "vocab_a1_0646"
+      "sourceVocabId": "vocab_a1_0646",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0562",
@@ -765,7 +823,8 @@
         "카메라"
       ],
       "vocabKo": "실례",
-      "sourceVocabId": "vocab_a1_0647"
+      "sourceVocabId": "vocab_a1_0647",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0563",
@@ -778,7 +837,8 @@
         "바지"
       ],
       "vocabKo": "유명",
-      "sourceVocabId": "vocab_a1_0648"
+      "sourceVocabId": "vocab_a1_0648",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0564",
@@ -791,7 +851,8 @@
         "잔"
       ],
       "vocabKo": "대답",
-      "sourceVocabId": "vocab_a1_0649"
+      "sourceVocabId": "vocab_a1_0649",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0565",
@@ -804,7 +865,8 @@
         "신문"
       ],
       "vocabKo": "소개",
-      "sourceVocabId": "vocab_a1_0650"
+      "sourceVocabId": "vocab_a1_0650",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "satz_a1_0566",
@@ -817,7 +879,8 @@
         "여권"
       ],
       "vocabKo": "설명",
-      "sourceVocabId": "vocab_a1_0651"
+      "sourceVocabId": "vocab_a1_0651",
+      "courseUnitId": "a1_11_titles_relationships"
     }
   ]
 }

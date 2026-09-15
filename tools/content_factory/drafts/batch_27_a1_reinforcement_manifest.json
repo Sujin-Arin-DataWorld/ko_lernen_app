@@ -1,13 +1,18 @@
 {
   "version": 1,
   "batch": "c3_batch27_a1_reinforcement",
-  "status": "draft",
+  "status": "merged",
   "provenance": {
     "scope": "A1(1급) vocabulary reinforcement — 63 headwords from the NIKL KIIQ 2017 grade-1 gap list (not yet live, not in the Batch 26 draft), filling the one existing under-12 A1 pack that had matching grade-1 candidates (a1_daily_3, 3 verbs) and creating 5 new 12-word A1 packs. Original clean-room authoring (KO/DE/EN), seeded only by NIKL 2017 kiiq grade-1 headword selection (KOGL Type-1). Follows the persona (character_profiles.json recurringCharacters) and liveliness rules set for Batch 26, plus the Batch 27 pragmatics fixes noted in the review packet.",
     "rights": "original_clean_room",
     "seedSource": "tools/content_factory/lexicon/nikl_kiiq_2017_vocab.csv (grade=1, minus live assets/data/korean_vocab.csv and tools/content_factory/drafts/batch_26_a1_rows.csv)",
     "requiresJinReview": true,
-    "approval": {},
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-09-16",
+      "source": "owner chat: 'Batch 26·27 승인'",
+      "sample": "7/63 rows (Batch 27); Batch 26 approved together, 7/66 rows"
+    },
     "modelLanguageQa": "PENDING_FABLE_REVIEW",
     "humanLanguageQaClaim": false,
     "r8Revision": "2026-09-15 Fable coordinator review of PR #342: 21 rows revised. 15 rows rewritten off the generic '이 X이 정말 예뻐요/커요' open-adjective/existential template onto selectionally-narrow verbs (입다/마시다/올라가다/수영하다/앉다/일하다/살다/찍다/몇 counters/물을 주다) so a cross-pack concrete-noun distractor can no longer form a second valid sentence; 4 rows (수첩/건너편/대사관/기분) kept structurally open but switched to a curated open_strict abstract-noun distractor pool verified per-predicate; 마음/대사관/표(DE-EN)/끄다 naturalness fixes; verb-row distractors now exclude 보다 (too-natural a collocate of 텔레비전을/불을 ___). Headword list, packs, and vocab/cloze/satz counts unchanged."
@@ -16,23 +21,26 @@
     {
       "kind": "vocab",
       "draft": "tools/content_factory/drafts/batch_27_a1_rows.csv",
-      "collection": "korean_vocab",
+      "collection": null,
       "count": 63,
-      "level": "A1"
+      "level": "A1",
+      "review": "tools/content_factory/review/batch_27_a1_vocab_review.csv"
     },
     {
       "kind": "cloze",
       "draft": "tools/content_factory/drafts/batch_27_a1_cloze.json",
-      "collection": "cloze_items",
+      "collection": "items",
       "count": 63,
-      "level": "A1"
+      "level": "A1",
+      "review": "tools/content_factory/review/batch_27_a1_cloze_review.csv"
     },
     {
       "kind": "satz",
       "draft": "tools/content_factory/drafts/batch_27_a1_satz.json",
-      "collection": "satz_items",
+      "collection": "items",
       "count": 63,
-      "level": "A1"
+      "level": "A1",
+      "review": "tools/content_factory/review/batch_27_a1_satz_review.csv"
     }
   ],
   "recordCount": 189,
@@ -125,10 +133,10 @@
   },
   "reviewPacket": "docs/data/review_packets/batch_27_a1_jin_sample.md",
   "promotion": {
-    "runtime": false,
-    "assetsDataWritten": false,
+    "runtime": true,
+    "assetsDataWritten": true,
     "tts": false,
     "firebase": false,
-    "note": "DRAFT ONLY per level-canon program hard rule — no writes to assets/data/**, no TTS synthesis, no Firebase until Jin approval."
+    "note": "Promoted 2026-09-16 (C3-T3) after Jin approval (Batch 26·27 approved together). TTS synthesis pending -- run tool/generate_tts.py --missing-from-storage before this batch's audio is available (no OS-voice fallback)."
   }
 }

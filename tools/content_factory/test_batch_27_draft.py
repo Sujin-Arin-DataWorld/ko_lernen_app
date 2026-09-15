@@ -108,28 +108,41 @@ class TestBatch27DraftFilesExist(unittest.TestCase):
         self.assertTrue(packet.exists())
 
 
-class TestBatch27NeverTouchesLiveAssets(unittest.TestCase):
-    """Hard rule: this batch is a draft-only packet. It must not appear in
-    the live app data until Jin approves it."""
+class TestBatch27PromotedToLiveAssets(unittest.TestCase):
+    """Batch 27 was Jin-approved and promoted 2026-09-16 (C3-T3, alongside
+    Batch 26): the manifest must show structured approval + all promotion
+    flags set, and every headword must now be live exactly once.
 
-    def test_manifest_marks_draft_and_unapproved(self):
+    Mirrors TestBatch25PromotedToLiveAssets / TestBatch26PromotedToLiveAssets
+    in the sibling test files -- replaces the old draft-only
+    TestBatch27NeverTouchesLiveAssets now that Batch 27 has itself been
+    promoted."""
+
+    def test_manifest_marks_merged_and_approved(self):
         manifest = _load_json(DRAFTS / "batch_27_a1_reinforcement_manifest.json")
-        self.assertEqual(manifest["status"], "draft")
-        self.assertEqual(manifest["provenance"]["approval"], {})
-        self.assertFalse(manifest["promotion"]["assetsDataWritten"])
-        self.assertFalse(manifest["promotion"]["runtime"])
-        self.assertFalse(manifest["promotion"]["tts"])
-        self.assertFalse(manifest["promotion"]["firebase"])
+        self.assertEqual(manifest["status"], "merged")
+        self.assertEqual(manifest["provenance"]["approval"].get("authority"), "Jin")
+        self.assertTrue(manifest["promotion"]["assetsDataWritten"])
+        self.assertTrue(manifest["promotion"]["runtime"])
 
-    def test_no_live_headword_was_added(self):
+    def test_every_headword_is_live_exactly_once(self):
+        from collections import Counter
         draft_rows = _load_vocab_rows(DRAFTS / "batch_27_a1_rows.csv")
         live_rows = _load_vocab_rows(VOCAB_CSV)
-        live_korean = {r["korean"] for r in live_rows}
+        live_counts = Counter(r["korean"] for r in live_rows)
         for row in draft_rows:
-            self.assertNotIn(
-                row["korean"], live_korean,
-                f"{row['korean']} ({row['id']}) is already live -- draft should not duplicate it",
+            self.assertEqual(
+                live_counts.get(row["korean"], 0), 1,
+                f"{row['korean']} ({row['id']}) live count is "
+                f"{live_counts.get(row['korean'], 0)}, expected exactly 1",
             )
+
+    def test_every_id_is_live_with_matching_content(self):
+        draft_rows = {r["id"]: r for r in _load_vocab_rows(DRAFTS / "batch_27_a1_rows.csv")}
+        live_rows = {r["id"]: r for r in _load_vocab_rows(VOCAB_CSV)}
+        for vid, row in draft_rows.items():
+            self.assertIn(vid, live_rows, f"{vid} missing from live korean_vocab.csv")
+            self.assertEqual(row, live_rows[vid], f"{vid}: live row differs from reviewed draft")
 
     def test_no_overlap_with_batch_25_words(self):
         draft_rows = _load_vocab_rows(DRAFTS / "batch_27_a1_rows.csv")
@@ -169,21 +182,29 @@ class TestBatch27VocabRows(unittest.TestCase):
         koreans = [r["korean"] for r in self.rows]
         self.assertEqual(len(koreans), len(set(koreans)))
 
-    def test_no_duplicate_korean_vs_live_csv(self):
-        live_korean = {r["korean"] for r in self.live_rows}
+    def test_no_duplicate_korean_vs_pre_batch_live_csv(self):
+        # C3-T3 (2026-09-16): renamed from test_no_duplicate_korean_vs_live_csv
+        # now that Batch 27 is itself live -- exclude the batch's own rows
+        # from the comparison set, mirroring the Batch 25/26 fix.
+        batch_ids = {r["id"] for r in self.rows}
+        pre_batch_korean = {r["korean"] for r in self.live_rows if r["id"] not in batch_ids}
         for row in self.rows:
-            self.assertNotIn(row["korean"], live_korean)
+            self.assertNotIn(row["korean"], pre_batch_korean)
 
-    def test_all_ids_unique_and_above_live_and_b26_max(self):
-        live_max = max(
-            int(r["id"].rsplit("_", 1)[1]) for r in self.live_rows if r["id"].startswith("vocab_a1_")
-        )
+    def test_all_ids_unique_and_above_pre_batch_live_and_b26_max(self):
+        # C3-T3 (2026-09-16): fixed baseline (one below this batch's own
+        # lowest id) instead of a live recomputation, mirroring Batch
+        # 25/26's identical fix. b26_max is now always <= this floor (Batch
+        # 26's ids are lower and disjoint) but kept as an explicit floor for
+        # documentation/clarity.
+        own_nums = [int(r["id"].rsplit("_", 1)[1]) for r in self.rows]
+        pre_batch_max = min(own_nums) - 1
         b26_rows = _load_vocab_rows(BATCH26_VOCAB_CSV) if BATCH26_VOCAB_CSV.exists() else []
         b26_max = max(
             [int(r["id"].rsplit("_", 1)[1]) for r in b26_rows if r["id"].startswith("vocab_a1_")],
             default=0,
         )
-        floor = max(live_max, b26_max)
+        floor = max(pre_batch_max, b26_max)
         ids = [r["id"] for r in self.rows]
         self.assertEqual(len(ids), len(set(ids)))
         for row in self.rows:
@@ -361,17 +382,17 @@ class TestBatch27Cloze(unittest.TestCase):
         rows = _load_vocab_rows(DRAFTS / "batch_27_a1_rows.csv")
         self.assertEqual(len(self.items), len(rows))
 
-    def test_ids_unique_and_above_live_and_b26_max(self):
-        live_max = max(
-            int(i["id"].rsplit("_", 1)[1]) for i in self.live_cloze if i["id"].startswith("cloze_a1_")
-        )
+    def test_ids_unique_and_above_pre_batch_live_and_b26_max(self):
+        # C3-T3 (2026-09-16): fixed baseline, see the vocab-row fix above.
+        own_nums = [int(i["id"].rsplit("_", 1)[1]) for i in self.items]
+        pre_batch_max = min(own_nums) - 1
         b26_path = DRAFTS / "batch_26_a1_cloze.json"
         b26_items = _load_json(b26_path)["items"] if b26_path.exists() else []
         b26_max = max(
             [int(i["id"].rsplit("_", 1)[1]) for i in b26_items if i["id"].startswith("cloze_a1_")],
             default=0,
         )
-        floor = max(live_max, b26_max)
+        floor = max(pre_batch_max, b26_max)
         ids = [i["id"] for i in self.items]
         self.assertEqual(len(ids), len(set(ids)))
         for item in self.items:
@@ -514,17 +535,17 @@ class TestBatch27Satz(unittest.TestCase):
         rows = _load_vocab_rows(DRAFTS / "batch_27_a1_rows.csv")
         self.assertEqual(len(self.items), len(rows))
 
-    def test_ids_unique_and_above_live_and_b26_max(self):
-        live_max = max(
-            int(i["id"].rsplit("_", 1)[1]) for i in self.live_satz if i["id"].startswith("satz_a1_")
-        )
+    def test_ids_unique_and_above_pre_batch_live_and_b26_max(self):
+        # C3-T3 (2026-09-16): fixed baseline, see the vocab-row fix above.
+        own_nums = [int(i["id"].rsplit("_", 1)[1]) for i in self.items]
+        pre_batch_max = min(own_nums) - 1
         b26_path = DRAFTS / "batch_26_a1_satz.json"
         b26_items = _load_json(b26_path)["items"] if b26_path.exists() else []
         b26_max = max(
             [int(i["id"].rsplit("_", 1)[1]) for i in b26_items if i["id"].startswith("satz_a1_")],
             default=0,
         )
-        floor = max(live_max, b26_max)
+        floor = max(pre_batch_max, b26_max)
         ids = [i["id"] for i in self.items]
         self.assertEqual(len(ids), len(set(ids)))
         for item in self.items:
@@ -559,14 +580,14 @@ class TestBatch27Satz(unittest.TestCase):
 
 class TestBatch27PacksFilledTo12(unittest.TestCase):
     def test_touched_packs_reach_twelve(self):
+        # C3-T3 (2026-09-16): Batch 27 is now itself live, so live_counts
+        # already includes the draft rows -- count live only (draft == live
+        # by now), mirroring the Batch 26 fix.
         manifest = _load_json(DRAFTS / "batch_27_a1_reinforcement_manifest.json")
-        draft_rows = _load_vocab_rows(DRAFTS / "batch_27_a1_rows.csv")
         live_rows = _load_vocab_rows(VOCAB_CSV)
         live_counts = Counter(r["pack_id"] for r in live_rows if r["level"] == "A1")
-        draft_counts = Counter(r["pack_id"] for r in draft_rows)
         for pack_id in manifest["packsFilledTo12"]:
-            total = live_counts.get(pack_id, 0) + draft_counts.get(pack_id, 0)
-            self.assertEqual(total, 12, f"{pack_id}: live {live_counts.get(pack_id, 0)} + draft {draft_counts.get(pack_id, 0)} != 12")
+            self.assertEqual(live_counts.get(pack_id, 0), 12, f"{pack_id}: live {live_counts.get(pack_id, 0)} != 12")
 
     def test_new_packs_have_exactly_twelve_words(self):
         manifest = _load_json(DRAFTS / "batch_27_a1_reinforcement_manifest.json")

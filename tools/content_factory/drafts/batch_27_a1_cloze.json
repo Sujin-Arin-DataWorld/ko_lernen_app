@@ -14,7 +14,8 @@
         "읽다"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0589"
+      "sourceVocabId": "vocab_a1_0589",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0524",
@@ -30,7 +31,8 @@
         "자다"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0590"
+      "sourceVocabId": "vocab_a1_0590",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0525",
@@ -46,7 +48,8 @@
         "모르다"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0591"
+      "sourceVocabId": "vocab_a1_0591",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0526",
@@ -62,7 +65,8 @@
         "빨리"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0592"
+      "sourceVocabId": "vocab_a1_0592",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0527",
@@ -78,7 +82,8 @@
         "가끔"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0593"
+      "sourceVocabId": "vocab_a1_0593",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0528",
@@ -94,7 +99,8 @@
         "천천히"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0594"
+      "sourceVocabId": "vocab_a1_0594",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0529",
@@ -110,7 +116,8 @@
         "다시"
       ],
       "topic": "Technologie",
-      "sourceVocabId": "vocab_a1_0595"
+      "sourceVocabId": "vocab_a1_0595",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0530",
@@ -126,7 +133,8 @@
         "아주"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0596"
+      "sourceVocabId": "vocab_a1_0596",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0531",
@@ -142,7 +150,8 @@
         "바로"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0597"
+      "sourceVocabId": "vocab_a1_0597",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0532",
@@ -158,7 +167,8 @@
         "항상"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0598"
+      "sourceVocabId": "vocab_a1_0598",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0533",
@@ -174,7 +184,8 @@
         "주로"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0599"
+      "sourceVocabId": "vocab_a1_0599",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0534",
@@ -190,7 +201,8 @@
         "이따가"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0600"
+      "sourceVocabId": "vocab_a1_0600",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0535",
@@ -206,7 +218,8 @@
         "꼭"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0601"
+      "sourceVocabId": "vocab_a1_0601",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0536",
@@ -222,7 +235,8 @@
         "좀"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0602"
+      "sourceVocabId": "vocab_a1_0602",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0537",
@@ -238,7 +252,8 @@
         "참"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0603"
+      "sourceVocabId": "vocab_a1_0603",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0538",
@@ -254,7 +269,8 @@
         "함께"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0604"
+      "sourceVocabId": "vocab_a1_0604",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0539",
@@ -270,7 +286,8 @@
         "보다"
       ],
       "topic": "도시 생활",
-      "sourceVocabId": "vocab_a1_0605"
+      "sourceVocabId": "vocab_a1_0605",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0540",
@@ -286,7 +303,8 @@
         "돕다"
       ],
       "topic": "도시 생활",
-      "sourceVocabId": "vocab_a1_0606"
+      "sourceVocabId": "vocab_a1_0606",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0541",
@@ -302,7 +320,8 @@
         "팔다"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0607"
+      "sourceVocabId": "vocab_a1_0607",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0542",
@@ -318,7 +337,8 @@
         "고르다"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0608"
+      "sourceVocabId": "vocab_a1_0608",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0543",
@@ -334,7 +354,8 @@
         "빌리다"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0609"
+      "sourceVocabId": "vocab_a1_0609",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0544",
@@ -350,7 +371,8 @@
         "가끔"
       ],
       "topic": "도시 생활",
-      "sourceVocabId": "vocab_a1_0610"
+      "sourceVocabId": "vocab_a1_0610",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0545",
@@ -366,7 +388,8 @@
         "끝나다"
       ],
       "topic": "도시 생활",
-      "sourceVocabId": "vocab_a1_0611"
+      "sourceVocabId": "vocab_a1_0611",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0546",
@@ -382,7 +405,8 @@
         "항상"
       ],
       "topic": "도시 생활",
-      "sourceVocabId": "vocab_a1_0612"
+      "sourceVocabId": "vocab_a1_0612",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0547",
@@ -398,7 +422,8 @@
         "다니다"
       ],
       "topic": "도시 생활",
-      "sourceVocabId": "vocab_a1_0613"
+      "sourceVocabId": "vocab_a1_0613",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0548",
@@ -414,7 +439,8 @@
         "켜다"
       ],
       "topic": "도시 생활",
-      "sourceVocabId": "vocab_a1_0614"
+      "sourceVocabId": "vocab_a1_0614",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0549",
@@ -430,7 +456,8 @@
         "끄다에"
       ],
       "topic": "도시 생활",
-      "sourceVocabId": "vocab_a1_0615"
+      "sourceVocabId": "vocab_a1_0615",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "id": "cloze_a1_0550",
@@ -446,7 +473,8 @@
         "웃다"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0616"
+      "sourceVocabId": "vocab_a1_0616",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0551",
@@ -462,7 +490,8 @@
         "빨리"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0617"
+      "sourceVocabId": "vocab_a1_0617",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0552",
@@ -478,7 +507,8 @@
         "천천히"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0618"
+      "sourceVocabId": "vocab_a1_0618",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0553",
@@ -494,7 +524,8 @@
         "다시"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0619"
+      "sourceVocabId": "vocab_a1_0619",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0554",
@@ -510,7 +541,8 @@
         "아주"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0620"
+      "sourceVocabId": "vocab_a1_0620",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0555",
@@ -526,7 +558,8 @@
         "바로"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0621"
+      "sourceVocabId": "vocab_a1_0621",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0556",
@@ -542,7 +575,8 @@
         "주로"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0622"
+      "sourceVocabId": "vocab_a1_0622",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0557",
@@ -558,7 +592,8 @@
         "이따가"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0623"
+      "sourceVocabId": "vocab_a1_0623",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0558",
@@ -574,7 +609,8 @@
         "꼭"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0624"
+      "sourceVocabId": "vocab_a1_0624",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0559",
@@ -590,7 +626,8 @@
         "좀"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0625"
+      "sourceVocabId": "vocab_a1_0625",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0560",
@@ -606,7 +643,8 @@
         "함께"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0626"
+      "sourceVocabId": "vocab_a1_0626",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0561",
@@ -622,7 +660,8 @@
         "참에"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0627"
+      "sourceVocabId": "vocab_a1_0627",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "cloze_a1_0562",
@@ -638,7 +677,8 @@
         "가다가"
       ],
       "topic": "Natur",
-      "sourceVocabId": "vocab_a1_0628"
+      "sourceVocabId": "vocab_a1_0628",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0563",
@@ -654,7 +694,8 @@
         "오다"
       ],
       "topic": "Natur",
-      "sourceVocabId": "vocab_a1_0629"
+      "sourceVocabId": "vocab_a1_0629",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0564",
@@ -670,7 +711,8 @@
         "보다에"
       ],
       "topic": "Natur",
-      "sourceVocabId": "vocab_a1_0630"
+      "sourceVocabId": "vocab_a1_0630",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0565",
@@ -686,7 +728,8 @@
         "읽다"
       ],
       "topic": "Natur",
-      "sourceVocabId": "vocab_a1_0631"
+      "sourceVocabId": "vocab_a1_0631",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0566",
@@ -702,7 +745,8 @@
         "타다에"
       ],
       "topic": "Natur",
-      "sourceVocabId": "vocab_a1_0632"
+      "sourceVocabId": "vocab_a1_0632",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0567",
@@ -718,7 +762,8 @@
         "쓰다"
       ],
       "topic": "Natur",
-      "sourceVocabId": "vocab_a1_0633"
+      "sourceVocabId": "vocab_a1_0633",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0568",
@@ -734,7 +779,8 @@
         "자다가"
       ],
       "topic": "Natur",
-      "sourceVocabId": "vocab_a1_0634"
+      "sourceVocabId": "vocab_a1_0634",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0569",
@@ -750,7 +796,8 @@
         "입다가"
       ],
       "topic": "Natur",
-      "sourceVocabId": "vocab_a1_0635"
+      "sourceVocabId": "vocab_a1_0635",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0570",
@@ -766,7 +813,8 @@
         "알다"
       ],
       "topic": "Person",
-      "sourceVocabId": "vocab_a1_0636"
+      "sourceVocabId": "vocab_a1_0636",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0571",
@@ -782,7 +830,8 @@
         "모르다"
       ],
       "topic": "Person",
-      "sourceVocabId": "vocab_a1_0637"
+      "sourceVocabId": "vocab_a1_0637",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0572",
@@ -798,7 +847,8 @@
         "돕다"
       ],
       "topic": "Person",
-      "sourceVocabId": "vocab_a1_0638"
+      "sourceVocabId": "vocab_a1_0638",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0573",
@@ -814,7 +864,8 @@
         "팔다"
       ],
       "topic": "Person",
-      "sourceVocabId": "vocab_a1_0639"
+      "sourceVocabId": "vocab_a1_0639",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0574",
@@ -830,7 +881,8 @@
         "가끔"
       ],
       "topic": "Gefühle",
-      "sourceVocabId": "vocab_a1_0640"
+      "sourceVocabId": "vocab_a1_0640",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0575",
@@ -846,7 +898,8 @@
         "항상"
       ],
       "topic": "Gefühle",
-      "sourceVocabId": "vocab_a1_0641"
+      "sourceVocabId": "vocab_a1_0641",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0576",
@@ -862,7 +915,8 @@
         "고르다"
       ],
       "topic": "Gefühle",
-      "sourceVocabId": "vocab_a1_0642"
+      "sourceVocabId": "vocab_a1_0642",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0577",
@@ -878,7 +932,8 @@
         "빌리다"
       ],
       "topic": "Gefühle",
-      "sourceVocabId": "vocab_a1_0643"
+      "sourceVocabId": "vocab_a1_0643",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0578",
@@ -894,7 +949,8 @@
         "끝나다"
       ],
       "topic": "Höflichkeit",
-      "sourceVocabId": "vocab_a1_0644"
+      "sourceVocabId": "vocab_a1_0644",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0579",
@@ -910,7 +966,8 @@
         "다니다"
       ],
       "topic": "Höflichkeit",
-      "sourceVocabId": "vocab_a1_0645"
+      "sourceVocabId": "vocab_a1_0645",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0580",
@@ -926,7 +983,8 @@
         "켜다"
       ],
       "topic": "Höflichkeit",
-      "sourceVocabId": "vocab_a1_0646"
+      "sourceVocabId": "vocab_a1_0646",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0581",
@@ -942,7 +1000,8 @@
         "끄다"
       ],
       "topic": "Höflichkeit",
-      "sourceVocabId": "vocab_a1_0647"
+      "sourceVocabId": "vocab_a1_0647",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0582",
@@ -958,7 +1017,8 @@
         "웃다"
       ],
       "topic": "Person",
-      "sourceVocabId": "vocab_a1_0648"
+      "sourceVocabId": "vocab_a1_0648",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0583",
@@ -974,7 +1034,8 @@
         "빨리"
       ],
       "topic": "Kommunikation",
-      "sourceVocabId": "vocab_a1_0649"
+      "sourceVocabId": "vocab_a1_0649",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0584",
@@ -990,7 +1051,8 @@
         "천천히"
       ],
       "topic": "Kommunikation",
-      "sourceVocabId": "vocab_a1_0650"
+      "sourceVocabId": "vocab_a1_0650",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "id": "cloze_a1_0585",
@@ -1006,7 +1068,8 @@
         "다시"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0651"
+      "sourceVocabId": "vocab_a1_0651",
+      "courseUnitId": "a1_11_titles_relationships"
     }
   ]
 }
