@@ -30239,7 +30239,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_months_1",
         "sourceVocabId": "vocab_a1_0539",
-        "sourceVocabFingerprintSha256": "13b72b999f797c4345055ae7a779554bf1ba3c243d1c44b2ba3d15ee0dbebc95",
+        "sourceVocabFingerprintSha256": "9d3be6589024af0e042e563839d7f23b84d53f49c9eddbc79010af3e18f9b0fe",
         "level": "a1",
         "canDoSegmentId": "segment_a1_05_numbers_time",
         "courseUnitId": "a1_05_numbers_time"
@@ -30250,7 +30250,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_months_1",
         "sourceVocabId": "vocab_a1_0540",
-        "sourceVocabFingerprintSha256": "774925d9fced9ff28ccf2a9126688e5061dbb90d05de2411efb5ca5a978abab5",
+        "sourceVocabFingerprintSha256": "0af556cf03d944fc9b07c2ec983670631cab8c126d17d706b29e84277c482db0",
         "level": "a1",
         "canDoSegmentId": "segment_a1_05_numbers_time",
         "courseUnitId": "a1_05_numbers_time"
@@ -30371,7 +30371,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_countries_1",
         "sourceVocabId": "vocab_a1_0551",
-        "sourceVocabFingerprintSha256": "21377c4ba25fc549e119c3eb154928c6e407d15fac684aff1e94943546197b49",
+        "sourceVocabFingerprintSha256": "f3f20de85c355aef0fac5c5e9fed7c1d5d57c45945351a57ca60861b57b83fdb",
         "level": "a1",
         "canDoSegmentId": "segment_a1_02_self_intro_identity",
         "courseUnitId": "a1_02_self_intro_identity"
@@ -30382,7 +30382,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_countries_1",
         "sourceVocabId": "vocab_a1_0552",
-        "sourceVocabFingerprintSha256": "d511bfd1ad6ad5965edd7d4757fb6fee2131c21ace54190c1ca0138ce185cefb",
+        "sourceVocabFingerprintSha256": "e28ec0726ae62a9df781e924ff7b3fecd35c63e0c710b4c16ef3c837e24b08ab",
         "level": "a1",
         "canDoSegmentId": "segment_a1_02_self_intro_identity",
         "courseUnitId": "a1_02_self_intro_identity"
@@ -30503,7 +30503,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_hobbies_1",
         "sourceVocabId": "vocab_a1_0563",
-        "sourceVocabFingerprintSha256": "e7e89a76aff534189d532f1a04498262d69b6f50990e858366ca2205c1b54a35",
+        "sourceVocabFingerprintSha256": "fa96484d678b4a7541c3fb05de9df505fd94b1350339e8f82a47f2cbf1f07a9d",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -30514,7 +30514,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_hobbies_1",
         "sourceVocabId": "vocab_a1_0564",
-        "sourceVocabFingerprintSha256": "b513bd12182a876fd3e3a66a335519234936de145c4bb999ee622b6bf020ea1f",
+        "sourceVocabFingerprintSha256": "8a399f9e876c92b1a2e5b3b92a70511c1f7359f6b4d3717bcfd53852167ab38d",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -30635,7 +30635,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_korean_food_1",
         "sourceVocabId": "vocab_a1_0575",
-        "sourceVocabFingerprintSha256": "976820f27d1f4e6941f0da2cd6f905815571e7f923f251ec98d18f8ecb0a0d32",
+        "sourceVocabFingerprintSha256": "fc377d22168d6208ec60c2dd24d226632ae8b52d666efc3e7717bc2345eacbb5",
         "level": "a1",
         "canDoSegmentId": "segment_a1_04_order_request_object",
         "courseUnitId": "a1_04_order_request_object"
@@ -30646,7 +30646,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_korean_food_1",
         "sourceVocabId": "vocab_a1_0576",
-        "sourceVocabFingerprintSha256": "6a38065f610b4e0eb023fe8a461da5c17ff198f7c7455bf86ab1f8b9c109ae63",
+        "sourceVocabFingerprintSha256": "169fb97bdf49b106d59e914f302c8cccba1887cd4c7047724167e623149887d2",
         "level": "a1",
         "canDoSegmentId": "segment_a1_04_order_request_object",
         "courseUnitId": "a1_04_order_request_object"
@@ -30767,7 +30767,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_korean_places_1",
         "sourceVocabId": "vocab_a1_0587",
-        "sourceVocabFingerprintSha256": "80eee5d281f5c60c1fe4d8f4a14e62ee9325ed9ddd1c19821a38a894453d825f",
+        "sourceVocabFingerprintSha256": "7545d92387fd8fbf140aa635b7317ed5b0d05a8553373a4451ce250192401ec1",
         "level": "a1",
         "canDoSegmentId": "segment_a1_16_survival_capstone",
         "courseUnitId": "a1_16_survival_capstone"
@@ -30778,7 +30778,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_korean_places_1",
         "sourceVocabId": "vocab_a1_0588",
-        "sourceVocabFingerprintSha256": "04297cc4a90583bd3121e26daa888d9aceb5e78bf4fbed720b88ac2dda2df70a",
+        "sourceVocabFingerprintSha256": "30bde2417c26f217437ad9e31d1c7c9d17599c8604f67756fd9aa3b8be181cab",
         "level": "a1",
         "canDoSegmentId": "segment_a1_16_survival_capstone",
         "courseUnitId": "a1_16_survival_capstone"
@@ -30932,7 +30932,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_belongings_1",
         "sourceVocabId": "vocab_a1_0602",
-        "sourceVocabFingerprintSha256": "781b91262d4b04def4a2dbebf9e434a1780f30e823120aea9055067fbd265089",
+        "sourceVocabFingerprintSha256": "0dc7cf11acdec7d1ca2c9eb66ef9b85c2acc9529a52e978a6e1c01210eecec4d",
         "level": "a1",
         "canDoSegmentId": "segment_a1_09_home_daily_life",
         "courseUnitId": "a1_09_home_daily_life"
@@ -30943,7 +30943,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_belongings_1",
         "sourceVocabId": "vocab_a1_0603",
-        "sourceVocabFingerprintSha256": "ae3f6c011a57670651c97e8cbccfcf7456e5549b66e6639b0c1b50dc41c93515",
+        "sourceVocabFingerprintSha256": "97a520f1cb8c21d0904817f6a676a9fe18c3092fabbeeb5e00a8955674bf407b",
         "level": "a1",
         "canDoSegmentId": "segment_a1_09_home_daily_life",
         "courseUnitId": "a1_09_home_daily_life"
@@ -31064,7 +31064,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_places_buildings_1",
         "sourceVocabId": "vocab_a1_0614",
-        "sourceVocabFingerprintSha256": "ec821806908d1ae05904684aa4ea63798d6f02ea2801d3604574626230bc50e9",
+        "sourceVocabFingerprintSha256": "1bdd6cd7ca27b3256f842188b05d0d5a63cf2e986c0e71e16a453bf05dd3096d",
         "level": "a1",
         "canDoSegmentId": "segment_a1_06_transport_directions",
         "courseUnitId": "a1_06_transport_directions"
@@ -31075,7 +31075,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_places_buildings_1",
         "sourceVocabId": "vocab_a1_0615",
-        "sourceVocabFingerprintSha256": "160ef76e8d145a61490a372a8aa7ef0d4c7ffa6efbd74298b84e56e8f16af9a8",
+        "sourceVocabFingerprintSha256": "b7b9b3a36d085e4d438fe985483255990b4fff7d25da6832f1900f68f96dae16",
         "level": "a1",
         "canDoSegmentId": "segment_a1_06_transport_directions",
         "courseUnitId": "a1_06_transport_directions"
@@ -31196,7 +31196,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_time_expressions_1",
         "sourceVocabId": "vocab_a1_0626",
-        "sourceVocabFingerprintSha256": "bd2e28f40031b9984621947b47b0c51a45987463021e2ea35d965c6861b35f9c",
+        "sourceVocabFingerprintSha256": "0d596585706162179cd523b75d1fa914a9b78a961607e1682705f7b6cbc0da80",
         "level": "a1",
         "canDoSegmentId": "segment_a1_05_numbers_time",
         "courseUnitId": "a1_05_numbers_time"
@@ -31207,7 +31207,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_time_expressions_1",
         "sourceVocabId": "vocab_a1_0627",
-        "sourceVocabFingerprintSha256": "266c1894134fed6133378e195b523115a98f7fd77cc99b9aa53e57f2a72426b9",
+        "sourceVocabFingerprintSha256": "c58f6ff7c0b8a61585b8455535a6981d51271c76af5522f710e077e83e8a6024",
         "level": "a1",
         "canDoSegmentId": "segment_a1_05_numbers_time",
         "courseUnitId": "a1_05_numbers_time"
@@ -31328,7 +31328,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_nature_people_1",
         "sourceVocabId": "vocab_a1_0638",
-        "sourceVocabFingerprintSha256": "939b80a968e2bd2f59fa23ac554e8a317719bb86166b85f80c8bbe30a8b7ad0d",
+        "sourceVocabFingerprintSha256": "cdb224f04c574a047299c09bc29e2a7f4361bcdcc24865360e5c972779155470",
         "level": "a1",
         "canDoSegmentId": "segment_a1_16_survival_capstone",
         "courseUnitId": "a1_16_survival_capstone"
@@ -31339,7 +31339,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_nature_people_1",
         "sourceVocabId": "vocab_a1_0639",
-        "sourceVocabFingerprintSha256": "2da9d7254f447bca1a8b788f4dc783581dabbad0cb07663709771cee157b7a94",
+        "sourceVocabFingerprintSha256": "4301a7320baeb94fea297a36f39671065abf2721e2e0826f82c88568e4ede719",
         "level": "a1",
         "canDoSegmentId": "segment_a1_16_survival_capstone",
         "courseUnitId": "a1_16_survival_capstone"
@@ -31460,7 +31460,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_feelings_talk_1",
         "sourceVocabId": "vocab_a1_0650",
-        "sourceVocabFingerprintSha256": "eeb44fbd7ecea3d3bebab49f1b7bc1e36958a1c175b601fefe86469aff79dd25",
+        "sourceVocabFingerprintSha256": "71fdc0a88ad198ff5bac0ee78b71241b04544081394feea99491b751c48b8766",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -31471,7 +31471,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_feelings_talk_1",
         "sourceVocabId": "vocab_a1_0651",
-        "sourceVocabFingerprintSha256": "bdd9ddba684d0479cda4775540ab2cab367ffcd5088545517f8e3104de02428d",
+        "sourceVocabFingerprintSha256": "7502e922b9ad98bcbb6865ab3cc2c4a4d641a894dbefe433d91ed9b5f6e580c7",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -31625,7 +31625,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_home_daily_1",
         "sourceVocabId": "vocab_a1_0665",
-        "sourceVocabFingerprintSha256": "94615261c1d67b1fb42d4f445fccfd46350afdad42a55d663952c5d706fd8455",
+        "sourceVocabFingerprintSha256": "6272e29f47f2c696dd3fd1b5e91495e87496dae218f12be3527aa4a89d2132f4",
         "level": "a1",
         "canDoSegmentId": "segment_a1_09_home_daily_life",
         "courseUnitId": "a1_09_home_daily_life"
@@ -31636,7 +31636,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_home_daily_1",
         "sourceVocabId": "vocab_a1_0666",
-        "sourceVocabFingerprintSha256": "c2133dd1d462e01abc52a6d2ed9dbcab767bee080db9954d4d6e3ca6655d7d1b",
+        "sourceVocabFingerprintSha256": "4aa36f5add500deb44edcfb162e09a197db7f21a19745639340d825a4a98152c",
         "level": "a1",
         "canDoSegmentId": "segment_a1_09_home_daily_life",
         "courseUnitId": "a1_09_home_daily_life"
@@ -31757,7 +31757,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_culture_hobbies_1",
         "sourceVocabId": "vocab_a1_0677",
-        "sourceVocabFingerprintSha256": "aae10bcb0cc2f34d7d63c2695fd0f1f95238c502a000f3d0c3179794b49443be",
+        "sourceVocabFingerprintSha256": "0814d9af1b9a3352a946f09de757de6efefd312e5df106ef3e25a9d2757a48a2",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -31768,7 +31768,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_culture_hobbies_1",
         "sourceVocabId": "vocab_a1_0678",
-        "sourceVocabFingerprintSha256": "d70e34d0afed7d3898a76bd7c337f6141acb3ad7397af37cb794beb140a0e1e6",
+        "sourceVocabFingerprintSha256": "313f696f3eb2236c980d091986ec6654e88b0c530f895d4460b3b0ad50233b58",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -31889,7 +31889,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_health_food_1",
         "sourceVocabId": "vocab_a1_0689",
-        "sourceVocabFingerprintSha256": "10ee90a1a2de54cfbd9cb023d557600084c92b46f651792e5f858eab1bfee9ae",
+        "sourceVocabFingerprintSha256": "14d9e9e9d2a350181588029389f06f14d47e1a9110bda5cf997ecd0bd12e1bad",
         "level": "a1",
         "canDoSegmentId": "segment_a1_04_order_request_object",
         "courseUnitId": "a1_04_order_request_object"
@@ -31900,7 +31900,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_health_food_1",
         "sourceVocabId": "vocab_a1_0690",
-        "sourceVocabFingerprintSha256": "62b259be097fe13d6c278067b61148fa13b5a1af89a087182a22d755774d7f99",
+        "sourceVocabFingerprintSha256": "411769868e9cb61f805545b26eb8e63f6a05373f9bc20ab5d6900b568e45cf52",
         "level": "a1",
         "canDoSegmentId": "segment_a1_04_order_request_object",
         "courseUnitId": "a1_04_order_request_object"
@@ -32021,7 +32021,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_school_work_1",
         "sourceVocabId": "vocab_a1_0701",
-        "sourceVocabFingerprintSha256": "b57683beffd4213cedcd136b511d566d9b5e2052a29fb8beb2b0759d576a91db",
+        "sourceVocabFingerprintSha256": "8d3d8418072b701e79584aa09872c7a15cc7a97f583836d98fd08a484c56fa4a",
         "level": "a1",
         "canDoSegmentId": "segment_a1_15_first_class_work",
         "courseUnitId": "a1_15_first_class_work"
@@ -32032,7 +32032,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_school_work_1",
         "sourceVocabId": "vocab_a1_0702",
-        "sourceVocabFingerprintSha256": "8756a8eb33158d88ab9311558e6287db2a45918ae526a71f5bf8a6fe39c54e66",
+        "sourceVocabFingerprintSha256": "ca607df7fee18af68d7fd93f610ccdef7ac378b91001899d24c92d52fdf1131b",
         "level": "a1",
         "canDoSegmentId": "segment_a1_15_first_class_work",
         "courseUnitId": "a1_15_first_class_work"
@@ -32153,7 +32153,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_time_family_1",
         "sourceVocabId": "vocab_a1_0713",
-        "sourceVocabFingerprintSha256": "d80b03cd5c58dc232785ce65592452c1db5923a54816c19daad4c2196ec26e39",
+        "sourceVocabFingerprintSha256": "86e1a00905b3808bcef00d02b1d0524cd697b60d35cbcbb86112ae74281d39c8",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -32164,7 +32164,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_time_family_1",
         "sourceVocabId": "vocab_a1_0714",
-        "sourceVocabFingerprintSha256": "c76415f31e78bf6939ca4f4a7e4de378fc95efb77c52fed6aefd96a0852a0cbc",
+        "sourceVocabFingerprintSha256": "7f27e6dd7b5bdb8ae1505f030445f22e7dbb2f2af9126c531e8475b299d7f9d2",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -35783,7 +35783,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_months_1",
         "sourceVocabId": "vocab_a1_0539",
-        "sourceVocabFingerprintSha256": "13b72b999f797c4345055ae7a779554bf1ba3c243d1c44b2ba3d15ee0dbebc95",
+        "sourceVocabFingerprintSha256": "9d3be6589024af0e042e563839d7f23b84d53f49c9eddbc79010af3e18f9b0fe",
         "level": "a1",
         "canDoSegmentId": "segment_a1_05_numbers_time",
         "courseUnitId": "a1_05_numbers_time"
@@ -35794,7 +35794,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_months_1",
         "sourceVocabId": "vocab_a1_0540",
-        "sourceVocabFingerprintSha256": "774925d9fced9ff28ccf2a9126688e5061dbb90d05de2411efb5ca5a978abab5",
+        "sourceVocabFingerprintSha256": "0af556cf03d944fc9b07c2ec983670631cab8c126d17d706b29e84277c482db0",
         "level": "a1",
         "canDoSegmentId": "segment_a1_05_numbers_time",
         "courseUnitId": "a1_05_numbers_time"
@@ -35915,7 +35915,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_countries_1",
         "sourceVocabId": "vocab_a1_0551",
-        "sourceVocabFingerprintSha256": "21377c4ba25fc549e119c3eb154928c6e407d15fac684aff1e94943546197b49",
+        "sourceVocabFingerprintSha256": "f3f20de85c355aef0fac5c5e9fed7c1d5d57c45945351a57ca60861b57b83fdb",
         "level": "a1",
         "canDoSegmentId": "segment_a1_02_self_intro_identity",
         "courseUnitId": "a1_02_self_intro_identity"
@@ -35926,7 +35926,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_countries_1",
         "sourceVocabId": "vocab_a1_0552",
-        "sourceVocabFingerprintSha256": "d511bfd1ad6ad5965edd7d4757fb6fee2131c21ace54190c1ca0138ce185cefb",
+        "sourceVocabFingerprintSha256": "e28ec0726ae62a9df781e924ff7b3fecd35c63e0c710b4c16ef3c837e24b08ab",
         "level": "a1",
         "canDoSegmentId": "segment_a1_02_self_intro_identity",
         "courseUnitId": "a1_02_self_intro_identity"
@@ -36047,7 +36047,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_hobbies_1",
         "sourceVocabId": "vocab_a1_0563",
-        "sourceVocabFingerprintSha256": "e7e89a76aff534189d532f1a04498262d69b6f50990e858366ca2205c1b54a35",
+        "sourceVocabFingerprintSha256": "fa96484d678b4a7541c3fb05de9df505fd94b1350339e8f82a47f2cbf1f07a9d",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -36058,7 +36058,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_hobbies_1",
         "sourceVocabId": "vocab_a1_0564",
-        "sourceVocabFingerprintSha256": "b513bd12182a876fd3e3a66a335519234936de145c4bb999ee622b6bf020ea1f",
+        "sourceVocabFingerprintSha256": "8a399f9e876c92b1a2e5b3b92a70511c1f7359f6b4d3717bcfd53852167ab38d",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -36179,7 +36179,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_korean_food_1",
         "sourceVocabId": "vocab_a1_0575",
-        "sourceVocabFingerprintSha256": "976820f27d1f4e6941f0da2cd6f905815571e7f923f251ec98d18f8ecb0a0d32",
+        "sourceVocabFingerprintSha256": "fc377d22168d6208ec60c2dd24d226632ae8b52d666efc3e7717bc2345eacbb5",
         "level": "a1",
         "canDoSegmentId": "segment_a1_04_order_request_object",
         "courseUnitId": "a1_04_order_request_object"
@@ -36190,7 +36190,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_korean_food_1",
         "sourceVocabId": "vocab_a1_0576",
-        "sourceVocabFingerprintSha256": "6a38065f610b4e0eb023fe8a461da5c17ff198f7c7455bf86ab1f8b9c109ae63",
+        "sourceVocabFingerprintSha256": "169fb97bdf49b106d59e914f302c8cccba1887cd4c7047724167e623149887d2",
         "level": "a1",
         "canDoSegmentId": "segment_a1_04_order_request_object",
         "courseUnitId": "a1_04_order_request_object"
@@ -36311,7 +36311,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_korean_places_1",
         "sourceVocabId": "vocab_a1_0587",
-        "sourceVocabFingerprintSha256": "80eee5d281f5c60c1fe4d8f4a14e62ee9325ed9ddd1c19821a38a894453d825f",
+        "sourceVocabFingerprintSha256": "7545d92387fd8fbf140aa635b7317ed5b0d05a8553373a4451ce250192401ec1",
         "level": "a1",
         "canDoSegmentId": "segment_a1_16_survival_capstone",
         "courseUnitId": "a1_16_survival_capstone"
@@ -36322,7 +36322,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_korean_places_1",
         "sourceVocabId": "vocab_a1_0588",
-        "sourceVocabFingerprintSha256": "04297cc4a90583bd3121e26daa888d9aceb5e78bf4fbed720b88ac2dda2df70a",
+        "sourceVocabFingerprintSha256": "30bde2417c26f217437ad9e31d1c7c9d17599c8604f67756fd9aa3b8be181cab",
         "level": "a1",
         "canDoSegmentId": "segment_a1_16_survival_capstone",
         "courseUnitId": "a1_16_survival_capstone"
@@ -36476,7 +36476,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_belongings_1",
         "sourceVocabId": "vocab_a1_0602",
-        "sourceVocabFingerprintSha256": "781b91262d4b04def4a2dbebf9e434a1780f30e823120aea9055067fbd265089",
+        "sourceVocabFingerprintSha256": "0dc7cf11acdec7d1ca2c9eb66ef9b85c2acc9529a52e978a6e1c01210eecec4d",
         "level": "a1",
         "canDoSegmentId": "segment_a1_09_home_daily_life",
         "courseUnitId": "a1_09_home_daily_life"
@@ -36487,7 +36487,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_belongings_1",
         "sourceVocabId": "vocab_a1_0603",
-        "sourceVocabFingerprintSha256": "ae3f6c011a57670651c97e8cbccfcf7456e5549b66e6639b0c1b50dc41c93515",
+        "sourceVocabFingerprintSha256": "97a520f1cb8c21d0904817f6a676a9fe18c3092fabbeeb5e00a8955674bf407b",
         "level": "a1",
         "canDoSegmentId": "segment_a1_09_home_daily_life",
         "courseUnitId": "a1_09_home_daily_life"
@@ -36608,7 +36608,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_places_buildings_1",
         "sourceVocabId": "vocab_a1_0614",
-        "sourceVocabFingerprintSha256": "ec821806908d1ae05904684aa4ea63798d6f02ea2801d3604574626230bc50e9",
+        "sourceVocabFingerprintSha256": "1bdd6cd7ca27b3256f842188b05d0d5a63cf2e986c0e71e16a453bf05dd3096d",
         "level": "a1",
         "canDoSegmentId": "segment_a1_06_transport_directions",
         "courseUnitId": "a1_06_transport_directions"
@@ -36619,7 +36619,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_places_buildings_1",
         "sourceVocabId": "vocab_a1_0615",
-        "sourceVocabFingerprintSha256": "160ef76e8d145a61490a372a8aa7ef0d4c7ffa6efbd74298b84e56e8f16af9a8",
+        "sourceVocabFingerprintSha256": "b7b9b3a36d085e4d438fe985483255990b4fff7d25da6832f1900f68f96dae16",
         "level": "a1",
         "canDoSegmentId": "segment_a1_06_transport_directions",
         "courseUnitId": "a1_06_transport_directions"
@@ -36740,7 +36740,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_time_expressions_1",
         "sourceVocabId": "vocab_a1_0626",
-        "sourceVocabFingerprintSha256": "bd2e28f40031b9984621947b47b0c51a45987463021e2ea35d965c6861b35f9c",
+        "sourceVocabFingerprintSha256": "0d596585706162179cd523b75d1fa914a9b78a961607e1682705f7b6cbc0da80",
         "level": "a1",
         "canDoSegmentId": "segment_a1_05_numbers_time",
         "courseUnitId": "a1_05_numbers_time"
@@ -36751,7 +36751,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_time_expressions_1",
         "sourceVocabId": "vocab_a1_0627",
-        "sourceVocabFingerprintSha256": "266c1894134fed6133378e195b523115a98f7fd77cc99b9aa53e57f2a72426b9",
+        "sourceVocabFingerprintSha256": "c58f6ff7c0b8a61585b8455535a6981d51271c76af5522f710e077e83e8a6024",
         "level": "a1",
         "canDoSegmentId": "segment_a1_05_numbers_time",
         "courseUnitId": "a1_05_numbers_time"
@@ -36872,7 +36872,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_nature_people_1",
         "sourceVocabId": "vocab_a1_0638",
-        "sourceVocabFingerprintSha256": "939b80a968e2bd2f59fa23ac554e8a317719bb86166b85f80c8bbe30a8b7ad0d",
+        "sourceVocabFingerprintSha256": "cdb224f04c574a047299c09bc29e2a7f4361bcdcc24865360e5c972779155470",
         "level": "a1",
         "canDoSegmentId": "segment_a1_16_survival_capstone",
         "courseUnitId": "a1_16_survival_capstone"
@@ -36883,7 +36883,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_nature_people_1",
         "sourceVocabId": "vocab_a1_0639",
-        "sourceVocabFingerprintSha256": "2da9d7254f447bca1a8b788f4dc783581dabbad0cb07663709771cee157b7a94",
+        "sourceVocabFingerprintSha256": "4301a7320baeb94fea297a36f39671065abf2721e2e0826f82c88568e4ede719",
         "level": "a1",
         "canDoSegmentId": "segment_a1_16_survival_capstone",
         "courseUnitId": "a1_16_survival_capstone"
@@ -37004,7 +37004,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_feelings_talk_1",
         "sourceVocabId": "vocab_a1_0650",
-        "sourceVocabFingerprintSha256": "eeb44fbd7ecea3d3bebab49f1b7bc1e36958a1c175b601fefe86469aff79dd25",
+        "sourceVocabFingerprintSha256": "71fdc0a88ad198ff5bac0ee78b71241b04544081394feea99491b751c48b8766",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -37015,7 +37015,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_feelings_talk_1",
         "sourceVocabId": "vocab_a1_0651",
-        "sourceVocabFingerprintSha256": "bdd9ddba684d0479cda4775540ab2cab367ffcd5088545517f8e3104de02428d",
+        "sourceVocabFingerprintSha256": "7502e922b9ad98bcbb6865ab3cc2c4a4d641a894dbefe433d91ed9b5f6e580c7",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -37169,7 +37169,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_home_daily_1",
         "sourceVocabId": "vocab_a1_0665",
-        "sourceVocabFingerprintSha256": "94615261c1d67b1fb42d4f445fccfd46350afdad42a55d663952c5d706fd8455",
+        "sourceVocabFingerprintSha256": "6272e29f47f2c696dd3fd1b5e91495e87496dae218f12be3527aa4a89d2132f4",
         "level": "a1",
         "canDoSegmentId": "segment_a1_09_home_daily_life",
         "courseUnitId": "a1_09_home_daily_life"
@@ -37180,7 +37180,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_home_daily_1",
         "sourceVocabId": "vocab_a1_0666",
-        "sourceVocabFingerprintSha256": "c2133dd1d462e01abc52a6d2ed9dbcab767bee080db9954d4d6e3ca6655d7d1b",
+        "sourceVocabFingerprintSha256": "4aa36f5add500deb44edcfb162e09a197db7f21a19745639340d825a4a98152c",
         "level": "a1",
         "canDoSegmentId": "segment_a1_09_home_daily_life",
         "courseUnitId": "a1_09_home_daily_life"
@@ -37301,7 +37301,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_culture_hobbies_1",
         "sourceVocabId": "vocab_a1_0677",
-        "sourceVocabFingerprintSha256": "aae10bcb0cc2f34d7d63c2695fd0f1f95238c502a000f3d0c3179794b49443be",
+        "sourceVocabFingerprintSha256": "0814d9af1b9a3352a946f09de757de6efefd312e5df106ef3e25a9d2757a48a2",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -37312,7 +37312,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_culture_hobbies_1",
         "sourceVocabId": "vocab_a1_0678",
-        "sourceVocabFingerprintSha256": "d70e34d0afed7d3898a76bd7c337f6141acb3ad7397af37cb794beb140a0e1e6",
+        "sourceVocabFingerprintSha256": "313f696f3eb2236c980d091986ec6654e88b0c530f895d4460b3b0ad50233b58",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -37433,7 +37433,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_health_food_1",
         "sourceVocabId": "vocab_a1_0689",
-        "sourceVocabFingerprintSha256": "10ee90a1a2de54cfbd9cb023d557600084c92b46f651792e5f858eab1bfee9ae",
+        "sourceVocabFingerprintSha256": "14d9e9e9d2a350181588029389f06f14d47e1a9110bda5cf997ecd0bd12e1bad",
         "level": "a1",
         "canDoSegmentId": "segment_a1_04_order_request_object",
         "courseUnitId": "a1_04_order_request_object"
@@ -37444,7 +37444,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_health_food_1",
         "sourceVocabId": "vocab_a1_0690",
-        "sourceVocabFingerprintSha256": "62b259be097fe13d6c278067b61148fa13b5a1af89a087182a22d755774d7f99",
+        "sourceVocabFingerprintSha256": "411769868e9cb61f805545b26eb8e63f6a05373f9bc20ab5d6900b568e45cf52",
         "level": "a1",
         "canDoSegmentId": "segment_a1_04_order_request_object",
         "courseUnitId": "a1_04_order_request_object"
@@ -37565,7 +37565,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_school_work_1",
         "sourceVocabId": "vocab_a1_0701",
-        "sourceVocabFingerprintSha256": "b57683beffd4213cedcd136b511d566d9b5e2052a29fb8beb2b0759d576a91db",
+        "sourceVocabFingerprintSha256": "8d3d8418072b701e79584aa09872c7a15cc7a97f583836d98fd08a484c56fa4a",
         "level": "a1",
         "canDoSegmentId": "segment_a1_15_first_class_work",
         "courseUnitId": "a1_15_first_class_work"
@@ -37576,7 +37576,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_school_work_1",
         "sourceVocabId": "vocab_a1_0702",
-        "sourceVocabFingerprintSha256": "8756a8eb33158d88ab9311558e6287db2a45918ae526a71f5bf8a6fe39c54e66",
+        "sourceVocabFingerprintSha256": "ca607df7fee18af68d7fd93f610ccdef7ac378b91001899d24c92d52fdf1131b",
         "level": "a1",
         "canDoSegmentId": "segment_a1_15_first_class_work",
         "courseUnitId": "a1_15_first_class_work"
@@ -37697,7 +37697,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_time_family_1",
         "sourceVocabId": "vocab_a1_0713",
-        "sourceVocabFingerprintSha256": "d80b03cd5c58dc232785ce65592452c1db5923a54816c19daad4c2196ec26e39",
+        "sourceVocabFingerprintSha256": "86e1a00905b3808bcef00d02b1d0524cd697b60d35cbcbb86112ae74281d39c8",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -37708,7 +37708,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_time_family_1",
         "sourceVocabId": "vocab_a1_0714",
-        "sourceVocabFingerprintSha256": "c76415f31e78bf6939ca4f4a7e4de378fc95efb77c52fed6aefd96a0852a0cbc",
+        "sourceVocabFingerprintSha256": "7f27e6dd7b5bdb8ae1505f030445f22e7dbb2f2af9126c531e8475b299d7f9d2",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"

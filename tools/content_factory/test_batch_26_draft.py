@@ -350,9 +350,19 @@ class TestBatch26VocabRows(unittest.TestCase):
         for row in self.rows:
             self.assertEqual(row["level"], "A1")
 
-    def test_is_review_boss_false(self):
+    def test_is_review_boss_matches_new_pack_convention(self):
+        # C3-T3 (2026-09-16): filled-to-12 existing packs' added rows stay
+        # is_review_boss=false (that pack's boss words were decided when
+        # it was first created); each of this batch's 5 brand-new packs
+        # needs its own 2 Boss words (validate_content.py requires every
+        # pack to have 2 or 3), assigned as the final 2 pack_order values
+        # per plan_pack_assignments.py's convention.
+        new_pack_ids = {p["pack_id"] for p in self.manifest.get("newPacks", [])}
         for row in self.rows:
-            self.assertEqual(row["is_review_boss"], "false")
+            if row["pack_id"] in new_pack_ids and int(row["pack_order"]) in (11, 12):
+                self.assertEqual(row["is_review_boss"], "true")
+            else:
+                self.assertEqual(row["is_review_boss"], "false")
 
     def test_examples_are_at_most_8_eojeol(self):
         for row in self.rows:
