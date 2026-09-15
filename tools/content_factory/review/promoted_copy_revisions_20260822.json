@@ -2288,7 +2288,13 @@
       "field": "romanization",
       "reason": "RR rule regeneration C2a",
       "reportRef": "docs/data/rr_regeneration_report_2026-09-15.md",
-      "approval": null
+      "approval": {
+        "approvedBy": "Jin",
+        "approvedAt": "2026-09-15",
+        "sample": "39/392 rows reviewed by Jin in docs/data/review_packets (RR sample), no issues",
+        "source": "Owner chat 2026-09-15: 'C7b·C2a 둘 다 승인, 표본 이상 없음'",
+        "postApprovalChanges": "9 rows changed after approval by Codex review fixes (ㄺ/ㄻ/ㄿ liaison, ㄲ tense liaison, ㄴ-insertion overrides, 맛없다 neutralization) — see docs/data/rr_regeneration_report_2026-09-15.md"
+      }
     }
   ]
 }

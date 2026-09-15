@@ -130,7 +130,7 @@ const productionCurriculumPromotionAuthority = CurriculumPromotionAuthority(
       'c1_01_evidence_public_reasoning',
       'c2_01_interpretation_institutions',
     },
-    CurriculumContentKind.scenario: {'postpone_plans'},
+    CurriculumContentKind.scenario: {'plans_with_friend'},
     CurriculumContentKind.practice: {'grammar_a1_action_location_particle'},
   },
 );
