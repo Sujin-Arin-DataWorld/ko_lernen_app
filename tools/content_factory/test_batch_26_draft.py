@@ -77,11 +77,18 @@ SINO_NUMERAL_AGE_RE = re.compile(
 # nouns) in this batch's own distractor pools -- used to check the "at least
 # 2 of 3 distractors share the answer's part of speech" rule. Every Batch 26
 # headword is a Nomen, so a "same POS" distractor is a noun: anything that
-# does NOT look like a bare dictionary-form predicate (ends in "다") and is
-# not one of the known adverbs counts as noun-like here.
+# is one of the known adverbs, or one of the known dictionary-form verbs,
+# counts as NOT noun-like. Everything else (including this batch's own food
+# headwords like 사이다/떡볶이, which happen to end in a "다" syllable but
+# are nouns) counts as noun-like -- a plain `.endswith("다")` check would
+# misclassify those, so membership in the fixed pools is used instead.
 ADV_WORDS = {
     "빨리", "천천히", "가끔", "항상", "다시", "아주", "바로", "주로",
     "이따가", "꼭", "좀", "함께", "참",
+}
+VERB_WORDS = {
+    "가다", "오다", "보다", "읽다", "타다", "쓰다", "자다", "입다",
+    "알다", "모르다", "돕다", "팔다", "고르다", "빌리다", "끝나다", "다니다",
 }
 
 
@@ -100,7 +107,7 @@ def _load_vocab_rows(path: Path):
 
 
 def _is_noun_like(word: str) -> bool:
-    return not word.endswith("다") and word not in ADV_WORDS
+    return word not in ADV_WORDS and word not in VERB_WORDS
 
 
 def _frame_key(example_korean: str, headword: str) -> str:
@@ -335,6 +342,17 @@ class TestBatch26Cloze(unittest.TestCase):
     def test_distractors_are_unique(self):
         for item in self.items:
             self.assertEqual(len(item["distractors"]), len(set(item["distractors"])))
+
+    def test_no_distractor_word_reused_more_than_4_times(self):
+        """No single distractor word may be reused more than 4 times across
+        the whole batch -- otherwise a learner can infer 'this word is never
+        the answer' from repetition (coordinator R8 rule, 2026-09-15)."""
+        from collections import Counter
+        counts = Counter()
+        for item in self.items:
+            counts.update(item["distractors"])
+        offenders = {w: c for w, c in counts.items() if c > 4}
+        self.assertEqual(offenders, {}, f"distractor(s) reused more than 4 times: {offenders}")
 
     def test_at_least_two_distractors_are_same_pos_as_answer(self):
         """Every Batch 26 headword is a Nomen, so at least 2 of the 3
