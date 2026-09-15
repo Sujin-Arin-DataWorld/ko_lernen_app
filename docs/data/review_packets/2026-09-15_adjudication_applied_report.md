@@ -192,7 +192,46 @@ flutter test test/cloze_content_guard_test.dart test/cloze_topic_groups_test.dar
 3. **scenarios52의 52줄 Jin 판정이 전부 동일 문구**: "수정안 반영 — 아래 `최종 자연화본`의 KO/DE/EN을 최종안으로 채택"이 52건 모두 토씨 하나 다르지 않게 동일하다. 개별 줄 단위의 승인 사유는 없고 `최종 자연화본` 블록 자체를 통째로 신뢰해야 하는 구조였다. 이 PR은 해당 블록을 그대로(줄 수·화자 순서까지 assert 후) 반영했다.
 4. **quest 필드와 대사 불일치 가능성**: 작업 지시가 quest 프롬프트를 "최종 자연화본 블록에 포함된 경우만" 갱신하라고 명시했고 블록에는 quest가 없어 전혀 건드리지 않았다. 그 결과 일부 시나리오는 quest의 `audioKo`/`promptKo`/`targetKo`가 여전히 **바뀌기 전** 대사 문구를 참조할 수 있다(예: 대사 자체는 바뀌었지만 그 대사를 그대로 인용하는 퀘스트가 있다면 완전 일치가 깨질 수 있음). 이번 실행에서 지정된 flutter 테스트 9종은 전부 통과했으므로 현재 통합 계약을 깨지는 않지만, 대사-퀘스트 텍스트 일치 여부까지 검증하는 별도 테스트가 있다면 재확인이 필요하다.
 
-## 8. 건드리지 않은 것
+## 8. TTS Storage 완결성 — 신규 결손 12건 (Fable 리뷰 후속)
+
+1차 리포트는 첫 대사 프리페치 결손(`c2_w10_fandom` 1건)만 짚었는데, 정본 매니페스트가 실제로 얻은 신규 sha1은 12개다(5절 female +5/male +7). 아래는 그 12개 전부를 KO 원문·출처 id까지 역추적한 표다(`tool.generate_tts.cache_sha1(voice, text) = sha1(f"{voice}|{text.strip()}")`로 12개 후보 문장 전부를 양쪽 voice로 해시해 대조 — 충돌·모호성 없이 12/12 정확히 매칭됨).
+
+| sha1 | voice | KO 원문 | 출처 |
+|---|---|---|---|
+| `40c5746e526771ab9d5b719b6c1c7e672bb14c6e` | female | 알겠어요. 그럼 내일 오후로 예약해 주세요. | `b1_w10_repair` dialog[7] (화자 user) |
+| `6cce49b4da86035ea1bdad038866ccb98dd3aea7` | female | 여기서 드시고 가세요, 아니면 포장이세요? | `a1_w10_eat` dialog[4] (화자 clerk) |
+| `6d03d222dacd2a9a618644c5db7bfe6e941e244c` | female | 잠자리 경계를 다시 정하니 둘 다 편해졌어요. | `cloze_b1_0153` / `vocab_b1_0341` / `satz_b1_0149` |
+| `7120cb699f46ad199ad7b050068b4a4ff263b1c2` | female | 엄마도 정말 반가워하세요. 편하게 계세요. | `a1_w10_partner` dialog[6] (화자 sujin) |
+| `832ef794a42840601b51f3104a610a5eb6c3c6f3` | female | 제 2차 창작물을 거의 그대로 가져가 편집해서 유료로 판매한 계정을 신고했는데 아직 조치가 없어요. | `c2_w10_fandom` dialog[0] (화자 user, **첫 대사**) |
+| `08ed49372bdf4623a75b99daec1dd21f81bc10b2` | male | 그 교수님 강의는 항상 자리가 꽉 차요. | `vocab_b2_0654` / `cloze_b2_0399` / `satz_b2_0557` |
+| `23b2f543c56d4074b01584ed69b66ae03bbe9497` | male | 식사 전이에요, 후예요? | `a1_w10_repeat` dialog[5] (화자 user) |
+| `670db0d8a3b685e0b77cd1deb422d8bebd18ce2c` | male | 네. 분리수거는 무슨 요일에 하면 돼요? | `a2_w10_apt` dialog[3] (화자 user) |
+| `6a80e475ca73630ea690887b8fa6d06f5a1fbd69` | male | 감사해요. 궁금한 게 있으면 또 여쭤볼게요. | `a2_w10_apt` dialog[7] (화자 user) |
+| `7153dd4f554fc81bc3d7c20cb0677ec46aebc99c` | male | 여보세요. 자리를 예약하고 싶은데요. | `a1_w10_phone` dialog[1] (화자 user) |
+| `75a7b23d4aef2c6abe17dbd0972ffadc61225eb6` | male | 저 간판 있는 곳이 은행이에요? | `a1_w10_wayfinding` dialog[4] (화자 user) |
+| `b8e7ebc5349f666096a1f1083cfd221d19de028f` | male | 네, 알겠어요. 가방 하나 있어요. | `a1_w10_taxi_stay` dialog[3] (화자 user) |
+
+12건 = 시나리오 KO 대사 변경 10줄 + (`cloze_b1_0153`/`vocab_b1_0341`/`satz_b1_0149`가 공유하는 문장 1개) + (`vocab_b2_0654`/`cloze_b2_0399`/`satz_b2_0557`가 공유하는 문장 1개). DE/EN만 바뀐 33개 필드는 sha1이 KO 텍스트에만 걸리므로 Storage에 영향이 없다. 위 표의 voice는 실제 재생 시점(캐릭터 프로필 또는 텍스트 SHA-1 auto 정책, AGENTS.md)이 만드는 값과 동일한 sha1 벡터로 역산한 것이라 정본 매니페스트·재생 캐시 키와 일치한다.
+
+이 잡(TTS Storage completeness)은 Jin이 합성하기 전까지는 계속 빨간 것이 정상이다(PR 본문에 명시). 권장 절차(AGENTS.md TTS 런북):
+```
+python3 tool/generate_tts.py --verify-storage      # 12건 결손 확인(선택)
+python -X utf8 tool/generate_tts.py --missing-from-storage   # 결손 12건만 합성+업로드
+```
+
+## 9. Phase 문맥 근거 재검수 (Fable 리뷰 후속, CI job A)
+
+`tool/audit_phase_context_evidence.py`는 시나리오 한 편의 **모든** dialog KO 대사를 묶어 `contextSha256`으로 고정한다(그 편의 어느 대사든 바뀌면 그 시나리오를 인용하는 모든 검수 행이 무효화됨). 52편 중 KO 대사가 실제로 바뀐 9편(`a1_w10_taxi_stay`, `a1_w10_eat`, `a1_w10_repeat`, `a1_w10_partner`, `a1_w10_phone`, `a1_w10_wayfinding`, `a2_w10_apt`, `b1_w10_repair`, `c2_w10_fandom`)에 걸린 검수 행 9건이 깨졌다. `build_inventory`가 만드는 passage는 **KO 텍스트만**(scenario `dialog[].ko` 또는 media `korean`) 담고 DE/EN은 담지 않는다(`tool/curriculum_context_inventory.py:149-163`).
+
+9건을 전부 직접 재검수한 결과:
+
+- **8건 — 인용 구절·해당 대사 자체는 불변, 같은 시나리오의 다른 줄만 바뀜** → `contextSha256`만 새 값으로 갱신, `decision`/`reviewer`/`status` 유지, `rationaleKo`에 "2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변." 추가.
+  `KP01/G1:-습니다`(a1_w10_phone), `KP02/G1:까지`(a1_w10_taxi_stay), `KP04/G1:-으시-`(a1_w10_taxi_stay), `KP04/G1:-은 후에`(a1_w10_repeat), `KP04/G1:-어서`(a1_w10_eat), `KP08/G2:-는군`(a2_w10_apt), `KP08/G2:-지`(a2_w10_apt), `KP25/G6:를 막론하고`(c2_w10_fandom).
+- **1건 — 인용된 바로 그 대사 자체가 바뀜** → `KP02/G1:-고3` / `a1_w10_eat` `/scenarios/22/dialog/4/ko`. 원래 인용 "여기서 드시고 가세요, 포장이세요?" → 새 대사 "여기서 드시고 가세요, **아니면** 포장이세요?"(단어 하나 삽입). 이 Phase가 요구하는 문법형태는 G1:-고3(연결어미 "-고", 나열: 두 행동/특징 나열, `phases.json` 정의)이고 새 대사에도 "드시고"가 그대로 있어 형태가 살아 있으므로 반려하지 않고 인용을 새 문장 전체로 갱신, `rationaleKo`에 "2026-09-15 재검수: 대사 자연화로 인용 구절 갱신." 추가.
+
+재실행: `python -B -X utf8 -m tool.audit_phase_context_evidence` (리포트 재생성) → `python -B -X utf8 -m tool.audit_phase_context_evidence --check` (exit 0) → `python -m unittest tool.test_phase_context_evidence` (5/5 통과). 변경 파일: `tools/content_factory/cefr_matrix/context_evidence_review.json`, `docs/data/phase_context_evidence_report.{json,md}`.
+
+## 10. 건드리지 않은 것
 
 - id, answer(단 `cloze_b1_0153` 제외), distractors — 전부 무변경.
 - 52개 시나리오의 title/intro/quests/culturalNote/vocab 등 dialog 외 필드 — 전부 무변경.

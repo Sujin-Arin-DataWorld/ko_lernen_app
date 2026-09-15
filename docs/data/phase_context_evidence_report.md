@@ -385,10 +385,10 @@
 - KP01 / G1:이 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/0/dialog/4/ko` — “한국이 처음이에요?”. 다시 말해 준 질문에서 한국에 이가 붙는다. 다른 인물을 지목하는 문장으로 해석하지 않는다.
 - KP01 / G1:이 아니다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/15/dialog/2/ko` — “여섯 시 아니에요?”. 약속 시각을 부정 의문으로 재확인하며 다음 응답이 일곱 시로 바로잡는다. 아니요 단독 감탄사가 아니라 아니다의 활용이다.
 - KP01 / G1:을1 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/20/dialog/1/ko` — “나는 롤러코스터를 타고 싶어.”. 타고 싶은 대상에 목적격 를이 붙는다. 반말 장면의 수용 용례이며 해요체 산출 근거로 대체하지 않는다.
-- KP01 / G1:-습니다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/26/dialog/0/ko` — “다정식당입니다.”. 전화받은 직원이 격식체 -ㅂ니다로 가게를 밝힌다. 서술격 활용의 격식체 종결 용례다.
+- KP01 / G1:-습니다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/26/dialog/0/ko` — “다정식당입니다.”. 전화받은 직원이 격식체 -ㅂ니다로 가게를 밝힌다. 서술격 활용의 격식체 종결 용례다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.
 - KP02 / G1:에 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/15/dialog/1/ko` — “일곱 시에 만나요.”. 확정된 만남 시각에 에가 붙는다. 앞서 잘못 확인한 여섯 시와 구별된다.
 - KP02 / G1:에서 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/15/dialog/5/ko` — “카페 앞에서 봐요.”. 만나는 행동이 일어날 장소를 에서로 나타낸다. 카페가 출발지라는 의미는 아니다.
-- KP02 / G1:까지 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/21/dialog/2/ko` — “공항에서 거기까지 삼십 분쯤 걸려요.”. 공항이 출발점이고 앞선 게스트하우스 주소가 거기의 지시 대상이다. 까지의 종착점과 소요 시간을 구별한다.
+- KP02 / G1:까지 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/21/dialog/2/ko` — “공항에서 거기까지 삼십 분쯤 걸려요.”. 공항이 출발점이고 앞선 게스트하우스 주소가 거기의 지시 대상이다. 까지의 종착점과 소요 시간을 구별한다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.
 - KP02 / G1:-었- / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/13/dialog/1/ko` — “두 달 전에 왔어요.”. 언제 왔느냐는 질문에 과거 도착 시점을 답한다. 왔어요는 오다의 과거 활용이다.
 - KP02 / G1:도 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/13/dialog/4/ko` — “한국 드라마도 봐요?”. 한국 생활 이야기에서 드라마 시청을 추가 활동으로 묻는다. 도를 배타적 제한으로 해석하지 않는다.
 - KP02 / G1:만 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/1/dialog/4/ko` — “이 빵만 바로 먹을게요.”. 두 빵 가운데 바로 먹을 빵을 제한하며 직원이 그 빵을 따로 담겠다고 응답한다.
@@ -397,21 +397,21 @@
 - KP03 / G1:-을 수 있다 / accepted / legacy_scenario_or_media: `assets/data/media_phrases.json/phrases/15/korean` — “내가 할 수 있어”. 할 수 있다는 능력·가능 표현이다. 무엇을 이미 완수했다는 증거로 사용하지 않는다. 반말 수용 범위다.
 - KP03 / G1:-을까 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/20/dialog/0/ko` — “우리 저거 탈까?”. 우리와 함께 타자는 제안이며 다음 말이 좋아로 응답한다. 반말 장면이므로 초면 해요체 산출을 증명하지 않는다.
 - KP03 / G1:-으세요 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/0/dialog/0/ko` — “여권 주세요.”. 입국 담당자가 방문객에게 여권을 달라고 요청한다. -세요 요청의 청자는 여권을 건네는 방문객이다.
-- KP04 / G1:-으시- / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/21/dialog/0/ko` — “어디로 가세요?”. 택시 기사가 손님의 이동 목적지를 묻고, 이동 주체인 손님을 -시-로 높인다. 사물 주체를 높이는 사례와 구별한다.
+- KP04 / G1:-으시- / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/21/dialog/0/ko` — “어디로 가세요?”. 택시 기사가 손님의 이동 목적지를 묻고, 이동 주체인 손님을 -시-로 높인다. 사물 주체를 높이는 사례와 구별한다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.
 - KP04 / G1:-겠- / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/20/dialog/7/ko` — “오늘 정말 재미있겠다!”. 탈 놀이기구와 활동을 고른 뒤 예상되는 즐거움을 추측한다. 이미 겪은 즐거움의 보고나 의지 약속은 아니다.
 - KP04 / G1:-기 전에 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/13/dialog/1/ko` — “두 달 전에 왔어요.”. 시간 명사 두 달 뒤의 전에이며 동사 명사형 -기 전에가 없다. 같은 전이라는 글자로 연결하지 않는다.
-- KP04 / G1:-은 후에 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/23/dialog/6/ko` — “식사 후에 드세요.”. 명사 식사와 후에의 결합이다. 동사 관형형 -(으)ㄴ 후에의 직접 용례로는 인정하지 않는다.
+- KP04 / G1:-은 후에 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/23/dialog/6/ko` — “식사 후에 드세요.”. 명사 식사와 후에의 결합이다. 동사 관형형 -(으)ㄴ 후에의 직접 용례로는 인정하지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.
 - KP03 / G1:-으세요 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/1/dialog/2/ko` — “빵 두 개 맞으세요?”. 수량 확인 질문이지 상대 행동 요청이 아니다. -으세요 문자열만으로 요청 종결을 충족했다고 보지 않는다.
 - KP03 / G1:-겠- / rejected / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/18/dialog/4/ko` — “네, 알겠습니다.”. 앞선 정차 요청을 받아들이는 관용적 확인이다. 이 구절만으로 과제의 명시적인 미래 행동 의지 산출을 대체하지 않는다.
 - KP04 / G1:-겠- / rejected / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/4/dialog/0/ko` — “주문하시겠어요?”. 직원이 손님의 주문 의향을 묻는다. 날씨·상태에 대한 추측 용례와 기능이 다르다.
 - KP01 / G1:의 / accepted / legacy_scenario_or_media: `assets/data/media_phrases.json/phrases/1/korean` — “나의 전부야”. 실제 짧은 문구에서 나와 전부를 의로 연결한다. 관계를 비유하는 표현이며 특정 가족 관계의 사실 확인으로 확장하지 않는다.
 - KP01 / G1:하고 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/17/dialog/2/ko` — “물하고 우유 사자.”. 함께 살 두 명사를 하고로 나열한다. 하다의 활용과 구별된다.
-- KP02 / G1:-고3 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/22/dialog/4/ko` — “여기서 드시고 가세요, 포장이세요?”. 먹고 가는 매장 이용과 포장을 대안으로 묻는다. 드시고에서 두 행동을 -고로 연결하며 이미 먹었다는 뜻은 아니다.
+- KP02 / G1:-고3 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/22/dialog/4/ko` — “여기서 드시고 가세요, 아니면 포장이세요?”. 먹고 가는 매장 이용과 포장을 대안으로 묻는다. 드시고에서 두 행동을 -고로 연결하며 이미 먹었다는 뜻은 아니다. 2026-09-15 재검수: 대사 자연화로 인용 구절 갱신.
 - KP03 / G1:한테 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/7/dialog/5/ko` — “친구한테는 이렇게 말해.”. 친구가 말의 수신자다. 친구가 말을 하는 주어라고 바꾸지 않는다. 반말 표현을 설명하는 문맥임을 유지한다.
 - KP02 / G1:-지 못하다 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/16/dialog/4/ko` — “제가 못 봤어요.”. 능력·사정에 따른 부정 의미는 있지만 실제 형태는 단형 못 부정이다. 장형 -지 못하다의 정확한 용례로 세지 않는다.
 - KP02 / G1:-지 않다 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/16/dialog/3/ko` — “안 아파요.”. 단형 안 부정이다. 장형 -지 않다의 원문 형태를 확인한 근거로는 사용하지 않는다.
 - KP02 / G1:으로 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/12/dialog/1/ko` — “카카오톡으로 연락할까요?”. 통신 수단의 (으)로 용례이나 KP02 요구의 이동 수단을 연습하는 예는 아니다. 형식 가족의 관련 예와 해당 기능 충족을 구별한다.
-- KP04 / G1:-어서 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/22/dialog/8/ko` — “다 해서 만 천 원이에요.”. 합계를 제시하는 다 해서이지 원인·결과 설명이 아니다. 표면 문자열로 해당 Phase의 이유 제시를 충족시키지 않는다.
+- KP04 / G1:-어서 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a1.json/scenarios/22/dialog/8/ko` — “다 해서 만 천 원이에요.”. 합계를 제시하는 다 해서이지 원인·결과 설명이 아니다. 표면 문자열로 해당 Phase의 이유 제시를 충족시키지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.
 - KP05 / G2:-으면 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/21/dialog/3/ko` — “두 봉지 사면 좀 싸게 해 주실 수 있어요?”. 두 봉지 구매라는 조건으로 할인을 문의하고 다음 응답이 그 조건의 가격을 제시한다. 조건만으로 이미 구매·할인을 완료한 것으로 세지 않는다.
 - KP05 / G2:-어도 되다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/8/dialog/0/ko` — “이 사진 올려도 돼?”. 사진 게시 허가를 묻는다. 첫 사진은 상대가 꺼리고 다음 사진만 허용하므로 모든 사진에 대한 허가로 일반화하지 않는다.
 - KP05 / G2:-지 말다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/23/dialog/3/ko` — “근데 한 손으로 드리지 말고 두 손으로 드려.”. 한 손으로 드리는 행동을 금지하고 두 손 대안을 제시한다. 드리지 말고에 해당 문법의 실제 부정 요청이 있다.
@@ -438,8 +438,8 @@
 - KP07 / G2:-을까 보다 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/26/dialog/5/ko` — “수진이한테도 연락해 볼까?”. 연락 시도의 -어 보다와 제안 -을까의 결합이다. 잠정 의도의 -을까 보다와 어순·기능이 달라 같은 문법으로 세지 않는다.
 - KP08 / G2:께 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/23/dialog/0/ko` — “부모님께 뭐라고 인사해야 돼?”. 인사를 받는 높임 대상이 부모님이다. 부모님이 질문이나 인사의 발신자가 된다고 바꾸지 않는다.
 - KP08 / G2:-네 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/18/dialog/3/ko` — “여기는 12B네요.”. 좌석 번호를 잘못 봤다는 설명 후 현재 좌석을 새로 확인하는 반응이다. 좌석을 바꾸라는 지시 자체와 구별한다.
-- KP08 / G2:-는군 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/22/dialog/5/ko` — “아, 그렇군요.”. 분리수거 요일 설명을 듣고 새로 알게 된 점을 받아들이는 -군요 활용이다. 요일을 새로 지시하는 발화가 아니다.
-- KP08 / G2:-지 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/22/dialog/0/ko` — “안녕하세요. 이사 오셨죠?”. 막 이사한 상황을 확인하는 -지요 축약형이다. 높임을 포함한 해요체 수용 예이고 합의된 친구 반말 산출을 인증하지 않는다.
+- KP08 / G2:-는군 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/22/dialog/5/ko` — “아, 그렇군요.”. 분리수거 요일 설명을 듣고 새로 알게 된 점을 받아들이는 -군요 활용이다. 요일을 새로 지시하는 발화가 아니다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.
+- KP08 / G2:-지 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/22/dialog/0/ko` — “안녕하세요. 이사 오셨죠?”. 막 이사한 상황을 확인하는 -지요 축약형이다. 높임을 포함한 해요체 수용 예이고 합의된 친구 반말 산출을 인증하지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.
 - KP08 / G2:-어 있다 / accepted / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/12/dialog/3/ko` — “상자에 제 이름이 적혀 있어요.”. 이름이 쓰인 뒤 유지되는 결과 상태가 배송 상자의 소유자 확인 근거다. 쓰는 동작이 진행 중인 것으로 읽지 않는다.
 - KP08 / G2:-는데2 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/3/dialog/1/ko` — “어? 다시 보냈는데요.”. 앞말의 첨부 부재에 맞서 발송했다고 대응하는 문맥이다. 감탄형의 긍정적 놀라움 요구를 이 문장만으로 충족했다고 하지 않는다.
 - KP08 / G2:-을 것1 / rejected / legacy_scenario_or_media: `assets/data/scenarios_a2.json/scenarios/15/dialog/0/ko` — “십 분쯤 늦을 것 같아.”. 늦을 것 같다는 유보적 추정이다. 공지의 축약 명령·지시인 -을 것1으로 연결하면 화행이 달라진다.
@@ -782,7 +782,7 @@
 - KP25 / G6:-되 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/2/dialog/4/ko` — “단일화하되”. 대외 보상 책임의 단일화는 유지하면서 내부 원인은 각각 추적한다는 제한·병행 조건이다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP25 / G6:-되 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/19/dialog/3/ko` — “정확히 쓰되”. 의무·처벌의 정확성을 유지하며 수정·도움 요청도 함께 안내하자는 단서다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP25 / G2:-기 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/27/dialog/3/ko` — “떠넘기기”. 책임 떠넘기기 행위를 명사화해 십상이다의 대상으로 삼는다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
-- KP25 / G6:를 막론하고 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/29/dialog/3/ko` — “장르나 팬덤 규모를 불문하고”. 배제하지 않는 의미는 유사하지만 불문하고는 막론하고의 실제 형태 용례가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
+- KP25 / G6:를 막론하고 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/29/dialog/3/ko` — “장르나 팬덤 규모를 불문하고”. 배제하지 않는 의미는 유사하지만 불문하고는 막론하고의 실제 형태 용례가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.
 - KP26 / G6:마는 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/11/dialog/1/ko` — “부분은 있지만”. 대조 의미가 있어도 지만은 마는과 다른 형식이므로 정확한 문법 용례로 세지 않는다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP27 / G6:-을망정 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/26/dialog/5/ko` — “남아 있었기에 망정이지”. 다행이라는 기에 망정이지 구성이다. 불리함을 감수하는 을망정 구성과 구별한다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP27 / G4:-더라도 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/20/dialog/4/ko` — “길다고 치더라도”. 기다림이 길다고 가정하더라도 기대가 사라지는 것은 아니라는 양보이다. 다고 치다 안에 실현된 더라도만 인정한다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
