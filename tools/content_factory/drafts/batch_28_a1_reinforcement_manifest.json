@@ -9,7 +9,8 @@
     "requiresJinReview": true,
     "approval": {},
     "modelLanguageQa": "PENDING_FABLE_REVIEW",
-    "humanLanguageQaClaim": false
+    "humanLanguageQaClaim": false,
+    "r6r8Revision": "2026-09-15 Fable coordinator review of commit c5bbecc5 (PR #344): the PR report claimed N+하다 sibling-leak distractors were fixed, but the committed cloze.json still had them (e.g. 샤워 '아침에 ___해요.' with distractor 세수 -> '아침에 세수해요.', a fully valid sentence). Root cause: an object-constraint-based safety argument that had already failed once was reused instead of a mechanical rule. Fix: (1) added ACTIVITY_NOUN_SET (30 words that combine productively with 하다/배우다/가르치다) and a real regression test, test_no_hada_collocate_in_fused_slot, that forbids any such word as a distractor in a fused '___해요/했어요/할까요' or '___ 배워요/가르쳐요' slot -- 16 rows' distractors rewritten under this rule; (2) rewrote 늦다 off '-지 마세요' (2급 '-지 말다', out of scope) onto '미안해요, 버스가 늦었어요.' (1급 past tense); (3) rewrote 생활/방학/교통/잠시/주 off their fully open predicates (한국 X 재미있어요/X 동안 여행해요/X 안 좋아요/X 기다려요/이번 X 시간이 있어요?) onto narrower frames (기숙사 X이 재미있어요/X이 언제예요?/X 카드가 없어요/X 앉아요/이번 X에 학교에 가요); 곳/태권도/병 kept their frames with ACTIVITY_NOUN_SET-clean distractors. Headword list, packs, and vocab/cloze/satz counts unchanged (63/63/63/63)."
   },
   "artifacts": [
     {
@@ -101,7 +102,6 @@
     "note": "NIKL grade-1 headwords (all parts of speech, deduplicated) still not in live korean_vocab.csv, the Batch 26 draft, the Batch 27 draft, or this Batch 28 draft, as of 2026-09-15. Only 10 of the original 190 NOUN candidates remain (60 of 70 nouns were used this batch, deferring 가운데/계속/모두/먼저/전/영/제일/말/주일/천만 as too grammar-function-like or event-numeral for a clean topic pack); the rest of the 127 are verbs (29)/adjectives (26)/adverbs (19)/pronouns (13)/dependent nouns (13)/determiners (11)/numerals (3)/interjections (2), none targeted by this noun-first batch."
   },
   "personaRows": {
-    "vocab_a1_0652": "andrea",
     "vocab_a1_0654": "christian",
     "vocab_a1_0657": "sujin",
     "vocab_a1_0667": "maya",

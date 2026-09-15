@@ -1,12 +1,12 @@
 korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack_id,pack_order,is_review_boss,english,pos_en,example_english,id
-늦다,neutda,"zu spät sein, sich verspäten",A1,Verb,약속 시간에 늦지 마세요.,Bitte kommen Sie nicht zu spät zum Termin.,Zeit,a1_weekend_promise_1,1,false,to be late,Verb,Please don't be late for the appointment.,vocab_a1_0652
+늦다,neutda,"zu spät sein, sich verspäten",A1,Verb,"미안해요, 버스가 늦었어요.","Entschuldigung, der Bus hatte Verspätung.",Zeit,a1_weekend_promise_1,1,false,to be late,Verb,"Sorry, the bus was late.",vocab_a1_0652
 묻다,mutda,fragen,A1,Verb,선생님한테 다시 물어요.,Ich frage den Lehrer noch einmal.,Kommunikation,a1_repair_language_1,11,false,to ask,Verb,I ask the teacher again.,vocab_a1_0653
 맞다,matda,"stimmen, richtig sein",A1,Verb,제 대답이 맞아요?,Ist meine Antwort richtig?,Kommunikation,a1_repair_language_1,12,false,"to be right, to match",Verb,Is my answer right?,vocab_a1_0654
 샤워,syawo,Dusche,A1,Nomen,아침에 샤워해요.,Ich dusche am Morgen.,Alltag,a1_home_daily_1,1,false,shower,Noun,I take a shower in the morning.,vocab_a1_0655
 세수,sesu,Gesichtwaschen,A1,Nomen,매일 세수해요.,Ich wasche mir jeden Tag das Gesicht.,Alltag,a1_home_daily_1,2,false,washing one's face,Noun,I wash my face every day.,vocab_a1_0656
 청소,cheongso,"Putzen, Reinigung",A1,Nomen,제가 집을 청소해요.,Ich putze das Haus.,Alltag,a1_home_daily_1,3,false,cleaning,Noun,I clean the house.,vocab_a1_0657
 준비,junbi,Vorbereitung,A1,Nomen,내일 여행을 준비해요.,Ich bereite morgen die Reise vor.,Alltag,a1_home_daily_1,4,false,preparation,Noun,I prepare for the trip tomorrow.,vocab_a1_0658
-생활,saenghwal,"Leben, Alltag",A1,Nomen,한국 생활이 재미있어요.,Das Leben in Korea ist interessant.,Alltag,a1_home_daily_1,5,false,"life, living",Noun,Life in Korea is interesting.,vocab_a1_0659
+생활,saenghwal,"Leben, Alltag",A1,Nomen,기숙사 생활이 재미있어요.,Das Wohnheimleben macht Spaß.,Alltag,a1_home_daily_1,5,false,"life, living",Noun,Dormitory life is fun.,vocab_a1_0659
 잠,jam,Schlaf,A1,Nomen,잠을 못 잤어요.,Ich konnte nicht schlafen.,Alltag,a1_home_daily_1,6,false,sleep,Noun,I couldn't sleep.,vocab_a1_0660
 요리,yori,"Kochen, Gericht",A1,Nomen,오늘 제가 요리해요.,Ich koche heute.,Alltag,a1_home_daily_1,7,false,"cooking, dish",Noun,I cook today.,vocab_a1_0661
 식사,siksa,Mahlzeit,A1,Nomen,가족과 식사해요.,Ich esse mit der Familie.,Alltag,a1_home_daily_1,8,false,meal,Noun,I have a meal with my family.,vocab_a1_0662
@@ -38,14 +38,14 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 음료수,eumnyosu,Getränk,A1,Nomen,저는 음료수를 마셔요.,Ich trinke ein Getränk.,Essen & Trinken,a1_health_food_1,10,false,beverage,Noun,I drink a beverage.,vocab_a1_0688
 메뉴,menyu,"Speisekarte, Menü",A1,Nomen,종업원이 메뉴를 줘요.,Die Bedienung gibt die Speisekarte.,Essen & Trinken,a1_health_food_1,11,false,menu,Noun,The waiter gives the menu.,vocab_a1_0689
 오렌지,orenji,Orange,A1,Nomen,저는 오렌지를 먹어요.,Ich esse eine Orange.,Essen & Trinken,a1_health_food_1,12,false,orange,Noun,I eat an orange.,vocab_a1_0690
-방학,banghak,(Schul-)Ferien,A1,Nomen,방학 동안 여행해요.,Ich reise während der Ferien.,Bildung,a1_school_work_1,1,false,school vacation,Noun,I travel during the school vacation.,vocab_a1_0691
+방학,banghak,(Schul-)Ferien,A1,Nomen,방학이 언제예요?,Wann sind die Ferien?,Bildung,a1_school_work_1,1,false,school vacation,Noun,When is the vacation?,vocab_a1_0691
 졸업,joreop,"Abschluss, Graduation",A1,Nomen,저는 올해 졸업해요.,Ich mache dieses Jahr meinen Abschluss.,Bildung,a1_school_work_1,2,false,graduation,Noun,I graduate this year.,vocab_a1_0692
 외국어,oegugeo,Fremdsprache,A1,Nomen,저는 외국어를 가르쳐요.,Ich unterrichte eine Fremdsprache.,Bildung,a1_school_work_1,3,false,foreign language,Noun,I teach a foreign language.,vocab_a1_0693
 아르바이트,areubaiteu,"Nebenjob, Teilzeitarbeit",A1,Nomen,저는 편의점에서 아르바이트를 해요.,Ich habe einen Nebenjob im Supermarkt.,Beruf,a1_school_work_1,4,false,part-time job,Noun,I have a part-time job at a convenience store.,vocab_a1_0694
 직원,jigwon,Angestellte(r),A1,Nomen,저는 회사 직원이에요.,Ich bin Angestellter einer Firma.,Beruf,a1_school_work_1,5,false,employee,Noun,I'm an employee of a company.,vocab_a1_0695
 종업원,jongeobwon,"Bedienung, Angestellte(r)",A1,Nomen,종업원이 친절해요.,Die Bedienung ist freundlich.,Beruf,a1_school_work_1,6,false,"staff, waiter/waitress",Noun,The staff is kind.,vocab_a1_0696
 안내,annae,"Auskunft, Information",A1,Nomen,직원이 안내해요.,Der Angestellte gibt Auskunft.,Kommunikation,a1_school_work_1,7,false,"information, guidance",Noun,The employee gives information.,vocab_a1_0697
-교통,gyotong,Verkehr,A1,Nomen,교통이 안 좋아요.,Der Verkehr ist nicht gut.,Verkehr,a1_school_work_1,8,false,traffic,Noun,The traffic isn't good.,vocab_a1_0698
+교통,gyotong,Verkehr,A1,Nomen,교통 카드가 없어요.,Ich habe keine Verkehrskarte.,Verkehr,a1_school_work_1,8,false,traffic,Noun,I don't have a transit card.,vocab_a1_0698
 시작,sijak,"Anfang, Beginn",A1,Nomen,저는 지금 일을 시작해요.,Ich fange jetzt mit der Arbeit an.,Zeit,a1_school_work_1,9,false,"beginning, start",Noun,I start work now.,vocab_a1_0699
 장소,jangso,"Ort, Platz",A1,Nomen,약속 장소가 어디예요?,Wo ist der Treffpunkt?,Position,a1_school_work_1,10,false,"place, venue",Noun,Where is the meeting place?,vocab_a1_0700
 글,geul,"Text, Schrift",A1,Nomen,저는 매일 글을 써요.,Ich schreibe jeden Tag.,Bildung,a1_school_work_1,11,false,"writing, text",Noun,I write every day.,vocab_a1_0701
@@ -60,5 +60,5 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 올해,olhae,dieses Jahr,A1,Nomen,올해 한국에 왔어요.,Ich bin dieses Jahr nach Korea gekommen.,Zeit,a1_time_family_1,8,false,this year,Noun,I came to Korea this year.,vocab_a1_0710
 요즘,yojeum,"heutzutage, dieser Tage",A1,Nomen,요즘 바빠요.,Ich bin heutzutage beschäftigt.,Zeit,a1_time_family_1,9,false,these days,Noun,I'm busy these days.,vocab_a1_0711
 월,wol,Monat (Zähleinheit),A1,Nomen,지금 몇 월이에요?,Welcher Monat ist jetzt?,Zeit,a1_time_family_1,10,false,month (counter),Noun,What month is it now?,vocab_a1_0712
-잠시,jamsi,"kurz, eine Weile",A1,Nomen,잠시 기다려요.,Warten Sie einen Moment.,Zeit,a1_time_family_1,11,false,"a moment, a while",Noun,Wait a moment.,vocab_a1_0713
-주,ju,Woche,A1,Nomen,이번 주에 시간이 있어요?,Haben Sie diese Woche Zeit?,Zeit,a1_time_family_1,12,false,week,Noun,Do you have time this week?,vocab_a1_0714
+잠시,jamsi,"kurz, eine Weile",A1,Nomen,잠시 앉아요.,Setzen Sie sich für einen Moment.,Zeit,a1_time_family_1,11,false,"a moment, a while",Noun,Sit for a moment.,vocab_a1_0713
+주,ju,Woche,A1,Nomen,이번 주에 학교에 가요.,Ich gehe diese Woche zur Schule.,Zeit,a1_time_family_1,12,false,week,Noun,I go to school this week.,vocab_a1_0714

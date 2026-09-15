@@ -20,10 +20,25 @@ re-defining them, plus:
     whose cloze answer is a conjugated predicate, not a bare noun -- their
     distractors are bare dictionary-form verbs (distractor_rules.py's
     waiver technique), not batchim-matched nouns;
-  - a curated-abstract-allowlist check for 7 rows (생활/방학/곳/태권도/
-    병/잠시/주) that keep a structurally open adjective/existential/
-    "동안"/"배우다"/"기다리다"/"시간이 있어요?" slot a rewrite couldn't
-    fully narrow -- see the review packet's "선정 요약 및 방법론" section.
+  - test_no_hada_collocate_in_fused_slot: a MECHANICAL rule test, not an
+    allowlist. R6/R8 finding on PR #344 (2026-09-15, Fable coordinator
+    review of commit c5bbecc5): an earlier version of this batch claimed
+    (in the PR report, not in any committed file) that "N+하다 sibling
+    leaks" were fixed, when the committed cloze.json still had them --
+    e.g. 샤워's "아침에 ___해요." with distractor 세수 produces "아침에
+    세수해요.", a fully valid Korean sentence, not a nonsense distractor.
+    This test catches that class of bug directly: for every cloze item
+    whose blank is immediately followed by a fused "해요/했어요/할까요"
+    (or whose full sentence contains "배워요"/"가르쳐요"), no distractor
+    may be a word that combines productively with 하다/배우다/가르치다
+    (ACTIVITY_NOUN_SET below) to form a real Korean verb;
+  - a handful of rows (생활/방학/곳/태권도/병/잠시/주/교통) keep a
+    residually open slot that even ACTIVITY_NOUN_SET exclusion and a
+    narrowing rewrite could not fully close (see the review packet's
+    "판정 필요" section for the specific, honestly-flagged residual risk
+    on each) -- test_open_slot_rows_have_activity_free_distractors checks
+    their distractors are at minimum ACTIVITY_NOUN_SET-free, same as
+    every other row; it does not claim these are risk-free.
 
 Run with:
     python -m unittest tools.content_factory.test_batch_28_draft -v
@@ -32,6 +47,7 @@ Run with:
 from __future__ import annotations
 
 import csv
+import re
 import unittest
 from collections import Counter
 from pathlib import Path
@@ -58,33 +74,38 @@ BATCH27_VOCAB_CSV = DRAFTS / "batch_27_a1_rows.csv"
 VOCAB_COLUMNS = R.VOCAB_COLUMNS
 
 # This batch's own 3 verb headwords -- their cloze answer is a conjugated
-# predicate (sentence-final, one of them a full "-지 마세요" negative
-# imperative phrase), covered by the predicate-slot waiver, not the
-# "2/3 distractors are noun-like" rule used for the other 60 (all Nomen)
-# rows.
+# predicate (sentence-final), covered by the predicate-slot waiver, not
+# the "2/3 distractors are noun-like" rule used for the other 60 (all
+# Nomen) rows. (늦다's answer was originally "늦지 마세요", a 2급
+# "-지 말다" negative imperative flagged as out-of-scope in R8 review;
+# rewritten to the plain past tense "늦었어요" -- "미안해요, 버스가
+# 늦었어요." -- which is 1급.)
 VERB_HEADWORDS = {"늦다", "묻다", "맞다"}
 
-# 7 rows keep a structurally "open" slot that a narrowing rewrite couldn't
-# fully close: 생활 ("한국 X이 재미있어요" -- almost any noun can be
-# "interesting"), 방학 ("X 동안 여행해요" -- 동안 grammatically welcomes
-# almost any duration-bearing activity noun), 곳 ("이 X에 사람이 많아요"
-# -- an inherently open existential-location slot), 태권도 ("저는 X 배워요"
-# -- 배우다 is productive with almost any skill/activity noun in this
-# batch's own HADA set), 병 ("저는 X 났어요" -- open enough that several
-# pool nouns read as marginally plausible), 잠시 ("X 기다려요" -- 기다리다
-# is productive with almost any event/activity noun) and 주 ("이번 X
-# 시간이 있어요?" -- fits almost any activity/event noun). For these 7,
-# every noun-type distractor must come from that row's own hand-verified
-# per-predicate-safe allowlist instead of an arbitrary batch noun.
-OPEN_SLOT_ALLOWLIST = {
-    "생활": {"초대", "곳", "외국어"},
-    "방학": {"사진", "장소", "선물"},
-    "곳": {"담배", "술", "음료수"},
-    "태권도": {"오렌지", "잡채", "감기"},
-    "병": {"밑", "방학", "시작"},
-    "잠시": {"교통", "쇼핑", "운동"},
-    "주": {"음식", "졸업", "안내"},
+# Every headword whose Korean form combines productively with 하다/배우다/
+# 가르치다 to make a real (or strongly colloquial-real) Korean verb.
+# test_no_hada_collocate_in_fused_slot below enforces that no cloze item
+# whose blank is a fused "___해요/했어요/할까요" (or "___ 배워요"/
+# "___ 가르쳐요") slot uses a distractor from this set: e.g. 샤워's "아침에
+# ___해요." with distractor 세수 gives "아침에 세수해요." -- fully valid
+# Korean, not a nonsense distractor. This is the exact bug Fable found in
+# commit c5bbecc5 (2026-09-15): several rows had this leak despite the PR
+# report claiming it was fixed.
+ACTIVITY_NOUN_SET = {
+    "샤워", "세수", "청소", "준비", "요리", "식사", "운전", "사용", "부탁",
+    "초대", "운동", "아르바이트", "쇼핑", "태권도", "파티", "졸업", "방학",
+    "의사", "영화배우", "종업원", "직원", "콘서트", "연극", "외국어",
+    "이야기", "안내", "시작", "생활", "선물", "음식",
 }
+
+# Rows whose predicate remains productive with a wide range of nouns even
+# after ACTIVITY_NOUN_SET exclusion and (for 생활/방학/교통/잠시/주) a
+# narrowing rewrite -- see the review packet's "판정 필요" section for the
+# specific residual risk honestly flagged on each. Listed here only so a
+# reader knows which rows needed the most scrutiny; it is not a safety
+# allowlist and does not suppress the mechanical ACTIVITY_NOUN_SET check
+# above, which already covers these rows too.
+OPEN_SLOT_ROWS = {"생활", "방학", "곳", "태권도", "병", "잠시", "주", "교통"}
 
 ADV_WORDS = {
     "빨리", "천천히", "가끔", "항상", "다시", "아주", "바로", "주로",
@@ -321,13 +342,13 @@ class TestBatch28VocabRows(unittest.TestCase):
             own_rows, extra_headword_csvs=[BATCH26_VOCAB_CSV, BATCH27_VOCAB_CSV],
         )
         overrides = {
-            "늦지": "늦다", "마세요": "말다",
             "잤어요": "자다", "켜요": "켜다", "불러요": "부르다", "그려요": "그리다",
             "봐요": "보다", "나와요": "나오다", "갈까요": "가다", "배워요": "배우다",
             "여기서": "여기", "걸렸어요": "걸리다", "피워요": "피우다",
             "마셔요": "마시다", "커요": "크다", "줘요": "주다",
             "가르쳐요": "가르치다", "해요": "하다", "써요": "쓰다", "왔어요": "오다",
             "바빠요": "바쁘다", "기다려요": "기다리다", "쳐요": "치다", "났어요": "나다",
+            "없어요": "없다", "앉아요": "앉다", "늦었어요": "늦다",
         }
         offenders = {}
         for row in self.rows:
@@ -465,22 +486,62 @@ class TestBatch28Cloze(unittest.TestCase):
                 f"{item['id']}: fewer than 2/3 distractors are noun-like: {item['distractors']}",
             )
 
-    def test_open_slot_rows_use_only_their_curated_allowlist(self):
-        """The 7 OPEN_SLOT_ALLOWLIST rows keep a structurally open slot
-        (see module docstring); every one of their distractors must come
-        from that row's own hand-verified allowlist, never an arbitrary
-        batch noun that might form a second valid sentence."""
+    def test_no_hada_collocate_in_fused_slot(self):
+        """R6/R8 (Fable coordinator review of commit c5bbecc5, 2026-09-15):
+        a cloze blank immediately followed by a bare "해요."/"했어요."/
+        "할까요?" (i.e. the headword's own answer is fused directly onto
+        the 하다 conjugation, e.g. 샤워 -> "아침에 ___해요.") is exactly as
+        productive as '-하다' itself -- ANY word in ACTIVITY_NOUN_SET
+        substituted there produces a second, fully valid Korean sentence
+        ("아침에 세수해요.", "아침에 청소해요." ...), not a nonsense
+        distractor. The same applies to "___ 배워요."/"___ 가르쳐요." slots
+        (배우다/가르치다 take any skill/activity noun as freely as 하다
+        itself). This is a MECHANICAL check of the committed cloze.json,
+        not a description of intent -- it is exactly the class of bug an
+        earlier PR report claimed was fixed while the committed file still
+        had it."""
+        vocab_by_source = self.rows_by_id
+        # "잘해요"/"잘 해요" (be good at) is included -- it is exactly as
+        # productive with ACTIVITY_NOUN_SET nouns as bare 하다 itself
+        # ("식사를 잘해요"/"부탁을 잘해요" both read as plausible), even
+        # though the text right after the blank isn't a bare "해요.".
+        fused_re = re.compile(r"^\s?(해요|했어요|할까요|잘해요|잘 해요)[.?!]")
+        for item in self.items:
+            headword = vocab_by_source[item["sourceVocabId"]]["korean"]
+            sentence = item["sentenceKo"]
+            after_blank = sentence.split("＿＿＿", 1)[1]
+            is_fused_hada_slot = bool(fused_re.match(after_blank))
+            is_learn_teach_slot = "배워요" in sentence or "가르쳐요" in sentence
+            if not (is_fused_hada_slot or is_learn_teach_slot):
+                continue
+            for d in item["distractors"]:
+                self.assertNotIn(
+                    d, ACTIVITY_NOUN_SET,
+                    f"{item['id']} ({headword}): distractor {d!r} combines with "
+                    f"하다/배우다/가르치다 -- substituting it into {sentence!r} "
+                    f"produces a second valid Korean sentence, not a nonsense one",
+                )
+
+    def test_open_slot_rows_have_activity_free_distractors(self):
+        """The residually-open rows (see OPEN_SLOT_ROWS in the module
+        docstring) get the same ACTIVITY_NOUN_SET-free check as every
+        fused-하다 row, even where their own slot isn't itself a fused
+        "___해요" pattern (e.g. 곳's "이 ___에 사람이 많아요." or 교통's
+        "___ 카드가 없어요."). This does not certify these rows risk-free
+        -- see the packet's 판정 필요 section for the specific residual
+        risk honestly flagged on each -- it only guarantees the one
+        concrete failure mode (a 하다-collocate leaking in) cannot recur
+        here either."""
         vocab_by_source = self.rows_by_id
         for item in self.items:
             headword = vocab_by_source[item["sourceVocabId"]]["korean"]
-            allowlist = OPEN_SLOT_ALLOWLIST.get(headword)
-            if allowlist is None:
+            if headword not in OPEN_SLOT_ROWS:
                 continue
             for d in item["distractors"]:
-                self.assertIn(
-                    d, allowlist,
-                    f"{item['id']} ({headword}): open-slot distractor {d!r} is not "
-                    f"from the verified-safe allowlist {allowlist}",
+                self.assertNotIn(
+                    d, ACTIVITY_NOUN_SET,
+                    f"{item['id']} ({headword}): open-slot distractor {d!r} is an "
+                    f"ACTIVITY_NOUN_SET word",
                 )
 
 

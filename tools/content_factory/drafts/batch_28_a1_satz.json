@@ -3,9 +3,9 @@
     {
       "id": "satz_a1_0567",
       "level": "a1",
-      "targetKo": "약속 시간에 늦지 마세요.",
-      "promptDe": "Bitte kommen Sie nicht zu spät zum Termin.",
-      "promptEn": "Please don't be late for the appointment.",
+      "targetKo": "미안해요, 버스가 늦었어요.",
+      "promptDe": "Entschuldigung, der Bus hatte Verspätung.",
+      "promptEn": "Sorry, the bus was late.",
       "distractors": [
         "메뉴",
         "장소"
@@ -94,9 +94,9 @@
     {
       "id": "satz_a1_0574",
       "level": "a1",
-      "targetKo": "한국 생활이 재미있어요.",
-      "promptDe": "Das Leben in Korea ist interessant.",
-      "promptEn": "Life in Korea is interesting.",
+      "targetKo": "기숙사 생활이 재미있어요.",
+      "promptDe": "Das Wohnheimleben macht Spaß.",
+      "promptEn": "Dormitory life is fun.",
       "distractors": [
         "요즘",
         "방학"
@@ -510,9 +510,9 @@
     {
       "id": "satz_a1_0606",
       "level": "a1",
-      "targetKo": "방학 동안 여행해요.",
-      "promptDe": "Ich reise während der Ferien.",
-      "promptEn": "I travel during the school vacation.",
+      "targetKo": "방학이 언제예요?",
+      "promptDe": "Wann sind die Ferien?",
+      "promptEn": "When is the vacation?",
       "distractors": [
         "곳",
         "직원"
@@ -601,9 +601,9 @@
     {
       "id": "satz_a1_0613",
       "level": "a1",
-      "targetKo": "교통이 안 좋아요.",
-      "promptDe": "Der Verkehr ist nicht gut.",
-      "promptEn": "The traffic isn't good.",
+      "targetKo": "교통 카드가 없어요.",
+      "promptDe": "Ich habe keine Verkehrskarte.",
+      "promptEn": "I don't have a transit card.",
       "distractors": [
         "곳",
         "직원"
@@ -796,9 +796,9 @@
     {
       "id": "satz_a1_0628",
       "level": "a1",
-      "targetKo": "잠시 기다려요.",
-      "promptDe": "Warten Sie einen Moment.",
-      "promptEn": "Wait a moment.",
+      "targetKo": "잠시 앉아요.",
+      "promptDe": "Setzen Sie sich für einen Moment.",
+      "promptEn": "Sit for a moment.",
       "distractors": [
         "곳",
         "종업원"
@@ -809,9 +809,9 @@
     {
       "id": "satz_a1_0629",
       "level": "a1",
-      "targetKo": "이번 주에 시간이 있어요?",
-      "promptDe": "Haben Sie diese Woche Zeit?",
-      "promptEn": "Do you have time this week?",
+      "targetKo": "이번 주에 학교에 가요.",
+      "promptDe": "Ich gehe diese Woche zur Schule.",
+      "promptEn": "I go to school this week.",
       "distractors": [
         "곳",
         "직원"
