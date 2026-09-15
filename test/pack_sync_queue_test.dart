@@ -9,12 +9,22 @@
 
 import 'package:fake_async/fake_async.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/models/pack_progress.dart';
 import 'package:ko_lernen_app/services/diagnostics_service.dart';
 import 'package:ko_lernen_app/services/pack_sync_queue.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  setUp(() async {
+    Storage.resetForTesting();
+    Storage.resetPackProgressForTesting();
+    SharedPreferences.setMockInitialValues({});
+    await Storage.init();
+  });
   tearDown(DiagnosticsService.resetForTesting);
 
   PackProgress progress(
@@ -172,6 +182,178 @@ void main() {
       });
     });
   });
+
+  // ── R2/R4 durability review — gap A: cold-start immediate flush ──────
+  //
+  // A fresh PackSyncQueue (as after a process restart) has no in-memory
+  // history for any packId. The original `previousStatus != null && ...`
+  // check treated that as "not a transition", so a pack that was `cleared`
+  // right after a cold start wasted the full 30s idle window instead of
+  // flushing immediately — and if the process died in that window, the
+  // Firestore doc driving server-side Gye crediting / cross-device restore
+  // never got the `cleared` state at all.
+
+  test(
+    'R2/R4: fresh queue, first-ever enqueue with a terminal (cleared) '
+    'status flushes immediately even with no prior status known',
+    () {
+      fakeAsync((async) {
+        final saved = <PackProgress>[];
+        final queue = PackSyncQueue(
+          savePack: (p) async {
+            saved.add(p);
+          },
+        );
+
+        // No Storage entry at all for this packId — genuinely first-ever.
+        queue.enqueue(progress('a1_new_pack', status: PackStatus.cleared));
+        async.flushMicrotasks();
+
+        expect(saved, hasLength(1));
+        expect(saved.single.status, PackStatus.cleared);
+      });
+    },
+  );
+
+  test(
+    'R2/R4: fresh queue, first-ever enqueue matching the persisted status '
+    'takes the idle path (no immediate flush)',
+    () async {
+      await Storage.setPackProgressJson(
+        'a1_greetings_1',
+        progress('a1_greetings_1', status: PackStatus.inProgress).toJson(),
+      );
+
+      fakeAsync((async) {
+        final saved = <PackProgress>[];
+        final queue = PackSyncQueue(
+          savePack: (p) async {
+            saved.add(p);
+          },
+        );
+
+        queue.enqueue(progress('a1_greetings_1', status: PackStatus.inProgress));
+        async.flushMicrotasks();
+
+        expect(
+          saved,
+          isEmpty,
+          reason: 'unchanged vs. what Storage already had → idle debounce',
+        );
+      });
+    },
+  );
+
+  test(
+    'R2/R4: fresh queue, first-ever enqueue that differs from the '
+    'persisted status flushes immediately (any change vs. persisted)',
+    () async {
+      await Storage.setPackProgressJson(
+        'a1_greetings_1',
+        progress('a1_greetings_1', status: PackStatus.cleared).toJson(),
+      );
+
+      fakeAsync((async) {
+        final saved = <PackProgress>[];
+        final queue = PackSyncQueue(
+          savePack: (p) async {
+            saved.add(p);
+          },
+        );
+
+        // The queue itself has no in-memory history — only Storage does —
+        // yet this must still be treated as a change and flush immediately.
+        queue.enqueue(
+          progress('a1_greetings_1', status: PackStatus.inProgress),
+        );
+        async.flushMicrotasks();
+
+        expect(saved, hasLength(1));
+        expect(saved.single.status, PackStatus.inProgress);
+      });
+    },
+  );
+
+  // ── R2/R4 durability review — gap B: survive a kill, not just 30s ────
+  //
+  // The queue was in-memory only: a process kill before any trigger fired
+  // lost the pending write outright, with no way to recover it even at the
+  // next launch. Storage.pendingPackSyncIds now mirrors the pending set so
+  // flushPendingFromStorage() can pick it back up.
+
+  test(
+    'R2/R4: a kill before any trigger fires leaves the id in '
+    'Storage.pendingPackSyncIds; flushPendingFromStorage() recovers it',
+    () async {
+      await Storage.setPackProgressJson(
+        'a1_greetings_1',
+        progress('a1_greetings_1', status: PackStatus.inProgress).toJson(),
+      );
+      final queue1 = PackSyncQueue(
+        savePack: (p) async {
+          fail(
+            'queue1 must never actually flush — it is abandoned here to '
+            'simulate a process kill before its idle timer fires',
+          );
+        },
+      );
+
+      // Matches what's already in Storage → idle path only, no immediate
+      // flush — exactly the case where a kill would otherwise lose it.
+      queue1.enqueue(progress('a1_greetings_1', status: PackStatus.inProgress));
+      // enqueue()'s Storage.setPendingPackSyncIds write is fire-and-forget;
+      // give it a turn of the event loop before reading Storage back.
+      await Future<void>.delayed(Duration.zero);
+      expect(Storage.pendingPackSyncIds, contains('a1_greetings_1'));
+
+      // "Restart": a brand-new queue instance, as after a cold start — it
+      // has zero in-memory knowledge of queue1's abandoned pending entry.
+      final saved = <PackProgress>[];
+      final queue2 = PackSyncQueue(
+        savePack: (p) async {
+          saved.add(p);
+        },
+      );
+      await queue2.flushPendingFromStorage();
+
+      expect(saved, hasLength(1));
+      expect(saved.single.packId, 'a1_greetings_1');
+      expect(
+        Storage.pendingPackSyncIds,
+        isEmpty,
+        reason: 'a successful recovery clears the id',
+      );
+    },
+  );
+
+  test(
+    'R2/R4: a failed flush keeps the id in Storage.pendingPackSyncIds for '
+    'the next trigger',
+    () async {
+      DiagnosticsService.configureForTesting(consent: () => false);
+      addTearDown(DiagnosticsService.resetForTesting);
+      await Storage.setPackProgressJson(
+        'a1_greetings_1',
+        progress('a1_greetings_1', status: PackStatus.inProgress).toJson(),
+      );
+      var attempts = 0;
+      final queue = PackSyncQueue(
+        savePack: (p) async {
+          attempts += 1;
+          throw StateError('firestore unavailable');
+        },
+      );
+
+      // Terminal status → enqueue() kicks off an unawaited flush(); a
+      // second, public flush() call while that's in flight returns the same
+      // future, so awaiting it here waits for that same attempt to finish.
+      queue.enqueue(progress('a1_greetings_1', status: PackStatus.cleared));
+      await queue.flush();
+
+      expect(attempts, 1);
+      expect(Storage.pendingPackSyncIds, contains('a1_greetings_1'));
+    },
+  );
 }
 
 class _RecordingSink implements DiagnosticsSink {

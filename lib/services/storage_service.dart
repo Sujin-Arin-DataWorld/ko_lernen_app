@@ -4392,6 +4392,16 @@ class Storage {
     await _ss('kl_last_life_promise_backup_day_v1', normalized);
   }
 
+  /// §S3 (R2/R4 durability gap B): `packId`s [PackSyncQueue] is currently
+  /// holding for a Firestore backup mirror flush. Persisted so a process
+  /// kill before the queue's status-transition/idle/`flushAll` triggers
+  /// fire doesn't lose the write — `PackSyncQueue.flushPendingFromStorage()`
+  /// reloads these ids (and their local JSON via [packProgressJson]) at the
+  /// next startup once cloud backup is usable again.
+  static List<String> get pendingPackSyncIds => _l('kl_pack_sync_pending_v1');
+  static Future<void> setPendingPackSyncIds(List<String> ids) =>
+      _sl('kl_pack_sync_pending_v1', ids);
+
   /// Streak-Freeze Tokens. Verdient an jeder 7-Tage-Marke (Cap [kStreakFreezeMax]).
   /// Schützt automatisch genau einen verpassten Tag, damit der Streak überlebt.
   static int get streakFreezes => _i('kl_streak_freezes');

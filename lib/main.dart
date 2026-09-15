@@ -272,6 +272,8 @@ Future<void> finishPostMigrationStartup(
   Future<void> Function()? initializeManagedMedia,
   Future<void> Function()? recoverCrop,
   Future<void> Function()? recoverPicker,
+  Future<void> Function()? flushPendingPackSync,
+  bool Function()? hasCloudBackupUid,
 }) async {
   // The native recovery owns a separate admission gate. Its bounded wait
   // cannot hold first frame or delay unrelated startup services indefinitely.
@@ -321,6 +323,23 @@ Future<void> finishPostMigrationStartup(
         ))();
   } catch (error) {
     debugPrint('Android picker recovery skipped: $error');
+  }
+  // §S3 (R2/R4 durability gap B): recover any pack-progress Firestore
+  // writes orphaned by a process kill before PackSyncQueue's
+  // status-transition/idle-timer/flushAll triggers fired in a previous
+  // session. `_startCloudServices()` (kicked off, unawaited, from
+  // `runStartupMigrationBeforeCloudServices` before this function runs) is
+  // best-effort and its completion is *not* guaranteed by this point — so
+  // this gates on the current signed-in state rather than that ordering.
+  // A skip here just leaves the ids in `Storage.pendingPackSyncIds` for the
+  // next launch to retry; nothing local is lost either way.
+  if ((hasCloudBackupUid ?? () => AuthService.cloudBackupUid != null)()) {
+    try {
+      await (flushPendingPackSync ??
+          PackSyncQueue.instance.flushPendingFromStorage)();
+    } catch (error) {
+      debugPrint('Pack-sync pending recovery skipped: $error');
+    }
   }
 }
 

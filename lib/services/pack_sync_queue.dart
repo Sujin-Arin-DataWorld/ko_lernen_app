@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart' show visibleForTesting;
 import '../models/pack_progress.dart';
 import 'diagnostics_service.dart';
 import 'firestore_progress_service.dart';
+import 'storage_service.dart';
 
 /// Debounces the Firestore *backup* mirror of pack progress.
 ///
@@ -15,9 +16,13 @@ import 'firestore_progress_service.dart';
 ///
 /// **Fix**: keep only the LATEST [PackProgress] per `packId` in memory and
 /// flush to Firestore on the earliest of three triggers:
-///  - a `status` transition (any change, including reaching `cleared`) —
-///    flushed immediately so cross-device state (next-pack unlock, the
-///    "cleared" stamp) shows up promptly;
+///  - a `status` transition (any change vs. what was last known for that
+///    pack) *or* reaching a terminal status (`cleared`) — flushed
+///    immediately regardless of whether a prior status was known, so a
+///    "cleared" doc (which drives server-side Gye crediting and
+///    cross-device restore/next-pack-unlock) is never left waiting on the
+///    idle timer, including right after a cold start (R2/R4 durability
+///    review, see [enqueue]);
 ///  - an idle timer, [idleDuration] (default 30s) after the *last*
 ///    [enqueue] — a burst of same-status updates (e.g. repeated
 ///    `recordWordLearned` while flipping cards through a pack) collapses
@@ -26,12 +31,17 @@ import 'firestore_progress_service.dart';
 ///    about to leave the foreground — so nothing pending is lost if the
 ///    idle timer hasn't fired yet.
 ///
+/// **Durability across a kill (R2/R4)**: every [enqueue] and every
+/// completed [flush] pass persists the current pending-id set to
+/// [Storage.pendingPackSyncIds]. If the process dies before any trigger
+/// flushes a pack, [flushPendingFromStorage] — called once at the next
+/// startup — reloads those ids' local JSON and retries.
+///
 /// Local storage (`Storage.setPackProgressJson`) is untouched by this
 /// class and stays synchronous in `PackProgressService._persist` — this
 /// queue only debounces the Firestore backup mirror. Local-first,
 /// progress-loss-0 is preserved: the worst case of losing a queued entry
-/// (e.g. the process is killed before any trigger fires) only delays the
-/// cloud backup, never the local record.
+/// is a delayed cloud backup, never the local record.
 class PackSyncQueue {
   PackSyncQueue({
     Future<void> Function(PackProgress p)? savePack,
@@ -74,17 +84,43 @@ class PackSyncQueue {
   DateTime get clockNow => _clock();
 
   /// Records the latest known state for `p.packId`, replacing whatever was
-  /// queued before. Triggers an immediate [flush] when `p.status` differs
-  /// from the last state this queue has seen for that pack; otherwise
-  /// (re)starts the idle timer.
-  void enqueue(PackProgress p) {
+  /// queued before, and persists the pending-id set (durability gap B — a
+  /// kill right after this call still leaves the id in
+  /// [Storage.pendingPackSyncIds] for [flushPendingFromStorage] to pick up).
+  ///
+  /// Triggers an immediate [flush] when either:
+  ///  - the status differs from the last one known for this pack, where
+  ///    "last known" prefers the caller-supplied [previousStatus] (which
+  ///    `PackProgressService._persist` reads from `Storage` *before*
+  ///    overwriting it with `p`, so it reflects the true pre-write value
+  ///    even on the very first `enqueue` call of a fresh process/queue —
+  ///    the naive approach of reading `Storage` for the first sighting
+  ///    *inside* this method doesn't work: by the time `enqueue` runs,
+  ///    `_persist` has already overwritten local storage with `p` itself),
+  ///    falling back to this queue's own in-memory history and then, only
+  ///    for a caller that supplies neither, a lazy one-time read of
+  ///    `Storage` (best-effort for callers outside `_persist`); or
+  ///  - [PackProgress.status] is [PackStatus.cleared] — unconditionally,
+  ///    regardless of any previous-status bookkeeping, since that's the one
+  ///    status server-side crediting and cross-device restore depend on.
+  ///
+  /// Otherwise (re)starts the idle timer.
+  void enqueue(PackProgress p, {PackStatus? previousStatus}) {
     _pending[p.packId] = p;
-    final previousStatus = _lastKnownStatus[p.packId];
+    unawaited(_syncPendingIdsToStorage());
+
+    final effectivePrevious =
+        previousStatus ??
+        _lastKnownStatus[p.packId] ??
+        _seedStatusFromStorage(p.packId);
     _lastKnownStatus[p.packId] = p.status;
-    final isTransition = previousStatus != null && previousStatus != p.status;
+
+    final changed =
+        effectivePrevious != null && effectivePrevious != p.status;
+    final isTerminal = p.status == PackStatus.cleared;
 
     _idleTimer?.cancel();
-    if (isTransition) {
+    if (changed || isTerminal) {
       _idleTimer = null;
       unawaited(flush());
       return;
@@ -92,6 +128,14 @@ class PackSyncQueue {
     _idleTimer = _createTimer(idleDuration, () {
       unawaited(flush());
     });
+  }
+
+  PackStatus? _seedStatusFromStorage(String packId) {
+    final persisted = Storage.packProgressJson(packId);
+    if (persisted == null) {
+      return null;
+    }
+    return PackProgress.fromJson(packId, persisted).status;
   }
 
   /// Flushes every pack currently queued, once each, sequentially. A
@@ -113,6 +157,37 @@ class PackSyncQueue {
   /// pause/detach/hide, so a pending pack isn't lost if the app is killed
   /// before the idle timer fires.
   Future<void> flushAll() => flush();
+
+  /// Recovers packs orphaned by a process kill that happened before any
+  /// trigger flushed them (durability gap B). Reads
+  /// [Storage.pendingPackSyncIds], reloads each id's local JSON via
+  /// [Storage.packProgressJson], re-enqueues it in memory, and flushes.
+  ///
+  /// An id with no recoverable local JSON is dropped (nothing left to
+  /// sync). Call this once at startup, and only once cloud backup is
+  /// actually usable (see the call site in `main.dart` for why that can't
+  /// simply be "after `_startCloudServices()`" — its completion isn't
+  /// awaited by the caller) — an id left untouched here just stays in
+  /// `Storage` for the next launch to retry.
+  Future<void> flushPendingFromStorage() async {
+    final ids = Storage.pendingPackSyncIds;
+    for (final packId in ids) {
+      if (_pending.containsKey(packId)) {
+        continue; // Already tracked (e.g. a re-entrant call).
+      }
+      final json = Storage.packProgressJson(packId);
+      if (json == null) {
+        continue; // Nothing local left to recover; dropped by the sync below.
+      }
+      final progress = PackProgress.fromJson(packId, json);
+      _pending[packId] = progress;
+      _lastKnownStatus[packId] = progress.status;
+    }
+    await flush();
+  }
+
+  Future<void> _syncPendingIdsToStorage() =>
+      Storage.setPendingPackSyncIds(_pending.keys.toList()..sort());
 
   Future<void> _flush() async {
     _idleTimer?.cancel();
@@ -142,5 +217,8 @@ class PackSyncQueue {
         // Left queued — retried on the next enqueue/idle/flushAll trigger.
       }
     }
+    // Reflect the post-flush state (removals and retained failures alike)
+    // in Storage — durability gap B.
+    await _syncPendingIdsToStorage();
   }
 }
