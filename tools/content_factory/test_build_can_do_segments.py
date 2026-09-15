@@ -7,6 +7,7 @@ import csv
 import copy
 import importlib.util
 import json
+import re
 import subprocess
 import sys
 import tempfile
@@ -561,6 +562,82 @@ class SmalltalkCopyRevisionTest(unittest.TestCase):
 
         self.assertEqual(old["reviewRevision"], decision["reviewRevision"])
 
+    def _rebound_copy_revision_case(self) -> tuple[dict, dict, dict]:
+        """A copy-revision phrase whose canDo *text* changed (segment id
+        unchanged) -- the C7b, Jin 승인 2026-09-15 "approved re-binding"
+        scenario: PR #288 shifted canDoFingerprintSha256 without rerouting
+        anything."""
+
+        old = {
+            "phraseId": "smalltalk_a1_demo",
+            "phraseFingerprintSha256": "a" * 64,
+            "routingSource": "exactOverride",
+            "canDoSegmentId": "segment_a1_demo",
+            "canDoFingerprintSha256": "c" * 64,
+            "semanticStatus": "exactMapped",
+            "reasonCode": "explicitSemanticRoute",
+            "reviewRevision": 2,
+        }
+        decision = {
+            **old,
+            "canDoFingerprintSha256": "d" * 64,  # canDo text changed, same segment
+            "copyRevision": 1,
+            "copyReviewStatus": "nativeReviewRequired",
+            "copyRevisionLedger": builder.CONTENT_HUMANIZATION_LEDGER_REF,
+            "previousPhraseFingerprintSha256": old["phraseFingerprintSha256"],
+        }
+        previous = {"coverage": {"smalltalkRoutingAudit": {"phraseDecisions": [old]}}}
+        current = {"coverage": {"smalltalkRoutingAudit": {"phraseDecisions": [decision]}}}
+        return old, decision, {"previous": previous, "current": current}
+
+    def test_approved_rebinding_with_same_segment_id_passes(self) -> None:
+        old, decision, docs = self._rebound_copy_revision_case()
+        approval = {
+            "phraseFingerprintSha256": decision["phraseFingerprintSha256"],
+            "canDoSegmentId": decision["canDoSegmentId"],
+            "canDoFingerprintSha256": decision["canDoFingerprintSha256"],
+            "semanticStatus": "approved",
+            "reviewRevision": old["reviewRevision"] + 1,
+        }
+
+        builder._validate_smalltalk_review_history(
+            docs["current"],
+            docs["previous"],
+            review_approvals={decision["phraseId"]: approval},
+        )
+
+        self.assertEqual(old["reviewRevision"], decision["reviewRevision"])
+
+    def test_route_change_without_approval_still_raises(self) -> None:
+        old, decision, docs = self._rebound_copy_revision_case()
+        decision["canDoSegmentId"] = "segment_a1_other"  # a real reroute
+
+        with self.assertRaisesRegex(ValueError, "changed its semantic route"):
+            builder._validate_smalltalk_review_history(
+                docs["current"],
+                docs["previous"],
+                review_approvals={},
+            )
+
+    def test_approval_with_a_different_segment_id_still_raises(self) -> None:
+        old, decision, docs = self._rebound_copy_revision_case()
+        approval = {
+            "phraseFingerprintSha256": decision["phraseFingerprintSha256"],
+            # Approved against a *different* segment than the phrase is
+            # actually routed to now -- must not be accepted as cover.
+            "canDoSegmentId": "segment_a1_other",
+            "canDoFingerprintSha256": decision["canDoFingerprintSha256"],
+            "semanticStatus": "approved",
+            "reviewRevision": old["reviewRevision"] + 1,
+        }
+
+        with self.assertRaisesRegex(ValueError, "changed its semantic route"):
+            builder._validate_smalltalk_review_history(
+                docs["current"],
+                docs["previous"],
+                review_approvals={decision["phraseId"]: approval},
+            )
+
 
 class ABSpecScenarioReferencesLiveTest(unittest.TestCase):
     """AB_SPECS/A1_PRACTICE의 시나리오 참조는 항상 살아 있는 코퍼스를 가리켜야 한다.
@@ -595,6 +672,75 @@ class ABSpecScenarioReferencesLiveTest(unittest.TestCase):
             [],
             missing,
             f"dead scenario references (spec_key, scenario_id): {missing}",
+        )
+
+
+class GeneratedCatalogScenarioReferencesLiveTest(unittest.TestCase):
+    """The *generated* catalog must never re-emit a retired scenario seed.
+
+    C7 (2026-09-15): `_preserve_cluster_history`'s append-only reconciliation
+    unconditionally carried every previously-published sourceSeedId and
+    contentReference forward into the regenerated cluster, even ones the
+    canonical_120_v1_retired_seeds.json ledger records as legitimately
+    retired. can_do_content_authorities.json never resurrects a retired
+    seed's authority (`_validate_authority_history` only tolerates its
+    absence), so the two files disagreed: the cluster still pointed at a
+    scenario id that had no authority and no live scenario row, which is the
+    "unknown source seed" `course_segment_catalog.dart` rejected.
+
+    ABSpecScenarioReferencesLiveTest (above) checks the *input* SegmentSpecs
+    and would not have caught this -- the dead reference was introduced by
+    the reconciliation step itself, after the specs are read. This test
+    exercises the actual `build_assets()` output (unconditionally, like
+    ABSpecScenarioReferencesLiveTest, so it is not silently disabled by the
+    CanDoSegmentGeneratorTest skipIf once canonical_120_v1 is live) and
+    fails if any regenerated cluster ships a scenario reference -- via
+    sourceSeedIds or contentReferences -- that does not resolve to a live
+    row in assets/data/scenarios_*.json.
+    """
+
+    KNOWN_MISSING_SCENARIO_SLOTS = (
+        ABSpecScenarioReferencesLiveTest.KNOWN_MISSING_SCENARIO_SLOTS
+    )
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.catalog, _ = builder.build_assets()
+
+    @staticmethod
+    def _cluster_spec_key(cluster_id: str) -> str:
+        match = re.fullmatch(r"cluster_(.+)_v\d+", cluster_id)
+        return match.group(1) if match else cluster_id
+
+    def test_no_generated_cluster_references_a_dead_scenario(self) -> None:
+        live_ids = {row["id"] for row in scenario_store.load_root(DATA)["scenarios"]}
+        dead: list[tuple[str, str]] = []
+        for cluster in self.catalog["contentClusters"]:
+            spec_key = self._cluster_spec_key(cluster["id"])
+            for seed_id in cluster["sourceSeedIds"]:
+                if seed_id.startswith("seed_scenario_") and seed_id.endswith("_v1"):
+                    scenario_id = seed_id[len("seed_scenario_") : -len("_v1")]
+                    if (
+                        scenario_id not in live_ids
+                        and (spec_key, scenario_id)
+                        not in self.KNOWN_MISSING_SCENARIO_SLOTS
+                    ):
+                        dead.append((cluster["id"], seed_id))
+            for reference in cluster["contentReferences"]:
+                if reference["kind"] != "scenario":
+                    continue
+                scenario_id = reference["id"]
+                if (
+                    scenario_id not in live_ids
+                    and (spec_key, scenario_id)
+                    not in self.KNOWN_MISSING_SCENARIO_SLOTS
+                ):
+                    dead.append((cluster["id"], f"scenario:{scenario_id}"))
+        self.assertEqual(
+            [],
+            dead,
+            "regenerated cluster ships a scenario reference with no live "
+            f"scenario row (cluster_id, seed_or_reference): {dead}",
         )
 
 

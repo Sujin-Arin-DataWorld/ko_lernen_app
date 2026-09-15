@@ -32,6 +32,12 @@ ALLOWED_COPY_FIELDS = {
         "example_korean",
         "example_german",
         "example_english",
+        # Fable ruling 2026-09-15 (C2a RR romanization regeneration):
+        # romanization-only diffs on already-promoted rows are authorized
+        # batch-wide via the ledger's `batchFieldRevisions` (see
+        # validate_promoted_batch.py's `_require_batch_field_revision`),
+        # not by adding one `entries` record per row here.
+        "romanization",
     },
     "grammar": {"explanation_de", "explanation_en"},
     "smalltalk": {"de", "en", "reply"},

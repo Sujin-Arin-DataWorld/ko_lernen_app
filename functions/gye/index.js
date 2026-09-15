@@ -398,6 +398,9 @@ exports.on_pack_cleared = onDocumentWritten(
   {
     document: "users/{uid}/packs/{packId}",
     retry: true,
+    maxInstances: 20,
+    timeoutSeconds: 60,
+    memory: "256MiB",
   },
   async (event) => {
     const after = event.data?.after?.data();
@@ -490,6 +493,9 @@ exports.on_course_mastery_checkpoint_written = onDocumentWritten(
   {
     document: "users/{uid}",
     retry: true,
+    maxInstances: 20,
+    timeoutSeconds: 60,
+    memory: "256MiB",
   },
   async (event) => {
     const after = event.data?.after?.data();
@@ -573,13 +579,27 @@ exports.on_course_mastery_checkpoint_written = onDocumentWritten(
 );
 
 /**
+ * weekly_goal_rollover processes every Gye document sequentially in bounded
+ * chunks (WEEKLY_ROLLOVER_GYE_CHUNK_SIZE at a time) so a large number of
+ * groups cannot alone exhaust the function's timeout budget. Chunks run in
+ * snapshot order; the docs within a chunk run concurrently since each
+ * transaction only touches its own Gye's document tree.
+ */
+const WEEKLY_ROLLOVER_GYE_CHUNK_SIZE = 20;
+
+/**
  * 매주 월 00:00 KST — 주간 진행도 리셋 + 보상.
+ * maxInstances: 1 — Cloud Scheduler must never have two overlapping
+ * rollover invocations running against the same Gye documents.
  */
 exports.weekly_goal_rollover = onSchedule(
   {
     schedule: "0 0 * * 1",
     timeZone: "Asia/Seoul",
     retryCount: 3,
+    timeoutSeconds: 540,
+    memory: "512MiB",
+    maxInstances: 1,
   },
   async (event) => {
     try {
@@ -587,131 +607,19 @@ exports.weekly_goal_rollover = onSchedule(
         event.scheduleTime || new Date().toISOString(),
       );
       const gyeSnapshot = await db.collection("gye").get();
+      const gyeDocs = gyeSnapshot.docs;
 
-      for (const gdoc of gyeSnapshot.docs) {
-        const gref = gdoc.ref;
-        const feedRef = gref
-          .collection("feed")
-          .doc(`goal_${rolloverKey}`);
-        const result = await db.runTransaction(async (transaction) => {
-          const metaSnapshot = await transaction.get(gref);
-          if (!metaSnapshot.exists ||
-              (metaSnapshot.data() || {}).lifecycleState === "deleting") {
-            return { processed: false, achieved: false, name: "" };
-          }
-          if (!shouldProcessWeeklyRollover(
-            (metaSnapshot.data() || {}).lastRolloverKey,
-            rolloverKey,
-          )) {
-            return { processed: false, achieved: false, name: "" };
-          }
-          const membersSnapshot = await transaction.get(
-            gref.collection("members"),
-          );
-          const bansSnapshot = await transaction.get(
-            gref.collection("bans"),
-          );
-          const bannedUids = new Set(
-            bansSnapshot.docs
-              .filter((doc) => (doc.data() || {}).active !== false)
-              .map((doc) => doc.id),
-          );
-          const members = membersSnapshot.docs.map((doc) => ({
-            uid: doc.id,
-            ...(doc.data() || {}),
-          }));
-          const accountDeletionMarkers = new Map();
-          for (const member of membersSnapshot.docs) {
-            accountDeletionMarkers.set(
-              member.id,
-              await transaction.get(
-                db.collection("account_deletions").doc(member.id),
-              ),
-            );
-          }
-          const deletingUids = new Set(
-            Array.from(accountDeletionMarkers.entries())
-              .filter(([, marker]) => marker.exists)
-              .map(([uid]) => uid),
-          );
-
-          const meta = metaSnapshot.data() || {};
-          const promise = weeklyPromiseFor(meta.weeklyPromiseId);
-          const usesLifePromise = promise &&
-            meta.weeklyPromiseSchemaVersion === 1 &&
-            meta.weeklyPromiseTarget === promise.target;
-          const progress = parseInt(
-            usesLifePromise
-              ? meta.weeklyPromiseProgress || 0
-              : meta.weeklyGoalProgress || 0,
-            10,
-          );
-          const goal = usesLifePromise
-            ? promise.target
-            : parseInt(meta.weeklyGoalPacks || 0, 10);
-          const achieved = goal > 0 && progress >= goal;
-          const boost =
-            !usesLifePromise && goal > 0 && progress >= Math.ceil(goal * 0.7);
-          const mvp = usesLifePromise
-            ? { nickname: "", uid: "", packs: 0 }
-            : selectWeeklyMvp(members, bannedUids, deletingUids);
-
-          const metaUpdate = {
-            weeklyGoalProgress: 0,
-            ...(usesLifePromise ? {
-              weeklyPromiseProgress: 0,
-              weeklyPromiseWeekKey: rolloverKey,
-            } : {}),
-            xpBoostActive: boost,
-            lastWeekMvp: mvp.nickname,
-            lastWeekMvpUid: mvp.uid,
-            lastWeekMvpPacks: mvp.packs,
-            lastRolloverKey: rolloverKey,
-          };
-          if (achieved) {
-            metaUpdate.lifetimeGoalsAchieved =
-              FieldValue.increment(1);
-            transaction.set(feedRef, {
-              type: "goal_achieved",
-              actorUid: "",
-              actorNickname: "",
-              payload: {
-                goal,
-                progress,
-                mvp: mvp.nickname,
-                mvpUid: mvp.uid,
-                mvpPacks: mvp.packs,
-              },
-              createdAt: FieldValue.serverTimestamp(),
-            });
-            const outbox = buildWeeklyNotificationOutbox({
-              gyeId: gdoc.id,
-              rolloverKey,
-              members,
-              bannedUids,
-              deletingUids,
-              title: "Wochenziel erreicht! \u{1F389}",
-              body: `${meta.name || "Euer Gye"} hat das Wochenziel geschafft.`,
-            });
-            stageNotificationOutboxWrites({
-              transaction,
-              outboxCollection:
-                gref.collection("notification_outbox"),
-              notifications: outbox,
-              serverTimestamp:
-                FieldValue.serverTimestamp(),
-            });
-          }
-          transaction.update(gref, metaUpdate);
-          for (const member of membersSnapshot.docs) {
-            transaction.update(member.ref, { weeklyPacksContributed: 0 });
-          }
-          return {
-            processed: true,
-          };
-        });
-        if (!result.processed) continue;
-        await pruneFeed(gref, 100);
+      for (
+        let chunkStart = 0;
+        chunkStart < gyeDocs.length;
+        chunkStart += WEEKLY_ROLLOVER_GYE_CHUNK_SIZE
+      ) {
+        const chunk = gyeDocs.slice(
+          chunkStart,
+          chunkStart + WEEKLY_ROLLOVER_GYE_CHUNK_SIZE,
+        );
+        await Promise.all(chunk.map((gdoc) =>
+          rolloverSingleGye(gdoc, rolloverKey)));
       }
 
       console.log("[weekly_goal_rollover] Rollover + rewards complete");
@@ -721,6 +629,135 @@ exports.weekly_goal_rollover = onSchedule(
     }
   },
 );
+
+async function rolloverSingleGye(gdoc, rolloverKey) {
+  const gref = gdoc.ref;
+  const feedRef = gref
+    .collection("feed")
+    .doc(`goal_${rolloverKey}`);
+  const result = await db.runTransaction(async (transaction) => {
+    const metaSnapshot = await transaction.get(gref);
+    if (!metaSnapshot.exists ||
+        (metaSnapshot.data() || {}).lifecycleState === "deleting") {
+      return { processed: false, achieved: false, name: "" };
+    }
+    if (!shouldProcessWeeklyRollover(
+      (metaSnapshot.data() || {}).lastRolloverKey,
+      rolloverKey,
+    )) {
+      return { processed: false, achieved: false, name: "" };
+    }
+    const membersSnapshot = await transaction.get(
+      gref.collection("members"),
+    );
+    const bansSnapshot = await transaction.get(
+      gref.collection("bans"),
+    );
+    const bannedUids = new Set(
+      bansSnapshot.docs
+        .filter((doc) => (doc.data() || {}).active !== false)
+        .map((doc) => doc.id),
+    );
+    const members = membersSnapshot.docs.map((doc) => ({
+      uid: doc.id,
+      ...(doc.data() || {}),
+    }));
+    // Batched (not serial per-member) read — avoids N+1 round trips inside
+    // the transaction when a Gye has many members.
+    const accountDeletionSnapshots = await Promise.all(
+      membersSnapshot.docs.map((member) =>
+        transaction.get(
+          db.collection("account_deletions").doc(member.id),
+        )),
+    );
+    const accountDeletionMarkers = new Map(
+      membersSnapshot.docs.map((member, index) =>
+        [member.id, accountDeletionSnapshots[index]]),
+    );
+    const deletingUids = new Set(
+      Array.from(accountDeletionMarkers.entries())
+        .filter(([, marker]) => marker.exists)
+        .map(([uid]) => uid),
+    );
+
+    const meta = metaSnapshot.data() || {};
+    const promise = weeklyPromiseFor(meta.weeklyPromiseId);
+    const usesLifePromise = promise &&
+      meta.weeklyPromiseSchemaVersion === 1 &&
+      meta.weeklyPromiseTarget === promise.target;
+    const progress = parseInt(
+      usesLifePromise
+        ? meta.weeklyPromiseProgress || 0
+        : meta.weeklyGoalProgress || 0,
+      10,
+    );
+    const goal = usesLifePromise
+      ? promise.target
+      : parseInt(meta.weeklyGoalPacks || 0, 10);
+    const achieved = goal > 0 && progress >= goal;
+    const boost =
+      !usesLifePromise && goal > 0 && progress >= Math.ceil(goal * 0.7);
+    const mvp = usesLifePromise
+      ? { nickname: "", uid: "", packs: 0 }
+      : selectWeeklyMvp(members, bannedUids, deletingUids);
+
+    const metaUpdate = {
+      weeklyGoalProgress: 0,
+      ...(usesLifePromise ? {
+        weeklyPromiseProgress: 0,
+        weeklyPromiseWeekKey: rolloverKey,
+      } : {}),
+      xpBoostActive: boost,
+      lastWeekMvp: mvp.nickname,
+      lastWeekMvpUid: mvp.uid,
+      lastWeekMvpPacks: mvp.packs,
+      lastRolloverKey: rolloverKey,
+    };
+    if (achieved) {
+      metaUpdate.lifetimeGoalsAchieved =
+        FieldValue.increment(1);
+      transaction.set(feedRef, {
+        type: "goal_achieved",
+        actorUid: "",
+        actorNickname: "",
+        payload: {
+          goal,
+          progress,
+          mvp: mvp.nickname,
+          mvpUid: mvp.uid,
+          mvpPacks: mvp.packs,
+        },
+        createdAt: FieldValue.serverTimestamp(),
+      });
+      const outbox = buildWeeklyNotificationOutbox({
+        gyeId: gdoc.id,
+        rolloverKey,
+        members,
+        bannedUids,
+        deletingUids,
+        title: "Wochenziel erreicht! \u{1F389}",
+        body: `${meta.name || "Euer Gye"} hat das Wochenziel geschafft.`,
+      });
+      stageNotificationOutboxWrites({
+        transaction,
+        outboxCollection:
+          gref.collection("notification_outbox"),
+        notifications: outbox,
+        serverTimestamp:
+          FieldValue.serverTimestamp(),
+      });
+    }
+    transaction.update(gref, metaUpdate);
+    for (const member of membersSnapshot.docs) {
+      transaction.update(member.ref, { weeklyPacksContributed: 0 });
+    }
+    return {
+      processed: true,
+    };
+  });
+  if (!result.processed) return;
+  await pruneFeed(gref, 100);
+}
 
 /**
  * 신고 생성 트리거 — 같은 targetUid에 서로 다른 신고자 3명+ → 자동 suspend.

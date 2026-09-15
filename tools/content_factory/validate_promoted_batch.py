@@ -183,18 +183,42 @@ def _require_reviewed_copy_revision(
     draft: dict[str, Any],
     live: dict[str, Any],
     revisions: dict[tuple[str, str], dict[str, Any]],
+    batch_revisions: dict[tuple[str, str], dict[str, Any]],
 ) -> bool:
     revision = revisions.get((kind, ident))
     if revision is None:
         return False
+    # A row can carry both a per-row `entries` revision (frozen before/after
+    # for the fields that row's own review covered) and a separate diff in a
+    # field an approved `batchFieldRevisions` entry now authorizes for every
+    # row (e.g. the C2a romanization regeneration). Neutralize a
+    # batch-approved field here ONLY when it is not already one of the
+    # fields this row's own `entries` revision covers -- if the row entry
+    # already owns that field (its frozen before/after already accounts for
+    # a prior approved edit to it), the batch must not silently revert that
+    # edit; the row entry's own beforeSha256/afterSha256/fields must instead
+    # be re-recorded to reflect the field's later, batch-approved value (see
+    # Fable ruling 2026-09-15). A field with no per-row claim and an
+    # unapproved batch entry (or no batch entry at all) is left alone, so it
+    # still shows up as an unexplained diff and still fails closed.
+    revision_fields = set(revision.get("fields") or [])
+    live_cmp = dict(live)
+    for field in {*draft, *live}:
+        if draft.get(field) == live.get(field):
+            continue
+        if field in revision_fields:
+            continue
+        batch_revision = batch_revisions.get((kind, field))
+        if batch_revision is not None and batch_revision.get("approval"):
+            live_cmp[field] = draft.get(field)
     changed_fields = sorted(
-        field for field in {*draft, *live} if draft.get(field) != live.get(field)
+        field for field in {*draft, *live_cmp} if draft.get(field) != live_cmp.get(field)
     )
     expected = {
         "level": str(draft.get("level") or "").lower(),
         "fields": changed_fields,
         "beforeSha256": _fingerprint(draft),
-        "afterSha256": _fingerprint(live),
+        "afterSha256": _fingerprint(live_cmp),
     }
     for field, value in expected.items():
         if revision.get(field) != value:
@@ -202,6 +226,54 @@ def _require_reviewed_copy_revision(
                 f"{kind}:{ident}: stale promoted copy revision {field}"
             )
     return True
+
+
+def _batch_field_revisions(*, root: Path) -> dict[tuple[str, str], dict[str, Any]]:
+    """Read the ledger's `batchFieldRevisions` -- Fable ruling 2026-09-15
+    (C2a RR romanization regeneration): unlike `entries` (one row-and-field
+    record per id, with exact before/after row fingerprints), this is a
+    *field-level* exemption that covers every already-promoted row whose
+    only diff from its reviewed draft is that one field, without listing
+    each row individually. Deliberately fail-closed: an entry only takes
+    effect once its `approval` is filled in (Jin, after the 10% sample) --
+    see `_require_batch_field_revision`. Composes with per-row `entries`:
+    batch-approved fields are neutralized before the per-row fingerprint
+    comparison."""
+
+    ledger_path = root / COPY_REVISION_LEDGER
+    if not ledger_path.exists():
+        return {}
+    ledger = _json(ledger_path)
+    result: dict[tuple[str, str], dict[str, Any]] = {}
+    for entry in ledger.get("batchFieldRevisions", []):
+        if not isinstance(entry, dict):
+            raise PromotedBatchError("batch field revision entries must be objects")
+        key = (str(entry.get("kind") or ""), str(entry.get("field") or ""))
+        if not all(key) or key in result:
+            raise PromotedBatchError(f"duplicate or malformed batch field revision {key!r}")
+        result[key] = entry
+    return result
+
+
+def _require_batch_field_revision(
+    *,
+    kind: str,
+    draft: dict[str, Any],
+    live: dict[str, Any],
+    batch_revisions: dict[tuple[str, str], dict[str, Any]],
+) -> bool:
+    """True when `live` differs from `draft` in exactly one field, and that
+    (kind, field) has an approved `batchFieldRevisions` entry. An entry
+    that exists but has no `approval` yet is recognized but does not
+    authorize anything -- fail-closed until Jin approves it."""
+
+    changed_fields = {field for field in {*draft, *live} if draft.get(field) != live.get(field)}
+    if len(changed_fields) != 1:
+        return False
+    revision = batch_revisions.get((kind, next(iter(changed_fields))))
+    if revision is None:
+        return False
+    return bool(revision.get("approval"))
 
 
 def _promotion_projection(kind: str, row: dict[str, Any]) -> dict[str, Any]:
@@ -273,6 +345,7 @@ def validate(
     seen_kinds: set[str] = set()
     revisions = _copy_revisions(root=root, manifest_path=manifest_path)
     used_revisions: set[tuple[str, str]] = set()
+    batch_revisions = _batch_field_revisions(root=root)
     routing_revisions = _routing_revisions(root=root, manifest_path=manifest_path)
     used_routing_revisions: set[tuple[str, str]] = set()
     # vocabPacks[].packId bases whose rows moved to a different live pack_id
@@ -381,6 +454,12 @@ def validate(
                     draft=draft_projection,
                     live=live_projection,
                     revisions=revisions,
+                    batch_revisions=batch_revisions,
+                ) and not _require_batch_field_revision(
+                    kind=kind,
+                    draft=draft_projection,
+                    live=live_projection,
+                    batch_revisions=batch_revisions,
                 ):
                     _require_equal(live_projection, draft_projection, f"{kind}:{ident}")
                 used_revisions.add((kind, ident))
