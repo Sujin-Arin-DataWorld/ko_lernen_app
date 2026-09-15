@@ -113,13 +113,13 @@ Total: 115
 - c1 (6): cloze_c1_0100, cloze_c1_0128, cloze_c1_0151, cloze_c1_0159, cloze_c1_0164, cloze_c1_0168
 - c2 (8): cloze_c2_0026, cloze_c2_0030, cloze_c2_0032, cloze_c2_0092, cloze_c2_0099, cloze_c2_0149, cloze_c2_0156, cloze_c2_0166
 
+## History: R8 -> R8-2 -> R8-3 -> R8-4 (2026-09-15/16)
 
-## History: R8 -> R8-2 -> R8-3 (2026-09-15)
-
-Condensed timeline (see PR #345 commits fd6ca9a2/8e0c767a/f2b0a4b8/HEAD and this file's R8-3 section below for the full narrative each round left):
+Condensed timeline (PR #345 commits fd6ca9a2/8e0c767a/f2b0a4b8/6ca654da/HEAD):
 - **R8** (fd6ca9a2 -> 8e0c767a): Fable sampled the original C2c sweep and found same-POS/same-form/topic-distant nouns still read as valid alternates in open frames -- fixed with a uniform `OPEN_SLOT_WAIVER` (dictionary-form-verb/bare-particle distractors) across all 542 items.
 - **R8-2** (8e0c767a -> f2b0a4b8): Fable found the uniform waiver made every item trivially solvable (violates Jin's same-POS/same-form/semantically-incompatible standing rule) -- replaced with a two-tier scheme: Tier A (default, semantically-clashing same-form distractors) and Tier B (`OPEN_SLOT_WAIVER`, last resort for truly open frames, capped <=40%).
-- **R8-3** (this round): Fable found (1) Tier-A leaks in physical-action frames ("X를/을 + 찍다/사다/먹다/..." accepts any concrete noun) and (2) Tier-B over-use on class-restricted frames (identifier/duration/price/time/place/instrument/container roles) -- fixed both; final split below.
+- **R8-3** (f2b0a4b8 -> 6ca654da): Fable found (1) Tier-A leaks in physical-action frames ("X를/을 + 찍다/사다/먹다/..." accepts any concrete noun) and (2) Tier-B over-use on class-restricted frames (identifier/duration/price/time/place/instrument/container roles) -- fixed both. Final split: Tier A 392/542 (72.3%), Tier B 144/542 (26.6%, under the 40% cap), mixed 6/542 (1.1%).
+- **R8-4** (this round): Jin approved the 40-item sample (owner chat 2026-09-16, "C2c 표본 승인") -- filled the ledger's `batchFieldRevisions` approval and re-recorded 18 per-row cloze `entries` whose own `fields` already covered `distractors` (so the batch-level approval doesn't apply to them) with the correct after-sweep fingerprints, matching the C2a RR precedent.
 
 ## Final full read -- every changed item, sentence-by-sentence, FINAL state (2026-09-15)
 
@@ -2348,43 +2348,15 @@ _Progress: 500/542 items read and judged (final state)._
 
 _Progress: 542/542 items read and judged (final state)._
 
-
 ## R8-3 (Fable ruling, 2026-09-15): physical-verb-frame leaks + Tier B tightening
 
 Two focused corrections after Fable sampled 12 items on f2b0a4b8:
 
-1. **Physical-action-frame Tier A leaks**: for a "X를/을 + physical verb"
-   frame (찍다·사다·먹다·마시다·보다·받다·쓰다·들다·놓다/두다·만들다·씻다·입다),
-   ANY concrete noun undergoes the action, so a concrete-noun Tier-A pick
-   still reads as valid (Fable's example: `cloze_b1_0252` "＿＿＿를
-   사진으로 세 장 찍었어요" with 횡단보도/샴푸/커피 -- all photographable).
-   Precisely scanned every Tier-A item for "＿＿＿(를|을) + [<=15자] +
-   physical-verb-conjugation" and re-judged each hit; genuine leaks (5
-   items: `cloze_a1_0429`, `cloze_a2_0183`, `cloze_b1_0239`,
-   `cloze_b1_0252`, `cloze_c1_0114`) now use abstract/duration/procedure
-   nouns of the same level that cannot undergo the action (기간/조건/
-   가능성/정도/한계/경제), or moved to Tier B where no A1-level abstract
-   vocabulary exists to build a clean Tier-A pick.
-2. **Tier B over-use on class-restricted frames**: re-read every Tier-B
-   item for a unit/identifier/duration/price/time/place/instrument/
-   container role the frame actually restricts (even though the item
-   isn't a bare existential/adjective-predicate/copula frame) --
-   Fable's examples `cloze_b1_0225` ("＿＿＿로 진행 상태를 조회해요",
-   needs an identifier) and `cloze_b1_0219` ("＿＿＿이 이 주라고
-   안내받았어요", needs a duration) plus 26 more (instrument: 연필,
-   가위-shaped frames; container: 냉장고/엘리베이터-shaped frames;
-   method: 기차/카드-shaped frames; schedulable-event; source-tier;
-   abstract-discourse-concept C1/C2 frames) moved to Tier A with
-   concrete nouns that clash with that specific role (e.g. "가방이 2차면
-   1차를 찾아요" -- a bag doesn't have citation tiers). Tier B now holds
-   only truly bare frames (X가 있어요/좋아요/멋있어요/예요, 우리 X 가요,
-   X을 좋아해요, and the personal-pronoun-topic-fronting cluster that
-   must stay waived for the D7 reason found in R8).
+1. **Physical-action-frame Tier A leaks**: for a "X를/을 + physical verb" frame (찍다·사다·먹다·마시다·보다·받다·쓰다·들다·놓다/두다·만들다·씻다·입다), ANY concrete noun undergoes the action, so a concrete-noun Tier-A pick still reads as valid (Fable's example: `cloze_b1_0252` "＿＿＿를 사진으로 세 장 찍었어요" with 횡단보도/샴푸/커피 -- all photographable). Precisely scanned every Tier-A item for "＿＿＿(를|을) + [<=15자] + physical-verb-conjugation" and re-judged each hit; genuine leaks (5 items: `cloze_a1_0429`, `cloze_a2_0183`, `cloze_b1_0239`, `cloze_b1_0252`, `cloze_c1_0114`) now use abstract/duration/procedure nouns of the same level that cannot undergo the action (기간/조건/가능성/정도/한계/경제), or moved to Tier B where no A1-level abstract vocabulary exists to build a clean Tier-A pick.
+2. **Tier B over-use on class-restricted frames**: re-read every Tier-B item for a unit/identifier/duration/price/time/place/instrument/container role the frame actually restricts (even though the item isn't a bare existential/adjective-predicate/copula frame) -- Fable's examples `cloze_b1_0225` ("＿＿＿로 진행 상태를 조회해요", needs an identifier) and `cloze_b1_0219` ("＿＿＿이 이 주라고 안내받았어요", needs a duration) plus 26 more (instrument: 연필, 가위-shaped frames; container: 냉장고/엘리베이터-shaped frames; method: 기차/카드-shaped frames; schedulable-event; source-tier; abstract-discourse-concept C1/C2 frames) moved to Tier A with concrete nouns that clash with that specific role (e.g. "가방이 2차면 1차를 찾아요" -- a bag doesn't have citation tiers). Tier B now holds only truly bare frames (X가 있어요/좋아요/멋있어요/예요, 우리 X 가요, X을 좋아해요, and the personal-pronoun-topic-fronting cluster that must stay waived for the D7 reason found in R8).
 
-Final split: **Tier A 392/542 = 72.3%**, **Tier B 144/542 = 26.6%**
-(well under the 40% cap), **mixed 6/542 = 1.1%**. Re-running the
-mechanical audit: 0 violations. `test_audit_cloze_distractors.py`:
-27/27. `validate_content.py --json` ok; `build_can_do_segments.py
---check` 0; `build_canonical_manifest.py --check` verified (no diff);
-both Dart tests 10/10, `knownUnsyncedCap` unchanged (318). KO/DE/EN
-unchanged (0 non-distractor field diffs vs origin/main).
+Final split: **Tier A 392/542 = 72.3%**, **Tier B 144/542 = 26.6%** (well under the 40% cap), **mixed 6/542 = 1.1%**. Re-running the mechanical audit: 0 violations. `test_audit_cloze_distractors.py`: 27/27. `validate_content.py --json` ok; `build_can_do_segments.py --check` 0; `build_canonical_manifest.py --check` verified (no diff); both Dart tests 10/10, `knownUnsyncedCap` unchanged (318). KO/DE/EN unchanged (0 non-distractor field diffs vs origin/main).
+
+## R8-4 (2026-09-16): Jin approval + ledger reconciliation
+
+Jin approved the 40-item sample (owner chat 2026-09-16: "C2c 표본 승인"). Filled in `promoted_copy_revisions_20260822.json`'s `batchFieldRevisions` (`cloze`/`distractors`) `approval` field. Re-running `validate_promoted_batch.py` against `batch_09_4x_manifest.json` then failed on `cloze:cloze_a1_0208` -- that row (and 17 others across batch_09/batch_07_partner_family/batch_19) already carries a per-row `entries` revision whose OWN `fields` list already includes `distractors` (from an earlier, unrelated approved edit), so the batch-level approval does not neutralize it -- per `_require_reviewed_copy_revision`'s documented behavior, that row's own beforeSha256/afterSha256/fields must instead be re-recorded to reflect the field's later, batch-approved value (exactly the same situation the C2a RR romanization regeneration hit, `tools/content_factory/reconcile_cloze_ledger_r8_4.py`, reusing `validate_promoted_batch.py`'s own projection/fingerprint functions directly so the recomputed hashes are byte-identical to what the validator itself expects). 18 of 160 cloze `entries` needed re-recording; the rest were untouched by this sweep. `validate_promoted_batch.py --manifest batch_09_4x_manifest.json` now passes cleanly; `test_level_content_4x` + `test_validate_promoted_batch` both pass (28 tests, 2 skipped, unrelated to cloze).
