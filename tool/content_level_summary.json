@@ -2,8 +2,8 @@
   "counts": {
     "cloze": {
       "fallback_over2": 2,
-      "over1": 159,
-      "over2": 36,
+      "over1": 148,
+      "over2": 33,
       "total": 1959,
       "under2": 456,
       "unknown": 0
@@ -34,8 +34,8 @@
     },
     "satz": {
       "fallback_over2": 1,
-      "over1": 158,
-      "over2": 27,
+      "over1": 146,
+      "over2": 24,
       "total": 2480,
       "under2": 655,
       "unknown": 0
