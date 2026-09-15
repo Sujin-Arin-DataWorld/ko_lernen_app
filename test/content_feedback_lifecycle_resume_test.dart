@@ -6,14 +6,85 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
 import 'package:ko_lernen_app/main.dart';
 import 'package:ko_lernen_app/models/content_feedback.dart';
+import 'package:ko_lernen_app/models/pack_progress.dart';
 import 'package:ko_lernen_app/services/content_feedback_client.dart';
 import 'package:ko_lernen_app/services/content_feedback_lifecycle.dart';
 import 'package:ko_lernen_app/services/content_feedback_outbox.dart';
 import 'package:ko_lernen_app/services/content_feedback_service.dart';
 import 'package:ko_lernen_app/services/content_feedback_version_provider.dart';
+import 'package:ko_lernen_app/services/pack_sync_queue.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 
 void main() {
+  tearDown(PackSyncQueue.resetForTesting);
+
+  testWidgets(
+    '§S3: ContentFeedbackLifecycleObserver flushes the pack-sync queue on '
+    'paused/detached/hidden, but not on resumed',
+    (tester) async {
+      var flushCalls = 0;
+      PackSyncQueue.instance = PackSyncQueue(
+        canMirror: () => true,
+        savePack: (PackProgress p) async {
+          flushCalls += 1;
+        },
+      );
+      // Prime one pending pack so flush() has something to actually save.
+      PackSyncQueue.instance.enqueue(
+        const PackProgress(
+          packId: 'a1_greetings_1',
+          level: 'A1',
+          status: PackStatus.inProgress,
+          wordsLearned: 1,
+          wordsTotal: 10,
+          bossAccuracy: 0.0,
+          attempts: 0,
+          clearedAtIso: null,
+        ),
+      );
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: ContentFeedbackLifecycleObserver(
+            resumePending: () async => const ContentFeedbackResumeResult(),
+            onResumeResult: (_) {},
+            child: const SizedBox.shrink(),
+          ),
+        ),
+      );
+
+      tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.paused);
+      await tester.pumpAndSettle();
+      expect(flushCalls, 1);
+
+      tester.binding.handleAppLifecycleStateChanged(
+        AppLifecycleState.resumed,
+      );
+      await tester.pumpAndSettle();
+      // resumed only triggers the feedback-outbox resume, not a flush.
+      expect(flushCalls, 1);
+
+      // Re-arm one more pending entry, then confirm detached/hidden flush too.
+      PackSyncQueue.instance.enqueue(
+        const PackProgress(
+          packId: 'a1_greetings_2',
+          level: 'A1',
+          status: PackStatus.inProgress,
+          wordsLearned: 1,
+          wordsTotal: 10,
+          bossAccuracy: 0.0,
+          attempts: 0,
+          clearedAtIso: null,
+        ),
+      );
+      tester.binding.handleAppLifecycleStateChanged(
+        AppLifecycleState.detached,
+      );
+      await tester.pumpAndSettle();
+      expect(flushCalls, 2);
+    },
+  );
+
   testWidgets(
     'concurrent resumed signals stay serialized by the existing service gate',
     (tester) async {

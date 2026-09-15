@@ -20,6 +20,7 @@ import 'services/analytics_service.dart';
 import 'services/app_version_service.dart';
 import 'services/data_migration_service.dart';
 import 'services/diagnostics_service.dart';
+import 'services/pack_sync_queue.dart';
 import 'services/storage_service.dart';
 import 'widgets/sori/ai_voice_notice_host.dart';
 import 'widgets/sori/srs_recovery_banner.dart';
@@ -271,6 +272,8 @@ Future<void> finishPostMigrationStartup(
   Future<void> Function()? initializeManagedMedia,
   Future<void> Function()? recoverCrop,
   Future<void> Function()? recoverPicker,
+  Future<void> Function()? flushPendingPackSync,
+  bool Function()? hasCloudBackupUid,
 }) async {
   // The native recovery owns a separate admission gate. Its bounded wait
   // cannot hold first frame or delay unrelated startup services indefinitely.
@@ -320,6 +323,23 @@ Future<void> finishPostMigrationStartup(
         ))();
   } catch (error) {
     debugPrint('Android picker recovery skipped: $error');
+  }
+  // §S3 (R2/R4 durability gap B): recover any pack-progress Firestore
+  // writes orphaned by a process kill before PackSyncQueue's
+  // status-transition/idle-timer/flushAll triggers fired in a previous
+  // session. `_startCloudServices()` (kicked off, unawaited, from
+  // `runStartupMigrationBeforeCloudServices` before this function runs) is
+  // best-effort and its completion is *not* guaranteed by this point — so
+  // this gates on the current signed-in state rather than that ordering.
+  // A skip here just leaves the ids in `Storage.pendingPackSyncIds` for the
+  // next launch to retry; nothing local is lost either way.
+  if ((hasCloudBackupUid ?? () => AuthService.cloudBackupUid != null)()) {
+    try {
+      await (flushPendingPackSync ??
+          PackSyncQueue.instance.flushPendingFromStorage)();
+    } catch (error) {
+      debugPrint('Pack-sync pending recovery skipped: $error');
+    }
   }
 }
 
@@ -600,6 +620,15 @@ class _ContentFeedbackLifecycleObserverState
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
       unawaited(_resumePending());
+      return;
+    }
+    // §S3: flush any debounced pack-progress Firestore writes before the
+    // app leaves the foreground (or is killed outright), so a pending
+    // write isn't lost waiting for PackSyncQueue's 30s idle timer.
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.detached ||
+        state == AppLifecycleState.hidden) {
+      unawaited(PackSyncQueue.instance.flushAll());
     }
   }
 
