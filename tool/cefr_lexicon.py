@@ -673,6 +673,34 @@ def _swap_final_batchim(token: str, from_tail: int, to_tail: int) -> Optional[st
     return token[:-1] + chr(base_code)
 
 
+# C3-T3 (2026-09-16, Fable review of #352): regular verbs whose bare,
+# no-irregularity stem happens to ALSO be a real, unrelated, lower-
+# priority basic2023 headword. These are NOT irregular conjugations at
+# all -- 켜다/타다 conjugate perfectly regularly (켜다: stem already ends
+# in the vowel that -어(요) fuses into and disappears, exactly like the
+# already-correctly-resolving 펴다; 타다: plain -아(요)) -- but
+# `_lemma_candidates`'s PASS 2 fallback-ending branch always offers the
+# bare stem BEFORE the stem+"다" guess (by design: needed so "여기요"
+# resolves to 여기+요, not the coincidentally-real verb 여기다 -- see
+# that branch's own comment), so `_resolve_eojeol`'s first-candidate-
+# wins loop stops at the bare stem whenever IT ALSO happens to resolve,
+# never reaching the correct verb reading. 켜 ("layer/tier", basic2023
+# grade 4) and 타 (basic2023 grade 6) both do -- caught via
+# cloze_a1_0597/satz_a1_0578's (에어컨을) 켜요 and the tolerated
+# cloze_a1_0014/satz_a1_0023's 타요 both wrongly grading via basic2023
+# instead of kiiq grade 1. Checked in PASS 1 (via `_irregular_repair`,
+# below) so the correct verb wins before PASS 2's bare-stem candidate is
+# even tried, exactly the "나아요" precedent this function's own
+# docstring describes -- extend this table if another regular verb's
+# bare stem is found to collide the same way (a stem some OTHER token in
+# the corpus turns out to need as a real, different word cannot use this
+# table -- see the docstring above).
+_STEM_HOMOGRAPH_OVERRIDE_MAP: Mapping[str, str] = {
+    "켜": "켜다",
+    "타": "타다",
+}
+
+
 def _irregular_repair(stem: str) -> Optional[str]:
     """Try every hand-curated irregular-conjugation table against `stem`
     (checked via `.endswith`, most-specific tables first), returning a full
@@ -702,6 +730,9 @@ def _irregular_repair(stem: str) -> Optional[str]:
     itself unlikely to resolve in the lexicon and `_resolve_eojeol` simply
     moves on to the next (correct) candidate, but a known, accepted
     imprecision given no POS tagging is available here."""
+    exact_override = _STEM_HOMOGRAPH_OVERRIDE_MAP.get(stem)
+    if exact_override is not None:
+        return exact_override
     for frag, full in IRREGULAR_STEM_MAP.items():
         if stem.endswith(frag):
             return stem[: -len(frag)] + full
@@ -910,6 +941,17 @@ PRONOUN_CONTRACTION_MAP: Mapping[str, str] = {
     "이거": "이것", "그거": "그것", "저거": "저것",
     "이게": "이것", "그게": "그것", "저게": "저것",
     "뭘": "뭐",
+    # C3-T3 (2026-09-16, Fable review of #352): "누가" (who + subject
+    # particle 가) is not a casual shortcut -- it is the ONLY natural
+    # standard-Korean surface form ("누구가" is ungrammatical) -- so it
+    # belongs here alongside 뭘, not left to the generic particle-strip
+    # candidate loop. Without this, `_lemma_candidates("누가")` only ever
+    # offers bare "누" (an unrelated grade-5/C1 basic2023 headword) before
+    # the unstripped token itself, so word_grade never reaches 누구
+    # (kiiq A1) at all -- caught via cloze_a1_0310's tolerated
+    # fallback_over2 regression (see the fix commit for how this was
+    # found).
+    "누가": "누구",
 }
 
 
