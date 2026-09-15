@@ -57,9 +57,10 @@ MANIFEST_DRAFTS = {
     },
 }
 
-CLUSTER_A_IDS = {"vocab_a1_0221", "vocab_a1_0223", "vocab_a1_0248", "vocab_a1_0250",
-                 "vocab_a1_0252", "vocab_a1_0253", "vocab_a1_0258", "vocab_a1_0259",
-                 "vocab_a1_0264", "vocab_a1_0268", "vocab_a1_0269"}
+CLUSTER_A_IDS = {"vocab_a1_0218", "vocab_a1_0220", "vocab_a1_0221", "vocab_a1_0223",
+                 "vocab_a1_0248", "vocab_a1_0250", "vocab_a1_0252", "vocab_a1_0253",
+                 "vocab_a1_0258", "vocab_a1_0259", "vocab_a1_0261", "vocab_a1_0264",
+                 "vocab_a1_0268", "vocab_a1_0269"}
 CLUSTER_D_IDS = {"vocab_a1_0335", "vocab_a1_0336", "vocab_a1_0340", "vocab_a1_0341",
                  "vocab_a1_0343", "vocab_a1_0401"}
 

@@ -8140,11 +8140,11 @@
     {
       "id": "cloze_a1_0106",
       "level": "a1",
-      "sentenceKo": "＿＿＿이 어려워서 현우에게 물어봤어요.",
+      "sentenceKo": "＿＿＿이 어려워서 수진 씨에게 물었어요.",
       "answer": "호칭",
-      "fullKo": "호칭이 어려워서 현우에게 물어봤어요.",
-      "de": "Die Anrede war schwierig, also habe ich Hyunwoo gefragt.",
-      "en": "I wasn't sure how to address them, so I asked Hyunwoo.",
+      "fullKo": "호칭이 어려워서 수진 씨에게 물었어요.",
+      "de": "Die Anrede war schwierig, also habe ich Sujin gefragt.",
+      "en": "I wasn't sure how to address them, so I asked Sujin.",
       "distractors": [
         "한복",
         "햇과일",
@@ -8170,11 +8170,11 @@
     {
       "id": "cloze_a1_0108",
       "level": "a1",
-      "sentenceKo": "＿＿＿기 전에 현우가 눈짓을 했어요.",
+      "sentenceKo": "＿＿＿기 전에 수진 씨가 저를 봤어요.",
       "answer": "성함을 묻",
-      "fullKo": "성함을 묻기 전에 현우가 눈짓을 했어요.",
-      "de": "Bevor ich nach dem Namen fragte, gab mir Hyunwoo ein Zeichen.",
-      "en": "Before I asked their name, Hyunwoo shot me a look.",
+      "fullKo": "성함을 묻기 전에 수진 씨가 저를 봤어요.",
+      "de": "Bevor ich nach dem Namen fragte, sah mich Sujin an.",
+      "en": "Before I asked their name, Sujin looked at me.",
       "distractors": [
         "송편 찌",
         "수저 놓",
@@ -8785,11 +8785,11 @@
     {
       "id": "cloze_a1_0149",
       "level": "a1",
-      "sentenceKo": "＿＿＿하는 법을 현우가 거실에서 알려 줬어요.",
+      "sentenceKo": "수진 씨가 거실에서 ＿＿＿를 가르쳤어요.",
       "answer": "세배",
-      "fullKo": "세배하는 법을 현우가 거실에서 알려 줬어요.",
-      "de": "Wie man den Neujahrsgruß macht, zeigte mir Hyunwoo im Wohnzimmer.",
-      "en": "Hyunwoo showed me how to do the New Year bow in the living room.",
+      "fullKo": "수진 씨가 거실에서 세배를 가르쳤어요.",
+      "de": "Sujin brachte mir im Wohnzimmer den Neujahrsgruß bei.",
+      "en": "Sujin taught me the New Year's bow in the living room.",
       "distractors": [
         "손 씻기",
         "손님 슬리퍼",

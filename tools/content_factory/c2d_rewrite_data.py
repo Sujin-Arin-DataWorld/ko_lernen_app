@@ -11,6 +11,28 @@ existing live data already does this, e.g. cloze_a1_0146's answer "수저
 
 VOCAB_REWRITES = {
     # id: (new_example_korean, new_example_german, new_example_english)
+    # -- coordinator round 3 (2026-09-15): the 3 remaining 현우 rows in
+    # a1_partner_meet_names_1/seollal_basic_1 -- same canon fix (현우 is
+    # not one of the 11 personas; this pack is 크리스티안 visiting 수진's
+    # parents) plus each ALSO carried grade>=2 grammar the detector missed
+    # before this round's contracted-aux/법 extension: 물어봤어요 (-아/어
+    # 보다, batched fusion), 세배하는 법 (-는 법), 알려 줬어요 (-아/어
+    # 주다). Rewritten within 1급, keeping each headword.
+    "vocab_a1_0218": (
+        "호칭이 어려워서 수진 씨에게 물었어요.",
+        "Die Anrede war schwierig, also habe ich Sujin gefragt.",
+        "I wasn't sure how to address them, so I asked Sujin.",
+    ),
+    "vocab_a1_0220": (
+        "성함을 묻기 전에 수진 씨가 저를 봤어요.",
+        "Bevor ich nach dem Namen fragte, sah mich Sujin an.",
+        "Before I asked their name, Sujin looked at me.",
+    ),
+    "vocab_a1_0261": (
+        "수진 씨가 거실에서 세배를 가르쳤어요.",
+        "Sujin brachte mir im Wohnzimmer den Neujahrsgruß bei.",
+        "Sujin taught me the New Year's bow in the living room.",
+    ),
     # -- cluster A: a1_partner_meet_names_1 / table_basic_1 / seollal_basic_1
     "vocab_a1_0221": (
         "할머니, 몇 살이세요?",
@@ -132,6 +154,25 @@ VOCAB_REWRITES = {
 # family). Explicit per-row control (answer/sentenceKo/fullKo/distractors)
 # since the blanked span is not always the vocab headword verbatim.
 CLOZE_MIRROR_REWRITES = {
+    "cloze_a1_0106": {
+        "answer": "호칭", "sentenceKo": "＿＿＿이 어려워서 수진 씨에게 물었어요.",
+        "fullKo": "호칭이 어려워서 수진 씨에게 물었어요.",
+        "de": "Die Anrede war schwierig, also habe ich Sujin gefragt.",
+        "en": "I wasn't sure how to address them, so I asked Sujin.",
+    },
+    "cloze_a1_0108": {
+        "answer": "성함을 묻", "sentenceKo": "＿＿＿기 전에 수진 씨가 저를 봤어요.",
+        "fullKo": "성함을 묻기 전에 수진 씨가 저를 봤어요.",
+        "de": "Bevor ich nach dem Namen fragte, sah mich Sujin an.",
+        "en": "Before I asked their name, Sujin looked at me.",
+    },
+    "cloze_a1_0149": {
+        "answer": "세배", "sentenceKo": "수진 씨가 거실에서 ＿＿＿를 가르쳤어요.",
+        "fullKo": "수진 씨가 거실에서 세배를 가르쳤어요.",
+        "de": "Sujin brachte mir im Wohnzimmer den Neujahrsgruß bei.",
+        "en": "Sujin taught me the New Year's bow in the living room.",
+        "distractors": ["손 씻기", "손님 슬리퍼", "송편"],
+    },
     "cloze_a1_0109": {
         "answer": "몇 살이세요", "sentenceKo": "할머니, ＿＿＿?",
         "fullKo": "할머니, 몇 살이세요?",
@@ -251,6 +292,9 @@ CLOZE_MIRROR_REWRITES = {
 # build_satzbauen.py algorithm (2 short real eojeol from other a1
 # sentences, not present in the target, crc32-seeded).
 SATZ_MIRROR_REWRITES = {
+    "satz_a1_0070": ("호칭이 어려워서 수진 씨에게 물었어요.", "Die Anrede war schwierig, also habe ich Sujin gefragt.", "I wasn't sure how to address them, so I asked Sujin."),
+    "satz_a1_0072": ("성함을 묻기 전에 수진 씨가 저를 봤어요.", "Bevor ich nach dem Namen fragte, sah mich Sujin an.", "Before I asked their name, Sujin looked at me."),
+    "satz_a1_0113": ("수진 씨가 거실에서 세배를 가르쳤어요.", "Sujin brachte mir im Wohnzimmer den Neujahrsgruß bei.", "Sujin taught me the New Year's bow in the living room."),
     "satz_a1_0073": ("할머니, 몇 살이세요?", "Oma, wie alt sind Sie?", "Grandma, how old are you?"),
     "satz_a1_0075": (
         "댁에 처음 와서 신발을 여기에 뒀어요.",

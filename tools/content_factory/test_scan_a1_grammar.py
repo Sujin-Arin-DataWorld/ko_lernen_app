@@ -29,8 +29,35 @@ import scan_a1_grammar as S  # noqa: E402
 # Deliberately-kept exceptions: (kind, id) rows that scan_a1_grammar.py may
 # still flag after the C2d rewrite, with the reason recorded here so a
 # future edit can't silently reintroduce a violation without noticing this
-# list. Empty after C2d -- every flagged A1 row was rewritten.
-DOCUMENTED_EXCEPTIONS: set[tuple[str, str]] = set()
+# list.
+#
+# Coordinator round 3 (2026-09-15): extending the detector for contracted
+# -아/어 보다 / -아/어 주다 (+ -는 법 / -는 게) surfaced 38 rows (12 vocab +
+# 13 cloze + 13 satz), almost all the same "-아/어 주세요" benefactive-
+# request family spanning many packs (phone/address exchange, pronunciation
+# repair, postal requests, borrowing money, etc.) -- see
+# docs/data/a1_grammar_scan_2026-09-15.md. Per the coordinator's explicit
+# ">30 new hits: stop and report before rewriting" instruction, these were
+# reported but NOT rewritten in this PR -- kept here as a tracked,
+# deliberate exception list (not silently ignored) pending a rewrite-
+# strategy decision, since unilaterally changing how the whole app phrases
+# "please do X for me" 20+ times needs sign-off first.
+DOCUMENTED_EXCEPTIONS: set[tuple[str, str]] = {
+    ("vocab", "vocab_a1_0141"), ("vocab", "vocab_a1_0202"), ("vocab", "vocab_a1_0203"),
+    ("vocab", "vocab_b1_0196"), ("vocab", "vocab_a1_0217"), ("vocab", "vocab_a1_0311"),
+    ("vocab", "vocab_a1_0316"), ("vocab", "vocab_a1_0408"), ("vocab", "vocab_a1_0409"),
+    ("vocab", "vocab_a1_0410"), ("vocab", "vocab_a1_0438"), ("vocab", "vocab_a1_0456"),
+    ("cloze", "cloze_a1_0094"), ("cloze", "cloze_a1_0105"), ("cloze", "cloze_a1_0199"),
+    ("cloze", "cloze_a1_0204"), ("cloze", "cloze_a1_0316"), ("cloze", "cloze_a1_0317"),
+    ("cloze", "cloze_a1_0319"), ("cloze", "cloze_a1_0320"), ("cloze", "cloze_a1_0324"),
+    ("cloze", "cloze_a1_0331"), ("cloze", "cloze_a1_0332"), ("cloze", "cloze_a1_0367"),
+    ("cloze", "cloze_a1_0390"),
+    ("satz", "satz_a1_0028"), ("satz", "satz_a1_0059"), ("satz", "satz_a1_0069"),
+    ("satz", "satz_a1_0163"), ("satz", "satz_a1_0168"), ("satz", "satz_a1_0300"),
+    ("satz", "satz_b1_0407"), ("satz", "satz_a1_0315"), ("satz", "satz_a1_0316"),
+    ("satz", "satz_a1_0317"), ("satz", "satz_a1_0321"), ("satz", "satz_a1_0353"),
+    ("satz", "satz_a1_0371"),
+}
 
 
 class DetectorUnitTest(unittest.TestCase):
@@ -46,6 +73,7 @@ class DetectorUnitTest(unittest.TestCase):
         for m in S.BARE_QUOTE_HASYEOSEO_RE.finditer(text):
             patterns.append(("bare_quote", 3, m.group(0)))
         patterns.extend(S._attributive_noun_hits(text))
+        patterns.extend(S._contracted_aux_hits(text))
         return patterns
 
     # -- must catch (real examples pulled from the pre-rewrite A1 corpora) --
@@ -82,6 +110,45 @@ class DetectorUnitTest(unittest.TestCase):
         # vocab_a1_0248 before C2d.
         hits = self._hits("진지 드세요 하셔서 숟가락을 들었어요.")
         self.assertTrue(hits, "bare '[phrase] 하셔서' quotation must be flagged")
+
+    def test_catches_contracted_aux_try_아어보다(self) -> None:
+        # Coordinator round 3: batched -았/었- fusion (봤) is NOT undone by
+        # cefr_lexicon.expand_contractions (only unbatched vowel fusions
+        # like 봐<-보아 are), so these need the explicit check.
+        for text in ("호칭이 어려워서 수진 씨에게 물어봤어요.",  # single-token fusion
+                     "이 음식을 먹어 봤어요."):                   # space-separated
+            with self.subTest(text=text):
+                self.assertTrue(self._hits(text), f"{text!r} must be flagged")
+
+    def test_catches_contracted_aux_give_아어주다(self) -> None:
+        for text in ("전화번호를 알려 주세요.", "이 단어 발음을 다시 들려주세요.",
+                     "시어머니께서 웃어 주셨어요."):
+            with self.subTest(text=text):
+                self.assertTrue(self._hits(text), f"{text!r} must be flagged")
+
+    def test_allows_lexical_보다_주다_alone(self) -> None:
+        # Coordinator's explicit negative case: 보다/주다 as their OWN main
+        # verb, not an auxiliary -- the object particle right before them
+        # (를/을/...) never ends in a verb connecting-vowel character, so
+        # the heuristic naturally excludes these without an allowlist.
+        for text in ("영화를 봐요.", "선물을 줘요.", "매일 텔레비전을 봐요.",
+                     "생일에 선물을 줬어요."):
+            with self.subTest(text=text):
+                self.assertEqual(self._hits(text), [], f"{text!r} must NOT be flagged")
+
+    def test_catches_는_법(self) -> None:
+        hits = self._hits("세배하는 법을 배웠어요.")
+        self.assertTrue(hits)
+
+    def test_catches_는_게(self) -> None:
+        hits = self._hits("이해하는 게 어려워요.")
+        self.assertTrue(hits)
+
+    def test_allows_는_게_false_positive_across_word_boundary(self) -> None:
+        # "저는 게를 좋아해요" ("I like crab") -- 는(topic particle on 저) +
+        # 게(crab, unrelated noun) coincidentally produces the substring
+        # "는 게", but "게를" continues past the \b the regex requires.
+        self.assertEqual(self._hits("저는 게를 좋아해요."), [])
 
     # -- must allow (1급-safe A1 content, incl. the C2d rewritten forms) --
 

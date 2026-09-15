@@ -1089,7 +1089,7 @@
       "promptEn": "Shall I sit next to you?",
       "distractors": [
         "지금",
-        "따라"
+        "예문을"
       ],
       "vocabKo": "옆"
     },
@@ -5528,12 +5528,12 @@
     {
       "id": "satz_a1_0070",
       "level": "a1",
-      "targetKo": "호칭이 어려워서 현우에게 물어봤어요.",
-      "promptDe": "Die Anrede war schwierig, also habe ich Hyunwoo gefragt.",
-      "promptEn": "I wasn't sure how to address them, so I asked Hyunwoo.",
+      "targetKo": "호칭이 어려워서 수진 씨에게 물었어요.",
+      "promptDe": "Die Anrede war schwierig, also habe ich Sujin gefragt.",
+      "promptEn": "I wasn't sure how to address them, so I asked Sujin.",
       "distractors": [
-        "늦게",
-        "니트를"
+        "비행기로",
+        "명이"
       ],
       "vocabKo": "호칭"
     },
@@ -5552,12 +5552,12 @@
     {
       "id": "satz_a1_0072",
       "level": "a1",
-      "targetKo": "성함을 묻기 전에 현우가 눈짓을 했어요.",
-      "promptDe": "Bevor ich nach dem Namen fragte, gab mir Hyunwoo ein Zeichen.",
-      "promptEn": "Before I asked their name, Hyunwoo shot me a look.",
+      "targetKo": "성함을 묻기 전에 수진 씨가 저를 봤어요.",
+      "promptDe": "Bevor ich nach dem Namen fragte, sah mich Sujin an.",
+      "promptEn": "Before I asked their name, Sujin looked at me.",
       "distractors": [
-        "와서",
-        "왼쪽"
+        "모든",
+        "자기"
       ],
       "vocabKo": "성함을 묻다"
     },
@@ -5568,7 +5568,7 @@
       "promptDe": "Oma, wie alt sind Sie?",
       "promptEn": "Grandma, how old are you?",
       "distractors": [
-        "살아요",
+        "박이고",
         "가방이"
       ],
       "vocabKo": "몇 살이세요"
@@ -5593,7 +5593,7 @@
       "promptEn": "I came to your home for the first time and put my shoes here.",
       "distractors": [
         "안에",
-        "자고"
+        "금방"
       ],
       "vocabKo": "댁에"
     },
@@ -5892,8 +5892,8 @@
       "promptDe": "Oma, essen Sie bitte.",
       "promptEn": "Grandma, please eat.",
       "distractors": [
-        "대학에",
-        "메모해요"
+        "손을",
+        "물어요"
       ],
       "vocabKo": "진지"
     },
@@ -5916,8 +5916,8 @@
       "promptDe": "Es kamen zehn Beilagen auf den Tisch, das hat mich überrascht.",
       "promptEn": "Ten side dishes came out, which surprised me.",
       "distractors": [
-        "주소를",
-        "기다려"
+        "우편함에",
+        "어디예요"
       ],
       "vocabKo": "밑반찬"
     },
@@ -5940,7 +5940,7 @@
       "promptDe": "Ich bin satt. Aber ich esse Obst.",
       "promptEn": "I'm full. But I eat fruit.",
       "distractors": [
-        "자동차로",
+        "연필로",
         "일어나요"
       ],
       "vocabKo": "배불러요"
@@ -5952,8 +5952,8 @@
       "promptDe": "Es ist lecker. Deshalb musste Sujin lachen.",
       "promptEn": "It's delicious. So Sujin laughed.",
       "distractors": [
-        "착해요",
-        "대학에"
+        "요리를",
+        "발이"
       ],
       "vocabKo": "맛있어요"
     },
@@ -6012,8 +6012,8 @@
       "promptDe": "Ich habe zugehört und das Besteck abgelegt.",
       "promptEn": "I listened, and I put my spoon down.",
       "distractors": [
-        "사세요",
-        "없어요"
+        "조금만",
+        "역에서"
       ],
       "vocabKo": "수저 놓다"
     },
@@ -6024,7 +6024,7 @@
       "promptDe": "Ich bin aufgestanden, um beim Abwasch zu helfen.",
       "promptEn": "I stood up to help with the dishes.",
       "distractors": [
-        "말하다",
+        "잠깐만요",
         "부치다"
       ],
       "vocabKo": "설거지"
@@ -6044,12 +6044,12 @@
     {
       "id": "satz_a1_0113",
       "level": "a1",
-      "targetKo": "세배하는 법을 현우가 거실에서 알려 줬어요.",
-      "promptDe": "Wie man den Neujahrsgruß macht, zeigte mir Hyunwoo im Wohnzimmer.",
-      "promptEn": "Hyunwoo showed me how to do the New Year bow in the living room.",
+      "targetKo": "수진 씨가 거실에서 세배를 가르쳤어요.",
+      "promptDe": "Sujin brachte mir im Wohnzimmer den Neujahrsgruß bei.",
+      "promptEn": "Sujin taught me the New Year's bow in the living room.",
       "distractors": [
-        "하나만",
-        "하니"
+        "주셨어요",
+        "입었어요"
       ],
       "vocabKo": "세배"
     },
@@ -6085,7 +6085,7 @@
       "promptEn": "I put on the hanbok and tied the ribbon.",
       "distractors": [
         "나라",
-        "한국어"
+        "선생님은"
       ],
       "vocabKo": "한복"
     },
@@ -6132,7 +6132,7 @@
       "promptDe": "Ich habe die Neujahrswünsche gehört und war sehr froh.",
       "promptEn": "I heard the New Year's blessing, and I was very happy.",
       "distractors": [
-        "영어는",
+        "조금만",
         "같이"
       ],
       "vocabKo": "덕담"
@@ -6145,7 +6145,7 @@
       "promptEn": "In front of the ancestral table, you don't take pictures.",
       "distractors": [
         "단어는",
-        "씻으세요"
+        "걸어서"
       ],
       "vocabKo": "차례상"
     },
@@ -10968,8 +10968,8 @@
       "promptDe": "Es hat geregnet, deshalb habe ich den Spaziergang abgesagt.",
       "promptEn": "It rained, so I canceled the walk.",
       "distractors": [
-        "골랐어요",
-        "만나서"
+        "독일로",
+        "반가워요"
       ],
       "vocabKo": "취소하다"
     },
@@ -11028,8 +11028,8 @@
       "promptDe": "Sollen wir den Wochenendplan zusammen machen?",
       "promptEn": "Shall we make the weekend plan together?",
       "distractors": [
-        "주",
-        "바꿀까요"
+        "수요일에",
+        "산책을"
       ],
       "vocabKo": "주말 계획"
     },
@@ -11064,8 +11064,8 @@
       "promptDe": "Ich gehe zuerst und sichere die Plätze.",
       "promptEn": "I'll go ahead and grab the seats.",
       "distractors": [
-        "시간은",
-        "도착"
+        "받아요",
+        "영수증을"
       ],
       "vocabKo": "먼저 가다"
     },
@@ -11760,7 +11760,7 @@
       "promptDe": "Weil du langsam Koreanisch sprichst, verstehe ich es.",
       "promptEn": "Because you speak Korean slowly, I understand.",
       "distractors": [
-        "걸어서",
+        "알려",
         "책이"
       ],
       "vocabKo": "천천히 말하다"
@@ -17568,8 +17568,8 @@
       "promptDe": "Nein, ich gehe nicht.",
       "promptEn": "No, I'm not going.",
       "distractors": [
-        "세울까요",
-        "늦기"
+        "것",
+        "오후에"
       ],
       "vocabKo": "아니요"
     },
@@ -17664,8 +17664,8 @@
       "promptDe": "Meine Augen sind heute etwas müde.",
       "promptEn": "My eyes are a bit tired today.",
       "distractors": [
-        "이거",
-        "우편함에"
+        "줄",
+        "확인해요"
       ],
       "vocabKo": "눈"
     },
@@ -27887,7 +27887,7 @@
       "promptEn": "I read the example and learn the word's meaning.",
       "vocabKo": "예문",
       "distractors": [
-        "수업에서",
+        "카드로",
         "왔어요"
       ],
       "courseUnitId": "a1_08_clarify_repair",
@@ -28027,8 +28027,8 @@
       "promptEn": "Since the arrival time changed, contact me.",
       "vocabKo": "도착 시간",
       "distractors": [
-        "수저를",
-        "편지를"
+        "듣고",
+        "우편함에"
       ],
       "courseUnitId": "a1_14_payment_delivery",
       "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
