@@ -14591,8 +14591,8 @@
       "id": "cloze_a1_0200",
       "level": "a1",
       "sentenceKo": "소포를 ＿＿＿ 전에 주소를 확인해요.",
-      "answer": "부치다",
-      "fullKo": "소포를 부치다 전에 주소를 확인해요.",
+      "answer": "부치기",
+      "fullKo": "소포를 부치기 전에 주소를 확인해요.",
       "de": "Bevor ich das Paket aufgebe, prüfe ich die Adresse.",
       "en": "Before I mail the parcel, I check the address.",
       "distractors": [
@@ -14695,9 +14695,9 @@
     {
       "id": "cloze_a1_0207",
       "level": "a1",
-      "sentenceKo": "세 번 ＿＿＿에서 기다리세요.",
+      "sentenceKo": "삼 번 ＿＿＿에서 기다리세요.",
       "answer": "창구",
-      "fullKo": "세 번 창구에서 기다리세요.",
+      "fullKo": "삼 번 창구에서 기다리세요.",
       "de": "Bitte warten Sie am Schalter drei.",
       "en": "Please wait at counter number three.",
       "distractors": [
@@ -14965,11 +14965,11 @@
     {
       "id": "cloze_a1_0225",
       "level": "a1",
-      "sentenceKo": "내일 오후에 ＿＿＿ 문자를 보냈어요.",
-      "answer": "시간 맞추다",
-      "fullKo": "내일 오후에 시간 맞추다 문자를 보냈어요.",
-      "de": "Morgen Nachmittag habe ich geschrieben, um die Zeit abzustimmen.",
-      "en": "I texted tomorrow afternoon to match the time.",
+      "sentenceKo": "내일 친구와 시간을 ＿＿＿.",
+      "answer": "맞춰요",
+      "fullKo": "내일 친구와 시간을 맞춰요.",
+      "de": "Morgen stimme ich die Zeit mit einem Freund ab.",
+      "en": "Tomorrow I coordinate the time with a friend.",
       "distractors": [
         "늦잠",
         "약속 시간",
@@ -15040,11 +15040,11 @@
     {
       "id": "cloze_a1_0230",
       "level": "a1",
-      "sentenceKo": "한강에서 ＿＿＿ 제안했어요.",
-      "answer": "같이 걷다",
-      "fullKo": "한강에서 같이 걷다 제안했어요.",
-      "de": "Ich habe vorgeschlagen, am Hangang zusammen zu gehen.",
-      "en": "I suggested that we walk together at the Hangang.",
+      "sentenceKo": "저녁에 한강에서 ＿＿＿.",
+      "answer": "같이 걸어요",
+      "fullKo": "저녁에 한강에서 같이 걸어요.",
+      "de": "Abends gehen wir zusammen am Hangang spazieren.",
+      "en": "In the evening we walk together along the Hangang.",
       "distractors": [
         "늦잠",
         "약속 시간",
@@ -15790,45 +15790,45 @@
     {
       "id": "cloze_a1_0280",
       "level": "a1",
-      "sentenceKo": "늦게 와서 ＿＿＿ 말하고 앉았어요.",
-      "answer": "죄송하다",
-      "fullKo": "늦게 와서 죄송하다 말하고 앉았어요.",
-      "de": "Ich sagte, es tue mir leid, dass ich zu spät komme, und setzte mich.",
-      "en": "I said I was sorry for being late and sat down.",
+      "sentenceKo": "늦게 와서 정말 ＿＿＿.",
+      "answer": "죄송해요",
+      "fullKo": "늦게 와서 정말 죄송해요.",
+      "de": "Es tut mir wirklich leid, dass ich zu spät gekommen bin.",
+      "en": "I'm really sorry that I came late.",
       "distractors": [
-        "감사하다",
-        "실례하다",
-        "잘못"
+        "우산",
+        "가방",
+        "단어"
       ],
       "topic": "Entschuldigung"
     },
     {
       "id": "cloze_a1_0281",
       "level": "a1",
-      "sentenceKo": "도와주셔서 ＿＿＿ 인사를 했어요.",
-      "answer": "감사하다",
-      "fullKo": "도와주셔서 감사하다 인사를 했어요.",
-      "de": "Ich habe mich bedankt, weil Sie geholfen haben.",
-      "en": "I said I was grateful that you helped.",
+      "sentenceKo": "도와주셔서 정말 ＿＿＿.",
+      "answer": "감사해요",
+      "fullKo": "도와주셔서 정말 감사해요.",
+      "de": "Vielen Dank, dass Sie mir geholfen haben.",
+      "en": "Thank you so much for helping me.",
       "distractors": [
-        "죄송하다",
-        "실례하다",
-        "잘못"
+        "신발",
+        "안경",
+        "모자"
       ],
       "topic": "Entschuldigung"
     },
     {
       "id": "cloze_a1_0282",
       "level": "a1",
-      "sentenceKo": "잠깐 ＿＿＿ 하고 지나갔어요.",
-      "answer": "실례하다",
-      "fullKo": "잠깐 실례하다 하고 지나갔어요.",
-      "de": "Ich sagte Entschuldigung und ging vorbei.",
-      "en": "I said excuse me and passed by.",
+      "sentenceKo": "지나가기 전에 잠깐 ＿＿＿.",
+      "answer": "실례해요",
+      "fullKo": "지나가기 전에 잠깐 실례해요.",
+      "de": "Bevor ich vorbeigehe, sage ich kurz Entschuldigung.",
+      "en": "Before I pass by, I briefly say excuse me.",
       "distractors": [
-        "죄송하다",
-        "감사하다",
-        "잘못"
+        "편지",
+        "단어",
+        "가게"
       ],
       "topic": "Entschuldigung"
     },
@@ -15850,15 +15850,15 @@
     {
       "id": "cloze_a1_0284",
       "level": "a1",
-      "sentenceKo": "창문을 닫아 달라고 ＿＿＿ 전에 먼저 인사해요.",
-      "answer": "부탁하다",
-      "fullKo": "창문을 닫아 달라고 부탁하다 전에 먼저 인사해요.",
-      "de": "Bevor ich bitte, das Fenster zu schließen, grüße ich zuerst.",
-      "en": "Before I ask them to close the window, I greet them first.",
+      "sentenceKo": "친구에게 ＿＿＿ 전에 먼저 인사해요.",
+      "answer": "부탁하기",
+      "fullKo": "친구에게 부탁하기 전에 먼저 인사해요.",
+      "de": "Bevor ich einen Freund um einen Gefallen bitte, grüße ich zuerst.",
+      "en": "Before I ask a friend a favor, I greet them first.",
       "distractors": [
         "죄송하다",
         "감사하다",
-        "실례하다"
+        "잘못"
       ],
       "topic": "Entschuldigung"
     },
@@ -15880,11 +15880,11 @@
     {
       "id": "cloze_a1_0286",
       "level": "a1",
-      "sentenceKo": "도와줘서 고맙다는 말에 ＿＿＿.",
+      "sentenceKo": "정말 고마워요! ＿＿＿!",
       "answer": "제가 더요",
-      "fullKo": "도와줘서 고맙다는 말에 제가 더요.",
-      "de": "Auf das Danke sage ich, ich habe zu danken.",
-      "en": "When someone thanks me, I say I should thank you.",
+      "fullKo": "정말 고마워요! 제가 더요!",
+      "de": "Danke schön! Ich habe zu danken.",
+      "en": "Thank you! I should thank you.",
       "distractors": [
         "죄송하다",
         "감사하다",
@@ -15910,15 +15910,15 @@
     {
       "id": "cloze_a1_0288",
       "level": "a1",
-      "sentenceKo": "못 들어서 ＿＿＿ 부탁했어요.",
-      "answer": "다시 말하다",
-      "fullKo": "못 들어서 다시 말하다 부탁했어요.",
-      "de": "Ich habe gebeten, es noch einmal zu sagen, weil ich es nicht gehört habe.",
-      "en": "I asked them to say it again because I did not hear it.",
+      "sentenceKo": "잘 못 들어서 ＿＿＿.",
+      "answer": "다시 말해요",
+      "fullKo": "잘 못 들어서 다시 말해요.",
+      "de": "Ich habe nicht gut gehört, also sage ich es noch einmal.",
+      "en": "I didn't hear well, so I say it again.",
       "distractors": [
-        "죄송하다",
-        "감사하다",
-        "실례하다"
+        "실수",
+        "잘못",
+        "단어"
       ],
       "topic": "Entschuldigung"
     },

@@ -1139,17 +1139,6 @@
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
       "kind": "cloze",
-      "id": "cloze_a1_0200",
-      "level": "a1",
-      "fields": [
-        "distractors"
-      ],
-      "beforeSha256": "b19562addb3bc444cd9684051546584718e5fa3c02a50cfd249bcc4c0621af4f",
-      "afterSha256": "55eb3ca9387ec5039ba87cf5fdbce3e7d44f4bfabda6f909ffb9771e83a10244"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
-      "kind": "cloze",
       "id": "cloze_a1_0201",
       "level": "a1",
       "fields": [
@@ -1226,50 +1215,6 @@
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
       "kind": "cloze",
-      "id": "cloze_a1_0207",
-      "level": "a1",
-      "fields": [
-        "distractors"
-      ],
-      "beforeSha256": "db5db75582344bb591cce9012a13f829dd5f7a2a12bccb86cd4065d24b26b185",
-      "afterSha256": "6ee4d6a964471d2cd7104cc12dd114385052b2cb469ddedc4410c9bb3668025c"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
-      "kind": "cloze",
-      "id": "cloze_a1_0280",
-      "level": "a1",
-      "fields": [
-        "distractors"
-      ],
-      "beforeSha256": "c660020c3ead734f1c4e2c7cbf7a9f229fa03e57625f181a87c7eb49bc7e4696",
-      "afterSha256": "c92cf4882cfec2821ac16c0882e38f0a0f7ef70fe4da45ea29aba379b845461c"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
-      "kind": "cloze",
-      "id": "cloze_a1_0281",
-      "level": "a1",
-      "fields": [
-        "distractors"
-      ],
-      "beforeSha256": "b1928eb773e28aecbab5523ace87367da5f3f27c901e88ce56a4a57c5e0d8007",
-      "afterSha256": "b59f52eb720b773426f500e7f8cd72b005037ed3485784a848917520ed0551ec"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
-      "kind": "cloze",
-      "id": "cloze_a1_0282",
-      "level": "a1",
-      "fields": [
-        "distractors"
-      ],
-      "beforeSha256": "35f91716bb10c3f2d3b1d78102b964570986ff352fd65f0abcc16ffcc38f3994",
-      "afterSha256": "3b33f1364ab45b60e703abb1eabdb8721e6753941fea8a92a775324f52392500"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
-      "kind": "cloze",
       "id": "cloze_a1_0283",
       "level": "a1",
       "fields": [
@@ -1319,17 +1264,6 @@
       ],
       "beforeSha256": "a4d80709fa267549a7f0d91e97ec501fcb617cd95e0420591127278681233428",
       "afterSha256": "48d64d9122a80b5ca11e2ce4f782b0462bfc0d9c5e76a4c408a2eedfe0f465f8"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
-      "kind": "satz",
-      "id": "satz_a1_0164",
-      "level": "a1",
-      "fields": [
-        "distractors"
-      ],
-      "beforeSha256": "931339f4c8975b1aac62ea675a725818c5b13f23241615e7e15015c9e84934ad",
-      "afterSha256": "20ecac589437603d19f6804c312fb0548245896dc6e574295ff909fa3d71d928"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -3402,6 +3336,411 @@
       ],
       "beforeSha256": "65fc92aa7793ba1d86ddd6122eff504286d63ea1ecf75a6710ce12d3a870e290",
       "afterSha256": "2224a1d6d1b4a3bc5f4ef80aeef0527eb189618623313e7c0e29d9852c2e3edd"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0312",
+      "level": "a1",
+      "fields": [
+        "example_korean"
+      ],
+      "beforeSha256": "a0492221b80e001f428be947c6c950cf52ee03c5c253049c98e6d87c94d9fbd4",
+      "afterSha256": "8d3dc461e3d78ade3556b6996635e160d947714822010477acdbc6b2b8fb21da"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0337",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "f57fa630f3043112743392b91b5215902497ec565697f436e0316f02aeebea8f",
+      "afterSha256": "329c1ea137d680bffb7a58cbbb879cdfb91e16794e0d81143ba26b93b74add8b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0342",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean",
+        "romanization"
+      ],
+      "beforeSha256": "6a6841d246b70af6ce86ccef192fa45b1c7878d73bd04a35cfc6cfe511416ee0",
+      "afterSha256": "d92a4a5d06dfdc6cd1dff41e995d9669a61fe87b65fb6689f6060235ccdfbca0"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0392",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "a8695082534d0fc84d1079a191f63c484bcea78fbe0f0be9c213306c6893073e",
+      "afterSha256": "eb2d96de27b0bef37cb38bd3fe7d3d1516366c1704062a839446aea996781376"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0393",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "41cc1c8e9552718f2bd0a0b22459651bd647cfc88cadb71d5f83359d0f9d18b5",
+      "afterSha256": "c163faf555041db6b4a4ed1c6202537a78a256b5f8429868aaba2ec1b304334c"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0394",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean",
+        "romanization"
+      ],
+      "beforeSha256": "9294cbc64e95f562a4735225c99cb69705ab94b280385fb70e1555899a28fa80",
+      "afterSha256": "e524d24cee557f0514fd36547aa0ceb216240e8762ac50691d74a578b3036c4c"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0396",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "65e7790911ca9eb18f16797b203e320d04f9d293d2545e8dd0d4745f2eb5b6f6",
+      "afterSha256": "a924c707f9f65109a01b73d2b5a740e916f7eac085f6cb4eaa74d72134a0916b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0400",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "2d311728bb5cf4e00510fce73a34349ec978d57fec6fb2cdc0c73389fe6c3bd4",
+      "afterSha256": "39ac753e8fb675c7454c402495a70127340021226e737d5c341fe31165f28ab4"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0398",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "099c20e441181637080169f8850f2fbec7afc2bf9ed76ec19f045a0a9c5cf1e3",
+      "afterSha256": "ec682e01552013065be259857af4a03c97be43ee6ce0a4b0ff616127c47ca459"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0319",
+      "level": "a1",
+      "fields": [
+        "example_korean"
+      ],
+      "beforeSha256": "3c2ceebcc3c60fa62f0bc365de698dea456a393bf631f1d517cc3690118365e0",
+      "afterSha256": "f76d4d844c1041a134309087707b80f5c260d201b736644cdebf97118bc4256b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0200",
+      "level": "a1",
+      "fields": [
+        "answer",
+        "distractors",
+        "fullKo"
+      ],
+      "beforeSha256": "b19562addb3bc444cd9684051546584718e5fa3c02a50cfd249bcc4c0621af4f",
+      "afterSha256": "bbcf9d16b54f8ca9b1d3cbaecffdcc6418e2e84f78a9786763d745f529f95669"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0225",
+      "level": "a1",
+      "fields": [
+        "answer",
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "66ead8d0145253a6b724bd7c9d3c2b07154faeecc0ed1fa1624a401e521371d8",
+      "afterSha256": "40d7971d8cd0273224b0545f20c8656a232e9b0216251af05dccdbb1ad44f5f3"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0230",
+      "level": "a1",
+      "fields": [
+        "answer",
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "727141f717b6c610b7633c6ec15ec3a6f565c4a51371d4f5f76026c4cfe4d07c",
+      "afterSha256": "4103bc4fabc5c150e12bed990750d3dd83c5454302cc95000b38bfbe3b1a896d"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0280",
+      "level": "a1",
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "c660020c3ead734f1c4e2c7cbf7a9f229fa03e57625f181a87c7eb49bc7e4696",
+      "afterSha256": "57fb560a77929cb3457af34b6d4e24f592b28591bf2575e004256e7ac0d4843e"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0281",
+      "level": "a1",
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "b1928eb773e28aecbab5523ace87367da5f3f27c901e88ce56a4a57c5e0d8007",
+      "afterSha256": "2cf7aa0d9485f2e69c5539806c630addfec2143097e174b0602bf7d75c178802"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0282",
+      "level": "a1",
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "35f91716bb10c3f2d3b1d78102b964570986ff352fd65f0abcc16ffcc38f3994",
+      "afterSha256": "a6752b190085e2c66c33c4065205dcb1b5c034b7936a69543867bf0a680d809d"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0284",
+      "level": "a1",
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "6565e6ad6d74953fb217ea68395ed19f5df0eaa3efdbeefb09510532d1c44a2d",
+      "afterSha256": "eec6fb219f42d6670bfa28bdb43d1d48becaa017098b5e3c349a8a4ac2c2c594"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0288",
+      "level": "a1",
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "639bd659318e3eec8608e321bcf21855972c60d997ef924bbcbd0105449052b6",
+      "afterSha256": "b658b41aebb2c76c21b43791d2e7f0fccc9ea48c3c44ccab7b01d93300a4ad86"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0164",
+      "level": "a1",
+      "fields": [
+        "distractors",
+        "targetKo"
+      ],
+      "beforeSha256": "931339f4c8975b1aac62ea675a725818c5b13f23241615e7e15015c9e84934ad",
+      "afterSha256": "acea7dfcf70da7a1fe0bbd29c0a7b920d4e85113a53c5dff756c8418948fa767"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0189",
+      "level": "a1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "abb3659efb8defc88c2e06314f6f9cdad1858946f0c580b1291358256dca0a33",
+      "afterSha256": "05fb4edd13cea02bf4e0671dfa883b745ddbc7249abaf3e72fa51644c241136d"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0194",
+      "level": "a1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "d985429488e9558d2a4d8980df89e084c3ed384c8edfac064d9b3b0323077c00",
+      "afterSha256": "942b7603bde84813ec26d489bb3fd44677643d718d4bdcbe88863f76c16235f4"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0244",
+      "level": "a1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "df12896105ec3935d7ca9f89dbec7cc9c4a76e62334a1e7ed0bea76db3c29eeb",
+      "afterSha256": "ca96ec269263b9f2f7ceb02d68f5a727f700c965f8017db5ce082dba753f3cf4"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0245",
+      "level": "a1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "4cce79a6249b9f3c332dc2107fb38cd741ec604235aa44caa2e6391785637510",
+      "afterSha256": "295797966fee610f501f7d6c7e920db83dc836e1ca0852a609e73cafa963999b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0246",
+      "level": "a1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "81b8cf82275aad3c4d45dd5526cb594bd4a1b1102ebe90a9474280283072e293",
+      "afterSha256": "d885edc7255a741c4ebee04be839905fb9e0f6d5c2b5ef4f8bdf2e6afc6f6675"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0248",
+      "level": "a1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "1307c6b55b7db7be7b36584bee60853e5018d8fb0555e0a57eed1f84d4785867",
+      "afterSha256": "76f7cc047d8d1c0c142bf68079dd1b5aa76136e9ae2031ae4b66d6338e3aafd0"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0252",
+      "level": "a1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "7f3cc3bdc1fbdc6a225741727a6a51003d2488c81aa1d340443d048839824812",
+      "afterSha256": "8d64cab5640f0bd0f67165aa7fb60470879733cdca472df0509afad7a000616b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0250",
+      "level": "a1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "052573a3e4e9a7d3f5897567a3393db2d4d45bbf7d22128769596db1b4fa7d05",
+      "afterSha256": "b409831961045f8952efbed1cef325451067279c54a889a509f305f405319d1f"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0171",
+      "level": "a1",
+      "fields": [
+        "targetKo"
+      ],
+      "beforeSha256": "61000e086f45415f3555b27888de6c44a19d637b4b075aeef75b235fe3e0b73e",
+      "afterSha256": "b7aec3b0096984c088ae1b327a3d63893c1b583ff54018aec217a4d9a561297c"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0207",
+      "level": "a1",
+      "fields": [
+        "distractors",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "db5db75582344bb591cce9012a13f829dd5f7a2a12bccb86cd4065d24b26b185",
+      "afterSha256": "b950c80d3f921e096d850207105d594b2f46b3cfb8cd45e4dfbc5869f33d92e5"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0286",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "97a8d9ace85d9c6865a6c9f02d9945638f9de32968e06eff467744c1cf5eaa71",
+      "afterSha256": "829c57d94c6d845499cf9924028b02b8187ce5ca7d3bddb779eafefeccad6ce6"
     }
   ],
   "routingEntries": [
@@ -3498,6 +3837,13 @@
       "method": "scan_translation_pairs.py (R1-R8) + full manual read of all 402 A1 vocab rows against docs/CONTENT_LEVEL_BIBLE.md §B.1 and the audit's 8 defect categories; 4 verb-phrase EN gloss fixes ('to V' consistency) + 1 example_german/example_english trim (vocab_a1_0171, two redundant sentences -> one) + 5 Batch 25 KO liveliness rewrites (Jin ruling: 'X가 N 명 있어요' existential frame repeated 4x, and vocab_a1_0481's 와 opener with no present referent), all propagated to their cloze/satz mirrors; entries fingerprinted against each row's true historical draft file (manifest.artifacts[].draft).",
       "added": 0,
       "updated": 19
+    },
+    {
+      "date": "2026-09-15",
+      "scope": "C2b-1 round 2 (Fable review) -- A1 KO grammar-bug cluster fix + 2 Fable finds",
+      "method": "Fable spot-checked C2b-1's first 10 DE/EN-only fixes (accepted) and put 8 rows the C2b-1 read had flagged out-of-scope (bare -다 dictionary form used where 1급 -기 전에 or a grade-3 quotative would be needed) back in scope, plus 2 new finds: vocab_a1_0398 제가 더요 (-다는 인용 관형 + -아/어 주다 unusable at A1, rewritten as a natural two-beat exchange) and vocab_a1_0319 창구 (native numeral 세 misused before a counter-label noun, corrected to Sino-Korean 삼). Every KO rewrite verified against tool/cefr_lexicon.py GrammarIndex (0 grade>=2 hits) before being applied; propagated to cloze/satz mirrors (sentenceKo/answer/distractors rebuilt by hand per row where the blank's answer text changed).",
+      "added": 0,
+      "updated": 30
     }
   ],
   "batchFieldRevisions": [

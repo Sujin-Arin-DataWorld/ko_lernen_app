@@ -10688,7 +10688,7 @@
     {
       "id": "satz_a1_0164",
       "level": "a1",
-      "targetKo": "소포를 부치다 전에 주소를 확인해요.",
+      "targetKo": "소포를 부치기 전에 주소를 확인해요.",
       "promptDe": "Bevor ich das Paket aufgebe, prüfe ich die Adresse.",
       "promptEn": "Before I mail the parcel, I check the address.",
       "distractors": [
@@ -10772,7 +10772,7 @@
     {
       "id": "satz_a1_0171",
       "level": "a1",
-      "targetKo": "세 번 창구에서 기다리세요.",
+      "targetKo": "삼 번 창구에서 기다리세요.",
       "promptDe": "Bitte warten Sie am Schalter drei.",
       "promptEn": "Please wait at counter number three.",
       "distractors": [
@@ -10988,9 +10988,9 @@
     {
       "id": "satz_a1_0189",
       "level": "a1",
-      "targetKo": "내일 오후에 시간 맞추다 문자를 보냈어요.",
-      "promptDe": "Morgen Nachmittag habe ich geschrieben, um die Zeit abzustimmen.",
-      "promptEn": "I texted tomorrow afternoon to match the time.",
+      "targetKo": "내일 친구와 시간을 맞춰요.",
+      "promptDe": "Morgen stimme ich die Zeit mit einem Freund ab.",
+      "promptEn": "Tomorrow I coordinate the time with a friend.",
       "distractors": [
         "늦잠",
         "약속 시간"
@@ -11048,9 +11048,9 @@
     {
       "id": "satz_a1_0194",
       "level": "a1",
-      "targetKo": "한강에서 같이 걷다 제안했어요.",
-      "promptDe": "Ich habe vorgeschlagen, am Hangang zusammen zu gehen.",
-      "promptEn": "I suggested that we walk together at the Hangang.",
+      "targetKo": "저녁에 한강에서 같이 걸어요.",
+      "promptDe": "Abends gehen wir zusammen am Hangang spazieren.",
+      "promptEn": "In the evening we walk together along the Hangang.",
       "distractors": [
         "늦잠",
         "약속 시간"
@@ -11648,9 +11648,9 @@
     {
       "id": "satz_a1_0244",
       "level": "a1",
-      "targetKo": "늦게 와서 죄송하다 말하고 앉았어요.",
-      "promptDe": "Ich sagte, es tue mir leid, dass ich zu spät komme, und setzte mich.",
-      "promptEn": "I said I was sorry for being late and sat down.",
+      "targetKo": "늦게 와서 정말 죄송해요.",
+      "promptDe": "Es tut mir wirklich leid, dass ich zu spät gekommen bin.",
+      "promptEn": "I'm really sorry that I came late.",
       "distractors": [
         "감사하다",
         "실례하다"
@@ -11660,9 +11660,9 @@
     {
       "id": "satz_a1_0245",
       "level": "a1",
-      "targetKo": "도와주셔서 감사하다 인사를 했어요.",
-      "promptDe": "Ich habe mich bedankt, weil Sie geholfen haben.",
-      "promptEn": "I said I was grateful that you helped.",
+      "targetKo": "도와주셔서 정말 감사해요.",
+      "promptDe": "Vielen Dank, dass Sie mir geholfen haben.",
+      "promptEn": "Thank you so much for helping me.",
       "distractors": [
         "죄송하다",
         "실례하다"
@@ -11672,9 +11672,9 @@
     {
       "id": "satz_a1_0246",
       "level": "a1",
-      "targetKo": "잠깐 실례하다 하고 지나갔어요.",
-      "promptDe": "Ich sagte Entschuldigung und ging vorbei.",
-      "promptEn": "I said excuse me and passed by.",
+      "targetKo": "지나가기 전에 잠깐 실례해요.",
+      "promptDe": "Bevor ich vorbeigehe, sage ich kurz Entschuldigung.",
+      "promptEn": "Before I pass by, I briefly say excuse me.",
       "distractors": [
         "죄송하다",
         "감사하다"
@@ -11696,9 +11696,9 @@
     {
       "id": "satz_a1_0248",
       "level": "a1",
-      "targetKo": "창문을 닫아 달라고 부탁하다 전에 먼저 인사해요.",
-      "promptDe": "Bevor ich bitte, das Fenster zu schließen, grüße ich zuerst.",
-      "promptEn": "Before I ask them to close the window, I greet them first.",
+      "targetKo": "친구에게 부탁하기 전에 먼저 인사해요.",
+      "promptDe": "Bevor ich einen Freund um einen Gefallen bitte, grüße ich zuerst.",
+      "promptEn": "Before I ask a friend a favor, I greet them first.",
       "distractors": [
         "죄송하다",
         "감사하다"
@@ -11720,9 +11720,9 @@
     {
       "id": "satz_a1_0250",
       "level": "a1",
-      "targetKo": "도와줘서 고맙다는 말에 제가 더요.",
-      "promptDe": "Auf das Danke sage ich, ich habe zu danken.",
-      "promptEn": "When someone thanks me, I say I should thank you.",
+      "targetKo": "정말 고마워요! 제가 더요!",
+      "promptDe": "Danke schön! Ich habe zu danken.",
+      "promptEn": "Thank you! I should thank you.",
       "distractors": [
         "죄송하다",
         "감사하다"
@@ -11744,9 +11744,9 @@
     {
       "id": "satz_a1_0252",
       "level": "a1",
-      "targetKo": "못 들어서 다시 말하다 부탁했어요.",
-      "promptDe": "Ich habe gebeten, es noch einmal zu sagen, weil ich es nicht gehört habe.",
-      "promptEn": "I asked them to say it again because I did not hear it.",
+      "targetKo": "잘 못 들어서 다시 말해요.",
+      "promptDe": "Ich habe nicht gut gehört, also sage ich es noch einmal.",
+      "promptEn": "I didn't hear well, so I say it again.",
       "distractors": [
         "죄송하다",
         "감사하다"
