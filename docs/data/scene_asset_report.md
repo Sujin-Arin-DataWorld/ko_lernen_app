@@ -57,12 +57,12 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 
 ## 생성 근거 SHA-256
 
-- `assets/data/scenarios_a1.json`: `7d4645a27969f36695f7d7ec5beded6d1d50b199a3968219871aab5c03eaab6a`
-- `assets/data/scenarios_a2.json`: `ec11f493a130d99c954caa2907b71a49483471c4c2c31efee714b2ff1f810b25`
-- `assets/data/scenarios_b1.json`: `90dd78614b903d5bc75e3f0398f27d3750c8df2a0d2ee8bfacfe8604049d9364`
-- `assets/data/scenarios_b2.json`: `93ce4f6bfa4d66f87dd63904839c1ed0583176605d5d0830caab513a8ad6d409`
-- `assets/data/scenarios_c1.json`: `9b46888c14017bc19c06ca0d57101c1364bd92de43756a8485730554234c0a31`
-- `assets/data/scenarios_c2.json`: `764307bf0c6d740e62cfd0779a86a1737721a0e90aafebe71e584ddbb30f0144`
+- `assets/data/scenarios_a1.json`: `3f5fb440204ff9a74ece68c8c6190e77b653fa9b8de35417b0b6151632269694`
+- `assets/data/scenarios_a2.json`: `ec0508b2750a3b6dfca10e0985a012f31eccad6e4a68c7d344e2bcf4e3c3b343`
+- `assets/data/scenarios_b1.json`: `f6581742b854ddc5be83d21a0a96db11ef19efee375643ed9deb9827216df838`
+- `assets/data/scenarios_b2.json`: `2bff6757e26c793a4393cd3594c5a31b9882934a747d26d9c1980780d072af72`
+- `assets/data/scenarios_c1.json`: `4d23c9c75a5bb2832732f7cc4e4165ddf1f0b0b0e8a3091368902edf07cdc9cf`
+- `assets/data/scenarios_c2.json`: `3c45c3313f919970cbb16bac40095cf916441bfcf0a05de57f5a7949c7eaa899`
 - `docs/data/scene_category_poster_lock.json`: `1036664f6008281cfcd8f969cad46953c0ed291e5047b1ad48a02555ec1432db`
 - `lib/services/scene_asset_resolver.dart`: `7f5a940853c25aaf4fbb81e8ccb7c1fcd951ea1570559c658b61d9e77aa185be`
 

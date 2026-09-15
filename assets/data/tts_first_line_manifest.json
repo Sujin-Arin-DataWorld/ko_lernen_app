@@ -16,7 +16,7 @@
     "assets/data/scenarios_c2.json": "3c45c3313f919970cbb16bac40095cf916441bfcf0a05de57f5a7949c7eaa899"
   },
   "scenarioCount": 178,
-  "bundledCount": 177,
+  "bundledCount": 178,
   "items": [
     {
       "scenarioId": "a1_theme_park_date_choices",
@@ -2170,9 +2170,9 @@
       "normalizedText": "제 2차 창작물을 거의 그대로 가져가 편집해서 유료로 판매한 계정을 신고했는데 아직 조치가 없어요.",
       "cacheHashSha1": "832ef794a42840601b51f3104a610a5eb6c3c6f3",
       "storagePath": "tts/v3/female/832ef794a42840601b51f3104a610a5eb6c3c6f3.mp3",
-      "bundledAssetPath": null,
-      "bundled": false,
-      "bundledSha256": null
+      "bundledAssetPath": "assets/tts/v3/female/832ef794a42840601b51f3104a610a5eb6c3c6f3.mp3",
+      "bundled": true,
+      "bundledSha256": "0554199a99c288411938b54a35e458511166600e86ce54efe038316501b1b99f"
     },
     {
       "scenarioId": "c2_w10_friends",
