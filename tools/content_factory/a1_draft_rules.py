@@ -116,7 +116,18 @@ HELPER_SUFFIXES = sorted([
 ], key=len, reverse=True)
 
 CLOSED_CLASS_PRONOUNS = {"저", "제", "이", "그", "저는", "제가", "우리"}
-GRAMMAR_AUXILIARIES = {"싶다"}  # -고 싶다, grammar grade 1
+GRAMMAR_AUXILIARIES = {
+    "싶다",  # -고 싶다, grammar grade 1
+    # Batch 29 (2026-09-16): 않다 (-지 않아요) and 수 (-(으)ㄹ 수 있어요) are
+    # both explicitly-permitted 1급 용언 endings for this batch's verb/
+    # adjective rows, but neither the negation auxiliary 않다 nor the bound
+    # noun 수 ("way, ability") appears as its own headword in the NIKL
+    # grade-1 CSV (조사/의존명사 grammar function words are inconsistently
+    # covered there) -- added here so the shared helper-word scanner
+    # doesn't flag them as unresolved vocabulary in every batch that uses
+    # these two endings.
+    "않다", "수",
+}
 
 
 def build_helper_word_scanner(
@@ -213,7 +224,16 @@ def is_bare_ne_or_joayo_opener(example_korean: str) -> bool:
 # extract "리스티안", not "크리스티안"), which Batch 26 never hit only
 # because it happened not to write that exact name-plus-씨 string anywhere
 # (Batch 27 authoring, 2026-09-15).
-NAME_BEFORE_SSI_RE = re.compile(r"([가-힣]{1,5})\s*씨")
+# \s+ (one-or-more), not \s* -- Batch 29 (2026-09-16): \s* let this match
+# inside an unrelated compound word that merely happens to end in the
+# syllable 씨 with no space before it, e.g. "날씨" (weather) tokenizes as
+# "날" + "씨" and was misread as the name "날" before the honorific 씨. The
+# app's own convention always writes a real name address with a space
+# before 씨 (every canonical persona example is "레나 씨", "마야 씨", ...,
+# never a glued "레나씨"), so requiring at least one space is a strictly
+# more correct match with no loss of true positives across Batch 25-28's
+# own content (spot-checked: none rely on a zero-space glued name+씨).
+NAME_BEFORE_SSI_RE = re.compile(r"([가-힣]{1,5})\s+씨")
 
 
 def names_before_ssi(example_korean: str):
