@@ -157,8 +157,9 @@ class Batch09ReviewDraftTest(unittest.TestCase):
         # (a1_particles_in_use_1 보충 8행, 2026-09-08) + Batch 23 2차
         # (a1_first_class_1 신규 9행, 2026-09-09) + Batch 24 소형 팩 보충
         # 62행(A1 14·A2 24·B1 10·B2 14, 2026-09-09) + C3-T2 Batch 25 A1
-        # 보강 64행(19 팩 12/12 완성, 2026-09-15)을 함께 센다.
-        self.assertEqual(inventory["vocab"], 2563)
+        # 보강 64행(19 팩 12/12 완성, 2026-09-15) + C3-T3 Batch 26/27/28 A1
+        # 보강 192행(66+63+63, 15 신규 팩 포함, 2026-09-16)을 함께 센다.
+        self.assertEqual(inventory["vocab"], 2755)
         self.assertEqual(len(manifest["vocabPacks"]), 48)
 
     def test_review_ledgers_are_original_drafts(self) -> None:
