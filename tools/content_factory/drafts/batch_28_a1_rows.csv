@@ -8,7 +8,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 준비,junbi,Vorbereitung,A1,Nomen,내일 여행을 준비해요.,Ich bereite morgen die Reise vor.,Alltag,a1_home_daily_1,4,false,preparation,Noun,I prepare for the trip tomorrow.,vocab_a1_0658
 생활,saenghwal,"Leben, Alltag",A1,Nomen,기숙사 생활이 재미있어요.,Das Wohnheimleben macht Spaß.,Alltag,a1_home_daily_1,5,false,"life, living",Noun,Dormitory life is fun.,vocab_a1_0659
 잠,jam,Schlaf,A1,Nomen,잠을 못 잤어요.,Ich konnte nicht schlafen.,Alltag,a1_home_daily_1,6,false,sleep,Noun,I couldn't sleep.,vocab_a1_0660
-요리,yori,"Kochen, Gericht",A1,Nomen,오늘 제가 요리해요.,Ich koche heute.,Alltag,a1_home_daily_1,7,false,"cooking, dish",Noun,I cook today.,vocab_a1_0661
+요리,yori,"Kochen, Gericht",A1,Nomen,오늘 저녁은 제가 요리해요!,Heute Abend koche ich!,Alltag,a1_home_daily_1,7,false,"cooking, dish",Noun,"Tonight, I'm cooking!",vocab_a1_0661
 식사,siksa,Mahlzeit,A1,Nomen,가족과 식사해요.,Ich esse mit der Familie.,Alltag,a1_home_daily_1,8,false,meal,Noun,I have a meal with my family.,vocab_a1_0662
 에어컨,eeokeon,Klimaanlage,A1,Nomen,에어컨을 켜요.,Ich schalte die Klimaanlage ein.,Technologie,a1_home_daily_1,9,false,air conditioner,Noun,I turn on the air conditioner.,vocab_a1_0663
 운전,unjeon,Fahren (Auto),A1,Nomen,저는 운전을 잘해요.,Ich fahre gut Auto.,Verkehr,a1_home_daily_1,10,false,driving,Noun,I'm good at driving.,vocab_a1_0664
@@ -17,7 +17,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 가요,gayo,(koreanischer) Popsong,A1,Nomen,마야 씨가 가요를 불러요.,Maya singt ein Lied.,Freizeit,a1_culture_hobbies_1,1,false,(Korean) pop song,Noun,Maya sings a song.,vocab_a1_0667
 그림,geurim,"Bild, Zeichnung",A1,Nomen,아이가 그림을 그려요.,Das Kind malt ein Bild.,Bildung,a1_culture_hobbies_1,2,false,"picture, drawing",Noun,The child draws a picture.,vocab_a1_0668
 드라마,deurama,"Drama, Serie",A1,Nomen,동생이 한국 드라마를 봐요.,Mein Geschwister schaut koreanische Dramen.,Freizeit,a1_culture_hobbies_1,3,false,"drama, TV series",Noun,My younger sibling watches Korean dramas.,vocab_a1_0669
-연극,yeongeuk,Theaterstück,A1,Nomen,학교에서 연극을 봐요.,Ich schaue mir in der Schule ein Theaterstück an.,Freizeit,a1_culture_hobbies_1,4,false,theater play,Noun,I watch a play at school.,vocab_a1_0670
+연극,yeongeuk,Theaterstück,A1,Nomen,"수진 씨, 연극 보러 갈까요?","Sujin, sollen wir ein Theaterstück ansehen gehen?",Freizeit,a1_culture_hobbies_1,4,false,theater play,Noun,"Sujin, shall we go watch a play?",vocab_a1_0670
 영화배우,yeonghwabaeu,Filmschauspieler(in),A1,Nomen,저 영화배우가 영화에 나와요.,Dieser Filmschauspieler tritt in einem Film auf.,Person,a1_culture_hobbies_1,5,false,movie actor,Noun,That movie actor appears in a movie.,vocab_a1_0671
 콘서트,konseoteu,Konzert,A1,Nomen,"크리스티안 씨, 우리 같이 콘서트에 갈까요?","Christian, sollen wir zusammen zum Konzert gehen?",Freizeit,a1_culture_hobbies_1,6,false,concert,Noun,"Christian, shall we go to the concert together?",vocab_a1_0672
 태권도,taegwondo,Taekwondo,A1,Nomen,"크리스티안 씨, 저는 태권도를 배워요.","Christian, ich lerne Taekwondo.",Freizeit,a1_culture_hobbies_1,7,false,taekwondo,Noun,"Christian, I learn taekwondo.",vocab_a1_0673
@@ -26,7 +26,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 피아노,piano,Klavier,A1,Nomen,저는 매일 피아노를 쳐요.,Ich spiele jeden Tag Klavier.,Bildung,a1_culture_hobbies_1,10,false,piano,Noun,I play the piano every day.,vocab_a1_0676
 사진,sajin,Foto,A1,Nomen,"레나 씨, 여기서 사진을 찍어요!","Lena, lass uns hier Fotos machen!",Technologie,a1_culture_hobbies_1,11,false,photo,Noun,"Lena, let's take photos here!",vocab_a1_0677
 초대,chodae,Einladung,A1,Nomen,친구를 파티에 초대해요.,Ich lade einen Freund zur Party ein.,Höflichkeit,a1_culture_hobbies_1,12,false,invitation,Noun,I invite a friend to the party.,vocab_a1_0678
-감기,gamgi,Erkältung,A1,Nomen,저는 감기에 걸렸어요.,Ich habe mich erkältet.,Körper,a1_health_food_1,1,false,"cold, flu",Noun,I caught a cold.,vocab_a1_0679
+감기,gamgi,Erkältung,A1,Nomen,감기에 걸렸어요. 머리가 아파요.,Ich bin erkältet. Mein Kopf tut weh.,Körper,a1_health_food_1,1,false,"cold, flu",Noun,I have a cold. My head hurts.,vocab_a1_0679
 병,byeong,Krankheit,A1,Nomen,저는 병이 났어요.,Ich bin krank geworden.,Körper,a1_health_food_1,2,false,illness,Noun,I got sick.,vocab_a1_0680
 의사,uisa,"Arzt, Ärztin",A1,Nomen,저는 의사한테 가요.,Ich gehe zum Arzt.,Körper,a1_health_food_1,3,false,doctor,Noun,I go to the doctor.,vocab_a1_0681
 담배,dambae,Zigarette,A1,Nomen,아버지가 담배를 안 피워요.,Mein Vater raucht nicht.,Körper,a1_health_food_1,4,false,cigarette,Noun,My father doesn't smoke.,vocab_a1_0682
@@ -35,7 +35,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 키,ki,Körpergröße,A1,Nomen,동생은 키가 커요.,Mein jüngeres Geschwister ist groß.,Körper,a1_health_food_1,7,false,height,Noun,My younger sibling is tall.,vocab_a1_0685
 잡채,japchae,Japchae (Glasnudelgericht),A1,Nomen,저는 잡채를 만들어요.,Ich mache Japchae.,Essen & Trinken,a1_health_food_1,8,false,japchae (glass noodle dish),Noun,I make japchae.,vocab_a1_0686
 음식,eumsik,"Essen, Speise",A1,Nomen,이 음식이 맛있어요.,Dieses Essen ist lecker.,Essen & Trinken,a1_health_food_1,9,false,food,Noun,This food is delicious.,vocab_a1_0687
-음료수,eumnyosu,Getränk,A1,Nomen,저는 음료수를 마셔요.,Ich trinke ein Getränk.,Essen & Trinken,a1_health_food_1,10,false,beverage,Noun,I drink a beverage.,vocab_a1_0688
+음료수,eumnyosu,Getränk,A1,Nomen,더워요. 음료수 마실까요?,Es ist heiß. Sollen wir ein Getränk trinken?,Essen & Trinken,a1_health_food_1,10,false,beverage,Noun,It's hot. Shall we drink something?,vocab_a1_0688
 메뉴,menyu,"Speisekarte, Menü",A1,Nomen,종업원이 메뉴를 줘요.,Die Bedienung gibt die Speisekarte.,Essen & Trinken,a1_health_food_1,11,false,menu,Noun,The waiter gives the menu.,vocab_a1_0689
 오렌지,orenji,Orange,A1,Nomen,저는 오렌지를 먹어요.,Ich esse eine Orange.,Essen & Trinken,a1_health_food_1,12,false,orange,Noun,I eat an orange.,vocab_a1_0690
 방학,banghak,(Schul-)Ferien,A1,Nomen,방학이 언제예요?,Wann sind die Ferien?,Bildung,a1_school_work_1,1,false,school vacation,Noun,When is the vacation?,vocab_a1_0691
@@ -44,7 +44,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 아르바이트,areubaiteu,"Nebenjob, Teilzeitarbeit",A1,Nomen,저는 편의점에서 아르바이트를 해요.,Ich habe einen Nebenjob im Supermarkt.,Beruf,a1_school_work_1,4,false,part-time job,Noun,I have a part-time job at a convenience store.,vocab_a1_0694
 직원,jigwon,Angestellte(r),A1,Nomen,저는 회사 직원이에요.,Ich bin Angestellter einer Firma.,Beruf,a1_school_work_1,5,false,employee,Noun,I'm an employee of a company.,vocab_a1_0695
 종업원,jongeobwon,"Bedienung, Angestellte(r)",A1,Nomen,종업원이 친절해요.,Die Bedienung ist freundlich.,Beruf,a1_school_work_1,6,false,"staff, waiter/waitress",Noun,The staff is kind.,vocab_a1_0696
-안내,annae,"Auskunft, Information",A1,Nomen,직원이 안내해요.,Der Angestellte gibt Auskunft.,Kommunikation,a1_school_work_1,7,false,"information, guidance",Noun,The employee gives information.,vocab_a1_0697
+안내,annae,"Auskunft, Information",A1,Nomen,직원이 안내해요. 저기로 가세요.,Der Angestellte gibt Auskunft. Gehen Sie dorthin.,Kommunikation,a1_school_work_1,7,false,"information, guidance",Noun,The employee gives information. Go over there.,vocab_a1_0697
 교통,gyotong,Verkehr,A1,Nomen,교통 카드가 없어요.,Ich habe keine Verkehrskarte.,Verkehr,a1_school_work_1,8,false,traffic,Noun,I don't have a transit card.,vocab_a1_0698
 시작,sijak,"Anfang, Beginn",A1,Nomen,저는 지금 일을 시작해요.,Ich fange jetzt mit der Arbeit an.,Zeit,a1_school_work_1,9,false,"beginning, start",Noun,I start work now.,vocab_a1_0699
 장소,jangso,"Ort, Platz",A1,Nomen,약속 장소가 어디예요?,Wo ist der Treffpunkt?,Position,a1_school_work_1,10,false,"place, venue",Noun,Where is the meeting place?,vocab_a1_0700

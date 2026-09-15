@@ -120,9 +120,9 @@
     {
       "id": "satz_a1_0576",
       "level": "a1",
-      "targetKo": "오늘 제가 요리해요.",
-      "promptDe": "Ich koche heute.",
-      "promptEn": "I cook today.",
+      "targetKo": "오늘 저녁은 제가 요리해요!",
+      "promptDe": "Heute Abend koche ich!",
+      "promptEn": "Tonight, I'm cooking!",
       "distractors": [
         "곳",
         "직원"
@@ -237,9 +237,9 @@
     {
       "id": "satz_a1_0585",
       "level": "a1",
-      "targetKo": "학교에서 연극을 봐요.",
-      "promptDe": "Ich schaue mir in der Schule ein Theaterstück an.",
-      "promptEn": "I watch a play at school.",
+      "targetKo": "수진 씨, 연극 보러 갈까요?",
+      "promptDe": "Sujin, sollen wir ein Theaterstück ansehen gehen?",
+      "promptEn": "Sujin, shall we go watch a play?",
       "distractors": [
         "달",
         "키"
@@ -354,9 +354,9 @@
     {
       "id": "satz_a1_0594",
       "level": "a1",
-      "targetKo": "저는 감기에 걸렸어요.",
-      "promptDe": "Ich habe mich erkältet.",
-      "promptEn": "I caught a cold.",
+      "targetKo": "감기에 걸렸어요. 머리가 아파요.",
+      "promptDe": "Ich bin erkältet. Mein Kopf tut weh.",
+      "promptEn": "I have a cold. My head hurts.",
       "distractors": [
         "곳",
         "종업원"
@@ -471,9 +471,9 @@
     {
       "id": "satz_a1_0603",
       "level": "a1",
-      "targetKo": "저는 음료수를 마셔요.",
-      "promptDe": "Ich trinke ein Getränk.",
-      "promptEn": "I drink a beverage.",
+      "targetKo": "더워요. 음료수 마실까요?",
+      "promptDe": "Es ist heiß. Sollen wir ein Getränk trinken?",
+      "promptEn": "It's hot. Shall we drink something?",
       "distractors": [
         "달",
         "종업원"
@@ -588,9 +588,9 @@
     {
       "id": "satz_a1_0612",
       "level": "a1",
-      "targetKo": "직원이 안내해요.",
-      "promptDe": "Der Angestellte gibt Auskunft.",
-      "promptEn": "The employee gives information.",
+      "targetKo": "직원이 안내해요. 저기로 가세요.",
+      "promptDe": "Der Angestellte gibt Auskunft. Gehen Sie dorthin.",
+      "promptEn": "The employee gives information. Go over there.",
       "distractors": [
         "곳",
         "키"
