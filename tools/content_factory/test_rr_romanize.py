@@ -135,6 +135,45 @@ class SoundChangeVectorTests(unittest.TestCase):
         self.assertEqual(romanize_korean("집현전", pos="Nomen"), "jiphyeonjeon")
         self.assertEqual(romanize_korean("역할", pos="Nomen"), "yeokhal")
 
+    def test_h_exception_applies_per_token_not_per_row_pos(self):
+        # Codex review, PR #327: a multiword/expression row's single pos_de
+        # column describes the WHOLE phrase, not each token -- the ㅎ
+        # exception must resolve per token regardless of what the row
+        # happens to be tagged. Both of these are resolved by
+        # POS-independent sub-rules (stem-final ㅎ merge; the 하다-paradigm
+        # vowel check), so the same deliberately-mismatched/absent POS
+        # produces the same answer either way.
+        for pos in (None, "Nomen", "Verb", "Ausdruck"):
+            with self.subTest(pos=pos):
+                self.assertEqual(romanize_korean("수저 놓다", pos=pos), "sujeo nota")
+                self.assertEqual(romanize_korean("대답하다", pos=pos), "daedaphada")
+
+    def test_neutralization_override(self):
+        # 표준발음법 15항: coda + an independent lexical morpheme's vowel
+        # neutralizes the coda first, then liaises it -- 맛없다 [마덥따]
+        # "madeopda", not the plain-liaison "maseopda". 맛있다/맛있어요 are
+        # the standard-pronunciation exception to the same environment and
+        # need no override (existing plain-liaison spelling is correct).
+        self.assertEqual(romanize_korean("맛없다", pos="Adjektiv"), "madeopda")
+        self.assertEqual(romanize_korean("맛있다", pos="Adjektiv"), "masitda")
+        self.assertEqual(romanize_korean("맛있어요", pos="Ausdruck"), "masisseoyo")
+
+    def test_n_insertion_words_not_regressed(self):
+        # docs/data/rr_regeneration_report_2026-09-15.md's 146-row ambiguous
+        # liaison table, decided by standard pronunciation (표준발음법 29항):
+        # native/native+Sino compounds take ㄴ-첨가 (색연필, 솔잎, 한여름,
+        # 집안일, plus the pre-existing 담요/알약/학여울); 식용유 is the
+        # counter-example (a single established Sino-Korean unit, no
+        # insertion) despite the identical surface jamo pattern.
+        self.assertEqual(romanize_korean("솔잎", pos="Nomen"), "sollip")
+        self.assertEqual(romanize_korean("색연필", pos="Nomen"), "saengnyeonpil")
+        self.assertEqual(romanize_korean("한여름"), "hannyeoreum")
+        self.assertEqual(romanize_korean("집안일"), "jibannil")
+        self.assertEqual(romanize_korean("식용유"), "sigyongyu")
+        self.assertEqual(romanize_korean("담요"), "damnyo")
+        self.assertEqual(romanize_korean("알약"), "allyak")
+        self.assertEqual(romanize_korean("학여울"), "hangnyeoul")
+
     def test_tensification_not_written(self):
         self.assertEqual(romanize_korean("압구정"), "apgujeong")
         self.assertEqual(romanize_korean("낙동강"), "nakdonggang")
@@ -153,6 +192,38 @@ class SoundChangeVectorTests(unittest.TestCase):
         self.assertEqual(romanize_korean("결론"), "gyeollon")
         self.assertEqual(romanize_korean("올리기"), "olligi")
         self.assertEqual(romanize_korean("물리"), "mulli")
+
+    def test_complex_final_liaison_keeps_first_jamo(self):
+        # 표준발음법 14항: a two-jamo final before a vowel keeps its FIRST
+        # jamo as this syllable's own coda and moves only the SECOND to the
+        # next onset -- ㄺ/ㄻ/ㄿ all have ㄹ as that first jamo (Codex
+        # review, PR #327: the table used to keep the neutralized stop/nasal
+        # class instead, which only applies word-finally/pre-consonant).
+        self.assertEqual(romanize_korean("읽음 표시", pos="Nomen"), "ilgeum pyosi")
+        self.assertEqual(romanize_korean("삶이"), "salmi")
+        self.assertEqual(romanize_korean("읊어"), "eulpeo")
+        # The rest of the table (plus ㄺ/ㄻ's own official examples) was
+        # already correct or is now consistent with the same 14항 rule --
+        # lock in the notation's own worked examples for every complex
+        # final.
+        self.assertEqual(romanize_korean("넋이"), "neoksi")
+        self.assertEqual(romanize_korean("앉아"), "anja")
+        self.assertEqual(romanize_korean("않아"), "ana")
+        self.assertEqual(romanize_korean("닭을"), "dalgeul")
+        self.assertEqual(romanize_korean("젊어"), "jeolmeo")
+        self.assertEqual(romanize_korean("넓이"), "neolbi")
+        self.assertEqual(romanize_korean("곬이"), "golsi")
+        self.assertEqual(romanize_korean("핥아"), "halta")
+        self.assertEqual(romanize_korean("값을"), "gapseul")
+        self.assertEqual(romanize_korean("없어"), "eopseo")
+
+    def test_tense_coda_liaison_keeps_tenseness(self):
+        # ㄲ/ㅆ liaise with their own (tense) jamo, not the plain letter --
+        # Codex review, PR #327: ㄲ was collapsing to plain "g".
+        self.assertEqual(romanize_korean("섞이다", pos="Verb"), "seokkida")
+        self.assertEqual(romanize_korean("밖에서"), "bakkeseo")
+        self.assertEqual(romanize_korean("깎아"), "kkakka")
+        self.assertEqual(romanize_korean("있어요"), "isseoyo")
 
 
 class SampledDefectTests(unittest.TestCase):

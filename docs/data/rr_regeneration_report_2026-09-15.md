@@ -1,90 +1,39 @@
 # RR romanization regeneration report (2026-09-15, task C2a)
 
 - Total vocab rows: 2499
-- Rows with a changed `romanization` value: 54
-- Rows flagged for manual review (ambiguous liaison/n-insertion): 146
+- Rows with a changed `romanization` value: 9
+- Rows flagged for manual review (ambiguous liaison/n-insertion): 132
 - Rows flagged for manual review (체언 ㅎ-aspiration heuristic applies): 69
 
 ## Changes by rule
 
-### aspiration_merge (3 rows)
+### liaison (6 rows)
 
 | id | korean | before | after | rule |
 |---|---|---|---|---|
-| vocab_a1_0118 | 많다 | manda | manta | aspiration_merge |
-| vocab_b2_0308 | 답장을 재촉하지 않다 | dapjangeul jaechokaji anda | dapjangeul jaechokhaji anta | aspiration_merge |
-| vocab_a1_0258 | 수저 놓다 | sujeo notda | sujeo nota | aspiration_merge |
+| vocab_b2_0189 | 섞이다 | seogida | seokkida | liaison |
+| vocab_b1_0348 | 읽음 표시 | ikgeum pyosi | ilgeum pyosi | liaison |
+| vocab_b1_0355 | 읽은 척 | ikgeun cheok | ilgeun cheok | liaison |
+| vocab_b2_0526 | 밖에서 예의를 | bageseo yeuireul | bakkeseo yeuireul | liaison |
+| vocab_a1_0389 | 맑음 | makgeum | malgeum | liaison |
+| vocab_b1_0374 | 읽음 확인 | ikgeum hwagin | ilgeum hwagin | liaison |
 
-### base_letter_correction (41 rows)
-
-| id | korean | before | after | rule |
-|---|---|---|---|---|
-| vocab_a2_0044 | 도착하다 | dochakada | dochakhada | base_letter_correction |
-| vocab_a2_0046 | 기억하다 | gieokada | gieokhada | base_letter_correction |
-| vocab_a2_0052 | 예약하다 | yeyakada | yeyakhada | base_letter_correction |
-| vocab_a2_0063 | 행복하다 | haengbokada | haengbokhada | base_letter_correction |
-| vocab_b1_0035 | 노력하다 | noryeokada | noryeokhada | base_letter_correction |
-| vocab_b1_0037 | 선택하다 | seontaekada | seontaekhada | base_letter_correction |
-| vocab_b1_0040 | 극복하다 | geukbokada | geukbokhada | base_letter_correction |
-| vocab_b1_0046 | 복잡하다 | bokjapada | bokjaphada | base_letter_correction |
-| vocab_b1_0048 | 정확하다 | jeonghwakada | jeonghwakhada | base_letter_correction |
-| vocab_b2_0016 | 분석하다 | bunseokada | bunseokhada | base_letter_correction |
-| vocab_b2_0023 | 인식하다 | insikada | insikhada | base_letter_correction |
-| vocab_b2_0024 | 해석하다 | haeseokada | haeseokhada | base_letter_correction |
-| vocab_b2_0025 | 반박하다 | banbakada | banbakhada | base_letter_correction |
-| vocab_b2_0028 | 지속하다 | jisokada | jisokhada | base_letter_correction |
-| vocab_a2_0117 | 답답하다 | dapdapada | dapdaphada | base_letter_correction |
-| vocab_b1_0064 | 검색하다 | geomsaekada | geomsaekhada | base_letter_correction |
-| vocab_b1_0091 | 솔직하다 | soljikada | soljikhada | base_letter_correction |
-| vocab_b1_0101 | 약속하다 | yaksokada | yaksokhada | base_letter_correction |
-| vocab_b2_0070 | 명확하다 | myeonghwakada | myeonghwakhada | base_letter_correction |
-| vocab_a2_0160 | 저축하다 | jeochukada | jeochukhada | base_letter_correction |
-| vocab_b1_0166 | 취직하다 | chwijikada | chwijikhada | base_letter_correction |
-| vocab_b1_0173 | 합격하다 | hapgyeokada | hapgyeokhada | base_letter_correction |
-| vocab_b1_0174 | 모집하다 | mojipada | mojiphada | base_letter_correction |
-| vocab_b1_0175 | 지각하다 | jigakada | jigakhada | base_letter_correction |
-| vocab_b1_0185 | 참석하다 | chamseokada | chamseokhada | base_letter_correction |
-| vocab_b1_0196 | 대답하다 | daedapada | daedaphada | base_letter_correction |
-| vocab_b1_0208 | 섭섭하다 | seopseopada | seopseophada | base_letter_correction |
-| vocab_b1_0209 | 심각하다 | simgakada | simgakhada | base_letter_correction |
-| vocab_b1_0243 | 입학하다 | ipakada | iphakhada | base_letter_correction |
-| vocab_b2_0184 | 간직하다 | ganjikada | ganjikhada | base_letter_correction |
-| vocab_b2_0229 | 타협하다 | tahyeopada | tahyeophada | base_letter_correction |
-| vocab_b2_0259 | 완곡하다 | wangokada | wangokhada | base_letter_correction |
-| vocab_b2_0261 | 정착하다 | jeongchakada | jeongchakhada | base_letter_correction |
-| vocab_c1_0016 | 상관관계를 인과로 해석하다 | sanggwangwangyereul ingwaro haeseokada | sanggwangwangyereul ingwaro haeseokhada | base_letter_correction |
-| vocab_c2_0017 | 암시를 포착하다 | amsireul pochakada | amsireul pochakhada | base_letter_correction |
-| vocab_c2_0037 | 결정 과정을 추적하다 | gyeoljeong gwajeongeul chujeokada | gyeoljeong gwajeongeul chujeokhada | base_letter_correction |
-| vocab_c2_0040 | 편향을 증폭하다 | pyeonhyangeul jeungpokada | pyeonhyangeul jeungpokhada | base_letter_correction |
-| vocab_a1_0387 | 습하다 | seupada | seuphada | base_letter_correction |
-| vocab_a1_0396 | 부탁하다 | butakada | butakhada | base_letter_correction |
-| vocab_a2_0438 | 습득하다 | seupdeukada | seupdeukhada | base_letter_correction |
-| vocab_a1_0444 | 시작하다 | sijakada | sijakhada | base_letter_correction |
-
-### liaison (8 rows)
+### n_insertion_override (2 rows)
 
 | id | korean | before | after | rule |
 |---|---|---|---|---|
-| vocab_b1_0193 | 번역하다 | beonyeokada | beonyeokhada | liaison |
-| vocab_b1_0242 | 졸업하다 | joreopada | joreophada | liaison |
-| vocab_b2_0270 | 역할을 나누다 | yeokareul nanuda | yeokhareul nanuda | liaison |
-| vocab_b2_0271 | 마감이 촉박하다 | magami chokbakada | magami chokbakhada | liaison |
-| vocab_b2_0275 | 의견을 완곡하게 전하다 | uigyeoneul wangokage jeonhada | uigyeoneul wangokhage jeonhada | liaison |
-| vocab_c2_0018 | 맥락을 전복하다 | maengnageul jeonbokada | maengnageul jeonbokhada | liaison, nasalization |
-| vocab_c2_0021 | 인물에 이입하다 | inmure iipada | inmure iiphada | liaison |
-| vocab_b2_0307 | 기분을 솔직히 말하다 | gibuneul soljiki malhada | gibuneul soljikhi malhada | liaison |
+| vocab_a1_0281 | 솔잎 | sorip | sollip | n_insertion_override |
+| vocab_a1_0360 | 색연필 | saegyeonpil | saengnyeonpil | n_insertion_override |
 
-### nasalization (3 rows)
+### neutralization_override (1 rows)
 
 | id | korean | before | after | rule |
 |---|---|---|---|---|
-| vocab_b1_0067 | 협력하다 | hyeomnyeokada | hyeomnyeokhada | nasalization |
-| vocab_b2_0090 | 독립하다 | dongnipada | dongniphada | nasalization |
-| vocab_c2_0018 | 맥락을 전복하다 | maengnageul jeonbokada | maengnageul jeonbokhada | liaison, nasalization |
+| vocab_a1_0209 | 맛없다 | maseopda | madeopda | neutralization_override |
 
 ## Manual review needed
 
-### Ambiguous liaison vs. ㄴ-insertion (146 rows)
+### Ambiguous liaison vs. ㄴ-insertion (132 rows)
 
 A coda sits directly before an unlinked y-glide/이 syllable. This module defaults to plain liaison (matches 특약 -> teugyak); a native compound reading (like 알약 -> allyak) would need a lexical override. Jin: please confirm each word's reading.
 
@@ -129,7 +78,6 @@ A coda sits directly before an unlinked y-glide/이 syllable. This module defaul
 | vocab_b1_0193 | 번역하다 | 번역하다 |
 | vocab_b2_0103 | 출입 | 출입 |
 | vocab_b2_0173 | 윷놀이 | 윷놀이 |
-| vocab_b2_0189 | 섞이다 | 섞이다 |
 | vocab_a2_0170 | 귀걸이 | 귀걸이 |
 | vocab_a2_0208 | 옷걸이 | 옷걸이 |
 | vocab_a2_0236 | 군인 | 군인 |
@@ -166,44 +114,32 @@ A coda sits directly before an unlinked y-glide/이 syllable. This module defaul
 | vocab_a1_0221 | 몇 살이세요 | 살이세요 |
 | vocab_a1_0253 | 맛있어요 | 맛있어요 |
 | vocab_a1_0265 | 새해 복 많이 받으세요 | 많이 |
-| vocab_a1_0281 | 솔잎 | 솔잎 |
 | vocab_a1_0291 | 맏이 | 맏이 |
 | vocab_a1_0298 | 촬영 금지 | 촬영 |
 | vocab_a2_0271 | 직업이 뭐예요 | 직업이 |
 | vocab_a2_0312 | 같이 웃다 | 같이 |
 | vocab_a2_0324 | 코골이 | 코골이 |
-| vocab_a2_0360 | 나이 확인 | 확인 |
 | vocab_b1_0294 | 통역 없이 | 없이 |
 | vocab_b1_0303 | 다시 확인하다 | 확인하다 |
 | vocab_b1_0325 | 코골이 사과 | 코골이 |
 | vocab_b1_0326 | 발소리를 죽이다 | 죽이다 |
 | vocab_b1_0331 | 같이 자면 | 같이 |
-| vocab_b1_0346 | 공지 확인 | 확인 |
 | vocab_b2_0437 | 처가살이 | 처가살이 |
 | vocab_b2_0458 | 높여 부르다 | 높여 |
 | vocab_a1_0323 | 복용 시간 | 복용 |
 | vocab_a1_0342 | 같이 걷다 | 같이 |
-| vocab_a1_0360 | 색연필 | 색연필 |
 | vocab_a1_0399 | 잠깐만요 | 잠깐만요 |
-| vocab_a2_0387 | 입금 확인 | 확인 |
 | vocab_a2_0420 | 재활용실 | 재활용실 |
 | vocab_a2_0448 | 확인서 | 확인서 |
 | vocab_a2_0457 | 운영시간 | 운영시간 |
-| vocab_b1_0374 | 읽음 확인 | 확인 |
-| vocab_b1_0379 | 수신 확인 | 확인 |
 | vocab_b1_0402 | 특약 | 특약 |
 | vocab_b1_0426 | 현장 책임자 | 책임자 |
 | vocab_b1_0427 | 봉사 확인서 | 확인서 |
 | vocab_b1_0438 | 담임 선생님 | 담임 |
 | vocab_b2_0548 | 전입 날짜 | 전입 |
 | vocab_b2_0555 | 인용 맥락 | 인용 |
-| vocab_b2_0559 | 사실 확인 | 확인 |
-| vocab_b2_0582 | 이해 확인 | 확인 |
 | vocab_b2_0601 | 약속 불이행 | 불이행 |
 | vocab_b2_0607 | 책임 소재 | 책임 |
-| vocab_b2_0608 | 현장 확인 | 확인 |
-| vocab_b2_0610 | 종결 확인 | 확인 |
-| vocab_b2_0614 | 교차 확인 | 확인 |
 | vocab_b2_0616 | 인용 형식 | 인용 |
 | vocab_c1_0111 | 잔여 위험 | 잔여 |
 | vocab_c1_0127 | 대기 불이익 | 불이익 |
@@ -229,7 +165,6 @@ A coda sits directly before an unlinked y-glide/이 syllable. This module defaul
 | vocab_a1_0414 | 주소를 확인하다 | 확인하다 |
 | vocab_a2_0463 | 시간이 되다 | 시간이 |
 | vocab_a1_0419 | 지하철역 | 지하철역 |
-| vocab_a1_0422 | 영수증 확인 | 확인 |
 | vocab_c1_0238 | 번역 노동 | 번역 |
 | vocab_c2_0235 | 책임 주체 | 책임 |
 | vocab_a1_0429 | 독일 | 독일 |
@@ -313,68 +248,19 @@ A stop+ㅎ or ㅎ+stop syllable boundary exists; the POS-based `is_cheoneon_pos`
 | vocab_c1_0188 | 역효과 | Nomen | 역효과 | yeokhyogwa |
 | vocab_a1_0444 | 시작하다 | Verb | 시작하다 | sijakhada |
 
-## Fable ruling 2026-09-15: ㅎ-aspiration merge correction
+## 보류(수동 검토) 행 0 — 라이브 값 유지
 
-The original C2a brief conflated the whole word's POS with the ㅎ syllable's own morphology: a Sino-Korean noun root + the auxiliary verb 하다 (e.g. 반박+하다) was treated the same as a native verb stem's own -히-/-혀- passive/causative infix (e.g. 먹+히다), because both surface as "stop coda + ㅎ onset" and the whole word's CSV `pos_de` is "Verb" either way. Fable ruling (표기법 §3-1-4 다만 + NIKL/Wiktionary RR module precedent: 축하하다 chukhahada, 도착하다 dochakhada; Cornell/LibGuides haengbokhada) corrects this: a stop coda keeps ㅎ before 하/해/했 (POS-independent) or a word-final -히 adverb, and merges only for a verb/adjective's own stem-final ㅎ/ㄶ/ㅀ before an ending, or a native verb's own -히-/-혀- infix.
+Codex P1 (PR #327): these rows are still flagged manual-review (ambiguous ㄴ-첨가 liaison with no lexical override, or a ㅎ-boundary decision resting on the row-level POS fallback rather than a POS-independent sub-rule -- `cheoneon_pos_fallback`). The regeneration policy holds them at their live CSV value instead of silently writing the module's default computation; `after` below is what was *not* written.
 
-Of the 49 rows the first regeneration pass tagged `aspiration_merge`, 47 were noun+하다 compounds wrongly merged by the old POS-only heuristic and are now restored to their original (correct) keep-ㅎ reading; 2 were genuine verb-stem/passive-infix merges and correctly remain merged.
+(none)
 
-### 하다-compounds restored (47 rows)
+## 오버라이드 적용 행 3
 
-| id | korean | wrongly-merged (round 1) | restored (round 2) |
-|---|---|---|---|
-| vocab_a2_0044 | 도착하다 | dochakhada | dochakada |
-| vocab_a2_0052 | 예약하다 | yeyakhada | yeyakada |
-| vocab_a2_0063 | 행복하다 | haengbokhada | haengbokada |
-| vocab_b1_0035 | 노력하다 | noryeokhada | noryeokada |
-| vocab_b1_0037 | 선택하다 | seontaekhada | seontaekada |
-| vocab_b1_0040 | 극복하다 | geukbokhada | geukbokada |
-| vocab_b1_0046 | 복잡하다 | bokjaphada | bokjapada |
-| vocab_b1_0048 | 정확하다 | jeonghwakhada | jeonghwakada |
-| vocab_b2_0023 | 인식하다 | insikhada | insikada |
-| vocab_b2_0024 | 해석하다 | haeseokhada | haeseokada |
-| vocab_b2_0025 | 반박하다 | banbakhada | banbakada |
-| vocab_b2_0028 | 지속하다 | jisokhada | jisokada |
-| vocab_b1_0064 | 검색하다 | geomsaekhada | geomsaekada |
-| vocab_b1_0067 | 협력하다 | hyeoryeokhada | hyeomnyeokada |
-| vocab_b1_0091 | 솔직하다 | soljikhada | soljikada |
-| vocab_b1_0101 | 약속하다 | yaksokhada | yaksokada |
-| vocab_b2_0070 | 명확하다 | myeonghwakhada | myeonghwakada |
-| vocab_a2_0160 | 저축하다 | jeochukhada | jeochukada |
-| vocab_b1_0166 | 취직하다 | chwijikhada | chwijikada |
-| vocab_b1_0173 | 합격하다 | hapgyeokhada | hapgyeokada |
-| vocab_b1_0174 | 모집하다 | mojiphada | mojipada |
-| vocab_b1_0175 | 지각하다 | jigakhada | jigakada |
-| vocab_b1_0185 | 참석하다 | chamseokhada | chamseokada |
-| vocab_b1_0193 | 번역하다 | beonyeokhada | beonyeokada |
-| vocab_b1_0196 | 대답하다 | daedaphada | daedapada |
-| vocab_b1_0208 | 섭섭하다 | seopseophada | seopseopada |
-| vocab_b1_0209 | 심각하다 | simgakhada | simgakada |
-| vocab_b1_0242 | 졸업하다 | joreophada | joreopada |
-| vocab_b1_0243 | 입학하다 | iphakhada | ipakada |
-| vocab_b2_0090 | 독립하다 | dongniphada | dongnipada |
-| vocab_b2_0184 | 간직하다 | ganjikhada | ganjikada |
-| vocab_b2_0229 | 타협하다 | tahyeophada | tahyeopada |
-| vocab_b2_0259 | 완곡하다 | wangokhada | wangokada |
-| vocab_b2_0271 | 마감이 촉박하다 | magami chokbakhada | magami chokbakada |
-| vocab_b2_0275 | 의견을 완곡하게 전하다 | uigyeoneul wangokhage jeonhada | uigyeoneul wangokage jeonhada |
-| vocab_c1_0016 | 상관관계를 인과로 해석하다 | sanggwangwangyereul ingwaro haeseokhada | sanggwangwangyereul ingwaro haeseokada |
-| vocab_c2_0017 | 암시를 포착하다 | amsireul pochakhada | amsireul pochakada |
-| vocab_c2_0018 | 맥락을 전복하다 | maengnageul jeonbokhada | maengnageul jeonbokada |
-| vocab_c2_0021 | 인물에 이입하다 | inmure iiphada | inmure iipada |
-| vocab_b2_0307 | 기분을 솔직히 말하다 | gibuneul soljikhi malhada | gibuneul soljiki malhada |
-| vocab_b2_0308 | 답장을 재촉하지 않다 | dapjangeul jaechokhaji anta | dapjangeul jaechokaji anda |
-| vocab_c2_0037 | 결정 과정을 추적하다 | gyeoljeong gwajeongeul chujeokhada | gyeoljeong gwajeongeul chujeokada |
-| vocab_c2_0040 | 편향을 증폭하다 | pyeonhyangeul jeungpokhada | pyeonhyangeul jeungpokada |
-| vocab_a1_0387 | 습하다 | seuphada | seupada |
-| vocab_a1_0396 | 부탁하다 | butakhada | butakada |
-| vocab_a2_0438 | 습득하다 | seupdeukhada | seupdeukada |
-| vocab_a1_0444 | 시작하다 | sijakhada | sijakada |
+Rows changed via an explicit lexical override (`_WORD_OVERRIDES`/`_NEUTRALIZATION_OVERRIDES` in rr_romanize.py) rather than a general sound-change rule.
 
-### Genuine stem/infix merges, unchanged (2 rows)
-
-| id | korean | romanization |
-|---|---|---|
-| vocab_b2_0262 | 오해를 낳다 | ohaereul nata |
-| vocab_b2_0267 | 의견을 좁히다 | uigyeoneul jopida |
+| id | korean | before | after | rule |
+|---|---|---|---|---|
+| vocab_a1_0209 | 맛없다 | maseopda | madeopda | neutralization_override |
+| vocab_a1_0281 | 솔잎 | sorip | sollip | n_insertion_override |
+| vocab_a1_0360 | 색연필 | saegyeonpil | saengnyeonpil | n_insertion_override |
 

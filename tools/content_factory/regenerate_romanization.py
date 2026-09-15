@@ -50,25 +50,55 @@ def _load_rows() -> list[dict[str, str]]:
         return list(reader)
 
 
-def regenerate(rows: list[dict[str, str]]) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
-    """Return (new_rows, changes). `changes` entries have id/korean/before/after/rules."""
+def regenerate(
+    rows: list[dict[str, str]]
+) -> tuple[list[dict[str, str]], list[dict[str, str]], list[dict[str, str]], list[dict[str, str]]]:
+    """Return (new_rows, changes, held, overridden).
+
+    Codex P1 (PR #327): a row flagged "manual review" (ambiguous ㄴ-첨가
+    liaison, or a ㅎ-boundary decision that rests on the row-level POS
+    fallback rather than a POS-independent sub-rule) must NOT be silently
+    overwritten with the module's default computation -- only an explicit
+    lexical override (`_WORD_OVERRIDES`/`_NEUTRALIZATION_OVERRIDES`) or a
+    "certain" sound-change rule may change such a row. `find_ambiguous_
+    liaison_words` already excludes override-covered words, and the
+    `cheoneon_pos_fallback` rule tag marks exactly the ㅎ-boundary rows whose
+    outcome depended on the fallback -- so "still flagged after this pass"
+    is exactly the hold condition.
+
+    `changes` / `held` / `overridden` entries have id/korean/before/after/
+    rules (held entries also carry `after` -- the value that was NOT
+    written, for visibility in the report).
+    """
 
     changes: list[dict[str, str]] = []
+    held: list[dict[str, str]] = []
+    overridden: list[dict[str, str]] = []
     for row in rows:
         before = row["romanization"]
-        after, rules = romanize_korean(row["korean"], pos=row.get("pos_de"), return_rules=True)
+        korean = row["korean"]
+        pos_de = row.get("pos_de")
+        after, rules = romanize_korean(korean, pos=pos_de, return_rules=True)
+        ambiguous = find_ambiguous_liaison_words(korean) or "cheoneon_pos_fallback" in rules
+        if ambiguous:
+            if after != before:
+                held.append(
+                    {"id": row["id"], "korean": korean, "before": before, "after": after, "rules": rules}
+                )
+            continue
         if after != before:
-            changes.append(
-                {
-                    "id": row["id"],
-                    "korean": row["korean"],
-                    "before": before,
-                    "after": after,
-                    "rules": rules or ["base_letter_correction"],
-                }
-            )
+            entry = {
+                "id": row["id"],
+                "korean": korean,
+                "before": before,
+                "after": after,
+                "rules": rules or ["base_letter_correction"],
+            }
+            changes.append(entry)
+            if "n_insertion_override" in rules or "neutralization_override" in rules:
+                overridden.append(entry)
             row["romanization"] = after
-    return rows, changes
+    return rows, changes, held, overridden
 
 
 def _manual_review_rows(rows: list[dict[str, str]]) -> dict[str, list[dict[str, str]]]:
@@ -94,7 +124,11 @@ def _manual_review_rows(rows: list[dict[str, str]]) -> dict[str, list[dict[str, 
 
 
 def _write_report(
-    total_rows: int, changes: list[dict[str, str]], manual_review: dict[str, list[dict[str, str]]]
+    total_rows: int,
+    changes: list[dict[str, str]],
+    manual_review: dict[str, list[dict[str, str]]],
+    held: list[dict[str, str]],
+    overridden: list[dict[str, str]],
 ) -> None:
     by_rule: dict[str, list[dict[str, str]]] = defaultdict(list)
     for change in changes:
@@ -174,6 +208,50 @@ def _write_report(
         lines.append("(none)")
     lines.append("")
 
+    lines.append(f"## 보류(수동 검토) 행 {len(held)} — 라이브 값 유지")
+    lines.append("")
+    lines.append(
+        "Codex P1 (PR #327): these rows are still flagged manual-review "
+        "(ambiguous ㄴ-첨가 liaison with no lexical override, or a "
+        "ㅎ-boundary decision resting on the row-level POS fallback rather "
+        "than a POS-independent sub-rule -- `cheoneon_pos_fallback`). The "
+        "regeneration policy holds them at their live CSV value instead of "
+        "silently writing the module's default computation; `after` below "
+        "is what was *not* written."
+    )
+    lines.append("")
+    if held:
+        lines.append("| id | korean | live value (kept) | computed (held back) | rule |")
+        lines.append("|---|---|---|---|---|")
+        for entry in held:
+            lines.append(
+                f"| {entry['id']} | {entry['korean']} | {entry['before']} | "
+                f"{entry['after']} | {', '.join(entry['rules'])} |"
+            )
+    else:
+        lines.append("(none)")
+    lines.append("")
+
+    lines.append(f"## 오버라이드 적용 행 {len(overridden)}")
+    lines.append("")
+    lines.append(
+        "Rows changed via an explicit lexical override "
+        "(`_WORD_OVERRIDES`/`_NEUTRALIZATION_OVERRIDES` in rr_romanize.py) "
+        "rather than a general sound-change rule."
+    )
+    lines.append("")
+    if overridden:
+        lines.append("| id | korean | before | after | rule |")
+        lines.append("|---|---|---|---|---|")
+        for entry in overridden:
+            lines.append(
+                f"| {entry['id']} | {entry['korean']} | {entry['before']} | "
+                f"{entry['after']} | {', '.join(entry['rules'])} |"
+            )
+    else:
+        lines.append("(none)")
+    lines.append("")
+
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     REPORT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -184,11 +262,13 @@ def main() -> int:
     args = parser.parse_args()
 
     rows = _load_rows()
-    new_rows, changes = regenerate(rows)
+    new_rows, changes, held, overridden = regenerate(rows)
     manual_review = _manual_review_rows(new_rows)
 
     print(f"total rows: {len(rows)}")
     print(f"changed rows: {len(changes)}")
+    print(f"held for manual review (live value kept): {len(held)}")
+    print(f"changed via explicit override: {len(overridden)}")
     print(f"manual review (liaison): {len(manual_review['liaison'])}")
     print(f"manual review (h-boundary): {len(manual_review['h_boundary'])}")
     print("changes by rule:")
@@ -196,7 +276,7 @@ def main() -> int:
     for rule, count in sorted(rule_counts.items()):
         print(f"  {rule}: {count}")
 
-    _write_report(len(rows), changes, manual_review)
+    _write_report(len(rows), changes, manual_review, held, overridden)
     print(f"wrote {REPORT_PATH.relative_to(ROOT)}")
 
     if args.dry_run:

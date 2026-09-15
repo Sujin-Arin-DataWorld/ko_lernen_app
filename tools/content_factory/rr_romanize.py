@@ -34,9 +34,10 @@ CSV):
   for the cases neither surface pattern catches (묵호 "Mukho", 집현전
   "Jiphyeonjeon"). This is a lexical/surface heuristic, not true
   morphological analysis -- see `_apply_sound_changes` rule 1.
-* Complex (two-jamo) finals (ㄳ ㄵ ㄶ ㄺ ㄻ ㄼ ㄽ ㄾ ㄿ ㅀ ㅄ) get a
-  best-effort standard-neutralization + liaison treatment; they are rare in
-  the common-noun/verb vocabulary this module targets.
+* Complex (two-jamo) finals (ㄳ ㄵ ㄶ ㄺ ㄻ ㄼ ㄽ ㄾ ㄿ ㅀ ㅄ) before a
+  vowel-initial ending/particle keep their FIRST jamo as this syllable's own
+  coda and move only the SECOND to the next onset (표준발음법 14항) --
+  `_COMPLEX_JONG_PARTS`.
 * The regressive-vs-progressive ㄴ+ㄹ choice (신라 "Silla" vs 신문로
   "Sinmunno") uses a small set of bound Sino-Korean ㄹ-initial roots
   (`_SINO_L_SUFFIXES`) documented in the 표준발음법 해설 as the progressive
@@ -74,15 +75,23 @@ _COMPLEX_JONG_PARTS = {
     3: (1, "s"),    # ㄳ -> keep ㄱ, move s
     5: (4, "j"),    # ㄵ -> keep ㄴ, move j
     6: (4, ""),     # ㄶ -> keep ㄴ, ㅎ drops in liaison
-    9: (24, "g"),   # ㄺ -> keep ㅋ(k), move g   (닭 -> keeps [k], moves g)
-    10: (16, "m"),  # ㄻ -> keep ㅁ, move m
+    9: (8, "g"),    # ㄺ -> keep ㄹ, move g   (읽음 표시 -> ilgeum pyosi)
+    10: (8, "m"),   # ㄻ -> keep ㄹ, move m   (삶이 -> salmi)
     11: (8, "b"),   # ㄼ -> keep ㄹ, move b
     12: (8, "s"),   # ㄽ -> keep ㄹ, move s
     13: (8, "t"),   # ㄾ -> keep ㄹ, move t
-    14: (26, "p"),  # ㄿ -> keep ㅍ(p), move p
+    14: (8, "p"),   # ㄿ -> keep ㄹ, move p   (읊어 -> eulpeo)
     15: (8, ""),    # ㅀ -> keep ㄹ, ㅎ drops in liaison
     18: (17, "s"),  # ㅄ -> keep ㅂ, move s
 }
+# 표준발음법 14항: a two-jamo final before a vowel-initial ending/particle
+# keeps its FIRST jamo as this syllable's own coda (§4 neutralized spelling,
+# via `_JONG`) and moves only the SECOND jamo to the next syllable's onset --
+# never the reverse. ㄺ/ㄻ/ㄿ all have ㄹ as their first jamo, so all three
+# keep ㄹ (index 8, "l") exactly like ㄼ/ㄽ/ㄾ/ㅀ; the entries above used to
+# keep the neutralized *stop/nasal* class instead (a rule that only applies
+# word-finally or before a consonant, not before a vowel) which silently
+# dropped the ㄹ liaison for 읽다/삶/읊다-family words (Codex review, PR #327).
 # jong index -> neutralized 7-way class, used to decide nasalization /
 # aspiration / ㄹ-assimilation (which consonant *class* is present, not the
 # exact jamo written).
@@ -111,16 +120,46 @@ _HADA_AUX_VOWELS = frozenset((0, 1))  # 아, 애 (하, 해/했)
 
 _SINO_L_SUFFIXES = frozenset(("란", "량", "력", "령", "례", "로", "론", "료"))
 
-# Compound-boundary ㄴ-첨가 words that this module's own RED->GREEN test
-# vectors require and that cannot be derived from the jamo stream alone
-# (see module docstring). Keys are the *whole word* as written.
+# Compound-boundary ㄴ-첨가 (n-insertion) words that this module's own
+# RED->GREEN test vectors require and that cannot be derived from the jamo
+# stream alone (see module docstring): a coda + unlinked y-glide/이 syllable
+# is plain liaison for a single (esp. Sino-Korean) word (특약 -> teugyak,
+# 안약 -> anyak -- both Sino-Korean roots) but ㄴ-첨가 for a native/native+
+# Sino compound recognized as such by 표준발음법 29항 (담요, 알약, 학여울,
+# 한여름, 색연필, 집안일 -- 식용유 is the counter-example: no insertion,
+# despite the identical surface jamo pattern, because 식용 + 유 is one
+# established Sino-Korean unit). Keys are the *whole word* as written; only
+# CSV words get an entry here (grepped against
+# docs/data/rr_regeneration_report_2026-09-15.md's 146-row ambiguous-liaison
+# table -- Codex review, PR #327), plus the handful this module's test
+# vectors also need.
 _WORD_OVERRIDES = {
     "학여울": "hangnyeoul",
     "담요": "damnyo",
     "알약": "allyak",
+    "한여름": "hannyeoreum",
+    "색연필": "saengnyeonpil",
+    "솔잎": "sollip",
+    "집안일": "jibannil",
     # 밟다's ㄼ is the one common lexical exception that keeps ㅂ instead of
     # the usual ㄹ (표준발음법 10항 다만): 밟히다 "balpida", not "*bolida".
     "밟히다": "balpida",
+}
+
+# 표준발음법 §15 받침 뒤에 모음으로 시작된 *실질형태소* (independent lexical
+# morpheme, not a grammatical particle/ending) 가 결합되는 경우: the coda
+# is first neutralized to its representative sound, THEN that neutralized
+# consonant liaises into the next syllable -- unlike a grammatical
+# suffix/particle, which liaises with the coda's own written jamo (읽어
+# "ilgeo", 없이 "eopsi" keep the stem's own consonant because -어/-이 there
+# are endings, not separate words). 맛없다 [마덥따]: 맛's own coda is ㅅ, but
+# 없다 is an independent word, so 맛's ㅅ neutralizes to [ㄷ] before liaising
+# -> "ma" + "deopda", not the plain-liaison "ma" + "seopda". 맛있다/맛있어요
+# are the standard-pronunciation *exception* to this same environment
+# ([마싣따], not *[마딛따]) and need no override -- the CSV's existing
+# "masitda"/"masisseoyo" (plain liaison, ㅅ kept) are already correct.
+_NEUTRALIZATION_OVERRIDES = {
+    "맛없다": "madeopda",
 }
 
 _CHEONEON_POS = frozenset((
@@ -207,11 +246,17 @@ def _apply_sound_changes(
         #     다만 + NIKL/Wiktionary RR module precedent).
         if l_jong in _STOP_TO_ASPIRATE and r_cho == _CHO_H:
             is_word_final_h = (i + 1) == len(run) - 1
-            keep_h = (
-                r_jung in _HADA_AUX_VOWELS
-                or (r_jung == _JUNG_I and is_word_final_h)
-                or cheoneon
-            )
+            certain = r_jung in _HADA_AUX_VOWELS or (r_jung == _JUNG_I and is_word_final_h)
+            keep_h = certain or cheoneon
+            if not certain:
+                # Neither POS-independent sub-rule fired -- this boundary's
+                # outcome rests entirely on the row-level `cheoneon` flag,
+                # which for a multiword/expression row (수저 놓다, 역할을
+                # 나누다, ...) is the whole row's POS, not this token's own
+                # (Codex review, PR #327). regenerate_romanization.py uses
+                # this tag to hold such rows at their live value instead of
+                # trusting the per-row POS fallback for an embedded token.
+                _tag("cheoneon_pos_fallback")
             if not keep_h:
                 aspirate = _STOP_TO_ASPIRATE[l_jong]
                 if l_jong == 7 and r_jung == _JUNG_I:  # 굳히다 -> further palatalizes
@@ -295,9 +340,13 @@ def _liaise(left: list[int], right: list[int]) -> None:
         right.append(move)  # type: ignore[arg-type]
         return
     # Simple (single-jamo) final -- liaise with its *own* written consonant,
-    # not the neutralized coda class (옷이 -> osi, not odi).
+    # not the neutralized coda class (옷이 -> osi, not odi). Tense finals
+    # (ㄲ/ㅆ) keep their tenseness on the moved onset instead of collapsing
+    # to the plain letter -- 섞이다 "seokkida", 밖에서 "bakkeseo", 깎아
+    # "kkakka" (ㄲ -> "kk", matching the ㄲ *initial* consonant letter in
+    # `_CHO`); ㅆ -> "ss" was already correct (있어요 "isseoyo").
     onset_letter = {
-        1: "g", 2: "g", 4: "n", 7: "d", 8: "r", 16: "m", 17: "b",
+        1: "g", 2: "kk", 4: "n", 7: "d", 8: "r", 16: "m", 17: "b",
         19: "s", 20: "ss", 22: "j", 23: "ch", 24: "k", 25: "t", 26: "p",
         27: "",
     }.get(jong)
@@ -322,6 +371,10 @@ def _romanize_word(word: str, pos: str | None, rules: list[str] | None) -> str:
         if rules is not None:
             rules.append("n_insertion_override")
         return _WORD_OVERRIDES[word]
+    if word in _NEUTRALIZATION_OVERRIDES:
+        if rules is not None:
+            rules.append("neutralization_override")
+        return _NEUTRALIZATION_OVERRIDES[word]
     cheoneon = is_cheoneon_pos(pos)
     pieces = []
     for run in _decode(word):
@@ -353,23 +406,47 @@ def romanize_korean(
     return result
 
 
+# Sino-Korean words the ambiguous-liaison heuristic below over-flags (a coda
+# immediately before a y-glide/이 syllable -- the same surface shape as a
+# real ㄴ-첨가 candidate) but that are a single, well-established lexeme
+# with unambiguous plain-liaison pronunciation, never a real insertion
+# candidate. Listed here purely so regenerate_romanization.py's
+# manual-review hold doesn't also block an unrelated certain-rule fix
+# elsewhere in the same CSV row (e.g. 읽음 확인's ㄺ-liaison fix, blocked by
+# 확인 alone) -- `_romanize_word` needs no entry for these since the
+# default computation is already correct.
+_CONFIRMED_PLAIN_LIAISON = frozenset(("확인",))
+
+# Tense (경음) codas liaise with their own written jamo (섞이다 "seokkida",
+# 있어요 "isseoyo") exactly like any other simple coda -- see the
+# onset_letter table in `_liaise` -- and are never themselves a ㄴ-첨가
+# candidate (사잇소리/ㄴ 첨가 examples are only ever documented for plain
+# obstruent/sonorant finals). Excluded from the ambiguous-liaison flag below
+# so a tense-coda fix isn't held back as "manual review".
+_TENSE_JONG = frozenset((2, 20))  # ㄲ, ㅆ
+
+
 def find_ambiguous_liaison_words(text: str) -> list[str]:
-    """Words in `text` (not already in `_WORD_OVERRIDES`) that have a coda
-    immediately before an unlinked y-glide/이 syllable -- the surface
-    pattern that is plain liaison for a single Sino-Korean word (특약 ->
-    teugyak) but ㄴ-첨가 for a native compound (알약 -> allyak, 담요 ->
-    damnyo). Used by regenerate_romanization.py to flag rows for manual
-    review; see module docstring."""
+    """Words in `text` (not already resolved via `_WORD_OVERRIDES` or
+    `_CONFIRMED_PLAIN_LIAISON`) that have a non-tense coda immediately
+    before an unlinked y-glide/이 syllable -- the surface pattern that is
+    plain liaison for a single Sino-Korean word (특약 -> teugyak) but
+    ㄴ-첨가 for a native compound (알약 -> allyak, 담요 -> damnyo). Used by
+    regenerate_romanization.py to flag rows for manual review; see module
+    docstring."""
 
     flagged = []
     for word in text.strip().split():
-        if word in _WORD_OVERRIDES:
+        if word in _WORD_OVERRIDES or word in _CONFIRMED_PLAIN_LIAISON:
             continue
         for run in _decode(word):
             for i in range(len(run) - 1):
                 l_jong, r_cho, r_jung = run[i][2], run[i + 1][0], run[i + 1][1]
-                if l_jong not in (0, 21) and r_cho == _CHO_NULL and (
-                    r_jung in _JUNG_Y_GLIDES or r_jung == _JUNG_I
+                if (
+                    l_jong not in (0, 21)
+                    and l_jong not in _TENSE_JONG
+                    and r_cho == _CHO_NULL
+                    and (r_jung in _JUNG_Y_GLIDES or r_jung == _JUNG_I)
                 ):
                     flagged.append(word)
                     break
