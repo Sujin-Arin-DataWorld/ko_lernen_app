@@ -1,0 +1,226 @@
+id,field,old,new,rule
+vocab_a2_0089,example_korean,여기서 뭐가 제일 맛있어요?,여기서 뭐 추천해요?,translation: example never used headword 추천하다
+vocab_a2_0089,example_german,Was schmeckt hier am besten?,Was empfehlen Sie hier?,translation: example never used headword 추천하다
+vocab_a2_0089,example_english,What's best here?,What do you recommend here?,translation: example never used headword 추천하다
+vocab_a2_0106,example_korean,여기서 곧장 가시면 돼요.,여기서 곧장 가세요.,grammar: grade3 -면 되다 replaced with plain imperative
+vocab_a2_0115,example_korean,깜짝 놀랐잖아요!,깜짝 놀랐어요!,grammar: grade3 -잖아요 removed
+vocab_a2_0115,example_german,Sie haben mich ja total erschreckt!,Ich bin total erschrocken!,grammar: grade3 -잖아요 removed
+vocab_a2_0115,example_english,You totally startled me!,I was so startled!,grammar: grade3 -잖아요 removed
+vocab_a2_0159,example_korean,유로로 계산해도 될까요?,한국의 통화는 원이에요.,translation: example/DE/EN all mismatched (payment vs currency-fact) and never used headword 통화
+vocab_a2_0159,example_german,Die Währung in Deutschland ist der Euro.,Die Währung in Korea ist der Won.,translation: example/DE/EN all mismatched (payment vs currency-fact) and never used headword 통화
+vocab_a2_0159,example_english,The currency used in Germany is the euro.,Korea's currency is the won.,translation: example/DE/EN all mismatched (payment vs currency-fact) and never used headword 통화
+vocab_a2_0160,example_korean,매달 조금씩이라도 저축하려고 해요.,매달 조금씩 저축하려고 해요.,grammar: grade3 -이라도 removed
+vocab_a2_0160,example_german,"Ich versuche, jeden Monat wenigstens etwas zu sparen.","Ich versuche, jeden Monat ein wenig zu sparen.",grammar: grade3 -이라도 removed
+vocab_a2_0160,example_english,I try to save at least a little every month.,I try to save a little every month.,grammar: grade3 -이라도 removed
+vocab_a1_0239,example_korean,윗목이 서늘해서 아래로 오라고 하셨어요.,윗목이 서늘해서 아래로 앉았어요.,grammar: grade3 quotative -라고 하셨어요 removed
+vocab_a1_0239,example_german,"Der obere Teil des Zimmers war kühl, also sollte ich weiter nach unten rücken.","Der obere Teil des Zimmers war kühl, deshalb setzte ich mich weiter unten hin.",grammar: grade3 quotative -라고 하셨어요 removed
+vocab_a1_0239,example_english,"The upper part of the room was cool, so they told me to move down.","The upper part of the room was cool, so I sat down further below.",grammar: grade3 quotative -라고 하셨어요 removed
+vocab_a1_0242,example_korean,방석을 밀어 주셔서 감사하다고 했어요.,방석을 밀어 주셔서 감사했어요.,grammar: grade3 quotative -다고 했어요 removed
+vocab_a1_0242,example_german,"Sie schoben mir ein Sitzkissen zu, und ich bedankte mich.","Sie schoben mir ein Sitzkissen zu, und ich war dankbar.",grammar: grade3 quotative -다고 했어요 removed
+vocab_a1_0242,example_english,"They pushed a floor cushion over, and I said thank you.","They pushed a floor cushion over, and I was thankful.",grammar: grade3 quotative -다고 했어요 removed
+vocab_a1_0243,example_korean,물 드세요 하셔서 컵을 두 손으로 받았어요.,물 드세요. 두 손으로 컵을 받았어요.,grammar: grade3 bare-quote 하셔서 removed
+vocab_a1_0243,example_german,"Als sie mir Wasser anboten, nahm ich das Glas mit beiden Händen.",Trinken Sie etwas Wasser. Ich nahm das Glas mit beiden Händen.,grammar: grade3 bare-quote 하셔서 removed
+vocab_a1_0243,example_english,"When they offered me water, I took the glass with both hands.",Please have some water. I took the glass with both hands.,grammar: grade3 bare-quote 하셔서 removed
+vocab_a1_0276,example_korean,성묘 갈 때는 편한 신발을 신으라고 하셨어요.,성묘 갈 때는 편한 신발을 신었어요.,grammar: grade3 quotative -으라고 하셨어요 removed
+vocab_a1_0276,example_german,Für den Grabbesuch sollte ich bequeme Schuhe anziehen.,Für den Grabbesuch zog ich bequeme Schuhe an.,grammar: grade3 quotative -으라고 하셨어요 removed
+vocab_a1_0276,example_english,They told me to wear comfortable shoes for the grave visit.,I wore comfortable shoes for the grave visit.,grammar: grade3 quotative -으라고 하셨어요 removed
+vocab_a1_0299,example_korean,나갈 때 잘 다녀오겠습니다라고 했어요.,나갈 때 인사했어요. 잘 다녀오겠습니다!,grammar: grade3 quotative -라고 했어요 removed
+vocab_a1_0299,example_german,Ich mache mich dann auf den Weg. Danke für heute.,Beim Rausgehen habe ich mich verabschiedet. Ich mache mich dann auf den Weg!,grammar: grade3 quotative -라고 했어요 removed
+vocab_a1_0299,example_english,I'll be heading out now. Thanks for having me.,I said goodbye as I left. I'll be heading out now!,grammar: grade3 quotative -라고 했어요 removed
+vocab_a1_0301,example_korean,다음에 또 오세요 하셔서 신발을 거꾸로 신었어요.,다음에 또 오세요. 그 말을 듣고 신발을 거꾸로 신었어요.,grammar: grade3 bare-quote 하셔서 removed
+vocab_a1_0301,example_german,"Als sie sagten, ich solle wiederkommen, zog ich die Schuhe verkehrt herum an.",Kommen Sie bald wieder. Ich hörte das und zog aus Eile die Schuhe verkehrt herum an.,grammar: grade3 bare-quote 하셔서 removed
+vocab_a1_0301,example_english,"When they told me to come again, I put my shoes on backwards.",Please come again. I heard that and put my shoes on backwards in my hurry.,grammar: grade3 bare-quote 하셔서 removed
+vocab_a2_0269,example_korean,어디서 오셨어요 하시길래 독일 베를린이라고 했어요.,어디서 오셨어요? 독일 베를린이에요.,"grammar: grade3 -길래/-라고 했어요 removed, direct Q&A"
+vocab_a2_0269,example_german,"Sie fragten, woher ich komme, also sagte ich Berlin.",Woher kommen Sie? Aus Berlin in Deutschland.,"grammar: grade3 -길래/-라고 했어요 removed, direct Q&A"
+vocab_a2_0269,example_english,"They asked where I am from, so I said Berlin in Germany.","Where are you from? Berlin, Germany.","grammar: grade3 -길래/-라고 했어요 removed, direct Q&A"
+vocab_a2_0272,example_korean,언제 왔어요 하시길래 재작년이라고 했어요.,언제 왔어요? 재작년에 왔어요.,"grammar: grade3 -길래/-라고 했어요 removed, direct Q&A"
+vocab_a2_0272,example_german,"Auf die Frage, wann ich gekommen sei, sagte ich: vorletztes Jahr.",Wann sind Sie gekommen? Vorletztes Jahr.,"grammar: grade3 -길래/-라고 했어요 removed, direct Q&A"
+vocab_a2_0272,example_english,"When they asked when I came over, I said the year before last.",When did you come? The year before last.,"grammar: grade3 -길래/-라고 했어요 removed, direct Q&A"
+vocab_a2_0274,example_korean,소개팅이 아니라 동아리에서 만났다고 했어요.,소개팅이 아니라 동아리에서 만났어요.,grammar: grade3 -다고 했어요 removed
+vocab_a2_0274,example_english,"I said we met in a club, not on a set-up date.","We met in a club, not on a set-up date.",grammar: grade3 -다고 했어요 removed
+vocab_a2_0279,example_korean,음식 취향을 묻길래 매운 건 조금 먹는다고 했어요.,제 음식 취향을 물어봤어요. 매운 건 조금만 먹어요.,grammar: grade3 -길래/-다고 했어요 removed
+vocab_a2_0279,example_german,"Nach den Vorlieben gefragt sagte ich, Scharfes esse ich wenig.",Sie fragten nach meinen Essensvorlieben. Scharfes esse ich nur wenig.,grammar: grade3 -길래/-다고 했어요 removed
+vocab_a2_0279,example_english,"They asked about my food preferences, so I said I can only handle a little spice.",They asked about my food preferences. I only eat a little spicy food.,grammar: grade3 -길래/-다고 했어요 removed
+vocab_a2_0282,example_korean,떡국 먹다 보면 한 살이 는다는 농담을 들었어요.,떡국을 먹으면 나이를 한 살 더 먹어요.,"grammar: grade3 -다 보면/-는다는 removed, plain -으면"
+vocab_a2_0282,example_german,"Beim Essen hörte ich den Witz, man werde ein Jahr älter.","Wenn man die Reiskuchensuppe isst, wird man ein Jahr älter.","grammar: grade3 -다 보면/-는다는 removed, plain -으면"
+vocab_a2_0282,example_english,While eating the soup I heard the joke that you gain a year.,"If you eat the rice-cake soup, you turn one year older.","grammar: grade3 -다 보면/-는다는 removed, plain -으면"
+vocab_a2_0288,example_korean,세배 영상은 가족 앨범에만 두래요.,세배 영상은 가족 앨범에만 둬요.,grammar: grade4 reported contraction -으래요 removed
+vocab_a2_0288,example_german,Das Video sollte nur ins Familienalbum.,Das Video kommt nur ins Familienalbum.,grammar: grade4 reported contraction -으래요 removed
+vocab_a2_0288,example_english,They said keep the bowing video in the family album only.,The bowing video only goes in the family album.,grammar: grade4 reported contraction -으래요 removed
+vocab_a2_0292,example_korean,새해 목표를 묻길래 한국어 일기라고 했어요.,제 새해 목표는 한국어 일기예요.,grammar: grade3 -길래/-라고 했어요 removed
+vocab_a2_0292,example_german,Nach dem Vorsatz gefragt sagte ich koreanisches Tagebuch.,Mein Neujahrsvorsatz ist ein koreanisches Tagebuch.,grammar: grade3 -길래/-라고 했어요 removed
+vocab_a2_0292,example_english,"They asked for a new-year goal, so I said a Korean diary.",My new year's goal is a Korean diary.,grammar: grade3 -길래/-라고 했어요 removed
+vocab_a2_0295,example_korean,보름달을 보며 소원을 말하래요.,보름달을 보면서 소원을 말해요.,grammar: grade4 reported contraction -래요 removed
+vocab_a2_0295,example_german,Beim Vollmond sollte ich einen Wunsch sagen.,Beim Vollmond macht man einen Wunsch.,grammar: grade4 reported contraction -래요 removed
+vocab_a2_0295,example_english,They told me to make a wish looking at the full moon.,You make a wish while looking at the full moon.,grammar: grade4 reported contraction -래요 removed
+vocab_a2_0320,example_korean,아침 인사는 일어나자마자 큰 소리로 했어요.,아침 인사는 일어나서 바로 크게 했어요.,grammar: grade3 -자마자 replaced with -아서
+vocab_a2_0320,example_german,Guten Morgen sagte ich laut gleich nach dem Aufstehen.,Den Morgengruß habe ich gleich nach dem Aufstehen laut gesagt.,grammar: grade3 -자마자 replaced with -아서
+vocab_a2_0320,example_english,I said good morning loudly as soon as I got up.,I said my morning greeting loudly right after getting up.,grammar: grade3 -자마자 replaced with -아서
+vocab_a2_0345,example_korean,김치를 짐 부치려다 안 된다고 해서 무릎 위에 올렸어요.,김치는 짐으로 부칠 수 없어서 무릎 위에 올렸어요.,grammar: grade4 -고 해서/-다고 removed
+vocab_a2_0345,example_german,"Das Kimchi durfte ich nicht aufgeben, also kam es auf meine Knie.","Das Kimchi durfte ich nicht als Gepäck aufgeben, also kam es auf meine Knie.",grammar: grade4 -고 해서/-다고 removed
+vocab_a2_0345,example_english,"I wasn't allowed to check the kimchi, so it rode on my lap.","I couldn't check the kimchi as luggage, so it rode on my lap.",grammar: grade4 -고 해서/-다고 removed
+vocab_a2_0349,example_korean,집 마당에 개가 있어서 그냥 앉아 있으라고 하셨어요.,집 마당에 개가 있어서 그냥 앉아 있었어요.,grammar: grade3 quotative -으라고 하셨어요 removed
+vocab_a2_0349,example_german,"Im Hof war ein Hund, also sollte ich einfach sitzen bleiben.","Im Hof war ein Hund, also blieb ich einfach sitzen.",grammar: grade3 quotative -으라고 하셨어요 removed
+vocab_a2_0349,example_english,"There was a dog in the yard, so they told me to just stay seated.","There was a dog in the yard, so I just stayed seated.",grammar: grade3 quotative -으라고 하셨어요 removed
+vocab_a2_0350,example_korean,밤참으로 과일만 달라고 했는데 라면이 나왔어요.,밤참으로 과일만 부탁했는데 라면이 나왔어요.,grammar: grade3 -다고 했어요 removed
+vocab_a2_0350,example_german,"Als Spätimbiss wollte ich nur Obst, aber es kam Ramyeon.","Als Spätimbiss bat ich nur um Obst, aber es kam Ramyeon.",grammar: grade3 -다고 했어요 removed
+vocab_a2_0350,example_english,"I asked only for fruit as a late snack, but ramyeon appeared.","I asked for only fruit as a late snack, but ramyeon came out.",grammar: grade3 -다고 했어요 removed
+vocab_a2_0352,example_korean,서울 도착하자마자 안부 전화를 드렸어요.,서울에 도착해서 바로 안부 전화를 드렸어요.,grammar: grade3 -자마자 replaced with -아서
+vocab_a2_0352,example_german,"Kaum in Seoul, rief ich an, dass wir gut angekommen sind.","Ich bin in Seoul angekommen und habe sofort angerufen, dass wir gut angekommen sind.",grammar: grade3 -자마자 replaced with -아서
+vocab_a2_0352,example_english,As soon as we reached Seoul I made the safe-arrival call.,I arrived in Seoul and called right away to say we'd arrived safely.,grammar: grade3 -자마자 replaced with -아서
+vocab_a1_0366,example_korean,중요한 문장은 빨리 필기하다 보면 손이 아파요.,중요한 문장을 빨리 필기하면 손이 아파요.,grammar: grade3 -다 보면 replaced with plain -으면
+vocab_a1_0366,example_german,"Wenn ich wichtige Sätze schnell mitschreibe, tun die Hände weh.","Wenn ich wichtige Sätze schnell mitschreibe, tut mir die Hand weh.",grammar: grade3 -다 보면 replaced with plain -으면
+vocab_a1_0366,example_english,"If I take notes on important sentences quickly, my hands hurt.","If I take notes on important sentences quickly, my hand hurts.",grammar: grade3 -다 보면 replaced with plain -으면
+vocab_a1_0391,example_korean,일교차가 클 때는 옷을 겹쳐 입다 해요.,일교차가 클 때는 옷을 겹쳐 입어요.,grammar: bare -다 stem before 해요 (conjugation bug)
+cloze_a1_0127,fullKo,윗목이 서늘해서 아래로 오라고 하셨어요.,윗목이 서늘해서 아래로 앉았어요.,mirrors vocab_a1_0239
+cloze_a1_0127,sentenceKo,＿＿＿이 서늘해서 아래로 오라고 하셨어요.,＿＿＿이 서늘해서 아래로 앉았어요.,mirrors vocab_a1_0239 (re-blanked)
+cloze_a1_0127,de,"Der obere Teil des Zimmers war kühl, also sollte ich weiter nach unten rücken.","Der obere Teil des Zimmers war kühl, deshalb setzte ich mich weiter unten hin.",mirrors vocab_a1_0239
+cloze_a1_0127,en,"The upper part of the room was cool, so they told me to move down.","The upper part of the room was cool, so I sat down further below.",mirrors vocab_a1_0239
+cloze_a1_0130,fullKo,방석을 밀어 주셔서 감사하다고 했어요.,방석을 밀어 주셔서 감사했어요.,mirrors vocab_a1_0242
+cloze_a1_0130,sentenceKo,＿＿＿을 밀어 주셔서 감사하다고 했어요.,＿＿＿을 밀어 주셔서 감사했어요.,mirrors vocab_a1_0242 (re-blanked)
+cloze_a1_0130,de,"Sie schoben mir ein Sitzkissen zu, und ich bedankte mich.","Sie schoben mir ein Sitzkissen zu, und ich war dankbar.",mirrors vocab_a1_0242
+cloze_a1_0130,en,"They pushed a floor cushion over, and I said thank you.","They pushed a floor cushion over, and I was thankful.",mirrors vocab_a1_0242
+cloze_a1_0131,fullKo,물 드세요 하셔서 컵을 두 손으로 받았어요.,물 드세요. 두 손으로 컵을 받았어요.,mirrors vocab_a1_0243
+cloze_a1_0131,sentenceKo,＿＿＿ 하셔서 컵을 두 손으로 받았어요.,＿＿＿. 두 손으로 컵을 받았어요.,mirrors vocab_a1_0243 (re-blanked)
+cloze_a1_0131,de,"Als sie mir Wasser anboten, nahm ich das Glas mit beiden Händen.",Trinken Sie etwas Wasser. Ich nahm das Glas mit beiden Händen.,mirrors vocab_a1_0243
+cloze_a1_0131,en,"When they offered me water, I took the glass with both hands.",Please have some water. I took the glass with both hands.,mirrors vocab_a1_0243
+cloze_a1_0164,fullKo,성묘 갈 때는 편한 신발을 신으라고 하셨어요.,성묘 갈 때는 편한 신발을 신었어요.,mirrors vocab_a1_0276
+cloze_a1_0164,sentenceKo,＿＿＿ 갈 때는 편한 신발을 신으라고 하셨어요.,＿＿＿ 갈 때는 편한 신발을 신었어요.,mirrors vocab_a1_0276 (re-blanked)
+cloze_a1_0164,de,Für den Grabbesuch sollte ich bequeme Schuhe anziehen.,Für den Grabbesuch zog ich bequeme Schuhe an.,mirrors vocab_a1_0276
+cloze_a1_0164,en,They told me to wear comfortable shoes for the grave visit.,I wore comfortable shoes for the grave visit.,mirrors vocab_a1_0276
+cloze_a1_0187,fullKo,나갈 때 잘 다녀오겠습니다라고 했어요.,나갈 때 인사했어요. 잘 다녀오겠습니다!,mirrors vocab_a1_0299
+cloze_a1_0187,sentenceKo,나갈 때 ＿＿＿라고 했어요.,나갈 때 인사했어요. ＿＿＿!,mirrors vocab_a1_0299 (re-blanked)
+cloze_a1_0187,de,Ich mache mich dann auf den Weg. Danke für heute.,Beim Rausgehen habe ich mich verabschiedet. Ich mache mich dann auf den Weg!,mirrors vocab_a1_0299
+cloze_a1_0187,en,I'll be heading out now. Thanks for having me.,I said goodbye as I left. I'll be heading out now!,mirrors vocab_a1_0299
+cloze_a1_0189,fullKo,다음에 또 오세요 하셔서 신발을 거꾸로 신었어요.,다음에 또 오세요. 그 말을 듣고 신발을 거꾸로 신었어요.,mirrors vocab_a1_0301
+cloze_a1_0189,sentenceKo,＿＿＿ 하셔서 신발을 거꾸로 신었어요.,＿＿＿. 그 말을 듣고 신발을 거꾸로 신었어요.,mirrors vocab_a1_0301 (re-blanked)
+cloze_a1_0189,de,"Als sie sagten, ich solle wiederkommen, zog ich die Schuhe verkehrt herum an.",Kommen Sie bald wieder. Ich hörte das und zog aus Eile die Schuhe verkehrt herum an.,mirrors vocab_a1_0301
+cloze_a1_0189,en,"When they told me to come again, I put my shoes on backwards.",Please come again. I heard that and put my shoes on backwards in my hurry.,mirrors vocab_a1_0301
+cloze_a1_0254,fullKo,중요한 문장은 빨리 필기하다 보면 손이 아파요.,중요한 문장을 빨리 필기하면 손이 아파요.,mirrors vocab_a1_0366
+cloze_a1_0254,de,"Wenn ich wichtige Sätze schnell mitschreibe, tun die Hände weh.","Wenn ich wichtige Sätze schnell mitschreibe, tut mir die Hand weh.",mirrors vocab_a1_0366
+cloze_a1_0254,en,"If I take notes on important sentences quickly, my hands hurt.","If I take notes on important sentences quickly, my hand hurts.",mirrors vocab_a1_0366
+cloze_a2_0076,fullKo,어디서 오셨어요 하시길래 독일 베를린이라고 했어요.,어디서 오셨어요? 독일 베를린이에요.,mirrors vocab_a2_0269
+cloze_a2_0076,sentenceKo,＿＿＿ 하시길래 독일 베를린이라고 했어요.,＿＿＿? 독일 베를린이에요.,mirrors vocab_a2_0269 (re-blanked)
+cloze_a2_0076,de,"Sie fragten, woher ich komme, also sagte ich Berlin.",Woher kommen Sie? Aus Berlin in Deutschland.,mirrors vocab_a2_0269
+cloze_a2_0076,en,"They asked where I am from, so I said Berlin in Germany.","Where are you from? Berlin, Germany.",mirrors vocab_a2_0269
+cloze_a2_0079,fullKo,언제 왔어요 하시길래 재작년이라고 했어요.,언제 왔어요? 재작년에 왔어요.,mirrors vocab_a2_0272
+cloze_a2_0079,sentenceKo,＿＿＿ 하시길래 재작년이라고 했어요.,＿＿＿? 재작년에 왔어요.,mirrors vocab_a2_0272 (re-blanked)
+cloze_a2_0079,de,"Auf die Frage, wann ich gekommen sei, sagte ich: vorletztes Jahr.",Wann sind Sie gekommen? Vorletztes Jahr.,mirrors vocab_a2_0272
+cloze_a2_0079,en,"When they asked when I came over, I said the year before last.",When did you come? The year before last.,mirrors vocab_a2_0272
+cloze_a2_0081,fullKo,소개팅이 아니라 동아리에서 만났다고 했어요.,소개팅이 아니라 동아리에서 만났어요.,mirrors vocab_a2_0274
+cloze_a2_0081,sentenceKo,＿＿＿이 아니라 동아리에서 만났다고 했어요.,＿＿＿이 아니라 동아리에서 만났어요.,mirrors vocab_a2_0274 (re-blanked)
+cloze_a2_0081,en,"I said we met in a club, not on a set-up date.","We met in a club, not on a set-up date.",mirrors vocab_a2_0274
+cloze_a2_0086,fullKo,음식 취향을 묻길래 매운 건 조금 먹는다고 했어요.,제 음식 취향을 물어봤어요. 매운 건 조금만 먹어요.,mirrors vocab_a2_0279
+cloze_a2_0086,sentenceKo,＿＿＿을 묻길래 매운 건 조금 먹는다고 했어요.,제 ＿＿＿을 물어봤어요. 매운 건 조금만 먹어요.,mirrors vocab_a2_0279 (re-blanked)
+cloze_a2_0086,de,"Nach den Vorlieben gefragt sagte ich, Scharfes esse ich wenig.",Sie fragten nach meinen Essensvorlieben. Scharfes esse ich nur wenig.,mirrors vocab_a2_0279
+cloze_a2_0086,en,"They asked about my food preferences, so I said I can only handle a little spice.",They asked about my food preferences. I only eat a little spicy food.,mirrors vocab_a2_0279
+cloze_a2_0089,fullKo,떡국 먹다 보면 한 살이 는다는 농담을 들었어요.,떡국을 먹으면 나이를 한 살 더 먹어요.,mirrors vocab_a2_0282
+cloze_a2_0089,de,"Beim Essen hörte ich den Witz, man werde ein Jahr älter.","Wenn man die Reiskuchensuppe isst, wird man ein Jahr älter.",mirrors vocab_a2_0282
+cloze_a2_0089,en,While eating the soup I heard the joke that you gain a year.,"If you eat the rice-cake soup, you turn one year older.",mirrors vocab_a2_0282
+cloze_a2_0095,fullKo,세배 영상은 가족 앨범에만 두래요.,세배 영상은 가족 앨범에만 둬요.,mirrors vocab_a2_0288
+cloze_a2_0095,sentenceKo,＿＿＿은 가족 앨범에만 두래요.,＿＿＿은 가족 앨범에만 둬요.,mirrors vocab_a2_0288 (re-blanked)
+cloze_a2_0095,de,Das Video sollte nur ins Familienalbum.,Das Video kommt nur ins Familienalbum.,mirrors vocab_a2_0288
+cloze_a2_0095,en,They said keep the bowing video in the family album only.,The bowing video only goes in the family album.,mirrors vocab_a2_0288
+cloze_a2_0099,fullKo,새해 목표를 묻길래 한국어 일기라고 했어요.,제 새해 목표는 한국어 일기예요.,mirrors vocab_a2_0292
+cloze_a2_0099,sentenceKo,＿＿＿를 묻길래 한국어 일기라고 했어요.,제 ＿＿＿는 한국어 일기예요.,mirrors vocab_a2_0292 (re-blanked)
+cloze_a2_0099,de,Nach dem Vorsatz gefragt sagte ich koreanisches Tagebuch.,Mein Neujahrsvorsatz ist ein koreanisches Tagebuch.,mirrors vocab_a2_0292
+cloze_a2_0099,en,"They asked for a new-year goal, so I said a Korean diary.",My new year's goal is a Korean diary.,mirrors vocab_a2_0292
+cloze_a2_0102,fullKo,보름달을 보며 소원을 말하래요.,보름달을 보면서 소원을 말해요.,mirrors vocab_a2_0295
+cloze_a2_0102,sentenceKo,＿＿＿을 보며 소원을 말하래요.,＿＿＿을 보면서 소원을 말해요.,mirrors vocab_a2_0295 (re-blanked)
+cloze_a2_0102,de,Beim Vollmond sollte ich einen Wunsch sagen.,Beim Vollmond macht man einen Wunsch.,mirrors vocab_a2_0295
+cloze_a2_0102,en,They told me to make a wish looking at the full moon.,You make a wish while looking at the full moon.,mirrors vocab_a2_0295
+cloze_a2_0127,fullKo,아침 인사는 일어나자마자 큰 소리로 했어요.,아침 인사는 일어나서 바로 크게 했어요.,mirrors vocab_a2_0320
+cloze_a2_0127,sentenceKo,＿＿＿는 일어나자마자 큰 소리로 했어요.,＿＿＿는 일어나서 바로 크게 했어요.,mirrors vocab_a2_0320 (re-blanked)
+cloze_a2_0127,de,Guten Morgen sagte ich laut gleich nach dem Aufstehen.,Den Morgengruß habe ich gleich nach dem Aufstehen laut gesagt.,mirrors vocab_a2_0320
+cloze_a2_0127,en,I said good morning loudly as soon as I got up.,I said my morning greeting loudly right after getting up.,mirrors vocab_a2_0320
+cloze_a2_0152,fullKo,김치를 짐 부치려다 안 된다고 해서 무릎 위에 올렸어요.,김치는 짐으로 부칠 수 없어서 무릎 위에 올렸어요.,mirrors vocab_a2_0345
+cloze_a2_0152,de,"Das Kimchi durfte ich nicht aufgeben, also kam es auf meine Knie.","Das Kimchi durfte ich nicht als Gepäck aufgeben, also kam es auf meine Knie.",mirrors vocab_a2_0345
+cloze_a2_0152,en,"I wasn't allowed to check the kimchi, so it rode on my lap.","I couldn't check the kimchi as luggage, so it rode on my lap.",mirrors vocab_a2_0345
+cloze_a2_0156,fullKo,집 마당에 개가 있어서 그냥 앉아 있으라고 하셨어요.,집 마당에 개가 있어서 그냥 앉아 있었어요.,mirrors vocab_a2_0349
+cloze_a2_0156,sentenceKo,＿＿＿에 개가 있어서 그냥 앉아 있으라고 하셨어요.,＿＿＿에 개가 있어서 그냥 앉아 있었어요.,mirrors vocab_a2_0349 (re-blanked)
+cloze_a2_0156,de,"Im Hof war ein Hund, also sollte ich einfach sitzen bleiben.","Im Hof war ein Hund, also blieb ich einfach sitzen.",mirrors vocab_a2_0349
+cloze_a2_0156,en,"There was a dog in the yard, so they told me to just stay seated.","There was a dog in the yard, so I just stayed seated.",mirrors vocab_a2_0349
+cloze_a2_0157,fullKo,밤참으로 과일만 달라고 했는데 라면이 나왔어요.,밤참으로 과일만 부탁했는데 라면이 나왔어요.,mirrors vocab_a2_0350
+cloze_a2_0157,sentenceKo,＿＿＿으로 과일만 달라고 했는데 라면이 나왔어요.,＿＿＿으로 과일만 부탁했는데 라면이 나왔어요.,mirrors vocab_a2_0350 (re-blanked)
+cloze_a2_0157,de,"Als Spätimbiss wollte ich nur Obst, aber es kam Ramyeon.","Als Spätimbiss bat ich nur um Obst, aber es kam Ramyeon.",mirrors vocab_a2_0350
+cloze_a2_0157,en,"I asked only for fruit as a late snack, but ramyeon appeared.","I asked for only fruit as a late snack, but ramyeon came out.",mirrors vocab_a2_0350
+cloze_a2_0159,fullKo,서울 도착하자마자 안부 전화를 드렸어요.,서울에 도착해서 바로 안부 전화를 드렸어요.,mirrors vocab_a2_0352
+cloze_a2_0159,sentenceKo,서울 도착하자마자 ＿＿＿를 드렸어요.,서울에 도착해서 바로 ＿＿＿를 드렸어요.,mirrors vocab_a2_0352 (re-blanked)
+cloze_a2_0159,de,"Kaum in Seoul, rief ich an, dass wir gut angekommen sind.","Ich bin in Seoul angekommen und habe sofort angerufen, dass wir gut angekommen sind.",mirrors vocab_a2_0352
+cloze_a2_0159,en,As soon as we reached Seoul I made the safe-arrival call.,I arrived in Seoul and called right away to say we'd arrived safely.,mirrors vocab_a2_0352
+cloze_a1_0279,fullKo,일교차가 클 때는 옷을 겹쳐 입다 해요.,일교차가 클 때는 옷을 겹쳐 입어요.,mirrors vocab_a1_0391
+satz_a1_0091,targetKo,윗목이 서늘해서 아래로 오라고 하셨어요.,윗목이 서늘해서 아래로 앉았어요.,mirrors vocab_a1_0239
+satz_a1_0091,promptDe,"Der obere Teil des Zimmers war kühl, also sollte ich weiter nach unten rücken.","Der obere Teil des Zimmers war kühl, deshalb setzte ich mich weiter unten hin.",mirrors vocab_a1_0239
+satz_a1_0091,promptEn,"The upper part of the room was cool, so they told me to move down.","The upper part of the room was cool, so I sat down further below.",mirrors vocab_a1_0239
+satz_a1_0094,targetKo,방석을 밀어 주셔서 감사하다고 했어요.,방석을 밀어 주셔서 감사했어요.,mirrors vocab_a1_0242
+satz_a1_0094,promptDe,"Sie schoben mir ein Sitzkissen zu, und ich bedankte mich.","Sie schoben mir ein Sitzkissen zu, und ich war dankbar.",mirrors vocab_a1_0242
+satz_a1_0094,promptEn,"They pushed a floor cushion over, and I said thank you.","They pushed a floor cushion over, and I was thankful.",mirrors vocab_a1_0242
+satz_a1_0095,targetKo,물 드세요 하셔서 컵을 두 손으로 받았어요.,물 드세요. 두 손으로 컵을 받았어요.,mirrors vocab_a1_0243
+satz_a1_0095,promptDe,"Als sie mir Wasser anboten, nahm ich das Glas mit beiden Händen.",Trinken Sie etwas Wasser. Ich nahm das Glas mit beiden Händen.,mirrors vocab_a1_0243
+satz_a1_0095,promptEn,"When they offered me water, I took the glass with both hands.",Please have some water. I took the glass with both hands.,mirrors vocab_a1_0243
+satz_a1_0128,targetKo,성묘 갈 때는 편한 신발을 신으라고 하셨어요.,성묘 갈 때는 편한 신발을 신었어요.,mirrors vocab_a1_0276
+satz_a1_0128,promptDe,Für den Grabbesuch sollte ich bequeme Schuhe anziehen.,Für den Grabbesuch zog ich bequeme Schuhe an.,mirrors vocab_a1_0276
+satz_a1_0128,promptEn,They told me to wear comfortable shoes for the grave visit.,I wore comfortable shoes for the grave visit.,mirrors vocab_a1_0276
+satz_a1_0151,targetKo,나갈 때 잘 다녀오겠습니다라고 했어요.,나갈 때 인사했어요. 잘 다녀오겠습니다!,mirrors vocab_a1_0299
+satz_a1_0151,promptDe,Ich mache mich dann auf den Weg. Danke für heute.,Beim Rausgehen habe ich mich verabschiedet. Ich mache mich dann auf den Weg!,mirrors vocab_a1_0299
+satz_a1_0151,promptEn,I'll be heading out now. Thanks for having me.,I said goodbye as I left. I'll be heading out now!,mirrors vocab_a1_0299
+satz_a1_0153,targetKo,다음에 또 오세요 하셔서 신발을 거꾸로 신었어요.,다음에 또 오세요. 그 말을 듣고 신발을 거꾸로 신었어요.,mirrors vocab_a1_0301
+satz_a1_0153,promptDe,"Als sie sagten, ich solle wiederkommen, zog ich die Schuhe verkehrt herum an.",Kommen Sie bald wieder. Ich hörte das und zog aus Eile die Schuhe verkehrt herum an.,mirrors vocab_a1_0301
+satz_a1_0153,promptEn,"When they told me to come again, I put my shoes on backwards.",Please come again. I heard that and put my shoes on backwards in my hurry.,mirrors vocab_a1_0301
+satz_a1_0218,targetKo,중요한 문장은 빨리 필기하다 보면 손이 아파요.,중요한 문장을 빨리 필기하면 손이 아파요.,mirrors vocab_a1_0366
+satz_a1_0218,promptDe,"Wenn ich wichtige Sätze schnell mitschreibe, tun die Hände weh.","Wenn ich wichtige Sätze schnell mitschreibe, tut mir die Hand weh.",mirrors vocab_a1_0366
+satz_a1_0218,promptEn,"If I take notes on important sentences quickly, my hands hurt.","If I take notes on important sentences quickly, my hand hurts.",mirrors vocab_a1_0366
+satz_a2_0320,targetKo,여기서 곧장 가시면 돼요.,여기서 곧장 가세요.,mirrors vocab_a2_0106
+satz_a2_0349,targetKo,매달 조금씩이라도 저축하려고 해요.,매달 조금씩 저축하려고 해요.,mirrors vocab_a2_0160
+satz_a2_0349,promptDe,"Ich versuche, jeden Monat wenigstens etwas zu sparen.","Ich versuche, jeden Monat ein wenig zu sparen.",mirrors vocab_a2_0160
+satz_a2_0349,promptEn,I try to save at least a little every month.,I try to save a little every month.,mirrors vocab_a2_0160
+satz_a2_0039,targetKo,어디서 오셨어요 하시길래 독일 베를린이라고 했어요.,어디서 오셨어요? 독일 베를린이에요.,mirrors vocab_a2_0269
+satz_a2_0039,promptDe,"Sie fragten, woher ich komme, also sagte ich Berlin.",Woher kommen Sie? Aus Berlin in Deutschland.,mirrors vocab_a2_0269
+satz_a2_0039,promptEn,"They asked where I am from, so I said Berlin in Germany.","Where are you from? Berlin, Germany.",mirrors vocab_a2_0269
+satz_a2_0042,targetKo,언제 왔어요 하시길래 재작년이라고 했어요.,언제 왔어요? 재작년에 왔어요.,mirrors vocab_a2_0272
+satz_a2_0042,promptDe,"Auf die Frage, wann ich gekommen sei, sagte ich: vorletztes Jahr.",Wann sind Sie gekommen? Vorletztes Jahr.,mirrors vocab_a2_0272
+satz_a2_0042,promptEn,"When they asked when I came over, I said the year before last.",When did you come? The year before last.,mirrors vocab_a2_0272
+satz_a2_0044,targetKo,소개팅이 아니라 동아리에서 만났다고 했어요.,소개팅이 아니라 동아리에서 만났어요.,mirrors vocab_a2_0274
+satz_a2_0044,promptEn,"I said we met in a club, not on a set-up date.","We met in a club, not on a set-up date.",mirrors vocab_a2_0274
+satz_a2_0049,targetKo,음식 취향을 묻길래 매운 건 조금 먹는다고 했어요.,제 음식 취향을 물어봤어요. 매운 건 조금만 먹어요.,mirrors vocab_a2_0279
+satz_a2_0049,promptDe,"Nach den Vorlieben gefragt sagte ich, Scharfes esse ich wenig.",Sie fragten nach meinen Essensvorlieben. Scharfes esse ich nur wenig.,mirrors vocab_a2_0279
+satz_a2_0049,promptEn,"They asked about my food preferences, so I said I can only handle a little spice.",They asked about my food preferences. I only eat a little spicy food.,mirrors vocab_a2_0279
+satz_a2_0052,targetKo,떡국 먹다 보면 한 살이 는다는 농담을 들었어요.,떡국을 먹으면 나이를 한 살 더 먹어요.,mirrors vocab_a2_0282
+satz_a2_0052,promptDe,"Beim Essen hörte ich den Witz, man werde ein Jahr älter.","Wenn man die Reiskuchensuppe isst, wird man ein Jahr älter.",mirrors vocab_a2_0282
+satz_a2_0052,promptEn,While eating the soup I heard the joke that you gain a year.,"If you eat the rice-cake soup, you turn one year older.",mirrors vocab_a2_0282
+satz_a2_0058,targetKo,세배 영상은 가족 앨범에만 두래요.,세배 영상은 가족 앨범에만 둬요.,mirrors vocab_a2_0288
+satz_a2_0058,promptDe,Das Video sollte nur ins Familienalbum.,Das Video kommt nur ins Familienalbum.,mirrors vocab_a2_0288
+satz_a2_0058,promptEn,They said keep the bowing video in the family album only.,The bowing video only goes in the family album.,mirrors vocab_a2_0288
+satz_a2_0062,targetKo,새해 목표를 묻길래 한국어 일기라고 했어요.,제 새해 목표는 한국어 일기예요.,mirrors vocab_a2_0292
+satz_a2_0062,promptDe,Nach dem Vorsatz gefragt sagte ich koreanisches Tagebuch.,Mein Neujahrsvorsatz ist ein koreanisches Tagebuch.,mirrors vocab_a2_0292
+satz_a2_0062,promptEn,"They asked for a new-year goal, so I said a Korean diary.",My new year's goal is a Korean diary.,mirrors vocab_a2_0292
+satz_a2_0065,targetKo,보름달을 보며 소원을 말하래요.,보름달을 보면서 소원을 말해요.,mirrors vocab_a2_0295
+satz_a2_0065,promptDe,Beim Vollmond sollte ich einen Wunsch sagen.,Beim Vollmond macht man einen Wunsch.,mirrors vocab_a2_0295
+satz_a2_0065,promptEn,They told me to make a wish looking at the full moon.,You make a wish while looking at the full moon.,mirrors vocab_a2_0295
+satz_a2_0090,targetKo,아침 인사는 일어나자마자 큰 소리로 했어요.,아침 인사는 일어나서 바로 크게 했어요.,mirrors vocab_a2_0320
+satz_a2_0090,promptDe,Guten Morgen sagte ich laut gleich nach dem Aufstehen.,Den Morgengruß habe ich gleich nach dem Aufstehen laut gesagt.,mirrors vocab_a2_0320
+satz_a2_0090,promptEn,I said good morning loudly as soon as I got up.,I said my morning greeting loudly right after getting up.,mirrors vocab_a2_0320
+satz_a2_0115,targetKo,김치를 짐 부치려다 안 된다고 해서 무릎 위에 올렸어요.,김치는 짐으로 부칠 수 없어서 무릎 위에 올렸어요.,mirrors vocab_a2_0345
+satz_a2_0115,promptDe,"Das Kimchi durfte ich nicht aufgeben, also kam es auf meine Knie.","Das Kimchi durfte ich nicht als Gepäck aufgeben, also kam es auf meine Knie.",mirrors vocab_a2_0345
+satz_a2_0115,promptEn,"I wasn't allowed to check the kimchi, so it rode on my lap.","I couldn't check the kimchi as luggage, so it rode on my lap.",mirrors vocab_a2_0345
+satz_a2_0119,targetKo,집 마당에 개가 있어서 그냥 앉아 있으라고 하셨어요.,집 마당에 개가 있어서 그냥 앉아 있었어요.,mirrors vocab_a2_0349
+satz_a2_0119,promptDe,"Im Hof war ein Hund, also sollte ich einfach sitzen bleiben.","Im Hof war ein Hund, also blieb ich einfach sitzen.",mirrors vocab_a2_0349
+satz_a2_0119,promptEn,"There was a dog in the yard, so they told me to just stay seated.","There was a dog in the yard, so I just stayed seated.",mirrors vocab_a2_0349
+satz_a2_0120,targetKo,밤참으로 과일만 달라고 했는데 라면이 나왔어요.,밤참으로 과일만 부탁했는데 라면이 나왔어요.,mirrors vocab_a2_0350
+satz_a2_0120,promptDe,"Als Spätimbiss wollte ich nur Obst, aber es kam Ramyeon.","Als Spätimbiss bat ich nur um Obst, aber es kam Ramyeon.",mirrors vocab_a2_0350
+satz_a2_0120,promptEn,"I asked only for fruit as a late snack, but ramyeon appeared.","I asked for only fruit as a late snack, but ramyeon came out.",mirrors vocab_a2_0350
+satz_a2_0122,targetKo,서울 도착하자마자 안부 전화를 드렸어요.,서울에 도착해서 바로 안부 전화를 드렸어요.,mirrors vocab_a2_0352
+satz_a2_0122,promptDe,"Kaum in Seoul, rief ich an, dass wir gut angekommen sind.","Ich bin in Seoul angekommen und habe sofort angerufen, dass wir gut angekommen sind.",mirrors vocab_a2_0352
+satz_a2_0122,promptEn,As soon as we reached Seoul I made the safe-arrival call.,I arrived in Seoul and called right away to say we'd arrived safely.,mirrors vocab_a2_0352
+satz_a1_0243,targetKo,일교차가 클 때는 옷을 겹쳐 입다 해요.,일교차가 클 때는 옷을 겹쳐 입어요.,mirrors vocab_a1_0391
+satz_a2_0308,targetKo,여기서 뭐가 제일 맛있어요?,여기서 뭐 추천해요?,mirrors vocab_a2_0089
+satz_a2_0308,promptDe,Was schmeckt hier am besten?,Was empfehlen Sie hier?,mirrors vocab_a2_0089
+satz_a2_0308,promptEn,What's best here?,What do you recommend here?,mirrors vocab_a2_0089
+cloze_a2_0089,answer,떡국 먹다,떡국을 먹으면,cloze answer aligned to conjugated form actually present after grammar fix
+cloze_a2_0089,sentenceKo,＿＿＿ 보면 한 살이 는다는 농담을 들었어요.,＿＿＿ 나이를 한 살 더 먹어요.,manual re-blank after grammar fix
+cloze_a2_0152,answer,짐 부치,짐으로 부칠,cloze answer aligned to conjugated form actually present after grammar fix
+cloze_a2_0152,sentenceKo,김치를 ＿＿＿려다 안 된다고 해서 무릎 위에 올렸어요.,김치는 ＿＿＿ 수 없어서 무릎 위에 올렸어요.,manual re-blank after grammar fix
+cloze_a1_0254,answer,필기하다,필기하면,cloze answer aligned to conjugated form actually present after grammar fix
+cloze_a1_0254,sentenceKo,중요한 문장은 빨리 ＿＿＿ 보면 손이 아파요.,중요한 문장을 빨리 ＿＿＿ 손이 아파요.,manual re-blank after grammar fix
+cloze_a1_0279,answer,겹쳐 입다,겹쳐 입어요,cloze answer aligned to conjugated form actually present after grammar fix
+cloze_a1_0279,sentenceKo,일교차가 클 때는 옷을 ＿＿＿ 해요.,일교차가 클 때는 옷을 ＿＿＿.,manual re-blank after grammar fix

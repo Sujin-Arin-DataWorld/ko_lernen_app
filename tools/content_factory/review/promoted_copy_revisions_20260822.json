@@ -3741,6 +3741,286 @@
       ],
       "beforeSha256": "7f3cc3bdc1fbdc6a225741727a6a51003d2488c81aa1d340443d048839824812",
       "afterSha256": "3472cbc53f2b9717b86c353b5b2d8739aab7c02929622954ac4f68891b246d20"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0212",
+      "level": "a1",
+      "fields": [
+        "english",
+        "example_english",
+        "example_german",
+        "example_korean",
+        "german",
+        "romanization"
+      ],
+      "beforeSha256": "36d51004e682e4e5c8a6c8a92880278d56abfea56b2ca0ceae6e489161bd2226",
+      "afterSha256": "09b27867b0b0be46818780fb630a5c8655ecb0c8e8a9a9f500cc415352f568f2"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_a2_shall_we_time",
+      "level": "a2",
+      "fields": [
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "9069e7f0c4ca65b6b1098cccfb14f4ad7dd57074628537f2e224bc66b6363c3f",
+      "afterSha256": "b8c92ed4254f07372536ee4e5ad08c9a0e7bec7cb67d778b7b421e2114217dd7"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0269",
+      "level": "a2",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "020f2ec3462d69c9654274339e9bec5720c87417fb0c35b5f92f1adef447e0d4",
+      "afterSha256": "a90effa7f48c0ebf5ba1765305d827b47ddfb24f6d50c620309a7bd3c386d70a"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0272",
+      "level": "a2",
+      "fields": [
+        "english",
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "9265b490fcddd5e2b0caa3ec41877a927fdbd4bc6c4d1b77709f2c1c9301b963",
+      "afterSha256": "ae742f8026bfd1360746394c370fbbb8bb943cac31111672eb3c558c37e5f827"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0274",
+      "level": "a2",
+      "fields": [
+        "example_english",
+        "example_korean",
+        "german"
+      ],
+      "beforeSha256": "80c5c43ef212c367dd238a8931b02db14856995fdf25368558aba060bf51fc47",
+      "afterSha256": "01f95d59b9904a2486ccb0a2db83eeb7afb8fadd0a53ba2edcd2b5c6fed9edaa"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0279",
+      "level": "a2",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean",
+        "romanization"
+      ],
+      "beforeSha256": "ccf3d8977f1de4ec2d11ca6a7711c57b5318b340ee3a479eb631ff9bc6d3766f",
+      "afterSha256": "0f32b51aa41d29c24c428712a53248b56f5360de477866fa9448405210f20362"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0282",
+      "level": "a2",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean",
+        "romanization"
+      ],
+      "beforeSha256": "76956e13da8018b0a04a5617fbef26406b702fce08f1bbe8384966abb263bffd",
+      "afterSha256": "e95b5a5671e75803af64c1fc25b6c86353ca92885b77e999a9ac0a55299b04d3"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0288",
+      "level": "a2",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "91acb24efae66bdda296b18adf9563b0f91c00df1c35422cdb6478d34ed9b1b0",
+      "afterSha256": "0ac5583a9153990e9105ad8f365dc5bfa9ec0b2847e4d9de6452f607ff9b8273"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0292",
+      "level": "a2",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean",
+        "romanization"
+      ],
+      "beforeSha256": "5e823dd18ca7fde23b099412997d738dd29651fc467b0831a79d4c6a03c3d0d3",
+      "afterSha256": "bafe13100018cfc000384c4a407dc24bd8d54d5b2d045b6bbc8b85e1c1e3af79"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0295",
+      "level": "a2",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "64f1a50b0421edcf2de4122312565f52166e00b4ac2fc26dd1441defbacec3c1",
+      "afterSha256": "a2e61fcf66bbd2913840d39f7695783e262e17f738a939de5e63c243de9e7ab7"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0320",
+      "level": "a2",
+      "fields": [
+        "english",
+        "example_english",
+        "example_german",
+        "example_korean",
+        "german"
+      ],
+      "beforeSha256": "d8db81ac46db720dbe882dbcf79fa221749d033d32875a138c9a1f40e1dc3301",
+      "afterSha256": "b5f760cf2a29576e1ef22d8cf14062f1ae02898c5cd062dda3c1ecd32ddb7931"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0345",
+      "level": "a2",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean",
+        "german"
+      ],
+      "beforeSha256": "04b4d620c06efc883b7713e715f541fc7370a123a3fe419f3e8c5d30c8fdc25a",
+      "afterSha256": "62ffb40076e3a10197f7c71058c34ed0a8369b622895e3b112f37f67a988f0ce"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0349",
+      "level": "a2",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean",
+        "romanization"
+      ],
+      "beforeSha256": "f5ffec15ac425dc5d034cc738b6208e311fa25c1693cca5186e627f8aa2da693",
+      "afterSha256": "e2028cc977291acf285753a5cd52a5b214e7166da2c6992a8c7ee3ea6a0f9636"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0350",
+      "level": "a2",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "36dda5a34f879f60381fbd82dbaf503e712132fd9db7929c06e8c1e272b01c55",
+      "afterSha256": "0981b3ae40eeea79c8459f9f76127f07d1b76f5b35424fe0f3af210d7e11d000"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0352",
+      "level": "a2",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "acd62b2d1013d541d0070f7f3e9510ab91d8d5025a316904ef71add50d7f3d87",
+      "afterSha256": "1cd9f9c695235b8960b82dc29eaa3adc41999be252deb5ff2e73c49a3ffde96c"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0366",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "44070b39cd30741c04ccdac22a3a3df64a22de6a5ea8b50643becace7192c1f3",
+      "afterSha256": "3cc83b4c121a3294295e478fc2c4d7f75a1e9337ce4cf581e7003edc04c4c6cf"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0254",
+      "level": "a1",
+      "fields": [
+        "answer",
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "a8779e73b738389de66deeb88695254a8f4f3ee5ca3aae8315fa8333e6a97f06",
+      "afterSha256": "5ca80cf583095887675f9b19669ffbc21a65e52fea7864ca575598676b834c5a"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0218",
+      "level": "a1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "1abf7141c6b19ec8d6bbc2a8cf5ceff504c8f96e25dcdd728d04c37a2a82f71b",
+      "afterSha256": "7a9dafc981946721ab718e7e7e35cd74285474db2197cb60dda64a0ac63bfdd8"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0391",
+      "level": "a1",
+      "fields": [
+        "example_korean"
+      ],
+      "beforeSha256": "aa226dcda653844649419e9b190950be439e245e8adbdac7db99450062af60a0",
+      "afterSha256": "35deb7b5bba114a1bc2d100a0e02da9aef6ca383990cf3611e47748b502add6d"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0279",
+      "level": "a1",
+      "fields": [
+        "answer",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "a12dad1216a7f8d4beeb4b207b317406ab9f1de66ec464641e3be768a96cf3ed",
+      "afterSha256": "81191302a17a59f063087dafeeee8c4ef63896eb35c122557d9baf96511cd92f"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0243",
+      "level": "a1",
+      "fields": [
+        "targetKo"
+      ],
+      "beforeSha256": "cb8283659ee35179417f9fb88eff494b31a55560496f55501d84885a99b38d2a",
+      "afterSha256": "70d77ab586c0d8b3211a839cdbdc399fbcb2bf4373fb905d5aef8731f6f8c260"
     }
   ],
   "routingEntries": [
@@ -3851,6 +4131,34 @@
       "method": "Fable's second read of the round-2 KO fixes accepted 7/10 and flagged 3 more: vocab_a1_0393 still contained a contracted -아/어 주시- honorific-benefactive (도와주셔서) that tool/cefr_lexicon.py's GrammarIndex does not detect (a known, documented gap -- scan_a1_grammar.py's own AUX_GIVE_RE regex was re-run over every KO sentence this PR touched and also does not catch this specific conjugated form; Fable caught it by reading), vocab_a1_0394 was stilted (rewritten into a real situation), and vocab_a1_0400 still shifted the original meaning (restored via an -으세요 request instead of a statement). Propagated to cloze/satz mirrors, re-fingerprinted (supersedes the round-2 entries for the same 9 (kind,id) keys).",
       "added": 0,
       "updated": 9
+    },
+    {
+      "date": "2026-09-15",
+      "scope": "C2b-2 bare -다 conjugation bug fix (vocab_a1_0391 family, batch_09_4x)",
+      "method": "vocab_a1_0391/cloze_a1_0279/satz_a1_0243 (겹쳐 입다, a2_weather_layer_1) fixed a bare dictionary-form -다 stem left unconjugated before 해요 (일교차가 클 때는 옷을 곙쳐 입다 해요 -> 곙쳐 입어요), the specific bug named in this task's brief. cloze_a1_0279's answer field also had to move from the dictionary form (no longer literally present) to the conjugated form actually in the sentence (곙쳐 입어요), matching validate_content.py's cloze sentenceKo contract. Entries fingerprinted with validate_promoted_batch._promotion_projection/_relevel_normalized_live/_fingerprint against current draft/live rows.",
+      "added": 3,
+      "replaced": 0
+    },
+    {
+      "date": "2026-09-15",
+      "scope": "C2b-2 ledger drift re-record",
+      "method": "vocab_a1_0212 (batch_07_partner_family_manifest.json): live example_korean/example_german/example_english/romanization/english differ from the frozen review draft because commit 32f311f8 'content(partner-family): humanize the new theme, merged from both sessions' (ancestor of origin/main via merge b5813937 'Merge branch cursor/promote-partner-family-7469', 2026-08-17) rewrote the sentence to drop a bare-quote '인사드리겠습니다 하고' construction (the same grade>=3 quotative class this task's grammar scan targets) before this copy-revision ledger existed, so no entry was ever recorded for it -- content verified correct, not a regression; re-fingerprinted here with validate_promoted_batch._promotion_projection/_fingerprint against the current draft/live rows. grammar_a2_shall_we_time (batch_19_manifest.json): live quiz_distractor_ids differs from the frozen review draft because PR #287 (commit 43769596, '레벨 정본화 PR-L2b — 국제통용 1·2급 문법 정렬 이동 32건') regenerated grammar distractor pools as part of the level-canon realignment; content verified correct (distractor ids resolve to real, level-adjacent grammar patterns), re-fingerprinted the same way. Both were stale-fingerprint drift from already-approved edits, not content bugs.",
+      "added": 2,
+      "replaced": 0
+    },
+    {
+      "date": "2026-09-15",
+      "scope": "C2b-2 A2 grammar-level rewrite (batch_07 partner-family rows)",
+      "method": "13 A2 vocab rows in batch_07_partner_family_manifest.json's vocab artifact (a2_partner_dinner_talk_1/seollal_day_1/chuseok_day_1/overnight_1/hometown_trip_1 packs) were rewritten by tools/content_factory/apply_c2b2_a2_fixes.py to remove nikl grade>=3 grammar (quotative -다고/라고 했-/하셨-, -자마자, -다 보면, reported -(으)래요 contractions) flagged by scan_grammar_level.py --level A2; see docs/data/c2b2_a2_translation_changes.csv for every field's before/after and docs/data/grammar_scan_a2_2026-09-15.md for the detector. Entries fingerprinted with validate_promoted_batch._promotion_projection/_relevel_normalized_live/_fingerprint against the current draft/live rows. NOTE: running the same projection over every row in this manifest's vocab artifact found 308 OTHER pre-existing drifted ids (not touched by this PR, not part of the named vocab_a1_0212/0213 drift either) with no ledger entry at all -- this manifest has a much larger pre-existing ledger gap than the two named ids in this task's brief, most likely from the same 2026-08-17 'humanize the new theme' pass (commit 32f311f8) applied across far more of the pack than that one row. validate_promoted_batch.py --manifest .../batch_07_partner_family_manifest.json will NOT pass cleanly even after this PR -- flagged for Fable/coordinator as a separate, larger follow-up rather than attempted here.",
+      "added": 13,
+      "replaced": 0
+    },
+    {
+      "date": "2026-09-15",
+      "scope": "C2b-2 bare -다 conjugation bug fix + 필기하다 grammar fix (batch_09_4x)",
+      "method": "vocab_a1_0391/cloze_a1_0279/satz_a1_0243 (겹쳐 입다, a2_weather_layer_1): fixed a bare dictionary-form -다 stem left unconjugated before 해요 (겹쳐 입다 해요 -> 겹쳐 입어요), the specific bug named in this task's brief; cloze_a1_0279's answer field also moved from the dictionary form (no longer literally present) to the conjugated form actually in the sentence, matching validate_content.py's cloze sentenceKo contract. vocab_a1_0366/cloze_a1_0254/satz_a1_0218 (필기하다, a2_school_supplies_1): removed nikl grade>=3 -다 보면 (grammar_b1_consequence), replaced with plain -으면. Entries fingerprinted with validate_promoted_batch._promotion_projection/_relevel_normalized_live/_fingerprint against current draft/live rows.",
+      "added": 6,
+      "replaced": 0
     }
   ],
   "batchFieldRevisions": [
