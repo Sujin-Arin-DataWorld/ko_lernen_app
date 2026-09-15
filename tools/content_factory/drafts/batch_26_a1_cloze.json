@@ -3,11 +3,11 @@
     {
       "id": "cloze_a1_0457",
       "level": "a1",
-      "sentenceKo": "와, 마야 씨! 이 ＿＿＿ 할까요?",
+      "sentenceKo": "와, 마야 씨! ＿＿＿ 진짜 좋아요. 함께 할까요?",
       "answer": "게임",
-      "fullKo": "와, 마야 씨! 이 게임 할까요?",
-      "de": "Wow, Maya! Sollen wir dieses Spiel spielen?",
-      "en": "Wow, Maya! Shall we play this game?",
+      "fullKo": "와, 마야 씨! 게임 진짜 좋아요. 함께 할까요?",
+      "de": "Wow, Maya! Das Spiel ist wirklich gut. Sollen wir zusammen spielen?",
+      "en": "Wow, Maya! This game is really good. Shall we play together?",
       "distractors": [
         "일월",
         "이월",
@@ -83,11 +83,11 @@
     {
       "id": "cloze_a1_0462",
       "level": "a1",
-      "sentenceKo": "수진 씨, 저는 진짜 ＿＿＿에서 왔어요!",
+      "sentenceKo": "안녕하세요! 저는 마야예요. ＿＿＿에서 왔어요.",
       "answer": "미국",
-      "fullKo": "수진 씨, 저는 진짜 미국에서 왔어요!",
-      "de": "Sujin, ich komme wirklich aus den USA!",
-      "en": "Sujin, I'm really from the USA!",
+      "fullKo": "안녕하세요! 저는 마야예요. 미국에서 왔어요.",
+      "de": "Hallo! Ich bin Maya. Ich komme aus den USA.",
+      "en": "Hello! I'm Maya. I'm from the USA.",
       "distractors": [
         "농구",
         "테니스",
@@ -611,15 +611,15 @@
     {
       "id": "cloze_a1_0495",
       "level": "a1",
-      "sentenceKo": "레나 씨, 함께 ＿＿＿을 출까요?",
+      "sentenceKo": "레나 씨, 우리 함께 ＿＿＿ 출까요?",
       "answer": "춤",
-      "fullKo": "레나 씨, 함께 춤을 출까요?",
+      "fullKo": "레나 씨, 우리 함께 춤 출까요?",
       "de": "Lena, sollen wir zusammen tanzen?",
       "en": "Lena, shall we dance together?",
       "distractors": [
-        "이월",
-        "삼월",
-        "좀"
+        "생일",
+        "날짜",
+        "참"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0561"
@@ -947,9 +947,9 @@
     {
       "id": "cloze_a1_0516",
       "level": "a1",
-      "sentenceKo": "＿＿＿에 올라갈까요?",
+      "sentenceKo": "우리 ＿＿＿에 올라갈까요?",
       "answer": "남산",
-      "fullKo": "남산에 올라갈까요?",
+      "fullKo": "우리 남산에 올라갈까요?",
       "de": "Sollen wir auf den Namsan steigen?",
       "en": "Shall we go up Namsan?",
       "distractors": [
@@ -971,7 +971,7 @@
       "distractors": [
         "책",
         "물건",
-        "함께"
+        "좀"
       ],
       "topic": "Geographie",
       "sourceVocabId": "vocab_a1_0583"
@@ -987,7 +987,7 @@
       "distractors": [
         "케이크",
         "귤",
-        "참"
+        "다니다"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0584"
@@ -1003,7 +1003,7 @@
       "distractors": [
         "설날",
         "월요일",
-        "가끔"
+        "참"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0585"
@@ -1019,7 +1019,7 @@
       "distractors": [
         "바나나",
         "우유",
-        "천천히"
+        "오다"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0586"
@@ -1035,7 +1035,7 @@
       "distractors": [
         "밤",
         "생일",
-        "참"
+        "가끔"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0587"
@@ -1051,7 +1051,7 @@
       "distractors": [
         "할머니",
         "할아버지",
-        "아주"
+        "알다"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0588"

@@ -3,9 +3,9 @@
     {
       "id": "satz_a1_0438",
       "level": "a1",
-      "targetKo": "와, 마야 씨! 이 게임 할까요?",
-      "promptDe": "Wow, Maya! Sollen wir dieses Spiel spielen?",
-      "promptEn": "Wow, Maya! Shall we play this game?",
+      "targetKo": "와, 마야 씨! 게임 진짜 좋아요. 함께 할까요?",
+      "promptDe": "Wow, Maya! Das Spiel ist wirklich gut. Sollen wir zusammen spielen?",
+      "promptEn": "Wow, Maya! This game is really good. Shall we play together?",
       "distractors": [
         "설날",
         "월요일"
@@ -68,9 +68,9 @@
     {
       "id": "satz_a1_0443",
       "level": "a1",
-      "targetKo": "수진 씨, 저는 진짜 미국에서 왔어요!",
-      "promptDe": "Sujin, ich komme wirklich aus den USA!",
-      "promptEn": "Sujin, I'm really from the USA!",
+      "targetKo": "안녕하세요! 저는 마야예요. 미국에서 왔어요.",
+      "promptDe": "Hallo! Ich bin Maya. Ich komme aus den USA.",
+      "promptEn": "Hello! I'm Maya. I'm from the USA.",
       "distractors": [
         "안경",
         "모자"
@@ -497,7 +497,7 @@
     {
       "id": "satz_a1_0476",
       "level": "a1",
-      "targetKo": "레나 씨, 함께 춤을 출까요?",
+      "targetKo": "레나 씨, 우리 함께 춤 출까요?",
       "promptDe": "Lena, sollen wir zusammen tanzen?",
       "promptEn": "Lena, shall we dance together?",
       "distractors": [
@@ -770,7 +770,7 @@
     {
       "id": "satz_a1_0497",
       "level": "a1",
-      "targetKo": "남산에 올라갈까요?",
+      "targetKo": "우리 남산에 올라갈까요?",
       "promptDe": "Sollen wir auf den Namsan steigen?",
       "promptEn": "Shall we go up Namsan?",
       "distractors": [

@@ -1,10 +1,10 @@
 korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack_id,pack_order,is_review_boss,english,pos_en,example_english,id
-게임,geim,Spiel,A1,Nomen,"와, 마야 씨! 이 게임 할까요?","Wow, Maya! Sollen wir dieses Spiel spielen?",Freizeit,a1_misc_1,11,false,game,Noun,"Wow, Maya! Shall we play this game?",vocab_a1_0523
+게임,geim,Spiel,A1,Nomen,"와, 마야 씨! 게임 진짜 좋아요. 함께 할까요?","Wow, Maya! Das Spiel ist wirklich gut. Sollen wir zusammen spielen?",Freizeit,a1_misc_1,11,false,game,Noun,"Wow, Maya! This game is really good. Shall we play together?",vocab_a1_0523
 텔레비전,tellebijeon,Fernseher,A1,Nomen,저녁에 텔레비전 좀 볼까요?,Sollen wir heute Abend ein bisschen fernsehen?,Technologie,a1_misc_1,12,false,television,Noun,Shall we watch a bit of TV this evening?,vocab_a1_0524
 슈퍼마켓,syupeomaket,Supermarkt,A1,Nomen,이 근처에 슈퍼마켓이 있어요?,Gibt es hier in der Nähe einen Supermarkt?,도시 생활,a1_city_services_2026_1,5,false,supermarket,Noun,Is there a supermarket near here?,vocab_a1_0525
 백화점,baekhwajeom,Kaufhaus,A1,Nomen,주말에 백화점에 가고 싶어요.,Am Wochenende möchte ich ins Kaufhaus gehen.,도시 생활,a1_city_services_2026_1,6,false,department store,Noun,I want to go to the department store this weekend.,vocab_a1_0526
 터미널,teomineol,"Terminal, Busbahnhof",A1,Nomen,버스 터미널이 어디예요?,Wo ist der Busbahnhof?,Verkehr,a1_transport,12,false,(bus) terminal,Noun,Where is the bus terminal?,vocab_a1_0527
-미국,miguk,"die USA, Amerika",A1,Nomen,"수진 씨, 저는 진짜 미국에서 왔어요!","Sujin, ich komme wirklich aus den USA!",자기소개,a1_particles_in_use_1,12,false,"the USA, America",Noun,"Sujin, I'm really from the USA!",vocab_a1_0528
+미국,miguk,"die USA, Amerika",A1,Nomen,안녕하세요! 저는 마야예요. 미국에서 왔어요.,Hallo! Ich bin Maya. Ich komme aus den USA.,자기소개,a1_particles_in_use_1,12,false,"the USA, America",Noun,Hello! I'm Maya. I'm from the USA.,vocab_a1_0528
 일월,irwol,Januar,A1,Nomen,제 생일은 일월이에요.,Mein Geburtstag ist im Januar.,Zeit,a1_months_1,1,false,January,Noun,My birthday is in January.,vocab_a1_0529
 이월,iwol,Februar,A1,Nomen,이월에 방학이 끝나요.,Im Februar enden die Ferien.,Zeit,a1_months_1,2,false,February,Noun,Vacation ends in February.,vocab_a1_0530
 삼월,samwol,März,A1,Nomen,삼월에 학교가 시작해요.,Im März beginnt die Schule.,Zeit,a1_months_1,3,false,March,Noun,School starts in March.,vocab_a1_0531
@@ -37,7 +37,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 스키,seuki,Skifahren,A1,Nomen,오늘 스키 타러 가요.,Ich gehe heute Ski fahren.,Freizeit,a1_hobbies_1,6,false,skiing,Noun,I'm going skiing today.,vocab_a1_0558
 등산,deungsan,Bergwandern,A1,Nomen,"현아 씨, 저는 주말에 등산을 합니다.","Hyuna, ich gehe am Wochenende wandern.",Freizeit,a1_hobbies_1,7,false,hiking,Noun,"Hyuna, I go hiking on weekends.",vocab_a1_0559
 산책,sanchaek,Spaziergang,A1,Nomen,"수진 씨, 왜 산책을 좋아해요?","Sujin, warum magst du Spaziergänge?",Freizeit,a1_hobbies_1,8,false,"walk, stroll",Noun,"Sujin, why do you like walks?",vocab_a1_0560
-춤,chum,Tanz,A1,Nomen,"레나 씨, 함께 춤을 출까요?","Lena, sollen wir zusammen tanzen?",Freizeit,a1_hobbies_1,9,false,dance,Noun,"Lena, shall we dance together?",vocab_a1_0561
+춤,chum,Tanz,A1,Nomen,"레나 씨, 우리 함께 춤 출까요?","Lena, sollen wir zusammen tanzen?",Freizeit,a1_hobbies_1,9,false,dance,Noun,"Lena, shall we dance together?",vocab_a1_0561
 노래,norae,Lied,A1,Nomen,"마야 씨, 이 노래 진짜 좋아요!","Maya, dieses Lied ist wirklich toll!",Freizeit,a1_hobbies_1,10,false,song,Noun,"Maya, this song is really great!",vocab_a1_0562
 구경,gugyeong,Besichtigung,A1,Nomen,이번 주말에 구경 가요.,Lass uns dieses Wochenende bummeln gehen.,Freizeit,a1_hobbies_1,11,false,sightseeing,Noun,Let's go sightseeing this weekend.,vocab_a1_0563
 탁구,takgu,Tischtennis,A1,Nomen,기숙사에서 탁구 칠까요?,Sollen wir im Wohnheim Tischtennis spielen?,Freizeit,a1_hobbies_1,12,false,table tennis,Noun,Shall we play table tennis in the dorm?,vocab_a1_0564
@@ -58,7 +58,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 인천,incheon,Incheon,A1,Nomen,인천공항에서 만나요.,Wir treffen uns am Flughafen Incheon.,Geographie,a1_korean_places_1,3,false,Incheon,Noun,Let's meet at Incheon Airport.,vocab_a1_0579
 제주도,jejudo,Jeju-Insel,A1,Nomen,제주도에 가고 싶어요.,Ich möchte nach Jeju fahren.,Geographie,a1_korean_places_1,4,false,Jeju Island,Noun,I want to go to Jeju Island.,vocab_a1_0580
 남대문,namdaemun,Namdaemun,A1,Nomen,남대문 구경 갈까요?,Sollen wir uns Namdaemun ansehen?,Geographie,a1_korean_places_1,5,false,Namdaemun,Noun,Shall we go see Namdaemun?,vocab_a1_0581
-남산,namsan,Namsan,A1,Nomen,남산에 올라갈까요?,Sollen wir auf den Namsan steigen?,Geographie,a1_korean_places_1,6,false,Namsan,Noun,Shall we go up Namsan?,vocab_a1_0582
+남산,namsan,Namsan,A1,Nomen,우리 남산에 올라갈까요?,Sollen wir auf den Namsan steigen?,Geographie,a1_korean_places_1,6,false,Namsan,Noun,Shall we go up Namsan?,vocab_a1_0582
 동대문,dongdaemun,Dongdaemun,A1,Nomen,동대문에서 옷을 샀어요.,Ich habe in Dongdaemun Kleidung gekauft.,Geographie,a1_korean_places_1,7,false,Dongdaemun,Noun,I bought clothes in Dongdaemun.,vocab_a1_0583
 서점,seojeom,Buchladen,A1,Nomen,서점에서 책을 골랐어요.,Ich habe im Buchladen ein Buch ausgesucht.,Alltag,a1_korean_places_1,8,false,bookstore,Noun,I picked out a book at the bookstore.,vocab_a1_0584
 커피숍,keopisyop,Café,A1,Nomen,이 근처에 커피숍이 있어요?,Gibt es hier in der Nähe ein Café?,Alltag,a1_korean_places_1,9,false,coffee shop,Noun,Is there a coffee shop near here?,vocab_a1_0585
