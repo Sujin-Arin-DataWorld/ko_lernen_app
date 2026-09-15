@@ -1,0 +1,10 @@
+{
+  "id": "gokgan-07",
+  "asset": "gokgan/stage_07_roof_bed.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_08_tiles.png"
+  ],
+  "prompt": "Reverse construction stage7: remove every ceramic tile, ridge tile, white endcap and roof ornament. Reveal plain warm clay/wood roof bedding, continuous curved planes in same Korean paljak roof silhouette, subtle board seams not tile patterns. Exposed timber rafter ends along eaves. Keep ALL original front, side AND rear posts and stone supports, 5by2 bay depth, same soil floor, camera, scale, background. No walls/door/text. Roof bedding only, not a brown recolor of individual tiles.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-fa0a9909-0efa-409a-9c88-756d7557dc75.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_07_roof_bed.png"
+}

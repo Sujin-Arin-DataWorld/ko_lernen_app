@@ -1,0 +1,9 @@
+{
+  "id": "site-05",
+  "prompt": "Use case: precise-object-edit. Create ONE production background PNG for Hangul Sori Hanok V3, construction series SITE, stage 05: cleared and compacted earth. Input 1 is the EDIT TARGET and spatial/camera authority: the complete Ildu estate wall masterplan. Keep the EXACT full-canvas portrait composition, original camera, warm ochre earth palette, matte hand-painted architectural-game texture, upper-left illumination, no horizon, same flat estate-wide footprint. REMOVE EVERY WALL, every roof cap, pillar, wall base and their shadows, both outer and inner boundaries; seamlessly reconstruct continuous bare compacted earth underneath. This is the same plot BEFORE any walls or buildings. Subtle natural soil mottling and fine sweep/compaction marks; keep it believable earth, no decorative repeating symbols, no tiled pavement. No buildings, foundations, boundary lines, stones, stakes, vegetation, people, tools, labels, text, arrows, grids or UI. The entire frame is earth, edge to edge, without a vignette or camera zoom. Preserve the input canvas aspect ratio exactly (2412:2622). One image, not a contact sheet. This clean terrain will be the fixed master used by six construction steps, and later wall objects must align to the original map coordinates.",
+  "references": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets/illustrations/personal_hanok_v3/world/ildu-wall-masterplan-v1.png"
+  ],
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-b14ac2f9-ee35-492a-8d74-66f6514e1964.png",
+  "asset": "site/stage_05_compacted.png"
+}

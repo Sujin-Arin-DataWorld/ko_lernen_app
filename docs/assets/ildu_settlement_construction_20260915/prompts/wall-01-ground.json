@@ -1,0 +1,11 @@
+{
+  "id": "wall-01-ground",
+  "asset": "wall/stage_01_footing_trench.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_06_boundary_layout.png",
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_05_compacted.png"
+  ],
+  "prompt": "Edit image1 for construction stage 1 of 8. Preserve its exact overhead oblique camera, portrait frame, perimeter shape, string positions, and both entry gaps. Replace the perimeter strings with shallow narrow excavated footing trenches and small piles of earth just beside the trench. No stone wall yet. Entire central yard and background must be the CLEAN warm ochre earth texture of image2, no checkerboard, no transparency pattern, no internal boundary lines. No trees, no buildings, no text. Render the full courtyard background as a cumulative construction scene. Keep bottom gate opening clear and unexcavated for people to walk through. Korean hanok V3 finely painted game art. Portrait 1202 by1308 composition.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-048820bf-e692-4599-b1fb-1d2838e10597.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_01_footing_trench.png"
+}

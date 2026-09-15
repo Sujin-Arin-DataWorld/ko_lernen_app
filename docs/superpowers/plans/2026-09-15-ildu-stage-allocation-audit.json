@@ -82,5 +82,16 @@
   ],
   "unreviewedAssessmentMappings": 149,
   "allFileHashesMatch": true,
-  "runtimeEnablementApproved": false
+  "runtimeEnablementApproved": false,
+  "artPromotion": {
+    "verifiedOn": "2026-09-15",
+    "integrationBaseSha": "a62c704685ec0907ff6954061abd921ea4b1780e",
+    "all149FilesInRepository": true,
+    "catalog": "docs/assets/ildu_settlement_construction_20260915/construction_catalog.json",
+    "newCanonicalImages": 38,
+    "reusedCanonicalGateImages": 12,
+    "all149HashesUnchanged": true,
+    "worldOutlineApproved": false,
+    "wallOutlineHandoff": "docs/superpowers/plans/2026-09-15-ildu-wall-outline-handoff.md"
+  }
 }

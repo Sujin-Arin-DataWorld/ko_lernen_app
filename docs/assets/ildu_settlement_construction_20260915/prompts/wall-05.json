@@ -1,0 +1,10 @@
+{
+  "id": "wall-05",
+  "asset": "wall/stage_05_core_fill.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_04_two_faces.png"
+  ],
+  "prompt": "Edit only wall core for stage5. Keep EXACT composition and camera, perimeter, both entry gaps, ground, existing wall height and stone positions. Fill the central top channel completely with tightly compacted ochre earth and small rubble flush with the stone faces, visibly solid full-width cross section. Smooth and pack the gaps between irregular stones with warm earth mortar. The change from the reference is the clearly filled solid core. No new upper courses, no roof/cap, no buildings, no text, no internal divisions. Gate passage remains empty.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-58d53358-0712-41dc-90df-93cb05a129d8.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_05_core_fill.png"
+}

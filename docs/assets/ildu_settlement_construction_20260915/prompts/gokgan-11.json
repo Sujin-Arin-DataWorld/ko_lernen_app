@@ -1,0 +1,10 @@
+{
+  "id": "gokgan-11",
+  "asset": "gokgan/stage_11_doors.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_12_complete.png"
+  ],
+  "prompt": "Edit only CENTRAL DOUBLE DOOR state for construction stage11. Preserve entire five-bay deep storehouse exactly, camera scale/crop, roof, all six front posts, two side bays, vents, plinth, ivory background. Open both center door leaves inward about70 degrees. Show thick jambs and shaded real deep storage room with plain compacted earth floor continuing to back wall, no stairs/ondol/wooden deck. No stored objects yet, no person or text. Heavy wood door planks and iron hinges same as reference. Everything except doors and newly visible interior unchanged.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-ddd68428-eb3d-46e1-a73b-3a7de3006898.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_11_doors.png"
+}

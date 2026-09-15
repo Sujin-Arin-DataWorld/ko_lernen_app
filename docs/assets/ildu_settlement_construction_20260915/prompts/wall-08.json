@@ -1,0 +1,11 @@
+{
+  "id": "wall-08",
+  "asset": "wall/stage_08_complete.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_07_cap_bed.png",
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/담장/돌담_v2.png"
+  ],
+  "prompt": "Final stage8 edit image1. Add small dark charcoal Korean giwa tile capping to EVERY perimeter wall top, accurately following each straight stretch and corner. Material and simple traditional wall-top roof profile from image2, no ornate roof ornaments. Preserve original thick ochre rubble wall body, exact footprint, height, camera, ground and BOTH open entrance gaps. No gate or buildings yet. No checkerboard, no text. Finished sturdy Korean stone boundary wall on warm bare earth. Only top roofing is added; open courtyard remains empty.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-6cdc070e-a59a-45ea-a199-96443c612a59.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_08_complete.png"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "site-02",
+  "asset": "site/stage_02_debris_cleared.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_01_neglected.png"
+  ],
+  "prompt": "Precise edit of this exact earth plot. Make construction cleanup stage 02: workers have picked up the dry leaves, fallen branches and large loose rocks. REMOVE the dry leaves and branches everywhere and the large rocks that obstruct walking. KEEP EVERY LIVING WEED CLUMP at its same position, same shape and size, including all edge plants and small central plants. Keep shallow ruts, rough soil clods, the original warm ochre soil, exact camera, identical crop, aspect ratio and upper-left illumination. The soil is still uneven and weedy, not yet levelled or compacted. Seamlessly fill removed items with matching earth only. Do not invent paths, walls, foundations, tools, people, labels, arrows, grid or buildings. One full-frame portrait PNG; this is the same scene at the next moment, not a redesigned plot.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-ad93c282-cfb3-4b6c-9050-3000d5b2f422.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_02_debris_cleared.png"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "toilet-03",
+  "asset": "toilet/stage_03_posts.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_04_beams.png"
+  ],
+  "prompt": "Construction stage3 precise reverse edit: REMOVE all horizontal timber beams, sill rails and brackets. Leave only upright wooden posts on their existing stone bases at exactly their existing front AND rear coordinates, and deep rectangular earth plinth. Rear row must remain visibly separated in depth, not coplanar with front. Some subtle short temporary diagonal wooden props can brace end posts. No roof, horizontal beams, walls, floorboards or door. Keep exact frame/camera/scale/base location, large blank upper area and warm ivory background.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-1fa198fb-ffd4-4291-9daf-b9e1edb1f1a5.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_03_posts.png"
+}

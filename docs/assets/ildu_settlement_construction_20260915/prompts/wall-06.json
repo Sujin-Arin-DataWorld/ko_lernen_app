@@ -1,0 +1,11 @@
+{
+  "id": "wall-06",
+  "asset": "wall/stage_06_full_height.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_05_core_fill.png",
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/담장/돌담_v2.png"
+  ],
+  "prompt": "Construction stage6 edit image1. Keep its exact camera footprint ground and open gates. Raise thick perimeter wall bodies to finished height about twice present height, with larger irregular rough grey/tan fieldstones embedded in generous pale ochre earth mortar matching material image2 (ignore background/camera ofimage2). Ends show solid thick cross section. Broad flattened earth top, not tiled yet. No buildings, no new internal partitions, no text, no checkerboard. Do not fill either gate gap. Full portrait composition, preserve footprint and central yard.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-7198e3b6-3985-4039-ad77-e8a2730ef193.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_06_full_height.png"
+}

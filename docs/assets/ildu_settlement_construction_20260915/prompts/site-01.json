@@ -1,0 +1,10 @@
+{
+  "id": "site-01",
+  "asset": "site/stage_01_neglected.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_05_compacted.png"
+  ],
+  "prompt": "Edit the supplied full-frame earth background into stage 01 BEFORE the same plot is cleaned. ONE portrait construction-game background, exact same camera, crop, full-frame footprint and aspect 1202:1308. Keep the warm matte hand-painted soil, upper-left lighting and no horizon. Add patchy neglected but recoverable ground: irregular shallow ruts, scattered dry leaves, small fallen twigs, uneven loose soil clods and scattered small stones; clusters of muted olive wild weeds of different sizes scattered especially toward the edges and a few across the central area. The ground must remain mostly visible, not a lush meadow. Fine consistent 2.5D game illustration, clear individually removable objects with believable tiny shadows. No buildings, walls, foundation layout, pathways, stakes, ropes, trash/plastic, people, animals, text, lettering, arrows, UI or grid. Everything seen from the same elevated estate camera, not a close-up. This is the first dirty-ground stage of a cleanup sequence; preserve landform and palette, no vignette, no extra scenery.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-ec7b8f40-3eb6-469e-8134-035d1119d4d8.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_01_neglected.png"
+}

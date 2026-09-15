@@ -1,0 +1,10 @@
+{
+  "id": "gokgan-05",
+  "asset": "gokgan/stage_05_roof_frame.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_06_rafters.png"
+  ],
+  "prompt": "Stage5 reverse edit. Remove every small closely spaced rafter and round rafter tail. Keep ONLY sparse primary roof timbers: long ridge, horizontal purlins, principal hip/end beams and short vertical ridge supports carried by horizontal depth beams from front to rear. All load paths connected; no floating roof. Preserve six front and six rear post rows and two side depth bays, deep low stone/earth base and exact same camera/scale/crop. Large roof spaces are now open air. No continuous roof sheets/tiles, walls, door or text. Same ivory background.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-8034a105-6c8c-48d3-8ff8-2c87b403cdc2.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_05_roof_frame.png"
+}

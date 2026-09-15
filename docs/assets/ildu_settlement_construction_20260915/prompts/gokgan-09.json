@@ -1,0 +1,10 @@
+{
+  "id": "gokgan-09",
+  "asset": "gokgan/stage_09_floor.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_10_walls.png"
+  ],
+  "prompt": "Construction stage9 reverse assembly. Remove ALL wooden/plaster wall infill and ALL windows on front, sides and rear of this exact storehouse. Leave all structural posts: SIX front posts defining FIVE equal front bays, matching SIX rear posts visibly farther back, and side midposts defining TWO side-depth bays. Main beams connected across true building depth. Keep entire finished roof and low stone foundation unchanged. Interior visible as a large continuous smooth compacted earth floor at low threshold level, no raised timber deck, no steps, no ondol. No doors. Empty real storage volume under roof. Same oblique camera/scale/crop/ivory background. No props/text.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-60528a9c-4729-4ed7-8811-ceddb4ed85b4.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_09_floor.png"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "gokgan-04",
+  "asset": "gokgan/stage_04_beams.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_05_roof_frame.png"
+  ],
+  "prompt": "Stage4 reverse construction. Remove entire roof structure ABOVE horizontal eave-beam level including ridge shortposts hips purlins. Leave a rectangular timber beam grid over exact 5-front-bay by2-side-depth-bay footprint; six front structural posts and six rear posts, side midposts remain. Add/readably expose depth-spanning beams connecting matching front-to-back post lines, so roof load will be supported rather than only long perimeter beams. No roof, walls, door or floorboards. Preserve exact ground line size camera/crop low stone/earth base and ivory background. Empty upper area stays empty, do not zoom.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-4daebda9-97f0-4fe7-8d99-5ca63ceafdb1.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_04_beams.png"
+}

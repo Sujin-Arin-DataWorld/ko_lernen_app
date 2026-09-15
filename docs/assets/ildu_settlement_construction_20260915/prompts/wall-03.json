@@ -1,0 +1,10 @@
+{
+  "id": "wall-03",
+  "asset": "wall/stage_03_corners.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_02_base_stones.png"
+  ],
+  "prompt": "Edit same scene for stone wall construction stage3. Keep exact portrait camera ground perimeter and two entry gaps. Raise ONLY the stonework at corners, bends and free wall ends to about 3 courses, as short sturdy corner leads joined to the existing low foundation. Stretch a few thin mason's string lines along tops between corner leads. The long connecting walls remain at one course. Korean irregular fieldstone in warm ochre earth mortar, genuinely thick and heavy. No roof, no buildings, no internal walls, no text. Keep ground unobstructed through the bottom gate gap.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-3e3b71cc-7319-46ab-92c3-48e326e1f724.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/wall/stage_03_corners.png"
+}

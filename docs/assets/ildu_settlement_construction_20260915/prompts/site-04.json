@@ -1,0 +1,11 @@
+{
+  "id": "site-04",
+  "asset": "site/stage_04_levelled.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_03_weeded.png",
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_05_compacted.png"
+  ],
+  "prompt": "Create SITE stage 04 of the same cleanup sequence, one portrait image. Input1 is the previous rough weeded plot; Input2 is the later smooth compacted soil and defines unchanged overall camera, crop, color and footprint. Stage04 sits BETWEEN them: the ruts have been filled and high clods levelled, all tiny vegetation removed, but the earth is still loose, with a few broad faint raking strokes and small soft soil granules. Much smoother than input1 but less compact than input2. Keep exact same full-canvas framing, dimensions/aspect 1202:1308 and upper-left lighting. Continuous warm ochre matte hand-painted soil edge to edge, no strong repeating symbols, no construction, stones, walls, ropes, stakes, tools, trees, people, text, grid, arrows or vignette. Do not introduce any path or change the perspective.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-3abefef0-e394-4a12-8cbb-4ef66eff93a6.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/site/stage_04_levelled.png"
+}

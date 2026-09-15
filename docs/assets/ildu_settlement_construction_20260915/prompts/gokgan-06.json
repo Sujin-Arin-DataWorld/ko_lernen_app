@@ -1,0 +1,10 @@
+{
+  "id": "gokgan-06",
+  "asset": "gokgan/stage_06_rafters.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_07_roof_bed.png"
+  ],
+  "prompt": "Construction stage6 remove all continuous roof boards/bedding, expose closely spaced round timber rafters on front AND rear roof slopes, radial jack rafters on right and left hips, sitting on purlins and load-bearing beams. Broad long Korean paljak roof outline preserved, gaps between rafters show depth and air. Keep six front posts and six rear posts, side middle posts, all supports and deep5by2 stone/earth footprint, exact camera/crop/scale and ivory background. No wall infill, floorboards, doors or text. Not a flat comb: roof has real depth.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-fc7dcaa8-613b-4c33-8ea3-06cbf408ff96.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_06_rafters.png"
+}

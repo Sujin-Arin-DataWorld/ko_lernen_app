@@ -1,0 +1,11 @@
+{
+  "id": "gokgan-12",
+  "asset": "gokgan/stage_12_complete.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/gokganchae_try02_5kan.png",
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets/illustrations/personal_hanok_v3/turnarounds/ildu_gokgan_01_front_right.png"
+  ],
+  "prompt": "Create the SAME five-bay Korean GOKGANCHAE storehouse in image1 as a high-detail construction final master from front-RIGHT oblique view matching image2. Image1 is sole material/design authority; image2 is camera and deep5by2-bay volume authority. Exactly 5 equal front bays: six front structural posts; one central double wooden door in thirdbay; small vents in second and fourth; remaining bays blank plaster over vertical dark weathered timber lower walls. Front9750mm, depth5460mm, two side bays. Low stone base, heavy charcoal weathered Korean paljak hip-and-gable roof, authentic modest no fantasy ornament. Do not make short shallow shed or flat facade. Right side clearly deep and has two bays, rear support structure implied. Entire building and eaves contained with10percent margin. Plain warm ivory background #F5F0E8; no checkerboard, text, props, people. 1536x1024 landscape detailed V3 hand-painted 3D asset.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-52dc696b-d6fb-4ccf-ad7c-8c5a66a1497e.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/gokgan/stage_12_complete.png"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "toilet-04",
+  "asset": "toilet/stage_04_beams.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_05_roof_frame.png"
+  ],
+  "prompt": "Construction stage4 reverse edit: remove entire inclined roof structure ABOVE the flat rectangular beam ring, including ridge, purlins, all hip members and short ridge supports. Retain flat horizontal main beams connecting front and rear upright posts across BOTH width and depth. Keep exact post locations and heights, deep stone base/earth subfloor, no walls/door/roof. Preserve camera, object base coordinates, framing/crop; upper half now plain empty ivory space, do NOT zoom larger. Connected real timber room volume. No letters or props.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-a84de169-bb1a-40c7-9e12-cbec3f988bf8.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_04_beams.png"
+}

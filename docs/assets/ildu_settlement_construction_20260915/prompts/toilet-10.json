@@ -1,0 +1,10 @@
+{
+  "id": "toilet-10",
+  "asset": "toilet/stage_10_walls.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_11_door.png"
+  ],
+  "prompt": "Construction stage10 edit. Keep exact image camera crop floor ground line roof plaster walls and timber positions. REMOVE the wooden door leaf and all its door hardware. Leave full empty doorway with thick jambs, visible shaded standing floor and back wall, genuinely deep enclosed room. Everything else identical. No props, fixtures, plumbing, text. Same plain warm ivory background, finely painted Korean hanok V3 art.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-7c0d467d-842d-4a58-82c9-671bc2b504bd.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_10_walls.png"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "toilet-06",
+  "asset": "toilet/stage_06_rafters.png",
+  "refs": [
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_07_roof_bed.png"
+  ],
+  "prompt": "Reverse construction stage6. Remove ALL continuous roof bedding/boards from reference to reveal closely spaced ROUND WOOD RAFTERS running down roof slopes from ridge/purlins to eaves, fan-shaped jack rafters at hip corners. Open gaps between rafters show air and rear slope structure. No sheets, no tiles, no ceramic ornaments. Supporting ridge and purlins are timber structurally connected to beams and posts. Keep exact original footprint, front and rear timber skeleton, roof outline, camera, stone base, earth floor and ivory background. Real volumetric roof, not a single comb of front rafters.",
+  "originalOutput": "C:\\Users\\vjinn\\.codex\\generated_images\\01a09cda-45be-7a30-86d3-b27f4eb0b62e\\exec-ffbd4272-e248-4407-a7ff-6275488c013b.png",
+  "savedPath": "C:/dev/hangulsori/ko_lernen_app_worktrees/toilet-store-wall-plan-20260914/assets_unused/pending_review/personal_hanok_v3/construction_site_wall_toilet_gokgan_v1/toilet/stage_06_rafters.png"
+}
