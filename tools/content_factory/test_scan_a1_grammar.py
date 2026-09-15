@@ -23,8 +23,9 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT / "tool"))
 sys.path.insert(0, str(REPO_ROOT / "tools" / "content_factory"))
 
-from cefr_lexicon import CefrLexicon, GrammarIndex  # noqa: E402
+from cefr_lexicon import CefrLexicon, GrammarIndex, load_f9_headword_embedded_grammar  # noqa: E402
 import scan_a1_grammar as S  # noqa: E402
+import scan_grammar_level as SL  # noqa: E402
 
 # Deliberately-kept exceptions: (kind, id) rows that scan_a1_grammar.py may
 # still flag after the C2d rewrite, with the reason recorded here so a
@@ -248,6 +249,64 @@ class LiveA1CorpusGuardTest(unittest.TestCase):
             too_short, [],
             msg=f"satz rows below the 3-token build contract: {too_short}",
         )
+
+
+class F9HeadwordEmbeddedGrammarAgreementTest(unittest.TestCase):
+    """F9 (Jin ruling 2026-09-16): tools/content_factory/lexicon/
+    f9_headword_embedded_grammar.csv is the governance-record source of
+    truth for A1 headwords whose own lexical form embeds a grade>=2
+    grammar item; scan_a1_grammar.py's and scan_grammar_level.py's
+    HEADWORD_EMBEDDED_GRAMMAR dicts are what the scanners actually consult
+    to skip those rows, so a vocab id present in one but not the other
+    would silently reintroduce either a false flag or an unflagged
+    violation. This guards the two stay put in sync."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.f9_rows = load_f9_headword_embedded_grammar(REPO_ROOT)
+        cls.f9_vocab_ids = {row["id"].strip() for row in cls.f9_rows}
+
+    def test_f9_source_has_the_expected_rows(self) -> None:
+        # Guards the CSV itself against silent drift (e.g. a bad edit
+        # dropping a row or renaming an id) independent of the scanners.
+        self.assertEqual(
+            self.f9_vocab_ids, {"vocab_a1_0410", "vocab_a1_0508"},
+        )
+        for row in self.f9_rows:
+            self.assertEqual(row["level"].strip(), "A1")
+            self.assertIn("-아/어 주다", row["embedded_grammar"])
+            self.assertIn("A1", row["disposition"])
+
+    def test_scan_a1_grammar_dict_has_a_vocab_entry_for_every_f9_row(self) -> None:
+        missing = sorted(
+            vid for vid in self.f9_vocab_ids
+            if ("vocab", vid) not in S.HEADWORD_EMBEDDED_GRAMMAR
+        )
+        self.assertEqual(
+            missing, [],
+            msg=f"scan_a1_grammar.HEADWORD_EMBEDDED_GRAMMAR is missing F9 id(s): {missing}",
+        )
+
+    def test_scan_grammar_level_a1_dict_has_a_vocab_entry_for_every_f9_row(self) -> None:
+        a1_dict = SL.HEADWORD_EMBEDDED_GRAMMAR["A1"]
+        missing = sorted(
+            vid for vid in self.f9_vocab_ids if ("vocab", vid) not in a1_dict
+        )
+        self.assertEqual(
+            missing, [],
+            msg=f"scan_grammar_level.HEADWORD_EMBEDDED_GRAMMAR['A1'] is missing F9 id(s): {missing}",
+        )
+
+    def test_both_scanner_dicts_agree_on_the_f9_vocab_ids(self) -> None:
+        a1_dict = SL.HEADWORD_EMBEDDED_GRAMMAR["A1"]
+        legacy_vocab_ids = {rid for (kind, rid) in S.HEADWORD_EMBEDDED_GRAMMAR if kind == "vocab"}
+        level_vocab_ids = {rid for (kind, rid) in a1_dict if kind == "vocab"}
+        # Only assert agreement on the F9-governed subset -- both dicts may
+        # independently carry other (non-F9) headword-embedded-grammar ids
+        # (e.g. vocab_a1_0341), which is fine as long as those also agree,
+        # but this test's scope is specifically the F9 exception table.
+        self.assertTrue(self.f9_vocab_ids <= legacy_vocab_ids)
+        self.assertTrue(self.f9_vocab_ids <= level_vocab_ids)
 
 
 if __name__ == "__main__":

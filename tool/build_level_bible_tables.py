@@ -103,6 +103,7 @@ from cefr_lexicon import (  # noqa: E402
     GRADE_TO_CEFR,
     CefrLexicon,
     PROPER_NOUN_EXCLUSIONS,
+    load_f9_headword_embedded_grammar,
     load_level_exceptions,
 )
 
@@ -1231,6 +1232,34 @@ def build_f9_md(root: Path, f1_result: F1Result) -> str:
                 hw=row["headword"].strip(),
                 lvl=row["allowed_level"].strip(),
                 note=row["note"].strip(),
+            )
+        )
+    lines.append("")
+    lines.append("## 표제어 내장 문법 -- 레벨 유지(예문 헤드워드 자체가 상위 등급 문법을 내장)")
+    lines.append("")
+    lines.append("> Jin 룰링 2026-09-16 추가 --")
+    lines.append("> `tools/content_factory/lexicon/f9_headword_embedded_grammar.csv`가 정본, 이 표는 그")
+    lines.append("> 스냅샷. 헤드워드 자체가 상위 등급 문법을 어휘화한 다어(多語) 표현이라 예문에서")
+    lines.append("> 헤드워드를 그대로 써야 하는 항목 -- `tools/content_factory/scan_a1_grammar.py`와")
+    lines.append("> `scan_grammar_level.py`의 `HEADWORD_EMBEDDED_GRAMMAR`가 이 표의 id를 그대로")
+    lines.append("> 사용해 스캔에서 제외한다(일치 여부는")
+    lines.append("> `tools/content_factory/test_scan_a1_grammar.py`가 검증).")
+    lines.append("")
+    headword_embedded_rows = load_f9_headword_embedded_grammar(root)
+    lines.append("| id | 표제어 | 레벨 | 내장 문법 | 처리 | 결정자 | 결정일 | 사유 | 근거 |")
+    lines.append("|---|---|---|---|---|---|---|---|---|")
+    for row in headword_embedded_rows:
+        lines.append(
+            "| {id} | {hw} | {lvl} | {gram} | {disp} | {by} | {at} | {why} | {ref} |".format(
+                id=row["id"].strip(),
+                hw=row["headword"].strip(),
+                lvl=row["level"].strip(),
+                gram=row["embedded_grammar"].strip(),
+                disp=row["disposition"].strip(),
+                by=row["decided_by"].strip(),
+                at=row["decided_at"].strip(),
+                why=row["rationale"].strip(),
+                ref=row["reference"].strip(),
             )
         )
     lines.append("")

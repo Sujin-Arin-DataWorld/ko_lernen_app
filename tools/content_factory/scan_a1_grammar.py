@@ -205,6 +205,19 @@ HEADWORD_EMBEDDED_GRAMMAR = {
     ("vocab", "vocab_a1_0341"): "늦을 것 같다 embeds -을 것 같다 (nikl grade 2, 표현)",
     ("cloze", "cloze_a1_0229"): "mirrors vocab_a1_0341",
     ("satz", "satz_a1_0193"): "mirrors vocab_a1_0341",
+    # Jin ruling 2026-09-16 (Batch 25, F9 예외표 -- docs/data/level_bible/
+    # F9_exceptions.md "표제어 내장 문법" / tools/content_factory/lexicon/
+    # f9_headword_embedded_grammar.csv): 적어 주다/도와주다 are lexicalized
+    # -아/어 주다 (nikl grade 2, 표현) survival expressions kept at A1
+    # permanently, not a relevel-to-A2 candidate -- productive -아/어 주다
+    # is taught from A2 (see PR #348, which rewrote every other A1 use of
+    # -아/어 주세요 to 1급 -으세요). test_scan_a1_grammar.py asserts this
+    # dict agrees with the F9 CSV above.
+    ("vocab", "vocab_a1_0410"): "적어 주다 embeds -아/어 주다 (nikl grade 2, 표현); A1 유지 (Jin 2026-09-16, F9)",
+    ("satz", "satz_a1_0317"): "mirrors vocab_a1_0410",
+    ("vocab", "vocab_a1_0508"): "도와주다 embeds -아/어 주다 (nikl grade 2, 표현); A1 유지 (Jin 2026-09-16, F9)",
+    ("cloze", "cloze_a1_0442"): "mirrors vocab_a1_0508",
+    ("satz", "satz_a1_0423"): "mirrors vocab_a1_0508",
 }
 
 EXACT_SENTENCE_ALLOWLIST = {

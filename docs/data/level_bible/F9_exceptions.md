@@ -187,6 +187,21 @@
 | signage_a2 | 확인 | A2 | 확인/확인하다: 영수증·예약·문자 확인 등 생존 거래어 — Fable 룰링 2026-09-07 |
 | signage_a2 | 확인하다 | A2 | 확인/확인하다: 영수증·예약·문자 확인 등 생존 거래어 — Fable 룰링 2026-09-07 |
 
+## 표제어 내장 문법 -- 레벨 유지(예문 헤드워드 자체가 상위 등급 문법을 내장)
+
+> Jin 룰링 2026-09-16 추가 --
+> `tools/content_factory/lexicon/f9_headword_embedded_grammar.csv`가 정본, 이 표는 그
+> 스냅샷. 헤드워드 자체가 상위 등급 문법을 어휘화한 다어(多語) 표현이라 예문에서
+> 헤드워드를 그대로 써야 하는 항목 -- `tools/content_factory/scan_a1_grammar.py`와
+> `scan_grammar_level.py`의 `HEADWORD_EMBEDDED_GRAMMAR`가 이 표의 id를 그대로
+> 사용해 스캔에서 제외한다(일치 여부는
+> `tools/content_factory/test_scan_a1_grammar.py`가 검증).
+
+| id | 표제어 | 레벨 | 내장 문법 | 처리 | 결정자 | 결정일 | 사유 | 근거 |
+|---|---|---|---|---|---|---|---|---|
+| vocab_a1_0410 | 적어 주다 | A1 | -아/어 주다 (2급) | A1 유지(생존 표현, 어휘화) | Jin | 2026-09-16 | 세종 1급 교재 관행; 생산 문법(-아/어 주다)은 A2부터 지도 (Batch 25) | PR #348 |
+| vocab_a1_0508 | 도와주다 | A1 | -아/어 주다 (2급) | A1 유지(생존 표현, 어휘화) | Jin | 2026-09-16 | 세종 1급 교재 관행; 생산 문법(-아/어 주다)은 A2부터 지도 (Batch 25) | PR #348 |
+
 ## 앱 고유 문법(F1 app_only, 93개) -- nikl 국제통용 목록에 대응 없음
 
 > `grammar_a1_service_request`행은 F1 자동 매처가 "을1"(조사) 매칭으로

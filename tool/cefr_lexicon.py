@@ -1705,6 +1705,27 @@ def load_level_exceptions(root: Path = REPO) -> List[dict]:
     return _read_csv(root / "tools" / "content_factory" / "lexicon" / "level_exceptions.csv")
 
 
+def load_f9_headword_embedded_grammar(root: Path = REPO) -> List[dict]:
+    """F9 (Jin ruling 2026-09-16): read tools/content_factory/lexicon/
+    f9_headword_embedded_grammar.csv (header ``id,headword,level,
+    embedded_grammar,disposition,decided_by,decided_at,rationale,
+    reference``) -- the governance record for A1 headwords that are
+    themselves a lexicalized multi-word expression embedding a grade>=2
+    grammar item (e.g. 적어 주다/도와주다 embedding -아/어 주다, 2급) and are
+    kept at their current level as a documented exception rather than
+    relevelled or rewritten. This is the SOURCE OF TRUTH rendered into F9's
+    "표제어 내장 문법" section by ``tool/build_level_bible_tables.py``; the
+    same ids must appear (with a comment pointing back to F9) in
+    ``tools/content_factory/scan_a1_grammar.py``'s and ``scan_grammar_
+    level.py``'s ``HEADWORD_EMBEDDED_GRAMMAR`` dicts, which is what the
+    scanners actually consult to skip these rows -- see
+    ``tools/content_factory/test_scan_a1_grammar.py`` for the agreement
+    check between this CSV and those dicts."""
+    return _read_csv(
+        root / "tools" / "content_factory" / "lexicon" / "f9_headword_embedded_grammar.csv"
+    )
+
+
 # ---------------------------------------------------------------------------
 # CefrLexicon
 # ---------------------------------------------------------------------------
