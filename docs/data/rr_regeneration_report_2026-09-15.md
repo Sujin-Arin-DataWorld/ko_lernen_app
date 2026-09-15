@@ -1,35 +1,11 @@
 # RR romanization regeneration report (2026-09-15, task C2a)
 
 - Total vocab rows: 2499
-- Rows with a changed `romanization` value: 9
+- Rows with a changed `romanization` value: 0
 - Rows flagged for manual review (ambiguous liaison/n-insertion): 132
 - Rows flagged for manual review (체언 ㅎ-aspiration heuristic applies): 69
 
 ## Changes by rule
-
-### liaison (6 rows)
-
-| id | korean | before | after | rule |
-|---|---|---|---|---|
-| vocab_b2_0189 | 섞이다 | seogida | seokkida | liaison |
-| vocab_b1_0348 | 읽음 표시 | ikgeum pyosi | ilgeum pyosi | liaison |
-| vocab_b1_0355 | 읽은 척 | ikgeun cheok | ilgeun cheok | liaison |
-| vocab_b2_0526 | 밖에서 예의를 | bageseo yeuireul | bakkeseo yeuireul | liaison |
-| vocab_a1_0389 | 맑음 | makgeum | malgeum | liaison |
-| vocab_b1_0374 | 읽음 확인 | ikgeum hwagin | ilgeum hwagin | liaison |
-
-### n_insertion_override (2 rows)
-
-| id | korean | before | after | rule |
-|---|---|---|---|---|
-| vocab_a1_0281 | 솔잎 | sorip | sollip | n_insertion_override |
-| vocab_a1_0360 | 색연필 | saegyeonpil | saengnyeonpil | n_insertion_override |
-
-### neutralization_override (1 rows)
-
-| id | korean | before | after | rule |
-|---|---|---|---|---|
-| vocab_a1_0209 | 맛없다 | maseopda | madeopda | neutralization_override |
 
 ## Manual review needed
 
@@ -254,13 +230,9 @@ Codex P1 (PR #327): these rows are still flagged manual-review (ambiguous ㄴ-�
 
 (none)
 
-## 오버라이드 적용 행 3
+## 오버라이드 적용 행 0
 
 Rows changed via an explicit lexical override (`_WORD_OVERRIDES`/`_NEUTRALIZATION_OVERRIDES` in rr_romanize.py) rather than a general sound-change rule.
 
-| id | korean | before | after | rule |
-|---|---|---|---|---|
-| vocab_a1_0209 | 맛없다 | maseopda | madeopda | neutralization_override |
-| vocab_a1_0281 | 솔잎 | sorip | sollip | n_insertion_override |
-| vocab_a1_0360 | 색연필 | saegyeonpil | saengnyeonpil | n_insertion_override |
+(none)
 
