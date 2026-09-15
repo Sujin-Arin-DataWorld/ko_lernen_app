@@ -1,0 +1,823 @@
+{
+  "items": [
+    {
+      "id": "satz_a1_0504",
+      "level": "a1",
+      "targetKo": "아, 텔레비전을 켜요.",
+      "promptDe": "Ach, ich mache den Fernseher an.",
+      "promptEn": "Oh, I'll turn on the TV.",
+      "distractors": [
+        "가방",
+        "볼펜"
+      ],
+      "vocabKo": "켜다",
+      "sourceVocabId": "vocab_a1_0589"
+    },
+    {
+      "id": "satz_a1_0505",
+      "level": "a1",
+      "targetKo": "크리스티안 씨, 지금 잘까요? 불을 꺼요.",
+      "promptDe": "Christian, sollen wir jetzt schlafen? Ich mache das Licht aus.",
+      "promptEn": "Christian, shall we sleep now? I'll turn off the light.",
+      "distractors": [
+        "수첩",
+        "카메라"
+      ],
+      "vocabKo": "끄다",
+      "sourceVocabId": "vocab_a1_0590"
+    },
+    {
+      "id": "satz_a1_0506",
+      "level": "a1",
+      "targetKo": "와! 아기가 정말 많이 웃어요.",
+      "promptDe": "Wow! Das Baby lacht wirklich viel.",
+      "promptEn": "Wow! The baby laughs a lot, really.",
+      "distractors": [
+        "티셔츠",
+        "바지"
+      ],
+      "vocabKo": "웃다",
+      "sourceVocabId": "vocab_a1_0591"
+    },
+    {
+      "id": "satz_a1_0507",
+      "level": "a1",
+      "targetKo": "가방 안에 뭐가 있어요?",
+      "promptDe": "Was ist in der Tasche?",
+      "promptEn": "What's in the bag?",
+      "distractors": [
+        "동안",
+        "오전"
+      ],
+      "vocabKo": "가방",
+      "sourceVocabId": "vocab_a1_0592"
+    },
+    {
+      "id": "satz_a1_0508",
+      "level": "a1",
+      "targetKo": "볼펜으로 이름을 써요.",
+      "promptDe": "Ich schreibe meinen Namen mit dem Kugelschreiber.",
+      "promptEn": "I write my name with the pen.",
+      "distractors": [
+        "기숙사",
+        "사무실"
+      ],
+      "vocabKo": "볼펜",
+      "sourceVocabId": "vocab_a1_0593"
+    },
+    {
+      "id": "satz_a1_0509",
+      "level": "a1",
+      "targetKo": "수첩에 이름을 써요.",
+      "promptDe": "Ich schreibe den Namen ins Notizbuch.",
+      "promptEn": "I write my name in the notebook.",
+      "distractors": [
+        "아파트",
+        "수영장"
+      ],
+      "vocabKo": "수첩",
+      "sourceVocabId": "vocab_a1_0594"
+    },
+    {
+      "id": "satz_a1_0510",
+      "level": "a1",
+      "targetKo": "레나 씨, 이 카메라로 찍어요!",
+      "promptDe": "Lena, lass uns mit dieser Kamera fotografieren!",
+      "promptEn": "Lena, let's take photos with this camera!",
+      "distractors": [
+        "운동장",
+        "노래방"
+      ],
+      "vocabKo": "카메라",
+      "sourceVocabId": "vocab_a1_0595"
+    },
+    {
+      "id": "satz_a1_0511",
+      "level": "a1",
+      "targetKo": "저는 이 티셔츠를 입었어요.",
+      "promptDe": "Ich habe dieses T-Shirt getragen.",
+      "promptEn": "I wore this T-shirt.",
+      "distractors": [
+        "대사관",
+        "건물"
+      ],
+      "vocabKo": "티셔츠",
+      "sourceVocabId": "vocab_a1_0596"
+    },
+    {
+      "id": "satz_a1_0512",
+      "level": "a1",
+      "targetKo": "이 바지를 입고 싶어요.",
+      "promptDe": "Ich möchte diese Hose anziehen.",
+      "promptEn": "I want to wear these pants.",
+      "distractors": [
+        "여행사",
+        "근처"
+      ],
+      "vocabKo": "바지",
+      "sourceVocabId": "vocab_a1_0597"
+    },
+    {
+      "id": "satz_a1_0513",
+      "level": "a1",
+      "targetKo": "크리스티안 씨, 운동화 신고 같이 갈까요?",
+      "promptDe": "Christian, sollen wir Sportschuhe anziehen und zusammen gehen?",
+      "promptEn": "Christian, shall we put on sneakers and go together?",
+      "distractors": [
+        "건너편",
+        "층"
+      ],
+      "vocabKo": "운동화",
+      "sourceVocabId": "vocab_a1_0598"
+    },
+    {
+      "id": "satz_a1_0514",
+      "level": "a1",
+      "targetKo": "이 잔으로 물을 마셔요.",
+      "promptDe": "Ich trinke Wasser aus diesem Glas.",
+      "promptEn": "I drink water from this cup.",
+      "distractors": [
+        "다음",
+        "나중"
+      ],
+      "vocabKo": "잔",
+      "sourceVocabId": "vocab_a1_0599"
+    },
+    {
+      "id": "satz_a1_0515",
+      "level": "a1",
+      "targetKo": "수진 씨, 콘서트 표가 있어요!",
+      "promptDe": "Sujin, ich habe eine Konzertkarte!",
+      "promptEn": "Sujin, I have a concert ticket!",
+      "distractors": [
+        "오후",
+        "이번"
+      ],
+      "vocabKo": "표",
+      "sourceVocabId": "vocab_a1_0600"
+    },
+    {
+      "id": "satz_a1_0516",
+      "level": "a1",
+      "targetKo": "아버지가 신문을 읽어요.",
+      "promptDe": "Mein Vater liest die Zeitung.",
+      "promptEn": "My father reads the newspaper.",
+      "distractors": [
+        "지난달",
+        "지난주"
+      ],
+      "vocabKo": "신문",
+      "sourceVocabId": "vocab_a1_0601"
+    },
+    {
+      "id": "satz_a1_0517",
+      "level": "a1",
+      "targetKo": "수진 씨, 이거 제 학생증 맞아요?",
+      "promptDe": "Sujin, ist das mein Studentenausweis, oder?",
+      "promptEn": "Sujin, is this my student ID, right?",
+      "distractors": [
+        "지난해",
+        "일주일"
+      ],
+      "vocabKo": "학생증",
+      "sourceVocabId": "vocab_a1_0602"
+    },
+    {
+      "id": "satz_a1_0518",
+      "level": "a1",
+      "targetKo": "여권을 먼저 주세요.",
+      "promptDe": "Bitte geben Sie mir zuerst den Reisepass.",
+      "promptEn": "Please give me the passport first.",
+      "distractors": [
+        "하루",
+        "후"
+      ],
+      "vocabKo": "여권",
+      "sourceVocabId": "vocab_a1_0603"
+    },
+    {
+      "id": "satz_a1_0519",
+      "level": "a1",
+      "targetKo": "저는 기숙사에 살아요.",
+      "promptDe": "Ich wohne im Studentenwohnheim.",
+      "promptEn": "I live in the dormitory.",
+      "distractors": [
+        "운동화",
+        "잔"
+      ],
+      "vocabKo": "기숙사",
+      "sourceVocabId": "vocab_a1_0604"
+    },
+    {
+      "id": "satz_a1_0520",
+      "level": "a1",
+      "targetKo": "저는 사무실에서 일해요.",
+      "promptDe": "Ich arbeite im Büro.",
+      "promptEn": "I work at the office.",
+      "distractors": [
+        "표",
+        "신문"
+      ],
+      "vocabKo": "사무실",
+      "sourceVocabId": "vocab_a1_0605"
+    },
+    {
+      "id": "satz_a1_0521",
+      "level": "a1",
+      "targetKo": "이 아파트에 몇 명이 살아요?",
+      "promptDe": "Wie viele Leute wohnen in dieser Wohnung?",
+      "promptEn": "How many people live in this apartment?",
+      "distractors": [
+        "학생증",
+        "여권"
+      ],
+      "vocabKo": "아파트",
+      "sourceVocabId": "vocab_a1_0606"
+    },
+    {
+      "id": "satz_a1_0522",
+      "level": "a1",
+      "targetKo": "우리 수영장에 갈까요?",
+      "promptDe": "Sollen wir ins Schwimmbad gehen?",
+      "promptEn": "Shall we go to the swimming pool?",
+      "distractors": [
+        "개",
+        "고양이"
+      ],
+      "vocabKo": "수영장",
+      "sourceVocabId": "vocab_a1_0607"
+    },
+    {
+      "id": "satz_a1_0523",
+      "level": "a1",
+      "targetKo": "아이가 운동장에서 놀아요.",
+      "promptDe": "Das Kind spielt auf dem Sportplatz.",
+      "promptEn": "The child plays on the sports ground.",
+      "distractors": [
+        "꽃",
+        "나무"
+      ],
+      "vocabKo": "운동장",
+      "sourceVocabId": "vocab_a1_0608"
+    },
+    {
+      "id": "satz_a1_0524",
+      "level": "a1",
+      "targetKo": "우리 노래방에 갈까요?",
+      "promptDe": "Sollen wir in den Karaoke-Raum gehen?",
+      "promptEn": "Shall we go to the karaoke room?",
+      "distractors": [
+        "산",
+        "바다"
+      ],
+      "vocabKo": "노래방",
+      "sourceVocabId": "vocab_a1_0609"
+    },
+    {
+      "id": "satz_a1_0525",
+      "level": "a1",
+      "targetKo": "독일 대사관이 어디에 있어요?",
+      "promptDe": "Wo ist die deutsche Botschaft?",
+      "promptEn": "Where is the German embassy?",
+      "distractors": [
+        "비",
+        "불"
+      ],
+      "vocabKo": "대사관",
+      "sourceVocabId": "vocab_a1_0610"
+    },
+    {
+      "id": "satz_a1_0526",
+      "level": "a1",
+      "targetKo": "여행사에 전화해요. 그럼 같이 가요.",
+      "promptDe": "Ich rufe das Reisebüro an. Dann gehen wir zusammen.",
+      "promptEn": "I'll call the travel agency. Then let's go together.",
+      "distractors": [
+        "아기",
+        "아이"
+      ],
+      "vocabKo": "여행사",
+      "sourceVocabId": "vocab_a1_0611"
+    },
+    {
+      "id": "satz_a1_0527",
+      "level": "a1",
+      "targetKo": "이 건물은 몇 층이에요?",
+      "promptDe": "Wie viele Stockwerke hat dieses Gebäude?",
+      "promptEn": "How many floors does this building have?",
+      "distractors": [
+        "남자",
+        "여자"
+      ],
+      "vocabKo": "건물",
+      "sourceVocabId": "vocab_a1_0612"
+    },
+    {
+      "id": "satz_a1_0528",
+      "level": "a1",
+      "targetKo": "이 근처에 커피숍이 있어요. 제가 알아요.",
+      "promptDe": "Es gibt ein Café hier in der Nähe. Ich weiß es.",
+      "promptEn": "There's a cafe near here. I know it.",
+      "distractors": [
+        "기분",
+        "마음"
+      ],
+      "vocabKo": "근처",
+      "sourceVocabId": "vocab_a1_0613"
+    },
+    {
+      "id": "satz_a1_0529",
+      "level": "a1",
+      "targetKo": "은행이 건너편에 있어요.",
+      "promptDe": "Die Bank ist auf der gegenüberliegenden Seite.",
+      "promptEn": "The bank is on the opposite side.",
+      "distractors": [
+        "사랑",
+        "피곤"
+      ],
+      "vocabKo": "건너편",
+      "sourceVocabId": "vocab_a1_0614"
+    },
+    {
+      "id": "satz_a1_0530",
+      "level": "a1",
+      "targetKo": "가게가 이 층에 있어요. 이거 예뻐요!",
+      "promptDe": "Der Laden ist auf dieser Etage. Das hier ist schön!",
+      "promptEn": "The shop is on this floor. This is pretty!",
+      "distractors": [
+        "감사",
+        "미안"
+      ],
+      "vocabKo": "층",
+      "sourceVocabId": "vocab_a1_0615"
+    },
+    {
+      "id": "satz_a1_0531",
+      "level": "a1",
+      "targetKo": "다음 주에 만나요.",
+      "promptDe": "Wir treffen uns nächste Woche.",
+      "promptEn": "See you next week.",
+      "distractors": [
+        "친절",
+        "실례"
+      ],
+      "vocabKo": "다음",
+      "sourceVocabId": "vocab_a1_0616"
+    },
+    {
+      "id": "satz_a1_0532",
+      "level": "a1",
+      "targetKo": "나중에 이야기해요.",
+      "promptDe": "Wir reden später.",
+      "promptEn": "Let's talk later.",
+      "distractors": [
+        "유명",
+        "대답"
+      ],
+      "vocabKo": "나중",
+      "sourceVocabId": "vocab_a1_0617"
+    },
+    {
+      "id": "satz_a1_0533",
+      "level": "a1",
+      "targetKo": "방학 동안 뭐 해요?",
+      "promptDe": "Was machst du während der Ferien?",
+      "promptEn": "What do you do during the vacation?",
+      "distractors": [
+        "소개",
+        "설명"
+      ],
+      "vocabKo": "동안",
+      "sourceVocabId": "vocab_a1_0618"
+    },
+    {
+      "id": "satz_a1_0534",
+      "level": "a1",
+      "targetKo": "오전에 운동해요.",
+      "promptDe": "Ich mache am Vormittag Sport.",
+      "promptEn": "I exercise in the morning.",
+      "distractors": [
+        "가방",
+        "볼펜"
+      ],
+      "vocabKo": "오전",
+      "sourceVocabId": "vocab_a1_0619"
+    },
+    {
+      "id": "satz_a1_0535",
+      "level": "a1",
+      "targetKo": "저는 오후에 산책해요.",
+      "promptDe": "Ich mache am Nachmittag einen Spaziergang.",
+      "promptEn": "I go for a walk in the afternoon.",
+      "distractors": [
+        "수첩",
+        "카메라"
+      ],
+      "vocabKo": "오후",
+      "sourceVocabId": "vocab_a1_0620"
+    },
+    {
+      "id": "satz_a1_0536",
+      "level": "a1",
+      "targetKo": "이번 달에 바빠요.",
+      "promptDe": "Diesen Monat bin ich beschäftigt.",
+      "promptEn": "I'm busy this month.",
+      "distractors": [
+        "티셔츠",
+        "바지"
+      ],
+      "vocabKo": "이번",
+      "sourceVocabId": "vocab_a1_0621"
+    },
+    {
+      "id": "satz_a1_0537",
+      "level": "a1",
+      "targetKo": "지난달에 바빴어요.",
+      "promptDe": "Letzten Monat war ich beschäftigt.",
+      "promptEn": "I was busy last month.",
+      "distractors": [
+        "운동화",
+        "잔"
+      ],
+      "vocabKo": "지난달",
+      "sourceVocabId": "vocab_a1_0622"
+    },
+    {
+      "id": "satz_a1_0538",
+      "level": "a1",
+      "targetKo": "지난주에 아팠어요.",
+      "promptDe": "Letzte Woche war ich krank.",
+      "promptEn": "I was sick last week.",
+      "distractors": [
+        "표",
+        "신문"
+      ],
+      "vocabKo": "지난주",
+      "sourceVocabId": "vocab_a1_0623"
+    },
+    {
+      "id": "satz_a1_0539",
+      "level": "a1",
+      "targetKo": "지난해에 만났어요.",
+      "promptDe": "Wir haben uns letztes Jahr kennengelernt.",
+      "promptEn": "We met last year.",
+      "distractors": [
+        "학생증",
+        "여권"
+      ],
+      "vocabKo": "지난해",
+      "sourceVocabId": "vocab_a1_0624"
+    },
+    {
+      "id": "satz_a1_0540",
+      "level": "a1",
+      "targetKo": "일주일 동안 여행해요.",
+      "promptDe": "Ich reise eine Woche lang.",
+      "promptEn": "I travel for one week.",
+      "distractors": [
+        "기숙사",
+        "사무실"
+      ],
+      "vocabKo": "일주일",
+      "sourceVocabId": "vocab_a1_0625"
+    },
+    {
+      "id": "satz_a1_0541",
+      "level": "a1",
+      "targetKo": "오늘 하루 정말 피곤해요.",
+      "promptDe": "Heute bin ich den ganzen Tag wirklich müde.",
+      "promptEn": "I'm really tired all day today.",
+      "distractors": [
+        "아파트",
+        "수영장"
+      ],
+      "vocabKo": "하루",
+      "sourceVocabId": "vocab_a1_0626"
+    },
+    {
+      "id": "satz_a1_0542",
+      "level": "a1",
+      "targetKo": "잠시 후에 만나요.",
+      "promptDe": "Wir sehen uns in einem Moment.",
+      "promptEn": "See you in a moment.",
+      "distractors": [
+        "운동장",
+        "노래방"
+      ],
+      "vocabKo": "후",
+      "sourceVocabId": "vocab_a1_0627"
+    },
+    {
+      "id": "satz_a1_0543",
+      "level": "a1",
+      "targetKo": "개가 몇 마리 있어요?",
+      "promptDe": "Wie viele Hunde gibt es?",
+      "promptEn": "How many dogs are there?",
+      "distractors": [
+        "대사관",
+        "여행사"
+      ],
+      "vocabKo": "개",
+      "sourceVocabId": "vocab_a1_0628"
+    },
+    {
+      "id": "satz_a1_0544",
+      "level": "a1",
+      "targetKo": "고양이가 몇 마리예요?",
+      "promptDe": "Wie viele Katzen sind es?",
+      "promptEn": "How many cats are there?",
+      "distractors": [
+        "건물",
+        "근처"
+      ],
+      "vocabKo": "고양이",
+      "sourceVocabId": "vocab_a1_0629"
+    },
+    {
+      "id": "satz_a1_0545",
+      "level": "a1",
+      "targetKo": "꽃에 물을 줘요.",
+      "promptDe": "Ich gieße die Blumen.",
+      "promptEn": "I water the flowers.",
+      "distractors": [
+        "건너편",
+        "층"
+      ],
+      "vocabKo": "꽃",
+      "sourceVocabId": "vocab_a1_0630"
+    },
+    {
+      "id": "satz_a1_0546",
+      "level": "a1",
+      "targetKo": "나무 밑에 앉아요.",
+      "promptDe": "Ich setze mich unter den Baum.",
+      "promptEn": "I sit under the tree.",
+      "distractors": [
+        "동안",
+        "오전"
+      ],
+      "vocabKo": "나무",
+      "sourceVocabId": "vocab_a1_0631"
+    },
+    {
+      "id": "satz_a1_0547",
+      "level": "a1",
+      "targetKo": "저는 주말에 산에 올라가요.",
+      "promptDe": "Ich steige am Wochenende auf den Berg.",
+      "promptEn": "I climb the mountain on weekends.",
+      "distractors": [
+        "다음",
+        "나중"
+      ],
+      "vocabKo": "산",
+      "sourceVocabId": "vocab_a1_0632"
+    },
+    {
+      "id": "satz_a1_0548",
+      "level": "a1",
+      "targetKo": "저는 바다에서 수영해요.",
+      "promptDe": "Ich schwimme im Meer.",
+      "promptEn": "I swim in the sea.",
+      "distractors": [
+        "지난달",
+        "지난주"
+      ],
+      "vocabKo": "바다",
+      "sourceVocabId": "vocab_a1_0633"
+    },
+    {
+      "id": "satz_a1_0549",
+      "level": "a1",
+      "targetKo": "오늘 비가 와요.",
+      "promptDe": "Heute regnet es.",
+      "promptEn": "It's raining today.",
+      "distractors": [
+        "오후",
+        "이번"
+      ],
+      "vocabKo": "비",
+      "sourceVocabId": "vocab_a1_0634"
+    },
+    {
+      "id": "satz_a1_0550",
+      "level": "a1",
+      "targetKo": "산에 불이 났어요.",
+      "promptDe": "Auf dem Berg ist ein Feuer ausgebrochen.",
+      "promptEn": "A fire broke out on the mountain.",
+      "distractors": [
+        "지난해",
+        "일주일"
+      ],
+      "vocabKo": "불",
+      "sourceVocabId": "vocab_a1_0635"
+    },
+    {
+      "id": "satz_a1_0551",
+      "level": "a1",
+      "targetKo": "아기가 자요.",
+      "promptDe": "Das Baby schläft.",
+      "promptEn": "The baby is sleeping.",
+      "distractors": [
+        "하루",
+        "후"
+      ],
+      "vocabKo": "아기",
+      "sourceVocabId": "vocab_a1_0636"
+    },
+    {
+      "id": "satz_a1_0552",
+      "level": "a1",
+      "targetKo": "저 아이는 학생이에요.",
+      "promptDe": "Dieses Kind ist ein Schüler.",
+      "promptEn": "That child is a student.",
+      "distractors": [
+        "기분",
+        "마음"
+      ],
+      "vocabKo": "아이",
+      "sourceVocabId": "vocab_a1_0637"
+    },
+    {
+      "id": "satz_a1_0553",
+      "level": "a1",
+      "targetKo": "저 남자는 누구예요?",
+      "promptDe": "Wer ist dieser Mann?",
+      "promptEn": "Who is that man?",
+      "distractors": [
+        "사랑",
+        "피곤"
+      ],
+      "vocabKo": "남자",
+      "sourceVocabId": "vocab_a1_0638"
+    },
+    {
+      "id": "satz_a1_0554",
+      "level": "a1",
+      "targetKo": "저 여자는 제 친구예요.",
+      "promptDe": "Diese Frau ist meine Freundin.",
+      "promptEn": "That woman is my friend.",
+      "distractors": [
+        "미안",
+        "친절"
+      ],
+      "vocabKo": "여자",
+      "sourceVocabId": "vocab_a1_0639"
+    },
+    {
+      "id": "satz_a1_0555",
+      "level": "a1",
+      "targetKo": "오늘 기분이 좋아요.",
+      "promptDe": "Ich bin heute guter Stimmung.",
+      "promptEn": "I'm in a good mood today.",
+      "distractors": [
+        "개",
+        "고양이"
+      ],
+      "vocabKo": "기분",
+      "sourceVocabId": "vocab_a1_0640"
+    },
+    {
+      "id": "satz_a1_0556",
+      "level": "a1",
+      "targetKo": "오늘 마음이 아파요.",
+      "promptDe": "Mein Herz tut heute weh.",
+      "promptEn": "My heart aches today.",
+      "distractors": [
+        "꽃",
+        "나무"
+      ],
+      "vocabKo": "마음",
+      "sourceVocabId": "vocab_a1_0641"
+    },
+    {
+      "id": "satz_a1_0557",
+      "level": "a1",
+      "targetKo": "저는 수진 씨를 사랑해요.",
+      "promptDe": "Ich liebe Sujin.",
+      "promptEn": "I love Sujin.",
+      "distractors": [
+        "산",
+        "바다"
+      ],
+      "vocabKo": "사랑",
+      "sourceVocabId": "vocab_a1_0642"
+    },
+    {
+      "id": "satz_a1_0558",
+      "level": "a1",
+      "targetKo": "저는 오늘 정말 피곤해요.",
+      "promptDe": "Ich bin heute wirklich müde.",
+      "promptEn": "I'm really tired today.",
+      "distractors": [
+        "비",
+        "불"
+      ],
+      "vocabKo": "피곤",
+      "sourceVocabId": "vocab_a1_0643"
+    },
+    {
+      "id": "satz_a1_0559",
+      "level": "a1",
+      "targetKo": "정말 감사해요.",
+      "promptDe": "Ich bin wirklich dankbar.",
+      "promptEn": "I'm really grateful.",
+      "distractors": [
+        "아기",
+        "아이"
+      ],
+      "vocabKo": "감사",
+      "sourceVocabId": "vocab_a1_0644"
+    },
+    {
+      "id": "satz_a1_0560",
+      "level": "a1",
+      "targetKo": "미안해요, 늦었어요.",
+      "promptDe": "Entschuldigung, ich bin zu spät.",
+      "promptEn": "Sorry, I'm late.",
+      "distractors": [
+        "남자",
+        "여자"
+      ],
+      "vocabKo": "미안",
+      "sourceVocabId": "vocab_a1_0645"
+    },
+    {
+      "id": "satz_a1_0561",
+      "level": "a1",
+      "targetKo": "선생님이 정말 친절해요.",
+      "promptDe": "Der Lehrer ist wirklich freundlich.",
+      "promptEn": "The teacher is really kind.",
+      "distractors": [
+        "가방",
+        "볼펜"
+      ],
+      "vocabKo": "친절",
+      "sourceVocabId": "vocab_a1_0646"
+    },
+    {
+      "id": "satz_a1_0562",
+      "level": "a1",
+      "targetKo": "실례합니다. 화장실이 어디예요?",
+      "promptDe": "Entschuldigung. Wo ist die Toilette?",
+      "promptEn": "Excuse me. Where is the restroom?",
+      "distractors": [
+        "수첩",
+        "카메라"
+      ],
+      "vocabKo": "실례",
+      "sourceVocabId": "vocab_a1_0647"
+    },
+    {
+      "id": "satz_a1_0563",
+      "level": "a1",
+      "targetKo": "그 가수는 정말 유명해요.",
+      "promptDe": "Dieser Sänger ist wirklich berühmt.",
+      "promptEn": "That singer is really famous.",
+      "distractors": [
+        "티셔츠",
+        "바지"
+      ],
+      "vocabKo": "유명",
+      "sourceVocabId": "vocab_a1_0648"
+    },
+    {
+      "id": "satz_a1_0564",
+      "level": "a1",
+      "targetKo": "제가 대답해요.",
+      "promptDe": "Ich antworte.",
+      "promptEn": "I'll answer.",
+      "distractors": [
+        "운동화",
+        "잔"
+      ],
+      "vocabKo": "대답",
+      "sourceVocabId": "vocab_a1_0649"
+    },
+    {
+      "id": "satz_a1_0565",
+      "level": "a1",
+      "targetKo": "친구를 소개해요.",
+      "promptDe": "Ich stelle einen Freund vor.",
+      "promptEn": "I'm introducing a friend.",
+      "distractors": [
+        "표",
+        "신문"
+      ],
+      "vocabKo": "소개",
+      "sourceVocabId": "vocab_a1_0650"
+    },
+    {
+      "id": "satz_a1_0566",
+      "level": "a1",
+      "targetKo": "제가 천천히 설명해요.",
+      "promptDe": "Ich erkläre langsam.",
+      "promptEn": "I'll explain slowly.",
+      "distractors": [
+        "학생증",
+        "여권"
+      ],
+      "vocabKo": "설명",
+      "sourceVocabId": "vocab_a1_0651"
+    }
+  ]
+}
