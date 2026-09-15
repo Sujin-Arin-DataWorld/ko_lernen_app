@@ -1025,8 +1025,8 @@
       "id": "satz_a1_0041",
       "level": "a1",
       "targetKo": "앞으로 잘 부탁드려요.",
-      "promptDe": "Schön, dass wir uns kennen. Ich freu mich.",
-      "promptEn": "Great to meet you. Hope we get along.",
+      "promptDe": "Ich hoffe, wir kommen ab jetzt gut miteinander aus.",
+      "promptEn": "I hope we get along well from now on.",
       "distractors": [
         "한국어로",
         "이름은"
@@ -29927,9 +29927,9 @@
     {
       "id": "satz_a1_0386",
       "level": "a1",
-      "targetKo": "친구가 한 명 있어요.",
-      "promptDe": "Ich habe einen Freund.",
-      "promptEn": "I have one friend.",
+      "targetKo": "오늘 친구를 한 명 만났어요.",
+      "promptDe": "Heute habe ich einen Freund getroffen.",
+      "promptEn": "I met one friend today.",
       "distractors": [
         "나",
         "천"
@@ -29941,9 +29941,9 @@
     {
       "id": "satz_a1_0387",
       "level": "a1",
-      "targetKo": "친구가 두 명 있어요.",
-      "promptDe": "Ich habe zwei Freunde.",
-      "promptEn": "I have two friends.",
+      "targetKo": "지난주에 친구를 두 명 만났어요.",
+      "promptDe": "Letzte Woche habe ich zwei Freunde getroffen.",
+      "promptEn": "I met two friends last week.",
       "distractors": [
         "원",
         "결제하다"
@@ -30067,9 +30067,9 @@
     {
       "id": "satz_a1_0396",
       "level": "a1",
-      "targetKo": "와, 정말 좋아요!",
-      "promptDe": "Wow, das ist wirklich toll!",
-      "promptEn": "Wow, that's really great!",
+      "targetKo": "와, 이 가방 정말 예뻐요!",
+      "promptDe": "Wow, diese Tasche ist wirklich hübsch!",
+      "promptEn": "Wow, this bag is really pretty!",
       "distractors": [
         "초록색",
         "한복"
@@ -30571,9 +30571,9 @@
     {
       "id": "satz_a1_0432",
       "level": "a1",
-      "targetKo": "우리 학교에는 학생이 사십 명 있어요.",
-      "promptDe": "An unserer Schule gibt es vierzig Schüler.",
-      "promptEn": "There are forty students at our school.",
+      "targetKo": "오늘 우리 학교에 학생이 사십 명 왔어요.",
+      "promptDe": "Heute sind vierzig Schüler in unsere Schule gekommen.",
+      "promptEn": "Forty students came to our school today.",
       "distractors": [
         "귀엽다",
         "시"
@@ -30585,9 +30585,9 @@
     {
       "id": "satz_a1_0433",
       "level": "a1",
-      "targetKo": "이 학교에는 선생님이 오십 명 있어요.",
-      "promptDe": "An dieser Schule gibt es fünfzig Lehrer.",
-      "promptEn": "This school has fifty teachers.",
+      "targetKo": "이 학교에서 선생님이 오십 명 일하세요.",
+      "promptDe": "An dieser Schule arbeiten fünfzig Lehrer.",
+      "promptEn": "Fifty teachers work at this school.",
       "distractors": [
         "여기",
         "죄송합니다"

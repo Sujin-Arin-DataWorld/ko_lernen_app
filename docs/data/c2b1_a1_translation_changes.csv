@@ -1,0 +1,22 @@
+id,field,old,new,rule
+vocab_a1_0410,english,write down,to write down,"gloss-consistency (to-V form, matches sibling verb-phrase headwords)"
+vocab_a1_0411,english,ask the meaning,to ask the meaning,"gloss-consistency (to-V form, matches sibling verb-phrase headwords)"
+vocab_a1_0412,english,pay,to pay,"gloss-consistency (to-V form, matches sibling verb-phrase headwords)"
+vocab_a1_0414,english,check the address,to check the address,"gloss-consistency (to-V form, matches sibling verb-phrase headwords)"
+vocab_a1_0171,example_german,"Schön, dass wir uns kennen. Ich freu mich.","Ich hoffe, wir kommen ab jetzt gut miteinander aus.",R4/redundancy (two-sentence DE/EN trimmed to one natural sentence)
+vocab_a1_0171,example_english,Great to meet you. Hope we get along.,I hope we get along well from now on.,R4/redundancy (two-sentence DE/EN trimmed to one natural sentence)
+vocab_a1_0471,example_korean,친구가 한 명 있어요.,오늘 친구를 한 명 만났어요.,Batch25 liveliness: X-ga-N-myeong-isseoyo existential frame repeated 4x (Jin >3x rule)
+vocab_a1_0471,example_german,Ich habe einen Freund.,Heute habe ich einen Freund getroffen.,Batch25 liveliness: X-ga-N-myeong-isseoyo existential frame repeated 4x (Jin >3x rule)
+vocab_a1_0471,example_english,I have one friend.,I met one friend today.,Batch25 liveliness: X-ga-N-myeong-isseoyo existential frame repeated 4x (Jin >3x rule)
+vocab_a1_0472,example_korean,친구가 두 명 있어요.,지난주에 친구를 두 명 만났어요.,Batch25 liveliness: X-ga-N-myeong-isseoyo existential frame repeated 4x (Jin >3x rule)
+vocab_a1_0472,example_german,Ich habe zwei Freunde.,Letzte Woche habe ich zwei Freunde getroffen.,Batch25 liveliness: X-ga-N-myeong-isseoyo existential frame repeated 4x (Jin >3x rule)
+vocab_a1_0472,example_english,I have two friends.,I met two friends last week.,Batch25 liveliness: X-ga-N-myeong-isseoyo existential frame repeated 4x (Jin >3x rule)
+vocab_a1_0481,example_korean,"와, 정말 좋아요!","와, 이 가방 정말 예뻐요!",Batch25 liveliness: wa opener with no present referent (Jin ruling)
+vocab_a1_0481,example_german,"Wow, das ist wirklich toll!","Wow, diese Tasche ist wirklich hübsch!",Batch25 liveliness: wa opener with no present referent (Jin ruling)
+vocab_a1_0481,example_english,"Wow, that's really great!","Wow, this bag is really pretty!",Batch25 liveliness: wa opener with no present referent (Jin ruling)
+vocab_a1_0517,example_korean,우리 학교에는 학생이 사십 명 있어요.,오늘 우리 학교에 학생이 사십 명 왔어요.,Batch25 liveliness: X-ga-N-myeong-isseoyo existential frame repeated 4x (Jin >3x rule)
+vocab_a1_0517,example_german,An unserer Schule gibt es vierzig Schüler.,Heute sind vierzig Schüler in unsere Schule gekommen.,Batch25 liveliness: X-ga-N-myeong-isseoyo existential frame repeated 4x (Jin >3x rule)
+vocab_a1_0517,example_english,There are forty students at our school.,Forty students came to our school today.,Batch25 liveliness: X-ga-N-myeong-isseoyo existential frame repeated 4x (Jin >3x rule)
+vocab_a1_0518,example_korean,이 학교에는 선생님이 오십 명 있어요.,이 학교에서 선생님이 오십 명 일하세요.,Batch25 liveliness: X-ga-N-myeong-isseoyo existential frame repeated 4x (Jin >3x rule)
+vocab_a1_0518,example_german,An dieser Schule gibt es fünfzig Lehrer.,An dieser Schule arbeiten fünfzig Lehrer.,Batch25 liveliness: X-ga-N-myeong-isseoyo existential frame repeated 4x (Jin >3x rule)
+vocab_a1_0518,example_english,This school has fifty teachers.,Fifty teachers work at this school.,Batch25 liveliness: X-ga-N-myeong-isseoyo existential frame repeated 4x (Jin >3x rule)
