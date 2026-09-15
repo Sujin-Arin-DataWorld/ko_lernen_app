@@ -74,7 +74,10 @@ void main() {
     await DiagnosticsService.reportSwallowed('scope.a', StateError('a-again'));
 
     expect(sink.recordedErrors, hasLength(2));
-    expect(sink.recordedErrors.map((r) => r.$1), containsAll(['scope.a', 'scope.b']));
+    expect(
+      sink.recordedErrors.map((r) => r.$1),
+      containsAll(['scope.a', 'scope.b']),
+    );
   });
 
   test('스택트레이스를 생략해도 죽지 않는다', () async {
@@ -94,12 +97,20 @@ void main() {
     await DiagnosticsService.reportSwallowed('scope.throws', StateError('x'));
   });
 
-  test('디버그 빌드에서는 동의와 무관하게 debugPrint 로 남는다(죽지 않는다)', () async {
+  test('동의가 꺼져 있으면 kDebugMode 게이트와 무관하게 sink 에는 아무것도 안 남고 던지지도 않는다', () async {
     DiagnosticsService.configureForTesting(sink: sink, consent: () => false);
 
-    // 동의가 꺼져도 호출 자체는 항상 안전하게 완료된다 — debugPrint 는
-    // 테스트에서 직접 캡처하지 않지만, 예외 없이 반환되는 것으로 계약을 확인한다.
-    await DiagnosticsService.reportSwallowed('scope.debug_only', StateError('x'));
+    // reportSwallowed 는 두 debugPrint 호출을 `if (kDebugMode) { ... }`
+    // 로 감싼다 (raw SDK 예외 텍스트가 product 빌드로 새는 걸 막기 위해 —
+    // debugPrint 자체는 release/profile 에서도 비활성화되지 않는다).
+    // `flutter test` 는 항상 kDebugMode == true 로 실행되고 테스트에서
+    // 이 상수를 토글할 방법이 없으므로, 여기서는 kDebugMode 분기와
+    // 무관한 부분(동의 게이트, sink 기록, 예외 미전파)만 검증한다 —
+    // debugPrint 자체의 억제 여부는 이 테스트로 확인할 수 없다.
+    await DiagnosticsService.reportSwallowed(
+      'scope.debug_only',
+      StateError('x'),
+    );
 
     expect(sink.recordedErrors, isEmpty);
   });
@@ -109,7 +120,10 @@ void main() {
 
     await DiagnosticsService.reportSwallowed('scope.mirror', StateError('x'));
 
-    expect(DiagnosticsService.reportedScopesForTesting, contains('scope.mirror'));
+    expect(
+      DiagnosticsService.reportedScopesForTesting,
+      contains('scope.mirror'),
+    );
   });
 
   test('resetForTesting 은 이미 보낸 scope 기록도 지운다', () async {

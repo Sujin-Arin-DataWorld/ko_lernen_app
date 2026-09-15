@@ -1,0 +1,660 @@
+[
+ {
+  "kind": "vocab",
+  "id": "vocab_a1_0202",
+  "level": "a1",
+  "fields": [
+   "example_korean",
+   "example_german",
+   "example_english"
+  ],
+  "before": {
+   "korean": "잠깐",
+   "romanization": "jamkkan",
+   "german": "kurz / einen Moment",
+   "level": "A1",
+   "pos_de": "Adverb",
+   "example_korean": "잠깐만 여기서 기다리세요.",
+   "example_german": "Warten Sie bitte hier einen Moment.",
+   "topic": "Zeit",
+   "pack_id": "a1_time_3",
+   "pack_order": "6",
+   "is_review_boss": "false",
+   "english": "for a moment / briefly",
+   "pos_en": "Adverb",
+   "example_english": "Please wait here for a moment.",
+   "id": "vocab_a1_0202"
+  },
+  "after": {
+   "korean": "잠깐",
+   "romanization": "jamkkan",
+   "german": "kurz / einen Moment",
+   "level": "A1",
+   "pos_de": "Adverb",
+   "example_korean": "잠깐만 여기서 기다리세요.",
+   "example_german": "Warten Sie bitte hier einen Moment.",
+   "topic": "Zeit",
+   "pack_id": "a1_time_3",
+   "pack_order": "6",
+   "is_review_boss": "false",
+   "english": "for a moment / briefly",
+   "pos_en": "Adverb",
+   "example_english": "Please wait here for a moment.",
+   "id": "vocab_a1_0202"
+  }
+ },
+ {
+  "kind": "vocab",
+  "id": "vocab_a1_0203",
+  "level": "a1",
+  "fields": [
+   "example_korean",
+   "example_german",
+   "example_english"
+  ],
+  "before": {
+   "korean": "천천히",
+   "romanization": "cheoncheonhi",
+   "german": "langsam",
+   "level": "A1",
+   "pos_de": "Adverb",
+   "example_korean": "한국어를 잘 못해요. 다시 천천히 말해 주세요.",
+   "example_german": "Ich spreche noch nicht gut Koreanisch. Bitte sprechen Sie noch einmal langsam.",
+   "topic": "Alltag",
+   "pack_id": "a1_daily_4",
+   "pack_order": "4",
+   "is_review_boss": "false",
+   "english": "slowly",
+   "pos_en": "Adverb",
+   "example_english": "I don't speak Korean well yet. Please speak slowly once more.",
+   "id": "vocab_a1_0203"
+  },
+  "after": {
+   "korean": "천천히",
+   "romanization": "cheoncheonhi",
+   "german": "langsam",
+   "level": "A1",
+   "pos_de": "Adverb",
+   "example_korean": "한국어를 잘 못해요. 다시 천천히 말해 주세요.",
+   "example_german": "Ich spreche noch nicht gut Koreanisch. Bitte sprechen Sie noch einmal langsam.",
+   "topic": "Alltag",
+   "pack_id": "a1_daily_4",
+   "pack_order": "4",
+   "is_review_boss": "false",
+   "english": "slowly",
+   "pos_en": "Adverb",
+   "example_english": "I don't speak Korean well yet. Please speak slowly once more.",
+   "id": "vocab_a1_0203"
+  }
+ },
+ {
+  "kind": "vocab",
+  "id": "vocab_b1_0196",
+  "level": "a1",
+  "fields": [
+   "example_korean",
+   "example_german",
+   "example_english"
+  ],
+  "before": {
+   "korean": "대답하다",
+   "romanization": "daedaphada",
+   "german": "antworten",
+   "level": "A1",
+   "pos_de": "Verb",
+   "example_korean": "이 질문에 대답하세요.",
+   "example_german": "Bitte antworten Sie auf diese Frage.",
+   "topic": "다시 묻기",
+   "pack_id": "a1_repair_language_1",
+   "pack_order": "7",
+   "is_review_boss": "false",
+   "english": "to answer",
+   "pos_en": "Verb",
+   "example_english": "Please answer this question.",
+   "id": "vocab_b1_0196"
+  },
+  "after": {
+   "korean": "대답하다",
+   "romanization": "daedaphada",
+   "german": "antworten",
+   "level": "A1",
+   "pos_de": "Verb",
+   "example_korean": "이 질문에 대답하세요.",
+   "example_german": "Bitte antworten Sie auf diese Frage.",
+   "topic": "다시 묻기",
+   "pack_id": "a1_repair_language_1",
+   "pack_order": "7",
+   "is_review_boss": "false",
+   "english": "to answer",
+   "pos_en": "Verb",
+   "example_english": "Please answer this question.",
+   "id": "vocab_b1_0196"
+  }
+ },
+ {
+  "kind": "vocab",
+  "id": "vocab_a1_0217",
+  "level": "a1",
+  "fields": [
+   "example_korean",
+   "example_german",
+   "example_english"
+  ],
+  "before": {
+   "korean": "시어머니",
+   "romanization": "sieomeoni",
+   "german": "Schwiegermutter (Mutter des Ehemanns)",
+   "level": "A1",
+   "pos_de": "Nomen",
+   "example_korean": "시어머니께서 저를 보고 웃으셨어요.",
+   "example_german": "Meine Schwiegermutter hat mich angesehen und gelächelt.",
+   "topic": "Partnerschaft & koreanische Familie",
+   "pack_id": "a1_partner_meet_names_1",
+   "pack_order": "6",
+   "is_review_boss": "false",
+   "english": "mother-in-law (husband's mother)",
+   "pos_en": "Noun",
+   "example_english": "My mother-in-law looked at me and smiled.",
+   "id": "vocab_a1_0217"
+  },
+  "after": {
+   "korean": "시어머니",
+   "romanization": "sieomeoni",
+   "german": "Schwiegermutter (Mutter des Ehemanns)",
+   "level": "A1",
+   "pos_de": "Nomen",
+   "example_korean": "시어머니께서 저를 보고 웃으셨어요.",
+   "example_german": "Meine Schwiegermutter hat mich angesehen und gelächelt.",
+   "topic": "Partnerschaft & koreanische Familie",
+   "pack_id": "a1_partner_meet_names_1",
+   "pack_order": "6",
+   "is_review_boss": "false",
+   "english": "mother-in-law (husband's mother)",
+   "pos_en": "Noun",
+   "example_english": "My mother-in-law looked at me and smiled.",
+   "id": "vocab_a1_0217"
+  }
+ },
+ {
+  "kind": "vocab",
+  "id": "vocab_a1_0311",
+  "level": "a1",
+  "fields": [
+   "example_korean",
+   "example_german",
+   "example_english"
+  ],
+  "before": {
+   "korean": "우편함",
+   "romanization": "upyeonham",
+   "german": "Briefkasten",
+   "level": "A1",
+   "pos_de": "Nomen",
+   "example_korean": "편지는 아래 우편함에 넣으세요.",
+   "example_german": "Bitte legen Sie den Brief in den Briefkasten unten.",
+   "topic": "Postamt",
+   "pack_id": "a1_post_office_1",
+   "pack_order": "4",
+   "is_review_boss": "false",
+   "english": "mailbox",
+   "pos_en": "Noun",
+   "example_english": "Please put the letter in the mailbox downstairs.",
+   "id": "vocab_a1_0311"
+  },
+  "after": {
+   "korean": "우편함",
+   "romanization": "upyeonham",
+   "german": "Briefkasten",
+   "level": "A1",
+   "pos_de": "Nomen",
+   "example_korean": "편지는 아래 우편함에 넣으세요.",
+   "example_german": "Bitte legen Sie den Brief in den Briefkasten unten.",
+   "topic": "Postamt",
+   "pack_id": "a1_post_office_1",
+   "pack_order": "4",
+   "is_review_boss": "false",
+   "english": "mailbox",
+   "pos_en": "Noun",
+   "example_english": "Please put the letter in the mailbox downstairs.",
+   "id": "vocab_a1_0311"
+  }
+ },
+ {
+  "kind": "vocab",
+  "id": "vocab_a1_0316",
+  "level": "a1",
+  "fields": [
+   "example_korean",
+   "example_german",
+   "example_english"
+  ],
+  "before": {
+   "korean": "받는 사람",
+   "romanization": "banneun saram",
+   "german": "Empfänger",
+   "level": "A1",
+   "pos_de": "Nomen",
+   "example_korean": "받는 사람 전화번호를 적으세요.",
+   "example_german": "Bitte notieren Sie die Telefonnummer des Empfängers.",
+   "topic": "Postamt",
+   "pack_id": "a1_post_office_1",
+   "pack_order": "9",
+   "is_review_boss": "false",
+   "english": "recipient",
+   "pos_en": "Noun",
+   "example_english": "Please write the recipient's phone number.",
+   "id": "vocab_a1_0316"
+  },
+  "after": {
+   "korean": "받는 사람",
+   "romanization": "banneun saram",
+   "german": "Empfänger",
+   "level": "A1",
+   "pos_de": "Nomen",
+   "example_korean": "받는 사람 전화번호를 적으세요.",
+   "example_german": "Bitte notieren Sie die Telefonnummer des Empfängers.",
+   "topic": "Postamt",
+   "pack_id": "a1_post_office_1",
+   "pack_order": "9",
+   "is_review_boss": "false",
+   "english": "recipient",
+   "pos_en": "Noun",
+   "example_english": "Please write the recipient's phone number.",
+   "id": "vocab_a1_0316"
+  }
+ },
+ {
+  "kind": "vocab",
+  "id": "vocab_a1_0402",
+  "level": "a1",
+  "fields": [
+   "example_korean",
+   "example_german",
+   "example_english"
+  ],
+  "before": {
+   "korean": "정말 감사해요",
+   "romanization": "jeongmal gamsahaeyo",
+   "german": "vielen Dank",
+   "level": "A1",
+   "pos_de": "Ausdruck",
+   "example_korean": "자리를 양보하셔서 정말 감사해요.",
+   "example_german": "Vielen Dank, dass Sie den Platz überlassen haben.",
+   "topic": "Entschuldigung",
+   "pack_id": "a1_sorry_thanks_1",
+   "pack_order": "11",
+   "is_review_boss": "true",
+   "english": "thank you so much",
+   "pos_en": "Expression",
+   "example_english": "Thank you so much for giving up the seat.",
+   "id": "vocab_a1_0402"
+  },
+  "after": {
+   "korean": "정말 감사해요",
+   "romanization": "jeongmal gamsahaeyo",
+   "german": "vielen Dank",
+   "level": "A1",
+   "pos_de": "Ausdruck",
+   "example_korean": "자리를 양보하셔서 정말 감사해요.",
+   "example_german": "Vielen Dank, dass Sie den Platz überlassen haben.",
+   "topic": "Entschuldigung",
+   "pack_id": "a1_sorry_thanks_1",
+   "pack_order": "11",
+   "is_review_boss": "true",
+   "english": "thank you so much",
+   "pos_en": "Expression",
+   "example_english": "Thank you so much for giving up the seat.",
+   "id": "vocab_a1_0402"
+  }
+ },
+ {
+  "kind": "vocab",
+  "id": "vocab_a1_0408",
+  "level": "a1",
+  "fields": [
+   "example_korean",
+   "example_german",
+   "example_english"
+  ],
+  "before": {
+   "korean": "발음",
+   "romanization": "bareum",
+   "german": "Aussprache",
+   "level": "A1",
+   "pos_de": "Nomen",
+   "example_korean": "이 단어 발음을 다시 들을 수 있어요?",
+   "example_german": "Kann ich die Aussprache dieses Wortes noch einmal hören?",
+   "topic": "다시 묻기",
+   "pack_id": "a1_repair_language_1",
+   "pack_order": "1",
+   "is_review_boss": "false",
+   "english": "pronunciation",
+   "pos_en": "Noun",
+   "example_english": "Can I hear the pronunciation of this word again?",
+   "id": "vocab_a1_0408"
+  },
+  "after": {
+   "korean": "발음",
+   "romanization": "bareum",
+   "german": "Aussprache",
+   "level": "A1",
+   "pos_de": "Nomen",
+   "example_korean": "이 단어 발음을 다시 들을 수 있어요?",
+   "example_german": "Kann ich die Aussprache dieses Wortes noch einmal hören?",
+   "topic": "다시 묻기",
+   "pack_id": "a1_repair_language_1",
+   "pack_order": "1",
+   "is_review_boss": "false",
+   "english": "pronunciation",
+   "pos_en": "Noun",
+   "example_english": "Can I hear the pronunciation of this word again?",
+   "id": "vocab_a1_0408"
+  }
+ },
+ {
+  "kind": "vocab",
+  "id": "vocab_a1_0409",
+  "level": "a1",
+  "fields": [
+   "example_korean",
+   "example_german",
+   "example_english"
+  ],
+  "before": {
+   "korean": "예문",
+   "romanization": "yemun",
+   "german": "Beispielsatz",
+   "level": "A1",
+   "pos_de": "Nomen",
+   "example_korean": "짧은 예문을 하나 적어 주세요.",
+   "example_german": "Bitte schreiben Sie einen kurzen Beispielsatz auf.",
+   "topic": "다시 묻기",
+   "pack_id": "a1_repair_language_1",
+   "pack_order": "2",
+   "is_review_boss": "false",
+   "english": "example sentence",
+   "pos_en": "Noun",
+   "example_english": "Please write down one short example sentence.",
+   "id": "vocab_a1_0409"
+  },
+  "after": {
+   "korean": "예문",
+   "romanization": "yemun",
+   "german": "Beispielsatz",
+   "level": "A1",
+   "pos_de": "Nomen",
+   "example_korean": "짧은 예문을 하나 적어 주세요.",
+   "example_german": "Bitte schreiben Sie einen kurzen Beispielsatz auf.",
+   "topic": "다시 묻기",
+   "pack_id": "a1_repair_language_1",
+   "pack_order": "2",
+   "is_review_boss": "false",
+   "english": "example sentence",
+   "pos_en": "Noun",
+   "example_english": "Please write down one short example sentence.",
+   "id": "vocab_a1_0409"
+  }
+ },
+ {
+  "kind": "vocab",
+  "id": "vocab_a1_0438",
+  "level": "a1",
+  "fields": [
+   "example_korean",
+   "example_german",
+   "example_english"
+  ],
+  "before": {
+   "korean": "전화번호",
+   "romanization": "jeonhwabeonho",
+   "german": "Telefonnummer",
+   "level": "A1",
+   "pos_de": "Nomen",
+   "example_korean": "실례지만 전화번호를 알 수 있을까요?",
+   "example_german": "Entschuldigung, könnte ich Ihre Telefonnummer erfahren?",
+   "topic": "첫 수업",
+   "pack_id": "a1_first_class_1",
+   "pack_order": "3",
+   "is_review_boss": "false",
+   "english": "phone number",
+   "pos_en": "Noun",
+   "example_english": "Excuse me, could I get your phone number?",
+   "id": "vocab_a1_0438"
+  },
+  "after": {
+   "korean": "전화번호",
+   "romanization": "jeonhwabeonho",
+   "german": "Telefonnummer",
+   "level": "A1",
+   "pos_de": "Nomen",
+   "example_korean": "실례지만 전화번호를 알 수 있을까요?",
+   "example_german": "Entschuldigung, könnte ich Ihre Telefonnummer erfahren?",
+   "topic": "첫 수업",
+   "pack_id": "a1_first_class_1",
+   "pack_order": "3",
+   "is_review_boss": "false",
+   "english": "phone number",
+   "pos_en": "Noun",
+   "example_english": "Excuse me, could I get your phone number?",
+   "id": "vocab_a1_0438"
+  }
+ },
+ {
+  "kind": "vocab",
+  "id": "vocab_a1_0456",
+  "level": "a1",
+  "fields": [
+   "example_korean",
+   "example_german",
+   "example_english"
+  ],
+  "before": {
+   "korean": "다시",
+   "romanization": "dasi",
+   "german": "noch einmal, wieder",
+   "level": "A1",
+   "pos_de": "Adverb",
+   "example_korean": "다시 한번 말해 주세요.",
+   "example_german": "Bitte sagen Sie es noch einmal.",
+   "topic": "다시 묻기",
+   "pack_id": "a1_repair_language_1",
+   "pack_order": "8",
+   "is_review_boss": "false",
+   "english": "again, once more",
+   "pos_en": "Adverb",
+   "example_english": "Please say it once more.",
+   "id": "vocab_a1_0456"
+  },
+  "after": {
+   "korean": "다시",
+   "romanization": "dasi",
+   "german": "noch einmal, wieder",
+   "level": "A1",
+   "pos_de": "Adverb",
+   "example_korean": "다시 한번 말해 주세요.",
+   "example_german": "Bitte sagen Sie es noch einmal.",
+   "topic": "다시 묻기",
+   "pack_id": "a1_repair_language_1",
+   "pack_order": "8",
+   "is_review_boss": "false",
+   "english": "again, once more",
+   "pos_en": "Adverb",
+   "example_english": "Please say it once more.",
+   "id": "vocab_a1_0456"
+  }
+ },
+ {
+  "kind": "cloze",
+  "id": "cloze_a1_0316",
+  "level": "a1",
+  "fields": [
+   "distractors"
+  ],
+  "before": {
+   "id": "cloze_a1_0316",
+   "level": "a1",
+   "topic": "다시 묻기",
+   "fullKo": "죄송하지만 다시 말해 주세요.",
+   "answer": "다시",
+   "sentenceKo": "죄송하지만 ＿＿＿ 말해 주세요.",
+   "de": "Entschuldigung, bitte sagen Sie es noch einmal.",
+   "en": "Sorry, please say that again.",
+   "distractors": [
+    "빨리",
+    "조용히",
+    "먼저"
+   ],
+   "courseUnitId": "a1_08_clarify_repair",
+   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+  },
+  "after": {
+   "id": "cloze_a1_0316",
+   "level": "a1",
+   "topic": "다시 묻기",
+   "fullKo": "죄송하지만 다시 말해 주세요.",
+   "answer": "다시",
+   "sentenceKo": "죄송하지만 ＿＿＿ 말해 주세요.",
+   "de": "Entschuldigung, bitte sagen Sie es noch einmal.",
+   "en": "Sorry, please say that again.",
+   "distractors": [
+    "보다",
+    "팔다",
+    "에서"
+   ],
+   "courseUnitId": "a1_08_clarify_repair",
+   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+  }
+ },
+ {
+  "kind": "satz",
+  "id": "satz_a1_0069",
+  "level": "a1",
+  "fields": [
+   "distractors"
+  ],
+  "before": {
+   "id": "satz_a1_0069",
+   "level": "a1",
+   "targetKo": "시어머니께서 저를 보고 웃으셨어요.",
+   "promptDe": "Meine Schwiegermutter hat mich angesehen und gelächelt.",
+   "promptEn": "My mother-in-law looked at me and smiled.",
+   "distractors": [
+    "아버지가",
+    "신발이"
+   ],
+   "vocabKo": "시어머니"
+  },
+  "after": {
+   "id": "satz_a1_0069",
+   "level": "a1",
+   "targetKo": "시어머니께서 저를 보고 웃으셨어요.",
+   "promptDe": "Meine Schwiegermutter hat mich angesehen und gelächelt.",
+   "promptEn": "My mother-in-law looked at me and smiled.",
+   "distractors": [
+    "아버지가",
+    "모자를"
+   ],
+   "vocabKo": "시어머니"
+  }
+ },
+ {
+  "kind": "satz",
+  "id": "satz_a1_0163",
+  "level": "a1",
+  "fields": [
+   "distractors"
+  ],
+  "before": {
+   "id": "satz_a1_0163",
+   "level": "a1",
+   "targetKo": "편지는 아래 우편함에 넣으세요.",
+   "promptDe": "Bitte legen Sie den Brief in den Briefkasten unten.",
+   "promptEn": "Please put the letter in the mailbox downstairs.",
+   "distractors": [
+    "없어요",
+    "글쎄요"
+   ],
+   "vocabKo": "우편함"
+  },
+  "after": {
+   "id": "satz_a1_0163",
+   "level": "a1",
+   "targetKo": "편지는 아래 우편함에 넣으세요.",
+   "promptDe": "Bitte legen Sie den Brief in den Briefkasten unten.",
+   "promptEn": "Please put the letter in the mailbox downstairs.",
+   "distractors": [
+    "돈이",
+    "예"
+   ],
+   "vocabKo": "우편함"
+  }
+ },
+ {
+  "kind": "satz",
+  "id": "satz_a1_0254",
+  "level": "a1",
+  "fields": [
+   "distractors"
+  ],
+  "before": {
+   "id": "satz_a1_0254",
+   "level": "a1",
+   "targetKo": "자리를 양보하셔서 정말 감사해요.",
+   "promptDe": "Vielen Dank, dass Sie den Platz überlassen haben.",
+   "promptEn": "Thank you so much for giving up the seat.",
+   "distractors": [
+    "여기에",
+    "와"
+   ],
+   "vocabKo": "정말 감사해요"
+  },
+  "after": {
+   "id": "satz_a1_0254",
+   "level": "a1",
+   "targetKo": "자리를 양보하셔서 정말 감사해요.",
+   "promptDe": "Vielen Dank, dass Sie den Platz überlassen haben.",
+   "promptEn": "Thank you so much for giving up the seat.",
+   "distractors": [
+    "여기에",
+    "글쎄요"
+   ],
+   "vocabKo": "정말 감사해요"
+  }
+ },
+ {
+  "kind": "satz",
+  "id": "satz_a1_0315",
+  "level": "a1",
+  "fields": [
+   "distractors"
+  ],
+  "before": {
+   "id": "satz_a1_0315",
+   "level": "a1",
+   "targetKo": "이 단어 발음을 다시 들을 수 있어요?",
+   "promptDe": "Kann ich die Aussprache dieses Wortes noch einmal hören?",
+   "promptEn": "Can I hear the pronunciation of this word again?",
+   "vocabKo": "발음",
+   "distractors": [
+    "학생이",
+    "웃었어요"
+   ],
+   "courseUnitId": "a1_08_clarify_repair",
+   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+  },
+  "after": {
+   "id": "satz_a1_0315",
+   "level": "a1",
+   "targetKo": "이 단어 발음을 다시 들을 수 있어요?",
+   "promptDe": "Kann ich die Aussprache dieses Wortes noch einmal hören?",
+   "promptEn": "Can I hear the pronunciation of this word again?",
+   "vocabKo": "발음",
+   "distractors": [
+    "호예요",
+    "웃었어요"
+   ],
+   "courseUnitId": "a1_08_clarify_repair",
+   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+  }
+ }
+]

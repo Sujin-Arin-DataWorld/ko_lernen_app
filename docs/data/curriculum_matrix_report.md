@@ -213,7 +213,7 @@
 
 ## 1. 기존 앱 인벤토리 및 후보 매칭 (학습 완료 판정 아님)
 
-- 콘텐츠 규모: 어휘 2755 · 문법 252 · 시나리오 178 · 코스유닛 48 · cloze 2151 · satz 2672 · 스몰토크 582 · 미디어 136 · 발음 84 · 문화노트 36
+- 콘텐츠 규모: 어휘 2754 · 문법 252 · 시나리오 178 · 코스유닛 48 · cloze 2151 · satz 2671 · 스몰토크 582 · 미디어 136 · 발음 84 · 문화노트 36
 - 매트릭스 규모: 주제 32 · 기능 39 · 텍스트 유형 31 · 어휘 영역 26 · 기능 문법 34 · 국제통용 문법 336
 - 갭 행 합계: **531** (`tool/curriculum_matrix_gaps.csv`)
 
@@ -268,7 +268,7 @@
 | ✅ covered | `health_body` 건강·신체·병원·약국 | 신체 부위·아픈 곳 한 단어·결석 사유 | 19 | 2 | 3 | 1 | 10 | 19 | verified_repo |
 | ✅ covered | `house_home` 주거·집 | 집·방·물건 위치(앞/뒤/위/안) | 15 | 5 | 7 | 2 | 2 | 9 | verified_repo |
 | ✅ covered | `language_learning_communication_repair` 언어·학습·의사소통 되묻기 | 못 들었을 때 다시 묻기·천천히 말해 달라고 하기 | 10 | 3 | 3 | 3 | 0 | 22 | verified_repo |
-| ✅ covered | `numbers_time_dates` 숫자·시간·날짜 | 숫자·전화번호·화폐·날짜·요일·시간 | 104 | 12 | 2 | 1 | 0 | 81 | verified_repo |
+| ✅ covered | `numbers_time_dates` 숫자·시간·날짜 | 숫자·전화번호·화폐·날짜·요일·시간 | 103 | 12 | 2 | 1 | 0 | 81 | verified_repo |
 | ✅ covered | `personal_identification` 개인 신상·자기소개 | 이름·국적·직업·자기소개 | 59 | 10 | 5 | 2 | 0 | 59 | verified_repo |
 | ✅ covered | `shopping_consumption` 쇼핑·소비·결제 | 물건 사기·가격·수량 | 24 | 3 | 7 | 3 | 9 | 27 | verified_repo |
 | ✅ covered | `social_etiquette_customs` 예절·관습·명절·호칭 | 인사·호칭 관례·식사 예절·기초 명절 음식 | 42 | 6 | 6 | 0 | 16 | 28 | verified_repo |
@@ -367,7 +367,7 @@
 
 | 상태 | 어휘 영역 | 단어 수 |
 |---|---|---|
-| ✅ covered | `numbers_quantity_units` 수·수량·단위명사 | 104 |
+| ✅ covered | `numbers_quantity_units` 수·수량·단위명사 | 103 |
 | ✅ covered | `time_calendar` 시간·날짜·요일·계절 | 79 |
 | ✅ covered | `colours_shapes_description` 색·모양·기본 묘사 형용사 | 19 |
 | ✅ covered | `body_health_symptoms` 신체·증상·의료 | 19 |

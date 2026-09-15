@@ -1,8 +1,8 @@
 {
   "meta": {
-    "total": 2672,
+    "total": 2671,
     "perLevel": {
-      "a1": 510,
+      "a1": 509,
       "a2": 454,
       "b1": 630,
       "b2": 574,
@@ -866,18 +866,6 @@
       "vocabKo": "백"
     },
     {
-      "id": "satz_a1_0028",
-      "level": "a1",
-      "targetKo": "천 원만 빌려주세요.",
-      "promptDe": "Leih mir bitte tausend Won.",
-      "promptEn": "Please lend me just a thousand won.",
-      "distractors": [
-        "하늘이",
-        "출발해요"
-      ],
-      "vocabKo": "천"
-    },
-    {
       "id": "satz_a1_0029",
       "level": "a1",
       "targetKo": "둘이 같이 가요.",
@@ -1240,12 +1228,12 @@
     {
       "id": "satz_a1_0059",
       "level": "a1",
-      "targetKo": "천천히 말해 주세요.",
-      "promptDe": "Bitte sprechen Sie langsam.",
-      "promptEn": "Please speak slowly.",
+      "targetKo": "한국어를 잘 못해요. 다시 천천히 말해 주세요.",
+      "promptDe": "Ich spreche noch nicht gut Koreanisch. Bitte sprechen Sie noch einmal langsam.",
+      "promptEn": "I don't speak Korean well yet. Please speak slowly once more.",
       "distractors": [
-        "가끔",
-        "삼번"
+        "찍지",
+        "확인해요"
       ],
       "vocabKo": "천천히"
     },
@@ -5516,12 +5504,12 @@
     {
       "id": "satz_a1_0069",
       "level": "a1",
-      "targetKo": "시어머니께서 웃어 주셨어요.",
-      "promptDe": "Meine Schwiegermutter hat mich angelächelt.",
-      "promptEn": "My mother-in-law smiled at me.",
+      "targetKo": "시어머니께서 저를 보고 웃으셨어요.",
+      "promptDe": "Meine Schwiegermutter hat mich angesehen und gelächelt.",
+      "promptEn": "My mother-in-law looked at me and smiled.",
       "distractors": [
-        "흔들었어요",
-        "힘들어요"
+        "아버지가",
+        "모자를"
       ],
       "vocabKo": "시어머니"
     },
@@ -10676,12 +10664,12 @@
     {
       "id": "satz_a1_0163",
       "level": "a1",
-      "targetKo": "편지는 아래 우편함에 넣어 주세요.",
+      "targetKo": "편지는 아래 우편함에 넣으세요.",
       "promptDe": "Bitte legen Sie den Brief in den Briefkasten unten.",
       "promptEn": "Please put the letter in the mailbox downstairs.",
       "distractors": [
-        "우표",
-        "소포"
+        "돈이",
+        "예"
       ],
       "vocabKo": "우편함"
     },
@@ -10736,12 +10724,12 @@
     {
       "id": "satz_a1_0168",
       "level": "a1",
-      "targetKo": "받는 사람 전화번호를 적어 주세요.",
+      "targetKo": "받는 사람 전화번호를 적으세요.",
       "promptDe": "Bitte notieren Sie die Telefonnummer des Empfängers.",
       "promptEn": "Please write the recipient's phone number.",
       "distractors": [
-        "우표",
-        "소포"
+        "이야기를",
+        "누나"
       ],
       "vocabKo": "받는 사람"
     },
@@ -11768,12 +11756,12 @@
     {
       "id": "satz_a1_0254",
       "level": "a1",
-      "targetKo": "자리를 양보해 주셔서 정말 감사해요.",
+      "targetKo": "자리를 양보하셔서 정말 감사해요.",
       "promptDe": "Vielen Dank, dass Sie den Platz überlassen haben.",
       "promptEn": "Thank you so much for giving up the seat.",
       "distractors": [
-        "죄송하다",
-        "감사하다"
+        "여기에",
+        "글쎄요"
       ],
       "vocabKo": "정말 감사해요"
     },
@@ -19616,12 +19604,12 @@
     {
       "id": "satz_a1_0300",
       "level": "a1",
-      "targetKo": "잠깐만 기다려 주세요.",
-      "promptDe": "Warten Sie bitte einen Moment.",
-      "promptEn": "Please wait a moment.",
+      "targetKo": "잠깐만 여기서 기다리세요.",
+      "promptDe": "Warten Sie bitte hier einen Moment.",
+      "promptEn": "Please wait here for a moment.",
       "distractors": [
-        "안녕하세요",
-        "안녕"
+        "백",
+        "남편은"
       ],
       "vocabKo": "잠깐"
     },
@@ -21704,12 +21692,12 @@
     {
       "id": "satz_b1_0407",
       "level": "a1",
-      "targetKo": "질문에 대답해 주세요.",
-      "promptDe": "Antworten Sie bitte auf die Frage.",
-      "promptEn": "Please answer the question.",
+      "targetKo": "이 질문에 대답하세요.",
+      "promptDe": "Bitte antworten Sie auf diese Frage.",
+      "promptEn": "Please answer this question.",
       "distractors": [
-        "경험",
-        "문화"
+        "아내는",
+        "편지는"
       ],
       "vocabKo": "대답하다"
     },
@@ -27812,13 +27800,13 @@
     {
       "id": "satz_a1_0315",
       "level": "a1",
-      "targetKo": "이 단어 발음을 다시 들려주세요.",
-      "promptDe": "Bitte spielen Sie die Aussprache dieses Wortes noch einmal ab.",
-      "promptEn": "Please play the pronunciation of this word again.",
+      "targetKo": "이 단어 발음을 다시 들을 수 있어요?",
+      "promptDe": "Kann ich die Aussprache dieses Wortes noch einmal hören?",
+      "promptEn": "Can I hear the pronunciation of this word again?",
       "vocabKo": "발음",
       "distractors": [
-        "주문",
-        "내일"
+        "호예요",
+        "웃었어요"
       ],
       "courseUnitId": "a1_08_clarify_repair",
       "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
@@ -27831,8 +27819,8 @@
       "promptEn": "Please write one short example sentence.",
       "vocabKo": "예문",
       "distractors": [
-        "가격",
-        "빨리"
+        "단어",
+        "친절해요"
       ],
       "courseUnitId": "a1_08_clarify_repair",
       "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
@@ -27901,8 +27889,8 @@
       "promptEn": "Please write the name on the paper.",
       "vocabKo": "적어 주다",
       "distractors": [
-        "먹다",
-        "하지만"
+        "먹어요",
+        "교회"
       ],
       "courseUnitId": "a1_08_clarify_repair",
       "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
@@ -28862,13 +28850,13 @@
     {
       "id": "satz_a1_0353",
       "level": "a1",
-      "targetKo": "전화번호를 알려 주세요.",
-      "promptDe": "Sagen Sie mir bitte Ihre Telefonnummer.",
-      "promptEn": "Please tell me your phone number.",
+      "targetKo": "실례지만 전화번호를 알 수 있을까요?",
+      "promptDe": "Entschuldigung, könnte ich Ihre Telefonnummer erfahren?",
+      "promptEn": "Excuse me, could I get your phone number?",
       "vocabKo": "전화번호",
       "distractors": [
-        "학교",
-        "오늘"
+        "타고",
+        "독일어를"
       ],
       "courseUnitId": "a1_15_first_class_work"
     },
@@ -29101,8 +29089,8 @@
       "promptEn": "Please say it once more.",
       "vocabKo": "다시",
       "distractors": [
-        "수저",
-        "흰색"
+        "하지만",
+        "문"
       ],
       "courseUnitId": "a1_08_clarify_repair"
     },

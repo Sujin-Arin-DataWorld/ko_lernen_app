@@ -1747,6 +1747,38 @@ def load_level_exceptions(root: Path = REPO) -> List[dict]:
     return _read_csv(root / "tools" / "content_factory" / "lexicon" / "level_exceptions.csv")
 
 
+def load_f9_headword_embedded_grammar(root: Path = REPO) -> List[dict]:
+    """F9 (Jin ruling 2026-09-16, extended round 2 2026-09-16): read
+    tools/content_factory/lexicon/f9_headword_embedded_grammar.csv (header
+    ``id,kind,headword,level,embedded_grammar,disposition,decided_by,
+    decided_at,rationale,reference``) -- the governance record for A1
+    content that carries a grade>=2 grammar item as a lexicalized
+    exception rather than being relevelled or rewritten. Two ``kind``
+    values:
+
+    * ``headword`` -- a single vocab item whose own headword IS the
+      multi-word expression embedding the grammar (e.g. 적어 주다/도와주다
+      embedding -아/어 주다, 2급); ``id`` is that vocab id.
+    * ``request_formula`` -- one of the closed-list learner->stranger
+      request formulas (말해 주세요/적어 주세요/도와주세요) that stays
+      -아/어 주다 wherever it appears verbatim, independent of which
+      headword the sentence is teaching; ``id`` is empty since no single
+      vocab id owns it, and ``headword`` holds the formula text.
+
+    This is the SOURCE OF TRUTH rendered into F9's "표제어 내장 문법"
+    section by ``tool/build_level_bible_tables.py``. The ``headword``-kind
+    ids must appear (with a comment pointing back to F9) in
+    ``tools/content_factory/scan_a1_grammar.py``'s and ``scan_grammar_
+    level.py``'s ``HEADWORD_EMBEDDED_GRAMMAR`` dicts; the
+    ``request_formula``-kind rows' text must match those same modules'
+    ``A1_REQUEST_FORMULAS`` constant exactly -- see
+    ``tools/content_factory/test_scan_a1_grammar.py`` for the agreement
+    checks between this CSV and both."""
+    return _read_csv(
+        root / "tools" / "content_factory" / "lexicon" / "f9_headword_embedded_grammar.csv"
+    )
+
+
 # ---------------------------------------------------------------------------
 # CefrLexicon
 # ---------------------------------------------------------------------------

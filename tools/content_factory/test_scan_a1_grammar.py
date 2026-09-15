@@ -23,41 +23,27 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT / "tool"))
 sys.path.insert(0, str(REPO_ROOT / "tools" / "content_factory"))
 
-from cefr_lexicon import CefrLexicon, GrammarIndex  # noqa: E402
+from cefr_lexicon import CefrLexicon, GrammarIndex, load_f9_headword_embedded_grammar  # noqa: E402
 import scan_a1_grammar as S  # noqa: E402
+import scan_grammar_level as SL  # noqa: E402
 
 # Deliberately-kept exceptions: (kind, id) rows that scan_a1_grammar.py may
 # still flag after the C2d rewrite, with the reason recorded here so a
 # future edit can't silently reintroduce a violation without noticing this
 # list.
 #
-# Coordinator round 3 (2026-09-15): extending the detector for contracted
-# -아/어 보다 / -아/어 주다 (+ -는 법 / -는 게) surfaced 38 rows (12 vocab +
-# 13 cloze + 13 satz), almost all the same "-아/어 주세요" benefactive-
-# request family spanning many packs (phone/address exchange, pronunciation
-# repair, postal requests, borrowing money, etc.) -- see
-# docs/data/a1_grammar_scan_2026-09-15.md. Per the coordinator's explicit
-# ">30 new hits: stop and report before rewriting" instruction, these were
-# reported but NOT rewritten in this PR -- kept here as a tracked,
-# deliberate exception list (not silently ignored) pending a rewrite-
-# strategy decision, since unilaterally changing how the whole app phrases
-# "please do X for me" 20+ times needs sign-off first.
-DOCUMENTED_EXCEPTIONS: set[tuple[str, str]] = {
-    ("vocab", "vocab_a1_0141"), ("vocab", "vocab_a1_0202"), ("vocab", "vocab_a1_0203"),
-    ("vocab", "vocab_b1_0196"), ("vocab", "vocab_a1_0217"), ("vocab", "vocab_a1_0311"),
-    ("vocab", "vocab_a1_0316"), ("vocab", "vocab_a1_0408"), ("vocab", "vocab_a1_0409"),
-    ("vocab", "vocab_a1_0410"), ("vocab", "vocab_a1_0438"), ("vocab", "vocab_a1_0456"),
-    ("cloze", "cloze_a1_0094"), ("cloze", "cloze_a1_0105"), ("cloze", "cloze_a1_0199"),
-    ("cloze", "cloze_a1_0204"), ("cloze", "cloze_a1_0316"), ("cloze", "cloze_a1_0317"),
-    ("cloze", "cloze_a1_0319"), ("cloze", "cloze_a1_0320"), ("cloze", "cloze_a1_0324"),
-    ("cloze", "cloze_a1_0331"), ("cloze", "cloze_a1_0332"), ("cloze", "cloze_a1_0367"),
-    ("cloze", "cloze_a1_0390"),
-    ("satz", "satz_a1_0028"), ("satz", "satz_a1_0059"), ("satz", "satz_a1_0069"),
-    ("satz", "satz_a1_0163"), ("satz", "satz_a1_0168"), ("satz", "satz_a1_0300"),
-    ("satz", "satz_b1_0407"), ("satz", "satz_a1_0315"), ("satz", "satz_a1_0316"),
-    ("satz", "satz_a1_0317"), ("satz", "satz_a1_0321"), ("satz", "satz_a1_0353"),
-    ("satz", "satz_a1_0371"),
-}
+# C2d-2 (2026-09-16): the 38 rows coordinator round 3 (2026-09-15) reported
+# but did not rewrite (the "-아/어 주세요" benefactive-request family) were
+# rewritten per Jin's 2026-09-16 option-(a) ruling -- 1급 -으세요 (or a
+# softened -을 수 있어요? question where a bare imperative loses too much
+# without the benefactive nuance); see tools/content_factory/
+# c2d2_rewrite_data.py and docs/data/a1_grammar_scan_2026-09-15.md. Only
+# vocab_a1_0410 (headword "적어 주다" itself embeds -아/어 주다) and its
+# satz mirror satz_a1_0317 remain open -- moved to scan_a1_grammar.py's
+# HEADWORD_EMBEDDED_GRAMMAR (relevel-to-A2 candidate, LCP F9) instead of
+# being listed here, since that dict -- not this set -- is what the scanner
+# actually consults to skip them (see scan_corpus).
+DOCUMENTED_EXCEPTIONS: set[tuple[str, str]] = set()
 
 
 class DetectorUnitTest(unittest.TestCase):
@@ -123,6 +109,28 @@ class DetectorUnitTest(unittest.TestCase):
     def test_catches_contracted_aux_give_아어주다(self) -> None:
         for text in ("전화번호를 알려 주세요.", "이 단어 발음을 다시 들려주세요.",
                      "시어머니께서 웃어 주셨어요."):
+            with self.subTest(text=text):
+                self.assertTrue(self._hits(text), f"{text!r} must be flagged")
+
+    def test_allows_closed_list_request_formulas(self) -> None:
+        # F9 (2026-09-16, Jin round 2): the 3-item closed list stays
+        # -아/어 주다 even as a learner->stranger request; 다시/천천히/한번/
+        # 조금 modifiers (and combinations) don't change which formula it
+        # is, so all still resolve to the same 3 allowed strings.
+        for text in ("다시 천천히 말해 주세요.", "조금 천천히 말해 주세요.",
+                     "다시 한번 말해 주세요.", "죄송하지만 다시 말해 주세요.",
+                     "짧은 예문을 하나 적어 주세요.", "이름을 적어 주세요.",
+                     "도와주세요."):
+            with self.subTest(text=text):
+                self.assertEqual(self._hits(text), [], f"{text!r} must NOT be flagged")
+
+    def test_catches_productive_아어주다_outside_the_closed_list(self) -> None:
+        # A verb NOT on the 3-item closed list must still be flagged even
+        # in a request shape (e.g. 보여주다/들려주다/알려주다 -- the
+        # allowlist is a closed list, not a general "any -아/어 주세요"
+        # pass).
+        for text in ("짧은 예문을 하나 보여 주세요.", "발음을 다시 들려주세요.",
+                     "전화번호를 알려 주세요."):
             with self.subTest(text=text):
                 self.assertTrue(self._hits(text), f"{text!r} must be flagged")
 
@@ -232,10 +240,15 @@ class LiveA1CorpusGuardTest(unittest.TestCase):
         # SatzArcadeQuest.build() has too few tiles to make a real puzzle.
         # vocab_a1_0181's rewrite ("옆에 앉을까요?") originally missed this
         # -- guard every id this PR's rewrite table touches so a future
-        # edit can't reintroduce a too-short satz sentence.
+        # edit can't reintroduce a too-short satz sentence. C2d-2 adds its
+        # own rewrite table (c2d2_rewrite_data) on top of C2d's.
         import c2d_rewrite_data as D  # local import: dev-only module
+        import c2d2_rewrite_data as D2  # local import: dev-only module
         satz_by_id = {x["id"]: x for x in self.satz_items}
-        rewritten_ids = set(D.SATZ_MIRROR_REWRITES) | set(D.SATZ_ONLY_REWRITES)
+        rewritten_ids = (
+            set(D.SATZ_MIRROR_REWRITES) | set(D.SATZ_ONLY_REWRITES)
+            | set(D2.SATZ_MIRROR_REWRITES) | set(D2.SATZ_ONLY_REWRITES)
+        )
         too_short = []
         for rid in sorted(rewritten_ids):
             item = satz_by_id.get(rid)
@@ -248,6 +261,94 @@ class LiveA1CorpusGuardTest(unittest.TestCase):
             too_short, [],
             msg=f"satz rows below the 3-token build contract: {too_short}",
         )
+
+
+class F9HeadwordEmbeddedGrammarAgreementTest(unittest.TestCase):
+    """F9 (Jin ruling 2026-09-16, extended round 2): tools/content_factory/
+    lexicon/f9_headword_embedded_grammar.csv is the governance-record
+    source of truth for two kinds of -아/어 주다 (grade 2) A1 exception:
+
+    * kind=headword -- a vocab id whose own headword embeds the grammar;
+      scan_a1_grammar.py's and scan_grammar_level.py's
+      HEADWORD_EMBEDDED_GRAMMAR dicts are what the scanners actually
+      consult to skip those rows.
+    * kind=request_formula -- one of the 3 closed-list learner->stranger
+      request formulas; both scanners' A1_REQUEST_FORMULAS constant is
+      what they actually consult.
+
+    A row present in the CSV but missing from the scanner (or vice versa)
+    would silently reintroduce either a false flag or an unflagged
+    violation, so this guards all three stay in sync."""
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.f9_rows = load_f9_headword_embedded_grammar(REPO_ROOT)
+        cls.f9_headword_rows = [r for r in cls.f9_rows if r["kind"].strip() == "headword"]
+        cls.f9_formula_rows = [r for r in cls.f9_rows if r["kind"].strip() == "request_formula"]
+        cls.f9_vocab_ids = {row["id"].strip() for row in cls.f9_headword_rows}
+        cls.f9_formula_texts = {row["headword"].strip() for row in cls.f9_formula_rows}
+
+    def test_f9_source_has_the_expected_rows(self) -> None:
+        # Guards the CSV itself against silent drift (e.g. a bad edit
+        # dropping a row or renaming an id) independent of the scanners.
+        self.assertEqual(len(self.f9_headword_rows) + len(self.f9_formula_rows), len(self.f9_rows))
+        self.assertEqual(self.f9_vocab_ids, {"vocab_a1_0410", "vocab_a1_0508"})
+        self.assertEqual(len(self.f9_formula_rows), 3)
+        for row in self.f9_rows:
+            self.assertEqual(row["level"].strip(), "A1")
+            self.assertIn("-아/어 주다", row["embedded_grammar"])
+            self.assertIn("A1", row["disposition"])
+
+    def test_scan_a1_grammar_dict_has_a_vocab_entry_for_every_f9_headword_row(self) -> None:
+        missing = sorted(
+            vid for vid in self.f9_vocab_ids
+            if ("vocab", vid) not in S.HEADWORD_EMBEDDED_GRAMMAR
+        )
+        self.assertEqual(
+            missing, [],
+            msg=f"scan_a1_grammar.HEADWORD_EMBEDDED_GRAMMAR is missing F9 id(s): {missing}",
+        )
+
+    def test_scan_grammar_level_a1_dict_has_a_vocab_entry_for_every_f9_headword_row(self) -> None:
+        a1_dict = SL.HEADWORD_EMBEDDED_GRAMMAR["A1"]
+        missing = sorted(
+            vid for vid in self.f9_vocab_ids if ("vocab", vid) not in a1_dict
+        )
+        self.assertEqual(
+            missing, [],
+            msg=f"scan_grammar_level.HEADWORD_EMBEDDED_GRAMMAR['A1'] is missing F9 id(s): {missing}",
+        )
+
+    def test_both_scanner_dicts_agree_on_the_f9_vocab_ids(self) -> None:
+        a1_dict = SL.HEADWORD_EMBEDDED_GRAMMAR["A1"]
+        legacy_vocab_ids = {rid for (kind, rid) in S.HEADWORD_EMBEDDED_GRAMMAR if kind == "vocab"}
+        level_vocab_ids = {rid for (kind, rid) in a1_dict if kind == "vocab"}
+        # Only assert agreement on the F9-governed subset -- both dicts may
+        # independently carry other (non-F9) headword-embedded-grammar ids
+        # (e.g. vocab_a1_0341), which is fine as long as those also agree,
+        # but this test's scope is specifically the F9 exception table.
+        self.assertTrue(self.f9_vocab_ids <= legacy_vocab_ids)
+        self.assertTrue(self.f9_vocab_ids <= level_vocab_ids)
+
+    def _formula_text_from_constant_entry(self, entry: str) -> str:
+        # F9's "말해 주세요" row carries its 다시/천천히/한번/조금 variant
+        # note inline in the `headword` column (see the CSV); strip that
+        # parenthetical so it compares equal to the scanner constant's
+        # bare formula string, matching how _is_allowed_request_formula
+        # matches by literal substring, not by modifier (see
+        # scan_a1_grammar.py's A1_REQUEST_FORMULAS docstring).
+        return entry.split(" (", 1)[0].strip()
+
+    def test_f9_formula_rows_match_scan_a1_grammar_constant_exactly(self) -> None:
+        f9_bare = {self._formula_text_from_constant_entry(t) for t in self.f9_formula_texts}
+        self.assertEqual(f9_bare, set(S.A1_REQUEST_FORMULAS))
+
+    def test_f9_formula_rows_match_scan_grammar_level_constant_exactly(self) -> None:
+        f9_bare = {self._formula_text_from_constant_entry(t) for t in self.f9_formula_texts}
+        self.assertEqual(f9_bare, set(SL.A1_REQUEST_FORMULAS))
+
+    def test_both_scanners_agree_on_a1_request_formulas(self) -> None:
+        self.assertEqual(set(S.A1_REQUEST_FORMULAS), set(SL.A1_REQUEST_FORMULAS))
 
 
 if __name__ == "__main__":

@@ -192,6 +192,35 @@ ATTRIBUTIVE_NOUN_PATTERNS = (
     "온 손님", "간 친구", "온 친구",
 )
 
+# F9 (2026-09-16, Jin round 2 on C2d-2): a closed list of exactly 3
+# lexicalized A1 REQUEST formulas that stay -아/어 주다 even though a
+# learner asking a stranger for a favor is normally not 1급-safe. Fable's
+# authority rule: a bare -으세요 imperative is fine when the SPEAKER has
+# situational authority / gives instructions (clerk, teacher, postal-form
+# instructions -- e.g. 넣으세요/적으세요/대답하세요/기다리세요, all still
+# handled by the ordinary -(으)세요 path, nothing to allowlist there); a
+# learner->stranger REQUEST instead needs either the soft 1급 "-을 수
+# 있어요?/-을 수 있을까요?" question, or one of these 3 fixed, lexicalized
+# formulas (Jin's exact list, no others): "말해 주세요" (다시/천천히/한번/
+# 조금 and combinations thereof are all still the SAME formula -- matched
+# by literal substring, not the modifier), "도와주세요", "적어 주세요".
+# Productive/generative -아/어 주다 elsewhere stays out of scope until A2.
+# Checked by exact-length string equality against the AUX_GIVE_RE match
+# plus exactly one preceding character (the connector char IS the last
+# syllable of the verb stem, e.g. "말해"/"적어"/"도와" -- one more syllable
+# completes the whole formula): see _contracted_aux_hits.
+A1_REQUEST_FORMULAS = (
+    "말해 주세요",
+    "적어 주세요",
+    "도와주세요",
+)
+
+
+def _is_allowed_request_formula(text: str, match: re.Match) -> bool:
+    context = text[max(0, match.start() - 1):match.end()]
+    return context in A1_REQUEST_FORMULAS
+
+
 # Fable R8 (2026-09-15): a few A1 headwords are themselves a multi-word
 # expression whose lexical form embeds a grade>=2 morpheme (e.g. "늦을 것
 # 같다" bakes in the grade-2 표현 -을 것 같다). The example sentence can't
@@ -205,6 +234,23 @@ HEADWORD_EMBEDDED_GRAMMAR = {
     ("vocab", "vocab_a1_0341"): "늦을 것 같다 embeds -을 것 같다 (nikl grade 2, 표현)",
     ("cloze", "cloze_a1_0229"): "mirrors vocab_a1_0341",
     ("satz", "satz_a1_0193"): "mirrors vocab_a1_0341",
+    # Jin ruling 2026-09-16 (Batch 25, F9 예외표 -- docs/data/level_bible/
+    # F9_exceptions.md "표제어 내장 문법" / tools/content_factory/lexicon/
+    # f9_headword_embedded_grammar.csv): 적어 주다/도와주다 are lexicalized
+    # -아/어 주다 (nikl grade 2, 표현) survival expressions kept at A1
+    # PERMANENTLY -- closing out C2d-2's original "relevel-to-A2 candidate"
+    # framing below. Productive -아/어 주다 is taught from A2 (see PR #348,
+    # which rewrote every other A1 use of -아/어 주세요 to 1급 -으세요).
+    # vocab_a1_0508's headword IS "도와주다" (돕다+아 주다, lexicalized --
+    # named explicitly in the C2d-2 brief's rule 2; found via
+    # scan_grammar_level.py --level A1, a1_family_2 pack, promoted after
+    # the 2026-09-15 C2d scan). test_scan_a1_grammar.py asserts this dict
+    # agrees with the F9 CSV above.
+    ("vocab", "vocab_a1_0410"): "적어 주다 embeds -아/어 주다 (nikl grade 2, 표현); A1 유지 (Jin 2026-09-16, F9)",
+    ("satz", "satz_a1_0317"): "mirrors vocab_a1_0410",
+    ("vocab", "vocab_a1_0508"): "도와주다 embeds -아/어 주다 (nikl grade 2, 표현); A1 유지 (Jin 2026-09-16, F9)",
+    ("cloze", "cloze_a1_0442"): "mirrors vocab_a1_0508",
+    ("satz", "satz_a1_0423"): "mirrors vocab_a1_0508",
 }
 
 EXACT_SENTENCE_ALLOWLIST = {
@@ -222,6 +268,35 @@ EXACT_SENTENCE_ALLOWLIST = {
     "오늘 저녁은 라면 어때요?",
     "라면을 끓여요.",
     "TV를 봐요.",
+    # C2d-2 (2026-09-16): vocab_a1_0409/cloze_a1_0320's rewrites keep "하나"
+    # (already present pre-rewrite) -- same "나" collision as "매일 아침
+    # 사과 하나 먹어요."/"하나만 주세요." above (grammar_a1_or_particle's
+    # -이나 rule over-matches the numeral 하나's own "나" syllable).
+    "짧은 예문을 하나 적으세요.",
+    "짧은 예문을 하나 볼 수 있어요?",
+    # C2d-2 (2026-09-16): 3 PRE-EXISTING rows surfaced only once
+    # DOCUMENTED_EXCEPTIONS went empty (LiveA1CorpusGuardTest now scans the
+    # whole corpus, not just the 38 previously-deferred rows) -- none carry
+    # -아/어 주다/주시다/드리다 (out of C2d-2's own scope), all 3 are the
+    # SAME kind of detector false-positive already allowlisted above for
+    # other rows, just not yet for these exact sentences:
+    #   - "바나나" ends in "나" (same -이나 collision as "매일 아침 사과
+    #     하나 먹어요." above; "바나나가 노란색이에요." already allowlisted
+    #     for the identical reason).
+    "저는 바나나를 좋아해요.",
+    #   - "여보세요" (fixed A1 phone-greeting word) starts with the
+    #     -아/어 보다 connector char "여" + "보세요", a lexical coincidence
+    #     (아/어 보다 aux_try + 2 more grade-2 rules keying off the same
+    #     "어보"/"어보세요" substring), not a genuine 아/어 보다 "try" form.
+    "여보세요, 저는 크리스티안이에요.",
+    #   - "가지고 있어요" (기본 소유, -고 있다 1급 진행형) coincidentally
+    #     contains the substring "을 가지고", which nikl_kiiq_2017_grammar
+    #     .csv grade 5 "를 가지고"/"을 가지고" (고급, "using N as a means",
+    #     e.g. "가위를 가지고 자르다") also matches -- the regex cannot
+    #     distinguish "가지고" immediately followed by 있다 (basic
+    #     possession) from "가지고" followed by another verb (the genuine
+    #     advanced instrumental use).
+    "저는 책을 가지고 있어요.",
 }
 
 
@@ -278,8 +353,25 @@ def _contracted_aux_hits(text: str):
     주다, plus -는 법 and -는 게. See the module-level regex docstrings."""
     hits = []
     for m in AUX_TRY_RE.finditer(text):
+        if m.group(0) == "여보세요":
+            # C2d-2 (2026-09-16): "여보세요" (fixed A1 phone-greeting word,
+            # vocab_a1_0493) coincidentally starts with the connector char
+            # "여" + "보세요", matching AUX_TRY_RE the same way a genuine
+            # "-어 보세요" contraction would -- but a genuine contraction
+            # always has a real verb stem immediately before that connector
+            # char (e.g. 드셔 보세요, 가 보세요), never a sentence/clause
+            # boundary. "여보세요" never follows a Hangul syllable (it is
+            # always the word itself, sentence-initial or after 요/,), so
+            # this is a safe, narrow discriminator (unlike EXACT_SENTENCE_
+            # ALLOWLIST, which only gates the GrammarIndex-derived checks
+            # in _grammar_hits_ge2, not this function).
+            preceding = text[: m.start()]
+            if not preceding or not ("가" <= preceding[-1] <= "힣"):
+                continue
         hits.append(("aux_try_아어보다", 2, m.group(0)))
     for m in AUX_GIVE_RE.finditer(text):
+        if _is_allowed_request_formula(text, m):
+            continue  # F9 closed-list request formula, see A1_REQUEST_FORMULAS
         hits.append(("aux_give_아어주다", 2, m.group(0)))
     for m in LAW_METHOD_RE.finditer(text):
         hits.append(("nominalizer_는_법", 2, m.group(0)))
