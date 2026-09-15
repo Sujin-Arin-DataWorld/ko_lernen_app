@@ -36,8 +36,7 @@
       },
       "vocabDomains": {
         "beyond_matrix": 6,
-        "covered": 12,
-        "missing": 1,
+        "covered": 13,
         "thin": 1
       },
       "registers": {
@@ -265,7 +264,7 @@
     "app_earlier": 3,
     "missing": 2
   },
-  "gap_total": 532,
+  "gap_total": 531,
   "gap_counts": {
     "functional_grammar:missing": 2,
     "grammar_anchor:no_scenario_anchor": 152,
@@ -280,7 +279,7 @@
     "speech_act:thin": 17,
     "text_type:missing": 8,
     "text_type:structural_gap": 38,
-    "vocab_domain:missing": 4,
+    "vocab_domain:missing": 3,
     "vocab_domain:thin": 3
   },
   "draftHoldings": {

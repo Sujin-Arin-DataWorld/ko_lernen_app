@@ -190,6 +190,6 @@
 | C6_coverage | 0 | 0 | 6 |
 | C13_transfer | 0 | 0 | 10 |
 | C11_depth | 0 | 2 | 3 |
-| C16_lexis | 0 | 0 | 101 |
+| C16_lexis | 0 | 0 | 97 |
 
 행 단위 전체 목록은 `tool/learning_phase_findings.csv`.

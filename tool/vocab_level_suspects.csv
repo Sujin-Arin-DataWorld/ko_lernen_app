@@ -104,3 +104,15 @@ vocab_a2_0410,트리트먼트,Kur,A2,a2_salon_visit_1,Friseursalon,Nomen,sino3_l
 vocab_a1_0413,배달비,Liefergebühr,A1,a1_payment_delivery_1,결제와 배달,Nomen,sino3_low,satz_ref
 vocab_a1_0416,우체국 위치,Lage des Postamts,A1,a1_city_services_2026_1,도시 생활,Nomen,sino3_low,
 vocab_a1_0422,영수증 확인,Bonkontrolle,A1,a1_city_services_2026_1,도시 생활,Nomen,sino3_low,satz_ref
+vocab_a1_0524,텔레비전,Fernseher,A1,a1_misc_1,Technologie,Nomen,below_topic,satz_ref
+vocab_a1_0595,카메라,Kamera,A1,a1_belongings_1,Technologie,Nomen,below_topic,satz_ref
+vocab_a1_0649,대답,Antwort,A1,a1_feelings_talk_1,Kommunikation,Nomen,below_topic,satz_ref
+vocab_a1_0650,소개,Vorstellung,A1,a1_feelings_talk_1,Kommunikation,Nomen,below_topic,satz_ref
+vocab_a1_0653,묻다,fragen,A1,a1_repair_language_1,Kommunikation,Verb,below_topic,satz_ref
+vocab_a1_0654,맞다,"stimmen, richtig sein",A1,a1_repair_language_1,Kommunikation,Verb,below_topic,satz_ref
+vocab_a1_0663,에어컨,Klimaanlage,A1,a1_home_daily_1,Technologie,Nomen,below_topic,satz_ref
+vocab_a1_0665,사용,"Gebrauch, Benutzung",A1,a1_home_daily_1,Technologie,Nomen,below_topic,satz_ref
+vocab_a1_0675,프로그램,Programm,A1,a1_culture_hobbies_1,Technologie,Nomen,below_topic,satz_ref
+vocab_a1_0677,사진,Foto,A1,a1_culture_hobbies_1,Technologie,Nomen,below_topic,satz_ref
+vocab_a1_0697,안내,"Auskunft, Information",A1,a1_school_work_1,Kommunikation,Nomen,below_topic,satz_ref
+vocab_a1_0702,이야기,"Geschichte, Gespräch",A1,a1_school_work_1,Kommunikation,Nomen,below_topic,satz_ref
