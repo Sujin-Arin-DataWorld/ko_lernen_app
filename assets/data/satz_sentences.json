@@ -1084,12 +1084,12 @@
     {
       "id": "satz_a1_0046",
       "level": "a1",
-      "targetKo": "옆에 앉아도 돼요?",
-      "promptDe": "Darf ich neben dir sitzen?",
-      "promptEn": "May I sit next to you?",
+      "targetKo": "옆에 앉을까요?",
+      "promptDe": "Soll ich mich neben dich setzen?",
+      "promptEn": "Shall I sit next to you?",
       "distractors": [
-        "커요",
-        "학교에"
+        "지금",
+        "따라"
       ],
       "vocabKo": "옆"
     },
@@ -5564,12 +5564,12 @@
     {
       "id": "satz_a1_0073",
       "level": "a1",
-      "targetKo": "할머니가 웃으면서 몇 살이세요 하고 물으셨어요.",
-      "promptDe": "Die Großmutter fragte lächelnd, wie alt ich sei.",
-      "promptEn": "Grandmother smiled and asked how old I was.",
+      "targetKo": "할머니, 몇 살이세요?",
+      "promptDe": "Oma, wie alt sind Sie?",
+      "promptEn": "Grandma, how old are you?",
       "distractors": [
-        "주차장이에요",
-        "줄였어요"
+        "살아요",
+        "가방이"
       ],
       "vocabKo": "몇 살이세요"
     },
@@ -5588,12 +5588,12 @@
     {
       "id": "satz_a1_0075",
       "level": "a1",
-      "targetKo": "댁에 처음 와서 신발을 어디에 둘지 몰랐어요.",
-      "promptDe": "Ich war zum ersten Mal bei ihnen zu Hause und wusste nicht, wohin mit den Schuhen.",
-      "promptEn": "It was my first time at their home and I didn't know where to put my shoes.",
+      "targetKo": "댁에 처음 와서 신발을 여기에 뒀어요.",
+      "promptDe": "Ich bin zum ersten Mal bei Ihnen zu Hause und habe die Schuhe hier hingestellt.",
+      "promptEn": "I came to your home for the first time and put my shoes here.",
       "distractors": [
-        "알려",
-        "앞에서"
+        "안에",
+        "자고"
       ],
       "vocabKo": "댁에"
     },
@@ -5888,12 +5888,12 @@
     {
       "id": "satz_a1_0100",
       "level": "a1",
-      "targetKo": "진지 드세요 하셔서 숟가락을 들었어요.",
-      "promptDe": "Als sie zum Essen baten, nahm ich den Löffel.",
-      "promptEn": "When they invited me to eat, I picked up my spoon.",
+      "targetKo": "할머니, 진지 드세요.",
+      "promptDe": "Oma, essen Sie bitte.",
+      "promptEn": "Grandma, please eat.",
       "distractors": [
-        "맛있어요를",
-        "맞췄어요"
+        "대학에",
+        "메모해요"
       ],
       "vocabKo": "진지"
     },
@@ -5912,12 +5912,12 @@
     {
       "id": "satz_a1_0102",
       "level": "a1",
-      "targetKo": "밑반찬이 열 가지나 나와서 놀랐어요.",
+      "targetKo": "밑반찬이 열 가지가 나와서 놀랐어요.",
       "promptDe": "Es kamen zehn Beilagen auf den Tisch, das hat mich überrascht.",
       "promptEn": "Ten side dishes came out, which surprised me.",
       "distractors": [
-        "인사가",
-        "인사드려요"
+        "주소를",
+        "기다려"
       ],
       "vocabKo": "밑반찬"
     },
@@ -5936,24 +5936,24 @@
     {
       "id": "satz_a1_0104",
       "level": "a1",
-      "targetKo": "배불러요 했는데도 과일이 또 나왔어요.",
-      "promptDe": "Ich sagte, ich sei satt, und trotzdem kam noch Obst.",
-      "promptEn": "I said I was full, and fruit came out anyway.",
+      "targetKo": "배불러요. 하지만 과일을 먹었어요.",
+      "promptDe": "Ich bin satt. Aber ich habe trotzdem Obst gegessen.",
+      "promptEn": "I'm full. But I ate the fruit anyway.",
       "distractors": [
-        "집었어요",
-        "집중했어요"
+        "내년에",
+        "맛없어요"
       ],
       "vocabKo": "배불러요"
     },
     {
       "id": "satz_a1_0105",
       "level": "a1",
-      "targetKo": "접시마다 맛있어요 하니까 현우가 웃었어요.",
-      "promptDe": "Bei jedem Teller sagte ich, es schmeckt, und Hyunwoo musste lachen.",
-      "promptEn": "I said it was delicious for every dish, and Hyunwoo laughed.",
+      "targetKo": "맛있어요. 그래서 현우가 웃었어요.",
+      "promptDe": "Es ist lecker. Deshalb musste Hyunwoo lachen.",
+      "promptEn": "It's delicious. So Hyunwoo laughed.",
       "distractors": [
-        "고민했어요",
-        "고속도로가"
+        "자고",
+        "한국까지"
       ],
       "vocabKo": "맛있어요"
     },
@@ -6008,24 +6008,24 @@
     {
       "id": "satz_a1_0110",
       "level": "a1",
-      "targetKo": "이야기를 들을 때는 수저 놓고 고개를 끄덕였어요.",
-      "promptDe": "Beim Zuhören legte ich das Besteck ab und nickte.",
-      "promptEn": "While they talked I put my spoon down and nodded.",
+      "targetKo": "이야기를 듣고 수저를 놓았어요.",
+      "promptDe": "Ich habe zugehört und das Besteck abgelegt.",
+      "promptEn": "I listened, and I put my spoon down.",
       "distractors": [
-        "게임",
-        "게임을"
+        "코가",
+        "번호는"
       ],
       "vocabKo": "수저 놓다"
     },
     {
       "id": "satz_a1_0111",
       "level": "a1",
-      "targetKo": "설거지를 도우려고 일어섰더니 앉으라고 하셨어요.",
-      "promptDe": "Ich stand auf, um abzuwaschen, und sie sagten, ich solle mich setzen.",
-      "promptEn": "I got up to wash the dishes and they told me to sit back down.",
+      "targetKo": "설거지를 도우려고 일어섰어요.",
+      "promptDe": "Ich bin aufgestanden, um beim Abwasch zu helfen.",
+      "promptEn": "I stood up to help with the dishes.",
       "distractors": [
-        "앉으니",
-        "앉으세요"
+        "돼요",
+        "무게가"
       ],
       "vocabKo": "설거지"
     },
@@ -6080,12 +6080,12 @@
     {
       "id": "satz_a1_0116",
       "level": "a1",
-      "targetKo": "한복 고름을 매는데 현우 어머니가 도와주셨어요.",
-      "promptDe": "Beim Binden der Hanbok-Schleife half mir Hyunwoos Mutter.",
-      "promptEn": "Hyunwoo's mother helped me tie the hanbok ribbon.",
+      "targetKo": "한복을 입고 고름을 맸어요.",
+      "promptDe": "Ich habe den Hanbok angezogen und die Schleife gebunden.",
+      "promptEn": "I put on the hanbok and tied the ribbon.",
       "distractors": [
-        "문을",
-        "묻기"
+        "나라",
+        "국적은"
       ],
       "vocabKo": "한복"
     },
@@ -6128,24 +6128,24 @@
     {
       "id": "satz_a1_0120",
       "level": "a1",
-      "targetKo": "덕담을 들었는데 뭐라고 답할지 몰랐어요.",
-      "promptDe": "Ich bekam gute Wünsche und wusste nicht, was ich antworten soll.",
-      "promptEn": "They gave me their good wishes and I didn't know what to say back.",
+      "targetKo": "덕담을 듣고 정말 기뻤어요.",
+      "promptDe": "Ich habe die Neujahrswünsche gehört und war sehr froh.",
+      "promptEn": "I heard the New Year's blessing, and I was very happy.",
       "distractors": [
-        "단체",
-        "달아서"
+        "독일에",
+        "같이"
       ],
       "vocabKo": "덕담"
     },
     {
       "id": "satz_a1_0121",
       "level": "a1",
-      "targetKo": "차례상 앞에서는 사진을 찍지 말라고 하셨어요.",
-      "promptDe": "Vor dem Ahnentisch sollte ich nicht fotografieren.",
-      "promptEn": "They told me not to take pictures in front of the ancestral table.",
+      "targetKo": "차례상 앞에서는 사진을 찍지 않아요.",
+      "promptDe": "Vor dem Ahnentisch macht man keine Fotos.",
+      "promptEn": "In front of the ancestral table, you don't take pictures.",
       "distractors": [
-        "반찬을",
-        "반찬이"
+        "단어를",
+        "수업은"
       ],
       "vocabKo": "차례상"
     },
@@ -10964,24 +10964,24 @@
     {
       "id": "satz_a1_0187",
       "level": "a1",
-      "targetKo": "비가 오면 산책을 취소하다 결정해요.",
-      "promptDe": "Wenn es regnet, entscheide ich, den Spaziergang abzusagen.",
-      "promptEn": "If it rains, I decide to cancel the walk.",
+      "targetKo": "비가 와서 산책을 취소했어요.",
+      "promptDe": "Es hat geregnet, deshalb habe ich den Spaziergang abgesagt.",
+      "promptEn": "It rained, so I canceled the walk.",
       "distractors": [
-        "늦잠",
-        "약속 시간"
+        "소포를",
+        "어디예요"
       ],
       "vocabKo": "취소하다"
     },
     {
       "id": "satz_a1_0188",
       "level": "a1",
-      "targetKo": "늦으면 미리 연락해 주세요.",
-      "promptDe": "Wenn du zu spät kommst, sag vorher Bescheid.",
-      "promptEn": "If you're gonna be late, text me first.",
+      "targetKo": "늦기 전에 저한테 미리 연락하세요.",
+      "promptDe": "Bitte melde dich vorher bei mir, bevor du zu spät kommst.",
+      "promptEn": "Contact me in advance before you're late.",
       "distractors": [
-        "늦잠",
-        "약속 시간"
+        "어느",
+        "같은"
       ],
       "vocabKo": "미리 연락"
     },
@@ -11024,24 +11024,24 @@
     {
       "id": "satz_a1_0192",
       "level": "a1",
-      "targetKo": "주말 계획을 같이 세워 봐요.",
-      "promptDe": "Lass uns den Wochenendplan zusammen machen.",
-      "promptEn": "Let's make the weekend plan together.",
+      "targetKo": "주말 계획을 같이 세울까요?",
+      "promptDe": "Sollen wir den Wochenendplan zusammen machen?",
+      "promptEn": "Shall we make the weekend plan together?",
       "distractors": [
-        "늦잠",
-        "약속 시간"
+        "목요일에",
+        "앞이에요"
       ],
       "vocabKo": "주말 계획"
     },
     {
       "id": "satz_a1_0193",
       "level": "a1",
-      "targetKo": "버스가 막혀서 늦을 것 같다 연락했어요.",
-      "promptDe": "Der Bus steckt fest, deshalb habe ich geschrieben, dass ich wahrscheinlich zu spät bin.",
-      "promptEn": "The bus is stuck, so I wrote that it looks like I'll be late.",
+      "targetKo": "버스가 막혀서 늦겠어요.",
+      "promptDe": "Der Bus steckt fest, ich komme wohl zu spät.",
+      "promptEn": "The bus is stuck, I'll probably be late.",
       "distractors": [
-        "늦잠",
-        "약속 시간"
+        "한국어",
+        "입어요"
       ],
       "vocabKo": "늦을 것 같다"
     },
@@ -11060,12 +11060,12 @@
     {
       "id": "satz_a1_0195",
       "level": "a1",
-      "targetKo": "저는 먼저 가다 자리를 잡을게요.",
-      "promptDe": "Ich gehe schon voraus und sichere uns Plätze.",
-      "promptEn": "I'll go ahead first and hold seats.",
+      "targetKo": "저는 먼저 가서 자리를 잡겠어요.",
+      "promptDe": "Ich gehe zuerst und sichere die Plätze.",
+      "promptEn": "I'll go ahead and grab the seats.",
       "distractors": [
-        "늦잠",
-        "약속 시간"
+        "없어서",
+        "배달비가"
       ],
       "vocabKo": "먼저 가다"
     },
@@ -11756,12 +11756,12 @@
     {
       "id": "satz_a1_0253",
       "level": "a1",
-      "targetKo": "한국어를 천천히 말하다 들으면 이해가 돼요.",
-      "promptDe": "Wenn du Koreanisch langsam sprichst, versteh ich's.",
-      "promptEn": "If you speak Korean slowly, I understand.",
+      "targetKo": "한국어를 천천히 말해서 이해가 돼요.",
+      "promptDe": "Weil du langsam Koreanisch sprichst, verstehe ich es.",
+      "promptEn": "Because you speak Korean slowly, I understand.",
       "distractors": [
-        "죄송하다",
-        "감사하다"
+        "연필로",
+        "책이"
       ],
       "vocabKo": "천천히 말하다"
     },
@@ -17564,12 +17564,12 @@
     {
       "id": "satz_a1_0257",
       "level": "a1",
-      "targetKo": "아니요, 저는 안 갈래요.",
-      "promptDe": "Nein, ich möchte nicht gehen.",
-      "promptEn": "No, I don't want to go.",
+      "targetKo": "아니요, 저는 안 가요.",
+      "promptDe": "Nein, ich gehe nicht.",
+      "promptEn": "No, I'm not going.",
       "distractors": [
-        "안녕하세요",
-        "안녕"
+        "늦겠어요",
+        "내일"
       ],
       "vocabKo": "아니요"
     },
@@ -17660,12 +17660,12 @@
     {
       "id": "satz_a1_0265",
       "level": "a1",
-      "targetKo": "오늘 눈이 좀 피곤하네요.",
+      "targetKo": "오늘 눈이 좀 피곤해요.",
       "promptDe": "Meine Augen sind heute etwas müde.",
       "promptEn": "My eyes are a bit tired today.",
       "distractors": [
-        "안녕하세요",
-        "안녕"
+        "여기",
+        "주소를"
       ],
       "vocabKo": "눈"
     },
@@ -27882,13 +27882,13 @@
     {
       "id": "satz_a1_0320",
       "level": "a1",
-      "targetKo": "예문을 보면 단어 뜻이 쉬워요.",
-      "promptDe": "Mit einem Beispielsatz ist die Wortbedeutung leichter.",
-      "promptEn": "An example sentence makes the word easier to understand.",
+      "targetKo": "예문을 보고 단어 뜻을 알아요.",
+      "promptDe": "Ich lese das Beispiel und verstehe die Wortbedeutung.",
+      "promptEn": "I read the example and learn the word's meaning.",
       "vocabKo": "예문",
       "distractors": [
-        "배달비",
-        "어제"
+        "삼천",
+        "왔어요"
       ],
       "courseUnitId": "a1_08_clarify_repair",
       "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
@@ -28022,13 +28022,13 @@
     {
       "id": "satz_a1_0330",
       "level": "a1",
-      "targetKo": "도착 시간이 바뀌면 연락해 주세요.",
-      "promptDe": "Bitte melden Sie sich, wenn sich die Ankunftszeit ändert.",
-      "promptEn": "Please contact me if the arrival time changes.",
+      "targetKo": "도착 시간이 바뀌어서 저한테 연락하세요.",
+      "promptDe": "Weil sich die Ankunftszeit geändert hat, melden Sie sich bei mir.",
+      "promptEn": "Since the arrival time changed, contact me.",
       "vocabKo": "도착 시간",
       "distractors": [
-        "모국어",
-        "자주"
+        "수저를",
+        "아래"
       ],
       "courseUnitId": "a1_14_payment_delivery",
       "sourceSeedId": "seed_batch19_a1_14_payment_delivery"

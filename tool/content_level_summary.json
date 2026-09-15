@@ -2,10 +2,10 @@
   "counts": {
     "cloze": {
       "fallback_over2": 2,
-      "over1": 157,
-      "over2": 35,
+      "over1": 148,
+      "over2": 32,
       "total": 1895,
-      "under2": 455,
+      "under2": 456,
       "unknown": 0
     },
     "grammar": {
@@ -34,10 +34,10 @@
     },
     "satz": {
       "fallback_over2": 1,
-      "over1": 156,
-      "over2": 26,
+      "over1": 146,
+      "over2": 23,
       "total": 2416,
-      "under2": 654,
+      "under2": 655,
       "unknown": 0
     },
     "scenario": {
