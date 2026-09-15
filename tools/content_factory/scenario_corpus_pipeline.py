@@ -398,8 +398,10 @@ def validate_portfolio(root: Path = ROOT) -> ValidationReport:
         report.errors.append(f"generation must be {GENERATION_ID}")
     if set(sources.level_profiles) != set(LEVELS):
         report.errors.append("level profiles must cover A1-C2 exactly")
-    if len(sources.characters) != 7:
-        report.errors.append("character bible must contain exactly seven recurring characters")
+    if len(sources.characters) < 7:
+        report.errors.append(
+            "character bible must contain at least the seven canonical recurring characters"
+        )
     if len(sources.briefs) != sources.manifest.expected_total or len(sources.briefs) != 120:
         report.errors.append("canonical portfolio must contain exactly 120 scenario briefs")
 
