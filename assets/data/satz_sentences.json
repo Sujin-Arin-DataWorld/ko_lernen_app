@@ -8061,8 +8061,8 @@
       "id": "satz_b1_0105",
       "level": "b1",
       "targetKo": "긴 이야기는 요약해서 전하니 핵심만 남았어요.",
-      "promptDe": "Die lange Rede gab ich knapp weiter, so blieb nur der Kern.",
-      "promptEn": "I passed the long story on as a summary, so only the core was left.",
+      "promptDe": "Die lange Geschichte fasste ich beim Weitergeben zusammen, sodass nur das Wesentliche blieb.",
+      "promptEn": "I summarized the long story as I passed it on, so only the key points remained.",
       "distractors": [
         "뉘앙스가",
         "능력은"
@@ -8169,8 +8169,8 @@
       "id": "satz_b1_0114",
       "level": "b1",
       "targetKo": "대충 하지 말라고 현우가 귓속말로 했어요.",
-      "promptDe": "Mach es nicht zu ungenau, flüsterte Hyunwoo.",
-      "promptEn": "Hyunwoo whispered not to do it too roughly.",
+      "promptDe": "Hyunwoo flüsterte mir zu, ich solle das nicht so schludrig machen.",
+      "promptEn": "Hyunwoo whispered to me not to do it so carelessly.",
       "distractors": [
         "위생",
         "유지하니"
@@ -8588,9 +8588,9 @@
     {
       "id": "satz_b1_0149",
       "level": "b1",
-      "targetKo": "잠자리 경계 다시 정하니 둘이 편해졌어요.",
-      "promptDe": "Als wir die Schlafregelung neu festlegten, wurde es für uns beide leichter.",
-      "promptEn": "Once we reset the sleeping arrangement, it got easier for both of us.",
+      "targetKo": "잠자리 경계를 다시 정하니 둘 다 편해졌어요.",
+      "promptDe": "Als wir die Schlafregelung neu festlegten, fühlten wir uns beide wohler.",
+      "promptEn": "Once we reset the sleeping arrangements, we both felt more comfortable.",
       "distractors": [
         "감정",
         "갔어요"
@@ -10041,8 +10041,8 @@
       "id": "satz_b2_0250",
       "level": "b2",
       "targetKo": "관계부터 말하니 악수 타이밍이 맞았어요.",
-      "promptDe": "Zuerst die Beziehung zu nennen traf den Moment zum Handschlag.",
-      "promptEn": "Naming the relationship first hit the handshake timing.",
+      "promptDe": "Weil ich zuerst erklärt habe, in welcher Beziehung wir zueinander stehen, passte der Zeitpunkt für den Handschlag.",
+      "promptEn": "Once I explained our relationship, the timing of the handshake felt right.",
       "distractors": [
         "냈어요",
         "넘겼어요"
@@ -10329,8 +10329,8 @@
       "id": "satz_c1_0077",
       "level": "c1",
       "targetKo": "노동을 보이게 하자 감사의 대상이 달라졌어요.",
-      "promptDe": "Arbeit sichtbar zu machen verschob, wem gedankt wurde.",
-      "promptEn": "Making labor visible changed who received thanks.",
+      "promptDe": "Als wir die Arbeit sichtbar machten, änderte sich, wem gedankt wurde.",
+      "promptEn": "Making the work visible changed who was thanked.",
       "distractors": [
         "타고",
         "타자화가"
@@ -10341,8 +10341,8 @@
       "id": "satz_c1_0078",
       "level": "c1",
       "targetKo": "공평을 설계하니 감정이 아니라 표가 남았어요.",
-      "promptDe": "Fairness zu entwerfen ließ eine Tabelle statt nur Gefühle.",
-      "promptEn": "Designing fairness left a chart, not only feelings.",
+      "promptDe": "Als wir Fairness bewusst mit einplanten, blieb am Ende eine Tabelle statt verletzter Gefühle.",
+      "promptEn": "Once we deliberately designed for fairness, what remained was a table rather than hurt feelings.",
       "distractors": [
         "상을",
         "서사에"
@@ -10461,7 +10461,7 @@
       "id": "satz_c2_0064",
       "level": "c2",
       "targetKo": "권력을 호명하니 방이 잠시 조용해졌다가 다시 숨이 돌아왔어요.",
-      "promptDe": "Macht beim Namen zu nennen machte die Raumstille kurz, dann kam der Atem zurück.",
+      "promptDe": "Als ich die Macht beim Namen nannte, wurde es im Raum kurz still; dann konnten alle wieder atmen.",
       "promptEn": "Naming the power quieted the room, then breath returned.",
       "distractors": [
         "형식이",
@@ -10473,8 +10473,8 @@
       "id": "satz_c2_0065",
       "level": "c2",
       "targetKo": "기분이 아니라 절차를 요구하니 다음 결정이 투명해졌어요.",
-      "promptDe": "Nicht Stimmung, ein Verfahren zu verlangen machte die nächste Entscheidung klarer.",
-      "promptEn": "Demanding a procedure, not a mood, made the next decision clearer.",
+      "promptDe": "Dass ich nicht nach Stimmung, sondern nach einem klaren Verfahren verlangte, machte die nächste Entscheidung transparenter.",
+      "promptEn": "Demanding a clear procedure rather than going by mood made the next decision more transparent.",
       "distractors": [
         "되지",
         "되찾자고"
@@ -10617,8 +10617,8 @@
       "id": "satz_c2_0077",
       "level": "c2",
       "targetKo": "기억을 재배치하자 내가 손님만은 아니게 됐어요.",
-      "promptDe": "Erinnerung neu zu ordnen machte mich zu mehr als nur Gast.",
-      "promptEn": "Rearranging memory made me more than only a guest.",
+      "promptDe": "Als wir die Erinnerungen neu ordneten, war ich nicht mehr nur ein Gast.",
+      "promptEn": "Once we rearranged the memories, I was no longer just a guest.",
       "distractors": [
         "별명",
         "보였어요"
@@ -10629,8 +10629,8 @@
       "id": "satz_c2_0078",
       "level": "c2",
       "targetKo": "서사를 공유하자 한 사람의 농담이 모두의 역사가 되지 않았어요.",
-      "promptDe": "Die Erzählung zu teilen hinderte den Witz einer Person, aller Geschichte zu werden.",
-      "promptEn": "Sharing authorship stopped one person's joke from becoming everyone's history.",
+      "promptDe": "Weil wir die Erzählung gemeinsam trugen, wurde der Scherz einer einzelnen Person nicht zur Geschichte aller.",
+      "promptEn": "Because we shared the narrative, one person's joke didn't become everyone's history.",
       "distractors": [
         "발화가",
         "방문이"
@@ -28681,8 +28681,8 @@
       "id": "satz_a1_0339",
       "level": "a1",
       "targetKo": "한국은 지금 가을이에요.",
-      "promptDe": "In Korea ist jetzt Herbst.",
-      "promptEn": "It's autumn in Korea now.",
+      "promptDe": "In Korea ist gerade Herbst.",
+      "promptEn": "It's fall in Korea right now.",
       "vocabKo": "한국",
       "distractors": [
         "어제",
@@ -29591,7 +29591,7 @@
       "id": "satz_b1_0483",
       "level": "b1",
       "targetKo": "서로 오해가 있었던 것 같아요.",
-      "promptDe": "Ich glaube, wir hatten ein Missverständnis.",
+      "promptDe": "Ich glaube, zwischen uns gab es ein Missverständnis.",
       "promptEn": "I think there was a misunderstanding between us.",
       "vocabKo": "오해",
       "distractors": [
@@ -29644,7 +29644,7 @@
       "level": "b2",
       "targetKo": "원리를 알면 응용은 어렵지 않아요.",
       "promptDe": "Wenn man das Prinzip versteht, ist die Anwendung nicht schwer.",
-      "promptEn": "Once you know the principle, applying it isn't hard.",
+      "promptEn": "Once you understand the principle, applying it isn't difficult.",
       "vocabKo": "원리",
       "distractors": [
         "현지화",
@@ -29707,8 +29707,8 @@
     {
       "id": "satz_b2_0557",
       "level": "b2",
-      "targetKo": "그 교수님 강의는 항상 자리가 없어요.",
-      "promptDe": "In der Vorlesung von diesem Professor sind die Plätze immer voll.",
+      "targetKo": "그 교수님 강의는 항상 자리가 꽉 차요.",
+      "promptDe": "Die Vorlesungen dieses Professors sind immer voll.",
       "promptEn": "That professor's lectures are always full.",
       "vocabKo": "강의",
       "distractors": [

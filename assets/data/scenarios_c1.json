@@ -4463,13 +4463,13 @@
         {
           "speaker": "manager",
           "ko": "그래도 숫자 하나는 있어야 발표가 될 것 같습니다.",
-          "de": "Trotzdem brauchen wir wohl eine einzige Zahl, damit die Präsentation funktioniert.",
-          "en": "Still, we probably need one number for the presentation to work."
+          "de": "Trotzdem brauchen wir wohl eine konkrete Zahl für die Präsentation.",
+          "en": "Still, we probably need one concrete number for the presentation."
         },
         {
           "speaker": "user",
           "ko": "불확실한 수치를 확정된 것처럼 보여줄 바에야 범위로 제시하는 게 낫습니다.",
-          "de": "Bevor wir unsichere Zahlen als endgültig zeigen, stellen wir sie besser als Spanne dar.",
+          "de": "Statt unsichere Zahlen als endgültig darzustellen, sollten wir lieber eine Spanne angeben.",
           "en": "Rather than show uncertain figures as if they were final, it's better to present a range."
         },
         {
@@ -4685,8 +4685,8 @@
         {
           "speaker": "manager",
           "ko": "그 폴더에는 다른 브랜드 계약 조건도 같이 들어 있어서 조심스럽습니다.",
-          "de": "In dem Ordner liegen auch die Vertragsbedingungen anderer Marken, deshalb bin ich vorsichtig.",
-          "en": "That folder also holds contract terms for other brands, so I'm cautious about it."
+          "de": "In dem Ordner liegen auch die Vertragsbedingungen anderer Marken, deshalb muss ich mit Zugriffsrechten vorsichtig sein.",
+          "en": "That folder also contains contract terms for other brands, so I have to be careful about granting access."
         },
         {
           "speaker": "user",
@@ -4697,20 +4697,20 @@
         {
           "speaker": "manager",
           "ko": "부장님이 승인하지 않는 한 전체 폴더는 열어 드릴 수 없습니다.",
-          "de": "Solange der Abteilungsleiter nicht zustimmt, kann ich Ihnen den ganzen Ordner nicht öffnen.",
-          "en": "Unless the department head approves it, I can't open the whole folder for you."
+          "de": "Solange der Abteilungsleiter nicht zustimmt, kann ich Ihnen keinen Zugriff auf den gesamten Ordner geben.",
+          "en": "Unless the department head approves it, I can't grant you access to the entire folder."
         },
         {
           "speaker": "user",
           "ko": "그러면 그 계약서 한 건만 따로 공유해 주실 여지가 있을까요?",
           "de": "Gibt es dann die Möglichkeit, mir nur diesen einen Vertrag separat freizugeben?",
-          "en": "Then would there be room to share just that one contract separately?"
+          "en": "Then would it be possible to share just that one contract with me separately?"
         },
         {
           "speaker": "manager",
           "ko": "그 정도는 검토해 볼 여지가 있습니다.",
           "de": "Das lässt sich zumindest prüfen.",
-          "en": "That much, I can at least consider."
+          "en": "That's something I can look into."
         },
         {
           "speaker": "user",
@@ -4899,8 +4899,8 @@
         {
           "speaker": "manager",
           "ko": "이번 평가는 실적표에 나온 숫자를 기준으로 진행하려고 합니다.",
-          "de": "Bei dieser Bewertung wollen wir uns an den Zahlen aus der Leistungstabelle orientieren.",
-          "en": "For this review, I'd like to go by the numbers on the performance sheet."
+          "de": "Bei dieser Bewertung wollen wir uns an den Zahlen in der Leistungsübersicht orientieren.",
+          "en": "For this review, I'd like to base it on the numbers in the performance report."
         },
         {
           "speaker": "user",
@@ -4911,14 +4911,14 @@
         {
           "speaker": "manager",
           "ko": "항의 전화도 업무이긴 한데 계량화하기가 어렵긴 하네요.",
-          "de": "Beschwerdeanrufe sind zwar auch Arbeit, aber schwer messbar, das stimmt.",
+          "de": "Beschwerdeanrufe gehören zwar auch zur Arbeit, sind aber schwer zu messen. Das stimmt.",
           "en": "Complaint calls are work too, but they're hard to quantify, that's true."
         },
         {
           "speaker": "user",
           "ko": "화난 고객을 진정시키느라 회의 시간을 넘긴 나머지 다른 업무가 밀린 적도 많습니다.",
-          "de": "Weil ich aufgebrachte Kunden beruhigen musste und dadurch Besprechungszeiten überzogen habe, ist anderes liegen geblieben.",
-          "en": "Because I've gone over meeting times calming angry customers, other work has often piled up as a result."
+          "de": "Weil Gespräche mit verärgerten Kunden oft länger dauern als geplant, ist andere Arbeit schon öfter liegen geblieben.",
+          "en": "I've often had other work pile up because dealing with angry customers took longer than planned."
         },
         {
           "speaker": "manager",
@@ -5137,14 +5137,14 @@
         {
           "speaker": "user",
           "ko": "지원자 중 한 명이 예전에 같이 연구했던 후배입니다.",
-          "de": "Eine der Bewerberinnen ist eine ehemalige Kollegin, mit der ich früher zusammen geforscht habe.",
+          "de": "Eine der Bewerberinnen ist eine frühere Kollegin, mit der ich zusammen geforscht habe.",
           "en": "One of the applicants is a former junior colleague I used to do research with."
         },
         {
           "speaker": "professor",
           "ko": "그렇다면 그 지원자 심사에서는 빠지시는 게 좋겠습니다.",
-          "de": "Dann wäre es besser, wenn Sie sich bei dieser Bewerbung aus der Begutachtung zurückziehen.",
-          "en": "Then it would be better for you to step back from evaluating that particular applicant."
+          "de": "Dann wäre es besser, wenn Sie sich bei der Bewertung dieser Bewerberin zurückziehen.",
+          "en": "Then it would be better for you to recuse yourself from evaluating that applicant."
         },
         {
           "speaker": "user",
@@ -5162,7 +5162,7 @@
           "speaker": "user",
           "ko": "이 지원자는 경력은 짧은 한편 최근 발표한 논문의 질은 높습니다.",
           "de": "Diese Bewerberin hat zwar wenig Erfahrung, aber die Qualität ihrer letzten Publikation ist hoch.",
-          "en": "This applicant has little experience, while the quality of her recent paper is high."
+          "en": "This applicant has limited experience, but her recent paper is very strong."
         },
         {
           "speaker": "professor",
@@ -5359,7 +5359,7 @@
           "speaker": "researcher",
           "ko": "이 연구는 새로운 약물의 효과를 확인하는 임상시험입니다.",
           "de": "Diese Studie soll die Wirkung eines neuen Medikaments überprüfen.",
-          "en": "This study is a clinical trial to check the effect of a new drug."
+          "en": "This is a clinical trial evaluating the effects of a new drug."
         },
         {
           "speaker": "user",
@@ -5370,14 +5370,14 @@
         {
           "speaker": "researcher",
           "ko": "초기 결과에 국한하면 가벼운 두통과 어지럼증 정도입니다.",
-          "de": "Beschränkt man sich auf die frühen Ergebnisse, sind es leichte Kopfschmerzen und Schwindel.",
-          "en": "Limited to the early results, it's mostly mild headaches and dizziness."
+          "de": "Nach den bisherigen Ergebnissen sind es vor allem leichte Kopfschmerzen und Schwindel.",
+          "en": "Based on the early results, the known side effects are mainly mild headaches and dizziness."
         },
         {
           "speaker": "user",
           "ko": "그 결과를 감안하더라도 안심할 수 있는 건 아니겠죠.",
-          "de": "Auch wenn man dieses Ergebnis berücksichtigt, kann man sich wohl nicht ganz beruhigt fühlen.",
-          "en": "Even taking that result into account, it's probably not quite reassuring."
+          "de": "Trotz dieser Ergebnisse kann man also noch nicht völlig beruhigt sein, richtig?",
+          "en": "So even with those results, we can't be completely reassured yet, right?"
         },
         {
           "speaker": "researcher",
@@ -5610,8 +5610,8 @@
         {
           "speaker": "professor",
           "ko": "응답자 연령대도 한쪽으로 치우쳐 있던데요.",
-          "de": "Auch das Alter der Befragten war ziemlich einseitig verteilt.",
-          "en": "The respondents' age range was also quite skewed."
+          "de": "Auch die Altersverteilung der Befragten war ziemlich einseitig.",
+          "en": "The respondents' ages were also heavily skewed toward one group."
         },
         {
           "speaker": "user",
@@ -5622,7 +5622,7 @@
         {
           "speaker": "professor",
           "ko": "한계를 먼저 밝히고 나서 결과를 제시하는 순서가 낫겠습니다.",
-          "de": "Es wäre besser, zuerst die Grenzen zu nennen und danach die Ergebnisse zu zeigen.",
+          "de": "Es wäre besser, zuerst die Einschränkungen zu nennen und danach die Ergebnisse zu präsentieren.",
           "en": "It would be better to state the limitations first and present the results after."
         },
         {
@@ -5806,7 +5806,7 @@
         {
           "speaker": "user",
           "ko": "잠깐 시간 괜찮으면 보고서 하나만 같이 볼까요?",
-          "de": "Hätten Sie kurz Zeit, uns gemeinsam einen Bericht anzusehen?",
+          "de": "Hätten Sie kurz Zeit, mit mir gemeinsam einen Bericht anzusehen?",
           "en": "Do you have a moment to look over a report together?"
         },
         {
@@ -5819,7 +5819,7 @@
           "speaker": "user",
           "ko": "이번이 마야 씨 첫 단독 보고서라는 점에서 이 정도면 잘한 편입니다.",
           "de": "Da das Ihr allererster eigenständiger Bericht ist, ist das schon richtig gut gelungen.",
-          "en": "Given that this is your very first report done solo, this turned out quite well."
+          "en": "Given that this is your first report on your own, it turned out very well."
         },
         {
           "speaker": "maya",
@@ -5842,8 +5842,8 @@
         {
           "speaker": "user",
           "ko": "실수는 짚고 넘어가되, 마야 씨 실력을 낮게 보는 건 아닙니다.",
-          "de": "Fehler muss man ansprechen, bevor man weitermacht, aber das heißt nicht, dass ich weniger von Ihren Fähigkeiten halte.",
-          "en": "Mistakes need to be addressed before moving on, but that doesn't mean I think less of your ability."
+          "de": "Den Fehler sollten wir zwar ansprechen, aber das heißt nicht, dass ich Ihre Fähigkeiten geringer einschätze.",
+          "en": "I do want to address the mistake, but that doesn't mean I think any less of your abilities."
         },
         {
           "speaker": "maya",
@@ -6058,13 +6058,13 @@
           "speaker": "hyuna",
           "ko": "너는 늘 바쁘잖아. 나도 이해는 하는데 가끔 서운해.",
           "de": "Du bist doch immer beschäftigt. Ich verstehe das schon, aber manchmal bin ich trotzdem enttäuscht.",
-          "en": "You're always busy. I get it, but sometimes it still makes me a little hurt."
+          "en": "You're always busy. I get it, but sometimes I still feel hurt."
         },
         {
           "speaker": "user",
           "ko": "서운했다는 말, 이제라도 해 줘서 고마워.",
-          "de": "Danke, dass du mir das jetzt trotzdem gesagt hast, dass du enttäuscht warst.",
-          "en": "Thanks for telling me you were hurt, even now."
+          "de": "Danke, dass du mir wenigstens jetzt sagst, dass du enttäuscht warst.",
+          "en": "Thanks for telling me now, even if it took a while."
         },
         {
           "speaker": "hyuna",
@@ -6075,13 +6075,13 @@
         {
           "speaker": "user",
           "ko": "이번엔 내가 서운한 소리를 듣는 한이 있어도 솔직하게 다 말할게.",
-          "de": "Diesmal sage ich alles ehrlich, selbst wenn ich dafür hören muss, dass du enttäuscht bist.",
-          "en": "This time I'll say everything honestly, even if it means hearing that you're upset with me."
+          "de": "Diesmal sage ich alles ehrlich, auch wenn ich mir dafür etwas anhören muss.",
+          "en": "This time I'm going to be honest, even if I have to hear some hard things in return."
         },
         {
           "speaker": "hyuna",
           "ko": "그래, 그럼 나도 솔직히 말할게. 요즘 형편이 좀 빠듯해.",
-          "de": "Gut, dann sage ich auch ehrlich: Mir geht es finanziell gerade etwas knapp.",
+          "de": "Gut, dann sage ich auch ehrlich: Finanziell ist es bei mir gerade etwas eng.",
           "en": "Okay, then I'll be honest too. Money's been a bit tight for me lately."
         },
         {
@@ -6285,7 +6285,7 @@
           "speaker": "user",
           "ko": "이 영상 봤어? 사생활 부분까지 다 찍혀서 퍼졌더라.",
           "de": "Hast du das Video gesehen? Sogar Privates wurde gefilmt und verbreitet.",
-          "en": "Did you see this video? Even private moments got filmed and spread around."
+          "en": "Did you see this video? Even private moments were filmed and spread online."
         },
         {
           "speaker": "hyuna",
@@ -6296,14 +6296,14 @@
         {
           "speaker": "user",
           "ko": "응, 애정이 있으니까 그런 것도 괜찮다고 생각한 것 같아.",
-          "de": "Ja, ich glaube, sie dachte, das sei okay, weil sie ihn so gern mag.",
-          "en": "Yeah, I think she figured it was fine because she likes him so much."
+          "de": "Ja, ich glaube, die Person dachte, das sei okay, weil sie den Künstler so gern mag.",
+          "en": "Yeah, I think they figured it was okay because they're such a big fan."
         },
         {
           "speaker": "hyuna",
           "ko": "친밀감에 기대서 사생활까지 요구하면 그건 애정이 아니라 침해야.",
-          "de": "Wenn man sich auf die Nähe beruft und dabei sogar Privates verlangt, ist das keine Zuneigung mehr, sondern ein Übergriff.",
-          "en": "Leaning on that closeness to demand even private moments isn't affection anymore, it's an intrusion."
+          "de": "Wenn man sich auf vermeintliche Nähe beruft und dadurch Anspruch auf das Privatleben erhebt, ist das keine Zuneigung mehr, sondern ein Übergriff.",
+          "en": "Using a sense of closeness to claim access to someone's private life isn't affection; it's an intrusion."
         },
         {
           "speaker": "user",
@@ -6314,8 +6314,8 @@
         {
           "speaker": "hyuna",
           "ko": "이슈가 커지는 과정에서 그런 조심스러운 목소리가 배제되기 쉬워.",
-          "de": "Während dieses Thema größer wird, werden vorsichtige Stimmen wie diese leicht ausgeschlossen.",
-          "en": "As an issue like this grows bigger, cautious voices like that easily get left out."
+          "de": "Wenn so ein Thema hochkocht, werden zurückhaltende Stimmen leicht verdrängt.",
+          "en": "When an issue like this blows up, more cautious voices easily get drowned out."
         },
         {
           "speaker": "user",
