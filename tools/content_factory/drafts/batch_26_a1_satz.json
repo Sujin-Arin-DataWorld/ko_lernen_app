@@ -1,0 +1,862 @@
+{
+  "items": [
+    {
+      "id": "satz_a1_0438",
+      "level": "a1",
+      "targetKo": "마야 씨, 이 게임 함께 할까요?",
+      "promptDe": "Maya, sollen wir zusammen dieses Spiel spielen?",
+      "promptEn": "Maya, shall we play this game together?",
+      "distractors": [
+        "설날",
+        "월요일"
+      ],
+      "vocabKo": "게임",
+      "sourceVocabId": "vocab_a1_0523"
+    },
+    {
+      "id": "satz_a1_0439",
+      "level": "a1",
+      "targetKo": "저녁에 텔레비전 좀 볼까요?",
+      "promptDe": "Sollen wir heute Abend ein bisschen fernsehen?",
+      "promptEn": "Shall we watch a bit of TV this evening?",
+      "distractors": [
+        "밤",
+        "생일"
+      ],
+      "vocabKo": "텔레비전",
+      "sourceVocabId": "vocab_a1_0524"
+    },
+    {
+      "id": "satz_a1_0440",
+      "level": "a1",
+      "targetKo": "이 근처에 슈퍼마켓이 있어요?",
+      "promptDe": "Gibt es hier in der Nähe einen Supermarkt?",
+      "promptEn": "Is there a supermarket near here?",
+      "distractors": [
+        "날짜",
+        "작년"
+      ],
+      "vocabKo": "슈퍼마켓",
+      "sourceVocabId": "vocab_a1_0525"
+    },
+    {
+      "id": "satz_a1_0441",
+      "level": "a1",
+      "targetKo": "주말에 백화점에 가고 싶어요.",
+      "promptDe": "Am Wochenende möchte ich ins Kaufhaus gehen.",
+      "promptEn": "I want to go to the department store this weekend.",
+      "distractors": [
+        "내년",
+        "그저께"
+      ],
+      "vocabKo": "백화점",
+      "sourceVocabId": "vocab_a1_0526"
+    },
+    {
+      "id": "satz_a1_0442",
+      "level": "a1",
+      "targetKo": "버스 터미널이 어디예요?",
+      "promptDe": "Wo ist der Busbahnhof?",
+      "promptEn": "Where is the bus terminal?",
+      "distractors": [
+        "모레",
+        "책상"
+      ],
+      "vocabKo": "터미널",
+      "sourceVocabId": "vocab_a1_0527"
+    },
+    {
+      "id": "satz_a1_0443",
+      "level": "a1",
+      "targetKo": "마야 씨는 미국에서 왔어요.",
+      "promptDe": "Maya kommt aus den USA.",
+      "promptEn": "Maya is from the USA.",
+      "distractors": [
+        "침대",
+        "신발"
+      ],
+      "vocabKo": "미국",
+      "sourceVocabId": "vocab_a1_0528"
+    },
+    {
+      "id": "satz_a1_0444",
+      "level": "a1",
+      "targetKo": "제 생일은 일월이에요.",
+      "promptDe": "Mein Geburtstag ist im Januar.",
+      "promptEn": "My birthday is in January.",
+      "distractors": [
+        "핸드폰",
+        "책"
+      ],
+      "vocabKo": "일월",
+      "sourceVocabId": "vocab_a1_0529"
+    },
+    {
+      "id": "satz_a1_0445",
+      "level": "a1",
+      "targetKo": "이월에 방학이 끝나요.",
+      "promptDe": "Im Februar enden die Ferien.",
+      "promptEn": "Vacation ends in February.",
+      "distractors": [
+        "물건",
+        "값"
+      ],
+      "vocabKo": "이월",
+      "sourceVocabId": "vocab_a1_0530"
+    },
+    {
+      "id": "satz_a1_0446",
+      "level": "a1",
+      "targetKo": "삼월에 학교가 시작해요.",
+      "promptDe": "Im März beginnt die Schule.",
+      "promptEn": "School starts in March.",
+      "distractors": [
+        "케이크",
+        "귤"
+      ],
+      "vocabKo": "삼월",
+      "sourceVocabId": "vocab_a1_0531"
+    },
+    {
+      "id": "satz_a1_0447",
+      "level": "a1",
+      "targetKo": "사월에 크리스티안이 한국에 와요.",
+      "promptDe": "Christian kommt im April nach Korea.",
+      "promptEn": "Christian comes to Korea in April.",
+      "distractors": [
+        "바나나",
+        "우유"
+      ],
+      "vocabKo": "사월",
+      "sourceVocabId": "vocab_a1_0532"
+    },
+    {
+      "id": "satz_a1_0448",
+      "level": "a1",
+      "targetKo": "오월에 크리스티안 생일이에요.",
+      "promptDe": "Christians Geburtstag ist im Mai.",
+      "promptEn": "Christian's birthday is in May.",
+      "distractors": [
+        "할머니",
+        "할아버지"
+      ],
+      "vocabKo": "오월",
+      "sourceVocabId": "vocab_a1_0533"
+    },
+    {
+      "id": "satz_a1_0449",
+      "level": "a1",
+      "targetKo": "유월에 할머니 댁에 가요.",
+      "promptDe": "Im Juni besuche ich meine Großmutter.",
+      "promptEn": "I visit my grandmother's place in June.",
+      "distractors": [
+        "부모님",
+        "딸"
+      ],
+      "vocabKo": "유월",
+      "sourceVocabId": "vocab_a1_0534"
+    },
+    {
+      "id": "satz_a1_0450",
+      "level": "a1",
+      "targetKo": "칠월에 수영하러 가요.",
+      "promptDe": "Im Juli gehe ich schwimmen.",
+      "promptEn": "I go swimming in July.",
+      "distractors": [
+        "회사원",
+        "주부"
+      ],
+      "vocabKo": "칠월",
+      "sourceVocabId": "vocab_a1_0535"
+    },
+    {
+      "id": "satz_a1_0451",
+      "level": "a1",
+      "targetKo": "팔월에 방학이 제일 길어요.",
+      "promptDe": "Im August ist die Ferienzeit am längsten.",
+      "promptEn": "The vacation is longest in August.",
+      "distractors": [
+        "공원",
+        "도서관"
+      ],
+      "vocabKo": "팔월",
+      "sourceVocabId": "vocab_a1_0536"
+    },
+    {
+      "id": "satz_a1_0452",
+      "level": "a1",
+      "targetKo": "구월에 학교에 다시 가요.",
+      "promptDe": "Im September gehe ich wieder zur Schule.",
+      "promptEn": "I go back to school in September.",
+      "distractors": [
+        "설날",
+        "월요일"
+      ],
+      "vocabKo": "구월",
+      "sourceVocabId": "vocab_a1_0537"
+    },
+    {
+      "id": "satz_a1_0453",
+      "level": "a1",
+      "targetKo": "시월에 등산하러 가요.",
+      "promptDe": "Im Oktober gehe ich wandern.",
+      "promptEn": "I go hiking in October.",
+      "distractors": [
+        "밤",
+        "생일"
+      ],
+      "vocabKo": "시월",
+      "sourceVocabId": "vocab_a1_0538"
+    },
+    {
+      "id": "satz_a1_0454",
+      "level": "a1",
+      "targetKo": "십일월에 뭐 해요?",
+      "promptDe": "Was machst du im November?",
+      "promptEn": "What do you do in November?",
+      "distractors": [
+        "날짜",
+        "작년"
+      ],
+      "vocabKo": "십일월",
+      "sourceVocabId": "vocab_a1_0539"
+    },
+    {
+      "id": "satz_a1_0455",
+      "level": "a1",
+      "targetKo": "십이월에 파티가 있어요.",
+      "promptDe": "Im Dezember gibt es eine Party.",
+      "promptEn": "There's a party in December.",
+      "distractors": [
+        "내년",
+        "그저께"
+      ],
+      "vocabKo": "십이월",
+      "sourceVocabId": "vocab_a1_0540"
+    },
+    {
+      "id": "satz_a1_0456",
+      "level": "a1",
+      "targetKo": "다니엘 씨는 일본에 가고 싶어요.",
+      "promptDe": "Daniel möchte nach Japan fahren.",
+      "promptEn": "Daniel wants to go to Japan.",
+      "distractors": [
+        "모레",
+        "책상"
+      ],
+      "vocabKo": "일본",
+      "sourceVocabId": "vocab_a1_0541"
+    },
+    {
+      "id": "satz_a1_0457",
+      "level": "a1",
+      "targetKo": "중국 사람이세요?",
+      "promptDe": "Sind Sie aus China?",
+      "promptEn": "Are you from China?",
+      "distractors": [
+        "침대",
+        "안경"
+      ],
+      "vocabKo": "중국",
+      "sourceVocabId": "vocab_a1_0542"
+    },
+    {
+      "id": "satz_a1_0458",
+      "level": "a1",
+      "targetKo": "영국에서 오셨어요?",
+      "promptDe": "Kommen Sie aus England?",
+      "promptEn": "Are you from England?",
+      "distractors": [
+        "모자",
+        "신발"
+      ],
+      "vocabKo": "영국",
+      "sourceVocabId": "vocab_a1_0543"
+    },
+    {
+      "id": "satz_a1_0459",
+      "level": "a1",
+      "targetKo": "프랑스에서 살고 싶어요.",
+      "promptDe": "Ich möchte in Frankreich leben.",
+      "promptEn": "I want to live in France.",
+      "distractors": [
+        "핸드폰",
+        "책"
+      ],
+      "vocabKo": "프랑스",
+      "sourceVocabId": "vocab_a1_0544"
+    },
+    {
+      "id": "satz_a1_0460",
+      "level": "a1",
+      "targetKo": "러시아에서 오셨어요?",
+      "promptDe": "Kommen Sie aus Russland?",
+      "promptEn": "Are you from Russia?",
+      "distractors": [
+        "물건",
+        "값"
+      ],
+      "vocabKo": "러시아",
+      "sourceVocabId": "vocab_a1_0545"
+    },
+    {
+      "id": "satz_a1_0461",
+      "level": "a1",
+      "targetKo": "캐나다에 친구가 있어요.",
+      "promptDe": "Ich habe eine Freundin in Kanada.",
+      "promptEn": "I have a friend in Canada.",
+      "distractors": [
+        "케이크",
+        "귤"
+      ],
+      "vocabKo": "캐나다",
+      "sourceVocabId": "vocab_a1_0546"
+    },
+    {
+      "id": "satz_a1_0462",
+      "level": "a1",
+      "targetKo": "태국 사람을 알아요?",
+      "promptDe": "Kennen Sie jemanden aus Thailand?",
+      "promptEn": "Do you know anyone from Thailand?",
+      "distractors": [
+        "바나나",
+        "우유"
+      ],
+      "vocabKo": "태국",
+      "sourceVocabId": "vocab_a1_0547"
+    },
+    {
+      "id": "satz_a1_0463",
+      "level": "a1",
+      "targetKo": "베트남에 가고 싶어요.",
+      "promptDe": "Ich möchte nach Vietnam fahren.",
+      "promptEn": "I want to go to Vietnam.",
+      "distractors": [
+        "할머니",
+        "할아버지"
+      ],
+      "vocabKo": "베트남",
+      "sourceVocabId": "vocab_a1_0548"
+    },
+    {
+      "id": "satz_a1_0464",
+      "level": "a1",
+      "targetKo": "몽골에 친구가 살아요.",
+      "promptDe": "Ein Freund von mir lebt in der Mongolei.",
+      "promptEn": "A friend of mine lives in Mongolia.",
+      "distractors": [
+        "부모님",
+        "딸"
+      ],
+      "vocabKo": "몽골",
+      "sourceVocabId": "vocab_a1_0549"
+    },
+    {
+      "id": "satz_a1_0465",
+      "level": "a1",
+      "targetKo": "말레이시아에서 오셨어요?",
+      "promptDe": "Kommen Sie aus Malaysia?",
+      "promptEn": "Are you from Malaysia?",
+      "distractors": [
+        "회사원",
+        "주부"
+      ],
+      "vocabKo": "말레이시아",
+      "sourceVocabId": "vocab_a1_0550"
+    },
+    {
+      "id": "satz_a1_0466",
+      "level": "a1",
+      "targetKo": "인도네시아는 어디에 있어요?",
+      "promptDe": "Wo liegt Indonesien?",
+      "promptEn": "Where is Indonesia?",
+      "distractors": [
+        "공원",
+        "도서관"
+      ],
+      "vocabKo": "인도네시아",
+      "sourceVocabId": "vocab_a1_0551"
+    },
+    {
+      "id": "satz_a1_0467",
+      "level": "a1",
+      "targetKo": "외국 생활이 어때요?",
+      "promptDe": "Wie ist das Leben im Ausland?",
+      "promptEn": "How is life abroad?",
+      "distractors": [
+        "설날",
+        "월요일"
+      ],
+      "vocabKo": "외국",
+      "sourceVocabId": "vocab_a1_0552"
+    },
+    {
+      "id": "satz_a1_0468",
+      "level": "a1",
+      "targetKo": "저는 축구를 잘해요.",
+      "promptDe": "Ich bin gut im Fußball.",
+      "promptEn": "I'm good at soccer.",
+      "distractors": [
+        "밤",
+        "생일"
+      ],
+      "vocabKo": "축구",
+      "sourceVocabId": "vocab_a1_0553"
+    },
+    {
+      "id": "satz_a1_0469",
+      "level": "a1",
+      "targetKo": "야구 좋아하세요?",
+      "promptDe": "Mögen Sie Baseball?",
+      "promptEn": "Do you like baseball?",
+      "distractors": [
+        "날짜",
+        "작년"
+      ],
+      "vocabKo": "야구",
+      "sourceVocabId": "vocab_a1_0554"
+    },
+    {
+      "id": "satz_a1_0470",
+      "level": "a1",
+      "targetKo": "주말에 농구 할까요?",
+      "promptDe": "Sollen wir am Wochenende Basketball spielen?",
+      "promptEn": "Shall we play basketball this weekend?",
+      "distractors": [
+        "내년",
+        "그저께"
+      ],
+      "vocabKo": "농구",
+      "sourceVocabId": "vocab_a1_0555"
+    },
+    {
+      "id": "satz_a1_0471",
+      "level": "a1",
+      "targetKo": "다니엘 씨는 테니스를 못해요.",
+      "promptDe": "Daniel kann nicht gut Tennis spielen.",
+      "promptEn": "Daniel isn't good at tennis.",
+      "distractors": [
+        "모레",
+        "책상"
+      ],
+      "vocabKo": "테니스",
+      "sourceVocabId": "vocab_a1_0556"
+    },
+    {
+      "id": "satz_a1_0472",
+      "level": "a1",
+      "targetKo": "저녁에 수영하러 갈까요?",
+      "promptDe": "Sollen wir heute Abend schwimmen gehen?",
+      "promptEn": "Shall we go swimming this evening?",
+      "distractors": [
+        "침대",
+        "안경"
+      ],
+      "vocabKo": "수영",
+      "sourceVocabId": "vocab_a1_0557"
+    },
+    {
+      "id": "satz_a1_0473",
+      "level": "a1",
+      "targetKo": "오늘 스키 타러 가요.",
+      "promptDe": "Ich gehe heute Ski fahren.",
+      "promptEn": "I'm going skiing today.",
+      "distractors": [
+        "모자",
+        "신발"
+      ],
+      "vocabKo": "스키",
+      "sourceVocabId": "vocab_a1_0558"
+    },
+    {
+      "id": "satz_a1_0474",
+      "level": "a1",
+      "targetKo": "안드레아 씨는 주말에 등산을 해요.",
+      "promptDe": "Andrea geht am Wochenende wandern.",
+      "promptEn": "Andrea goes hiking on weekends.",
+      "distractors": [
+        "핸드폰",
+        "책"
+      ],
+      "vocabKo": "등산",
+      "sourceVocabId": "vocab_a1_0559"
+    },
+    {
+      "id": "satz_a1_0475",
+      "level": "a1",
+      "targetKo": "현아 씨랑 공원에서 산책해요.",
+      "promptDe": "Ich gehe mit Hyuna im Park spazieren.",
+      "promptEn": "I go for a walk in the park with Hyuna.",
+      "distractors": [
+        "물건",
+        "케이크"
+      ],
+      "vocabKo": "산책",
+      "sourceVocabId": "vocab_a1_0560"
+    },
+    {
+      "id": "satz_a1_0476",
+      "level": "a1",
+      "targetKo": "레나 씨는 춤을 좋아해요.",
+      "promptDe": "Lena tanzt gerne.",
+      "promptEn": "Lena likes dancing.",
+      "distractors": [
+        "귤",
+        "바나나"
+      ],
+      "vocabKo": "춤",
+      "sourceVocabId": "vocab_a1_0561"
+    },
+    {
+      "id": "satz_a1_0477",
+      "level": "a1",
+      "targetKo": "마야 씨, 이 노래 알아요?",
+      "promptDe": "Maya, kennst du dieses Lied?",
+      "promptEn": "Maya, do you know this song?",
+      "distractors": [
+        "우유",
+        "할머니"
+      ],
+      "vocabKo": "노래",
+      "sourceVocabId": "vocab_a1_0562"
+    },
+    {
+      "id": "satz_a1_0478",
+      "level": "a1",
+      "targetKo": "이번 주말에 구경 가요.",
+      "promptDe": "Lass uns dieses Wochenende bummeln gehen.",
+      "promptEn": "Let's go sightseeing this weekend.",
+      "distractors": [
+        "할아버지",
+        "부모님"
+      ],
+      "vocabKo": "구경",
+      "sourceVocabId": "vocab_a1_0563"
+    },
+    {
+      "id": "satz_a1_0479",
+      "level": "a1",
+      "targetKo": "기숙사에 탁구가 있어요.",
+      "promptDe": "Im Wohnheim gibt es Tischtennis.",
+      "promptEn": "There's table tennis in the dorm.",
+      "distractors": [
+        "딸",
+        "회사원"
+      ],
+      "vocabKo": "탁구",
+      "sourceVocabId": "vocab_a1_0564"
+    },
+    {
+      "id": "satz_a1_0480",
+      "level": "a1",
+      "targetKo": "점심에 김밥을 먹을까요?",
+      "promptDe": "Sollen wir zum Mittagessen Gimbap essen?",
+      "promptEn": "Shall we have gimbap for lunch?",
+      "distractors": [
+        "주부",
+        "공원"
+      ],
+      "vocabKo": "김밥",
+      "sourceVocabId": "vocab_a1_0565"
+    },
+    {
+      "id": "satz_a1_0481",
+      "level": "a1",
+      "targetKo": "어제 수진 씨하고 떡볶이 먹었어요.",
+      "promptDe": "Gestern habe ich mit Sujin Tteokbokki gegessen.",
+      "promptEn": "Yesterday I ate tteokbokki with Sujin.",
+      "distractors": [
+        "도서관",
+        "설날"
+      ],
+      "vocabKo": "떡볶이",
+      "sourceVocabId": "vocab_a1_0566"
+    },
+    {
+      "id": "satz_a1_0482",
+      "level": "a1",
+      "targetKo": "와, 이 김치찌개 진짜 맛있어요!",
+      "promptDe": "Wow, dieser Kimchi-Eintopf ist wirklich lecker!",
+      "promptEn": "Wow, this kimchi stew is really delicious!",
+      "distractors": [
+        "월요일",
+        "밤"
+      ],
+      "vocabKo": "김치찌개",
+      "sourceVocabId": "vocab_a1_0567"
+    },
+    {
+      "id": "satz_a1_0483",
+      "level": "a1",
+      "targetKo": "된장찌개를 좋아하세요?",
+      "promptDe": "Mögen Sie Doenjang-Eintopf?",
+      "promptEn": "Do you like doenjang stew?",
+      "distractors": [
+        "생일",
+        "날짜"
+      ],
+      "vocabKo": "된장찌개",
+      "sourceVocabId": "vocab_a1_0568"
+    },
+    {
+      "id": "satz_a1_0484",
+      "level": "a1",
+      "targetKo": "삼계탕이 몸에 좋아요.",
+      "promptDe": "Samgyetang ist gut für den Körper.",
+      "promptEn": "Samgyetang is good for your body.",
+      "distractors": [
+        "작년",
+        "내년"
+      ],
+      "vocabKo": "삼계탕",
+      "sourceVocabId": "vocab_a1_0569"
+    },
+    {
+      "id": "satz_a1_0485",
+      "level": "a1",
+      "targetKo": "생일에 갈비를 먹어요.",
+      "promptDe": "An Geburtstagen isst man Galbi.",
+      "promptEn": "We eat galbi on birthdays.",
+      "distractors": [
+        "그저께",
+        "모레"
+      ],
+      "vocabKo": "갈비",
+      "sourceVocabId": "vocab_a1_0570"
+    },
+    {
+      "id": "satz_a1_0486",
+      "level": "a1",
+      "targetKo": "저는 갈비탕을 자주 먹어요.",
+      "promptDe": "Ich esse oft Galbitang.",
+      "promptEn": "I often eat galbitang.",
+      "distractors": [
+        "책상",
+        "침대"
+      ],
+      "vocabKo": "갈비탕",
+      "sourceVocabId": "vocab_a1_0571"
+    },
+    {
+      "id": "satz_a1_0487",
+      "level": "a1",
+      "targetKo": "이 참외가 진짜 맛있어요.",
+      "promptDe": "Diese Honigmelone ist wirklich lecker.",
+      "promptEn": "This Korean melon is really delicious.",
+      "distractors": [
+        "안경",
+        "모자"
+      ],
+      "vocabKo": "참외",
+      "sourceVocabId": "vocab_a1_0572"
+    },
+    {
+      "id": "satz_a1_0488",
+      "level": "a1",
+      "targetKo": "포도 좀 주세요.",
+      "promptDe": "Etwas Trauben, bitte.",
+      "promptEn": "Some grapes, please.",
+      "distractors": [
+        "신발",
+        "핸드폰"
+      ],
+      "vocabKo": "포도",
+      "sourceVocabId": "vocab_a1_0573"
+    },
+    {
+      "id": "satz_a1_0489",
+      "level": "a1",
+      "targetKo": "할머니가 감을 좋아하세요.",
+      "promptDe": "Meine Großmutter mag Kaki.",
+      "promptEn": "My grandmother likes persimmons.",
+      "distractors": [
+        "책",
+        "물건"
+      ],
+      "vocabKo": "감",
+      "sourceVocabId": "vocab_a1_0574"
+    },
+    {
+      "id": "satz_a1_0490",
+      "level": "a1",
+      "targetKo": "사이다 있어요?",
+      "promptDe": "Haben Sie Sprite?",
+      "promptEn": "Do you have a lemon-lime soda?",
+      "distractors": [
+        "값",
+        "케이크"
+      ],
+      "vocabKo": "사이다",
+      "sourceVocabId": "vocab_a1_0575"
+    },
+    {
+      "id": "satz_a1_0491",
+      "level": "a1",
+      "targetKo": "콜라 하나 더 주세요.",
+      "promptDe": "Noch eine Cola, bitte.",
+      "promptEn": "One more cola, please.",
+      "distractors": [
+        "귤",
+        "바나나"
+      ],
+      "vocabKo": "콜라",
+      "sourceVocabId": "vocab_a1_0576"
+    },
+    {
+      "id": "satz_a1_0492",
+      "level": "a1",
+      "targetKo": "저는 서울에 살아요.",
+      "promptDe": "Ich wohne in Seoul.",
+      "promptEn": "I live in Seoul.",
+      "distractors": [
+        "할머니",
+        "할아버지"
+      ],
+      "vocabKo": "서울",
+      "sourceVocabId": "vocab_a1_0577"
+    },
+    {
+      "id": "satz_a1_0493",
+      "level": "a1",
+      "targetKo": "이번 주말에 부산에 갈까요?",
+      "promptDe": "Sollen wir dieses Wochenende nach Busan fahren?",
+      "promptEn": "Shall we go to Busan this weekend?",
+      "distractors": [
+        "부모님",
+        "딸"
+      ],
+      "vocabKo": "부산",
+      "sourceVocabId": "vocab_a1_0578"
+    },
+    {
+      "id": "satz_a1_0494",
+      "level": "a1",
+      "targetKo": "인천공항에서 만나요.",
+      "promptDe": "Wir treffen uns am Flughafen Incheon.",
+      "promptEn": "Let's meet at Incheon Airport.",
+      "distractors": [
+        "회사원",
+        "주부"
+      ],
+      "vocabKo": "인천",
+      "sourceVocabId": "vocab_a1_0579"
+    },
+    {
+      "id": "satz_a1_0495",
+      "level": "a1",
+      "targetKo": "제주도에 가고 싶어요.",
+      "promptDe": "Ich möchte nach Jeju fahren.",
+      "promptEn": "I want to go to Jeju Island.",
+      "distractors": [
+        "공원",
+        "도서관"
+      ],
+      "vocabKo": "제주도",
+      "sourceVocabId": "vocab_a1_0580"
+    },
+    {
+      "id": "satz_a1_0496",
+      "level": "a1",
+      "targetKo": "남대문 구경 갈까요?",
+      "promptDe": "Sollen wir uns Namdaemun ansehen?",
+      "promptEn": "Shall we go see Namdaemun?",
+      "distractors": [
+        "설날",
+        "월요일"
+      ],
+      "vocabKo": "남대문",
+      "sourceVocabId": "vocab_a1_0581"
+    },
+    {
+      "id": "satz_a1_0497",
+      "level": "a1",
+      "targetKo": "남산에 올라갈까요?",
+      "promptDe": "Sollen wir auf den Namsan steigen?",
+      "promptEn": "Shall we go up Namsan?",
+      "distractors": [
+        "밤",
+        "생일"
+      ],
+      "vocabKo": "남산",
+      "sourceVocabId": "vocab_a1_0582"
+    },
+    {
+      "id": "satz_a1_0498",
+      "level": "a1",
+      "targetKo": "동대문에서 옷을 샀어요.",
+      "promptDe": "Ich habe in Dongdaemun Kleidung gekauft.",
+      "promptEn": "I bought clothes in Dongdaemun.",
+      "distractors": [
+        "날짜",
+        "작년"
+      ],
+      "vocabKo": "동대문",
+      "sourceVocabId": "vocab_a1_0583"
+    },
+    {
+      "id": "satz_a1_0499",
+      "level": "a1",
+      "targetKo": "서점에서 책을 골랐어요.",
+      "promptDe": "Ich habe im Buchladen ein Buch ausgesucht.",
+      "promptEn": "I picked out a book at the bookstore.",
+      "distractors": [
+        "내년",
+        "그저께"
+      ],
+      "vocabKo": "서점",
+      "sourceVocabId": "vocab_a1_0584"
+    },
+    {
+      "id": "satz_a1_0500",
+      "level": "a1",
+      "targetKo": "이 근처에 커피숍이 있어요?",
+      "promptDe": "Gibt es hier in der Nähe ein Café?",
+      "promptEn": "Is there a coffee shop near here?",
+      "distractors": [
+        "모레",
+        "책상"
+      ],
+      "vocabKo": "커피숍",
+      "sourceVocabId": "vocab_a1_0585"
+    },
+    {
+      "id": "satz_a1_0501",
+      "level": "a1",
+      "targetKo": "저녁에 영화관에 갈까요?",
+      "promptDe": "Sollen wir heute Abend ins Kino gehen?",
+      "promptEn": "Shall we go to the movie theater this evening?",
+      "distractors": [
+        "침대",
+        "안경"
+      ],
+      "vocabKo": "영화관",
+      "sourceVocabId": "vocab_a1_0586"
+    },
+    {
+      "id": "satz_a1_0502",
+      "level": "a1",
+      "targetKo": "이 근처에 극장이 있어요?",
+      "promptDe": "Gibt es hier in der Nähe ein Theater?",
+      "promptEn": "Is there a theater near here?",
+      "distractors": [
+        "모자",
+        "신발"
+      ],
+      "vocabKo": "극장",
+      "sourceVocabId": "vocab_a1_0587"
+    },
+    {
+      "id": "satz_a1_0503",
+      "level": "a1",
+      "targetKo": "저는 목욕탕에 자주 가요.",
+      "promptDe": "Ich gehe oft ins öffentliche Bad.",
+      "promptEn": "I often go to the public bathhouse.",
+      "distractors": [
+        "핸드폰",
+        "책"
+      ],
+      "vocabKo": "목욕탕",
+      "sourceVocabId": "vocab_a1_0588"
+    }
+  ]
+}

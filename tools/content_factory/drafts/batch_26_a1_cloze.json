@@ -1,0 +1,1060 @@
+{
+  "items": [
+    {
+      "id": "cloze_a1_0457",
+      "level": "a1",
+      "sentenceKo": "마야 씨, 이 ＿＿＿ 함께 할까요?",
+      "answer": "게임",
+      "fullKo": "마야 씨, 이 게임 함께 할까요?",
+      "de": "Maya, sollen wir zusammen dieses Spiel spielen?",
+      "en": "Maya, shall we play this game together?",
+      "distractors": [
+        "값",
+        "필요",
+        "빨리"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0523"
+    },
+    {
+      "id": "cloze_a1_0458",
+      "level": "a1",
+      "sentenceKo": "저녁에 ＿＿＿ 좀 볼까요?",
+      "answer": "텔레비전",
+      "fullKo": "저녁에 텔레비전 좀 볼까요?",
+      "de": "Sollen wir heute Abend ein bisschen fernsehen?",
+      "en": "Shall we watch a bit of TV this evening?",
+      "distractors": [
+        "인사",
+        "축하",
+        "오다"
+      ],
+      "topic": "Technologie",
+      "sourceVocabId": "vocab_a1_0524"
+    },
+    {
+      "id": "cloze_a1_0459",
+      "level": "a1",
+      "sentenceKo": "이 근처에 ＿＿＿이 있어요?",
+      "answer": "슈퍼마켓",
+      "fullKo": "이 근처에 슈퍼마켓이 있어요?",
+      "de": "Gibt es hier in der Nähe einen Supermarkt?",
+      "en": "Is there a supermarket near here?",
+      "distractors": [
+        "기분",
+        "생활",
+        "가끔"
+      ],
+      "topic": "도시 생활",
+      "sourceVocabId": "vocab_a1_0525"
+    },
+    {
+      "id": "cloze_a1_0460",
+      "level": "a1",
+      "sentenceKo": "주말에 ＿＿＿에 가고 싶어요.",
+      "answer": "백화점",
+      "fullKo": "주말에 백화점에 가고 싶어요.",
+      "de": "Am Wochenende möchte ich ins Kaufhaus gehen.",
+      "en": "I want to go to the department store this weekend.",
+      "distractors": [
+        "책상",
+        "침대",
+        "읽다"
+      ],
+      "topic": "도시 생활",
+      "sourceVocabId": "vocab_a1_0526"
+    },
+    {
+      "id": "cloze_a1_0461",
+      "level": "a1",
+      "sentenceKo": "버스 ＿＿＿이 어디예요?",
+      "answer": "터미널",
+      "fullKo": "버스 터미널이 어디예요?",
+      "de": "Wo ist der Busbahnhof?",
+      "en": "Where is the bus terminal?",
+      "distractors": [
+        "값",
+        "필요",
+        "다시"
+      ],
+      "topic": "Verkehr",
+      "sourceVocabId": "vocab_a1_0527"
+    },
+    {
+      "id": "cloze_a1_0462",
+      "level": "a1",
+      "sentenceKo": "마야 씨는 ＿＿＿에서 왔어요.",
+      "answer": "미국",
+      "fullKo": "마야 씨는 미국에서 왔어요.",
+      "de": "Maya kommt aus den USA.",
+      "en": "Maya is from the USA.",
+      "distractors": [
+        "안경",
+        "모자",
+        "쓰다"
+      ],
+      "topic": "자기소개",
+      "sourceVocabId": "vocab_a1_0528"
+    },
+    {
+      "id": "cloze_a1_0463",
+      "level": "a1",
+      "sentenceKo": "제 생일은 ＿＿＿이에요.",
+      "answer": "일월",
+      "fullKo": "제 생일은 일월이에요.",
+      "de": "Mein Geburtstag ist im Januar.",
+      "en": "My birthday is in January.",
+      "distractors": [
+        "공원",
+        "도서관",
+        "바로"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0529"
+    },
+    {
+      "id": "cloze_a1_0464",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 방학이 끝나요.",
+      "answer": "이월",
+      "fullKo": "이월에 방학이 끝나요.",
+      "de": "Im Februar enden die Ferien.",
+      "en": "Vacation ends in February.",
+      "distractors": [
+        "책상",
+        "침대",
+        "입다"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0530"
+    },
+    {
+      "id": "cloze_a1_0465",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 학교가 시작해요.",
+      "answer": "삼월",
+      "fullKo": "삼월에 학교가 시작해요.",
+      "de": "Im März beginnt die Schule.",
+      "en": "School starts in March.",
+      "distractors": [
+        "안경",
+        "모자",
+        "이따가"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0531"
+    },
+    {
+      "id": "cloze_a1_0466",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 크리스티안이 한국에 와요.",
+      "answer": "사월",
+      "fullKo": "사월에 크리스티안이 한국에 와요.",
+      "de": "Christian kommt im April nach Korea.",
+      "en": "Christian comes to Korea in April.",
+      "distractors": [
+        "신발",
+        "핸드폰",
+        "모르다"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0532"
+    },
+    {
+      "id": "cloze_a1_0467",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 크리스티안 생일이에요.",
+      "answer": "오월",
+      "fullKo": "오월에 크리스티안 생일이에요.",
+      "de": "Christians Geburtstag ist im Mai.",
+      "en": "Christian's birthday is in May.",
+      "distractors": [
+        "책",
+        "물건",
+        "좀"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0533"
+    },
+    {
+      "id": "cloze_a1_0468",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 할머니 댁에 가요.",
+      "answer": "유월",
+      "fullKo": "유월에 할머니 댁에 가요.",
+      "de": "Im Juni besuche ich meine Großmutter.",
+      "en": "I visit my grandmother's place in June.",
+      "distractors": [
+        "값",
+        "케이크",
+        "팔다"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0534"
+    },
+    {
+      "id": "cloze_a1_0469",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 수영하러 가요.",
+      "answer": "칠월",
+      "fullKo": "칠월에 수영하러 가요.",
+      "de": "Im Juli gehe ich schwimmen.",
+      "en": "I go swimming in July.",
+      "distractors": [
+        "귤",
+        "바나나",
+        "참"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0535"
+    },
+    {
+      "id": "cloze_a1_0470",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 방학이 제일 길어요.",
+      "answer": "팔월",
+      "fullKo": "팔월에 방학이 제일 길어요.",
+      "de": "Im August ist die Ferienzeit am längsten.",
+      "en": "The vacation is longest in August.",
+      "distractors": [
+        "우유",
+        "할머니",
+        "빌리다"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0536"
+    },
+    {
+      "id": "cloze_a1_0471",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 학교에 다시 가요.",
+      "answer": "구월",
+      "fullKo": "구월에 학교에 다시 가요.",
+      "de": "Im September gehe ich wieder zur Schule.",
+      "en": "I go back to school in September.",
+      "distractors": [
+        "할아버지",
+        "부모님",
+        "천천히"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0537"
+    },
+    {
+      "id": "cloze_a1_0472",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 등산하러 가요.",
+      "answer": "시월",
+      "fullKo": "시월에 등산하러 가요.",
+      "de": "Im Oktober gehe ich wandern.",
+      "en": "I go hiking in October.",
+      "distractors": [
+        "딸",
+        "회사원",
+        "다니다"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0538"
+    },
+    {
+      "id": "cloze_a1_0473",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 뭐 해요?",
+      "answer": "십일월",
+      "fullKo": "십일월에 뭐 해요?",
+      "de": "Was machst du im November?",
+      "en": "What do you do in November?",
+      "distractors": [
+        "주부",
+        "공원",
+        "항상"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0539"
+    },
+    {
+      "id": "cloze_a1_0474",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 파티가 있어요.",
+      "answer": "십이월",
+      "fullKo": "십이월에 파티가 있어요.",
+      "de": "Im Dezember gibt es eine Party.",
+      "en": "There's a party in December.",
+      "distractors": [
+        "인사",
+        "축하",
+        "오다"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0540"
+    },
+    {
+      "id": "cloze_a1_0475",
+      "level": "a1",
+      "sentenceKo": "다니엘 씨는 ＿＿＿에 가고 싶어요.",
+      "answer": "일본",
+      "fullKo": "다니엘 씨는 일본에 가고 싶어요.",
+      "de": "Daniel möchte nach Japan fahren.",
+      "en": "Daniel wants to go to Japan.",
+      "distractors": [
+        "신발",
+        "핸드폰",
+        "아주"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0541"
+    },
+    {
+      "id": "cloze_a1_0476",
+      "level": "a1",
+      "sentenceKo": "＿＿＿ 사람이세요?",
+      "answer": "중국",
+      "fullKo": "중국 사람이세요?",
+      "de": "Sind Sie aus China?",
+      "en": "Are you from China?",
+      "distractors": [
+        "책",
+        "물건",
+        "읽다"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0542"
+    },
+    {
+      "id": "cloze_a1_0477",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에서 오셨어요?",
+      "answer": "영국",
+      "fullKo": "영국에서 오셨어요?",
+      "de": "Kommen Sie aus England?",
+      "en": "Are you from England?",
+      "distractors": [
+        "값",
+        "할머니",
+        "주로"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0543"
+    },
+    {
+      "id": "cloze_a1_0478",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에서 살고 싶어요.",
+      "answer": "프랑스",
+      "fullKo": "프랑스에서 살고 싶어요.",
+      "de": "Ich möchte in Frankreich leben.",
+      "en": "I want to live in France.",
+      "distractors": [
+        "할아버지",
+        "부모님",
+        "쓰다"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0544"
+    },
+    {
+      "id": "cloze_a1_0479",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에서 오셨어요?",
+      "answer": "러시아",
+      "fullKo": "러시아에서 오셨어요?",
+      "de": "Kommen Sie aus Russland?",
+      "en": "Are you from Russia?",
+      "distractors": [
+        "딸",
+        "회사원",
+        "꼭"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0545"
+    },
+    {
+      "id": "cloze_a1_0480",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 친구가 있어요.",
+      "answer": "캐나다",
+      "fullKo": "캐나다에 친구가 있어요.",
+      "de": "Ich habe eine Freundin in Kanada.",
+      "en": "I have a friend in Canada.",
+      "distractors": [
+        "주부",
+        "값",
+        "입다"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0546"
+    },
+    {
+      "id": "cloze_a1_0481",
+      "level": "a1",
+      "sentenceKo": "＿＿＿ 사람을 알아요?",
+      "answer": "태국",
+      "fullKo": "태국 사람을 알아요?",
+      "de": "Kennen Sie jemanden aus Thailand?",
+      "en": "Do you know anyone from Thailand?",
+      "distractors": [
+        "필요",
+        "인사",
+        "함께"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0547"
+    },
+    {
+      "id": "cloze_a1_0482",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 가고 싶어요.",
+      "answer": "베트남",
+      "fullKo": "베트남에 가고 싶어요.",
+      "de": "Ich möchte nach Vietnam fahren.",
+      "en": "I want to go to Vietnam.",
+      "distractors": [
+        "축하",
+        "기분",
+        "모르다"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0548"
+    },
+    {
+      "id": "cloze_a1_0483",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 친구가 살아요.",
+      "answer": "몽골",
+      "fullKo": "몽골에 친구가 살아요.",
+      "de": "Ein Freund von mir lebt in der Mongolei.",
+      "en": "A friend of mine lives in Mongolia.",
+      "distractors": [
+        "생활",
+        "케이크",
+        "빨리"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0549"
+    },
+    {
+      "id": "cloze_a1_0484",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에서 오셨어요?",
+      "answer": "말레이시아",
+      "fullKo": "말레이시아에서 오셨어요?",
+      "de": "Kommen Sie aus Malaysia?",
+      "en": "Are you from Malaysia?",
+      "distractors": [
+        "귤",
+        "바나나",
+        "팔다"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0550"
+    },
+    {
+      "id": "cloze_a1_0485",
+      "level": "a1",
+      "sentenceKo": "＿＿＿는 어디에 있어요?",
+      "answer": "인도네시아",
+      "fullKo": "인도네시아는 어디에 있어요?",
+      "de": "Wo liegt Indonesien?",
+      "en": "Where is Indonesia?",
+      "distractors": [
+        "기분",
+        "생활",
+        "가끔"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0551"
+    },
+    {
+      "id": "cloze_a1_0486",
+      "level": "a1",
+      "sentenceKo": "＿＿＿ 생활이 어때요?",
+      "answer": "외국",
+      "fullKo": "외국 생활이 어때요?",
+      "de": "Wie ist das Leben im Ausland?",
+      "en": "How is life abroad?",
+      "distractors": [
+        "값",
+        "필요",
+        "빌리다"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0552"
+    },
+    {
+      "id": "cloze_a1_0487",
+      "level": "a1",
+      "sentenceKo": "저는 ＿＿＿를 잘해요.",
+      "answer": "축구",
+      "fullKo": "저는 축구를 잘해요.",
+      "de": "Ich bin gut im Fußball.",
+      "en": "I'm good at soccer.",
+      "distractors": [
+        "값",
+        "기분",
+        "빨리"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0553"
+    },
+    {
+      "id": "cloze_a1_0488",
+      "level": "a1",
+      "sentenceKo": "＿＿＿ 좋아하세요?",
+      "answer": "야구",
+      "fullKo": "야구 좋아하세요?",
+      "de": "Mögen Sie Baseball?",
+      "en": "Do you like baseball?",
+      "distractors": [
+        "인사",
+        "축하",
+        "다시"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0554"
+    },
+    {
+      "id": "cloze_a1_0489",
+      "level": "a1",
+      "sentenceKo": "주말에 ＿＿＿ 할까요?",
+      "answer": "농구",
+      "fullKo": "주말에 농구 할까요?",
+      "de": "Sollen wir am Wochenende Basketball spielen?",
+      "en": "Shall we play basketball this weekend?",
+      "distractors": [
+        "기분",
+        "값",
+        "바로"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0555"
+    },
+    {
+      "id": "cloze_a1_0490",
+      "level": "a1",
+      "sentenceKo": "다니엘 씨는 ＿＿＿를 못해요.",
+      "answer": "테니스",
+      "fullKo": "다니엘 씨는 테니스를 못해요.",
+      "de": "Daniel kann nicht gut Tennis spielen.",
+      "en": "Daniel isn't good at tennis.",
+      "distractors": [
+        "기분",
+        "생활",
+        "다니다"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0556"
+    },
+    {
+      "id": "cloze_a1_0491",
+      "level": "a1",
+      "sentenceKo": "저녁에 ＿＿＿하러 갈까요?",
+      "answer": "수영",
+      "fullKo": "저녁에 수영하러 갈까요?",
+      "de": "Sollen wir heute Abend schwimmen gehen?",
+      "en": "Shall we go swimming this evening?",
+      "distractors": [
+        "필요",
+        "값",
+        "이따가"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0557"
+    },
+    {
+      "id": "cloze_a1_0492",
+      "level": "a1",
+      "sentenceKo": "오늘 ＿＿＿ 타러 가요.",
+      "answer": "스키",
+      "fullKo": "오늘 스키 타러 가요.",
+      "de": "Ich gehe heute Ski fahren.",
+      "en": "I'm going skiing today.",
+      "distractors": [
+        "값",
+        "필요",
+        "바로"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0558"
+    },
+    {
+      "id": "cloze_a1_0493",
+      "level": "a1",
+      "sentenceKo": "안드레아 씨는 주말에 ＿＿＿을 해요.",
+      "answer": "등산",
+      "fullKo": "안드레아 씨는 주말에 등산을 해요.",
+      "de": "Andrea geht am Wochenende wandern.",
+      "en": "Andrea goes hiking on weekends.",
+      "distractors": [
+        "인사",
+        "축하",
+        "오다"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0559"
+    },
+    {
+      "id": "cloze_a1_0494",
+      "level": "a1",
+      "sentenceKo": "현아 씨랑 공원에서 ＿＿＿해요.",
+      "answer": "산책",
+      "fullKo": "현아 씨랑 공원에서 산책해요.",
+      "de": "Ich gehe mit Hyuna im Park spazieren.",
+      "en": "I go for a walk in the park with Hyuna.",
+      "distractors": [
+        "기분",
+        "값",
+        "쓰다"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0560"
+    },
+    {
+      "id": "cloze_a1_0495",
+      "level": "a1",
+      "sentenceKo": "레나 씨는 ＿＿＿을 좋아해요.",
+      "answer": "춤",
+      "fullKo": "레나 씨는 춤을 좋아해요.",
+      "de": "Lena tanzt gerne.",
+      "en": "Lena likes dancing.",
+      "distractors": [
+        "기분",
+        "생활",
+        "이따가"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0561"
+    },
+    {
+      "id": "cloze_a1_0496",
+      "level": "a1",
+      "sentenceKo": "마야 씨, 이 ＿＿＿ 알아요?",
+      "answer": "노래",
+      "fullKo": "마야 씨, 이 노래 알아요?",
+      "de": "Maya, kennst du dieses Lied?",
+      "en": "Maya, do you know this song?",
+      "distractors": [
+        "값",
+        "필요",
+        "읽다"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0562"
+    },
+    {
+      "id": "cloze_a1_0497",
+      "level": "a1",
+      "sentenceKo": "이번 주말에 ＿＿＿ 가요.",
+      "answer": "구경",
+      "fullKo": "이번 주말에 구경 가요.",
+      "de": "Lass uns dieses Wochenende bummeln gehen.",
+      "en": "Let's go sightseeing this weekend.",
+      "distractors": [
+        "인사",
+        "축하",
+        "좀"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0563"
+    },
+    {
+      "id": "cloze_a1_0498",
+      "level": "a1",
+      "sentenceKo": "기숙사에 ＿＿＿가 있어요.",
+      "answer": "탁구",
+      "fullKo": "기숙사에 탁구가 있어요.",
+      "de": "Im Wohnheim gibt es Tischtennis.",
+      "en": "There's table tennis in the dorm.",
+      "distractors": [
+        "기분",
+        "생활",
+        "쓰다"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0564"
+    },
+    {
+      "id": "cloze_a1_0499",
+      "level": "a1",
+      "sentenceKo": "점심에 ＿＿＿을 먹을까요?",
+      "answer": "김밥",
+      "fullKo": "점심에 김밥을 먹을까요?",
+      "de": "Sollen wir zum Mittagessen Gimbap essen?",
+      "en": "Shall we have gimbap for lunch?",
+      "distractors": [
+        "책상",
+        "침대",
+        "참"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0565"
+    },
+    {
+      "id": "cloze_a1_0500",
+      "level": "a1",
+      "sentenceKo": "어제 수진 씨하고 ＿＿＿ 먹었어요.",
+      "answer": "떡볶이",
+      "fullKo": "어제 수진 씨하고 떡볶이 먹었어요.",
+      "de": "Gestern habe ich mit Sujin Tteokbokki gegessen.",
+      "en": "Yesterday I ate tteokbokki with Sujin.",
+      "distractors": [
+        "안경",
+        "모자",
+        "입다"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0566"
+    },
+    {
+      "id": "cloze_a1_0501",
+      "level": "a1",
+      "sentenceKo": "와, 이 ＿＿＿ 진짜 맛있어요!",
+      "answer": "김치찌개",
+      "fullKo": "와, 이 김치찌개 진짜 맛있어요!",
+      "de": "Wow, dieser Kimchi-Eintopf ist wirklich lecker!",
+      "en": "Wow, this kimchi stew is really delicious!",
+      "distractors": [
+        "신발",
+        "핸드폰",
+        "천천히"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0567"
+    },
+    {
+      "id": "cloze_a1_0502",
+      "level": "a1",
+      "sentenceKo": "＿＿＿를 좋아하세요?",
+      "answer": "된장찌개",
+      "fullKo": "된장찌개를 좋아하세요?",
+      "de": "Mögen Sie Doenjang-Eintopf?",
+      "en": "Do you like doenjang stew?",
+      "distractors": [
+        "책",
+        "물건",
+        "모르다"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0568"
+    },
+    {
+      "id": "cloze_a1_0503",
+      "level": "a1",
+      "sentenceKo": "＿＿＿이 몸에 좋아요.",
+      "answer": "삼계탕",
+      "fullKo": "삼계탕이 몸에 좋아요.",
+      "de": "Samgyetang ist gut für den Körper.",
+      "en": "Samgyetang is good for your body.",
+      "distractors": [
+        "값",
+        "필요",
+        "항상"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0569"
+    },
+    {
+      "id": "cloze_a1_0504",
+      "level": "a1",
+      "sentenceKo": "생일에 ＿＿＿를 먹어요.",
+      "answer": "갈비",
+      "fullKo": "생일에 갈비를 먹어요.",
+      "de": "An Geburtstagen isst man Galbi.",
+      "en": "We eat galbi on birthdays.",
+      "distractors": [
+        "인사",
+        "축하",
+        "팔다"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0570"
+    },
+    {
+      "id": "cloze_a1_0505",
+      "level": "a1",
+      "sentenceKo": "저는 ＿＿＿을 자주 먹어요.",
+      "answer": "갈비탕",
+      "fullKo": "저는 갈비탕을 자주 먹어요.",
+      "de": "Ich esse oft Galbitang.",
+      "en": "I often eat galbitang.",
+      "distractors": [
+        "기분",
+        "생활",
+        "아주"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0571"
+    },
+    {
+      "id": "cloze_a1_0506",
+      "level": "a1",
+      "sentenceKo": "이 ＿＿＿가 진짜 맛있어요.",
+      "answer": "참외",
+      "fullKo": "이 참외가 진짜 맛있어요.",
+      "de": "Diese Honigmelone ist wirklich lecker.",
+      "en": "This Korean melon is really delicious.",
+      "distractors": [
+        "설날",
+        "월요일",
+        "빌리다"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0572"
+    },
+    {
+      "id": "cloze_a1_0507",
+      "level": "a1",
+      "sentenceKo": "＿＿＿ 좀 주세요.",
+      "answer": "포도",
+      "fullKo": "포도 좀 주세요.",
+      "de": "Etwas Trauben, bitte.",
+      "en": "Some grapes, please.",
+      "distractors": [
+        "값",
+        "필요",
+        "주로"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0573"
+    },
+    {
+      "id": "cloze_a1_0508",
+      "level": "a1",
+      "sentenceKo": "할머니가 ＿＿＿을 좋아하세요.",
+      "answer": "감",
+      "fullKo": "할머니가 감을 좋아하세요.",
+      "de": "Meine Großmutter mag Kaki.",
+      "en": "My grandmother likes persimmons.",
+      "distractors": [
+        "인사",
+        "축하",
+        "다니다"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0574"
+    },
+    {
+      "id": "cloze_a1_0509",
+      "level": "a1",
+      "sentenceKo": "＿＿＿ 있어요?",
+      "answer": "사이다",
+      "fullKo": "사이다 있어요?",
+      "de": "Haben Sie Sprite?",
+      "en": "Do you have a lemon-lime soda?",
+      "distractors": [
+        "기분",
+        "생활",
+        "꼭"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0575"
+    },
+    {
+      "id": "cloze_a1_0510",
+      "level": "a1",
+      "sentenceKo": "＿＿＿ 하나 더 주세요.",
+      "answer": "콜라",
+      "fullKo": "콜라 하나 더 주세요.",
+      "de": "Noch eine Cola, bitte.",
+      "en": "One more cola, please.",
+      "distractors": [
+        "값",
+        "필요",
+        "오다"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0576"
+    },
+    {
+      "id": "cloze_a1_0511",
+      "level": "a1",
+      "sentenceKo": "저는 ＿＿＿에 살아요.",
+      "answer": "서울",
+      "fullKo": "저는 서울에 살아요.",
+      "de": "Ich wohne in Seoul.",
+      "en": "I live in Seoul.",
+      "distractors": [
+        "우유",
+        "책상",
+        "함께"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0577"
+    },
+    {
+      "id": "cloze_a1_0512",
+      "level": "a1",
+      "sentenceKo": "이번 주말에 ＿＿＿에 갈까요?",
+      "answer": "부산",
+      "fullKo": "이번 주말에 부산에 갈까요?",
+      "de": "Sollen wir dieses Wochenende nach Busan fahren?",
+      "en": "Shall we go to Busan this weekend?",
+      "distractors": [
+        "침대",
+        "안경",
+        "읽다"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0578"
+    },
+    {
+      "id": "cloze_a1_0513",
+      "level": "a1",
+      "sentenceKo": "＿＿＿공항에서 만나요.",
+      "answer": "인천",
+      "fullKo": "인천공항에서 만나요.",
+      "de": "Wir treffen uns am Flughafen Incheon.",
+      "en": "Let's meet at Incheon Airport.",
+      "distractors": [
+        "인사",
+        "축하",
+        "빨리"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0579"
+    },
+    {
+      "id": "cloze_a1_0514",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 가고 싶어요.",
+      "answer": "제주도",
+      "fullKo": "제주도에 가고 싶어요.",
+      "de": "Ich möchte nach Jeju fahren.",
+      "en": "I want to go to Jeju Island.",
+      "distractors": [
+        "모자",
+        "신발",
+        "쓰다"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0580"
+    },
+    {
+      "id": "cloze_a1_0515",
+      "level": "a1",
+      "sentenceKo": "＿＿＿ 구경 갈까요?",
+      "answer": "남대문",
+      "fullKo": "남대문 구경 갈까요?",
+      "de": "Sollen wir uns Namdaemun ansehen?",
+      "en": "Shall we go see Namdaemun?",
+      "distractors": [
+        "기분",
+        "생활",
+        "가끔"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0581"
+    },
+    {
+      "id": "cloze_a1_0516",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에 올라갈까요?",
+      "answer": "남산",
+      "fullKo": "남산에 올라갈까요?",
+      "de": "Sollen wir auf den Namsan steigen?",
+      "en": "Shall we go up Namsan?",
+      "distractors": [
+        "값",
+        "필요",
+        "입다"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0582"
+    },
+    {
+      "id": "cloze_a1_0517",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에서 옷을 샀어요.",
+      "answer": "동대문",
+      "fullKo": "동대문에서 옷을 샀어요.",
+      "de": "Ich habe in Dongdaemun Kleidung gekauft.",
+      "en": "I bought clothes in Dongdaemun.",
+      "distractors": [
+        "핸드폰",
+        "책",
+        "다시"
+      ],
+      "topic": "Geographie",
+      "sourceVocabId": "vocab_a1_0583"
+    },
+    {
+      "id": "cloze_a1_0518",
+      "level": "a1",
+      "sentenceKo": "＿＿＿에서 책을 골랐어요.",
+      "answer": "서점",
+      "fullKo": "서점에서 책을 골랐어요.",
+      "de": "Ich habe im Buchladen ein Buch ausgesucht.",
+      "en": "I picked out a book at the bookstore.",
+      "distractors": [
+        "물건",
+        "값",
+        "모르다"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0584"
+    },
+    {
+      "id": "cloze_a1_0519",
+      "level": "a1",
+      "sentenceKo": "이 근처에 ＿＿＿이 있어요?",
+      "answer": "커피숍",
+      "fullKo": "이 근처에 커피숍이 있어요?",
+      "de": "Gibt es hier in der Nähe ein Café?",
+      "en": "Is there a coffee shop near here?",
+      "distractors": [
+        "인사",
+        "축하",
+        "바로"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0585"
+    },
+    {
+      "id": "cloze_a1_0520",
+      "level": "a1",
+      "sentenceKo": "저녁에 ＿＿＿에 갈까요?",
+      "answer": "영화관",
+      "fullKo": "저녁에 영화관에 갈까요?",
+      "de": "Sollen wir heute Abend ins Kino gehen?",
+      "en": "Shall we go to the movie theater this evening?",
+      "distractors": [
+        "할머니",
+        "할아버지",
+        "팔다"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0586"
+    },
+    {
+      "id": "cloze_a1_0521",
+      "level": "a1",
+      "sentenceKo": "이 근처에 ＿＿＿이 있어요?",
+      "answer": "극장",
+      "fullKo": "이 근처에 극장이 있어요?",
+      "de": "Gibt es hier in der Nähe ein Theater?",
+      "en": "Is there a theater near here?",
+      "distractors": [
+        "기분",
+        "생활",
+        "이따가"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0587"
+    },
+    {
+      "id": "cloze_a1_0522",
+      "level": "a1",
+      "sentenceKo": "저는 ＿＿＿에 자주 가요.",
+      "answer": "목욕탕",
+      "fullKo": "저는 목욕탕에 자주 가요.",
+      "de": "Ich gehe oft ins öffentliche Bad.",
+      "en": "I often go to the public bathhouse.",
+      "distractors": [
+        "부모님",
+        "딸",
+        "빌리다"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0588"
+    }
+  ]
+}
