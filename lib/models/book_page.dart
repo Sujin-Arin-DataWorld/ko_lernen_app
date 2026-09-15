@@ -47,6 +47,20 @@ String? _managedRefFor(Object? value, ManagedMediaKind kind) {
   return reference?.kind == kind ? reference?.encoded : null;
 }
 
+const Set<String> _knownExtractedWordSources = {'bundled', 'pageHint', 'server'};
+
+String _safeWordSource(Object? value) =>
+    value is String && _knownExtractedWordSources.contains(value)
+    ? value
+    : 'server';
+
+double _safeWordConfidence(Object? value) {
+  final parsed = value is num ? value.toDouble() : 1.0;
+  if (parsed.isNaN || parsed < 0) return 0.0;
+  if (parsed > 1) return 1.0;
+  return parsed;
+}
+
 class ExtractedWord {
   final String korean;
   final String romanization;
@@ -63,6 +77,16 @@ class ExtractedWord {
   final String? savedToPackId; // 저장한 custom pack id (null = 미저장)
   final String sourceUnitId;
 
+  // ── O1 (3단 OCR 뜻 출처 리졸버) ── 이 뜻이 어디서 왔는지 + 신뢰도.
+  // 'bundled' = assets/data/korean_vocab.csv, 'pageHint' = 사진 속 같은 줄/다음
+  // 줄의 외국어 표기, 'server' = analyze_korean_text 클라우드 함수 (기본값).
+  // 기존 데이터(로컬 저장·수동 입력·구 응답)는 모두 'server'/1.0 으로 취급되어
+  // 파싱·마이그레이션이 깨지지 않는다.
+  final String source;
+  final double confidence;
+  // 다의어(여러 뜻)일 때 첫 뜻만 쓰고 표시한다.
+  final bool ambiguous;
+
   const ExtractedWord({
     required this.korean,
     required this.romanization,
@@ -78,6 +102,9 @@ class ExtractedWord {
     this.definitionKo = '',
     this.imagePath = '',
     this.sourceUnitId = '',
+    this.source = 'server',
+    this.confidence = 1.0,
+    this.ambiguous = false,
   });
 
   /// Only return a meaning known to belong to the requested language.
@@ -209,6 +236,9 @@ class ExtractedWord {
     'imagePath': _managedRefFor(imagePath, ManagedMediaKind.word) ?? '',
     'savedToPackId': savedToPackId,
     if (sourceUnitId.isNotEmpty) 'sourceUnitId': sourceUnitId,
+    if (source != 'server') 'source': source,
+    if (confidence != 1.0) 'confidence': confidence,
+    if (ambiguous) 'ambiguous': ambiguous,
   };
 
   Map<String, dynamic> toPortableJson() => {
@@ -225,6 +255,9 @@ class ExtractedWord {
     'definitionKo': definitionKo,
     'savedToPackId': savedToPackId,
     if (sourceUnitId.isNotEmpty) 'sourceUnitId': sourceUnitId,
+    if (source != 'server') 'source': source,
+    if (confidence != 1.0) 'confidence': confidence,
+    if (ambiguous) 'ambiguous': ambiguous,
   };
 
   Map<String, dynamic> toJson() => toLocalJson();
@@ -248,6 +281,9 @@ class ExtractedWord {
     imagePath: _managedRefFor(j['imagePath'], ManagedMediaKind.word) ?? '',
     savedToPackId: j['savedToPackId'] as String?,
     sourceUnitId: _safeSupportedText(j['sourceUnitId']),
+    source: _safeWordSource(j['source']),
+    confidence: _safeWordConfidence(j['confidence']),
+    ambiguous: j['ambiguous'] == true,
   );
 
   factory ExtractedWord.fromPortableJson(Map<String, dynamic> j) =>
@@ -270,30 +306,39 @@ class ExtractedWord {
         imagePath: '',
         savedToPackId: j['savedToPackId'] as String?,
         sourceUnitId: _safeSupportedText(j['sourceUnitId']),
+        source: _safeWordSource(j['source']),
+        confidence: _safeWordConfidence(j['confidence']),
+        ambiguous: j['ambiguous'] == true,
       );
 
   factory ExtractedWord.fromJson(Map<String, dynamic> j) =>
       ExtractedWord.fromLocalJson(j);
 
-  ExtractedWord copyWith({String? savedToPackId, bool clearSaved = false}) =>
-      ExtractedWord(
-        korean: korean,
-        romanization: romanization,
-        posDe: posDe,
-        translationDe: translationDe,
-        translationEn: translationEn,
-        translationLanguage: translationLanguage,
-        exampleKorean: exampleKorean,
-        exampleDe: exampleDe,
-        exampleEn: exampleEn,
-        exampleLanguage: _resolvedExampleLanguage,
-        definitionKo: definitionKo,
-        imagePath: imagePath,
-        sourceUnitId: sourceUnitId,
-        savedToPackId: clearSaved
-            ? null
-            : (savedToPackId ?? this.savedToPackId),
-      );
+  ExtractedWord copyWith({
+    String? savedToPackId,
+    bool clearSaved = false,
+    String? source,
+    double? confidence,
+    bool? ambiguous,
+  }) => ExtractedWord(
+    korean: korean,
+    romanization: romanization,
+    posDe: posDe,
+    translationDe: translationDe,
+    translationEn: translationEn,
+    translationLanguage: translationLanguage,
+    exampleKorean: exampleKorean,
+    exampleDe: exampleDe,
+    exampleEn: exampleEn,
+    exampleLanguage: _resolvedExampleLanguage,
+    definitionKo: definitionKo,
+    imagePath: imagePath,
+    sourceUnitId: sourceUnitId,
+    savedToPackId: clearSaved ? null : (savedToPackId ?? this.savedToPackId),
+    source: source ?? this.source,
+    confidence: confidence ?? this.confidence,
+    ambiguous: ambiguous ?? this.ambiguous,
+  );
 
   ExtractedWord copyWithEditable({
     String? korean,
@@ -324,6 +369,9 @@ class ExtractedWord {
     imagePath: clearImage ? '' : (imagePath ?? this.imagePath),
     sourceUnitId: sourceUnitId,
     savedToPackId: savedToPackId,
+    source: source,
+    confidence: confidence,
+    ambiguous: ambiguous,
   );
 }
 

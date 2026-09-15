@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ui' show Rect;
 
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,6 +9,7 @@ import 'package:http/http.dart' as http;
 import '../models/book_page.dart';
 import 'book_analysis_text.dart';
 import 'book_ocr_document.dart';
+import 'book_word_gloss_resolver.dart';
 import 'dart:async' show unawaited;
 import 'diagnostics_service.dart';
 
@@ -100,11 +102,21 @@ class BookAnalysisService {
             warnings: {...prepared.warnings, 'invalid_response_schema'},
           );
         }
-        return _parseCloudResponse(
+        final parsed = _parseCloudResponse(
           decoded.cast<String, dynamic>(),
           language: language,
           clientWarnings: prepared.warnings,
         );
+        // O1: a photographed page also carries the bundled dictionary and
+        // any printed gloss the server didn't already resolve. The server
+        // always wins on a conflicting headword.
+        return document == null
+            ? parsed
+            : await _mergeResolvedWords(
+                parsed,
+                document: document,
+                targetLang: language,
+              );
       }
       if (response.statusCode == 429) {
         return _localStub(
@@ -519,6 +531,54 @@ class BookAnalysisService {
     );
   }
 
+  /// O1 — merges the bundled/page-hint resolver (tiers ①+②) into an already
+  /// server-parsed result (tier ③). The server's own words always win on a
+  /// conflicting headword; the resolver only ever fills gaps.
+  static Future<BookAnalysisResult> _mergeResolvedWords(
+    BookAnalysisResult result, {
+    required BookOcrDocument document,
+    required String targetLang,
+  }) async {
+    final merged = await BookWordGlossResolver().resolve(
+      document,
+      targetLang: targetLang,
+      serverWords: result.words,
+    );
+    return BookAnalysisResult(
+      words: merged,
+      grammar: result.grammar,
+      sentences: result.sentences,
+      expressions: result.expressions,
+      warnings: result.warnings,
+      analysisLanguage: result.analysisLanguage,
+    );
+  }
+
+  /// A minimal single-unit document so the resolver can still tokenize plain
+  /// text (no real OCR structure) when a caller analyzes text directly
+  /// (`autoFill`, tests) instead of a photographed page. Page hints (tier ②)
+  /// are unreachable without real OCR regions — only the bundled dictionary
+  /// (tier ①) applies here.
+  static BookOcrDocument _syntheticDocumentFor(String text) {
+    final trimmed = text.trim();
+    if (trimmed.isEmpty) {
+      return const BookOcrDocument(regions: [], units: []);
+    }
+    return BookOcrDocument(
+      regions: const [],
+      units: [
+        BookOcrUnit(
+          id: 'unit:0',
+          role: BookOcrUnitRole.sentence,
+          korean: trimmed,
+          bounds: Rect.zero,
+          sourceLineIds: const [],
+          confidence: null,
+        ),
+      ],
+    );
+  }
+
   // ── Lokaler Fallback (Cloud nicht erreichbar) ────────────────────────
 
   static List<Map<String, dynamic>>? _grammarPatternsCache;
@@ -655,8 +715,15 @@ class BookAnalysisService {
       rawSentences.addAll(sentencesFor(text, ''));
     }
 
+    // O1 — offline learners still get bundled-dictionary/page-hint word
+    // meanings (tiers ①+②); only the server (tier ③) is unavailable here.
+    final words = await BookWordGlossResolver().resolve(
+      document ?? _syntheticDocumentFor(text),
+      targetLang: targetLang,
+    );
+
     return BookAnalysisResult(
-      words: const [],
+      words: words,
       grammar: grammar,
       sentences: rawSentences,
       warnings: {
