@@ -11,7 +11,7 @@
       "distractors": [
         "가다",
         "오다",
-        "보다"
+        "읽다"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0589"
@@ -19,15 +19,15 @@
     {
       "id": "cloze_a1_0524",
       "level": "a1",
-      "sentenceKo": "크리스티안 씨, 지금 자요. 불을 ＿＿＿.",
+      "sentenceKo": "크리스티안 씨, 지금 잘까요? 불을 ＿＿＿.",
       "answer": "꺼요",
-      "fullKo": "크리스티안 씨, 지금 자요. 불을 꺼요.",
-      "de": "Christian, lass uns jetzt schlafen. Ich mache das Licht aus.",
-      "en": "Christian, let's sleep now. I'll turn off the light.",
+      "fullKo": "크리스티안 씨, 지금 잘까요? 불을 꺼요.",
+      "de": "Christian, sollen wir jetzt schlafen? Ich mache das Licht aus.",
+      "en": "Christian, shall we sleep now? I'll turn off the light.",
       "distractors": [
-        "읽다",
         "타다",
-        "쓰다"
+        "쓰다",
+        "자다"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0590"
@@ -41,9 +41,9 @@
       "de": "Wow! Das Baby lacht wirklich viel.",
       "en": "Wow! The baby laughs a lot, really.",
       "distractors": [
-        "자다",
         "입다",
-        "알다"
+        "알다",
+        "모르다"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0591"
@@ -51,15 +51,15 @@
     {
       "id": "cloze_a1_0526",
       "level": "a1",
-      "sentenceKo": "이 ＿＿＿이 정말 예뻐요.",
+      "sentenceKo": "＿＿＿ 안에 뭐가 있어요?",
       "answer": "가방",
-      "fullKo": "이 가방이 정말 예뻐요.",
-      "de": "Diese Tasche ist wirklich schön.",
-      "en": "This bag is really pretty.",
+      "fullKo": "가방 안에 뭐가 있어요?",
+      "de": "Was ist in der Tasche?",
+      "en": "What's in the bag?",
       "distractors": [
-        "사무실",
-        "수영장",
-        "가끔"
+        "다음",
+        "나중",
+        "빨리"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0592"
@@ -67,15 +67,15 @@
     {
       "id": "cloze_a1_0527",
       "level": "a1",
-      "sentenceKo": "＿＿＿ 있어요?",
+      "sentenceKo": "＿＿＿으로 이름을 써요.",
       "answer": "볼펜",
-      "fullKo": "볼펜 있어요?",
-      "de": "Haben Sie einen Kugelschreiber?",
-      "en": "Do you have a pen?",
+      "fullKo": "볼펜으로 이름을 써요.",
+      "de": "Ich schreibe meinen Namen mit dem Kugelschreiber.",
+      "en": "I write my name with the pen.",
       "distractors": [
-        "기숙사",
-        "아파트",
-        "빨리"
+        "수영장",
+        "운동장",
+        "가끔"
       ],
       "topic": "Bildung",
       "sourceVocabId": "vocab_a1_0593"
@@ -89,8 +89,8 @@
       "de": "Ich schreibe den Namen ins Notizbuch.",
       "en": "I write my name in the notebook.",
       "distractors": [
-        "운동장",
-        "노래방",
+        "미안",
+        "실례",
         "천천히"
       ],
       "topic": "Bildung",
@@ -99,15 +99,15 @@
     {
       "id": "cloze_a1_0529",
       "level": "a1",
-      "sentenceKo": "레나 씨, 이 ＿＿＿ 정말 좋아요! 여기서 찍어요.",
+      "sentenceKo": "레나 씨, 이 ＿＿＿로 찍어요!",
       "answer": "카메라",
-      "fullKo": "레나 씨, 이 카메라 정말 좋아요! 여기서 찍어요.",
-      "de": "Lena, diese Kamera ist wirklich gut! Lass uns hier fotografieren.",
-      "en": "Lena, this camera is really good! Let's take a photo here.",
+      "fullKo": "레나 씨, 이 카메라로 찍어요!",
+      "de": "Lena, lass uns mit dieser Kamera fotografieren!",
+      "en": "Lena, let's take photos with this camera!",
       "distractors": [
-        "대사관",
-        "여행사",
-        "항상"
+        "기숙사",
+        "아파트",
+        "다시"
       ],
       "topic": "Technologie",
       "sourceVocabId": "vocab_a1_0595"
@@ -115,15 +115,15 @@
     {
       "id": "cloze_a1_0530",
       "level": "a1",
-      "sentenceKo": "와, 이 ＿＿＿ 정말 예뻐요.",
+      "sentenceKo": "저는 이 ＿＿＿를 입었어요.",
       "answer": "티셔츠",
-      "fullKo": "와, 이 티셔츠 정말 예뻐요.",
-      "de": "Wow, dieses T-Shirt ist wirklich schön.",
-      "en": "Wow, this T-shirt is really pretty.",
+      "fullKo": "저는 이 티셔츠를 입었어요.",
+      "de": "Ich habe dieses T-Shirt getragen.",
+      "en": "I wore this T-shirt.",
       "distractors": [
-        "건물",
+        "여행사",
         "근처",
-        "다시"
+        "아주"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0596"
@@ -131,15 +131,15 @@
     {
       "id": "cloze_a1_0531",
       "level": "a1",
-      "sentenceKo": "이 ＿＿＿가 좀 커요.",
+      "sentenceKo": "이 ＿＿＿를 입고 싶어요.",
       "answer": "바지",
-      "fullKo": "이 바지가 좀 커요.",
-      "de": "Diese Hose ist etwas zu groß.",
-      "en": "These pants are a bit big.",
+      "fullKo": "이 바지를 입고 싶어요.",
+      "de": "Ich möchte diese Hose anziehen.",
+      "en": "I want to wear these pants.",
       "distractors": [
         "오후",
         "지난주",
-        "아주"
+        "바로"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0597"
@@ -153,9 +153,9 @@
       "de": "Christian, sollen wir Sportschuhe anziehen und zusammen gehen?",
       "en": "Christian, shall we put on sneakers and go together?",
       "distractors": [
-        "건너편",
-        "층",
-        "바로"
+        "사무실",
+        "노래방",
+        "항상"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0598"
@@ -163,14 +163,14 @@
     {
       "id": "cloze_a1_0533",
       "level": "a1",
-      "sentenceKo": "이 ＿＿＿ 정말 예뻐요.",
-      "answer": "잔이",
-      "fullKo": "이 잔이 정말 예뻐요.",
-      "de": "Dieses Glas ist wirklich schön.",
-      "en": "This glass is really pretty.",
+      "sentenceKo": "이 ＿＿＿ 물을 마셔요.",
+      "answer": "잔으로",
+      "fullKo": "이 잔으로 물을 마셔요.",
+      "de": "Ich trinke Wasser aus diesem Glas.",
+      "en": "I drink water from this cup.",
       "distractors": [
-        "다음",
-        "나중",
+        "대사관",
+        "건물",
         "주로"
       ],
       "topic": "Alltag",
@@ -182,11 +182,11 @@
       "sentenceKo": "수진 씨, 콘서트 ＿＿＿ 있어요!",
       "answer": "표가",
       "fullKo": "수진 씨, 콘서트 표가 있어요!",
-      "de": "Sujin, es gibt eine Konzertkarte!",
-      "en": "Sujin, there's a concert ticket!",
+      "de": "Sujin, ich habe eine Konzertkarte!",
+      "en": "Sujin, I have a concert ticket!",
       "distractors": [
-        "동안",
-        "오전",
+        "건너편",
+        "층",
         "이따가"
       ],
       "topic": "Freizeit",
@@ -201,8 +201,8 @@
       "de": "Mein Vater liest die Zeitung.",
       "en": "My father reads the newspaper.",
       "distractors": [
-        "이번",
-        "지난달",
+        "동안",
+        "오전",
         "꼭"
       ],
       "topic": "Alltag",
@@ -217,8 +217,8 @@
       "de": "Sujin, ist das mein Studentenausweis, oder?",
       "en": "Sujin, is this my student ID, right?",
       "distractors": [
-        "지난해",
-        "일주일",
+        "이번",
+        "지난달",
         "좀"
       ],
       "topic": "Bildung",
@@ -233,8 +233,8 @@
       "de": "Bitte geben Sie mir zuerst den Reisepass.",
       "en": "Please give me the passport first.",
       "distractors": [
+        "일주일",
         "꽃",
-        "산",
         "참"
       ],
       "topic": "Alltag",
@@ -259,15 +259,15 @@
     {
       "id": "cloze_a1_0539",
       "level": "a1",
-      "sentenceKo": "＿＿＿이 어디예요?",
+      "sentenceKo": "저는 ＿＿＿에서 일해요.",
       "answer": "사무실",
-      "fullKo": "사무실이 어디예요?",
-      "de": "Wo ist das Büro?",
-      "en": "Where is the office?",
+      "fullKo": "저는 사무실에서 일해요.",
+      "de": "Ich arbeite im Büro.",
+      "en": "I work at the office.",
       "distractors": [
         "수첩",
-        "잔",
-        "가끔"
+        "카메라",
+        "보다"
       ],
       "topic": "도시 생활",
       "sourceVocabId": "vocab_a1_0605"
@@ -275,15 +275,15 @@
     {
       "id": "cloze_a1_0540",
       "level": "a1",
-      "sentenceKo": "이 ＿＿＿가 정말 커요.",
+      "sentenceKo": "이 ＿＿＿에 몇 명이 살아요?",
       "answer": "아파트",
-      "fullKo": "이 아파트가 정말 커요.",
-      "de": "Diese Wohnung ist wirklich groß.",
-      "en": "This apartment is really big.",
+      "fullKo": "이 아파트에 몇 명이 살아요?",
+      "de": "Wie viele Leute wohnen in dieser Wohnung?",
+      "en": "How many people live in this apartment?",
       "distractors": [
-        "카메라",
         "티셔츠",
-        "모르다"
+        "바지",
+        "돕다"
       ],
       "topic": "도시 생활",
       "sourceVocabId": "vocab_a1_0606"
@@ -297,9 +297,9 @@
       "de": "Sollen wir ins Schwimmbad gehen?",
       "en": "Shall we go to the swimming pool?",
       "distractors": [
-        "바지",
         "운동화",
-        "돕다"
+        "잔",
+        "팔다"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0607"
@@ -315,7 +315,7 @@
       "distractors": [
         "표",
         "신문",
-        "팔다"
+        "고르다"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0608"
@@ -331,7 +331,7 @@
       "distractors": [
         "학생증",
         "여권",
-        "고르다"
+        "빌리다"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0609"
@@ -339,15 +339,15 @@
     {
       "id": "cloze_a1_0544",
       "level": "a1",
-      "sentenceKo": "＿＿＿이 왜 여기 있어요?",
+      "sentenceKo": "독일 ＿＿＿이 어디에 있어요?",
       "answer": "대사관",
-      "fullKo": "대사관이 왜 여기 있어요?",
-      "de": "Warum ist die Botschaft hier?",
-      "en": "Why is the embassy here?",
+      "fullKo": "독일 대사관이 어디에 있어요?",
+      "de": "Wo ist die deutsche Botschaft?",
+      "en": "Where is the German embassy?",
       "distractors": [
-        "불",
-        "기분",
-        "항상"
+        "피곤",
+        "미안",
+        "가끔"
       ],
       "topic": "도시 생활",
       "sourceVocabId": "vocab_a1_0610"
@@ -361,9 +361,9 @@
       "de": "Ich rufe das Reisebüro an. Dann gehen wir zusammen.",
       "en": "I'll call the travel agency. Then let's go together.",
       "distractors": [
+        "지난해",
         "하루",
-        "후",
-        "빌리다"
+        "끝나다"
       ],
       "topic": "도시 생활",
       "sourceVocabId": "vocab_a1_0611"
@@ -371,15 +371,15 @@
     {
       "id": "cloze_a1_0546",
       "level": "a1",
-      "sentenceKo": "이 ＿＿＿이 정말 높아요.",
+      "sentenceKo": "이 ＿＿＿은 몇 층이에요?",
       "answer": "건물",
-      "fullKo": "이 건물이 정말 높아요.",
-      "de": "Dieses Gebäude ist wirklich hoch.",
-      "en": "This building is really tall.",
+      "fullKo": "이 건물은 몇 층이에요?",
+      "de": "Wie viele Stockwerke hat dieses Gebäude?",
+      "en": "How many floors does this building have?",
       "distractors": [
-        "마음",
-        "사랑",
-        "꼭"
+        "산",
+        "불",
+        "항상"
       ],
       "topic": "도시 생활",
       "sourceVocabId": "vocab_a1_0612"
@@ -393,9 +393,9 @@
       "de": "Es gibt ein Café hier in der Nähe. Ich weiß es.",
       "en": "There's a cafe near here. I know it.",
       "distractors": [
+        "후",
         "개",
-        "고양이",
-        "끝나다"
+        "다니다"
       ],
       "topic": "도시 생활",
       "sourceVocabId": "vocab_a1_0613"
@@ -409,9 +409,9 @@
       "de": "Die Bank ist auf der gegenüberliegenden Seite.",
       "en": "The bank is on the opposite side.",
       "distractors": [
-        "나무",
-        "바다",
-        "다니다"
+        "실례",
+        "미안",
+        "켜다"
       ],
       "topic": "도시 생활",
       "sourceVocabId": "vocab_a1_0614"
@@ -425,9 +425,9 @@
       "de": "Der Laden ist auf dieser Etage. Das hier ist schön!",
       "en": "The shop is on this floor. This is pretty!",
       "distractors": [
-        "비",
-        "아기",
-        "켜다"
+        "고양이",
+        "나무",
+        "끄다"
       ],
       "topic": "도시 생활",
       "sourceVocabId": "vocab_a1_0615"
@@ -441,9 +441,9 @@
       "de": "Wir treffen uns nächste Woche.",
       "en": "See you next week.",
       "distractors": [
-        "아이",
-        "남자",
-        "끄다"
+        "바다",
+        "비",
+        "웃다"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0616"
@@ -457,9 +457,9 @@
       "de": "Wir reden später.",
       "en": "Let's talk later.",
       "distractors": [
-        "여자",
-        "피곤",
-        "웃다"
+        "아기",
+        "아이",
+        "빨리"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0617"
@@ -473,9 +473,9 @@
       "de": "Was machst du während der Ferien?",
       "en": "What do you do during the vacation?",
       "distractors": [
-        "감사",
-        "미안",
-        "빨리"
+        "남자",
+        "여자",
+        "천천히"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0618"
@@ -489,9 +489,9 @@
       "de": "Ich mache am Vormittag Sport.",
       "en": "I exercise in the morning.",
       "distractors": [
-        "친절",
-        "실례",
-        "천천히"
+        "기분",
+        "마음",
+        "다시"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0619"
@@ -505,9 +505,9 @@
       "de": "Ich mache am Nachmittag einen Spaziergang.",
       "en": "I go for a walk in the afternoon.",
       "distractors": [
-        "유명",
-        "대답",
-        "다시"
+        "사랑",
+        "감사",
+        "아주"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0620"
@@ -521,9 +521,9 @@
       "de": "Diesen Monat bin ich beschäftigt.",
       "en": "I'm busy this month.",
       "distractors": [
-        "소개",
-        "설명",
-        "아주"
+        "친절",
+        "유명",
+        "바로"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0621"
@@ -537,9 +537,9 @@
       "de": "Letzten Monat war ich beschäftigt.",
       "en": "I was busy last month.",
       "distractors": [
-        "가방",
-        "볼펜",
-        "바로"
+        "대답",
+        "소개",
+        "주로"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0622"
@@ -553,9 +553,9 @@
       "de": "Letzte Woche war ich krank.",
       "en": "I was sick last week.",
       "distractors": [
-        "수첩",
-        "카메라",
-        "주로"
+        "설명",
+        "가방",
+        "이따가"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0623"
@@ -569,9 +569,9 @@
       "de": "Wir haben uns letztes Jahr kennengelernt.",
       "en": "We met last year.",
       "distractors": [
-        "티셔츠",
-        "바지",
-        "이따가"
+        "볼펜",
+        "수첩",
+        "꼭"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0624"
@@ -585,8 +585,8 @@
       "de": "Ich reise eine Woche lang.",
       "en": "I travel for one week.",
       "distractors": [
-        "운동화",
-        "잔",
+        "카메라",
+        "티셔츠",
         "좀"
       ],
       "topic": "Zeit",
@@ -601,8 +601,8 @@
       "de": "Heute bin ich den ganzen Tag wirklich müde.",
       "en": "I'm really tired all day today.",
       "distractors": [
-        "표",
-        "신문",
+        "바지",
+        "운동화",
         "함께"
       ],
       "topic": "Zeit",
@@ -617,8 +617,8 @@
       "de": "Wir sehen uns in einem Moment.",
       "en": "See you in a moment.",
       "distractors": [
-        "학생증",
-        "여권",
+        "잔",
+        "표",
         "참"
       ],
       "topic": "Zeit",
@@ -627,14 +627,14 @@
     {
       "id": "cloze_a1_0562",
       "level": "a1",
-      "sentenceKo": "저는 ＿＿＿ 있어요.",
+      "sentenceKo": "＿＿＿ 몇 마리 있어요?",
       "answer": "개가",
-      "fullKo": "저는 개가 있어요.",
-      "de": "Ich habe einen Hund.",
-      "en": "I have a dog.",
+      "fullKo": "개가 몇 마리 있어요?",
+      "de": "Wie viele Hunde gibt es?",
+      "en": "How many dogs are there?",
       "distractors": [
-        "기숙사",
-        "사무실",
+        "신문",
+        "학생증",
         "가다"
       ],
       "topic": "Natur",
@@ -649,8 +649,8 @@
       "de": "Wie viele Katzen sind es?",
       "en": "How many cats are there?",
       "distractors": [
+        "기숙사",
         "아파트",
-        "여행사",
         "오다"
       ],
       "topic": "Natur",
@@ -659,14 +659,14 @@
     {
       "id": "cloze_a1_0564",
       "level": "a1",
-      "sentenceKo": "이 ＿＿＿ 정말 예뻐요.",
-      "answer": "꽃이",
-      "fullKo": "이 꽃이 정말 예뻐요.",
-      "de": "Diese Blume ist wirklich schön.",
-      "en": "This flower is really pretty.",
+      "sentenceKo": "＿＿＿ 물을 줘요.",
+      "answer": "꽃에",
+      "fullKo": "꽃에 물을 줘요.",
+      "de": "Ich gieße die Blumen.",
+      "en": "I water the flowers.",
       "distractors": [
-        "수영장",
-        "운동장",
+        "여권",
+        "사무실",
         "보다"
       ],
       "topic": "Natur",
@@ -675,14 +675,14 @@
     {
       "id": "cloze_a1_0565",
       "level": "a1",
-      "sentenceKo": "＿＿＿가 정말 커요.",
+      "sentenceKo": "＿＿＿ 밑에 앉아요.",
       "answer": "나무",
-      "fullKo": "나무가 정말 커요.",
-      "de": "Der Baum ist wirklich groß.",
-      "en": "The tree is really big.",
+      "fullKo": "나무 밑에 앉아요.",
+      "de": "Ich setze mich unter den Baum.",
+      "en": "I sit under the tree.",
       "distractors": [
-        "근처",
-        "오후",
+        "다음",
+        "나중",
         "읽다"
       ],
       "topic": "Natur",
@@ -691,14 +691,14 @@
     {
       "id": "cloze_a1_0566",
       "level": "a1",
-      "sentenceKo": "저는 주말에 ＿＿＿ 가요.",
+      "sentenceKo": "저는 주말에 ＿＿＿ 올라가요.",
       "answer": "산에",
-      "fullKo": "저는 주말에 산에 가요.",
-      "de": "Ich gehe am Wochenende in die Berge.",
-      "en": "I go to the mountains on weekends.",
+      "fullKo": "저는 주말에 산에 올라가요.",
+      "de": "Ich steige am Wochenende auf den Berg.",
+      "en": "I climb the mountain on weekends.",
       "distractors": [
-        "노래방",
-        "대사관",
+        "동안",
+        "오전",
         "타다"
       ],
       "topic": "Natur",
@@ -707,14 +707,14 @@
     {
       "id": "cloze_a1_0567",
       "level": "a1",
-      "sentenceKo": "＿＿＿가 정말 예뻐요.",
+      "sentenceKo": "저는 ＿＿＿에서 수영해요.",
       "answer": "바다",
-      "fullKo": "바다가 정말 예뻐요.",
-      "de": "Das Meer ist wirklich schön.",
-      "en": "The sea is really pretty.",
+      "fullKo": "저는 바다에서 수영해요.",
+      "de": "Ich schwimme im Meer.",
+      "en": "I swim in the sea.",
       "distractors": [
-        "지난주",
-        "지난해",
+        "오후",
+        "이번",
         "쓰다"
       ],
       "topic": "Natur",
@@ -729,8 +729,8 @@
       "de": "Heute regnet es.",
       "en": "It's raining today.",
       "distractors": [
-        "건물",
-        "건너편",
+        "수영장",
+        "운동장",
         "자다"
       ],
       "topic": "Natur",
@@ -745,8 +745,8 @@
       "de": "Auf dem Berg ist ein Feuer ausgebrochen.",
       "en": "A fire broke out on the mountain.",
       "distractors": [
-        "층",
-        "다음",
+        "노래방",
+        "대사관",
         "입다"
       ],
       "topic": "Natur",
@@ -761,8 +761,8 @@
       "de": "Das Baby schläft.",
       "en": "The baby is sleeping.",
       "distractors": [
-        "하루",
-        "후",
+        "여행사",
+        "근처",
         "알다"
       ],
       "topic": "Person",
@@ -777,8 +777,8 @@
       "de": "Dieses Kind ist ein Schüler.",
       "en": "That child is a student.",
       "distractors": [
-        "감사",
-        "실례",
+        "지난주",
+        "지난해",
         "모르다"
       ],
       "topic": "Person",
@@ -793,8 +793,8 @@
       "de": "Wer ist dieser Mann?",
       "en": "Who is that man?",
       "distractors": [
-        "소개",
-        "카메라",
+        "하루",
+        "후",
         "돕다"
       ],
       "topic": "Person",
@@ -809,8 +809,8 @@
       "de": "Diese Frau ist meine Freundin.",
       "en": "That woman is my friend.",
       "distractors": [
-        "티셔츠",
-        "바지",
+        "감사",
+        "소개",
         "팔다"
       ],
       "topic": "Person",
@@ -825,8 +825,8 @@
       "de": "Ich bin heute guter Stimmung.",
       "en": "I'm in a good mood today.",
       "distractors": [
-        "나중",
-        "동안",
+        "피곤",
+        "미안",
         "가끔"
       ],
       "topic": "Gefühle",
@@ -835,14 +835,14 @@
     {
       "id": "cloze_a1_0575",
       "level": "a1",
-      "sentenceKo": "제 ＿＿＿이 좋아요.",
+      "sentenceKo": "오늘 ＿＿＿이 아파요.",
       "answer": "마음",
-      "fullKo": "제 마음이 좋아요.",
-      "de": "Mein Herz fühlt sich gut an.",
-      "en": "My heart feels good.",
+      "fullKo": "오늘 마음이 아파요.",
+      "de": "Mein Herz tut heute weh.",
+      "en": "My heart aches today.",
       "distractors": [
-        "오전",
-        "이번",
+        "건물",
+        "건너편",
         "항상"
       ],
       "topic": "Gefühle",
@@ -857,8 +857,8 @@
       "de": "Ich liebe Sujin.",
       "en": "I love Sujin.",
       "distractors": [
+        "층",
         "지난달",
-        "일주일",
         "고르다"
       ],
       "topic": "Gefühle",
@@ -873,8 +873,8 @@
       "de": "Ich bin heute wirklich müde.",
       "en": "I'm really tired today.",
       "distractors": [
+        "일주일",
         "개",
-        "고양이",
         "빌리다"
       ],
       "topic": "Gefühle",
@@ -889,8 +889,8 @@
       "de": "Ich bin wirklich dankbar.",
       "en": "I'm really grateful.",
       "distractors": [
+        "고양이",
         "꽃",
-        "나무",
         "끝나다"
       ],
       "topic": "Höflichkeit",
@@ -905,8 +905,8 @@
       "de": "Entschuldigung, ich bin zu spät.",
       "en": "Sorry, I'm late.",
       "distractors": [
+        "나무",
         "산",
-        "바다",
         "다니다"
       ],
       "topic": "Höflichkeit",
@@ -921,8 +921,8 @@
       "de": "Der Lehrer ist wirklich freundlich.",
       "en": "The teacher is really kind.",
       "distractors": [
+        "바다",
         "비",
-        "불",
         "켜다"
       ],
       "topic": "Höflichkeit",
@@ -937,8 +937,8 @@
       "de": "Entschuldigung. Wo ist die Toilette?",
       "en": "Excuse me. Where is the restroom?",
       "distractors": [
+        "불",
         "아기",
-        "아이",
         "끄다"
       ],
       "topic": "Höflichkeit",
@@ -953,8 +953,8 @@
       "de": "Dieser Sänger ist wirklich berühmt.",
       "en": "That singer is really famous.",
       "distractors": [
+        "아이",
         "남자",
-        "여자",
         "웃다"
       ],
       "topic": "Person",
@@ -969,8 +969,8 @@
       "de": "Ich antworte.",
       "en": "I'll answer.",
       "distractors": [
+        "여자",
         "가방",
-        "볼펜",
         "빨리"
       ],
       "topic": "Kommunikation",
@@ -985,8 +985,8 @@
       "de": "Ich stelle einen Freund vor.",
       "en": "I'm introducing a friend.",
       "distractors": [
+        "볼펜",
         "수첩",
-        "운동화",
         "천천히"
       ],
       "topic": "Kommunikation",
@@ -1001,8 +1001,8 @@
       "de": "Ich erkläre langsam.",
       "en": "I'll explain slowly.",
       "distractors": [
-        "잔",
-        "표",
+        "카메라",
+        "티셔츠",
         "다시"
       ],
       "topic": "Bildung",

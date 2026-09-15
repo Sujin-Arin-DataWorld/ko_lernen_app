@@ -16,9 +16,9 @@
     {
       "id": "satz_a1_0505",
       "level": "a1",
-      "targetKo": "크리스티안 씨, 지금 자요. 불을 꺼요.",
-      "promptDe": "Christian, lass uns jetzt schlafen. Ich mache das Licht aus.",
-      "promptEn": "Christian, let's sleep now. I'll turn off the light.",
+      "targetKo": "크리스티안 씨, 지금 잘까요? 불을 꺼요.",
+      "promptDe": "Christian, sollen wir jetzt schlafen? Ich mache das Licht aus.",
+      "promptEn": "Christian, shall we sleep now? I'll turn off the light.",
       "distractors": [
         "수첩",
         "카메라"
@@ -42,12 +42,12 @@
     {
       "id": "satz_a1_0507",
       "level": "a1",
-      "targetKo": "이 가방이 정말 예뻐요.",
-      "promptDe": "Diese Tasche ist wirklich schön.",
-      "promptEn": "This bag is really pretty.",
+      "targetKo": "가방 안에 뭐가 있어요?",
+      "promptDe": "Was ist in der Tasche?",
+      "promptEn": "What's in the bag?",
       "distractors": [
-        "기숙사",
-        "아파트"
+        "동안",
+        "오전"
       ],
       "vocabKo": "가방",
       "sourceVocabId": "vocab_a1_0592"
@@ -55,12 +55,12 @@
     {
       "id": "satz_a1_0508",
       "level": "a1",
-      "targetKo": "볼펜 있어요?",
-      "promptDe": "Haben Sie einen Kugelschreiber?",
-      "promptEn": "Do you have a pen?",
+      "targetKo": "볼펜으로 이름을 써요.",
+      "promptDe": "Ich schreibe meinen Namen mit dem Kugelschreiber.",
+      "promptEn": "I write my name with the pen.",
       "distractors": [
-        "사무실",
-        "수영장"
+        "기숙사",
+        "사무실"
       ],
       "vocabKo": "볼펜",
       "sourceVocabId": "vocab_a1_0593"
@@ -72,8 +72,8 @@
       "promptDe": "Ich schreibe den Namen ins Notizbuch.",
       "promptEn": "I write my name in the notebook.",
       "distractors": [
-        "대사관",
-        "여행사"
+        "아파트",
+        "수영장"
       ],
       "vocabKo": "수첩",
       "sourceVocabId": "vocab_a1_0594"
@@ -81,9 +81,9 @@
     {
       "id": "satz_a1_0510",
       "level": "a1",
-      "targetKo": "레나 씨, 이 카메라 정말 좋아요! 여기서 찍어요.",
-      "promptDe": "Lena, diese Kamera ist wirklich gut! Lass uns hier fotografieren.",
-      "promptEn": "Lena, this camera is really good! Let's take a photo here.",
+      "targetKo": "레나 씨, 이 카메라로 찍어요!",
+      "promptDe": "Lena, lass uns mit dieser Kamera fotografieren!",
+      "promptEn": "Lena, let's take photos with this camera!",
       "distractors": [
         "운동장",
         "노래방"
@@ -94,12 +94,12 @@
     {
       "id": "satz_a1_0511",
       "level": "a1",
-      "targetKo": "와, 이 티셔츠 정말 예뻐요.",
-      "promptDe": "Wow, dieses T-Shirt ist wirklich schön.",
-      "promptEn": "Wow, this T-shirt is really pretty.",
+      "targetKo": "저는 이 티셔츠를 입었어요.",
+      "promptDe": "Ich habe dieses T-Shirt getragen.",
+      "promptEn": "I wore this T-shirt.",
       "distractors": [
-        "건너편",
-        "층"
+        "대사관",
+        "건물"
       ],
       "vocabKo": "티셔츠",
       "sourceVocabId": "vocab_a1_0596"
@@ -107,11 +107,11 @@
     {
       "id": "satz_a1_0512",
       "level": "a1",
-      "targetKo": "이 바지가 좀 커요.",
-      "promptDe": "Diese Hose ist etwas zu groß.",
-      "promptEn": "These pants are a bit big.",
+      "targetKo": "이 바지를 입고 싶어요.",
+      "promptDe": "Ich möchte diese Hose anziehen.",
+      "promptEn": "I want to wear these pants.",
       "distractors": [
-        "건물",
+        "여행사",
         "근처"
       ],
       "vocabKo": "바지",
@@ -124,8 +124,8 @@
       "promptDe": "Christian, sollen wir Sportschuhe anziehen und zusammen gehen?",
       "promptEn": "Christian, shall we put on sneakers and go together?",
       "distractors": [
-        "다음",
-        "나중"
+        "건너편",
+        "층"
       ],
       "vocabKo": "운동화",
       "sourceVocabId": "vocab_a1_0598"
@@ -133,12 +133,12 @@
     {
       "id": "satz_a1_0514",
       "level": "a1",
-      "targetKo": "이 잔이 정말 예뻐요.",
-      "promptDe": "Dieses Glas ist wirklich schön.",
-      "promptEn": "This glass is really pretty.",
+      "targetKo": "이 잔으로 물을 마셔요.",
+      "promptDe": "Ich trinke Wasser aus diesem Glas.",
+      "promptEn": "I drink water from this cup.",
       "distractors": [
-        "동안",
-        "오전"
+        "다음",
+        "나중"
       ],
       "vocabKo": "잔",
       "sourceVocabId": "vocab_a1_0599"
@@ -147,8 +147,8 @@
       "id": "satz_a1_0515",
       "level": "a1",
       "targetKo": "수진 씨, 콘서트 표가 있어요!",
-      "promptDe": "Sujin, es gibt eine Konzertkarte!",
-      "promptEn": "Sujin, there's a concert ticket!",
+      "promptDe": "Sujin, ich habe eine Konzertkarte!",
+      "promptEn": "Sujin, I have a concert ticket!",
       "distractors": [
         "오후",
         "이번"
@@ -163,8 +163,8 @@
       "promptDe": "Mein Vater liest die Zeitung.",
       "promptEn": "My father reads the newspaper.",
       "distractors": [
-        "지난주",
-        "지난해"
+        "지난달",
+        "지난주"
       ],
       "vocabKo": "신문",
       "sourceVocabId": "vocab_a1_0601"
@@ -176,8 +176,8 @@
       "promptDe": "Sujin, ist das mein Studentenausweis, oder?",
       "promptEn": "Sujin, is this my student ID, right?",
       "distractors": [
-        "지난달",
-        "하루"
+        "지난해",
+        "일주일"
       ],
       "vocabKo": "학생증",
       "sourceVocabId": "vocab_a1_0602"
@@ -189,7 +189,7 @@
       "promptDe": "Bitte geben Sie mir zuerst den Reisepass.",
       "promptEn": "Please give me the passport first.",
       "distractors": [
-        "일주일",
+        "하루",
         "후"
       ],
       "vocabKo": "여권",
@@ -211,9 +211,9 @@
     {
       "id": "satz_a1_0520",
       "level": "a1",
-      "targetKo": "사무실이 어디예요?",
-      "promptDe": "Wo ist das Büro?",
-      "promptEn": "Where is the office?",
+      "targetKo": "저는 사무실에서 일해요.",
+      "promptDe": "Ich arbeite im Büro.",
+      "promptEn": "I work at the office.",
       "distractors": [
         "표",
         "신문"
@@ -224,9 +224,9 @@
     {
       "id": "satz_a1_0521",
       "level": "a1",
-      "targetKo": "이 아파트가 정말 커요.",
-      "promptDe": "Diese Wohnung ist wirklich groß.",
-      "promptEn": "This apartment is really big.",
+      "targetKo": "이 아파트에 몇 명이 살아요?",
+      "promptDe": "Wie viele Leute wohnen in dieser Wohnung?",
+      "promptEn": "How many people live in this apartment?",
       "distractors": [
         "학생증",
         "여권"
@@ -276,12 +276,12 @@
     {
       "id": "satz_a1_0525",
       "level": "a1",
-      "targetKo": "대사관이 왜 여기 있어요?",
-      "promptDe": "Warum ist die Botschaft hier?",
-      "promptEn": "Why is the embassy here?",
+      "targetKo": "독일 대사관이 어디에 있어요?",
+      "promptDe": "Wo ist die deutsche Botschaft?",
+      "promptEn": "Where is the German embassy?",
       "distractors": [
         "비",
-        "아기"
+        "불"
       ],
       "vocabKo": "대사관",
       "sourceVocabId": "vocab_a1_0610"
@@ -293,7 +293,7 @@
       "promptDe": "Ich rufe das Reisebüro an. Dann gehen wir zusammen.",
       "promptEn": "I'll call the travel agency. Then let's go together.",
       "distractors": [
-        "불",
+        "아기",
         "아이"
       ],
       "vocabKo": "여행사",
@@ -302,9 +302,9 @@
     {
       "id": "satz_a1_0527",
       "level": "a1",
-      "targetKo": "이 건물이 정말 높아요.",
-      "promptDe": "Dieses Gebäude ist wirklich hoch.",
-      "promptEn": "This building is really tall.",
+      "targetKo": "이 건물은 몇 층이에요?",
+      "promptDe": "Wie viele Stockwerke hat dieses Gebäude?",
+      "promptEn": "How many floors does this building have?",
       "distractors": [
         "남자",
         "여자"
@@ -510,9 +510,9 @@
     {
       "id": "satz_a1_0543",
       "level": "a1",
-      "targetKo": "저는 개가 있어요.",
-      "promptDe": "Ich habe einen Hund.",
-      "promptEn": "I have a dog.",
+      "targetKo": "개가 몇 마리 있어요?",
+      "promptDe": "Wie viele Hunde gibt es?",
+      "promptEn": "How many dogs are there?",
       "distractors": [
         "대사관",
         "여행사"
@@ -536,9 +536,9 @@
     {
       "id": "satz_a1_0545",
       "level": "a1",
-      "targetKo": "이 꽃이 정말 예뻐요.",
-      "promptDe": "Diese Blume ist wirklich schön.",
-      "promptEn": "This flower is really pretty.",
+      "targetKo": "꽃에 물을 줘요.",
+      "promptDe": "Ich gieße die Blumen.",
+      "promptEn": "I water the flowers.",
       "distractors": [
         "건너편",
         "층"
@@ -549,12 +549,12 @@
     {
       "id": "satz_a1_0546",
       "level": "a1",
-      "targetKo": "나무가 정말 커요.",
-      "promptDe": "Der Baum ist wirklich groß.",
-      "promptEn": "The tree is really big.",
+      "targetKo": "나무 밑에 앉아요.",
+      "promptDe": "Ich setze mich unter den Baum.",
+      "promptEn": "I sit under the tree.",
       "distractors": [
-        "다음",
-        "나중"
+        "동안",
+        "오전"
       ],
       "vocabKo": "나무",
       "sourceVocabId": "vocab_a1_0631"
@@ -562,12 +562,12 @@
     {
       "id": "satz_a1_0547",
       "level": "a1",
-      "targetKo": "저는 주말에 산에 가요.",
-      "promptDe": "Ich gehe am Wochenende in die Berge.",
-      "promptEn": "I go to the mountains on weekends.",
+      "targetKo": "저는 주말에 산에 올라가요.",
+      "promptDe": "Ich steige am Wochenende auf den Berg.",
+      "promptEn": "I climb the mountain on weekends.",
       "distractors": [
-        "동안",
-        "오전"
+        "다음",
+        "나중"
       ],
       "vocabKo": "산",
       "sourceVocabId": "vocab_a1_0632"
@@ -575,12 +575,12 @@
     {
       "id": "satz_a1_0548",
       "level": "a1",
-      "targetKo": "바다가 정말 예뻐요.",
-      "promptDe": "Das Meer ist wirklich schön.",
-      "promptEn": "The sea is really pretty.",
+      "targetKo": "저는 바다에서 수영해요.",
+      "promptDe": "Ich schwimme im Meer.",
+      "promptEn": "I swim in the sea.",
       "distractors": [
-        "오후",
-        "이번"
+        "지난달",
+        "지난주"
       ],
       "vocabKo": "바다",
       "sourceVocabId": "vocab_a1_0633"
@@ -592,8 +592,8 @@
       "promptDe": "Heute regnet es.",
       "promptEn": "It's raining today.",
       "distractors": [
-        "지난달",
-        "지난주"
+        "오후",
+        "이번"
       ],
       "vocabKo": "비",
       "sourceVocabId": "vocab_a1_0634"
@@ -618,8 +618,8 @@
       "promptDe": "Das Baby schläft.",
       "promptEn": "The baby is sleeping.",
       "distractors": [
-        "기분",
-        "마음"
+        "하루",
+        "후"
       ],
       "vocabKo": "아기",
       "sourceVocabId": "vocab_a1_0636"
@@ -631,8 +631,8 @@
       "promptDe": "Dieses Kind ist ein Schüler.",
       "promptEn": "That child is a student.",
       "distractors": [
-        "하루",
-        "후"
+        "기분",
+        "마음"
       ],
       "vocabKo": "아이",
       "sourceVocabId": "vocab_a1_0637"
@@ -657,8 +657,8 @@
       "promptDe": "Diese Frau ist meine Freundin.",
       "promptEn": "That woman is my friend.",
       "distractors": [
-        "감사",
-        "미안"
+        "미안",
+        "친절"
       ],
       "vocabKo": "여자",
       "sourceVocabId": "vocab_a1_0639"
@@ -679,9 +679,9 @@
     {
       "id": "satz_a1_0556",
       "level": "a1",
-      "targetKo": "제 마음이 좋아요.",
-      "promptDe": "Mein Herz fühlt sich gut an.",
-      "promptEn": "My heart feels good.",
+      "targetKo": "오늘 마음이 아파요.",
+      "promptDe": "Mein Herz tut heute weh.",
+      "promptEn": "My heart aches today.",
       "distractors": [
         "꽃",
         "나무"

@@ -59,6 +59,18 @@ VOCAB_COLUMNS = R.VOCAB_COLUMNS
 # rows.
 VERB_HEADWORDS = {"켜다", "끄다", "웃다"}
 
+# R8 (Fable coordinator review of PR #342, 2026-09-15): 4 rows keep a
+# structurally "open" adjective/existential slot that a rewrite couldn't
+# fully narrow (수첩/건너편/대사관/기분 -- see the review packet's
+# "선정 요약 및 방법론" section). For these, a concrete-object noun
+# distractor (drawn from this batch's own 60 headwords) risks forming a
+# SECOND VALID sentence (e.g. "이 사무실이 정말 예뻐요" reads fine). Their
+# noun-type distractors must come only from this hand-verified
+# per-predicate-safe abstract-noun allowlist instead of an arbitrary
+# concrete-object headword.
+OPEN_SLOT_HEADWORDS = {"수첩", "건너편", "대사관", "기분"}
+OPEN_SLOT_ABSTRACT_ALLOWLIST = {"미안", "실례", "피곤"}
+
 ADV_WORDS = {
     "빨리", "천천히", "가끔", "항상", "다시", "아주", "바로", "주로",
     "이따가", "꼭", "좀", "함께", "참",
@@ -295,6 +307,10 @@ class TestBatch27VocabRows(unittest.TestCase):
             "써요": "쓰다", "살아요": "살다", "있어요": "있다", "실례합니다": "실례",
             "예뻐요": "예쁘다", "자요": "자다", "여기서": "여기", "갈까요": "가다",
             "해요": "하다", "주세요": "주다",
+            "잘까요": "자다", "마셔요": "마시다", "줘요": "주다", "올라가요": "올라가다",
+            "아파요": "아프다", "일해요": "일하다", "입었어요": "입다", "입고": "입다",
+            "수영해요": "수영", "뭐가": "뭐", "명이": "명", "어디에": "어디",
+            "찍어요": "찍다", "잔으로": "잔", "꽃에": "꽃",
         }
         offenders = {}
         for row in self.rows:
@@ -429,6 +445,45 @@ class TestBatch27Cloze(unittest.TestCase):
                 len(noun_like), 2,
                 f"{item['id']}: fewer than 2/3 distractors are noun-like: {item['distractors']}",
             )
+
+    def test_no_concrete_object_noun_in_an_open_adjective_or_existential_slot(self):
+        """R8 (Fable, 2026-09-15): 수첩/건너편/대사관/기분 keep a bare open
+        adjective/existential slot (e.g. "이 ___이 정말 예뻐요.",
+        "___이 어디에 있어요?") that this batch's OWN concrete-object
+        headwords (가방/사무실/수영장/...) would slot into just as
+        validly as the real answer -- e.g. "이 사무실이 정말 예뻐요" is a
+        perfectly natural sentence, so a cross-pack concrete noun there is
+        a second valid answer, not nonsense. For these 4 rows, every
+        noun-type distractor must come from the hand-verified
+        per-predicate-safe abstract allowlist instead."""
+        vocab_by_source = self.rows_by_id
+        for item in self.items:
+            headword = vocab_by_source[item["sourceVocabId"]]["korean"]
+            if headword not in OPEN_SLOT_HEADWORDS:
+                continue
+            noun_like = [d for d in item["distractors"] if _is_noun_like(d)]
+            for d in noun_like:
+                self.assertIn(
+                    d, OPEN_SLOT_ABSTRACT_ALLOWLIST,
+                    f"{item['id']} ({headword}): open-slot distractor {d!r} is a concrete-object "
+                    f"noun, not from the verified-safe abstract allowlist {OPEN_SLOT_ABSTRACT_ALLOWLIST}",
+                )
+
+    def test_verb_row_distractors_exclude_the_natural_collocate_boda(self):
+        """R8 (Fable, 2026-09-15): 보다 (dictionary-form "watch/look at") is
+        a too-natural collocate of both 텔레비전을 ___ (켜다) and
+        불을 ___ (끄다/보다 = "look at the light/fire") -- even as an
+        unconjugated predicate-slot distractor it reads as thematically
+        plausible in a way a learner could mistake for a hint. Excluded
+        from all 3 verb rows' distractor pools."""
+        vocab_by_source = self.rows_by_id
+        for item in self.items:
+            headword = vocab_by_source[item["sourceVocabId"]]["korean"]
+            if headword in VERB_HEADWORDS:
+                self.assertNotIn(
+                    "보다", item["distractors"],
+                    f"{item['id']} ({headword}): 보다 is a too-natural collocate distractor",
+                )
 
 
 class TestBatch27Satz(unittest.TestCase):

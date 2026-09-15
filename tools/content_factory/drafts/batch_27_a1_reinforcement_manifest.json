@@ -9,7 +9,8 @@
     "requiresJinReview": true,
     "approval": {},
     "modelLanguageQa": "PENDING_FABLE_REVIEW",
-    "humanLanguageQaClaim": false
+    "humanLanguageQaClaim": false,
+    "r8Revision": "2026-09-15 Fable coordinator review of PR #342: 21 rows revised. 15 rows rewritten off the generic '이 X이 정말 예뻐요/커요' open-adjective/existential template onto selectionally-narrow verbs (입다/마시다/올라가다/수영하다/앉다/일하다/살다/찍다/몇 counters/물을 주다) so a cross-pack concrete-noun distractor can no longer form a second valid sentence; 4 rows (수첩/건너편/대사관/기분) kept structurally open but switched to a curated open_strict abstract-noun distractor pool verified per-predicate; 마음/대사관/표(DE-EN)/끄다 naturalness fixes; verb-row distractors now exclude 보다 (too-natural a collocate of 텔레비전을/불을 ___). Headword list, packs, and vocab/cloze/satz counts unchanged."
   },
   "artifacts": [
     {
@@ -114,7 +115,6 @@
     "vocab_a1_0600": "maya",
     "vocab_a1_0602": "christian",
     "vocab_a1_0603": "andrea",
-    "vocab_a1_0610": "hyuna",
     "vocab_a1_0611": "minho",
     "vocab_a1_0615": "dongsun",
     "vocab_a1_0620": "hyuna",
