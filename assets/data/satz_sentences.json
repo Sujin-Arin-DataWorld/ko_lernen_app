@@ -1025,8 +1025,8 @@
       "id": "satz_a1_0041",
       "level": "a1",
       "targetKo": "앞으로 잘 부탁드려요.",
-      "promptDe": "Schön, dass wir uns kennen. Ich freu mich.",
-      "promptEn": "Great to meet you. Hope we get along.",
+      "promptDe": "Ich hoffe, wir kommen ab jetzt gut miteinander aus.",
+      "promptEn": "I hope we get along well from now on.",
       "distractors": [
         "한국어로",
         "이름은"
@@ -10688,7 +10688,7 @@
     {
       "id": "satz_a1_0164",
       "level": "a1",
-      "targetKo": "소포를 부치다 전에 주소를 확인해요.",
+      "targetKo": "소포를 부치기 전에 주소를 확인해요.",
       "promptDe": "Bevor ich das Paket aufgebe, prüfe ich die Adresse.",
       "promptEn": "Before I mail the parcel, I check the address.",
       "distractors": [
@@ -10772,7 +10772,7 @@
     {
       "id": "satz_a1_0171",
       "level": "a1",
-      "targetKo": "세 번 창구에서 기다리세요.",
+      "targetKo": "삼 번 창구에서 기다리세요.",
       "promptDe": "Bitte warten Sie am Schalter drei.",
       "promptEn": "Please wait at counter number three.",
       "distractors": [
@@ -10988,9 +10988,9 @@
     {
       "id": "satz_a1_0189",
       "level": "a1",
-      "targetKo": "내일 오후에 시간 맞추다 문자를 보냈어요.",
-      "promptDe": "Morgen Nachmittag habe ich geschrieben, um die Zeit abzustimmen.",
-      "promptEn": "I texted tomorrow afternoon to match the time.",
+      "targetKo": "내일 친구와 시간을 맞춰요.",
+      "promptDe": "Morgen stimme ich die Zeit mit einem Freund ab.",
+      "promptEn": "Tomorrow I coordinate the time with a friend.",
       "distractors": [
         "늦잠",
         "약속 시간"
@@ -11048,9 +11048,9 @@
     {
       "id": "satz_a1_0194",
       "level": "a1",
-      "targetKo": "한강에서 같이 걷다 제안했어요.",
-      "promptDe": "Ich habe vorgeschlagen, am Hangang zusammen zu gehen.",
-      "promptEn": "I suggested that we walk together at the Hangang.",
+      "targetKo": "저녁에 한강에서 같이 걸어요.",
+      "promptDe": "Abends gehen wir zusammen am Hangang spazieren.",
+      "promptEn": "In the evening we walk together along the Hangang.",
       "distractors": [
         "늦잠",
         "약속 시간"
@@ -11648,9 +11648,9 @@
     {
       "id": "satz_a1_0244",
       "level": "a1",
-      "targetKo": "늦게 와서 죄송하다 말하고 앉았어요.",
-      "promptDe": "Ich sagte, es tue mir leid, dass ich zu spät komme, und setzte mich.",
-      "promptEn": "I said I was sorry for being late and sat down.",
+      "targetKo": "늦게 와서 정말 죄송해요.",
+      "promptDe": "Es tut mir wirklich leid, dass ich zu spät gekommen bin.",
+      "promptEn": "I'm really sorry that I came late.",
       "distractors": [
         "감사하다",
         "실례하다"
@@ -11660,9 +11660,9 @@
     {
       "id": "satz_a1_0245",
       "level": "a1",
-      "targetKo": "도와주셔서 감사하다 인사를 했어요.",
-      "promptDe": "Ich habe mich bedankt, weil Sie geholfen haben.",
-      "promptEn": "I said I was grateful that you helped.",
+      "targetKo": "안드레아 씨, 정말 감사해요.",
+      "promptDe": "Andrea, vielen Dank!",
+      "promptEn": "Andrea, thank you so much!",
       "distractors": [
         "죄송하다",
         "실례하다"
@@ -11672,9 +11672,9 @@
     {
       "id": "satz_a1_0246",
       "level": "a1",
-      "targetKo": "잠깐 실례하다 하고 지나갔어요.",
-      "promptDe": "Ich sagte Entschuldigung und ging vorbei.",
-      "promptEn": "I said excuse me and passed by.",
+      "targetKo": "잠깐 실례해요, 화장실이 어디예요?",
+      "promptDe": "Entschuldigung, wo ist die Toilette?",
+      "promptEn": "Excuse me, where's the bathroom?",
       "distractors": [
         "죄송하다",
         "감사하다"
@@ -11696,9 +11696,9 @@
     {
       "id": "satz_a1_0248",
       "level": "a1",
-      "targetKo": "창문을 닫아 달라고 부탁하다 전에 먼저 인사해요.",
-      "promptDe": "Bevor ich bitte, das Fenster zu schließen, grüße ich zuerst.",
-      "promptEn": "Before I ask them to close the window, I greet them first.",
+      "targetKo": "친구에게 부탁하기 전에 먼저 인사해요.",
+      "promptDe": "Bevor ich einen Freund um einen Gefallen bitte, grüße ich zuerst.",
+      "promptEn": "Before I ask a friend a favor, I greet them first.",
       "distractors": [
         "죄송하다",
         "감사하다"
@@ -11720,9 +11720,9 @@
     {
       "id": "satz_a1_0250",
       "level": "a1",
-      "targetKo": "도와줘서 고맙다는 말에 제가 더요.",
-      "promptDe": "Auf das Danke sage ich, ich habe zu danken.",
-      "promptEn": "When someone thanks me, I say I should thank you.",
+      "targetKo": "정말 고마워요! 제가 더요!",
+      "promptDe": "Danke schön! Ich habe zu danken.",
+      "promptEn": "Thank you! I should thank you.",
       "distractors": [
         "죄송하다",
         "감사하다"
@@ -11744,9 +11744,9 @@
     {
       "id": "satz_a1_0252",
       "level": "a1",
-      "targetKo": "못 들어서 다시 말하다 부탁했어요.",
-      "promptDe": "Ich habe gebeten, es noch einmal zu sagen, weil ich es nicht gehört habe.",
-      "promptEn": "I asked them to say it again because I did not hear it.",
+      "targetKo": "잘 못 들었어요. 다시 말하세요.",
+      "promptDe": "Ich habe es nicht gut verstanden. Sagen Sie es bitte noch einmal.",
+      "promptEn": "I didn't catch that. Please say it again.",
       "distractors": [
         "죄송하다",
         "감사하다"
@@ -29927,9 +29927,9 @@
     {
       "id": "satz_a1_0386",
       "level": "a1",
-      "targetKo": "친구가 한 명 있어요.",
-      "promptDe": "Ich habe einen Freund.",
-      "promptEn": "I have one friend.",
+      "targetKo": "오늘 친구를 한 명 만났어요.",
+      "promptDe": "Heute habe ich einen Freund getroffen.",
+      "promptEn": "I met one friend today.",
       "distractors": [
         "나",
         "천"
@@ -29941,9 +29941,9 @@
     {
       "id": "satz_a1_0387",
       "level": "a1",
-      "targetKo": "친구가 두 명 있어요.",
-      "promptDe": "Ich habe zwei Freunde.",
-      "promptEn": "I have two friends.",
+      "targetKo": "지난주에 친구를 두 명 만났어요.",
+      "promptDe": "Letzte Woche habe ich zwei Freunde getroffen.",
+      "promptEn": "I met two friends last week.",
       "distractors": [
         "원",
         "결제하다"
@@ -30067,9 +30067,9 @@
     {
       "id": "satz_a1_0396",
       "level": "a1",
-      "targetKo": "와, 정말 좋아요!",
-      "promptDe": "Wow, das ist wirklich toll!",
-      "promptEn": "Wow, that's really great!",
+      "targetKo": "와, 이 가방 정말 예뻐요!",
+      "promptDe": "Wow, diese Tasche ist wirklich hübsch!",
+      "promptEn": "Wow, this bag is really pretty!",
       "distractors": [
         "초록색",
         "한복"
@@ -30571,9 +30571,9 @@
     {
       "id": "satz_a1_0432",
       "level": "a1",
-      "targetKo": "우리 학교에는 학생이 사십 명 있어요.",
-      "promptDe": "An unserer Schule gibt es vierzig Schüler.",
-      "promptEn": "There are forty students at our school.",
+      "targetKo": "오늘 우리 학교에 학생이 사십 명 왔어요.",
+      "promptDe": "Heute sind vierzig Schüler in unsere Schule gekommen.",
+      "promptEn": "Forty students came to our school today.",
       "distractors": [
         "귀엽다",
         "시"
@@ -30585,9 +30585,9 @@
     {
       "id": "satz_a1_0433",
       "level": "a1",
-      "targetKo": "이 학교에는 선생님이 오십 명 있어요.",
-      "promptDe": "An dieser Schule gibt es fünfzig Lehrer.",
-      "promptEn": "This school has fifty teachers.",
+      "targetKo": "이 학교에서 선생님이 오십 명 일하세요.",
+      "promptDe": "An dieser Schule arbeiten fünfzig Lehrer.",
+      "promptEn": "Fifty teachers work at this school.",
       "distractors": [
         "여기",
         "죄송합니다"

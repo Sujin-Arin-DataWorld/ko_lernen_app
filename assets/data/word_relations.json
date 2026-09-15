@@ -3119,7 +3119,7 @@
       "sourceKo": "결제하다",
       "sourceVocabId": "vocab_a1_0412",
       "sourceDe": "bezahlen",
-      "sourceEn": "pay",
+      "sourceEn": "to pay",
       "level": "A1",
       "synonyms": [
         {
@@ -3134,7 +3134,7 @@
         {
           "ko": "결제하다",
           "de": "bezahlen",
-          "en": "pay",
+          "en": "to pay",
           "exampleKo": "카드로 결제할게요.",
           "exampleDe": "Ich bezahle mit Karte.",
           "exampleEn": "I'll pay by card."
@@ -3173,7 +3173,7 @@
       "sourceKo": "주소를 확인하다",
       "sourceVocabId": "vocab_a1_0414",
       "sourceDe": "die Adresse prüfen",
-      "sourceEn": "check the address",
+      "sourceEn": "to check the address",
       "level": "A1",
       "synonyms": [
         {
@@ -3188,7 +3188,7 @@
         {
           "ko": "주소를 확인하다",
           "de": "die Adresse prüfen",
-          "en": "check the address",
+          "en": "to check the address",
           "exampleKo": "주문 전에 주소를 확인해요.",
           "exampleDe": "Vor der Bestellung prüfe ich die Adresse.",
           "exampleEn": "I check the address before ordering."

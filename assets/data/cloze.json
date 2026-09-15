@@ -2464,8 +2464,8 @@
       "sentenceKo": "앞으로 ＿＿＿.",
       "answer": "잘 부탁드려요",
       "fullKo": "앞으로 잘 부탁드려요.",
-      "de": "Schön, dass wir uns kennen. Ich freu mich.",
-      "en": "Great to meet you. Hope we get along.",
+      "de": "Ich hoffe, wir kommen ab jetzt gut miteinander aus.",
+      "en": "I hope we get along well from now on.",
       "distractors": [
         "안녕하세요",
         "안녕히 계세요",
@@ -14591,8 +14591,8 @@
       "id": "cloze_a1_0200",
       "level": "a1",
       "sentenceKo": "소포를 ＿＿＿ 전에 주소를 확인해요.",
-      "answer": "부치다",
-      "fullKo": "소포를 부치다 전에 주소를 확인해요.",
+      "answer": "부치기",
+      "fullKo": "소포를 부치기 전에 주소를 확인해요.",
       "de": "Bevor ich das Paket aufgebe, prüfe ich die Adresse.",
       "en": "Before I mail the parcel, I check the address.",
       "distractors": [
@@ -14695,9 +14695,9 @@
     {
       "id": "cloze_a1_0207",
       "level": "a1",
-      "sentenceKo": "세 번 ＿＿＿에서 기다리세요.",
+      "sentenceKo": "삼 번 ＿＿＿에서 기다리세요.",
       "answer": "창구",
-      "fullKo": "세 번 창구에서 기다리세요.",
+      "fullKo": "삼 번 창구에서 기다리세요.",
       "de": "Bitte warten Sie am Schalter drei.",
       "en": "Please wait at counter number three.",
       "distractors": [
@@ -14965,11 +14965,11 @@
     {
       "id": "cloze_a1_0225",
       "level": "a1",
-      "sentenceKo": "내일 오후에 ＿＿＿ 문자를 보냈어요.",
-      "answer": "시간 맞추다",
-      "fullKo": "내일 오후에 시간 맞추다 문자를 보냈어요.",
-      "de": "Morgen Nachmittag habe ich geschrieben, um die Zeit abzustimmen.",
-      "en": "I texted tomorrow afternoon to match the time.",
+      "sentenceKo": "내일 친구와 시간을 ＿＿＿.",
+      "answer": "맞춰요",
+      "fullKo": "내일 친구와 시간을 맞춰요.",
+      "de": "Morgen stimme ich die Zeit mit einem Freund ab.",
+      "en": "Tomorrow I coordinate the time with a friend.",
       "distractors": [
         "늦잠",
         "약속 시간",
@@ -15040,11 +15040,11 @@
     {
       "id": "cloze_a1_0230",
       "level": "a1",
-      "sentenceKo": "한강에서 ＿＿＿ 제안했어요.",
-      "answer": "같이 걷다",
-      "fullKo": "한강에서 같이 걷다 제안했어요.",
-      "de": "Ich habe vorgeschlagen, am Hangang zusammen zu gehen.",
-      "en": "I suggested that we walk together at the Hangang.",
+      "sentenceKo": "저녁에 한강에서 ＿＿＿.",
+      "answer": "같이 걸어요",
+      "fullKo": "저녁에 한강에서 같이 걸어요.",
+      "de": "Abends gehen wir zusammen am Hangang spazieren.",
+      "en": "In the evening we walk together along the Hangang.",
       "distractors": [
         "늦잠",
         "약속 시간",
@@ -15790,45 +15790,45 @@
     {
       "id": "cloze_a1_0280",
       "level": "a1",
-      "sentenceKo": "늦게 와서 ＿＿＿ 말하고 앉았어요.",
-      "answer": "죄송하다",
-      "fullKo": "늦게 와서 죄송하다 말하고 앉았어요.",
-      "de": "Ich sagte, es tue mir leid, dass ich zu spät komme, und setzte mich.",
-      "en": "I said I was sorry for being late and sat down.",
+      "sentenceKo": "늦게 와서 정말 ＿＿＿.",
+      "answer": "죄송해요",
+      "fullKo": "늦게 와서 정말 죄송해요.",
+      "de": "Es tut mir wirklich leid, dass ich zu spät gekommen bin.",
+      "en": "I'm really sorry that I came late.",
       "distractors": [
-        "감사하다",
-        "실례하다",
-        "잘못"
+        "우산",
+        "가방",
+        "단어"
       ],
       "topic": "Entschuldigung"
     },
     {
       "id": "cloze_a1_0281",
       "level": "a1",
-      "sentenceKo": "도와주셔서 ＿＿＿ 인사를 했어요.",
-      "answer": "감사하다",
-      "fullKo": "도와주셔서 감사하다 인사를 했어요.",
-      "de": "Ich habe mich bedankt, weil Sie geholfen haben.",
-      "en": "I said I was grateful that you helped.",
+      "sentenceKo": "안드레아 씨, 정말 ＿＿＿.",
+      "answer": "감사해요",
+      "fullKo": "안드레아 씨, 정말 감사해요.",
+      "de": "Andrea, vielen Dank!",
+      "en": "Andrea, thank you so much!",
       "distractors": [
-        "죄송하다",
-        "실례하다",
-        "잘못"
+        "신발",
+        "안경",
+        "모자"
       ],
       "topic": "Entschuldigung"
     },
     {
       "id": "cloze_a1_0282",
       "level": "a1",
-      "sentenceKo": "잠깐 ＿＿＿ 하고 지나갔어요.",
-      "answer": "실례하다",
-      "fullKo": "잠깐 실례하다 하고 지나갔어요.",
-      "de": "Ich sagte Entschuldigung und ging vorbei.",
-      "en": "I said excuse me and passed by.",
+      "sentenceKo": "잠깐 ＿＿＿, 화장실이 어디예요?",
+      "answer": "실례해요",
+      "fullKo": "잠깐 실례해요, 화장실이 어디예요?",
+      "de": "Entschuldigung, wo ist die Toilette?",
+      "en": "Excuse me, where's the bathroom?",
       "distractors": [
-        "죄송하다",
-        "감사하다",
-        "잘못"
+        "편지",
+        "단어",
+        "가게"
       ],
       "topic": "Entschuldigung"
     },
@@ -15850,15 +15850,15 @@
     {
       "id": "cloze_a1_0284",
       "level": "a1",
-      "sentenceKo": "창문을 닫아 달라고 ＿＿＿ 전에 먼저 인사해요.",
-      "answer": "부탁하다",
-      "fullKo": "창문을 닫아 달라고 부탁하다 전에 먼저 인사해요.",
-      "de": "Bevor ich bitte, das Fenster zu schließen, grüße ich zuerst.",
-      "en": "Before I ask them to close the window, I greet them first.",
+      "sentenceKo": "친구에게 ＿＿＿ 전에 먼저 인사해요.",
+      "answer": "부탁하기",
+      "fullKo": "친구에게 부탁하기 전에 먼저 인사해요.",
+      "de": "Bevor ich einen Freund um einen Gefallen bitte, grüße ich zuerst.",
+      "en": "Before I ask a friend a favor, I greet them first.",
       "distractors": [
         "죄송하다",
         "감사하다",
-        "실례하다"
+        "잘못"
       ],
       "topic": "Entschuldigung"
     },
@@ -15880,11 +15880,11 @@
     {
       "id": "cloze_a1_0286",
       "level": "a1",
-      "sentenceKo": "도와줘서 고맙다는 말에 ＿＿＿.",
+      "sentenceKo": "정말 고마워요! ＿＿＿!",
       "answer": "제가 더요",
-      "fullKo": "도와줘서 고맙다는 말에 제가 더요.",
-      "de": "Auf das Danke sage ich, ich habe zu danken.",
-      "en": "When someone thanks me, I say I should thank you.",
+      "fullKo": "정말 고마워요! 제가 더요!",
+      "de": "Danke schön! Ich habe zu danken.",
+      "en": "Thank you! I should thank you.",
       "distractors": [
         "죄송하다",
         "감사하다",
@@ -15910,15 +15910,15 @@
     {
       "id": "cloze_a1_0288",
       "level": "a1",
-      "sentenceKo": "못 들어서 ＿＿＿ 부탁했어요.",
-      "answer": "다시 말하다",
-      "fullKo": "못 들어서 다시 말하다 부탁했어요.",
-      "de": "Ich habe gebeten, es noch einmal zu sagen, weil ich es nicht gehört habe.",
-      "en": "I asked them to say it again because I did not hear it.",
+      "sentenceKo": "잘 못 들었어요. ＿＿＿.",
+      "answer": "다시 말하세요",
+      "fullKo": "잘 못 들었어요. 다시 말하세요.",
+      "de": "Ich habe es nicht gut verstanden. Sagen Sie es bitte noch einmal.",
+      "en": "I didn't catch that. Please say it again.",
       "distractors": [
-        "죄송하다",
-        "감사하다",
-        "실례하다"
+        "실수",
+        "잘못",
+        "단어"
       ],
       "topic": "Entschuldigung"
     },
@@ -29413,11 +29413,11 @@
     {
       "id": "cloze_a1_0405",
       "level": "a1",
-      "sentenceKo": "친구가 ＿＿＿ 있어요.",
+      "sentenceKo": "오늘 친구를 ＿＿＿ 만났어요.",
       "answer": "한 명",
-      "fullKo": "친구가 한 명 있어요.",
-      "de": "Ich habe einen Freund.",
-      "en": "I have one friend.",
+      "fullKo": "오늘 친구를 한 명 만났어요.",
+      "de": "Heute habe ich einen Freund getroffen.",
+      "en": "I met one friend today.",
       "distractors": [
         "다섯 시",
         "일곱 살",
@@ -29430,11 +29430,11 @@
     {
       "id": "cloze_a1_0406",
       "level": "a1",
-      "sentenceKo": "친구가 ＿＿＿ 있어요.",
+      "sentenceKo": "지난주에 친구를 ＿＿＿ 만났어요.",
       "answer": "두 명",
-      "fullKo": "친구가 두 명 있어요.",
-      "de": "Ich habe zwei Freunde.",
-      "en": "I have two friends.",
+      "fullKo": "지난주에 친구를 두 명 만났어요.",
+      "de": "Letzte Woche habe ich zwei Freunde getroffen.",
+      "en": "I met two friends last week.",
       "distractors": [
         "세 시",
         "다섯 살",
@@ -29583,11 +29583,11 @@
     {
       "id": "cloze_a1_0415",
       "level": "a1",
-      "sentenceKo": "와, 정말 ＿＿＿!",
-      "answer": "좋아요",
-      "fullKo": "와, 정말 좋아요!",
-      "de": "Wow, das ist wirklich toll!",
-      "en": "Wow, that's really great!",
+      "sentenceKo": "와, 이 가방 정말 ＿＿＿!",
+      "answer": "예뻐요",
+      "fullKo": "와, 이 가방 정말 예뻐요!",
+      "de": "Wow, diese Tasche ist wirklich hübsch!",
+      "en": "Wow, this bag is really pretty!",
       "distractors": [
         "읽다",
         "타다",
@@ -30195,11 +30195,11 @@
     {
       "id": "cloze_a1_0451",
       "level": "a1",
-      "sentenceKo": "우리 학교에는 학생이 ＿＿＿ 명 있어요.",
+      "sentenceKo": "오늘 우리 학교에 학생이 ＿＿＿ 명 왔어요.",
       "answer": "사십",
-      "fullKo": "우리 학교에는 학생이 사십 명 있어요.",
-      "de": "An unserer Schule gibt es vierzig Schüler.",
-      "en": "There are forty students at our school.",
+      "fullKo": "오늘 우리 학교에 학생이 사십 명 왔어요.",
+      "de": "Heute sind vierzig Schüler in unsere Schule gekommen.",
+      "en": "Forty students came to our school today.",
       "distractors": [
         "오빠",
         "한국",
@@ -30212,11 +30212,11 @@
     {
       "id": "cloze_a1_0452",
       "level": "a1",
-      "sentenceKo": "이 학교에는 선생님이 ＿＿＿ 명 있어요.",
+      "sentenceKo": "이 학교에서 선생님이 ＿＿＿ 명 일하세요.",
       "answer": "오십",
-      "fullKo": "이 학교에는 선생님이 오십 명 있어요.",
-      "de": "An dieser Schule gibt es fünfzig Lehrer.",
-      "en": "This school has fifty teachers.",
+      "fullKo": "이 학교에서 선생님이 오십 명 일하세요.",
+      "de": "An dieser Schule arbeiten fünfzig Lehrer.",
+      "en": "Fifty teachers work at this school.",
       "distractors": [
         "장모님",
         "설거지",
