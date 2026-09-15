@@ -409,20 +409,32 @@ class TestBatch25Cloze(unittest.TestCase):
 
     def test_predicate_slot_waiver_ids_exist_and_are_distractor_fixed(self):
         """PREDICATE_SLOT_WAIVER (Fable R8, 2026-09-15): every waived item
-        must exist in this batch's cloze set."""
+        that belongs to this batch must exist in this batch's cloze set.
+
+        C3-T3 (2026-09-16): PREDICATE_SLOT_WAIVER is a single global,
+        corpus-wide registry (not a per-batch one) -- the C2c sweep and
+        later Batch 26/27 both added entries for their own cloze ids, so
+        this test (and the two below) must only check the subset of keys
+        that are actually this batch's own ids, not assert the whole
+        dict is a subset of this one batch's cloze set."""
         item_ids = {item["id"] for item in self.items}
-        for waived_id in PREDICATE_SLOT_WAIVER:
-            self.assertIn(waived_id, item_ids, f"waived id {waived_id} not in Batch 25 cloze set")
+        batch25_waived = [w for w in PREDICATE_SLOT_WAIVER if w in item_ids]
+        self.assertTrue(batch25_waived, "expected at least one Batch 25 PREDICATE_SLOT_WAIVER entry")
+        for waived_id in batch25_waived:
+            self.assertIn(waived_id, item_ids)
 
     def test_predicate_slot_waiver_distractors_are_ungrammatical_in_slot(self):
-        """For every PREDICATE_SLOT_WAIVER item, each distractor must be a
-        bare dictionary-form verb, a bare grammatical particle, or (for
-        cloze_a1_0407 only) its documented NOUN_EXCEPTIONS word -- never a
-        bare noun/adverb elsewhere, since in a sentence-initial
-        response/predicate slot a bare noun or adverb is itself a valid
-        elliptical Korean answer (e.g. "예, 가끔." = "Yes, sometimes.")."""
+        """For every PREDICATE_SLOT_WAIVER item in this batch, each
+        distractor must be a bare dictionary-form verb, a bare grammatical
+        particle, or (for cloze_a1_0407 only) its documented
+        NOUN_EXCEPTIONS word -- never a bare noun/adverb elsewhere, since
+        in a sentence-initial response/predicate slot a bare noun or
+        adverb is itself a valid elliptical Korean answer (e.g. "예,
+        가끔." = "Yes, sometimes.")."""
         by_id = {item["id"]: item for item in self.items}
         for waived_id in PREDICATE_SLOT_WAIVER:
+            if waived_id not in by_id:
+                continue
             item = by_id[waived_id]
             for d in item["distractors"]:
                 self.assertTrue(
@@ -433,13 +445,15 @@ class TestBatch25Cloze(unittest.TestCase):
                 )
 
     def test_predicate_slot_waiver_composition(self):
-        """Composition per waived item: 2 dictionary-form verbs + 1 bare
-        particle, or 3 dictionary-form verbs -- except cloze_a1_0407, whose
-        one documented noun exception (휴대폰) takes one of the three
-        slots alongside dictionary-form verbs/particles."""
+        """Composition per waived item in this batch: 2 dictionary-form
+        verbs + 1 bare particle, or 3 dictionary-form verbs -- except
+        cloze_a1_0407, whose one documented noun exception (휴대폰) takes
+        one of the three slots alongside dictionary-form verbs/particles."""
         from distractor_rules import DICTIONARY_FORM_VERBS, BARE_PARTICLES, NOUN_EXCEPTIONS
         by_id = {item["id"]: item for item in self.items}
         for waived_id in PREDICATE_SLOT_WAIVER:
+            if waived_id not in by_id:
+                continue
             distractors = by_id[waived_id]["distractors"]
             n_dict = sum(1 for d in distractors if d in DICTIONARY_FORM_VERBS)
             n_particle = sum(1 for d in distractors if d in BARE_PARTICLES)

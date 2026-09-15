@@ -30779,9 +30779,9 @@
       "de": "Wo liegt Indonesien?",
       "en": "Where is Indonesia?",
       "distractors": [
-        "그저께",
-        "모레",
-        "바로"
+        "프랑스",
+        "러시아",
+        "말레이시아"
       ],
       "topic": "Geographie",
       "sourceVocabId": "vocab_a1_0551",
@@ -30864,9 +30864,9 @@
       "de": "Maya, ich kann nicht gut Tennis spielen, aber das ist okay.",
       "en": "Maya, I'm not good at tennis, but that's okay.",
       "distractors": [
-        "모레",
-        "모자",
-        "오다"
+        "축구",
+        "야구",
+        "모자"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0556",
@@ -30983,9 +30983,9 @@
       "de": "Lass uns dieses Wochenende bummeln gehen.",
       "en": "Let's go sightseeing this weekend.",
       "distractors": [
-        "그저께",
-        "모레",
-        "천천히"
+        "등산",
+        "산책",
+        "수영"
       ],
       "topic": "Freizeit",
       "sourceVocabId": "vocab_a1_0563",
@@ -33397,8 +33397,8 @@
       "de": "Mein jüngeres Geschwister ist neun Jahre alt.",
       "en": "My younger sibling is nine years old.",
       "distractors": [
-        "아르바이트는",
-        "안내는",
+        "형은",
+        "삼촌은",
         "시작은"
       ],
       "topic": "Familie",
