@@ -1,0 +1,64 @@
+korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack_id,pack_order,is_review_boss,english,pos_en,example_english,id
+켜다,kyeoda,"einschalten, anmachen",A1,Verb,"아, 텔레비전을 켜요.","Ach, ich mache den Fernseher an.",Alltag,a1_daily_3,10,false,to turn on,Verb,"Oh, I'll turn on the TV.",vocab_a1_0589
+끄다,kkeuda,"ausschalten, ausmachen",A1,Verb,"크리스티안 씨, 지금 잘까요? 불을 꺼요.","Christian, sollen wir jetzt schlafen? Ich mache das Licht aus.",Alltag,a1_daily_3,11,false,to turn off,Verb,"Christian, shall we sleep now? I'll turn off the light.",vocab_a1_0590
+웃다,utda,lachen,A1,Verb,와! 아기가 정말 많이 웃어요.,Wow! Das Baby lacht wirklich viel.,Alltag,a1_daily_3,12,false,to laugh,Verb,"Wow! The baby laughs a lot, really.",vocab_a1_0591
+가방,gabang,Tasche,A1,Nomen,가방 안에 뭐가 있어요?,Was ist in der Tasche?,Alltag,a1_belongings_1,1,false,bag,Noun,What's in the bag?,vocab_a1_0592
+볼펜,bolpen,Kugelschreiber,A1,Nomen,볼펜으로 이름을 써요.,Ich schreibe meinen Namen mit dem Kugelschreiber.,Bildung,a1_belongings_1,2,false,ballpoint pen,Noun,I write my name with the pen.,vocab_a1_0593
+수첩,sucheop,Notizbuch,A1,Nomen,수첩에 이름을 써요.,Ich schreibe den Namen ins Notizbuch.,Bildung,a1_belongings_1,3,false,notebook,Noun,I write my name in the notebook.,vocab_a1_0594
+카메라,kamera,Kamera,A1,Nomen,"레나 씨, 이 카메라로 찍어요!","Lena, lass uns mit dieser Kamera fotografieren!",Technologie,a1_belongings_1,4,false,camera,Noun,"Lena, let's take photos with this camera!",vocab_a1_0595
+티셔츠,tisyeocheu,T-Shirt,A1,Nomen,저는 이 티셔츠를 입었어요.,Ich habe dieses T-Shirt getragen.,Alltag,a1_belongings_1,5,false,T-shirt,Noun,I wore this T-shirt.,vocab_a1_0596
+바지,baji,Hose,A1,Nomen,이 바지를 입고 싶어요.,Ich möchte diese Hose anziehen.,Alltag,a1_belongings_1,6,false,pants,Noun,I want to wear these pants.,vocab_a1_0597
+운동화,undonghwa,Sportschuhe,A1,Nomen,"크리스티안 씨, 운동화 신고 같이 갈까요?","Christian, sollen wir Sportschuhe anziehen und zusammen gehen?",Freizeit,a1_belongings_1,7,false,sneakers,Noun,"Christian, shall we put on sneakers and go together?",vocab_a1_0598
+잔,jan,"Glas, Tasse",A1,Nomen,이 잔으로 물을 마셔요.,Ich trinke Wasser aus diesem Glas.,Alltag,a1_belongings_1,8,false,"cup, glass",Noun,I drink water from this cup.,vocab_a1_0599
+표,pyo,"Ticket, Karte",A1,Nomen,"수진 씨, 콘서트 표가 있어요!","Sujin, ich habe eine Konzertkarte!",Freizeit,a1_belongings_1,9,false,ticket,Noun,"Sujin, I have a concert ticket!",vocab_a1_0600
+신문,sinmun,Zeitung,A1,Nomen,아버지가 신문을 읽어요.,Mein Vater liest die Zeitung.,Alltag,a1_belongings_1,10,false,newspaper,Noun,My father reads the newspaper.,vocab_a1_0601
+학생증,haksaengjeung,Studentenausweis,A1,Nomen,"수진 씨, 이거 제 학생증 맞아요?","Sujin, ist das mein Studentenausweis, oder?",Bildung,a1_belongings_1,11,false,student ID,Noun,"Sujin, is this my student ID, right?",vocab_a1_0602
+여권,yeogwon,Reisepass,A1,Nomen,여권을 먼저 주세요.,Bitte geben Sie mir zuerst den Reisepass.,Alltag,a1_belongings_1,12,false,passport,Noun,Please give me the passport first.,vocab_a1_0603
+기숙사,gisuksa,Wohnheim,A1,Nomen,저는 기숙사에 살아요.,Ich wohne im Studentenwohnheim.,Alltag,a1_places_buildings_1,1,false,dormitory,Noun,I live in the dormitory.,vocab_a1_0604
+사무실,samusil,Büro,A1,Nomen,저는 사무실에서 일해요.,Ich arbeite im Büro.,도시 생활,a1_places_buildings_1,2,false,office,Noun,I work at the office.,vocab_a1_0605
+아파트,apateu,Wohnung,A1,Nomen,이 아파트에 몇 명이 살아요?,Wie viele Leute wohnen in dieser Wohnung?,도시 생활,a1_places_buildings_1,3,false,apartment,Noun,How many people live in this apartment?,vocab_a1_0606
+수영장,suyeongjang,Schwimmbad,A1,Nomen,우리 수영장에 갈까요?,Sollen wir ins Schwimmbad gehen?,Freizeit,a1_places_buildings_1,4,false,swimming pool,Noun,Shall we go to the swimming pool?,vocab_a1_0607
+운동장,undongjang,Sportplatz,A1,Nomen,아이가 운동장에서 놀아요.,Das Kind spielt auf dem Sportplatz.,Freizeit,a1_places_buildings_1,5,false,sports ground,Noun,The child plays on the sports ground.,vocab_a1_0608
+노래방,noraebang,Karaoke-Raum,A1,Nomen,우리 노래방에 갈까요?,Sollen wir in den Karaoke-Raum gehen?,Freizeit,a1_places_buildings_1,6,false,karaoke room,Noun,Shall we go to the karaoke room?,vocab_a1_0609
+대사관,daesagwan,Botschaft,A1,Nomen,독일 대사관이 어디에 있어요?,Wo ist die deutsche Botschaft?,도시 생활,a1_places_buildings_1,7,false,embassy,Noun,Where is the German embassy?,vocab_a1_0610
+여행사,yeohaengsa,Reisebüro,A1,Nomen,여행사에 전화해요. 그럼 같이 가요.,Ich rufe das Reisebüro an. Dann gehen wir zusammen.,도시 생활,a1_places_buildings_1,8,false,travel agency,Noun,I'll call the travel agency. Then let's go together.,vocab_a1_0611
+건물,geonmul,Gebäude,A1,Nomen,이 건물은 몇 층이에요?,Wie viele Stockwerke hat dieses Gebäude?,도시 생활,a1_places_buildings_1,9,false,building,Noun,How many floors does this building have?,vocab_a1_0612
+근처,geuncheo,"Umgebung, Nähe",A1,Nomen,이 근처에 커피숍이 있어요. 제가 알아요.,Es gibt ein Café hier in der Nähe. Ich weiß es.,도시 생활,a1_places_buildings_1,10,false,"vicinity, nearby",Noun,There's a cafe near here. I know it.,vocab_a1_0613
+건너편,geonneopyeon,gegenüberliegende Seite,A1,Nomen,은행이 건너편에 있어요.,Die Bank ist auf der gegenüberliegenden Seite.,도시 생활,a1_places_buildings_1,11,false,opposite side,Noun,The bank is on the opposite side.,vocab_a1_0614
+층,cheung,"Stock, Etage",A1,Nomen,가게가 이 층에 있어요. 이거 예뻐요!,Der Laden ist auf dieser Etage. Das hier ist schön!,도시 생활,a1_places_buildings_1,12,false,"floor, story",Noun,The shop is on this floor. This is pretty!,vocab_a1_0615
+다음,daeum,nächst-,A1,Nomen,다음 주에 만나요.,Wir treffen uns nächste Woche.,Zeit,a1_time_expressions_1,1,false,next,Noun,See you next week.,vocab_a1_0616
+나중,najung,später,A1,Nomen,나중에 이야기해요.,Wir reden später.,Zeit,a1_time_expressions_1,2,false,later,Noun,Let's talk later.,vocab_a1_0617
+동안,dongan,"während, für (Dauer)",A1,Nomen,방학 동안 뭐 해요?,Was machst du während der Ferien?,Zeit,a1_time_expressions_1,3,false,"during, for (duration)",Noun,What do you do during the vacation?,vocab_a1_0618
+오전,ojeon,Vormittag,A1,Nomen,오전에 운동해요.,Ich mache am Vormittag Sport.,Zeit,a1_time_expressions_1,4,false,"morning, AM",Noun,I exercise in the morning.,vocab_a1_0619
+오후,ohu,Nachmittag,A1,Nomen,저는 오후에 산책해요.,Ich mache am Nachmittag einen Spaziergang.,Zeit,a1_time_expressions_1,5,false,"afternoon, PM",Noun,I go for a walk in the afternoon.,vocab_a1_0620
+이번,ibeon,"dieses-, jetzig-",A1,Nomen,이번 달에 바빠요.,Diesen Monat bin ich beschäftigt.,Zeit,a1_time_expressions_1,6,false,this (upcoming),Noun,I'm busy this month.,vocab_a1_0621
+지난달,jinandal,letzten Monat,A1,Nomen,지난달에 바빴어요.,Letzten Monat war ich beschäftigt.,Zeit,a1_time_expressions_1,7,false,last month,Noun,I was busy last month.,vocab_a1_0622
+지난주,jinanju,letzte Woche,A1,Nomen,지난주에 아팠어요.,Letzte Woche war ich krank.,Zeit,a1_time_expressions_1,8,false,last week,Noun,I was sick last week.,vocab_a1_0623
+지난해,jinanhae,letztes Jahr,A1,Nomen,지난해에 만났어요.,Wir haben uns letztes Jahr kennengelernt.,Zeit,a1_time_expressions_1,9,false,last year,Noun,We met last year.,vocab_a1_0624
+일주일,iljuil,eine Woche,A1,Nomen,일주일 동안 여행해요.,Ich reise eine Woche lang.,Zeit,a1_time_expressions_1,10,false,one week,Noun,I travel for one week.,vocab_a1_0625
+하루,haru,ein Tag,A1,Nomen,오늘 하루 정말 피곤해요.,Heute bin ich den ganzen Tag wirklich müde.,Zeit,a1_time_expressions_1,11,false,one day,Noun,I'm really tired all day today.,vocab_a1_0626
+후,hu,"danach, später",A1,Nomen,잠시 후에 만나요.,Wir sehen uns in einem Moment.,Zeit,a1_time_expressions_1,12,false,"after, later",Noun,See you in a moment.,vocab_a1_0627
+개,gae,Hund,A1,Nomen,개가 몇 마리 있어요?,Wie viele Hunde gibt es?,Natur,a1_nature_people_1,1,false,dog,Noun,How many dogs are there?,vocab_a1_0628
+고양이,goyangi,Katze,A1,Nomen,고양이가 몇 마리예요?,Wie viele Katzen sind es?,Natur,a1_nature_people_1,2,false,cat,Noun,How many cats are there?,vocab_a1_0629
+꽃,kkot,Blume,A1,Nomen,꽃에 물을 줘요.,Ich gieße die Blumen.,Natur,a1_nature_people_1,3,false,flower,Noun,I water the flowers.,vocab_a1_0630
+나무,namu,Baum,A1,Nomen,나무 밑에 앉아요.,Ich setze mich unter den Baum.,Natur,a1_nature_people_1,4,false,tree,Noun,I sit under the tree.,vocab_a1_0631
+산,san,Berg,A1,Nomen,저는 주말에 산에 올라가요.,Ich steige am Wochenende auf den Berg.,Natur,a1_nature_people_1,5,false,mountain,Noun,I climb the mountain on weekends.,vocab_a1_0632
+바다,bada,Meer,A1,Nomen,저는 바다에서 수영해요.,Ich schwimme im Meer.,Natur,a1_nature_people_1,6,false,sea,Noun,I swim in the sea.,vocab_a1_0633
+비,bi,Regen,A1,Nomen,오늘 비가 와요.,Heute regnet es.,Natur,a1_nature_people_1,7,false,rain,Noun,It's raining today.,vocab_a1_0634
+불,bul,"Feuer, Licht",A1,Nomen,산에 불이 났어요.,Auf dem Berg ist ein Feuer ausgebrochen.,Natur,a1_nature_people_1,8,false,"fire, light",Noun,A fire broke out on the mountain.,vocab_a1_0635
+아기,agi,Baby,A1,Nomen,아기가 자요.,Das Baby schläft.,Person,a1_nature_people_1,9,false,baby,Noun,The baby is sleeping.,vocab_a1_0636
+아이,ai,Kind,A1,Nomen,저 아이는 학생이에요.,Dieses Kind ist ein Schüler.,Person,a1_nature_people_1,10,false,child,Noun,That child is a student.,vocab_a1_0637
+남자,namja,Mann,A1,Nomen,저 남자는 누구예요?,Wer ist dieser Mann?,Person,a1_nature_people_1,11,false,man,Noun,Who is that man?,vocab_a1_0638
+여자,yeoja,Frau,A1,Nomen,저 여자는 제 친구예요.,Diese Frau ist meine Freundin.,Person,a1_nature_people_1,12,false,woman,Noun,That woman is my friend.,vocab_a1_0639
+기분,gibun,Stimmung,A1,Nomen,오늘 기분이 좋아요.,Ich bin heute guter Stimmung.,Gefühle,a1_feelings_talk_1,1,false,mood,Noun,I'm in a good mood today.,vocab_a1_0640
+마음,maeum,"Herz, Gemüt",A1,Nomen,오늘 마음이 아파요.,Mein Herz tut heute weh.,Gefühle,a1_feelings_talk_1,2,false,"heart, mind",Noun,My heart aches today.,vocab_a1_0641
+사랑,sarang,Liebe,A1,Nomen,저는 수진 씨를 사랑해요.,Ich liebe Sujin.,Gefühle,a1_feelings_talk_1,3,false,love,Noun,I love Sujin.,vocab_a1_0642
+피곤,pigon,Müdigkeit,A1,Nomen,저는 오늘 정말 피곤해요.,Ich bin heute wirklich müde.,Gefühle,a1_feelings_talk_1,4,false,tiredness,Noun,I'm really tired today.,vocab_a1_0643
+감사,gamsa,Dank,A1,Nomen,정말 감사해요.,Ich bin wirklich dankbar.,Höflichkeit,a1_feelings_talk_1,5,false,"gratitude, thanks",Noun,I'm really grateful.,vocab_a1_0644
+미안,mian,Entschuldigung (Gefühl),A1,Nomen,"미안해요, 늦었어요.","Entschuldigung, ich bin zu spät.",Höflichkeit,a1_feelings_talk_1,6,false,sorry (feeling),Noun,"Sorry, I'm late.",vocab_a1_0645
+친절,chinjeol,Freundlichkeit,A1,Nomen,선생님이 정말 친절해요.,Der Lehrer ist wirklich freundlich.,Höflichkeit,a1_feelings_talk_1,7,false,kindness,Noun,The teacher is really kind.,vocab_a1_0646
+실례,sillye,Verzeihung,A1,Nomen,실례합니다. 화장실이 어디예요?,Entschuldigung. Wo ist die Toilette?,Höflichkeit,a1_feelings_talk_1,8,false,excuse me,Noun,Excuse me. Where is the restroom?,vocab_a1_0647
+유명,yumyeong,"berühmt, bekannt",A1,Nomen,그 가수는 정말 유명해요.,Dieser Sänger ist wirklich berühmt.,Person,a1_feelings_talk_1,9,false,famous,Noun,That singer is really famous.,vocab_a1_0648
+대답,daedap,Antwort,A1,Nomen,제가 대답해요.,Ich antworte.,Kommunikation,a1_feelings_talk_1,10,false,"answer, reply",Noun,I'll answer.,vocab_a1_0649
+소개,sogae,Vorstellung,A1,Nomen,친구를 소개해요.,Ich stelle einen Freund vor.,Kommunikation,a1_feelings_talk_1,11,false,introduction,Noun,I'm introducing a friend.,vocab_a1_0650
+설명,seolmyeong,Erklärung,A1,Nomen,제가 천천히 설명해요.,Ich erkläre langsam.,Bildung,a1_feelings_talk_1,12,false,explanation,Noun,I'll explain slowly.,vocab_a1_0651
