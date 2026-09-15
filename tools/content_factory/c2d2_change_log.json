@@ -1,50 +1,6 @@
 [
  {
   "kind": "vocab",
-  "id": "vocab_a1_0141",
-  "level": "a1",
-  "fields": [
-   "example_korean",
-   "example_german",
-   "example_english"
-  ],
-  "before": {
-   "korean": "천",
-   "romanization": "cheon",
-   "german": "tausend",
-   "level": "A1",
-   "pos_de": "Nomen",
-   "example_korean": "천 원만 빌려주세요.",
-   "example_german": "Leih mir bitte tausend Won.",
-   "topic": "Zahlen",
-   "pack_id": "a1_numbers_2",
-   "pack_order": "4",
-   "is_review_boss": "false",
-   "english": "thousand",
-   "pos_en": "Noun",
-   "example_english": "Please lend me just a thousand won.",
-   "id": "vocab_a1_0141"
-  },
-  "after": {
-   "korean": "천",
-   "romanization": "cheon",
-   "german": "tausend",
-   "level": "A1",
-   "pos_de": "Nomen",
-   "example_korean": "천 원만 빌릴 수 있어요?",
-   "example_german": "Kann ich mir nur tausend Won leihen?",
-   "topic": "Zahlen",
-   "pack_id": "a1_numbers_2",
-   "pack_order": "4",
-   "is_review_boss": "false",
-   "english": "thousand",
-   "pos_en": "Noun",
-   "example_english": "Can I just borrow a thousand won?",
-   "id": "vocab_a1_0141"
-  }
- },
- {
-  "kind": "vocab",
   "id": "vocab_a1_0202",
   "level": "a1",
   "fields": [
@@ -58,15 +14,15 @@
    "german": "kurz / einen Moment",
    "level": "A1",
    "pos_de": "Adverb",
-   "example_korean": "잠깐만 기다려 주세요.",
-   "example_german": "Warten Sie bitte einen Moment.",
+   "example_korean": "잠깐만 여기서 기다리세요.",
+   "example_german": "Warten Sie bitte hier einen Moment.",
    "topic": "Zeit",
    "pack_id": "a1_time_3",
    "pack_order": "6",
    "is_review_boss": "false",
    "english": "for a moment / briefly",
    "pos_en": "Adverb",
-   "example_english": "Please wait a moment.",
+   "example_english": "Please wait here for a moment.",
    "id": "vocab_a1_0202"
   },
   "after": {
@@ -102,15 +58,15 @@
    "german": "langsam",
    "level": "A1",
    "pos_de": "Adverb",
-   "example_korean": "천천히 말해 주세요.",
-   "example_german": "Bitte sprechen Sie langsam.",
+   "example_korean": "한국어를 잘 못해요. 다시 천천히 말해 주세요.",
+   "example_german": "Ich spreche noch nicht gut Koreanisch. Bitte sprechen Sie noch einmal langsam.",
    "topic": "Alltag",
    "pack_id": "a1_daily_4",
    "pack_order": "4",
    "is_review_boss": "false",
    "english": "slowly",
    "pos_en": "Adverb",
-   "example_english": "Please speak slowly.",
+   "example_english": "I don't speak Korean well yet. Please speak slowly once more.",
    "id": "vocab_a1_0203"
   },
   "after": {
@@ -119,15 +75,15 @@
    "german": "langsam",
    "level": "A1",
    "pos_de": "Adverb",
-   "example_korean": "다시 천천히 말하세요.",
-   "example_german": "Bitte sagen Sie es noch einmal langsam.",
+   "example_korean": "한국어를 잘 못해요. 다시 천천히 말해 주세요.",
+   "example_german": "Ich spreche noch nicht gut Koreanisch. Bitte sprechen Sie noch einmal langsam.",
    "topic": "Alltag",
    "pack_id": "a1_daily_4",
    "pack_order": "4",
    "is_review_boss": "false",
    "english": "slowly",
    "pos_en": "Adverb",
-   "example_english": "Please say it again, slowly.",
+   "example_english": "I don't speak Korean well yet. Please speak slowly once more.",
    "id": "vocab_a1_0203"
   }
  },
@@ -146,15 +102,15 @@
    "german": "antworten",
    "level": "A1",
    "pos_de": "Verb",
-   "example_korean": "질문에 대답해 주세요.",
-   "example_german": "Antworten Sie bitte auf die Frage.",
+   "example_korean": "이 질문에 대답하세요.",
+   "example_german": "Bitte antworten Sie auf diese Frage.",
    "topic": "다시 묻기",
    "pack_id": "a1_repair_language_1",
    "pack_order": "7",
    "is_review_boss": "false",
    "english": "to answer",
    "pos_en": "Verb",
-   "example_english": "Please answer the question.",
+   "example_english": "Please answer this question.",
    "id": "vocab_b1_0196"
   },
   "after": {
@@ -190,15 +146,15 @@
    "german": "Schwiegermutter (Mutter des Ehemanns)",
    "level": "A1",
    "pos_de": "Nomen",
-   "example_korean": "시어머니께서 웃어 주셨어요.",
-   "example_german": "Meine Schwiegermutter hat mich angelächelt.",
+   "example_korean": "시어머니께서 저를 보고 웃으셨어요.",
+   "example_german": "Meine Schwiegermutter hat mich angesehen und gelächelt.",
    "topic": "Partnerschaft & koreanische Familie",
    "pack_id": "a1_partner_meet_names_1",
    "pack_order": "6",
    "is_review_boss": "false",
    "english": "mother-in-law (husband's mother)",
    "pos_en": "Noun",
-   "example_english": "My mother-in-law smiled at me.",
+   "example_english": "My mother-in-law looked at me and smiled.",
    "id": "vocab_a1_0217"
   },
   "after": {
@@ -234,7 +190,7 @@
    "german": "Briefkasten",
    "level": "A1",
    "pos_de": "Nomen",
-   "example_korean": "편지는 아래 우편함에 넣어 주세요.",
+   "example_korean": "편지는 아래 우편함에 넣으세요.",
    "example_german": "Bitte legen Sie den Brief in den Briefkasten unten.",
    "topic": "Postamt",
    "pack_id": "a1_post_office_1",
@@ -278,7 +234,7 @@
    "german": "Empfänger",
    "level": "A1",
    "pos_de": "Nomen",
-   "example_korean": "받는 사람 전화번호를 적어 주세요.",
+   "example_korean": "받는 사람 전화번호를 적으세요.",
    "example_german": "Bitte notieren Sie die Telefonnummer des Empfängers.",
    "topic": "Postamt",
    "pack_id": "a1_post_office_1",
@@ -322,7 +278,7 @@
    "german": "vielen Dank",
    "level": "A1",
    "pos_de": "Ausdruck",
-   "example_korean": "자리를 양보해 주셔서 정말 감사해요.",
+   "example_korean": "자리를 양보하셔서 정말 감사해요.",
    "example_german": "Vielen Dank, dass Sie den Platz überlassen haben.",
    "topic": "Entschuldigung",
    "pack_id": "a1_sorry_thanks_1",
@@ -366,15 +322,15 @@
    "german": "Aussprache",
    "level": "A1",
    "pos_de": "Nomen",
-   "example_korean": "이 단어 발음을 다시 들려주세요.",
-   "example_german": "Bitte spielen Sie die Aussprache dieses Wortes noch einmal ab.",
+   "example_korean": "이 단어 발음을 다시 들을 수 있어요?",
+   "example_german": "Kann ich die Aussprache dieses Wortes noch einmal hören?",
    "topic": "다시 묻기",
    "pack_id": "a1_repair_language_1",
    "pack_order": "1",
    "is_review_boss": "false",
    "english": "pronunciation",
    "pos_en": "Noun",
-   "example_english": "Please play the pronunciation of this word again.",
+   "example_english": "Can I hear the pronunciation of this word again?",
    "id": "vocab_a1_0408"
   },
   "after": {
@@ -427,7 +383,7 @@
    "german": "Beispielsatz",
    "level": "A1",
    "pos_de": "Nomen",
-   "example_korean": "짧은 예문을 하나 적으세요.",
+   "example_korean": "짧은 예문을 하나 적어 주세요.",
    "example_german": "Bitte schreiben Sie einen kurzen Beispielsatz auf.",
    "topic": "다시 묻기",
    "pack_id": "a1_repair_language_1",
@@ -454,15 +410,15 @@
    "german": "Telefonnummer",
    "level": "A1",
    "pos_de": "Nomen",
-   "example_korean": "전화번호를 알려 주세요.",
-   "example_german": "Sagen Sie mir bitte Ihre Telefonnummer.",
+   "example_korean": "실례지만 전화번호를 알 수 있을까요?",
+   "example_german": "Entschuldigung, könnte ich Ihre Telefonnummer erfahren?",
    "topic": "첫 수업",
    "pack_id": "a1_first_class_1",
    "pack_order": "3",
    "is_review_boss": "false",
    "english": "phone number",
    "pos_en": "Noun",
-   "example_english": "Please tell me your phone number.",
+   "example_english": "Excuse me, could I get your phone number?",
    "id": "vocab_a1_0438"
   },
   "after": {
@@ -471,15 +427,15 @@
    "german": "Telefonnummer",
    "level": "A1",
    "pos_de": "Nomen",
-   "example_korean": "실례지만 전화번호가 뭐예요?",
-   "example_german": "Entschuldigung, wie ist Ihre Telefonnummer?",
+   "example_korean": "실례지만 전화번호를 알 수 있을까요?",
+   "example_german": "Entschuldigung, könnte ich Ihre Telefonnummer erfahren?",
    "topic": "첫 수업",
    "pack_id": "a1_first_class_1",
    "pack_order": "3",
    "is_review_boss": "false",
    "english": "phone number",
    "pos_en": "Noun",
-   "example_english": "Excuse me, what is your phone number?",
+   "example_english": "Excuse me, could I get your phone number?",
    "id": "vocab_a1_0438"
   }
  },
@@ -515,7 +471,7 @@
    "german": "noch einmal, wieder",
    "level": "A1",
    "pos_de": "Adverb",
-   "example_korean": "다시 한번 말하세요.",
+   "example_korean": "다시 한번 말해 주세요.",
    "example_german": "Bitte sagen Sie es noch einmal.",
    "topic": "다시 묻기",
    "pack_id": "a1_repair_language_1",
@@ -529,210 +485,10 @@
  },
  {
   "kind": "cloze",
-  "id": "cloze_a1_0094",
-  "level": "a1",
-  "fields": [
-   "de",
-   "en",
-   "fullKo",
-   "sentenceKo"
-  ],
-  "before": {
-   "id": "cloze_a1_0094",
-   "level": "a1",
-   "sentenceKo": "＿＿＿ 말해 주세요.",
-   "answer": "천천히",
-   "fullKo": "천천히 말해 주세요.",
-   "de": "Bitte sprechen Sie langsam.",
-   "en": "Please speak slowly.",
-   "distractors": [
-    "잠깐",
-    "매일",
-    "어제"
-   ],
-   "topic": "Alltag"
-  },
-  "after": {
-   "id": "cloze_a1_0094",
-   "level": "a1",
-   "sentenceKo": "다시 ＿＿＿ 말하세요.",
-   "answer": "천천히",
-   "fullKo": "다시 천천히 말하세요.",
-   "de": "Bitte sagen Sie es noch einmal langsam.",
-   "en": "Please say it again, slowly.",
-   "distractors": [
-    "잠깐",
-    "매일",
-    "어제"
-   ],
-   "topic": "Alltag"
-  }
- },
- {
-  "kind": "cloze",
-  "id": "cloze_a1_0105",
-  "level": "a1",
-  "fields": [
-   "de",
-   "en",
-   "fullKo",
-   "sentenceKo"
-  ],
-  "before": {
-   "id": "cloze_a1_0105",
-   "level": "a1",
-   "sentenceKo": "＿＿＿께서 웃어 주셨어요.",
-   "answer": "시어머니",
-   "fullKo": "시어머니께서 웃어 주셨어요.",
-   "de": "Meine Schwiegermutter hat mich angelächelt.",
-   "en": "My mother-in-law smiled at me.",
-   "distractors": [
-    "국물",
-    "귀성",
-    "꽃다발"
-   ],
-   "topic": "Partnerschaft & koreanische Familie"
-  },
-  "after": {
-   "id": "cloze_a1_0105",
-   "level": "a1",
-   "sentenceKo": "＿＿＿께서 저를 보고 웃으셨어요.",
-   "answer": "시어머니",
-   "fullKo": "시어머니께서 저를 보고 웃으셨어요.",
-   "de": "Meine Schwiegermutter hat mich angesehen und gelächelt.",
-   "en": "My mother-in-law looked at me and smiled.",
-   "distractors": [
-    "국물",
-    "귀성",
-    "꽃다발"
-   ],
-   "topic": "Partnerschaft & koreanische Familie"
-  }
- },
- {
-  "kind": "cloze",
-  "id": "cloze_a1_0199",
-  "level": "a1",
-  "fields": [
-   "fullKo",
-   "sentenceKo"
-  ],
-  "before": {
-   "id": "cloze_a1_0199",
-   "level": "a1",
-   "sentenceKo": "편지는 아래 ＿＿＿에 넣어 주세요.",
-   "answer": "우편함",
-   "fullKo": "편지는 아래 우편함에 넣어 주세요.",
-   "de": "Bitte legen Sie den Brief in den Briefkasten unten.",
-   "en": "Please put the letter in the mailbox downstairs.",
-   "distractors": [
-    "우표",
-    "소포",
-    "주소"
-   ],
-   "topic": "Postamt"
-  },
-  "after": {
-   "id": "cloze_a1_0199",
-   "level": "a1",
-   "sentenceKo": "편지는 아래 ＿＿＿에 넣으세요.",
-   "answer": "우편함",
-   "fullKo": "편지는 아래 우편함에 넣으세요.",
-   "de": "Bitte legen Sie den Brief in den Briefkasten unten.",
-   "en": "Please put the letter in the mailbox downstairs.",
-   "distractors": [
-    "우표",
-    "소포",
-    "주소"
-   ],
-   "topic": "Postamt"
-  }
- },
- {
-  "kind": "cloze",
-  "id": "cloze_a1_0204",
-  "level": "a1",
-  "fields": [
-   "fullKo",
-   "sentenceKo"
-  ],
-  "before": {
-   "id": "cloze_a1_0204",
-   "level": "a1",
-   "sentenceKo": "＿＿＿ 전화번호를 적어 주세요.",
-   "answer": "받는 사람",
-   "fullKo": "받는 사람 전화번호를 적어 주세요.",
-   "de": "Bitte notieren Sie die Telefonnummer des Empfängers.",
-   "en": "Please write the recipient's phone number.",
-   "distractors": [
-    "우표",
-    "소포",
-    "편지"
-   ],
-   "topic": "Postamt"
-  },
-  "after": {
-   "id": "cloze_a1_0204",
-   "level": "a1",
-   "sentenceKo": "＿＿＿ 전화번호를 적으세요.",
-   "answer": "받는 사람",
-   "fullKo": "받는 사람 전화번호를 적으세요.",
-   "de": "Bitte notieren Sie die Telefonnummer des Empfängers.",
-   "en": "Please write the recipient's phone number.",
-   "distractors": [
-    "우표",
-    "소포",
-    "편지"
-   ],
-   "topic": "Postamt"
-  }
- },
- {
-  "kind": "cloze",
-  "id": "cloze_a1_0290",
-  "level": "a1",
-  "fields": [
-   "fullKo",
-   "sentenceKo"
-  ],
-  "before": {
-   "id": "cloze_a1_0290",
-   "level": "a1",
-   "sentenceKo": "자리를 양보해 주셔서 ＿＿＿.",
-   "answer": "정말 감사해요",
-   "fullKo": "자리를 양보해 주셔서 정말 감사해요.",
-   "de": "Vielen Dank, dass Sie den Platz überlassen haben.",
-   "en": "Thank you so much for giving up the seat.",
-   "distractors": [
-    "죄송하다",
-    "감사하다",
-    "실례하다"
-   ],
-   "topic": "Entschuldigung"
-  },
-  "after": {
-   "id": "cloze_a1_0290",
-   "level": "a1",
-   "sentenceKo": "자리를 양보하셔서 ＿＿＿.",
-   "answer": "정말 감사해요",
-   "fullKo": "자리를 양보하셔서 정말 감사해요.",
-   "de": "Vielen Dank, dass Sie den Platz überlassen haben.",
-   "en": "Thank you so much for giving up the seat.",
-   "distractors": [
-    "죄송하다",
-    "감사하다",
-    "실례하다"
-   ],
-   "topic": "Entschuldigung"
-  }
- },
- {
-  "kind": "cloze",
   "id": "cloze_a1_0316",
   "level": "a1",
   "fields": [
-   "fullKo",
-   "sentenceKo"
+   "distractors"
   ],
   "before": {
    "id": "cloze_a1_0316",
@@ -755,434 +511,18 @@
    "id": "cloze_a1_0316",
    "level": "a1",
    "topic": "다시 묻기",
-   "fullKo": "죄송하지만 다시 말하세요.",
+   "fullKo": "죄송하지만 다시 말해 주세요.",
    "answer": "다시",
-   "sentenceKo": "죄송하지만 ＿＿＿ 말하세요.",
+   "sentenceKo": "죄송하지만 ＿＿＿ 말해 주세요.",
    "de": "Entschuldigung, bitte sagen Sie es noch einmal.",
    "en": "Sorry, please say that again.",
    "distractors": [
-    "빨리",
-    "조용히",
-    "먼저"
+    "보다",
+    "팔다",
+    "에서"
    ],
    "courseUnitId": "a1_08_clarify_repair",
    "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
-  }
- },
- {
-  "kind": "cloze",
-  "id": "cloze_a1_0317",
-  "level": "a1",
-  "fields": [
-   "fullKo",
-   "sentenceKo"
-  ],
-  "before": {
-   "id": "cloze_a1_0317",
-   "level": "a1",
-   "topic": "다시 묻기",
-   "fullKo": "조금 천천히 말해 주세요.",
-   "answer": "천천히",
-   "sentenceKo": "조금 ＿＿＿ 말해 주세요.",
-   "de": "Bitte sprechen Sie etwas langsamer.",
-   "en": "Please speak a little more slowly.",
-   "distractors": [
-    "같이",
-    "아직",
-    "자주"
-   ],
-   "courseUnitId": "a1_08_clarify_repair",
-   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
-  },
-  "after": {
-   "id": "cloze_a1_0317",
-   "level": "a1",
-   "topic": "다시 묻기",
-   "fullKo": "조금 천천히 말하세요.",
-   "answer": "천천히",
-   "sentenceKo": "조금 ＿＿＿ 말하세요.",
-   "de": "Bitte sprechen Sie etwas langsamer.",
-   "en": "Please speak a little more slowly.",
-   "distractors": [
-    "같이",
-    "아직",
-    "자주"
-   ],
-   "courseUnitId": "a1_08_clarify_repair",
-   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
-  }
- },
- {
-  "kind": "cloze",
-  "id": "cloze_a1_0319",
-  "level": "a1",
-  "fields": [
-   "answer",
-   "distractors",
-   "fullKo"
-  ],
-  "before": {
-   "id": "cloze_a1_0319",
-   "level": "a1",
-   "topic": "다시 묻기",
-   "fullKo": "이름을 적어 주세요.",
-   "answer": "적어 주세요",
-   "sentenceKo": "이름을 ＿＿＿.",
-   "de": "Bitte schreiben Sie den Namen auf.",
-   "en": "Please write the name down.",
-   "distractors": [
-    "읽어 주세요",
-    "들어 주세요",
-    "열어 주세요"
-   ],
-   "courseUnitId": "a1_08_clarify_repair",
-   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
-  },
-  "after": {
-   "id": "cloze_a1_0319",
-   "level": "a1",
-   "topic": "다시 묻기",
-   "fullKo": "이름을 적으세요.",
-   "answer": "적으세요",
-   "sentenceKo": "이름을 ＿＿＿.",
-   "de": "Bitte schreiben Sie den Namen auf.",
-   "en": "Please write the name down.",
-   "distractors": [
-    "읽으세요",
-    "들으세요",
-    "여세요"
-   ],
-   "courseUnitId": "a1_08_clarify_repair",
-   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
-  }
- },
- {
-  "kind": "cloze",
-  "id": "cloze_a1_0320",
-  "level": "a1",
-  "fields": [
-   "de",
-   "en",
-   "fullKo",
-   "sentenceKo"
-  ],
-  "before": {
-   "id": "cloze_a1_0320",
-   "level": "a1",
-   "topic": "다시 묻기",
-   "fullKo": "짧은 예문을 하나 보여 주세요.",
-   "answer": "예문",
-   "sentenceKo": "짧은 ＿＿＿을 하나 보여 주세요.",
-   "de": "Bitte zeigen Sie mir einen kurzen Beispielsatz.",
-   "en": "Please show me one short example sentence.",
-   "distractors": [
-    "사진",
-    "가격",
-    "일요일"
-   ],
-   "courseUnitId": "a1_08_clarify_repair",
-   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
-  },
-  "after": {
-   "id": "cloze_a1_0320",
-   "level": "a1",
-   "topic": "다시 묻기",
-   "fullKo": "짧은 예문을 하나 볼 수 있어요?",
-   "answer": "예문",
-   "sentenceKo": "짧은 ＿＿＿을 하나 볼 수 있어요?",
-   "de": "Kann ich einen kurzen Beispielsatz sehen?",
-   "en": "Can I see one short example sentence?",
-   "distractors": [
-    "사진",
-    "가격",
-    "일요일"
-   ],
-   "courseUnitId": "a1_08_clarify_repair",
-   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
-  }
- },
- {
-  "kind": "cloze",
-  "id": "cloze_a1_0324",
-  "level": "a1",
-  "fields": [
-   "answer",
-   "distractors",
-   "fullKo"
-  ],
-  "before": {
-   "id": "cloze_a1_0324",
-   "level": "a1",
-   "topic": "다시 묻기",
-   "fullKo": "주소를 한 번 더 확인해 주세요.",
-   "answer": "확인해 주세요",
-   "sentenceKo": "주소를 한 번 더 ＿＿＿.",
-   "de": "Bitte prüfen Sie die Adresse noch einmal.",
-   "en": "Please check the address once more.",
-   "distractors": [
-    "주문해 주세요",
-    "출발해 주세요",
-    "닫아 주세요"
-   ],
-   "courseUnitId": "a1_08_clarify_repair",
-   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
-  },
-  "after": {
-   "id": "cloze_a1_0324",
-   "level": "a1",
-   "topic": "다시 묻기",
-   "fullKo": "주소를 한 번 더 확인하세요.",
-   "answer": "확인하세요",
-   "sentenceKo": "주소를 한 번 더 ＿＿＿.",
-   "de": "Bitte prüfen Sie die Adresse noch einmal.",
-   "en": "Please check the address once more.",
-   "distractors": [
-    "주문하세요",
-    "출발하세요",
-    "닫으세요"
-   ],
-   "courseUnitId": "a1_08_clarify_repair",
-   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
-  }
- },
- {
-  "kind": "cloze",
-  "id": "cloze_a1_0331",
-  "level": "a1",
-  "fields": [
-   "fullKo",
-   "sentenceKo"
-  ],
-  "before": {
-   "id": "cloze_a1_0331",
-   "level": "a1",
-   "topic": "결제와 배달",
-   "fullKo": "문 앞에 놓아 주세요.",
-   "answer": "문 앞에",
-   "sentenceKo": "＿＿＿ 놓아 주세요.",
-   "de": "Bitte stellen Sie es vor die Tür.",
-   "en": "Please leave it at the door.",
-   "distractors": [
-    "역 안에",
-    "책상에서",
-    "친구하고"
-   ],
-   "courseUnitId": "a1_14_payment_delivery",
-   "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
-  },
-  "after": {
-   "id": "cloze_a1_0331",
-   "level": "a1",
-   "topic": "결제와 배달",
-   "fullKo": "문 앞에 놓으세요.",
-   "answer": "문 앞에",
-   "sentenceKo": "＿＿＿ 놓으세요.",
-   "de": "Bitte stellen Sie es vor die Tür.",
-   "en": "Please leave it at the door.",
-   "distractors": [
-    "역 안에",
-    "책상에서",
-    "친구하고"
-   ],
-   "courseUnitId": "a1_14_payment_delivery",
-   "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
-  }
- },
- {
-  "kind": "cloze",
-  "id": "cloze_a1_0332",
-  "level": "a1",
-  "fields": [
-   "fullKo",
-   "sentenceKo"
-  ],
-  "before": {
-   "id": "cloze_a1_0332",
-   "level": "a1",
-   "topic": "결제와 배달",
-   "fullKo": "주문 번호를 다시 말해 주세요.",
-   "answer": "주문 번호",
-   "sentenceKo": "＿＿＿를 다시 말해 주세요.",
-   "de": "Bitte sagen Sie die Bestellnummer noch einmal.",
-   "en": "Please say the order number again.",
-   "distractors": [
-    "배달비",
-    "도착 시간",
-    "카드 이름"
-   ],
-   "courseUnitId": "a1_14_payment_delivery",
-   "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
-  },
-  "after": {
-   "id": "cloze_a1_0332",
-   "level": "a1",
-   "topic": "결제와 배달",
-   "fullKo": "주문 번호를 다시 말하세요.",
-   "answer": "주문 번호",
-   "sentenceKo": "＿＿＿를 다시 말하세요.",
-   "de": "Bitte sagen Sie die Bestellnummer noch einmal.",
-   "en": "Please say the order number again.",
-   "distractors": [
-    "배달비",
-    "도착 시간",
-    "카드 이름"
-   ],
-   "courseUnitId": "a1_14_payment_delivery",
-   "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
-  }
- },
- {
-  "kind": "cloze",
-  "id": "cloze_a1_0367",
-  "level": "a1",
-  "fields": [
-   "de",
-   "en",
-   "fullKo",
-   "sentenceKo"
-  ],
-  "before": {
-   "id": "cloze_a1_0367",
-   "level": "a1",
-   "topic": "첫 수업",
-   "fullKo": "전화번호를 알려 주세요.",
-   "answer": "전화번호",
-   "sentenceKo": "＿＿＿를 알려 주세요.",
-   "de": "Sagen Sie mir bitte Ihre Telefonnummer.",
-   "en": "Please tell me your phone number.",
-   "distractors": [
-    "의자",
-    "사과",
-    "커피"
-   ],
-   "courseUnitId": "a1_15_first_class_work"
-  },
-  "after": {
-   "id": "cloze_a1_0367",
-   "level": "a1",
-   "topic": "첫 수업",
-   "fullKo": "실례지만 전화번호가 뭐예요?",
-   "answer": "전화번호",
-   "sentenceKo": "실례지만 ＿＿＿가 뭐예요?",
-   "de": "Entschuldigung, wie ist Ihre Telefonnummer?",
-   "en": "Excuse me, what is your phone number?",
-   "distractors": [
-    "의자",
-    "사과",
-    "커피"
-   ],
-   "courseUnitId": "a1_15_first_class_work"
-  }
- },
- {
-  "kind": "cloze",
-  "id": "cloze_a1_0390",
-  "level": "a1",
-  "fields": [
-   "fullKo",
-   "sentenceKo"
-  ],
-  "before": {
-   "id": "cloze_a1_0390",
-   "level": "a1",
-   "topic": "다시 묻기",
-   "fullKo": "다시 한번 말해 주세요.",
-   "answer": "다시",
-   "sentenceKo": "＿＿＿ 한번 말해 주세요.",
-   "de": "Bitte sagen Sie es noch einmal.",
-   "en": "Please say it once more.",
-   "distractors": [
-    "매일",
-    "일찍",
-    "지금"
-   ],
-   "courseUnitId": "a1_08_clarify_repair"
-  },
-  "after": {
-   "id": "cloze_a1_0390",
-   "level": "a1",
-   "topic": "다시 묻기",
-   "fullKo": "다시 한번 말하세요.",
-   "answer": "다시",
-   "sentenceKo": "＿＿＿ 한번 말하세요.",
-   "de": "Bitte sagen Sie es noch einmal.",
-   "en": "Please say it once more.",
-   "distractors": [
-    "매일",
-    "일찍",
-    "지금"
-   ],
-   "courseUnitId": "a1_08_clarify_repair"
-  }
- },
- {
-  "kind": "satz",
-  "id": "satz_a1_0028",
-  "level": "a1",
-  "fields": [
-   "distractors",
-   "promptDe",
-   "promptEn",
-   "targetKo"
-  ],
-  "before": {
-   "id": "satz_a1_0028",
-   "level": "a1",
-   "targetKo": "천 원만 빌려주세요.",
-   "promptDe": "Leih mir bitte tausend Won.",
-   "promptEn": "Please lend me just a thousand won.",
-   "distractors": [
-    "하늘이",
-    "출발해요"
-   ],
-   "vocabKo": "천"
-  },
-  "after": {
-   "id": "satz_a1_0028",
-   "level": "a1",
-   "targetKo": "천 원만 빌릴 수 있어요?",
-   "promptDe": "Kann ich mir nur tausend Won leihen?",
-   "promptEn": "Can I just borrow a thousand won?",
-   "distractors": [
-    "지금",
-    "어려워서"
-   ],
-   "vocabKo": "천"
-  }
- },
- {
-  "kind": "satz",
-  "id": "satz_a1_0059",
-  "level": "a1",
-  "fields": [
-   "distractors",
-   "promptDe",
-   "promptEn",
-   "targetKo"
-  ],
-  "before": {
-   "id": "satz_a1_0059",
-   "level": "a1",
-   "targetKo": "천천히 말해 주세요.",
-   "promptDe": "Bitte sprechen Sie langsam.",
-   "promptEn": "Please speak slowly.",
-   "distractors": [
-    "가끔",
-    "삼번"
-   ],
-   "vocabKo": "천천히"
-  },
-  "after": {
-   "id": "satz_a1_0059",
-   "level": "a1",
-   "targetKo": "다시 천천히 말하세요.",
-   "promptDe": "Bitte sagen Sie es noch einmal langsam.",
-   "promptEn": "Please say it again, slowly.",
-   "distractors": [
-    "기다려요",
-    "바꿀까요"
-   ],
-   "vocabKo": "천천히"
   }
  },
  {
@@ -1190,20 +530,17 @@
   "id": "satz_a1_0069",
   "level": "a1",
   "fields": [
-   "distractors",
-   "promptDe",
-   "promptEn",
-   "targetKo"
+   "distractors"
   ],
   "before": {
    "id": "satz_a1_0069",
    "level": "a1",
-   "targetKo": "시어머니께서 웃어 주셨어요.",
-   "promptDe": "Meine Schwiegermutter hat mich angelächelt.",
-   "promptEn": "My mother-in-law smiled at me.",
+   "targetKo": "시어머니께서 저를 보고 웃으셨어요.",
+   "promptDe": "Meine Schwiegermutter hat mich angesehen und gelächelt.",
+   "promptEn": "My mother-in-law looked at me and smiled.",
    "distractors": [
-    "흔들었어요",
-    "힘들어요"
+    "아버지가",
+    "신발이"
    ],
    "vocabKo": "시어머니"
   },
@@ -1215,7 +552,7 @@
    "promptEn": "My mother-in-law looked at me and smiled.",
    "distractors": [
     "아버지가",
-    "안경을"
+    "모자를"
    ],
    "vocabKo": "시어머니"
   }
@@ -1225,18 +562,17 @@
   "id": "satz_a1_0163",
   "level": "a1",
   "fields": [
-   "distractors",
-   "targetKo"
+   "distractors"
   ],
   "before": {
    "id": "satz_a1_0163",
    "level": "a1",
-   "targetKo": "편지는 아래 우편함에 넣어 주세요.",
+   "targetKo": "편지는 아래 우편함에 넣으세요.",
    "promptDe": "Bitte legen Sie den Brief in den Briefkasten unten.",
    "promptEn": "Please put the letter in the mailbox downstairs.",
    "distractors": [
-    "우표",
-    "소포"
+    "없어요",
+    "글쎄요"
    ],
    "vocabKo": "우편함"
   },
@@ -1248,42 +584,9 @@
    "promptEn": "Please put the letter in the mailbox downstairs.",
    "distractors": [
     "돈이",
-    "오세요"
+    "예"
    ],
    "vocabKo": "우편함"
-  }
- },
- {
-  "kind": "satz",
-  "id": "satz_a1_0168",
-  "level": "a1",
-  "fields": [
-   "distractors",
-   "targetKo"
-  ],
-  "before": {
-   "id": "satz_a1_0168",
-   "level": "a1",
-   "targetKo": "받는 사람 전화번호를 적어 주세요.",
-   "promptDe": "Bitte notieren Sie die Telefonnummer des Empfängers.",
-   "promptEn": "Please write the recipient's phone number.",
-   "distractors": [
-    "우표",
-    "소포"
-   ],
-   "vocabKo": "받는 사람"
-  },
-  "after": {
-   "id": "satz_a1_0168",
-   "level": "a1",
-   "targetKo": "받는 사람 전화번호를 적으세요.",
-   "promptDe": "Bitte notieren Sie die Telefonnummer des Empfängers.",
-   "promptEn": "Please write the recipient's phone number.",
-   "distractors": [
-    "조금씩",
-    "요리를"
-   ],
-   "vocabKo": "받는 사람"
   }
  },
  {
@@ -1291,18 +594,17 @@
   "id": "satz_a1_0254",
   "level": "a1",
   "fields": [
-   "distractors",
-   "targetKo"
+   "distractors"
   ],
   "before": {
    "id": "satz_a1_0254",
    "level": "a1",
-   "targetKo": "자리를 양보해 주셔서 정말 감사해요.",
+   "targetKo": "자리를 양보하셔서 정말 감사해요.",
    "promptDe": "Vielen Dank, dass Sie den Platz überlassen haben.",
    "promptEn": "Thank you so much for giving up the seat.",
    "distractors": [
-    "죄송하다",
-    "감사하다"
+    "여기에",
+    "와"
    ],
    "vocabKo": "정말 감사해요"
   },
@@ -1313,7 +615,7 @@
    "promptDe": "Vielen Dank, dass Sie den Platz überlassen haben.",
    "promptEn": "Thank you so much for giving up the seat.",
    "distractors": [
-    "댁에",
+    "여기에",
     "글쎄요"
    ],
    "vocabKo": "정말 감사해요"
@@ -1321,94 +623,21 @@
  },
  {
   "kind": "satz",
-  "id": "satz_a1_0300",
-  "level": "a1",
-  "fields": [
-   "distractors",
-   "promptDe",
-   "promptEn",
-   "targetKo"
-  ],
-  "before": {
-   "id": "satz_a1_0300",
-   "level": "a1",
-   "targetKo": "잠깐만 기다려 주세요.",
-   "promptDe": "Warten Sie bitte einen Moment.",
-   "promptEn": "Please wait a moment.",
-   "distractors": [
-    "안녕하세요",
-    "안녕"
-   ],
-   "vocabKo": "잠깐"
-  },
-  "after": {
-   "id": "satz_a1_0300",
-   "level": "a1",
-   "targetKo": "잠깐만 여기서 기다리세요.",
-   "promptDe": "Warten Sie bitte hier einen Moment.",
-   "promptEn": "Please wait here for a moment.",
-   "distractors": [
-    "백",
-    "여동생이"
-   ],
-   "vocabKo": "잠깐"
-  }
- },
- {
-  "kind": "satz",
-  "id": "satz_b1_0407",
-  "level": "a1",
-  "fields": [
-   "distractors",
-   "promptDe",
-   "promptEn",
-   "targetKo"
-  ],
-  "before": {
-   "id": "satz_b1_0407",
-   "level": "a1",
-   "targetKo": "질문에 대답해 주세요.",
-   "promptDe": "Antworten Sie bitte auf die Frage.",
-   "promptEn": "Please answer the question.",
-   "distractors": [
-    "경험",
-    "문화"
-   ],
-   "vocabKo": "대답하다"
-  },
-  "after": {
-   "id": "satz_b1_0407",
-   "level": "a1",
-   "targetKo": "이 질문에 대답하세요.",
-   "promptDe": "Bitte antworten Sie auf diese Frage.",
-   "promptEn": "Please answer this question.",
-   "distractors": [
-    "귀여워요",
-    "싶어요"
-   ],
-   "vocabKo": "대답하다"
-  }
- },
- {
-  "kind": "satz",
   "id": "satz_a1_0315",
   "level": "a1",
   "fields": [
-   "distractors",
-   "promptDe",
-   "promptEn",
-   "targetKo"
+   "distractors"
   ],
   "before": {
    "id": "satz_a1_0315",
    "level": "a1",
-   "targetKo": "이 단어 발음을 다시 들려주세요.",
-   "promptDe": "Bitte spielen Sie die Aussprache dieses Wortes noch einmal ab.",
-   "promptEn": "Please play the pronunciation of this word again.",
+   "targetKo": "이 단어 발음을 다시 들을 수 있어요?",
+   "promptDe": "Kann ich die Aussprache dieses Wortes noch einmal hören?",
+   "promptEn": "Can I hear the pronunciation of this word again?",
    "vocabKo": "발음",
    "distractors": [
-    "주문",
-    "내일"
+    "학생이",
+    "웃었어요"
    ],
    "courseUnitId": "a1_08_clarify_repair",
    "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
@@ -1422,156 +651,10 @@
    "vocabKo": "발음",
    "distractors": [
     "호예요",
-    "과일은"
+    "웃었어요"
    ],
    "courseUnitId": "a1_08_clarify_repair",
    "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
-  }
- },
- {
-  "kind": "satz",
-  "id": "satz_a1_0316",
-  "level": "a1",
-  "fields": [
-   "distractors",
-   "targetKo"
-  ],
-  "before": {
-   "id": "satz_a1_0316",
-   "level": "a1",
-   "targetKo": "짧은 예문을 하나 적어 주세요.",
-   "promptDe": "Bitte schreiben Sie einen kurzen Beispielsatz auf.",
-   "promptEn": "Please write one short example sentence.",
-   "vocabKo": "예문",
-   "distractors": [
-    "가격",
-    "빨리"
-   ],
-   "courseUnitId": "a1_08_clarify_repair",
-   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
-  },
-  "after": {
-   "id": "satz_a1_0316",
-   "level": "a1",
-   "targetKo": "짧은 예문을 하나 적으세요.",
-   "promptDe": "Bitte schreiben Sie einen kurzen Beispielsatz auf.",
-   "promptEn": "Please write one short example sentence.",
-   "vocabKo": "예문",
-   "distractors": [
-    "아래",
-    "서"
-   ],
-   "courseUnitId": "a1_08_clarify_repair",
-   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
-  }
- },
- {
-  "kind": "satz",
-  "id": "satz_a1_0321",
-  "level": "a1",
-  "fields": [
-   "distractors",
-   "targetKo"
-  ],
-  "before": {
-   "id": "satz_a1_0321",
-   "level": "a1",
-   "targetKo": "이름을 종이에 적어 주세요.",
-   "promptDe": "Bitte schreiben Sie den Namen auf das Papier.",
-   "promptEn": "Please write the name on the paper.",
-   "vocabKo": "적어 주다",
-   "distractors": [
-    "먹다",
-    "하지만"
-   ],
-   "courseUnitId": "a1_08_clarify_repair",
-   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
-  },
-  "after": {
-   "id": "satz_a1_0321",
-   "level": "a1",
-   "targetKo": "이름을 종이에 적으세요.",
-   "promptDe": "Bitte schreiben Sie den Namen auf das Papier.",
-   "promptEn": "Please write the name on the paper.",
-   "vocabKo": "적어 주다",
-   "distractors": [
-    "꼭",
-    "수업은"
-   ],
-   "courseUnitId": "a1_08_clarify_repair",
-   "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
-  }
- },
- {
-  "kind": "satz",
-  "id": "satz_a1_0353",
-  "level": "a1",
-  "fields": [
-   "distractors",
-   "promptDe",
-   "promptEn",
-   "targetKo"
-  ],
-  "before": {
-   "id": "satz_a1_0353",
-   "level": "a1",
-   "targetKo": "전화번호를 알려 주세요.",
-   "promptDe": "Sagen Sie mir bitte Ihre Telefonnummer.",
-   "promptEn": "Please tell me your phone number.",
-   "vocabKo": "전화번호",
-   "distractors": [
-    "학교",
-    "오늘"
-   ],
-   "courseUnitId": "a1_15_first_class_work"
-  },
-  "after": {
-   "id": "satz_a1_0353",
-   "level": "a1",
-   "targetKo": "실례지만 전화번호가 뭐예요?",
-   "promptDe": "Entschuldigung, wie ist Ihre Telefonnummer?",
-   "promptEn": "Excuse me, what is your phone number?",
-   "vocabKo": "전화번호",
-   "distractors": [
-    "채소를",
-    "비우니까"
-   ],
-   "courseUnitId": "a1_15_first_class_work"
-  }
- },
- {
-  "kind": "satz",
-  "id": "satz_a1_0371",
-  "level": "a1",
-  "fields": [
-   "distractors",
-   "targetKo"
-  ],
-  "before": {
-   "id": "satz_a1_0371",
-   "level": "a1",
-   "targetKo": "다시 한번 말해 주세요.",
-   "promptDe": "Bitte sagen Sie es noch einmal.",
-   "promptEn": "Please say it once more.",
-   "vocabKo": "다시",
-   "distractors": [
-    "수저",
-    "흰색"
-   ],
-   "courseUnitId": "a1_08_clarify_repair"
-  },
-  "after": {
-   "id": "satz_a1_0371",
-   "level": "a1",
-   "targetKo": "다시 한번 말하세요.",
-   "promptDe": "Bitte sagen Sie es noch einmal.",
-   "promptEn": "Please say it once more.",
-   "vocabKo": "다시",
-   "distractors": [
-    "와",
-    "결제도"
-   ],
-   "courseUnitId": "a1_08_clarify_repair"
   }
  }
 ]

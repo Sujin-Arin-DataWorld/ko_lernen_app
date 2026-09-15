@@ -27084,7 +27084,7 @@
     },
     "inheritedReferenceCounts": {
       "cloze": 1172,
-      "satz": 1964
+      "satz": 1963
     },
     "inheritedContentReferences": [
       {
@@ -27808,7 +27808,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_daily_4",
         "sourceVocabId": "vocab_a1_0203",
-        "sourceVocabFingerprintSha256": "fddbe4127b56c1826b976cdad2a665b7e91d0cb3a0a6cf270be8ac5fda276dc1",
+        "sourceVocabFingerprintSha256": "b1f61a19d5354b7765d257d8f30a5a6129acb5c5a75b78ee5e8fbdafc082b291",
         "level": "a1",
         "canDoSegmentId": "segment_a1_12_daily_negation",
         "courseUnitId": "a1_12_daily_negation"
@@ -28908,7 +28908,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_first_class_1",
         "sourceVocabId": "vocab_a1_0438",
-        "sourceVocabFingerprintSha256": "09544d202a86920281e08fe3beb6776e2db595eb69d1aa29fa728834445f027f",
+        "sourceVocabFingerprintSha256": "3832a6879dadcee4dd2decb9fcf21abf31dd4510bf1597dfe2b1f791e1537d96",
         "level": "a1",
         "canDoSegmentId": "segment_a1_15_first_class_work",
         "courseUnitId": "a1_15_first_class_work"
@@ -29161,7 +29161,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_repair_language_1",
         "sourceVocabId": "vocab_a1_0456",
-        "sourceVocabFingerprintSha256": "a63e239a90c2f92a0d894be4855be458e8d6f65caa3b6af7853c1b7fe8631171",
+        "sourceVocabFingerprintSha256": "c47055e1c6a4d196d7e2250a5a3d2c3d0e0f53bdd7a8fc90d22badf2d742f317",
         "level": "a1",
         "canDoSegmentId": "segment_a1_08_clarify_repair",
         "courseUnitId": "a1_08_clarify_repair"
@@ -30191,17 +30191,6 @@
       },
       {
         "kind": "satz",
-        "id": "satz_a1_0028",
-        "sourceKind": "vocabPack",
-        "sourceId": "a1_numbers_2",
-        "sourceVocabId": "vocab_a1_0141",
-        "sourceVocabFingerprintSha256": "f4351c27fa95eb6dad529e603b88da31dac2a9cac107f9015257531c9f4f213b",
-        "level": "a1",
-        "canDoSegmentId": "segment_a1_05_numbers_time",
-        "courseUnitId": "a1_05_numbers_time"
-      },
-      {
-        "kind": "satz",
         "id": "satz_a1_0029",
         "sourceKind": "vocabPack",
         "sourceId": "a1_numbers_2",
@@ -30536,7 +30525,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_daily_4",
         "sourceVocabId": "vocab_a1_0203",
-        "sourceVocabFingerprintSha256": "fddbe4127b56c1826b976cdad2a665b7e91d0cb3a0a6cf270be8ac5fda276dc1",
+        "sourceVocabFingerprintSha256": "b1f61a19d5354b7765d257d8f30a5a6129acb5c5a75b78ee5e8fbdafc082b291",
         "level": "a1",
         "canDoSegmentId": "segment_a1_12_daily_negation",
         "courseUnitId": "a1_12_daily_negation"
@@ -31988,7 +31977,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_repair_language_1",
         "sourceVocabId": "vocab_a1_0409",
-        "sourceVocabFingerprintSha256": "3fcfdbd5db55d872fbefa06f6f380884b2c442a7df66a9450f641dc65488d405",
+        "sourceVocabFingerprintSha256": "8ba3ae211b0721fcd48deede4543cebe691bafea0558ad6477dae265b3ec5055",
         "level": "a1",
         "canDoSegmentId": "segment_a1_08_clarify_repair",
         "courseUnitId": "a1_08_clarify_repair"
@@ -32032,7 +32021,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_repair_language_1",
         "sourceVocabId": "vocab_a1_0409",
-        "sourceVocabFingerprintSha256": "3fcfdbd5db55d872fbefa06f6f380884b2c442a7df66a9450f641dc65488d405",
+        "sourceVocabFingerprintSha256": "8ba3ae211b0721fcd48deede4543cebe691bafea0558ad6477dae265b3ec5055",
         "level": "a1",
         "canDoSegmentId": "segment_a1_08_clarify_repair",
         "courseUnitId": "a1_08_clarify_repair"
@@ -32395,7 +32384,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_first_class_1",
         "sourceVocabId": "vocab_a1_0438",
-        "sourceVocabFingerprintSha256": "09544d202a86920281e08fe3beb6776e2db595eb69d1aa29fa728834445f027f",
+        "sourceVocabFingerprintSha256": "3832a6879dadcee4dd2decb9fcf21abf31dd4510bf1597dfe2b1f791e1537d96",
         "level": "a1",
         "canDoSegmentId": "segment_a1_15_first_class_work",
         "courseUnitId": "a1_15_first_class_work"
@@ -32593,7 +32582,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_repair_language_1",
         "sourceVocabId": "vocab_a1_0456",
-        "sourceVocabFingerprintSha256": "a63e239a90c2f92a0d894be4855be458e8d6f65caa3b6af7853c1b7fe8631171",
+        "sourceVocabFingerprintSha256": "c47055e1c6a4d196d7e2250a5a3d2c3d0e0f53bdd7a8fc90d22badf2d742f317",
         "level": "a1",
         "canDoSegmentId": "segment_a1_08_clarify_repair",
         "courseUnitId": "a1_08_clarify_repair"

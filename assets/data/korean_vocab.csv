@@ -314,7 +314,6 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 구,gu,neun (sino-koreanisch),A1,Nomen,새 학기가 구월에 시작해요.,Das neue Semester fängt im September an.,Zahlen,a1_numbers_2,1,false,nine (Sino-Korean),Noun,The new semester starts in September.,vocab_a1_0138
 십,sip,zehn (sino-koreanisch),A1,Nomen,십 분만 기다려요.,Ich warte nur zehn Minuten.,Zahlen,a1_numbers_2,2,false,ten (Sino-Korean),Noun,I'll wait just ten minutes.,vocab_a1_0139
 백,baek,hundert,A1,Nomen,백 명이 왔어요.,Hundert Leute sind gekommen.,Zahlen,a1_numbers_2,3,false,hundred,Noun,A hundred people came.,vocab_a1_0140
-천,cheon,tausend,A1,Nomen,천 원만 빌릴 수 있어요?,Kann ich mir nur tausend Won leihen?,Zahlen,a1_numbers_2,4,false,thousand,Noun,Can I just borrow a thousand won?,vocab_a1_0141
 만,man,zehntausend,A1,Nomen,만 원이에요.,Es kostet zehntausend Won.,Zahlen,a1_numbers_2,5,false,ten thousand,Noun,It costs ten thousand won.,vocab_a1_0142
 하나,hana,eins (rein-koreanisch),A1,Nomen,하나만 주세요.,Nur eins bitte.,Zahlen,a1_numbers_2,6,false,one (native Korean),Noun,"Just one, please.",vocab_a1_0143
 둘,dul,zwei (rein-koreanisch),A1,Nomen,둘이 같이 가요.,Wir gehen zu zweit.,Zahlen,a1_numbers_2,7,false,two (native Korean),Noun,"We go together, the two of us.",vocab_a1_0144
@@ -376,7 +375,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 모든,modeun,alle / sämtliche,A1,Adjektiv,모든 사람이 좋아해요.,Alle Leute mögen es.,Menge,a1_numbers_3,7,true,all / every,Adjective,Everyone likes it.,vocab_a1_0200
 몇,myeot,wie viele,A1,Adjektiv,몇 명이에요?,Wie viele Personen?,Menge,a1_numbers_3,8,true,how many,Adjective,How many people?,vocab_a1_0201
 잠깐,jamkkan,kurz / einen Moment,A1,Adverb,잠깐만 여기서 기다리세요.,Warten Sie bitte hier einen Moment.,Zeit,a1_time_3,6,false,for a moment / briefly,Adverb,Please wait here for a moment.,vocab_a1_0202
-천천히,cheoncheonhi,langsam,A1,Adverb,다시 천천히 말하세요.,Bitte sagen Sie es noch einmal langsam.,Alltag,a1_daily_4,4,false,slowly,Adverb,"Please say it again, slowly.",vocab_a1_0203
+천천히,cheoncheonhi,langsam,A1,Adverb,한국어를 잘 못해요. 다시 천천히 말해 주세요.,Ich spreche noch nicht gut Koreanisch. Bitte sprechen Sie noch einmal langsam.,Alltag,a1_daily_4,4,false,slowly,Adverb,I don't speak Korean well yet. Please speak slowly once more.,vocab_a1_0203
 일찍,iljjik,früh,A1,Adverb,오늘 일찍 자고 싶어요.,Ich möchte heute früh schlafen gehen.,Zeit,a1_time_3,7,true,early,Adverb,I want to go to bed early tonight.,vocab_a1_0204
 늦게,neutge,spät,A1,Adverb,어제 늦게 잤어요.,Gestern bin ich spät schlafen gegangen.,Zeit,a1_time_3,8,true,late,Adverb,I went to bed late yesterday.,vocab_a1_0205
 자주,jaju,oft,A1,Adverb,저는 커피를 자주 마셔요.,Ich trinke oft Kaffee.,Alltag,a1_daily_4,5,false,often,Adverb,I drink coffee often.,vocab_a1_0206
@@ -2332,7 +2331,7 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 성,seong,Nachname,A1,Nomen,성은 박이고 이름은 수진이에요.,Mein Nachname ist Park und mein Vorname ist Sujin.,자기소개,a1_particles_in_use_1,3,true,family name,Noun,My family name is Park and my given name is Sujin.,vocab_a1_0406
 고향,gohyang,Heimatort,A1,Nomen,제 고향은 부산이에요.,Meine Heimatstadt ist Busan.,자기소개,a1_particles_in_use_1,4,true,hometown,Noun,My hometown is Busan.,vocab_a1_0407
 발음,bareum,Aussprache,A1,Nomen,이 단어 발음을 다시 들을 수 있어요?,Kann ich die Aussprache dieses Wortes noch einmal hören?,다시 묻기,a1_repair_language_1,1,false,pronunciation,Noun,Can I hear the pronunciation of this word again?,vocab_a1_0408
-예문,yemun,Beispielsatz,A1,Nomen,짧은 예문을 하나 적으세요.,Bitte schreiben Sie einen kurzen Beispielsatz auf.,다시 묻기,a1_repair_language_1,2,false,example sentence,Noun,Please write down one short example sentence.,vocab_a1_0409
+예문,yemun,Beispielsatz,A1,Nomen,짧은 예문을 하나 적어 주세요.,Bitte schreiben Sie einen kurzen Beispielsatz auf.,다시 묻기,a1_repair_language_1,2,false,example sentence,Noun,Please write down one short example sentence.,vocab_a1_0409
 적어 주다,jeogeo juda,aufschreiben,A1,Verb,주소를 천천히 적어 주세요.,Bitte schreiben Sie die Adresse langsam auf.,다시 묻기,a1_repair_language_1,3,true,to write down,Verb,Please write the address down slowly.,vocab_a1_0410
 뜻을 묻다,tteuseul mutda,nach der Bedeutung fragen,A1,Verb,모르는 단어의 뜻을 물어요.,Ich frage nach der Bedeutung eines unbekannten Wortes.,다시 묻기,a1_repair_language_1,4,true,to ask the meaning,Verb,I ask the meaning of an unfamiliar word.,vocab_a1_0411
 결제하다,gyeoljehada,bezahlen,A1,Verb,카드로 결제할게요.,Ich bezahle mit Karte.,결제와 배달,a1_payment_delivery_1,1,false,to pay,Verb,I'll pay by card.,vocab_a1_0412
@@ -2429,7 +2428,7 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 살다,salda,"wohnen, leben",A1,Verb,부모님은 독일에 사세요.,Meine Eltern leben in Deutschland.,자기소개,a1_particles_in_use_1,11,false,to live,Verb,My parents live in Germany.,vocab_a1_0435
 수업,sueop,Unterricht,A1,Nomen,한국어 수업은 월요일에 있어요.,Der Koreanischunterricht ist am Montag.,첫 수업,a1_first_class_1,1,false,"class, lesson",Noun,Korean class is on Monday.,vocab_a1_0436
 처음,cheoeum,das erste Mal,A1,Nomen,한국어 수업은 처음이에요.,Koreanischunterricht habe ich zum ersten Mal.,첫 수업,a1_first_class_1,2,false,first time,Noun,It's my first time taking a Korean class.,vocab_a1_0437
-전화번호,jeonhwabeonho,Telefonnummer,A1,Nomen,실례지만 전화번호가 뭐예요?,"Entschuldigung, wie ist Ihre Telefonnummer?",첫 수업,a1_first_class_1,3,false,phone number,Noun,"Excuse me, what is your phone number?",vocab_a1_0438
+전화번호,jeonhwabeonho,Telefonnummer,A1,Nomen,실례지만 전화번호를 알 수 있을까요?,"Entschuldigung, könnte ich Ihre Telefonnummer erfahren?",첫 수업,a1_first_class_1,3,false,phone number,Noun,"Excuse me, could I get your phone number?",vocab_a1_0438
 대학,daehak,"Universität, Hochschule",A1,Nomen,무슨 대학에 다녀요?,An welcher Universität studieren Sie?,첫 수업,a1_first_class_1,4,false,"university, college",Noun,Which university do you go to?,vocab_a1_0439
 책상,chaeksang,Schreibtisch,A1,Nomen,책상 위에 책이 있어요.,Auf dem Schreibtisch liegt ein Buch.,첫 수업,a1_first_class_1,5,false,desk,Noun,There is a book on the desk.,vocab_a1_0440
 연필,yeonpil,Bleistift,A1,Nomen,연필로 이름을 써요.,Ich schreibe meinen Namen mit Bleistift.,첫 수업,a1_first_class_1,6,false,pencil,Noun,I write my name with a pencil.,vocab_a1_0441
@@ -2447,7 +2446,7 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 원,won,Won (Währung),A1,Nomen,커피는 사천 원이에요.,Der Kaffee kostet viertausend Won.,결제와 배달,a1_payment_delivery_1,6,false,won (currency),Noun,The coffee is four thousand won.,vocab_a1_0453
 번호,beonho,Nummer,A1,Nomen,제 번호는 십오 번이에요.,Meine Nummer ist die Fünfzehn.,결제와 배달,a1_payment_delivery_1,7,false,number,Noun,My number is fifteen.,vocab_a1_0454
 기다리다,gidarida,warten,A1,Verb,문 앞에서 기다려요.,Ich warte vor der Tür.,결제와 배달,a1_payment_delivery_1,8,false,to wait,Verb,I'm waiting in front of the door.,vocab_a1_0455
-다시,dasi,"noch einmal, wieder",A1,Adverb,다시 한번 말하세요.,Bitte sagen Sie es noch einmal.,다시 묻기,a1_repair_language_1,8,false,"again, once more",Adverb,Please say it once more.,vocab_a1_0456
+다시,dasi,"noch einmal, wieder",A1,Adverb,다시 한번 말해 주세요.,Bitte sagen Sie es noch einmal.,다시 묻기,a1_repair_language_1,8,false,"again, once more",Adverb,Please say it once more.,vocab_a1_0456
 단어,daneo,"Wort, Vokabel",A1,Nomen,이 단어는 무슨 뜻이에요?,Was bedeutet dieses Wort?,다시 묻기,a1_repair_language_1,9,false,"word, vocabulary",Noun,What does this word mean?,vocab_a1_0457
 사전,sajeon,Wörterbuch,A1,Nomen,사전에서 단어를 찾아요.,Ich schlage das Wort im Wörterbuch nach.,다시 묻기,a1_repair_language_1,10,false,dictionary,Noun,I look the word up in the dictionary.,vocab_a1_0458
 학년,hangnyeon,Schuljahr; Studienjahr,A2,Nomen,저는 지금 대학교 이 학년이에요.,Ich bin jetzt im zweiten Studienjahr.,Bildung,a2_education,8,false,"school year, grade",Noun,I'm in my second year of university now.,vocab_a2_0477

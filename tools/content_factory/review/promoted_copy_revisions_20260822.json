@@ -4373,7 +4373,7 @@
         "targetKo"
       ],
       "beforeSha256": "a54cdda9e3c6ef29aefad67dddfa7b4693f559ab14cd93e61a509edfe917342c",
-      "afterSha256": "661fbbdc6eda9bcb8f668c0b0007aab9f38bee8da4dc661a8ddeafce6f9c8b7b"
+      "afterSha256": "a5096bb959ba4cec636ae105920e3c9529025e88fb78bbb134bef3914fafdc0f"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -4385,7 +4385,7 @@
         "targetKo"
       ],
       "beforeSha256": "a921a1f2a4f90e751eb865ac573fffd1345718b0c767582d90ecac703e286a2c",
-      "afterSha256": "583831b304072e85c361fb8caf2b78b684c4b34fd0593ea573b4e43d9028a818"
+      "afterSha256": "db68d3e6bc4ddc363948a666ab4baa2531f9cf2293d16087407f179371eea8de"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -4397,7 +4397,7 @@
         "targetKo"
       ],
       "beforeSha256": "56c9bb9c0fc004bc943520d3a8c69bf692311f90a83dc7734e3cb3e7153808cf",
-      "afterSha256": "65c593a9b3fde5505f03ef193c267b9382cc5d3a3745a4f1417f4724986edfbc"
+      "afterSha256": "98a72b0b93bcff63121f0c89169abec2f89daab8a5deb7ed66427084da9455be"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -4409,7 +4409,7 @@
         "targetKo"
       ],
       "beforeSha256": "e794ce7c6d65837a856909f3ed7949dd6a4f4197821e334cf840e80965cd77da",
-      "afterSha256": "32aa5cf9158c440c047612bbbe2e13c75d1c31cb7c94e3ee437c2e4bbdd9c003"
+      "afterSha256": "3f630c837b674f8c354c29522da6ec6e45a43a3ae10a18cf093ebce4ca8708b1"
     }
   ],
   "routingEntries": [
@@ -4562,6 +4562,20 @@
       "method": "scan_a1_grammar.py's contracted -아/어 주다/주시다/드리다 detector (added in C2d coordinator round 3) flagged 38 rows deferred by C2d as DOCUMENTED_EXCEPTIONS, plus vocab_a1_0402 (+2 mirrors) and 2 rows surfaced by promotions after the 2026-09-15 C2d scan (vocab_a1_0508's headword-embedded 도와주다 + mirrors, registered in HEADWORD_EMBEDDED_GRAMMAR, not rewritten); rewritten to 1급 -으세요 or a softened -을 수 있어요? question per Jin's 2026-09-16 ruling. vocab_a1_0410 (headword 적어 주다) also stays headword-embedded, unchanged. Entries fingerprinted against each row's true historical draft file (manifest.artifacts[].draft); rows with no identifiable owning manifest (a1_numbers_2/time_3/daily_4/repair_language_1/first_class_1 packs, standalone cloze/satz rows) got no ledger entry, same as C2d's own 'Cluster C' rows.",
       "added": 10,
       "updated": 2
+    },
+    {
+      "date": "2026-09-16",
+      "scope": "C2d-2 A1 -아/어 주세요 -> -으세요 rewrite (Jin option a)",
+      "method": "scan_a1_grammar.py's contracted -아/어 주다/주시다/드리다 detector (added in C2d coordinator round 3) flagged 38 rows deferred by C2d as DOCUMENTED_EXCEPTIONS, plus vocab_a1_0402 (+2 mirrors) and 2 rows surfaced by promotions after the 2026-09-15 C2d scan (vocab_a1_0508's headword-embedded 도와주다 + mirrors, registered in HEADWORD_EMBEDDED_GRAMMAR, not rewritten); rewritten to 1급 -으세요 or a softened -을 수 있어요? question per Jin's 2026-09-16 ruling. vocab_a1_0410 (headword 적어 주다) also stays headword-embedded, unchanged. Entries fingerprinted against each row's true historical draft file (manifest.artifacts[].draft); rows with no identifiable owning manifest (a1_numbers_2/time_3/daily_4/repair_language_1/first_class_1 packs, standalone cloze/satz rows) got no ledger entry, same as C2d's own 'Cluster C' rows.",
+      "added": 0,
+      "updated": 8
+    },
+    {
+      "date": "2026-09-16",
+      "scope": "C2d-2 A1 -아/어 주세요 -> -으세요 rewrite (Jin option a)",
+      "method": "scan_a1_grammar.py's contracted -아/어 주다/주시다/드리다 detector (added in C2d coordinator round 3) flagged 38 rows deferred by C2d as DOCUMENTED_EXCEPTIONS, plus vocab_a1_0402 (+2 mirrors) and 2 rows surfaced by promotions after the 2026-09-15 C2d scan (vocab_a1_0508's headword-embedded 도와주다 + mirrors, registered in HEADWORD_EMBEDDED_GRAMMAR, not rewritten); rewritten to 1급 -으세요 or a softened -을 수 있어요? question per Jin's 2026-09-16 ruling. vocab_a1_0410 (headword 적어 주다) also stays headword-embedded, unchanged. Entries fingerprinted against each row's true historical draft file (manifest.artifacts[].draft); rows with no identifiable owning manifest (a1_numbers_2/time_3/daily_4/repair_language_1/first_class_1 packs, standalone cloze/satz rows) got no ledger entry, same as C2d's own 'Cluster C' rows.",
+      "added": 0,
+      "updated": 7
     }
   ],
   "batchFieldRevisions": [

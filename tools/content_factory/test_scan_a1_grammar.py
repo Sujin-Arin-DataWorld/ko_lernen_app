@@ -111,6 +111,28 @@ class DetectorUnitTest(unittest.TestCase):
             with self.subTest(text=text):
                 self.assertTrue(self._hits(text), f"{text!r} must be flagged")
 
+    def test_allows_closed_list_request_formulas(self) -> None:
+        # F9 (2026-09-16, Jin round 2): the 3-item closed list stays
+        # -아/어 주다 even as a learner->stranger request; 다시/천천히/한번/
+        # 조금 modifiers (and combinations) don't change which formula it
+        # is, so all still resolve to the same 3 allowed strings.
+        for text in ("다시 천천히 말해 주세요.", "조금 천천히 말해 주세요.",
+                     "다시 한번 말해 주세요.", "죄송하지만 다시 말해 주세요.",
+                     "짧은 예문을 하나 적어 주세요.", "이름을 적어 주세요.",
+                     "도와주세요."):
+            with self.subTest(text=text):
+                self.assertEqual(self._hits(text), [], f"{text!r} must NOT be flagged")
+
+    def test_catches_productive_아어주다_outside_the_closed_list(self) -> None:
+        # A verb NOT on the 3-item closed list must still be flagged even
+        # in a request shape (e.g. 보여주다/들려주다/알려주다 -- the
+        # allowlist is a closed list, not a general "any -아/어 주세요"
+        # pass).
+        for text in ("짧은 예문을 하나 보여 주세요.", "발음을 다시 들려주세요.",
+                     "전화번호를 알려 주세요."):
+            with self.subTest(text=text):
+                self.assertTrue(self._hits(text), f"{text!r} must be flagged")
+
     def test_allows_lexical_보다_주다_alone(self) -> None:
         # Coordinator's explicit negative case: 보다/주다 as their OWN main
         # verb, not an auxiliary -- the object particle right before them

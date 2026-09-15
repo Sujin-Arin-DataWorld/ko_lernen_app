@@ -104,6 +104,22 @@ ATTRIBUTIVE_NOUN_GRADE = 2
 ALLOWLIST_MATCHED_TEXT = {"그래요", "있어요", "같이"}
 _LOCATIVE_BAKKE_RE = re.compile(r"^밖에\b")
 
+# F9 (2026-09-16, Jin round 2 on C2d-2): kept in sync with
+# scan_a1_grammar.py's own copy -- see that module for the full
+# justification. Only matters for A1 (CONTRACTED_AUX_GRADE=2 threshold);
+# at A2 the aux_give check doesn't fire at all (threshold raised to 3), so
+# no level-gating is needed here.
+A1_REQUEST_FORMULAS = (
+    "말해 주세요",
+    "적어 주세요",
+    "도와주세요",
+)
+
+
+def _is_allowed_request_formula(text: str, match: re.Match) -> bool:
+    context = text[max(0, match.start() - 1):match.end()]
+    return context in A1_REQUEST_FORMULAS
+
 HEADWORD_EMBEDDED_GRAMMAR = {
     "A1": {
         ("vocab", "vocab_a1_0341"): "늦을 것 같다 embeds -을 것 같다 (nikl grade 2, 표현)",
@@ -232,6 +248,8 @@ def _contracted_aux_hits(text: str, threshold: int):
                 continue
         hits.append(("aux_try_아어보다", CONTRACTED_AUX_GRADE, m.group(0)))
     for m in AUX_GIVE_RE.finditer(text):
+        if _is_allowed_request_formula(text, m):
+            continue  # F9 closed-list request formula, see A1_REQUEST_FORMULAS
         hits.append(("aux_give_아어주다", CONTRACTED_AUX_GRADE, m.group(0)))
     for m in LAW_METHOD_RE.finditer(text):
         hits.append(("nominalizer_는_법", CONTRACTED_AUX_GRADE, m.group(0)))

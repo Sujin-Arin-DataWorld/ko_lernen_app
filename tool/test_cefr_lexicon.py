@@ -611,7 +611,8 @@ class TestVocabUnknownRatio(unittest.TestCase):
         for word, count in top[:30]:
             print("  %s x%d" % (word, count))
         self.assertLessEqual(ratio, 0.10)
-        self.assertEqual(len(self.rows), 2563)
+        # C2d-2 (2026-09-16): vocab_a1_0141 deleted (Jin: "아예 쓰지 말자").
+        self.assertEqual(len(self.rows), 2562)
 
 
 class TestSentenceUnknownRatio(unittest.TestCase):

@@ -4,7 +4,7 @@
   "sources": [
     {
       "kind": "vocab",
-      "count": 2563,
+      "count": 2562,
       "source": "korean_vocab.csv",
       "requiresExplicitId": true
     },
@@ -40,7 +40,7 @@
     },
     {
       "kind": "satz",
-      "count": 2480,
+      "count": 2479,
       "source": "satz_sentences.json",
       "requiresExplicitId": true
     },

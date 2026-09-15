@@ -192,6 +192,35 @@ ATTRIBUTIVE_NOUN_PATTERNS = (
     "온 손님", "간 친구", "온 친구",
 )
 
+# F9 (2026-09-16, Jin round 2 on C2d-2): a closed list of exactly 3
+# lexicalized A1 REQUEST formulas that stay -아/어 주다 even though a
+# learner asking a stranger for a favor is normally not 1급-safe. Fable's
+# authority rule: a bare -으세요 imperative is fine when the SPEAKER has
+# situational authority / gives instructions (clerk, teacher, postal-form
+# instructions -- e.g. 넣으세요/적으세요/대답하세요/기다리세요, all still
+# handled by the ordinary -(으)세요 path, nothing to allowlist there); a
+# learner->stranger REQUEST instead needs either the soft 1급 "-을 수
+# 있어요?/-을 수 있을까요?" question, or one of these 3 fixed, lexicalized
+# formulas (Jin's exact list, no others): "말해 주세요" (다시/천천히/한번/
+# 조금 and combinations thereof are all still the SAME formula -- matched
+# by literal substring, not the modifier), "도와주세요", "적어 주세요".
+# Productive/generative -아/어 주다 elsewhere stays out of scope until A2.
+# Checked by exact-length string equality against the AUX_GIVE_RE match
+# plus exactly one preceding character (the connector char IS the last
+# syllable of the verb stem, e.g. "말해"/"적어"/"도와" -- one more syllable
+# completes the whole formula): see _contracted_aux_hits.
+A1_REQUEST_FORMULAS = (
+    "말해 주세요",
+    "적어 주세요",
+    "도와주세요",
+)
+
+
+def _is_allowed_request_formula(text: str, match: re.Match) -> bool:
+    context = text[max(0, match.start() - 1):match.end()]
+    return context in A1_REQUEST_FORMULAS
+
+
 # Fable R8 (2026-09-15): a few A1 headwords are themselves a multi-word
 # expression whose lexical form embeds a grade>=2 morpheme (e.g. "늦을 것
 # 같다" bakes in the grade-2 표현 -을 것 같다). The example sentence can't
@@ -339,6 +368,8 @@ def _contracted_aux_hits(text: str):
                 continue
         hits.append(("aux_try_아어보다", 2, m.group(0)))
     for m in AUX_GIVE_RE.finditer(text):
+        if _is_allowed_request_formula(text, m):
+            continue  # F9 closed-list request formula, see A1_REQUEST_FORMULAS
         hits.append(("aux_give_아어주다", 2, m.group(0)))
     for m in LAW_METHOD_RE.finditer(text):
         hits.append(("nominalizer_는_법", 2, m.group(0)))

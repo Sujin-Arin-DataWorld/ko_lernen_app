@@ -18,7 +18,9 @@ void main() {
     () async {
       final vocab = await DataLoader.loadVocab();
 
-      expect(vocab, hasLength(2563));
+      // C2d-2 (2026-09-16): vocab_a1_0141 deleted (Jin: "아예 쓰지 말자"),
+      // a1_numbers_2 pack 12->11.
+      expect(vocab, hasLength(2562));
       expect(
         vocab.map((entry) => entry.packId).where((id) => id.isNotEmpty).toSet(),
         hasLength(224),
