@@ -204,6 +204,52 @@ def _require_reviewed_copy_revision(
     return True
 
 
+def _batch_field_revisions(*, root: Path) -> dict[tuple[str, str], dict[str, Any]]:
+    """Read the ledger's `batchFieldRevisions` -- Fable ruling 2026-09-15
+    (C2a RR romanization regeneration): unlike `entries` (one row-and-field
+    record per id, with exact before/after row fingerprints), this is a
+    *field-level* exemption that covers every already-promoted row whose
+    only diff from its reviewed draft is that one field, without listing
+    each row individually. Deliberately fail-closed: an entry only takes
+    effect once its `approval` is filled in (Jin, after the 10% sample) --
+    see `_require_batch_field_revision`."""
+
+    ledger_path = root / COPY_REVISION_LEDGER
+    if not ledger_path.exists():
+        return {}
+    ledger = _json(ledger_path)
+    result: dict[tuple[str, str], dict[str, Any]] = {}
+    for entry in ledger.get("batchFieldRevisions", []):
+        if not isinstance(entry, dict):
+            raise PromotedBatchError("batch field revision entries must be objects")
+        key = (str(entry.get("kind") or ""), str(entry.get("field") or ""))
+        if not all(key) or key in result:
+            raise PromotedBatchError(f"duplicate or malformed batch field revision {key!r}")
+        result[key] = entry
+    return result
+
+
+def _require_batch_field_revision(
+    *,
+    kind: str,
+    draft: dict[str, Any],
+    live: dict[str, Any],
+    batch_revisions: dict[tuple[str, str], dict[str, Any]],
+) -> bool:
+    """True when `live` differs from `draft` in exactly one field, and that
+    (kind, field) has an approved `batchFieldRevisions` entry. An entry
+    that exists but has no `approval` yet is recognized but does not
+    authorize anything -- fail-closed until Jin approves it."""
+
+    changed_fields = {field for field in {*draft, *live} if draft.get(field) != live.get(field)}
+    if len(changed_fields) != 1:
+        return False
+    revision = batch_revisions.get((kind, next(iter(changed_fields))))
+    if revision is None:
+        return False
+    return bool(revision.get("approval"))
+
+
 def _promotion_projection(kind: str, row: dict[str, Any]) -> dict[str, Any]:
     if kind != "scenario":
         return row
@@ -273,6 +319,7 @@ def validate(
     seen_kinds: set[str] = set()
     revisions = _copy_revisions(root=root, manifest_path=manifest_path)
     used_revisions: set[tuple[str, str]] = set()
+    batch_revisions = _batch_field_revisions(root=root)
     routing_revisions = _routing_revisions(root=root, manifest_path=manifest_path)
     used_routing_revisions: set[tuple[str, str]] = set()
     # vocabPacks[].packId bases whose rows moved to a different live pack_id
@@ -381,6 +428,11 @@ def validate(
                     draft=draft_projection,
                     live=live_projection,
                     revisions=revisions,
+                ) and not _require_batch_field_revision(
+                    kind=kind,
+                    draft=draft_projection,
+                    live=live_projection,
+                    batch_revisions=batch_revisions,
                 ):
                     _require_equal(live_projection, draft_projection, f"{kind}:{ident}")
                 used_revisions.add((kind, ident))

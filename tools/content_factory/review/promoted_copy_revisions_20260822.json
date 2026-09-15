@@ -2273,6 +2273,22 @@
       "removed": 250,
       "updated": 11,
       "added": 0
+    },
+    {
+      "date": "2026-09-15",
+      "scope": "C2a RR romanization regeneration (PR #327) — Fable ruling",
+      "method": "assets/data/korean_vocab.csv's romanization column was regenerated for all 2,499 rows by tools/content_factory/regenerate_romanization.py against the rewritten RR sound-change engine (tools/content_factory/rr_romanize.py); a handful of already-promoted Batch 09 vocab rows now differ from their frozen review draft in romanization only (e.g. vocab_a1_0316, vocab_a1_0323, vocab_a1_0326, vocab_a1_0328). Rather than freezing one `entries` record per affected row, this batch-level `batchFieldRevisions` entry authorizes the field itself for every row whose only diff from its draft is `romanization` -- see validate_promoted_batch.py's `_require_batch_field_revision`. Full before/after values and the rule that fired for every changed row are in docs/data/rr_regeneration_report_2026-09-15.md.",
+      "added": 0,
+      "fieldAuthorized": "romanization"
+    }
+  ],
+  "batchFieldRevisions": [
+    {
+      "kind": "vocab",
+      "field": "romanization",
+      "reason": "RR rule regeneration C2a",
+      "reportRef": "docs/data/rr_regeneration_report_2026-09-15.md",
+      "approval": null
     }
   ]
 }
