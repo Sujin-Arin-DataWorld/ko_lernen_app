@@ -35,6 +35,8 @@ if str(SCRIPT_DIR) not in _sys.path:
 from distractor_rules import (  # noqa: E402
     batchim_class as _batchim_class,
     detect_required_class as _detect_required_class,
+    PREDICATE_SLOT_WAIVER,
+    waived_distractor_ok,
 )
 DRAFTS = REPO_ROOT / "tools/content_factory/drafts"
 VOCAB_CSV = REPO_ROOT / "assets/data/korean_vocab.csv"
@@ -406,6 +408,30 @@ class TestBatch25Cloze(unittest.TestCase):
                 syll, 2, f"{item['id']}: single-syllable answer {item['answer']!r} is unfair"
             )
 
+    def test_predicate_slot_waiver_ids_exist_and_are_distractor_fixed(self):
+        """PREDICATE_SLOT_WAIVER (Fable R8, 2026-09-15): every waived item
+        must exist in this batch's cloze set."""
+        item_ids = {item["id"] for item in self.items}
+        for waived_id in PREDICATE_SLOT_WAIVER:
+            self.assertIn(waived_id, item_ids, f"waived id {waived_id} not in Batch 25 cloze set")
+
+    def test_predicate_slot_waiver_distractors_are_ungrammatical_in_slot(self):
+        """For every PREDICATE_SLOT_WAIVER item, each distractor must be
+        drawn from one of the three ungrammatical-in-slot techniques
+        (bare dictionary-form verb / bare noun without copula / bare
+        particle-adverb) -- never another same-shape predicate/phrase that
+        could itself complete the slot as a valid sentence."""
+        by_id = {item["id"]: item for item in self.items}
+        for waived_id in PREDICATE_SLOT_WAIVER:
+            item = by_id[waived_id]
+            for d in item["distractors"]:
+                self.assertTrue(
+                    waived_distractor_ok(d),
+                    f"{waived_id}: distractor {d!r} is not a recognized "
+                    "ungrammatical-in-slot form (dictionary-form verb / bare "
+                    "noun / bare particle-adverb)",
+                )
+
 
 class TestBatch25Satz(unittest.TestCase):
     @classmethod
@@ -457,6 +483,42 @@ class TestBatch25PacksFilledTo12(unittest.TestCase):
             self.assertEqual(
                 live_counts.get(pack_id, 0), 12,
                 f"{pack_id}: live count {live_counts.get(pack_id, 0)} != 12",
+            )
+
+
+class TestBatch25DerivedCopyInvariant(unittest.TestCase):
+    """Fable R8 (2026-09-15): the vocab example, the cloze full sentence,
+    and the satz build target for the same row must be the exact same
+    Korean text -- vocab.example_korean == cloze.fullKo == satz.targetKo.
+    A satz-only (or cloze-only) extension to satisfy some other engine
+    contract must be applied identically to all three, not just one."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.rows = _load_vocab_rows(DRAFTS / "batch_25_a1_rows.csv")
+        cls.cloze_by_vid = {
+            item["sourceVocabId"]: item
+            for item in _load_json(DRAFTS / "batch_25_a1_cloze.json")["items"]
+        }
+        cls.satz_by_vid = {
+            item["sourceVocabId"]: item
+            for item in _load_json(DRAFTS / "batch_25_a1_satz.json")["items"]
+        }
+
+    def test_vocab_cloze_satz_text_matches_for_every_row(self):
+        for row in self.rows:
+            vid = row["id"]
+            cloze = self.cloze_by_vid.get(vid)
+            satz = self.satz_by_vid.get(vid)
+            self.assertIsNotNone(cloze, f"{vid}: no matching cloze item")
+            self.assertIsNotNone(satz, f"{vid}: no matching satz item")
+            self.assertEqual(
+                row["example_korean"], cloze["fullKo"],
+                f"{vid}: vocab.example_korean != cloze.fullKo",
+            )
+            self.assertEqual(
+                row["example_korean"], satz["targetKo"],
+                f"{vid}: vocab.example_korean != satz.targetKo",
             )
 
 

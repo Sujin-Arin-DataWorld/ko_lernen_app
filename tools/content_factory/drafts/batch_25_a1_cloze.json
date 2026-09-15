@@ -3,11 +3,11 @@
     {
       "id": "cloze_a1_0393",
       "level": "a1",
-      "sentenceKo": "크리스티안은 ＿＿＿이에요.",
+      "sentenceKo": "크리스티안은 지금 ＿＿＿이에요.",
       "answer": "회사원",
-      "fullKo": "크리스티안은 회사원이에요.",
-      "de": "Christian ist Angestellter.",
-      "en": "Christian is an office worker.",
+      "fullKo": "크리스티안은 지금 회사원이에요.",
+      "de": "Christian ist jetzt Angestellter.",
+      "en": "Christian is now an office worker.",
       "distractors": [
         "설날",
         "내년",
@@ -54,9 +54,9 @@
     {
       "id": "cloze_a1_0396",
       "level": "a1",
-      "sentenceKo": "＿＿＿, 안녕하세요!",
+      "sentenceKo": "＿＿＿, 모두 안녕하세요!",
       "answer": "여러분",
-      "fullKo": "여러분, 안녕하세요!",
+      "fullKo": "여러분, 모두 안녕하세요!",
       "de": "Hallo, alle zusammen!",
       "en": "Hello, everyone!",
       "distractors": [
@@ -94,9 +94,9 @@
       "de": "Ich mag Mandarinen.",
       "en": "I like tangerines.",
       "distractors": [
-        "사과를",
-        "우유를",
-        "안경을"
+        "빨리",
+        "가다",
+        "에서"
       ],
       "topic": "Essen & Trinken",
       "sourceVocabId": "vocab_a1_0464",
@@ -247,9 +247,9 @@
       "de": "Meine Familie hat drei Personen.",
       "en": "My family has three people.",
       "distractors": [
-        "선생님이에요",
-        "의사예요",
-        "학생이에요"
+        "먹다",
+        "휴대폰",
+        "빨리"
       ],
       "topic": "Menge",
       "sourceVocabId": "vocab_a1_0473",
@@ -326,11 +326,11 @@
     {
       "id": "cloze_a1_0412",
       "level": "a1",
-      "sentenceKo": "＿＿＿ 오세요!",
+      "sentenceKo": "저희 가게에 ＿＿＿ 오세요!",
       "answer": "어서",
-      "fullKo": "어서 오세요!",
-      "de": "Herzlich willkommen!",
-      "en": "Welcome!",
+      "fullKo": "저희 가게에 어서 오세요!",
+      "de": "Herzlich willkommen in unserem Geschäft!",
+      "en": "Welcome to our shop!",
       "distractors": [
         "차례상",
         "있다",
@@ -343,15 +343,15 @@
     {
       "id": "cloze_a1_0413",
       "level": "a1",
-      "sentenceKo": "예, ＿＿＿.",
+      "sentenceKo": "예, 잘 ＿＿＿.",
       "answer": "알겠습니다",
-      "fullKo": "예, 알겠습니다.",
-      "de": "Ja, verstanden.",
-      "en": "Yes, understood.",
+      "fullKo": "예, 잘 알겠습니다.",
+      "de": "Ja, ich habe es gut verstanden.",
+      "en": "Yes, I understand well.",
       "distractors": [
-        "모르겠습니다",
-        "죄송합니다",
-        "감사합니다"
+        "오다",
+        "우산",
+        "가끔"
       ],
       "topic": "Höflichkeit",
       "sourceVocabId": "vocab_a1_0479",
@@ -360,11 +360,11 @@
     {
       "id": "cloze_a1_0414",
       "level": "a1",
-      "sentenceKo": "＿＿＿, 모르겠어요.",
+      "sentenceKo": "＿＿＿, 저도 모르겠어요.",
       "answer": "글쎄요",
-      "fullKo": "글쎄요, 모르겠어요.",
-      "de": "Na ja, ich weiß es nicht.",
-      "en": "Well... I don't know.",
+      "fullKo": "글쎄요, 저도 모르겠어요.",
+      "de": "Na ja, ich weiß es auch nicht.",
+      "en": "Well... I don't know either.",
       "distractors": [
         "오다",
         "쓰다",
@@ -383,9 +383,9 @@
       "de": "Wow, das ist wirklich toll!",
       "en": "Wow, that's really great!",
       "distractors": [
-        "미안해요",
-        "배고파요",
-        "피곤해요"
+        "읽다",
+        "컴퓨터",
+        "자주"
       ],
       "topic": "Höflichkeit",
       "sourceVocabId": "vocab_a1_0481",
@@ -394,15 +394,15 @@
     {
       "id": "cloze_a1_0416",
       "level": "a1",
-      "sentenceKo": "음, ＿＿＿.",
+      "sentenceKo": "음, 잘 ＿＿＿.",
       "answer": "모르겠어요",
-      "fullKo": "음, 모르겠어요.",
-      "de": "Hm, ich weiß es nicht.",
-      "en": "Hmm, I don't know.",
+      "fullKo": "음, 잘 모르겠어요.",
+      "de": "Hm, ich weiß es nicht genau.",
+      "en": "Hmm, I don't really know.",
       "distractors": [
-        "알겠어요",
-        "괜찮아요",
-        "미안해요"
+        "쓰다",
+        "가방",
+        "항상"
       ],
       "topic": "Höflichkeit",
       "sourceVocabId": "vocab_a1_0482",
@@ -451,9 +451,9 @@
       "de": "Kommen Sie morgen unbedingt.",
       "en": "Please be sure to come tomorrow.",
       "distractors": [
-        "빨리 가세요",
-        "여기 앉으세요",
-        "같이 드세요"
+        "타다",
+        "자동차",
+        "좀"
       ],
       "topic": "Alltag",
       "sourceVocabId": "vocab_a1_0485",
@@ -502,9 +502,9 @@
       "de": "Diese Schuhe sind billig.",
       "en": "These shoes are cheap.",
       "distractors": [
-        "가격이",
         "모양이",
-        "무게가"
+        "무게가",
+        "종류가"
       ],
       "topic": "결제와 배달",
       "sourceVocabId": "vocab_a1_0488",
@@ -513,11 +513,11 @@
     {
       "id": "cloze_a1_0423",
       "level": "a1",
-      "sentenceKo": "물이 ＿＿＿해요.",
+      "sentenceKo": "지금 물이 ＿＿＿해요.",
       "answer": "필요",
-      "fullKo": "물이 필요해요.",
-      "de": "Ich brauche Wasser.",
-      "en": "I need water.",
+      "fullKo": "지금 물이 필요해요.",
+      "de": "Ich brauche jetzt Wasser.",
+      "en": "I need water now.",
       "distractors": [
         "새",
         "목요일",
@@ -564,10 +564,10 @@
     {
       "id": "cloze_a1_0426",
       "level": "a1",
-      "sentenceKo": "생일 ＿＿＿해요!",
+      "sentenceKo": "생일 정말 ＿＿＿해요!",
       "answer": "축하",
-      "fullKo": "생일 축하해요!",
-      "de": "Alles Gute zum Geburtstag!",
+      "fullKo": "생일 정말 축하해요!",
+      "de": "Herzlichen Glückwunsch zum Geburtstag!",
       "en": "Happy birthday!",
       "distractors": [
         "여동생",
@@ -581,10 +581,10 @@
     {
       "id": "cloze_a1_0427",
       "level": "a1",
-      "sentenceKo": "＿＿＿, 크리스티안이에요.",
+      "sentenceKo": "＿＿＿, 저는 크리스티안이에요.",
       "answer": "여보세요",
-      "fullKo": "여보세요, 크리스티안이에요.",
-      "de": "Hallo, hier ist Christian.",
+      "fullKo": "여보세요, 저는 크리스티안이에요.",
+      "de": "Hallo, ich bin Christian.",
       "en": "Hello, this is Christian.",
       "distractors": [
         "길다",
@@ -757,9 +757,9 @@
       "de": "Ich treffe tagsüber einen Freund.",
       "en": "I meet a friend during the day.",
       "distractors": [
-        "아침에",
-        "저녁에",
-        "주말에"
+        "보다",
+        "지갑",
+        "한테"
       ],
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0503",
@@ -808,9 +808,9 @@
       "de": "Meine Tochter ist fünf Jahre alt.",
       "en": "My daughter is five years old.",
       "distractors": [
-        "아들은",
-        "동생은",
-        "조카는"
+        "돕다",
+        "시계",
+        "다시"
       ],
       "topic": "Familie",
       "sourceVocabId": "vocab_a1_0506",

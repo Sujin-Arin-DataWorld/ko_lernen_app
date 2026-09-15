@@ -71,6 +71,6 @@
     "assetsDataWritten": true,
     "tts": true,
     "firebase": false,
-    "note": "Promoted 2026-09-15 (C3-T2) after Jin approval. TTS synthesized and verified (100 new clips, missing=0 2026-09-15)."
+    "note": "Promoted 2026-09-15 (C3-T2) after Jin approval. TTS synthesized and verified (100 new clips, missing=0). Fable R8 review 2026-09-15: 9 predicate/open-slot cloze distractor sets rebuilt with the PREDICATE_SLOT_WAIVER technique (distractor_rules.py); 9 rows extended (satz engine contract) with the same text re-synced across vocab.example_korean/cloze.fullKo/satz.targetKo; 9 more TTS clips synthesized, missing=0."
   }
 }
