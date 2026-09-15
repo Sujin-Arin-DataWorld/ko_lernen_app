@@ -196,5 +196,135 @@ class RelevelNormalizedLiveTest(unittest.TestCase):
         self.assertEqual(normalized, live)
 
 
+class RequireReviewedCopyRevisionBatchComposeTest(unittest.TestCase):
+    """Fable ruling 2026-09-15 (C2a follow-up): a row can carry both a
+    per-row `entries` revision (frozen before/after for the fields that
+    row's own review covered) and a separate diff in a field an approved
+    `batchFieldRevisions` entry authorizes for every row (e.g. the C2a
+    romanization regeneration). `_require_reviewed_copy_revision` must
+    neutralize only approved batch fields before its per-row fingerprint
+    comparison -- an unapproved batch entry, or any field no batch entry
+    covers at all, must still fail closed. Exercises the function directly
+    against hand-built fixtures, same style as RelevelNormalizedLiveTest
+    above."""
+
+    DRAFT = {
+        "id": "vocab_test_0001",
+        "level": "A1",
+        "example_english": "old en",
+        "example_german": "old de",
+        "romanization": "gada",
+    }
+    LIVE = {
+        "id": "vocab_test_0001",
+        "level": "A1",
+        "example_english": "new en",
+        "example_german": "new de",
+        "romanization": "gada-changed",
+    }
+    # What the per-row entry actually recorded: only the two example fields
+    # -- the romanization diff wasn't visible yet when this row's own review
+    # was frozen; it appears only later, from the batch-wide regeneration.
+    LIVE_SANS_ROMANIZATION = {**LIVE, "romanization": DRAFT["romanization"]}
+
+    def _revision(self) -> dict[str, object]:
+        return {
+            "level": "a1",
+            "fields": ["example_english", "example_german"],
+            "beforeSha256": promoted._fingerprint(self.DRAFT),
+            "afterSha256": promoted._fingerprint(self.LIVE_SANS_ROMANIZATION),
+        }
+
+    @staticmethod
+    def _batch_revisions(*, approved: bool) -> dict[tuple[str, str], dict[str, object]]:
+        entry: dict[str, object] = {"kind": "vocab", "field": "romanization", "reason": "fixture"}
+        entry["approval"] = {"approvedBy": "Jin", "approvedAt": "2026-09-15"} if approved else None
+        return {("vocab", "romanization"): entry}
+
+    def test_approved_batch_field_composes_with_per_row_entry(self) -> None:
+        revisions = {("vocab", "vocab_test_0001"): self._revision()}
+        result = promoted._require_reviewed_copy_revision(
+            kind="vocab",
+            ident="vocab_test_0001",
+            draft=self.DRAFT,
+            live=self.LIVE,
+            revisions=revisions,
+            batch_revisions=self._batch_revisions(approved=True),
+        )
+        self.assertTrue(result)
+
+    def test_unapproved_batch_field_still_fails_closed(self) -> None:
+        revisions = {("vocab", "vocab_test_0001"): self._revision()}
+        with self.assertRaisesRegex(
+            promoted.PromotedBatchError, "stale promoted copy revision fields"
+        ):
+            promoted._require_reviewed_copy_revision(
+                kind="vocab",
+                ident="vocab_test_0001",
+                draft=self.DRAFT,
+                live=self.LIVE,
+                revisions=revisions,
+                batch_revisions=self._batch_revisions(approved=False),
+            )
+
+    def test_third_uncovered_field_still_fails_closed(self) -> None:
+        live = {**self.LIVE, "korean": "changed-unexpectedly"}
+        revisions = {("vocab", "vocab_test_0001"): self._revision()}
+        with self.assertRaisesRegex(
+            promoted.PromotedBatchError, "stale promoted copy revision fields"
+        ):
+            promoted._require_reviewed_copy_revision(
+                kind="vocab",
+                ident="vocab_test_0001",
+                draft=self.DRAFT,
+                live=live,
+                revisions=revisions,
+                batch_revisions=self._batch_revisions(approved=True),
+            )
+
+    def test_field_owned_by_per_row_entry_is_not_neutralized_and_fails_closed(self) -> None:
+        # Fable ruling 2026-09-15 (vocab_a1_0310 case): romanization is
+        # *already* one of the fields this row's own per-row entry claims
+        # (a prior, separately-approved edit touched it too, e.g. a Beyond
+        # Humanizer content pass). The batch-approved romanization field
+        # must NOT be neutralized back to draft here -- the row entry owns
+        # that field's already-approved transition. Since the row's live
+        # romanization has moved again (the later C2a regeneration) beyond
+        # what that entry's afterSha256 recorded, this must still raise --
+        # the fix is to re-record the row's own entry (afterSha256), not to
+        # let the batch silently paper over it.
+        draft = {
+            "id": "vocab_test_0002",
+            "level": "A1",
+            "example_english": "old en",
+            "romanization": "gada",
+        }
+        previously_approved_live = {
+            "id": "vocab_test_0002",
+            "level": "A1",
+            "example_english": "new en",
+            "romanization": "gada-v1",
+        }
+        current_live = {**previously_approved_live, "romanization": "gada-v2"}
+        revision = {
+            "level": "a1",
+            "fields": ["example_english", "romanization"],
+            "beforeSha256": promoted._fingerprint(draft),
+            "afterSha256": promoted._fingerprint(previously_approved_live),
+        }
+        revisions = {("vocab", "vocab_test_0002"): revision}
+        with self.assertRaisesRegex(
+            promoted.PromotedBatchError, "stale promoted copy revision afterSha256"
+        ):
+            promoted._require_reviewed_copy_revision(
+                kind="vocab",
+                ident="vocab_test_0002",
+                draft=draft,
+                live=current_live,
+                revisions=revisions,
+                batch_revisions=self._batch_revisions(approved=True),
+            )
+
+
 if __name__ == "__main__":
     unittest.main()
