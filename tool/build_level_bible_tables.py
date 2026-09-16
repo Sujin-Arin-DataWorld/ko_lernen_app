@@ -534,9 +534,12 @@ def build_f1(
 ) -> F1Result:
     """F1: every nikl grammar form matched against app grammar ids (plan
     §6/T1.4 F1). ``grammar_rows`` = assets/data/grammar.csv rows,
-    ``nikl_rows`` = nikl_kiiq_2017_grammar.csv rows.  Literal matching stays
-    unchanged; a correspondence can add an app id only when its reviewed
-    source explicitly confirms that exact original-grade/form key."""
+    ``nikl_rows`` = nikl_kiiq_2017_grammar.csv rows. Literal matching applies
+    by default; a correspondence can add an app id only when its reviewed
+    source explicitly confirms that exact original-grade/form key. A
+    catalogued but unconfirmed source/app pair is excluded from literal
+    fallback for that exact source key, while every other literal match keeps
+    the normal matching behaviour."""
     app_entries: List[Tuple[str, str, FrozenSet[str], FrozenSet[str]]] = []
     for row in grammar_rows:
         app_id = (row.get("id") or "").strip()
@@ -552,9 +555,14 @@ def build_f1(
     app_entries.sort(key=lambda e: e[0])
     app_levels_by_id = {app_id: level for app_id, level, _normset, _particle_tokens in app_entries}
     confirmed_ids_by_source: Dict[str, Tuple[str, ...]] = {}
+    blocked_literal_ids_by_source: Dict[str, set[str]] = {}
     for correspondence in correspondences:
         if correspondence.is_confirmed_semantic_match:
             confirmed_ids_by_source[correspondence.source_key] = correspondence.app_grammar_ids
+        else:
+            blocked_literal_ids_by_source.setdefault(correspondence.source_key, set()).update(
+                correspondence.app_grammar_ids
+            )
 
     matched_app_id_set: set = set()
     rows: List[F1Row] = []
@@ -571,6 +579,8 @@ def build_f1(
         if not form:
             continue
         category = (nrow.get("category") or "").strip()
+        source_key = nikl_source_key(nrow)
+        blocked_literal_ids = blocked_literal_ids_by_source.get(source_key, set())
         nikl_normset: set = set()
         for variant_str in _nikl_variant_strings(nrow):
             nikl_normset |= normalize_form_variants(variant_str)
@@ -585,13 +595,15 @@ def build_f1(
         matched: List[Tuple[str, str]] = []
         if nikl_normset:
             for app_id, level, app_normset, app_particle_tokens in app_entries:
+                if app_id in blocked_literal_ids:
+                    continue
                 candidates = app_normset | app_particle_tokens if is_particle else app_normset
                 if nikl_normset & candidates:
                     matched.append((app_id, level))
         # This is not a relaxed surface comparison.  It is an exact lookup by
         # the original NIKL grade and form; the loader has already verified
         # target ids, current examples, and reviewed-source evidence.
-        for app_id in confirmed_ids_by_source.get(nikl_source_key(nrow), ()):
+        for app_id in confirmed_ids_by_source.get(source_key, ()):
             candidate = (app_id, app_levels_by_id[app_id])
             if candidate not in matched:
                 matched.append(candidate)

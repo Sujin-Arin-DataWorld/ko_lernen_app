@@ -161,6 +161,93 @@
         "path": "docs/data/level_bible/F1b_grammar_grade12_manual.md",
         "requiredText": "| -지 말다 | `grammar_a1_polite_prohibition` (V-지 마세요, **A1**) | move_app_row_to:A2 | **move-up** — 브리프 명시. §3 시나리오 영향 없음 |"
       }
+    },
+    {
+      "sourceKey": "G2:-다가1(1)",
+      "appGrammarIds": [
+        "grammar_a2_interrupted_action"
+      ],
+      "reviewState": "reviewed_source",
+      "semanticStatus": "semantically_confirmed",
+      "rationale": {
+        "meaning": "Both entries teach that an action in progress is interrupted or changes into another action with the same subject.",
+        "form": "The NIKL sense-indexed form -다가1(1) is realised directly by the app pattern V-다가; the parenthesized source index is metadata rather than part of the ending."
+      },
+      "exampleReferences": [
+        {
+          "appGrammarId": "grammar_a2_interrupted_action",
+          "field": "example_korean",
+          "value": "숙제를 하다가 텔레비전을 봤습니다. / 집에 가다가 친구를 만났어."
+        }
+      ],
+      "reviewedSource": {
+        "path": "docs/data/level_bible/V2_grammar_authoring_queue.md",
+        "requiredText": "`-다가1(1)`"
+      }
+    },
+    {
+      "sourceKey": "G2:-지",
+      "appGrammarIds": [
+        "grammar_a2_tag_confirmation"
+      ],
+      "reviewState": "reviewed_source",
+      "semanticStatus": "observed_syntactic_candidate",
+      "rationale": {
+        "meaning": "The app card covers confirmation and recalling shared information, but the NIKL source also lists statement, question, command and request functions. Command and request evidence remains open, so this is not a full semantic match.",
+        "form": "The app pattern A/V-지 / -지요(-죠) literally contains the NIKL ending and its listed polite variants, but form overlap alone cannot establish full functional coverage."
+      },
+      "exampleReferences": [
+        {
+          "appGrammarId": "grammar_a2_tag_confirmation",
+          "field": "example_korean",
+          "value": "이 노래가 정말 좋지요? / 그건 내가 어제 말했지."
+        }
+      ],
+      "reviewedSource": {
+        "path": "docs/data/level_bible/V2_grammar_authoring_queue.md",
+        "requiredText": "`-지` | -지요(-죠)"
+      }
+    },
+    {
+      "sourceKey": "G3:-는다고3",
+      "appGrammarIds": [
+        "grammar_b1_indirect_speech",
+        "grammar_b1_indirect_question",
+        "grammar_b1_indirect_command",
+        "grammar_b1_indirect_suggestion"
+      ],
+      "reviewState": "reviewed_source",
+      "semanticStatus": "semantically_confirmed",
+      "rationale": {
+        "meaning": "Together the four B1 cards teach indirect statements, questions, commands and suggestions, matching the NIKL quotation family and its listed variants.",
+        "form": "The cards expose -(ㄴ/는)다고, -냐고, -(으)라고 and -자고 separately so the source family's four speech acts remain distinguishable in study and quizzes."
+      },
+      "exampleReferences": [
+        {
+          "appGrammarId": "grammar_b1_indirect_speech",
+          "field": "example_korean",
+          "value": "선생님이 내일 시험이 있다고 말씀하셨습니다. / 친구들 중 한 명이 조금 늦는다고 했어."
+        },
+        {
+          "appGrammarId": "grammar_b1_indirect_question",
+          "field": "example_korean",
+          "value": "선생님이 숙제를 했냐고 물으셨습니다. / 친구가 내일 시간이 있냐고 물었어."
+        },
+        {
+          "appGrammarId": "grammar_b1_indirect_command",
+          "field": "example_korean",
+          "value": "의사 선생님이 물을 많이 마시라고 하셨습니다. / 엄마가 일찍 오라고 했어."
+        },
+        {
+          "appGrammarId": "grammar_b1_indirect_suggestion",
+          "field": "example_korean",
+          "value": "팀장이 내일 다시 만나자고 제안했습니다. / 친구가 같이 영화를 보자고 했어."
+        }
+      ],
+      "reviewedSource": {
+        "path": "docs/data/level_bible/V2_grammar_authoring_queue.md",
+        "requiredText": "`-는다고2/-냐고/-으라고/-자고`"
+      }
     }
   ]
 }

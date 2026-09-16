@@ -213,18 +213,18 @@
 
 ## 1. 기존 앱 인벤토리 및 후보 매칭 (학습 완료 판정 아님)
 
-- 콘텐츠 규모: 어휘 2944 · 문법 252 · 시나리오 178 · 코스유닛 48 · cloze 2341 · satz 2861 · 스몰토크 582 · 미디어 136 · 발음 84 · 문화노트 36
+- 콘텐츠 규모: 어휘 2944 · 문법 261 · 시나리오 178 · 코스유닛 48 · cloze 2341 · satz 2861 · 스몰토크 582 · 미디어 136 · 발음 84 · 문화노트 36
 - 매트릭스 규모: 주제 32 · 기능 39 · 텍스트 유형 31 · 어휘 영역 26 · 기능 문법 34 · 국제통용 문법 336
-- 갭 행 합계: **522** (`tool/curriculum_matrix_gaps.csv`)
+- 갭 행 합계: **521** (`tool/curriculum_matrix_gaps.csv`)
 
 | 레벨 | 주제(필수) ✅/🟡/❌ | 국제통용 문법 match/mismatch/missing | 브리프 하이라이트 ✅/🟡/❌ | 담화 특징 ✅/❌ | 기능(산출) ✅/🟡/❌ | 텍스트 유형 ✅/🟡/❌/⛔ | 어휘 영역 ✅/🟡/❌ | 문체 ✅/❌ | 시나리오 미연결 문법/전체 |
 |---|---|---|---|---|---|---|---|---|---|
 | A1 | 17/0/0 | 45/0/0 (of 45) | 24/2/1 | 2/0 | 11/4/0 | 4/0/1/5 | 14/0/0 | 2/1 | 31/55 |
-| A2 | 17/0/0 | 39/0/6 (of 45) | 16/8/0 | 1/1 | 7/6/2 | 2/0/3/5 | 11/0/0 | 3/1 | 43/59 |
-| B1 | 18/0/0 | 9/11/47 (of 67) | 5/12/4 | 4/0 | 11/3/1 | 1/0/2/6 | 8/1/0 | 4/0 | 23/34 |
+| A2 | 17/0/0 | 43/0/2 (of 45) | 16/8/0 | 1/1 | 7/6/2 | 2/0/3/5 | 11/0/0 | 3/1 | 47/63 |
+| B1 | 18/0/0 | 13/10/44 (of 67) | 7/10/4 | 4/0 | 11/3/1 | 1/0/2/6 | 8/1/0 | 4/0 | 28/39 |
 | B2 | 17/0/0 | 14/9/44 (of 67) | 4/3/10 | 3/1 | 12/1/1 | 1/0/1/7 | 7/0/0 | 4/0 | 38/53 |
-| C1 | 12/0/0 | 6/5/45 (of 56) | 1/8/5 | 3/1 | 9/2/1 | 2/0/0/7 | 4/0/2 | 3/1 | 8/28 |
-| C2 | 12/0/0 | 2/9/45 (of 56) | 2/0/6 | 3/0 | 9/1/2 | 1/0/1/8 | 5/0/1 | 3/4 | 9/23 |
+| C1 | 12/0/0 | 6/6/44 (of 56) | 1/9/4 | 3/1 | 9/2/1 | 2/0/0/7 | 4/0/2 | 3/1 | 8/28 |
+| C2 | 12/0/0 | 2/10/44 (of 56) | 2/0/6 | 3/0 | 9/1/2 | 1/0/1/8 | 5/0/1 | 3/4 | 9/23 |
 
 ### 1.1 구조적 결손(레벨 무관)
 
@@ -301,7 +301,7 @@
 | ✅ match | 하고 | A1/B2 | grammar_a1_with_connector | A1 |
 | ❌ missing | 있다/없다 | — |  |  |
 | ✅ match | -아요/어요 | A1 | grammar_a1_polite_present | A1 |
-| ✅ match | 안 | — | grammar_a1_cannot_short, grammar_a1_duration_span, grammar_a1_long_negation, grammar_a1_short_negation … | A1/A2/C1/C2 |
+| ✅ match | 안 | — | grammar_a1_cannot_short, grammar_a1_duration_span, grammar_a1_long_negation, grammar_a1_short_negation … | A1/A2/B1/C1/C2 |
 | ✅ match | 못 | — | grammar_a1_cannot_short, grammar_a2_inability | A1 |
 | ✅ match | -았/었어요 | A1 | grammar_a1_polite_past, grammar_b2_counterfactual_past | A1/B2 |
 | 🟡 level_mismatch | -(으)ㄹ 거예요 | — | grammar_a2_future_intention | A2 |
@@ -432,9 +432,9 @@
 | ➕ beyond_matrix | `science_research_evidence` 과학·연구·근거·통계 |  | 0 | 0 | 0 | 1 | 0 | 0 |  |
 | ➕ beyond_matrix | `technology_digital_ai` 기술·디지털·AI·데이터 |  | 3 | 1 | 0 | 0 | 0 | 3 |  |
 
-### A2 문법 — 국제통용 45항목: match 39 · level_mismatch 0 · missing 6 (앱 A2 문법 59개)
+### A2 문법 — 국제통용 45항목: match 43 · level_mismatch 0 · missing 2 (앱 A2 문법 63개)
 
-**앱에 없는 국제통용 항목:** -다가1(1)(연결어미) · 에게로(조사) · 에다가(조사) · 에서부터(서부터)(조사) · -지(종결어미) · -을 것1(표현)
+**앱에 없는 국제통용 항목:** 에서부터(서부터)(조사) · -지(종결어미)
 
 | 상태 | Jin 브리프 하이라이트 | 국제통용 등급 | 앱 id | 앱 레벨 |
 |---|---|---|---|---|
@@ -468,7 +468,7 @@
 | ✅ covered | 이유 + 행동 의도 결합(비가 오니까 택시를 타려고 해요) | grammar_a2_cause_nikka, grammar_b1_intention | A1 |
 | ❌ missing | 반말 인지(친한 사이 대화문) |  |  |
 
-**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 A2 문법 (43/59):** `grammar_a1_future_modifier`, `grammar_a1_past_modifier`, `grammar_a1_polite_prohibition`, `grammar_a1_present_modifier`, `grammar_a2_adverbial`, `grammar_a2_after_finishing`, `grammar_a2_among_set`, `grammar_a2_available_if`, `grammar_a2_become`, `grammar_a2_busy_cause`, `grammar_a2_change`, `grammar_a2_each`, `grammar_a2_exclamation`, `grammar_a2_from_person`, `grammar_a2_gentle_question`, `grammar_a2_humble_give`, `grammar_a2_in_progress`, `grammar_a2_interrupted_action`, `grammar_a2_irregular_bieup`, `grammar_a2_irregular_digeut`, `grammar_a2_irregular_eu`, `grammar_a2_irregular_rieul`, `grammar_a2_like`, `grammar_a2_no_choice_but`, `grammar_a2_nominalizer_eum`, `grammar_a2_noun_cause`, `grammar_a2_only_negative`, `grammar_a2_or_verbs`, `grammar_a2_permission_check_batch20`, `grammar_a2_preference_question`, `grammar_a2_preference_soft_batch20`, `grammar_a2_purpose`, `grammar_a2_reason_because`, `grammar_a2_recommendation`, `grammar_a2_shall_we_time`, `grammar_a2_simultaneous`, `grammar_a2_spoken_result`, `grammar_a2_tentative_intention`, `grammar_a2_when`, `grammar_b1_duration`, `grammar_b1_experience`, `grammar_b1_nominalization`, `grammar_b1_since`
+**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 A2 문법 (47/63):** `grammar_a1_future_modifier`, `grammar_a1_past_modifier`, `grammar_a1_polite_prohibition`, `grammar_a1_present_modifier`, `grammar_a2_additive_location`, `grammar_a2_adverbial`, `grammar_a2_after_finishing`, `grammar_a2_among_set`, `grammar_a2_available_if`, `grammar_a2_become`, `grammar_a2_busy_cause`, `grammar_a2_change`, `grammar_a2_each`, `grammar_a2_exclamation`, `grammar_a2_from_person`, `grammar_a2_gentle_question`, `grammar_a2_humble_give`, `grammar_a2_in_progress`, `grammar_a2_interrupted_action`, `grammar_a2_irregular_bieup`, `grammar_a2_irregular_digeut`, `grammar_a2_irregular_eu`, `grammar_a2_irregular_rieul`, `grammar_a2_like`, `grammar_a2_no_choice_but`, `grammar_a2_nominalizer_eum`, `grammar_a2_noun_cause`, `grammar_a2_only_negative`, `grammar_a2_or_verbs`, `grammar_a2_permission_check_batch20`, `grammar_a2_preference_question`, `grammar_a2_preference_soft_batch20`, `grammar_a2_purpose`, `grammar_a2_reason_because`, `grammar_a2_recommendation`, `grammar_a2_shall_we_time`, `grammar_a2_simultaneous`, `grammar_a2_spoken_result`, `grammar_a2_starting_point`, `grammar_a2_tentative_intention`, `grammar_a2_toward_person`, `grammar_a2_when`, `grammar_a2_written_directive`, `grammar_b1_duration`, `grammar_b1_experience`, `grammar_b1_nominalization`, `grammar_b1_since`
 
 ### A2 기능(화행)
 
@@ -576,16 +576,16 @@
 | ➕ beyond_matrix | `personal_identification` 개인 신상·자기소개 |  | 12 | 2 | 0 | 0 | 0 | 1 |  |
 | ➕ beyond_matrix | `weather_nature_climate` 날씨·계절·자연 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 
-### B1 문법 — 국제통용 67항목: match 9 · level_mismatch 11 · missing 47 (앱 B1 문법 34개)
+### B1 문법 — 국제통용 67항목: match 13 · level_mismatch 10 · missing 44 (앱 B1 문법 39개)
 
-**앱에 없는 국제통용 항목:** -었었-(선어말어미) · -거든1(연결어미) · -는다거나1(연결어미) · -는다고1(연결어미) · -다가1(2)(연결어미) · -도록(연결어미) · -어다가(연결어미) · -어야(연결어미) · -어야지1(연결어미) · -었더니(연결어미) · -으니2(연결어미) · -으려면(연결어미) · 대로(조사) · 만큼(조사) · 보고(조사) · 뿐(조사) · 아1(조사) · 요1(조사) · 으로부터(조사) · -는구나(종결어미) · -는다(종결어미) · -니2(종결어미) · -던데2(종결어미) · -자3(종결어미) · -잖아(종결어미) · -고 말다(표현) · -고 싶어 하다(표현) · -기는(표현) · -나 보다(표현) · -는 대신에(표현) · -는 만큼(표현) · -는 모양이다(표현) · -는 반면(표현) · -는 중이다(표현) · -는가 보다(표현) · -는다고3(표현) · -어 가다(표현) · -어 두다(표현) · -어 보이다(표현) · -어 오다(표현) · -어야겠-(표현) · -으려다가(표현) · -은 결과(표현) · -은 다음에(표현) · -을 테니(표현) · 만 아니면(표현) · 에 대하여(표현)
+**앱에 없는 국제통용 항목:** -었었-(선어말어미) · -는다거나1(연결어미) · -는다고1(연결어미) · -다가1(2)(연결어미) · -도록(연결어미) · -어다가(연결어미) · -어야(연결어미) · -어야지1(연결어미) · -었더니(연결어미) · -으니2(연결어미) · -으려면(연결어미) · 대로(조사) · 만큼(조사) · 보고(조사) · 뿐(조사) · 아1(조사) · 요1(조사) · 으로부터(조사) · -는구나(종결어미) · -는다(종결어미) · -니2(종결어미) · -던데2(종결어미) · -자3(종결어미) · -잖아(종결어미) · -고 말다(표현) · -고 싶어 하다(표현) · -기는(표현) · -나 보다(표현) · -는 대신에(표현) · -는 모양이다(표현) · -는 반면(표현) · -는 중이다(표현) · -는가 보다(표현) · -어 가다(표현) · -어 두다(표현) · -어 보이다(표현) · -어 오다(표현) · -어야겠-(표현) · -으려다가(표현) · -은 결과(표현) · -은 다음에(표현) · -을 테니(표현) · 만 아니면(표현) · 에 대하여(표현)
 
-**레벨 불일치(앱은 다른 레벨에 둠):** -으나→A2 · 같이→A2 · 이고→A1 · 이라고1→C2 · -고 나다→A2 · -기 위해→A2 · -어 가지고→A2 · -어 드리다→A2 · -어지다→A2 · -으면 안 되다→A2 · -으면 좋겠다→A2
+**레벨 불일치(앱은 다른 레벨에 둠):** -으나→A2 · 같이→A2 · 이고→A1 · -고 나다→A2 · -기 위해→A2 · -어 가지고→A2 · -어 드리다→A2 · -어지다→A2 · -으면 안 되다→A2 · -으면 좋겠다→A2
 
 | 상태 | Jin 브리프 하이라이트 | 국제통용 등급 | 앱 id | 앱 레벨 |
 |---|---|---|---|---|
-| 🟡 level_mismatch | -다고/라고 하다 | — | grammar_b2_indirect_speech | B2 |
-| 🟡 level_mismatch | -냐고/자고/으라고 하다 | — | grammar_b2_indirect_speech | B2 |
+| ✅ match | -다고/라고 하다 | — | grammar_b1_indirect_command, grammar_b1_indirect_speech, grammar_b2_indirect_speech | B1/B2 |
+| ✅ match | -냐고/자고/으라고 하다 | — | grammar_b1_indirect_command, grammar_b1_indirect_question, grammar_b1_indirect_suggestion, grammar_b2_indirect_speech | B1/B2 |
 | ❌ missing | -는다고 하다 | — |  |  |
 | 🟡 level_mismatch | -(으)ㄴ/는 것 같다 | A2 | grammar_a2_probability | A2 |
 | ✅ match | -(으)ㄹ 것 같다 | A2 | grammar_b1_future_probability | B1 |
@@ -608,12 +608,12 @@
 
 | 상태 | 담화 특징 | 앱 id | 앱 레벨 |
 |---|---|---|---|
-| ✅ covered | 간접화법(-다고/냐고/자고/라고 하다) | grammar_b1_indirect_speech, grammar_b2_indirect_speech | B1/B2 |
+| ✅ covered | 간접화법(-다고/냐고/자고/라고 하다) | grammar_b1_indirect_command, grammar_b1_indirect_question, grammar_b1_indirect_speech, grammar_b1_indirect_suggestion … | B1/B2 |
 | ✅ covered | 추측(-는 것 같다/-나 보다) | grammar_a2_probability, grammar_b1_future_probability | A2/B1 |
 | ✅ covered | 완곡어법(-는 게 어때요/-을 것 같아요/-아 주시면 좋겠다) | grammar_b1_soft_request, grammar_b1_soft_request_batch19 | B1 |
 | ✅ covered | 사건→원인→결과→의견 담화(-기 때문에/-(으)ㄹ 텐데) | grammar_a2_reason_because, grammar_b1_expectation, grammar_b1_nominalizer_gi, grammar_b2_formal_reason … | A2/B1/B2 |
 
-**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 B1 문법 (23/34):** `grammar_b1_about`, `grammar_b1_as_kept_doing`, `grammar_b1_concede_but`, `grammar_b1_conceded_context_batch20`, `grammar_b1_consequence`, `grammar_b1_expectation`, `grammar_b1_irregular_hieut`, `grammar_b1_irregular_reu`, `grammar_b1_irregular_siot`, `grammar_b1_more_more`, `grammar_b1_near_miss`, `grammar_b1_negative_cause`, `grammar_b1_planned_future`, `grammar_b1_prepared_state`, `grammar_b1_recalled_past`, `grammar_b1_scheduled_arrangement`, `grammar_b1_self_prompt`, `grammar_b1_self_should`, `grammar_b1_soft_request`, `grammar_b1_state_while`, `grammar_b1_tendency`, `grammar_b1_tentative_plan_batch20`, `grammar_b1_while_already`
+**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 B1 문법 (28/39):** `grammar_b1_about`, `grammar_b1_as_kept_doing`, `grammar_b1_concede_but`, `grammar_b1_conceded_context_batch20`, `grammar_b1_conditional_geodeun`, `grammar_b1_consequence`, `grammar_b1_expectation`, `grammar_b1_indirect_command`, `grammar_b1_indirect_question`, `grammar_b1_indirect_suggestion`, `grammar_b1_irregular_hieut`, `grammar_b1_irregular_reu`, `grammar_b1_irregular_siot`, `grammar_b1_more_more`, `grammar_b1_near_miss`, `grammar_b1_negative_cause`, `grammar_b1_planned_future`, `grammar_b1_prepared_state`, `grammar_b1_proportional_mankeum`, `grammar_b1_recalled_past`, `grammar_b1_scheduled_arrangement`, `grammar_b1_self_prompt`, `grammar_b1_self_should`, `grammar_b1_soft_request`, `grammar_b1_state_while`, `grammar_b1_tendency`, `grammar_b1_tentative_plan_batch20`, `grammar_b1_while_already`
 
 ### B1 기능(화행)
 
@@ -863,15 +863,15 @@
 | ➕ beyond_matrix | `travel_accommodation` 여행·숙박 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `weather_nature_climate` 날씨·계절·자연 |  | 0 | 0 | 1 | 0 | 2 | 0 |  |
 
-### C1 문법 — 국제통용 56항목: match 6 · level_mismatch 5 · missing 45 (앱 C1 문법 28개)
+### C1 문법 — 국제통용 56항목: match 6 · level_mismatch 6 · missing 44 (앱 C1 문법 28개)
 
-**앱에 없는 국제통용 항목:** -고는(연결어미) · -길래(연결어미) · -느니1(연결어미) · -을뿐더러(연결어미) · -지1(연결어미) · 따라(조사) · 이라든가(조사) · 조차(조사) · -거라(종결어미) · -고말고(종결어미) · -네2(종결어미) · -는가1(종결어미) · -는걸(종결어미) · -다4(종결어미) · -다니1(종결어미) · -더라고(종결어미) · -데(종결어미) · -게 생겼다(표현) · -기가 바쁘게(표현) · -기가 쉽다(표현) · -기만 하다(표현) · -기에 따라(표현) · -기에 앞서(서)(표현) · -는 가운데(표현) · -는 데다가(표현) · -는 동시에(표현) · -는 법이다(표현) · -는 척하다(표현) · -는다기에(표현) · -는다는 것이(표현) · -는다니1(표현) · -는데도(표현) · -는데도 불구하고(표현) · -어 내다(표현) · -었던(표현) · -으려나 보다(표현) · -으면 몰라도(표현) · -은 채로(표현) · -을 법하다(표현) · -을 테다(표현) · -을 테면(표현) · -을 테지만(표현) · -자기에(표현) · 는 말할 것도 없고(표현) · 를 가지고(표현)
+**앱에 없는 국제통용 항목:** -고는(연결어미) · -길래(연결어미) · -느니1(연결어미) · -을뿐더러(연결어미) · 따라(조사) · 이라든가(조사) · 조차(조사) · -거라(종결어미) · -고말고(종결어미) · -네2(종결어미) · -는가1(종결어미) · -는걸(종결어미) · -다4(종결어미) · -다니1(종결어미) · -더라고(종결어미) · -데(종결어미) · -게 생겼다(표현) · -기가 바쁘게(표현) · -기가 쉽다(표현) · -기만 하다(표현) · -기에 따라(표현) · -기에 앞서(서)(표현) · -는 가운데(표현) · -는 데다가(표현) · -는 동시에(표현) · -는 법이다(표현) · -는 척하다(표현) · -는다기에(표현) · -는다는 것이(표현) · -는다니1(표현) · -는데도(표현) · -는데도 불구하고(표현) · -어 내다(표현) · -었던(표현) · -으려나 보다(표현) · -으면 몰라도(표현) · -은 채로(표현) · -을 법하다(표현) · -을 테다(표현) · -을 테면(표현) · -을 테지만(표현) · -자기에(표현) · 는 말할 것도 없고(표현) · 를 가지고(표현)
 
-**레벨 불일치(앱은 다른 레벨에 둠):** -을지라도→B2 · -으려고2→A1 · -는 듯하다→B2 · -는 이상→B2 · -을 만하다→B2
+**레벨 불일치(앱은 다른 레벨에 둠):** -을지라도→B2 · -지1→A2 · -으려고2→A1 · -는 듯하다→B2 · -는 이상→B2 · -을 만하다→B2
 
 | 상태 | Jin 브리프 하이라이트 | 국제통용 등급 | 앱 id | 앱 레벨 |
 |---|---|---|---|---|
-| ❌ missing | -(으)ㄴ/는 만큼 | B1 |  |  |
+| 🟡 level_mismatch | -(으)ㄴ/는 만큼 | B1 | grammar_b1_proportional_mankeum | B1 |
 | ❌ missing | -(으)ㄴ/는 가운데 | C1 |  |  |
 | 🟡 level_mismatch | -(으)ㄴ/는 데 비해 | — | grammar_b2_compared_with | B2 |
 | 🟡 level_mismatch | -(으)ㄴ/는 데 반해 | — | grammar_b1_background_contrast | A2 |
@@ -888,7 +888,7 @@
 
 | 상태 | 담화 특징 | 앱 id | 앱 레벨 |
 |---|---|---|---|
-| ✅ covered | 명사화(정부가 지원을 확대했다 → 정부의 지원 확대) | grammar_a2_nominalizer_eum, grammar_a2_purpose, grammar_a2_reason_because, grammar_b1_before … | A1/A2/B1/B2/C1/C2 |
+| ✅ covered | 명사화(정부가 지원을 확대했다 → 정부의 지원 확대) | grammar_a2_nominalizer_eum, grammar_a2_purpose, grammar_a2_reason_because, grammar_a2_written_directive … | A1/A2/B1/B2/C1/C2 |
 | ❌ missing | 객관화(-는 것으로 나타나다/-는 것으로 보아) |  |  |
 | ✅ covered | hedging(타당성이 다소 부족한 것으로 보인다/-을 수도 있다/단정하기 어렵다) | grammar_c1_difficult_to_conclude_batch20, grammar_c1_room_for | C1 |
 | ✅ covered | 격식 연결(-기에 앞서/-고자/-(으)며/-(으)므로/-는 데 비해) | grammar_b2_compared_with, grammar_b2_formal_intention, grammar_b2_formal_reason, grammar_c2_wishing_to | B2/C2 |
@@ -989,11 +989,11 @@
 | ➕ beyond_matrix | `travel_accommodation` 여행·숙박 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `weather_nature_climate` 날씨·계절·자연 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 
-### C2 문법 — 국제통용 56항목: match 2 · level_mismatch 9 · missing 45 (앱 C2 문법 23개)
+### C2 문법 — 국제통용 56항목: match 2 · level_mismatch 10 · missing 44 (앱 C2 문법 23개)
 
-**앱에 없는 국제통용 항목:** -거들랑1(연결어미) · -건대(연결어미) · -건만(연결어미) · -노라면(연결어미) · -느니만큼(연결어미) · -는다고1(연결어미) · -되(연결어미) · -디1(연결어미) · -으련마는(연결어미) · -은들(연결어미) · -을라치면(연결어미) · -이라야(연결어미) · -자니3(연결어미) · -자면1(연결어미) · 깨나(조사) · 을랑(조사) · 이라고2(조사) · 이라면(조사) · -거들랑2(종결어미) · -구려2(종결어미) · -그려(종결어미) · -네1(종결어미) · -는가2(종결어미) · -는구려(종결어미) · -는구만(종결어미) · -는구먼(종결어미) · -던가1(종결어미) · -던가2(종결어미) · -라2(종결어미) · -소(종결어미) · -으니4(종결어미) · -으리라(종결어미) · -으리오(종결어미) · -으오(종결어미) · -기 일쑤이다(표현) · -기 짝이 없다(표현) · -는다던가1(표현) · -어 치우다(표현) · -으래서야(표현) · -으려도(표현) · -으리라고(표현) · -으리라는(표현) · -을 바에(표현) · -자면2(표현) · 이라고는(표현)
+**앱에 없는 국제통용 항목:** -거들랑1(연결어미) · -건대(연결어미) · -건만(연결어미) · -노라면(연결어미) · -느니만큼(연결어미) · -는다고1(연결어미) · -되(연결어미) · -디1(연결어미) · -으련마는(연결어미) · -은들(연결어미) · -을라치면(연결어미) · -이라야(연결어미) · -자니3(연결어미) · -자면1(연결어미) · 깨나(조사) · 을랑(조사) · 이라면(조사) · -거들랑2(종결어미) · -구려2(종결어미) · -그려(종결어미) · -네1(종결어미) · -는가2(종결어미) · -는구려(종결어미) · -는구만(종결어미) · -는구먼(종결어미) · -던가1(종결어미) · -던가2(종결어미) · -라2(종결어미) · -소(종결어미) · -으니4(종결어미) · -으리라(종결어미) · -으리오(종결어미) · -으오(종결어미) · -기 일쑤이다(표현) · -기 짝이 없다(표현) · -는다던가1(표현) · -어 치우다(표현) · -으래서야(표현) · -으려도(표현) · -으리라고(표현) · -으리라는(표현) · -을 바에(표현) · -자면2(표현) · 이라고는(표현)
 
-**레벨 불일치(앱은 다른 레벨에 둠):** -기로서니→B2 · 마는→A1 · -게3→A2 · -게4→A2 · -나2→A2 · -던2→B1 · -는 한이 있어도→C1 · -는다는→B2 · 는 마당에→C1
+**레벨 불일치(앱은 다른 레벨에 둠):** -기로서니→B2 · 마는→A1 · 이라고2→B1 · -게3→A2 · -게4→A2 · -나2→A2 · -던2→B1 · -는 한이 있어도→C1 · -는다는→B2 · 는 마당에→C1
 
 | 상태 | Jin 브리프 하이라이트 | 국제통용 등급 | 앱 id | 앱 레벨 |
 |---|---|---|---|---|

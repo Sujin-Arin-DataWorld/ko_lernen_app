@@ -7,6 +7,36 @@
 > (새 인용 추가 없음). 세종 쪽수·파일명은
 > `docs/data/level_bible/V2_grammar_gaps.csv`에서 그대로 가져왔다.
 
+## C4-G1 저작 결과 (2026-09-17)
+
+- [x] **우선순위 1, 간접화법 어미족 B1**: 기존 평서 카드
+  `grammar_b1_indirect_speech`를 유지하고, 의문
+  `grammar_b1_indirect_question`, 명령 `grammar_b1_indirect_command`, 청유
+  `grammar_b1_indirect_suggestion`을 추가했다. 네 카드는 각각 화행이 다른
+  같은 레벨 퀴즈 선택지이며 예문을 두 개씩 제공한다.
+- [x] **우선순위 2, 연결어미 `-거든1` B1**:
+  `grammar_b1_conditional_geodeun`. NIKL 원자료의 의미 `조건`에 따라
+  요청·제안 앞의 조건형으로 저작했다. 아래 발주문의 `이유 설명`은
+  종결어미 `-거든요`와 혼동한 설명이므로 이 카드에는 적용하지 않았다.
+- [ ] **우선순위 3, A2 다섯 항목 완료 + `-지` 부분 대응**: 기존 중단 의미 카드
+  `grammar_a2_interrupted_action`을 `-다가1(1)`에 명시 대응했고, 기존
+  `grammar_a2_tag_confirmation`을 친근체 `-지`와 공손형 `-지요/-죠`까지
+  확장했다. 다만 NIKL 원자료의 `서술, 물음, 명령, 요청` 전체 중 이 카드는
+  확인·상기만 다루므로 부분 후보로 남긴다. 명령·요청 용법은 근거와 별도
+  학습 카드 검토가 필요한 열린 항목이다. 신규 카드는
+  `grammar_a2_toward_person`(에게로),
+  `grammar_a2_additive_location`(에다가/에다),
+  `grammar_a2_starting_point`(에서부터/서부터),
+  `grammar_a2_written_directive`(`-(으)ㄹ 것`, 문어 명령·지시)이다.
+- [x] **우선순위 4, `-는 만큼` B1**:
+  `grammar_b1_proportional_mankeum`. 구어의 정도·비례 비교만 다루고,
+  명사 뒤 조사 `만큼` 및 상위 레벨의 문어 근거 제시 용법과 구별했다.
+
+각 행은 ` / ` 분리 규약으로 한국어·독일어·영어 예문 두 개를 같은 순서로
+정렬한다. 이 규약은 앱 `splitStudyPhrases`와 TTS 수집기 `_study_phrases`가
+동일하게 소비한다. 명시 대응은
+`tools/content_factory/cefr_matrix/grammar_correspondence.json`에 기록했다.
+
 ## 우선순위 1 — 간접화법 어미족 (B1, 세종 3B 직접 근거)
 
 **항목**: `-는다고2/-냐고/-으라고/-자고` (평서/의문/명령/청유 간접화법

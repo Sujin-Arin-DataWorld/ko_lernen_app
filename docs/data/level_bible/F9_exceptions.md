@@ -214,7 +214,7 @@
 | — | request_formula | 적어 주세요 | A1 | -아/어 주다 (2급) | A1 유지 — 학습자 요청 정형구(어휘화); 생산 문법 -아/어 주다는 A2 | Jin | 2026-09-16 | 학습자가 낯선 사람에게 요청할 때는 정중한 정형구가 필요; 생산 문법 -아/어 주다는 A2부터 지도; 맨 -으세요 명령형은 권한 있는 화자(안내문·지시문)에 한정 (F9 round 2, Jin 2026-09-16) | PR #348 |
 | — | request_formula | 도와주세요 | A1 | -아/어 주다 (2급) | A1 유지 — 학습자 요청 정형구(어휘화); 생산 문법 -아/어 주다는 A2 | Jin | 2026-09-16 | 학습자가 낯선 사람에게 요청할 때는 정중한 정형구가 필요; 생산 문법 -아/어 주다는 A2부터 지도; 맨 -으세요 명령형은 권한 있는 화자(안내문·지시문)에 한정 (F9 round 2, Jin 2026-09-16) | PR #348 |
 
-## 앱 고유 문법(F1 app_only, 86개) -- nikl 국제통용 목록에 대응 없음
+## 앱 고유 문법(F1 app_only, 85개) -- nikl 국제통용 목록에 대응 없음
 
 | app id | 사유(Fable) |
 |---|---|
@@ -239,12 +239,11 @@
 | grammar_a2_permission_check_batch20 | |
 | grammar_a2_recommendation | |
 | grammar_a2_shall_we_time | |
-| grammar_a2_tag_confirmation | |
+| grammar_a2_starting_point | |
 | grammar_b1_as_kept_doing | |
 | grammar_b1_concede_but | |
 | grammar_b1_conceded_context_batch20 | |
 | grammar_b1_consequence | |
-| grammar_b1_indirect_speech | |
 | grammar_b1_irregular_hieut | |
 | grammar_b1_irregular_reu | |
 | grammar_b1_irregular_siot | |

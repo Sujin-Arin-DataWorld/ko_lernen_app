@@ -337,6 +337,39 @@ class BuildF1Test(unittest.TestCase):
         self.assertEqual(result.rows[0].status, "match")
         self.assertEqual(result.rows[0].matched_app_ids, ("grammar_a1_long_negation",))
 
+    def test_unconfirmed_pair_cannot_fall_back_to_literal_matching(self):
+        grammar_rows = [
+            {"id": "partial", "level": "A2", "pattern": "V-지"},
+            {"id": "unrelated", "level": "A2", "pattern": "A-지"},
+        ]
+        nikl_rows = [
+            {"grade": "2", "category": "종결어미", "form": "-지", "variants": ""},
+            {"grade": "3", "category": "종결어미", "form": "-지", "variants": ""},
+        ]
+        candidate = GrammarCorrespondence(
+            source_key="G2:-지",
+            app_grammar_ids=("partial",),
+            review_state="reviewed_source",
+            semantic_status="observed_syntactic_candidate",
+        )
+
+        result = build_f1(grammar_rows, nikl_rows, [candidate])
+        rows = {(row.nikl_grade, row.nikl_form): row for row in result.rows}
+        self.assertEqual(rows[(2, "-지")].matched_app_ids, ("unrelated",))
+        self.assertEqual(rows[(3, "-지")].matched_app_ids, ("partial", "unrelated"))
+
+        confirmed = GrammarCorrespondence(
+            source_key="G2:-지",
+            app_grammar_ids=("partial",),
+            review_state="reviewed_source",
+            semantic_status="semantically_confirmed",
+        )
+        confirmed_result = build_f1(grammar_rows, nikl_rows, [confirmed])
+        self.assertEqual(
+            confirmed_result.rows[0].matched_app_ids,
+            ("partial", "unrelated"),
+        )
+
     def test_checked_in_negation_correspondence_has_current_evidence(self):
         with (REPO / "assets" / "data" / "grammar.csv").open(encoding="utf-8", newline="") as fh:
             grammar_rows = list(csv.DictReader(fh))
