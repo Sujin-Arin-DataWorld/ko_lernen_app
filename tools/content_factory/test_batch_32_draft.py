@@ -30,6 +30,7 @@ Run with:
 from __future__ import annotations
 
 import csv
+import re
 import sys
 import unittest
 from collections import Counter
@@ -94,7 +95,8 @@ OVERRIDES = {
     "휴가에는": "휴가", "이번에는": "이번", "알아봤어요": "알아보다",
     "기차역까지": "기차역", "분쯤": "분", "걸려요": "걸리다", "떠나요": "떠나다",
     "슬펐지만": "슬프다", "가져가는": "가져가다",
-    "갈래": "가다", "됐어": "되다",
+    "갈래": "가다", "됐어": "되다", "생겼어요": "생기다",
+    "들려요": "들리다", "초등학생이야": "초등학생", "3학년": "학년",
 }
 
 # R8 (Fable review of commit 5a0b5353, 2026-09-16): banmal rows, keyed by
@@ -108,7 +110,22 @@ OVERRIDES = {
 BANMAL_ROWS = {
     "vocab_a2_0628": ("믿다", "sujin", "christian"),     # 나는 크리스티안을 믿어.
     "vocab_a2_0598": ("청바지", "jun", "christian"),      # 크리스티안, 나 청바지를 입고 공원 갈래!
-    "vocab_a2_0619": ("초등학생", "jun", "christian"),    # 크리스티안, 나 올해 초등학생이 됐어!
+    "vocab_a2_0619": ("초등학생", "jun", "christian"),    # 크리스티안, 나 초등학생이야. 3학년!
+}
+
+# R8 round 2 (Fable review of commit 5a0b5353, 2026-09-16): canon-EXCLUSIVE
+# speaker cues, used by test_persona_attribution_is_speaker_cue_or_leading_
+# vocative below. Each cue is a substring that could only plausibly be said
+# by / about THIS persona -- 대박 is 마야's own documented A2 speech marker
+# (character_profiles.json speechStyle.byLevel.A2); "대학원에서 도시 문화"
+# matches 현아's documented background.role ("도시·문화 연구 대학원생");
+# "학년" (in "크리스티안, 나 초등학생이야. 3학년!") matches 준's documented
+# background.role ("초등학교 3학년 학생") -- no other canonical character is
+# a 3rd-grader, so this line could only be his.
+SPEAKER_CUE_WHITELIST = {
+    "maya": ["대박"],
+    "hyuna": ["대학원에서 도시 문화"],
+    "jun": ["학년"],
 }
 
 
@@ -376,26 +393,25 @@ class TestBatch32VocabRows(unittest.TestCase):
                 f"{vid}: banmal row does not feature 크리스티안 (수진<->크리스티안 or 준's exception)",
             )
 
-    def test_persona_rows_are_speaker_rows(self):
-        """R8 (Fable review of commit 5a0b5353, 2026-09-16): a persona row
-        only counts when the persona SPEAKS (vocative address from them, or
-        canon-unambiguous first person) -- a third-person description
-        ('다니엘 씨는 손가락이 길어요') does not count, even though it passes
-        the weaker 'a canonical name appears somewhere' check above. Checked
-        as: the example contains a first-person marker (저는/제가/저 .../
-        나는/나 ...) OR the persona's own documented A2-level speech marker
-        (character_profiles.json speechStyle.ko.byLevel.A2), AND never
-        contains that SAME persona's own canonical name (a genuine
-        first-person line does not name its own speaker; if it did, that is
-        the third-person-description bug this test exists to catch)."""
+    def test_persona_attribution_is_speaker_cue_or_leading_vocative(self):
+        """R8 round 2 (Fable review of commit 5a0b5353, 2026-09-16): the
+        first speaker-row fix (bare first-person marker + ANY canonical
+        name present anywhere) was still too loose -- 'レナ 씨, 제 손가락이
+        길어요' passed it, but a bare 1인칭 + someone else's vocative
+        identifies nothing about WHO is speaking (any persona could say
+        this to Lena). The rule, as established in Batches 28-30: a persona
+        counts for a row only as (a) the unambiguous SPEAKER via a
+        canon-EXCLUSIVE cue -- a marker or documented-background detail
+        that could only be THIS persona (마야='대박', her own documented A2
+        marker; 현아='대학원에서 도시 문화', matching her documented
+        '도시·문화 연구 대학원생' background; 준='학년', matching his
+        documented '초등학교 3학년 학생' background -- see
+        SPEAKER_CUE_WHITELIST), or (b) the vocative ADDRESSEE via a LEADING
+        vocative ('OOO 씨,' or 'OOO,' at the very start of the sentence,
+        not merely appearing somewhere in it -- '수진 씨 목소리가' is
+        possessive, not vocative, and would NOT qualify under this rule)."""
         profiles = _load_json(CHARACTER_PROFILES)
         ko_name_by_id = {c["id"]: c["displayNames"]["ko"] for c in profiles["recurringCharacters"]}
-        a2_markers_by_id = {}
-        for c in profiles["recurringCharacters"]:
-            by_level = c.get("speechStyle", {}).get("byLevel", {})
-            a2_markers_by_id[c["id"]] = by_level.get("A2", [])
-
-        first_person_markers = ("저는", "제가", "저를", "제 ", "나는", "나 ")
         manifest = _load_json(DRAFTS / "batch_32_a2_reinforcement_manifest.json")
         speakers = manifest.get("personaRows", {})
         rows_by_id = {r["id"]: r for r in _load_vocab_rows(DRAFTS / "batch_32_a2_rows.csv")}
@@ -404,18 +420,15 @@ class TestBatch32VocabRows(unittest.TestCase):
         for vid, pid in speakers.items():
             example = rows_by_id[vid]["example_korean"]
             own_name = ko_name_by_id.get(pid, "")
-            has_first_person = any(m in example for m in first_person_markers)
-            has_own_marker = any(
-                marker.rstrip(".!?") and marker.rstrip(".!?") in example
-                for marker in a2_markers_by_id.get(pid, [])
+            has_cue = any(cue in example for cue in SPEAKER_CUE_WHITELIST.get(pid, []))
+            leading_vocative = bool(
+                own_name and re.match(rf"^{re.escape(own_name)}(\s*씨)?,", example)
             )
-            leaks_own_name = bool(own_name) and own_name in example
-            if leaks_own_name or not (has_first_person or has_own_marker):
+            if not (has_cue or leading_vocative):
                 offenders[vid] = (pid, example)
         self.assertEqual(
             offenders, {},
-            f"row(s) are not genuine speaker rows (third-person description, or the "
-            f"speaking persona's own name leaks into the sentence): {offenders}",
+            f"row(s) fail speaker-cue-or-leading-vocative attribution: {offenders}",
         )
 
 
@@ -545,6 +558,21 @@ class TestBatch32Cloze(unittest.TestCase):
             counts.update(item["distractors"])
         offenders = {w: c for w, c in counts.items() if c > 4}
         self.assertEqual(offenders, {}, f"distractor(s) reused more than 4 times: {offenders}")
+
+    def test_no_distractor_stem_reused_more_than_4_times(self):
+        """D6 per-batch reuse cap (Fable R8 round 2 review of commit
+        5a0b5353, 2026-09-16): the exact-string check above missed that
+        particle-attached surface variants of the SAME headword (결석을/
+        결석이/결석에는) still read as repetitive to a learner working
+        through the batch in one sitting. Uses the shared
+        a2_draft_rules.distractor_stem_reuse_counts helper (added for this
+        fix; level-agnostic, not A2-specific) against
+        DISTRACTOR_BATCH_REUSE_CAP."""
+        counts = R.distractor_stem_reuse_counts(self.items)
+        offenders = {w: c for w, c in counts.items() if c > R.DISTRACTOR_BATCH_REUSE_CAP}
+        self.assertEqual(
+            offenders, {}, f"distractor stem(s) reused more than {R.DISTRACTOR_BATCH_REUSE_CAP} times: {offenders}"
+        )
 
     def test_answer_is_at_least_two_syllables(self):
         for item in self.items:

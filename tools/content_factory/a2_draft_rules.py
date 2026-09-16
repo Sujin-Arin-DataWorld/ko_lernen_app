@@ -40,6 +40,7 @@ from __future__ import annotations
 
 import csv
 import re
+from collections import Counter
 from pathlib import Path
 
 # Re-export every level-agnostic helper unchanged.
@@ -191,3 +192,55 @@ def unresolved_helper_tokens(example_korean: str, safe_words: set[str],
             continue
         unresolved.append(t)
     return unresolved
+
+
+# ---------------------------------------------------------------------------
+# D6 per-batch distractor reuse cap (Fable R8 round 2 review of Batch 32,
+# commit 5a0b5353, 2026-09-16). cloze_distractor_rules.ReuseTracker enforces
+# reuse at LEVEL granularity (cap 6) because once promoted to live,
+# cloze.json items carry no batch/pack id to group by -- but within a single
+# batch's OWN draft, the same underlying headword reused across many items,
+# even under different particle-attached surface forms (e.g. "결석을"/
+# "결석이"/"결석에는" are all the same word "결석"), reads as repetitive to
+# a learner working through the whole batch in one sitting. Batch 29's own
+# draft respected a per-batch cap of 4 reuses of the same STEM, not merely
+# the same exact surface string -- generalized here (level-agnostic, not
+# A2-specific) so any batch's own draft regression test can assert it
+# against its own cloze `items` list before promotion.
+DISTRACTOR_BATCH_REUSE_CAP = 4
+
+# Longest-first so a multi-syllable suffix (이에요/에서는/...) is tried
+# before a shorter one it would otherwise be masked by (예요 before 요,
+# 에서는 before 에서/는, ...). Mirrors the particle tables already used
+# elsewhere in this pipeline (distractor_rules.ALTERNATING_PARTICLES,
+# HELPER_SUFFIXES above) -- best-effort, not a full morphological analyzer.
+_DISTRACTOR_PARTICLE_SUFFIXES = sorted([
+    "이에요", "예요", "에서는", "에게는", "한테는", "으로는",
+    "부터", "까지", "에는", "에게", "한테", "에서", "으로",
+    "이랑", "랑", "하고", "과", "와", "도", "만", "의",
+    "이", "가", "을", "를", "은", "는", "로", "에",
+], key=len, reverse=True)
+
+
+def distractor_stem(word: str) -> str:
+    """Strip the longest matching trailing particle/copula suffix from a
+    cloze distractor string, so surface-form variants of the same headword
+    (결석을/결석이/결석에는) collapse to one stem (결석) for reuse counting."""
+    for suf in _DISTRACTOR_PARTICLE_SUFFIXES:
+        if word.endswith(suf) and len(word) > len(suf):
+            return word[: -len(suf)]
+    return word
+
+
+def distractor_stem_reuse_counts(items: list[dict]) -> Counter:
+    """Count how many times each distractor STEM (see distractor_stem) is
+    reused across a batch's own cloze `items` list (each item a dict with a
+    `distractors` list, e.g. the parsed contents of a batch_NN_*_cloze.json
+    file's "items" array). Compare the result's values against
+    DISTRACTOR_BATCH_REUSE_CAP -- `{w: c for w, c in counts.items() if c >
+    DISTRACTOR_BATCH_REUSE_CAP}` should be empty for a compliant batch."""
+    counts: Counter = Counter()
+    for item in items:
+        for d in item.get("distractors", []):
+            counts[distractor_stem(d)] += 1
+    return counts
