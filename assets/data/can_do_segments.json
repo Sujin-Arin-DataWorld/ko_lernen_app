@@ -355,7 +355,7 @@
     {
       "id": "cluster_a1_05_numbers_time_v1",
       "level": "a1",
-      "revision": 8,
+      "revision": 10,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_numbers_1_v1",
         "seed_vocab_pack_a1_numbers_2_v1",
@@ -375,7 +375,9 @@
         "seed_scenario_a1_w10_numbers_v1",
         "seed_scenario_meeting_time_v1",
         "seed_vocab_pack_a1_months_1_v1",
-        "seed_vocab_pack_a1_time_expressions_1_v1"
+        "seed_vocab_pack_a1_time_expressions_1_v1",
+        "seed_vocab_pack_a1_counters_1_v1",
+        "seed_vocab_pack_a1_determiners_1_v1"
       ],
       "contentReferences": [
         {
@@ -453,6 +455,14 @@
         {
           "kind": "vocabPack",
           "id": "a1_time_expressions_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_counters_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_determiners_1"
         }
       ]
     },
@@ -662,7 +672,7 @@
     {
       "id": "cluster_a1_08_clarify_repair_v1",
       "level": "a1",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_scenario_clarify_repeat_v1",
         "seed_grammar_grammar_a1_which_question_v1",
@@ -682,7 +692,8 @@
         "seed_cloze_cloze_a1_0323_v1",
         "seed_cloze_cloze_a1_0324_v1",
         "seed_scenario_a1_w10_repeat_v1",
-        "seed_scenario_bakery_queue_v1"
+        "seed_scenario_bakery_queue_v1",
+        "seed_vocab_pack_a1_pronouns_1_v1"
       ],
       "contentReferences": [
         {
@@ -760,6 +771,10 @@
         {
           "kind": "scenario",
           "id": "bakery_queue"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_pronouns_1"
         }
       ]
     },
@@ -1462,7 +1477,7 @@
     {
       "id": "cluster_a1_13_register_switching_v1",
       "level": "a1",
-      "revision": 10,
+      "revision": 12,
       "sourceSeedIds": [
         "seed_cloze_cloze_a1_0076_v1",
         "seed_cloze_cloze_a1_0077_v1",
@@ -1473,7 +1488,9 @@
         "seed_grammar_grammar_a1_formal_command_v1",
         "seed_grammar_grammar_a1_formal_statement_v1",
         "seed_grammar_grammar_a1_formal_question_v1",
-        "seed_scenario_dance_class_register_v1"
+        "seed_scenario_dance_class_register_v1",
+        "seed_vocab_pack_a1_adverbs_1_v1",
+        "seed_vocab_pack_a1_adverbs_2_v1"
       ],
       "contentReferences": [
         {
@@ -1515,6 +1532,14 @@
         {
           "kind": "scenario",
           "id": "dance_class_register"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_adverbs_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_adverbs_2"
         }
       ]
     },
@@ -1644,7 +1669,7 @@
     {
       "id": "cluster_a1_16_survival_capstone_v1",
       "level": "a1",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
         "seed_scenario_survival_day_capstone_v1",
         "seed_vocab_pack_a1_misc_1_v1",
@@ -1663,7 +1688,8 @@
         "seed_grammar_grammar_a2_lets_formal_v1",
         "seed_vocab_pack_a1_korean_places_1_v1",
         "seed_vocab_pack_a1_nature_people_1_v1",
-        "seed_vocab_pack_a1_misc_3_v1"
+        "seed_vocab_pack_a1_misc_3_v1",
+        "seed_vocab_pack_a1_misc_4_v1"
       ],
       "contentReferences": [
         {
@@ -1737,13 +1763,17 @@
         {
           "kind": "vocabPack",
           "id": "a1_misc_3"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_misc_4"
         }
       ]
     },
     {
       "id": "cluster_a2_haeyo_register_transition_v1",
       "level": "a2",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_vocab_pack_a2_change_verbs_1_v1",
         "seed_vocab_pack_a2_daily_1_v1",
@@ -1776,7 +1806,8 @@
         "seed_cloze_cloze_a2_0061_v1",
         "seed_scenario_a2_w10_fandom_v1",
         "seed_scenario_favorite_drama_chat_v1",
-        "seed_scenario_samgyeopsal_first_time_v1"
+        "seed_scenario_samgyeopsal_first_time_v1",
+        "seed_cloze_cloze_a2_0319_v1"
       ],
       "contentReferences": [
         {
@@ -1906,6 +1937,10 @@
         {
           "kind": "scenario",
           "id": "samgyeopsal_first_time"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a2_0319"
         }
       ]
     },
@@ -2145,7 +2180,7 @@
     {
       "id": "cluster_a2_running_late_v1",
       "level": "a2",
-      "revision": 22,
+      "revision": 23,
       "sourceSeedIds": [
         "seed_scenario_running_late_v1",
         "seed_vocab_pack_a2_nature_1_v1",
@@ -2217,7 +2252,8 @@
         "seed_scenario_a2_w10_friends_v1",
         "seed_scenario_a2_w10_partner_v1",
         "seed_scenario_friend_cancelled_plan_v1",
-        "seed_scenario_group_chat_photo_permission_v1"
+        "seed_scenario_group_chat_photo_permission_v1",
+        "seed_vocab_pack_a2_messenger_phone_1_v1"
       ],
       "contentReferences": [
         {
@@ -2503,6 +2539,10 @@
         {
           "kind": "scenario",
           "id": "group_chat_photo_permission"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a2_messenger_phone_1"
         }
       ]
     },

@@ -2,9 +2,9 @@
   "counts": {
     "cloze": {
       "fallback_over2": 0,
-      "over1": 164,
-      "over2": 27,
-      "total": 2215,
+      "over1": 167,
+      "over2": 28,
+      "total": 2341,
       "under2": 454,
       "unknown": 0
     },
@@ -34,9 +34,9 @@
     },
     "satz": {
       "fallback_over2": 0,
-      "over1": 160,
-      "over2": 19,
-      "total": 2735,
+      "over1": 163,
+      "over2": 20,
+      "total": 2861,
       "under2": 645,
       "unknown": 0
     },
@@ -60,22 +60,22 @@
       "fallback_over2": 66,
       "over1": 312,
       "over2": 159,
-      "total": 2818,
+      "total": 2944,
       "under2": 229,
       "unknown": 56
     }
   },
   "coverage": {
     "grade1": {
-      "at_level": 541,
-      "missing": 53,
-      "present_in_app": 661,
+      "at_level": 596,
+      "missing": 2,
+      "present_in_app": 712,
       "total_unique": 714
     },
     "grade2": {
-      "at_level": 149,
-      "missing": 703,
-      "present_in_app": 367,
+      "at_level": 204,
+      "missing": 658,
+      "present_in_app": 412,
       "total_unique": 1070
     }
   },
@@ -97,6 +97,20 @@
           "n_hm": 12,
           "n_low": 0,
           "pack_id": "a1_adjectives_2",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0.0,
+          "n_hm": 12,
+          "n_low": 0,
+          "pack_id": "a1_adverbs_1",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0,
+          "n_hm": 7,
+          "n_low": 0,
+          "pack_id": "a1_adverbs_2",
           "share_ge_plus2": 0.0
         },
         {
@@ -131,28 +145,14 @@
           "median": 0.0,
           "n_hm": 12,
           "n_low": 0,
+          "pack_id": "a1_counters_1",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0.0,
+          "n_hm": 12,
+          "n_low": 0,
           "pack_id": "a1_countries_1",
-          "share_ge_plus2": 0.0
-        },
-        {
-          "median": 0.0,
-          "n_hm": 12,
-          "n_low": 0,
-          "pack_id": "a1_culture_hobbies_1",
-          "share_ge_plus2": 0.0
-        },
-        {
-          "median": 0.0,
-          "n_hm": 12,
-          "n_low": 0,
-          "pack_id": "a1_daily_1",
-          "share_ge_plus2": 0.0
-        },
-        {
-          "median": 0.0,
-          "n_hm": 12,
-          "n_low": 0,
-          "pack_id": "a1_daily_2",
           "share_ge_plus2": 0.0
         }
       ]
@@ -162,11 +162,11 @@
       "over2_unbacklogged": 0,
       "share_ge_plus2_top10": [
         {
-          "median": 1,
-          "n_hm": 7,
+          "median": 1.0,
+          "n_hm": 8,
           "n_low": 2,
           "pack_id": "a2_pharmacy_ask_1",
-          "share_ge_plus2": 0.2857
+          "share_ge_plus2": 0.25
         },
         {
           "median": 0.0,
@@ -197,18 +197,11 @@
           "share_ge_plus2": 0.1111
         },
         {
-          "median": 0.0,
-          "n_hm": 10,
-          "n_low": 0,
-          "pack_id": "a2_food_2",
-          "share_ge_plus2": 0.1
-        },
-        {
-          "median": 0.0,
-          "n_hm": 10,
+          "median": 0,
+          "n_hm": 11,
           "n_low": 1,
           "pack_id": "a2_people_jobs_1",
-          "share_ge_plus2": 0.1
+          "share_ge_plus2": 0.0909
         },
         {
           "median": 0,
@@ -216,6 +209,13 @@
           "n_low": 1,
           "pack_id": "a2_weather_layer_1",
           "share_ge_plus2": 0.0909
+        },
+        {
+          "median": 0.0,
+          "n_hm": 12,
+          "n_low": 0,
+          "pack_id": "a2_food_2",
+          "share_ge_plus2": 0.0833
         },
         {
           "median": -0.5,

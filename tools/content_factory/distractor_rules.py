@@ -179,6 +179,22 @@ DICTIONARY_FORM_VERBS = frozenset({
 BARE_PARTICLES = frozenset({
     "에서", "에게", "한테", "으로", "와", "과", "랑",
 })
+# C3-T5 (2026-09-16): Batch 30's pronoun-fold rows (그것/무엇/저것/어디/
+# 언제) use a THIRD waiver shape -- not a bare dictionary-form verb/
+# adjective and not a bare floating particle, but a pronoun of a
+# DIFFERENT deictic class carrying the SAME particle as the answer (see
+# tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json's
+# posRules.pronouns). This still "cannot complete the slot as a valid
+# predicate or elliptical answer" the pool's docstring requires: a
+# temporal pronoun (언제) cannot take an instrumental/directional particle
+# (로) and a demonstrative-thing pronoun (그것/무엇/저것) cannot directly
+# precede a possessed noun without 의 -- both read as a category-violation
+# 비문 regardless of any same-POS/same-form re-pick. Verified by
+# test_batch_30_draft.py's
+# test_remaining_rows_carry_a_particle_fold_consistent_with_their_own_final_sound.
+PRONOUN_FOLD_CATEGORY_MISMATCHES = frozenset({
+    "언제는", "무엇은", "어디는", "언제로", "무엇으로", "저것으로", "그는",
+})
 # The single, individually-justified bare-noun exception (see docstring
 # above) -- keyed by cloze id, not a general pool.
 NOUN_EXCEPTIONS = {
@@ -187,12 +203,17 @@ NOUN_EXCEPTIONS = {
 
 
 def waived_distractor_ok(word: str, cloze_id: str | None = None) -> bool:
-    """True if `word` is drawn from the (i) dictionary-form-verb or (ii)
-    bare-particle pool -- i.e. it cannot itself complete the slot as a
-    valid predicate or a valid elliptical answer, regardless of same-POS/
-    same-conjugation matching. `cloze_id`, if given, also allows that
-    item's single documented NOUN_EXCEPTIONS word (if any)."""
-    if word in DICTIONARY_FORM_VERBS or word in BARE_PARTICLES:
+    """True if `word` is drawn from the (i) dictionary-form-verb, (ii)
+    bare-particle, or (iii) pronoun-fold-category-mismatch pool -- i.e. it
+    cannot itself complete the slot as a valid predicate or a valid
+    elliptical answer, regardless of same-POS/same-conjugation matching.
+    `cloze_id`, if given, also allows that item's single documented
+    NOUN_EXCEPTIONS word (if any)."""
+    if (
+        word in DICTIONARY_FORM_VERBS
+        or word in BARE_PARTICLES
+        or word in PRONOUN_FOLD_CATEGORY_MISMATCHES
+    ):
         return True
     if cloze_id is not None and NOUN_EXCEPTIONS.get(cloze_id) == word:
         return True

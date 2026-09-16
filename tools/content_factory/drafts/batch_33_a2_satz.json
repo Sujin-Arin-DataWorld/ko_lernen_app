@@ -1,0 +1,644 @@
+{
+  "items": [
+    {
+      "id": "satz_a2_0624",
+      "sourceVocabId": "vocab_a2_0632",
+      "vocabKo": "놓다",
+      "targetKo": "가방을 의자 위에 놓았어요.",
+      "distractors": [
+        "앉았어요",
+        "울었어요"
+      ]
+    },
+    {
+      "id": "satz_a2_0625",
+      "sourceVocabId": "vocab_a2_0633",
+      "vocabKo": "누르다",
+      "targetKo": "여기를 누르면 물이 나와요.",
+      "distractors": [
+        "앉으면",
+        "자면"
+      ]
+    },
+    {
+      "id": "satz_a2_0626",
+      "sourceVocabId": "vocab_a2_0634",
+      "vocabKo": "밀다",
+      "targetKo": "무거운 문을 두 손으로 밀었어요.",
+      "distractors": [
+        "섰어요",
+        "뛰었어요"
+      ]
+    },
+    {
+      "id": "satz_a2_0627",
+      "sourceVocabId": "vocab_a2_0635",
+      "vocabKo": "접다",
+      "targetKo": "종이를 접어서 비행기를 만들었어요.",
+      "distractors": [
+        "앉아서",
+        "울어서"
+      ]
+    },
+    {
+      "id": "satz_a2_0628",
+      "sourceVocabId": "vocab_a2_0636",
+      "vocabKo": "펴다",
+      "targetKo": "비가 와서 우산을 폈어요.",
+      "distractors": [
+        "잤어요",
+        "섰어요"
+      ]
+    },
+    {
+      "id": "satz_a2_0629",
+      "sourceVocabId": "vocab_a2_0637",
+      "vocabKo": "붙이다",
+      "targetKo": "엄마, 나 3학년 교실 벽에 그림 붙였어!",
+      "distractors": [
+        "앉았어",
+        "울었어"
+      ]
+    },
+    {
+      "id": "satz_a2_0630",
+      "sourceVocabId": "vocab_a2_0638",
+      "vocabKo": "지우다",
+      "targetKo": "틀린 글자를 지우고 다시 썼어요.",
+      "distractors": [
+        "앉고",
+        "울고"
+      ]
+    },
+    {
+      "id": "satz_a2_0631",
+      "sourceVocabId": "vocab_a2_0639",
+      "vocabKo": "바르다",
+      "targetKo": "상처에 이 약을 하루에 두 번 바르세요.",
+      "distractors": [
+        "앉으세요",
+        "서세요"
+      ]
+    },
+    {
+      "id": "satz_a2_0632",
+      "sourceVocabId": "vocab_a2_0640",
+      "vocabKo": "기침",
+      "targetKo": "감기에 걸려서 기침이 계속 나요.",
+      "distractors": [
+        "육교가",
+        "지하도가"
+      ]
+    },
+    {
+      "id": "satz_a2_0633",
+      "sourceVocabId": "vocab_a2_0641",
+      "vocabKo": "콧물",
+      "targetKo": "콧물이 나서 휴지로 코를 닦았어요.",
+      "distractors": [
+        "정거장이",
+        "주차장이"
+      ]
+    },
+    {
+      "id": "satz_a2_0634",
+      "sourceVocabId": "vocab_a2_0642",
+      "vocabKo": "재채기",
+      "targetKo": "봄에는 재채기를 자주 해요.",
+      "distractors": [
+        "휴게실을",
+        "우산을"
+      ]
+    },
+    {
+      "id": "satz_a2_0635",
+      "sourceVocabId": "vocab_a2_0643",
+      "vocabKo": "배탈",
+      "targetKo": "아이스크림을 많이 먹어서 배탈이 났어요.",
+      "distractors": [
+        "부장이",
+        "선배가"
+      ]
+    },
+    {
+      "id": "satz_a2_0636",
+      "sourceVocabId": "vocab_a2_0644",
+      "vocabKo": "상처",
+      "targetKo": "넘어져서 손에 작은 상처가 생겼어요.",
+      "distractors": [
+        "육교가",
+        "지하도가"
+      ]
+    },
+    {
+      "id": "satz_a2_0637",
+      "sourceVocabId": "vocab_a2_0645",
+      "vocabKo": "수술",
+      "targetKo": "할머니가 다음 주에 수술을 받으세요.",
+      "distractors": [
+        "새벽을",
+        "출퇴근을"
+      ]
+    },
+    {
+      "id": "satz_a2_0638",
+      "sourceVocabId": "vocab_a2_0646",
+      "vocabKo": "입원",
+      "targetKo": "친구가 다리를 다쳐서 입원을 했어요.",
+      "distractors": [
+        "우표를",
+        "엽서를"
+      ]
+    },
+    {
+      "id": "satz_a2_0639",
+      "sourceVocabId": "vocab_a2_0647",
+      "vocabKo": "퇴원",
+      "targetKo": "내일 퇴원이라서 기분이 좋아요.",
+      "distractors": [
+        "칭찬이라서",
+        "규칙이라서"
+      ]
+    },
+    {
+      "id": "satz_a2_0640",
+      "sourceVocabId": "vocab_a2_0648",
+      "vocabKo": "치료",
+      "targetKo": "치과에서 치료를 받고 있어요.",
+      "distractors": [
+        "재채기를",
+        "배탈을"
+      ]
+    },
+    {
+      "id": "satz_a2_0641",
+      "sourceVocabId": "vocab_a2_0649",
+      "vocabKo": "내과",
+      "targetKo": "배가 아파서 내과에 갔어요.",
+      "distractors": [
+        "감기에",
+        "긴장에"
+      ]
+    },
+    {
+      "id": "satz_a2_0642",
+      "sourceVocabId": "vocab_a2_0650",
+      "vocabKo": "치과",
+      "targetKo": "이가 아파서 치과에 예약을 했어요.",
+      "distractors": [
+        "눈물에",
+        "농담에"
+      ]
+    },
+    {
+      "id": "satz_a2_0643",
+      "sourceVocabId": "vocab_a2_0651",
+      "vocabKo": "낫다",
+      "targetKo": "약을 먹고 푹 쉬면 감기가 빨리 나아요.",
+      "distractors": [
+        "셔요",
+        "매워요"
+      ]
+    },
+    {
+      "id": "satz_a2_0644",
+      "sourceVocabId": "vocab_a2_0652",
+      "vocabKo": "긴장",
+      "targetKo": "시험 전에는 항상 긴장이 돼요.",
+      "distractors": [
+        "초대장이",
+        "정거장이"
+      ]
+    },
+    {
+      "id": "satz_a2_0645",
+      "sourceVocabId": "vocab_a2_0653",
+      "vocabKo": "자신",
+      "targetKo": "수진 씨, 먼저 자신을 믿으세요.",
+      "distractors": [
+        "침대를",
+        "의자를"
+      ]
+    },
+    {
+      "id": "satz_a2_0646",
+      "sourceVocabId": "vocab_a2_0654",
+      "vocabKo": "불안",
+      "targetKo": "혼자 외국에서 살면 불안을 느낄 때가 있어요.",
+      "distractors": [
+        "열쇠를",
+        "대회를"
+      ]
+    },
+    {
+      "id": "satz_a2_0647",
+      "sourceVocabId": "vocab_a2_0655",
+      "vocabKo": "편안",
+      "targetKo": "새로 산 소파가 정말 편안해요.",
+      "distractors": [
+        "피곤해요",
+        "친절해요"
+      ]
+    },
+    {
+      "id": "satz_a2_0648",
+      "sourceVocabId": "vocab_a2_0656",
+      "vocabKo": "행복",
+      "targetKo": "가족과 함께 있을 때 행복을 느껴요.",
+      "distractors": [
+        "박수를",
+        "매표소를"
+      ]
+    },
+    {
+      "id": "satz_a2_0649",
+      "sourceVocabId": "vocab_a2_0657",
+      "vocabKo": "화",
+      "targetKo": "동생이 제 일기를 봐서 화가 났어요.",
+      "distractors": [
+        "그림이",
+        "편지가"
+      ]
+    },
+    {
+      "id": "satz_a2_0650",
+      "sourceVocabId": "vocab_a2_0658",
+      "vocabKo": "눈물",
+      "targetKo": "그 영화를 보고 눈물을 많이 흘렸어요.",
+      "distractors": [
+        "지각을",
+        "실수를"
+      ]
+    },
+    {
+      "id": "satz_a2_0651",
+      "sourceVocabId": "vocab_a2_0659",
+      "vocabKo": "웃음",
+      "targetKo": "그 사진을 보면 웃음이 나요.",
+      "distractors": [
+        "선배가",
+        "후배가"
+      ]
+    },
+    {
+      "id": "satz_a2_0652",
+      "sourceVocabId": "vocab_a2_0660",
+      "vocabKo": "농담",
+      "targetKo": "다니엘 씨는 농담을 정말 잘해요.",
+      "distractors": [
+        "지도를",
+        "우표를"
+      ]
+    },
+    {
+      "id": "satz_a2_0653",
+      "sourceVocabId": "vocab_a2_0661",
+      "vocabKo": "비밀",
+      "targetKo": "현아 씨, 이건 우리 둘만의 비밀이에요.",
+      "distractors": [
+        "입원이에요",
+        "퇴원이에요"
+      ]
+    },
+    {
+      "id": "satz_a2_0654",
+      "sourceVocabId": "vocab_a2_0662",
+      "vocabKo": "칭찬",
+      "targetKo": "선생님한테 칭찬을 들어서 기분이 좋아요.",
+      "distractors": [
+        "신발을",
+        "침대를"
+      ]
+    },
+    {
+      "id": "satz_a2_0655",
+      "sourceVocabId": "vocab_a2_0663",
+      "vocabKo": "거짓말",
+      "targetKo": "준은 엄마한테 거짓말을 안 해요.",
+      "distractors": [
+        "책상을",
+        "그림을"
+      ]
+    },
+    {
+      "id": "satz_a2_0656",
+      "sourceVocabId": "vocab_a2_0664",
+      "vocabKo": "사거리",
+      "targetKo": "사거리에서 왼쪽으로 가면 은행이 있어요.",
+      "distractors": [
+        "치료에서",
+        "취직에서"
+      ]
+    },
+    {
+      "id": "satz_a2_0657",
+      "sourceVocabId": "vocab_a2_0665",
+      "vocabKo": "육교",
+      "targetKo": "길이 넓어서 육교로 건너갔어요.",
+      "distractors": [
+        "기침으로",
+        "재채기로"
+      ]
+    },
+    {
+      "id": "satz_a2_0658",
+      "sourceVocabId": "vocab_a2_0666",
+      "vocabKo": "지하도",
+      "targetKo": "비가 올 때는 지하도로 다녀요.",
+      "distractors": [
+        "상처로",
+        "입원으로"
+      ]
+    },
+    {
+      "id": "satz_a2_0659",
+      "sourceVocabId": "vocab_a2_0667",
+      "vocabKo": "신호",
+      "targetKo": "신호가 바뀌면 길을 건너요.",
+      "distractors": [
+        "감기가",
+        "콧물이"
+      ]
+    },
+    {
+      "id": "satz_a2_0660",
+      "sourceVocabId": "vocab_a2_0668",
+      "vocabKo": "정거장",
+      "targetKo": "다음 정거장에서 내려서 왼쪽으로 가세요.",
+      "distractors": [
+        "칭찬에서",
+        "긴장에서"
+      ]
+    },
+    {
+      "id": "satz_a2_0661",
+      "sourceVocabId": "vocab_a2_0669",
+      "vocabKo": "주차장",
+      "targetKo": "주차장에 자리가 없어서 다시 나왔어요.",
+      "distractors": [
+        "눈물에",
+        "농담에"
+      ]
+    },
+    {
+      "id": "satz_a2_0662",
+      "sourceVocabId": "vocab_a2_0670",
+      "vocabKo": "건너다",
+      "targetKo": "신호를 보고 길을 건넜어요.",
+      "distractors": [
+        "앉았어요",
+        "울었어요"
+      ]
+    },
+    {
+      "id": "satz_a2_0663",
+      "sourceVocabId": "vocab_a2_0671",
+      "vocabKo": "방향",
+      "targetKo": "이 방향으로 가면 역이 나와요.",
+      "distractors": [
+        "취직으로",
+        "출퇴근으로"
+      ]
+    },
+    {
+      "id": "satz_a2_0664",
+      "sourceVocabId": "vocab_a2_0672",
+      "vocabKo": "반대",
+      "targetKo": "버스를 반대 방향으로 잘못 탔어요.",
+      "distractors": [
+        "수술",
+        "치료"
+      ]
+    },
+    {
+      "id": "satz_a2_0665",
+      "sourceVocabId": "vocab_a2_0673",
+      "vocabKo": "동쪽",
+      "targetKo": "아침에 해는 동쪽에서 떠요.",
+      "distractors": [
+        "노력에서",
+        "규칙에서"
+      ]
+    },
+    {
+      "id": "satz_a2_0666",
+      "sourceVocabId": "vocab_a2_0674",
+      "vocabKo": "서쪽",
+      "targetKo": "저녁에 서쪽 하늘이 빨개요.",
+      "distractors": [
+        "배탈",
+        "상처"
+      ]
+    },
+    {
+      "id": "satz_a2_0667",
+      "sourceVocabId": "vocab_a2_0675",
+      "vocabKo": "위치",
+      "targetKo": "이 카페는 위치가 정말 좋아요.",
+      "distractors": [
+        "수술이",
+        "입원이"
+      ]
+    },
+    {
+      "id": "satz_a2_0668",
+      "sourceVocabId": "vocab_a2_0676",
+      "vocabKo": "부장",
+      "targetKo": "안드레아 씨, 저희 팀 부장은 회의를 짧게 해요.",
+      "distractors": [
+        "편지는",
+        "초대장은"
+      ]
+    },
+    {
+      "id": "satz_a2_0669",
+      "sourceVocabId": "vocab_a2_0677",
+      "vocabKo": "선배",
+      "targetKo": "회사 선배가 점심을 사 줬어요.",
+      "distractors": [
+        "새벽이",
+        "행사가"
+      ]
+    },
+    {
+      "id": "satz_a2_0670",
+      "sourceVocabId": "vocab_a2_0678",
+      "vocabKo": "후배",
+      "targetKo": "새로 온 후배에게 일을 가르쳐 줬어요.",
+      "distractors": [
+        "육교에게",
+        "지하도에게"
+      ]
+    },
+    {
+      "id": "satz_a2_0671",
+      "sourceVocabId": "vocab_a2_0679",
+      "vocabKo": "팀",
+      "targetKo": "우리 팀은 매주 월요일에 회의를 해요.",
+      "distractors": [
+        "정거장은",
+        "주차장은"
+      ]
+    },
+    {
+      "id": "satz_a2_0672",
+      "sourceVocabId": "vocab_a2_0680",
+      "vocabKo": "취직",
+      "targetKo": "졸업하고 바로 은행에 취직을 했어요.",
+      "distractors": [
+        "매표소를",
+        "휴게실을"
+      ]
+    },
+    {
+      "id": "satz_a2_0673",
+      "sourceVocabId": "vocab_a2_0681",
+      "vocabKo": "출퇴근",
+      "targetKo": "저는 지하철로 출퇴근을 해요.",
+      "distractors": [
+        "우표를",
+        "엽서를"
+      ]
+    },
+    {
+      "id": "satz_a2_0674",
+      "sourceVocabId": "vocab_a2_0682",
+      "vocabKo": "휴게실",
+      "targetKo": "크리스티안, 우리 휴게실에서 커피 마실래?",
+      "distractors": [
+        "칭찬에서",
+        "긴장에서"
+      ]
+    },
+    {
+      "id": "satz_a2_0675",
+      "sourceVocabId": "vocab_a2_0683",
+      "vocabKo": "실수",
+      "targetKo": "일을 급하게 해서 실수를 했어요.",
+      "distractors": [
+        "침대를",
+        "의자를"
+      ]
+    },
+    {
+      "id": "satz_a2_0676",
+      "sourceVocabId": "vocab_a2_0684",
+      "vocabKo": "지각",
+      "targetKo": "버스가 늦게 와서 회사에 지각을 했어요.",
+      "distractors": [
+        "그림을",
+        "열쇠를"
+      ]
+    },
+    {
+      "id": "satz_a2_0677",
+      "sourceVocabId": "vocab_a2_0685",
+      "vocabKo": "규칙",
+      "targetKo": "회사 규칙은 꼭 지켜 주세요.",
+      "distractors": [
+        "눈물은",
+        "지각은"
+      ]
+    },
+    {
+      "id": "satz_a2_0678",
+      "sourceVocabId": "vocab_a2_0686",
+      "vocabKo": "노력",
+      "targetKo": "노력을 많이 하면 한국어가 빨리 늘어요.",
+      "distractors": [
+        "지하도를",
+        "사거리를"
+      ]
+    },
+    {
+      "id": "satz_a2_0679",
+      "sourceVocabId": "vocab_a2_0687",
+      "vocabKo": "정확",
+      "targetKo": "수진 씨 계산은 항상 정확해요.",
+      "distractors": [
+        "피곤해요",
+        "친절해요"
+      ]
+    },
+    {
+      "id": "satz_a2_0680",
+      "sourceVocabId": "vocab_a2_0688",
+      "vocabKo": "박수",
+      "targetKo": "다니엘 씨, 공연이 끝나면 박수를 크게 쳐 주세요.",
+      "distractors": [
+        "비밀을",
+        "치료를"
+      ]
+    },
+    {
+      "id": "satz_a2_0681",
+      "sourceVocabId": "vocab_a2_0689",
+      "vocabKo": "자리",
+      "targetKo": "우리 크리스티안, 이 자리에 앉아요.",
+      "distractors": [
+        "농담에",
+        "취직에"
+      ]
+    },
+    {
+      "id": "satz_a2_0682",
+      "sourceVocabId": "vocab_a2_0690",
+      "vocabKo": "줄",
+      "targetKo": "표를 사러 새벽부터 줄을 섰어요.",
+      "distractors": [
+        "편지를",
+        "콧물을"
+      ]
+    },
+    {
+      "id": "satz_a2_0683",
+      "sourceVocabId": "vocab_a2_0691",
+      "vocabKo": "새벽",
+      "targetKo": "행사 준비가 있어서 새벽에 일어났어요.",
+      "distractors": [
+        "규칙에",
+        "재채기에"
+      ]
+    },
+    {
+      "id": "satz_a2_0684",
+      "sourceVocabId": "vocab_a2_0692",
+      "vocabKo": "매표소",
+      "targetKo": "레나 씨, 매표소 앞에서 만나요.",
+      "distractors": [
+        "상처",
+        "감기"
+      ]
+    },
+    {
+      "id": "satz_a2_0685",
+      "sourceVocabId": "vocab_a2_0693",
+      "vocabKo": "대회",
+      "targetKo": "대박, 우리 팀이 대회에서 이겼어요!",
+      "distractors": [
+        "긴장에서",
+        "웃음에서"
+      ]
+    },
+    {
+      "id": "satz_a2_0686",
+      "sourceVocabId": "vocab_a2_0694",
+      "vocabKo": "행사",
+      "targetKo": "주말에 회사 행사에 가족을 데려갔어요.",
+      "distractors": [
+        "농담에",
+        "비밀에"
+      ]
+    },
+    {
+      "id": "satz_a2_0687",
+      "sourceVocabId": "vocab_a2_0695",
+      "vocabKo": "초대장",
+      "targetKo": "마야 씨, 결혼식 초대장을 받았어요?",
+      "distractors": [
+        "새벽을",
+        "주차장을"
+      ]
+    }
+  ]
+}

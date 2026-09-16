@@ -214,22 +214,51 @@ DISTRACTOR_BATCH_REUSE_CAP = 4
 # 에서는 before 에서/는, ...). Mirrors the particle tables already used
 # elsewhere in this pipeline (distractor_rules.ALTERNATING_PARTICLES,
 # HELPER_SUFFIXES above) -- best-effort, not a full morphological analyzer.
+#
+# Batch 33 (Fable brief, 2026-09-16): widened to the full particle
+# inventory the D6 per-batch cap is defined over -- 에서는/에게는/에는/에서/
+# 에게/으로/한테/부터/까지/처럼/보다/하고/이랑/이나/들/을/를/이/가/은/는/에/
+# 로/도/과/와/만/랑/께/나 -- and `distractor_stem` now strips REPEATEDLY
+# (stacked particles such as 친구들에게는 -> 친구들에게 -> 친구들 -> 친구),
+# never taking a stem below 2 Hangul syllables (so 지도 keeps its 도, 내과
+# keeps its 과, 감기 keeps its 기 -- a 1-syllable remainder is never a
+# plausible headword for this counting purpose). Copula 이에요/예요 and the
+# 이라서/라서 copula-connective are stripped too since a distractor that
+# spans the copula (결석이에요) is still the same word 결석 to the learner.
 _DISTRACTOR_PARTICLE_SUFFIXES = sorted([
-    "이에요", "예요", "에서는", "에게는", "한테는", "으로는",
-    "부터", "까지", "에는", "에게", "한테", "에서", "으로",
-    "이랑", "랑", "하고", "과", "와", "도", "만", "의",
+    "이에요", "예요", "이라서", "라서",
+    "에서는", "에게는", "한테는", "으로는", "에서도", "에게도", "한테도",
+    "부터", "까지", "처럼", "보다", "하고", "이랑", "이나",
+    "에는", "에게", "한테", "에서", "으로",
+    "랑", "과", "와", "도", "만", "의", "들", "께", "나",
     "이", "가", "을", "를", "은", "는", "로", "에",
 ], key=len, reverse=True)
 
+_MIN_STEM_SYLLABLES = 2
+
+
+def _hangul_syllables(text: str) -> int:
+    return sum(1 for ch in text if "가" <= ch <= "힣")
+
 
 def distractor_stem(word: str) -> str:
-    """Strip the longest matching trailing particle/copula suffix from a
-    cloze distractor string, so surface-form variants of the same headword
-    (결석을/결석이/결석에는) collapse to one stem (결석) for reuse counting."""
-    for suf in _DISTRACTOR_PARTICLE_SUFFIXES:
-        if word.endswith(suf) and len(word) > len(suf):
-            return word[: -len(suf)]
-    return word
+    """Strip trailing particle/copula suffixes from a cloze distractor
+    string -- repeatedly, so stacked particles collapse too -- until no
+    suffix matches or the remainder would drop below 2 Hangul syllables.
+    Surface-form variants of the same headword (결석을/결석이/결석에는/
+    결석들에게는) all collapse to one stem (결석) for reuse counting."""
+    stem = word
+    while True:
+        for suf in _DISTRACTOR_PARTICLE_SUFFIXES:
+            if (
+                stem.endswith(suf)
+                and len(stem) > len(suf)
+                and _hangul_syllables(stem[: -len(suf)]) >= _MIN_STEM_SYLLABLES
+            ):
+                stem = stem[: -len(suf)]
+                break
+        else:
+            return stem
 
 
 def distractor_stem_reuse_counts(items: list[dict]) -> Counter:

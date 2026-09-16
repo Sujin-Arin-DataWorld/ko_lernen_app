@@ -361,6 +361,18 @@ DancheongMotif motifForPackId(String packId) {
     'a1_health_food' => DancheongMotif.soban,
     'a1_school_work' => DancheongMotif.bamboo,
     'a1_time_family' => DancheongMotif.bok,
+    // C3-T5 (2026-09-16): Batch 30 (A1 function words) / Batch 31 (first A2)
+    // new packs. Spread on purpose -- the function-word neighbours
+    // (a1_particles_in_use/a1_repair_language) already sit on chilbo.
+    // 수 체계: 가지·권·마리·명·번·살 (분류사) + 무슨·어떤·여러·마흔·서른·백만
+    // (관형사·수 관형사) -- a1_numbers / a1_time / a1_months 와 같은 국화.
+    'a1_counters' || 'a1_determiners' => DancheongMotif.chrysanthemum,
+    // 지시·위치: 이쪽·그쪽·저쪽·여기·그것 -- a1_position 과 같은 만자.
+    'a1_pronouns' => DancheongMotif.manja,
+    // 언어 구조어: 가장·아주·열심히 + 그래서·하지만 -- 교육·언어 계열 문방사우.
+    'a1_adverbs' => DancheongMotif.munbangsau,
+    // 소통: 휴대폰·메시지·답장·연락처 -- b1_phone_plan 과 같은 칠보.
+    'a2_messenger_phone' => DancheongMotif.chilbo,
     _ => DancheongMotif.lotus,
   };
 }

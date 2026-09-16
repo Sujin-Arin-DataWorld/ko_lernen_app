@@ -228,6 +228,13 @@ class VocabPackService {
     // (a1_misc_3 needs no entry -- 'a1_misc' above already covers it.)
     'a1_verbs_daily': ('Alltagsverben', 'Everyday Verbs'),
     'a1_adjectives': ('Adjektive', 'Adjectives'),
+    // A1 C3-T5 (2026-09-16): Batch 30 A1 reinforcement new packs (last A1
+    // reinforcement batch). (a1_misc_4 needs no entry -- 'a1_misc' above
+    // already covers it.)
+    'a1_adverbs': ('Adverbien', 'Adverbs'),
+    'a1_pronouns': ('Pronomen', 'Pronouns'),
+    'a1_counters': ('Zähleinheiten', 'Counters'),
+    'a1_determiners': ('Artikelwörter', 'Determiners'),
     // A2
     'a2_daily': ('Alltag (A2)', 'Daily Life (A2)'),
     'a2_feelings': ('Gefühle', 'Feelings'),
@@ -244,6 +251,9 @@ class VocabPackService {
     'a2_health_misc': ('Gesundheit & Sonstiges', 'Health & Misc'),
     'a2_home': ('Wohnen & Haushalt', 'Home & Household'),
     'a2_money': ('Geld & Bank', 'Money & Banking'),
+    // A2 C3-T5 (2026-09-16): Batch 31 A2 reinforcement new pack (first A2
+    // promotion in the C3 series).
+    'a2_messenger_phone': ('Kommunikation', 'Communication'),
     // A2 확장 2026-08 (tools/content_factory/add_a2_expansion_packs.py)
     'a2_clothing': ('Kleidung', 'Clothing'),
     'a2_wearing_verbs': ('Anziehen & Accessoires', 'Wearing & Accessories'),

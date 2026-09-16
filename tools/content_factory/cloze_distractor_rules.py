@@ -156,6 +156,30 @@ PARTICLE_SUFFIXES = sorted(
     reverse=True,
 )
 
+# C3-T5 (2026-09-16): Batch 31 (first A2 batch) surfaced a gap both D2 and
+# D3 shared -- a case/topic particle has TWO surface forms, chosen by the
+# HOST NOUN's own batchim (으로/로, 은/는, 이/가, 을/를, 과/와, 이랑/랑), so
+# a correctly-designed Tier-A distractor set (posRules.
+# noun_particle_fold_tier_a: "real words of the same batchim-INDEPENDENT
+# particle-allomorph shape") legitimately mixes both surface forms across
+# its 2-3 distractors (e.g. answer "정리는" + distractor "태풍은": both
+# carry the topic particle, just each in its OWN batchim-correct
+# allomorph) -- but D2's literal-suffix match and D3's literal-suffix
+# `same_ending` both treated the two surface forms as unrelated endings,
+# flagging grammatically correct distractors. D1 already handles batchim
+# CLASS correctness separately (detect_required_class/batchim_class); this
+# maps each alternating suffix to its allomorph partner so D2/D3 recognize
+# them as the same grammatical particle regardless of which surface form
+# either side happens to use.
+ALLOMORPH_PAIRS: dict[str, str] = {
+    "은": "는", "는": "은",
+    "이": "가", "가": "이",
+    "을": "를", "를": "을",
+    "과": "와", "와": "과",
+    "으로": "로", "로": "으로",
+    "이랑": "랑", "랑": "이랑",
+}
+
 
 def matching_particle_suffix(answer: str, vocab: "VocabIndex") -> Optional[str]:
     """If `answer` is a single token (no space -- a multi-word answer is a
@@ -178,12 +202,15 @@ def check_d2_particle_form(
     answer: str, distractors: Iterable[str], vocab: "VocabIndex"
 ) -> list[str]:
     """Distractors that fail to carry the same attached case-particle
-    suffix as `answer`. Empty list if `answer` isn't itself particle-
-    attached (matching_particle_suffix returns None) -- D2 doesn't apply."""
+    suffix as `answer`, ITS OWN batchim-correct allomorph (see
+    ALLOMORPH_PAIRS) accepted too. Empty list if `answer` isn't itself
+    particle-attached (matching_particle_suffix returns None) -- D2
+    doesn't apply."""
     suf = matching_particle_suffix(answer, vocab)
     if suf is None:
         return []
-    return [d for d in distractors if not d.endswith(suf)]
+    alt = ALLOMORPH_PAIRS.get(suf, suf)
+    return [d for d in distractors if not (d.endswith(suf) or d.endswith(alt))]
 
 
 # ---------------------------------------------------------------------------
@@ -248,8 +275,12 @@ def ending_signatures(word: str) -> set[str]:
     that contraction difference as a form mismatch; comparing the full set
     (see `same_ending`) still finds their shared shorter suffix (both end
     in plain "습니다"/"어요" etc. even when only one also matches a longer,
-    more specific variant)."""
-    return {suf for suf in ENDING_SUFFIXES if word.endswith(suf) and len(word) > len(suf)}
+    more specific variant). Each matched suffix's ALLOMORPH_PAIRS partner
+    (은<->는; C3-T5, 2026-09-16) is folded in too, so a topic-particle
+    answer/distractor pair using each side's OWN batchim-correct allomorph
+    still shares a signature."""
+    sigs = {suf for suf in ENDING_SUFFIXES if word.endswith(suf) and len(word) > len(suf)}
+    return sigs | {ALLOMORPH_PAIRS[suf] for suf in sigs if suf in ALLOMORPH_PAIRS}
 
 
 def same_ending(a: str, b: str) -> bool:
@@ -672,6 +703,49 @@ OPEN_SLOT_WAIVER: dict[str, str] = {
     'cloze_b2_0393': 'R8-3 tier B (2026-09-15): truly bare frame with no selectional restriction, confirmed by the R8-2/R8-3 read (docs/data/cloze_distractor_audit_2026-09-15.md)',
     'cloze_c1_0114': 'R8-3 tier B (2026-09-15): truly bare frame with no selectional restriction, confirmed by the R8-2/R8-3 read (docs/data/cloze_distractor_audit_2026-09-15.md)',
     'cloze_c2_0221': 'R8-3 tier B (2026-09-15): truly bare frame with no selectional restriction, confirmed by the R8-2/R8-3 read (docs/data/cloze_distractor_audit_2026-09-15.md)',
+    # C3-T5 (2026-09-16): Batch 30 A1 reinforcement (function words) -- a
+    # sentence-initial discourse-connective slot (그래서/그러니까/그러면/
+    # 그런데/그럼/그렇지만/그리고/하지만) accepts almost any OTHER connective
+    # too, so distractors are Tier B (bare dictionary-form verb or bare
+    # particle, never another connective) per posRules.adverbs_connective
+    # in tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.
+    # json; verified by test_batch_30_draft.py's
+    # test_connective_distractors_are_bare_dictionary_verb_or_particle.
+    'cloze_a1_0714': 'C3-T5 tier B (2026-09-16): Batch 30 discourse-connective open frame, bare dictionary-verb/particle distractors (see manifest posRules.adverbs_connective)',
+    'cloze_a1_0715': 'C3-T5 tier B (2026-09-16): Batch 30 discourse-connective open frame, bare dictionary-verb/particle distractors (see manifest posRules.adverbs_connective)',
+    'cloze_a1_0716': 'C3-T5 tier B (2026-09-16): Batch 30 discourse-connective open frame, bare dictionary-verb/particle distractors (see manifest posRules.adverbs_connective)',
+    'cloze_a1_0717': 'C3-T5 tier B (2026-09-16): Batch 30 discourse-connective open frame, bare dictionary-verb/particle distractors (see manifest posRules.adverbs_connective)',
+    'cloze_a1_0718': 'C3-T5 tier B (2026-09-16): Batch 30 discourse-connective open frame, bare dictionary-verb/particle distractors (see manifest posRules.adverbs_connective)',
+    'cloze_a1_0719': 'C3-T5 tier B (2026-09-16): Batch 30 discourse-connective open frame, bare dictionary-verb/particle distractors (see manifest posRules.adverbs_connective)',
+    'cloze_a1_0720': 'C3-T5 tier B (2026-09-16): Batch 30 discourse-connective open frame, bare dictionary-verb/particle distractors (see manifest posRules.adverbs_connective)',
+    # a1_0731: 그래/아 interjection response frame, bare dictionary-verb
+    # distractors replacing only the interjection token (posRules.
+    # numerals_interjections), verified by test_batch_30_draft.py's
+    # test_tierb_interjection_distractors_are_bare_dictionary_verb.
+    'cloze_a1_0731': 'C3-T5 tier B (2026-09-16): Batch 30 interjection response frame, bare dictionary-verb distractor (see manifest posRules.numerals_interjections)',
+    # a1_0733/0740/0742 (D3) and a1_0734/0741 (D2): pronoun-fold rows
+    # (그것/무엇/저것/어디/언제 fold-type headwords) whose distractors are a
+    # pronoun of a DIFFERENT deictic class + the same particle -- an
+    # intentional category-violation/particle-form 비문 per posRules.
+    # pronouns, not a same-POS/same-form re-pick D2/D3 can recognize.
+    # Verified by test_batch_30_draft.py's
+    # test_remaining_rows_carry_a_particle_fold_consistent_with_their_own_final_sound.
+    'cloze_a1_0733': 'C3-T5 tier B (2026-09-16): Batch 30 pronoun-fold category-mismatch distractor (see manifest posRules.pronouns)',
+    'cloze_a1_0734': 'C3-T5 tier B (2026-09-16): Batch 30 pronoun-fold category-mismatch distractor (see manifest posRules.pronouns)',
+    'cloze_a1_0740': 'C3-T5 tier B (2026-09-16): Batch 30 pronoun-fold category-mismatch distractor (see manifest posRules.pronouns)',
+    'cloze_a1_0741': 'C3-T5 tier B (2026-09-16): Batch 30 pronoun-fold category-mismatch distractor (see manifest posRules.pronouns)',
+    'cloze_a1_0742': 'C3-T5 tier B (2026-09-16): Batch 30 pronoun-fold category-mismatch distractor (see manifest posRules.pronouns)',
+    # C3-T5 (2026-09-16): Batch 31 A2 reinforcement (first A2 batch) --
+    # posRules.open_frame_tier_b: an existential/생략-type open frame
+    # judged too open for a same-shape real-word swap; distractors are a
+    # bare dictionary-form verb and/or a bare particle, already in the
+    # shared DICTIONARY_FORM_VERBS/BARE_PARTICLES pools -- registered here
+    # so D3 calls waived_distractor_ok instead of same-ending matching.
+    'cloze_a2_0322': 'C3-T5 tier B (2026-09-16): Batch 31 open frame, bare dictionary-verb distractors (see manifest posRules.open_frame_tier_b)',
+    'cloze_a2_0326': 'C3-T5 tier B (2026-09-16): Batch 31 open frame, bare dictionary-verb/particle distractors (see manifest posRules.open_frame_tier_b)',
+    'cloze_a2_0327': 'C3-T5 tier B (2026-09-16): Batch 31 open frame, bare dictionary-verb/particle distractors (see manifest posRules.open_frame_tier_b)',
+    'cloze_a2_0370': 'C3-T5 tier B (2026-09-16): Batch 31 open frame, bare dictionary-verb distractors (see manifest posRules.open_frame_tier_b)',
+    'cloze_a2_0373': 'C3-T5 tier B (2026-09-16): Batch 31 open frame, bare dictionary-verb distractors (see manifest posRules.open_frame_tier_b)',
 }
 
 # R8-2 "mixed composition" items (Fable ruling 2026-09-15): 2 Tier-A

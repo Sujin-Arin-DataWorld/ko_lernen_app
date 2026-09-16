@@ -121,7 +121,6 @@ A2,text_type,instructions_manual_recipe,사용 설명서·조리법·지시문,s
 A2,text_type,narrative_story_diary,이야기·일기·서사문,structural_gap,mode=P;count=0;surfaces=none,verify_genre_content_and_placement
 A2,text_type,social_media_post_comment,SNS 게시물·댓글·포럼,missing,mode=P;count=0;surfaces=scenario,add_items_of_this_genre
 A2,text_type,written_notice_announcement,공지문·안내문,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
-A2,vocab_domain,technology_devices_internet,기기·인터넷·디지털 어휘,thin,words=6,add_pack_in_domain
 B1,grammar_anchor,grammar_b1_about,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_as_kept_doing,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_concede_but,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
