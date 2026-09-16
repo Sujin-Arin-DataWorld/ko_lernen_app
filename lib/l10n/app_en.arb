@@ -4994,5 +4994,47 @@
   "onboardingJourneyGamesShort": "Learn through play",
   "onboardingJourneyBookShort": "Your book",
   "onboardingJourneyHanokShort": "Your hanok",
-  "onboardingJourneyCompanionShort": "Your companion"
+  "onboardingJourneyCompanionShort": "Your companion",
+  "hanokAssetsImageLoading": "Preparing the Hanok artwork…",
+  "hanokAssetsCellularNeeded": "Start this download explicitly when using mobile data or an unknown connection.",
+  "hanokAssetsDownloadNow": "Download",
+  "hanokAssetsRetry": "Try again",
+  "hanokAssetsImageFailed": "This Hanok artwork is unavailable right now.",
+  "hanokAssetsStorageFull": "There is not enough space for this Hanok artwork.",
+  "hanokAssetsNetworkFailed": "The Hanok artwork could not be downloaded. Check your connection and try again.",
+  "hanokDownloadsTitle": "Hanok artwork",
+  "hanokDownloadsIntro": "Download large Hanok artwork by building so it remains available without a connection.",
+  "hanokDownloadsWebSessionNotice": "In the browser, downloaded artwork is available only for this session. The browser may clear it when the session ends.",
+  "hanokDownloadsRemovalNotice": "Removing downloaded artwork means it must be downloaded again. Your learning progress does not change.",
+  "hanokDownloadsLoading": "Checking Hanok artwork…",
+  "hanokDownloadsLoadFailed": "The Hanok download list could not be loaded.",
+  "hanokDownloadsSize": "Size: {size}",
+  "@hanokDownloadsSize": {
+    "placeholders": {
+      "size": {"type": "String"}
+    }
+  },
+  "hanokDownloadsIncluded": "Included in the app",
+  "hanokDownloadsDownloading": "Preparing {available} of {total}",
+  "@hanokDownloadsDownloading": {
+    "placeholders": {
+      "available": {"type": "String"},
+      "total": {"type": "String"}
+    }
+  },
+  "hanokDownloadsAvailableOffline": "Downloaded and available offline",
+  "hanokDownloadsAvailableThisSession": "Available for this browser session",
+  "hanokDownloadsPartial": "{available} of {total} is ready",
+  "@hanokDownloadsPartial": {
+    "placeholders": {
+      "available": {"type": "String"},
+      "total": {"type": "String"}
+    }
+  },
+  "hanokDownloadsNotDownloaded": "Not downloaded",
+  "hanokDownloadsRemove": "Remove downloaded data",
+  "hanokDownloadsRemoveFailed": "Downloaded data could not be removed. Try again.",
+  "hanokDownloadsSettingsSection": "Offline artwork",
+  "hanokDownloadsSettingsTitle": "Hanok downloads",
+  "hanokDownloadsSettingsSubtitle": "Manage artwork included in the app and downloaded by building"
 }

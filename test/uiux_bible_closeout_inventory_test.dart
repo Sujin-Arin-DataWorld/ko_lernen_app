@@ -108,8 +108,8 @@ void main() {
     }
 
     // Phase task screen plus the current Hanok preview owners.
-    expect(seen, hasLength(113));
-    expect(documented, hasLength(113));
+    expect(seen, hasLength(114));
+    expect(documented, hasLength(114));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });

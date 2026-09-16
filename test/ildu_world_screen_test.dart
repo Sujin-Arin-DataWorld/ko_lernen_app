@@ -8,6 +8,7 @@ import 'package:ko_lernen_app/data/ildu_turntable_catalog.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/ildu_world_manifest.dart';
 import 'package:ko_lernen_app/screens/ildu_world_screen.dart';
+import 'package:ko_lernen_app/screens/hanok_downloads_screen.dart';
 import 'package:ko_lernen_app/services/ildu_anchor_placement_service.dart';
 import 'package:ko_lernen_app/services/ildu_decoration_placement_service.dart';
 import 'package:ko_lernen_app/services/ildu_world_projection_adapter.dart';
@@ -62,6 +63,33 @@ void main() {
     expect(mapViewer.minScale, 1);
     expect(mapViewer.maxScale, 2.2);
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('world offers an unscaled Hanok downloads entry', (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('en'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: IlDuWorldScreen(
+          loadManifest: () async => manifest,
+          loadProjection: () async => const IlDuWorldProjection(
+            era: IlDuWorldEra.a1,
+            hasVerifiedEvidence: false,
+          ),
+          decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: _MemoryAnchorStore(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final downloads = find.byKey(const ValueKey('ildu-world-downloads'));
+    expect(downloads, findsOneWidget);
+    expect(tester.widget<IconButton>(downloads).tooltip, 'Hanok downloads');
+    await tester.tap(downloads);
+    await tester.pumpAndSettle();
+    expect(find.byType(HanokDownloadsScreen), findsOneWidget);
   });
 
   testWidgets('Sarangchae uses its single world view without rotation', (

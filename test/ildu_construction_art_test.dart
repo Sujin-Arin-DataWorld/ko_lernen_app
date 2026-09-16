@@ -6,6 +6,9 @@ import 'package:crypto/crypto.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/ildu_construction_art.dart';
+import 'package:ko_lernen_app/models/sarangchae_construction.dart';
+
+import 'support/hanok_asset_delivery_test_support.dart';
 
 Map<String, dynamic> source() =>
     jsonDecode(File(IlDuConstructionArtCatalog.assetPath).readAsStringSync())
@@ -38,8 +41,10 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(
-    'the bundled catalog decodes all 14 transparent stages and exact finals',
+    'the delivery catalog decodes all 14 transparent stages and exact finals',
     () async {
+      final assets = await HanokAssetDeliveryTestSupport.create();
+      addTearDown(assets.dispose);
       final catalog = await IlDuConstructionArtCatalog.load();
       final approvedRows = {
         for (final series in source()['series'])
@@ -49,8 +54,10 @@ void main() {
       final seen = <String>{};
       for (final series in catalog.series.take(2)) {
         for (final stage in series.stages) {
-          final data = await rootBundle.load(stage.asset);
-          final bytes = Uint8List.sublistView(data);
+          final bytes = await assets.load(stage.asset);
+          if (series.id == 'hyeopmun') {
+            expect(assets.isBundled(stage.asset), isTrue);
+          }
           final facts = await imageFacts(bytes);
           expect(facts.width, stage.width);
           expect(facts.height, stage.height);
@@ -78,6 +85,15 @@ void main() {
         catalog.series[1].stages.last.sha256,
         '867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488',
       );
+      final sarangchae = await SarangchaeConstruction.load();
+      expect(sarangchae.stages, hasLength(SarangchaeConstruction.stageCount));
+      for (final stage in sarangchae.stages) {
+        expect(
+          assets.isBundled(stage.assetPath),
+          isTrue,
+          reason: stage.assetPath,
+        );
+      }
     },
   );
 
@@ -117,7 +133,7 @@ void main() {
     }
   });
 
-  test('only referenced runtime images are bundled within 24 MiB', () {
+  test('only referenced runtime images exist within 24 MiB', () {
     final json = source();
     final expected = <String>{};
     final actual = <String>{};
@@ -147,6 +163,8 @@ void main() {
   test(
     'modern example objects are separately bundled with their own provenance',
     () async {
+      final assets = await HanokAssetDeliveryTestSupport.create();
+      addTearDown(assets.dispose);
       final json = source();
       final stages = (json['series'][1]['stages'] as List)
           .where((s) => s['lessonIllustration'] != null)
@@ -154,11 +172,10 @@ void main() {
       expect(stages, hasLength(4));
       for (final stage in stages) {
         final lesson = stage['lessonIllustration'];
-        final data = await rootBundle.load(lesson['asset'] as String);
-        expect(
-          sha256.convert(Uint8List.sublistView(data)).toString(),
-          lesson['sha256'],
-        );
+        final assetPath = lesson['asset'] as String;
+        expect(assets.isBundled(assetPath), isTrue, reason: assetPath);
+        final data = await assets.load(assetPath);
+        expect(sha256.convert(data).toString(), lesson['sha256']);
         expect(lesson['asset'], isNot(stage['asset']));
         final original = File(
           lesson['approvedPngAsset'] as String,
@@ -167,10 +184,7 @@ void main() {
           sha256.convert(original).toString(),
           lesson['approvedPngSha256'],
         );
-        expect(
-          await imageFacts(Uint8List.sublistView(data)),
-          await imageFacts(original),
-        );
+        expect(await imageFacts(data), await imageFacts(original));
         expect((lesson['caption']['ko'] as String), contains('현대 생활 예시'));
       }
     },

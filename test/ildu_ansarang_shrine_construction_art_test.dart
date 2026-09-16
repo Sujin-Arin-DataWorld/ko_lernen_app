@@ -7,6 +7,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as img;
 import 'package:ko_lernen_app/models/ildu_construction_art.dart';
 
+import 'support/hanok_asset_delivery_test_support.dart';
+
 const _pngSourceCommit = '547a5c3981c8e0b508ee41ffbc4bfd9e0e584e0b';
 const _losslessValidationPath =
     'docs/assets/ildu_ansarang_shrine_construction_20260914/'
@@ -70,6 +72,8 @@ void main() {
   test(
     'all 34 lossless WebPs preserve frozen runtime PNG pixels',
     () async {
+      final assets = await HanokAssetDeliveryTestSupport.create();
+      addTearDown(assets.dispose);
       final rawCatalog = _object(
         jsonDecode(
           await rootBundle.loadString(IlDuConstructionArtCatalog.assetPath),
@@ -91,10 +95,6 @@ void main() {
       };
       expect(sourceFilesByStage, hasLength(34));
       final pubspec = File('pubspec.yaml').readAsStringSync();
-      final declaredAssets = RegExp(
-        r'^\s*-\s+(assets/\S+)\s*$',
-        multiLine: true,
-      ).allMatches(pubspec).map((match) => match.group(1)!).toSet();
       final catalog = IlDuConstructionArtCatalog.fromJson(rawCatalog);
       final selected = {
         for (final series in catalog.series)
@@ -106,6 +106,9 @@ void main() {
         final series = selected[entry.key]!;
         final rawSeries = rawSeriesById[entry.key]!;
         final rawStages = _objects(rawSeries['stages']);
+        final runtimePrefix =
+            'assets/illustrations/personal_hanok_v3/construction/'
+            '${entry.key}/';
         expect(series.mapAnchorId, entry.value.anchor);
         expect(series.stages, hasLength(entry.value.count));
         expect(rawStages, hasLength(entry.value.count));
@@ -121,9 +124,6 @@ void main() {
         for (var index = 0; index < series.stages.length; index++) {
           final stage = series.stages[index];
           final rawStage = rawStages[index];
-          final runtimePrefix =
-              'assets/illustrations/personal_hanok_v3/construction/'
-              '${entry.key}/';
           final runtimeName = stage.asset.substring(runtimePrefix.length);
           final expectedPngSource =
               '$runtimePrefix${runtimeName.substring(0, runtimeName.length - 5)}.png';
@@ -133,7 +133,7 @@ void main() {
           expect(stage.sequence, index + 1);
           expect(stage.asset, startsWith(runtimePrefix));
           expect(stage.asset, endsWith('.webp'));
-          expect(declaredAssets, contains(stage.asset));
+          expect(assets.deliveryPaths, contains(stage.asset));
           expect(rawStage['sourcePathAtCommit'], expectedPngSource);
           expect(rawStage['sourceCommit'], _pngSourceCommit);
           expect(frozenSource['pathAtCommit'], expectedPngSource);
@@ -146,8 +146,7 @@ void main() {
           );
           expect(rawStage['rgbaSha256'], matches(RegExp(r'^[a-f0-9]{64}$')));
 
-          final data = await rootBundle.load(stage.asset);
-          final runtimeBytes = Uint8List.sublistView(data);
+          final runtimeBytes = await assets.load(stage.asset);
           expect(runtimeBytes.length, rawStage['bytes']);
           expect(sha256.convert(runtimeBytes).toString(), stage.sha256);
           final runtimeImage = img.decodeWebP(runtimeBytes);
@@ -180,14 +179,26 @@ void main() {
 
         expect(series.stages.last.asset, rawSeries['canonicalAsset']);
         expect(series.stages.last.sha256, rawSeries['canonicalSha256']);
+        final expectedRuntimeAssets = series.stages
+            .map((stage) => stage.asset)
+            .toSet();
         expect(
-          declaredAssets.where(
-            (asset) => asset.startsWith(
-              'assets/illustrations/personal_hanok_v3/construction/'
-              '${entry.key}/',
-            ),
-          ),
-          hasLength(entry.value.count),
+          assets.deliveryPaths
+              .where(
+                (asset) => asset.startsWith(
+                  'assets/illustrations/personal_hanok_v3/construction/'
+                  '${entry.key}/',
+                ),
+              )
+              .toSet(),
+          expectedRuntimeAssets,
+        );
+        expect(
+          Directory(runtimePrefix)
+              .listSync()
+              .map((entity) => entity.path.replaceAll('\\', '/'))
+              .toSet(),
+          expectedRuntimeAssets,
         );
         expect(
           RegExp(
@@ -202,6 +213,8 @@ void main() {
   );
 
   test('final runtime WebPs preserve approved canonical PNG pixels', () async {
+    final assets = await HanokAssetDeliveryTestSupport.create();
+    addTearDown(assets.dispose);
     final rawCatalog = _object(
       jsonDecode(
         await rootBundle.loadString(IlDuConstructionArtCatalog.assetPath),
@@ -215,9 +228,9 @@ void main() {
     for (final entry in expected.entries) {
       final rawSeries = rawSeriesById[entry.key]!;
       final rawFinalStage = _objects(rawSeries['stages']).last;
-      final runtimeBytes = await File(
+      final runtimeBytes = await assets.load(
         rawSeries['canonicalAsset'] as String,
-      ).readAsBytes();
+      );
       final canonicalBytes = await File(
         rawSeries['approvedCanonicalPngAsset'] as String,
       ).readAsBytes();

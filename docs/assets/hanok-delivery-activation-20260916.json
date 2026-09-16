@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "manifestSha256": "418c2ba39b8c740a1cb780c0e9a22ae1b967bda8522c4521b4a0ad4c97fe11ab",
+  "inputPubspecSha256": "f3d65d7cd3e576295d4fd2b2741dc6033b3028aedf1226b6654cae8a0969d3e4",
+  "candidatePubspecSha256": "93aac8fc87b81e6a01d17cd4f8629d689afb603048c13caf58d74808382a36fc",
+  "local": {
+    "assetCount": 202,
+    "bytes": 224479689
+  },
+  "remote": {
+    "objectCount": 202,
+    "bytes": 224479689
+  },
+  "removedFromBundleCount": 202,
+  "removedFromBundleRawBytes": 224479689,
+  "date": "2026-09-16",
+  "bucket": "ko-lernen-app.firebasestorage.app",
+  "packCount": 13,
+  "publication": "202 immutable objects uploaded with if-generation-match=0 and canonical=true",
+  "packaging": "hybrid active on feature branch; no main integration or store release",
+  "storageDeployment": {
+    "release": {
+      "name": "projects/ko-lernen-app/releases/firebase.storage/ko-lernen-app.firebasestorage.app",
+      "rulesetName": "projects/ko-lernen-app/rulesets/d6ba3c5e-b37f-418e-8b1f-75fb3e33085f",
+      "createTime": "2026-06-05T20:54:27.629804Z",
+      "updateTime": "2026-09-16T09:53:58.658178Z"
+    },
+    "deployedSourceSha256": "22813f6b863fed67390351495f5b6ce7c691115e8b03c356f1173e31d4176c8e",
+    "reviewedOverlayMatches": true,
+    "priorTtsClausesPreserved": true,
+    "appCheckUnchanged": true,
+    "appCheckMode": "UNENFORCED"
+  },
+  "activatedBundle": {
+    "fullRegisteredFileCount": 1019,
+    "fullRegisteredRawBytes": 487971916,
+    "activatedRegisteredFileCount": 817,
+    "activatedRegisteredRawBytes": 263492227,
+    "activatedCompleteFlutterAssetDirectoryBytes": 265649838,
+    "removedFromBundleCount": 202,
+    "removedFromBundleRawBytes": 224479689,
+    "exactManifestExclusion": true,
+    "retainedSourceHashMismatches": [],
+    "retainedMp4Count": 28,
+    "pubspecSha256": "93aac8fc87b81e6a01d17cd4f8629d689afb603048c13caf58d74808382a36fc",
+    "manifestSha256": "418c2ba39b8c740a1cb780c0e9a22ae1b967bda8522c4521b4a0ad4c97fe11ab",
+    "note": "Activated local Flutter asset bundle. Not store download/install or AAB/IPA measurements."
+  },
+  "liveSmoke": "Real PNG and WebP HTTPS transport, native persistence, fresh-service offline reopen, and removal passed."
+}

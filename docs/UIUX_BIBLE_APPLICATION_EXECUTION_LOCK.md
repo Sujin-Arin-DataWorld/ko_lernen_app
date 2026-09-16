@@ -328,6 +328,7 @@ not disappear from phase review.
 | `DiscoverScreen` | Std supporting catalog | Keep dormant/supporting surface aligned; do not add a route | R/D discover | 2B |
 | `BookshelfScreen` / `WordbookSearchScreen` / `HardWordsScreen` | Std compatibility wrappers around `BookshelfBody`, `WordbookSearchBody`, and `HardWordsBody` | Keep direct construction usable without duplicating route chrome inside the My Words tabs | D My Words bodies + existing focused suites | 5C |
 | `IlDuWorldScreen` | unregistered V3 interactive owner | Keep available for focused V3 manifest/evidence tests; do not expose it through `/hanok` until the map is complete and approved | R/S/D Ildu V3 | 2D |
+| `HanokDownloadsScreen` | Settings-owned download manager | Distinguish bundled artwork from verified downloads, show honest browser-session limits, and keep removal independent from learning progress | D Hanok delivery + responsive states | 2D |
 | `PersonalRoomFurnishScreen` | shared furnishing base used by `SarangbangFurnishScreen` | Keep the shipped Sarangbang room behavior; do not reconnect the retired anbang/daecheong routes | R/S/D Sarangbang furnishing | 4C |
 | `OnboardingPreviewScreen` / `PlacementDiagnosticScreen` | custom + Std | Align step hierarchy; preserve placement decisions | R/D onboarding/placement | 5C |
 | `ConsentScreen` / `FirstVoiceSuccessScreen` | custom | Shared action/state patterns; preserve consent/evidence | R/D consent/voice | 5C |

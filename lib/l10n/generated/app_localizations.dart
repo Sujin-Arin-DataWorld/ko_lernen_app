@@ -18383,6 +18383,156 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Deine Begleitung'**
   String get onboardingJourneyCompanionShort;
+
+  /// No description provided for @hanokAssetsImageLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanok-Bild wird vorbereitet…'**
+  String get hanokAssetsImageLoading;
+
+  /// No description provided for @hanokAssetsCellularNeeded.
+  ///
+  /// In de, this message translates to:
+  /// **'Bei mobilen Daten oder einer unbekannten Verbindung musst du diesen Download ausdrücklich starten.'**
+  String get hanokAssetsCellularNeeded;
+
+  /// No description provided for @hanokAssetsDownloadNow.
+  ///
+  /// In de, this message translates to:
+  /// **'Laden'**
+  String get hanokAssetsDownloadNow;
+
+  /// No description provided for @hanokAssetsRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut versuchen'**
+  String get hanokAssetsRetry;
+
+  /// No description provided for @hanokAssetsImageFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Hanok-Bild ist gerade nicht verfügbar.'**
+  String get hanokAssetsImageFailed;
+
+  /// No description provided for @hanokAssetsStorageFull.
+  ///
+  /// In de, this message translates to:
+  /// **'Für dieses Hanok-Bild ist nicht genug Speicherplatz frei.'**
+  String get hanokAssetsStorageFull;
+
+  /// No description provided for @hanokAssetsNetworkFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Das Hanok-Bild konnte nicht heruntergeladen werden. Prüfe deine Verbindung und versuche es erneut.'**
+  String get hanokAssetsNetworkFailed;
+
+  /// No description provided for @hanokDownloadsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanok-Bilder'**
+  String get hanokDownloadsTitle;
+
+  /// No description provided for @hanokDownloadsIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Lade große Hanok-Bilder nach Gebäude herunter, damit sie auch ohne Verbindung verfügbar bleiben.'**
+  String get hanokDownloadsIntro;
+
+  /// No description provided for @hanokDownloadsWebSessionNotice.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Browser sind heruntergeladene Bilder nur in dieser Sitzung verfügbar. Der Browser kann sie am Sitzungsende löschen.'**
+  String get hanokDownloadsWebSessionNotice;
+
+  /// No description provided for @hanokDownloadsRemovalNotice.
+  ///
+  /// In de, this message translates to:
+  /// **'Wenn du heruntergeladene Bilder entfernst, musst du sie später erneut herunterladen. Dein Lernfortschritt bleibt unverändert.'**
+  String get hanokDownloadsRemovalNotice;
+
+  /// No description provided for @hanokDownloadsLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanok-Bilder werden geprüft…'**
+  String get hanokDownloadsLoading;
+
+  /// No description provided for @hanokDownloadsLoadFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Liste der Hanok-Downloads konnte nicht geladen werden.'**
+  String get hanokDownloadsLoadFailed;
+
+  /// No description provided for @hanokDownloadsSize.
+  ///
+  /// In de, this message translates to:
+  /// **'Größe: {size}'**
+  String hanokDownloadsSize(String size);
+
+  /// No description provided for @hanokDownloadsIncluded.
+  ///
+  /// In de, this message translates to:
+  /// **'In der App enthalten'**
+  String get hanokDownloadsIncluded;
+
+  /// No description provided for @hanokDownloadsDownloading.
+  ///
+  /// In de, this message translates to:
+  /// **'{available} von {total} werden vorbereitet'**
+  String hanokDownloadsDownloading(String available, String total);
+
+  /// No description provided for @hanokDownloadsAvailableOffline.
+  ///
+  /// In de, this message translates to:
+  /// **'Heruntergeladen und offline verfügbar'**
+  String get hanokDownloadsAvailableOffline;
+
+  /// No description provided for @hanokDownloadsAvailableThisSession.
+  ///
+  /// In de, this message translates to:
+  /// **'In dieser Browser-Sitzung verfügbar'**
+  String get hanokDownloadsAvailableThisSession;
+
+  /// No description provided for @hanokDownloadsPartial.
+  ///
+  /// In de, this message translates to:
+  /// **'{available} von {total} sind verfügbar'**
+  String hanokDownloadsPartial(String available, String total);
+
+  /// No description provided for @hanokDownloadsNotDownloaded.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht heruntergeladen'**
+  String get hanokDownloadsNotDownloaded;
+
+  /// No description provided for @hanokDownloadsRemove.
+  ///
+  /// In de, this message translates to:
+  /// **'Heruntergeladene Daten entfernen'**
+  String get hanokDownloadsRemove;
+
+  /// No description provided for @hanokDownloadsRemoveFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Die heruntergeladenen Daten konnten nicht entfernt werden. Versuche es erneut.'**
+  String get hanokDownloadsRemoveFailed;
+
+  /// No description provided for @hanokDownloadsSettingsSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Offline-Bilder'**
+  String get hanokDownloadsSettingsSection;
+
+  /// No description provided for @hanokDownloadsSettingsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanok-Downloads'**
+  String get hanokDownloadsSettingsTitle;
+
+  /// No description provided for @hanokDownloadsSettingsSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'In der App enthaltene und nach Gebäude heruntergeladene Bilder verwalten'**
+  String get hanokDownloadsSettingsSubtitle;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {
