@@ -45,11 +45,13 @@
 - `contrasts` -- 1~2개. `vocabId`는 그 대조어가 `korean_vocab.csv`에 실재하면
   그 id, 없으면 `null`(둘 다 유효 -- 검증기가 null은 통과시키고, 값이 있으면
   살아있는 id인지 확인한다).
-- `register` -- `formal | neutral | casual | written` 중 하나 (표제어 전체의
-  대표 격식).
-- `examples` -- **정확히 2개**. 하나는 `formal`(또는 `written`), 하나는
-  `casual`(또는 `written`/구어) -- 같은 단어의 격식 차이를 보여주는 것이
-  목적이라 두 예문의 register가 달라야 의미가 있다. KO는 그 레벨 문법/어휘를
+- `register` -- 허용값은 정확히 4개, `formal | neutral | casual | written`
+  중 하나(표제어 전체의 대표 격식). 다른 문자열(예: `informal`, `polite`)은
+  검증기가 거부한다.
+- `examples` -- **정확히 2개**, register는 항상 `casual` 1개 + 나머지 3값
+  중 하나(`formal`/`written`/`neutral`) 1개 -- `casual`이 0개나 2개면
+  검증 실패다. 같은 단어의 격식 차이를 보여주는 것이 목적이라 두 예문의
+  register가 달라야 의미가 있다. KO는 그 레벨 문법/어휘를
   넘지 않고(NIKL 기준 자기 레벨+1까지), 어절 상한은 B1 ≤14, B2+ ≤18
   (일반 B1 문장 규칙 ≤16보다 이 기능 한정으로 더 엄격 -- 카드 뒷면 접이식
   구획이라 화면 공간이 좁다). 편집용 dash 문자 금지 -- 하이픈(-)이나 쉼표로

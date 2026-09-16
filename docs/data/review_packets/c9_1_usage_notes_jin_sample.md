@@ -65,9 +65,9 @@
 ## `vocab_b1_0036` -- 참여하다 (teilnehmen / mitmachen)
 
 - 레벨: B1 / register: neutral
-- 뉘앙스: KO: 참여하다는 단순히 자리를 채우는 것이 아니라 그 안에서 실제로 한몫을 한다는 능동적인 느낌을 준다.
-  - DE: 참여하다 vermittelt den aktiven Eindruck, nicht nur anwesend zu sein, sondern innerhalb der Sache wirklich mitzuwirken.
-  - EN: 참여하다 gives an active impression of not just being present but genuinely playing a part within the activity.
+- 뉘앙스: KO: 참여하다는 어떤 활동에 구성원으로 들어가 역할을 맡아 하는 것을 가리키며, 행사·캠페인·프로젝트에 참여하다처럼 목적어와 함께 자주 쓴다.
+  - DE: 참여하다 bezeichnet, sich als Mitglied an einer Aktivität zu beteiligen und eine Rolle darin zu übernehmen; man benutzt es oft mit Objekten wie 행사 (Veranstaltung) oder 프로젝트 (Projekt).
+  - EN: 참여하다 refers to joining an activity as a member and taking on a role in it; it is often used with objects like 행사 (event) or 프로젝트 (project).
 - 전형 상황: KO: 행사, 캠페인, 프로젝트처럼 적극적으로 함께하는 활동을 권할 때 쓴다.
   - DE: Man benutzt es bei Veranstaltungen, Kampagnen oder Projekten, wenn man zur aktiven Teilnahme auffordert.
   - EN: You use it for events, campaigns, or projects when encouraging active participation.
@@ -95,7 +95,7 @@
 
 - 레벨: B1 / register: neutral
 - 뉘앙스: KO: 진행하다는 이미 시작된 일이 멈추지 않고 앞으로 나아가고 있다는 흐름을 나타낸다.
-  - DE: 진행하다 druckt aus, dass etwas bereits Begonnenes ohne Unterbrechung weiter vorangeht.
+  - DE: 진행하다 drückt aus, dass etwas bereits Begonnenes ohne Unterbrechung weiter vorangeht.
   - EN: 진행하다 expresses that something already underway keeps moving forward without stopping.
 - 전형 상황: KO: 일정이나 프로젝트가 계획대로 잘 흘러가고 있다고 말할 때 쓴다.
   - DE: Man benutzt es, wenn man sagt, dass ein Zeitplan oder Projekt planmäßig weiterläuft.
@@ -211,8 +211,8 @@
 
 - 레벨: B1 / register: neutral
 - 뉘앙스: KO: 부동산은 매매나 임대 거래를 전문적으로 도와주는 사무실을 가리키는 업종 명칭 같은 말이다.
-  - DE: 부동산 klingt wie eine Branchenbezeichnung für einen Ort, der professionell beim Handel mit Häusern oder Grundstücken hilft.
-  - EN: 부동산 sounds like an industry label for a place that professionally helps with buying, selling, or renting property.
+  - DE: 부동산 bezeichnet ein Büro, das professionell beim Kauf, Verkauf oder der Vermietung von Immobilien hilft; man benutzt es oft mit 부동산에 가다 (zum Immobilienbüro gehen).
+  - EN: 부동산 refers to an office that professionally helps with buying, selling, or renting property; it is often used with 부동산에 가다 (to go to a real estate agency).
 - 전형 상황: KO: 이사나 집을 구할 때 중개소를 찾아가는 상황에서 쓴다.
   - DE: Man benutzt es, wenn man beim Umzug oder der Wohnungssuche ein Maklerbüro aufsucht.
   - EN: You use it when visiting a real estate agency while moving or looking for a place.
@@ -240,7 +240,7 @@
 
 - 레벨: B1 / register: neutral
 - 뉘앙스: KO: 사고 접수는 문제가 생긴 직후 보험사에 가장 먼저 알려 절차를 시작하는 첫 단계를 가리킨다.
-  - DE: 사고 접수 klingt nach dem ersten hektischen Anruf, den man gleich nach einem Missgeschick tätigt.
+  - DE: Wenn etwas passiert ist, meldet man das mit 사고 접수 zuerst der Versicherung und startet damit das Verfahren; man sagt dazu 사고 접수를 하다 (einen Schaden melden).
   - EN: 사고 접수 refers to the first step of notifying the insurer right after something goes wrong, to set the process in motion.
 - 전형 상황: KO: 사고가 난 뒤 보험사에 처음 연락해서 처리를 시작할 때 쓴다.
   - DE: Man benutzt es, wenn man nach einem Unfall die Versicherung zum ersten Mal kontaktiert, um das Verfahren zu starten.

@@ -1276,6 +1276,19 @@ class ContentValidator:
                         name,
                         f"{example_label} register must be one of {sorted(USAGE_NOTE_REGISTERS)}",
                     )
+            # R8 round 4 (2026-09-16, PR #362 review): the two examples exist
+            # to contrast register, so exactly one must be "casual" and the
+            # other must be a non-casual value (formal/written/neutral) --
+            # two casual or two non-casual examples defeat the point.
+            if examples and len(examples) == 2 and all(isinstance(e, dict) for e in examples):
+                example_registers = [e.get("register") for e in examples]
+                casual_count = sum(1 for r in example_registers if r == "casual")
+                if casual_count != 1:
+                    self.issue(
+                        name,
+                        f"{label}.examples must have exactly one 'casual' register and one "
+                        f"non-casual register (formal/written/neutral), got {example_registers}",
+                    )
 
     def validate_curriculum_graph(self) -> None:
         """Fail closed when a reviewed source item has no curriculum route.

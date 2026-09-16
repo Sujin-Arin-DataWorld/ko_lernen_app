@@ -176,9 +176,9 @@
       "id": "vocab_b1_0072",
       "level": "B1",
       "nuance": {
-        "ko": "일정은 앞으로 해야 할 일들이 날짜와 시간 단위로 빼곡히 채워져 있다는 느낌을 주는 말이다.",
-        "de": "일정 vermittelt das Gefühl, dass die kommenden Tage schon dicht mit festen Terminen und Uhrzeiten gefüllt sind.",
-        "en": "일정 gives the feeling that the days ahead are already densely packed with fixed dates and times."
+        "ko": "일정은 날짜와 시간이 구체적으로 정해진 것을 가리키며, 일정을 잡다, 일정을 확인하다처럼 잡다·확인하다와 자주 붙어 쓴다.",
+        "de": "일정 bezeichnet festgelegte Termine mit konkretem Datum und Uhrzeit; es wird oft mit Verben wie 잡다 (festlegen) oder 확인하다 (prüfen) kombiniert.",
+        "en": "일정 refers to arrangements with a specific date and time set; it often combines with verbs like 잡다 (to set) or 확인하다 (to check)."
       },
       "situation": {
         "ko": "회의나 여행, 프로젝트에서 언제 무엇을 할지 물어보거나 조정할 때 쓴다.",
@@ -461,7 +461,7 @@
       "id": "vocab_b1_0296",
       "level": "B1",
       "nuance": {
-        "ko": "맡다는 어떤 일의 책임을 넘겨받아 스스로 처리하겠다고 나서는 느낌을 주는 동사다.",
+        "ko": "맡다는 어떤 일의 책임을 넘겨받아 스스로 처리하겠다고 나서는 것을 뜻하는 동사다.",
         "de": "맡다 ist ein Verb, das ausdrückt, dass man die Verantwortung für eine Aufgabe übernimmt und sich verpflichtet, sie selbst zu erledigen.",
         "en": "맡다 is a verb that conveys taking on responsibility for a task and committing to handle it yourself."
       },
@@ -1374,8 +1374,8 @@
       "level": "B1",
       "nuance": {
         "ko": "사회는 낱낱의 개인이 아니라 다 함께 얽혀 만들어 내는 큰 틀을 가리키는 다소 학술적인 말이다.",
-        "de": "사회 klingt nach einem Begriff aus Lehrbüchern für das große Gefüge, in dem alle miteinander verflochten sind, nicht für eine einzelne Person.",
-        "en": "사회 sounds like a textbook term for the large web everyone is interwoven into, not for a single person."
+        "de": "사회 kommt in Lehrbüchern und Nachrichten vor, wenn vom großen Ganzen die Rede ist, nicht von einer einzelnen Person.",
+        "en": "In educational or news writing, 사회 stands for the larger whole that many people form together, as opposed to a single person."
       },
       "situation": {
         "ko": "뉴스, 교육, 토론처럼 사람들 전체와 관련된 문제나 구조를 이야기할 때 쓴다.",
@@ -1545,8 +1545,8 @@
       "level": "B1",
       "nuance": {
         "ko": "경제는 개인의 살림이 아니라 온 사회가 함께 돌아가는 흐름 전체를 가리키는 다소 거시적인 말이다.",
-        "de": "경제 klingt nach den großen Schlagzeilen der Abendnachrichten, nicht nach dem eigenen Portemonnaie.",
-        "en": "경제 sounds like something from the evening news headlines, not from one's own wallet."
+        "de": "In Wirtschaftsnachrichten steht 경제 für den gesamten Fluss von Geld und Waren in der Gesellschaft, nicht für den eigenen Geldbeutel.",
+        "en": "News broadcasts use 경제 for how money and goods move through society as a whole, not for what is in someone's own pocket."
       },
       "situation": {
         "ko": "뉴스나 일상 대화에서 물가, 시장, 나라 전체의 형편을 이야기할 때 쓴다.",
@@ -1658,9 +1658,9 @@
       "id": "vocab_b1_0019",
       "level": "B1",
       "nuance": {
-        "ko": "상황은 지금 벌어지고 있는 일이나 분위기를 뭉뚱그려 가리키는 말로, 손에 잡히지 않는 막연함이 있다.",
-        "de": "상황 fasst das, was gerade passiert, oder die aktuelle Stimmung eher vage zusammen, ohne sie konkret zu greifen.",
-        "en": "상황 loosely sums up what is currently happening or the mood in the air, in a somewhat intangible way."
+        "ko": "상황은 어떤 일이 벌어지고 있는 형편이나 조건을 가리키며, 상황이 좋다/나쁘다, 상황을 보다처럼 평가 표현과 자주 결합한다.",
+        "de": "상황 bezeichnet die Umstände oder Bedingungen, unter denen etwas gerade geschieht; es verbindet sich oft mit Bewertungen wie 상황이 좋다/나쁘다 (die Lage ist gut/schlecht) oder 상황을 보다 (die Lage beobachten).",
+        "en": "상황 refers to the circumstances or conditions under which something is happening; it often combines with evaluative expressions like 상황이 좋다/나쁘다 (the situation is good/bad) or 상황을 보다 (to watch the situation)."
       },
       "situation": {
         "ko": "지금 벌어지는 일이나 분위기를 전체적으로 설명할 때 쓴다.",
@@ -1944,7 +1944,7 @@
       "level": "B1",
       "nuance": {
         "ko": "발전하다는 이전보다 나아졌다는 긍정적인 방향성을 폭넓은 대상에 두루 쓸 수 있는 말이다.",
-        "de": "발전하다 druckt eine positive Richtung aus, besser geworden zu sein, und lässt sich auf viele verschiedene Dinge anwenden.",
+        "de": "발전하다 drückt eine positive Richtung aus, besser geworden zu sein, und lässt sich auf viele verschiedene Dinge anwenden.",
         "en": "발전하다 expresses a positive direction of having gotten better, and can be applied broadly to many kinds of things."
       },
       "situation": {
@@ -2000,9 +2000,9 @@
       "id": "vocab_b1_0036",
       "level": "B1",
       "nuance": {
-        "ko": "참여하다는 단순히 자리를 채우는 것이 아니라 그 안에서 실제로 한몫을 한다는 능동적인 느낌을 준다.",
-        "de": "참여하다 vermittelt den aktiven Eindruck, nicht nur anwesend zu sein, sondern innerhalb der Sache wirklich mitzuwirken.",
-        "en": "참여하다 gives an active impression of not just being present but genuinely playing a part within the activity."
+        "ko": "참여하다는 어떤 활동에 구성원으로 들어가 역할을 맡아 하는 것을 가리키며, 행사·캠페인·프로젝트에 참여하다처럼 목적어와 함께 자주 쓴다.",
+        "de": "참여하다 bezeichnet, sich als Mitglied an einer Aktivität zu beteiligen und eine Rolle darin zu übernehmen; man benutzt es oft mit Objekten wie 행사 (Veranstaltung) oder 프로젝트 (Projekt).",
+        "en": "참여하다 refers to joining an activity as a member and taking on a role in it; it is often used with objects like 행사 (event) or 프로젝트 (project)."
       },
       "situation": {
         "ko": "행사, 캠페인, 프로젝트처럼 적극적으로 함께하는 활동을 권할 때 쓴다.",
@@ -2057,9 +2057,9 @@
       "id": "vocab_b1_0040",
       "level": "B1",
       "nuance": {
-        "ko": "극복하다는 힘든 시간을 그저 흘려보내는 것이 아니라 애써서 이겨 냈다는 성취감을 담은 말이다.",
-        "de": "극복하다 trägt ein Gefühl der Leistung in sich, eine schwierige Zeit nicht einfach vergehen zu lassen, sondern sie mit Anstrengung zu meistern.",
-        "en": "극복하다 carries a sense of accomplishment: not just letting a hard time pass, but overcoming it through effort."
+        "ko": "극복하다는 어려움이나 한계를 노력으로 없애고 그 상태를 벗어나는 것을 가리키며, 어려움·역경·슬럼프를 극복하다처럼 목적어와 자주 붙는다.",
+        "de": "극복하다 bezeichnet, eine Schwierigkeit oder Grenze durch Anstrengung zu beseitigen und diesen Zustand zu verlassen; man benutzt es oft mit Objekten wie 어려움 (Schwierigkeit) oder 슬럼프 (Krise).",
+        "en": "극복하다 refers to eliminating a difficulty or limitation through effort and moving past that state; it is often used with objects like 어려움 (difficulty) or 슬럼프 (a slump)."
       },
       "situation": {
         "ko": "질병, 슬럼프, 두려움처럼 오래 걸리는 어려움을 이겨 냈다고 말할 때 쓴다.",
@@ -2204,7 +2204,7 @@
           "headword": "그래서",
           "vocabId": null,
           "ko": "따라서는 앞 내용을 근거로 결론을 격식 있게 이끌어 낼 때 쓰고, 그래서는 같은 흐름을 일상 대화에서 훨씬 가볍게 쓴다.",
-          "de": "따라서 zieht formell eine Schlussfolgerung aus dem Vorherigen, 그래서 druckt denselben Zusammenhang viel lockerer im Alltag aus.",
+          "de": "따라서 zieht formell eine Schlussfolgerung aus dem Vorherigen, 그래서 drückt denselben Zusammenhang viel lockerer im Alltag aus.",
           "en": "따라서 formally draws a conclusion from what precedes, while 그래서 expresses the same flow much more casually in everyday speech."
         }
       ],
@@ -2261,7 +2261,7 @@
           "headword": "하지만",
           "vocabId": null,
           "ko": "반면은 두 내용을 격식 있게 대조할 때 쓰고, 하지만은 같은 대조를 일상 대화에서 훨씬 흔하게 쓴다.",
-          "de": "반면 stellt zwei Inhalte formell gegenüber, 하지만 druckt denselben Gegensatz viel alltäglicher aus.",
+          "de": "반면 stellt zwei Inhalte formell gegenüber, 하지만 drückt denselben Gegensatz viel alltäglicher aus.",
           "en": "반면 formally contrasts two pieces of content, while 하지만 expresses the same contrast much more commonly in everyday speech."
         }
       ],
@@ -2286,8 +2286,8 @@
       "level": "B1",
       "nuance": {
         "ko": "영상은 정지된 장면이 아니라 시간에 따라 움직이는 화면 콘텐츠를 통틀어 가리키는 말이다.",
-        "de": "영상 weckt die Vorstellung von Bewegung und Ton, wie bei einem Clip, den man sich ansieht statt nur zu betrachten.",
-        "en": "영상 evokes motion and sound, like a clip you watch play out rather than a single frame you simply look at."
+        "de": "영상 bezeichnet Inhalte mit bewegtem Bild über einen Zeitraum, im Unterschied zu einem stillstehenden Einzelbild; man benutzt es oft zusammen mit 유튜브 (YouTube) oder 촬영하다 (aufnehmen).",
+        "en": "영상 covers content built from a moving picture over time, as opposed to one still frame; the word pairs often with 유튜브 (YouTube) or 촬영하다 (to film)."
       },
       "situation": {
         "ko": "유튜브, 소셜 미디어, 뉴스처럼 움직이는 영상 콘텐츠를 이야기할 때 쓴다.",
@@ -2342,9 +2342,9 @@
       "id": "vocab_b1_0064",
       "level": "B1",
       "nuance": {
-        "ko": "검색하다는 손으로 하나씩 뒤지는 게 아니라 시스템을 이용해 체계적으로 정보를 걸러낸다는 기술적인 느낌을 준다.",
-        "de": "검색하다 vermittelt den technischen Eindruck, Informationen systematisch über ein System herauszufiltern, statt sie mühsam von Hand zu durchsuchen.",
-        "en": "검색하다 gives a technical impression of systematically filtering out information through a system, rather than digging through it by hand."
+        "ko": "검색하다는 인터넷이나 프로그램의 검색 기능을 이용해 정보를 찾는 것을 가리키며, 인터넷에서 검색하다, 검색창처럼 온라인 활동에서 자주 쓴다.",
+        "de": "검색하다 bezeichnet, mithilfe der Suchfunktion des Internets oder eines Programms nach Informationen zu suchen; man benutzt es oft im Zusammenhang mit Online-Aktivitäten, etwa 인터넷에서 검색하다 (im Internet suchen).",
+        "en": "검색하다 refers to using the search function of the internet or a program to look for information; it is often used in the context of online activity, as in 인터넷에서 검색하다 (to search online)."
       },
       "situation": {
         "ko": "인터넷, 앱, 데이터베이스에서 정보를 찾을 때 쓴다.",
@@ -2399,9 +2399,9 @@
       "id": "vocab_b1_0065",
       "level": "B1",
       "nuance": {
-        "ko": "다운로드는 인터넷 저편의 데이터를 내 손안으로 가져온다는 이미지가 강한 외래어다.",
-        "de": "다운로드 hat eine klare Richtung: eine weit entfernte Datei auf das eigene Gerät in der Hand zu holen.",
-        "en": "다운로드 has a clear direction to it: bringing a far-off file onto the device in one's own hand."
+        "ko": "다운로드는 인터넷에서 파일이나 앱을 내 기기로 받는 것을 가리키며, 구어에서는 다운받다로 줄여 말하는 경우가 많다.",
+        "de": "Im Koreanischen zieht man mit 다운로드 eine Datei oder App aus dem Internet auf das eigene Gerät; in der gesprochenen Sprache heißt es oft kurz 다운받다.",
+        "en": "다운로드 refers to getting a file or app from the internet onto one's own device; in spoken Korean it is often shortened to 다운받다."
       },
       "situation": {
         "ko": "앱, 파일, 음악을 내 기기로 받을 때 쓴다.",
@@ -2456,9 +2456,9 @@
       "id": "vocab_b1_0067",
       "level": "B1",
       "nuance": {
-        "ko": "협력하다는 서로 역할을 나눠 대등하게 힘을 합친다는 동등한 관계의 느낌을 담고 있다.",
-        "de": "협력하다 trägt das Gefühl einer gleichberechtigten Beziehung in sich, bei der man Aufgaben aufteilt und gemeinsam Kräfte bündelt.",
-        "en": "협력하다 carries a sense of an equal relationship, where roles are split and strength is pooled together."
+        "ko": "협력하다는 서로 역할을 나누어 대등한 입장에서 함께 일하는 것을 가리키며, 부서 간 협력, 서로 협력하다처럼 상호 관계를 나타내는 말과 자주 쓴다.",
+        "de": "협력하다 bezeichnet, sich Aufgaben zu teilen und als gleichberechtigte Partner zusammenzuarbeiten; man benutzt es oft mit Ausdrücken für Gegenseitigkeit, etwa 서로 협력하다 (miteinander zusammenarbeiten).",
+        "en": "협력하다 refers to splitting up roles and working together as equal partners; it is often used with expressions of mutuality, as in 서로 협력하다 (to work together with each other)."
       },
       "situation": {
         "ko": "다른 부서나 회사와 대등하게 함께 일을 진행할 때 쓴다.",
@@ -2571,7 +2571,7 @@
       "level": "B1",
       "nuance": {
         "ko": "진행하다는 이미 시작된 일이 멈추지 않고 앞으로 나아가고 있다는 흐름을 나타낸다.",
-        "de": "진행하다 druckt aus, dass etwas bereits Begonnenes ohne Unterbrechung weiter vorangeht.",
+        "de": "진행하다 drückt aus, dass etwas bereits Begonnenes ohne Unterbrechung weiter vorangeht.",
         "en": "진행하다 expresses that something already underway keeps moving forward without stopping."
       },
       "situation": {
@@ -2684,9 +2684,9 @@
       "id": "vocab_b1_0081",
       "level": "B1",
       "nuance": {
-        "ko": "휴식은 잠깐이라도 몸과 마음의 긴장을 풀고 숨을 돌린다는 편안한 느낌을 준다.",
-        "de": "휴식 vermittelt ein entspanntes Gefühl, wenigstens kurz Körper und Geist zu lockern und durchzuatmen.",
-        "en": "휴식 gives a relaxed feeling of loosening body and mind and catching one's breath, even briefly."
+        "ko": "휴식은 하던 일을 잠깐 멈추고 몸과 마음을 쉬게 하는 것을 가리키며, 휴식을 취하다, 휴식 시간처럼 취하다·시간과 자주 붙는다.",
+        "de": "휴식 bezeichnet, eine Tätigkeit kurz zu unterbrechen, um sich körperlich und geistig zu erholen; man benutzt es oft mit 취하다 (nehmen) oder 시간 (Zeit), etwa 휴식을 취하다 (sich ausruhen).",
+        "en": "휴식 refers to briefly pausing an activity to rest body and mind; it is often paired with 취하다 (to take) or 시간 (time), as in 휴식을 취하다 (to take a rest)."
       },
       "situation": {
         "ko": "일이나 공부 중간에 잠깐 쉬는 시간을 말할 때 쓴다.",
@@ -2774,7 +2774,7 @@
           "headword": "기호",
           "vocabId": null,
           "ko": "취향은 개인의 기호를 일상적으로 가리키는 말이고, 기호는 같은 의미를 조사나 공문서 같은 글에서 쓰는 말이다.",
-          "de": "취향 ist das alltägliche Wort für persönliche Vorlieben, 기호 druckt dasselbe in Umfragen oder formellen Texten aus.",
+          "de": "취향 ist das alltägliche Wort für persönliche Vorlieben, 기호 drückt dasselbe in Umfragen oder formellen Texten aus.",
           "en": "취향 is the everyday word for personal preference, while 기호 expresses the same in surveys or formal writing."
         }
       ],
@@ -2855,9 +2855,9 @@
       "id": "vocab_b1_0085",
       "level": "B1",
       "nuance": {
-        "ko": "영향은 어떤 일이 다른 대상 쪽으로 힘을 뻗어 무언가를 바꾸어 놓는다는 작용의 느낌을 준다.",
-        "de": "영향 vermittelt das Gefühl einer Einwirkung, bei der etwas seine Kraft auf ein anderes Ziel ausstreckt und dieses verändert.",
-        "en": "영향 gives the sense of an action reaching out toward something else and changing it."
+        "ko": "영향은 하나의 일이 다른 대상에 작용을 미쳐 무언가를 바꾸어 놓는 것을 뜻하며, 주다·받다·미치다와 함께 자주 쓴다.",
+        "de": "영향 bezeichnet, dass eine Sache auf eine andere einwirkt und dort eine Veränderung bewirkt; man benutzt es oft mit 주다/받다 (geben/erhalten) oder 미치다 (ausüben), etwa 영향을 미치다 (Einfluss ausüben).",
+        "en": "영향 refers to one thing acting on another and causing a change there; it is often used with 주다/받다 (to give/receive) or 미치다 (to exert), as in 영향을 미치다 (to have an effect)."
       },
       "situation": {
         "ko": "결정, 사건, 환경이 다른 대상에 힘을 미치는 관계를 설명할 때 쓴다.",
@@ -2912,9 +2912,9 @@
       "id": "vocab_b1_0086",
       "level": "B1",
       "nuance": {
-        "ko": "차이는 두 가지를 놓고 봤을 때 한눈에 확 들어오는 대비되는 지점을 가리키는 말이다.",
-        "de": "차이 springt einem sofort ins Auge, wenn man zwei Dinge direkt gegeneinanderhält.",
-        "en": "차이 is the kind of contrast that jumps out at you the moment two things are held up against each other."
+        "ko": "차이는 견주어 보면 드러나는 두 대상 사이의 어긋난 지점을 뜻하며, 있다·없다·나다와 함께 자주 쓴다.",
+        "de": "차이 bezeichnet den Punkt, an dem sich zwei verglichene Dinge unterscheiden; man benutzt es oft mit 있다/없다 (vorhanden sein/nicht) oder 나다 (auftreten), etwa 차이가 나다 (einen Unterschied aufweisen).",
+        "en": "차이 refers to the point where two compared things differ; it is often used with 있다/없다 (to exist/not exist) or 나다 (to arise), as in 차이가 나다 (to show a difference)."
       },
       "situation": {
         "ko": "두 대상을 비교하면서 서로 다른 부분을 짚어 말할 때 쓴다.",
@@ -3026,9 +3026,9 @@
       "id": "vocab_b1_0099",
       "level": "B1",
       "nuance": {
-        "ko": "신경 쓰다는 사소한 부분까지 마음에 담아 두고 계속 살핀다는 세심한 태도를 나타낸다.",
-        "de": "신경 쓰다 druckt eine sorgfältige Haltung aus, sich selbst kleine Details zu Herzen zu nehmen und sie immer wieder im Blick zu behalten.",
-        "en": "신경 쓰다 expresses a careful attitude of taking even small details to heart and keeping an eye on them."
+        "ko": "신경 쓰다는 어떤 일이나 사람에게 계속 주의를 기울이는 것을 가리키며, 신경 쓰지 마세요처럼 상대를 안심시키는 말로도 자주 쓴다.",
+        "de": "신경 쓰다 heißt, sich fortlaufend um eine Sache oder Person zu kümmern; man hört es auch häufig beruhigend, etwa 신경 쓰지 마세요 (mach dir keine Sorgen).",
+        "en": "신경 쓰다 means keeping continuous attention on something or someone; it also shows up often to reassure people, as in 신경 쓰지 마세요 (don't worry about it)."
       },
       "situation": {
         "ko": "작은 부분까지 신경 쓰며 챙기거나, 반대로 괜찮으니 신경 쓰지 말라고 할 때 쓴다.",
@@ -3425,9 +3425,9 @@
       "id": "vocab_b1_0133",
       "level": "B1",
       "nuance": {
-        "ko": "예금은 은행에 맡겨 두고 언제든 자유롭게 꺼내 쓸 수 있는 돈이라는 유동적인 느낌을 준다.",
-        "de": "예금 vermittelt den Eindruck von flexiblem Geld, das bei der Bank hinterlegt ist und jederzeit frei abgehoben werden kann.",
-        "en": "예금 conveys the impression of flexible money kept at the bank that can be freely withdrawn at any time."
+        "ko": "예금은 은행에 돈을 맡겨 두고 필요할 때 찾아 쓰는 것을 가리키며, 예금 계좌, 예금을 인출하다처럼 계좌·인출하다와 자주 쓴다.",
+        "de": "예금 bezeichnet, Geld bei der Bank zu hinterlegen und es bei Bedarf abzuheben; man benutzt es oft mit 계좌 (Konto) oder 인출하다 (abheben), etwa 예금을 인출하다 (Sparguthaben abheben).",
+        "en": "예금 refers to depositing money at a bank and withdrawing it when needed; it is often used with 계좌 (account) or 인출하다 (to withdraw), as in 예금을 인출하다 (to withdraw savings)."
       },
       "situation": {
         "ko": "은행에 돈을 맡겨 놓은 상태를 일반적으로 이야기할 때 쓴다.",
@@ -3482,9 +3482,9 @@
       "id": "vocab_b1_0138",
       "level": "B1",
       "nuance": {
-        "ko": "거스름돈은 계산을 마친 직후 손에 쥐어지는 돈이라는 즉각적인 상황을 떠올리게 하는 말이다.",
-        "de": "거스름돈 lässt an den unmittelbaren Moment direkt nach dem Bezahlen denken, in dem man Geld in die Hand gedrückt bekommt.",
-        "en": "거스름돈 brings to mind the small coins clinking into your palm right after a cash payment at a counter."
+        "ko": "거스름돈은 낸 돈에서 물건값을 뺀 나머지로 돌아오는 돈을 뜻하며, 받다·드리다와 함께 자주 쓴다.",
+        "de": "거스름돈 bezeichnet den Restbetrag, den man nach der Zahlung zurückbekommt; man benutzt es oft mit 받다 (bekommen) oder 드리다 (geben), etwa 거스름돈을 받다 (Wechselgeld bekommen).",
+        "en": "거스름돈 refers to the remaining amount returned after paying more than the price; it is often used with 받다 (to receive) or 드리다 (to give), as in 거스름돈을 받다 (to receive change)."
       },
       "situation": {
         "ko": "계산 후에 돈을 돌려받는 상황을 구체적으로 말할 때 쓴다.",
@@ -3825,8 +3825,8 @@
       "level": "B1",
       "nuance": {
         "ko": "승진은 노력이 인정받아 회사 안에서 한 단계 올라섰다는 축하할 만한 소식을 담고 있다.",
-        "de": "승진 trägt die freudige Nachricht in sich, dass die eigene Anstrengung anerkannt wurde und man innerhalb der Firma eine Stufe aufgestiegen ist.",
-        "en": "승진 carries the congratulatory news that one's effort was recognized and one has moved up a level within the company."
+        "de": "승진 bezeichnet den Aufstieg in eine höhere Position innerhalb einer Firma, meist als Anerkennung der eigenen Leistung; man gratuliert dazu typischerweise mit 승진을 축하해요 (herzlichen Glückwunsch zur Beförderung).",
+        "en": "승진 refers to moving up to a higher position within a company, usually as recognition of one's performance; it is typically congratulated with 승진을 축하해요 (congratulations on your promotion)."
       },
       "situation": {
         "ko": "직장에서 직급이 올라가는 소식을 축하하거나 알릴 때 쓴다.",
@@ -4394,9 +4394,9 @@
       "id": "vocab_b1_0193",
       "level": "B1",
       "nuance": {
-        "ko": "번역하다는 시간을 들여 문장을 다듬으며 다른 언어로 옮긴다는 신중한 작업의 느낌을 담고 있다.",
-        "de": "번역하다 trägt den Eindruck einer sorgfältigen Arbeit in sich, Sätze mit Zeit und Feinschliff in eine andere Sprache zu übertragen.",
-        "en": "번역하다 carries the impression of careful work, taking time to polish sentences while rendering them into another language."
+        "ko": "번역하다는 문서나 글을 시간을 두고 다른 언어로 옮기는 것을 가리키며, 소설을 번역하다, 번역서처럼 결과물을 나타내는 말과 자주 쓴다.",
+        "de": "번역하다 bezeichnet, ein Dokument oder einen Text mit Zeit zum Feilen in eine andere Sprache zu übertragen; man benutzt es oft mit 소설 (Roman) oder 번역서 (übersetztes Buch).",
+        "en": "번역하다 refers to converting a document or text into another language, taking time to refine it; it is often used with 소설 (novel) or 번역서 (a translated book)."
       },
       "situation": {
         "ko": "글이나 문서, 자막처럼 시간을 두고 옮기는 작업을 말할 때 쓴다.",
@@ -4452,8 +4452,8 @@
       "level": "B1",
       "nuance": {
         "ko": "통역은 머릿속으로 두 언어를 동시에 오가야 하는 순발력이 필요한 말이다.",
-        "de": "통역 trägt ein Gefühl der Dringlichkeit in sich, gesprochene Worte ohne Vorbereitungszeit sofort vor Ort zu übertragen.",
-        "en": "통역 carries a sense of urgency, having to render spoken words on the spot with no time to prepare."
+        "de": "통역 bezeichnet, gesprochene Inhalte ohne Vorbereitungszeit sofort in eine andere Sprache zu übertragen; man benutzt es oft mit 통역을 맡다 (das Dolmetschen übernehmen) oder 동시통역 (Simultandolmetschen).",
+        "en": "통역 refers to converting spoken content into another language immediately, with no time to prepare; it is often used with 통역을 맡다 (to take on interpreting) or 동시통역 (simultaneous interpretation)."
       },
       "situation": {
         "ko": "회의, 병원, 여행처럼 말로 바로 소통해야 하는 상황에서 쓴다.",
@@ -4622,9 +4622,9 @@
       "id": "vocab_b1_0213",
       "level": "B1",
       "nuance": {
-        "ko": "치우다는 흩어져 있는 물건을 손으로 옮겨서 자리를 정돈한다는 동작을 가리킨다.",
-        "de": "치우다 weckt das Bild, mit den eigenen Händen zügig Ordnung in ein durcheinandergeratenes Zimmer zu bringen.",
-        "en": "치우다 evokes the image of using your own hands to quickly bring order to a room that has fallen into disarray."
+        "ko": "치우다는 흩어져 있는 물건을 원래 자리나 정해진 곳으로 옮겨 정돈하는 것을 가리키며, 방을 치우다, 식탁을 치우다처럼 목적어와 자주 쓴다.",
+        "de": "치우다 bezeichnet, verstreute Gegenstände an ihren Platz oder an einen festgelegten Ort zu räumen; man benutzt es oft mit Objekten wie 방 (Zimmer) oder 식탁 (Esstisch).",
+        "en": "치우다 refers to putting scattered items back in their place or a designated spot; it is often used with objects like 방 (room) or 식탁 (dining table)."
       },
       "situation": {
         "ko": "방이나 책상 위에 흩어진 물건을 정리할 때 쓴다.",
@@ -4769,7 +4769,7 @@
           "headword": "시간",
           "vocabId": "vocab_a1_0156",
           "ko": "세월은 사람이 살아가며 겪는 아주 긴 시간의 흐름을 감정을 담아 가리키고, 시간은 길이에 상관없이 흘러가는 것을 가리키는 중립적인 말이다.",
-          "de": "세월 druckt gefühlvoll die lange gelebte Zeit aus, 시간 ist das neutrale Wort für Zeit allgemein.",
+          "de": "세월 drückt gefühlvoll die lange gelebte Zeit aus, 시간 ist das neutrale Wort für Zeit allgemein.",
           "en": "세월 emotionally refers to a long lived stretch of time, while 시간 is the neutral general word for time."
         }
       ],
@@ -4794,7 +4794,7 @@
       "level": "B1",
       "nuance": {
         "ko": "경우는 어떤 조건이나 사실이 성립하는 하나의 구체적인 사례를 가리킨다.",
-        "de": "경우 klingt nach einem gedanklichen Wenn-dann-Szenario, das man vorab in Betracht zieht.",
+        "de": "경우 bezeichnet einen konkreten Einzelfall, in dem eine bestimmte Bedingung zutrifft; man benutzt es oft in Wenn-dann-Sätzen, etwa N의 경우 (im Fall von N) oder 이런 경우 (in einem solchen Fall).",
         "en": "경우 refers to one concrete instance in which a certain condition or fact holds true."
       },
       "situation": {
@@ -4851,7 +4851,7 @@
       "level": "B1",
       "nuance": {
         "ko": "주제는 대화나 글에서 중심이 되어 다뤄지는 내용을 가리킨다.",
-        "de": "주제 weckt die Vorstellung eines roten Fadens, der ein Gespräch oder einen Text zusammenhält.",
+        "de": "주제 bezeichnet den zentralen Inhalt, um den es in einem Gespräch oder Text geht; man benutzt es oft mit 정하다 (festlegen) oder 다루다 (behandeln), etwa 주제를 정하다 (ein Thema festlegen).",
         "en": "주제 refers to the central content that a conversation or piece of writing revolves around."
       },
       "situation": {
@@ -4965,8 +4965,8 @@
       "level": "B1",
       "nuance": {
         "ko": "부동산은 매매나 임대 거래를 전문적으로 도와주는 사무실을 가리키는 업종 명칭 같은 말이다.",
-        "de": "부동산 klingt wie eine Branchenbezeichnung für einen Ort, der professionell beim Handel mit Häusern oder Grundstücken hilft.",
-        "en": "부동산 sounds like an industry label for a place that professionally helps with buying, selling, or renting property."
+        "de": "부동산 bezeichnet ein Büro, das professionell beim Kauf, Verkauf oder der Vermietung von Immobilien hilft; man benutzt es oft mit 부동산에 가다 (zum Immobilienbüro gehen).",
+        "en": "부동산 refers to an office that professionally helps with buying, selling, or renting property; it is often used with 부동산에 가다 (to go to a real estate agency)."
       },
       "situation": {
         "ko": "이사나 집을 구할 때 중개소를 찾아가는 상황에서 쓴다.",
@@ -5193,7 +5193,7 @@
       "level": "B1",
       "nuance": {
         "ko": "야근은 정해진 퇴근 시간을 넘겨서까지 일해야 한다는 피곤함이 묻어나는 말이다.",
-        "de": "야근 klingt nach spätem Bürolicht und einem Feierabend, der sich immer weiter nach hinten verschiebt.",
+        "de": "야근 bezeichnet, über die reguläre Feierabendzeit hinaus im Büro zu bleiben; das Wort hat einen negativen Beiklang und wird oft zusammen mit 야근 수당 (Überstundenzuschlag) genannt.",
         "en": "야근 carries a sense of fatigue about having to keep working past the normal end of the workday."
       },
       "situation": {
@@ -5763,7 +5763,7 @@
       "level": "B1",
       "nuance": {
         "ko": "사고 접수는 문제가 생긴 직후 보험사에 가장 먼저 알려 절차를 시작하는 첫 단계를 가리킨다.",
-        "de": "사고 접수 klingt nach dem ersten hektischen Anruf, den man gleich nach einem Missgeschick tätigt.",
+        "de": "Wenn etwas passiert ist, meldet man das mit 사고 접수 zuerst der Versicherung und startet damit das Verfahren; man sagt dazu 사고 접수를 하다 (einen Schaden melden).",
         "en": "사고 접수 refers to the first step of notifying the insurer right after something goes wrong, to set the process in motion."
       },
       "situation": {
@@ -5876,9 +5876,9 @@
       "id": "vocab_b1_0430",
       "level": "B1",
       "nuance": {
-        "ko": "상담 시간은 한 사람에게 배정된 시간이 정해져 있어 넉넉하지 않다는 느낌을 주는 말이다.",
-        "de": "상담 시간 vermittelt das Gefühl, dass die einer Person zugeteilte Zeit begrenzt und eher knapp bemessen ist.",
-        "en": "상담 시간 gives the impression that the time allotted to one person is fixed and rather limited."
+        "ko": "이 말은 순서대로 한 사람씩 정해진 시간 동안만 만나는 일정을 뜻하며, 짧다·끝나다와 함께 자주 쓴다.",
+        "de": "상담 시간 bezeichnet die festgelegte Gesprächszeit, die einer Person in Schule oder Praxis zugeteilt wird; man benutzt es oft mit 짧다 (kurz sein) oder 끝나다 (enden).",
+        "en": "상담 시간 refers to the set consultation time allotted to one person at a school or clinic; it is often used with 짧다 (to be short) or 끝나다 (to end)."
       },
       "situation": {
         "ko": "학교나 병원에서 짧게 정해진 개인 면담 시간을 안내할 때 쓴다.",
@@ -6218,9 +6218,9 @@
       "id": "vocab_b1_0465",
       "level": "B1",
       "nuance": {
-        "ko": "이 표현은 회의실 안에서 여러 목소리가 자연스럽게 하나로 수렴되어 가는 장면을 떠올리게 한다.",
-        "de": "의견을 조율하다 bezeichnet einen flexiblen Prozess, bei dem unterschiedliche Standpunkte ohne Zwang Stück für Stück aneinander angepasst werden.",
-        "en": "This expression brings to mind several voices in a meeting gradually converging into one, without anyone being overruled."
+        "ko": "이 표현은 입장이 다른 사람들끼리 대화를 나누며 서서히 하나로 맞춰 가는 것을 가리키며, 회의나 협상 자리에서 자주 쓴다.",
+        "de": "Dieser Ausdruck bezeichnet, dass Menschen mit unterschiedlichen Meinungen sich im Gespräch schrittweise annähern; man benutzt es oft in Besprechungs- oder Verhandlungssituationen.",
+        "en": "This expression refers to people with different opinions gradually aligning through conversation; it is often used in meeting or negotiation contexts."
       },
       "situation": {
         "ko": "회의에서 서로 다른 의견을 하나로 맞춰 갈 때 쓴다.",
@@ -6332,9 +6332,9 @@
       "id": "vocab_b1_0469",
       "level": "B1",
       "nuance": {
-        "ko": "지원 자격은 지원서를 내기도 전에 이미 통과해야 하는 첫 관문 같은 느낌을 주는 말이다.",
-        "de": "지원 자격 vermittelt den Eindruck einer ersten Hürde, die man schon vor der eigentlichen Bewerbung nehmen muss.",
-        "en": "지원 자격 gives the impression of a first gate one must already clear before even submitting an application."
+        "ko": "지원 자격은 지원서를 내기 전에 이미 채워야 하는 요건을 가리키며, 갖추다·확인하다와 함께 자주 쓴다.",
+        "de": "지원 자격 bezeichnet die Bedingungen, die man vor einer Bewerbung bereits erfüllen muss; man benutzt es oft mit 갖추다 (erfüllen) oder 확인하다 (prüfen).",
+        "en": "지원 자격 refers to the conditions one must already meet before applying for a position; it is often used with 갖추다 (to meet/fulfill) or 확인하다 (to check)."
       },
       "situation": {
         "ko": "채용 공고에서 지원하기 위해 필요한 조건을 안내할 때 쓴다.",
@@ -6560,9 +6560,9 @@
       "id": "vocab_b1_0478",
       "level": "B1",
       "nuance": {
-        "ko": "유연 근무는 정해진 틀에서 벗어나 스스로 시간이나 장소를 조절할 수 있다는 자율적인 느낌을 담고 있다.",
-        "de": "유연 근무 trägt ein Gefühl von Selbstbestimmung in sich, sich vom starren Rahmen zu lösen und Zeit oder Ort selbst zu regeln.",
-        "en": "유연 근무 carries a sense of autonomy, stepping outside a fixed frame to control one's own time or place of work."
+        "ko": "유연 근무는 직원이 정해진 범위 안에서 근무 시간이나 장소를 스스로 조절하는 제도를 가리키며, 채용 공고와 사내 규정에 자주 등장하는 용어다.",
+        "de": "유연 근무 bezeichnet eine Arbeitsform, bei der Mitarbeitende Arbeitszeit oder -ort innerhalb eines festgelegten Rahmens selbst anpassen können; der Begriff steht typischerweise in Stellenanzeigen und Firmenrichtlinien.",
+        "en": "유연 근무 names a system where employees adjust their own working hours or location within a set range; the term shows up often in job postings and company policies."
       },
       "situation": {
         "ko": "면접이나 계약에서 출퇴근 시간이나 장소를 조정할 수 있는지 물을 때 쓴다.",
@@ -6617,9 +6617,9 @@
       "id": "vocab_b1_0480",
       "level": "B1",
       "nuance": {
-        "ko": "부담은 몸에 무게가 실리듯 어떤 일을 해야 한다는 압박이 마음에 얹힌 느낌을 담고 있다.",
-        "de": "부담 fühlt sich an, als würde sich ein unsichtbares Gewicht auf die Schultern legen, sobald man etwas erledigen muss.",
-        "en": "부담 conveys the feeling of the pressure to do something settling onto one's mind like a physical weight."
+        "ko": "부담은 해야 할 일이나 비용이 힘에 부친다고 느끼는 것을 가리키며, 부담이 되다/부담을 주다/부담 없이처럼 되다·주다·없이와 굳어져 쓴다.",
+        "de": "부담 bezeichnet das Gefühl, dass eine Aufgabe oder Kosten die eigenen Kräfte übersteigen; es wird meist fest mit 되다 (werden), 주다 (geben) oder 없이 (ohne) kombiniert, etwa 부담 없이 (ohne Umstände).",
+        "en": "부담 refers to the sense that a task or cost is more than one can comfortably manage; it is typically combined with 되다 (to become), 주다 (to give), or 없이 (without), as in 부담 없이 (without pressure)."
       },
       "situation": {
         "ko": "누군가에게 무리한 요청이 아니라고 안심시키거나, 책임감이 크다고 말할 때 쓴다.",
