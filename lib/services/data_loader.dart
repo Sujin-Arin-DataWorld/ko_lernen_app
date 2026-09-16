@@ -5,6 +5,7 @@ import 'package:csv/csv.dart';
 import '../models/vocab.dart';
 import '../models/grammar.dart';
 import '../models/media_phrase.dart';
+import '../models/usage_note.dart';
 
 class DataLoader {
   static final _vocabs = _BundledContentCache<Vocab>(
@@ -31,13 +32,40 @@ class DataLoader {
           .toList();
     },
   );
+  // C9-T0: B1+ 단어 심화 노트. 파일이 없거나 비어 있어도(초기 배포 전/오프라인)
+  // 빈 리스트로 안전하게 떨어진다 — `_BundledContentCache._read`의 공용
+  // try/catch가 다른 소스와 동일하게 처리한다.
+  static final _usageNotes = _BundledContentCache<UsageNote>(
+    asset: 'assets/data/usage_notes.json',
+    failureMessage: 'Verwendungsnotizen konnten nicht geladen werden.',
+    parse: (raw) {
+      final data = json.decode(raw) as Map<String, dynamic>;
+      return (data['notes'] as List<dynamic>? ?? const [])
+          .whereType<Map>()
+          .map((entry) => UsageNote.fromJson(entry.cast<String, dynamic>()))
+          .toList();
+    },
+  );
   static String? lastError;
 
   static String? get vocabError => _vocabs.error;
   static String? get grammarError => _grammars.error;
   static String? get mediaPhrasesError => _mediaPhrases.error;
+  static String? get usageNotesError => _usageNotes.error;
 
   static Future<List<Vocab>> loadVocab() => _vocabs.load();
+
+  /// B1+ 심화 노트 전체 목록(캐시됨). 자산이 없거나 파싱에 실패하면 빈 목록.
+  static Future<List<UsageNote>> loadUsageNotes() => _usageNotes.load();
+
+  /// 카드 뒷면이 바로 조회할 수 있도록 id 로 인덱싱한 편의 헬퍼.
+  static Future<Map<String, UsageNote>> loadUsageNotesById() async {
+    final notes = await loadUsageNotes();
+    return {for (final note in notes) note.id: note};
+  }
+
+  /// Invalidates only the usage-notes asset cache for an explicit retry.
+  static void resetUsageNotes() => _usageNotes.reset();
 
   /// Whether [value] is the result owned by the current vocabulary generation.
   ///
@@ -53,6 +81,7 @@ class DataLoader {
     _vocabs.reset();
     _grammars.reset();
     _mediaPhrases.reset();
+    _usageNotes.reset();
     lastError = null;
   }
 

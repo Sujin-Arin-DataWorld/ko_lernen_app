@@ -13,9 +13,11 @@ import '../models/course_mission_step_plan.dart';
 import '../models/course_practice_context.dart';
 import '../models/feedback_completion.dart';
 import '../models/curriculum.dart';
+import '../models/usage_note.dart';
 import '../models/vocab.dart';
 import '../models/vocab_pack.dart';
 import '../services/analytics_service.dart';
+import '../services/data_loader.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/course_mission_navigation.dart';
@@ -175,6 +177,9 @@ class _VocabPackScreenState extends State<VocabPackScreen>
   String? _error;
   VocabPack? _pack;
   bool _learningStartRecorded = false;
+  // C9-T0: B1+ 심화 노트("쓰임" 카드 뒷면 구획). 로드 전/실패/미존재 id는
+  // 전부 빈 맵으로 수렴 — 기존 카드 레이아웃이 그대로 유지된다.
+  Map<String, UsageNote> _usageNotesById = const {};
   List<VocabPack> _siblingPacks = [];
   CourseMissionStep? _missionStep;
   String? _missionTitle;
@@ -258,6 +263,21 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     super.retireStudyEvidence();
   }
 
+  /// C9-T0: `culture_notes.json`의 `_loadCultureNotes()`와 같은 계약 —
+  /// 실패는 조용히 삼키고(오프라인/자산 없음), 성공하면 한 번만 setState
+  /// 해 카드 뒷면의 "쓰임" 구획이 뒤늦게 나타나도 학습 흐름을 막지 않는다.
+  Future<void> _loadUsageNotes() async {
+    Map<String, UsageNote> byId;
+    try {
+      byId = await DataLoader.loadUsageNotesById();
+    } catch (_) {
+      return;
+    }
+    if (mounted && studyEvidenceIsCurrent) {
+      setState(() => _usageNotesById = byId);
+    }
+  }
+
   @override
   void dispose() {
     PackCompletionStorage.status.removeListener(_completionChanged);
@@ -294,6 +314,8 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     DefaultVocabPackFinishOperations.initializeRecovery();
     PackCompletionStorage.status.addListener(_completionChanged);
     _load();
+    // C9-T0: 카드 렌더와 독립 — 늦게 도착해도 setState 한 번으로 반영.
+    unawaited(_loadUsageNotes());
     // 첫 진입 시 3단계 코치마크 1회 표시.
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       if (!mounted ||
@@ -1406,6 +1428,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
                           v: cur,
                           h: h,
                           romanizationOnFront: _romanizationOnFront,
+                          usageNote: _usageNotesById[cur.id],
                         ),
                       );
                     },
@@ -1732,10 +1755,16 @@ class _FlipBack extends StatelessWidget {
   /// 카드가 놓인 세로 영역의 바운드 높이 — 학습 텍스트를 카드에 비례해 키우는
   /// 기준. `_buildLearn` 의 LayoutBuilder 가 넘겨준다.
   final double h;
+
+  /// C9-T0: 이 단어의 B1+ 심화 노트(있으면). A1/A2 등 노트가 없는 표제어는
+  /// null 이고, 이 클래스는 D-5 shell freeze 이전과 완전히 동일하게 그린다.
+  final UsageNote? usageNote;
+
   const _FlipBack({
     required this.v,
     required this.h,
     required this.romanizationOnFront,
+    this.usageNote,
   });
 
   @override
@@ -1855,6 +1884,213 @@ class _FlipBack extends StatelessWidget {
                 ],
               ),
             ),
+          if (usageNote != null)
+            Padding(
+              padding: EdgeInsets.only(top: soriFillSize(h, 0.02, 6, 14)),
+              child: _UsageNoteExpander(note: usageNote!, lang: lang),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+/// C9-T0 카드 뒷면 접이식 "쓰임" 구획. 기본 접힘 — 기존 카드 첫인상(뜻+예문
+/// 1개)을 그대로 두고, 펼치면 뉘앙스·전형 상황·패턴·연어·대비 1~2개·예문
+/// 2개(재생 버튼 포함)를 보여준다. B1+ 노트가 있는 표제어에서만 만들어진다.
+class _UsageNoteExpander extends StatefulWidget {
+  final UsageNote note;
+  final String lang;
+  const _UsageNoteExpander({required this.note, required this.lang});
+
+  @override
+  State<_UsageNoteExpander> createState() => _UsageNoteExpanderState();
+}
+
+class _UsageNoteExpanderState extends State<_UsageNoteExpander> {
+  bool _expanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
+    final note = widget.note;
+    final lang = widget.lang;
+    final reduceMotion = SoriMotion.reduceMotion(context);
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      tinted: true,
+      accent: SoriColors.gold,
+      width: double.infinity,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Semantics(
+            button: true,
+            label: t.usageNoteTitle,
+            expanded: _expanded,
+            child: SoriPressable(
+              // 위젯 테스트(vocab_usage_note_card_test.dart)가 텍스트 스케일에
+              // 따라 움직이는 화면 좌표 대신 이 key로 직접 onTap을 호출한다 —
+              // vocab_pack_flip_spoiler_test.dart의 FlipCard.onTap!() 직접
+              // 호출과 같은 관례.
+              key: const ValueKey('usageNoteHeaderToggle'),
+              haptic: SoriHaptic.light,
+              onTap: () => setState(() => _expanded = !_expanded),
+              child: ExcludeSemantics(
+                child: SizedBox(
+                  height: kMinInteractiveDimension,
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.menu_book_outlined,
+                        size: 18,
+                        color: SoriColors.gold,
+                      ),
+                      const SizedBox(width: Spacing.sm),
+                      Expanded(
+                        child: Text(
+                          t.usageNoteTitle,
+                          style: tt.label.copyWith(color: s.text),
+                        ),
+                      ),
+                      AnimatedRotation(
+                        turns: _expanded ? 0.5 : 0,
+                        duration: reduceMotion
+                            ? Duration.zero
+                            : const Duration(milliseconds: 180),
+                        child: Icon(
+                          Icons.expand_more_rounded,
+                          color: s.textMuted,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          if (_expanded)
+            Padding(
+              padding: const EdgeInsets.only(top: Spacing.xs),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (note.nuance.forLang(lang).isNotEmpty)
+                    _UsageNoteBody(text: note.nuance.forLang(lang)),
+                  if (note.situation.forLang(lang).isNotEmpty)
+                    _UsageNoteEntry(
+                      label: t.usageNoteSituation,
+                      text: note.situation.forLang(lang),
+                    ),
+                  if (note.patterns.isNotEmpty)
+                    _UsageNoteEntry(
+                      label: t.usageNotePatterns,
+                      lines: [
+                        for (final p in note.patterns)
+                          '${p.ko}\n${p.forLang(lang)}',
+                      ],
+                    ),
+                  if (note.collocations.isNotEmpty)
+                    _UsageNoteEntry(
+                      label: t.usageNoteCollocations,
+                      lines: [
+                        for (final c in note.collocations)
+                          '${c.ko}\n${c.forLang(lang)}',
+                      ],
+                    ),
+                  for (final contrast in note.contrasts)
+                    _UsageNoteEntry(
+                      label: '${t.usageNoteContrast} ${contrast.headword}',
+                      text: contrast.forLang(lang),
+                    ),
+                  if (note.examples.isNotEmpty) ...[
+                    Text(
+                      t.usageNoteExamples,
+                      style: tt.label.copyWith(color: s.textMuted),
+                    ),
+                    for (final example in note.examples)
+                      Padding(
+                        padding: const EdgeInsets.only(top: Spacing.xs),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SoriSpeechIndicator(text: example.ko),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    example.ko,
+                                    style: tt.bodySmall.copyWith(
+                                      color: s.text,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  Text(
+                                    example.forLang(lang),
+                                    style: tt.bodySmall.copyWith(
+                                      color: s.textMuted,
+                                      fontStyle: FontStyle.italic,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                  ],
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+/// 라벨 없이 본문 한 줄(뉘앙스). 나머지 항목은 [_UsageNoteEntry]가 라벨을 단다.
+class _UsageNoteBody extends StatelessWidget {
+  final String text;
+  const _UsageNoteBody({required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.xs),
+      child: Text(text, style: tt.bodySmall.copyWith(color: s.text)),
+    );
+  }
+}
+
+/// 라벨 + 본문(단문) 또는 라벨 + 여러 줄(패턴·연어 목록) 공용 항목.
+class _UsageNoteEntry extends StatelessWidget {
+  final String label;
+  final String? text;
+  final List<String>? lines;
+  const _UsageNoteEntry({required this.label, this.text, this.lines});
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
+    final entries = lines ?? [if (text != null) text!];
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.xs),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(label, style: tt.label.copyWith(color: s.textMuted)),
+          for (final entry in entries)
+            Text(entry, style: tt.bodySmall.copyWith(color: s.text)),
         ],
       ),
     );

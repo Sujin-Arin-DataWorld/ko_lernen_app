@@ -3967,6 +3967,48 @@ abstract class AppL10n {
   /// **'Tippen zum Umdrehen'**
   String get vocabPackTapToFlip;
 
+  /// No description provided for @usageNoteTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Verwendung'**
+  String get usageNoteTitle;
+
+  /// No description provided for @usageNoteNuance.
+  ///
+  /// In de, this message translates to:
+  /// **'Bedeutungsnuance'**
+  String get usageNoteNuance;
+
+  /// No description provided for @usageNoteSituation.
+  ///
+  /// In de, this message translates to:
+  /// **'Typische Situation'**
+  String get usageNoteSituation;
+
+  /// No description provided for @usageNotePatterns.
+  ///
+  /// In de, this message translates to:
+  /// **'Satzmuster'**
+  String get usageNotePatterns;
+
+  /// No description provided for @usageNoteCollocations.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortkombinationen'**
+  String get usageNoteCollocations;
+
+  /// No description provided for @usageNoteContrast.
+  ///
+  /// In de, this message translates to:
+  /// **'Unterschied zu'**
+  String get usageNoteContrast;
+
+  /// No description provided for @usageNoteExamples.
+  ///
+  /// In de, this message translates to:
+  /// **'Beispiele'**
+  String get usageNoteExamples;
+
   /// No description provided for @vocabPackResultTitle.
   ///
   /// In de, this message translates to:

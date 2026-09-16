@@ -1101,6 +1101,22 @@ def collect():
                     if answer and example:
                         add_auto(f"{answer}. {re.sub('◯+', answer, example)}")
 
+    # 15. B1+ 심화 노트(C9-T0) — vocab_pack_screen.dart 의 "쓰임" 구획이
+    #     예문마다 SoriSpeechIndicator(text: example.ko) 로 재생한다. 노트당
+    #     정확히 2개(격식/비격식)이고, 아직 파일이 없거나(구 브랜치) notes 가
+    #     비어 있어도 조용히 건너뛴다 — 다른 소스처럼 필수 자산이 아니라
+    #     점진적으로 채워지는 사이드카다.
+    try:
+        usage_notes = _load_json("assets/data/usage_notes.json").get("notes", [])
+    except (OSError, json.JSONDecodeError):
+        usage_notes = []
+    for note in usage_notes:
+        if not isinstance(note, dict):
+            continue
+        for example in note.get("examples", []):
+            if isinstance(example, dict):
+                add_auto(example.get("ko"))
+
     for pair in collect_phase_audio():
         texts[pair] = None
     return list(texts.keys())

@@ -32,6 +32,10 @@ TARGETS = {
     # 시나리오는 레벨 샤드 6 개다. live 비교는 병합 뷰로 한다 (아래 참조).
     "scenario": (None, "scenarios"),
     "pronunciation": ("pronunciation_phrases.json", "phrases"),
+    # C9-T0: B1+ 단어 심화 노트. 사이드카(assets/data/usage_notes.json)의
+    # "notes" 배열이 collection -- 다른 kind와 완전히 같은 draft/review/live
+    # fingerprint 계약을 그대로 물려받는다(별도 로직 없음, 표만 추가).
+    "usage_note": ("usage_notes.json", "notes"),
 }
 # Shelf/backdrop are assigned by the live scenario graph during promotion.
 # Frozen review drafts intentionally do not duplicate that global metadata.
