@@ -2286,6 +2286,27 @@ class AppL10nEn extends AppL10n {
   String get vocabPackTapToFlip => 'Tap to flip';
 
   @override
+  String get usageNoteTitle => 'Usage';
+
+  @override
+  String get usageNoteNuance => 'Nuance';
+
+  @override
+  String get usageNoteSituation => 'Typical situation';
+
+  @override
+  String get usageNotePatterns => 'Patterns';
+
+  @override
+  String get usageNoteCollocations => 'Collocations';
+
+  @override
+  String get usageNoteContrast => 'Contrast with';
+
+  @override
+  String get usageNoteExamples => 'Examples';
+
+  @override
   String get vocabPackResultTitle => 'Result';
 
   @override

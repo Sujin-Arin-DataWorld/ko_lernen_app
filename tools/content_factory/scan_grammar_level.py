@@ -78,7 +78,15 @@ SATZ_JSON = ROOT / "assets" / "data" / "satz_sentences.json"
 LEVEL_CONFIG = {
     "A1": {"threshold": 2, "max_headword_grade": 1},
     "A2": {"threshold": 3, "max_headword_grade": 2},
+    # C9-T0: usage_notes.json example scan only targets B1/B2 (per-note
+    # `level`, not a headword-grade census) -- "B1 -> grade<=3 allowed" and
+    # "B2 -> grade<=4 allowed" per the brief, i.e. threshold = ceiling+1.
+    # max_headword_grade is unused for --source usage_notes (see
+    # scan_usage_note_corpus below) but kept so LEVEL_CONFIG stays one shape.
+    "B1": {"threshold": 4, "max_headword_grade": 3},
+    "B2": {"threshold": 5, "max_headword_grade": 4},
 }
+USAGE_NOTES_JSON = ROOT / "assets" / "data" / "usage_notes.json"
 
 EXPLICIT_QUOTE_RE = re.compile(r"(다고|라고|자고|냐고)\s*(하|해|했|하셨|말)")
 BARE_QUOTE_HASYEOSEO_RE = re.compile(r"(?<![가-힣])(?:하셔서|하셨어요|그러셨어요)")
@@ -416,6 +424,92 @@ def build_report(level_name, threshold, vocab_flagged, vocab_mismatch, cloze_fla
     return "\n".join(lines)
 
 
+def _load_usage_notes() -> list[dict]:
+    if not USAGE_NOTES_JSON.exists():
+        return []
+    root = _load_json(USAGE_NOTES_JSON)
+    notes = root.get("notes", []) if isinstance(root, dict) else []
+    return [note for note in notes if isinstance(note, dict)]
+
+
+def scan_usage_note_examples(lexicon, grammar_index, level_name: str, threshold: int):
+    """C9-T0 (`--source usage_notes`): scan every example sentence of every
+    `usage_notes.json` note at `level_name` for grammar above that level's
+    ceiling. Ids here are not vocab/cloze/satz-shaped (`{note id}#example{n}`
+    instead), so this calls the shared `_grammar_hits_ge`/quote detectors
+    directly rather than routing through `scan_corpus` (which assumes a
+    flat rows-with-id-prefix shape used for id/level mismatch reporting).
+    The A1-only contracted-aux/attributive-noun sub-checks are skipped on
+    purpose: their grade (2) is always below B1/B2's threshold (4/5), so
+    `_contracted_aux_hits`/`_attributive_noun_hits` would return [] anyway.
+    """
+
+    flagged = []
+    target_level = level_name.lower()
+    for note in _load_usage_notes():
+        if (note.get("level") or "").strip().lower() != target_level:
+            continue
+        note_id = str(note.get("id") or "")
+        for example_index, example in enumerate(note.get("examples", []), start=1):
+            if not isinstance(example, dict):
+                continue
+            text = (example.get("ko") or "").strip()
+            if not text:
+                continue
+            patterns = [
+                (h.pattern_id, h.grade, h.text)
+                for h in _grammar_hits_ge(lexicon, grammar_index, text, threshold)
+            ]
+            if QUOTE_GRADE >= threshold:
+                quote_hits = set()
+                for m in EXPLICIT_QUOTE_RE.finditer(text):
+                    quote_hits.add(("explicit_quote_다고라고자고냐고", m.group(0)))
+                for m in BARE_QUOTE_HASYEOSEO_RE.finditer(text):
+                    quote_hits.add(("bare_quote_하셔서", m.group(0)))
+                patterns.extend((pid, QUOTE_GRADE, matched) for pid, matched in quote_hits)
+            if patterns:
+                flagged.append({
+                    "id": f"{note_id}#example{example_index}",
+                    "level": target_level,
+                    "text": text,
+                    "patterns": patterns,
+                })
+    return flagged
+
+
+def build_usage_notes_report(level_name: str, threshold: int, flagged: list[dict]) -> str:
+    lines = [
+        f"# {level_name} usage_notes.json Example Scan (C9-T0, scan_grammar_level.py --source usage_notes)",
+        "",
+        f"> Detector: same `GrammarIndex` (grade>={threshold} out of level) + explicit "
+        "인용 regex used by the corpus scan above, applied to every example sentence "
+        "of every `usage_notes.json` note at this level (2 examples/note).",
+        "",
+        f"- notes scanned: level={level_name}",
+        f"- flagged examples: **{len(flagged)}**",
+        "",
+    ]
+    if flagged:
+        lines += ["| id | matched pattern(s) | sentence |", "|---|---|---|"]
+        for f in sorted(flagged, key=lambda x: x["id"]):
+            pats = "; ".join(f"`{pid}`(g{grade}:{m!r})" for pid, grade, m in f["patterns"])
+            lines.append(f"| `{f['id']}` | {pats} | {f['text'].replace('|', chr(92) + '|')} |")
+    else:
+        lines.append("(none)")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def run_usage_notes(level_name: str):
+    level_name = level_name.upper()
+    threshold = LEVEL_CONFIG[level_name]["threshold"]
+    lexicon = CefrLexicon.load(ROOT)
+    grammar_index = GrammarIndex.load(ROOT)
+    flagged = scan_usage_note_examples(lexicon, grammar_index, level_name, threshold)
+    report = build_usage_notes_report(level_name, threshold, flagged)
+    return report, {"usage_notes": len(flagged)}
+
+
 def run(level_name: str):
     level_name = level_name.upper()
     cfg = LEVEL_CONFIG[level_name]
@@ -466,9 +560,33 @@ def run(level_name: str):
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--level", default="A1", choices=["A1", "A2"])
+    parser.add_argument("--level", default="A1", choices=["A1", "A2", "B1", "B2"])
+    parser.add_argument(
+        "--source",
+        default="corpus",
+        choices=["corpus", "usage_notes"],
+        help=(
+            "'corpus' (default) scans korean_vocab.csv/cloze.json/"
+            "satz_sentences.json as before. 'usage_notes' (C9-T0, B1/B2 "
+            "only) scans usage_notes.json example sentences instead."
+        ),
+    )
     parser.add_argument("--out", default=None)
     args = parser.parse_args()
+
+    if args.source == "usage_notes":
+        if args.level not in ("B1", "B2"):
+            parser.error("--source usage_notes only supports --level B1 or B2")
+        report, counts = run_usage_notes(args.level)
+        out = args.out or str(
+            ROOT / "docs" / "data" / f"usage_notes_grammar_scan_{args.level.lower()}_2026-09-16.md"
+        )
+        out_path = ROOT / out if not Path(out).is_absolute() else Path(out)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_bytes(report.encode("utf-8"))
+        print(f"level={args.level} source=usage_notes flagged: {counts['usage_notes']}")
+        print(f"report written: {out_path}")
+        return 0
 
     report, counts = run(args.level)
     out = args.out or str(ROOT / "docs" / "data" / f"grammar_scan_{args.level.lower()}_2026-09-15.md")
