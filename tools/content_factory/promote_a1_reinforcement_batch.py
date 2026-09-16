@@ -45,6 +45,16 @@ audit_phase_context_evidence --check, tool/build_learning_phase_catalog.py
 F2_vocab_coverage.md diffs, and Flutter goldens (test/goldens/baselines/
 screen_vocab_packs_{compact,medium,expanded}.png -- regenerate via the
 "Regenerate goldens (manual)" GitHub Actions workflow, never locally).
+⑱ 새 팩 DE/EN 제목 등록 (C3-T4, 2026-09-16 발견 -- PR #360 CI에서만
+잡힘, 로컬 python 체크는 이 경로를 안 건드림): 새로 도입되는 pack_id의
+BASE id(끝 _N 제거)마다 lib/services/vocab_pack_service.dart의
+packDisplayMap에 (DE, EN) 쌍을 추가해야 한다 -- 이미 존재하는 base id
+(예: a1_misc_N 시리즈에 새 a1_misc_3이 붙는 경우)는 등록 불필요, 완전히
+새 base(예: a1_verbs_daily, a1_adjectives)만 필요. ARB 파일이 아니라
+빌드타임 Dart 상수 -- l10n 재생성 불필요. 안 하면 flutter test
+test/vocab_pack_test.dart의 "every shipped pack has a localized DE and
+EN title"이 실패한다 (packOrderInLevel은 없어도 통과 -- 기본값 99로
+정렬만 뒤로 밀림, 선택 사항).
 """
 from __future__ import annotations
 

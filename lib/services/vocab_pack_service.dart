@@ -224,6 +224,10 @@ class VocabPackService {
     'a1_health_food': ('Gesundheit & Essen', 'Health & Food'),
     'a1_school_work': ('Schule & Arbeit', 'School & Work'),
     'a1_time_family': ('Zeit & Familie', 'Time & Family'),
+    // A1 C3-T4 (2026-09-16): Batch 29 A1 reinforcement new packs.
+    // (a1_misc_3 needs no entry -- 'a1_misc' above already covers it.)
+    'a1_verbs_daily': ('Alltagsverben', 'Everyday Verbs'),
+    'a1_adjectives': ('Adjektive', 'Adjectives'),
     // A2
     'a2_daily': ('Alltag (A2)', 'Daily Life (A2)'),
     'a2_feelings': ('Gefühle', 'Feelings'),
