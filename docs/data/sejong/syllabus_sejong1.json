@@ -1,0 +1,1083 @@
+{
+  "level_label": "sejong_hoehwa_1",
+  "cefr_approx": "A1",
+  "source_series": "세종한국어 회화 익힘책 (영어판)",
+  "source_files": [
+    "세종한국어 회화 익힘책_영어판_1-1.pdf",
+    "세종한국어 회화 익힘책_영어판_1-2.pdf"
+  ],
+  "units": [
+    {
+      "unit": 1,
+      "title": "저는 이지윤이에요",
+      "title_page": 10,
+      "cando": "자신과 친구를 소개할 수 있어요.",
+      "cando_page": 10,
+      "vocab": [
+        {
+          "korean": "간호사",
+          "gloss_en": "nurse",
+          "page": 100
+        },
+        {
+          "korean": "기자",
+          "gloss_en": "journalist",
+          "page": 100
+        },
+        {
+          "korean": "대학생",
+          "gloss_en": "college student",
+          "page": 100
+        },
+        {
+          "korean": "선생님",
+          "gloss_en": "teacher",
+          "page": 100
+        },
+        {
+          "korean": "소방관",
+          "gloss_en": "firefighter",
+          "page": 100
+        },
+        {
+          "korean": "은행원",
+          "gloss_en": "bank clerk",
+          "page": 100
+        },
+        {
+          "korean": "주부",
+          "gloss_en": "housewife",
+          "page": 100
+        },
+        {
+          "korean": "축구선수",
+          "gloss_en": "soccer player",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "이에요/예요",
+          "page": 96
+        },
+        {
+          "label": "은/는",
+          "page": 96
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 12,
+          "quote": "가: 물이에요?"
+        },
+        {
+          "page": 16,
+          "quote": "가: 다니엘 씨는 은행원이에요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_1-1.pdf"
+    },
+    {
+      "unit": 2,
+      "title": "회사에 가요",
+      "title_page": 20,
+      "cando": "지금 하는 일을 묻고 답할 수 있어요.",
+      "cando_page": 20,
+      "vocab": [
+        {
+          "korean": "과일 가게",
+          "gloss_en": "fruit store",
+          "page": 100
+        },
+        {
+          "korean": "놀이공원",
+          "gloss_en": "amusement park",
+          "page": 100
+        },
+        {
+          "korean": "도서관",
+          "gloss_en": "library",
+          "page": 100
+        },
+        {
+          "korean": "빵집",
+          "gloss_en": "bakery",
+          "page": 100
+        },
+        {
+          "korean": "서점",
+          "gloss_en": "book store",
+          "page": 100
+        },
+        {
+          "korean": "채소 가게",
+          "gloss_en": "produce store",
+          "page": 100
+        },
+        {
+          "korean": "헬스클럽",
+          "gloss_en": "gym",
+          "page": 100
+        },
+        {
+          "korean": "호텔",
+          "gloss_en": "hotel",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-아요/-어요/-여요",
+          "page": 96
+        },
+        {
+          "label": "에 가요",
+          "page": 96
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 22,
+          "quote": "가: 다니엘 씨, 지금 일해요?"
+        },
+        {
+          "page": 24,
+          "quote": "가: 오늘 회의가 있어요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_1-1.pdf"
+    },
+    {
+      "unit": 3,
+      "title": "전화번호가 뭐예요?",
+      "title_page": 30,
+      "cando": "전화번호를 묻고 답할 수 있어요.",
+      "cando_page": 30,
+      "vocab": [
+        {
+          "korean": "만 원",
+          "gloss_en": "10,000won",
+          "page": 100
+        },
+        {
+          "korean": "백 원",
+          "gloss_en": "100won",
+          "page": 100
+        },
+        {
+          "korean": "십 원",
+          "gloss_en": "10won",
+          "page": 100
+        },
+        {
+          "korean": "오만 원",
+          "gloss_en": "50,000won",
+          "page": 100
+        },
+        {
+          "korean": "오백 원",
+          "gloss_en": "500won",
+          "page": 100
+        },
+        {
+          "korean": "오십 원",
+          "gloss_en": "50won",
+          "page": 100
+        },
+        {
+          "korean": "오천 원",
+          "gloss_en": "5,000won",
+          "page": 100
+        },
+        {
+          "korean": "천 원",
+          "gloss_en": "1,000won",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "이/가",
+          "page": 96
+        },
+        {
+          "label": "이 아니에요/가 아니에요",
+          "page": 97
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 32,
+          "quote": "가: 누가 공부해요?"
+        },
+        {
+          "page": 33,
+          "quote": "가: 다니엘 씨는 호주 사람이에요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_1-1.pdf"
+    },
+    {
+      "unit": 4,
+      "title": "책상 위에 지갑이 있어요?",
+      "title_page": 40,
+      "cando": "사람이나 사물의 위치를 말할 수 있어요.",
+      "cando_page": 40,
+      "vocab": [
+        {
+          "korean": "거실",
+          "gloss_en": "livingroom",
+          "page": 100
+        },
+        {
+          "korean": "모자",
+          "gloss_en": "hat",
+          "page": 100
+        },
+        {
+          "korean": "방",
+          "gloss_en": "room",
+          "page": 100
+        },
+        {
+          "korean": "부엌",
+          "gloss_en": "kitchen",
+          "page": 100
+        },
+        {
+          "korean": "시계",
+          "gloss_en": "watch/clock",
+          "page": 100
+        },
+        {
+          "korean": "안경",
+          "gloss_en": "glasses",
+          "page": 100
+        },
+        {
+          "korean": "욕실",
+          "gloss_en": "bathroom",
+          "page": 100
+        },
+        {
+          "korean": "지갑",
+          "gloss_en": "wallet",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "에 있다/없다",
+          "page": 97
+        },
+        {
+          "label": "의",
+          "page": 97
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 42,
+          "quote": "가: 동생이 방에 있어요?"
+        },
+        {
+          "page": 43,
+          "quote": "가: 누구의 가방이에요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_1-1.pdf"
+    },
+    {
+      "unit": 5,
+      "title": "사과 두 개하고 오렌지 세 개 주세요",
+      "title_page": 50,
+      "cando": "물건의 이름과 가격을 묻고 답할 수 있어요.",
+      "cando_page": 50,
+      "vocab": [
+        {
+          "korean": "귤",
+          "gloss_en": "tangerine",
+          "page": 100
+        },
+        {
+          "korean": "린스",
+          "gloss_en": "conditioner",
+          "page": 100
+        },
+        {
+          "korean": "맥주",
+          "gloss_en": "beer",
+          "page": 100
+        },
+        {
+          "korean": "물티슈",
+          "gloss_en": "wet wipes",
+          "page": 100
+        },
+        {
+          "korean": "샴푸",
+          "gloss_en": "shampoo",
+          "page": 100
+        },
+        {
+          "korean": "수박",
+          "gloss_en": "watermelon",
+          "page": 100
+        },
+        {
+          "korean": "컵라면",
+          "gloss_en": "cup noodle",
+          "page": 100
+        },
+        {
+          "korean": "휴지",
+          "gloss_en": "toilet paper",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "하고",
+          "page": 97
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 52,
+          "quote": "가: 뭐 드릴까요?"
+        },
+        {
+          "page": 53,
+          "quote": "가: 교실에 남학생이 몇 명 있어요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_1-1.pdf"
+    },
+    {
+      "unit": 6,
+      "title": "저는 고기를 안 먹어요",
+      "title_page": 60,
+      "cando": "다른 사람과 음식에 대해 이야기할 수 있어요.",
+      "cando_page": 60,
+      "vocab": [
+        {
+          "korean": "과일",
+          "gloss_en": "fruits",
+          "page": 100
+        },
+        {
+          "korean": "과자",
+          "gloss_en": "snack/chips",
+          "page": 100
+        },
+        {
+          "korean": "닭고기",
+          "gloss_en": "chicken",
+          "page": 100
+        },
+        {
+          "korean": "돼지고기",
+          "gloss_en": "pork",
+          "page": 100
+        },
+        {
+          "korean": "생선",
+          "gloss_en": "fish",
+          "page": 100
+        },
+        {
+          "korean": "소고기",
+          "gloss_en": "beef",
+          "page": 100
+        },
+        {
+          "korean": "음료수",
+          "gloss_en": "soft drinks",
+          "page": 100
+        },
+        {
+          "korean": "채소",
+          "gloss_en": "vegetables",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "을/를",
+          "page": 98
+        },
+        {
+          "label": "안",
+          "page": 98
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 62,
+          "quote": "가: 재석 씨는 지금 뭐 해요?"
+        },
+        {
+          "page": 66,
+          "quote": "가: 지금 뭐 해요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_1-1.pdf"
+    },
+    {
+      "unit": 7,
+      "title": "‘서울행’을 꼭 보세요",
+      "title_page": 70,
+      "cando": "날짜와 시간을 말할 수 있어요.",
+      "cando_page": 70,
+      "vocab": [
+        {
+          "korean": "그제",
+          "gloss_en": "day before yesterday",
+          "page": 100
+        },
+        {
+          "korean": "금요일",
+          "gloss_en": "Friday",
+          "page": 100
+        },
+        {
+          "korean": "날",
+          "gloss_en": "day",
+          "page": 100
+        },
+        {
+          "korean": "내년",
+          "gloss_en": "next year",
+          "page": 100
+        },
+        {
+          "korean": "내일",
+          "gloss_en": "tomorrow",
+          "page": 100
+        },
+        {
+          "korean": "년/해",
+          "gloss_en": "year",
+          "page": 100
+        },
+        {
+          "korean": "다음 달",
+          "gloss_en": "next month",
+          "page": 100
+        },
+        {
+          "korean": "다음 주",
+          "gloss_en": "next week",
+          "page": 100
+        },
+        {
+          "korean": "달",
+          "gloss_en": "month",
+          "page": 100
+        },
+        {
+          "korean": "모레",
+          "gloss_en": "day after tomorrow",
+          "page": 100
+        },
+        {
+          "korean": "목요일",
+          "gloss_en": "Thursday",
+          "page": 100
+        },
+        {
+          "korean": "수요일",
+          "gloss_en": "Wednesday",
+          "page": 100
+        },
+        {
+          "korean": "어제",
+          "gloss_en": "yesterday",
+          "page": 100
+        },
+        {
+          "korean": "오늘",
+          "gloss_en": "today",
+          "page": 100
+        },
+        {
+          "korean": "올해",
+          "gloss_en": "this year",
+          "page": 100
+        },
+        {
+          "korean": "월요일",
+          "gloss_en": "Monday",
+          "page": 100
+        },
+        {
+          "korean": "이번 달",
+          "gloss_en": "this month",
+          "page": 100
+        },
+        {
+          "korean": "이번 주",
+          "gloss_en": "this week",
+          "page": 100
+        },
+        {
+          "korean": "일요일",
+          "gloss_en": "Sunday",
+          "page": 100
+        },
+        {
+          "korean": "작년",
+          "gloss_en": "last year",
+          "page": 100
+        },
+        {
+          "korean": "주",
+          "gloss_en": "week",
+          "page": 100
+        },
+        {
+          "korean": "주말",
+          "gloss_en": "weekends",
+          "page": 100
+        },
+        {
+          "korean": "지난달",
+          "gloss_en": "last month",
+          "page": 100
+        },
+        {
+          "korean": "지난주",
+          "gloss_en": "last week",
+          "page": 100
+        },
+        {
+          "korean": "토요일",
+          "gloss_en": "Saturday",
+          "page": 100
+        },
+        {
+          "korean": "평일",
+          "gloss_en": "week days",
+          "page": 100
+        },
+        {
+          "korean": "화요일",
+          "gloss_en": "Tuesday",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "에",
+          "page": 98
+        },
+        {
+          "label": "-으세요/-세요",
+          "page": 98
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 78,
+          "quote": "가: 마크 씨, 오늘 오후 1시에 뭐 해요?"
+        },
+        {
+          "page": 78,
+          "quote": "가: 그러면 오후 3시에는 뭐 해요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_1-1.pdf"
+    },
+    {
+      "unit": 8,
+      "title": "공원에서 자전거를 탔어요",
+      "title_page": 10,
+      "cando": "과거에 경험한 것에 대해 묻고 답할 수 있어요.",
+      "cando_page": 10,
+      "vocab": [
+        {
+          "korean": "꽃집",
+          "gloss_en": "flower shop",
+          "page": 99
+        },
+        {
+          "korean": "놀이공원",
+          "gloss_en": "amusement park",
+          "page": 99
+        },
+        {
+          "korean": "도서관",
+          "gloss_en": "library",
+          "page": 99
+        },
+        {
+          "korean": "미용실",
+          "gloss_en": "beauty salon",
+          "page": 99
+        },
+        {
+          "korean": "박물관",
+          "gloss_en": "museum",
+          "page": 99
+        },
+        {
+          "korean": "수영장",
+          "gloss_en": "swimming pool",
+          "page": 99
+        },
+        {
+          "korean": "우체국",
+          "gloss_en": "post office",
+          "page": 99
+        },
+        {
+          "korean": "운동장",
+          "gloss_en": "(sports) field",
+          "page": 99
+        }
+      ],
+      "grammar": [
+        {
+          "label": "에서",
+          "page": 94
+        },
+        {
+          "label": "-았어요/-었어요/-였어요",
+          "page": 94
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 12,
+          "quote": "가: 안나 씨는 지금 뭐 해요?"
+        },
+        {
+          "page": 16,
+          "quote": "가: 도서관에서 뭐 했어요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_1-2.pdf"
+    },
+    {
+      "unit": 9,
+      "title": "친구들하고 축구를 할 거예요",
+      "title_page": 20,
+      "cando": "자신의 취미를 이야기할 수 있어요.",
+      "cando_page": 20,
+      "vocab": [
+        {
+          "korean": "미술관에 가다",
+          "gloss_en": "to go to an art museum/gallery",
+          "page": 99
+        },
+        {
+          "korean": "스케이트를 타다",
+          "gloss_en": "to skate",
+          "page": 99
+        },
+        {
+          "korean": "시내를 구경하다",
+          "gloss_en": "to go sightseeing around the city",
+          "page": 99
+        },
+        {
+          "korean": "야구를 보다",
+          "gloss_en": "to see a baseball game",
+          "page": 99
+        },
+        {
+          "korean": "요리를 배우다",
+          "gloss_en": "to learn to cook",
+          "page": 99
+        },
+        {
+          "korean": "자전거를 타다",
+          "gloss_en": "to ride a bicycle",
+          "page": 99
+        },
+        {
+          "korean": "콘서트에 가다",
+          "gloss_en": "to go to a concert",
+          "page": 99
+        },
+        {
+          "korean": "피시(PC)방에 가다",
+          "gloss_en": "to go to PC방",
+          "page": 99
+        },
+        {
+          "korean": "계시다",
+          "gloss_en": "to be, stay",
+          "page": 99
+        },
+        {
+          "korean": "드리다",
+          "gloss_en": "to give",
+          "page": 99
+        },
+        {
+          "korean": "말씀",
+          "gloss_en": "tell, say",
+          "page": 99
+        },
+        {
+          "korean": "말씀하시다",
+          "gloss_en": "to tell, say",
+          "page": 99
+        },
+        {
+          "korean": "뵈다/뵙다",
+          "gloss_en": "to see",
+          "page": 99
+        },
+        {
+          "korean": "약주",
+          "gloss_en": "(alcohol) drink",
+          "page": 99
+        },
+        {
+          "korean": "여쭈다/여쭙다",
+          "gloss_en": "to ask",
+          "page": 99
+        },
+        {
+          "korean": "진지",
+          "gloss_en": "meal",
+          "page": 99
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-을 거예요/-ㄹ 거예요",
+          "page": 94
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 22,
+          "quote": "가: 휴가 때 어디에 갈 거예요?"
+        },
+        {
+          "page": 27,
+          "quote": "가: 마이 씨는 1년 계획이 있어요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_1-2.pdf"
+    },
+    {
+      "unit": 10,
+      "title": "할아버지께서 낚시를 좋아하세요?",
+      "title_page": 30,
+      "cando": "가족을 소개할 수 있어요.",
+      "cando_page": 30,
+      "vocab": [],
+      "grammar": [
+        {
+          "label": "-으시-/-시-",
+          "page": 94
+        },
+        {
+          "label": "-으러 가다/-러 가다",
+          "page": 95
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 32,
+          "quote": "가: 할아버지께서는 지금 뭐 하세요?"
+        },
+        {
+          "page": 33,
+          "quote": "가: 시장에 왜 가요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_1-2.pdf"
+    },
+    {
+      "unit": 11,
+      "title": "공연장 앞에서 만날까요?",
+      "title_page": 40,
+      "cando": "다른 사람과 약속을 할 수 있어요.",
+      "cando_page": 40,
+      "vocab": [
+        {
+          "korean": "가깝다",
+          "gloss_en": "close",
+          "page": 99
+        },
+        {
+          "korean": "같다",
+          "gloss_en": "same",
+          "page": 99
+        },
+        {
+          "korean": "깨끗하다",
+          "gloss_en": "clean",
+          "page": 99
+        },
+        {
+          "korean": "다르다",
+          "gloss_en": "different",
+          "page": 99
+        },
+        {
+          "korean": "더럽다",
+          "gloss_en": "dirty",
+          "page": 99
+        },
+        {
+          "korean": "뜨겁다",
+          "gloss_en": "hot",
+          "page": 99
+        },
+        {
+          "korean": "멀다",
+          "gloss_en": "far",
+          "page": 99
+        },
+        {
+          "korean": "밝다",
+          "gloss_en": "bright",
+          "page": 99
+        },
+        {
+          "korean": "어둡다",
+          "gloss_en": "dark",
+          "page": 99
+        },
+        {
+          "korean": "차갑다",
+          "gloss_en": "cold",
+          "page": 99
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-고 싶다",
+          "page": 95
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 42,
+          "quote": "가: 주말에는 무엇을 하고 싶어요?"
+        },
+        {
+          "page": 43,
+          "quote": "가: 오늘 같이 점심을 먹을까요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_1-2.pdf"
+    },
+    {
+      "unit": 12,
+      "title": "좀 춥고 눈도 많이 올 거예요",
+      "title_page": 50,
+      "cando": "날씨와 계절에 대해 이야기할 수 있어요.",
+      "cando_page": 50,
+      "vocab": [
+        {
+          "korean": "꽃이 피다",
+          "gloss_en": "to blossom, bloom",
+          "page": 99
+        },
+        {
+          "korean": "눈싸움을 하다",
+          "gloss_en": "to have a staring match",
+          "page": 99
+        },
+        {
+          "korean": "눈이 쌓이다",
+          "gloss_en": "snow piles up",
+          "page": 99
+        },
+        {
+          "korean": "산책하다",
+          "gloss_en": "to take a walk, stroll",
+          "page": 99
+        },
+        {
+          "korean": "삼계탕을 먹다",
+          "gloss_en": "to eat 삼계탕",
+          "page": 99
+        },
+        {
+          "korean": "운동회를 하다",
+          "gloss_en": "to have a sports day",
+          "page": 99
+        },
+        {
+          "korean": "장마가 시작되다",
+          "gloss_en": "rainy season sets in",
+          "page": 99
+        },
+        {
+          "korean": "하늘이 파랗다",
+          "gloss_en": "the sky is blue",
+          "page": 99
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-고",
+          "page": 95
+        },
+        {
+          "label": "-을 거예요/-ㄹ 거예요",
+          "page": 95
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 52,
+          "quote": "가: 서울의 날씨는 어때요?"
+        },
+        {
+          "page": 53,
+          "quote": "가: 어떤 책이 좋을까요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_1-2.pdf"
+    },
+    {
+      "unit": 13,
+      "title": "가방이 예쁘지만 좀 무거워요",
+      "title_page": 60,
+      "cando": "좋아하는 옷이나 색깔에 대해 이야기할 수 있어요.",
+      "cando_page": 60,
+      "vocab": [
+        {
+          "korean": "가방을 메다",
+          "gloss_en": "to carry a bag",
+          "page": 99
+        },
+        {
+          "korean": "귀걸이를 하다",
+          "gloss_en": "to wear earrings",
+          "page": 99
+        },
+        {
+          "korean": "넥타이를 매다",
+          "gloss_en": "to wear a tie",
+          "page": 99
+        },
+        {
+          "korean": "마스크를 쓰다",
+          "gloss_en": "to wear a mask",
+          "page": 99
+        },
+        {
+          "korean": "목걸이를 하다",
+          "gloss_en": "to wear a necklace",
+          "page": 99
+        },
+        {
+          "korean": "목도리를 하다",
+          "gloss_en": "to wear a scarf",
+          "page": 99
+        },
+        {
+          "korean": "스카프를 매다",
+          "gloss_en": "to wear a scarf",
+          "page": 100
+        },
+        {
+          "korean": "장화를 신다",
+          "gloss_en": "to wear boots",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "한테",
+          "page": 96
+        },
+        {
+          "label": "-지만",
+          "page": 96
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 62,
+          "quote": "가: 마크가 뭐 해요?"
+        },
+        {
+          "page": 63,
+          "quote": "가: 시장이 어때요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_1-2.pdf"
+    },
+    {
+      "unit": 14,
+      "title": "감기에 걸려서 축제에 못 갔어요",
+      "title_page": 70,
+      "cando": "자신의 행동에 대한 이유를 이야기할 수 있어요.",
+      "cando_page": 70,
+      "vocab": [
+        {
+          "korean": "결석하다",
+          "gloss_en": "to be absent",
+          "page": 100
+        },
+        {
+          "korean": "급한 일이 생기다",
+          "gloss_en": "to have an emergency",
+          "page": 100
+        },
+        {
+          "korean": "기운이 없다",
+          "gloss_en": "lethargic",
+          "page": 100
+        },
+        {
+          "korean": "약속이 있다",
+          "gloss_en": "\u0007to have a plan,",
+          "page": 100
+        },
+        {
+          "korean": "지각하다",
+          "gloss_en": "to be late",
+          "page": 100
+        },
+        {
+          "korean": "출근하다",
+          "gloss_en": "to go to work",
+          "page": 100
+        },
+        {
+          "korean": "퇴근하다",
+          "gloss_en": "to leave work",
+          "page": 100
+        },
+        {
+          "korean": "피곤하다",
+          "gloss_en": "tired",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-아서/-어서/-여서",
+          "page": 96
+        },
+        {
+          "label": "못",
+          "page": 96
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 72,
+          "quote": "가: 어제 모임에 왜 안 왔어요?"
+        },
+        {
+          "page": 73,
+          "quote": "가: 우리 저녁에 스파게티를 준비할까요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_1-2.pdf"
+    }
+  ]
+}
