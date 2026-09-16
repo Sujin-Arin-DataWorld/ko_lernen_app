@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """R8 round 4 (2026-09-16, PR #362 review) -- German orthography scan for
-`assets/data/usage_notes.json`.
+`assets/data/usage_notes.json`. Extended in R8 round 5 (same day) with more
+ss-for-ß roots (einigermassen, äusser, regelmässig-class typos the original
+list missed); that pass also caught a 4th real bug (äussere -> äußere,
+vocab_b1_0431) beyond the 3 the coordinator flagged by hand.
 
 Two passes over every DE field (nuance/situation/patterns/collocations/
 contrasts/examples), reusable for future usage_notes batches:
@@ -60,7 +63,13 @@ SAFE_AEOEUE_WORDS = {
 }
 
 SS_TO_ESZETT_HITS_RE = re.compile(
-    r"\b\w*(gross|schliess|drauss|strasse|spass\w|bloss|heisst)\w*\b|"
+    r"\b\w*(gross|schliess|drauss|strasse|spass\w|bloss|heiss|"
+    # R8 round 5 (2026-09-16, PR #362 review) additions -- coordinator-supplied
+    # roots for ss-for-ß typos the original list missed (einigermassen,
+    # äussern, regelmässig). "muss/dass/Fluss/Schloss/bisschen" do NOT match
+    # any of these roots and stay unflagged.
+    r"einigermassen|äusser|fliess|giess|beiss|reiss|fuss|gruss|grüss|"
+    r"massnahme|massgeb|gemäss|mässig|stoss|stösst|geniess|weiss)\w*\b|"
     r"\bausser\b|\bausserhalb\b|\bBussgeld\b|\bVerstoss\w*\b|\bGesetzesverstoss\b",
     re.IGNORECASE,
 )

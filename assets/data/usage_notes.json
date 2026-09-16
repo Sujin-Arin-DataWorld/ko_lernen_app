@@ -1202,9 +1202,9 @@
       "id": "vocab_a2_0449",
       "level": "B1",
       "nuance": {
-        "ko": "축제는 사람들이 한데 모여 왁자지껄하게 즐기는 흥겨운 분위기를 떠올리게 하는 말이다.",
-        "de": "축제 weckt die Vorstellung einer ausgelassenen, fröhlichen Stimmung, in der viele Menschen zusammenkommen.",
-        "en": "축제 evokes a lively, festive atmosphere where many people gather together to have fun."
+        "ko": "축제는 정해진 시기에 사람들이 모여 함께 즐기고 축하하는 자리를 가리키며, 벚꽃 축제, 영화 축제처럼 주제를 나타내는 말 뒤에 자주 붙는다.",
+        "de": "축제 bezeichnet einen festgelegten Anlass, zu dem Menschen zusammenkommen, um gemeinsam zu feiern und sich zu freuen; es folgt oft auf ein Thema, etwa bei 벚꽃 축제 (Kirschblütenfest) oder 영화 축제 (Filmfestival).",
+        "en": "축제 refers to a set occasion when people come together to celebrate and enjoy themselves; it often follows a topic word, as in 벚꽃 축제 (cherry blossom festival) or 영화 축제 (film festival)."
       },
       "situation": {
         "ko": "동네, 학교, 지역에서 정기적으로 여는 즐거운 행사를 이야기할 때 쓴다.",
@@ -1773,7 +1773,7 @@
       "level": "B1",
       "nuance": {
         "ko": "의견은 즉흥적인 느낌이 아니라 어느 정도 정리된 입장을 공식적으로 밝힐 때 쓰는 말이다.",
-        "de": "의견 benutzt man, um formell einen einigermassen durchdachten Standpunkt zu äussern, nicht nur einen spontanen Eindruck.",
+        "de": "의견 benutzt man, um formell einen einigermaßen durchdachten Standpunkt zu äußern, nicht nur einen spontanen Eindruck.",
         "en": "의견 is used to formally state a somewhat considered stance, rather than just a spontaneous impression."
       },
       "situation": {
@@ -3198,7 +3198,7 @@
       "level": "B1",
       "nuance": {
         "ko": "공과금은 매달 꼬박꼬박 내야 하는 전기, 수도, 가스 같은 생활 기본 요금을 가리키는 말이다.",
-        "de": "공과금 bezeichnet die grundlegenden monatlichen Gebühren des Alltags wie Strom, Wasser und Gas, die man regelmässig zahlen muss.",
+        "de": "공과금 bezeichnet die grundlegenden monatlichen Gebühren des Alltags wie Strom, Wasser und Gas, die man regelmäßig zahlen muss.",
         "en": "공과금 has the routine, unavoidable feel of a bill that lands in the mailbox every single month."
       },
       "situation": {
@@ -3824,7 +3824,7 @@
       "id": "vocab_b1_0165",
       "level": "B1",
       "nuance": {
-        "ko": "승진은 노력이 인정받아 회사 안에서 한 단계 올라섰다는 축하할 만한 소식을 담고 있다.",
+        "ko": "승진은 직급이나 직위가 한 단계 오르는 일을 뜻하며, 승진하다/승진을 하다처럼 동사로 쓰고 승진 시험, 승진 발표 같은 회사 어휘와도 잘 어울린다.",
         "de": "승진 bezeichnet den Aufstieg in eine höhere Position innerhalb einer Firma, meist als Anerkennung der eigenen Leistung; man gratuliert dazu typischerweise mit 승진을 축하해요 (herzlichen Glückwunsch zur Beförderung).",
         "en": "승진 refers to moving up to a higher position within a company, usually as recognition of one's performance; it is typically congratulated with 승진을 축하해요 (congratulations on your promotion)."
       },
@@ -3938,9 +3938,9 @@
       "id": "vocab_b1_0169",
       "level": "B1",
       "nuance": {
-        "ko": "근무하다는 회사나 조직에 몸담고 있다는 소속감이 강하게 느껴지는 다소 딱딱한 말이다.",
-        "de": "근무하다 vermittelt ein formelles, stabiles Gefühl, fest an einem bestimmten Ort beschäftigt zu sein.",
-        "en": "근무하다 gives a formal, stable feeling of being employed at a fixed, designated place."
+        "ko": "근무하다는 회사나 기관에 소속되어 맡은 업무를 하는 것을 가리키며, 이력서나 공문처럼 격식을 차린 문맥에서 주로 쓴다.",
+        "de": "근무하다 bezeichnet, bei einer Firma oder Institution angestellt zu sein und die eigenen Aufgaben zu erledigen; man benutzt es hauptsächlich in förmlichen Kontexten wie Lebensläufen oder offiziellen Schreiben.",
+        "en": "근무하다 refers to being employed at a company or institution and carrying out one's duties there; it is mainly used in formal contexts like résumés or official documents."
       },
       "situation": {
         "ko": "회사나 직장에서 격식을 갖춰 근무 형태나 시간을 말할 때 쓴다.",
@@ -5934,7 +5934,7 @@
       "level": "B1",
       "nuance": {
         "ko": "이 표현은 성적표나 겉모습이 아니라 공부를 대하는 마음가짐 자체가 드러난다는 뜻을 담고 있다.",
-        "de": "학습 태도 trägt die Bedeutung in sich, dass sich nicht Noten oder das äussere Auftreten zeigen, sondern die innere Einstellung zum Lernen selbst.",
+        "de": "학습 태도 trägt die Bedeutung in sich, dass sich nicht Noten oder das äußere Auftreten zeigen, sondern die innere Einstellung zum Lernen selbst.",
         "en": "학습 태도 carries the meaning that it is not grades or outward appearance that show, but one's inner attitude toward studying itself."
       },
       "situation": {
