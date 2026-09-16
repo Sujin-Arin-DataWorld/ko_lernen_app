@@ -165,5 +165,6 @@
     "tts": false,
     "firebase": false,
     "note": "DRAFT ONLY per level-canon program hard rule -- no writes to assets/data/**, no TTS synthesis, no Firebase until Jin approval."
-  }
+  },
+  "postBatchReviewCorrectionNote": "Batch 34 predecessor review repair: 선배 DE now encodes longer tenure without inventing age or gender; 노력 DE now uses 'das eigene Koreanisch'. KO/EN, IDs, statuses, packs, and historical gap arithmetic are unchanged; MODEL_QA only."
 }

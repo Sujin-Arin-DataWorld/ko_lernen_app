@@ -28,24 +28,29 @@
     {
       "kind": "vocab",
       "draft": "tools/content_factory/drafts/batch_32_a2_rows.csv",
-      "collection": "korean_vocab",
+      "collection": null,
       "count": 64,
-      "level": "A2"
+      "level": "A2",
+      "review": "tools/content_factory/review/batch_32_a2_vocab_review.csv"
     },
     {
       "kind": "cloze",
       "draft": "tools/content_factory/drafts/batch_32_a2_cloze.json",
-      "collection": "cloze_items",
-      "count": 64
+      "collection": "items",
+      "count": 64,
+      "review": "tools/content_factory/review/batch_32_a2_cloze_review.csv",
+      "level": "A2"
     },
     {
       "kind": "satz",
       "draft": "tools/content_factory/drafts/batch_32_a2_satz.json",
-      "collection": "satz_sentences",
-      "count": 64
+      "collection": "items",
+      "count": 64,
+      "review": "tools/content_factory/review/batch_32_a2_satz_review.csv",
+      "level": "A2"
     }
   ],
-  "recordCount": 64,
+  "recordCount": 192,
   "tierCounts": {
     "tierA": 63,
     "tierB": 1
@@ -112,10 +117,10 @@
     "count": 663,
     "note": "727 NIKL grade-2 headwords were unclaimed by any live level, the A1 drafts (Batch 25-30), or the Batch 31 A2 draft before this batch (matches Batch 31's own post-batch remainingA2Gap.count exactly -- see provenance.wordSourceNote). 64 claimed here, 663 remain for future A2 reinforcement batches (Batch 33+)."
   },
-  "personaRowsNote": "R8 round 1 (Fable review of commit 5a0b5353, 2026-09-16): all 12 rows were originally third-person descriptions ('다니엘 씨는 손가락이 길어요' etc.) -- accepted for 'canonical name present' but not genuine SPEAKER rows. Reworked into first-person/marker rows. R8 round 2 (same commit, second pass): that first fix was still too loose -- a bare 1인칭 marker plus a DIFFERENT persona's vocative ('레나 씨, 제 손가락이 길어요') identifies nothing about WHO is speaking (any persona could say this line to Lena), so 2 rows (손가락, 스카프) were WRONGLY attributed to the implicit unnamed speaker rather than the addressee, and 국제 was wrongly attributed to 다니엘 (a freelance videographer, not an international-school employee -- nothing in the line is exclusively his). The rule, as established in Batches 28-30: a persona counts for a row only as (a) the unambiguous SPEAKER via a canon-EXCLUSIVE cue (마야='대박', her own documented A2 marker; 현아='대학원에서 도시 문화', matching her documented '도시·문화 연구 대학원생' background; 준='3학년', matching his documented '초등학교 3학년 학생' background), or (b) the vocative ADDRESSEE via a LEADING vocative ('OOO 씨,' / 'OOO,' at the very start of the sentence). Re-attributed all 12 rows against this rule; 2 (믿다, 흔들다) have neither a leading vocative nor an exclusive cue and were DROPPED from personaRows (kept as neutral third-person-adjacent rows, no longer counted). 10 rows carry an attributed canonical persona (>=8 required, <=2 uses per persona): lena x2 (addressee: 손가락, 중학교), maya x2 (speaker cue 대박: 목소리; addressee: 화장품), hyuna x2 (speaker cue: 대학원; addressee: 교사), daniel x1 (addressee: 스카프), christian x1 (leading vocative, banmal: 청바지), sujin x1 (addressee: 국제), jun x1 (speaker cue '3학년', banmal: 초등학생). '믿다' ('나는 크리스티안을 믿어.') and '흔들다' ('저는 수진 씨를 보고 손을 흔들었어요.') use a bare 1인칭 marker with the OTHER persona appearing only as a grammatical object/topic, not a leading vocative -- correctly neutral under the tightened rule, not a violation.",
+  "personaRowsNote": "R8 round 1 (Fable review of commit 5a0b5353, 2026-09-16): all 12 rows were originally third-person descriptions ('다니엘 씨는 손가락이 길어요' etc.) -- accepted for 'canonical name present' but not genuine SPEAKER rows. Reworked into first-person/marker rows. R8 round 2 (same commit, second pass): that first fix was still too loose -- a bare 1인칭 marker plus a DIFFERENT persona's vocative ('레나 씨, 제 손가락이 길어요') identifies nothing about WHO is speaking (any persona could say this line to Lena), so 2 rows (손가락, 스카프) were WRONGLY attributed to the implicit unnamed speaker rather than the addressee, and 국제 was wrongly attributed to 다니엘 (a freelance videographer, not an international-school employee -- nothing in the line is exclusively his). The rule, as established in Batches 28-30: a persona counts for a row only as (a) the unambiguous SPEAKER via a canon-EXCLUSIVE cue (마야='대박', her own documented A2 marker; 현아='대학원에서 도시 문화', matching her documented '도시·문화 연구 대학원생' background; 준='3학년', matching his documented '초등학교 3학년 학생' background), or (b) the vocative ADDRESSEE via a LEADING vocative ('OOO 씨,' / 'OOO,' at the very start of the sentence). Re-attributed all 12 rows against this rule; 2 (믿다, 흔들다) have neither a leading vocative nor an exclusive cue and were DROPPED from personaRows (kept as neutral third-person-adjacent rows, no longer counted). 10 rows carry an attributed canonical persona (>=8 required, <=2 uses per persona): lena x2 (addressee: 손가락, 중학교), maya x1 (addressee: 화장품), hyuna x2 (speaker cue: 대학원; addressee: 교사), daniel x1 (addressee: 스카프), christian x1 (leading vocative, banmal: 청바지), sujin x2 (addressee: 목소리, 국제), jun x1 (speaker cue '3학년', banmal: 초등학생). '믿다' ('나는 크리스티안을 믿어.') and '흔들다' ('저는 수진 씨를 보고 손을 흔들었어요.') use a bare 1인칭 marker with the OTHER persona appearing only as a grammatical object/topic, not a leading vocative -- correctly neutral under the tightened rule, not a violation.",
   "personaRows": {
     "vocab_a2_0571": "lena",
-    "vocab_a2_0577": "maya",
+    "vocab_a2_0577": "sujin",
     "vocab_a2_0594": "daniel",
     "vocab_a2_0598": "christian",
     "vocab_a2_0601": "maya",
@@ -137,5 +142,6 @@
     "runtime": false,
     "tts": false,
     "firebase": false
-  }
+  },
+  "postBatchReviewCorrectionNote": "Batch 34 predecessor review repair: 목소리 now uses the leading vocative '수진 씨,' and no unlicensed 대박, so the row is attributed to addressee sujin rather than speaker maya; 학원 gloss broadened to private Bildungseinrichtung/private institute so the taekwondo example is in range. IDs, statuses, packs, and gap arithmetic are unchanged; MODEL_QA only."
 }
