@@ -74732,13 +74732,17 @@
         },
         {
           "phraseId": "smalltalk_b2_0065",
-          "phraseFingerprintSha256": "5f2b65db566f617b6f22290cf2a940eed74cf1052c4bba21b818a26945ca574c",
+          "phraseFingerprintSha256": "bd1bdb1ab836b6c5673c17a4843d29ad6d3635622cb034374b266d7c6e3374f3",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_collaborative_feedback",
           "canDoFingerprintSha256": "f36974cbb488136ef241cb172292e5a4a196d3e263af87bf3ae8f6c4e02486c5",
           "semanticStatus": "exactMapped",
           "reasonCode": "explicitSemanticRoute",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
+          "previousPhraseFingerprintSha256": "5f2b65db566f617b6f22290cf2a940eed74cf1052c4bba21b818a26945ca574c"
         },
         {
           "phraseId": "smalltalk_b2_0066",

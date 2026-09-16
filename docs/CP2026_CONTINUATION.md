@@ -147,6 +147,12 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 
 관련 51개 검사(기존 제외 15개), Flutter 문법/smalltalk 20개·can-do loader 11개, TTS Python 48개·Node 64개가 통과했다. 전체 content_factory discovery 1,241개가 실패 0·기존 제외 20개로 통과했고, 검사 전후 콘텐츠 520개 파일의 SHA-256 변경은 0개다. 한국어 음성 1개 교체 후 Storage expected 12,630 / remote 21,135 / missing 0 / stale 8,505를 읽기 전용으로 확인했고, 이전 음성은 삭제하지 않았다. 두 축 독립 검토 통과이며 사람 문구 검수는 대기다.
 
+### Batch 05 문구 교정과 미해결 단원 이력
+
+[검토 패킷](data/review_packets/batch_05_reconciliation_20260916.md)과 [전환 원장](../tools/content_factory/review/batch_05_reconciliation_20260916.json)에 smalltalk 5행의 최초 승격 `daee6951`, 이후 `36ad3032`·`e4fa55ba`, 현재 행의 정확한 해시를 대조했다. 4행의 번역 9곳에서 근거 없는 수량, 추가된 절차, 담당자→기관 변경, 고장 시 대안 누락과 검토 보장 조건 누락을 고쳤다. 한국어·ID·레벨·라우팅은 그대로다. 기존 copy overlay의 최초 before를 보존했고, B2의 기존 의미 판정·reviewRevision 2와 새 문구의 nativeReviewRequired를 구분했다. 두 축 독립 모델 검토는 통과했지만 사람 문구 검수는 대기다.
+
+**Batch 05 전체 승격 검증은 아직 실패한다.** 문장 차이 5건은 해명됐지만 courseUnits 4건의 title·canDo·checkpoint 차이가 남아 있다. Git 전환은 `ca00acad2ff0d1470dc241bfdfb8d15685a7d1a0`으로 추적했으며 의미·기존 판정 근거 검토는 별도다. 검증기·원본 manifest·frozen draft를 바꾸거나 예외를 추가하지 않았다. 실제 검증기가 이 차이를 계속 거부하는 회귀 검사를 포함하며, 최신 과거 manifest 감사는 여전히 **10/24 통과, 14개 실패**다. 관련 Python 11개와 Flutter smalltalk·can-do 21개가 통과했다. Batch 03·05를 함께 포함한 전체 content_factory 1,244개도 실패 0·기존 skip 20으로 통과했고, 검사 전후 콘텐츠 521개 파일의 해시 변화는 없었다.
+
 2026-09-16 추가 지적 재검증: PR #370의 정확한 head `b0b005c3`에서 GitHub Content validator 1,219개(실패 0·skip 20), Playwright, iOS 및 나머지 필수 검사가 통과했다. CI run `35130402443`의 최초 취소 잡만 재시도했으며, Book의 두 번째 취소는 checkout 7분 35초 후 잡의 8분 제한 초과라는 GitHub annotation으로 확인했다. 세 번째 실행에서 전체 상태가 success가 되어 main `9b9ab83f3bba610e650fc20e0931bc553cc40258`로 병합했다. 이 main의 [CI 35138234900](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/35138234900)와 [Playwright 35138234844](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/35138234844)는 별도 확인 대상이다. Book 후속은 functions·app data·공유 fixtures만 sparse checkout하도록 하며, 루트 rules/indexes를 포함한 실제 테스트 의존성을 검증한다.
 
 같은 감사에서 main의 `grammar_b1_proportional_mankeum`은 예문·퀴즈가 쓰는 완료 동사형 `V-(으)ㄴ 만큼`을 패턴에서 누락한 사실을 확인했다. C4 hotfix는 해당 패턴·DE/EN 설명·KO/EN note와 검토 패킷을 맞추고 예문·퀴즈·ID·레벨은 유지한다. 누락을 잡는 회귀 검사를 먼저 실패로 재현한 뒤 문법·기준표 관련 62개 검사, content validator, can-do·교육과정 freshness를 로컬 통과했다. 사람 검수 및 원격 통합 완료 주장은 아니다.

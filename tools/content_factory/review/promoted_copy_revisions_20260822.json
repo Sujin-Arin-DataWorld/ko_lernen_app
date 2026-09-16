@@ -10,7 +10,8 @@
     "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
     "tools/content_factory/drafts/batch_18_manifest.json",
     "tools/content_factory/drafts/batch_20_manifest.json",
-    "tools/content_factory/drafts/batch_03_manifest.json"
+    "tools/content_factory/drafts/batch_03_manifest.json",
+    "tools/content_factory/drafts/batch_05_manifest.json"
   ],
   "method": "Beyond Humanizer promoted-copy reconciliation",
   "humanReviewStatus": "required_before_native-quality-claim",
@@ -4716,6 +4717,73 @@
       "beforeSha256": "a42bef8c6f9170c033d4b9eea77200477bca0d7012373a604d2c61373132bb60",
       "afterSha256": "d7aa98eca127017b1ff27485c45eb1cb2b9211d334dde26412d94ce386d505d1",
       "reviewReceipt": "tools/content_factory/review/batch_03_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0065",
+      "level": "b2",
+      "fields": [
+        "de",
+        "en",
+        "reply"
+      ],
+      "beforeSha256": "731576440bf6212bc8b5773ad638e12ab340981d7a4737d07ee7710e6000700d",
+      "afterSha256": "bd1bdb1ab836b6c5673c17a4843d29ad6d3635622cb034374b266d7c6e3374f3",
+      "reviewReceipt": "tools/content_factory/review/batch_05_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0013",
+      "level": "c1",
+      "fields": [
+        "de",
+        "followUp",
+        "reply"
+      ],
+      "beforeSha256": "0c890ddf4ef5979f66eafd3429af24c520b904b11dfcf24795846e308ba30122",
+      "afterSha256": "cacbf94c8042578668c9ce2868909539675075120e995acf76df7a796a831389",
+      "reviewReceipt": "tools/content_factory/review/batch_05_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0014",
+      "level": "c1",
+      "fields": [
+        "de",
+        "en",
+        "reply"
+      ],
+      "beforeSha256": "8288e8d90d7cbcb4c5f9de62d5df6181d683d0dd9a87b2f608e547c212be6ced",
+      "afterSha256": "7d31da0150a8510af35cd6fecf3b1aa54aac4b3ff1e39a5eed75cee0f1930cae",
+      "reviewReceipt": "tools/content_factory/review/batch_05_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0009",
+      "level": "c2",
+      "fields": [
+        "en"
+      ],
+      "beforeSha256": "540538c1e395800b2f75c9143262accfe9de9b129f2d4cf9974ee4ffb4f93512",
+      "afterSha256": "7507d07ed082ff880c133eea5490035cfcd0f0fb15c245768b2198441a5d6c48",
+      "reviewReceipt": "tools/content_factory/review/batch_05_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0014",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "reply"
+      ],
+      "beforeSha256": "cc1ff00f83aedc903343ba8c06889d4e5ed3df3fe061bd1343178ed56979018f",
+      "afterSha256": "a00791c1320d6d71162564dd3a78369539904a0453beacd3a79a71f0b1c107c2",
+      "reviewReceipt": "tools/content_factory/review/batch_05_reconciliation_20260916.json"
     }
   ],
   "routingEntries": [
