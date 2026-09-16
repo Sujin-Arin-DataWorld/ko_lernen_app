@@ -5030,6 +5030,147 @@
       "beforeSha256": "c326ab99d3fef52caf9df5cd8a49018a0eb1b06e508b5c9f9ebb44270e0a477f",
       "afterSha256": "edc879bacc29a332d5a70708651b9f9ce677ab0592bad012cdfcd71c54d43490",
       "reviewReceipt": "tools/content_factory/review/batch_12_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0408",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "e354fe179bcb4713b7ca6a973d24775c844f19f352073234b2337767b3ef0d0e",
+      "afterSha256": "df98c0e00fe8f921910658b5b1e3f77ad7cc026e319f07ce35d810bbbb12eae8",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_a2_available_if",
+      "level": "a2",
+      "fields": [
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "d7ac833425cdff32cf8316d0adb2dbe88084cb40b8a113d483b0acea7bca5127",
+      "afterSha256": "b27bfb1f3bd36def592816c5f2a86b89ca2cc5afc8e8bccfcb7bb7b975002a1c",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b1_soft_request_batch19",
+      "level": "b1",
+      "fields": [
+        "example_german",
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "7c650fdb61ebf6f57930a8d0ae037280fb04abf52cdc504a6bb65baeb23862b2",
+      "afterSha256": "3577d879af9ee8ec07f75175b54e33843f4d1b3950c170d423ae360c1664cd3a",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b1_reason_context",
+      "level": "b1",
+      "fields": [
+        "note",
+        "note_en",
+        "quiz_distractor_ids",
+        "quiz_focus_en"
+      ],
+      "beforeSha256": "4e56925dc2dfd5c00467c07b5f84eace2cdeafcd537266d73e1c16d326c00710",
+      "afterSha256": "fab10f50443981796e8d3f19293fb8f57f025a54f6eef8dd3fc30dc655729980",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0320",
+      "level": "a1",
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "85b50196d4c1c97df1111f506892a3ef066ee2d66446f1688d3df140a34aadff",
+      "afterSha256": "f8767d811d785ad839ec56c2588e4c0b8d4e190ece41730d8872964d4b4df6f4",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0324",
+      "level": "a1",
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "2def6235f9b0f87c4d5bb4002fc856bc18e499d6bb45687d8ff227a4de2276ea",
+      "afterSha256": "ed617d3f3149c152c94096abce280faea57ebb2e380a3bc5cdcb332cdd264752",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0331",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "50b1db29263aabf5e15b37a330f5e61b24e4b0e969449612832751463c6cfb91",
+      "afterSha256": "649da38da109e2697e81c13e3e7d565bd7c213556292132f32434acfb2040649",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0315",
+      "level": "a1",
+      "fields": [
+        "distractors",
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "f895f4b2187a4809431d6a05635e14303c0dd1903040b2d473cc728823cd261a",
+      "afterSha256": "01422aaa0e28b53b0c0b1938c0bfbb24fbbb7a81183264c28f45a38b562e5d55",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0316",
+      "level": "a1",
+      "fields": [
+        "distractors"
+      ],
+      "beforeSha256": "a123f640fcff328a6a9b9e215ac6c3f997babb8f66938f0ebdcfd80ba9ec91b3",
+      "afterSha256": "a56be4eda521d69d668ae1240680696e783cc54c86174208de2127abe1799ac0",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0321",
+      "level": "a1",
+      "fields": [
+        "distractors"
+      ],
+      "beforeSha256": "6adeb079dbb21713011becdb4a5d4d73e65668c5ae0a247f95e7c4830cf814ff",
+      "afterSha256": "a7eeae7a0ccde0e6c499604eb69469d3fc161bd17092cddb64c41e0feca6f515",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
     }
   ],
   "routingEntries": [
