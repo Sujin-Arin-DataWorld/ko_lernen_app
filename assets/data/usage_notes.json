@@ -404,9 +404,9 @@
       "id": "vocab_b1_0252",
       "level": "B1",
       "nuance": {
-        "ko": "퇴거하다는 스스로 원해서가 아니라 어쩔 수 없이 공간을 비워야 하는 상황에서 쓰는 무게감 있는 말이다.",
-        "de": "퇴거하다 klingt schwerwiegend, fast wie eine Anordnung, einen Ort nicht freiwillig, sondern gezwungenermassen zu räumen.",
-        "en": "퇴거하다 has a heavy, almost official ring to it, describing having no choice but to clear out of a place."
+        "ko": "퇴거하다는 계약 기간이 끝나거나 법적 명령에 따라 살던 곳을 비운다는 뜻이며, 주로 임대차나 법률 문서에서 쓴다.",
+        "de": "퇴거하다 bedeutet, eine Wohnung wegen eines auslaufenden Vertrags oder einer behördlichen Anordnung zu räumen; man findet es vor allem in Miet- und Rechtsdokumenten.",
+        "en": "퇴거하다 means vacating a residence because a lease has ended or a legal order requires it; it appears mainly in rental and legal documents."
       },
       "situation": {
         "ko": "임대 계약 종료나 재개발 등 공식적인 절차에서 언제까지 나가야 하는지 안내할 때 쓴다.",
@@ -575,9 +575,9 @@
       "id": "vocab_b1_0438",
       "level": "B1",
       "nuance": {
-        "ko": "이 말은 한 반 전체를 꾸준히 챙기고 책임진다는 무게감이 느껴지는 구체적인 호칭이다.",
-        "de": "Dieser Ausdruck vermittelt das Gewicht, dauerhaft für eine ganze Klasse verantwortlich zu sein.",
-        "en": "This term carries the weight of being continuously responsible for an entire class."
+        "ko": "이 말은 한 학급을 정기적으로 맡아 학생을 관리하는 교사를 가리키며, 학교 안내문이나 학부모 상담에서 자주 쓴다.",
+        "de": "담임 선생님 bezeichnet die Lehrkraft, die dauerhaft für eine Klasse zuständig ist; der Ausdruck taucht oft in Schulmitteilungen oder Elterngesprächen auf.",
+        "en": "담임 선생님 refers to the teacher regularly in charge of a class; it comes up often in school notices or parent-teacher meetings."
       },
       "situation": {
         "ko": "학부모 상담이나 학교 행사에서 그 반을 맡은 특정 선생님을 콕 집어 말할 때 쓴다.",
@@ -1259,9 +1259,9 @@
       "id": "vocab_a2_0367",
       "level": "B1",
       "nuance": {
-        "ko": "무제한은 데이터나 이용 횟수를 걱정 없이 마음껏 쓸 수 있다는 안도감을 주는 실용적인 말이다.",
-        "de": "무제한 ist ein praktisches Wort, das in Werbung oder Hinweisen betont, dass ein früheres Limit weggefallen ist.",
-        "en": "무제한 is a practical word used in ads or notices to emphasize that a previous limit no longer applies."
+        "ko": "무제한은 요금제나 서비스 이용에서 정해진 한도 없이 계속 쓸 수 있다는 뜻이며, 광고나 상품 설명에서 자주 보인다.",
+        "de": "무제한 bedeutet, dass man einen Tarif oder Dienst ohne festgelegtes Limit weiter nutzen kann; man sieht es häufig in Werbung oder Produktbeschreibungen.",
+        "en": "무제한 means being able to keep using a plan or service with no set limit; it shows up often in ads and product descriptions."
       },
       "situation": {
         "ko": "휴대폰 요금제, 뷔페, 구독 서비스처럼 정해진 횟수나 양이 없다고 알릴 때 쓴다.",
@@ -1316,9 +1316,9 @@
       "id": "vocab_a2_0435",
       "level": "B1",
       "nuance": {
-        "ko": "마감하다는 정해진 시점에 어떤 일이나 영업을 공식적으로 종료한다는 뜻을 담고 있다.",
-        "de": "마감하다 bedeutet, eine Tätigkeit oder den Geschäftsbetrieb zu einem festgelegten Zeitpunkt offiziell zu beenden.",
-        "en": "마감하다 conveys formally ending an activity or business operation at a set point in time."
+        "ko": "가게나 식당이 하루 일과를 마치고 문을 닫거나 신청 접수를 그만 받는 시점을 가리키는 동사이며, 마감 시간이라는 명사 꼴로도 자주 쓴다.",
+        "de": "마감하다 bedeutet, eine feste Tätigkeit wie den Tagesbetrieb oder die Annahme von Anmeldungen pünktlich zu beenden; man hört es oft in Läden oder Restaurants.",
+        "en": "마감하다 means ending a set activity, like a day's business or accepting entries, right on time; it is heard often in shops and restaurants."
       },
       "situation": {
         "ko": "가게 영업, 서류 접수, 신청처럼 정해진 마감 시간이 있는 일을 끝낼 때 쓴다.",
@@ -1348,7 +1348,7 @@
         {
           "headword": "닫다",
           "vocabId": "vocab_a1_0112",
-          "ko": "마감하다는 정해진 시간에 영업이나 접수를 formal하게 끝낸다는 뜻이고, 닫다는 문이나 가게를 그냥 물리적으로 닫는 동작이다.",
+          "ko": "마감하다는 정해진 시간에 영업이나 접수를 공식적으로 끝낸다는 뜻이고, 닫다는 문이나 가게를 그냥 물리적으로 닫는 동작이다.",
           "de": "마감하다 bedeutet, etwas zu einer festen Frist formell zu beenden, 닫다 ist nur das physische Zumachen einer Tür oder eines Ladens.",
           "en": "마감하다 means formally ending something by a set time, while 닫다 is just the physical act of shutting a door or shop."
         }
@@ -1430,9 +1430,9 @@
       "id": "vocab_b1_0009",
       "level": "B1",
       "nuance": {
-        "ko": "해결은 문제의 뿌리까지 손을 써서 말끔히 끝냈다는 적극적인 느낌을 준다.",
-        "de": "해결 vermittelt den aktiven Eindruck, ein Problem bis zur Wurzel angepackt und sauber beendet zu haben.",
-        "en": "해결 gives an active impression of having tackled a problem down to its root and cleanly finished it."
+        "ko": "해결은 문제나 갈등을 근본적인 원인까지 손을 써서 완전히 끝내는 것을 가리키며, 단순한 대꾸가 아니라 문제 자체를 없애는 과정을 뜻한다.",
+        "de": "해결 bedeutet, ein Problem oder einen Konflikt bis zur eigentlichen Ursache anzugehen und vollständig zu beenden; es meint den Vorgang, das Problem selbst zu beseitigen, nicht nur eine kurze Erwiderung.",
+        "en": "해결 refers to tackling a problem or conflict down to its root cause and fully ending it; it means the process of removing the problem itself, not just a brief reply."
       },
       "situation": {
         "ko": "문제, 갈등, 어려움처럼 해결이 필요한 상황을 이야기할 때 쓴다.",
@@ -1487,9 +1487,9 @@
       "id": "vocab_b1_0010",
       "level": "B1",
       "nuance": {
-        "ko": "정치는 국가나 사회를 운영하는 공적인 활동을 formal하게 가리키는 말이라 일상 대화에서는 조심스럽게 쓴다.",
-        "de": "정치 bezeichnet formell die öffentliche Tätigkeit, einen Staat oder eine Gesellschaft zu leiten, im Alltag benutzt man es eher vorsichtig.",
-        "en": "정치 often gets a cautious, guarded tone in casual talk, even though it formally names the whole public business of running a country."
+        "ko": "정치는 국가나 사회를 운영하는 공적인 활동을 가리키는 말이며, 일상 대화에서는 조심스럽게 쓴다.",
+        "de": "정치 bezeichnet die öffentlichen Angelegenheiten, mit denen ein Staat oder eine Gesellschaft geführt wird; im Alltag spricht man eher vorsichtig darüber.",
+        "en": "정치 names the public business of governing a country or society; in casual conversation, people tend to bring it up cautiously."
       },
       "situation": {
         "ko": "뉴스나 토론에서 국가 운영과 관련된 주제를 이야기할 때 쓴다.",
@@ -1633,7 +1633,7 @@
         {
           "headword": "절차",
           "vocabId": null,
-          "ko": "과정은 일이 진행되는 여러 단계 전체를 경험 중심으로 가리키고, 절차는 그 단계를 formal하게 정리한 규칙이다.",
+          "ko": "과정은 일이 진행되는 여러 단계 전체를 경험 중심으로 가리키고, 절차는 그 단계를 공식적으로 정리한 규칙이다.",
           "de": "과정 beschreibt erfahrungsnah den ganzen Ablauf, 절차 meint die formell festgelegte Reihenfolge der Schritte.",
           "en": "과정 experientially describes the whole flow of stages, while 절차 is the formally fixed set of rules for that order."
         }
@@ -1772,12 +1772,12 @@
       "id": "vocab_b1_0023",
       "level": "B1",
       "nuance": {
-        "ko": "의견은 즉흥적인 느낌이 아니라 어느 정도 정리된 입장을 formal하게 밝힐 때 쓰는 말이다.",
+        "ko": "의견은 즉흥적인 느낌이 아니라 어느 정도 정리된 입장을 공식적으로 밝힐 때 쓰는 말이다.",
         "de": "의견 benutzt man, um formell einen einigermassen durchdachten Standpunkt zu äussern, nicht nur einen spontanen Eindruck.",
         "en": "의견 is used to formally state a somewhat considered stance, rather than just a spontaneous impression."
       },
       "situation": {
-        "ko": "회의나 토론에서 각자의 입장을 formal하게 물어볼 때 쓴다.",
+        "ko": "회의나 토론에서 각자의 입장을 공식적으로 물어볼 때 쓴다.",
         "de": "Man benutzt es in Besprechungen oder Diskussionen, wenn man formell nach dem jeweiligen Standpunkt fragt.",
         "en": "You use it in meetings or discussions to formally ask for each person's stance."
       },
@@ -2114,9 +2114,9 @@
       "id": "vocab_b1_0043",
       "level": "B1",
       "nuance": {
-        "ko": "인정하다는 스스로 옳다고 판단해 받아들인다는 다소 진지한 태도를 담고 있다.",
-        "de": "인정하다 trägt eine eher ernste Haltung in sich, etwas nach eigener Überzeugung als richtig zu akzeptieren.",
-        "en": "인정하다 carries a somewhat serious attitude of accepting something as correct based on one's own judgment."
+        "ko": "인정하다는 사실이나 자신의 잘못을 옳다고 받아들여 말로 표현하는 것을 뜻하며, 실수를 인정하다처럼 자기 잘못에 대해 쓸 때가 많다.",
+        "de": "인정하다 bedeutet, eine Tatsache oder den eigenen Fehler als richtig anzuerkennen und dies auszusprechen; es wird oft im Zusammenhang mit eigenen Fehlern benutzt, etwa 실수를 인정하다 (einen Fehler zugeben).",
+        "en": "인정하다 means acknowledging a fact or one's own mistake as true and stating it; it is often used about one's own errors, as in 실수를 인정하다 (to admit a mistake)."
       },
       "situation": {
         "ko": "실수나 잘못을 스스로 밝히거나 상대의 말이 맞다고 할 때 쓴다.",
@@ -2176,7 +2176,7 @@
         "en": "따라서 is a formal, written-register connector used to continue a logical line of reasoning."
       },
       "situation": {
-        "ko": "보고서나 발표처럼 근거에서 결론으로 formal하게 이어질 때 쓴다.",
+        "ko": "보고서나 발표처럼 근거에서 결론으로 격식 있게 이어질 때 쓴다.",
         "de": "Man benutzt es in Berichten oder Präsentationen, wenn man formell von einer Begründung zu einer Schlussfolgerung übergeht.",
         "en": "You use it in reports or presentations to formally move from a reason to a conclusion."
       },
@@ -2203,7 +2203,7 @@
         {
           "headword": "그래서",
           "vocabId": null,
-          "ko": "따라서는 앞 내용을 근거로 결론을 formal하게 이끌어 낼 때 쓰고, 그래서는 같은 흐름을 일상 대화에서 훨씬 가볍게 쓴다.",
+          "ko": "따라서는 앞 내용을 근거로 결론을 격식 있게 이끌어 낼 때 쓰고, 그래서는 같은 흐름을 일상 대화에서 훨씬 가볍게 쓴다.",
           "de": "따라서 zieht formell eine Schlussfolgerung aus dem Vorherigen, 그래서 druckt denselben Zusammenhang viel lockerer im Alltag aus.",
           "en": "따라서 formally draws a conclusion from what precedes, while 그래서 expresses the same flow much more casually in everyday speech."
         }
@@ -2228,12 +2228,12 @@
       "id": "vocab_b1_0057",
       "level": "B1",
       "nuance": {
-        "ko": "반면은 두 내용의 차이를 formal한 글에서 또렷하게 드러낼 때 쓰는 표현이다.",
+        "ko": "반면은 두 내용의 차이를 격식 있는 글에서 또렷하게 드러낼 때 쓰는 표현이다.",
         "de": "반면 benutzt man in formellen Texten, um den Unterschied zwischen zwei Inhalten deutlich hervorzuheben.",
         "en": "반면 is used in formal writing to clearly highlight the difference between two pieces of content."
       },
       "situation": {
-        "ko": "두 가지를 비교하면서 장단점이나 차이를 formal하게 설명할 때 쓴다.",
+        "ko": "두 가지를 비교하면서 장단점이나 차이를 격식 있게 설명할 때 쓴다.",
         "de": "Man benutzt es, wenn man zwei Dinge vergleicht und formell Vor- und Nachteile oder Unterschiede erklärt.",
         "en": "You use it when comparing two things and formally explaining their pros, cons, or differences."
       },
@@ -2260,7 +2260,7 @@
         {
           "headword": "하지만",
           "vocabId": null,
-          "ko": "반면은 두 내용을 formal하게 대조할 때 쓰고, 하지만은 같은 대조를 일상 대화에서 훨씬 흔하게 쓴다.",
+          "ko": "반면은 두 내용을 격식 있게 대조할 때 쓰고, 하지만은 같은 대조를 일상 대화에서 훨씬 흔하게 쓴다.",
           "de": "반면 stellt zwei Inhalte formell gegenüber, 하지만 druckt denselben Gegensatz viel alltäglicher aus.",
           "en": "반면 formally contrasts two pieces of content, while 하지만 expresses the same contrast much more commonly in everyday speech."
         }
@@ -2290,7 +2290,7 @@
         "en": "영상 evokes motion and sound, like a clip you watch play out rather than a single frame you simply look at."
       },
       "situation": {
-        "ko": "유튜브, SNS, 뉴스처럼 움직이는 영상 콘텐츠를 이야기할 때 쓴다.",
+        "ko": "유튜브, 소셜 미디어, 뉴스처럼 움직이는 영상 콘텐츠를 이야기할 때 쓴다.",
         "de": "Man benutzt es bei YouTube, sozialen Medien oder Nachrichten, wenn es um bewegte Videoinhalte geht.",
         "en": "You use it for YouTube, social media, or news when talking about moving video content."
       },
@@ -2513,12 +2513,12 @@
       "id": "vocab_b1_0069",
       "level": "B1",
       "nuance": {
-        "ko": "보고하다는 자신이 맡은 일의 진행 상황이나 결과를 윗사람에게 공식적으로 전달한다는 뜻을 담고 있다.",
-        "de": "보고하다 bedeutet, den Stand oder das Ergebnis der eigenen Aufgabe einer vorgesetzten Person offiziell mitzuteilen.",
-        "en": "보고하다 conveys formally communicating the status or result of one's own task to a superior."
+        "ko": "보고하다는 맡은 일의 중간 상황이나 결과를 상사나 담당 부서에 문서나 말로 전달하는 것을 가리키며, 회사 업무에서 자주 쓴다.",
+        "de": "보고하다 bedeutet, den Zwischenstand oder das Ergebnis einer eigenen Aufgabe der zuständigen Stelle mündlich oder schriftlich mitzuteilen; man benutzt es oft im Berufsalltag.",
+        "en": "보고하다 refers to conveying the progress or result of one's own task to a supervisor or department, in speech or in writing; it comes up often in office work."
       },
       "situation": {
-        "ko": "직장에서 상사나 팀에게 진행 상황을 formal하게 전달할 때 쓴다.",
+        "ko": "직장에서 상사나 팀에게 진행 상황을 공식적으로 전달할 때 쓴다.",
         "de": "Man benutzt es im Beruf, wenn man Vorgesetzten oder dem Team formell den Stand einer Sache mitteilt.",
         "en": "You use it at work when formally telling a boss or team the status of something."
       },
@@ -2545,7 +2545,7 @@
         {
           "headword": "알리다",
           "vocabId": "vocab_a1_0740",
-          "ko": "보고하다는 진행 상황이나 결과를 윗사람에게 formal하게 알린다는 뜻이고, 알리다는 대상이나 격식에 상관없이 정보를 전하는 훨씬 넓은 말이다.",
+          "ko": "보고하다는 진행 상황이나 결과를 윗사람에게 공식적으로 알린다는 뜻이고, 알리다는 대상이나 격식에 상관없이 정보를 전하는 훨씬 넓은 말이다.",
           "de": "보고하다 heißt, einer vorgesetzten Person formell den Stand mitzuteilen, 알리다 ist das allgemeine Wort, um irgendjemandem etwas mitzuteilen.",
           "en": "보고하다 means formally informing a superior of status, while 알리다 is the general word for telling anyone anything."
         }
@@ -2773,7 +2773,7 @@
         {
           "headword": "기호",
           "vocabId": null,
-          "ko": "취향은 개인의 기호를 일상적으로 가리키는 말이고, 기호는 같은 의미를 조사나 formal한 글에서 쓰는 말이다.",
+          "ko": "취향은 개인의 기호를 일상적으로 가리키는 말이고, 기호는 같은 의미를 조사나 공문서 같은 글에서 쓰는 말이다.",
           "de": "취향 ist das alltägliche Wort für persönliche Vorlieben, 기호 druckt dasselbe in Umfragen oder formellen Texten aus.",
           "en": "취향 is the everyday word for personal preference, while 기호 expresses the same in surveys or formal writing."
         }
@@ -2969,9 +2969,9 @@
       "id": "vocab_b1_0087",
       "level": "B1",
       "nuance": {
-        "ko": "공통점은 서로 달라 보이던 두 대상에게서 뜻밖에 겹치는 부분을 발견했을 때 반가운 마음으로 쓰는 말이다.",
-        "de": "공통점 benutzt man mit einem Gefühl der Freude, wenn man bei zwei scheinbar verschiedenen Dingen unerwartet eine Überschneidung entdeckt.",
-        "en": "공통점 is used with a pleased feeling when an unexpected overlap is discovered between two seemingly different things."
+        "ko": "공통점은 서로 다른 두 대상이 함께 가지고 있는 부분을 가리키며, 사람이나 의견을 비교할 때 자주 쓴다.",
+        "de": "공통점 bezeichnet das, was zwei unterschiedliche Dinge gemeinsam haben; man benutzt es oft, wenn man Personen oder Meinungen vergleicht.",
+        "en": "공통점 refers to what two different things have in common; it is often used when comparing people or opinions."
       },
       "situation": {
         "ko": "두 사람이나 대상을 비교하면서 비슷한 부분을 찾을 때 쓴다.",
@@ -3083,9 +3083,9 @@
       "id": "vocab_b1_0110",
       "level": "B1",
       "nuance": {
-        "ko": "문학은 책 한 권이 아니라 글로 이루어진 예술 전체를 품는 무게 있는 말이다.",
-        "de": "문학 klingt gewichtig, fast wie ein Wort aus dem Deutschunterricht, das die Schriftkunst als Ganzes umfasst.",
-        "en": "문학 has a weighty, almost classroom-lecture ring to it, covering the art of writing as a whole."
+        "ko": "문학은 이야기 글이나 시, 수필처럼 문자로 표현된 예술 갈래 전체를 가리키며, 책 한 권이 아니라 장르 전체를 뜻한다.",
+        "de": "문학 klingt akademisch und fasst geschriebene Kunst als Ganzes zusammen, von Erzähltexten über Gedichte bis zu Essays.",
+        "en": "문학 refers to the entire art genre made up of written works, such as narrative texts, poems, and essays, not a single book."
       },
       "situation": {
         "ko": "책이나 글쓰기를 예술 전체의 관점에서 이야기할 때 쓴다.",
@@ -3140,9 +3140,9 @@
       "id": "vocab_b1_0111",
       "level": "B1",
       "nuance": {
-        "ko": "전통은 한 세대에 그치지 않고 오랜 시간에 걸쳐 다음 세대로 전해져 온 문화적 무게감을 담고 있다.",
-        "de": "전통 trägt das kulturelle Gewicht von etwas in sich, das nicht bei einer Generation stehen blieb, sondern über lange Zeit weitergegeben wurde.",
-        "en": "전통 carries the cultural weight of something that did not stop with one generation but was passed down over a long time."
+        "ko": "전통은 한 사회나 집단에서 여러 세대에 걸쳐 이어져 내려온 문화나 방식을 가리키며, 명절이나 지역 축제와 관련된 글에서 자주 쓴다.",
+        "de": "전통 bezeichnet eine Kultur oder Weise, die in einer Gesellschaft über mehrere Generationen weitergegeben wurde; man findet es oft in Texten über Feiertage oder lokale Feste.",
+        "en": "전통 refers to a culture or way of doing things passed down over generations within a society; it appears often in writing about holidays or local festivals."
       },
       "situation": {
         "ko": "명절, 축제, 지역 문화처럼 오래 이어진 방식을 이야기할 때 쓴다.",
@@ -3254,9 +3254,9 @@
       "id": "vocab_b1_0132",
       "level": "B1",
       "nuance": {
-        "ko": "벌금은 규칙을 어긴 대가로 내야 하는 돈이라는 다소 formal하고 불쾌한 뉘앙스를 담고 있다.",
-        "de": "벌금 trägt eine eher formelle, unangenehme Nuance in sich: Geld, das man als Konsequenz eines Regelverstosses zahlen muss.",
-        "en": "벌금 carries a rather formal, unpleasant nuance: money one must pay as a consequence of breaking a rule."
+        "ko": "벌금은 법이나 규칙을 어겼을 때 내야 하는 돈을 가리키며, 부정적인 어감으로 주차나 속도위반 같은 구체적인 위반 상황과 함께 자주 쓴다.",
+        "de": "벌금 bezeichnet Geld, das man bei einem Gesetzes- oder Regelverstoß zahlen muss; es hat einen negativen Beiklang und wird oft zusammen mit konkreten Verstößen wie Falschparken genannt.",
+        "en": "벌금 refers to money one must pay for breaking a law or rule; it carries a negative connotation and is often mentioned alongside specific violations like illegal parking."
       },
       "situation": {
         "ko": "주차 위반, 속도위반처럼 규칙을 어겨서 돈을 내야 할 때 쓴다.",
@@ -3286,7 +3286,7 @@
         {
           "headword": "과태료",
           "vocabId": null,
-          "ko": "벌금은 법을 어겼을 때 formal하게 내는 돈을 가리키고, 과태료는 그중 형사처벌이 아닌 행정 규칙 위반에 매기는 돈을 가리킨다.",
+          "ko": "벌금은 법을 어겼을 때 공식적으로 내는 돈을 가리키고, 과태료는 그중 형사처벌이 아닌 행정 규칙 위반에 매기는 돈을 가리킨다.",
           "de": "벌금 ist formell das Geld für einen Gesetzesverstoß, 과태료 ist speziell das Geld für einen Verstoß gegen eine Verwaltungsvorschrift ohne Strafverfahren.",
           "en": "벌금 formally is money paid for breaking the law, while 과태료 specifically is money for an administrative rule violation, not a criminal penalty."
         }
@@ -3653,9 +3653,9 @@
       "id": "vocab_b1_0154",
       "level": "B1",
       "nuance": {
-        "ko": "처방전은 의사의 판단이 담긴 formal한 지시 문서라는 권위 있는 느낌을 준다.",
-        "de": "처방전 vermittelt den autoritativen Eindruck eines formellen Anweisungsdokuments, das die Einschätzung eines Arztes enthält.",
-        "en": "처방전 gives the authoritative impression of a formal instruction document carrying a doctor's judgment."
+        "ko": "처방전은 의사가 환자에게 필요한 약을 지정해 약국에 전달하는 문서를 가리키며, 병원 진료 뒤 약국에서 약을 받을 때 필요하다.",
+        "de": "처방전 bezeichnet das Dokument, mit dem ein Arzt die benötigten Medikamente für die Apotheke festlegt; man braucht es, um nach einem Arztbesuch in der Apotheke Medikamente zu bekommen.",
+        "en": "처방전 refers to the document a doctor uses to specify needed medication for the pharmacy; it is required to get medicine at a pharmacy after seeing a doctor."
       },
       "situation": {
         "ko": "병원 진료 후 약국에서 약을 받기 위해 필요한 서류를 말할 때 쓴다.",
@@ -3886,7 +3886,7 @@
         "en": "업무 carries a formal color: not personal matters, but the share one is responsible for handling at work."
       },
       "situation": {
-        "ko": "직장에서 맡은 일이나 업무량을 formal하게 이야기할 때 쓴다.",
+        "ko": "직장에서 맡은 일이나 업무량을 공식적으로 이야기할 때 쓴다.",
         "de": "Man benutzt es im Beruf, wenn man formell über die eigenen Aufgaben oder das Arbeitspensum spricht.",
         "en": "You use it at work when formally discussing one's tasks or workload."
       },
@@ -3913,7 +3913,7 @@
         {
           "headword": "일",
           "vocabId": "vocab_a1_0130",
-          "ko": "업무는 직장에서 맡아서 처리해야 하는 일을 formal하게 가리키고, 일은 직장 안팎을 가리지 않는 훨씬 넓고 일상적인 말이다.",
+          "ko": "업무는 직장에서 맡아서 처리해야 하는 일을 공식적으로 가리키고, 일은 직장 안팎을 가리지 않는 훨씬 넓고 일상적인 말이다.",
           "de": "업무 ist formell die Aufgabe im Beruf, 일 ist das allgemeine Wort für Arbeit jeder Art.",
           "en": "업무 formally means tasks at work, while 일 is the general everyday word for work of any kind."
         }
@@ -3943,7 +3943,7 @@
         "en": "근무하다 gives a formal, stable feeling of being employed at a fixed, designated place."
       },
       "situation": {
-        "ko": "회사나 직장에서 formal하게 근무 형태나 시간을 말할 때 쓴다.",
+        "ko": "회사나 직장에서 격식을 갖춰 근무 형태나 시간을 말할 때 쓴다.",
         "de": "Man benutzt es im Beruf, wenn man formell über die Arbeitsform oder -zeit spricht.",
         "en": "You use it at work when formally describing the type or hours of employment."
       },
@@ -3970,7 +3970,7 @@
         {
           "headword": "일하다",
           "vocabId": "vocab_a1_0114",
-          "ko": "근무하다는 정해진 곳에서 정해진 시간 동안 직장 일을 한다는 formal한 말이고, 일하다는 어디서든 몸을 움직여 일한다는 훨씬 넓은 말이다.",
+          "ko": "근무하다는 정해진 곳에서 정해진 시간 동안 직장 일을 한다는 격식 있는 말이고, 일하다는 어디서든 몸을 움직여 일한다는 훨씬 넓은 말이다.",
           "de": "근무하다 ist formell an einem festen Ort und zu festen Zeiten tätig zu sein, 일하다 ist das allgemeine Wort für Arbeiten.",
           "en": "근무하다 formally means working at a fixed place during fixed hours, while 일하다 is the general word for working anywhere."
         }
@@ -3995,9 +3995,9 @@
       "id": "vocab_b1_0171",
       "level": "B1",
       "nuance": {
-        "ko": "보고서는 개인 메모가 아니라 회사에서 정식으로 갖춰 제출하는 문서라는 formal한 무게감을 담고 있다.",
-        "de": "보고서 trägt das formelle Gewicht eines Dokuments in sich, das man in einer Firma offiziell aufbereitet und einreicht, nicht eine private Notiz.",
-        "en": "보고서 carries the formal weight of a document officially prepared and submitted at a company, not a personal note."
+        "ko": "보고서는 업무 결과나 조사 내용을 정리해 회사에 정식으로 제출하는 문서를 가리키며, 형식과 절차를 갖춰야 하는 자리에서 쓴다.",
+        "de": "보고서 bezeichnet ein Dokument, in dem man Arbeitsergebnisse oder Rechercheinhalte zusammenfasst und offiziell bei der Firma einreicht; es wird dort benutzt, wo eine feste Form und ein Verfahren eingehalten werden müssen.",
+        "en": "보고서 refers to a document summarizing work results or research findings, submitted officially at a company; it is used where a set form and procedure must be followed."
       },
       "situation": {
         "ko": "업무 결과나 조사 내용을 정리해서 제출하는 문서를 말할 때 쓴다.",
@@ -4052,12 +4052,12 @@
       "id": "vocab_b1_0172",
       "level": "B1",
       "nuance": {
-        "ko": "서명하다는 자신의 이름을 걸고 내용에 formal하게 책임진다는 무게감 있는 행위를 가리킨다.",
-        "de": "서명하다 bezeichnet die gewichtige Handlung, mit dem eigenen Namen formell für den Inhalt einzustehen.",
-        "en": "서명하다 refers to the weighty act of putting one's own name on the line to formally stand behind the content."
+        "ko": "서명하다는 문서 내용에 동의한다는 뜻으로 자신의 이름을 직접 써넣는 것을 가리키며, 대출이나 임대 계약처럼 격식이 필요한 자리에서 쓴다.",
+        "de": "서명하다 bedeutet, den eigenen Namen von Hand in ein Dokument einzutragen, um der Zustimmung zum Inhalt Ausdruck zu verleihen; man benutzt es bei formellen Anlässen wie Kredit- oder Mietverträgen.",
+        "en": "서명하다 refers to writing one's own name by hand into a document to express agreement with its content; it is used on formal occasions like loan or lease contracts."
       },
       "situation": {
-        "ko": "계약서, 동의서처럼 이름을 formal하게 써야 하는 상황에서 쓴다.",
+        "ko": "계약서, 동의서처럼 이름을 정식으로 써야 하는 상황에서 쓴다.",
         "de": "Man benutzt es in Situationen, in denen man formell seinen Namen auf Verträge oder Einwilligungen schreiben muss.",
         "en": "You use it in situations requiring your name formally on contracts or consent forms."
       },
@@ -4166,9 +4166,9 @@
       "id": "vocab_b1_0186",
       "level": "B1",
       "nuance": {
-        "ko": "회비는 모임에 속한 사람이라면 으레 정기적으로 부담하는 돈이라는 당연함을 담고 있다.",
-        "de": "회비 trägt die Selbstverständlichkeit in sich, dass jedes Mitglied einer Gruppe regelmässig einen Beitrag zahlt.",
-        "en": "회비 carries the sense that anyone belonging to a group naturally pays it on a regular basis."
+        "ko": "회비는 특정 모임이나 단체에 속한 사람들이 활동 자금을 함께 부담하려고 내는 돈을 가리키며, 동호회에서는 보통 다달이 걷는다.",
+        "de": "회비 bezeichnet Geld, das Mitglieder einer bestimmten Gruppe oder eines Vereins gemeinsam für die Finanzierung der Aktivitäten aufbringen; in Clubs wird es meist monatlich eingesammelt.",
+        "en": "회비 refers to money members of a particular group or club chip in together to fund activities; in clubs it is usually collected monthly."
       },
       "situation": {
         "ko": "동호회나 모임에서 정기적으로 걷는 돈을 안내할 때 쓴다.",
@@ -4280,9 +4280,9 @@
       "id": "vocab_b1_0187",
       "level": "B1",
       "nuance": {
-        "ko": "외식은 부엌을 벗어나 식당에서 대접받듯 밥을 먹는다는 작은 이벤트 같은 느낌을 준다.",
-        "de": "외식 vermittelt das Gefühl eines kleinen Ereignisses, die eigene Küche zu verlassen und im Restaurant bedient zu werden.",
-        "en": "외식 gives the feeling of a small event: stepping out of one's own kitchen to be served a meal at a restaurant."
+        "ko": "외식은 집이 아닌 식당에 가서 밥을 사 먹는 것을 가리키며, 가족이나 친구와 함께 식당에서 식사할 때 쓴다.",
+        "de": "외식 bedeutet, in einem Restaurant statt zu Hause zu essen; man benutzt es, wenn man mit Familie oder Freunden im Restaurant isst.",
+        "en": "외식 refers to eating at a restaurant rather than at home; it is used when dining out with family or friends."
       },
       "situation": {
         "ko": "가족이나 친구와 함께 식당에서 밥을 먹기로 할 때 쓴다.",
@@ -4565,9 +4565,9 @@
       "id": "vocab_b1_0212",
       "level": "B1",
       "nuance": {
-        "ko": "맡기다는 무언가를 다른 사람 손에 건네며 그 처리를 믿고 부탁한다는 신뢰의 뜻을 담고 있다.",
-        "de": "맡기다 trägt die Bedeutung von Vertrauen in sich, etwas in die Hände einer anderen Person zu geben und auf deren Erledigung zu bauen.",
-        "en": "맡기다 has the feel of letting go of the reins and leaving the driving to someone you trust."
+        "ko": "맡기다는 자신이 직접 하지 않고 다른 사람 손에 넘겨서 처리를 부탁하는 것을 가리키며, 가방이나 아이를 맡기다처럼 구체적인 대상과 함께 자주 쓴다.",
+        "de": "맡기다 bedeutet, etwas nicht selbst zu erledigen, sondern es in die Hände einer anderen Person zu geben und um die Erledigung zu bitten; man benutzt es oft mit konkreten Objekten, etwa 가방을 맡기다 (eine Tasche abgeben) oder 아이를 맡기다 (ein Kind in Obhut geben).",
+        "en": "맡기다 refers to not doing something oneself but putting it into someone else's hands and asking them to take care of it; it is often used with concrete objects, as in 가방을 맡기다 (to check a bag) or 아이를 맡기다 (to leave a child in someone's care)."
       },
       "situation": {
         "ko": "짐을 보관소에 맡기거나, 일을 다른 사람에게 넘길 때 쓴다.",
@@ -5021,9 +5021,9 @@
       "id": "vocab_b1_0271",
       "level": "B1",
       "nuance": {
-        "ko": "협조하다는 자신이 앞장서기보다 다른 사람이 이끄는 일에 필요한 만큼 힘을 보탠다는 조력의 느낌을 담고 있다.",
-        "de": "협조하다 trägt das Gefühl von Unterstützung in sich, im nötigen Umfang zu einer von jemand anderem geleiteten Sache beizutragen, statt selbst die Führung zu übernehmen.",
-        "en": "협조하다 carries a sense of assistance, contributing as needed to something someone else is leading, rather than taking charge oneself."
+        "ko": "협조하다는 정해진 절차나 요청에 맞춰 필요한 만큼 손을 보태는 것을 가리키며, 회사 공지문에서 협조 부탁드립니다처럼 자주 쓴다.",
+        "de": "협조하다 bedeutet, sich einer festgelegten Anfrage oder einem Verfahren entsprechend im nötigen Umfang zu beteiligen; man sieht es oft in Firmenankündigungen, etwa in der Formel 협조 부탁드립니다 (um Mitwirkung wird gebeten).",
+        "en": "협조하다 refers to pitching in as much as needed to go along with a set request or procedure; it appears often in company notices, as in the set phrase 협조 부탁드립니다 (your cooperation is requested)."
       },
       "situation": {
         "ko": "일정 변경이나 공지처럼 누군가의 요청에 맞춰서 도와 달라고 할 때 쓴다.",
@@ -5078,9 +5078,9 @@
       "id": "vocab_a1_0290",
       "level": "B1",
       "nuance": {
-        "ko": "막내는 나이 어린 사람에게 자연스레 따라붙는 귀여움과 보살핌의 느낌을 담은 다정한 호칭이다.",
-        "de": "막내 ist eine liebevolle Bezeichnung, die das Gefühl von Niedlichkeit und Fürsorge trägt, das der jüngsten Person in einer Familie oft zugeschrieben wird.",
-        "en": "막내 is an affectionate term carrying the sense of cuteness and being looked after that naturally attaches to the youngest person in a family."
+        "ko": "막내는 한 가족 안에서 가장 늦게 태어난 자녀를 가리키며, 한국어에서는 귀염받거나 보살핌을 받는 존재로 흔히 여겨진다.",
+        "de": "막내 bezeichnet das zuletzt geborene Kind einer Familie; im Koreanischen gilt es häufig als jemand, der besonders verwöhnt und umsorgt wird.",
+        "en": "막내 refers to the child born last within a family; in Korean it is commonly seen as someone who gets doted on and looked after."
       },
       "situation": {
         "ko": "가족 안에서 형제자매의 순서를 설명하거나 애정 어린 별명처럼 부를 때 쓴다.",
@@ -5135,9 +5135,9 @@
       "id": "vocab_a2_0307",
       "level": "B1",
       "nuance": {
-        "ko": "별명은 진짜 이름과는 별개로 친밀한 사이에서만 통하는 장난스러운 애정을 담은 말이다.",
-        "de": "별명 trägt eine spielerische Zuneigung in sich, die unabhängig vom echten Namen nur unter engen Vertrauten funktioniert.",
-        "en": "별명 carries a playful affection separate from one's real name, one that only works among close, trusted people."
+        "ko": "별명은 친한 사이에서 본명 대신 부르는 이름을 가리키며, 친구나 가족처럼 가까운 사이에서만 쓴다.",
+        "de": "별명 bezeichnet einen Namen, den man unter Vertrauten statt des richtigen Namens benutzt; man verwendet es nur in engen Beziehungen wie unter Freunden oder in der Familie.",
+        "en": "별명 refers to a name used among close acquaintances instead of one's real name; it is used only in close relationships, like among friends or family."
       },
       "situation": {
         "ko": "친구나 가족 사이에서 서로를 편하게 부르는 이름을 이야기할 때 쓴다.",
@@ -5338,7 +5338,7 @@
         {
           "headword": "애인",
           "vocabId": "vocab_b2_0147",
-          "ko": "이성 친구는 성별이 다른 친구를 formal하게 가리키는 조심스러운 말이고, 애인은 사귀는 연인 관계라는 것을 분명히 하는 말이다.",
+          "ko": "이성 친구는 성별이 다른 친구를 에둘러 가리키는 조심스러운 말이고, 애인은 사귀는 연인 관계라는 것을 분명히 하는 말이다.",
           "de": "이성 친구 ist ein vorsichtiges, formelles Wort für einen Freund des anderen Geschlechts, 애인 macht die romantische Beziehung eindeutig klar.",
           "en": "이성 친구 is a careful, formal way to say a friend of the opposite sex, while 애인 clearly states it is a romantic partner."
         }
@@ -5420,9 +5420,9 @@
       "id": "vocab_b1_0337",
       "level": "B1",
       "nuance": {
-        "ko": "이 표현은 복잡하게 얽혀 있던 마음을 시간을 들여 차분히 가라앉히는 과정을 가리킨다.",
-        "de": "감정 정리 bezeichnet den Prozess, ein innerlich verworrenes Gemüt mit der Zeit ruhig zu beruhigen.",
-        "en": "This expression evokes quietly untangling a mind that had been in turmoil, given enough time to settle."
+        "ko": "이 표현은 뒤섞여 있던 마음속 느낌들을 시간을 두고 정리하고 가라앉히는 과정을 가리킨다.",
+        "de": "감정 정리 bezeichnet den Prozess, durcheinandergeratene Gefühle mit der Zeit zu sortieren und zu beruhigen.",
+        "en": "This refers to taking time to work through a jumble of inner feelings until they settle down."
       },
       "situation": {
         "ko": "긴장되거나 복잡했던 마음을 시간을 두고 가라앉힐 때 쓴다.",
@@ -5534,9 +5534,9 @@
       "id": "vocab_a2_0414",
       "level": "B1",
       "nuance": {
-        "ko": "이 말은 서류상으로도 그 건물에 공식적으로 속해 있다는 것을 나타내는 formal한 표현이다.",
-        "de": "입주민 bezeichnet formell eine Person, die tatsächlich in einem Gebäude wohnt und dabei dessen Rechte und Pflichten mitträgt.",
-        "en": "입주민 formally refers to a person who actually lives in a building and carries its rights and duties along with it."
+        "ko": "이 말은 특정 아파트나 건물에 실제로 거주하는 사람을 가리키며, 관리 규칙이나 시설 이용 안내처럼 그 건물에 한정된 문서에서 쓴다.",
+        "de": "입주민 bezeichnet eine Person, die tatsächlich in einem bestimmten Gebäude wohnt; man benutzt es in Dokumenten, die nur für dieses Gebäude gelten, etwa Hausordnungen oder Hinweise zur Nutzung von Einrichtungen.",
+        "en": "입주민 refers to a person who actually lives in a specific building; it is used in documents that apply only to that building, such as house rules or facility notices."
       },
       "situation": {
         "ko": "아파트 관리 규칙이나 시설 이용 안내처럼 건물 거주자만을 가리킬 때 쓴다.",
@@ -5566,7 +5566,7 @@
         {
           "headword": "주민",
           "vocabId": null,
-          "ko": "입주민은 아파트나 건물에 실제로 살고 있는 사람을 formal하게 가리키고, 주민은 어떤 지역에 사는 사람을 가리키는 훨씬 넓은 말이다.",
+          "ko": "입주민은 아파트나 건물에 실제로 살고 있는 사람을 공식적으로 가리키고, 주민은 어떤 지역에 사는 사람을 가리키는 훨씬 넓은 말이다.",
           "de": "입주민 sind formell die tatsächlichen Bewohner eines Gebäudes, 주민 ist das allgemeine Wort für Bewohner einer Gegend.",
           "en": "입주민 formally are the actual residents of a building, while 주민 is the general word for residents of an area."
         }
@@ -5623,7 +5623,7 @@
         {
           "headword": "유실물",
           "vocabId": null,
-          "ko": "분실물은 누군가 실수로 잃어버려서 남겨진 개인 물건을 가리키고, 유실물은 같은 대상을 역이나 관공서에서 더 formal하게 부르는 말이다.",
+          "ko": "분실물은 누군가 실수로 잃어버려서 남겨진 개인 물건을 가리키고, 유실물은 같은 대상을 역이나 관공서에서 더 격식 있게 부르는 말이다.",
           "de": "분실물 ist der alltägliche Ausdruck für einen verlorenen Gegenstand, 유실물 ist das formellere Wort dafür bei Behörden.",
           "en": "분실물 is the everyday word for a lost item, while 유실물 is the more formal word for it used by offices."
         }
@@ -5648,9 +5648,9 @@
       "id": "vocab_b1_0379",
       "level": "B1",
       "nuance": {
-        "ko": "수신 확인은 보낸 것이 상대에게 제대로 닿았는지 formal하게 증명해 주는 기능을 가리킨다.",
-        "de": "수신 확인 bezeichnet die Funktion, die formell bestätigt, dass etwas Gesendetes den Empfänger tatsächlich erreicht hat.",
-        "en": "수신 확인 refers to the feature that formally confirms whether something sent actually reached the recipient."
+        "ko": "수신 확인은 보낸 메일이 상대 쪽에 정상적으로 도착했음을 알려 주는 표시를 가리키며, 회사 이메일 프로그램에서 흔히 볼 수 있다.",
+        "de": "수신 확인 zeigt dem Absender im E-Mail-Programm automatisch an, dass die Nachricht am Ziel eingetroffen ist.",
+        "en": "수신 확인 refers to the indicator confirming that a sent email arrived normally at the recipient's end; it is commonly seen in workplace email programs."
       },
       "situation": {
         "ko": "업무 메일을 보낸 뒤 상대가 받았는지 확인할 때 쓴다.",
@@ -5794,7 +5794,7 @@
         {
           "headword": "신고",
           "vocabId": "vocab_c1_0214",
-          "ko": "사고 접수는 보험사에 사고가 났다는 사실을 처음 알려서 절차를 시작하는 것을 가리키고, 신고는 사고뿐 아니라 여러 일을 관공서에 formal하게 알리는 훨씬 넓은 말이다.",
+          "ko": "사고 접수는 보험사에 사고가 났다는 사실을 처음 알려서 절차를 시작하는 것을 가리키고, 신고는 사고뿐 아니라 여러 일을 관공서에 공식적으로 알리는 훨씬 넓은 말이다.",
           "de": "사고 접수 ist die erste Meldung eines Unfalls bei der Versicherung, 신고 ist das allgemeine Wort für formelle Meldungen an Behörden.",
           "en": "사고 접수 is the first accident notification to an insurer, while 신고 is the general word for formally reporting things to authorities."
         }
@@ -5819,9 +5819,9 @@
       "id": "vocab_b1_0395",
       "level": "B1",
       "nuance": {
-        "ko": "진단서는 의사의 소견이 formal하게 문서로 남아 다른 기관에서도 증거로 쓸 수 있는 말이다.",
-        "de": "진단서 ist ein Wort für ein Dokument, in dem die ärztliche Einschätzung formell festgehalten ist und das auch bei anderen Stellen als Nachweis dient.",
-        "en": "진단서 is a word for a document that formally records a doctor's assessment and can serve as evidence at other institutions too."
+        "ko": "진단서는 병원에서 진료받은 결과를 의사가 문서로 남겨 주는 것을 가리키며, 보험 청구나 병가 신청처럼 다른 기관에 낼 때 쓴다.",
+        "de": "진단서 bezeichnet das Dokument, in dem ein Arzt das Ergebnis einer Untersuchung schriftlich festhält; man benutzt es, um es bei anderen Stellen einzureichen, etwa für Versicherungsansprüche oder Krankmeldungen.",
+        "en": "진단서 refers to the document in which a doctor records the outcome of a medical exam in writing; it is used for submitting to other institutions, such as insurance claims or sick-leave requests."
       },
       "situation": {
         "ko": "보험 청구나 병가 신청처럼 병의 상태를 증명해야 할 때 쓴다.",
@@ -5990,9 +5990,9 @@
       "id": "vocab_b1_0445",
       "level": "B1",
       "nuance": {
-        "ko": "이 표현은 한 번으로 끝났어야 할 일이 다시 손이 가야 했다는 약간의 번거로움을 담고 있다.",
-        "de": "재방문 trägt eine gewisse Umständlichkeit in sich, dass etwas, das eigentlich mit einem Mal erledigt sein sollte, noch einmal Aufwand erfordert.",
-        "en": "재방문 carries a slight sense of hassle: something that should have been finished in one go needing attention again."
+        "ko": "이 표현은 문제가 한 번에 해결되지 않아 서비스 담당자가 다시 걸음을 해야 하는 상황을 가리키며, 부품 재주문이나 추가 점검이 필요할 때 흔히 쓴다.",
+        "de": "재방문 bedeutet, dass ein Techniker oder Zuständiger denselben Ort noch einmal aufsucht; man benutzt es, wenn eine Angelegenheit nicht beim ersten Mal erledigt werden konnte.",
+        "en": "재방문 refers to a technician or staff member coming back to the same place once more; it is used when a matter could not be finished on the first visit."
       },
       "situation": {
         "ko": "수리나 서비스가 한 번에 끝나지 않아 다시 와야 할 때 쓴다.",
@@ -6047,9 +6047,9 @@
       "id": "vocab_b1_0452",
       "level": "B1",
       "nuance": {
-        "ko": "이 표현은 예상치 못한 사정으로 원래 계획을 손봐야 했다는 다소 부담스러운 뉘앙스를 담고 있다.",
-        "de": "일정 변경 trägt eine eher lästige Nuance in sich, den ursprünglichen Plan wegen unvorhergesehener Umstände anpassen zu müssen.",
-        "en": "일정 변경 carries a somewhat burdensome nuance of having to adjust an original plan because of unforeseen circumstances."
+        "ko": "이 표현은 여행이나 회의처럼 계획해 둔 일이 사정상 다른 날짜로 밀리거나 당겨지는 것을 가리키며, 태풍이나 개인 사정 같은 이유로 자주 생긴다.",
+        "de": "Dieser Ausdruck bedeutet, ein bereits festgelegtes Datum oder eine Uhrzeit durch ein anderes zu ersetzen; man benutzt es beim Anpassen von Reise-, Buchungs- oder Besprechungsterminen.",
+        "en": "This expression refers to swapping an already-set date or time for a different one; it is used when adjusting travel, reservation, or meeting arrangements."
       },
       "situation": {
         "ko": "태풍이나 사정으로 정해진 여행이나 약속을 바꿔야 할 때 쓴다.",
@@ -6104,9 +6104,9 @@
       "id": "vocab_b1_0458",
       "level": "B1",
       "nuance": {
-        "ko": "연결편은 목적지까지 한 번에 못 가고 중간에 다른 편으로 갈아타야 한다는 번거로움을 담고 있다.",
-        "de": "연결편 trägt die Umständlichkeit in sich, nicht direkt ans Ziel zu gelangen, sondern unterwegs in ein anderes Verkehrsmittel umsteigen zu müssen.",
-        "en": "연결편 carries the inconvenience of not reaching the destination directly, but having to change to another service along the way."
+        "ko": "연결편은 첫 번째 비행기에서 내려 같은 공항이나 역에서 다시 타야 하는 두 번째 구간을 가리키며, 환승 시간이 촉박하면 놓칠 위험이 있다.",
+        "de": "연결편 bezeichnet den nächsten Flug oder das nächste Verkehrsmittel, in das man auf dem Weg zum Ziel noch einmal umsteigen muss; man benutzt es, wenn eine Reise einen Zwischenstopp enthält.",
+        "en": "연결편 refers to the next flight or transport service one must switch to again on the way to a destination; it is used when a trip includes a stopover."
       },
       "situation": {
         "ko": "비행기나 기차를 갈아타야 하는 여행 일정을 이야기할 때 쓴다.",
@@ -6161,9 +6161,9 @@
       "id": "vocab_b1_0462",
       "level": "B1",
       "nuance": {
-        "ko": "변경 수수료는 이미 정한 것을 바꾸려고 할 때 추가로 물어야 하는 비용이라는 아쉬움을 담고 있다.",
-        "de": "변경 수수료 trägt ein Gefühl des Bedauerns in sich: zusätzliche Kosten, die anfallen, wenn man etwas bereits Festgelegtes ändern möchte.",
-        "en": "변경 수수료 carries a note of regret: an extra cost incurred when trying to change something already settled."
+        "ko": "변경 수수료는 이미 확정한 예약을 나중에 손볼 때 부과되는 추가 비용을 가리키며, 항공권이나 숙소를 바꿀 때 자주 발생한다.",
+        "de": "변경 수수료 bezeichnet die zusätzlichen Kosten, die anfallen, wenn man eine bereits bestätigte Buchung nachträglich ändert; sie entstehen oft bei der Änderung von Flugtickets oder Unterkünften.",
+        "en": "변경 수수료 refers to the extra cost charged when an already-confirmed booking is altered afterward; it comes up often when changing flight tickets or accommodation."
       },
       "situation": {
         "ko": "항공권이나 예약을 바꿀 때 추가로 드는 비용을 안내할 때 쓴다.",
@@ -6250,7 +6250,7 @@
         {
           "headword": "협의하다",
           "vocabId": "vocab_b2_0208",
-          "ko": "의견을 조율하다는 서로 다른 의견을 가진 사람들이 대화로 조금씩 맞춰 가는 것을 가리키고, 협의하다는 formal한 자리에서 공식적으로 의논해서 결정한다는 뜻이다.",
+          "ko": "의견을 조율하다는 서로 다른 의견을 가진 사람들이 대화로 조금씩 맞춰 가는 것을 가리키고, 협의하다는 격식 있는 자리에서 공식적으로 의논해서 결정한다는 뜻이다.",
           "de": "의견을 조율하다 ist das schrittweise Annähern verschiedener Meinungen, 협의하다 ist die formelle Beratung mit Entscheidung.",
           "en": "의견을 조율하다 is gradually aligning different opinions, while 협의하다 is formally discussing and deciding in an official setting."
         }
@@ -6503,9 +6503,9 @@
       "id": "vocab_b1_0475",
       "level": "B1",
       "nuance": {
-        "ko": "서류를 제출하다는 정해진 기한 안에 요구된 것을 빠짐없이 갖춰 낸다는 책임감 있는 행동을 가리킨다.",
-        "de": "서류를 제출하다 bezeichnet die verantwortungsvolle Handlung, alles Geforderte innerhalb der Frist vollständig einzureichen.",
-        "en": "서류를 제출하다 refers to the responsible act of handing in everything required, in full, within the deadline."
+        "ko": "서류를 제출하다는 요구된 문서를 기관이나 회사, 학교에 기한 안에 내는 것을 가리키며, 신청이나 지원, 계약 절차의 한 단계로 쓴다.",
+        "de": "서류를 제출하다 bezeichnet das fristgerechte Einreichen geforderter Unterlagen bei einer Institution, Firma oder Schule; es ist ein Schritt in Antrags-, Bewerbungs- oder Vertragsverfahren.",
+        "en": "서류를 제출하다 refers to submitting required documents to an institution, company, or school within a deadline; it is one step in an application or contract process."
       },
       "situation": {
         "ko": "채용, 신청, 계약처럼 필요한 문서를 정해진 곳에 낼 때 쓴다.",
@@ -6674,9 +6674,9 @@
       "id": "vocab_b1_0484",
       "level": "B1",
       "nuance": {
-        "ko": "격려하다는 지쳐 있는 사람에게 따뜻한 말로 다시 일어설 힘을 불어넣는다는 뜻을 담고 있다.",
-        "de": "격려하다 trägt die Bedeutung in sich, einer erschöpften Person mit warmen Worten neue Kraft zum Aufstehen einzuflössen.",
-        "en": "격려하다 carries the meaning of breathing fresh strength into a tired person with warm words, so they can stand back up."
+        "ko": "격려하다는 의욕이 떨어진 사람에게 긍정적인 말을 건네 다시 나아갈 힘을 주는 것을 뜻하며, 시험이나 발표를 앞둔 사람에게 자주 쓴다.",
+        "de": "격려하다 bedeutet, einer entmutigten Person positive Worte zu sagen, damit sie wieder vorankommt; man benutzt es oft bei Personen vor einer Prüfung oder Präsentation.",
+        "en": "격려하다 means offering positive words to someone who has lost motivation, so they can keep going; it is often used for people about to take an exam or give a presentation."
       },
       "situation": {
         "ko": "힘들어하는 사람에게 따뜻한 말을 건네며 힘을 줄 때 쓴다.",

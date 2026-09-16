@@ -7,9 +7,9 @@
 ## `vocab_a1_0290` -- 막내 (das Nesthäkchen)
 
 - 레벨: B1 / register: casual
-- 뉘앙스: KO: 막내는 나이 어린 사람에게 자연스레 따라붙는 귀여움과 보살핌의 느낌을 담은 다정한 호칭이다.
-  - DE: 막내 ist eine liebevolle Bezeichnung, die das Gefühl von Niedlichkeit und Fürsorge trägt, das der jüngsten Person in einer Familie oft zugeschrieben wird.
-  - EN: 막내 is an affectionate term carrying the sense of cuteness and being looked after that naturally attaches to the youngest person in a family.
+- 뉘앙스: KO: 막내는 한 가족 안에서 가장 늦게 태어난 자녀를 가리키며, 한국어에서는 귀염받거나 보살핌을 받는 존재로 흔히 여겨진다.
+  - DE: 막내 bezeichnet das zuletzt geborene Kind einer Familie; im Koreanischen gilt es häufig als jemand, der besonders verwöhnt und umsorgt wird.
+  - EN: 막내 refers to the child born last within a family; in Korean it is commonly seen as someone who gets doted on and looked after.
 - 전형 상황: KO: 가족 안에서 형제자매의 순서를 설명하거나 애정 어린 별명처럼 부를 때 쓴다.
   - DE: Man benutzt es, wenn man die Geschwisterreihenfolge in der Familie erklärt oder liebevoll jemanden so nennt.
   - EN: You use it when explaining sibling order in a family, or affectionately referring to someone that way.
@@ -36,9 +36,9 @@
 ## `vocab_b1_0009` -- 해결 (Lösung)
 
 - 레벨: B1 / register: neutral
-- 뉘앙스: KO: 해결은 문제의 뿌리까지 손을 써서 말끔히 끝냈다는 적극적인 느낌을 준다.
-  - DE: 해결 vermittelt den aktiven Eindruck, ein Problem bis zur Wurzel angepackt und sauber beendet zu haben.
-  - EN: 해결 gives an active impression of having tackled a problem down to its root and cleanly finished it.
+- 뉘앙스: KO: 해결은 문제나 갈등을 근본적인 원인까지 손을 써서 완전히 끝내는 것을 가리키며, 단순한 대꾸가 아니라 문제 자체를 없애는 과정을 뜻한다.
+  - DE: 해결 bedeutet, ein Problem oder einen Konflikt bis zur eigentlichen Ursache anzugehen und vollständig zu beenden; es meint den Vorgang, das Problem selbst zu beseitigen, nicht nur eine kurze Erwiderung.
+  - EN: 해결 refers to tackling a problem or conflict down to its root cause and fully ending it; it means the process of removing the problem itself, not just a brief reply.
 - 전형 상황: KO: 문제, 갈등, 어려움처럼 해결이 필요한 상황을 이야기할 때 쓴다.
   - DE: Man benutzt es, wenn man über Probleme, Konflikte oder Schwierigkeiten spricht, die gelöst werden müssen.
   - EN: You use it when talking about problems, conflicts, or difficulties that need to be resolved.
@@ -123,9 +123,9 @@
 ## `vocab_b1_0111` -- 전통 (Tradition)
 
 - 레벨: B1 / register: neutral
-- 뉘앙스: KO: 전통은 한 세대에 그치지 않고 오랜 시간에 걸쳐 다음 세대로 전해져 온 문화적 무게감을 담고 있다.
-  - DE: 전통 trägt das kulturelle Gewicht von etwas in sich, das nicht bei einer Generation stehen blieb, sondern über lange Zeit weitergegeben wurde.
-  - EN: 전통 carries the cultural weight of something that did not stop with one generation but was passed down over a long time.
+- 뉘앙스: KO: 전통은 한 사회나 집단에서 여러 세대에 걸쳐 이어져 내려온 문화나 방식을 가리키며, 명절이나 지역 축제와 관련된 글에서 자주 쓴다.
+  - DE: 전통 bezeichnet eine Kultur oder Weise, die in einer Gesellschaft über mehrere Generationen weitergegeben wurde; man findet es oft in Texten über Feiertage oder lokale Feste.
+  - EN: 전통 refers to a culture or way of doing things passed down over generations within a society; it appears often in writing about holidays or local festivals.
 - 전형 상황: KO: 명절, 축제, 지역 문화처럼 오래 이어진 방식을 이야기할 때 쓴다.
   - DE: Man benutzt es bei Feiertagen, Festen oder regionaler Kultur, wenn man über lange Zeit weitergegebene Weisen spricht.
   - EN: You use it for holidays, festivals, or regional culture when talking about long-standing ways of doing things.
@@ -181,9 +181,9 @@
 ## `vocab_b1_0187` -- 외식 (Essengehen)
 
 - 레벨: B1 / register: casual
-- 뉘앙스: KO: 외식은 부엌을 벗어나 식당에서 대접받듯 밥을 먹는다는 작은 이벤트 같은 느낌을 준다.
-  - DE: 외식 vermittelt das Gefühl eines kleinen Ereignisses, die eigene Küche zu verlassen und im Restaurant bedient zu werden.
-  - EN: 외식 gives the feeling of a small event: stepping out of one's own kitchen to be served a meal at a restaurant.
+- 뉘앙스: KO: 외식은 집이 아닌 식당에 가서 밥을 사 먹는 것을 가리키며, 가족이나 친구와 함께 식당에서 식사할 때 쓴다.
+  - DE: 외식 bedeutet, in einem Restaurant statt zu Hause zu essen; man benutzt es, wenn man mit Familie oder Freunden im Restaurant isst.
+  - EN: 외식 refers to eating at a restaurant rather than at home; it is used when dining out with family or friends.
 - 전형 상황: KO: 가족이나 친구와 함께 식당에서 밥을 먹기로 할 때 쓴다.
   - DE: Man benutzt es, wenn man mit Familie oder Freunden beschließt, in einem Restaurant zu essen.
   - EN: You use it when deciding with family or friends to eat at a restaurant.
@@ -252,7 +252,7 @@
   - KO 온라인으로 사고 접수하다 / DE den Schaden online melden / EN to file a claim online
 - 대조어:
   - 신고 [vocab_c1_0214]
-    - KO 사고 접수는 보험사에 사고가 났다는 사실을 처음 알려서 절차를 시작하는 것을 가리키고, 신고는 사고뿐 아니라 여러 일을 관공서에 formal하게 알리는 훨씬 넓은 말이다.
+    - KO 사고 접수는 보험사에 사고가 났다는 사실을 처음 알려서 절차를 시작하는 것을 가리키고, 신고는 사고뿐 아니라 여러 일을 관공서에 공식적으로 알리는 훨씬 넓은 말이다.
     - DE 사고 접수 ist die erste Meldung eines Unfalls bei der Versicherung, 신고 ist das allgemeine Wort für formelle Meldungen an Behörden.
     - EN 사고 접수 is the first accident notification to an insurer, while 신고 is the general word for formally reporting things to authorities.
 - 예문 2개:
