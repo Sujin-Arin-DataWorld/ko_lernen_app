@@ -1765,37 +1765,37 @@ Nodes (113): allowed, _allowedEditionTransition, _allowedReleaseTrackTransition,
 
 ### Community 64 - "gye/index.js"
 Cohesion: 0.04
-Nodes (110): createRealAdapters(), {
-  ACCESS_CALLABLE_OPTIONS, AccessFailure, createAccessRuntime,
-}, accessEnvironment, accessHandlers, accountDeletionWorkerRuntime, accountOperationHandlers, accountOperationRepository, {
-  anonymizeFeed,
-  anonymizeMeta,
-  anonymizeReport,
-  anonymizeSticker,
-  buildNotificationDeliveryUpdate,
-  buildOwnerSuspensionPlan,
-  buildWeeklyNotificationOutbox,
-  chunkItems,
-  classifyMulticastResponses,
-  eligibleModerationReporterUids,
-  filterUnsettledNotificationTokens,
-  groupDeletionUserUids,
-  isDeliverableGyeLifecycle,
-  isAccountDeletionTombstoneOldEnough,
-  isDurableReporterAuth,
-  memberDeleteTriggerPlan,
-  notificationOutboxBelongsToUid,
-  notificationOutboxMaintenanceAction,
-  notificationRetryDelayMillis,
-  notificationTerminalExpiryMillis,
-  pendingReporterUids,
-  processedPackKey,
-  selectWeeklyMvp,
-  settledNotificationTokenHashes,
-  shouldCreditPackClear,
-  shouldDeleteReportForUid,
-  shouldProcessWeeklyRollover,
-  weeklyRolloverKey,
+Nodes (110): createRealAdapters(), {
+  ACCESS_CALLABLE_OPTIONS, AccessFailure, createAccessRuntime,
+}, accessEnvironment, accessHandlers, accountDeletionWorkerRuntime, accountOperationHandlers, accountOperationRepository, {
+  anonymizeFeed,
+  anonymizeMeta,
+  anonymizeReport,
+  anonymizeSticker,
+  buildNotificationDeliveryUpdate,
+  buildOwnerSuspensionPlan,
+  buildWeeklyNotificationOutbox,
+  chunkItems,
+  classifyMulticastResponses,
+  eligibleModerationReporterUids,
+  filterUnsettledNotificationTokens,
+  groupDeletionUserUids,
+  isDeliverableGyeLifecycle,
+  isAccountDeletionTombstoneOldEnough,
+  isDurableReporterAuth,
+  memberDeleteTriggerPlan,
+  notificationOutboxBelongsToUid,
+  notificationOutboxMaintenanceAction,
+  notificationRetryDelayMillis,
+  notificationTerminalExpiryMillis,
+  pendingReporterUids,
+  processedPackKey,
+  selectWeeklyMvp,
+  settledNotificationTokenHashes,
+  shouldCreditPackClear,
+  shouldDeleteReportForUid,
+  shouldProcessWeeklyRollover,
+  weeklyRolloverKey,
 } (+102 more)
 
 ### Community 65 - "cloze_game_screen.dart"
@@ -1921,15 +1921,15 @@ Nodes (84): package:ko_lernen_app/models/word_relation.dart, package:ko_lernen_a
 
 ### Community 93 - "account_operations_runtime.js"
 Cohesion: 0.06
-Nodes (82): {
-  accountTombstoneCleanupAction,
-}, ACTIONABLE_DELETION_PHASES, assertParticipant(), authorizationHeader(), BoundaryFailure, CALLABLE_NAMES, CALLABLE_OPTIONS, {
-  cancelReplacementOperation,
-  claimDeletionProof,
-  createOrReuseOperation,
-  normalizeOperation,
-  operationResult,
-  transitionOperation,
+Nodes (82): {
+  accountTombstoneCleanupAction,
+}, ACTIONABLE_DELETION_PHASES, assertParticipant(), authorizationHeader(), BoundaryFailure, CALLABLE_NAMES, CALLABLE_OPTIONS, {
+  cancelReplacementOperation,
+  claimDeletionProof,
+  createOrReuseOperation,
+  normalizeOperation,
+  operationResult,
+  transitionOperation,
 } (+74 more)
 
 ### Community 94 - "Ledger"
@@ -2428,17 +2428,17 @@ Nodes (49): bool assessment,, CurriculumText prompt,, CurriculumText title,, int
 
 ### Community 215 - "deletion_cleanup_adapters.test.js"
 Cohesion: 0.05
-Nodes (21): createDeletionWorkerRuntime(), {
-  anonymizeFeed,
-  anonymizeMeta,
-  anonymizeReport,
-  anonymizeSticker,
-  shouldDeleteReportForUid,
-}, applyFields(), assert, clone(), {
-  createDeletionCleanupAdapters,
-  createLegacyUserDeletionCleanupHandler,
-}, { createDeletionWorkerRuntime }, {
-  createGyeDeletionPageCleaner,
+Nodes (21): createDeletionWorkerRuntime(), {
+  anonymizeFeed,
+  anonymizeMeta,
+  anonymizeReport,
+  anonymizeSticker,
+  shouldDeleteReportForUid,
+}, applyFields(), assert, clone(), {
+  createDeletionCleanupAdapters,
+  createLegacyUserDeletionCleanupHandler,
+}, { createDeletionWorkerRuntime }, {
+  createGyeDeletionPageCleaner,
 } (+13 more)
 
 ### Community 216 - "pronunciation_studio_screen_test.dart"
@@ -2589,9 +2589,9 @@ Nodes (42): content_feedback_sheet.dart, InheritedWidget, ContentFeedbackPasspor
 
 ### Community 252 - "_"
 Cohesion: 0.05
-Nodes (41): course_mastery.dart, dancheong, 
-  gate, 
-  windows, 
+Nodes (41): course_mastery.dart, dancheong,
+  gate,
+  windows,
   sideBuilding,, hanok_stage.dart, ildu_construction_art.dart, CourseUnit, _, a1Ratio, a2Ratio (+33 more)
 
 ### Community 253 - "Global Constraints"
@@ -2768,14 +2768,14 @@ Nodes (17): _attributive_candidates(), detect_grammar(), _load_grammar_patterns(
 
 ### Community 296 - "cloud_backup_deletion_runtime.test.js"
 Cohesion: 0.07
-Nodes (20): createCloudBackupDeletionRuntime(), createFirestoreCloudBackupStore(), assert, {
-  BACKUP_FIELDS,
-  BACKUP_ROOTS,
-  CALLABLE_OPTIONS,
-  createCloudBackupDeletionCallable,
-  createCloudBackupDeletionRuntime,
-  createFirestoreCloudBackupDeletionRepository,
-  createFirestoreCloudBackupStore,
+Nodes (20): createCloudBackupDeletionRuntime(), createFirestoreCloudBackupStore(), assert, {
+  BACKUP_FIELDS,
+  BACKUP_ROOTS,
+  CALLABLE_OPTIONS,
+  createCloudBackupDeletionCallable,
+  createCloudBackupDeletionRuntime,
+  createFirestoreCloudBackupDeletionRepository,
+  createFirestoreCloudBackupStore,
 }, createHarness(), { createHmac }, createTransactionalFirestoreHarness(), CursorPagingBackupStore (+12 more)
 
 ### Community 297 - "_"
@@ -2874,7 +2874,7 @@ Nodes (6): _nikl_grades(), Brief: 2-3 boss words per pack (live A2 convention: 3
 Cohesion: 0.06
 Nodes (34): compact,
 
-  
+
   medium,, alignment, AppContentFrame, AppWindowClass, appWindowClassOf, build, catalogFeaturedRow, child (+26 more)
 
 ### Community 323 - "문장만 재작성 (34건)"
@@ -3066,8 +3066,8 @@ Nodes (31): FirebaseAuthPlatform, FirebaseFunctionsPlatform, FirebasePlatform, H
 
 ### Community 370 - "createDeletionCleanupAdapters"
 Cohesion: 0.17
-Nodes (31): boundedPageSize(), {
-  buildDeletionCleanupTargetClaim,
+Nodes (31): boundedPageSize(), {
+  buildDeletionCleanupTargetClaim,
 }, cleanupFailure(), COMMUNITY_COLLECTIONS, createDeletionCleanupAdapters(), assertActiveFence(), assertDeadline(), assertMarkerScope() (+23 more)
 
 ### Community 371 - "picker_recovery_service.dart"
@@ -3233,11 +3233,11 @@ Nodes (28): 17개 PDF 재검증, 17권에서 추가로 추상화할 내용, 1. �
 
 ### Community 411 - "apple_revocation_adapter.js"
 Cohesion: 0.13
-Nodes (21): AppleRevocationError, createAppleRevocationAdapter(), createClientSecret(), {
-  createPrivateKey,
-  createPublicKey,
-  sign,
-  verify,
+Nodes (21): AppleRevocationError, createAppleRevocationAdapter(), createClientSecret(), {
+  createPrivateKey,
+  createPublicKey,
+  sign,
+  verify,
 }, encodeJson(), fail(), isBoundedString(), requiredAppleIdentifier() (+13 more)
 
 ### Community 412 - "listening_playback_controller.dart"
@@ -3502,10 +3502,10 @@ Nodes (24): @fontsource/gowun-dodum, allowScripts, esbuild@0.28.1, unrs-resolver
 
 ### Community 477 - "firestore.rules.test.js"
 Cohesion: 0.09
-Nodes (13): assert, {
-  assertFails,
-  assertSucceeds,
-  initializeTestEnvironment,
+Nodes (13): assert, {
+  assertFails,
+  assertSucceeds,
+  initializeTestEnvironment,
 }, { createFirestoreDeletionAdapters }, fs, { getFirestore }, { initializeApp, deleteApp }, memberData(), path (+5 more)
 
 ### Community 478 - "crop_recovery_service.dart"
@@ -3588,9 +3588,9 @@ Nodes (23): adapterFailure(), collectionPathsFromPage(), deleteRootAndCleanupRec
 
 ### Community 498 - "deletion_adapters.test.js"
 Cohesion: 0.12
-Nodes (7): clone(), {
-  createFirestoreDeletionAdapters,
-  createGapicDocumentPager,
+Nodes (7): clone(), {
+  createFirestoreDeletionAdapters,
+  createGapicDocumentPager,
 }, createHarness(), directChildDocumentIdsIncludingMissing(), FakeDocumentSnapshot, FakeFirestore, test
 
 ### Community 499 - "content_share_slip_test.dart"
@@ -4096,26 +4096,26 @@ Nodes (18): File Structure, Flutter domain and UI, Global Constraints, Ildu Sara
 
 ### Community 628 - "billable_receipts.js"
 Cohesion: 0.18
-Nodes (11): resolvePronunciationPolicy(), {createHash, randomUUID}, millis(), {nextFreeTierUsage}, PronunciationReceipts, {PronunciationRequestError, nextQuotaState, pronunciationReplayId,
+Nodes (11): resolvePronunciationPolicy(), {createHash, randomUUID}, millis(), {nextFreeTierUsage}, PronunciationReceipts, {PronunciationRequestError, nextQuotaState, pronunciationReplayId,
   pronunciationReplayFromDocument, pronunciationReplayDocument}, {resolvePronunciationPolicy, readCostControl, prepareCostReservation}, freeTierAssessmentEnabled() (+3 more)
 
 ### Community 629 - "tts/index.js"
 Cohesion: 0.17
-Nodes (18): admin, {
-  CALLABLE_OPTIONS,
-  SYNTH_DEADLINE_MS,
-  TtsRequestError,
-  abandonTtsReplay,
-  claimTtsReplay,
-  completeTtsReplay,
-  isUsableAudioBuffer,
-  refundDailyTtsQuotas,
-  ttsLogErrorCode,
-  ttsProviderBreaker,
-  ttsSynthesisPlan,
-  validateTtsRequest,
-  underDailyTtsQuotas,
-  withDeadline,
+Nodes (18): admin, {
+  CALLABLE_OPTIONS,
+  SYNTH_DEADLINE_MS,
+  TtsRequestError,
+  abandonTtsReplay,
+  claimTtsReplay,
+  completeTtsReplay,
+  isUsableAudioBuffer,
+  refundDailyTtsQuotas,
+  ttsLogErrorCode,
+  ttsProviderBreaker,
+  ttsSynthesisPlan,
+  validateTtsRequest,
+  underDailyTtsQuotas,
+  withDeadline,
 }, { confirmTtsCost }, { HttpsError, onCall }, loadUsableAudio(), { scopedCacheKey, privateMetadataIsCurrent, cacheSaveOptions }, { ServiceCostError }, { setGlobalOptions } (+10 more)
 
 ### Community 630 - "gye_weekly_promise.dart"
@@ -4516,12 +4516,12 @@ Nodes (15): double?, accent, build, fontSize, horizontalPadding, icon, idleBorde
 
 ### Community 731 - "weekly_contribution_runtime.js"
 Cohesion: 0.23
-Nodes (12): crypto, findEligiblePromiseCheckpoint(), isFiniteScore(), parseCourseMasterySnapshot(), shouldCreditPromiseContribution(), assert, {
-  findEligiblePromiseCheckpoint,
-  shouldCreditPromiseContribution,
-  weeklyContributionReceiptId,
-  weeklyContributionWeekKey,
-  weeklyPromiseFor,
+Nodes (12): crypto, findEligiblePromiseCheckpoint(), isFiniteScore(), parseCourseMasterySnapshot(), shouldCreditPromiseContribution(), assert, {
+  findEligiblePromiseCheckpoint,
+  shouldCreditPromiseContribution,
+  weeklyContributionReceiptId,
+  weeklyContributionWeekKey,
+  weeklyPromiseFor,
 }, test (+4 more)
 
 ### Community 733 - "cultural-glossary.tsx"
@@ -4658,10 +4658,10 @@ Nodes (13): AZURE_SPEECH_KEY, callAzure(), {defineSecret}, {freeTierAssessmentEn
 
 ### Community 768 - "tts_privacy.js"
 Cohesion: 0.18
-Nodes (12): cacheKey(), crypto, normalizeVoice(), assert, test, {
-  TTS_CACHE_REVISION,
-  cacheKey,
-  normalizeVoice,
+Nodes (12): cacheKey(), crypto, normalizeVoice(), assert, test, {
+  TTS_CACHE_REVISION,
+  cacheKey,
+  normalizeVoice,
 }, { cacheKey }, cacheSaveOptions() (+4 more)
 
 ### Community 769 - "ci_scope.py"
@@ -5178,9 +5178,9 @@ Nodes (10): 2026-09-07 발음 채점(Aussprache) Azure F0 재개 + Play 비공�
 
 ### Community 903 - "account-deletion-page.test.js"
 Cohesion: 0.25
-Nodes (8): consumeDeletionProof(), proofFromFragment(), renderBrowserStatus(), startBrowserPage(), assert, {
-  CONSUMPTION_ENDPOINT,
-  consumeDeletionProof,
+Nodes (8): consumeDeletionProof(), proofFromFragment(), renderBrowserStatus(), startBrowserPage(), assert, {
+  CONSUMPTION_ENDPOINT,
+  consumeDeletionProof,
 }, test, VALID_PROOF
 
 ### Community 904 - "B2, C1, C2 고급 콘텐츠 트랙"
