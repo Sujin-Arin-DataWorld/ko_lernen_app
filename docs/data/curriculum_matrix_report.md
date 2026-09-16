@@ -261,7 +261,7 @@
 | ✅ covered | `communication_phone_digital` 전화·메신저·인터넷 소통 | 전화번호·연락 방법 정하기 | 14 | 9 | 2 | 1 | 5 | 13 | model_knowledge |
 | ✅ covered | `daily_life_routines` 일상생활·하루 일과 | 하루 일과·주말 활동·과거 활동 | 86 | 15 | 2 | 3 | 6 | 74 | verified_repo |
 | ✅ covered | `education_study` 교육·학교·학습 | 학교·수업·학용품(명사 수준) | 32 | 11 | 3 | 1 | 2 | 29 | model_knowledge |
-| ✅ covered | `family_relationships` 가족·인간관계 | 가족 소개·가족 높임 기초 | 69 | 10 | 4 | 1 | 30 | 67 | verified_repo |
+| ✅ covered | `family_relationships` 가족·인간관계 | 가족 소개·가족 높임 기초 | 70 | 10 | 4 | 1 | 30 | 67 | verified_repo |
 | ✅ covered | `feelings_character` 감정·성격·외모 묘사 | 외모·사물 묘사·대조(간단 형용사) | 27 | 5 | 1 | 0 | 4 | 13 | verified_repo |
 | ✅ covered | `food_drink` 식음료·식당 | 음식 취향·식당 주문·수량 | 45 | 8 | 6 | 2 | 5 | 37 | verified_repo |
 | ✅ covered | `free_time_hobbies_sport` 여가·취미·운동 | 취미·주말 약속 제안 | 49 | 12 | 2 | 0 | 16 | 46 | verified_repo |
@@ -271,7 +271,7 @@
 | ✅ covered | `numbers_time_dates` 숫자·시간·날짜 | 숫자·전화번호·화폐·날짜·요일·시간 | 110 | 15 | 2 | 1 | 0 | 88 | verified_repo |
 | ✅ covered | `personal_identification` 개인 신상·자기소개 | 이름·국적·직업·자기소개 | 59 | 10 | 5 | 2 | 0 | 59 | verified_repo |
 | ✅ covered | `shopping_consumption` 쇼핑·소비·결제 | 물건 사기·가격·수량 | 24 | 3 | 7 | 3 | 9 | 27 | verified_repo |
-| ✅ covered | `social_etiquette_customs` 예절·관습·명절·호칭 | 인사·호칭 관례·식사 예절·기초 명절 음식 | 50 | 10 | 6 | 0 | 16 | 28 | verified_repo |
+| ✅ covered | `social_etiquette_customs` 예절·관습·명절·호칭 | 인사·호칭 관례·식사 예절·기초 명절 음식 | 49 | 9 | 6 | 0 | 16 | 28 | verified_repo |
 | ✅ covered | `transport_wayfinding` 교통·길 찾기 | 장소·이동·교통수단·길 묻기 기초 | 12 | 3 | 6 | 1 | 8 | 11 | verified_repo |
 | ✅ covered | `weather_nature_climate` 날씨·계절·자연 | 날씨·계절 말하기와 간단한 추측 | 20 | 5 | 3 | 0 | 3 | 19 | verified_repo |
 | ✅ covered | `work_career` 직업·직장·취업 | 직업 이름·직장 위치(명사 수준) | 9 | 6 | 0 | 1 | 6 | 6 | model_knowledge |
@@ -371,7 +371,7 @@
 | ✅ covered | `time_calendar` 시간·날짜·요일·계절 | 84 |
 | ✅ covered | `colours_shapes_description` 색·모양·기본 묘사 형용사 | 19 |
 | ✅ covered | `body_health_symptoms` 신체·증상·의료 | 22 |
-| ✅ covered | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 69 |
+| ✅ covered | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 70 |
 | ✅ covered | `food_cooking` 음식·재료·조리 | 45 |
 | ✅ covered | `home_objects_furniture` 집·가구·생활용품 | 20 |
 | ✅ covered | `places_buildings_city` 장소·건물·도시 | 37 |
@@ -379,7 +379,7 @@
 | ✅ covered | `professions_workplace` 직업·직장 어휘 | 9 |
 | ✅ covered | `school_study_terms` 학교·학습 어휘 | 32 |
 | ✅ covered | `weather_nature` 날씨·자연 어휘 | 20 |
-| ✅ covered | `etiquette_honorific_lexis` 예절·높임·호칭 어휘 | 50 |
+| ✅ covered | `etiquette_honorific_lexis` 예절·높임·호칭 어휘 | 49 |
 | ✅ covered | `fixed_expressions_collocations` 관용 표현·연어·담화 표지(품사=표현) | 54 |
 | ➕ beyond_matrix | `feelings_emotions_character` 감정·성격 어휘 | 27 |
 | ➕ beyond_matrix | `language_metalanguage` 언어·문법·화법 메타언어 | 11 |

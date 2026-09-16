@@ -12370,30 +12370,30 @@
     {
       "id": "cloze_b2_0170",
       "level": "a1",
-      "sentenceKo": "＿＿＿ 첫 명절에는 말수를 줄이는 게 안전했어요.",
+      "sentenceKo": "주말에 ＿＿＿에 가요.",
       "answer": "시댁",
-      "fullKo": "시댁 첫 명절에는 말수를 줄이는 게 안전했어요.",
-      "de": "Am ersten Fest im Haus des Ehemanns war weniger Reden sicherer.",
-      "en": "At the first holiday in the husband's family, speaking less was safer.",
+      "fullKo": "주말에 시댁에 가요.",
+      "de": "Am Wochenende gehe ich zur Familie meines Mannes.",
+      "en": "I go to my husband's family on the weekend.",
       "distractors": [
-        "제사 음식 배치",
-        "제사상",
-        "조상님"
+        "학교",
+        "회사",
+        "공원"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
     {
       "id": "cloze_b2_0171",
       "level": "a1",
-      "sentenceKo": "＿＿＿에서는 제가 손님인데도 설거지를 하겠다고 했어요.",
+      "sentenceKo": "설날에 ＿＿＿에 갔어요.",
       "answer": "처가",
-      "fullKo": "처가에서는 제가 손님인데도 설거지를 하겠다고 했어요.",
-      "de": "Im Haus der Ehefrau bot ich den Abwasch an, obwohl ich Gast war.",
-      "en": "At the wife's family I offered to wash dishes even as a guest.",
+      "fullKo": "설날에 처가에 갔어요.",
+      "de": "An Seollal bin ich zur Familie meiner Frau gegangen.",
+      "en": "I went to my wife's family for Seollal.",
       "distractors": [
-        "생활비 분담",
-        "서로의 속도",
-        "설거지 교대"
+        "학교",
+        "회사",
+        "병원"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },

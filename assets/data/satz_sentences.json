@@ -8900,24 +8900,24 @@
     {
       "id": "satz_b2_0156",
       "level": "a1",
-      "targetKo": "시댁 첫 명절에는 말수를 줄이는 게 안전했어요.",
-      "promptDe": "Am ersten Fest im Haus des Ehemanns war weniger Reden sicherer.",
-      "promptEn": "At the first holiday in the husband's family, speaking less was safer.",
+      "targetKo": "주말에 시댁에 가요.",
+      "promptDe": "Am Wochenende gehe ich zur Familie meines Mannes.",
+      "promptEn": "I go to my husband's family on the weekend.",
       "distractors": [
-        "순서를",
-        "순이라"
+        "학교",
+        "회사"
       ],
       "vocabKo": "시댁"
     },
     {
       "id": "satz_b2_0157",
       "level": "a1",
-      "targetKo": "처가에서는 제가 손님인데도 설거지를 하겠다고 했어요.",
-      "promptDe": "Im Haus der Ehefrau bot ich den Abwasch an, obwohl ich Gast war.",
-      "promptEn": "At the wife's family I offered to wash dishes even as a guest.",
+      "targetKo": "설날에 처가에 갔어요.",
+      "promptDe": "An Seollal bin ich zur Familie meiner Frau gegangen.",
+      "promptEn": "I went to my wife's family for Seollal.",
       "distractors": [
-        "사진",
-        "삼촌이"
+        "공원",
+        "병원"
       ],
       "vocabKo": "처가"
     },
@@ -17924,9 +17924,9 @@
     {
       "id": "satz_a2_0232",
       "level": "a1",
-      "targetKo": "직업이 어떻게 되세요?",
-      "promptDe": "Was sind Sie von Beruf?",
-      "promptEn": "What do you do for a living?",
+      "targetKo": "마야 씨, 직업이 뭐예요?",
+      "promptDe": "Maya, was ist dein Beruf?",
+      "promptEn": "Maya, what's your job?",
       "distractors": [
         "회사",
         "취미"
@@ -17948,12 +17948,12 @@
     {
       "id": "satz_a2_0234",
       "level": "a1",
-      "targetKo": "오늘 날씨 진짜 좋네요.",
-      "promptDe": "Das Wetter ist heute richtig schön.",
+      "targetKo": "오늘 날씨가 정말 좋아요.",
+      "promptDe": "Das Wetter ist heute wirklich schön.",
       "promptEn": "The weather is really nice today.",
       "distractors": [
-        "회사",
-        "직업"
+        "공원",
+        "여행"
       ],
       "vocabKo": "날씨"
     },

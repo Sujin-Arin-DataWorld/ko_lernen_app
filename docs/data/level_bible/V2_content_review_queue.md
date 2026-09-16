@@ -161,10 +161,49 @@ Part1.1) — 학습 단위 자체를 재검토(단순 이동 아님)"인 45건. 
 스캔은 사람 검토가 필요해 별도 세션으로 발주한다(자동 규칙으로 "발명된
 명사구"를 판별하기 어려움).
 
+## §D 시나리오 문법 레벨 경고 (6건)
+
+시나리오는 자기 레벨보다 높은 `grammarIds`를 참조하면 안 된다
+(`relevel_bundle.py`의 `_check_scenario_grammar_regressions`가 dry-run마다
+경고로 출력). 아래 6건은 이번 relevel 1차(문법 이동 10건, batch `V2G1`)
++ 그 이전 LCP `L2b` 배치(2026-09-07, A1→A2 grammar 이동 6건 중 2건이
+아직 미해결)로 발생한 전량이다 — **relevel이 아니라 시나리오 자체의
+레벨 재배치 또는 grammarIds 교체가 필요한 콘텐츠 이슈**라 이 PR에서
+고치지 않는다.
+
+### D.1 이번 PR(V2G1, 문법 이동)로 새로 발생 — 4건
+
+| 시나리오 | 레벨 | 참조 grammarId | 새 레벨 | 근거(V2G1) |
+|---|---|---|---|---|
+| `b1_w10_insurance` | b1 | `grammar_b1_whether` | b2 | `docs/CONTENT_LEVEL_BIBLE.md` §0 결정 3(세종 4A 실물, B1→B2) |
+| `b2_w10_travel` | b2 | `grammar_b2_despite` | c1 | §0 결정 2(NIKL 5급 태그, B2→C1) |
+| `b2_w10_hiring` | b2 | `grammar_b2_despite` | c1 | §0 결정 2(NIKL 5급 태그, B2→C1) |
+| `b2_w10_authorities` | b2 | `grammar_b2_negative_consequence` | c1 | §0 결정 2(세종5+NIKL 이중 근거, B2→C1, `-다가는` 우선) |
+
+### D.2 이전 배치(LCP L2b, 2026-09-07)에서 이미 있던 것 — 2건(이번 PR 무관, 재확인만)
+
+`relevel_ledger.json` batch `L2b`가 `grammar_a1_honorific_kke`·
+`grammar_a1_or_particle`를 A1→A2로 이미 옮겼을 때(2026-09-07) 남은
+경고다 — 코드 주석(`relevel_ledger.py` 상단)에 "co-move the scenario,
+hold this move, or drop the scenario's grammarIds reference" 중 어느 것도
+그 시점에 적용되지 않고 그대로 남아 있었다. 이번 V2G1 dry-run 로그에도
+동일하게 다시 나타나 여기 함께 기록한다.
+
+| 시나리오 | 레벨 | 참조 grammarId(들) | 실제 레벨 |
+|---|---|---|---|
+| `a1_w10_partner` | a1 | `grammarIds: ['grammar_a1_honorific_kke', 'grammar_a1_polite_request']` — 첫 항목이 문제 | a2 |
+| `a1_w10_fandom` | a1 | `grammarIds: ['grammar_a1_or_particle', 'grammar_a1_also_particle']` — 첫 항목이 문제 | a2 |
+
+처리 방향(감수자 결정 필요): 시나리오 자체를 a2로 올리거나(대사 난이도
+재검토 필요), 해당 grammarId를 시나리오 대사에서 실제로 쓰지 않는다면
+`grammarIds`에서 제거. 6건 모두 `docs/data/relevel_V2G1_report.md`에도
+dry-run 경고 원문이 남아 있다.
+
 ## 상태
 
 이 PR은 위 세 목록을 등재만 한다. `korean_vocab.csv`의 해당 행은
 **변경하지 않았다.** 다음 단계: (1) 콘텐츠 감수자가 §A·§B를 검토해 단순
 relevel/재작성/유지를 항목별로 결정, (2) §C 4건은 대체 표현 초안 작성 후
 Jin 승인, (3) 결정된 항목은 `tool/relevel_vocab.py`(레벨만) 또는 콘텐츠
-저작 스크립트(텍스트 교체 포함)로 다음 batch에서 반영.
+저작 스크립트(텍스트 교체 포함)로 다음 batch에서 반영, (4) §D 6건은
+시나리오 감수자가 레벨 재배치 또는 grammarIds 교체를 결정.
