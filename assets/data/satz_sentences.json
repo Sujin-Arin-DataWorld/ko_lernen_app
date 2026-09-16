@@ -8904,8 +8904,8 @@
       "promptDe": "Am Wochenende gehe ich zur Familie meines Mannes.",
       "promptEn": "I go to my husband's family on the weekend.",
       "distractors": [
-        "학교",
-        "회사"
+        "사과",
+        "우유"
       ],
       "vocabKo": "시댁"
     },
@@ -8916,8 +8916,8 @@
       "promptDe": "An Seollal bin ich zur Familie meiner Frau gegangen.",
       "promptEn": "I went to my wife's family for Seollal.",
       "distractors": [
-        "공원",
-        "병원"
+        "책",
+        "의자"
       ],
       "vocabKo": "처가"
     },

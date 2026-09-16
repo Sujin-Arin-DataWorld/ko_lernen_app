@@ -70,6 +70,76 @@ def nikl_grade_at_or_below(word: str, rank: int) -> bool:
         return False
     grade = lexicon.word_grade(word.strip()).grade
     return grade is not None and grade - 1 <= rank
+
+
+# Fable R8 round 2 (2026-09-16): `below_topic` is a heuristic for an
+# UNEXPLAINED level drop (a word sitting well under its topic's usual
+# level with no other signal saying why). It must not fire for a row
+# whose level is AUTHORITATIVE -- either an explicit F9 ruling
+# (level_exceptions.csv) at this exact level, or the NIKL 2017 kiiq list
+# itself grading this exact headword at this exact level. This is
+# narrower than `nikl_grade_at_or_below`/`_lexicon()` above (which also
+# folds in aliases, derived-suffix stripping, negation compounds and the
+# basic2023 fallback for `sino3_low`) -- deliberately reads only the two
+# named sources so an "authoritative" verdict is always traceable to one
+# citable row a reviewer can open directly.
+GRADE_TO_CEFR = {1: "A1", 2: "A2", 3: "B1", 4: "B2", 5: "C1", 6: "C2"}
+NIKL_KIIQ_VOCAB_CSV = (
+    REPO / "tools" / "content_factory" / "lexicon" / "nikl_kiiq_2017_vocab.csv"
+)
+_NIKL_KIIQ_GRADES: dict[str, int] | None = None
+_F9_EXCEPTION_LEVELS: dict[str, str] | None = None
+
+
+def _nikl_kiiq_grades() -> dict[str, int]:
+    """headword -> minimum NIKL grade across its homograph rows in
+    nikl_kiiq_2017_vocab.csv (a headword split across multiple grade rows
+    by homograph number is attributed to its lowest grade -- same rule as
+    the bible §A dedup ruling for the coverage denominator)."""
+    global _NIKL_KIIQ_GRADES
+    if _NIKL_KIIQ_GRADES is None:
+        grades: dict[str, int] = {}
+        with NIKL_KIIQ_VOCAB_CSV.open(encoding="utf-8", newline="") as f:
+            for row in csv.DictReader(f):
+                headword = (row.get("headword") or "").strip()
+                if not headword:
+                    continue
+                try:
+                    grade = int((row.get("grade") or "").strip())
+                except ValueError:
+                    continue
+                if headword not in grades or grade < grades[headword]:
+                    grades[headword] = grade
+        _NIKL_KIIQ_GRADES = grades
+    return _NIKL_KIIQ_GRADES
+
+
+def _f9_exception_levels() -> dict[str, str]:
+    """exact headword -> allowed_level from level_exceptions.csv."""
+    global _F9_EXCEPTION_LEVELS
+    if _F9_EXCEPTION_LEVELS is None:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from cefr_lexicon import load_level_exceptions  # noqa: WPS433
+
+        table: dict[str, str] = {}
+        for row in load_level_exceptions(REPO):
+            table[row["headword"]] = row["allowed_level"]
+        _F9_EXCEPTION_LEVELS = table
+    return _F9_EXCEPTION_LEVELS
+
+
+def authoritative_level_reason(word: str, level: str) -> str | None:
+    """'f9_exception' | 'nikl_grade' when `word`'s level is authoritatively
+    fixed at `level` by that source, else None."""
+    word = word.strip()
+    if _f9_exception_levels().get(word) == level:
+        return "f9_exception"
+    grade = _nikl_kiiq_grades().get(word)
+    if grade is not None and GRADE_TO_CEFR.get(grade) == level:
+        return "nikl_grade"
+    return None
+
+
 HIGH_TOPICS = {
     "Gesellschaft",
     "Politik",
@@ -120,13 +190,18 @@ def blocked_ids(rows: list[dict[str, str]]) -> dict[str, str]:
     return out
 
 
-def find_suspects(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+def _topic_mode(rows: list[dict[str, str]]) -> dict[str, int]:
     topic_mode: dict[str, int] = {}
     by_topic: dict[str, Counter] = {}
     for row in rows:
         by_topic.setdefault(row["topic"], Counter())[row["level"]] += 1
     for topic, counts in by_topic.items():
         topic_mode[topic] = LEVEL_RANK[counts.most_common(1)[0][0]]
+    return topic_mode
+
+
+def find_suspects(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    topic_mode = _topic_mode(rows)
 
     blocked = blocked_ids(rows)
     suspects = []
@@ -146,7 +221,10 @@ def find_suspects(rows: list[dict[str, str]]) -> list[dict[str, str]]:
             reasons.append("sino3_low")
         if rank < 2 and row["topic"].strip() in HIGH_TOPICS:
             reasons.append("topic_low")
-        if topic_mode.get(row["topic"], rank) - rank >= 2:
+        if (
+            topic_mode.get(row["topic"], rank) - rank >= 2
+            and authoritative_level_reason(row["korean"], level) is None
+        ):
             reasons.append("below_topic")
         if not reasons:
             continue
@@ -164,6 +242,40 @@ def find_suspects(rows: list[dict[str, str]]) -> list[dict[str, str]]:
             }
         )
     return suspects
+
+
+def find_authoritative_skips(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Rows that hit `below_topic`'s raw "2+ ranks under this topic's
+    modal level" threshold but were excused from `find_suspects`'s output
+    because their level is authoritative (F9 ruling or NIKL kiiq grade
+    equal to this exact level) -- listed separately so a reviewer can
+    still see them (report §"authoritative_level (skipped below_topic)"),
+    without counting toward the suspect/blocked ratchet."""
+    topic_mode = _topic_mode(rows)
+    skips = []
+    for row in rows:
+        level = row["level"].strip()
+        rank = LEVEL_RANK.get(level)
+        if rank is None:
+            continue
+        if topic_mode.get(row["topic"], rank) - rank < 2:
+            continue
+        reason = authoritative_level_reason(row["korean"], level)
+        if reason is None:
+            continue
+        skips.append(
+            {
+                "id": row["id"],
+                "korean": row["korean"],
+                "german": row["german"],
+                "level": level,
+                "pack_id": row["pack_id"],
+                "topic": row["topic"],
+                "pos_de": row["pos_de"].strip(),
+                "authority": reason,
+            }
+        )
+    return skips
 
 
 def write_report(rows: list[dict[str, str]]) -> None:
@@ -196,6 +308,32 @@ def write_report(rows: list[dict[str, str]]) -> None:
             )
             lines.append(f"- `{pack_id}` ({len(pack_rows)}): {words}")
         lines.append("")
+
+    skips = find_authoritative_skips(rows)
+    lines.append(
+        f"## authoritative_level (skipped below_topic) — {len(skips)}건"
+    )
+    lines.append("")
+    lines.append(
+        "> `below_topic`은 \"설명되지 않는\" 레벨 하락을 잡는 휴리스틱이다 — "
+        "F9 룰링(`level_exceptions.csv`)이나 국립국어원 2017 kiiq 목록 자체가 "
+        "이 표제어를 정확히 이 레벨로 매긴다면 설명이 있는 것이므로 의심 "
+        "목록(위 §·`vocab_level_suspects.csv`)에서 제외한다(Fable R8 2차, "
+        "2026-09-16). 아래는 그 제외 대상 — 캡·다른 사유에는 영향 없음."
+    )
+    lines.append("")
+    if skips:
+        lines.append("| id | 표제어 | 레벨 | 팩 | 주제 | 근거 |")
+        lines.append("|---|---|---|---|---|---|")
+        for s in skips:
+            lines.append(
+                f"| `{s['id']}` | {s['korean']} | {s['level']} | "
+                f"`{s['pack_id']}` | {s['topic']} | {s['authority']} |"
+            )
+    else:
+        lines.append("(없음)")
+    lines.append("")
+
     REPORT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 

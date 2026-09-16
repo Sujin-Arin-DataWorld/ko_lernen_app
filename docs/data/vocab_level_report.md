@@ -271,3 +271,52 @@
 - `c2_2026_social_topics_1` (12): 담론 프레임 · 대표성 · 문지기 담론 · 문화적 진정성 · 범주 혼동 · 숨은 전제 · 이의 절차 · 인력의 도구화 · 절차의 정당성 · 정의의 경계 · 책임 귀속 · 플랫폼 권력
 - `c2_demography_accountability_2026_1` (12): 권력 비대칭 · 세대 간 형평성 · 위기 프레임 · 이의 신청 · 인과 추론 · 인구 구조 · 자동 제재 · 재생산 부담 · 정책 효과 · 제도적 구제 · 책임 주체 · 표집 편향
 
+## authoritative_level (skipped below_topic) — 42건
+
+> `below_topic`은 "설명되지 않는" 레벨 하락을 잡는 휴리스틱이다 — F9 룰링(`level_exceptions.csv`)이나 국립국어원 2017 kiiq 목록 자체가 이 표제어를 정확히 이 레벨로 매긴다면 설명이 있는 것이므로 의심 목록(위 §·`vocab_level_suspects.csv`)에서 제외한다(Fable R8 2차, 2026-09-16). 아래는 그 제외 대상 — 캡·다른 사유에는 영향 없음.
+
+| id | 표제어 | 레벨 | 팩 | 주제 | 근거 |
+|---|---|---|---|---|---|
+| `vocab_a1_0115` | 좋다 | A1 | `a1_descriptions` | Beschreibung | nikl_grade |
+| `vocab_a1_0116` | 크다 | A1 | `a1_descriptions` | Beschreibung | nikl_grade |
+| `vocab_a1_0117` | 작다 | A1 | `a1_descriptions` | Beschreibung | nikl_grade |
+| `vocab_a1_0123` | 조용하다 | A1 | `a1_descriptions` | Beschreibung | nikl_grade |
+| `vocab_a1_0125` | 어렵다 | A1 | `a1_descriptions` | Beschreibung | nikl_grade |
+| `vocab_a1_0126` | 쉽다 | A1 | `a1_descriptions` | Beschreibung | nikl_grade |
+| `vocab_a1_0128` | 길다 | A1 | `a1_descriptions` | Beschreibung | nikl_grade |
+| `vocab_a2_0001` | 회사 | A1 | `a1_misc_2` | Beruf | nikl_grade |
+| `vocab_a2_0002` | 직업 | A1 | `a1_misc_2` | Beruf | nikl_grade |
+| `vocab_a1_0198` | 다른 | A1 | `a1_descriptions` | Beschreibung | nikl_grade |
+| `vocab_b2_0121` | 문법 | A1 | `a1_repair_language_1` | Sprache & Grammatik | f9_exception |
+| `vocab_b2_0173` | 윷놀이 | A1 | `a1_partner_seollal_basic_1` | Feste & Traditionen | f9_exception |
+| `vocab_a1_0214` | 장인어른 | A1 | `a1_partner_meet_names_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0215` | 장모님 | A1 | `a1_partner_meet_names_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0217` | 시어머니 | A1 | `a1_partner_meet_names_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0218` | 호칭 | A1 | `a1_partner_meet_names_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0219` | 높임말 | A1 | `a1_partner_meet_names_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0250` | 밑반찬 | A1 | `a1_partner_table_basic_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0255` | 국물 | A1 | `a1_partner_table_basic_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0260` | 설날 | A1 | `a1_partner_seollal_basic_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0261` | 세배 | A1 | `a1_partner_seollal_basic_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0262` | 떡국 | A1 | `a1_partner_seollal_basic_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0263` | 세뱃돈 | A1 | `a1_partner_seollal_basic_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0264` | 한복 | A1 | `a1_partner_seollal_basic_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0265` | 새해 복 많이 받으세요 | A1 | `a1_partner_seollal_basic_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0268` | 덕담 | A1 | `a1_partner_seollal_basic_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0271` | 설빔 | A1 | `a1_partner_seollal_basic_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_b2_0431` | 시댁 | A1 | `a1_partner_meet_names_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_b2_0432` | 처가 | A1 | `a1_partner_meet_names_1` | Partnerschaft & koreanische Familie | f9_exception |
+| `vocab_a1_0524` | 텔레비전 | A1 | `a1_misc_1` | Technologie | nikl_grade |
+| `vocab_a1_0595` | 카메라 | A1 | `a1_belongings_1` | Technologie | nikl_grade |
+| `vocab_a1_0663` | 에어컨 | A1 | `a1_home_daily_1` | Technologie | nikl_grade |
+| `vocab_a1_0665` | 사용 | A1 | `a1_home_daily_1` | Technologie | nikl_grade |
+| `vocab_a1_0675` | 프로그램 | A1 | `a1_culture_hobbies_1` | Technologie | nikl_grade |
+| `vocab_a1_0677` | 사진 | A1 | `a1_culture_hobbies_1` | Technologie | nikl_grade |
+| `vocab_a1_0694` | 아르바이트 | A1 | `a1_school_work_1` | Beruf | nikl_grade |
+| `vocab_a1_0695` | 직원 | A1 | `a1_school_work_1` | Beruf | nikl_grade |
+| `vocab_a1_0696` | 종업원 | A1 | `a1_school_work_1` | Beruf | nikl_grade |
+| `vocab_a1_0720` | 되다 | A1 | `a1_verbs_daily_1` | Beruf | nikl_grade |
+| `vocab_a1_0724` | 찍다 | A1 | `a1_verbs_daily_1` | Technologie | nikl_grade |
+| `vocab_a1_0735` | 잘하다 | A1 | `a1_verbs_daily_2` | Beruf | nikl_grade |
+| `vocab_a1_0778` | 힘들다 | A1 | `a1_misc_3` | Beruf | nikl_grade |
+
