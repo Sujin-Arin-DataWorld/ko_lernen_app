@@ -672,6 +672,38 @@ OPEN_SLOT_WAIVER: dict[str, str] = {
     'cloze_b2_0393': 'R8-3 tier B (2026-09-15): truly bare frame with no selectional restriction, confirmed by the R8-2/R8-3 read (docs/data/cloze_distractor_audit_2026-09-15.md)',
     'cloze_c1_0114': 'R8-3 tier B (2026-09-15): truly bare frame with no selectional restriction, confirmed by the R8-2/R8-3 read (docs/data/cloze_distractor_audit_2026-09-15.md)',
     'cloze_c2_0221': 'R8-3 tier B (2026-09-15): truly bare frame with no selectional restriction, confirmed by the R8-2/R8-3 read (docs/data/cloze_distractor_audit_2026-09-15.md)',
+    # C3-T5 (2026-09-16): Batch 30 A1 reinforcement (function words) -- a
+    # sentence-initial discourse-connective slot (그래서/그러니까/그러면/
+    # 그런데/그럼/그렇지만/그리고/하지만) accepts almost any OTHER connective
+    # too, so distractors are Tier B (bare dictionary-form verb or bare
+    # particle, never another connective) per posRules.adverbs_connective
+    # in tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.
+    # json; verified by test_batch_30_draft.py's
+    # test_connective_distractors_are_bare_dictionary_verb_or_particle.
+    'cloze_a1_0714': 'C3-T5 tier B (2026-09-16): Batch 30 discourse-connective open frame, bare dictionary-verb/particle distractors (see manifest posRules.adverbs_connective)',
+    'cloze_a1_0715': 'C3-T5 tier B (2026-09-16): Batch 30 discourse-connective open frame, bare dictionary-verb/particle distractors (see manifest posRules.adverbs_connective)',
+    'cloze_a1_0716': 'C3-T5 tier B (2026-09-16): Batch 30 discourse-connective open frame, bare dictionary-verb/particle distractors (see manifest posRules.adverbs_connective)',
+    'cloze_a1_0717': 'C3-T5 tier B (2026-09-16): Batch 30 discourse-connective open frame, bare dictionary-verb/particle distractors (see manifest posRules.adverbs_connective)',
+    'cloze_a1_0718': 'C3-T5 tier B (2026-09-16): Batch 30 discourse-connective open frame, bare dictionary-verb/particle distractors (see manifest posRules.adverbs_connective)',
+    'cloze_a1_0719': 'C3-T5 tier B (2026-09-16): Batch 30 discourse-connective open frame, bare dictionary-verb/particle distractors (see manifest posRules.adverbs_connective)',
+    'cloze_a1_0720': 'C3-T5 tier B (2026-09-16): Batch 30 discourse-connective open frame, bare dictionary-verb/particle distractors (see manifest posRules.adverbs_connective)',
+    # a1_0731: 그래/아 interjection response frame, bare dictionary-verb
+    # distractors replacing only the interjection token (posRules.
+    # numerals_interjections), verified by test_batch_30_draft.py's
+    # test_tierb_interjection_distractors_are_bare_dictionary_verb.
+    'cloze_a1_0731': 'C3-T5 tier B (2026-09-16): Batch 30 interjection response frame, bare dictionary-verb distractor (see manifest posRules.numerals_interjections)',
+    # a1_0733/0740/0742 (D3) and a1_0734/0741 (D2): pronoun-fold rows
+    # (그것/무엇/저것/어디/언제 fold-type headwords) whose distractors are a
+    # pronoun of a DIFFERENT deictic class + the same particle -- an
+    # intentional category-violation/particle-form 비문 per posRules.
+    # pronouns, not a same-POS/same-form re-pick D2/D3 can recognize.
+    # Verified by test_batch_30_draft.py's
+    # test_remaining_rows_carry_a_particle_fold_consistent_with_their_own_final_sound.
+    'cloze_a1_0733': 'C3-T5 tier B (2026-09-16): Batch 30 pronoun-fold category-mismatch distractor (see manifest posRules.pronouns)',
+    'cloze_a1_0734': 'C3-T5 tier B (2026-09-16): Batch 30 pronoun-fold category-mismatch distractor (see manifest posRules.pronouns)',
+    'cloze_a1_0740': 'C3-T5 tier B (2026-09-16): Batch 30 pronoun-fold category-mismatch distractor (see manifest posRules.pronouns)',
+    'cloze_a1_0741': 'C3-T5 tier B (2026-09-16): Batch 30 pronoun-fold category-mismatch distractor (see manifest posRules.pronouns)',
+    'cloze_a1_0742': 'C3-T5 tier B (2026-09-16): Batch 30 pronoun-fold category-mismatch distractor (see manifest posRules.pronouns)',
 }
 
 # R8-2 "mixed composition" items (Fable ruling 2026-09-15): 2 Tier-A

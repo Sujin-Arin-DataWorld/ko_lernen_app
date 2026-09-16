@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "generatedFrom": "assets/data/korean_vocab.csv",
   "snapshotDate": "2026-09-10",
-  "packCount": 245,
+  "packCount": 251,
   "dedicatedAssetCount": 184,
   "notes": [
     "The approved plan snapshot contained 223 packs; the live CSV now contains 224.",
@@ -1676,7 +1676,8 @@
         "vocab_a1_0146",
         "vocab_a1_0518",
         "vocab_a1_0519",
-        "vocab_a1_0520"
+        "vocab_a1_0520",
+        "vocab_a1_0840"
       ],
       "status": "approved_dedicated",
       "sha256": "3b4314a4085f4afedec07fee3d0e1ba7141ad4753348ae31cfc45279454cec54",
@@ -9180,6 +9181,223 @@
         "vocab_a1_0776",
         "vocab_a1_0777",
         "vocab_a1_0778"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "f763dafde98dc35ab25c92f38f962a51183bdba53913811196351f8ae5a95817",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_adverbs_1",
+      "level": "A1",
+      "rewardMotif": "lotus",
+      "primaryAsset": "assets/illustrations/packs/lotus.webp",
+      "subjectKo": "가장 · 그래서 · 그러니까 · 그러면",
+      "subjectPromptEn": "a modern still life expressing most, so, therefore, so, that's why, then, if so",
+      "evidenceWordIds": [
+        "vocab_a1_0779",
+        "vocab_a1_0780",
+        "vocab_a1_0781",
+        "vocab_a1_0782",
+        "vocab_a1_0783",
+        "vocab_a1_0784",
+        "vocab_a1_0785",
+        "vocab_a1_0786",
+        "vocab_a1_0787",
+        "vocab_a1_0788",
+        "vocab_a1_0789",
+        "vocab_a1_0790"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "ae3ff1034e46489c56fbef0dd831473b8be3db4397ab7315bfaefa4383e3ab2e",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_adverbs_2",
+      "level": "A1",
+      "rewardMotif": "lotus",
+      "primaryAsset": "assets/illustrations/packs/lotus.webp",
+      "subjectKo": "안녕히 · 얼마나 · 열심히 · 왜",
+      "subjectPromptEn": "a modern still life expressing (in) peace (farewell), how much, how, hard, diligently, why",
+      "evidenceWordIds": [
+        "vocab_a1_0791",
+        "vocab_a1_0792",
+        "vocab_a1_0793",
+        "vocab_a1_0794",
+        "vocab_a1_0795",
+        "vocab_a1_0796",
+        "vocab_a1_0797"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "ae3ff1034e46489c56fbef0dd831473b8be3db4397ab7315bfaefa4383e3ab2e",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_pronouns_1",
+      "level": "A1",
+      "rewardMotif": "lotus",
+      "primaryAsset": "assets/illustrations/packs/lotus.webp",
+      "subjectKo": "그 · 그것 · 그쪽 · 내",
+      "subjectPromptEn": "a modern still life expressing he (that person), that (thing), that way, my",
+      "evidenceWordIds": [
+        "vocab_a1_0798",
+        "vocab_a1_0799",
+        "vocab_a1_0800",
+        "vocab_a1_0801",
+        "vocab_a1_0802",
+        "vocab_a1_0803",
+        "vocab_a1_0804",
+        "vocab_a1_0805",
+        "vocab_a1_0806",
+        "vocab_a1_0807",
+        "vocab_a1_0808",
+        "vocab_a1_0809"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "ae3ff1034e46489c56fbef0dd831473b8be3db4397ab7315bfaefa4383e3ab2e",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_counters_1",
+      "level": "A1",
+      "rewardMotif": "lotus",
+      "primaryAsset": "assets/illustrations/packs/lotus.webp",
+      "subjectKo": "가지 · 것 · 권 · 년",
+      "subjectPromptEn": "a modern still life expressing kind, type, thing, counter for books, year",
+      "evidenceWordIds": [
+        "vocab_a1_0810",
+        "vocab_a1_0811",
+        "vocab_a1_0812",
+        "vocab_a1_0813",
+        "vocab_a1_0814",
+        "vocab_a1_0815",
+        "vocab_a1_0816",
+        "vocab_a1_0817",
+        "vocab_a1_0818",
+        "vocab_a1_0819",
+        "vocab_a1_0820",
+        "vocab_a1_0821"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "ae3ff1034e46489c56fbef0dd831473b8be3db4397ab7315bfaefa4383e3ab2e",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_determiners_1",
+      "level": "A1",
+      "rewardMotif": "lotus",
+      "primaryAsset": "assets/illustrations/packs/lotus.webp",
+      "subjectKo": "무슨 · 어떤 · 여러 · 마흔",
+      "subjectPromptEn": "a modern still life expressing what kind of, which, what kind of, several, forty",
+      "evidenceWordIds": [
+        "vocab_a1_0822",
+        "vocab_a1_0823",
+        "vocab_a1_0824",
+        "vocab_a1_0825",
+        "vocab_a1_0826",
+        "vocab_a1_0827",
+        "vocab_a1_0828",
+        "vocab_a1_0829",
+        "vocab_a1_0830",
+        "vocab_a1_0831"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "ae3ff1034e46489c56fbef0dd831473b8be3db4397ab7315bfaefa4383e3ab2e",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_misc_4",
+      "level": "A1",
+      "rewardMotif": "gwigap",
+      "primaryAsset": "assets/illustrations/packs/gwigap.webp",
+      "subjectKo": "제 · 중 · 구십 · 스물",
+      "subjectPromptEn": "a modern still life expressing my (polite), during, in the middle of, ninety, twenty (native)",
+      "evidenceWordIds": [
+        "vocab_a1_0832",
+        "vocab_a1_0833",
+        "vocab_a1_0834",
+        "vocab_a1_0835",
+        "vocab_a1_0836",
+        "vocab_a1_0837",
+        "vocab_a1_0838",
+        "vocab_a1_0839"
       ],
       "status": "approved_motif_fallback",
       "sha256": "f763dafde98dc35ab25c92f38f962a51183bdba53913811196351f8ae5a95817",

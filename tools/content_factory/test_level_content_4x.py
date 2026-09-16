@@ -161,8 +161,9 @@ class Batch09ReviewDraftTest(unittest.TestCase):
         # 삭제 1행(Jin: "아예 쓰지 말자", 2026-09-16, a1_numbers_2 12->11)
         # + C3-T3 Batch 26/27/28 A1 보강 192행(66+63+63, 15 신규 팩 포함,
         # 2026-09-16) + C3-T4 Batch 29 A1 보강 64행(용언 중심, 6 신규 팩
-        # 포함, 2026-09-16)을 함께 센다.
-        self.assertEqual(inventory["vocab"], 2818)
+        # 포함, 2026-09-16) + C3-T5 Batch 30 A1 보강 62행(기능어 중심, 6
+        # 신규 팩 포함, 마지막 A1 보강 배치, 2026-09-16)을 함께 센다.
+        self.assertEqual(inventory["vocab"], 2880)
         self.assertEqual(len(manifest["vocabPacks"]), 48)
 
     def test_review_ledgers_are_original_drafts(self) -> None:

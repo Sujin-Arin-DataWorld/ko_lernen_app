@@ -614,7 +614,8 @@ class TestVocabUnknownRatio(unittest.TestCase):
         # C2d-2 (2026-09-16): vocab_a1_0141 deleted (Jin: "아예 쓰지 말자").
         # C3-T3 (2026-09-16): Batch 26/27/28 add 192 words. 2563-1+192=2754.
         # C3-T4 (2026-09-16): Batch 29 adds 64 words. 2754+64=2818.
-        self.assertEqual(len(self.rows), 2818)
+        # C3-T5 (2026-09-16): Batch 30 adds 62 words. 2818+62=2880.
+        self.assertEqual(len(self.rows), 2880)
 
 
 class TestSentenceUnknownRatio(unittest.TestCase):

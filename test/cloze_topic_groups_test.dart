@@ -44,6 +44,7 @@ const _expectedTopics = <ClozeTopicGroupId, Set<String>>{
     'Motivation',
     'Partnerschaft & koreanische Familie',
     'Person',
+    'Selbstvorstellung',
   },
   ClozeTopicGroupId.travelServices: {
     'Amtgang',
@@ -150,6 +151,7 @@ const _expectedTopics = <ClozeTopicGroupId, Set<String>>{
     'Rhythmus & Grenzen',
     'Sicherheit & Grenzen',
     'Sport',
+    'Tiere',
     'Umwelt',
     'Wetter',
     'Wetterschicht',
@@ -164,9 +166,12 @@ void main() {
   final items = sourceRows.map(ClozeItem.fromJson).toList(growable: false);
   final canonicalTopics = items.map((item) => item.topic).toSet();
 
-  test('accepted canonical baseline is exactly 2,215 items and 132 topics', () {
-    expect(items, hasLength(2215));
-    expect(canonicalTopics, hasLength(132));
+  test('accepted canonical baseline is exactly 2,277 items and 134 topics', () {
+    // C3-T5 (2026-09-16): Batch 30 A1 reinforcement adds 62 cloze items and
+    // 2 new exact topic strings (Selbstvorstellung, Tiere). 2215 + 62 =
+    // 2277; 132 + 2 = 134.
+    expect(items, hasLength(2277));
+    expect(canonicalTopics, hasLength(134));
     expect(items.every((item) => item.topic.trim().isNotEmpty), isTrue);
     expect(items.every((item) => item.hasExplicitId), isTrue);
     expect(items.map((item) => item.id).toSet(), hasLength(items.length));
@@ -192,7 +197,7 @@ void main() {
     );
   });
 
-  test('all 132 exact topics map once with no missing or dangling key', () {
+  test('all 134 exact topics map once with no missing or dangling key', () {
     expect(_expectedTopics.keys.toList(), ClozeTopicGroups.ordered);
     final expectedUnion = <String>{};
     for (final entry in _expectedTopics.entries) {
@@ -205,7 +210,7 @@ void main() {
         expect(ClozeTopicGroups.groupForTopic(topic), entry.key, reason: topic);
       }
     }
-    expect(expectedUnion, hasLength(132));
+    expect(expectedUnion, hasLength(134));
     expect(expectedUnion, canonicalTopics);
     expect(ClozeTopicGroups.groupForTopic('not-a-canonical-topic'), isNull);
   });
