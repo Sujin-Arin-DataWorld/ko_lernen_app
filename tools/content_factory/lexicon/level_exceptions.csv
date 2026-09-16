@@ -115,3 +115,7 @@ culture_advanced,송편 빚다,A2,송편 만들기 행위 관용구(추석 파�
 culture_advanced,빚다,A2,"송편·만두를 빚다 — 명절 조리 동사, Fable 룰링 2026-09-07"
 signage_a2,확인,A2,확인/확인하다: 영수증·예약·문자 확인 등 생존 거래어 — Fable 룰링 2026-09-07
 signage_a2,확인하다,A2,확인/확인하다: 영수증·예약·문자 확인 등 생존 거래어 — Fable 룰링 2026-09-07
+honorific_survival,계시다,A1,"세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(sejong1_u9_voc8) -- Jin 결정 4(a) 2026-09-16, V2 relevel"
+honorific_survival,드리다,A1,"세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(sejong1_u9_voc9) -- Jin 결정 4(a) 2026-09-16, V2 relevel"
+honorific_survival,말씀,A1,"세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(sejong1_u9_voc10) -- Jin 결정 4(a) 2026-09-16, V2 relevel"
+honorific_survival,말씀하시다,A1,"세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(sejong1_u9_voc11) -- Jin 결정 4(a) 2026-09-16; 라이브 vocab 행 없음(문서화만, 향후 저작 시 적용)"

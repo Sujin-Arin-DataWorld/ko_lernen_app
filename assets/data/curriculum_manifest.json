@@ -4684,9 +4684,9 @@
       ]
     },
     "grammar_b1_whether": {
-      "courseUnitId": "b1_02_indirect_speech",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b1_indirect_speech"
+        "concept_b2_opinion"
       ]
     },
     "grammar_b1_since": {
@@ -5086,9 +5086,9 @@
       ]
     },
     "grammar_b2_contrast": {
-      "courseUnitId": "b2_02_professional_opinion",
+      "courseUnitId": "b1_01_experience_reasons",
       "conceptIds": [
-        "concept_b2_opinion"
+        "concept_b1_reasons_experience"
       ]
     },
     "grammar_b2_formal_intention": {
@@ -5104,9 +5104,9 @@
       ]
     },
     "grammar_b2_despite": {
-      "courseUnitId": "b2_02_professional_opinion",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
       "conceptIds": [
-        "concept_b2_opinion"
+        "concept_c1_evidence_reasoning"
       ]
     },
     "grammar_b2_only": {
@@ -5278,9 +5278,9 @@
       ]
     },
     "grammar_b2_inevitability": {
-      "courseUnitId": "b2_06_advanced_capstone",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
       "conceptIds": [
-        "concept_b2_advanced"
+        "concept_c1_inclusive_systems"
       ]
     },
     "grammar_b1_tendency": {
@@ -5314,9 +5314,9 @@
       ]
     },
     "grammar_b2_formal_arrangement": {
-      "courseUnitId": "b2_03_precise_requests",
+      "courseUnitId": "b1_03_work_softening",
       "conceptIds": [
-        "concept_b2_precise_requests"
+        "concept_b1_softening"
       ]
     },
     "grammar_b2_formal_reference": {
@@ -5338,9 +5338,9 @@
       ]
     },
     "grammar_b1_as_soon_as": {
-      "courseUnitId": "b1_03_work_softening",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b1_softening"
+        "concept_b2_precise_requests"
       ]
     },
     "grammar_b1_planned_future": {
@@ -5368,9 +5368,9 @@
       ]
     },
     "grammar_b2_formal_regarding": {
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_c1_inclusive_systems"
       ]
     },
     "grammar_b2_established_premise": {
@@ -5386,9 +5386,9 @@
       ]
     },
     "grammar_b2_method_dependent": {
-      "courseUnitId": "b2_02_professional_opinion",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
       "conceptIds": [
-        "concept_b2_opinion"
+        "concept_c1_inclusive_systems"
       ]
     },
     "grammar_b2_impression_appearance": {
@@ -5410,9 +5410,9 @@
       ]
     },
     "grammar_b2_negative_consequence": {
-      "courseUnitId": "b2_02_professional_opinion",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
       "conceptIds": [
-        "concept_b2_opinion"
+        "concept_c1_evidence_reasoning"
       ]
     },
     "grammar_b2_pretense_contrast": {
@@ -5932,9 +5932,9 @@
       ]
     },
     "grammar_b1_reason_context": {
-      "courseUnitId": "b1_03_work_softening",
+      "courseUnitId": "b2_04_complaint_resolution",
       "conceptIds": [
-        "concept_b1_softening"
+        "concept_b2_complaint"
       ]
     },
     "grammar_a1_service_location_question": {

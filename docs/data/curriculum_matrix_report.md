@@ -215,15 +215,15 @@
 
 - 콘텐츠 규모: 어휘 2944 · 문법 252 · 시나리오 178 · 코스유닛 48 · cloze 2341 · satz 2861 · 스몰토크 582 · 미디어 136 · 발음 84 · 문화노트 36
 - 매트릭스 규모: 주제 32 · 기능 39 · 텍스트 유형 31 · 어휘 영역 26 · 기능 문법 34 · 국제통용 문법 336
-- 갭 행 합계: **529** (`tool/curriculum_matrix_gaps.csv`)
+- 갭 행 합계: **522** (`tool/curriculum_matrix_gaps.csv`)
 
 | 레벨 | 주제(필수) ✅/🟡/❌ | 국제통용 문법 match/mismatch/missing | 브리프 하이라이트 ✅/🟡/❌ | 담화 특징 ✅/❌ | 기능(산출) ✅/🟡/❌ | 텍스트 유형 ✅/🟡/❌/⛔ | 어휘 영역 ✅/🟡/❌ | 문체 ✅/❌ | 시나리오 미연결 문법/전체 |
 |---|---|---|---|---|---|---|---|---|---|
 | A1 | 17/0/0 | 45/0/0 (of 45) | 24/2/1 | 2/0 | 11/4/0 | 4/0/1/5 | 14/0/0 | 2/1 | 31/55 |
 | A2 | 17/0/0 | 39/0/6 (of 45) | 16/8/0 | 1/1 | 7/6/2 | 2/0/3/5 | 11/0/0 | 3/1 | 43/59 |
-| B1 | 18/0/0 | 8/12/47 (of 67) | 5/12/4 | 4/0 | 11/3/1 | 1/0/2/6 | 8/1/0 | 4/0 | 25/35 |
-| B2 | 17/0/0 | 12/11/44 (of 67) | 5/2/10 | 3/1 | 12/1/1 | 1/0/1/7 | 7/0/0 | 4/0 | 39/57 |
-| C1 | 12/0/0 | 1/10/45 (of 56) | 1/8/5 | 3/1 | 9/2/1 | 2/0/0/7 | 4/0/2 | 3/1 | 5/23 |
+| B1 | 18/0/0 | 9/11/47 (of 67) | 5/12/4 | 4/0 | 11/3/1 | 1/0/2/6 | 8/1/0 | 4/0 | 23/34 |
+| B2 | 17/0/0 | 14/9/44 (of 67) | 4/3/10 | 3/1 | 12/1/1 | 1/0/1/7 | 7/0/0 | 4/0 | 38/53 |
+| C1 | 12/0/0 | 6/5/45 (of 56) | 1/8/5 | 3/1 | 9/2/1 | 2/0/0/7 | 4/0/2 | 3/1 | 8/28 |
 | C2 | 12/0/0 | 2/9/45 (of 56) | 2/0/6 | 3/0 | 9/1/2 | 1/0/1/8 | 5/0/1 | 3/4 | 9/23 |
 
 ### 1.1 구조적 결손(레벨 무관)
@@ -261,20 +261,20 @@
 | ✅ covered | `communication_phone_digital` 전화·메신저·인터넷 소통 | 전화번호·연락 방법 정하기 | 14 | 9 | 2 | 1 | 5 | 13 | model_knowledge |
 | ✅ covered | `daily_life_routines` 일상생활·하루 일과 | 하루 일과·주말 활동·과거 활동 | 105 | 21 | 2 | 3 | 6 | 93 | verified_repo |
 | ✅ covered | `education_study` 교육·학교·학습 | 학교·수업·학용품(명사 수준) | 39 | 15 | 3 | 1 | 2 | 36 | model_knowledge |
-| ✅ covered | `family_relationships` 가족·인간관계 | 가족 소개·가족 높임 기초 | 72 | 12 | 4 | 1 | 30 | 70 | verified_repo |
+| ✅ covered | `family_relationships` 가족·인간관계 | 가족 소개·가족 높임 기초 | 74 | 12 | 4 | 1 | 30 | 72 | verified_repo |
 | ✅ covered | `feelings_character` 감정·성격·외모 묘사 | 외모·사물 묘사·대조(간단 형용사) | 27 | 5 | 1 | 0 | 4 | 13 | verified_repo |
 | ✅ covered | `food_drink` 식음료·식당 | 음식 취향·식당 주문·수량 | 52 | 12 | 6 | 2 | 5 | 44 | verified_repo |
-| ✅ covered | `free_time_hobbies_sport` 여가·취미·운동 | 취미·주말 약속 제안 | 51 | 15 | 2 | 0 | 16 | 49 | verified_repo |
+| ✅ covered | `free_time_hobbies_sport` 여가·취미·운동 | 취미·주말 약속 제안 | 52 | 15 | 2 | 0 | 16 | 49 | verified_repo |
 | ✅ covered | `health_body` 건강·신체·병원·약국 | 신체 부위·아픈 곳 한 단어·결석 사유 | 23 | 6 | 3 | 1 | 10 | 23 | verified_repo |
 | ✅ covered | `house_home` 주거·집 | 집·방·물건 위치(앞/뒤/위/안) | 20 | 9 | 7 | 2 | 2 | 14 | verified_repo |
-| ✅ covered | `language_learning_communication_repair` 언어·학습·의사소통 되묻기 | 못 들었을 때 다시 묻기·천천히 말해 달라고 하기 | 10 | 3 | 3 | 3 | 0 | 22 | verified_repo |
+| ✅ covered | `language_learning_communication_repair` 언어·학습·의사소통 되묻기 | 못 들었을 때 다시 묻기·천천히 말해 달라고 하기 | 11 | 3 | 3 | 3 | 0 | 22 | verified_repo |
 | ✅ covered | `numbers_time_dates` 숫자·시간·날짜 | 숫자·전화번호·화폐·날짜·요일·시간 | 117 | 18 | 2 | 1 | 0 | 95 | verified_repo |
 | ✅ covered | `personal_identification` 개인 신상·자기소개 | 이름·국적·직업·자기소개 | 63 | 13 | 5 | 2 | 0 | 63 | verified_repo |
 | ✅ covered | `shopping_consumption` 쇼핑·소비·결제 | 물건 사기·가격·수량 | 28 | 7 | 7 | 3 | 9 | 31 | verified_repo |
-| ✅ covered | `social_etiquette_customs` 예절·관습·명절·호칭 | 인사·호칭 관례·식사 예절·기초 명절 음식 | 44 | 8 | 6 | 0 | 16 | 30 | verified_repo |
+| ✅ covered | `social_etiquette_customs` 예절·관습·명절·호칭 | 인사·호칭 관례·식사 예절·기초 명절 음식 | 52 | 12 | 6 | 0 | 16 | 30 | verified_repo |
 | ✅ covered | `transport_wayfinding` 교통·길 찾기 | 장소·이동·교통수단·길 묻기 기초 | 14 | 5 | 6 | 1 | 8 | 13 | verified_repo |
-| ✅ covered | `weather_nature_climate` 날씨·계절·자연 | 날씨·계절 말하기와 간단한 추측 | 19 | 6 | 3 | 0 | 3 | 19 | verified_repo |
-| ✅ covered | `work_career` 직업·직장·취업 | 직업 이름·직장 위치(명사 수준) | 9 | 8 | 0 | 1 | 6 | 8 | model_knowledge |
+| ✅ covered | `weather_nature_climate` 날씨·계절·자연 | 날씨·계절 말하기와 간단한 추측 | 21 | 6 | 3 | 0 | 3 | 20 | verified_repo |
+| ✅ covered | `work_career` 직업·직장·취업 | 직업 이름·직장 위치(명사 수준) | 11 | 8 | 0 | 1 | 6 | 8 | model_knowledge |
 | ✅ optional_covered | `intercultural_globalisation_migration` 문화 차이·세계화·이주 | 한국 생활 첫인상 묻고 답하기 | 20 | 4 | 1 | 0 | 0 | 20 | verified_repo |
 | ✅ optional_covered | `media_entertainment_culture_pop` 미디어·대중문화(K-pop·드라마·SNS) | K-pop·드라마 취향 한 문장 | 0 | 0 | 2 | 0 | 6 | 0 | verified_repo |
 | ✅ optional_covered | `money_finance_contracts` 돈·요금·계약·보험 | 결제·가격 한 문장 | 0 | 0 | 1 | 0 | 0 | 0 | verified_repo |
@@ -290,7 +290,7 @@
 |---|---|---|---|---|
 | ✅ match | 이에요/예요 | — | grammar_a1_copula_polite | A1 |
 | ✅ match | 입니다/입니까? — 앱은 -습니다/-ㅂ니다 로 표기(이다+ㅂ니다) | — | grammar_a1_formal_question, grammar_a1_formal_statement | A1 |
-| ✅ match | 은/는 | A1/A2 | grammar_a1_past_modifier, grammar_a1_present_modifier, grammar_a1_service_location_question, grammar_a1_topic_contrast … | A1/A2/B1/C1 |
+| ✅ match | 은/는 | A1/A2 | grammar_a1_past_modifier, grammar_a1_present_modifier, grammar_a1_service_location_question, grammar_a1_topic_contrast … | A1/A2/B2/C1 |
 | ✅ match | 이/가 | A1 | grammar_a1_copula_negation, grammar_a1_subject_new, grammar_a1_subject_particle, grammar_c1_burden_recipient_batch20 … | A1/C1 |
 | ✅ match | 을/를 | A1/A2 | grammar_a1_future_modifier, grammar_a1_object_particle, grammar_a1_service_request, grammar_b2_criterion_view_batch20 … | A1/A2/B2/C1/C2 |
 | ✅ match | 에 | A1 | grammar_a1_direction_time_particle, grammar_b1_about, grammar_b2_according_to, grammar_b2_formal_regarding … | A1/B1/B2/C1/C2 |
@@ -371,19 +371,19 @@
 | ✅ covered | `time_calendar` 시간·날짜·요일·계절 | 84 |
 | ✅ covered | `colours_shapes_description` 색·모양·기본 묘사 형용사 | 19 |
 | ✅ covered | `body_health_symptoms` 신체·증상·의료 | 23 |
-| ✅ covered | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 72 |
+| ✅ covered | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 74 |
 | ✅ covered | `food_cooking` 음식·재료·조리 | 52 |
 | ✅ covered | `home_objects_furniture` 집·가구·생활용품 | 20 |
 | ✅ covered | `places_buildings_city` 장소·건물·도시 | 37 |
 | ✅ covered | `transport_travel_vocab` 교통·여행 어휘 | 14 |
-| ✅ covered | `professions_workplace` 직업·직장 어휘 | 9 |
+| ✅ covered | `professions_workplace` 직업·직장 어휘 | 11 |
 | ✅ covered | `school_study_terms` 학교·학습 어휘 | 39 |
-| ✅ covered | `weather_nature` 날씨·자연 어휘 | 19 |
-| ✅ covered | `etiquette_honorific_lexis` 예절·높임·호칭 어휘 | 44 |
+| ✅ covered | `weather_nature` 날씨·자연 어휘 | 21 |
+| ✅ covered | `etiquette_honorific_lexis` 예절·높임·호칭 어휘 | 52 |
 | ✅ covered | `fixed_expressions_collocations` 관용 표현·연어·담화 표지(품사=표현) | 56 |
 | ➕ beyond_matrix | `feelings_emotions_character` 감정·성격 어휘 | 27 |
-| ➕ beyond_matrix | `language_metalanguage` 언어·문법·화법 메타언어 | 10 |
-| ➕ beyond_matrix | `leisure_sport_hobbies_vocab` 여가·운동·취미 어휘 | 51 |
+| ➕ beyond_matrix | `language_metalanguage` 언어·문법·화법 메타언어 | 11 |
+| ➕ beyond_matrix | `leisure_sport_hobbies_vocab` 여가·운동·취미 어휘 | 52 |
 | ➕ beyond_matrix | `public_services_admin_vocab` 행정·공공 서비스 어휘 | 12 |
 | ➕ beyond_matrix | `society_economy_abstract_nouns` 사회·경제·추상 명사 | 20 |
 | ➕ beyond_matrix | `technology_devices_internet` 기기·인터넷·디지털 어휘 | 22 |
@@ -410,7 +410,7 @@
 | ✅ covered | `family_relationships` 가족·인간관계 | 초대·외모/성격·연인·파트너 가족 명절 | 96 | 8 | 3 | 0 | 30 | 96 | model_knowledge |
 | ✅ covered | `feelings_character` 감정·성격·외모 묘사 | 감정·기분·성격 묘사 | 48 | 4 | 1 | 1 | 4 | 23 | model_knowledge |
 | ✅ covered | `food_drink` 식음료·식당 | 식당 예약·메뉴 취향·맵기 조절 | 48 | 4 | 4 | 0 | 4 | 13 | model_knowledge |
-| ✅ covered | `free_time_hobbies_sport` 여가·취미·운동 | 취미·운동·휴가·주말 계획 | 19 | 4 | 7 | 0 | 20 | 18 | model_knowledge |
+| ✅ covered | `free_time_hobbies_sport` 여가·취미·운동 | 취미·운동·휴가·주말 계획 | 18 | 4 | 7 | 0 | 20 | 18 | model_knowledge |
 | ✅ covered | `health_body` 건강·신체·병원·약국 | 건강·병원·약국·증상·운동 | 29 | 4 | 2 | 1 | 8 | 25 | model_knowledge |
 | ✅ covered | `house_home` 주거·집 | 주거·집 구하기·이사·집안 문제 | 24 | 4 | 3 | 2 | 8 | 12 | model_knowledge |
 | ✅ covered | `money_finance_contracts` 돈·요금·계약·보험 | 요금·계좌·자동이체(기초) | 12 | 1 | 1 | 1 | 0 | 7 | model_knowledge |
@@ -420,12 +420,12 @@
 | ✅ covered | `social_etiquette_customs` 예절·관습·명절·호칭 | 명절 의례(세배·차례)·전통 놀이·초대 예절 | 0 | 2 | 1 | 0 | 16 | 0 | verified_repo |
 | ✅ covered | `transport_wayfinding` 교통·길 찾기 | 대중교통·길 찾기·이동 중 불편 요청 | 22 | 2 | 3 | 0 | 6 | 21 | model_knowledge |
 | ✅ covered | `travel_accommodation` 여행·숙박 | 여행·숙박·분실물 | 4 | 3 | 3 | 1 | 2 | 2 | model_knowledge |
-| ✅ covered | `work_career` 직업·직장·취업 | 직장 첫걸음·근무표·학교생활 | 24 | 2 | 3 | 1 | 6 | 9 | model_knowledge |
+| ✅ covered | `work_career` 직업·직장·취업 | 직장 첫걸음·근무표·학교생활 | 22 | 2 | 3 | 1 | 6 | 9 | model_knowledge |
 | 🟡 optional_thin | `language_learning_communication_repair` 언어·학습·의사소통 되묻기 | 반말 실수 복구·말투 확인 | 2 | 1 | 0 | 0 | 0 | 0 | model_knowledge |
 | ✅ optional_covered | `media_entertainment_culture_pop` 미디어·대중문화(K-pop·드라마·SNS) | 드라마·음악·굿즈 등 취향 이야기 | 0 | 0 | 2 | 0 | 6 | 0 | model_knowledge |
 | ❌ optional_missing | `numbers_time_dates` 숫자·시간·날짜 | 시간 조정·기간 표현 | 0 | 0 | 0 | 0 | 0 | 0 | model_knowledge |
 | ❌ optional_missing | `personal_identification` 개인 신상·자기소개 | 한국 생활 소개·온 기간 | 0 | 0 | 0 | 0 | 0 | 0 | model_knowledge |
-| ✅ optional_covered | `weather_nature_climate` 날씨·계절·자연 | 날씨에 따른 계획 변경 | 36 | 3 | 2 | 0 | 2 | 23 | model_knowledge |
+| ✅ optional_covered | `weather_nature_climate` 날씨·계절·자연 | 날씨에 따른 계획 변경 | 34 | 3 | 2 | 0 | 2 | 22 | model_knowledge |
 | ➕ beyond_matrix | `economy_business_labour` 경제·기업·노동시장 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `environment_sustainability` 환경·기후·지속가능성 |  | 0 | 0 | 1 | 0 | 0 | 0 |  |
 | ➕ beyond_matrix | `intercultural_globalisation_migration` 문화 차이·세계화·이주 |  | 0 | 0 | 1 | 0 | 0 | 0 |  |
@@ -454,7 +454,7 @@
 | ✅ match | -(으)ㄴ 적이 있다 | A2 | grammar_b1_experience | A2 |
 | ✅ match | -는 것 | A2 | grammar_b1_nominalization | A2 |
 | ✅ match | -기 | A2 | grammar_b1_nominalizer_gi | A2 |
-| ✅ match | -(으)ㄴ N | A1/A2 | grammar_a1_future_modifier, grammar_a1_past_modifier, grammar_a1_present_modifier, grammar_a1_service_location_question … | A1/A2/B1/C1 |
+| ✅ match | -(으)ㄴ N | A1/A2 | grammar_a1_future_modifier, grammar_a1_past_modifier, grammar_a1_present_modifier, grammar_a1_service_location_question … | A1/A2/B2/C1 |
 | ✅ match | -는 N | A1/A2 | grammar_a1_future_modifier, grammar_a1_past_modifier, grammar_a1_present_modifier, grammar_a1_service_location_question … | A1/A2 |
 | ✅ match | -(으)ㄹ N | A1/A2 | grammar_a1_future_modifier, grammar_a1_object_particle, grammar_a1_past_modifier, grammar_a1_present_modifier … | A1/A2/B2/C1/C2 |
 | ✅ match | -는데 | A2 | grammar_b1_background_contrast | A2 |
@@ -514,7 +514,7 @@
 | ✅ covered | `clothing_accessories` 의류·액세서리 | 24 |
 | ✅ covered | `feelings_emotions_character` 감정·성격 어휘 | 48 |
 | ✅ covered | `money_prices_banking` 돈·가격·금융·계약 어휘 | 12 |
-| ✅ covered | `leisure_sport_hobbies_vocab` 여가·운동·취미 어휘 | 19 |
+| ✅ covered | `leisure_sport_hobbies_vocab` 여가·운동·취미 어휘 | 18 |
 | ✅ covered | `technology_devices_internet` 기기·인터넷·디지털 어휘 | 13 |
 | ✅ covered | `public_services_admin_vocab` 행정·공공 서비스 어휘 | 12 |
 | ✅ covered | `body_health_symptoms` 신체·증상·의료 | 29 |
@@ -526,10 +526,10 @@
 | ➕ beyond_matrix | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 96 |
 | ➕ beyond_matrix | `language_metalanguage` 언어·문법·화법 메타언어 | 2 |
 | ➕ beyond_matrix | `places_buildings_city` 장소·건물·도시 | 2 |
-| ➕ beyond_matrix | `professions_workplace` 직업·직장 어휘 | 24 |
+| ➕ beyond_matrix | `professions_workplace` 직업·직장 어휘 | 22 |
 | ➕ beyond_matrix | `school_study_terms` 학교·학습 어휘 | 36 |
 | ➕ beyond_matrix | `time_calendar` 시간·날짜·요일·계절 | 13 |
-| ➕ beyond_matrix | `weather_nature` 날씨·자연 어휘 | 36 |
+| ➕ beyond_matrix | `weather_nature` 날씨·자연 어휘 | 34 |
 
 ### A2 문체·존대 — 시나리오 분포: banmal_casual 8, haeyo_polite 18, intimate 2
 
@@ -576,11 +576,11 @@
 | ➕ beyond_matrix | `personal_identification` 개인 신상·자기소개 |  | 12 | 2 | 0 | 0 | 0 | 1 |  |
 | ➕ beyond_matrix | `weather_nature_climate` 날씨·계절·자연 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 
-### B1 문법 — 국제통용 67항목: match 8 · level_mismatch 12 · missing 47 (앱 B1 문법 35개)
+### B1 문법 — 국제통용 67항목: match 9 · level_mismatch 11 · missing 47 (앱 B1 문법 34개)
 
 **앱에 없는 국제통용 항목:** -었었-(선어말어미) · -거든1(연결어미) · -는다거나1(연결어미) · -는다고1(연결어미) · -다가1(2)(연결어미) · -도록(연결어미) · -어다가(연결어미) · -어야(연결어미) · -어야지1(연결어미) · -었더니(연결어미) · -으니2(연결어미) · -으려면(연결어미) · 대로(조사) · 만큼(조사) · 보고(조사) · 뿐(조사) · 아1(조사) · 요1(조사) · 으로부터(조사) · -는구나(종결어미) · -는다(종결어미) · -니2(종결어미) · -던데2(종결어미) · -자3(종결어미) · -잖아(종결어미) · -고 말다(표현) · -고 싶어 하다(표현) · -기는(표현) · -나 보다(표현) · -는 대신에(표현) · -는 만큼(표현) · -는 모양이다(표현) · -는 반면(표현) · -는 중이다(표현) · -는가 보다(표현) · -는다고3(표현) · -어 가다(표현) · -어 두다(표현) · -어 보이다(표현) · -어 오다(표현) · -어야겠-(표현) · -으려다가(표현) · -은 결과(표현) · -은 다음에(표현) · -을 테니(표현) · 만 아니면(표현) · 에 대하여(표현)
 
-**레벨 불일치(앱은 다른 레벨에 둠):** -으나→A2 · 같이→A2 · 이고→A1 · 이라고1→C2 · -게 하다→B2 · -고 나다→A2 · -기 위해→A2 · -어 가지고→A2 · -어 드리다→A2 · -어지다→A2 · -으면 안 되다→A2 · -으면 좋겠다→A2
+**레벨 불일치(앱은 다른 레벨에 둠):** -으나→A2 · 같이→A2 · 이고→A1 · 이라고1→C2 · -고 나다→A2 · -기 위해→A2 · -어 가지고→A2 · -어 드리다→A2 · -어지다→A2 · -으면 안 되다→A2 · -으면 좋겠다→A2
 
 | 상태 | Jin 브리프 하이라이트 | 국제통용 등급 | 앱 id | 앱 레벨 |
 |---|---|---|---|---|
@@ -613,7 +613,7 @@
 | ✅ covered | 완곡어법(-는 게 어때요/-을 것 같아요/-아 주시면 좋겠다) | grammar_b1_soft_request, grammar_b1_soft_request_batch19 | B1 |
 | ✅ covered | 사건→원인→결과→의견 담화(-기 때문에/-(으)ㄹ 텐데) | grammar_a2_reason_because, grammar_b1_expectation, grammar_b1_nominalizer_gi, grammar_b2_formal_reason … | A2/B1/B2 |
 
-**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 B1 문법 (25/35):** `grammar_b1_about`, `grammar_b1_as_kept_doing`, `grammar_b1_as_soon_as`, `grammar_b1_concede_but`, `grammar_b1_conceded_context_batch20`, `grammar_b1_consequence`, `grammar_b1_expectation`, `grammar_b1_irregular_hieut`, `grammar_b1_irregular_reu`, `grammar_b1_irregular_siot`, `grammar_b1_more_more`, `grammar_b1_near_miss`, `grammar_b1_negative_cause`, `grammar_b1_planned_future`, `grammar_b1_prepared_state`, `grammar_b1_reason_context`, `grammar_b1_recalled_past`, `grammar_b1_scheduled_arrangement`, `grammar_b1_self_prompt`, `grammar_b1_self_should`, `grammar_b1_soft_request`, `grammar_b1_state_while`, `grammar_b1_tendency`, `grammar_b1_tentative_plan_batch20`, `grammar_b1_while_already`
+**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 B1 문법 (23/34):** `grammar_b1_about`, `grammar_b1_as_kept_doing`, `grammar_b1_concede_but`, `grammar_b1_conceded_context_batch20`, `grammar_b1_consequence`, `grammar_b1_expectation`, `grammar_b1_irregular_hieut`, `grammar_b1_irregular_reu`, `grammar_b1_irregular_siot`, `grammar_b1_more_more`, `grammar_b1_near_miss`, `grammar_b1_negative_cause`, `grammar_b1_planned_future`, `grammar_b1_prepared_state`, `grammar_b1_recalled_past`, `grammar_b1_scheduled_arrangement`, `grammar_b1_self_prompt`, `grammar_b1_self_should`, `grammar_b1_soft_request`, `grammar_b1_state_while`, `grammar_b1_tendency`, `grammar_b1_tentative_plan_batch20`, `grammar_b1_while_already`
 
 ### B1 기능(화행)
 
@@ -695,7 +695,7 @@
 | ✅ covered | `education_study` 교육·학교·학습 | 교육제도 | 22 | 2 | 1 | 0 | 7 | 22 | model_knowledge |
 | ✅ covered | `environment_sustainability` 환경·기후·지속가능성 | 환경·기후·자원 | 12 | 1 | 1 | 0 | 0 | 12 | model_knowledge |
 | ✅ covered | `ethics_philosophy_abstract` 윤리·철학·추상적 논쟁 | 가치관·추상적 주제 논의 | 49 | 5 | 4 | 1 | 0 | 25 | model_knowledge |
-| ✅ covered | `family_relationships` 가족·인간관계 | 인간관계·가족 경계·결혼식 초대 | 108 | 9 | 6 | 0 | 30 | 98 | model_knowledge |
+| ✅ covered | `family_relationships` 가족·인간관계 | 인간관계·가족 경계·결혼식 초대 | 106 | 9 | 6 | 0 | 30 | 96 | model_knowledge |
 | ✅ covered | `health_body` 건강·신체·병원·약국 | 건강정책·약 부작용·건강 시스템 | 0 | 0 | 1 | 0 | 6 | 0 | model_knowledge |
 | ✅ covered | `intercultural_globalisation_migration` 문화 차이·세계화·이주 | 국제문화·비자·체류 | 0 | 2 | 1 | 0 | 0 | 0 | model_knowledge |
 | ✅ covered | `media_entertainment_culture_pop` 미디어·대중문화(K-pop·드라마·SNS) | 미디어·조회 수·콘텐츠 촬영 허락 | 36 | 3 | 3 | 0 | 15 | 39 | model_knowledge |
@@ -708,29 +708,29 @@
 | ✅ covered | `technology_digital_ai` 기술·디지털·AI·데이터 | 기술·AI 생성물·개인정보 | 21 | 2 | 3 | 0 | 0 | 12 | model_knowledge |
 | ✅ covered | `work_career` 직업·직장·취업 | 직업과 노동·면접·회의·협상 | 69 | 8 | 8 | 1 | 16 | 75 | model_knowledge |
 | ✅ optional_covered | `house_home` 주거·집 | 퇴거·수리비 협의 | 36 | 3 | 2 | 0 | 5 | 18 | model_knowledge |
-| ✅ optional_covered | `social_etiquette_customs` 예절·관습·명절·호칭 | 호칭 정하기·격식 예절 | 36 | 5 | 3 | 0 | 16 | 0 | model_knowledge |
+| ✅ optional_covered | `social_etiquette_customs` 예절·관습·명절·호칭 | 호칭 정하기·격식 예절 | 28 | 5 | 3 | 0 | 16 | 0 | model_knowledge |
 | ✅ optional_covered | `travel_accommodation` 여행·숙박 | 결항·지연 escalation | 0 | 0 | 3 | 0 | 2 | 0 | model_knowledge |
 | ➕ beyond_matrix | `communication_phone_digital` 전화·메신저·인터넷 소통 |  | 9 | 1 | 0 | 0 | 8 | 0 |  |
 | ➕ beyond_matrix | `daily_life_routines` 일상생활·하루 일과 |  | 3 | 1 | 0 | 0 | 20 | 0 |  |
 | ➕ beyond_matrix | `feelings_character` 감정·성격·외모 묘사 |  | 20 | 3 | 4 | 0 | 11 | 17 |  |
 | ➕ beyond_matrix | `food_drink` 식음료·식당 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `free_time_hobbies_sport` 여가·취미·운동 |  | 0 | 0 | 4 | 0 | 16 | 0 |  |
-| ➕ beyond_matrix | `language_learning_communication_repair` 언어·학습·의사소통 되묻기 |  | 34 | 3 | 0 | 0 | 0 | 12 |  |
+| ➕ beyond_matrix | `language_learning_communication_repair` 언어·학습·의사소통 되묻기 |  | 33 | 3 | 0 | 0 | 0 | 12 |  |
 | ➕ beyond_matrix | `numbers_time_dates` 숫자·시간·날짜 |  | 0 | 0 | 1 | 0 | 0 | 0 |  |
 | ➕ beyond_matrix | `professional_specialised_fields` 전문 분야·학술·직무 언어 |  | 0 | 0 | 0 | 1 | 0 | 0 |  |
 | ➕ beyond_matrix | `shopping_consumption` 쇼핑·소비·결제 |  | 0 | 0 | 2 | 0 | 7 | 0 |  |
 | ➕ beyond_matrix | `transport_wayfinding` 교통·길 찾기 |  | 0 | 0 | 1 | 0 | 4 | 0 |  |
 | ➕ beyond_matrix | `weather_nature_climate` 날씨·계절·자연 |  | 2 | 1 | 0 | 0 | 2 | 0 |  |
 
-### B2 문법 — 국제통용 67항목: match 12 · level_mismatch 11 · missing 44 (앱 B2 문법 57개)
+### B2 문법 — 국제통용 67항목: match 14 · level_mismatch 9 · missing 44 (앱 B2 문법 53개)
 
 **앱에 없는 국제통용 항목:** -거니와(연결어미) · -고도(연결어미) · -고서(연결어미) · -는다면1(연결어미) · -더니(연결어미) · -던데1(연결어미) · -든지2(연결어미) · -듯이(연결어미) · -으며(연결어미) · -을래야(연결어미) · 마저(조사) · 으로서(조사) · 으로써(조사) · 이나마(조사) · 이든(조사) · 이라도(조사) · 이야(조사) · 치고(조사) · 커녕(조사) · -는다니2(종결어미) · -는다면서1(종결어미) · -다니1(종결어미) · -더군(종결어미) · -더라(종결어미) · -어라1(종결어미) · -을걸(종결어미) · -고 들다(표현) · -고 보다(표현) · -고 해서(표현) · -나 싶다(표현) · -는 듯(표현) · -는 사이에(표현) · -는 줄(표현) · -는 탓에(표현) · -는 통에(표현) · -는다거나2(표현) · -어 대다(표현) · -어 버리다(표현) · -어서인지(표현) · -을 모양이다(표현) · 만 같아도(표현) · 에 비하여(표현) · 에 의하여(표현) · 으로 인하여(표현)
 
-**레벨 불일치(앱은 다른 레벨에 둠):** -는지→A2/B1 · -을수록→B1 · 이며→A1 · 이면→A2 · -게5→A2 · -고4→A1 · -나3→A2 · -어야지2→B1 · -는 김에→B1 · -는 대로→B1 · -을 뻔하다→B1
+**레벨 불일치(앱은 다른 레벨에 둠):** -을수록→B1 · 이며→A1 · 이면→A2 · -게5→A2 · -고4→A1 · -나3→A2 · -어야지2→B1 · -는 김에→B1 · -을 뻔하다→B1
 
 | 상태 | Jin 브리프 하이라이트 | 국제통용 등급 | 앱 id | 앱 레벨 |
 |---|---|---|---|---|
-| ✅ match | -(으)ㄴ/는 반면에 | B1 | grammar_b2_contrast | B2 |
+| 🟡 level_mismatch | -(으)ㄴ/는 반면에 | B1 | grammar_b2_contrast | B1 |
 | ✅ match | -(으)ㄹ 뿐만 아니라 | — | grammar_b2_not_only | B2 |
 | ✅ match | -(으)ㄴ/는 데다가 | C1 | grammar_b1_background_contrast, grammar_b2_addition_even | A2/B2 |
 | ❌ missing | -(으)ㄴ/는 대신에 | B1 |  |  |
@@ -751,11 +751,11 @@
 | 상태 | 담화 특징 | 앱 id | 앱 레벨 |
 |---|---|---|---|
 | ✅ covered | 논증 표현(-다고 볼 수 있다/-다고 할 수 있다/-다는 점에서) | grammar_b2_shared_merit | B2 |
-| ✅ covered | 원인에 대한 화자 평가(-는 바람에/-는 탓에/-(으)ㄴ 덕분에) | grammar_b1_reason_context, grammar_b2_unexpected_cause | B1/B2 |
+| ✅ covered | 원인에 대한 화자 평가(-는 바람에/-는 탓에/-(으)ㄴ 덕분에) | grammar_b1_reason_context, grammar_b2_unexpected_cause | B2 |
 | ❌ missing | 피동·사동 본격 활용 |  |  |
 | ✅ covered | 공식 요청·협상 화행(-아/어 주시겠어요, -(으)ㄹ 수 있을까요, -기 바랍니다) | grammar_b2_explicit_formal_request, grammar_b2_formal_written_request | B2 |
 
-**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 B2 문법 (39/57):** `grammar_b2_according_to`, `grammar_b2_addition_even`, `grammar_b2_as_if`, `grammar_b2_as_long_as`, `grammar_b2_as_you_see`, `grammar_b2_compared_with`, `grammar_b2_considering_fact_batch20`, `grammar_b2_counterfactual_past`, `grammar_b2_criterion_view_batch20`, `grammar_b2_definition`, `grammar_b2_formal_concession`, `grammar_b2_formal_intention`, `grammar_b2_formal_reason`, `grammar_b2_formal_reference`, `grammar_b2_formal_regarding`, `grammar_b2_formal_written_request`, `grammar_b2_futility`, `grammar_b2_granted_limit`, `grammar_b2_impression_appearance`, `grammar_b2_in_light_of`, `grammar_b2_including_start`, `grammar_b2_inclusion`, `grammar_b2_inevitability`, `grammar_b2_instead_supplement`, `grammar_b2_method_dependent`, `grammar_b2_not_by_one_metric`, `grammar_b2_only`, `grammar_b2_only_after`, `grammar_b2_only_course`, `grammar_b2_outcome_depends`, `grammar_b2_practically`, `grammar_b2_pretense_contrast`, `grammar_b2_reasoned_perspective`, `grammar_b2_summary_judgment`, `grammar_b2_turning_point`, `grammar_b2_unexpected_cause`, `grammar_b2_verify_human_review`, `grammar_b2_whether_or_not`, `grammar_b2_worth_doing`
+**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 B2 문법 (38/53):** `grammar_b1_as_soon_as`, `grammar_b1_reason_context`, `grammar_b2_according_to`, `grammar_b2_addition_even`, `grammar_b2_as_if`, `grammar_b2_as_long_as`, `grammar_b2_as_you_see`, `grammar_b2_compared_with`, `grammar_b2_considering_fact_batch20`, `grammar_b2_counterfactual_past`, `grammar_b2_criterion_view_batch20`, `grammar_b2_definition`, `grammar_b2_formal_concession`, `grammar_b2_formal_intention`, `grammar_b2_formal_reason`, `grammar_b2_formal_reference`, `grammar_b2_formal_written_request`, `grammar_b2_futility`, `grammar_b2_granted_limit`, `grammar_b2_impression_appearance`, `grammar_b2_in_light_of`, `grammar_b2_including_start`, `grammar_b2_inclusion`, `grammar_b2_instead_supplement`, `grammar_b2_not_by_one_metric`, `grammar_b2_only`, `grammar_b2_only_after`, `grammar_b2_only_course`, `grammar_b2_outcome_depends`, `grammar_b2_practically`, `grammar_b2_pretense_contrast`, `grammar_b2_reasoned_perspective`, `grammar_b2_summary_judgment`, `grammar_b2_turning_point`, `grammar_b2_unexpected_cause`, `grammar_b2_verify_human_review`, `grammar_b2_whether_or_not`, `grammar_b2_worth_doing`
 
 ### B2 기능(화행)
 
@@ -799,15 +799,15 @@
 | ✅ covered | `argumentation_evaluation_lexis` 논증·평가·근거 어휘 | 50 |
 | ✅ covered | `institutional_legal_lexis` 제도·법률·행정 담화 어휘 | 36 |
 | ✅ covered | `media_pop_culture_vocab` 미디어·대중문화 어휘 | 36 |
-| ✅ covered | `etiquette_honorific_lexis` 예절·높임·호칭 어휘 | 36 |
+| ✅ covered | `etiquette_honorific_lexis` 예절·높임·호칭 어휘 | 28 |
 | ✅ covered | `professions_workplace` 직업·직장 어휘 | 69 |
 | ✅ covered | `fixed_expressions_collocations` 관용 표현·연어·담화 표지(품사=표현) | 123 |
 | ➕ beyond_matrix | `arts_history_memory_lexis` 예술·역사·기억 담화 어휘 | 10 |
 | ➕ beyond_matrix | `colours_shapes_description` 색·모양·기본 묘사 형용사 | 4 |
-| ➕ beyond_matrix | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 108 |
+| ➕ beyond_matrix | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 106 |
 | ➕ beyond_matrix | `feelings_emotions_character` 감정·성격 어휘 | 20 |
 | ➕ beyond_matrix | `home_objects_furniture` 집·가구·생활용품 | 36 |
-| ➕ beyond_matrix | `language_metalanguage` 언어·문법·화법 메타언어 | 34 |
+| ➕ beyond_matrix | `language_metalanguage` 언어·문법·화법 메타언어 | 33 |
 | ➕ beyond_matrix | `money_prices_banking` 돈·가격·금융·계약 어휘 | 12 |
 | ➕ beyond_matrix | `places_buildings_city` 장소·건물·도시 | 12 |
 | ➕ beyond_matrix | `public_services_admin_vocab` 행정·공공 서비스 어휘 | 60 |
@@ -863,11 +863,11 @@
 | ➕ beyond_matrix | `travel_accommodation` 여행·숙박 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `weather_nature_climate` 날씨·계절·자연 |  | 0 | 0 | 1 | 0 | 2 | 0 |  |
 
-### C1 문법 — 국제통용 56항목: match 1 · level_mismatch 10 · missing 45 (앱 C1 문법 23개)
+### C1 문법 — 국제통용 56항목: match 6 · level_mismatch 5 · missing 45 (앱 C1 문법 28개)
 
 **앱에 없는 국제통용 항목:** -고는(연결어미) · -길래(연결어미) · -느니1(연결어미) · -을뿐더러(연결어미) · -지1(연결어미) · 따라(조사) · 이라든가(조사) · 조차(조사) · -거라(종결어미) · -고말고(종결어미) · -네2(종결어미) · -는가1(종결어미) · -는걸(종결어미) · -다4(종결어미) · -다니1(종결어미) · -더라고(종결어미) · -데(종결어미) · -게 생겼다(표현) · -기가 바쁘게(표현) · -기가 쉽다(표현) · -기만 하다(표현) · -기에 따라(표현) · -기에 앞서(서)(표현) · -는 가운데(표현) · -는 데다가(표현) · -는 동시에(표현) · -는 법이다(표현) · -는 척하다(표현) · -는다기에(표현) · -는다는 것이(표현) · -는다니1(표현) · -는데도(표현) · -는데도 불구하고(표현) · -어 내다(표현) · -었던(표현) · -으려나 보다(표현) · -으면 몰라도(표현) · -은 채로(표현) · -을 법하다(표현) · -을 테다(표현) · -을 테면(표현) · -을 테지만(표현) · -자기에(표현) · 는 말할 것도 없고(표현) · 를 가지고(표현)
 
-**레벨 불일치(앱은 다른 레벨에 둠):** -다가는→B2 · -을지라도→B2 · -으려고2→A1 · -게 마련이다→B2 · -기 나름이다→B2 · -는 듯하다→B2 · -는 이상→B2 · -을 만하다→B2 · 에 관하여→B2 · 에도 불구하고→B2
+**레벨 불일치(앱은 다른 레벨에 둠):** -을지라도→B2 · -으려고2→A1 · -는 듯하다→B2 · -는 이상→B2 · -을 만하다→B2
 
 | 상태 | Jin 브리프 하이라이트 | 국제통용 등급 | 앱 id | 앱 레벨 |
 |---|---|---|---|---|
@@ -893,7 +893,7 @@
 | ✅ covered | hedging(타당성이 다소 부족한 것으로 보인다/-을 수도 있다/단정하기 어렵다) | grammar_c1_difficult_to_conclude_batch20, grammar_c1_room_for | C1 |
 | ✅ covered | 격식 연결(-기에 앞서/-고자/-(으)며/-(으)므로/-는 데 비해) | grammar_b2_compared_with, grammar_b2_formal_intention, grammar_b2_formal_reason, grammar_c2_wishing_to | B2/C2 |
 
-**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 C1 문법 (5/23):** `grammar_c1_burden_recipient_batch20`, `grammar_c1_even_if_doing`, `grammar_c1_insufficient_for`, `grammar_c1_not_necessarily`, `grammar_c1_while_also_consider`
+**⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 C1 문법 (8/28):** `grammar_b2_formal_regarding`, `grammar_b2_inevitability`, `grammar_b2_method_dependent`, `grammar_c1_burden_recipient_batch20`, `grammar_c1_even_if_doing`, `grammar_c1_insufficient_for`, `grammar_c1_not_necessarily`, `grammar_c1_while_also_consider`
 
 ### C1 기능(화행)
 
@@ -1008,7 +1008,7 @@
 
 | 상태 | 담화 특징 | 앱 id | 앱 레벨 |
 |---|---|---|---|
-| ✅ covered | 문체 전환 사다리(해 주세요 → 해 주시겠습니까 → 협조해 주시면 감사하겠습니다 → 협조를 부탁드리는 바입니다) | grammar_b1_reason_context, grammar_b2_unexpected_cause, grammar_c2_as_already_set | B1/B2/C2 |
+| ✅ covered | 문체 전환 사다리(해 주세요 → 해 주시겠습니까 → 협조해 주시면 감사하겠습니다 → 협조를 부탁드리는 바입니다) | grammar_b1_reason_context, grammar_b2_unexpected_cause, grammar_c2_as_already_set | B2/C2 |
 | ✅ covered | 태도 차이(-기는커녕/-기는 고사하고/-(으)ㄹ망정/-(으)ㄹ지언정/-거니와/-건대) | grammar_c2_even_if_concession, grammar_c2_wishing_to | C2 |
 | ✅ covered | 함축·완곡·아이러니·거리두기·문어/구어 조절 | grammar_c2_as_if_framing, grammar_c2_even_assuming, grammar_c2_expected_assumption, grammar_c2_merely_on_grounds … | C2 |
 

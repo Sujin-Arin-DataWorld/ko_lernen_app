@@ -82,6 +82,8 @@ from relevel_bundle import (  # noqa: E402
     _write_json,
     pack_base,
 )
+import scan_grammar_level as _scan_grammar_level  # noqa: E402
+from cefr_lexicon import CefrLexicon, GrammarIndex  # noqa: E402
 from validate_content import ContentValidator  # noqa: E402
 
 DEFAULT_LEDGER_PATH = relevel_ledger.DEFAULT_LEDGER_PATH
@@ -148,6 +150,85 @@ def _ledger_record(
         remaining = [e for e in ledger.entries if e.id != entry_id]
         return Ledger(version=ledger.version, entries=[*remaining, new_entry], path=ledger.path)
     return ledger.append(new_entry)
+
+
+_GRAMMAR_SCAN_LEXICON: CefrLexicon | None = None
+_GRAMMAR_SCAN_INDEX: GrammarIndex | None = None
+
+
+def _grammar_scan_tools() -> tuple[CefrLexicon, GrammarIndex]:
+    """Lazily build/cache the same lexicon + grammar index
+    `tools/content_factory/scan_grammar_level.py` uses, so the post-apply
+    gate below is byte-identical in behaviour to the CI/local `--level`
+    scan (Fable R8/R9, 2026-09-16 -- a relevel only moves the `level`
+    LABEL; it never touches the sentence, so a word whose example was
+    authored at its old, higher level can leave that level's grammar on a
+    now-lower-level card, e.g. B2 시댁/처가/드시다 moved straight to A1
+    without their -는 게/다고 했다/네요 examples being rewritten)."""
+    global _GRAMMAR_SCAN_LEXICON, _GRAMMAR_SCAN_INDEX
+    if _GRAMMAR_SCAN_LEXICON is None:
+        _GRAMMAR_SCAN_LEXICON = CefrLexicon.load(REPO)
+        _GRAMMAR_SCAN_INDEX = GrammarIndex.load(REPO)
+    assert _GRAMMAR_SCAN_INDEX is not None
+    return _GRAMMAR_SCAN_LEXICON, _GRAMMAR_SCAN_INDEX
+
+
+def check_target_level_grammar(
+    ledger: Ledger,
+    *,
+    batch_name: str,
+    vocab_by_id: Mapping[str, dict[str, str]],
+    cloze_by_id: Mapping[str, dict[str, Any]],
+    satz_by_id: Mapping[str, dict[str, Any]],
+) -> list[str]:
+    """Post-apply gate (Fable R8/R9, 2026-09-16): for every id this batch
+    moved (looked up from the ledger entries stamped with `batch_name`,
+    so it covers the vocab row AND every synced cloze/satz derivative),
+    re-run `scan_grammar_level`'s own detector against that id's sentence
+    at its NEW (target) level. Returns the sorted list of offending ids
+    (empty when clean) -- `migrate()` turns a non-empty result into a
+    `SystemExit` before anything is copied back to the real repo, exactly
+    like the existing `ContentValidator` stage gate. Only A1/A2/B1/B2 are
+    checked (`LEVEL_CONFIG`'s own coverage, scan_grammar_level.py has no
+    C1/C2 mode) -- a batch that ever moves something to C1/C2 is silently
+    not covered here, matching the scanner's own current limits."""
+
+    lexicon, grammar_index = _grammar_scan_tools()
+    offenders: list[str] = []
+    text_by_kind_id: dict[tuple[str, str], tuple[str, str]] = {}
+    for entry in ledger.entries:
+        if entry.batch != batch_name:
+            continue
+        level_name = entry.to_level.upper()
+        cfg = _scan_grammar_level.LEVEL_CONFIG.get(level_name)
+        if cfg is None:
+            continue
+        if entry.kind == "vocab":
+            row = vocab_by_id.get(entry.id)
+            text = row["example_korean"] if row else None
+        elif entry.kind == "cloze":
+            item = cloze_by_id.get(entry.id)
+            text = item.get("fullKo") if item else None
+        elif entry.kind == "satz":
+            item = satz_by_id.get(entry.id)
+            text = item.get("targetKo") if item else None
+        else:
+            continue
+        if not text:
+            continue
+        text_by_kind_id[(entry.kind, entry.id)] = (text, level_name)
+
+    for (kind, ident), (text, level_name) in sorted(text_by_kind_id.items()):
+        threshold = _scan_grammar_level.LEVEL_CONFIG[level_name]["threshold"]
+        hits = (
+            _scan_grammar_level._grammar_hits_ge(lexicon, grammar_index, text, threshold)
+            or _scan_grammar_level._attributive_noun_hits(text, threshold)
+            or _scan_grammar_level._contracted_aux_hits(text, threshold)
+        )
+        if hits:
+            offenders.append(f"{ident} ({kind}, target {level_name}): {text!r} -> {hits}")
+
+    return offenders
 
 
 def apply_batch(
@@ -483,6 +564,21 @@ def migrate(
         if content_issues:
             detail = "\n".join(f"{issue.source}: {issue.message}" for issue in content_issues)
             raise SystemExit(f"스테이지 검증 실패:\n{detail}")
+
+        grammar_offenders = check_target_level_grammar(
+            ledger,
+            batch_name=batch_name,
+            vocab_by_id={row["id"]: row for row in vocab},
+            cloze_by_id={item["id"]: item for item in cloze_items},
+            satz_by_id={item["id"]: item for item in satz_items},
+        )
+        if grammar_offenders:
+            detail = "\n".join(f"  {line}" for line in grammar_offenders)
+            raise SystemExit(
+                "이동한 문장이 목표 레벨 문법 상한을 넘는다 — 레벨만 옮기고 예문은 안 고침"
+                f" (scan_grammar_level.py 재실행: python tools/content_factory/"
+                f"scan_grammar_level.py --level <레벨>):\n{detail}"
+            )
 
         print(f"배치 {batch_path.name}: {len(batch)}건")
         for line in plan:

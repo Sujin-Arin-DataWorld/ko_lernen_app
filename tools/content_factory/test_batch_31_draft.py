@@ -75,6 +75,7 @@ from distractor_rules import (  # noqa: E402
     detect_required_class as _detect_required_class,
 )
 import scan_grammar_level as SGL  # noqa: E402
+import relevel_ledger  # noqa: E402
 from cefr_lexicon import CefrLexicon, GrammarIndex  # noqa: E402
 
 DRAFTS = REPO_ROOT / "tools/content_factory/drafts"
@@ -721,23 +722,73 @@ class TestBatch31Satz(unittest.TestCase):
 
 
 class TestBatch31Packs(unittest.TestCase):
-    def test_filled_packs_reach_exactly_12(self):
-        # C3-T5 (2026-09-16): post-promotion, live already includes this
-        # batch's own rows (live and draft are no longer disjoint sets),
-        # so each pack's live count alone must be 12 -- not live+draft
-        # (mirrors test_batch_30_draft.py's a1_numbers_2 fix).
+    def test_filled_packs_reached_twelve_net_of_ledger_relevels(self):
+        """C3-T5 (2026-09-16): post-promotion, live already includes this
+        batch's own rows (live and draft are no longer disjoint sets), so the
+        pack's live rows alone carry the proof (mirrors test_batch_30_draft.py's
+        a1_numbers_2 fix).
+
+        C3-T5b, merge of PR #361 (relevel V2G1, 2026-09-16): a later,
+        ledger-recorded relevel may legitimately move a word OUT of a pack this
+        batch filled (날씨/계절 left a2_weather for a1_nature_people_1) or INTO
+        one. tool/relevel_vocab.py appends movers at the target pack's end
+        (pack_order = max+1) and never renumbers the source pack, so the
+        promotion-time fill survives structurally and is asserted that way
+        instead of as a bare 'live count == 12' (which main's own data now
+        fails): every addedWord is still live in the pack; max pack_order is
+        still 12; live count == 12 - (orders missing from 1..12) + (orders
+        above 12); every missing order needs a relevel_ledger.json vocab entry
+        that left this pack's level (the ledger records levels, not packs, so
+        this is a per-level ceiling, the tightest bound the ledger offers);
+        every order above 12 must be a ledger-recorded move INTO this level."""
         manifest = _load_json(DRAFTS / "batch_31_a2_reinforcement_manifest.json")
         draft_rows = _load_vocab_rows(DRAFTS / "batch_31_a2_rows.csv")
         live_rows = _load_vocab_rows(VOCAB_CSV)
+        ledger = relevel_ledger.load_ledger()
         draft_counts = Counter(r["pack_id"] for r in draft_rows)
-        live_counts = Counter(r["pack_id"] for r in live_rows)
+        live_by_pack: dict[str, list[dict]] = {}
+        for r in live_rows:
+            live_by_pack.setdefault(r["pack_id"], []).append(r)
+        live_by_id = {r["id"]: r for r in live_rows}
         for entry in manifest.get("packsFilledTo12", []):
             pid = entry["pack_id"]
-            self.assertEqual(live_counts.get(pid, 0), 12, f"{pid}: live count = {live_counts.get(pid, 0)}, expected 12")
+            rows = live_by_pack.get(pid, [])
+            self.assertTrue(rows, f"{pid}: no live rows")
+            live_words = {r["korean"] for r in rows}
+            for word in entry["addedWords"]:
+                self.assertIn(word, live_words, f"{pid}: promoted word {word!r} is no longer live in the pack")
             self.assertEqual(
                 draft_counts.get(pid, 0), len(entry["addedWords"]),
                 f"{pid}: draft row count != declared addedWords length",
             )
+            orders = sorted(int(r["pack_order"]) for r in rows)
+            self.assertEqual(len(orders), len(set(orders)), f"{pid}: duplicate pack_order values {orders}")
+            self.assertGreaterEqual(
+                max(orders), 12, f"{pid}: max pack_order is {max(orders)} -- the pack never reached 12"
+            )
+            gaps = sorted(set(range(1, 13)) - set(orders))
+            extras = [r for r in rows if int(r["pack_order"]) > 12]
+            self.assertEqual(
+                len(rows), 12 - len(gaps) + len(extras),
+                f"{pid}: live count {len(rows)} != 12 - {len(gaps)} relevelled-out + {len(extras)} relevelled-in",
+            )
+            level = rows[0]["level"].strip().lower()
+            moved_out_of_level = {
+                e.id for e in ledger.entries
+                if e.kind == "vocab" and e.from_level == level and e.to_level != level
+                and live_by_id.get(e.id, {}).get("pack_id") != pid
+            }
+            self.assertLessEqual(
+                len(gaps), len(moved_out_of_level),
+                f"{pid}: pack_order slot(s) {gaps} are empty but only {len(moved_out_of_level)} "
+                f"ledger-recorded relevel(s) left level {level} -- a pack row vanished without a ledger entry",
+            )
+            for r in extras:
+                e = ledger.get("vocab", r["id"])
+                self.assertIsNotNone(
+                    e, f"{pid}: {r['id']} ({r['korean']}) sits at pack_order {r['pack_order']} > 12 without a relevel ledger entry"
+                )
+                self.assertEqual(e.to_level, level, f"{pid}: {r['id']} ledger move targets level {e.to_level}, pack is {level}")
 
     def test_new_packs_have_declared_word_count(self):
         manifest = _load_json(DRAFTS / "batch_31_a2_reinforcement_manifest.json")

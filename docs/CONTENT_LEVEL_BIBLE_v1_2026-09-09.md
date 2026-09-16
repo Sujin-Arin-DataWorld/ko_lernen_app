@@ -1,57 +1,14 @@
-# 한글소리 콘텐츠 레벨 바이블 (v2, 2026-09-16 확정)
+# 한글소리 콘텐츠 레벨 바이블
 
 ⛔ **콘텐츠를 추가·수정하기 전에 §B(레벨 프로필)·§C(판정 절차)·§D(작성 규칙)를 읽는다.**
 
-> **v2 확정.** 이 문서는 2026-09-16 "Bible v2 확정 + relevel 1차" PR에서
-> `docs/CONTENT_LEVEL_BIBLE_v2_DRAFT.md`(Fable 설계, Sonnet 물질화)와
-> `docs/data/level_bible/V2_jin_decisions.md`의 9건 결정(Jin: 전부 Fable
-> 권고대로 승인)을 v1에 병합해 만든 정본이다. v1은
-> [`CONTENT_LEVEL_BIBLE_v1_2026-09-09.md`](CONTENT_LEVEL_BIBLE_v1_2026-09-09.md)로
-> 보존했고, DRAFT 파일은 이 PR에서 삭제했다 — 이제부터 정본은 이 파일 하나다.
-> §0에 9건 결정의 최종 결과를 요약한다(전문은 `V2_jin_decisions.md`).
->
 > 정본 위치: 승인 플랜 `plans/c-users-vjinn-elibrary-downloads-1-1-pd-cheeky-eclipse.md`
-> §3(레벨 바이블 규범) + v2 조정(위). 규칙 문장은 그대로 옮기고 표는
-> `tool/build_level_bible_tables.py`(T1.4)로 `docs/data/level_bible/
+> §3(레벨 바이블 규범). 이 문서는 그 절을 물질화한 것이며, 규칙 문장은 그대로
+> 옮기고 표는 `tool/build_level_bible_tables.py`(T1.4)로 `docs/data/level_bible/
 > F1~F9.md`에 결정론적으로 생성한다. F4(세종 익힘책 14과 표)·F8(검수
 > 체크리스트)·F10(검수 학습 원장)은 손으로 쓴다. 세션은 `AGENTS.md` +
 > `.claude/handoffs/` 최신 1개만 읽고, 콘텐츠 작업 전에는 이 문서의 §B·§C·§D를
 > 반드시 읽는다.
-
-## §0 v2 Jin 결정 확정 (2026-09-16)
-
-> 전문·인용·논의는 `docs/data/level_bible/V2_jin_decisions.md`. Jin은 9건
-> 전부 Fable 권고대로 승인했다. 이 PR에서 실제로 반영한 것과 미룬 것을
-> 구분한다.
-
-1. **`-는 만큼`**: NIKL B1 vs 세종 C2(6급) 충돌 — **B1 유지**로 확정(Fable
-   추천 (C) 두 용법 분리는 콘텐츠 작성 시점에 재검토). 현재 grammar.csv에
-   없음(missing_in_app) — §F 부록 V2-4(신규 문법 저작 대기열)에 등재.
-2. **NIKL 5급(C1) 태그 5건이 B2에 있던 문제**: 5건 전부 B2→C1 이동
-   **적용 완료**(`V-다가는` 우선, relevel batch `V2G1`) — §B.4②·§B.5②.
-3. **B1↔B2 문법 이동 5건**(세종 실물 근거): 5건 전부 **적용 완료**(relevel
-   batch `V2G1`) — §B.3②·§B.4②.
-4. **경어 생존 어휘**: (a) 인용 확보 3건(`계시다`·`드리다`·`말씀`, 세종1
-   9과 p.99) **A1 예외 신설 + relevel 적용 완료**(batch `relevel_batch_006`);
-   `말씀하시다`는 라이브 행이 없어 F9 문서화만. (b) 인용 없는 4건(`생신`·
-   `주무시다`·`드시다`·`잡수시다`)은 F9 예외 신설은 보류하되, NIKL 1급
-   단일어 근거만으로 `too_easy_move_down` 경로로 **별도 relevel 적용
-   완료**(batch `relevel_batch_007`) — F9 서바이벌 예외 확대(세종 인용)는
-   여전히 별도 세션 대기.
-5. **F9 룰링 미적용 버그 4건**(`문법`·`윷놀이`·`시댁`·`처가`): §4(a)와 한
-   트랜잭션(batch `relevel_batch_006`)으로 **적용 완료**.
-6. **B1 관용구/서사 조각 재작성 여부**: relevel이 아니라 콘텐츠 이슈로 확정
-   — `V2_relevel_candidates.csv`의 `too_hard_or_survival_review`(55) +
-   `too_easy_move_down` 중 구/서사조각 표시 45건, 총 100건을
-   `V2_content_review_queue.md`(신규)에 수작업 감수 대기열로 등재.
-7. **C1/C2 세종 근거 전수조사**: 별도 세션(Q-S3)으로 확정, 이번 PR 범위
-   밖 — `V2_content_review_queue.md` §C에 기록.
-8. **"발명된 시적 명사구" 3~4건**(`말의 자리`·`전통의 선택`·`망각의 예절`·
-   `말의 위계`): relevel 아님, 콘텐츠 재작성 대상으로 확정 —
-   `V2_content_review_queue.md` §B에 등재(라이브 행 삭제는 이번 PR 범위
-   밖).
-9. **C9-T0 사용 노트 스코프 C1/C2 확장**: 파일럿(B1 전량 + B2 20클러스터)
-   결과 확인 후 순연 확장으로 확정 — 이번 PR과 무관하게 별도 진행.
 
 ## 출처·라이선스 고지
 
@@ -176,20 +133,6 @@ family → du; `du-sie-check` 기준과 동일 — B.2 ⑨와 같은 규칙이�
    생산하지만(⑥ 참고), "불가능하다"는 3급 어휘이고 "환불" 상황(제품 교환·
    환불 처리)은 A2 이상에서 다루는 소재라 A1 문장으로는 부적절하다.
 
-**[v2, 2026-09-16 확정]** 세종 실물(3A/3B/4A/4B) 대화 벤치마크: A1 세종
-평균 10.1자 vs 우리 예문 평균 12.5자 — 모든 레벨 중 우리 쪽이 더 길다
-(어절은 미측정, ≤8어절 상한은 유지, 불필요한 수식어 제거 권고 추가). 어휘
-예외 재점검 4건(`문법`·`윷놀이`·`시댁`·`처가`)은 F9에 이미 "A1 유지"
-룰링이 있었으나 라이브 `korean_vocab.csv`에는 B2로 남아 있던 버그였다 —
-Jin 결정 5(§0)로 `relevel_batch_006`에서 적용 완료, B2→A1. 세종1(회화
-익힘책 1-2) 9과 어휘 p.99에 직접 등재된 경어 생존 어휘 3건(`계시다`·
-`드리다`·`말씀`)도 같은 트랜잭션으로 A1 예외 신설 + relevel 적용
-완료(citation `sejong1_u9_voc8~10`); `말씀하시다`는 라이브 행이 없어
-`tools/content_factory/lexicon/level_exceptions.csv`(honorific_survival
-카테고리)에 문서화만 했다. 인용 없는 나머지 경어 4건(`생신`·`주무시다`·
-`드시다`·`잡수시다`)은 F9 예외 신설은 보류했지만, NIKL 1급 단일어라는
-독립 근거로 `relevel_batch_007`에서 별도 이동했다(§0 결정 4 참고).
-
 ### B.2 A2(2급)
 
 **① can-do.** 취향과 이유를 말하고, 약속을 제안·변경하고, 메신저로
@@ -240,18 +183,6 @@ peer/close_friend/family → du). 영어는 구어 축약형(I'll, don't) 허용
 3. "인감을 위약금 조항과 함께 인증서에 첨부하세요" — 인감·위약금·인증서
    모두 B1 이상 행정 어휘(plan §0.1 실사례).
 
-**[v2, 2026-09-16 확정]** 세종한국어 회화 익힘책 2(`syllabus_sejong2.json`)
-유닛 인용 신설: 1과 "꽃다발이나 케이크는 어때요?"(p.10, 선물/취향)·2과
-"회사 일이 많아서 바빴습니다"(p.20, 업무/이유)·4과 "점심 먹으러
-갈래요?"(p.40, 약속제안)·6과 "푹 쉬어서 괜찮아졌어요"(p.60, 증상/회복)·
-13과 "저 좀 도와줄 수 있어요?"(p.60, 도움요청) — 현재 앱 8유닛과 대체로
-정합. 문법 결손 6건(`-다가1(1)`·`에게로`·`에다가`·`에서부터(서부터)`·
-`-지`·`-을 것1`, 세종 A1/A2 본편 미검증)은 `V2_grammar_gaps.csv`(nikl_
-grade=2)에 있고 §F 부록 V2-4(문법 저작 대기열)로 넘겼다. 어휘 relevel
-5건(`회사`·`직업`·`취미`·`날씨`·`계절`, 현재 A2·NIKL 1급) → A1 이동을
-**적용 완료**(`relevel_batch_007`). 세종 문장 벤치마크: A2 평균 15.4자 vs
-우리 16.0자(격차가 A1만큼 크지 않음) — ≤12어절 상한 유지, 변경 없음.
-
 ### B.3 B1(3급)
 
 **① can-do.** 경험을 말하고 원인·결과를 설명하며, 간접화법으로 전달하고,
@@ -292,27 +223,6 @@ grade=2)에 있고 §F 부록 V2-4(문법 저작 대기열)로 넘겼다. 어휘
 3. 절 4개를 이어 붙인 장문(‑고 ‑어서 ‑는데 ‑지만을 한 문장에) — B1 절
    상한(3절)을 넘는 예.
 
-**[v2, 2026-09-16 확정]** 세종한국어 회화 익힘책 3(`syllabus_sejong3.json`)
-유닛 인용 신설(1과 "세종학당에서 한국어를 배울까 해요"·5과 "저도 뉴욕에
-가 본 적이 있어요"·6과 "사이즈가 작아서 교환하려고요"·10과 "제가 실수할
-뻔했네요"·11과 "배우들이 연기를 정말 잘한다고 해요", **간접화법**) — v1
-can-do 서술과 정합 확인. 문법: 세종 실물(3A/3B) 대조 결과 세종이 가르치는
-B1 문법 중 8개만 일치(14.8%) — **간접화법 어미족
-`-는다고2/-냐고/-으라고/-자고`가 grammar.csv 어느 레벨에도 없음**(최우선
-저작 후보, §F 부록 V2-4)과 **`-거든1`(3A p.237, 이유)/`-거든2`(종결어미,
-이미 `grammar_b1_explanatory_reason`로 match) 구분 결손**도 같은 대기열에
-있다. **이동 3건 적용 완료**(relevel batch `V2G1`): `grammar_b1_whether`
-(V-(으)ㄴ/는지)·`grammar_b1_as_soon_as`(V-는 대로)·`grammar_b1_reason_
-context`(V-는 바람에, S) — 셋 다 B1→B2(세종 4A 실물 근거). 나머지 43개
-세종 결손 항목은 `V2_grammar_gaps.csv`(nikl_grade=3) 참고. 어휘: Q-C 최악
-불일치 20건 중 다수가 구/서사 조각(`작은 정성`·`시누이`·`시동생` 등)이라
-relevel이 아니라 `V2_content_review_queue.md`(§0 결정 6)로 넘겼다 — F9에
-새로 등재하지 않는다. 세종 문장 벤치마크: B1 평균 16.0자 vs 우리 19.5자
-(A2보다 격차 커짐) — ≤16어절·절≤3 상한 유지, 다듬기 권고 강화. 깊이
-요구사항: B1 전량이 이미 C9-T0 사용 노트 스코프(`docs/CONTENT_USAGE_
-NOTES.md`, PR #356)에 포함됨 — Q-C 표본 NIKL 정확일치 26%·off≥2 28.5%로
-6레벨 중 최저 정합도.
-
 ### B.4 B2(4급)
 
 **① can-do.** 공식적으로 문의하고, 협상하고, 민원을 제기하고, 추상적인
@@ -352,26 +262,6 @@ NOTES.md`, PR #356)에 포함됨 — Q-C 표본 NIKL 정확일치 26%·off≥2 2
    스러움을 잃은 번역투(plan §3.D "이중 피동·것이다 남발" 금지 유형과 동일
    계열의 결함).
 
-**[v2, 2026-09-16 확정]** 세종한국어4(`syllabus_sejong4.json`) 유닛 인용
-신설(4과 이순신 서술·5과 "늦잠을 자는 바람에"·10과 "태풍으로 인한
-해일이라고 하더라고요"·11과 공식 문의) — v1 can-do와 정합. 문법: 세종
-실물(4A/4B) 대조 결과 세종 B2 문법 57개 중 7개만 일치(12.3%). **이동 2건
-적용 완료**(relevel batch `V2G1`, B2→B1): `grammar_b2_contrast`(V-는
-반면에)·`grammar_b2_formal_arrangement`(V-도록 하다) — 세종 3B가 B1에서
-가르침. **이동 5건 적용 완료**(B2→C1, NIKL 5급 태그 + 세종 이중 근거,
-`-다가는` 우선): `grammar_b2_negative_consequence`(V-다가는, 세종5
-unit8 p.35에서도 확인)·`grammar_b2_despite`(N에도 불구하고)·`grammar_b2_
-inevitability`(V-기 마련이다)·`grammar_b2_formal_regarding`(N에
-관하여)·`grammar_b2_method_dependent`(V-기 나름이다). 부작용: 시나리오
-4건(`b1_w10_insurance`→`grammar_b1_whether`, `b2_w10_travel`/`b2_w10_
-hiring`→`grammar_b2_despite`, `b2_w10_authorities`→`grammar_b2_negative_
-consequence`)이 이제 자기 레벨보다 높은 문법을 참조한다 —
-`relevel_V2G1_report.md`에 경고로 기록, 시나리오 레벨 조정/문법 교체는
-별도 후속 작업(§F 부록 V2-4에도 등재). 어휘: 경어 생존 어휘 군집(§B.1⑩
-참고) relevel 완료. 세종 문장 벤치마크: B2 평균 18.4자 vs 우리 23.7자 —
-**모든 레벨 중 가장 큰 격차**, ≤22어절 상한 유지하되 다듬기 최우선. 깊이
-요구사항: C9-T0 스코프 부분 포함(B2 유의어 클러스터 20개만).
-
 ### B.5 C1(5급)
 
 **① can-do.** 근거를 평가하고, 접근성·위험을 소통하고, 지속가능성을
@@ -405,21 +295,6 @@ hedging(may, appear to) 적절히 사용. 과잉 단정 금지는 세 언어 공
    교체) — 문법도 함께 5급 수준으로 올라가야 한다.
 3. "전문가에 따르면 무조건 안전하다" — 출처를 명시하되 결론은 여전히
    단정적이라 근거-결론 정합성이 깨진 사례.
-
-**[v2, 2026-09-16 확정]** 세종한국어 익힘책5(`syllabus_sejong5.json`)
-유닛 인용 신설(5과 "통과 의례"·6과 "후회하지 않는 삶"·8과 "생겨나는 말,
-사라지는 말") — v1 can-do와 정합. 문법: 세종5 유닛과 대조해 6건 신규
-인용 확보(`이라든가`·`-을뿐더러`·`-는 데다가`·`-다가는`·`-는 가운데`·
-`-으면 몰라도`) — 이 세션 전에는 C1/C2 세종 근거가 전혀 없었다. B2→C1로
-이동한 5건(§B.4② 참고)이 이제 이 레벨에 있다. 나머지 39개는 "세종
-미검증(자료 부족: 유닛당 대표 문법 1개만 추출)"으로 §F 부록 V2-4에
-등재. 어휘: `반례를 들다`(delta=-4, NIKL 1급)는 합성어 판정 아티팩트가
-아니라 진짜 A1 수준 내용어로 구성된 구 — 등급 판정 방식의 한계이며
-**재분류 대상 아님**(relevel 미적용). `우리 며느리`·`말의 자리`·`전통의
-선택`은 Q-C가 "발명된 것 같은 추상 명사구"로 지목한 **콘텐츠 품질 재검토
-대상**(§0 결정 8) — `V2_content_review_queue.md`에 등재, F9 예외 신설
-아님. 문장 규범: C1 실측 없음(변경 없음). 깊이 요구사항: C9-T0 스코프
-밖(§0 결정 9).
 
 ### B.6 C2(6급)
 
@@ -457,21 +332,6 @@ academic hedging과 수동태를 과용하지 않는다. 두 언어 모두 "말�
    불명) — ⑤ "책임 소재 정밀 구분" 위반.
 3. C2 어휘·문법인데 회화 대사가 아니라 보고서 문체로 쓴 시나리오 대사 —
    회화 교재 정체성 위반.
-
-**[v2, 2026-09-16 확정]** 세종한국어6(`syllabus_sejong6.json`) 유닛 인용
-신설(1과 "문화와 사고방식"·5과 "현대인의 건강"·7과 "한국의 선거와 여론
-조사"·9과 "문학 속의 인생") — v1 can-do와 정합. 문법 헤드라인(§0 결정
-1): **`-는 만큼`은 NIKL 3급(B1)인데 세종은 6급(C2) unit4 "시장과
-정부" p.19에서 가르친다** — NIKL·세종이 3등급 차이로 갈리는 가장 큰
-사례. Jin 결정: **B1 유지**(NIKL 권위 우선), 세종 C2 근거는 문서화만
-하고 콘텐츠 작성 시점에 두 용법(구어 비교 vs 문어체 근거제시) 분리
-여부를 재검토한다 — §F 부록 V2-4에 등재. 세종6에만 있고 NIKL에는 없는
-문법 3건(`-는다는 점에서`·`-는 데(에) 목적이 있다`·`-을 계기로`)은
-app_only 추가 후보로 참고. 어휘: `말의 위계`(delta=-5, `말의 자리`와
-같은 "발명된 시적 명사구" 패턴)는 relevel 대상이 아니라 `V2_content_
-review_queue.md`(§0 결정 8)에 등재. 문장 규범: 측정 안 됨(C1과 동일
-사유). 깊이 요구사항: C9-T0 스코프 밖(§0 결정 9) — Q-C가 "권한/권리",
-"정당화/합리화" 등 5단어 군집을 확장 1순위 후보로 지목.
 
 ---
 
@@ -558,13 +418,8 @@ A1/A2 결손 목록의 단어는 하향으로 결손을 메운다. 수사·기�
 | F6 | [F6_topic_bank.md](data/level_bible/F6_topic_bank.md) | KERIS·초중등 교과주제 뱅크(B1~C2 씨앗 후보) |
 | F7 | [F7_pronunciation.md](data/level_bible/F7_pronunciation.md) | 발음 초점 레벨표(A1 14항목 + A2~C2 현황) |
 | F8 | [F8_review_checklist.md](data/level_bible/F8_review_checklist.md) | 검수 체크리스트·Jin 10% 표본 절차·증거 패키지 |
-| F9 | [F9_exceptions.md](data/level_bible/F9_exceptions.md) | 예외표(수사·감탄 표현 A1 유지, 앱 고유 문법, `honorific_survival` 카테고리 v2 신설) |
+| F9 | [F9_exceptions.md](data/level_bible/F9_exceptions.md) | 예외표(수사·감탄 표현 A1 유지, 앱 고유 문법) |
 | F10 | [F10_review_lessons.md](data/level_bible/F10_review_lessons.md) | 검수 학습 원장(반려 사유 누적, 빈 원장으로 시작) |
-| V2-1 | [V2_relevel_candidates.csv](data/level_bible/V2_relevel_candidates.csv) | 라이브 표제어 120개 relevel 후보(레벨당 20, Q-C 최악불일치) — 2026-09-16 1차에서 too_easy_move_down 16건 적용(§0), 나머지는 §F V2-5 대기열 |
-| V2-2 | [V2_grammar_gaps.csv](data/level_bible/V2_grammar_gaps.csv) | 문법 234행(F1 missing_in_app/level_mismatch + 세종 실물 이동 후보 5) — 2026-09-16 1차에서 이동 후보 10건 적용(§0), 나머지는 §F V2-4 저작 대기열 |
-| V2-3 | [V2_jin_decisions.md](data/level_bible/V2_jin_decisions.md) | Jin 결정 목록(9건, 전부 Fable 권고대로 승인 — §0에 결과 요약) |
-| V2-4 | [V2_grammar_authoring_queue.md](data/level_bible/V2_grammar_authoring_queue.md) | 간접화법 어미족·`-거든1/2`·A2 6건·`-는 만큼` 등 신규 저작이 필요한 문법 항목 대기열(2026-09-16 신설, 저작은 후속 세션) |
-| V2-5 | [V2_content_review_queue.md](data/level_bible/V2_content_review_queue.md) | relevel이 아니라 콘텐츠 재작성/재검토가 필요한 표제어 100건(구·서사 조각 45 + too_hard_or_survival_review 55) + "발명된 시적 명사구" 4건(2026-09-16 신설, §0 결정 6·8) |
 
 ### 교육과정 매트릭스 (별도 계열)
 
@@ -585,17 +440,3 @@ tool/audit_curriculum_matrix.py` 가 생성한다(직접 편집 금지). 정본�
 > 렌더하지 않는다). 화행 39종의 **실현 문형(exponent)** 목록도 없다 —
 > `taxonomy.json`의 `speechActs` 스키마에 해당 필드가 없다. 둘 다 후속
 > 작업이다.
-
-## §검증 (v2 확정 + relevel 1차, 2026-09-16)
-
-`python tool/verify_sejong_citations.py` — 이 PR은 새 세종 인용을 추가하지
-않았다(기존 `citations*.jsonl`의 이미 검증된 사실만 재사용). 결과:
-**citations verified 1299/1299 (exact 943/943, ocr 356/356)** — v2 DRAFT
-병합 시점 기준선과 동일. `python tools/content_factory/validate_content.py
---json` → `{"ok": true, "issues": []}`. `python tool/audit_content_levels.py
---json`의 `packs.a1.over2_unbacklogged`/`packs.a2.over2_unbacklogged` 랫칫은
-0/0로 상향 없음(relevel 전과 동일) — vocab 커버리지 `grade1.at_level`은
-530→541로 개선. relevel 상세는 `tools/content_factory/relevel_ledger.json`
-batch `relevel_batch_006`(F9 A1 예외 7건)·`relevel_batch_007`(too_easy_
-move_down 9건)·`V2G1`(문법 10건) 항목과
-[relevel_V2G1_report.md](data/relevel_V2G1_report.md) 참고.

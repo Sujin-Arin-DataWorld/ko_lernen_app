@@ -1,0 +1,78 @@
+{
+  "status": "approved",
+  "batch": "V2G1",
+  "note": "Bible v2 relevel 1차 (2026-09-16, Jin이 Fable 권고대로 승인): Jin 결정 2(B2→C1 5건, V-다가는 우선)와 Jin 결정 3(B1↔B2 5건, 세종 실물 근거)을 적용. courseUnitId/conceptIds는 각 대상 레벨의 기존 unit 중 의미적으로 가장 가까운 것을 선택(requiredConceptIds 재사용).",
+  "moves": [],
+  "grammarMoves": [
+    {
+      "id": "grammar_b1_whether",
+      "to": "b2",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": ["concept_b2_opinion"],
+      "reason": "V2_grammar_gaps.csv app_over_or_under_level_vs_sejong: V-(으)ㄴ/는지는 세종학당 한국어4A p.228에서 B2로 가르침 (Jin 결정 3, 2026-09-16)."
+    },
+    {
+      "id": "grammar_b1_as_soon_as",
+      "to": "b2",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": ["concept_b2_precise_requests"],
+      "reason": "V2_grammar_gaps.csv app_over_or_under_level_vs_sejong: V-는 대로는 세종학당 한국어4A p.235에서 B2로 가르침 (Jin 결정 3, 2026-09-16)."
+    },
+    {
+      "id": "grammar_b1_reason_context",
+      "to": "b2",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": ["concept_b2_complaint"],
+      "reason": "V2_grammar_gaps.csv app_over_or_under_level_vs_sejong: V-는 바람에, S는 세종학당 한국어4A p.237에서 B2로 가르침 (Jin 결정 3, 2026-09-16)."
+    },
+    {
+      "id": "grammar_b2_contrast",
+      "to": "b1",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": ["concept_b1_reasons_experience"],
+      "reason": "V2_grammar_gaps.csv app_over_or_under_level_vs_sejong: V-는 반면에는 세종학당 한국어 3B p.235에서 B1로 가르침 (Jin 결정 3, 2026-09-16)."
+    },
+    {
+      "id": "grammar_b2_formal_arrangement",
+      "to": "b1",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": ["concept_b1_softening"],
+      "reason": "V2_grammar_gaps.csv app_over_or_under_level_vs_sejong: V-도록 하다는 세종학당 한국어 3B p.228에서 B1로 가르침 (Jin 결정 3, 2026-09-16)."
+    },
+    {
+      "id": "grammar_b2_negative_consequence",
+      "to": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": ["concept_c1_evidence_reasoning"],
+      "reason": "NIKL 5급(C1) level_mismatch + 세종5(C1) 익힘책 5B unit8 '생겨나는 말, 사라지는 말' p.35에서도 확인(NIKL+세종 이중 근거) -- Jin 결정 2, 2026-09-16, 우선 적용."
+    },
+    {
+      "id": "grammar_b2_despite",
+      "to": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": ["concept_c1_evidence_reasoning"],
+      "reason": "NIKL 5급(C1) level_mismatch (F1 조사/표현 칸) -- Jin 결정 2, 2026-09-16."
+    },
+    {
+      "id": "grammar_b2_inevitability",
+      "to": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": ["concept_c1_inclusive_systems"],
+      "reason": "NIKL 5급(C1) level_mismatch (F1 조사/표현 칸) -- Jin 결정 2, 2026-09-16."
+    },
+    {
+      "id": "grammar_b2_formal_regarding",
+      "to": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": ["concept_c1_inclusive_systems"],
+      "reason": "NIKL 5급(C1) level_mismatch (F1 조사/표현 칸) -- Jin 결정 2, 2026-09-16."
+    },
+    {
+      "id": "grammar_b2_method_dependent",
+      "to": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": ["concept_c1_inclusive_systems"],
+      "reason": "NIKL 5급(C1) level_mismatch (F1 조사/표현 칸) -- Jin 결정 2, 2026-09-16."
+    }
+  ]
+}
