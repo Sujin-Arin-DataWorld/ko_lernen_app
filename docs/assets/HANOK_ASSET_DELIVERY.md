@@ -49,6 +49,16 @@ download/retry/removal without changing learning progress. Native copies
 persist in Application Support with a 300 MiB cap and no automatic eviction
 of offline packs. Web copies last only for the current session.
 
+On the first catalog-backed operation after launch, storage is reconciled with
+the validated shipped manifest before statuses, cache reads, or downloads run.
+Native reconciliation removes only directly contained regular files with owned
+SHA-256 PNG/WebP filenames that no longer occur anywhere in the catalog. Current
+assets, shared hashes, unrelated files, directories, and links are preserved.
+This reclaims obsolete versions before the 300 MiB capacity check; it does not
+evict artwork that the current app can still display. Concurrent first requests
+share one preparation, and a storage failure can be retried in the same session.
+Bundled image loads still bypass catalog/cache preparation and networking.
+
 Mounted missing images observe verified cache completion, including downloads
 finished on another page. The service's `readCached(assetPath)` probe performs
 no connectivity check, fetch, or change notification; probes coalesce per

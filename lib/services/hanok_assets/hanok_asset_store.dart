@@ -10,6 +10,10 @@ bool verifiesHanokAsset(HanokAsset asset, List<int> bytes) =>
     crypto.sha256.convert(bytes).toString() == asset.sha256;
 
 abstract class HanokAssetStore {
+  /// Reclaims owned objects absent from the validated, shipped catalog.
+  /// Current offline assets and unrelated files must remain untouched.
+  Future<void> reconcile(HanokAssetManifest manifest);
+
   /// Returns only verified original bytes. Corrupt entries are discarded.
   Future<Uint8List?> read(HanokAsset asset);
 
@@ -30,6 +34,14 @@ class MemoryHanokAssetStore implements HanokAssetStore {
   final Map<String, Uint8List> _files = {};
   final Set<String> _released = {};
   MemoryHanokAssetStore({this.capacity = hanokCacheCapacity});
+  @override
+  Future<void> reconcile(HanokAssetManifest manifest) async {
+    final current = manifest.assets.values
+        .map((asset) => asset.filename)
+        .toSet();
+    _files.removeWhere((filename, _) => !current.contains(filename));
+  }
+
   @override
   Future<bool> containsVerified(HanokAsset asset) async =>
       _files.containsKey(asset.filename);

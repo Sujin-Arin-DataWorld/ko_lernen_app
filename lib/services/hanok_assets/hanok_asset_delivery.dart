@@ -49,6 +49,7 @@ class HanokAssetDelivery extends ChangeNotifier {
   final HanokBundledPaths _bundledPaths;
   final Duration networkTimeout;
   Future<HanokAssetManifest>? _manifest;
+  Future<void>? _cachePreparation;
   Future<Set<String>>? _bundled;
   final Map<String, Future<Uint8List>> _inflight = {};
   final Map<String, Future<void>> _packJobs = {};
@@ -96,9 +97,26 @@ class HanokAssetDelivery extends ChangeNotifier {
     return HanokNetwork.unknown;
   }
 
-  Future<HanokAssetManifest> _catalog() => _manifest ??= _bundle
-      .loadString('assets/data/hanok_download_manifest.json')
-      .then(HanokAssetManifest.parse);
+  Future<HanokAssetManifest> _catalog() async {
+    final catalog = await (_manifest ??= _bundle
+        .loadString('assets/data/hanok_download_manifest.json')
+        .then(HanokAssetManifest.parse));
+    // A catalog is immutable for this service's lifetime. Finish reclamation
+    // once, before cache reads/status/downloads; bundled loads bypass this path.
+    await (_cachePreparation ??= _reconcile(catalog));
+    return catalog;
+  }
+
+  Future<void> _reconcile(HanokAssetManifest catalog) async {
+    try {
+      await Future<void>.sync(() => _store.reconcile(catalog));
+    } catch (_) {
+      // A temporary storage failure must remain retryable in this session.
+      _cachePreparation = null;
+      rethrow;
+    }
+  }
+
   Future<Set<String>> _included() => _bundled ??= _bundledPaths();
   void _changed() {
     if (!_disposed) {

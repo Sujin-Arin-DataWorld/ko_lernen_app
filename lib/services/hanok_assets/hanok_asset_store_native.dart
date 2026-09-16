@@ -15,6 +15,7 @@ class NativeHanokAssetStore implements HanokAssetStore {
   bool _recovered = false;
   final Map<String, FileStat> _verified = {};
   static final Map<String, Future<void>> _locks = {};
+  static final _ownedFilename = RegExp(r'^[0-9a-f]{64}\.(png|webp)$');
   static int _sequence = 0;
   NativeHanokAssetStore({
     Future<Directory> Function()? directory,
@@ -25,7 +26,16 @@ class NativeHanokAssetStore implements HanokAssetStore {
   );
 
   Future<T> _locked<T>(Future<T> Function(Directory) action) async {
-    final dir = await (_directory ??= directory());
+    final pendingDirectory = _directory ??= Future<Directory>.sync(directory);
+    late final Directory dir;
+    try {
+      dir = await pendingDirectory;
+    } catch (_) {
+      if (identical(_directory, pendingDirectory)) {
+        _directory = null;
+      }
+      rethrow;
+    }
     final key = dir.absolute.path;
     final previous = _locks[key] ?? Future<void>.value();
     final task = previous.then((_) async {
@@ -64,6 +74,25 @@ class NativeHanokAssetStore implements HanokAssetStore {
       }
     }
   }
+
+  @override
+  Future<void> reconcile(HanokAssetManifest manifest) => _locked((dir) async {
+    if (!await dir.exists()) {
+      return;
+    }
+    final current = manifest.assets.values
+        .map((asset) => asset.filename)
+        .toSet();
+    await for (final item in dir.list(followLinks: false)) {
+      final filename = item.uri.pathSegments.last;
+      if (item is File &&
+          _ownedFilename.hasMatch(filename) &&
+          !current.contains(filename)) {
+        await item.delete();
+        _verified.remove(filename);
+      }
+    }
+  });
 
   @override
   Future<Uint8List?> read(HanokAsset asset) =>
@@ -119,10 +148,7 @@ class NativeHanokAssetStore implements HanokAssetStore {
     final target = File('${dir.path}/${asset.filename}');
     var used = 0;
     await for (final item in dir.list(followLinks: false)) {
-      if (item is File &&
-          RegExp(
-            r'^[0-9a-f]{64}\.(png|webp)$',
-          ).hasMatch(item.uri.pathSegments.last)) {
+      if (item is File && _ownedFilename.hasMatch(item.uri.pathSegments.last)) {
         used += await item.length();
       }
     }
