@@ -56,6 +56,7 @@ Run with:
 from __future__ import annotations
 
 import csv
+import re
 import sys
 import unittest
 from collections import Counter
@@ -565,6 +566,37 @@ class TestBatch31Cloze(unittest.TestCase):
             counts.update(item["distractors"])
         offenders = {w: c for w, c in counts.items() if c > 4}
         self.assertEqual(offenders, {}, f"distractor(s) reused more than 4 times: {offenders}")
+
+    def test_no_distractor_stem_reused_more_than_4_times_within_batch(self):
+        """D6 per-batch reuse cap (C3-T5b, 2026-09-16): cloze_distractor_rules.
+        ReuseTracker's docstring caps a distractor WORD at 4x within an
+        identifiable batch (this manifest lists the ids, so the batch is
+        identifiable), and the surface-form check above under-counts it --
+        우산이/우산을/우산에/우산으로 are one word wearing different particles. Counted
+        locally here (no shared helper; another agent owns that rule's
+        shared code): stem = the distractor with ONE trailing particle
+        stripped (에서|으로|에게|을|를|이|가|은|는|에|로|도|과|와, longest
+        first); a distractor that is nothing but a particle (the Tier-B
+        bare-particle pool) is counted by its own surface form instead.
+        Before the C3-T5b redistribution this batch had 우산 11 / 편지 9 / 열쇠 8 / 사진 8 / 걱정 7 / 지갑 6 / 안경·짜증·시계·모자 5."""
+        particle_re = re.compile(r"(에서|으로|에게|을|를|이|가|은|는|에|로|도|과|와)$")
+        stems: Counter = Counter()
+        bare_particles: Counter = Counter()
+        for item in self.items:
+            for d in item["distractors"]:
+                stem = particle_re.sub("", d, count=1)
+                if stem:
+                    stems[stem] += 1
+                else:
+                    bare_particles[d] += 1
+        over_stems = {w: c for w, c in stems.items() if c > 4}
+        over_bare = {w: c for w, c in bare_particles.items() if c > 4}
+        self.assertEqual(
+            over_stems, {}, f"distractor stem(s) reused more than 4 times in the batch: {over_stems}"
+        )
+        self.assertEqual(
+            over_bare, {}, f"bare particle(s) reused more than 4 times in the batch: {over_bare}"
+        )
 
     def test_answer_is_at_least_two_syllables(self):
         for item in self.items:
