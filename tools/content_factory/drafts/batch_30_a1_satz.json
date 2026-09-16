@@ -16,8 +16,8 @@
       "vocabKo": "그래서",
       "targetKo": "저는 배가 아파요. 그래서 병원에 가요.",
       "distractors": [
-        "그러면",
-        "그런데"
+        "가다",
+        "먹다"
       ]
     },
     {
@@ -26,18 +26,18 @@
       "vocabKo": "그러니까",
       "targetKo": "저는 시간이 없어요. 그러니까 빨리 가요.",
       "distractors": [
-        "그럼",
-        "하지만"
+        "오다",
+        "보다"
       ]
     },
     {
       "id": "satz_a1_0697",
       "sourceVocabId": "vocab_a1_0782",
       "vocabKo": "그러면",
-      "targetKo": "저는 배가 고파요. 그러면 같이 밥을 먹어요.",
+      "targetKo": "민호 씨, 배가 고파요? 그러면 같이 밥을 먹어요.",
       "distractors": [
-        "그래서",
-        "그렇지만"
+        "읽다",
+        "쓰다"
       ]
     },
     {
@@ -46,18 +46,18 @@
       "vocabKo": "그런데",
       "targetKo": "이 가방이 예뻐요. 그런데 너무 비싸요.",
       "distractors": [
-        "그래서",
-        "그러면"
+        "모르다",
+        "돕다"
       ]
     },
     {
       "id": "satz_a1_0699",
       "sourceVocabId": "vocab_a1_0784",
       "vocabKo": "그럼",
-      "targetKo": "저는 오늘 바빠요. 그럼 내일 만나요.",
+      "targetKo": "레나 씨, 오늘 바빠요? 그럼 내일 만나요.",
       "distractors": [
-        "그러니까",
-        "그런데"
+        "타다",
+        "알다"
       ]
     },
     {
@@ -66,8 +66,8 @@
       "vocabKo": "그렇지만",
       "targetKo": "이 음식이 매워요. 그렇지만 맛있어요.",
       "distractors": [
-        "그러니까",
-        "그럼"
+        "팔다",
+        "고르다"
       ]
     },
     {
@@ -76,8 +76,8 @@
       "vocabKo": "그리고",
       "targetKo": "저는 아침에 빵을 먹어요. 그리고 커피를 마셔요.",
       "distractors": [
-        "그런데",
-        "그렇지만"
+        "빌리다",
+        "끝나다"
       ]
     },
     {
@@ -186,8 +186,8 @@
       "vocabKo": "하지만",
       "targetKo": "저는 피곤해요. 하지만 숙제를 해요.",
       "distractors": [
-        "그래서",
-        "그러면"
+        "입다",
+        "다니다"
       ]
     },
     {
@@ -603,6 +603,16 @@
     {
       "id": "satz_a1_0754",
       "sourceVocabId": "vocab_a1_0839",
+      "vocabKo": "천",
+      "targetKo": "이 빵은 삼천 원이에요.",
+      "distractors": [
+        "삼천 층이에요",
+        "삼천 살이에요"
+      ]
+    },
+    {
+      "id": "satz_a1_0755",
+      "sourceVocabId": "vocab_a1_0840",
       "vocabKo": "억",
       "targetKo": "이 아파트는 억 원이에요.",
       "distractors": [

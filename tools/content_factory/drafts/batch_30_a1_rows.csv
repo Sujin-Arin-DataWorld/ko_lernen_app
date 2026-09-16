@@ -2,9 +2,9 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 가장,gajang,am meisten,A1,Adverb,이 케이크가 가장 맛있어요.,Dieser Kuchen ist am leckersten.,Alltag,a1_adverbs_1,1,false,most,Adverb,This cake is the tastiest.,vocab_a1_0779
 그래서,geuraeseo,deshalb,A1,Adverb,저는 배가 아파요. 그래서 병원에 가요.,Mein Bauch tut weh. Deshalb gehe ich ins Krankenhaus.,Gesundheit,a1_adverbs_1,2,false,"so, therefore",Adverb,My stomach hurts. So I'm going to the hospital.,vocab_a1_0780
 그러니까,geureonikka,deswegen,A1,Adverb,저는 시간이 없어요. 그러니까 빨리 가요.,Ich habe keine Zeit. Deswegen gehe ich schnell.,Alltag,a1_adverbs_1,3,false,"so, that's why",Adverb,I have no time. So let's go quickly.,vocab_a1_0781
-그러면,geureomyeon,dann,A1,Adverb,저는 배가 고파요. 그러면 같이 밥을 먹어요.,Ich habe Hunger. Dann lasst uns zusammen essen.,Essen & Trinken,a1_adverbs_1,4,false,"then, if so",Adverb,I'm hungry. Then let's eat together.,vocab_a1_0782
+그러면,geureomyeon,dann,A1,Adverb,"민호 씨, 배가 고파요? 그러면 같이 밥을 먹어요.","Minho, hast du Hunger? Dann lasst uns zusammen essen.",Essen & Trinken,a1_adverbs_1,4,false,"then, if so",Adverb,"Minho, are you hungry? Then let's eat together.",vocab_a1_0782
 그런데,geureonde,aber,A1,Adverb,이 가방이 예뻐요. 그런데 너무 비싸요.,Diese Tasche ist hübsch. Aber sie ist zu teuer.,Einkaufen,a1_adverbs_1,5,false,"but, by the way",Adverb,This bag is pretty. But it's too expensive.,vocab_a1_0783
-그럼,geureom,dann,A1,Adverb,저는 오늘 바빠요. 그럼 내일 만나요.,Ich bin heute beschäftigt. Dann treffen wir uns morgen.,Alltag,a1_adverbs_1,6,false,then,Adverb,I'm busy today. Then let's meet tomorrow.,vocab_a1_0784
+그럼,geureom,dann,A1,Adverb,"레나 씨, 오늘 바빠요? 그럼 내일 만나요.","Lena, bist du heute beschäftigt? Dann treffen wir uns morgen.",Alltag,a1_adverbs_1,6,false,then,Adverb,"Lena, are you busy today? Then let's meet tomorrow.",vocab_a1_0784
 그렇지만,geureochiman,"aber, dennoch",A1,Adverb,이 음식이 매워요. 그렇지만 맛있어요.,Dieses Essen ist scharf. Aber es ist lecker.,Essen & Trinken,a1_adverbs_1,7,false,"but, however",Adverb,This food is spicy. But it's delicious.,vocab_a1_0785
 그리고,geurigo,und,A1,Adverb,저는 아침에 빵을 먹어요. 그리고 커피를 마셔요.,Am Morgen esse ich Brot. Und ich trinke Kaffee.,Essen & Trinken,a1_adverbs_1,8,false,and,Adverb,In the morning I eat bread. And I drink coffee.,vocab_a1_0786
 못,mot,nicht können,A1,Adverb,저는 매운 음식을 못 먹어요.,Ich kann kein scharfes Essen essen.,Essen & Trinken,a1_adverbs_1,9,false,cannot,Adverb,I can't eat spicy food.,vocab_a1_0787
@@ -59,4 +59,5 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 팔십,palsip,achtzig,A1,Nomen,이 건물은 팔십 층이에요.,Dieses Gebäude hat achtzig Stockwerke.,Zahlen,a1_misc_3,5,false,eighty,Noun,This building is eighty floors.,vocab_a1_0836
 그래,geurae,"ja, genau (informell)",A1,Ausdruck,"우리 이따 만날까? 그래, 좋아.","Sollen wir uns später treffen? Ja, klingt gut.",Freizeit,a1_misc_3,6,false,"yeah, okay (informal)",Expression,"Shall we meet later? Yeah, sounds good.",vocab_a1_0837
 아,a,"ach, oh",A1,Ausdruck,"미안해요! 아, 괜찮아요.","Entschuldigung! Ach, das ist okay.",Alltag,a1_misc_3,7,false,"oh, ah",Expression,"Sorry! Oh, it's okay.",vocab_a1_0838
-억,eok,hundert Millionen,A1,Nomen,이 아파트는 억 원이에요.,Diese Wohnung kostet hundert Millionen Won.,Zahlen,a1_numbers_2,4,false,hundred million,Noun,This apartment is a hundred million won.,vocab_a1_0839
+천,cheon,tausend,A1,Nomen,이 빵은 삼천 원이에요.,Dieses Brot kostet dreitausend Won.,Zahlen,a1_misc_3,8,false,thousand,Noun,This bread is three thousand won.,vocab_a1_0839
+억,eok,hundert Millionen,A1,Nomen,이 아파트는 억 원이에요.,Diese Wohnung kostet hundert Millionen Won.,Zahlen,a1_numbers_2,4,false,hundred million,Noun,This apartment is a hundred million won.,vocab_a1_0840

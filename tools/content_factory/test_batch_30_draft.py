@@ -14,21 +14,27 @@ yet (level-canon program hard rule) and must not be promoted until then.
 
 Mirrors test_batch_29_draft.py's schema/checks, importing the shared
 helpers from a1_draft_rules.py and distractor_rules.py, plus batch-specific
-additions for this batch's 6 new POS-distractor mechanisms (see the
-manifest's posRules for the design rationale of each):
+additions for this batch's POS-distractor mechanisms (see the manifest's
+posRules for the design rationale of each):
 
-  - CONNECTIVE_CLUSTERS: the 8 discourse-connective adverbs (그래서/그러니까/
-    그러면/그럼/그런데/그렇지만/그리고/하지만) are grouped into 4 semantic
-    clusters; test_connective_distractors_are_other_connectives_from_a_
-    different_cluster enforces that every distractor is a REAL connective
-    from a DIFFERENT cluster than the answer (never the answer's own
-    cluster-partner, which would remain a valid substitution).
+  - TIERB_CONNECTIVE_HEADWORDS: the 8 discourse-connective adverbs
+    (그래서/그러니까/그러면/그럼/그런데/그렇지만/그리고/하지만) use Tier B
+    distractors (a bare dictionary-form verb or a bare grammatical
+    particle), NOT other connectives -- R8 (Fable review of d6b0c430,
+    2026-09-16): a sentence-initial connective slot accepts almost any
+    OTHER connective too (e.g. "저는 배가 아파요. 그런데/그리고 병원에
+    가요." both still read as valid Korean, just a different nuance), so
+    cross-cluster Tier A swaps were D7 violations, not genuine nonsense.
+    그러면/그럼 additionally needed their example restructured into a
+    question-then-response frame (그러면/그럼 don't felicitously open a
+    bare declarative the way the other 6 do) with a named persona as the
+    person being addressed.
   - ADVERB_CHUNK_HEADWORDS (못/잘): distractors must share the answer's
     1-syllable adverb prefix (same adverb + different predicate).
   - COUNTER_SWAP_HEADWORDS (12 dependent-noun counters + 7 numeral-
-    determiners + 2 numerals + the a1_numbers_2 supplement 억, 22 total):
-    distractors must share the answer's leading numeral/name token and
-    differ only in the trailing counter word.
+    determiners + 3 numerals + 천 + the a1_numbers_2 supplement 억, 24
+    total): distractors must share the answer's leading numeral/name
+    token and differ only in the trailing counter word.
   - TIERB_DETERMINER_HEADWORDS (무슨/어떤/여러): distractors are a bare
     dictionary-form verb + the same trailing noun (mirrors Batch 25-29's
     PREDICATE_SLOT_WAIVER technique, adapted to an attributive slot).
@@ -81,20 +87,21 @@ PRIOR_BATCH_CSVS = (BATCH26_VOCAB_CSV, BATCH27_VOCAB_CSV, BATCH28_VOCAB_CSV, BAT
 VOCAB_COLUMNS = R.VOCAB_COLUMNS
 
 # --- POS-mechanism buckets (keyed by headword) --------------------------
-CONNECTIVE_CLUSTERS = {
-    "그래서": "result", "그러니까": "result",
-    "그러면": "conditional", "그럼": "conditional",
-    "그런데": "contrast", "그렇지만": "contrast", "하지만": "contrast",
-    "그리고": "additive",
+TIERB_CONNECTIVE_HEADWORDS = {
+    "그래서", "그러니까", "그러면", "그럼", "그런데", "그렇지만", "그리고", "하지만",
 }
 ADVERB_CHUNK_HEADWORDS = {"못", "잘"}
 COUNTER_SWAP_HEADWORDS = {
     "가지", "권", "년", "때", "마리", "명", "번", "살", "쪽", "호", "중", "씨",
-    "마흔", "백만", "서른", "십만", "아흔", "여든", "일흔", "구십", "팔십", "억",
+    "마흔", "백만", "서른", "십만", "아흔", "여든", "일흔", "구십", "팔십", "억", "천",
 }
 TIERB_DETERMINER_HEADWORDS = {"무슨", "어떤", "여러"}
 TIERB_INTERJECTION_HEADWORDS = {"그래", "아"}
-DICTIONARY_FORM_VERB_POOL = {"가다", "먹다", "오다", "보다"}
+DICTIONARY_FORM_VERB_POOL = {
+    "가다", "먹다", "오다", "보다", "읽다", "쓰다", "타다", "알다", "모르다",
+    "돕다", "팔다", "고르다", "빌리다", "끝나다", "입다", "다니다", "자다",
+}
+BARE_PARTICLE_POOL = {"에서", "에게", "한테", "으로", "와", "과", "랑"}
 
 
 def _load_json(path: Path):
@@ -277,19 +284,35 @@ class TestBatch30VocabRows(unittest.TestCase):
                     f"{row['id']}: name {name!r} (before 씨) is not a canonical recurring character",
                 )
 
-    def test_at_least_eight_persona_rows_at_most_two_per_persona(self):
+    def test_at_least_four_true_persona_rows_at_most_two_per_persona(self):
+        """R8 (Fable review, 2026-09-16): a row counts as a persona row only
+        when the persona is the SPEAKER with an explicit marker (a vocative
+        like '마야 씨, ...' or a first-person line whose content is
+        unambiguously that persona's by canon) -- generic '저는...' rows
+        with no name anywhere are NOT persona rows. For a function-word
+        batch like this one (few natural slots for a named speaker) the
+        floor is >=4 true speaker rows, not the >=8 used for verb/noun
+        batches."""
         speakers = self.manifest.get("personaRows", {})
         counts = Counter(speakers.values())
         offenders = {p: c for p, c in counts.items() if c > 2}
         self.assertEqual(offenders, {}, f"persona used as speaker >2 times: {offenders}")
         self.assertGreaterEqual(
-            len(speakers), 8,
-            f"only {len(speakers)} rows have an attributed persona speaker (need >=8)",
+            len(speakers), 4,
+            f"only {len(speakers)} rows have an attributed persona speaker (need >=4)",
         )
         profiles = _load_json(CHARACTER_PROFILES)
         allowed_ids = {c["id"] for c in profiles["recurringCharacters"]}
+        rows_by_id = {r["id"]: r for r in self.rows}
         for vid, pid in speakers.items():
             self.assertIn(pid, allowed_ids, f"{vid}: speaker {pid!r} is not a canonical character id")
+            example = rows_by_id[vid]["example_korean"]
+            allowed_ko_names = {c["displayNames"]["ko"] for c in profiles["recurringCharacters"]}
+            self.assertTrue(
+                any(name in example for name in allowed_ko_names),
+                f"{vid} ({pid}): no canonical persona name appears in the example text "
+                f"{example!r} -- persona rows need an explicit marker, not a generic 저는 line",
+            )
 
     def test_no_example_frame_repeated_more_than_3_times(self):
         keys = [
@@ -317,7 +340,7 @@ class TestBatch30VocabRows(unittest.TestCase):
             "비싸요": "비싸다", "바빠요": "바쁘다", "만나요": "만나다", "매워요": "맵다",
             "마셔요": "마시다", "매운": "맵다", "했어요": "하다", "자요": "자다",
             "해요": "하다", "샀어요": "사다", "오백": "백", "이따": "이따가",
-            "만날까": "만나다", "좋아": "좋다", "아니에요": "아니다",
+            "만날까": "만나다", "좋아": "좋다", "아니에요": "아니다", "삼천": "천",
         }
         offenders = {}
         for row in self.rows:
@@ -448,21 +471,28 @@ class TestBatch30Cloze(unittest.TestCase):
                 syl, 2, f"{item['id']}: answer {item['answer']!r} is only {syl} syllable(s)"
             )
 
-    def test_connective_distractors_are_other_connectives_from_a_different_cluster(self):
+    def test_connective_distractors_are_bare_dictionary_verb_or_particle(self):
+        """R8 (Fable review, 2026-09-16): a sentence-initial connective slot
+        accepts almost any OTHER connective too (cross-cluster swaps were
+        still valid Korean, just a different nuance -- D7 violation), so
+        this batch uses Tier B instead: every distractor is either a bare
+        dictionary-form verb or a bare particle (never another real
+        connective, which would remain a valid substitution)."""
         for item in self.items:
             headword = self.rows_by_id[item["sourceVocabId"]]["korean"]
-            if headword not in CONNECTIVE_CLUSTERS:
+            if headword not in TIERB_CONNECTIVE_HEADWORDS:
                 continue
-            my_cluster = CONNECTIVE_CLUSTERS[headword]
+            self.assertEqual(item["answer"], headword)
             for d in item["distractors"]:
-                self.assertIn(
-                    d, CONNECTIVE_CLUSTERS,
-                    f"{item['id']} ({headword}): distractor {d!r} is not one of the 8 connectives",
+                self.assertNotIn(
+                    d, TIERB_CONNECTIVE_HEADWORDS,
+                    f"{item['id']} ({headword}): distractor {d!r} is another real connective "
+                    f"-- would remain a valid (if differently-nuanced) substitution",
                 )
-                self.assertNotEqual(
-                    CONNECTIVE_CLUSTERS[d], my_cluster,
-                    f"{item['id']} ({headword}): distractor {d!r} is the same cluster "
-                    f"({my_cluster}) as the answer -- would remain a valid substitution",
+                self.assertTrue(
+                    d in DICTIONARY_FORM_VERB_POOL or d in BARE_PARTICLE_POOL,
+                    f"{item['id']} ({headword}): distractor {d!r} is neither a bare "
+                    f"dictionary-form verb nor a bare particle",
                 )
 
     def test_adverb_chunk_distractors_share_the_1syllable_prefix(self):
@@ -531,7 +561,7 @@ class TestBatch30Cloze(unittest.TestCase):
         distractor must carry a particle/suffix consistent with ITS OWN
         final sound."""
         special = (
-            set(CONNECTIVE_CLUSTERS) | ADVERB_CHUNK_HEADWORDS | COUNTER_SWAP_HEADWORDS
+            TIERB_CONNECTIVE_HEADWORDS | ADVERB_CHUNK_HEADWORDS | COUNTER_SWAP_HEADWORDS
             | TIERB_DETERMINER_HEADWORDS | TIERB_INTERJECTION_HEADWORDS
         )
         for item in self.items:
@@ -653,7 +683,7 @@ class TestBatch30Packs(unittest.TestCase):
         manifest = _load_json(DRAFTS / "batch_30_a1_reinforcement_manifest.json")
         gap = manifest.get("remainingA1Gap", {})
         self.assertEqual(gap.get("count"), 0)
-        self.assertEqual(gap.get("excludedCount"), 3)
+        self.assertEqual(gap.get("excludedCount"), 2)
 
 
 if __name__ == "__main__":
