@@ -33768,8 +33768,8 @@
       "sentenceKo": "저는 어제 시장에 ＿＿＿.",
       "answer": "다녀왔어요",
       "fullKo": "저는 어제 시장에 다녀왔어요.",
-      "de": "Ich war gestern auf dem Markt.",
-      "en": "I went to the market yesterday.",
+      "de": "Ich war gestern auf dem Markt und bin danach zurückgekommen.",
+      "en": "I went to the market and came back yesterday.",
       "distractors": [
         "도왔어요",
         "마셨어요",
@@ -35798,8 +35798,8 @@
       ],
       "level": "a2",
       "topic": "Alltag",
-      "de": "Ich habe alle Kleider weggeworfen, die ich nicht mehr trage.",
-      "en": "I threw away all the clothes I don't wear anymore.",
+      "de": "Ich habe alle Kleidungsstücke weggeworfen, die ich nicht trage.",
+      "en": "I threw away all the clothes I don't wear.",
       "courseUnitId": "a2_01_haeyo_transition"
     },
     {
@@ -36206,7 +36206,7 @@
       ],
       "level": "a2",
       "topic": "Freizeit",
-      "de": "Ich bin mit meinem Vater zum Angeln an den Fluss gefahren.",
+      "de": "Ich war mit meinem Vater am Fluss angeln.",
       "en": "I went fishing at the river with my father.",
       "courseUnitId": "a2_04_feelings_health"
     },

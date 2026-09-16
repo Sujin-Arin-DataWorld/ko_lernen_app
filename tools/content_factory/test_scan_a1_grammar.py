@@ -184,6 +184,14 @@ class DetectorUnitTest(unittest.TestCase):
         # not the grade-3 조사 homograph -- see scan_a1_grammar.py docstring.
         self.assertEqual(self._hits("언니랑 같이 가요."), [])
 
+    def test_reviewed_homographs_do_not_hide_productive_grammar(self) -> None:
+        for text in S.REVIEWED_HOMOGRAPH_HITS:
+            with self.subTest(text=text):
+                self.assertEqual(self._hits(text), [])
+                self.assertTrue(self._hits(text + " 늦으면 연락해요."))
+        self.assertTrue(self._hits("학교를 찾아 봤어요."))
+        self.assertTrue(self._hits("콜라나 주스를 마셔요."))
+
 
 class LiveA1CorpusGuardTest(unittest.TestCase):
     """After the C2d rewrite, every A1 row in the three corpora must be

@@ -64,6 +64,7 @@ sys.path.insert(0, str(ROOT / "tool"))
 sys.path.insert(0, str(ROOT / "tools" / "content_factory"))
 
 from cefr_lexicon import CefrLexicon, GrammarIndex, GRADE_TO_CEFR  # noqa: E402
+from scan_a1_grammar import REVIEWED_HOMOGRAPH_HITS  # noqa: E402
 
 VOCAB_CSV = ROOT / "assets" / "data" / "korean_vocab.csv"
 CLOZE_JSON = ROOT / "assets" / "data" / "cloze.json"
@@ -206,6 +207,8 @@ def _grammar_hits_ge(lexicon: CefrLexicon, grammar_index: GrammarIndex, text: st
             continue
         if h.text in ALLOWLIST_MATCHED_TEXT:
             continue
+        if h.pattern_id in REVIEWED_HOMOGRAPH_HITS.get(text, set()):
+            continue
         if h.text == "밖에" and _LOCATIVE_BAKKE_RE.match(text):
             continue
         if h.text == "래요" and text[max(h.span[0] - 1, 0):h.span[0]] == "그":
@@ -249,6 +252,8 @@ def _contracted_aux_hits(text: str, threshold: int):
         return []
     hits = []
     for m in AUX_TRY_RE.finditer(text):
+        if "aux_try_아어보다" in REVIEWED_HOMOGRAPH_HITS.get(text, set()):
+            continue
         if m.group(0) == "여보세요":
             # C2d-2 (2026-09-16): kept in sync with scan_a1_grammar.py's
             # own copy of this discriminator -- see that module for the

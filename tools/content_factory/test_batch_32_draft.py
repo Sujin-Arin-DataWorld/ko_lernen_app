@@ -195,11 +195,10 @@ class TestBatch32ManifestAuditShape(unittest.TestCase):
         self.assertEqual(report["tracked"], 192)
         self.assertEqual(report["live"], 0)
         self.assertEqual(report["reviewStatuses"], {"pending": 192})
-        self.assertEqual(report["auditStatus"], "not_live")
-        self.assertEqual(
-            report["errors"],
-            ["batch_32_a2_reinforcement_manifest.json: live records lack structured Jin approval or legacy promotedAt evidence"],
-        )
+        self.assertEqual(report["auditStatus"], "pending_not_live")
+        self.assertEqual(report["errors"], [])
+        self.assertEqual(report["missing"], [])
+        self.assertEqual(report["approvalEvidence"], "not_promoted")
 
     def test_packet_persona_totals_are_derived_from_manifest_mapping(self):
         counts = Counter(self.manifest["personaRows"].values())

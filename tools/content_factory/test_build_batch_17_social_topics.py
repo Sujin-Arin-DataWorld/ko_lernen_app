@@ -8,6 +8,8 @@ import csv
 import json
 from pathlib import Path
 import sys
+import shutil
+import tempfile
 import unittest
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -41,11 +43,19 @@ def mapped_unit(value) -> str:
 class Batch17BuildTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.counts = builder.build(ROOT)
-        cls.manifest = read_json(ROOT / builder.MANIFEST_PATH)
+        temporary = tempfile.TemporaryDirectory()
+        cls.addClassCleanup(temporary.cleanup)
+        cls.root = Path(temporary.name)
+        shutil.copytree(ROOT / "assets/data", cls.root / "assets/data")
+        for path in (builder.MANIFEST_PATH, *builder.REVIEW_PATHS.values()):
+            target = cls.root / path
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT / path, target)
+        cls.counts = builder.build(cls.root)
+        cls.manifest = read_json(cls.root / builder.MANIFEST_PATH)
         cls.records = {}
         for artifact in cls.manifest["artifacts"]:
-            payload = read_json(ROOT / artifact["draft"])
+            payload = read_json(cls.root / artifact["draft"])
             cls.records[artifact["kind"]] = payload[artifact["collection"]]
         cls.curriculum = read_json(ROOT / "assets/data/curriculum_manifest.json")
 
@@ -153,7 +163,7 @@ class Batch17BuildTest(unittest.TestCase):
 
     def test_review_ledgers_match_promotion_state(self):
         for artifact in self.manifest["artifacts"]:
-            with (ROOT / artifact["review"]).open(encoding="utf-8-sig", newline="") as handle:
+            with (self.root / artifact["review"]).open(encoding="utf-8-sig", newline="") as handle:
                 rows = list(csv.DictReader(handle))
             records = self.records[artifact["kind"]]
             self.assertEqual([row["id"] for row in rows], [record["id"] for record in records])

@@ -32582,7 +32582,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_verbs_daily_2",
         "sourceVocabId": "vocab_a1_0727",
-        "sourceVocabFingerprintSha256": "4358eef8ee8438eb9fc444d6417b1275f9db956bb223113744784ccde1e3070a",
+        "sourceVocabFingerprintSha256": "3616aeecd6c8e1a8152b5374fcadf1d94b44ff90aab54ceefdf5eb0d45148602",
         "level": "a1",
         "canDoSegmentId": "segment_a1_12_daily_negation",
         "courseUnitId": "a1_12_daily_negation"
@@ -39512,7 +39512,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_verbs_daily_2",
         "sourceVocabId": "vocab_a1_0727",
-        "sourceVocabFingerprintSha256": "4358eef8ee8438eb9fc444d6417b1275f9db956bb223113744784ccde1e3070a",
+        "sourceVocabFingerprintSha256": "3616aeecd6c8e1a8152b5374fcadf1d94b44ff90aab54ceefdf5eb0d45148602",
         "level": "a1",
         "canDoSegmentId": "segment_a1_12_daily_negation",
         "courseUnitId": "a1_12_daily_negation"
@@ -43208,7 +43208,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_daily_2",
         "sourceVocabId": "vocab_a2_0509",
-        "sourceVocabFingerprintSha256": "5e476e614226743d8f2e4f0a0c667f1d41e68797b46fa6ad32aa32469c6363bf",
+        "sourceVocabFingerprintSha256": "3f86f638df24c764a77bdff06f8d73206a2de31841f957dd27748d3e1a08c012",
         "level": "a2",
         "canDoSegmentId": "segment_a2_haeyo_register_transition",
         "courseUnitId": "a2_01_haeyo_transition"
@@ -43461,7 +43461,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_health_misc_1",
         "sourceVocabId": "vocab_a2_0533",
-        "sourceVocabFingerprintSha256": "72469a853fcd66ec095548c466d6cd39506446c426483f2a3302e11bf47f4603",
+        "sourceVocabFingerprintSha256": "30b3df2dfce030f031a38645fa10078d42fdaaba59c7eaaa22a85361f3498b11",
         "level": "a2",
         "canDoSegmentId": "segment_a2_pharmacy_headache",
         "courseUnitId": "a2_04_feelings_health"
@@ -48840,7 +48840,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_daily_2",
         "sourceVocabId": "vocab_a2_0509",
-        "sourceVocabFingerprintSha256": "5e476e614226743d8f2e4f0a0c667f1d41e68797b46fa6ad32aa32469c6363bf",
+        "sourceVocabFingerprintSha256": "3f86f638df24c764a77bdff06f8d73206a2de31841f957dd27748d3e1a08c012",
         "level": "a2",
         "canDoSegmentId": "segment_a2_haeyo_register_transition",
         "courseUnitId": "a2_01_haeyo_transition"
@@ -49104,7 +49104,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_health_misc_1",
         "sourceVocabId": "vocab_a2_0533",
-        "sourceVocabFingerprintSha256": "72469a853fcd66ec095548c466d6cd39506446c426483f2a3302e11bf47f4603",
+        "sourceVocabFingerprintSha256": "30b3df2dfce030f031a38645fa10078d42fdaaba59c7eaaa22a85361f3498b11",
         "level": "a2",
         "canDoSegmentId": "segment_a2_pharmacy_headache",
         "courseUnitId": "a2_04_feelings_health"

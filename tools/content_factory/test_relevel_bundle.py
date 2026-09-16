@@ -425,6 +425,8 @@ class DryRunTest(RelevelBundleFixture):
 class ApplyTest(RelevelBundleFixture):
     def test_apply_moves_everything(self) -> None:
         bundle = self._bundle(self._standard_moves())
+        before = json.loads((self.root / "assets/data" / rb.CAN_DO_SEGMENTS_JSON).read_text(encoding="utf-8"))
+        source_revision = next(c["revision"] for c in before["contentClusters"] if c["id"] == SOURCE_CLUSTER_ID)
         report = rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=True)
 
         data = self.root / "assets" / "data"
@@ -483,7 +485,7 @@ class ApplyTest(RelevelBundleFixture):
         source_ids = {r["id"] for r in source_cluster["contentReferences"] if r["kind"] == "vocabPack"}
         self.assertNotIn("a1_relvtest_alpha_1", source_ids)
         self.assertNotIn("a1_relvtest_beta_1", source_ids)
-        self.assertEqual(4, source_cluster["revision"])  # 2 (fixture baseline) + 1 per move out (x2)
+        self.assertEqual(source_revision + 2, source_cluster["revision"])  # one increment per move out
         target_cluster = clusters_by_id[alpha_pack.target_cluster_id]
         target_ids = {r["id"] for r in target_cluster["contentReferences"] if r["kind"] == "vocabPack"}
         self.assertIn("b1_relvtest_alpha_1", target_ids)

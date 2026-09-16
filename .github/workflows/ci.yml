@@ -1035,11 +1035,11 @@ jobs:
         run: python -m unittest discover -s tool -p "test_*.py" -t .
 
   content-validate:
-    name: Content validator (validate_content + ledger tests)
+    name: Content validator (full content_factory suite)
     needs: changes
     if: needs.changes.outputs.content == 'true' || needs.changes.outputs.app == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -1053,10 +1053,16 @@ jobs:
       - name: Validate content assets (schema, IDs, level/pack_id/shelf contracts)
         run: python tools/content_factory/validate_content.py --json
 
-      # tools/content_factory 전체 discover는 기존 baseline 실패(5건)가
-      # 있어 지정 모듈만 실행한다 — 플랜 §4.7
-      - name: Run validate_content and relevel ledger unit tests
-        run: python -m unittest tools.content_factory.test_validate_content tools.content_factory.test_relevel_ledger -v
+      - name: Run all content_factory tests including promotion validators
+        run: python -B -m unittest discover -s tools/content_factory -p 'test_*.py' -t .
+
+      - name: Verify can-do freshness and draft versus live boundaries
+        run: |
+          python -B tools/content_factory/build_can_do_segments.py --check
+          python -B tools/content_factory/audit_batch_live_promotion.py --check
+
+      - name: Ensure content tests preserve tracked source and review evidence
+        run: git diff --exit-code
 
       - name: Verify curriculum audit and backlog freshness
         run: |

@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "reviewStatus": "MODEL_REVIEW_ONLY",
+  "humanReviewStatus": "required_before_native-quality-claim",
+  "scope": "Specific heuristic hits only; not a complete semantic or level certification. SHA binds all six headword/gloss/example fields.",
+  "openReferenceQuestions": [
+    "vocab_a2_0553: Korean 조카들 does not specify gender composition; inclusive nieces and nephews may be generic. Native/scene review remains open."
+  ],
+  "entries": {
+    "vocab_b2_0198": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "483af53bef6d00cf7b90ce95f2fc114c19a222240964b7df4df22a9adeaae528",
+      "reason": "드렸어요 is the normal contracted past of 드리다; grandmother, gift and completed giving are preserved. English/DE need not mimic Korean honorific morphology."
+    },
+    "vocab_b2_0201": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "f35c1daedd034fd5a47b9fcb9d7b505ad30ba5487f8d3ab51e4d39d6d3dab1da",
+      "reason": "주무세요 is a normal polite form; parents already sleeping/asleep is preserved."
+    },
+    "vocab_b2_0202": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "b56bbde848b2898b211b8c33a4dacb2fd41b3b9d2ca39b06fc87e3c9bc75b782",
+      "reason": "드세요 realizes 드시다; Greifen Sie zu / help yourself preserve the food invitation, not a literal quantity command."
+    },
+    "vocab_b2_0203": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "63f7cc3bc719802869ebac9df5f3bbffd78178d787756fffaec4b3bb27cccfe7",
+      "reason": "계세요 is the polite form; mother's current location at home is preserved."
+    },
+    "vocab_b2_0204": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "935782914f8e9e7a52593bdb1c8a85bd2e3c5859f0bdb03b910a616d9d31d39d",
+      "reason": "잡수셨어요 is the contracted past; grandmother having breakfast is preserved."
+    },
+    "vocab_b2_0431": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "dcc12306481d46cb6ac0a82f27b6589d4dcb9cdbfcdb44721d24690b3df22e95",
+      "reason": "Husband's family/home needs a phrase in EN/DE; the increased word count does not add an unrelated event or spouse."
+    },
+    "vocab_b2_0432": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "782ae863c5801d274539e5431122403c5cf8f96f96616c489c64d6bc19013596",
+      "reason": "Wife's family/home and Seollal need expansion; past visit and kinship direction are preserved."
+    },
+    "vocab_a1_0537": {
+      "rules": [
+        "R7"
+      ],
+      "textSha256": "11ea4d1d6eeb0567a2fd56ea77992c4f45af9c98285934d3060fde59831e65a7",
+      "reason": "September is legitimately shared across DE/EN; returning to school in September is preserved."
+    },
+    "vocab_a1_0549": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "b765ec6dc54d3d167ee36c94de471f4f36c5a0bb73ac01954440c5311ced3e7d",
+      "reason": "EN/DE require an explicit subject and location phrase; the friend living in Mongolia is preserved. DE Freund is a generic-masculine reading, not independent evidence of male identity."
+    },
+    "vocab_a1_0555": {
+      "rules": [
+        "R7"
+      ],
+      "textSha256": "20addb570d826ff67b8278fc9a79989b2d3c610b4db2267305eb600de3dab319",
+      "reason": "Basketball is a shared loanword; the weekend joint-play suggestion is preserved."
+    },
+    "vocab_a1_0575": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "2a4a36a2b4a3135fee0664ecd4b64fb69b05ef05749ec8f93931fea1279f824d",
+      "reason": "Lemon-lime soda / Zitronenlimonade require more words than 사이다; both keep the availability question."
+    },
+    "vocab_a1_0579": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "7405e2d4c19918f3c11c8faa54d78b4f603ad3fe55e2fc3a55b8f21e5e81f79e",
+      "reason": "Incheon Airport must be expanded; 만나요 can express the proposed/agreed meeting that both targets convey. No contradiction established by length."
+    },
+    "vocab_a1_0581": {
+      "rules": [
+        "R7"
+      ],
+      "textSha256": "8b4decbf91f0662aa73a2e4b4a55a63c4d8bb9a32fca2a4e5ead193e31c865a6",
+      "reason": "The place name legitimately has the same spelling; Daniel and the joint visit suggestion are preserved."
+    },
+    "vocab_a1_0583": {
+      "rules": [
+        "R7"
+      ],
+      "textSha256": "1bbb87c92b211138c2a5593b546db609186c181e9e425861a3e7e5756ab2fb66",
+      "reason": "Shared proper name, not copied untranslated prose; clothing purchase and past tense are preserved."
+    },
+    "vocab_a1_0584": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "bbbe1d61cfd69a9b8da6ce9119d08fc0b29e117527f5c1c1d708fa5ec2b816ee",
+      "reason": "Articles and the picked-out-a-book construction increase target length; bookstore selection event is preserved."
+    },
+    "vocab_a1_0590": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "8def05629a34eb1dae9940b467785a69a67a776cc0d4ef71c9c2a9f8d7cd1318",
+      "reason": "꺼요 is the regular contraction of 끄다; the sleep suggestion supports the subsequent light-switching statement. Speaker undertaking is a contextual reading, not proved uniquely by KO alone."
+    },
+    "vocab_a1_0619": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "4701b8c875a87682b435e02212abd3014219d5298d48e3c1b71acea5c19502a9",
+      "reason": "EN/DE overt subject and exercise expression expand naturally; morning, park and exercise are preserved."
+    },
+    "vocab_a1_0620": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "4ac597faeb48b70fc94878b8b8aa9aeb10e4d043948ceb48f71a8938d1aaa5ef",
+      "reason": "einen Spaziergang machen / go for a walk expand 산책하다 without changing the afternoon walk."
+    },
+    "vocab_a1_0653": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "cdce6faf7f6a739c09587512082a18778039c7be0ec9c31f19186bc3b1b48264",
+      "reason": "물어요 is the ㄷ-irregular question verb; asking the teacher again is preserved. Teacher gender is not specified by KO."
+    },
+    "vocab_a1_0662": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "00709cf6fe185a1dbd7413757838fc4857d0938933d83de59914a44a66a7e170",
+      "reason": "식사하다 becomes have a meal / essen; family and weekend timing are preserved."
+    },
+    "vocab_a1_0666": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "49f5e71447fde636cbd73808f580392d426c07b7fa0e3282bcd298f587f48df7",
+      "reason": "A favor/request requires a phrase; friend, today and asking are preserved. German masculine Freund should not be treated as a sourced gender fact."
+    },
+    "vocab_a1_0673": {
+      "rules": [
+        "R7"
+      ],
+      "textSha256": "706ebeff4026bf23549ff7777430f500a8e8d9e2b755f252cc6ab2ae156bed88",
+      "reason": "Taekwondo is a shared loanword. Present learning is preserved; EN I'm learning taekwondo is an optional naturalness improvement, not an R7 defect."
+    },
+    "vocab_a1_0688": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "73afa6a45972a867577bb47a8c06fbde2f3577018da985196c3c117ffa17e585",
+      "reason": "Drink something is an idiomatic beverage suggestion; heat and the joint suggestion remain intact."
+    },
+    "vocab_a1_0716": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "6f52fb5b2e45761aa6dc7c734110a6636f4bf2d2f5673ea429f9d9e03169946a",
+      "reason": "그려요 contracts 그리다; drawing a picture is preserved."
+    },
+    "vocab_a1_0717": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "9db52abd37595d39cc5ccbfa827a3cc5eb563a93de8af3da70e63b12bb130b76",
+      "reason": "났어요 is the past form in 열이 나다; yesterday's fever is preserved."
+    },
+    "vocab_a1_0722": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "dd9f975f813800f0abad9c479e74533e600b0229c6b871ed9b247b15d45be9c3",
+      "reason": "불러요 is the 르-irregular singing form; Maya singing a song is preserved."
+    },
+    "vocab_a1_0723": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "dbb92a03536040eaf1f725600d3f33440caea64d6784b5676ed8e1d024bdb89c",
+      "reason": "시켜요 contracts 시키다; ordering coffee is preserved."
+    },
+    "vocab_a1_0725": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "06de32b0e4e75270b185b214c59eacc4167c332c5aabc2ea0510ea67123abdc6",
+      "reason": "FP: name 레나 is followed by 씨가; 내부 나 is not an alternative marker."
+    },
+    "vocab_a1_0726": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "3debd3d02dc71d4c3f732d508195ace9eaae4da68ce62d7eec5a41d2b848f205",
+      "reason": "쳐요 contracts 치다; tennis-playing sense is explicit in both translations."
+    },
+    "vocab_a1_0727": {
+      "rules": [
+        "R3",
+        "R4"
+      ],
+      "textSha256": "3134b07928f5250f36dad0f8976fd1c25c30b18481272a7ab2e10ea095523d04",
+      "reason": "다녀왔어요 is a valid inflection; the repaired DE/EN explicitly preserve the return. The longer target text expresses this lexical meaning, not another event."
+    },
+    "vocab_a1_0731": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "5d91cc5c1f23ff6ea0c9dc09899fbdb77ac63002e3665d3fec1f23234f1621a2",
+      "reason": "들어와요 contracts 들어오다; motion into the room and friend are preserved. German Freund does not establish a supplied gender fact."
+    },
+    "vocab_a1_0732": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "d82e9627c3b08fdf965e5b8f3c35c1e5e0cddcb01692eb701c50d460c9d528a6",
+      "reason": "올라갈 contains the stem plus 관형사형 ㄹ; Andrea's ability, mountain and weekend are preserved."
+    },
+    "vocab_a1_0740": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "e54ae33a23e22835ba0a11236b3248c44e33b71e85566ad23ef96e92683ff8f4",
+      "reason": "알려요 contracts 알리다; telling a friend the time is preserved. German masculine is not scene evidence of gender."
+    },
+    "vocab_a1_0741": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "a7687fc8d0ef859331b649f5d342433f4acef48d5c783dc14d1fc5fb8ded0649",
+      "reason": "FP for all three 아/어 보다 pattern labels: here 찾아보다 is the lexical headword and school-search meaning, not a separately asserted trying/experience auxiliary. Do not globally exempt arbitrary V+아/어 보다 by substring."
+    },
+    "vocab_a1_0742": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "51daa0b51bdeddff487e72eb1059cc46c185695b72c16ea8e4f6bafad1a0dadc",
+      "reason": "춤춰요 contracts 춤추다; joint dancing is preserved."
+    },
+    "vocab_a1_0744": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "31e483eedbcd60e50049f5a6dcfea2ba63968725b2fcae97a3d8849109b618dc",
+      "reason": "고마워요 is the ㅂ-irregular form; strong thanks to Sujin are preserved."
+    },
+    "vocab_a1_0745": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "3f42842346845c92ab34314eb330030bf0ad32774f52fda8085d6a66243c1f55",
+      "reason": "고파요 is the ㅡ-deletion form; missed lunch causing hunger is preserved."
+    },
+    "vocab_a1_0747": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "b4ac2bd7fb57252eacdb33e94ae7f22055df559ccaa78de7c5d9560067a6d870",
+      "reason": "그래요 is the irregular form; shared opinion is rendered naturally rather than word-for-word."
+    },
+    "vocab_a1_0749": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "d2b4d0bb4b13b85bb9bbfbdf4c6b80e450f33f8f009077b9ee3b405caae1ded6",
+      "reason": "나빠요 is the ㅡ-deletion form; today's bad weather is preserved."
+    },
+    "vocab_a1_0752": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "5c3f643a34047834f9fd88a3431cc0b4b1eb9b1ad3049f05ea6085f077e1e816",
+      "reason": "달라요 is the 르-irregular form; differing opinion is preserved."
+    },
+    "vocab_a1_0756": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "fc85ac7f741044664bb7c0163697d629067cf099d1866f20e7e42a0a1313569b",
+      "reason": "반가워요 is the ㅂ-irregular form; meeting greeting and polite DE register are preserved."
+    },
+    "vocab_a1_0760": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "7e5b004ae4862b804a3f4096c5e626d9816ee0a76e1903ccc0818bf398a8ab94",
+      "reason": "아름다워요 is the ㅂ-irregular form; the flower's beauty is preserved."
+    },
+    "vocab_a1_0761": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "9750b5ab6b91ab56e7346f3afcbf80fc3bf4db4855e7902baf9b85e7e1003d16",
+      "reason": "어때요 is the irregular form; asking about today's weather is preserved."
+    },
+    "vocab_a1_0777": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "f96f0d7c465b5875261c4e933e7b6dda65bfffe697656a835e24f55205abaf0d",
+      "reason": "흐릴까요 contains 흐리 + ㄹ까요; tomorrow's cloudiness remains a question in both targets."
+    },
+    "vocab_a1_0819": {
+      "rules": [
+        "R8"
+      ],
+      "textSha256": "775418d5b3e909d6ebd07bb1466d2dda09c5a5464a6b3b44bbf6a0ff2aa57e4a",
+      "reason": "안녕하세요? functions as a greeting, not an information question requiring literal question punctuation. Maya + hello preserves the greeting."
+    },
+    "vocab_a2_0508": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "060e7951346f684c8cb5cf3877cc18a5d4a07957d3569d0a130b202fcca8ca2d",
+      "reason": "take out the trash / den Müll rausbringen need more tokens; morning disposal is preserved."
+    },
+    "vocab_a2_0509": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "0c45f55c496363c9af651bc5234494c3bf82866896ef4e09ce7e50369c952e18",
+      "reason": "버렸어요 is a valid contracted past. DE/EN were repaired to remove nicht mehr / anymore; only the substring morphology flag is exempted."
+    },
+    "vocab_a2_0532": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "858a207080f3d015c5b38af7828564c8e9ca7cda5420021969021e5fe234c73c",
+      "reason": "Articles, subject and wall-placement phrase expand naturally; hanging the family photo is preserved."
+    },
+    "vocab_a2_0533": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "3ac43c060eda8ced8e945fb0f3d0a42119dbe375699d8264e479ded58052caa3",
+      "reason": "The repaired DE preserves father, river and past fishing outing without specifying vehicle travel. Target-language articles/pronouns expand the same event."
+    },
+    "vocab_a2_0534": {
+      "rules": [
+        "R7"
+      ],
+      "textSha256": "7332d3702671ef2404646c8c9db2701a4a3108390d2057220a0cee56c24c832d",
+      "reason": "Badminton is a shared loanword; invitation to Lena and polite German are preserved."
+    },
+    "vocab_a2_0548": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "228a6854c41c1ca26f41e454bbfe0a416354aa4d43f47342fb2dd5fb071b78f4",
+      "reason": "um den See herum spazieren gehen expands the same lake-area walk; no new participant or reason is added."
+    },
+    "vocab_a2_0553": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "95e7e62ff898c69f77128a28e82867ce20cb4abd8a9922564c797e4f8444027e",
+      "reason": "R4 only: a kinship term and plural possession need more target words. Whether nieces and nephews denotes a generic group or a mixed-gender group remains an explicit reference review question; this exemption does not resolve it."
+    },
+    "vocab_a2_0561": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "129662faaf0396a5c2e94fadeae9df50b893b4c4a946d8e3964323f6788b04df",
+      "reason": "Subject and explicit causal connection require more tokens; strong headache motivating coming to the pharmacy is preserved."
+    }
+  }
+}
