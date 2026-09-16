@@ -268,9 +268,17 @@ from distractor_rules import ALTERNATING_PARTICLES, batchim_class  # noqa: E402
 def particle_suffix_of_answer(headword: str, answer: str):
     """If `answer` is exactly `headword` plus a trailing suffix (a
     particle/copula fold), return that suffix; otherwise None (e.g. answer
-    is a conjugated predicate for the predicate-slot waiver, not a fold,
-    or answer == headword with nothing appended)."""
-    if answer.startswith(headword) and len(answer) > len(headword):
+    is a conjugated predicate for the predicate-slot waiver, answer ==
+    headword with nothing appended, or -- C3-T4, 2026-09-16 -- headword is
+    a number/determiner used as a separate modifier word before a
+    counter, e.g. headword "영" + answer "영 개": a SPACE after headword
+    means the "suffix" is its own word, not an agglutinated particle/
+    copula, so it is not a fold and this rule doesn't apply to it)."""
+    if (
+        answer.startswith(headword)
+        and len(answer) > len(headword)
+        and answer[len(headword)] != " "
+    ):
         return answer[len(headword):]
     return None
 
@@ -322,3 +330,36 @@ def attach_matching_particle(word: str, headword: str, answer: str) -> str:
         cls = batchim_class(word, kind)
         return word + (cform if cls == "consonant" else vform)
     return word + suffix
+
+
+# ---------------------------------------------------------------------------
+# Flutter game-contract checks (C3-T4, 2026-09-16). satz_test.dart's "every
+# item satisfies the build contract" rejects a targetKo with fewer than 3
+# space-separated tokens (a 2-tile drag-and-drop sentence isn't a real
+# build exercise); cloze_test.dart's "no 1-syllable answers (numbers/
+# counters) -- unfair gap" rejects a cloze answer with fewer than 2 Hangul
+# syllable blocks. Batch 29's first draft shipped 6 satz items and 1 cloze
+# answer that violated these and only surfaced when the Flutter suite ran
+# post-promotion (PR #360) -- extracted here so every later A1/A2
+# reinforcement batch's own draft regression test can catch the same class
+# of mistake before promotion, not after.
+def satz_token_count(target_ko: str) -> int:
+    """Space-separated token count, matching satz_test.dart's own
+    `target.split(' ').length` exactly (no punctuation stripping)."""
+    return len(target_ko.split(" "))
+
+
+def satz_meets_build_contract(target_ko: str) -> bool:
+    return satz_token_count(target_ko) >= 3
+
+
+def cloze_answer_syllable_count(answer: str) -> int:
+    """Count of precomposed Hangul syllable blocks (U+AC00-U+D7A3) in the
+    answer, matching cloze_test.dart's own rune-range count exactly."""
+    return sum(1 for ch in answer if "가" <= ch <= "힣")
+
+
+def cloze_answer_is_fair(answer: str) -> bool:
+    """False for a bare 1-syllable answer (a number/counter is an unfair
+    guess with no real alternative) -- mirrors cloze_test.dart's rule."""
+    return cloze_answer_syllable_count(answer) >= 2

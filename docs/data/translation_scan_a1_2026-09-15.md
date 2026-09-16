@@ -64,7 +64,7 @@
 | `vocab_a1_0740` | 알리다 | **UNEXPLAINED** | headword '알리다' (stem '알리') not in example_korean | 저는 친구한테 시간을 알려요. | Ich sage meinem Freund die Uhrzeit. | I tell my friend the time. |
 | `vocab_a1_0741` | 찾아보다 | **UNEXPLAINED** | headword '찾아보다' (stem '찾아보') not in example_korean | 저는 학교를 찾아봐요. | Ich suche nach der Schule. | I look for the school. |
 | `vocab_a1_0742` | 춤추다 | **UNEXPLAINED** | headword '춤추다' (stem '춤추') not in example_korean | 우리는 같이 춤춰요. | Wir tanzen zusammen. | We dance together. |
-| `vocab_a1_0744` | 고맙다 | **UNEXPLAINED** | headword '고맙다' (stem '고맙') not in example_korean | 오늘 정말 고마워요. | Heute vielen Dank. | Thank you so much today. |
+| `vocab_a1_0744` | 고맙다 | **UNEXPLAINED** | headword '고맙다' (stem '고맙') not in example_korean | 수진 씨, 정말 고마워요. | Sujin, vielen Dank. | Sujin, thank you so much. |
 | `vocab_a1_0745` | 고프다 | **UNEXPLAINED** | headword '고프다' (stem '고프') not in example_korean | 점심을 안 먹어서 배가 고파요. | Ich habe nicht zu Mittag gegessen, deshalb habe ich Hunger. | I didn't eat lunch, so I'm hungry. |
 | `vocab_a1_0747` | 그렇다 | **UNEXPLAINED** | headword '그렇다' (stem '그렇') not in example_korean | 제 생각도 그래요. | Das denke ich auch. | I think so too. |
 | `vocab_a1_0749` | 나쁘다 | **UNEXPLAINED** | headword '나쁘다' (stem '나쁘') not in example_korean | 오늘 날씨가 나빠요. | Das Wetter ist heute schlecht. | The weather is bad today. |

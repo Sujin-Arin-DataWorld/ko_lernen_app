@@ -2771,7 +2771,7 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 들어가다,deureogada,hineingehen,A1,Verb,저는 아직 교실에 들어가지 않아요.,Ich betrete das Klassenzimmer noch nicht.,Bildung,a1_verbs_daily_2,4,false,to enter,Verb,I haven't entered the classroom yet.,vocab_a1_0730
 들어오다,deureooda,hereinkommen,A1,Verb,친구가 방에 들어와요.,Mein Freund kommt ins Zimmer.,Alltag,a1_verbs_daily_2,5,false,to come in,Verb,My friend comes into the room.,vocab_a1_0731
 올라가다,ollagada,hinaufgehen,A1,Verb,안드레아 씨는 주말에 이 산을 올라갈 수 있어요.,Andrea kann am Wochenende auf diesen Berg steigen.,Freizeit,a1_verbs_daily_2,6,false,to go up,Verb,Andrea can go up this mountain on the weekend.,vocab_a1_0732
-불다,bulda,wehen,A1,Verb,오늘 바람이 불어요.,Heute weht der Wind.,Wetter,a1_verbs_daily_2,7,false,to blow (wind),Verb,The wind blows today.,vocab_a1_0733
+불다,bulda,wehen,A1,Verb,바람이 많이 불어요.,Der Wind weht stark.,Wetter,a1_verbs_daily_2,7,false,to blow (wind),Verb,The wind is blowing hard.,vocab_a1_0733
 울다,ulda,weinen,A1,Verb,아이가 많이 울어요.,Das Kind weint viel.,Familie,a1_verbs_daily_2,8,false,to cry,Verb,The child cries a lot.,vocab_a1_0734
 잘하다,jalhada,gut können,A1,Verb,민호 씨는 요리를 잘해요.,Minho kocht gut.,Beruf,a1_verbs_daily_2,9,false,to be good at,Verb,Minho is good at cooking.,vocab_a1_0735
 지나다,jinada,vergehen,A1,Verb,시간이 빨리 지나요.,Die Zeit vergeht schnell.,Zeit,a1_verbs_daily_2,10,false,to pass (time),Verb,Time passes quickly.,vocab_a1_0736
@@ -2782,28 +2782,28 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 찾아보다,chajaboda,"nachschlagen, suchen",A1,Verb,저는 학교를 찾아봐요.,Ich suche nach der Schule.,Bildung,a1_verbs_daily_3,3,true,"to look up, to search for",Verb,I look for the school.,vocab_a1_0741
 춤추다,chumchuda,tanzen,A1,Verb,우리는 같이 춤춰요.,Wir tanzen zusammen.,Freizeit,a1_verbs_daily_3,4,true,to dance,Verb,We dance together.,vocab_a1_0742
 같다,gatda,gleich sein,A1,Adjektiv,언니와 저는 키가 같아요.,Meine große Schwester und ich sind gleich groß.,Familie,a1_adjectives_1,1,false,to be the same,Adjective,My older sister and I are the same height.,vocab_a1_0743
-고맙다,gomapda,dankbar sein,A1,Adjektiv,오늘 정말 고마워요.,Heute vielen Dank.,Kommunikation,a1_adjectives_1,2,false,to be thankful,Adjective,Thank you so much today.,vocab_a1_0744
+고맙다,gomapda,dankbar sein,A1,Adjektiv,"수진 씨, 정말 고마워요.","Sujin, vielen Dank.",Kommunikation,a1_adjectives_1,2,false,to be thankful,Adjective,"Sujin, thank you so much.",vocab_a1_0744
 고프다,gopeuda,hungrig sein,A1,Adjektiv,점심을 안 먹어서 배가 고파요.,"Ich habe nicht zu Mittag gegessen, deshalb habe ich Hunger.",Körper,a1_adjectives_1,3,false,to be hungry,Adjective,"I didn't eat lunch, so I'm hungry.",vocab_a1_0745
 괜찮다,gwaenchanta,in Ordnung sein,A1,Adjektiv,이 음식은 괜찮아요.,Dieses Essen ist okay.,Essen & Trinken,a1_adjectives_1,4,false,to be okay,Adjective,This food is fine.,vocab_a1_0746
 그렇다,geureota,so sein,A1,Adjektiv,제 생각도 그래요.,Das denke ich auch.,Kommunikation,a1_adjectives_1,5,false,to be so,Adjective,I think so too.,vocab_a1_0747
-깨끗하다,kkaekkeuthada,sauber sein,A1,Adjektiv,오늘 방이 깨끗해요.,Heute ist das Zimmer sauber.,Zuhause,a1_adjectives_1,6,false,to be clean,Adjective,The room is clean today.,vocab_a1_0748
+깨끗하다,kkaekkeuthada,sauber sein,A1,Adjektiv,제 방이 깨끗해요.,Mein Zimmer ist sauber.,Zuhause,a1_adjectives_1,6,false,to be clean,Adjective,My room is clean.,vocab_a1_0748
 나쁘다,nappeuda,schlecht sein,A1,Adjektiv,오늘 날씨가 나빠요.,Das Wetter ist heute schlecht.,Wetter,a1_adjectives_1,7,false,to be bad,Adjective,The weather is bad today.,vocab_a1_0749
 낮다,natda,niedrig sein,A1,Adjektiv,이 책상은 낮아요.,Dieser Tisch ist niedrig.,Zuhause,a1_adjectives_1,8,false,to be low,Adjective,This desk is low.,vocab_a1_0750
 높다,nopda,hoch sein,A1,Adjektiv,그 산이 높아요.,Der Berg ist hoch.,Natur,a1_adjectives_1,9,false,to be high,Adjective,That mountain is high.,vocab_a1_0751
 다르다,dareuda,anders sein,A1,Adjektiv,제 생각은 달라요.,Meine Meinung ist anders.,Kommunikation,a1_adjectives_1,10,false,to be different,Adjective,My opinion is different.,vocab_a1_0752
 따뜻하다,ttatteuthada,warm sein,A1,Adjektiv,오늘은 날씨가 따뜻해요.,Das Wetter ist heute warm.,Wetter,a1_adjectives_1,11,true,to be warm,Adjective,The weather is warm today.,vocab_a1_0753
-맑다,makda,klar sein,A1,Adjektiv,오늘 물이 맑아요.,Heute ist das Wasser klar.,Wetter,a1_adjectives_1,12,true,to be clear,Adjective,The water is clear today.,vocab_a1_0754
+맑다,makda,klar sein,A1,Adjektiv,이 물이 정말 맑아요.,Dieses Wasser ist wirklich klar.,Wetter,a1_adjectives_1,12,true,to be clear,Adjective,This water is really clear.,vocab_a1_0754
 멋있다,meositda,cool sein,A1,Adjektiv,이 가방이 멋있어요.,Diese Tasche ist cool.,Alltag,a1_adjectives_2,1,false,to be cool,Adjective,This bag is cool.,vocab_a1_0755
 반갑다,bangapda,sich freuen (über eine Begegnung),A1,Adjektiv,"안녕하세요, 만나서 반가워요.","Hallo, freut mich, Sie kennenzulernen.",Kommunikation,a1_adjectives_2,2,false,to be glad (to meet),Adjective,"Hello, nice to meet you.",vocab_a1_0756
-시원하다,siwonhada,erfrischend sein,A1,Adjektiv,오늘 물이 시원해요.,Heute ist das Wasser erfrischend.,Essen & Trinken,a1_adjectives_2,3,false,to be refreshing,Adjective,The water is refreshing today.,vocab_a1_0757
+시원하다,siwonhada,erfrischend sein,A1,Adjektiv,이 물이 시원해요.,Dieses Wasser ist erfrischend.,Essen & Trinken,a1_adjectives_2,3,false,to be refreshing,Adjective,This water is refreshing.,vocab_a1_0757
 싫다,silta,nicht mögen,A1,Adjektiv,저는 비가 싫어요.,Ich mag Regen nicht.,Wetter,a1_adjectives_2,4,false,to dislike,Adjective,I dislike rain.,vocab_a1_0758
 아니다,anida,nicht sein,A1,Adjektiv,저는 학생이 아니에요.,Ich bin kein Student.,Bildung,a1_adjectives_2,5,false,to not be,Adjective,I am not a student.,vocab_a1_0759
 아름답다,areumdapda,schön sein,A1,Adjektiv,이 꽃이 아름다워요.,Diese Blume ist schön.,Natur,a1_adjectives_2,6,false,to be beautiful,Adjective,This flower is beautiful.,vocab_a1_0760
 어떻다,eotteota,wie sein,A1,Adjektiv,오늘 날씨가 어때요?,Wie ist das Wetter heute?,Wetter,a1_adjectives_2,7,false,to be how,Adjective,How is the weather today?,vocab_a1_0761
 재미없다,jaemieopda,langweilig sein,A1,Adjektiv,이 영화가 재미없어요.,Dieser Film ist langweilig.,Freizeit,a1_adjectives_2,8,false,to be boring,Adjective,This movie is boring.,vocab_a1_0762
-적다,jeokda,wenig sein,A1,Adjektiv,오늘 사람이 적어요.,Heute gibt es wenige Leute.,Position,a1_adjectives_2,9,false,to be few,Adjective,There are few people today.,vocab_a1_0763
+적다,jeokda,wenig sein,A1,Adjektiv,여기는 사람이 적어요.,Hier gibt es wenige Leute.,Position,a1_adjectives_2,9,false,to be few,Adjective,There are few people here.,vocab_a1_0763
 친하다,chinhada,eng befreundet sein,A1,Adjektiv,수진 씨와 현아 씨는 친해요.,Sujin und Hyuna sind eng befreundet.,Freundschaft,a1_adjectives_2,10,false,to be close (friends),Adjective,Sujin and Hyuna are close friends.,vocab_a1_0764
-특별하다,teukbyeolhada,besonders sein,A1,Adjektiv,저는 오늘이 특별해요.,Für mich ist heute besonders.,Zeit,a1_adjectives_2,11,true,to be special,Adjective,"For me, today is special.",vocab_a1_0765
+특별하다,teukbyeolhada,besonders sein,A1,Adjektiv,오늘은 정말 특별해요.,Heute ist wirklich besonders.,Zeit,a1_adjectives_2,11,true,to be special,Adjective,Today is really special.,vocab_a1_0765
 한가하다,hangahada,frei sein (Zeit),A1,Adjektiv,저는 오늘 한가해요.,Ich habe heute frei.,Zeit,a1_adjectives_2,12,true,to be free (time),Adjective,I'm free today.,vocab_a1_0766
 가운데,gaunde,Mitte,A1,Nomen,제가 가운데 앉아요.,Ich sitze in der Mitte.,Position,a1_misc_3,1,false,middle,Noun,I sit in the middle.,vocab_a1_0767
 계속,gyesok,"weiter, ununterbrochen",A1,Nomen,비가 계속 와요.,Es regnet weiter.,Wetter,a1_misc_3,2,false,continuously,Noun,It keeps raining.,vocab_a1_0768

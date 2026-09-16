@@ -147,6 +147,6 @@
     "assetsDataWritten": true,
     "tts": false,
     "firebase": false,
-    "note": "Promoted 2026-09-16 (C3-T4) after Jin approval (Batch 29 approved on its own (10.9% Jin sample, 7/64 rows)). TTS synthesis pending -- run tool/generate_tts.py --missing-from-storage before this batch's audio is available (no OS-voice fallback)."
+    "note": "Promoted 2026-09-16 (C3-T4) after Jin approval (Batch 29 approved on its own (10.9% Jin sample, 7/64 rows)). TTS synthesis pending -- run tool/generate_tts.py --missing-from-storage before this batch's audio is available (no OS-voice fallback). Fable R8 review of PR #360 (fbda5463, 2026-09-16): 7 sentences forced-changed by satz_test.dart's >=3-token contract were rewritten again for opener variety/naturalness (was 6/7 starting with the identical '오늘' filler, 2 ungrammatical) -- 불다 '바람이 많이 불어요.', 고맙다 '수진 씨, 정말 고마워요.' (canonical persona sujin), 깨끗하다 '제 방이 깨끗해요.', 맑다 '이 물이 정말 맑아요.', 시원하다 '이 물이 시원해요.', 적다 '여기는 사람이 적어요.', 특별하다 '오늘은 정말 특별해요.'. cloze_a1_0706 (영) kept its original vocab/satz text (사과가 영 개 있어요., unchanged) but its distractors were fixed from same-counter-different-number (두/세/네 개, all equally valid apple counts -- a D7 violation Fable flagged) to same-number-wrong-counter (영 마리/영 명/영 살, a genuine classifier-noun mismatch); Fable's suggested temperature rewrite ('영 도') was not used because '도' is not yet NIKL grade-1 or live A1 vocabulary, which would have failed the batch's own helper-word gate."
   }
 }

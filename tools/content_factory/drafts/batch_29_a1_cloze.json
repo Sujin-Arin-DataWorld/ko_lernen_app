@@ -309,11 +309,11 @@
     {
       "id": "cloze_a1_0667",
       "level": "a1",
-      "sentenceKo": "오늘 바람이 ＿＿＿.",
+      "sentenceKo": "바람이 많이 ＿＿＿.",
       "answer": "불어요",
-      "fullKo": "오늘 바람이 불어요.",
-      "de": "Heute weht der Wind.",
-      "en": "The wind blows today.",
+      "fullKo": "바람이 많이 불어요.",
+      "de": "Der Wind weht stark.",
+      "en": "The wind is blowing hard.",
       "distractors": [
         "봐요",
         "씻어요",
@@ -496,11 +496,11 @@
     {
       "id": "cloze_a1_0678",
       "level": "a1",
-      "sentenceKo": "오늘 정말 ＿＿＿.",
+      "sentenceKo": "수진 씨, 정말 ＿＿＿.",
       "answer": "고마워요",
-      "fullKo": "오늘 정말 고마워요.",
-      "de": "Heute vielen Dank.",
-      "en": "Thank you so much today.",
+      "fullKo": "수진 씨, 정말 고마워요.",
+      "de": "Sujin, vielen Dank.",
+      "en": "Sujin, thank you so much.",
       "distractors": [
         "많다",
         "무겁다",
@@ -564,11 +564,11 @@
     {
       "id": "cloze_a1_0682",
       "level": "a1",
-      "sentenceKo": "오늘 방이 ＿＿＿.",
+      "sentenceKo": "제 방이 ＿＿＿.",
       "answer": "깨끗해요",
-      "fullKo": "오늘 방이 깨끗해요.",
-      "de": "Heute ist das Zimmer sauber.",
-      "en": "The room is clean today.",
+      "fullKo": "제 방이 깨끗해요.",
+      "de": "Mein Zimmer ist sauber.",
+      "en": "My room is clean.",
       "distractors": [
         "느려요",
         "두꺼워요",
@@ -666,11 +666,11 @@
     {
       "id": "cloze_a1_0688",
       "level": "a1",
-      "sentenceKo": "오늘 물이 ＿＿＿.",
+      "sentenceKo": "이 물이 정말 ＿＿＿.",
       "answer": "맑아요",
-      "fullKo": "오늘 물이 맑아요.",
-      "de": "Heute ist das Wasser klar.",
-      "en": "The water is clear today.",
+      "fullKo": "이 물이 정말 맑아요.",
+      "de": "Dieses Wasser ist wirklich klar.",
+      "en": "This water is really clear.",
       "distractors": [
         "밝아요",
         "좁아요",
@@ -717,11 +717,11 @@
     {
       "id": "cloze_a1_0691",
       "level": "a1",
-      "sentenceKo": "오늘 물이 ＿＿＿.",
+      "sentenceKo": "이 물이 ＿＿＿.",
       "answer": "시원해요",
-      "fullKo": "오늘 물이 시원해요.",
-      "de": "Heute ist das Wasser erfrischend.",
-      "en": "The water is refreshing today.",
+      "fullKo": "이 물이 시원해요.",
+      "de": "Dieses Wasser ist erfrischend.",
+      "en": "This water is refreshing.",
       "distractors": [
         "커요",
         "피곤해요",
@@ -819,11 +819,11 @@
     {
       "id": "cloze_a1_0697",
       "level": "a1",
-      "sentenceKo": "오늘 사람이 ＿＿＿.",
+      "sentenceKo": "여기는 사람이 ＿＿＿.",
       "answer": "적어요",
-      "fullKo": "오늘 사람이 적어요.",
-      "de": "Heute gibt es wenige Leute.",
-      "en": "There are few people today.",
+      "fullKo": "여기는 사람이 적어요.",
+      "de": "Hier gibt es wenige Leute.",
+      "en": "There are few people here.",
       "distractors": [
         "비싸요",
         "신선해요",
@@ -853,11 +853,11 @@
     {
       "id": "cloze_a1_0699",
       "level": "a1",
-      "sentenceKo": "저는 오늘이 ＿＿＿.",
+      "sentenceKo": "오늘은 정말 ＿＿＿.",
       "answer": "특별해요",
-      "fullKo": "저는 오늘이 특별해요.",
-      "de": "Für mich ist heute besonders.",
-      "en": "For me, today is special.",
+      "fullKo": "오늘은 정말 특별해요.",
+      "de": "Heute ist wirklich besonders.",
+      "en": "Today is really special.",
       "distractors": [
         "가벼워요",
         "뜨거워요",
@@ -978,9 +978,9 @@
       "de": "Es gibt null Äpfel.",
       "en": "There are zero apples.",
       "distractors": [
-        "두 개",
-        "세 개",
-        "네 개"
+        "영 마리",
+        "영 명",
+        "영 살"
       ],
       "topic": "Zahlen",
       "sourceVocabId": "vocab_a1_0772",

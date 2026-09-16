@@ -494,6 +494,17 @@ class TestBatch29Cloze(unittest.TestCase):
         for item in self.items:
             self.assertEqual(len(item["distractors"]), 3)
 
+    def test_answer_is_not_a_1_syllable_unfair_gap(self):
+        # C3-T4 (2026-09-16): cloze_test.dart's live-corpus rule -- a bare
+        # 1-syllable answer (a number/counter) is an unfair guess. Batch 29
+        # shipped cloze_a1_0706 ("영") before this was caught downstream;
+        # fixed to "영 도" (PR #360 Fable review).
+        for item in self.items:
+            self.assertTrue(
+                R.cloze_answer_is_fair(item["answer"]),
+                f"{item['id']}: single-syllable answer is unfair: {item['answer']!r}",
+            )
+
     def test_answer_not_substring_of_distractors(self):
         for item in self.items:
             for d in item["distractors"]:
@@ -617,6 +628,18 @@ class TestBatch29Satz(unittest.TestCase):
             self.assertTrue(item["vocabKo"])
             self.assertGreaterEqual(R.eojeol_count(item["targetKo"]), 1)
             self.assertLessEqual(R.eojeol_count(item["targetKo"]), 8)
+
+    def test_target_meets_satz_build_contract(self):
+        # C3-T4 (2026-09-16): satz_test.dart's live-corpus rule -- a
+        # targetKo under 3 space-separated tokens isn't a real drag-and-
+        # drop build exercise. Batch 29 shipped 6 two-token adjective
+        # sentences before this was caught downstream; all extended to
+        # >=3 tokens with varied, natural openers (PR #360 Fable review).
+        for item in self.items:
+            self.assertTrue(
+                R.satz_meets_build_contract(item["targetKo"]),
+                f"{item['id']}: too short to build: {item['targetKo']!r}",
+            )
 
     def test_two_distractors(self):
         for item in self.items:

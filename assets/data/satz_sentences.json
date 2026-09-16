@@ -33583,9 +33583,9 @@
     {
       "id": "satz_a1_0648",
       "level": "a1",
-      "targetKo": "오늘 바람이 불어요.",
-      "promptDe": "Heute weht der Wind.",
-      "promptEn": "The wind blows today.",
+      "targetKo": "바람이 많이 불어요.",
+      "promptDe": "Der Wind weht stark.",
+      "promptEn": "The wind is blowing hard.",
       "distractors": [
         "장소",
         "종업원"
@@ -33737,9 +33737,9 @@
     {
       "id": "satz_a1_0659",
       "level": "a1",
-      "targetKo": "오늘 정말 고마워요.",
-      "promptDe": "Heute vielen Dank.",
-      "promptEn": "Thank you so much today.",
+      "targetKo": "수진 씨, 정말 고마워요.",
+      "promptDe": "Sujin, vielen Dank.",
+      "promptEn": "Sujin, thank you so much.",
       "distractors": [
         "키",
         "학교"
@@ -33793,9 +33793,9 @@
     {
       "id": "satz_a1_0663",
       "level": "a1",
-      "targetKo": "오늘 방이 깨끗해요.",
-      "promptDe": "Heute ist das Zimmer sauber.",
-      "promptEn": "The room is clean today.",
+      "targetKo": "제 방이 깨끗해요.",
+      "promptDe": "Mein Zimmer ist sauber.",
+      "promptEn": "My room is clean.",
       "distractors": [
         "장소",
         "종업원"
@@ -33877,9 +33877,9 @@
     {
       "id": "satz_a1_0669",
       "level": "a1",
-      "targetKo": "오늘 물이 맑아요.",
-      "promptDe": "Heute ist das Wasser klar.",
-      "promptEn": "The water is clear today.",
+      "targetKo": "이 물이 정말 맑아요.",
+      "promptDe": "Dieses Wasser ist wirklich klar.",
+      "promptEn": "This water is really clear.",
       "distractors": [
         "키",
         "학교"
@@ -33919,9 +33919,9 @@
     {
       "id": "satz_a1_0672",
       "level": "a1",
-      "targetKo": "오늘 물이 시원해요.",
-      "promptDe": "Heute ist das Wasser erfrischend.",
-      "promptEn": "The water is refreshing today.",
+      "targetKo": "이 물이 시원해요.",
+      "promptDe": "Dieses Wasser ist erfrischend.",
+      "promptEn": "This water is refreshing.",
       "distractors": [
         "선물",
         "잡채"
@@ -34003,9 +34003,9 @@
     {
       "id": "satz_a1_0678",
       "level": "a1",
-      "targetKo": "오늘 사람이 적어요.",
-      "promptDe": "Heute gibt es wenige Leute.",
-      "promptEn": "There are few people today.",
+      "targetKo": "여기는 사람이 적어요.",
+      "promptDe": "Hier gibt es wenige Leute.",
+      "promptEn": "There are few people here.",
       "distractors": [
         "장소",
         "종업원"
@@ -34031,9 +34031,9 @@
     {
       "id": "satz_a1_0680",
       "level": "a1",
-      "targetKo": "저는 오늘이 특별해요.",
-      "promptDe": "Für mich ist heute besonders.",
-      "promptEn": "For me, today is special.",
+      "targetKo": "오늘은 정말 특별해요.",
+      "promptDe": "Heute ist wirklich besonders.",
+      "promptEn": "Today is really special.",
       "distractors": [
         "곳",
         "달"
