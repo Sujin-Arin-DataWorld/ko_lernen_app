@@ -45,11 +45,13 @@
 - `contrasts` -- 1~2개. `vocabId`는 그 대조어가 `korean_vocab.csv`에 실재하면
   그 id, 없으면 `null`(둘 다 유효 -- 검증기가 null은 통과시키고, 값이 있으면
   살아있는 id인지 확인한다).
-- `register` -- `formal | neutral | casual | written` 중 하나 (표제어 전체의
-  대표 격식).
-- `examples` -- **정확히 2개**. 하나는 `formal`(또는 `written`), 하나는
-  `casual`(또는 `written`/구어) -- 같은 단어의 격식 차이를 보여주는 것이
-  목적이라 두 예문의 register가 달라야 의미가 있다. KO는 그 레벨 문법/어휘를
+- `register` -- 허용값은 정확히 4개, `formal | neutral | casual | written`
+  중 하나(표제어 전체의 대표 격식). 다른 문자열(예: `informal`, `polite`)은
+  검증기가 거부한다.
+- `examples` -- **정확히 2개**, register는 항상 `casual` 1개 + 나머지 3값
+  중 하나(`formal`/`written`/`neutral`) 1개 -- `casual`이 0개나 2개면
+  검증 실패다. 같은 단어의 격식 차이를 보여주는 것이 목적이라 두 예문의
+  register가 달라야 의미가 있다. KO는 그 레벨 문법/어휘를
   넘지 않고(NIKL 기준 자기 레벨+1까지), 어절 상한은 B1 ≤14, B2+ ≤18
   (일반 B1 문장 규칙 ≤16보다 이 기능 한정으로 더 엄격 -- 카드 뒷면 접이식
   구획이라 화면 공간이 좁다). 편집용 dash 문자 금지 -- 하이픈(-)이나 쉼표로
@@ -68,6 +70,21 @@
 - `patterns` 1~2개, `collocations` 2~3개, `contrasts` 1~2개
 - `examples`가 정확히 2개이고 각각 register가 유효한 값인지
 - `contrasts[].vocabId`가 null이거나 살아있는 vocab id인지
+
+추가로 예문별 KO/DE/EN을 해당 vocab 앞면과 비교하고, 두 예문끼리도
+비교한다. NFKC·casefold 정규화 후 공백·문장부호를 제외한 문자열이
+같으면 실패한다. 이는 정확한 중복 검사이며 의미 유사도 검사가 아니다.
+뉘앙스에 대조어가 나오거나 문자가 많이 겹친다는 이유만으로 실패시키지
+않는다. 실제 의미 독립성, 앞면과 다른 사건, KO/DE/EN의 격식 차이는
+별도의 삼언어 검수 대상이다.
+
+`scan_usage_notes_de.py`는 현재 JSON의 모든 DE 필드를 읽는 참고용
+철자 후보 스캐너다. 올바른 단어도 표시할 수 있고 오류를 놓칠 수도 있다.
+0건은 독일어 품질 승인이나 Jin 승인을 의미하지 않는다.
+
+C9-1 표본은 `python tools/content_factory/build_c9_sample.py`로 현재
+JSON에서 생성하고 `--check`로 최신성을 확인한다. 고정된 100 IDs를
+정렬한 0, 10, ..., 90번째 항목을 수록하며 승인란은 비워 둔다.
 
 ## 2. 파이프라인
 

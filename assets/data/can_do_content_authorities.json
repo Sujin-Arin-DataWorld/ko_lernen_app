@@ -55682,7 +55682,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_daily_3",
         "sourceVocabId": "vocab_b1_0053",
-        "sourceVocabFingerprintSha256": "b78a2f52b681982e29b30f8d407a0d6d868440713adcda9c8903919a531046d6",
+        "sourceVocabFingerprintSha256": "92aca366a8bfaca3d84c3bddade33fa4e297697819549cfd8770d7be8432d7e9",
         "level": "b1",
         "canDoSegmentId": "segment_b1_plans_with_reasons",
         "courseUnitId": "b1_01_experience_reasons"
