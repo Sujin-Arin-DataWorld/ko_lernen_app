@@ -1,0 +1,2505 @@
+{
+  "generated": "2026-09-16",
+  "source": "Q-S2 OCR main-series",
+  "grammar": {
+    "B1": {
+      "excluded_as_ocr_noise": 2,
+      "sejong_grammar_items": 54,
+      "our_grammar_items_at_level": 35,
+      "matched": 8,
+      "sejong_taught_missing_from_ours": [
+        {
+          "label": "-으려면",
+          "raw_ocr": "-으려면",
+          "sejong_page": 228,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-으면 되다 / 안 되다",
+          "raw_ocr": "-으면 되다 / 안 되다",
+          "sejong_page": 228,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "으로부터",
+          "raw_ocr": "으로부터",
+          "sejong_page": 228,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-잖아(요",
+          "raw_ocr": "-잖아(요",
+          "sejong_page": 229,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-고 싶어 하다",
+          "raw_ocr": "-고 싶어 하다",
+          "sejong_page": 229,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-으나",
+          "raw_ocr": "-으나",
+          "sejong_page": 230,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "뿐",
+          "raw_ocr": "뿐",
+          "sejong_page": 230,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-는다",
+          "raw_ocr": "슨다",
+          "sejong_page": 231,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-어지다",
+          "raw_ocr": "-어지다",
+          "sejong_page": 231,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-니?, -어라, -자, -는구나",
+          "raw_ocr": "-니?, -어라, -자, -는구나",
+          "sejong_page": 232,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-더라, 더군(요",
+          "raw_ocr": "-더라, 더군(요",
+          "sejong_page": 232,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-나 보다, -는가 보다",
+          "raw_ocr": "-나 보다, -는가 보다",
+          "sejong_page": 233,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-으니",
+          "raw_ocr": "-으니",
+          "sejong_page": 233,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-은 결과",
+          "raw_ocr": "-은 결과",
+          "sejong_page": 234,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-는 대신에",
+          "raw_ocr": "-는 대신에",
+          "sejong_page": 234,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "요",
+          "raw_ocr": "요",
+          "sejong_page": 236,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-있었-",
+          "raw_ocr": "-있었-",
+          "sejong_page": 237,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-어 보이다",
+          "raw_ocr": "-어 보이다",
+          "sejong_page": 237,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-거든1",
+          "raw_ocr": "-거든1",
+          "sejong_page": 237,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "같이",
+          "raw_ocr": "같이",
+          "sejong_page": 238,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "이면",
+          "raw_ocr": "이면",
+          "sejong_page": 238,
+          "sejong_file": "세종학당 한국어 3A(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-기 위해",
+          "raw_ocr": "-기 위해",
+          "sejong_page": 227,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-거든2",
+          "raw_ocr": "-거든2",
+          "sejong_page": 227,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "이고",
+          "raw_ocr": "이고",
+          "sejong_page": 227,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-을 테니",
+          "raw_ocr": "-을 테니",
+          "sejong_page": 228,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-도록",
+          "raw_ocr": "-도록",
+          "sejong_page": 228,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-는 만큼, 만큼",
+          "raw_ocr": "슨 만큼, 만큼",
+          "sejong_page": 229,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-고 나다",
+          "raw_ocr": "-고 나다",
+          "sejong_page": 229,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-은 다음에",
+          "raw_ocr": "-은 다음에",
+          "sejong_page": 229,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-어 가다/오다",
+          "raw_ocr": "-어 가다/오다",
+          "sejong_page": 230,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-는다괴",
+          "raw_ocr": "-는다괴",
+          "sejong_page": 230,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-는 중이다",
+          "raw_ocr": "슨 중이다",
+          "sejong_page": 231,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-는다고2, -나고, -으라고, -자고",
+          "raw_ocr": "-는다고2, -나고, -으라고, -자고",
+          "sejong_page": 231,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "이란",
+          "raw_ocr": "이란",
+          "sejong_page": 232,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "이라고",
+          "raw_ocr": "이라고",
+          "sejong_page": 232,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-어 가지고",
+          "raw_ocr": "-어 가지고",
+          "sejong_page": 232,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-던데1",
+          "raw_ocr": "-던데1",
+          "sejong_page": 233,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-어 드리다",
+          "raw_ocr": "-어 드리다",
+          "sejong_page": 234,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-으려다가",
+          "raw_ocr": "-으려다가",
+          "sejong_page": 235,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-고 말다",
+          "raw_ocr": "-고 말다",
+          "sejong_page": 235,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-는 반면",
+          "raw_ocr": "슨 반면",
+          "sejong_page": 235,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-던",
+          "raw_ocr": "-던",
+          "sejong_page": 236,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-는 탓에",
+          "raw_ocr": "-는 탓에",
+          "sejong_page": 236,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-는다거나1",
+          "raw_ocr": "-는다거나1",
+          "sejong_page": 237,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-게 하다",
+          "raw_ocr": "-게 하다",
+          "sejong_page": 237,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "보고",
+          "raw_ocr": "보고",
+          "sejong_page": 237,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        }
+      ],
+      "ours_here_sejong_teaches_elsewhere": [
+        {
+          "pattern": "V-(으)ㄴ/는지",
+          "our_level": "B1",
+          "sejong_level": "B2",
+          "sejong_page": 228,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "pattern": "V-는 대로",
+          "our_level": "B1",
+          "sejong_level": "B2",
+          "sejong_page": 235,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "pattern": "V-는 바람에, S",
+          "our_level": "B1",
+          "sejong_level": "B2",
+          "sejong_page": 237,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        }
+      ],
+      "ours_not_in_sejong_any_level": [
+        {
+          "pattern": "V-(으)ㄹ 것 같다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "N에 대해(서)",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)ㄹ수록",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-다 보면",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)ㄹ 텐데",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-던/이던",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)ㄹ 줄 알다/모르다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-거든요",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "pattern": "V-(ㄴ/는)다고 하다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-아/어도",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-는 데 걸리다/들다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "'르' 불규칙",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "'ㅅ' 불규칙",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "'ㅎ' 불규칙",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-아/어 놓다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)ㄹ 뻔하다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)ㄴ 채(로)",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-기로 되어 있다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)ㄹ 예정이다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-아/어 주시면 좋겠다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-다 보니",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)ㄴ 김에",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-아/어 주실 수 있을까요?",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)ㄹ까 하다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        }
+      ]
+    },
+    "B2": {
+      "excluded_as_ocr_noise": 2,
+      "sejong_grammar_items": 57,
+      "our_grammar_items_at_level": 56,
+      "matched": 7,
+      "sejong_taught_missing_from_ours": [
+        {
+          "label": "치고",
+          "raw_ocr": "치고",
+          "sejong_page": 227,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "고",
+          "raw_ocr": "고",
+          "sejong_page": 227,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-는대",
+          "raw_ocr": "-는대",
+          "sejong_page": 228,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "이아",
+          "raw_ocr": "이아",
+          "sejong_page": 228,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "에 비하여",
+          "raw_ocr": "에 비하여",
+          "sejong_page": 229,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-듯이",
+          "raw_ocr": "-듯이",
+          "sejong_page": 229,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-거니와",
+          "raw_ocr": "-거니와",
+          "sejong_page": 229,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-는 김에",
+          "raw_ocr": "슨 김에",
+          "sejong_page": 230,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-다니",
+          "raw_ocr": "-다니",
+          "sejong_page": 230,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-었더니",
+          "raw_ocr": "-었더니",
+          "sejong_page": 231,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-어야지",
+          "raw_ocr": "-어야지",
+          "sejong_page": 232,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-어서인지",
+          "raw_ocr": "-어서인지",
+          "sejong_page": 232,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "꼬며",
+          "raw_ocr": "꼬며",
+          "sejong_page": 232,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "고도",
+          "raw_ocr": "고도",
+          "sejong_page": 233,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "이며",
+          "raw_ocr": "이며",
+          "sejong_page": 233,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "으로서",
+          "raw_ocr": "으로서",
+          "sejong_page": 234,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "이나마",
+          "raw_ocr": "이나마",
+          "sejong_page": 234,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-는 대로",
+          "raw_ocr": "-는 대로",
+          "sejong_page": 235,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-을수록",
+          "raw_ocr": "-을수록",
+          "sejong_page": 235,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "하",
+          "raw_ocr": "하",
+          "sejong_page": 235,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "대로",
+          "raw_ocr": "대로",
+          "sejong_page": 236,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-을 뻔하다",
+          "raw_ocr": "-을 뻔하다",
+          "sejong_page": 237,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-는 다니",
+          "raw_ocr": "-는 다니",
+          "sejong_page": 237,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "마저, 까지2",
+          "raw_ocr": "마저, 까지2",
+          "sejong_page": 238,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-어 놓다, -어 두다",
+          "raw_ocr": "-어 놓다, -어 두다",
+          "sejong_page": 238,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-는사이에",
+          "raw_ocr": "-는사이에",
+          "sejong_page": 239,
+          "sejong_file": "세종학당 한국어4A_영어.pdf"
+        },
+        {
+          "label": "-는줄",
+          "raw_ocr": "-는줄",
+          "sejong_page": 225,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "만 같아도",
+          "raw_ocr": "만 같아도",
+          "sejong_page": 225,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-나요",
+          "raw_ocr": "-나요",
+          "sejong_page": 226,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-든지",
+          "raw_ocr": "-든지",
+          "sejong_page": 226,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-으므로",
+          "raw_ocr": "-으므로",
+          "sejong_page": 226,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-어 버리다",
+          "raw_ocr": "-어 버리다",
+          "sejong_page": 227,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-는다면",
+          "raw_ocr": "-는다면",
+          "sejong_page": 227,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "이든",
+          "raw_ocr": "이든",
+          "sejong_page": 228,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-을걸",
+          "raw_ocr": "-을걸",
+          "sejong_page": 228,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-던데2",
+          "raw_ocr": "-던데2",
+          "sejong_page": 228,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "이라도",
+          "raw_ocr": "이라도",
+          "sejong_page": 228,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-는 모양이다",
+          "raw_ocr": "-는 모양이다",
+          "sejong_page": 230,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-는듯",
+          "raw_ocr": "-는듯",
+          "sejong_page": 230,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-어 대다",
+          "raw_ocr": "-어 대다",
+          "sejong_page": 231,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "으로 인하여",
+          "raw_ocr": "으로 인하여",
+          "sejong_page": 231,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-는다거나2",
+          "raw_ocr": "-는다거나2",
+          "sejong_page": 231,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-나 싶다",
+          "raw_ocr": "-나 싶다",
+          "sejong_page": 232,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-으려야",
+          "raw_ocr": "-으려0F",
+          "sejong_page": 232,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-는 통에",
+          "raw_ocr": "-는 통에",
+          "sejong_page": 232,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-고 보다",
+          "raw_ocr": "-고 보다",
+          "sejong_page": 233,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-커녕",
+          "raw_ocr": "-커녕",
+          "sejong_page": 235,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-고 들다",
+          "raw_ocr": "-고 들다",
+          "sejong_page": 235,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "-을 따름이다",
+          "raw_ocr": "-을 따름이다",
+          "sejong_page": 236,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        },
+        {
+          "label": "으로,서",
+          "raw_ocr": "으로,서",
+          "sejong_page": 236,
+          "sejong_file": "세종학당 한국어 4B(영어)_(low file size).pdf"
+        }
+      ],
+      "ours_here_sejong_teaches_elsewhere": [
+        {
+          "pattern": "V-는 반면에",
+          "our_level": "B2",
+          "sejong_level": "B1",
+          "sejong_page": 235,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        },
+        {
+          "pattern": "V-도록 하다",
+          "our_level": "B2",
+          "sejong_level": "B1",
+          "sejong_page": 228,
+          "sejong_file": "세종학당 한국어 3B(영어)_(low file size).pdf"
+        }
+      ],
+      "ours_not_in_sejong_any_level": [
+        {
+          "pattern": "V-더라도",
+          "nikl_grade": "4",
+          "nikl_cefr": "B2"
+        },
+        {
+          "pattern": "V-(으)ㄹ 뿐만 아니라",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)ㄹ지라도",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "N(으)로 인해(서)",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "N에도 불구하고",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "pattern": "V-(으)ㄹ 뿐이다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-았/었더라면",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)ㄹ까 봐",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "N(이)란",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)ㄴ/는 셈이다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-기 마련이다",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "pattern": "-대요/-(이)래요/-냬요/-재요",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)므로",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)ㄴ/는 바",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "N을/를 비롯한",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-아/어 주시기 바랍니다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-아/어 주시기를 요청하다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "N에 관하여",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "pattern": "A/V-(으)ㄴ/는 이상",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-기 나름이다",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "pattern": "A/V-(으)ㄴ/는 듯하다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-고 나서야",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "N을/를 둘러싸고",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-다가는",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "pattern": "V-는데도 V-는 척하다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-는 데다가 A-기까지 하다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-다고/냐고/라고/자고 하다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-아/어 봤자",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)ㄹ 만하다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-는 셈이다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "A/V-다고 해서 A/V-는 것은 아니다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-느냐에 달려 있다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "N을/를 계기로",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "A/V-다는 점에서",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "N에 비추어 볼 때",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "A/V-(으)ㄴ/는 데 비해",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-(으)ㄹ 따름이다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-는 대신(에)",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-기보다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "N을/를 비롯해",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-건 말건",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "A/V-기로서니",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "N까지 포함해서 보면",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "N만으로 판단하기 어렵다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "V-는 대신 N을/를 보완하다",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "N을/를 기준으로 보면",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "pattern": "A/V-다는 점을 고려하면",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        }
+      ]
+    }
+  },
+  "vocab": {
+    "A1": {
+      "sejong_unique_words": 48,
+      "coverage_pct_at_level": 20.8,
+      "present_here": 10,
+      "found_at_other_level": 11,
+      "absent_from_ours": 27,
+      "found_at_other_level_detail": [
+        {
+          "korean": "음식",
+          "page": 350,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1",
+          "found_at_our_level": "A2"
+        },
+        {
+          "korean": "교실",
+          "page": 351,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1",
+          "found_at_our_level": "A2"
+        },
+        {
+          "korean": "가을",
+          "page": 353,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1",
+          "found_at_our_level": "A2"
+        },
+        {
+          "korean": "겨울",
+          "page": 353,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1",
+          "found_at_our_level": "A2"
+        },
+        {
+          "korean": "선물",
+          "page": 354,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1",
+          "found_at_our_level": "B1"
+        },
+        {
+          "korean": "카드",
+          "page": 354,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1",
+          "found_at_our_level": "A2"
+        },
+        {
+          "korean": "호텔",
+          "page": 368,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1",
+          "found_at_our_level": "A2"
+        },
+        {
+          "korean": "신혼여행",
+          "page": 368,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2",
+          "found_at_our_level": "B1"
+        },
+        {
+          "korean": "집들이",
+          "page": 373,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2",
+          "found_at_our_level": "B1"
+        },
+        {
+          "korean": "미술관",
+          "page": 374,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2",
+          "found_at_our_level": "B1"
+        },
+        {
+          "korean": "공연장",
+          "page": 374,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1",
+          "found_at_our_level": "B1"
+        }
+      ],
+      "absent_from_ours_detail": [
+        {
+          "korean": "지효",
+          "page": 9,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "러시아",
+          "page": 347,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "멕시코",
+          "page": 347,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "미국",
+          "page": 347,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "베트남",
+          "page": 347,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "노래",
+          "page": 350,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "드라마",
+          "page": 350,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "십이",
+          "page": 358,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "이십질",
+          "page": 358,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "사십팔",
+          "page": 358,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "육십일",
+          "page": 358,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "농구",
+          "page": 360,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "야구",
+          "page": 360,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "수영",
+          "page": 360,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "세,오",
+          "page": 362,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "여섯, 십삼",
+          "page": 362,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "아홉, 사십팔",
+          "page": 362,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "열 시 십오분",
+          "page": 362,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "열한 시 오십오분",
+          "page": 362,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "김밥",
+          "page": 363,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "음료수",
+          "page": 363,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "떡볶이",
+          "page": 363,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "여행사",
+          "page": 368,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "초대장",
+          "page": 373,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "휴지",
+          "page": 373,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "영화관",
+          "page": 374,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "빵집 으해",
+          "page": 376,
+          "file": "세종학당 한국어 1 익힘책_한국어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        }
+      ]
+    },
+    "A2": {
+      "sejong_unique_words": 52,
+      "coverage_pct_at_level": 23.1,
+      "present_here": 12,
+      "found_at_other_level": 8,
+      "absent_from_ours": 32,
+      "found_at_other_level_detail": [
+        {
+          "korean": "취소",
+          "page": 367,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2",
+          "found_at_our_level": "A1"
+        },
+        {
+          "korean": "신분증",
+          "page": 376,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2",
+          "found_at_our_level": "B1"
+        },
+        {
+          "korean": "성격",
+          "page": 378,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2",
+          "found_at_our_level": "B1"
+        },
+        {
+          "korean": "돕다",
+          "page": 378,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1",
+          "found_at_our_level": "A1"
+        },
+        {
+          "korean": "편의점",
+          "page": 381,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1",
+          "found_at_our_level": "A1"
+        },
+        {
+          "korean": "집들이",
+          "page": 388,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2",
+          "found_at_our_level": "B1"
+        },
+        {
+          "korean": "하숙집",
+          "page": 390,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1",
+          "found_at_our_level": "B1"
+        },
+        {
+          "korean": "거절하다",
+          "page": 391,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null,
+          "found_at_our_level": "B1"
+        }
+      ],
+      "absent_from_ours_detail": [
+        {
+          "korean": "친구와",
+          "page": 29,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "장마",
+          "page": 361,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "태풍",
+          "page": 361,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "사계절",
+          "page": 361,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "카페",
+          "page": 362,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "귀여워요",
+          "page": 364,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "멋있어요",
+          "page": 364,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "공짜",
+          "page": 365,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "휴대폰/휴대 전화",
+          "page": 376,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "거짓말",
+          "page": 378,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "믿다",
+          "page": 378,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "빨래/빨래하다",
+          "page": 379,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "요리/요리하다",
+          "page": 379,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "설거지/설거지하다",
+          "page": 379,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "정소/정소하다",
+          "page": 379,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "주차장",
+          "page": 381,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "찜질방",
+          "page": 381,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "korean": "목욕탕",
+          "page": 381,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "짜장면",
+          "page": 383,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "짬뽕",
+          "page": 383,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "치킨",
+          "page": 383,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "피자",
+          "page": 383,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "바지",
+          "page": 385,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "티셔츠",
+          "page": 385,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "정장",
+          "page": 385,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "@타다 기@치다",
+          "page": 386,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "생일",
+          "page": 388,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "파티",
+          "page": 388,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "아파트",
+          "page": 390,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1"
+        },
+        {
+          "korean": "원룸",
+          "page": 390,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "초대권",
+          "page": 391,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "연극 공연",
+          "page": 391,
+          "file": "세종학당 한국어 2 익힘책_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        }
+      ]
+    },
+    "B1": {
+      "sejong_unique_words": 65,
+      "coverage_pct_at_level": 9.2,
+      "present_here": 6,
+      "found_at_other_level": 6,
+      "absent_from_ours": 53,
+      "found_at_other_level_detail": [
+        {
+          "korean": "세우다",
+          "page": 230,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2",
+          "found_at_our_level": "A2"
+        },
+        {
+          "korean": "수박",
+          "page": 227,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "1",
+          "nikl_cefr": "A1",
+          "found_at_our_level": "A2"
+        },
+        {
+          "korean": "성함",
+          "page": 236,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2",
+          "found_at_our_level": "A1"
+        },
+        {
+          "korean": "연세",
+          "page": 236,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2",
+          "found_at_our_level": "B2"
+        },
+        {
+          "korean": "뵙다",
+          "page": 236,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2",
+          "found_at_our_level": "B2"
+        },
+        {
+          "korean": "과장",
+          "page": 237,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1",
+          "found_at_our_level": "B2"
+        }
+      ],
+      "absent_from_ours_detail": [
+        {
+          "korean": "동호회",
+          "page": 228,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "동창회",
+          "page": 228,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "환영회",
+          "page": 228,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "회장",
+          "page": 228,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "떠오르지",
+          "page": 229,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "반해서",
+          "page": 229,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "소중한",
+          "page": 229,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "인상을",
+          "page": 229,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "바라다",
+          "page": 230,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "졸았어요",
+          "page": 232,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "감상을",
+          "page": 232,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "신나요",
+          "page": 232,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "장면을",
+          "page": 232,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "여가시간",
+          "page": 233,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "게임을",
+          "page": 233,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "탁구를",
+          "page": 233,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "구경거리",
+          "page": 234,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "여유가 의수면은",
+          "page": 234,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "점부파일",
+          "page": 235,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "피시방",
+          "page": 235,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "농담",
+          "page": 237,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "활발하게",
+          "page": 237,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "내성적인",
+          "page": 237,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "적극적으로",
+          "page": 237,
+          "file": "세종학당 한국어 3A(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "레몬",
+          "page": 227,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "오이",
+          "page": 227,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "당근",
+          "page": 227,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "버섯",
+          "page": 227,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "감자",
+          "page": 227,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "체인점",
+          "page": 227,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "뷔페",
+          "page": 227,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "분식집",
+          "page": 227,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "한식당",
+          "page": 227,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "구이",
+          "page": 229,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "볶음",
+          "page": 229,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "4",
+          "nikl_cefr": "B2"
+        },
+        {
+          "korean": "튀김",
+          "page": 229,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "성수",
+          "page": 230,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "숙박비를",
+          "page": 231,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "제크인",
+          "page": 231,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "민박집이",
+          "page": 231,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "시설을",
+          "page": 231,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "세면도구",
+          "page": 232,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "korean": "충전",
+          "page": 232,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "korean": "렬렁해서",
+          "page": 234,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "진한",
+          "page": 234,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "적당해요",
+          "page": 234,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "세련됐어요",
+          "page": 234,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "전원을",
+          "page": 235,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "소형",
+          "page": 235,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "4",
+          "nikl_cefr": "B2"
+        },
+        {
+          "korean": "맞춰서",
+          "page": 235,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "중고",
+          "page": 235,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "여쭙다",
+          "page": 236,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "부장",
+          "page": 237,
+          "file": "세종학당 한국어 3B(영어)_(low file size).pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        }
+      ]
+    },
+    "B2": {
+      "sejong_unique_words": 68,
+      "coverage_pct_at_level": 1.5,
+      "present_here": 1,
+      "found_at_other_level": 10,
+      "absent_from_ours": 57,
+      "found_at_other_level_detail": [
+        {
+          "korean": "부동산",
+          "page": 229,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1",
+          "found_at_our_level": "B1"
+        },
+        {
+          "korean": "야근하다",
+          "page": 235,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null,
+          "found_at_our_level": "A2"
+        },
+        {
+          "korean": "근무하다",
+          "page": 235,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null,
+          "found_at_our_level": "B1"
+        },
+        {
+          "korean": "좌회전",
+          "page": 237,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1",
+          "found_at_our_level": "B1"
+        },
+        {
+          "korean": "노선",
+          "page": 237,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1",
+          "found_at_our_level": "A2"
+        },
+        {
+          "korean": "우회전",
+          "page": 237,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1",
+          "found_at_our_level": "B1"
+        },
+        {
+          "korean": "환전",
+          "page": 225,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2",
+          "found_at_our_level": "A2"
+        },
+        {
+          "korean": "출금",
+          "page": 225,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1",
+          "found_at_our_level": "A2"
+        },
+        {
+          "korean": "입금",
+          "page": 225,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "4",
+          "nikl_cefr": "B2",
+          "found_at_our_level": "A2"
+        },
+        {
+          "korean": "담임",
+          "page": 233,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "4",
+          "nikl_cefr": "B2",
+          "found_at_our_level": "B1"
+        }
+      ],
+      "absent_from_ours_detail": [
+        {
+          "korean": "영하",
+          "page": 227,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "날이 풀려서",
+          "page": 227,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "습도가높아서",
+          "page": 227,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "열대야",
+          "page": 227,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "korean": "인구",
+          "page": 228,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "접근성이좋으면",
+          "page": 228,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "공공시설",
+          "page": 228,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "korean": "수도권",
+          "page": 228,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "4",
+          "nikl_cefr": "B2"
+        },
+        {
+          "korean": "집을구하고",
+          "page": 229,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "경비실",
+          "page": 229,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "보안시설",
+          "page": 229,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "꾸미고",
+          "page": 230,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "비좁아서",
+          "page": 230,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "깔면",
+          "page": 230,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "수납할",
+          "page": 230,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "사랑스럽게",
+          "page": 231,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "정성껏",
+          "page": 231,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "korean": "가꾸었어요",
+          "page": 231,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "보호소",
+          "page": 231,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "화산",
+          "page": 232,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "korean": "홍수가 나다",
+          "page": 232,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "가뭄이 들다",
+          "page": 232,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "해안",
+          "page": 232,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "4",
+          "nikl_cefr": "B2"
+        },
+        {
+          "korean": "지원자가",
+          "page": 234,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "답변할",
+          "page": 234,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "자유로워서",
+          "page": 234,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "지시하다",
+          "page": 235,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "회식하다",
+          "page": 235,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "안전띠를 매다",
+          "page": 237,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "해수욕장",
+          "page": 238,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "항구",
+          "page": 238,
+          "file": "세종학당 한국어4A_영어.pdf",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "korean": "인터Y人키뱅킹",
+          "page": 225,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "불길이 번지",
+          "page": 227,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "팔꿈치",
+          "page": 228,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "4",
+          "nikl_cefr": "B2"
+        },
+        {
+          "korean": "손목",
+          "page": 228,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "허벅지",
+          "page": 228,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "엉덩이",
+          "page": 228,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "발바닥",
+          "page": 228,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "2",
+          "nikl_cefr": "A2"
+        },
+        {
+          "korean": "제때",
+          "page": 229,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "4",
+          "nikl_cefr": "B2"
+        },
+        {
+          "korean": "카페인",
+          "page": 229,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "korean": "불면증",
+          "page": 229,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "5",
+          "nikl_cefr": "C1"
+        },
+        {
+          "korean": "복통",
+          "page": 229,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "소독을",
+          "page": 230,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "발열",
+          "page": 230,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "제거",
+          "page": 230,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "4",
+          "nikl_cefr": "B2"
+        },
+        {
+          "korean": "전염이",
+          "page": 230,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "저방",
+          "page": 232,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "증상",
+          "page": 232,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        },
+        {
+          "korean": "질병",
+          "page": 232,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "4",
+          "nikl_cefr": "B2"
+        },
+        {
+          "korean": "성적표를",
+          "page": 233,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "입시를",
+          "page": 233,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "교재는",
+          "page": 233,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "개인 교습",
+          "page": 235,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": null,
+          "nikl_cefr": null
+        },
+        {
+          "korean": "사무직",
+          "page": 236,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "4",
+          "nikl_cefr": "B2"
+        },
+        {
+          "korean": "전문직",
+          "page": 236,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "4",
+          "nikl_cefr": "B2"
+        },
+        {
+          "korean": "예술가",
+          "page": 236,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "4",
+          "nikl_cefr": "B2"
+        },
+        {
+          "korean": "사업가",
+          "page": 236,
+          "file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+          "nikl_grade": "3",
+          "nikl_cefr": "B1"
+        }
+      ]
+    }
+  }
+}

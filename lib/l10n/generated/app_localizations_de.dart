@@ -2294,6 +2294,27 @@ class AppL10nDe extends AppL10n {
   String get vocabPackTapToFlip => 'Tippen zum Umdrehen';
 
   @override
+  String get usageNoteTitle => 'Verwendung';
+
+  @override
+  String get usageNoteNuance => 'Bedeutungsnuance';
+
+  @override
+  String get usageNoteSituation => 'Typische Situation';
+
+  @override
+  String get usageNotePatterns => 'Satzmuster';
+
+  @override
+  String get usageNoteCollocations => 'Wortkombinationen';
+
+  @override
+  String get usageNoteContrast => 'Unterschied zu';
+
+  @override
+  String get usageNoteExamples => 'Beispiele';
+
+  @override
   String get vocabPackResultTitle => 'Ergebnis';
 
   @override

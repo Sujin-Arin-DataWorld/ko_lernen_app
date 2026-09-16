@@ -99,3 +99,48 @@ headword-by-headword cross-check of all ~5,039 entries against
 `korean_vocab.csv` was **out of scope for this session** (608 pages of
 structured entry parsing beyond the time/cost budget available); this is
 reported as a scope limitation, not attempted and silently assumed clean.
+
+## Q-S2 update: main-series books' own stated level (OCR, 2026-09-16)
+
+Q-S (above) could only check the *substitute* 회화 series' self-labels
+(초급/중급) because the main-series 교재 were 0% text. Q-S2 OCR'd the actual
+main-series 교재 (`tool/sejong/ocr_sejong_pages.py`, Windows.Media.Ocr,
+2,017/2,017 target pages, 0 failures) and can now cite the main series'
+*own* front matter directly:
+
+- `세종학당 한국어 3A(영어)_(low file size).pdf` p.1: colophon reads
+  **"INTERMEDIATE"** / **"중급 1 (1~10과)"** ("Intermediate 1, units 1-10")
+  — i.e. 3A is 중급1 (intermediate, first half).
+- `세종학당 한국어 3B(영어)_(low file size).pdf` p.1: **"중급 1 (11~20과)"**
+  — 3B is 중급1, units 11-20 (the second half of the same 중급1 course).
+- `세종학당 한국어4A_영어.pdf` p.1: **"중급 2(1~10과)"** — 4A is 중급2
+  (intermediate, second course), units 1-10.
+- `세종학당 한국어 4B(영어)_(low file size).pdf` p.1: **"중급 2(11~20과)"**
+  — 4B is 중급2, units 11-20.
+- `세종학당 한국어 1 익힘책_한국어.pdf` p.4: **"초급 1 익힘책"** ("Beginner 1
+  workbook") — confirms level-1 content is 초급1, matching A1. (p.1's OCR
+  misreads this as "조급" -- a single-consonant ㅊ/ㅈ misread, not a
+  substantive content difference; p.4 repeats the same colophon line
+  cleanly, cited here instead per the "never fabricate a fix" rule.)
+- `세종학당 한국어 2 익힘책_영어.pdf` p.1: **"초급 2 익힘책"** — 초급2,
+  matching A2.
+- `세종학당 한국어 입문(영어)_(low file size).pdf` p.6: front matter states
+  it is **"for a beginner who wants to learn Korean"** but, unlike every
+  other book in the series, does NOT print an explicit 초급/중급/N급 grade
+  anywhere OCR'd in its front matter (pp.1-11) — consistent with 입문
+  ("introduction") sitting *below* the graded 1-6 (초급1 - 고급2) scale
+  rather than being NIKL-grade 0. Treated as below-A1 / ungraded, not
+  silently assigned A1.
+
+This independently confirms, from the real main-series books rather than
+the substitute, the same 1↔A1(초급1)/2↔A2(초급2)/3↔B1(중급1)/4↔B2(중급2)
+mapping Q-S already validated against the 회화 series and
+`CONTENT_LEVEL_BIBLE.md` §A — two independent Sejong-published series now
+agree on this mapping.
+
+Caveat: no standalone 교재 file for levels 1 or 2 exists anywhere in the
+folder (`docs/data/sejong/inventory_2026-09-16.md`, confirmed again by a
+fresh directory listing 2026-09-16) — only their 익힘책. The "초급 1/2
+익힘책" labels above describe the workbook actually on disk, which
+Q-S2 uses as the best-available main-series substitute for those two
+levels (see `tool/sejong/build_sejong_syllabus_ocr.py`).

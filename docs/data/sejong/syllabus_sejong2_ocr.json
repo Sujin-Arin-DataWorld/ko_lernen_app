@@ -1,0 +1,325 @@
+{
+  "level": "A2",
+  "sejong_n": 2,
+  "source_files": [
+    "세종학당 한국어 2 익힘책_영어.pdf"
+  ],
+  "source_role": "workbook_substitute",
+  "engine": "windows_media_ocr_ko",
+  "grammar": [],
+  "vocab": [
+    {
+      "korean": "친구와",
+      "page": 29,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "장마",
+      "page": 361,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "태풍",
+      "page": 361,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "사계절",
+      "page": 361,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "카페",
+      "page": 362,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "시장",
+      "page": 362,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "귀여워요",
+      "page": 364,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "멋있어요",
+      "page": 364,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "마트",
+      "page": 365,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "공짜",
+      "page": 365,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "주문",
+      "page": 367,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "예약",
+      "page": 367,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "취소",
+      "page": 367,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "휴대폰/휴대 전화",
+      "page": 376,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "신분증",
+      "page": 376,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "우산",
+      "page": 376,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "성격",
+      "page": 378,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "거짓말",
+      "page": 378,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "돕다",
+      "page": 378,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "믿다",
+      "page": 378,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "빨래/빨래하다",
+      "page": 379,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "요리/요리하다",
+      "page": 379,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "설거지/설거지하다",
+      "page": 379,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "정소/정소하다",
+      "page": 379,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "주차장",
+      "page": 381,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "찜질방",
+      "page": 381,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "편의점",
+      "page": 381,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "목욕탕",
+      "page": 381,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "짜장면",
+      "page": 383,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "짬뽕",
+      "page": 383,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "치킨",
+      "page": 383,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "피자",
+      "page": 383,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "원피스",
+      "page": 385,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "바지",
+      "page": 385,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "치마",
+      "page": 385,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "티셔츠",
+      "page": 385,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "정장",
+      "page": 385,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "코트",
+      "page": 385,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "@타다 기@치다",
+      "page": 386,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "생일",
+      "page": 388,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "파티",
+      "page": 388,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "집들이",
+      "page": 388,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "아파트",
+      "page": 390,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "거실",
+      "page": 390,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "하숙집",
+      "page": 390,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "부엌",
+      "page": 390,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "화장실",
+      "page": 390,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "원룸",
+      "page": 390,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "계획",
+      "page": 391,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "초대권",
+      "page": 391,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "연극 공연",
+      "page": 391,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    },
+    {
+      "korean": "거절하다",
+      "page": 391,
+      "source_file": "세종학당 한국어 2 익힘책_영어.pdf",
+      "book_key": "b2_workbook"
+    }
+  ],
+  "note": "Grammar extraction not attempted (different house style: '문법 연습 #N' without inline pattern label)."
+}

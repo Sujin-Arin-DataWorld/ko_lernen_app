@@ -33,6 +33,14 @@ DATA = ROOT / "assets" / "data"
 
 LOWER_LEVELS = frozenset(("a1", "a2", "b1", "b2", "c1", "c2"))
 UPPER_LEVELS = frozenset(level.upper() for level in LOWER_LEVELS)
+# Ordered (unlike the two frozensets above) so a "level >= B1" comparison --
+# C9-T0 usage notes are B1+ only -- can use .index() instead of a bespoke enum.
+LEVEL_ORDER = ("a1", "a2", "b1", "b2", "c1", "c2")
+USAGE_NOTE_REGISTERS = frozenset(("formal", "neutral", "casual", "written"))
+# Editorial em/en dash ban (plan §D 작성 규칙) -- usage notes are free text,
+# not CSV cells, so this check lives here rather than relying on a CSV-wide
+# sweep elsewhere.
+_EM_EN_DASH_RE = re.compile("[–—]")
 SILBEN_REQUIRED_LEVELS = frozenset(("A1", "A2", "B1", "B2", "C1", "C2"))
 SCENARIO_STYLES = frozenset(("polite", "casual", "business", "intimate"))
 # 14 bundled poster keys plus the Theme Park Date runtime alias.
@@ -234,6 +242,7 @@ class ContentValidator:
         self.validate_pronunciation()
         self.validate_media_phrases()
         self.validate_word_relations()
+        self.validate_usage_notes()
         self.validate_curriculum_graph()
         self.validate_audit_manifest(vocab, grammar, scenarios)
         self.validate_ledger_entries()
@@ -1128,6 +1137,109 @@ class ContentValidator:
             for field in ("synonyms", "antonyms", "related", "expressions"):
                 if not isinstance(item.get(field), list):
                     self.issue(name, f"{ident} {field} must be an array")
+
+    def validate_usage_notes(self) -> None:
+        """C9-T0: `usage_notes.json` sidecar (§4-2 depth backfill program).
+
+        Additive and incremental by design (docs/data/level_depth_audit_
+        2026-09-16.md PART 3) -- absence of the file, or of a note for a
+        given id, is not an error; `DataLoader.loadUsageNotes()` treats both
+        as "no notes yet". What IS validated, when the file exists: every
+        note's id is a live B1+ vocab row, has exactly 2 examples, has
+        non-empty ko/de/en text in every trilingual field, uses no editorial
+        em/en dash anywhere, and any contrast `vocabId` it names is either
+        null or a real, live vocab id.
+        """
+
+        name = "usage_notes.json"
+        path = self.data / name
+        if not path.exists():
+            return
+        root = self.load_json(name)
+        if not isinstance(root, dict) or not isinstance(root.get("notes"), list):
+            self.issue(name, "root must contain a notes array")
+            return
+        if root.get("schemaVersion") != 1:
+            self.issue(name, "schemaVersion must be 1")
+        vocab_levels = self._live_levels.get("vocab", {})
+        seen: set[str] = set()
+
+        def check_text(label: str, value: Any) -> None:
+            if not isinstance(value, dict):
+                self.issue(name, f"{label} must be an object")
+                return
+            for lang in ("ko", "de", "en"):
+                if not self._is_nonempty_string(value.get(lang)):
+                    self.issue(name, f"{label}.{lang} must be a nonempty string")
+                elif _EM_EN_DASH_RE.search(value[lang]):
+                    self.issue(name, f"{label}.{lang} contains an em/en dash")
+
+        for index, note in enumerate(root["notes"]):
+            label = f"note {index}"
+            if not isinstance(note, dict):
+                self.issue(name, f"{label} must be an object")
+                continue
+            ident = str(note.get("id") or "").strip()
+            label = ident or label
+            if not ident:
+                self.issue(name, f"{label} needs an id")
+            elif ident in seen:
+                self.issue(name, f"{label} duplicate id")
+            seen.add(ident)
+            if ident and ident not in vocab_levels:
+                self.issue(name, f"{label} id is not a live korean_vocab.csv row")
+            level = str(note.get("level") or "").strip().lower()
+            if level not in LOWER_LEVELS:
+                self.issue(name, f"{label} level must be an A1-C2 string")
+            elif LEVEL_ORDER.index(level) < LEVEL_ORDER.index("b1"):
+                self.issue(name, f"{label} level {level!r} must be B1 or above")
+            elif ident and vocab_levels.get(ident) != level:
+                self.issue(
+                    name,
+                    f"{label} level {level!r} disagrees with live vocab level "
+                    f"{vocab_levels.get(ident)!r}",
+                )
+            check_text(f"{label}.nuance", note.get("nuance"))
+            check_text(f"{label}.situation", note.get("situation"))
+            for field, low, high in (("patterns", 1, 2), ("collocations", 2, 3), ("contrasts", 1, 2)):
+                items = note.get(field)
+                if not isinstance(items, list) or not (low <= len(items) <= high):
+                    self.issue(name, f"{label}.{field} must have {low}-{high} entries")
+            for pattern in note.get("patterns", []) if isinstance(note.get("patterns"), list) else []:
+                check_text(f"{label}.patterns", pattern)
+            for collocation in note.get("collocations", []) if isinstance(note.get("collocations"), list) else []:
+                check_text(f"{label}.collocations", collocation)
+            contrasts = note.get("contrasts") if isinstance(note.get("contrasts"), list) else []
+            for contrast in contrasts:
+                if not isinstance(contrast, dict):
+                    self.issue(name, f"{label}.contrasts entry must be an object")
+                    continue
+                if not self._is_nonempty_string(contrast.get("headword")):
+                    self.issue(name, f"{label}.contrasts headword must be a nonempty string")
+                contrast_vocab_id = contrast.get("vocabId")
+                if contrast_vocab_id is not None and (
+                    not isinstance(contrast_vocab_id, str) or contrast_vocab_id not in vocab_levels
+                ):
+                    self.issue(
+                        name,
+                        f"{label}.contrasts vocabId {contrast_vocab_id!r} is not a live vocab id",
+                    )
+                check_text(f"{label}.contrasts", contrast)
+            register = note.get("register")
+            if register not in USAGE_NOTE_REGISTERS:
+                self.issue(name, f"{label} register must be one of {sorted(USAGE_NOTE_REGISTERS)}")
+            examples = note.get("examples")
+            if not isinstance(examples, list) or len(examples) != 2:
+                self.issue(name, f"{label} must have exactly 2 examples")
+                examples = []
+            for example_index, example in enumerate(examples):
+                example_label = f"{label}.examples[{example_index}]"
+                check_text(example_label, example)
+                if isinstance(example, dict) and example.get("register") not in USAGE_NOTE_REGISTERS:
+                    self.issue(
+                        name,
+                        f"{example_label} register must be one of {sorted(USAGE_NOTE_REGISTERS)}",
+                    )
 
     def validate_curriculum_graph(self) -> None:
         """Fail closed when a reviewed source item has no curriculum route.

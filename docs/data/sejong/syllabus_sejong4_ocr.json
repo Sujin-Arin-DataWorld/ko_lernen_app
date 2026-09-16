@@ -1,0 +1,895 @@
+{
+  "level": "B2",
+  "sejong_n": 4,
+  "source_files": [
+    "세종학당 한국어4A_영어.pdf",
+    "세종학당 한국어 4B(영어)_(low file size).pdf"
+  ],
+  "source_role": "main_textbook",
+  "engine": "windows_media_ocr_ko",
+  "grammar": [
+    {
+      "raw_ocr": "치고",
+      "normalized": "치고",
+      "is_additional_grammar": false,
+      "page": 227,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "고",
+      "normalized": "고",
+      "is_additional_grammar": true,
+      "page": 227,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-는지",
+      "normalized": "-는지",
+      "is_additional_grammar": false,
+      "page": 228,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-는대",
+      "normalized": "-는대",
+      "is_additional_grammar": false,
+      "page": 228,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "이아",
+      "normalized": "이아",
+      "is_additional_grammar": true,
+      "page": 228,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "에 비하여",
+      "normalized": "에 비하여",
+      "is_additional_grammar": false,
+      "page": 229,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-듯이",
+      "normalized": "-듯이",
+      "is_additional_grammar": false,
+      "page": 229,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-거니와",
+      "normalized": "-거니와",
+      "is_additional_grammar": true,
+      "page": 229,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "슨 김에",
+      "normalized": "-는 김에",
+      "is_additional_grammar": false,
+      "page": 230,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-다니",
+      "normalized": "-다니",
+      "is_additional_grammar": true,
+      "page": 230,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "떠니",
+      "normalized": null,
+      "is_additional_grammar": false,
+      "page": 231,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-었더니",
+      "normalized": "-었더니",
+      "is_additional_grammar": false,
+      "page": 231,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-어야지",
+      "normalized": "-어야지",
+      "is_additional_grammar": true,
+      "page": 232,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-어서인지",
+      "normalized": "-어서인지",
+      "is_additional_grammar": false,
+      "page": 232,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "꼬며",
+      "normalized": "꼬며",
+      "is_additional_grammar": false,
+      "page": 232,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "고도",
+      "normalized": "고도",
+      "is_additional_grammar": true,
+      "page": 233,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "이며",
+      "normalized": "이며",
+      "is_additional_grammar": true,
+      "page": 233,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "떠라도",
+      "normalized": null,
+      "is_additional_grammar": false,
+      "page": 234,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "으로서",
+      "normalized": "으로서",
+      "is_additional_grammar": false,
+      "page": 234,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "이나마",
+      "normalized": "이나마",
+      "is_additional_grammar": true,
+      "page": 234,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-는 대로",
+      "normalized": "-는 대로",
+      "is_additional_grammar": false,
+      "page": 235,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-을수록",
+      "normalized": "-을수록",
+      "is_additional_grammar": false,
+      "page": 235,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "하",
+      "normalized": "하",
+      "is_additional_grammar": true,
+      "page": 235,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "대로",
+      "normalized": "대로",
+      "is_additional_grammar": true,
+      "page": 236,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-는 바람에",
+      "normalized": "-는 바람에",
+      "is_additional_grammar": false,
+      "page": 237,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-을 뻔하다",
+      "normalized": "-을 뻔하다",
+      "is_additional_grammar": false,
+      "page": 237,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-는 다니",
+      "normalized": "-는 다니",
+      "is_additional_grammar": true,
+      "page": 237,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "마저, 까지2",
+      "normalized": "마저, 까지2",
+      "is_additional_grammar": false,
+      "page": 238,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-어 놓다, -어 두다",
+      "normalized": "-어 놓다, -어 두다",
+      "is_additional_grammar": false,
+      "page": 238,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-는사이에",
+      "normalized": "-는사이에",
+      "is_additional_grammar": true,
+      "page": 239,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "raw_ocr": "-에 따라",
+      "normalized": "-에 따라",
+      "is_additional_grammar": false,
+      "page": 225,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-는줄",
+      "normalized": "-는줄",
+      "is_additional_grammar": false,
+      "page": 225,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "만 같아도",
+      "normalized": "만 같아도",
+      "is_additional_grammar": true,
+      "page": 225,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-나요",
+      "normalized": "-나요",
+      "is_additional_grammar": false,
+      "page": 226,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-든지",
+      "normalized": "-든지",
+      "is_additional_grammar": false,
+      "page": 226,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-으므로",
+      "normalized": "-으므로",
+      "is_additional_grammar": false,
+      "page": 226,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-어 버리다",
+      "normalized": "-어 버리다",
+      "is_additional_grammar": false,
+      "page": 227,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-는다면",
+      "normalized": "-는다면",
+      "is_additional_grammar": false,
+      "page": 227,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "이든",
+      "normalized": "이든",
+      "is_additional_grammar": true,
+      "page": 228,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-을걸",
+      "normalized": "-을걸",
+      "is_additional_grammar": false,
+      "page": 228,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-던데2",
+      "normalized": "-던데2",
+      "is_additional_grammar": false,
+      "page": 228,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "이라도",
+      "normalized": "이라도",
+      "is_additional_grammar": true,
+      "page": 228,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-는 모양이다",
+      "normalized": "-는 모양이다",
+      "is_additional_grammar": false,
+      "page": 230,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-는듯",
+      "normalized": "-는듯",
+      "is_additional_grammar": false,
+      "page": 230,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-다시피",
+      "normalized": "-다시피",
+      "is_additional_grammar": true,
+      "page": 230,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-어 대다",
+      "normalized": "-어 대다",
+      "is_additional_grammar": false,
+      "page": 231,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "으로 인하여",
+      "normalized": "으로 인하여",
+      "is_additional_grammar": false,
+      "page": 231,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-는다거나2",
+      "normalized": "-는다거나2",
+      "is_additional_grammar": true,
+      "page": 231,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-나 싶다",
+      "normalized": "-나 싶다",
+      "is_additional_grammar": false,
+      "page": 232,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-으려0F",
+      "normalized": "-으려야",
+      "is_additional_grammar": false,
+      "page": 232,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-는 통에",
+      "normalized": "-는 통에",
+      "is_additional_grammar": true,
+      "page": 232,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-고 보다",
+      "normalized": "-고 보다",
+      "is_additional_grammar": false,
+      "page": 233,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-기에",
+      "normalized": "-기에",
+      "is_additional_grammar": false,
+      "page": 233,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-고자",
+      "normalized": "-고자",
+      "is_additional_grammar": false,
+      "page": 235,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-커녕",
+      "normalized": "-커녕",
+      "is_additional_grammar": false,
+      "page": 235,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-고 들다",
+      "normalized": "-고 들다",
+      "is_additional_grammar": true,
+      "page": 235,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-을 따름이다",
+      "normalized": "-을 따름이다",
+      "is_additional_grammar": false,
+      "page": 236,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "-는 한",
+      "normalized": "-는 한",
+      "is_additional_grammar": false,
+      "page": 236,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "raw_ocr": "으로,서",
+      "normalized": "으로,서",
+      "is_additional_grammar": true,
+      "page": 236,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    }
+  ],
+  "vocab": [
+    {
+      "korean": "영하",
+      "page": 227,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "날이 풀려서",
+      "page": 227,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "습도가높아서",
+      "page": 227,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "열대야",
+      "page": 227,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "인구",
+      "page": 228,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "접근성이좋으면",
+      "page": 228,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "공공시설",
+      "page": 228,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "수도권",
+      "page": 228,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "집을구하고",
+      "page": 229,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "부동산",
+      "page": 229,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "경비실",
+      "page": 229,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "보안시설",
+      "page": 229,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "꾸미고",
+      "page": 230,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "비좁아서",
+      "page": 230,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "깔면",
+      "page": 230,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "수납할",
+      "page": 230,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "사랑스럽게",
+      "page": 231,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "정성껏",
+      "page": 231,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "가꾸었어요",
+      "page": 231,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "보호소",
+      "page": 231,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "화산",
+      "page": 232,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "홍수가 나다",
+      "page": 232,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "가뭄이 들다",
+      "page": 232,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "해안",
+      "page": 232,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "지원자가",
+      "page": 234,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "답변할",
+      "page": 234,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "자유로워서",
+      "page": 234,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "지시하다",
+      "page": 235,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "회식하다",
+      "page": 235,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "야근하다",
+      "page": 235,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "근무하다",
+      "page": 235,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "좌회전",
+      "page": 237,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "노선",
+      "page": 237,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "우회전",
+      "page": 237,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "안전띠를 매다",
+      "page": 237,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "해수욕장",
+      "page": 238,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "항구",
+      "page": 238,
+      "source_file": "세종학당 한국어4A_영어.pdf",
+      "book_key": "b4a"
+    },
+    {
+      "korean": "환전",
+      "page": 225,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "출금",
+      "page": 225,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "입금",
+      "page": 225,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "인터Y人키뱅킹",
+      "page": 225,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "불길이 번지",
+      "page": 227,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "팔꿈치",
+      "page": 228,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "손목",
+      "page": 228,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "허벅지",
+      "page": 228,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "엉덩이",
+      "page": 228,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "발바닥",
+      "page": 228,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "제때",
+      "page": 229,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "카페인",
+      "page": 229,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "불면증",
+      "page": 229,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "복통",
+      "page": 229,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "소독을",
+      "page": 230,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "발열",
+      "page": 230,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "제거",
+      "page": 230,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "전염이",
+      "page": 230,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "저방",
+      "page": 232,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "증상",
+      "page": 232,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "현상",
+      "page": 232,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "질병",
+      "page": 232,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "성적표를",
+      "page": 233,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "입시를",
+      "page": 233,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "교재는",
+      "page": 233,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "담임",
+      "page": 233,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "개인 교습",
+      "page": 235,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "사무직",
+      "page": 236,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "전문직",
+      "page": 236,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "예술가",
+      "page": 236,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    },
+    {
+      "korean": "사업가",
+      "page": 236,
+      "source_file": "세종학당 한국어 4B(영어)_(low file size).pdf",
+      "book_key": "b4b"
+    }
+  ],
+  "note": "Grammar + vocab both extracted from the actual main-course 교재 answer-key appendix (first time B-level main series is extractable at all)."
+}
