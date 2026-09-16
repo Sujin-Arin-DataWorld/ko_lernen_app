@@ -81,6 +81,22 @@ class BookWordGlossResolver {
     '줘': '주',
   };
 
+  /// Case/locative particles that, when they end the token immediately
+  /// preceding a NOUN/VERB(-ADJEKTIV) homograph (예: 가요 = "팝송" 명사 또는
+  /// 가다의 -아/어요 활용형), signal that the verb reading is meant — see
+  /// [_disambiguateNounVerbHomograph].
+  static const List<String> kCaseLocativeParticles = [
+    '에서',
+    '으로',
+    '까지',
+    '부터',
+    '에',
+    '을',
+    '를',
+    '로',
+    '도',
+  ];
+
   static final RegExp _hangulRun = RegExp(r'[가-힣]+');
   static final RegExp _latinLetter = RegExp(r'[A-Za-zÀ-ɏ]');
 
@@ -117,12 +133,23 @@ class BookWordGlossResolver {
       final isSingleWordUnit =
           tokens.length == 1 && !unit.korean.contains(RegExp(r'\s'));
 
+      String? previousToken;
       for (final token in tokens) {
-        final match = _resolveAgainstVocab(index, token);
+        final match = _resolveAgainstVocab(
+          index,
+          token,
+          previousToken: previousToken,
+        );
+        previousToken = token;
         if (match != null) {
           resolved.putIfAbsent(
             match.vocab.korean,
-            () => _wordFromVocab(match.vocab, unit, ambiguous: match.ambiguous),
+            () => _wordFromVocab(
+              match.vocab,
+              unit,
+              ambiguous: match.ambiguous,
+              alternativeHeadword: match.alternativeHeadword,
+            ),
           );
           continue;
         }
@@ -167,15 +194,21 @@ class BookWordGlossResolver {
 
   _VocabMatch? _resolveAgainstVocab(
     Map<String, List<Vocab>> index,
-    String token,
-  ) {
-    var hit = index[token];
-    if (hit == null || hit.isEmpty) {
-      final stripped = _stripLongestParticle(token);
-      if (stripped != null) {
-        hit = index[stripped];
-      }
+    String token, {
+    String? previousToken,
+  }) {
+    final exact = index[token];
+    if (exact != null && exact.isNotEmpty) {
+      final homograph = _disambiguateNounVerbHomograph(
+        index,
+        token,
+        exact,
+        previousToken: previousToken,
+      );
+      return homograph ?? _VocabMatch(exact.first, exact.length > 1);
     }
+    final stripped = _stripLongestParticle(token);
+    var hit = stripped != null ? index[stripped] : null;
     if (hit == null || hit.isEmpty) {
       for (final candidate in _verbHeadwordCandidates(token)) {
         final verbHit = index[candidate];
@@ -189,6 +222,62 @@ class BookWordGlossResolver {
       return null;
     }
     return _VocabMatch(hit.first, hit.length > 1);
+  }
+
+  /// Bundled-tier (tier ①) homograph guard. [token] exactly matches a NOUN
+  /// headword ([nounHit]) but may *also* parse, via [_verbHeadwordCandidates],
+  /// as an inflected form of a *different* VERB/ADJEKTIV headword (예: 가요 =
+  /// "팝송" 명사 그대로거나 가다의 -아/어요 활용형). Grammar decides which
+  /// reading the learner needs, not headword lookup order:
+  ///   - 직전 토큰이 처소/목적 조사(에·을·를·에서·으로·로·까지·부터·도)로
+  ///     끝나면 동사 표제어를 채택한다 ("학교에 가요" -> 가다).
+  ///   - 문맥(같은 분석 단위 내 이전 토큰)이 아예 없는 독립된 표제어 줄
+  ///     (예: 단어장 한 줄에 "가요"만 있는 경우)도 동사 표제어를 채택한다 —
+  ///     이는 particle/verb-ending fallback이 이 노출을 원래 담당하던 기존
+  ///     동작을 그대로 보존하기 위함이다.
+  ///   - 그 밖의 경우(이전 토큰은 있으나 처소/목적 조사로 끝나지 않음)에는
+  ///     명사를 유지하되 [ExtractedWord.ambiguous] 를 세우고 놓친 동사
+  ///     표제어를 [ExtractedWord.alternativeHeadword] 로 남긴다.
+  /// Returns null when there is no competing verb reading at all, so the
+  /// caller falls back to its normal exact-match behaviour unchanged.
+  _VocabMatch? _disambiguateNounVerbHomograph(
+    Map<String, List<Vocab>> index,
+    String token,
+    List<Vocab> nounHit, {
+    required String? previousToken,
+  }) {
+    if (nounHit.first.posDe != 'Nomen') {
+      return null;
+    }
+    Vocab? verbHeadword;
+    for (final candidate in _verbHeadwordCandidates(token)) {
+      if (candidate == token) {
+        continue;
+      }
+      final verbHit = index[candidate];
+      if (verbHit == null || verbHit.isEmpty) {
+        continue;
+      }
+      final candidatePos = verbHit.first.posDe;
+      if (candidatePos == 'Verb' || candidatePos == 'Adjektiv') {
+        verbHeadword = verbHit.first;
+        break;
+      }
+    }
+    if (verbHeadword == null) {
+      return null;
+    }
+    final prefersVerb =
+        previousToken == null ||
+        kCaseLocativeParticles.any(previousToken.endsWith);
+    if (prefersVerb) {
+      return _VocabMatch(verbHeadword, false);
+    }
+    return _VocabMatch(
+      nounHit.first,
+      true,
+      alternativeHeadword: verbHeadword.korean,
+    );
   }
 
   /// Longest-match-once particle stripping. Tries the token itself is
@@ -241,6 +330,7 @@ class BookWordGlossResolver {
     Vocab vocab,
     BookOcrUnit unit, {
     required bool ambiguous,
+    String alternativeHeadword = '',
   }) => ExtractedWord(
     korean: vocab.korean,
     romanization: vocab.romanization,
@@ -256,6 +346,7 @@ class BookWordGlossResolver {
     source: 'bundled',
     confidence: 1.0,
     ambiguous: ambiguous,
+    alternativeHeadword: alternativeHeadword,
   );
 
   /// Tier ②. Only ever called for a single-word unit (no spaces). Prefers an
@@ -304,8 +395,9 @@ class BookWordGlossResolver {
 }
 
 class _VocabMatch {
-  const _VocabMatch(this.vocab, this.ambiguous);
+  const _VocabMatch(this.vocab, this.ambiguous, {this.alternativeHeadword = ''});
 
   final Vocab vocab;
   final bool ambiguous;
+  final String alternativeHeadword;
 }

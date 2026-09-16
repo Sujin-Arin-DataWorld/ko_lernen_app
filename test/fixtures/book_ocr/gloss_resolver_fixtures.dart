@@ -96,20 +96,40 @@ BookOcrDocument buildF2ParticleAndVerbDocument() {
 
 /// F3 — page-hint tier behaviour.
 ///
-/// Block 0: a made-up word absent from the bundled CSV (`콜라`) is
-/// immediately followed, in the same OCR block, by a Latin-only line
-/// (`Cola`) — this must resolve via `source: pageHint`.
+/// Block 0: a word confirmed absent from the bundled CSV (`라떼아트`, "latte
+/// art" — 콜라 used to fill this role but is now a live A1 headword, so it
+/// no longer reaches this tier) is immediately followed, in the same OCR
+/// block, by a Latin-only line (`Latte Art`) — this must resolve via
+/// `source: pageHint`.
 ///
 /// Block 1: another CSV-absent word (`피자`) is followed by an unrelated
 /// Korean sentence and only *then* a Latin line (`Pizza`) two lines away —
 /// not the immediate next line — so it must NOT pick up a page hint.
 BookOcrDocument buildF3PageHintDocument() {
   final lines = <BookOcrLine>[
-    _line(text: '콜라', blockIndex: 0, lineIndex: 0, top: 0),
-    _line(text: 'Cola', blockIndex: 0, lineIndex: 1, top: 28),
+    _line(text: '라떼아트', blockIndex: 0, lineIndex: 0, top: 0),
+    _line(text: 'Latte Art', blockIndex: 0, lineIndex: 1, top: 28),
     _line(text: '피자', blockIndex: 1, lineIndex: 0, top: 120),
     _line(text: '맛있어요.', blockIndex: 1, lineIndex: 1, top: 148),
     _line(text: 'Pizza', blockIndex: 1, lineIndex: 2, top: 176),
+  ];
+  return BookOcrDocumentBuilder.build(lines);
+}
+
+/// F4 — noun/verb homograph disambiguation (O1 bundled-tier fix).
+///
+/// `가요` is both a live A1 noun ("(koreanischer) Popsong") and the -아/어요
+/// conjugation of the verb `가다` ("gehen"). Block 0 puts it right after a
+/// locative-particle phrase ("학교에") — the case that must win the verb
+/// reading, matching the coordinator's textbook example. Block 1 puts it as
+/// the marked object of a different verb ("가요를 좋아해요"), where the
+/// existing particle-stripping tier already resolves it as the noun,
+/// untouched by the new disambiguation guard (그 토큰 자체는 "가요를"이라
+/// 표제어 완전일치가 아니라 조사 제거 경로를 그대로 탄다).
+BookOcrDocument buildF4HomographDocument() {
+  final lines = <BookOcrLine>[
+    _line(text: '학교에 가요.', blockIndex: 0, lineIndex: 0, top: 0),
+    _line(text: '저는 가요를 좋아해요.', blockIndex: 1, lineIndex: 0, top: 40),
   ];
   return BookOcrDocumentBuilder.build(lines);
 }

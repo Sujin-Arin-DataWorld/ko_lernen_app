@@ -2,8 +2,8 @@
   "counts": {
     "cloze": {
       "fallback_over2": 0,
-      "over1": 156,
-      "over2": 27,
+      "over1": 160,
+      "over2": 26,
       "total": 2151,
       "under2": 456,
       "unknown": 0
@@ -34,9 +34,9 @@
     },
     "satz": {
       "fallback_over2": 0,
-      "over1": 154,
+      "over1": 155,
       "over2": 18,
-      "total": 2672,
+      "total": 2671,
       "under2": 655,
       "unknown": 0
     },
@@ -60,16 +60,16 @@
       "fallback_over2": 66,
       "over1": 312,
       "over2": 159,
-      "total": 2755,
+      "total": 2754,
       "under2": 240,
       "unknown": 56
     }
   },
   "coverage": {
     "grade1": {
-      "at_level": 473,
-      "missing": 105,
-      "present_in_app": 609,
+      "at_level": 472,
+      "missing": 106,
+      "present_in_app": 608,
       "total_unique": 714
     },
     "grade2": {

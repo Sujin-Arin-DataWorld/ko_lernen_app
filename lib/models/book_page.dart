@@ -86,6 +86,10 @@ class ExtractedWord {
   final double confidence;
   // 다의어(여러 뜻)일 때 첫 뜻만 쓰고 표시한다.
   final bool ambiguous;
+  // O1 (품사 동형이의어 명확화): [ambiguous] 가 문법적 신호 없이 명사/동사(형용사)
+  // 동형이의어(예: '가요' = 노래/가다의 -아어요) 사이에서 결정 못 했을 때만
+  // 채워지는, 놓친 다른 후보의 표제어. 그 외에는 항상 ''.
+  final String alternativeHeadword;
 
   const ExtractedWord({
     required this.korean,
@@ -105,6 +109,7 @@ class ExtractedWord {
     this.source = 'server',
     this.confidence = 1.0,
     this.ambiguous = false,
+    this.alternativeHeadword = '',
   });
 
   /// Only return a meaning known to belong to the requested language.
@@ -239,6 +244,7 @@ class ExtractedWord {
     if (source != 'server') 'source': source,
     if (confidence != 1.0) 'confidence': confidence,
     if (ambiguous) 'ambiguous': ambiguous,
+    if (alternativeHeadword.isNotEmpty) 'alternativeHeadword': alternativeHeadword,
   };
 
   Map<String, dynamic> toPortableJson() => {
@@ -284,6 +290,7 @@ class ExtractedWord {
     source: _safeWordSource(j['source']),
     confidence: _safeWordConfidence(j['confidence']),
     ambiguous: j['ambiguous'] == true,
+    alternativeHeadword: _safeWordMeaning(j['alternativeHeadword']),
   );
 
   factory ExtractedWord.fromPortableJson(Map<String, dynamic> j) =>
@@ -309,6 +316,7 @@ class ExtractedWord {
         source: _safeWordSource(j['source']),
         confidence: _safeWordConfidence(j['confidence']),
         ambiguous: j['ambiguous'] == true,
+        alternativeHeadword: _safeWordMeaning(j['alternativeHeadword']),
       );
 
   factory ExtractedWord.fromJson(Map<String, dynamic> j) =>
@@ -320,6 +328,7 @@ class ExtractedWord {
     String? source,
     double? confidence,
     bool? ambiguous,
+    String? alternativeHeadword,
   }) => ExtractedWord(
     korean: korean,
     romanization: romanization,
@@ -338,6 +347,7 @@ class ExtractedWord {
     source: source ?? this.source,
     confidence: confidence ?? this.confidence,
     ambiguous: ambiguous ?? this.ambiguous,
+    alternativeHeadword: alternativeHeadword ?? this.alternativeHeadword,
   );
 
   ExtractedWord copyWithEditable({
@@ -372,6 +382,7 @@ class ExtractedWord {
     source: source,
     confidence: confidence,
     ambiguous: ambiguous,
+    alternativeHeadword: alternativeHeadword,
   );
 }
 

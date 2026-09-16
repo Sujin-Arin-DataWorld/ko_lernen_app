@@ -52,7 +52,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 포도,podo,Weintraube,A1,Nomen,포도 좀 주세요.,"Etwas Trauben, bitte.",Essen & Trinken,a1_korean_food_1,9,false,grape,Noun,"Some grapes, please.",vocab_a1_0573
 감,gam,Kaki (Persimone),A1,Nomen,할머니가 감을 좋아하세요.,Meine Großmutter mag Kaki.,Essen & Trinken,a1_korean_food_1,10,false,persimmon,Noun,My grandmother likes persimmons.,vocab_a1_0574
 사이다,saida,Zitronenlimonade,A1,Nomen,사이다 있어요?,Haben Sie eine Zitronenlimonade?,Essen & Trinken,a1_korean_food_1,11,true,lemon-lime soda,Noun,Do you have a lemon-lime soda?,vocab_a1_0575
-치킨,chikin,Brathähnchen,A1,Nomen,치킨 하나 더 주세요.,"Noch ein Brathähnchen, bitte.",Essen & Trinken,a1_korean_food_1,12,true,fried chicken,Noun,"One more fried chicken, please.",vocab_a1_0576
+콜라,kolla,Cola,A1,Nomen,콜라 하나 더 주세요.,"Noch eine Cola, bitte.",Essen & Trinken,a1_korean_food_1,12,true,cola,Noun,"One more cola, please.",vocab_a1_0576
 서울,seoul,Seoul,A1,Nomen,저는 서울에 살아요.,Ich wohne in Seoul.,Geographie,a1_korean_places_1,1,false,Seoul,Noun,I live in Seoul.,vocab_a1_0577
 부산,busan,Busan,A1,Nomen,"아, 이번 주말에 부산에 갈까요?","Ach, sollen wir dieses Wochenende nach Busan fahren?",Geographie,a1_korean_places_1,2,false,Busan,Noun,"Oh, shall we go to Busan this weekend?",vocab_a1_0578
 인천,incheon,Incheon,A1,Nomen,인천공항에서 만나요.,Wir treffen uns am Flughafen Incheon.,Geographie,a1_korean_places_1,3,false,Incheon,Noun,Let's meet at Incheon Airport.,vocab_a1_0579

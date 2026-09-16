@@ -745,14 +745,14 @@
     {
       "id": "satz_a1_0491",
       "level": "a1",
-      "targetKo": "치킨 하나 더 주세요.",
-      "promptDe": "Noch ein Brathähnchen, bitte.",
-      "promptEn": "One more fried chicken, please.",
+      "targetKo": "콜라 하나 더 주세요.",
+      "promptDe": "Noch eine Cola, bitte.",
+      "promptEn": "One more cola, please.",
       "distractors": [
         "밤",
         "생일"
       ],
-      "vocabKo": "치킨",
+      "vocabKo": "콜라",
       "sourceVocabId": "vocab_a1_0576",
       "courseUnitId": "a1_04_order_request_object"
     },
