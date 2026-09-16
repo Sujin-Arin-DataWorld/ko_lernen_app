@@ -137,6 +137,7 @@ DancheongMotif motifForPackId(String packId) {
     'a1_family' => DancheongMotif.bok,
     'a1_time' || 'a1_numbers' => DancheongMotif.chrysanthemum,
     'a1_descriptions' ||
+    'a1_adjectives' ||
     'a2_descriptions' ||
     'b1_descriptions' ||
     'a2_feelings' ||
@@ -174,6 +175,7 @@ DancheongMotif motifForPackId(String packId) {
     'b2_safety_rules' => DancheongMotif.manja,
     // ── 2026-08-04: 여기부터가 예전에 통째로 fallback 으로 새던 주제들 ──
     'a1_daily' ||
+    'a1_verbs_daily' ||
     'a2_daily' ||
     'b1_daily' ||
     'b1_verbs_daily' ||

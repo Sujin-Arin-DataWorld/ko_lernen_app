@@ -4,7 +4,7 @@
   "sources": [
     {
       "kind": "vocab",
-      "count": 2754,
+      "count": 2818,
       "source": "korean_vocab.csv",
       "requiresExplicitId": true
     },
@@ -34,13 +34,13 @@
     },
     {
       "kind": "cloze",
-      "count": 2151,
+      "count": 2215,
       "source": "cloze.json",
       "requiresExplicitId": true
     },
     {
       "kind": "satz",
-      "count": 2671,
+      "count": 2735,
       "source": "satz_sentences.json",
       "requiresExplicitId": true
     },

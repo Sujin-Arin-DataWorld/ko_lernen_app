@@ -14,7 +14,8 @@
         "기다려요"
       ],
       "topic": "Zuhause",
-      "sourceVocabId": "vocab_a1_0715"
+      "sourceVocabId": "vocab_a1_0715",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0650",
@@ -30,7 +31,8 @@
         "닫아요"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0716"
+      "sourceVocabId": "vocab_a1_0716",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0651",
@@ -46,7 +48,8 @@
         "닫았어요"
       ],
       "topic": "Körper",
-      "sourceVocabId": "vocab_a1_0717"
+      "sourceVocabId": "vocab_a1_0717",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0652",
@@ -62,7 +65,8 @@
         "돌아요"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0718"
+      "sourceVocabId": "vocab_a1_0718",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0653",
@@ -78,7 +82,8 @@
         "사다"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0719"
+      "sourceVocabId": "vocab_a1_0719",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0654",
@@ -94,7 +99,8 @@
         "만들고 싶어요"
       ],
       "topic": "Beruf",
-      "sourceVocabId": "vocab_a1_0720"
+      "sourceVocabId": "vocab_a1_0720",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0655",
@@ -110,7 +116,8 @@
         "막아요"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0721"
+      "sourceVocabId": "vocab_a1_0721",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0656",
@@ -126,7 +133,8 @@
         "묶어요"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0722"
+      "sourceVocabId": "vocab_a1_0722",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0657",
@@ -142,7 +150,8 @@
         "배워요"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0723"
+      "sourceVocabId": "vocab_a1_0723",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0658",
@@ -158,7 +167,8 @@
         "신어요"
       ],
       "topic": "Technologie",
-      "sourceVocabId": "vocab_a1_0724"
+      "sourceVocabId": "vocab_a1_0724",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0659",
@@ -174,7 +184,8 @@
         "버려요"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0725"
+      "sourceVocabId": "vocab_a1_0725",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0660",
@@ -190,7 +201,8 @@
         "싸워요"
       ],
       "topic": "Sport",
-      "sourceVocabId": "vocab_a1_0726"
+      "sourceVocabId": "vocab_a1_0726",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0661",
@@ -206,7 +218,8 @@
         "만들었어요"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0727"
+      "sourceVocabId": "vocab_a1_0727",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0662",
@@ -222,7 +235,8 @@
         "안아요"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0728"
+      "sourceVocabId": "vocab_a1_0728",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0663",
@@ -238,7 +252,8 @@
         "보세요"
       ],
       "topic": "Familie",
-      "sourceVocabId": "vocab_a1_0729"
+      "sourceVocabId": "vocab_a1_0729",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0664",
@@ -254,7 +269,8 @@
         "읽지 않아요"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0730"
+      "sourceVocabId": "vocab_a1_0730",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0665",
@@ -270,7 +286,8 @@
         "입어요"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0731"
+      "sourceVocabId": "vocab_a1_0731",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0666",
@@ -286,23 +303,25 @@
         "읽을 수 있어요"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0732"
+      "sourceVocabId": "vocab_a1_0732",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0667",
       "level": "a1",
-      "sentenceKo": "바람이 ＿＿＿.",
+      "sentenceKo": "바람이 많이 ＿＿＿.",
       "answer": "불어요",
-      "fullKo": "바람이 불어요.",
-      "de": "Der Wind weht.",
-      "en": "The wind blows.",
+      "fullKo": "바람이 많이 불어요.",
+      "de": "Der Wind weht stark.",
+      "en": "The wind is blowing hard.",
       "distractors": [
         "봐요",
         "씻어요",
         "앉아요"
       ],
       "topic": "Wetter",
-      "sourceVocabId": "vocab_a1_0733"
+      "sourceVocabId": "vocab_a1_0733",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0668",
@@ -318,7 +337,8 @@
         "입다"
       ],
       "topic": "Familie",
-      "sourceVocabId": "vocab_a1_0734"
+      "sourceVocabId": "vocab_a1_0734",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0669",
@@ -334,7 +354,8 @@
         "자요"
       ],
       "topic": "Beruf",
-      "sourceVocabId": "vocab_a1_0735"
+      "sourceVocabId": "vocab_a1_0735",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0670",
@@ -350,7 +371,8 @@
         "줘요"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0736"
+      "sourceVocabId": "vocab_a1_0736",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0671",
@@ -366,7 +388,8 @@
         "타다"
       ],
       "topic": "Kommunikation",
-      "sourceVocabId": "vocab_a1_0737"
+      "sourceVocabId": "vocab_a1_0737",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0672",
@@ -382,7 +405,8 @@
         "마시지 않아요"
       ],
       "topic": "Körper",
-      "sourceVocabId": "vocab_a1_0738"
+      "sourceVocabId": "vocab_a1_0738",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0673",
@@ -398,7 +422,8 @@
         "잘 와요"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0739"
+      "sourceVocabId": "vocab_a1_0739",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0674",
@@ -414,7 +439,8 @@
         "팔아요"
       ],
       "topic": "Kommunikation",
-      "sourceVocabId": "vocab_a1_0740"
+      "sourceVocabId": "vocab_a1_0740",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0675",
@@ -430,7 +456,8 @@
         "걸어요"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0741"
+      "sourceVocabId": "vocab_a1_0741",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0676",
@@ -446,7 +473,8 @@
         "보다"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0742"
+      "sourceVocabId": "vocab_a1_0742",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "cloze_a1_0677",
@@ -462,23 +490,25 @@
         "건강해요"
       ],
       "topic": "Familie",
-      "sourceVocabId": "vocab_a1_0743"
+      "sourceVocabId": "vocab_a1_0743",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0678",
       "level": "a1",
-      "sentenceKo": "정말 ＿＿＿.",
+      "sentenceKo": "수진 씨, 정말 ＿＿＿.",
       "answer": "고마워요",
-      "fullKo": "정말 고마워요.",
-      "de": "Vielen Dank.",
-      "en": "Thank you so much.",
+      "fullKo": "수진 씨, 정말 고마워요.",
+      "de": "Sujin, vielen Dank.",
+      "en": "Sujin, thank you so much.",
       "distractors": [
         "많다",
         "무겁다",
         "바쁘다"
       ],
       "topic": "Kommunikation",
-      "sourceVocabId": "vocab_a1_0744"
+      "sourceVocabId": "vocab_a1_0744",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0679",
@@ -494,7 +524,8 @@
         "넓어요"
       ],
       "topic": "Körper",
-      "sourceVocabId": "vocab_a1_0745"
+      "sourceVocabId": "vocab_a1_0745",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0680",
@@ -510,7 +541,8 @@
         "시끄러워요"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0746"
+      "sourceVocabId": "vocab_a1_0746",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0681",
@@ -526,23 +558,25 @@
         "시끄러워요"
       ],
       "topic": "Kommunikation",
-      "sourceVocabId": "vocab_a1_0747"
+      "sourceVocabId": "vocab_a1_0747",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0682",
       "level": "a1",
-      "sentenceKo": "방이 ＿＿＿.",
+      "sentenceKo": "제 방이 ＿＿＿.",
       "answer": "깨끗해요",
-      "fullKo": "방이 깨끗해요.",
-      "de": "Das Zimmer ist sauber.",
-      "en": "The room is clean.",
+      "fullKo": "제 방이 깨끗해요.",
+      "de": "Mein Zimmer ist sauber.",
+      "en": "My room is clean.",
       "distractors": [
         "느려요",
         "두꺼워요",
         "똑똑해요"
       ],
       "topic": "Zuhause",
-      "sourceVocabId": "vocab_a1_0748"
+      "sourceVocabId": "vocab_a1_0748",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0683",
@@ -558,7 +592,8 @@
         "바빠요"
       ],
       "topic": "Wetter",
-      "sourceVocabId": "vocab_a1_0749"
+      "sourceVocabId": "vocab_a1_0749",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0684",
@@ -574,7 +609,8 @@
         "무서워요"
       ],
       "topic": "Zuhause",
-      "sourceVocabId": "vocab_a1_0750"
+      "sourceVocabId": "vocab_a1_0750",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0685",
@@ -590,7 +626,8 @@
         "신선해요"
       ],
       "topic": "Natur",
-      "sourceVocabId": "vocab_a1_0751"
+      "sourceVocabId": "vocab_a1_0751",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0686",
@@ -606,7 +643,8 @@
         "예뻐요"
       ],
       "topic": "Kommunikation",
-      "sourceVocabId": "vocab_a1_0752"
+      "sourceVocabId": "vocab_a1_0752",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0687",
@@ -622,23 +660,25 @@
         "조용해요"
       ],
       "topic": "Wetter",
-      "sourceVocabId": "vocab_a1_0753"
+      "sourceVocabId": "vocab_a1_0753",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0688",
       "level": "a1",
-      "sentenceKo": "물이 ＿＿＿.",
+      "sentenceKo": "이 물이 정말 ＿＿＿.",
       "answer": "맑아요",
-      "fullKo": "물이 맑아요.",
-      "de": "Das Wasser ist klar.",
-      "en": "The water is clear.",
+      "fullKo": "이 물이 정말 맑아요.",
+      "de": "Dieses Wasser ist wirklich klar.",
+      "en": "This water is really clear.",
       "distractors": [
         "밝아요",
         "좁아요",
         "친절해요"
       ],
       "topic": "Wetter",
-      "sourceVocabId": "vocab_a1_0754"
+      "sourceVocabId": "vocab_a1_0754",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0689",
@@ -654,7 +694,8 @@
         "똑똑해요"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0755"
+      "sourceVocabId": "vocab_a1_0755",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0690",
@@ -670,23 +711,25 @@
         "추워요"
       ],
       "topic": "Kommunikation",
-      "sourceVocabId": "vocab_a1_0756"
+      "sourceVocabId": "vocab_a1_0756",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0691",
       "level": "a1",
-      "sentenceKo": "물이 ＿＿＿.",
+      "sentenceKo": "이 물이 ＿＿＿.",
       "answer": "시원해요",
-      "fullKo": "물이 시원해요.",
-      "de": "Das Wasser ist erfrischend.",
-      "en": "The water is refreshing.",
+      "fullKo": "이 물이 시원해요.",
+      "de": "Dieses Wasser ist erfrischend.",
+      "en": "This water is refreshing.",
       "distractors": [
         "커요",
         "피곤해요",
         "가까워요"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0757"
+      "sourceVocabId": "vocab_a1_0757",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0692",
@@ -702,7 +745,8 @@
         "무거워요"
       ],
       "topic": "Wetter",
-      "sourceVocabId": "vocab_a1_0758"
+      "sourceVocabId": "vocab_a1_0758",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0693",
@@ -718,7 +762,8 @@
         "작다"
       ],
       "topic": "Bildung",
-      "sourceVocabId": "vocab_a1_0759"
+      "sourceVocabId": "vocab_a1_0759",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0694",
@@ -734,7 +779,8 @@
         "느려요"
       ],
       "topic": "Natur",
-      "sourceVocabId": "vocab_a1_0760"
+      "sourceVocabId": "vocab_a1_0760",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0695",
@@ -750,7 +796,8 @@
         "얇아요"
       ],
       "topic": "Wetter",
-      "sourceVocabId": "vocab_a1_0761"
+      "sourceVocabId": "vocab_a1_0761",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0696",
@@ -766,23 +813,25 @@
         "두꺼워요"
       ],
       "topic": "Freizeit",
-      "sourceVocabId": "vocab_a1_0762"
+      "sourceVocabId": "vocab_a1_0762",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0697",
       "level": "a1",
-      "sentenceKo": "사람이 ＿＿＿.",
+      "sentenceKo": "여기는 사람이 ＿＿＿.",
       "answer": "적어요",
-      "fullKo": "사람이 적어요.",
-      "de": "Es gibt wenige Leute.",
-      "en": "There are few people.",
+      "fullKo": "여기는 사람이 적어요.",
+      "de": "Hier gibt es wenige Leute.",
+      "en": "There are few people here.",
       "distractors": [
         "비싸요",
         "신선해요",
         "싸요"
       ],
       "topic": "Position",
-      "sourceVocabId": "vocab_a1_0763"
+      "sourceVocabId": "vocab_a1_0763",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0698",
@@ -798,23 +847,25 @@
         "쉬워요"
       ],
       "topic": "Freundschaft",
-      "sourceVocabId": "vocab_a1_0764"
+      "sourceVocabId": "vocab_a1_0764",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0699",
       "level": "a1",
-      "sentenceKo": "오늘이 ＿＿＿.",
+      "sentenceKo": "오늘은 정말 ＿＿＿.",
       "answer": "특별해요",
-      "fullKo": "오늘이 특별해요.",
-      "de": "Heute ist etwas Besonderes.",
-      "en": "Today is special.",
+      "fullKo": "오늘은 정말 특별해요.",
+      "de": "Heute ist wirklich besonders.",
+      "en": "Today is really special.",
       "distractors": [
         "가벼워요",
         "뜨거워요",
         "멀어요"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0765"
+      "sourceVocabId": "vocab_a1_0765",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0700",
@@ -830,7 +881,8 @@
         "좁아요"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0766"
+      "sourceVocabId": "vocab_a1_0766",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "cloze_a1_0701",
@@ -846,7 +898,8 @@
         "병"
       ],
       "topic": "Position",
-      "sourceVocabId": "vocab_a1_0767"
+      "sourceVocabId": "vocab_a1_0767",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0702",
@@ -862,7 +915,8 @@
         "가운데"
       ],
       "topic": "Wetter",
-      "sourceVocabId": "vocab_a1_0768"
+      "sourceVocabId": "vocab_a1_0768",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0703",
@@ -878,7 +932,8 @@
         "잠을"
       ],
       "topic": "Kommunikation",
-      "sourceVocabId": "vocab_a1_0769"
+      "sourceVocabId": "vocab_a1_0769",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0704",
@@ -894,7 +949,8 @@
         "천만"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0770"
+      "sourceVocabId": "vocab_a1_0770",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0705",
@@ -910,23 +966,25 @@
         "주일"
       ],
       "topic": "Freundschaft",
-      "sourceVocabId": "vocab_a1_0771"
+      "sourceVocabId": "vocab_a1_0771",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0706",
       "level": "a1",
-      "sentenceKo": "사과가 ＿＿＿ 개 있어요.",
-      "answer": "영",
+      "sentenceKo": "사과가 ＿＿＿ 있어요.",
+      "answer": "영 개",
       "fullKo": "사과가 영 개 있어요.",
       "de": "Es gibt null Äpfel.",
       "en": "There are zero apples.",
       "distractors": [
-        "가운데",
-        "계속",
-        "전"
+        "영 마리",
+        "영 명",
+        "영 살"
       ],
       "topic": "Zahlen",
-      "sourceVocabId": "vocab_a1_0772"
+      "sourceVocabId": "vocab_a1_0772",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0707",
@@ -942,7 +1000,8 @@
         "생일에"
       ],
       "topic": "Alltag",
-      "sourceVocabId": "vocab_a1_0773"
+      "sourceVocabId": "vocab_a1_0773",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0708",
@@ -958,7 +1017,8 @@
         "전"
       ],
       "topic": "Essen & Trinken",
-      "sourceVocabId": "vocab_a1_0774"
+      "sourceVocabId": "vocab_a1_0774",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0709",
@@ -974,7 +1034,8 @@
         "장소에"
       ],
       "topic": "Zeit",
-      "sourceVocabId": "vocab_a1_0775"
+      "sourceVocabId": "vocab_a1_0775",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0710",
@@ -990,7 +1051,8 @@
         "먼저"
       ],
       "topic": "Zahlen",
-      "sourceVocabId": "vocab_a1_0776"
+      "sourceVocabId": "vocab_a1_0776",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0711",
@@ -1006,7 +1068,8 @@
         "바쁠까요"
       ],
       "topic": "Wetter",
-      "sourceVocabId": "vocab_a1_0777"
+      "sourceVocabId": "vocab_a1_0777",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "cloze_a1_0712",
@@ -1022,7 +1085,8 @@
         "빨라요"
       ],
       "topic": "Beruf",
-      "sourceVocabId": "vocab_a1_0778"
+      "sourceVocabId": "vocab_a1_0778",
+      "courseUnitId": "a1_16_survival_capstone"
     }
   ]
 }

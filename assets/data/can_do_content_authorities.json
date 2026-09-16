@@ -98,6 +98,10 @@
       "level": "a1"
     },
     {
+      "id": "seed_cloze_cloze_a1_0075_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_cloze_cloze_a1_0076_v1",
       "level": "a1"
     },
@@ -303,6 +307,14 @@
     },
     {
       "id": "seed_cloze_cloze_a1_0344_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_cloze_cloze_a1_0671_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_cloze_cloze_a1_0678_v1",
       "level": "a1"
     },
     {
@@ -1042,6 +1054,14 @@
       "level": "a1"
     },
     {
+      "id": "seed_vocab_pack_a1_adjectives_1_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_adjectives_2_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_vocab_pack_a1_belongings_1_v1",
       "level": "a1"
     },
@@ -1146,6 +1166,10 @@
       "level": "a1"
     },
     {
+      "id": "seed_vocab_pack_a1_misc_3_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_vocab_pack_a1_months_1_v1",
       "level": "a1"
     },
@@ -1235,6 +1259,18 @@
     },
     {
       "id": "seed_vocab_pack_a1_transport_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_verbs_daily_1_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_verbs_daily_2_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_verbs_daily_3_v1",
       "level": "a1"
     },
     {
@@ -9465,6 +9501,13 @@
     },
     {
       "kind": "cloze",
+      "id": "cloze_a1_0075",
+      "level": "a1",
+      "sourceSeedId": "seed_cloze_cloze_a1_0075_v1",
+      "courseUnitId": "a1_01_greetings_hangul"
+    },
+    {
+      "kind": "cloze",
       "id": "cloze_a1_0076",
       "level": "a1",
       "sourceSeedId": "seed_cloze_cloze_a1_0076_v1",
@@ -9826,6 +9869,20 @@
       "level": "a1",
       "sourceSeedId": "seed_cloze_cloze_a1_0344_v1",
       "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0671",
+      "level": "a1",
+      "sourceSeedId": "seed_cloze_cloze_a1_0671_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0678",
+      "level": "a1",
+      "sourceSeedId": "seed_cloze_cloze_a1_0678_v1",
+      "courseUnitId": "a1_11_titles_relationships"
     },
     {
       "kind": "grammar",
@@ -11117,6 +11174,20 @@
     },
     {
       "kind": "vocabPack",
+      "id": "a1_adjectives_1",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_adjectives_1_v1",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_adjectives_2",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_adjectives_2_v1",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "kind": "vocabPack",
       "id": "a1_belongings_1",
       "level": "a1",
       "sourceSeedId": "seed_vocab_pack_a1_belongings_1_v1",
@@ -11299,6 +11370,13 @@
     },
     {
       "kind": "vocabPack",
+      "id": "a1_misc_3",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_misc_3_v1",
+      "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "kind": "vocabPack",
       "id": "a1_months_1",
       "level": "a1",
       "sourceSeedId": "seed_vocab_pack_a1_months_1_v1",
@@ -11457,6 +11535,27 @@
       "level": "a1",
       "sourceSeedId": "seed_vocab_pack_a1_transport_v1",
       "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_verbs_daily_1",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_verbs_daily_1_v1",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_verbs_daily_2",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_verbs_daily_2_v1",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_verbs_daily_3",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_verbs_daily_3_v1",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "kind": "vocabPack",
@@ -27239,17 +27338,17 @@
   ],
   "coverage": {
     "directReferenceCounts": {
-      "vocabPack": 239,
+      "vocabPack": 245,
       "grammar": 252,
       "smalltalk": 582,
       "scenario": 179,
-      "cloze": 787,
+      "cloze": 790,
       "satz": 516,
       "project": 8
     },
     "inheritedReferenceCounts": {
-      "cloze": 1364,
-      "satz": 2155
+      "cloze": 1425,
+      "satz": 2219
     },
     "inheritedContentReferences": [
       {
@@ -27801,17 +27900,6 @@
         "level": "a1",
         "canDoSegmentId": "segment_a1_05_numbers_time",
         "courseUnitId": "a1_05_numbers_time"
-      },
-      {
-        "kind": "cloze",
-        "id": "cloze_a1_0075",
-        "sourceKind": "vocabPack",
-        "sourceId": "a1_greetings_2",
-        "sourceVocabId": "vocab_a1_0168",
-        "sourceVocabFingerprintSha256": "6545111abf2e8d4bf95214cab390fa2f57751d51781e62d2448fc13e1fc9256c",
-        "level": "a1",
-        "canDoSegmentId": "segment_a1_01_greetings_hangul",
-        "courseUnitId": "a1_01_greetings_hangul"
       },
       {
         "kind": "cloze",
@@ -32168,6 +32256,688 @@
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0649",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0715",
+        "sourceVocabFingerprintSha256": "b929ad72b31b9d3b195c1f02fc4aaba05603ffa1c47dba56db7caf47de8a0181",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0650",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0716",
+        "sourceVocabFingerprintSha256": "21fe7c1047d256572a4e0745fce6f5dd66dcf5488b81b1c00544c5f70db994e1",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0651",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0717",
+        "sourceVocabFingerprintSha256": "2789d2de6915b6b2ffee59132de1cd803c00b684e97f8e87f9d035df137261ce",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0652",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0718",
+        "sourceVocabFingerprintSha256": "349d97d9f74dfd5db05aeaaf8ff25553fb365df41b5b9847c99b8c2079bc7a05",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0653",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0719",
+        "sourceVocabFingerprintSha256": "201d01cbda03c63068c566ad8a0e2b74e371c14408eac6c146197ef387607ae7",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0654",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0720",
+        "sourceVocabFingerprintSha256": "cd1a46fa510b8d6f5ff7d0869836c1279fb31ab6f1d6bc6d01c41161bf81ea1a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0655",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0721",
+        "sourceVocabFingerprintSha256": "22993715b48f5d7a6a9c7e8472bfccefb4e5a0790c4eee18e124e8883812f26f",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0656",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0722",
+        "sourceVocabFingerprintSha256": "b997ab1a86a5d5d81ab80374fb158e9b71266fd9d0d57f623beda60bd72cc78a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0657",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0723",
+        "sourceVocabFingerprintSha256": "e21acf6fd7a497e643a6bf7772f35002315ab918e0d0fe9b14251983dceca55c",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0658",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0724",
+        "sourceVocabFingerprintSha256": "1eabf8bb5fb543be8de6936a4217249abe6651e7e23bb09d148d4129554d6397",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0659",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0725",
+        "sourceVocabFingerprintSha256": "cf91734eba8b204ac87250ddf7da9af061c6c7d20b2803d14a11c922ea7c1099",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0660",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0726",
+        "sourceVocabFingerprintSha256": "0771dcc2be77b6803e7d5f632f466458c8edd9509584884c764bcda07d29243d",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0661",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0727",
+        "sourceVocabFingerprintSha256": "4358eef8ee8438eb9fc444d6417b1275f9db956bb223113744784ccde1e3070a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0662",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0728",
+        "sourceVocabFingerprintSha256": "a96140ff2ff556d9b01f630e8e72edaed60b6d6c2da70c2a5abbf758de904995",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0663",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0729",
+        "sourceVocabFingerprintSha256": "66ab8cfe3fd43209d0b65d92cf186dea39c9520cf40901bcb1f82f43caa295b9",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0664",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0730",
+        "sourceVocabFingerprintSha256": "1a94a910b521c936b541e2253bc902c080cabdee6fde44cb36cc7d31cbc659e7",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0665",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0731",
+        "sourceVocabFingerprintSha256": "ab8fc29ca43298bedd3c163a5147c9dc4ba1862eddd493da625096ecf20786ee",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0666",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0732",
+        "sourceVocabFingerprintSha256": "56a4f4a3637df8f6d4b3a782e35de2609d390dae35bdea90574a47f3f60bdb84",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0667",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0733",
+        "sourceVocabFingerprintSha256": "f90afacc9e38fda9eb0bd925b349802865171700901e4f36fc844c002f8cc2db",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0668",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0734",
+        "sourceVocabFingerprintSha256": "e4f0541a059f32f2c98da1d073a53d29a606cb7ac3bc5d74f76607cda19110f7",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0669",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0735",
+        "sourceVocabFingerprintSha256": "f2e447d71e15cb4e4119f88dc9681be9baf8a2e340963841eb45cd1e010386d3",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0670",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0736",
+        "sourceVocabFingerprintSha256": "5cdaad1b7904f9969c17160ab68cfe4d447653c9c7e1e4a0a3fdc816963c20fb",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0672",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0738",
+        "sourceVocabFingerprintSha256": "2098aba2da554ad01b82179432dae153b1288992380be0b3c79b945daad0a49a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0673",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_3",
+        "sourceVocabId": "vocab_a1_0739",
+        "sourceVocabFingerprintSha256": "b29c569465da9c80e529c5c7c9436b2c5be585185a47e64dd8f025050a0bdb9f",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0674",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_3",
+        "sourceVocabId": "vocab_a1_0740",
+        "sourceVocabFingerprintSha256": "328d62823887d23ec0ec5d3b0cadb982434408a9610c4a08badc937c8063d134",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0675",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_3",
+        "sourceVocabId": "vocab_a1_0741",
+        "sourceVocabFingerprintSha256": "82ab5bcac06a0faf42146799eb941e1c183b204e8e75cf2479b1a21111670fc9",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0676",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_3",
+        "sourceVocabId": "vocab_a1_0742",
+        "sourceVocabFingerprintSha256": "449485fa87707abc88b90b630a52c46159793620453f4522c08d8b74df55fb27",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0677",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0743",
+        "sourceVocabFingerprintSha256": "7ad402fd4b1d6dc523a6f5146072fbd35d5f53b94cf2ad9b802496ceca60ee73",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0679",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0745",
+        "sourceVocabFingerprintSha256": "27efcd354f98bc235a2d2686556dddd931b8bfcb6d428519fcbd2db1ee478086",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0680",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0746",
+        "sourceVocabFingerprintSha256": "c0d5e76d807a95d248505ea102c43b5548693a7ab53db0b58fb10c8ed79f96f9",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0681",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0747",
+        "sourceVocabFingerprintSha256": "1ed02bf180ccab8157fee0b37f1c8cbfcf0d87e906976e5cf3389ad088dbbad2",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0682",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0748",
+        "sourceVocabFingerprintSha256": "8ae6b944d9d78134c5726504fe07b58775726cc00ca2cf1229a474a21ee45730",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0683",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0749",
+        "sourceVocabFingerprintSha256": "f2cca7ea13ddd0092045077e62319b947d0716b7ac08c5c500ea880e970d125e",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0684",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0750",
+        "sourceVocabFingerprintSha256": "2d857e640fbb48dc2e7275ecc187109c8173d0029dce0f4c30e83b37f0c7b1f4",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0685",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0751",
+        "sourceVocabFingerprintSha256": "7d95e1a7ad0fcc5a326736eee20157aa57e979c04da334652ebfff50107e2478",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0686",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0752",
+        "sourceVocabFingerprintSha256": "1105c0d4ed6e63afcaa925aec6650fc715f21ff2116dd12e9871e00694790346",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0687",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0753",
+        "sourceVocabFingerprintSha256": "97e96430bcc88cadf4b12f37dbd6ca58f127fa0b0961e3117f7a93da86887a63",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0688",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0754",
+        "sourceVocabFingerprintSha256": "1f4d2f63426db2da1edf419c9c15bbd3a5bb718cb869458666b78725ad52123a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0689",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0755",
+        "sourceVocabFingerprintSha256": "e90e67fc656de9cc6d0ea5533c9a90d804a9d08f042611bb496cfd17046ac445",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0690",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0756",
+        "sourceVocabFingerprintSha256": "a2ac04b8b525e1ee3db8521163adaa80c97540183ee95fe8bd4355412365ea98",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0691",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0757",
+        "sourceVocabFingerprintSha256": "5833d25307b918580f349a37d13ea4b451d9e07e9a08d1e9cc183b68dec8f1e7",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0692",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0758",
+        "sourceVocabFingerprintSha256": "f2cd3100c9c20d16660a83bac66c8ae9a2e9b4a40b4e13308287daf4e70145a4",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0693",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0759",
+        "sourceVocabFingerprintSha256": "07d205952137c5a834148a0e1c8ad980616a65a8cc39022698be2ca1193b60b1",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0694",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0760",
+        "sourceVocabFingerprintSha256": "6bca8cb8a5f0a3089b957a2501243de940c1d4fa6f907dc5fe581be359f24851",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0695",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0761",
+        "sourceVocabFingerprintSha256": "9fe7fbf86d563fbf7de6610e0d976b6f5dc911b837a1704c7a6976a374d6ed37",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0696",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0762",
+        "sourceVocabFingerprintSha256": "07b3c32e8e8046c48bca2f02135a360f861a637f541361139b92473c02585660",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0697",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0763",
+        "sourceVocabFingerprintSha256": "1315c1065da721d3ef1449d88d2e4363fe465386804b61229a07ad0b72353417",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0698",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0764",
+        "sourceVocabFingerprintSha256": "b28fc085b92da05c139353dcb86765211fc419477fcbcc5d9ff10787c266ac30",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0699",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0765",
+        "sourceVocabFingerprintSha256": "57f9f81dc2bc6494f9656eb97f21e700c17726370454464a547b9c312c3ae3f1",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0700",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0766",
+        "sourceVocabFingerprintSha256": "2ec9f78e15d679562e471b5e85fe057f914a6f663e1fe0521de6d514a439d035",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0701",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0767",
+        "sourceVocabFingerprintSha256": "f03e1c5233a110a8311b7dc6649e891c78c9bc9fe4ec3e0f0af354e68ed58125",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0702",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0768",
+        "sourceVocabFingerprintSha256": "faba9f7e2f31b398cc7ddcfa304389c10f2dfa61a3fae8ea3b1a38e2cf38c53b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0703",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0769",
+        "sourceVocabFingerprintSha256": "a99086116da826543aaae4980150ad380c720ab978f16db5adc3a408cfc083f2",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0704",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0770",
+        "sourceVocabFingerprintSha256": "d8112043a62c30ad2ea7c8e54037c5ee0721d6e250f761b9b71e7b27b4ebbaa5",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0705",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0771",
+        "sourceVocabFingerprintSha256": "f932b83ccbe1a30aa064502c6e4d18d2a8a9f542656698f1f6f9b5d0e4ddc74e",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0706",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0772",
+        "sourceVocabFingerprintSha256": "05f1dab090203d9a2fc3753191d1be793f27a6b803c220dc822c8e7573567be2",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0707",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0773",
+        "sourceVocabFingerprintSha256": "de43af1a0b3d7d82db12f39886a7c00e500dbc6af364532195be4f6f47a3f6f6",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0708",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0774",
+        "sourceVocabFingerprintSha256": "951a78acad9791324911f016f7784ee14ec83491bf208916059c0488ffe1ae47",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0709",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0775",
+        "sourceVocabFingerprintSha256": "e2d8c83d7b09f874824f564c0f57c8d3eb63067cf37d9ca1b92f107139069ae0",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0710",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0776",
+        "sourceVocabFingerprintSha256": "ba183120b5150f2f2e4018e63c600a62b240342ab89e85cbc84a2124fb3d54db",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0711",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0777",
+        "sourceVocabFingerprintSha256": "03dd3ccca125d4d0694cf2dd83511e2274eb42154444ac7adec954debd14d00b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0712",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0778",
+        "sourceVocabFingerprintSha256": "1deda77bcf2a023c059c44a6362bd1534d1e3a7421c7a571a7193f206cd14a16",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
       },
       {
         "kind": "satz",
@@ -37701,6 +38471,710 @@
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0630",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0715",
+        "sourceVocabFingerprintSha256": "b929ad72b31b9d3b195c1f02fc4aaba05603ffa1c47dba56db7caf47de8a0181",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0631",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0716",
+        "sourceVocabFingerprintSha256": "21fe7c1047d256572a4e0745fce6f5dd66dcf5488b81b1c00544c5f70db994e1",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0632",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0717",
+        "sourceVocabFingerprintSha256": "2789d2de6915b6b2ffee59132de1cd803c00b684e97f8e87f9d035df137261ce",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0633",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0718",
+        "sourceVocabFingerprintSha256": "349d97d9f74dfd5db05aeaaf8ff25553fb365df41b5b9847c99b8c2079bc7a05",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0634",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0719",
+        "sourceVocabFingerprintSha256": "201d01cbda03c63068c566ad8a0e2b74e371c14408eac6c146197ef387607ae7",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0635",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0720",
+        "sourceVocabFingerprintSha256": "cd1a46fa510b8d6f5ff7d0869836c1279fb31ab6f1d6bc6d01c41161bf81ea1a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0636",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0721",
+        "sourceVocabFingerprintSha256": "22993715b48f5d7a6a9c7e8472bfccefb4e5a0790c4eee18e124e8883812f26f",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0637",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0722",
+        "sourceVocabFingerprintSha256": "b997ab1a86a5d5d81ab80374fb158e9b71266fd9d0d57f623beda60bd72cc78a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0638",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0723",
+        "sourceVocabFingerprintSha256": "e21acf6fd7a497e643a6bf7772f35002315ab918e0d0fe9b14251983dceca55c",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0639",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0724",
+        "sourceVocabFingerprintSha256": "1eabf8bb5fb543be8de6936a4217249abe6651e7e23bb09d148d4129554d6397",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0640",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0725",
+        "sourceVocabFingerprintSha256": "cf91734eba8b204ac87250ddf7da9af061c6c7d20b2803d14a11c922ea7c1099",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0641",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_1",
+        "sourceVocabId": "vocab_a1_0726",
+        "sourceVocabFingerprintSha256": "0771dcc2be77b6803e7d5f632f466458c8edd9509584884c764bcda07d29243d",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0642",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0727",
+        "sourceVocabFingerprintSha256": "4358eef8ee8438eb9fc444d6417b1275f9db956bb223113744784ccde1e3070a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0643",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0728",
+        "sourceVocabFingerprintSha256": "a96140ff2ff556d9b01f630e8e72edaed60b6d6c2da70c2a5abbf758de904995",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0644",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0729",
+        "sourceVocabFingerprintSha256": "66ab8cfe3fd43209d0b65d92cf186dea39c9520cf40901bcb1f82f43caa295b9",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0645",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0730",
+        "sourceVocabFingerprintSha256": "1a94a910b521c936b541e2253bc902c080cabdee6fde44cb36cc7d31cbc659e7",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0646",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0731",
+        "sourceVocabFingerprintSha256": "ab8fc29ca43298bedd3c163a5147c9dc4ba1862eddd493da625096ecf20786ee",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0647",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0732",
+        "sourceVocabFingerprintSha256": "56a4f4a3637df8f6d4b3a782e35de2609d390dae35bdea90574a47f3f60bdb84",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0648",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0733",
+        "sourceVocabFingerprintSha256": "f90afacc9e38fda9eb0bd925b349802865171700901e4f36fc844c002f8cc2db",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0649",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0734",
+        "sourceVocabFingerprintSha256": "e4f0541a059f32f2c98da1d073a53d29a606cb7ac3bc5d74f76607cda19110f7",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0650",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0735",
+        "sourceVocabFingerprintSha256": "f2e447d71e15cb4e4119f88dc9681be9baf8a2e340963841eb45cd1e010386d3",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0651",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0736",
+        "sourceVocabFingerprintSha256": "5cdaad1b7904f9969c17160ab68cfe4d447653c9c7e1e4a0a3fdc816963c20fb",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0652",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0737",
+        "sourceVocabFingerprintSha256": "dc16900aff5f59272bd1fe86aa863158de481f8e5ab4474d855ca0b1455ab25e",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0653",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_2",
+        "sourceVocabId": "vocab_a1_0738",
+        "sourceVocabFingerprintSha256": "2098aba2da554ad01b82179432dae153b1288992380be0b3c79b945daad0a49a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0654",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_3",
+        "sourceVocabId": "vocab_a1_0739",
+        "sourceVocabFingerprintSha256": "b29c569465da9c80e529c5c7c9436b2c5be585185a47e64dd8f025050a0bdb9f",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0655",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_3",
+        "sourceVocabId": "vocab_a1_0740",
+        "sourceVocabFingerprintSha256": "328d62823887d23ec0ec5d3b0cadb982434408a9610c4a08badc937c8063d134",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0656",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_3",
+        "sourceVocabId": "vocab_a1_0741",
+        "sourceVocabFingerprintSha256": "82ab5bcac06a0faf42146799eb941e1c183b204e8e75cf2479b1a21111670fc9",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0657",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_verbs_daily_3",
+        "sourceVocabId": "vocab_a1_0742",
+        "sourceVocabFingerprintSha256": "449485fa87707abc88b90b630a52c46159793620453f4522c08d8b74df55fb27",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_12_daily_negation",
+        "courseUnitId": "a1_12_daily_negation"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0658",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0743",
+        "sourceVocabFingerprintSha256": "7ad402fd4b1d6dc523a6f5146072fbd35d5f53b94cf2ad9b802496ceca60ee73",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0659",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0744",
+        "sourceVocabFingerprintSha256": "2142e3afcba85a283a18beed5dcc743f2026df3ba2708134daf751fa0e487aee",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0660",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0745",
+        "sourceVocabFingerprintSha256": "27efcd354f98bc235a2d2686556dddd931b8bfcb6d428519fcbd2db1ee478086",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0661",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0746",
+        "sourceVocabFingerprintSha256": "c0d5e76d807a95d248505ea102c43b5548693a7ab53db0b58fb10c8ed79f96f9",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0662",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0747",
+        "sourceVocabFingerprintSha256": "1ed02bf180ccab8157fee0b37f1c8cbfcf0d87e906976e5cf3389ad088dbbad2",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0663",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0748",
+        "sourceVocabFingerprintSha256": "8ae6b944d9d78134c5726504fe07b58775726cc00ca2cf1229a474a21ee45730",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0664",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0749",
+        "sourceVocabFingerprintSha256": "f2cca7ea13ddd0092045077e62319b947d0716b7ac08c5c500ea880e970d125e",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0665",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0750",
+        "sourceVocabFingerprintSha256": "2d857e640fbb48dc2e7275ecc187109c8173d0029dce0f4c30e83b37f0c7b1f4",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0666",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0751",
+        "sourceVocabFingerprintSha256": "7d95e1a7ad0fcc5a326736eee20157aa57e979c04da334652ebfff50107e2478",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0667",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0752",
+        "sourceVocabFingerprintSha256": "1105c0d4ed6e63afcaa925aec6650fc715f21ff2116dd12e9871e00694790346",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0668",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0753",
+        "sourceVocabFingerprintSha256": "97e96430bcc88cadf4b12f37dbd6ca58f127fa0b0961e3117f7a93da86887a63",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0669",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_1",
+        "sourceVocabId": "vocab_a1_0754",
+        "sourceVocabFingerprintSha256": "1f4d2f63426db2da1edf419c9c15bbd3a5bb718cb869458666b78725ad52123a",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0670",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0755",
+        "sourceVocabFingerprintSha256": "e90e67fc656de9cc6d0ea5533c9a90d804a9d08f042611bb496cfd17046ac445",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0671",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0756",
+        "sourceVocabFingerprintSha256": "a2ac04b8b525e1ee3db8521163adaa80c97540183ee95fe8bd4355412365ea98",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0672",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0757",
+        "sourceVocabFingerprintSha256": "5833d25307b918580f349a37d13ea4b451d9e07e9a08d1e9cc183b68dec8f1e7",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0673",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0758",
+        "sourceVocabFingerprintSha256": "f2cd3100c9c20d16660a83bac66c8ae9a2e9b4a40b4e13308287daf4e70145a4",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0674",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0759",
+        "sourceVocabFingerprintSha256": "07d205952137c5a834148a0e1c8ad980616a65a8cc39022698be2ca1193b60b1",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0675",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0760",
+        "sourceVocabFingerprintSha256": "6bca8cb8a5f0a3089b957a2501243de940c1d4fa6f907dc5fe581be359f24851",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0676",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0761",
+        "sourceVocabFingerprintSha256": "9fe7fbf86d563fbf7de6610e0d976b6f5dc911b837a1704c7a6976a374d6ed37",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0677",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0762",
+        "sourceVocabFingerprintSha256": "07b3c32e8e8046c48bca2f02135a360f861a637f541361139b92473c02585660",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0678",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0763",
+        "sourceVocabFingerprintSha256": "1315c1065da721d3ef1449d88d2e4363fe465386804b61229a07ad0b72353417",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0679",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0764",
+        "sourceVocabFingerprintSha256": "b28fc085b92da05c139353dcb86765211fc419477fcbcc5d9ff10787c266ac30",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0680",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0765",
+        "sourceVocabFingerprintSha256": "57f9f81dc2bc6494f9656eb97f21e700c17726370454464a547b9c312c3ae3f1",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0681",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_adjectives_2",
+        "sourceVocabId": "vocab_a1_0766",
+        "sourceVocabFingerprintSha256": "2ec9f78e15d679562e471b5e85fe057f914a6f663e1fe0521de6d514a439d035",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_09_home_daily_life",
+        "courseUnitId": "a1_09_home_daily_life"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0682",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0767",
+        "sourceVocabFingerprintSha256": "f03e1c5233a110a8311b7dc6649e891c78c9bc9fe4ec3e0f0af354e68ed58125",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0683",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0768",
+        "sourceVocabFingerprintSha256": "faba9f7e2f31b398cc7ddcfa304389c10f2dfa61a3fae8ea3b1a38e2cf38c53b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0684",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0769",
+        "sourceVocabFingerprintSha256": "a99086116da826543aaae4980150ad380c720ab978f16db5adc3a408cfc083f2",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0685",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0770",
+        "sourceVocabFingerprintSha256": "d8112043a62c30ad2ea7c8e54037c5ee0721d6e250f761b9b71e7b27b4ebbaa5",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0686",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0771",
+        "sourceVocabFingerprintSha256": "f932b83ccbe1a30aa064502c6e4d18d2a8a9f542656698f1f6f9b5d0e4ddc74e",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0687",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0772",
+        "sourceVocabFingerprintSha256": "05f1dab090203d9a2fc3753191d1be793f27a6b803c220dc822c8e7573567be2",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0688",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0773",
+        "sourceVocabFingerprintSha256": "de43af1a0b3d7d82db12f39886a7c00e500dbc6af364532195be4f6f47a3f6f6",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0689",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0774",
+        "sourceVocabFingerprintSha256": "951a78acad9791324911f016f7784ee14ec83491bf208916059c0488ffe1ae47",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0690",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0775",
+        "sourceVocabFingerprintSha256": "e2d8c83d7b09f874824f564c0f57c8d3eb63067cf37d9ca1b92f107139069ae0",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0691",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0776",
+        "sourceVocabFingerprintSha256": "ba183120b5150f2f2e4018e63c600a62b240342ab89e85cbc84a2124fb3d54db",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0692",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0777",
+        "sourceVocabFingerprintSha256": "03dd3ccca125d4d0694cf2dd83511e2274eb42154444ac7adec954debd14d00b",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0693",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_misc_3",
+        "sourceVocabId": "vocab_a1_0778",
+        "sourceVocabFingerprintSha256": "1deda77bcf2a023c059c44a6362bd1534d1e3a7421c7a571a7193f206cd14a16",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_16_survival_capstone",
+        "courseUnitId": "a1_16_survival_capstone"
       },
       {
         "kind": "satz",
@@ -66012,6 +67486,7 @@
       "cloze_a1_0070",
       "cloze_a1_0071",
       "cloze_a1_0074",
+      "cloze_a1_0075",
       "cloze_a1_0076",
       "cloze_a1_0077",
       "cloze_a1_0078",
@@ -66064,6 +67539,8 @@
       "cloze_a1_0342",
       "cloze_a1_0343",
       "cloze_a1_0344",
+      "cloze_a1_0671",
+      "cloze_a1_0678",
       "cloze_a2_0001",
       "cloze_a2_0002",
       "cloze_a2_0003",

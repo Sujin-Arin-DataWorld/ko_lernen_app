@@ -11,7 +11,8 @@
         "달"
       ],
       "vocabKo": "걸다",
-      "sourceVocabId": "vocab_a1_0715"
+      "sourceVocabId": "vocab_a1_0715",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0631",
@@ -24,7 +25,8 @@
         "생일"
       ],
       "vocabKo": "그리다",
-      "sourceVocabId": "vocab_a1_0716"
+      "sourceVocabId": "vocab_a1_0716",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0632",
@@ -37,7 +39,8 @@
         "잡채"
       ],
       "vocabKo": "나다",
-      "sourceVocabId": "vocab_a1_0717"
+      "sourceVocabId": "vocab_a1_0717",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0633",
@@ -50,7 +53,8 @@
         "종업원"
       ],
       "vocabKo": "넣다",
-      "sourceVocabId": "vocab_a1_0718"
+      "sourceVocabId": "vocab_a1_0718",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0634",
@@ -63,7 +67,8 @@
         "학교"
       ],
       "vocabKo": "놀다",
-      "sourceVocabId": "vocab_a1_0719"
+      "sourceVocabId": "vocab_a1_0719",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0635",
@@ -76,7 +81,8 @@
         "달"
       ],
       "vocabKo": "되다",
-      "sourceVocabId": "vocab_a1_0720"
+      "sourceVocabId": "vocab_a1_0720",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0636",
@@ -89,7 +95,8 @@
         "생일"
       ],
       "vocabKo": "들다",
-      "sourceVocabId": "vocab_a1_0721"
+      "sourceVocabId": "vocab_a1_0721",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0637",
@@ -102,7 +109,8 @@
         "잡채"
       ],
       "vocabKo": "부르다",
-      "sourceVocabId": "vocab_a1_0722"
+      "sourceVocabId": "vocab_a1_0722",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0638",
@@ -115,7 +123,8 @@
         "종업원"
       ],
       "vocabKo": "시키다",
-      "sourceVocabId": "vocab_a1_0723"
+      "sourceVocabId": "vocab_a1_0723",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0639",
@@ -128,7 +137,8 @@
         "학교"
       ],
       "vocabKo": "찍다",
-      "sourceVocabId": "vocab_a1_0724"
+      "sourceVocabId": "vocab_a1_0724",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0640",
@@ -141,7 +151,8 @@
         "달"
       ],
       "vocabKo": "추다",
-      "sourceVocabId": "vocab_a1_0725"
+      "sourceVocabId": "vocab_a1_0725",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0641",
@@ -154,7 +165,8 @@
         "생일"
       ],
       "vocabKo": "치다",
-      "sourceVocabId": "vocab_a1_0726"
+      "sourceVocabId": "vocab_a1_0726",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0642",
@@ -167,7 +179,8 @@
         "잡채"
       ],
       "vocabKo": "다녀오다",
-      "sourceVocabId": "vocab_a1_0727"
+      "sourceVocabId": "vocab_a1_0727",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0643",
@@ -180,7 +193,8 @@
         "종업원"
       ],
       "vocabKo": "돌아가다",
-      "sourceVocabId": "vocab_a1_0728"
+      "sourceVocabId": "vocab_a1_0728",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0644",
@@ -193,7 +207,8 @@
         "학교"
       ],
       "vocabKo": "돌아오다",
-      "sourceVocabId": "vocab_a1_0729"
+      "sourceVocabId": "vocab_a1_0729",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0645",
@@ -206,7 +221,8 @@
         "달"
       ],
       "vocabKo": "들어가다",
-      "sourceVocabId": "vocab_a1_0730"
+      "sourceVocabId": "vocab_a1_0730",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0646",
@@ -219,7 +235,8 @@
         "생일"
       ],
       "vocabKo": "들어오다",
-      "sourceVocabId": "vocab_a1_0731"
+      "sourceVocabId": "vocab_a1_0731",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0647",
@@ -232,20 +249,22 @@
         "잡채"
       ],
       "vocabKo": "올라가다",
-      "sourceVocabId": "vocab_a1_0732"
+      "sourceVocabId": "vocab_a1_0732",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0648",
       "level": "a1",
-      "targetKo": "바람이 불어요.",
-      "promptDe": "Der Wind weht.",
-      "promptEn": "The wind blows.",
+      "targetKo": "바람이 많이 불어요.",
+      "promptDe": "Der Wind weht stark.",
+      "promptEn": "The wind is blowing hard.",
       "distractors": [
         "장소",
         "종업원"
       ],
       "vocabKo": "불다",
-      "sourceVocabId": "vocab_a1_0733"
+      "sourceVocabId": "vocab_a1_0733",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0649",
@@ -258,7 +277,8 @@
         "학교"
       ],
       "vocabKo": "울다",
-      "sourceVocabId": "vocab_a1_0734"
+      "sourceVocabId": "vocab_a1_0734",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0650",
@@ -271,7 +291,8 @@
         "달"
       ],
       "vocabKo": "잘하다",
-      "sourceVocabId": "vocab_a1_0735"
+      "sourceVocabId": "vocab_a1_0735",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0651",
@@ -284,7 +305,8 @@
         "생일"
       ],
       "vocabKo": "지나다",
-      "sourceVocabId": "vocab_a1_0736"
+      "sourceVocabId": "vocab_a1_0736",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0652",
@@ -297,7 +319,8 @@
         "잡채"
       ],
       "vocabKo": "지내다",
-      "sourceVocabId": "vocab_a1_0737"
+      "sourceVocabId": "vocab_a1_0737",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0653",
@@ -310,7 +333,8 @@
         "종업원"
       ],
       "vocabKo": "피우다",
-      "sourceVocabId": "vocab_a1_0738"
+      "sourceVocabId": "vocab_a1_0738",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0654",
@@ -323,7 +347,8 @@
         "학교"
       ],
       "vocabKo": "못하다",
-      "sourceVocabId": "vocab_a1_0739"
+      "sourceVocabId": "vocab_a1_0739",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0655",
@@ -336,7 +361,8 @@
         "달"
       ],
       "vocabKo": "알리다",
-      "sourceVocabId": "vocab_a1_0740"
+      "sourceVocabId": "vocab_a1_0740",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0656",
@@ -349,7 +375,8 @@
         "생일"
       ],
       "vocabKo": "찾아보다",
-      "sourceVocabId": "vocab_a1_0741"
+      "sourceVocabId": "vocab_a1_0741",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0657",
@@ -362,7 +389,8 @@
         "잡채"
       ],
       "vocabKo": "춤추다",
-      "sourceVocabId": "vocab_a1_0742"
+      "sourceVocabId": "vocab_a1_0742",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "id": "satz_a1_0658",
@@ -375,20 +403,22 @@
         "종업원"
       ],
       "vocabKo": "같다",
-      "sourceVocabId": "vocab_a1_0743"
+      "sourceVocabId": "vocab_a1_0743",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0659",
       "level": "a1",
-      "targetKo": "정말 고마워요.",
-      "promptDe": "Vielen Dank.",
-      "promptEn": "Thank you so much.",
+      "targetKo": "수진 씨, 정말 고마워요.",
+      "promptDe": "Sujin, vielen Dank.",
+      "promptEn": "Sujin, thank you so much.",
       "distractors": [
         "키",
         "학교"
       ],
       "vocabKo": "고맙다",
-      "sourceVocabId": "vocab_a1_0744"
+      "sourceVocabId": "vocab_a1_0744",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0660",
@@ -401,7 +431,8 @@
         "달"
       ],
       "vocabKo": "고프다",
-      "sourceVocabId": "vocab_a1_0745"
+      "sourceVocabId": "vocab_a1_0745",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0661",
@@ -414,7 +445,8 @@
         "생일"
       ],
       "vocabKo": "괜찮다",
-      "sourceVocabId": "vocab_a1_0746"
+      "sourceVocabId": "vocab_a1_0746",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0662",
@@ -427,20 +459,22 @@
         "잡채"
       ],
       "vocabKo": "그렇다",
-      "sourceVocabId": "vocab_a1_0747"
+      "sourceVocabId": "vocab_a1_0747",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0663",
       "level": "a1",
-      "targetKo": "방이 깨끗해요.",
-      "promptDe": "Das Zimmer ist sauber.",
-      "promptEn": "The room is clean.",
+      "targetKo": "제 방이 깨끗해요.",
+      "promptDe": "Mein Zimmer ist sauber.",
+      "promptEn": "My room is clean.",
       "distractors": [
         "장소",
         "종업원"
       ],
       "vocabKo": "깨끗하다",
-      "sourceVocabId": "vocab_a1_0748"
+      "sourceVocabId": "vocab_a1_0748",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0664",
@@ -453,7 +487,8 @@
         "학교"
       ],
       "vocabKo": "나쁘다",
-      "sourceVocabId": "vocab_a1_0749"
+      "sourceVocabId": "vocab_a1_0749",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0665",
@@ -466,7 +501,8 @@
         "달"
       ],
       "vocabKo": "낮다",
-      "sourceVocabId": "vocab_a1_0750"
+      "sourceVocabId": "vocab_a1_0750",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0666",
@@ -479,7 +515,8 @@
         "생일"
       ],
       "vocabKo": "높다",
-      "sourceVocabId": "vocab_a1_0751"
+      "sourceVocabId": "vocab_a1_0751",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0667",
@@ -492,7 +529,8 @@
         "잡채"
       ],
       "vocabKo": "다르다",
-      "sourceVocabId": "vocab_a1_0752"
+      "sourceVocabId": "vocab_a1_0752",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0668",
@@ -505,20 +543,22 @@
         "종업원"
       ],
       "vocabKo": "따뜻하다",
-      "sourceVocabId": "vocab_a1_0753"
+      "sourceVocabId": "vocab_a1_0753",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0669",
       "level": "a1",
-      "targetKo": "물이 맑아요.",
-      "promptDe": "Das Wasser ist klar.",
-      "promptEn": "The water is clear.",
+      "targetKo": "이 물이 정말 맑아요.",
+      "promptDe": "Dieses Wasser ist wirklich klar.",
+      "promptEn": "This water is really clear.",
       "distractors": [
         "키",
         "학교"
       ],
       "vocabKo": "맑다",
-      "sourceVocabId": "vocab_a1_0754"
+      "sourceVocabId": "vocab_a1_0754",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0670",
@@ -531,7 +571,8 @@
         "달"
       ],
       "vocabKo": "멋있다",
-      "sourceVocabId": "vocab_a1_0755"
+      "sourceVocabId": "vocab_a1_0755",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0671",
@@ -544,20 +585,22 @@
         "생일"
       ],
       "vocabKo": "반갑다",
-      "sourceVocabId": "vocab_a1_0756"
+      "sourceVocabId": "vocab_a1_0756",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0672",
       "level": "a1",
-      "targetKo": "물이 시원해요.",
-      "promptDe": "Das Wasser ist erfrischend.",
-      "promptEn": "The water is refreshing.",
+      "targetKo": "이 물이 시원해요.",
+      "promptDe": "Dieses Wasser ist erfrischend.",
+      "promptEn": "This water is refreshing.",
       "distractors": [
         "선물",
         "잡채"
       ],
       "vocabKo": "시원하다",
-      "sourceVocabId": "vocab_a1_0757"
+      "sourceVocabId": "vocab_a1_0757",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0673",
@@ -570,7 +613,8 @@
         "종업원"
       ],
       "vocabKo": "싫다",
-      "sourceVocabId": "vocab_a1_0758"
+      "sourceVocabId": "vocab_a1_0758",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0674",
@@ -583,7 +627,8 @@
         "학교"
       ],
       "vocabKo": "아니다",
-      "sourceVocabId": "vocab_a1_0759"
+      "sourceVocabId": "vocab_a1_0759",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0675",
@@ -596,7 +641,8 @@
         "달"
       ],
       "vocabKo": "아름답다",
-      "sourceVocabId": "vocab_a1_0760"
+      "sourceVocabId": "vocab_a1_0760",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0676",
@@ -609,7 +655,8 @@
         "생일"
       ],
       "vocabKo": "어떻다",
-      "sourceVocabId": "vocab_a1_0761"
+      "sourceVocabId": "vocab_a1_0761",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0677",
@@ -622,20 +669,22 @@
         "잡채"
       ],
       "vocabKo": "재미없다",
-      "sourceVocabId": "vocab_a1_0762"
+      "sourceVocabId": "vocab_a1_0762",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0678",
       "level": "a1",
-      "targetKo": "사람이 적어요.",
-      "promptDe": "Es gibt wenige Leute.",
-      "promptEn": "There are few people.",
+      "targetKo": "여기는 사람이 적어요.",
+      "promptDe": "Hier gibt es wenige Leute.",
+      "promptEn": "There are few people here.",
       "distractors": [
         "장소",
         "종업원"
       ],
       "vocabKo": "적다",
-      "sourceVocabId": "vocab_a1_0763"
+      "sourceVocabId": "vocab_a1_0763",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0679",
@@ -648,20 +697,22 @@
         "학교"
       ],
       "vocabKo": "친하다",
-      "sourceVocabId": "vocab_a1_0764"
+      "sourceVocabId": "vocab_a1_0764",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0680",
       "level": "a1",
-      "targetKo": "오늘이 특별해요.",
-      "promptDe": "Heute ist etwas Besonderes.",
-      "promptEn": "Today is special.",
+      "targetKo": "오늘은 정말 특별해요.",
+      "promptDe": "Heute ist wirklich besonders.",
+      "promptEn": "Today is really special.",
       "distractors": [
         "곳",
         "달"
       ],
       "vocabKo": "특별하다",
-      "sourceVocabId": "vocab_a1_0765"
+      "sourceVocabId": "vocab_a1_0765",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0681",
@@ -674,7 +725,8 @@
         "생일"
       ],
       "vocabKo": "한가하다",
-      "sourceVocabId": "vocab_a1_0766"
+      "sourceVocabId": "vocab_a1_0766",
+      "courseUnitId": "a1_09_home_daily_life"
     },
     {
       "id": "satz_a1_0682",
@@ -687,7 +739,8 @@
         "잡채"
       ],
       "vocabKo": "가운데",
-      "sourceVocabId": "vocab_a1_0767"
+      "sourceVocabId": "vocab_a1_0767",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0683",
@@ -700,7 +753,8 @@
         "종업원"
       ],
       "vocabKo": "계속",
-      "sourceVocabId": "vocab_a1_0768"
+      "sourceVocabId": "vocab_a1_0768",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0684",
@@ -713,7 +767,8 @@
         "학교"
       ],
       "vocabKo": "말",
-      "sourceVocabId": "vocab_a1_0769"
+      "sourceVocabId": "vocab_a1_0769",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0685",
@@ -726,7 +781,8 @@
         "달"
       ],
       "vocabKo": "먼저",
-      "sourceVocabId": "vocab_a1_0770"
+      "sourceVocabId": "vocab_a1_0770",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0686",
@@ -739,7 +795,8 @@
         "생일"
       ],
       "vocabKo": "모두",
-      "sourceVocabId": "vocab_a1_0771"
+      "sourceVocabId": "vocab_a1_0771",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0687",
@@ -752,7 +809,8 @@
         "잡채"
       ],
       "vocabKo": "영",
-      "sourceVocabId": "vocab_a1_0772"
+      "sourceVocabId": "vocab_a1_0772",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0688",
@@ -765,7 +823,8 @@
         "종업원"
       ],
       "vocabKo": "전",
-      "sourceVocabId": "vocab_a1_0773"
+      "sourceVocabId": "vocab_a1_0773",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0689",
@@ -778,7 +837,8 @@
         "학교"
       ],
       "vocabKo": "제일",
-      "sourceVocabId": "vocab_a1_0774"
+      "sourceVocabId": "vocab_a1_0774",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0690",
@@ -791,7 +851,8 @@
         "달"
       ],
       "vocabKo": "주일",
-      "sourceVocabId": "vocab_a1_0775"
+      "sourceVocabId": "vocab_a1_0775",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0691",
@@ -804,7 +865,8 @@
         "생일"
       ],
       "vocabKo": "천만",
-      "sourceVocabId": "vocab_a1_0776"
+      "sourceVocabId": "vocab_a1_0776",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0692",
@@ -817,7 +879,8 @@
         "잡채"
       ],
       "vocabKo": "흐리다",
-      "sourceVocabId": "vocab_a1_0777"
+      "sourceVocabId": "vocab_a1_0777",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0693",
@@ -830,7 +893,8 @@
         "종업원"
       ],
       "vocabKo": "힘들다",
-      "sourceVocabId": "vocab_a1_0778"
+      "sourceVocabId": "vocab_a1_0778",
+      "courseUnitId": "a1_16_survival_capstone"
     }
   ]
 }

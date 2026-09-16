@@ -150,11 +150,31 @@ PREDICATE_SLOT_WAIVER = {
     "cloze_a1_0586": "미안해요, 버스가 ＿＿＿. -- answer spans the full sentence-final predicate (늦었어요, past tense); a bare dictionary-form verb cannot close the slot.",
     "cloze_a1_0587": "선생님한테 다시 ＿＿＿. -- answer spans the full sentence-final predicate (물어요); a bare dictionary-form verb cannot close the slot.",
     "cloze_a1_0588": "제 대답이 ＿＿＿? -- answer spans the full sentence-final predicate (맞아요); a bare dictionary-form verb cannot close the slot.",
+    # C3-T4 (2026-09-16): Batch 29 A1 reinforcement, documented in the
+    # batch's own drafts/batch_29_a1_reinforcement_manifest.json
+    # predicateSlotWaiverRows (R8 review, 2026-09-16) -- each is a
+    # genuinely open predicate slot (invitation, minimal-response,
+    # exclamatory, or copula-negation frame) with no real Tier-A
+    # same-ending candidate pool, same class as the C3-T3 rows above.
+    "cloze_a1_0653": "크리스티안 씨, 우리 같이 ＿＿＿? -- 놀다 invitation slot (-(으)ㄹ까요?); 가다/보다/먹다 등 다수의 초대 동사가 같은 어미로 자연스럽게 성립해 Tier A 후보를 못 채운다.",
+    "cloze_a1_0668": "아이가 많이 ＿＿＿. -- 울다 manner-adverb slot; 웃다(정반의어) 등 다수의 아동 행위 동사가 같은 -아/어요 형으로 성립해 Tier A 후보를 못 채운다.",
+    "cloze_a1_0671": "요즘 잘 ＿＿＿? -- 지내다 bare minimal-response frame (Fable's own explicit example of an allowed waiver).",
+    "cloze_a1_0676": "우리는 같이 ＿＿＿. -- 춤추다 collective-activity slot, same class as 놀다 (다수의 -아/어요 형 동사가 '우리는 같이' 뒤에서 유효한 문장을 만든다).",
+    "cloze_a1_0678": "정말 ＿＿＿. -- 고맙다 maximally open exclamatory frame ('정말 + 어떤 형용사든' 자체로 완전한 감탄문); Tier A 후보가 원천적으로 존재하지 않는다.",
+    "cloze_a1_0693": "저는 학생이 ＿＿＿. -- 아니다 copula-negation predicate (X이/가 아니에요) unique shape; 학생이에 붙는 다른 형용사가 없어 Tier A 후보 풀 자체가 없다 (Batch 25 cloze_a1_0407과 동일 부류).",
 }
 
 DICTIONARY_FORM_VERBS = frozenset({
     "가다", "오다", "보다", "읽다", "쓰다", "타다", "입다", "알다", "모르다",
     "돕다", "팔다", "고르다", "빌리다", "끝나다", "다니다", "먹다", "마시다", "자다",
+    # C3-T4 (2026-09-16): Batch 29's own waiver rows added a dictionary-
+    # form verb (사다) and, for the first time, dictionary-form ADJECTIVE
+    # waivers (고맙다/아니다's exclamatory and copula-negation frames) --
+    # the module docstring above always described this pool as "(i) a
+    # bare dictionary-form verb/adjective", but no adjective had needed
+    # the waiver until now. `waived_distractor_ok` only checks flat set
+    # membership, so these live in the same pool rather than a new one.
+    "사다", "많다", "무겁다", "바쁘다", "비싸다", "쉽다", "작다",
 })
 BARE_PARTICLES = frozenset({
     "에서", "에게", "한테", "으로", "와", "과", "랑",

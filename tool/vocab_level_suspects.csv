@@ -5,7 +5,6 @@ vocab_a1_0054,파란색,blau,A1,a1_colors,Farben,Nomen,sino3_low,satz_ref
 vocab_a1_0055,초록색,grün,A1,a1_colors,Farben,Nomen,sino3_low,satz_ref
 vocab_a1_0056,노란색,gelb,A1,a1_colors,Farben,Nomen,sino3_low,satz_ref
 vocab_a1_0058,검은색,schwarz,A1,a1_colors,Farben,Nomen,sino3_low,
-vocab_a1_0103,말하다,sprechen / sagen,A1,a1_misc_2,Kommunikation,Verb,below_topic,
 vocab_a1_0115,좋다,gut / schön,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
 vocab_a1_0116,크다,groß,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
 vocab_a1_0117,작다,klein,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
@@ -16,10 +15,6 @@ vocab_a1_0125,어렵다,schwierig / schwer,A1,a1_descriptions,Beschreibung,Adjek
 vocab_a1_0126,쉽다,einfach / leicht,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,satz_ref
 vocab_a1_0128,길다,lang,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
 vocab_a1_0129,짧다,kurz,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
-vocab_a2_0028,전화,Telefon / Anruf,A2,a2_health_misc_1,Kommunikation,Nomen,below_topic,satz_ref
-vocab_a2_0029,문자,Nachricht (SMS),A2,a2_health_misc_1,Kommunikation,Nomen,below_topic,satz_ref
-vocab_a2_0043,전화하다,anrufen,A2,a2_health_misc_2,Kommunikation,Verb,below_topic,satz_ref
-vocab_a2_0053,보내다,schicken / senden,A2,a2_health_misc_2,Kommunikation,Verb,below_topic,satz_ref
 vocab_a1_0176,화이팅,Du schaffst das! / Viel Erfolg!,A1,a1_misc_2,Motivation,Ausdruck,below_topic,satz_ref
 vocab_a1_0197,새,neu,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,satz_ref
 vocab_a1_0198,다른,andere/r/s,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,satz_ref
@@ -106,13 +101,8 @@ vocab_a1_0416,우체국 위치,Lage des Postamts,A1,a1_city_services_2026_1,도�
 vocab_a1_0422,영수증 확인,Bonkontrolle,A1,a1_city_services_2026_1,도시 생활,Nomen,sino3_low,satz_ref
 vocab_a1_0524,텔레비전,Fernseher,A1,a1_misc_1,Technologie,Nomen,below_topic,satz_ref
 vocab_a1_0595,카메라,Kamera,A1,a1_belongings_1,Technologie,Nomen,below_topic,satz_ref
-vocab_a1_0649,대답,Antwort,A1,a1_feelings_talk_1,Kommunikation,Nomen,below_topic,satz_ref
-vocab_a1_0650,소개,Vorstellung,A1,a1_feelings_talk_1,Kommunikation,Nomen,below_topic,satz_ref
-vocab_a1_0653,묻다,fragen,A1,a1_repair_language_1,Kommunikation,Verb,below_topic,satz_ref
-vocab_a1_0654,맞다,"stimmen, richtig sein",A1,a1_repair_language_1,Kommunikation,Verb,below_topic,satz_ref
 vocab_a1_0663,에어컨,Klimaanlage,A1,a1_home_daily_1,Technologie,Nomen,below_topic,satz_ref
 vocab_a1_0665,사용,"Gebrauch, Benutzung",A1,a1_home_daily_1,Technologie,Nomen,below_topic,satz_ref
 vocab_a1_0675,프로그램,Programm,A1,a1_culture_hobbies_1,Technologie,Nomen,below_topic,satz_ref
 vocab_a1_0677,사진,Foto,A1,a1_culture_hobbies_1,Technologie,Nomen,below_topic,satz_ref
-vocab_a1_0697,안내,"Auskunft, Information",A1,a1_school_work_1,Kommunikation,Nomen,below_topic,satz_ref
-vocab_a1_0702,이야기,"Geschichte, Gespräch",A1,a1_school_work_1,Kommunikation,Nomen,below_topic,satz_ref
+vocab_a1_0724,찍다,(ein Foto) machen,A1,a1_verbs_daily_1,Technologie,Verb,below_topic,satz_ref

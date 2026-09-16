@@ -1,8 +1,8 @@
 {
   "meta": {
-    "total": 2151,
+    "total": 2215,
     "perLevel": {
-      "a1": 523,
+      "a1": 587,
       "a2": 276,
       "b1": 436,
       "b2": 416,
@@ -33557,6 +33557,1094 @@
       "topic": "Zeit",
       "sourceVocabId": "vocab_a1_0714",
       "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "id": "cloze_a1_0649",
+      "level": "a1",
+      "sentenceKo": "저는 방에 그림을 ＿＿＿.",
+      "answer": "걸어요",
+      "fullKo": "저는 방에 그림을 걸어요.",
+      "de": "Ich hänge ein Bild im Zimmer auf.",
+      "en": "I hang a picture in the room.",
+      "distractors": [
+        "가요",
+        "가르쳐요",
+        "기다려요"
+      ],
+      "topic": "Zuhause",
+      "sourceVocabId": "vocab_a1_0715",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0650",
+      "level": "a1",
+      "sentenceKo": "저는 그림을 ＿＿＿.",
+      "answer": "그려요",
+      "fullKo": "저는 그림을 그려요.",
+      "de": "Ich zeichne ein Bild.",
+      "en": "I draw a picture.",
+      "distractors": [
+        "꺼요",
+        "닦아요",
+        "닫아요"
+      ],
+      "topic": "Bildung",
+      "sourceVocabId": "vocab_a1_0716",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0651",
+      "level": "a1",
+      "sentenceKo": "저는 어제 열이 ＿＿＿.",
+      "answer": "났어요",
+      "fullKo": "저는 어제 열이 났어요.",
+      "de": "Ich hatte gestern Fieber.",
+      "en": "I had a fever yesterday.",
+      "distractors": [
+        "걸었어요",
+        "기다렸어요",
+        "닫았어요"
+      ],
+      "topic": "Körper",
+      "sourceVocabId": "vocab_a1_0717",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0652",
+      "level": "a1",
+      "sentenceKo": "저는 가방에 책을 ＿＿＿.",
+      "answer": "넣어요",
+      "fullKo": "저는 가방에 책을 넣어요.",
+      "de": "Ich stecke ein Buch in die Tasche.",
+      "en": "I put a book in my bag.",
+      "distractors": [
+        "걸어요",
+        "끌어요",
+        "돌아요"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0718",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0653",
+      "level": "a1",
+      "sentenceKo": "크리스티안 씨, 우리 같이 ＿＿＿?",
+      "answer": "놀까요",
+      "fullKo": "크리스티안 씨, 우리 같이 놀까요?",
+      "de": "Christian, sollen wir zusammen spielen?",
+      "en": "Christian, shall we play together?",
+      "distractors": [
+        "가다",
+        "보다",
+        "사다"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0719",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0654",
+      "level": "a1",
+      "sentenceKo": "저는 의사가 ＿＿＿.",
+      "answer": "되고 싶어요",
+      "fullKo": "저는 의사가 되고 싶어요.",
+      "de": "Ich möchte Arzt werden.",
+      "en": "I want to become a doctor.",
+      "distractors": [
+        "가고 싶어요",
+        "마시고 싶어요",
+        "만들고 싶어요"
+      ],
+      "topic": "Beruf",
+      "sourceVocabId": "vocab_a1_0720",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0655",
+      "level": "a1",
+      "sentenceKo": "저는 가방을 ＿＿＿.",
+      "answer": "들어요",
+      "fullKo": "저는 가방을 들어요.",
+      "de": "Ich halte die Tasche.",
+      "en": "I hold the bag.",
+      "distractors": [
+        "도와요",
+        "마셔요",
+        "막아요"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0721",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0656",
+      "level": "a1",
+      "sentenceKo": "마야 씨가 노래를 ＿＿＿.",
+      "answer": "불러요",
+      "fullKo": "마야 씨가 노래를 불러요.",
+      "de": "Maya singt ein Lied.",
+      "en": "Maya sings a song.",
+      "distractors": [
+        "놓아요",
+        "먹어요",
+        "묶어요"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0722",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0657",
+      "level": "a1",
+      "sentenceKo": "저는 커피를 ＿＿＿.",
+      "answer": "시켜요",
+      "fullKo": "저는 커피를 시켜요.",
+      "de": "Ich bestelle einen Kaffee.",
+      "en": "I order a coffee.",
+      "distractors": [
+        "나눠요",
+        "밀어요",
+        "배워요"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0723",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0658",
+      "level": "a1",
+      "sentenceKo": "저는 사진을 ＿＿＿.",
+      "answer": "찍어요",
+      "fullKo": "저는 사진을 찍어요.",
+      "de": "Ich mache ein Foto.",
+      "en": "I take a photo.",
+      "distractors": [
+        "벗어요",
+        "서요",
+        "신어요"
+      ],
+      "topic": "Technologie",
+      "sourceVocabId": "vocab_a1_0724",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0659",
+      "level": "a1",
+      "sentenceKo": "레나 씨가 춤을 ＿＿＿.",
+      "answer": "춰요",
+      "fullKo": "레나 씨가 춤을 춰요.",
+      "de": "Lena tanzt.",
+      "en": "Lena dances.",
+      "distractors": [
+        "모아요",
+        "받아요",
+        "버려요"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0725",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0660",
+      "level": "a1",
+      "sentenceKo": "저는 테니스를 ＿＿＿.",
+      "answer": "쳐요",
+      "fullKo": "저는 테니스를 쳐요.",
+      "de": "Ich spiele Tennis.",
+      "en": "I play tennis.",
+      "distractors": [
+        "만들어요",
+        "심어요",
+        "싸워요"
+      ],
+      "topic": "Sport",
+      "sourceVocabId": "vocab_a1_0726",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0661",
+      "level": "a1",
+      "sentenceKo": "저는 어제 시장에 ＿＿＿.",
+      "answer": "다녀왔어요",
+      "fullKo": "저는 어제 시장에 다녀왔어요.",
+      "de": "Ich war gestern auf dem Markt.",
+      "en": "I went to the market yesterday.",
+      "distractors": [
+        "도왔어요",
+        "마셨어요",
+        "만들었어요"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0727",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0662",
+      "level": "a1",
+      "sentenceKo": "저는 집에 ＿＿＿.",
+      "answer": "돌아가요",
+      "fullKo": "저는 집에 돌아가요.",
+      "de": "Ich gehe nach Hause zurück.",
+      "en": "I go back home.",
+      "distractors": [
+        "사요",
+        "써요",
+        "안아요"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0728",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0663",
+      "level": "a1",
+      "sentenceKo": "아버지가 일찍 ＿＿＿.",
+      "answer": "돌아오세요",
+      "fullKo": "아버지가 일찍 돌아오세요.",
+      "de": "Vater kommt früh zurück.",
+      "en": "Father comes back early.",
+      "distractors": [
+        "닫으세요",
+        "받으세요",
+        "보세요"
+      ],
+      "topic": "Familie",
+      "sourceVocabId": "vocab_a1_0729",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0664",
+      "level": "a1",
+      "sentenceKo": "저는 아직 교실에 ＿＿＿.",
+      "answer": "들어가지 않아요",
+      "fullKo": "저는 아직 교실에 들어가지 않아요.",
+      "de": "Ich betrete das Klassenzimmer noch nicht.",
+      "en": "I haven't entered the classroom yet.",
+      "distractors": [
+        "보지 않아요",
+        "쓰지 않아요",
+        "읽지 않아요"
+      ],
+      "topic": "Bildung",
+      "sourceVocabId": "vocab_a1_0730",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0665",
+      "level": "a1",
+      "sentenceKo": "친구가 방에 ＿＿＿.",
+      "answer": "들어와요",
+      "fullKo": "친구가 방에 들어와요.",
+      "de": "Mein Freund kommt ins Zimmer.",
+      "en": "My friend comes into the room.",
+      "distractors": [
+        "열어요",
+        "읽어요",
+        "입어요"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0731",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0666",
+      "level": "a1",
+      "sentenceKo": "안드레아 씨는 주말에 이 산을 ＿＿＿.",
+      "answer": "올라갈 수 있어요",
+      "fullKo": "안드레아 씨는 주말에 이 산을 올라갈 수 있어요.",
+      "de": "Andrea kann am Wochenende auf diesen Berg steigen.",
+      "en": "Andrea can go up this mountain on the weekend.",
+      "distractors": [
+        "만들 수 있어요",
+        "쓸 수 있어요",
+        "읽을 수 있어요"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0732",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0667",
+      "level": "a1",
+      "sentenceKo": "바람이 많이 ＿＿＿.",
+      "answer": "불어요",
+      "fullKo": "바람이 많이 불어요.",
+      "de": "Der Wind weht stark.",
+      "en": "The wind is blowing hard.",
+      "distractors": [
+        "봐요",
+        "씻어요",
+        "앉아요"
+      ],
+      "topic": "Wetter",
+      "sourceVocabId": "vocab_a1_0733",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0668",
+      "level": "a1",
+      "sentenceKo": "아이가 많이 ＿＿＿.",
+      "answer": "울어요",
+      "fullKo": "아이가 많이 울어요.",
+      "de": "Das Kind weint viel.",
+      "en": "The child cries a lot.",
+      "distractors": [
+        "쓰다",
+        "읽다",
+        "입다"
+      ],
+      "topic": "Familie",
+      "sourceVocabId": "vocab_a1_0734",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0669",
+      "level": "a1",
+      "sentenceKo": "민호 씨는 요리를 ＿＿＿.",
+      "answer": "잘해요",
+      "fullKo": "민호 씨는 요리를 잘해요.",
+      "de": "Minho kocht gut.",
+      "en": "Minho is good at cooking.",
+      "distractors": [
+        "와요",
+        "웃어요",
+        "자요"
+      ],
+      "topic": "Beruf",
+      "sourceVocabId": "vocab_a1_0735",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0670",
+      "level": "a1",
+      "sentenceKo": "시간이 빨리 ＿＿＿.",
+      "answer": "지나요",
+      "fullKo": "시간이 빨리 지나요.",
+      "de": "Die Zeit vergeht schnell.",
+      "en": "Time passes quickly.",
+      "distractors": [
+        "잘라요",
+        "잡아요",
+        "줘요"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0736",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0671",
+      "level": "a1",
+      "sentenceKo": "요즘 잘 ＿＿＿?",
+      "answer": "지내요",
+      "fullKo": "요즘 잘 지내요?",
+      "de": "Wie geht es dir zurzeit?",
+      "en": "How have you been these days?",
+      "distractors": [
+        "오다",
+        "자다",
+        "타다"
+      ],
+      "topic": "Kommunikation",
+      "sourceVocabId": "vocab_a1_0737",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0672",
+      "level": "a1",
+      "sentenceKo": "할아버지는 담배를 ＿＿＿.",
+      "answer": "피우지 않아요",
+      "fullKo": "할아버지는 담배를 피우지 않아요.",
+      "de": "Großvater raucht nicht.",
+      "en": "Grandfather doesn't smoke.",
+      "distractors": [
+        "가지 않아요",
+        "걷지 않아요",
+        "마시지 않아요"
+      ],
+      "topic": "Körper",
+      "sourceVocabId": "vocab_a1_0738",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0673",
+      "level": "a1",
+      "sentenceKo": "크리스티안 씨는 한국어를 ＿＿＿.",
+      "answer": "잘 못해요",
+      "fullKo": "크리스티안 씨는 한국어를 잘 못해요.",
+      "de": "Christian kann noch nicht gut Koreanisch.",
+      "en": "Christian isn't very good at Korean.",
+      "distractors": [
+        "잘 사요",
+        "잘 써요",
+        "잘 와요"
+      ],
+      "topic": "Bildung",
+      "sourceVocabId": "vocab_a1_0739",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0674",
+      "level": "a1",
+      "sentenceKo": "저는 친구한테 시간을 ＿＿＿.",
+      "answer": "알려요",
+      "fullKo": "저는 친구한테 시간을 알려요.",
+      "de": "Ich sage meinem Freund die Uhrzeit.",
+      "en": "I tell my friend the time.",
+      "distractors": [
+        "켜요",
+        "타요",
+        "팔아요"
+      ],
+      "topic": "Kommunikation",
+      "sourceVocabId": "vocab_a1_0740",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0675",
+      "level": "a1",
+      "sentenceKo": "저는 학교를 ＿＿＿.",
+      "answer": "찾아봐요",
+      "fullKo": "저는 학교를 찾아봐요.",
+      "de": "Ich suche nach der Schule.",
+      "en": "I look for the school.",
+      "distractors": [
+        "풀어요",
+        "가르쳐요",
+        "걸어요"
+      ],
+      "topic": "Bildung",
+      "sourceVocabId": "vocab_a1_0741",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0676",
+      "level": "a1",
+      "sentenceKo": "우리는 같이 ＿＿＿.",
+      "answer": "춤춰요",
+      "fullKo": "우리는 같이 춤춰요.",
+      "de": "Wir tanzen zusammen.",
+      "en": "We dance together.",
+      "distractors": [
+        "팔다",
+        "가다",
+        "보다"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0742",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
+      "id": "cloze_a1_0677",
+      "level": "a1",
+      "sentenceKo": "언니와 저는 키가 ＿＿＿.",
+      "answer": "같아요",
+      "fullKo": "언니와 저는 키가 같아요.",
+      "de": "Meine große Schwester und ich sind gleich groß.",
+      "en": "My older sister and I are the same height.",
+      "distractors": [
+        "가까워요",
+        "가벼워요",
+        "건강해요"
+      ],
+      "topic": "Familie",
+      "sourceVocabId": "vocab_a1_0743",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0678",
+      "level": "a1",
+      "sentenceKo": "수진 씨, 정말 ＿＿＿.",
+      "answer": "고마워요",
+      "fullKo": "수진 씨, 정말 고마워요.",
+      "de": "Sujin, vielen Dank.",
+      "en": "Sujin, thank you so much.",
+      "distractors": [
+        "많다",
+        "무겁다",
+        "바쁘다"
+      ],
+      "topic": "Kommunikation",
+      "sourceVocabId": "vocab_a1_0744",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0679",
+      "level": "a1",
+      "sentenceKo": "점심을 안 먹어서 배가 ＿＿＿.",
+      "answer": "고파요",
+      "fullKo": "점심을 안 먹어서 배가 고파요.",
+      "de": "Ich habe nicht zu Mittag gegessen, deshalb habe ich Hunger.",
+      "en": "I didn't eat lunch, so I'm hungry.",
+      "distractors": [
+        "길어요",
+        "깊어요",
+        "넓어요"
+      ],
+      "topic": "Körper",
+      "sourceVocabId": "vocab_a1_0745",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0680",
+      "level": "a1",
+      "sentenceKo": "이 음식은 ＿＿＿.",
+      "answer": "괜찮아요",
+      "fullKo": "이 음식은 괜찮아요.",
+      "de": "Dieses Essen ist okay.",
+      "en": "This food is fine.",
+      "distractors": [
+        "쉬워요",
+        "짧아요",
+        "시끄러워요"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0746",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0681",
+      "level": "a1",
+      "sentenceKo": "제 생각도 ＿＿＿.",
+      "answer": "그래요",
+      "fullKo": "제 생각도 그래요.",
+      "de": "Das denke ich auch.",
+      "en": "I think so too.",
+      "distractors": [
+        "짜요",
+        "무거워요",
+        "시끄러워요"
+      ],
+      "topic": "Kommunikation",
+      "sourceVocabId": "vocab_a1_0747",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0682",
+      "level": "a1",
+      "sentenceKo": "제 방이 ＿＿＿.",
+      "answer": "깨끗해요",
+      "fullKo": "제 방이 깨끗해요.",
+      "de": "Mein Zimmer ist sauber.",
+      "en": "My room is clean.",
+      "distractors": [
+        "느려요",
+        "두꺼워요",
+        "똑똑해요"
+      ],
+      "topic": "Zuhause",
+      "sourceVocabId": "vocab_a1_0748",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0683",
+      "level": "a1",
+      "sentenceKo": "오늘 날씨가 ＿＿＿.",
+      "answer": "나빠요",
+      "fullKo": "오늘 날씨가 나빠요.",
+      "de": "Das Wetter ist heute schlecht.",
+      "en": "The weather is bad today.",
+      "distractors": [
+        "많아요",
+        "멀어요",
+        "바빠요"
+      ],
+      "topic": "Wetter",
+      "sourceVocabId": "vocab_a1_0749",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0684",
+      "level": "a1",
+      "sentenceKo": "이 책상은 ＿＿＿.",
+      "answer": "낮아요",
+      "fullKo": "이 책상은 낮아요.",
+      "de": "Dieser Tisch ist niedrig.",
+      "en": "This desk is low.",
+      "distractors": [
+        "더워요",
+        "뜨거워요",
+        "무서워요"
+      ],
+      "topic": "Zuhause",
+      "sourceVocabId": "vocab_a1_0750",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0685",
+      "level": "a1",
+      "sentenceKo": "그 산이 ＿＿＿.",
+      "answer": "높아요",
+      "fullKo": "그 산이 높아요.",
+      "de": "Der Berg ist hoch.",
+      "en": "That mountain is high.",
+      "distractors": [
+        "비싸요",
+        "빨라요",
+        "신선해요"
+      ],
+      "topic": "Natur",
+      "sourceVocabId": "vocab_a1_0751",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0686",
+      "level": "a1",
+      "sentenceKo": "제 생각은 ＿＿＿.",
+      "answer": "달라요",
+      "fullKo": "제 생각은 달라요.",
+      "de": "Meine Meinung ist anders.",
+      "en": "My opinion is different.",
+      "distractors": [
+        "싸요",
+        "얇아요",
+        "예뻐요"
+      ],
+      "topic": "Kommunikation",
+      "sourceVocabId": "vocab_a1_0752",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0687",
+      "level": "a1",
+      "sentenceKo": "오늘은 날씨가 ＿＿＿.",
+      "answer": "따뜻해요",
+      "fullKo": "오늘은 날씨가 따뜻해요.",
+      "de": "Das Wetter ist heute warm.",
+      "en": "The weather is warm today.",
+      "distractors": [
+        "어려워요",
+        "작아요",
+        "조용해요"
+      ],
+      "topic": "Wetter",
+      "sourceVocabId": "vocab_a1_0753",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0688",
+      "level": "a1",
+      "sentenceKo": "이 물이 정말 ＿＿＿.",
+      "answer": "맑아요",
+      "fullKo": "이 물이 정말 맑아요.",
+      "de": "Dieses Wasser ist wirklich klar.",
+      "en": "This water is really clear.",
+      "distractors": [
+        "밝아요",
+        "좁아요",
+        "친절해요"
+      ],
+      "topic": "Wetter",
+      "sourceVocabId": "vocab_a1_0754",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0689",
+      "level": "a1",
+      "sentenceKo": "이 가방이 ＿＿＿.",
+      "answer": "멋있어요",
+      "fullKo": "이 가방이 멋있어요.",
+      "de": "Diese Tasche ist cool.",
+      "en": "This bag is cool.",
+      "distractors": [
+        "많아요",
+        "시끄러워요",
+        "똑똑해요"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0755",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0690",
+      "level": "a1",
+      "sentenceKo": "안녕하세요, 만나서 ＿＿＿.",
+      "answer": "반가워요",
+      "fullKo": "안녕하세요, 만나서 반가워요.",
+      "de": "Hallo, freut mich, Sie kennenzulernen.",
+      "en": "Hello, nice to meet you.",
+      "distractors": [
+        "어두워요",
+        "차가워요",
+        "추워요"
+      ],
+      "topic": "Kommunikation",
+      "sourceVocabId": "vocab_a1_0756",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0691",
+      "level": "a1",
+      "sentenceKo": "이 물이 ＿＿＿.",
+      "answer": "시원해요",
+      "fullKo": "이 물이 시원해요.",
+      "de": "Dieses Wasser ist erfrischend.",
+      "en": "This water is refreshing.",
+      "distractors": [
+        "커요",
+        "피곤해요",
+        "가까워요"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0757",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0692",
+      "level": "a1",
+      "sentenceKo": "저는 비가 ＿＿＿.",
+      "answer": "싫어요",
+      "fullKo": "저는 비가 싫어요.",
+      "de": "Ich mag Regen nicht.",
+      "en": "I dislike rain.",
+      "distractors": [
+        "커요",
+        "많아요",
+        "무거워요"
+      ],
+      "topic": "Wetter",
+      "sourceVocabId": "vocab_a1_0758",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0693",
+      "level": "a1",
+      "sentenceKo": "저는 학생이 ＿＿＿.",
+      "answer": "아니에요",
+      "fullKo": "저는 학생이 아니에요.",
+      "de": "Ich bin kein Student.",
+      "en": "I am not a student.",
+      "distractors": [
+        "비싸다",
+        "쉽다",
+        "작다"
+      ],
+      "topic": "Bildung",
+      "sourceVocabId": "vocab_a1_0759",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0694",
+      "level": "a1",
+      "sentenceKo": "이 꽃이 ＿＿＿.",
+      "answer": "아름다워요",
+      "fullKo": "이 꽃이 아름다워요.",
+      "de": "Diese Blume ist schön.",
+      "en": "This flower is beautiful.",
+      "distractors": [
+        "깊어요",
+        "넓어요",
+        "느려요"
+      ],
+      "topic": "Natur",
+      "sourceVocabId": "vocab_a1_0760",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0695",
+      "level": "a1",
+      "sentenceKo": "오늘 날씨가 ＿＿＿?",
+      "answer": "어때요",
+      "fullKo": "오늘 날씨가 어때요?",
+      "de": "Wie ist das Wetter heute?",
+      "en": "How is the weather today?",
+      "distractors": [
+        "커요",
+        "짧아요",
+        "얇아요"
+      ],
+      "topic": "Wetter",
+      "sourceVocabId": "vocab_a1_0761",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0696",
+      "level": "a1",
+      "sentenceKo": "이 영화가 ＿＿＿.",
+      "answer": "재미없어요",
+      "fullKo": "이 영화가 재미없어요.",
+      "de": "Dieser Film ist langweilig.",
+      "en": "This movie is boring.",
+      "distractors": [
+        "건강해요",
+        "더워요",
+        "두꺼워요"
+      ],
+      "topic": "Freizeit",
+      "sourceVocabId": "vocab_a1_0762",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0697",
+      "level": "a1",
+      "sentenceKo": "여기는 사람이 ＿＿＿.",
+      "answer": "적어요",
+      "fullKo": "여기는 사람이 적어요.",
+      "de": "Hier gibt es wenige Leute.",
+      "en": "There are few people here.",
+      "distractors": [
+        "비싸요",
+        "신선해요",
+        "싸요"
+      ],
+      "topic": "Position",
+      "sourceVocabId": "vocab_a1_0763",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0698",
+      "level": "a1",
+      "sentenceKo": "수진 씨와 현아 씨는 ＿＿＿.",
+      "answer": "친해요",
+      "fullKo": "수진 씨와 현아 씨는 친해요.",
+      "de": "Sujin und Hyuna sind eng befreundet.",
+      "en": "Sujin and Hyuna are close friends.",
+      "distractors": [
+        "길어요",
+        "무서워요",
+        "쉬워요"
+      ],
+      "topic": "Freundschaft",
+      "sourceVocabId": "vocab_a1_0764",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0699",
+      "level": "a1",
+      "sentenceKo": "오늘은 정말 ＿＿＿.",
+      "answer": "특별해요",
+      "fullKo": "오늘은 정말 특별해요.",
+      "de": "Heute ist wirklich besonders.",
+      "en": "Today is really special.",
+      "distractors": [
+        "가벼워요",
+        "뜨거워요",
+        "멀어요"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0765",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0700",
+      "level": "a1",
+      "sentenceKo": "저는 오늘 ＿＿＿.",
+      "answer": "한가해요",
+      "fullKo": "저는 오늘 한가해요.",
+      "de": "Ich habe heute frei.",
+      "en": "I'm free today.",
+      "distractors": [
+        "어려워요",
+        "작아요",
+        "좁아요"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0766",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "id": "cloze_a1_0701",
+      "level": "a1",
+      "sentenceKo": "제가 ＿＿＿ 앉아요.",
+      "answer": "가운데",
+      "fullKo": "제가 가운데 앉아요.",
+      "de": "Ich sitze in der Mitte.",
+      "en": "I sit in the middle.",
+      "distractors": [
+        "학교",
+        "생일",
+        "병"
+      ],
+      "topic": "Position",
+      "sourceVocabId": "vocab_a1_0767",
+      "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0702",
+      "level": "a1",
+      "sentenceKo": "비가 ＿＿＿ 와요.",
+      "answer": "계속",
+      "fullKo": "비가 계속 와요.",
+      "de": "Es regnet weiter.",
+      "en": "It keeps raining.",
+      "distractors": [
+        "달",
+        "천만",
+        "가운데"
+      ],
+      "topic": "Wetter",
+      "sourceVocabId": "vocab_a1_0768",
+      "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0703",
+      "level": "a1",
+      "sentenceKo": "저는 선생님 ＿＿＿ 잘 들어요.",
+      "answer": "말을",
+      "fullKo": "저는 선생님 말을 잘 들어요.",
+      "de": "Ich höre gut auf die Worte des Lehrers.",
+      "en": "I listen well to the teacher's words.",
+      "distractors": [
+        "책을",
+        "밥을",
+        "잠을"
+      ],
+      "topic": "Kommunikation",
+      "sourceVocabId": "vocab_a1_0769",
+      "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0704",
+      "level": "a1",
+      "sentenceKo": "제가 ＿＿＿ 가요.",
+      "answer": "먼저",
+      "fullKo": "제가 먼저 가요.",
+      "de": "Ich gehe zuerst.",
+      "en": "I go first.",
+      "distractors": [
+        "영",
+        "말",
+        "천만"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0770",
+      "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0705",
+      "level": "a1",
+      "sentenceKo": "친구들이 ＿＿＿ 와요.",
+      "answer": "모두",
+      "fullKo": "친구들이 모두 와요.",
+      "de": "Alle meine Freunde kommen.",
+      "en": "All my friends are coming.",
+      "distractors": [
+        "영",
+        "천만",
+        "주일"
+      ],
+      "topic": "Freundschaft",
+      "sourceVocabId": "vocab_a1_0771",
+      "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0706",
+      "level": "a1",
+      "sentenceKo": "사과가 ＿＿＿ 있어요.",
+      "answer": "영 개",
+      "fullKo": "사과가 영 개 있어요.",
+      "de": "Es gibt null Äpfel.",
+      "en": "There are zero apples.",
+      "distractors": [
+        "영 마리",
+        "영 명",
+        "영 살"
+      ],
+      "topic": "Zahlen",
+      "sourceVocabId": "vocab_a1_0772",
+      "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0707",
+      "level": "a1",
+      "sentenceKo": "식사 ＿＿＿ 손을 씻어요.",
+      "answer": "전에",
+      "fullKo": "식사 전에 손을 씻어요.",
+      "de": "Ich wasche mir vor dem Essen die Hände.",
+      "en": "I wash my hands before eating.",
+      "distractors": [
+        "달에",
+        "영에",
+        "생일에"
+      ],
+      "topic": "Alltag",
+      "sourceVocabId": "vocab_a1_0773",
+      "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0708",
+      "level": "a1",
+      "sentenceKo": "이 음식이 ＿＿＿ 맛있어요.",
+      "answer": "제일",
+      "fullKo": "이 음식이 제일 맛있어요.",
+      "de": "Dieses Essen ist am leckersten.",
+      "en": "This food is the most delicious.",
+      "distractors": [
+        "가운데",
+        "먼저",
+        "전"
+      ],
+      "topic": "Essen & Trinken",
+      "sourceVocabId": "vocab_a1_0774",
+      "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0709",
+      "level": "a1",
+      "sentenceKo": "이번 ＿＿＿ 시험이 있어요.",
+      "answer": "주일에",
+      "fullKo": "이번 주일에 시험이 있어요.",
+      "de": "Diese Woche gibt es eine Prüfung.",
+      "en": "There's a test this week.",
+      "distractors": [
+        "영에",
+        "가운데에",
+        "장소에"
+      ],
+      "topic": "Zeit",
+      "sourceVocabId": "vocab_a1_0775",
+      "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0710",
+      "level": "a1",
+      "sentenceKo": "이 자동차는 ＿＿＿ 원이에요.",
+      "answer": "천만",
+      "fullKo": "이 자동차는 천만 원이에요.",
+      "de": "Dieses Auto kostet zehn Millionen Won.",
+      "en": "This car costs ten million won.",
+      "distractors": [
+        "가운데",
+        "계속",
+        "먼저"
+      ],
+      "topic": "Zahlen",
+      "sourceVocabId": "vocab_a1_0776",
+      "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0711",
+      "level": "a1",
+      "sentenceKo": "내일 날씨가 ＿＿＿?",
+      "answer": "흐릴까요",
+      "fullKo": "내일 날씨가 흐릴까요?",
+      "de": "Wird das Wetter morgen bewölkt sein?",
+      "en": "Will the weather be cloudy tomorrow?",
+      "distractors": [
+        "길까요",
+        "많을까요",
+        "바쁠까요"
+      ],
+      "topic": "Wetter",
+      "sourceVocabId": "vocab_a1_0777",
+      "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0712",
+      "level": "a1",
+      "sentenceKo": "요즘 일이 ＿＿＿.",
+      "answer": "힘들어요",
+      "fullKo": "요즘 일이 힘들어요.",
+      "de": "Die Arbeit ist zurzeit anstrengend.",
+      "en": "Work has been hard these days.",
+      "distractors": [
+        "바빠요",
+        "밝아요",
+        "빨라요"
+      ],
+      "topic": "Beruf",
+      "sourceVocabId": "vocab_a1_0778",
+      "courseUnitId": "a1_16_survival_capstone"
     }
   ]
 }

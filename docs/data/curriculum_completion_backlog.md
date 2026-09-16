@@ -11,7 +11,7 @@
 
 SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체크아웃의 줄바꿈 차이는 내용 변경으로 세지 않습니다.
 
-- `tool/curriculum_matrix_gaps.csv`: `fe81c218487a7cb2702ec4beef6f5065d8abc54a474fa8bb0b0b7668c1d7b15c`
+- `tool/curriculum_matrix_gaps.csv`: `20f250841610c51c772afb7c7dd157bd94b180db56b8b89aebd1caac8f304b92`
 - `tool/learning_phase_findings.csv`: `06909d55415ac3c7ea3da1f994a06e5798e125223d3748aa754f55594f01c496`
 - `tool/learning_phase_summary.json`: `a6c260f7a477a8e5abebf0fdada00c65608a52969bc4c0e2b261091df71d380c`
 - `tools/content_factory/cefr_matrix/phases.json`: `b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9`
@@ -770,7 +770,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: assessment_missing, content_missing, existing_unlinked
 - 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
 - 조치: add_pack_in_domain
-- 근거: thin: words=4
+- 근거: thin: words=7
 
 ### `A2|grammar_anchor|grammar_a1_future_modifier|unassigned`
 

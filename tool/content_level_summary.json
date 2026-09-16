@@ -2,9 +2,9 @@
   "counts": {
     "cloze": {
       "fallback_over2": 0,
-      "over1": 160,
-      "over2": 26,
-      "total": 2151,
+      "over1": 164,
+      "over2": 27,
+      "total": 2215,
       "under2": 456,
       "unknown": 0
     },
@@ -34,9 +34,9 @@
     },
     "satz": {
       "fallback_over2": 0,
-      "over1": 155,
-      "over2": 18,
-      "total": 2671,
+      "over1": 159,
+      "over2": 19,
+      "total": 2735,
       "under2": 655,
       "unknown": 0
     },
@@ -60,16 +60,16 @@
       "fallback_over2": 66,
       "over1": 312,
       "over2": 159,
-      "total": 2754,
+      "total": 2818,
       "under2": 240,
       "unknown": 56
     }
   },
   "coverage": {
     "grade1": {
-      "at_level": 472,
-      "missing": 106,
-      "present_in_app": 608,
+      "at_level": 530,
+      "missing": 53,
+      "present_in_app": 661,
       "total_unique": 714
     },
     "grade2": {
@@ -85,6 +85,20 @@
       "median_ge_plus2": 0,
       "over2_unbacklogged": 0,
       "share_ge_plus2_top10": [
+        {
+          "median": 0.0,
+          "n_hm": 12,
+          "n_low": 0,
+          "pack_id": "a1_adjectives_1",
+          "share_ge_plus2": 0.0
+        },
+        {
+          "median": 0.0,
+          "n_hm": 12,
+          "n_low": 0,
+          "pack_id": "a1_adjectives_2",
+          "share_ge_plus2": 0.0
+        },
         {
           "median": 0.0,
           "n_hm": 12,
@@ -139,20 +153,6 @@
           "n_hm": 12,
           "n_low": 0,
           "pack_id": "a1_daily_2",
-          "share_ge_plus2": 0.0
-        },
-        {
-          "median": 0.0,
-          "n_hm": 12,
-          "n_low": 0,
-          "pack_id": "a1_daily_3",
-          "share_ge_plus2": 0.0
-        },
-        {
-          "median": 0.0,
-          "n_hm": 12,
-          "n_low": 0,
-          "pack_id": "a1_daily_4",
           "share_ge_plus2": 0.0
         }
       ]

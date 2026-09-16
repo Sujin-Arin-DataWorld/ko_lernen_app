@@ -173,25 +173,45 @@ class TestBatch29DraftFilesExist(unittest.TestCase):
         self.assertTrue(packet.exists())
 
 
-class TestBatch29NeverTouchesLiveAssets(unittest.TestCase):
-    def test_manifest_marks_draft_and_unapproved(self):
-        manifest = _load_json(DRAFTS / "batch_29_a1_reinforcement_manifest.json")
-        self.assertEqual(manifest["status"], "draft")
-        self.assertEqual(manifest["provenance"]["approval"], {})
-        self.assertFalse(manifest["promotion"]["assetsDataWritten"])
-        self.assertFalse(manifest["promotion"]["runtime"])
-        self.assertFalse(manifest["promotion"]["tts"])
-        self.assertFalse(manifest["promotion"]["firebase"])
+class TestBatch29PromotedToLiveAssets(unittest.TestCase):
+    """Batch 29 was Jin-approved (10.9% sample, 2026-09-16, owner chat
+    'Batch 29 표본 승인') and promoted 2026-09-16 (C3-T4): the manifest must
+    show structured approval + all promotion flags set, and every headword
+    must now be live exactly once. Mirrors TestBatch26PromotedToLiveAssets
+    in test_batch_26_draft.py, which replaces the old draft-only
+    TestBatch29NeverTouchesLiveAssets with this, now that Batch 29 has
+    itself been promoted."""
 
-    def test_no_live_headword_was_added(self):
+    def test_manifest_marks_merged_and_approved(self):
+        manifest = _load_json(DRAFTS / "batch_29_a1_reinforcement_manifest.json")
+        self.assertEqual(manifest["status"], "merged")
+        self.assertEqual(manifest["provenance"]["approval"].get("authority"), "Jin")
+        self.assertTrue(manifest["promotion"]["assetsDataWritten"])
+        self.assertTrue(manifest["promotion"]["runtime"])
+
+    def test_every_headword_is_live_exactly_once(self):
+        """Every one of the batch's 64 headwords must appear in the live
+        korean_vocab.csv exactly once -- proof of a clean, non-duplicated
+        promotion."""
+        from collections import Counter
         draft_rows = _load_vocab_rows(DRAFTS / "batch_29_a1_rows.csv")
         live_rows = _load_vocab_rows(VOCAB_CSV)
-        live_korean = {r["korean"] for r in live_rows}
+        live_counts = Counter(r["korean"] for r in live_rows)
         for row in draft_rows:
-            self.assertNotIn(
-                row["korean"], live_korean,
-                f"{row['korean']} ({row['id']}) is already live -- draft should not duplicate it",
+            self.assertEqual(
+                live_counts.get(row["korean"], 0), 1,
+                f"{row['korean']} ({row['id']}) live count is "
+                f"{live_counts.get(row['korean'], 0)}, expected exactly 1",
             )
+
+    def test_every_id_is_live_with_matching_content(self):
+        """Every draft id must be present live with byte-identical content
+        (validate_promoted_batch.py's exact-equality contract)."""
+        draft_rows = {r["id"]: r for r in _load_vocab_rows(DRAFTS / "batch_29_a1_rows.csv")}
+        live_rows = {r["id"]: r for r in _load_vocab_rows(VOCAB_CSV)}
+        for vid, row in draft_rows.items():
+            self.assertIn(vid, live_rows, f"{vid} missing from live korean_vocab.csv")
+            self.assertEqual(row, live_rows[vid], f"{vid}: live row differs from reviewed draft")
 
     def test_no_overlap_with_prior_batch_words(self):
         draft_rows = _load_vocab_rows(DRAFTS / "batch_29_a1_rows.csv")
@@ -225,29 +245,32 @@ class TestBatch29VocabRows(unittest.TestCase):
         koreans = [r["korean"] for r in self.rows]
         self.assertEqual(len(koreans), len(set(koreans)))
 
-    def test_no_duplicate_korean_vs_live_csv(self):
-        live_korean = {r["korean"] for r in self.live_rows}
+    def test_no_duplicate_korean_vs_pre_batch_live_csv(self):
+        """None of the batch's headwords collide with a *different* word
+        already live before this batch was promoted (the batch's own rows
+        are excluded from the comparison set -- promotion legitimately adds
+        them once). C3-T4 (2026-09-16): renamed from
+        test_no_duplicate_korean_vs_live_csv now that Batch 29 is itself
+        live, mirroring test_batch_26_draft.py's post-promotion fix."""
+        batch_ids = {r["id"] for r in self.rows}
+        pre_batch_korean = {r["korean"] for r in self.live_rows if r["id"] not in batch_ids}
         for row in self.rows:
-            self.assertNotIn(row["korean"], live_korean)
+            self.assertNotIn(row["korean"], pre_batch_korean)
 
-    def test_all_ids_unique_and_above_live_and_prior_batches_max(self):
-        live_max = max(
-            int(r["id"].rsplit("_", 1)[1]) for r in self.live_rows if r["id"].startswith("vocab_a1_")
-        )
-        floor = live_max
-        for path in PRIOR_BATCH_CSVS:
-            prior_rows = _load_vocab_rows(path) if path.exists() else []
-            prior_max = max(
-                [int(r["id"].rsplit("_", 1)[1]) for r in prior_rows if r["id"].startswith("vocab_a1_")],
-                default=0,
-            )
-            floor = max(floor, prior_max)
+    def test_all_ids_unique_and_above_pre_batch_live_max(self):
+        # C3-T4 (2026-09-16): fixed baseline (one below this batch's own
+        # lowest id) instead of a live recomputation -- see
+        # test_batch_26_draft.py's identical fix for why exclude-own-ids
+        # breaks once a later batch is promoted on top with a higher,
+        # disjoint id range.
+        own_nums = [int(r["id"].rsplit("_", 1)[1]) for r in self.rows]
+        pre_batch_max = min(own_nums) - 1
         ids = [r["id"] for r in self.rows]
         self.assertEqual(len(ids), len(set(ids)))
         for row in self.rows:
             self.assertTrue(row["id"].startswith("vocab_a1_"))
             num = int(row["id"].rsplit("_", 1)[1])
-            self.assertGreater(num, floor)
+            self.assertGreater(num, pre_batch_max)
 
     def test_pack_ids_exist_live_or_declared_new(self):
         declared_new = {p["pack_id"] for p in self.manifest.get("newPacks", [])}
@@ -261,9 +284,26 @@ class TestBatch29VocabRows(unittest.TestCase):
         for row in self.rows:
             self.assertEqual(row["level"], "A1")
 
-    def test_is_review_boss_false(self):
+    def test_is_review_boss_matches_new_pack_convention(self):
+        # C3-T4 (2026-09-16): filled-to-12 existing packs' added rows stay
+        # is_review_boss=false (that pack's boss words were decided when
+        # it was first created); each of this batch's 6 brand-new packs
+        # needs its own 2 Boss words (validate_content.py requires every
+        # pack to have 2 or 3), assigned as the final 2 pack_order values
+        # per plan_pack_assignments.py's convention (the 4-word
+        # a1_verbs_daily_3 pack follows the same last-2 rule).
+        new_pack_ids = {p["pack_id"] for p in self.manifest.get("newPacks", [])}
+        pack_sizes: dict[str, int] = {}
         for row in self.rows:
-            self.assertEqual(row["is_review_boss"], "false")
+            pack_sizes[row["pack_id"]] = pack_sizes.get(row["pack_id"], 0) + 1
+        for row in self.rows:
+            if row["pack_id"] in new_pack_ids:
+                n = pack_sizes[row["pack_id"]]
+                boss_orders = {n - 1, n} if n >= 2 else {n}
+                expect_boss = int(row["pack_order"]) in boss_orders
+                self.assertEqual(row["is_review_boss"], "true" if expect_boss else "false")
+            else:
+                self.assertEqual(row["is_review_boss"], "false")
 
     def test_examples_are_at_most_8_eojeol(self):
         for row in self.rows:
@@ -431,24 +471,17 @@ class TestBatch29Cloze(unittest.TestCase):
         rows = _load_vocab_rows(DRAFTS / "batch_29_a1_rows.csv")
         self.assertEqual(len(self.items), len(rows))
 
-    def test_ids_unique_and_above_live_and_prior_batches_max(self):
-        live_max = max(
-            int(i["id"].rsplit("_", 1)[1]) for i in self.live_cloze if i["id"].startswith("cloze_a1_")
-        )
-        floor = live_max
-        for name in ("batch_26_a1_cloze.json", "batch_27_a1_cloze.json", "batch_28_a1_cloze.json"):
-            path = DRAFTS / name
-            items = _load_json(path)["items"] if path.exists() else []
-            prior_max = max(
-                [int(i["id"].rsplit("_", 1)[1]) for i in items if i["id"].startswith("cloze_a1_")],
-                default=0,
-            )
-            floor = max(floor, prior_max)
+    def test_ids_unique_and_above_pre_batch_live_max(self):
+        # C3-T4 (2026-09-16): fixed baseline, see the vocab-row fix above
+        # (test_batch_26_draft.py's identical fix for why a live
+        # recomputation breaks once this batch is itself promoted).
+        own_nums = [int(i["id"].rsplit("_", 1)[1]) for i in self.items]
+        pre_batch_max = min(own_nums) - 1
         ids = [i["id"] for i in self.items]
         self.assertEqual(len(ids), len(set(ids)))
         for item in self.items:
             num = int(item["id"].rsplit("_", 1)[1])
-            self.assertGreater(num, floor)
+            self.assertGreater(num, pre_batch_max)
 
     def test_answer_in_full_ko_and_sentence_is_blanked(self):
         for item in self.items:
@@ -460,6 +493,17 @@ class TestBatch29Cloze(unittest.TestCase):
     def test_exactly_three_distractors(self):
         for item in self.items:
             self.assertEqual(len(item["distractors"]), 3)
+
+    def test_answer_is_not_a_1_syllable_unfair_gap(self):
+        # C3-T4 (2026-09-16): cloze_test.dart's live-corpus rule -- a bare
+        # 1-syllable answer (a number/counter) is an unfair guess. Batch 29
+        # shipped cloze_a1_0706 ("영") before this was caught downstream;
+        # fixed to "영 도" (PR #360 Fable review).
+        for item in self.items:
+            self.assertTrue(
+                R.cloze_answer_is_fair(item["answer"]),
+                f"{item['id']}: single-syllable answer is unfair: {item['answer']!r}",
+            )
 
     def test_answer_not_substring_of_distractors(self):
         for item in self.items:
@@ -569,30 +613,33 @@ class TestBatch29Satz(unittest.TestCase):
         rows = _load_vocab_rows(DRAFTS / "batch_29_a1_rows.csv")
         self.assertEqual(len(self.items), len(rows))
 
-    def test_ids_unique_and_above_live_and_prior_batches_max(self):
-        live_max = max(
-            int(i["id"].rsplit("_", 1)[1]) for i in self.live_satz if i["id"].startswith("satz_a1_")
-        )
-        floor = live_max
-        for name in ("batch_26_a1_satz.json", "batch_27_a1_satz.json", "batch_28_a1_satz.json"):
-            path = DRAFTS / name
-            items = _load_json(path)["items"] if path.exists() else []
-            prior_max = max(
-                [int(i["id"].rsplit("_", 1)[1]) for i in items if i["id"].startswith("satz_a1_")],
-                default=0,
-            )
-            floor = max(floor, prior_max)
+    def test_ids_unique_and_above_pre_batch_live_max(self):
+        # C3-T4 (2026-09-16): fixed baseline, see the vocab-row fix above.
+        own_nums = [int(i["id"].rsplit("_", 1)[1]) for i in self.items]
+        pre_batch_max = min(own_nums) - 1
         ids = [i["id"] for i in self.items]
         self.assertEqual(len(ids), len(set(ids)))
         for item in self.items:
             num = int(item["id"].rsplit("_", 1)[1])
-            self.assertGreater(num, floor)
+            self.assertGreater(num, pre_batch_max)
 
     def test_vocab_ko_and_target_present(self):
         for item in self.items:
             self.assertTrue(item["vocabKo"])
             self.assertGreaterEqual(R.eojeol_count(item["targetKo"]), 1)
             self.assertLessEqual(R.eojeol_count(item["targetKo"]), 8)
+
+    def test_target_meets_satz_build_contract(self):
+        # C3-T4 (2026-09-16): satz_test.dart's live-corpus rule -- a
+        # targetKo under 3 space-separated tokens isn't a real drag-and-
+        # drop build exercise. Batch 29 shipped 6 two-token adjective
+        # sentences before this was caught downstream; all extended to
+        # >=3 tokens with varied, natural openers (PR #360 Fable review).
+        for item in self.items:
+            self.assertTrue(
+                R.satz_meets_build_contract(item["targetKo"]),
+                f"{item['id']}: too short to build: {item['targetKo']!r}",
+            )
 
     def test_two_distractors(self):
         for item in self.items:

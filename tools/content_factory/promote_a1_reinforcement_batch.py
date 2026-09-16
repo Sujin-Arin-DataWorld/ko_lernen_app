@@ -24,6 +24,8 @@ Run:  promote_a1_reinforcement_batch.py --batch 26 --check   (dry run)
       promote_a1_reinforcement_batch.py --batch 27 --apply
       promote_a1_reinforcement_batch.py --batch 28 --check
       promote_a1_reinforcement_batch.py --batch 28 --apply
+      promote_a1_reinforcement_batch.py --batch 29 --check
+      promote_a1_reinforcement_batch.py --batch 29 --apply
 
 Promote batches in order (lower number first) and commit between them so
 each batch's live-id-above-max invariant holds against the other's already-
@@ -43,6 +45,16 @@ audit_phase_context_evidence --check, tool/build_learning_phase_catalog.py
 F2_vocab_coverage.md diffs, and Flutter goldens (test/goldens/baselines/
 screen_vocab_packs_{compact,medium,expanded}.png -- regenerate via the
 "Regenerate goldens (manual)" GitHub Actions workflow, never locally).
+⑱ 새 팩 DE/EN 제목 등록 (C3-T4, 2026-09-16 발견 -- PR #360 CI에서만
+잡힘, 로컬 python 체크는 이 경로를 안 건드림): 새로 도입되는 pack_id의
+BASE id(끝 _N 제거)마다 lib/services/vocab_pack_service.dart의
+packDisplayMap에 (DE, EN) 쌍을 추가해야 한다 -- 이미 존재하는 base id
+(예: a1_misc_N 시리즈에 새 a1_misc_3이 붙는 경우)는 등록 불필요, 완전히
+새 base(예: a1_verbs_daily, a1_adjectives)만 필요. ARB 파일이 아니라
+빌드타임 Dart 상수 -- l10n 재생성 불필요. 안 하면 flutter test
+test/vocab_pack_test.dart의 "every shipped pack has a localized DE and
+EN title"이 실패한다 (packOrderInLevel은 없어도 통과 -- 기본값 99로
+정렬만 뒤로 밀림, 선택 사항).
 """
 from __future__ import annotations
 
@@ -80,10 +92,21 @@ APPROVAL_SOURCE = {
     26: "owner chat: 'Batch 26·27 승인'",
     27: "owner chat: 'Batch 26·27 승인'",
     28: "owner chat: 'Batch 28 승인'",
+    29: "owner chat: 'Batch 29 표본 승인'",
 }
 BATCH_SAMPLE = {26: "7/66 rows (Batch 26); Batch 27 approved together, 7/63 rows",
                  27: "7/63 rows (Batch 27); Batch 26 approved together, 7/66 rows",
-                 28: "7/63"}
+                 28: "7/63",
+                 29: "7/64"}
+# Task label per batch (26-28 were promoted together under C3-T3; 29 is
+# promoted separately under C3-T4) -- used in the memo/promotion-note text.
+TASK_LABEL = {26: "C3-T3", 27: "C3-T3", 28: "C3-T3", 29: "C3-T4"}
+TOGETHER_NOTE = {
+    26: "Batch 26·27 approved together",
+    27: "Batch 26·27 approved together",
+    28: "Batch 28 approved on its own",
+    29: "Batch 29 approved on its own (10.9% Jin sample, 7/64 rows)",
+}
 
 
 def rj(p: Path):
@@ -136,7 +159,7 @@ def main(batch: int, apply: bool) -> None:
 
     memo = (
         f"Jin 승인 2026-09-16 ({APPROVAL_SOURCE[batch]}; "
-        f"{BATCH_SAMPLE[batch]}); C3-T3 승격"
+        f"{BATCH_SAMPLE[batch]}); {TASK_LABEL[batch]} 승격"
     )
 
     live_rows = read_vocab_csv(VOCAB_CSV)
@@ -322,10 +345,10 @@ def main(batch: int, apply: bool) -> None:
         "tts": False,
         "firebase": False,
         "note": (
-            f"Promoted 2026-09-16 (C3-T3) after Jin approval (Batch 26·27 approved "
-            f"together). TTS synthesis pending -- run tool/generate_tts.py "
-            f"--missing-from-storage before this batch's audio is available (no "
-            f"OS-voice fallback)."
+            f"Promoted 2026-09-16 ({TASK_LABEL[batch]}) after Jin approval "
+            f"({TOGETHER_NOTE[batch]}). TTS synthesis pending -- run tool/"
+            f"generate_tts.py --missing-from-storage before this batch's audio "
+            f"is available (no OS-voice fallback)."
         ),
     }
     wj(manifest_path, manifest)
@@ -348,7 +371,7 @@ def main(batch: int, apply: bool) -> None:
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--batch", type=int, required=True, choices=(26, 27, 28))
+    ap.add_argument("--batch", type=int, required=True, choices=(26, 27, 28, 29))
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--check", action="store_true")
     g.add_argument("--apply", action="store_true")
