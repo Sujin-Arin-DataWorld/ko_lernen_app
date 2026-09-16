@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/grammar.dart';
 import 'package:ko_lernen_app/models/media_phrase.dart';
+import 'package:ko_lernen_app/models/usage_note.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 
@@ -94,6 +95,28 @@ void main() {
             ],
           }),
           label: (entry) => (entry as MediaPhrase).korean,
+        ),
+        (
+          name: 'usage notes',
+          asset: 'assets/data/usage_notes.json',
+          load: DataLoader.loadUsageNotes,
+          reset: DataLoader.resetUsageNotes,
+          content: (label) => jsonEncode({
+            'schemaVersion': 1,
+            'notes': [
+              {
+                'id': label,
+                'level': 'B1',
+                'nuance': {'ko': '뜻', 'de': 'Nuance', 'en': 'nuance'},
+                'situation': {'ko': '상황', 'de': 'Situation', 'en': 'situation'},
+                'examples': [
+                  {'ko': 'ex1', 'de': 'bsp1', 'en': 'ex1', 'register': 'formal'},
+                  {'ko': 'ex2', 'de': 'bsp2', 'en': 'ex2', 'register': 'casual'},
+                ],
+              },
+            ],
+          }),
+          label: (entry) => (entry as UsageNote).id,
         ),
       ];
 
@@ -238,4 +261,58 @@ void main() {
       }
     });
   }
+
+  // C9-T0: usage-notes-specific behavior not covered by the generic table
+  // above -- the id-keyed convenience map, and the "file missing entirely"
+  // offline-safe fallback (distinct from "file exists but reads fail",
+  // which the generic 'failed reads stay cached' case above already covers).
+  group('usage notes', () {
+    tearDown(() {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMessageHandler('flutter/assets', null);
+      rootBundle.clear();
+      DataLoader.reset();
+    });
+
+    test('loadUsageNotesById indexes by id', () async {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMessageHandler('flutter/assets', (message) async {
+            return ByteData.sublistView(
+              Uint8List.fromList(
+                utf8.encode(
+                  jsonEncode({
+                    'schemaVersion': 1,
+                    'notes': [
+                      {
+                        'id': 'vocab_b1_0001',
+                        'level': 'B1',
+                        'nuance': {'ko': 'a', 'de': 'a', 'en': 'a'},
+                        'situation': {'ko': 'a', 'de': 'a', 'en': 'a'},
+                        'examples': [
+                          {'ko': 'a', 'de': 'a', 'en': 'a', 'register': 'formal'},
+                          {'ko': 'b', 'de': 'b', 'en': 'b', 'register': 'casual'},
+                        ],
+                      },
+                    ],
+                  }),
+                ),
+              ),
+            );
+          });
+
+      final byId = await DataLoader.loadUsageNotesById();
+
+      expect(byId.keys, ['vocab_b1_0001']);
+      expect(byId['vocab_b1_0001']!.examples, hasLength(2));
+      expect(byId['vocab_no_such_id'], isNull);
+    });
+
+    test('a missing usage_notes.json asset resolves to empty, not a crash', () async {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMessageHandler('flutter/assets', (message) async => null);
+
+      expect(await DataLoader.loadUsageNotes(), isEmpty);
+      expect(await DataLoader.loadUsageNotesById(), isEmpty);
+    });
+  });
 }
