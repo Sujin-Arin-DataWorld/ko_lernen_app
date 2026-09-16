@@ -1,0 +1,141 @@
+{
+  "version": 2,
+  "batch": "c3_batch32_a2_reinforcement",
+  "status": "draft",
+  "provenance": {
+    "scope": "A2(2급) vocabulary reinforcement -- SECOND A2 batch in the C3 series -- 64 headwords (52 nouns, 10 verbs, 2 adjectives) from the NIKL KIIQ 2017 grade-2 gap list (not yet live at any level, not in Batch 25-30's A1 drafts or Batch 31's A2 draft). Every live A2 pack that was still under 12/12 was already filled by Batch 31's draft (27 packs -> 12/12 + a2_messenger_phone_1 partial); this batch therefore creates 5 new FULL packs by topic (Körper/body, a 3rd food/drink pack, Kleidung/clothing, Reisen/travel, a school/education pack) plus 1 new PARTIAL pack (general daily-life verbs, 4/12). Original clean-room authoring (KO/DE/EN), seeded only by NIKL 2017 kiiq grade-2 headword selection (KOGL Type-1) and docs/data/sejong/syllabus_sejong2.json unit topics for prioritization. Follows the persona (character_profiles.json recurringCharacters) rules, docs/CONTENT_LEVEL_BIBLE.md §B.2 (A2 sentence/grammar/vocabulary ceiling) and docs/CONTENT_PERSONA_VOICE.md (A2 반말 transitions / short idioms) set for this level.",
+    "rights": "original_clean_room",
+    "seedSource": "tools/content_factory/lexicon/nikl_kiiq_2017_vocab.csv (grade=2, minus live assets/data/korean_vocab.csv at ANY level, minus tools/content_factory/drafts/batch_25..30_a1_rows.csv, minus tools/content_factory/drafts/batch_31_a2_rows.csv); topic priority cross-referenced against docs/data/sejong/syllabus_sejong2.json (Sejong 2 = A2 unit vocabulary lists).",
+    "requiresJinReview": true,
+    "approval": {},
+    "modelLanguageQa": "PENDING_FABLE_REVIEW",
+    "humanLanguageQaClaim": false,
+    "wordSourceNote": "NIKL grade-2 non-affix headwords total 1085 unique strings; removing everything already live at any level (2818 rows) or present in the Batch 25-30 A1 drafts or the Batch 31 A2 draft leaves a gap of 727 headwords (matches Batch 31's own post-batch remainingA2Gap.count of 727 exactly, confirming no drift). This is the SECOND A2 batch against that gap, so 727-64=663 remain for future batches. Selection order: (1) checked whether any live A2 pack was still under 12/12 after Batch 31's draft -- none were (Batch 31's draft already claims enough words to bring all 27 previously-under-12 packs to 12/12); (2) therefore built 5 new FULL topic packs (Körper/body -- 10 body-part nouns + 2 body-function verbs; a 3rd food/drink pack -- 10 Korean dish/ingredient nouns + 2 cooking verbs, since a2_food_1/a2_food_2 both reached 12/12 in Batch 31's draft; Kleidung/clothing -- 10 garment/accessory nouns + 2 colour adjectives, a topic with no live/drafted A2 pack yet; Reisen/travel -- 11 trip-planning nouns + 1 departure verb, also no live/drafted A2 pack yet; a school/education-institution pack -- 11 nouns + 1 verb, since a2_education reached 12/12 in Batch 31's draft) from the broader grade-2 gap list, matching words to each new pack's topic; (3) the remaining word-count budget (64-60=4) went to one new PARTIAL pack, a2_daily_actions_1, of general daily-life verbs (믿다/참다/잊다/흔들다) not tied to any of the 5 topic packs.",
+    "sejongCitationNote": "Direct grade-2 headword hits from docs/data/sejong/syllabus_sejong2.json (candidate == a single token extracted from a unit's multi-word vocab entry), cross-checked against this batch's own gap computation: unit9 긴장(되다); unit10 바르다(예의 바르다); unit11 박수, 자리, 줄(을 서다); unit12 새벽; unit14 자신, 정확(하다) -- 8 total. NONE of these 8 were used in this batch: 박수/자리/자신 were already noted as leftover by Batch 31 (its a2_messenger_phone_1 slot only needed 6 of its own 15 Sejong-citable words); 긴장/바르다/줄/새벽/정확 did not fit this batch's 6 chosen pack topics (body/food/clothing/travel/school/daily-actions) as cleanly as the words actually used, so all 8 remain in the grade-2 gap pool for a future batch. This batch's own 6 pack topics (body parts, a 3rd food/drink pack, clothing, travel, school/education, daily-action verbs) were chosen from the broader grade-2 gap list directly rather than from a Sejong-2 unit citation, since Sejong-2's own topic units (travel = unit8, clothing/colour = not a dedicated unit) turned out to skew heavily toward grade 3-5 on inspection -- e.g. ALL of unit8's travel nouns (기념품/목적지/시차/왕복/편도/유적지/출발지/숙소 후기) are already grade 3+ or already live, confirming the Q-S report's finding (docs/data/sejong/REPORT_2026-09-16.md) that a Sejong-textbook unit's nominal level and a word's actual NIKL frequency grade frequently diverge -- this batch used the NIKL grade as the authoritative ceiling, per docs/CONTENT_LEVEL_BIBLE.md §B.2, not the Sejong unit number.",
+    "tierNote": "Cloze distractors: Tier A (63/64 items) = real semantically-clashing words, chosen per-item for that specific frame's own selectional restriction, drawn predominantly from this batch's OWN cross-pack headwords (a food/clothing/travel/school noun clashes cleanly with a body-pain frame and vice versa, since these are mutually exclusive concrete domains) plus a few standing live A1 nouns for extra variety. Verb/adjective items with a fixed accusative object (or nominalized clause with 걸/것을) before the blank use a same-tense INTRANSITIVE verb (구조상 목적어를 받을 수 없어 이중으로 비문이 됨, batch31의 검증된 기법과 동일: 가다/오다/자다/서다/앉다/웃다/걷다/울다/먹다/씻다/만나다 pool, rotated per item so no distractor word is reused more than 4 times); the two taste/texture-adjective items (까맣다/하얗다) use the same 짜다/시다/맵다 taste-adjective pool batch31 proved safe for a non-food subject; 끓다 (찌개가 ___으면, inanimate-subject conditional) uses the same -으면 ending on other intransitive verbs (가면/오면/자면-- 찌개 cannot literally go/come/sleep; 오면 carries a documented soft residual risk, see the review packet's uncertainty section). Tier B (1/64): 초등학생 (준은 올해 ___이 됐어요 -- a person-subject + profession/status-noun copula-become frame; any other profession noun there is grammatically/semantically VALID Korean, just factually surprising for a 9-year-old -- the same open-predicate class distractor_rules.py's PREDICATE_SLOT_WAIVER docstring names for '가족이 ___예요'-type frames, so dictionary-form verbs 가다/오다/보다 are used instead, which cannot occupy the copula-subject slot at all).",
+    "grammarNote": "All 64 examples pass the CefrLexicon-based grade>=3 scan (tools/content_factory/scan_grammar_level.py --level A2's own detector, reused directly by this batch's test) with zero flagged hits. A2(2급) grammar is used explicitly in several rows: -으면 (끓다 '끓으면'), -지만 (튼튼한 예시 없음 -- 이 배치는 미사용), -는 것/걸 (잊다 '챙기는 걸 잊었어요'), -게 (썰다 '잘게 썰어서'), -아/어서 causal chaining throughout (어깨/가슴/허리/발가락/발바닥/혀/손바닥/이마), -을/ㄹ 거예요 (학기 '들을 거예요'), 반말 -어/-았어 (믿다 '믿어', 수진-크리스티안 커플 규칙). The corpus was manually grepped for 잖아/뿐/만큼/대로/어도/어야/는다 (GrammarIndex's own <=2-syllable short-fragment anti-overmatch gap, per scan_grammar_level.py's docstring) during authoring; none were found.",
+    "vocabCeilingNote": "docs/CONTENT_LEVEL_BIBLE.md §B.2 ⑤ allows <=1 word per sentence outside the 1-2급 vocabulary ceiling. This batch used ZERO such exceptions -- every helper word in all 64 examples resolves to NIKL grade<=2 or the live vocabulary, verified via tools/content_factory/a2_draft_rules.py's helper-word scanner applied to all 64 rows."
+  },
+  "posRules": {
+    "cross_pack_tier_a": "50/64 items are noun-particle-fold or same-ending verb/adjective rows whose distractors are drawn from this batch's OTHER 5 pack topics (or a small set of standing live A1 concrete nouns) -- e.g. a body-pain frame ('OOO가 아파요') is cleanly failed by a food/clothing/travel/school noun (a bowl of soup or an academy cannot hurt), and a clothing-wearing frame ('OOO를 입었어요') is cleanly failed by a body-part or abstract-institution noun (you cannot wear a shoulder or a semester). Each distractor independently carries the correct particle allomorph for its OWN final sound (verified via distractor_rules.batchim_class).",
+    "intransitive_verb_tier_a": "8/64 items are verbs/adjectives with a fixed accusative object (또는 명사절 걸/것을) before the blank; distractors are a same-tense INTRANSITIVE verb drawn from an 8-word pool (가다/오다/자다/서다/앉다/웃다/걷다/울다), rotated per item so no single distractor word is reused more than 4 times -- structurally guaranteed invalid (an intransitive verb cannot follow a fixed accusative-marked object), not just semantically odd.",
+    "taste_adjective_tier_a": "2/64 items (까맣다/하얗다) use a 짜다/시다/맵다/셔요/매워요 taste-adjective distractor pool on a subject (a suitcase, the whole world) that cannot have a taste, mirroring Batch 31's proven technique for colour/quality adjectives.",
+    "open_frame_tier_b": "1/64 item (초등학생) uses a bare dictionary-form-verb pool because a same-shape real-word swap (any other profession/status noun) would itself be grammatically/semantically valid there (see provenance.tierNote for the per-item reasoning)."
+  },
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/batch_32_a2_rows.csv",
+      "collection": "korean_vocab",
+      "count": 64,
+      "level": "A2"
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/batch_32_a2_cloze.json",
+      "collection": "cloze_items",
+      "count": 64
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/batch_32_a2_satz.json",
+      "collection": "satz_sentences",
+      "count": 64
+    }
+  ],
+  "recordCount": 64,
+  "tierCounts": {
+    "tierA": 63,
+    "tierB": 1
+  },
+  "packsFilledTo12": [],
+  "packsLeftUnfilled": [],
+  "newPacks": [
+    {
+      "pack_id": "a2_body_1",
+      "displayName": {
+        "de": "Körper 1",
+        "en": "Body 1"
+      },
+      "wordCount": 12,
+      "note": "NIKL grade-2 gap words for body parts/body functions -- no live A2 pack covered this topic yet."
+    },
+    {
+      "pack_id": "a2_food_3",
+      "displayName": {
+        "de": "Essen & Trinken 3",
+        "en": "Food & Drink 3"
+      },
+      "wordCount": 12,
+      "note": "a2_food_1/a2_food_2 both reached 12/12 in Batch 31's draft; this is a new food/drink pack from the grade-2 gap (Korean dishes/ingredients)."
+    },
+    {
+      "pack_id": "a2_clothing_1",
+      "displayName": {
+        "de": "Kleidung 1",
+        "en": "Clothing 1"
+      },
+      "wordCount": 12,
+      "note": "No live/drafted A2 pack covered clothing items yet; NIKL grade-2 gap words for garments + 2 basic colour adjectives."
+    },
+    {
+      "pack_id": "a2_travel_1",
+      "displayName": {
+        "de": "Reisen 1",
+        "en": "Travel 1"
+      },
+      "wordCount": 12,
+      "note": "No live/drafted A2 pack covered travel-specific vocabulary yet (a2_partner_hometown_trip_1 is family-visit themed, not travel-logistics); NIKL grade-2 gap words for trip planning/tickets."
+    },
+    {
+      "pack_id": "a2_school_1",
+      "displayName": {
+        "de": "Schule & Bildung 1",
+        "en": "School & Education 1"
+      },
+      "wordCount": 12,
+      "note": "a2_education (live) reached 12/12 in Batch 31's draft; this is a new school/education-institution pack from the grade-2 gap."
+    },
+    {
+      "pack_id": "a2_daily_actions_1",
+      "displayName": {
+        "de": "Alltagshandlungen 1",
+        "en": "Daily Actions 1"
+      },
+      "wordCount": 4,
+      "note": "PARTIAL pack (4/12): general daily-life verbs (믿다/참다/잊다/흔들다) from the grade-2 gap not needed to complete the 5 full packs above. Word count kept to exactly 4 to land the batch total at 64 (within the 64+/-4 target); the remaining 8 slots are deferred to a future batch (course-unit/motif assignment also deferred to promotion)."
+    }
+  ],
+  "remainingA2Gap": {
+    "count": 663,
+    "note": "727 NIKL grade-2 headwords were unclaimed by any live level, the A1 drafts (Batch 25-30), or the Batch 31 A2 draft before this batch (matches Batch 31's own post-batch remainingA2Gap.count exactly -- see provenance.wordSourceNote). 64 claimed here, 663 remain for future A2 reinforcement batches (Batch 33+)."
+  },
+  "personaRowsNote": "12 rows carry an attributed canonical persona (>=8 required, <=2 uses per persona): daniel x2, jun x2, andrea x2, hyuna x2, christian x2, maya x1, lena x1. One row (믿다) is written in A2 반말 between 수진 (implicit, unnamed 나) and 크리스티안, per the 수진<->크리스티안 canon exception.",
+  "personaRows": {
+    "vocab_a2_0571": "daniel",
+    "vocab_a2_0577": "maya",
+    "vocab_a2_0594": "lena",
+    "vocab_a2_0598": "jun",
+    "vocab_a2_0601": "andrea",
+    "vocab_a2_0610": "daniel",
+    "vocab_a2_0617": "hyuna",
+    "vocab_a2_0619": "jun",
+    "vocab_a2_0620": "hyuna",
+    "vocab_a2_0625": "andrea",
+    "vocab_a2_0628": "christian",
+    "vocab_a2_0631": "christian"
+  },
+  "openerDistribution": {
+    "reactionOpeners": 0,
+    "wooriGachi": 0,
+    "jinjja": 0,
+    "note": "No rows open with 와/아/음/네/좋아요, no '우리 같이', no '진짜' (정말 used throughout)."
+  },
+  "reviewPacket": "docs/data/review_packets/batch_32_a2_jin_sample.md",
+  "promotion": {
+    "assetsDataWritten": false,
+    "runtime": false,
+    "tts": false,
+    "firebase": false
+  }
+}

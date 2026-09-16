@@ -1,0 +1,772 @@
+{
+  "items": [
+    {
+      "id": "cloze_a2_0375",
+      "sourceVocabId": "vocab_a2_0568",
+      "fullKo": "가방이 너무 무거워서 어깨가 아파요.",
+      "sentenceKo": "가방이 너무 무거워서 ＿＿＿ 아파요.",
+      "answer": "어깨가",
+      "distractors": [
+        "두부가",
+        "소고기가",
+        "오이가"
+      ]
+    },
+    {
+      "id": "cloze_a2_0376",
+      "sourceVocabId": "vocab_a2_0569",
+      "fullKo": "너무 뛰어서 가슴이 아파요.",
+      "sentenceKo": "너무 뛰어서 ＿＿＿ 아파요.",
+      "answer": "가슴이",
+      "distractors": [
+        "학원이",
+        "볶음밥이",
+        "항공권이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0377",
+      "sourceVocabId": "vocab_a2_0570",
+      "fullKo": "의자에 오래 앉아서 허리가 아파요.",
+      "sentenceKo": "의자에 오래 앉아서 ＿＿＿ 아파요.",
+      "answer": "허리가",
+      "distractors": [
+        "청바지가",
+        "스카프가",
+        "학기가"
+      ]
+    },
+    {
+      "id": "cloze_a2_0378",
+      "sourceVocabId": "vocab_a2_0571",
+      "fullKo": "다니엘 씨는 손가락이 길어요.",
+      "sentenceKo": "다니엘 씨는 ＿＿＿ 길어요.",
+      "answer": "손가락이",
+      "distractors": [
+        "유치원이",
+        "관광객이",
+        "볶음밥이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0379",
+      "sourceVocabId": "vocab_a2_0572",
+      "fullKo": "긴장해서 손바닥에 땀이 났어요.",
+      "sentenceKo": "긴장해서 ＿＿＿ 땀이 났어요.",
+      "answer": "손바닥에",
+      "distractors": [
+        "옷장에",
+        "기차역에",
+        "학원에"
+      ]
+    },
+    {
+      "id": "cloze_a2_0380",
+      "sourceVocabId": "vocab_a2_0573",
+      "fullKo": "신발이 작아서 발가락이 아파요.",
+      "sentenceKo": "신발이 작아서 ＿＿＿ 아파요.",
+      "answer": "발가락이",
+      "distractors": [
+        "기차표가",
+        "스웨터가",
+        "학기가"
+      ]
+    },
+    {
+      "id": "cloze_a2_0381",
+      "sourceVocabId": "vocab_a2_0574",
+      "fullKo": "많이 걸어서 발바닥이 아파요.",
+      "sentenceKo": "많이 걸어서 ＿＿＿ 아파요.",
+      "answer": "발바닥이",
+      "distractors": [
+        "관광지가",
+        "예매가",
+        "학기가"
+      ]
+    },
+    {
+      "id": "cloze_a2_0382",
+      "sourceVocabId": "vocab_a2_0575",
+      "fullKo": "이마에 땀이 많이 났어요.",
+      "sentenceKo": "＿＿＿ 땀이 많이 났어요.",
+      "answer": "이마에",
+      "distractors": [
+        "학원에",
+        "기차역에",
+        "옷장에"
+      ]
+    },
+    {
+      "id": "cloze_a2_0383",
+      "sourceVocabId": "vocab_a2_0576",
+      "fullKo": "매운 음식을 먹어서 혀가 아파요.",
+      "sentenceKo": "매운 음식을 먹어서 ＿＿＿ 아파요.",
+      "answer": "혀가",
+      "distractors": [
+        "청바지가",
+        "스웨터가",
+        "관광지가"
+      ]
+    },
+    {
+      "id": "cloze_a2_0384",
+      "sourceVocabId": "vocab_a2_0577",
+      "fullKo": "마야 씨는 목소리가 정말 커요.",
+      "sentenceKo": "마야 씨는 ＿＿＿ 정말 커요.",
+      "answer": "목소리가",
+      "distractors": [
+        "항공권이",
+        "대학원이",
+        "볶음밥이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0385",
+      "sourceVocabId": "vocab_a2_0578",
+      "fullKo": "너무 피곤해서 침대에 누웠어요.",
+      "sentenceKo": "너무 피곤해서 침대에 ＿＿＿.",
+      "answer": "누웠어요",
+      "distractors": [
+        "먹었어요",
+        "씻었어요",
+        "만났어요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0386",
+      "sourceVocabId": "vocab_a2_0579",
+      "fullKo": "날씨가 더워서 땀을 많이 흘렸어요.",
+      "sentenceKo": "날씨가 더워서 땀을 많이 ＿＿＿.",
+      "answer": "흘렸어요",
+      "distractors": [
+        "갔어요",
+        "왔어요",
+        "잤어요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0387",
+      "sourceVocabId": "vocab_a2_0580",
+      "fullKo": "여름에는 시원한 국수를 자주 먹어요.",
+      "sentenceKo": "여름에는 시원한 ＿＿＿ 자주 먹어요.",
+      "answer": "국수를",
+      "distractors": [
+        "관광지를",
+        "목걸이를",
+        "속옷을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0388",
+      "sourceVocabId": "vocab_a2_0581",
+      "fullKo": "비빔밥에 고추장을 넣어요.",
+      "sentenceKo": "비빔밥에 ＿＿＿ 넣어요.",
+      "answer": "고추장을",
+      "distractors": [
+        "목걸이를",
+        "예매를",
+        "청바지를"
+      ]
+    },
+    {
+      "id": "cloze_a2_0389",
+      "sourceVocabId": "vocab_a2_0582",
+      "fullKo": "저희 어머니는 된장을 직접 만드세요.",
+      "sentenceKo": "저희 어머니는 ＿＿＿ 직접 만드세요.",
+      "answer": "된장을",
+      "distractors": [
+        "유치원을",
+        "결석을",
+        "항공권을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0390",
+      "sourceVocabId": "vocab_a2_0583",
+      "fullKo": "찌개에 두부를 많이 넣었어요.",
+      "sentenceKo": "찌개에 ＿＿＿ 많이 넣었어요.",
+      "answer": "두부를",
+      "distractors": [
+        "항공권을",
+        "화장품을",
+        "대학원을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0391",
+      "sourceVocabId": "vocab_a2_0584",
+      "fullKo": "주말에 친구들이랑 삼겹살을 구워 먹었어요.",
+      "sentenceKo": "주말에 친구들이랑 ＿＿＿ 구워 먹었어요.",
+      "answer": "삼겹살을",
+      "distractors": [
+        "기차표를",
+        "목걸이를",
+        "결석을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0392",
+      "sourceVocabId": "vocab_a2_0585",
+      "fullKo": "남은 김치로 볶음밥을 만들었어요.",
+      "sentenceKo": "남은 김치로 ＿＿＿ 만들었어요.",
+      "answer": "볶음밥을",
+      "distractors": [
+        "관광지를",
+        "속옷을",
+        "학원을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0393",
+      "sourceVocabId": "vocab_a2_0586",
+      "fullKo": "추운 날에는 뜨거운 설렁탕이 최고예요.",
+      "sentenceKo": "추운 날에는 뜨거운 ＿＿＿ 최고예요.",
+      "answer": "설렁탕이",
+      "distractors": [
+        "대학원이",
+        "속옷이",
+        "결석이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0394",
+      "sourceVocabId": "vocab_a2_0587",
+      "fullKo": "생일에는 가족이 소고기를 먹어요.",
+      "sentenceKo": "생일에는 가족이 ＿＿＿ 먹어요.",
+      "answer": "소고기를",
+      "distractors": [
+        "기차표를",
+        "속옷을",
+        "예매를"
+      ]
+    },
+    {
+      "id": "cloze_a2_0395",
+      "sourceVocabId": "vocab_a2_0588",
+      "fullKo": "비 오는 날에는 뜨거운 우동이 최고예요.",
+      "sentenceKo": "비 오는 날에는 뜨거운 ＿＿＿ 최고예요.",
+      "answer": "우동이",
+      "distractors": [
+        "결석이",
+        "화장품이",
+        "항공권이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0396",
+      "sourceVocabId": "vocab_a2_0589",
+      "fullKo": "여름에는 시원한 오이를 많이 먹어요.",
+      "sentenceKo": "여름에는 시원한 ＿＿＿ 많이 먹어요.",
+      "answer": "오이를",
+      "distractors": [
+        "관광지를",
+        "학원을",
+        "화장품을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0397",
+      "sourceVocabId": "vocab_a2_0590",
+      "fullKo": "찌개가 끓으면 불을 줄여 주세요.",
+      "sentenceKo": "찌개가 ＿＿＿ 불을 줄여 주세요.",
+      "answer": "끓으면",
+      "distractors": [
+        "가면",
+        "오면",
+        "자면"
+      ]
+    },
+    {
+      "id": "cloze_a2_0398",
+      "sourceVocabId": "vocab_a2_0591",
+      "fullKo": "두부를 잘게 썰어서 찌개에 넣었어요.",
+      "sentenceKo": "두부를 잘게 ＿＿＿ 찌개에 넣었어요.",
+      "answer": "썰어서",
+      "distractors": [
+        "가서",
+        "와서",
+        "자서"
+      ]
+    },
+    {
+      "id": "cloze_a2_0399",
+      "sourceVocabId": "vocab_a2_0592",
+      "fullKo": "면접이라서 하얀 블라우스를 입었어요.",
+      "sentenceKo": "면접이라서 하얀 ＿＿＿ 입었어요.",
+      "answer": "블라우스를",
+      "distractors": [
+        "기차표를",
+        "결석을",
+        "예매를"
+      ]
+    },
+    {
+      "id": "cloze_a2_0400",
+      "sourceVocabId": "vocab_a2_0593",
+      "fullKo": "날씨가 추워져서 스웨터를 꺼냈어요.",
+      "sentenceKo": "날씨가 추워져서 ＿＿＿ 꺼냈어요.",
+      "answer": "스웨터를",
+      "distractors": [
+        "관광지를",
+        "허리를",
+        "대학원을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0401",
+      "sourceVocabId": "vocab_a2_0594",
+      "fullKo": "레나 씨가 목에 노란 스카프를 맸어요.",
+      "sentenceKo": "레나 씨가 목에 노란 ＿＿＿ 맸어요.",
+      "answer": "스카프를",
+      "distractors": [
+        "기차역을",
+        "이마를",
+        "두부를"
+      ]
+    },
+    {
+      "id": "cloze_a2_0402",
+      "sourceVocabId": "vocab_a2_0595",
+      "fullKo": "여행 가방에 속옷부터 넣었어요.",
+      "sentenceKo": "여행 가방에 ＿＿＿ 넣었어요.",
+      "answer": "속옷부터",
+      "distractors": [
+        "관광지부터",
+        "학기부터",
+        "설렁탕부터"
+      ]
+    },
+    {
+      "id": "cloze_a2_0403",
+      "sourceVocabId": "vocab_a2_0596",
+      "fullKo": "바다에 가서 수영복으로 갈아입었어요.",
+      "sentenceKo": "바다에 가서 ＿＿＿ 갈아입었어요.",
+      "answer": "수영복으로",
+      "distractors": [
+        "기차역으로",
+        "학원으로",
+        "관광지로"
+      ]
+    },
+    {
+      "id": "cloze_a2_0404",
+      "sourceVocabId": "vocab_a2_0597",
+      "fullKo": "회사에 다닐 때는 매일 와이셔츠를 입어요.",
+      "sentenceKo": "회사에 다닐 때는 매일 ＿＿＿ 입어요.",
+      "answer": "와이셔츠를",
+      "distractors": [
+        "항공권을",
+        "허리를",
+        "된장을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0405",
+      "sourceVocabId": "vocab_a2_0598",
+      "fullKo": "준은 청바지를 입고 공원에 갔어요.",
+      "sentenceKo": "준은 ＿＿＿ 입고 공원에 갔어요.",
+      "answer": "청바지를",
+      "distractors": [
+        "관광객을",
+        "손가락을",
+        "설렁탕을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0406",
+      "sourceVocabId": "vocab_a2_0599",
+      "fullKo": "이 옷을 옷장 안에 넣었어요.",
+      "sentenceKo": "이 옷을 ＿＿＿ 안에 넣었어요.",
+      "answer": "옷장",
+      "distractors": [
+        "볶음밥",
+        "설렁탕",
+        "화장품"
+      ]
+    },
+    {
+      "id": "cloze_a2_0407",
+      "sourceVocabId": "vocab_a2_0600",
+      "fullKo": "생일 선물로 목걸이를 받았어요.",
+      "sentenceKo": "생일 선물로 ＿＿＿ 받았어요.",
+      "answer": "목걸이를",
+      "distractors": [
+        "대학원을",
+        "손바닥을",
+        "설렁탕을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0408",
+      "sourceVocabId": "vocab_a2_0601",
+      "fullKo": "안드레아 씨는 화장품을 별로 안 써요.",
+      "sentenceKo": "안드레아 씨는 ＿＿＿ 별로 안 써요.",
+      "answer": "화장품을",
+      "distractors": [
+        "기차표를",
+        "유치원을",
+        "속옷을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0409",
+      "sourceVocabId": "vocab_a2_0602",
+      "fullKo": "제 여행 가방은 까매요.",
+      "sentenceKo": "제 여행 가방은 ＿＿＿.",
+      "answer": "까매요",
+      "distractors": [
+        "짜요",
+        "셔요",
+        "매워요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0410",
+      "sourceVocabId": "vocab_a2_0603",
+      "fullKo": "눈이 와서 온 세상이 하얘요.",
+      "sentenceKo": "눈이 와서 온 세상이 ＿＿＿.",
+      "answer": "하얘요",
+      "distractors": [
+        "짜요",
+        "셔요",
+        "매워요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0411",
+      "sourceVocabId": "vocab_a2_0604",
+      "fullKo": "이 거리에는 관광객이 사진을 많이 찍어요.",
+      "sentenceKo": "이 거리에는 ＿＿＿ 사진을 많이 찍어요.",
+      "answer": "관광객이",
+      "distractors": [
+        "설렁탕이",
+        "속옷이",
+        "결석이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0412",
+      "sourceVocabId": "vocab_a2_0605",
+      "fullKo": "여기가 이 도시에서 제일 인기 있는 관광지예요.",
+      "sentenceKo": "여기가 이 도시에서 제일 인기 있는 ＿＿＿.",
+      "answer": "관광지예요",
+      "distractors": [
+        "약사예요",
+        "교사예요",
+        "간호사예요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0413",
+      "sourceVocabId": "vocab_a2_0606",
+      "fullKo": "이번 여행지는 제주도로 정했어요.",
+      "sentenceKo": "이번 ＿＿＿ 제주도로 정했어요.",
+      "answer": "여행지는",
+      "distractors": [
+        "화장품은",
+        "설렁탕은",
+        "결석은"
+      ]
+    },
+    {
+      "id": "cloze_a2_0414",
+      "sourceVocabId": "vocab_a2_0607",
+      "fullKo": "다음 휴가에는 해외로 나가고 싶어요.",
+      "sentenceKo": "다음 휴가에는 ＿＿＿ 나가고 싶어요.",
+      "answer": "해외로",
+      "distractors": [
+        "학원으로",
+        "옷장으로",
+        "부엌으로"
+      ]
+    },
+    {
+      "id": "cloze_a2_0415",
+      "sourceVocabId": "vocab_a2_0608",
+      "fullKo": "이번 여름에 처음으로 해외여행을 가요.",
+      "sentenceKo": "이번 여름에 처음으로 ＿＿＿ 가요.",
+      "answer": "해외여행을",
+      "distractors": [
+        "화장품을",
+        "볶음밥을",
+        "손바닥을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0416",
+      "sourceVocabId": "vocab_a2_0609",
+      "fullKo": "이번에는 국내 여행지를 먼저 알아봤어요.",
+      "sentenceKo": "이번에는 ＿＿＿ 여행지를 먼저 알아봤어요.",
+      "answer": "국내",
+      "distractors": [
+        "설렁탕",
+        "화장품",
+        "속옷"
+      ]
+    },
+    {
+      "id": "cloze_a2_0417",
+      "sourceVocabId": "vocab_a2_0610",
+      "fullKo": "다니엘 씨는 국제 학교에서 일해요.",
+      "sentenceKo": "다니엘 씨는 ＿＿＿ 학교에서 일해요.",
+      "answer": "국제",
+      "distractors": [
+        "결석",
+        "설렁탕",
+        "속옷"
+      ]
+    },
+    {
+      "id": "cloze_a2_0418",
+      "sourceVocabId": "vocab_a2_0611",
+      "fullKo": "기차역까지 택시로 십 분쯤 걸려요.",
+      "sentenceKo": "＿＿＿ 택시로 십 분쯤 걸려요.",
+      "answer": "기차역까지",
+      "distractors": [
+        "옷장까지",
+        "학기까지",
+        "결석까지"
+      ]
+    },
+    {
+      "id": "cloze_a2_0419",
+      "sourceVocabId": "vocab_a2_0612",
+      "fullKo": "기차표가 없어서 기차를 못 탔어요.",
+      "sentenceKo": "＿＿＿ 없어서 기차를 못 탔어요.",
+      "answer": "기차표가",
+      "distractors": [
+        "소고기가",
+        "목걸이가",
+        "된장이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0420",
+      "sourceVocabId": "vocab_a2_0613",
+      "fullKo": "항공권을 미리 예매했어요.",
+      "sentenceKo": "＿＿＿ 미리 예매했어요.",
+      "answer": "항공권을",
+      "distractors": [
+        "소고기를",
+        "결석을",
+        "목걸이를"
+      ]
+    },
+    {
+      "id": "cloze_a2_0421",
+      "sourceVocabId": "vocab_a2_0614",
+      "fullKo": "그 공연은 예매가 벌써 끝났어요.",
+      "sentenceKo": "그 공연은 ＿＿＿ 벌써 끝났어요.",
+      "answer": "예매가",
+      "distractors": [
+        "볶음밥이",
+        "속옷이",
+        "목걸이가"
+      ]
+    },
+    {
+      "id": "cloze_a2_0422",
+      "sourceVocabId": "vocab_a2_0615",
+      "fullKo": "내일 아침 일찍 여행을 떠나요.",
+      "sentenceKo": "내일 아침 일찍 여행을 ＿＿＿.",
+      "answer": "떠나요",
+      "distractors": [
+        "와요",
+        "자요",
+        "앉아요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0423",
+      "sourceVocabId": "vocab_a2_0616",
+      "fullKo": "저는 고등학교 때 농구를 했어요.",
+      "sentenceKo": "저는 ＿＿＿ 때 농구를 했어요.",
+      "answer": "고등학교",
+      "distractors": [
+        "설렁탕",
+        "화장품",
+        "옷장"
+      ]
+    },
+    {
+      "id": "cloze_a2_0424",
+      "sourceVocabId": "vocab_a2_0617",
+      "fullKo": "현아 씨 동생은 중학교에 다녀요.",
+      "sentenceKo": "현아 씨 동생은 ＿＿＿ 다녀요.",
+      "answer": "중학교에",
+      "distractors": [
+        "볶음밥에",
+        "목걸이에",
+        "결석에"
+      ]
+    },
+    {
+      "id": "cloze_a2_0425",
+      "sourceVocabId": "vocab_a2_0618",
+      "fullKo": "이 아이는 올해 초등학교에 입학했어요.",
+      "sentenceKo": "이 아이는 올해 ＿＿＿ 입학했어요.",
+      "answer": "초등학교에",
+      "distractors": [
+        "기차역에",
+        "관광지에",
+        "옷장에"
+      ]
+    },
+    {
+      "id": "cloze_a2_0426",
+      "sourceVocabId": "vocab_a2_0619",
+      "fullKo": "준은 올해 초등학생이 됐어요.",
+      "sentenceKo": "준은 올해 ＿＿＿ 됐어요.",
+      "answer": "초등학생이",
+      "distractors": [
+        "가다",
+        "오다",
+        "보다"
+      ]
+    },
+    {
+      "id": "cloze_a2_0427",
+      "sourceVocabId": "vocab_a2_0620",
+      "fullKo": "현아 씨는 대학원에서 도시 문화를 공부해요.",
+      "sentenceKo": "현아 씨는 ＿＿＿ 도시 문화를 공부해요.",
+      "answer": "대학원에서",
+      "distractors": [
+        "옷장에서",
+        "기차역에서",
+        "부엌에서"
+      ]
+    },
+    {
+      "id": "cloze_a2_0428",
+      "sourceVocabId": "vocab_a2_0621",
+      "fullKo": "다음 학기에는 한국어 수업을 더 들을 거예요.",
+      "sentenceKo": "다음 ＿＿＿ 한국어 수업을 더 들을 거예요.",
+      "answer": "학기에는",
+      "distractors": [
+        "결석에는",
+        "목걸이에는",
+        "설렁탕에는"
+      ]
+    },
+    {
+      "id": "cloze_a2_0429",
+      "sourceVocabId": "vocab_a2_0622",
+      "fullKo": "저녁마다 태권도 학원에 가요.",
+      "sentenceKo": "저녁마다 태권도 ＿＿＿ 가요.",
+      "answer": "학원에",
+      "distractors": [
+        "기차역에",
+        "옷장에",
+        "관광지에"
+      ]
+    },
+    {
+      "id": "cloze_a2_0430",
+      "sourceVocabId": "vocab_a2_0623",
+      "fullKo": "이 동네에는 유치원이 두 개 있어요.",
+      "sentenceKo": "이 동네에는 ＿＿＿ 두 개 있어요.",
+      "answer": "유치원이",
+      "distractors": [
+        "항공권이",
+        "속옷이",
+        "손바닥이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0431",
+      "sourceVocabId": "vocab_a2_0624",
+      "fullKo": "이 도서관은 청소년에게 인기가 많아요.",
+      "sentenceKo": "이 도서관은 ＿＿＿ 인기가 많아요.",
+      "answer": "청소년에게",
+      "distractors": [
+        "관광지에게",
+        "설렁탕에게",
+        "화장품에게"
+      ]
+    },
+    {
+      "id": "cloze_a2_0432",
+      "sourceVocabId": "vocab_a2_0625",
+      "fullKo": "안드레아 씨 친구는 초등학교 교사예요.",
+      "sentenceKo": "안드레아 씨 친구는 초등학교 ＿＿＿.",
+      "answer": "교사예요",
+      "distractors": [
+        "관광지예요",
+        "설렁탕이에요",
+        "속옷이에요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0433",
+      "sourceVocabId": "vocab_a2_0626",
+      "fullKo": "감기에 걸려서 학교에 결석을 했어요.",
+      "sentenceKo": "감기에 걸려서 학교에 ＿＿＿ 했어요.",
+      "answer": "결석을",
+      "distractors": [
+        "화장품을",
+        "설렁탕을",
+        "항공권을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0434",
+      "sourceVocabId": "vocab_a2_0627",
+      "fullKo": "다리를 다쳐서 태권도 학원을 그만뒀어요.",
+      "sentenceKo": "다리를 다쳐서 태권도 학원을 ＿＿＿.",
+      "answer": "그만뒀어요",
+      "distractors": [
+        "갔어요",
+        "섰어요",
+        "앉았어요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0435",
+      "sourceVocabId": "vocab_a2_0628",
+      "fullKo": "나는 크리스티안을 믿어.",
+      "sentenceKo": "나는 크리스티안을 ＿＿＿.",
+      "answer": "믿어",
+      "distractors": [
+        "가",
+        "와",
+        "자"
+      ]
+    },
+    {
+      "id": "cloze_a2_0436",
+      "sourceVocabId": "vocab_a2_0629",
+      "fullKo": "슬펐지만 눈물을 참았어요.",
+      "sentenceKo": "슬펐지만 눈물을 ＿＿＿.",
+      "answer": "참았어요",
+      "distractors": [
+        "왔어요",
+        "웃었어요",
+        "걸었어요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0437",
+      "sourceVocabId": "vocab_a2_0630",
+      "fullKo": "우산을 가져가는 걸 잊었어요.",
+      "sentenceKo": "우산을 가져가는 걸 ＿＿＿.",
+      "answer": "잊었어요",
+      "distractors": [
+        "잤어요",
+        "섰어요",
+        "웃었어요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0438",
+      "sourceVocabId": "vocab_a2_0631",
+      "fullKo": "크리스티안 씨가 저를 보고 손을 흔들었어요.",
+      "sentenceKo": "크리스티안 씨가 저를 보고 손을 ＿＿＿.",
+      "answer": "흔들었어요",
+      "distractors": [
+        "갔어요",
+        "앉았어요",
+        "걸었어요"
+      ]
+    }
+  ]
+}
