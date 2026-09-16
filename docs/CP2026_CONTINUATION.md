@@ -91,7 +91,7 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 | O4 OCR 문법 | book_result의 GrammarCard 표시 존재 | grammar.csv 카드로 연결되는 실제 딥링크·미매칭 경로 구현/검증 |
 | Q1 가드 | #347 workflow-pins 안정화 병합 | 나머지 lint·raw button·route·timeout 가드 범위 감사 |
 | Q2 통합 | 기존 Phase 통합 테스트 존재 | offline cold start·custom 게임 실패·프로세스 종료복원 3종 증거 |
-| Q3 콘텐츠 CI | 선택 2개 모듈에서 content_factory 전체 discover로 실행 설정 복원. can-do freshness·초안/라이브 경계·테스트의 추적 파일 비변경 검사 추가. Batch 29/31은 각 192개 전체 promotion validator로 교정 이력 확인 | 로컬 전체 discover 통과, Ubuntu CI 및 main 검사 필요. 전체 과거 승격 CLI 감사는 24개 merged manifest 중 8개 통과·16개 실패(퇴역 시나리오·권리/승인 이력·내용 변경). 이 미해결 범위를 숨기거나 Q3 전체 완료로 판정하지 않음 |
+| Q3 콘텐츠 CI | #370에서 전체 discover·can-do freshness·초안/라이브 경계·추적 파일 비변경 검사를 main에 반영. Batch 29/31 각 192개 검증에 이어 Batch 25의 원본 검토 기록 15행을 기존 Git·교정 해시로 복원하고 192행 실제 승격 검증 통과 | #370 PR 검사 통과 후 main `9b9ab83f` 병합; 정확한 main CI는 후속 확인 중. Batch 25 복구 포함 로컬 감사는 24개 merged manifest 중 9개 통과·15개 실패(퇴역 시나리오·권리/승인 이력·내용 변경). live·권리·승인·교정 원장은 그대로이며, 복구 근거는 `tools/content_factory/review/batch_25_snapshot_reconciliation.json`. 미해결 범위를 Q3 완료로 판정하지 않음 |
 | Q-S / Q-S2 / Q-S3 | #354/#358 세종 감사 병합 | C1/C2 세종 자료 전수 재추출 Q-S3 및 인용 검증 |
 | W7-W10 잔여·W5 관측 | 기존 구현은 현재 Git으로 추적 | 릴리스 담당과 중복 없이 TTS 권한·기기 체크·스토어·14일 크래시/ANR/비용 관측 |
 
@@ -127,11 +127,11 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 
 ## 실행 순서와 충돌 관리
 
-2026-09-16 추가 지적 재검증: PR #370의 정확한 head `b0b005c3`에서 GitHub Content validator는 1,219개(실패 0·skip 20), Playwright는 통과했다. 전체 CI는 아직 미완이며 Book/Pronunciation/TTS Storage 세 잡이 Checkout 단계에서 취소된 것을 확인했다. 취소 원인을 테스트 실패로 단정하거나 성공으로 계산하지 않고, 나머지 실행 종료 후 해당 잡만 재시도한다. #370 병합 후 정확한 main SHA에서도 전체 검사를 확인한다.
+2026-09-16 추가 지적 재검증: PR #370의 정확한 head `b0b005c3`에서 GitHub Content validator 1,219개(실패 0·skip 20), Playwright, iOS 및 나머지 필수 검사가 통과했다. CI run `35130402443`의 최초 취소 잡만 재시도했으며, Book의 두 번째 취소는 checkout 7분 35초 후 잡의 8분 제한 초과라는 GitHub annotation으로 확인했다. 세 번째 실행에서 전체 상태가 success가 되어 main `9b9ab83f3bba610e650fc20e0931bc553cc40258`로 병합했다. 이 main의 [CI 35138234900](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/35138234900)와 [Playwright 35138234844](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/35138234844)는 별도 확인 대상이다. Book 후속은 functions·app data·공유 fixtures만 sparse checkout하도록 하며, 루트 rules/indexes를 포함한 실제 테스트 의존성을 검증한다.
 
 같은 감사에서 main의 `grammar_b1_proportional_mankeum`은 예문·퀴즈가 쓰는 완료 동사형 `V-(으)ㄴ 만큼`을 패턴에서 누락한 사실을 확인했다. C4 hotfix는 해당 패턴·DE/EN 설명·KO/EN note와 검토 패킷을 맞추고 예문·퀴즈·ID·레벨은 유지한다. 누락을 잡는 회귀 검사를 먼저 실패로 재현한 뒤 문법·기준표 관련 62개 검사, content validator, can-do·교육과정 freshness를 로컬 통과했다. 사람 검수 및 원격 통합 완료 주장은 아니다.
 
-PR #367의 현재 head `48b21670`에는 현재 manifest에서 사라진 owned hash 파일을 cache 한도 계산 전에 회수하는 처리가 없고 main과 충돌도 있다. 담당 작업 `한글소리 용량 최적화 방안`의 구현을 덮어쓰지 않는다. 캐시 교체 회귀 수정·충돌 해소·현재 head 검사와 실제 기기 다운로드/삭제·릴리스 크기 측정은 별도 미완이다. C4 hotfix는 이 기기 게이트를 기다리지 않고 진행한다.
+PR #367은 별도 작업 공간에서 캐시 교체·저장 경로 재시도 결함을 고치고 main 충돌을 해소해 `e3840a4c`로 푸시했다. 원래 `한글소리 용량 최적화 방안` 작업 공간은 기존 `48b21670` 상태로 보존했다. runtime/UI 71개 통과·Windows symlink 권한 제외 1개, packaging 18개 통과, analyzer 및 두 축 독립 검토 통과다. 이 head의 Playwright는 통과했지만 CI `35136246529`의 TTS function security는 실패했고 다른 잡은 진행 중이므로 원인과 최종 결과를 별도 확인한다. #370 통합, 실제 Android/iPhone 다운로드·동의·오프라인·삭제 검증과 릴리스 크기 측정도 미완이므로 merge HOLD를 유지한다. C4 hotfix는 이 기기 게이트를 기다리지 않고 진행한다.
 
 이번 C9 감사에서 기존 앞면 예문 두 건을 추가로 확인했다. `vocab_a2_0435`(마감하다)의 `가게를 마감하다 전에 바닥을 닦아요.`는 연결형 오류여서 다음 C2 원문 교정에서 파생 게임·검토 원장과 함께 수정한다. `vocab_b1_0160`(진통제)의 하루 두 번 복용 예문은 특정 약을 밝히지 않은 교육용 문장으로, 같은 교정 단계에서 복용 횟수를 지시하지 않는 상황으로 바꿀지 검토한다. 둘 다 이번 C9의 허용된 앞면 수정(`vocab_b1_0053`, 따라서) 범위 밖이므로 현재 파일은 유지했으며, 앱 전체 정제 완료로 계산하지 않는다.
 
