@@ -112,6 +112,9 @@
     {"id": "smalltalk_c2_0027", "level": "c2", "field": "de", "before": "Wie viel vom Grund erfährt man, wenn ein Konto automatisch gesperrt wird?", "after": "Wie ausführlich wird die Begründung mitgeteilt, wenn ein Konto automatisch gesperrt wird?", "issueClass": "naturalness"},
     {"id": "smalltalk_c2_0027", "level": "c2", "field": "en", "before": "How much of the reason are you told when an account is suspended automatically?", "after": "How much explanation are you given when an account is suspended automatically?", "issueClass": "naturalness"},
     {"id": "smalltalk_c2_0029", "level": "c2", "field": "de", "before": "Aus wessen Sicht ist die Geschichte inzwischen erzählt, würden Sie sagen?", "after": "Aus wessen Perspektive wird die Geschichte inzwischen erzählt?", "issueClass": "naturalness"},
-    {"id": "smalltalk_c2_0029", "level": "c2", "field": "en", "before": "Whose side do you think the story is told from by now?", "after": "Whose perspective do you think shapes the way the story is being told now?", "issueClass": "naturalness"}
+    {"id": "smalltalk_c2_0029", "level": "c2", "field": "en", "before": "Whose side do you think the story is told from by now?", "after": "Whose perspective do you think shapes the way the story is being told now?", "issueClass": "naturalness"},
+    {"id": "smalltalk_b2_0057", "level": "b2", "field": "safeAlternativeQuestions.0.de", "before": "Was hat der Teil für ein Gefühl hinterlassen?", "after": "Möchten Sie beschreiben, welches Gefühl dieser Teil bei Ihnen hinterlassen hat?", "issueClass": "dialogue"},
+    {"id": "smalltalk_b2_0057", "level": "b2", "field": "safeAlternativeQuestions.0.en", "before": "What did that part leave you feeling?", "after": "Would you like to describe the feeling that part left you with?", "issueClass": "dialogue"},
+    {"id": "smalltalk_b2_0057", "level": "b2", "field": "followUp.de", "before": "Dieser Nachklang hat mich den ganzen Text noch einmal anders sehen lassen.", "after": "Dieser Nachklang hat mich dazu gebracht, noch einmal über den ganzen Text nachzudenken.", "issueClass": "meaning"}
   ]
 }

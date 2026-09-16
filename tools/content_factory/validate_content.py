@@ -25,6 +25,7 @@ from typing import Any, Iterable
 
 import relevel_ledger
 import scenario_store
+from copy_field_path import text_field
 from shelf_assignment import ALL_SHELVES
 
 
@@ -309,14 +310,12 @@ class ContentValidator:
             levels.add(level)
             if row.get("level") != level:
                 self.issue(source, f"{record_id} level drift: {row.get('level')!r} != {level!r}")
-            current: Any = row
-            for part in field_path.split("."):
-                if not isinstance(current, dict) or part not in current:
-                    self.issue(source, f"{record_id}.{field_path} is missing")
-                    current = None
-                    break
-                current = current[part]
-            if current is not None and current != after:
+            try:
+                parent, key = text_field(row, field_path)
+            except ValueError as error:
+                self.issue(source, str(error))
+                continue
+            if parent[key] != after:
                 self.issue(source, f"{record_id}.{field_path} does not match approved overlay")
         if levels != LOWER_LEVELS:
             self.issue(source, f"ledger must cover A1-C2, got {sorted(levels)!r}")

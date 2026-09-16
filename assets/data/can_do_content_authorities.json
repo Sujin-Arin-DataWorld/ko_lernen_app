@@ -74644,13 +74644,17 @@
         },
         {
           "phraseId": "smalltalk_b2_0057",
-          "phraseFingerprintSha256": "c5870824dbfe208debd0a2838149c268a18ac927c1eace8fb9c5d02ff8ecada4",
+          "phraseFingerprintSha256": "0888afab6c81a15e777f4f79874c02772e997e767a5f86026898a94ed70433fa",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_literary_cultural_response",
           "canDoFingerprintSha256": "e99e9cacd4a66254c25cfb6957e52f6322313a7b1872d518f7b3601aa4b59409",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
+          "previousPhraseFingerprintSha256": "c5870824dbfe208debd0a2838149c268a18ac927c1eace8fb9c5d02ff8ecada4"
         },
         {
           "phraseId": "smalltalk_b2_0058",

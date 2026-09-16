@@ -43,7 +43,7 @@ class ContentTextAuditTest(unittest.TestCase):
             ]
         }
 
-        self.assertEqual(len(changed_ids), 42)
+        self.assertEqual(len(changed_ids), 43)
         for record_id in changed_ids:
             decision = decisions[record_id]
             self.assertEqual(decision["copyRevision"], 1)

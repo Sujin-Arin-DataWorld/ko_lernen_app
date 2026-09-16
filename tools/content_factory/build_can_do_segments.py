@@ -20,6 +20,7 @@ from typing import Any, Iterable
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import scenario_store
+from copy_field_path import text_field
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -1288,14 +1289,7 @@ def _humanization_changes_by_id() -> dict[str, list[dict[str, Any]]]:
 
 
 def _at_nested_field(record: dict[str, Any], field_path: str) -> tuple[dict[str, Any], str]:
-    current = record
-    parts = field_path.split(".")
-    for part in parts[:-1]:
-        nested = current.get(part)
-        if not isinstance(nested, dict):
-            raise ValueError(f"{record.get('id')}.{field_path}: missing object {part}")
-        current = nested
-    return current, parts[-1]
+    return text_field(record, field_path)
 
 
 def _copy_revision_metadata(row: dict[str, Any]) -> dict[str, Any] | None:

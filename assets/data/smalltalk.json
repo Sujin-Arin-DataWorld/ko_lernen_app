@@ -6364,14 +6364,14 @@
         {
           "turnKind": "question",
           "ko": "그 부분이 어떤 감정을 남겼는지 말해 볼래요?",
-          "de": "Was hat der Teil für ein Gefühl hinterlassen?",
-          "en": "What did that part leave you feeling?"
+          "de": "Möchten Sie beschreiben, welches Gefühl dieser Teil bei Ihnen hinterlassen hat?",
+          "en": "Would you like to describe the feeling that part left you with?"
         }
       ],
       "followUp": {
         "turnKind": "reaction",
         "ko": "저는 그 여운 때문에 글 전체를 다시 생각하게 됐어요.",
-        "de": "Dieser Nachklang hat mich den ganzen Text noch einmal anders sehen lassen.",
+        "de": "Dieser Nachklang hat mich dazu gebracht, noch einmal über den ganzen Text nachzudenken.",
         "en": "That lingering impression made me think about the whole text again."
       }
     },
