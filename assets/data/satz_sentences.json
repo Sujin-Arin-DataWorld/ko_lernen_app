@@ -2,10 +2,10 @@
   "meta": {
     "total": 2735,
     "perLevel": {
-      "a1": 573,
-      "a2": 454,
+      "a1": 588,
+      "a2": 449,
       "b1": 630,
-      "b2": 574,
+      "b2": 564,
       "c1": 252,
       "c2": 252
     },
@@ -279,7 +279,7 @@
     },
     {
       "id": "satz_a2_0001",
-      "level": "a2",
+      "level": "a1",
       "targetKo": "어떤 계절을 좋아해요?",
       "promptDe": "Welche Jahreszeit magst du?",
       "promptEn": "Which season do you like?",
@@ -8899,25 +8899,25 @@
     },
     {
       "id": "satz_b2_0156",
-      "level": "b2",
-      "targetKo": "시댁 첫 명절에는 말수를 줄이는 게 안전했어요.",
-      "promptDe": "Am ersten Fest im Haus des Ehemanns war weniger Reden sicherer.",
-      "promptEn": "At the first holiday in the husband's family, speaking less was safer.",
+      "level": "a1",
+      "targetKo": "주말에 시댁에 가요.",
+      "promptDe": "Am Wochenende gehe ich zur Familie meines Mannes.",
+      "promptEn": "I go to my husband's family on the weekend.",
       "distractors": [
-        "순서를",
-        "순이라"
+        "사과",
+        "우유"
       ],
       "vocabKo": "시댁"
     },
     {
       "id": "satz_b2_0157",
-      "level": "b2",
-      "targetKo": "처가에서는 제가 손님인데도 설거지를 하겠다고 했어요.",
-      "promptDe": "Im Haus der Ehefrau bot ich den Abwasch an, obwohl ich Gast war.",
-      "promptEn": "At the wife's family I offered to wash dishes even as a guest.",
+      "level": "a1",
+      "targetKo": "설날에 처가에 갔어요.",
+      "promptDe": "An Seollal bin ich zur Familie meiner Frau gegangen.",
+      "promptEn": "I went to my wife's family for Seollal.",
       "distractors": [
-        "사진",
-        "삼촌이"
+        "책",
+        "의자"
       ],
       "vocabKo": "처가"
     },
@@ -17911,7 +17911,7 @@
     },
     {
       "id": "satz_a2_0231",
-      "level": "a2",
+      "level": "a1",
       "targetKo": "요즘 회사 일이 좀 많아요.",
       "promptDe": "Zurzeit habe ich ziemlich viel Arbeit in der Firma.",
       "promptEn": "I've got a lot of work at the company these days.",
@@ -17923,10 +17923,10 @@
     },
     {
       "id": "satz_a2_0232",
-      "level": "a2",
-      "targetKo": "직업이 어떻게 되세요?",
-      "promptDe": "Was sind Sie von Beruf?",
-      "promptEn": "What do you do for a living?",
+      "level": "a1",
+      "targetKo": "마야 씨, 직업이 뭐예요?",
+      "promptDe": "Maya, was ist dein Beruf?",
+      "promptEn": "Maya, what's your job?",
       "distractors": [
         "회사",
         "취미"
@@ -17935,7 +17935,7 @@
     },
     {
       "id": "satz_a2_0233",
-      "level": "a2",
+      "level": "a1",
       "targetKo": "저는 취미가 사진 찍는 거예요.",
       "promptDe": "Mein Hobby ist Fotografieren.",
       "promptEn": "My hobby is taking photos.",
@@ -17947,13 +17947,13 @@
     },
     {
       "id": "satz_a2_0234",
-      "level": "a2",
-      "targetKo": "오늘 날씨 진짜 좋네요.",
-      "promptDe": "Das Wetter ist heute richtig schön.",
+      "level": "a1",
+      "targetKo": "오늘 날씨가 정말 좋아요.",
+      "promptDe": "Das Wetter ist heute wirklich schön.",
       "promptEn": "The weather is really nice today.",
       "distractors": [
-        "회사",
-        "직업"
+        "공원",
+        "여행"
       ],
       "vocabKo": "날씨"
     },
@@ -22687,7 +22687,7 @@
     },
     {
       "id": "satz_b2_0414",
-      "level": "b2",
+      "level": "a1",
       "targetKo": "한국어 문법은 재미있어요.",
       "promptDe": "Koreanische Grammatik macht Spaß.",
       "promptEn": "Korean grammar is fun.",
@@ -23263,7 +23263,7 @@
     },
     {
       "id": "satz_b2_0460",
-      "level": "b2",
+      "level": "a1",
       "targetKo": "설날에 가족과 윷놀이를 해요.",
       "promptDe": "An Seollal spielen wir mit der Familie Yut.",
       "promptEn": "We play yut with the family at Seollal.",
@@ -23503,7 +23503,7 @@
     },
     {
       "id": "satz_b2_0480",
-      "level": "b2",
+      "level": "a1",
       "targetKo": "선생님 말씀 잘 들었어요.",
       "promptDe": "Ich habe Ihre Worte aufmerksam gehört.",
       "promptEn": "I listened carefully to your words.",
@@ -23539,7 +23539,7 @@
     },
     {
       "id": "satz_b2_0483",
-      "level": "b2",
+      "level": "a1",
       "targetKo": "내일이 할머니 생신이에요.",
       "promptDe": "Morgen hat meine Großmutter Geburtstag.",
       "promptEn": "Tomorrow is my grandmother's birthday.",
@@ -23563,7 +23563,7 @@
     },
     {
       "id": "satz_b2_0485",
-      "level": "b2",
+      "level": "a1",
       "targetKo": "할머니께 선물을 드렸어요.",
       "promptDe": "Ich habe meiner Großmutter ein Geschenk überreicht.",
       "promptEn": "I gave my grandmother a present.",
@@ -23587,7 +23587,7 @@
     },
     {
       "id": "satz_b2_0487",
-      "level": "b2",
+      "level": "a1",
       "targetKo": "부모님은 벌써 주무세요.",
       "promptDe": "Meine Eltern schlafen schon.",
       "promptEn": "My parents are already asleep.",
@@ -23599,7 +23599,7 @@
     },
     {
       "id": "satz_b2_0488",
-      "level": "b2",
+      "level": "a1",
       "targetKo": "어머니는 지금 집에 계세요.",
       "promptDe": "Meine Mutter ist gerade zu Hause.",
       "promptEn": "My mother is at home right now.",
@@ -23611,7 +23611,7 @@
     },
     {
       "id": "satz_b2_0489",
-      "level": "b2",
+      "level": "a1",
       "targetKo": "할머니는 아침을 잡수셨어요.",
       "promptDe": "Meine Großmutter hat gefrühstückt.",
       "promptEn": "My grandmother ate breakfast.",

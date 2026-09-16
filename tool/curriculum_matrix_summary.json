@@ -36,8 +36,7 @@
       },
       "vocabDomains": {
         "beyond_matrix": 6,
-        "covered": 13,
-        "thin": 1
+        "covered": 14
       },
       "registers": {
         "absent": 1,
@@ -98,8 +97,8 @@
       },
       "grammar": {
         "nikl_rows": 67,
-        "match": 8,
-        "level_mismatch": 12,
+        "match": 9,
+        "level_mismatch": 11,
         "missing_in_app": 47,
         "brief_highlights": {
           "level_mismatch": 12,
@@ -109,8 +108,8 @@
         "discourse_features": {
           "covered": 4
         },
-        "no_scenario_anchor": 25,
-        "app_grammar_count": 35
+        "no_scenario_anchor": 23,
+        "app_grammar_count": 34
       },
       "speechActs": {
         "covered": 11,
@@ -140,20 +139,20 @@
       },
       "grammar": {
         "nikl_rows": 67,
-        "match": 12,
-        "level_mismatch": 11,
+        "match": 14,
+        "level_mismatch": 9,
         "missing_in_app": 44,
         "brief_highlights": {
-          "level_mismatch": 2,
-          "match": 5,
+          "level_mismatch": 3,
+          "match": 4,
           "missing": 10
         },
         "discourse_features": {
           "covered": 3,
           "missing": 1
         },
-        "no_scenario_anchor": 39,
-        "app_grammar_count": 57
+        "no_scenario_anchor": 38,
+        "app_grammar_count": 53
       },
       "speechActs": {
         "covered": 12,
@@ -182,8 +181,8 @@
       },
       "grammar": {
         "nikl_rows": 56,
-        "match": 1,
-        "level_mismatch": 10,
+        "match": 6,
+        "level_mismatch": 5,
         "missing_in_app": 45,
         "brief_highlights": {
           "level_mismatch": 8,
@@ -194,8 +193,8 @@
           "covered": 3,
           "missing": 1
         },
-        "no_scenario_anchor": 5,
-        "app_grammar_count": 23
+        "no_scenario_anchor": 8,
+        "app_grammar_count": 28
       },
       "speechActs": {
         "covered": 9,
@@ -264,14 +263,14 @@
     "app_earlier": 3,
     "missing": 2
   },
-  "gap_total": 531,
+  "gap_total": 523,
   "gap_counts": {
     "functional_grammar:missing": 2,
     "grammar_anchor:no_scenario_anchor": 152,
-    "grammar_brief:level_mismatch": 32,
+    "grammar_brief:level_mismatch": 33,
     "grammar_brief:missing": 26,
     "grammar_discourse:missing": 3,
-    "grammar_nikl:level_mismatch": 42,
+    "grammar_nikl:level_mismatch": 34,
     "grammar_nikl:missing_in_app": 187,
     "register:absent": 7,
     "speech_act:missing": 7,
@@ -280,7 +279,7 @@
     "text_type:missing": 8,
     "text_type:structural_gap": 38,
     "vocab_domain:missing": 3,
-    "vocab_domain:thin": 3
+    "vocab_domain:thin": 2
   },
   "draftHoldings": {
     "inputAbsent": false,

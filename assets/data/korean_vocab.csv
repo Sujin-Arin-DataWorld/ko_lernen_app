@@ -128,11 +128,11 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 배고프다,baegopeuda,hungrig sein,A1,Adjektiv,"아, 진짜 배고파요.","Ah, ich habe echt Hunger.",Körper,a1_body,10,true,to be hungry,Adjective,"Ah, I'm really hungry.",vocab_a1_0127
 길다,gilda,lang,A1,Adjektiv,머리가 길어요.,Meine Haare sind lang.,Beschreibung,a1_descriptions,9,false,long,Adjective,My hair is long.,vocab_a1_0128
 짧다,jjalda,kurz,A1,Adjektiv,치마가 짧아요.,Der Rock ist kurz.,Beschreibung,a1_descriptions,10,false,short,Adjective,The skirt is short.,vocab_a1_0129
-회사,hoesa,Firma / Unternehmen,A2,Nomen,요즘 회사 일이 좀 많아요.,Zurzeit habe ich ziemlich viel Arbeit in der Firma.,Beruf,a2_work,1,false,company / firm,Noun,I've got a lot of work at the company these days.,vocab_a2_0001
-직업,jigeop,Beruf,A2,Nomen,직업이 어떻게 되세요?,Was sind Sie von Beruf?,Beruf,a2_work,2,false,occupation / job,Noun,What do you do for a living?,vocab_a2_0002
-취미,chwimi,Hobby,A2,Nomen,저는 취미가 사진 찍는 거예요.,Mein Hobby ist Fotografieren.,Freizeit,a2_health_misc_1,1,false,hobby,Noun,My hobby is taking photos.,vocab_a2_0003
-날씨,nalssi,Wetter,A2,Nomen,오늘 날씨 진짜 좋네요.,Das Wetter ist heute richtig schön.,Wetter,a2_weather,1,false,weather,Noun,The weather is really nice today.,vocab_a2_0004
-계절,gyejeol,Jahreszeit,A2,Nomen,어떤 계절을 좋아해요?,Welche Jahreszeit magst du?,Wetter,a2_weather,2,false,season,Noun,Which season do you like?,vocab_a2_0005
+회사,hoesa,Firma / Unternehmen,A1,Nomen,요즘 회사 일이 좀 많아요.,Zurzeit habe ich ziemlich viel Arbeit in der Firma.,Beruf,a1_misc_2,13,false,company / firm,Noun,I've got a lot of work at the company these days.,vocab_a2_0001
+직업,jigeop,Beruf,A1,Nomen,"마야 씨, 직업이 뭐예요?","Maya, was ist dein Beruf?",Beruf,a1_misc_2,14,false,occupation / job,Noun,"Maya, what's your job?",vocab_a2_0002
+취미,chwimi,Hobby,A1,Nomen,저는 취미가 사진 찍는 거예요.,Mein Hobby ist Fotografieren.,Freizeit,a1_hobbies_1,13,false,hobby,Noun,My hobby is taking photos.,vocab_a2_0003
+날씨,nalssi,Wetter,A1,Nomen,오늘 날씨가 정말 좋아요.,Das Wetter ist heute wirklich schön.,Wetter,a1_nature_people_1,13,false,weather,Noun,The weather is really nice today.,vocab_a2_0004
+계절,gyejeol,Jahreszeit,A1,Nomen,어떤 계절을 좋아해요?,Welche Jahreszeit magst du?,Wetter,a1_nature_people_1,14,false,season,Noun,Which season do you like?,vocab_a2_0005
 봄,bom,Frühling,A2,Nomen,이제 봄이 왔네요.,Jetzt ist der Frühling da.,Wetter,a2_weather,3,false,spring,Noun,Spring is here now.,vocab_a2_0006
 여름,yeoreum,Sommer,A2,Nomen,한국 여름은 진짜 더워요.,Der Sommer in Korea ist echt heiß.,Wetter,a2_weather,4,false,summer,Noun,Summer in Korea is really hot.,vocab_a2_0007
 가을,gaeul,Herbst,A2,Nomen,가을 단풍이 정말 예뻐요.,Das Herbstlaub ist wirklich schön.,Wetter,a2_weather,5,false,autumn / fall,Noun,The autumn leaves are really beautiful.,vocab_a2_0008
@@ -736,7 +736,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 주제,juje,Thema,B1,Nomen,오늘 회의 주제가 뭐예요?,Was ist das Thema der heutigen Sitzung?,Abstrakte Begriffe,b1_daily_3,11,false,topic,Noun,What is the topic of today's meeting?,vocab_b2_0118
 자료,jaryo,Material,B2,Nomen,발표 자료를 준비했어요.,Ich habe die Präsentationsunterlagen vorbereitet.,Abstrakte Begriffe,b2_abstract_concepts_1,11,true,material,Noun,I prepared the presentation materials.,vocab_b2_0119
 비결,bigyeol,Geheimtipp,B2,Nomen,건강의 비결이 뭐예요?,Was ist das Geheimnis Ihrer Gesundheit?,Abstrakte Begriffe,b2_abstract_concepts_1,12,true,secret,Noun,What is the secret of your health?,vocab_b2_0120
-문법,munbeop,Grammatik,B2,Nomen,한국어 문법은 재미있어요.,Koreanische Grammatik macht Spaß.,Sprache & Grammatik,b2_language_grammar_1,1,false,grammar,Noun,Korean grammar is fun.,vocab_b2_0121
+문법,munbeop,Grammatik,A1,Nomen,한국어 문법은 재미있어요.,Koreanische Grammatik macht Spaß.,Sprache & Grammatik,a1_repair_language_1,13,false,grammar,Noun,Korean grammar is fun.,vocab_b2_0121
 명사,myeongsa,Substantiv,B2,Nomen,이 단어는 명사예요.,Dieses Wort ist ein Substantiv.,Sprache & Grammatik,b2_language_grammar_1,2,false,noun,Noun,This word is a noun.,vocab_b2_0122
 동사,dongsa,Verb,B2,Nomen,동사는 문장 끝에 와요.,Das Verb steht am Satzende.,Sprache & Grammatik,b2_language_grammar_1,3,false,verb,Noun,The verb comes at the end of the sentence.,vocab_b2_0123
 형용사,hyeongyongsa,Adjektiv,B2,Nomen,형용사로 기분을 표현해요.,Mit Adjektiven drückt man Gefühle aus.,Sprache & Grammatik,b2_language_grammar_1,4,false,adjective,Noun,You express feelings with adjectives.,vocab_b2_0124
@@ -788,7 +788,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 소풍,sopung,Ausflug,B2,Nomen,내일 학교에서 소풍을 가요.,Morgen macht die Schule einen Ausflug.,Feste & Traditionen,b2_events_culture_1,2,false,picnic,Noun,The school goes on a picnic tomorrow.,vocab_b2_0170
 음력,eumnyeok,Mondkalender,B2,Nomen,설날은 음력 1월 1일이에요.,Seollal ist der erste Tag des Mondkalenders.,Feste & Traditionen,b2_events_culture_1,3,false,lunar calendar,Noun,Seollal is the first day of the lunar calendar.,vocab_b2_0171
 제사,jesa,Ahnenzeremonie,B2,Nomen,명절에 제사를 지내요.,An Feiertagen halten wir die Ahnenzeremonie ab.,Feste & Traditionen,b2_events_culture_1,4,false,ancestral rite,Noun,We hold ancestral rites on holidays.,vocab_b2_0172
-윷놀이,yunnori,Yut-Spiel,B2,Nomen,설날에 가족과 윷놀이를 해요.,An Seollal spielen wir mit der Familie Yut.,Feste & Traditionen,b2_events_culture_1,5,false,yut game,Noun,We play yut with the family at Seollal.,vocab_b2_0173
+윷놀이,yunnori,Yut-Spiel,A1,Nomen,설날에 가족과 윷놀이를 해요.,An Seollal spielen wir mit der Familie Yut.,Feste & Traditionen,a1_partner_seollal_basic_1,13,false,yut game,Noun,We play yut with the family at Seollal.,vocab_b2_0173
 관객,gwangaek,Zuschauer,B2,Nomen,공연장에 관객이 가득해요.,Die Halle ist voller Zuschauer.,Feste & Traditionen,b2_events_culture_1,6,false,audience,Noun,The hall is full of spectators.,vocab_b2_0174
 기념하다,ginyeomhada,feierlich begehen,B2,Verb,결혼 10주년을 기념했어요.,Wir haben den zehnten Hochzeitstag gefeiert.,Feste & Traditionen,b2_events_culture_1,7,false,to commemorate,Verb,We celebrated our tenth wedding anniversary.,vocab_b2_0175
 촛불,chotbul,Kerzenlicht,B2,Nomen,케이크에 촛불을 켰어요.,Wir haben die Kerzen auf der Torte angezündet.,Feste & Traditionen,b2_events_culture_1,8,false,candlelight,Noun,We lit the candles on the cake.,vocab_b2_0176
@@ -808,18 +808,18 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 정하다,jeonghada,festlegen,B2,Verb,약속 시간을 정합시다.,Legen wir die Uhrzeit fest.,Handeln & Verändern,b2_thinking_verbs_1,10,true,to decide,Verb,Let us set the meeting time.,vocab_b2_0190
 변하다,byeonhada,sich verändern,B2,Verb,십 년 사이에 도시가 많이 변했어요.,In zehn Jahren hat sich die Stadt stark verändert.,Handeln & Verändern,b2_thinking_verbs_1,11,true,to change,Verb,The city changed a lot in ten years.,vocab_b2_0191
 나누다,nanuda,teilen,B2,Verb,빵을 반으로 나눴어요.,Ich habe das Brot halbiert.,Handeln & Verändern,b2_thinking_verbs_1,12,true,to share,Verb,I divided the bread in half.,vocab_b2_0192
-말씀,malsseum,Worte (ehrerbietig),B2,Nomen,선생님 말씀 잘 들었어요.,Ich habe Ihre Worte aufmerksam gehört.,Ehrensprache,b2_honorifics_1,1,false,words (honorific),Noun,I listened carefully to your words.,vocab_b2_0193
+말씀,malsseum,Worte (ehrerbietig),A1,Nomen,선생님 말씀 잘 들었어요.,Ich habe Ihre Worte aufmerksam gehört.,Ehrensprache,a1_greetings_2,13,false,words (honorific),Noun,I listened carefully to your words.,vocab_b2_0193
 연세,yeonse,Alter (ehrerbietig),B2,Nomen,할아버지 연세가 어떻게 되세요?,Wie alt ist Ihr Großvater?,Ehrensprache,b2_honorifics_1,2,false,age (honorific),Noun,How old is your grandfather?,vocab_b2_0194
 성함,seongham,Name (ehrerbietig),B2,Nomen,성함이 어떻게 되세요?,Wie ist Ihr werter Name?,Ehrensprache,b2_honorifics_1,3,false,name (honorific),Noun,May I ask your name?,vocab_b2_0195
-생신,saengsin,Geburtstag (ehrerbietig),B2,Nomen,내일이 할머니 생신이에요.,Morgen hat meine Großmutter Geburtstag.,Ehrensprache,b2_honorifics_1,4,false,birthday (honorific),Noun,Tomorrow is my grandmother's birthday.,vocab_b2_0196
+생신,saengsin,Geburtstag (ehrerbietig),A1,Nomen,내일이 할머니 생신이에요.,Morgen hat meine Großmutter Geburtstag.,Ehrensprache,a1_time_family_1,13,false,birthday (honorific),Noun,Tomorrow is my grandmother's birthday.,vocab_b2_0196
 댁,daek,Haus (ehrerbietig),B2,Nomen,선생님 댁에 초대받았어요.,Ich wurde zum Haus des Lehrers eingeladen.,Ehrensprache,b2_honorifics_1,5,false,house (honorific),Noun,I was invited to the teacher's house.,vocab_b2_0197
-드리다,deurida,geben (ehrerbietig),B2,Verb,할머니께 선물을 드렸어요.,Ich habe meiner Großmutter ein Geschenk überreicht.,Ehrensprache,b2_honorifics_1,6,false,to give (honorific),Verb,I gave my grandmother a present.,vocab_b2_0198
-뵙다,boepda,treffen (ehrerbietig),B2,Verb,내일 뵙겠습니다.,Ich freue mich Sie morgen zu sehen.,Ehrensprache,b2_honorifics_1,7,false,to meet (humble),Verb,I will see you tomorrow.,vocab_b2_0199
-여쭈다,yeojjuda,fragen (ehrerbietig),B2,Verb,선생님께 여쭤 볼게요.,Ich werde den Lehrer ehrerbietig fragen.,Ehrensprache,b2_honorifics_1,8,false,to ask (humble),Verb,I will ask the teacher politely.,vocab_b2_0200
-주무시다,jumusida,schlafen (ehrerbietig),B2,Verb,부모님은 벌써 주무세요.,Meine Eltern schlafen schon.,Ehrensprache,b2_honorifics_1,9,false,to sleep (honorific),Verb,My parents are already asleep.,vocab_b2_0201
-드시다,deusida,essen (ehrerbietig),B2,Verb,많이 드세요!,Greifen Sie zu!,Ehrensprache,b2_honorifics_1,10,true,to eat (honorific),Verb,Please help yourself!,vocab_b2_0202
-계시다,gyesida,sich befinden (ehrerbietig),B2,Verb,어머니는 지금 집에 계세요.,Meine Mutter ist gerade zu Hause.,Ehrensprache,b2_honorifics_1,11,true,to be (honorific),Verb,My mother is at home right now.,vocab_b2_0203
-잡수시다,japsusida,speisen (ehrerbietig),B2,Verb,할머니는 아침을 잡수셨어요.,Meine Großmutter hat gefrühstückt.,Ehrensprache,b2_honorifics_1,12,true,to eat (very honorific),Verb,My grandmother ate breakfast.,vocab_b2_0204
+드리다,deurida,geben (ehrerbietig),A1,Verb,할머니께 선물을 드렸어요.,Ich habe meiner Großmutter ein Geschenk überreicht.,Ehrensprache,a1_partner_meet_names_1,15,false,to give (honorific),Verb,I gave my grandmother a present.,vocab_b2_0198
+뵙다,boepda,treffen (ehrerbietig),B2,Verb,내일 뵙겠습니다.,Ich freue mich Sie morgen zu sehen.,Ehrensprache,b2_honorifics_1,7,true,to meet (humble),Verb,I will see you tomorrow.,vocab_b2_0199
+여쭈다,yeojjuda,fragen (ehrerbietig),B2,Verb,선생님께 여쭤 볼게요.,Ich werde den Lehrer ehrerbietig fragen.,Ehrensprache,b2_honorifics_1,8,true,to ask (humble),Verb,I will ask the teacher politely.,vocab_b2_0200
+주무시다,jumusida,schlafen (ehrerbietig),A1,Verb,부모님은 벌써 주무세요.,Meine Eltern schlafen schon.,Ehrensprache,a1_home_daily_1,13,false,to sleep (honorific),Verb,My parents are already asleep.,vocab_b2_0201
+드시다,deusida,essen (ehrerbietig),A1,Verb,많이 드세요!,Greifen Sie zu!,Ehrensprache,a1_partner_table_basic_1,13,false,to eat (honorific),Verb,Please help yourself!,vocab_b2_0202
+계시다,gyesida,sich befinden (ehrerbietig),A1,Verb,어머니는 지금 집에 계세요.,Meine Mutter ist gerade zu Hause.,Ehrensprache,a1_partner_meet_names_1,16,false,to be (honorific),Verb,My mother is at home right now.,vocab_b2_0203
+잡수시다,japsusida,speisen (ehrerbietig),A1,Verb,할머니는 아침을 잡수셨어요.,Meine Großmutter hat gefrühstückt.,Ehrensprache,a1_partner_table_basic_1,14,false,to eat (very honorific),Verb,My grandmother ate breakfast.,vocab_b2_0204
 코트,koteu,Mantel,A2,Nomen,겨울에는 코트를 입어요.,Im Winter trage ich einen Mantel.,Kleidung,a2_clothing_1,1,false,coat,Noun,I wear a coat in winter.,vocab_a2_0161
 치마,chima,Rock,A2,Nomen,오늘은 치마를 입었어요.,Heute trage ich einen Rock.,Kleidung,a2_clothing_1,2,false,skirt,Noun,I am wearing a skirt today.,vocab_a2_0162
 원피스,wonpiseu,Kleid,A2,Nomen,파티에 원피스를 입고 갔어요.,Ich bin im Kleid zur Party gegangen.,Kleidung,a2_clothing_1,3,false,dress,Noun,I went to the party in a dress.,vocab_a2_0163
@@ -1474,8 +1474,8 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 교통 대란,gyotong daeran,Verkehrschaos,B1,Nomen,교통 대란을 피해 새벽 차를 탔어요.,Dem Verkehrschaos wichen wir mit einer Fahrt in der Frühe aus.,Partnerschaft & koreanische Familie,b1_partner_holiday_plan_1,10,true,travel chaos,Noun,We dodged the travel chaos by driving out before dawn.,vocab_b1_0365
 일정표 공유,iljeongpyo gongyu,den Plan teilen,B1,Nomen,일정표 공유를 하니 양쪽 잔소리가 줄었어요.,"Seit wir den Plan teilen, wird auf beiden Seiten weniger genörgelt.",Partnerschaft & koreanische Familie,b1_partner_holiday_plan_1,11,true,sharing the schedule,Noun,"Since we share the schedule, there is less nagging on both sides.",vocab_b1_0366
 올해는 못 가요,olhaeneun mot gayo,dieses Jahr schaffen wir es nicht,B1,Ausdruck,올해는 못 가요를 미리 말하니 실망이 덜했어요.,"Früh zu sagen, dass wir es dieses Jahr nicht schaffen, milderte die Enttäuschung.",Partnerschaft & koreanische Familie,b1_partner_holiday_plan_1,12,true,we cannot go this year,Expression,Saying early that we could not make it this year softened the disappointment.,vocab_b1_0367
-시댁,sidaek,Familie des Ehemanns,B2,Nomen,시댁 첫 명절에는 말수를 줄이는 게 안전했어요.,Am ersten Fest im Haus des Ehemanns war weniger Reden sicherer.,Partnerschaft & koreanische Familie,b2_partner_inlaws_1,1,false,husband's family home,Noun,"At the first holiday in the husband's family, speaking less was safer.",vocab_b2_0431
-처가,cheoga,Familie der Ehefrau,B2,Nomen,처가에서는 제가 손님인데도 설거지를 하겠다고 했어요.,"Im Haus der Ehefrau bot ich den Abwasch an, obwohl ich Gast war.",Partnerschaft & koreanische Familie,b2_partner_inlaws_1,2,false,wife's family home,Noun,At the wife's family I offered to wash dishes even as a guest.,vocab_b2_0432
+시댁,sidaek,Familie des Ehemanns,A1,Nomen,주말에 시댁에 가요.,Am Wochenende gehe ich zur Familie meines Mannes.,Partnerschaft & koreanische Familie,a1_partner_meet_names_1,13,false,husband's family home,Noun,I go to my husband's family on the weekend.,vocab_b2_0431
+처가,cheoga,Familie der Ehefrau,A1,Nomen,설날에 처가에 갔어요.,An Seollal bin ich zur Familie meiner Frau gegangen.,Partnerschaft & koreanische Familie,a1_partner_meet_names_1,14,false,wife's family home,Noun,I went to my wife's family for Seollal.,vocab_b2_0432
 며느리 역할,myeoneuri yeokhal,Schwiegertochterrolle,B2,Nomen,며느리 역할을 기대하는 눈빛을 현우가 먼저 읽었어요.,"Den Blick, der eine Schwiegertochterrolle erwartete, las Hyunwoo zuerst.",Partnerschaft & koreanische Familie,b2_partner_inlaws_1,3,false,daughter-in-law role,Noun,Hyunwoo first read the look that expected a daughter-in-law role.,vocab_b2_0433
 사위 사랑,sawi sarang,die Zuneigung zum Schwiegersohn,B2,Nomen,장모님이 너무 잘 챙겨주셔서 오히려 조금 부담스러웠어요.,"Meine Schwiegermutter hat sich so gut um mich gekümmert, dass es mir fast schon unangenehm war.",Partnerschaft & koreanische Familie,b2_partner_inlaws_1,4,false,fondness for a son-in-law,Noun,My mother-in-law took such good care of me that it started to feel like a bit too much.,vocab_b2_0434
 양가 눈치,yangga nunchi,beide Familien lesen,B2,Ausdruck,양가 눈치를 보느라 선물을 두 세트로 샀어요.,"Um beide Familien zu lesen, kaufte ich Geschenke in zwei Sätzen.",Partnerschaft & koreanische Familie,b2_partner_inlaws_1,5,false,reading both families,Expression,"Reading both families, I bought gifts in two sets.",vocab_b2_0435
