@@ -40,8 +40,10 @@ T2.5 개정 -- satz 거부 대신 동기화 이동 (plan §3.E/§14):
        reason 컬럼 -- 빈 문자열이면 거부).
     5. cloze/satz 의 `meta.total`/`meta.perLevel` 을
        `relevel_bundle._refresh_game_meta` 로 재계산한다.
-    6. 실제 저장소에 쓰기 전, `assets/data` 전체를 임시 스테이지로 복사해
-       그 위에서 위 1-5 를 수행하고 `ContentValidator(stage, ledger=...)
+    6. `word_relations.json` 의 `sourceVocabId==id` 인 클러스터도
+       level=new 로 동기화한다. 저작한 관계·예문·ID는 유지한다.
+    7. 실제 저장소에 쓰기 전, `assets/data` 전체를 임시 스테이지로 복사해
+       그 위에서 위 1-6 을 수행하고 `ContentValidator(stage, ledger=...)
        .validate()` 가 깨끗할 때만 스테이지를 실저장소로 복사한다
        (relevel_bundle.py 의 스테이징 패턴과 동일 -- dry-run 도 스테이지를
        끝까지 만들고 검증하므로 안전성을 증명하지만 실저장소는 건드리지
@@ -85,6 +87,7 @@ from relevel_bundle import (  # noqa: E402
 import scan_grammar_level as _scan_grammar_level  # noqa: E402
 from cefr_lexicon import CefrLexicon, GrammarIndex  # noqa: E402
 from validate_content import ContentValidator  # noqa: E402
+from word_relation_relevel import sync_word_relation_levels  # noqa: E402
 
 DEFAULT_LEDGER_PATH = relevel_ledger.DEFAULT_LEDGER_PATH
 PACK_MAP_MD = REPO / "docs" / "data" / "vocab_pack_map.md"
@@ -239,6 +242,7 @@ def apply_batch(
     authorities: dict[str, Any],
     segments_doc: dict[str, Any],
     curriculum: dict[str, Any],
+    word_relations: dict[str, Any],
     batch: list[dict[str, str]],
     ledger: Ledger,
     batch_name: str,
@@ -404,6 +408,10 @@ def apply_batch(
                 " (fingerprint 는 refresh_can_do_vocab_fingerprints.py 가 별도 갱신)"
             )
 
+    moved_ids = {entry["id"].strip() for entry in batch}
+    for cluster_id in sync_word_relation_levels(word_relations, by_id, moved_ids):
+        plan.append(f"  word relation {cluster_id}: source level synchronized")
+
     # clozeTopicUnitMap 정리: (from_level, topic) 조합에 살아있는 cloze 항목이
     # 하나도 안 남았으면 그 키를 지운다 (다른 팩이 같은 topic 단어를 여전히
     # 그 레벨에서 쓸 수 있으므로, 이동 건별이 아니라 최종 cloze 목록 전체를
@@ -531,6 +539,7 @@ def migrate(
         authorities = _read_json(data / "can_do_content_authorities.json")
         segments_doc = _read_json(data / "can_do_segments.json")
         curriculum = _read_json(data / "curriculum_manifest.json")
+        word_relations = _read_json(data / "word_relations.json")
 
         plan, warnings, ledger = apply_batch(
             vocab,
@@ -539,6 +548,7 @@ def migrate(
             authorities=authorities,
             segments_doc=segments_doc,
             curriculum=curriculum,
+            word_relations=word_relations,
             batch=batch,
             ledger=ledger,
             batch_name=batch_name,
@@ -553,6 +563,7 @@ def migrate(
         _write_json(data / "satz_sentences.json", satz_root)
         _write_json(data / "can_do_content_authorities.json", authorities)
         _write_json(data / "curriculum_manifest.json", curriculum)
+        _write_json(data / "word_relations.json", word_relations)
 
         # T2.5: `check_can_do_consistency` 는 여기서 일부러 안 돌린다 -- 이
         # 함수는 sourceVocabFingerprintSha256 이 라이브 CSV 행과 일치하는지
@@ -569,8 +580,8 @@ def migrate(
             ledger,
             batch_name=batch_name,
             vocab_by_id={row["id"]: row for row in vocab},
-            cloze_by_id={item["id"]: item for item in cloze_items},
-            satz_by_id={item["id"]: item for item in satz_items},
+            cloze_by_id={item["id"]: item for item in cloze_root["items"]},
+            satz_by_id={item["id"]: item for item in satz_root["items"]},
         )
         if grammar_offenders:
             detail = "\n".join(f"  {line}" for line in grammar_offenders)
@@ -591,16 +602,61 @@ def migrate(
             return plan, warnings
 
         real_data = root / "assets" / "data"
-        shutil.copy2(data / "korean_vocab.csv", real_data / "korean_vocab.csv")
-        shutil.copy2(data / "cloze.json", real_data / "cloze.json")
-        shutil.copy2(data / "satz_sentences.json", real_data / "satz_sentences.json")
-        shutil.copy2(
-            data / "can_do_content_authorities.json",
-            real_data / "can_do_content_authorities.json",
-        )
-        shutil.copy2(data / "curriculum_manifest.json", real_data / "curriculum_manifest.json")
-        ledger.save(ledger_path)
-        write_pack_map(vocab, root / "docs" / "data" / "vocab_pack_map.md")
+        stage_ledger = stage / "ledger.json"
+        stage_pack_map = stage / "vocab_pack_map.md"
+        ledger.save(stage_ledger)
+        write_pack_map(vocab, stage_pack_map)
+        outputs = [
+            (data / name, real_data / name)
+            for name in (
+                "korean_vocab.csv", "cloze.json", "satz_sentences.json",
+                "can_do_content_authorities.json", "curriculum_manifest.json",
+                "word_relations.json",
+            )
+        ] + [
+            (stage_ledger, ledger_path),
+            (stage_pack_map, root / "docs" / "data" / "vocab_pack_map.md"),
+        ]
+        originals = {
+            target: target.read_bytes() if target.exists() else None
+            for _, target in outputs
+        }
+        attempted: list[Path] = []
+        try:
+            for source, target in outputs:
+                # Include a partially written destination if copy2 raises.
+                attempted.append(target)
+                shutil.copy2(source, target)
+        except BaseException as write_error:
+            restore_errors: list[tuple[Path, Exception]] = []
+            for target in reversed(attempted):
+                original = originals[target]
+                try:
+                    if original is None:
+                        target.unlink(missing_ok=True)
+                    elif not target.exists() or target.read_bytes() != original:
+                        target.write_bytes(original)
+                except Exception as restore_error:
+                    # A locked file must not prevent restoration of the rest.
+                    restore_errors.append((target, restore_error))
+            if restore_errors:
+                # Keep originals outside the temporary stage, which is deleted
+                # on exit. Never report successful rollback with lost bytes.
+                recovery = Path(tempfile.mkdtemp(prefix="relevel-vocab-recovery-"))
+                records = []
+                for index, (target, error) in enumerate(restore_errors):
+                    original = originals[target]
+                    backup = f"{index}.original" if original is not None else None
+                    if backup is not None:
+                        (recovery / backup).write_bytes(original)
+                    records.append({"path": str(target.resolve()), "original": backup, "error": str(error)})
+                _write_json(recovery / "manifest.json", {"writeError": str(write_error), "unrestored": records})
+                raise RuntimeError(
+                    f"Write failed ({write_error}); could not restore "
+                    f"{', '.join(str(path) for path, _ in restore_errors)}. "
+                    f"Recovery originals: {recovery}"
+                ) from write_error
+            raise
         print(
             f"적용 완료 → {real_data / 'korean_vocab.csv'}, "
             f"{ledger_path}, {root / 'docs' / 'data' / 'vocab_pack_map.md'}"

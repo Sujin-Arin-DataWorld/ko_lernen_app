@@ -1117,6 +1117,8 @@ class ContentValidator:
         if not isinstance(items, list):
             self.issue(name, "root must contain a clusters array")
             return
+        _, vocab_rows = self.load_csv("korean_vocab.csv")
+        vocab_by_id = {row.get("id"): row for row in vocab_rows}
         seen: set[str] = set()
         for index, item in enumerate(items):
             if not isinstance(item, dict):
@@ -1134,6 +1136,15 @@ class ContentValidator:
             for field in ("sourceKo", "sourceVocabId", "sourceDe", "sourceEn"):
                 if not self._is_nonempty_string(item.get(field)):
                     self.issue(name, f"{ident} {field} must be a nonempty string")
+            source_id = item.get("sourceVocabId")
+            source = vocab_by_id.get(source_id) if isinstance(source_id, str) else None
+            if source is None:
+                self.issue(name, f"{ident} sourceVocabId is not a live vocab row")
+            else:
+                if item.get("sourceKo") != source.get("korean"):
+                    self.issue(name, f"{ident} sourceKo disagrees with live vocab")
+                if level != str(source.get("level") or "").strip().lower():
+                    self.issue(name, f"{ident} level disagrees with live vocab")
             for field in ("synonyms", "antonyms", "related", "expressions"):
                 if not isinstance(item.get(field), list):
                     self.issue(name, f"{ident} {field} must be an array")

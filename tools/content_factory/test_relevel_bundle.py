@@ -423,6 +423,23 @@ class DryRunTest(RelevelBundleFixture):
 
 
 class ApplyTest(RelevelBundleFixture):
+    def test_word_web_moves_with_pack_and_dry_run_preserves_original(self) -> None:
+        path = self.root / "assets/data/word_relations.json"
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        original = payload["clusters"][0].copy()
+        # Use an existing relation slot so the corpus inventory stays fixed.
+        relation = payload["clusters"][0]
+        relation.update(sourceVocabId="vocab_a1_9901", sourceKo="가나테스트", level="A1")
+        path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+        before = path.read_bytes()
+        bundle = self._bundle(self._standard_moves())
+        rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=False)
+        self.assertEqual(path.read_bytes(), before)
+        rb.migrate(root=self.root, bundle=bundle, ledger_path=self.ledger_path, apply=True)
+        updated = json.loads(path.read_text(encoding="utf-8"))["clusters"][0]
+        self.assertEqual(updated, {**relation, "level": "B1"})
+        self.assertEqual(updated["synonyms"], original["synonyms"])
+
     def test_apply_moves_everything(self) -> None:
         bundle = self._bundle(self._standard_moves())
         before = json.loads((self.root / "assets/data" / rb.CAN_DO_SEGMENTS_JSON).read_text(encoding="utf-8"))

@@ -64,6 +64,7 @@ import scenario_store
 from relevel_ledger import Ledger, LedgerEntry
 from shelf_assignment import SHELF_SLUGS
 from validate_content import ContentValidator, GRAMMAR_HEADER, LOWER_LEVELS, VOCAB_HEADER
+from word_relation_relevel import sync_word_relation_levels
 
 # a1 < a2 < ... < c2, used only for the scenario-move grammarIds "not above
 # the target level" warning (plan §4.3 step 1) -- LOWER_LEVELS itself is an
@@ -3221,7 +3222,7 @@ _SCENARIO_SHARD_NAMES = tuple(scenario_store.shard_name(level) for level in LOWE
 # untouched copy of the originals, so copying them "back" is a real write
 # of byte-identical content -- a no-op in effect, not a behavior change.
 _STAGED_DATA_FILES = (
-    "korean_vocab.csv", "grammar.csv", CLOZE_JSON, SATZ_JSON, CURRICULUM_JSON,
+    "korean_vocab.csv", "grammar.csv", "word_relations.json", CLOZE_JSON, SATZ_JSON, CURRICULUM_JSON,
     CAN_DO_AUTHORITIES_JSON, CAN_DO_SEGMENTS_JSON, *_SCENARIO_SHARD_NAMES,
 )
 
@@ -3345,6 +3346,10 @@ def migrate(
         _migrate_curriculum_manifest_scenarios(curriculum, bundle.scenario_moves, report)
 
         vocab_by_id = {row["id"]: row for row in vocab_rows if row.get("id")}
+        relations = _read_json(data / "word_relations.json")
+        moved_ids = {ident for ids in moved_vocab_ids_by_move.values() for ident in ids}
+        if sync_word_relation_levels(relations, vocab_by_id, moved_ids):
+            _write_json(data / "word_relations.json", relations)
         _migrate_can_do(authorities, segments_doc, bundle.moves, vocab_by_id, report)
         _migrate_can_do_scenarios(authorities, segments_doc, bundle.scenario_moves, report)
 
