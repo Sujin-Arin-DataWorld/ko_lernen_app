@@ -1,0 +1,1171 @@
+{
+  "level_label": "sejong_hoehwa_3",
+  "cefr_approx": "B1",
+  "source_series": "세종한국어 회화 익힘책 (영어판)",
+  "source_files": [
+    "세종한국어 회화 익힘책_영어판_3-1.pdf",
+    "세종한국어 회화 익힘책_영어판_3-2.pdf"
+  ],
+  "units": [
+    {
+      "unit": 1,
+      "title": "세종학당에서 한국어를 배울까 해요",
+      "title_page": 10,
+      "cando": "자신의 근황에 대해 이야기하고 앞으로의 계획을 세울 수 있어요.",
+      "cando_page": 10,
+      "vocab": [
+        {
+          "korean": "대학원에 진학하다",
+          "gloss_en": "to enter graduate school",
+          "page": 102
+        },
+        {
+          "korean": "동호회 모임에 가다",
+          "gloss_en": "to go to meet-ups",
+          "page": 102
+        },
+        {
+          "korean": "래프팅을 하다",
+          "gloss_en": "to go rafting",
+          "page": 102
+        },
+        {
+          "korean": "맛집을 방문하다",
+          "gloss_en": "to visit a deliciousrestaurant",
+          "page": 102
+        },
+        {
+          "korean": "복습을 하다",
+          "gloss_en": "to review (lessons)",
+          "page": 102
+        },
+        {
+          "korean": "사업을 하다",
+          "gloss_en": "to do a business",
+          "page": 102
+        },
+        {
+          "korean": "서핑을 하다",
+          "gloss_en": "to surf",
+          "page": 102
+        },
+        {
+          "korean": "수업 후",
+          "gloss_en": "after school",
+          "page": 102
+        },
+        {
+          "korean": "요가를 하다",
+          "gloss_en": "to do yoga",
+          "page": 102
+        },
+        {
+          "korean": "입대하다",
+          "gloss_en": "to join military",
+          "page": 102
+        },
+        {
+          "korean": "졸업 후",
+          "gloss_en": "after graduation",
+          "page": 102
+        },
+        {
+          "korean": "친구와 영상통화를 하다",
+          "gloss_en": "to video chat with a friend",
+          "page": 102
+        },
+        {
+          "korean": "캠핑을 하다",
+          "gloss_en": "to go camping",
+          "page": 102
+        },
+        {
+          "korean": "프리랜서로 일하다",
+          "gloss_en": "to freelance",
+          "page": 102
+        },
+        {
+          "korean": "휴가",
+          "gloss_en": "break/vacation",
+          "page": 102
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-으면서/-면서",
+          "page": 96
+        },
+        {
+          "label": "-을까/-ㄹ까 하다",
+          "page": 96
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 12,
+          "quote": "가: 수진 씨는 주말에 보통 뭐 해요?"
+        },
+        {
+          "page": 13,
+          "quote": "가: 오늘 수업 후에 뭐 할 거예요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_3-1.pdf"
+    },
+    {
+      "unit": 2,
+      "title": "테니스를 치고 나면 스트레스가 풀려요",
+      "title_page": 20,
+      "cando": "여가 활동에 대해 소개할 수 있어요.",
+      "cando_page": 20,
+      "vocab": [
+        {
+          "korean": "경기 관람",
+          "gloss_en": "to see a sports game",
+          "page": 102
+        },
+        {
+          "korean": "그림 그리기",
+          "gloss_en": "drawing pictures",
+          "page": 102
+        },
+        {
+          "korean": "독서",
+          "gloss_en": "reading books",
+          "page": 102
+        },
+        {
+          "korean": "맛집 탐방",
+          "gloss_en": "culinary adventure",
+          "page": 102
+        },
+        {
+          "korean": "사진 촬영",
+          "gloss_en": "taking pictures",
+          "page": 102
+        },
+        {
+          "korean": "야외 나들이",
+          "gloss_en": "outdoor excursion",
+          "page": 102
+        },
+        {
+          "korean": "영상 제작",
+          "gloss_en": "producing videos",
+          "page": 102
+        },
+        {
+          "korean": "외국어 공부",
+          "gloss_en": "study foreign language",
+          "page": 102
+        },
+        {
+          "korean": "헬스",
+          "gloss_en": "work out (at gym)",
+          "page": 102
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-을/-ㄹ 줄 알다/모르다",
+          "page": 96
+        },
+        {
+          "label": "-고 나면",
+          "page": 96
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 27,
+          "quote": "가: 한자를 쓸 줄 알아요?"
+        },
+        {
+          "page": 27,
+          "quote": "가: 감기에 걸린 것 같은데 병원에 안 가요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_3-1.pdf"
+    },
+    {
+      "unit": 3,
+      "title": "아무 데나 상관없어",
+      "title_page": 30,
+      "cando": "약속을 정하거나 바꿀 수 있어요.",
+      "cando_page": 30,
+      "vocab": [
+        {
+          "korean": "길을 헤매다",
+          "gloss_en": "to wander the streets",
+          "page": 102
+        },
+        {
+          "korean": "길이 정체되다",
+          "gloss_en": "road congestion",
+          "page": 102
+        },
+        {
+          "korean": "(차가) 꼼짝을 못하다",
+          "gloss_en": "\u0007(the car) does not move an",
+          "page": 102
+        },
+        {
+          "korean": "밥 한번 먹다",
+          "gloss_en": "\u0007Let’s have a lunch/dinner/",
+          "page": 102
+        },
+        {
+          "korean": "약속을 깨다",
+          "gloss_en": "to cancel an appointment",
+          "page": 102
+        },
+        {
+          "korean": "약속을 어기다",
+          "gloss_en": "\u0007to break a promise/an",
+          "page": 102
+        },
+        {
+          "korean": "얼굴 한번 보다",
+          "gloss_en": "to see someone in person",
+          "page": 102
+        },
+        {
+          "korean": "차 한잔하다",
+          "gloss_en": "\u0007To drink/grab tea (with",
+          "page": 102
+        },
+        {
+          "korean": "(시간을/장소를) 착각하다",
+          "gloss_en": "to mistake (time/venue)",
+          "page": 102
+        }
+      ],
+      "grammar": [
+        {
+          "label": "아무…이나/나",
+          "page": 97
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 33,
+          "quote": "가: 선생님, 언제 전화드릴까요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_3-1.pdf"
+    },
+    {
+      "unit": 4,
+      "title": "필요한 물건은 같이 사러 가자",
+      "title_page": 40,
+      "cando": "집안일에 대해 이야기할 수 있어요.",
+      "cando_page": 40,
+      "vocab": [
+        {
+          "korean": "겨울/여름옷을 정리하다",
+          "gloss_en": "\u0007to organize (winter/",
+          "page": 102
+        },
+        {
+          "korean": "빨래방에 가다",
+          "gloss_en": "\u0007to go to laundry room (coin",
+          "page": 102
+        },
+        {
+          "korean": "애완동물을 돌보다",
+          "gloss_en": "to take care pets",
+          "page": 102
+        },
+        {
+          "korean": "에어컨을 청소하다",
+          "gloss_en": "to clean the air conditioner",
+          "page": 102
+        },
+        {
+          "korean": "욕실을 청소하다",
+          "gloss_en": "to clean the bathroom",
+          "page": 102
+        },
+        {
+          "korean": "음식물 쓰레기를 버리다",
+          "gloss_en": "to take out food waste",
+          "page": 102
+        },
+        {
+          "korean": "이불을 교체하다",
+          "gloss_en": "to change the bedding",
+          "page": 102
+        },
+        {
+          "korean": "잔디를 깎다",
+          "gloss_en": "to mow the lawn",
+          "page": 102
+        },
+        {
+          "korean": "책을 정리하다",
+          "gloss_en": "to organize books",
+          "page": 102
+        },
+        {
+          "korean": "커튼을 갈다",
+          "gloss_en": "to change the curtains",
+          "page": 102
+        },
+        {
+          "korean": "화초에 물을 주다",
+          "gloss_en": "to water plants",
+          "page": 102
+        },
+        {
+          "korean": "환기를 시키다",
+          "gloss_en": "to ventilate",
+          "page": 102
+        }
+      ],
+      "grammar": [
+        {
+          "label": "…에다(가) …도/까지",
+          "page": 97
+        },
+        {
+          "label": "-아(라)/-어(라)/-여(라)",
+          "page": 97
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 42,
+          "quote": "가: 수진 씨, 요즘 많이 바빠요?"
+        },
+        {
+          "page": 47,
+          "quote": "가: 나도 같이 집 정리를 해 줄까?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_3-1.pdf"
+    },
+    {
+      "unit": 5,
+      "title": "저도 뉴욕에 가 본 적이 있어요",
+      "title_page": 50,
+      "cando": "여행 경험에 대해 말할 수 있어요.",
+      "cando_page": 50,
+      "vocab": [
+        {
+          "korean": "게스트 하우스",
+          "gloss_en": "guesthouse",
+          "page": 102
+        },
+        {
+          "korean": "국립 공원",
+          "gloss_en": "national park",
+          "page": 102
+        },
+        {
+          "korean": "드라마 촬영지",
+          "gloss_en": "filming location",
+          "page": 102
+        },
+        {
+          "korean": "민박",
+          "gloss_en": "bed and breakfast",
+          "page": 102
+        },
+        {
+          "korean": "숙박시설",
+          "gloss_en": "accommodations",
+          "page": 102
+        },
+        {
+          "korean": "여권",
+          "gloss_en": "passport",
+          "page": 103
+        },
+        {
+          "korean": "여행 책자",
+          "gloss_en": "travel book",
+          "page": 103
+        },
+        {
+          "korean": "여행용품(목베개, 안대 등)",
+          "gloss_en": "\u0007travel amenity (neck pillow,",
+          "page": 103
+        },
+        {
+          "korean": "여행지",
+          "gloss_en": "travel site",
+          "page": 103
+        },
+        {
+          "korean": "유적지",
+          "gloss_en": "hitorical site",
+          "page": 103
+        },
+        {
+          "korean": "준비물",
+          "gloss_en": "packing list",
+          "page": 103
+        },
+        {
+          "korean": "콘도",
+          "gloss_en": "condominium",
+          "page": 103
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-은/-ㄴ 적이 있다/없다",
+          "page": 97
+        },
+        {
+          "label": "-아서/-어서/-여서 그런지",
+          "page": 98
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 52,
+          "quote": "가: 현수 씨는 한복을 입은 적이 있어요?"
+        },
+        {
+          "page": 57,
+          "quote": "가: 떡볶이를 먹어 본 적이 있어요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_3-1.pdf"
+    },
+    {
+      "unit": 6,
+      "title": "사이즈가 작아서 교환하려고요",
+      "title_page": 60,
+      "cando": "물건을 살 때 원하는 것을 요청할 수 있어요.",
+      "cando_page": 60,
+      "vocab": [
+        {
+          "korean": "무늬",
+          "gloss_en": "patterns",
+          "page": 103
+        },
+        {
+          "korean": "생산 일자",
+          "gloss_en": "production date",
+          "page": 103
+        },
+        {
+          "korean": "식감",
+          "gloss_en": "(food) texture",
+          "page": 103
+        },
+        {
+          "korean": "에너지 효율 등급",
+          "gloss_en": "energy efficiency rating",
+          "page": 103
+        },
+        {
+          "korean": "옷감",
+          "gloss_en": "fabric",
+          "page": 103
+        },
+        {
+          "korean": "유통 기한",
+          "gloss_en": "expiration date",
+          "page": 103
+        },
+        {
+          "korean": "품질 보증 기간",
+          "gloss_en": "warranty period",
+          "page": 103
+        },
+        {
+          "korean": "향",
+          "gloss_en": "fragrance",
+          "page": 103
+        },
+        {
+          "korean": "활용도",
+          "gloss_en": "utility",
+          "page": 103
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-아도/-어도/-여도 되다",
+          "page": 98
+        },
+        {
+          "label": "-으려고(요)/-려고(요)",
+          "page": 98
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 62,
+          "quote": "가: 여기에서 음식을 먹어도 돼요?"
+        },
+        {
+          "page": 67,
+          "quote": "가: 여기에서 사진을 찍어도 돼요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_3-1.pdf"
+    },
+    {
+      "unit": 7,
+      "title": "본선에서 상을 탈 수 있었으면 좋겠어요",
+      "title_page": 70,
+      "cando": "행사 참가 신청을 하고 참가한 소감에 대해 이야기할 수 있어요.",
+      "cando_page": 70,
+      "vocab": [
+        {
+          "korean": "대회에 참가하다",
+          "gloss_en": "\u0007to compete (in a",
+          "page": 103
+        },
+        {
+          "korean": "예선에서 떨어지다/탈락하다",
+          "gloss_en": "\u0007to be eliminated from",
+          "page": 103
+        },
+        {
+          "korean": "예선을 치르다",
+          "gloss_en": "\u0007to undergo preliminary",
+          "page": 103
+        },
+        {
+          "korean": "오디션에 합격하다",
+          "gloss_en": "to pass the audition",
+          "page": 103
+        },
+        {
+          "korean": "우승을 차지하다",
+          "gloss_en": "\u0007to win (the prize, award,",
+          "page": 103
+        },
+        {
+          "korean": "원서를 접수하다",
+          "gloss_en": "to submit an application",
+          "page": 103
+        },
+        {
+          "korean": "참가 자격을 확인하다",
+          "gloss_en": "to confirm the qualifications",
+          "page": 103
+        },
+        {
+          "korean": "프로필을 내다",
+          "gloss_en": "to submite a profile",
+          "page": 103
+        },
+        {
+          "korean": "프로필을 수정하다",
+          "gloss_en": "to edit a profile",
+          "page": 103
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-았으면/-었으면/-였으면 좋겠다",
+          "page": 99
+        },
+        {
+          "label": "-기는 하다",
+          "page": 99
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 77,
+          "quote": "가: 유학 생활은 괜찮아요?"
+        },
+        {
+          "page": 79,
+          "quote": "가: 세종학당에서 말하기와 쓰기 대회를 하네요. 우리 같이 참가해 볼까요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_3-1.pdf"
+    },
+    {
+      "unit": 8,
+      "title": "내 꿈이 한국어 선생님인데 가능할지 모르겠어",
+      "title_page": 10,
+      "cando": "다른 사람의 고민을 듣고 조언을 할 수 있다.",
+      "cando_page": 10,
+      "vocab": [
+        {
+          "korean": "경력",
+          "gloss_en": "(work) experiences",
+          "page": 99
+        },
+        {
+          "korean": "부서",
+          "gloss_en": "department/team",
+          "page": 99
+        },
+        {
+          "korean": "석사",
+          "gloss_en": "(M.A) Master’s degree",
+          "page": 99
+        },
+        {
+          "korean": "성명",
+          "gloss_en": "name",
+          "page": 99
+        },
+        {
+          "korean": "연락처",
+          "gloss_en": "contact information",
+          "page": 99
+        },
+        {
+          "korean": "인적 사항",
+          "gloss_en": "personal information",
+          "page": 99
+        },
+        {
+          "korean": "전공",
+          "gloss_en": "major",
+          "page": 99
+        },
+        {
+          "korean": "직위",
+          "gloss_en": "rank/position",
+          "page": 99
+        },
+        {
+          "korean": "학력",
+          "gloss_en": "educational background",
+          "page": 99
+        },
+        {
+          "korean": "학사",
+          "gloss_en": "(B.A) bachelor’s degree",
+          "page": 99
+        },
+        {
+          "korean": "학위",
+          "gloss_en": "(educational) degree",
+          "page": 99
+        },
+        {
+          "korean": "한국 문화학",
+          "gloss_en": "Korean cultural studies",
+          "page": 99
+        },
+        {
+          "korean": "한국학",
+          "gloss_en": "Korean studies",
+          "page": 99
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-을지/-ㄹ지",
+          "page": 95
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 11,
+          "quote": "가: 학력이 어떻게 되십니까?"
+        },
+        {
+          "page": 11,
+          "quote": "가: 그럼 학교에서는 어떤 공부를 했습니까?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_3-2.pdf"
+    },
+    {
+      "unit": 9,
+      "title": "스파게티 면을 살짝 볶고 나서 소스를 넣어",
+      "title_page": 20,
+      "cando": "조리법을 순서대로 설명할 수 있어요.",
+      "cando_page": 20,
+      "vocab": [
+        {
+          "korean": "가스레인지",
+          "gloss_en": "stove",
+          "page": 99
+        },
+        {
+          "korean": "그릇",
+          "gloss_en": "plate/bowl/dish",
+          "page": 99
+        },
+        {
+          "korean": "냄비",
+          "gloss_en": "pot",
+          "page": 99
+        },
+        {
+          "korean": "도마",
+          "gloss_en": "cutting board",
+          "page": 99
+        },
+        {
+          "korean": "오븐",
+          "gloss_en": "oven",
+          "page": 99
+        },
+        {
+          "korean": "전자레인지",
+          "gloss_en": "microwave",
+          "page": 99
+        },
+        {
+          "korean": "접시",
+          "gloss_en": "plates",
+          "page": 99
+        },
+        {
+          "korean": "주전자",
+          "gloss_en": "kettle",
+          "page": 99
+        },
+        {
+          "korean": "찻잔",
+          "gloss_en": "teacup",
+          "page": 99
+        },
+        {
+          "korean": "프라이팬",
+          "gloss_en": "frying pan, skillet",
+          "page": 99
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-거든(요)",
+          "page": 95
+        },
+        {
+          "label": "-고 나서",
+          "page": 95
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 27,
+          "quote": "가: 여기에 왜 이렇게 사람들이 많아요?"
+        },
+        {
+          "page": 27,
+          "quote": "가: 이 음식이 맛있는데 왜 안 먹어요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_3-2.pdf"
+    },
+    {
+      "unit": 10,
+      "title": "제가 실수할 뻔했네요",
+      "title_page": 30,
+      "cando": "문화 차이로 인해 겪은 일에 대해 이야기할 수 있어요.",
+      "cando_page": 30,
+      "vocab": [
+        {
+          "korean": "가방을 대신 들어주다",
+          "gloss_en": "\u0007to carry a bag for (someone)",
+          "page": 99
+        },
+        {
+          "korean": "눈인사를 하다",
+          "gloss_en": "to greet with a nod",
+          "page": 99
+        },
+        {
+          "korean": "(칭찬할 때) 머리를 쓰다듬다",
+          "gloss_en": "\u0007to pat someone’s head",
+          "page": 99
+        },
+        {
+          "korean": "식탁에서 코를 풀다",
+          "gloss_en": "\u0007to blow one’s nose at a",
+          "page": 99
+        },
+        {
+          "korean": "악수하다",
+          "gloss_en": "to shake hands",
+          "page": 99
+        },
+        {
+          "korean": "웃어른이 말할 때 조용히 하다",
+          "gloss_en": "\u0007to be quiet when an adult",
+          "page": 99
+        },
+        {
+          "korean": "입식 생활을 하다",
+          "gloss_en": "\u0007to live the western lifestyle",
+          "page": 99
+        },
+        {
+          "korean": "자리를 양보하다",
+          "gloss_en": "\u0007to give up a seat for",
+          "page": 99
+        },
+        {
+          "korean": "혼잣말을 많이 하다",
+          "gloss_en": "to talk to oneself a lot",
+          "page": 99
+        }
+      ],
+      "grammar": [
+        {
+          "label": "…마다",
+          "page": 95
+        },
+        {
+          "label": "-을/-ㄹ 뻔하다",
+          "page": 95
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 37,
+          "quote": "가: 어제 영화 잘 봤어요?"
+        },
+        {
+          "page": 37,
+          "quote": "가: 보통 언제 외식을 해요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_3-2.pdf"
+    },
+    {
+      "unit": 11,
+      "title": "배우들이 연기를 정말 잘한다고 해요",
+      "title_page": 40,
+      "cando": "에 가면 유명한 작가의 그림을 자세히 볼 수 있어요.",
+      "cando_page": 40,
+      "vocab": [
+        {
+          "korean": "감동적이다",
+          "gloss_en": "touching, moving",
+          "page": 99
+        },
+        {
+          "korean": "값지다",
+          "gloss_en": "valuable",
+          "page": 99
+        },
+        {
+          "korean": "내용이 뻔하다",
+          "gloss_en": "obvious",
+          "page": 99
+        },
+        {
+          "korean": "돈이 아깝다",
+          "gloss_en": "to be not worth the money",
+          "page": 99
+        },
+        {
+          "korean": "생생하다",
+          "gloss_en": "vivid (memory)",
+          "page": 99
+        },
+        {
+          "korean": "시간이 짧게 느껴지다",
+          "gloss_en": "\u0007to feel like time is passing",
+          "page": 99
+        },
+        {
+          "korean": "작품성이 떨어지다",
+          "gloss_en": "\u0007the quality (of an art piece,",
+          "page": 99
+        },
+        {
+          "korean": "지루하다",
+          "gloss_en": "boring/boredom",
+          "page": 99
+        },
+        {
+          "korean": "집중이 안 되다",
+          "gloss_en": "can not concentrate/focus",
+          "page": 99
+        },
+        {
+          "korean": "참신하다",
+          "gloss_en": "original, novel",
+          "page": 99
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-을/-ㄹ 테니(까)",
+          "page": 96
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 47,
+          "quote": "가: 헤리 씨, 요즘 안나 씨가 왜 학교에 안 와요?"
+        },
+        {
+          "page": 47,
+          "quote": "가: 이번 주말에만 열리는 오케스트라의 야외 공연을 보러 같이 갈래요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_3-2.pdf"
+    },
+    {
+      "unit": 12,
+      "title": "무거운 짐을 들다가 손목을 다쳤어",
+      "title_page": 50,
+      "cando": "다친 경험과 증상에 대해 설명할 수 있어요.",
+      "cando_page": 50,
+      "vocab": [
+        {
+          "korean": "내과",
+          "gloss_en": "internal medicine",
+          "page": 99
+        },
+        {
+          "korean": "메스껍다",
+          "gloss_en": "to feel nauseous",
+          "page": 99
+        },
+        {
+          "korean": "뼈가 부러지다",
+          "gloss_en": "to break a bone",
+          "page": 99
+        },
+        {
+          "korean": "속이 쓰리다",
+          "gloss_en": "to have heartburn",
+          "page": 99
+        },
+        {
+          "korean": "스케일링을 받다",
+          "gloss_en": "\u0007to have scaling done",
+          "page": 99
+        },
+        {
+          "korean": "어깨가 뭉치다",
+          "gloss_en": "‌\u0007to have knots in one’s",
+          "page": 100
+        },
+        {
+          "korean": "이가 썩다",
+          "gloss_en": "to have a cavity",
+          "page": 100
+        },
+        {
+          "korean": "이를 뽑다",
+          "gloss_en": "to extract a tooth",
+          "page": 100
+        },
+        {
+          "korean": "정형외과",
+          "gloss_en": "orthpedics",
+          "page": 100
+        },
+        {
+          "korean": "체하다",
+          "gloss_en": "to have an upset stomach",
+          "page": 100
+        },
+        {
+          "korean": "치과",
+          "gloss_en": "dentist (office), dentistry",
+          "page": 100
+        },
+        {
+          "korean": "허리 디스크에 걸리다",
+          "gloss_en": "\u0007to have a slipped disk",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-다(가)",
+          "page": 96
+        },
+        {
+          "label": "-을/-ㄹ 정도(로)",
+          "page": 96
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 57,
+          "quote": "가: 목소리가 왜 그래요? 감기에 걸렸어요?"
+        },
+        {
+          "page": 57,
+          "quote": "가: 왜 이렇게 늦게 왔어요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_3-2.pdf"
+    },
+    {
+      "unit": 13,
+      "title": "생활비가 많이 절약되더라고요",
+      "title_page": 60,
+      "cando": "경제생활에 관한 정보를 전달할 수 있어요.",
+      "cando_page": 60,
+      "vocab": [
+        {
+          "korean": "건강보험료",
+          "gloss_en": "health insurance fee",
+          "page": 100
+        },
+        {
+          "korean": "공과금",
+          "gloss_en": "utility bill",
+          "page": 100
+        },
+        {
+          "korean": "관리비",
+          "gloss_en": "maintenance fee",
+          "page": 100
+        },
+        {
+          "korean": "교육비",
+          "gloss_en": "educational expense/cost",
+          "page": 100
+        },
+        {
+          "korean": "등록금",
+          "gloss_en": "tuition",
+          "page": 100
+        },
+        {
+          "korean": "수도세",
+          "gloss_en": "water bill",
+          "page": 100
+        },
+        {
+          "korean": "월세",
+          "gloss_en": "monthly lease",
+          "page": 100
+        },
+        {
+          "korean": "의료비",
+          "gloss_en": "healthcare fee",
+          "page": 100
+        },
+        {
+          "korean": "전기세",
+          "gloss_en": "electricity bill",
+          "page": 100
+        },
+        {
+          "korean": "전세",
+          "gloss_en": "deposit lease",
+          "page": 100
+        },
+        {
+          "korean": "주거비",
+          "gloss_en": "living expense",
+          "page": 100
+        },
+        {
+          "korean": "진료비",
+          "gloss_en": "medical examination fee",
+          "page": 100
+        },
+        {
+          "korean": "학원비",
+          "gloss_en": "\u0007private after school",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-는/-은/-ㄴ 편이다",
+          "page": 97
+        },
+        {
+          "label": "-더라고(요)",
+          "page": 97
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 60,
+          "quote": "가: 아, 그렇군요! 그런데 돈을 모을 수 있는 다른 방법이 또 있을까요?"
+        },
+        {
+          "page": 63,
+          "quote": "가: 인터넷으로 쇼핑을 자주 해요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_3-2.pdf"
+    },
+    {
+      "unit": 14,
+      "title": "한국으로 여행을 한번 가 보지 그래요?",
+      "title_page": 70,
+      "cando": "나의 고민을 이야기하거나 다른 사람의 고민을 듣고 조언해 줄 수 있어요.",
+      "cando_page": 70,
+      "vocab": [
+        {
+          "korean": "감정 조절이 안 되다",
+          "gloss_en": "emotion is uncontrollable",
+          "page": 100
+        },
+        {
+          "korean": "건강에 이상이 있다",
+          "gloss_en": "\u0007to have a problem with",
+          "page": 100
+        },
+        {
+          "korean": "고집이 세다",
+          "gloss_en": "to be headstrong/stubborn",
+          "page": 100
+        },
+        {
+          "korean": "덜렁대다",
+          "gloss_en": "to be clumsy",
+          "page": 100
+        },
+        {
+          "korean": "마음이 잘 안 맞다",
+          "gloss_en": "to disagree",
+          "page": 100
+        },
+        {
+          "korean": "신경질적이다",
+          "gloss_en": "to be temperamental",
+          "page": 100
+        },
+        {
+          "korean": "의견 출동이 잦다",
+          "gloss_en": "to have disagreements often",
+          "page": 100
+        },
+        {
+          "korean": "일이 손에 안 잡히다",
+          "gloss_en": "can’t get the work done.",
+          "page": 100
+        },
+        {
+          "korean": "진로 결정이 어렵다",
+          "gloss_en": "\u0007to have a difficulty deciding",
+          "page": 100
+        },
+        {
+          "korean": "학점이 나쁘다",
+          "gloss_en": "to have a bad grade",
+          "page": 100
+        }
+      ],
+      "grammar": [
+        {
+          "label": "-아도/-어도/-여도",
+          "page": 97
+        }
+      ],
+      "dialogue_quotes": [
+        {
+          "page": 73,
+          "quote": "가: 이번 주 토요일에 콘서트에 가는데 뭘 입고 가면 좋을까요?"
+        },
+        {
+          "page": 73,
+          "quote": "가: 알겠어요. 그럼 신발은 뭘 신을까요?"
+        }
+      ],
+      "source_file": "세종한국어 회화 익힘책_영어판_3-2.pdf"
+    }
+  ]
+}
