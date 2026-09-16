@@ -1,6 +1,15 @@
 # C3 Batch 34 A2 Jin review packet
 
-상태: `MODEL_QA_PASS`, `HUMAN_APPROVED` 아님. 모든 review ledger는 `pending`이다.
+상태: **예문 64개 / 빈칸 64세트·문장 조립 64세트 모델 검토 완료** (`MODEL_QA_PASS`). 의미 검토와 구조 검토를 별도로 수행했다. 사람 검수 전이며 모든 review ledger는 `pending`이다.
+
+## 이번 예문의 기준
+
+- A2: 최대 12어절·2절. 상한을 채우려고 길게 쓰지 않고, 단어를 실제로 쓸 장면과 한 가지 의도를 먼저 정했다.
+- 유쾌함은 작은 반응·함께 먹기·생활의 발견으로 표현하고, 감탄사나 농담을 모든 문장에 넣지 않았다.
+- `잔치`는 가족의 칠순 행사 맥락에 썼다. 칠순은 일흔 살 생일이며, 이 행에만 허용한 문화 보조어다.
+- 문장 수정과 선택지 품질은 별도다. 사람 승인은 아직 없으며, 아래 보기는 제시된 DE/EN 뜻과의 차이로 판단한다.
+- 번역 제시가 필수다. 한국어만 보면 자연스러운 다른 문장이 되는 보기도 포함되므로, 번역 없는 문맥 추론 문제로 재사용하지 않는다.
+- 온도·여행 날짜는 의미 구별에 필요한 명사구 전체를 빈칸으로 쓴다. 학습 표제어와 전체 예문은 유지한다.
 
 ## 범위와 산술
 
@@ -30,333 +39,548 @@
 
 ### vocab_a2_0702 — 잔치
 
-- KO: 다음 주에 잔치를 열어요.
-- DE: Nächste Woche findet ein Fest statt.
-- EN: A celebration will take place next week.
-- Cloze `cloze_a2_0509`: 다음 주에 ＿＿＿ 열어요. → `잔치를` · ['양말을', '연필을', '감기를']
-- Satz `satz_a2_0694`: 다음 주에 잔치를 열어요. · ['양말을', '연필을']
+- KO: 할머니 칠순이라 주말에 잔치를 해요.
+- DE: Am Wochenende gibt es eine Feier zum 70. Geburtstag meiner Oma.
+- EN: We're having a party for my grandma's seventieth birthday this weekend.
+- Cloze `cloze_a2_0509`: 할머니 칠순이라 주말에 ＿＿＿ 해요. → `잔치를` · ['식사를', '여행을', '구경을']
+- Satz `satz_a2_0694`: 할머니 칠순이라 주말에 잔치를 해요. · ['평일에', '할아버지']
 
 ### vocab_a2_0701 — 물어보다
 
-- KO: 길을 모르면 지나가는 사람에게 물어보세요.
-- DE: Wenn Sie den Weg nicht kennen, fragen Sie jemanden, der vorbeikommt.
-- EN: If you do not know the way, ask someone passing by.
-- Cloze `cloze_a2_0508`: 길을 모르면 지나가는 사람에게 ＿＿＿. → `물어보세요` · ['앉으세요', '서세요', '웃으세요']
-- Satz `satz_a2_0693`: 길을 모르면 지나가는 사람에게 물어보세요. · ['앉으세요', '서세요']
+- KO: 길을 모르면 저 사람에게 물어보세요.
+- DE: Wenn Sie den Weg nicht kennen, fragen Sie die Person dort.
+- EN: If you don't know the way, ask the person over there.
+- Cloze `cloze_a2_0508`: 길을 모르면 저 사람에게 ＿＿＿. → `물어보세요` · ['알려주세요', '설명하세요', '전화하세요']
+- Satz `satz_a2_0693`: 길을 모르면 저 사람에게 물어보세요. · ['알면', '이']
 
 ### vocab_a2_0714 — 안전
 
-- KO: 안전 운전을 꼭 하세요.
-- DE: Fahren Sie bitte unbedingt vorsichtig.
-- EN: Please be sure to drive safely.
-- Cloze `cloze_a2_0521`: ＿＿＿ 운전을 꼭 하세요. → `안전` · ['도서관', '만두', '연필']
-- Satz `satz_a2_0706`: 안전 운전을 꼭 하세요. · ['도서관', '만두']
+- KO: 운전할 때는 안전이 제일 중요해요.
+- DE: Beim Autofahren ist Sicherheit am wichtigsten.
+- EN: When you drive, safety matters most.
+- Cloze `cloze_a2_0521`: 운전할 때는 ＿＿＿ 제일 중요해요. → `안전이` · ['속도가', '시간이', '거리가']
+- Satz `satz_a2_0706`: 운전할 때는 안전이 제일 중요해요. · ['운동할', '조금']
 
 ### vocab_a2_0723 — 자장면
 
-- KO: 이사하는 날에는 자장면을 시켜요.
-- DE: Am Umzugstag bestelle ich Jajangmyeon.
-- EN: On moving day, I order jajangmyeon.
-- Cloze `cloze_a2_0530`: 이사하는 날에는 ＿＿＿ 시켜요. → `자장면을` · ['구름을', '하늘을', '햇빛을']
-- Satz `satz_a2_0715`: 이사하는 날에는 자장면을 시켜요. · ['구름을', '하늘을']
+- KO: 저는 자장면을 먹을게요. 같이 주문할까요?
+- DE: Ich nehme Jajangmyeon. Wollen wir zusammen bestellen?
+- EN: I'll have jajangmyeon. Shall we order together?
+- Cloze `cloze_a2_0530`: 저는 ＿＿＿ 먹을게요. 같이 주문할까요? → `자장면을` · ['짬뽕을', '칼국수를', '냉면을']
+- Satz `satz_a2_0715`: 저는 자장면을 먹을게요. 같이 주문할까요? · ['먹었어요', '취소할까요']
 
 ### vocab_a2_0732 — 빨다
 
-- KO: 더러운 양말을 손으로 빨았어요.
-- DE: Ich habe die schmutzigen Socken mit der Hand gewaschen.
-- EN: I washed the dirty socks by hand.
-- Cloze `cloze_a2_0539`: 더러운 양말을 손으로 ＿＿＿. → `빨았어요` · ['앉았어요', '누웠어요', '뛰었어요']
-- Satz `satz_a2_0724`: 더러운 양말을 손으로 빨았어요. · ['앉았어요', '누웠어요']
+- KO: 운동 후에 양말부터 빨았어요.
+- DE: Nach dem Sport habe ich als Erstes meine Socken gewaschen.
+- EN: After exercising, I washed my socks first.
+- Cloze `cloze_a2_0539`: 운동 후에 양말부터 ＿＿＿. → `빨았어요` · ['접었어요', '벗었어요', '신었어요']
+- Satz `satz_a2_0724`: 운동 후에 양말부터 빨았어요. · ['전에', '수건부터']
 
 ### vocab_a2_0741 — 냄비
 
-- KO: 냄비에 물을 넣고 끓이세요.
-- DE: Geben Sie Wasser in den Topf und bringen Sie es zum Kochen.
-- EN: Put water in the pot and boil it.
-- Cloze `cloze_a2_0548`: ＿＿＿ 물을 넣고 끓이세요. → `냄비에` · ['고장에', '연결에', '서비스에']
-- Satz `satz_a2_0733`: 냄비에 물을 넣고 끓이세요. · ['고장에', '연결에']
+- KO: 냄비에 라면 두 개가 들어가요.
+- DE: In den Topf passen zwei Packungen Ramyeon.
+- EN: The pot is big enough for two packs of ramyeon.
+- Cloze `cloze_a2_0548`: ＿＿＿ 라면 두 개가 들어가요. → `냄비에` · ['그릇에', '컵에', '접시에']
+- Satz `satz_a2_0733`: 냄비에 라면 두 개가 들어가요. · ['세', '우유']
 
 ### vocab_a2_0750 — 최근
 
-- KO: 최근에 회사 근처로 이사했어요.
-- DE: Vor Kurzem bin ich in die Nähe der Firma gezogen.
-- EN: I recently moved near the office.
-- Cloze `cloze_a2_0557`: ＿＿＿ 회사 근처로 이사했어요. → `최근에` · ['지갑에', '신발에', '편지에']
-- Satz `satz_a2_0742`: 최근에 회사 근처로 이사했어요. · ['지갑에', '신발에']
+- KO: 최근에 요리를 배워서 외식을 덜 해요.
+- DE: Ich habe vor Kurzem kochen gelernt und esse deshalb seltener auswärts.
+- EN: I learned to cook recently, so I eat out less.
+- Cloze `cloze_a2_0557`: ＿＿＿ 요리를 배워서 외식을 덜 해요. → `최근에` · ['작년에', '지난달에', '옛날에']
+- Satz `satz_a2_0742`: 최근에 요리를 배워서 외식을 덜 해요. · ['더', '운동을']
 
-## 전체 64행 삼언어 감사
+## 전체 64행 삼언어 예문 수정안
 
-각 행은 같은 사건, 극성, 시점, 행위자/대상, 화행을 유지한다. DE와 EN은 KO 정본의 독립 현지화다.
+KO 장면을 먼저 정하고 DE와 EN을 각각 수정했다. 아래는 사람 검수를 받을 작성안이다. 빈칸·문장 조립에는 이 DE/EN 문장을 그대로 제시한다.
 
 | # | id | word | KO | DE | EN |
 |---:|---|---|---|---|---|
-| 1 | vocab_a2_0702 | 잔치 | 다음 주에 잔치를 열어요. | Nächste Woche findet ein Fest statt. | A celebration will take place next week. |
+| 1 | vocab_a2_0702 | 잔치 | 할머니 칠순이라 주말에 잔치를 해요. | Am Wochenende gibt es eine Feier zum 70. Geburtstag meiner Oma. | We're having a party for my grandma's seventieth birthday this weekend. |
 | 2 | vocab_a2_0703 | 결혼 | 대박, 두 사람이 다음 달에 결혼을 해요! | Wahnsinn, die beiden heiraten nächsten Monat! | Wow, the two of them are getting married next month! |
-| 3 | vocab_a2_0704 | 환영 | 레나 씨, 우리 팀에 온 것을 환영해요. | Lena, willkommen in unserem Team. | Lena, welcome to our team. |
-| 4 | vocab_a2_0705 | 연말 | 마야 씨, 연말에는 회사 일이 많아요? | Maya, gibt es zum Jahresende viel Arbeit in der Firma? | Maya, is there a lot of work at the company toward the end of the year? |
-| 5 | vocab_a2_0696 | 메일 | 안드레아 씨, 사진을 메일로 친구에게 보냈어요. | Andrea, ich habe das Foto per E-Mail an einen Freund geschickt. | Andrea, I sent the photo to a friend by email. |
-| 6 | vocab_a2_0697 | 연결 | 지하철에서는 인터넷 연결이 잘 안 돼요. | In der U-Bahn funktioniert die Internetverbindung nicht gut. | The internet connection does not work well on the subway. |
-| 7 | vocab_a2_0698 | 전화기 | 전화기를 집에 두고 나왔어요. | Ich habe das Telefon zu Hause liegen lassen. | I left the telephone at home. |
-| 8 | vocab_a2_0699 | 들리다 | 크리스티안, 내 목소리 잘 들려? | Christian, kannst du mich gut hören? | Christian, can you hear me clearly? |
-| 9 | vocab_a2_0700 | 소식 | 친구한테서 결혼 소식을 듣고 정말 기뻤어요. | Jemand aus meinem Freundeskreis erzählte mir von der Hochzeit, und ich habe mich sehr gefreut. | I heard the news about the wedding from a friend and was very happy. |
-| 10 | vocab_a2_0701 | 물어보다 | 길을 모르면 지나가는 사람에게 물어보세요. | Wenn Sie den Weg nicht kennen, fragen Sie jemanden, der vorbeikommt. | If you do not know the way, ask someone passing by. |
-| 11 | vocab_a2_0706 | 도움 | 다니엘 씨, 어제 설명이 정말 도움이 됐어요. | Daniel, Ihre Erklärung gestern war wirklich hilfreich. | Daniel, your explanation yesterday was really helpful. |
-| 12 | vocab_a2_0707 | 고장 | 크리스티안, 컴퓨터가 또 고장이 났어? | Christian, ist dein Computer schon wieder kaputt? | Christian, did your computer break down again? |
-| 13 | vocab_a2_0708 | 잃다 | 어제 지하철에서 지갑을 잃었어요. | Gestern habe ich in der U-Bahn meine Brieftasche verloren. | Yesterday I lost my wallet on the subway. |
-| 14 | vocab_a2_0709 | 막히다 | 길이 많이 막혀서 회의에 늦었어요. | Die Straße war stark verstopft, deshalb kam ich zu spät zur Besprechung. | The road was very congested, so I was late for the meeting. |
-| 15 | vocab_a2_0710 | 전기 | 갑자기 전기가 나가서 방이 어두웠어요. | Plötzlich fiel der Strom aus und das Zimmer war dunkel. | The power suddenly went out, and the room was dark. |
-| 16 | vocab_a2_0711 | 유리 | 창문 유리를 깨끗이 닦았어요. | Ich habe das Fensterglas sauber gewischt. | I wiped the window glass clean. |
-| 17 | vocab_a2_0712 | 센터 | 서비스 센터에 전화해서 물어봤어요. | Ich habe beim Servicecenter angerufen und nachgefragt. | I called the service center and asked. |
-| 18 | vocab_a2_0713 | 서비스 | 이 호텔에서 친절한 서비스를 받았어요. | In diesem Hotel habe ich freundlichen Service bekommen. | I received friendly service at this hotel. |
-| 19 | vocab_a2_0714 | 안전 | 안전 운전을 꼭 하세요. | Fahren Sie bitte unbedingt vorsichtig. | Please be sure to drive safely. |
-| 20 | vocab_a2_0715 | 급하다 | 급한 일이 있어서 먼저 가요. | Ich habe etwas Dringendes zu erledigen und gehe deshalb zuerst. | I have something urgent to do, so I am leaving first. |
-| 21 | vocab_a2_0716 | 알아보다 | 인터넷으로 기차 시간을 알아봤어요. | Ich habe die Zugzeiten im Internet nachgesehen. | I checked the train times online. |
-| 22 | vocab_a2_0717 | 잘못하다 | 제가 계산을 잘못해서 죄송해요. | Es tut mir leid, dass ich mich verrechnet habe. | I am sorry I calculated it incorrectly. |
-| 23 | vocab_a2_0718 | 만두 | 명절에 가족과 함께 만두를 먹었어요. | Am Feiertag habe ich mit meiner Familie Mandu gegessen. | I ate mandu with my family for the holiday. |
-| 24 | vocab_a2_0719 | 떡 | 엄마, 나 3학년 친구들하고 떡을 먹었어! | Mama, ich habe mit meinen Freunden aus der dritten Klasse Reiskuchen gegessen! | Mom, I ate rice cakes with my third-grade friends! |
-| 25 | vocab_a2_0720 | 김 | 한국 김은 짜지 않고 맛있어요. | Koreanischer Seetang ist nicht salzig und schmeckt gut. | Korean dried seaweed is not salty and tastes good. |
-| 26 | vocab_a2_0721 | 찌개 | 추운 날에는 뜨거운 찌개가 최고예요. | An kalten Tagen ist ein heißer Eintopf das Beste. | On cold days, hot stew is the best. |
-| 27 | vocab_a2_0722 | 튀김 | 시장에서 튀김을 사서 먹었어요. | Auf dem Markt habe ich Frittiertes gekauft und gegessen. | I bought and ate fried food at the market. |
-| 28 | vocab_a2_0723 | 자장면 | 이사하는 날에는 자장면을 시켜요. | Am Umzugstag bestelle ich Jajangmyeon. | On moving day, I order jajangmyeon. |
-| 29 | vocab_a2_0724 | 짬뽕 | 매운 짬뽕을 먹고 땀이 많이 났어요. | Nach der scharfen Jjamppong-Suppe habe ich stark geschwitzt. | I sweated a lot after eating spicy jjamppong. |
-| 30 | vocab_a2_0725 | 탕수육 | 중국집에서 탕수육을 하나 더 주문했어요. | Im chinesischen Restaurant habe ich noch eine Portion Tangsuyuk bestellt. | I ordered one more serving of tangsuyuk at the Chinese restaurant. |
-| 31 | vocab_a2_0726 | 칼국수 | 비 오는 날에는 따뜻한 칼국수가 먹고 싶어요. | An Regentagen möchte ich warme Kalguksu essen. | On rainy days, I want to eat warm kalguksu. |
-| 32 | vocab_a2_0727 | 돈가스 | 학교 식당 돈가스는 값이 싸고 맛있어요. | Das Donkatsu in der Schulkantine ist günstig und lecker. | The donkatsu in the school cafeteria is inexpensive and tasty. |
-| 33 | vocab_a2_0728 | 카레 | 저녁에 감자를 넣은 카레를 만들었어요. | Zum Abendessen habe ich Curry mit Kartoffeln gemacht. | I made curry with potatoes for dinner. |
-| 34 | vocab_a2_0729 | 미역국 | 한국에서는 생일에 미역국을 먹어요. | In Korea isst man am Geburtstag Miyeokguk. | In Korea, people eat seaweed soup on birthdays. |
-| 35 | vocab_a2_0730 | 집안일 | 민호 씨, 주말에는 누가 집안일을 해요? | Minho, wer macht am Wochenende die Hausarbeit? | Minho, who does the housework on weekends? |
-| 36 | vocab_a2_0731 | 세탁 | 이 코트는 집에서 세탁을 하면 안 돼요. | Diesen Mantel darf man nicht zu Hause waschen. | You must not wash this coat at home. |
-| 37 | vocab_a2_0732 | 빨다 | 더러운 양말을 손으로 빨았어요. | Ich habe die schmutzigen Socken mit der Hand gewaschen. | I washed the dirty socks by hand. |
-| 38 | vocab_a2_0733 | 쓰레기통 | 다 마신 컵은 쓰레기통에 버리세요. | Werfen Sie den leeren Becher in den Mülleimer. | Throw the empty cup in the trash can. |
-| 39 | vocab_a2_0734 | 휴지 | 화장실에 휴지가 없어서 불편했어요. | Es gab kein Toilettenpapier, deshalb war es unangenehm. | There was no toilet paper in the restroom, so it was inconvenient. |
-| 40 | vocab_a2_0735 | 목욕 | 자기 전에 따뜻한 물로 목욕을 해요. | Vor dem Schlafengehen bade ich in warmem Wasser. | I take a warm bath before going to bed. |
-| 41 | vocab_a2_0736 | 양치질 | 식사 후에는 꼭 양치질을 하세요. | Putzen Sie sich nach dem Essen unbedingt die Zähne. | Make sure to brush your teeth after meals. |
-| 42 | vocab_a2_0737 | 치약 | 치약이 다 떨어져서 마트에서 샀어요. | Die Zahnpasta war aufgebraucht, deshalb habe ich neue im Supermarkt gekauft. | I ran out of toothpaste, so I bought some at the supermarket. |
-| 43 | vocab_a2_0738 | 선풍기 | 더워서 선풍기를 켜고 잤어요. | Weil es heiß war, habe ich den Ventilator eingeschaltet und geschlafen. | It was hot, so I turned on the fan and went to sleep. |
-| 44 | vocab_a2_0739 | 식탁 | 저녁 준비가 끝나서 식탁에 그릇을 놓았어요. | Als das Abendessen fertig war, stellte ich das Geschirr auf den Esstisch. | When dinner was ready, I put the dishes on the dining table. |
-| 45 | vocab_a2_0740 | 바닥 | 청소기로 바닥을 깨끗하게 청소했어요. | Ich habe den Boden mit dem Staubsauger gründlich gereinigt. | I cleaned the floor thoroughly with a vacuum cleaner. |
-| 46 | vocab_a2_0741 | 냄비 | 냄비에 물을 넣고 끓이세요. | Geben Sie Wasser in den Topf und bringen Sie es zum Kochen. | Put water in the pot and boil it. |
-| 47 | vocab_a2_0742 | 이틀 | 현아 씨, 이틀 동안 어디에 있었어요? | Hyuna, wo waren Sie zwei Tage lang? | Hyuna, where were you for two days? |
-| 48 | vocab_a2_0743 | 사흘 | 감기로 사흘 동안 학교에 못 갔어요. | Wegen einer Erkältung konnte ich drei Tage lang nicht zur Schule gehen. | I could not go to school for three days because of a cold. |
-| 49 | vocab_a2_0744 | 나흘 | 비가 나흘 동안 계속 왔어요. | Es hat vier Tage lang ununterbrochen geregnet. | It rained continuously for four days. |
-| 50 | vocab_a2_0745 | 열흘 | 열흘 후에 독일에서 부모님이 오세요. | In zehn Tagen kommen meine Eltern aus Deutschland. | My parents are coming from Germany in ten days. |
-| 51 | vocab_a2_0746 | 개월 | 저는 삼 개월 전에 한국에 왔어요. | Ich bin vor drei Monaten nach Korea gekommen. | I came to Korea three months ago. |
-| 52 | vocab_a2_0747 | 그동안 | 그동안 연락을 못 해서 미안해요. | Es tut mir leid, dass ich mich in der Zwischenzeit nicht gemeldet habe. | I am sorry I could not get in touch during that time. |
-| 53 | vocab_a2_0748 | 오랜만 | 오랜만에 고향 친구를 만나서 반가웠어요. | Ich habe nach langer Zeit jemanden aus meiner Heimat wiedergetroffen und mich sehr gefreut. | I was glad to meet a friend from my hometown after a long time. |
-| 54 | vocab_a2_0749 | 마지막 | 이번 학기 수업은 오늘이 마지막이에요. | Heute ist der letzte Unterrichtstag dieses Semesters. | Today is the last day of class this semester. |
-| 55 | vocab_a2_0750 | 최근 | 최근에 회사 근처로 이사했어요. | Vor Kurzem bin ich in die Nähe der Firma gezogen. | I recently moved near the office. |
-| 56 | vocab_a2_0751 | 다음날 | 늦게 자서 다음날 아침에 못 일어났어요. | Ich ging spät schlafen und konnte am nächsten Morgen nicht aufstehen. | I went to bed late and could not get up the next morning. |
-| 57 | vocab_a2_0752 | 어젯밤 | 어젯밤에 이상한 꿈을 꿨어요. | Letzte Nacht hatte ich einen seltsamen Traum. | I had a strange dream last night. |
-| 58 | vocab_a2_0753 | 점심시간 | 수진 씨, 점심시간에 같이 밥 먹어요? | Sujin, essen wir in der Mittagspause zusammen? | Sujin, shall we eat together during lunch break? |
-| 59 | vocab_a2_0754 | 구름 | 구름이 많아서 하늘이 어두워요. | Es gibt viele Wolken, deshalb ist der Himmel dunkel. | There are many clouds, so the sky is dark. |
-| 60 | vocab_a2_0755 | 하늘 | 비가 그치고 하늘이 정말 맑아요. | Der Regen hat aufgehört und der Himmel ist richtig klar. | The rain stopped and the sky is really clear. |
-| 61 | vocab_a2_0756 | 햇빛 | 햇빛이 너무 강해서 모자를 썼어요. | Das Sonnenlicht war so stark, dass ich einen Hut aufgesetzt habe. | The sunlight was so strong that I put on a hat. |
-| 62 | vocab_a2_0757 | 기온 | 내일은 기온이 5도까지 내려가요. | Morgen sinkt die Temperatur auf fünf Grad. | The temperature will drop to five degrees tomorrow. |
-| 63 | vocab_a2_0758 | 영하 | 오늘 아침에는 영하 5도까지 내려갔어요. | Heute Morgen sank die Temperatur auf minus fünf Grad. | This morning, the temperature fell to five degrees below zero. |
-| 64 | vocab_a2_0759 | 얼음 | 물에 얼음을 넣어서 마셨어요. | Ich habe Eis ins Wasser gegeben und es getrunken. | I put ice in the water and drank it. |
+| 3 | vocab_a2_0704 | 환영 | 레나 씨, 환영해요! 여기 같이 앉아요. | Lena, herzlich willkommen! Setzen Sie sich doch zu uns. | Lena, welcome! Come and sit with us. |
+| 4 | vocab_a2_0705 | 연말 | 마야 씨, 연말에는 같이 밥 한번 먹어요. | Maya, lassen Sie uns zum Jahresende mal zusammen essen gehen. | Maya, let's have a meal together toward the end of the year. |
+| 5 | vocab_a2_0696 | 메일 | 안드레아 씨, 사진을 메일로 보내도 돼요? | Andrea, darf ich das Foto per E-Mail schicken? | Andrea, can I send the photo by email? |
+| 6 | vocab_a2_0697 | 연결 | 인터넷 연결을 바꿨어요. 이제 사진을 보낼게요. | Ich habe die Internetverbindung gewechselt. Jetzt schicke ich das Foto. | I changed the internet connection. I'll send the photo now. |
+| 7 | vocab_a2_0698 | 전화기 | 가게 전화기를 바꿨어요. 이제 소리가 잘 들려요. | Ich habe das Telefon im Laden ausgetauscht. Jetzt ist der Ton klar. | I replaced the phone at the shop. Now the sound is clear. |
+| 8 | vocab_a2_0699 | 들리다 | 크리스티안, 잘 들려? 여기는 좀 시끄러워. | Christian, hörst du mich gut? Hier ist es etwas laut. | Christian, can you hear me clearly? It's a bit noisy here. |
+| 9 | vocab_a2_0700 | 소식 | 친구 결혼 소식을 듣고 바로 전화했어요. | Ich habe von einer Hochzeit im Freundeskreis gehört und gleich angerufen. | I heard that a friend was getting married and called right away. |
+| 10 | vocab_a2_0701 | 물어보다 | 길을 모르면 저 사람에게 물어보세요. | Wenn Sie den Weg nicht kennen, fragen Sie die Person dort. | If you don't know the way, ask the person over there. |
+| 11 | vocab_a2_0706 | 도움 | 다니엘 씨, 도움이 필요해요. 이 문제를 모르겠어요. | Daniel, ich brauche Hilfe. Ich verstehe diese Aufgabe nicht. | Daniel, I need help. I don't understand this problem. |
+| 12 | vocab_a2_0707 | 고장 | 크리스티안, 컴퓨터가 또 고장이 났어? 내 거 써. | Christian, ist dein Computer schon wieder kaputt? Nimm meinen. | Christian, did your computer break down again? Use mine. |
+| 13 | vocab_a2_0708 | 잃다 | 지갑을 잃었어요. 혹시 여기에서 보셨어요? | Ich habe meine Brieftasche verloren. Haben Sie sie vielleicht hier gesehen? | I've lost my wallet. Have you seen it here by any chance? |
+| 14 | vocab_a2_0709 | 막히다 | 길이 막혔어요. 지하철로 갈까요? | Es gibt einen Stau. Nehmen wir die U-Bahn? | There's a traffic jam. Shall we take the subway? |
+| 15 | vocab_a2_0710 | 전기 | 전기가 나가서 촛불을 켰어요. | Der Strom ist ausgefallen, also habe ich eine Kerze angezündet. | The power went out, so I lit a candle. |
+| 16 | vocab_a2_0711 | 유리 | 이 컵은 유리로 만들었어요. 안이 잘 보여요. | Dieser Becher ist aus Glas. Man kann gut hineinsehen. | This cup is made of glass. You can see inside clearly. |
+| 17 | vocab_a2_0712 | 센터 | 센터에 전화해서 수리비를 물어봤어요. | Ich habe beim Servicecenter angerufen und nach den Reparaturkosten gefragt. | I called the service center to ask about the repair cost. |
+| 18 | vocab_a2_0713 | 서비스 | 이 식당은 서비스가 정말 좋아요. | Der Service in diesem Restaurant ist wirklich gut. | The service at this restaurant is really good. |
+| 19 | vocab_a2_0714 | 안전 | 운전할 때는 안전이 제일 중요해요. | Beim Autofahren ist Sicherheit am wichtigsten. | When you drive, safety matters most. |
+| 20 | vocab_a2_0715 | 급하다 | 급한 일이 생겼어요. | Es ist etwas Dringendes dazwischengekommen. | Something urgent has come up. |
+| 21 | vocab_a2_0716 | 알아보다 | 기차 시간을 알아봤어요. 아직 한 시간 남았어요. | Ich habe die Zugzeiten nachgesehen. Wir haben noch eine Stunde. | I checked the train times. We've still got an hour. |
+| 22 | vocab_a2_0717 | 잘못하다 | 제가 계산을 잘못해서 천 원을 더 냈어요. | Ich habe mich verrechnet und tausend Won zu viel bezahlt. | I got the calculation wrong and paid a thousand won too much. |
+| 23 | vocab_a2_0718 | 만두 | 만두를 너무 많이 쪘어요. 같이 먹어요. | Ich habe zu viele Mandu gedämpft. Essen Sie mit! | I steamed too many dumplings. Come and share them! |
+| 24 | vocab_a2_0719 | 떡 | 엄마, 오늘 3학년 친구들하고 떡을 나눠 먹었어! | Mama, heute habe ich Reiskuchen mit meinen Freunden aus der dritten Klasse geteilt! | Mom, I shared rice cakes with my third-grade friends today! |
+| 25 | vocab_a2_0720 | 김 | 이 김은 별로 안 짜요. 밥이랑 같이 드세요. | Diese Algenblätter sind nicht besonders salzig. Essen Sie sie doch mit Reis. | This dried seaweed isn't very salty. Try it with rice. |
+| 26 | vocab_a2_0721 | 찌개 | 오늘은 따뜻한 찌개가 먹고 싶어요. | Heute habe ich Lust auf einen warmen koreanischen Eintopf. | I feel like having a warm Korean stew today. |
+| 27 | vocab_a2_0722 | 튀김 | 튀김을 방금 해서 아직 뜨거워요. | Das Essen ist frisch frittiert und noch heiß. | The food has just been deep-fried, so it is still hot. |
+| 28 | vocab_a2_0723 | 자장면 | 저는 자장면을 먹을게요. 같이 주문할까요? | Ich nehme Jajangmyeon. Wollen wir zusammen bestellen? | I'll have jajangmyeon. Shall we order together? |
+| 29 | vocab_a2_0724 | 짬뽕 | 짬뽕을 한입 먹고 물부터 찾았어요. | Nach einem Bissen Jjamppong habe ich zuerst nach Wasser gesucht. | After one bite of jjamppong, the first thing I looked for was water. |
+| 30 | vocab_a2_0725 | 탕수육 | 탕수육을 하나 시켜서 같이 먹어요. | Bestellen wir eine Portion Tangsuyuk zum Teilen. | Let's order a serving of tangsuyuk to share. |
+| 31 | vocab_a2_0726 | 칼국수 | 비가 오니까 칼국수가 생각나요. | Bei dem Regen bekomme ich Lust auf Kalguksu. | This rain makes me feel like having kalguksu. |
+| 32 | vocab_a2_0727 | 돈가스 | 이 돈가스는 제 얼굴보다 커요! | Dieses Donkatsu ist größer als mein Gesicht! | This pork cutlet is bigger than my face! |
+| 33 | vocab_a2_0728 | 카레 | 카레를 많이 했어요. 내일 점심도 걱정 없어요. | Ich habe viel Curry gekocht. Damit ist auch das Mittagessen für morgen gesichert. | I made plenty of curry. That's tomorrow's lunch sorted too. |
+| 34 | vocab_a2_0729 | 미역국 | 생일에는 미역국을 먹어요. 올해는 제가 끓였어요. | Zum Geburtstag esse ich Miyeokguk. Dieses Jahr habe ich sie selbst gekocht. | I have miyeokguk for my birthday. This year I made it myself. |
+| 35 | vocab_a2_0730 | 집안일 | 민호 씨, 집안일을 다 했어요? 이제 좀 쉬어요. | Minho, sind Sie mit dem Haushalt fertig? Ruhen Sie sich jetzt etwas aus. | Minho, have you finished the housework? Take a little break now. |
+| 36 | vocab_a2_0731 | 세탁 | 이 코트는 집에서 세탁을 하면 안 돼요. | Diesen Mantel darf man nicht zu Hause waschen. | This coat mustn't be washed at home. |
+| 37 | vocab_a2_0732 | 빨다 | 운동 후에 양말부터 빨았어요. | Nach dem Sport habe ich als Erstes meine Socken gewaschen. | After exercising, I washed my socks first. |
+| 38 | vocab_a2_0733 | 쓰레기통 | 이 종이는 쓰레기통에 버려도 돼요? | Kann ich dieses Papier in den Mülleimer werfen? | Can I throw this paper in the trash can? |
+| 39 | vocab_a2_0734 | 휴지 | 화장실에 휴지가 없어요. 좀 가져와 주세요. | Im Bad ist kein Toilettenpapier. Bringen Sie mir bitte welches. | There's no toilet paper in the bathroom. Please bring me some. |
+| 40 | vocab_a2_0735 | 목욕 | 목욕을 하니까 몸이 편해요. | Nach dem Bad fühle ich mich schön entspannt. | I feel nice and relaxed after the bath. |
+| 41 | vocab_a2_0736 | 양치질 | 양치질을 했는데 또 배가 고파요. | Ich habe mir die Zähne geputzt, aber ich habe wieder Hunger. | I've brushed my teeth, but I'm hungry again. |
+| 42 | vocab_a2_0737 | 치약 | 치약이 다 떨어졌어요. 오늘은 꼭 사야 해요. | Die Zahnpasta ist alle. Heute muss ich unbedingt neue kaufen. | I'm out of toothpaste. I really need to buy some today. |
+| 43 | vocab_a2_0738 | 선풍기 | 선풍기를 제 쪽으로 조금만 돌려 주세요. | Drehen Sie den Ventilator bitte ein bisschen zu mir. | Please turn the fan a little toward me. |
+| 44 | vocab_a2_0739 | 식탁 | 식탁에 케이크가 있어요. 같이 먹어요. | Auf dem Esstisch steht ein Kuchen. Essen wir etwas davon! | There's a cake on the dining table. Let's have some together! |
+| 45 | vocab_a2_0740 | 바닥 | 바닥을 방금 닦았어요. 천천히 걸으세요. | Ich habe gerade den Boden gewischt. Gehen Sie bitte langsam. | I've just mopped the floor. Please walk slowly. |
+| 46 | vocab_a2_0741 | 냄비 | 냄비에 라면 두 개가 들어가요. | In den Topf passen zwei Packungen Ramyeon. | The pot is big enough for two packs of ramyeon. |
+| 47 | vocab_a2_0742 | 이틀 | 현아 씨, 이틀 쉬니까 좀 괜찮아요? | Hyuna, geht es Ihnen nach zwei Tagen Ruhe etwas besser? | Hyuna, are you feeling a bit better after two days of rest? |
+| 48 | vocab_a2_0743 | 사흘 | 사흘 동안 여행 가요. 짐은 다 쌌어요. | Ich verreise für drei Tage. Alles ist gepackt. | I'm going away for three days. Everything's packed. |
+| 49 | vocab_a2_0744 | 나흘 | 비가 나흘 동안 왔어요. 빨래가 아직 안 말랐어요. | Es hat vier Tage lang geregnet. Die Wäsche ist noch nicht trocken. | It rained for four days. The laundry still isn't dry. |
+| 50 | vocab_a2_0745 | 열흘 | 열흘 후에 부모님이 오세요. 식당도 예약했어요. | In zehn Tagen kommen meine Eltern. Ich habe auch einen Tisch im Restaurant reserviert. | My parents are coming in ten days. I've booked a restaurant table too. |
+| 51 | vocab_a2_0746 | 개월 | 한국에 온 지 삼 개월 됐어요. | Ich bin jetzt seit drei Monaten in Korea. | I've been in Korea for three months now. |
+| 52 | vocab_a2_0747 | 그동안 | 그동안 잘 지냈어요? 여기 앉아요. | Wie ist es Ihnen seit unserem letzten Treffen ergangen? Setzen Sie sich doch hierhin. | How have you been since we last met? Have a seat here. |
+| 53 | vocab_a2_0748 | 오랜만 | 오랜만에 만나서 정말 반가워요. | Ich freue mich sehr, Sie nach so langer Zeit wiederzusehen. | It's so nice to see you after such a long time. |
+| 54 | vocab_a2_0749 | 마지막 | 이 케이크가 마지막이에요. 반씩 먹어요. | Das ist der letzte Kuchen. Für jeden die Hälfte? | This is the last cake. Let's have half each. |
+| 55 | vocab_a2_0750 | 최근 | 최근에 요리를 배워서 외식을 덜 해요. | Ich habe vor Kurzem kochen gelernt und esse deshalb seltener auswärts. | I learned to cook recently, so I eat out less. |
+| 56 | vocab_a2_0751 | 다음날 | 여행 다음날 아침에는 집에서 푹 쉬었어요. | Am Morgen nach der Reise habe ich mich zu Hause richtig ausgeruht. | I had a good rest at home the morning after the trip. |
+| 57 | vocab_a2_0752 | 어젯밤 | 어젯밤에 드라마를 보다가 늦게 잤어요. | Ich habe gestern Abend eine Serie geschaut und bin spät ins Bett gegangen. | I watched a series last night and went to bed late. |
+| 58 | vocab_a2_0753 | 점심시간 | 수진 씨, 점심시간에 잠깐 산책할까요? | Sujin, wollen wir in der Mittagspause kurz spazieren gehen? | Sujin, shall we go for a short walk during lunch break? |
+| 59 | vocab_a2_0754 | 구름 | 저 구름이 강아지처럼 생겼어요. | Die Wolke da sieht aus wie ein Welpe. | That cloud looks like a puppy. |
+| 60 | vocab_a2_0755 | 하늘 | 오늘 하늘이 정말 맑아요. 사진 한 장 찍어요. | Der Himmel ist heute richtig klar. Machen wir ein Foto. | The sky's so clear today. Let's take a photo. |
+| 61 | vocab_a2_0756 | 햇빛 | 햇빛이 너무 강해서 눈을 못 뜨겠어요. | Das Sonnenlicht ist so grell, dass ich die Augen nicht aufbekomme. | The sunlight is so bright I can't keep my eyes open. |
+| 62 | vocab_a2_0757 | 기온 | 내일은 기온이 많이 내려가요. | Morgen sinkt die Temperatur deutlich. | The temperature will drop a lot tomorrow. |
+| 63 | vocab_a2_0758 | 영하 | 오늘은 영하 오 도예요. 차 한잔 마실까요? | Heute sind es minus fünf Grad. Wollen wir eine Tasse Tee trinken? | It's five below zero today. Shall we have a cup of tea? |
+| 64 | vocab_a2_0759 | 얼음 | 커피에 얼음을 조금만 넣어 주세요. | Bitte geben Sie nur wenig Eis in den Kaffee. | Please put just a little ice in the coffee. |
 
-## 배분어 전체 문장(192)
+## 사용 장면과 길이
 
-아래는 64×3 치환을 모두 완전한 문장으로 읽은 MODEL_QA 판정이다. 단순 문법 오류가 아니라 가능한 동음이의·연어·은유·환유 읽기까지 확인했다.
+| 단어 | 사용 장면 | 어절 |
+|---|---|---:|
+| 잔치 | 할머니의 칠순 잔치 계획을 지인에게 알림 | 5 |
+| 결혼 | 마야가 두 사람의 결혼 계획에 놀라 반응 | 7 |
+| 환영 | 새로 온 동료를 맞으며 자리를 권함 | 6 |
+| 연말 | 동료에게 연말 식사 약속을 제안 | 7 |
+| 메일 | 사진을 보낼 방법을 동료에게 확인 | 6 |
+| 연결 | 인터넷 연결을 바꾼 뒤 사진을 보내겠다고 알림 | 6 |
+| 전화기 | 가게 전화기를 교체한 뒤 소리 상태를 이야기함 | 7 |
+| 들리다 | 수진이 크리스티안과 통화하며 소리 상태를 확인 | 6 |
+| 소식 | 친구의 결혼 소식에 보인 반응을 이야기함 | 6 |
+| 물어보다 | 길을 찾는 사람에게 도움받을 방법을 제안 | 5 |
+| 도움 | 다니엘에게 문제를 풀 도움을 요청 | 7 |
+| 고장 | 수진이 크리스티안에게 자기 컴퓨터를 빌려줌 | 8 |
+| 잃다 | 잃은 지갑을 찾아 낯선 사람에게 정중히 질문 | 5 |
+| 막히다 | 교통 체증 때문에 지하철 이용을 제안 | 4 |
+| 전기 | 정전 때 한 행동을 이야기함 | 4 |
+| 유리 | 컵의 재료와 투명한 모습을 설명 | 7 |
+| 센터 | 수리 센터에 비용을 문의 | 4 |
+| 서비스 | 식당에서 받은 서비스에 만족하며 이야기함 | 5 |
+| 안전 | 운전할 때 가장 중요한 것을 말함 | 5 |
+| 급하다 | 급한 일이 생겼다고 알림 | 3 |
+| 알아보다 | 동행에게 출발까지 남은 시간을 알려 줌 | 7 |
+| 잘못하다 | 작은 계산 실수를 이야기함 | 7 |
+| 만두 | 많이 만든 음식을 지인에게 권함 | 6 |
+| 떡 | 준이 엄마에게 학교에서 간식을 나눈 일을 말함 | 7 |
+| 김 | 김의 맛을 설명하고 밥과 함께 먹으라고 권함 | 8 |
+| 찌개 | 먹고 싶은 저녁 메뉴를 말함 | 5 |
+| 튀김 | 갓 튀긴 음식을 권하기 전 뜨겁다고 알림 | 5 |
+| 자장면 | 식사 동행에게 메뉴를 말하고 함께 주문하자고 제안 | 5 |
+| 짬뽕 | 매운 음식을 먹은 자신의 반응을 가볍게 이야기함 | 5 |
+| 탕수육 | 함께 먹을 메뉴를 제안 | 5 |
+| 칼국수 | 비 오는 날 떠오르는 음식을 이야기함 | 4 |
+| 돈가스 | 음식 크기에 즐겁게 놀람 | 5 |
+| 카레 | 많이 만든 저녁으로 다음 날 점심까지 해결 | 7 |
+| 미역국 | 자신의 생일 식사 경험을 이야기함 | 6 |
+| 집안일 | 집안일을 마친 지인에게 쉬라고 권함 | 8 |
+| 세탁 | 옷의 세탁 주의사항을 알려 줌 | 7 |
+| 빨다 | 운동 뒤 집에서 한 일을 이야기함 | 4 |
+| 쓰레기통 | 종이를 버려도 되는지 물음 | 5 |
+| 휴지 | 화장실에서 필요한 물건을 부탁 | 6 |
+| 목욕 | 목욕 후 편안해진 몸 상태를 이야기함 | 4 |
+| 양치질 | 이를 닦은 뒤 다시 배가 고픈 상황을 가볍게 이야기함 | 5 |
+| 치약 | 장을 보기 전 필요한 물건을 확인 | 7 |
+| 선풍기 | 더운 실내에서 바람 방향을 조정해 달라고 부탁 | 6 |
+| 식탁 | 식탁 위의 케이크를 같이 먹자고 권함 | 5 |
+| 바닥 | 청소 직후 바닥 상태를 알리고 주의를 줌 | 5 |
+| 냄비 | 함께 라면을 만들며 냄비 크기를 확인 | 5 |
+| 이틀 | 쉬고 돌아온 동료의 상태를 물음 | 6 |
+| 사흘 | 여행 기간과 준비 상태를 이야기함 | 7 |
+| 나흘 | 계속된 비 때문에 생긴 생활 불편을 이야기함 | 8 |
+| 열흘 | 부모님 방문을 기다리며 식사 약속을 준비 | 6 |
+| 개월 | 한국에서 지낸 기간을 새 지인에게 알림 | 6 |
+| 그동안 | 한동안 못 만난 지인에게 안부를 묻고 자리를 권함 | 5 |
+| 오랜만 | 오랜만에 만난 지인에게 반갑게 인사 | 4 |
+| 마지막 | 마지막 남은 케이크를 반씩 먹자고 제안 | 5 |
+| 최근 | 최근 생긴 생활 변화를 말함 | 6 |
+| 다음날 | 여행을 마친 다음 날 아침을 이야기함 | 6 |
+| 어젯밤 | 늦게 잔 이유를 일상적으로 이야기함 | 5 |
+| 점심시간 | 동료에게 짧은 점심 산책을 제안 | 5 |
+| 구름 | 함께 하늘을 보며 재미있는 모양을 발견 | 4 |
+| 하늘 | 맑은 하늘을 보고 사진을 찍자고 제안 | 8 |
+| 햇빛 | 햇빛이 눈부신 상황을 말함 | 6 |
+| 기온 | 다음 날 기온이 많이 내려간다고 알림 | 4 |
+| 영하 | 추운 날 함께 차를 마시자고 제안 | 7 |
+| 얼음 | 카페에서 얼음 양을 조절해 달라고 요청 | 5 |
 
-| cloze | word | substituted sentence | manual judgment |
-|---|---|---|---|
-| `cloze_a2_0509` | 잔치 | 다음 주에 양말을 열어요. | ✗ Only an event can be held with 열다; the object and illness substitutes cannot. |
-| `cloze_a2_0509` | 잔치 | 다음 주에 연필을 열어요. | ✗ Only an event can be held with 열다; the object and illness substitutes cannot. |
-| `cloze_a2_0509` | 잔치 | 다음 주에 감기를 열어요. | ✗ Only an event can be held with 열다; the object and illness substitutes cannot. |
-| `cloze_a2_0510` | 결혼 | 대박, 두 사람이 다음 달에 기온을 해요! | ✗ In this two-person life-event frame, only 결혼 forms the intended N을 하다 event; temperature, toothpaste, and socks do not. |
-| `cloze_a2_0510` | 결혼 | 대박, 두 사람이 다음 달에 치약을 해요! | ✗ In this two-person life-event frame, only 결혼 forms the intended N을 하다 event; temperature, toothpaste, and socks do not. |
-| `cloze_a2_0510` | 결혼 | 대박, 두 사람이 다음 달에 양말을 해요! | ✗ In this two-person life-event frame, only 결혼 forms the intended N을 하다 event; temperature, toothpaste, and socks do not. |
-| `cloze_a2_0511` | 환영 | 레나 씨, 우리 팀에 온 것을 피곤해요. | ✗ The object clause 온 것을 requires a transitive predicate; the adjectives cannot govern it. |
-| `cloze_a2_0511` | 환영 | 레나 씨, 우리 팀에 온 것을 친절해요. | ✗ The object clause 온 것을 requires a transitive predicate; the adjectives cannot govern it. |
-| `cloze_a2_0511` | 환영 | 레나 씨, 우리 팀에 온 것을 건강해요. | ✗ The object clause 온 것을 requires a transitive predicate; the adjectives cannot govern it. |
-| `cloze_a2_0512` | 연말 | 마야 씨, 숟가락에는 회사 일이 많아요? | ✗ The marked phrase is a time frame; the object substitutes cannot locate the workload in time. |
-| `cloze_a2_0512` | 연말 | 마야 씨, 접시에는 회사 일이 많아요? | ✗ The marked phrase is a time frame; the object substitutes cannot locate the workload in time. |
-| `cloze_a2_0512` | 연말 | 마야 씨, 지갑에는 회사 일이 많아요? | ✗ The marked phrase is a time frame; the object substitutes cannot locate the workload in time. |
-| `cloze_a2_0503` | 메일 | 안드레아 씨, 사진을 잔치로 친구에게 보냈어요. | ✗ The marked means slot requires a communication channel; the substitutes cannot transmit the photo to the friend. |
-| `cloze_a2_0503` | 메일 | 안드레아 씨, 사진을 독서로 친구에게 보냈어요. | ✗ The marked means slot requires a communication channel; the substitutes cannot transmit the photo to the friend. |
-| `cloze_a2_0503` | 메일 | 안드레아 씨, 사진을 구름으로 친구에게 보냈어요. | ✗ The marked means slot requires a communication channel; the substitutes cannot transmit the photo to the friend. |
-| `cloze_a2_0504` | 연결 | 지하철에서는 인터넷 바닥이 잘 안 돼요. | ✗ Only a connectivity noun can complete the internet compound and fail in this context. |
-| `cloze_a2_0504` | 연결 | 지하철에서는 인터넷 목욕이 잘 안 돼요. | ✗ Only a connectivity noun can complete the internet compound and fail in this context. |
-| `cloze_a2_0504` | 연결 | 지하철에서는 인터넷 잔치가 잘 안 돼요. | ✗ Only a connectivity noun can complete the internet compound and fail in this context. |
-| `cloze_a2_0505` | 전화기 | 소식을 집에 두고 나왔어요. | ✗ The substitutes are abstract events or states and cannot be portable objects left at home. |
-| `cloze_a2_0505` | 전화기 | 도움을 집에 두고 나왔어요. | ✗ The substitutes are abstract events or states and cannot be portable objects left at home. |
-| `cloze_a2_0505` | 전화기 | 환영을 집에 두고 나왔어요. | ✗ The substitutes are abstract events or states and cannot be portable objects left at home. |
-| `cloze_a2_0506` | 들리다 | 크리스티안, 내 목소리 잘 앉아? | ✗ With 목소리 as subject, the substituted human actions have no coherent reading. |
-| `cloze_a2_0506` | 들리다 | 크리스티안, 내 목소리 잘 울어? | ✗ With 목소리 as subject, the substituted human actions have no coherent reading. |
-| `cloze_a2_0506` | 들리다 | 크리스티안, 내 목소리 잘 웃어? | ✗ With 목소리 as subject, the substituted human actions have no coherent reading. |
-| `cloze_a2_0507` | 소식 | 친구한테서 결혼 연필을 듣고 정말 기뻤어요. | ✗ The concrete substitutes cannot be heard as information in the 결혼 N을 듣다 frame. |
-| `cloze_a2_0507` | 소식 | 친구한테서 결혼 얼음을 듣고 정말 기뻤어요. | ✗ The concrete substitutes cannot be heard as information in the 결혼 N을 듣다 frame. |
-| `cloze_a2_0507` | 소식 | 친구한테서 결혼 구름을 듣고 정말 기뻤어요. | ✗ The concrete substitutes cannot be heard as information in the 결혼 N을 듣다 frame. |
-| `cloze_a2_0508` | 물어보다 | 길을 모르면 지나가는 사람에게 앉으세요. | ✗ The 에게 complement selects an asking verb; the intransitive imperatives cannot take it. |
-| `cloze_a2_0508` | 물어보다 | 길을 모르면 지나가는 사람에게 서세요. | ✗ The 에게 complement selects an asking verb; the intransitive imperatives cannot take it. |
-| `cloze_a2_0508` | 물어보다 | 길을 모르면 지나가는 사람에게 웃으세요. | ✗ The 에게 complement selects an asking verb; the intransitive imperatives cannot take it. |
-| `cloze_a2_0513` | 도움 | 다니엘 씨, 어제 설명이 정말 센터가 됐어요. | ✗ The explanation can become help, but it cannot become a center, dumpling, or sky. |
-| `cloze_a2_0513` | 도움 | 다니엘 씨, 어제 설명이 정말 만두가 됐어요. | ✗ The explanation can become help, but it cannot become a center, dumpling, or sky. |
-| `cloze_a2_0513` | 도움 | 다니엘 씨, 어제 설명이 정말 하늘이 됐어요. | ✗ The explanation can become help, but it cannot become a center, dumpling, or sky. |
-| `cloze_a2_0514` | 고장 | 크리스티안, 컴퓨터가 또 식탁이 났어? | ✗ Only 고장 forms the malfunction collocation with 나다; the objects do not. |
-| `cloze_a2_0514` | 고장 | 크리스티안, 컴퓨터가 또 유리가 났어? | ✗ Only 고장 forms the malfunction collocation with 나다; the objects do not. |
-| `cloze_a2_0514` | 고장 | 크리스티안, 컴퓨터가 또 우표가 났어? | ✗ Only 고장 forms the malfunction collocation with 나다; the objects do not. |
-| `cloze_a2_0515` | 잃다 | 어제 지하철에서 지갑을 앉았어요. | ✗ The fixed object 지갑을 makes each intransitive substitute structurally invalid. |
-| `cloze_a2_0515` | 잃다 | 어제 지하철에서 지갑을 울었어요. | ✗ The fixed object 지갑을 makes each intransitive substitute structurally invalid. |
-| `cloze_a2_0515` | 잃다 | 어제 지하철에서 지갑을 잤어요. | ✗ The fixed object 지갑을 makes each intransitive substitute structurally invalid. |
-| `cloze_a2_0516` | 막히다 | 길이 많이 앉아서 회의에 늦었어요. | ✗ A road cannot sit, cry, or laugh; no alternate literal or idiomatic reading fits. |
-| `cloze_a2_0516` | 막히다 | 길이 많이 울어서 회의에 늦었어요. | ✗ A road cannot sit, cry, or laugh; no alternate literal or idiomatic reading fits. |
-| `cloze_a2_0516` | 막히다 | 길이 많이 웃어서 회의에 늦었어요. | ✗ A road cannot sit, cry, or laugh; no alternate literal or idiomatic reading fits. |
-| `cloze_a2_0517` | 전기 | 갑자기 목욕이 나가서 방이 어두웠어요. | ✗ Only electricity has the outage reading of 나가다 that explains why the room was dark. |
-| `cloze_a2_0517` | 전기 | 갑자기 양치질이 나가서 방이 어두웠어요. | ✗ Only electricity has the outage reading of 나가다 that explains why the room was dark. |
-| `cloze_a2_0517` | 전기 | 갑자기 세탁이 나가서 방이 어두웠어요. | ✗ Only electricity has the outage reading of 나가다 that explains why the room was dark. |
-| `cloze_a2_0518` | 유리 | 창문 소식을 깨끗이 닦았어요. | ✗ The abstract substitutes cannot be the physical surface of a window that is wiped. |
-| `cloze_a2_0518` | 유리 | 창문 도움을 깨끗이 닦았어요. | ✗ The abstract substitutes cannot be the physical surface of a window that is wiped. |
-| `cloze_a2_0518` | 유리 | 창문 결혼을 깨끗이 닦았어요. | ✗ The abstract substitutes cannot be the physical surface of a window that is wiped. |
-| `cloze_a2_0519` | 센터 | 서비스 만두에 전화해서 물어봤어요. | ✗ Only an institution can be called; the food nouns cannot be telephone recipients or places here. |
-| `cloze_a2_0519` | 센터 | 서비스 떡에 전화해서 물어봤어요. | ✗ Only an institution can be called; the food nouns cannot be telephone recipients or places here. |
-| `cloze_a2_0519` | 센터 | 서비스 찌개에 전화해서 물어봤어요. | ✗ Only an institution can be called; the food nouns cannot be telephone recipients or places here. |
-| `cloze_a2_0520` | 서비스 | 이 호텔에서 친절한 기온을 받았어요. | ✗ After 친절한, the received object must denote courteous assistance; temperature, ice, and a floor cannot carry that reading. |
-| `cloze_a2_0520` | 서비스 | 이 호텔에서 친절한 얼음을 받았어요. | ✗ After 친절한, the received object must denote courteous assistance; temperature, ice, and a floor cannot carry that reading. |
-| `cloze_a2_0520` | 서비스 | 이 호텔에서 친절한 바닥을 받았어요. | ✗ After 친절한, the received object must denote courteous assistance; temperature, ice, and a floor cannot carry that reading. |
-| `cloze_a2_0521` | 안전 | 도서관 운전을 꼭 하세요. | ✗ Only 안전 forms the established compound 안전 운전; the place, food, and object substitutes do not. |
-| `cloze_a2_0521` | 안전 | 만두 운전을 꼭 하세요. | ✗ Only 안전 forms the established compound 안전 운전; the place, food, and object substitutes do not. |
-| `cloze_a2_0521` | 안전 | 연필 운전을 꼭 하세요. | ✗ Only 안전 forms the established compound 안전 운전; the place, food, and object substitutes do not. |
-| `cloze_a2_0522` | 급하다 | 차가운 일이 있어서 먼저 가요. | ✗ The taste, temperature, and thickness adjectives cannot naturally describe 일이 in this event reading. |
-| `cloze_a2_0522` | 급하다 | 맛있는 일이 있어서 먼저 가요. | ✗ The taste, temperature, and thickness adjectives cannot naturally describe 일이 in this event reading. |
-| `cloze_a2_0522` | 급하다 | 두꺼운 일이 있어서 먼저 가요. | ✗ The taste, temperature, and thickness adjectives cannot naturally describe 일이 in this event reading. |
-| `cloze_a2_0523` | 알아보다 | 인터넷으로 기차 시간을 누웠어요. | ✗ The object 기차 시간을 cannot be governed by the intransitive substitutes. |
-| `cloze_a2_0523` | 알아보다 | 인터넷으로 기차 시간을 뛰었어요. | ✗ The object 기차 시간을 cannot be governed by the intransitive substitutes. |
-| `cloze_a2_0523` | 알아보다 | 인터넷으로 기차 시간을 웃었어요. | ✗ The object 기차 시간을 cannot be governed by the intransitive substitutes. |
-| `cloze_a2_0524` | 잘못하다 | 제가 계산을 앉아서 죄송해요. | ✗ The calculation cannot sit, sleep, or run; the substitutes also fail the intended causal predicate. |
-| `cloze_a2_0524` | 잘못하다 | 제가 계산을 자서 죄송해요. | ✗ The calculation cannot sit, sleep, or run; the substitutes also fail the intended causal predicate. |
-| `cloze_a2_0524` | 잘못하다 | 제가 계산을 뛰어서 죄송해요. | ✗ The calculation cannot sit, sleep, or run; the substitutes also fail the intended causal predicate. |
-| `cloze_a2_0525` | 만두 | 명절에 가족과 함께 기온을 먹었어요. | ✗ The measure and abstract substitutes cannot be food eaten with the family in this scene. |
-| `cloze_a2_0525` | 만두 | 명절에 가족과 함께 도움을 먹었어요. | ✗ The measure and abstract substitutes cannot be food eaten with the family in this scene. |
-| `cloze_a2_0525` | 만두 | 명절에 가족과 함께 서비스를 먹었어요. | ✗ The measure and abstract substitutes cannot be food eaten with the family in this scene. |
-| `cloze_a2_0526` | 떡 | 엄마, 나 3학년 친구들하고 결혼을 먹었어! | ✗ The abstract events and value cannot be edible objects of 먹다. |
-| `cloze_a2_0526` | 떡 | 엄마, 나 3학년 친구들하고 세탁을 먹었어! | ✗ The abstract events and value cannot be edible objects of 먹다. |
-| `cloze_a2_0526` | 떡 | 엄마, 나 3학년 친구들하고 안전을 먹었어! | ✗ The abstract events and value cannot be edible objects of 먹다. |
-| `cloze_a2_0527` | 김 | 한국 휴지는 짜지 않고 맛있어요. | ✗ The substitutes are not foods and cannot be evaluated as salty and tasty. |
-| `cloze_a2_0527` | 김 | 한국 선풍기는 짜지 않고 맛있어요. | ✗ The substitutes are not foods and cannot be evaluated as salty and tasty. |
-| `cloze_a2_0527` | 김 | 한국 유리는 짜지 않고 맛있어요. | ✗ The substitutes are not foods and cannot be evaluated as salty and tasty. |
-| `cloze_a2_0528` | 찌개 | 추운 날에는 뜨거운 얼음이 최고예요. | ✗ Ice contradicts 뜨거운 and the other objects are neither hot dishes nor food. |
-| `cloze_a2_0528` | 찌개 | 추운 날에는 뜨거운 치약이 최고예요. | ✗ Ice contradicts 뜨거운 and the other objects are neither hot dishes nor food. |
-| `cloze_a2_0528` | 찌개 | 추운 날에는 뜨거운 선풍기가 최고예요. | ✗ Ice contradicts 뜨거운 and the other objects are neither hot dishes nor food. |
-| `cloze_a2_0529` | 튀김 | 시장에서 소식을 사서 먹었어요. | ✗ The substitutes cannot be bought as food and then eaten in this scene. |
-| `cloze_a2_0529` | 튀김 | 시장에서 도움을 사서 먹었어요. | ✗ The substitutes cannot be bought as food and then eaten in this scene. |
-| `cloze_a2_0529` | 튀김 | 시장에서 안전을 사서 먹었어요. | ✗ The substitutes cannot be bought as food and then eaten in this scene. |
-| `cloze_a2_0530` | 자장면 | 이사하는 날에는 구름을 시켜요. | ✗ The sky nouns cannot be ordered as a delivered meal. |
-| `cloze_a2_0530` | 자장면 | 이사하는 날에는 하늘을 시켜요. | ✗ The sky nouns cannot be ordered as a delivered meal. |
-| `cloze_a2_0530` | 자장면 | 이사하는 날에는 햇빛을 시켜요. | ✗ The sky nouns cannot be ordered as a delivered meal. |
-| `cloze_a2_0531` | 짬뽕 | 매운 휴지를 먹고 땀이 많이 났어요. | ✗ The concrete objects cannot be a spicy dish one eats. |
-| `cloze_a2_0531` | 짬뽕 | 매운 선풍기를 먹고 땀이 많이 났어요. | ✗ The concrete objects cannot be a spicy dish one eats. |
-| `cloze_a2_0531` | 짬뽕 | 매운 쓰레기통을 먹고 땀이 많이 났어요. | ✗ The concrete objects cannot be a spicy dish one eats. |
-| `cloze_a2_0532` | 탕수육 | 중국집에서 바닥을 하나 더 주문했어요. | ✗ The substitutes are not menu items countable as one more order in a restaurant. |
-| `cloze_a2_0532` | 탕수육 | 중국집에서 안전을 하나 더 주문했어요. | ✗ The substitutes are not menu items countable as one more order in a restaurant. |
-| `cloze_a2_0532` | 탕수육 | 중국집에서 전기를 하나 더 주문했어요. | ✗ The substitutes are not menu items countable as one more order in a restaurant. |
-| `cloze_a2_0533` | 칼국수 | 비 오는 날에는 따뜻한 치약이 먹고 싶어요. | ✗ The substitutes are not warm foods that can be wanted with 먹고 싶다. |
-| `cloze_a2_0533` | 칼국수 | 비 오는 날에는 따뜻한 햇빛이 먹고 싶어요. | ✗ The substitutes are not warm foods that can be wanted with 먹고 싶다. |
-| `cloze_a2_0533` | 칼국수 | 비 오는 날에는 따뜻한 식탁이 먹고 싶어요. | ✗ The substitutes are not warm foods that can be wanted with 먹고 싶다. |
-| `cloze_a2_0534` | 돈가스 | 학교 식당 세탁은 값이 싸고 맛있어요. | ✗ The activity nouns are not cafeteria dishes with a price and taste. |
-| `cloze_a2_0534` | 돈가스 | 학교 식당 목욕은 값이 싸고 맛있어요. | ✗ The activity nouns are not cafeteria dishes with a price and taste. |
-| `cloze_a2_0534` | 돈가스 | 학교 식당 독서는 값이 싸고 맛있어요. | ✗ The activity nouns are not cafeteria dishes with a price and taste. |
-| `cloze_a2_0535` | 카레 | 저녁에 감자를 넣은 사흘을 만들었어요. | ✗ The duration and event substitutes cannot be a potato-containing dinner dish one makes. |
-| `cloze_a2_0535` | 카레 | 저녁에 감자를 넣은 나흘을 만들었어요. | ✗ The duration and event substitutes cannot be a potato-containing dinner dish one makes. |
-| `cloze_a2_0535` | 카레 | 저녁에 감자를 넣은 환영을 만들었어요. | ✗ The duration and event substitutes cannot be a potato-containing dinner dish one makes. |
-| `cloze_a2_0536` | 미역국 | 한국에서는 생일에 세탁을 먹어요. | ✗ The household activities cannot be eaten as the birthday dish. |
-| `cloze_a2_0536` | 미역국 | 한국에서는 생일에 목욕을 먹어요. | ✗ The household activities cannot be eaten as the birthday dish. |
-| `cloze_a2_0536` | 미역국 | 한국에서는 생일에 집안일을 먹어요. | ✗ The household activities cannot be eaten as the birthday dish. |
-| `cloze_a2_0537` | 집안일 | 민호 씨, 주말에는 누가 식탁을 해요? | ✗ The substitutes do not form an activity collocation with 하다 in this question. |
-| `cloze_a2_0537` | 집안일 | 민호 씨, 주말에는 누가 전화기를 해요? | ✗ The substitutes do not form an activity collocation with 하다 in this question. |
-| `cloze_a2_0537` | 집안일 | 민호 씨, 주말에는 누가 공원을 해요? | ✗ The substitutes do not form an activity collocation with 하다 in this question. |
-| `cloze_a2_0538` | 세탁 | 이 코트는 집에서 쓰레기통을 하면 안 돼요. | ✗ The object nouns do not form the prohibited household action N을 하다. |
-| `cloze_a2_0538` | 세탁 | 이 코트는 집에서 선풍기를 하면 안 돼요. | ✗ The object nouns do not form the prohibited household action N을 하다. |
-| `cloze_a2_0538` | 세탁 | 이 코트는 집에서 전화기를 하면 안 돼요. | ✗ The object nouns do not form the prohibited household action N을 하다. |
-| `cloze_a2_0539` | 빨다 | 더러운 양말을 손으로 앉았어요. | ✗ The fixed object 양말을 cannot be governed by the intransitive substitutes. |
-| `cloze_a2_0539` | 빨다 | 더러운 양말을 손으로 누웠어요. | ✗ The fixed object 양말을 cannot be governed by the intransitive substitutes. |
-| `cloze_a2_0539` | 빨다 | 더러운 양말을 손으로 뛰었어요. | ✗ The fixed object 양말을 cannot be governed by the intransitive substitutes. |
-| `cloze_a2_0540` | 쓰레기통 | 다 마신 컵은 결혼에 버리세요. | ✗ The destination of 버리다 must be a disposal place; the abstract substitutes are not places. |
-| `cloze_a2_0540` | 쓰레기통 | 다 마신 컵은 환영에 버리세요. | ✗ The destination of 버리다 must be a disposal place; the abstract substitutes are not places. |
-| `cloze_a2_0540` | 쓰레기통 | 다 마신 컵은 안전에 버리세요. | ✗ The destination of 버리다 must be a disposal place; the abstract substitutes are not places. |
-| `cloze_a2_0541` | 휴지 | 화장실에 나흘이 없어서 불편했어요. | ✗ Durations and an event cannot be restroom supplies whose absence causes this problem. |
-| `cloze_a2_0541` | 휴지 | 화장실에 열흘이 없어서 불편했어요. | ✗ Durations and an event cannot be restroom supplies whose absence causes this problem. |
-| `cloze_a2_0541` | 휴지 | 화장실에 결혼이 없어서 불편했어요. | ✗ Durations and an event cannot be restroom supplies whose absence causes this problem. |
-| `cloze_a2_0542` | 목욕 | 자기 전에 따뜻한 물로 식탁을 해요. | ✗ The substitutes do not form a personal routine with N을 하다. |
-| `cloze_a2_0542` | 목욕 | 자기 전에 따뜻한 물로 전화기를 해요. | ✗ The substitutes do not form a personal routine with N을 하다. |
-| `cloze_a2_0542` | 목욕 | 자기 전에 따뜻한 물로 햇빛을 해요. | ✗ The substitutes do not form a personal routine with N을 하다. |
-| `cloze_a2_0543` | 양치질 | 식사 후에는 꼭 바닥을 하세요. | ✗ The concrete/place nouns do not form the required hygiene activity with 하다. |
-| `cloze_a2_0543` | 양치질 | 식사 후에는 꼭 도서관을 하세요. | ✗ The concrete/place nouns do not form the required hygiene activity with 하다. |
-| `cloze_a2_0543` | 양치질 | 식사 후에는 꼭 책상을 하세요. | ✗ The concrete/place nouns do not form the required hygiene activity with 하다. |
-| `cloze_a2_0544` | 치약 | 잔치가 다 떨어져서 마트에서 샀어요. | ✗ The event and message nouns are not consumable supplies that run out and are replaced at a store. |
-| `cloze_a2_0544` | 치약 | 환영이 다 떨어져서 마트에서 샀어요. | ✗ The event and message nouns are not consumable supplies that run out and are replaced at a store. |
-| `cloze_a2_0544` | 치약 | 메일이 다 떨어져서 마트에서 샀어요. | ✗ The event and message nouns are not consumable supplies that run out and are replaced at a store. |
-| `cloze_a2_0545` | 선풍기 | 더워서 만두를 켜고 잤어요. | ✗ The substitutes cannot be electrical devices switched on for cooling. |
-| `cloze_a2_0545` | 선풍기 | 더워서 고장을 켜고 잤어요. | ✗ The substitutes cannot be electrical devices switched on for cooling. |
-| `cloze_a2_0545` | 선풍기 | 더워서 연말을 켜고 잤어요. | ✗ The substitutes cannot be electrical devices switched on for cooling. |
-| `cloze_a2_0546` | 식탁 | 저녁 준비가 끝나서 고장에 그릇을 놓았어요. | ✗ The location receiving dishes must be a surface; the abstract substitutes are not surfaces. |
-| `cloze_a2_0546` | 식탁 | 저녁 준비가 끝나서 서비스에 그릇을 놓았어요. | ✗ The location receiving dishes must be a surface; the abstract substitutes are not surfaces. |
-| `cloze_a2_0546` | 식탁 | 저녁 준비가 끝나서 메일에 그릇을 놓았어요. | ✗ The location receiving dishes must be a surface; the abstract substitutes are not surfaces. |
-| `cloze_a2_0547` | 바닥 | 청소기로 이틀을 깨끗하게 청소했어요. | ✗ Time spans cannot be physical surfaces cleaned with a vacuum cleaner. |
-| `cloze_a2_0547` | 바닥 | 청소기로 사흘을 깨끗하게 청소했어요. | ✗ Time spans cannot be physical surfaces cleaned with a vacuum cleaner. |
-| `cloze_a2_0547` | 바닥 | 청소기로 연말을 깨끗하게 청소했어요. | ✗ Time spans cannot be physical surfaces cleaned with a vacuum cleaner. |
-| `cloze_a2_0548` | 냄비 | 고장에 물을 넣고 끓이세요. | ✗ The substitutes are not containers that can hold water for boiling. |
-| `cloze_a2_0548` | 냄비 | 연결에 물을 넣고 끓이세요. | ✗ The substitutes are not containers that can hold water for boiling. |
-| `cloze_a2_0548` | 냄비 | 서비스에 물을 넣고 끓이세요. | ✗ The substitutes are not containers that can hold water for boiling. |
-| `cloze_a2_0549` | 이틀 | 현아 씨, 우산 동안 어디에 있었어요? | ✗ The 동안 slot requires a duration; the portable objects cannot measure time. |
-| `cloze_a2_0549` | 이틀 | 현아 씨, 지갑 동안 어디에 있었어요? | ✗ The 동안 slot requires a duration; the portable objects cannot measure time. |
-| `cloze_a2_0549` | 이틀 | 현아 씨, 열쇠 동안 어디에 있었어요? | ✗ The 동안 slot requires a duration; the portable objects cannot measure time. |
-| `cloze_a2_0550` | 사흘 | 감기로 의자 동안 학교에 못 갔어요. | ✗ The 동안 slot requires a duration; furniture cannot measure the absence. |
-| `cloze_a2_0550` | 사흘 | 감기로 책상 동안 학교에 못 갔어요. | ✗ The 동안 slot requires a duration; furniture cannot measure the absence. |
-| `cloze_a2_0550` | 사흘 | 감기로 침대 동안 학교에 못 갔어요. | ✗ The 동안 slot requires a duration; furniture cannot measure the absence. |
-| `cloze_a2_0551` | 나흘 | 비가 지도 동안 계속 왔어요. | ✗ The 동안 slot requires a duration; the objects cannot measure rainfall. |
-| `cloze_a2_0551` | 나흘 | 비가 그림 동안 계속 왔어요. | ✗ The 동안 slot requires a duration; the objects cannot measure rainfall. |
-| `cloze_a2_0551` | 나흘 | 비가 신발 동안 계속 왔어요. | ✗ The 동안 slot requires a duration; the objects cannot measure rainfall. |
-| `cloze_a2_0552` | 열흘 | 숟가락 후에 독일에서 부모님이 오세요. | ✗ The 후에 phrase requires elapsed time; the objects do not supply a time interval. |
-| `cloze_a2_0552` | 열흘 | 엽서 후에 독일에서 부모님이 오세요. | ✗ The 후에 phrase requires elapsed time; the objects do not supply a time interval. |
-| `cloze_a2_0552` | 열흘 | 의자 후에 독일에서 부모님이 오세요. | ✗ The 후에 phrase requires elapsed time; the objects do not supply a time interval. |
-| `cloze_a2_0553` | 개월 | 저는 삼 냄비 전에 한국에 왔어요. | ✗ After the Sino-Korean numeral 삼, only a month counter fits; the nouns cannot be counters. |
-| `cloze_a2_0553` | 개월 | 저는 삼 얼음 전에 한국에 왔어요. | ✗ After the Sino-Korean numeral 삼, only a month counter fits; the nouns cannot be counters. |
-| `cloze_a2_0553` | 개월 | 저는 삼 하늘 전에 한국에 왔어요. | ✗ After the Sino-Korean numeral 삼, only a month counter fits; the nouns cannot be counters. |
-| `cloze_a2_0554` | 그동안 | 우산 연락을 못 해서 미안해요. | ✗ The sentence-initial time adverbial cannot be replaced by unrelated objects. |
-| `cloze_a2_0554` | 그동안 | 지도 연락을 못 해서 미안해요. | ✗ The sentence-initial time adverbial cannot be replaced by unrelated objects. |
-| `cloze_a2_0554` | 그동안 | 침대 연락을 못 해서 미안해요. | ✗ The sentence-initial time adverbial cannot be replaced by unrelated objects. |
-| `cloze_a2_0555` | 오랜만 | 치약에 고향 친구를 만나서 반가웠어요. | ✗ Only the temporal expression can modify the reunion; the substitutes are locatives without a coherent event relation. |
-| `cloze_a2_0555` | 오랜만 | 냄비에 고향 친구를 만나서 반가웠어요. | ✗ Only the temporal expression can modify the reunion; the substitutes are locatives without a coherent event relation. |
-| `cloze_a2_0555` | 오랜만 | 하늘에 고향 친구를 만나서 반가웠어요. | ✗ Only the temporal expression can modify the reunion; the substitutes are locatives without a coherent event relation. |
-| `cloze_a2_0556` | 마지막 | 이번 학기 수업은 오늘이 책상이에요. | ✗ Only 마지막 identifies today's place at the end of the semester; the object copulas cannot describe today in this frame. |
-| `cloze_a2_0556` | 마지막 | 이번 학기 수업은 오늘이 연필이에요. | ✗ Only 마지막 identifies today's place at the end of the semester; the object copulas cannot describe today in this frame. |
-| `cloze_a2_0556` | 마지막 | 이번 학기 수업은 오늘이 양말이에요. | ✗ Only 마지막 identifies today's place at the end of the semester; the object copulas cannot describe today in this frame. |
-| `cloze_a2_0557` | 최근 | 지갑에 회사 근처로 이사했어요. | ✗ The sentence-initial temporal adjunct cannot be replaced by object locatives. |
-| `cloze_a2_0557` | 최근 | 신발에 회사 근처로 이사했어요. | ✗ The sentence-initial temporal adjunct cannot be replaced by object locatives. |
-| `cloze_a2_0557` | 최근 | 편지에 회사 근처로 이사했어요. | ✗ The sentence-initial temporal adjunct cannot be replaced by object locatives. |
-| `cloze_a2_0558` | 다음날 | 늦게 자서 침대 아침에 못 일어났어요. | ✗ Only a day expression can modify 아침; the objects cannot form this temporal compound. |
-| `cloze_a2_0558` | 다음날 | 늦게 자서 의자 아침에 못 일어났어요. | ✗ Only a day expression can modify 아침; the objects cannot form this temporal compound. |
-| `cloze_a2_0558` | 다음날 | 늦게 자서 가방 아침에 못 일어났어요. | ✗ Only a day expression can modify 아침; the objects cannot form this temporal compound. |
-| `cloze_a2_0559` | 어젯밤 | 그림에 이상한 꿈을 꿨어요. | ✗ The dream requires a time adjunct; the object locatives do not provide one. |
-| `cloze_a2_0559` | 어젯밤 | 우표에 이상한 꿈을 꿨어요. | ✗ The dream requires a time adjunct; the object locatives do not provide one. |
-| `cloze_a2_0559` | 어젯밤 | 엽서에 이상한 꿈을 꿨어요. | ✗ The dream requires a time adjunct; the object locatives do not provide one. |
-| `cloze_a2_0560` | 점심시간 | 수진 씨, 고장에 같이 밥 먹어요? | ✗ The invitation needs a time; the abstract substitutes are not time expressions. |
-| `cloze_a2_0560` | 점심시간 | 수진 씨, 연결에 같이 밥 먹어요? | ✗ The invitation needs a time; the abstract substitutes are not time expressions. |
-| `cloze_a2_0560` | 점심시간 | 수진 씨, 서비스에 같이 밥 먹어요? | ✗ The invitation needs a time; the abstract substitutes are not time expressions. |
-| `cloze_a2_0561` | 구름 | 독서가 많아서 하늘이 어두워요. | ✗ Only countable sky matter can be 많다 and darken the sky; the activities and duration cannot. |
-| `cloze_a2_0561` | 구름 | 양치질이 많아서 하늘이 어두워요. | ✗ Only countable sky matter can be 많다 and darken the sky; the activities and duration cannot. |
-| `cloze_a2_0561` | 구름 | 사흘이 많아서 하늘이 어두워요. | ✗ Only countable sky matter can be 많다 and darken the sky; the activities and duration cannot. |
-| `cloze_a2_0562` | 하늘 | 비가 그치고 수업이 정말 맑아요. | ✗ The clear-state subject after rain must be the sky; the activity and duration substitutes do not fit. |
-| `cloze_a2_0562` | 하늘 | 비가 그치고 양치질이 정말 맑아요. | ✗ The clear-state subject after rain must be the sky; the activity and duration substitutes do not fit. |
-| `cloze_a2_0562` | 하늘 | 비가 그치고 사흘이 정말 맑아요. | ✗ The clear-state subject after rain must be the sky; the activity and duration substitutes do not fit. |
-| `cloze_a2_0563` | 햇빛 | 우표가 너무 강해서 모자를 썼어요. | ✗ The objects cannot be an environmental force whose strength motivates wearing a hat. |
-| `cloze_a2_0563` | 햇빛 | 엽서가 너무 강해서 모자를 썼어요. | ✗ The objects cannot be an environmental force whose strength motivates wearing a hat. |
-| `cloze_a2_0563` | 햇빛 | 침대가 너무 강해서 모자를 썼어요. | ✗ The objects cannot be an environmental force whose strength motivates wearing a hat. |
-| `cloze_a2_0564` | 기온 | 내일은 독서가 5도까지 내려가요. | ✗ Only air temperature can fall to a value measured in degrees; the activity nouns cannot. |
-| `cloze_a2_0564` | 기온 | 내일은 양치질이 5도까지 내려가요. | ✗ Only air temperature can fall to a value measured in degrees; the activity nouns cannot. |
-| `cloze_a2_0564` | 기온 | 내일은 집안일이 5도까지 내려가요. | ✗ Only air temperature can fall to a value measured in degrees; the activity nouns cannot. |
-| `cloze_a2_0565` | 영하 | 오늘 아침에는 공원 5도까지 내려갔어요. | ✗ Before 5도, only the below-zero marker fits; the nouns cannot modify a temperature reading. |
-| `cloze_a2_0565` | 영하 | 오늘 아침에는 유리 5도까지 내려갔어요. | ✗ Before 5도, only the below-zero marker fits; the nouns cannot modify a temperature reading. |
-| `cloze_a2_0565` | 영하 | 오늘 아침에는 이틀 5도까지 내려갔어요. | ✗ Before 5도, only the below-zero marker fits; the nouns cannot modify a temperature reading. |
-| `cloze_a2_0566` | 얼음 | 물에 잔치를 넣어서 마셨어요. | ✗ Only ice can be put into drinking water; the event and time nouns cannot. |
-| `cloze_a2_0566` | 얼음 | 물에 연말을 넣어서 마셨어요. | ✗ Only ice can be put into drinking water; the event and time nouns cannot. |
-| `cloze_a2_0566` | 얼음 | 물에 점심시간을 넣어서 마셨어요. | ✗ Only ice can be put into drinking water; the event and time nouns cannot. |
+## 빈칸 선택지의 뜻 차이(192)
+
+**아래 치환 문장은 학습 정답 예문이 아니다.** 오답을 실제로 넣어 제시된 DE/EN 뜻과 비교하는 검토 자료다. 문법적으로 가능한 문장도 뜻이 다르면 이 과제의 오답이다.
+`잔치–파티`처럼 같은 뜻을 전달하는 표현은 서로 오답으로 넣지 않는다. 64세트 모두 번역을 함께 제시하는 조건으로 작성했다.
+
+<details>
+<summary>빈칸 선택지 192개와 이유 펼치기</summary>
+
+| cloze | 정답 단어 | 정답 형태 | 넣은 오답 후보 | 후보를 넣은 문장 | 제시된 뜻과 다른 점 |
+|---|---|---|---|---|---|
+| `cloze_a2_0509` | 잔치 | 잔치를 | 식사를 | 할머니 칠순이라 주말에 식사를 해요. | 식사하기; 요구 뜻: 칠순을 축하하는 잔치 |
+| `cloze_a2_0509` | 잔치 | 잔치를 | 여행을 | 할머니 칠순이라 주말에 여행을 해요. | 여행하기; 요구 뜻: 칠순을 축하하는 잔치 |
+| `cloze_a2_0509` | 잔치 | 잔치를 | 구경을 | 할머니 칠순이라 주말에 구경을 해요. | 구경하기; 요구 뜻: 칠순을 축하하는 잔치 |
+| `cloze_a2_0510` | 결혼 | 결혼을 | 이사를 | 대박, 두 사람이 다음 달에 이사를 해요! | 집을 옮김; 요구 뜻: 두 사람이 결혼함 |
+| `cloze_a2_0510` | 결혼 | 결혼을 | 졸업을 | 대박, 두 사람이 다음 달에 졸업을 해요! | 학교를 마침; 요구 뜻: 두 사람이 결혼함 |
+| `cloze_a2_0510` | 결혼 | 결혼을 | 입학을 | 대박, 두 사람이 다음 달에 입학을 해요! | 학교에 들어감; 요구 뜻: 두 사람이 결혼함 |
+| `cloze_a2_0511` | 환영 | 환영해요 | 축하해요 | 레나 씨, 축하해요! 여기 같이 앉아요. | 좋은 일을 축하함; 요구 뜻: 새로 온 사람을 반갑게 맞음 |
+| `cloze_a2_0511` | 환영 | 환영해요 | 기억해요 | 레나 씨, 기억해요! 여기 같이 앉아요. | 기억하고 있음을 말함; 요구 뜻: 새로 온 사람을 반갑게 맞음 |
+| `cloze_a2_0511` | 환영 | 환영해요 | 소개해요 | 레나 씨, 소개해요! 여기 같이 앉아요. | 소개함; 요구 뜻: 새로 온 사람을 반갑게 맞음 |
+| `cloze_a2_0512` | 연말 | 연말에는 | 주말에는 | 마야 씨, 주말에는 같이 밥 한번 먹어요. | 주가 끝날 무렵; 요구 뜻: 한 해가 끝날 무렵 |
+| `cloze_a2_0512` | 연말 | 연말에는 | 방학에는 | 마야 씨, 방학에는 같이 밥 한번 먹어요. | 학교를 쉬는 기간; 요구 뜻: 한 해가 끝날 무렵 |
+| `cloze_a2_0512` | 연말 | 연말에는 | 휴가에는 | 마야 씨, 휴가에는 같이 밥 한번 먹어요. | 일을 쉬는 기간; 요구 뜻: 한 해가 끝날 무렵 |
+| `cloze_a2_0503` | 메일 | 메일로 | 택배로 | 안드레아 씨, 사진을 택배로 보내도 돼요? | 택배로 보냄; 요구 뜻: 이메일로 사진을 보냄 |
+| `cloze_a2_0503` | 메일 | 메일로 | 메시지로 | 안드레아 씨, 사진을 메시지로 보내도 돼요? | 메시지로 보냄; 요구 뜻: 이메일로 사진을 보냄 |
+| `cloze_a2_0503` | 메일 | 메일로 | 소포로 | 안드레아 씨, 사진을 소포로 보내도 돼요? | 소포로 보냄; 요구 뜻: 이메일로 사진을 보냄 |
+| `cloze_a2_0504` | 연결 | 연결을 | 속도를 | 인터넷 속도를 바꿨어요. 이제 사진을 보낼게요. | 빠르기를 바꿈; 요구 뜻: 사용할 인터넷 연결을 바꿈 |
+| `cloze_a2_0504` | 연결 | 연결을 | 요금을 | 인터넷 요금을 바꿨어요. 이제 사진을 보낼게요. | 이용 금액을 바꿈; 요구 뜻: 사용할 인터넷 연결을 바꿈 |
+| `cloze_a2_0504` | 연결 | 연결을 | 주소를 | 인터넷 주소를 바꿨어요. 이제 사진을 보낼게요. | 주소를 바꿈; 요구 뜻: 사용할 인터넷 연결을 바꿈 |
+| `cloze_a2_0505` | 전화기 | 전화기를 | 텔레비전을 | 가게 텔레비전을 바꿨어요. 이제 소리가 잘 들려요. | 텔레비전을 교체함; 요구 뜻: 가게의 전화기를 교체함 |
+| `cloze_a2_0505` | 전화기 | 전화기를 | 라디오를 | 가게 라디오를 바꿨어요. 이제 소리가 잘 들려요. | 라디오를 교체함; 요구 뜻: 가게의 전화기를 교체함 |
+| `cloze_a2_0505` | 전화기 | 전화기를 | 컴퓨터를 | 가게 컴퓨터를 바꿨어요. 이제 소리가 잘 들려요. | 컴퓨터를 교체함; 요구 뜻: 가게의 전화기를 교체함 |
+| `cloze_a2_0506` | 들리다 | 들려 | 보여 | 크리스티안, 잘 보여? 여기는 좀 시끄러워. | 잘 보이는지 물음; 요구 뜻: 상대가 소리를 잘 들을 수 있는지 확인함 |
+| `cloze_a2_0506` | 들리다 | 들려 | 보내 | 크리스티안, 잘 보내? 여기는 좀 시끄러워. | 잘 보내는지 물음; 요구 뜻: 상대가 소리를 잘 들을 수 있는지 확인함 |
+| `cloze_a2_0506` | 들리다 | 들려 | 받아 | 크리스티안, 잘 받아? 여기는 좀 시끄러워. | 잘 받는지 물음; 요구 뜻: 상대가 소리를 잘 들을 수 있는지 확인함 |
+| `cloze_a2_0507` | 소식 | 소식을 | 날짜를 | 친구 결혼 날짜를 듣고 바로 전화했어요. | 결혼 날짜를 들음; 요구 뜻: 친구의 결혼 소식을 들음 |
+| `cloze_a2_0507` | 소식 | 소식을 | 순서를 | 친구 결혼 순서를 듣고 바로 전화했어요. | 결혼식 순서를 들음; 요구 뜻: 친구의 결혼 소식을 들음 |
+| `cloze_a2_0507` | 소식 | 소식을 | 장소를 | 친구 결혼 장소를 듣고 바로 전화했어요. | 결혼 장소를 들음; 요구 뜻: 친구의 결혼 소식을 들음 |
+| `cloze_a2_0508` | 물어보다 | 물어보세요 | 알려주세요 | 길을 모르면 저 사람에게 알려주세요. | 상대에게 정보를 줌; 요구 뜻: 다른 사람에게 질문함 |
+| `cloze_a2_0508` | 물어보다 | 물어보세요 | 설명하세요 | 길을 모르면 저 사람에게 설명하세요. | 상대에게 설명함; 요구 뜻: 다른 사람에게 질문함 |
+| `cloze_a2_0508` | 물어보다 | 물어보세요 | 전화하세요 | 길을 모르면 저 사람에게 전화하세요. | 상대에게 전화를 걺; 요구 뜻: 다른 사람에게 질문함 |
+| `cloze_a2_0513` | 도움 | 도움이 | 시간이 | 다니엘 씨, 시간이 필요해요. 이 문제를 모르겠어요. | 시간이 필요함; 요구 뜻: 문제를 해결할 도움이 필요함 |
+| `cloze_a2_0513` | 도움 | 도움이 | 연습이 | 다니엘 씨, 연습이 필요해요. 이 문제를 모르겠어요. | 연습이 필요함; 요구 뜻: 문제를 해결할 도움이 필요함 |
+| `cloze_a2_0513` | 도움 | 도움이 | 준비가 | 다니엘 씨, 준비가 필요해요. 이 문제를 모르겠어요. | 준비가 필요함; 요구 뜻: 문제를 해결할 도움이 필요함 |
+| `cloze_a2_0514` | 고장 | 고장이 | 소리가 | 크리스티안, 컴퓨터가 또 소리가 났어? 내 거 써. | 소리가 남; 요구 뜻: 컴퓨터가 다시 고장 남 |
+| `cloze_a2_0514` | 고장 | 고장이 | 냄새가 | 크리스티안, 컴퓨터가 또 냄새가 났어? 내 거 써. | 냄새가 남; 요구 뜻: 컴퓨터가 다시 고장 남 |
+| `cloze_a2_0514` | 고장 | 고장이 | 열이 | 크리스티안, 컴퓨터가 또 열이 났어? 내 거 써. | 열이 남; 요구 뜻: 컴퓨터가 다시 고장 남 |
+| `cloze_a2_0515` | 잃다 | 잃었어요 | 찾았어요 | 지갑을 찾았어요. 혹시 여기에서 보셨어요? | 지갑을 찾음; 요구 뜻: 지갑을 잃어버림 |
+| `cloze_a2_0515` | 잃다 | 잃었어요 | 샀어요 | 지갑을 샀어요. 혹시 여기에서 보셨어요? | 지갑을 삼; 요구 뜻: 지갑을 잃어버림 |
+| `cloze_a2_0515` | 잃다 | 잃었어요 | 두었어요 | 지갑을 두었어요. 혹시 여기에서 보셨어요? | 지갑을 둠; 요구 뜻: 지갑을 잃어버림 |
+| `cloze_a2_0516` | 막히다 | 막혔어요 | 바뀌었어요 | 길이 바뀌었어요. 지하철로 갈까요? | 길이 바뀜; 요구 뜻: 길이 교통 체증으로 막힘 |
+| `cloze_a2_0516` | 막히다 | 막혔어요 | 끝났어요 | 길이 끝났어요. 지하철로 갈까요? | 길이 끝남; 요구 뜻: 길이 교통 체증으로 막힘 |
+| `cloze_a2_0516` | 막히다 | 막혔어요 | 생겼어요 | 길이 생겼어요. 지하철로 갈까요? | 길이 생김; 요구 뜻: 길이 교통 체증으로 막힘 |
+| `cloze_a2_0517` | 전기 | 전기가 | 텔레비전이 | 텔레비전이 나가서 촛불을 켰어요. | 텔레비전이 작동하지 않음; 요구 뜻: 전기가 끊김 |
+| `cloze_a2_0517` | 전기 | 전기가 | 인터넷이 | 인터넷이 나가서 촛불을 켰어요. | 인터넷이 끊김; 요구 뜻: 전기가 끊김 |
+| `cloze_a2_0517` | 전기 | 전기가 | 전화가 | 전화가 나가서 촛불을 켰어요. | 전화가 불통이 됨; 요구 뜻: 전기가 끊김 |
+| `cloze_a2_0518` | 유리 | 유리로 | 나무로 | 이 컵은 나무로 만들었어요. 안이 잘 보여요. | 나무로 만듦; 요구 뜻: 컵을 만든 재료가 유리임 |
+| `cloze_a2_0518` | 유리 | 유리로 | 종이로 | 이 컵은 종이로 만들었어요. 안이 잘 보여요. | 종이로 만듦; 요구 뜻: 컵을 만든 재료가 유리임 |
+| `cloze_a2_0518` | 유리 | 유리로 | 천으로 | 이 컵은 천으로 만들었어요. 안이 잘 보여요. | 천으로 만듦; 요구 뜻: 컵을 만든 재료가 유리임 |
+| `cloze_a2_0519` | 센터 | 센터에 | 가게에 | 가게에 전화해서 수리비를 물어봤어요. | 가게에 전화함; 요구 뜻: 수리 관련 센터에 전화함 |
+| `cloze_a2_0519` | 센터 | 센터에 | 회사에 | 회사에 전화해서 수리비를 물어봤어요. | 회사에 전화함; 요구 뜻: 수리 관련 센터에 전화함 |
+| `cloze_a2_0519` | 센터 | 센터에 | 공장에 | 공장에 전화해서 수리비를 물어봤어요. | 공장에 전화함; 요구 뜻: 수리 관련 센터에 전화함 |
+| `cloze_a2_0520` | 서비스 | 서비스가 | 가격이 | 이 식당은 가격이 정말 좋아요. | 가격이 좋음; 요구 뜻: 식당의 서비스가 좋음 |
+| `cloze_a2_0520` | 서비스 | 서비스가 | 음식이 | 이 식당은 음식이 정말 좋아요. | 음식이 좋음; 요구 뜻: 식당의 서비스가 좋음 |
+| `cloze_a2_0520` | 서비스 | 서비스가 | 위치가 | 이 식당은 위치가 정말 좋아요. | 위치가 좋음; 요구 뜻: 식당의 서비스가 좋음 |
+| `cloze_a2_0521` | 안전 | 안전이 | 속도가 | 운전할 때는 속도가 제일 중요해요. | 속도가 가장 중요함; 요구 뜻: 운전에서 안전이 가장 중요함 |
+| `cloze_a2_0521` | 안전 | 안전이 | 시간이 | 운전할 때는 시간이 제일 중요해요. | 시간이 가장 중요함; 요구 뜻: 운전에서 안전이 가장 중요함 |
+| `cloze_a2_0521` | 안전 | 안전이 | 거리가 | 운전할 때는 거리가 제일 중요해요. | 거리가 가장 중요함; 요구 뜻: 운전에서 안전이 가장 중요함 |
+| `cloze_a2_0522` | 급하다 | 급한 | 중요한 | 중요한 일이 생겼어요. | 중요한 일이 생김; 요구 뜻: 급하게 처리할 일이 생김 |
+| `cloze_a2_0522` | 급하다 | 급한 | 어려운 | 어려운 일이 생겼어요. | 어려운 일이 생김; 요구 뜻: 급하게 처리할 일이 생김 |
+| `cloze_a2_0522` | 급하다 | 급한 | 재미있는 | 재미있는 일이 생겼어요. | 재미있는 일이 생김; 요구 뜻: 급하게 처리할 일이 생김 |
+| `cloze_a2_0523` | 알아보다 | 알아봤어요 | 바꿨어요 | 기차 시간을 바꿨어요. 아직 한 시간 남았어요. | 기차 시간을 바꿈; 요구 뜻: 기차 시간을 찾아 확인함 |
+| `cloze_a2_0523` | 알아보다 | 알아봤어요 | 정했어요 | 기차 시간을 정했어요. 아직 한 시간 남았어요. | 기차 시간을 정함; 요구 뜻: 기차 시간을 찾아 확인함 |
+| `cloze_a2_0523` | 알아보다 | 알아봤어요 | 잊었어요 | 기차 시간을 잊었어요. 아직 한 시간 남았어요. | 기차 시간을 잊음; 요구 뜻: 기차 시간을 찾아 확인함 |
+| `cloze_a2_0524` | 잘못하다 | 잘못해서 | 잘해서 | 제가 계산을 잘해서 천 원을 더 냈어요. | 계산을 잘함; 요구 뜻: 계산을 틀리게 함 |
+| `cloze_a2_0524` | 잘못하다 | 잘못해서 | 바꿔서 | 제가 계산을 바꿔서 천 원을 더 냈어요. | 계산을 바꿈; 요구 뜻: 계산을 틀리게 함 |
+| `cloze_a2_0524` | 잘못하다 | 잘못해서 | 잊어서 | 제가 계산을 잊어서 천 원을 더 냈어요. | 계산을 잊음; 요구 뜻: 계산을 틀리게 함 |
+| `cloze_a2_0525` | 만두 | 만두를 | 감자를 | 감자를 너무 많이 쪘어요. 같이 먹어요. | 감자를 찜; 요구 뜻: 찐 음식이 만두임 |
+| `cloze_a2_0525` | 만두 | 만두를 | 고기를 | 고기를 너무 많이 쪘어요. 같이 먹어요. | 고기를 찜; 요구 뜻: 찐 음식이 만두임 |
+| `cloze_a2_0525` | 만두 | 만두를 | 생선을 | 생선을 너무 많이 쪘어요. 같이 먹어요. | 생선을 찜; 요구 뜻: 찐 음식이 만두임 |
+| `cloze_a2_0526` | 떡 | 떡을 | 빵을 | 엄마, 오늘 3학년 친구들하고 빵을 나눠 먹었어! | 빵을 나눠 먹음; 요구 뜻: 나눠 먹은 간식이 떡임 |
+| `cloze_a2_0526` | 떡 | 떡을 | 과자를 | 엄마, 오늘 3학년 친구들하고 과자를 나눠 먹었어! | 과자를 나눠 먹음; 요구 뜻: 나눠 먹은 간식이 떡임 |
+| `cloze_a2_0526` | 떡 | 떡을 | 과일을 | 엄마, 오늘 3학년 친구들하고 과일을 나눠 먹었어! | 과일을 나눠 먹음; 요구 뜻: 나눠 먹은 간식이 떡임 |
+| `cloze_a2_0527` | 김 | 김은 | 오이는 | 이 오이는 별로 안 짜요. 밥이랑 같이 드세요. | 오이의 맛; 요구 뜻: 밥과 함께 먹을 김의 맛 |
+| `cloze_a2_0527` | 김 | 김은 | 김치는 | 이 김치는 별로 안 짜요. 밥이랑 같이 드세요. | 김치의 맛; 요구 뜻: 밥과 함께 먹을 김의 맛 |
+| `cloze_a2_0527` | 김 | 김은 | 간장은 | 이 간장은 별로 안 짜요. 밥이랑 같이 드세요. | 간장의 맛; 요구 뜻: 밥과 함께 먹을 김의 맛 |
+| `cloze_a2_0528` | 찌개 | 찌개가 | 국수가 | 오늘은 따뜻한 국수가 먹고 싶어요. | 국수를 먹고 싶음; 요구 뜻: 먹고 싶은 음식이 찌개임 |
+| `cloze_a2_0528` | 찌개 | 찌개가 | 라면이 | 오늘은 따뜻한 라면이 먹고 싶어요. | 라면을 먹고 싶음; 요구 뜻: 먹고 싶은 음식이 찌개임 |
+| `cloze_a2_0528` | 찌개 | 찌개가 | 만두가 | 오늘은 따뜻한 만두가 먹고 싶어요. | 만두를 먹고 싶음; 요구 뜻: 먹고 싶은 음식이 찌개임 |
+| `cloze_a2_0529` | 튀김 | 튀김을 | 볶음밥을 | 볶음밥을 방금 해서 아직 뜨거워요. | 밥을 볶은 음식; 요구 뜻: 기름에 튀긴 음식 |
+| `cloze_a2_0529` | 튀김 | 튀김을 | 전을 | 전을 방금 해서 아직 뜨거워요. | 팬에 부친 음식; 요구 뜻: 기름에 튀긴 음식 |
+| `cloze_a2_0529` | 튀김 | 튀김을 | 불고기를 | 불고기를 방금 해서 아직 뜨거워요. | 양념한 고기를 구운 음식; 요구 뜻: 기름에 튀긴 음식 |
+| `cloze_a2_0530` | 자장면 | 자장면을 | 짬뽕을 | 저는 짬뽕을 먹을게요. 같이 주문할까요? | 짬뽕을 주문함; 요구 뜻: 주문할 메뉴가 자장면임 |
+| `cloze_a2_0530` | 자장면 | 자장면을 | 칼국수를 | 저는 칼국수를 먹을게요. 같이 주문할까요? | 칼국수를 주문함; 요구 뜻: 주문할 메뉴가 자장면임 |
+| `cloze_a2_0530` | 자장면 | 자장면을 | 냉면을 | 저는 냉면을 먹을게요. 같이 주문할까요? | 냉면을 주문함; 요구 뜻: 주문할 메뉴가 자장면임 |
+| `cloze_a2_0531` | 짬뽕 | 짬뽕을 | 찌개를 | 찌개를 한입 먹고 물부터 찾았어요. | 찌개를 먹음; 요구 뜻: 한입 먹은 음식이 짬뽕임 |
+| `cloze_a2_0531` | 짬뽕 | 짬뽕을 | 라면을 | 라면을 한입 먹고 물부터 찾았어요. | 라면을 먹음; 요구 뜻: 한입 먹은 음식이 짬뽕임 |
+| `cloze_a2_0531` | 짬뽕 | 짬뽕을 | 비빔밥을 | 비빔밥을 한입 먹고 물부터 찾았어요. | 비빔밥을 먹음; 요구 뜻: 한입 먹은 음식이 짬뽕임 |
+| `cloze_a2_0532` | 탕수육 | 탕수육을 | 불고기를 | 불고기를 하나 시켜서 같이 먹어요. | 불고기를 주문함; 요구 뜻: 함께 주문할 메뉴가 탕수육임 |
+| `cloze_a2_0532` | 탕수육 | 탕수육을 | 비빔밥을 | 비빔밥을 하나 시켜서 같이 먹어요. | 비빔밥을 주문함; 요구 뜻: 함께 주문할 메뉴가 탕수육임 |
+| `cloze_a2_0532` | 탕수육 | 탕수육을 | 삼겹살을 | 삼겹살을 하나 시켜서 같이 먹어요. | 삼겹살을 주문함; 요구 뜻: 함께 주문할 메뉴가 탕수육임 |
+| `cloze_a2_0533` | 칼국수 | 칼국수가 | 우동이 | 비가 오니까 우동이 생각나요. | 우동이 생각남; 요구 뜻: 비 오는 날 먹고 싶은 칼국수 |
+| `cloze_a2_0533` | 칼국수 | 칼국수가 | 라면이 | 비가 오니까 라면이 생각나요. | 라면이 생각남; 요구 뜻: 비 오는 날 먹고 싶은 칼국수 |
+| `cloze_a2_0533` | 칼국수 | 칼국수가 | 떡국이 | 비가 오니까 떡국이 생각나요. | 떡국이 생각남; 요구 뜻: 비 오는 날 먹고 싶은 칼국수 |
+| `cloze_a2_0534` | 돈가스 | 돈가스는 | 피자는 | 이 피자는 제 얼굴보다 커요! | 피자가 큼; 요구 뜻: 얼굴보다 큰 돈가스 |
+| `cloze_a2_0534` | 돈가스 | 돈가스는 | 햄버거는 | 이 햄버거는 제 얼굴보다 커요! | 햄버거가 큼; 요구 뜻: 얼굴보다 큰 돈가스 |
+| `cloze_a2_0534` | 돈가스 | 돈가스는 | 생선은 | 이 생선은 제 얼굴보다 커요! | 생선이 큼; 요구 뜻: 얼굴보다 큰 돈가스 |
+| `cloze_a2_0535` | 카레 | 카레를 | 김밥을 | 김밥을 많이 했어요. 내일 점심도 걱정 없어요. | 김밥을 만듦; 요구 뜻: 많이 만들어 둔 카레 |
+| `cloze_a2_0535` | 카레 | 카레를 | 잡채를 | 잡채를 많이 했어요. 내일 점심도 걱정 없어요. | 잡채를 만듦; 요구 뜻: 많이 만들어 둔 카레 |
+| `cloze_a2_0535` | 카레 | 카레를 | 볶음밥을 | 볶음밥을 많이 했어요. 내일 점심도 걱정 없어요. | 볶음밥을 만듦; 요구 뜻: 많이 만들어 둔 카레 |
+| `cloze_a2_0536` | 미역국 | 미역국을 | 떡국을 | 생일에는 떡국을 먹어요. 올해는 제가 끓였어요. | 떡국을 먹음; 요구 뜻: 생일에 먹는 미역국 |
+| `cloze_a2_0536` | 미역국 | 미역국을 | 설렁탕을 | 생일에는 설렁탕을 먹어요. 올해는 제가 끓였어요. | 설렁탕을 먹음; 요구 뜻: 생일에 먹는 미역국 |
+| `cloze_a2_0536` | 미역국 | 미역국을 | 갈비탕을 | 생일에는 갈비탕을 먹어요. 올해는 제가 끓였어요. | 갈비탕을 먹음; 요구 뜻: 생일에 먹는 미역국 |
+| `cloze_a2_0537` | 집안일 | 집안일을 | 숙제를 | 민호 씨, 숙제를 다 했어요? 이제 좀 쉬어요. | 숙제를 마쳤는지 물음; 요구 뜻: 집안일을 마쳤는지 물음 |
+| `cloze_a2_0537` | 집안일 | 집안일을 | 운동을 | 민호 씨, 운동을 다 했어요? 이제 좀 쉬어요. | 운동을 마쳤는지 물음; 요구 뜻: 집안일을 마쳤는지 물음 |
+| `cloze_a2_0537` | 집안일 | 집안일을 | 준비를 | 민호 씨, 준비를 다 했어요? 이제 좀 쉬어요. | 준비를 마쳤는지 물음; 요구 뜻: 집안일을 마쳤는지 물음 |
+| `cloze_a2_0538` | 세탁 | 세탁을 | 정리를 | 이 코트는 집에서 정리를 하면 안 돼요. | 집에서 정리하면 안 됨; 요구 뜻: 코트를 집에서 세탁하면 안 됨 |
+| `cloze_a2_0538` | 세탁 | 세탁을 | 교환을 | 이 코트는 집에서 교환을 하면 안 돼요. | 집에서 교환하면 안 됨; 요구 뜻: 코트를 집에서 세탁하면 안 됨 |
+| `cloze_a2_0538` | 세탁 | 세탁을 | 사용을 | 이 코트는 집에서 사용을 하면 안 돼요. | 집에서 사용하면 안 됨; 요구 뜻: 코트를 집에서 세탁하면 안 됨 |
+| `cloze_a2_0539` | 빨다 | 빨았어요 | 접었어요 | 운동 후에 양말부터 접었어요. | 양말을 접음; 요구 뜻: 양말을 물로 씻어 빨았음 |
+| `cloze_a2_0539` | 빨다 | 빨았어요 | 벗었어요 | 운동 후에 양말부터 벗었어요. | 양말을 벗음; 요구 뜻: 양말을 물로 씻어 빨았음 |
+| `cloze_a2_0539` | 빨다 | 빨았어요 | 신었어요 | 운동 후에 양말부터 신었어요. | 양말을 신음; 요구 뜻: 양말을 물로 씻어 빨았음 |
+| `cloze_a2_0540` | 쓰레기통 | 쓰레기통에 | 서랍에 | 이 종이는 서랍에 버려도 돼요? | 서랍에 버림; 요구 뜻: 종이를 버릴 곳이 쓰레기통임 |
+| `cloze_a2_0540` | 쓰레기통 | 쓰레기통에 | 가방에 | 이 종이는 가방에 버려도 돼요? | 가방에 버림; 요구 뜻: 종이를 버릴 곳이 쓰레기통임 |
+| `cloze_a2_0540` | 쓰레기통 | 쓰레기통에 | 상자에 | 이 종이는 상자에 버려도 돼요? | 상자에 버림; 요구 뜻: 종이를 버릴 곳이 쓰레기통임 |
+| `cloze_a2_0541` | 휴지 | 휴지가 | 비누가 | 화장실에 비누가 없어요. 좀 가져와 주세요. | 비누가 없음; 요구 뜻: 화장실에 화장지가 없음 |
+| `cloze_a2_0541` | 휴지 | 휴지가 | 수건이 | 화장실에 수건이 없어요. 좀 가져와 주세요. | 수건이 없음; 요구 뜻: 화장실에 화장지가 없음 |
+| `cloze_a2_0541` | 휴지 | 휴지가 | 칫솔이 | 화장실에 칫솔이 없어요. 좀 가져와 주세요. | 칫솔이 없음; 요구 뜻: 화장실에 화장지가 없음 |
+| `cloze_a2_0542` | 목욕 | 목욕을 | 운동을 | 운동을 하니까 몸이 편해요. | 운동 후 몸 상태; 요구 뜻: 목욕 후 몸이 편안함 |
+| `cloze_a2_0542` | 목욕 | 목욕을 | 등산을 | 등산을 하니까 몸이 편해요. | 등산 후 몸 상태; 요구 뜻: 목욕 후 몸이 편안함 |
+| `cloze_a2_0542` | 목욕 | 목욕을 | 산책을 | 산책을 하니까 몸이 편해요. | 산책 후 몸 상태; 요구 뜻: 목욕 후 몸이 편안함 |
+| `cloze_a2_0543` | 양치질 | 양치질을 | 식사를 | 식사를 했는데 또 배가 고파요. | 식사 후 다시 배가 고픔; 요구 뜻: 이를 닦은 뒤 다시 배가 고픔 |
+| `cloze_a2_0543` | 양치질 | 양치질을 | 세수를 | 세수를 했는데 또 배가 고파요. | 세수 후 다시 배가 고픔; 요구 뜻: 이를 닦은 뒤 다시 배가 고픔 |
+| `cloze_a2_0543` | 양치질 | 양치질을 | 샤워를 | 샤워를 했는데 또 배가 고파요. | 샤워 후 다시 배가 고픔; 요구 뜻: 이를 닦은 뒤 다시 배가 고픔 |
+| `cloze_a2_0544` | 치약 | 치약이 | 비누가 | 비누가 다 떨어졌어요. 오늘은 꼭 사야 해요. | 비누를 다 씀; 요구 뜻: 치약을 다 써서 사야 함 |
+| `cloze_a2_0544` | 치약 | 치약이 | 화장품이 | 화장품이 다 떨어졌어요. 오늘은 꼭 사야 해요. | 화장품을 다 씀; 요구 뜻: 치약을 다 써서 사야 함 |
+| `cloze_a2_0544` | 치약 | 치약이 | 휴지가 | 휴지가 다 떨어졌어요. 오늘은 꼭 사야 해요. | 휴지를 다 씀; 요구 뜻: 치약을 다 써서 사야 함 |
+| `cloze_a2_0545` | 선풍기 | 선풍기를 | 의자를 | 의자를 제 쪽으로 조금만 돌려 주세요. | 의자를 돌려 달라는 부탁; 요구 뜻: 선풍기를 화자 쪽으로 돌려 달라는 부탁 |
+| `cloze_a2_0545` | 선풍기 | 선풍기를 | 책상을 | 책상을 제 쪽으로 조금만 돌려 주세요. | 책상을 돌려 달라는 부탁; 요구 뜻: 선풍기를 화자 쪽으로 돌려 달라는 부탁 |
+| `cloze_a2_0545` | 선풍기 | 선풍기를 | 텔레비전을 | 텔레비전을 제 쪽으로 조금만 돌려 주세요. | 텔레비전을 돌려 달라는 부탁; 요구 뜻: 선풍기를 화자 쪽으로 돌려 달라는 부탁 |
+| `cloze_a2_0546` | 식탁 | 식탁에 | 책상에 | 책상에 케이크가 있어요. 같이 먹어요. | 책상 위에 있음; 요구 뜻: 케이크가 식탁 위에 있음 |
+| `cloze_a2_0546` | 식탁 | 식탁에 | 냉장고에 | 냉장고에 케이크가 있어요. 같이 먹어요. | 냉장고 안에 있음; 요구 뜻: 케이크가 식탁 위에 있음 |
+| `cloze_a2_0546` | 식탁 | 식탁에 | 상자에 | 상자에 케이크가 있어요. 같이 먹어요. | 상자 안에 있음; 요구 뜻: 케이크가 식탁 위에 있음 |
+| `cloze_a2_0547` | 바닥 | 바닥을 | 창문을 | 창문을 방금 닦았어요. 천천히 걸으세요. | 창문을 닦음; 요구 뜻: 방금 닦은 곳이 바닥임 |
+| `cloze_a2_0547` | 바닥 | 바닥을 | 벽을 | 벽을 방금 닦았어요. 천천히 걸으세요. | 벽을 닦음; 요구 뜻: 방금 닦은 곳이 바닥임 |
+| `cloze_a2_0547` | 바닥 | 바닥을 | 문을 | 문을 방금 닦았어요. 천천히 걸으세요. | 문을 닦음; 요구 뜻: 방금 닦은 곳이 바닥임 |
+| `cloze_a2_0548` | 냄비 | 냄비에 | 그릇에 | 그릇에 라면 두 개가 들어가요. | 그릇에 들어감; 요구 뜻: 라면 두 개가 들어가는 냄비 |
+| `cloze_a2_0548` | 냄비 | 냄비에 | 컵에 | 컵에 라면 두 개가 들어가요. | 컵에 들어감; 요구 뜻: 라면 두 개가 들어가는 냄비 |
+| `cloze_a2_0548` | 냄비 | 냄비에 | 접시에 | 접시에 라면 두 개가 들어가요. | 접시에 들어감; 요구 뜻: 라면 두 개가 들어가는 냄비 |
+| `cloze_a2_0549` | 이틀 | 이틀 | 사흘 | 현아 씨, 사흘 쉬니까 좀 괜찮아요? | 세 날 동안 쉼; 요구 뜻: 쉰 기간이 두 날임 |
+| `cloze_a2_0549` | 이틀 | 이틀 | 나흘 | 현아 씨, 나흘 쉬니까 좀 괜찮아요? | 네 날 동안 쉼; 요구 뜻: 쉰 기간이 두 날임 |
+| `cloze_a2_0549` | 이틀 | 이틀 | 열흘 | 현아 씨, 열흘 쉬니까 좀 괜찮아요? | 열 날 동안 쉼; 요구 뜻: 쉰 기간이 두 날임 |
+| `cloze_a2_0550` | 사흘 | 사흘 | 이틀 | 이틀 동안 여행 가요. 짐은 다 쌌어요. | 두 날 동안 여행함; 요구 뜻: 여행 기간이 세 날임 |
+| `cloze_a2_0550` | 사흘 | 사흘 | 나흘 | 나흘 동안 여행 가요. 짐은 다 쌌어요. | 네 날 동안 여행함; 요구 뜻: 여행 기간이 세 날임 |
+| `cloze_a2_0550` | 사흘 | 사흘 | 열흘 | 열흘 동안 여행 가요. 짐은 다 쌌어요. | 열 날 동안 여행함; 요구 뜻: 여행 기간이 세 날임 |
+| `cloze_a2_0551` | 나흘 | 나흘 | 이틀 | 비가 이틀 동안 왔어요. 빨래가 아직 안 말랐어요. | 두 날 동안 비가 옴; 요구 뜻: 비가 온 기간이 네 날임 |
+| `cloze_a2_0551` | 나흘 | 나흘 | 사흘 | 비가 사흘 동안 왔어요. 빨래가 아직 안 말랐어요. | 세 날 동안 비가 옴; 요구 뜻: 비가 온 기간이 네 날임 |
+| `cloze_a2_0551` | 나흘 | 나흘 | 열흘 | 비가 열흘 동안 왔어요. 빨래가 아직 안 말랐어요. | 열 날 동안 비가 옴; 요구 뜻: 비가 온 기간이 네 날임 |
+| `cloze_a2_0552` | 열흘 | 열흘 | 이틀 | 이틀 후에 부모님이 오세요. 식당도 예약했어요. | 두 날 뒤에 오심; 요구 뜻: 부모님이 열 날 뒤에 오심 |
+| `cloze_a2_0552` | 열흘 | 열흘 | 사흘 | 사흘 후에 부모님이 오세요. 식당도 예약했어요. | 세 날 뒤에 오심; 요구 뜻: 부모님이 열 날 뒤에 오심 |
+| `cloze_a2_0552` | 열흘 | 열흘 | 나흘 | 나흘 후에 부모님이 오세요. 식당도 예약했어요. | 네 날 뒤에 오심; 요구 뜻: 부모님이 열 날 뒤에 오심 |
+| `cloze_a2_0553` | 개월 | 개월 | 주일 | 한국에 온 지 삼 주일 됐어요. | 세 주가 지남; 요구 뜻: 한국에 온 지 세 달이 지남 |
+| `cloze_a2_0553` | 개월 | 개월 | 일 | 한국에 온 지 삼 일 됐어요. | 삼 일이 지남; 요구 뜻: 한국에 온 지 세 달이 지남 |
+| `cloze_a2_0553` | 개월 | 개월 | 년 | 한국에 온 지 삼 년 됐어요. | 삼 년이 지남; 요구 뜻: 한국에 온 지 세 달이 지남 |
+| `cloze_a2_0554` | 그동안 | 그동안 | 어제 | 어제 잘 지냈어요? 여기 앉아요. | 어제의 안부를 물음; 요구 뜻: 못 만난 동안의 안부를 물음 |
+| `cloze_a2_0554` | 그동안 | 그동안 | 오늘 | 오늘 잘 지냈어요? 여기 앉아요. | 오늘의 안부를 물음; 요구 뜻: 못 만난 동안의 안부를 물음 |
+| `cloze_a2_0554` | 그동안 | 그동안 | 주말에 | 주말에 잘 지냈어요? 여기 앉아요. | 주말의 안부를 물음; 요구 뜻: 못 만난 동안의 안부를 물음 |
+| `cloze_a2_0555` | 오랜만 | 오랜만에 | 점심에 | 점심에 만나서 정말 반가워요. | 점심에 만남; 요구 뜻: 오랫동안 못 만나다가 만남 |
+| `cloze_a2_0555` | 오랜만 | 오랜만에 | 휴일에 | 휴일에 만나서 정말 반가워요. | 휴일에 만남; 요구 뜻: 오랫동안 못 만나다가 만남 |
+| `cloze_a2_0555` | 오랜만 | 오랜만에 | 아침에 | 아침에 만나서 정말 반가워요. | 아침에 만남; 요구 뜻: 오랫동안 못 만나다가 만남 |
+| `cloze_a2_0556` | 마지막 | 마지막이에요 | 처음이에요 | 이 케이크가 처음이에요. 반씩 먹어요. | 처음인 케이크임; 요구 뜻: 남은 케이크가 마지막임 |
+| `cloze_a2_0556` | 마지막 | 마지막이에요 | 선물이에요 | 이 케이크가 선물이에요. 반씩 먹어요. | 선물인 케이크임; 요구 뜻: 남은 케이크가 마지막임 |
+| `cloze_a2_0556` | 마지막 | 마지막이에요 | 간식이에요 | 이 케이크가 간식이에요. 반씩 먹어요. | 간식인 케이크임; 요구 뜻: 남은 케이크가 마지막임 |
+| `cloze_a2_0557` | 최근 | 최근에 | 작년에 | 작년에 요리를 배워서 외식을 덜 해요. | 지난해에 배움; 요구 뜻: 얼마 전에 요리를 배움 |
+| `cloze_a2_0557` | 최근 | 최근에 | 지난달에 | 지난달에 요리를 배워서 외식을 덜 해요. | 지난달에 배움; 요구 뜻: 얼마 전에 요리를 배움 |
+| `cloze_a2_0557` | 최근 | 최근에 | 옛날에 | 옛날에 요리를 배워서 외식을 덜 해요. | 오래전에 배움; 요구 뜻: 얼마 전에 요리를 배움 |
+| `cloze_a2_0558` | 다음날 | 다음날 아침에는 | 첫날 아침에는 | 여행 첫날 아침에는 집에서 푹 쉬었어요. | 여행 첫날 아침; 요구 뜻: 여행을 마친 바로 다음 날 |
+| `cloze_a2_0558` | 다음날 | 다음날 아침에는 | 마지막 날에는 | 여행 마지막 날에는 집에서 푹 쉬었어요. | 여행 마지막 날; 요구 뜻: 여행을 마친 바로 다음 날 |
+| `cloze_a2_0558` | 다음날 | 다음날 아침에는 | 출발 전에는 | 여행 출발 전에는 집에서 푹 쉬었어요. | 여행 출발 전; 요구 뜻: 여행을 마친 바로 다음 날 |
+| `cloze_a2_0559` | 어젯밤 | 어젯밤에 | 주말에 | 주말에 드라마를 보다가 늦게 잤어요. | 주말에 봄; 요구 뜻: 지난밤에 드라마를 봄 |
+| `cloze_a2_0559` | 어젯밤 | 어젯밤에 | 휴일에 | 휴일에 드라마를 보다가 늦게 잤어요. | 휴일에 봄; 요구 뜻: 지난밤에 드라마를 봄 |
+| `cloze_a2_0559` | 어젯밤 | 어젯밤에 | 지난주에 | 지난주에 드라마를 보다가 늦게 잤어요. | 지난주에 봄; 요구 뜻: 지난밤에 드라마를 봄 |
+| `cloze_a2_0560` | 점심시간 | 점심시간에 | 주말에 | 수진 씨, 주말에 잠깐 산책할까요? | 주말의 산책 제안; 요구 뜻: 점심 쉬는 시간의 산책 제안 |
+| `cloze_a2_0560` | 점심시간 | 점심시간에 | 오후에 | 수진 씨, 오후에 잠깐 산책할까요? | 오후의 산책 제안; 요구 뜻: 점심 쉬는 시간의 산책 제안 |
+| `cloze_a2_0560` | 점심시간 | 점심시간에 | 아침에 | 수진 씨, 아침에 잠깐 산책할까요? | 아침의 산책 제안; 요구 뜻: 점심 쉬는 시간의 산책 제안 |
+| `cloze_a2_0561` | 구름 | 구름이 | 인형이 | 저 인형이 강아지처럼 생겼어요. | 인형 모양을 말함; 요구 뜻: 강아지 모양으로 보이는 구름 |
+| `cloze_a2_0561` | 구름 | 구름이 | 그림이 | 저 그림이 강아지처럼 생겼어요. | 그림 모양을 말함; 요구 뜻: 강아지 모양으로 보이는 구름 |
+| `cloze_a2_0561` | 구름 | 구름이 | 나무가 | 저 나무가 강아지처럼 생겼어요. | 나무 모양을 말함; 요구 뜻: 강아지 모양으로 보이는 구름 |
+| `cloze_a2_0562` | 하늘 | 하늘이 | 바다가 | 오늘 바다가 정말 맑아요. 사진 한 장 찍어요. | 맑은 바다; 요구 뜻: 맑은 하늘을 보고 사진을 제안함 |
+| `cloze_a2_0562` | 하늘 | 하늘이 | 호수가 | 오늘 호수가 정말 맑아요. 사진 한 장 찍어요. | 맑은 호수; 요구 뜻: 맑은 하늘을 보고 사진을 제안함 |
+| `cloze_a2_0562` | 하늘 | 하늘이 | 물이 | 오늘 물이 정말 맑아요. 사진 한 장 찍어요. | 맑은 물; 요구 뜻: 맑은 하늘을 보고 사진을 제안함 |
+| `cloze_a2_0563` | 햇빛 | 햇빛이 | 바람이 | 바람이 너무 강해서 눈을 못 뜨겠어요. | 바람 때문에 눈을 뜨기 어려움; 요구 뜻: 햇빛 때문에 눈을 뜨기 어려움 |
+| `cloze_a2_0563` | 햇빛 | 햇빛이 | 불이 | 불이 너무 강해서 눈을 못 뜨겠어요. | 불 때문에 눈을 뜨기 어려움; 요구 뜻: 햇빛 때문에 눈을 뜨기 어려움 |
+| `cloze_a2_0563` | 햇빛 | 햇빛이 | 비가 | 비가 너무 강해서 눈을 못 뜨겠어요. | 비 때문에 눈을 뜨기 어려움; 요구 뜻: 햇빛 때문에 눈을 뜨기 어려움 |
+| `cloze_a2_0564` | 기온 | 기온이 | 가격이 | 내일은 가격이 많이 내려가요. | 가격이 내려감; 요구 뜻: 내일 공기의 온도가 내려감 |
+| `cloze_a2_0564` | 기온 | 기온이 | 속도가 | 내일은 속도가 많이 내려가요. | 속도가 내려감; 요구 뜻: 내일 공기의 온도가 내려감 |
+| `cloze_a2_0564` | 기온 | 기온이 | 성적이 | 내일은 성적이 많이 내려가요. | 성적이 내려감; 요구 뜻: 내일 공기의 온도가 내려감 |
+| `cloze_a2_0565` | 영하 | 영하 오 도 | 오 도 | 오늘은 오 도예요. 차 한잔 마실까요? | 영상 5도; 요구 뜻: 기온이 영하 5도임 |
+| `cloze_a2_0565` | 영하 | 영하 오 도 | 십 도 | 오늘은 십 도예요. 차 한잔 마실까요? | 영상 10도; 요구 뜻: 기온이 영하 5도임 |
+| `cloze_a2_0565` | 영하 | 영하 오 도 | 영하 십 도 | 오늘은 영하 십 도예요. 차 한잔 마실까요? | 영하 10도; 요구 뜻: 기온이 영하 5도임 |
+| `cloze_a2_0566` | 얼음 | 얼음을 | 설탕을 | 커피에 설탕을 조금만 넣어 주세요. | 설탕을 넣음; 요구 뜻: 커피에 얼음을 조금만 넣음 |
+| `cloze_a2_0566` | 얼음 | 얼음을 | 우유를 | 커피에 우유를 조금만 넣어 주세요. | 우유를 넣음; 요구 뜻: 커피에 얼음을 조금만 넣음 |
+| `cloze_a2_0566` | 얼음 | 얼음을 | 물을 | 커피에 물을 조금만 넣어 주세요. | 물을 넣음; 요구 뜻: 커피에 얼음을 조금만 넣음 |
+
+</details>
+
+## 문장 조립용 추가 단어(128)
+
+빈칸 보기의 앞 두 개를 복사하지 않고, 각 문장에서 시간·대상·방향·수량·행동 등 제시된 뜻을 바꾸는 단어를 별도로 골랐다. 아래 치환은 검토용이며, 실제 게임에서는 추가 단어 타일로 나온다.
+
+<details>
+<summary>문장 조립용 128개와 이유 펼치기</summary>
+
+| satz | 단어 | 원래 토큰 | 추가 타일 | 대입한 문장 | 뜻 차이 |
+|---|---|---|---|---|---|
+| `satz_a2_0694` | 잔치 | 주말에 | 평일에 | 할머니 칠순이라 평일에 잔치를 해요. | 주말에서 평일로 바뀜 |
+| `satz_a2_0694` | 잔치 | 할머니 | 할아버지 | 할아버지 칠순이라 주말에 잔치를 해요. | 축하받는 가족이 바뀜 |
+| `satz_a2_0695` | 결혼 | 다음 | 이번 | 대박, 두 사람이 이번 달에 결혼을 해요! | 다음 달에서 이번 달로 바뀜 |
+| `satz_a2_0695` | 결혼 | 두 | 세 | 대박, 세 사람이 다음 달에 결혼을 해요! | 두 사람에서 세 사람으로 바뀜 |
+| `satz_a2_0696` | 환영 | 같이 | 혼자 | 레나 씨, 환영해요! 여기 혼자 앉아요. | 함께 앉기에서 혼자 앉기로 바뀜 |
+| `satz_a2_0696` | 환영 | 앉아요 | 서요 | 레나 씨, 환영해요! 여기 같이 서요. | 앉기에서 서기로 바뀜 |
+| `satz_a2_0697` | 연말 | 같이 | 혼자 | 마야 씨, 연말에는 혼자 밥 한번 먹어요. | 함께 먹기에서 혼자 먹기로 바뀜 |
+| `satz_a2_0697` | 연말 | 밥 | 차 | 마야 씨, 연말에는 같이 차 한번 먹어요. | 식사에서 차로 대상이 바뀜 |
+| `satz_a2_0688` | 메일 | 사진을 | 편지를 | 안드레아 씨, 편지를 메일로 보내도 돼요? | 사진에서 편지로 대상이 바뀜 |
+| `satz_a2_0688` | 메일 | 보내도 | 받아도 | 안드레아 씨, 사진을 메일로 받아도 돼요? | 보내기에서 받기로 방향이 바뀜 |
+| `satz_a2_0689` | 연결 | 바꿨어요 | 바꿀게요 | 인터넷 연결을 바꿀게요. 이제 사진을 보낼게요. | 변경 완료에서 앞으로 할 약속으로 바뀜 |
+| `satz_a2_0689` | 연결 | 사진을 | 편지를 | 인터넷 연결을 바꿨어요. 이제 편지를 보낼게요. | 보낼 대상이 사진에서 편지로 바뀜 |
+| `satz_a2_0690` | 전화기 | 바꿨어요 | 팔았어요 | 가게 전화기를 팔았어요. 이제 소리가 잘 들려요. | 교체에서 판매로 바뀜 |
+| `satz_a2_0690` | 전화기 | 가게 | 집 | 집 전화기를 바꿨어요. 이제 소리가 잘 들려요. | 기기가 있는 장소가 바뀜 |
+| `satz_a2_0691` | 들리다 | 여기는 | 거기는 | 크리스티안, 잘 들려? 거기는 좀 시끄러워. | 시끄러운 곳이 화자 쪽에서 상대 쪽으로 바뀜 |
+| `satz_a2_0691` | 들리다 | 시끄러워 | 조용해 | 크리스티안, 잘 들려? 여기는 좀 조용해. | 소음 상태가 반대로 바뀜 |
+| `satz_a2_0692` | 소식 | 듣고 | 말하고 | 친구 결혼 소식을 말하고 바로 전화했어요. | 소식을 듣기에서 전하기로 바뀜 |
+| `satz_a2_0692` | 소식 | 바로 | 나중에 | 친구 결혼 소식을 듣고 나중에 전화했어요. | 전화한 시점이 바뀜 |
+| `satz_a2_0693` | 물어보다 | 모르면 | 알면 | 길을 알면 저 사람에게 물어보세요. | 길을 모르는 조건에서 아는 조건으로 바뀜 |
+| `satz_a2_0693` | 물어보다 | 저 | 이 | 길을 모르면 이 사람에게 물어보세요. | 가리키는 사람의 위치가 바뀜 |
+| `satz_a2_0698` | 도움 | 필요해요 | 필요했어요 | 다니엘 씨, 도움이 필요했어요. 이 문제를 모르겠어요. | 현재 필요에서 과거 필요로 바뀜 |
+| `satz_a2_0698` | 도움 | 모르겠어요 | 알겠어요 | 다니엘 씨, 도움이 필요해요. 이 문제를 알겠어요. | 이해하지 못함에서 이해함으로 바뀜 |
+| `satz_a2_0699` | 고장 | 내 | 네 | 크리스티안, 컴퓨터가 또 고장이 났어? 네 거 써. | 빌려줄 컴퓨터의 소유자가 바뀜 |
+| `satz_a2_0699` | 고장 | 써 | 팔아 | 크리스티안, 컴퓨터가 또 고장이 났어? 내 거 팔아. | 사용 권유에서 판매 권유로 바뀜 |
+| `satz_a2_0700` | 잃다 | 여기에서 | 저기에서 | 지갑을 잃었어요. 혹시 저기에서 보셨어요? | 지갑을 봤는지 묻는 장소가 바뀜 |
+| `satz_a2_0700` | 잃다 | 지갑을 | 가방을 | 가방을 잃었어요. 혹시 여기에서 보셨어요? | 잃은 물건이 바뀜 |
+| `satz_a2_0701` | 막히다 | 지하철로 | 버스로 | 길이 막혔어요. 버스로 갈까요? | 제안하는 교통수단이 바뀜 |
+| `satz_a2_0701` | 막히다 | 갈까요 | 갔어요 | 길이 막혔어요. 지하철로 갔어요? | 이동 제안에서 과거 이동 여부 질문으로 바뀜 |
+| `satz_a2_0702` | 전기 | 촛불을 | 라디오를 | 전기가 나가서 라디오를 켰어요. | 켠 대상이 바뀜 |
+| `satz_a2_0702` | 전기 | 켰어요 | 껐어요 | 전기가 나가서 촛불을 껐어요. | 켜기에서 끄기로 바뀜 |
+| `satz_a2_0703` | 유리 | 컵은 | 그릇은 | 이 그릇은 유리로 만들었어요. 안이 잘 보여요. | 만든 물건이 바뀜 |
+| `satz_a2_0703` | 유리 | 안이 | 밖이 | 이 컵은 유리로 만들었어요. 밖이 잘 보여요. | 보이는 쪽이 바뀜 |
+| `satz_a2_0704` | 센터 | 수리비를 | 시간을 | 센터에 전화해서 시간을 물어봤어요. | 물어본 정보가 비용에서 시간으로 바뀜 |
+| `satz_a2_0704` | 센터 | 물어봤어요 | 알려줬어요 | 센터에 전화해서 수리비를 알려줬어요. | 비용을 묻기에서 알려주기로 바뀜 |
+| `satz_a2_0705` | 서비스 | 좋아요 | 나빠요 | 이 식당은 서비스가 정말 나빠요. | 평가가 반대로 바뀜 |
+| `satz_a2_0705` | 서비스 | 식당은 | 호텔은 | 이 호텔은 서비스가 정말 좋아요. | 평가하는 장소가 바뀜 |
+| `satz_a2_0706` | 안전 | 운전할 | 운동할 | 운동할 때는 안전이 제일 중요해요. | 안전이 필요한 활동이 바뀜 |
+| `satz_a2_0706` | 안전 | 제일 | 조금 | 운전할 때는 안전이 조금 중요해요. | 중요도의 정도가 바뀜 |
+| `satz_a2_0707` | 급하다 | 생겼어요 | 끝났어요 | 급한 일이 끝났어요. | 일이 생기기에서 끝나기로 바뀜 |
+| `satz_a2_0707` | 급하다 | 일이 | 약속이 | 급한 약속이 생겼어요. | 생긴 것이 일에서 약속으로 바뀜 |
+| `satz_a2_0708` | 알아보다 | 기차 | 버스 | 버스 시간을 알아봤어요. 아직 한 시간 남았어요. | 확인한 교통수단이 바뀜 |
+| `satz_a2_0708` | 알아보다 | 한 | 두 | 기차 시간을 알아봤어요. 아직 두 시간 남았어요. | 남은 시간이 바뀜 |
+| `satz_a2_0709` | 잘못하다 | 더 | 먼저 | 제가 계산을 잘못해서 천 원을 먼저 냈어요. | 초과 지불에서 먼저 지불로 바뀜 |
+| `satz_a2_0709` | 잘못하다 | 천 | 만 | 제가 계산을 잘못해서 만 원을 더 냈어요. | 초과 지불액이 바뀜 |
+| `satz_a2_0710` | 만두 | 쪘어요 | 구웠어요 | 만두를 너무 많이 구웠어요. 같이 먹어요. | 찌기에서 굽기로 조리법이 바뀜 |
+| `satz_a2_0710` | 만두 | 많이 | 조금 | 만두를 너무 조금 쪘어요. 같이 먹어요. | 만든 양이 바뀜 |
+| `satz_a2_0711` | 떡 | 오늘 | 어제 | 엄마, 어제 3학년 친구들하고 떡을 나눠 먹었어! | 간식을 나눈 날이 바뀜 |
+| `satz_a2_0711` | 떡 | 친구들하고 | 선생님하고 | 엄마, 오늘 3학년 선생님하고 떡을 나눠 먹었어! | 함께 먹은 상대가 바뀜 |
+| `satz_a2_0712` | 김 | 짜요 | 매워요 | 이 김은 별로 안 매워요. 밥이랑 같이 드세요. | 짠맛에서 매운맛으로 바뀜 |
+| `satz_a2_0712` | 김 | 밥이랑 | 빵이랑 | 이 김은 별로 안 짜요. 빵이랑 같이 드세요. | 함께 먹으라는 음식이 바뀜 |
+| `satz_a2_0713` | 찌개 | 따뜻한 | 차가운 | 오늘은 차가운 찌개가 먹고 싶어요. | 원하는 음식의 온도가 바뀜 |
+| `satz_a2_0713` | 찌개 | 오늘은 | 내일은 | 내일은 따뜻한 찌개가 먹고 싶어요. | 먹고 싶은 날이 바뀜 |
+| `satz_a2_0714` | 튀김 | 아직 | 벌써 | 튀김을 방금 해서 벌써 뜨거워요. | 아직 뜨겁다는 상태에서 벌써 뜨겁다는 상태로 바뀜 |
+| `satz_a2_0714` | 튀김 | 뜨거워요 | 차가워요 | 튀김을 방금 해서 아직 차가워요. | 음식 온도가 반대로 바뀜 |
+| `satz_a2_0715` | 자장면 | 먹을게요 | 먹었어요 | 저는 자장면을 먹었어요. 같이 주문할까요? | 선택 의사에서 식사 완료로 바뀜 |
+| `satz_a2_0715` | 자장면 | 주문할까요 | 취소할까요 | 저는 자장면을 먹을게요. 같이 취소할까요? | 주문 제안에서 취소 제안으로 바뀜 |
+| `satz_a2_0716` | 짬뽕 | 물부터 | 밥부터 | 짬뽕을 한입 먹고 밥부터 찾았어요. | 먼저 찾은 대상이 바뀜 |
+| `satz_a2_0716` | 짬뽕 | 찾았어요 | 버렸어요 | 짬뽕을 한입 먹고 물부터 버렸어요. | 찾기에서 버리기로 행동이 바뀜 |
+| `satz_a2_0717` | 탕수육 | 하나 | 둘 | 탕수육을 둘 시켜서 같이 먹어요. | 주문할 수량이 바뀜 |
+| `satz_a2_0717` | 탕수육 | 같이 | 혼자 | 탕수육을 하나 시켜서 혼자 먹어요. | 함께 먹기에서 혼자 먹기로 바뀜 |
+| `satz_a2_0718` | 칼국수 | 비가 | 눈이 | 눈이 오니까 칼국수가 생각나요. | 날씨가 비에서 눈으로 바뀜 |
+| `satz_a2_0718` | 칼국수 | 오니까 | 그치니까 | 비가 그치니까 칼국수가 생각나요. | 비가 오기에서 그치기로 바뀜 |
+| `satz_a2_0719` | 돈가스 | 커요 | 작아요 | 이 돈가스는 제 얼굴보다 작아요! | 크기 비교가 반대로 바뀜 |
+| `satz_a2_0719` | 돈가스 | 얼굴보다 | 손보다 | 이 돈가스는 제 손보다 커요! | 크기를 비교하는 대상이 바뀜 |
+| `satz_a2_0720` | 카레 | 내일 | 오늘 | 카레를 많이 했어요. 오늘 점심도 걱정 없어요. | 해결된 식사의 날짜가 바뀜 |
+| `satz_a2_0720` | 카레 | 점심도 | 저녁도 | 카레를 많이 했어요. 내일 저녁도 걱정 없어요. | 점심에서 저녁으로 바뀜 |
+| `satz_a2_0721` | 미역국 | 제가 | 엄마가 | 생일에는 미역국을 먹어요. 올해는 엄마가 끓였어요. | 직접 끓인 사람 대신 엄마가 끓임 |
+| `satz_a2_0721` | 미역국 | 올해는 | 작년에는 | 생일에는 미역국을 먹어요. 작년에는 제가 끓였어요. | 직접 끓인 해가 바뀜 |
+| `satz_a2_0722` | 집안일 | 쉬어요 | 일해요 | 민호 씨, 집안일을 다 했어요? 이제 좀 일해요. | 휴식 권유에서 일하기 권유로 바뀜 |
+| `satz_a2_0722` | 집안일 | 다 | 조금 | 민호 씨, 집안일을 조금 했어요? 이제 좀 쉬어요. | 전부 끝냄에서 일부만 함으로 바뀜 |
+| `satz_a2_0723` | 세탁 | 집에서 | 밖에서 | 이 코트는 밖에서 세탁을 하면 안 돼요. | 세탁 금지 장소가 바뀜 |
+| `satz_a2_0723` | 세탁 | 코트는 | 바지는 | 이 바지는 집에서 세탁을 하면 안 돼요. | 세탁 지침의 대상이 바뀜 |
+| `satz_a2_0724` | 빨다 | 후에 | 전에 | 운동 전에 양말부터 빨았어요. | 운동 후에서 운동 전으로 바뀜 |
+| `satz_a2_0724` | 빨다 | 양말부터 | 수건부터 | 운동 후에 수건부터 빨았어요. | 먼저 빤 물건이 바뀜 |
+| `satz_a2_0725` | 쓰레기통 | 종이는 | 봉투는 | 이 봉투는 쓰레기통에 버려도 돼요? | 버릴 물건이 바뀜 |
+| `satz_a2_0725` | 쓰레기통 | 이 | 저 | 저 종이는 쓰레기통에 버려도 돼요? | 가리키는 종이의 위치가 바뀜 |
+| `satz_a2_0726` | 휴지 | 없어요 | 있어요 | 화장실에 휴지가 있어요. 좀 가져와 주세요. | 없음에서 있음으로 바뀜 |
+| `satz_a2_0726` | 휴지 | 가져와 | 가져가 | 화장실에 휴지가 없어요. 좀 가져가 주세요. | 가져오기에서 가져가기로 방향이 바뀜 |
+| `satz_a2_0727` | 목욕 | 편해요 | 아파요 | 목욕을 하니까 몸이 아파요. | 편안함에서 아픔으로 바뀜 |
+| `satz_a2_0727` | 목욕 | 목욕을 | 샤워를 | 샤워를 하니까 몸이 편해요. | 목욕에서 샤워로 바뀜 |
+| `satz_a2_0728` | 양치질 | 또 | 아직 | 양치질을 했는데 아직 배가 고파요. | 다시 배고픔에서 계속 배고픔으로 바뀜 |
+| `satz_a2_0728` | 양치질 | 고파요 | 아파요 | 양치질을 했는데 또 배가 아파요. | 배고픔에서 배 아픔으로 바뀜 |
+| `satz_a2_0729` | 치약 | 오늘은 | 내일은 | 치약이 다 떨어졌어요. 내일은 꼭 사야 해요. | 구입해야 할 날이 바뀜 |
+| `satz_a2_0729` | 치약 | 사야 | 팔아야 | 치약이 다 떨어졌어요. 오늘은 꼭 팔아야 해요. | 구입에서 판매로 바뀜 |
+| `satz_a2_0730` | 선풍기 | 조금만 | 많이 | 선풍기를 제 쪽으로 많이 돌려 주세요. | 조정량이 바뀜 |
+| `satz_a2_0730` | 선풍기 | 돌려 | 밀어 | 선풍기를 제 쪽으로 조금만 밀어 주세요. | 방향 돌리기에서 밀기로 바뀜 |
+| `satz_a2_0731` | 식탁 | 케이크가 | 과일이 | 식탁에 과일이 있어요. 같이 먹어요. | 함께 먹을 음식이 바뀜 |
+| `satz_a2_0731` | 식탁 | 먹어요 | 만들어요 | 식탁에 케이크가 있어요. 같이 만들어요. | 먹기에서 만들기로 바뀜 |
+| `satz_a2_0732` | 바닥 | 천천히 | 빨리 | 바닥을 방금 닦았어요. 빨리 걸으세요. | 걷는 속도가 반대로 바뀜 |
+| `satz_a2_0732` | 바닥 | 방금 | 어제 | 바닥을 어제 닦았어요. 천천히 걸으세요. | 청소한 시간이 방금에서 어제로 바뀜 |
+| `satz_a2_0733` | 냄비 | 두 | 세 | 냄비에 라면 세 개가 들어가요. | 들어가는 라면 수가 바뀜 |
+| `satz_a2_0733` | 냄비 | 라면 | 우유 | 냄비에 우유 두 개가 들어가요. | 용기에 넣는 대상이 바뀜 |
+| `satz_a2_0734` | 이틀 | 쉬니까 | 일하니까 | 현아 씨, 이틀 일하니까 좀 괜찮아요? | 휴식에서 일하기로 바뀜 |
+| `satz_a2_0734` | 이틀 | 괜찮아요 | 아파요 | 현아 씨, 이틀 쉬니까 좀 아파요? | 상태가 나아졌는지에서 아픈지로 질문이 바뀜 |
+| `satz_a2_0735` | 사흘 | 가요 | 갔어요 | 사흘 동안 여행 갔어요. 짐은 다 쌌어요. | 예정된 여행에서 지난 여행으로 바뀜 |
+| `satz_a2_0735` | 사흘 | 쌌어요 | 풀었어요 | 사흘 동안 여행 가요. 짐은 다 풀었어요. | 짐 싸기에서 짐 풀기로 바뀜 |
+| `satz_a2_0736` | 나흘 | 비가 | 눈이 | 눈이 나흘 동안 왔어요. 빨래가 아직 안 말랐어요. | 비에서 눈으로 바뀜 |
+| `satz_a2_0736` | 나흘 | 빨래가 | 바닥이 | 비가 나흘 동안 왔어요. 바닥이 아직 안 말랐어요. | 아직 마르지 않은 것이 빨래에서 바닥으로 바뀜 |
+| `satz_a2_0737` | 열흘 | 부모님이 | 친구들이 | 열흘 후에 친구들이 오세요. 식당도 예약했어요. | 방문하는 사람이 부모님에서 친구들로 바뀜 |
+| `satz_a2_0737` | 열흘 | 식당도 | 호텔도 | 열흘 후에 부모님이 오세요. 호텔도 예약했어요. | 예약한 곳이 바뀜 |
+| `satz_a2_0738` | 개월 | 삼 | 육 | 한국에 온 지 육 개월 됐어요. | 지낸 개월 수가 바뀜 |
+| `satz_a2_0738` | 개월 | 한국에 | 독일에 | 독일에 온 지 삼 개월 됐어요. | 지낸 나라가 바뀜 |
+| `satz_a2_0739` | 그동안 | 여기 | 저기 | 그동안 잘 지냈어요? 저기 앉아요. | 권하는 자리가 바뀜 |
+| `satz_a2_0739` | 그동안 | 앉아요 | 기다려요 | 그동안 잘 지냈어요? 여기 기다려요. | 앉기 권유에서 기다리기 요청으로 바뀜 |
+| `satz_a2_0740` | 오랜만 | 반가워요 | 미안해요 | 오랜만에 만나서 정말 미안해요. | 반가움에서 미안함으로 바뀜 |
+| `satz_a2_0740` | 오랜만 | 만나서 | 헤어져서 | 오랜만에 헤어져서 정말 반가워요. | 만남에서 헤어짐으로 바뀜 |
+| `satz_a2_0741` | 마지막 | 반씩 | 조금씩 | 이 케이크가 마지막이에요. 조금씩 먹어요. | 반씩에서 조금씩으로 나눌 양이 바뀜 |
+| `satz_a2_0741` | 마지막 | 먹어요 | 남겨요 | 이 케이크가 마지막이에요. 반씩 남겨요. | 먹기에서 남기기로 바뀜 |
+| `satz_a2_0742` | 최근 | 덜 | 더 | 최근에 요리를 배워서 외식을 더 해요. | 외식 빈도의 변화가 반대로 바뀜 |
+| `satz_a2_0742` | 최근 | 요리를 | 운동을 | 최근에 운동을 배워서 외식을 덜 해요. | 배운 활동이 바뀜 |
+| `satz_a2_0743` | 다음날 | 집에서 | 호텔에서 | 여행 다음날 아침에는 호텔에서 푹 쉬었어요. | 쉰 장소가 바뀜 |
+| `satz_a2_0743` | 다음날 | 아침에는 | 저녁에는 | 여행 다음날 저녁에는 집에서 푹 쉬었어요. | 여행 다음 날의 아침에서 저녁으로 바뀜 |
+| `satz_a2_0744` | 어젯밤 | 늦게 | 일찍 | 어젯밤에 드라마를 보다가 일찍 잤어요. | 잠든 시각의 정도가 바뀜 |
+| `satz_a2_0744` | 어젯밤 | 드라마를 | 뉴스를 | 어젯밤에 뉴스를 보다가 늦게 잤어요. | 본 방송이 바뀜 |
+| `satz_a2_0745` | 점심시간 | 잠깐 | 오래 | 수진 씨, 점심시간에 오래 산책할까요? | 산책할 시간이 바뀜 |
+| `satz_a2_0745` | 점심시간 | 산책할까요 | 공부할까요 | 수진 씨, 점심시간에 잠깐 공부할까요? | 제안하는 활동이 바뀜 |
+| `satz_a2_0746` | 구름 | 강아지처럼 | 고양이처럼 | 저 구름이 고양이처럼 생겼어요. | 닮은 동물이 바뀜 |
+| `satz_a2_0746` | 구름 | 생겼어요 | 움직여요 | 저 구름이 강아지처럼 움직여요. | 생김새에서 움직임으로 비교 대상이 바뀜 |
+| `satz_a2_0747` | 하늘 | 한 | 두 | 오늘 하늘이 정말 맑아요. 사진 두 장 찍어요. | 찍을 사진 수가 바뀜 |
+| `satz_a2_0747` | 하늘 | 맑아요 | 흐려요 | 오늘 하늘이 정말 흐려요. 사진 한 장 찍어요. | 하늘 상태가 반대로 바뀜 |
+| `satz_a2_0748` | 햇빛 | 강해서 | 약해서 | 햇빛이 너무 약해서 눈을 못 뜨겠어요. | 자극의 세기가 반대로 바뀜 |
+| `satz_a2_0748` | 햇빛 | 뜨겠어요 | 감겠어요 | 햇빛이 너무 강해서 눈을 못 감겠어요. | 눈을 뜨기에서 감기로 바뀜 |
+| `satz_a2_0749` | 기온 | 내려가요 | 올라가요 | 내일은 기온이 많이 올라가요. | 온도 변화의 방향이 바뀜 |
+| `satz_a2_0749` | 기온 | 많이 | 조금 | 내일은 기온이 조금 내려가요. | 온도 변화의 크기가 바뀜 |
+| `satz_a2_0750` | 영하 | 오늘은 | 내일은 | 내일은 영하 오 도예요. 차 한잔 마실까요? | 해당 날씨의 날짜가 바뀜 |
+| `satz_a2_0750` | 영하 | 마실까요 | 마셨어요 | 오늘은 영하 오 도예요. 차 한잔 마셨어요? | 차를 마시자는 제안에서 마셨는지 묻는 질문으로 바뀜 |
+| `satz_a2_0751` | 얼음 | 조금만 | 많이 | 커피에 얼음을 많이 넣어 주세요. | 넣는 양이 바뀜 |
+| `satz_a2_0751` | 얼음 | 넣어 | 빼 | 커피에 얼음을 조금만 빼 주세요. | 넣기에서 빼기로 바뀜 |
+
+</details>
 
 ## 검수 메모
 
-- Surface-form maximum reuse: 4.
-- Stem reuse is checked by `a2_draft_rules.distractor_stem_reuse_counts` with cap 4.
-- Tier B ratio: 0/64 (0%).
+- 빈칸 후보 표면형 최대 재사용: 3.
+- 구조·어휘 등급·재생성 검사는 의미 유일성이나 사람 승인을 대신하지 않는다.
+- 적용 조건: DE/EN 번역 필수. 기존 KO-only Tier A/B 판정을 주장하지 않는다.
 - Jin/native/educator approval remains pending.

@@ -23,6 +23,7 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 from rr_romanize import romanize_korean  # noqa: E402
+from batch_34_choice_design import CHOICES, validate_choice_contract  # noqa: E402
 
 SOURCE_HASHES = {
     "originMain": "61f5c819dcd51357617f731ce0b4694ad3d8be49",
@@ -50,86 +51,81 @@ VOCAB_HEADER = [
 
 
 def E(word, de, pos_de, ko, de_ex, topic, pack, order, boss, en, pos_en,
-      en_ex, answer, distractors, reason):
+      en_ex, answer, scene):
     return {
         "word": word, "de": de, "pos_de": pos_de, "ko": ko,
         "de_ex": de_ex, "topic": topic, "pack": pack, "order": order,
         "boss": boss, "en": en, "pos_en": pos_en, "en_ex": en_ex,
-        "answer": answer, "distractors": distractors, "reason": reason,
+        "answer": answer, "distractors": [d["text"] for d in CHOICES[word]["cloze"]],
+        "choice_design": CHOICES[word], "scene": scene,
     }
 
 
 ENTRIES = [
-    E("잔치", "Fest, Feier", "Nomen", "다음 주에 잔치를 열어요.", "Nächste Woche findet ein Fest statt.", "Freizeit", "a2_events_1", 9, False, "feast, celebration", "Noun", "A celebration will take place next week.", "잔치를", ["양말을", "연필을", "감기를"], "Only an event can be held with 열다; the object and illness substitutes cannot."),
-    E("결혼", "Hochzeit, Heirat", "Nomen", "대박, 두 사람이 다음 달에 결혼을 해요!", "Wahnsinn, die beiden heiraten nächsten Monat!", "Freizeit", "a2_events_1", 10, True, "marriage, wedding", "Noun", "Wow, the two of them are getting married next month!", "결혼을", ["기온을", "치약을", "양말을"], "In this two-person life-event frame, only 결혼 forms the intended N을 하다 event; temperature, toothpaste, and socks do not."),
-    E("환영", "Willkommen, Begrüßung", "Nomen", "레나 씨, 우리 팀에 온 것을 환영해요.", "Lena, willkommen in unserem Team.", "Freizeit", "a2_events_1", 11, False, "welcome", "Noun", "Lena, welcome to our team.", "환영해요", ["피곤해요", "친절해요", "건강해요"], "The object clause 온 것을 requires a transitive predicate; the adjectives cannot govern it."),
-    E("연말", "Jahresende", "Nomen", "마야 씨, 연말에는 회사 일이 많아요?", "Maya, gibt es zum Jahresende viel Arbeit in der Firma?", "Freizeit", "a2_events_1", 12, False, "year-end", "Noun", "Maya, is there a lot of work at the company toward the end of the year?", "연말에는", ["숟가락에는", "접시에는", "지갑에는"], "The marked phrase is a time frame; the object substitutes cannot locate the workload in time."),
-
-    E("메일", "E-Mail", "Nomen", "안드레아 씨, 사진을 메일로 친구에게 보냈어요.", "Andrea, ich habe das Foto per E-Mail an einen Freund geschickt.", "Kommunikation", "a2_messenger_phone_1", 7, False, "email", "Noun", "Andrea, I sent the photo to a friend by email.", "메일로", ["잔치로", "독서로", "구름으로"], "The marked means slot requires a communication channel; the substitutes cannot transmit the photo to the friend."),
-    E("연결", "Verbindung", "Nomen", "지하철에서는 인터넷 연결이 잘 안 돼요.", "In der U-Bahn funktioniert die Internetverbindung nicht gut.", "Kommunikation", "a2_messenger_phone_1", 8, False, "connection", "Noun", "The internet connection does not work well on the subway.", "연결이", ["바닥이", "목욕이", "잔치가"], "Only a connectivity noun can complete the internet compound and fail in this context."),
-    E("전화기", "Telefon", "Nomen", "전화기를 집에 두고 나왔어요.", "Ich habe das Telefon zu Hause liegen lassen.", "Kommunikation", "a2_messenger_phone_1", 9, True, "telephone", "Noun", "I left the telephone at home.", "전화기를", ["소식을", "도움을", "환영을"], "The substitutes are abstract events or states and cannot be portable objects left at home."),
-    E("들리다", "zu hören sein", "Verb", "크리스티안, 내 목소리 잘 들려?", "Christian, kannst du mich gut hören?", "Kommunikation", "a2_messenger_phone_1", 10, False, "to be audible", "Verb", "Christian, can you hear me clearly?", "들려", ["앉아", "울어", "웃어"], "With 목소리 as subject, the substituted human actions have no coherent reading."),
-    E("소식", "Nachricht", "Nomen", "친구한테서 결혼 소식을 듣고 정말 기뻤어요.", "Jemand aus meinem Freundeskreis erzählte mir von der Hochzeit, und ich habe mich sehr gefreut.", "Kommunikation", "a2_messenger_phone_1", 11, False, "news", "Noun", "I heard the news about the wedding from a friend and was very happy.", "소식을", ["연필을", "얼음을", "구름을"], "The concrete substitutes cannot be heard as information in the 결혼 N을 듣다 frame."),
-    E("물어보다", "fragen, sich erkundigen", "Verb", "길을 모르면 지나가는 사람에게 물어보세요.", "Wenn Sie den Weg nicht kennen, fragen Sie jemanden, der vorbeikommt.", "Kommunikation", "a2_messenger_phone_1", 12, False, "to ask", "Verb", "If you do not know the way, ask someone passing by.", "물어보세요", ["앉으세요", "서세요", "웃으세요"], "The 에게 complement selects an asking verb; the intransitive imperatives cannot take it."),
-
-    E("도움", "Hilfe", "Nomen", "다니엘 씨, 어제 설명이 정말 도움이 됐어요.", "Daniel, Ihre Erklärung gestern war wirklich hilfreich.", "Alltag", "a2_problems_help_1", 1, True, "help", "Noun", "Daniel, your explanation yesterday was really helpful.", "도움이", ["센터가", "만두가", "하늘이"], "The explanation can become help, but it cannot become a center, dumpling, or sky."),
-    E("고장", "Defekt, Panne", "Nomen", "크리스티안, 컴퓨터가 또 고장이 났어?", "Christian, ist dein Computer schon wieder kaputt?", "Alltag", "a2_problems_help_1", 2, True, "breakdown, malfunction", "Noun", "Christian, did your computer break down again?", "고장이", ["식탁이", "유리가", "우표가"], "Only 고장 forms the malfunction collocation with 나다; the objects do not."),
-    E("잃다", "verlieren", "Verb", "어제 지하철에서 지갑을 잃었어요.", "Gestern habe ich in der U-Bahn meine Brieftasche verloren.", "Alltag", "a2_problems_help_1", 3, False, "to lose", "Verb", "Yesterday I lost my wallet on the subway.", "잃었어요", ["앉았어요", "울었어요", "잤어요"], "The fixed object 지갑을 makes each intransitive substitute structurally invalid."),
-    E("막히다", "verstopft sein, im Stau stehen", "Verb", "길이 많이 막혀서 회의에 늦었어요.", "Die Straße war stark verstopft, deshalb kam ich zu spät zur Besprechung.", "Alltag", "a2_problems_help_1", 4, False, "to be blocked, congested", "Verb", "The road was very congested, so I was late for the meeting.", "막혀서", ["앉아서", "울어서", "웃어서"], "A road cannot sit, cry, or laugh; no alternate literal or idiomatic reading fits."),
-    E("전기", "Elektrizität, Strom", "Nomen", "갑자기 전기가 나가서 방이 어두웠어요.", "Plötzlich fiel der Strom aus und das Zimmer war dunkel.", "Alltag", "a2_problems_help_1", 5, False, "electricity", "Noun", "The power suddenly went out, and the room was dark.", "전기가", ["목욕이", "양치질이", "세탁이"], "Only electricity has the outage reading of 나가다 that explains why the room was dark."),
-    E("유리", "Glas", "Nomen", "창문 유리를 깨끗이 닦았어요.", "Ich habe das Fensterglas sauber gewischt.", "Alltag", "a2_problems_help_1", 6, False, "glass", "Noun", "I wiped the window glass clean.", "유리를", ["소식을", "도움을", "결혼을"], "The abstract substitutes cannot be the physical surface of a window that is wiped."),
-    E("센터", "Zentrum, Servicecenter", "Nomen", "서비스 센터에 전화해서 물어봤어요.", "Ich habe beim Servicecenter angerufen und nachgefragt.", "Alltag", "a2_problems_help_1", 7, False, "center", "Noun", "I called the service center and asked.", "센터에", ["만두에", "떡에", "찌개에"], "Only an institution can be called; the food nouns cannot be telephone recipients or places here."),
-    E("서비스", "Service", "Nomen", "이 호텔에서 친절한 서비스를 받았어요.", "In diesem Hotel habe ich freundlichen Service bekommen.", "Alltag", "a2_problems_help_1", 8, False, "service", "Noun", "I received friendly service at this hotel.", "서비스를", ["기온을", "얼음을", "바닥을"], "After 친절한, the received object must denote courteous assistance; temperature, ice, and a floor cannot carry that reading."),
-    E("안전", "Sicherheit", "Nomen", "안전 운전을 꼭 하세요.", "Fahren Sie bitte unbedingt vorsichtig.", "Alltag", "a2_problems_help_1", 9, True, "safety", "Noun", "Please be sure to drive safely.", "안전", ["도서관", "만두", "연필"], "Only 안전 forms the established compound 안전 운전; the place, food, and object substitutes do not."),
-    E("급하다", "dringend, eilig", "Adjektiv", "급한 일이 있어서 먼저 가요.", "Ich habe etwas Dringendes zu erledigen und gehe deshalb zuerst.", "Alltag", "a2_problems_help_1", 10, False, "urgent, hurried", "Adjective", "I have something urgent to do, so I am leaving first.", "급한", ["차가운", "맛있는", "두꺼운"], "The taste, temperature, and thickness adjectives cannot naturally describe 일이 in this event reading."),
-    E("알아보다", "sich erkundigen, nachsehen", "Verb", "인터넷으로 기차 시간을 알아봤어요.", "Ich habe die Zugzeiten im Internet nachgesehen.", "Alltag", "a2_problems_help_1", 11, False, "to find out, check", "Verb", "I checked the train times online.", "알아봤어요", ["누웠어요", "뛰었어요", "웃었어요"], "The object 기차 시간을 cannot be governed by the intransitive substitutes."),
-    E("잘못하다", "falsch machen", "Verb", "제가 계산을 잘못해서 죄송해요.", "Es tut mir leid, dass ich mich verrechnet habe.", "Alltag", "a2_problems_help_1", 12, False, "to do wrong, make a mistake", "Verb", "I am sorry I calculated it incorrectly.", "잘못해서", ["앉아서", "자서", "뛰어서"], "The calculation cannot sit, sleep, or run; the substitutes also fail the intended causal predicate."),
-
-    E("만두", "Mandu, koreanische Teigtaschen", "Nomen", "명절에 가족과 함께 만두를 먹었어요.", "Am Feiertag habe ich mit meiner Familie Mandu gegessen.", "Essen & Trinken", "a2_dishes_1", 1, True, "mandu, Korean dumplings", "Noun", "I ate mandu with my family for the holiday.", "만두를", ["기온을", "도움을", "서비스를"], "The measure and abstract substitutes cannot be food eaten with the family in this scene."),
-    E("떡", "Reiskuchen", "Nomen", "엄마, 나 3학년 친구들하고 떡을 먹었어!", "Mama, ich habe mit meinen Freunden aus der dritten Klasse Reiskuchen gegessen!", "Essen & Trinken", "a2_dishes_1", 2, False, "rice cake", "Noun", "Mom, I ate rice cakes with my third-grade friends!", "떡을", ["결혼을", "세탁을", "안전을"], "The abstract events and value cannot be edible objects of 먹다."),
-    E("김", "getrockneter Seetang", "Nomen", "한국 김은 짜지 않고 맛있어요.", "Koreanischer Seetang ist nicht salzig und schmeckt gut.", "Essen & Trinken", "a2_dishes_1", 3, False, "dried seaweed", "Noun", "Korean dried seaweed is not salty and tastes good.", "김은", ["휴지는", "선풍기는", "유리는"], "The substitutes are not foods and cannot be evaluated as salty and tasty."),
-    E("찌개", "koreanischer Eintopf", "Nomen", "추운 날에는 뜨거운 찌개가 최고예요.", "An kalten Tagen ist ein heißer Eintopf das Beste.", "Essen & Trinken", "a2_dishes_1", 4, True, "Korean stew", "Noun", "On cold days, hot stew is the best.", "찌개가", ["얼음이", "치약이", "선풍기가"], "Ice contradicts 뜨거운 and the other objects are neither hot dishes nor food."),
-    E("튀김", "Frittiertes", "Nomen", "시장에서 튀김을 사서 먹었어요.", "Auf dem Markt habe ich Frittiertes gekauft und gegessen.", "Essen & Trinken", "a2_dishes_1", 5, False, "fried food", "Noun", "I bought and ate fried food at the market.", "튀김을", ["소식을", "도움을", "안전을"], "The substitutes cannot be bought as food and then eaten in this scene."),
-    E("자장면", "Jajangmyeon", "Nomen", "이사하는 날에는 자장면을 시켜요.", "Am Umzugstag bestelle ich Jajangmyeon.", "Essen & Trinken", "a2_dishes_1", 6, True, "jajangmyeon", "Noun", "On moving day, I order jajangmyeon.", "자장면을", ["구름을", "하늘을", "햇빛을"], "The sky nouns cannot be ordered as a delivered meal."),
-    E("짬뽕", "Jjamppong, scharfe Nudelsuppe", "Nomen", "매운 짬뽕을 먹고 땀이 많이 났어요.", "Nach der scharfen Jjamppong-Suppe habe ich stark geschwitzt.", "Essen & Trinken", "a2_dishes_1", 7, False, "jjamppong, spicy noodle soup", "Noun", "I sweated a lot after eating spicy jjamppong.", "짬뽕을", ["휴지를", "선풍기를", "쓰레기통을"], "The concrete objects cannot be a spicy dish one eats."),
-    E("탕수육", "Tangsuyuk, süßsaures Schweinefleisch", "Nomen", "중국집에서 탕수육을 하나 더 주문했어요.", "Im chinesischen Restaurant habe ich noch eine Portion Tangsuyuk bestellt.", "Essen & Trinken", "a2_dishes_1", 8, False, "tangsuyuk, sweet-and-sour pork", "Noun", "I ordered one more serving of tangsuyuk at the Chinese restaurant.", "탕수육을", ["바닥을", "안전을", "전기를"], "The substitutes are not menu items countable as one more order in a restaurant."),
-    E("칼국수", "Kalguksu, Nudelsuppe", "Nomen", "비 오는 날에는 따뜻한 칼국수가 먹고 싶어요.", "An Regentagen möchte ich warme Kalguksu essen.", "Essen & Trinken", "a2_dishes_1", 9, False, "kalguksu, knife-cut noodle soup", "Noun", "On rainy days, I want to eat warm kalguksu.", "칼국수가", ["치약이", "햇빛이", "식탁이"], "The substitutes are not warm foods that can be wanted with 먹고 싶다."),
-    E("돈가스", "Donkatsu, paniertes Schweineschnitzel", "Nomen", "학교 식당 돈가스는 값이 싸고 맛있어요.", "Das Donkatsu in der Schulkantine ist günstig und lecker.", "Essen & Trinken", "a2_dishes_1", 10, False, "donkatsu, breaded pork cutlet", "Noun", "The donkatsu in the school cafeteria is inexpensive and tasty.", "돈가스는", ["세탁은", "목욕은", "독서는"], "The activity nouns are not cafeteria dishes with a price and taste."),
-    E("카레", "Curry", "Nomen", "저녁에 감자를 넣은 카레를 만들었어요.", "Zum Abendessen habe ich Curry mit Kartoffeln gemacht.", "Essen & Trinken", "a2_dishes_1", 11, False, "curry", "Noun", "I made curry with potatoes for dinner.", "카레를", ["사흘을", "나흘을", "환영을"], "The duration and event substitutes cannot be a potato-containing dinner dish one makes."),
-    E("미역국", "Miyeokguk, Algensuppe", "Nomen", "한국에서는 생일에 미역국을 먹어요.", "In Korea isst man am Geburtstag Miyeokguk.", "Essen & Trinken", "a2_dishes_1", 12, False, "miyeokguk, seaweed soup", "Noun", "In Korea, people eat seaweed soup on birthdays.", "미역국을", ["세탁을", "목욕을", "집안일을"], "The household activities cannot be eaten as the birthday dish."),
-
-    E("집안일", "Hausarbeit", "Nomen", "민호 씨, 주말에는 누가 집안일을 해요?", "Minho, wer macht am Wochenende die Hausarbeit?", "Alltag", "a2_home_routines_1", 1, True, "housework", "Noun", "Minho, who does the housework on weekends?", "집안일을", ["식탁을", "전화기를", "공원을"], "The substitutes do not form an activity collocation with 하다 in this question."),
-    E("세탁", "Wäsche, Waschen", "Nomen", "이 코트는 집에서 세탁을 하면 안 돼요.", "Diesen Mantel darf man nicht zu Hause waschen.", "Alltag", "a2_home_routines_1", 2, True, "laundry, washing", "Noun", "You must not wash this coat at home.", "세탁을", ["쓰레기통을", "선풍기를", "전화기를"], "The object nouns do not form the prohibited household action N을 하다."),
-    E("빨다", "waschen", "Verb", "더러운 양말을 손으로 빨았어요.", "Ich habe die schmutzigen Socken mit der Hand gewaschen.", "Alltag", "a2_home_routines_1", 3, False, "to wash", "Verb", "I washed the dirty socks by hand.", "빨았어요", ["앉았어요", "누웠어요", "뛰었어요"], "The fixed object 양말을 cannot be governed by the intransitive substitutes."),
-    E("쓰레기통", "Mülleimer", "Nomen", "다 마신 컵은 쓰레기통에 버리세요.", "Werfen Sie den leeren Becher in den Mülleimer.", "Alltag", "a2_home_routines_1", 4, False, "trash can", "Noun", "Throw the empty cup in the trash can.", "쓰레기통에", ["결혼에", "환영에", "안전에"], "The destination of 버리다 must be a disposal place; the abstract substitutes are not places."),
-    E("휴지", "Toilettenpapier, Papiertuch", "Nomen", "화장실에 휴지가 없어서 불편했어요.", "Es gab kein Toilettenpapier, deshalb war es unangenehm.", "Alltag", "a2_home_routines_1", 5, False, "toilet paper, tissue", "Noun", "There was no toilet paper in the restroom, so it was inconvenient.", "휴지가", ["나흘이", "열흘이", "결혼이"], "Durations and an event cannot be restroom supplies whose absence causes this problem."),
-    E("목욕", "Bad, Baden", "Nomen", "자기 전에 따뜻한 물로 목욕을 해요.", "Vor dem Schlafengehen bade ich in warmem Wasser.", "Alltag", "a2_home_routines_1", 6, False, "bath, bathing", "Noun", "I take a warm bath before going to bed.", "목욕을", ["식탁을", "전화기를", "햇빛을"], "The substitutes do not form a personal routine with N을 하다."),
-    E("양치질", "Zähneputzen", "Nomen", "식사 후에는 꼭 양치질을 하세요.", "Putzen Sie sich nach dem Essen unbedingt die Zähne.", "Alltag", "a2_home_routines_1", 7, False, "brushing one's teeth", "Noun", "Make sure to brush your teeth after meals.", "양치질을", ["바닥을", "도서관을", "책상을"], "The concrete/place nouns do not form the required hygiene activity with 하다."),
-    E("치약", "Zahnpasta", "Nomen", "치약이 다 떨어져서 마트에서 샀어요.", "Die Zahnpasta war aufgebraucht, deshalb habe ich neue im Supermarkt gekauft.", "Alltag", "a2_home_routines_1", 8, False, "toothpaste", "Noun", "I ran out of toothpaste, so I bought some at the supermarket.", "치약이", ["잔치가", "환영이", "메일이"], "The event and message nouns are not consumable supplies that run out and are replaced at a store."),
-    E("선풍기", "Ventilator", "Nomen", "더워서 선풍기를 켜고 잤어요.", "Weil es heiß war, habe ich den Ventilator eingeschaltet und geschlafen.", "Alltag", "a2_home_routines_1", 9, True, "electric fan", "Noun", "It was hot, so I turned on the fan and went to sleep.", "선풍기를", ["만두를", "고장을", "연말을"], "The substitutes cannot be electrical devices switched on for cooling."),
-    E("식탁", "Esstisch", "Nomen", "저녁 준비가 끝나서 식탁에 그릇을 놓았어요.", "Als das Abendessen fertig war, stellte ich das Geschirr auf den Esstisch.", "Alltag", "a2_home_routines_1", 10, False, "dining table", "Noun", "When dinner was ready, I put the dishes on the dining table.", "식탁에", ["고장에", "서비스에", "메일에"], "The location receiving dishes must be a surface; the abstract substitutes are not surfaces."),
-    E("바닥", "Boden", "Nomen", "청소기로 바닥을 깨끗하게 청소했어요.", "Ich habe den Boden mit dem Staubsauger gründlich gereinigt.", "Alltag", "a2_home_routines_1", 11, False, "floor", "Noun", "I cleaned the floor thoroughly with a vacuum cleaner.", "바닥을", ["이틀을", "사흘을", "연말을"], "Time spans cannot be physical surfaces cleaned with a vacuum cleaner."),
-    E("냄비", "Topf", "Nomen", "냄비에 물을 넣고 끓이세요.", "Geben Sie Wasser in den Topf und bringen Sie es zum Kochen.", "Alltag", "a2_home_routines_1", 12, False, "pot", "Noun", "Put water in the pot and boil it.", "냄비에", ["고장에", "연결에", "서비스에"], "The substitutes are not containers that can hold water for boiling."),
-
-    E("이틀", "zwei Tage", "Nomen", "현아 씨, 이틀 동안 어디에 있었어요?", "Hyuna, wo waren Sie zwei Tage lang?", "Zeit", "a2_time_span_1", 1, True, "two days", "Noun", "Hyuna, where were you for two days?", "이틀", ["우산", "지갑", "열쇠"], "The 동안 slot requires a duration; the portable objects cannot measure time."),
-    E("사흘", "drei Tage", "Nomen", "감기로 사흘 동안 학교에 못 갔어요.", "Wegen einer Erkältung konnte ich drei Tage lang nicht zur Schule gehen.", "Zeit", "a2_time_span_1", 2, False, "three days", "Noun", "I could not go to school for three days because of a cold.", "사흘", ["의자", "책상", "침대"], "The 동안 slot requires a duration; furniture cannot measure the absence."),
-    E("나흘", "vier Tage", "Nomen", "비가 나흘 동안 계속 왔어요.", "Es hat vier Tage lang ununterbrochen geregnet.", "Zeit", "a2_time_span_1", 3, False, "four days", "Noun", "It rained continuously for four days.", "나흘", ["지도", "그림", "신발"], "The 동안 slot requires a duration; the objects cannot measure rainfall."),
-    E("열흘", "zehn Tage", "Nomen", "열흘 후에 독일에서 부모님이 오세요.", "In zehn Tagen kommen meine Eltern aus Deutschland.", "Zeit", "a2_time_span_1", 4, True, "ten days", "Noun", "My parents are coming from Germany in ten days.", "열흘", ["숟가락", "엽서", "의자"], "The 후에 phrase requires elapsed time; the objects do not supply a time interval."),
-    E("개월", "Monat, Monate", "Nomen", "저는 삼 개월 전에 한국에 왔어요.", "Ich bin vor drei Monaten nach Korea gekommen.", "Zeit", "a2_time_span_1", 5, True, "month, months", "Noun", "I came to Korea three months ago.", "개월", ["냄비", "얼음", "하늘"], "After the Sino-Korean numeral 삼, only a month counter fits; the nouns cannot be counters."),
-    E("그동안", "inzwischen, in dieser Zeit", "Nomen", "그동안 연락을 못 해서 미안해요.", "Es tut mir leid, dass ich mich in der Zwischenzeit nicht gemeldet habe.", "Zeit", "a2_time_span_1", 6, False, "in the meantime, during that time", "Noun", "I am sorry I could not get in touch during that time.", "그동안", ["우산", "지도", "침대"], "The sentence-initial time adverbial cannot be replaced by unrelated objects."),
-    E("오랜만", "nach langer Zeit", "Nomen", "오랜만에 고향 친구를 만나서 반가웠어요.", "Ich habe nach langer Zeit jemanden aus meiner Heimat wiedergetroffen und mich sehr gefreut.", "Zeit", "a2_time_span_1", 7, False, "after a long time", "Noun", "I was glad to meet a friend from my hometown after a long time.", "오랜만에", ["치약에", "냄비에", "하늘에"], "Only the temporal expression can modify the reunion; the substitutes are locatives without a coherent event relation."),
-    E("마지막", "letzte, letzter, letztes", "Nomen", "이번 학기 수업은 오늘이 마지막이에요.", "Heute ist der letzte Unterrichtstag dieses Semesters.", "Zeit", "a2_time_span_1", 8, False, "last, final", "Noun", "Today is the last day of class this semester.", "마지막이에요", ["책상이에요", "연필이에요", "양말이에요"], "Only 마지막 identifies today's place at the end of the semester; the object copulas cannot describe today in this frame."),
-    E("최근", "in letzter Zeit, kürzlich", "Nomen", "최근에 회사 근처로 이사했어요.", "Vor Kurzem bin ich in die Nähe der Firma gezogen.", "Zeit", "a2_time_span_1", 9, False, "recently", "Noun", "I recently moved near the office.", "최근에", ["지갑에", "신발에", "편지에"], "The sentence-initial temporal adjunct cannot be replaced by object locatives."),
-    E("다음날", "am nächsten Tag", "Nomen", "늦게 자서 다음날 아침에 못 일어났어요.", "Ich ging spät schlafen und konnte am nächsten Morgen nicht aufstehen.", "Zeit", "a2_time_span_1", 10, False, "the next day", "Noun", "I went to bed late and could not get up the next morning.", "다음날", ["침대", "의자", "가방"], "Only a day expression can modify 아침; the objects cannot form this temporal compound."),
-    E("어젯밤", "letzte Nacht", "Nomen", "어젯밤에 이상한 꿈을 꿨어요.", "Letzte Nacht hatte ich einen seltsamen Traum.", "Zeit", "a2_time_span_1", 11, False, "last night", "Noun", "I had a strange dream last night.", "어젯밤에", ["그림에", "우표에", "엽서에"], "The dream requires a time adjunct; the object locatives do not provide one."),
-    E("점심시간", "Mittagspause", "Nomen", "수진 씨, 점심시간에 같이 밥 먹어요?", "Sujin, essen wir in der Mittagspause zusammen?", "Zeit", "a2_time_span_1", 12, False, "lunch break", "Noun", "Sujin, shall we eat together during lunch break?", "점심시간에", ["고장에", "연결에", "서비스에"], "The invitation needs a time; the abstract substitutes are not time expressions."),
-
-    E("구름", "Wolke", "Nomen", "구름이 많아서 하늘이 어두워요.", "Es gibt viele Wolken, deshalb ist der Himmel dunkel.", "Wetter", "a2_weather_sky_1", 1, True, "cloud", "Noun", "There are many clouds, so the sky is dark.", "구름이", ["독서가", "양치질이", "사흘이"], "Only countable sky matter can be 많다 and darken the sky; the activities and duration cannot."),
-    E("하늘", "Himmel", "Nomen", "비가 그치고 하늘이 정말 맑아요.", "Der Regen hat aufgehört und der Himmel ist richtig klar.", "Wetter", "a2_weather_sky_1", 2, False, "sky", "Noun", "The rain stopped and the sky is really clear.", "하늘이", ["수업이", "양치질이", "사흘이"], "The clear-state subject after rain must be the sky; the activity and duration substitutes do not fit."),
-    E("햇빛", "Sonnenlicht", "Nomen", "햇빛이 너무 강해서 모자를 썼어요.", "Das Sonnenlicht war so stark, dass ich einen Hut aufgesetzt habe.", "Wetter", "a2_weather_sky_1", 3, True, "sunlight", "Noun", "The sunlight was so strong that I put on a hat.", "햇빛이", ["우표가", "엽서가", "침대가"], "The objects cannot be an environmental force whose strength motivates wearing a hat."),
-    E("기온", "Temperatur", "Nomen", "내일은 기온이 5도까지 내려가요.", "Morgen sinkt die Temperatur auf fünf Grad.", "Wetter", "a2_weather_sky_1", 4, False, "air temperature", "Noun", "The temperature will drop to five degrees tomorrow.", "기온이", ["독서가", "양치질이", "집안일이"], "Only air temperature can fall to a value measured in degrees; the activity nouns cannot."),
-    E("영하", "unter null", "Nomen", "오늘 아침에는 영하 5도까지 내려갔어요.", "Heute Morgen sank die Temperatur auf minus fünf Grad.", "Wetter", "a2_weather_sky_1", 5, False, "below zero", "Noun", "This morning, the temperature fell to five degrees below zero.", "영하", ["공원", "유리", "이틀"], "Before 5도, only the below-zero marker fits; the nouns cannot modify a temperature reading."),
-    E("얼음", "Eis", "Nomen", "물에 얼음을 넣어서 마셨어요.", "Ich habe Eis ins Wasser gegeben und es getrunken.", "Wetter", "a2_weather_sky_1", 6, False, "ice", "Noun", "I put ice in the water and drank it.", "얼음을", ["잔치를", "연말을", "점심시간을"], "Only ice can be put into drinking water; the event and time nouns cannot."),
+    E('잔치', 'Fest, Feier', 'Nomen', '할머니 칠순이라 주말에 잔치를 해요.', 'Am Wochenende gibt es eine Feier zum 70. Geburtstag meiner Oma.', 'Freizeit', 'a2_events_1', 9, False, 'feast, celebration', 'Noun', "We're having a party for my grandma's seventieth birthday this weekend.", '잔치를', scene='할머니의 칠순 잔치 계획을 지인에게 알림'),
+    E('결혼', 'Hochzeit, Heirat', 'Nomen', '대박, 두 사람이 다음 달에 결혼을 해요!', 'Wahnsinn, die beiden heiraten nächsten Monat!', 'Freizeit', 'a2_events_1', 10, True, 'marriage, wedding', 'Noun', 'Wow, the two of them are getting married next month!', '결혼을', scene='마야가 두 사람의 결혼 계획에 놀라 반응'),
+    E('환영', 'Willkommen, Begrüßung', 'Nomen', '레나 씨, 환영해요! 여기 같이 앉아요.', 'Lena, herzlich willkommen! Setzen Sie sich doch zu uns.', 'Freizeit', 'a2_events_1', 11, False, 'welcome', 'Noun', 'Lena, welcome! Come and sit with us.', '환영해요', scene='새로 온 동료를 맞으며 자리를 권함'),
+    E('연말', 'Jahresende', 'Nomen', '마야 씨, 연말에는 같이 밥 한번 먹어요.', 'Maya, lassen Sie uns zum Jahresende mal zusammen essen gehen.', 'Freizeit', 'a2_events_1', 12, False, 'year-end', 'Noun', "Maya, let's have a meal together toward the end of the year.", '연말에는', scene='동료에게 연말 식사 약속을 제안'),
+    E('메일', 'E-Mail', 'Nomen', '안드레아 씨, 사진을 메일로 보내도 돼요?', 'Andrea, darf ich das Foto per E-Mail schicken?', 'Kommunikation', 'a2_messenger_phone_1', 7, False, 'email', 'Noun', 'Andrea, can I send the photo by email?', '메일로', scene='사진을 보낼 방법을 동료에게 확인'),
+    E('연결', 'Verbindung', 'Nomen', '인터넷 연결을 바꿨어요. 이제 사진을 보낼게요.', 'Ich habe die Internetverbindung gewechselt. Jetzt schicke ich das Foto.', 'Kommunikation', 'a2_messenger_phone_1', 8, False, 'connection', 'Noun', "I changed the internet connection. I'll send the photo now.", '연결을', scene='인터넷 연결을 바꾼 뒤 사진을 보내겠다고 알림'),
+    E('전화기', 'Telefon', 'Nomen', '가게 전화기를 바꿨어요. 이제 소리가 잘 들려요.', 'Ich habe das Telefon im Laden ausgetauscht. Jetzt ist der Ton klar.', 'Kommunikation', 'a2_messenger_phone_1', 9, True, 'telephone', 'Noun', 'I replaced the phone at the shop. Now the sound is clear.', '전화기를', scene='가게 전화기를 교체한 뒤 소리 상태를 이야기함'),
+    E('들리다', 'zu hören sein', 'Verb', '크리스티안, 잘 들려? 여기는 좀 시끄러워.', 'Christian, hörst du mich gut? Hier ist es etwas laut.', 'Kommunikation', 'a2_messenger_phone_1', 10, False, 'to be audible', 'Verb', "Christian, can you hear me clearly? It's a bit noisy here.", '들려', scene='수진이 크리스티안과 통화하며 소리 상태를 확인'),
+    E('소식', 'Nachricht', 'Nomen', '친구 결혼 소식을 듣고 바로 전화했어요.', 'Ich habe von einer Hochzeit im Freundeskreis gehört und gleich angerufen.', 'Kommunikation', 'a2_messenger_phone_1', 11, False, 'news', 'Noun', 'I heard that a friend was getting married and called right away.', '소식을', scene='친구의 결혼 소식에 보인 반응을 이야기함'),
+    E('물어보다', 'fragen, sich erkundigen', 'Verb', '길을 모르면 저 사람에게 물어보세요.', 'Wenn Sie den Weg nicht kennen, fragen Sie die Person dort.', 'Kommunikation', 'a2_messenger_phone_1', 12, False, 'to ask', 'Verb', "If you don't know the way, ask the person over there.", '물어보세요', scene='길을 찾는 사람에게 도움받을 방법을 제안'),
+    E('도움', 'Hilfe', 'Nomen', '다니엘 씨, 도움이 필요해요. 이 문제를 모르겠어요.', 'Daniel, ich brauche Hilfe. Ich verstehe diese Aufgabe nicht.', 'Alltag', 'a2_problems_help_1', 1, True, 'help', 'Noun', "Daniel, I need help. I don't understand this problem.", '도움이', scene='다니엘에게 문제를 풀 도움을 요청'),
+    E('고장', 'Defekt, Panne', 'Nomen', '크리스티안, 컴퓨터가 또 고장이 났어? 내 거 써.', 'Christian, ist dein Computer schon wieder kaputt? Nimm meinen.', 'Alltag', 'a2_problems_help_1', 2, True, 'breakdown, malfunction', 'Noun', 'Christian, did your computer break down again? Use mine.', '고장이', scene='수진이 크리스티안에게 자기 컴퓨터를 빌려줌'),
+    E('잃다', 'verlieren', 'Verb', '지갑을 잃었어요. 혹시 여기에서 보셨어요?', 'Ich habe meine Brieftasche verloren. Haben Sie sie vielleicht hier gesehen?', 'Alltag', 'a2_problems_help_1', 3, False, 'to lose', 'Verb', "I've lost my wallet. Have you seen it here by any chance?", '잃었어요', scene='잃은 지갑을 찾아 낯선 사람에게 정중히 질문'),
+    E('막히다', 'verstopft sein, im Stau stehen', 'Verb', '길이 막혔어요. 지하철로 갈까요?', 'Es gibt einen Stau. Nehmen wir die U-Bahn?', 'Alltag', 'a2_problems_help_1', 4, False, 'to be blocked, congested', 'Verb', "There's a traffic jam. Shall we take the subway?", '막혔어요', scene='교통 체증 때문에 지하철 이용을 제안'),
+    E('전기', 'Elektrizität, Strom', 'Nomen', '전기가 나가서 촛불을 켰어요.', 'Der Strom ist ausgefallen, also habe ich eine Kerze angezündet.', 'Alltag', 'a2_problems_help_1', 5, False, 'electricity', 'Noun', 'The power went out, so I lit a candle.', '전기가', scene='정전 때 한 행동을 이야기함'),
+    E('유리', 'Glas', 'Nomen', '이 컵은 유리로 만들었어요. 안이 잘 보여요.', 'Dieser Becher ist aus Glas. Man kann gut hineinsehen.', 'Alltag', 'a2_problems_help_1', 6, False, 'glass', 'Noun', 'This cup is made of glass. You can see inside clearly.', '유리로', scene='컵의 재료와 투명한 모습을 설명'),
+    E('센터', 'Zentrum, Servicecenter', 'Nomen', '센터에 전화해서 수리비를 물어봤어요.', 'Ich habe beim Servicecenter angerufen und nach den Reparaturkosten gefragt.', 'Alltag', 'a2_problems_help_1', 7, False, 'center', 'Noun', 'I called the service center to ask about the repair cost.', '센터에', scene='수리 센터에 비용을 문의'),
+    E('서비스', 'Service', 'Nomen', '이 식당은 서비스가 정말 좋아요.', 'Der Service in diesem Restaurant ist wirklich gut.', 'Alltag', 'a2_problems_help_1', 8, False, 'service', 'Noun', 'The service at this restaurant is really good.', '서비스가', scene='식당에서 받은 서비스에 만족하며 이야기함'),
+    E('안전', 'Sicherheit', 'Nomen', '운전할 때는 안전이 제일 중요해요.', 'Beim Autofahren ist Sicherheit am wichtigsten.', 'Alltag', 'a2_problems_help_1', 9, True, 'safety', 'Noun', 'When you drive, safety matters most.', '안전이', scene='운전할 때 가장 중요한 것을 말함'),
+    E('급하다', 'dringend, eilig', 'Adjektiv', '급한 일이 생겼어요.', 'Es ist etwas Dringendes dazwischengekommen.', 'Alltag', 'a2_problems_help_1', 10, False, 'urgent, hurried', 'Adjective', 'Something urgent has come up.', '급한', scene='급한 일이 생겼다고 알림'),
+    E('알아보다', 'sich erkundigen, nachsehen', 'Verb', '기차 시간을 알아봤어요. 아직 한 시간 남았어요.', 'Ich habe die Zugzeiten nachgesehen. Wir haben noch eine Stunde.', 'Alltag', 'a2_problems_help_1', 11, False, 'to find out, check', 'Verb', "I checked the train times. We've still got an hour.", '알아봤어요', scene='동행에게 출발까지 남은 시간을 알려 줌'),
+    E('잘못하다', 'falsch machen', 'Verb', '제가 계산을 잘못해서 천 원을 더 냈어요.', 'Ich habe mich verrechnet und tausend Won zu viel bezahlt.', 'Alltag', 'a2_problems_help_1', 12, False, 'to do wrong, make a mistake', 'Verb', 'I got the calculation wrong and paid a thousand won too much.', '잘못해서', scene='작은 계산 실수를 이야기함'),
+    E('만두', 'Mandu, koreanische Teigtaschen', 'Nomen', '만두를 너무 많이 쪘어요. 같이 먹어요.', 'Ich habe zu viele Mandu gedämpft. Essen Sie mit!', 'Essen & Trinken', 'a2_dishes_1', 1, True, 'mandu, Korean dumplings', 'Noun', 'I steamed too many dumplings. Come and share them!', '만두를', scene='많이 만든 음식을 지인에게 권함'),
+    E('떡', 'Reiskuchen', 'Nomen', '엄마, 오늘 3학년 친구들하고 떡을 나눠 먹었어!', 'Mama, heute habe ich Reiskuchen mit meinen Freunden aus der dritten Klasse geteilt!', 'Essen & Trinken', 'a2_dishes_1', 2, False, 'rice cake', 'Noun', 'Mom, I shared rice cakes with my third-grade friends today!', '떡을', scene='준이 엄마에게 학교에서 간식을 나눈 일을 말함'),
+    E('김', 'getrockneter Seetang', 'Nomen', '이 김은 별로 안 짜요. 밥이랑 같이 드세요.', 'Diese Algenblätter sind nicht besonders salzig. Essen Sie sie doch mit Reis.', 'Essen & Trinken', 'a2_dishes_1', 3, False, 'dried seaweed', 'Noun', "This dried seaweed isn't very salty. Try it with rice.", '김은', scene='김의 맛을 설명하고 밥과 함께 먹으라고 권함'),
+    E('찌개', 'koreanischer Eintopf', 'Nomen', '오늘은 따뜻한 찌개가 먹고 싶어요.', 'Heute habe ich Lust auf einen warmen koreanischen Eintopf.', 'Essen & Trinken', 'a2_dishes_1', 4, True, 'Korean stew', 'Noun', 'I feel like having a warm Korean stew today.', '찌개가', scene='먹고 싶은 저녁 메뉴를 말함'),
+    E('튀김', 'Frittiertes', 'Nomen', '튀김을 방금 해서 아직 뜨거워요.', 'Das Essen ist frisch frittiert und noch heiß.', 'Essen & Trinken', 'a2_dishes_1', 5, False, 'fried food', 'Noun', 'The food has just been deep-fried, so it is still hot.', '튀김을', scene='갓 튀긴 음식을 권하기 전 뜨겁다고 알림'),
+    E('자장면', 'Jajangmyeon', 'Nomen', '저는 자장면을 먹을게요. 같이 주문할까요?', 'Ich nehme Jajangmyeon. Wollen wir zusammen bestellen?', 'Essen & Trinken', 'a2_dishes_1', 6, True, 'jajangmyeon', 'Noun', "I'll have jajangmyeon. Shall we order together?", '자장면을', scene='식사 동행에게 메뉴를 말하고 함께 주문하자고 제안'),
+    E('짬뽕', 'Jjamppong, scharfe Nudelsuppe', 'Nomen', '짬뽕을 한입 먹고 물부터 찾았어요.', 'Nach einem Bissen Jjamppong habe ich zuerst nach Wasser gesucht.', 'Essen & Trinken', 'a2_dishes_1', 7, False, 'jjamppong, spicy noodle soup', 'Noun', 'After one bite of jjamppong, the first thing I looked for was water.', '짬뽕을', scene='매운 음식을 먹은 자신의 반응을 가볍게 이야기함'),
+    E('탕수육', 'Tangsuyuk, süßsaures Schweinefleisch', 'Nomen', '탕수육을 하나 시켜서 같이 먹어요.', 'Bestellen wir eine Portion Tangsuyuk zum Teilen.', 'Essen & Trinken', 'a2_dishes_1', 8, False, 'tangsuyuk, sweet-and-sour pork', 'Noun', "Let's order a serving of tangsuyuk to share.", '탕수육을', scene='함께 먹을 메뉴를 제안'),
+    E('칼국수', 'Kalguksu, Nudelsuppe', 'Nomen', '비가 오니까 칼국수가 생각나요.', 'Bei dem Regen bekomme ich Lust auf Kalguksu.', 'Essen & Trinken', 'a2_dishes_1', 9, False, 'kalguksu, knife-cut noodle soup', 'Noun', 'This rain makes me feel like having kalguksu.', '칼국수가', scene='비 오는 날 떠오르는 음식을 이야기함'),
+    E('돈가스', 'Donkatsu, paniertes Schweineschnitzel', 'Nomen', '이 돈가스는 제 얼굴보다 커요!', 'Dieses Donkatsu ist größer als mein Gesicht!', 'Essen & Trinken', 'a2_dishes_1', 10, False, 'donkatsu, breaded pork cutlet', 'Noun', 'This pork cutlet is bigger than my face!', '돈가스는', scene='음식 크기에 즐겁게 놀람'),
+    E('카레', 'Curry', 'Nomen', '카레를 많이 했어요. 내일 점심도 걱정 없어요.', 'Ich habe viel Curry gekocht. Damit ist auch das Mittagessen für morgen gesichert.', 'Essen & Trinken', 'a2_dishes_1', 11, False, 'curry', 'Noun', "I made plenty of curry. That's tomorrow's lunch sorted too.", '카레를', scene='많이 만든 저녁으로 다음 날 점심까지 해결'),
+    E('미역국', 'Miyeokguk, Algensuppe', 'Nomen', '생일에는 미역국을 먹어요. 올해는 제가 끓였어요.', 'Zum Geburtstag esse ich Miyeokguk. Dieses Jahr habe ich sie selbst gekocht.', 'Essen & Trinken', 'a2_dishes_1', 12, False, 'miyeokguk, seaweed soup', 'Noun', 'I have miyeokguk for my birthday. This year I made it myself.', '미역국을', scene='자신의 생일 식사 경험을 이야기함'),
+    E('집안일', 'Hausarbeit', 'Nomen', '민호 씨, 집안일을 다 했어요? 이제 좀 쉬어요.', 'Minho, sind Sie mit dem Haushalt fertig? Ruhen Sie sich jetzt etwas aus.', 'Alltag', 'a2_home_routines_1', 1, True, 'housework', 'Noun', 'Minho, have you finished the housework? Take a little break now.', '집안일을', scene='집안일을 마친 지인에게 쉬라고 권함'),
+    E('세탁', 'Wäsche, Waschen', 'Nomen', '이 코트는 집에서 세탁을 하면 안 돼요.', 'Diesen Mantel darf man nicht zu Hause waschen.', 'Alltag', 'a2_home_routines_1', 2, True, 'laundry, washing', 'Noun', "This coat mustn't be washed at home.", '세탁을', scene='옷의 세탁 주의사항을 알려 줌'),
+    E('빨다', 'waschen', 'Verb', '운동 후에 양말부터 빨았어요.', 'Nach dem Sport habe ich als Erstes meine Socken gewaschen.', 'Alltag', 'a2_home_routines_1', 3, False, 'to wash', 'Verb', 'After exercising, I washed my socks first.', '빨았어요', scene='운동 뒤 집에서 한 일을 이야기함'),
+    E('쓰레기통', 'Mülleimer', 'Nomen', '이 종이는 쓰레기통에 버려도 돼요?', 'Kann ich dieses Papier in den Mülleimer werfen?', 'Alltag', 'a2_home_routines_1', 4, False, 'trash can', 'Noun', 'Can I throw this paper in the trash can?', '쓰레기통에', scene='종이를 버려도 되는지 물음'),
+    E('휴지', 'Toilettenpapier, Papiertuch', 'Nomen', '화장실에 휴지가 없어요. 좀 가져와 주세요.', 'Im Bad ist kein Toilettenpapier. Bringen Sie mir bitte welches.', 'Alltag', 'a2_home_routines_1', 5, False, 'toilet paper, tissue', 'Noun', "There's no toilet paper in the bathroom. Please bring me some.", '휴지가', scene='화장실에서 필요한 물건을 부탁'),
+    E('목욕', 'Bad, Baden', 'Nomen', '목욕을 하니까 몸이 편해요.', 'Nach dem Bad fühle ich mich schön entspannt.', 'Alltag', 'a2_home_routines_1', 6, False, 'bath, bathing', 'Noun', 'I feel nice and relaxed after the bath.', '목욕을', scene='목욕 후 편안해진 몸 상태를 이야기함'),
+    E('양치질', 'Zähneputzen', 'Nomen', '양치질을 했는데 또 배가 고파요.', 'Ich habe mir die Zähne geputzt, aber ich habe wieder Hunger.', 'Alltag', 'a2_home_routines_1', 7, False, "brushing one's teeth", 'Noun', "I've brushed my teeth, but I'm hungry again.", '양치질을', scene='이를 닦은 뒤 다시 배가 고픈 상황을 가볍게 이야기함'),
+    E('치약', 'Zahnpasta', 'Nomen', '치약이 다 떨어졌어요. 오늘은 꼭 사야 해요.', 'Die Zahnpasta ist alle. Heute muss ich unbedingt neue kaufen.', 'Alltag', 'a2_home_routines_1', 8, False, 'toothpaste', 'Noun', "I'm out of toothpaste. I really need to buy some today.", '치약이', scene='장을 보기 전 필요한 물건을 확인'),
+    E('선풍기', 'Ventilator', 'Nomen', '선풍기를 제 쪽으로 조금만 돌려 주세요.', 'Drehen Sie den Ventilator bitte ein bisschen zu mir.', 'Alltag', 'a2_home_routines_1', 9, True, 'electric fan', 'Noun', 'Please turn the fan a little toward me.', '선풍기를', scene='더운 실내에서 바람 방향을 조정해 달라고 부탁'),
+    E('식탁', 'Esstisch', 'Nomen', '식탁에 케이크가 있어요. 같이 먹어요.', 'Auf dem Esstisch steht ein Kuchen. Essen wir etwas davon!', 'Alltag', 'a2_home_routines_1', 10, False, 'dining table', 'Noun', "There's a cake on the dining table. Let's have some together!", '식탁에', scene='식탁 위의 케이크를 같이 먹자고 권함'),
+    E('바닥', 'Boden', 'Nomen', '바닥을 방금 닦았어요. 천천히 걸으세요.', 'Ich habe gerade den Boden gewischt. Gehen Sie bitte langsam.', 'Alltag', 'a2_home_routines_1', 11, False, 'floor', 'Noun', "I've just mopped the floor. Please walk slowly.", '바닥을', scene='청소 직후 바닥 상태를 알리고 주의를 줌'),
+    E('냄비', 'Topf', 'Nomen', '냄비에 라면 두 개가 들어가요.', 'In den Topf passen zwei Packungen Ramyeon.', 'Alltag', 'a2_home_routines_1', 12, False, 'pot', 'Noun', 'The pot is big enough for two packs of ramyeon.', '냄비에', scene='함께 라면을 만들며 냄비 크기를 확인'),
+    E('이틀', 'zwei Tage', 'Nomen', '현아 씨, 이틀 쉬니까 좀 괜찮아요?', 'Hyuna, geht es Ihnen nach zwei Tagen Ruhe etwas besser?', 'Zeit', 'a2_time_span_1', 1, True, 'two days', 'Noun', 'Hyuna, are you feeling a bit better after two days of rest?', '이틀', scene='쉬고 돌아온 동료의 상태를 물음'),
+    E('사흘', 'drei Tage', 'Nomen', '사흘 동안 여행 가요. 짐은 다 쌌어요.', 'Ich verreise für drei Tage. Alles ist gepackt.', 'Zeit', 'a2_time_span_1', 2, False, 'three days', 'Noun', "I'm going away for three days. Everything's packed.", '사흘', scene='여행 기간과 준비 상태를 이야기함'),
+    E('나흘', 'vier Tage', 'Nomen', '비가 나흘 동안 왔어요. 빨래가 아직 안 말랐어요.', 'Es hat vier Tage lang geregnet. Die Wäsche ist noch nicht trocken.', 'Zeit', 'a2_time_span_1', 3, False, 'four days', 'Noun', "It rained for four days. The laundry still isn't dry.", '나흘', scene='계속된 비 때문에 생긴 생활 불편을 이야기함'),
+    E('열흘', 'zehn Tage', 'Nomen', '열흘 후에 부모님이 오세요. 식당도 예약했어요.', 'In zehn Tagen kommen meine Eltern. Ich habe auch einen Tisch im Restaurant reserviert.', 'Zeit', 'a2_time_span_1', 4, True, 'ten days', 'Noun', "My parents are coming in ten days. I've booked a restaurant table too.", '열흘', scene='부모님 방문을 기다리며 식사 약속을 준비'),
+    E('개월', 'Monat, Monate', 'Nomen', '한국에 온 지 삼 개월 됐어요.', 'Ich bin jetzt seit drei Monaten in Korea.', 'Zeit', 'a2_time_span_1', 5, True, 'month, months', 'Noun', "I've been in Korea for three months now.", '개월', scene='한국에서 지낸 기간을 새 지인에게 알림'),
+    E('그동안', 'inzwischen, in dieser Zeit', 'Nomen', '그동안 잘 지냈어요? 여기 앉아요.', 'Wie ist es Ihnen seit unserem letzten Treffen ergangen? Setzen Sie sich doch hierhin.', 'Zeit', 'a2_time_span_1', 6, False, 'in the meantime, during that time', 'Noun', 'How have you been since we last met? Have a seat here.', '그동안', scene='한동안 못 만난 지인에게 안부를 묻고 자리를 권함'),
+    E('오랜만', 'nach langer Zeit', 'Nomen', '오랜만에 만나서 정말 반가워요.', 'Ich freue mich sehr, Sie nach so langer Zeit wiederzusehen.', 'Zeit', 'a2_time_span_1', 7, False, 'after a long time', 'Noun', "It's so nice to see you after such a long time.", '오랜만에', scene='오랜만에 만난 지인에게 반갑게 인사'),
+    E('마지막', 'letzte, letzter, letztes', 'Nomen', '이 케이크가 마지막이에요. 반씩 먹어요.', 'Das ist der letzte Kuchen. Für jeden die Hälfte?', 'Zeit', 'a2_time_span_1', 8, False, 'last, final', 'Noun', "This is the last cake. Let's have half each.", '마지막이에요', scene='마지막 남은 케이크를 반씩 먹자고 제안'),
+    E('최근', 'in letzter Zeit, kürzlich', 'Nomen', '최근에 요리를 배워서 외식을 덜 해요.', 'Ich habe vor Kurzem kochen gelernt und esse deshalb seltener auswärts.', 'Zeit', 'a2_time_span_1', 9, False, 'recently', 'Noun', 'I learned to cook recently, so I eat out less.', '최근에', scene='최근 생긴 생활 변화를 말함'),
+    E('다음날', 'am nächsten Tag', 'Nomen', '여행 다음날 아침에는 집에서 푹 쉬었어요.', 'Am Morgen nach der Reise habe ich mich zu Hause richtig ausgeruht.', 'Zeit', 'a2_time_span_1', 10, False, 'the next day', 'Noun', 'I had a good rest at home the morning after the trip.', '다음날 아침에는', scene='여행을 마친 다음 날 아침을 이야기함'),
+    E('어젯밤', 'letzte Nacht', 'Nomen', '어젯밤에 드라마를 보다가 늦게 잤어요.', 'Ich habe gestern Abend eine Serie geschaut und bin spät ins Bett gegangen.', 'Zeit', 'a2_time_span_1', 11, False, 'last night', 'Noun', 'I watched a series last night and went to bed late.', '어젯밤에', scene='늦게 잔 이유를 일상적으로 이야기함'),
+    E('점심시간', 'Mittagspause', 'Nomen', '수진 씨, 점심시간에 잠깐 산책할까요?', 'Sujin, wollen wir in der Mittagspause kurz spazieren gehen?', 'Zeit', 'a2_time_span_1', 12, False, 'lunch break', 'Noun', 'Sujin, shall we go for a short walk during lunch break?', '점심시간에', scene='동료에게 짧은 점심 산책을 제안'),
+    E('구름', 'Wolke', 'Nomen', '저 구름이 강아지처럼 생겼어요.', 'Die Wolke da sieht aus wie ein Welpe.', 'Wetter', 'a2_weather_sky_1', 1, True, 'cloud', 'Noun', 'That cloud looks like a puppy.', '구름이', scene='함께 하늘을 보며 재미있는 모양을 발견'),
+    E('하늘', 'Himmel', 'Nomen', '오늘 하늘이 정말 맑아요. 사진 한 장 찍어요.', 'Der Himmel ist heute richtig klar. Machen wir ein Foto.', 'Wetter', 'a2_weather_sky_1', 2, False, 'sky', 'Noun', "The sky's so clear today. Let's take a photo.", '하늘이', scene='맑은 하늘을 보고 사진을 찍자고 제안'),
+    E('햇빛', 'Sonnenlicht', 'Nomen', '햇빛이 너무 강해서 눈을 못 뜨겠어요.', 'Das Sonnenlicht ist so grell, dass ich die Augen nicht aufbekomme.', 'Wetter', 'a2_weather_sky_1', 3, True, 'sunlight', 'Noun', "The sunlight is so bright I can't keep my eyes open.", '햇빛이', scene='햇빛이 눈부신 상황을 말함'),
+    E('기온', 'Temperatur', 'Nomen', '내일은 기온이 많이 내려가요.', 'Morgen sinkt die Temperatur deutlich.', 'Wetter', 'a2_weather_sky_1', 4, False, 'air temperature', 'Noun', 'The temperature will drop a lot tomorrow.', '기온이', scene='다음 날 기온이 많이 내려간다고 알림'),
+    E('영하', 'unter null', 'Nomen', '오늘은 영하 오 도예요. 차 한잔 마실까요?', 'Heute sind es minus fünf Grad. Wollen wir eine Tasse Tee trinken?', 'Wetter', 'a2_weather_sky_1', 5, False, 'below zero', 'Noun', "It's five below zero today. Shall we have a cup of tea?", '영하 오 도', scene='추운 날 함께 차를 마시자고 제안'),
+    E('얼음', 'Eis', 'Nomen', '커피에 얼음을 조금만 넣어 주세요.', 'Bitte geben Sie nur wenig Eis in den Kaffee.', 'Wetter', 'a2_weather_sky_1', 6, False, 'ice', 'Noun', 'Please put just a little ice in the coffee.', '얼음을', scene='카페에서 얼음 양을 조절해 달라고 요청'),
 ]
 
 
@@ -354,6 +350,7 @@ def build_batch34(output_root: Path) -> None:
     cloze = []
     satz = []
     for presentation_index, entry in enumerate(ENTRIES):
+        validate_choice_contract(entry)
         identity_offset = PARTIAL_PACK_ID_OFFSETS.get(entry["word"], presentation_index)
         vocab_id = f"vocab_a2_{696 + identity_offset:04d}"
         cloze_id = f"cloze_a2_{503 + identity_offset:04d}"
@@ -376,11 +373,13 @@ def build_batch34(output_root: Path) -> None:
             "id": cloze_id, "sourceVocabId": vocab_id,
             "fullKo": entry["ko"], "sentenceKo": sentence,
             "answer": entry["answer"], "distractors": entry["distractors"],
+            "de": entry["de_ex"], "en": entry["en_ex"], "level": "a2", "topic": entry["topic"],
         })
         satz.append({
             "id": satz_id, "sourceVocabId": vocab_id,
             "vocabKo": entry["word"], "targetKo": entry["ko"],
-            "distractors": entry["distractors"][:2],
+            "distractors": [d["text"] for d in entry["choice_design"]["satz"]],
+            "promptDe": entry["de_ex"], "promptEn": entry["en_ex"], "level": "a2",
         })
 
     write_csv(drafts / "batch_34_a2_rows.csv", VOCAB_HEADER, rows)
@@ -439,7 +438,7 @@ def build_batch34(output_root: Path) -> None:
         ("a2_weather_sky_1", "Wetter & Himmel 1", "Weather & Sky 1", 6),
     ]
     manifest = {
-        "version": 2,
+        "version": 3,
         "batch": "c3_batch34_a2_reinforcement",
         "status": "draft",
         "provenance": {
@@ -448,6 +447,9 @@ def build_batch34(output_root: Path) -> None:
             "seedSource": "NIKL KIIQ 2017 grade-2 non-affix headwords absent from live data and drafts through Batch 33; Sejong 2 units used only for topic priority.",
             "requiresJinReview": True, "approval": {},
             "modelLanguageQa": "MODEL_QA_PASS", "humanLanguageQaClaim": False,
+            "exampleReview": "64 KO/DE/EN scene-based revision candidates; human review pending.",
+            "exerciseReview": "MODEL_REVIEWED: 64 translation-supported cloze sets (192 alternatives) and 64 independently authored Satz sets (128 alternatives); separate semantic and structural model reviews completed. Human approval pending.",
+            "cultureHelpers": {"vocab_a2_0702": {"칠순": "일흔 살 생일; siebzigster Geburtstag; seventieth birthday"}},
             "sourceHashes": dict(SOURCE_HASHES),
             "wordSourceNote": "Raw NIKL grade-2 non-affix headword-string set: 1085. Subtracting live headword strings plus draft headword strings through Batch 33 leaves 599; this draft claims 64 unique strings and leaves 535. This raw draft-overlay arithmetic is separate from canonical normalized live F2 coverage.",
             "sejongPriorityCitations": [
@@ -462,18 +464,15 @@ def build_batch34(output_root: Path) -> None:
                     "evidence": "문제 상황을 말하고 도움을 요청할 수 있어요.",
                 }
             ],
-            "tierNote": "Tier A 64/64; each distractor was substituted into its complete sentence and manually judged for alternate meanings and collocations. Tier B 0/64.",
-            "collocationTrapNote": "D1-D7 and Batch 32/33 fixed-collocation and homonym traps were checked against all 192 rendered substitutions; grammar error alone was not treated as sufficient where another valid reading existed.",
-            "grammarNote": "Examples are <=10 eojeol and use A2 grammar; automated grade>=3 scanner plus manual blind-spot grep is required by the batch test.",
-            "vocabCeilingNote": "Helper-word audit resolves every content token to NIKL grade<=2, live vocabulary, or a Batch 34 headword after documented inflection overrides; zero exceptions.",
+            "tierNote": "Translation-supported tasks use prompt-meaning contrasts, not historical Tier A/B KO-only impossibility labels.",
+            "collocationTrapNote": "The old blanket impossibility verdict is withdrawn. 사람에게 웃으세요 is grammatically possible; unrelated word choices also fail the educational-quality gate.",
+            "grammarNote": "A2 examples use at most 12 eojeol and two clauses; grammar scanner plus manual clause review are separate checks.",
+            "vocabCeilingNote": "Helper-word audit uses NIKL grade<=2/live/headwords and explicit inflections; 칠순 is one documented culture helper in vocab_a2_0702 only.",
             "auditShapeNote": "Three 64-record draft artifacts, three pending review ledgers, recordCount 192; no assets/data, TTS, or Firebase writes.",
-            "r8Round1Note": "Author self-audit covers all 64 triads and 192 distractor substitutions. This is MODEL_QA, not human approval.",
+            "r8Round1Note": "Prior KO-only impossibility claims are withdrawn. Current model review applies only to the translation-supported contract; human approval and runtime promotion remain pending.",
         },
         "posRules": {
-            "cross_pack_noun_tier_a": "Noun distractors use particle-correct forms from incompatible semantic classes.",
-            "intransitive_verb_tier_a": "Verb distractors preserve tense/ending and fail the target valency or subject selection.",
-            "haeyo_adjective_tier_a": "Adjective folds preserve 해요 morphology but clash with the clause role.",
-            "open_frame_tier_b": "0/64.",
+            "translation_supported": "Match the displayed DE/EN meaning, allowing grammatically natural alternatives; same POS and appropriate case/conjugation, no synonymous distractors. Do not use without the translated prompt.",
         },
         "artifacts": [
             {"kind": "vocab", "draft": "tools/content_factory/drafts/batch_34_a2_rows.csv", "collection": None, "count": 64, "level": "A2", "review": "tools/content_factory/review/batch_34_a2_vocab_review.csv"},
@@ -481,7 +480,10 @@ def build_batch34(output_root: Path) -> None:
             {"kind": "satz", "draft": "tools/content_factory/drafts/batch_34_a2_satz.json", "collection": "items", "count": 64, "level": "A2", "review": "tools/content_factory/review/batch_34_a2_satz_review.csv"},
         ],
         "recordCount": 192,
-        "tierCounts": {"tierA": 64, "tierB": 0},
+        "tierCounts": {"tierA": 0, "tierB": 0, "translationSupported": 64, "pending": 0},
+        "choiceContract": {"mode": "translation_supported", "requiresTranslation": True, "humanReview": "pending", "clozeDistractors": 192, "satzDistractors": 128, "policySource": "Jin approved 2026-09-16 conversation design"},
+        "choiceDesign": {row["id"]: entry["choice_design"] for row, entry in zip(rows, ENTRIES)},
+        "exampleScenes": {row["id"]: entry["scene"] for row, entry in zip(rows, ENTRIES)},
         "packsFilledTo12": [
             {"pack_id": "a2_events_1", "addedWords": [e["word"] for e in ENTRIES if e["pack"] == "a2_events_1"], "note": "Batch 33 draft 8/12 -> 12/12; all four additions are event/celebration words. Presented first by controlling precedence while preserving assigned IDs."},
             {"pack_id": "a2_messenger_phone_1", "addedWords": [e["word"] for e in ENTRIES if e["pack"] == "a2_messenger_phone_1"], "note": "Batch 31 draft 6/12 -> 12/12; all six additions are direct communication/phone words."},
@@ -524,7 +526,14 @@ def build_packet(rows, cloze, satz, manifest, packet: Path) -> None:
     sample_indices = {0, 9, 18, 27, 36, 45, 54}
     lines = [
         "# C3 Batch 34 A2 Jin review packet", "",
-        "상태: `MODEL_QA_PASS`, `HUMAN_APPROVED` 아님. 모든 review ledger는 `pending`이다.", "",
+        "상태: **예문 64개 / 빈칸 64세트·문장 조립 64세트 모델 검토 완료** (`MODEL_QA_PASS`). 의미 검토와 구조 검토를 별도로 수행했다. 사람 검수 전이며 모든 review ledger는 `pending`이다.", "",
+        "## 이번 예문의 기준", "",
+        "- A2: 최대 12어절·2절. 상한을 채우려고 길게 쓰지 않고, 단어를 실제로 쓸 장면과 한 가지 의도를 먼저 정했다.",
+        "- 유쾌함은 작은 반응·함께 먹기·생활의 발견으로 표현하고, 감탄사나 농담을 모든 문장에 넣지 않았다.",
+        "- `잔치`는 가족의 칠순 행사 맥락에 썼다. 칠순은 일흔 살 생일이며, 이 행에만 허용한 문화 보조어다.",
+        "- 문장 수정과 선택지 품질은 별도다. 사람 승인은 아직 없으며, 아래 보기는 제시된 DE/EN 뜻과의 차이로 판단한다.",
+        "- 번역 제시가 필수다. 한국어만 보면 자연스러운 다른 문장이 되는 보기도 포함되므로, 번역 없는 문맥 추론 문제로 재사용하지 않는다.",
+        "- 온도·여행 날짜는 의미 구별에 필요한 명사구 전체를 빈칸으로 쓴다. 학습 표제어와 전체 예문은 유지한다.", "",
         "## 범위와 산술", "",
         "- Raw NIKL 2급 non-affix exact headword-string set: **1085**.",
         "- Raw gap after subtracting live + draft headword strings through Batch 33: **599**.",
@@ -555,28 +564,54 @@ def build_packet(rows, cloze, satz, manifest, packet: Path) -> None:
             f"- Satz `{s['id']}`: {s['targetKo']} · {s['distractors']}", "",
         ])
     lines.extend([
-        "## 전체 64행 삼언어 감사", "",
-        "각 행은 같은 사건, 극성, 시점, 행위자/대상, 화행을 유지한다. DE와 EN은 KO 정본의 독립 현지화다.", "",
+        "## 전체 64행 삼언어 예문 수정안", "",
+        "KO 장면을 먼저 정하고 DE와 EN을 각각 수정했다. 아래는 사람 검수를 받을 작성안이다. 빈칸·문장 조립에는 이 DE/EN 문장을 그대로 제시한다.", "",
         "| # | id | word | KO | DE | EN |", "|---:|---|---|---|---|---|",
     ])
     for i, r in enumerate(rows, 1):
         esc = lambda x: str(x).replace("|", "\\|")
         lines.append(f"| {i} | {r['id']} | {r['korean']} | {esc(r['example_korean'])} | {esc(r['example_german'])} | {esc(r['example_english'])} |")
     lines.extend([
-        "", "## 배분어 전체 문장(192)", "",
-        "아래는 64×3 치환을 모두 완전한 문장으로 읽은 MODEL_QA 판정이다. 단순 문법 오류가 아니라 가능한 동음이의·연어·은유·환유 읽기까지 확인했다.", "",
-        "| cloze | word | substituted sentence | manual judgment |", "|---|---|---|---|",
+        "", "## 사용 장면과 길이", "",
+        "| 단어 | 사용 장면 | 어절 |", "|---|---|---:|",
+    ])
+    for entry in ENTRIES:
+        lines.append(f"| {entry['word']} | {entry['scene']} | {len(entry['ko'].split())} |")
+    lines.extend([
+        "", "## 빈칸 선택지의 뜻 차이(192)", "",
+        "**아래 치환 문장은 학습 정답 예문이 아니다.** 오답을 실제로 넣어 제시된 DE/EN 뜻과 비교하는 검토 자료다. 문법적으로 가능한 문장도 뜻이 다르면 이 과제의 오답이다.",
+        "`잔치–파티`처럼 같은 뜻을 전달하는 표현은 서로 오답으로 넣지 않는다. 64세트 모두 번역을 함께 제시하는 조건으로 작성했다.", "",
+        "<details>", "<summary>빈칸 선택지 192개와 이유 펼치기</summary>", "",
+        "| cloze | 정답 단어 | 정답 형태 | 넣은 오답 후보 | 후보를 넣은 문장 | 제시된 뜻과 다른 점 |", "|---|---|---|---|---|---|",
     ])
     for entry, c in zip(ENTRIES, cloze):
-        for d in c["distractors"]:
-            rendered = c["sentenceKo"].replace("＿＿＿", d)
-            lines.append(f"| `{c['id']}` | {entry['word']} | {rendered} | ✗ {entry['reason']} |")
+        for d in entry["choice_design"]["cloze"]:
+            rendered = c["sentenceKo"].replace("＿＿＿", d["text"])
+            reason = f"{d['contrastKo']}; 요구 뜻: {entry['choice_design']['cueKo']}"
+            lines.append(f"| `{c['id']}` | {entry['word']} | {c['answer']} | {d['text']} | {rendered} | {reason} |")
+    lines.extend([
+        "", "</details>", "", "## 문장 조립용 추가 단어(128)", "",
+        "빈칸 보기의 앞 두 개를 복사하지 않고, 각 문장에서 시간·대상·방향·수량·행동 등 제시된 뜻을 바꾸는 단어를 별도로 골랐다. 아래 치환은 검토용이며, 실제 게임에서는 추가 단어 타일로 나온다.", "",
+        "<details>", "<summary>문장 조립용 128개와 이유 펼치기</summary>", "",
+        "| satz | 단어 | 원래 토큰 | 추가 타일 | 대입한 문장 | 뜻 차이 |", "|---|---|---|---|---|---|",
+    ])
+    for entry, item in zip(ENTRIES, satz):
+        for d in entry["choice_design"]["satz"]:
+            tokens = entry["ko"].split()
+            for i, token in enumerate(tokens):
+                if token.strip('.,!?') == d["replaces"]:
+                    tokens[i] = token.replace(d["replaces"], d["text"], 1)
+                    break
+            else:
+                raise ValueError(f"{entry['word']}: missing Satz token {d['replaces']}")
+            lines.append(f"| `{item['id']}` | {entry['word']} | {d['replaces']} | {d['text']} | {' '.join(tokens)} | {d['contrastKo']} |")
     counts = Counter(d for c in cloze for d in c["distractors"])
     lines.extend([
-        "", "## 검수 메모", "",
-        f"- Surface-form maximum reuse: {max(counts.values())}.",
-        "- Stem reuse is checked by `a2_draft_rules.distractor_stem_reuse_counts` with cap 4.",
-        "- Tier B ratio: 0/64 (0%).", "- Jin/native/educator approval remains pending.", "",
+        "", "</details>", "", "## 검수 메모", "",
+        f"- 빈칸 후보 표면형 최대 재사용: {max(counts.values())}.",
+        "- 구조·어휘 등급·재생성 검사는 의미 유일성이나 사람 승인을 대신하지 않는다.",
+        "- 적용 조건: DE/EN 번역 필수. 기존 KO-only Tier A/B 판정을 주장하지 않는다.",
+        "- Jin/native/educator approval remains pending.", "",
     ])
     packet.parent.mkdir(parents=True, exist_ok=True)
     packet.write_text("\n".join(lines), encoding="utf-8", newline="\n")
