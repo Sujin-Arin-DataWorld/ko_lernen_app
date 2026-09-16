@@ -133,6 +133,49 @@ KNOWN_TOPIC_TIE_SUSPECT_IDS: frozenset[str] = frozenset(
 KNOWN_TOPIC_TIE_SUSPECT_CAP = 24  # 2026-09-07 T2.3-R1 실측 고정 (relevel로 이
 # 토픽의 a1_partner_* 팩들이 옮겨가며 대부분 해소됨). 내리는 것만 허용.
 
+# 2026-09-16 (C3-T3, Fable review of #352): Batch 26/27/28's 192 new A1
+# words landed 13 new suspects, ALL confirmed heuristic false positives
+# (not real level errors) via a direct tool/cefr_lexicon.py word_grade()
+# check on each -- see the fix commit for the full table:
+#   - 12x "below_topic": the word's own NIKL kiiq grade is 1 (A1),
+#     confirmed correct. "below_topic" only fires because these words
+#     share a broad topic label (Technologie/Kommunikation) whose
+#     STATISTICAL mode is pulled to a higher level by unrelated existing
+#     B1+ content under the same label -- the exact same "최빈값이 특정
+#     라벨의 기존 상위-레벨 콘텐츠에 쏠려 있다" class of false positive
+#     KNOWN_TOPIC_TIE_SUSPECT_IDS above already documents, just a
+#     different topic/cause.
+#   - 1x "sino3_low" (vocab_a1_0667, 인기가요): the heuristic's NIKL
+#     lookup on the whole 4-syllable compound resolves via the substring
+#     "인기" (grade 2/A2) rather than judging the compound as a whole;
+#     "인기가요" itself (a well-known term for the Korean pop charts) is
+#     transparent, A1-appropriate content -- this specific headword was
+#     substituted from bare "가요" (NIKL grade 1) to fix a real bug in
+#     lib/services/book_word_gloss_resolver.dart's OCR index (가요 is
+#     also 가다's -아/어요 present-tense form, so it wrongly shadowed
+#     가다 in every OCR lookup); no other NIKL grade-1 word for the same
+#     concept exists.
+# Lower-only, like every cap in this file: if a future relevel genuinely
+# moves one of these words, remove its id here and lower the cap.
+KNOWN_C3T3_HEURISTIC_SUSPECT_IDS: frozenset[str] = frozenset(
+    {
+        "vocab_a1_0524",  # 텔레비전, below_topic (NIKL grade 1)
+        "vocab_a1_0595",  # 카메라, below_topic (NIKL grade 1)
+        "vocab_a1_0649",  # 대답, below_topic (NIKL grade 1)
+        "vocab_a1_0650",  # 소개, below_topic (NIKL grade 1)
+        "vocab_a1_0653",  # 묻다, below_topic (NIKL grade 1)
+        "vocab_a1_0654",  # 맞다, below_topic (NIKL grade 1)
+        "vocab_a1_0663",  # 에어컨, below_topic (NIKL grade 1)
+        "vocab_a1_0665",  # 사용, below_topic (NIKL grade 1)
+        "vocab_a1_0667",  # 인기가요, sino3_low (substring-match artifact)
+        "vocab_a1_0675",  # 프로그램, below_topic (NIKL grade 1)
+        "vocab_a1_0677",  # 사진, below_topic (NIKL grade 1)
+        "vocab_a1_0697",  # 안내, below_topic (NIKL grade 1)
+        "vocab_a1_0702",  # 이야기, below_topic (NIKL grade 1)
+    }
+)
+KNOWN_C3T3_HEURISTIC_SUSPECT_CAP = 13
+
 
 class VocabLevelAuditRatchetTest(unittest.TestCase):
     def test_suspect_and_blocked_counts_do_not_increase(self) -> None:
@@ -142,8 +185,14 @@ class VocabLevelAuditRatchetTest(unittest.TestCase):
         topic_tie_suspects = [
             s for s in suspects if s["id"] in KNOWN_TOPIC_TIE_SUSPECT_IDS
         ]
+        c3t3_suspects = [
+            s for s in suspects if s["id"] in KNOWN_C3T3_HEURISTIC_SUSPECT_IDS
+        ]
         core_suspects = [
-            s for s in suspects if s["id"] not in KNOWN_TOPIC_TIE_SUSPECT_IDS
+            s
+            for s in suspects
+            if s["id"] not in KNOWN_TOPIC_TIE_SUSPECT_IDS
+            and s["id"] not in KNOWN_C3T3_HEURISTIC_SUSPECT_IDS
         ]
         core_blocked = [s for s in core_suspects if s["blocked"]]
 
@@ -166,6 +215,14 @@ class VocabLevelAuditRatchetTest(unittest.TestCase):
             f"topic-tie 오탐 버킷 증가 — {len(topic_tie_suspects)}건 "
             f"(상한 {KNOWN_TOPIC_TIE_SUSPECT_CAP}). 새 id면 원인을 재확인하라"
             "(단순 재감소는 KNOWN_TOPIC_TIE_SUSPECT_IDS 에서 제거하고 캡을 내릴 것).",
+        )
+        self.assertLessEqual(
+            len(c3t3_suspects),
+            KNOWN_C3T3_HEURISTIC_SUSPECT_CAP,
+            f"C3-T3 오탐 버킷 증가 — {len(c3t3_suspects)}건 "
+            f"(상한 {KNOWN_C3T3_HEURISTIC_SUSPECT_CAP}). 새 id면 각각 "
+            "tool/cefr_lexicon.py word_grade()로 NIKL 등급을 직접 확인해 "
+            "진짜 오류인지 재검토하라.",
         )
 
 

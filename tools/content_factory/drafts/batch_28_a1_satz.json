@@ -213,14 +213,14 @@
     {
       "id": "satz_a1_0582",
       "level": "a1",
-      "targetKo": "마야 씨가 가요를 불러요.",
-      "promptDe": "Maya singt ein Lied.",
-      "promptEn": "Maya sings a song.",
+      "targetKo": "마야 씨가 인기가요를 불러요.",
+      "promptDe": "Maya singt einen beliebten Popsong.",
+      "promptEn": "Maya sings a popular song.",
       "distractors": [
         "곳",
         "병"
       ],
-      "vocabKo": "가요",
+      "vocabKo": "인기가요",
       "sourceVocabId": "vocab_a1_0667",
       "courseUnitId": "a1_11_titles_relationships"
     },

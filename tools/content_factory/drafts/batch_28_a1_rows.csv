@@ -14,7 +14,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 운전,unjeon,Fahren (Auto),A1,Nomen,저는 운전을 잘해요.,Ich fahre gut Auto.,Verkehr,a1_home_daily_1,10,false,driving,Noun,I'm good at driving.,vocab_a1_0664
 사용,sayong,"Gebrauch, Benutzung",A1,Nomen,회사에서 컴퓨터를 사용해요.,Ich benutze im Büro den Computer.,Technologie,a1_home_daily_1,11,true,use,Noun,I use the computer at the office.,vocab_a1_0665
 부탁,butak,"Bitte, Gefallen",A1,Nomen,오늘 친구한테 부탁해요.,Ich bitte heute einen Freund um einen Gefallen.,Höflichkeit,a1_home_daily_1,12,true,"favor, request",Noun,I ask a friend for a favor today.,vocab_a1_0666
-가요,gayo,(koreanischer) Popsong,A1,Nomen,마야 씨가 가요를 불러요.,Maya singt ein Lied.,Freizeit,a1_culture_hobbies_1,1,false,(Korean) pop song,Noun,Maya sings a song.,vocab_a1_0667
+인기가요,inkigayo,beliebter Popsong,A1,Nomen,마야 씨가 인기가요를 불러요.,Maya singt einen beliebten Popsong.,Freizeit,a1_culture_hobbies_1,1,false,popular song,Noun,Maya sings a popular song.,vocab_a1_0667
 그림,geurim,"Bild, Zeichnung",A1,Nomen,아이가 그림을 그려요.,Das Kind malt ein Bild.,Bildung,a1_culture_hobbies_1,2,false,"picture, drawing",Noun,The child draws a picture.,vocab_a1_0668
 드라마,deurama,"Drama, Serie",A1,Nomen,동생이 한국 드라마를 봐요.,Mein Geschwister schaut koreanische Dramen.,Freizeit,a1_culture_hobbies_1,3,false,"drama, TV series",Noun,My younger sibling watches Korean dramas.,vocab_a1_0669
 연극,yeongeuk,Theaterstück,A1,Nomen,"수진 씨, 연극 보러 갈까요?","Sujin, sollen wir ein Theaterstück ansehen gehen?",Freizeit,a1_culture_hobbies_1,4,false,theater play,Noun,"Sujin, shall we go watch a play?",vocab_a1_0670

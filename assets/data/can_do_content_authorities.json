@@ -30646,7 +30646,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_korean_food_1",
         "sourceVocabId": "vocab_a1_0576",
-        "sourceVocabFingerprintSha256": "169fb97bdf49b106d59e914f302c8cccba1887cd4c7047724167e623149887d2",
+        "sourceVocabFingerprintSha256": "d579ec9cfa80d4629d6f297e8d9715118554bb59b3e3e1c8fc17be0f218e422c",
         "level": "a1",
         "canDoSegmentId": "segment_a1_04_order_request_object",
         "courseUnitId": "a1_04_order_request_object"
@@ -31647,7 +31647,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_culture_hobbies_1",
         "sourceVocabId": "vocab_a1_0667",
-        "sourceVocabFingerprintSha256": "7e938f10b85477c3156722080509927caadf1439c46dc2c303a117f5d2e51618",
+        "sourceVocabFingerprintSha256": "49c0b6e2ad2863cb0b4a7b6b27aee12352ea4587d1917ce34df9e95dd7599acf",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
@@ -36179,7 +36179,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_korean_food_1",
         "sourceVocabId": "vocab_a1_0576",
-        "sourceVocabFingerprintSha256": "169fb97bdf49b106d59e914f302c8cccba1887cd4c7047724167e623149887d2",
+        "sourceVocabFingerprintSha256": "d579ec9cfa80d4629d6f297e8d9715118554bb59b3e3e1c8fc17be0f218e422c",
         "level": "a1",
         "canDoSegmentId": "segment_a1_04_order_request_object",
         "courseUnitId": "a1_04_order_request_object"
@@ -37180,7 +37180,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_culture_hobbies_1",
         "sourceVocabId": "vocab_a1_0667",
-        "sourceVocabFingerprintSha256": "7e938f10b85477c3156722080509927caadf1439c46dc2c303a117f5d2e51618",
+        "sourceVocabFingerprintSha256": "49c0b6e2ad2863cb0b4a7b6b27aee12352ea4587d1917ce34df9e95dd7599acf",
         "level": "a1",
         "canDoSegmentId": "segment_a1_11_titles_relationships",
         "courseUnitId": "a1_11_titles_relationships"
