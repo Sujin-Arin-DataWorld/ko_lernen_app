@@ -1,0 +1,235 @@
+nikl_grade,category,form,variants,status,app_matched_ids,app_levels,sejong_evidence,sejong_page,sejong_file
+(app id),이동 후보,V-(으)ㄴ/는지,,app_over_or_under_level_vs_sejong,,B1,B2(세종 실물 -- 이동 제안: B1->B2),228,세종학당 한국어4A_영어.pdf
+(app id),이동 후보,V-는 대로,,app_over_or_under_level_vs_sejong,,B1,B2(세종 실물 -- 이동 제안: B1->B2),235,세종학당 한국어4A_영어.pdf
+(app id),이동 후보,"V-는 바람에, S",,app_over_or_under_level_vs_sejong,,B1,B2(세종 실물 -- 이동 제안: B1->B2),237,세종학당 한국어4A_영어.pdf
+(app id),이동 후보,V-는 반면에,,app_over_or_under_level_vs_sejong,,B2,B1(세종 실물 -- 이동 제안: B2->B1),235,세종학당 한국어 3B(영어)_(low file size).pdf
+(app id),이동 후보,V-도록 하다,,app_over_or_under_level_vs_sejong,,B2,B1(세종 실물 -- 이동 제안: B2->B1),228,세종학당 한국어 3B(영어)_(low file size).pdf
+2(A2),연결어미,-다가1(1),"-다5, 다가도",missing_in_app,,,,,
+2(A2),조사,에게로,,missing_in_app,,,,,
+2(A2),조사,에다가,에다,missing_in_app,,,,,
+2(A2),조사,에서부터(서부터),,missing_in_app,,,,,
+2(A2),종결어미,-지,-지요(-죠),missing_in_app,,,,,
+2(A2),표현,-을 것1,-ㄹ 것1,missing_in_app,,,,,
+3(B1),선어말어미,-었었-,"-았었-, -였었-",missing_in_app,,,,,
+3(B1),연결어미,-거든1,거들랑,missing_in_app,,,B1(세종 3A/3B 실물),237,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),연결어미,-는다거나1,"-ㄴ다거나1, -다거나1, -라거나1",missing_in_app,,,B1(세종 3A/3B 실물),237,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),연결어미,-는다고1,"-다고1, -라고3, -으라고1, -자고1",missing_in_app,,,B1(세종 3A/3B 실물),231,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),연결어미,-다가1(2),"-다5, 다가도",missing_in_app,,,,,
+3(B1),연결어미,-도록,,missing_in_app,,,B1(세종 3A/3B 실물),228,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),연결어미,-어다가,"-아다가, -여다가, -어다, -아다, -여다",missing_in_app,,,,,
+3(B1),연결어미,-어야,"-아야, -여야, -어야만, -아야만, -여야만",missing_in_app,,,,,
+3(B1),연결어미,-어야지1,"-아야지1, -여야지1",missing_in_app,,,,,
+3(B1),연결어미,-었더니,"-았더니, -였더니",missing_in_app,,,,,
+3(B1),연결어미,-으나,-나4,level_mismatch,grammar_a1_or_particle,A2,B1(세종 3A/3B 실물),230,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),연결어미,-으니2,-니4,missing_in_app,,,B1(세종 3A/3B 실물),233,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),연결어미,-으려면,-려면,missing_in_app,,,B1(세종 3A/3B 실물),228,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),조사,같이,,level_mismatch,grammar_a2_like,A2,B1(세종 3A/3B 실물),238,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),조사,대로,,missing_in_app,,,,,
+3(B1),조사,만큼,<유의> 만치,missing_in_app,,,B1(세종 3A/3B 실물),229,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),조사,보고,,missing_in_app,,,B1(세종 3A/3B 실물),237,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),조사,뿐,,missing_in_app,,,B1(세종 3A/3B 실물),230,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),조사,아1,야1,missing_in_app,,,,,
+3(B1),조사,요1,,missing_in_app,,,B1(세종 3A/3B 실물),236,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),조사,으로부터,,missing_in_app,,,B1(세종 3A/3B 실물),228,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),조사,이고,고1,level_mismatch,grammar_a1_sequence_connector,A1,B1(세종 3A/3B 실물),227,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),조사,이라고1,"라고1, 라3, 이라",level_mismatch,grammar_c2_defined_as,C2,B1(세종 3A/3B 실물),232,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),종결어미,-는구나,-구나,missing_in_app,,,B1(세종 3A/3B 실물),232,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),종결어미,-는다,"-ㄴ다, -다2",missing_in_app,,,B1(세종 3A/3B 실물),231,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),종결어미,-니2,-으니5,missing_in_app,,,B1(세종 3A/3B 실물),233,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),종결어미,-던데2,-던데요,missing_in_app,,,B1(세종 3A/3B 실물),233,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),종결어미,-자3,,missing_in_app,,,B1(세종 3A/3B 실물),232,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),종결어미,-잖아,-잖아요,missing_in_app,,,B1(세종 3A/3B 실물),229,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),표현,-게 하다,"<유의> -게 만들다, -도록 하다",level_mismatch,grammar_b2_formal_arrangement,B2,B1(세종 3A/3B 실물),237,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),표현,-고 나다,,level_mismatch,grammar_a2_after_finishing,A2,B1(세종 3A/3B 실물),229,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),표현,-고 말다,,missing_in_app,,,B1(세종 3A/3B 실물),235,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),표현,-고 싶어 하다,,missing_in_app,,,B1(세종 3A/3B 실물),229,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),표현,-기 위해,"-기 위해서, -기 위한, 을 위해, 를 위해",level_mismatch,grammar_a2_purpose,A2,B1(세종 3A/3B 실물),227,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),표현,-기는,"-긴, -기는요, -긴요",missing_in_app,,,,,
+3(B1),표현,-나 보다,,missing_in_app,,,B1(세종 3A/3B 실물),233,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),표현,-는 대신에,"-ㄴ 대신에, -은 대신에",missing_in_app,,,B1(세종 3A/3B 실물),234,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),표현,-는 만큼,"-ㄴ 만큼, -은 만큼, -ㄹ 만큼, -을 만큼",missing_in_app,,,B1(세종 3A/3B 실물),229,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),표현,-는 모양이다,"-ㄴ 모양이다, -은 모양이다",missing_in_app,,,,,
+3(B1),표현,-는 반면,"-ㄴ 반면에, -은 반면에",missing_in_app,,,B1(세종 3A/3B 실물),235,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),표현,-는 중이다,,missing_in_app,,,B1(세종 3A/3B 실물),231,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),표현,-는가 보다,-는가 보다,missing_in_app,,,B1(세종 3A/3B 실물),233,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),표현,-는다고3,"-ㄴ다고3, -다고3, -라고5, -느냐고2, -냐고2, -으냐고2, -자고3, -으라고3, -라고8",missing_in_app,,,B1(세종 3A/3B 실물),231,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),표현,-어 가다,"-아 가다, -여 가다",missing_in_app,,,B1(세종 3A/3B 실물),230,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),표현,-어 가지고,"-아 가지고, -여 가지고",level_mismatch,grammar_a2_spoken_result,A2,B1(세종 3A/3B 실물),232,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),표현,-어 두다,"-아 두다, -여 두다",missing_in_app,,,,,
+3(B1),표현,-어 드리다,"-아 드리다, -여 드리다",level_mismatch,grammar_a2_humble_give,A2,B1(세종 3A/3B 실물),234,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),표현,-어 보이다,"-아보이다, -여 보이다",missing_in_app,,,B1(세종 3A/3B 실물),237,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),표현,-어 오다,"-아 오다, -여 오다",missing_in_app,,,,,
+3(B1),표현,-어야겠-,"-아야겠-, -여야겠-",missing_in_app,,,,,
+3(B1),표현,-어지다,"-아지다, -여지다",level_mismatch,grammar_a2_become,A2,B1(세종 3A/3B 실물),231,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),표현,-으려다가,"-려다가, -으려다, 려다",missing_in_app,,,B1(세종 3A/3B 실물),235,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),표현,-으면 안 되다,"-면 안 되다, <반의> -으면 되다, -면 되다",level_mismatch,grammar_a2_prohibition,A2,B1(세종 3A/3B 실물),228,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),표현,-으면 좋겠다,-면 좋겠다,level_mismatch,grammar_a2_preference_soft_batch20,A2,,,
+3(B1),표현,-은 결과,-ㄴ 결과,missing_in_app,,,B1(세종 3A/3B 실물),234,세종학당 한국어 3A(영어)_(low file size).pdf
+3(B1),표현,-은 다음에,-ㄴ 다음에,missing_in_app,,,B1(세종 3A/3B 실물),229,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),표현,-을 테니,"-ㄹ 테니, -을 테니까, -ㄹ 테니까",missing_in_app,,,B1(세종 3A/3B 실물),228,세종학당 한국어 3B(영어)_(low file size).pdf
+3(B1),표현,만 아니면,,missing_in_app,,,,,
+3(B1),표현,에 대하여,"에 대해, 에 대해서, 에 대한",missing_in_app,,,,,
+4(B2),연결어미,-거니와,,missing_in_app,,,B2(세종 4A/4B 실물),229,세종학당 한국어4A_영어.pdf
+4(B2),연결어미,-고도,,missing_in_app,,,B2(세종 4A/4B 실물),233,세종학당 한국어4A_영어.pdf
+4(B2),연결어미,-고서,"-고서는, -고서야",missing_in_app,,,,,
+4(B2),연결어미,-는다면1,"-ㄴ다면1, -다면1, -라면1",missing_in_app,,,B2(세종 4A/4B 실물),227,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),연결어미,-는지,"-ㄴ지1, -은지1, -을지",level_mismatch,"grammar_b1_since, grammar_b1_whether","A2, B1",,,
+4(B2),연결어미,-더니,,missing_in_app,,,,,
+4(B2),연결어미,-던데1,,missing_in_app,,,B2(세종 4A/4B 실물),228,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),연결어미,-든지2,"-든2, <유의> -든가2",missing_in_app,,,B2(세종 4A/4B 실물),226,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),연결어미,-듯이,,missing_in_app,,,B2(세종 4A/4B 실물),229,세종학당 한국어4A_영어.pdf
+4(B2),연결어미,-으며,-며2,missing_in_app,,,,,
+4(B2),연결어미,-을래야,-ㄹ래야,missing_in_app,,,,,
+4(B2),연결어미,-을수록,-ㄹ수록,level_mismatch,grammar_b1_more_more,B1,B2(세종 4A/4B 실물),235,세종학당 한국어4A_영어.pdf
+4(B2),조사,마저,,missing_in_app,,,B2(세종 4A/4B 실물),238,세종학당 한국어4A_영어.pdf
+4(B2),조사,으로서,로서,missing_in_app,,,B2(세종 4A/4B 실물),234,세종학당 한국어4A_영어.pdf
+4(B2),조사,으로써,로써,missing_in_app,,,,,
+4(B2),조사,이나마,나마,missing_in_app,,,B2(세종 4A/4B 실물),234,세종학당 한국어4A_영어.pdf
+4(B2),조사,이든,"든1, 이든지, 든지1, 이든가, 든가1",missing_in_app,,,B2(세종 4A/4B 실물),228,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),조사,이라도,라도1,missing_in_app,,,B2(세종 4A/4B 실물),228,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),조사,이며,"며, 이니, 니1, 하며, 하고, 이다2",level_mismatch,grammar_a1_with_connector,A1,B2(세종 4A/4B 실물),233,세종학당 한국어4A_영어.pdf
+4(B2),조사,이면,면1,level_mismatch,grammar_a2_conditional,A2,,,
+4(B2),조사,이야,야2,missing_in_app,,,,,
+4(B2),조사,치고,,missing_in_app,,,B2(세종 4A/4B 실물),227,세종학당 한국어4A_영어.pdf
+4(B2),조사,커녕,"ㄴ커녕, 는커녕, 은커녕",missing_in_app,,,B2(세종 4A/4B 실물),235,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),종결어미,-게5,-게요1,level_mismatch,grammar_a2_adverbial,A2,,,
+4(B2),종결어미,-고4,-고요,level_mismatch,grammar_a1_sequence_connector,A1,B2(세종 4A/4B 실물),227,세종학당 한국어4A_영어.pdf
+4(B2),종결어미,-나3,-나요,level_mismatch,"grammar_a1_or_particle, grammar_a2_gentle_question","A2, A2",B2(세종 4A/4B 실물),226,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),종결어미,-는다니2,"-ㄴ다니2, -다니3, -라니3",missing_in_app,,,B2(세종 4A/4B 실물),230,세종학당 한국어4A_영어.pdf
+4(B2),종결어미,-는다면서1,"-ㄴ다면서1, -다면서1, -라면서1, -는다면서요, -다면서요, -라면서요",missing_in_app,,,,,
+4(B2),종결어미,-다니1,"-다니요, -라니1, -라니요1",missing_in_app,,,B2(세종 4A/4B 실물),230,세종학당 한국어4A_영어.pdf
+4(B2),종결어미,-더군,-더군요,missing_in_app,,,,,
+4(B2),종결어미,-더라,,missing_in_app,,,,,
+4(B2),종결어미,-어라1,"-아라1, -여라1",missing_in_app,,,,,
+4(B2),종결어미,-어야지2,"-아야지2, -여야지2, -어야지요, -아야지요, -여야지요",level_mismatch,grammar_b1_self_prompt,B1,B2(세종 4A/4B 실물),232,세종학당 한국어4A_영어.pdf
+4(B2),종결어미,-을걸,"-ㄹ걸, -을걸요, -ㄹ걸요",missing_in_app,,,B2(세종 4A/4B 실물),228,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),표현,-고 들다,,missing_in_app,,,B2(세종 4A/4B 실물),235,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),표현,-고 보다,,missing_in_app,,,B2(세종 4A/4B 실물),233,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),표현,-고 해서,,missing_in_app,,,,,
+4(B2),표현,-나 싶다,,missing_in_app,,,B2(세종 4A/4B 실물),232,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),표현,-는 김에,"-ㄴ 김에, -은 김에",level_mismatch,grammar_b1_while_already,B1,B2(세종 4A/4B 실물),230,세종학당 한국어4A_영어.pdf
+4(B2),표현,-는 대로,"-ㄴ 대로1, -ㄴ 대로2, -은 대로1, -은 대로2",level_mismatch,grammar_b1_as_soon_as,B1,B2(세종 4A/4B 실물),235,세종학당 한국어4A_영어.pdf
+4(B2),표현,-는 듯,"-ㄴ 듯, 은 듯 -ㄹ 듯, -을 듯",missing_in_app,,,,,
+4(B2),표현,-는 사이에,-는 사이,missing_in_app,,,,,
+4(B2),표현,-는 줄,"-ㄴ 줄, -은 줄, ㄹ 줄, -을 줄",missing_in_app,,,,,
+4(B2),표현,-는 탓에,"-ㄴ 탓에, -은 탓에, <반의 관계> -는 덕분에",missing_in_app,,,,,
+4(B2),표현,-는 통에,,missing_in_app,,,B2(세종 4A/4B 실물),232,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),표현,-는다거나2,"-ㄴ다거나2, -다거나2, -라거나2",missing_in_app,,,B2(세종 4A/4B 실물),231,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),표현,-어 대다,"-아 대다, -여 대다",missing_in_app,,,B2(세종 4A/4B 실물),231,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),표현,-어 버리다,"-아 버리다, -여 버리다",missing_in_app,,,B2(세종 4A/4B 실물),227,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),표현,-어서인지,"-아서인지, -여서인지",missing_in_app,,,B2(세종 4A/4B 실물),232,세종학당 한국어4A_영어.pdf
+4(B2),표현,-을 모양이다,-ㄹ 모양이다,missing_in_app,,,,,
+4(B2),표현,-을 뻔하다,-ㄹ 뻔하다,level_mismatch,grammar_b1_near_miss,B1,B2(세종 4A/4B 실물),237,세종학당 한국어4A_영어.pdf
+4(B2),표현,만 같아도,,missing_in_app,,,B2(세종 4A/4B 실물),225,세종학당 한국어 4B(영어)_(low file size).pdf
+4(B2),표현,에 비하여,에 비하면,missing_in_app,,,B2(세종 4A/4B 실물),229,세종학당 한국어4A_영어.pdf
+4(B2),표현,에 의하여,에 의하면,missing_in_app,,,,,
+4(B2),표현,으로 인하여,"로 인하여, 으로 인해, 로 인해",missing_in_app,,,B2(세종 4A/4B 실물),231,세종학당 한국어 4B(영어)_(low file size).pdf
+5(C1),연결어미,-고는,"-곤, -고는 하다, -곤 하다",missing_in_app,,,,,
+5(C1),연결어미,-길래,,missing_in_app,,,,,
+5(C1),연결어미,-느니1,"-느니보다, -느니보다는",missing_in_app,,,,,
+5(C1),연결어미,-다가는,"-다간, -단1",level_mismatch,grammar_b2_negative_consequence,B2,"C1(세종5 unit8 생겨나는 말, 사라지는 말)",35,세종학당 한국어 익힘책_5B.pdf
+5(C1),연결어미,-을뿐더러,-ㄹ뿐더러,missing_in_app,,,C1(세종5 unit2 인구 및 가구의 변화),11,세종학당 한국어 익힘책_5B.pdf
+5(C1),연결어미,-을지라도,-ㄹ지라도,level_mismatch,grammar_b2_formal_concession,B2,,,
+5(C1),연결어미,-지1,,missing_in_app,,,,,
+5(C1),조사,따라,,missing_in_app,,,,,
+5(C1),조사,이라든가,"라든가1, 이라든지, 라든지1",missing_in_app,,,,,
+5(C1),조사,조차,,missing_in_app,,,,,
+5(C1),종결어미,-거라,,missing_in_app,,,,,
+5(C1),종결어미,-고말고,-고말고요,missing_in_app,,,,,
+5(C1),종결어미,-네2,,missing_in_app,,,,,
+5(C1),종결어미,-는가1,"-ㄴ가1, -은가1",missing_in_app,,,,,
+5(C1),종결어미,-는걸,"-ㄴ걸, -은걸, -ㄴ걸요, -는걸요, -은걸요",missing_in_app,,,,,
+5(C1),종결어미,-다4,,missing_in_app,,,,,
+5(C1),종결어미,-다니1,"-다니요, -라니1, -라니요1, 으라니1, -으라니요",missing_in_app,,,,,
+5(C1),종결어미,-더라고,-더라고요,missing_in_app,,,,,
+5(C1),종결어미,-데,-데요,missing_in_app,,,,,
+5(C1),종결어미,-으려고2,"-려고2, -려고요, -으려고요",level_mismatch,grammar_b1_intention,A1,,,
+5(C1),표현,-게 마련이다,-기 마련이다,level_mismatch,grammar_b2_inevitability,B2,,,
+5(C1),표현,-게 생겼다,,missing_in_app,,,,,
+5(C1),표현,-기 나름이다,-을 나름이다,level_mismatch,grammar_b2_method_dependent,B2,,,
+5(C1),표현,-기가 바쁘게,<유의> -기가 무섭게,missing_in_app,,,,,
+5(C1),표현,-기가 쉽다,<유의> -기 십상이다,missing_in_app,,,,,
+5(C1),표현,-기만 하다,,missing_in_app,,,,,
+5(C1),표현,-기에 따라,,missing_in_app,,,,,
+5(C1),표현,-기에 앞서(서),,missing_in_app,,,,,
+5(C1),표현,-는 가운데,-은 가운데,missing_in_app,,,C1(세종5 unit9 생활 속 편리한 물건),39,세종학당 한국어 익힘책_5B.pdf
+5(C1),표현,-는 데다가,"-ㄴ데다가1, -은 데다가2, -ㄴ 데다가2, -은 데다가1",missing_in_app,,,C1(세종5 unit7 한국의 수필),31,세종학당 한국어 익힘책_5B.pdf
+5(C1),표현,-는 동시에,-ㄴ 동시에,missing_in_app,,,,,
+5(C1),표현,-는 듯하다,"-ㄴ듯하다, -은 듯하다, -ㄹ 듯하다, -을 듯하다",level_mismatch,grammar_b2_impression_appearance,B2,,,
+5(C1),표현,-는 법이다,"-ㄴ 법이다, -은 법이다",missing_in_app,,,,,
+5(C1),표현,-는 이상,"-ㄴ 이상, -은 이상",level_mismatch,grammar_b2_established_premise,B2,,,
+5(C1),표현,-는 척하다,"-ㄴ 척하다, -은 척하다, <유의> -는 체하다, -은 체하다",missing_in_app,,,,,
+5(C1),표현,-는다기에,"-ㄴ다기에, -다기에, -라기에1",missing_in_app,,,,,
+5(C1),표현,-는다는 것이,-ㄴ다는 것이,missing_in_app,,,,,
+5(C1),표현,-는다니1,"-다니2, -라니5, -으라니2, -자니2",missing_in_app,,,,,
+5(C1),표현,-는데도,"-ㄴ데도, -은데도",missing_in_app,,,,,
+5(C1),표현,-는데도 불구하고,"-ㄴ데도 불구하고, -은데도 불구하고",missing_in_app,,,,,
+5(C1),표현,-어 내다,"-아 내다, -여 내다",missing_in_app,,,,,
+5(C1),표현,-었던,"-았던, -였던",missing_in_app,,,,,
+5(C1),표현,-으려나 보다,-려나 보다,missing_in_app,,,,,
+5(C1),표현,-으면 몰라도,-면 몰라도,missing_in_app,,,C1(세종5 unit10 생활 속 과학),43,세종학당 한국어 익힘책_5B.pdf
+5(C1),표현,-은 채로,-ㄴ 채로,missing_in_app,,,,,
+5(C1),표현,-을 만하다,-ㄹ 만하다,level_mismatch,grammar_b2_worth_doing,B2,,,
+5(C1),표현,-을 법하다,-ㄹ 법하다,missing_in_app,,,,,
+5(C1),표현,-을 테다,-ㄹ 테다,missing_in_app,,,,,
+5(C1),표현,-을 테면,-ㄹ 테면,missing_in_app,,,,,
+5(C1),표현,-을 테지만,-ㄹ 테지만,missing_in_app,,,,,
+5(C1),표현,-자기에,,missing_in_app,,,,,
+5(C1),표현,는 말할 것도 없고,"은 말할 것도 없고, <유의> 는 고사하고, 은 고사하고",missing_in_app,,,,,
+5(C1),표현,를 가지고,을 가지고,missing_in_app,,,,,
+5(C1),표현,에 관하여,에 관한,level_mismatch,grammar_b2_formal_regarding,B2,,,
+5(C1),표현,에도 불구하고,,level_mismatch,grammar_b2_despite,B2,,,
+6(C2),연결어미,-거들랑1,-걸랑1,missing_in_app,,,,,
+6(C2),연결어미,-건대,,missing_in_app,,,,,
+6(C2),연결어미,-건만,-건마는,missing_in_app,,,,,
+6(C2),연결어미,-기로서니,,level_mismatch,grammar_b2_granted_limit,B2,,,
+6(C2),연결어미,-노라면,,missing_in_app,,,,,
+6(C2),연결어미,-느니만큼,"-니만큼, -으니만큼, <유의> -느니만치, 니만치, -으니만치",missing_in_app,,,,,
+6(C2),연결어미,-는다고1,"-다고1, -라고3, 으라고1, -자고1",missing_in_app,,,,,
+6(C2),연결어미,-되,"-으되, -로되",missing_in_app,,,,,
+6(C2),연결어미,-디1,,missing_in_app,,,,,
+6(C2),연결어미,-으련마는,"-련마는, -으련만, -련만",missing_in_app,,,,,
+6(C2),연결어미,-은들,"-ㄴ들2, 인들",missing_in_app,,,,,
+6(C2),연결어미,-을라치면,-ㄹ라치면,missing_in_app,,,,,
+6(C2),연결어미,-이라야,"-라야, -이라야만, -라야만",missing_in_app,,,,,
+6(C2),연결어미,-자니3,"-자2,-자니까3",missing_in_app,,,,,
+6(C2),연결어미,-자면1,,missing_in_app,,,,,
+6(C2),조사,깨나,,missing_in_app,,,,,
+6(C2),조사,마는,만2,level_mismatch,grammar_a1_only_particle,A1,,,
+6(C2),조사,을랑,,missing_in_app,,,,,
+6(C2),조사,이라고2,라고2,missing_in_app,,,,,
+6(C2),조사,이라면,라면1,missing_in_app,,,,,
+6(C2),종결어미,-거들랑2,-걸랑2,missing_in_app,,,,,
+6(C2),종결어미,-게3,,level_mismatch,grammar_a2_adverbial,A2,,,
+6(C2),종결어미,-게4,,level_mismatch,grammar_a2_adverbial,A2,,,
+6(C2),종결어미,-구려2,,missing_in_app,,,,,
+6(C2),종결어미,-그려,,missing_in_app,,,,,
+6(C2),종결어미,-나2,,level_mismatch,grammar_a1_or_particle,A2,,,
+6(C2),종결어미,-네1,,missing_in_app,,,,,
+6(C2),종결어미,-는가2,"-ㄴ가2, -은가2",missing_in_app,,,,,
+6(C2),종결어미,-는구려,-구려1,missing_in_app,,,,,
+6(C2),종결어미,-는구만,-구만,missing_in_app,,,,,
+6(C2),종결어미,-는구먼,"-구먼, -구먼요, -는구먼요",missing_in_app,,,,,
+6(C2),종결어미,-던2,,level_mismatch,grammar_b1_recalled_past,B1,,,
+6(C2),종결어미,-던가1,,missing_in_app,,,,,
+6(C2),종결어미,-던가2,,missing_in_app,,,,,
+6(C2),종결어미,-라2,,missing_in_app,,,,,
+6(C2),종결어미,-소,,missing_in_app,,,,,
+6(C2),종결어미,-으니4,,missing_in_app,,,,,
+6(C2),종결어미,-으리라,-리라,missing_in_app,,,,,
+6(C2),종결어미,-으리오,-리오,missing_in_app,,,,,
+6(C2),종결어미,-으오,-오,missing_in_app,,,,,
+6(C2),표현,-기 일쑤이다,,missing_in_app,,,,,
+6(C2),표현,-기 짝이 없다,,missing_in_app,,,,,
+6(C2),표현,-는 한이 있어도,-는 한이 있더라도,level_mismatch,grammar_c1_even_at_cost,C1,,,
+6(C2),표현,-는다는,"-ㄴ다는, -는단, -다는, -단2, -라는1, -란2",level_mismatch,grammar_b2_definition,B2,,,
+6(C2),표현,-는다던가1,"-다던가1, -라던가1",missing_in_app,,,,,
+6(C2),표현,-어 치우다,"-아 치우다, -여 치우다",missing_in_app,,,,,
+6(C2),표현,-으래서야,-래서야2,missing_in_app,,,,,
+6(C2),표현,-으려도,-려도,missing_in_app,,,,,
+6(C2),표현,-으리라고,-리라고,missing_in_app,,,,,
+6(C2),표현,-으리라는,-리라는,missing_in_app,,,,,
+6(C2),표현,-을 바에,-ㄹ 바에,missing_in_app,,,,,
+6(C2),표현,-자면2,,missing_in_app,,,,,
+6(C2),표현,는 마당에,"-ㄴ 마당에, -은 마당에",level_mismatch,grammar_c1_given_situation,C1,,,
+6(C2),표현,이라고는,"라고는, 이라곤, 라곤,",missing_in_app,,,,,
