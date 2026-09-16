@@ -10,6 +10,8 @@
 
 **Spec:** `docs/superpowers/specs/2026-09-16-hybrid-hanok-assets-design.md`
 
+**Approved follow-through:** Jin subsequently authorized commit/PR creation, original publication, and hybrid activation. All 202 objects were published and freshly hash-verified; the feature branch's pubspec is activated. Live TTS rules and App Check configuration were preserved. See the asset-delivery runbook and activation receipt for evidence. Main integration and app-store rollout are separate steps.
+
 ## Global Constraints
 
 - No commit, push, merge, remote upload, rules deployment, or release without separate explicit authorization.

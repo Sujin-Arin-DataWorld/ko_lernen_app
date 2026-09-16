@@ -4,6 +4,8 @@
 
 Jin approved the recommended hybrid approach on 2026-09-16: keep basic screens and first learning content in the app, and download large Hanok artwork by building. Preserve the exact approved image/video bytes and existing visual composition. This implements mobile download/install size reduction, not developer disk cleanup.
 
+The subsequent explicit approval covered commits, PR creation, original-object publication, and hybrid activation. Publication and activation are complete on the feature branch; see `docs/assets/HANOK_ASSET_DELIVERY.md` and its activation receipt. Main integration and app-store release remain outside this approval. References below to a full-bundle preparation phase describe the gated transition, not the branch's current packaging state.
+
 ## Scope and first-install experience
 
 - Keep all existing non-Hanok assets, every character video, the full sixteen-stage Sarangchae sequence, Hyeopmun's six-stage first construction lesson, and shared lesson illustrations bundled.

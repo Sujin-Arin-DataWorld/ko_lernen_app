@@ -1,10 +1,14 @@
 # Hanok artwork delivery tooling
 
-The repository stays fully bundled by default. `pubspec.yaml` is unchanged, so
-offline builds continue to contain every current image. The tool prepares a
-reviewable hybrid candidate and immutable upload objects; it does not upload,
-deploy Storage rules, release an app, or activate the candidate unless an
-operator explicitly runs the gated `activate` subcommand.
+Hybrid packaging is active in this branch's `pubspec.yaml`. On 2026-09-16,
+after explicit approval, all 202 immutable artwork objects were published and
+freshly verified by byte length and SHA-256 before activation. Starter artwork,
+shared lessons, and all 28 MP4 files remain bundled. No image or video was
+resized or recompressed. Main integration and app-store release are separate
+steps; this branch activation does not update installed applications.
+
+The machine-readable evidence is
+[`hanok-delivery-activation-20260916.json`](hanok-delivery-activation-20260916.json).
 
 ## Trust root and pack layout
 
@@ -75,24 +79,24 @@ each unique object afresh.
 
 ## Commands
 
-Run commands from the repository root:
+Run these checks from the repository root in the activated configuration:
 
 ```powershell
-python tool/hanok_asset_delivery.py --root . generate
 python tool/hanok_asset_delivery.py --root . check
-python tool/hanok_asset_delivery.py --root . candidate
-python tool/hanok_asset_delivery.py --root . report
 python tool/hanok_asset_delivery.py --root . stage
 python -m unittest tool.test_hanok_asset_delivery
 ```
 
-`report` writes `build/hanok-delivery/candidate-pubspec.yaml` and
+For a future full-bundle baseline, `generate`, `candidate`, `report`, and
+`activate` prepare and activate a new reviewed configuration. `candidate`,
+`report`, and `activate` expect the full-bundle input; do not rerun them against
+the already activated pubspec. `report` writes
+`build/hanok-delivery/candidate-pubspec.yaml` and
 `asset-report.json`. `stage` writes one verified copy per immutable object under
 `build/hanok-delivery/staging/objects/`, plus `metadata.json` and publishing
 instructions. These ignored files are review artifacts, not a deployment.
 
-After separate publishing approval and an external upload using the staged
-metadata, verify the live bytes:
+Verify the live bytes after any approved publication using the staged metadata:
 
 ```powershell
 python tool/hanok_asset_delivery.py --root . verify-remote
@@ -108,7 +112,7 @@ Never put the token itself in command arguments, source files, or receipts.
 
 Activation also requires that fresh remote verification, a linked non-main
 worktree, the current deterministic manifest and local source bytes, and an
-exact reviewed pubspec fingerprint. For this snapshot the input fingerprint is
+exact reviewed pubspec fingerprint. The completed activation used input fingerprint
 `f3d65d7cd3e576295d4fd2b2741dc6033b3028aedf1226b6654cae8a0969d3e4`:
 
 ```powershell
@@ -132,17 +136,17 @@ Copy-Item -LiteralPath build/hanok-delivery/pubspec.full-bundle.yaml `
 Then run the normal packaging checks before a release. A rollback changes only
 packaging; downloaded cache cleanup is a separate runtime concern.
 
-## 2026-09-16 local size report
+## 2026-09-16 activated size report
 
 The checked-in manifest has 13 packs and 202 source assets. No identical
 content is duplicated in this snapshot, so it also has 202 immutable objects.
 
-| Measurement | Fully bundled | Hybrid candidate | Difference |
+| Measurement | Fully bundled | Activated hybrid | Difference |
 | --- | ---: | ---: | ---: |
 | `flutter.assets` files | 1,013 | 811 | -202 |
-| `flutter.assets` raw bytes | 481,074,753 | 256,595,064 | -224,479,689 |
+| `flutter.assets` raw bytes | 481,345,124 | 256,865,435 | -224,479,689 |
 | Assets plus six registered font files | 1,019 | 817 | -202 |
-| Assets plus fonts raw bytes | 487,701,545 | 263,221,856 | -224,479,689 |
+| Assets plus fonts raw bytes | 487,971,916 | 263,492,227 | -224,479,689 |
 
 The retained Sarangchae, Hyeopmun starter, and shared lesson set is 24 files /
 40,989,315 bytes. The candidate exclusion is exactly the manifest path set.
@@ -150,30 +154,52 @@ Six unreferenced turnaround PNGs and one extensionless turnaround file remain
 explicitly bundled; they are listed in `asset-report.json` and are not staged
 for publishing.
 
-The fully bundled total includes the newly generated 81,331-byte manifest. The
-pre-task asset-plus-font baseline was therefore 487,620,214 bytes.
+Use the delivery tool's expanded pubspec paths and built-file hash checks for
+this accounting. The older `tool/asset_inventory.py` bundled flag only handles
+directory declarations and mislabels the six explicitly retained PNGs.
 
-Both configurations were also built locally with `flutter build bundle
---release --no-pub`. Their registered project asset/font files match the raw
-totals above: **487,701,545 to 263,221,856 bytes, a 46.0% reduction**. This
-includes `docs/data/cultural_glossary.json`, which is bundled outside the
-`assets/` directory. URI-encoded Hangul output names were reconciled with
-their source names.
+These totals include the 81,331-byte manifest and the latest main content
+merged into the feature branch at `61f5c819dcd51357617f731ce0b4694ad3d8be49`.
+That content update added 270,371 bytes to both packaging configurations;
+the artwork reduction remains **224,479,689 bytes (46.0%)**.
 
-The complete Flutter asset directories, including generated manifests and
-compiled Dart data, measure **489,894,848 to 265,379,467 bytes**. The candidate
-removes exactly the 202 manifest paths. Every retained registered file has
-the same hash in both builds, and retained PNG/WebP/MP4 files match their
-source bytes. The 888 source image/video files (610,125,746 bytes, including
-28 MP4 files) remain byte-identical to the initial snapshot.
+A fresh `flutter build bundle --release --no-pub` of the activated pubspec
+passed. Its 817 registered project files total **263,492,227 bytes**; the
+complete Flutter asset directory, including generated manifests and compiled
+Dart data, totals **265,649,838 bytes**. The build excludes exactly the 202
+manifest paths. Every retained registered file matches its source SHA-256,
+including all 28 MP4 files and `docs/data/cultural_glossary.json` outside
+`assets/`. URI-encoded Hangul names were reconciled with source paths.
 
-The temporary candidate build restored `pubspec.yaml` to its exact input
-SHA-256 shown above. These are local Flutter asset-directory measurements,
-not AAB/IPA sizes, store download sizes, installed sizes, or proof of live
-delivery. Android/iOS release and per-device measurements remain release
-gates.
+The earlier full/candidate build comparison measured 489,894,848 versus
+265,379,467 bytes before that main content update. Original media inventory
+verification covered 888 PNG/WebP/MP4 files (610,125,746 bytes), unchanged from
+the initial snapshot. These are local asset-directory measurements, not
+AAB/IPA sizes, store download sizes, or installed sizes. Android/iOS release
+and per-device measurements remain release gates.
 
 ## Local validation
+
+After live publication and activation:
+
+- Fresh remote verification: 202/202 objects, 224,479,689 bytes, exact SHA-256.
+- Real HTTPS transport/cache smoke: original PNG and WebP downloaded, verified,
+  reopened offline by a fresh service, and removed successfully.
+- Activated release asset bundle: build and exact exclusion/source-hash checks passed.
+- Delivery/UI/world/construction/reward regression run: 95 passed; two bare
+  turntable test fixtures lacked localization delegates. Adding the normal
+  app delegates resolved these; all three turntable cases passed on rerun.
+- Construction provenance/pixel tests: all 17 cases passed through real
+  bundle-first delivery with deterministic source-byte transport. Starter
+  bundle assertions and original dimensions/pixel/provenance gates remain.
+- Python tooling: 18 passed. Additive live Storage rule overlay emulator:
+  4 passed, including unchanged legacy TTS behavior.
+- Final whole-repository analyzer after activation and test adaptations:
+  no issues. Independent scoped activation/test review passed.
+- Activated JavaScript web release build passed in 136.9 seconds with
+  `--no-wasm-dry-run`.
+
+Earlier implementation validation, before permanent activation:
 
 - Python manifest/packaging/activation tooling: 18 tests passed.
 - Local Storage emulator, including existing TTS/private rules: 4 tests passed.
@@ -199,14 +225,15 @@ Review logs, original-byte inventory, candidate bundle comparison, and
 EN/DE phone/tablet captures are retained locally under
 `.superpowers/sdd/2026-09-16-hybrid-hanok-assets/`.
 
-## Publishing and activation after release approval
+## Future publication and activation
 
-The following steps change the live Firebase project and must be separately
-approved. Run them only from the reviewed branch/worktree with a cleanly
-identified release candidate and authorized project credentials.
+The initial publication and activation were explicitly approved and completed.
+For a future publication, use the reviewed branch/worktree and authorized
+project credentials within the approved scope.
 
-1. Re-run `check`, `report`, `stage`, the Storage emulator tests, and app checks.
-   Review the current 202-object list and pubspec fingerprints.
+1. Run `check`, `stage`, the Storage emulator tests, and app checks. When
+   preparing a new full-bundle baseline, also review `report` and the resulting
+   manifest exclusion set and pubspec fingerprints before activation.
 2. Publish only the objects listed in `staging/metadata.json`, retaining exact
    bytes, content type, and `canonical=true`. Each object's destination is
    `gs://ko-lernen-app.firebasestorage.app/<storagePath>`. A suitable individual
@@ -215,9 +242,17 @@ identified release candidate and authorized project credentials.
    The [Google Cloud CLI reference](https://docs.cloud.google.com/sdk/gcloud/reference/storage/cp) documents these metadata and generation-precondition flags. Generation zero prevents overwriting an existing immutable object. Verify
    an already-existing object instead of overwriting it or treating the error
    as success. Do not recursively upload source or staging directories.
-3. Deploy the reviewed get-only artwork rule with
-   `firebase deploy --only storage --project ko-lernen-app`. Keep existing App
-   Check enforcement enabled.
+3. Read the currently deployed Storage rules before preparing any deployment.
+   The repository's root `storage.rules` contains an unrelated canonical-only
+   TTS migration that was not live on 2026-09-16. Do not deploy the entire file
+   merely to publish artwork. This publication added only the reviewed
+   `learning-art/v1` canonical-image get rule to the live source, preserved
+   every existing TTS clause, tested that exact overlay in the emulator, and
+   deployed with a dedicated Storage-only config. A fresh ruleset fingerprint
+   guard preceded deployment, and the live readback matched the overlay.
+   The resulting ruleset is `d6ba3c5e-b37f-418e-8b1f-75fb3e33085f`.
+   Storage App Check was already `UNENFORCED`; its configuration and etag were
+   unchanged. Preserve the live App Check mode; never relax it to pass checks.
 4. Run `verify-remote`, providing `--app-check-token-env VARIABLE_NAME` when
    enforcement requires a current token. Verify every object's bytes afresh.
    Public reads are for approved artwork only; client writes/listing stay denied.
@@ -227,7 +262,7 @@ identified release candidate and authorized project credentials.
 6. Build the actual Android/iOS release from the activated candidate. Validate
    first Wi-Fi fetch, explicit cellular fetch, offline reopen, and removal on
    devices. Record Play/App Store per-device download/install sizes separately.
-   Commit, integration, upload, and store rollout are separate authorized steps.
+   Main integration, app upload, and store rollout remain separate steps.
 
 Removing bundled files reduces the initial package. Downloading every pack
 again uses additional device storage; the downloads page controls that stored
