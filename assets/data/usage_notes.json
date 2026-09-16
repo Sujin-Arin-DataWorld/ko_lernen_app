@@ -2554,7 +2554,7 @@
       "examples": [
         {
           "register": "formal",
-          "ko": "결과가 나오는 대로 바로 보고드리겠습니다.",
+          "ko": "결과가 나오자마자 바로 보고드리겠습니다.",
           "de": "Sobald die Ergebnisse vorliegen, berichte ich Ihnen sofort.",
           "en": "I will report to you as soon as the results are in."
         },
@@ -6031,7 +6031,7 @@
       "examples": [
         {
           "register": "formal",
-          "ko": "부품이 도착하는 대로 재방문 일정을 잡아 드리겠습니다.",
+          "ko": "부품이 도착하자마자 재방문 일정을 잡아 드리겠습니다.",
           "de": "Sobald das Teil eintrifft, vereinbaren wir einen Termin für den Zweitbesuch.",
           "en": "As soon as the part arrives, we will schedule a return visit for you."
         },
