@@ -1,0 +1,169 @@
+{
+  "version": 2,
+  "batch": "c3_batch33_a2_reinforcement",
+  "status": "draft",
+  "provenance": {
+    "scope": "A2(2급) vocabulary reinforcement -- THIRD A2 batch in the C3 series -- 64 headwords (54 nouns incl. 4 Sino-Korean state nouns used with 하다 (불안/편안/정확/긴장 are NIKL grade-2 명사 headwords), 10 verbs) from the NIKL KIIQ 2017 grade-2 gap list (not yet live at any level, not in Batch 25-30's A1 drafts or Batch 31/32's A2 drafts). Completes Batch 32's PARTIAL draft pack a2_daily_actions_1 (4/12 -> 12/12, 8 daily-action verbs, pack_order 5-12) FIRST, then creates 4 new FULL topic packs (symptoms/treatment, a 3rd feelings pack, directions/getting around, workplace) plus 1 new PARTIAL pack (events, 8/12). Original clean-room authoring (KO/DE/EN), seeded only by NIKL 2017 kiiq grade-2 headword selection (KOGL Type-1) and docs/data/sejong/syllabus_sejong2.json unit vocabulary for prioritization (all 8 Sejong-2 leftovers Batch 32 recorded are used here). Follows the persona rules (character_profiles.json recurringCharacters), docs/CONTENT_LEVEL_BIBLE.md §B.2 (A2 sentence/grammar/vocabulary ceiling) and docs/CONTENT_PERSONA_VOICE.md (A2 반말 transitions / short idioms).",
+    "rights": "original_clean_room",
+    "seedSource": "tools/content_factory/lexicon/nikl_kiiq_2017_vocab.csv (grade=2, minus live assets/data/korean_vocab.csv at ANY level, minus tools/content_factory/drafts/batch_25..30_a1_rows.csv, minus tools/content_factory/drafts/batch_31_a2_rows.csv and batch_32_a2_rows.csv); topic priority cross-referenced against docs/data/sejong/syllabus_sejong2.json (Sejong 2 = A2 unit vocabulary lists).",
+    "requiresJinReview": true,
+    "approval": {},
+    "modelLanguageQa": "PENDING_FABLE_REVIEW",
+    "humanLanguageQaClaim": false,
+    "wordSourceNote": "NIKL grade-2 non-affix headwords total 1085 unique strings; removing everything already live at any level (2818 rows) or present in the Batch 25-30 A1 drafts or the Batch 31/32 A2 drafts leaves a gap of 663 headwords (matches Batch 32's own post-batch remainingA2Gap.count of 663 exactly, confirming no drift). This is the THIRD A2 batch against that gap, so 663-64=599 remain for future batches. Selection order: (1) checked whether any live A2 pack was still under 12/12 after the Batch 31 draft -- none (Batch 31 already claims enough words for all 27); (2) checked the two A2 DRAFT partial packs: Batch 31's a2_messenger_phone_1 (6/12) has no further grade-2 gap words that fit its communication theme cleanly (the remaining gap has 메일/전화기/연결/라디오/비디오 -- 메일 and 연결 fit, but only 2, so that pack is left for a later batch rather than filled with off-theme words); Batch 32's a2_daily_actions_1 (4/12: 믿다/참다/잊다/흔들다) is completed here FIRST with 8 general daily-action verbs (놓다/누르다/밀다/접다/펴다/붙이다/지우다/바르다, pack_order 5-12); (3) the remaining 56-word budget built 4 new FULL topic packs from the broader grade-2 gap list -- a2_health_symptoms_1 (증상·치료: can-do '증상·감정을 말하고'), a2_feelings_3 (감정·성격 nouns; a2_feelings_1/2 both reached 12/12 in Batch 31's draft), a2_directions_1 (길 찾기·이동: can-do '이동 중 불편을 요청'), a2_workplace_1 (직장 생활: can-do '학업·직장에서의 실수를 말하고'; the live a2_work pack reached 12/12 in Batch 31's draft) -- and (4) the last 8 words went to one new PARTIAL pack a2_events_1 (공연·행사: 박수/자리/줄/새벽/매표소/대회/행사/초대장), chosen so that all five Sejong-2 leftovers Batch 32 recorded but could not place (줄·새벽·박수·자리 here, plus 긴장/자신 in a2_feelings_3, 바르다 in a2_daily_actions_1, 정확 in a2_workplace_1) are finally used.",
+    "sejongCitationNote": "Direct grade-2 headword hits from docs/data/sejong/syllabus_sejong2.json (candidate == a token of a unit's multi-word vocab entry), all 8 of Batch 32's recorded leftovers, ALL used in this batch: unit9 긴장(되다) p.99 -> a2_feelings_3; unit10 (예의) 바르다 p.99 -> a2_daily_actions_1 (our example uses the grade-2 VERB sense 약을 바르다 per the NIKL guide, not the grade-4 adjective 바른 자세 homograph); unit11 박수(를 치다)·자리(를 바꾸다)·줄(을 서다) p.99 -> a2_events_1; unit12 새벽 p.99 -> a2_events_1; unit14 자신(이 없다)·정확(하다) p.100 -> a2_feelings_3 / a2_workplace_1. Caveat recorded for Jin: NIKL lists 자신 twice -- grade 2 = oneself (자신을 돌보다) and grade 3 = confidence (자신이 있다); Sejong unit14's '자신이 없다' is the grade-3 sense, so our example deliberately uses the grade-2 reflexive sense ('먼저 자신을 믿으세요') to stay inside the A2 ceiling. The other 5 pack topics were built from the grade-2 gap list directly (symptom nouns 기침/콧물/재채기/배탈 etc. have no Sejong-2 unit entry -- Sejong 2 unit6 '증상' vocabulary is mostly grade 3+ or already live).",
+    "tierNote": "Cloze distractors: Tier A 64/64, Tier B 0/64 (no OPEN_SLOT_WAIVER-style item was needed -- every frame was checked for a real-word class clash first). Noun items (52): the distractor is a cross-pack noun whose CLASS cannot fill the slot under any reading (D5), attached with the answer's own particle in the distractor's own batchim-correct allomorph (D1/D2, distractor_rules.batchim_class / a1_draft_rules.attach_matching_particle). Verb items with a fixed accusative object or a 를/을-marked noun before the blank (9: 놓다/누르다/밀다/접다/펴다/붙이다/지우다/바르다/건너다) use a same-ending INTRANSITIVE verb (앉다/울다/자다/서다/뛰다/눕다/웃다, rotated per item, length-matched to the answer) -- structurally invalid regardless of meaning (an intransitive verb cannot govern the pre-existing object); 걷다/걸다 is deliberately NOT in the pool because 걸었어요 is also the transitive 걸다 (hang) and '가방을 걸었어요' would be a second valid sentence. Adjective-type items (낫다 나아요; the 해요-fold state nouns 편안해요/정확해요) use adjectives whose class clashes with the subject: taste/texture adjectives for 감기 (셔요/매워요/두꺼워요) and 하다-adjectives that cannot describe a sofa or a calculation (피곤해요/친절해요/건강해요/시원해요). The 해요-fold rows keep the exact 해요 ending on every distractor so the answer is not identifiable by form. Per-word (stem) reuse across the batch is <=4 with ALL particles and stacked particles stripped (a2_draft_rules.distractor_stem_reuse_counts, inventory widened for this batch), max observed 4.",
+    "collocationTrapNote": "Batch 32 R8 round-3 standing rule applied at authoring time: before accepting a distractor, each candidate pool was screened against the sentence's own predicate for fixed collocations/idioms and homonyms, and the following were EXCLUDED from the corresponding frames (each would have produced a second valid or native-plausible sentence): N을 하다 frames -- activity nouns (cloze_distractor_rules.ACTIVITY_NOUN_SET, zero overlap with any distractor stem in this batch), every X하다-capable noun in the batch (기침/재채기/칭찬/농담/거짓말/실수/지각/노력/수술/치료/입원/퇴원/취직/출퇴근/긴장 -- '기침을 했어요' is a normal sentence), wearables (안경/시계/모자/목걸이/스카프 = N을 하다 'wear') and 편지 (편지하다 is a real verb); X이 나다 frames -- the 나다 idiom set 화/눈물/웃음/땀/생각/기억/소리/시간 and event nouns (초대장이 나다 = 'issued'); 생기다 frame -- all objects/persons/abstracts (작은 우산이 생겼어요 = 'acquired', 선배가 생겼어요 = 'got a senior', 규칙이 생겼어요 = 'a rule came about'; only place nouns are class-incompatible on a hand); 받다 frames -- receivables incl. 위치/방향 (결혼식 위치를 받았어요 = received the location) and 상처 (상처를 받다 = get hurt -- R8, Fable review of ce219360: 치과에서 상처를 받고 있어요 is a valid sentence, replaced by 휴게실을); 흘리다 frame -- objects (지갑을 흘리다 = drop) and speech/feeling nouns (비밀·농담·칭찬을 흘리다 = leak/let slip, 웃음을 흘리다 = let out a laugh); 치다 frame -- physical objects (치다 = hit) and 농담 (농담을 치다 = crack a joke); N(으)로 frames -- feelings (웃음으로 = manner), 감기로 (cause), 실수로 (= by mistake), 노력으로 (= through effort); N이라서 copula -- 수술 (내일 수술이라서 = valid) and any vowel-final noun (wrong allomorph); 둘만의 N이에요 -- 치료 (둘만의 치료 = couples-therapy reading); 되다 frame -- persons and 새벽 (부장이 돼요 / 새벽이 돼요 = valid); agent slots -- organization-like places (우리 매표소는 회의를 해요 = metonymy); 지키다 frame -- objects/places (지키다 = guard) and schedule nouns; 바뀌다 frame -- everything except bodily events (출퇴근이 바뀌면 = valid). Homonyms screened: 시장(market/mayor), 배, 눈, 밤, 말, 다리, 화(anger/Tuesday, also excluded as a 1-syllable bare form), 지각(tardiness/perception), 자신(oneself/confidence), 바르다(apply/upright), 낫다(recover/better), 걸다/걷다.",
+    "grammarNote": "All 64 examples pass the CefrLexicon-based grade>=3 scan (tools/content_factory/scan_grammar_level.py --level A2's own detector, reused directly by this batch's test) with zero flagged hits, and the live-corpus CLI run (--level A2) still reports 0/0/0 (drafts are not part of assets/data/**). A2(2급) grammar used explicitly: -으면 (누르다 '누르면', 낫다 '쉬면', 신호 '바뀌면', 불안 '살면', 노력 '하면', 방향 '가면', 사거리 '가면', 박수 '끝나면'), -을 때 (행복 '있을 때', 지하도 '올 때', 불안 '느낄 때가'), -게 (부장 '짧게', 실수 '급하게'), -어 주다 (규칙 '지켜 주세요', 박수 '쳐 주세요', 선배 '사 줬어요', 후배 '가르쳐 줬어요'), -을래 (휴게실 '마실래?', 반말), -고 있다 (치료), -는 (attributive: 지우다 '틀린', 후배 '새로 온', 편안 '새로 산'), -어서 causal chaining throughout, 반말 -어/-았어 (붙이다 '붙였어', 준->엄마; 휴게실, 수진->크리스티안). The corpus was manually grepped for 잖아/뿐/만큼/대로/어도/어야/는다/구나/으려고 (GrammarIndex's own <=2-syllable short-fragment anti-overmatch gap plus two grade-3 endings that are easy to reach for at A2) during authoring; none are present.",
+    "vocabCeilingNote": "docs/CONTENT_LEVEL_BIBLE.md §B.2 ⑤ allows <=1 word per sentence outside the 1-2급 vocabulary ceiling. This batch used ZERO such exceptions -- every helper word in all 64 examples resolves to NIKL grade<=2, the live vocabulary, or a batch headword, verified via tools/content_factory/a2_draft_rules.py's helper-word scanner with irregular-conjugation overrides (e.g. 빨개요->빨갛다, 폈어요->펴다, 건넜어요->건너다, 이겼어요->이기다). Two first-draft sentences used 'N 때문에' (때문 is a grade-2 grammar item, not a vocabulary headword, so the scanner cannot resolve it) and were rewritten (감기에 걸려서 / 행사 준비가 있어서) rather than adding an allow-list entry.",
+    "r8Round1Note": "Fable review of commit ce219360, 2026-09-16 (all 64 cloze items read): 1 distractor replaced -- cloze_a2_0455 (치료, '치과에서 ＿＿＿ 받고 있어요') had 상처를, but 상처를 받다 is the fixed collocation 'to get hurt (emotionally)', so '치과에서 상처를 받고 있어요' is a valid sentence. Replaced with 휴게실을 ('치과에서 휴게실을 받고 있어요' -- a place noun cannot be 받다's object under any idiom), chosen as the least-used stem still under the per-batch cap (휴게실 3 -> 4); 상처 was removed from the 받다 candidate pool and added to the batch test's COLLOCATION_TRAPS 'N을 받다' set. Every other item's distractors were pinned to the reviewed commit so nothing else re-shuffled. Everything else in the review (persona table, sample rows, Sejong leftovers, 자신 reflexive sense, X하다 pairs kept as NIKL headwords) was accepted.",
+    "auditShapeNote": "Manifest/JSON shape follows the audit-clean form audit_batch_live_promotion.py expects (the shape Batch 25-29's merged manifests and the Batch 30/31 promotion branch use): cloze/satz drafts keep the Batch 31 item shape ({id, sourceVocabId, fullKo, sentenceKo, answer, distractors} / {id, sourceVocabId, vocabKo, targetKo, distractors}) under the top-level key 'items', and the artifacts declare collection 'items' (cloze/satz) / null (vocab) so _draft_records can load them; recordCount = 192 (64 x 3 artifacts); each artifact carries a review-ledger path (tools/content_factory/review/batch_33_a2_{vocab,cloze,satz}_review.csv, 상태=pending until Jin's decision -- apply_review.py treats every non-approved status as pending). With this shape the audit reports batch 33 as not_live (0/192 live; manifest=draft) with NO structural errors; the only remaining lines are the ones inherent to any not-yet-promoted draft ('missing <id>' x192 and 'live records lack structured Jin approval') which Batch 31's pre-promotion draft emits identically."
+  },
+  "posRules": {
+    "cross_pack_noun_tier_a": "1/64 items are noun-particle-fold (or bare-modifier) rows whose distractors come from a rule-keyed cross-pack pool (symptoms / medical events / places / directions / feelings / events / workplace abstracts / persons / standing live A1 concrete objects) chosen per frame so the distractor's noun CLASS cannot fill the slot under any reading -- e.g. a 나다/생기다 subject slot is failed by a place noun (사거리가 계속 나요), an 에/에서 location slot by a symptom or feeling noun (칭찬에서 내려서), an N을 하다 slot by a place or concrete object (은행에 우산을 했어요), an agent slot by an object or event (저희 팀 편지는 회의를 짧게 해요). Each distractor carries the correct allomorph for its OWN final sound (이/가, 을/를, 은/는, 이에요/예요, 으로/로) or the answer's exact non-alternating suffix (에/에서/에게/이라서), verified via a1_draft_rules.distractor_particle_mismatches.",
+    "intransitive_verb_tier_a": "9/64 items (놓다/누르다/밀다/접다/펴다/붙이다/지우다/바르다/건너다) are verbs with a fixed accusative object before the blank; distractors are same-ending INTRANSITIVE verbs from a 7-word pool (앉다/울다/자다/서다/뛰다/눕다/웃다), rotated per item and length-matched (the banmal row 붙였어 gets 3-syllable 앉았어/울었어/웃었어, not 1-2 syllable forms), so the pre-existing object particle makes every distractor sentence ungrammatical regardless of meaning. 걷다 is excluded from the pool (걸었어요 = 걸다 'hang', transitive).",
+    "taste_adjective_tier_a": "1/64 item (낫다 '감기가 빨리 나아요') uses taste/texture adjectives (셔요/매워요/두꺼워요) on a subject (감기) that has no taste or thickness, mirroring Batch 31/32's technique. 짜요 is deliberately not used with person or 계산 subjects (짜다 = stingy).",
+    "haeyo_adjective_tier_a": "2/64 items are Sino-Korean state nouns whose answer is the 해요 fold (편안해요 / 정확해요); distractors are other 하다-adjectives that keep the exact 해요 ending (so the fold is not identifiable by form) but cannot describe the subject: a sofa is not 피곤/친절/건강, a calculation is not 피곤/친절/시원. The two other state nouns (긴장/불안) are taught in their noun frames (긴장이 돼요 / 불안을 느낄 때가 있어요) with ordinary cross-pack noun distractors.",
+    "open_frame_tier_b": "0/64 -- no item needed the bare-dictionary-verb / bare-particle waiver (Tier-B ratio 0 %, cap 40 %)."
+  },
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/batch_33_a2_rows.csv",
+      "collection": null,
+      "count": 64,
+      "level": "A2",
+      "review": "tools/content_factory/review/batch_33_a2_vocab_review.csv"
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/batch_33_a2_cloze.json",
+      "collection": "items",
+      "count": 64,
+      "level": "A2",
+      "review": "tools/content_factory/review/batch_33_a2_cloze_review.csv"
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/batch_33_a2_satz.json",
+      "collection": "items",
+      "count": 64,
+      "level": "A2",
+      "review": "tools/content_factory/review/batch_33_a2_satz_review.csv"
+    }
+  ],
+  "recordCount": 192,
+  "tierCounts": {
+    "tierA": 64,
+    "tierB": 0
+  },
+  "packsFilledTo12": [
+    {
+      "pack_id": "a2_daily_actions_1",
+      "addedWords": [
+        "놓다",
+        "누르다",
+        "밀다",
+        "접다",
+        "펴다",
+        "붙이다",
+        "지우다",
+        "바르다"
+      ],
+      "note": "4->12. Batch 32 DRAFT pack (declared in batch_32_a2_reinforcement_manifest.json newPacks: 믿다/참다/잊다/흔들다, pack_order 1-4); completed here with 8 daily-action verbs at pack_order 5-12 (3 boss words -- Batch 32's 4 rows are all is_review_boss=false, so the pack lands at exactly 3). Promotion order dependency: Batch 32 must be promoted before or together with Batch 33 so the pack id exists live when these 8 rows land."
+    }
+  ],
+  "packsLeftUnfilled": [],
+  "newPacks": [
+    {
+      "pack_id": "a2_health_symptoms_1",
+      "displayName": {
+        "de": "Symptome & Behandlung 1",
+        "en": "Symptoms & Treatment 1"
+      },
+      "wordCount": 12,
+      "note": "NIKL grade-2 gap words for symptoms, clinics and treatment (기침/콧물/재채기/배탈/상처/수술/입원/퇴원/치료/내과/치과/낫다) -- can-do '증상·감정을 말하고' (CONTENT_LEVEL_BIBLE §B.2 ①); a2_health_misc_1/2 and a2_pharmacy_ask_1 are already 12/12 after Batch 31. topic label 'Gesundheit' (already registered in cloze_topic_groups.dart)."
+    },
+    {
+      "pack_id": "a2_feelings_3",
+      "displayName": {
+        "de": "Gefühle 3",
+        "en": "Feelings 3"
+      },
+      "wordCount": 12,
+      "note": "a2_feelings_1/a2_feelings_2 both reached 12/12 in Batch 31's draft; third feelings pack from the grade-2 gap (긴장/자신/불안/편안/행복/화/눈물/웃음/농담/비밀/칭찬/거짓말), incl. Sejong-2 leftovers 긴장 (unit9) and 자신 (unit14). topic 'Gefühle' (registered)."
+    },
+    {
+      "pack_id": "a2_directions_1",
+      "displayName": {
+        "de": "Wegbeschreibung 1",
+        "en": "Directions 1"
+      },
+      "wordCount": 12,
+      "note": "No live/drafted A2 pack covered directions / getting around on foot yet (a2_transport is vehicle-themed): 사거리/육교/지하도/신호/정거장/주차장/건너다/방향/반대/동쪽/서쪽/위치 -- can-do '이동 중 불편을 요청'. topic 'Verkehr' (registered)."
+    },
+    {
+      "pack_id": "a2_workplace_1",
+      "displayName": {
+        "de": "Arbeitsplatz 1",
+        "en": "Workplace 1"
+      },
+      "wordCount": 12,
+      "note": "The live a2_work pack reached 12/12 in Batch 31's draft; new workplace-life pack from the grade-2 gap (부장/선배/후배/팀/취직/출퇴근/휴게실/실수/지각/규칙/노력/정확) -- can-do '학업·직장에서의 실수를 말하고'; incl. Sejong-2 leftover 정확 (unit14). topic 'Beruf' (registered)."
+    },
+    {
+      "pack_id": "a2_events_1",
+      "displayName": {
+        "de": "Veranstaltungen 1",
+        "en": "Events 1"
+      },
+      "wordCount": 8,
+      "note": "PARTIAL pack (8/12): performances/events vocabulary (박수/자리/줄/새벽/매표소/대회/행사/초대장) built around the 4 remaining Sejong-2 leftovers (unit11 박수·자리·줄, unit12 새벽). Word count kept to exactly 8 to land the batch total at 64; the remaining 4 slots are deferred to a future batch (course-unit/motif assignment also deferred to promotion). topic 'Freizeit' (registered)."
+    }
+  ],
+  "remainingA2Gap": {
+    "count": 599,
+    "note": "663 NIKL grade-2 headwords were unclaimed by any live level, the A1 drafts (Batch 25-30), or the Batch 31/32 A2 drafts before this batch (matches Batch 32's own post-batch remainingA2Gap.count exactly -- see provenance.wordSourceNote). 64 claimed here, 599 remain for future A2 reinforcement batches (Batch 34+)."
+  },
+  "personaRowsNote": "10 rows carry an attributed canonical persona (>=8 required, <=2 uses per persona), each under the Batch 28-32 rule: a persona counts for a row only as (a) the unambiguous SPEAKER via a canon-EXCLUSIVE cue, or (b) the vocative ADDRESSEE via a LEADING vocative ('OOO 씨,' / 'OOO,' at the very start of the sentence). (a) speaker cues used: 마야 '대박' (speechStyle.byLevel.A2; 대회 row), 준 '3학년' (background.role '초등학교 3학년 학생'; 붙이다 row, banmal to 엄마 -- his documented exception '부모·크리스티안에게만, A2부터 반말'), 동선 '우리 크리스티안' (speechStyle.ko.markers '친근한 호칭: 우리 크리스티안' -- no other persona addresses Christian this way; 자리 row, 해요체 as her canon prescribes toward him). (b) leading vocatives: 수진 (자신), 현아 (비밀), 안드레아 (부장), 크리스티안 (휴게실, banmal -> speaker is 수진 by the canon 반말 rule, but the row is attributed to the addressee per rule (b)), 다니엘 (박수), 레나 (매표소), 마야 (초대장). Rows that merely mention a persona as topic/possessive (다니엘 씨는 농담을..., 준은 엄마한테..., 수진 씨 계산은...) are NOT counted. No fixedFacts are contradicted: 수진's 계산 row matches her data-analyst role; 준 is in 3rd grade; 크리스티안 is a student (휴게실 at his university); 마야's 팀/대회 is a company-team context.",
+  "personaRows": {
+    "vocab_a2_0637": "jun",
+    "vocab_a2_0653": "sujin",
+    "vocab_a2_0661": "hyuna",
+    "vocab_a2_0676": "andrea",
+    "vocab_a2_0682": "christian",
+    "vocab_a2_0688": "daniel",
+    "vocab_a2_0689": "dongsun",
+    "vocab_a2_0692": "lena",
+    "vocab_a2_0693": "maya",
+    "vocab_a2_0695": "maya"
+  },
+  "banmalRows": {
+    "vocab_a2_0637": {
+      "headword": "붙이다",
+      "speaker": "jun",
+      "addressee": "andrea",
+      "canonBasis": "준 speechStyle: '부모·크리스티안에게만, A2부터 반말을 쓴다' (엄마 = 안드레아)"
+    },
+    "vocab_a2_0682": {
+      "headword": "휴게실",
+      "speaker": "sujin",
+      "addressee": "christian",
+      "canonBasis": "수진↔크리스티안 A2 반말 (relationshipGraph couple; speechStyle '친해지면 반말 섞임(A2+)')"
+    }
+  },
+  "openerDistribution": {
+    "reactionOpeners": 0,
+    "wooriGachi": 0,
+    "jinjja": 0,
+    "note": "No row opens with 와/아/음/네/좋아요; '대박,' (마야's own A2 marker, 1 row) is a persona marker, not a reaction opener; no '우리 같이'; no '진짜' (정말 used 4x)."
+  },
+  "reviewPacket": "docs/data/review_packets/batch_33_a2_jin_sample.md",
+  "promotion": {
+    "assetsDataWritten": false,
+    "runtime": false,
+    "tts": false,
+    "firebase": false,
+    "note": "DRAFT ONLY per level-canon program hard rule -- no writes to assets/data/**, no TTS synthesis, no Firebase until Jin approval."
+  }
+}

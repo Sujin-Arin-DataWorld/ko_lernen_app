@@ -8,7 +8,11 @@
       "distractors": [
         "공부를",
         "청소를"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Nächsten Monat ziehe ich um.",
+      "promptEn": "I'm moving next month.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0497",
@@ -18,7 +22,11 @@
       "distractors": [
         "편지는",
         "태풍은"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Sujin, ich räume das Zimmer auf.",
+      "promptEn": "Sujin, I'll tidy up the room.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0498",
@@ -28,7 +36,11 @@
       "distractors": [
         "우산을",
         "열쇠를"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Nachts gehe ich nicht allein aus.",
+      "promptEn": "I don't go out alone at night.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0499",
@@ -38,7 +50,11 @@
       "distractors": [
         "걱정이",
         "짜증이"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Das Wetter war schön, deshalb ist die Wäsche schnell getrocknet.",
+      "promptEn": "The weather was nice, so the laundry dried quickly.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0500",
@@ -48,7 +64,11 @@
       "distractors": [
         "걱정은",
         "짜증은"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Den Müll bringe ich morgens raus.",
+      "promptEn": "I take out the trash in the morning.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0501",
@@ -58,7 +78,11 @@
       "distractors": [
         "갔어요",
         "왔어요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe alle Kleider weggeworfen, die ich nicht mehr trage.",
+      "promptEn": "I threw away all the clothes I don't wear anymore.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0502",
@@ -68,7 +92,11 @@
       "distractors": [
         "열쇠를",
         "지갑을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Am Wochenende mache ich einen Mittagsschlaf.",
+      "promptEn": "On weekends I take a little nap.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0503",
@@ -78,7 +106,11 @@
       "distractors": [
         "가요",
         "와요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Jedes Wochenende putze ich die Fenster.",
+      "promptEn": "I clean the windows every weekend.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0504",
@@ -88,7 +120,11 @@
       "distractors": [
         "가고",
         "오고"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich sauge noch kurz und gehe dann raus.",
+      "promptEn": "I'll run the vacuum quickly and then go out.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0505",
@@ -98,7 +134,11 @@
       "distractors": [
         "가고",
         "오고"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe die Hausaufgaben beendet und dann ferngesehen.",
+      "promptEn": "I finished my homework and then watched TV.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0506",
@@ -108,7 +148,11 @@
       "distractors": [
         "앉아요",
         "서요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Bevor ich Sport mache, ziehe ich mich um.",
+      "promptEn": "I change clothes before exercising.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0507",
@@ -118,7 +162,11 @@
       "distractors": [
         "쓰다",
         "먹다"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Christian, haben Sie irgendwelche Sorgen? Ich helfe Ihnen.",
+      "promptEn": "Christian, do you have any worries? I'll help you.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0508",
@@ -128,7 +176,11 @@
       "distractors": [
         "우산이",
         "편지가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Der Stau war so schlimm, dass ich genervt war.",
+      "promptEn": "The traffic was so bad that I got annoyed.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0509",
@@ -138,7 +190,11 @@
       "distractors": [
         "가다",
         "돕다"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Sujin, werd nicht wütend, sag mir einfach, was los ist.",
+      "promptEn": "Sujin, don't get angry, just tell me what's up.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0510",
@@ -148,7 +204,11 @@
       "distractors": [
         "다시",
         "같이"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Jun, ich habe mich total erschreckt!",
+      "promptEn": "Jun, I was totally startled!",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0511",
@@ -158,7 +218,11 @@
       "distractors": [
         "오다",
         "팔다"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Meine Eltern haben sich über die Erfolgsnachricht sehr gefreut.",
+      "promptEn": "My parents were really pleased about the news that I passed.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0512",
@@ -168,7 +232,11 @@
       "distractors": [
         "가다",
         "고르다"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Der Hund war krank, deshalb war das Kind sehr traurig.",
+      "promptEn": "The dog was sick, so the child was very sad.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0513",
@@ -178,7 +246,11 @@
       "distractors": [
         "짜요",
         "셔요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Diese Methode ist wirklich einfach.",
+      "promptEn": "This method is really simple.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0514",
@@ -188,7 +260,11 @@
       "distractors": [
         "셔요",
         "짧아요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Meine kleine Schwester hat wirklich einen guten Charakter.",
+      "promptEn": "My little sibling has a really kind personality.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0515",
@@ -198,7 +274,11 @@
       "distractors": [
         "얇네요",
         "두껍네요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Wahnsinn, Sujin, Sie sind wirklich klug!",
+      "promptEn": "Wow, Sujin, you're really smart!",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0516",
@@ -208,7 +288,11 @@
       "distractors": [
         "뾰족해요",
         "매끈해요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "An Regentagen ist es mühsam, rauszugehen.",
+      "promptEn": "On rainy days, going out is a hassle.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0517",
@@ -218,7 +302,11 @@
       "distractors": [
         "얇아요",
         "두꺼워요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Für heute reicht das so aus.",
+      "promptEn": "This much is enough for today.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0518",
@@ -228,7 +316,11 @@
       "distractors": [
         "짜요",
         "셔요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Diese Tasche ist zwar alt, aber immer noch stabil.",
+      "promptEn": "This bag is old, but it's still sturdy.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0519",
@@ -238,7 +330,11 @@
       "distractors": [
         "시계가",
         "열쇠가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Im Sommer beginnt normalerweise die Regenzeit.",
+      "promptEn": "The monsoon usually starts in summer.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0520",
@@ -248,7 +344,11 @@
       "distractors": [
         "걱정이",
         "짜증이"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Heute Morgen lag dichter Nebel.",
+      "promptEn": "There was a lot of fog this morning.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0521",
@@ -258,7 +358,11 @@
       "distractors": [
         "열쇠가",
         "재료가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Dieses Wochenende kommt ein Taifun.",
+      "promptEn": "A typhoon is coming this weekend.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0522",
@@ -268,7 +372,11 @@
       "distractors": [
         "우산으로",
         "편지로"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Der Aufzug war kaputt, deshalb bin ich die Treppe hochgegangen.",
+      "promptEn": "The elevator was broken, so I went up the stairs.",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "satz_a2_0523",
@@ -278,7 +386,11 @@
       "distractors": [
         "우산에",
         "편지에"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe im Garten einen Baum gepflanzt.",
+      "promptEn": "I planted a tree in the yard.",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "satz_a2_0524",
@@ -288,7 +400,11 @@
       "distractors": [
         "우산에",
         "열쇠에"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe ein Familienfoto an die Wand gehängt.",
+      "promptEn": "I hung a family photo on the wall.",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "satz_a2_0525",
@@ -298,7 +414,11 @@
       "distractors": [
         "공부를",
         "청소를"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich bin mit meinem Vater zum Angeln an den Fluss gefahren.",
+      "promptEn": "I went fishing at the river with my father.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0526",
@@ -308,7 +428,11 @@
       "distractors": [
         "우산",
         "편지"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Lena, wollen Sie mit mir Badminton spielen?",
+      "promptEn": "Lena, do you want to play badminton with me?",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0527",
@@ -318,7 +442,11 @@
       "distractors": [
         "걱정을",
         "짜증을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Wenn die Kinder von der Schule kommen, gebe ich ihnen einen Snack.",
+      "promptEn": "When the kids come home from school, I give them a snack.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0528",
@@ -328,7 +456,11 @@
       "distractors": [
         "우산부터",
         "편지부터"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Bevor ich koche, bereite ich zuerst die Zutaten vor.",
+      "promptEn": "Before cooking, I prepare the ingredients first.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0529",
@@ -338,7 +470,11 @@
       "distractors": [
         "우산을",
         "편지를"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Geben Sie noch etwas mehr Sojasoße in diese Suppe.",
+      "promptEn": "Put a bit more soy sauce in this soup.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0530",
@@ -348,7 +484,11 @@
       "distractors": [
         "열쇠를",
         "지갑을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Zuerst gibt man Öl in die Pfanne.",
+      "promptEn": "First, you put oil in the pan.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0531",
@@ -358,7 +498,11 @@
       "distractors": [
         "걱정이",
         "짜증이"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Das bestellte Paket ist heute angekommen.",
+      "promptEn": "The parcel I ordered arrived today.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0532",
@@ -368,7 +512,11 @@
       "distractors": [
         "걱정은",
         "취소는"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Von dieser Ware sind jetzt noch drei Stück übrig.",
+      "promptEn": "There are only three of this product left now.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0533",
@@ -378,7 +526,11 @@
       "distractors": [
         "시계",
         "모자"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Entschuldigung, machen Sie das bitte fertig.",
+      "promptEn": "Excuse me, could you total it up, please.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0534",
@@ -388,7 +540,11 @@
       "distractors": [
         "시계가",
         "모자가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Es scheint, dass die Bestellung falsch aufgenommen wurde.",
+      "promptEn": "It seems the order was entered wrong.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0535",
@@ -398,7 +554,11 @@
       "distractors": [
         "도와줬어요",
         "빌렸어요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Meine Tochter wurde dieses Jahr eingeschult.",
+      "promptEn": "My daughter started elementary school this year.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0536",
@@ -408,7 +568,11 @@
       "distractors": [
         "일기가",
         "그림이"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Bei diesem Kurs ist die Anwesenheit wirklich wichtig.",
+      "promptEn": "Attendance is really important in this class.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0537",
@@ -418,7 +582,11 @@
       "distractors": [
         "안경을",
         "시계를"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich spare jeden Monat ein bisschen.",
+      "promptEn": "I save a little bit every month.",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "satz_a2_0538",
@@ -428,7 +596,11 @@
       "distractors": [
         "모자가",
         "열쇠가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Die Telefonrechnung ist diesen Monat sehr hoch ausgefallen.",
+      "promptEn": "This month's phone bill came out really high.",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "satz_a2_0539",
@@ -438,7 +610,11 @@
       "distractors": [
         "우산에는",
         "열쇠에는"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Auf dieser Insel leben nicht viele Menschen.",
+      "promptEn": "Not many people live on this island.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0540",
@@ -448,7 +624,11 @@
       "distractors": [
         "지도",
         "그림"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich bin um den See herum spazieren gegangen.",
+      "promptEn": "I took a walk around the lake.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0541",
@@ -458,7 +638,11 @@
       "distractors": [
         "우산도",
         "편지도"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Heute Abend kommt auch meine Tante (väterlicherseits) dazu.",
+      "promptEn": "My aunt is also coming to dinner tonight.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0542",
@@ -468,7 +652,11 @@
       "distractors": [
         "시계가",
         "모자가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Mein Onkel hat mir viele leckere Sachen gekauft.",
+      "promptEn": "My uncle bought me a lot of delicious things.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0543",
@@ -478,7 +666,11 @@
       "distractors": [
         "지도",
         "그림"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "An Seollal besuchen wir auch das Haus meiner Tante (mütterlicherseits).",
+      "promptEn": "On Seollal, we also visit my aunt's house.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0544",
@@ -488,7 +680,11 @@
       "distractors": [
         "우산에는",
         "사진에는"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Zu diesem Feiertag kommt die ganze Familie zusammen.",
+      "promptEn": "The whole family is gathering for this holiday.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0545",
@@ -498,7 +694,11 @@
       "distractors": [
         "우산들을",
         "열쇠들을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "An Chuseok habe ich meine Neffen und Nichten nach langer Zeit wiedergesehen.",
+      "promptEn": "I saw my nieces and nephews again at Chuseok after a long time.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0546",
@@ -508,7 +708,11 @@
       "distractors": [
         "우산들은",
         "편지들은"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Die Nachbarn in meiner Heimatstadt erkennen mich alle.",
+      "promptEn": "The neighbors in my hometown all recognize me.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0547",
@@ -518,7 +722,11 @@
       "distractors": [
         "도와줬어요",
         "빌렸어요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Es hat geregnet, deshalb habe ich die Verabredung abgesagt.",
+      "promptEn": "It rained, so I cancelled the appointment.",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "satz_a2_0548",
@@ -528,7 +736,11 @@
       "distractors": [
         "보다",
         "알다"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich reserviere den Besprechungsraum schon im Voraus.",
+      "promptEn": "I'll reserve the meeting room in advance.",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "satz_a2_0549",
@@ -538,7 +750,11 @@
       "distractors": [
         "우산에서",
         "편지에서"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Andrea, arbeiten Sie schon lange an diesem Arbeitsplatz?",
+      "promptEn": "Andrea, have you been working at this workplace for a long time?",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0550",
@@ -548,7 +764,11 @@
       "distractors": [
         "열쇠로",
         "지갑으로"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Von hier sind es drei Stationen mit der U-Bahn.",
+      "promptEn": "It's three stops from here by subway.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0551",
@@ -558,7 +778,11 @@
       "distractors": [
         "지도가",
         "그림이"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Aus meinem Handy kommt ein komisches Geräusch.",
+      "promptEn": "A strange sound is coming from my phone.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0552",
@@ -568,7 +792,11 @@
       "distractors": [
         "연락처예요",
         "직장이에요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Mein Onkel ist Beamter.",
+      "promptEn": "My uncle is a civil servant.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0553",
@@ -578,7 +806,11 @@
       "distractors": [
         "우산이",
         "편지가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe starke Kopfschmerzen, deshalb bin ich in die Apotheke gekommen.",
+      "promptEn": "I have a bad headache, so I came to the pharmacy.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0554",
@@ -588,7 +820,11 @@
       "distractors": [
         "냉장고를",
         "창문을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe mein Handy zu Hause liegen lassen.",
+      "promptEn": "I left my phone at home.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0555",
@@ -598,7 +834,11 @@
       "distractors": [
         "읽다",
         "먹다"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Daniel, ich habe dir eine Nachricht geschickt, hast du sie gesehen?",
+      "promptEn": "Daniel, I sent you a message, did you check it?",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0556",
@@ -608,7 +848,11 @@
       "distractors": [
         "도서관을",
         "극장을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe eine Notiz auf dem Schreibtisch hinterlassen.",
+      "promptEn": "I left a note on the desk.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0557",
@@ -618,7 +862,11 @@
       "distractors": [
         "걱정이",
         "정리가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Von Hyuna ist immer noch keine Antwort gekommen.",
+      "promptEn": "I still haven't gotten a reply from Hyuna.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0558",
@@ -628,7 +876,11 @@
       "distractors": [
         "타다",
         "모르다"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Könnten Sie mir bitte Ihre Kontaktdaten hinterlassen?",
+      "promptEn": "Could you leave your contact information, please?",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0559",
@@ -638,7 +890,11 @@
       "distractors": [
         "갈게요",
         "올게요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Entschuldigung, aber ich muss jetzt auflegen.",
+      "promptEn": "Sorry, but I need to hang up now.",
+      "courseUnitId": "a2_03_chat_relationships"
     }
   ]
 }

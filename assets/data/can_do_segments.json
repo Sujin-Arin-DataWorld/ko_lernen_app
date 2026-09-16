@@ -355,7 +355,7 @@
     {
       "id": "cluster_a1_05_numbers_time_v1",
       "level": "a1",
-      "revision": 8,
+      "revision": 10,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_numbers_1_v1",
         "seed_vocab_pack_a1_numbers_2_v1",
@@ -375,7 +375,9 @@
         "seed_scenario_a1_w10_numbers_v1",
         "seed_scenario_meeting_time_v1",
         "seed_vocab_pack_a1_months_1_v1",
-        "seed_vocab_pack_a1_time_expressions_1_v1"
+        "seed_vocab_pack_a1_time_expressions_1_v1",
+        "seed_vocab_pack_a1_counters_1_v1",
+        "seed_vocab_pack_a1_determiners_1_v1"
       ],
       "contentReferences": [
         {
@@ -453,6 +455,14 @@
         {
           "kind": "vocabPack",
           "id": "a1_time_expressions_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_counters_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_determiners_1"
         }
       ]
     },
@@ -662,7 +672,7 @@
     {
       "id": "cluster_a1_08_clarify_repair_v1",
       "level": "a1",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_scenario_clarify_repeat_v1",
         "seed_grammar_grammar_a1_which_question_v1",
@@ -682,7 +692,8 @@
         "seed_cloze_cloze_a1_0323_v1",
         "seed_cloze_cloze_a1_0324_v1",
         "seed_scenario_a1_w10_repeat_v1",
-        "seed_scenario_bakery_queue_v1"
+        "seed_scenario_bakery_queue_v1",
+        "seed_vocab_pack_a1_pronouns_1_v1"
       ],
       "contentReferences": [
         {
@@ -760,6 +771,10 @@
         {
           "kind": "scenario",
           "id": "bakery_queue"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_pronouns_1"
         }
       ]
     },
@@ -1462,7 +1477,7 @@
     {
       "id": "cluster_a1_13_register_switching_v1",
       "level": "a1",
-      "revision": 10,
+      "revision": 12,
       "sourceSeedIds": [
         "seed_cloze_cloze_a1_0076_v1",
         "seed_cloze_cloze_a1_0077_v1",
@@ -1473,7 +1488,9 @@
         "seed_grammar_grammar_a1_formal_command_v1",
         "seed_grammar_grammar_a1_formal_statement_v1",
         "seed_grammar_grammar_a1_formal_question_v1",
-        "seed_scenario_dance_class_register_v1"
+        "seed_scenario_dance_class_register_v1",
+        "seed_vocab_pack_a1_adverbs_1_v1",
+        "seed_vocab_pack_a1_adverbs_2_v1"
       ],
       "contentReferences": [
         {
@@ -1515,6 +1532,14 @@
         {
           "kind": "scenario",
           "id": "dance_class_register"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_adverbs_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_adverbs_2"
         }
       ]
     },
@@ -1644,7 +1669,7 @@
     {
       "id": "cluster_a1_16_survival_capstone_v1",
       "level": "a1",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
         "seed_scenario_survival_day_capstone_v1",
         "seed_vocab_pack_a1_misc_1_v1",
@@ -1663,7 +1688,8 @@
         "seed_grammar_grammar_a2_lets_formal_v1",
         "seed_vocab_pack_a1_korean_places_1_v1",
         "seed_vocab_pack_a1_nature_people_1_v1",
-        "seed_vocab_pack_a1_misc_3_v1"
+        "seed_vocab_pack_a1_misc_3_v1",
+        "seed_vocab_pack_a1_misc_4_v1"
       ],
       "contentReferences": [
         {
@@ -1737,13 +1763,17 @@
         {
           "kind": "vocabPack",
           "id": "a1_misc_3"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_misc_4"
         }
       ]
     },
     {
       "id": "cluster_a2_haeyo_register_transition_v1",
       "level": "a2",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_vocab_pack_a2_change_verbs_1_v1",
         "seed_vocab_pack_a2_daily_1_v1",
@@ -1776,7 +1806,8 @@
         "seed_cloze_cloze_a2_0061_v1",
         "seed_scenario_a2_w10_fandom_v1",
         "seed_scenario_favorite_drama_chat_v1",
-        "seed_scenario_samgyeopsal_first_time_v1"
+        "seed_scenario_samgyeopsal_first_time_v1",
+        "seed_cloze_cloze_a2_0319_v1"
       ],
       "contentReferences": [
         {
@@ -1906,6 +1937,10 @@
         {
           "kind": "scenario",
           "id": "samgyeopsal_first_time"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a2_0319"
         }
       ]
     },
@@ -2145,7 +2180,7 @@
     {
       "id": "cluster_a2_running_late_v1",
       "level": "a2",
-      "revision": 22,
+      "revision": 23,
       "sourceSeedIds": [
         "seed_scenario_running_late_v1",
         "seed_vocab_pack_a2_nature_1_v1",
@@ -2217,7 +2252,8 @@
         "seed_scenario_a2_w10_friends_v1",
         "seed_scenario_a2_w10_partner_v1",
         "seed_scenario_friend_cancelled_plan_v1",
-        "seed_scenario_group_chat_photo_permission_v1"
+        "seed_scenario_group_chat_photo_permission_v1",
+        "seed_vocab_pack_a2_messenger_phone_1_v1"
       ],
       "contentReferences": [
         {
@@ -2503,6 +2539,10 @@
         {
           "kind": "scenario",
           "id": "group_chat_photo_permission"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a2_messenger_phone_1"
         }
       ]
     },
@@ -3402,7 +3442,7 @@
     {
       "id": "cluster_b1_plans_with_reasons_v1",
       "level": "b1",
-      "revision": 14,
+      "revision": 15,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_city_places_1_v1",
         "seed_vocab_pack_b1_daily_1_v1",
@@ -3465,7 +3505,8 @@
         "seed_scenario_b1_w10_incident_v1",
         "seed_scenario_birthday_expectation_gap_v1",
         "seed_scenario_ktx_sold_out_alternative_v1",
-        "seed_scenario_running_injury_training_plan_v1"
+        "seed_scenario_running_injury_training_plan_v1",
+        "seed_grammar_grammar_b2_contrast_v1"
       ],
       "contentReferences": [
         {
@@ -3715,6 +3756,10 @@
         {
           "kind": "scenario",
           "id": "running_injury_training_plan"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_contrast"
         }
       ]
     },
@@ -3755,14 +3800,13 @@
     {
       "id": "cluster_b1_relay_social_speech_v1",
       "level": "b1",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_communication_lang_1_v1",
         "seed_vocab_pack_b1_tech_society_1_v1",
         "seed_vocab_pack_b1_tech_society_2_v1",
         "seed_grammar_grammar_b1_about_v1",
         "seed_grammar_grammar_b1_indirect_speech_v1",
-        "seed_grammar_grammar_b1_whether_v1",
         "seed_smalltalk_smalltalk_b1_0042_v1",
         "seed_cloze_cloze_b1_0002_v1",
         "seed_cloze_cloze_b1_0003_v1",
@@ -3805,10 +3849,6 @@
         {
           "kind": "grammar",
           "id": "grammar_b1_indirect_speech"
-        },
-        {
-          "kind": "grammar",
-          "id": "grammar_b1_whether"
         },
         {
           "kind": "smalltalk",
@@ -3937,12 +3977,11 @@
     {
       "id": "cluster_b1_team_role_coordination_v1",
       "level": "b1",
-      "revision": 13,
+      "revision": 15,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_work_v1",
         "seed_vocab_pack_b1_work_career_1_v1",
         "seed_vocab_pack_b1_work_coordination_1_v1",
-        "seed_grammar_grammar_b1_as_soon_as_v1",
         "seed_grammar_grammar_b1_even_if_light_v1",
         "seed_grammar_grammar_b1_explanatory_reason_v1",
         "seed_grammar_grammar_b1_planned_future_v1",
@@ -3969,7 +4008,6 @@
         "seed_grammar_grammar_b1_while_already_v1",
         "seed_smalltalk_smalltalk_b1_0071_v1",
         "seed_vocab_pack_b1_work_softening_1_v1",
-        "seed_grammar_grammar_b1_reason_context_v1",
         "seed_grammar_grammar_b1_soft_request_batch19_v1",
         "seed_vocab_pack_b1_work_entry_2026_1_v1",
         "seed_grammar_grammar_b1_conceded_context_batch20_v1",
@@ -3995,10 +4033,6 @@
         {
           "kind": "vocabPack",
           "id": "b1_work_coordination_1"
-        },
-        {
-          "kind": "grammar",
-          "id": "grammar_b1_as_soon_as"
         },
         {
           "kind": "grammar",
@@ -4106,10 +4140,6 @@
         },
         {
           "kind": "grammar",
-          "id": "grammar_b1_reason_context"
-        },
-        {
-          "kind": "grammar",
           "id": "grammar_b1_soft_request_batch19"
         },
         {
@@ -4195,12 +4225,13 @@
     {
       "id": "cluster_b1_schedule_softening_v1",
       "level": "b1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_smalltalk_smalltalk_b1_0041_v1",
         "seed_smalltalk_smalltalk_b1_0047_v1",
         "seed_smalltalk_smalltalk_b1_0048_v1",
-        "seed_scenario_community_festival_shift_v1"
+        "seed_scenario_community_festival_shift_v1",
+        "seed_grammar_grammar_b2_formal_arrangement_v1"
       ],
       "contentReferences": [
         {
@@ -4218,6 +4249,10 @@
         {
           "kind": "scenario",
           "id": "community_festival_shift"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_formal_arrangement"
         }
       ]
     },
@@ -5017,7 +5052,7 @@
     {
       "id": "cluster_b2_decision_criteria_v1",
       "level": "b2",
-      "revision": 7,
+      "revision": 12,
       "sourceSeedIds": [
         "seed_vocab_pack_b2_decisions_perspectives_1_v1",
         "seed_vocab_pack_b2_education_v1",
@@ -5028,16 +5063,12 @@
         "seed_grammar_grammar_b2_according_to_v1",
         "seed_grammar_grammar_b2_as_if_v1",
         "seed_grammar_grammar_b2_compared_with_v1",
-        "seed_grammar_grammar_b2_contrast_v1",
         "seed_grammar_grammar_b2_definition_v1",
-        "seed_grammar_grammar_b2_despite_v1",
         "seed_grammar_grammar_b2_even_if_v1",
         "seed_grammar_grammar_b2_formal_cause_v1",
         "seed_grammar_grammar_b2_formal_concession_v1",
         "seed_grammar_grammar_b2_in_light_of_v1",
         "seed_grammar_grammar_b2_indirect_speech_v1",
-        "seed_grammar_grammar_b2_method_dependent_v1",
-        "seed_grammar_grammar_b2_negative_consequence_v1",
         "seed_grammar_grammar_b2_not_automatic_conclusion_v1",
         "seed_grammar_grammar_b2_not_only_v1",
         "seed_grammar_grammar_b2_outcome_depends_v1",
@@ -5124,7 +5155,8 @@
         "seed_smalltalk_smalltalk_b2_0117_v1",
         "seed_smalltalk_smalltalk_b2_0118_v1",
         "seed_scenario_meeting_disagreement_evidence_v1",
-        "seed_scenario_ai_image_disclosure_v1"
+        "seed_scenario_ai_image_disclosure_v1",
+        "seed_grammar_grammar_b1_whether_v1"
       ],
       "contentReferences": [
         {
@@ -5165,15 +5197,7 @@
         },
         {
           "kind": "grammar",
-          "id": "grammar_b2_contrast"
-        },
-        {
-          "kind": "grammar",
           "id": "grammar_b2_definition"
-        },
-        {
-          "kind": "grammar",
-          "id": "grammar_b2_despite"
         },
         {
           "kind": "grammar",
@@ -5194,14 +5218,6 @@
         {
           "kind": "grammar",
           "id": "grammar_b2_indirect_speech"
-        },
-        {
-          "kind": "grammar",
-          "id": "grammar_b2_method_dependent"
-        },
-        {
-          "kind": "grammar",
-          "id": "grammar_b2_negative_consequence"
         },
         {
           "kind": "grammar",
@@ -5550,6 +5566,10 @@
         {
           "kind": "scenario",
           "id": "ai_image_disclosure"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_whether"
         }
       ]
     },
@@ -5730,12 +5750,11 @@
     {
       "id": "cluster_b2_contract_scope_v1",
       "level": "b2",
-      "revision": 8,
+      "revision": 10,
       "sourceSeedIds": [
         "seed_vocab_pack_b2_formal_agreement_1_v1",
         "seed_vocab_pack_b2_language_grammar_1_v1",
         "seed_grammar_grammar_b2_as_long_as_v1",
-        "seed_grammar_grammar_b2_formal_arrangement_v1",
         "seed_grammar_grammar_b2_formal_reason_v1",
         "seed_grammar_grammar_b2_inclusion_v1",
         "seed_grammar_grammar_b2_worry_v1",
@@ -5765,7 +5784,8 @@
         "seed_scenario_b2_w10_privacy_v1",
         "seed_scenario_brand_private_account_boundary_v1",
         "seed_scenario_feedback_specific_example_v1",
-        "seed_scenario_neighborhood_filming_notice_v1"
+        "seed_scenario_neighborhood_filming_notice_v1",
+        "seed_grammar_grammar_b1_as_soon_as_v1"
       ],
       "contentReferences": [
         {
@@ -5779,10 +5799,6 @@
         {
           "kind": "grammar",
           "id": "grammar_b2_as_long_as"
-        },
-        {
-          "kind": "grammar",
-          "id": "grammar_b2_formal_arrangement"
         },
         {
           "kind": "grammar",
@@ -5903,6 +5919,10 @@
         {
           "kind": "scenario",
           "id": "neighborhood_filming_notice"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_as_soon_as"
         }
       ]
     },
@@ -5942,13 +5962,12 @@
     {
       "id": "cluster_b2_formal_complaint_v1",
       "level": "b2",
-      "revision": 5,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_vocab_pack_b2_household_practical_1_v1",
         "seed_grammar_grammar_b2_counterfactual_past_v1",
         "seed_grammar_grammar_b2_established_premise_v1",
         "seed_grammar_grammar_b2_explicit_formal_request_v1",
-        "seed_grammar_grammar_b2_formal_regarding_v1",
         "seed_grammar_grammar_b2_formal_written_request_v1",
         "seed_smalltalk_smalltalk_b2_0045_v1",
         "seed_smalltalk_smalltalk_b2_0046_v1",
@@ -5958,7 +5977,8 @@
         "seed_scenario_b2_w10_travel_v1",
         "seed_scenario_library_quiet_zone_conflict_v1",
         "seed_scenario_rental_repair_deposit_v1",
-        "seed_scenario_train_delay_connection_v1"
+        "seed_scenario_train_delay_connection_v1",
+        "seed_grammar_grammar_b1_reason_context_v1"
       ],
       "contentReferences": [
         {
@@ -5976,10 +5996,6 @@
         {
           "kind": "grammar",
           "id": "grammar_b2_explicit_formal_request"
-        },
-        {
-          "kind": "grammar",
-          "id": "grammar_b2_formal_regarding"
         },
         {
           "kind": "grammar",
@@ -6020,6 +6036,10 @@
         {
           "kind": "scenario",
           "id": "train_delay_connection"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_reason_context"
         }
       ]
     },
@@ -6555,7 +6575,7 @@
     {
       "id": "cluster_b2_formal_soft_reformulation_v1",
       "level": "b2",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
         "seed_grammar_grammar_b2_only_course_v1",
         "seed_vocab_pack_b2_misc_v1",
@@ -6563,7 +6583,6 @@
         "seed_grammar_grammar_b2_addition_even_v1",
         "seed_grammar_grammar_b2_futility_v1",
         "seed_grammar_grammar_b2_impression_appearance_v1",
-        "seed_grammar_grammar_b2_inevitability_v1",
         "seed_grammar_grammar_b2_instead_tradeoff_v1",
         "seed_grammar_grammar_b2_only_v1",
         "seed_grammar_grammar_b2_only_after_v1",
@@ -6637,10 +6656,6 @@
         {
           "kind": "grammar",
           "id": "grammar_b2_impression_appearance"
-        },
-        {
-          "kind": "grammar",
-          "id": "grammar_b2_inevitability"
         },
         {
           "kind": "grammar",
@@ -7159,7 +7174,7 @@
     {
       "id": "cluster_c1_evidence_limits_conclusion_v1",
       "level": "c1",
-      "revision": 9,
+      "revision": 11,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
@@ -7306,7 +7321,9 @@
         "seed_scenario_ai_translation_voice_loss_v1",
         "seed_scenario_c1_w10_methodology_v1",
         "seed_scenario_deepfake_verification_v1",
-        "seed_scenario_training_data_copyright_v1"
+        "seed_scenario_training_data_copyright_v1",
+        "seed_grammar_grammar_b2_negative_consequence_v1",
+        "seed_grammar_grammar_b2_despite_v1"
       ],
       "contentReferences": [
         {
@@ -7948,6 +7965,14 @@
         {
           "kind": "scenario",
           "id": "training_data_copyright"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_negative_consequence"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_despite"
         }
       ]
     },
@@ -9050,7 +9075,7 @@
     {
       "id": "cluster_c1_sustainable_lifecycle_v1",
       "level": "c1",
-      "revision": 9,
+      "revision": 12,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
         "seed_project_c1_sustainability_v1",
@@ -9099,7 +9124,10 @@
         "seed_scenario_c1_w10_fandom_v1",
         "seed_scenario_fan_translation_credit_v1",
         "seed_scenario_museum_label_multiple_views_v1",
-        "seed_scenario_tradition_reinterpreted_stage_v1"
+        "seed_scenario_tradition_reinterpreted_stage_v1",
+        "seed_grammar_grammar_b2_inevitability_v1",
+        "seed_grammar_grammar_b2_formal_regarding_v1",
+        "seed_grammar_grammar_b2_method_dependent_v1"
       ],
       "contentReferences": [
         {
@@ -9357,6 +9385,18 @@
         {
           "kind": "scenario",
           "id": "tradition_reinterpreted_stage"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_inevitability"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_formal_regarding"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_method_dependent"
         }
       ]
     },

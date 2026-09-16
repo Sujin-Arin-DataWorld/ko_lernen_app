@@ -2,8 +2,8 @@
 
 > 이 목록은 W0b3의 검토용 분류 큐입니다. 완료된 교육과정, 확정된 카드 누락 수, 전체 요구 분모를 뜻하지 않습니다.
 
-- 고유 작업 항목: 859
-- 고유 sampleLexis 후보: 201 (Phase×단어 맥락 329)
+- 고유 작업 항목: 845
+- 고유 sampleLexis 후보: 196 (Phase×단어 맥락 312)
 - Phase C18 병합 경고 참조: 72; C11 정보성 참조: 5
 - 자동 문법 진단은 의미·원 급·기존 연결 검토 전 확정 결손이 아닙니다.
 
@@ -11,9 +11,9 @@
 
 SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체크아웃의 줄바꿈 차이는 내용 변경으로 세지 않습니다.
 
-- `tool/curriculum_matrix_gaps.csv`: `20f250841610c51c772afb7c7dd157bd94b180db56b8b89aebd1caac8f304b92`
-- `tool/learning_phase_findings.csv`: `06909d55415ac3c7ea3da1f994a06e5798e125223d3748aa754f55594f01c496`
-- `tool/learning_phase_summary.json`: `a6c260f7a477a8e5abebf0fdada00c65608a52969bc4c0e2b261091df71d380c`
+- `tool/curriculum_matrix_gaps.csv`: `0b0c18d78d042a6e9685fe8583750a43a83d6f909dc677552ee2d35c80088bcd`
+- `tool/learning_phase_findings.csv`: `292b2c66122451c329a9801ec88a2e054031cde8a4841e2e8466df21ad2a76de`
+- `tool/learning_phase_summary.json`: `ae37ca748f434e72438d28f6b9316bcb896be343af3364f3b417a569a1e79824`
 - `tools/content_factory/cefr_matrix/phases.json`: `b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9`
 - `tools/content_factory/cefr_matrix/ko.json`: `c642d91721753ea990a5b7c0373b9cb1da8923ae984e0c583de2825fc26cb4cf`
 - `tools/content_factory/lexicon/nikl_kiiq_2017_grammar.csv`: `c7455e22537b8b841529a7da155510a4607ba5b8f33c1516045fa8566dd25014`
@@ -354,7 +354,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 높임, 말씀, 드리다
+- 근거: C16_lexis: Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 높임
 
 ### `A1|phase_warning|C16_lexis:KP01 · fixed_expressions_collocations|unassigned`
 
@@ -370,7 +370,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 4 개가 앱 어휘(A1 이하)에 없다: 직업, 회사, 동료, 업무
+- 근거: C16_lexis: Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 동료, 업무
 
 ### `A1|phase_warning|C16_lexis:KP01 · school_study_terms|unassigned`
 
@@ -442,7 +442,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 높임, 말씀, 드리다
+- 근거: C16_lexis: Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 높임
 
 ### `A1|phase_warning|C16_lexis:KP04 · weather_nature|unassigned`
 
@@ -556,14 +556,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
 - 근거: sampleLexis missing from current app vocabulary audit
 
-### `A1|sample_lexis|드리다|unassigned`
-
-- 항목: 드리다
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
 ### `A1|sample_lexis|마음에 들다|unassigned`
 
 - 항목: 마음에 들다
@@ -575,14 +567,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 ### `A1|sample_lexis|만 원|unassigned`
 
 - 항목: 만 원
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
-### `A1|sample_lexis|말씀|unassigned`
-
-- 항목: 말씀
 - 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
 - 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
@@ -644,14 +628,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
 - 근거: sampleLexis missing from current app vocabulary audit
 
-### `A1|sample_lexis|직업|unassigned`
-
-- 항목: 직업
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
 ### `A1|sample_lexis|창문|unassigned`
 
 - 항목: 창문
@@ -663,14 +639,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 ### `A1|sample_lexis|춥다|unassigned`
 
 - 항목: 춥다
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
-### `A1|sample_lexis|회사|unassigned`
-
-- 항목: 회사
 - 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
 - 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
@@ -763,14 +731,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 안내: 앱 표면 또는 배치 경로가 없다는 구조 진단만 확인되었습니다. 원고·평가의 존재 여부는 별도로 검토합니다.
 - 조치: verify_genre_content_and_placement; 기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
 - 근거: C18_surface: 현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다 | structural_gap: mode=R;count=0;surfaces=none
-
-### `A1|vocab_domain|professions_workplace|unassigned`
-
-- 항목: 직업·직장 어휘
-- 상태: needs_review; 확정 분류: 없음; 후보: assessment_missing, content_missing, existing_unlinked
-- 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
-- 조치: add_pack_in_domain
-- 근거: thin: words=7
 
 ### `A2|grammar_anchor|grammar_a1_future_modifier|unassigned`
 
@@ -1266,7 +1226,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 4 개가 앱 어휘(A2 이하)에 없다: 요금, 결제, 비용, 예산
+- 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(A2 이하)에 없다: 결제, 비용, 예산
 
 ### `A2|phase_warning|C16_lexis:KP05 · public_services_admin_vocab|unassigned`
 
@@ -1407,14 +1367,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 ### `A2|sample_lexis|예산|unassigned`
 
 - 항목: 예산
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
-### `A2|sample_lexis|요금|unassigned`
-
-- 항목: 요금
 - 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
 - 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
@@ -1604,14 +1556,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: verify_genre_content_and_placement; 기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
 - 근거: C18_surface: 현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다 | structural_gap: mode=R;count=0;surfaces=none
 
-### `A2|vocab_domain|technology_devices_internet|unassigned`
-
-- 항목: 기기·인터넷·디지털 어휘
-- 상태: needs_review; 확정 분류: 없음; 후보: assessment_missing, content_missing, existing_unlinked
-- 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
-- 조치: add_pack_in_domain
-- 근거: thin: words=6
-
 ### `B1|grammar_anchor|grammar_b1_about|unassigned`
 
 - 항목: grammar.csv row never shown in a scenario or media line
@@ -1621,14 +1565,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
 
 ### `B1|grammar_anchor|grammar_b1_as_kept_doing|unassigned`
-
-- 항목: grammar.csv row never shown in a scenario or media line
-- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
-- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
-- 조치: link_to_scenario_grammarIds
-- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
-
-### `B1|grammar_anchor|grammar_b1_as_soon_as|unassigned`
 
 - 항목: grammar.csv row never shown in a scenario or media line
 - 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
@@ -1725,14 +1661,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
 
 ### `B1|grammar_anchor|grammar_b1_prepared_state|unassigned`
-
-- 항목: grammar.csv row never shown in a scenario or media line
-- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
-- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
-- 조치: link_to_scenario_grammarIds
-- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
-
-### `B1|grammar_anchor|grammar_b1_reason_context|unassigned`
 
 - 항목: grammar.csv row never shown in a scenario or media line
 - 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
@@ -1947,14 +1875,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
 - 조치: add_grammar_row
 - 근거: missing_in_app: nikl_kiiq_2017
-
-### `B1|grammar_nikl|G3:-게 하다|unassigned`
-
-- 항목: 표현
-- 상태: needs_review; 확정 분류: 없음; 후보: wrong_level_or_sense
-- 안내: 레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.
-- 조치: relevel_or_add_same_level_row
-- 근거: level_mismatch: app_levels=B2;ids=grammar_b2_formal_arrangement
 
 ### `B1|grammar_nikl|G3:-고 나다|unassigned`
 
@@ -2466,7 +2386,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 4 개가 앱 어휘(B1 이하)에 없다: 요금, 결제, 비용, 예산
+- 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 결제, 비용, 예산
 
 ### `B1|phase_warning|C16_lexis:KP10 · public_services_admin_vocab|unassigned`
 
@@ -2498,7 +2418,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 4 개가 앱 어휘(B1 이하)에 없다: 요금, 결제, 비용, 예산
+- 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 결제, 비용, 예산
 
 ### `B1|phase_warning|C16_lexis:KP11 · society_economy_abstract_nouns|unassigned`
 
@@ -2764,6 +2684,22 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: add_pack_in_domain
 - 근거: thin: words=7
 
+### `B2|grammar_anchor|grammar_b1_as_soon_as|unassigned`
+
+- 항목: grammar.csv row never shown in a scenario or media line
+- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
+- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
+- 조치: link_to_scenario_grammarIds
+- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
+
+### `B2|grammar_anchor|grammar_b1_reason_context|unassigned`
+
+- 항목: grammar.csv row never shown in a scenario or media line
+- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
+- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
+- 조치: link_to_scenario_grammarIds
+- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
+
 ### `B2|grammar_anchor|grammar_b2_according_to|unassigned`
 
 - 항목: grammar.csv row never shown in a scenario or media line
@@ -2876,14 +2812,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: link_to_scenario_grammarIds
 - 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
 
-### `B2|grammar_anchor|grammar_b2_formal_regarding|unassigned`
-
-- 항목: grammar.csv row never shown in a scenario or media line
-- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
-- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
-- 조치: link_to_scenario_grammarIds
-- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
-
 ### `B2|grammar_anchor|grammar_b2_formal_written_request|unassigned`
 
 - 항목: grammar.csv row never shown in a scenario or media line
@@ -2940,23 +2868,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: link_to_scenario_grammarIds
 - 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
 
-### `B2|grammar_anchor|grammar_b2_inevitability|unassigned`
-
-- 항목: grammar.csv row never shown in a scenario or media line
-- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
-- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
-- 조치: link_to_scenario_grammarIds
-- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
-
 ### `B2|grammar_anchor|grammar_b2_instead_supplement|unassigned`
-
-- 항목: grammar.csv row never shown in a scenario or media line
-- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
-- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
-- 조치: link_to_scenario_grammarIds
-- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
-
-### `B2|grammar_anchor|grammar_b2_method_dependent|unassigned`
 
 - 항목: grammar.csv row never shown in a scenario or media line
 - 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
@@ -3091,6 +3003,14 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
 - 조치: add_grammar_row
 - 근거: missing: nikl=B1;app_levels=;ids=
+
+### `B2|grammar_brief|-(으)ㄴ/는 반면에|unassigned`
+
+- 항목: Jin brief highlight
+- 상태: needs_review; 확정 분류: 없음; 후보: wrong_level_or_sense
+- 안내: 레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.
+- 조치: review_level
+- 근거: level_mismatch: nikl=B1;app_levels=B1;ids=grammar_b2_contrast
 
 ### `B2|grammar_brief|-(으)ㄴ/는 편이다|unassigned`
 
@@ -3268,14 +3188,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: relevel_or_add_same_level_row
 - 근거: level_mismatch: app_levels=B1;ids=grammar_b1_while_already
 
-### `B2|grammar_nikl|G4:-는 대로|unassigned`
-
-- 항목: 표현
-- 상태: needs_review; 확정 분류: 없음; 후보: wrong_level_or_sense
-- 안내: 레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.
-- 조치: relevel_or_add_same_level_row
-- 근거: level_mismatch: app_levels=B1;ids=grammar_b1_as_soon_as
-
 ### `B2|grammar_nikl|G4:-는 듯|unassigned`
 
 - 항목: 표현 -ㄴ 듯, 은 듯 -ㄹ 듯, -을 듯
@@ -3347,14 +3259,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
 - 조치: add_grammar_row
 - 근거: missing_in_app: nikl_kiiq_2017
-
-### `B2|grammar_nikl|G4:-는지|unassigned`
-
-- 항목: 연결어미
-- 상태: needs_review; 확정 분류: 없음; 후보: wrong_level_or_sense
-- 안내: 레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.
-- 조치: relevel_or_add_same_level_row
-- 근거: level_mismatch: app_levels=A2/B1;ids=grammar_b1_since|grammar_b1_whether
 
 ### `B2|grammar_nikl|G4:-다니1|unassigned`
 
@@ -3884,6 +3788,30 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: verify_genre_content_and_placement; 기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
 - 근거: C18_surface: 현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다 | structural_gap: mode=P;count=0;surfaces=none
 
+### `C1|grammar_anchor|grammar_b2_formal_regarding|unassigned`
+
+- 항목: grammar.csv row never shown in a scenario or media line
+- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
+- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
+- 조치: link_to_scenario_grammarIds
+- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
+
+### `C1|grammar_anchor|grammar_b2_inevitability|unassigned`
+
+- 항목: grammar.csv row never shown in a scenario or media line
+- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
+- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
+- 조치: link_to_scenario_grammarIds
+- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
+
+### `C1|grammar_anchor|grammar_b2_method_dependent|unassigned`
+
+- 항목: grammar.csv row never shown in a scenario or media line
+- 상태: needs_review; 확정 분류: 없음; 후보: runtime_missing
+- 안내: 현재 시나리오/미디어 앵커가 없다는 후보 진단입니다. 다른 런타임 표면까지 확인하기 전 접근 불가나 내용 결손을 확정하지 않습니다.
+- 조치: link_to_scenario_grammarIds
+- 근거: no_scenario_anchor: not in any scenario.grammarIds / media.grammar_ids
+
 ### `C1|grammar_anchor|grammar_c1_burden_recipient_batch20|unassigned`
 
 - 항목: grammar.csv row never shown in a scenario or media line
@@ -4044,14 +3972,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: add_grammar_row
 - 근거: missing_in_app: nikl_kiiq_2017
 
-### `C1|grammar_nikl|G5:-게 마련이다|unassigned`
-
-- 항목: 표현
-- 상태: needs_review; 확정 분류: 없음; 후보: wrong_level_or_sense
-- 안내: 레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.
-- 조치: relevel_or_add_same_level_row
-- 근거: level_mismatch: app_levels=B2;ids=grammar_b2_inevitability
-
 ### `C1|grammar_nikl|G5:-게 생겼다|unassigned`
 
 - 항목: 표현
@@ -4075,14 +3995,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
 - 조치: add_grammar_row
 - 근거: missing_in_app: nikl_kiiq_2017
-
-### `C1|grammar_nikl|G5:-기 나름이다|unassigned`
-
-- 항목: 표현
-- 상태: needs_review; 확정 분류: 없음; 후보: wrong_level_or_sense
-- 안내: 레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.
-- 조치: relevel_or_add_same_level_row
-- 근거: level_mismatch: app_levels=B2;ids=grammar_b2_method_dependent
 
 ### `C1|grammar_nikl|G5:-기가 바쁘게|unassigned`
 
@@ -4268,14 +4180,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: add_grammar_row
 - 근거: missing_in_app: nikl_kiiq_2017
 
-### `C1|grammar_nikl|G5:-다가는|unassigned`
-
-- 항목: 연결어미
-- 상태: needs_review; 확정 분류: 없음; 후보: wrong_level_or_sense
-- 안내: 레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.
-- 조치: relevel_or_add_same_level_row
-- 근거: level_mismatch: app_levels=B2;ids=grammar_b2_negative_consequence
-
 ### `C1|grammar_nikl|G5:-다니1|unassigned`
 
 - 항목: 종결어미 -다니요, -라니1, -라니요1, 으라니1, -으라니요
@@ -4443,22 +4347,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
 - 조치: add_grammar_row
 - 근거: missing_in_app: nikl_kiiq_2017
-
-### `C1|grammar_nikl|G5:에 관하여|unassigned`
-
-- 항목: 표현
-- 상태: needs_review; 확정 분류: 없음; 후보: wrong_level_or_sense
-- 안내: 레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.
-- 조치: relevel_or_add_same_level_row
-- 근거: level_mismatch: app_levels=B2;ids=grammar_b2_formal_regarding
-
-### `C1|grammar_nikl|G5:에도 불구하고|unassigned`
-
-- 항목: 표현
-- 상태: needs_review; 확정 분류: 없음; 후보: wrong_level_or_sense
-- 안내: 레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.
-- 조치: relevel_or_add_same_level_row
-- 근거: level_mismatch: app_levels=B2;ids=grammar_b2_despite
 
 ### `C1|grammar_nikl|G5:이라든가|unassigned`
 

@@ -1,20 +1,27 @@
 {
   "version": 2,
   "batch": "c3_batch30_a1_reinforcement",
-  "status": "draft",
+  "status": "merged",
   "provenance": {
     "scope": "A1(1급) vocabulary reinforcement -- 62 headwords (19 adverbs, 13 pronouns, 13 dependent nouns/counters, 10 determiners, 4 numerals, 2 interjections, plus 1 numeral supplement) from the NIKL KIIQ 2017 grade-1 gap list (not yet live, not in the Batch 26-29 drafts). This is the last A1 reinforcement draft in the C3 series: after this batch the NIKL grade-1 gap is 0 headwords except two documented exclusions (see remainingA1Gap). Original clean-room authoring (KO/DE/EN), seeded only by NIKL 2017 kiiq grade-1 headword selection (KOGL Type-1). Follows the persona (character_profiles.json recurringCharacters) and liveliness rules set for Batch 26-29, plus new per-POS cloze-distractor rules for this batch's function-word classes (see posRules below). R8 revision (2026-09-16, Fable coordinator review of commit d6b0c430): see r8Revision below.",
     "rights": "original_clean_room",
     "seedSource": "tools/content_factory/lexicon/nikl_kiiq_2017_vocab.csv (grade=1, minus live assets/data/korean_vocab.csv, tools/content_factory/drafts/batch_26_a1_rows.csv, batch_27_a1_rows.csv, batch_28_a1_rows.csv and batch_29_a1_rows.csv)",
     "requiresJinReview": true,
-    "approval": {},
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-09-16",
+      "source": "owner chat: 'Batch 30·31 표본 승인'",
+      "sample": "7/62 (30) · 7/64 (31)"
+    },
     "modelLanguageQa": "PENDING_FABLE_REVIEW",
     "humanLanguageQaClaim": false,
     "wordSourceNote": "Batch 29's remainingA1Gap note grouped the leftover words into 4 buckets (adverbs 19, pronouns 13, dependent nouns 13, determiners 11) without separating numerals/interjections. Re-auditing the raw NIKL CSV by homograph: the 'determiners 11' bucket bundles 3 true 관형사 (무슨/어떤/여러) with 8 numeral/determiner homograph pairs (마흔/백만/서른/십만/아흔/억/여든/일흔, each tagged BOTH 관형사 and 수사 for the same string) that this batch treats as numbers (counter-swap technique, pos_de=Nomen matching how 백/천/만/이십.../칠십 are already tagged live) rather than true determiners (pos_de=Adjektiv, matching 새/다른/모든/몇 precedent). 억 is one of those 8 -- assigned to the live pack a1_numbers_2 (filling its order-4 gap, 11->12 words) rather than to the new a1_determiners_1 pack, since it is a numeral/determiner homograph, not a distinct extra word. The remaining pure numerals (구십/스물/팔십, no 관형사 homograph) and 2 interjections (그래/아) were not enumerated as separate buckets in Batch 29's prose note but are present in the raw NIKL CSV; this batch authors all of them. R8 (2026-09-16) added a 4th numeral, 천, that the initial word-list assembly had overlooked (see provenance.cheonDecisionNote) -- it was never actually excluded from the grade-1 gap list, only its old example sentence was deleted in an unrelated commit. 19+13+13+11(incl. 억)+4+2 = 62.",
     "malDecisionNote": "말다 stays excluded per Batch 29's R8 decision (its only NIKL grade-1 sense is the bound auxiliary '-지 말다', 2급 grammar, out of scope). Not re-litigated here.",
     "cheonmanDecisionNote": "The task brief's 'plus the hybrid 천만 if not yet live' supplement is now MOOT: Batch 29 already authored 천만 as a noun (vocab_a1_0776, 'ten million won'), and the raw NIKL CSV's second entry for this string ('천만02‧천만', pos '수사‧관형사') is the identical Korean string 천만, not a distinct word -- authoring it again in Batch 30 would create a duplicate headword. Left unclaimed; see remainingA1Gap.",
-    "cheonDecisionNote": "R8 (2026-09-16): both numbers are now in this batch. 억 stays in a1_numbers_2 (order 4, 11->12) per the task brief's explicit 'candidate 억 if grade 1' instruction. 천 (bare 'thousand') -- Fable's R8 review clarified that the deleted vocab_a1_0141 (commit 78030d42, 'delete vocab_a1_0141 (Jin option a)') dropped the SENTENCE, not the headword itself, and 천 was never actually removed from the grade-1 gap list; it was simply overlooked in the initial word-list assembly. Added to a1_misc_3 (order 8) with a fresh 1급 example ('이 빵은 삼천 원이에요.') and the same numeral+counter counter-swap technique as the other numeral-determiners.",
-    "r8Revision": "2026-09-16 Fable coordinator review of commit d6b0c430, 3-point R8: (1) Connective adverbs (그래서/그러니까/그러면/그럼/그런데/그렇지만/그리고/하지만) switched from cross-cluster Tier A to Tier B (bare dictionary-form verb or bare particle) -- a sentence-initial connective slot accepts almost any OTHER connective too ('저는 배가 아파요. 그런데/그리고 병원에 가요.' both still read as valid Korean), so the cross-cluster swaps were D7 violations, not genuine nonsense. 그러면/그럼 additionally needed a question-then-response frame (a bare declarative doesn't felicitously open with either) with a named persona as the addressee, giving 2 of this batch's 4 true persona rows. (2) 천 added (60->61 core words, 62 with the 억 supplement) -- see cheonDecisionNote; 판정 필요 1 (억 vs 천) is now resolved as BOTH. (3) Persona rows tightened to the 'true speaker with an explicit marker' standard (vocative or an unambiguous first-person self-identification) -- the previous draft's 9 generic '저는...' attributions were not markers and are dropped; the function-word-batch floor is >=4 (not the >=8 used for verb/noun batches), met exactly by 마야(씨 counter row)/준(states his own name)/민호,레나(그러면/그럼 vocatives)."
+    "cheonDecisionNote": "R8 (2026-09-16): both numbers are now in this batch. 억 stays in a1_numbers_2 (order 4, 11->12) per the task brief's explicit 'candidate 억 if grade 1' instruction. 천 (bare 'thousand') -- Fable's R8 review clarified that the deleted vocab_a1_0141 (commit 78030d42, 'delete vocab_a1_0141 (Jin option a)') dropped the SENTENCE, not the headword itself, and 천 was never actually removed from the grade-1 gap list; it was simply overlooked in the initial word-list assembly. Added to a1_misc_4 (order 8) with a fresh 1급 example ('이 빵은 삼천 원이에요.') and the same numeral+counter counter-swap technique as the other numeral-determiners.",
+    "r8Revision": "2026-09-16 Fable coordinator review of commit d6b0c430, 3-point R8: (1) Connective adverbs (그래서/그러니까/그러면/그럼/그런데/그렇지만/그리고/하지만) switched from cross-cluster Tier A to Tier B (bare dictionary-form verb or bare particle) -- a sentence-initial connective slot accepts almost any OTHER connective too ('저는 배가 아파요. 그런데/그리고 병원에 가요.' both still read as valid Korean), so the cross-cluster swaps were D7 violations, not genuine nonsense. 그러면/그럼 additionally needed a question-then-response frame (a bare declarative doesn't felicitously open with either) with a named persona as the addressee, giving 2 of this batch's 4 true persona rows. (2) 천 added (60->61 core words, 62 with the 억 supplement) -- see cheonDecisionNote; 판정 필요 1 (억 vs 천) is now resolved as BOTH. (3) Persona rows tightened to the 'true speaker with an explicit marker' standard (vocative or an unambiguous first-person self-identification) -- the previous draft's 9 generic '저는...' attributions were not markers and are dropped; the function-word-batch floor is >=4 (not the >=8 used for verb/noun batches), met exactly by 마야(씨 counter row)/준(states his own name)/민호,레나(그러면/그럼 vocatives).",
+    "packRenameNote": "Promotion-time fix (C3-T5, 2026-09-16): this draft was authored in parallel with Batch 29 and both independently proposed a new pack a1_misc_3. Batch 29 promoted first (commit f3a56241, PR #360) and now owns the live a1_misc_3 (12/12). Renamed this batch's new pack a1_misc_3 -> a1_misc_4 throughout (rows.csv pack_id column, this manifest's newPacks entry, and the Jin review packet) to avoid overwriting the live pack with colliding pack_order values. No KO/DE/EN wording changed -- Jin's 2026-09-16 sample approval covered the word content, not the pack number.",
+    "d6RedistributionNote": "C3-T5b (2026-09-16, Fable brief + correction): D6 per-batch reuse cap -- a distractor WORD as the learner sees it (its whole particle tail stripped: 에서|에게|한테|으로|부터|까지|처럼|보다|하고|이랑|이나|에는|에서는|에게는|들+particle|을|를|이|가|은|는|에|로|도|과|와|만|랑|께|나, never cut below 2 syllables; Tier-B bare particles by surface form) may appear at most 4x within the batch -- enforced on the promoted cloze set. Before: 언제 7, 무엇 5. Changed distractors (draft and live assets/data/cloze.json kept identical): cloze_a1_0732 언제는/무엇은 -> 얼마는/뭐는 (quantity/thing class vs the person answer 그는; 0732 is a non-waived pronoun row judged by D3 same-ending, so any NIKL grade-1 question word with the topic particle qualifies), cloze_a1_0740 언제는 -> 그는 (OPEN_SLOT_WAIVER row: distractors must stay inside distractor_rules.PRONOUN_FOLD_CATEGORY_MISMATCHES, and 그는 is the only pool member not already at its cap -- same person-in-thing-slot category violation as cloze_a1_0742's approved 그는), cloze_a1_0743 언제에 -> 누구에 (person + locative 에 without 에게, a particle-form 비문). After: every word <= 4 (언제 4, 무엇 4, 어디 4). The 으로/로 fold rows (0734/0741) are unchanged: their only cap-compliant pool is exactly the three words they already use. Copula folds (언제예요/무엇이에요/어디예요) are NOT treated as particles here (they are not in the inventory); folding them would put 언제 at 6 / 무엇 5 / 어디 5, unreachable without widening the shared PRONOUN_FOLD pool -- flagged to Fable, not acted on. Sentence text untouched; asserted by test_batch_30_draft.py's test_no_distractor_stem_reused_more_than_4_times_within_batch."
   },
   "posRules": {
     "adverbs_connective": "R8 (2026-09-16): 8 discourse connectives (그래서/그러니까/그러면/그런데/그럼/그렇지만/그리고/하지만) use TIER B, not cross-cluster Tier A -- a first draft grouped them into 4 semantic clusters (result/conditional-then/contrast/additive) and drew distractors from a different cluster, but Fable's review found a sentence-initial connective slot accepts almost any OTHER connective too ('저는 배가 아파요. 그런데/그리고 병원에 가요.' both still read as valid Korean, just a different nuance) -- a D7 violation, not genuine nonsense. Distractors are now a bare dictionary-form verb or a bare grammatical particle (2+1 or 3+0, mirroring the PREDICATE_SLOT_WAIVER composition), tagged 'open connective frame': a bare verb/particle cannot open a second sentence as a connector at all, always 비문. 그러면/그럼 (the 2 response-type connectives) also needed their example restructured into a question-then-response frame ('민호 씨, 배가 고파요? 그러면 같이 밥을 먹어요.' / '레나 씨, 오늘 바빠요? 그럼 내일 만나요.') since a bare declarative doesn't felicitously open with either -- these also double as 2 of this batch's 4 true persona rows (vocative addressee).",
@@ -29,23 +36,26 @@
     {
       "kind": "vocab",
       "draft": "tools/content_factory/drafts/batch_30_a1_rows.csv",
-      "collection": "korean_vocab",
+      "collection": null,
       "count": 62,
-      "level": "A1"
+      "level": "A1",
+      "review": "tools/content_factory/review/batch_30_a1_vocab_review.csv"
     },
     {
       "kind": "cloze",
       "draft": "tools/content_factory/drafts/batch_30_a1_cloze.json",
-      "collection": "cloze_items",
+      "collection": "items",
       "count": 62,
-      "level": "A1"
+      "level": "A1",
+      "review": "tools/content_factory/review/batch_30_a1_cloze_review.csv"
     },
     {
       "kind": "satz",
       "draft": "tools/content_factory/drafts/batch_30_a1_satz.json",
-      "collection": "satz_items",
+      "collection": "items",
       "count": 62,
-      "level": "A1"
+      "level": "A1",
+      "review": "tools/content_factory/review/batch_30_a1_satz_review.csv"
     }
   ],
   "recordCount": 186,
@@ -84,37 +94,55 @@
   "newPacks": [
     {
       "pack_id": "a1_adverbs_1",
-      "displayName": { "de": "Adverbien 1", "en": "Adverbs 1" },
+      "displayName": {
+        "de": "Adverbien 1",
+        "en": "Adverbs 1"
+      },
       "wordCount": 12,
       "note": "course-unit/motif assignment (vocabPackUnitMap) deferred to promotion"
     },
     {
       "pack_id": "a1_adverbs_2",
-      "displayName": { "de": "Adverbien 2", "en": "Adverbs 2" },
+      "displayName": {
+        "de": "Adverbien 2",
+        "en": "Adverbs 2"
+      },
       "wordCount": 7,
       "note": "PARTIAL pack (7/12): only 19 adverb headwords remain in the NIKL grade-1 gap list; 12 went to a1_adverbs_1, the remaining 7 form this pack rather than being padded with off-topic words."
     },
     {
       "pack_id": "a1_pronouns_1",
-      "displayName": { "de": "Pronomen 1", "en": "Pronouns 1" },
+      "displayName": {
+        "de": "Pronomen 1",
+        "en": "Pronouns 1"
+      },
       "wordCount": 12,
-      "note": "12 of the 13 remaining pronoun headwords; 제 (leftover) placed in a1_misc_3 instead. course-unit/motif assignment deferred to promotion."
+      "note": "12 of the 13 remaining pronoun headwords; 제 (leftover) placed in a1_misc_4 instead. course-unit/motif assignment deferred to promotion."
     },
     {
       "pack_id": "a1_counters_1",
-      "displayName": { "de": "Zähleinheiten 1", "en": "Counters 1" },
+      "displayName": {
+        "de": "Zähleinheiten 1",
+        "en": "Counters 1"
+      },
       "wordCount": 12,
-      "note": "12 of the 13 remaining dependent-noun headwords; 중 (leftover, the least classifier-like of the 13) placed in a1_misc_3 instead. course-unit/motif assignment deferred to promotion."
+      "note": "12 of the 13 remaining dependent-noun headwords; 중 (leftover, the least classifier-like of the 13) placed in a1_misc_4 instead. course-unit/motif assignment deferred to promotion."
     },
     {
       "pack_id": "a1_determiners_1",
-      "displayName": { "de": "Artikelwörter 1", "en": "Determiners 1" },
+      "displayName": {
+        "de": "Artikelwörter 1",
+        "en": "Determiners 1"
+      },
       "wordCount": 10,
       "note": "PARTIAL pack (10/12): 3 true determiners (무슨/어떤/여러) + 7 numeral-determiners (마흔/백만/서른/십만/아흔/여든/일흔); 억 (the 8th numeral-determiner) went to a1_numbers_2 instead (see packsFilledTo12), leaving this pack at 10."
     },
     {
-      "pack_id": "a1_misc_3",
-      "displayName": { "de": "Verschiedenes 3", "en": "Miscellaneous 3" },
+      "pack_id": "a1_misc_4",
+      "displayName": {
+        "de": "Verschiedenes 3",
+        "en": "Miscellaneous 3"
+      },
       "wordCount": 8,
       "note": "PARTIAL pack (8/12): leftover pronoun 제 + leftover dependent noun 중 + the 3 remaining pure numerals (구십/스물/팔십) + 천 (added R8, see provenance.cheonDecisionNote) + the 2 interjections (그래/아). 1+1+3+1+2 = 8. This is the last A1 reinforcement misc pack in the C3 series -- the NIKL grade-1 gap is now 0 except the 2 documented exclusions (see remainingA1Gap)."
     }
@@ -133,10 +161,10 @@
   },
   "reviewPacket": "docs/data/review_packets/batch_30_a1_jin_sample.md",
   "promotion": {
-    "runtime": false,
-    "assetsDataWritten": false,
-    "tts": false,
+    "runtime": true,
+    "assetsDataWritten": true,
+    "tts": true,
     "firebase": false,
-    "note": "DRAFT ONLY per level-canon program hard rule -- no writes to assets/data/**, no TTS synthesis, no Firebase until Jin approval."
+    "note": "Promoted 2026-09-16 (C3-T5) after Jin approval (Batch 30·31 approved together (last A1 reinforcement batch + first A2 promotion)). TTS synthesized 2026-09-16 (commit d52972da): tool/generate_tts.py --missing-from-storage --workers 8 uploaded the 214 clips Batch 30+31's new headwords needed (both batches in one run); tool/generate_tts.py --verify-storage then reported 0 missing, re-confirmed 2026-09-16 after the C3-T5b distractor redistribution (distractors are never synthesized, so that change created no new TTS work)."
   }
 }

@@ -10,7 +10,12 @@
         "공부를",
         "청소를",
         "빨래를"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Nächsten Monat ziehe ich um.",
+      "en": "I'm moving next month.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0312",
@@ -22,7 +27,12 @@
         "편지는",
         "태풍은",
         "안경은"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Sujin, ich räume das Zimmer auf.",
+      "en": "Sujin, I'll tidy up the room.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0313",
@@ -32,9 +42,14 @@
       "answer": "외출을",
       "distractors": [
         "우산을",
-        "열쇠를",
+        "신발을",
         "재료를"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Nachts gehe ich nicht allein aus.",
+      "en": "I don't go out alone at night.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0314",
@@ -46,7 +61,12 @@
         "걱정이",
         "짜증이",
         "정리가"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Das Wetter war schön, deshalb ist die Wäsche schnell getrocknet.",
+      "en": "The weather was nice, so the laundry dried quickly.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0315",
@@ -55,10 +75,15 @@
       "sentenceKo": "＿＿＿ 아침에 버려요.",
       "answer": "쓰레기는",
       "distractors": [
-        "걱정은",
-        "짜증은",
+        "태풍은",
+        "안개는",
         "취소는"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Den Müll bringe ich morgens raus.",
+      "en": "I take out the trash in the morning.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0316",
@@ -70,7 +95,12 @@
         "갔어요",
         "왔어요",
         "잤어요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Ich habe alle Kleider weggeworfen, die ich nicht mehr trage.",
+      "en": "I threw away all the clothes I don't wear anymore.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0317",
@@ -82,7 +112,12 @@
         "열쇠를",
         "지갑을",
         "안경을"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Am Wochenende mache ich einen Mittagsschlaf.",
+      "en": "On weekends I take a little nap.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0318",
@@ -94,7 +129,12 @@
         "가요",
         "와요",
         "자요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Jedes Wochenende putze ich die Fenster.",
+      "en": "I clean the windows every weekend.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0319",
@@ -106,7 +146,12 @@
         "가고",
         "오고",
         "자고"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Ich sauge noch kurz und gehe dann raus.",
+      "en": "I'll run the vacuum quickly and then go out.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0320",
@@ -118,7 +163,12 @@
         "가고",
         "오고",
         "울고"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Ich habe die Hausaufgaben beendet und dann ferngesehen.",
+      "en": "I finished my homework and then watched TV.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0321",
@@ -130,7 +180,12 @@
         "앉아요",
         "서요",
         "걸어요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Bevor ich Sport mache, ziehe ich mich um.",
+      "en": "I change clothes before exercising.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0322",
@@ -142,7 +197,12 @@
         "쓰다",
         "먹다",
         "에게"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Gefühle",
+      "de": "Christian, haben Sie irgendwelche Sorgen? Ich helfe Ihnen.",
+      "en": "Christian, do you have any worries? I'll help you.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0323",
@@ -154,7 +214,12 @@
         "우산이",
         "편지가",
         "사진이"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Gefühle",
+      "de": "Der Stau war so schlimm, dass ich genervt war.",
+      "en": "The traffic was so bad that I got annoyed.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0324",
@@ -166,7 +231,12 @@
         "가다",
         "돕다",
         "에게"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Gefühle",
+      "de": "Sujin, werd nicht wütend, sag mir einfach, was los ist.",
+      "en": "Sujin, don't get angry, just tell me what's up.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0325",
@@ -178,7 +248,12 @@
         "다시",
         "같이",
         "곧"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Gefühle",
+      "de": "Jun, ich habe mich total erschreckt!",
+      "en": "Jun, I was totally startled!",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0326",
@@ -190,7 +265,12 @@
         "오다",
         "팔다",
         "랑"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Gefühle",
+      "de": "Meine Eltern haben sich über die Erfolgsnachricht sehr gefreut.",
+      "en": "My parents were really pleased about the news that I passed.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0327",
@@ -202,7 +282,12 @@
         "가다",
         "고르다",
         "에게"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Gefühle",
+      "de": "Der Hund war krank, deshalb war das Kind sehr traurig.",
+      "en": "The dog was sick, so the child was very sad.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0328",
@@ -214,7 +299,12 @@
         "짜요",
         "셔요",
         "매워요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Beschreibung",
+      "de": "Diese Methode ist wirklich einfach.",
+      "en": "This method is really simple.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0329",
@@ -226,7 +316,12 @@
         "셔요",
         "짧아요",
         "두꺼워요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Beschreibung",
+      "de": "Meine kleine Schwester hat wirklich einen guten Charakter.",
+      "en": "My little sibling has a really kind personality.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0330",
@@ -238,7 +333,12 @@
         "얇네요",
         "두껍네요",
         "딱딱하네요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Beschreibung",
+      "de": "Wahnsinn, Sujin, Sie sind wirklich klug!",
+      "en": "Wow, Sujin, you're really smart!",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0331",
@@ -250,7 +350,12 @@
         "뾰족해요",
         "매끈해요",
         "둥글어요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Beschreibung",
+      "de": "An Regentagen ist es mühsam, rauszugehen.",
+      "en": "On rainy days, going out is a hassle.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0332",
@@ -262,7 +367,12 @@
         "얇아요",
         "두꺼워요",
         "뾰족해요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Beschreibung",
+      "de": "Für heute reicht das so aus.",
+      "en": "This much is enough for today.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0333",
@@ -274,7 +384,12 @@
         "짜요",
         "셔요",
         "매워요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Beschreibung",
+      "de": "Diese Tasche ist zwar alt, aber immer noch stabil.",
+      "en": "This bag is old, but it's still sturdy.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0334",
@@ -286,7 +401,12 @@
         "시계가",
         "열쇠가",
         "지갑이"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Wetter",
+      "de": "Im Sommer beginnt normalerweise die Regenzeit.",
+      "en": "The monsoon usually starts in summer.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0335",
@@ -298,7 +418,12 @@
         "걱정이",
         "짜증이",
         "연락처가"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Wetter",
+      "de": "Heute Morgen lag dichter Nebel.",
+      "en": "There was a lot of fog this morning.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0336",
@@ -307,10 +432,15 @@
       "sentenceKo": "이번 주말에 ＿＿＿ 올 거예요.",
       "answer": "태풍이",
       "distractors": [
-        "열쇠가",
-        "재료가",
-        "우산이"
-      ]
+        "계단이",
+        "호수가",
+        "벽이"
+      ],
+      "level": "a2",
+      "topic": "Wetter",
+      "de": "Dieses Wochenende kommt ein Taifun.",
+      "en": "A typhoon is coming this weekend.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0337",
@@ -319,10 +449,15 @@
       "sentenceKo": "엘리베이터가 고장 나서 ＿＿＿ 올라갔어요.",
       "answer": "계단으로",
       "distractors": [
-        "우산으로",
-        "편지로",
+        "우유로",
+        "카메라로",
         "사진으로"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Wohnen",
+      "de": "Der Aufzug war kaputt, deshalb bin ich die Treppe hochgegangen.",
+      "en": "The elevator was broken, so I went up the stairs.",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0338",
@@ -331,10 +466,15 @@
       "sentenceKo": "＿＿＿ 나무를 심었어요.",
       "answer": "마당에",
       "distractors": [
-        "우산에",
-        "편지에",
-        "사진에"
-      ]
+        "책에",
+        "거울에",
+        "컴퓨터에"
+      ],
+      "level": "a2",
+      "topic": "Wohnen",
+      "de": "Ich habe im Garten einen Baum gepflanzt.",
+      "en": "I planted a tree in the yard.",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0339",
@@ -344,9 +484,14 @@
       "answer": "벽에",
       "distractors": [
         "우산에",
-        "열쇠에",
-        "지갑에"
-      ]
+        "컵에",
+        "사과에"
+      ],
+      "level": "a2",
+      "topic": "Wohnen",
+      "de": "Ich habe ein Familienfoto an die Wand gehängt.",
+      "en": "I hung a family photo on the wall.",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0340",
@@ -358,7 +503,12 @@
         "공부를",
         "청소를",
         "빨래를"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Freizeit",
+      "de": "Ich bin mit meinem Vater zum Angeln an den Fluss gefahren.",
+      "en": "I went fishing at the river with my father.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0341",
@@ -370,7 +520,12 @@
         "우산",
         "편지",
         "사진"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Freizeit",
+      "de": "Lena, wollen Sie mit mir Badminton spielen?",
+      "en": "Lena, do you want to play badminton with me?",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0342",
@@ -379,10 +534,15 @@
       "sentenceKo": "아이들이 학교에서 오면 ＿＿＿ 줘요.",
       "answer": "간식을",
       "distractors": [
-        "걱정을",
+        "취소를",
         "짜증을",
         "정리를"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "Wenn die Kinder von der Schule kommen, gebe ich ihnen einen Snack.",
+      "en": "When the kids come home from school, I give them a snack.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0343",
@@ -391,10 +551,15 @@
       "sentenceKo": "요리하기 전에 ＿＿＿ 준비해요.",
       "answer": "재료부터",
       "distractors": [
-        "우산부터",
-        "편지부터",
-        "사진부터"
-      ]
+        "호수부터",
+        "두통부터",
+        "안개부터"
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "Bevor ich koche, bereite ich zuerst die Zutaten vor.",
+      "en": "Before cooking, I prepare the ingredients first.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0344",
@@ -403,10 +568,15 @@
       "sentenceKo": "이 국에 ＿＿＿ 좀 더 넣으세요.",
       "answer": "간장을",
       "distractors": [
-        "우산을",
+        "가방을",
         "편지를",
-        "사진을"
-      ]
+        "카메라를"
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "Geben Sie noch etwas mehr Sojasoße in diese Suppe.",
+      "en": "Put a bit more soy sauce in this soup.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0345",
@@ -418,7 +588,12 @@
         "열쇠를",
         "지갑을",
         "안경을"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "Zuerst gibt man Öl in die Pfanne.",
+      "en": "First, you put oil in the pan.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0346",
@@ -430,7 +605,12 @@
         "걱정이",
         "짜증이",
         "정리가"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Einkaufen",
+      "de": "Das bestellte Paket ist heute angekommen.",
+      "en": "The parcel I ordered arrived today.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0347",
@@ -439,10 +619,15 @@
       "sentenceKo": "이 ＿＿＿ 지금 세 개 남았어요.",
       "answer": "상품은",
       "distractors": [
-        "걱정은",
+        "외출은",
         "취소는",
         "저금은"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Einkaufen",
+      "de": "Von dieser Ware sind jetzt noch drei Stück übrig.",
+      "en": "There are only three of this product left now.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0348",
@@ -451,10 +636,15 @@
       "sentenceKo": "저기요, ＿＿＿ 좀 해 주세요.",
       "answer": "계산",
       "distractors": [
-        "시계",
+        "연필",
         "모자",
         "신발"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Einkaufen",
+      "de": "Entschuldigung, machen Sie das bitte fertig.",
+      "en": "Excuse me, could you total it up, please.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0349",
@@ -463,10 +653,15 @@
       "sentenceKo": "＿＿＿ 잘못 들어간 것 같아요.",
       "answer": "주문이",
       "distractors": [
-        "시계가",
-        "모자가",
-        "신발이"
-      ]
+        "장마가",
+        "두통이",
+        "낮잠이"
+      ],
+      "level": "a2",
+      "topic": "Einkaufen",
+      "de": "Es scheint, dass die Bestellung falsch aufgenommen wurde.",
+      "en": "It seems the order was entered wrong.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0350",
@@ -478,7 +673,12 @@
         "도와줬어요",
         "빌렸어요",
         "끝났어요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Bildung",
+      "de": "Meine Tochter wurde dieses Jahr eingeschult.",
+      "en": "My daughter started elementary school this year.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0351",
@@ -490,7 +690,12 @@
         "일기가",
         "그림이",
         "지도가"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Bildung",
+      "de": "Bei diesem Kurs ist die Anwesenheit wirklich wichtig.",
+      "en": "Attendance is really important in this class.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0352",
@@ -499,10 +704,15 @@
       "sentenceKo": "매달 조금씩 ＿＿＿ 해요.",
       "answer": "저금을",
       "distractors": [
-        "안경을",
-        "시계를",
-        "모자를"
-      ]
+        "가방을",
+        "연필을",
+        "냉장고를"
+      ],
+      "level": "a2",
+      "topic": "Geld",
+      "de": "Ich spare jeden Monat ein bisschen.",
+      "en": "I save a little bit every month.",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0353",
@@ -514,7 +724,12 @@
         "모자가",
         "열쇠가",
         "지갑이"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Geld",
+      "de": "Die Telefonrechnung ist diesen Monat sehr hoch ausgefallen.",
+      "en": "This month's phone bill came out really high.",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0354",
@@ -523,10 +738,15 @@
       "sentenceKo": "이 ＿＿＿ 사람이 많이 안 살아요.",
       "answer": "섬에는",
       "distractors": [
-        "우산에는",
-        "열쇠에는",
-        "지갑에는"
-      ]
+        "컴퓨터에는",
+        "의자에는",
+        "가방에는"
+      ],
+      "level": "a2",
+      "topic": "Natur & Draußen",
+      "de": "Auf dieser Insel leben nicht viele Menschen.",
+      "en": "Not many people live on this island.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0355",
@@ -538,7 +758,12 @@
         "지도",
         "그림",
         "일기"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Natur & Draußen",
+      "de": "Ich bin um den See herum spazieren gegangen.",
+      "en": "I took a walk around the lake.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0356",
@@ -547,10 +772,15 @@
       "sentenceKo": "오늘 저녁에 ＿＿＿ 오시기로 했어요.",
       "answer": "고모도",
       "distractors": [
-        "우산도",
-        "편지도",
-        "사진도"
-      ]
+        "의자도",
+        "책도",
+        "우유도"
+      ],
+      "level": "a2",
+      "topic": "Partnerschaft & koreanische Familie",
+      "de": "Heute Abend kommt auch meine Tante (väterlicherseits) dazu.",
+      "en": "My aunt is also coming to dinner tonight.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0357",
@@ -562,7 +792,12 @@
         "시계가",
         "모자가",
         "신발이"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Partnerschaft & koreanische Familie",
+      "de": "Mein Onkel hat mir viele leckere Sachen gekauft.",
+      "en": "My uncle bought me a lot of delicious things.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0358",
@@ -574,7 +809,12 @@
         "지도",
         "그림",
         "일기"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Partnerschaft & koreanische Familie",
+      "de": "An Seollal besuchen wir auch das Haus meiner Tante (mütterlicherseits).",
+      "en": "On Seollal, we also visit my aunt's house.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0359",
@@ -583,10 +823,15 @@
       "sentenceKo": "이번 ＿＿＿ 가족이 다 모여요.",
       "answer": "명절에는",
       "distractors": [
-        "우산에는",
-        "사진에는",
-        "편지에는"
-      ]
+        "빵에는",
+        "양말에는",
+        "우유에는"
+      ],
+      "level": "a2",
+      "topic": "Partnerschaft & koreanische Familie",
+      "de": "Zu diesem Feiertag kommt die ganze Familie zusammen.",
+      "en": "The whole family is gathering for this holiday.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0360",
@@ -595,10 +840,15 @@
       "sentenceKo": "추석에 ＿＿＿ 오랜만에 만났어요.",
       "answer": "조카들을",
       "distractors": [
-        "우산들을",
-        "열쇠들을",
-        "지갑들을"
-      ]
+        "거울들을",
+        "카메라들을",
+        "사과들을"
+      ],
+      "level": "a2",
+      "topic": "Partnerschaft & koreanische Familie",
+      "de": "An Chuseok habe ich meine Neffen und Nichten nach langer Zeit wiedergesehen.",
+      "en": "I saw my nieces and nephews again at Chuseok after a long time.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0361",
@@ -607,10 +857,15 @@
       "sentenceKo": "고향 ＿＿＿ 다 저를 알아봐요.",
       "answer": "이웃들은",
       "distractors": [
-        "우산들은",
-        "편지들은",
-        "사진들은"
-      ]
+        "의자들은",
+        "빵들은",
+        "컴퓨터들은"
+      ],
+      "level": "a2",
+      "topic": "Partnerschaft & koreanische Familie",
+      "de": "Die Nachbarn in meiner Heimatstadt erkennen mich alle.",
+      "en": "The neighbors in my hometown all recognize me.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0362",
@@ -622,7 +877,12 @@
         "도와줬어요",
         "빌렸어요",
         "끝났어요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "약속과 일정",
+      "de": "Es hat geregnet, deshalb habe ich die Verabredung abgesagt.",
+      "en": "It rained, so I cancelled the appointment.",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0363",
@@ -634,7 +894,12 @@
         "보다",
         "알다",
         "에게"
-      ]
+      ],
+      "level": "a2",
+      "topic": "약속과 일정",
+      "de": "Ich reserviere den Besprechungsraum schon im Voraus.",
+      "en": "I'll reserve the meeting room in advance.",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0364",
@@ -643,10 +908,15 @@
       "sentenceKo": "안드레아 씨는 이 ＿＿＿ 오래 일하셨어요?",
       "answer": "직장에서",
       "distractors": [
-        "우산에서",
-        "편지에서",
-        "사진에서"
-      ]
+        "컵에서",
+        "양말에서",
+        "사과에서"
+      ],
+      "level": "a2",
+      "topic": "Beruf",
+      "de": "Andrea, arbeiten Sie schon lange an diesem Arbeitsplatz?",
+      "en": "Andrea, have you been working at this workplace for a long time?",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0365",
@@ -655,10 +925,15 @@
       "sentenceKo": "여기서 ＿＿＿ 세 정거장이에요.",
       "answer": "전철로",
       "distractors": [
-        "열쇠로",
-        "지갑으로",
+        "컵으로",
+        "빵으로",
         "안경으로"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Verkehr",
+      "de": "Von hier sind es drei Stationen mit der U-Bahn.",
+      "en": "It's three stops from here by subway.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0366",
@@ -670,7 +945,12 @@
         "지도가",
         "그림이",
         "일기가"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Technologie",
+      "de": "Aus meinem Handy kommt ein komisches Geräusch.",
+      "en": "A strange sound is coming from my phone.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0367",
@@ -682,7 +962,12 @@
         "연락처예요",
         "직장이에요",
         "휴대폰이에요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Menschen & Berufe",
+      "de": "Mein Onkel ist Beamter.",
+      "en": "My uncle is a civil servant.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0368",
@@ -691,10 +976,15 @@
       "sentenceKo": "＿＿＿ 심해서 약국에 왔어요.",
       "answer": "두통이",
       "distractors": [
-        "우산이",
-        "편지가",
+        "거울이",
+        "연필이",
         "사진이"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Apotheke",
+      "de": "Ich habe starke Kopfschmerzen, deshalb bin ich in die Apotheke gekommen.",
+      "en": "I have a bad headache, so I came to the pharmacy.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0369",
@@ -706,7 +996,12 @@
         "냉장고를",
         "창문을",
         "정원을"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kommunikation",
+      "de": "Ich habe mein Handy zu Hause liegen lassen.",
+      "en": "I left my phone at home.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0370",
@@ -718,7 +1013,12 @@
         "읽다",
         "먹다",
         "한테"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kommunikation",
+      "de": "Daniel, ich habe dir eine Nachricht geschickt, hast du sie gesehen?",
+      "en": "Daniel, I sent you a message, did you check it?",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0371",
@@ -730,7 +1030,12 @@
         "도서관을",
         "극장을",
         "시장을"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kommunikation",
+      "de": "Ich habe eine Notiz auf dem Schreibtisch hinterlassen.",
+      "en": "I left a note on the desk.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0372",
@@ -742,7 +1047,12 @@
         "걱정이",
         "정리가",
         "외출이"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kommunikation",
+      "de": "Von Hyuna ist immer noch keine Antwort gekommen.",
+      "en": "I still haven't gotten a reply from Hyuna.",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0373",
@@ -754,7 +1064,12 @@
         "타다",
         "모르다",
         "와"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kommunikation",
+      "de": "Könnten Sie mir bitte Ihre Kontaktdaten hinterlassen?",
+      "en": "Could you leave your contact information, please?",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0374",
@@ -766,7 +1081,12 @@
         "갈게요",
         "올게요",
         "잘게요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kommunikation",
+      "de": "Entschuldigung, aber ich muss jetzt auflegen.",
+      "en": "Sorry, but I need to hang up now.",
+      "courseUnitId": "a2_03_chat_relationships"
     }
   ]
 }

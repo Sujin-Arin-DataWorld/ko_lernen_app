@@ -45,7 +45,6 @@ A1,text_type,menu_pricelist_timetable,메뉴·가격표·시간표,structural_ga
 A1,text_type,personal_note_postcard,메모·엽서·짧은 쪽지,structural_gap,mode=P;count=0;surfaces=none,verify_genre_content_and_placement
 A1,text_type,public_announcement_spoken,안내 방송,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
 A1,text_type,sign_notice_short,표지판·짧은 안내문,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
-A1,vocab_domain,professions_workplace,직업·직장 어휘,thin,words=7,add_pack_in_domain
 A2,grammar_anchor,grammar_a1_future_modifier,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a1_past_modifier,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 A2,grammar_anchor,grammar_a1_polite_prohibition,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -122,10 +121,8 @@ A2,text_type,instructions_manual_recipe,사용 설명서·조리법·지시문,s
 A2,text_type,narrative_story_diary,이야기·일기·서사문,structural_gap,mode=P;count=0;surfaces=none,verify_genre_content_and_placement
 A2,text_type,social_media_post_comment,SNS 게시물·댓글·포럼,missing,mode=P;count=0;surfaces=scenario,add_items_of_this_genre
 A2,text_type,written_notice_announcement,공지문·안내문,structural_gap,mode=R;count=0;surfaces=none,verify_genre_content_and_placement
-A2,vocab_domain,technology_devices_internet,기기·인터넷·디지털 어휘,thin,words=6,add_pack_in_domain
 B1,grammar_anchor,grammar_b1_about,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_as_kept_doing,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
-B1,grammar_anchor,grammar_b1_as_soon_as,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_concede_but,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_conceded_context_batch20,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_consequence,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -138,7 +135,6 @@ B1,grammar_anchor,grammar_b1_near_miss,grammar.csv row never shown in a scenario
 B1,grammar_anchor,grammar_b1_negative_cause,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_planned_future,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_prepared_state,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
-B1,grammar_anchor,grammar_b1_reason_context,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_recalled_past,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_scheduled_arrangement,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B1,grammar_anchor,grammar_b1_self_prompt,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -165,7 +161,6 @@ B1,grammar_brief,-다고/라고 하다,Jin brief highlight,level_mismatch,nikl=;
 B1,grammar_brief,-더라도,Jin brief highlight,level_mismatch,nikl=B2;app_levels=B2;ids=grammar_b2_even_if,review_level
 B1,grammar_brief,-아/어 버리다,Jin brief highlight,missing,nikl=B2;app_levels=;ids=,add_grammar_row
 B1,grammar_nikl,-거든1,연결어미 거들랑,missing_in_app,nikl_kiiq_2017,add_grammar_row
-B1,grammar_nikl,-게 하다,표현,level_mismatch,app_levels=B2;ids=grammar_b2_formal_arrangement,relevel_or_add_same_level_row
 B1,grammar_nikl,-고 나다,표현,level_mismatch,app_levels=A2;ids=grammar_a2_after_finishing,relevel_or_add_same_level_row
 B1,grammar_nikl,-고 말다,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-고 싶어 하다,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
@@ -237,6 +232,8 @@ B1,text_type,presentation_briefing_talk,발표·브리핑,missing,mode=P;count=0
 B1,text_type,review_critique_text,리뷰·비평문,structural_gap,mode=P;count=0;surfaces=none,verify_genre_content_and_placement
 B1,text_type,social_media_post_comment,SNS 게시물·댓글·포럼,missing,mode=R;count=0;surfaces=scenario,add_items_of_this_genre
 B1,vocab_domain,language_metalanguage,언어·문법·화법 메타언어,thin,words=7,add_pack_in_domain
+B2,grammar_anchor,grammar_b1_as_soon_as,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
+B2,grammar_anchor,grammar_b1_reason_context,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_according_to,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_addition_even,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_as_if,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -251,7 +248,6 @@ B2,grammar_anchor,grammar_b2_formal_concession,grammar.csv row never shown in a 
 B2,grammar_anchor,grammar_b2_formal_intention,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_formal_reason,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_formal_reference,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
-B2,grammar_anchor,grammar_b2_formal_regarding,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_formal_written_request,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_futility,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_granted_limit,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -259,9 +255,7 @@ B2,grammar_anchor,grammar_b2_impression_appearance,grammar.csv row never shown i
 B2,grammar_anchor,grammar_b2_in_light_of,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_including_start,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_inclusion,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
-B2,grammar_anchor,grammar_b2_inevitability,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_instead_supplement,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
-B2,grammar_anchor,grammar_b2_method_dependent,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_not_by_one_metric,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_only,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_only_after,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -278,6 +272,7 @@ B2,grammar_anchor,grammar_b2_whether_or_not,grammar.csv row never shown in a sce
 B2,grammar_anchor,grammar_b2_worth_doing,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_brief,-(으)ㄴ 덕분에,Jin brief highlight,missing,nikl=;app_levels=;ids=,add_grammar_row
 B2,grammar_brief,-(으)ㄴ/는 대신에,Jin brief highlight,missing,nikl=B1;app_levels=;ids=,add_grammar_row
+B2,grammar_brief,-(으)ㄴ/는 반면에,Jin brief highlight,level_mismatch,nikl=B1;app_levels=B1;ids=grammar_b2_contrast,review_level
 B2,grammar_brief,-(으)ㄴ/는 편이다,Jin brief highlight,level_mismatch,nikl=B1;app_levels=B1;ids=grammar_b1_tendency,review_level
 B2,grammar_brief,-(으)ㄹ 리가 없다,Jin brief highlight,missing,nikl=;app_levels=;ids=,add_grammar_row
 B2,grammar_brief,-(으)ㄹ 법하다,Jin brief highlight,missing,nikl=C1;app_levels=;ids=,add_grammar_row
@@ -300,7 +295,6 @@ B2,grammar_nikl,-고서,"연결어미 -고서는, -고서야",missing_in_app,nik
 B2,grammar_nikl,-나 싶다,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,-나3,종결어미,level_mismatch,app_levels=A2;ids=grammar_a1_or_particle|grammar_a2_gentle_question,relevel_or_add_same_level_row
 B2,grammar_nikl,-는 김에,표현,level_mismatch,app_levels=B1;ids=grammar_b1_while_already,relevel_or_add_same_level_row
-B2,grammar_nikl,-는 대로,표현,level_mismatch,app_levels=B1;ids=grammar_b1_as_soon_as,relevel_or_add_same_level_row
 B2,grammar_nikl,-는 듯,"표현 -ㄴ 듯, 은 듯 -ㄹ 듯, -을 듯",missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,-는 사이에,표현 -는 사이,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,-는 줄,"표현 -ㄴ 줄, -은 줄, ㄹ 줄, -을 줄",missing_in_app,nikl_kiiq_2017,add_grammar_row
@@ -310,7 +304,6 @@ B2,grammar_nikl,-는다거나2,"표현 -ㄴ다거나2, -다거나2, -라거나2"
 B2,grammar_nikl,-는다니2,"종결어미 -ㄴ다니2, -다니3, -라니3",missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,-는다면1,"연결어미 -ㄴ다면1, -다면1, -라면1",missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,-는다면서1,"종결어미 -ㄴ다면서1, -다면서1, -라면서1, -는다면서요, -다면서요, -라면서요",missing_in_app,nikl_kiiq_2017,add_grammar_row
-B2,grammar_nikl,-는지,연결어미,level_mismatch,app_levels=A2/B1;ids=grammar_b1_since|grammar_b1_whether,relevel_or_add_same_level_row
 B2,grammar_nikl,-다니1,"종결어미 -다니요, -라니1, -라니요1",missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,-더군,종결어미 -더군요,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,-더니,연결어미,missing_in_app,nikl_kiiq_2017,add_grammar_row
@@ -355,6 +348,9 @@ B2,text_type,news_article_report,신문 기사·보도문,structural_gap,mode=R;
 B2,text_type,presentation_briefing_talk,발표·브리핑,missing,mode=P;count=0;surfaces=scenario,add_items_of_this_genre
 B2,text_type,report_proposal_official,보고서·제안서·공식 문서,structural_gap,mode=R/P;count=0;surfaces=none,verify_genre_content_and_placement
 B2,text_type,review_critique_text,리뷰·비평문,structural_gap,mode=P;count=0;surfaces=none,verify_genre_content_and_placement
+C1,grammar_anchor,grammar_b2_formal_regarding,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
+C1,grammar_anchor,grammar_b2_inevitability,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
+C1,grammar_anchor,grammar_b2_method_dependent,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 C1,grammar_anchor,grammar_c1_burden_recipient_batch20,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 C1,grammar_anchor,grammar_c1_even_if_doing,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 C1,grammar_anchor,grammar_c1_insufficient_for,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
@@ -375,11 +371,9 @@ C1,grammar_brief,-다는 점에서,Jin brief highlight,level_mismatch,nikl=;app_
 C1,grammar_brief,-다는 측면에서,Jin brief highlight,missing,nikl=;app_levels=;ids=,add_grammar_row
 C1,grammar_discourse,objectivising,객관화(-는 것으로 나타나다/-는 것으로 보아),missing,no grammar.csv pattern matched,add_discourse_pattern_or_scenario_focus
 C1,grammar_nikl,-거라,종결어미,missing_in_app,nikl_kiiq_2017,add_grammar_row
-C1,grammar_nikl,-게 마련이다,표현,level_mismatch,app_levels=B2;ids=grammar_b2_inevitability,relevel_or_add_same_level_row
 C1,grammar_nikl,-게 생겼다,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
 C1,grammar_nikl,-고는,"연결어미 -곤, -고는 하다, -곤 하다",missing_in_app,nikl_kiiq_2017,add_grammar_row
 C1,grammar_nikl,-고말고,종결어미 -고말고요,missing_in_app,nikl_kiiq_2017,add_grammar_row
-C1,grammar_nikl,-기 나름이다,표현,level_mismatch,app_levels=B2;ids=grammar_b2_method_dependent,relevel_or_add_same_level_row
 C1,grammar_nikl,-기가 바쁘게,표현 <유의> -기가 무섭게,missing_in_app,nikl_kiiq_2017,add_grammar_row
 C1,grammar_nikl,-기가 쉽다,표현 <유의> -기 십상이다,missing_in_app,nikl_kiiq_2017,add_grammar_row
 C1,grammar_nikl,-기만 하다,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
@@ -403,7 +397,6 @@ C1,grammar_nikl,-는다니1,"표현 -다니2, -라니5, -으라니2, -자니2",m
 C1,grammar_nikl,-는데도,"표현 -ㄴ데도, -은데도",missing_in_app,nikl_kiiq_2017,add_grammar_row
 C1,grammar_nikl,-는데도 불구하고,"표현 -ㄴ데도 불구하고, -은데도 불구하고",missing_in_app,nikl_kiiq_2017,add_grammar_row
 C1,grammar_nikl,-다4,종결어미,missing_in_app,nikl_kiiq_2017,add_grammar_row
-C1,grammar_nikl,-다가는,연결어미,level_mismatch,app_levels=B2;ids=grammar_b2_negative_consequence,relevel_or_add_same_level_row
 C1,grammar_nikl,-다니1,"종결어미 -다니요, -라니1, -라니요1, 으라니1, -으라니요",missing_in_app,nikl_kiiq_2017,add_grammar_row
 C1,grammar_nikl,-더라고,종결어미 -더라고요,missing_in_app,nikl_kiiq_2017,add_grammar_row
 C1,grammar_nikl,-데,종결어미 -데요,missing_in_app,nikl_kiiq_2017,add_grammar_row
@@ -425,8 +418,6 @@ C1,grammar_nikl,-지1,연결어미,missing_in_app,nikl_kiiq_2017,add_grammar_row
 C1,grammar_nikl,는 말할 것도 없고,"표현 은 말할 것도 없고, <유의> 는 고사하고, 은 고사하고",missing_in_app,nikl_kiiq_2017,add_grammar_row
 C1,grammar_nikl,따라,조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
 C1,grammar_nikl,를 가지고,표현 을 가지고,missing_in_app,nikl_kiiq_2017,add_grammar_row
-C1,grammar_nikl,에 관하여,표현,level_mismatch,app_levels=B2;ids=grammar_b2_formal_regarding,relevel_or_add_same_level_row
-C1,grammar_nikl,에도 불구하고,표현,level_mismatch,app_levels=B2;ids=grammar_b2_despite,relevel_or_add_same_level_row
 C1,grammar_nikl,이라든가,"조사 라든가1, 이라든지, 라든지1",missing_in_app,nikl_kiiq_2017,add_grammar_row
 C1,grammar_nikl,조차,조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
 C1,register,haeyo_polite,production,absent,scenarios=0,add_scenario_in_register

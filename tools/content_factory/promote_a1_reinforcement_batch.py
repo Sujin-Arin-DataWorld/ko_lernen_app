@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Promote a C3 A1-reinforcement batch (26 or 27) from draft to live.
+"""Promote a C3 A1/A2-reinforcement batch (26-31) from draft to live.
 
 Generalizes promote_batch25_a1_reinforcement.py (kept untouched as the
 Batch 25 precedent/record) so the same promotion recipe can be re-run for
-any later same-shaped batch. Batches 26 and 27 were both Jin-approved
-2026-09-16 (owner chat, verbatim "Batch 26·27 승인") and both already carry
-fully-authored content at tools/content_factory/drafts/batch_<N>_a1_
-{rows.csv,cloze.json,satz.json} -- this script only:
+any later same-shaped batch, of either level. Batches 26 and 27 were both
+Jin-approved 2026-09-16 (owner chat, verbatim "Batch 26·27 승인") and both
+already carry fully-authored content at tools/content_factory/drafts/
+batch_<N>_<level>_{rows.csv,cloze.json,satz.json} -- this script only:
   1. computes each pack's courseUnitId/canDoSegmentId and injects
      `courseUnitId` into the draft cloze/satz items (draft == live, per
      validate_promoted_batch.py's exact-equality contract);
@@ -18,18 +18,42 @@ fully-authored content at tools/content_factory/drafts/batch_<N>_a1_
   6. writes the three review ledgers (상태=approved, Jin memo);
   7. flips the batch manifest to status=merged with structured Jin approval.
 
-Run:  promote_a1_reinforcement_batch.py --batch 26 --check   (dry run)
-      promote_a1_reinforcement_batch.py --batch 26 --apply
-      promote_a1_reinforcement_batch.py --batch 27 --check
-      promote_a1_reinforcement_batch.py --batch 27 --apply
-      promote_a1_reinforcement_batch.py --batch 28 --check
-      promote_a1_reinforcement_batch.py --batch 28 --apply
-      promote_a1_reinforcement_batch.py --batch 29 --check
-      promote_a1_reinforcement_batch.py --batch 29 --apply
+Batches 30 (A1) and 31 (A2) additionally ship a leaner draft cloze/satz
+schema (no level/topic/de/en/promptDe/promptEn -- just the game-contract
+fields plus sourceVocabId) to avoid duplicating data that already lives on
+the vocab row and can drift from it. This script derives those fields from
+each item's source vocab row (rows_by_id) via `setdefault`, so an
+already-full draft (Batch 26-29's schema) is left untouched while a lean
+draft (Batch 30+) gets them filled in before both the draft file rewrite
+and the live append -- preserving validate_promoted_batch.py's draft==live
+exact-equality contract either way.
+
+--level is required and must match the batch's actual level (a1/a2,
+case-insensitive) -- this is asserted against LEVEL_BY_BATCH so a typo'd
+flag fails loudly instead of silently mis-tagging content. Level threads
+through: draft/manifest/review-ledger file-name suffixes, the pack
+content-authority/segment level check, the injected item `level` field,
+cloze.json/satz_sentences.json meta.perLevel, and the inherited
+can_do_content_authorities.json rows.
+
+Run:  promote_a1_reinforcement_batch.py --batch 26 --level A1 --check   (dry run)
+      promote_a1_reinforcement_batch.py --batch 26 --level A1 --apply
+      promote_a1_reinforcement_batch.py --batch 27 --level A1 --check
+      promote_a1_reinforcement_batch.py --batch 27 --level A1 --apply
+      promote_a1_reinforcement_batch.py --batch 28 --level A1 --check
+      promote_a1_reinforcement_batch.py --batch 28 --level A1 --apply
+      promote_a1_reinforcement_batch.py --batch 29 --level A1 --check
+      promote_a1_reinforcement_batch.py --batch 29 --level A1 --apply
+      promote_a1_reinforcement_batch.py --batch 30 --level A1 --check
+      promote_a1_reinforcement_batch.py --batch 30 --level A1 --apply
+      promote_a1_reinforcement_batch.py --batch 31 --level A2 --check
+      promote_a1_reinforcement_batch.py --batch 31 --level A2 --apply
 
 Promote batches in order (lower number first) and commit between them so
 each batch's live-id-above-max invariant holds against the other's already-
-promoted rows.
+promoted rows. A1 and A2 batches are independent id/pack namespaces, so
+Batch 31 (A2) does not depend on Batch 30 (A1) having been promoted first,
+but the C3-T5 task order still does 30 then 31 for a clean per-batch diff.
 
 FOLLOW-UP CHECKLIST -- same as promote_batch25_a1_reinforcement.py's (not
 run by this script): TTS (functions/tts/build_canonical_manifest.py, then
@@ -93,20 +117,32 @@ APPROVAL_SOURCE = {
     27: "owner chat: 'Batch 26·27 승인'",
     28: "owner chat: 'Batch 28 승인'",
     29: "owner chat: 'Batch 29 표본 승인'",
+    30: "owner chat: 'Batch 30·31 표본 승인'",
+    31: "owner chat: 'Batch 30·31 표본 승인'",
 }
 BATCH_SAMPLE = {26: "7/66 rows (Batch 26); Batch 27 approved together, 7/63 rows",
                  27: "7/63 rows (Batch 27); Batch 26 approved together, 7/66 rows",
                  28: "7/63",
-                 29: "7/64"}
+                 29: "7/64",
+                 30: "7/62 (30) · 7/64 (31)",
+                 31: "7/62 (30) · 7/64 (31)"}
 # Task label per batch (26-28 were promoted together under C3-T3; 29 is
-# promoted separately under C3-T4) -- used in the memo/promotion-note text.
-TASK_LABEL = {26: "C3-T3", 27: "C3-T3", 28: "C3-T3", 29: "C3-T4"}
+# promoted separately under C3-T4; 30-31 together under C3-T5) -- used in
+# the memo/promotion-note text.
+TASK_LABEL = {26: "C3-T3", 27: "C3-T3", 28: "C3-T3", 29: "C3-T4", 30: "C3-T5", 31: "C3-T5"}
 TOGETHER_NOTE = {
     26: "Batch 26·27 approved together",
     27: "Batch 26·27 approved together",
     28: "Batch 28 approved on its own",
     29: "Batch 29 approved on its own (10.9% Jin sample, 7/64 rows)",
+    30: "Batch 30·31 approved together (last A1 reinforcement batch + first A2 promotion)",
+    31: "Batch 30·31 approved together (last A1 reinforcement batch + first A2 promotion)",
 }
+# Level of each batch (lowercase) -- asserted against the --level flag so a
+# mistyped flag fails loudly instead of silently mis-tagging content.
+LEVEL_BY_BATCH = {26: "a1", 27: "a1", 28: "a1", 29: "a1", 30: "a1", 31: "a2"}
+# NIKL kiiq grade number per level, used in the review-ledger field_notes text.
+LEVEL_GRADE = {"a1": 1, "a2": 2}
 
 
 def rj(p: Path):
@@ -146,11 +182,15 @@ def insert_sorted(lst, item, key):
         lst.append(item)
 
 
-def main(batch: int, apply: bool) -> None:
-    draft_rows_path = DRAFTS / f"batch_{batch}_a1_rows.csv"
-    draft_cloze_path = DRAFTS / f"batch_{batch}_a1_cloze.json"
-    draft_satz_path = DRAFTS / f"batch_{batch}_a1_satz.json"
-    manifest_path = DRAFTS / f"batch_{batch}_a1_reinforcement_manifest.json"
+def main(batch: int, level: str, apply: bool) -> None:
+    assert level == LEVEL_BY_BATCH[batch], (
+        f"--level {level} does not match batch {batch}'s known level "
+        f"{LEVEL_BY_BATCH[batch]!r}"
+    )
+    draft_rows_path = DRAFTS / f"batch_{batch}_{level}_rows.csv"
+    draft_cloze_path = DRAFTS / f"batch_{batch}_{level}_cloze.json"
+    draft_satz_path = DRAFTS / f"batch_{batch}_{level}_satz.json"
+    manifest_path = DRAFTS / f"batch_{batch}_{level}_reinforcement_manifest.json"
 
     draft_rows = read_vocab_csv(draft_rows_path)
     draft_cloze = rj(draft_cloze_path)["items"]
@@ -207,13 +247,27 @@ def main(batch: int, apply: bool) -> None:
             problems.append(f"pack {pack}: no direct vocabPack content reference")
             continue
         s = cl2seg.get(owner.get(pack))
-        if s is None or d["courseUnitId"] != s["parentCourseUnitId"] or d["level"] != "a1" or s["level"] != "a1":
+        if s is None or d["courseUnitId"] != s["parentCourseUnitId"] or d["level"] != level or s["level"] != level:
             problems.append(f"pack {pack}: content-authority/segment mismatch")
             continue
         pack_unit[pack] = d["courseUnitId"]
         pack_segment[pack] = s["id"]
 
     rows_by_id = {r["id"]: r for r in draft_rows}
+
+    # -- derive the lean draft schema's missing fields from the source vocab
+    #    row (Batch 30+); a no-op for an already-full draft (Batch 26-29) --
+    for c in draft_cloze:
+        r = rows_by_id[c["sourceVocabId"]]
+        c.setdefault("level", r["level"].lower())
+        c.setdefault("topic", r["topic"])
+        c.setdefault("de", r["example_german"])
+        c.setdefault("en", r["example_english"])
+    for s in draft_satz:
+        r = rows_by_id[s["sourceVocabId"]]
+        s.setdefault("level", r["level"].lower())
+        s.setdefault("promptDe", r["example_german"])
+        s.setdefault("promptEn", r["example_english"])
 
     # -- clozeTopicUnitMap coverage --
     ctu = cur["clozeTopicUnitMap"]
@@ -256,12 +310,12 @@ def main(batch: int, apply: bool) -> None:
     live_cloze.extend(draft_cloze)
     cloze_doc["items"] = live_cloze
     cloze_doc["meta"]["total"] = len(live_cloze)
-    cloze_doc["meta"]["perLevel"]["a1"] += len(draft_cloze)
+    cloze_doc["meta"]["perLevel"][level] += len(draft_cloze)
     wj(CLOZE_JSON, cloze_doc)
     live_satz.extend(draft_satz)
     satz_doc["items"] = live_satz
     satz_doc["meta"]["total"] = len(live_satz)
-    satz_doc["meta"]["perLevel"]["a1"] += len(draft_satz)
+    satz_doc["meta"]["perLevel"][level] += len(draft_satz)
     wj(SATZ_JSON, satz_doc)
 
     # -- can_do_content_authorities.json inherited rows --
@@ -271,14 +325,14 @@ def main(batch: int, apply: bool) -> None:
         inh.append({
             "kind": "cloze", "id": c["id"], "sourceKind": "vocabPack", "sourceId": pack,
             "sourceVocabId": c["sourceVocabId"], "sourceVocabFingerprintSha256": "0" * 64,
-            "level": "a1", "canDoSegmentId": pack_segment[pack], "courseUnitId": pack_unit[pack],
+            "level": level, "canDoSegmentId": pack_segment[pack], "courseUnitId": pack_unit[pack],
         })
     for s in draft_satz:
         pack = rows_by_id[s["sourceVocabId"]]["pack_id"]
         inh.append({
             "kind": "satz", "id": s["id"], "sourceKind": "vocabPack", "sourceId": pack,
             "sourceVocabId": s["sourceVocabId"], "sourceVocabFingerprintSha256": "0" * 64,
-            "level": "a1", "canDoSegmentId": pack_segment[pack], "courseUnitId": pack_unit[pack],
+            "level": level, "canDoSegmentId": pack_segment[pack], "courseUnitId": pack_unit[pack],
         })
 
     lst = auth["coverage"]["inheritedContentReferences"]
@@ -299,30 +353,32 @@ def main(batch: int, apply: bool) -> None:
 
     # -- review ledgers --
     REVIEW.mkdir(parents=True, exist_ok=True)
+    grade = LEVEL_GRADE[level]
     vocab_entries = [
-        (r["id"], "A1", r["korean"], r["german"], r["english"],
+        (r["id"], level.upper(), r["korean"], r["german"], r["english"],
          f"rights: original_clean_room; pack={r['pack_id']}; order={r['pack_order']}; boss=false; "
-         f"seed: NIKL 2017 kiiq grade-1 headword selection (KOGL 1유형); C3 Batch {batch} A1 reinforcement",
+         f"seed: NIKL 2017 kiiq grade-{grade} headword selection (KOGL 1유형); "
+         f"C3 Batch {batch} {level.upper()} reinforcement",
          "approved", memo)
         for r in draft_rows
     ]
     cloze_entries = [
-        (c["id"], "a1", c["fullKo"], c["de"], c["en"],
+        (c["id"], level, c["fullKo"], c["de"], c["en"],
          f"rights: original_clean_room; answer={c['answer']}; topic={c['topic']}; unit={c['courseUnitId']}; "
          f"derived from {c['sourceVocabId']}",
          "approved", memo)
         for c in draft_cloze
     ]
     satz_entries = [
-        (s["id"], "a1", s["targetKo"], s["promptDe"], s["promptEn"],
+        (s["id"], level, s["targetKo"], s["promptDe"], s["promptEn"],
          f"rights: original_clean_room; vocabKo={s['vocabKo']}; unit={s['courseUnitId']}; "
          f"source {s['sourceVocabId']}",
          "approved", memo)
         for s in draft_satz
     ]
-    write_review_csv(REVIEW / f"batch_{batch}_a1_vocab_review.csv", vocab_entries)
-    write_review_csv(REVIEW / f"batch_{batch}_a1_cloze_review.csv", cloze_entries)
-    write_review_csv(REVIEW / f"batch_{batch}_a1_satz_review.csv", satz_entries)
+    write_review_csv(REVIEW / f"batch_{batch}_{level}_vocab_review.csv", vocab_entries)
+    write_review_csv(REVIEW / f"batch_{batch}_{level}_cloze_review.csv", cloze_entries)
+    write_review_csv(REVIEW / f"batch_{batch}_{level}_satz_review.csv", satz_entries)
 
     # -- manifest: flip to merged + structured approval --
     approval = {
@@ -334,11 +390,11 @@ def main(batch: int, apply: bool) -> None:
     manifest["status"] = "merged"
     manifest["provenance"]["approval"] = approval
     manifest["artifacts"][0]["collection"] = None
-    manifest["artifacts"][0]["review"] = f"tools/content_factory/review/batch_{batch}_a1_vocab_review.csv"
+    manifest["artifacts"][0]["review"] = f"tools/content_factory/review/batch_{batch}_{level}_vocab_review.csv"
     manifest["artifacts"][1]["collection"] = "items"
-    manifest["artifacts"][1]["review"] = f"tools/content_factory/review/batch_{batch}_a1_cloze_review.csv"
+    manifest["artifacts"][1]["review"] = f"tools/content_factory/review/batch_{batch}_{level}_cloze_review.csv"
     manifest["artifacts"][2]["collection"] = "items"
-    manifest["artifacts"][2]["review"] = f"tools/content_factory/review/batch_{batch}_a1_satz_review.csv"
+    manifest["artifacts"][2]["review"] = f"tools/content_factory/review/batch_{batch}_{level}_satz_review.csv"
     manifest["promotion"] = {
         "runtime": True,
         "assetsDataWritten": True,
@@ -371,9 +427,10 @@ def main(batch: int, apply: bool) -> None:
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--batch", type=int, required=True, choices=(26, 27, 28, 29))
+    ap.add_argument("--batch", type=int, required=True, choices=(26, 27, 28, 29, 30, 31))
+    ap.add_argument("--level", type=str, required=True, choices=("a1", "a2", "A1", "A2"))
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--check", action="store_true")
     g.add_argument("--apply", action="store_true")
     args = ap.parse_args()
-    main(batch=args.batch, apply=args.apply)
+    main(batch=args.batch, level=args.level.lower(), apply=args.apply)

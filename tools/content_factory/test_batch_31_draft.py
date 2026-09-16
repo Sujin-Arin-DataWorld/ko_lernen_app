@@ -56,6 +56,7 @@ Run with:
 from __future__ import annotations
 
 import csv
+import re
 import sys
 import unittest
 from collections import Counter
@@ -74,6 +75,7 @@ from distractor_rules import (  # noqa: E402
     detect_required_class as _detect_required_class,
 )
 import scan_grammar_level as SGL  # noqa: E402
+import relevel_ledger  # noqa: E402
 from cefr_lexicon import CefrLexicon, GrammarIndex  # noqa: E402
 
 DRAFTS = REPO_ROOT / "tools/content_factory/drafts"
@@ -169,25 +171,40 @@ class TestBatch31DraftFilesExist(unittest.TestCase):
         self.assertTrue(packet.exists())
 
 
-class TestBatch31NeverTouchesLiveAssets(unittest.TestCase):
-    def test_manifest_marks_draft_and_unapproved(self):
-        manifest = _load_json(DRAFTS / "batch_31_a2_reinforcement_manifest.json")
-        self.assertEqual(manifest["status"], "draft")
-        self.assertEqual(manifest["provenance"]["approval"], {})
-        self.assertFalse(manifest["promotion"]["assetsDataWritten"])
-        self.assertFalse(manifest["promotion"]["runtime"])
-        self.assertFalse(manifest["promotion"]["tts"])
-        self.assertFalse(manifest["promotion"]["firebase"])
+class TestBatch31PromotedToLiveAssets(unittest.TestCase):
+    """Batch 31 was Jin-approved (7/64 sample, 2026-09-16, owner chat
+    'Batch 30·31 표본 승인') and promoted 2026-09-16 (C3-T5, first A2
+    promotion): the manifest must show structured approval + all promotion
+    flags set, and every headword must now be live exactly once. Mirrors
+    TestBatch30PromotedToLiveAssets in test_batch_30_draft.py, which
+    replaces the old draft-only TestBatch31NeverTouchesLiveAssets with
+    this, now that Batch 31 has itself been promoted."""
 
-    def test_no_live_headword_was_added(self):
+    def test_manifest_marks_merged_and_approved(self):
+        manifest = _load_json(DRAFTS / "batch_31_a2_reinforcement_manifest.json")
+        self.assertEqual(manifest["status"], "merged")
+        self.assertEqual(manifest["provenance"]["approval"].get("authority"), "Jin")
+        self.assertTrue(manifest["promotion"]["assetsDataWritten"])
+        self.assertTrue(manifest["promotion"]["runtime"])
+
+    def test_every_headword_is_live_exactly_once(self):
+        from collections import Counter as _Counter
         draft_rows = _load_vocab_rows(DRAFTS / "batch_31_a2_rows.csv")
         live_rows = _load_vocab_rows(VOCAB_CSV)
-        live_korean = {r["korean"] for r in live_rows}
+        live_counts = _Counter(r["korean"] for r in live_rows)
         for row in draft_rows:
-            self.assertNotIn(
-                row["korean"], live_korean,
-                f"{row['korean']} ({row['id']}) is already live -- draft should not duplicate it",
+            self.assertEqual(
+                live_counts.get(row["korean"], 0), 1,
+                f"{row['korean']} ({row['id']}) live count is "
+                f"{live_counts.get(row['korean'], 0)}, expected exactly 1",
             )
+
+    def test_every_id_is_live_with_matching_content(self):
+        draft_rows = {r["id"]: r for r in _load_vocab_rows(DRAFTS / "batch_31_a2_rows.csv")}
+        live_rows = {r["id"]: r for r in _load_vocab_rows(VOCAB_CSV)}
+        for vid, row in draft_rows.items():
+            self.assertIn(vid, live_rows, f"{vid} missing from live korean_vocab.csv")
+            self.assertEqual(row, live_rows[vid], f"{vid}: live row differs from reviewed draft")
 
     def test_no_overlap_with_a1_reinforcement_drafts(self):
         draft_rows = _load_vocab_rows(DRAFTS / "batch_31_a2_rows.csv")
@@ -221,10 +238,13 @@ class TestBatch31VocabRows(unittest.TestCase):
         koreans = [r["korean"] for r in self.rows]
         self.assertEqual(len(koreans), len(set(koreans)))
 
-    def test_no_duplicate_korean_vs_live_csv(self):
-        live_korean = {r["korean"] for r in self.live_rows}
+    def test_no_duplicate_korean_vs_pre_batch_live_csv(self):
+        # C3-T5 (2026-09-16): post-promotion, exclude this batch's own ids
+        # from the comparison set -- promotion legitimately adds them once.
+        batch_ids = {r["id"] for r in self.rows}
+        pre_batch_korean = {r["korean"] for r in self.live_rows if r["id"] not in batch_ids}
         for row in self.rows:
-            self.assertNotIn(row["korean"], live_korean)
+            self.assertNotIn(row["korean"], pre_batch_korean)
 
     def test_all_headwords_are_nikl_grade2(self):
         nikl_by_word = {}
@@ -236,16 +256,18 @@ class TestBatch31VocabRows(unittest.TestCase):
             self.assertIsNotNone(grades, f"{row['korean']} not found in NIKL kiiq 2017 vocab at all")
             self.assertIn("2", grades, f"{row['korean']} has NIKL grades {grades}, not grade 2")
 
-    def test_all_ids_unique_and_above_live_a2_max(self):
-        live_max = max(
-            int(r["id"].rsplit("_", 1)[1]) for r in self.live_rows if r["id"].startswith("vocab_a2_")
-        )
+    def test_all_ids_unique_and_above_pre_batch_live_max(self):
+        # C3-T5 (2026-09-16): fixed baseline (one below this batch's own
+        # lowest id) instead of a live recomputation, which breaks once
+        # this batch is itself promoted (mirrors test_batch_30_draft.py).
+        own_nums = [int(r["id"].rsplit("_", 1)[1]) for r in self.rows]
+        pre_batch_max = min(own_nums) - 1
         ids = [r["id"] for r in self.rows]
         self.assertEqual(len(ids), len(set(ids)))
         for row in self.rows:
             self.assertTrue(row["id"].startswith("vocab_a2_"))
             num = int(row["id"].rsplit("_", 1)[1])
-            self.assertGreater(num, live_max)
+            self.assertGreater(num, pre_batch_max)
 
     def test_pack_ids_exist_live_or_declared_new(self):
         declared_new = {p["pack_id"] for p in self.manifest.get("newPacks", [])}
@@ -259,9 +281,26 @@ class TestBatch31VocabRows(unittest.TestCase):
         for row in self.rows:
             self.assertEqual(row["level"], "A2")
 
-    def test_is_review_boss_false(self):
+    def test_is_review_boss_matches_new_pack_convention(self):
+        # C3-T5 (2026-09-16): filled-to-12 existing packs' added rows stay
+        # is_review_boss=false (that pack's boss words were decided when
+        # it was first created); the one brand-new pack this batch
+        # introduces (a2_messenger_phone_1) needs its own 2 Boss words
+        # (validate_content.py requires every pack to have 2 or 3),
+        # assigned as the final 2 pack_order values (mirrors
+        # test_batch_30_draft.py's identical fix).
+        new_pack_ids = {p["pack_id"] for p in self.manifest.get("newPacks", [])}
+        pack_sizes: dict[str, int] = {}
         for row in self.rows:
-            self.assertEqual(row["is_review_boss"], "false")
+            pack_sizes[row["pack_id"]] = pack_sizes.get(row["pack_id"], 0) + 1
+        for row in self.rows:
+            if row["pack_id"] in new_pack_ids:
+                n = pack_sizes[row["pack_id"]]
+                boss_orders = {n - 1, n} if n >= 2 else {n}
+                expect_boss = int(row["pack_order"]) in boss_orders
+                self.assertEqual(row["is_review_boss"], "true" if expect_boss else "false")
+            else:
+                self.assertEqual(row["is_review_boss"], "false")
 
     def test_examples_are_at_most_10_eojeol(self):
         for row in self.rows:
@@ -470,15 +509,16 @@ class TestBatch31Cloze(unittest.TestCase):
         rows = _load_vocab_rows(DRAFTS / "batch_31_a2_rows.csv")
         self.assertEqual(len(self.items), len(rows))
 
-    def test_ids_unique_and_above_live_a2_max(self):
-        live_max = max(
-            int(i["id"].rsplit("_", 1)[1]) for i in self.live_cloze if i["id"].startswith("cloze_a2_")
-        )
+    def test_ids_unique_and_above_pre_batch_live_max(self):
+        # C3-T5 (2026-09-16): fixed baseline, see TestBatch31VocabRows'
+        # identical fix above.
+        own_nums = [int(i["id"].rsplit("_", 1)[1]) for i in self.items]
+        pre_batch_max = min(own_nums) - 1
         ids = [i["id"] for i in self.items]
         self.assertEqual(len(ids), len(set(ids)))
         for item in self.items:
             num = int(item["id"].rsplit("_", 1)[1])
-            self.assertGreater(num, live_max)
+            self.assertGreater(num, pre_batch_max)
 
     def test_answer_in_full_ko_and_sentence_is_blanked(self):
         for item in self.items:
@@ -527,6 +567,52 @@ class TestBatch31Cloze(unittest.TestCase):
             counts.update(item["distractors"])
         offenders = {w: c for w, c in counts.items() if c > 4}
         self.assertEqual(offenders, {}, f"distractor(s) reused more than 4 times: {offenders}")
+
+    def test_no_distractor_stem_reused_more_than_4_times_within_batch(self):
+        """D6 per-batch reuse cap (C3-T5b, 2026-09-16): cloze_distractor_rules.
+        ReuseTracker's docstring caps a distractor WORD at 4x within an
+        identifiable batch (this manifest lists the ids, so the batch is
+        identifiable), and the surface-form check above under-counts it --
+        우산이/우산을/우산에/우산으로 are one word wearing different particles. Counted
+        locally here (no shared helper; another agent owns that rule's
+        shared code): stem = the distractor with its whole particle tail
+        stripped (full inventory, stacked tails included -- see the regex
+        below); a distractor that is nothing but a particle (the Tier-B
+        bare-particle pool) is counted by its own surface form instead.
+        Before the C3-T5b redistribution this batch had (full
+        inventory) 우산 16, 편지 12, 사진 11, 열쇠 10, 지갑 8, 걱정 7, 안경 5, 짜증 5, 시계 5, 모자 5."""
+        # Full particle inventory (Fable correction, C3-T5b): the cap is per
+        # WORD as the learner sees it, so 우산부터/우산에는/우산들을 are all
+        # 우산. Tails stack (들+을, 에+는, 에게+는), so strip repeatedly; a
+        # word is never cut below 2 syllables (지도/사과/같이 merely END in a
+        # particle-shaped syllable); the Tier-B bare particles are counted
+        # by their own surface form.
+        particle_tail = re.compile(
+            r"(에서는|에게는|에는|에서|에게|으로|한테|부터|까지|처럼|보다|하고|이랑|이나"
+            r"|들|을|를|이|가|은|는|에|로|도|과|와|만|랑|께|나)$"
+        )
+        stems: Counter = Counter()
+        bare_particles: Counter = Counter()
+        for item in self.items:
+            for d in item["distractors"]:
+                if d in BARE_PARTICLE_POOL:
+                    bare_particles[d] += 1
+                    continue
+                stem = d
+                while True:
+                    m = particle_tail.search(stem)
+                    if not m or len(stem) - len(m.group(1)) < 2:
+                        break
+                    stem = stem[: m.start()]
+                stems[stem] += 1
+        over_stems = {w: c for w, c in stems.items() if c > 4}
+        over_bare = {w: c for w, c in bare_particles.items() if c > 4}
+        self.assertEqual(
+            over_stems, {}, f"distractor stem(s) reused more than 4 times in the batch: {over_stems}"
+        )
+        self.assertEqual(
+            over_bare, {}, f"bare particle(s) reused more than 4 times in the batch: {over_bare}"
+        )
 
     def test_answer_is_at_least_two_syllables(self):
         for item in self.items:
@@ -589,15 +675,15 @@ class TestBatch31Satz(unittest.TestCase):
         rows = _load_vocab_rows(DRAFTS / "batch_31_a2_rows.csv")
         self.assertEqual(len(self.items), len(rows))
 
-    def test_ids_unique_and_above_live_a2_max(self):
-        live_max = max(
-            int(i["id"].rsplit("_", 1)[1]) for i in self.live_satz if i["id"].startswith("satz_a2_")
-        )
+    def test_ids_unique_and_above_pre_batch_live_max(self):
+        # C3-T5 (2026-09-16): fixed baseline, see the vocab-row fix above.
+        own_nums = [int(i["id"].rsplit("_", 1)[1]) for i in self.items]
+        pre_batch_max = min(own_nums) - 1
         ids = [i["id"] for i in self.items]
         self.assertEqual(len(ids), len(set(ids)))
         for item in self.items:
             num = int(item["id"].rsplit("_", 1)[1])
-            self.assertGreater(num, live_max)
+            self.assertGreater(num, pre_batch_max)
 
     def test_vocab_ko_and_target_present(self):
         for item in self.items:
@@ -636,20 +722,73 @@ class TestBatch31Satz(unittest.TestCase):
 
 
 class TestBatch31Packs(unittest.TestCase):
-    def test_filled_packs_reach_exactly_12(self):
+    def test_filled_packs_reached_twelve_net_of_ledger_relevels(self):
+        """C3-T5 (2026-09-16): post-promotion, live already includes this
+        batch's own rows (live and draft are no longer disjoint sets), so the
+        pack's live rows alone carry the proof (mirrors test_batch_30_draft.py's
+        a1_numbers_2 fix).
+
+        C3-T5b, merge of PR #361 (relevel V2G1, 2026-09-16): a later,
+        ledger-recorded relevel may legitimately move a word OUT of a pack this
+        batch filled (날씨/계절 left a2_weather for a1_nature_people_1) or INTO
+        one. tool/relevel_vocab.py appends movers at the target pack's end
+        (pack_order = max+1) and never renumbers the source pack, so the
+        promotion-time fill survives structurally and is asserted that way
+        instead of as a bare 'live count == 12' (which main's own data now
+        fails): every addedWord is still live in the pack; max pack_order is
+        still 12; live count == 12 - (orders missing from 1..12) + (orders
+        above 12); every missing order needs a relevel_ledger.json vocab entry
+        that left this pack's level (the ledger records levels, not packs, so
+        this is a per-level ceiling, the tightest bound the ledger offers);
+        every order above 12 must be a ledger-recorded move INTO this level."""
         manifest = _load_json(DRAFTS / "batch_31_a2_reinforcement_manifest.json")
         draft_rows = _load_vocab_rows(DRAFTS / "batch_31_a2_rows.csv")
         live_rows = _load_vocab_rows(VOCAB_CSV)
+        ledger = relevel_ledger.load_ledger()
         draft_counts = Counter(r["pack_id"] for r in draft_rows)
-        live_counts = Counter(r["pack_id"] for r in live_rows)
+        live_by_pack: dict[str, list[dict]] = {}
+        for r in live_rows:
+            live_by_pack.setdefault(r["pack_id"], []).append(r)
+        live_by_id = {r["id"]: r for r in live_rows}
         for entry in manifest.get("packsFilledTo12", []):
             pid = entry["pack_id"]
-            total = live_counts.get(pid, 0) + draft_counts.get(pid, 0)
-            self.assertEqual(total, 12, f"{pid}: live+draft = {total}, expected 12")
+            rows = live_by_pack.get(pid, [])
+            self.assertTrue(rows, f"{pid}: no live rows")
+            live_words = {r["korean"] for r in rows}
+            for word in entry["addedWords"]:
+                self.assertIn(word, live_words, f"{pid}: promoted word {word!r} is no longer live in the pack")
             self.assertEqual(
                 draft_counts.get(pid, 0), len(entry["addedWords"]),
                 f"{pid}: draft row count != declared addedWords length",
             )
+            orders = sorted(int(r["pack_order"]) for r in rows)
+            self.assertEqual(len(orders), len(set(orders)), f"{pid}: duplicate pack_order values {orders}")
+            self.assertGreaterEqual(
+                max(orders), 12, f"{pid}: max pack_order is {max(orders)} -- the pack never reached 12"
+            )
+            gaps = sorted(set(range(1, 13)) - set(orders))
+            extras = [r for r in rows if int(r["pack_order"]) > 12]
+            self.assertEqual(
+                len(rows), 12 - len(gaps) + len(extras),
+                f"{pid}: live count {len(rows)} != 12 - {len(gaps)} relevelled-out + {len(extras)} relevelled-in",
+            )
+            level = rows[0]["level"].strip().lower()
+            moved_out_of_level = {
+                e.id for e in ledger.entries
+                if e.kind == "vocab" and e.from_level == level and e.to_level != level
+                and live_by_id.get(e.id, {}).get("pack_id") != pid
+            }
+            self.assertLessEqual(
+                len(gaps), len(moved_out_of_level),
+                f"{pid}: pack_order slot(s) {gaps} are empty but only {len(moved_out_of_level)} "
+                f"ledger-recorded relevel(s) left level {level} -- a pack row vanished without a ledger entry",
+            )
+            for r in extras:
+                e = ledger.get("vocab", r["id"])
+                self.assertIsNotNone(
+                    e, f"{pid}: {r['id']} ({r['korean']}) sits at pack_order {r['pack_order']} > 12 without a relevel ledger entry"
+                )
+                self.assertEqual(e.to_level, level, f"{pid}: {r['id']} ledger move targets level {e.to_level}, pack is {level}")
 
     def test_new_packs_have_declared_word_count(self):
         manifest = _load_json(DRAFTS / "batch_31_a2_reinforcement_manifest.json")

@@ -1,0 +1,8 @@
+id,korean,old_level,new_level,target_pack,reason
+vocab_b2_0121,문법,B2,A1,a1_repair_language_1,F9 룰링 기존 존재(meta; A1 유지; F9_exceptions.md 학습 메타어) 미적용 발견 -- Jin 결정 5(2026-09-16; V2 relevel candidates f9_ruling_exists_not_applied)
+vocab_b2_0173,윷놀이,B2,A1,a1_partner_seollal_basic_1,F9 룰링 기존 존재(culture_basic; A1 유지; F9_exceptions.md 명절 문화어) 미적용 발견 -- Jin 결정 5(2026-09-16; V2 relevel candidates f9_ruling_exists_not_applied)
+vocab_b2_0431,시댁,B2,A1,a1_partner_meet_names_1,F9 룰링 기존 존재(kinship; A1 유지; F9_exceptions.md 혼인 친족 호칭) 미적용 발견 -- Jin 결정 5(2026-09-16; V2 relevel candidates f9_ruling_exists_not_applied)
+vocab_b2_0432,처가,B2,A1,a1_partner_meet_names_1,F9 룰링 기존 존재(kinship; A1 유지; F9_exceptions.md 혼인 친족 호칭) 미적용 발견 -- Jin 결정 5(2026-09-16; V2 relevel candidates f9_ruling_exists_not_applied)
+vocab_b2_0193,말씀,B2,A1,a1_greetings_2,세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(citation sejong1_u9_voc10_말씀) -- Jin 결정 4(a)(2026-09-16); A1 생존 경어 예외 신설
+vocab_b2_0198,드리다,B2,A1,a1_partner_meet_names_1,세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(citation sejong1_u9_voc9_드리다) -- Jin 결정 4(a)(2026-09-16); A1 생존 경어 예외 신설
+vocab_b2_0203,계시다,B2,A1,a1_partner_meet_names_1,세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(citation sejong1_u9_voc8_계시다) -- Jin 결정 4(a)(2026-09-16); A1 생존 경어 예외 신설

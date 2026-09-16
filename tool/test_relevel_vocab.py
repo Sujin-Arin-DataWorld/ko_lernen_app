@@ -17,7 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools" / "content_factory"))
 
 from relevel_ledger import Ledger, LedgerEntry  # noqa: E402
-from relevel_vocab import COLUMNS, apply_batch  # noqa: E402
+from relevel_vocab import COLUMNS, apply_batch, check_target_level_grammar  # noqa: E402
 
 
 def _row(
@@ -411,6 +411,85 @@ class SyncedMoveTest(unittest.TestCase):
         kinds = sorted((e.kind, e.id) for e in ledger.entries)
         self.assertIn(("cloze", "cloze_b2_0001"), kinds)
         self.assertIn(("vocab", "vocab_b2_경우"), kinds)
+
+
+class TargetLevelGrammarGateTest(unittest.TestCase):
+    """Fable R8/R9 (2026-09-16, V2G1 후속): 레벨만 옮기고 예문은 그대로 둔
+    relevel 은 목표 레벨보다 높은 문법을 카드에 남길 수 있다(시댁/처가/직업/
+    날씨가 실제로 그랬다 -- 시댁 "…줄이는 게 안전했어요"(-는 게, 2급),
+    처가 "…하겠다고 했어요"(인용, 3급), 날씨 "…좋네요"(-네요, 2급)).
+    `check_target_level_grammar`가 이 패턴을 `apply_batch` 직후(ledger에
+    이번 배치로 찍힌 항목만) 잡아내는지 고정한다 -- `scan_grammar_level.py`
+    가 쓰는 것과 같은 탐지기를 재사용하므로 결과는 CI/로컬 `--level` 스캔과
+    항상 같다."""
+
+    def _a1_target_fixture(self) -> list[dict[str, str]]:
+        return [
+            _row("나라", "A1", "a1_dst_1", 1, boss=True),
+            _row("학교", "A1", "a1_dst_1", 2),
+        ]
+
+    def _a1_env(self) -> dict:
+        env = _empty_env()
+        env["curriculum"] = _curriculum(unit_map={"a1_dst": "unit_a1_dst"})
+        env["segments_doc"] = {
+            "contentClusters": [
+                {
+                    "id": "cluster_a1",
+                    "level": "a1",
+                    "contentReferences": [{"kind": "vocabPack", "id": "a1_dst_1"}],
+                    "revision": 1,
+                },
+            ],
+            "segments": [
+                {
+                    "id": "segment_a1",
+                    "level": "a1",
+                    "parentCourseUnitId": "unit_a1_dst",
+                    "contentClusterIds": ["cluster_a1"],
+                },
+            ],
+        }
+        return env
+
+    def test_a1_target_with_geyo_grammar_is_flagged(self) -> None:
+        vocab = self._a1_target_fixture()
+        bad = _row("날씨", "B2", "b2_src_1", 1, vid="vocab_b2_0004")
+        bad["example_korean"] = "오늘 날씨 진짜 좋네요."  # -네요, NIKL 2급 -- A1 상한 위반
+        vocab.append(bad)
+
+        batch = _batch(("vocab_b2_0004", "날씨", "B2", "A1"), target="a1_dst_1")
+        _plan, _warnings, ledger = apply_batch(vocab, batch=batch, **self._a1_env())
+
+        offenders = check_target_level_grammar(
+            ledger,
+            batch_name="test_batch",
+            vocab_by_id={row["id"]: row for row in vocab},
+            cloze_by_id={},
+            satz_by_id={},
+        )
+        self.assertTrue(
+            any("vocab_b2_0004" in line for line in offenders),
+            f"expected vocab_b2_0004 (-네요, A2) to be flagged at target A1, got {offenders}",
+        )
+
+    def test_clean_a1_target_is_not_flagged(self) -> None:
+        vocab = self._a1_target_fixture()
+        ok = _row("취미", "A2", "a2_src_1", 1, vid="vocab_a2_0003")
+        ok["example_korean"] = "저는 취미가 사진 찍는 거예요."
+        vocab.append(ok)
+
+        batch = _batch(("vocab_a2_0003", "취미", "A2", "A1"), target="a1_dst_1")
+        _plan, _warnings, ledger = apply_batch(vocab, batch=batch, **self._a1_env())
+
+        offenders = check_target_level_grammar(
+            ledger,
+            batch_name="test_batch",
+            vocab_by_id={row["id"]: row for row in vocab},
+            cloze_by_id={},
+            satz_by_id={},
+        )
+        self.assertEqual(offenders, [])
 
 
 if __name__ == "__main__":
