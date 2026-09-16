@@ -26,11 +26,13 @@ void main() {
       // reinforcement adds 64 words (verbs/adjectives/nouns) across 6 new
       // packs. 2754 + 64 = 2818. C3-T5 (2026-09-16): Batch 30 A1
       // reinforcement adds 62 words (function words) across 6 new packs
-      // (last A1 reinforcement batch). 2818 + 62 = 2880.
-      expect(vocab, hasLength(2880));
+      // (last A1 reinforcement batch). 2818 + 62 = 2880. Batch 31 A2
+      // reinforcement adds 64 words (first A2 promotion) across 1 new
+      // pack. 2880 + 64 = 2944.
+      expect(vocab, hasLength(2944));
       expect(
         vocab.map((entry) => entry.packId).where((id) => id.isNotEmpty).toSet(),
-        hasLength(251),
+        hasLength(252),
       );
 
       expect(

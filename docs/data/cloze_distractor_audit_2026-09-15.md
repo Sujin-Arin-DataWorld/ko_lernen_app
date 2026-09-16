@@ -1,22 +1,22 @@
 # Cloze distractor hygiene audit -- 2026-09-15 (C2c)
 
-Live corpus: `assets/data/cloze.json`, 2277 items, 6 levels. Rules D1-D6 per `tools/content_factory/cloze_distractor_rules.py`. D5 is detection only (needs a human/LLM read); D7 is the umbrella judgement rule, not separately audited.
+Live corpus: `assets/data/cloze.json`, 2341 items, 6 levels. Rules D1-D6 per `tools/content_factory/cloze_distractor_rules.py`. D5 is detection only (needs a human/LLM read); D7 is the umbrella judgement rule, not separately audited.
 
 **Total items with >=1 mechanical (D1/D2/D3/D4/D6) violation: 0**
 
-D3 answer POS unresolved by the suffix-stripping heuristic (not flagged, excluded from D3): 104
+D3 answer POS unresolved by the suffix-stripping heuristic (not flagged, excluded from D3): 129
 
 ## Counts per rule per level
 
 | level | D1 | D2 | D3 | D4 | D5_open_slot(detect-only) | D6_exposed | D6_duplicate | D6_equals_answer | items |
 |---|---|---|---|---|---|---|---|---|---|
 | a1 | 0 | 0 | 0 | 0 | 70 | 0 | 0 | 0 | 649 |
-| a2 | 0 | 0 | 0 | 0 | 23 | 0 | 0 | 0 | 276 |
+| a2 | 0 | 0 | 0 | 0 | 23 | 0 | 0 | 0 | 340 |
 | b1 | 0 | 0 | 0 | 0 | 19 | 0 | 0 | 0 | 436 |
 | b2 | 0 | 0 | 0 | 0 | 27 | 0 | 0 | 0 | 416 |
 | c1 | 0 | 0 | 0 | 0 | 6 | 0 | 0 | 0 | 250 |
 | c2 | 0 | 0 | 0 | 0 | 8 | 0 | 0 | 0 | 250 |
-| **all** | 0 | 0 | 0 | 0 | 153 | 0 | 0 | 0 | 2277 |
+| **all** | 0 | 0 | 0 | 0 | 153 | 0 | 0 | 0 | 2341 |
 
 ## D6 reuse-cap violations (>6 uses of one distractor word within a level)
 
@@ -60,13 +60,15 @@ D3 answer POS unresolved by the suffix-stripping heuristic (not flagged, exclude
 - a1: `항상` used 10x
 - a2: `계산대` used 7x
 - a2: `러닝머신` used 13x
+- a2: `보다` used 7x
 - a2: `승강장` used 7x
-- a2: `에게` used 9x
+- a2: `에게` used 13x
 - a2: `연고` used 7x
 - a2: `운동복` used 13x
-- a2: `읽다` used 8x
+- a2: `읽다` used 9x
 - a2: `출구` used 8x
 - a2: `커트` used 8x
+- a2: `한테` used 7x
 - a2: `헬스장` used 10x
 - a2: `환승` used 7x
 - b1: `공과금 정산` used 8x

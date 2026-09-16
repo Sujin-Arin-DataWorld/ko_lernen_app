@@ -2175,7 +2175,7 @@
     {
       "id": "cluster_a2_running_late_v1",
       "level": "a2",
-      "revision": 22,
+      "revision": 23,
       "sourceSeedIds": [
         "seed_scenario_running_late_v1",
         "seed_vocab_pack_a2_nature_1_v1",
@@ -2247,7 +2247,8 @@
         "seed_scenario_a2_w10_friends_v1",
         "seed_scenario_a2_w10_partner_v1",
         "seed_scenario_friend_cancelled_plan_v1",
-        "seed_scenario_group_chat_photo_permission_v1"
+        "seed_scenario_group_chat_photo_permission_v1",
+        "seed_vocab_pack_a2_messenger_phone_1_v1"
       ],
       "contentReferences": [
         {
@@ -2533,6 +2534,10 @@
         {
           "kind": "scenario",
           "id": "group_chat_photo_permission"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a2_messenger_phone_1"
         }
       ]
     },

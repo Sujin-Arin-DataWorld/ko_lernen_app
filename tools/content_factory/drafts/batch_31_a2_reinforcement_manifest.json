@@ -1,20 +1,26 @@
 {
   "version": 2,
   "batch": "c3_batch31_a2_reinforcement",
-  "status": "draft",
+  "status": "merged",
   "provenance": {
     "scope": "A2(2급) vocabulary reinforcement -- FIRST A2 batch in the C3 series -- 64 headwords (47 nouns, 10 verbs, 6 adjectives, 1 adverb) from the NIKL KIIQ 2017 grade-2 gap list (not yet live at any level, not in Batch 25-30's A1 drafts). Fills every currently under-12 live A2 pack to 12/12 (27 packs, 58 words) plus one new pack a2_messenger_phone_1 (6/12, partial -- see newPacks). Original clean-room authoring (KO/DE/EN), seeded only by NIKL 2017 kiiq grade-2 headword selection (KOGL Type-1) and docs/data/sejong/syllabus_sejong2.json unit topics for prioritization. Follows the persona (character_profiles.json recurringCharacters) rules, docs/CONTENT_LEVEL_BIBLE.md §B.2 (A2 sentence/grammar/vocabulary ceiling) and docs/CONTENT_PERSONA_VOICE.md (A2 반말 transitions / short idioms) set for this level.",
     "rights": "original_clean_room",
     "seedSource": "tools/content_factory/lexicon/nikl_kiiq_2017_vocab.csv (grade=2, minus live assets/data/korean_vocab.csv at ANY level, minus tools/content_factory/drafts/batch_25..30_a1_rows.csv); topic priority cross-referenced against docs/data/sejong/syllabus_sejong2.json (Sejong 2 = A2 unit vocabulary lists).",
     "requiresJinReview": true,
-    "approval": {},
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-09-16",
+      "source": "owner chat: 'Batch 30·31 표본 승인'",
+      "sample": "7/62 (30) · 7/64 (31)"
+    },
     "modelLanguageQa": "PENDING_FABLE_REVIEW",
     "humanLanguageQaClaim": false,
     "wordSourceNote": "NIKL grade-2 headwords total 1087 unique strings (excluding bound affixes like -되다); removing everything already live at any level (A1-C2, 2562 rows) or present in the Batch 25-30 A1 drafts leaves a gap of 791 headwords -- this is the FIRST A2 batch against that gap, so 791-64=727 remain for future batches (comparable in scale to the 6-batch A1 reinforcement program, Batch 25-30). Selection order: (1) every live A2 pack with fewer than 12 words (27 packs, needing 58 words total to reach 12/12 each -- see packsFilledTo12) was filled FIRST, matching topic words to that pack's existing theme, prioritizing a citable docs/data/sejong/syllabus_sejong2.json unit's vocabulary list where a grade-2 match existed (15 words directly citable: 마치다/이사/빨래/쓰레기/버리다/닦다/돌리다 [unit5], 장마 [unit6], 메모/메시지 [unit7], 박수/자리 [unit11, ultimately not used -- see below], 새벽/자신 [units 12/14, not used], 소리 [unit13]); (2) the remaining 43 words were matched by topic to each pack's existing theme from the broader grade-2 gap list (docs/data/sejong/syllabus_sejong2.json's own vocabulary lists turned out to skew heavily toward grade 3-5 for several unit topics -- e.g. ALL of unit 4's taste adjectives [고소하다/느끼하다/달콤하다/새콤하다] and unit 9's emotion adjectives [기쁘다/무섭다/부끄럽다/즐겁다/지루하다/게으르다] are already grade-1/2 and already LIVE, so no new headwords were available there); (3) after all 27 packs reached 12/12, the remaining word-count budget (64-58=6) went to one NEW pack, a2_messenger_phone_1 (Kommunikation), built from 6 of the 15 Sejong-citable words that were not needed to fill an existing pack (휴대폰/메시지/메모/답장/연락처/끊다) -- matching the level bible's can-do list item '메신저로 소통하고'.",
     "sejongCitationNote": "Direct grade-2 headword hits from docs/data/sejong/syllabus_sejong2.json (candidate == a single token extracted from a unit's multi-word vocab entry): unit2 마치다/이사; unit5 빨래/쓰레기/버리다/닦다/돌리다; unit6 장마; unit7 메모/메시지; unit11 박수/자리; unit12 새벽; unit13 소리; unit14 자신 -- 15 total. Of these, 박수/자리/자신 were NOT used (the 17-word a2_messenger_phone_1 slot only needed 6, and 박수/자리/자신 don't share that pack's communication theme as cleanly as 휴대폰/답장/연락처/끊다 do) -- they remain in the grade-2 gap pool for a future batch. Most other Sejong-2 unit vocab (taste adjectives unit4, weather-extreme nouns unit6 apart from 장마, travel nouns unit8, phone-etiquette nouns unit7's 별표/우물 정자, personality adjectives unit10, tech-fault nouns unit13 apart from 소리, self-assessment adjectives unit14 apart from 마치다/자신) turned out to be grade 3-5 on inspection, not grade 2 -- confirming the Q-S report's finding (docs/data/sejong/REPORT_2026-09-16.md) that a Sejong-textbook unit's nominal level and a word's actual NIKL frequency grade frequently diverge; this batch used the NIKL grade as the authoritative ceiling, per docs/CONTENT_LEVEL_BIBLE.md §B.2, not the Sejong unit number.",
     "tierNote": "Cloze distractors: Tier A (57/64 items) = real semantically-clashing words of the same POS/form, chosen per-item for that specific predicate/frame's own selectional restriction (nouns: a concrete-object pool [우산/편지/사진/열쇠/지갑/안경/시계/모자/신발/지도/그림/일기] for frames selecting abstract/event/temporal/animate referents, this batch's own abstract headwords [걱정/짜증/정리/외출/취소/저금] for frames selecting concrete physical objects, and an immovable/institutional pool [냉장고/창문/정원/도서관/극장/시장] for 'portable item you'd forget/carry' frames where a genuinely portable object would stay plausible; adjectives: taste/texture words [짜다/시다/맵다/얇다/두껍다/뾰족하다/매끈하다/둥글다] that cannot describe the sentence's own subject (a method, bag, activity or amount has no taste); verbs with an object marker already fixed in the sentence: a same-tense INTRANSITIVE verb [가다/오다/자다/서다/앉다/걷다/울다], which is not just semantically odd but STRUCTURALLY incompatible with the pre-existing object particle -- e.g. answer '버렸어요' swapped for '갔어요' gives '옷을 다 갔어요', ungrammatical regardless of meaning). R8 (Fable review of commit d0ac6a75, 2026-09-16): the first draft over-used Tier B (27/64) by defaulting to it whenever a frame LOOKED open without checking whether a real-word clash specific to that item's own predicate actually existed -- e.g. 배드민턴's answer sits in '저랑 ___ 칠래요?', where 치다 only collocates with a small closed class of games/instruments, so an unrelated concrete object (우산) fails cleanly with no waiver needed; 같은 mistake as Batch 29's R8. Re-audited all 64 items against their OWN sentence before reassigning: Tier B (7/64) now covers only genuinely open frames confirmed by trying (and rejecting) a real-word swap first -- 있어요 (걱정), '-지 말고' (화내다), '많이 X했어요' emotion-reaction frames (기뻐하다/슬퍼하다, where a same-tense real verb like 도와줬어요/울었어요 stayed plausible), an open reservation-verb frame (잡다, where 빌려/골라 both stayed plausible: '회의실을 미리 빌려/골라 놓을게요'), and '보내다'/'남기다' object-open frames (메시지/연락처). Each of the 192 combinations is read in the packet's evidence table.",
     "grammarNote": "All 64 examples pass the CefrLexicon-based grade>=3 scan (tools/content_factory/scan_grammar_level.py --level A2's own detector, reused directly by this batch's test) with zero flagged hits. A2(2급) grammar is used explicitly in several rows: -을게(요) (정리 '내가 할게', 걱정 '도와줄게요', 잡다 '잡아 놓을게요', 끊다 '끊을게요'), -지 말고 (화내다), -을래요 (배드민턴 '칠래요?'), -는 것 같다 (주문 '들어간 것 같아요'), -지만 (튼튼하다 '오래됐지만'), -아/어 놓다 (잡다), -는데 (메시지 '보냈는데'). One grade-3 short-fragment false-positive risk (-잖아, which GrammarIndex's own <=2-syllable anti-overmatch guard cannot structurally detect -- see scan_grammar_level.py's docstring) was manually caught by grepping the corpus for 잖아/뿐/만큼/대로/어도/어야/는다 during authoring and removed before this draft (a 깜짝 example originally read '깜짝 놀랐잖아!', rewritten to '나 정말 깜짝 놀랐어!').",
-    "vocabCeilingNote": "docs/CONTENT_LEVEL_BIBLE.md §B.2 ⑤ allows <=1 word per sentence outside the 1-2급 vocabulary ceiling. Two sentences intentionally use exactly one such word: 기뻐하다's example uses 합격 (NIKL grade 3, 'passing an exam') and 메시지's example uses 확인 (NIKL grade 3, 'to check/confirm') -- both extremely common, independently justified single exceptions, verified via tools/content_factory/a2_draft_rules.py's helper-word scanner (NIKL grade<=2 union the ENTIRE live vocabulary at any level, since a word already taught anywhere in the app is a safe helper word) applied to all 64 rows with a documented allow-list of exactly these 2 rows."
+    "vocabCeilingNote": "docs/CONTENT_LEVEL_BIBLE.md §B.2 ⑤ allows <=1 word per sentence outside the 1-2급 vocabulary ceiling. Two sentences intentionally use exactly one such word: 기뻐하다's example uses 합격 (NIKL grade 3, 'passing an exam') and 메시지's example uses 확인 (NIKL grade 3, 'to check/confirm') -- both extremely common, independently justified single exceptions, verified via tools/content_factory/a2_draft_rules.py's helper-word scanner (NIKL grade<=2 union the ENTIRE live vocabulary at any level, since a word already taught anywhere in the app is a safe helper word) applied to all 64 rows with a documented allow-list of exactly these 2 rows.",
+    "recordCountFixNote": "Promotion-time fix (C3-T5, 2026-09-16): recordCount was drafted as 64 (vocab count only) instead of the sum of all 3 artifacts (64 vocab + 64 cloze + 64 satz = 192), matching Batch 30 and validate_promoted_batch.py's convention. No KO/DE/EN wording changed."
   },
   "posRules": {
     "noun_particle_fold_tier_a": "37 items where the cloze answer folds the headword with an alternating particle (이/가, 을/를, 은/는, 이에요/예요) or a real conjugated predicate; distractors are real words of the same batchim-independent particle-allomorph shape (nouns) or the same tense/ending (verbs/adjectives), each individually verified via distractor_rules.batchim_class / a1_draft_rules.distractor_particle_mismatches.",
@@ -25,24 +31,27 @@
     {
       "kind": "vocab",
       "draft": "tools/content_factory/drafts/batch_31_a2_rows.csv",
-      "collection": "korean_vocab",
+      "collection": null,
       "count": 64,
-      "level": "A2"
+      "level": "A2",
+      "review": "tools/content_factory/review/batch_31_a2_vocab_review.csv"
     },
     {
       "kind": "cloze",
       "draft": "tools/content_factory/drafts/batch_31_a2_cloze.json",
-      "collection": "cloze_items",
-      "count": 64
+      "collection": "items",
+      "count": 64,
+      "review": "tools/content_factory/review/batch_31_a2_cloze_review.csv"
     },
     {
       "kind": "satz",
       "draft": "tools/content_factory/drafts/batch_31_a2_satz.json",
-      "collection": "satz_sentences",
-      "count": 64
+      "collection": "items",
+      "count": 64,
+      "review": "tools/content_factory/review/batch_31_a2_satz_review.csv"
     }
   ],
-  "recordCount": 64,
+  "recordCount": 192,
   "tierCounts": {
     "tierA": 57,
     "tierB": 7
@@ -304,10 +313,10 @@
   },
   "reviewPacket": "docs/data/review_packets/batch_31_a2_jin_sample.md",
   "promotion": {
-    "runtime": false,
-    "assetsDataWritten": false,
+    "runtime": true,
+    "assetsDataWritten": true,
     "tts": false,
     "firebase": false,
-    "note": "DRAFT ONLY per level-canon program hard rule -- no writes to assets/data/**, no TTS synthesis, no Firebase until Jin approval."
+    "note": "Promoted 2026-09-16 (C3-T5) after Jin approval (Batch 30·31 approved together (last A1 reinforcement batch + first A2 promotion)). TTS synthesis pending -- run tool/generate_tts.py --missing-from-storage before this batch's audio is available (no OS-voice fallback)."
   }
 }

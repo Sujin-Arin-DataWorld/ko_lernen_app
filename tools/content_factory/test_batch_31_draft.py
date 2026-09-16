@@ -169,25 +169,40 @@ class TestBatch31DraftFilesExist(unittest.TestCase):
         self.assertTrue(packet.exists())
 
 
-class TestBatch31NeverTouchesLiveAssets(unittest.TestCase):
-    def test_manifest_marks_draft_and_unapproved(self):
-        manifest = _load_json(DRAFTS / "batch_31_a2_reinforcement_manifest.json")
-        self.assertEqual(manifest["status"], "draft")
-        self.assertEqual(manifest["provenance"]["approval"], {})
-        self.assertFalse(manifest["promotion"]["assetsDataWritten"])
-        self.assertFalse(manifest["promotion"]["runtime"])
-        self.assertFalse(manifest["promotion"]["tts"])
-        self.assertFalse(manifest["promotion"]["firebase"])
+class TestBatch31PromotedToLiveAssets(unittest.TestCase):
+    """Batch 31 was Jin-approved (7/64 sample, 2026-09-16, owner chat
+    'Batch 30·31 표본 승인') and promoted 2026-09-16 (C3-T5, first A2
+    promotion): the manifest must show structured approval + all promotion
+    flags set, and every headword must now be live exactly once. Mirrors
+    TestBatch30PromotedToLiveAssets in test_batch_30_draft.py, which
+    replaces the old draft-only TestBatch31NeverTouchesLiveAssets with
+    this, now that Batch 31 has itself been promoted."""
 
-    def test_no_live_headword_was_added(self):
+    def test_manifest_marks_merged_and_approved(self):
+        manifest = _load_json(DRAFTS / "batch_31_a2_reinforcement_manifest.json")
+        self.assertEqual(manifest["status"], "merged")
+        self.assertEqual(manifest["provenance"]["approval"].get("authority"), "Jin")
+        self.assertTrue(manifest["promotion"]["assetsDataWritten"])
+        self.assertTrue(manifest["promotion"]["runtime"])
+
+    def test_every_headword_is_live_exactly_once(self):
+        from collections import Counter as _Counter
         draft_rows = _load_vocab_rows(DRAFTS / "batch_31_a2_rows.csv")
         live_rows = _load_vocab_rows(VOCAB_CSV)
-        live_korean = {r["korean"] for r in live_rows}
+        live_counts = _Counter(r["korean"] for r in live_rows)
         for row in draft_rows:
-            self.assertNotIn(
-                row["korean"], live_korean,
-                f"{row['korean']} ({row['id']}) is already live -- draft should not duplicate it",
+            self.assertEqual(
+                live_counts.get(row["korean"], 0), 1,
+                f"{row['korean']} ({row['id']}) live count is "
+                f"{live_counts.get(row['korean'], 0)}, expected exactly 1",
             )
+
+    def test_every_id_is_live_with_matching_content(self):
+        draft_rows = {r["id"]: r for r in _load_vocab_rows(DRAFTS / "batch_31_a2_rows.csv")}
+        live_rows = {r["id"]: r for r in _load_vocab_rows(VOCAB_CSV)}
+        for vid, row in draft_rows.items():
+            self.assertIn(vid, live_rows, f"{vid} missing from live korean_vocab.csv")
+            self.assertEqual(row, live_rows[vid], f"{vid}: live row differs from reviewed draft")
 
     def test_no_overlap_with_a1_reinforcement_drafts(self):
         draft_rows = _load_vocab_rows(DRAFTS / "batch_31_a2_rows.csv")
@@ -221,10 +236,13 @@ class TestBatch31VocabRows(unittest.TestCase):
         koreans = [r["korean"] for r in self.rows]
         self.assertEqual(len(koreans), len(set(koreans)))
 
-    def test_no_duplicate_korean_vs_live_csv(self):
-        live_korean = {r["korean"] for r in self.live_rows}
+    def test_no_duplicate_korean_vs_pre_batch_live_csv(self):
+        # C3-T5 (2026-09-16): post-promotion, exclude this batch's own ids
+        # from the comparison set -- promotion legitimately adds them once.
+        batch_ids = {r["id"] for r in self.rows}
+        pre_batch_korean = {r["korean"] for r in self.live_rows if r["id"] not in batch_ids}
         for row in self.rows:
-            self.assertNotIn(row["korean"], live_korean)
+            self.assertNotIn(row["korean"], pre_batch_korean)
 
     def test_all_headwords_are_nikl_grade2(self):
         nikl_by_word = {}
@@ -236,16 +254,18 @@ class TestBatch31VocabRows(unittest.TestCase):
             self.assertIsNotNone(grades, f"{row['korean']} not found in NIKL kiiq 2017 vocab at all")
             self.assertIn("2", grades, f"{row['korean']} has NIKL grades {grades}, not grade 2")
 
-    def test_all_ids_unique_and_above_live_a2_max(self):
-        live_max = max(
-            int(r["id"].rsplit("_", 1)[1]) for r in self.live_rows if r["id"].startswith("vocab_a2_")
-        )
+    def test_all_ids_unique_and_above_pre_batch_live_max(self):
+        # C3-T5 (2026-09-16): fixed baseline (one below this batch's own
+        # lowest id) instead of a live recomputation, which breaks once
+        # this batch is itself promoted (mirrors test_batch_30_draft.py).
+        own_nums = [int(r["id"].rsplit("_", 1)[1]) for r in self.rows]
+        pre_batch_max = min(own_nums) - 1
         ids = [r["id"] for r in self.rows]
         self.assertEqual(len(ids), len(set(ids)))
         for row in self.rows:
             self.assertTrue(row["id"].startswith("vocab_a2_"))
             num = int(row["id"].rsplit("_", 1)[1])
-            self.assertGreater(num, live_max)
+            self.assertGreater(num, pre_batch_max)
 
     def test_pack_ids_exist_live_or_declared_new(self):
         declared_new = {p["pack_id"] for p in self.manifest.get("newPacks", [])}
@@ -259,9 +279,26 @@ class TestBatch31VocabRows(unittest.TestCase):
         for row in self.rows:
             self.assertEqual(row["level"], "A2")
 
-    def test_is_review_boss_false(self):
+    def test_is_review_boss_matches_new_pack_convention(self):
+        # C3-T5 (2026-09-16): filled-to-12 existing packs' added rows stay
+        # is_review_boss=false (that pack's boss words were decided when
+        # it was first created); the one brand-new pack this batch
+        # introduces (a2_messenger_phone_1) needs its own 2 Boss words
+        # (validate_content.py requires every pack to have 2 or 3),
+        # assigned as the final 2 pack_order values (mirrors
+        # test_batch_30_draft.py's identical fix).
+        new_pack_ids = {p["pack_id"] for p in self.manifest.get("newPacks", [])}
+        pack_sizes: dict[str, int] = {}
         for row in self.rows:
-            self.assertEqual(row["is_review_boss"], "false")
+            pack_sizes[row["pack_id"]] = pack_sizes.get(row["pack_id"], 0) + 1
+        for row in self.rows:
+            if row["pack_id"] in new_pack_ids:
+                n = pack_sizes[row["pack_id"]]
+                boss_orders = {n - 1, n} if n >= 2 else {n}
+                expect_boss = int(row["pack_order"]) in boss_orders
+                self.assertEqual(row["is_review_boss"], "true" if expect_boss else "false")
+            else:
+                self.assertEqual(row["is_review_boss"], "false")
 
     def test_examples_are_at_most_10_eojeol(self):
         for row in self.rows:
@@ -470,15 +507,16 @@ class TestBatch31Cloze(unittest.TestCase):
         rows = _load_vocab_rows(DRAFTS / "batch_31_a2_rows.csv")
         self.assertEqual(len(self.items), len(rows))
 
-    def test_ids_unique_and_above_live_a2_max(self):
-        live_max = max(
-            int(i["id"].rsplit("_", 1)[1]) for i in self.live_cloze if i["id"].startswith("cloze_a2_")
-        )
+    def test_ids_unique_and_above_pre_batch_live_max(self):
+        # C3-T5 (2026-09-16): fixed baseline, see TestBatch31VocabRows'
+        # identical fix above.
+        own_nums = [int(i["id"].rsplit("_", 1)[1]) for i in self.items]
+        pre_batch_max = min(own_nums) - 1
         ids = [i["id"] for i in self.items]
         self.assertEqual(len(ids), len(set(ids)))
         for item in self.items:
             num = int(item["id"].rsplit("_", 1)[1])
-            self.assertGreater(num, live_max)
+            self.assertGreater(num, pre_batch_max)
 
     def test_answer_in_full_ko_and_sentence_is_blanked(self):
         for item in self.items:
@@ -589,15 +627,15 @@ class TestBatch31Satz(unittest.TestCase):
         rows = _load_vocab_rows(DRAFTS / "batch_31_a2_rows.csv")
         self.assertEqual(len(self.items), len(rows))
 
-    def test_ids_unique_and_above_live_a2_max(self):
-        live_max = max(
-            int(i["id"].rsplit("_", 1)[1]) for i in self.live_satz if i["id"].startswith("satz_a2_")
-        )
+    def test_ids_unique_and_above_pre_batch_live_max(self):
+        # C3-T5 (2026-09-16): fixed baseline, see the vocab-row fix above.
+        own_nums = [int(i["id"].rsplit("_", 1)[1]) for i in self.items]
+        pre_batch_max = min(own_nums) - 1
         ids = [i["id"] for i in self.items]
         self.assertEqual(len(ids), len(set(ids)))
         for item in self.items:
             num = int(item["id"].rsplit("_", 1)[1])
-            self.assertGreater(num, live_max)
+            self.assertGreater(num, pre_batch_max)
 
     def test_vocab_ko_and_target_present(self):
         for item in self.items:
@@ -637,6 +675,10 @@ class TestBatch31Satz(unittest.TestCase):
 
 class TestBatch31Packs(unittest.TestCase):
     def test_filled_packs_reach_exactly_12(self):
+        # C3-T5 (2026-09-16): post-promotion, live already includes this
+        # batch's own rows (live and draft are no longer disjoint sets),
+        # so each pack's live count alone must be 12 -- not live+draft
+        # (mirrors test_batch_30_draft.py's a1_numbers_2 fix).
         manifest = _load_json(DRAFTS / "batch_31_a2_reinforcement_manifest.json")
         draft_rows = _load_vocab_rows(DRAFTS / "batch_31_a2_rows.csv")
         live_rows = _load_vocab_rows(VOCAB_CSV)
@@ -644,8 +686,7 @@ class TestBatch31Packs(unittest.TestCase):
         live_counts = Counter(r["pack_id"] for r in live_rows)
         for entry in manifest.get("packsFilledTo12", []):
             pid = entry["pack_id"]
-            total = live_counts.get(pid, 0) + draft_counts.get(pid, 0)
-            self.assertEqual(total, 12, f"{pid}: live+draft = {total}, expected 12")
+            self.assertEqual(live_counts.get(pid, 0), 12, f"{pid}: live count = {live_counts.get(pid, 0)}, expected 12")
             self.assertEqual(
                 draft_counts.get(pid, 0), len(entry["addedWords"]),
                 f"{pid}: draft row count != declared addedWords length",

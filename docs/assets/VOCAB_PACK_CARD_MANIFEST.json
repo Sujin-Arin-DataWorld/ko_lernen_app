@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "generatedFrom": "assets/data/korean_vocab.csv",
   "snapshotDate": "2026-09-10",
-  "packCount": 251,
+  "packCount": 252,
   "dedicatedAssetCount": 184,
   "notes": [
     "The approved plan snapshot contained 223 packs; the live CSV now contains 224.",
@@ -707,7 +707,8 @@
         "vocab_a2_0125",
         "vocab_a2_0126",
         "vocab_a2_0127",
-        "vocab_a2_0128"
+        "vocab_a2_0128",
+        "vocab_a2_0557"
       ],
       "status": "approved_dedicated",
       "sha256": "baa4e3c4f3841f9cf1e0a30a622fc4cb9eb14cb671d9ee77feaddb29af8b44d9",
@@ -743,7 +744,9 @@
         "vocab_a2_0019",
         "vocab_a2_0028",
         "vocab_a2_0029",
-        "vocab_b1_0013"
+        "vocab_b1_0013",
+        "vocab_a2_0533",
+        "vocab_a2_0534"
       ],
       "status": "approved_dedicated",
       "sha256": "507baa3a9cf6e2e310c1285681c9abb0749794d1c557d0837012e88e03e12d6f",
@@ -778,7 +781,10 @@
         "vocab_a2_0009",
         "vocab_a2_0034",
         "vocab_a2_0059",
-        "vocab_a2_0060"
+        "vocab_a2_0060",
+        "vocab_a2_0527",
+        "vocab_a2_0528",
+        "vocab_a2_0529"
       ],
       "status": "approved_motif_fallback",
       "sha256": "e6457666fd5c389d61d4a90b097638f6202d66ca18af4dbe3817d8fef8f280e3",
@@ -814,7 +820,9 @@
         "vocab_a2_0089",
         "vocab_a2_0480",
         "vocab_a2_0481",
-        "vocab_a2_0482"
+        "vocab_a2_0482",
+        "vocab_a2_0535",
+        "vocab_a2_0536"
       ],
       "status": "approved_dedicated",
       "sha256": "8e54a672c92e507dc46438a17b52f78eeb441cfde9f16b0e9fde63ace3d7595c",
@@ -850,7 +858,9 @@
         "vocab_a2_0097",
         "vocab_a2_0486",
         "vocab_a2_0487",
-        "vocab_a2_0488"
+        "vocab_a2_0488",
+        "vocab_a2_0539",
+        "vocab_a2_0540"
       ],
       "status": "approved_dedicated",
       "sha256": "1805eed2ae623d7bf65154d5c3ccabb4c6a9fd10f4bfeed74bd4c994ef62f2b3",
@@ -885,7 +895,10 @@
         "vocab_a2_0050",
         "vocab_a2_0051",
         "vocab_a2_0054",
-        "vocab_a1_0332"
+        "vocab_a1_0332",
+        "vocab_a2_0504",
+        "vocab_a2_0505",
+        "vocab_a2_0506"
       ],
       "status": "approved_dedicated",
       "sha256": "d010b20d5add9ce405ccd3745010f1b669cb0620c726465dfa1fbbaed2de5e84",
@@ -922,7 +935,8 @@
         "vocab_a2_0106",
         "vocab_a2_0107",
         "vocab_a2_0108",
-        "vocab_a2_0110"
+        "vocab_a2_0110",
+        "vocab_a2_0558"
       ],
       "status": "approved_dedicated",
       "sha256": "6439e3abadc9cc9f1444b192321c882973011f411e638bf5bd59ac3a78e83fbb",
@@ -958,7 +972,9 @@
         "vocab_a2_0049",
         "vocab_a2_0477",
         "vocab_a2_0478",
-        "vocab_a2_0479"
+        "vocab_a2_0479",
+        "vocab_a2_0543",
+        "vocab_a2_0544"
       ],
       "status": "approved_motif_fallback",
       "sha256": "59baeed37d95bb06076ee54b6fe18440799fb69497c2777697347497a6317359",
@@ -995,7 +1011,8 @@
         "vocab_a2_0068",
         "vocab_a2_0069",
         "vocab_b1_0192",
-        "vocab_b1_0195"
+        "vocab_b1_0195",
+        "vocab_a2_0559"
       ],
       "status": "approved_dedicated",
       "sha256": "cbd398d6d97395a8bd66f43e17c6135d5ce3c0fe3df9d56a874d13204857fe1a",
@@ -1029,7 +1046,11 @@
         "vocab_a2_0082",
         "vocab_a2_0083",
         "vocab_a2_0084",
-        "vocab_a2_0085"
+        "vocab_a2_0085",
+        "vocab_a2_0507",
+        "vocab_a2_0508",
+        "vocab_a2_0509",
+        "vocab_a2_0510"
       ],
       "status": "approved_dedicated",
       "sha256": "5af716046bd5fe749347d98d301e639a062cf45b745e24afb37768ea55500675",
@@ -1063,7 +1084,11 @@
         "vocab_a2_0067",
         "vocab_a2_0078",
         "vocab_a2_0079",
-        "vocab_a2_0113"
+        "vocab_a2_0113",
+        "vocab_a2_0515",
+        "vocab_a2_0516",
+        "vocab_a2_0517",
+        "vocab_a2_0518"
       ],
       "status": "approved_dedicated",
       "sha256": "2be5db388472aabbc9a21f5179c4e01c93916ae200b6b9a7058b2c0c70613edb",
@@ -1097,7 +1122,11 @@
         "vocab_a2_0072",
         "vocab_a2_0073",
         "vocab_a2_0074",
-        "vocab_a2_0075"
+        "vocab_a2_0075",
+        "vocab_a2_0521",
+        "vocab_a2_0522",
+        "vocab_a2_0523",
+        "vocab_a2_0524"
       ],
       "status": "approved_motif_fallback",
       "sha256": "2cfed8051d3b32b24cc3ea33315620a9e18d66fd1b136a993b2388d9c7c3033c",
@@ -1131,7 +1160,11 @@
         "vocab_a2_0132",
         "vocab_a2_0133",
         "vocab_a2_0134",
-        "vocab_a2_0135"
+        "vocab_a2_0135",
+        "vocab_a2_0511",
+        "vocab_a2_0512",
+        "vocab_a2_0513",
+        "vocab_a2_0514"
       ],
       "status": "approved_dedicated",
       "sha256": "357a406692b4341e47026be17271751157fb7ef915f3b86c27baa48b95140cb0",
@@ -1903,7 +1936,9 @@
         "vocab_a2_0096",
         "vocab_a2_0483",
         "vocab_a2_0484",
-        "vocab_a2_0485"
+        "vocab_a2_0485",
+        "vocab_a2_0537",
+        "vocab_a2_0538"
       ],
       "status": "approved_dedicated",
       "sha256": "ed4c8ea356be53376f6a4e1cb9cb834cd8706b60190bc610a30cdc32309f8bdb",
@@ -1939,7 +1974,9 @@
         "vocab_a2_0104",
         "vocab_a2_0489",
         "vocab_a2_0490",
-        "vocab_a2_0491"
+        "vocab_a2_0491",
+        "vocab_a2_0541",
+        "vocab_a2_0542"
       ],
       "status": "approved_dedicated",
       "sha256": "0e2dc952e305e7a7c15ee1250ec3830d4daa00ef29e3409f75bdc563b6f3cb76",
@@ -2014,7 +2051,9 @@
         "vocab_a2_0140",
         "vocab_a2_0501",
         "vocab_a2_0502",
-        "vocab_a2_0503"
+        "vocab_a2_0503",
+        "vocab_a2_0525",
+        "vocab_a2_0526"
       ],
       "status": "approved_dedicated",
       "sha256": "6bbbbc3c6991bcdfc5a51b6d0723f14258c58c13a3dee55d957991a5d0364518",
@@ -2050,7 +2089,9 @@
         "vocab_a2_0120",
         "vocab_a2_0492",
         "vocab_a2_0493",
-        "vocab_a2_0494"
+        "vocab_a2_0494",
+        "vocab_a2_0519",
+        "vocab_a2_0520"
       ],
       "status": "approved_dedicated",
       "sha256": "e6d363afeb2fdced3539d3486010c8f7ca04ad474c05b558b19d8f0ea1da4e14",
@@ -2335,7 +2376,10 @@
         "vocab_a2_0146",
         "vocab_a2_0147",
         "vocab_a2_0148",
-        "vocab_a2_0150"
+        "vocab_a2_0150",
+        "vocab_a2_0530",
+        "vocab_a2_0531",
+        "vocab_a2_0532"
       ],
       "status": "approved_motif_fallback",
       "sha256": "0bda35a1e137b01f78c651867c5dcac887854acd68454f506b2896c3ce4ff891",
@@ -2410,7 +2454,9 @@
         "vocab_a2_0157",
         "vocab_a2_0158",
         "vocab_a2_0159",
-        "vocab_a2_0160"
+        "vocab_a2_0160",
+        "vocab_a2_0545",
+        "vocab_a2_0546"
       ],
       "status": "approved_motif_fallback",
       "sha256": "639c822b01437b9f8a3a7dbe07b20de228cd4e471fa29a91181c2d81cd3495b7",
@@ -3500,7 +3546,9 @@
         "vocab_a2_0229",
         "vocab_a2_0230",
         "vocab_a2_0231",
-        "vocab_a2_0232"
+        "vocab_a2_0232",
+        "vocab_a2_0547",
+        "vocab_a2_0548"
       ],
       "status": "approved_motif_fallback",
       "sha256": "b244eb1aaf88ea71fb35f684195696b36ee675ec1d57c6264ca4db8c2d9499f6",
@@ -3537,7 +3585,8 @@
         "vocab_a2_0241",
         "vocab_a2_0242",
         "vocab_a2_0243",
-        "vocab_a2_0244"
+        "vocab_a2_0244",
+        "vocab_a2_0560"
       ],
       "status": "approved_dedicated",
       "sha256": "c00a45bd7c35ad4d48d059ae5e775f7fe4ddf49ceb3e9531b921ec648ab14bcb",
@@ -4670,7 +4719,8 @@
         "vocab_a1_0279",
         "vocab_a1_0280",
         "vocab_a1_0281",
-        "vocab_a1_0283"
+        "vocab_a1_0283",
+        "vocab_a2_0553"
       ],
       "status": "approved_dedicated",
       "sha256": "7c4c30daccddbb59d1f995dcf253fa04c1cc951aba296fca20dc9e4ee6f5d218",
@@ -4821,7 +4871,9 @@
         "vocab_a2_0276",
         "vocab_a2_0277",
         "vocab_a2_0278",
-        "vocab_a2_0279"
+        "vocab_a2_0279",
+        "vocab_a2_0549",
+        "vocab_a2_0550"
       ],
       "status": "approved_dedicated",
       "sha256": "2a9726330a4e1bd6505cd3b75c644203eee65d85f1608d07ec7d8a2709d79c1c",
@@ -4935,7 +4987,9 @@
         "vocab_a2_0289",
         "vocab_a2_0290",
         "vocab_a2_0291",
-        "vocab_a2_0292"
+        "vocab_a2_0292",
+        "vocab_a2_0551",
+        "vocab_a2_0552"
       ],
       "status": "approved_dedicated",
       "sha256": "4145d823f6f167029a6acf64e64d49f29a9dcaa3d9d4bfe922ac5f0a2e15d130",
@@ -5202,7 +5256,8 @@
         "vocab_a2_0349",
         "vocab_a2_0350",
         "vocab_a2_0351",
-        "vocab_a2_0352"
+        "vocab_a2_0352",
+        "vocab_a2_0554"
       ],
       "status": "approved_dedicated",
       "sha256": "4f27d0ef6d39527b8280c557f55963e439bcaccebf88bc68214a03c43a233bf8",
@@ -5886,7 +5941,8 @@
         "vocab_a1_0328",
         "vocab_a1_0329",
         "vocab_a1_0330",
-        "vocab_a1_0331"
+        "vocab_a1_0331",
+        "vocab_a2_0561"
       ],
       "status": "approved_dedicated",
       "sha256": "bf128250e2982321568ce2173d8496fb27f41992106cb80ec2dd9ef90de4d03f",
@@ -8128,7 +8184,9 @@
         "vocab_a2_0497",
         "vocab_a2_0498",
         "vocab_a2_0499",
-        "vocab_a2_0500"
+        "vocab_a2_0500",
+        "vocab_a2_0555",
+        "vocab_a2_0556"
       ],
       "status": "approved_dedicated",
       "sha256": "53524a98eae7c4725d39300fd11db3b83711dc9d992d204a871526e6a0dde635",
@@ -9401,6 +9459,38 @@
       ],
       "status": "approved_motif_fallback",
       "sha256": "f763dafde98dc35ab25c92f38f962a51183bdba53913811196351f8ae5a95817",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_messenger_phone_1",
+      "level": "A2",
+      "rewardMotif": "lotus",
+      "primaryAsset": "assets/illustrations/packs/lotus.webp",
+      "subjectKo": "휴대폰 · 메시지 · 메모 · 답장",
+      "subjectPromptEn": "a modern still life expressing mobile phone, message, memo, note, reply",
+      "evidenceWordIds": [
+        "vocab_a2_0562",
+        "vocab_a2_0563",
+        "vocab_a2_0564",
+        "vocab_a2_0565",
+        "vocab_a2_0566",
+        "vocab_a2_0567"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "ae3ff1034e46489c56fbef0dd831473b8be3db4397ab7315bfaefa4383e3ab2e",
       "qa": {
         "fourThree": {
           "status": "pass",

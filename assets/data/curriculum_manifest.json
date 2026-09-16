@@ -2572,7 +2572,8 @@
     "a1_adverbs": "a1_13_register_switching",
     "a1_pronouns": "a1_08_clarify_repair",
     "a1_counters": "a1_05_numbers_time",
-    "a1_determiners": "a1_05_numbers_time"
+    "a1_determiners": "a1_05_numbers_time",
+    "a2_messenger_phone": "a2_03_chat_relationships"
   },
   "contentLinks": [
     {
@@ -7123,7 +7124,9 @@
     "a1:freundschaft": "a1_09_home_daily_life",
     "a1:gesundheit": "a1_13_register_switching",
     "a1:selbstvorstellung": "a1_08_clarify_repair",
-    "a1:tiere": "a1_05_numbers_time"
+    "a1:tiere": "a1_05_numbers_time",
+    "a2:natur & draußen": "a2_03_chat_relationships",
+    "a2:menschen & berufe": "a2_06_study_work"
   },
   "scenarioCorpusGeneration": "canonical_120_v1",
   "scenarioCorpusSupplements": [
