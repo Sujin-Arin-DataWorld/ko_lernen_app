@@ -18649,8 +18649,8 @@
     ]
   },
   "diagnostics": {
-    "unmapped_vocab_or_cloze_labels": 0,
-    "unmapped_pack_ids": 0,
+    "unmapped_vocab_or_cloze_labels": 2,
+    "unmapped_pack_ids": 3,
     "unmapped_scenarios_topic": 0,
     "unmapped_units_topic": 8,
     "unmatched_scenarios_speech_act": 7,

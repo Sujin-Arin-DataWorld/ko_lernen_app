@@ -4,7 +4,7 @@
     {
       "id": "cluster_a1_01_greetings_hangul_v1",
       "level": "a1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_airport_arrival_v1",
         "seed_vocab_pack_a1_greetings_1_v1",
@@ -17,7 +17,8 @@
         "seed_cloze_cloze_a1_0297_v1",
         "seed_cloze_cloze_a1_0298_v1",
         "seed_cloze_cloze_a1_0299_v1",
-        "seed_cloze_cloze_a1_0300_v1"
+        "seed_cloze_cloze_a1_0300_v1",
+        "seed_cloze_cloze_a1_0075_v1"
       ],
       "contentReferences": [
         {
@@ -67,6 +68,10 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0300"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0075"
         }
       ]
     },
@@ -761,7 +766,7 @@
     {
       "id": "cluster_a1_09_home_daily_life_v1",
       "level": "a1",
-      "revision": 13,
+      "revision": 14,
       "sourceSeedIds": [
         "seed_scenario_home_morning_routine_v1",
         "seed_vocab_pack_a1_colors_v1",
@@ -793,7 +798,9 @@
         "seed_grammar_grammar_a2_progressive_v1",
         "seed_scenario_umbrella_weather_v1",
         "seed_vocab_pack_a1_belongings_1_v1",
-        "seed_vocab_pack_a1_home_daily_1_v1"
+        "seed_vocab_pack_a1_home_daily_1_v1",
+        "seed_vocab_pack_a1_adjectives_1_v1",
+        "seed_vocab_pack_a1_adjectives_2_v1"
       ],
       "contentReferences": [
         {
@@ -919,6 +926,14 @@
         {
           "kind": "vocabPack",
           "id": "a1_home_daily_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_adjectives_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_adjectives_2"
         }
       ]
     },
@@ -999,7 +1014,7 @@
     {
       "id": "cluster_a1_11_titles_relationships_v1",
       "level": "a1",
-      "revision": 18,
+      "revision": 19,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_family_1_v1",
         "seed_vocab_pack_a1_family_2_v1",
@@ -1056,7 +1071,9 @@
         "seed_vocab_pack_a1_hobbies_1_v1",
         "seed_vocab_pack_a1_feelings_talk_1_v1",
         "seed_vocab_pack_a1_culture_hobbies_1_v1",
-        "seed_vocab_pack_a1_time_family_1_v1"
+        "seed_vocab_pack_a1_time_family_1_v1",
+        "seed_cloze_cloze_a1_0671_v1",
+        "seed_cloze_cloze_a1_0678_v1"
       ],
       "contentReferences": [
         {
@@ -1282,13 +1299,21 @@
         {
           "kind": "vocabPack",
           "id": "a1_time_family_1"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0671"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0678"
         }
       ]
     },
     {
       "id": "cluster_a1_12_daily_negation_v1",
       "level": "a1",
-      "revision": 8,
+      "revision": 9,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_daily_1_v1",
         "seed_vocab_pack_a1_daily_2_v1",
@@ -1314,7 +1339,10 @@
         "seed_smalltalk_smalltalk_a1_0081_v1",
         "seed_smalltalk_smalltalk_a1_0090_v1",
         "seed_grammar_grammar_a2_inability_v1",
-        "seed_scenario_cafe_dessert_sold_out_v1"
+        "seed_scenario_cafe_dessert_sold_out_v1",
+        "seed_vocab_pack_a1_verbs_daily_1_v1",
+        "seed_vocab_pack_a1_verbs_daily_2_v1",
+        "seed_vocab_pack_a1_verbs_daily_3_v1"
       ],
       "contentReferences": [
         {
@@ -1416,6 +1444,18 @@
         {
           "kind": "scenario",
           "id": "cafe_dessert_sold_out"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_verbs_daily_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_verbs_daily_2"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_verbs_daily_3"
         }
       ]
     },
@@ -1604,7 +1644,7 @@
     {
       "id": "cluster_a1_16_survival_capstone_v1",
       "level": "a1",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_scenario_survival_day_capstone_v1",
         "seed_vocab_pack_a1_misc_1_v1",
@@ -1622,7 +1662,8 @@
         "seed_grammar_grammar_a2_polite_proposal_v1",
         "seed_grammar_grammar_a2_lets_formal_v1",
         "seed_vocab_pack_a1_korean_places_1_v1",
-        "seed_vocab_pack_a1_nature_people_1_v1"
+        "seed_vocab_pack_a1_nature_people_1_v1",
+        "seed_vocab_pack_a1_misc_3_v1"
       ],
       "contentReferences": [
         {
@@ -1692,6 +1733,10 @@
         {
           "kind": "vocabPack",
           "id": "a1_nature_people_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_misc_3"
         }
       ]
     },

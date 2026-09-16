@@ -210,12 +210,12 @@
 | — | request_formula | 적어 주세요 | A1 | -아/어 주다 (2급) | A1 유지 — 학습자 요청 정형구(어휘화); 생산 문법 -아/어 주다는 A2 | Jin | 2026-09-16 | 학습자가 낯선 사람에게 요청할 때는 정중한 정형구가 필요; 생산 문법 -아/어 주다는 A2부터 지도; 맨 -으세요 명령형은 권한 있는 화자(안내문·지시문)에 한정 (F9 round 2, Jin 2026-09-16) | PR #348 |
 | — | request_formula | 도와주세요 | A1 | -아/어 주다 (2급) | A1 유지 — 학습자 요청 정형구(어휘화); 생산 문법 -아/어 주다는 A2 | Jin | 2026-09-16 | 학습자가 낯선 사람에게 요청할 때는 정중한 정형구가 필요; 생산 문법 -아/어 주다는 A2부터 지도; 맨 -으세요 명령형은 권한 있는 화자(안내문·지시문)에 한정 (F9 round 2, Jin 2026-09-16) | PR #348 |
 
-## 앱 고유 문법(F1 app_only, 93개) -- nikl 국제통용 목록에 대응 없음
+## 앱 고유 문법(F1 app_only, 87개) -- nikl 국제통용 목록에 대응 없음
 
 > `grammar_a1_service_request`행은 F1 자동 매처가 "을1"(조사) 매칭으로
 > `match` 판정하지만, 실질 근거는 2급 `-어 주다`(§4 참고)라 이 표에는
 > 손으로 추가했다 -- `tool/build_level_bible_tables.py` 재실행 시
-> app_only 헤더 수·목록이 자동 계산값(92개)으로 되돌아가므로 그때마다
+> app_only 헤더 수·목록이 자동 계산값(86개)으로 되돌아가므로 그때마다
 > 이 행을 다시 채워 넣어야 한다(Fable 룰링 2026-09-07, F1b §4/§6).
 
 | app id | 사유(Fable) |
@@ -223,29 +223,23 @@
 | grammar_a1_approx | |
 | grammar_a1_cannot_short | |
 | grammar_a1_come_purpose | |
-| grammar_a1_copula_polite | |
 | grammar_a1_degree_question | |
 | grammar_a1_duration_span | |
 | grammar_a1_in_front | |
-| grammar_a1_long_negation | |
 | grammar_a1_please_particle | |
-| grammar_a1_polite_prohibition | |
 | grammar_a1_service_request | 세종 1 '주세요' 요청 관용구 — A1 유지, Fable 룰링 2026-09-07 |
 | grammar_a1_short_negation | |
 | grammar_a1_which_question | |
-| grammar_a2_after_finishing | |
 | grammar_a2_among_set | |
 | grammar_a2_available_if | |
 | grammar_a2_future_intention | |
 | grammar_a2_in_progress | |
-| grammar_a2_intention_guess | |
 | grammar_a2_irregular_bieup | |
 | grammar_a2_irregular_digeut | |
 | grammar_a2_irregular_eu | |
 | grammar_a2_irregular_rieul | |
 | grammar_a2_noun_cause | |
 | grammar_a2_permission_check_batch20 | |
-| grammar_a2_preference_soft_batch20 | |
 | grammar_a2_recommendation | |
 | grammar_a2_shall_we_time | |
 | grammar_a2_tag_confirmation | |

@@ -2365,6 +2365,8 @@
     "a1_descriptions": "a1_09_home_daily_life",
     "a1_position": "a1_06_transport_directions",
     "a1_daily": "a1_12_daily_negation",
+    "a1_verbs_daily": "a1_12_daily_negation",
+    "a1_adjectives": "a1_09_home_daily_life",
     "a1_transport": "a1_06_transport_directions",
     "a1_misc": "a1_16_survival_capstone",
     "a2_daily": "a2_01_haeyo_transition",
@@ -7110,7 +7112,11 @@
     "a1:natur": "a1_16_survival_capstone",
     "a1:gefühle": "a1_11_titles_relationships",
     "a1:kommunikation": "a1_11_titles_relationships",
-    "a1:beruf": "a1_15_first_class_work"
+    "a1:beruf": "a1_15_first_class_work",
+    "a1:zuhause": "a1_12_daily_negation",
+    "a1:sport": "a1_12_daily_negation",
+    "a1:wetter": "a1_12_daily_negation",
+    "a1:freundschaft": "a1_09_home_daily_life"
   },
   "scenarioCorpusGeneration": "canonical_120_v1",
   "scenarioCorpusSupplements": [
