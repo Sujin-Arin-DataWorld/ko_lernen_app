@@ -261,12 +261,12 @@
 | ✅ covered | `communication_phone_digital` 전화·메신저·인터넷 소통 | 전화번호·연락 방법 정하기 | 14 | 9 | 2 | 1 | 5 | 13 | model_knowledge |
 | ✅ covered | `daily_life_routines` 일상생활·하루 일과 | 하루 일과·주말 활동·과거 활동 | 86 | 15 | 2 | 3 | 6 | 74 | verified_repo |
 | ✅ covered | `education_study` 교육·학교·학습 | 학교·수업·학용품(명사 수준) | 32 | 11 | 3 | 1 | 2 | 29 | model_knowledge |
-| ✅ covered | `family_relationships` 가족·인간관계 | 가족 소개·가족 높임 기초 | 65 | 8 | 4 | 1 | 30 | 63 | verified_repo |
+| ✅ covered | `family_relationships` 가족·인간관계 | 가족 소개·가족 높임 기초 | 67 | 10 | 4 | 1 | 30 | 65 | verified_repo |
 | ✅ covered | `feelings_character` 감정·성격·외모 묘사 | 외모·사물 묘사·대조(간단 형용사) | 27 | 5 | 1 | 0 | 4 | 13 | verified_repo |
 | ✅ covered | `food_drink` 식음료·식당 | 음식 취향·식당 주문·수량 | 45 | 8 | 6 | 2 | 5 | 37 | verified_repo |
 | ✅ covered | `free_time_hobbies_sport` 여가·취미·운동 | 취미·주말 약속 제안 | 48 | 12 | 2 | 0 | 16 | 46 | verified_repo |
 | ✅ covered | `health_body` 건강·신체·병원·약국 | 신체 부위·아픈 곳 한 단어·결석 사유 | 22 | 5 | 3 | 1 | 10 | 22 | verified_repo |
-| ✅ covered | `house_home` 주거·집 | 집·방·물건 위치(앞/뒤/위/안) | 17 | 7 | 7 | 2 | 2 | 11 | verified_repo |
+| ✅ covered | `house_home` 주거·집 | 집·방·물건 위치(앞/뒤/위/안) | 20 | 9 | 7 | 2 | 2 | 14 | verified_repo |
 | ✅ covered | `language_learning_communication_repair` 언어·학습·의사소통 되묻기 | 못 들었을 때 다시 묻기·천천히 말해 달라고 하기 | 10 | 3 | 3 | 3 | 0 | 22 | verified_repo |
 | ✅ covered | `numbers_time_dates` 숫자·시간·날짜 | 숫자·전화번호·화폐·날짜·요일·시간 | 110 | 15 | 2 | 1 | 0 | 88 | verified_repo |
 | ✅ covered | `personal_identification` 개인 신상·자기소개 | 이름·국적·직업·자기소개 | 59 | 10 | 5 | 2 | 0 | 59 | verified_repo |
@@ -371,9 +371,9 @@
 | ✅ covered | `time_calendar` 시간·날짜·요일·계절 | 84 |
 | ✅ covered | `colours_shapes_description` 색·모양·기본 묘사 형용사 | 19 |
 | ✅ covered | `body_health_symptoms` 신체·증상·의료 | 22 |
-| ✅ covered | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 65 |
+| ✅ covered | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 67 |
 | ✅ covered | `food_cooking` 음식·재료·조리 | 45 |
-| ✅ covered | `home_objects_furniture` 집·가구·생활용품 | 17 |
+| ✅ covered | `home_objects_furniture` 집·가구·생활용품 | 20 |
 | ✅ covered | `places_buildings_city` 장소·건물·도시 | 37 |
 | ✅ covered | `transport_travel_vocab` 교통·여행 어휘 | 12 |
 | 🟡 thin | `professions_workplace` 직업·직장 어휘 | 7 |
@@ -1152,8 +1152,8 @@
 
 ## 9. 매핑 진단 (alias 표를 넓힐 곳)
 
-- 주제 alias 에 없는 어휘/cloze topic 라벨 (2): Freundschaft(4), Zuhause(6)
-- 주제를 못 찾은 팩 id (3): a1_adjectives_1, a1_adjectives_2, a1_misc_3
+- 주제 alias 에 없는 어휘/cloze topic 라벨 (0): 없음
+- 주제를 못 찾은 팩 id (0): 없음
 - 주제를 못 찾은 시나리오 (0): 없음
 - 주제를 못 찾은 코스유닛 (8): a2_01_haeyo_transition, a2_02_plans_proposals, b1_01_experience_reasons, b1_02_indirect_speech, b1_05_complaint_resolution, b2_01_formal_opening, b2_03_precise_requests, c1_06_intimacy_safety_design
 - 기능(화행)에 하나도 걸리지 않은 시나리오 (7): a2_w10_fandom, b1_w10_incident, c2_w10_jurisdiction, gentrification_storefront, hidden_gem_local_impact, noisy_neighbor_evening, portfolio_interview_gap
