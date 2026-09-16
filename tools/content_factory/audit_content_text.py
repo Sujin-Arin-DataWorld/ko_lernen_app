@@ -45,6 +45,13 @@ class ContentSurface:
 # instead of being assumed to be a harmless implementation detail.
 SURFACES: tuple[ContentSurface, ...] = (
     ContentSurface(
+        "usage_notes.json",
+        "vocabulary usage notes",
+        "DataLoader.loadUsageNotes / VocabPackScreen",
+        ("notes",),
+        "KO/DE/EN nuance, situations, patterns, collocations, contrasts and examples",
+    ),
+    ContentSurface(
         "can_do_content_authorities.json",
         "course-proof authority",
         "CanonicalCourseSegmentLoader",

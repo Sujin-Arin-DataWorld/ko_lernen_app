@@ -11,9 +11,8 @@ contrasts/examples), reusable for future usage_notes batches:
 1. ASCII-umlaut/eszett substitution candidates -- word-boundary matches on
    `ae|oe|ue` plus a curated ss->ss ("gross", "heisst", ...) list, with an
    allowlist of genuinely-correct German words that happen to contain
-   those letter sequences without being an umlaut substitution (e.g.
-   "schaue" from "schauen", "neue", "dauerhaft"). These are almost always
-   real bugs once whitelisted words are excluded.
+   those letter sequences without being an umlaut substitution. These are
+   advisory candidates only: an incomplete allowlist can flag correct words.
 
 2. "Manual judgment" homograph pairs -- word pairs where the umlaut-
    stripped ASCII form is ALSO a real German word, so pass 1 cannot catch
@@ -39,7 +38,7 @@ USAGE_NOTES_JSON = ROOT / "assets" / "data" / "usage_notes.json"
 
 # -- pass 1: ASCII ae/oe/ue -> a/o/u-umlaut substitution candidates -------
 
-LEFTOVER_RE = re.compile(r"\b\w*(?:ae|oe|ue)\w*\b")
+LEFTOVER_RE = re.compile(r"\b\w*(?:ae|oe|ue)\w*\b", re.IGNORECASE)
 
 # Genuinely-correct German (or loanword/English) tokens that legitimately
 # contain "ae"/"oe"/"ue" as plain letters, not an umlaut substitution.
@@ -60,7 +59,9 @@ SAFE_AEOEUE_WORDS = {
     "zuerst", "Zuerst",
     "anzuerkennen", "erkennen", "anerkennen",
     "bedauerlichen", "bedauerliche", "bedauern",
+    "Steuer", "Steuern", "steuern", "Quelle", "Quellen",
 }
+SAFE_AEOEUE_WORDS = {word.casefold() for word in SAFE_AEOEUE_WORDS}
 
 SS_TO_ESZETT_HITS_RE = re.compile(
     r"\b\w*(gross|schliess|drauss|strasse|spass\w|bloss|heiss|"
@@ -125,6 +126,25 @@ def de_fields(note: dict):
         yield f"examples[{i}]", ex.get("de", "")
 
 
+def scan_text(text: str) -> dict:
+    """Return reviewer candidates, never a correctness or approval verdict.
+
+    Homograph suffixes cover common inflections; both false positives and
+    false negatives remain possible. Do not autocorrect any result.
+    """
+    leftovers = [m.group(0) for m in LEFTOVER_RE.finditer(text)
+                 if m.group(0).casefold() not in SAFE_AEOEUE_WORDS]
+    ss = [m.group(0) for m in SS_TO_ESZETT_HITS_RE.finditer(text)]
+    homographs = []
+    inflected_roots = {"druckt": "druck", "fordern": "forder", "offnen": "offn"}
+    for stripped, umlaut_form, gloss in HOMOGRAPH_PAIRS:
+        root = inflected_roots.get(stripped, stripped)
+        suffix = r"(?:e|en|er|es|em|n|t|te|ten|st|est|et)?"
+        for match in re.finditer(rf"\b{re.escape(root)}{suffix}\b", text, re.IGNORECASE):
+            homographs.append((match.group(0), umlaut_form, gloss))
+    return {"leftover": leftovers, "ss": ss, "homograph": homographs}
+
+
 def run() -> tuple[str, dict]:
     if not USAGE_NOTES_JSON.exists():
         return "usage_notes.json not found -- nothing to scan.\n", {"leftover": 0, "ss": 0, "homograph": 0}
@@ -142,32 +162,29 @@ def run() -> tuple[str, dict]:
         for field, text in de_fields(note):
             if not text:
                 continue
-            for m in LEFTOVER_RE.finditer(text):
-                w = m.group(0)
-                if w not in SAFE_AEOEUE_WORDS:
-                    leftover_hits.append((note_id, field, w, text))
-            for m in SS_TO_ESZETT_HITS_RE.finditer(text):
-                ss_hits.append((note_id, field, m.group(0), text))
-            for stripped, umlaut_form, gloss in HOMOGRAPH_PAIRS:
-                for m in re.finditer(rf"\b{re.escape(stripped)}\b", text):
-                    homograph_hits.append((note_id, field, stripped, umlaut_form, gloss, text))
+            candidates = scan_text(text)
+            leftover_hits.extend((note_id, field, word, text) for word in candidates["leftover"])
+            ss_hits.extend((note_id, field, word, text) for word in candidates["ss"])
+            homograph_hits.extend((note_id, field, word, correct, gloss, text)
+                                  for word, correct, gloss in candidates["homograph"])
 
     lines = [
-        "# usage_notes.json DE orthography scan",
+        "# usage_notes.json DE orthography triage (advisory)",
         "",
         "> Two passes: (1) ASCII ae/oe/ue substitution leftovers + ss-for-ß "
         "candidates, checked against an allowlist of genuinely-correct German "
-        "words -- treat every hit here as a real bug to fix. (2) a 'manual "
+        "words. Every hit requires contextual review; correct words may be flagged. (2) a 'manual "
         "judgment' list of homograph pairs where the stripped ASCII form is "
         "ALSO a real word (druckt/drückt, schon/schön, ...) -- these cannot "
         "be pattern-matched as bugs; read each sentence and judge whether the "
         "umlaut was actually intended before changing anything.",
+        "> A zero count is not German language approval. This scanner cannot establish meaning, grammar, register, or translation accuracy.",
         "",
         f"- ASCII-umlaut leftovers (pass 1): **{len(leftover_hits)}**",
         f"- ss-for-ß candidates (pass 1): **{len(ss_hits)}**",
         f"- homograph-pair hits for manual judgment (pass 2): **{len(homograph_hits)}**",
         "",
-        "## Pass 1 -- ASCII-umlaut leftovers (fix these)",
+        "## Pass 1 -- ASCII-umlaut candidates (review in context)",
         "",
     ]
     if leftover_hits:
@@ -178,7 +195,7 @@ def run() -> tuple[str, dict]:
         lines.append("(none)")
     lines.append("")
 
-    lines.append("## Pass 1b -- ss-for-ß candidates (fix these)")
+    lines.append("## Pass 1b -- ss-for-ß candidates (review in context)")
     lines.append("")
     if ss_hits:
         lines += ["| id | field | token | sentence |", "|---|---|---|---|"]
