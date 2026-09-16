@@ -1980,7 +1980,15 @@ class _UsageNoteExpanderState extends State<_UsageNoteExpander> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   if (note.nuance.forLang(lang).isNotEmpty)
-                    _UsageNoteBody(text: note.nuance.forLang(lang)),
+                    // 시각적으로는 라벨 없이 강조 문장 하나로 두되(첫인상용
+                    // 헤드라인), 스크린리더에는 t.usageNoteNuance를 앞에
+                    // 붙여 다른 항목과 같은 문맥을 준다 — 픽셀은 그대로라
+                    // 커밋된 골든(vocab_pack_usage_note_back_*.png)에
+                    // 영향이 없다.
+                    Semantics(
+                      label: t.usageNoteNuance,
+                      child: _UsageNoteBody(text: note.nuance.forLang(lang)),
+                    ),
                   if (note.situation.forLang(lang).isNotEmpty)
                     _UsageNoteEntry(
                       label: t.usageNoteSituation,

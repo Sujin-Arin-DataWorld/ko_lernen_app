@@ -16,6 +16,8 @@ import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 /// C9-T0: card-back "쓰임" section (`_UsageNoteExpander` in
 /// vocab_pack_screen.dart). Private classes cannot be imported directly, so
 /// this drives the real [VocabPackScreen] end to end -- exactly how a
@@ -143,6 +145,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    stubSoriSpeech();
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();

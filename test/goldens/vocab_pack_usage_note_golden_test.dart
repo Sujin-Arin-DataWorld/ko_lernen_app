@@ -16,6 +16,8 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 
+import '../support/sori_speech_stubs.dart';
+
 /// C9-T0 (D-5 shell freeze exception, card BACK only): golden for the
 /// expanded "쓰임" (usage note) section on a B1 flip card back at
 /// compact/medium -- the two breakpoints where the flip card grid column
@@ -114,6 +116,7 @@ void main() {
   });
 
   setUp(() async {
+    stubSoriSpeech();
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
