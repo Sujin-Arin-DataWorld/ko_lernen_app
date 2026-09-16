@@ -18,6 +18,7 @@ import json
 import re
 import sys
 import unicodedata
+from difflib import SequenceMatcher
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -1225,6 +1226,41 @@ class ContentValidator:
                         f"{label}.contrasts vocabId {contrast_vocab_id!r} is not a live vocab id",
                     )
                 check_text(f"{label}.contrasts", contrast)
+            # R8 round 2 (2026-09-16, PR #362 review): nuance must describe
+            # the headword's OWN meaning/implication, not restate the
+            # contrast comparison. Gate: for every contrast and every
+            # language, (a) nuance text must not literally contain that
+            # contrast's headword (ko only -- headword itself is Korean),
+            # and (b) SequenceMatcher ratio(nuance, contrast) must stay
+            # below 0.5 in ko/de/en alike. A note whose own headword
+            # happens to contain the contrast headword as a substring
+            # (e.g. "오해 풀기" contrasted against "오해") must phrase its
+            # nuance without repeating its own headword literally (use
+            # "이 표현은"/"this expression" instead) to satisfy (a).
+            nuance = note.get("nuance") if isinstance(note.get("nuance"), dict) else {}
+            for contrast in contrasts:
+                if not isinstance(contrast, dict):
+                    continue
+                headword = str(contrast.get("headword") or "")
+                for lang in ("ko", "de", "en"):
+                    nuance_text = nuance.get(lang)
+                    contrast_text = contrast.get(lang)
+                    if not isinstance(nuance_text, str) or not isinstance(contrast_text, str):
+                        continue
+                    if lang == "ko" and headword and headword in nuance_text:
+                        self.issue(
+                            name,
+                            f"{label}.nuance.{lang} contains contrast headword {headword!r} "
+                            "(nuance must describe the headword's own meaning, not the comparison)",
+                        )
+                    ratio = SequenceMatcher(None, nuance_text, contrast_text).ratio()
+                    if ratio >= 0.5:
+                        self.issue(
+                            name,
+                            f"{label}.nuance.{lang} too similar to contrast.{lang} "
+                            f"(ratio={ratio:.2f} >= 0.5) -- nuance duplicates the comparison "
+                            "instead of standing on its own",
+                        )
             register = note.get("register")
             if register not in USAGE_NOTE_REGISTERS:
                 self.issue(name, f"{label} register must be one of {sorted(USAGE_NOTE_REGISTERS)}")
