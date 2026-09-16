@@ -1,0 +1,10 @@
+id,korean,old_level,new_level,target_pack,reason
+vocab_a2_0001,회사,A2,A1,a1_misc_2,NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down
+vocab_a2_0002,직업,A2,A1,a1_misc_2,NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down
+vocab_a2_0003,취미,A2,A1,a1_hobbies_1,NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down
+vocab_a2_0004,날씨,A2,A1,a1_nature_people_1,NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down
+vocab_a2_0005,계절,A2,A1,a1_nature_people_1,NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down
+vocab_b2_0196,생신,B2,A1,a1_time_family_1,NIKL 1급 단일어; Q-C 최악불일치(delta=-3; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down; 세종 인용 없음(decision 4(b) 보류 대상인 F9 예외 신설과는 별개로 NIKL 등급 단독 근거 이동)
+vocab_b2_0201,주무시다,B2,A1,a1_home_daily_1,NIKL 1급 단일어; Q-C 최악불일치(delta=-3; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down; 세종 인용 없음(decision 4(b) 보류 대상인 F9 예외 신설과는 별개로 NIKL 등급 단독 근거 이동)
+vocab_b2_0202,드시다,B2,A1,a1_partner_table_basic_1,NIKL 1급 단일어; Q-C 최악불일치(delta=-3; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down; 세종 인용 없음(decision 4(b) 보류 대상인 F9 예외 신설과는 별개로 NIKL 등급 단독 근거 이동)
+vocab_b2_0204,잡수시다,B2,A1,a1_partner_table_basic_1,NIKL 1급 단일어; Q-C 최악불일치(delta=-3; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down; 세종 인용 없음(decision 4(b) 보류 대상인 F9 예외 신설과는 별개로 NIKL 등급 단독 근거 이동)

@@ -2,15 +2,15 @@
   "counts": {
     "cloze": {
       "fallback_over2": 0,
-      "over1": 164,
+      "over1": 165,
       "over2": 27,
       "total": 2215,
-      "under2": 456,
+      "under2": 454,
       "unknown": 0
     },
     "grammar": {
       "fallback_over2": 0,
-      "over1": 14,
+      "over1": 11,
       "over2": 3,
       "total": 252,
       "under2": 39,
@@ -34,15 +34,15 @@
     },
     "satz": {
       "fallback_over2": 0,
-      "over1": 159,
+      "over1": 163,
       "over2": 19,
       "total": 2735,
-      "under2": 655,
+      "under2": 645,
       "unknown": 0
     },
     "scenario": {
       "fallback_over2": 0,
-      "over1": 18,
+      "over1": 22,
       "over2": 0,
       "total": 178,
       "under2": 23,
@@ -50,7 +50,7 @@
     },
     "smalltalk": {
       "fallback_over2": 1,
-      "over1": 101,
+      "over1": 102,
       "over2": 19,
       "total": 582,
       "under2": 112,
@@ -61,13 +61,13 @@
       "over1": 312,
       "over2": 159,
       "total": 2818,
-      "under2": 240,
+      "under2": 229,
       "unknown": 56
     }
   },
   "coverage": {
     "grade1": {
-      "at_level": 530,
+      "at_level": 541,
       "missing": 53,
       "present_in_app": 661,
       "total_unique": 714
