@@ -35,6 +35,11 @@ EXPECTED = {
         "여기서 사진 찍지 마세요.",
         "match",
     ),
+    "G2:-다가1(1)": (
+        "grammar_a2_interrupted_action",
+        "숙제를 하다가 텔레비전을 봤습니다. / 집에 가다가 친구를 만났어.",
+        "match",
+    ),
 }
 
 
@@ -58,7 +63,7 @@ class GrammarCorrespondenceCatalogTest(unittest.TestCase):
         )
         self.assertEqual(
             {item.source_key for item in correspondences} - {"G1:-지 않다"},
-            set(EXPECTED),
+            set(EXPECTED) | {"G2:-지", "G3:-는다고3"},
         )
 
         result = build_f1(grammar_rows, nikl_rows, correspondences)
@@ -76,10 +81,31 @@ class GrammarCorrespondenceCatalogTest(unittest.TestCase):
                 self.assertEqual(row.status, status)
                 self.assertEqual(app_by_id[app_id]["example_korean"], example)
 
+        quotation = rows["G3:-는다고3"]
+        self.assertEqual(quotation.status, "match")
+        self.assertEqual(
+            quotation.matched_app_ids,
+            (
+                "grammar_b1_indirect_command",
+                "grammar_b1_indirect_question",
+                "grammar_b1_indirect_speech",
+                "grammar_b1_indirect_suggestion",
+            ),
+        )
+
         self.assertEqual(rows["G1:-지 않다"].status, "match")
         self.assertEqual(
             rows["G1:-지 않다"].matched_app_ids,
             ("grammar_a1_long_negation",),
+        )
+
+        partial_ji = rows["G2:-지"]
+        self.assertEqual(partial_ji.status, "missing_in_app")
+        self.assertEqual(partial_ji.matched_app_ids, ())
+        correspondence_by_key = {item.source_key: item for item in correspondences}
+        self.assertEqual(
+            correspondence_by_key["G2:-지"].semantic_status,
+            "observed_syntactic_candidate",
         )
 
     def test_unrelated_particle_and_ending_are_not_confirmed_by_catalog(self):
@@ -96,7 +122,7 @@ class GrammarCorrespondenceCatalogTest(unittest.TestCase):
         )
         confirmed_keys = {item.source_key for item in correspondences}
         self.assertNotIn("G1:이", confirmed_keys)
-        self.assertNotIn("G2:-지", confirmed_keys)
+        self.assertIn("G2:-지", confirmed_keys)
         result = build_f1(grammar_rows, nikl_rows, correspondences)
         rows = {
             f"G{row.nikl_grade}:{row.nikl_form}": row for row in result.rows

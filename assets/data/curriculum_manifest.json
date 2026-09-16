@@ -6056,6 +6056,60 @@
       "conceptIds": [
         "concept_action_formal"
       ]
+    },
+    "grammar_b1_indirect_question": {
+      "courseUnitId": "b1_02_indirect_speech",
+      "conceptIds": [
+        "concept_b1_indirect_speech"
+      ]
+    },
+    "grammar_b1_indirect_command": {
+      "courseUnitId": "b1_02_indirect_speech",
+      "conceptIds": [
+        "concept_b1_indirect_speech"
+      ]
+    },
+    "grammar_b1_indirect_suggestion": {
+      "courseUnitId": "b1_02_indirect_speech",
+      "conceptIds": [
+        "concept_b1_indirect_speech"
+      ]
+    },
+    "grammar_b1_conditional_geodeun": {
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
+    },
+    "grammar_b1_proportional_mankeum": {
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ]
+    },
+    "grammar_a2_toward_person": {
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ]
+    },
+    "grammar_a2_additive_location": {
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ]
+    },
+    "grammar_a2_starting_point": {
+      "courseUnitId": "a2_07_travel_repair",
+      "conceptIds": [
+        "concept_a2_travel_repair"
+      ]
+    },
+    "grammar_a2_written_directive": {
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ]
     }
   },
   "smalltalkCategoryUnitMap": {

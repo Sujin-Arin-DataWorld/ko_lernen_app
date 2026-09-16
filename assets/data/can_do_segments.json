@@ -2180,7 +2180,7 @@
     {
       "id": "cluster_a2_running_late_v1",
       "level": "a2",
-      "revision": 23,
+      "revision": 24,
       "sourceSeedIds": [
         "seed_scenario_running_late_v1",
         "seed_vocab_pack_a2_nature_1_v1",
@@ -2253,7 +2253,8 @@
         "seed_scenario_a2_w10_partner_v1",
         "seed_scenario_friend_cancelled_plan_v1",
         "seed_scenario_group_chat_photo_permission_v1",
-        "seed_vocab_pack_a2_messenger_phone_1_v1"
+        "seed_vocab_pack_a2_messenger_phone_1_v1",
+        "seed_grammar_grammar_a2_toward_person_v1"
       ],
       "contentReferences": [
         {
@@ -2543,6 +2544,10 @@
         {
           "kind": "vocabPack",
           "id": "a2_messenger_phone_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a2_toward_person"
         }
       ]
     },
@@ -2914,7 +2919,7 @@
     {
       "id": "cluster_a2_cafe_study_v1",
       "level": "a2",
-      "revision": 14,
+      "revision": 15,
       "sourceSeedIds": [
         "seed_vocab_pack_a2_education_v1",
         "seed_vocab_pack_a2_people_jobs_1_v1",
@@ -2945,7 +2950,8 @@
         "seed_grammar_grammar_b1_since_v1",
         "seed_grammar_grammar_a2_interrupted_action_v1",
         "seed_scenario_email_attachment_twice_v1",
-        "seed_scenario_forgot_presentation_cable_v1"
+        "seed_scenario_forgot_presentation_cable_v1",
+        "seed_grammar_grammar_a2_written_directive_v1"
       ],
       "contentReferences": [
         {
@@ -3067,6 +3073,10 @@
         {
           "kind": "scenario",
           "id": "forgot_presentation_cable"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a2_written_directive"
         }
       ]
     },
@@ -3121,7 +3131,7 @@
     {
       "id": "cluster_a2_subway_directions_v1",
       "level": "a2",
-      "revision": 9,
+      "revision": 10,
       "sourceSeedIds": [
         "seed_vocab_pack_a2_transport_v1",
         "seed_grammar_grammar_a2_only_negative_v1",
@@ -3140,7 +3150,8 @@
         "seed_cloze_cloze_a2_0053_v1",
         "seed_grammar_grammar_b1_experience_v1",
         "seed_grammar_grammar_a2_no_choice_but_v1",
-        "seed_scenario_jeju_bus_missed_v1"
+        "seed_scenario_jeju_bus_missed_v1",
+        "seed_grammar_grammar_a2_starting_point_v1"
       ],
       "contentReferences": [
         {
@@ -3214,6 +3225,10 @@
         {
           "kind": "scenario",
           "id": "jeju_bus_missed"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a2_starting_point"
         }
       ]
     },
@@ -3268,7 +3283,7 @@
     {
       "id": "cluster_a2_rent_bank_transfer_v1",
       "level": "a2",
-      "revision": 11,
+      "revision": 12,
       "sourceSeedIds": [
         "seed_vocab_pack_a2_home_1_v1",
         "seed_vocab_pack_a2_household_1_v1",
@@ -3302,7 +3317,8 @@
         "seed_grammar_grammar_a1_past_modifier_v1",
         "seed_grammar_grammar_b1_resultant_state_v1",
         "seed_scenario_a2_w10_money_v1",
-        "seed_scenario_forgot_house_key_v1"
+        "seed_scenario_forgot_house_key_v1",
+        "seed_grammar_grammar_a2_additive_location_v1"
       ],
       "contentReferences": [
         {
@@ -3436,13 +3452,17 @@
         {
           "kind": "scenario",
           "id": "forgot_house_key"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a2_additive_location"
         }
       ]
     },
     {
       "id": "cluster_b1_plans_with_reasons_v1",
       "level": "b1",
-      "revision": 15,
+      "revision": 16,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_city_places_1_v1",
         "seed_vocab_pack_b1_daily_1_v1",
@@ -3506,7 +3526,8 @@
         "seed_scenario_birthday_expectation_gap_v1",
         "seed_scenario_ktx_sold_out_alternative_v1",
         "seed_scenario_running_injury_training_plan_v1",
-        "seed_grammar_grammar_b2_contrast_v1"
+        "seed_grammar_grammar_b2_contrast_v1",
+        "seed_grammar_grammar_b1_proportional_mankeum_v1"
       ],
       "contentReferences": [
         {
@@ -3760,6 +3781,10 @@
         {
           "kind": "grammar",
           "id": "grammar_b2_contrast"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_proportional_mankeum"
         }
       ]
     },
@@ -3800,7 +3825,7 @@
     {
       "id": "cluster_b1_relay_social_speech_v1",
       "level": "b1",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_communication_lang_1_v1",
         "seed_vocab_pack_b1_tech_society_1_v1",
@@ -3827,7 +3852,10 @@
         "seed_cloze_cloze_b1_0052_v1",
         "seed_cloze_cloze_b1_0053_v1",
         "seed_scenario_team_update_indirect_speech_v1",
-        "seed_scenario_reel_caption_misunderstanding_v1"
+        "seed_scenario_reel_caption_misunderstanding_v1",
+        "seed_grammar_grammar_b1_indirect_command_v1",
+        "seed_grammar_grammar_b1_indirect_question_v1",
+        "seed_grammar_grammar_b1_indirect_suggestion_v1"
       ],
       "contentReferences": [
         {
@@ -3933,6 +3961,18 @@
         {
           "kind": "scenario",
           "id": "reel_caption_misunderstanding"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_indirect_command"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_indirect_question"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_indirect_suggestion"
         }
       ]
     },
@@ -3977,7 +4017,7 @@
     {
       "id": "cluster_b1_team_role_coordination_v1",
       "level": "b1",
-      "revision": 15,
+      "revision": 16,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_work_v1",
         "seed_vocab_pack_b1_work_career_1_v1",
@@ -4019,7 +4059,8 @@
         "seed_smalltalk_smalltalk_b1_0077_v1",
         "seed_smalltalk_smalltalk_b1_0078_v1",
         "seed_vocab_pack_a2_part_time_1_v1",
-        "seed_scenario_work_message_too_direct_v1"
+        "seed_scenario_work_message_too_direct_v1",
+        "seed_grammar_grammar_b1_conditional_geodeun_v1"
       ],
       "contentReferences": [
         {
@@ -4185,6 +4226,10 @@
         {
           "kind": "scenario",
           "id": "work_message_too_direct"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_conditional_geodeun"
         }
       ]
     },
