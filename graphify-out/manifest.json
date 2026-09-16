@@ -7686,9 +7686,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/review/promoted_copy_revisions_20260822.json": {
-    "mtime": 1789591877.5685303,
-    "seen": 1789593609.273703,
-    "ast_hash": "a5983591ba5cb7098fde67f92a029e50",
+    "mtime": 1789596712.7910457,
+    "seen": 1789597191.1281292,
+    "ast_hash": "92733312fd5a622bcef8aba8dd33cbf0",
     "semantic_hash": ""
   },
   "tools/content_factory/rr_romanize.py": {
@@ -13332,9 +13332,9 @@
     "semantic_hash": ""
   },
   "functions/tts/canonical_manifest.json": {
-    "mtime": 1789591877.5500987,
-    "seen": 1789593608.6158097,
-    "ast_hash": "d4fd92adece0ab78b77ef5a7eb5c8162",
+    "mtime": 1789596778.6497989,
+    "seen": 1789597190.5499747,
+    "ast_hash": "f51ff699ad804638af09b7ba9259d273",
     "semantic_hash": ""
   },
   "functions/tts/privacy_migration.js": {
@@ -19281,6 +19281,24 @@
     "mtime": 1789595010.3768852,
     "seen": 1789595341.9130352,
     "ast_hash": "3f8a282eef84b7e6da119cf14548e224",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/batch_07_grammar_reconciliation_20260916.json": {
+    "mtime": 1789596918.8215334,
+    "seen": 1789597191.0811477,
+    "ast_hash": "bbf6702b5a6ade066a0a2d001c05b91e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_batch07_grammar_reconciliation.py": {
+    "mtime": 1789596599.3032203,
+    "seen": 1789597191.1383338,
+    "ast_hash": "cfec06e6ac145e4a1f0dfd1cb2609356",
+    "semantic_hash": ""
+  },
+  "docs/data/review_packets/batch_07_grammar_20260916.md": {
+    "mtime": 1789596918.8215334,
+    "seen": 1789597191.2358875,
+    "ast_hash": "990905382d888a13130eb39ed8b57c72",
     "semantic_hash": ""
   }
 }
