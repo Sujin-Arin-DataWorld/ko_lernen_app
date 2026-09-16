@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "operation": "restore_frozen_review_snapshot",
+  "manifest": "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
+  "sourceCommit": "c8e07890c8655ee92e70f1acbfff5ab061624e32",
+  "snapshotOverwriteCommit": "7e2b11b82192fa704ff0da55b833dc6e2fa437a7",
+  "evidence": "Each recovered projection matches the existing copy-revision beforeSha256; the unchanged live projection matches afterSha256.",
+  "runtimeModified": false,
+  "approvalAdded": false,
+  "rightsAdded": false,
+  "copyRevisionLedgerModified": false,
+  "restoredRows": [
+    {
+      "kind": "vocab",
+      "id": "vocab_a1_0471",
+      "draft": "tools/content_factory/drafts/batch_25_a1_rows.csv",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "f9f3c3bcc28994587984397dadb9eca75b079efe6b45c3a8fb157913edb05bc2",
+      "liveSha256": "90e188f8bdae9628ff10ce4b4e86708b4ac374c3655ad445917dca594d362669"
+    },
+    {
+      "kind": "vocab",
+      "id": "vocab_a1_0472",
+      "draft": "tools/content_factory/drafts/batch_25_a1_rows.csv",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "81140c018b875484e408ab2cb87606e791863b7efb3d64e736dec07131cd53e0",
+      "liveSha256": "3b702eb33505dae264e5cd3d3a49e2e7b2cf46df78a8b019129213fd1ec2af78"
+    },
+    {
+      "kind": "vocab",
+      "id": "vocab_a1_0481",
+      "draft": "tools/content_factory/drafts/batch_25_a1_rows.csv",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "56cd770c2fd41eb016ccb103fcd82ba374556d017c2502fae792c7309e04f847",
+      "liveSha256": "68edc0167c3345c285895341a2e22677b0408619d90f5e519b4c9551406af3e3"
+    },
+    {
+      "kind": "vocab",
+      "id": "vocab_a1_0517",
+      "draft": "tools/content_factory/drafts/batch_25_a1_rows.csv",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "2def0334524ced84919dd4610c6286e4bf9fe0d5b8b9b5e315f47872bc7a39ff",
+      "liveSha256": "0bdfebdba0d9d873568a371e1410e4a67eca69c3a76cde47dd805ea8cf340d64"
+    },
+    {
+      "kind": "vocab",
+      "id": "vocab_a1_0518",
+      "draft": "tools/content_factory/drafts/batch_25_a1_rows.csv",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "f2714289d7d6f7d98a786e9d53e4b9977729537546d4c773e018f453d73f1206",
+      "liveSha256": "e591556eca87db23aec7786779004602fc70cf6dad300fa8e53ffdb7f36e174b"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0405",
+      "draft": "tools/content_factory/drafts/batch_25_a1_cloze.json",
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "71803c30611d23caef9e1319bc1b8a8e299de6d29dc111199d4f3916ef0d0546",
+      "liveSha256": "a65155e3bb1bc769fb09fd9f35f108aa58d4a085b1daa0f4c52d5f5d7bb46c9f"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0406",
+      "draft": "tools/content_factory/drafts/batch_25_a1_cloze.json",
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "d4623a24bffdffb503eccc98652252d111c4a5d068bc569060f8a7debab95722",
+      "liveSha256": "204532faedd8aeec7fafa093aab2005172810111a03c8af6c15c6997375800f8"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0415",
+      "draft": "tools/content_factory/drafts/batch_25_a1_cloze.json",
+      "fields": [
+        "answer",
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "d171c810437ca884457b031e24d362cc3b64b1212b6484edec536d577ed961eb",
+      "liveSha256": "2c5439f8634383a3bed00facb2e5f1c709a3a133f2e25355b7a5dc8d230db5ca"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0451",
+      "draft": "tools/content_factory/drafts/batch_25_a1_cloze.json",
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "f40a6770273affa0635406e2b49ac4130d865f528b087712220cbdeca69fb73c",
+      "liveSha256": "e67a7975716a8a41bef84068652cca888d23cea93b263d56eb691665d3d846f3"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0452",
+      "draft": "tools/content_factory/drafts/batch_25_a1_cloze.json",
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "5c145db57b25494b1934d592028bac1002dc9f00dc5c6cea4b91fc4f02181b21",
+      "liveSha256": "430e6b549a7fe8297ae45e514d9a1c7a4a915ca3784d23c6124ccfc4de6242a3"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_a1_0386",
+      "draft": "tools/content_factory/drafts/batch_25_a1_satz.json",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "5e4d6c45eb6acaa5e1adb395d4e4f0012b5649a7494b709f688d238f9dd42a9b",
+      "liveSha256": "3ddff4fe5624cbebb22fa4d81ea07a59de0a36db68021df846c19dec35bff2df"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_a1_0387",
+      "draft": "tools/content_factory/drafts/batch_25_a1_satz.json",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "6bbde0cae7b79f3dfc7a11c7e2d2ce138d01467b58247c6c18259e70202876c0",
+      "liveSha256": "df583b420ec3722324ad2810533e8c11a5140b8e048d34423a94e7af1fafd8de"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_a1_0396",
+      "draft": "tools/content_factory/drafts/batch_25_a1_satz.json",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "9ae28e8c8977706aa80c75c0876f034a44de10a368f4f9cd64a9f183618742c0",
+      "liveSha256": "ee1040de6fedaeccaccf98a29cbdda2eaa80e6a81352257fd259bc0c801b8f79"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_a1_0432",
+      "draft": "tools/content_factory/drafts/batch_25_a1_satz.json",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "288556cf64f65a8a32e3ffd2b67d00cd655d10b8f006fddf0dec5d942f7f8bf2",
+      "liveSha256": "c88fb2a4a22fa37452656c4c06f74ad81add39f27f5e4b3612bbbd358aff8d59"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_a1_0433",
+      "draft": "tools/content_factory/drafts/batch_25_a1_satz.json",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "65fc92aa7793ba1d86ddd6122eff504286d63ea1ecf75a6710ce12d3a870e290",
+      "liveSha256": "2224a1d6d1b4a3bc5f4ef80aeef0527eb189618623313e7c0e29d9852c2e3edd"
+    }
+  ]
+}
