@@ -84,10 +84,20 @@ BATCH25_30_VOCAB_CSVS = [DRAFTS / f"batch_{n}_a1_rows.csv" for n in range(25, 31
 VOCAB_COLUMNS = R.VOCAB_COLUMNS
 
 # --- POS-mechanism buckets (keyed by headword) --------------------------
+# R8 (Fable review of d0ac6a75, 2026-09-16): "Tier B over-use" -- most of
+# the original 27 Tier-B headwords actually had a clean, narrow-enough
+# Tier A (real word) clash available once distractors were picked for that
+# item's SPECIFIC predicate/frame instead of a generic pool rotation (e.g.
+# 배드민턴's "치다" only collocates with a small closed class of
+# games/instruments, so an unrelated concrete object like 우산 fails
+# cleanly -- no waiver needed). Re-audited all 64; only 7 headwords keep a
+# genuine open-frame Tier B waiver now (걱정/화내다/기뻐하다/슬퍼하다/잡다/
+# 메시지/연락처 -- 있어요, -지 말고, "많이 X했어요", "남기다" families that
+# stayed plausible even with a real-word swap during the re-audit, e.g.
+# "강아지가 아파서 아이가 많이 도와줬어요/울었어요" both read as valid
+# Korean).
 OPEN_FRAME_TIER_B_HEADWORDS = {
-    "외출", "쓰레기", "낮잠", "걱정", "깜짝", "태풍", "계단", "마당", "벽",
-    "배드민턴", "재료", "간장", "상품", "계산", "저금", "섬", "호수", "고모",
-    "이모", "명절", "조카", "이웃", "직장", "전철", "휴대폰", "메시지", "연락처",
+    "걱정", "화내다", "기뻐하다", "슬퍼하다", "잡다", "메시지", "연락처",
 }
 NHADA_TIER_A_HEADWORDS = {"입학", "취소"}
 DICTIONARY_FORM_VERB_POOL = {
