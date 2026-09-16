@@ -6,14 +6,17 @@ import 'package:flutter/material.dart';
 import '../data/ildu_turntable_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/ildu_world_manifest.dart';
+import '../motion/transitions.dart';
 import '../services/ildu_anchor_placement_service.dart';
 import '../services/ildu_decoration_placement_service.dart';
 import '../services/ildu_world_projection_adapter.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/hanok_asset_image.dart';
 import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/hanok_turntable_2d.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/toast.dart';
+import 'hanok_downloads_screen.dart';
 
 typedef IlDuManifestLoader = Future<IlDuWorldManifest> Function();
 typedef IlDuProjectionLoader = Future<IlDuWorldProjection> Function();
@@ -420,6 +423,16 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
         title: t.ilduWorldTitle,
         textScale: MediaQuery.textScalerOf(context).scale(1),
         viewportWidth: MediaQuery.sizeOf(context).width,
+        actions: [
+          IconButton(
+            key: const ValueKey('ildu-world-downloads'),
+            tooltip: t.hanokDownloadsSettingsTitle,
+            icon: const Icon(Icons.download_for_offline_outlined),
+            onPressed: () => Navigator.of(context).push<void>(
+              SoriTransitions.page<void>((_) => const HanokDownloadsScreen()),
+            ),
+          ),
+        ],
       ),
       body: manifest == null || projection == null
           ? _loadError == null
@@ -778,11 +791,12 @@ class _EstateMap extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Positioned.fill(
-          child: Image.asset(
+          child: HanokAssetImage(
             manifest.worldAsset(manifest.canvas.asset),
             fit: BoxFit.fill,
             cacheWidth: 1024,
             filterQuality: FilterQuality.medium,
+            prefetchPack: false,
           ),
         ),
         for (final gate in manifest.gates) _gateAnchor(gate),
@@ -1064,12 +1078,13 @@ class _MapAnchorState extends State<_MapAnchor> {
         : Offset(widget.placement!.x, widget.placement!.y);
     final frame = widget.turntableFrame;
     final image = frame == null
-        ? Image.asset(
+        ? HanokAssetImage(
             widget.assetPath,
             width: width,
             fit: BoxFit.contain,
             cacheWidth: widget.onTap == null ? 180 : 360,
             filterQuality: FilterQuality.medium,
+            prefetchPack: false,
             errorBuilder: (_, _, _) => const SizedBox.shrink(),
           )
         : SizedBox(

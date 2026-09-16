@@ -5167,5 +5167,47 @@
   "onboardingJourneyGamesShort": "Spielend lernen",
   "onboardingJourneyBookShort": "Dein Buch",
   "onboardingJourneyHanokShort": "Dein Hanok",
-  "onboardingJourneyCompanionShort": "Deine Begleitung"
+  "onboardingJourneyCompanionShort": "Deine Begleitung",
+  "hanokAssetsImageLoading": "Hanok-Bild wird vorbereitet…",
+  "hanokAssetsCellularNeeded": "Bei mobilen Daten oder einer unbekannten Verbindung musst du diesen Download ausdrücklich starten.",
+  "hanokAssetsDownloadNow": "Laden",
+  "hanokAssetsRetry": "Erneut versuchen",
+  "hanokAssetsImageFailed": "Dieses Hanok-Bild ist gerade nicht verfügbar.",
+  "hanokAssetsStorageFull": "Für dieses Hanok-Bild ist nicht genug Speicherplatz frei.",
+  "hanokAssetsNetworkFailed": "Das Hanok-Bild konnte nicht heruntergeladen werden. Prüfe deine Verbindung und versuche es erneut.",
+  "hanokDownloadsTitle": "Hanok-Bilder",
+  "hanokDownloadsIntro": "Lade große Hanok-Bilder nach Gebäude herunter, damit sie auch ohne Verbindung verfügbar bleiben.",
+  "hanokDownloadsWebSessionNotice": "Im Browser sind heruntergeladene Bilder nur in dieser Sitzung verfügbar. Der Browser kann sie am Sitzungsende löschen.",
+  "hanokDownloadsRemovalNotice": "Wenn du heruntergeladene Bilder entfernst, musst du sie später erneut herunterladen. Dein Lernfortschritt bleibt unverändert.",
+  "hanokDownloadsLoading": "Hanok-Bilder werden geprüft…",
+  "hanokDownloadsLoadFailed": "Die Liste der Hanok-Downloads konnte nicht geladen werden.",
+  "hanokDownloadsSize": "Größe: {size}",
+  "@hanokDownloadsSize": {
+    "placeholders": {
+      "size": {"type": "String"}
+    }
+  },
+  "hanokDownloadsIncluded": "In der App enthalten",
+  "hanokDownloadsDownloading": "{available} von {total} werden vorbereitet",
+  "@hanokDownloadsDownloading": {
+    "placeholders": {
+      "available": {"type": "String"},
+      "total": {"type": "String"}
+    }
+  },
+  "hanokDownloadsAvailableOffline": "Heruntergeladen und offline verfügbar",
+  "hanokDownloadsAvailableThisSession": "In dieser Browser-Sitzung verfügbar",
+  "hanokDownloadsPartial": "{available} von {total} sind verfügbar",
+  "@hanokDownloadsPartial": {
+    "placeholders": {
+      "available": {"type": "String"},
+      "total": {"type": "String"}
+    }
+  },
+  "hanokDownloadsNotDownloaded": "Nicht heruntergeladen",
+  "hanokDownloadsRemove": "Heruntergeladene Daten entfernen",
+  "hanokDownloadsRemoveFailed": "Die heruntergeladenen Daten konnten nicht entfernt werden. Versuche es erneut.",
+  "hanokDownloadsSettingsSection": "Offline-Bilder",
+  "hanokDownloadsSettingsTitle": "Hanok-Downloads",
+  "hanokDownloadsSettingsSubtitle": "In der App enthaltene und nach Gebäude heruntergeladene Bilder verwalten"
 }

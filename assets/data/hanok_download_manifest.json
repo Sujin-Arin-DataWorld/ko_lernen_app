@@ -1,0 +1,1550 @@
+{
+  "schemaVersion": 1,
+  "storageBucket": "ko-lernen-app.firebasestorage.app",
+  "packs": [
+    {
+      "id": "anchae",
+      "title": {
+        "ko": "안채",
+        "en": "Anchae",
+        "de": "Anchae"
+      },
+      "assets": [
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_01_site_household.png",
+          "sha256": "e5c25d00f115b92684de04989852ae45484da3ed63b4584df807db0ebc3725e2",
+          "bytes": 1867993,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/e5c25d00f115b92684de04989852ae45484da3ed63b4584df807db0ebc3725e2.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_02_stone_foundation.png",
+          "sha256": "a1ee9576cbd4980b9ce83de51041de617c57aea8628dd5fe46ae89d95b6172bd",
+          "bytes": 1428339,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/a1ee9576cbd4980b9ce83de51041de617c57aea8628dd5fe46ae89d95b6172bd.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_03_posts.png",
+          "sha256": "32237b786b6e02f7cb9072628ca29dc4e2d12f195afee2b2a84dea2f3aa90088",
+          "bytes": 1804657,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/32237b786b6e02f7cb9072628ca29dc4e2d12f195afee2b2a84dea2f3aa90088.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_04_beams_purlins.png",
+          "sha256": "098de6ae3f3e721194f8560d53fdd041cca280f206a0fb76faa515539e6ce8e5",
+          "bytes": 1913330,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/098de6ae3f3e721194f8560d53fdd041cca280f206a0fb76faa515539e6ce8e5.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_05_hip_frame.png",
+          "sha256": "d11560e23f652233a4d7feadf2206ac6ac327ac3548a9713ec2dcb291ce1934e",
+          "bytes": 1977226,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/d11560e23f652233a4d7feadf2206ac6ac327ac3548a9713ec2dcb291ce1934e.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_06_rafters_eaves.png",
+          "sha256": "4439f400dd8f27eecfc24e169a047ba157c01b6ce9a931ed172becfcaa08968b",
+          "bytes": 2097293,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/4439f400dd8f27eecfc24e169a047ba157c01b6ce9a931ed172becfcaa08968b.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_07_roof_bed.png",
+          "sha256": "75a2cd4005530aa766c55eec0f33cfa415a077412c2dc57e1733e9d96283782e",
+          "bytes": 2013026,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/75a2cd4005530aa766c55eec0f33cfa415a077412c2dc57e1733e9d96283782e.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_08_tiles.png",
+          "sha256": "b8526856fd74f9fd513d978764a3f58c8c0890bcd1bff556b5ab3e24d08238dc",
+          "bytes": 2184204,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/b8526856fd74f9fd513d978764a3f58c8c0890bcd1bff556b5ab3e24d08238dc.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_09_walls_kitchen.png",
+          "sha256": "21c900f76b552160d92861ded7c37ac796fe410750150b2b9c5bccba57ffd4ce",
+          "bytes": 2125824,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/21c900f76b552160d92861ded7c37ac796fe410750150b2b9c5bccba57ffd4ce.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_10_kitchen_loft.png",
+          "sha256": "425020540d7a04641d3ce0f3c1e3c2fc1458dee2d4d93cdf666267810755761a",
+          "bytes": 2173058,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/425020540d7a04641d3ce0f3c1e3c2fc1458dee2d4d93cdf666267810755761a.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_11_ondol.png",
+          "sha256": "da430042fe5cc54e16f71e218f2a03c8538d09545771a6d29a7ff4d72e934594",
+          "bytes": 2188514,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/da430042fe5cc54e16f71e218f2a03c8538d09545771a6d29a7ff4d72e934594.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_12_daecheong_maru.png",
+          "sha256": "98555c21b336587053917997e72128462bd5e4d7db9fe858dea51305d78311df",
+          "bytes": 2054271,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/98555c21b336587053917997e72128462bd5e4d7db9fe858dea51305d78311df.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_13_changho.png",
+          "sha256": "fc0ec2f33d6a4cc1a6d7f361c4af799efbf85ae7f05c293248e6b27d83019708",
+          "bytes": 2199459,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/fc0ec2f33d6a4cc1a6d7f361c4af799efbf85ae7f05c293248e6b27d83019708.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae/stage_14_complete_use.png",
+          "sha256": "0840b9998db3c50fd81b7d3f250e692d30ed687d5a9e8c0da8c39028054ba263",
+          "bytes": 2082318,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/0840b9998db3c50fd81b7d3f250e692d30ed687d5a9e8c0da8c39028054ba263.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_00_front.png",
+          "sha256": "fd84f655758236fde46f4c1716115675f9b403e08f5e4b977a6bafee9474c376",
+          "bytes": 100839,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/fd84f655758236fde46f4c1716115675f9b403e08f5e4b977a6bafee9474c376.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_01_front_right.png",
+          "sha256": "5c9732088e7b238a47ccf8727e71bc31248c4447e757ff5328e2ec1a3da2f3d9",
+          "bytes": 115814,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/5c9732088e7b238a47ccf8727e71bc31248c4447e757ff5328e2ec1a3da2f3d9.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_02_right.png",
+          "sha256": "929d5936199f983465042e5286b982e0b84255c5cf4da54b8a6a5257546db0fe",
+          "bytes": 72466,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/929d5936199f983465042e5286b982e0b84255c5cf4da54b8a6a5257546db0fe.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_03_rear_right.png",
+          "sha256": "2bad5d3c560ba37f429b61b74538dbac6174125dbbea7f7b6c62d95b950dd1de",
+          "bytes": 113731,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/2bad5d3c560ba37f429b61b74538dbac6174125dbbea7f7b6c62d95b950dd1de.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_04_rear.png",
+          "sha256": "e58fd4604dde33c580a8f29e3d4f739765ab39a8210440f2ef7974f8bae85349",
+          "bytes": 99139,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/e58fd4604dde33c580a8f29e3d4f739765ab39a8210440f2ef7974f8bae85349.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_05_rear_left.png",
+          "sha256": "c7ba3fe595a774fc67f8ccd17e2f98457e66617c33dd93c8ab11db0403e97ac5",
+          "bytes": 109670,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/c7ba3fe595a774fc67f8ccd17e2f98457e66617c33dd93c8ab11db0403e97ac5.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_06_left.png",
+          "sha256": "c549a6259a090b4e4de141fc46638202d25501b800d640a2e360be3eb6c77154",
+          "bytes": 70618,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/c549a6259a090b4e4de141fc46638202d25501b800d640a2e360be3eb6c77154.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_07_front_left.png",
+          "sha256": "53a54bf0b4459a9411e4e3dfae8367b489a3402ec09b55b3ad6ea92470c7a390",
+          "bytes": 115516,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/53a54bf0b4459a9411e4e3dfae8367b489a3402ec09b55b3ad6ea92470c7a390.png"
+        }
+      ]
+    },
+    {
+      "id": "anchae-store",
+      "title": {
+        "ko": "안채곳간채",
+        "en": "Anchae storehouse",
+        "de": "Speicher am Anchae"
+      },
+      "assets": [
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_01_site_storage.png",
+          "sha256": "7ef39516823233129252b26255fdfc9de1de317aae61bb8afa78a48b77954838",
+          "bytes": 1870708,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/7ef39516823233129252b26255fdfc9de1de317aae61bb8afa78a48b77954838.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_02_stone_foundation.png",
+          "sha256": "3a60999fee3f8d18a425b63f4d4fc0b56301a36eafa4a5e2f83d331c398b8383",
+          "bytes": 1847140,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/3a60999fee3f8d18a425b63f4d4fc0b56301a36eafa4a5e2f83d331c398b8383.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_03_posts.png",
+          "sha256": "f9b46ef7d83cefddc7f99b3fc30f23b3ad1c3e2bb075260cc8333a9be97df3d6",
+          "bytes": 1844615,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/f9b46ef7d83cefddc7f99b3fc30f23b3ad1c3e2bb075260cc8333a9be97df3d6.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_04_beams_purlins.png",
+          "sha256": "eae1118b860a8fdb9812b047e4c5a8b3a588c6a5eb723c09a9b9c6a7c7d34133",
+          "bytes": 1928433,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/eae1118b860a8fdb9812b047e4c5a8b3a588c6a5eb723c09a9b9c6a7c7d34133.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_05_rafters_eaves.png",
+          "sha256": "ee54b1302c4067b210276684761274d3edefafa82a41d3904a476176f46e3f97",
+          "bytes": 2094980,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/ee54b1302c4067b210276684761274d3edefafa82a41d3904a476176f46e3f97.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_06_roof_bed.png",
+          "sha256": "63b1099b9b7e9690daf6c2ab43a0993828facffdfa22c4d9f3d1438e874ee5d5",
+          "bytes": 2164853,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/63b1099b9b7e9690daf6c2ab43a0993828facffdfa22c4d9f3d1438e874ee5d5.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_07_tiles.png",
+          "sha256": "21fff7b91c2825b2a632c356b2e6ad24b5a54538ce1b616d7e9b393224aa3d79",
+          "bytes": 2166570,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/21fff7b91c2825b2a632c356b2e6ad24b5a54538ce1b616d7e9b393224aa3d79.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_08_compacted_floor.png",
+          "sha256": "972ea798c5073ee935e606432cff196b0a52bb1f3cbcb2808a6970d4fd3825ae",
+          "bytes": 2171012,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/972ea798c5073ee935e606432cff196b0a52bb1f3cbcb2808a6970d4fd3825ae.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_09_walls_partition.png",
+          "sha256": "bb8023445b6b319ace57fac9b4708fffd05b0d1b4f32adf4a8c34cdfae5354be",
+          "bytes": 2099027,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/bb8023445b6b319ace57fac9b4708fffd05b0d1b4f32adf4a8c34cdfae5354be.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_10_doors_vents.png",
+          "sha256": "10572eeacf28decf6d2c4220404c4d483f747b3168489c96f27e977d01601e3f",
+          "bytes": 2234023,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/10572eeacf28decf6d2c4220404c4d483f747b3168489c96f27e977d01601e3f.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/anchae-store/stage_11_complete_use.png",
+          "sha256": "0f1ff39dcbe49f78a0f51765700d585355c0f2cf0f80044db4d131dfdc786d66",
+          "bytes": 2042810,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/0f1ff39dcbe49f78a0f51765700d585355c0f2cf0f80044db4d131dfdc786d66.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_store_00_front.png",
+          "sha256": "5be1a8b7f08c2a0ddde81dad2656628dd5557267c7ac0a9583f7727b9486e8ad",
+          "bytes": 75963,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/5be1a8b7f08c2a0ddde81dad2656628dd5557267c7ac0a9583f7727b9486e8ad.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_store_01_front_right.png",
+          "sha256": "f18339a7e9f4fcc9a51fdb3513c3af6593f0b77a115208c162218b46926b9160",
+          "bytes": 59935,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/f18339a7e9f4fcc9a51fdb3513c3af6593f0b77a115208c162218b46926b9160.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_store_02_right.png",
+          "sha256": "85a19815c4a748f485c57156794d1a0a34c94361605cbe9e5757b1bde1ad5d30",
+          "bytes": 27479,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/85a19815c4a748f485c57156794d1a0a34c94361605cbe9e5757b1bde1ad5d30.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_store_03_rear_right.png",
+          "sha256": "2850bf3e9b4710ace9c94239aefff72f56df4b391def7c66372a727fa3ab8169",
+          "bytes": 40637,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/2850bf3e9b4710ace9c94239aefff72f56df4b391def7c66372a727fa3ab8169.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_store_04_rear.png",
+          "sha256": "c7523ae6f8fdc02962c04d628c1427753eb9fede921196e13f229a3cb50b7799",
+          "bytes": 79028,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/c7523ae6f8fdc02962c04d628c1427753eb9fede921196e13f229a3cb50b7799.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_store_05_rear_left.png",
+          "sha256": "21d9c47fa47062987a031fd7a0d5199fd1b9167139f8fd90b69bc33585259eca",
+          "bytes": 57787,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/21d9c47fa47062987a031fd7a0d5199fd1b9167139f8fd90b69bc33585259eca.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_store_06_left.png",
+          "sha256": "94d42078882e1a5811acbbd3dde2ab26000ec7f11061867b7e59797d2756015e",
+          "bytes": 22916,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/94d42078882e1a5811acbbd3dde2ab26000ec7f11061867b7e59797d2756015e.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_anchae_store_07_front_left.png",
+          "sha256": "653d8e39cfa826c30d39ad10115e43170525816b6704b1c27d25977dc94e86a2",
+          "bytes": 54587,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/653d8e39cfa826c30d39ad10115e43170525816b6704b1c27d25977dc94e86a2.png"
+        }
+      ]
+    },
+    {
+      "id": "ansarangchae",
+      "title": {
+        "ko": "안사랑채",
+        "en": "Ansarangchae",
+        "de": "Ansarangchae"
+      },
+      "assets": [
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_01_site.webp",
+          "sha256": "275f9e1adcfb116d7f7c1b278f77c7bdfb38b8049e94176f4cbd8e4b2f4434f1",
+          "bytes": 1030672,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/275f9e1adcfb116d7f7c1b278f77c7bdfb38b8049e94176f4cbd8e4b2f4434f1.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_02_foundation.webp",
+          "sha256": "660317cb7db43ce5a599b2ac5bd5c3eb07e025aef811441847fd375afad5df16",
+          "bytes": 982918,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/660317cb7db43ce5a599b2ac5bd5c3eb07e025aef811441847fd375afad5df16.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_03_padstones.webp",
+          "sha256": "ef6d187bfbe5d3bf483cfdedee82ef8c7cb5486a0f521034282a8434cff1e6fe",
+          "bytes": 958236,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/ef6d187bfbe5d3bf483cfdedee82ef8c7cb5486a0f521034282a8434cff1e6fe.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_04_posts.webp",
+          "sha256": "d1b393f34037b6d51de0d58806bdd20829e52afe29c189491f9a6eddd859e2c7",
+          "bytes": 1020124,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/d1b393f34037b6d51de0d58806bdd20829e52afe29c189491f9a6eddd859e2c7.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_05_beams.webp",
+          "sha256": "e23a7a3f3a73380a9a9b31ce5bd6c2f25231f503de8149a43feb9d8b71d1da3f",
+          "bytes": 1344142,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/e23a7a3f3a73380a9a9b31ce5bd6c2f25231f503de8149a43feb9d8b71d1da3f.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_06_rafters.webp",
+          "sha256": "64b0fd2a6ec8716324f2ad80deb57d6761f64f8845c66af70bf8977ffe1cd8de",
+          "bytes": 1530060,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/64b0fd2a6ec8716324f2ad80deb57d6761f64f8845c66af70bf8977ffe1cd8de.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_07_roof_bed.webp",
+          "sha256": "57d8d9dab6ca861996e50b30148e1917715515c18a1e7cfc3150b733464e40e5",
+          "bytes": 1477212,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/57d8d9dab6ca861996e50b30148e1917715515c18a1e7cfc3150b733464e40e5.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_08_tiles.webp",
+          "sha256": "64904a13e7d5db515dea3a3bb31722a434c4bedf3488da0ea471cf48cb486ed3",
+          "bytes": 1464056,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/64904a13e7d5db515dea3a3bb31722a434c4bedf3488da0ea471cf48cb486ed3.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_09_walls.webp",
+          "sha256": "5ce6b597cc909b53ee71e68cef4f4fbd21b63f49932c04d58fb97f65938d6947",
+          "bytes": 1453830,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/5ce6b597cc909b53ee71e68cef4f4fbd21b63f49932c04d58fb97f65938d6947.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_10_ondol.webp",
+          "sha256": "e9140ecff0741c13ae76624d8ecf12b11a0c2eacc2dde18f50b1a2c9cbe8ad10",
+          "bytes": 1431590,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/e9140ecff0741c13ae76624d8ecf12b11a0c2eacc2dde18f50b1a2c9cbe8ad10.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_11_maru_interior.webp",
+          "sha256": "b2a6085665b56435388cba128b58bd3127cb671fff9362bdb4ff0d9cb8a8d30f",
+          "bytes": 1468742,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/b2a6085665b56435388cba128b58bd3127cb671fff9362bdb4ff0d9cb8a8d30f.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_12_maru_porch.webp",
+          "sha256": "ffe3728de102cbaffe6a35948ed567fdfebacc52af94da69d6c4b49730bf953f",
+          "bytes": 1451584,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/ffe3728de102cbaffe6a35948ed567fdfebacc52af94da69d6c4b49730bf953f.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_13_doors.webp",
+          "sha256": "6c0ffc40e655a9691552ecee803effc970222f19084cb3f2d5003b1b47097b5a",
+          "bytes": 1512596,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/6c0ffc40e655a9691552ecee803effc970222f19084cb3f2d5003b1b47097b5a.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.webp",
+          "sha256": "c529c22825d9db4734241e122ad272b01e5a2d14b1f913d020b23085db7cfb95",
+          "bytes": 1553862,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/c529c22825d9db4734241e122ad272b01e5a2d14b1f913d020b23085db7cfb95.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_00_front.png",
+          "sha256": "4872a6f8ac99d970997656d487d2abc7d597170fa52e1a7b871773b6cd95fdc1",
+          "bytes": 164704,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/4872a6f8ac99d970997656d487d2abc7d597170fa52e1a7b871773b6cd95fdc1.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_01_front_right.png",
+          "sha256": "f034c749e12d8586c0feef20d4b54037c2c33d3a9076d51aea6e9e32b5fbc2fb",
+          "bytes": 184151,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/f034c749e12d8586c0feef20d4b54037c2c33d3a9076d51aea6e9e32b5fbc2fb.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_02_right.png",
+          "sha256": "8fbd70b70f9c056a98b0845dc77e374bf4ac015ce2e8474257b56dbe50efb060",
+          "bytes": 140605,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/8fbd70b70f9c056a98b0845dc77e374bf4ac015ce2e8474257b56dbe50efb060.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_03_rear_right.png",
+          "sha256": "ed895a24d2c4469df7c7b2f14067541f7edd0a1352cf58d6b4b18ba127ad171a",
+          "bytes": 159800,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/ed895a24d2c4469df7c7b2f14067541f7edd0a1352cf58d6b4b18ba127ad171a.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_04_rear.png",
+          "sha256": "8fdde45e2e7ec4e43f904c1075e46472e407c43a30d9e031ba92630f6a8aadd1",
+          "bytes": 165991,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/8fdde45e2e7ec4e43f904c1075e46472e407c43a30d9e031ba92630f6a8aadd1.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_05_rear_left.png",
+          "sha256": "7441d0d48f0d1f07420513d9901f8eb8a0d45f55ea5667d30aacdeda56639fdf",
+          "bytes": 187944,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/7441d0d48f0d1f07420513d9901f8eb8a0d45f55ea5667d30aacdeda56639fdf.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_06_left.png",
+          "sha256": "1c069fe58d11628024a4bc2563a20d1ba7d2d2abd8ace5f00e44e1acdf7553f5",
+          "bytes": 151954,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/1c069fe58d11628024a4bc2563a20d1ba7d2d2abd8ace5f00e44e1acdf7553f5.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_ansarangchae_07_front_left.png",
+          "sha256": "307c78686360a064c1a35e9c9527009e5aa2bd5daf65e071b3693f83891a3f1e",
+          "bytes": 196023,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/307c78686360a064c1a35e9c9527009e5aa2bd5daf65e071b3693f83891a3f1e.png"
+        }
+      ]
+    },
+    {
+      "id": "araechae",
+      "title": {
+        "ko": "아랫채",
+        "en": "Araechae",
+        "de": "Araechae"
+      },
+      "assets": [
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_01_site_rooms.png",
+          "sha256": "c34097b57f510df95c80ad054502ac2265666cb096e2a8887a2012e92a84bd47",
+          "bytes": 1804959,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/c34097b57f510df95c80ad054502ac2265666cb096e2a8887a2012e92a84bd47.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_02_stone_foundation.png",
+          "sha256": "778c8e8330f2c81e21c27cfac98250b0ab5f0a6c7c36ff30cbea49838497c2e4",
+          "bytes": 1819160,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/778c8e8330f2c81e21c27cfac98250b0ab5f0a6c7c36ff30cbea49838497c2e4.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_03_posts_floor_support.png",
+          "sha256": "403906e7bd587220e0d077a49b451a6e73e7f2f6f49ed1e463e48b5f3d1d0790",
+          "bytes": 1695181,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/403906e7bd587220e0d077a49b451a6e73e7f2f6f49ed1e463e48b5f3d1d0790.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_04_beams_purlins.png",
+          "sha256": "cd7e8420a504df60996d639660b76b75bc9db1238636a3c43325b6b07f64e025",
+          "bytes": 1812034,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/cd7e8420a504df60996d639660b76b75bc9db1238636a3c43325b6b07f64e025.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_05_rafters_eaves.png",
+          "sha256": "49d45cd1ed211532521192e60cdf7907aa9c05a9600724bead7460db8cd0026a",
+          "bytes": 1985748,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/49d45cd1ed211532521192e60cdf7907aa9c05a9600724bead7460db8cd0026a.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_06_roof_bed.png",
+          "sha256": "bf3dc11e887cfb977b760bc2ab0c93d8e57b423264fadc8cf84af500e7e3004e",
+          "bytes": 2106099,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/bf3dc11e887cfb977b760bc2ab0c93d8e57b423264fadc8cf84af500e7e3004e.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_07_tiles.png",
+          "sha256": "751e233446f7a39061380650fe1a1880486cdcea4f8435adab04caeb52909618",
+          "bytes": 2042413,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/751e233446f7a39061380650fe1a1880486cdcea4f8435adab04caeb52909618.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_08_room_walls.png",
+          "sha256": "4dfc83fba8638b6013e1b64e31357663da1a00cc3ad2a282b3c65e38eafa5990",
+          "bytes": 2034641,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/4dfc83fba8638b6013e1b64e31357663da1a00cc3ad2a282b3c65e38eafa5990.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_09_ondol.png",
+          "sha256": "6d2af1937a77e07e952ba4a78cb494b342701c8d642ba88c4932d7d47d34f49f",
+          "bytes": 2069104,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/6d2af1937a77e07e952ba4a78cb494b342701c8d642ba88c4932d7d47d34f49f.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_10_maru.png",
+          "sha256": "7fdec94627095f98575c641d5c3811026770d7587e46ef1ee7d655b7a9dd813c",
+          "bytes": 2132637,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/7fdec94627095f98575c641d5c3811026770d7587e46ef1ee7d655b7a9dd813c.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_11_changho.png",
+          "sha256": "ecad08d535f1b8f3998997918b222a65cfc90f7f6917b155e62bbb55babd90b6",
+          "bytes": 2213943,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/ecad08d535f1b8f3998997918b222a65cfc90f7f6917b155e62bbb55babd90b6.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/araechae/stage_12_complete_use.png",
+          "sha256": "785150cf4e349261ee6c83227c24714acc58392f2ae0b5a086e6d0ef9741cb44",
+          "bytes": 2163363,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/785150cf4e349261ee6c83227c24714acc58392f2ae0b5a086e6d0ef9741cb44.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_araechae_00_front.png",
+          "sha256": "7dca50e664e5973effe7f994f041c2c4ae7b5c00fc57303f86eb16effa3f703e",
+          "bytes": 1855690,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/7dca50e664e5973effe7f994f041c2c4ae7b5c00fc57303f86eb16effa3f703e.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_araechae_01_front_right.png",
+          "sha256": "c16be02cd3f920084b645d951e3d575946f2bef04897f5531065669ce8879475",
+          "bytes": 2415839,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/c16be02cd3f920084b645d951e3d575946f2bef04897f5531065669ce8879475.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_araechae_02_right.png",
+          "sha256": "4887fcd5b9aea5e56dbd396bc6ed94db103abb75756f2f5b609ccbfd4d931122",
+          "bytes": 1242652,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/4887fcd5b9aea5e56dbd396bc6ed94db103abb75756f2f5b609ccbfd4d931122.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_araechae_03_rear_right.png",
+          "sha256": "93e34824c3c4b504f78bf4b2d3e13697cef9c2ffbbb80f9ad21fde2dcb07dbfc",
+          "bytes": 2085182,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/93e34824c3c4b504f78bf4b2d3e13697cef9c2ffbbb80f9ad21fde2dcb07dbfc.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_araechae_04_rear.png",
+          "sha256": "01c4bad6057dc786b8944bddc03357f98ef8d91063ce37c13aa4006b4aa5c066",
+          "bytes": 1736445,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/01c4bad6057dc786b8944bddc03357f98ef8d91063ce37c13aa4006b4aa5c066.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_araechae_05_rear_left.png",
+          "sha256": "59a77b9feb79fb3a4bdfc906e44d474a9f5c495bf2fde58f57e03d045bb3572b",
+          "bytes": 2183347,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/59a77b9feb79fb3a4bdfc906e44d474a9f5c495bf2fde58f57e03d045bb3572b.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_araechae_06_left.png",
+          "sha256": "f4c070e43785d7f83d3aaabb7401d1a1c4616a3ecbbab6401a57aadf9dc2ae97",
+          "bytes": 1094136,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/f4c070e43785d7f83d3aaabb7401d1a1c4616a3ecbbab6401a57aadf9dc2ae97.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_araechae_07_front_left.png",
+          "sha256": "8eb86188d8a3ca393d969eb451b1e9119b0ca06152d25cb67d2f066aa1e1bd0d",
+          "bytes": 2186278,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/8eb86188d8a3ca393d969eb451b1e9119b0ca06152d25cb67d2f066aa1e1bd0d.png"
+        }
+      ]
+    },
+    {
+      "id": "changgo",
+      "title": {
+        "ko": "창고",
+        "en": "Changgo · Storehouse",
+        "de": "Changgo · Lagerhaus"
+      },
+      "assets": [
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_01_foundation.webp",
+          "sha256": "c5eeef039e878103d7aa306bb74dab5fa831309e38ba13d29fe5cbddf147cd3d",
+          "bytes": 1734644,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/c5eeef039e878103d7aa306bb74dab5fa831309e38ba13d29fe5cbddf147cd3d.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_02_posts.webp",
+          "sha256": "493a2547adc84d3f93063573fde76b8370f9cda3b0279dfd27f1dd8c90e45002",
+          "bytes": 1504896,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/493a2547adc84d3f93063573fde76b8370f9cda3b0279dfd27f1dd8c90e45002.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_03_beams.webp",
+          "sha256": "685800084c237ba122c50148283a754b1b2f8fa986bfbf26ec37a3428283b5ed",
+          "bytes": 1481812,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/685800084c237ba122c50148283a754b1b2f8fa986bfbf26ec37a3428283b5ed.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_04_rafters.webp",
+          "sha256": "b8686bca8f4569aa1213b60f372e9470903398a1e6fac0f1dc01bb7b574e9330",
+          "bytes": 1298196,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/b8686bca8f4569aa1213b60f372e9470903398a1e6fac0f1dc01bb7b574e9330.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_05_roof_bed.webp",
+          "sha256": "ffc78c9a50e3c308317b416d3a5a823263358433bd0f68d267f2a128484c1016",
+          "bytes": 1324358,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/ffc78c9a50e3c308317b416d3a5a823263358433bd0f68d267f2a128484c1016.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_06_roof_tiles.webp",
+          "sha256": "00d15aa40b830a68ce252432575dd0fd2be850636279773b1fabfbbdc1453850",
+          "bytes": 1529590,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/00d15aa40b830a68ce252432575dd0fd2be850636279773b1fabfbbdc1453850.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_07_walls.webp",
+          "sha256": "732a1234b6e5e7e2d25a2074c8c1f87ebe2f38b629c8850bd97df320d49bcf7d",
+          "bytes": 1231940,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/732a1234b6e5e7e2d25a2074c8c1f87ebe2f38b629c8850bd97df320d49bcf7d.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png",
+          "sha256": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488",
+          "bytes": 4112877,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_changgo_00_front.png",
+          "sha256": "64b6b04c0f1ae3e70bae7e8619d890737c48cafb33ff866ee10deead316a6cf9",
+          "bytes": 89752,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/64b6b04c0f1ae3e70bae7e8619d890737c48cafb33ff866ee10deead316a6cf9.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_changgo_01_front_right.png",
+          "sha256": "a40f0527aa9bd171a1771db04ccb6f06900d8f42899d2665cf6a843b2f6515cb",
+          "bytes": 111675,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/a40f0527aa9bd171a1771db04ccb6f06900d8f42899d2665cf6a843b2f6515cb.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_changgo_02_right.png",
+          "sha256": "af10f0be98171d9b06572bc4666f6d3ac350bd5d00e7502420f8dbc50f56a485",
+          "bytes": 87532,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/af10f0be98171d9b06572bc4666f6d3ac350bd5d00e7502420f8dbc50f56a485.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_changgo_03_rear_right.png",
+          "sha256": "23206f797c2252bf6e3930c00eb137a34afe71b6d186280ff14a23a14a0c6ad7",
+          "bytes": 103984,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/23206f797c2252bf6e3930c00eb137a34afe71b6d186280ff14a23a14a0c6ad7.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_changgo_04_rear.png",
+          "sha256": "9c4e7489982b1ec251b5a3926a4405799be187eaccc47b7b8cdeec3f55278adb",
+          "bytes": 83686,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/9c4e7489982b1ec251b5a3926a4405799be187eaccc47b7b8cdeec3f55278adb.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_changgo_05_rear_left.png",
+          "sha256": "bab71b1f1dd18035eb405214fa9e386b06adb9a0a7af34139b4ff9347a83750b",
+          "bytes": 100034,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/bab71b1f1dd18035eb405214fa9e386b06adb9a0a7af34139b4ff9347a83750b.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_changgo_06_left.png",
+          "sha256": "5e8008afd74f602afae20a7b8cdb3f491a94d4a5c467031e38df7271f3303eaf",
+          "bytes": 91805,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/5e8008afd74f602afae20a7b8cdb3f491a94d4a5c467031e38df7271f3303eaf.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_changgo_07_front_left.png",
+          "sha256": "71c75b1a7adaf3823d71020e1159d4e85f8d71d8bfc415355bf3c85af8054a7c",
+          "bytes": 111906,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/71c75b1a7adaf3823d71020e1159d4e85f8d71d8bfc415355bf3c85af8054a7c.png"
+        }
+      ]
+    },
+    {
+      "id": "gokgan",
+      "title": {
+        "ko": "곳간채",
+        "en": "Granary",
+        "de": "Großes Speicherhaus"
+      },
+      "assets": [
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_gokgan_00_front.png",
+          "sha256": "4c2096f71df12d743d93ac15389f6fd055ee8b84acc2b7bb1afbcc365f5d8fe4",
+          "bytes": 110812,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/4c2096f71df12d743d93ac15389f6fd055ee8b84acc2b7bb1afbcc365f5d8fe4.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_gokgan_01_front_right.png",
+          "sha256": "ede230a9ab95054dc580aa5e1ade59e96bd223fe38b7bf5cfbedae4dfb9d2b64",
+          "bytes": 106983,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/ede230a9ab95054dc580aa5e1ade59e96bd223fe38b7bf5cfbedae4dfb9d2b64.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_gokgan_02_right.png",
+          "sha256": "c2ad44683007d6a8c2b3122d44302114481aca4a952241b178196d2bd5838978",
+          "bytes": 74995,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/c2ad44683007d6a8c2b3122d44302114481aca4a952241b178196d2bd5838978.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_gokgan_03_rear_right.png",
+          "sha256": "9bba452b7ef5e869a7932b94fb1bca3639e6601292393adefff6f02d2acd90c2",
+          "bytes": 102370,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/9bba452b7ef5e869a7932b94fb1bca3639e6601292393adefff6f02d2acd90c2.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_gokgan_04_rear.png",
+          "sha256": "5255855e5e7ddac637f94d5f706ebff9147a8d3f1c627571482c36b5e3b56f1f",
+          "bytes": 114650,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/5255855e5e7ddac637f94d5f706ebff9147a8d3f1c627571482c36b5e3b56f1f.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_gokgan_05_rear_left.png",
+          "sha256": "2009bf3a0f52344caf5fd8c99bbc97063d5c0ccb207d6d475e348eb2061574be",
+          "bytes": 96553,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/2009bf3a0f52344caf5fd8c99bbc97063d5c0ccb207d6d475e348eb2061574be.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_gokgan_06_left.png",
+          "sha256": "d1ec1f6251084f79a6318e90935418e940565b8dd60de5dcab8a9702eb4f61d9",
+          "bytes": 83298,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/d1ec1f6251084f79a6318e90935418e940565b8dd60de5dcab8a9702eb4f61d9.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_gokgan_07_front_left.png",
+          "sha256": "e1c70a75d50493a3a16554e4fc42f54b9cebc9d49bd6a41fa8c8dde13966698a",
+          "bytes": 94865,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/e1c70a75d50493a3a16554e4fc42f54b9cebc9d49bd6a41fa8c8dde13966698a.png"
+        }
+      ]
+    },
+    {
+      "id": "hyeopmun",
+      "title": {
+        "ko": "협문",
+        "en": "Hyeopmun · Side gate",
+        "de": "Hyeopmun · Seitentor"
+      },
+      "assets": [
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_00_front.png",
+          "sha256": "543e56560973537fb4d7a00c2015b31acc8a6a4b7006df9bfa88397c1708e2e6",
+          "bytes": 216133,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/543e56560973537fb4d7a00c2015b31acc8a6a4b7006df9bfa88397c1708e2e6.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_01_front_right.png",
+          "sha256": "18d578c01eaad4673308840e51624ec6e08a4a5caa59843093c5c2abe6615de4",
+          "bytes": 224086,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/18d578c01eaad4673308840e51624ec6e08a4a5caa59843093c5c2abe6615de4.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_02_right.png",
+          "sha256": "e01f5fd88e52c0050cf5ed32bb62e8690d3916b555dce9afc9560a00f1800198",
+          "bytes": 107915,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/e01f5fd88e52c0050cf5ed32bb62e8690d3916b555dce9afc9560a00f1800198.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_03_rear_right.png",
+          "sha256": "c294776037c8be6f3316e41845cd5ceb717d76d88dec5405c022ecdd60c60810",
+          "bytes": 214124,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/c294776037c8be6f3316e41845cd5ceb717d76d88dec5405c022ecdd60c60810.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_04_rear.png",
+          "sha256": "1d59e413683d9ebc795e2cffd158e08f9a67be75eccad77e1d7f4cc67b0c229d",
+          "bytes": 200847,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/1d59e413683d9ebc795e2cffd158e08f9a67be75eccad77e1d7f4cc67b0c229d.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_05_rear_left.png",
+          "sha256": "41d4f19b54778a8a58344746edf6f324395148548999ae4d7a507dcd481d9870",
+          "bytes": 203837,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/41d4f19b54778a8a58344746edf6f324395148548999ae4d7a507dcd481d9870.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_06_left.png",
+          "sha256": "2e72d5e3dc89cca5d2fa30512c48efe6b5688aaa9e0b4f34970d1f2a2006abbe",
+          "bytes": 103242,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/2e72d5e3dc89cca5d2fa30512c48efe6b5688aaa9e0b4f34970d1f2a2006abbe.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_hyeopmun_07_front_left.png",
+          "sha256": "17b580192c280fe1e1edfc705324bfed1078dbf9484c004449d8656444191e35",
+          "bytes": 221682,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/17b580192c280fe1e1edfc705324bfed1078dbf9484c004449d8656444191e35.png"
+        }
+      ]
+    },
+    {
+      "id": "jungmunganchae",
+      "title": {
+        "ko": "중문채",
+        "en": "Jungmunganchae",
+        "de": "Jungmunganchae"
+      },
+      "assets": [
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_01_site_route.png",
+          "sha256": "21b75324e6dc098e4327b4ee88f24a77c81f11691b003ea9c88ba9cd6146ddf9",
+          "bytes": 1467666,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/21b75324e6dc098e4327b4ee88f24a77c81f11691b003ea9c88ba9cd6146ddf9.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_02_stone_foundation.png",
+          "sha256": "8033e02f3876d19a062bbf4747d871af6423b4a1bd57089201a92e11bd0342a3",
+          "bytes": 1740792,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/8033e02f3876d19a062bbf4747d871af6423b4a1bd57089201a92e11bd0342a3.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_03_posts.png",
+          "sha256": "9b9055d2dfecb8df71a0d46c2f7d0c6c612247d7148ceea6e14875a36c06df64",
+          "bytes": 1827273,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/9b9055d2dfecb8df71a0d46c2f7d0c6c612247d7148ceea6e14875a36c06df64.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_04_beams_purlins.png",
+          "sha256": "dde340c19fc80e053a3b7edbba0cde3552a4179f2b75766024b9414d7b51d9f6",
+          "bytes": 1980195,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/dde340c19fc80e053a3b7edbba0cde3552a4179f2b75766024b9414d7b51d9f6.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_05_rafters_eaves.png",
+          "sha256": "85933f03f97e5d067f17935471905b19575e3b03f305489cc754f3d1e83b4e54",
+          "bytes": 2146355,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/85933f03f97e5d067f17935471905b19575e3b03f305489cc754f3d1e83b4e54.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_06_roof_bed.png",
+          "sha256": "d2d4b1cc9f5904b2080d6599dc84ac34a71b12087cb845a4ae0ba0e56a67757b",
+          "bytes": 2021105,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/d2d4b1cc9f5904b2080d6599dc84ac34a71b12087cb845a4ae0ba0e56a67757b.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_07_tiles.png",
+          "sha256": "d775405eaa9a5db9bf9107b5f5a1051a4d944cd3e66ad42fcfa892cb04a2c9c2",
+          "bytes": 2160071,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/d775405eaa9a5db9bf9107b5f5a1051a4d944cd3e66ad42fcfa892cb04a2c9c2.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_08_room_walls.png",
+          "sha256": "71e103b0679406f678b6cdcbec05c29e518e7943fe5d93cf807048588468c880",
+          "bytes": 2123132,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/71e103b0679406f678b6cdcbec05c29e518e7943fe5d93cf807048588468c880.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_09_ondol_floors.png",
+          "sha256": "ebd1bf08b34106f6beb860d3de42d0efe272561d5c1a991674052ab2acbed823",
+          "bytes": 2166396,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/ebd1bf08b34106f6beb860d3de42d0efe272561d5c1a991674052ab2acbed823.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_10_open_maru.png",
+          "sha256": "ed9a104446c0545cc5249d130550191a461904913d698a57a40624d9f6ede885",
+          "bytes": 2220577,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/ed9a104446c0545cc5249d130550191a461904913d698a57a40624d9f6ede885.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_11_gate_changho.png",
+          "sha256": "4a0c912315aa43f6dcf144941ff78821e4a46fe12526b7241752e2cb5bbc35bb",
+          "bytes": 2206807,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/4a0c912315aa43f6dcf144941ff78821e4a46fe12526b7241752e2cb5bbc35bb.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/jungmunganchae/stage_12_complete_use.png",
+          "sha256": "f90f20232539127d2d51c71728dec3f87ee64b8e00e91ee0327036650b0151ba",
+          "bytes": 2173264,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/f90f20232539127d2d51c71728dec3f87ee64b8e00e91ee0327036650b0151ba.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_jungmunganchae_00_front.png",
+          "sha256": "bc7021ef7ba05f5c21746626e1b3ddec2e82609db40d55171c65860256d17909",
+          "bytes": 2112122,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/bc7021ef7ba05f5c21746626e1b3ddec2e82609db40d55171c65860256d17909.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_jungmunganchae_01_front_right.png",
+          "sha256": "386b0d951d5264f83f7a304f58ed7382f42c952deffaeb9199979d5470efe1a8",
+          "bytes": 2451637,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/386b0d951d5264f83f7a304f58ed7382f42c952deffaeb9199979d5470efe1a8.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_jungmunganchae_02_right.png",
+          "sha256": "14c5704c581487d7a4230922065964a1742fe909a0bc28455bfb1cd42fbbc51f",
+          "bytes": 1983361,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/14c5704c581487d7a4230922065964a1742fe909a0bc28455bfb1cd42fbbc51f.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_jungmunganchae_03_rear_right.png",
+          "sha256": "81156fade5c8905ca2978b16c71e1c98d99fe9775b6b0eaccf0c243677e75df9",
+          "bytes": 2382300,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/81156fade5c8905ca2978b16c71e1c98d99fe9775b6b0eaccf0c243677e75df9.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_jungmunganchae_04_rear.png",
+          "sha256": "025e66cb5a7139cf7c5e26f09dab845a6afb546999677a2ad75f3a790edd48e7",
+          "bytes": 2259300,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/025e66cb5a7139cf7c5e26f09dab845a6afb546999677a2ad75f3a790edd48e7.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_jungmunganchae_05_rear_left.png",
+          "sha256": "3821497538dcc8fdb13c54121feb09f952ace8ebae34c073dfbcef812fb29611",
+          "bytes": 2408810,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/3821497538dcc8fdb13c54121feb09f952ace8ebae34c073dfbcef812fb29611.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_jungmunganchae_06_left.png",
+          "sha256": "b19bf5169fa449af885938938ec6fc113ceeac81559095190fe8905ef55dd0ae",
+          "bytes": 1725875,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/b19bf5169fa449af885938938ec6fc113ceeac81559095190fe8905ef55dd0ae.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_jungmunganchae_07_front_left.png",
+          "sha256": "174c41fc54d5d40c4d094ff2006ac7a8f6b5f9eb128612317cae61e723d710bc",
+          "bytes": 2314380,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/174c41fc54d5d40c4d094ff2006ac7a8f6b5f9eb128612317cae61e723d710bc.png"
+        }
+      ]
+    },
+    {
+      "id": "main-gate",
+      "title": {
+        "ko": "솟을대문",
+        "en": "Main gate",
+        "de": "Haupttor"
+      },
+      "assets": [
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sotdaeulmun_00_front.png",
+          "sha256": "6e295fbe18502ffd38521c7dd0dc7688eb46b79a8e5b28b7c06c19482b254b2a",
+          "bytes": 151473,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/6e295fbe18502ffd38521c7dd0dc7688eb46b79a8e5b28b7c06c19482b254b2a.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sotdaeulmun_01_front_right.png",
+          "sha256": "44a3f480a203547a002818d395a36d5385a93e42d1a816e231a3cb7240a8d346",
+          "bytes": 167932,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/44a3f480a203547a002818d395a36d5385a93e42d1a816e231a3cb7240a8d346.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sotdaeulmun_02_right.png",
+          "sha256": "30a62e2903b4f994267b5b997a1459e5083501676e8a0ae382c027b97a193bf3",
+          "bytes": 146916,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/30a62e2903b4f994267b5b997a1459e5083501676e8a0ae382c027b97a193bf3.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sotdaeulmun_03_rear_right.png",
+          "sha256": "38a1d06d5869e9f7ea25c5df6891184b1ffc382d4222c646e10a4a626cb33b16",
+          "bytes": 158224,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/38a1d06d5869e9f7ea25c5df6891184b1ffc382d4222c646e10a4a626cb33b16.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sotdaeulmun_04_rear.png",
+          "sha256": "cdcdd6adb00c22115128edb10f78066e1b37ce5df75bf4994b6f92875dacd71e",
+          "bytes": 146356,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/cdcdd6adb00c22115128edb10f78066e1b37ce5df75bf4994b6f92875dacd71e.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sotdaeulmun_05_rear_left.png",
+          "sha256": "aa64da5b940f27e932cfe336a2a5755d744b3b540457a03198993df5d882075e",
+          "bytes": 160189,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/aa64da5b940f27e932cfe336a2a5755d744b3b540457a03198993df5d882075e.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sotdaeulmun_06_left.png",
+          "sha256": "842d2d6be0bbe1f525e6f5cdb6cfbb49539394a57bbe9d68bf16af31b137f8b1",
+          "bytes": 138901,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/842d2d6be0bbe1f525e6f5cdb6cfbb49539394a57bbe9d68bf16af31b137f8b1.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sotdaeulmun_07_front_left.png",
+          "sha256": "5ab57c104b54a4f70b06048b4a61dbf7e7c7e65631b057211add7761c6697c30",
+          "bytes": 153870,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/5ab57c104b54a4f70b06048b4a61dbf7e7c7e65631b057211add7761c6697c30.png"
+        }
+      ]
+    },
+    {
+      "id": "sadang",
+      "title": {
+        "ko": "사당",
+        "en": "Sadang",
+        "de": "Ahnenschrein"
+      },
+      "assets": [
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_01_site.webp",
+          "sha256": "9070886da13bc219b6eae7d6ecacb2e0e623645559c974fc3ead1623522f6a0e",
+          "bytes": 973320,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/9070886da13bc219b6eae7d6ecacb2e0e623645559c974fc3ead1623522f6a0e.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_02_foundation.webp",
+          "sha256": "b8d34813e18e63128206d376d93b8cdd5c2bf2c5c1af429d135be90363095d84",
+          "bytes": 917910,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/b8d34813e18e63128206d376d93b8cdd5c2bf2c5c1af429d135be90363095d84.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_03_padstones.webp",
+          "sha256": "723331284d260034ba155862e6efd177b0fdba32d28ee850063c363d7614301d",
+          "bytes": 936696,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/723331284d260034ba155862e6efd177b0fdba32d28ee850063c363d7614301d.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_04_posts.webp",
+          "sha256": "aa7384d8b0d67659d7bab56592706164124f0b5e34979033d7a8a72d40cd9cab",
+          "bytes": 1058962,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/aa7384d8b0d67659d7bab56592706164124f0b5e34979033d7a8a72d40cd9cab.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_05_brackets.webp",
+          "sha256": "a8be7c2f0fad97ed4e23b586e1beafb9aef3b390e09abc8771f2c0f2376ed2ae",
+          "bytes": 1290158,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/a8be7c2f0fad97ed4e23b586e1beafb9aef3b390e09abc8771f2c0f2376ed2ae.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_06_rafters.webp",
+          "sha256": "6dc9f6e080af42ff699e751bf978556274df1b7d611d7d1aa32fe69f8b006a2e",
+          "bytes": 1481842,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/6dc9f6e080af42ff699e751bf978556274df1b7d611d7d1aa32fe69f8b006a2e.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_07_roof_bed.webp",
+          "sha256": "065e167a2560226cf9f4b3c027b0d3a242717818f248b2138bdc6c661ff3506c",
+          "bytes": 1500094,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/065e167a2560226cf9f4b3c027b0d3a242717818f248b2138bdc6c661ff3506c.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_08_tiles.webp",
+          "sha256": "486076cfaf36fb23d7c89b5bee404f2b200b758378e80cffa399f2d2eb11770d",
+          "bytes": 1475644,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/486076cfaf36fb23d7c89b5bee404f2b200b758378e80cffa399f2d2eb11770d.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_09_maru_interior.webp",
+          "sha256": "0d495e15c20813f08400f8880d2464f6af44de221167487f1a11de2695e38a51",
+          "bytes": 1438012,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/0d495e15c20813f08400f8880d2464f6af44de221167487f1a11de2695e38a51.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_10_walls.webp",
+          "sha256": "5c5286ab726e4d891063a0a24ba6690a6c1f6bd0b2f7a6db4ddc08c37638bf1b",
+          "bytes": 1499718,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/5c5286ab726e4d891063a0a24ba6690a6c1f6bd0b2f7a6db4ddc08c37638bf1b.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_11_finish.webp",
+          "sha256": "ed0e406ad24176009d9ee951fbfbfd1cf308059dca303f158d4c556371a72a05",
+          "bytes": 1632662,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/ed0e406ad24176009d9ee951fbfbfd1cf308059dca303f158d4c556371a72a05.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.webp",
+          "sha256": "5f1317fbfc6016a8548373ecb7ee986d70db3042a3c232148366fc4515ffa811",
+          "bytes": 1709474,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/5f1317fbfc6016a8548373ecb7ee986d70db3042a3c232148366fc4515ffa811.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_00_front.png",
+          "sha256": "6b62ea15d6458652914225391b7fc5df2de4c2a6dffe38ade73d83c9c3976a94",
+          "bytes": 205372,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/6b62ea15d6458652914225391b7fc5df2de4c2a6dffe38ade73d83c9c3976a94.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_01_front_right.png",
+          "sha256": "851d2b956379d83094303df28516874f1e84d8c06ff0e6dafddd7cba71b8c912",
+          "bytes": 186969,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/851d2b956379d83094303df28516874f1e84d8c06ff0e6dafddd7cba71b8c912.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_02_right.png",
+          "sha256": "ed5c204a603ee84cdfbd2801d3be7015aea4b992a312a24816d7a9de85115934",
+          "bytes": 126332,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/ed5c204a603ee84cdfbd2801d3be7015aea4b992a312a24816d7a9de85115934.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_03_rear_right.png",
+          "sha256": "2ad19621a754dcfa4909a3f366225b22eb7e7c64edf144d1f8f836567a7e984c",
+          "bytes": 174819,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/2ad19621a754dcfa4909a3f366225b22eb7e7c64edf144d1f8f836567a7e984c.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_04_rear.png",
+          "sha256": "f2c11eb7142d09adf76e4adec498ebfcc931134d0521be6dbad01555c92464a1",
+          "bytes": 197401,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/f2c11eb7142d09adf76e4adec498ebfcc931134d0521be6dbad01555c92464a1.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_05_rear_left.png",
+          "sha256": "6d97172e47c075f46e0bb72d7ff19e14370ec9a33824e00d3266777b3f84301c",
+          "bytes": 163542,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/6d97172e47c075f46e0bb72d7ff19e14370ec9a33824e00d3266777b3f84301c.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_06_left.png",
+          "sha256": "3ee5bed121b209605353cc601e76e1461a4188ab13d586d7d90b082f975e170f",
+          "bytes": 138649,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/3ee5bed121b209605353cc601e76e1461a4188ab13d586d7d90b082f975e170f.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadang_07_front_left.png",
+          "sha256": "4265699751d65c2ba150b6165019ad9b2434ecc2e64c3aaa22e069a990cc3e91",
+          "bytes": 184552,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/4265699751d65c2ba150b6165019ad9b2434ecc2e64c3aaa22e069a990cc3e91.png"
+        }
+      ]
+    },
+    {
+      "id": "sadangmun",
+      "title": {
+        "ko": "사당문",
+        "en": "Sadangmun",
+        "de": "Schreintor"
+      },
+      "assets": [
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_01_foundation.webp",
+          "sha256": "41334087690b3e86d7ac209b147c44ca7ec2ccee9a1ab810c81b48cd319fece4",
+          "bytes": 816174,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/41334087690b3e86d7ac209b147c44ca7ec2ccee9a1ab810c81b48cd319fece4.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_02_posts.webp",
+          "sha256": "9b67da2af1c8b5c600cc87bb166582d99b75177d73ba94bbf1f0a126077e1d0a",
+          "bytes": 899996,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/9b67da2af1c8b5c600cc87bb166582d99b75177d73ba94bbf1f0a126077e1d0a.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_03_beams.webp",
+          "sha256": "f52ae46930b9727b4ebd6ac9ad91bf9bf2bfeff2e32447cafed07ed5cd7695b5",
+          "bytes": 1028140,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/f52ae46930b9727b4ebd6ac9ad91bf9bf2bfeff2e32447cafed07ed5cd7695b5.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_04_rafters.webp",
+          "sha256": "581d7f4744fcb505de4207fd6e0eb1f2357f9e4d43fe9e1f028cfa5b93c20424",
+          "bytes": 1238526,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/581d7f4744fcb505de4207fd6e0eb1f2357f9e4d43fe9e1f028cfa5b93c20424.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_05_roof_bed.webp",
+          "sha256": "61160f6763656029659b31511a9f7a932b3df20e5fde1acfdbdf293913a82299",
+          "bytes": 1325402,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/61160f6763656029659b31511a9f7a932b3df20e5fde1acfdbdf293913a82299.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_06_tiles.webp",
+          "sha256": "7980d076a6f083a8d6b857ecaf090b07ca5d50819be3066fef38820e859c5f6f",
+          "bytes": 1241588,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/7980d076a6f083a8d6b857ecaf090b07ca5d50819be3066fef38820e859c5f6f.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_07_doors.webp",
+          "sha256": "1732811fea530c6d033b165333f5122fd5a3b49dd4fe692e794bdfff8dcffeee",
+          "bytes": 1300270,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/1732811fea530c6d033b165333f5122fd5a3b49dd4fe692e794bdfff8dcffeee.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.webp",
+          "sha256": "7e6b230f7dfe52cf0c421cd1e1d7be459b5b444e6840dc4873e9df593dbe6e0d",
+          "bytes": 1348602,
+          "contentType": "image/webp",
+          "storagePath": "learning-art/v1/7e6b230f7dfe52cf0c421cd1e1d7be459b5b444e6840dc4873e9df593dbe6e0d.webp"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_00_front.png",
+          "sha256": "95becb2b49571d34faa3b3c39709378b755bb6b40d39eefde41c060e3b7a430d",
+          "bytes": 236090,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/95becb2b49571d34faa3b3c39709378b755bb6b40d39eefde41c060e3b7a430d.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_01_front_right.png",
+          "sha256": "c650feff48405bbbb10d7aa51413c8d2ccc2a926609ff316199e8bf2b3fe6490",
+          "bytes": 208178,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/c650feff48405bbbb10d7aa51413c8d2ccc2a926609ff316199e8bf2b3fe6490.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_02_right.png",
+          "sha256": "aaa4ffe4ba52adc98dd68d949f30f51df824508de87b906b7290a888ec5bf83a",
+          "bytes": 93024,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/aaa4ffe4ba52adc98dd68d949f30f51df824508de87b906b7290a888ec5bf83a.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_03_rear_right.png",
+          "sha256": "20e8ff7a512af28a68db3e00abe1c9e7d33d75575268f9acd99634a4fad357c9",
+          "bytes": 183060,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/20e8ff7a512af28a68db3e00abe1c9e7d33d75575268f9acd99634a4fad357c9.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_04_rear.png",
+          "sha256": "6c0e615b4d9ab1de886118577b88bf5da6a0fa304d51fd09a04c49ca8f9b626a",
+          "bytes": 226733,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/6c0e615b4d9ab1de886118577b88bf5da6a0fa304d51fd09a04c49ca8f9b626a.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_05_rear_left.png",
+          "sha256": "8a7da1002e3532c1feea1387fcdaabb0da31a515a00e93a1b478da75c8398abb",
+          "bytes": 193167,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/8a7da1002e3532c1feea1387fcdaabb0da31a515a00e93a1b478da75c8398abb.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_06_left.png",
+          "sha256": "c8e6968ea247d9ece7bb9774a42489323942b4db586912e13ea77b39c1c7a42c",
+          "bytes": 95625,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/c8e6968ea247d9ece7bb9774a42489323942b4db586912e13ea77b39c1c7a42c.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_sadangmun_07_front_left.png",
+          "sha256": "5c6854d370a3e425ac320a2255ce02465049e79486d2319c1c7d608dff06841b",
+          "bytes": 189980,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/5c6854d370a3e425ac320a2255ce02465049e79486d2319c1c7d608dff06841b.png"
+        }
+      ]
+    },
+    {
+      "id": "toilet",
+      "title": {
+        "ko": "화장실채",
+        "en": "Service outhouses",
+        "de": "Nebengebäude"
+      },
+      "assets": [
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_toilet_00_front.png",
+          "sha256": "b8c5a704aebd92121ff248ea3d0dac6c7bdc05aadfb370b4d1c766b01b012898",
+          "bytes": 195522,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/b8c5a704aebd92121ff248ea3d0dac6c7bdc05aadfb370b4d1c766b01b012898.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_toilet_01_front_right.png",
+          "sha256": "5ec3a9168873f5517f7612038ed4864d718d2b0117924f224c3310012c3ef9a5",
+          "bytes": 190384,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/5ec3a9168873f5517f7612038ed4864d718d2b0117924f224c3310012c3ef9a5.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_toilet_02_right.png",
+          "sha256": "b75839478ca4d6f30fbe2666d41053cac2dcefcf3cd2c46465baab605272b6a7",
+          "bytes": 135742,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/b75839478ca4d6f30fbe2666d41053cac2dcefcf3cd2c46465baab605272b6a7.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_toilet_03_rear_right.png",
+          "sha256": "e44f231ff3a53e70be66d6bc1f1a45f840ddb582e27b5ea8bef10b78c2842c13",
+          "bytes": 147118,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/e44f231ff3a53e70be66d6bc1f1a45f840ddb582e27b5ea8bef10b78c2842c13.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_toilet_04_rear.png",
+          "sha256": "f941452eaf2c4a3bb3d7483937cc28eee274c537b38ff73de03cbd885d5e0580",
+          "bytes": 188116,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/f941452eaf2c4a3bb3d7483937cc28eee274c537b38ff73de03cbd885d5e0580.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_toilet_05_rear_left.png",
+          "sha256": "94151447be39c7361b4b8b1a626307aeb3bfd618da90acc91651e664f70d0754",
+          "bytes": 156255,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/94151447be39c7361b4b8b1a626307aeb3bfd618da90acc91651e664f70d0754.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_toilet_06_left.png",
+          "sha256": "3245cc6b98f78431af17ba9e9b3479f88962a28867ce9a0c8614c63697f994d2",
+          "bytes": 132234,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/3245cc6b98f78431af17ba9e9b3479f88962a28867ce9a0c8614c63697f994d2.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_toilet_07_front_left.png",
+          "sha256": "ba953f72f835b66a0ac4cf11310f2321a4be5e7d80384984e67f25072e284dcf",
+          "bytes": 170460,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/ba953f72f835b66a0ac4cf11310f2321a4be5e7d80384984e67f25072e284dcf.png"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "title": {
+        "ko": "일두고택 마당",
+        "en": "Ildu Gotaek estate",
+        "de": "Ildu-Gotaek-Anwesen"
+      },
+      "assets": [
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/anchae-store.png",
+          "sha256": "3173e939f11070bb14ea9054fce1d5629cb3f95fa0287a99f74ec58b138861d1",
+          "bytes": 855349,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/3173e939f11070bb14ea9054fce1d5629cb3f95fa0287a99f74ec58b138861d1.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/anchae.png",
+          "sha256": "892d09feb94fff76a985aebe02985e06ec92cad7e1a8c5a46186d07127ab2a29",
+          "bytes": 786500,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/892d09feb94fff76a985aebe02985e06ec92cad7e1a8c5a46186d07127ab2a29.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/ansarangchae.png",
+          "sha256": "62e63b857fc3676f6bf37ef41d26a4c78c32c030ab05bcfbe94cec7c7556745c",
+          "bytes": 1273162,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/62e63b857fc3676f6bf37ef41d26a4c78c32c030ab05bcfbe94cec7c7556745c.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/araechae.png",
+          "sha256": "18bd87df76f1628d71d14e7e8c6ac695cc1b0b4263d2dded0a5e4f52bee81880",
+          "bytes": 1177259,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/18bd87df76f1628d71d14e7e8c6ac695cc1b0b4263d2dded0a5e4f52bee81880.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/changgo.png",
+          "sha256": "2bfcfbe008351da55e5d9264f126f6c7ccbfaaf5cb12038b3d79f8a16c0e2b05",
+          "bytes": 828086,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/2bfcfbe008351da55e5d9264f126f6c7ccbfaaf5cb12038b3d79f8a16c0e2b05.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/gokganchae.png",
+          "sha256": "b0d4adf8d87bcc1c5fdea84560c527fb647cd5a70af8a8753eae72cf4d2fa7f3",
+          "bytes": 963526,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/b0d4adf8d87bcc1c5fdea84560c527fb647cd5a70af8a8753eae72cf4d2fa7f3.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/hyeopmun.png",
+          "sha256": "2655d4bafc0a7388e3727206a9a1bbf6536c65a5f38da8998e35579edac3daa1",
+          "bytes": 1184634,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/2655d4bafc0a7388e3727206a9a1bbf6536c65a5f38da8998e35579edac3daa1.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/ildu-wall-masterplan-v1.png",
+          "sha256": "6c9438312ed828e8d2afac9bee9af728ad22933de0639dabf30def82bb165b7e",
+          "bytes": 7191096,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/6c9438312ed828e8d2afac9bee9af728ad22933de0639dabf30def82bb165b7e.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/main-gate.png",
+          "sha256": "849cfcb120efc874ff53278a9815581854d9ef34ded61a61008749c767567fe4",
+          "bytes": 1199906,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/849cfcb120efc874ff53278a9815581854d9ef34ded61a61008749c767567fe4.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/outside-gate.png",
+          "sha256": "a26949c92fa99b1d4793b3feaf09b1173663b704182ed4cc0d54f10651dec471",
+          "bytes": 1502353,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/a26949c92fa99b1d4793b3feaf09b1173663b704182ed4cc0d54f10651dec471.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/rear-wing.png",
+          "sha256": "f6e7a344a6db7a54f2e4e985fc6f425a536271f29b085ed43f2caa46dee5f383",
+          "bytes": 1099376,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/f6e7a344a6db7a54f2e4e985fc6f425a536271f29b085ed43f2caa46dee5f383.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/sadang-gate.png",
+          "sha256": "8faa7b5b322b042e0ecbab472383825cbb0e17cf8942ea8670db1517f1adcc59",
+          "bytes": 1638992,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/8faa7b5b322b042e0ecbab472383825cbb0e17cf8942ea8670db1517f1adcc59.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/sadang.png",
+          "sha256": "61cd04bf335bfe0ded1b8ee0e15f9574ff792cfb85ed5f5ab229eaf2855df0fe",
+          "bytes": 1385278,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/61cd04bf335bfe0ded1b8ee0e15f9574ff792cfb85ed5f5ab229eaf2855df0fe.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/sarangchae.png",
+          "sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+          "bytes": 2328995,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a.png"
+        },
+        {
+          "asset": "assets/illustrations/personal_hanok_v3/world/toilet.png",
+          "sha256": "c0ff7210a6bd1b2d04f281fe698c7a01b9e701555542b099b6f157875b35dcda",
+          "bytes": 962850,
+          "contentType": "image/png",
+          "storagePath": "learning-art/v1/c0ff7210a6bd1b2d04f281fe698c7a01b9e701555542b099b6f157875b35dcda.png"
+        }
+      ]
+    }
+  ]
+}

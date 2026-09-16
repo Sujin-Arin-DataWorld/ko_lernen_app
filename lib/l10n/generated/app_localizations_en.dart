@@ -10782,4 +10782,97 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingJourneyCompanionShort => 'Your companion';
+
+  @override
+  String get hanokAssetsImageLoading => 'Preparing the Hanok artwork…';
+
+  @override
+  String get hanokAssetsCellularNeeded =>
+      'Start this download explicitly when using mobile data or an unknown connection.';
+
+  @override
+  String get hanokAssetsDownloadNow => 'Download';
+
+  @override
+  String get hanokAssetsRetry => 'Try again';
+
+  @override
+  String get hanokAssetsImageFailed =>
+      'This Hanok artwork is unavailable right now.';
+
+  @override
+  String get hanokAssetsStorageFull =>
+      'There is not enough space for this Hanok artwork.';
+
+  @override
+  String get hanokAssetsNetworkFailed =>
+      'The Hanok artwork could not be downloaded. Check your connection and try again.';
+
+  @override
+  String get hanokDownloadsTitle => 'Hanok artwork';
+
+  @override
+  String get hanokDownloadsIntro =>
+      'Download large Hanok artwork by building so it remains available without a connection.';
+
+  @override
+  String get hanokDownloadsWebSessionNotice =>
+      'In the browser, downloaded artwork is available only for this session. The browser may clear it when the session ends.';
+
+  @override
+  String get hanokDownloadsRemovalNotice =>
+      'Removing downloaded artwork means it must be downloaded again. Your learning progress does not change.';
+
+  @override
+  String get hanokDownloadsLoading => 'Checking Hanok artwork…';
+
+  @override
+  String get hanokDownloadsLoadFailed =>
+      'The Hanok download list could not be loaded.';
+
+  @override
+  String hanokDownloadsSize(String size) {
+    return 'Size: $size';
+  }
+
+  @override
+  String get hanokDownloadsIncluded => 'Included in the app';
+
+  @override
+  String hanokDownloadsDownloading(String available, String total) {
+    return 'Preparing $available of $total';
+  }
+
+  @override
+  String get hanokDownloadsAvailableOffline =>
+      'Downloaded and available offline';
+
+  @override
+  String get hanokDownloadsAvailableThisSession =>
+      'Available for this browser session';
+
+  @override
+  String hanokDownloadsPartial(String available, String total) {
+    return '$available of $total is ready';
+  }
+
+  @override
+  String get hanokDownloadsNotDownloaded => 'Not downloaded';
+
+  @override
+  String get hanokDownloadsRemove => 'Remove downloaded data';
+
+  @override
+  String get hanokDownloadsRemoveFailed =>
+      'Downloaded data could not be removed. Try again.';
+
+  @override
+  String get hanokDownloadsSettingsSection => 'Offline artwork';
+
+  @override
+  String get hanokDownloadsSettingsTitle => 'Hanok downloads';
+
+  @override
+  String get hanokDownloadsSettingsSubtitle =>
+      'Manage artwork included in the app and downloaded by building';
 }

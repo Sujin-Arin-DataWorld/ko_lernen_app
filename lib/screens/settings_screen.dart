@@ -48,6 +48,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../motion/transitions.dart';
 import '../widgets/sori/account_operation_ui.dart';
 import 'placement_diagnostic_screen.dart';
+import 'hanok_downloads_screen.dart';
 
 abstract interface class AccountDeletionCleanupOperations {
   Future<void> deleteRemoteAccount();
@@ -939,6 +940,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
         // ── Ton (ADR-002 §7) — AudioPolicy 단일 진실원천 ──
         _Section(label: t.settingsSoundSection),
         const _SoundSettings(),
+
+        _Section(label: t.hanokDownloadsSettingsSection),
+        ListTile(
+          key: const ValueKey('settings-hanok-downloads'),
+          leading: const Icon(
+            Icons.offline_pin_outlined,
+            color: SoriColors.primary,
+          ),
+          title: Text(t.hanokDownloadsSettingsTitle),
+          subtitle: Text(
+            t.hanokDownloadsSettingsSubtitle,
+            style: SoriTextTheme.of(context).caption,
+          ),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => Navigator.of(context).push<void>(
+            SoriTransitions.page<void>((_) => const HanokDownloadsScreen()),
+          ),
+        ),
 
         // ── TTS Speed ── 전역 배수 프리셋 (엔진 base rate 는 저장값 유지).
         // 구 0.1–1.0 슬라이더는 mp3 배속 의미가 불투명했다 — 이제 모든

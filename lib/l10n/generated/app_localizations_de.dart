@@ -10835,4 +10835,97 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingJourneyCompanionShort => 'Deine Begleitung';
+
+  @override
+  String get hanokAssetsImageLoading => 'Hanok-Bild wird vorbereitet…';
+
+  @override
+  String get hanokAssetsCellularNeeded =>
+      'Bei mobilen Daten oder einer unbekannten Verbindung musst du diesen Download ausdrücklich starten.';
+
+  @override
+  String get hanokAssetsDownloadNow => 'Laden';
+
+  @override
+  String get hanokAssetsRetry => 'Erneut versuchen';
+
+  @override
+  String get hanokAssetsImageFailed =>
+      'Dieses Hanok-Bild ist gerade nicht verfügbar.';
+
+  @override
+  String get hanokAssetsStorageFull =>
+      'Für dieses Hanok-Bild ist nicht genug Speicherplatz frei.';
+
+  @override
+  String get hanokAssetsNetworkFailed =>
+      'Das Hanok-Bild konnte nicht heruntergeladen werden. Prüfe deine Verbindung und versuche es erneut.';
+
+  @override
+  String get hanokDownloadsTitle => 'Hanok-Bilder';
+
+  @override
+  String get hanokDownloadsIntro =>
+      'Lade große Hanok-Bilder nach Gebäude herunter, damit sie auch ohne Verbindung verfügbar bleiben.';
+
+  @override
+  String get hanokDownloadsWebSessionNotice =>
+      'Im Browser sind heruntergeladene Bilder nur in dieser Sitzung verfügbar. Der Browser kann sie am Sitzungsende löschen.';
+
+  @override
+  String get hanokDownloadsRemovalNotice =>
+      'Wenn du heruntergeladene Bilder entfernst, musst du sie später erneut herunterladen. Dein Lernfortschritt bleibt unverändert.';
+
+  @override
+  String get hanokDownloadsLoading => 'Hanok-Bilder werden geprüft…';
+
+  @override
+  String get hanokDownloadsLoadFailed =>
+      'Die Liste der Hanok-Downloads konnte nicht geladen werden.';
+
+  @override
+  String hanokDownloadsSize(String size) {
+    return 'Größe: $size';
+  }
+
+  @override
+  String get hanokDownloadsIncluded => 'In der App enthalten';
+
+  @override
+  String hanokDownloadsDownloading(String available, String total) {
+    return '$available von $total werden vorbereitet';
+  }
+
+  @override
+  String get hanokDownloadsAvailableOffline =>
+      'Heruntergeladen und offline verfügbar';
+
+  @override
+  String get hanokDownloadsAvailableThisSession =>
+      'In dieser Browser-Sitzung verfügbar';
+
+  @override
+  String hanokDownloadsPartial(String available, String total) {
+    return '$available von $total sind verfügbar';
+  }
+
+  @override
+  String get hanokDownloadsNotDownloaded => 'Nicht heruntergeladen';
+
+  @override
+  String get hanokDownloadsRemove => 'Heruntergeladene Daten entfernen';
+
+  @override
+  String get hanokDownloadsRemoveFailed =>
+      'Die heruntergeladenen Daten konnten nicht entfernt werden. Versuche es erneut.';
+
+  @override
+  String get hanokDownloadsSettingsSection => 'Offline-Bilder';
+
+  @override
+  String get hanokDownloadsSettingsTitle => 'Hanok-Downloads';
+
+  @override
+  String get hanokDownloadsSettingsSubtitle =>
+      'In der App enthaltene und nach Gebäude heruntergeladene Bilder verwalten';
 }
