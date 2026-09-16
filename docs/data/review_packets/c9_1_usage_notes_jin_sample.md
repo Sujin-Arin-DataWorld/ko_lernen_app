@@ -152,9 +152,9 @@
 ## `vocab_b1_0159` -- 두통약 (Kopfschmerztablette)
 
 - 레벨: B1 / register: casual
-- 뉘앙스: KO: 두통약은 머리가 지끈거릴 때 가장 먼저 손이 가는 약을 가리키는 일상적인 말이다.
-  - DE: 두통약 ist ein alltägliches Wort für das Medikament, zu dem man als Erstes greift, wenn der Kopf pocht.
-  - EN: 두통약 is an everyday word for the medicine one reaches for first when the head is throbbing.
+- 뉘앙스: KO: 두통약은 머리가 지끈거릴 때 흔히 찾는 일상적인 약 이름이며, 약국은 물론 편의점에서도 구할 수 있다.
+  - DE: 두통약 ist ein ganz alltägliches Wort für das Medikament, das man bei Kopfschmerzen nimmt; man bekommt es nicht nur in der Apotheke, sondern auch im Conbini.
+  - EN: 두통약 is a very everyday word for the medicine taken for a headache; it can be bought not just at a pharmacy but also at a convenience store.
 - 전형 상황: KO: 약국이나 편의점에서 머리 아픈 것을 구체적으로 말할 때 쓴다.
   - DE: Man benutzt es in der Apotheke oder im Laden, wenn man konkret über Kopfschmerzen spricht.
   - EN: You use it at a pharmacy or convenience store when specifically mentioning a headache.
@@ -181,9 +181,9 @@
 ## `vocab_b1_0187` -- 외식 (Essengehen)
 
 - 레벨: B1 / register: casual
-- 뉘앙스: KO: 외식은 집이 아닌 식당에 가서 밥을 사 먹는 것을 가리키며, 가족이나 친구와 함께 식당에서 식사할 때 쓴다.
-  - DE: 외식 bedeutet, in einem Restaurant statt zu Hause zu essen; man benutzt es, wenn man mit Familie oder Freunden im Restaurant isst.
-  - EN: 외식 refers to eating at a restaurant rather than at home; it is used when dining out with family or friends.
+- 뉘앙스: KO: 외식은 집이 아닌 식당에서 돈을 내고 사 먹는 식사를 가리키며, 외식하다처럼 동사로도 쓰고 외식비, 외식 문화 같은 합성어도 많다.
+  - DE: 외식 bedeutet, außerhalb der eigenen Wohnung im Restaurant zu essen und dafür zu bezahlen; man benutzt es auch als Verb 외식하다 und in Komposita wie 외식비 (Restaurantkosten) oder 외식 문화 (Esskultur außer Haus).
+  - EN: 외식 refers to paying to eat a meal at a restaurant rather than at home; it is also used as the verb 외식하다 and appears in compounds like 외식비 (dining-out expenses) or 외식 문화 (dining-out culture).
 - 전형 상황: KO: 가족이나 친구와 함께 식당에서 밥을 먹기로 할 때 쓴다.
   - DE: Man benutzt es, wenn man mit Familie oder Freunden beschließt, in einem Restaurant zu essen.
   - EN: You use it when deciding with family or friends to eat at a restaurant.
@@ -210,9 +210,9 @@
 ## `vocab_b1_0257` -- 부동산 (Immobilienbüro)
 
 - 레벨: B1 / register: neutral
-- 뉘앙스: KO: 부동산은 매매나 임대 거래를 전문적으로 도와주는 사무실을 가리키는 업종 명칭 같은 말이다.
-  - DE: 부동산 bezeichnet ein Büro, das professionell beim Kauf, Verkauf oder der Vermietung von Immobilien hilft; man benutzt es oft mit 부동산에 가다 (zum Immobilienbüro gehen).
-  - EN: 부동산 refers to an office that professionally helps with buying, selling, or renting property; it is often used with 부동산에 가다 (to go to a real estate agency).
+- 뉘앙스: KO: 부동산은 원래 주택이나 토지 같은 재산 자체를 뜻하지만, 일상에서는 그런 재산의 매매·임대를 중개하는 사무실인 '부동산 중개소'의 줄임말로 더 많이 쓰인다.
+  - DE: 부동산 bedeutet ursprünglich das Eigentum selbst, etwa ein Haus oder ein Grundstück, wird aber im Alltag meist als Kurzform von '부동산 중개소' für das Maklerbüro verwendet, das Kauf, Verkauf oder Vermietung solcher Immobilien vermittelt.
+  - EN: 부동산 originally means the property itself, such as a house or a plot of land, but in everyday use it more often functions as a short form of '부동산 중개소,' the brokerage office that handles buying, selling, or renting such property.
 - 전형 상황: KO: 이사나 집을 구할 때 중개소를 찾아가는 상황에서 쓴다.
   - DE: Man benutzt es, wenn man beim Umzug oder der Wohnungssuche ein Maklerbüro aufsucht.
   - EN: You use it when visiting a real estate agency while moving or looking for a place.
@@ -239,9 +239,9 @@
 ## `vocab_b1_0392` -- 사고 접수 (Schadensmeldung)
 
 - 레벨: B1 / register: neutral
-- 뉘앙스: KO: 사고 접수는 문제가 생긴 직후 보험사에 가장 먼저 알려 절차를 시작하는 첫 단계를 가리킨다.
+- 뉘앙스: KO: 사고가 생기면 가장 먼저 보험사에 그 사실을 알려서 처리 절차에 들어가는 것을 이 말이 가리키며, 사고 접수를 하다처럼 동사 하다와 함께 쓴다.
   - DE: Wenn etwas passiert ist, meldet man das mit 사고 접수 zuerst der Versicherung und startet damit das Verfahren; man sagt dazu 사고 접수를 하다 (einen Schaden melden).
-  - EN: 사고 접수 refers to the first step of notifying the insurer right after something goes wrong, to set the process in motion.
+  - EN: 사고 접수 refers to the first step of notifying the insurer right after something goes wrong, to set the process in motion; it is used with the verb 하다, as in 사고 접수를 하다 (to file an incident report).
 - 전형 상황: KO: 사고가 난 뒤 보험사에 처음 연락해서 처리를 시작할 때 쓴다.
   - DE: Man benutzt es, wenn man nach einem Unfall die Versicherung zum ersten Mal kontaktiert, um das Verfahren zu starten.
   - EN: You use it when first contacting the insurer after an accident to start the process.
@@ -268,9 +268,9 @@
 ## `vocab_b1_0471` -- 면접 일정 (Vorstellungstermin)
 
 - 레벨: B1 / register: neutral
-- 뉘앙스: KO: 이 표현은 채용 과정에서 초조하게 기다리게 되는 구체적인 약속을 가리킨다.
-  - DE: Dieser Ausdruck bezeichnet den konkreten Termin im Bewerbungsprozess, auf den man angespannt wartet.
-  - EN: This expression refers to the concrete appointment during hiring that one nervously counts down to.
+- 뉘앙스: KO: 이 표현은 취업 면접을 보기로 잡아 둔 특정 날짜와 시각을 뜻하며, 잡다·조율하다·변경하다와 자주 어울려 쓰인다.
+  - DE: Dieser Ausdruck bezeichnet das konkrete Datum und die Uhrzeit, die für ein Vorstellungsgespräch festgelegt wurden; er wird oft mit 잡다 (festlegen), 조율하다 (abstimmen) oder 변경하다 (ändern) kombiniert.
+  - EN: This expression refers to the specific date and time set for a job interview; it is often combined with 잡다 (to set), 조율하다 (to coordinate), or 변경하다 (to change).
 - 전형 상황: KO: 채용 과정에서 면접 날짜나 시간을 확인하고 조율할 때 쓴다.
   - DE: Man benutzt es im Bewerbungsprozess, wenn man Datum oder Uhrzeit eines Vorstellungsgesprächs prüft oder abstimmt.
   - EN: You use it during the hiring process when confirming or coordinating the interview date or time.
