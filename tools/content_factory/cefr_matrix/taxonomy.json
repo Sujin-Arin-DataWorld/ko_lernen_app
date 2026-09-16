@@ -32,6 +32,7 @@
         "vocabTopics": [
           "Person",
           "Begrüßung",
+          "Selbstvorstellung",
           "자기소개",
           "첫인사",
           "Zeit & Lebenslauf",
@@ -845,7 +846,8 @@
           "Wetter",
           "Wetterschicht",
           "Natur & Draußen",
-          "Natur"
+          "Natur",
+          "Tiere"
         ],
         "shelfSlugs": [
           "body"

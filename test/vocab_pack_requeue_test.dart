@@ -10,7 +10,6 @@ import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
-import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
@@ -86,14 +85,19 @@ void main() {
     stubSoriSpeech();
   });
 
-  testWidgets('real Alltag 9-card pack opens Quiz after exactly nine cards', (
+  testWidgets('9-card pack opens Quiz after exactly nine cards', (
     tester,
   ) async {
-    final pack = await tester.runAsync(
-      () => VocabPackService.findById('a2_daily_1'),
+    // Fixture, not the live a2_daily_1: Batch 31 filled that pack to 12 and any
+    // later fill/relevel would break a live-size assertion; the N<12 path is
+    // what this test exercises, so the 9 cards are built here (2 boss words,
+    // like a real pack).
+    final pack = VocabPack(
+      id: 'a1_rq_9',
+      level: 'A1',
+      words: [for (var n = 1; n <= 9; n++) _word(n, boss: n >= 8)],
     );
-    expect(pack, isNotNull);
-    expect(pack!.total, 9);
+    expect(pack.total, 9);
     final t = await _pump(tester, pack);
 
     for (var index = 0; index < pack.total; index++) {

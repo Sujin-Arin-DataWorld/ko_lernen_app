@@ -8,7 +8,11 @@
       "distractors": [
         "다시",
         "같이"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Dieser Kuchen ist am leckersten.",
+      "promptEn": "This cake is the tastiest.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0695",
@@ -18,7 +22,11 @@
       "distractors": [
         "가다",
         "먹다"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Mein Bauch tut weh. Deshalb gehe ich ins Krankenhaus.",
+      "promptEn": "My stomach hurts. So I'm going to the hospital.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0696",
@@ -28,7 +36,11 @@
       "distractors": [
         "오다",
         "보다"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Ich habe keine Zeit. Deswegen gehe ich schnell.",
+      "promptEn": "I have no time. So let's go quickly.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0697",
@@ -38,7 +50,11 @@
       "distractors": [
         "읽다",
         "쓰다"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Minho, hast du Hunger? Dann lasst uns zusammen essen.",
+      "promptEn": "Minho, are you hungry? Then let's eat together.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0698",
@@ -48,7 +64,11 @@
       "distractors": [
         "모르다",
         "돕다"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Diese Tasche ist hübsch. Aber sie ist zu teuer.",
+      "promptEn": "This bag is pretty. But it's too expensive.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0699",
@@ -58,7 +78,11 @@
       "distractors": [
         "타다",
         "알다"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Lena, bist du heute beschäftigt? Dann treffen wir uns morgen.",
+      "promptEn": "Lena, are you busy today? Then let's meet tomorrow.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0700",
@@ -68,7 +92,11 @@
       "distractors": [
         "팔다",
         "고르다"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Dieses Essen ist scharf. Aber es ist lecker.",
+      "promptEn": "This food is spicy. But it's delicious.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0701",
@@ -78,7 +106,11 @@
       "distractors": [
         "빌리다",
         "끝나다"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Am Morgen esse ich Brot. Und ich trinke Kaffee.",
+      "promptEn": "In the morning I eat bread. And I drink coffee.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0702",
@@ -88,7 +120,11 @@
       "distractors": [
         "못 자요",
         "못 입어요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Ich kann kein scharfes Essen essen.",
+      "promptEn": "I can't eat spicy food.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0703",
@@ -98,7 +134,11 @@
       "distractors": [
         "천천히",
         "일찍"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Normalerweise trinke ich morgens Kaffee.",
+      "promptEn": "I usually drink coffee in the morning.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0704",
@@ -108,7 +148,11 @@
       "distractors": [
         "일찍",
         "혼자"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Dieser Film ist sehr interessant.",
+      "promptEn": "This movie is very interesting.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0705",
@@ -118,7 +162,11 @@
       "distractors": [
         "혼자",
         "빨리"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Ich habe die Hausaufgaben noch nicht gemacht.",
+      "promptEn": "I haven't done my homework yet.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0706",
@@ -128,7 +176,11 @@
       "distractors": [
         "아주",
         "가장"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Lehrer, auf Wiedersehen!",
+      "promptEn": "Teacher, goodbye!",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0707",
@@ -138,7 +190,11 @@
       "distractors": [
         "천천히",
         "일찍"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Wie teuer ist diese Tasche?",
+      "promptEn": "How expensive is this bag?",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0708",
@@ -148,7 +204,11 @@
       "distractors": [
         "혼자",
         "빨리"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Ich lerne fleißig Koreanisch.",
+      "promptEn": "I study Korean hard.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0709",
@@ -158,7 +218,11 @@
       "distractors": [
         "아주 여기",
         "참 여기"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Warum ist dieser Regenschirm hier?",
+      "promptEn": "Why is this umbrella here?",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0710",
@@ -168,7 +232,11 @@
       "distractors": [
         "잘 입어요",
         "잘 타요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Ich schlafe gut.",
+      "promptEn": "I sleep well.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0711",
@@ -178,7 +246,11 @@
       "distractors": [
         "다시 맛있어요",
         "같이 맛있어요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Dieser Kimchi-Eintopf ist wirklich lecker.",
+      "promptEn": "This kimchi stew is really delicious.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0712",
@@ -188,7 +260,11 @@
       "distractors": [
         "입다",
         "다니다"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Ich bin müde. Aber ich mache die Hausaufgaben.",
+      "promptEn": "I'm tired. But I do my homework.",
+      "courseUnitId": "a1_13_register_switching"
     },
     {
       "id": "satz_a1_0713",
@@ -198,7 +274,11 @@
       "distractors": [
         "언제는",
         "무엇은"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Er ist ein Koreanisch-Student.",
+      "promptEn": "He is a Korean-language student.",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "satz_a1_0714",
@@ -208,7 +288,11 @@
       "distractors": [
         "언제는",
         "무엇은"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Das ist nicht teuer.",
+      "promptEn": "That is not expensive.",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "satz_a1_0715",
@@ -218,7 +302,11 @@
       "distractors": [
         "언제로",
         "무엇으로"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Diese U-Bahn fährt nicht in die Richtung.",
+      "promptEn": "This subway doesn't go that way.",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "satz_a1_0716",
@@ -228,7 +316,11 @@
       "distractors": [
         "그것 이름은",
         "무엇 이름은"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Mein Name ist Jun.",
+      "promptEn": "My name is Jun.",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "satz_a1_0717",
@@ -238,7 +330,11 @@
       "distractors": [
         "언제예요",
         "어디예요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Was ist das eigentlich?",
+      "promptEn": "What on earth is this?",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "satz_a1_0718",
@@ -248,7 +344,11 @@
       "distractors": [
         "내예요",
         "그쪽이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Wie heißt diese Person?",
+      "promptEn": "What is that person's name?",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "satz_a1_0719",
@@ -258,7 +358,11 @@
       "distractors": [
         "내예요",
         "제예요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Wo ist jetzt die Toilette?",
+      "promptEn": "Where is the bathroom right now?",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "satz_a1_0720",
@@ -268,7 +372,11 @@
       "distractors": [
         "내예요",
         "무엇이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Wann ist der Geburtstag des Lehrers?",
+      "promptEn": "When is the teacher's birthday?",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "satz_a1_0721",
@@ -278,7 +386,11 @@
       "distractors": [
         "언제는",
         "어디는"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Das ist mein Regenschirm.",
+      "promptEn": "This is my umbrella.",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "satz_a1_0722",
@@ -288,7 +400,11 @@
       "distractors": [
         "언제로",
         "무엇으로"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Kommen Sie mit mir hierher.",
+      "promptEn": "Come this way with me.",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "satz_a1_0723",
@@ -298,7 +414,11 @@
       "distractors": [
         "언제는",
         "어디는"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Das dort ist nicht mein Regenschirm.",
+      "promptEn": "That over there is not my umbrella.",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "satz_a1_0724",
@@ -308,7 +428,11 @@
       "distractors": [
         "내에",
         "제에"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Die Toilette ist dort drüben.",
+      "promptEn": "The bathroom is over that way.",
+      "courseUnitId": "a1_08_clarify_repair"
     },
     {
       "id": "satz_a1_0725",
@@ -318,7 +442,11 @@
       "distractors": [
         "세 마리",
         "세 권"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Dieser Laden hat drei Sorten Obst.",
+      "promptEn": "This store has three kinds of fruit.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0726",
@@ -328,7 +456,11 @@
       "distractors": [
         "제 친구예요",
         "제 나라예요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Dieser Regenschirm gehört mir.",
+      "promptEn": "This umbrella is mine.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0727",
@@ -338,7 +470,11 @@
       "distractors": [
         "두 마리",
         "두 살"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Ich habe zwei Bücher gekauft.",
+      "promptEn": "I bought two books.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0728",
@@ -348,7 +484,11 @@
       "distractors": [
         "삼 마리",
         "삼 권"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Ich habe drei Jahre in Korea gelebt.",
+      "promptEn": "I lived in Korea for three years.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0729",
@@ -358,7 +498,11 @@
       "distractors": [
         "시험 살",
         "시험 번"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Während der Prüfung trinke ich Kaffee.",
+      "promptEn": "During exams, I drink coffee.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0730",
@@ -368,7 +512,11 @@
       "distractors": [
         "두 권",
         "두 살"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Ich habe zwei Katzen.",
+      "promptEn": "I have two cats.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0731",
@@ -378,7 +526,11 @@
       "distractors": [
         "열 마리",
         "열 권"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Im Klassenzimmer sind zehn Schüler.",
+      "promptEn": "There are ten students in the classroom.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0732",
@@ -388,7 +540,11 @@
       "distractors": [
         "삼 명이에요",
         "삼 권이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Dieser Bus ist Nummer drei.",
+      "promptEn": "This bus is number three.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0733",
@@ -398,7 +554,11 @@
       "distractors": [
         "세 명이에요",
         "세 권이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Mein jüngeres Geschwister ist drei Jahre alt.",
+      "promptEn": "My younger sibling is three years old.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0734",
@@ -408,7 +568,11 @@
       "distractors": [
         "마야 개",
         "마야 권"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Maya, hallo!",
+      "promptEn": "Maya, hello!",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0735",
@@ -418,7 +582,11 @@
       "distractors": [
         "한 살",
         "한 권"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Ich habe eine Scheibe Brot gegessen.",
+      "promptEn": "I ate one slice of bread.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0736",
@@ -428,7 +596,11 @@
       "distractors": [
         "오백 마리예요",
         "오백 가지예요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Mein Büro ist Zimmer 500.",
+      "promptEn": "My office is room 500.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0737",
@@ -438,7 +610,11 @@
       "distractors": [
         "가다 음식",
         "먹다 음식"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Was für ein Essen ist das?",
+      "promptEn": "What kind of food is this?",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0738",
@@ -448,7 +624,11 @@
       "distractors": [
         "가다 사람",
         "먹다 사람"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Eine bestimmte Person sucht mich.",
+      "promptEn": "A certain person is looking for me.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0739",
@@ -458,7 +638,11 @@
       "distractors": [
         "가다 나라",
         "먹다 나라"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Ich habe mehrere Länder bereist.",
+      "promptEn": "I traveled to several countries.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0740",
@@ -468,7 +652,11 @@
       "distractors": [
         "마흔 명이에요",
         "마흔 권이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Mein Vater ist vierzig Jahre alt.",
+      "promptEn": "My father is forty years old.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0741",
@@ -478,7 +666,11 @@
       "distractors": [
         "백만 마리예요",
         "백만 권이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Dieses Fahrrad kostet eine Million Won.",
+      "promptEn": "This watch is a million won.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0742",
@@ -488,7 +680,11 @@
       "distractors": [
         "서른 명이에요",
         "서른 권이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Mein älterer Bruder ist dreißig Jahre alt.",
+      "promptEn": "My older brother is thirty years old.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0743",
@@ -498,7 +694,11 @@
       "distractors": [
         "십만 마리예요",
         "십만 권이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Diese Tasche kostet hunderttausend Won.",
+      "promptEn": "This bag is a hundred thousand won.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0744",
@@ -508,7 +708,11 @@
       "distractors": [
         "아흔 명이에요",
         "아흔 권이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Meine Großmutter ist neunzig Jahre alt.",
+      "promptEn": "My grandmother is ninety years old.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0745",
@@ -518,7 +722,11 @@
       "distractors": [
         "여든 명이에요",
         "여든 권이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Mein Großvater ist achtzig Jahre alt.",
+      "promptEn": "My grandfather is eighty years old.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0746",
@@ -528,7 +736,11 @@
       "distractors": [
         "일흔 명이에요",
         "일흔 권이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Mein Lehrer ist siebzig Jahre alt.",
+      "promptEn": "My teacher is seventy years old.",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "id": "satz_a1_0747",
@@ -538,7 +750,11 @@
       "distractors": [
         "그것 가방이에요",
         "무엇 가방이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Diese Tasche ist meine Tasche.",
+      "promptEn": "This bag is my bag.",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0748",
@@ -548,7 +764,11 @@
       "distractors": [
         "회의 번이에요",
         "회의 권이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Ich bin gerade in einer Besprechung.",
+      "promptEn": "I'm in a meeting right now.",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0749",
@@ -558,7 +778,11 @@
       "distractors": [
         "구십 명이에요",
         "구십 권이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Dieser Bus ist Nummer neunzig.",
+      "promptEn": "This bus is number ninety.",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0750",
@@ -568,7 +792,11 @@
       "distractors": [
         "가방이에요",
         "이름이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Mein jüngeres Geschwister ist dieses Jahr zwanzig.",
+      "promptEn": "My younger sibling is twenty this year.",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0751",
@@ -578,7 +806,11 @@
       "distractors": [
         "팔십 마리예요",
         "팔십 권이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Dieses Gebäude hat achtzig Stockwerke.",
+      "promptEn": "This building is eighty floors.",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0752",
@@ -588,7 +820,11 @@
       "distractors": [
         "가다, 좋아",
         "먹다, 좋아"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Sollen wir uns später treffen? Ja, klingt gut.",
+      "promptEn": "Shall we meet later? Yeah, sounds good.",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0753",
@@ -598,7 +834,11 @@
       "distractors": [
         "가다, 괜찮아요",
         "먹다, 괜찮아요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Entschuldigung! Ach, das ist okay.",
+      "promptEn": "Sorry! Oh, it's okay.",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0754",
@@ -608,7 +848,11 @@
       "distractors": [
         "삼천 층이에요",
         "삼천 살이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Dieses Brot kostet dreitausend Won.",
+      "promptEn": "This bread is three thousand won.",
+      "courseUnitId": "a1_16_survival_capstone"
     },
     {
       "id": "satz_a1_0755",
@@ -618,7 +862,11 @@
       "distractors": [
         "억 마리예요",
         "억 권이에요"
-      ]
+      ],
+      "level": "a1",
+      "promptDe": "Diese Wohnung kostet hundert Millionen Won.",
+      "promptEn": "This apartment is a hundred million won.",
+      "courseUnitId": "a1_05_numbers_time"
     }
   ]
 }

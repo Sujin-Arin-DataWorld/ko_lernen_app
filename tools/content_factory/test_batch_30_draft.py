@@ -58,6 +58,7 @@ Run with:
 from __future__ import annotations
 
 import csv
+import re
 import unittest
 from collections import Counter
 from pathlib import Path
@@ -127,25 +128,44 @@ class TestBatch30DraftFilesExist(unittest.TestCase):
         self.assertTrue(packet.exists())
 
 
-class TestBatch30NeverTouchesLiveAssets(unittest.TestCase):
-    def test_manifest_marks_draft_and_unapproved(self):
-        manifest = _load_json(DRAFTS / "batch_30_a1_reinforcement_manifest.json")
-        self.assertEqual(manifest["status"], "draft")
-        self.assertEqual(manifest["provenance"]["approval"], {})
-        self.assertFalse(manifest["promotion"]["assetsDataWritten"])
-        self.assertFalse(manifest["promotion"]["runtime"])
-        self.assertFalse(manifest["promotion"]["tts"])
-        self.assertFalse(manifest["promotion"]["firebase"])
+class TestBatch30PromotedToLiveAssets(unittest.TestCase):
+    """Batch 30 was Jin-approved (7/62 sample, 2026-09-16, owner chat
+    'Batch 30·31 표본 승인') and promoted 2026-09-16 (C3-T5): the manifest must
+    show structured approval + all promotion flags set, and every headword
+    must now be live exactly once. Mirrors TestBatch29PromotedToLiveAssets
+    in test_batch_29_draft.py, which replaces the old draft-only
+    TestBatch30NeverTouchesLiveAssets with this, now that Batch 30 has
+    itself been promoted."""
 
-    def test_no_live_headword_was_added(self):
+    def test_manifest_marks_merged_and_approved(self):
+        manifest = _load_json(DRAFTS / "batch_30_a1_reinforcement_manifest.json")
+        self.assertEqual(manifest["status"], "merged")
+        self.assertEqual(manifest["provenance"]["approval"].get("authority"), "Jin")
+        self.assertTrue(manifest["promotion"]["assetsDataWritten"])
+        self.assertTrue(manifest["promotion"]["runtime"])
+
+    def test_every_headword_is_live_exactly_once(self):
+        """Every one of the batch's 62 headwords must appear in the live
+        korean_vocab.csv exactly once -- proof of a clean, non-duplicated
+        promotion."""
         draft_rows = _load_vocab_rows(DRAFTS / "batch_30_a1_rows.csv")
         live_rows = _load_vocab_rows(VOCAB_CSV)
-        live_korean = {r["korean"] for r in live_rows}
+        live_counts = Counter(r["korean"] for r in live_rows)
         for row in draft_rows:
-            self.assertNotIn(
-                row["korean"], live_korean,
-                f"{row['korean']} ({row['id']}) is already live -- draft should not duplicate it",
+            self.assertEqual(
+                live_counts.get(row["korean"], 0), 1,
+                f"{row['korean']} ({row['id']}) live count is "
+                f"{live_counts.get(row['korean'], 0)}, expected exactly 1",
             )
+
+    def test_every_id_is_live_with_matching_content(self):
+        """Every draft id must be present live with byte-identical content
+        (validate_promoted_batch.py's exact-equality contract)."""
+        draft_rows = {r["id"]: r for r in _load_vocab_rows(DRAFTS / "batch_30_a1_rows.csv")}
+        live_rows = {r["id"]: r for r in _load_vocab_rows(VOCAB_CSV)}
+        for vid, row in draft_rows.items():
+            self.assertIn(vid, live_rows, f"{vid} missing from live korean_vocab.csv")
+            self.assertEqual(row, live_rows[vid], f"{vid}: live row differs from reviewed draft")
 
     def test_no_overlap_with_prior_batch_words(self):
         draft_rows = _load_vocab_rows(DRAFTS / "batch_30_a1_rows.csv")
@@ -179,29 +199,32 @@ class TestBatch30VocabRows(unittest.TestCase):
         koreans = [r["korean"] for r in self.rows]
         self.assertEqual(len(koreans), len(set(koreans)))
 
-    def test_no_duplicate_korean_vs_live_csv(self):
-        live_korean = {r["korean"] for r in self.live_rows}
+    def test_no_duplicate_korean_vs_pre_batch_live_csv(self):
+        """None of the batch's headwords collide with a *different* word
+        already live before this batch was promoted (the batch's own rows
+        are excluded from the comparison set -- promotion legitimately adds
+        them once). C3-T5 (2026-09-16): renamed from
+        test_no_duplicate_korean_vs_live_csv now that Batch 30 is itself
+        live, mirroring test_batch_29_draft.py's post-promotion fix."""
+        batch_ids = {r["id"] for r in self.rows}
+        pre_batch_korean = {r["korean"] for r in self.live_rows if r["id"] not in batch_ids}
         for row in self.rows:
-            self.assertNotIn(row["korean"], live_korean)
+            self.assertNotIn(row["korean"], pre_batch_korean)
 
-    def test_all_ids_unique_and_above_live_and_prior_batches_max(self):
-        live_max = max(
-            int(r["id"].rsplit("_", 1)[1]) for r in self.live_rows if r["id"].startswith("vocab_a1_")
-        )
-        floor = live_max
-        for path in PRIOR_BATCH_CSVS:
-            prior_rows = _load_vocab_rows(path) if path.exists() else []
-            prior_max = max(
-                [int(r["id"].rsplit("_", 1)[1]) for r in prior_rows if r["id"].startswith("vocab_a1_")],
-                default=0,
-            )
-            floor = max(floor, prior_max)
+    def test_all_ids_unique_and_above_pre_batch_live_max(self):
+        # C3-T5 (2026-09-16): fixed baseline (one below this batch's own
+        # lowest id) instead of a live recomputation -- see
+        # test_batch_29_draft.py's identical fix for why exclude-own-ids
+        # breaks once a later batch is promoted on top with a higher,
+        # disjoint id range.
+        own_nums = [int(r["id"].rsplit("_", 1)[1]) for r in self.rows]
+        pre_batch_max = min(own_nums) - 1
         ids = [r["id"] for r in self.rows]
         self.assertEqual(len(ids), len(set(ids)))
         for row in self.rows:
             self.assertTrue(row["id"].startswith("vocab_a1_"))
             num = int(row["id"].rsplit("_", 1)[1])
-            self.assertGreater(num, floor)
+            self.assertGreater(num, pre_batch_max)
 
     def test_pack_ids_exist_live_or_declared_new(self):
         declared_new = {p["pack_id"] for p in self.manifest.get("newPacks", [])}
@@ -215,9 +238,27 @@ class TestBatch30VocabRows(unittest.TestCase):
         for row in self.rows:
             self.assertEqual(row["level"], "A1")
 
-    def test_is_review_boss_false(self):
+    def test_is_review_boss_matches_new_pack_convention(self):
+        # C3-T5 (2026-09-16): filled-to-12 existing packs' added rows stay
+        # is_review_boss=false (that pack's boss words were decided when
+        # it was first created); each of this batch's 6 brand-new packs
+        # (a1_adverbs_1/2, a1_pronouns_1, a1_counters_1, a1_determiners_1,
+        # a1_misc_4) needs its own 2 Boss words (validate_content.py
+        # requires every pack to have 2 or 3), assigned as the final 2
+        # pack_order values per plan_pack_assignments.py's convention
+        # (mirrors test_batch_29_draft.py's identical fix).
+        new_pack_ids = {p["pack_id"] for p in self.manifest.get("newPacks", [])}
+        pack_sizes: dict[str, int] = {}
         for row in self.rows:
-            self.assertEqual(row["is_review_boss"], "false")
+            pack_sizes[row["pack_id"]] = pack_sizes.get(row["pack_id"], 0) + 1
+        for row in self.rows:
+            if row["pack_id"] in new_pack_ids:
+                n = pack_sizes[row["pack_id"]]
+                boss_orders = {n - 1, n} if n >= 2 else {n}
+                expect_boss = int(row["pack_order"]) in boss_orders
+                self.assertEqual(row["is_review_boss"], "true" if expect_boss else "false")
+            else:
+                self.assertEqual(row["is_review_boss"], "false")
 
     def test_examples_are_at_most_8_eojeol(self):
         for row in self.rows:
@@ -391,27 +432,17 @@ class TestBatch30Cloze(unittest.TestCase):
         rows = _load_vocab_rows(DRAFTS / "batch_30_a1_rows.csv")
         self.assertEqual(len(self.items), len(rows))
 
-    def test_ids_unique_and_above_live_and_prior_batches_max(self):
-        live_max = max(
-            int(i["id"].rsplit("_", 1)[1]) for i in self.live_cloze if i["id"].startswith("cloze_a1_")
-        )
-        floor = live_max
-        for name in (
-            "batch_26_a1_cloze.json", "batch_27_a1_cloze.json",
-            "batch_28_a1_cloze.json", "batch_29_a1_cloze.json",
-        ):
-            path = DRAFTS / name
-            items = _load_json(path)["items"] if path.exists() else []
-            prior_max = max(
-                [int(i["id"].rsplit("_", 1)[1]) for i in items if i["id"].startswith("cloze_a1_")],
-                default=0,
-            )
-            floor = max(floor, prior_max)
+    def test_ids_unique_and_above_pre_batch_live_max(self):
+        # C3-T5 (2026-09-16): fixed baseline, see the vocab-row fix above
+        # (test_batch_29_draft.py's identical fix for why a live
+        # recomputation breaks once this batch is itself promoted).
+        own_nums = [int(i["id"].rsplit("_", 1)[1]) for i in self.items]
+        pre_batch_max = min(own_nums) - 1
         ids = [i["id"] for i in self.items]
         self.assertEqual(len(ids), len(set(ids)))
         for item in self.items:
             num = int(item["id"].rsplit("_", 1)[1])
-            self.assertGreater(num, floor)
+            self.assertGreater(num, pre_batch_max)
 
     def test_answer_in_full_ko_and_sentence_is_blanked(self):
         for item in self.items:
@@ -460,6 +491,51 @@ class TestBatch30Cloze(unittest.TestCase):
             counts.update(item["distractors"])
         offenders = {w: c for w, c in counts.items() if c > 4}
         self.assertEqual(offenders, {}, f"distractor(s) reused more than 4 times: {offenders}")
+
+    def test_no_distractor_stem_reused_more_than_4_times_within_batch(self):
+        """D6 per-batch reuse cap (C3-T5b, 2026-09-16): cloze_distractor_rules.
+        ReuseTracker's docstring caps a distractor WORD at 4x within an
+        identifiable batch (this manifest lists the ids, so the batch is
+        identifiable), and the surface-form check above under-counts it --
+        언제는/언제로/언제에 are one word wearing different particles. Counted
+        locally here (no shared helper; another agent owns that rule's
+        shared code): stem = the distractor with its whole particle tail
+        stripped (full inventory, stacked tails included -- see the regex
+        below); a distractor that is nothing but a particle (the Tier-B
+        bare-particle pool) is counted by its own surface form instead.
+        Before the C3-T5b redistribution this batch had 언제 7 / 무엇 5."""
+        # Full particle inventory (Fable correction, C3-T5b): the cap is per
+        # WORD as the learner sees it, so 우산부터/우산에는/우산들을 are all
+        # 우산. Tails stack (들+을, 에+는, 에게+는), so strip repeatedly; a
+        # word is never cut below 2 syllables (지도/사과/같이 merely END in a
+        # particle-shaped syllable); the Tier-B bare particles are counted
+        # by their own surface form.
+        particle_tail = re.compile(
+            r"(에서는|에게는|에는|에서|에게|으로|한테|부터|까지|처럼|보다|하고|이랑|이나"
+            r"|들|을|를|이|가|은|는|에|로|도|과|와|만|랑|께|나)$"
+        )
+        stems: Counter = Counter()
+        bare_particles: Counter = Counter()
+        for item in self.items:
+            for d in item["distractors"]:
+                if d in BARE_PARTICLE_POOL:
+                    bare_particles[d] += 1
+                    continue
+                stem = d
+                while True:
+                    m = particle_tail.search(stem)
+                    if not m or len(stem) - len(m.group(1)) < 2:
+                        break
+                    stem = stem[: m.start()]
+                stems[stem] += 1
+        over_stems = {w: c for w, c in stems.items() if c > 4}
+        over_bare = {w: c for w, c in bare_particles.items() if c > 4}
+        self.assertEqual(
+            over_stems, {}, f"distractor stem(s) reused more than 4 times in the batch: {over_stems}"
+        )
+        self.assertEqual(
+            over_bare, {}, f"bare particle(s) reused more than 4 times in the batch: {over_bare}"
+        )
 
     def test_answer_is_at_least_two_syllables(self):
         """Game contract: a cloze answer under 2 syllables is trivially
@@ -586,27 +662,15 @@ class TestBatch30Satz(unittest.TestCase):
         rows = _load_vocab_rows(DRAFTS / "batch_30_a1_rows.csv")
         self.assertEqual(len(self.items), len(rows))
 
-    def test_ids_unique_and_above_live_and_prior_batches_max(self):
-        live_max = max(
-            int(i["id"].rsplit("_", 1)[1]) for i in self.live_satz if i["id"].startswith("satz_a1_")
-        )
-        floor = live_max
-        for name in (
-            "batch_26_a1_satz.json", "batch_27_a1_satz.json",
-            "batch_28_a1_satz.json", "batch_29_a1_satz.json",
-        ):
-            path = DRAFTS / name
-            items = _load_json(path)["items"] if path.exists() else []
-            prior_max = max(
-                [int(i["id"].rsplit("_", 1)[1]) for i in items if i["id"].startswith("satz_a1_")],
-                default=0,
-            )
-            floor = max(floor, prior_max)
+    def test_ids_unique_and_above_pre_batch_live_max(self):
+        # C3-T5 (2026-09-16): fixed baseline, see the vocab-row fix above.
+        own_nums = [int(i["id"].rsplit("_", 1)[1]) for i in self.items]
+        pre_batch_max = min(own_nums) - 1
         ids = [i["id"] for i in self.items]
         self.assertEqual(len(ids), len(set(ids)))
         for item in self.items:
             num = int(item["id"].rsplit("_", 1)[1])
-            self.assertGreater(num, floor)
+            self.assertGreater(num, pre_batch_max)
 
     def test_vocab_ko_and_target_present(self):
         for item in self.items:
@@ -670,9 +734,11 @@ class TestBatch30Packs(unittest.TestCase):
         self.assertTrue(
             any(r["korean"] == added_word and r["pack_id"] == "a1_numbers_2" for r in draft_rows)
         )
+        # C3-T5 (2026-09-16): post-promotion, live already includes this
+        # batch's own row (live and draft are no longer disjoint sets), so
+        # the pack's live count alone must be 12 -- not live+draft.
         live_count = sum(1 for r in live_rows if r["pack_id"] == "a1_numbers_2")
-        draft_count = sum(1 for r in draft_rows if r["pack_id"] == "a1_numbers_2")
-        self.assertEqual(live_count + draft_count, 12)
+        self.assertEqual(live_count, 12)
 
     def test_no_under_12_live_pack_was_missed_without_documented_reason(self):
         manifest = _load_json(DRAFTS / "batch_30_a1_reinforcement_manifest.json")

@@ -5,13 +5,7 @@ vocab_a1_0054,파란색,blau,A1,a1_colors,Farben,Nomen,sino3_low,satz_ref
 vocab_a1_0055,초록색,grün,A1,a1_colors,Farben,Nomen,sino3_low,satz_ref
 vocab_a1_0056,노란색,gelb,A1,a1_colors,Farben,Nomen,sino3_low,satz_ref
 vocab_a1_0058,검은색,schwarz,A1,a1_colors,Farben,Nomen,sino3_low,
-vocab_a1_0114,일하다,arbeiten,A1,a1_misc_2,Beruf,Verb,below_topic,
-vocab_a1_0122,귀엽다,niedlich / süß,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
-vocab_a1_0124,시끄럽다,laut,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
-vocab_a1_0129,짧다,kurz,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
 vocab_a1_0176,화이팅,Du schaffst das! / Viel Erfolg!,A1,a1_misc_2,Motivation,Ausdruck,below_topic,satz_ref
-vocab_a1_0197,새,neu,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,satz_ref
-vocab_a1_0199,같은,gleich / dasselbe,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,satz_ref
 vocab_a2_0088,메뉴판,Speisekarte,A2,a2_food_1,Essen & Trinken,Nomen,sino3_low,satz_ref
 vocab_a2_0145,청소기,Staubsauger,A2,a2_home_1,Wohnen,Nomen,sino3_low,satz_ref
 vocab_a2_0157,수수료,Gebühr,A2,a2_money_1,Geld,Nomen,sino3_low,satz_ref

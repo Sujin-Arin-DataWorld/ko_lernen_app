@@ -60,6 +60,9 @@ final class ClozeTopicGroups {
     'Zuhause': ClozeTopicGroupId.everydayHome,
     '자기소개': ClozeTopicGroupId.peopleRelationships,
     '첫인사': ClozeTopicGroupId.peopleRelationships,
+    // C3-T5 (2026-09-16): Batch 30 A1 reinforcement introduces 2 new exact
+    // topic strings not previously used by any live cloze item.
+    'Selbstvorstellung': ClozeTopicGroupId.peopleRelationships,
     'Begrüßung': ClozeTopicGroupId.peopleRelationships,
     'Beziehungen': ClozeTopicGroupId.peopleRelationships,
     'Entschuldigung': ClozeTopicGroupId.peopleRelationships,
@@ -88,6 +91,10 @@ final class ClozeTopicGroups {
     '취업과 근무 조건': ClozeTopicGroupId.workEducation,
     'Arbeitskoordination & Termine': ClozeTopicGroupId.workEducation,
     'Beruf': ClozeTopicGroupId.workEducation,
+    // C3-T5 (2026-09-16): Batch 31 A2 reinforcement (first A2 batch)
+    // introduces 2 new exact topic strings not previously used by any
+    // live cloze item.
+    'Menschen & Berufe': ClozeTopicGroupId.workEducation,
     'Betriebslast': ClozeTopicGroupId.workEducation,
     'Beurteilung': ClozeTopicGroupId.workEducation,
     'Bildung': ClozeTopicGroupId.workEducation,
@@ -163,9 +170,11 @@ final class ClozeTopicGroups {
     'Gesundheit': ClozeTopicGroupId.healthNatureLeisure,
     'Körper': ClozeTopicGroupId.healthNatureLeisure,
     'Natur': ClozeTopicGroupId.healthNatureLeisure,
+    'Natur & Draußen': ClozeTopicGroupId.healthNatureLeisure,
     'Rhythmus & Grenzen': ClozeTopicGroupId.healthNatureLeisure,
     'Sicherheit & Grenzen': ClozeTopicGroupId.healthNatureLeisure,
     'Sport': ClozeTopicGroupId.healthNatureLeisure,
+    'Tiere': ClozeTopicGroupId.healthNatureLeisure,
     'Umwelt': ClozeTopicGroupId.healthNatureLeisure,
     'Wetter': ClozeTopicGroupId.healthNatureLeisure,
     'Wetterschicht': ClozeTopicGroupId.healthNatureLeisure,

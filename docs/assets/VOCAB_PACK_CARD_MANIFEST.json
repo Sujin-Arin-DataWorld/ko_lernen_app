@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "generatedFrom": "assets/data/korean_vocab.csv",
   "snapshotDate": "2026-09-10",
-  "packCount": 245,
+  "packCount": 252,
   "dedicatedAssetCount": 184,
   "notes": [
     "The approved plan snapshot contained 223 packs; the live CSV now contains 224.",
@@ -552,6 +552,8 @@
         "vocab_a1_0114",
         "vocab_a1_0119",
         "vocab_a1_0120",
+        "vocab_a2_0001",
+        "vocab_a2_0002",
         "vocab_a1_0176",
         "vocab_a1_0512",
         "vocab_a1_0513",
@@ -690,27 +692,29 @@
       }
     },
     {
-      "packId": "a2_work",
-      "level": "A2",
-      "rewardMotif": "bamboo",
-      "primaryAsset": "assets/illustrations/packs/a2_work.webp",
-      "subjectKo": "회사 · 직업 · 휴가 · 회의",
-      "subjectPromptEn": "a modern still life expressing company / firm, occupation / job, vacation / time off, meeting",
+      "packId": "a1_hobbies_1",
+      "level": "A1",
+      "rewardMotif": "vine",
+      "primaryAsset": "assets/illustrations/packs/vine.webp",
+      "subjectKo": "취미 · 축구 · 야구 · 농구",
+      "subjectPromptEn": "a modern still life expressing hobby, soccer, baseball, basketball",
       "evidenceWordIds": [
-        "vocab_a2_0001",
-        "vocab_a2_0002",
-        "vocab_a2_0023",
-        "vocab_a2_0024",
-        "vocab_a2_0121",
-        "vocab_a2_0122",
-        "vocab_a2_0124",
-        "vocab_a2_0125",
-        "vocab_a2_0126",
-        "vocab_a2_0127",
-        "vocab_a2_0128"
+        "vocab_a2_0003",
+        "vocab_a1_0553",
+        "vocab_a1_0554",
+        "vocab_a1_0555",
+        "vocab_a1_0556",
+        "vocab_a1_0557",
+        "vocab_a1_0558",
+        "vocab_a1_0559",
+        "vocab_a1_0560",
+        "vocab_a1_0561",
+        "vocab_a1_0562",
+        "vocab_a1_0563",
+        "vocab_a1_0564"
       ],
-      "status": "approved_dedicated",
-      "sha256": "baa4e3c4f3841f9cf1e0a30a622fc4cb9eb14cb671d9ee77feaddb29af8b44d9",
+      "status": "approved_motif_fallback",
+      "sha256": "7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be",
       "qa": {
         "fourThree": {
           "status": "pass",
@@ -727,26 +731,30 @@
       }
     },
     {
-      "packId": "a2_health_misc_1",
-      "level": "A2",
-      "rewardMotif": "crane",
-      "primaryAsset": "assets/illustrations/packs/a2_health_misc_1.webp",
-      "subjectKo": "취미 · 병원 · 약 · 여행",
-      "subjectPromptEn": "a modern still life expressing hobby, doctor's / clinic, medicine / medication, trip / travel",
+      "packId": "a1_nature_people_1",
+      "level": "A1",
+      "rewardMotif": "suryeon",
+      "primaryAsset": "assets/illustrations/packs/suryeon.webp",
+      "subjectKo": "날씨 · 계절 · 개 · 고양이",
+      "subjectPromptEn": "a modern still life expressing weather, season, dog, cat",
       "evidenceWordIds": [
-        "vocab_a2_0003",
-        "vocab_a2_0010",
-        "vocab_a2_0011",
-        "vocab_a2_0015",
-        "vocab_a2_0017",
-        "vocab_a2_0018",
-        "vocab_a2_0019",
-        "vocab_a2_0028",
-        "vocab_a2_0029",
-        "vocab_b1_0013"
+        "vocab_a2_0004",
+        "vocab_a2_0005",
+        "vocab_a1_0628",
+        "vocab_a1_0629",
+        "vocab_a1_0630",
+        "vocab_a1_0631",
+        "vocab_a1_0632",
+        "vocab_a1_0633",
+        "vocab_a1_0634",
+        "vocab_a1_0635",
+        "vocab_a1_0636",
+        "vocab_a1_0637",
+        "vocab_a1_0638",
+        "vocab_a1_0639"
       ],
-      "status": "approved_dedicated",
-      "sha256": "507baa3a9cf6e2e310c1285681c9abb0749794d1c557d0837012e88e03e12d6f",
+      "status": "approved_motif_fallback",
+      "sha256": "b244eb1aaf88ea71fb35f684195696b36ee675ec1d57c6264ca4db8c2d9499f6",
       "qa": {
         "fourThree": {
           "status": "pass",
@@ -767,21 +775,59 @@
       "level": "A2",
       "rewardMotif": "cloud",
       "primaryAsset": "assets/illustrations/packs/cloud.webp",
-      "subjectKo": "날씨 · 계절 · 봄 · 여름",
-      "subjectPromptEn": "a modern still life expressing weather, season, spring, summer",
+      "subjectKo": "봄 · 여름 · 가을 · 겨울",
+      "subjectPromptEn": "a modern still life expressing spring, summer, autumn / fall, winter",
       "evidenceWordIds": [
-        "vocab_a2_0004",
-        "vocab_a2_0005",
         "vocab_a2_0006",
         "vocab_a2_0007",
         "vocab_a2_0008",
         "vocab_a2_0009",
         "vocab_a2_0034",
         "vocab_a2_0059",
-        "vocab_a2_0060"
+        "vocab_a2_0060",
+        "vocab_a2_0527",
+        "vocab_a2_0528",
+        "vocab_a2_0529"
       ],
       "status": "approved_motif_fallback",
       "sha256": "e6457666fd5c389d61d4a90b097638f6202d66ca18af4dbe3817d8fef8f280e3",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_health_misc_1",
+      "level": "A2",
+      "rewardMotif": "crane",
+      "primaryAsset": "assets/illustrations/packs/a2_health_misc_1.webp",
+      "subjectKo": "병원 · 약 · 여행 · 호텔",
+      "subjectPromptEn": "a modern still life expressing doctor's / clinic, medicine / medication, trip / travel, hotel",
+      "evidenceWordIds": [
+        "vocab_a2_0010",
+        "vocab_a2_0011",
+        "vocab_a2_0015",
+        "vocab_a2_0017",
+        "vocab_a2_0018",
+        "vocab_a2_0019",
+        "vocab_a2_0028",
+        "vocab_a2_0029",
+        "vocab_b1_0013",
+        "vocab_a2_0533",
+        "vocab_a2_0534"
+      ],
+      "status": "approved_dedicated",
+      "sha256": "507baa3a9cf6e2e310c1285681c9abb0749794d1c557d0837012e88e03e12d6f",
       "qa": {
         "fourThree": {
           "status": "pass",
@@ -814,7 +860,9 @@
         "vocab_a2_0089",
         "vocab_a2_0480",
         "vocab_a2_0481",
-        "vocab_a2_0482"
+        "vocab_a2_0482",
+        "vocab_a2_0535",
+        "vocab_a2_0536"
       ],
       "status": "approved_dedicated",
       "sha256": "8e54a672c92e507dc46438a17b52f78eeb441cfde9f16b0e9fde63ace3d7595c",
@@ -850,7 +898,9 @@
         "vocab_a2_0097",
         "vocab_a2_0486",
         "vocab_a2_0487",
-        "vocab_a2_0488"
+        "vocab_a2_0488",
+        "vocab_a2_0539",
+        "vocab_a2_0540"
       ],
       "status": "approved_dedicated",
       "sha256": "1805eed2ae623d7bf65154d5c3ccabb4c6a9fd10f4bfeed74bd4c994ef62f2b3",
@@ -885,7 +935,10 @@
         "vocab_a2_0050",
         "vocab_a2_0051",
         "vocab_a2_0054",
-        "vocab_a1_0332"
+        "vocab_a1_0332",
+        "vocab_a2_0504",
+        "vocab_a2_0505",
+        "vocab_a2_0506"
       ],
       "status": "approved_dedicated",
       "sha256": "d010b20d5add9ce405ccd3745010f1b669cb0620c726465dfa1fbbaed2de5e84",
@@ -922,7 +975,8 @@
         "vocab_a2_0106",
         "vocab_a2_0107",
         "vocab_a2_0108",
-        "vocab_a2_0110"
+        "vocab_a2_0110",
+        "vocab_a2_0558"
       ],
       "status": "approved_dedicated",
       "sha256": "6439e3abadc9cc9f1444b192321c882973011f411e638bf5bd59ac3a78e83fbb",
@@ -958,10 +1012,48 @@
         "vocab_a2_0049",
         "vocab_a2_0477",
         "vocab_a2_0478",
-        "vocab_a2_0479"
+        "vocab_a2_0479",
+        "vocab_a2_0543",
+        "vocab_a2_0544"
       ],
       "status": "approved_motif_fallback",
       "sha256": "59baeed37d95bb06076ee54b6fe18440799fb69497c2777697347497a6317359",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_work",
+      "level": "A2",
+      "rewardMotif": "bamboo",
+      "primaryAsset": "assets/illustrations/packs/a2_work.webp",
+      "subjectKo": "휴가 · 회의 · 동료 · 사장",
+      "subjectPromptEn": "a modern still life expressing vacation / time off, meeting, colleague, boss / company owner",
+      "evidenceWordIds": [
+        "vocab_a2_0023",
+        "vocab_a2_0024",
+        "vocab_a2_0121",
+        "vocab_a2_0122",
+        "vocab_a2_0124",
+        "vocab_a2_0125",
+        "vocab_a2_0126",
+        "vocab_a2_0127",
+        "vocab_a2_0128",
+        "vocab_a2_0557"
+      ],
+      "status": "approved_dedicated",
+      "sha256": "baa4e3c4f3841f9cf1e0a30a622fc4cb9eb14cb671d9ee77feaddb29af8b44d9",
       "qa": {
         "fourThree": {
           "status": "pass",
@@ -995,7 +1087,8 @@
         "vocab_a2_0068",
         "vocab_a2_0069",
         "vocab_b1_0192",
-        "vocab_b1_0195"
+        "vocab_b1_0195",
+        "vocab_a2_0559"
       ],
       "status": "approved_dedicated",
       "sha256": "cbd398d6d97395a8bd66f43e17c6135d5ce3c0fe3df9d56a874d13204857fe1a",
@@ -1029,7 +1122,11 @@
         "vocab_a2_0082",
         "vocab_a2_0083",
         "vocab_a2_0084",
-        "vocab_a2_0085"
+        "vocab_a2_0085",
+        "vocab_a2_0507",
+        "vocab_a2_0508",
+        "vocab_a2_0509",
+        "vocab_a2_0510"
       ],
       "status": "approved_dedicated",
       "sha256": "5af716046bd5fe749347d98d301e639a062cf45b745e24afb37768ea55500675",
@@ -1063,7 +1160,11 @@
         "vocab_a2_0067",
         "vocab_a2_0078",
         "vocab_a2_0079",
-        "vocab_a2_0113"
+        "vocab_a2_0113",
+        "vocab_a2_0515",
+        "vocab_a2_0516",
+        "vocab_a2_0517",
+        "vocab_a2_0518"
       ],
       "status": "approved_dedicated",
       "sha256": "2be5db388472aabbc9a21f5179c4e01c93916ae200b6b9a7058b2c0c70613edb",
@@ -1097,7 +1198,11 @@
         "vocab_a2_0072",
         "vocab_a2_0073",
         "vocab_a2_0074",
-        "vocab_a2_0075"
+        "vocab_a2_0075",
+        "vocab_a2_0521",
+        "vocab_a2_0522",
+        "vocab_a2_0523",
+        "vocab_a2_0524"
       ],
       "status": "approved_motif_fallback",
       "sha256": "2cfed8051d3b32b24cc3ea33315620a9e18d66fd1b136a993b2388d9c7c3033c",
@@ -1131,7 +1236,11 @@
         "vocab_a2_0132",
         "vocab_a2_0133",
         "vocab_a2_0134",
-        "vocab_a2_0135"
+        "vocab_a2_0135",
+        "vocab_a2_0511",
+        "vocab_a2_0512",
+        "vocab_a2_0513",
+        "vocab_a2_0514"
       ],
       "status": "approved_dedicated",
       "sha256": "357a406692b4341e47026be17271751157fb7ef915f3b86c27baa48b95140cb0",
@@ -1676,7 +1785,8 @@
         "vocab_a1_0146",
         "vocab_a1_0518",
         "vocab_a1_0519",
-        "vocab_a1_0520"
+        "vocab_a1_0520",
+        "vocab_a1_0840"
       ],
       "status": "approved_dedicated",
       "sha256": "3b4314a4085f4afedec07fee3d0e1ba7141ad4753348ae31cfc45279454cec54",
@@ -1787,6 +1897,7 @@
         "vocab_a1_0173",
         "vocab_a1_0174",
         "vocab_a1_0175",
+        "vocab_b2_0193",
         "vocab_a1_0479",
         "vocab_a1_0480",
         "vocab_a1_0481",
@@ -1902,7 +2013,9 @@
         "vocab_a2_0096",
         "vocab_a2_0483",
         "vocab_a2_0484",
-        "vocab_a2_0485"
+        "vocab_a2_0485",
+        "vocab_a2_0537",
+        "vocab_a2_0538"
       ],
       "status": "approved_dedicated",
       "sha256": "ed4c8ea356be53376f6a4e1cb9cb834cd8706b60190bc610a30cdc32309f8bdb",
@@ -1938,7 +2051,9 @@
         "vocab_a2_0104",
         "vocab_a2_0489",
         "vocab_a2_0490",
-        "vocab_a2_0491"
+        "vocab_a2_0491",
+        "vocab_a2_0541",
+        "vocab_a2_0542"
       ],
       "status": "approved_dedicated",
       "sha256": "0e2dc952e305e7a7c15ee1250ec3830d4daa00ef29e3409f75bdc563b6f3cb76",
@@ -2013,7 +2128,9 @@
         "vocab_a2_0140",
         "vocab_a2_0501",
         "vocab_a2_0502",
-        "vocab_a2_0503"
+        "vocab_a2_0503",
+        "vocab_a2_0525",
+        "vocab_a2_0526"
       ],
       "status": "approved_dedicated",
       "sha256": "6bbbbc3c6991bcdfc5a51b6d0723f14258c58c13a3dee55d957991a5d0364518",
@@ -2049,7 +2166,9 @@
         "vocab_a2_0120",
         "vocab_a2_0492",
         "vocab_a2_0493",
-        "vocab_a2_0494"
+        "vocab_a2_0494",
+        "vocab_a2_0519",
+        "vocab_a2_0520"
       ],
       "status": "approved_dedicated",
       "sha256": "e6d363afeb2fdced3539d3486010c8f7ca04ad474c05b558b19d8f0ea1da4e14",
@@ -2334,7 +2453,10 @@
         "vocab_a2_0146",
         "vocab_a2_0147",
         "vocab_a2_0148",
-        "vocab_a2_0150"
+        "vocab_a2_0150",
+        "vocab_a2_0530",
+        "vocab_a2_0531",
+        "vocab_a2_0532"
       ],
       "status": "approved_motif_fallback",
       "sha256": "0bda35a1e137b01f78c651867c5dcac887854acd68454f506b2896c3ce4ff891",
@@ -2409,7 +2531,9 @@
         "vocab_a2_0157",
         "vocab_a2_0158",
         "vocab_a2_0159",
-        "vocab_a2_0160"
+        "vocab_a2_0160",
+        "vocab_a2_0545",
+        "vocab_a2_0546"
       ],
       "status": "approved_motif_fallback",
       "sha256": "639c822b01437b9f8a3a7dbe07b20de228cd4e471fa29a91181c2d81cd3495b7",
@@ -2702,12 +2826,13 @@
       "level": "A1",
       "rewardMotif": "chilbo",
       "primaryAsset": "assets/illustrations/packs/a1_repair_language_1.webp",
-      "subjectKo": "표현 · 문장 · 대답하다 · 발음",
-      "subjectPromptEn": "a modern still life expressing expression, sentence, to answer, pronunciation",
+      "subjectKo": "표현 · 문장 · 대답하다 · 문법",
+      "subjectPromptEn": "a modern still life expressing expression, sentence, to answer, grammar",
       "evidenceWordIds": [
         "vocab_b1_0188",
         "vocab_b1_0190",
         "vocab_b1_0196",
+        "vocab_b2_0121",
         "vocab_a1_0408",
         "vocab_a1_0409",
         "vocab_a1_0410",
@@ -3033,10 +3158,9 @@
       "level": "B2",
       "rewardMotif": "chilbo",
       "primaryAsset": "assets/illustrations/packs/b2_language_grammar_1.webp",
-      "subjectKo": "문법 · 명사 · 동사 · 형용사",
-      "subjectPromptEn": "a modern still life expressing grammar, noun, verb, adjective",
+      "subjectKo": "명사 · 동사 · 형용사 · 부사",
+      "subjectPromptEn": "a modern still life expressing noun, verb, adjective, adverb",
       "evidenceWordIds": [
-        "vocab_b2_0121",
         "vocab_b2_0122",
         "vocab_b2_0123",
         "vocab_b2_0124",
@@ -3190,7 +3314,6 @@
         "vocab_b2_0170",
         "vocab_b2_0171",
         "vocab_b2_0172",
-        "vocab_b2_0173",
         "vocab_b2_0174",
         "vocab_b2_0175",
         "vocab_b2_0176",
@@ -3213,6 +3336,45 @@
         "hundredPx": {
           "status": "pass",
           "detail": "B2 hidden-label contact sheet"
+        }
+      }
+    },
+    {
+      "packId": "a1_partner_seollal_basic_1",
+      "level": "A1",
+      "rewardMotif": "bok",
+      "primaryAsset": "assets/illustrations/packs/a1_partner_seollal_basic_1.webp",
+      "subjectKo": "윷놀이 · 설날 · 세배 · 떡국",
+      "subjectPromptEn": "a modern still life expressing yut game, Seollal, Lunar New Year, New Year bow, tteokguk, rice-cake soup",
+      "evidenceWordIds": [
+        "vocab_b2_0173",
+        "vocab_a1_0260",
+        "vocab_a1_0261",
+        "vocab_a1_0262",
+        "vocab_a1_0263",
+        "vocab_a1_0264",
+        "vocab_a1_0265",
+        "vocab_a1_0266",
+        "vocab_a1_0267",
+        "vocab_a1_0268",
+        "vocab_a1_0269",
+        "vocab_a1_0270",
+        "vocab_a1_0271"
+      ],
+      "status": "approved_dedicated",
+      "sha256": "0a9e236d5a9ef3f30193a1fb3c0c6d832bb28bca1067e135ad29a030d63e2a67",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
         }
       }
     },
@@ -3259,21 +3421,14 @@
       "level": "B2",
       "rewardMotif": "moran",
       "primaryAsset": "assets/illustrations/packs/b2_honorifics_1.webp",
-      "subjectKo": "말씀 · 연세 · 성함 · 생신",
-      "subjectPromptEn": "a modern still life expressing words (honorific), age (honorific), name (honorific), birthday (honorific)",
+      "subjectKo": "연세 · 성함 · 댁 · 뵙다",
+      "subjectPromptEn": "a modern still life expressing age (honorific), name (honorific), house (honorific), to meet (humble)",
       "evidenceWordIds": [
-        "vocab_b2_0193",
         "vocab_b2_0194",
         "vocab_b2_0195",
-        "vocab_b2_0196",
         "vocab_b2_0197",
-        "vocab_b2_0198",
         "vocab_b2_0199",
-        "vocab_b2_0200",
-        "vocab_b2_0201",
-        "vocab_b2_0202",
-        "vocab_b2_0203",
-        "vocab_b2_0204"
+        "vocab_b2_0200"
       ],
       "status": "approved_dedicated",
       "sha256": "bc39b5d055bdeff0b2ba36034943073dda756099da1d3638280c1dade3c742f8",
@@ -3289,6 +3444,165 @@
         "hundredPx": {
           "status": "pass",
           "detail": "B2 hidden-label contact sheet"
+        }
+      }
+    },
+    {
+      "packId": "a1_time_family_1",
+      "level": "A1",
+      "rewardMotif": "bok",
+      "primaryAsset": "assets/illustrations/packs/bok.webp",
+      "subjectKo": "생신 · 곳 · 달 · 동생",
+      "subjectPromptEn": "a modern still life expressing birthday (honorific), place, spot, month, younger sibling",
+      "evidenceWordIds": [
+        "vocab_b2_0196",
+        "vocab_a1_0703",
+        "vocab_a1_0704",
+        "vocab_a1_0705",
+        "vocab_a1_0706",
+        "vocab_a1_0707",
+        "vocab_a1_0708",
+        "vocab_a1_0709",
+        "vocab_a1_0710",
+        "vocab_a1_0711",
+        "vocab_a1_0712",
+        "vocab_a1_0713",
+        "vocab_a1_0714"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "d0526eebc2abd8410f4a37e628e0488250caa2cbb657f33480fa53152f3c5284",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_partner_meet_names_1",
+      "level": "A1",
+      "rewardMotif": "lotus",
+      "primaryAsset": "assets/illustrations/packs/a1_partner_meet_names_1.webp",
+      "subjectKo": "드리다 · 계시다 · 인사드리겠습니다 · 인사드리다",
+      "subjectPromptEn": "a modern still life expressing to give (honorific), to be (honorific), Let me say hello, to greet respectfully",
+      "evidenceWordIds": [
+        "vocab_b2_0198",
+        "vocab_b2_0203",
+        "vocab_a1_0212",
+        "vocab_a1_0213",
+        "vocab_a1_0214",
+        "vocab_a1_0215",
+        "vocab_a1_0217",
+        "vocab_a1_0218",
+        "vocab_a1_0219",
+        "vocab_a1_0220",
+        "vocab_a1_0221",
+        "vocab_a1_0222",
+        "vocab_a1_0223",
+        "vocab_b2_0431",
+        "vocab_b2_0432"
+      ],
+      "status": "approved_dedicated",
+      "sha256": "5e0b6d17e925c5c56d092844068ed163d0f5eab8925a664157bb8124f4c32531",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_home_daily_1",
+      "level": "A1",
+      "rewardMotif": "vine",
+      "primaryAsset": "assets/illustrations/packs/vine.webp",
+      "subjectKo": "주무시다 · 샤워 · 세수 · 청소",
+      "subjectPromptEn": "a modern still life expressing to sleep (honorific), shower, washing one's face, cleaning",
+      "evidenceWordIds": [
+        "vocab_b2_0201",
+        "vocab_a1_0655",
+        "vocab_a1_0656",
+        "vocab_a1_0657",
+        "vocab_a1_0658",
+        "vocab_a1_0659",
+        "vocab_a1_0660",
+        "vocab_a1_0661",
+        "vocab_a1_0662",
+        "vocab_a1_0663",
+        "vocab_a1_0664",
+        "vocab_a1_0665",
+        "vocab_a1_0666"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_partner_table_basic_1",
+      "level": "A1",
+      "rewardMotif": "soban",
+      "primaryAsset": "assets/illustrations/packs/soban.webp",
+      "subjectKo": "드시다 · 잡수시다 · 진지 · 수저",
+      "subjectPromptEn": "a modern still life expressing to eat (honorific), to eat (very honorific), meal (honorific), spoon and chopsticks",
+      "evidenceWordIds": [
+        "vocab_b2_0202",
+        "vocab_b2_0204",
+        "vocab_a1_0248",
+        "vocab_a1_0249",
+        "vocab_a1_0250",
+        "vocab_a1_0251",
+        "vocab_a1_0252",
+        "vocab_a1_0253",
+        "vocab_a1_0254",
+        "vocab_a1_0255",
+        "vocab_a1_0256",
+        "vocab_a1_0257",
+        "vocab_a1_0258",
+        "vocab_a1_0259"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "398aa01eef38e79fbb8eb783ac407f48c1322f0dc934c07d3f03aaed695ffc94",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
         }
       }
     },
@@ -3499,7 +3813,9 @@
         "vocab_a2_0229",
         "vocab_a2_0230",
         "vocab_a2_0231",
-        "vocab_a2_0232"
+        "vocab_a2_0232",
+        "vocab_a2_0547",
+        "vocab_a2_0548"
       ],
       "status": "approved_motif_fallback",
       "sha256": "b244eb1aaf88ea71fb35f684195696b36ee675ec1d57c6264ca4db8c2d9499f6",
@@ -3536,7 +3852,8 @@
         "vocab_a2_0241",
         "vocab_a2_0242",
         "vocab_a2_0243",
-        "vocab_a2_0244"
+        "vocab_a2_0244",
+        "vocab_a2_0560"
       ],
       "status": "approved_dedicated",
       "sha256": "c00a45bd7c35ad4d48d059ae5e775f7fe4ddf49ceb3e9531b921ec648ab14bcb",
@@ -4424,43 +4741,6 @@
       }
     },
     {
-      "packId": "a1_partner_meet_names_1",
-      "level": "A1",
-      "rewardMotif": "lotus",
-      "primaryAsset": "assets/illustrations/packs/a1_partner_meet_names_1.webp",
-      "subjectKo": "인사드리겠습니다 · 인사드리다 · 장인어른 · 장모님",
-      "subjectPromptEn": "a modern still life expressing Let me say hello, to greet respectfully, father-in-law (wife's father), mother-in-law (wife's mother)",
-      "evidenceWordIds": [
-        "vocab_a1_0212",
-        "vocab_a1_0213",
-        "vocab_a1_0214",
-        "vocab_a1_0215",
-        "vocab_a1_0217",
-        "vocab_a1_0218",
-        "vocab_a1_0219",
-        "vocab_a1_0220",
-        "vocab_a1_0221",
-        "vocab_a1_0222",
-        "vocab_a1_0223"
-      ],
-      "status": "approved_dedicated",
-      "sha256": "5e0b6d17e925c5c56d092844068ed163d0f5eab8925a664157bb8124f4c32531",
-      "qa": {
-        "fourThree": {
-          "status": "pass",
-          "detail": "800x600"
-        },
-        "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
-        },
-        "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
-        }
-      }
-    },
-    {
       "packId": "b1_partner_after_visit_1",
       "level": "B1",
       "rewardMotif": "vine",
@@ -4576,82 +4856,6 @@
       }
     },
     {
-      "packId": "a1_partner_table_basic_1",
-      "level": "A1",
-      "rewardMotif": "soban",
-      "primaryAsset": "assets/illustrations/packs/soban.webp",
-      "subjectKo": "진지 · 수저 · 밑반찬 · 더 드세요",
-      "subjectPromptEn": "a modern still life expressing meal (honorific), spoon and chopsticks, everyday side dishes, please eat more",
-      "evidenceWordIds": [
-        "vocab_a1_0248",
-        "vocab_a1_0249",
-        "vocab_a1_0250",
-        "vocab_a1_0251",
-        "vocab_a1_0252",
-        "vocab_a1_0253",
-        "vocab_a1_0254",
-        "vocab_a1_0255",
-        "vocab_a1_0256",
-        "vocab_a1_0257",
-        "vocab_a1_0258",
-        "vocab_a1_0259"
-      ],
-      "status": "approved_motif_fallback",
-      "sha256": "398aa01eef38e79fbb8eb783ac407f48c1322f0dc934c07d3f03aaed695ffc94",
-      "qa": {
-        "fourThree": {
-          "status": "pass",
-          "detail": "800x600"
-        },
-        "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
-        },
-        "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
-        }
-      }
-    },
-    {
-      "packId": "a1_partner_seollal_basic_1",
-      "level": "A1",
-      "rewardMotif": "bok",
-      "primaryAsset": "assets/illustrations/packs/a1_partner_seollal_basic_1.webp",
-      "subjectKo": "설날 · 세배 · 떡국 · 세뱃돈",
-      "subjectPromptEn": "a modern still life expressing Seollal, Lunar New Year, New Year bow, tteokguk, rice-cake soup, New Year money",
-      "evidenceWordIds": [
-        "vocab_a1_0260",
-        "vocab_a1_0261",
-        "vocab_a1_0262",
-        "vocab_a1_0263",
-        "vocab_a1_0264",
-        "vocab_a1_0265",
-        "vocab_a1_0266",
-        "vocab_a1_0267",
-        "vocab_a1_0268",
-        "vocab_a1_0269",
-        "vocab_a1_0270",
-        "vocab_a1_0271"
-      ],
-      "status": "approved_dedicated",
-      "sha256": "0a9e236d5a9ef3f30193a1fb3c0c6d832bb28bca1067e135ad29a030d63e2a67",
-      "qa": {
-        "fourThree": {
-          "status": "pass",
-          "detail": "800x600"
-        },
-        "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
-        },
-        "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
-        }
-      }
-    },
-    {
       "packId": "a2_partner_chuseok_basic_1",
       "level": "A2",
       "rewardMotif": "bok",
@@ -4669,7 +4873,8 @@
         "vocab_a1_0279",
         "vocab_a1_0280",
         "vocab_a1_0281",
-        "vocab_a1_0283"
+        "vocab_a1_0283",
+        "vocab_a2_0553"
       ],
       "status": "approved_dedicated",
       "sha256": "7c4c30daccddbb59d1f995dcf253fa04c1cc951aba296fca20dc9e4ee6f5d218",
@@ -4820,7 +5025,9 @@
         "vocab_a2_0276",
         "vocab_a2_0277",
         "vocab_a2_0278",
-        "vocab_a2_0279"
+        "vocab_a2_0279",
+        "vocab_a2_0549",
+        "vocab_a2_0550"
       ],
       "status": "approved_dedicated",
       "sha256": "2a9726330a4e1bd6505cd3b75c644203eee65d85f1608d07ec7d8a2709d79c1c",
@@ -4934,7 +5141,9 @@
         "vocab_a2_0289",
         "vocab_a2_0290",
         "vocab_a2_0291",
-        "vocab_a2_0292"
+        "vocab_a2_0292",
+        "vocab_a2_0551",
+        "vocab_a2_0552"
       ],
       "status": "approved_dedicated",
       "sha256": "4145d823f6f167029a6acf64e64d49f29a9dcaa3d9d4bfe922ac5f0a2e15d130",
@@ -5201,7 +5410,8 @@
         "vocab_a2_0349",
         "vocab_a2_0350",
         "vocab_a2_0351",
-        "vocab_a2_0352"
+        "vocab_a2_0352",
+        "vocab_a2_0554"
       ],
       "status": "approved_dedicated",
       "sha256": "4f27d0ef6d39527b8280c557f55963e439bcaccebf88bc68214a03c43a233bf8",
@@ -5454,11 +5664,9 @@
       "level": "B2",
       "rewardMotif": "bok",
       "primaryAsset": "assets/illustrations/packs/b2_partner_inlaws_1.webp",
-      "subjectKo": "시댁 · 처가 · 며느리 역할 · 사위 사랑",
-      "subjectPromptEn": "a modern still life expressing husband's family home, wife's family home, daughter-in-law role, fondness for a son-in-law",
+      "subjectKo": "며느리 역할 · 사위 사랑 · 양가 눈치 · 시월드",
+      "subjectPromptEn": "a modern still life expressing daughter-in-law role, fondness for a son-in-law, reading both families, in-law land",
       "evidenceWordIds": [
-        "vocab_b2_0431",
-        "vocab_b2_0432",
         "vocab_b2_0433",
         "vocab_b2_0434",
         "vocab_b2_0435",
@@ -5885,7 +6093,8 @@
         "vocab_a1_0328",
         "vocab_a1_0329",
         "vocab_a1_0330",
-        "vocab_a1_0331"
+        "vocab_a1_0331",
+        "vocab_a2_0561"
       ],
       "status": "approved_dedicated",
       "sha256": "bf128250e2982321568ce2173d8496fb27f41992106cb80ec2dd9ef90de4d03f",
@@ -8127,7 +8336,9 @@
         "vocab_a2_0497",
         "vocab_a2_0498",
         "vocab_a2_0499",
-        "vocab_a2_0500"
+        "vocab_a2_0500",
+        "vocab_a2_0555",
+        "vocab_a2_0556"
       ],
       "status": "approved_dedicated",
       "sha256": "53524a98eae7c4725d39300fd11db3b83711dc9d992d204a871526e6a0dde635",
@@ -8485,44 +8696,6 @@
       }
     },
     {
-      "packId": "a1_hobbies_1",
-      "level": "A1",
-      "rewardMotif": "vine",
-      "primaryAsset": "assets/illustrations/packs/vine.webp",
-      "subjectKo": "축구 · 야구 · 농구 · 테니스",
-      "subjectPromptEn": "a modern still life expressing soccer, baseball, basketball, tennis",
-      "evidenceWordIds": [
-        "vocab_a1_0553",
-        "vocab_a1_0554",
-        "vocab_a1_0555",
-        "vocab_a1_0556",
-        "vocab_a1_0557",
-        "vocab_a1_0558",
-        "vocab_a1_0559",
-        "vocab_a1_0560",
-        "vocab_a1_0561",
-        "vocab_a1_0562",
-        "vocab_a1_0563",
-        "vocab_a1_0564"
-      ],
-      "status": "approved_motif_fallback",
-      "sha256": "7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be",
-      "qa": {
-        "fourThree": {
-          "status": "pass",
-          "detail": "800x600"
-        },
-        "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
-        },
-        "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
-        }
-      }
-    },
-    {
       "packId": "a1_korean_food_1",
       "level": "A1",
       "rewardMotif": "soban",
@@ -8713,44 +8886,6 @@
       }
     },
     {
-      "packId": "a1_nature_people_1",
-      "level": "A1",
-      "rewardMotif": "suryeon",
-      "primaryAsset": "assets/illustrations/packs/suryeon.webp",
-      "subjectKo": "개 · 고양이 · 꽃 · 나무",
-      "subjectPromptEn": "a modern still life expressing dog, cat, flower, tree",
-      "evidenceWordIds": [
-        "vocab_a1_0628",
-        "vocab_a1_0629",
-        "vocab_a1_0630",
-        "vocab_a1_0631",
-        "vocab_a1_0632",
-        "vocab_a1_0633",
-        "vocab_a1_0634",
-        "vocab_a1_0635",
-        "vocab_a1_0636",
-        "vocab_a1_0637",
-        "vocab_a1_0638",
-        "vocab_a1_0639"
-      ],
-      "status": "approved_motif_fallback",
-      "sha256": "b244eb1aaf88ea71fb35f684195696b36ee675ec1d57c6264ca4db8c2d9499f6",
-      "qa": {
-        "fourThree": {
-          "status": "pass",
-          "detail": "800x600"
-        },
-        "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
-        },
-        "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
-        }
-      }
-    },
-    {
       "packId": "a1_feelings_talk_1",
       "level": "A1",
       "rewardMotif": "plum",
@@ -8773,44 +8908,6 @@
       ],
       "status": "approved_motif_fallback",
       "sha256": "2cfed8051d3b32b24cc3ea33315620a9e18d66fd1b136a993b2388d9c7c3033c",
-      "qa": {
-        "fourThree": {
-          "status": "pass",
-          "detail": "800x600"
-        },
-        "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
-        },
-        "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
-        }
-      }
-    },
-    {
-      "packId": "a1_home_daily_1",
-      "level": "A1",
-      "rewardMotif": "vine",
-      "primaryAsset": "assets/illustrations/packs/vine.webp",
-      "subjectKo": "샤워 · 세수 · 청소 · 준비",
-      "subjectPromptEn": "a modern still life expressing shower, washing one's face, cleaning, preparation",
-      "evidenceWordIds": [
-        "vocab_a1_0655",
-        "vocab_a1_0656",
-        "vocab_a1_0657",
-        "vocab_a1_0658",
-        "vocab_a1_0659",
-        "vocab_a1_0660",
-        "vocab_a1_0661",
-        "vocab_a1_0662",
-        "vocab_a1_0663",
-        "vocab_a1_0664",
-        "vocab_a1_0665",
-        "vocab_a1_0666"
-      ],
-      "status": "approved_motif_fallback",
-      "sha256": "7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be",
       "qa": {
         "fourThree": {
           "status": "pass",
@@ -8925,44 +9022,6 @@
       ],
       "status": "approved_motif_fallback",
       "sha256": "807afdbea0af9827d6a6c8acdcde4f27a4fbcbba6b80e0510a859826f40fe42e",
-      "qa": {
-        "fourThree": {
-          "status": "pass",
-          "detail": "800x600"
-        },
-        "sixteenTenCenterCrop": {
-          "status": "not_rechecked",
-          "detail": null
-        },
-        "hundredPx": {
-          "status": "not_rechecked",
-          "detail": null
-        }
-      }
-    },
-    {
-      "packId": "a1_time_family_1",
-      "level": "A1",
-      "rewardMotif": "bok",
-      "primaryAsset": "assets/illustrations/packs/bok.webp",
-      "subjectKo": "곳 · 달 · 동생 · 밑",
-      "subjectPromptEn": "a modern still life expressing place, spot, month, younger sibling, underside, below",
-      "evidenceWordIds": [
-        "vocab_a1_0703",
-        "vocab_a1_0704",
-        "vocab_a1_0705",
-        "vocab_a1_0706",
-        "vocab_a1_0707",
-        "vocab_a1_0708",
-        "vocab_a1_0709",
-        "vocab_a1_0710",
-        "vocab_a1_0711",
-        "vocab_a1_0712",
-        "vocab_a1_0713",
-        "vocab_a1_0714"
-      ],
-      "status": "approved_motif_fallback",
-      "sha256": "d0526eebc2abd8410f4a37e628e0488250caa2cbb657f33480fa53152f3c5284",
       "qa": {
         "fourThree": {
           "status": "pass",
@@ -9183,6 +9242,255 @@
       ],
       "status": "approved_motif_fallback",
       "sha256": "f763dafde98dc35ab25c92f38f962a51183bdba53913811196351f8ae5a95817",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_adverbs_1",
+      "level": "A1",
+      "rewardMotif": "munbangsau",
+      "primaryAsset": "assets/illustrations/packs/munbangsau.webp",
+      "subjectKo": "가장 · 그래서 · 그러니까 · 그러면",
+      "subjectPromptEn": "a modern still life expressing most, so, therefore, so, that's why, then, if so",
+      "evidenceWordIds": [
+        "vocab_a1_0779",
+        "vocab_a1_0780",
+        "vocab_a1_0781",
+        "vocab_a1_0782",
+        "vocab_a1_0783",
+        "vocab_a1_0784",
+        "vocab_a1_0785",
+        "vocab_a1_0786",
+        "vocab_a1_0787",
+        "vocab_a1_0788",
+        "vocab_a1_0789",
+        "vocab_a1_0790"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "59baeed37d95bb06076ee54b6fe18440799fb69497c2777697347497a6317359",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_adverbs_2",
+      "level": "A1",
+      "rewardMotif": "munbangsau",
+      "primaryAsset": "assets/illustrations/packs/munbangsau.webp",
+      "subjectKo": "안녕히 · 얼마나 · 열심히 · 왜",
+      "subjectPromptEn": "a modern still life expressing (in) peace (farewell), how much, how, hard, diligently, why",
+      "evidenceWordIds": [
+        "vocab_a1_0791",
+        "vocab_a1_0792",
+        "vocab_a1_0793",
+        "vocab_a1_0794",
+        "vocab_a1_0795",
+        "vocab_a1_0796",
+        "vocab_a1_0797"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "59baeed37d95bb06076ee54b6fe18440799fb69497c2777697347497a6317359",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_pronouns_1",
+      "level": "A1",
+      "rewardMotif": "manja",
+      "primaryAsset": "assets/illustrations/packs/manja.webp",
+      "subjectKo": "그 · 그것 · 그쪽 · 내",
+      "subjectPromptEn": "a modern still life expressing he (that person), that (thing), that way, my",
+      "evidenceWordIds": [
+        "vocab_a1_0798",
+        "vocab_a1_0799",
+        "vocab_a1_0800",
+        "vocab_a1_0801",
+        "vocab_a1_0802",
+        "vocab_a1_0803",
+        "vocab_a1_0804",
+        "vocab_a1_0805",
+        "vocab_a1_0806",
+        "vocab_a1_0807",
+        "vocab_a1_0808",
+        "vocab_a1_0809"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "f9b47d8c7ed59e32d3ca85bdfd8b3d6019acfeacd6b33db65dc7d059ac6a55ee",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_counters_1",
+      "level": "A1",
+      "rewardMotif": "chrysanthemum",
+      "primaryAsset": "assets/illustrations/packs/chrysanthemum.webp",
+      "subjectKo": "가지 · 것 · 권 · 년",
+      "subjectPromptEn": "a modern still life expressing kind, type, thing, counter for books, year",
+      "evidenceWordIds": [
+        "vocab_a1_0810",
+        "vocab_a1_0811",
+        "vocab_a1_0812",
+        "vocab_a1_0813",
+        "vocab_a1_0814",
+        "vocab_a1_0815",
+        "vocab_a1_0816",
+        "vocab_a1_0817",
+        "vocab_a1_0818",
+        "vocab_a1_0819",
+        "vocab_a1_0820",
+        "vocab_a1_0821"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "2ccc6d924a6ead04fc4766535c9531df1837fd1f8ccd5a4ac82f413200804d72",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_determiners_1",
+      "level": "A1",
+      "rewardMotif": "chrysanthemum",
+      "primaryAsset": "assets/illustrations/packs/chrysanthemum.webp",
+      "subjectKo": "무슨 · 어떤 · 여러 · 마흔",
+      "subjectPromptEn": "a modern still life expressing what kind of, which, what kind of, several, forty",
+      "evidenceWordIds": [
+        "vocab_a1_0822",
+        "vocab_a1_0823",
+        "vocab_a1_0824",
+        "vocab_a1_0825",
+        "vocab_a1_0826",
+        "vocab_a1_0827",
+        "vocab_a1_0828",
+        "vocab_a1_0829",
+        "vocab_a1_0830",
+        "vocab_a1_0831"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "2ccc6d924a6ead04fc4766535c9531df1837fd1f8ccd5a4ac82f413200804d72",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_misc_4",
+      "level": "A1",
+      "rewardMotif": "gwigap",
+      "primaryAsset": "assets/illustrations/packs/gwigap.webp",
+      "subjectKo": "제 · 중 · 구십 · 스물",
+      "subjectPromptEn": "a modern still life expressing my (polite), during, in the middle of, ninety, twenty (native)",
+      "evidenceWordIds": [
+        "vocab_a1_0832",
+        "vocab_a1_0833",
+        "vocab_a1_0834",
+        "vocab_a1_0835",
+        "vocab_a1_0836",
+        "vocab_a1_0837",
+        "vocab_a1_0838",
+        "vocab_a1_0839"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "f763dafde98dc35ab25c92f38f962a51183bdba53913811196351f8ae5a95817",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_messenger_phone_1",
+      "level": "A2",
+      "rewardMotif": "chilbo",
+      "primaryAsset": "assets/illustrations/packs/chilbo.webp",
+      "subjectKo": "휴대폰 · 메시지 · 메모 · 답장",
+      "subjectPromptEn": "a modern still life expressing mobile phone, message, memo, note, reply",
+      "evidenceWordIds": [
+        "vocab_a2_0562",
+        "vocab_a2_0563",
+        "vocab_a2_0564",
+        "vocab_a2_0565",
+        "vocab_a2_0566",
+        "vocab_a2_0567"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "0175f487466403589dc4fe5a09e968716453fa9ee30bdcf9c543eec6a2e08b0c",
       "qa": {
         "fourThree": {
           "status": "pass",
