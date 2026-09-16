@@ -46,7 +46,14 @@ FORBIDDEN_GRAMMAR_PATTERNS = [
     re.compile(r"을래요"),
     re.compile(r"ㄹ래요"),
     re.compile(r"으면\b"),
-    re.compile(r"[가-힣]면\s"),  # -으면/-면 conditional (mid-sentence)
+    # -으면/-면 conditional (mid-sentence). Negative lookbehind excludes the
+    # lexicalized connective 그러면 ("then/in that case") -- Batch 30
+    # (2026-09-16): 그러면 is itself a NIKL grade-1 headword (부사, not a
+    # verb-stem+conditional construction), and the plain [가-힣]면\s pattern
+    # would otherwise always flag its own example sentence as a false
+    # positive. Strictly narrows the match set (can only newly PASS
+    # something that used to fail, never break anything that used to pass).
+    re.compile(r"(?<!그)[가-힣]면\s"),
     re.compile(r"네요"),
     re.compile(r"는데"),
     re.compile(r"아\s*보다"),
