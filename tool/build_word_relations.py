@@ -1,15 +1,27 @@
 #!/usr/bin/env python3
-"""Build the original word-web seed for Hangul Sori.
+"""Check or add the original word-web seed without erasing promoted content.
 
 Language facts (synonym / antonym pairs) plus independently written DE/EN/KO
 examples. Does not copy textbook sentences or pack order.
+
+The seed is partial: Batch 19/20 and later promotions live in the existing
+word_relations.json. Preserve their records, ordering, and payload metadata.
+If a seed record disagrees with curated content, stop for reconciliation;
+this command never silently overwrites an existing cluster. A missing live
+file must be restored from Git, not reconstructed from this partial seed.
+
+Default / --check: read-only freshness check. --write: add new seed records.
 """
 
 from __future__ import annotations
 
+import argparse
+from copy import deepcopy
 import csv
 import json
 from pathlib import Path
+import sys
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 VOCAB = ROOT / "assets" / "data" / "korean_vocab.csv"
@@ -2255,8 +2267,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "konkret sprechen",
                     "to speak concretely",
                     "추상적으로 말고 구체적으로 말해 주세요.",
-                    "Nicht abstrakt — sprich bitte konkret.",
-                    "Don't stay abstract — please speak concretely.",
+                    "Nicht abstrakt, sprich bitte konkret.",
+                    "Don't stay abstract, please speak concretely.",
                 )
             ],
         ),
@@ -2999,31 +3011,107 @@ def enrich(clusters: list[dict[str, object]]) -> list[dict[str, object]]:
     return clusters
 
 
-def main() -> None:
-    vocab = load_vocab()
-    clusters = enrich(build(vocab))
-    ids = [c["id"] for c in clusters]
-    if len(ids) != len(set(ids)):
-        raise SystemExit("duplicate cluster ids")
-    sources = [c["sourceKo"] for c in clusters]
-    if len(sources) != len(set(sources)):
-        raise SystemExit("duplicate source words")
-    payload = {
-        "_comment": (
-            "Word-web seed: synonyms, antonyms, related words, and expressions "
-            "for learned Hangul Sori vocab. rights: original. Language facts "
-            "plus independently written DE/EN/KO examples. Not a can-do or "
-            "Hanok authority."
-        ),
-        "version": 1,
-        "clusters": clusters,
-    }
-    OUT.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
-    print(f"wrote {len(clusters)} clusters to {OUT}")
+def validate_clusters(clusters: list[dict[str, object]]) -> None:
+    if not clusters:
+        raise ValueError("clusters must not be empty; restore the curated file from Git")
+    def require_strings(record, fields):
+        if not isinstance(record, dict) or any(
+            not isinstance(record.get(field), str) or not record[field].strip()
+            for field in fields
+        ):
+            raise ValueError(f"cluster content requires nonempty string fields: {fields}")
+
+    for record in clusters:
+        require_strings(record, ("id", "sourceKo", "sourceVocabId", "sourceDe", "sourceEn", "level"))
+        if record["level"] not in ("A1", "A2", "B1", "B2", "C1", "C2"):
+            raise ValueError(f"invalid cluster level: {record['id']}")
+        for field in ("synonyms", "antonyms", "related", "expressions"):
+            if not isinstance(record.get(field), list):
+                raise ValueError(f"{record['id']}: {field} must be an array")
+            for item in record[field]:
+                require_strings(item, ("ko", "de", "en"))
+                optional = (("exampleKo", "exampleDe", "exampleEn") if field == "expressions"
+                            else ("nuanceDe", "nuanceEn", "vocabId"))
+                if any(key in item and not isinstance(item[key], str) for key in optional):
+                    raise ValueError(f"{record['id']}: malformed {field} metadata")
+    for field, label in (("id", "cluster ids"), ("sourceKo", "source words")):
+        values = [c[field] for c in clusters]
+        if len(values) != len(set(values)):
+            raise ValueError(f"duplicate {label}")
+
+
+def build_payload(
+    vocab: dict[str, dict[str, str]], existing: dict[str, object],
+) -> dict[str, object]:
+    """Keep curated records verbatim and append only new, nonconflicting seeds."""
+    if not isinstance(existing, dict) or not isinstance(existing.get("clusters"), list):
+        raise ValueError("existing payload must contain a clusters list")
+    if type(existing.get("version")) is not int or existing["version"] != 1:
+        raise ValueError("existing payload must have supported version 1")
+    payload = deepcopy(existing)
+    clusters = payload["clusters"]
+    validate_clusters(clusters)
+    seeds = enrich(build(vocab))
+    validate_clusters(seeds)
+    by_id = {c["id"]: c for c in clusters}
+    for seed in seeds:
+        current = by_id.get(seed["id"])
+        if current is not None:
+            if current != seed:
+                raise ValueError(
+                    f"seed/curated conflict for {seed['id']}; reconcile reviewed content first"
+                )
+        else:
+            clusters.append(seed)
+    validate_clusters(clusters)
+    return payload
+
+
+def reject_duplicate_keys(pairs: list[tuple[str, object]]) -> dict[str, object]:
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"duplicate JSON key: {key}")
+        result[key] = value
+    return result
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--check", action="store_true", help="check without writing (default)")
+    mode.add_argument("--write", action="store_true", help="append new seed records atomically")
+    args = parser.parse_args(argv)
+    temporary = None
+    try:
+        original = OUT.read_bytes()
+        existing = json.loads(original, object_pairs_hook=reject_duplicate_keys)
+        payload = build_payload(load_vocab(), existing)
+        count = len(payload["clusters"])
+        if payload == existing:
+            print(f"checked {count} clusters; existing bytes unchanged")
+            return 0
+        if not args.write:
+            print("new seed records pending; review before running --write", file=sys.stderr)
+            return 1
+        with tempfile.NamedTemporaryFile(
+            mode="w", encoding="utf-8", newline="\n",
+            dir=OUT.parent, prefix=f".{OUT.name}.", suffix=".tmp", delete=False,
+        ) as handle:
+            temporary = Path(handle.name)
+            handle.write(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
+        if OUT.read_bytes() != original:
+            raise ValueError("existing content changed during generation; retry after review")
+        temporary.replace(OUT)
+        print(f"wrote {count} clusters to {OUT}; existing records preserved")
+        return 0
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        print(f"word relations unchanged: {exc}", file=sys.stderr)
+        return 1
+    finally:
+        if temporary is not None and temporary.exists():
+            temporary.unlink()
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "batch": "c3_batch34_a2_reinforcement",
   "status": "draft",
   "provenance": {
@@ -10,6 +10,13 @@
     "approval": {},
     "modelLanguageQa": "MODEL_QA_PASS",
     "humanLanguageQaClaim": false,
+    "exampleReview": "64 KO/DE/EN scene-based revision candidates; human review pending.",
+    "exerciseReview": "MODEL_REVIEWED: 64 translation-supported cloze sets (192 alternatives) and 64 independently authored Satz sets (128 alternatives); separate semantic and structural model reviews completed. Human approval pending.",
+    "cultureHelpers": {
+      "vocab_a2_0702": {
+        "칠순": "일흔 살 생일; siebzigster Geburtstag; seventieth birthday"
+      }
+    },
     "sourceHashes": {
       "originMain": "61f5c819dcd51357617f731ce0b4694ad3d8be49",
       "planningAttachmentSha256": "f9f68c1351255aaa1631e9c41d885679b7d2654fe14e03c8ae25eb4e918797b6",
@@ -32,18 +39,15 @@
         "evidence": "문제 상황을 말하고 도움을 요청할 수 있어요."
       }
     ],
-    "tierNote": "Tier A 64/64; each distractor was substituted into its complete sentence and manually judged for alternate meanings and collocations. Tier B 0/64.",
-    "collocationTrapNote": "D1-D7 and Batch 32/33 fixed-collocation and homonym traps were checked against all 192 rendered substitutions; grammar error alone was not treated as sufficient where another valid reading existed.",
-    "grammarNote": "Examples are <=10 eojeol and use A2 grammar; automated grade>=3 scanner plus manual blind-spot grep is required by the batch test.",
-    "vocabCeilingNote": "Helper-word audit resolves every content token to NIKL grade<=2, live vocabulary, or a Batch 34 headword after documented inflection overrides; zero exceptions.",
+    "tierNote": "Translation-supported tasks use prompt-meaning contrasts, not historical Tier A/B KO-only impossibility labels.",
+    "collocationTrapNote": "The old blanket impossibility verdict is withdrawn. 사람에게 웃으세요 is grammatically possible; unrelated word choices also fail the educational-quality gate.",
+    "grammarNote": "A2 examples use at most 12 eojeol and two clauses; grammar scanner plus manual clause review are separate checks.",
+    "vocabCeilingNote": "Helper-word audit uses NIKL grade<=2/live/headwords and explicit inflections; 칠순 is one documented culture helper in vocab_a2_0702 only.",
     "auditShapeNote": "Three 64-record draft artifacts, three pending review ledgers, recordCount 192; no assets/data, TTS, or Firebase writes.",
-    "r8Round1Note": "Author self-audit covers all 64 triads and 192 distractor substitutions. This is MODEL_QA, not human approval."
+    "r8Round1Note": "Prior KO-only impossibility claims are withdrawn. Current model review applies only to the translation-supported contract; human approval and runtime promotion remain pending."
   },
   "posRules": {
-    "cross_pack_noun_tier_a": "Noun distractors use particle-correct forms from incompatible semantic classes.",
-    "intransitive_verb_tier_a": "Verb distractors preserve tense/ending and fail the target valency or subject selection.",
-    "haeyo_adjective_tier_a": "Adjective folds preserve 해요 morphology but clash with the clause role.",
-    "open_frame_tier_b": "0/64."
+    "translation_supported": "Match the displayed DE/EN meaning, allowing grammatically natural alternatives; same POS and appropriate case/conjugation, no synonymous distractors. Do not use without the translated prompt."
   },
   "artifacts": [
     {
@@ -73,8 +77,2262 @@
   ],
   "recordCount": 192,
   "tierCounts": {
-    "tierA": 64,
-    "tierB": 0
+    "tierA": 0,
+    "tierB": 0,
+    "translationSupported": 64,
+    "pending": 0
+  },
+  "choiceContract": {
+    "mode": "translation_supported",
+    "requiresTranslation": true,
+    "humanReview": "pending",
+    "clozeDistractors": 192,
+    "satzDistractors": 128,
+    "policySource": "Jin approved 2026-09-16 conversation design"
+  },
+  "choiceDesign": {
+    "vocab_a2_0702": {
+      "cueKo": "칠순을 축하하는 잔치",
+      "cloze": [
+        {
+          "text": "식사를",
+          "lemma": "식사",
+          "contrastKo": "식사하기"
+        },
+        {
+          "text": "여행을",
+          "lemma": "여행",
+          "contrastKo": "여행하기"
+        },
+        {
+          "text": "구경을",
+          "lemma": "구경",
+          "contrastKo": "구경하기"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "주말에",
+          "text": "평일에",
+          "lemma": "평일",
+          "contrastKo": "주말에서 평일로 바뀜"
+        },
+        {
+          "replaces": "할머니",
+          "text": "할아버지",
+          "lemma": "할아버지",
+          "contrastKo": "축하받는 가족이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0703": {
+      "cueKo": "두 사람이 결혼함",
+      "cloze": [
+        {
+          "text": "이사를",
+          "lemma": "이사",
+          "contrastKo": "집을 옮김"
+        },
+        {
+          "text": "졸업을",
+          "lemma": "졸업",
+          "contrastKo": "학교를 마침"
+        },
+        {
+          "text": "입학을",
+          "lemma": "입학",
+          "contrastKo": "학교에 들어감"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "다음",
+          "text": "이번",
+          "lemma": "이번",
+          "contrastKo": "다음 달에서 이번 달로 바뀜"
+        },
+        {
+          "replaces": "두",
+          "text": "세",
+          "lemma": "세",
+          "contrastKo": "두 사람에서 세 사람으로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0704": {
+      "cueKo": "새로 온 사람을 반갑게 맞음",
+      "cloze": [
+        {
+          "text": "축하해요",
+          "lemma": "축하하다",
+          "contrastKo": "좋은 일을 축하함"
+        },
+        {
+          "text": "기억해요",
+          "lemma": "기억하다",
+          "contrastKo": "기억하고 있음을 말함"
+        },
+        {
+          "text": "소개해요",
+          "lemma": "소개하다",
+          "contrastKo": "소개함"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "같이",
+          "text": "혼자",
+          "lemma": "혼자",
+          "contrastKo": "함께 앉기에서 혼자 앉기로 바뀜"
+        },
+        {
+          "replaces": "앉아요",
+          "text": "서요",
+          "lemma": "서다",
+          "contrastKo": "앉기에서 서기로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0705": {
+      "cueKo": "한 해가 끝날 무렵",
+      "cloze": [
+        {
+          "text": "주말에는",
+          "lemma": "주말",
+          "contrastKo": "주가 끝날 무렵"
+        },
+        {
+          "text": "방학에는",
+          "lemma": "방학",
+          "contrastKo": "학교를 쉬는 기간"
+        },
+        {
+          "text": "휴가에는",
+          "lemma": "휴가",
+          "contrastKo": "일을 쉬는 기간"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "같이",
+          "text": "혼자",
+          "lemma": "혼자",
+          "contrastKo": "함께 먹기에서 혼자 먹기로 바뀜"
+        },
+        {
+          "replaces": "밥",
+          "text": "차",
+          "lemma": "차",
+          "contrastKo": "식사에서 차로 대상이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0696": {
+      "cueKo": "이메일로 사진을 보냄",
+      "cloze": [
+        {
+          "text": "택배로",
+          "lemma": "택배",
+          "contrastKo": "택배로 보냄"
+        },
+        {
+          "text": "메시지로",
+          "lemma": "메시지",
+          "contrastKo": "메시지로 보냄"
+        },
+        {
+          "text": "소포로",
+          "lemma": "소포",
+          "contrastKo": "소포로 보냄"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "사진을",
+          "text": "편지를",
+          "lemma": "편지",
+          "contrastKo": "사진에서 편지로 대상이 바뀜"
+        },
+        {
+          "replaces": "보내도",
+          "text": "받아도",
+          "lemma": "받다",
+          "contrastKo": "보내기에서 받기로 방향이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0697": {
+      "cueKo": "사용할 인터넷 연결을 바꿈",
+      "cloze": [
+        {
+          "text": "속도를",
+          "lemma": "속도",
+          "contrastKo": "빠르기를 바꿈"
+        },
+        {
+          "text": "요금을",
+          "lemma": "요금",
+          "contrastKo": "이용 금액을 바꿈"
+        },
+        {
+          "text": "주소를",
+          "lemma": "주소",
+          "contrastKo": "주소를 바꿈"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "바꿨어요",
+          "text": "바꿀게요",
+          "lemma": "바꾸다",
+          "contrastKo": "변경 완료에서 앞으로 할 약속으로 바뀜"
+        },
+        {
+          "replaces": "사진을",
+          "text": "편지를",
+          "lemma": "편지",
+          "contrastKo": "보낼 대상이 사진에서 편지로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0698": {
+      "cueKo": "가게의 전화기를 교체함",
+      "cloze": [
+        {
+          "text": "텔레비전을",
+          "lemma": "텔레비전",
+          "contrastKo": "텔레비전을 교체함"
+        },
+        {
+          "text": "라디오를",
+          "lemma": "라디오",
+          "contrastKo": "라디오를 교체함"
+        },
+        {
+          "text": "컴퓨터를",
+          "lemma": "컴퓨터",
+          "contrastKo": "컴퓨터를 교체함"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "바꿨어요",
+          "text": "팔았어요",
+          "lemma": "팔다",
+          "contrastKo": "교체에서 판매로 바뀜"
+        },
+        {
+          "replaces": "가게",
+          "text": "집",
+          "lemma": "집",
+          "contrastKo": "기기가 있는 장소가 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0699": {
+      "cueKo": "상대가 소리를 잘 들을 수 있는지 확인함",
+      "cloze": [
+        {
+          "text": "보여",
+          "lemma": "보이다",
+          "contrastKo": "잘 보이는지 물음"
+        },
+        {
+          "text": "보내",
+          "lemma": "보내다",
+          "contrastKo": "잘 보내는지 물음"
+        },
+        {
+          "text": "받아",
+          "lemma": "받다",
+          "contrastKo": "잘 받는지 물음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "여기는",
+          "text": "거기는",
+          "lemma": "거기",
+          "contrastKo": "시끄러운 곳이 화자 쪽에서 상대 쪽으로 바뀜"
+        },
+        {
+          "replaces": "시끄러워",
+          "text": "조용해",
+          "lemma": "조용하다",
+          "contrastKo": "소음 상태가 반대로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0700": {
+      "cueKo": "친구의 결혼 소식을 들음",
+      "cloze": [
+        {
+          "text": "날짜를",
+          "lemma": "날짜",
+          "contrastKo": "결혼 날짜를 들음"
+        },
+        {
+          "text": "순서를",
+          "lemma": "순서",
+          "contrastKo": "결혼식 순서를 들음"
+        },
+        {
+          "text": "장소를",
+          "lemma": "장소",
+          "contrastKo": "결혼 장소를 들음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "듣고",
+          "text": "말하고",
+          "lemma": "말하다",
+          "contrastKo": "소식을 듣기에서 전하기로 바뀜"
+        },
+        {
+          "replaces": "바로",
+          "text": "나중에",
+          "lemma": "나중",
+          "contrastKo": "전화한 시점이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0701": {
+      "cueKo": "다른 사람에게 질문함",
+      "cloze": [
+        {
+          "text": "알려주세요",
+          "lemma": "알려주다",
+          "contrastKo": "상대에게 정보를 줌"
+        },
+        {
+          "text": "설명하세요",
+          "lemma": "설명하다",
+          "contrastKo": "상대에게 설명함"
+        },
+        {
+          "text": "전화하세요",
+          "lemma": "전화하다",
+          "contrastKo": "상대에게 전화를 걺"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "모르면",
+          "text": "알면",
+          "lemma": "알다",
+          "contrastKo": "길을 모르는 조건에서 아는 조건으로 바뀜"
+        },
+        {
+          "replaces": "저",
+          "text": "이",
+          "lemma": "이",
+          "contrastKo": "가리키는 사람의 위치가 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0706": {
+      "cueKo": "문제를 해결할 도움이 필요함",
+      "cloze": [
+        {
+          "text": "시간이",
+          "lemma": "시간",
+          "contrastKo": "시간이 필요함"
+        },
+        {
+          "text": "연습이",
+          "lemma": "연습",
+          "contrastKo": "연습이 필요함"
+        },
+        {
+          "text": "준비가",
+          "lemma": "준비",
+          "contrastKo": "준비가 필요함"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "필요해요",
+          "text": "필요했어요",
+          "lemma": "필요하다",
+          "contrastKo": "현재 필요에서 과거 필요로 바뀜"
+        },
+        {
+          "replaces": "모르겠어요",
+          "text": "알겠어요",
+          "lemma": "알다",
+          "contrastKo": "이해하지 못함에서 이해함으로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0707": {
+      "cueKo": "컴퓨터가 다시 고장 남",
+      "cloze": [
+        {
+          "text": "소리가",
+          "lemma": "소리",
+          "contrastKo": "소리가 남"
+        },
+        {
+          "text": "냄새가",
+          "lemma": "냄새",
+          "contrastKo": "냄새가 남"
+        },
+        {
+          "text": "열이",
+          "lemma": "열",
+          "contrastKo": "열이 남"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "내",
+          "text": "네",
+          "lemma": "너",
+          "contrastKo": "빌려줄 컴퓨터의 소유자가 바뀜"
+        },
+        {
+          "replaces": "써",
+          "text": "팔아",
+          "lemma": "팔다",
+          "contrastKo": "사용 권유에서 판매 권유로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0708": {
+      "cueKo": "지갑을 잃어버림",
+      "cloze": [
+        {
+          "text": "찾았어요",
+          "lemma": "찾다",
+          "contrastKo": "지갑을 찾음"
+        },
+        {
+          "text": "샀어요",
+          "lemma": "사다",
+          "contrastKo": "지갑을 삼"
+        },
+        {
+          "text": "두었어요",
+          "lemma": "두다",
+          "contrastKo": "지갑을 둠"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "여기에서",
+          "text": "저기에서",
+          "lemma": "저기",
+          "contrastKo": "지갑을 봤는지 묻는 장소가 바뀜"
+        },
+        {
+          "replaces": "지갑을",
+          "text": "가방을",
+          "lemma": "가방",
+          "contrastKo": "잃은 물건이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0709": {
+      "cueKo": "길이 교통 체증으로 막힘",
+      "cloze": [
+        {
+          "text": "바뀌었어요",
+          "lemma": "바뀌다",
+          "contrastKo": "길이 바뀜"
+        },
+        {
+          "text": "끝났어요",
+          "lemma": "끝나다",
+          "contrastKo": "길이 끝남"
+        },
+        {
+          "text": "생겼어요",
+          "lemma": "생기다",
+          "contrastKo": "길이 생김"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "지하철로",
+          "text": "버스로",
+          "lemma": "버스",
+          "contrastKo": "제안하는 교통수단이 바뀜"
+        },
+        {
+          "replaces": "갈까요",
+          "text": "갔어요",
+          "lemma": "가다",
+          "contrastKo": "이동 제안에서 과거 이동 여부 질문으로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0710": {
+      "cueKo": "전기가 끊김",
+      "cloze": [
+        {
+          "text": "텔레비전이",
+          "lemma": "텔레비전",
+          "contrastKo": "텔레비전이 작동하지 않음"
+        },
+        {
+          "text": "인터넷이",
+          "lemma": "인터넷",
+          "contrastKo": "인터넷이 끊김"
+        },
+        {
+          "text": "전화가",
+          "lemma": "전화",
+          "contrastKo": "전화가 불통이 됨"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "촛불을",
+          "text": "라디오를",
+          "lemma": "라디오",
+          "contrastKo": "켠 대상이 바뀜"
+        },
+        {
+          "replaces": "켰어요",
+          "text": "껐어요",
+          "lemma": "끄다",
+          "contrastKo": "켜기에서 끄기로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0711": {
+      "cueKo": "컵을 만든 재료가 유리임",
+      "cloze": [
+        {
+          "text": "나무로",
+          "lemma": "나무",
+          "contrastKo": "나무로 만듦"
+        },
+        {
+          "text": "종이로",
+          "lemma": "종이",
+          "contrastKo": "종이로 만듦"
+        },
+        {
+          "text": "천으로",
+          "lemma": "천",
+          "contrastKo": "천으로 만듦"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "컵은",
+          "text": "그릇은",
+          "lemma": "그릇",
+          "contrastKo": "만든 물건이 바뀜"
+        },
+        {
+          "replaces": "안이",
+          "text": "밖이",
+          "lemma": "밖",
+          "contrastKo": "보이는 쪽이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0712": {
+      "cueKo": "수리 관련 센터에 전화함",
+      "cloze": [
+        {
+          "text": "가게에",
+          "lemma": "가게",
+          "contrastKo": "가게에 전화함"
+        },
+        {
+          "text": "회사에",
+          "lemma": "회사",
+          "contrastKo": "회사에 전화함"
+        },
+        {
+          "text": "공장에",
+          "lemma": "공장",
+          "contrastKo": "공장에 전화함"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "수리비를",
+          "text": "시간을",
+          "lemma": "시간",
+          "contrastKo": "물어본 정보가 비용에서 시간으로 바뀜"
+        },
+        {
+          "replaces": "물어봤어요",
+          "text": "알려줬어요",
+          "lemma": "알려주다",
+          "contrastKo": "비용을 묻기에서 알려주기로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0713": {
+      "cueKo": "식당의 서비스가 좋음",
+      "cloze": [
+        {
+          "text": "가격이",
+          "lemma": "가격",
+          "contrastKo": "가격이 좋음"
+        },
+        {
+          "text": "음식이",
+          "lemma": "음식",
+          "contrastKo": "음식이 좋음"
+        },
+        {
+          "text": "위치가",
+          "lemma": "위치",
+          "contrastKo": "위치가 좋음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "좋아요",
+          "text": "나빠요",
+          "lemma": "나쁘다",
+          "contrastKo": "평가가 반대로 바뀜"
+        },
+        {
+          "replaces": "식당은",
+          "text": "호텔은",
+          "lemma": "호텔",
+          "contrastKo": "평가하는 장소가 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0714": {
+      "cueKo": "운전에서 안전이 가장 중요함",
+      "cloze": [
+        {
+          "text": "속도가",
+          "lemma": "속도",
+          "contrastKo": "속도가 가장 중요함"
+        },
+        {
+          "text": "시간이",
+          "lemma": "시간",
+          "contrastKo": "시간이 가장 중요함"
+        },
+        {
+          "text": "거리가",
+          "lemma": "거리",
+          "contrastKo": "거리가 가장 중요함"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "운전할",
+          "text": "운동할",
+          "lemma": "운동하다",
+          "contrastKo": "안전이 필요한 활동이 바뀜"
+        },
+        {
+          "replaces": "제일",
+          "text": "조금",
+          "lemma": "조금",
+          "contrastKo": "중요도의 정도가 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0715": {
+      "cueKo": "급하게 처리할 일이 생김",
+      "cloze": [
+        {
+          "text": "중요한",
+          "lemma": "중요하다",
+          "contrastKo": "중요한 일이 생김"
+        },
+        {
+          "text": "어려운",
+          "lemma": "어렵다",
+          "contrastKo": "어려운 일이 생김"
+        },
+        {
+          "text": "재미있는",
+          "lemma": "재미있다",
+          "contrastKo": "재미있는 일이 생김"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "생겼어요",
+          "text": "끝났어요",
+          "lemma": "끝나다",
+          "contrastKo": "일이 생기기에서 끝나기로 바뀜"
+        },
+        {
+          "replaces": "일이",
+          "text": "약속이",
+          "lemma": "약속",
+          "contrastKo": "생긴 것이 일에서 약속으로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0716": {
+      "cueKo": "기차 시간을 찾아 확인함",
+      "cloze": [
+        {
+          "text": "바꿨어요",
+          "lemma": "바꾸다",
+          "contrastKo": "기차 시간을 바꿈"
+        },
+        {
+          "text": "정했어요",
+          "lemma": "정하다",
+          "contrastKo": "기차 시간을 정함"
+        },
+        {
+          "text": "잊었어요",
+          "lemma": "잊다",
+          "contrastKo": "기차 시간을 잊음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "기차",
+          "text": "버스",
+          "lemma": "버스",
+          "contrastKo": "확인한 교통수단이 바뀜"
+        },
+        {
+          "replaces": "한",
+          "text": "두",
+          "lemma": "두",
+          "contrastKo": "남은 시간이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0717": {
+      "cueKo": "계산을 틀리게 함",
+      "cloze": [
+        {
+          "text": "잘해서",
+          "lemma": "잘하다",
+          "contrastKo": "계산을 잘함"
+        },
+        {
+          "text": "바꿔서",
+          "lemma": "바꾸다",
+          "contrastKo": "계산을 바꿈"
+        },
+        {
+          "text": "잊어서",
+          "lemma": "잊다",
+          "contrastKo": "계산을 잊음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "더",
+          "text": "먼저",
+          "lemma": "먼저",
+          "contrastKo": "초과 지불에서 먼저 지불로 바뀜"
+        },
+        {
+          "replaces": "천",
+          "text": "만",
+          "lemma": "만",
+          "contrastKo": "초과 지불액이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0718": {
+      "cueKo": "찐 음식이 만두임",
+      "cloze": [
+        {
+          "text": "감자를",
+          "lemma": "감자",
+          "contrastKo": "감자를 찜"
+        },
+        {
+          "text": "고기를",
+          "lemma": "고기",
+          "contrastKo": "고기를 찜"
+        },
+        {
+          "text": "생선을",
+          "lemma": "생선",
+          "contrastKo": "생선을 찜"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "쪘어요",
+          "text": "구웠어요",
+          "lemma": "굽다",
+          "contrastKo": "찌기에서 굽기로 조리법이 바뀜"
+        },
+        {
+          "replaces": "많이",
+          "text": "조금",
+          "lemma": "조금",
+          "contrastKo": "만든 양이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0719": {
+      "cueKo": "나눠 먹은 간식이 떡임",
+      "cloze": [
+        {
+          "text": "빵을",
+          "lemma": "빵",
+          "contrastKo": "빵을 나눠 먹음"
+        },
+        {
+          "text": "과자를",
+          "lemma": "과자",
+          "contrastKo": "과자를 나눠 먹음"
+        },
+        {
+          "text": "과일을",
+          "lemma": "과일",
+          "contrastKo": "과일을 나눠 먹음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "오늘",
+          "text": "어제",
+          "lemma": "어제",
+          "contrastKo": "간식을 나눈 날이 바뀜"
+        },
+        {
+          "replaces": "친구들하고",
+          "text": "선생님하고",
+          "lemma": "선생님",
+          "contrastKo": "함께 먹은 상대가 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0720": {
+      "cueKo": "밥과 함께 먹을 김의 맛",
+      "cloze": [
+        {
+          "text": "오이는",
+          "lemma": "오이",
+          "contrastKo": "오이의 맛"
+        },
+        {
+          "text": "김치는",
+          "lemma": "김치",
+          "contrastKo": "김치의 맛"
+        },
+        {
+          "text": "간장은",
+          "lemma": "간장",
+          "contrastKo": "간장의 맛"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "짜요",
+          "text": "매워요",
+          "lemma": "맵다",
+          "contrastKo": "짠맛에서 매운맛으로 바뀜"
+        },
+        {
+          "replaces": "밥이랑",
+          "text": "빵이랑",
+          "lemma": "빵",
+          "contrastKo": "함께 먹으라는 음식이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0721": {
+      "cueKo": "먹고 싶은 음식이 찌개임",
+      "cloze": [
+        {
+          "text": "국수가",
+          "lemma": "국수",
+          "contrastKo": "국수를 먹고 싶음"
+        },
+        {
+          "text": "라면이",
+          "lemma": "라면",
+          "contrastKo": "라면을 먹고 싶음"
+        },
+        {
+          "text": "만두가",
+          "lemma": "만두",
+          "contrastKo": "만두를 먹고 싶음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "따뜻한",
+          "text": "차가운",
+          "lemma": "차갑다",
+          "contrastKo": "원하는 음식의 온도가 바뀜"
+        },
+        {
+          "replaces": "오늘은",
+          "text": "내일은",
+          "lemma": "내일",
+          "contrastKo": "먹고 싶은 날이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0722": {
+      "cueKo": "기름에 튀긴 음식",
+      "cloze": [
+        {
+          "text": "볶음밥을",
+          "lemma": "볶음밥",
+          "contrastKo": "밥을 볶은 음식"
+        },
+        {
+          "text": "전을",
+          "lemma": "전",
+          "contrastKo": "팬에 부친 음식"
+        },
+        {
+          "text": "불고기를",
+          "lemma": "불고기",
+          "contrastKo": "양념한 고기를 구운 음식"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "아직",
+          "text": "벌써",
+          "lemma": "벌써",
+          "contrastKo": "아직 뜨겁다는 상태에서 벌써 뜨겁다는 상태로 바뀜"
+        },
+        {
+          "replaces": "뜨거워요",
+          "text": "차가워요",
+          "lemma": "차갑다",
+          "contrastKo": "음식 온도가 반대로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0723": {
+      "cueKo": "주문할 메뉴가 자장면임",
+      "cloze": [
+        {
+          "text": "짬뽕을",
+          "lemma": "짬뽕",
+          "contrastKo": "짬뽕을 주문함"
+        },
+        {
+          "text": "칼국수를",
+          "lemma": "칼국수",
+          "contrastKo": "칼국수를 주문함"
+        },
+        {
+          "text": "냉면을",
+          "lemma": "냉면",
+          "contrastKo": "냉면을 주문함"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "먹을게요",
+          "text": "먹었어요",
+          "lemma": "먹다",
+          "contrastKo": "선택 의사에서 식사 완료로 바뀜"
+        },
+        {
+          "replaces": "주문할까요",
+          "text": "취소할까요",
+          "lemma": "취소하다",
+          "contrastKo": "주문 제안에서 취소 제안으로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0724": {
+      "cueKo": "한입 먹은 음식이 짬뽕임",
+      "cloze": [
+        {
+          "text": "찌개를",
+          "lemma": "찌개",
+          "contrastKo": "찌개를 먹음"
+        },
+        {
+          "text": "라면을",
+          "lemma": "라면",
+          "contrastKo": "라면을 먹음"
+        },
+        {
+          "text": "비빔밥을",
+          "lemma": "비빔밥",
+          "contrastKo": "비빔밥을 먹음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "물부터",
+          "text": "밥부터",
+          "lemma": "밥",
+          "contrastKo": "먼저 찾은 대상이 바뀜"
+        },
+        {
+          "replaces": "찾았어요",
+          "text": "버렸어요",
+          "lemma": "버리다",
+          "contrastKo": "찾기에서 버리기로 행동이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0725": {
+      "cueKo": "함께 주문할 메뉴가 탕수육임",
+      "cloze": [
+        {
+          "text": "불고기를",
+          "lemma": "불고기",
+          "contrastKo": "불고기를 주문함"
+        },
+        {
+          "text": "비빔밥을",
+          "lemma": "비빔밥",
+          "contrastKo": "비빔밥을 주문함"
+        },
+        {
+          "text": "삼겹살을",
+          "lemma": "삼겹살",
+          "contrastKo": "삼겹살을 주문함"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "하나",
+          "text": "둘",
+          "lemma": "둘",
+          "contrastKo": "주문할 수량이 바뀜"
+        },
+        {
+          "replaces": "같이",
+          "text": "혼자",
+          "lemma": "혼자",
+          "contrastKo": "함께 먹기에서 혼자 먹기로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0726": {
+      "cueKo": "비 오는 날 먹고 싶은 칼국수",
+      "cloze": [
+        {
+          "text": "우동이",
+          "lemma": "우동",
+          "contrastKo": "우동이 생각남"
+        },
+        {
+          "text": "라면이",
+          "lemma": "라면",
+          "contrastKo": "라면이 생각남"
+        },
+        {
+          "text": "떡국이",
+          "lemma": "떡국",
+          "contrastKo": "떡국이 생각남"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "비가",
+          "text": "눈이",
+          "lemma": "눈",
+          "contrastKo": "날씨가 비에서 눈으로 바뀜"
+        },
+        {
+          "replaces": "오니까",
+          "text": "그치니까",
+          "lemma": "그치다",
+          "contrastKo": "비가 오기에서 그치기로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0727": {
+      "cueKo": "얼굴보다 큰 돈가스",
+      "cloze": [
+        {
+          "text": "피자는",
+          "lemma": "피자",
+          "contrastKo": "피자가 큼"
+        },
+        {
+          "text": "햄버거는",
+          "lemma": "햄버거",
+          "contrastKo": "햄버거가 큼"
+        },
+        {
+          "text": "생선은",
+          "lemma": "생선",
+          "contrastKo": "생선이 큼"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "커요",
+          "text": "작아요",
+          "lemma": "작다",
+          "contrastKo": "크기 비교가 반대로 바뀜"
+        },
+        {
+          "replaces": "얼굴보다",
+          "text": "손보다",
+          "lemma": "손",
+          "contrastKo": "크기를 비교하는 대상이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0728": {
+      "cueKo": "많이 만들어 둔 카레",
+      "cloze": [
+        {
+          "text": "김밥을",
+          "lemma": "김밥",
+          "contrastKo": "김밥을 만듦"
+        },
+        {
+          "text": "잡채를",
+          "lemma": "잡채",
+          "contrastKo": "잡채를 만듦"
+        },
+        {
+          "text": "볶음밥을",
+          "lemma": "볶음밥",
+          "contrastKo": "볶음밥을 만듦"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "내일",
+          "text": "오늘",
+          "lemma": "오늘",
+          "contrastKo": "해결된 식사의 날짜가 바뀜"
+        },
+        {
+          "replaces": "점심도",
+          "text": "저녁도",
+          "lemma": "저녁",
+          "contrastKo": "점심에서 저녁으로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0729": {
+      "cueKo": "생일에 먹는 미역국",
+      "cloze": [
+        {
+          "text": "떡국을",
+          "lemma": "떡국",
+          "contrastKo": "떡국을 먹음"
+        },
+        {
+          "text": "설렁탕을",
+          "lemma": "설렁탕",
+          "contrastKo": "설렁탕을 먹음"
+        },
+        {
+          "text": "갈비탕을",
+          "lemma": "갈비탕",
+          "contrastKo": "갈비탕을 먹음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "제가",
+          "text": "엄마가",
+          "lemma": "엄마",
+          "contrastKo": "직접 끓인 사람 대신 엄마가 끓임"
+        },
+        {
+          "replaces": "올해는",
+          "text": "작년에는",
+          "lemma": "작년",
+          "contrastKo": "직접 끓인 해가 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0730": {
+      "cueKo": "집안일을 마쳤는지 물음",
+      "cloze": [
+        {
+          "text": "숙제를",
+          "lemma": "숙제",
+          "contrastKo": "숙제를 마쳤는지 물음"
+        },
+        {
+          "text": "운동을",
+          "lemma": "운동",
+          "contrastKo": "운동을 마쳤는지 물음"
+        },
+        {
+          "text": "준비를",
+          "lemma": "준비",
+          "contrastKo": "준비를 마쳤는지 물음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "쉬어요",
+          "text": "일해요",
+          "lemma": "일하다",
+          "contrastKo": "휴식 권유에서 일하기 권유로 바뀜"
+        },
+        {
+          "replaces": "다",
+          "text": "조금",
+          "lemma": "조금",
+          "contrastKo": "전부 끝냄에서 일부만 함으로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0731": {
+      "cueKo": "코트를 집에서 세탁하면 안 됨",
+      "cloze": [
+        {
+          "text": "정리를",
+          "lemma": "정리",
+          "contrastKo": "집에서 정리하면 안 됨"
+        },
+        {
+          "text": "교환을",
+          "lemma": "교환",
+          "contrastKo": "집에서 교환하면 안 됨"
+        },
+        {
+          "text": "사용을",
+          "lemma": "사용",
+          "contrastKo": "집에서 사용하면 안 됨"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "집에서",
+          "text": "밖에서",
+          "lemma": "밖",
+          "contrastKo": "세탁 금지 장소가 바뀜"
+        },
+        {
+          "replaces": "코트는",
+          "text": "바지는",
+          "lemma": "바지",
+          "contrastKo": "세탁 지침의 대상이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0732": {
+      "cueKo": "양말을 물로 씻어 빨았음",
+      "cloze": [
+        {
+          "text": "접었어요",
+          "lemma": "접다",
+          "contrastKo": "양말을 접음"
+        },
+        {
+          "text": "벗었어요",
+          "lemma": "벗다",
+          "contrastKo": "양말을 벗음"
+        },
+        {
+          "text": "신었어요",
+          "lemma": "신다",
+          "contrastKo": "양말을 신음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "후에",
+          "text": "전에",
+          "lemma": "전",
+          "contrastKo": "운동 후에서 운동 전으로 바뀜"
+        },
+        {
+          "replaces": "양말부터",
+          "text": "수건부터",
+          "lemma": "수건",
+          "contrastKo": "먼저 빤 물건이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0733": {
+      "cueKo": "종이를 버릴 곳이 쓰레기통임",
+      "cloze": [
+        {
+          "text": "서랍에",
+          "lemma": "서랍",
+          "contrastKo": "서랍에 버림"
+        },
+        {
+          "text": "가방에",
+          "lemma": "가방",
+          "contrastKo": "가방에 버림"
+        },
+        {
+          "text": "상자에",
+          "lemma": "상자",
+          "contrastKo": "상자에 버림"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "종이는",
+          "text": "봉투는",
+          "lemma": "봉투",
+          "contrastKo": "버릴 물건이 바뀜"
+        },
+        {
+          "replaces": "이",
+          "text": "저",
+          "lemma": "저",
+          "contrastKo": "가리키는 종이의 위치가 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0734": {
+      "cueKo": "화장실에 화장지가 없음",
+      "cloze": [
+        {
+          "text": "비누가",
+          "lemma": "비누",
+          "contrastKo": "비누가 없음"
+        },
+        {
+          "text": "수건이",
+          "lemma": "수건",
+          "contrastKo": "수건이 없음"
+        },
+        {
+          "text": "칫솔이",
+          "lemma": "칫솔",
+          "contrastKo": "칫솔이 없음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "없어요",
+          "text": "있어요",
+          "lemma": "있다",
+          "contrastKo": "없음에서 있음으로 바뀜"
+        },
+        {
+          "replaces": "가져와",
+          "text": "가져가",
+          "lemma": "가져가다",
+          "contrastKo": "가져오기에서 가져가기로 방향이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0735": {
+      "cueKo": "목욕 후 몸이 편안함",
+      "cloze": [
+        {
+          "text": "운동을",
+          "lemma": "운동",
+          "contrastKo": "운동 후 몸 상태"
+        },
+        {
+          "text": "등산을",
+          "lemma": "등산",
+          "contrastKo": "등산 후 몸 상태"
+        },
+        {
+          "text": "산책을",
+          "lemma": "산책",
+          "contrastKo": "산책 후 몸 상태"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "편해요",
+          "text": "아파요",
+          "lemma": "아프다",
+          "contrastKo": "편안함에서 아픔으로 바뀜"
+        },
+        {
+          "replaces": "목욕을",
+          "text": "샤워를",
+          "lemma": "샤워",
+          "contrastKo": "목욕에서 샤워로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0736": {
+      "cueKo": "이를 닦은 뒤 다시 배가 고픔",
+      "cloze": [
+        {
+          "text": "식사를",
+          "lemma": "식사",
+          "contrastKo": "식사 후 다시 배가 고픔"
+        },
+        {
+          "text": "세수를",
+          "lemma": "세수",
+          "contrastKo": "세수 후 다시 배가 고픔"
+        },
+        {
+          "text": "샤워를",
+          "lemma": "샤워",
+          "contrastKo": "샤워 후 다시 배가 고픔"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "또",
+          "text": "아직",
+          "lemma": "아직",
+          "contrastKo": "다시 배고픔에서 계속 배고픔으로 바뀜"
+        },
+        {
+          "replaces": "고파요",
+          "text": "아파요",
+          "lemma": "아프다",
+          "contrastKo": "배고픔에서 배 아픔으로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0737": {
+      "cueKo": "치약을 다 써서 사야 함",
+      "cloze": [
+        {
+          "text": "비누가",
+          "lemma": "비누",
+          "contrastKo": "비누를 다 씀"
+        },
+        {
+          "text": "화장품이",
+          "lemma": "화장품",
+          "contrastKo": "화장품을 다 씀"
+        },
+        {
+          "text": "휴지가",
+          "lemma": "휴지",
+          "contrastKo": "휴지를 다 씀"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "오늘은",
+          "text": "내일은",
+          "lemma": "내일",
+          "contrastKo": "구입해야 할 날이 바뀜"
+        },
+        {
+          "replaces": "사야",
+          "text": "팔아야",
+          "lemma": "팔다",
+          "contrastKo": "구입에서 판매로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0738": {
+      "cueKo": "선풍기를 화자 쪽으로 돌려 달라는 부탁",
+      "cloze": [
+        {
+          "text": "의자를",
+          "lemma": "의자",
+          "contrastKo": "의자를 돌려 달라는 부탁"
+        },
+        {
+          "text": "책상을",
+          "lemma": "책상",
+          "contrastKo": "책상을 돌려 달라는 부탁"
+        },
+        {
+          "text": "텔레비전을",
+          "lemma": "텔레비전",
+          "contrastKo": "텔레비전을 돌려 달라는 부탁"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "조금만",
+          "text": "많이",
+          "lemma": "많이",
+          "contrastKo": "조정량이 바뀜"
+        },
+        {
+          "replaces": "돌려",
+          "text": "밀어",
+          "lemma": "밀다",
+          "contrastKo": "방향 돌리기에서 밀기로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0739": {
+      "cueKo": "케이크가 식탁 위에 있음",
+      "cloze": [
+        {
+          "text": "책상에",
+          "lemma": "책상",
+          "contrastKo": "책상 위에 있음"
+        },
+        {
+          "text": "냉장고에",
+          "lemma": "냉장고",
+          "contrastKo": "냉장고 안에 있음"
+        },
+        {
+          "text": "상자에",
+          "lemma": "상자",
+          "contrastKo": "상자 안에 있음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "케이크가",
+          "text": "과일이",
+          "lemma": "과일",
+          "contrastKo": "함께 먹을 음식이 바뀜"
+        },
+        {
+          "replaces": "먹어요",
+          "text": "만들어요",
+          "lemma": "만들다",
+          "contrastKo": "먹기에서 만들기로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0740": {
+      "cueKo": "방금 닦은 곳이 바닥임",
+      "cloze": [
+        {
+          "text": "창문을",
+          "lemma": "창문",
+          "contrastKo": "창문을 닦음"
+        },
+        {
+          "text": "벽을",
+          "lemma": "벽",
+          "contrastKo": "벽을 닦음"
+        },
+        {
+          "text": "문을",
+          "lemma": "문",
+          "contrastKo": "문을 닦음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "천천히",
+          "text": "빨리",
+          "lemma": "빨리",
+          "contrastKo": "걷는 속도가 반대로 바뀜"
+        },
+        {
+          "replaces": "방금",
+          "text": "어제",
+          "lemma": "어제",
+          "contrastKo": "청소한 시간이 방금에서 어제로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0741": {
+      "cueKo": "라면 두 개가 들어가는 냄비",
+      "cloze": [
+        {
+          "text": "그릇에",
+          "lemma": "그릇",
+          "contrastKo": "그릇에 들어감"
+        },
+        {
+          "text": "컵에",
+          "lemma": "컵",
+          "contrastKo": "컵에 들어감"
+        },
+        {
+          "text": "접시에",
+          "lemma": "접시",
+          "contrastKo": "접시에 들어감"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "두",
+          "text": "세",
+          "lemma": "세",
+          "contrastKo": "들어가는 라면 수가 바뀜"
+        },
+        {
+          "replaces": "라면",
+          "text": "우유",
+          "lemma": "우유",
+          "contrastKo": "용기에 넣는 대상이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0742": {
+      "cueKo": "쉰 기간이 두 날임",
+      "cloze": [
+        {
+          "text": "사흘",
+          "lemma": "사흘",
+          "contrastKo": "세 날 동안 쉼"
+        },
+        {
+          "text": "나흘",
+          "lemma": "나흘",
+          "contrastKo": "네 날 동안 쉼"
+        },
+        {
+          "text": "열흘",
+          "lemma": "열흘",
+          "contrastKo": "열 날 동안 쉼"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "쉬니까",
+          "text": "일하니까",
+          "lemma": "일하다",
+          "contrastKo": "휴식에서 일하기로 바뀜"
+        },
+        {
+          "replaces": "괜찮아요",
+          "text": "아파요",
+          "lemma": "아프다",
+          "contrastKo": "상태가 나아졌는지에서 아픈지로 질문이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0743": {
+      "cueKo": "여행 기간이 세 날임",
+      "cloze": [
+        {
+          "text": "이틀",
+          "lemma": "이틀",
+          "contrastKo": "두 날 동안 여행함"
+        },
+        {
+          "text": "나흘",
+          "lemma": "나흘",
+          "contrastKo": "네 날 동안 여행함"
+        },
+        {
+          "text": "열흘",
+          "lemma": "열흘",
+          "contrastKo": "열 날 동안 여행함"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "가요",
+          "text": "갔어요",
+          "lemma": "가다",
+          "contrastKo": "예정된 여행에서 지난 여행으로 바뀜"
+        },
+        {
+          "replaces": "쌌어요",
+          "text": "풀었어요",
+          "lemma": "풀다",
+          "contrastKo": "짐 싸기에서 짐 풀기로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0744": {
+      "cueKo": "비가 온 기간이 네 날임",
+      "cloze": [
+        {
+          "text": "이틀",
+          "lemma": "이틀",
+          "contrastKo": "두 날 동안 비가 옴"
+        },
+        {
+          "text": "사흘",
+          "lemma": "사흘",
+          "contrastKo": "세 날 동안 비가 옴"
+        },
+        {
+          "text": "열흘",
+          "lemma": "열흘",
+          "contrastKo": "열 날 동안 비가 옴"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "비가",
+          "text": "눈이",
+          "lemma": "눈",
+          "contrastKo": "비에서 눈으로 바뀜"
+        },
+        {
+          "replaces": "빨래가",
+          "text": "바닥이",
+          "lemma": "바닥",
+          "contrastKo": "아직 마르지 않은 것이 빨래에서 바닥으로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0745": {
+      "cueKo": "부모님이 열 날 뒤에 오심",
+      "cloze": [
+        {
+          "text": "이틀",
+          "lemma": "이틀",
+          "contrastKo": "두 날 뒤에 오심"
+        },
+        {
+          "text": "사흘",
+          "lemma": "사흘",
+          "contrastKo": "세 날 뒤에 오심"
+        },
+        {
+          "text": "나흘",
+          "lemma": "나흘",
+          "contrastKo": "네 날 뒤에 오심"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "부모님이",
+          "text": "친구들이",
+          "lemma": "친구",
+          "contrastKo": "방문하는 사람이 부모님에서 친구들로 바뀜"
+        },
+        {
+          "replaces": "식당도",
+          "text": "호텔도",
+          "lemma": "호텔",
+          "contrastKo": "예약한 곳이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0746": {
+      "cueKo": "한국에 온 지 세 달이 지남",
+      "cloze": [
+        {
+          "text": "주일",
+          "lemma": "주일",
+          "contrastKo": "세 주가 지남"
+        },
+        {
+          "text": "일",
+          "lemma": "일",
+          "contrastKo": "삼 일이 지남"
+        },
+        {
+          "text": "년",
+          "lemma": "년",
+          "contrastKo": "삼 년이 지남"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "삼",
+          "text": "육",
+          "lemma": "육",
+          "contrastKo": "지낸 개월 수가 바뀜"
+        },
+        {
+          "replaces": "한국에",
+          "text": "독일에",
+          "lemma": "독일",
+          "contrastKo": "지낸 나라가 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0747": {
+      "cueKo": "못 만난 동안의 안부를 물음",
+      "cloze": [
+        {
+          "text": "어제",
+          "lemma": "어제",
+          "contrastKo": "어제의 안부를 물음"
+        },
+        {
+          "text": "오늘",
+          "lemma": "오늘",
+          "contrastKo": "오늘의 안부를 물음"
+        },
+        {
+          "text": "주말에",
+          "lemma": "주말",
+          "contrastKo": "주말의 안부를 물음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "여기",
+          "text": "저기",
+          "lemma": "저기",
+          "contrastKo": "권하는 자리가 바뀜"
+        },
+        {
+          "replaces": "앉아요",
+          "text": "기다려요",
+          "lemma": "기다리다",
+          "contrastKo": "앉기 권유에서 기다리기 요청으로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0748": {
+      "cueKo": "오랫동안 못 만나다가 만남",
+      "cloze": [
+        {
+          "text": "점심에",
+          "lemma": "점심",
+          "contrastKo": "점심에 만남"
+        },
+        {
+          "text": "휴일에",
+          "lemma": "휴일",
+          "contrastKo": "휴일에 만남"
+        },
+        {
+          "text": "아침에",
+          "lemma": "아침",
+          "contrastKo": "아침에 만남"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "반가워요",
+          "text": "미안해요",
+          "lemma": "미안하다",
+          "contrastKo": "반가움에서 미안함으로 바뀜"
+        },
+        {
+          "replaces": "만나서",
+          "text": "헤어져서",
+          "lemma": "헤어지다",
+          "contrastKo": "만남에서 헤어짐으로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0749": {
+      "cueKo": "남은 케이크가 마지막임",
+      "cloze": [
+        {
+          "text": "처음이에요",
+          "lemma": "처음",
+          "contrastKo": "처음인 케이크임"
+        },
+        {
+          "text": "선물이에요",
+          "lemma": "선물",
+          "contrastKo": "선물인 케이크임"
+        },
+        {
+          "text": "간식이에요",
+          "lemma": "간식",
+          "contrastKo": "간식인 케이크임"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "반씩",
+          "text": "조금씩",
+          "lemma": "조금",
+          "contrastKo": "반씩에서 조금씩으로 나눌 양이 바뀜"
+        },
+        {
+          "replaces": "먹어요",
+          "text": "남겨요",
+          "lemma": "남기다",
+          "contrastKo": "먹기에서 남기기로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0750": {
+      "cueKo": "얼마 전에 요리를 배움",
+      "cloze": [
+        {
+          "text": "작년에",
+          "lemma": "작년",
+          "contrastKo": "지난해에 배움"
+        },
+        {
+          "text": "지난달에",
+          "lemma": "지난달",
+          "contrastKo": "지난달에 배움"
+        },
+        {
+          "text": "옛날에",
+          "lemma": "옛날",
+          "contrastKo": "오래전에 배움"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "덜",
+          "text": "더",
+          "lemma": "더",
+          "contrastKo": "외식 빈도의 변화가 반대로 바뀜"
+        },
+        {
+          "replaces": "요리를",
+          "text": "운동을",
+          "lemma": "운동",
+          "contrastKo": "배운 활동이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0751": {
+      "cueKo": "여행을 마친 바로 다음 날",
+      "cloze": [
+        {
+          "text": "첫날 아침에는",
+          "lemma": "첫날+아침",
+          "contrastKo": "여행 첫날 아침"
+        },
+        {
+          "text": "마지막 날에는",
+          "lemma": "마지막+날",
+          "contrastKo": "여행 마지막 날"
+        },
+        {
+          "text": "출발 전에는",
+          "lemma": "출발+전",
+          "contrastKo": "여행 출발 전"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "집에서",
+          "text": "호텔에서",
+          "lemma": "호텔",
+          "contrastKo": "쉰 장소가 바뀜"
+        },
+        {
+          "replaces": "아침에는",
+          "text": "저녁에는",
+          "lemma": "저녁",
+          "contrastKo": "여행 다음 날의 아침에서 저녁으로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0752": {
+      "cueKo": "지난밤에 드라마를 봄",
+      "cloze": [
+        {
+          "text": "주말에",
+          "lemma": "주말",
+          "contrastKo": "주말에 봄"
+        },
+        {
+          "text": "휴일에",
+          "lemma": "휴일",
+          "contrastKo": "휴일에 봄"
+        },
+        {
+          "text": "지난주에",
+          "lemma": "지난주",
+          "contrastKo": "지난주에 봄"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "늦게",
+          "text": "일찍",
+          "lemma": "일찍",
+          "contrastKo": "잠든 시각의 정도가 바뀜"
+        },
+        {
+          "replaces": "드라마를",
+          "text": "뉴스를",
+          "lemma": "뉴스",
+          "contrastKo": "본 방송이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0753": {
+      "cueKo": "점심 쉬는 시간의 산책 제안",
+      "cloze": [
+        {
+          "text": "주말에",
+          "lemma": "주말",
+          "contrastKo": "주말의 산책 제안"
+        },
+        {
+          "text": "오후에",
+          "lemma": "오후",
+          "contrastKo": "오후의 산책 제안"
+        },
+        {
+          "text": "아침에",
+          "lemma": "아침",
+          "contrastKo": "아침의 산책 제안"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "잠깐",
+          "text": "오래",
+          "lemma": "오래",
+          "contrastKo": "산책할 시간이 바뀜"
+        },
+        {
+          "replaces": "산책할까요",
+          "text": "공부할까요",
+          "lemma": "공부하다",
+          "contrastKo": "제안하는 활동이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0754": {
+      "cueKo": "강아지 모양으로 보이는 구름",
+      "cloze": [
+        {
+          "text": "인형이",
+          "lemma": "인형",
+          "contrastKo": "인형 모양을 말함"
+        },
+        {
+          "text": "그림이",
+          "lemma": "그림",
+          "contrastKo": "그림 모양을 말함"
+        },
+        {
+          "text": "나무가",
+          "lemma": "나무",
+          "contrastKo": "나무 모양을 말함"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "강아지처럼",
+          "text": "고양이처럼",
+          "lemma": "고양이",
+          "contrastKo": "닮은 동물이 바뀜"
+        },
+        {
+          "replaces": "생겼어요",
+          "text": "움직여요",
+          "lemma": "움직이다",
+          "contrastKo": "생김새에서 움직임으로 비교 대상이 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0755": {
+      "cueKo": "맑은 하늘을 보고 사진을 제안함",
+      "cloze": [
+        {
+          "text": "바다가",
+          "lemma": "바다",
+          "contrastKo": "맑은 바다"
+        },
+        {
+          "text": "호수가",
+          "lemma": "호수",
+          "contrastKo": "맑은 호수"
+        },
+        {
+          "text": "물이",
+          "lemma": "물",
+          "contrastKo": "맑은 물"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "한",
+          "text": "두",
+          "lemma": "두",
+          "contrastKo": "찍을 사진 수가 바뀜"
+        },
+        {
+          "replaces": "맑아요",
+          "text": "흐려요",
+          "lemma": "흐리다",
+          "contrastKo": "하늘 상태가 반대로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0756": {
+      "cueKo": "햇빛 때문에 눈을 뜨기 어려움",
+      "cloze": [
+        {
+          "text": "바람이",
+          "lemma": "바람",
+          "contrastKo": "바람 때문에 눈을 뜨기 어려움"
+        },
+        {
+          "text": "불이",
+          "lemma": "불",
+          "contrastKo": "불 때문에 눈을 뜨기 어려움"
+        },
+        {
+          "text": "비가",
+          "lemma": "비",
+          "contrastKo": "비 때문에 눈을 뜨기 어려움"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "강해서",
+          "text": "약해서",
+          "lemma": "약하다",
+          "contrastKo": "자극의 세기가 반대로 바뀜"
+        },
+        {
+          "replaces": "뜨겠어요",
+          "text": "감겠어요",
+          "lemma": "감다",
+          "contrastKo": "눈을 뜨기에서 감기로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0757": {
+      "cueKo": "내일 공기의 온도가 내려감",
+      "cloze": [
+        {
+          "text": "가격이",
+          "lemma": "가격",
+          "contrastKo": "가격이 내려감"
+        },
+        {
+          "text": "속도가",
+          "lemma": "속도",
+          "contrastKo": "속도가 내려감"
+        },
+        {
+          "text": "성적이",
+          "lemma": "성적",
+          "contrastKo": "성적이 내려감"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "내려가요",
+          "text": "올라가요",
+          "lemma": "올라가다",
+          "contrastKo": "온도 변화의 방향이 바뀜"
+        },
+        {
+          "replaces": "많이",
+          "text": "조금",
+          "lemma": "조금",
+          "contrastKo": "온도 변화의 크기가 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0758": {
+      "cueKo": "기온이 영하 5도임",
+      "cloze": [
+        {
+          "text": "오 도",
+          "lemma": "오+도",
+          "contrastKo": "영상 5도"
+        },
+        {
+          "text": "십 도",
+          "lemma": "십+도",
+          "contrastKo": "영상 10도"
+        },
+        {
+          "text": "영하 십 도",
+          "lemma": "영하+십+도",
+          "contrastKo": "영하 10도"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "오늘은",
+          "text": "내일은",
+          "lemma": "내일",
+          "contrastKo": "해당 날씨의 날짜가 바뀜"
+        },
+        {
+          "replaces": "마실까요",
+          "text": "마셨어요",
+          "lemma": "마시다",
+          "contrastKo": "차를 마시자는 제안에서 마셨는지 묻는 질문으로 바뀜"
+        }
+      ]
+    },
+    "vocab_a2_0759": {
+      "cueKo": "커피에 얼음을 조금만 넣음",
+      "cloze": [
+        {
+          "text": "설탕을",
+          "lemma": "설탕",
+          "contrastKo": "설탕을 넣음"
+        },
+        {
+          "text": "우유를",
+          "lemma": "우유",
+          "contrastKo": "우유를 넣음"
+        },
+        {
+          "text": "물을",
+          "lemma": "물",
+          "contrastKo": "물을 넣음"
+        }
+      ],
+      "satz": [
+        {
+          "replaces": "조금만",
+          "text": "많이",
+          "lemma": "많이",
+          "contrastKo": "넣는 양이 바뀜"
+        },
+        {
+          "replaces": "넣어",
+          "text": "빼",
+          "lemma": "빼다",
+          "contrastKo": "넣기에서 빼기로 바뀜"
+        }
+      ]
+    }
+  },
+  "exampleScenes": {
+    "vocab_a2_0702": "할머니의 칠순 잔치 계획을 지인에게 알림",
+    "vocab_a2_0703": "마야가 두 사람의 결혼 계획에 놀라 반응",
+    "vocab_a2_0704": "새로 온 동료를 맞으며 자리를 권함",
+    "vocab_a2_0705": "동료에게 연말 식사 약속을 제안",
+    "vocab_a2_0696": "사진을 보낼 방법을 동료에게 확인",
+    "vocab_a2_0697": "인터넷 연결을 바꾼 뒤 사진을 보내겠다고 알림",
+    "vocab_a2_0698": "가게 전화기를 교체한 뒤 소리 상태를 이야기함",
+    "vocab_a2_0699": "수진이 크리스티안과 통화하며 소리 상태를 확인",
+    "vocab_a2_0700": "친구의 결혼 소식에 보인 반응을 이야기함",
+    "vocab_a2_0701": "길을 찾는 사람에게 도움받을 방법을 제안",
+    "vocab_a2_0706": "다니엘에게 문제를 풀 도움을 요청",
+    "vocab_a2_0707": "수진이 크리스티안에게 자기 컴퓨터를 빌려줌",
+    "vocab_a2_0708": "잃은 지갑을 찾아 낯선 사람에게 정중히 질문",
+    "vocab_a2_0709": "교통 체증 때문에 지하철 이용을 제안",
+    "vocab_a2_0710": "정전 때 한 행동을 이야기함",
+    "vocab_a2_0711": "컵의 재료와 투명한 모습을 설명",
+    "vocab_a2_0712": "수리 센터에 비용을 문의",
+    "vocab_a2_0713": "식당에서 받은 서비스에 만족하며 이야기함",
+    "vocab_a2_0714": "운전할 때 가장 중요한 것을 말함",
+    "vocab_a2_0715": "급한 일이 생겼다고 알림",
+    "vocab_a2_0716": "동행에게 출발까지 남은 시간을 알려 줌",
+    "vocab_a2_0717": "작은 계산 실수를 이야기함",
+    "vocab_a2_0718": "많이 만든 음식을 지인에게 권함",
+    "vocab_a2_0719": "준이 엄마에게 학교에서 간식을 나눈 일을 말함",
+    "vocab_a2_0720": "김의 맛을 설명하고 밥과 함께 먹으라고 권함",
+    "vocab_a2_0721": "먹고 싶은 저녁 메뉴를 말함",
+    "vocab_a2_0722": "갓 튀긴 음식을 권하기 전 뜨겁다고 알림",
+    "vocab_a2_0723": "식사 동행에게 메뉴를 말하고 함께 주문하자고 제안",
+    "vocab_a2_0724": "매운 음식을 먹은 자신의 반응을 가볍게 이야기함",
+    "vocab_a2_0725": "함께 먹을 메뉴를 제안",
+    "vocab_a2_0726": "비 오는 날 떠오르는 음식을 이야기함",
+    "vocab_a2_0727": "음식 크기에 즐겁게 놀람",
+    "vocab_a2_0728": "많이 만든 저녁으로 다음 날 점심까지 해결",
+    "vocab_a2_0729": "자신의 생일 식사 경험을 이야기함",
+    "vocab_a2_0730": "집안일을 마친 지인에게 쉬라고 권함",
+    "vocab_a2_0731": "옷의 세탁 주의사항을 알려 줌",
+    "vocab_a2_0732": "운동 뒤 집에서 한 일을 이야기함",
+    "vocab_a2_0733": "종이를 버려도 되는지 물음",
+    "vocab_a2_0734": "화장실에서 필요한 물건을 부탁",
+    "vocab_a2_0735": "목욕 후 편안해진 몸 상태를 이야기함",
+    "vocab_a2_0736": "이를 닦은 뒤 다시 배가 고픈 상황을 가볍게 이야기함",
+    "vocab_a2_0737": "장을 보기 전 필요한 물건을 확인",
+    "vocab_a2_0738": "더운 실내에서 바람 방향을 조정해 달라고 부탁",
+    "vocab_a2_0739": "식탁 위의 케이크를 같이 먹자고 권함",
+    "vocab_a2_0740": "청소 직후 바닥 상태를 알리고 주의를 줌",
+    "vocab_a2_0741": "함께 라면을 만들며 냄비 크기를 확인",
+    "vocab_a2_0742": "쉬고 돌아온 동료의 상태를 물음",
+    "vocab_a2_0743": "여행 기간과 준비 상태를 이야기함",
+    "vocab_a2_0744": "계속된 비 때문에 생긴 생활 불편을 이야기함",
+    "vocab_a2_0745": "부모님 방문을 기다리며 식사 약속을 준비",
+    "vocab_a2_0746": "한국에서 지낸 기간을 새 지인에게 알림",
+    "vocab_a2_0747": "한동안 못 만난 지인에게 안부를 묻고 자리를 권함",
+    "vocab_a2_0748": "오랜만에 만난 지인에게 반갑게 인사",
+    "vocab_a2_0749": "마지막 남은 케이크를 반씩 먹자고 제안",
+    "vocab_a2_0750": "최근 생긴 생활 변화를 말함",
+    "vocab_a2_0751": "여행을 마친 다음 날 아침을 이야기함",
+    "vocab_a2_0752": "늦게 잔 이유를 일상적으로 이야기함",
+    "vocab_a2_0753": "동료에게 짧은 점심 산책을 제안",
+    "vocab_a2_0754": "함께 하늘을 보며 재미있는 모양을 발견",
+    "vocab_a2_0755": "맑은 하늘을 보고 사진을 찍자고 제안",
+    "vocab_a2_0756": "햇빛이 눈부신 상황을 말함",
+    "vocab_a2_0757": "다음 날 기온이 많이 내려간다고 알림",
+    "vocab_a2_0758": "추운 날 함께 차를 마시자고 제안",
+    "vocab_a2_0759": "카페에서 얼음 양을 조절해 달라고 요청"
   },
   "packsFilledTo12": [
     {

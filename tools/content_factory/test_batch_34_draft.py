@@ -21,11 +21,10 @@ test_batch_32_draft.py's level-agnostic checks (eojeol count, cloze/satz
 structural invariants, persona/opener pragmatics, particle-fold consistency,
 the A2 grade>=3 grammar scan, D6 stem-reuse cap, speaker-cue-or-leading-
 vocative persona attribution) and adds the checks this batch's brief named
-explicitly: Tier-B ratio <=40 %, 2-3 boss words per pack, the Flutter
+explicitly: 2-3 boss words per pack, the Flutter
 game-contract rules (satz >=3 tokens, cloze answer >=2 syllables), the
-collocation-trap table from Batch 32's R8 round 3, D4 activity-noun
-exclusion, and the audit-clean manifest shape (collection keys, review
-ledgers, recordCount).
+approved translation-supported choice contract, and the audit-clean
+manifest shape (collection keys, review ledgers, recordCount).
 
 Run with:
     PYTHONIOENCODING=utf-8 python -m unittest tools.content_factory.test_batch_34_draft -v
@@ -58,14 +57,14 @@ from a1_draft_rules import (  # noqa: E402
     cloze_answer_is_fair,
     satz_meets_build_contract,
 )
-from cloze_distractor_rules import ACTIVITY_NOUN_SET  # noqa: E402
 from distractor_rules import (  # noqa: E402
     batchim_class as _batchim_class,
     detect_required_class as _detect_required_class,
-    DICTIONARY_FORM_VERBS,
 )
 import scan_grammar_level as SGL  # noqa: E402
 import build_batch_34_a2_draft as BUILD  # noqa: E402
+from batch_34_choice_design import CHOICES, C, T, lemma_components, validate_choice_contract
+from copy import deepcopy
 from cefr_lexicon import CefrLexicon, GrammarIndex  # noqa: E402
 
 DRAFTS = REPO_ROOT / "tools/content_factory/drafts"
@@ -101,15 +100,32 @@ STABLE_PARTIAL_IDENTITIES = {
     "연말": ("vocab_a2_0705", "cloze_a2_0512", "satz_a2_0697"),
 }
 
-# --- Distractor-tier buckets (keyed by headword) -------------------------
-# No item in this batch needed the OPEN_FRAME_TIER_B waiver (see manifest
-# provenance.tierNote): every frame had a real-word class clash available.
-OPEN_FRAME_TIER_B_HEADWORDS: set[str] = set()
-TIER_B_RATIO_CAP = 0.40
-
 # Irregular / contracted surface forms -> dictionary form for the helper-word
 # scanner (every target is NIKL grade<=2, live, or a batch headword).
 OVERRIDES = {
+    # Surface forms in the 2026-09-16 scene revision; these are dictionary
+    # resolutions, not vocabulary-grade exceptions.
+    "돼서": "되다", "바꿨어요": "바꾸다", "들려요": "들리다",
+    "시끄러워": "시끄럽다", "알겠어요": "알다", "써": "쓰다",
+    "보셨어요": "보다", "드세요": "드시다", "켰어요": "켜다",
+    "보여요": "보이다", "생겨서": "생기다",
+    "갈게요": "가다", "냈어요": "내다", "쪘어요": "찌다",
+    "나눠": "나누다", "짜요": "짜다", "먹기": "먹다",
+    "뜨거워요": "뜨겁다", "한입": "입", "시켜서": "시키다",
+    "오니까": "오다", "생각나요": "생각나다", "얼굴보다": "얼굴",
+    "커요": "크다", "생일에는": "생일", "끓였어요": "끓이다",
+    "가져와": "가져오다", "했는데": "하다", "고파요": "고프다",
+    "하니까": "하다", "편해요": "편하다",
+    "자야": "자다", "떨어졌어요": "떨어지다", "사야": "사다",
+    "돌려": "돌리다", "걸으세요": "걷다", "예약했어요": "예약하다",
+    "들어가요": "들어가다", "쉬니까": "쉬다", "쌌어요": "싸다",
+    "말랐어요": "마르다", "지냈어요": "지내다",
+    "보니까": "보다", "반가워요": "반갑다", "만나니까": "만나다",
+    "할": "하다", "반씩": "반", "배워서": "배우다",
+    "강아지처럼": "강아지", "뜨겠어요": "뜨다", "내려가니까": "내려가다",
+    "넣어": "넣다", "버려도": "버리다", "마실까요": "마시다",
+    "보낼게요": "보내다", "막혔어요": "막히다",
+    "모르겠어요": "모르다", "갈까요": "가다",
     "나와요": "나오다", "나와서": "나오다", "무거운": "무겁다", "와서": "오다", "온": "오다", "올": "오다",
     "폈어요": "펴다", "붙였어": "붙이다", "3학년": "학년", "틀린": "틀리다", "썼어요": "쓰다",
     "나요": "나다", "났어요": "나다", "나서": "나다", "봄에는": "봄", "해요": "하다", "했어요": "하다", "해서": "하다",
@@ -172,48 +188,6 @@ SPEAKER_CUE_WHITELIST = {
     "dongsun": ["우리 크리스티안"],
 }
 
-# Collocation-trap table (Batch 32 R8 round 3 standing rule): for a cloze
-# sentence whose remainder matches `predicate_re`, none of these stems may
-# appear as a distractor -- each would form a fixed collocation / idiom /
-# adverbial with that predicate and yield a second valid sentence.
-COLLOCATION_TRAPS = [
-    (re.compile(r"＿＿＿\s*(안\s*)?(해요|했어요|하면|자주 해요)"), "N을 하다",
-     {"편지", "안경", "시계", "모자", "목걸이", "스카프", "기침", "재채기", "칭찬", "농담", "거짓말", "실수",
-      "지각", "노력", "수술", "치료", "입원", "퇴원", "취직", "출퇴근", "긴장", "운동", "공부", "요리", "청소"}),
-    (re.compile(r"＿＿＿\s*(계속\s*)?(나요|났어요|나서)"), "X이 나다",
-     {"화", "눈물", "웃음", "땀", "생각", "기억", "소리", "시간", "냄새", "열", "초대장", "대회"}),
-    (re.compile(r"＿＿＿\s*생겼어요"), "X이 생기다",
-     {"우산", "지갑", "지도", "그림", "우표", "엽서", "신발", "편지", "의자", "책상", "침대", "열쇠",
-      "부장", "선배", "후배", "규칙", "약속", "일", "문제", "시간", "돈", "친구", "초대장", "대회", "매표소"}),
-    # 상처: R8 (Fable review of ce219360) -- 상처를 받다 = "to get hurt" is a
-    # fixed collocation, so 치과에서 상처를 받고 있어요 was a valid sentence.
-    (re.compile(r"＿＿＿\s*(받으세요|받고 있어요|받았어요)"), "N을 받다",
-     {"선물", "편지", "칭찬", "치료", "월급", "전화", "수업", "검사", "위치", "방향", "초대장", "상처", "스트레스", "사랑", "충격"}),
-    (re.compile(r"＿＿＿\s*많이 흘렸어요"), "N을 흘리다",
-     {"우산", "지갑", "지도", "그림", "우표", "엽서", "신발", "편지", "의자", "책상", "침대", "열쇠",
-      "비밀", "농담", "칭찬", "웃음", "땀", "피", "물", "콧물"}),
-    (re.compile(r"＿＿＿\s*크게 쳐 주세요"), "N을 치다",
-     {"농담", "우산", "지갑", "지도", "그림", "우표", "엽서", "신발", "편지", "의자", "책상", "침대", "열쇠",
-      "육교", "지하도", "사거리", "정거장", "주차장", "매표소", "휴게실"}),
-    (re.compile(r"＿＿＿\s*(건너갔어요|다녀요|가면 역이 나와요)"), "N(으)로",
-     {"웃음", "눈물", "감기", "실수", "노력", "칭찬", "농담", "비밀", "긴장"}),
-    (re.compile(r"내일 ＿＿＿\s*기분이 좋아요"), "N이라서",
-     {"수술", "입원", "퇴원", "치료", "대회", "행사", "새벽"}),
-    (re.compile(r"둘만의 ＿＿＿"), "둘만의 N이에요", {"치료", "침대", "우산", "비밀"}),
-    (re.compile(r"항상 ＿＿＿\s*돼요"), "X이 되다", {"부장", "선배", "후배", "새벽", "팀"}),
-    (re.compile(r"＿＿＿\s*(회의를 짧게 해요|매주 월요일에 회의를 해요|점심을 사 줬어요)"), "agent slot",
-     {"매표소", "휴게실", "부장", "선배", "후배"}),
-    (re.compile(r"＿＿［\s*꼭 지켜 주세요"), "N을 지키다",
-     {"우산", "지갑", "지도", "그림", "우표", "엽서", "신발", "편지", "의자", "책상", "침대", "열쇠",
-      "육교", "지하도", "사거리", "정거장", "주차장", "매표소", "휴게실", "치료", "약속", "시간", "비밀", "자리", "줄"}),
-    (re.compile(r"＿＿＿\s*바뀌면"), "X이 바뀌다",
-     {"출퇴근", "지각", "수술", "상처", "초대장", "우표", "규칙", "날씨", "계획", "방향", "위치"}),
-]
-
-# Homonym-trap stems that must never be used as distractors at all.
-HOMONYM_TRAP_STEMS = {"시장", "배", "눈", "밤", "말", "다리", "화", "걸었어요", "걸어", "걸었어"}
-
-# Sino-Korean numerals must not precede 살; 3학년 uses an Arabic digit.
 SAMPLE_INDICES = (0, 9, 18, 27, 36, 45, 54)
 
 
@@ -261,6 +235,10 @@ class TestBatch34NeverTouchesLiveAssets(unittest.TestCase):
         self.assertFalse(manifest["promotion"]["runtime"])
         self.assertFalse(manifest["promotion"]["tts"])
         self.assertFalse(manifest["promotion"]["firebase"])
+        self.assertEqual(manifest["provenance"]["modelLanguageQa"], "MODEL_QA_PASS")
+        self.assertIn("MODEL_REVIEWED", manifest["provenance"]["exerciseReview"])
+        self.assertTrue(manifest["choiceContract"]["requiresTranslation"])
+        self.assertEqual(set(manifest["exampleScenes"]), {r["id"] for r in _load_vocab_rows(ROWS_CSV)})
 
     def test_no_live_headword_was_added(self):
         live_korean = {r["korean"] for r in _load_vocab_rows(VOCAB_CSV)}
@@ -319,11 +297,9 @@ class TestBatch34ManifestAuditShape(unittest.TestCase):
                 draft_ids = [i["id"] for i in _load_json(draft_path)["items"]]
             self.assertEqual(review_ids, draft_ids, f"{artifact['kind']}: review ledger IDs differ from draft IDs")
 
-    def test_tier_counts_declared_and_within_ratio_cap(self):
+    def test_translation_supported_task_count_is_explicit(self):
         tiers = self.manifest["tierCounts"]
-        self.assertEqual(tiers["tierA"] + tiers["tierB"], 64)
-        self.assertEqual(tiers["tierB"], len(OPEN_FRAME_TIER_B_HEADWORDS))
-        self.assertLessEqual(tiers["tierB"] / 64, TIER_B_RATIO_CAP)
+        self.assertEqual(tiers, {"tierA": 0, "tierB": 0, "translationSupported": 64, "pending": 0})
 
 
 class TestBatch34VocabRows(unittest.TestCase):
@@ -419,10 +395,10 @@ class TestBatch34VocabRows(unittest.TestCase):
         for row in self.rows:
             self.assertIn(row["is_review_boss"], ("true", "false"))
 
-    def test_examples_are_at_most_10_eojeol(self):
+    def test_examples_are_within_a2_bible_12_eojeol_ceiling(self):
         for row in self.rows:
             n = R.eojeol_count(row["example_korean"])
-            self.assertLessEqual(n, 10, f"{row['id']} example_korean has {n} 어절: {row['example_korean']}")
+            self.assertLessEqual(n, 12, f"{row['id']} example_korean has {n} 어절: {row['example_korean']}")
 
     def test_headword_or_inflected_answer_present_in_example(self):
         cloze = _load_json(CLOZE_JSON)["items"]
@@ -539,12 +515,17 @@ class TestBatch34VocabRows(unittest.TestCase):
         offenders = {k: c for k, c in Counter(keys).items() if c > 3}
         self.assertEqual(offenders, {}, f"frame(s) repeated more than 3 times: {offenders}")
 
-    def test_helper_words_resolve_to_grade2_or_live_with_zero_exceptions(self):
+    def test_helper_words_resolve_with_only_the_documented_culture_helper(self):
         own_rows = [{"korean": r["korean"]} for r in self.rows]
         safe_words = R.build_helper_word_scanner(own_rows)
         offenders = {}
         for row in self.rows:
             unresolved = R.unresolved_helper_tokens(row["example_korean"], safe_words, OVERRIDES)
+            if row["id"] == "vocab_a2_0702":
+                unresolved = [token for token in unresolved if token not in {"칠순", "칠순이라"}]
+            if row["id"] == "vocab_a2_0746":
+                # A2 grammar -은 지 (CONTENT_LEVEL_BIBLE B.2), not a content word.
+                unresolved = [token for token in unresolved if token != "지"]
             if unresolved:
                 offenders[row["id"]] = unresolved
         self.assertEqual(offenders, {}, f"row(s) have unresolved helper word(s): {offenders}")
@@ -675,7 +656,7 @@ class TestBatch34Cloze(unittest.TestCase):
 
     def test_item_shape_matches_batch31_draft(self):
         for item in self.items:
-            self.assertEqual(set(item), {"id", "sourceVocabId", "fullKo", "sentenceKo", "answer", "distractors"}, item["id"])
+            self.assertEqual(set(item), {"id", "sourceVocabId", "fullKo", "sentenceKo", "answer", "distractors", "de", "en", "level", "topic"}, item["id"])
             self.assertIn(item["sourceVocabId"], self.rows_by_id)
 
     def test_ids_form_complete_contiguous_set_above_prior_max(self):
@@ -702,22 +683,17 @@ class TestBatch34Cloze(unittest.TestCase):
             self.assertIn(item["answer"], item["fullKo"])
             self.assertEqual(item["fullKo"].replace(item["answer"], "＿＿＿", 1), item["sentenceKo"])
 
-    def test_service_frame_has_three_reviewed_impossible_substitutions(self):
+    def test_service_candidates_are_visible_but_not_falsely_approved(self):
         item = next(item for item in self.items if item["id"] == "cloze_a2_0520")
         self.assertEqual(item["sourceVocabId"], "vocab_a2_0713")
-        self.assertEqual(item["fullKo"], "이 호텔에서 친절한 서비스를 받았어요.")
-        self.assertEqual(item["answer"], "서비스를")
-        self.assertEqual(item["distractors"], ["기온을", "얼음을", "바닥을"])
         rendered = [item["sentenceKo"].replace("＿＿＿", d) for d in item["distractors"]]
-        self.assertEqual(rendered, [
-            "이 호텔에서 친절한 기온을 받았어요.",
-            "이 호텔에서 친절한 얼음을 받았어요.",
-            "이 호텔에서 친절한 바닥을 받았어요.",
-        ])
         packet = PACKET_MD.read_text(encoding="utf-8")
         for sentence in rendered:
             self.assertIn(sentence, packet)
         self.assertNotIn("generic noun-vs-duration", packet)
+        self.assertIn("빈칸 선택지의 뜻 차이(192)", packet)
+        self.assertIn("정답 형태 | 넣은 오답 후보", packet)
+        self.assertNotIn("✗", packet)
 
     def test_exactly_three_distractors(self):
         for item in self.items:
@@ -727,7 +703,10 @@ class TestBatch34Cloze(unittest.TestCase):
         for item in self.items:
             for d in item["distractors"]:
                 self.assertNotIn(item["answer"], d, f"{item['id']}: answer leaks into distractor {d!r}")
-                self.assertNotIn(d, item["answer"], f"{item['id']}: distractor {d!r} leaks into answer")
+                # A whole measurement phrase can contrast its sign/value:
+                # 오 도 vs 영하 오 도 shares words but is not the same answer.
+                if " " not in item["answer"]:
+                    self.assertNotIn(d, item["answer"], f"{item['id']}: distractor {d!r} leaks into answer")
 
     def test_distractors_not_in_sentence(self):
         for item in self.items:
@@ -779,57 +758,21 @@ class TestBatch34Cloze(unittest.TestCase):
         for item in self.items:
             self.assertTrue(cloze_answer_is_fair(item["answer"]), f"{item['id']}: answer {item['answer']!r} is a 1-syllable gap")
 
-    def test_open_frame_tierb_distractors_are_dictionary_verb(self):
-        for item in self.items:
-            headword = self.rows_by_id[item["sourceVocabId"]]["korean"]
-            if headword not in OPEN_FRAME_TIER_B_HEADWORDS:
-                continue
-            for d in item["distractors"]:
-                self.assertIn(d, DICTIONARY_FORM_VERBS, f"{item['id']} ({headword}): distractor {d!r} is not a bare dictionary-form verb")
 
-    def test_tier_b_ratio_at_most_40_percent(self):
-        self.assertLessEqual(len(OPEN_FRAME_TIER_B_HEADWORDS) / len(self.items), TIER_B_RATIO_CAP)
 
     def test_remaining_rows_carry_a_particle_fold_consistent_with_their_own_final_sound(self):
         for item in self.items:
             headword = self.rows_by_id[item["sourceVocabId"]]["korean"]
-            if headword in OPEN_FRAME_TIER_B_HEADWORDS:
-                continue
             bad = R.distractor_particle_mismatches(headword, item["answer"], item["distractors"])
             self.assertEqual(bad, [], f"{item['id']} ({headword}, answer {item['answer']!r}): distractor(s) {bad} don't carry a matching particle/suffix")
 
-    def test_no_activity_noun_distractors_in_hada_frames(self):
-        """D4: N+하다/잘하다 slots may not use an activity noun as distractor."""
-        hada_re = re.compile(r"＿＿＿\s*(안\s*)?(자주\s*|정말\s*|많이\s*)?(해요|했어요|하면|잘해요)")
-        for item in self.items:
-            if not hada_re.search(item["sentenceKo"]):
-                continue
-            for d in item["distractors"]:
-                self.assertNotIn(R.distractor_stem(d), ACTIVITY_NOUN_SET, f"{item['id']}: activity noun {d!r} in a 하다 frame")
 
-    def test_collocation_traps_never_used(self):
-        """Batch 32 R8 round-3 standing rule, encoded: a distractor must not form
-        a fixed collocation/idiom/adverbial with the sentence's own predicate."""
-        offenders = []
-        for item in self.items:
-            for pred_re, label, banned in COLLOCATION_TRAPS:
-                if not pred_re.search(item["sentenceKo"]):
-                    continue
-                for d in item["distractors"]:
-                    if R.distractor_stem(d) in banned:
-                        offenders.append((item["id"], label, d))
-        self.assertEqual(offenders, [], f"collocation-trap distractor(s): {offenders}")
 
-    def test_no_homonym_trap_stems(self):
-        for item in self.items:
-            for d in item["distractors"]:
-                self.assertNotIn(R.distractor_stem(d), HOMONYM_TRAP_STEMS, f"{item['id']}: homonym-trap distractor {d!r}")
-                self.assertNotIn(d, HOMONYM_TRAP_STEMS, f"{item['id']}: homonym-trap distractor {d!r}")
 
-    def test_intransitive_verb_distractors_share_answer_ending(self):
+    def test_verb_distractors_share_answer_ending(self):
         """Verb rows with a fixed object: every distractor must carry the SAME
         ending as the answer (same tense/connective) so the fold isn't
-        identifiable by form -- and never the transitive-homonym 걸다 forms."""
+        identifiable by form -- with natural inflections for the translated-prompt task."""
         # ending classes: vowel-harmony allomorphs (았/었, 아서/어서, 아/어),
         # contracted past stems (자+았 -> 잤, 서+었 -> 섰, 펴+었 -> 폈) and the
         # (으) epenthetic variants all count as the SAME grammatical ending,
@@ -841,7 +784,7 @@ class TestBatch34Cloze(unittest.TestCase):
             ("conditional", ("면",)),
             ("causal", ("서",)),
             ("connective", ("고",)),
-            ("banmal", ("려", "아", "어")),
+            ("banmal", ("려", "아", "어", "내", "여")),
         )
 
         def ending_class(word: str):
@@ -858,7 +801,6 @@ class TestBatch34Cloze(unittest.TestCase):
             self.assertIsNotNone(ans_class, f"{item['id']}: unrecognised verb ending {item['answer']!r}")
             for d in item["distractors"]:
                 self.assertEqual(ending_class(d), ans_class, f"{item['id']}: distractor {d!r} does not share ending class {ans_class!r}")
-                self.assertFalse(d.startswith("걸"), f"{item['id']}: 걷다/걸다 homonym distractor {d!r}")
 
     def test_distractor_length_matches_answer_within_two_syllables(self):
         for item in self.items:
@@ -879,7 +821,7 @@ class TestBatch34Satz(unittest.TestCase):
 
     def test_item_shape_matches_batch31_draft(self):
         for item in self.items:
-            self.assertEqual(set(item), {"id", "sourceVocabId", "vocabKo", "targetKo", "distractors"}, item["id"])
+            self.assertEqual(set(item), {"id", "sourceVocabId", "vocabKo", "targetKo", "distractors", "promptDe", "promptEn", "level"}, item["id"])
 
     def test_ids_form_complete_contiguous_set_above_prior_max(self):
         live_max = max(int(i["id"].rsplit("_", 1)[1]) for i in self.live_satz if i["id"].startswith("satz_a2_"))
@@ -903,18 +845,22 @@ class TestBatch34Satz(unittest.TestCase):
         rows_by_id = {r["id"]: r for r in _load_vocab_rows(ROWS_CSV)}
         for item in self.items:
             self.assertEqual(item["vocabKo"], rows_by_id[item["sourceVocabId"]]["korean"])
-            self.assertLessEqual(R.eojeol_count(item["targetKo"]), 10)
+            self.assertLessEqual(R.eojeol_count(item["targetKo"]), 12)
 
     def test_target_meets_build_contract_three_tokens(self):
         for item in self.items:
             self.assertTrue(satz_meets_build_contract(item["targetKo"]), f"{item['id']}: targetKo has fewer than 3 tokens: {item['targetKo']!r}")
 
-    def test_two_distractors_which_are_the_first_two_cloze_distractors(self):
-        cloze_by_vid = {c["sourceVocabId"]: c for c in _load_json(CLOZE_JSON)["items"]}
+    def test_two_independently_authored_satz_distractors(self):
         for item in self.items:
-            self.assertEqual(len(item["distractors"]), 2)
-            self.assertEqual(len(set(item["distractors"])), 2)
-            self.assertEqual(item["distractors"], cloze_by_vid[item["sourceVocabId"]]["distractors"][:2])
+            authored = CHOICES[item['vocabKo']]['satz']
+            self.assertEqual(len(item['distractors']), 2)
+            self.assertEqual(len(set(item['distractors'])), 2)
+            self.assertEqual(item['distractors'], [d['text'] for d in authored])
+            tokens = [t.strip('.,!?') for t in item['targetKo'].split()]
+            for d in authored:
+                self.assertIn(d['replaces'], tokens)
+                self.assertTrue(d['contrastKo'])
 
     def test_distractors_not_in_target(self):
         for item in self.items:
@@ -1019,7 +965,7 @@ class TestBatch34Packs(unittest.TestCase):
         text = PACKET_MD.read_text(encoding="utf-8")
         for i in SAMPLE_INDICES:
             self.assertIn(f"### {self.rows[i]['id']} — {self.rows[i]['korean']}", text, f"sample row index {i} missing from packet")
-        self.assertIn("배분어 전체 문장(192)", text)
+        self.assertIn("빈칸 선택지의 뜻 차이(192)", text)
 
 
 class TestBatch34Regeneration(unittest.TestCase):
@@ -1105,6 +1051,93 @@ class TestBatch34Regeneration(unittest.TestCase):
                 self.assertTrue(actual_path.is_file(), f"generator omitted {relative}")
                 self.assertEqual(actual_path.read_bytes(), expected, f"regeneration drift: {relative}")
 
+
+
+
+class TestBatch34TranslationSupportedChoices(unittest.TestCase):
+    def test_all_choices_carry_a_meaning_contrast_and_match_generated_data(self):
+        manifest = _load_json(MANIFEST_JSON)
+        cloze = {c['sourceVocabId']: c for c in _load_json(CLOZE_JSON)['items']}
+        satz = {s['sourceVocabId']: s for s in _load_json(SATZ_JSON)['items']}
+        for row in _load_vocab_rows(ROWS_CSV):
+            design = manifest['choiceDesign'][row['id']]
+            self.assertTrue(design['cueKo'])
+            for kind, count in (('cloze', 3), ('satz', 2)):
+                choices = design[kind]
+                self.assertEqual(len(choices), count)
+                for d in choices:
+                    self.assertTrue(d['contrastKo'].strip())
+                    self.assertTrue(d['lemma'].strip())
+                actual = cloze[row['id']] if kind == 'cloze' else satz[row['id']]
+                self.assertEqual(actual['distractors'], [d['text'] for d in choices])
+
+    def test_both_runtime_prompt_languages_are_present_and_match_vocab(self):
+        rows = {r['id']: r for r in _load_vocab_rows(ROWS_CSV)}
+        for filename, de_key, en_key in ((CLOZE_JSON, 'de', 'en'), (SATZ_JSON, 'promptDe', 'promptEn')):
+            for item in _load_json(filename)['items']:
+                row = rows[item['sourceVocabId']]
+                self.assertTrue(item[de_key].strip() and item[en_key].strip())
+                self.assertEqual(item[de_key], row['example_german'])
+                self.assertEqual(item[en_key], row['example_english'])
+                self.assertEqual(item['level'], 'a2')
+
+    def test_new_choice_lemmas_do_not_introduce_grade3_vocabulary(self):
+        grades = {}
+        for row in _load_vocab_rows(NIKL_CSV):
+            grades[row['headword']] = min(grades.get(row['headword'], 99), int(row['grade']))
+        for word, design in CHOICES.items():
+            for kind in ('cloze', 'satz'):
+                for d in design[kind]:
+                    for part in lemma_components(d['lemma']):
+                        self.assertLessEqual(grades.get(part, 99), 2, (word, kind, d, part))
+
+    def test_missing_translation_is_rejected_before_generation(self):
+        for language in ('de_ex', 'en_ex'):
+            entry = deepcopy(BUILD.ENTRIES[0])
+            entry[language] = ' '
+            with self.assertRaisesRegex(ValueError, 'translated prompts are required'):
+                validate_choice_contract(entry)
+
+    def test_duplicate_or_answer_choices_are_rejected(self):
+        for kind in ('cloze', 'satz'):
+            entry = deepcopy(BUILD.ENTRIES[0])
+            entry['choice_design'][kind][1] = deepcopy(entry['choice_design'][kind][0])
+            with self.assertRaises(ValueError):
+                validate_choice_contract(entry)
+            entry = deepcopy(BUILD.ENTRIES[0])
+            entry['choice_design'][kind][0]['text'] = entry['answer']
+            with self.assertRaises(ValueError):
+                validate_choice_contract(entry)
+
+    def test_missing_contrast_or_satz_anchor_is_rejected(self):
+        entry = deepcopy(BUILD.ENTRIES[0])
+        entry['choice_design']['cloze'][0]['contrastKo'] = ''
+        with self.assertRaises(ValueError):
+            validate_choice_contract(entry)
+        entry = deepcopy(BUILD.ENTRIES[0])
+        entry['choice_design']['satz'][0]['replaces'] = '없는토큰'
+        with self.assertRaisesRegex(ValueError, 'missing Satz replacement token'):
+            validate_choice_contract(entry)
+
+    def test_absent_choice_fields_and_malformed_authoring_rows_are_rejected(self):
+        for kind in ('cloze', 'satz'):
+            for key in ('text', 'lemma', 'contrastKo'):
+                entry = deepcopy(BUILD.ENTRIES[0])
+                del entry['choice_design'][kind][0][key]
+                with self.assertRaisesRegex(ValueError, 'choice fields'):
+                    validate_choice_contract(entry)
+        with self.assertRaises(ValueError):
+            C('식사를|식사')
+        with self.assertRaises(ValueError):
+            T('주말에|평일에|평일')
+
+    def test_rendered_satz_contrasts_are_visible_in_packet(self):
+        packet = PACKET_MD.read_text(encoding='utf-8')
+        self.assertIn('문장 조립용 추가 단어(128)', packet)
+        for entry in BUILD.ENTRIES:
+            validate_choice_contract(entry)
+            for d in entry['choice_design']['satz']:
+                self.assertIn(d['contrastKo'], packet)
 
 if __name__ == "__main__":
     unittest.main()
