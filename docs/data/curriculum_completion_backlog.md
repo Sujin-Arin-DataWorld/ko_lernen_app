@@ -2,8 +2,8 @@
 
 > 이 목록은 W0b3의 검토용 분류 큐입니다. 완료된 교육과정, 확정된 카드 누락 수, 전체 요구 분모를 뜻하지 않습니다.
 
-- 고유 작업 항목: 859
-- 고유 sampleLexis 후보: 201 (Phase×단어 맥락 329)
+- 고유 작업 항목: 856
+- 고유 sampleLexis 후보: 200 (Phase×단어 맥락 326)
 - Phase C18 병합 경고 참조: 72; C11 정보성 참조: 5
 - 자동 문법 진단은 의미·원 급·기존 연결 검토 전 확정 결손이 아닙니다.
 
@@ -11,9 +11,9 @@
 
 SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체크아웃의 줄바꿈 차이는 내용 변경으로 세지 않습니다.
 
-- `tool/curriculum_matrix_gaps.csv`: `20f250841610c51c772afb7c7dd157bd94b180db56b8b89aebd1caac8f304b92`
-- `tool/learning_phase_findings.csv`: `06909d55415ac3c7ea3da1f994a06e5798e125223d3748aa754f55594f01c496`
-- `tool/learning_phase_summary.json`: `a6c260f7a477a8e5abebf0fdada00c65608a52969bc4c0e2b261091df71d380c`
+- `tool/curriculum_matrix_gaps.csv`: `7ffa46859a1f1d033b54c3f7e2e7a62f16a750b0692afd9882f3cade93cb682c`
+- `tool/learning_phase_findings.csv`: `5f335cc11e65cb110993b6ed6e153471c5558abf0d44eae6e1f7c35a788c9526`
+- `tool/learning_phase_summary.json`: `6218a489ab882665bffb6f76147da2ef5902260250025b0a87943c43ef032a3c`
 - `tools/content_factory/cefr_matrix/phases.json`: `b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9`
 - `tools/content_factory/cefr_matrix/ko.json`: `c642d91721753ea990a5b7c0373b9cb1da8923ae984e0c583de2825fc26cb4cf`
 - `tools/content_factory/lexicon/nikl_kiiq_2017_grammar.csv`: `c7455e22537b8b841529a7da155510a4607ba5b8f33c1516045fa8566dd25014`
@@ -764,14 +764,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: verify_genre_content_and_placement; 기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
 - 근거: C18_surface: 현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다 | structural_gap: mode=R;count=0;surfaces=none
 
-### `A1|vocab_domain|professions_workplace|unassigned`
-
-- 항목: 직업·직장 어휘
-- 상태: needs_review; 확정 분류: 없음; 후보: assessment_missing, content_missing, existing_unlinked
-- 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
-- 조치: add_pack_in_domain
-- 근거: thin: words=7
-
 ### `A2|grammar_anchor|grammar_a1_future_modifier|unassigned`
 
 - 항목: grammar.csv row never shown in a scenario or media line
@@ -1266,7 +1258,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 4 개가 앱 어휘(A2 이하)에 없다: 요금, 결제, 비용, 예산
+- 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(A2 이하)에 없다: 결제, 비용, 예산
 
 ### `A2|phase_warning|C16_lexis:KP05 · public_services_admin_vocab|unassigned`
 
@@ -1407,14 +1399,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 ### `A2|sample_lexis|예산|unassigned`
 
 - 항목: 예산
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
-- 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
-- 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
-- 근거: sampleLexis missing from current app vocabulary audit
-
-### `A2|sample_lexis|요금|unassigned`
-
-- 항목: 요금
 - 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked
 - 안내: Phase 예시 어휘 후보입니다. 공식 필수 어휘 목록이나 제작 수량으로 사용하지 않으며, 정확한 Phase·도메인 맥락을 검토합니다.
 - 조치: Phase 과제 예시 어휘로서 맥락·레벨·자료 연결을 검토한다.
@@ -1603,14 +1587,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 안내: 앱 표면 또는 배치 경로가 없다는 구조 진단만 확인되었습니다. 원고·평가의 존재 여부는 별도로 검토합니다.
 - 조치: verify_genre_content_and_placement; 기존 표면 확장 또는 새 표면 설계를 검토한다; 기술적 불가능을 뜻하지 않는다
 - 근거: C18_surface: 현재 taxonomy에 이 장르의 앱 표면 매핑이 없다(structural_gap) — 실제 수용·산출 자료와 배치 경로의 확인이 필요하다 | structural_gap: mode=R;count=0;surfaces=none
-
-### `A2|vocab_domain|technology_devices_internet|unassigned`
-
-- 항목: 기기·인터넷·디지털 어휘
-- 상태: needs_review; 확정 분류: 없음; 후보: assessment_missing, content_missing, existing_unlinked
-- 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
-- 조치: add_pack_in_domain
-- 근거: thin: words=6
 
 ### `B1|grammar_anchor|grammar_b1_about|unassigned`
 
@@ -2466,7 +2442,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 4 개가 앱 어휘(B1 이하)에 없다: 요금, 결제, 비용, 예산
+- 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 결제, 비용, 예산
 
 ### `B1|phase_warning|C16_lexis:KP10 · public_services_admin_vocab|unassigned`
 
@@ -2498,7 +2474,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: 없음
 - 안내: Phase 진단을 독립적으로 보존합니다. 근거 검토 전 콘텐츠 결손으로 확정하지 않습니다.
 - 조치: korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-- 근거: C16_lexis: Phase 가 쓰는 어휘 4 개가 앱 어휘(B1 이하)에 없다: 요금, 결제, 비용, 예산
+- 근거: C16_lexis: Phase 가 쓰는 어휘 3 개가 앱 어휘(B1 이하)에 없다: 결제, 비용, 예산
 
 ### `B1|phase_warning|C16_lexis:KP11 · society_economy_abstract_nouns|unassigned`
 

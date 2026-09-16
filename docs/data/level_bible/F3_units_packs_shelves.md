@@ -57,19 +57,22 @@
 | c2_05_relationship_narratives | c2 | 5 | 기억·관점·관계 서사 조정하기 | Negotiating memory, perspective, and relationship narratives |
 | c2_06_fandom_discourse_power | c2 | 6 | 미디어 프레이밍과 지역 영향 논증하기 | Arguing media framing and local impact |
 
-## 팩 base id -> 코스유닛 매핑 (215개)
+## 팩 base id -> 코스유닛 매핑 (220개)
 
 | pack base id | courseUnitId |
 |---|---|
 | a1_adjectives | a1_09_home_daily_life |
+| a1_adverbs | a1_13_register_switching |
 | a1_belongings | a1_09_home_daily_life |
 | a1_body | a1_10_health_safety |
 | a1_city_services_2026 | a1_06_transport_directions |
 | a1_colors | a1_09_home_daily_life |
+| a1_counters | a1_05_numbers_time |
 | a1_countries | a1_02_self_intro_identity |
 | a1_culture_hobbies | a1_11_titles_relationships |
 | a1_daily | a1_12_daily_negation |
 | a1_descriptions | a1_09_home_daily_life |
+| a1_determiners | a1_05_numbers_time |
 | a1_family | a1_11_titles_relationships |
 | a1_feelings_talk | a1_11_titles_relationships |
 | a1_first_class | a1_15_first_class_work |
@@ -92,6 +95,7 @@
 | a1_places_buildings | a1_06_transport_directions |
 | a1_position | a1_06_transport_directions |
 | a1_post_office | a1_07_contact_address |
+| a1_pronouns | a1_08_clarify_repair |
 | a1_repair_language | a1_08_clarify_repair |
 | a1_school_work | a1_15_first_class_work |
 | a1_self_intro | a1_02_self_intro_identity |
@@ -114,6 +118,7 @@
 | a2_health_misc | a2_04_feelings_health |
 | a2_home | a2_08_home_money |
 | a2_household | a2_08_home_money |
+| a2_messenger_phone | a2_03_chat_relationships |
 | a2_money | a2_08_home_money |
 | a2_nature | a2_03_chat_relationships |
 | a2_partner_chuseok_basic | a2_03_chat_relationships |
