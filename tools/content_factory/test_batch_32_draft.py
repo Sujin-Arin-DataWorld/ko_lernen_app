@@ -50,10 +50,13 @@ from distractor_rules import (  # noqa: E402
     DICTIONARY_FORM_VERBS,
 )
 import scan_grammar_level as SGL  # noqa: E402
+import audit_batch_live_promotion as ABLP  # noqa: E402
 from cefr_lexicon import CefrLexicon, GrammarIndex  # noqa: E402
 
 DRAFTS = REPO_ROOT / "tools/content_factory/drafts"
+REVIEW = REPO_ROOT / "tools/content_factory/review"
 VOCAB_CSV = REPO_ROOT / "assets/data/korean_vocab.csv"
+PACKET_MD = REPO_ROOT / "docs/data/review_packets/batch_32_a2_jin_sample.md"
 CHARACTER_PROFILES = R.CHARACTER_PROFILES
 PRIOR_VOCAB_CSVS = [DRAFTS / f"batch_{n}_a1_rows.csv" for n in range(25, 31)] + [
     DRAFTS / "batch_31_a2_rows.csv"
@@ -148,8 +151,68 @@ class TestBatch32DraftFilesExist(unittest.TestCase):
             self.assertTrue((DRAFTS / name).exists(), f"missing draft file: {name}")
 
     def test_review_packet_exists(self):
-        packet = REPO_ROOT / "docs/data/review_packets/batch_32_a2_jin_sample.md"
-        self.assertTrue(packet.exists())
+        self.assertTrue(PACKET_MD.exists())
+
+
+class TestBatch32ManifestAuditShape(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.manifest = _load_json(DRAFTS / "batch_32_a2_reinforcement_manifest.json")
+
+    def test_collections_review_paths_and_record_count(self):
+        by_kind = {artifact["kind"]: artifact for artifact in self.manifest["artifacts"]}
+        self.assertEqual(set(by_kind), {"vocab", "cloze", "satz"})
+        self.assertIsNone(by_kind["vocab"]["collection"])
+        self.assertEqual(by_kind["cloze"]["collection"], "items")
+        self.assertEqual(by_kind["satz"]["collection"], "items")
+        self.assertEqual(sum(a["count"] for a in by_kind.values()), 192)
+        self.assertEqual(self.manifest["recordCount"], 192)
+        for kind, artifact in by_kind.items():
+            self.assertEqual(artifact["review"], f"tools/content_factory/review/batch_32_a2_{kind}_review.csv")
+
+    def test_three_pending_ledgers_match_exact_draft_ids(self):
+        for artifact in self.manifest["artifacts"]:
+            review_path = REPO_ROOT / artifact["review"]
+            self.assertTrue(review_path.is_file())
+            with review_path.open(encoding="utf-8-sig", newline="") as f:
+                rows = list(csv.DictReader(f))
+            self.assertEqual(len(rows), 64)
+            self.assertEqual({row["상태"] for row in rows}, {"pending"})
+            self.assertEqual({row["jin_memo"] for row in rows}, {""})
+            draft_path = REPO_ROOT / artifact["draft"]
+            if artifact["kind"] == "vocab":
+                draft_ids = [row["id"] for row in _load_vocab_rows(draft_path)]
+            else:
+                draft_ids = [item["id"] for item in _load_json(draft_path)["items"]]
+            self.assertEqual([row["id"] for row in rows], draft_ids)
+
+    def test_promotion_audit_has_expected_draft_state_without_structural_error(self):
+        result = ABLP.audit(REPO_ROOT)
+        report = next(
+            r for r in result["reports"]
+            if r["manifest"] == "batch_32_a2_reinforcement_manifest.json"
+        )
+        self.assertEqual(report["tracked"], 192)
+        self.assertEqual(report["live"], 0)
+        self.assertEqual(report["reviewStatuses"], {"pending": 192})
+        self.assertEqual(report["auditStatus"], "not_live")
+        self.assertEqual(
+            report["errors"],
+            ["batch_32_a2_reinforcement_manifest.json: live records lack structured Jin approval or legacy promotedAt evidence"],
+        )
+
+    def test_packet_persona_totals_are_derived_from_manifest_mapping(self):
+        counts = Counter(self.manifest["personaRows"].values())
+        names = {
+            "lena": "레나", "hyuna": "현아", "sujin": "수진",
+            "maya": "마야", "daniel": "다니엘", "christian": "크리스티안", "jun": "준",
+        }
+        twice = "·".join(names[p] for p in ("lena", "hyuna", "sujin") if counts[p] == 2)
+        once = "·".join(names[p] for p in ("maya", "daniel", "christian", "jun") if counts[p] == 1)
+        expected = f"{twice} 각 2회, {once} 각 1회"
+        packet = PACKET_MD.read_text(encoding="utf-8")
+        self.assertIn(expected, packet)
+        self.assertNotIn("레나·마야·현아 각 2회", packet)
 
 
 class TestBatch32NeverTouchesLiveAssets(unittest.TestCase):

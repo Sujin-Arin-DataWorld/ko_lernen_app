@@ -1,0 +1,772 @@
+{
+  "items": [
+    {
+      "id": "cloze_a2_0509",
+      "sourceVocabId": "vocab_a2_0702",
+      "fullKo": "다음 주에 잔치를 열어요.",
+      "sentenceKo": "다음 주에 ＿＿＿ 열어요.",
+      "answer": "잔치를",
+      "distractors": [
+        "양말을",
+        "연필을",
+        "감기를"
+      ]
+    },
+    {
+      "id": "cloze_a2_0510",
+      "sourceVocabId": "vocab_a2_0703",
+      "fullKo": "대박, 두 사람이 다음 달에 결혼을 해요!",
+      "sentenceKo": "대박, 두 사람이 다음 달에 ＿＿＿ 해요!",
+      "answer": "결혼을",
+      "distractors": [
+        "기온을",
+        "치약을",
+        "양말을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0511",
+      "sourceVocabId": "vocab_a2_0704",
+      "fullKo": "레나 씨, 우리 팀에 온 것을 환영해요.",
+      "sentenceKo": "레나 씨, 우리 팀에 온 것을 ＿＿＿.",
+      "answer": "환영해요",
+      "distractors": [
+        "피곤해요",
+        "친절해요",
+        "건강해요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0512",
+      "sourceVocabId": "vocab_a2_0705",
+      "fullKo": "마야 씨, 연말에는 회사 일이 많아요?",
+      "sentenceKo": "마야 씨, ＿＿＿ 회사 일이 많아요?",
+      "answer": "연말에는",
+      "distractors": [
+        "숟가락에는",
+        "접시에는",
+        "지갑에는"
+      ]
+    },
+    {
+      "id": "cloze_a2_0503",
+      "sourceVocabId": "vocab_a2_0696",
+      "fullKo": "안드레아 씨, 사진을 메일로 친구에게 보냈어요.",
+      "sentenceKo": "안드레아 씨, 사진을 ＿＿＿ 친구에게 보냈어요.",
+      "answer": "메일로",
+      "distractors": [
+        "잔치로",
+        "독서로",
+        "구름으로"
+      ]
+    },
+    {
+      "id": "cloze_a2_0504",
+      "sourceVocabId": "vocab_a2_0697",
+      "fullKo": "지하철에서는 인터넷 연결이 잘 안 돼요.",
+      "sentenceKo": "지하철에서는 인터넷 ＿＿＿ 잘 안 돼요.",
+      "answer": "연결이",
+      "distractors": [
+        "바닥이",
+        "목욕이",
+        "잔치가"
+      ]
+    },
+    {
+      "id": "cloze_a2_0505",
+      "sourceVocabId": "vocab_a2_0698",
+      "fullKo": "전화기를 집에 두고 나왔어요.",
+      "sentenceKo": "＿＿＿ 집에 두고 나왔어요.",
+      "answer": "전화기를",
+      "distractors": [
+        "소식을",
+        "도움을",
+        "환영을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0506",
+      "sourceVocabId": "vocab_a2_0699",
+      "fullKo": "크리스티안, 내 목소리 잘 들려?",
+      "sentenceKo": "크리스티안, 내 목소리 잘 ＿＿＿?",
+      "answer": "들려",
+      "distractors": [
+        "앉아",
+        "울어",
+        "웃어"
+      ]
+    },
+    {
+      "id": "cloze_a2_0507",
+      "sourceVocabId": "vocab_a2_0700",
+      "fullKo": "친구한테서 결혼 소식을 듣고 정말 기뻤어요.",
+      "sentenceKo": "친구한테서 결혼 ＿＿＿ 듣고 정말 기뻤어요.",
+      "answer": "소식을",
+      "distractors": [
+        "연필을",
+        "얼음을",
+        "구름을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0508",
+      "sourceVocabId": "vocab_a2_0701",
+      "fullKo": "길을 모르면 지나가는 사람에게 물어보세요.",
+      "sentenceKo": "길을 모르면 지나가는 사람에게 ＿＿＿.",
+      "answer": "물어보세요",
+      "distractors": [
+        "앉으세요",
+        "서세요",
+        "웃으세요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0513",
+      "sourceVocabId": "vocab_a2_0706",
+      "fullKo": "다니엘 씨, 어제 설명이 정말 도움이 됐어요.",
+      "sentenceKo": "다니엘 씨, 어제 설명이 정말 ＿＿＿ 됐어요.",
+      "answer": "도움이",
+      "distractors": [
+        "센터가",
+        "만두가",
+        "하늘이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0514",
+      "sourceVocabId": "vocab_a2_0707",
+      "fullKo": "크리스티안, 컴퓨터가 또 고장이 났어?",
+      "sentenceKo": "크리스티안, 컴퓨터가 또 ＿＿＿ 났어?",
+      "answer": "고장이",
+      "distractors": [
+        "식탁이",
+        "유리가",
+        "우표가"
+      ]
+    },
+    {
+      "id": "cloze_a2_0515",
+      "sourceVocabId": "vocab_a2_0708",
+      "fullKo": "어제 지하철에서 지갑을 잃었어요.",
+      "sentenceKo": "어제 지하철에서 지갑을 ＿＿＿.",
+      "answer": "잃었어요",
+      "distractors": [
+        "앉았어요",
+        "울었어요",
+        "잤어요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0516",
+      "sourceVocabId": "vocab_a2_0709",
+      "fullKo": "길이 많이 막혀서 회의에 늦었어요.",
+      "sentenceKo": "길이 많이 ＿＿＿ 회의에 늦었어요.",
+      "answer": "막혀서",
+      "distractors": [
+        "앉아서",
+        "울어서",
+        "웃어서"
+      ]
+    },
+    {
+      "id": "cloze_a2_0517",
+      "sourceVocabId": "vocab_a2_0710",
+      "fullKo": "갑자기 전기가 나가서 방이 어두웠어요.",
+      "sentenceKo": "갑자기 ＿＿＿ 나가서 방이 어두웠어요.",
+      "answer": "전기가",
+      "distractors": [
+        "목욕이",
+        "양치질이",
+        "세탁이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0518",
+      "sourceVocabId": "vocab_a2_0711",
+      "fullKo": "창문 유리를 깨끗이 닦았어요.",
+      "sentenceKo": "창문 ＿＿＿ 깨끗이 닦았어요.",
+      "answer": "유리를",
+      "distractors": [
+        "소식을",
+        "도움을",
+        "결혼을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0519",
+      "sourceVocabId": "vocab_a2_0712",
+      "fullKo": "서비스 센터에 전화해서 물어봤어요.",
+      "sentenceKo": "서비스 ＿＿＿ 전화해서 물어봤어요.",
+      "answer": "센터에",
+      "distractors": [
+        "만두에",
+        "떡에",
+        "찌개에"
+      ]
+    },
+    {
+      "id": "cloze_a2_0520",
+      "sourceVocabId": "vocab_a2_0713",
+      "fullKo": "이 호텔에서 친절한 서비스를 받았어요.",
+      "sentenceKo": "이 호텔에서 친절한 ＿＿＿ 받았어요.",
+      "answer": "서비스를",
+      "distractors": [
+        "기온을",
+        "얼음을",
+        "바닥을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0521",
+      "sourceVocabId": "vocab_a2_0714",
+      "fullKo": "안전 운전을 꼭 하세요.",
+      "sentenceKo": "＿＿＿ 운전을 꼭 하세요.",
+      "answer": "안전",
+      "distractors": [
+        "도서관",
+        "만두",
+        "연필"
+      ]
+    },
+    {
+      "id": "cloze_a2_0522",
+      "sourceVocabId": "vocab_a2_0715",
+      "fullKo": "급한 일이 있어서 먼저 가요.",
+      "sentenceKo": "＿＿＿ 일이 있어서 먼저 가요.",
+      "answer": "급한",
+      "distractors": [
+        "차가운",
+        "맛있는",
+        "두꺼운"
+      ]
+    },
+    {
+      "id": "cloze_a2_0523",
+      "sourceVocabId": "vocab_a2_0716",
+      "fullKo": "인터넷으로 기차 시간을 알아봤어요.",
+      "sentenceKo": "인터넷으로 기차 시간을 ＿＿＿.",
+      "answer": "알아봤어요",
+      "distractors": [
+        "누웠어요",
+        "뛰었어요",
+        "웃었어요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0524",
+      "sourceVocabId": "vocab_a2_0717",
+      "fullKo": "제가 계산을 잘못해서 죄송해요.",
+      "sentenceKo": "제가 계산을 ＿＿＿ 죄송해요.",
+      "answer": "잘못해서",
+      "distractors": [
+        "앉아서",
+        "자서",
+        "뛰어서"
+      ]
+    },
+    {
+      "id": "cloze_a2_0525",
+      "sourceVocabId": "vocab_a2_0718",
+      "fullKo": "명절에 가족과 함께 만두를 먹었어요.",
+      "sentenceKo": "명절에 가족과 함께 ＿＿＿ 먹었어요.",
+      "answer": "만두를",
+      "distractors": [
+        "기온을",
+        "도움을",
+        "서비스를"
+      ]
+    },
+    {
+      "id": "cloze_a2_0526",
+      "sourceVocabId": "vocab_a2_0719",
+      "fullKo": "엄마, 나 3학년 친구들하고 떡을 먹었어!",
+      "sentenceKo": "엄마, 나 3학년 친구들하고 ＿＿＿ 먹었어!",
+      "answer": "떡을",
+      "distractors": [
+        "결혼을",
+        "세탁을",
+        "안전을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0527",
+      "sourceVocabId": "vocab_a2_0720",
+      "fullKo": "한국 김은 짜지 않고 맛있어요.",
+      "sentenceKo": "한국 ＿＿＿ 짜지 않고 맛있어요.",
+      "answer": "김은",
+      "distractors": [
+        "휴지는",
+        "선풍기는",
+        "유리는"
+      ]
+    },
+    {
+      "id": "cloze_a2_0528",
+      "sourceVocabId": "vocab_a2_0721",
+      "fullKo": "추운 날에는 뜨거운 찌개가 최고예요.",
+      "sentenceKo": "추운 날에는 뜨거운 ＿＿＿ 최고예요.",
+      "answer": "찌개가",
+      "distractors": [
+        "얼음이",
+        "치약이",
+        "선풍기가"
+      ]
+    },
+    {
+      "id": "cloze_a2_0529",
+      "sourceVocabId": "vocab_a2_0722",
+      "fullKo": "시장에서 튀김을 사서 먹었어요.",
+      "sentenceKo": "시장에서 ＿＿＿ 사서 먹었어요.",
+      "answer": "튀김을",
+      "distractors": [
+        "소식을",
+        "도움을",
+        "안전을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0530",
+      "sourceVocabId": "vocab_a2_0723",
+      "fullKo": "이사하는 날에는 자장면을 시켜요.",
+      "sentenceKo": "이사하는 날에는 ＿＿＿ 시켜요.",
+      "answer": "자장면을",
+      "distractors": [
+        "구름을",
+        "하늘을",
+        "햇빛을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0531",
+      "sourceVocabId": "vocab_a2_0724",
+      "fullKo": "매운 짬뽕을 먹고 땀이 많이 났어요.",
+      "sentenceKo": "매운 ＿＿＿ 먹고 땀이 많이 났어요.",
+      "answer": "짬뽕을",
+      "distractors": [
+        "휴지를",
+        "선풍기를",
+        "쓰레기통을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0532",
+      "sourceVocabId": "vocab_a2_0725",
+      "fullKo": "중국집에서 탕수육을 하나 더 주문했어요.",
+      "sentenceKo": "중국집에서 ＿＿＿ 하나 더 주문했어요.",
+      "answer": "탕수육을",
+      "distractors": [
+        "바닥을",
+        "안전을",
+        "전기를"
+      ]
+    },
+    {
+      "id": "cloze_a2_0533",
+      "sourceVocabId": "vocab_a2_0726",
+      "fullKo": "비 오는 날에는 따뜻한 칼국수가 먹고 싶어요.",
+      "sentenceKo": "비 오는 날에는 따뜻한 ＿＿＿ 먹고 싶어요.",
+      "answer": "칼국수가",
+      "distractors": [
+        "치약이",
+        "햇빛이",
+        "식탁이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0534",
+      "sourceVocabId": "vocab_a2_0727",
+      "fullKo": "학교 식당 돈가스는 값이 싸고 맛있어요.",
+      "sentenceKo": "학교 식당 ＿＿＿ 값이 싸고 맛있어요.",
+      "answer": "돈가스는",
+      "distractors": [
+        "세탁은",
+        "목욕은",
+        "독서는"
+      ]
+    },
+    {
+      "id": "cloze_a2_0535",
+      "sourceVocabId": "vocab_a2_0728",
+      "fullKo": "저녁에 감자를 넣은 카레를 만들었어요.",
+      "sentenceKo": "저녁에 감자를 넣은 ＿＿＿ 만들었어요.",
+      "answer": "카레를",
+      "distractors": [
+        "사흘을",
+        "나흘을",
+        "환영을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0536",
+      "sourceVocabId": "vocab_a2_0729",
+      "fullKo": "한국에서는 생일에 미역국을 먹어요.",
+      "sentenceKo": "한국에서는 생일에 ＿＿＿ 먹어요.",
+      "answer": "미역국을",
+      "distractors": [
+        "세탁을",
+        "목욕을",
+        "집안일을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0537",
+      "sourceVocabId": "vocab_a2_0730",
+      "fullKo": "민호 씨, 주말에는 누가 집안일을 해요?",
+      "sentenceKo": "민호 씨, 주말에는 누가 ＿＿＿ 해요?",
+      "answer": "집안일을",
+      "distractors": [
+        "식탁을",
+        "전화기를",
+        "공원을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0538",
+      "sourceVocabId": "vocab_a2_0731",
+      "fullKo": "이 코트는 집에서 세탁을 하면 안 돼요.",
+      "sentenceKo": "이 코트는 집에서 ＿＿＿ 하면 안 돼요.",
+      "answer": "세탁을",
+      "distractors": [
+        "쓰레기통을",
+        "선풍기를",
+        "전화기를"
+      ]
+    },
+    {
+      "id": "cloze_a2_0539",
+      "sourceVocabId": "vocab_a2_0732",
+      "fullKo": "더러운 양말을 손으로 빨았어요.",
+      "sentenceKo": "더러운 양말을 손으로 ＿＿＿.",
+      "answer": "빨았어요",
+      "distractors": [
+        "앉았어요",
+        "누웠어요",
+        "뛰었어요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0540",
+      "sourceVocabId": "vocab_a2_0733",
+      "fullKo": "다 마신 컵은 쓰레기통에 버리세요.",
+      "sentenceKo": "다 마신 컵은 ＿＿＿ 버리세요.",
+      "answer": "쓰레기통에",
+      "distractors": [
+        "결혼에",
+        "환영에",
+        "안전에"
+      ]
+    },
+    {
+      "id": "cloze_a2_0541",
+      "sourceVocabId": "vocab_a2_0734",
+      "fullKo": "화장실에 휴지가 없어서 불편했어요.",
+      "sentenceKo": "화장실에 ＿＿＿ 없어서 불편했어요.",
+      "answer": "휴지가",
+      "distractors": [
+        "나흘이",
+        "열흘이",
+        "결혼이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0542",
+      "sourceVocabId": "vocab_a2_0735",
+      "fullKo": "자기 전에 따뜻한 물로 목욕을 해요.",
+      "sentenceKo": "자기 전에 따뜻한 물로 ＿＿＿ 해요.",
+      "answer": "목욕을",
+      "distractors": [
+        "식탁을",
+        "전화기를",
+        "햇빛을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0543",
+      "sourceVocabId": "vocab_a2_0736",
+      "fullKo": "식사 후에는 꼭 양치질을 하세요.",
+      "sentenceKo": "식사 후에는 꼭 ＿＿＿ 하세요.",
+      "answer": "양치질을",
+      "distractors": [
+        "바닥을",
+        "도서관을",
+        "책상을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0544",
+      "sourceVocabId": "vocab_a2_0737",
+      "fullKo": "치약이 다 떨어져서 마트에서 샀어요.",
+      "sentenceKo": "＿＿＿ 다 떨어져서 마트에서 샀어요.",
+      "answer": "치약이",
+      "distractors": [
+        "잔치가",
+        "환영이",
+        "메일이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0545",
+      "sourceVocabId": "vocab_a2_0738",
+      "fullKo": "더워서 선풍기를 켜고 잤어요.",
+      "sentenceKo": "더워서 ＿＿＿ 켜고 잤어요.",
+      "answer": "선풍기를",
+      "distractors": [
+        "만두를",
+        "고장을",
+        "연말을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0546",
+      "sourceVocabId": "vocab_a2_0739",
+      "fullKo": "저녁 준비가 끝나서 식탁에 그릇을 놓았어요.",
+      "sentenceKo": "저녁 준비가 끝나서 ＿＿＿ 그릇을 놓았어요.",
+      "answer": "식탁에",
+      "distractors": [
+        "고장에",
+        "서비스에",
+        "메일에"
+      ]
+    },
+    {
+      "id": "cloze_a2_0547",
+      "sourceVocabId": "vocab_a2_0740",
+      "fullKo": "청소기로 바닥을 깨끗하게 청소했어요.",
+      "sentenceKo": "청소기로 ＿＿＿ 깨끗하게 청소했어요.",
+      "answer": "바닥을",
+      "distractors": [
+        "이틀을",
+        "사흘을",
+        "연말을"
+      ]
+    },
+    {
+      "id": "cloze_a2_0548",
+      "sourceVocabId": "vocab_a2_0741",
+      "fullKo": "냄비에 물을 넣고 끓이세요.",
+      "sentenceKo": "＿＿＿ 물을 넣고 끓이세요.",
+      "answer": "냄비에",
+      "distractors": [
+        "고장에",
+        "연결에",
+        "서비스에"
+      ]
+    },
+    {
+      "id": "cloze_a2_0549",
+      "sourceVocabId": "vocab_a2_0742",
+      "fullKo": "현아 씨, 이틀 동안 어디에 있었어요?",
+      "sentenceKo": "현아 씨, ＿＿＿ 동안 어디에 있었어요?",
+      "answer": "이틀",
+      "distractors": [
+        "우산",
+        "지갑",
+        "열쇠"
+      ]
+    },
+    {
+      "id": "cloze_a2_0550",
+      "sourceVocabId": "vocab_a2_0743",
+      "fullKo": "감기로 사흘 동안 학교에 못 갔어요.",
+      "sentenceKo": "감기로 ＿＿＿ 동안 학교에 못 갔어요.",
+      "answer": "사흘",
+      "distractors": [
+        "의자",
+        "책상",
+        "침대"
+      ]
+    },
+    {
+      "id": "cloze_a2_0551",
+      "sourceVocabId": "vocab_a2_0744",
+      "fullKo": "비가 나흘 동안 계속 왔어요.",
+      "sentenceKo": "비가 ＿＿＿ 동안 계속 왔어요.",
+      "answer": "나흘",
+      "distractors": [
+        "지도",
+        "그림",
+        "신발"
+      ]
+    },
+    {
+      "id": "cloze_a2_0552",
+      "sourceVocabId": "vocab_a2_0745",
+      "fullKo": "열흘 후에 독일에서 부모님이 오세요.",
+      "sentenceKo": "＿＿＿ 후에 독일에서 부모님이 오세요.",
+      "answer": "열흘",
+      "distractors": [
+        "숟가락",
+        "엽서",
+        "의자"
+      ]
+    },
+    {
+      "id": "cloze_a2_0553",
+      "sourceVocabId": "vocab_a2_0746",
+      "fullKo": "저는 삼 개월 전에 한국에 왔어요.",
+      "sentenceKo": "저는 삼 ＿＿＿ 전에 한국에 왔어요.",
+      "answer": "개월",
+      "distractors": [
+        "냄비",
+        "얼음",
+        "하늘"
+      ]
+    },
+    {
+      "id": "cloze_a2_0554",
+      "sourceVocabId": "vocab_a2_0747",
+      "fullKo": "그동안 연락을 못 해서 미안해요.",
+      "sentenceKo": "＿＿＿ 연락을 못 해서 미안해요.",
+      "answer": "그동안",
+      "distractors": [
+        "우산",
+        "지도",
+        "침대"
+      ]
+    },
+    {
+      "id": "cloze_a2_0555",
+      "sourceVocabId": "vocab_a2_0748",
+      "fullKo": "오랜만에 고향 친구를 만나서 반가웠어요.",
+      "sentenceKo": "＿＿＿ 고향 친구를 만나서 반가웠어요.",
+      "answer": "오랜만에",
+      "distractors": [
+        "치약에",
+        "냄비에",
+        "하늘에"
+      ]
+    },
+    {
+      "id": "cloze_a2_0556",
+      "sourceVocabId": "vocab_a2_0749",
+      "fullKo": "이번 학기 수업은 오늘이 마지막이에요.",
+      "sentenceKo": "이번 학기 수업은 오늘이 ＿＿＿.",
+      "answer": "마지막이에요",
+      "distractors": [
+        "책상이에요",
+        "연필이에요",
+        "양말이에요"
+      ]
+    },
+    {
+      "id": "cloze_a2_0557",
+      "sourceVocabId": "vocab_a2_0750",
+      "fullKo": "최근에 회사 근처로 이사했어요.",
+      "sentenceKo": "＿＿＿ 회사 근처로 이사했어요.",
+      "answer": "최근에",
+      "distractors": [
+        "지갑에",
+        "신발에",
+        "편지에"
+      ]
+    },
+    {
+      "id": "cloze_a2_0558",
+      "sourceVocabId": "vocab_a2_0751",
+      "fullKo": "늦게 자서 다음날 아침에 못 일어났어요.",
+      "sentenceKo": "늦게 자서 ＿＿＿ 아침에 못 일어났어요.",
+      "answer": "다음날",
+      "distractors": [
+        "침대",
+        "의자",
+        "가방"
+      ]
+    },
+    {
+      "id": "cloze_a2_0559",
+      "sourceVocabId": "vocab_a2_0752",
+      "fullKo": "어젯밤에 이상한 꿈을 꿨어요.",
+      "sentenceKo": "＿＿＿ 이상한 꿈을 꿨어요.",
+      "answer": "어젯밤에",
+      "distractors": [
+        "그림에",
+        "우표에",
+        "엽서에"
+      ]
+    },
+    {
+      "id": "cloze_a2_0560",
+      "sourceVocabId": "vocab_a2_0753",
+      "fullKo": "수진 씨, 점심시간에 같이 밥 먹어요?",
+      "sentenceKo": "수진 씨, ＿＿＿ 같이 밥 먹어요?",
+      "answer": "점심시간에",
+      "distractors": [
+        "고장에",
+        "연결에",
+        "서비스에"
+      ]
+    },
+    {
+      "id": "cloze_a2_0561",
+      "sourceVocabId": "vocab_a2_0754",
+      "fullKo": "구름이 많아서 하늘이 어두워요.",
+      "sentenceKo": "＿＿＿ 많아서 하늘이 어두워요.",
+      "answer": "구름이",
+      "distractors": [
+        "독서가",
+        "양치질이",
+        "사흘이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0562",
+      "sourceVocabId": "vocab_a2_0755",
+      "fullKo": "비가 그치고 하늘이 정말 맑아요.",
+      "sentenceKo": "비가 그치고 ＿＿＿ 정말 맑아요.",
+      "answer": "하늘이",
+      "distractors": [
+        "수업이",
+        "양치질이",
+        "사흘이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0563",
+      "sourceVocabId": "vocab_a2_0756",
+      "fullKo": "햇빛이 너무 강해서 모자를 썼어요.",
+      "sentenceKo": "＿＿＿ 너무 강해서 모자를 썼어요.",
+      "answer": "햇빛이",
+      "distractors": [
+        "우표가",
+        "엽서가",
+        "침대가"
+      ]
+    },
+    {
+      "id": "cloze_a2_0564",
+      "sourceVocabId": "vocab_a2_0757",
+      "fullKo": "내일은 기온이 5도까지 내려가요.",
+      "sentenceKo": "내일은 ＿＿＿ 5도까지 내려가요.",
+      "answer": "기온이",
+      "distractors": [
+        "독서가",
+        "양치질이",
+        "집안일이"
+      ]
+    },
+    {
+      "id": "cloze_a2_0565",
+      "sourceVocabId": "vocab_a2_0758",
+      "fullKo": "오늘 아침에는 영하 5도까지 내려갔어요.",
+      "sentenceKo": "오늘 아침에는 ＿＿＿ 5도까지 내려갔어요.",
+      "answer": "영하",
+      "distractors": [
+        "공원",
+        "유리",
+        "이틀"
+      ]
+    },
+    {
+      "id": "cloze_a2_0566",
+      "sourceVocabId": "vocab_a2_0759",
+      "fullKo": "물에 얼음을 넣어서 마셨어요.",
+      "sentenceKo": "물에 ＿＿＿ 넣어서 마셨어요.",
+      "answer": "얼음을",
+      "distractors": [
+        "잔치를",
+        "연말을",
+        "점심시간을"
+      ]
+    }
+  ]
+}
