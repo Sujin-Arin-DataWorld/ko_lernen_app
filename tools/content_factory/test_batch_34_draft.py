@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
-"""Regression tests for the C3 Batch 33 (A2 reinforcement, 3rd A2 batch --
-completes Batch 32's partial a2_daily_actions_1 pack, then new topic packs:
-symptoms/treatment, feelings 3, directions, workplace + a partial events
-pack) DRAFT files.
+"""Regression tests for C3 Batch 34 A2 reinforcement.
 
-These tests validate the draft-only artifacts produced for Batch 33:
-    tools/content_factory/drafts/batch_33_a2_rows.csv
-    tools/content_factory/drafts/batch_33_a2_cloze.json
-    tools/content_factory/drafts/batch_33_a2_satz.json
-    tools/content_factory/drafts/batch_33_a2_reinforcement_manifest.json
-    tools/content_factory/review/batch_33_a2_{vocab,cloze,satz}_review.csv (상태=pending)
+This batch completes the events partial first, then the messenger/phone
+partial while preserving the already assigned word-to-ID identities. It also
+adds four full packs (problems/help, dishes, home routines, time spans) and a
+six-word weather/sky partial.
+
+These tests validate the draft-only artifacts produced for Batch 34:
+    tools/content_factory/drafts/batch_34_a2_rows.csv
+    tools/content_factory/drafts/batch_34_a2_cloze.json
+    tools/content_factory/drafts/batch_34_a2_satz.json
+    tools/content_factory/drafts/batch_34_a2_reinforcement_manifest.json
+    tools/content_factory/review/batch_34_a2_{vocab,cloze,satz}_review.csv (상태=pending)
 
 They never touch assets/data/** -- this batch has NOT been approved by Jin
 yet (level-canon program hard rule) and must not be promoted until then.
 
-Batch 33 is the THIRD A2(2급) batch in the C3 series. Mirrors
+Batch 34 is the FOURTH A2(2급) batch in the C3 series. Mirrors
 test_batch_32_draft.py's level-agnostic checks (eojeol count, cloze/satz
 structural invariants, persona/opener pragmatics, particle-fold consistency,
 the A2 grade>=3 grammar scan, D6 stem-reuse cap, speaker-cue-or-leading-
@@ -26,17 +28,23 @@ exclusion, and the audit-clean manifest shape (collection keys, review
 ledgers, recordCount).
 
 Run with:
-    PYTHONIOENCODING=utf-8 python -m unittest tools.content_factory.test_batch_33_draft -v
+    PYTHONIOENCODING=utf-8 python -m unittest tools.content_factory.test_batch_34_draft -v
 """
 
 from __future__ import annotations
 
 import csv
+import hashlib
+import os
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
 import unittest
 from collections import Counter
 from pathlib import Path
+from unittest import mock
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -57,6 +65,7 @@ from distractor_rules import (  # noqa: E402
     DICTIONARY_FORM_VERBS,
 )
 import scan_grammar_level as SGL  # noqa: E402
+import build_batch_34_a2_draft as BUILD  # noqa: E402
 from cefr_lexicon import CefrLexicon, GrammarIndex  # noqa: E402
 
 DRAFTS = REPO_ROOT / "tools/content_factory/drafts"
@@ -67,15 +76,30 @@ NIKL_CSV = R.NIKL_VOCAB_CSV
 PRIOR_VOCAB_CSVS = [DRAFTS / f"batch_{n}_a1_rows.csv" for n in range(25, 31)] + [
     DRAFTS / "batch_31_a2_rows.csv",
     DRAFTS / "batch_32_a2_rows.csv",
+    DRAFTS / "batch_33_a2_rows.csv",
 ]
-PRIOR_A2_DRAFTS = ("31", "32")
+PRIOR_A2_DRAFTS = ("31", "32", "33")
 
 VOCAB_COLUMNS = R.VOCAB_COLUMNS
-ROWS_CSV = DRAFTS / "batch_33_a2_rows.csv"
-CLOZE_JSON = DRAFTS / "batch_33_a2_cloze.json"
-SATZ_JSON = DRAFTS / "batch_33_a2_satz.json"
-MANIFEST_JSON = DRAFTS / "batch_33_a2_reinforcement_manifest.json"
-PACKET_MD = REPO_ROOT / "docs/data/review_packets/batch_33_a2_jin_sample.md"
+ROWS_CSV = DRAFTS / "batch_34_a2_rows.csv"
+CLOZE_JSON = DRAFTS / "batch_34_a2_cloze.json"
+SATZ_JSON = DRAFTS / "batch_34_a2_satz.json"
+MANIFEST_JSON = DRAFTS / "batch_34_a2_reinforcement_manifest.json"
+PACKET_MD = REPO_ROOT / "docs/data/review_packets/batch_34_a2_jin_sample.md"
+GENERATOR = SCRIPT_DIR / "build_batch_34_a2_draft.py"
+
+STABLE_PARTIAL_IDENTITIES = {
+    "메일": ("vocab_a2_0696", "cloze_a2_0503", "satz_a2_0688"),
+    "연결": ("vocab_a2_0697", "cloze_a2_0504", "satz_a2_0689"),
+    "전화기": ("vocab_a2_0698", "cloze_a2_0505", "satz_a2_0690"),
+    "들리다": ("vocab_a2_0699", "cloze_a2_0506", "satz_a2_0691"),
+    "소식": ("vocab_a2_0700", "cloze_a2_0507", "satz_a2_0692"),
+    "물어보다": ("vocab_a2_0701", "cloze_a2_0508", "satz_a2_0693"),
+    "잔치": ("vocab_a2_0702", "cloze_a2_0509", "satz_a2_0694"),
+    "결혼": ("vocab_a2_0703", "cloze_a2_0510", "satz_a2_0695"),
+    "환영": ("vocab_a2_0704", "cloze_a2_0511", "satz_a2_0696"),
+    "연말": ("vocab_a2_0705", "cloze_a2_0512", "satz_a2_0697"),
+}
 
 # --- Distractor-tier buckets (keyed by headword) -------------------------
 # No item in this batch needed the OPEN_FRAME_TIER_B waiver (see manifest
@@ -96,14 +120,44 @@ OVERRIDES = {
     "지켜": "지키다", "쳐": "치다", "섰어요": "서다", "일어났어요": "일어나다", "만나요": "만나다", "이겼어요": "이기다",
     "데려갔어요": "데려가다", "닦았어요": "닦다", "살면": "살다", "걸을": "걷다", "휴지로": "휴지", "코를": "코",
     "외국에서": "외국", "있어요": "있다", "걸려서": "걸리다",
+    "보냈어요": "보내다", "와요": "오다", "지하에서는": "지하", "지하철에서는": "지하철", "목소리": "목소리", "들려": "들리다",
+    "두고": "두다", "나왔어요": "나오다", "듣고": "듣다", "기뻤어요": "기쁘다",
+    "모르는": "모르다", "지나가는": "지나가다", "사람에게": "사람", "물어보세요": "물어보다",
+    "연말에는": "연말", "다녀왔어요": "다녀오다", "됐어요": "되다", "났어": "나다", "막혀서": "막히다", "나가서": "나가다",
+    "없었어요": "없다", "깨끗이": "깨끗하다", "전화해서": "전화하다",
+    "물어봤어요": "물어보다", "운전할": "운전", "급한": "급하다", "먼저": "먼저",
+    "알아봤어요": "알아보다", "잘못해서": "잘못하다", "죄송해요": "죄송하다", "명절에": "명절", "날에는": "날", "친절한": "친절하다",
+    "친구들하고": "친구", "먹었어": "먹다", "짜지": "짜다", "맛있어요": "맛있다",
+    "추운": "춥다", "뜨거운": "뜨겁다", "사서": "사다", "이사하는": "이사하다",
+    "시켜요": "시키다", "매운": "맵다", "먹고": "먹다", "주문했어요": "주문하다",
+    "오는": "오다", "따뜻한": "따뜻하다", "싶어요": "싶다", "싸고": "싸다",
+    "넣은": "넣다", "만들었어요": "만들다", "생일에": "생일", "주말에는": "주말",
+    "하면": "하다", "빨았어요": "빨다", "더러운": "더럽다", "마신": "마시다",
+    "버리세요": "버리다", "불편했어요": "불편하다", "자기": "자다", "식사": "식사",
+    "떨어져서": "떨어지다", "샀어요": "사다", "더워서": "덥다", "켜고": "켜다",
+    "준비가": "준비", "끝나서": "끝나다", "그릇을": "그릇", "놓았어요": "놓다",
+    "청소기로": "청소기", "깨끗하게": "깨끗하다", "청소했어요": "청소하다",
+    "넣고": "넣다", "끓이세요": "끓이다", "이틀": "이틀", "동안": "동안",
+    "어디에": "어디", "감기로": "감기", "못": "못", "계속": "계속", "부모님이": "부모님",
+    "오세요": "오다", "연락을": "연락", "미안해요": "미안", "오랜만에": "오랜만",
+    "고향": "고향", "만나서": "만나다", "반가웠어요": "반갑다", "오늘이": "오늘",
+    "학기": "학기", "수업이에요": "수업", "최근에": "최근", "근처로": "근처",
+    "이사했어요": "이사하다", "다음날": "다음날", "늦게": "늦다", "일어났어요": "일어나다",
+    "어젯밤에": "어젯밤", "이상한": "이상하다", "꿨어요": "꾸다", "점심시간에": "점심시간",
+    "많아서": "많다", "어두워요": "어둡다", "어두웠어요": "어둡다", "그치고": "그치다", "맑아요": "맑다", "한국에서는": "한국",
+    "누가": "누구", "후에는": "후", "잤어요": "자다", "왔어요": "오다", "자서": "자다",
+    "파래요": "파랗다", "강해서": "강하다", "모자를": "모자", "내일은": "내일",
+    "내려가요": "내려가다", "아침에는": "아침", "5도까지": "도", "내려갔어요": "내려가다",
+    "찬물에": "찬물", "넣어서": "넣다", "마셨어요": "마시다",
 }
 
 # Banmal rows, keyed by vocab id -> (headword, speaker persona, addressee).
 # A2 반말 is restricted to 수진<->크리스티안 or a persona's own documented
 # exception -- 준's profile: "부모·크리스티안에게만, A2부터 반말을 쓴다".
 BANMAL_ROWS = {
-    "vocab_a2_0637": ("붙이다", "jun", "andrea"),        # 엄마, 나 3학년 교실 벽에 그림 붙였어!
-    "vocab_a2_0682": ("휴게실", "sujin", "christian"),   # 크리스티안, 우리 휴게실에서 커피 마실래?
+    "vocab_a2_0699": ("들리다", "sujin", "christian"),
+    "vocab_a2_0707": ("고장", "sujin", "christian"),
+    "vocab_a2_0719": ("떡", "jun", "andrea"),
 }
 
 # Canon-EXCLUSIVE speaker cues (rule (a) of the Batch 28-32 persona rule):
@@ -179,7 +233,7 @@ def _nikl_grades():
     return nikl_by_word
 
 
-class TestBatch33DraftFilesExist(unittest.TestCase):
+class TestBatch34DraftFilesExist(unittest.TestCase):
     def test_files_exist(self):
         for path in (ROWS_CSV, CLOZE_JSON, SATZ_JSON, MANIFEST_JSON):
             self.assertTrue(path.exists(), f"missing draft file: {path.name}")
@@ -189,7 +243,7 @@ class TestBatch33DraftFilesExist(unittest.TestCase):
 
     def test_review_ledgers_exist_and_are_pending(self):
         for kind in ("vocab", "cloze", "satz"):
-            path = REVIEW / f"batch_33_a2_{kind}_review.csv"
+            path = REVIEW / f"batch_34_a2_{kind}_review.csv"
             self.assertTrue(path.exists(), f"missing review ledger {path.name}")
             with path.open(encoding="utf-8-sig", newline="") as f:
                 rows = list(csv.DictReader(f))
@@ -198,7 +252,7 @@ class TestBatch33DraftFilesExist(unittest.TestCase):
             self.assertEqual({r["jin_memo"] for r in rows}, {""})
 
 
-class TestBatch33NeverTouchesLiveAssets(unittest.TestCase):
+class TestBatch34NeverTouchesLiveAssets(unittest.TestCase):
     def test_manifest_marks_draft_and_unapproved(self):
         manifest = _load_json(MANIFEST_JSON)
         self.assertEqual(manifest["status"], "draft")
@@ -223,10 +277,10 @@ class TestBatch33NeverTouchesLiveAssets(unittest.TestCase):
                 continue
             prior_korean = {r["korean"] for r in _load_vocab_rows(path)}
             overlap = draft_korean & prior_korean
-            self.assertEqual(overlap, set(), f"Batch 33 reuses {path.name} words: {overlap}")
+            self.assertEqual(overlap, set(), f"Batch 34 reuses {path.name} words: {overlap}")
 
 
-class TestBatch33ManifestAuditShape(unittest.TestCase):
+class TestBatch34ManifestAuditShape(unittest.TestCase):
     """The shape audit_batch_live_promotion.py loads without structural
     errors (Batch 25-29's merged manifests / the Batch 30-31 promotion
     branch): collection 'items' for the JSON artifacts, null for the CSV,
@@ -272,14 +326,15 @@ class TestBatch33ManifestAuditShape(unittest.TestCase):
         self.assertLessEqual(tiers["tierB"] / 64, TIER_B_RATIO_CAP)
 
 
-class TestBatch33VocabRows(unittest.TestCase):
+class TestBatch34VocabRows(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.rows = _load_vocab_rows(ROWS_CSV)
         cls.live_rows = _load_vocab_rows(VOCAB_CSV)
         cls.live_pack_ids = {r["pack_id"] for r in cls.live_rows}
         cls.manifest = _load_json(MANIFEST_JSON)
-        cls.b32_manifest = _load_json(DRAFTS / "batch_32_a2_reinforcement_manifest.json")
+        cls.b31_manifest = _load_json(DRAFTS / "batch_31_a2_reinforcement_manifest.json")
+        cls.b33_manifest = _load_json(DRAFTS / "batch_33_a2_reinforcement_manifest.json")
 
     def test_header_matches_live_csv(self):
         with ROWS_CSV.open(encoding="utf-8") as f:
@@ -300,7 +355,7 @@ class TestBatch33VocabRows(unittest.TestCase):
             self.assertIsNotNone(grades, f"{row['korean']} not found in NIKL kiiq 2017 vocab at all")
             self.assertIn("2", grades, f"{row['korean']} has NIKL grades {grades}, not grade 2")
 
-    def test_all_ids_unique_sequential_and_above_live_and_draft_a2_max(self):
+    def test_all_ids_form_complete_contiguous_set_above_prior_max(self):
         live_max = max(
             int(r["id"].rsplit("_", 1)[1]) for r in self.live_rows if r["id"].startswith("vocab_a2_")
         )
@@ -314,16 +369,29 @@ class TestBatch33VocabRows(unittest.TestCase):
         ids = [r["id"] for r in self.rows]
         self.assertEqual(len(ids), len(set(ids)))
         nums = [int(i.rsplit("_", 1)[1]) for i in ids]
-        self.assertEqual(nums, list(range(floor + 1, floor + 65)), "ids must continue directly after the live/draft max")
+        self.assertEqual(sorted(nums), list(range(floor + 1, floor + 65)), "ID set must continue directly after the live/draft max")
 
-    def test_pack_ids_exist_live_or_declared_new_or_completing_batch32_pack(self):
+    def test_partial_pack_word_to_id_bindings_are_stable(self):
+        by_word = {row["korean"]: row["id"] for row in self.rows}
+        for word, (vocab_id, _, _) in STABLE_PARTIAL_IDENTITIES.items():
+            self.assertEqual(by_word[word], vocab_id)
+
+    def test_events_are_presented_before_messenger_without_renumbering(self):
+        self.assertEqual([r["pack_id"] for r in self.rows[:4]], ["a2_events_1"] * 4)
+        self.assertEqual([r["pack_id"] for r in self.rows[4:10]], ["a2_messenger_phone_1"] * 6)
+
+    def test_pack_ids_exist_live_or_declared_new_or_completing_prior_pack(self):
         declared_new = {p["pack_id"] for p in self.manifest.get("newPacks", [])}
         filled = {p["pack_id"] for p in self.manifest.get("packsFilledTo12", [])}
-        b32_new = {p["pack_id"] for p in self.b32_manifest.get("newPacks", [])}
+        prior_new = {
+            p["pack_id"]
+            for manifest in (self.b31_manifest, self.b33_manifest)
+            for p in manifest.get("newPacks", [])
+        }
         for row in self.rows:
             pid = row["pack_id"]
-            ok = pid in self.live_pack_ids or pid in declared_new or (pid in filled and pid in b32_new)
-            self.assertTrue(ok, f"pack_id {pid} ({row['id']}) is neither live, declared new, nor a Batch 32 draft pack being completed")
+            ok = pid in self.live_pack_ids or pid in declared_new or (pid in filled and pid in prior_new)
+            self.assertTrue(ok, f"pack_id {pid} ({row['id']}) is neither live, declared new, nor a prior draft pack being completed")
 
     def test_new_pack_ids_do_not_collide_with_live_or_prior_drafts(self):
         prior_pack_ids = set(self.live_pack_ids)
@@ -338,14 +406,15 @@ class TestBatch33VocabRows(unittest.TestCase):
 
     def test_boss_words_two_or_three_per_pack(self):
         """Brief: 2-3 boss words per pack (live A2 convention: 3 for a 12-word
-        pack, 2 for a smaller one). For the Batch 32 pack completed here the
-        Batch 32 rows are all false, so this batch's own count is the pack total."""
-        b32_rows = _load_vocab_rows(DRAFTS / "batch_32_a2_rows.csv")
-        b32_boss = Counter(r["pack_id"] for r in b32_rows if r["is_review_boss"] == "true")
+        pack, 2 for a smaller one). Include boss flags from every prior A2 draft
+        when this batch completes an existing partial pack."""
+        prior_boss = Counter()
+        for n in PRIOR_A2_DRAFTS:
+            prior_boss.update(r["pack_id"] for r in _load_vocab_rows(DRAFTS / f"batch_{n}_a2_rows.csv") if r["is_review_boss"] == "true")
         sizes = Counter(r["pack_id"] for r in self.rows)
         boss = Counter(r["pack_id"] for r in self.rows if r["is_review_boss"] == "true")
         for pid, n in sizes.items():
-            total = boss[pid] + b32_boss.get(pid, 0)
+            total = boss[pid] + prior_boss.get(pid, 0)
             self.assertIn(total, (2, 3), f"pack {pid} has {total} boss words (need 2-3)")
         for row in self.rows:
             self.assertIn(row["is_review_boss"], ("true", "false"))
@@ -397,9 +466,11 @@ class TestBatch33VocabRows(unittest.TestCase):
             self.assertNotIn(key, seen, f"duplicate pack_order {key}")
             seen.add(key)
 
-    def test_batch32_pack_completion_uses_orders_5_to_12(self):
-        orders = sorted(int(r["pack_order"]) for r in self.rows if r["pack_id"] == "a2_daily_actions_1")
-        self.assertEqual(orders, list(range(5, 13)))
+    def test_prior_pack_completions_use_remaining_orders(self):
+        messenger = sorted(int(r["pack_order"]) for r in self.rows if r["pack_id"] == "a2_messenger_phone_1")
+        events = sorted(int(r["pack_order"]) for r in self.rows if r["pack_id"] == "a2_events_1")
+        self.assertEqual(messenger, list(range(7, 13)))
+        self.assertEqual(events, list(range(9, 13)))
 
     def test_no_sino_numeral_directly_before_sal(self):
         for row in self.rows:
@@ -554,7 +625,7 @@ class TestBatch33VocabRows(unittest.TestCase):
                 self.assertNotRegex(ex, r"(열|여덟|일곱|여섯)\s*살", f"{row['id']}: contradicts 준's 9살 fixed fact")
 
 
-class TestBatch33A2GrammarScan(unittest.TestCase):
+class TestBatch34A2GrammarScan(unittest.TestCase):
     """The authoritative check: 'scan_grammar_level --level A2 must return 0
     on your examples'. Imports the exact detector functions directly and
     applies them to the draft rows/cloze/satz text."""
@@ -592,7 +663,7 @@ class TestBatch33A2GrammarScan(unittest.TestCase):
         self.assertEqual(offenders, {}, f"grade>=3 grammar found: {offenders}")
 
 
-class TestBatch33Cloze(unittest.TestCase):
+class TestBatch34Cloze(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.items = _load_json(CLOZE_JSON)["items"]
@@ -607,7 +678,7 @@ class TestBatch33Cloze(unittest.TestCase):
             self.assertEqual(set(item), {"id", "sourceVocabId", "fullKo", "sentenceKo", "answer", "distractors"}, item["id"])
             self.assertIn(item["sourceVocabId"], self.rows_by_id)
 
-    def test_ids_unique_sequential_and_above_live_and_draft_a2_max(self):
+    def test_ids_form_complete_contiguous_set_above_prior_max(self):
         live_max = max(int(i["id"].rsplit("_", 1)[1]) for i in self.live_cloze if i["id"].startswith("cloze_a2_"))
         draft_max = max(
             int(i["id"].rsplit("_", 1)[1])
@@ -618,12 +689,35 @@ class TestBatch33Cloze(unittest.TestCase):
         floor = max(live_max, draft_max)
         nums = [int(i["id"].rsplit("_", 1)[1]) for i in self.items]
         self.assertEqual(len(nums), len(set(nums)))
-        self.assertEqual(nums, list(range(floor + 1, floor + 65)))
+        self.assertEqual(sorted(nums), list(range(floor + 1, floor + 65)))
+
+    def test_partial_pack_word_to_cloze_id_bindings_are_stable(self):
+        rows = {r["id"]: r["korean"] for r in _load_vocab_rows(ROWS_CSV)}
+        by_word = {rows[item["sourceVocabId"]]: item["id"] for item in self.items}
+        for word, (_, cloze_id, _) in STABLE_PARTIAL_IDENTITIES.items():
+            self.assertEqual(by_word[word], cloze_id)
 
     def test_answer_in_full_ko_and_sentence_is_blanked(self):
         for item in self.items:
             self.assertIn(item["answer"], item["fullKo"])
             self.assertEqual(item["fullKo"].replace(item["answer"], "＿＿＿", 1), item["sentenceKo"])
+
+    def test_service_frame_has_three_reviewed_impossible_substitutions(self):
+        item = next(item for item in self.items if item["id"] == "cloze_a2_0520")
+        self.assertEqual(item["sourceVocabId"], "vocab_a2_0713")
+        self.assertEqual(item["fullKo"], "이 호텔에서 친절한 서비스를 받았어요.")
+        self.assertEqual(item["answer"], "서비스를")
+        self.assertEqual(item["distractors"], ["기온을", "얼음을", "바닥을"])
+        rendered = [item["sentenceKo"].replace("＿＿＿", d) for d in item["distractors"]]
+        self.assertEqual(rendered, [
+            "이 호텔에서 친절한 기온을 받았어요.",
+            "이 호텔에서 친절한 얼음을 받았어요.",
+            "이 호텔에서 친절한 바닥을 받았어요.",
+        ])
+        packet = PACKET_MD.read_text(encoding="utf-8")
+        for sentence in rendered:
+            self.assertIn(sentence, packet)
+        self.assertNotIn("generic noun-vs-duration", packet)
 
     def test_exactly_three_distractors(self):
         for item in self.items:
@@ -747,7 +841,7 @@ class TestBatch33Cloze(unittest.TestCase):
             ("conditional", ("면",)),
             ("causal", ("서",)),
             ("connective", ("고",)),
-            ("past-banmal", ("어",)),
+            ("banmal", ("려", "아", "어")),
         )
 
         def ending_class(word: str):
@@ -774,7 +868,7 @@ class TestBatch33Cloze(unittest.TestCase):
                 self.assertLessEqual(abs(a - n), 2, f"{item['id']}: distractor {d!r} length {n} vs answer {a}")
 
 
-class TestBatch33Satz(unittest.TestCase):
+class TestBatch34Satz(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.items = _load_json(SATZ_JSON)["items"]
@@ -787,7 +881,7 @@ class TestBatch33Satz(unittest.TestCase):
         for item in self.items:
             self.assertEqual(set(item), {"id", "sourceVocabId", "vocabKo", "targetKo", "distractors"}, item["id"])
 
-    def test_ids_unique_sequential_and_above_live_and_draft_a2_max(self):
+    def test_ids_form_complete_contiguous_set_above_prior_max(self):
         live_max = max(int(i["id"].rsplit("_", 1)[1]) for i in self.live_satz if i["id"].startswith("satz_a2_"))
         draft_max = max(
             int(i["id"].rsplit("_", 1)[1])
@@ -798,7 +892,12 @@ class TestBatch33Satz(unittest.TestCase):
         floor = max(live_max, draft_max)
         nums = [int(i["id"].rsplit("_", 1)[1]) for i in self.items]
         self.assertEqual(len(nums), len(set(nums)))
-        self.assertEqual(nums, list(range(floor + 1, floor + 65)))
+        self.assertEqual(sorted(nums), list(range(floor + 1, floor + 65)))
+
+    def test_partial_pack_word_to_satz_id_bindings_are_stable(self):
+        by_word = {item["vocabKo"]: item["id"] for item in self.items}
+        for word, (_, _, satz_id) in STABLE_PARTIAL_IDENTITIES.items():
+            self.assertEqual(by_word[word], satz_id)
 
     def test_vocab_ko_and_target_present(self):
         rows_by_id = {r["id"]: r for r in _load_vocab_rows(ROWS_CSV)}
@@ -831,19 +930,23 @@ class TestBatch33Satz(unittest.TestCase):
             self.assertEqual(cloze_by_id[vid], item["targetKo"])
 
 
-class TestBatch33Packs(unittest.TestCase):
+class TestBatch34Packs(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.manifest = _load_json(MANIFEST_JSON)
         cls.rows = _load_vocab_rows(ROWS_CSV)
         cls.counts = Counter(r["pack_id"] for r in cls.rows)
 
-    def test_batch32_partial_pack_completed_to_exactly_12(self):
+    def test_two_prior_partial_packs_completed_to_exactly_12(self):
         filled = self.manifest["packsFilledTo12"]
-        self.assertEqual([p["pack_id"] for p in filled], ["a2_daily_actions_1"])
-        b32 = Counter(r["pack_id"] for r in _load_vocab_rows(DRAFTS / "batch_32_a2_rows.csv"))
-        self.assertEqual(b32["a2_daily_actions_1"] + self.counts["a2_daily_actions_1"], 12)
-        self.assertEqual(sorted(filled[0]["addedWords"]), sorted(r["korean"] for r in self.rows if r["pack_id"] == "a2_daily_actions_1"))
+        self.assertEqual([p["pack_id"] for p in filled], ["a2_events_1", "a2_messenger_phone_1"])
+        prior = Counter()
+        for n in ("31", "33"):
+            prior.update(r["pack_id"] for r in _load_vocab_rows(DRAFTS / f"batch_{n}_a2_rows.csv"))
+        for entry in filled:
+            pid = entry["pack_id"]
+            self.assertEqual(prior[pid] + self.counts[pid], 12)
+            self.assertEqual(sorted(entry["addedWords"]), sorted(r["korean"] for r in self.rows if r["pack_id"] == pid))
 
     def test_new_packs_have_declared_word_count(self):
         self.assertEqual(len(self.manifest["newPacks"]), 5)
@@ -856,8 +959,8 @@ class TestBatch33Packs(unittest.TestCase):
         full = [p for p in new_ids if self.counts[p] == 12]
         partial = [p for p in new_ids if self.counts[p] < 12]
         self.assertEqual(len(full), 4, f"expected 4 new packs at 12/12, got {full}")
-        self.assertEqual(partial, ["a2_events_1"])
-        self.assertEqual(self.counts["a2_events_1"], 8)
+        self.assertEqual(partial, ["a2_weather_sky_1"])
+        self.assertEqual(self.counts["a2_weather_sky_1"], 6)
 
     def test_no_pack_left_unfilled_undocumented(self):
         self.assertEqual(self.manifest.get("packsLeftUnfilled", []), [])
@@ -867,34 +970,140 @@ class TestBatch33Packs(unittest.TestCase):
         for topic in {r["topic"] for r in self.rows}:
             self.assertIn(f"'{topic}':", groups, f"topic label {topic!r} is not registered in cloze_topic_groups.dart")
 
-    def test_remaining_gap_matches_computed_total(self):
-        gap = self.manifest.get("remainingA2Gap", {})
-        self.assertEqual(gap.get("count"), 599)
-        # Historical receipt: scope drafts through Batch 33. Later draft files
-        # must not invalidate the post-Batch-33 count.
+    def test_raw_headword_set_gap_matches_computed_total(self):
+        gap = self.manifest["rawGrade2HeadwordSetGap"]
+        self.assertEqual(gap["niklNonAffixUniqueStrings"], 1085)
+        self.assertEqual(gap["afterLiveAndDraftsThroughBatch33"], 599)
+        self.assertEqual(gap["batch34UniqueClaim"], 64)
+        self.assertEqual(gap["afterLiveAndDraftsThroughBatch34"], 535)
+        self.assertIn("Raw exact headword-string", gap["method"])
+        # Raw exact-string arithmetic: NIKL grade-2 non-affix headwords minus
+        # live and every reinforcement draft through Batch 34.
         with NIKL_CSV.open(encoding="utf-8-sig", newline="") as f:
             g2 = {r["headword"] for r in csv.DictReader(f) if r["grade"] == "2" and not (r["headword"].startswith("-") or r["headword"].endswith("-"))}
         live = {r["korean"] for r in _load_vocab_rows(VOCAB_CSV)}
         drafted = set()
-        for n in range(25, 31):
-            path = DRAFTS / f"batch_{n}_a1_rows.csv"
-            if path.exists():
-                drafted |= {r["korean"] for r in _load_vocab_rows(path)}
-        for n in (31, 32, 33):
-            path = DRAFTS / f"batch_{n}_a2_rows.csv"
+        for path in DRAFTS.glob("batch_*_rows.csv"):
             drafted |= {r["korean"] for r in _load_vocab_rows(path)}
-        self.assertEqual(len(g2 - live - drafted), 599)
+        self.assertEqual(len(g2 - live - drafted), 535)
 
-    def test_sejong_leftovers_from_batch32_all_used(self):
-        korean = {r["korean"] for r in self.rows}
-        for w in ("긴장", "바르다", "줄", "새벽", "정확", "박수", "자리", "자신"):
-            self.assertIn(w, korean, f"Sejong-2 leftover {w} not used")
+    def test_raw_and_normalized_metrics_are_distinct_and_labeled(self):
+        normalized = self.manifest["canonicalNormalizedLiveF2Coverage"]
+        self.assertEqual(normalized, {
+            "totalUnique": 1070,
+            "presentInApp": 412,
+            "missing": 658,
+            "scope": "live assets only",
+            "source": "docs/data/content_level_report.md generated by tool/audit_content_levels.py",
+            "note": "No normalized draft-overlay count is claimed.",
+        })
+        packet = PACKET_MD.read_text(encoding="utf-8")
+        self.assertIn("Raw gap", packet)
+        self.assertIn("Canonical normalized live F2 coverage", packet)
+        self.assertNotIn("remaining normalized F2 gap", packet)
+
+    def test_sejong_help_citation_matches_local_unit_and_page(self):
+        citations = self.manifest["provenance"]["sejongPriorityCitations"]
+        self.assertEqual(len(citations), 1)
+        citation = citations[0]
+        self.assertEqual((citation["headword"], citation["unit"], citation["page"]), ("도움", 13, 60))
+        syllabus = _load_json(REPO_ROOT / citation["source"])
+        unit = next(unit for unit in syllabus["units"] if unit["unit"] == citation["unit"])
+        self.assertEqual(unit["title_page"], 60)
+        self.assertEqual(unit["cando_page"], citation["page"])
+        self.assertEqual(unit["title"], citation["title"])
+        self.assertEqual(unit[citation["evidenceField"]], citation["evidence"])
+        self.assertIn(citation["headword"], citation["evidence"])
 
     def test_review_packet_lists_the_seven_sample_rows(self):
         text = PACKET_MD.read_text(encoding="utf-8")
         for i in SAMPLE_INDICES:
             self.assertIn(f"### {self.rows[i]['id']} — {self.rows[i]['korean']}", text, f"sample row index {i} missing from packet")
         self.assertIn("배분어 전체 문장(192)", text)
+
+
+class TestBatch34Regeneration(unittest.TestCase):
+    BATCH34_OUTPUTS = [
+        "tools/content_factory/drafts/batch_34_a2_rows.csv",
+        "tools/content_factory/drafts/batch_34_a2_cloze.json",
+        "tools/content_factory/drafts/batch_34_a2_satz.json",
+        "tools/content_factory/drafts/batch_34_a2_reinforcement_manifest.json",
+        "tools/content_factory/review/batch_34_a2_vocab_review.csv",
+        "tools/content_factory/review/batch_34_a2_cloze_review.csv",
+        "tools/content_factory/review/batch_34_a2_satz_review.csv",
+        "docs/data/review_packets/batch_34_a2_jin_sample.md",
+    ]
+    PREDECESSOR_OUTPUTS = [
+        "tools/content_factory/drafts/batch_32_a2_rows.csv",
+        "tools/content_factory/drafts/batch_32_a2_cloze.json",
+        "tools/content_factory/drafts/batch_32_a2_satz.json",
+        "tools/content_factory/drafts/batch_32_a2_reinforcement_manifest.json",
+        "tools/content_factory/review/batch_32_a2_vocab_review.csv",
+        "tools/content_factory/review/batch_32_a2_cloze_review.csv",
+        "tools/content_factory/review/batch_32_a2_satz_review.csv",
+        "docs/data/review_packets/batch_32_a2_jin_sample.md",
+        "tools/content_factory/drafts/batch_33_a2_rows.csv",
+        "tools/content_factory/drafts/batch_33_a2_reinforcement_manifest.json",
+        "tools/content_factory/review/batch_33_a2_vocab_review.csv",
+        "tools/content_factory/review/batch_33_a2_cloze_review.csv",
+        "tools/content_factory/review/batch_33_a2_satz_review.csv",
+        "docs/data/review_packets/batch_33_a2_jin_sample.md",
+    ]
+
+    def test_generator_has_no_ephemeral_absolute_input_dependency(self):
+        source = GENERATOR.read_text(encoding="utf-8")
+        self.assertNotIn("C:/Users/", source)
+        self.assertNotIn("cp2026-codex-resume", source)
+
+    def test_optional_source_verifier_accepts_fixture_and_rejects_changed_bytes(self):
+        fixtures = {
+            "niklLexiconSha256": ("tools/content_factory/lexicon/nikl_kiiq_2017_vocab.csv", b"lexicon fixture\n"),
+            "liveVocabSha256": ("assets/data/korean_vocab.csv", b"vocab fixture\n"),
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            fixture_root = Path(tmp)
+            expected = {}
+            for key, (relative, data) in fixtures.items():
+                path = fixture_root / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(data)
+                expected[key] = hashlib.sha256(data).hexdigest()
+            with mock.patch.dict(BUILD.SOURCE_HASHES, expected):
+                BUILD.verify_checked_in_sources(fixture_root)
+                for relative, data in fixtures.values():
+                    with self.subTest(source=relative):
+                        path = fixture_root / relative
+                        path.write_bytes(data + b"x")
+                        with self.assertRaisesRegex(ValueError, "source verification failed"):
+                            BUILD.verify_checked_in_sources(fixture_root)
+                        path.write_bytes(data)
+
+    def test_temp_output_regeneration_matches_checked_in_artifacts(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp)
+            for relative in self.PREDECESSOR_OUTPUTS:
+                if "tools/content_factory/review/batch_32" in relative:
+                    continue  # prove the generator creates all three ledgers
+                source = REPO_ROOT / relative
+                destination = output_root / relative
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source, destination)
+            env = dict(os.environ)
+            env["PYTHONIOENCODING"] = "utf-8"
+            result = subprocess.run(
+                [
+                    sys.executable, str(GENERATOR),
+                    "--output-root", str(output_root),
+                    "--apply-predecessor-repairs",
+                ],
+                cwd=REPO_ROOT, env=env, capture_output=True, text=True,
+            )
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            for relative in self.BATCH34_OUTPUTS + self.PREDECESSOR_OUTPUTS:
+                expected = (REPO_ROOT / relative).read_bytes()
+                actual_path = output_root / relative
+                self.assertTrue(actual_path.is_file(), f"generator omitted {relative}")
+                self.assertEqual(actual_path.read_bytes(), expected, f"regeneration drift: {relative}")
 
 
 if __name__ == "__main__":

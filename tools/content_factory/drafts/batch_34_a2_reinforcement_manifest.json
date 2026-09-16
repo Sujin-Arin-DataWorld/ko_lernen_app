@@ -1,0 +1,214 @@
+{
+  "version": 2,
+  "batch": "c3_batch34_a2_reinforcement",
+  "status": "draft",
+  "provenance": {
+    "scope": "A2 grade-2 reinforcement draft: 64 original KO/DE/EN triads. Completes a2_events_1 first and a2_messenger_phone_1 second, then creates four full packs and one partial weather pack.",
+    "rights": "original_clean_room",
+    "seedSource": "NIKL KIIQ 2017 grade-2 non-affix headwords absent from live data and drafts through Batch 33; Sejong 2 units used only for topic priority.",
+    "requiresJinReview": true,
+    "approval": {},
+    "modelLanguageQa": "MODEL_QA_PASS",
+    "humanLanguageQaClaim": false,
+    "sourceHashes": {
+      "originMain": "61f5c819dcd51357617f731ce0b4694ad3d8be49",
+      "planningAttachmentSha256": "f9f68c1351255aaa1631e9c41d885679b7d2654fe14e03c8ae25eb4e918797b6",
+      "taskBriefSha256": "4739bd93fd8bc7b88d5f44f9021faa1663ec6bc976199190e41e7fdb0fa27093",
+      "sourceBatch34BriefSha256": "d6b3d47c24a9e1432c3f1ae1bc784c5c03933392b4327c6d35865814752d1141",
+      "batch32_33ReviewReportSha256": "2e4a103d24d7bb9a8d704fc32b2d4db107b6d0d9817bdde6920cf1338bf71c58",
+      "niklLexiconSha256": "f6c9a8faf55791b707bac2dede322c1a0ec640b6da3133aba847b0d38f3d2731",
+      "liveVocabSha256": "5d6c15c517a4d9a5f8dae7d9f51cecf1b5bdcff4a9090bbe305833ffce51457f"
+    },
+    "wordSourceNote": "Raw NIKL grade-2 non-affix headword-string set: 1085. Subtracting live headword strings plus draft headword strings through Batch 33 leaves 599; this draft claims 64 unique strings and leaves 535. This raw draft-overlay arithmetic is separate from canonical normalized live F2 coverage.",
+    "sejongPriorityCitations": [
+      {
+        "headword": "도움",
+        "source": "docs/data/sejong/syllabus_sejong2.json",
+        "book": "세종한국어 회화 익힘책 2-2",
+        "unit": 13,
+        "title": "저 좀 도와줄 수 있어요?",
+        "page": 60,
+        "evidenceField": "cando",
+        "evidence": "문제 상황을 말하고 도움을 요청할 수 있어요."
+      }
+    ],
+    "tierNote": "Tier A 64/64; each distractor was substituted into its complete sentence and manually judged for alternate meanings and collocations. Tier B 0/64.",
+    "collocationTrapNote": "D1-D7 and Batch 32/33 fixed-collocation and homonym traps were checked against all 192 rendered substitutions; grammar error alone was not treated as sufficient where another valid reading existed.",
+    "grammarNote": "Examples are <=10 eojeol and use A2 grammar; automated grade>=3 scanner plus manual blind-spot grep is required by the batch test.",
+    "vocabCeilingNote": "Helper-word audit resolves every content token to NIKL grade<=2, live vocabulary, or a Batch 34 headword after documented inflection overrides; zero exceptions.",
+    "auditShapeNote": "Three 64-record draft artifacts, three pending review ledgers, recordCount 192; no assets/data, TTS, or Firebase writes.",
+    "r8Round1Note": "Author self-audit covers all 64 triads and 192 distractor substitutions. This is MODEL_QA, not human approval."
+  },
+  "posRules": {
+    "cross_pack_noun_tier_a": "Noun distractors use particle-correct forms from incompatible semantic classes.",
+    "intransitive_verb_tier_a": "Verb distractors preserve tense/ending and fail the target valency or subject selection.",
+    "haeyo_adjective_tier_a": "Adjective folds preserve 해요 morphology but clash with the clause role.",
+    "open_frame_tier_b": "0/64."
+  },
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/batch_34_a2_rows.csv",
+      "collection": null,
+      "count": 64,
+      "level": "A2",
+      "review": "tools/content_factory/review/batch_34_a2_vocab_review.csv"
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/batch_34_a2_cloze.json",
+      "collection": "items",
+      "count": 64,
+      "level": "A2",
+      "review": "tools/content_factory/review/batch_34_a2_cloze_review.csv"
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/batch_34_a2_satz.json",
+      "collection": "items",
+      "count": 64,
+      "level": "A2",
+      "review": "tools/content_factory/review/batch_34_a2_satz_review.csv"
+    }
+  ],
+  "recordCount": 192,
+  "tierCounts": {
+    "tierA": 64,
+    "tierB": 0
+  },
+  "packsFilledTo12": [
+    {
+      "pack_id": "a2_events_1",
+      "addedWords": [
+        "잔치",
+        "결혼",
+        "환영",
+        "연말"
+      ],
+      "note": "Batch 33 draft 8/12 -> 12/12; all four additions are event/celebration words. Presented first by controlling precedence while preserving assigned IDs."
+    },
+    {
+      "pack_id": "a2_messenger_phone_1",
+      "addedWords": [
+        "메일",
+        "연결",
+        "전화기",
+        "들리다",
+        "소식",
+        "물어보다"
+      ],
+      "note": "Batch 31 draft 6/12 -> 12/12; all six additions are direct communication/phone words."
+    }
+  ],
+  "packsLeftUnfilled": [],
+  "newPacks": [
+    {
+      "pack_id": "a2_problems_help_1",
+      "displayName": {
+        "de": "Probleme & Hilfe 1",
+        "en": "Problems & Help 1"
+      },
+      "wordCount": 12,
+      "note": "Original A2 clean-room pack; course-unit assignment deferred to promotion."
+    },
+    {
+      "pack_id": "a2_dishes_1",
+      "displayName": {
+        "de": "Koreanische Gerichte 1",
+        "en": "Korean Dishes 1"
+      },
+      "wordCount": 12,
+      "note": "Original A2 clean-room pack; course-unit assignment deferred to promotion."
+    },
+    {
+      "pack_id": "a2_home_routines_1",
+      "displayName": {
+        "de": "Haushalt & Routine 1",
+        "en": "Home & Routines 1"
+      },
+      "wordCount": 12,
+      "note": "Original A2 clean-room pack; course-unit assignment deferred to promotion."
+    },
+    {
+      "pack_id": "a2_time_span_1",
+      "displayName": {
+        "de": "Zeitspannen 1",
+        "en": "Time Spans 1"
+      },
+      "wordCount": 12,
+      "note": "Original A2 clean-room pack; course-unit assignment deferred to promotion."
+    },
+    {
+      "pack_id": "a2_weather_sky_1",
+      "displayName": {
+        "de": "Wetter & Himmel 1",
+        "en": "Weather & Sky 1"
+      },
+      "wordCount": 6,
+      "note": "Original A2 clean-room pack; course-unit assignment deferred to promotion."
+    }
+  ],
+  "rawGrade2HeadwordSetGap": {
+    "niklNonAffixUniqueStrings": 1085,
+    "afterLiveAndDraftsThroughBatch33": 599,
+    "batch34UniqueClaim": 64,
+    "afterLiveAndDraftsThroughBatch34": 535,
+    "method": "Raw exact headword-string set subtraction; no canonical F2 normalization or draft-overlay normalization is applied."
+  },
+  "canonicalNormalizedLiveF2Coverage": {
+    "totalUnique": 1070,
+    "presentInApp": 412,
+    "missing": 658,
+    "scope": "live assets only",
+    "source": "docs/data/content_level_report.md generated by tool/audit_content_levels.py",
+    "note": "No normalized draft-overlay count is claimed."
+  },
+  "personaRowsNote": "11 canon-attributed rows, max two per persona. Attribution uses a leading vocative or the exclusive cues 대박 and 3학년.",
+  "personaRows": {
+    "vocab_a2_0696": "andrea",
+    "vocab_a2_0699": "christian",
+    "vocab_a2_0703": "maya",
+    "vocab_a2_0704": "lena",
+    "vocab_a2_0705": "maya",
+    "vocab_a2_0706": "daniel",
+    "vocab_a2_0707": "christian",
+    "vocab_a2_0719": "jun",
+    "vocab_a2_0730": "minho",
+    "vocab_a2_0742": "hyuna",
+    "vocab_a2_0753": "sujin"
+  },
+  "banmalRows": {
+    "vocab_a2_0699": {
+      "headword": "들리다",
+      "speaker": "sujin",
+      "addressee": "christian",
+      "canonBasis": "수진↔크리스티안 A2 반말"
+    },
+    "vocab_a2_0707": {
+      "headword": "고장",
+      "speaker": "sujin",
+      "addressee": "christian",
+      "canonBasis": "수진↔크리스티안 A2 반말"
+    },
+    "vocab_a2_0719": {
+      "headword": "떡",
+      "speaker": "jun",
+      "addressee": "andrea",
+      "canonBasis": "준은 부모에게 A2부터 반말"
+    }
+  },
+  "openerDistribution": {
+    "reactionOpeners": 1,
+    "wooriGachi": 0,
+    "jinjja": 0,
+    "note": "대박 is Maya's canon cue; no bare 네/좋아요 or unsupported 와 opener."
+  },
+  "reviewPacket": "docs/data/review_packets/batch_34_a2_jin_sample.md",
+  "promotion": {
+    "assetsDataWritten": false,
+    "runtime": false,
+    "tts": false,
+    "firebase": false,
+    "note": "DRAFT ONLY; Jin review pending."
+  }
+}

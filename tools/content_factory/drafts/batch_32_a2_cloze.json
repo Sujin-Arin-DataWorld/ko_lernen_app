@@ -111,8 +111,8 @@
     {
       "id": "cloze_a2_0384",
       "sourceVocabId": "vocab_a2_0577",
-      "fullKo": "대박, 수진 씨 목소리가 하나도 안 들려요!",
-      "sentenceKo": "대박, 수진 씨 ＿＿＿ 하나도 안 들려요!",
+      "fullKo": "수진 씨, 목소리가 하나도 안 들려요!",
+      "sentenceKo": "수진 씨, ＿＿＿ 하나도 안 들려요!",
       "answer": "목소리가",
       "distractors": [
         "가방이",

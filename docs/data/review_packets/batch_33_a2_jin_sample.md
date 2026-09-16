@@ -131,9 +131,9 @@
 ### vocab_a2_0677 — 선배 (seonbae)
 
 - 팩: `a2_workplace_1` (order 2) · 품사: Nomen · 주제: Beruf · 보스: false
-- DE: ältere/r Kollege/in, Senior · EN: senior (colleague)
+- DE: dienstälteres Teammitglied · EN: senior (colleague)
 - 예문 KO: 회사 선배가 점심을 사 줬어요.
-- 예문 DE: Eine ältere Kollegin hat mir das Mittagessen bezahlt.
+- 예문 DE: Ein Teammitglied, das schon länger in der Firma ist, hat mir das Mittagessen bezahlt.
 - 예문 EN: A senior colleague bought me lunch.
 - Cloze `cloze_a2_0484`: 회사 ＿＿＿ 점심을 사 줬어요. → 정답 `선배가` · 배분어 ['새벽이', '행사가', '박수가']
 - Satz `satz_a2_0669`: 목표 `회사 선배가 점심을 사 줬어요.` · 배분 타일 ['새벽이', '행사가']
@@ -144,7 +144,7 @@
 - 팩: `a2_workplace_1` (order 11) · 품사: Nomen · 주제: Beruf · 보스: false
 - DE: Mühe, Anstrengung · EN: effort
 - 예문 KO: 노력을 많이 하면 한국어가 빨리 늘어요.
-- 예문 DE: Wenn man sich viel Mühe gibt, wird das Koreanisch schnell besser.
+- 예문 DE: Wenn man sich viel Mühe gibt, wird das eigene Koreanisch schnell besser.
 - 예문 EN: If you put in a lot of effort, your Korean improves quickly.
 - Cloze `cloze_a2_0493`: ＿＿＿ 많이 하면 한국어가 빨리 늘어요. → 정답 `노력을` · 배분어 ['지하도를', '사거리를', '정거장을']
 - Satz `satz_a2_0678`: 목표 `노력을 많이 하면 한국어가 빨리 늘어요.` · 배분 타일 ['지하도를', '사거리를']
@@ -199,7 +199,7 @@
 |  | vocab_a2_0674 | 서쪽 | seojjok | Nomen | a2_directions_1 | 11 |  | Westen | west | 저녁에 서쪽 하늘이 빨개요. | Am Abend ist der Himmel im Westen rot. | In the evening, the western sky is red. |  |
 |  | vocab_a2_0675 | 위치 | wichi | Nomen | a2_directions_1 | 12 |  | Lage, Standort | location | 이 카페는 위치가 정말 좋아요. | Dieses Café hat eine wirklich gute Lage. | This cafe has a really good location. |  |
 |  | vocab_a2_0676 | 부장 | bujang | Nomen | a2_workplace_1 | 1 | ★ | Abteilungsleiter/in | department head | 안드레아 씨, 저희 팀 부장은 회의를 짧게 해요. | Andrea, unser Abteilungsleiter hält die Besprechungen kurz. | Andrea, our team's department head keeps meetings short. | andrea |
-| **표본** | vocab_a2_0677 | 선배 | seonbae | Nomen | a2_workplace_1 | 2 |  | ältere/r Kollege/in, Senior | senior (colleague) | 회사 선배가 점심을 사 줬어요. | Eine ältere Kollegin hat mir das Mittagessen bezahlt. | A senior colleague bought me lunch. |  |
+| **표본** | vocab_a2_0677 | 선배 | seonbae | Nomen | a2_workplace_1 | 2 |  | dienstälteres Teammitglied | senior (colleague) | 회사 선배가 점심을 사 줬어요. | Ein Teammitglied, das schon länger in der Firma ist, hat mir das Mittagessen bezahlt. | A senior colleague bought me lunch. |  |
 |  | vocab_a2_0678 | 후배 | hubae | Nomen | a2_workplace_1 | 3 |  | jüngere/r Kollege/in, Junior | junior (colleague) | 새로 온 후배에게 일을 가르쳐 줬어요. | Ich habe dem neuen jüngeren Kollegen die Arbeit gezeigt. | I taught the new junior colleague the work. |  |
 |  | vocab_a2_0679 | 팀 | tim | Nomen | a2_workplace_1 | 4 |  | Team | team | 우리 팀은 매주 월요일에 회의를 해요. | Unser Team hat jeden Montag eine Besprechung. | Our team has a meeting every Monday. |  |
 |  | vocab_a2_0680 | 취직 | chwijik | Nomen | a2_workplace_1 | 5 |  | Anstellung, Jobeinstieg | getting a job | 졸업하고 바로 은행에 취직을 했어요. | Nach dem Abschluss habe ich sofort eine Stelle bei einer Bank bekommen. | Right after graduating, I got a job at a bank. |  |
@@ -208,7 +208,7 @@
 |  | vocab_a2_0683 | 실수 | silsu | Nomen | a2_workplace_1 | 8 | ★ | Fehler | mistake | 일을 급하게 해서 실수를 했어요. | Ich habe die Arbeit zu hastig gemacht und einen Fehler gemacht. | I did the work in a hurry and made a mistake. |  |
 |  | vocab_a2_0684 | 지각 | jigak | Nomen | a2_workplace_1 | 9 | ★ | Verspätung, Zuspätkommen | tardiness, being late | 버스가 늦게 와서 회사에 지각을 했어요. | Der Bus kam spät, deshalb bin ich zu spät zur Arbeit gekommen. | The bus came late, so I was late for work. |  |
 |  | vocab_a2_0685 | 규칙 | gyuchik | Nomen | a2_workplace_1 | 10 |  | Regel | rule | 회사 규칙은 꼭 지켜 주세요. | Halten Sie sich bitte unbedingt an die Firmenregeln. | Please make sure to follow the company rules. |  |
-| **표본** | vocab_a2_0686 | 노력 | noryeok | Nomen | a2_workplace_1 | 11 |  | Mühe, Anstrengung | effort | 노력을 많이 하면 한국어가 빨리 늘어요. | Wenn man sich viel Mühe gibt, wird das Koreanisch schnell besser. | If you put in a lot of effort, your Korean improves quickly. |  |
+| **표본** | vocab_a2_0686 | 노력 | noryeok | Nomen | a2_workplace_1 | 11 |  | Mühe, Anstrengung | effort | 노력을 많이 하면 한국어가 빨리 늘어요. | Wenn man sich viel Mühe gibt, wird das eigene Koreanisch schnell besser. | If you put in a lot of effort, your Korean improves quickly. |  |
 |  | vocab_a2_0687 | 정확 | jeonghwak | Nomen | a2_workplace_1 | 12 |  | Genauigkeit | accuracy | 수진 씨 계산은 항상 정확해요. | Sujins Berechnungen sind immer genau. | Sujin's calculations are always accurate. |  |
 |  | vocab_a2_0688 | 박수 | baksu | Nomen | a2_events_1 | 1 |  | Applaus | applause | 다니엘 씨, 공연이 끝나면 박수를 크게 쳐 주세요. | Daniel, klatsch nach der Aufführung bitte laut. | Daniel, when the performance ends, please clap loudly. | daniel |
 |  | vocab_a2_0689 | 자리 | jari | Nomen | a2_events_1 | 2 | ★ | Platz, Sitzplatz | seat, place | 우리 크리스티안, 이 자리에 앉아요. | Christian, mein Junge, setz dich hier auf diesen Platz. | Christian, dear, sit here in this seat. | dongsun |
