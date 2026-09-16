@@ -33500,8 +33500,8 @@
       "id": "satz_a1_0642",
       "level": "a1",
       "targetKo": "저는 어제 시장에 다녀왔어요.",
-      "promptDe": "Ich war gestern auf dem Markt.",
-      "promptEn": "I went to the market yesterday.",
+      "promptDe": "Ich war gestern auf dem Markt und bin danach zurückgekommen.",
+      "promptEn": "I went to the market and came back yesterday.",
       "distractors": [
         "선물",
         "잡채"
@@ -35172,8 +35172,8 @@
         "왔어요"
       ],
       "level": "a2",
-      "promptDe": "Ich habe alle Kleider weggeworfen, die ich nicht mehr trage.",
-      "promptEn": "I threw away all the clothes I don't wear anymore.",
+      "promptDe": "Ich habe alle Kleidungsstücke weggeworfen, die ich nicht trage.",
+      "promptEn": "I threw away all the clothes I don't wear.",
       "courseUnitId": "a2_01_haeyo_transition"
     },
     {
@@ -35508,7 +35508,7 @@
         "청소를"
       ],
       "level": "a2",
-      "promptDe": "Ich bin mit meinem Vater zum Angeln an den Fluss gefahren.",
+      "promptDe": "Ich war mit meinem Vater am Fluss angeln.",
       "promptEn": "I went fishing at the river with my father.",
       "courseUnitId": "a2_04_feelings_health"
     },

@@ -5,7 +5,9 @@
     "tools/content_factory/drafts/batch_10_4x_manifest.json",
     "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
     "tools/content_factory/drafts/batch_19_manifest.json",
-    "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json"
+    "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
+    "tools/content_factory/drafts/batch_29_a1_reinforcement_manifest.json",
+    "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json"
   ],
   "method": "Beyond Humanizer promoted-copy reconciliation",
   "humanReviewStatus": "required_before_native-quality-claim",
@@ -4410,6 +4412,129 @@
       ],
       "beforeSha256": "e794ce7c6d65837a856909f3ed7949dd6a4f4197821e334cf840e80965cd77da",
       "afterSha256": "3f630c837b674f8c354c29522da6ec6e45a43a3ae10a18cf093ebce4ca8708b1"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_29_a1_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0727",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german"
+      ],
+      "beforeSha256": "4358eef8ee8438eb9fc444d6417b1275f9db956bb223113744784ccde1e3070a",
+      "afterSha256": "3616aeecd6c8e1a8152b5374fcadf1d94b44ff90aab54ceefdf5eb0d45148602",
+      "reason": "Explicit return is the teaching target of 다녀오다.",
+      "modelReview": "C7 2026-09-16; human/native review remains required"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_29_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0661",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en"
+      ],
+      "beforeSha256": "4be99a17122050c2785a2c04bd638c36da86b038933ce0a289ce725b1f92def2",
+      "afterSha256": "0fc78dc24f15aba8a2cf4a7a919249af4248466d3d070f9e66efe406154a4bbe",
+      "reason": "Explicit return is the teaching target of 다녀오다.",
+      "modelReview": "C7 2026-09-16; human/native review remains required"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_29_a1_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0642",
+      "level": "a1",
+      "fields": [
+        "promptDe",
+        "promptEn"
+      ],
+      "beforeSha256": "4b601bfb57852249bebe60999220cc6e4ebfd4fe50e84c0e64d6b2eb8c5e9855",
+      "afterSha256": "b1cbfa585f8ba420025b6356992d89cdb696409456ce2f6b0a4ec21bb58b403a",
+      "reason": "Explicit return is the teaching target of 다녀오다.",
+      "modelReview": "C7 2026-09-16; human/native review remains required"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0509",
+      "level": "a2",
+      "fields": [
+        "example_english",
+        "example_german"
+      ],
+      "beforeSha256": "5e476e614226743d8f2e4f0a0c667f1d41e68797b46fa6ad32aa32469c6363bf",
+      "afterSha256": "3f86f638df24c764a77bdff06f8d73206a2de31841f957dd27748d3e1a08c012",
+      "reason": "Remove unsupported cessation presupposition (nicht mehr / anymore).",
+      "modelReview": "C7 2026-09-16; human/native review remains required"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a2_0533",
+      "level": "a2",
+      "fields": [
+        "example_german"
+      ],
+      "beforeSha256": "72469a853fcd66ec095548c466d6cd39506446c426483f2a3302e11bf47f4603",
+      "afterSha256": "30b3df2dfce030f031a38645fa10078d42fdaaba59c7eaaa22a85361f3498b11",
+      "reason": "Do not assert vehicle travel absent from KO.",
+      "modelReview": "C7 2026-09-16; human/native review remains required"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a2_0316",
+      "level": "a2",
+      "fields": [
+        "de",
+        "en"
+      ],
+      "beforeSha256": "f3fc6dc50d5477f1d76e52dfe83230646f4bbbea7246a165c6e7075c9afe075f",
+      "afterSha256": "8e9597b51ae34d27ff678293254cbe367d63a692bd1b0e2ed235d2b5cd992e11",
+      "reason": "Remove unsupported cessation presupposition (nicht mehr / anymore).",
+      "modelReview": "C7 2026-09-16; human/native review remains required"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a2_0340",
+      "level": "a2",
+      "fields": [
+        "de"
+      ],
+      "beforeSha256": "74e1d0048c6babd557816ff212235b7e498545c0a808a29e6710a83210f8b52d",
+      "afterSha256": "e62732f29a2a7fce01dacba52e080e01ebc30351f90c961bd300a60e93aa2b5b",
+      "reason": "Do not assert vehicle travel absent from KO.",
+      "modelReview": "C7 2026-09-16; human/native review remains required"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0501",
+      "level": "a2",
+      "fields": [
+        "promptDe",
+        "promptEn"
+      ],
+      "beforeSha256": "103b38159cb2115efa6e4dcd2a760e26d91180bd5c047ab544def98fa85833a3",
+      "afterSha256": "fb7fb3c13e6b72fd66831e0609a7ecfc1a8775ed8a700b9e2d6d254429d53ad0",
+      "reason": "Remove unsupported cessation presupposition (nicht mehr / anymore).",
+      "modelReview": "C7 2026-09-16; human/native review remains required"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a2_0525",
+      "level": "a2",
+      "fields": [
+        "promptDe"
+      ],
+      "beforeSha256": "2d69a237aa161fd19f366cefcef73c60816b40634d7774685ef657268e3cd7cb",
+      "afterSha256": "54d9a27d5c5205102f372926eca704c7fd1fb0bbdced0dc47c1e2d965f139fdc",
+      "reason": "Do not assert vehicle travel absent from KO.",
+      "modelReview": "C7 2026-09-16; human/native review remains required"
     }
   ],
   "routingEntries": [

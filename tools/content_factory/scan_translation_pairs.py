@@ -62,6 +62,8 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
+import json
 import re
 import sys
 from collections import Counter
@@ -310,8 +312,29 @@ DOCUMENTED_FALSE_POSITIVES = {
 }
 
 
-def is_documented_false_positive(rule_id: str, row_id: str) -> bool:
-    return (rule_id, row_id) in DOCUMENTED_FALSE_POSITIVES
+REVIEW_FIELDS = ("korean", "german", "english", "example_korean", "example_german", "example_english")
+C7_REVIEW_PATH = ROOT / "tools/content_factory/review/c7_translation_lint_review.json"
+C7_REVIEW = json.loads(C7_REVIEW_PATH.read_text(encoding="utf-8"))["entries"]
+
+
+def reviewed_text_fingerprint(row: dict) -> str:
+    text = {field: row.get(field, "") for field in REVIEW_FIELDS}
+    return hashlib.sha256(json.dumps(text, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
+
+
+def is_documented_false_positive(rule_id: str, row_id: str, row: dict | None = None) -> bool:
+    if (rule_id, row_id) in DOCUMENTED_FALSE_POSITIVES:
+        return True
+    # C7 additions expire when any reviewed headword/gloss/example changes.
+    # Missing text is not enough evidence to suppress a hit.
+    if row is None or row.get("id") != row_id:
+        return False
+    review = C7_REVIEW.get(row_id, {})
+    return (
+        rule_id in review.get("rules", [])
+        and bool(review.get("reason"))
+        and review.get("textSha256") == reviewed_text_fingerprint(row)
+    )
 
 
 def load_rows() -> list[dict]:
@@ -432,12 +455,12 @@ def build_report(level: str, flagged: list[dict], total_rows: int) -> str:
     lines.append(f"- rows scanned (`level == {level}`): **{total_rows}**")
     lines.append(f"- rows with >=1 hit: **{len(flagged)}**")
     unexplained_total = sum(
-        1 for f in flagged for r, _d in f["hits"] if not is_documented_false_positive(r, f["id"])
+        1 for f in flagged for r, _d in f["hits"] if not is_documented_false_positive(r, f["id"], f)
     )
     lines.append(
         f"- hits with NO documented-false-positive explanation: **{unexplained_total}** "
-        "(everything else below was read and judged during the C2b-1 2026-09-15 pass; "
-        "see script's DOCUMENTED_FALSE_POSITIVES for the per-rule reasoning)"
+        "(legacy C2b reviews plus text-bound C7 model review; "
+        "see DOCUMENTED_FALSE_POSITIVES and c7_translation_lint_review.json for reasoning)"
     )
     lines.append("")
 
@@ -448,7 +471,7 @@ def build_report(level: str, flagged: list[dict], total_rows: int) -> str:
     lines.append("| rule | hits | documented false positives |")
     lines.append("|---|---|---|")
     for rule_id in ("R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9"):
-        doc_count = sum(1 for (r, _i) in DOCUMENTED_FALSE_POSITIVES if r == rule_id)
+        doc_count = sum(1 for f in flagged if any(r == rule_id for r, _ in f["hits"]) and is_documented_false_positive(rule_id, f["id"], f))
         lines.append(f"| {rule_id} | {rule_counts.get(rule_id, 0)} | {doc_count} |")
     lines.append("")
 
@@ -462,7 +485,7 @@ def build_report(level: str, flagged: list[dict], total_rows: int) -> str:
         lines.append("|---|---|---|---|---|---|---|")
         for f in sorted(rows, key=lambda x: x["id"]):
             details = "; ".join(d for r, d in f["hits"] if r == rule_id)
-            verified = "false positive" if is_documented_false_positive(rule_id, f["id"]) else "**UNEXPLAINED**"
+            verified = "false positive" if is_documented_false_positive(rule_id, f["id"], f) else "**UNEXPLAINED**"
             ko = f["example_korean"].replace("|", "\\|")
             de = f["example_german"].replace("|", "\\|")
             en = f["example_english"].replace("|", "\\|")
@@ -485,14 +508,7 @@ def main() -> int:
     for row in level_rows:
         hits = scan_row(row)
         if hits:
-            flagged.append({
-                "id": row.get("id", ""),
-                "korean": row.get("korean", ""),
-                "example_korean": row.get("example_korean", ""),
-                "example_german": row.get("example_german", ""),
-                "example_english": row.get("example_english", ""),
-                "hits": hits,
-            })
+            flagged.append({**row, "hits": hits})
 
     census = census_quotative_and_contracted(level_rows)
     report = build_report(args.level.upper(), flagged, len(level_rows))
@@ -514,7 +530,7 @@ def main() -> int:
 
     total_hits = sum(len(f["hits"]) for f in flagged)
     unexplained = sum(
-        1 for f in flagged for r, _d in f["hits"] if not is_documented_false_positive(r, f["id"])
+        1 for f in flagged for r, _d in f["hits"] if not is_documented_false_positive(r, f["id"], f)
     )
     print(f"rows scanned: {len(level_rows)}  flagged rows: {len(flagged)}  total hits: {total_hits}  unexplained: {unexplained}")
     print(f"quotative-attributive: {len(census['quotative_attributive'])}  contracted-juda: {len(census['contracted_juda'])}")

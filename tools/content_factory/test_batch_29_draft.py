@@ -8,8 +8,8 @@ These tests validate the draft-only artifacts produced for Batch 29:
     tools/content_factory/drafts/batch_29_a1_satz.json
     tools/content_factory/drafts/batch_29_a1_reinforcement_manifest.json
 
-They never touch assets/data/** -- this batch has NOT been approved by Jin
-yet (level-canon program hard rule) and must not be promoted until then.
+These tests read the frozen drafts and already-promoted live assets without
+writing either. Post-promotion copy changes require exact revision evidence.
 
 Mirrors test_batch_27/28_draft.py's schema/checks, importing the shared
 helpers from a1_draft_rules.py and distractor_rules.py, plus batch-specific
@@ -205,13 +205,11 @@ class TestBatch29PromotedToLiveAssets(unittest.TestCase):
             )
 
     def test_every_id_is_live_with_matching_content(self):
-        """Every draft id must be present live with byte-identical content
-        (validate_promoted_batch.py's exact-equality contract)."""
-        draft_rows = {r["id"]: r for r in _load_vocab_rows(DRAFTS / "batch_29_a1_rows.csv")}
-        live_rows = {r["id"]: r for r in _load_vocab_rows(VOCAB_CSV)}
-        for vid, row in draft_rows.items():
-            self.assertIn(vid, live_rows, f"{vid} missing from live korean_vocab.csv")
-            self.assertEqual(row, live_rows[vid], f"{vid}: live row differs from reviewed draft")
+        # Validate all three surfaces against the frozen review or an exact
+        # recorded copy revision. An unrecorded edit must still fail.
+        from validate_promoted_batch import validate
+        count, _ = validate(DRAFTS / "batch_29_a1_reinforcement_manifest.json", root=REPO_ROOT)
+        self.assertEqual(count, 192)
 
     def test_no_overlap_with_prior_batch_words(self):
         draft_rows = _load_vocab_rows(DRAFTS / "batch_29_a1_rows.csv")

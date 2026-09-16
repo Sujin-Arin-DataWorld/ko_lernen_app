@@ -2765,7 +2765,7 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 찍다,jjikda,(ein Foto) machen,A1,Verb,저는 사진을 찍어요.,Ich mache ein Foto.,Technologie,a1_verbs_daily_1,10,false,to take (a photo),Verb,I take a photo.,vocab_a1_0724
 추다,chuda,tanzen,A1,Verb,레나 씨가 춤을 춰요.,Lena tanzt.,Freizeit,a1_verbs_daily_1,11,true,to dance,Verb,Lena dances.,vocab_a1_0725
 치다,chida,(Tennis) spielen,A1,Verb,저는 테니스를 쳐요.,Ich spiele Tennis.,Sport,a1_verbs_daily_1,12,true,to play (tennis),Verb,I play tennis.,vocab_a1_0726
-다녀오다,danyeooda,(hin und zurück) gehen,A1,Verb,저는 어제 시장에 다녀왔어요.,Ich war gestern auf dem Markt.,Alltag,a1_verbs_daily_2,1,false,to go and come back,Verb,I went to the market yesterday.,vocab_a1_0727
+다녀오다,danyeooda,(hin und zurück) gehen,A1,Verb,저는 어제 시장에 다녀왔어요.,Ich war gestern auf dem Markt und bin danach zurückgekommen.,Alltag,a1_verbs_daily_2,1,false,to go and come back,Verb,I went to the market and came back yesterday.,vocab_a1_0727
 돌아가다,doragada,zurückgehen,A1,Verb,저는 집에 돌아가요.,Ich gehe nach Hause zurück.,Alltag,a1_verbs_daily_2,2,false,to go back,Verb,I go back home.,vocab_a1_0728
 돌아오다,doraoda,zurückkommen,A1,Verb,아버지가 일찍 돌아오세요.,Vater kommt früh zurück.,Familie,a1_verbs_daily_2,3,false,to come back,Verb,Father comes back early.,vocab_a1_0729
 들어가다,deureogada,hineingehen,A1,Verb,저는 아직 교실에 들어가지 않아요.,Ich betrete das Klassenzimmer noch nicht.,Bildung,a1_verbs_daily_2,4,false,to enter,Verb,I haven't entered the classroom yet.,vocab_a1_0730
@@ -2884,7 +2884,7 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 외출,oechul,Ausgehen,A2,Nomen,밤에는 혼자 외출을 안 해요.,Nachts gehe ich nicht allein aus.,Alltag,a2_daily_1,12,false,going out,Noun,I don't go out alone at night.,vocab_a2_0506
 빨래,ppallae,Wäsche,A2,Nomen,날씨가 좋아서 빨래가 빨리 말랐어요.,"Das Wetter war schön, deshalb ist die Wäsche schnell getrocknet.",Alltag,a2_daily_2,9,false,laundry,Noun,"The weather was nice, so the laundry dried quickly.",vocab_a2_0507
 쓰레기,sseuregi,Müll,A2,Nomen,쓰레기는 아침에 버려요.,Den Müll bringe ich morgens raus.,Alltag,a2_daily_2,10,false,trash,Noun,I take out the trash in the morning.,vocab_a2_0508
-버리다,beorida,wegwerfen,A2,Verb,안 입는 옷을 다 버렸어요.,"Ich habe alle Kleider weggeworfen, die ich nicht mehr trage.",Alltag,a2_daily_2,11,false,to throw away,Verb,I threw away all the clothes I don't wear anymore.,vocab_a2_0509
+버리다,beorida,wegwerfen,A2,Verb,안 입는 옷을 다 버렸어요.,"Ich habe alle Kleidungsstücke weggeworfen, die ich nicht trage.",Alltag,a2_daily_2,11,false,to throw away,Verb,I threw away all the clothes I don't wear.,vocab_a2_0509
 낮잠,natjam,Mittagsschlaf,A2,Nomen,주말에는 낮잠을 좀 자요.,Am Wochenende mache ich einen Mittagsschlaf.,Alltag,a2_daily_2,12,false,nap,Noun,On weekends I take a little nap.,vocab_a2_0510
 닦다,dakda,"wischen, putzen",A2,Verb,주말마다 창문을 닦아요.,Jedes Wochenende putze ich die Fenster.,Alltag,a2_daily_3,9,false,"to wipe, to clean",Verb,I clean the windows every weekend.,vocab_a2_0511
 돌리다,dollida,"laufen lassen, drehen",A2,Verb,청소기 좀 돌리고 나갈게요.,Ich sauge noch kurz und gehe dann raus.,Alltag,a2_daily_3,10,false,"to run (an appliance), to turn",Verb,I'll run the vacuum quickly and then go out.,vocab_a2_0512
@@ -2908,7 +2908,7 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 계단,gyedan,Treppe,A2,Nomen,엘리베이터가 고장 나서 계단으로 올라갔어요.,"Der Aufzug war kaputt, deshalb bin ich die Treppe hochgegangen.",Wohnen,a2_home_1,9,false,stairs,Noun,"The elevator was broken, so I went up the stairs.",vocab_a2_0530
 마당,madang,"Hof, Garten",A2,Nomen,마당에 나무를 심었어요.,Ich habe im Garten einen Baum gepflanzt.,Wohnen,a2_home_1,11,false,"yard, courtyard",Noun,I planted a tree in the yard.,vocab_a2_0531
 벽,byeok,Wand,A2,Nomen,벽에 가족사진을 걸었어요.,Ich habe ein Familienfoto an die Wand gehängt.,Wohnen,a2_home_1,12,false,wall,Noun,I hung a family photo on the wall.,vocab_a2_0532
-낚시,naksi,Angeln,A2,Nomen,아버지랑 강으로 낚시를 갔어요.,Ich bin mit meinem Vater zum Angeln an den Fluss gefahren.,Freizeit,a2_health_misc_1,11,false,fishing,Noun,I went fishing at the river with my father.,vocab_a2_0533
+낚시,naksi,Angeln,A2,Nomen,아버지랑 강으로 낚시를 갔어요.,Ich war mit meinem Vater am Fluss angeln.,Freizeit,a2_health_misc_1,11,false,fishing,Noun,I went fishing at the river with my father.,vocab_a2_0533
 배드민턴,baedeuminteon,Badminton,A2,Nomen,"레나 씨, 저랑 배드민턴 칠래요?","Lena, wollen Sie mit mir Badminton spielen?",Freizeit,a2_health_misc_1,12,false,badminton,Noun,"Lena, do you want to play badminton with me?",vocab_a2_0534
 간식,gansik,Snack,A2,Nomen,아이들이 학교에서 오면 간식을 줘요.,"Wenn die Kinder von der Schule kommen, gebe ich ihnen einen Snack.",Essen & Trinken,a2_food_1,11,false,snack,Noun,"When the kids come home from school, I give them a snack.",vocab_a2_0535
 재료,jaeryo,Zutat,A2,Nomen,요리하기 전에 재료부터 준비해요.,"Bevor ich koche, bereite ich zuerst die Zutaten vor.",Essen & Trinken,a2_food_1,12,false,ingredient,Noun,"Before cooking, I prepare the ingredients first.",vocab_a2_0536
