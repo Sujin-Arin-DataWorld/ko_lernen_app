@@ -6060,9 +6060,9 @@
     "semantic_hash": ""
   },
   "test/word_relation_service_test.dart": {
-    "mtime": 1789580958.1550438,
-    "seen": 1789582197.7526388,
-    "ast_hash": "e6d5cfd77d3ae10b6576fefdcd753663",
+    "mtime": 1789588165.8476446,
+    "seen": 1789588541.2898257,
+    "ast_hash": "2908588d2f723b4e7de38aeeff1a77ef",
     "semantic_hash": ""
   },
   "test/word_web_screen_test.dart": {
