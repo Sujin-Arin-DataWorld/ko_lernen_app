@@ -24,6 +24,11 @@ conceptIds, canDoClusterId?, reason}`` (``from`` is derived from the live
 grammar.csv row, not declared); see ``GrammarMove``/``_migrate_grammar_csv``/
 ``_migrate_grammar_curriculum``/``_migrate_grammar_can_do``/
 ``_repair_grammar_quiz_distractors``/``_check_scenario_grammar_regressions``.
+If a move invalidates a quiz set, provide ``grammarQuizRepairs`` entries
+``{id, beforeIds, afterIds, reason}`` for every affected row. These are
+authored replacements, never inferred from similar labels or nearby IDs.
+The tool checks structure and stale inputs; it cannot certify meaning or
+grant human approval. Both dry-run and apply reject missing repairs.
 
 Usage::
 
@@ -31,9 +36,10 @@ Usage::
         tools/content_factory/relevel/relevel_bundle_L2a.json [--apply] \\
         [--report docs/data/relevel_L2a_report.md]
 
-Default is a dry run: the plan is computed and printed (the stage is built
-and validated, so a dry run proves the move is safe -- it just never writes
-back to the real repository, the ledger, or the Dart files).
+Default is a dry run: the plan is computed and printed, and the stage is
+validated against structural and routing contracts. It never writes back
+to the real repository, the ledger, or the Dart files; semantic review is
+still required.
 """
 
 from __future__ import annotations
@@ -399,11 +405,42 @@ class GrammarMove:
 
 
 @dataclass(frozen=True)
+class GrammarQuizRepair:
+    id: str
+    before_ids: tuple[str, ...]
+    after_ids: tuple[str, ...]
+    reason: str
+
+    @classmethod
+    def from_dict(cls, raw: Any) -> "GrammarQuizRepair":
+        if not isinstance(raw, dict):
+            raise RelevelError("each grammarQuizRepair must be an object")
+        ident, reason = raw.get("id"), raw.get("reason")
+        if not isinstance(ident, str) or not ident.startswith("grammar_"):
+            raise RelevelError("grammarQuizRepair id must start with 'grammar_'")
+        if not isinstance(reason, str) or not reason.strip():
+            raise RelevelError(f"grammarQuizRepair {ident}: reason is required")
+        lists = []
+        for field_name in ("beforeIds", "afterIds"):
+            value = raw.get(field_name)
+            if not isinstance(value, list) or any(
+                not isinstance(item, str) or not item.startswith("grammar_")
+                or item != item.strip() for item in value
+            ):
+                raise RelevelError(f"grammarQuizRepair {ident}: {field_name} must be an ID list")
+            lists.append(tuple(value))
+        if len(lists[1]) != 3 or len(set(lists[1])) != 3 or ident in lists[1]:
+            raise RelevelError(f"grammarQuizRepair {ident}: afterIds needs three unique non-self IDs")
+        return cls(ident, lists[0], lists[1], reason)
+
+
+@dataclass(frozen=True)
 class BundleFile:
     batch: str
     moves: tuple[Move, ...]
     scenario_moves: tuple[ScenarioMove, ...] = ()
     grammar_moves: tuple[GrammarMove, ...] = ()
+    grammar_quiz_repairs: tuple[GrammarQuizRepair, ...] = ()
 
 
 def load_bundle_from_dict(raw: Any, *, source: str = "<bundle>") -> BundleFile:
@@ -446,8 +483,18 @@ def load_bundle_from_dict(raw: Any, *, source: str = "<bundle>") -> BundleFile:
     if len(grammar_move_ids) != len(set(grammar_move_ids)):
         raise RelevelError(f"{source}: duplicate id in grammarMoves")
 
+    raw_repairs = raw.get("grammarQuizRepairs", [])
+    if not isinstance(raw_repairs, list):
+        raise RelevelError(f"{source}: grammarQuizRepairs must be a list")
+    repairs = tuple(GrammarQuizRepair.from_dict(item) for item in raw_repairs)
+    if len({repair.id for repair in repairs}) != len(repairs):
+        raise RelevelError(f"{source}: duplicate id in grammarQuizRepairs")
+    if repairs and not grammar_moves:
+        raise RelevelError(f"{source}: grammarQuizRepairs requires grammarMoves")
+
     return BundleFile(
         batch=batch, moves=moves, scenario_moves=scenario_moves, grammar_moves=grammar_moves,
+        grammar_quiz_repairs=repairs,
     )
 
 
@@ -1417,16 +1464,14 @@ def _split_grammar_ids(raw: str) -> list[str]:
 def _repair_grammar_quiz_distractors(
     grammar_rows: list[dict[str, str]],
     report: MigrationReport,
+    repairs: tuple[GrammarQuizRepair, ...] = (),
 ) -> None:
-    """Brief T2 "quiz_distractor_ids repair": run *after* every grammarMove's
-    level flip, over the *whole* grammar.csv (not just moved rows -- another
-    row's distractor set can go stale just because one of ITS distractors
-    moved elsewhere). For every quiz-enabled row whose 3 distractors are no
-    longer exactly 3 unique, non-self, same-level, quiz-enabled ids, pick 3
-    deterministic replacements from the same (new) level: same ``type_en``
-    family first, then id-order closeness, ties broken by id string.
-    Mutates ``grammar_rows`` in place and appends one ``DistractorRepair``
-    per changed row to ``report``."""
+    """Apply explicit replacements after checking every affected set.
+
+    A level-compatible or similarly named form can be a second correct
+    answer. Never infer semantic review from those mechanical properties.
+    Preflight the complete input before mutating any row or report.
+    """
 
     by_id = {row["id"]: row for row in grammar_rows if row.get("id")}
 
@@ -1442,42 +1487,34 @@ def _repair_grammar_quiz_distractors(
                 return False
         return True
 
-    for row in grammar_rows:
-        if (row.get("quiz_enabled") or "").lower() != "true":
-            continue
-        if is_valid(row):
-            continue
-
-        old_ids = tuple(_split_grammar_ids(row.get("quiz_distractor_ids", "")))
-        level = row["level"]
-        same_level_ids = sorted(
-            r["id"] for r in grammar_rows
-            if r["id"] != row["id"] and r.get("level") == level
-            and (r.get("quiz_enabled") or "").lower() == "true"
+    required = {
+        row["id"] for row in grammar_rows
+        if (row.get("quiz_enabled") or "").lower() == "true" and not is_valid(row)
+    }
+    authored = {repair.id: repair for repair in repairs}
+    if len(authored) != len(repairs):
+        raise RelevelError("duplicate id in grammarQuizRepairs")
+    missing, extra = required - authored.keys(), authored.keys() - required
+    if missing or extra:
+        raise RelevelError(
+            f"grammarQuizRepairs must cover exactly the affected rows; "
+            f"missing={sorted(missing)}, unused={sorted(extra)}"
         )
-        if len(same_level_ids) < 3:
-            raise RelevelError(
-                f"{row['id']}: cannot repair quiz_distractor_ids -- only "
-                f"{len(same_level_ids)} other quiz-enabled {level} row(s) exist"
-            )
-        ranked_ids = sorted([row["id"], *same_level_ids])
-        self_index = ranked_ids.index(row["id"])
-
-        def distance(candidate_id: str, _ranked=ranked_ids, _self=self_index) -> int:
-            return abs(_ranked.index(candidate_id) - _self)
-
-        same_family = [i for i in same_level_ids if by_id[i].get("type_en") == row.get("type_en")]
-        other_family = [i for i in same_level_ids if i not in same_family]
-        same_family.sort(key=lambda i: (distance(i), i))
-        other_family.sort(key=lambda i: (distance(i), i))
-        chosen = (same_family + other_family)[:3]
-
-        new_ids = tuple(chosen)
-        row["quiz_distractor_ids"] = _ID_SEPARATOR.join(new_ids)
-        if new_ids != old_ids:
-            report.distractor_repairs.append(DistractorRepair(
-                grammar_id=row["id"], old_distractor_ids=old_ids, new_distractor_ids=new_ids,
-            ))
+    for ident in sorted(required):
+        row, repair = by_id[ident], authored[ident]
+        before = tuple(_split_grammar_ids(row.get("quiz_distractor_ids", "")))
+        if repair.before_ids != before:
+            raise RelevelError(f"grammarQuizRepair {ident}: stale beforeIds")
+        proposed = {**row, "quiz_distractor_ids": _ID_SEPARATOR.join(repair.after_ids)}
+        if not is_valid(proposed):
+            raise RelevelError(f"grammarQuizRepair {ident}: afterIds must be enabled, same-level, unique non-self IDs")
+    for ident in sorted(required):
+        repair = authored[ident]
+        by_id[ident]["quiz_distractor_ids"] = _ID_SEPARATOR.join(repair.after_ids)
+        report.distractor_repairs.append(DistractorRepair(
+            grammar_id=ident, old_distractor_ids=repair.before_ids,
+            new_distractor_ids=repair.after_ids,
+        ))
 
 
 def _check_scenario_grammar_regressions(
@@ -3371,7 +3408,7 @@ def migrate(
         _migrate_grammar_curriculum(curriculum, bundle.grammar_moves, report)
         _migrate_grammar_can_do(authorities, segments_doc, bundle.grammar_moves, report)
         if bundle.grammar_moves:
-            _repair_grammar_quiz_distractors(grammar_rows, report)
+            _repair_grammar_quiz_distractors(grammar_rows, report, bundle.grammar_quiz_repairs)
             report.grammar_patterns_note = _grammar_patterns_mirror_note(root)
 
         scenarios_list: list[dict[str, Any]] | None = None
