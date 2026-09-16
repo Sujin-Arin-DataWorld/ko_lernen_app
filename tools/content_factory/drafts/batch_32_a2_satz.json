@@ -34,7 +34,7 @@
       "id": "satz_a2_0563",
       "sourceVocabId": "vocab_a2_0571",
       "vocabKo": "손가락",
-      "targetKo": "다니엘 씨는 손가락이 길어요.",
+      "targetKo": "레나 씨, 제 손가락이 길어요.",
       "distractors": [
         "유치원이",
         "관광객이"
@@ -94,7 +94,7 @@
       "id": "satz_a2_0569",
       "sourceVocabId": "vocab_a2_0577",
       "vocabKo": "목소리",
-      "targetKo": "마야 씨는 목소리가 정말 커요.",
+      "targetKo": "대박, 수진 씨 목소리가 정말 커요!",
       "distractors": [
         "항공권이",
         "대학원이"
@@ -226,8 +226,8 @@
       "vocabKo": "끓다",
       "targetKo": "찌개가 끓으면 불을 줄여 주세요.",
       "distractors": [
-        "가면",
-        "오면"
+        "앉으면",
+        "걸으면"
       ]
     },
     {
@@ -264,7 +264,7 @@
       "id": "satz_a2_0586",
       "sourceVocabId": "vocab_a2_0594",
       "vocabKo": "스카프",
-      "targetKo": "레나 씨가 목에 노란 스카프를 맸어요.",
+      "targetKo": "다니엘 씨, 제가 노란 스카프를 맸어요.",
       "distractors": [
         "기차역을",
         "이마를"
@@ -304,7 +304,7 @@
       "id": "satz_a2_0590",
       "sourceVocabId": "vocab_a2_0598",
       "vocabKo": "청바지",
-      "targetKo": "준은 청바지를 입고 공원에 갔어요.",
+      "targetKo": "크리스티안, 나 청바지를 입고 공원 갈래!",
       "distractors": [
         "관광객을",
         "손가락을"
@@ -334,7 +334,7 @@
       "id": "satz_a2_0593",
       "sourceVocabId": "vocab_a2_0601",
       "vocabKo": "화장품",
-      "targetKo": "안드레아 씨는 화장품을 별로 안 써요.",
+      "targetKo": "마야 씨, 저는 화장품을 별로 안 써요.",
       "distractors": [
         "기차표를",
         "유치원을"
@@ -424,7 +424,7 @@
       "id": "satz_a2_0602",
       "sourceVocabId": "vocab_a2_0610",
       "vocabKo": "국제",
-      "targetKo": "다니엘 씨는 국제 학교에서 일해요.",
+      "targetKo": "수진 씨, 저는 국제 학교에서 일해요.",
       "distractors": [
         "결석",
         "설렁탕"
@@ -494,7 +494,7 @@
       "id": "satz_a2_0609",
       "sourceVocabId": "vocab_a2_0617",
       "vocabKo": "중학교",
-      "targetKo": "현아 씨 동생은 중학교에 다녀요.",
+      "targetKo": "레나 씨, 제 동생은 중학교에 다녀요.",
       "distractors": [
         "볶음밥에",
         "목걸이에"
@@ -514,7 +514,7 @@
       "id": "satz_a2_0611",
       "sourceVocabId": "vocab_a2_0619",
       "vocabKo": "초등학생",
-      "targetKo": "준은 올해 초등학생이 됐어요.",
+      "targetKo": "크리스티안, 나 올해 초등학생이 됐어!",
       "distractors": [
         "가다",
         "오다"
@@ -524,10 +524,10 @@
       "id": "satz_a2_0612",
       "sourceVocabId": "vocab_a2_0620",
       "vocabKo": "대학원",
-      "targetKo": "현아 씨는 대학원에서 도시 문화를 공부해요.",
+      "targetKo": "수진 씨, 저는 대학원에서 도시 문화를 공부해요.",
       "distractors": [
-        "옷장에서",
-        "기차역에서"
+        "결석에서",
+        "예매에서"
       ]
     },
     {
@@ -574,7 +574,7 @@
       "id": "satz_a2_0617",
       "sourceVocabId": "vocab_a2_0625",
       "vocabKo": "교사",
-      "targetKo": "안드레아 씨 친구는 초등학교 교사예요.",
+      "targetKo": "현아 씨, 제 친구는 초등학교 교사예요.",
       "distractors": [
         "관광지예요",
         "설렁탕이에요"
@@ -606,8 +606,8 @@
       "vocabKo": "믿다",
       "targetKo": "나는 크리스티안을 믿어.",
       "distractors": [
-        "가",
-        "와"
+        "앉아",
+        "걸어"
       ]
     },
     {
@@ -634,7 +634,7 @@
       "id": "satz_a2_0623",
       "sourceVocabId": "vocab_a2_0631",
       "vocabKo": "흔들다",
-      "targetKo": "크리스티안 씨가 저를 보고 손을 흔들었어요.",
+      "targetKo": "저는 수진 씨를 보고 손을 흔들었어요.",
       "distractors": [
         "갔어요",
         "앉았어요"

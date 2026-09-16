@@ -94,6 +94,21 @@ OVERRIDES = {
     "휴가에는": "휴가", "이번에는": "이번", "알아봤어요": "알아보다",
     "기차역까지": "기차역", "분쯤": "분", "걸려요": "걸리다", "떠나요": "떠나다",
     "슬펐지만": "슬프다", "가져가는": "가져가다",
+    "갈래": "가다", "됐어": "되다",
+}
+
+# R8 (Fable review of commit 5a0b5353, 2026-09-16): banmal rows, keyed by
+# vocab id -> (headword, speaker persona id, addressee/reference persona id).
+# A2 반말 is restricted to 수진<->크리스티안 or a documented friend/family
+# exception -- 준's own character profile (character_profiles.json)
+# explicitly documents "부모·크리스티안에게만, A2부터 반말을 쓴다" (banmal
+# only to parents and Christian, from A2 on), so his two rows here are the
+# SAME canon exception as 수진<->크리스티안, not a violation of the general
+# friend-pair rule.
+BANMAL_ROWS = {
+    "vocab_a2_0628": ("믿다", "sujin", "christian"),     # 나는 크리스티안을 믿어.
+    "vocab_a2_0598": ("청바지", "jun", "christian"),      # 크리스티안, 나 청바지를 입고 공원 갈래!
+    "vocab_a2_0619": ("초등학생", "jun", "christian"),    # 크리스티안, 나 올해 초등학생이 됐어!
 }
 
 
@@ -344,17 +359,64 @@ class TestBatch32VocabRows(unittest.TestCase):
             self.assertNotIn("-", row["example_korean"], f"{row['id']}: contains a dash")
             self.assertNotIn("—", row["example_korean"], f"{row['id']}: contains an em-dash")
 
-    def test_banmal_restricted_to_sujin_christian_or_friend_pairs(self):
-        """A2 반말 (bare -어/-았어 endings without 요) is only permitted between
-        수진<->크리스티안 or canon friend pairs. This batch's only banmal row
-        (믿다: '나는 크리스티안을 믿어.') features 크리스티안, matching the
-        수진<->크리스티안 exception (수진 is the implicit unnamed speaker)."""
-        banmal_rows = [r for r in self.rows if r["example_korean"].rstrip(".!?").endswith(("믿어",))]
-        for row in banmal_rows:
+    def test_banmal_restricted_to_sujin_christian_or_documented_exceptions(self):
+        """A2 반말 (bare -어/-았어/-을래 endings without 요) is only permitted
+        between 수진<->크리스티안, canon friend pairs, or a persona's own
+        documented banmal exception (character_profiles.json). This batch's
+        3 banmal rows (BANMAL_ROWS) all feature 크리스티안: 믿다 (수진<->
+        크리스티안 canon couple) and 청바지/초등학생 (준's own documented
+        '부모·크리스티안에게만, A2부터 반말을 쓴다' exception)."""
+        rows_by_id = {r["id"]: r for r in self.rows}
+        for vid, (headword, speaker, addressee) in BANMAL_ROWS.items():
+            self.assertIn(vid, rows_by_id, f"{vid}: BANMAL_ROWS references a missing row")
+            example = rows_by_id[vid]["example_korean"]
+            self.assertEqual(rows_by_id[vid]["korean"], headword, f"{vid}: headword mismatch")
             self.assertIn(
-                "크리스티안", row["example_korean"],
-                f"{row['id']}: banmal row does not feature 크리스티안 or a documented friend pair",
+                "크리스티안", example,
+                f"{vid}: banmal row does not feature 크리스티안 (수진<->크리스티안 or 준's exception)",
             )
+
+    def test_persona_rows_are_speaker_rows(self):
+        """R8 (Fable review of commit 5a0b5353, 2026-09-16): a persona row
+        only counts when the persona SPEAKS (vocative address from them, or
+        canon-unambiguous first person) -- a third-person description
+        ('다니엘 씨는 손가락이 길어요') does not count, even though it passes
+        the weaker 'a canonical name appears somewhere' check above. Checked
+        as: the example contains a first-person marker (저는/제가/저 .../
+        나는/나 ...) OR the persona's own documented A2-level speech marker
+        (character_profiles.json speechStyle.ko.byLevel.A2), AND never
+        contains that SAME persona's own canonical name (a genuine
+        first-person line does not name its own speaker; if it did, that is
+        the third-person-description bug this test exists to catch)."""
+        profiles = _load_json(CHARACTER_PROFILES)
+        ko_name_by_id = {c["id"]: c["displayNames"]["ko"] for c in profiles["recurringCharacters"]}
+        a2_markers_by_id = {}
+        for c in profiles["recurringCharacters"]:
+            by_level = c.get("speechStyle", {}).get("byLevel", {})
+            a2_markers_by_id[c["id"]] = by_level.get("A2", [])
+
+        first_person_markers = ("저는", "제가", "저를", "제 ", "나는", "나 ")
+        manifest = _load_json(DRAFTS / "batch_32_a2_reinforcement_manifest.json")
+        speakers = manifest.get("personaRows", {})
+        rows_by_id = {r["id"]: r for r in _load_vocab_rows(DRAFTS / "batch_32_a2_rows.csv")}
+
+        offenders = {}
+        for vid, pid in speakers.items():
+            example = rows_by_id[vid]["example_korean"]
+            own_name = ko_name_by_id.get(pid, "")
+            has_first_person = any(m in example for m in first_person_markers)
+            has_own_marker = any(
+                marker.rstrip(".!?") and marker.rstrip(".!?") in example
+                for marker in a2_markers_by_id.get(pid, [])
+            )
+            leaks_own_name = bool(own_name) and own_name in example
+            if leaks_own_name or not (has_first_person or has_own_marker):
+                offenders[vid] = (pid, example)
+        self.assertEqual(
+            offenders, {},
+            f"row(s) are not genuine speaker rows (third-person description, or the "
+            f"speaking persona's own name leaks into the sentence): {offenders}",
+        )
 
 
 class TestBatch32A2GrammarScan(unittest.TestCase):

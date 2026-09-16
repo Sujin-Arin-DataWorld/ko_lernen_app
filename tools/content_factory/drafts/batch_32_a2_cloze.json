@@ -39,8 +39,8 @@
     {
       "id": "cloze_a2_0378",
       "sourceVocabId": "vocab_a2_0571",
-      "fullKo": "다니엘 씨는 손가락이 길어요.",
-      "sentenceKo": "다니엘 씨는 ＿＿＿ 길어요.",
+      "fullKo": "레나 씨, 제 손가락이 길어요.",
+      "sentenceKo": "레나 씨, 제 ＿＿＿ 길어요.",
       "answer": "손가락이",
       "distractors": [
         "유치원이",
@@ -111,8 +111,8 @@
     {
       "id": "cloze_a2_0384",
       "sourceVocabId": "vocab_a2_0577",
-      "fullKo": "마야 씨는 목소리가 정말 커요.",
-      "sentenceKo": "마야 씨는 ＿＿＿ 정말 커요.",
+      "fullKo": "대박, 수진 씨 목소리가 정말 커요!",
+      "sentenceKo": "대박, 수진 씨 ＿＿＿ 정말 커요!",
       "answer": "목소리가",
       "distractors": [
         "항공권이",
@@ -271,8 +271,8 @@
       "sentenceKo": "찌개가 ＿＿＿ 불을 줄여 주세요.",
       "answer": "끓으면",
       "distractors": [
-        "가면",
-        "오면",
+        "앉으면",
+        "걸으면",
         "자면"
       ]
     },
@@ -315,8 +315,8 @@
     {
       "id": "cloze_a2_0401",
       "sourceVocabId": "vocab_a2_0594",
-      "fullKo": "레나 씨가 목에 노란 스카프를 맸어요.",
-      "sentenceKo": "레나 씨가 목에 노란 ＿＿＿ 맸어요.",
+      "fullKo": "다니엘 씨, 제가 노란 스카프를 맸어요.",
+      "sentenceKo": "다니엘 씨, 제가 노란 ＿＿＿ 맸어요.",
       "answer": "스카프를",
       "distractors": [
         "기차역을",
@@ -363,8 +363,8 @@
     {
       "id": "cloze_a2_0405",
       "sourceVocabId": "vocab_a2_0598",
-      "fullKo": "준은 청바지를 입고 공원에 갔어요.",
-      "sentenceKo": "준은 ＿＿＿ 입고 공원에 갔어요.",
+      "fullKo": "크리스티안, 나 청바지를 입고 공원 갈래!",
+      "sentenceKo": "크리스티안, 나 ＿＿＿ 입고 공원 갈래!",
       "answer": "청바지를",
       "distractors": [
         "관광객을",
@@ -399,8 +399,8 @@
     {
       "id": "cloze_a2_0408",
       "sourceVocabId": "vocab_a2_0601",
-      "fullKo": "안드레아 씨는 화장품을 별로 안 써요.",
-      "sentenceKo": "안드레아 씨는 ＿＿＿ 별로 안 써요.",
+      "fullKo": "마야 씨, 저는 화장품을 별로 안 써요.",
+      "sentenceKo": "마야 씨, 저는 ＿＿＿ 별로 안 써요.",
       "answer": "화장품을",
       "distractors": [
         "기차표를",
@@ -507,8 +507,8 @@
     {
       "id": "cloze_a2_0417",
       "sourceVocabId": "vocab_a2_0610",
-      "fullKo": "다니엘 씨는 국제 학교에서 일해요.",
-      "sentenceKo": "다니엘 씨는 ＿＿＿ 학교에서 일해요.",
+      "fullKo": "수진 씨, 저는 국제 학교에서 일해요.",
+      "sentenceKo": "수진 씨, 저는 ＿＿＿ 학교에서 일해요.",
       "answer": "국제",
       "distractors": [
         "결석",
@@ -591,8 +591,8 @@
     {
       "id": "cloze_a2_0424",
       "sourceVocabId": "vocab_a2_0617",
-      "fullKo": "현아 씨 동생은 중학교에 다녀요.",
-      "sentenceKo": "현아 씨 동생은 ＿＿＿ 다녀요.",
+      "fullKo": "레나 씨, 제 동생은 중학교에 다녀요.",
+      "sentenceKo": "레나 씨, 제 동생은 ＿＿＿ 다녀요.",
       "answer": "중학교에",
       "distractors": [
         "볶음밥에",
@@ -615,8 +615,8 @@
     {
       "id": "cloze_a2_0426",
       "sourceVocabId": "vocab_a2_0619",
-      "fullKo": "준은 올해 초등학생이 됐어요.",
-      "sentenceKo": "준은 올해 ＿＿＿ 됐어요.",
+      "fullKo": "크리스티안, 나 올해 초등학생이 됐어!",
+      "sentenceKo": "크리스티안, 나 올해 ＿＿＿ 됐어!",
       "answer": "초등학생이",
       "distractors": [
         "가다",
@@ -627,13 +627,13 @@
     {
       "id": "cloze_a2_0427",
       "sourceVocabId": "vocab_a2_0620",
-      "fullKo": "현아 씨는 대학원에서 도시 문화를 공부해요.",
-      "sentenceKo": "현아 씨는 ＿＿＿ 도시 문화를 공부해요.",
+      "fullKo": "수진 씨, 저는 대학원에서 도시 문화를 공부해요.",
+      "sentenceKo": "수진 씨, 저는 ＿＿＿ 도시 문화를 공부해요.",
       "answer": "대학원에서",
       "distractors": [
-        "옷장에서",
-        "기차역에서",
-        "부엌에서"
+        "결석에서",
+        "예매에서",
+        "국제에서"
       ]
     },
     {
@@ -687,8 +687,8 @@
     {
       "id": "cloze_a2_0432",
       "sourceVocabId": "vocab_a2_0625",
-      "fullKo": "안드레아 씨 친구는 초등학교 교사예요.",
-      "sentenceKo": "안드레아 씨 친구는 초등학교 ＿＿＿.",
+      "fullKo": "현아 씨, 제 친구는 초등학교 교사예요.",
+      "sentenceKo": "현아 씨, 제 친구는 초등학교 ＿＿＿.",
       "answer": "교사예요",
       "distractors": [
         "관광지예요",
@@ -727,9 +727,9 @@
       "sentenceKo": "나는 크리스티안을 ＿＿＿.",
       "answer": "믿어",
       "distractors": [
-        "가",
-        "와",
-        "자"
+        "앉아",
+        "걸어",
+        "울어"
       ]
     },
     {
@@ -759,8 +759,8 @@
     {
       "id": "cloze_a2_0438",
       "sourceVocabId": "vocab_a2_0631",
-      "fullKo": "크리스티안 씨가 저를 보고 손을 흔들었어요.",
-      "sentenceKo": "크리스티안 씨가 저를 보고 손을 ＿＿＿.",
+      "fullKo": "저는 수진 씨를 보고 손을 흔들었어요.",
+      "sentenceKo": "저는 수진 씨를 보고 손을 ＿＿＿.",
       "answer": "흔들었어요",
       "distractors": [
         "갔어요",
