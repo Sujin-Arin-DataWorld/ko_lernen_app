@@ -1,0 +1,836 @@
+{
+  "items": [
+    {
+      "id": "satz_a2_0694",
+      "sourceVocabId": "vocab_a2_0702",
+      "vocabKo": "잔치",
+      "targetKo": "할머니 칠순이라 주말에 잔치를 해요.",
+      "distractors": [
+        "평일에",
+        "할아버지"
+      ],
+      "promptDe": "Am Wochenende gibt es eine Feier zum 70. Geburtstag meiner Oma.",
+      "promptEn": "We're having a party for my grandma's seventieth birthday this weekend.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0695",
+      "sourceVocabId": "vocab_a2_0703",
+      "vocabKo": "결혼",
+      "targetKo": "대박, 두 사람이 다음 달에 결혼을 해요!",
+      "distractors": [
+        "이번",
+        "세"
+      ],
+      "promptDe": "Wahnsinn, die beiden heiraten nächsten Monat!",
+      "promptEn": "Wow, the two of them are getting married next month!",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0696",
+      "sourceVocabId": "vocab_a2_0704",
+      "vocabKo": "환영",
+      "targetKo": "레나 씨, 환영해요! 여기 같이 앉아요.",
+      "distractors": [
+        "혼자",
+        "서요"
+      ],
+      "promptDe": "Lena, herzlich willkommen! Setzen Sie sich doch zu uns.",
+      "promptEn": "Lena, welcome! Come and sit with us.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0697",
+      "sourceVocabId": "vocab_a2_0705",
+      "vocabKo": "연말",
+      "targetKo": "마야 씨, 연말에는 같이 밥 한번 먹어요.",
+      "distractors": [
+        "혼자",
+        "차"
+      ],
+      "promptDe": "Maya, lassen Sie uns zum Jahresende mal zusammen essen gehen.",
+      "promptEn": "Maya, let's have a meal together toward the end of the year.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0688",
+      "sourceVocabId": "vocab_a2_0696",
+      "vocabKo": "메일",
+      "targetKo": "안드레아 씨, 사진을 메일로 보내도 돼요?",
+      "distractors": [
+        "편지를",
+        "받아도"
+      ],
+      "promptDe": "Andrea, darf ich das Foto per E-Mail schicken?",
+      "promptEn": "Andrea, can I send the photo by email?",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0689",
+      "sourceVocabId": "vocab_a2_0697",
+      "vocabKo": "연결",
+      "targetKo": "인터넷 연결을 바꿨어요. 이제 사진을 보낼게요.",
+      "distractors": [
+        "바꿀게요",
+        "편지를"
+      ],
+      "promptDe": "Ich habe die Internetverbindung gewechselt. Jetzt schicke ich das Foto.",
+      "promptEn": "I changed the internet connection. I'll send the photo now.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0690",
+      "sourceVocabId": "vocab_a2_0698",
+      "vocabKo": "전화기",
+      "targetKo": "가게 전화기를 바꿨어요. 이제 소리가 잘 들려요.",
+      "distractors": [
+        "팔았어요",
+        "집"
+      ],
+      "promptDe": "Ich habe das Telefon im Laden ausgetauscht. Jetzt ist der Ton klar.",
+      "promptEn": "I replaced the phone at the shop. Now the sound is clear.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0691",
+      "sourceVocabId": "vocab_a2_0699",
+      "vocabKo": "들리다",
+      "targetKo": "크리스티안, 잘 들려? 여기는 좀 시끄러워.",
+      "distractors": [
+        "거기는",
+        "조용해"
+      ],
+      "promptDe": "Christian, hörst du mich gut? Hier ist es etwas laut.",
+      "promptEn": "Christian, can you hear me clearly? It's a bit noisy here.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0692",
+      "sourceVocabId": "vocab_a2_0700",
+      "vocabKo": "소식",
+      "targetKo": "친구 결혼 소식을 듣고 바로 전화했어요.",
+      "distractors": [
+        "말하고",
+        "나중에"
+      ],
+      "promptDe": "Ich habe von einer Hochzeit im Freundeskreis gehört und gleich angerufen.",
+      "promptEn": "I heard that a friend was getting married and called right away.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0693",
+      "sourceVocabId": "vocab_a2_0701",
+      "vocabKo": "물어보다",
+      "targetKo": "길을 모르면 저 사람에게 물어보세요.",
+      "distractors": [
+        "알면",
+        "이"
+      ],
+      "promptDe": "Wenn Sie den Weg nicht kennen, fragen Sie die Person dort.",
+      "promptEn": "If you don't know the way, ask the person over there.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0698",
+      "sourceVocabId": "vocab_a2_0706",
+      "vocabKo": "도움",
+      "targetKo": "다니엘 씨, 도움이 필요해요. 이 문제를 모르겠어요.",
+      "distractors": [
+        "필요했어요",
+        "알겠어요"
+      ],
+      "promptDe": "Daniel, ich brauche Hilfe. Ich verstehe diese Aufgabe nicht.",
+      "promptEn": "Daniel, I need help. I don't understand this problem.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0699",
+      "sourceVocabId": "vocab_a2_0707",
+      "vocabKo": "고장",
+      "targetKo": "크리스티안, 컴퓨터가 또 고장이 났어? 내 거 써.",
+      "distractors": [
+        "네",
+        "팔아"
+      ],
+      "promptDe": "Christian, ist dein Computer schon wieder kaputt? Nimm meinen.",
+      "promptEn": "Christian, did your computer break down again? Use mine.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0700",
+      "sourceVocabId": "vocab_a2_0708",
+      "vocabKo": "잃다",
+      "targetKo": "지갑을 잃었어요. 혹시 여기에서 보셨어요?",
+      "distractors": [
+        "저기에서",
+        "가방을"
+      ],
+      "promptDe": "Ich habe meine Brieftasche verloren. Haben Sie sie vielleicht hier gesehen?",
+      "promptEn": "I've lost my wallet. Have you seen it here by any chance?",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0701",
+      "sourceVocabId": "vocab_a2_0709",
+      "vocabKo": "막히다",
+      "targetKo": "길이 막혔어요. 지하철로 갈까요?",
+      "distractors": [
+        "버스로",
+        "갔어요"
+      ],
+      "promptDe": "Es gibt einen Stau. Nehmen wir die U-Bahn?",
+      "promptEn": "There's a traffic jam. Shall we take the subway?",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0702",
+      "sourceVocabId": "vocab_a2_0710",
+      "vocabKo": "전기",
+      "targetKo": "전기가 나가서 촛불을 켰어요.",
+      "distractors": [
+        "라디오를",
+        "껐어요"
+      ],
+      "promptDe": "Der Strom ist ausgefallen, also habe ich eine Kerze angezündet.",
+      "promptEn": "The power went out, so I lit a candle.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0703",
+      "sourceVocabId": "vocab_a2_0711",
+      "vocabKo": "유리",
+      "targetKo": "이 컵은 유리로 만들었어요. 안이 잘 보여요.",
+      "distractors": [
+        "그릇은",
+        "밖이"
+      ],
+      "promptDe": "Dieser Becher ist aus Glas. Man kann gut hineinsehen.",
+      "promptEn": "This cup is made of glass. You can see inside clearly.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0704",
+      "sourceVocabId": "vocab_a2_0712",
+      "vocabKo": "센터",
+      "targetKo": "센터에 전화해서 수리비를 물어봤어요.",
+      "distractors": [
+        "시간을",
+        "알려줬어요"
+      ],
+      "promptDe": "Ich habe beim Servicecenter angerufen und nach den Reparaturkosten gefragt.",
+      "promptEn": "I called the service center to ask about the repair cost.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0705",
+      "sourceVocabId": "vocab_a2_0713",
+      "vocabKo": "서비스",
+      "targetKo": "이 식당은 서비스가 정말 좋아요.",
+      "distractors": [
+        "나빠요",
+        "호텔은"
+      ],
+      "promptDe": "Der Service in diesem Restaurant ist wirklich gut.",
+      "promptEn": "The service at this restaurant is really good.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0706",
+      "sourceVocabId": "vocab_a2_0714",
+      "vocabKo": "안전",
+      "targetKo": "운전할 때는 안전이 제일 중요해요.",
+      "distractors": [
+        "운동할",
+        "조금"
+      ],
+      "promptDe": "Beim Autofahren ist Sicherheit am wichtigsten.",
+      "promptEn": "When you drive, safety matters most.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0707",
+      "sourceVocabId": "vocab_a2_0715",
+      "vocabKo": "급하다",
+      "targetKo": "급한 일이 생겼어요.",
+      "distractors": [
+        "끝났어요",
+        "약속이"
+      ],
+      "promptDe": "Es ist etwas Dringendes dazwischengekommen.",
+      "promptEn": "Something urgent has come up.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0708",
+      "sourceVocabId": "vocab_a2_0716",
+      "vocabKo": "알아보다",
+      "targetKo": "기차 시간을 알아봤어요. 아직 한 시간 남았어요.",
+      "distractors": [
+        "버스",
+        "두"
+      ],
+      "promptDe": "Ich habe die Zugzeiten nachgesehen. Wir haben noch eine Stunde.",
+      "promptEn": "I checked the train times. We've still got an hour.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0709",
+      "sourceVocabId": "vocab_a2_0717",
+      "vocabKo": "잘못하다",
+      "targetKo": "제가 계산을 잘못해서 천 원을 더 냈어요.",
+      "distractors": [
+        "먼저",
+        "만"
+      ],
+      "promptDe": "Ich habe mich verrechnet und tausend Won zu viel bezahlt.",
+      "promptEn": "I got the calculation wrong and paid a thousand won too much.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0710",
+      "sourceVocabId": "vocab_a2_0718",
+      "vocabKo": "만두",
+      "targetKo": "만두를 너무 많이 쪘어요. 같이 먹어요.",
+      "distractors": [
+        "구웠어요",
+        "조금"
+      ],
+      "promptDe": "Ich habe zu viele Mandu gedämpft. Essen Sie mit!",
+      "promptEn": "I steamed too many dumplings. Come and share them!",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0711",
+      "sourceVocabId": "vocab_a2_0719",
+      "vocabKo": "떡",
+      "targetKo": "엄마, 오늘 3학년 친구들하고 떡을 나눠 먹었어!",
+      "distractors": [
+        "어제",
+        "선생님하고"
+      ],
+      "promptDe": "Mama, heute habe ich Reiskuchen mit meinen Freunden aus der dritten Klasse geteilt!",
+      "promptEn": "Mom, I shared rice cakes with my third-grade friends today!",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0712",
+      "sourceVocabId": "vocab_a2_0720",
+      "vocabKo": "김",
+      "targetKo": "이 김은 별로 안 짜요. 밥이랑 같이 드세요.",
+      "distractors": [
+        "매워요",
+        "빵이랑"
+      ],
+      "promptDe": "Diese Algenblätter sind nicht besonders salzig. Essen Sie sie doch mit Reis.",
+      "promptEn": "This dried seaweed isn't very salty. Try it with rice.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0713",
+      "sourceVocabId": "vocab_a2_0721",
+      "vocabKo": "찌개",
+      "targetKo": "오늘은 따뜻한 찌개가 먹고 싶어요.",
+      "distractors": [
+        "차가운",
+        "내일은"
+      ],
+      "promptDe": "Heute habe ich Lust auf einen warmen koreanischen Eintopf.",
+      "promptEn": "I feel like having a warm Korean stew today.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0714",
+      "sourceVocabId": "vocab_a2_0722",
+      "vocabKo": "튀김",
+      "targetKo": "튀김을 방금 해서 아직 뜨거워요.",
+      "distractors": [
+        "벌써",
+        "차가워요"
+      ],
+      "promptDe": "Das Essen ist frisch frittiert und noch heiß.",
+      "promptEn": "The food has just been deep-fried, so it is still hot.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0715",
+      "sourceVocabId": "vocab_a2_0723",
+      "vocabKo": "자장면",
+      "targetKo": "저는 자장면을 먹을게요. 같이 주문할까요?",
+      "distractors": [
+        "먹었어요",
+        "취소할까요"
+      ],
+      "promptDe": "Ich nehme Jajangmyeon. Wollen wir zusammen bestellen?",
+      "promptEn": "I'll have jajangmyeon. Shall we order together?",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0716",
+      "sourceVocabId": "vocab_a2_0724",
+      "vocabKo": "짬뽕",
+      "targetKo": "짬뽕을 한입 먹고 물부터 찾았어요.",
+      "distractors": [
+        "밥부터",
+        "버렸어요"
+      ],
+      "promptDe": "Nach einem Bissen Jjamppong habe ich zuerst nach Wasser gesucht.",
+      "promptEn": "After one bite of jjamppong, the first thing I looked for was water.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0717",
+      "sourceVocabId": "vocab_a2_0725",
+      "vocabKo": "탕수육",
+      "targetKo": "탕수육을 하나 시켜서 같이 먹어요.",
+      "distractors": [
+        "둘",
+        "혼자"
+      ],
+      "promptDe": "Bestellen wir eine Portion Tangsuyuk zum Teilen.",
+      "promptEn": "Let's order a serving of tangsuyuk to share.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0718",
+      "sourceVocabId": "vocab_a2_0726",
+      "vocabKo": "칼국수",
+      "targetKo": "비가 오니까 칼국수가 생각나요.",
+      "distractors": [
+        "눈이",
+        "그치니까"
+      ],
+      "promptDe": "Bei dem Regen bekomme ich Lust auf Kalguksu.",
+      "promptEn": "This rain makes me feel like having kalguksu.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0719",
+      "sourceVocabId": "vocab_a2_0727",
+      "vocabKo": "돈가스",
+      "targetKo": "이 돈가스는 제 얼굴보다 커요!",
+      "distractors": [
+        "작아요",
+        "손보다"
+      ],
+      "promptDe": "Dieses Donkatsu ist größer als mein Gesicht!",
+      "promptEn": "This pork cutlet is bigger than my face!",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0720",
+      "sourceVocabId": "vocab_a2_0728",
+      "vocabKo": "카레",
+      "targetKo": "카레를 많이 했어요. 내일 점심도 걱정 없어요.",
+      "distractors": [
+        "오늘",
+        "저녁도"
+      ],
+      "promptDe": "Ich habe viel Curry gekocht. Damit ist auch das Mittagessen für morgen gesichert.",
+      "promptEn": "I made plenty of curry. That's tomorrow's lunch sorted too.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0721",
+      "sourceVocabId": "vocab_a2_0729",
+      "vocabKo": "미역국",
+      "targetKo": "생일에는 미역국을 먹어요. 올해는 제가 끓였어요.",
+      "distractors": [
+        "엄마가",
+        "작년에는"
+      ],
+      "promptDe": "Zum Geburtstag esse ich Miyeokguk. Dieses Jahr habe ich sie selbst gekocht.",
+      "promptEn": "I have miyeokguk for my birthday. This year I made it myself.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0722",
+      "sourceVocabId": "vocab_a2_0730",
+      "vocabKo": "집안일",
+      "targetKo": "민호 씨, 집안일을 다 했어요? 이제 좀 쉬어요.",
+      "distractors": [
+        "일해요",
+        "조금"
+      ],
+      "promptDe": "Minho, sind Sie mit dem Haushalt fertig? Ruhen Sie sich jetzt etwas aus.",
+      "promptEn": "Minho, have you finished the housework? Take a little break now.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0723",
+      "sourceVocabId": "vocab_a2_0731",
+      "vocabKo": "세탁",
+      "targetKo": "이 코트는 집에서 세탁을 하면 안 돼요.",
+      "distractors": [
+        "밖에서",
+        "바지는"
+      ],
+      "promptDe": "Diesen Mantel darf man nicht zu Hause waschen.",
+      "promptEn": "This coat mustn't be washed at home.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0724",
+      "sourceVocabId": "vocab_a2_0732",
+      "vocabKo": "빨다",
+      "targetKo": "운동 후에 양말부터 빨았어요.",
+      "distractors": [
+        "전에",
+        "수건부터"
+      ],
+      "promptDe": "Nach dem Sport habe ich als Erstes meine Socken gewaschen.",
+      "promptEn": "After exercising, I washed my socks first.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0725",
+      "sourceVocabId": "vocab_a2_0733",
+      "vocabKo": "쓰레기통",
+      "targetKo": "이 종이는 쓰레기통에 버려도 돼요?",
+      "distractors": [
+        "봉투는",
+        "저"
+      ],
+      "promptDe": "Kann ich dieses Papier in den Mülleimer werfen?",
+      "promptEn": "Can I throw this paper in the trash can?",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0726",
+      "sourceVocabId": "vocab_a2_0734",
+      "vocabKo": "휴지",
+      "targetKo": "화장실에 휴지가 없어요. 좀 가져와 주세요.",
+      "distractors": [
+        "있어요",
+        "가져가"
+      ],
+      "promptDe": "Im Bad ist kein Toilettenpapier. Bringen Sie mir bitte welches.",
+      "promptEn": "There's no toilet paper in the bathroom. Please bring me some.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0727",
+      "sourceVocabId": "vocab_a2_0735",
+      "vocabKo": "목욕",
+      "targetKo": "목욕을 하니까 몸이 편해요.",
+      "distractors": [
+        "아파요",
+        "샤워를"
+      ],
+      "promptDe": "Nach dem Bad fühle ich mich schön entspannt.",
+      "promptEn": "I feel nice and relaxed after the bath.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0728",
+      "sourceVocabId": "vocab_a2_0736",
+      "vocabKo": "양치질",
+      "targetKo": "양치질을 했는데 또 배가 고파요.",
+      "distractors": [
+        "아직",
+        "아파요"
+      ],
+      "promptDe": "Ich habe mir die Zähne geputzt, aber ich habe wieder Hunger.",
+      "promptEn": "I've brushed my teeth, but I'm hungry again.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0729",
+      "sourceVocabId": "vocab_a2_0737",
+      "vocabKo": "치약",
+      "targetKo": "치약이 다 떨어졌어요. 오늘은 꼭 사야 해요.",
+      "distractors": [
+        "내일은",
+        "팔아야"
+      ],
+      "promptDe": "Die Zahnpasta ist alle. Heute muss ich unbedingt neue kaufen.",
+      "promptEn": "I'm out of toothpaste. I really need to buy some today.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0730",
+      "sourceVocabId": "vocab_a2_0738",
+      "vocabKo": "선풍기",
+      "targetKo": "선풍기를 제 쪽으로 조금만 돌려 주세요.",
+      "distractors": [
+        "많이",
+        "밀어"
+      ],
+      "promptDe": "Drehen Sie den Ventilator bitte ein bisschen zu mir.",
+      "promptEn": "Please turn the fan a little toward me.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0731",
+      "sourceVocabId": "vocab_a2_0739",
+      "vocabKo": "식탁",
+      "targetKo": "식탁에 케이크가 있어요. 같이 먹어요.",
+      "distractors": [
+        "과일이",
+        "만들어요"
+      ],
+      "promptDe": "Auf dem Esstisch steht ein Kuchen. Essen wir etwas davon!",
+      "promptEn": "There's a cake on the dining table. Let's have some together!",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0732",
+      "sourceVocabId": "vocab_a2_0740",
+      "vocabKo": "바닥",
+      "targetKo": "바닥을 방금 닦았어요. 천천히 걸으세요.",
+      "distractors": [
+        "빨리",
+        "어제"
+      ],
+      "promptDe": "Ich habe gerade den Boden gewischt. Gehen Sie bitte langsam.",
+      "promptEn": "I've just mopped the floor. Please walk slowly.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0733",
+      "sourceVocabId": "vocab_a2_0741",
+      "vocabKo": "냄비",
+      "targetKo": "냄비에 라면 두 개가 들어가요.",
+      "distractors": [
+        "세",
+        "우유"
+      ],
+      "promptDe": "In den Topf passen zwei Packungen Ramyeon.",
+      "promptEn": "The pot is big enough for two packs of ramyeon.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0734",
+      "sourceVocabId": "vocab_a2_0742",
+      "vocabKo": "이틀",
+      "targetKo": "현아 씨, 이틀 쉬니까 좀 괜찮아요?",
+      "distractors": [
+        "일하니까",
+        "아파요"
+      ],
+      "promptDe": "Hyuna, geht es Ihnen nach zwei Tagen Ruhe etwas besser?",
+      "promptEn": "Hyuna, are you feeling a bit better after two days of rest?",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0735",
+      "sourceVocabId": "vocab_a2_0743",
+      "vocabKo": "사흘",
+      "targetKo": "사흘 동안 여행 가요. 짐은 다 쌌어요.",
+      "distractors": [
+        "갔어요",
+        "풀었어요"
+      ],
+      "promptDe": "Ich verreise für drei Tage. Alles ist gepackt.",
+      "promptEn": "I'm going away for three days. Everything's packed.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0736",
+      "sourceVocabId": "vocab_a2_0744",
+      "vocabKo": "나흘",
+      "targetKo": "비가 나흘 동안 왔어요. 빨래가 아직 안 말랐어요.",
+      "distractors": [
+        "눈이",
+        "바닥이"
+      ],
+      "promptDe": "Es hat vier Tage lang geregnet. Die Wäsche ist noch nicht trocken.",
+      "promptEn": "It rained for four days. The laundry still isn't dry.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0737",
+      "sourceVocabId": "vocab_a2_0745",
+      "vocabKo": "열흘",
+      "targetKo": "열흘 후에 부모님이 오세요. 식당도 예약했어요.",
+      "distractors": [
+        "친구들이",
+        "호텔도"
+      ],
+      "promptDe": "In zehn Tagen kommen meine Eltern. Ich habe auch einen Tisch im Restaurant reserviert.",
+      "promptEn": "My parents are coming in ten days. I've booked a restaurant table too.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0738",
+      "sourceVocabId": "vocab_a2_0746",
+      "vocabKo": "개월",
+      "targetKo": "한국에 온 지 삼 개월 됐어요.",
+      "distractors": [
+        "육",
+        "독일에"
+      ],
+      "promptDe": "Ich bin jetzt seit drei Monaten in Korea.",
+      "promptEn": "I've been in Korea for three months now.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0739",
+      "sourceVocabId": "vocab_a2_0747",
+      "vocabKo": "그동안",
+      "targetKo": "그동안 잘 지냈어요? 여기 앉아요.",
+      "distractors": [
+        "저기",
+        "기다려요"
+      ],
+      "promptDe": "Wie ist es Ihnen seit unserem letzten Treffen ergangen? Setzen Sie sich doch hierhin.",
+      "promptEn": "How have you been since we last met? Have a seat here.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0740",
+      "sourceVocabId": "vocab_a2_0748",
+      "vocabKo": "오랜만",
+      "targetKo": "오랜만에 만나서 정말 반가워요.",
+      "distractors": [
+        "미안해요",
+        "헤어져서"
+      ],
+      "promptDe": "Ich freue mich sehr, Sie nach so langer Zeit wiederzusehen.",
+      "promptEn": "It's so nice to see you after such a long time.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0741",
+      "sourceVocabId": "vocab_a2_0749",
+      "vocabKo": "마지막",
+      "targetKo": "이 케이크가 마지막이에요. 반씩 먹어요.",
+      "distractors": [
+        "조금씩",
+        "남겨요"
+      ],
+      "promptDe": "Das ist der letzte Kuchen. Für jeden die Hälfte?",
+      "promptEn": "This is the last cake. Let's have half each.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0742",
+      "sourceVocabId": "vocab_a2_0750",
+      "vocabKo": "최근",
+      "targetKo": "최근에 요리를 배워서 외식을 덜 해요.",
+      "distractors": [
+        "더",
+        "운동을"
+      ],
+      "promptDe": "Ich habe vor Kurzem kochen gelernt und esse deshalb seltener auswärts.",
+      "promptEn": "I learned to cook recently, so I eat out less.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0743",
+      "sourceVocabId": "vocab_a2_0751",
+      "vocabKo": "다음날",
+      "targetKo": "여행 다음날 아침에는 집에서 푹 쉬었어요.",
+      "distractors": [
+        "호텔에서",
+        "저녁에는"
+      ],
+      "promptDe": "Am Morgen nach der Reise habe ich mich zu Hause richtig ausgeruht.",
+      "promptEn": "I had a good rest at home the morning after the trip.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0744",
+      "sourceVocabId": "vocab_a2_0752",
+      "vocabKo": "어젯밤",
+      "targetKo": "어젯밤에 드라마를 보다가 늦게 잤어요.",
+      "distractors": [
+        "일찍",
+        "뉴스를"
+      ],
+      "promptDe": "Ich habe gestern Abend eine Serie geschaut und bin spät ins Bett gegangen.",
+      "promptEn": "I watched a series last night and went to bed late.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0745",
+      "sourceVocabId": "vocab_a2_0753",
+      "vocabKo": "점심시간",
+      "targetKo": "수진 씨, 점심시간에 잠깐 산책할까요?",
+      "distractors": [
+        "오래",
+        "공부할까요"
+      ],
+      "promptDe": "Sujin, wollen wir in der Mittagspause kurz spazieren gehen?",
+      "promptEn": "Sujin, shall we go for a short walk during lunch break?",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0746",
+      "sourceVocabId": "vocab_a2_0754",
+      "vocabKo": "구름",
+      "targetKo": "저 구름이 강아지처럼 생겼어요.",
+      "distractors": [
+        "고양이처럼",
+        "움직여요"
+      ],
+      "promptDe": "Die Wolke da sieht aus wie ein Welpe.",
+      "promptEn": "That cloud looks like a puppy.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0747",
+      "sourceVocabId": "vocab_a2_0755",
+      "vocabKo": "하늘",
+      "targetKo": "오늘 하늘이 정말 맑아요. 사진 한 장 찍어요.",
+      "distractors": [
+        "두",
+        "흐려요"
+      ],
+      "promptDe": "Der Himmel ist heute richtig klar. Machen wir ein Foto.",
+      "promptEn": "The sky's so clear today. Let's take a photo.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0748",
+      "sourceVocabId": "vocab_a2_0756",
+      "vocabKo": "햇빛",
+      "targetKo": "햇빛이 너무 강해서 눈을 못 뜨겠어요.",
+      "distractors": [
+        "약해서",
+        "감겠어요"
+      ],
+      "promptDe": "Das Sonnenlicht ist so grell, dass ich die Augen nicht aufbekomme.",
+      "promptEn": "The sunlight is so bright I can't keep my eyes open.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0749",
+      "sourceVocabId": "vocab_a2_0757",
+      "vocabKo": "기온",
+      "targetKo": "내일은 기온이 많이 내려가요.",
+      "distractors": [
+        "올라가요",
+        "조금"
+      ],
+      "promptDe": "Morgen sinkt die Temperatur deutlich.",
+      "promptEn": "The temperature will drop a lot tomorrow.",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0750",
+      "sourceVocabId": "vocab_a2_0758",
+      "vocabKo": "영하",
+      "targetKo": "오늘은 영하 오 도예요. 차 한잔 마실까요?",
+      "distractors": [
+        "내일은",
+        "마셨어요"
+      ],
+      "promptDe": "Heute sind es minus fünf Grad. Wollen wir eine Tasse Tee trinken?",
+      "promptEn": "It's five below zero today. Shall we have a cup of tea?",
+      "level": "a2"
+    },
+    {
+      "id": "satz_a2_0751",
+      "sourceVocabId": "vocab_a2_0759",
+      "vocabKo": "얼음",
+      "targetKo": "커피에 얼음을 조금만 넣어 주세요.",
+      "distractors": [
+        "많이",
+        "빼"
+      ],
+      "promptDe": "Bitte geben Sie nur wenig Eis in den Kaffee.",
+      "promptEn": "Please put just a little ice in the coffee.",
+      "level": "a2"
+    }
+  ]
+}

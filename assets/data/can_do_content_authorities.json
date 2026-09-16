@@ -1646,6 +1646,10 @@
       "level": "a2"
     },
     {
+      "id": "seed_grammar_grammar_a2_additive_location_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_grammar_grammar_a2_adverbial_v1",
       "level": "a2"
     },
@@ -1806,6 +1810,10 @@
       "level": "a2"
     },
     {
+      "id": "seed_grammar_grammar_a2_starting_point_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_grammar_grammar_a2_tag_confirmation_v1",
       "level": "a2"
     },
@@ -1814,11 +1822,19 @@
       "level": "a2"
     },
     {
+      "id": "seed_grammar_grammar_a2_toward_person_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_grammar_grammar_a2_try_experience_v1",
       "level": "a2"
     },
     {
       "id": "seed_grammar_grammar_a2_when_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_grammar_grammar_a2_written_directive_v1",
       "level": "a2"
     },
     {
@@ -2774,6 +2790,10 @@
       "level": "b1"
     },
     {
+      "id": "seed_grammar_grammar_b1_conditional_geodeun_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_grammar_grammar_b1_consequence_v1",
       "level": "b1"
     },
@@ -2798,7 +2818,19 @@
       "level": "b1"
     },
     {
+      "id": "seed_grammar_grammar_b1_indirect_command_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_grammar_grammar_b1_indirect_question_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_grammar_grammar_b1_indirect_speech_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_grammar_grammar_b1_indirect_suggestion_v1",
       "level": "b1"
     },
     {
@@ -2831,6 +2863,10 @@
     },
     {
       "id": "seed_grammar_grammar_b1_prepared_state_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_grammar_grammar_b1_proportional_mankeum_v1",
       "level": "b1"
     },
     {
@@ -12242,6 +12278,13 @@
     },
     {
       "kind": "grammar",
+      "id": "grammar_a2_additive_location",
+      "level": "a2",
+      "sourceSeedId": "seed_grammar_grammar_a2_additive_location_v1",
+      "courseUnitId": "a2_08_home_money"
+    },
+    {
+      "kind": "grammar",
       "id": "grammar_a2_adverbial",
       "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_a2_adverbial_v1",
@@ -12522,6 +12565,13 @@
     },
     {
       "kind": "grammar",
+      "id": "grammar_a2_starting_point",
+      "level": "a2",
+      "sourceSeedId": "seed_grammar_grammar_a2_starting_point_v1",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "grammar",
       "id": "grammar_a2_tag_confirmation",
       "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_a2_tag_confirmation_v1",
@@ -12536,6 +12586,13 @@
     },
     {
       "kind": "grammar",
+      "id": "grammar_a2_toward_person",
+      "level": "a2",
+      "sourceSeedId": "seed_grammar_grammar_a2_toward_person_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "grammar",
       "id": "grammar_a2_try_experience",
       "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_a2_try_experience_v1",
@@ -12547,6 +12604,13 @@
       "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_a2_when_v1",
       "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_a2_written_directive",
+      "level": "a2",
+      "sourceSeedId": "seed_grammar_grammar_a2_written_directive_v1",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "kind": "grammar",
@@ -14216,6 +14280,13 @@
     },
     {
       "kind": "grammar",
+      "id": "grammar_b1_conditional_geodeun",
+      "level": "b1",
+      "sourceSeedId": "seed_grammar_grammar_b1_conditional_geodeun_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "grammar",
       "id": "grammar_b1_consequence",
       "level": "b1",
       "sourceSeedId": "seed_grammar_grammar_b1_consequence_v1",
@@ -14258,9 +14329,30 @@
     },
     {
       "kind": "grammar",
+      "id": "grammar_b1_indirect_command",
+      "level": "b1",
+      "sourceSeedId": "seed_grammar_grammar_b1_indirect_command_v1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_b1_indirect_question",
+      "level": "b1",
+      "sourceSeedId": "seed_grammar_grammar_b1_indirect_question_v1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "kind": "grammar",
       "id": "grammar_b1_indirect_speech",
       "level": "b1",
       "sourceSeedId": "seed_grammar_grammar_b1_indirect_speech_v1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_b1_indirect_suggestion",
+      "level": "b1",
+      "sourceSeedId": "seed_grammar_grammar_b1_indirect_suggestion_v1",
       "courseUnitId": "b1_02_indirect_speech"
     },
     {
@@ -14318,6 +14410,13 @@
       "level": "b1",
       "sourceSeedId": "seed_grammar_grammar_b1_prepared_state_v1",
       "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_b1_proportional_mankeum",
+      "level": "b1",
+      "sourceSeedId": "seed_grammar_grammar_b1_proportional_mankeum_v1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "kind": "grammar",
@@ -27427,7 +27526,7 @@
   "coverage": {
     "directReferenceCounts": {
       "vocabPack": 252,
-      "grammar": 252,
+      "grammar": 261,
       "smalltalk": 582,
       "scenario": 179,
       "cloze": 791,
@@ -55583,7 +55682,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_daily_3",
         "sourceVocabId": "vocab_b1_0053",
-        "sourceVocabFingerprintSha256": "b78a2f52b681982e29b30f8d407a0d6d868440713adcda9c8903919a531046d6",
+        "sourceVocabFingerprintSha256": "92aca366a8bfaca3d84c3bddade33fa4e297697819549cfd8770d7be8432d7e9",
         "level": "b1",
         "canDoSegmentId": "segment_b1_plans_with_reasons",
         "courseUnitId": "b1_01_experience_reasons"

@@ -2,7 +2,7 @@
   "counts": {
     "cloze": {
       "fallback_over2": 0,
-      "over1": 167,
+      "over1": 165,
       "over2": 28,
       "total": 2341,
       "under2": 454,
@@ -12,7 +12,7 @@
       "fallback_over2": 0,
       "over1": 11,
       "over2": 3,
-      "total": 252,
+      "total": 261,
       "under2": 39,
       "unknown": 0
     },
@@ -34,7 +34,7 @@
     },
     "satz": {
       "fallback_over2": 0,
-      "over1": 163,
+      "over1": 161,
       "over2": 20,
       "total": 2861,
       "under2": 645,
@@ -50,7 +50,7 @@
     },
     "smalltalk": {
       "fallback_over2": 1,
-      "over1": 102,
+      "over1": 101,
       "over2": 19,
       "total": 582,
       "under2": 112,

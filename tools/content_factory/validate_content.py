@@ -1162,6 +1162,17 @@ class ContentValidator:
         if root.get("schemaVersion") != 1:
             self.issue(name, "schemaVersion must be 1")
         vocab_levels = self._live_levels.get("vocab", {})
+        _, vocab_rows = self.load_csv("korean_vocab.csv")
+        fronts = {row.get("id"): row for row in vocab_rows}
+
+        def normalized_example(value: Any) -> str:
+            """Typography-insensitive exact comparison, not semantic similarity."""
+            if not isinstance(value, str):
+                return ""
+            return "".join(
+                char for char in unicodedata.normalize("NFKC", value).casefold()
+                if char.isalnum()
+            )
         seen: set[str] = set()
 
         def check_text(label: str, value: Any) -> None:
@@ -1225,6 +1236,7 @@ class ContentValidator:
                         f"{label}.contrasts vocabId {contrast_vocab_id!r} is not a live vocab id",
                     )
                 check_text(f"{label}.contrasts", contrast)
+            # Meaning, near duplication and actual register require triad review.
             register = note.get("register")
             if register not in USAGE_NOTE_REGISTERS:
                 self.issue(name, f"{label} register must be one of {sorted(USAGE_NOTE_REGISTERS)}")
@@ -1239,6 +1251,28 @@ class ContentValidator:
                     self.issue(
                         name,
                         f"{example_label} register must be one of {sorted(USAGE_NOTE_REGISTERS)}",
+                    )
+            # R8 round 4 (2026-09-16, PR #362 review): the two examples exist
+            # to contrast register, so exactly one must be "casual" and the
+            # other must be a non-casual value (formal/written/neutral) --
+            # two casual or two non-casual examples defeat the point.
+            if examples and len(examples) == 2 and all(isinstance(e, dict) for e in examples):
+                front = fronts.get(ident, {})
+                for lang, column in (("ko", "example_korean"), ("de", "example_german"), ("en", "example_english")):
+                    texts = [normalized_example(e.get(lang)) for e in examples]
+                    if texts[0] and texts[0] == texts[1]:
+                        self.issue(name, f"{label}.examples duplicate each other in {lang} after normalization")
+                    front_text = normalized_example(front.get(column))
+                    for i, text in enumerate(texts):
+                        if text and front_text and text == front_text:
+                            self.issue(name, f"{label}.examples[{i}].{lang} duplicates the front-card example after normalization")
+                example_registers = [e.get("register") for e in examples]
+                casual_count = sum(1 for r in example_registers if r == "casual")
+                if casual_count != 1:
+                    self.issue(
+                        name,
+                        f"{label}.examples must have exactly one 'casual' register and one "
+                        f"non-casual register (formal/written/neutral), got {example_registers}",
                     )
 
     def validate_curriculum_graph(self) -> None:

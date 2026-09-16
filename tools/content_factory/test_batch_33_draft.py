@@ -870,12 +870,18 @@ class TestBatch33Packs(unittest.TestCase):
     def test_remaining_gap_matches_computed_total(self):
         gap = self.manifest.get("remainingA2Gap", {})
         self.assertEqual(gap.get("count"), 599)
-        # recompute: NIKL grade-2 non-affix headwords minus live minus every draft (25-33)
+        # Historical receipt: scope drafts through Batch 33. Later draft files
+        # must not invalidate the post-Batch-33 count.
         with NIKL_CSV.open(encoding="utf-8-sig", newline="") as f:
             g2 = {r["headword"] for r in csv.DictReader(f) if r["grade"] == "2" and not (r["headword"].startswith("-") or r["headword"].endswith("-"))}
         live = {r["korean"] for r in _load_vocab_rows(VOCAB_CSV)}
         drafted = set()
-        for path in DRAFTS.glob("batch_*_rows.csv"):
+        for n in range(25, 31):
+            path = DRAFTS / f"batch_{n}_a1_rows.csv"
+            if path.exists():
+                drafted |= {r["korean"] for r in _load_vocab_rows(path)}
+        for n in (31, 32, 33):
+            path = DRAFTS / f"batch_{n}_a2_rows.csv"
             drafted |= {r["korean"] for r in _load_vocab_rows(path)}
         self.assertEqual(len(g2 - live - drafted), 599)
 
