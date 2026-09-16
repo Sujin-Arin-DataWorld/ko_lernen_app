@@ -1,0 +1,26 @@
+{
+  "A1": {
+    "grammar_total": 0,
+    "grammar_normalized": 0,
+    "grammar_ocr_noise_excluded": 0,
+    "vocab_total": 48
+  },
+  "A2": {
+    "grammar_total": 0,
+    "grammar_normalized": 0,
+    "grammar_ocr_noise_excluded": 0,
+    "vocab_total": 52
+  },
+  "B1": {
+    "grammar_total": 56,
+    "grammar_normalized": 54,
+    "grammar_ocr_noise_excluded": 2,
+    "vocab_total": 65
+  },
+  "B2": {
+    "grammar_total": 59,
+    "grammar_normalized": 57,
+    "grammar_ocr_noise_excluded": 2,
+    "vocab_total": 68
+  }
+}

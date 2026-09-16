@@ -1,0 +1,301 @@
+{
+  "level": "A1",
+  "sejong_n": 1,
+  "source_files": [
+    "세종학당 한국어 1 익힘책_한국어.pdf"
+  ],
+  "source_role": "workbook_substitute",
+  "engine": "windows_media_ocr_ko",
+  "grammar": [],
+  "vocab": [
+    {
+      "korean": "지효",
+      "page": 9,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "러시아",
+      "page": 347,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "멕시코",
+      "page": 347,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "미국",
+      "page": 347,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "베트남",
+      "page": 347,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "노래",
+      "page": 350,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "드라마",
+      "page": 350,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "음식",
+      "page": 350,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "학교",
+      "page": 351,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "도서관",
+      "page": 351,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "교실",
+      "page": 351,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "가을",
+      "page": 353,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "겨울",
+      "page": 353,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "선물",
+      "page": 354,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "카드",
+      "page": 354,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "의자",
+      "page": 356,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "연필",
+      "page": 356,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "책상",
+      "page": 356,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "십이",
+      "page": 358,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "이십",
+      "page": 358,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "이십질",
+      "page": 358,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "사십팔",
+      "page": 358,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "육십일",
+      "page": 358,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "농구",
+      "page": 360,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "야구",
+      "page": 360,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "수영",
+      "page": 360,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "세,오",
+      "page": 362,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "여섯, 십삼",
+      "page": 362,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "아홉, 사십팔",
+      "page": 362,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "열 시 십오분",
+      "page": 362,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "열한 시 오십오분",
+      "page": 362,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "김밥",
+      "page": 363,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "음료수",
+      "page": 363,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "떡볶이",
+      "page": 363,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "맛있다",
+      "page": 363,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "여행사",
+      "page": 368,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "호텔",
+      "page": 368,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "신혼여행",
+      "page": 368,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "집들이",
+      "page": 373,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "초대장",
+      "page": 373,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "휴지",
+      "page": 373,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "미술관",
+      "page": 374,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "공연장",
+      "page": 374,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "영화관",
+      "page": 374,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "출구",
+      "page": 376,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "빵집 으해",
+      "page": 376,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "성함을",
+      "page": 377,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    },
+    {
+      "korean": "아침",
+      "page": 388,
+      "source_file": "세종학당 한국어 1 익힘책_한국어.pdf",
+      "book_key": "b1_workbook"
+    }
+  ],
+  "note": "Grammar extraction not attempted (different house style: '문법 연습 #N' without inline pattern label)."
+}
