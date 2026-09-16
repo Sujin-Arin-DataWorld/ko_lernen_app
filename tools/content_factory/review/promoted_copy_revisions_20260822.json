@@ -7,7 +7,9 @@
     "tools/content_factory/drafts/batch_19_manifest.json",
     "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
     "tools/content_factory/drafts/batch_29_a1_reinforcement_manifest.json",
-    "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json"
+    "tools/content_factory/drafts/batch_31_a2_reinforcement_manifest.json",
+    "tools/content_factory/drafts/batch_18_manifest.json",
+    "tools/content_factory/drafts/batch_20_manifest.json"
   ],
   "method": "Beyond Humanizer promoted-copy reconciliation",
   "humanReviewStatus": "required_before_native-quality-claim",
@@ -4535,6 +4537,105 @@
       "afterSha256": "54d9a27d5c5205102f372926eca704c7fd1fb0bbdced0dc47c1e2d965f139fdc",
       "reason": "Do not assert vehicle travel absent from KO.",
       "modelReview": "C7 2026-09-16; human/native review remains required"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_18_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b2_include_total_scope",
+      "level": "b2",
+      "fields": [
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "10b449ace488bc21a75abaaf1b7cc3346a1ed4909825cefffd15ea1fabcbd80b",
+      "afterSha256": "faf16e9337cf93bc5c033e3226b8e4525463d75155d8ba7bead7737cdc1e9557",
+      "reviewReceipt": "tools/content_factory/review/grammar_quiz_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_18_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b2_instead_supplement",
+      "level": "b2",
+      "fields": [
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "712feb35464934f46aa9e92f29e3471976579794ed63ea94c8594daf30b76c7d",
+      "afterSha256": "03102e36986eecd57c1e1a67f760f510a30c073ce62e9c02dd16bdf2934f2540",
+      "reviewReceipt": "tools/content_factory/review/grammar_quiz_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_18_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b2_not_by_one_metric",
+      "level": "b2",
+      "fields": [
+        "example_en",
+        "quiz_distractor_ids",
+        "quiz_focus_en"
+      ],
+      "beforeSha256": "e8bcdba34d06b65359913aacdad4a7409e467a927aaf284b78faa0ad4de21b64",
+      "afterSha256": "e1f07714c82e74dfa8c3e47e17e2466ccd1f8c4b9fd9b722ada9ae15b62a845e",
+      "reviewReceipt": "tools/content_factory/review/grammar_quiz_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_18_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b2_verify_human_review",
+      "level": "b2",
+      "fields": [
+        "example_korean",
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "9c957b46ac2bb6d3d9b33e0de8b60e8dabb50dd5d8227eb04db3c06487545363",
+      "afterSha256": "73fa2fc2d13807a2c93832b7ea84fc2e655592cd1749fbad8f571db27b267f79",
+      "reviewReceipt": "tools/content_factory/review/grammar_quiz_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_a2_permission_check_batch20",
+      "level": "a2",
+      "fields": [
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "7a46832c79ec32b4380a559cc7dbeeeded6a4bdc5262a732f6855efc53b5821f",
+      "afterSha256": "f226414ad21280b33c8b1cf521b1cd769036931d745eacb050878206c3bf08fb",
+      "reviewReceipt": "tools/content_factory/review/grammar_quiz_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_a2_preference_soft_batch20",
+      "level": "a2",
+      "fields": [
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "d26a51554afd040c205a7b697a61d7ea3ac2e8264af662e9d8595666f40e4dc8",
+      "afterSha256": "fadefe3ce85f475ec1700247ecc5535dcf9ae25238e08f093c00d79be4c0f703",
+      "reviewReceipt": "tools/content_factory/review/grammar_quiz_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b1_conceded_context_batch20",
+      "level": "b1",
+      "fields": [
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "cbc771821843b7752284f3ce68a5ddca8c87a81baf1cb84793437384d1a8460a",
+      "afterSha256": "1e2dad8b3070bd265cdb6eeb667703f7bc39a4a69507c354f30eb459c9fd4322",
+      "reviewReceipt": "tools/content_factory/review/grammar_quiz_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b1_tentative_plan_batch20",
+      "level": "b1",
+      "fields": [
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "638a96a298abc93eac9b65d33eb6048d9c61d02763f288e0ce96e36cc6a890d2",
+      "afterSha256": "374c25f365c8a94269939ae4a2436b34c0b378d570bd4fce3c4849af62eceb4e",
+      "reviewReceipt": "tools/content_factory/review/grammar_quiz_reconciliation_20260916.json"
     }
   ],
   "routingEntries": [

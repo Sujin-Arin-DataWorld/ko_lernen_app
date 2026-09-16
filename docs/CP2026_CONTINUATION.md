@@ -127,11 +127,23 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 
 ## 실행 순서와 충돌 관리
 
+### 문법 오답 재배정 및 과거 이력 후속
+
+2026-09-16 Batch 18·20 문법 8행의 원본 승격과 이후 두 relevel 커밋을 직접 대조했다. 기존 도구가 같은 문법 유형·가까운 ID를 기준으로 고른 오답에는 허가·양보·대체 표현의 의미상 복수 정답이 있었다. 실제 화면은 DE/EN 문장과 강조 구절을 보고 한국어 패턴을 고르므로, 한국어 치환의 형태 오류만으로 오답을 판정할 수 없다.
+
+현재 교정은 라이브 문법 7행에 한정한다. 오답 6세트를 교체하고, `V-는지 다시 확인하다`의 예문에서 ‘다시’의 수식 위치를 맞추며, `N만으로는 V-기 어렵다`의 EN 단정 강도를 KO/DE에 맞췄다. 8행·24선택지에 대해 두 축 독립 모델 검토를 마쳤으며 사람 검수는 pending이다. [행별 의미 검토](data/review_packets/grammar_quiz_reconciliation_20260916.md)와 [정확한 Git·해시 근거](../tools/content_factory/review/grammar_quiz_reconciliation_20260916.json)를 유지한다. 원본 frozen draft·권리·사람 승인 기록은 바꾸지 않았다.
+
+`relevel_bundle`은 이제 레벨 이동으로 무효가 된 모든 선택지 세트에 명시적인 `grammarQuizRepairs`(대상 ID·기존 ID·새 ID·이유)를 요구한다. 누락·초과·오래된 입력·동레벨/활성 조건 위반을 전체 사전 검사한 뒤 적용한다. 구조 검증은 언어 검수나 사람 승인을 대신하지 않는다.
+
+로컬 전체 content_factory 1,232개는 실패 0·기존 skip 20으로 통과했고, 검사 전후 추적 콘텐츠 518개 파일의 SHA-256 변경은 0개다. 관련 도구 검사 109개, 추가 계약·이력 11개, TTS Python 48개·Node 64개, Flutter 문법 25개도 통과했다. 바뀐 한국어 발화 1개를 생성·업로드한 뒤 Storage를 다시 읽어 expected 12,630 / remote 21,134 / missing 0 / stale 8,504를 확인했다. 두 TTS allowlist를 갱신했으며 구 음성은 삭제하지 않았다.
+
+이 교정 후에도 과거 merged manifest는 **9/24 통과, 15개 실패**다. Batch 18은 `c2:job_hunting` 연결이 Batch 19 커밋 `fc0489b65`에서 다른 유닛으로 덮인 이력이 드러났으며 라우팅 의도 검증이 남았다. Batch 20은 퇴역 시나리오의 이력 정합이 남았다. 이번 문법 차이 해명을 배치 전체 통과나 권리·승인 완료로 계산하지 않는다.
+
 2026-09-16 추가 지적 재검증: PR #370의 정확한 head `b0b005c3`에서 GitHub Content validator 1,219개(실패 0·skip 20), Playwright, iOS 및 나머지 필수 검사가 통과했다. CI run `35130402443`의 최초 취소 잡만 재시도했으며, Book의 두 번째 취소는 checkout 7분 35초 후 잡의 8분 제한 초과라는 GitHub annotation으로 확인했다. 세 번째 실행에서 전체 상태가 success가 되어 main `9b9ab83f3bba610e650fc20e0931bc553cc40258`로 병합했다. 이 main의 [CI 35138234900](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/35138234900)와 [Playwright 35138234844](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/35138234844)는 별도 확인 대상이다. Book 후속은 functions·app data·공유 fixtures만 sparse checkout하도록 하며, 루트 rules/indexes를 포함한 실제 테스트 의존성을 검증한다.
 
 같은 감사에서 main의 `grammar_b1_proportional_mankeum`은 예문·퀴즈가 쓰는 완료 동사형 `V-(으)ㄴ 만큼`을 패턴에서 누락한 사실을 확인했다. C4 hotfix는 해당 패턴·DE/EN 설명·KO/EN note와 검토 패킷을 맞추고 예문·퀴즈·ID·레벨은 유지한다. 누락을 잡는 회귀 검사를 먼저 실패로 재현한 뒤 문법·기준표 관련 62개 검사, content validator, can-do·교육과정 freshness를 로컬 통과했다. 사람 검수 및 원격 통합 완료 주장은 아니다.
 
-PR #367은 별도 작업 공간에서 캐시 교체·저장 경로 재시도 결함을 고치고 main 충돌을 해소해 `e3840a4c`로 푸시했다. 원래 `한글소리 용량 최적화 방안` 작업 공간은 기존 `48b21670` 상태로 보존했다. runtime/UI 71개 통과·Windows symlink 권한 제외 1개, packaging 18개 통과, analyzer 및 두 축 독립 검토 통과다. 이 head의 Playwright는 통과했지만 CI `35136246529`의 TTS function security는 실패했고 다른 잡은 진행 중이므로 원인과 최종 결과를 별도 확인한다. #370 통합, 실제 Android/iPhone 다운로드·동의·오프라인·삭제 검증과 릴리스 크기 측정도 미완이므로 merge HOLD를 유지한다. C4 hotfix는 이 기기 게이트를 기다리지 않고 진행한다.
+PR #367은 별도 작업 공간에서 캐시 교체·저장 경로 재시도 결함을 고치고 main 충돌을 해소해 `e3840a4c`로 푸시했다. 원래 `한글소리 용량 최적화 방안` 작업 공간은 기존 `48b21670` 상태로 보존했다. runtime/UI 71개 통과·Windows symlink 권한 제외 1개, packaging 18개 통과, analyzer 및 두 축 독립 검토 통과다. 이 head의 Playwright는 통과했다. CI `35136246529`의 TTS function security는 checkout이 잡의 8분 제한을 넘겨 취소됐으며 테스트 실패가 아니다. 최초 실행 종료 후 취소된 해당 잡만 재실행했고 최종 결과는 별도 확인한다. #370 통합, 실제 Android/iPhone 다운로드·동의·오프라인·삭제 검증과 릴리스 크기 측정도 미완이므로 merge HOLD를 유지한다. C4 hotfix는 이 기기 게이트를 기다리지 않고 진행한다.
 
 이번 C9 감사에서 기존 앞면 예문 두 건을 추가로 확인했다. `vocab_a2_0435`(마감하다)의 `가게를 마감하다 전에 바닥을 닦아요.`는 연결형 오류여서 다음 C2 원문 교정에서 파생 게임·검토 원장과 함께 수정한다. `vocab_b1_0160`(진통제)의 하루 두 번 복용 예문은 특정 약을 밝히지 않은 교육용 문장으로, 같은 교정 단계에서 복용 횟수를 지시하지 않는 상황으로 바꿀지 검토한다. 둘 다 이번 C9의 허용된 앞면 수정(`vocab_b1_0053`, 따라서) 범위 밖이므로 현재 파일은 유지했으며, 앱 전체 정제 완료로 계산하지 않는다.
 

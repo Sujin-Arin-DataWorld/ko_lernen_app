@@ -2367,8 +2367,8 @@ class GrammarMoveShapeTest(unittest.TestCase):
 class DistractorRepairUnitTest(unittest.TestCase):
     """Direct unit tests of ``_repair_grammar_quiz_distractors`` against a
     small, fully self-contained synthetic ``grammar_rows`` list (no fixture,
-    no real corpus) so the exact chosen replacement ids can be hand-verified
-    (see the derivation of the expected tuple below)."""
+    no real corpus) so the explicit replacement ids can be checked against
+    the authored fixture inputs."""
 
     @staticmethod
     def _row(ident: str, level: str, type_en: str, *, enabled: str = "true",
@@ -2398,40 +2398,43 @@ class DistractorRepairUnitTest(unittest.TestCase):
             self._row("grammar_a1_zzz", "A2", "Family1", enabled="false"),
         ]
 
+    @staticmethod
+    def _repairs():
+        return (rb.GrammarQuizRepair.from_dict({
+            "id": "grammar_a1_aaa",
+            "beforeIds": ["grammar_a1_bbb", "grammar_a1_ccc", "grammar_a1_zzz"],
+            "afterIds": ["grammar_a1_ccc", "grammar_a1_eee", "grammar_a1_ddd"],
+            "reason": "Explicit synthetic choices; ID proximity is irrelevant.",
+        }),)
+
     def test_only_the_row_whose_distractor_moved_away_is_repaired(self) -> None:
         rows = self._rows()
         report = rb.MigrationReport(batch="TEST")
-        rb._repair_grammar_quiz_distractors(rows, report)
+        rb._repair_grammar_quiz_distractors(rows, report, self._repairs())
 
         repaired_ids = {r.grammar_id for r in report.distractor_repairs}
         self.assertEqual(repaired_ids, {"grammar_a1_aaa"})
 
-    def test_replacement_prefers_same_type_en_family_then_id_distance(self) -> None:
-        # By hand: aaa's valid A1 quiz-enabled siblings are {bbb, ccc, ddd,
-        # eee}. Same family (Family1, matching aaa) = {bbb, ddd}; other
-        # family = {ccc, eee}. Sorted id list [aaa,bbb,ccc,ddd,eee] puts aaa
-        # at index 0, so distances are bbb=1, ccc=2, ddd=3, eee=4. Family
-        # tier sorted by distance: [bbb, ddd]; other tier: [ccc, eee].
-        # First 3 of family+other = [bbb, ddd, ccc].
+    def test_replacement_uses_authored_choices_instead_of_family_or_distance(self) -> None:
         rows = self._rows()
         report = rb.MigrationReport(batch="TEST")
-        rb._repair_grammar_quiz_distractors(rows, report)
+        rb._repair_grammar_quiz_distractors(rows, report, self._repairs())
 
         by_id = {row["id"]: row for row in rows}
         self.assertEqual(
             by_id["grammar_a1_aaa"]["quiz_distractor_ids"],
-            "grammar_a1_bbb|grammar_a1_ddd|grammar_a1_ccc",
+            "grammar_a1_ccc|grammar_a1_eee|grammar_a1_ddd",
         )
         [repair] = report.distractor_repairs
         self.assertEqual(repair.grammar_id, "grammar_a1_aaa")
         self.assertEqual(repair.old_distractor_ids, ("grammar_a1_bbb", "grammar_a1_ccc", "grammar_a1_zzz"))
-        self.assertEqual(repair.new_distractor_ids, ("grammar_a1_bbb", "grammar_a1_ddd", "grammar_a1_ccc"))
+        self.assertEqual(repair.new_distractor_ids, ("grammar_a1_ccc", "grammar_a1_eee", "grammar_a1_ddd"))
 
     def test_unaffected_rows_are_untouched(self) -> None:
         rows = self._rows()
         before = {row["id"]: dict(row) for row in rows if row["id"] != "grammar_a1_aaa"}
         report = rb.MigrationReport(batch="TEST")
-        rb._repair_grammar_quiz_distractors(rows, report)
+        rb._repair_grammar_quiz_distractors(rows, report, self._repairs())
         after = {row["id"]: row for row in rows if row["id"] != "grammar_a1_aaa"}
         self.assertEqual(before, after)
 
@@ -2622,7 +2625,25 @@ class GrammarRelevelBundleFixture(unittest.TestCase):
             self.assertEqual(content, current, f"{path} changed unexpectedly")
 
     def _bundle(self, grammar_moves: list[dict]) -> rb.BundleFile:
-        return rb.load_bundle_from_dict({"batch": "TEST", "grammarMoves": grammar_moves})
+        # Explicit synthetic input, not a content review or production fallback.
+        rows = self._read_grammar_rows()
+        levels = {ident: row["level"] for ident, row in rows.items()}
+        for move in grammar_moves:
+            levels[move["id"]] = move["to"].upper()
+        repairs = []
+        for ident in GRAMMAR_SYNTHETIC_IDS:
+            before = rows[ident]["quiz_distractor_ids"].split("|")
+            if all(levels[candidate] == levels[ident] for candidate in before):
+                continue
+            candidates = sorted(
+                candidate for candidate, row in rows.items()
+                if candidate not in GRAMMAR_SYNTHETIC_IDS
+                and row["quiz_enabled"] == "true" and levels[candidate] == levels[ident]
+            )[:3]
+            repairs.append({"id": ident, "beforeIds": before, "afterIds": candidates,
+                            "reason": "Synthetic transaction fixture, not a content review."})
+        return rb.load_bundle_from_dict({"batch": "TEST", "grammarMoves": grammar_moves,
+                                         "grammarQuizRepairs": repairs})
 
     def _read_grammar_rows(self) -> dict[str, dict[str, str]]:
         with (self.root / "assets" / "data" / "grammar.csv").open(encoding="utf-8", newline="") as handle:
