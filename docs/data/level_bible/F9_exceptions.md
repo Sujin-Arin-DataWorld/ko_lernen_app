@@ -186,6 +186,10 @@
 | culture_advanced | 빚다 | A2 | 송편·만두를 빚다 — 명절 조리 동사, Fable 룰링 2026-09-07 |
 | signage_a2 | 확인 | A2 | 확인/확인하다: 영수증·예약·문자 확인 등 생존 거래어 — Fable 룰링 2026-09-07 |
 | signage_a2 | 확인하다 | A2 | 확인/확인하다: 영수증·예약·문자 확인 등 생존 거래어 — Fable 룰링 2026-09-07 |
+| honorific_survival | 계시다 | A1 | 세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(sejong1_u9_voc8) -- Jin 결정 4(a) 2026-09-16, V2 relevel |
+| honorific_survival | 드리다 | A1 | 세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(sejong1_u9_voc9) -- Jin 결정 4(a) 2026-09-16, V2 relevel |
+| honorific_survival | 말씀 | A1 | 세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(sejong1_u9_voc10) -- Jin 결정 4(a) 2026-09-16, V2 relevel |
+| honorific_survival | 말씀하시다 | A1 | 세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(sejong1_u9_voc11) -- Jin 결정 4(a) 2026-09-16; 라이브 vocab 행 없음(문서화만, 향후 저작 시 적용) |
 
 ## 표제어 내장 문법 -- 레벨 유지(예문 헤드워드 자체가 상위 등급 문법을 내장)
 
@@ -210,13 +214,7 @@
 | — | request_formula | 적어 주세요 | A1 | -아/어 주다 (2급) | A1 유지 — 학습자 요청 정형구(어휘화); 생산 문법 -아/어 주다는 A2 | Jin | 2026-09-16 | 학습자가 낯선 사람에게 요청할 때는 정중한 정형구가 필요; 생산 문법 -아/어 주다는 A2부터 지도; 맨 -으세요 명령형은 권한 있는 화자(안내문·지시문)에 한정 (F9 round 2, Jin 2026-09-16) | PR #348 |
 | — | request_formula | 도와주세요 | A1 | -아/어 주다 (2급) | A1 유지 — 학습자 요청 정형구(어휘화); 생산 문법 -아/어 주다는 A2 | Jin | 2026-09-16 | 학습자가 낯선 사람에게 요청할 때는 정중한 정형구가 필요; 생산 문법 -아/어 주다는 A2부터 지도; 맨 -으세요 명령형은 권한 있는 화자(안내문·지시문)에 한정 (F9 round 2, Jin 2026-09-16) | PR #348 |
 
-## 앱 고유 문법(F1 app_only, 87개) -- nikl 국제통용 목록에 대응 없음
-
-> `grammar_a1_service_request`행은 F1 자동 매처가 "을1"(조사) 매칭으로
-> `match` 판정하지만, 실질 근거는 2급 `-어 주다`(§4 참고)라 이 표에는
-> 손으로 추가했다 -- `tool/build_level_bible_tables.py` 재실행 시
-> app_only 헤더 수·목록이 자동 계산값(86개)으로 되돌아가므로 그때마다
-> 이 행을 다시 채워 넣어야 한다(Fable 룰링 2026-09-07, F1b §4/§6).
+## 앱 고유 문법(F1 app_only, 86개) -- nikl 국제통용 목록에 대응 없음
 
 | app id | 사유(Fable) |
 |---|---|
@@ -227,7 +225,6 @@
 | grammar_a1_duration_span | |
 | grammar_a1_in_front | |
 | grammar_a1_please_particle | |
-| grammar_a1_service_request | 세종 1 '주세요' 요청 관용구 — A1 유지, Fable 룰링 2026-09-07 |
 | grammar_a1_short_negation | |
 | grammar_a1_which_question | |
 | grammar_a2_among_set | |

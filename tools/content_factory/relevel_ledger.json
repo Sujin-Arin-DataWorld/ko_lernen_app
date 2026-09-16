@@ -1127,6 +1127,15 @@
       "reason": "kiiq 2, Fable 룰링 2026-09-07"
     },
     {
+      "id": "cloze_a2_0005",
+      "kind": "cloze",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down"
+    },
+    {
       "id": "cloze_a2_0082",
       "kind": "cloze",
       "from": "a2",
@@ -2306,6 +2315,24 @@
       "reason": "median Δ=2, share=56%, n_hm=9 (raw target c1 capped to b2) -- auditor_added, flag for Fable review"
     },
     {
+      "id": "cloze_b2_0170",
+      "kind": "cloze",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "F9 룰링 기존 존재(kinship; A1 유지; F9_exceptions.md 혼인 친족 호칭) 미적용 발견 -- Jin 결정 5(2026-09-16; V2 relevel candidates f9_ruling_exists_not_applied)"
+    },
+    {
+      "id": "cloze_b2_0171",
+      "kind": "cloze",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "F9 룰링 기존 존재(kinship; A1 유지; F9_exceptions.md 혼인 친족 호칭) 미적용 발견 -- Jin 결정 5(2026-09-16; V2 relevel candidates f9_ruling_exists_not_applied)"
+    },
+    {
       "id": "grammar_a1_future_modifier",
       "kind": "grammar",
       "from": "a1",
@@ -2468,6 +2495,15 @@
       "reason": "NIKL 1급 표현 -은 후에 (F1b.md 1.5) -- pairs with grammar_b1_before."
     },
     {
+      "id": "grammar_b1_as_soon_as",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-16",
+      "batch": "V2G1",
+      "reason": "V2_grammar_gaps.csv app_over_or_under_level_vs_sejong: V-는 대로는 세종학당 한국어4A p.235에서 B2로 가르침 (Jin 결정 3, 2026-09-16)."
+    },
+    {
       "id": "grammar_b1_background_contrast",
       "kind": "grammar",
       "from": "b1",
@@ -2576,6 +2612,15 @@
       "reason": "NIKL 2급 종결어미 -는군 (F1b.md 2.4)."
     },
     {
+      "id": "grammar_b1_reason_context",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-16",
+      "batch": "V2G1",
+      "reason": "V2_grammar_gaps.csv app_over_or_under_level_vs_sejong: V-는 바람에, S는 세종학당 한국어4A p.237에서 B2로 가르침 (Jin 결정 3, 2026-09-16)."
+    },
+    {
       "id": "grammar_b1_resultant_state",
       "kind": "grammar",
       "from": "b1",
@@ -2592,6 +2637,78 @@
       "movedAt": "2026-09-07",
       "batch": "L2b",
       "reason": "NIKL 2급 표현 -은 지2 (F1b.md 2.5)."
+    },
+    {
+      "id": "grammar_b1_whether",
+      "kind": "grammar",
+      "from": "b1",
+      "to": "b2",
+      "movedAt": "2026-09-16",
+      "batch": "V2G1",
+      "reason": "V2_grammar_gaps.csv app_over_or_under_level_vs_sejong: V-(으)ㄴ/는지는 세종학당 한국어4A p.228에서 B2로 가르침 (Jin 결정 3, 2026-09-16)."
+    },
+    {
+      "id": "grammar_b2_contrast",
+      "kind": "grammar",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-16",
+      "batch": "V2G1",
+      "reason": "V2_grammar_gaps.csv app_over_or_under_level_vs_sejong: V-는 반면에는 세종학당 한국어 3B p.235에서 B1로 가르침 (Jin 결정 3, 2026-09-16)."
+    },
+    {
+      "id": "grammar_b2_despite",
+      "kind": "grammar",
+      "from": "b2",
+      "to": "c1",
+      "movedAt": "2026-09-16",
+      "batch": "V2G1",
+      "reason": "NIKL 5급(C1) level_mismatch (F1 조사/표현 칸) -- Jin 결정 2, 2026-09-16."
+    },
+    {
+      "id": "grammar_b2_formal_arrangement",
+      "kind": "grammar",
+      "from": "b2",
+      "to": "b1",
+      "movedAt": "2026-09-16",
+      "batch": "V2G1",
+      "reason": "V2_grammar_gaps.csv app_over_or_under_level_vs_sejong: V-도록 하다는 세종학당 한국어 3B p.228에서 B1로 가르침 (Jin 결정 3, 2026-09-16)."
+    },
+    {
+      "id": "grammar_b2_formal_regarding",
+      "kind": "grammar",
+      "from": "b2",
+      "to": "c1",
+      "movedAt": "2026-09-16",
+      "batch": "V2G1",
+      "reason": "NIKL 5급(C1) level_mismatch (F1 조사/표현 칸) -- Jin 결정 2, 2026-09-16."
+    },
+    {
+      "id": "grammar_b2_inevitability",
+      "kind": "grammar",
+      "from": "b2",
+      "to": "c1",
+      "movedAt": "2026-09-16",
+      "batch": "V2G1",
+      "reason": "NIKL 5급(C1) level_mismatch (F1 조사/표현 칸) -- Jin 결정 2, 2026-09-16."
+    },
+    {
+      "id": "grammar_b2_method_dependent",
+      "kind": "grammar",
+      "from": "b2",
+      "to": "c1",
+      "movedAt": "2026-09-16",
+      "batch": "V2G1",
+      "reason": "NIKL 5급(C1) level_mismatch (F1 조사/표현 칸) -- Jin 결정 2, 2026-09-16."
+    },
+    {
+      "id": "grammar_b2_negative_consequence",
+      "kind": "grammar",
+      "from": "b2",
+      "to": "c1",
+      "movedAt": "2026-09-16",
+      "batch": "V2G1",
+      "reason": "NIKL 5급(C1) level_mismatch + 세종5(C1) 익힘책 5B unit8 '생겨나는 말, 사라지는 말' p.35에서도 확인(NIKL+세종 이중 근거) -- Jin 결정 2, 2026-09-16, 우선 적용."
     },
     {
       "id": "satz_a1_0063",
@@ -3719,6 +3836,15 @@
       "reason": "kiiq 5, Fable 룰링 2026-09-07"
     },
     {
+      "id": "satz_a2_0001",
+      "kind": "satz",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down"
+    },
+    {
       "id": "satz_a2_0016",
       "kind": "satz",
       "from": "a2",
@@ -4745,6 +4871,42 @@
       "reason": "Fable 직독 2026-09-07 -- >=5/12 words at +2 or more after exceptions"
     },
     {
+      "id": "satz_a2_0231",
+      "kind": "satz",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down"
+    },
+    {
+      "id": "satz_a2_0232",
+      "kind": "satz",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down"
+    },
+    {
+      "id": "satz_a2_0233",
+      "kind": "satz",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down"
+    },
+    {
+      "id": "satz_a2_0234",
+      "kind": "satz",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down"
+    },
+    {
       "id": "satz_a2_0328",
       "kind": "satz",
       "from": "a2",
@@ -4988,6 +5150,24 @@
       "reason": "kiiq 1(파생 졸업) · 예문 A1 판정(내년에 대학교를 졸업해요.) · a1_15 첫 수업 유닛 보강 · Fable 룰링 2026-09-09 PR-L3a Batch 23 2차"
     },
     {
+      "id": "satz_b2_0156",
+      "kind": "satz",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "F9 룰링 기존 존재(kinship; A1 유지; F9_exceptions.md 혼인 친족 호칭) 미적용 발견 -- Jin 결정 5(2026-09-16; V2 relevel candidates f9_ruling_exists_not_applied)"
+    },
+    {
+      "id": "satz_b2_0157",
+      "kind": "satz",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "F9 룰링 기존 존재(kinship; A1 유지; F9_exceptions.md 혼인 친족 호칭) 미적용 발견 -- Jin 결정 5(2026-09-16; V2 relevel candidates f9_ruling_exists_not_applied)"
+    },
+    {
       "id": "satz_b2_0383",
       "kind": "satz",
       "from": "b2",
@@ -4995,6 +5175,78 @@
       "movedAt": "2026-09-09",
       "batch": "relevel_batch_005",
       "reason": "kiiq 1급 · a1_15 첫 수업(전공·번호) 유닛 보강 · 예문 A1로 교체(제 전공은 음악이에요.) · Fable 룰링 2026-09-09 PR-L3a Batch 23 2차"
+    },
+    {
+      "id": "satz_b2_0414",
+      "kind": "satz",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "F9 룰링 기존 존재(meta; A1 유지; F9_exceptions.md 학습 메타어) 미적용 발견 -- Jin 결정 5(2026-09-16; V2 relevel candidates f9_ruling_exists_not_applied)"
+    },
+    {
+      "id": "satz_b2_0460",
+      "kind": "satz",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "F9 룰링 기존 존재(culture_basic; A1 유지; F9_exceptions.md 명절 문화어) 미적용 발견 -- Jin 결정 5(2026-09-16; V2 relevel candidates f9_ruling_exists_not_applied)"
+    },
+    {
+      "id": "satz_b2_0480",
+      "kind": "satz",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(citation sejong1_u9_voc10_말씀) -- Jin 결정 4(a)(2026-09-16); A1 생존 경어 예외 신설"
+    },
+    {
+      "id": "satz_b2_0483",
+      "kind": "satz",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-3; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down; 세종 인용 없음(decision 4(b) 보류 대상인 F9 예외 신설과는 별개로 NIKL 등급 단독 근거 이동)"
+    },
+    {
+      "id": "satz_b2_0485",
+      "kind": "satz",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(citation sejong1_u9_voc9_드리다) -- Jin 결정 4(a)(2026-09-16); A1 생존 경어 예외 신설"
+    },
+    {
+      "id": "satz_b2_0487",
+      "kind": "satz",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-3; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down; 세종 인용 없음(decision 4(b) 보류 대상인 F9 예외 신설과는 별개로 NIKL 등급 단독 근거 이동)"
+    },
+    {
+      "id": "satz_b2_0488",
+      "kind": "satz",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(citation sejong1_u9_voc8_계시다) -- Jin 결정 4(a)(2026-09-16); A1 생존 경어 예외 신설"
+    },
+    {
+      "id": "satz_b2_0489",
+      "kind": "satz",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-3; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down; 세종 인용 없음(decision 4(b) 보류 대상인 F9 예외 신설과는 별개로 NIKL 등급 단독 근거 이동)"
     },
     {
       "id": "shared_document_old_version",
@@ -6138,6 +6390,51 @@
       "movedAt": "2026-09-07",
       "batch": "relevel_batch_003",
       "reason": "kiiq 2, Fable 룰링 2026-09-07"
+    },
+    {
+      "id": "vocab_a2_0001",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down"
+    },
+    {
+      "id": "vocab_a2_0002",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down"
+    },
+    {
+      "id": "vocab_a2_0003",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down"
+    },
+    {
+      "id": "vocab_a2_0004",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down"
+    },
+    {
+      "id": "vocab_a2_0005",
+      "kind": "vocab",
+      "from": "a2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-1; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down"
     },
     {
       "id": "vocab_a2_0109",
@@ -7607,6 +7904,15 @@
       "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
     },
     {
+      "id": "vocab_b2_0121",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "F9 룰링 기존 존재(meta; A1 유지; F9_exceptions.md 학습 메타어) 미적용 발견 -- Jin 결정 5(2026-09-16; V2 relevel candidates f9_ruling_exists_not_applied)"
+    },
+    {
       "id": "vocab_b2_0145",
       "kind": "vocab",
       "from": "b2",
@@ -7623,6 +7929,96 @@
       "movedAt": "2026-09-05",
       "batch": "relevel_002",
       "reason": "legacy exception migrated from LEGACY_VOCAB_LEVEL_EXCEPTIONS (#268)"
+    },
+    {
+      "id": "vocab_b2_0173",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "F9 룰링 기존 존재(culture_basic; A1 유지; F9_exceptions.md 명절 문화어) 미적용 발견 -- Jin 결정 5(2026-09-16; V2 relevel candidates f9_ruling_exists_not_applied)"
+    },
+    {
+      "id": "vocab_b2_0193",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(citation sejong1_u9_voc10_말씀) -- Jin 결정 4(a)(2026-09-16); A1 생존 경어 예외 신설"
+    },
+    {
+      "id": "vocab_b2_0196",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-3; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down; 세종 인용 없음(decision 4(b) 보류 대상인 F9 예외 신설과는 별개로 NIKL 등급 단독 근거 이동)"
+    },
+    {
+      "id": "vocab_b2_0198",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(citation sejong1_u9_voc9_드리다) -- Jin 결정 4(a)(2026-09-16); A1 생존 경어 예외 신설"
+    },
+    {
+      "id": "vocab_b2_0201",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-3; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down; 세종 인용 없음(decision 4(b) 보류 대상인 F9 예외 신설과는 별개로 NIKL 등급 단독 근거 이동)"
+    },
+    {
+      "id": "vocab_b2_0202",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-3; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down; 세종 인용 없음(decision 4(b) 보류 대상인 F9 예외 신설과는 별개로 NIKL 등급 단독 근거 이동)"
+    },
+    {
+      "id": "vocab_b2_0203",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "세종1 회화 익힘책 1-2 9과 어휘 p.99 직접 등재(citation sejong1_u9_voc8_계시다) -- Jin 결정 4(a)(2026-09-16); A1 생존 경어 예외 신설"
+    },
+    {
+      "id": "vocab_b2_0204",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_007",
+      "reason": "NIKL 1급 단일어; Q-C 최악불일치(delta=-3; confidence=high) -- V2_relevel_candidates.csv too_easy_move_down; 세종 인용 없음(decision 4(b) 보류 대상인 F9 예외 신설과는 별개로 NIKL 등급 단독 근거 이동)"
+    },
+    {
+      "id": "vocab_b2_0431",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "F9 룰링 기존 존재(kinship; A1 유지; F9_exceptions.md 혼인 친족 호칭) 미적용 발견 -- Jin 결정 5(2026-09-16; V2 relevel candidates f9_ruling_exists_not_applied)"
+    },
+    {
+      "id": "vocab_b2_0432",
+      "kind": "vocab",
+      "from": "b2",
+      "to": "a1",
+      "movedAt": "2026-09-16",
+      "batch": "relevel_batch_006",
+      "reason": "F9 룰링 기존 존재(kinship; A1 유지; F9_exceptions.md 혼인 친족 호칭) 미적용 발견 -- Jin 결정 5(2026-09-16; V2 relevel candidates f9_ruling_exists_not_applied)"
     }
   ]
 }

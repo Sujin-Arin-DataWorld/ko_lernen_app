@@ -92,9 +92,9 @@ C11_depth,info,,,koreanGrammar,C1/C2 최소치(8) < A1/A2 최소치(9) — 인�
 C11_depth,info,,,functions,C1/C2 최소치(3) < A1/A2 최소치(4) — 인벤토리가 정하는 축이라 축약이 아니다,매트릭스 인벤토리와 대조해 의도된 축소인지 확인한다
 C11_depth,warn,,,vocabDomains,C1/C2 평균(3.5) 이 A1/A2 평균(4.25) 보다 작다,상위 레벨이 얇아지지 않게 보강한다
 C11_depth,info,,,textTypes,C1/C2 최소치(2) < A1/A2 최소치(3) — 인벤토리가 정하는 축이라 축약이 아니다,매트릭스 인벤토리와 대조해 의도된 축소인지 확인한다
-C16_lexis,info,A1,KP01,KP01 · etiquette_honorific_lexis,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 높임, 말씀, 드리다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP01,KP01 · etiquette_honorific_lexis,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 높임,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP01,KP01 · fixed_expressions_collocations,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A1 이하)에 없다: 마음에 들다, 도움이 되다, 약속을 지키다, 의견을 나누다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,A1,KP01,KP01 · professions_workplace,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A1 이하)에 없다: 직업, 회사, 동료, 업무",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP01,KP01 · professions_workplace,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 동료, 업무",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP01,KP01 · school_study_terms,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 공책,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP02,KP02 · home_objects_furniture,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 창문,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP02,KP02 · numbers_quantity_units,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 세 개, 만 원",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
@@ -103,7 +103,7 @@ C16_lexis,info,A1,KP03,KP03 · fixed_expressions_collocations,"Phase 가 쓰는 
 C16_lexis,info,A1,KP03,KP03 · numbers_quantity_units,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 세 개, 만 원",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP03,KP03 · transport_travel_vocab,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 기차,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP04,KP04 · body_health_symptoms,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 배, 아프다, 약",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
-C16_lexis,info,A1,KP04,KP04 · etiquette_honorific_lexis,"Phase 가 쓰는 어휘 3 개가 앱 어휘(A1 이하)에 없다: 높임, 말씀, 드리다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
+C16_lexis,info,A1,KP04,KP04 · etiquette_honorific_lexis,Phase 가 쓰는 어휘 1 개가 앱 어휘(A1 이하)에 없다: 높임,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A1,KP04,KP04 · weather_nature,"Phase 가 쓰는 어휘 2 개가 앱 어휘(A1 이하)에 없다: 덥다, 춥다",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A2,KP05,KP05 · clothing_accessories,Phase 가 쓰는 어휘 1 개가 앱 어휘(A2 이하)에 없다: 크기,korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다
 C16_lexis,info,A2,KP05,KP05 · money_prices_banking,"Phase 가 쓰는 어휘 4 개가 앱 어휘(A2 이하)에 없다: 요금, 결제, 비용, 예산",korean_vocab.csv 에 추가하거나 보유 어휘로 대체한다

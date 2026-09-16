@@ -223,5 +223,60 @@ class VocabLevelAuditRatchetTest(unittest.TestCase):
         )
 
 
+class AuthoritativeLevelExemptionTest(unittest.TestCase):
+    """Fable R8 2차(2026-09-16): `below_topic`은 "설명되지 않는" 레벨 하락을
+    잡는 휴리스틱이므로, 레벨이 권위 있는 근거(F9 룰링 또는 NIKL kiiq
+    정확 등급)로 이미 설명되는 행에는 붙으면 안 된다. 합성 fixture로 두
+    방향을 고정한다: 같은 행이라도 표제어에 권위 근거가 있으면 의심에서
+    빠지고, 없으면(가짜 표제어) 그대로 의심에 남는다."""
+
+    @staticmethod
+    def _fixture_rows(headword: str) -> list[dict[str, str]]:
+        # "B1_modal_topic"의 최빈 레벨은 B1(4건) — A1 표제어 1건은
+        # topic_mode(B1=2) - rank(A1=0) = 2 로 below_topic 원 조건을 satisfies.
+        columns = {
+            "romanization": "x", "german": "x", "pos_de": "Nomen",
+            "example_korean": "", "example_german": "", "pack_order": "1",
+            "is_review_boss": "false", "english": "", "pos_en": "",
+            "example_english": "",
+        }
+        rows = [
+            {
+                **columns, "korean": f"단어{i}", "level": "B1",
+                "topic": "B1_modal_topic", "pack_id": "b1_test_pack",
+                "id": f"vocab_b1_test{i}",
+            }
+            for i in range(4)
+        ]
+        rows.append(
+            {
+                **columns, "korean": headword, "level": "A1",
+                "topic": "B1_modal_topic", "pack_id": "a1_test_pack",
+                "id": "vocab_a1_test",
+            }
+        )
+        return rows
+
+    def test_word_with_authoritative_nikl_grade_is_not_a_suspect(self) -> None:
+        # "가게"는 nikl_kiiq_2017_vocab.csv 에 grade=1(A1)로 직접 등재된
+        # 표제어다(homograph 없이 단일 등급) -- 권위 근거 있음.
+        rows = self._fixture_rows("가게")
+        suspects = {s["id"] for s in audit_vocab_levels.find_suspects(rows)}
+        self.assertNotIn("vocab_a1_test", suspects)
+        skips = {s["id"]: s for s in audit_vocab_levels.find_authoritative_skips(rows)}
+        self.assertIn("vocab_a1_test", skips)
+        self.assertEqual(skips["vocab_a1_test"]["authority"], "nikl_grade")
+
+    def test_same_row_without_authority_is_a_suspect(self) -> None:
+        # 실재하지 않는 표제어 -- F9 룰링도, NIKL kiiq 등재도 없다.
+        rows = self._fixture_rows("존재하지않는가짜표제어0")
+        suspects = {s["id"] for s in audit_vocab_levels.find_suspects(rows)}
+        self.assertIn("vocab_a1_test", suspects)
+        flagged = next(
+            s for s in audit_vocab_levels.find_suspects(rows) if s["id"] == "vocab_a1_test"
+        )
+        self.assertIn("below_topic", flagged["reasons"])
+
+
 if __name__ == "__main__":
     unittest.main()

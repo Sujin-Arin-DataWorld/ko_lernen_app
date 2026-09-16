@@ -5,19 +5,12 @@ vocab_a1_0054,파란색,blau,A1,a1_colors,Farben,Nomen,sino3_low,satz_ref
 vocab_a1_0055,초록색,grün,A1,a1_colors,Farben,Nomen,sino3_low,satz_ref
 vocab_a1_0056,노란색,gelb,A1,a1_colors,Farben,Nomen,sino3_low,satz_ref
 vocab_a1_0058,검은색,schwarz,A1,a1_colors,Farben,Nomen,sino3_low,
-vocab_a1_0115,좋다,gut / schön,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
-vocab_a1_0116,크다,groß,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
-vocab_a1_0117,작다,klein,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
+vocab_a1_0114,일하다,arbeiten,A1,a1_misc_2,Beruf,Verb,below_topic,
 vocab_a1_0122,귀엽다,niedlich / süß,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
-vocab_a1_0123,조용하다,leise / ruhig,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
 vocab_a1_0124,시끄럽다,laut,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
-vocab_a1_0125,어렵다,schwierig / schwer,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
-vocab_a1_0126,쉽다,einfach / leicht,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,satz_ref
-vocab_a1_0128,길다,lang,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
 vocab_a1_0129,짧다,kurz,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
 vocab_a1_0176,화이팅,Du schaffst das! / Viel Erfolg!,A1,a1_misc_2,Motivation,Ausdruck,below_topic,satz_ref
 vocab_a1_0197,새,neu,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,satz_ref
-vocab_a1_0198,다른,andere/r/s,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,satz_ref
 vocab_a1_0199,같은,gleich / dasselbe,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,satz_ref
 vocab_a2_0088,메뉴판,Speisekarte,A2,a2_food_1,Essen & Trinken,Nomen,sino3_low,satz_ref
 vocab_a2_0145,청소기,Staubsauger,A2,a2_home_1,Wohnen,Nomen,sino3_low,satz_ref
@@ -30,11 +23,6 @@ vocab_a2_0230,눈사람,Schneemann,A2,a2_nature_1,Natur & Draußen,Nomen,sino3_l
 vocab_a2_0231,눈싸움,Schneeballschlacht,A2,a2_nature_1,Natur & Draußen,Nomen,sino3_low,satz_ref
 vocab_a1_0212,인사드리겠습니다,Darf ich Sie begrüßen,A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Ausdruck,below_topic,satz_ref
 vocab_a1_0213,인사드리다,respektvoll grüßen,A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Verb,below_topic,satz_ref
-vocab_a1_0214,장인어른,Schwiegervater (Vater der Ehefrau),A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
-vocab_a1_0215,장모님,Schwiegermutter (Mutter der Ehefrau),A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
-vocab_a1_0217,시어머니,Schwiegermutter (Mutter des Ehemanns),A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
-vocab_a1_0218,호칭,Anrede,A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
-vocab_a1_0219,높임말,Höflichkeitsform,A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
 vocab_a1_0220,성함을 묻다,nach dem Namen fragen,A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Ausdruck,below_topic,satz_ref
 vocab_a1_0221,몇 살이세요,wie alt sind Sie,A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Ausdruck,below_topic,satz_ref
 vocab_a1_0222,잘 부탁드립니다,"Ich hoffe, wir verstehen uns",A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Ausdruck,below_topic,satz_ref
@@ -43,28 +31,18 @@ vocab_a1_0237,손님 슬리퍼,Gästeslipper,A2,a2_partner_house_entry_1,Partner
 vocab_a1_0240,아랫목,der warme Platz am Boden,A2,a2_partner_house_entry_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
 vocab_a1_0248,진지,Mahlzeit (ehrerbietig),A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
 vocab_a1_0249,수저,Löffel und Stäbchen,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
-vocab_a1_0250,밑반찬,Beilagen,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
 vocab_a1_0251,더 드세요,essen Sie noch mehr,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Ausdruck,below_topic,satz_ref
 vocab_a1_0252,배불러요,ich bin satt,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Ausdruck,below_topic,satz_ref
 vocab_a1_0253,맛있어요,es schmeckt,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Ausdruck,below_topic,satz_ref
 vocab_a1_0254,집밥,Hausmannskost,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
-vocab_a1_0255,국물,Brühe,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
 vocab_a1_0256,젓가락질,Stäbchenhaltung,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low+below_topic,satz_ref
 vocab_a1_0257,앞접시,Extrateller,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low+below_topic,satz_ref
 vocab_a1_0258,수저 놓다,das Besteck ablegen,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Ausdruck,below_topic,satz_ref
 vocab_a1_0259,설거지,Abwasch,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low+below_topic,satz_ref
-vocab_a1_0260,설날,"Seollal, Mondneujahr",A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
-vocab_a1_0261,세배,Neujahrsverbeugung,A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
-vocab_a1_0262,떡국,"Tteokguk, Reiskuchensuppe",A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
-vocab_a1_0263,세뱃돈,Neujahrsgeld,A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
-vocab_a1_0264,한복,Hanbok,A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
-vocab_a1_0265,새해 복 많이 받으세요,ein gesegnetes neues Jahr,A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Ausdruck,below_topic,satz_ref
 vocab_a1_0266,절하다,sich verbeugen,A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Verb,below_topic,satz_ref
 vocab_a1_0267,세배 드리다,die Neujahrsverbeugung darbringen,A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Ausdruck,below_topic,satz_ref
-vocab_a1_0268,덕담,guter Neujahrswunsch,A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
 vocab_a1_0269,차례상,Ahnentisch,A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low+below_topic,satz_ref
 vocab_a1_0270,세뱃돈 봉투,Umschlag für das Neujahrsgeld,A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low+below_topic,satz_ref
-vocab_a1_0271,설빔,Neujahrskleidung,A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Nomen,below_topic,satz_ref
 vocab_a1_0296,인증샷,Foto fürs Netz,A2,a2_partner_photo_thanks_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
 vocab_a1_0306,사진 전송,Fotos senden,A2,a2_partner_photo_thanks_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
 vocab_a2_0274,소개팅,Blind Date,A2,a2_partner_dinner_talk_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
@@ -99,10 +77,3 @@ vocab_a2_0410,트리트먼트,Kur,A2,a2_salon_visit_1,Friseursalon,Nomen,sino3_l
 vocab_a1_0413,배달비,Liefergebühr,A1,a1_payment_delivery_1,결제와 배달,Nomen,sino3_low,satz_ref
 vocab_a1_0416,우체국 위치,Lage des Postamts,A1,a1_city_services_2026_1,도시 생활,Nomen,sino3_low,
 vocab_a1_0422,영수증 확인,Bonkontrolle,A1,a1_city_services_2026_1,도시 생활,Nomen,sino3_low,satz_ref
-vocab_a1_0524,텔레비전,Fernseher,A1,a1_misc_1,Technologie,Nomen,below_topic,satz_ref
-vocab_a1_0595,카메라,Kamera,A1,a1_belongings_1,Technologie,Nomen,below_topic,satz_ref
-vocab_a1_0663,에어컨,Klimaanlage,A1,a1_home_daily_1,Technologie,Nomen,below_topic,satz_ref
-vocab_a1_0665,사용,"Gebrauch, Benutzung",A1,a1_home_daily_1,Technologie,Nomen,below_topic,satz_ref
-vocab_a1_0675,프로그램,Programm,A1,a1_culture_hobbies_1,Technologie,Nomen,below_topic,satz_ref
-vocab_a1_0677,사진,Foto,A1,a1_culture_hobbies_1,Technologie,Nomen,below_topic,satz_ref
-vocab_a1_0724,찍다,(ein Foto) machen,A1,a1_verbs_daily_1,Technologie,Verb,below_topic,satz_ref
