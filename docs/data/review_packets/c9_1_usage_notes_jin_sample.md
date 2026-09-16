@@ -41,7 +41,7 @@
     - DE: Das Nesthäkchen wacht immer als Letztes auf.
     - EN: The youngest always wakes up last.
 
-**Jin 판정:** 
+**Jin 판정:**
 
 ## `vocab_b1_0009` -- 해결 (Lösung)
 
@@ -80,7 +80,7 @@
     - DE: Wie hast du das Problem gelöst?
     - EN: How did you solve that problem?
 
-**Jin 판정:** 
+**Jin 판정:**
 
 ## `vocab_b1_0036` -- 참여하다 (teilnehmen / mitmachen)
 
@@ -119,7 +119,7 @@
     - DE: Machst du bei dieser Freiwilligenarbeit mit?
     - EN: Want to join in on this volunteer activity together?
 
-**Jin 판정:** 
+**Jin 판정:**
 
 ## `vocab_b1_0070` -- 진행하다 (durchführen / voranbringen)
 
@@ -158,7 +158,7 @@
     - DE: Ohne die Unterlagen wird es wohl schwierig, die Besprechung durchzuführen.
     - EN: We don’t have the materials yet, so I think it’ll be hard to run the meeting.
 
-**Jin 판정:** 
+**Jin 판정:**
 
 ## `vocab_b1_0111` -- 전통 (Tradition)
 
@@ -197,7 +197,7 @@
     - DE: Bei uns in der Familie ist es Tradition, zu jedem Geburtstag einen Brief zu schreiben.
     - EN: Our family has a tradition of writing a letter for every birthday.
 
-**Jin 판정:** 
+**Jin 판정:**
 
 ## `vocab_b1_0159` -- 두통약 (Kopfschmerztablette)
 
@@ -236,7 +236,7 @@
     - DE: Ich weiß nicht mehr, wo ich das Kopfwehmittel hingelegt habe.
     - EN: I can’t remember where I put the headache medicine.
 
-**Jin 판정:** 
+**Jin 판정:**
 
 ## `vocab_b1_0187` -- 외식 (Essengehen)
 
@@ -275,7 +275,7 @@
     - DE: Diese Woche war ich schon dreimal auswärts essen.
     - EN: This week I've already eaten out three times.
 
-**Jin 판정:** 
+**Jin 판정:**
 
 ## `vocab_b1_0257` -- 부동산 (Immobilienbüro)
 
@@ -314,7 +314,7 @@
     - DE: Dieses Wochenende schaue ich mir noch ein paar weitere Immobilienbüros an.
     - EN: This weekend I'm going to check out a few more real estate agencies.
 
-**Jin 판정:** 
+**Jin 판정:**
 
 ## `vocab_b1_0392` -- 사고 접수 (Schadensmeldung)
 
@@ -353,7 +353,7 @@
     - DE: Um den Unfall zu melden, brauchte ich noch ein paar weitere Unterlagen.
     - EN: To submit the accident report, I needed a few more documents.
 
-**Jin 판정:** 
+**Jin 판정:**
 
 ## `vocab_b1_0471` -- 면접 일정 (Vorstellungstermin)
 
@@ -392,4 +392,4 @@
     - DE: Als ich die SMS zum Vorstellungstermin bekam, wurde ich etwas nervös.
     - EN: I got a bit nervous after receiving the text about the interview schedule.
 
-**Jin 판정:** 
+**Jin 판정:**

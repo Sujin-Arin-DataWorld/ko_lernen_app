@@ -4,7 +4,7 @@
 
 ## 기준과 원본
 
-실제 원격 main 기준: `61f5c819dcd51357617f731ce0b4694ad3d8be49`.
+인수 시 확인한 원격 main 기준: `61f5c819dcd51357617f731ce0b4694ad3d8be49`.
 [CI 35079585508](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/35079585508)와 [Playwright 35079585738](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/35079585738)는 이 SHA에서 success. 이는 코드 검증이며 스토어 업로드·실기기 검수·운영 관측 완료를 뜻하지 않는다.
 
 | 원본 계획 | 로컬 경로 | 바이트 | SHA-256 |
@@ -15,13 +15,13 @@
 
 원본의 당시 모델·명령·완료 주장·예정 날짜는 역사 자료다. 현 사용자 지시, 현재 AGENTS, 현재 코드·서비스 증거가 우선한다. 잘못된 수치를 계승하거나 문서의 승인 주장을 새 콘텐츠 승인으로 복사하지 않는다.
 
-원본 세 파일은 현재 작업 공간의 `.superpowers/sdd/2026-09-16-cp2026-codex-resume/source-plans/`에도 동일 바이트로 보관했으며 SHA-256 일치를 확인했다. 이 보관본은 역사 자료이며 실행 지시의 우선순위를 바꾸지 않는다.
+원본 세 파일은 검증된 로컬 보관소 `C:/dev/hangulsori/_codex_artifacts/cp2026-integration-20260916/takeover-sdd-before-integration/source-plans/`에도 동일 바이트로 보관했으며 SHA-256 일치를 확인했다. 이 보관본은 역사 자료이며 실행 지시의 우선순위를 바꾸지 않는다.
 
 실행 명세: [인수 설계](superpowers/specs/2026-09-16-cp2026-codex-resume-design.md), [착수 계획](superpowers/plans/2026-09-16-cp2026-codex-resume.md).
 
 ## 다시 계산한 콘텐츠 기준선
 
-`tool.audit_content_levels.load_corpus`와 `compute_coverage`를 현재 source에서 실행했다. 숫자는 초안 승격 또는 relevel 후 다시 계산한다.
+`tool.audit_content_levels.load_corpus`와 `compute_coverage`를 인수 기준 main `61f5c819`의 source에서 실행했다. 아래 표는 그 기준선이다. 숫자는 초안 승격 또는 relevel 후 다시 계산한다.
 
 | 측정 | 현재값 | 해석 |
 |---|---:|---|
@@ -45,15 +45,17 @@
 
 | 작업 | 현재 위치 | 재개 / 완료 조건 |
 |---|---|---|
-| C4-G1 | `../c4-grammar-g1-20260917`, base `61f5c819` | 로컬 9개 추가·3개 확장. 수정 후 Python 149·Flutter 12 통과, 최초 Flutter 83·analyze 통과. 독립 재검토 통과, 음성 24개 부재. 라이브 완료로 집계하지 않음 |
-| Batch 34 | `../c3-batch34-a2-20260917`, 현재 base `61f5c819` | 64어 draft·192 오답 치환 산출물과 B32·33 표본/원장 수정 완료, 241개 테스트·독립 재검토 통과; 승인 전 runtime 반영 없음 |
-| C9-1 | [PR #362](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/362), head `057cf233` | 기존 HEAD의 CI/Playwright success와 별개로 로컬 120노트 보존·신규 100개 중 92개 교정·파일럿 7건 복원. 46개 테스트·파생 검사와 최종 독립 재검토 통과. 음성 67개 부재, Jin 판정 대기 |
+| C4-G1 | [문법 검수](data/review_packets/c4_g1_grammar_jin_sample.md), 커밋 `0bcc83d5` | 로컬 9개 추가·3개 확장. 수정 후 Python 149·Flutter 12 통과, 최초 Flutter 83·analyze 통과. 독립 재검토 통과. 최초 음성 24개 부재는 통합 과정에서 보완; 사람 검수는 대기 |
+| Batch 34 | [어휘 검수](data/review_packets/batch_34_a2_jin_sample.md), 커밋 `8fc51d29` | 64어 draft·192 오답 치환 산출물과 B32·33 표본/원장 수정 완료, 241개 테스트·독립 재검토 통과; 승인 전 runtime 반영 없음 |
+| C9-1 | [PR #362](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/362), 수정 커밋 `0eeb8937` | 기존 HEAD의 CI/Playwright success와 별개로 로컬 120노트 보존·신규 100개 중 92개 교정·파일럿 7건 복원. 46개 테스트·파생 검사와 최종 독립 재검토 통과. 최초 음성 67개 부재는 통합 과정에서 보완; Jin 판정 대기 |
 | Batch 32 | main의 draft 및 Batch 34 작업 공간의 수정본 | 번역·예문 2건과 검토 원장 구조 수정 후 7어 판정, C3-T6 승격 |
 | Batch 33 | main의 draft 및 Batch 34 작업 공간의 수정본 | 번역 2건 수정 후 7어 판정, C3-T7; Batch 32의 부분 팩 의존성 유지 |
 
 Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수정된 로컬 Batch 32–34 검증은 241개 통과했다. 진행 재개 승인은 표본 내용 승인과 다르다. [통합 검수 패킷](data/review_packets/cp2026_pending_jin_review.md)을 통해 판정을 받으며, 아직 보지 않은 내용에 `HUMAN_APPROVED`를 쓰지 않는다.
 
-이번 착수 계획의 네 작업은 로컬 구현·프로그램 인수·독립 검토를 완료했다. 통합 패킷에서 C4 12개 전체와 Batch 34 표본 7어를 열 수 있고, Batch 32·33의 14어와 C9의 10어를 바로 읽을 수 있다. C4·C9 음성 누락 수는 작업별 실제 읽기 전용 Storage 조회 결과이며, 마지막 C9 설명 교정은 음성 원문과 키를 바꾸지 않았다. 별도 작업 공간의 공통 can-do·TTS 파생물은 순서대로 통합한 뒤 재생성·검증해야 한다. 아직 커밋·푸시·병합·음성 업로드를 수행하지 않았고, 기존 CI를 이 미커밋 결과의 검증으로 사용하지 않는다.
+이번 착수 계획의 네 작업은 로컬 구현·프로그램 인수·독립 검토를 완료했다. 통합 패킷에서 C4 12개 전체와 Batch 34 표본 7어를 열 수 있고, Batch 32·33의 14어와 C9의 10어를 바로 읽을 수 있다. 2026-09-16 사용자의 커밋·푸시·검토·main 병합 지시에 따라 네 작업의 커밋을 통합했다. 공통 can-do·TTS 파생물을 통합 소스에서 재생성했고, 기존 문서의 음성 24개·67개는 당시 누락 기록이다. 현재 통합 소스는 vocab 2,944개·팩 252개·grammar 261개·usage notes 120개이며, Batch 32·33·34는 모두 draft다. 통합 검사에서 발견한 Windows CSV/문서 줄바꿈 재생성 실패를 수정한 뒤 Python 436개 통과·기존 fixture 2개 skip, Flutter 문법 12개 통과를 확인했다. 원격 CI 및 main 병합 결과는 PR의 정확한 SHA와 실행 기록으로 확인해야 하며, 과거 기준선의 CI 성공을 새 결과에 대입하지 않는다.
+
+통합 음성 재검증(2026-09-16): 누락분 91개만 합성·업로드한 후 `tool/generate_tts.py --verify-storage`로 **expected 12,630 / remote 21,133 / missing 0 / stale 8,503**을 실제 확인했다. stale 객체는 삭제하지 않았다. 정확한 출력과 원본·검토 기록은 `C:/dev/hangulsori/_codex_artifacts/cp2026-integration-20260916/`에 보존한다. 이는 음성 키 완전성 증거이며 모든 클립을 사람이 청취했다는 뜻은 아니다.
 
 ## 전체 프로그램 상태표
 
@@ -101,7 +103,7 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 |---|---|---|
 | CP §6.1 Apple 제공자·토큰 폐기 | 현재 콘솔 확인 대기. [Apple 설정 런북](store/apple-sign-in-setup.md)의 과거 gap 기록을 재검증하고 제공자, `APPLE_REVOKE_*` 4개 설정과 함수 파라미터의 연결을 확인 | 제공자 등록, 로그인·계정 삭제/폐기 실경로, `completeAppleRevocation`·`appleOAuthCallback`의 정확한 배포 소스 영수증. Codex 준비·검증, Jin/릴리스·계정 담당 실행 권한 |
 | CP §6.2 노출 키 정리 | 과거 Google TTS 키 2개와 kornorms 키의 유효성·소비자 확인 대기. 교체한 뒤 소비자 동작을 검증하고 기존 키 폐기·평문 제거를 수행 | 새 키의 스코프 제한·소비자 검증·기존 키 무효화·노출 평문 0건 증거. Codex 감사, Jin/자격증명 담당의 명시적 교체 권한 |
-| CP §6.3–6 관측 준비 | `GCS_TTS_VERIFY_SA_JSON`의 존재·objectViewer 권한, 알림 채널/Crashlytics 속도 알림, 실제 배포 버전의 App Bundle Explorer 크기, Play Vitals 기준선 확인 | 비밀 값 없는 권한 영수증·기기별 다운로드 크기·관측 시작일/버전/코호트. Codex 조회, 릴리스 담당 콘솔 증거 |
+| CP §6.3–6 관측 준비 | `GCS_TTS_VERIFY_SA_JSON`의 존재와 C9 수정 HEAD CI의 Storage 읽기 성공 확인. 실제 IAM 최소 권한, 알림 채널/Crashlytics 속도 알림, 배포 버전의 App Bundle Explorer 크기·Play Vitals 기준선은 후속 확인 | 비밀 값 없는 권한 영수증·기기별 다운로드 크기·관측 시작일/버전/코호트. Codex 조회, 릴리스 담당 콘솔 증거 |
 | W8-D / PR9 스크롤 스냅 | [후보 목록](../lib/data/feed_physics_candidates.dart)의 7개 후보는 현재 비활성. Jin 기기 판정 대기이며 현재 5탭 구조를 유지 | 원본 W7-W10 §5.3의 후보 4방향 제스처·시스템 가장자리 확인 → 화면별 승인 → 별도 구현/검토에서 `approvedForSnap` 승격과 되돌림 경계. Jin 기기 판정, Codex 후속 구현 |
 
 ## 상용화 최종 판정에 유지할 측정 기준
@@ -127,7 +129,7 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 
 이번 C9 감사에서 기존 앞면 예문 두 건을 추가로 확인했다. `vocab_a2_0435`(마감하다)의 `가게를 마감하다 전에 바닥을 닦아요.`는 연결형 오류여서 다음 C2 원문 교정에서 파생 게임·검토 원장과 함께 수정한다. `vocab_b1_0160`(진통제)의 하루 두 번 복용 예문은 특정 약을 밝히지 않은 교육용 문장으로, 같은 교정 단계에서 복용 횟수를 지시하지 않는 상황으로 바꿀지 검토한다. 둘 다 이번 C9의 허용된 앞면 수정(`vocab_b1_0053`, 따라서) 범위 밖이므로 현재 파일은 유지했으며, 앱 전체 정제 완료로 계산하지 않는다.
 
-1. C4-G1·Batch 34·C9-1의 로컬 구현과 독립 검토는 완료했다. 다음에는 검수 패킷 판정과 명시적으로 승인된 커밋·PR 작업을 처리한다. 이후 구현 담당 에이전트도 한 번에 하나만 실행한다.
+1. C4-G1·Batch 34·C9-1의 로컬 구현과 독립 검토는 완료했다. 사용자는 커밋·푸시·검토·main 병합을 승인했다. 통합 PR의 정확한 HEAD와 병합 SHA 검사를 통과시켜 반영하며, 직접 콘텐츠를 검수했다는 기록은 따로 받는다. 이후 구현 담당 에이전트도 한 번에 하나만 실행한다.
 2. 표본 판정이 도착하면 C9-1 및 Batch 32→33 승격을 각각 진행한다. curriculum·TTS 공통 파생물을 바꾸는 작업은 순서대로 통합 후 다음 작업에서 재생성한다.
 3. C4 후속, relevel 2와 서사 조각/창작 명사구 검토, A1 생동감 패스, C9-2, Batch 35 이후를 레벨·팩 의존성에 따라 분리한다. 서사 조각은 자동 relevel 대상이 아니다.
 4. C6 생성기 보존성 복구·C7-2 원장 위생·Q-S3는 위 콘텐츠 판정과 독립적으로 진행할 수 있다. 생성기를 실행해 기존 시드를 줄이기 전에 보존성 검증을 먼저 만든다.
@@ -135,3 +137,7 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 6. S/B/O/Q 잔여는 각 과제 착수 때 현재 source와 서비스 상태를 재확인하고 독립 계획·검증 단위로 수행한다. 10주라는 달력만으로 다음 wave에 넘어가지 않는다.
 
 콘솔·물리 기기·관측 기간의 증거가 없는 항목은 열린 게이트다. 확인할 수 있는 read-only 서비스 조회는 Codex가 직접 수행하고, 실제 계정/기기 조작이 필요한 지점에서 구체적인 결과물을 제시한다.
+
+## 전체 계획 완료 여부
+
+**CP-2026·LCP·W7-W10 전체는 100% 완료가 아니다.** 이번 완료 범위는 중단된 C4-G1과 Batch 34의 저작 복구, C9-1 교정 및 전체 실행 큐의 인수다. 사람 콘텐츠 판정, Batch 32–34 라이브 승격, raw A2 잔여 535어, B1 문법 잔여, C6 생성기 보존성, 서버·계정·운영·실기기·관측 게이트는 위 상태표대로 남아 있다. 분모와 실제 통과 증거가 없는 전체 완료율은 제시하지 않는다. 실행 명세의 당시 작업 공간 경로는 이력이며, 현재 검수 자료는 저장소 안의 상대 링크를 사용한다.

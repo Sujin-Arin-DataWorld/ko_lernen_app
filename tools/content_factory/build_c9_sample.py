@@ -62,7 +62,7 @@ def render(notes, vocab):
                     lines.append(f"  - {entry['headword']} [vocabId: {entry.get('vocabId') or 'null'}]")
                 if field=='examples': lines.append(f"  - [{entry['register']}]")
                 lines.extend(f'    - {lang.upper()}: {entry[lang]}' for lang in ('ko','de','en'))
-        lines.extend(['', '**Jin 판정:** ', ''])
+        lines.extend(['', '**Jin 판정:**', ''])
     return '\n'.join(lines)
 
 

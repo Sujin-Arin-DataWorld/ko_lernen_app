@@ -2,14 +2,14 @@
 
 2026-09-16 현재 파일에서 다시 추출했다. 모든 항목은 **Jin 판정 대기**다. 작업 재개 승인이나 CI 성공을 콘텐츠 승인으로 기록하지 않는다.
 
-**검수 가능본:** Batch 32·33 표본 4건과 C9 노트의 지적사항을 수정하고 독립 모델 재검토를 통과한 현재 로컬 파일에서 다시 추출했다. 모델 검토 통과는 Jin의 콘텐츠 승인을 대신하지 않는다.
+**검수 가능본:** Batch 32·33 표본 4건과 C9 노트의 지적사항을 수정하고 독립 모델 재검토를 통과한 통합 소스에서 다시 추출했다. 모델 검토 통과는 Jin의 콘텐츠 승인을 대신하지 않는다.
 
-기준 main: `61f5c819`; C9-1: PR #362 head `057cf233` 위의 미커밋 수정본. 수정 요청은 배치와 표제어 또는 ID로 지정하면 된다. 아래 표는 원문이며, 새 검토에서 결함이 확인되면 수정 후 다시 추출한다.
+기준 main: `61f5c819`; C9-1: PR #362의 수정 커밋 `0eeb8937`을 포함한 통합본. 수정 요청은 배치와 표제어 또는 ID로 지정하면 된다. 아래 표는 원문이며, 새 검토에서 결함이 확인되면 수정 후 다시 추출한다.
 
 ## 새로 복구한 콘텐츠
 
-- [C4-G1 문법 12개 전체 검수](C:/dev/hangulsori/ko_lernen_app_worktrees/c4-grammar-g1-20260917/docs/data/review_packets/c4_g1_grammar_jin_sample.md): 신규 9개·기존 3개 확장, 두 예문과 번역·퀴즈·등록 단위를 확인한다.
-- [Batch 34 A2 7어 표본 검수](C:/dev/hangulsori/ko_lernen_app_worktrees/c3-batch34-a2-20260917/docs/data/review_packets/batch_34_a2_jin_sample.md): 64어 초안에서 추출한 표본이며 예문과 세 오답의 적합성을 확인한다.
+- [C4-G1 문법 12개 전체 검수](c4_g1_grammar_jin_sample.md): 신규 9개·기존 3개 확장, 두 예문과 번역·퀴즈·등록 단위를 확인한다.
+- [Batch 34 A2 7어 표본 검수](batch_34_a2_jin_sample.md): 64어 초안에서 추출한 표본이며 예문과 세 오답의 적합성을 확인한다.
 
 아래 기존 대기분 24항목과 위 두 패킷 모두 Jin 판정 대기다. 승인 또는 수정 요청은 작업명과 ID를 함께 적으면 된다.
 
@@ -335,7 +335,7 @@ EN: If you put in a lot of effort, your Korean improves quickly.
 
 원본 JSON SHA-256: `fb294223c84ba02e1941a93832e523d6bddefe4debcb1f758a9727abc3f9057f`
 
-뉘앙스와 추가 예문을 세 언어로 싣는다. 상황·문형·연어·대비를 포함한 전체 내용은 [원본 패킷](C:/dev/hangulsori/ko_lernen_app_worktrees/c9-1-usage-notes-b1-20260916/docs/data/review_packets/c9_1_usage_notes_jin_sample.md)에서 확인한다.
+뉘앙스와 추가 예문을 세 언어로 싣는다. 상황·문형·연어·대비를 포함한 전체 내용은 [원본 패킷](c9_1_usage_notes_jin_sample.md)에서 확인한다.
 
 ### 막내 · vocab_a1_0290
 

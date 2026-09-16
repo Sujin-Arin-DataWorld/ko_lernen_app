@@ -10,14 +10,14 @@
 
 **Spec:** `docs/superpowers/specs/2026-09-16-cp2026-codex-resume-design.md`
 
-**Execution status:** Tasks 1–4 are locally complete and independently reviewed. C4 grammar, Batch34 draft and C9 repairs passed final scoped review; program adoption review passed and the final unified packet is current. Human content approval, commit/PR authorization, ordered integration checks and missing audio remain pending. This completes the immediate takeover plan, not the full commercialization program.
+**Execution status:** Tasks 1–4 are locally complete and independently reviewed. C4 grammar, Batch34 draft and C9 repairs passed final scoped review; program adoption review passed and the final unified packet is current. Human content approval remains pending. On 2026-09-16 Jin authorized commit, push, review and main merge; the controller owns ordered integration, required audio backfill and exact-SHA CI verification. This completes the immediate takeover plan, not the full commercialization program.
 
 ## Global Constraints
 
 - Work only in the assigned worktree; primary main and unrelated sessions are untouched.
 - Python: `C:/dev/hangulsori/ko_lernen_app/.venv/Scripts/python.exe`; set `PYTHONIOENCODING=utf-8` and `PYTHONUTF8=1`.
 - Current baseline: origin/main `61f5c819dcd51357617f731ce0b4694ad3d8be49`; verify before changing a branch.
-- No commit, push, merge, deletion, deployment, human-approval fields, or false Claude attribution from an implementer. Return the complete tested working diff for controller review.
+- No commit, push, merge, deletion, deployment, human-approval fields, or false Claude attribution from an implementer. Return the complete tested working diff for controller review. This implementer restriction does not revoke the later explicit controller integration authorization.
 - No additional subagents from implementers or reviewers. One implementation subagent at a time.
 - Freeze existing content IDs and levels; do not raise ratchet caps or weaken a gate to accommodate bad content.
 - Korean is the semantic source. DE/EN preserve meaning and register; no invented facts or nuance. Read the beyond-humanizer skill for linguistic work.

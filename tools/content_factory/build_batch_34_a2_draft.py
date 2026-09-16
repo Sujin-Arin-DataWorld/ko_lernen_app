@@ -154,7 +154,7 @@ def verify_checked_in_sources(repo_root: Path) -> None:
 def write_csv(path: Path, header: list[str], rows: list[dict[str, object]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=header)
+        writer = csv.DictWriter(f, fieldnames=header, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -180,7 +180,7 @@ def replace_json_item(path: Path, item_id: str, updates: dict[str, object]) -> N
             break
     else:
         raise ValueError(f"missing {item_id} in {path}")
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
 def apply_predecessor_repairs(output_root: Path) -> None:
@@ -276,7 +276,7 @@ def apply_predecessor_repairs(output_root: Path) -> None:
     write_csv(review / "batch_32_a2_vocab_review.csv", ledger_header, vocab_ledger)
     write_csv(review / "batch_32_a2_cloze_review.csv", ledger_header, cloze_ledger)
     write_csv(review / "batch_32_a2_satz_review.csv", ledger_header, satz_ledger)
-    b32_manifest_path.write_text(json.dumps(b32, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    b32_manifest_path.write_text(json.dumps(b32, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     # Batch 33: remove age and gender claims from 선배; naturalize 노력 DE.
     b33_rows = drafts / "batch_33_a2_rows.csv"
@@ -311,7 +311,7 @@ def apply_predecessor_repairs(output_root: Path) -> None:
         "without inventing age or gender; 노력 DE now uses 'das eigene Koreanisch'. "
         "KO/EN, IDs, statuses, packs, and historical gap arithmetic are unchanged; MODEL_QA only."
     )
-    b33_manifest_path.write_text(json.dumps(b33, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    b33_manifest_path.write_text(json.dumps(b33, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     # Keep the human-readable evidence in sync without reformatting whole files.
     packet32 = output_root / "docs/data/review_packets/batch_32_a2_jin_sample.md"
@@ -335,14 +335,14 @@ def apply_predecessor_repairs(output_root: Path) -> None:
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
-    packet32.write_text(text, encoding="utf-8")
+    packet32.write_text(text, encoding="utf-8", newline="\n")
 
     packet33 = output_root / "docs/data/review_packets/batch_33_a2_jin_sample.md"
     text = packet33.read_text(encoding="utf-8")
     text = text.replace("ältere/r Kollege/in, Senior", "dienstälteres Teammitglied")
     text = text.replace("Eine ältere Kollegin hat mir das Mittagessen bezahlt.", "Ein Teammitglied, das schon länger in der Firma ist, hat mir das Mittagessen bezahlt.")
     text = text.replace("Wenn man sich viel Mühe gibt, wird das Koreanisch schnell besser.", "Wenn man sich viel Mühe gibt, wird das eigene Koreanisch schnell besser.")
-    packet33.write_text(text, encoding="utf-8")
+    packet33.write_text(text, encoding="utf-8", newline="\n")
 
 
 def build_batch34(output_root: Path) -> None:
@@ -385,10 +385,10 @@ def build_batch34(output_root: Path) -> None:
 
     write_csv(drafts / "batch_34_a2_rows.csv", VOCAB_HEADER, rows)
     (drafts / "batch_34_a2_cloze.json").write_text(
-        json.dumps({"items": cloze}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        json.dumps({"items": cloze}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
     )
     (drafts / "batch_34_a2_satz.json").write_text(
-        json.dumps({"items": satz}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        json.dumps({"items": satz}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
     )
 
     vocab_review = []
@@ -515,7 +515,7 @@ def build_batch34(output_root: Path) -> None:
         "promotion": {"assetsDataWritten": False, "runtime": False, "tts": False, "firebase": False, "note": "DRAFT ONLY; Jin review pending."},
     }
     (drafts / "batch_34_a2_reinforcement_manifest.json").write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
     )
     build_packet(rows, cloze, satz, manifest, packet)
 
@@ -579,7 +579,7 @@ def build_packet(rows, cloze, satz, manifest, packet: Path) -> None:
         "- Tier B ratio: 0/64 (0%).", "- Jin/native/educator approval remains pending.", "",
     ])
     packet.parent.mkdir(parents=True, exist_ok=True)
-    packet.write_text("\n".join(lines), encoding="utf-8")
+    packet.write_text("\n".join(lines), encoding="utf-8", newline="\n")
 
 
 def main() -> None:
