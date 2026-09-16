@@ -499,21 +499,35 @@ class TestBatch30Cloze(unittest.TestCase):
         identifiable), and the surface-form check above under-counts it --
         언제는/언제로/언제에 are one word wearing different particles. Counted
         locally here (no shared helper; another agent owns that rule's
-        shared code): stem = the distractor with ONE trailing particle
-        stripped (에서|으로|에게|을|를|이|가|은|는|에|로|도|과|와, longest
-        first); a distractor that is nothing but a particle (the Tier-B
+        shared code): stem = the distractor with its whole particle tail
+        stripped (full inventory, stacked tails included -- see the regex
+        below); a distractor that is nothing but a particle (the Tier-B
         bare-particle pool) is counted by its own surface form instead.
         Before the C3-T5b redistribution this batch had 언제 7 / 무엇 5."""
-        particle_re = re.compile(r"(에서|으로|에게|을|를|이|가|은|는|에|로|도|과|와)$")
+        # Full particle inventory (Fable correction, C3-T5b): the cap is per
+        # WORD as the learner sees it, so 우산부터/우산에는/우산들을 are all
+        # 우산. Tails stack (들+을, 에+는, 에게+는), so strip repeatedly; a
+        # word is never cut below 2 syllables (지도/사과/같이 merely END in a
+        # particle-shaped syllable); the Tier-B bare particles are counted
+        # by their own surface form.
+        particle_tail = re.compile(
+            r"(에서는|에게는|에는|에서|에게|으로|한테|부터|까지|처럼|보다|하고|이랑|이나"
+            r"|들|을|를|이|가|은|는|에|로|도|과|와|만|랑|께|나)$"
+        )
         stems: Counter = Counter()
         bare_particles: Counter = Counter()
         for item in self.items:
             for d in item["distractors"]:
-                stem = particle_re.sub("", d, count=1)
-                if stem:
-                    stems[stem] += 1
-                else:
+                if d in BARE_PARTICLE_POOL:
                     bare_particles[d] += 1
+                    continue
+                stem = d
+                while True:
+                    m = particle_tail.search(stem)
+                    if not m or len(stem) - len(m.group(1)) < 2:
+                        break
+                    stem = stem[: m.start()]
+                stems[stem] += 1
         over_stems = {w: c for w, c in stems.items() if c > 4}
         over_bare = {w: c for w, c in bare_particles.items() if c > 4}
         self.assertEqual(
