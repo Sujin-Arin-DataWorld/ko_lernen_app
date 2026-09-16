@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "generatedFrom": "assets/data/korean_vocab.csv",
   "snapshotDate": "2026-09-10",
-  "packCount": 224,
+  "packCount": 239,
   "dedicatedAssetCount": 184,
   "notes": [
     "The approved plan snapshot contained 223 packs; the live CSV now contains 224.",
@@ -8317,6 +8317,576 @@
       ],
       "status": "approved_motif_fallback",
       "sha256": "f9b47d8c7ed59e32d3ca85bdfd8b3d6019acfeacd6b33db65dc7d059ac6a55ee",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_countries_1",
+      "level": "A1",
+      "rewardMotif": "lotus",
+      "primaryAsset": "assets/illustrations/packs/lotus.webp",
+      "subjectKo": "일본 · 중국 · 영국 · 프랑스 · 러시아 · 캐나다 · 태국 · 베트남 · 몽골 · 말레이시아 · 인도네시아 · 외국",
+      "subjectPromptEn": "a modern still life expressing Japan, China, the UK, England, France",
+      "evidenceWordIds": [
+        "vocab_a1_0541",
+        "vocab_a1_0542",
+        "vocab_a1_0543",
+        "vocab_a1_0544",
+        "vocab_a1_0545",
+        "vocab_a1_0546",
+        "vocab_a1_0547",
+        "vocab_a1_0548",
+        "vocab_a1_0549",
+        "vocab_a1_0550",
+        "vocab_a1_0551",
+        "vocab_a1_0552"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "ae3ff1034e46489c56fbef0dd831473b8be3db4397ab7315bfaefa4383e3ab2e",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_hobbies_1",
+      "level": "A1",
+      "rewardMotif": "vine",
+      "primaryAsset": "assets/illustrations/packs/vine.webp",
+      "subjectKo": "축구 · 야구 · 농구 · 테니스 · 수영 · 스키 · 등산 · 산책 · 춤 · 노래 · 구경 · 탁구",
+      "subjectPromptEn": "a modern still life expressing soccer, baseball, basketball, tennis",
+      "evidenceWordIds": [
+        "vocab_a1_0553",
+        "vocab_a1_0554",
+        "vocab_a1_0555",
+        "vocab_a1_0556",
+        "vocab_a1_0557",
+        "vocab_a1_0558",
+        "vocab_a1_0559",
+        "vocab_a1_0560",
+        "vocab_a1_0561",
+        "vocab_a1_0562",
+        "vocab_a1_0563",
+        "vocab_a1_0564"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_korean_food_1",
+      "level": "A1",
+      "rewardMotif": "soban",
+      "primaryAsset": "assets/illustrations/packs/soban.webp",
+      "subjectKo": "김밥 · 떡볶이 · 김치찌개 · 된장찌개 · 삼계탕 · 갈비 · 갈비탕 · 참외 · 포도 · 감 · 사이다 · 떡",
+      "subjectPromptEn": "a modern still life expressing gimbap, tteokbokki, kimchi stew, doenjang stew",
+      "evidenceWordIds": [
+        "vocab_a1_0565",
+        "vocab_a1_0566",
+        "vocab_a1_0567",
+        "vocab_a1_0568",
+        "vocab_a1_0569",
+        "vocab_a1_0570",
+        "vocab_a1_0571",
+        "vocab_a1_0572",
+        "vocab_a1_0573",
+        "vocab_a1_0574",
+        "vocab_a1_0575",
+        "vocab_a1_0576"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "398aa01eef38e79fbb8eb783ac407f48c1322f0dc934c07d3f03aaed695ffc94",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_korean_places_1",
+      "level": "A1",
+      "rewardMotif": "mountain",
+      "primaryAsset": "assets/illustrations/packs/mountain.webp",
+      "subjectKo": "서울 · 부산 · 인천 · 제주도 · 남대문 · 남산 · 동대문 · 서점 · 커피숍 · 영화관 · 극장 · 목욕탕",
+      "subjectPromptEn": "a modern still life expressing Seoul, Busan, Incheon, Jeju Island",
+      "evidenceWordIds": [
+        "vocab_a1_0577",
+        "vocab_a1_0578",
+        "vocab_a1_0579",
+        "vocab_a1_0580",
+        "vocab_a1_0581",
+        "vocab_a1_0582",
+        "vocab_a1_0583",
+        "vocab_a1_0584",
+        "vocab_a1_0585",
+        "vocab_a1_0586",
+        "vocab_a1_0587",
+        "vocab_a1_0588"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "6bfd3f78f41fb7c70e77349c1031095e12f26c90bf2e76ff8165b8fb6718bc53",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_months_1",
+      "level": "A1",
+      "rewardMotif": "chrysanthemum",
+      "primaryAsset": "assets/illustrations/packs/chrysanthemum.webp",
+      "subjectKo": "일월 · 이월 · 삼월 · 사월 · 오월 · 유월 · 칠월 · 팔월 · 구월 · 시월 · 십일월 · 십이월",
+      "subjectPromptEn": "a modern still life expressing January, February, March, April",
+      "evidenceWordIds": [
+        "vocab_a1_0529",
+        "vocab_a1_0530",
+        "vocab_a1_0531",
+        "vocab_a1_0532",
+        "vocab_a1_0533",
+        "vocab_a1_0534",
+        "vocab_a1_0535",
+        "vocab_a1_0536",
+        "vocab_a1_0537",
+        "vocab_a1_0538",
+        "vocab_a1_0539",
+        "vocab_a1_0540"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "2ccc6d924a6ead04fc4766535c9531df1837fd1f8ccd5a4ac82f413200804d72",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_belongings_1",
+      "level": "A1",
+      "rewardMotif": "gwigap",
+      "primaryAsset": "assets/illustrations/packs/gwigap.webp",
+      "subjectKo": "가방 · 볼펜 · 수첩 · 카메라 · 티셔츠 · 바지 · 운동화 · 잔 · 표 · 신문 · 학생증 · 여권",
+      "subjectPromptEn": "a modern still life expressing bag, ballpoint pen, notebook, camera",
+      "evidenceWordIds": [
+        "vocab_a1_0592",
+        "vocab_a1_0593",
+        "vocab_a1_0594",
+        "vocab_a1_0595",
+        "vocab_a1_0596",
+        "vocab_a1_0597",
+        "vocab_a1_0598",
+        "vocab_a1_0599",
+        "vocab_a1_0600",
+        "vocab_a1_0601",
+        "vocab_a1_0602",
+        "vocab_a1_0603"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "f763dafde98dc35ab25c92f38f962a51183bdba53913811196351f8ae5a95817",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_places_buildings_1",
+      "level": "A1",
+      "rewardMotif": "mountain",
+      "primaryAsset": "assets/illustrations/packs/mountain.webp",
+      "subjectKo": "기숙사 · 사무실 · 아파트 · 수영장 · 운동장 · 노래방 · 대사관 · 여행사 · 건물 · 근처 · 건너편 · 층",
+      "subjectPromptEn": "a modern still life expressing dormitory, office, apartment, swimming pool",
+      "evidenceWordIds": [
+        "vocab_a1_0604",
+        "vocab_a1_0605",
+        "vocab_a1_0606",
+        "vocab_a1_0607",
+        "vocab_a1_0608",
+        "vocab_a1_0609",
+        "vocab_a1_0610",
+        "vocab_a1_0611",
+        "vocab_a1_0612",
+        "vocab_a1_0613",
+        "vocab_a1_0614",
+        "vocab_a1_0615"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "6bfd3f78f41fb7c70e77349c1031095e12f26c90bf2e76ff8165b8fb6718bc53",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_time_expressions_1",
+      "level": "A1",
+      "rewardMotif": "chrysanthemum",
+      "primaryAsset": "assets/illustrations/packs/chrysanthemum.webp",
+      "subjectKo": "다음 · 나중 · 동안 · 오전 · 오후 · 이번 · 지난달 · 지난주 · 지난해 · 일주일 · 하루 · 후",
+      "subjectPromptEn": "a modern still life expressing next, later, during, for (duration), morning, AM",
+      "evidenceWordIds": [
+        "vocab_a1_0616",
+        "vocab_a1_0617",
+        "vocab_a1_0618",
+        "vocab_a1_0619",
+        "vocab_a1_0620",
+        "vocab_a1_0621",
+        "vocab_a1_0622",
+        "vocab_a1_0623",
+        "vocab_a1_0624",
+        "vocab_a1_0625",
+        "vocab_a1_0626",
+        "vocab_a1_0627"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "2ccc6d924a6ead04fc4766535c9531df1837fd1f8ccd5a4ac82f413200804d72",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_nature_people_1",
+      "level": "A1",
+      "rewardMotif": "suryeon",
+      "primaryAsset": "assets/illustrations/packs/suryeon.webp",
+      "subjectKo": "개 · 고양이 · 꽃 · 나무 · 산 · 바다 · 비 · 불 · 아기 · 아이 · 남자 · 여자",
+      "subjectPromptEn": "a modern still life expressing dog, cat, flower, tree",
+      "evidenceWordIds": [
+        "vocab_a1_0628",
+        "vocab_a1_0629",
+        "vocab_a1_0630",
+        "vocab_a1_0631",
+        "vocab_a1_0632",
+        "vocab_a1_0633",
+        "vocab_a1_0634",
+        "vocab_a1_0635",
+        "vocab_a1_0636",
+        "vocab_a1_0637",
+        "vocab_a1_0638",
+        "vocab_a1_0639"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "b244eb1aaf88ea71fb35f684195696b36ee675ec1d57c6264ca4db8c2d9499f6",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_feelings_talk_1",
+      "level": "A1",
+      "rewardMotif": "plum",
+      "primaryAsset": "assets/illustrations/packs/plum.webp",
+      "subjectKo": "기분 · 마음 · 사랑 · 피곤 · 감사 · 미안 · 친절 · 실례 · 유명 · 대답 · 소개 · 설명",
+      "subjectPromptEn": "a modern still life expressing mood, heart, mind, love, tiredness",
+      "evidenceWordIds": [
+        "vocab_a1_0640",
+        "vocab_a1_0641",
+        "vocab_a1_0642",
+        "vocab_a1_0643",
+        "vocab_a1_0644",
+        "vocab_a1_0645",
+        "vocab_a1_0646",
+        "vocab_a1_0647",
+        "vocab_a1_0648",
+        "vocab_a1_0649",
+        "vocab_a1_0650",
+        "vocab_a1_0651"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "2cfed8051d3b32b24cc3ea33315620a9e18d66fd1b136a993b2388d9c7c3033c",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_home_daily_1",
+      "level": "A1",
+      "rewardMotif": "vine",
+      "primaryAsset": "assets/illustrations/packs/vine.webp",
+      "subjectKo": "샤워 · 세수 · 청소 · 준비 · 생활 · 잠 · 요리 · 식사 · 에어컨 · 운전 · 사용 · 부탁",
+      "subjectPromptEn": "a modern still life expressing shower, washing one's face, cleaning, preparation",
+      "evidenceWordIds": [
+        "vocab_a1_0655",
+        "vocab_a1_0656",
+        "vocab_a1_0657",
+        "vocab_a1_0658",
+        "vocab_a1_0659",
+        "vocab_a1_0660",
+        "vocab_a1_0661",
+        "vocab_a1_0662",
+        "vocab_a1_0663",
+        "vocab_a1_0664",
+        "vocab_a1_0665",
+        "vocab_a1_0666"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_culture_hobbies_1",
+      "level": "A1",
+      "rewardMotif": "moran",
+      "primaryAsset": "assets/illustrations/packs/moran.webp",
+      "subjectKo": "인기가요 · 그림 · 드라마 · 연극 · 영화배우 · 콘서트 · 태권도 · 파티 · 프로그램 · 피아노 · 사진 · 초대",
+      "subjectPromptEn": "a modern still life expressing popular song, picture, drawing, drama, TV series, theater play",
+      "evidenceWordIds": [
+        "vocab_a1_0667",
+        "vocab_a1_0668",
+        "vocab_a1_0669",
+        "vocab_a1_0670",
+        "vocab_a1_0671",
+        "vocab_a1_0672",
+        "vocab_a1_0673",
+        "vocab_a1_0674",
+        "vocab_a1_0675",
+        "vocab_a1_0676",
+        "vocab_a1_0677",
+        "vocab_a1_0678"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "e120500576dd0f8d540eec20855005f60d79007d827e4d89716ed0cd15a5dd42",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_health_food_1",
+      "level": "A1",
+      "rewardMotif": "soban",
+      "primaryAsset": "assets/illustrations/packs/soban.webp",
+      "subjectKo": "감기 · 병 · 의사 · 담배 · 술 · 운동 · 키 · 잡채 · 음식 · 음료수 · 메뉴 · 오렌지",
+      "subjectPromptEn": "a modern still life expressing cold, flu, illness, doctor, cigarette",
+      "evidenceWordIds": [
+        "vocab_a1_0679",
+        "vocab_a1_0680",
+        "vocab_a1_0681",
+        "vocab_a1_0682",
+        "vocab_a1_0683",
+        "vocab_a1_0684",
+        "vocab_a1_0685",
+        "vocab_a1_0686",
+        "vocab_a1_0687",
+        "vocab_a1_0688",
+        "vocab_a1_0689",
+        "vocab_a1_0690"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "398aa01eef38e79fbb8eb783ac407f48c1322f0dc934c07d3f03aaed695ffc94",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_school_work_1",
+      "level": "A1",
+      "rewardMotif": "bamboo",
+      "primaryAsset": "assets/illustrations/packs/bamboo.webp",
+      "subjectKo": "방학 · 졸업 · 외국어 · 아르바이트 · 직원 · 종업원 · 안내 · 교통 · 시작 · 장소 · 글 · 이야기",
+      "subjectPromptEn": "a modern still life expressing school vacation, graduation, foreign language, part-time job",
+      "evidenceWordIds": [
+        "vocab_a1_0691",
+        "vocab_a1_0692",
+        "vocab_a1_0693",
+        "vocab_a1_0694",
+        "vocab_a1_0695",
+        "vocab_a1_0696",
+        "vocab_a1_0697",
+        "vocab_a1_0698",
+        "vocab_a1_0699",
+        "vocab_a1_0700",
+        "vocab_a1_0701",
+        "vocab_a1_0702"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "807afdbea0af9827d6a6c8acdcde4f27a4fbcbba6b80e0510a859826f40fe42e",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a1_time_family_1",
+      "level": "A1",
+      "rewardMotif": "bok",
+      "primaryAsset": "assets/illustrations/packs/bok.webp",
+      "subjectKo": "곳 · 달 · 동생 · 밑 · 생일 · 선물 · 쇼핑 · 올해 · 요즘 · 월 · 잠시 · 주",
+      "subjectPromptEn": "a modern still life expressing place, spot, month, younger sibling, underside, below",
+      "evidenceWordIds": [
+        "vocab_a1_0703",
+        "vocab_a1_0704",
+        "vocab_a1_0705",
+        "vocab_a1_0706",
+        "vocab_a1_0707",
+        "vocab_a1_0708",
+        "vocab_a1_0709",
+        "vocab_a1_0710",
+        "vocab_a1_0711",
+        "vocab_a1_0712",
+        "vocab_a1_0713",
+        "vocab_a1_0714"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "d0526eebc2abd8410f4a37e628e0488250caa2cbb657f33480fa53152f3c5284",
       "qa": {
         "fourThree": {
           "status": "pass",

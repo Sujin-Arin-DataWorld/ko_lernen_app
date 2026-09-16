@@ -342,6 +342,23 @@ DancheongMotif motifForPackId(String packId) {
     'c1_ai_culture_labor_2026' => DancheongMotif.taegeuk,
     'c2_demography_accountability' ||
     'c2_demography_accountability_2026' => DancheongMotif.manja,
+    // C3-T3 (2026-09-16): Batch 26/27 A1 reinforcement new packs.
+    'a1_countries' => DancheongMotif.lotus,
+    'a1_hobbies' => DancheongMotif.vine,
+    'a1_korean_food' => DancheongMotif.soban,
+    'a1_korean_places' => DancheongMotif.mountain,
+    'a1_months' => DancheongMotif.chrysanthemum,
+    'a1_belongings' => DancheongMotif.gwigap,
+    'a1_places_buildings' => DancheongMotif.mountain,
+    'a1_time_expressions' => DancheongMotif.chrysanthemum,
+    'a1_nature_people' => DancheongMotif.suryeon,
+    'a1_feelings_talk' => DancheongMotif.plum,
+    // C3-T3 (2026-09-16): Batch 28 A1 reinforcement new packs.
+    'a1_home_daily' => DancheongMotif.vine,
+    'a1_culture_hobbies' => DancheongMotif.moran,
+    'a1_health_food' => DancheongMotif.soban,
+    'a1_school_work' => DancheongMotif.bamboo,
+    'a1_time_family' => DancheongMotif.bok,
     _ => DancheongMotif.lotus,
   };
 }

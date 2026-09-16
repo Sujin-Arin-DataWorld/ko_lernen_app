@@ -20,11 +20,13 @@ void main() {
       final vocab = await DataLoader.loadVocab();
 
       // C2d-2 (2026-09-16): vocab_a1_0141 deleted (Jin: "아예 쓰지 말자"),
-      // a1_numbers_2 pack 12->11.
-      expect(vocab, hasLength(2562));
+      // a1_numbers_2 pack 12->11. C3-T3 (2026-09-16): Batch 26/27/28 A1
+      // reinforcement adds 192 words (66+63+63) across 15 new packs.
+      // 2563 - 1 + 192 = 2754.
+      expect(vocab, hasLength(2754));
       expect(
         vocab.map((entry) => entry.packId).where((id) => id.isNotEmpty).toSet(),
-        hasLength(224),
+        hasLength(239),
       );
 
       expect(

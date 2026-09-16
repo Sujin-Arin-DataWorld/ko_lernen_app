@@ -417,13 +417,29 @@ def check_d3_pos_form(
     # a_sig="고" would demand a same-ending VERB/CLAUSE match against
     # what are correctly noun-class Tier-A distractors (both here and in
     # the R8-2 candidate generator, which applies this identical, equally
-    # narrow override -- see build_r8_2_tier_picks.py). Scoped to "고"
-    # only: unlike "다"/"요", Korean nouns essentially never coincidentally
-    # end in those, so widening this breaks genuine conjugated-phrase
-    # answers (같이 웃다, 인사드리겠습니다).
+    # narrow override -- see build_r8_2_tier_picks.py).
     if a_sig == "고" and answer in vocab.by_word and vocab.pos_of(answer) in (
         "Nomen", "Ausdruck", "Phrase", "Pronomen"
     ):
+        a_sig = None
+    # C3-T3 (2026-09-16): same override for "다" -- the comment above used
+    # to claim Korean nouns essentially never coincidentally end in "다",
+    # which was true of the corpus at the time but broke on Batch 26's
+    # 캐나다/사이다/바다 (Nomen, all end in the syllable "다"): without
+    # this, a_sig="다" demands a same-ending VERB match against correctly
+    # noun-class country/drink/nature distractors, and -- worse -- lets an
+    # unrelated bare dictionary-form VERB distractor (which also happens
+    # to end in "다", e.g. "입다") pass purely by coincidence while the
+    # genuinely correct noun distractors fail. Deliberately narrower than
+    # the "고" override above: scoped to "Nomen" ONLY, not "Ausdruck"/
+    # "Phrase" -- unlike -고 nominal expressions, many Ausdruck/Phrase
+    # entries ending in "다" (e.g. "같이 웃다") are genuine verb-phrase
+    # predicates in dictionary form, so including them here would
+    # misroute real conjugated-predicate answers to noun matching (see
+    # test_genuine_predicate_ending_in_da_is_not_misrouted). A real verb
+    # dictionary-form answer resolves as Verb, not Nomen, so it is
+    # untouched by this override either way.
+    if a_sig == "다" and answer in vocab.by_word and vocab.pos_of(answer) == "Nomen":
         a_sig = None
 
     if cloze_id is not None and cloze_id in PREDICATE_SLOT_WAIVER:

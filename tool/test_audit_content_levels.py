@@ -1115,9 +1115,22 @@ class LiveRatchetTest(unittest.TestCase):
     # T2.5 실측 2026-09-07 -- vocab/cloze fall (fewer over-graded low/
     # medium-confidence words left after the relevel + exception table);
     # grammar/scenario/satz/smalltalk/pronunciation/media unchanged.
+    # C3-T3 (2026-09-16, Fable review of #352): cloze 2->0, satz 1->0 --
+    # cefr_lexicon.py's word_grade() had a real bug (not a missing
+    # lexicon entry): a handful of monosyllabic regular-verb stems (켜다,
+    # 타다) and one pronoun+particle contraction (누구+가 -> 누가)
+    # resolved via an unrelated, lower-priority basic2023 homograph of
+    # the bare stem instead of the correct kiiq A1 headword, because
+    # `_lemma_candidates`'s fallback-ending branch always offers the bare
+    # stem before the stem+"다" guess. Fixed at the source
+    # (_STEM_HOMOGRAPH_OVERRIDE_MAP / PRONOUN_CONTRACTION_MAP in
+    # cefr_lexicon.py) rather than raised here -- this resolved all 3 of
+    # the then-tolerated pre-existing items (cloze_a1_0014/0310,
+    # satz_a1_0023) plus this PR's own cloze_a1_0597/satz_a1_0578
+    # (에어컨을 켜요), so both actuals are genuinely 0, not padded.
     CAP_FALLBACK_OVER2 = {
-        "vocab": 66, "grammar": 0, "scenario": 0, "cloze": 2,
-        "satz": 1, "smalltalk": 1, "pronunciation": 0, "media": 1,
+        "vocab": 66, "grammar": 0, "scenario": 0, "cloze": 0,
+        "satz": 0, "smalltalk": 1, "pronunciation": 0, "media": 1,
     }
 
     @classmethod

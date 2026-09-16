@@ -151,11 +151,11 @@ void main() {
       final words = await resolver.resolve(document, targetLang: 'de');
       final byKorean = {for (final w in words) w.korean: w};
 
-      expect(byKorean.containsKey('콜라'), isTrue);
-      final cola = byKorean['콜라']!;
-      expect(cola.source, 'pageHint');
-      expect(cola.confidence, closeTo(0.6, 0.0001));
-      expect(cola.translationDe, 'Cola');
+      expect(byKorean.containsKey('라떼아트'), isTrue);
+      final latteArt = byKorean['라떼아트']!;
+      expect(latteArt.source, 'pageHint');
+      expect(latteArt.confidence, closeTo(0.6, 0.0001));
+      expect(latteArt.translationDe, 'Latte Art');
     });
 
     test('a non-adjacent Latin line never attaches as a page hint', () async {
@@ -166,6 +166,48 @@ void main() {
       final byKorean = {for (final w in words) w.korean: w};
 
       expect(byKorean.containsKey('피자'), isFalse);
+    });
+  });
+
+  group('F4 — noun/verb homograph disambiguation', () {
+    test(
+      'a locative-particle phrase before the homograph selects the verb reading',
+      () async {
+        final document = buildF4HomographDocument();
+        final resolver = BookWordGlossResolver();
+
+        final words = await resolver.resolve(document, targetLang: 'de');
+        final byKorean = {for (final w in words) w.korean: w};
+
+        // "학교에 가요." -> 학교에 ends in the locative 에, so 가요 must
+        // resolve as the verb 가다 ("to go"), never the pop-song noun.
+        expect(
+          byKorean.containsKey('가다'),
+          isTrue,
+          reason: '학교에 가요 should resolve 가요 as the verb 가다',
+        );
+        expect(byKorean['가다']!.source, 'bundled');
+        expect(byKorean['가다']!.ambiguous, isFalse);
+      },
+    );
+
+    test('an attached object particle keeps the noun reading', () async {
+      final document = buildF4HomographDocument();
+      final resolver = BookWordGlossResolver();
+
+      final words = await resolver.resolve(document, targetLang: 'de');
+      final byKorean = {for (final w in words) w.korean: w};
+
+      // "저는 가요를 좋아해요." -> 를 is already stripped off the token
+      // before this ever reaches the homograph guard, so 가요 stays the
+      // noun ("(koreanischer) Popsong"), matching the Jin-approved A1 gap.
+      expect(
+        byKorean.containsKey('가요'),
+        isTrue,
+        reason: '가요를 좋아해요 should keep 가요 as the noun',
+      );
+      expect(byKorean['가요']!.source, 'bundled');
+      expect(byKorean['가요']!.translationDe, '(koreanischer) Popsong');
     });
   });
 
