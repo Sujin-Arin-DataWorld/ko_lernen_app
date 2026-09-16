@@ -27,6 +27,20 @@ from validate_content import ContentValidator
 
 
 class ContentValidatorTest(unittest.TestCase):
+    def test_word_relations_require_live_source_identity_and_level(self) -> None:
+        original = self._asset_json("word_relations.json")
+        for field, value, message in (
+            ("sourceVocabId", "vocab_a1_missing", "sourceVocabId is not a live vocab row"),
+            ("sourceKo", "다른 단어", "sourceKo disagrees with live vocab"),
+            ("level", "C2", "level disagrees with live vocab"),
+        ):
+            with self.subTest(field=field):
+                payload = copy.deepcopy(original)
+                payload["clusters"][0][field] = value
+                validator = self._with_json_override(**{"word_relations.json": payload})
+                validator.validate_word_relations()
+                self.assertTrue(any(message in issue.message for issue in validator.issues))
+
     def _asset_json(self, name: str):
         # F6: content_audit_manifest.json은 assets/data/가 아니라
         # tools/content_factory/에 산다(번들 제외).

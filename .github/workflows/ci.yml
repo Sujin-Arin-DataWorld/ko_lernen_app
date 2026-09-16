@@ -825,6 +825,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          # Python/Node parity and data contracts also read sibling functions,
+          # app data, and shared fixtures. Cone mode retains root rules/indexes.
+          sparse-checkout: |
+            functions
+            assets/data
+            test/fixtures
 
       - name: Set up Python
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5

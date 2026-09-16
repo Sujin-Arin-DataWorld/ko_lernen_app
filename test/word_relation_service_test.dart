@@ -30,8 +30,8 @@ void main() {
     expect(clusters, isNotEmpty);
     expect(clusters.length, 114);
     expect(clusters.where((c) => c.level == 'A1'), hasLength(50));
-    expect(clusters.where((c) => c.level == 'A2'), hasLength(16));
-    expect(clusters.where((c) => c.level == 'B1'), hasLength(16));
+    expect(clusters.where((c) => c.level == 'A2'), hasLength(12));
+    expect(clusters.where((c) => c.level == 'B1'), hasLength(20));
     expect(clusters.where((c) => c.level == 'B2'), hasLength(16));
     expect(clusters.where((c) => c.level == 'C1'), hasLength(8));
     expect(clusters.where((c) => c.level == 'C2'), hasLength(8));
@@ -46,6 +46,11 @@ void main() {
         reason: cluster.id,
       );
       expect(byId[cluster.sourceVocabId]!.korean, cluster.sourceKo);
+      expect(
+        cluster.level,
+        byId[cluster.sourceVocabId]!.level,
+        reason: '${cluster.id} must follow its source vocabulary level',
+      );
       expect(byId[cluster.sourceVocabId]!.german, cluster.sourceDe);
       expect(byId[cluster.sourceVocabId]!.english, cluster.sourceEn);
       expect(
