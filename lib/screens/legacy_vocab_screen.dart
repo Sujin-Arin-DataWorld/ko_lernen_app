@@ -749,27 +749,31 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   }
 
   Widget _buildBottomActions(AppL10n t, Vocab v, int presentation) {
-    final previous = Semantics(
-      label: t.legacyVocabPrevious,
-      button: true,
-      child: SoriPressable(
-        onTap: () => _prev(presentation),
-        haptic: SoriHaptic.selection,
-        child: Container(
-          width: 48,
-          height: 48,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(SoriRadius.md),
-            border: Border.all(
-              color: SoriSurfaces.of(context).border,
-              width: 1.5,
+    final previous = Tooltip(
+      message: t.legacyVocabPrevious,
+      excludeFromSemantics: true,
+      child: Semantics(
+        label: t.legacyVocabPrevious,
+        button: true,
+        child: SoriPressable(
+          onTap: () => _prev(presentation),
+          haptic: SoriHaptic.selection,
+          child: Container(
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(SoriRadius.md),
+              border: Border.all(
+                color: SoriSurfaces.of(context).border,
+                width: 1.5,
+              ),
             ),
-          ),
-          alignment: Alignment.center,
-          child: Icon(
-            Icons.navigate_before_rounded,
-            size: 22,
-            color: SoriSurfaces.of(context).text,
+            alignment: Alignment.center,
+            child: Icon(
+              Icons.navigate_before_rounded,
+              size: 22,
+              color: SoriSurfaces.of(context).text,
+            ),
           ),
         ),
       ),
@@ -1235,6 +1239,7 @@ class _Back extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final lang = Localizations.localeOf(context).languageCode;
+    final t = AppL10n.of(context);
     return SoriCard(
       variant: SoriCardVariant.hero,
       accent: SoriColors.success,
@@ -1353,23 +1358,51 @@ class _Back extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(width: 8),
-                              SoriPressable(
-                                onTap: () => SoriSpeech.speak(v.exampleKorean),
-                                onLongPress: () =>
-                                    SoriSpeech.speakSlow(v.exampleKorean),
-                                haptic: SoriHaptic.selection,
-                                child: Container(
-                                  padding: const EdgeInsets.all(6),
-                                  decoration: BoxDecoration(
-                                    color: SoriColors.info.withValues(
-                                      alpha: 0.18,
+                              Tooltip(
+                                message: t.ttsListenTarget(v.exampleKorean),
+                                // Slow playback owns long press; hover still
+                                // explains the icon.
+                                triggerMode: TooltipTriggerMode.manual,
+                                excludeFromSemantics: true,
+                                child: Semantics(
+                                  button: true,
+                                  label: t.ttsListenTarget(v.exampleKorean),
+                                  hint: t.vocabSlowHint,
+                                  onTap: () => SoriSpeech.speak(v.exampleKorean),
+                                  onLongPress: () =>
+                                      SoriSpeech.speakSlow(v.exampleKorean),
+                                  child: ExcludeSemantics(
+                                    child: SoriPressable(
+                                      onTap: () =>
+                                          SoriSpeech.speak(v.exampleKorean),
+                                      onLongPress: () =>
+                                          SoriSpeech.speakSlow(v.exampleKorean),
+                                      haptic: SoriHaptic.selection,
+                                      child: ConstrainedBox(
+                                        constraints: const BoxConstraints(
+                                          minWidth: 48,
+                                          minHeight: 48,
+                                        ),
+                                        child: Center(
+                                          widthFactor: 1,
+                                          heightFactor: 1,
+                                          child: Container(
+                                            padding: const EdgeInsets.all(6),
+                                            decoration: BoxDecoration(
+                                              color: SoriColors.info.withValues(
+                                                alpha: 0.18,
+                                              ),
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Icon(
+                                              Icons.volume_up_rounded,
+                                              color: SoriColors.info,
+                                              size: soriFillSize(h, 0.075, 24, 48),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
                                     ),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Icon(
-                                    Icons.volume_up_rounded,
-                                    color: SoriColors.info,
-                                    size: soriFillSize(h, 0.075, 24, 48),
                                   ),
                                 ),
                               ),

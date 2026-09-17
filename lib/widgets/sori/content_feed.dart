@@ -605,22 +605,26 @@ class _Stamp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
-      button: true,
-      enabled: onTap != null,
-      label: label,
-      value: value,
-      onTap: onTap,
-      child: ExcludeSemantics(
-        child: SoriPressable(
-          onTap: onTap,
-          haptic: SoriHaptic.selection,
-          child: Container(
-            key: deckActionKey(name),
-            width: 48,
-            height: 48,
-            alignment: Alignment.center,
-            child: Icon(icon, size: 22, color: color),
+    return Tooltip(
+      message: label,
+      excludeFromSemantics: true,
+      child: Semantics(
+        button: true,
+        enabled: onTap != null,
+        label: label,
+        value: value,
+        onTap: onTap,
+        child: ExcludeSemantics(
+          child: SoriPressable(
+            onTap: onTap,
+            haptic: SoriHaptic.selection,
+            child: Container(
+              key: deckActionKey(name),
+              width: 48,
+              height: 48,
+              alignment: Alignment.center,
+              child: Icon(icon, size: 22, color: color),
+            ),
           ),
         ),
       ),

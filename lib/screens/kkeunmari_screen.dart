@@ -1134,20 +1134,24 @@ class _LastWordCard extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-          Semantics(
-            button: true,
-            label: t.ttsListenTarget(word.word),
-            onTap: onListen,
-            excludeSemantics: true,
-            child: SoriPressable(
+          Tooltip(
+            message: t.ttsListenTarget(word.word),
+            excludeFromSemantics: true,
+            child: Semantics(
+              button: true,
+              label: t.ttsListenTarget(word.word),
               onTap: onListen,
-              haptic: SoriHaptic.selection,
-              child: SizedBox.square(
-                dimension: 48,
-                child: Icon(
-                  Icons.volume_up_rounded,
-                  color: SoriColors.accent.withValues(alpha: 0.7),
-                  size: 22,
+              excludeSemantics: true,
+              child: SoriPressable(
+                onTap: onListen,
+                haptic: SoriHaptic.selection,
+                child: SizedBox.square(
+                  dimension: 48,
+                  child: Icon(
+                    Icons.volume_up_rounded,
+                    color: SoriColors.accent.withValues(alpha: 0.7),
+                    size: 22,
+                  ),
                 ),
               ),
             ),
