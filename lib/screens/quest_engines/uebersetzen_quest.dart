@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../models/scenario.dart';
 import '../../services/sound_service.dart';
 import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
+import 'quest_content.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
 import 'quest_models.dart';
+import 'quest_text.dart';
 
 /// Translation quest with immediate per-tap judgment, feedback, continue flow
 /// (지시서 4.11 — 옵션 탭 즉시 판정, 별도 확인 버튼 없음).
@@ -64,16 +67,8 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
     return (_options[_correctIndex]['ko'] as String?) ?? '';
   }
 
-  String _prompt(String langCode) {
-    if (langCode == 'en') {
-      return (widget.data['promptEn'] as String?) ??
-          (widget.data['promptDe'] as String?) ??
-          '';
-    }
-    return (widget.data['promptDe'] as String?) ??
-        (widget.data['promptEn'] as String?) ??
-        '';
-  }
+  String _prompt(String langCode) =>
+      questTranslationPrompt(widget.data, langCode);
 
   void _select(int index) {
     if (_resolved != null) return;
@@ -145,8 +140,14 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
     return SoriAnswerState.idle;
   }
 
+  bool get _hasContent =>
+      hasPlayableQuestContent(QuestType.uebersetzen, widget.data);
+
   @override
   Widget build(BuildContext context) {
+    if (!_hasContent) {
+      return const SoriQuestEmptyState();
+    }
     final t = AppL10n.of(context);
     final langCode = Localizations.localeOf(context).languageCode;
 

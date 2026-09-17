@@ -200,18 +200,19 @@ void main() {
       testWidgets(
         'null or empty targetKo never creates a review block: $data',
         (tester) async {
+          final results = <QuestResult>[];
           await tester.pumpWidget(
             _host(
-              DiktatQuest(data: data, onComplete: (_) {}, allowDontKnow: true),
+              DiktatQuest(data: data, onComplete: results.add, allowDontKnow: true),
             ),
           );
           await tester.pump();
 
           expect(find.byKey(reviewKey), findsNothing);
-          await tester.tap(find.byKey(const ValueKey('quest-dont-know')));
-          await tester.pump();
-          expect(find.byKey(reviewKey), findsNothing);
+          expect(find.byKey(const ValueKey('quest-dont-know')), findsNothing);
           await tester.pump(const Duration(milliseconds: 250));
+          expect(find.byKey(reviewKey), findsNothing);
+          expect(results, isEmpty);
         },
       );
     }

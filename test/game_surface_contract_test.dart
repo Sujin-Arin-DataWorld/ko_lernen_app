@@ -1,8 +1,47 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/models/scenario.dart';
+import 'package:ko_lernen_app/screens/quest_engines/quest_content.dart';
+import 'package:ko_lernen_app/services/satz_loader.dart';
+
+import 'support/scenario_json.dart';
 
 void main() {
+  test('every shipped scenario question passes the playable input guard', () {
+    for (final raw in allScenarioJson()) {
+      final scenario = Scenario.fromJson(raw);
+      expect(scenario.quests, isNotEmpty, reason: scenario.id);
+      for (final quest in scenario.quests) {
+        expect(
+          hasPlayableQuestContent(quest.type, quest.data),
+          isTrue,
+          reason: '${scenario.id}: ${quest.id} (${quest.type})',
+        );
+      }
+    }
+  });
+
+  test(
+    'standalone Satz has at least five playable items per displayed level',
+    () {
+      final root =
+          jsonDecode(File('assets/data/satz_sentences.json').readAsStringSync())
+              as Map<String, dynamic>;
+      final items = (root['items'] as List)
+          .map((row) => SatzSentence.fromJson(row as Map<String, dynamic>))
+          .toList();
+      for (final level in LearnerLevel.values) {
+        final playable = SatzLoader.filter(items, level.code).where(
+          (item) =>
+              hasPlayableQuestContent(QuestType.satzBauen, item.toQuestData()),
+        );
+        expect(playable.length, greaterThanOrEqualTo(5), reason: level.code);
+      }
+    },
+  );
+
   test(
     'every standalone Phase 2C game owns Sori chrome, not a raw Scaffold',
     () {

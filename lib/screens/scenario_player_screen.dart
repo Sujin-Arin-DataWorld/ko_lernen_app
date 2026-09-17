@@ -68,6 +68,7 @@ import 'quest_engines/batchim_drop_quest.dart';
 import 'quest_engines/diktat_quest.dart';
 import 'quest_engines/particle_pop_quest.dart';
 import 'quest_engines/quest_models.dart';
+import 'quest_engines/quest_content.dart';
 import 'quest_engines/satz_bauen_quest.dart';
 import 'quest_engines/uebersetzen_quest.dart';
 
@@ -747,6 +748,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     if (preview != null) {
       final scenario = preview.scenario;
       _scenario = scenario;
+      if (!_hasPlayableQuests(scenario)) {
+        _pageCtrl = PageController();
+        return;
+      }
       _missionStep = preview.missionStep;
       _missionTitle = preview.missionTitle;
       _plan = buildScenarioStagePlan(
@@ -829,6 +834,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         ? await providedLoader(widget.scenarioId)
         : await _loadScenarioFromCatalog(widget.scenarioId);
     if (!mounted || !_loadLifecycle.canContinue) {
+      return;
+    }
+    if (s != null && !_hasPlayableQuests(s)) {
+      setState(() => _scenario = s);
       return;
     }
     if (s != null) {
@@ -1364,6 +1373,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }
 
   Future<void> _complete(int stars, int earnedXp) async {
+    if (_scenario == null || !_hasPlayableQuests(_scenario!)) {
+      return;
+    }
     final preview = widget.previewFixture;
     if (preview != null) {
       if (!_resultPersisted && mounted) {
@@ -2430,12 +2442,18 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   // ─── Build ─────────────────────────────────────────────────────────────────
 
+  bool _hasPlayableQuests(Scenario scenario) =>
+      scenario.quests.isNotEmpty &&
+      scenario.quests.every(
+        (quest) => hasPlayableQuestContent(quest.type, quest.data),
+      );
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
 
-    if (_scenario == null) {
+    if (_scenario == null || !_hasPlayableQuests(_scenario!)) {
       // 시나리오가 아직 없으면(로딩/실패) `_stage`/`_isResultStage` 는
       // 의미가 없다 — 확인 없이 닫히되, onExit(온보딩 임베딩)이 있으면
       // §_withExitScope 가 시스템 백도 그리로 돌린다.
@@ -2444,7 +2462,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           title: t.scenariosListTitle,
           onLeave: _onExitCleanup,
           padding: EdgeInsets.zero,
-          child: _loadFailure == null
+          child: _scenario != null
+              ? const SoriQuestEmptyState()
+              : _loadFailure == null
               ? const AppLoading()
               : AppError(
                   message: _courseRouteRejected

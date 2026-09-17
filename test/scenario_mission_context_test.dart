@@ -162,6 +162,7 @@ const _checkpointScenario = Scenario(
         'correctIndex': 0,
         'options': [
           {'de': 'Correct response', 'en': 'Correct response'},
+          {'de': 'Wrong response', 'en': 'Wrong response'},
         ],
       },
     ),
