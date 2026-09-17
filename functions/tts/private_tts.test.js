@@ -24,6 +24,7 @@ function harness({
   duringMetadata,
   duringAccountRead,
   duringStorageRead,
+  now,
 } = {}) {
   const documents = new Map([["service_cost_controls/ai_v1", {
     schemaVersion: 1, approvedBy: "Jin", approvalRef: "local-test-only", approvedAt: new Date(0),
@@ -72,7 +73,17 @@ function harness({
     },
     delete: async () => objects.delete(p),
   }) };
-  class HttpsError extends Error { constructor(code, message) { super(message); this.code = code; } }
+  class HttpsError extends Error {
+    constructor(code, message, details) {
+      super(message);
+      this.code = code;
+      this.details = details;
+    }
+  }
+  class RequestDate extends Date {
+    constructor(...args) { super(...(args.length ? args : [now()])); }
+    static now() { return now(); }
+  }
   const exports = {};
   const guard = require("./tts_request_guard");
   const mocks = {
@@ -90,15 +101,117 @@ function harness({
     "./tts_request_guard": { ...guard, ttsProviderBreaker: new guard.CircuitBreaker() },
   };
   vm.runInNewContext(fs.readFileSync(path.join(__dirname, "index.js"), "utf8"), {
-    require: (name) => mocks[name] || require(name), exports, Buffer, Date,
+    require: (name) => mocks[name] || require(name), exports, Buffer, Date: now ? RequestDate : Date,
     console: { ...console, error: (...args) => logs.push(args), warn: (...args) => logs.push(args) },
     setTimeout, clearTimeout,
   }, { filename: "tts/index.js" });
   return { documents, objects, reads, writes, logs, syntheses: () => syntheses,
     invoke: (uid = "alice", data = {}) => exports.synthesize_tts({
-      auth: { uid }, data: { text: PERSONAL, voice: "female", ...data },
+      auth: { uid }, data: { text: PERSONAL, voice: "female", errorReasonVersion: "1", ...data },
     }) };
 }
+
+for (const hour of [10, 23]) {
+  test(`provider failure across UTC hour ${hour} refunds only the original reservation`, async () => {
+    const start = new Date();
+    start.setUTCHours(hour, 59, 59, 900);
+    let clock = start.getTime();
+    const oldHour = start.toISOString().slice(0, 13);
+    const next = new Date(clock + 200);
+    const nextHour = next.toISOString().slice(0, 13);
+    let originalUsage;
+    const h = harness({
+      now: () => clock,
+      duringSynthesis: async ({ documents }) => {
+        originalUsage = [...documents.keys()].filter((key) => key.startsWith("usage/"));
+        documents.set(`usage/tts_global_hour_${nextHour}`, { n: 7 });
+        clock = next.getTime();
+        throw new Error("provider failed after the clock boundary");
+      },
+    });
+    await assert.rejects(h.invoke(), { code: "internal" });
+    assert.equal(h.syntheses(), 1);
+    assert.ok(originalUsage.includes(`usage/tts_global_hour_${oldHour}`));
+    for (const key of originalUsage) {
+      assert.equal(h.documents.get(key).n, 0, key);
+    }
+    assert.equal(h.documents.get(`usage/tts_global_hour_${nextHour}`).n, 7);
+  });
+
+  test(`a cache race across UTC hour ${hour} refunds the original counters once`, async () => {
+    const start = new Date();
+    start.setUTCHours(hour, 59, 59, 900);
+    let clock = start.getTime();
+    const next = new Date(clock + 200);
+    const nextHour = next.toISOString().slice(0, 13);
+    const canonical = cacheKey("female", "아").storagePath;
+    let originalUsage;
+    const h = harness({
+      now: () => clock,
+      duringStorageRead: async ({ documents, objects }) => {
+        if (originalUsage) {
+          return;
+        }
+        const usage = [...documents.keys()].filter((key) => key.startsWith("usage/"));
+        if (usage.length === 0) {
+          return;
+        }
+        originalUsage = usage;
+        documents.set(`usage/tts_global_hour_${nextHour}`, { n: 7 });
+        objects.set(canonical, { bytes: AUDIO });
+        clock = next.getTime();
+      },
+    });
+    const response = await h.invoke("alice", { text: "아" });
+    assert.equal(response.audioBase64, AUDIO.toString("base64"));
+    assert.equal(h.syntheses(), 0);
+    assert.equal(originalUsage.length, 4);
+    for (const key of originalUsage) {
+      assert.equal(h.documents.get(key).n, 0, key);
+    }
+    assert.equal(h.documents.get(`usage/tts_global_hour_${nextHour}`).n, 7);
+  });
+}
+
+test("concurrent new accounts cannot exceed the hourly cap and receive a safe reason", async () => {
+  const h = harness();
+  const results = await Promise.allSettled(
+    Array.from({ length: 26 }, (_, index) => h.invoke(`hourly-account-${index}`)),
+  );
+  assert.equal(results.filter((result) => result.status === "fulfilled").length, 25);
+  const blocked = results.filter((result) => result.status === "rejected");
+  assert.equal(blocked.length, 1);
+  assert.equal(blocked[0].reason.code, "resource-exhausted");
+  assert.deepEqual({ ...blocked[0].reason.details }, { reason: "quota_global_hour" });
+  assert.equal(h.syntheses(), 25);
+  const hourUsage = [...h.documents.entries()].filter(([key]) => key.startsWith("usage/tts_global_hour_"));
+  assert.equal(hourUsage.length, 1);
+  assert.equal(hourUsage[0][1].n, 25);
+  const cost = [...h.documents.entries()].filter(([key]) => key.startsWith("service_cost_ledgers/"));
+  assert.equal(cost.length, 1);
+  assert.equal(cost[0][1].reservedUnits, 75);
+});
+
+test("legacy clients get availability, not a false daily-limit message, at the same hourly cap", async () => {
+  for (const errorReasonVersion of [undefined, null, "0", 1, {}]) {
+    const now = new Date();
+    const h = harness({ now: () => now.getTime() });
+    const hour = now.toISOString().slice(0, 13);
+    h.documents.set(`usage/tts_global_hour_${hour}`, { n: 25 });
+    const before = JSON.stringify([...h.documents]);
+    await assert.rejects(h.invoke("alice", { errorReasonVersion }), (error) => {
+      assert.equal(error.code, "unavailable");
+      assert.equal(error.message, "TTS audio is not available.");
+      assert.deepEqual({ ...error.details }, { reason: "quota_global_hour" });
+      return true;
+    });
+    assert.equal(JSON.stringify([...h.documents]), before);
+    const canonical = cacheKey("female", "아").storagePath;
+    h.objects.set(canonical, { bytes: AUDIO });
+    assert.equal((await h.invoke("alice", { text: "아", errorReasonVersion })).cacheScope, "canonical");
+    assert.equal(h.syntheses(), 0);
+  }
+});
 
 test("caller flags cannot publish personal audio, and UIDs never share its cache", async () => {
   const h = harness();
