@@ -16,6 +16,16 @@ CSV/JSON 스키마를 보존하고, 리뷰 CSV는 `id`와 `상태`/`status`만�
 계약은 `validate_review_batch.py --manifest …`로 검사한다. 공통 헤더·상태 규칙·시나리오 전문 검수 규칙은
 [`review/README.md`](review/README.md)에 있다.
 
+정본 시나리오를 `materialize_canonical_scenarios.py`로 다시 작성할 때는 각
+authored 원본에 `sentenceBuild: {targetKo, distractors}`를 명시한다. 목표는
+학습자 발화 안에서 중복 제거한 마지막 한국어 문장이고, 오답은 정답 토큰과
+겹치지 않는 서로 다른 세 어절이다. 기존 대화 문장을 오답 타일로 복사하는
+fallback은 제거했다. 필드가 없는 과거 원본은 작성자가 오답을 검수할 때까지
+재생성이 중단된다. 전체 레벨의 검증·직렬화가 완료되기 전에는 파일을 쓰지 않는다.
+기존 승인 후보·런타임은 자동 변경하지 않으며, 수정 후보는 새 승인 해시가 필요하다.
+현재 두 수정 후보와 남은 134개 라이브 문장형 타일 문제는
+[`C1/C2 검수 패킷`](review/canonical_120_revisions_20260916/README.md)에 정리되어 있다.
+
 PDF, OCR, 표 또는 Library 페이지 판독이 선행되는 작업은 먼저
 [`docs/CONTENT_REFERENCE_INTAKE_GUIDE.md`](../../docs/CONTENT_REFERENCE_INTAKE_GUIDE.md)와
 [`reference_intake/README.md`](reference_intake/README.md)를 따른다. source 원문은 draft로

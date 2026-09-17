@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "kind": "canonical_scenario_revision_draft",
+  "sourceHead": "337767428b862255502a9f61a5cc01b38cca0a5f",
+  "modelReviewStatus": "completed_scoped",
+  "modelReviewScope": {
+    "standards": "No remaining findings in candidate isolation, hashes, TTS derivation, approval rejection, or generator tests.",
+    "spec": "Five language findings and one speaker-deduplication finding were corrected and independently rechecked.",
+    "cefr": "pending",
+    "nativeWordingReview": "pending",
+    "doesNotAuthorizePromotion": true
+  },
+  "humanReviewStatus": "pending",
+  "runtimeChanged": false,
+  "approvalAdded": false,
+  "releaseReady": false,
+  "reasonKo": "기존 단원 목표를 유지하며 쉼터의 제약·우선순위 협의를 실제 대화와 산출 문제에 구현하고 번역의 화행·양태를 맞춘다.",
+  "candidates": [
+    {
+      "id": "heatwave_shelter_access",
+      "level": "c1",
+      "originalCandidate": "tools/content_factory/review/canonical_120_v1/candidates/c1/heatwave_shelter_access.json",
+      "originalFileSha256": "5adc3cd513618f2def99ba953ffc63b35f15c1a48ee288a0b83a5357cfe7d565",
+      "originalLevelCandidateSetSha256": "48bc01a55b77a8e37cd11c0b2b5ca83ea62995589239534b9631879cefff44b1",
+      "proposedCandidate": "tools/content_factory/review/canonical_120_revisions_20260916/candidates/c1/heatwave_shelter_access.json",
+      "proposedFileSha256": "8958ebc6c4fd8c7e804706c73fdda332ec1c0663674ee4bacd33fd6aa67f9e82",
+      "proposedLevelCandidateSetSha256": "3bd8db54e6f8bd76e79cbe5d2b791a9bef9288ed603a3f12686048d68ac2a073",
+      "changes": [
+        "Preserve examining a proposal as a commitment, and ramps without claiming full accessibility.",
+        "Add staffing and site-contract constraints, a conditional priority proposal, a response, and a resident reaction.",
+        "Add a production quest for the learner proposal; keep existing quest IDs and use word-sized distractor tiles.",
+        "Address independent review: nearby without a superlative and idiomatic access problems."
+      ],
+      "validationWarnings": []
+    },
+    {
+      "id": "automated_benefit_denial",
+      "level": "c2",
+      "originalCandidate": "tools/content_factory/review/canonical_120_v1/candidates/c2/automated_benefit_denial.json",
+      "originalFileSha256": "0e922f0b27b1ec45c55fde955c3db18d8b55d33098d0c842558319b5a43ed056",
+      "originalLevelCandidateSetSha256": "837ed51cba82413a575fea9c37b74730753ebcb4281321d5b53656f1872a3e25",
+      "proposedCandidate": "tools/content_factory/review/canonical_120_revisions_20260916/candidates/c2/automated_benefit_denial.json",
+      "proposedFileSha256": "54a6a531d657c9b4b14df1543abd28aeb4a4af231bbd3193247c5acf1253edaa",
+      "proposedLevelCandidateSetSha256": "6a770a93bdfab71e037a30e7213e5f04b0ee5238ef9d2aee85e423c1ffa1c8dc",
+      "changes": [
+        "Preserve the possibility rather than asserting certain loss of efficiency across dialogue, vocabulary, and the listening option.",
+        "Replace sentence-sized distractor tiles with context-related word tiles in the production quest.",
+        "Address independent review: past counterfactual, remedy after wrongful denial, and general signs of error."
+      ],
+      "validationWarnings": []
+    }
+  ],
+  "courseUnitCopy": [
+    {
+      "unitId": "c2_01_interpretation_institutions",
+      "source": "tools/content_factory/canonical_scenarios/course_unit_blueprint.json",
+      "field": "canDo.en",
+      "before": "I can analyze and argue rights conflicts through necessity, proportionality, and alternatives.",
+      "after": "I can analyze conflicts between rights in terms of necessity, proportionality, and alternatives, and make a persuasive case.",
+      "canonicalKo": "권리 충돌을 필요성·비례성·대안의 구조로 분석하고 설득할 수 있어요.",
+      "canonicalDe": "Ich kann Grundrechtskonflikte anhand von Erforderlichkeit, Verhältnismäßigkeit und Alternativen analysieren und überzeugend darstellen.",
+      "humanReviewStatus": "pending"
+    },
+    {
+      "unitId": "c2_02_technology_public_ethics",
+      "source": "tools/content_factory/canonical_scenarios/course_unit_blueprint.json",
+      "field": "canDo.en",
+      "before": "I can precisely argue the efficiency, error costs, duty to explain, and human responsibility of automated systems.",
+      "after": "I can develop nuanced arguments about the efficiency of automation, the costs of errors, the duty to explain, and ultimate human responsibility.",
+      "canonicalKo": "자동화의 효율, 오류 비용, 설명 의무와 사람의 최종 책임을 정교하게 논증할 수 있어요.",
+      "canonicalDe": "Ich kann Effizienz, Fehlerkosten, Erklärungspflichten und menschliche Letztverantwortung automatisierter Systeme differenziert erörtern.",
+      "humanReviewStatus": "pending"
+    }
+  ],
+  "candidateSetSha256": "535874816735abc4e742170904143765b0c6a0e5a769972d01805d1a5af0a0d5"
+}

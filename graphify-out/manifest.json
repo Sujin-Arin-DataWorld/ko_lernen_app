@@ -9360,9 +9360,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/README.md": {
-    "mtime": 1789603359.2681644,
-    "seen": 1789604271.7566302,
-    "ast_hash": "f564901c514006e2cb993fbd642967d9",
+    "mtime": 1789607620.3755002,
+    "seen": 1789607847.4174817,
+    "ast_hash": "82fc88873be50fab5d22d8c8fe592e81",
     "semantic_hash": ""
   },
   "tools/content_factory/drafts/README.md": {
@@ -11628,9 +11628,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/materialize_canonical_scenarios.py": {
-    "mtime": 1789603359.915431,
-    "seen": 1789604271.755519,
-    "ast_hash": "ec8e434b773edca28039c0678c54f822",
+    "mtime": 1789607620.377562,
+    "seen": 1789607847.2220173,
+    "ast_hash": "470683bb3d653306f343db804ef960bd",
     "semantic_hash": ""
   },
   "tools/content_factory/review/canonical_120_v1/a1_preflight.json": {
@@ -19245,6 +19245,48 @@
     "mtime": 1789604417.624288,
     "seen": 1789604786.312928,
     "ast_hash": "29b91917b3286e55c662f9cc6310568a",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_revisions_20260916/candidates/c1/heatwave_shelter_access.json": {
+    "mtime": 1789607620.3806982,
+    "seen": 1789607847.2322233,
+    "ast_hash": "69e40a58d1b9e11df5875e2fd2d622a2",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_revisions_20260916/candidates/c2/automated_benefit_denial.json": {
+    "mtime": 1789607620.3820736,
+    "seen": 1789607847.232226,
+    "ast_hash": "e9561b3ed6790e03517501f3883d52b4",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_revisions_20260916/revision_manifest.json": {
+    "mtime": 1789607620.3837976,
+    "seen": 1789607847.2322276,
+    "ast_hash": "c80fc836b9205907542a9fa74d82a8cb",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_revisions_20260916/tts_pending.json": {
+    "mtime": 1789607620.3848424,
+    "seen": 1789607847.2322297,
+    "ast_hash": "179ed532818af821b848a3f590636a37",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_curriculum_revision_draft.py": {
+    "mtime": 1789607620.3861437,
+    "seen": 1789607847.282163,
+    "ast_hash": "184289a50a14f6d20323a691123b05ac",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_materializer_word_tiles.py": {
+    "mtime": 1789607620.3871918,
+    "seen": 1789607847.2847981,
+    "ast_hash": "b2bb11ee3a5d535a2d3fe3b0cc453fa9",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/canonical_120_revisions_20260916/README.md": {
+    "mtime": 1789607620.3785977,
+    "seen": 1789607847.420733,
+    "ast_hash": "b9be9ce89148a2080452d3a9422354f5",
     "semantic_hash": ""
   }
 }
