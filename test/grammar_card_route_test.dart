@@ -15,10 +15,13 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    stubSoriSpeech();
     Storage.resetForTesting();
     DataLoader.reset();
     SharedPreferences.setMockInitialValues({

@@ -14,10 +14,12 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 
 import 'support/real_fonts.dart';
+import 'support/sori_speech_stubs.dart';
 
 void main() {
   setUpAll(loadSoriRealFonts);
   setUp(() async {
+    stubSoriSpeech();
     Storage.resetForTesting();
     DataLoader.reset();
     SharedPreferences.setMockInitialValues({
