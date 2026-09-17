@@ -26,12 +26,71 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(loadSoriRealFonts);
   setUp(() async {
-    SharedPreferences.setMockInitialValues({'kl_tut_scenario': true});
+    SharedPreferences.setMockInitialValues({
+      'kl_tut_scenario': true,
+      'kl_tut_wordbook': true,
+    });
     Storage.resetForTesting();
     await Storage.init();
   });
 
   for (final locale in const ['de', 'en']) {
+    testWidgets('dialog preview cannot advance into a malformed quest $locale', (
+      tester,
+    ) async {
+      final speech = stubSoriSpeech();
+      const scenario = Scenario(
+        id: 'preview-malformed-listening',
+        level: LearnerLevel.a1,
+        emoji: '',
+        register: Register.polite,
+        title: LocalizedText(ko: '인사', de: 'Begrüßung', en: 'Greeting'),
+        intro: LocalizedText(ko: '', de: '', en: ''),
+        vocab: [],
+        grammarIds: [],
+        dialog: [
+          DialogLine(speaker: 'partner', ko: '안녕', de: 'Hallo', en: 'Hello'),
+        ],
+        quests: [
+          QuestSpec(
+            type: QuestType.hoerverstehen,
+            data: {
+              'audioKo': 42,
+              'correctIndex': 0,
+              'options': [
+                {'de': 'Hallo', 'en': 'Hello'},
+                {'de': 'Danke', 'en': 'Thanks'},
+              ],
+            },
+          ),
+        ],
+      );
+      await tester.pumpWidget(
+        _app(
+          locale,
+          ScenarioPlayerScreen.preview(
+            fixture: const ScenarioPlayerPreviewFixture.action(
+              scenario: scenario,
+              stage: ScenarioStage.dialog,
+            ),
+          ),
+        ),
+      );
+      expect(tester.takeException(), isNull);
+      await tester.pump(const Duration(milliseconds: 1));
+      await tester.tap(find.text(locale == 'de' ? 'Weiter' : 'Next'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(tester.takeException(), isNull);
+      expect(find.byType(SoriEmptyState), findsOneWidget);
+      expect(find.byType(SoriButton), findsNothing);
+      // Only the valid dialog may speak, never the malformed quest.
+      expect(speech.spoken, ['안녕']);
+      expect(Storage.xp, 0);
+      expect(Storage.completedScenarios, isEmpty);
+      await tester.pumpWidget(const SizedBox.shrink());
+    });
+
     for (final type in QuestType.values.where(
       (t) => t != QuestType.schreiben,
     )) {
@@ -70,6 +129,47 @@ void main() {
     }
 
     for (final invalid in const [false, true]) {
+      testWidgets(
+        'quest preview $locale ${invalid ? 'invalid' : 'zero'} quests is inert',
+        (tester) async {
+          final speech = stubSoriSpeech();
+          final raw = allScenarioJson().first;
+          raw['quests'] = invalid
+              ? [
+                  {'type': 'satzBauen', 'data': <String, dynamic>{}},
+                ]
+              : [];
+          var exits = 0;
+          await tester.pumpWidget(
+            _app(
+              locale,
+              ScenarioPlayerScreen.preview(
+                fixture: ScenarioPlayerPreviewFixture.action(
+                  scenario: Scenario.fromJson(raw),
+                  stage: ScenarioStage.quest,
+                ),
+                onExit: () => exits++,
+              ),
+            ),
+          );
+          await tester.pump(const Duration(seconds: 2));
+          expect(tester.takeException(), isNull);
+          expect(find.byType(SoriEmptyState), findsOneWidget);
+          expect(find.byType(SoriButton), findsNothing);
+          expect(speech.spoken, isEmpty);
+          expect(speech.prefetched, isEmpty);
+          expect(Storage.xp, 0);
+          expect(Storage.completedScenarios, isEmpty);
+          await tester.tap(
+            find.bySemanticsLabel(locale == 'de' ? 'Schließen' : 'Close'),
+          );
+          await tester.pump();
+          expect(exits, 1);
+          expect(Storage.xp, 0);
+          await tester.pumpWidget(const SizedBox.shrink());
+        },
+      );
+
       testWidgets(
         'scenario $locale ${invalid ? 'invalid' : 'zero'} quests cannot start',
         (tester) async {

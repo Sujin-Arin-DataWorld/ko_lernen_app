@@ -1602,9 +1602,9 @@
     "semantic_hash": ""
   },
   "lib/screens/scenario_player_screen.dart": {
-    "mtime": 1789606227.8388443,
-    "seen": 1789606691.5796883,
-    "ast_hash": "6c7309267410e9b097de2daaffc3bcba",
+    "mtime": 1789609493.8507812,
+    "seen": 1789609817.7868385,
+    "ast_hash": "b6a7de660f7cf1f98a01cab04783f6ba",
     "semantic_hash": ""
   },
   "lib/screens/scenarios_list_screen.dart": {
@@ -5178,9 +5178,9 @@
     "semantic_hash": ""
   },
   "test/scenario_srs_persistence_flow_test.dart": {
-    "mtime": 1789605651.2663872,
-    "seen": 1789606691.582045,
-    "ast_hash": "76cc8d2194766132fcf699f859bcd152",
+    "mtime": 1789609167.9558704,
+    "seen": 1789609818.0069408,
+    "ast_hash": "b83218362c56e3a98055fc07bf697aa0",
     "semantic_hash": ""
   },
   "test/scenario_stage_plan_test.dart": {
@@ -5856,9 +5856,9 @@
     "semantic_hash": ""
   },
   "test/ux_preview_app_test.dart": {
-    "mtime": 1789605651.4519358,
-    "seen": 1789606691.5826628,
-    "ast_hash": "c8779d2c05634bfa2cdff93877f8be18",
+    "mtime": 1789609167.9538321,
+    "seen": 1789609818.0575087,
+    "ast_hash": "c6ea1e56de5577d694bb71de188cc65a",
     "semantic_hash": ""
   },
   "test/ux_preview_catalog_test.dart": {
@@ -13608,9 +13608,9 @@
     "semantic_hash": ""
   },
   "test/auto_speech_test_stub_guard_test.dart": {
-    "mtime": 1789605650.8198469,
-    "seen": 1789606691.580794,
-    "ast_hash": "8fa2e6b26929339e02db64424c4bf5cb",
+    "mtime": 1789609288.0060196,
+    "seen": 1789609817.8882196,
+    "ast_hash": "99d2a8bdb96f5070a7ed71c9ae3397a5",
     "semantic_hash": ""
   },
   "test/chosung_quiz_audio_test.dart": {
@@ -18750,9 +18750,9 @@
     "semantic_hash": ""
   },
   "docs/CP2026_CONTINUATION.md": {
-    "mtime": 1789607018.027652,
-    "seen": 1789607323.5785837,
-    "ast_hash": "9dc45f02a50e7f745ca66ab862f27157",
+    "mtime": 1789609561.2575586,
+    "seen": 1789609818.3506706,
+    "ast_hash": "4407b36214390cf2f8ff5253a3e62df9",
     "semantic_hash": ""
   },
   "docs/data/a1_grammar_scan_2026-09-15.md": {
@@ -19266,9 +19266,9 @@
     "semantic_hash": ""
   },
   "test/quest_empty_state_test.dart": {
-    "mtime": 1789606487.883074,
-    "seen": 1789606691.5819046,
-    "ast_hash": "0c8af79da07f74a66562df9d0d274782",
+    "mtime": 1789609652.9137516,
+    "seen": 1789609817.995799,
+    "ast_hash": "2439471e3e03300ac6fcb8db168e24ac",
     "semantic_hash": ""
   },
   "lib/screens/quest_engines/quest_text.dart": {

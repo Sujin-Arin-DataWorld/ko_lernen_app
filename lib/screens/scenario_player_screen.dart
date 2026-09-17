@@ -748,7 +748,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     if (preview != null) {
       final scenario = preview.scenario;
       _scenario = scenario;
-      if (!_hasPlayableQuests(scenario)) {
+      if (!_hasRequiredQuestContent(scenario)) {
         _pageCtrl = PageController();
         return;
       }
@@ -1373,7 +1373,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }
 
   Future<void> _complete(int stars, int earnedXp) async {
-    if (_scenario == null || !_hasPlayableQuests(_scenario!)) {
+    if (_scenario == null || !_hasRequiredQuestContent(_scenario!)) {
       return;
     }
     final preview = widget.previewFixture;
@@ -1931,6 +1931,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     required int questIndex,
     required int stageIndex,
   }) {
+    // PageView may build a neighboring quest before that stage is active.
+    if (!hasPlayableQuestContent(spec.type, spec.data)) {
+      return const SoriQuestEmptyState();
+    }
     Widget questWidget;
     final scenario = _scenario!;
     final allowDontKnow =
@@ -2448,12 +2452,23 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         (quest) => hasPlayableQuestContent(quest.type, quest.data),
       );
 
+  bool _hasRequiredQuestContent(Scenario scenario) {
+    final preview = widget.previewFixture;
+    final stage = _stage >= 0 && _stage < _plan.length
+        ? _plan[_stage]
+        : preview?.stage;
+    // Read-only gallery fixtures may show just dialog, roleplay, or results.
+    // Real lessons and previews of a quest still require playable quest data.
+    return (preview != null && stage != ScenarioStage.quest) ||
+        _hasPlayableQuests(scenario);
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
 
-    if (_scenario == null || !_hasPlayableQuests(_scenario!)) {
+    if (_scenario == null || !_hasRequiredQuestContent(_scenario!)) {
       // 시나리오가 아직 없으면(로딩/실패) `_stage`/`_isResultStage` 는
       // 의미가 없다 — 확인 없이 닫히되, onExit(온보딩 임베딩)이 있으면
       // §_withExitScope 가 시스템 백도 그리로 돌린다.
