@@ -91,7 +91,7 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 | O4 OCR 문법 | book_result의 GrammarCard 표시 존재 | grammar.csv 카드로 연결되는 실제 딥링크·미매칭 경로 구현/검증 |
 | Q1 가드 | #347 workflow-pins 안정화 병합 | 나머지 lint·raw button·route·timeout 가드 범위 감사 |
 | Q2 통합 | 기존 Phase 통합 테스트 존재 | offline cold start·custom 게임 실패·프로세스 종료복원 3종 증거 |
-| Q3 콘텐츠 CI | #370에서 전체 discover·can-do freshness·초안/라이브 경계·추적 파일 비변경 검사를 main에 반영. Batch 29/31 각 192개 검증에 이어 Batch 25의 원본 검토 기록 15행을 기존 Git·교정 해시로 복원하고 192행 실제 승격 검증 통과 | #370 PR 검사 통과 후 main `9b9ab83f` 병합; 정확한 main CI는 후속 확인 중. Batch 25 복구 포함 로컬 감사는 24개 merged manifest 중 9개 통과·15개 실패(퇴역 시나리오·권리/승인 이력·내용 변경). live·권리·승인·교정 원장은 그대로이며, 복구 근거는 `tools/content_factory/review/batch_25_snapshot_reconciliation.json`. 미해결 범위를 Q3 완료로 판정하지 않음 |
+| Q3 콘텐츠 CI | #370에서 전체 discover·can-do freshness·초안/라이브 경계·추적 파일 비변경 검사를 main에 반영. Batch 25 원본 15행 복원과 Batch 03의 6행·문법 연결 2건 Git/해시 대조, 실제 승격 검증 192행·126행 각각 통과 | 최신 로컬 감사 24개 중 10개 통과·14개 실패. Batch 03은 라이브 문법 2행·smalltalk 1행을 교정했고 원본 draft·권리·사람 승인 기록은 보존했다. 새 문구 사람 검수는 pending. #370 main 검사 및 #371 이후 통합은 별도이며, 남은 범위를 Q3 완료로 판정하지 않음 |
 | Q-S / Q-S2 / Q-S3 | #354/#358 세종 감사 병합 | C1/C2 세종 자료 전수 재추출 Q-S3 및 인용 검증 |
 | W7-W10 잔여·W5 관측 | 기존 구현은 현재 Git으로 추적 | 릴리스 담당과 중복 없이 TTS 권한·기기 체크·스토어·14일 크래시/ANR/비용 관측 |
 
@@ -137,7 +137,21 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 
 로컬 전체 content_factory 1,232개는 실패 0·기존 skip 20으로 통과했고, 검사 전후 추적 콘텐츠 518개 파일의 SHA-256 변경은 0개다. 관련 도구 검사 109개, 추가 계약·이력 11개, TTS Python 48개·Node 64개, Flutter 문법 25개도 통과했다. 바뀐 한국어 발화 1개를 생성·업로드한 뒤 Storage를 다시 읽어 expected 12,630 / remote 21,134 / missing 0 / stale 8,504를 확인했다. 두 TTS allowlist를 갱신했으며 구 음성은 삭제하지 않았다.
 
-이 교정 후에도 과거 merged manifest는 **9/24 통과, 15개 실패**다. Batch 18은 `c2:job_hunting` 연결이 Batch 19 커밋 `fc0489b65`에서 다른 유닛으로 덮인 이력이 드러났으며 라우팅 의도 검증이 남았다. Batch 20은 퇴역 시나리오의 이력 정합이 남았다. 이번 문법 차이 해명을 배치 전체 통과나 권리·승인 완료로 계산하지 않는다.
+#372의 이 교정 시점에는 과거 merged manifest가 **9/24 통과, 15개 실패**였다. 아래 Batch 03 후속을 포함한 최신 로컬 결과는 **10/24 통과, 14개 실패**다. Batch 18은 `c2:job_hunting` 연결이 Batch 19 커밋 `fc0489b65`에서 다른 유닛으로 덮인 이력이 드러났으며 라우팅 의도 검증이 남았다. Batch 20은 퇴역 시나리오의 이력 정합이 남았다. 이번 문법 차이 해명을 배치 전체 통과나 권리·승인 완료로 계산하지 않는다.
+
+### Batch 03 후속 교정
+
+[검토 패킷](data/review_packets/batch_03_reconciliation_20260916.md)과 [정확한 전환 원장](../tools/content_factory/review/batch_03_reconciliation_20260916.json)을 추가했다. 문법 relevel 원장의 출발·도착 레벨이 모두 일치할 때만 비교용 level을 정규화한다. 기존 도구에 남아 있던 “문법 이동 없음” 전제를 제거했으며, 예문·선택지 변경과 경로 이동은 별도의 정확한 해시를 요구한다. Batch 03 원본 승격 f718106c와 이후 8bc5ca31·36ad3032·e4fa55ba를 직접 대조했다.
+
+‘어떻게 실천하기 나름이에요’ 예문과 이를 유도하던 note를 교정하고, -다가는의 DE 강조를 조건절로 옮겼다. smalltalk의 대답 초대와 다시 생각하기를 DE/EN에 맞췄다. 문법 12개 오답은 독립 의미 검토 후 유지했다. can-do의 기존 의미 경로와 reviewRevision 3은 그대로이며, 문구만 기존 humanization overlay로 nativeReviewRequired를 유지한다. 배열 안의 기존 문자열을 정확히 지정하는 공통 경로 해석기를 추가했고 새 필드·음수/잘못된/범위 밖 인덱스를 거부한다. 승인 표를 새로 쓰지 않았다.
+
+관련 51개 검사(기존 제외 15개), Flutter 문법/smalltalk 20개·can-do loader 11개, TTS Python 48개·Node 64개가 통과했다. 전체 content_factory discovery 1,241개가 실패 0·기존 제외 20개로 통과했고, 검사 전후 콘텐츠 520개 파일의 SHA-256 변경은 0개다. 한국어 음성 1개 교체 후 Storage expected 12,630 / remote 21,135 / missing 0 / stale 8,505를 읽기 전용으로 확인했고, 이전 음성은 삭제하지 않았다. 두 축 독립 검토 통과이며 사람 문구 검수는 대기다.
+
+### Batch 05 문구 교정과 미해결 단원 이력
+
+[검토 패킷](data/review_packets/batch_05_reconciliation_20260916.md)과 [전환 원장](../tools/content_factory/review/batch_05_reconciliation_20260916.json)에 smalltalk 5행의 최초 승격 `daee6951`, 이후 `36ad3032`·`e4fa55ba`, 현재 행의 정확한 해시를 대조했다. 4행의 번역 9곳에서 근거 없는 수량, 추가된 절차, 담당자→기관 변경, 고장 시 대안 누락과 검토 보장 조건 누락을 고쳤다. 한국어·ID·레벨·라우팅은 그대로다. 기존 copy overlay의 최초 before를 보존했고, B2의 기존 의미 판정·reviewRevision 2와 새 문구의 nativeReviewRequired를 구분했다. 두 축 독립 모델 검토는 통과했지만 사람 문구 검수는 대기다.
+
+**Batch 05 전체 승격 검증은 아직 실패한다.** 문장 차이 5건은 해명됐지만 courseUnits 4건의 title·canDo·checkpoint 차이가 남아 있다. Git 전환은 `ca00acad2ff0d1470dc241bfdfb8d15685a7d1a0`으로 추적했으며 의미·기존 판정 근거 검토는 별도다. 검증기·원본 manifest·frozen draft를 바꾸거나 예외를 추가하지 않았다. 실제 검증기가 이 차이를 계속 거부하는 회귀 검사를 포함하며, 최신 과거 manifest 감사는 여전히 **10/24 통과, 14개 실패**다. 관련 Python 11개와 Flutter smalltalk·can-do 21개가 통과했다. Batch 03·05를 함께 포함한 전체 content_factory 1,244개도 실패 0·기존 skip 20으로 통과했고, 검사 전후 콘텐츠 521개 파일의 해시 변화는 없었다.
 
 2026-09-16 추가 지적 재검증: PR #370의 정확한 head `b0b005c3`에서 GitHub Content validator 1,219개(실패 0·skip 20), Playwright, iOS 및 나머지 필수 검사가 통과했다. CI run `35130402443`의 최초 취소 잡만 재시도했으며, Book의 두 번째 취소는 checkout 7분 35초 후 잡의 8분 제한 초과라는 GitHub annotation으로 확인했다. 세 번째 실행에서 전체 상태가 success가 되어 main `9b9ab83f3bba610e650fc20e0931bc553cc40258`로 병합했다. 이 main의 [CI 35138234900](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/35138234900)와 [Playwright 35138234844](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/35138234844)는 별도 확인 대상이다. Book 후속은 functions·app data·공유 fixtures만 sparse checkout하도록 하며, 루트 rules/indexes를 포함한 실제 테스트 의존성을 검증한다.
 

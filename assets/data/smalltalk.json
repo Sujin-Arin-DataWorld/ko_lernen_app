@@ -6364,14 +6364,14 @@
         {
           "turnKind": "question",
           "ko": "그 부분이 어떤 감정을 남겼는지 말해 볼래요?",
-          "de": "Was hat der Teil für ein Gefühl hinterlassen?",
-          "en": "What did that part leave you feeling?"
+          "de": "Möchten Sie beschreiben, welches Gefühl dieser Teil bei Ihnen hinterlassen hat?",
+          "en": "Would you like to describe the feeling that part left you with?"
         }
       ],
       "followUp": {
         "turnKind": "reaction",
         "ko": "저는 그 여운 때문에 글 전체를 다시 생각하게 됐어요.",
-        "de": "Dieser Nachklang hat mich den ganzen Text noch einmal anders sehen lassen.",
+        "de": "Dieser Nachklang hat mich dazu gebracht, noch einmal über den ganzen Text nachzudenken.",
         "en": "That lingering impression made me think about the whole text again."
       }
     },
@@ -6564,12 +6564,12 @@
       "level": "b2",
       "kind": "question",
       "ko": "피드백을 받을 때 바로 말해 주는 게 좋아요, 아니면 먼저 좋은 점을 듣는 게 좋아요?",
-      "de": "Magst du Feedback lieber direkt, oder erst mal hören, was schon gut läuft?",
+      "de": "Magst du Feedback lieber direkt, oder möchtest du erst mal hören, was schon gut läuft?",
       "en": "When you get feedback, do you want it straight, or the good parts first?",
       "reply": {
         "ko": "저는 좋은 점을 짧게 듣고 나서 고칠 부분을 구체적으로 듣는 게 편해요.",
         "de": "Ich höre gern kurz, was gut ist, und danach konkret, was ich verbessern kann.",
-        "en": "I prefer hearing one good point briefly and then getting specific suggestions for improvement."
+        "en": "I prefer a brief mention of the positives, followed by specific feedback on what needs improving."
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -7380,8 +7380,8 @@
       "en": "What does a worthwhile initiative need so it does not end after one event?",
       "reply": {
         "ko": "다음 담당자와 점검 날짜를 행사 전에 정해 두어야 해요.",
-        "de": "Verantwortliche und ein Prüftermin für die nächste Phase sollten schon vor der Aktion feststehen.",
-        "en": "We should name the next owner and review date before the event happens."
+        "de": "Vor der Veranstaltung müssen wir festlegen, wer als Nächstes zuständig ist und wann die Überprüfung stattfindet.",
+        "en": "We need to choose the next person in charge and set a review date before the event."
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -7395,7 +7395,7 @@
       "followUp": {
         "turnKind": "reaction",
         "ko": "성과가 보이면 참여를 이어 갈 이유도 생기겠네요.",
-        "de": "Sichtbare Fortschritte geben einen Grund, weiterzumachen.",
+        "de": "Wenn Fortschritte sichtbar werden, wäre das auch ein Grund, weiter mitzumachen.",
         "en": "Visible progress would give people a reason to stay involved."
       }
     },
@@ -7410,7 +7410,7 @@
       "reply": {
         "ko": "사용 기간 전체의 비용과 고장 났을 때의 대안을 같이 비교해야 해요.",
         "de": "Wir sollten die Gesamtkosten über die Nutzungsdauer und die Alternative bei Ausfällen vergleichen.",
-        "en": "We should compare the full lifetime cost and what happens if it breaks down."
+        "en": "We should compare the total cost over its lifetime and the alternatives if it breaks down."
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
@@ -7873,8 +7873,8 @@
       "en": "What process should be visible to someone who wants to challenge an automated decision?",
       "reply": {
         "ko": "담당자, 처리 기한, 제출할 자료와 결과를 다시 검토하는 기준이 보여야 해요.",
-        "de": "Zuständige Stelle, Frist, nötige Unterlagen und Kriterien der erneuten Prüfung müssen klar sein.",
-        "en": "The responsible body, deadline, required documents, and criteria for review should all be clear."
+        "de": "Es muss klar sein, wer zuständig ist, welche Bearbeitungsfrist gilt, was einzureichen ist und nach welchen Kriterien das Ergebnis erneut geprüft wird.",
+        "en": "The person responsible, the processing deadline, what to submit, and the criteria for reassessing the result should all be clear."
       },
       "relationshipContext": "service",
       "safeAlternativeQuestions": [
@@ -7889,7 +7889,7 @@
         "turnKind": "reaction",
         "ko": "사람의 검토가 보장돼야 이의 제기가 형식에 그치지 않겠네요.",
         "de": "Erst eine garantierte menschliche Prüfung macht den Einspruch mehr als bloße Formsache.",
-        "en": "Human review would keep the appeal from becoming a formality."
+        "en": "So human review needs to be guaranteed if the appeal is to be more than a formality."
       }
     },
     {

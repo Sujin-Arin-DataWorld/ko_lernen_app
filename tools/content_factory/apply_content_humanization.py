@@ -7,6 +7,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from copy_field_path import text_field
+
 
 ROOT = Path(__file__).resolve().parents[2]
 LEDGER_PATH = ROOT / "tools" / "content_factory" / "review" / "content_humanization_20260821.json"
@@ -19,14 +21,7 @@ def _read(path: Path) -> Any:
 
 
 def _at_path(record: dict[str, Any], field_path: str) -> tuple[dict[str, Any], str]:
-    current = record
-    parts = field_path.split(".")
-    for part in parts[:-1]:
-        nested = current.get(part)
-        if not isinstance(nested, dict):
-            raise ValueError(f"{record.get('id')}.{field_path}: missing object {part}")
-        current = nested
-    return current, parts[-1]
+    return text_field(record, field_path)
 
 
 def _fingerprint(value: Any) -> str:

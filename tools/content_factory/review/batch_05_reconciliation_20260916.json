@@ -1,0 +1,575 @@
+{
+  "schemaVersion": 1,
+  "operation": "reconcile_batch05_exact_history",
+  "reviewStatus": "MODEL_QA_PASS",
+  "humanReviewStatus": "pending",
+  "approvalAdded": false,
+  "rightsAdded": false,
+  "frozenDraftsModified": false,
+  "sourceHead": "9214ab978ec5b0bd200141b025459ab9d981964e",
+  "rows": [
+    {
+      "id": "smalltalk_b2_0065",
+      "kind": "smalltalk",
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "originalPromotionCommit": "daee69514b9bf267257adb3af34c30a568322562",
+      "historicalTransition": {
+        "commit": "36ad3032a4af3d39954a2f4b542ad5489560d638",
+        "beforeSha256": "731576440bf6212bc8b5773ad638e12ab340981d7a4737d07ee7710e6000700d",
+        "afterSha256": "5f2b65db566f617b6f22290cf2a940eed74cf1052c4bba21b818a26945ca574c",
+        "fields": {
+          "de": {
+            "before": "Mögen Sie Feedback lieber direkt, oder möchten Sie zuerst hören, was schon gut funktioniert?",
+            "after": "Magst du Feedback lieber direkt, oder erst mal hören, was schon gut läuft?"
+          },
+          "en": {
+            "before": "When you get feedback, do you prefer it directly, or would you rather hear what is working first?",
+            "after": "When you get feedback, do you want it straight, or the good parts first?"
+          }
+        }
+      },
+      "beforeSha256": "731576440bf6212bc8b5773ad638e12ab340981d7a4737d07ee7710e6000700d",
+      "actualAfterSha256": "bd1bdb1ab836b6c5673c17a4843d29ad6d3635622cb034374b266d7c6e3374f3",
+      "currentCorrections": {
+        "de": {
+          "before": "Magst du Feedback lieber direkt, oder erst mal hören, was schon gut läuft?",
+          "after": "Magst du Feedback lieber direkt, oder möchtest du erst mal hören, was schon gut läuft?"
+        },
+        "reply.en": {
+          "before": "I prefer hearing one good point briefly and then getting specific suggestions for improvement.",
+          "after": "I prefer a brief mention of the positives, followed by specific feedback on what needs improving."
+        }
+      },
+      "reasonKo": "동료 사이 du와 피드백 방식 선택을 유지한다. DE의 병렬 동사를 완성하고 KO에 없는 좋은 점 한 개라는 수량을 EN 답변에서 제거한다.",
+      "current": {
+        "id": "smalltalk_b2_0065",
+        "category": "work_study",
+        "level": "b2",
+        "kind": "question",
+        "ko": "피드백을 받을 때 바로 말해 주는 게 좋아요, 아니면 먼저 좋은 점을 듣는 게 좋아요?",
+        "de": "Magst du Feedback lieber direkt, oder möchtest du erst mal hören, was schon gut läuft?",
+        "en": "When you get feedback, do you want it straight, or the good parts first?",
+        "reply": {
+          "ko": "저는 좋은 점을 짧게 듣고 나서 고칠 부분을 구체적으로 듣는 게 편해요.",
+          "de": "Ich höre gern kurz, was gut ist, und danach konkret, was ich verbessern kann.",
+          "en": "I prefer a brief mention of the positives, followed by specific feedback on what needs improving."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이번에는 어떤 방식이 편한지 먼저 정해 볼까요?",
+            "de": "Wollen wir vorher festlegen, welche Form diesmal angenehm ist?",
+            "en": "Shall we agree on what style feels comfortable this time?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "방식을 먼저 맞추면 내용에 더 집중할 수 있겠네요.",
+          "de": "Wenn wir das vorher klären, können wir uns besser auf den Inhalt konzentrieren.",
+          "en": "If we agree on the approach first, we can focus more on the content."
+        }
+      }
+    },
+    {
+      "id": "smalltalk_c1_0013",
+      "kind": "smalltalk",
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "originalPromotionCommit": "daee69514b9bf267257adb3af34c30a568322562",
+      "historicalTransition": {
+        "commit": "e4fa55bad19a4b185f2d050afede4614b906a1f4",
+        "beforeSha256": "0c890ddf4ef5979f66eafd3429af24c520b904b11dfcf24795846e308ba30122",
+        "afterSha256": "f0edfa12131c94e5e565359ae772cf7a6156de3095ffc8fa7eec20ea720d95a5",
+        "fields": {
+          "de": {
+            "before": "Was braucht eine sinnvolle Aktion, damit sie nicht nach einem Termin endet?",
+            "after": "Was braucht eine sinnvolle Aktion, damit es nicht bei einem einmaligen Termin bleibt?"
+          }
+        }
+      },
+      "beforeSha256": "0c890ddf4ef5979f66eafd3429af24c520b904b11dfcf24795846e308ba30122",
+      "actualAfterSha256": "cacbf94c8042578668c9ce2868909539675075120e995acf76df7a796a831389",
+      "currentCorrections": {
+        "reply.de": {
+          "before": "Verantwortliche und ein Prüftermin für die nächste Phase sollten schon vor der Aktion feststehen.",
+          "after": "Vor der Veranstaltung müssen wir festlegen, wer als Nächstes zuständig ist und wann die Überprüfung stattfindet."
+        },
+        "reply.en": {
+          "before": "We should name the next owner and review date before the event happens.",
+          "after": "We need to choose the next person in charge and set a review date before the event."
+        },
+        "followUp.de": {
+          "before": "Sichtbare Fortschritte geben einen Grund, weiterzumachen.",
+          "after": "Wenn Fortschritte sichtbar werden, wäre das auch ein Grund, weiter mitzumachen."
+        }
+      },
+      "reasonKo": "다음 담당자와 점검 날짜를 행사 전에 정한다는 KO를 유지하며 다음 단계라는 절차 추가와 모호한 owner를 제거한다. 후속 반응의 조건부 전망을 복원한다.",
+      "current": {
+        "id": "smalltalk_c1_0013",
+        "category": "daily",
+        "level": "c1",
+        "kind": "question",
+        "ko": "좋은 취지의 행사가 한 번으로 끝나지 않게 하려면 무엇이 필요할까요?",
+        "de": "Was braucht eine sinnvolle Aktion, damit es nicht bei einem einmaligen Termin bleibt?",
+        "en": "What does a worthwhile initiative need so it does not end after one event?",
+        "reply": {
+          "ko": "다음 담당자와 점검 날짜를 행사 전에 정해 두어야 해요.",
+          "de": "Vor der Veranstaltung müssen wir festlegen, wer als Nächstes zuständig ist und wann die Überprüfung stattfindet.",
+          "en": "We need to choose the next person in charge and set a review date before the event."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "작은 목표를 한 달 단위로 잡아 볼까요?",
+            "de": "Wollen wir kleine Monatsziele festlegen?",
+            "en": "Shall we set small monthly goals?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "성과가 보이면 참여를 이어 갈 이유도 생기겠네요.",
+          "de": "Wenn Fortschritte sichtbar werden, wäre das auch ein Grund, weiter mitzumachen.",
+          "en": "Visible progress would give people a reason to stay involved."
+        }
+      }
+    },
+    {
+      "id": "smalltalk_c1_0014",
+      "kind": "smalltalk",
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "originalPromotionCommit": "daee69514b9bf267257adb3af34c30a568322562",
+      "historicalTransition": {
+        "commit": "e4fa55bad19a4b185f2d050afede4614b906a1f4",
+        "beforeSha256": "8288e8d90d7cbcb4c5f9de62d5df6181d683d0dd9a87b2f608e547c212be6ced",
+        "afterSha256": "d4ace8b7488483850997bc4504057854fe10219ac799faa31bd4346db2738fd2",
+        "fields": {
+          "de": {
+            "before": "Das Gerät ist günstig in der Anschaffung, aber teuer im Betrieb. Sollen wir es wählen?",
+            "after": "Die Installation ist günstig, die laufenden Kosten sind aber hoch. Sollen wir das Gerät trotzdem wählen?"
+          },
+          "en": {
+            "before": "The equipment is cheap to install but expensive to maintain. Should we choose it?",
+            "after": "Installation is cheap, but the running costs are high. Should we still choose the equipment?"
+          }
+        }
+      },
+      "beforeSha256": "8288e8d90d7cbcb4c5f9de62d5df6181d683d0dd9a87b2f608e547c212be6ced",
+      "actualAfterSha256": "7d31da0150a8510af35cd6fecf3b1aa54aac4b3ff1e39a5eed75cee0f1930cae",
+      "currentCorrections": {
+        "reply.en": {
+          "before": "We should compare the full lifetime cost and what happens if it breaks down.",
+          "after": "We should compare the total cost over its lifetime and the alternatives if it breaks down."
+        }
+      },
+      "reasonKo": "설치비와 유지비를 구분한 과거 교정은 유지한다. 답변에서는 고장 시 대안을 비교한다는 정보를 복원한다.",
+      "current": {
+        "id": "smalltalk_c1_0014",
+        "category": "work_study",
+        "level": "c1",
+        "kind": "question",
+        "ko": "설치비는 싼데 유지비가 높은 장비를 골라도 될까요?",
+        "de": "Die Installation ist günstig, die laufenden Kosten sind aber hoch. Sollen wir das Gerät trotzdem wählen?",
+        "en": "Installation is cheap, but the running costs are high. Should we still choose the equipment?",
+        "reply": {
+          "ko": "사용 기간 전체의 비용과 고장 났을 때의 대안을 같이 비교해야 해요.",
+          "de": "Wir sollten die Gesamtkosten über die Nutzungsdauer und die Alternative bei Ausfällen vergleichen.",
+          "en": "We should compare the total cost over its lifetime and the alternatives if it breaks down."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "관리할 인력이 있는지도 확인할까요?",
+            "de": "Sollen wir auch prüfen, ob Personal für die Wartung vorhanden ist?",
+            "en": "Shall we also check whether anyone is available to maintain it?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "가격표 밖의 부담까지 보면 선택이 달라질 수 있겠네요.",
+          "de": "Wenn wir die Belastung jenseits des Preisschilds sehen, kann die Entscheidung anders ausfallen.",
+          "en": "Looking beyond the price tag could change the decision."
+        }
+      }
+    },
+    {
+      "id": "smalltalk_c2_0009",
+      "kind": "smalltalk",
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "originalPromotionCommit": "daee69514b9bf267257adb3af34c30a568322562",
+      "historicalTransition": {
+        "commit": "e4fa55bad19a4b185f2d050afede4614b906a1f4",
+        "beforeSha256": "540538c1e395800b2f75c9143262accfe9de9b129f2d4cf9974ee4ffb4f93512",
+        "afterSha256": "7507d07ed082ff880c133eea5490035cfcd0f0fb15c245768b2198441a5d6c48",
+        "fields": {
+          "en": {
+            "before": "Who should have the authority to name a condition as a problem?",
+            "after": "Who should have the authority to define a situation as a problem?"
+          }
+        }
+      },
+      "beforeSha256": "540538c1e395800b2f75c9143262accfe9de9b129f2d4cf9974ee4ffb4f93512",
+      "actualAfterSha256": "7507d07ed082ff880c133eea5490035cfcd0f0fb15c245768b2198441a5d6c48",
+      "currentCorrections": {},
+      "reasonKo": "상황을 문제로 규정할 권한이라는 KO를 보존한 기존 EN 교정을 추적한다. 현재 문구는 바꾸지 않는다.",
+      "current": {
+        "id": "smalltalk_c2_0009",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "어떤 상태를 문제라고 부를 권한은 누구에게 있어야 할까요?",
+        "de": "Wer sollte das Recht haben, einen Zustand als Problem zu benennen?",
+        "en": "Who should have the authority to define a situation as a problem?",
+        "reply": {
+          "ko": "영향을 받는 사람의 언어와 전문적인 기준이 함께 논의돼야 해요.",
+          "de": "Die Sprache der Betroffenen und fachliche Kriterien müssen gemeinsam verhandelt werden.",
+          "en": "The language of affected people and professional criteria should be discussed together."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "당사자가 쓰는 표현부터 들어 볼까요?",
+            "de": "Sollen wir zuerst hören, welche Begriffe die Betroffenen selbst verwenden?",
+            "en": "Shall we first listen to the words affected people use themselves?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "이름을 정하기 전부터 권력 관계를 살필 수 있겠네요.",
+          "de": "So können wir die Machtverhältnisse prüfen, bevor überhaupt ein Begriff feststeht.",
+          "en": "That would let us examine the power relationship before choosing a label."
+        }
+      }
+    },
+    {
+      "id": "smalltalk_c2_0014",
+      "kind": "smalltalk",
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "originalPromotionCommit": "daee69514b9bf267257adb3af34c30a568322562",
+      "historicalTransition": {
+        "commit": "e4fa55bad19a4b185f2d050afede4614b906a1f4",
+        "beforeSha256": "cc1ff00f83aedc903343ba8c06889d4e5ed3df3fe061bd1343178ed56979018f",
+        "afterSha256": "0fbdc340e071761ff1355fa7ee654928577ea5c6f3a33e6c25b43cffcfa2bf68",
+        "fields": {
+          "reply": {
+            "before": {
+              "ko": "담당자, 처리 기한, 제출할 자료와 결과를 다시 검토하는 기준이 보여야 해요.",
+              "de": "Zuständige Stelle, Frist, nötige Unterlagen und Kriterien der erneuten Prüfung müssen klar sein.",
+              "en": "The responsible contact, timeline, required evidence, and review criteria should all be clear."
+            },
+            "after": {
+              "ko": "담당자, 처리 기한, 제출할 자료와 결과를 다시 검토하는 기준이 보여야 해요.",
+              "de": "Zuständige Stelle, Frist, nötige Unterlagen und Kriterien der erneuten Prüfung müssen klar sein.",
+              "en": "The responsible body, deadline, required documents, and criteria for review should all be clear."
+            }
+          }
+        }
+      },
+      "beforeSha256": "cc1ff00f83aedc903343ba8c06889d4e5ed3df3fe061bd1343178ed56979018f",
+      "actualAfterSha256": "a00791c1320d6d71162564dd3a78369539904a0453beacd3a79a71f0b1c107c2",
+      "currentCorrections": {
+        "reply.de": {
+          "before": "Zuständige Stelle, Frist, nötige Unterlagen und Kriterien der erneuten Prüfung müssen klar sein.",
+          "after": "Es muss klar sein, wer zuständig ist, welche Bearbeitungsfrist gilt, was einzureichen ist und nach welchen Kriterien das Ergebnis erneut geprüft wird."
+        },
+        "reply.en": {
+          "before": "The responsible body, deadline, required documents, and criteria for review should all be clear.",
+          "after": "The person responsible, the processing deadline, what to submit, and the criteria for reassessing the result should all be clear."
+        },
+        "followUp.en": {
+          "before": "Human review would keep the appeal from becoming a formality.",
+          "after": "So human review needs to be guaranteed if the appeal is to be more than a formality."
+        }
+      },
+      "reasonKo": "담당자를 기관으로 바꾸지 않고 처리 기한과 결과 재검토 기준을 명시한다. 사람 검토가 보장돼야 한다는 조건을 EN 후속 반응에 복원한다.",
+      "current": {
+        "id": "smalltalk_c2_0014",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동 심사 결과에 이의를 제기하려는 사람에게 어떤 절차가 보여야 할까요?",
+        "de": "Welches Verfahren muss für jemanden sichtbar sein, der eine automatische Entscheidung anfechten will?",
+        "en": "What process should be visible to someone who wants to challenge an automated decision?",
+        "reply": {
+          "ko": "담당자, 처리 기한, 제출할 자료와 결과를 다시 검토하는 기준이 보여야 해요.",
+          "de": "Es muss klar sein, wer zuständig ist, welche Bearbeitungsfrist gilt, was einzureichen ist und nach welchen Kriterien das Ergebnis erneut geprüft wird.",
+          "en": "The person responsible, the processing deadline, what to submit, and the criteria for reassessing the result should all be clear."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "기계가 아닌 사람에게 설명을 요청할 수 있게 할까요?",
+            "de": "Soll eine Erklärung durch eine Person verlangt werden können?",
+            "en": "Should they be able to request an explanation from a human?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "사람의 검토가 보장돼야 이의 제기가 형식에 그치지 않겠네요.",
+          "de": "Erst eine garantierte menschliche Prüfung macht den Einspruch mehr als bloße Formsache.",
+          "en": "So human review needs to be guaranteed if the appeal is to be more than a formality."
+        }
+      }
+    }
+  ],
+  "copyReview": [
+    {
+      "id": "smalltalk_b2_0065",
+      "previousDecision": {
+        "phraseId": "smalltalk_b2_0065",
+        "phraseFingerprintSha256": "5f2b65db566f617b6f22290cf2a940eed74cf1052c4bba21b818a26945ca574c",
+        "routingSource": "exactOverride",
+        "canDoSegmentId": "segment_b2_collaborative_feedback",
+        "canDoFingerprintSha256": "f36974cbb488136ef241cb172292e5a4a196d3e263af87bf3ae8f6c4e02486c5",
+        "semanticStatus": "exactMapped",
+        "reasonCode": "explicitSemanticRoute",
+        "reviewRevision": 2
+      },
+      "humanReviewStatus": "pending",
+      "ledger": "tools/content_factory/review/content_humanization_20260821.json"
+    }
+  ],
+  "reviewScope": "Five smalltalk row histories and nine corrected translation fields only. Curriculum changes remain unresolved.",
+  "curriculumReviewStatus": "unresolved",
+  "unresolvedCurriculum": [
+    {
+      "id": "c1_01_evidence_public_reasoning",
+      "field": "courseUnits",
+      "before": {
+        "id": "c1_01_evidence_public_reasoning",
+        "level": "c1",
+        "order": 1,
+        "title": {
+          "ko": "근거와 공공 설명",
+          "de": "Evidenz und öffentliche Erklärung",
+          "en": "Evidence and Public Explanation"
+        },
+        "canDo": {
+          "ko": "불확실한 자료를 과장하지 않고 근거와 한계를 구분해 설명할 수 있어요.",
+          "de": "Ich kann unsichere Daten erklären, ohne sie zu übertreiben, und Evidenz klar von Grenzen trennen.",
+          "en": "I can explain uncertain evidence without exaggeration and distinguish findings from limitations."
+        },
+        "prerequisiteUnitIds": [
+          "b2_06_advanced_capstone"
+        ],
+        "requiredConceptIds": [
+          "concept_c1_evidence_reasoning"
+        ],
+        "checkpointContentIds": [
+          "smalltalk:smalltalk_c1_0011"
+        ]
+      },
+      "current": {
+        "id": "c1_01_evidence_public_reasoning",
+        "level": "c1",
+        "order": 1,
+        "title": {
+          "ko": "공공 근거의 범위와 대표성 설명하기",
+          "de": "Reichweite und Repräsentativität öffentlicher Evidenz erklären",
+          "en": "Explaining the scope and representativeness of public evidence"
+        },
+        "canDo": {
+          "ko": "공공 자료가 보여 주는 것과 놓치는 것을 구분해 보완 방안을 제시할 수 있어요.",
+          "de": "Ich kann unterscheiden, was öffentliche Daten zeigen und auslassen, und Ergänzungen vorschlagen.",
+          "en": "I can distinguish what public evidence shows and misses and propose ways to address the gaps."
+        },
+        "prerequisiteUnitIds": [
+          "b2_06_advanced_capstone"
+        ],
+        "requiredConceptIds": [
+          "concept_c1_evidence_reasoning"
+        ],
+        "checkpointContentIds": [
+          "scenario:public_consultation_access"
+        ]
+      },
+      "beforeSha256": "4bb836caaec06013b323ce67f0b37dcaf03f7f3a73aa0d1fbeebf927c969f192",
+      "currentSha256": "94ca094950491844a333996216a9a2bfc3bb7a165a4e257dc0cc7e183f34660a",
+      "changedFields": [
+        "canDo",
+        "checkpointContentIds",
+        "title"
+      ]
+    },
+    {
+      "id": "c1_02_inclusive_sustainable_systems",
+      "field": "courseUnits",
+      "before": {
+        "id": "c1_02_inclusive_sustainable_systems",
+        "level": "c1",
+        "order": 2,
+        "title": {
+          "ko": "포용성과 지속 가능성",
+          "de": "Inklusion und Nachhaltigkeit",
+          "en": "Inclusion and Sustainability"
+        },
+        "canDo": {
+          "ko": "접근성, 비용, 참여와 지역 여건의 상충 관계를 조정해 제안을 만들 수 있어요.",
+          "de": "Ich kann Zielkonflikte zwischen Zugänglichkeit, Kosten, Beteiligung und lokalen Bedingungen abwägen.",
+          "en": "I can balance accessibility, cost, participation, and local conditions in a practical proposal."
+        },
+        "prerequisiteUnitIds": [
+          "c1_01_evidence_public_reasoning"
+        ],
+        "requiredConceptIds": [
+          "concept_c1_inclusive_systems"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c1_taking_into_account"
+        ]
+      },
+      "current": {
+        "id": "c1_02_inclusive_sustainable_systems",
+        "level": "c1",
+        "order": 2,
+        "title": {
+          "ko": "포용성과 자원 제약 함께 다루기",
+          "de": "Inklusion und Ressourcenbegrenzungen gemeinsam berücksichtigen",
+          "en": "Balancing inclusion with resource constraints"
+        },
+        "canDo": {
+          "ko": "제도의 존재와 실제 접근 가능성을 구분하고 우선순위를 협의할 수 있어요.",
+          "de": "Ich kann zwischen dem bloßen Vorhandensein eines Angebots und tatsächlichem Zugang unterscheiden und Prioritäten aushandeln.",
+          "en": "I can distinguish between a service existing and people actually being able to access it, and negotiate priorities."
+        },
+        "prerequisiteUnitIds": [
+          "c1_01_evidence_public_reasoning"
+        ],
+        "requiredConceptIds": [
+          "concept_c1_inclusive_systems"
+        ],
+        "checkpointContentIds": [
+          "scenario:heatwave_shelter_access"
+        ]
+      },
+      "beforeSha256": "71bccb7827ebc91eca409dc26dce455b9b8ec3c01c65abb6dd47676082703c2b",
+      "currentSha256": "fe95336006bdf3fe6062e5ff838c6b15104a10554e340b208a34e9379dd495eb",
+      "changedFields": [
+        "canDo",
+        "checkpointContentIds",
+        "title"
+      ]
+    },
+    {
+      "id": "c2_01_interpretation_institutions",
+      "field": "courseUnits",
+      "before": {
+        "id": "c2_01_interpretation_institutions",
+        "level": "c2",
+        "order": 1,
+        "title": {
+          "ko": "해석, 언어와 제도",
+          "de": "Deutung, Sprache und Institutionen",
+          "en": "Interpretation, Language, and Institutions"
+        },
+        "canDo": {
+          "ko": "담론의 전제와 제도적 권한을 드러내고 여러 해석을 근거로 비교할 수 있어요.",
+          "de": "Ich kann Prämissen im Diskurs und institutionelle Macht sichtbar machen und Deutungen evidenzbasiert vergleichen.",
+          "en": "I can expose assumptions and institutional power in discourse and compare interpretations using evidence."
+        },
+        "prerequisiteUnitIds": [
+          "c1_02_inclusive_sustainable_systems"
+        ],
+        "requiredConceptIds": [
+          "concept_c2_discourse_institutions"
+        ],
+        "checkpointContentIds": [
+          "smalltalk:smalltalk_c2_0012"
+        ]
+      },
+      "current": {
+        "id": "c2_01_interpretation_institutions",
+        "level": "c2",
+        "order": 1,
+        "title": {
+          "ko": "제도와 권리 충돌을 원칙으로 논증하기",
+          "de": "Konflikte zwischen Institutionen und Rechten prinzipiengeleitet erörtern",
+          "en": "Arguing institutional and rights conflicts from principles"
+        },
+        "canDo": {
+          "ko": "권리 충돌을 필요성·비례성·대안의 구조로 분석하고 설득할 수 있어요.",
+          "de": "Ich kann Grundrechtskonflikte anhand von Erforderlichkeit, Verhältnismäßigkeit und Alternativen analysieren und überzeugend darstellen.",
+          "en": "I can analyze and argue rights conflicts through necessity, proportionality, and alternatives."
+        },
+        "prerequisiteUnitIds": [
+          "c1_02_inclusive_sustainable_systems"
+        ],
+        "requiredConceptIds": [
+          "concept_c2_discourse_institutions"
+        ],
+        "checkpointContentIds": [
+          "scenario:protest_order_and_rights"
+        ]
+      },
+      "beforeSha256": "61b95242c5370b34f783f618a4d3102039e05365ad19269c8ef1852e5d155aef",
+      "currentSha256": "4515d1bda5d011af18be16031673ea4884ee2f823f5868307eb0685b334ce3a1",
+      "changedFields": [
+        "canDo",
+        "checkpointContentIds",
+        "title"
+      ]
+    },
+    {
+      "id": "c2_02_technology_public_ethics",
+      "field": "courseUnits",
+      "before": {
+        "id": "c2_02_technology_public_ethics",
+        "level": "c2",
+        "order": 2,
+        "title": {
+          "ko": "기술윤리와 공공 책임",
+          "de": "Technikethik und öffentliche Verantwortung",
+          "en": "Technology Ethics and Public Accountability"
+        },
+        "canDo": {
+          "ko": "자동화 시스템의 이익과 위험을 평가하고 책임 있는 절차를 구체적으로 설계할 수 있어요.",
+          "de": "Ich kann Nutzen und Risiken automatisierter Systeme bewerten und verantwortliche Verfahren konkret entwerfen.",
+          "en": "I can evaluate automated systems and design concrete, accountable procedures."
+        },
+        "prerequisiteUnitIds": [
+          "c2_01_interpretation_institutions"
+        ],
+        "requiredConceptIds": [
+          "concept_c2_accountable_systems"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c2_even_assuming"
+        ]
+      },
+      "current": {
+        "id": "c2_02_technology_public_ethics",
+        "level": "c2",
+        "order": 2,
+        "title": {
+          "ko": "자동화의 효율과 공공 책임 논증하기",
+          "de": "Effizienz und öffentliche Verantwortung automatisierter Systeme abwägen",
+          "en": "Arguing efficiency and public responsibility in automation"
+        },
+        "canDo": {
+          "ko": "자동화의 효율, 오류 비용, 설명 의무와 사람의 최종 책임을 정교하게 논증할 수 있어요.",
+          "de": "Ich kann Effizienz, Fehlerkosten, Erklärungspflichten und menschliche Letztverantwortung automatisierter Systeme differenziert erörtern.",
+          "en": "I can precisely argue the efficiency, error costs, duty to explain, and human responsibility of automated systems."
+        },
+        "prerequisiteUnitIds": [
+          "c2_01_interpretation_institutions"
+        ],
+        "requiredConceptIds": [
+          "concept_c2_accountable_systems"
+        ],
+        "checkpointContentIds": [
+          "scenario:automated_benefit_denial"
+        ]
+      },
+      "beforeSha256": "141638cfbeac909c39d0df7a5a631fd4603952abf70cf49ab5bbcbd9e7e88e25",
+      "currentSha256": "a89b8b743fab1ea91576fb62a64cf51d011000e69fab56f7b704de3700e33eb7",
+      "changedFields": [
+        "canDo",
+        "checkpointContentIds",
+        "title"
+      ]
+    }
+  ]
+}
