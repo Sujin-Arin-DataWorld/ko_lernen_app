@@ -10715,13 +10715,13 @@
       "category": "screen",
       "level": "c1",
       "kind": "question",
-      "ko": "그 영상 주장은 표본이 몇 명이었는지 나와 있었어요?",
+      "ko": "그 영상에 표본이 몇 명이었는지 나와 있었어요?",
       "de": "Stand in dem Video, wie groß die Stichprobe war?",
       "en": "Did the video say how large the sample was?",
       "reply": {
         "ko": "숫자는 안 나오고 결론만 크게 나왔어요.",
-        "de": "Es wurden keine Zahlen genannt, nur eine sehr weitreichende Schlussfolgerung.",
-        "en": "There were no numbers, just a sweeping conclusion."
+        "de": "Es wurden keine Zahlen genannt; nur die Schlussfolgerung wurde hervorgehoben.",
+        "en": "No figures were given; only the conclusion was highlighted."
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
@@ -10798,8 +10798,8 @@
       "level": "c2",
       "kind": "reaction",
       "ko": "창구가 있다고 해서 구제가 되는 건 아니더라고요.",
-      "de": "Nur weil es eine Anlaufstelle gibt, ist noch keine wirksame Abhilfe gewährleistet.",
-      "en": "Having an appeals channel does not guarantee an effective remedy.",
+      "de": "Ich habe festgestellt, dass eine Anlaufstelle noch keine wirksame Abhilfe garantiert.",
+      "en": "I've found that having an appeals channel doesn't necessarily mean you get redress.",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
@@ -10811,9 +10811,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그 숫자가 없으면 절차만 남는 셈이죠.",
-        "de": "Ohne diese Zahl bleibt nur das Verfahren übrig.",
-        "en": "Without that number only the procedure is left."
+        "ko": "그 숫자가 없으면 실제로 구제가 되는지 판단하기 어렵죠.",
+        "de": "Ohne diese Zahl lässt sich schwer beurteilen, ob tatsächlich Abhilfe geschaffen wird.",
+        "en": "Without that figure, it's hard to judge whether people actually get redress."
       }
     },
     {
@@ -10827,7 +10827,7 @@
       "reply": {
         "ko": "시간이 줄었다는 표는 봤는데 잠은 그대로였어요.",
         "de": "Ich habe eine Tabelle gesehen, nach der die Spielzeit sank; am Schlaf änderte sich aber nichts.",
-        "en": "I saw a table with less time, but sleep stayed the same."
+        "en": "I saw a table showing that gaming time had fallen, but there was no change in sleep."
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
@@ -10841,8 +10841,8 @@
       "followUp": {
         "turnKind": "reaction",
         "ko": "연령대가 다르면 결론도 달라지겠네요.",
-        "de": "Bei einer anderen Altersgruppe fällt der Schluss anders aus.",
-        "en": "With a different age group the conclusion changes."
+        "de": "Bei einer anderen Altersgruppe dürfte die Schlussfolgerung auch anders ausfallen.",
+        "en": "With a different age group, the conclusion would probably differ too."
       }
     },
     {
@@ -10893,9 +10893,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "기한이 없으면 다투기가 훨씬 어렵죠.",
-        "de": "Ohne Frist wird das Anfechten deutlich schwerer.",
-        "en": "With no deadline it's far harder to contest."
+        "ko": "기한을 모르면 다투기가 훨씬 어렵죠.",
+        "de": "Wenn man die Frist nicht kennt, ist es deutlich schwerer, die Sperre anzufechten.",
+        "en": "If you don't know the deadline, it's much harder to challenge the suspension."
       }
     },
     {
@@ -10928,7 +10928,7 @@
       "level": "c1",
       "kind": "question",
       "ko": "그 계정 번역은 몇 분이서 돌아가면서 하세요?",
-      "de": "Wie viele Personen teilen sich die Übersetzungen für dieses Konto?",
+      "de": "Wie viele von euch wechseln sich bei den Übersetzungen für diesen Account ab?",
       "en": "How many of you take turns on the translations for that account?",
       "reply": {
         "ko": "요즘은 사실상 두 명이 다 하고 있어요.",
@@ -10940,15 +10940,15 @@
         {
           "turnKind": "question",
           "ko": "컴백 기간에는 인원을 더 늘리세요?",
-          "de": "Stocken Sie in der Comeback-Zeit auf?",
+          "de": "Holt ihr während eines Comebacks noch mehr Leute dazu?",
           "en": "Do you add more people during a comeback?"
         }
       ],
       "followUp": {
         "turnKind": "reaction",
         "ko": "그때가 제일 몰릴 텐데 걱정이네요.",
-        "de": "Gerade dann ballt es sich am meisten.",
-        "en": "That's exactly when it piles up most."
+        "de": "Gerade dann dürfte am meisten Arbeit anfallen. Das macht mir Sorgen.",
+        "en": "That's probably when the workload is heaviest, so I'm worried."
       }
     },
     {
@@ -10957,21 +10957,21 @@
       "level": "c1",
       "kind": "reaction",
       "ko": "좋아서 하는 일이라도 양이 정해져 있어야 오래 가더라고요.",
-      "de": "Auch Arbeit, die man gern macht, lässt sich auf Dauer nur bewältigen, wenn der Umfang begrenzt ist.",
-      "en": "Even work you enjoy is only sustainable if the workload is capped.",
+      "de": "Ich habe gemerkt, dass auch Arbeit, die man gern macht, auf Dauer nur mit einem begrenzten Pensum machbar ist.",
+      "en": "I've found that even work you enjoy is only sustainable if the workload is capped.",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
           "ko": "주당 몇 시간으로 정해 두셨어요?",
-          "de": "Auf wie viele Stunden pro Woche haben Sie sich festgelegt?",
+          "de": "Wie viele Stunden pro Woche sind dafür fest eingeplant?",
           "en": "How many hours a week did you settle on?"
         }
       ],
       "followUp": {
         "turnKind": "reaction",
         "ko": "그 정도면 시험 기간에도 버티겠네요.",
-        "de": "So ist auch die Prüfungszeit zu schaffen.",
+        "de": "So dürfte auch die Prüfungszeit zu schaffen sein.",
         "en": "That should hold up even during exams."
       }
     },
@@ -10981,19 +10981,19 @@
       "level": "c2",
       "kind": "question",
       "ko": "그 이야기 지금은 누구 입장에서 정리돼 있는 것 같으세요?",
-      "de": "Aus wessen Perspektive wird die Geschichte inzwischen erzählt?",
+      "de": "Aus wessen Perspektive wird die Geschichte deiner Meinung nach inzwischen erzählt?",
       "en": "Whose perspective do you think shapes the way the story is being told now?",
       "reply": {
         "ko": "제 쪽 이야기만 여러 번 다듬어졌더라고요.",
-        "de": "Nur meine Version wurde mehrfach geglättet.",
-        "en": "Only my version got smoothed over several times."
+        "de": "Mir ist aufgefallen, dass nur meine Version mehrfach überarbeitet wurde.",
+        "en": "I realized that only my side of the story had been polished several times."
       },
       "relationshipContext": "close_friend",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
           "ko": "상대 쪽 설명도 들어 보셨어요?",
-          "de": "Haben Sie auch die Darstellung der anderen Seite gehört?",
+          "de": "Hast du auch die Darstellung der anderen Seite gehört?",
           "en": "Have you heard the other side's account too?"
         }
       ],
