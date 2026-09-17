@@ -55,6 +55,8 @@ python -B tools/content_factory/audit_review_history.py `
 
 도구는 기존 출력 파일을 덮어쓰지 않는다. 현재 HEAD를 검사할 때 입력 파일의 미커밋 변경이 있으면 중단한다. 과거 HEAD를 명시하면 그 Git blob만 읽으므로 이후 작업이 과거 증거를 바꾸지 않는다. 파싱 공백이 표시된 보고서의 생성 성공을 이력 완전성이나 배치 승인으로 해석하지 않는다.
 
+schema 1은 대상 파일·컬렉션 표와 UTF-8 canonical JSON SHA-256 행 해시 규약을 감사기 자체에 고정한다. 현재 `validate_promoted_batch.py`를 import하지 않으므로 그 파일의 이후 커밋이나 미커밋 변경이 위 재현 결과를 바꾸지 않는다. 이 표나 해시 규약을 바꿀 때는 새 보고서 schema가 필요하다.
+
 ## 별도 문법 검토에서 확인한 다음 교정 대상
 
 아래 네 Batch 07 문법 행과 연결된 기존 `-시-` 문항은 **MODEL_QA_FLAG**다. 이 감사 변경에서 라이브 교정이나 새 승인으로 처리하지 않았다.
