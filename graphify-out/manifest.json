@@ -7686,9 +7686,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/review/promoted_copy_revisions_20260822.json": {
-    "mtime": 1789613909.5932968,
-    "seen": 1789614687.8067253,
-    "ast_hash": "1fa50acc0eb976c8f2df1f18b036d53a",
+    "mtime": 1789617086.6874645,
+    "seen": 1789617608.4027555,
+    "ast_hash": "507703b3476820a0bfb87d46925d0518",
     "semantic_hash": ""
   },
   "tools/content_factory/rr_romanize.py": {
@@ -9360,8 +9360,8 @@
     "semantic_hash": ""
   },
   "tools/content_factory/README.md": {
-    "mtime": 1789613909.5948012,
-    "seen": 1789614687.9606838,
+    "mtime": 1789617086.7920928,
+    "seen": 1789617608.5597181,
     "ast_hash": "db7fef9aea702557fcac597902dc7b20",
     "semantic_hash": ""
   },
@@ -19260,8 +19260,8 @@
     "semantic_hash": ""
   },
   "tools/content_factory/audit_review_history.py": {
-    "mtime": 1789613909.5948012,
-    "seen": 1789614687.660769,
+    "mtime": 1789617086.8433847,
+    "seen": 1789617608.2282338,
     "ast_hash": "639ec108ae2e9fe173587860d402c4dd",
     "semantic_hash": ""
   },
@@ -19272,14 +19272,14 @@
     "semantic_hash": ""
   },
   "tools/content_factory/test_audit_review_history.py": {
-    "mtime": 1789613909.5948012,
-    "seen": 1789614687.81481,
+    "mtime": 1789617086.8956575,
+    "seen": 1789617608.408818,
     "ast_hash": "383ee3c503b993561d902859554a536f",
     "semantic_hash": ""
   },
   "docs/data/review_packets/batch_07_history_20260916.md": {
-    "mtime": 1789613909.5932968,
-    "seen": 1789614687.9048977,
+    "mtime": 1789617086.7395823,
+    "seen": 1789617608.5134704,
     "ast_hash": "a454d38b1cf075f2e666d1812f1b04d1",
     "semantic_hash": ""
   },
@@ -19329,6 +19329,24 @@
     "mtime": 1789612216.8287816,
     "seen": 1789614687.904902,
     "ast_hash": "6ea9ff85409eb403458f3434b304bc3f",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/review/batch_19_reconciliation_20260917.json": {
+    "mtime": 1789614868.0011482,
+    "seen": 1789617608.3535159,
+    "ast_hash": "81edd161d552a0834efc4dc6eac8307e",
+    "semantic_hash": ""
+  },
+  "tools/content_factory/test_batch19_reconciliation.py": {
+    "mtime": 1789614868.004589,
+    "seen": 1789617608.4104745,
+    "ast_hash": "5c72ec70dafbe796d4525d2a4a436208",
+    "semantic_hash": ""
+  },
+  "docs/data/review_packets/batch_19_reconciliation_20260917.md": {
+    "mtime": 1789614867.9886763,
+    "seen": 1789617608.5136876,
+    "ast_hash": "2a2c4e19980dda8db9189e7a4098090d",
     "semantic_hash": ""
   }
 }
