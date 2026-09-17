@@ -47,6 +47,7 @@ const _scenario = Scenario(
         'correctIndex': 0,
         'options': [
           {'de': 'Correct response', 'en': 'Correct response'},
+          {'de': 'Other response', 'en': 'Other response'},
         ],
       },
     ),
