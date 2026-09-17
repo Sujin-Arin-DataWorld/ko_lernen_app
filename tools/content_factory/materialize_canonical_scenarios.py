@@ -355,16 +355,52 @@ def _quests(
     scenario_id: str,
     dialog: Sequence[Mapping[str, str]],
     concept_ids: Sequence[str],
+    sentence_build: Any = None,
 ) -> list[dict[str, Any]]:
     unique = _unique_lines(dialog)
-    heard = next((line for line in unique if line["speaker"] != "user"), unique[0])
-    player_lines = [line for line in unique if line["speaker"] == "user"]
+    heard = next((line for line in dialog if line["speaker"] != "user"), unique[0])
+    # A learner can repeat an NPC's sentence. Global text deduplication must
+    # not erase that learner turn or attach the NPC's localization to it.
+    player_by_ko: OrderedDict[str, Mapping[str, str]] = OrderedDict()
+    for line in dialog:
+        if line["speaker"] == "user":
+            player_by_ko.setdefault(line["ko"], line)
+    player_lines = list(player_by_ko.values())
+    if not player_lines:
+        raise AuthoredSourceError(f"{scenario_id}: dialogue needs a learner turn")
     translated = player_lines[0]
     build = player_lines[-1]
 
-    hearing_options = [heard] + [line for line in unique if line is not heard][:3]
-    korean_options = [translated] + [line for line in unique if line is not translated][:3]
-    distractors = [line["ko"] for line in unique if line is not build][:3]
+    # The engine normalizes each distractor but does not split it. A dialogue
+    # sentence would therefore become one huge tile. Require authored word
+    # choices tied to this exact production target; never infer them from prose.
+    label = f"{scenario_id}.sentenceBuild"
+    if not isinstance(sentence_build, Mapping):
+        raise AuthoredSourceError(f"{label} requires authored targetKo and three word distractors")
+    if sentence_build.get("targetKo") != build["ko"]:
+        raise AuthoredSourceError(f"{label}.targetKo must match the final distinct learner line")
+    distractors = sentence_build.get("distractors")
+    if not isinstance(distractors, list) or len(distractors) != 3:
+        raise AuthoredSourceError(f"{label}.distractors must contain exactly three word tiles")
+    # Same edge punctuation as SatzBauenQuest.normalizeToken. Reject unclean
+    # authored tiles rather than silently changing or collapsing their identity.
+    edge_punctuation = r'^[\s.,!?…·"”’]+|[\s.,!?…·"”’]+$'
+    target_tokens = {re.sub(edge_punctuation, "", word) for word in build["ko"].split()}
+    seen: set[str] = set()
+    for tile in distractors:
+        if (
+            not isinstance(tile, str)
+            or not tile
+            or re.search(r"\s", tile)
+            or re.sub(edge_punctuation, "", tile) != tile
+            or tile in target_tokens
+            or tile in seen
+        ):
+            raise AuthoredSourceError(f"{label}.distractors has an invalid, duplicate, or target-overlapping word tile: {tile!r}")
+        seen.add(tile)
+
+    hearing_options = [heard] + [line for line in unique if line["ko"] != heard["ko"]][:3]
+    korean_options = [translated] + [line for line in unique if line["ko"] != translated["ko"]][:3]
     return [
         {
             "id": f"quest_{scenario_id}_01",
@@ -479,7 +515,7 @@ def materialize_one(
         "grammarIds": [grammar["id"]],
         "grammarBlock": grammar["block"],
         "dialog": dialog,
-        "quests": _quests(brief.scenario_id, dialog, concepts),
+        "quests": _quests(brief.scenario_id, dialog, concepts, source.get("sentenceBuild")),
         "culturalNote": culture_note,
         "xpReward": XP_BY_LEVEL[brief.level],
     }
@@ -524,7 +560,7 @@ def materialize_level(
                 )
             inherited = json.loads(json.dumps(main_sources[copy_from], ensure_ascii=False))
             inherited["id"] = item["id"]
-            for optional in ("title", "intro", "dialog", "culturalNote"):
+            for optional in ("title", "intro", "dialog", "culturalNote", "sentenceBuild"):
                 if optional in item:
                     inherited[optional] = item[optional]
             resolved.append(inherited)
@@ -544,8 +580,9 @@ def materialize_level(
     concepts = _concepts_by_unit(root)
     output_root = output if output.is_absolute() else root / output
     target = output_root / normalized
-    target.mkdir(parents=True, exist_ok=True)
-    written: list[Path] = []
+    # Validate and serialize the whole requested level before the first write.
+    # A bad later source must not leave a partly regenerated review collection.
+    prepared: list[tuple[Path, str]] = []
     for brief in expected:
         candidate = materialize_one(
             source=by_id[brief.scenario_id],
@@ -555,9 +592,11 @@ def materialize_level(
             sources=sources,
         )
         path = target / f"{brief.scenario_id}.json"
-        path.write_text(pipeline.json_text(candidate), encoding="utf-8")
-        written.append(path)
-    return written
+        prepared.append((path, pipeline.json_text(candidate)))
+    target.mkdir(parents=True, exist_ok=True)
+    for path, content in prepared:
+        path.write_text(content, encoding="utf-8")
+    return [path for path, _ in prepared]
 
 
 def main() -> int:
