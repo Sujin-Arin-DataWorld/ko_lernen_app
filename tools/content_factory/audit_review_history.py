@@ -16,9 +16,25 @@ from pathlib import Path
 import subprocess
 from typing import Any
 
-import validate_promoted_batch as promoted
-
 ROOT = Path(__file__).resolve().parents[2]
+
+# Frozen report schema 1 contract, independent of mutable promotion helpers.
+# Changing these targets or the canonical row encoding requires a new schema.
+_TARGETS_V1 = {
+    "vocab": ("korean_vocab.csv", None),
+    "grammar": ("grammar.csv", None),
+    "smalltalk": ("smalltalk.json", "phrases"),
+    "cloze": ("cloze.json", "items"),
+    "satz": ("satz_sentences.json", "items"),
+    "pronunciation": ("pronunciation_phrases.json", "phrases"),
+    "usage_note": ("usage_notes.json", "notes"),
+}
+
+
+def _fingerprint_v1(value: Any) -> str:
+    canonical = json.dumps(value, ensure_ascii=False, sort_keys=True,
+                           separators=(",", ":")).encode("utf-8")
+    return hashlib.sha256(canonical).hexdigest()
 
 
 class HistoryError(ValueError):
@@ -145,8 +161,8 @@ def _trace(root: Path, path: str, collection: str | None, ids: set[str],
             if before == after:
                 continue
             histories[ident].append({
-                "commit": commit, "beforeSha256": promoted._fingerprint(before),
-                "afterSha256": promoted._fingerprint(after), "fields": _delta(before, after),
+                "commit": commit, "beforeSha256": _fingerprint_v1(before),
+                "afterSha256": _fingerprint_v1(after), "fields": _delta(before, after),
                 "unparsedInterval": list(interval),
             })
             changed.append(ident)
@@ -165,8 +181,8 @@ def _trace(root: Path, path: str, collection: str | None, ids: set[str],
         "historyComplete": not unparsed,
         "unparsedSnapshots": unparsed,
         "rows": [{"id": ident,
-                  "promotionSha256": promoted._fingerprint(initial.get(ident)),
-                  "currentSha256": promoted._fingerprint(current.get(ident)),
+                  "promotionSha256": _fingerprint_v1(initial.get(ident)),
+                  "currentSha256": _fingerprint_v1(current.get(ident)),
                   "transitions": histories[ident]} for ident in sorted(ids)],
     }
 
@@ -198,12 +214,12 @@ def audit(*, root: Path, manifest: str, promotion_manifest: str,
     }
     for item in artifacts:
         kind = item["kind"]
-        if kind not in promoted.TARGETS or not promoted.TARGETS[kind][0] or kind not in original_artifacts:
+        if kind not in _TARGETS_V1 or kind not in original_artifacts:
             raise HistoryError(f"unsupported or missing historical artifact kind: {kind}")
         old_item = original_artifacts[kind]
         if any(old_item.get(key) != item.get(key) for key in ("draft", "review")):
             raise HistoryError(f"{kind}: draft/review path rename requires separate evidence")
-        target, collection = promoted.TARGETS[kind]
+        target, collection = _TARGETS_V1[kind]
         paths = {"draft": _path(item["draft"]), "review": _path(item["review"]), "live": f"assets/data/{target}"}
         # Report a committed snapshot; do not silently overlook source WIP.
         if head == working_head:

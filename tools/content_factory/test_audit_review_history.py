@@ -4,6 +4,7 @@ import io
 import json
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -108,6 +109,42 @@ class HistoryTraceTest(unittest.TestCase):
         after = history.audit(root=self.root, manifest=self.manifest, promotion_manifest=self.manifest,
                               promotion=self.promotion, integration=self.promotion, head_ref=self.promotion)
         self.assertEqual(before, after)
+
+    def install_cli_fixture(self):
+        script = "tools/content_factory/audit_review_history.py"
+        helper = "tools/content_factory/validate_promoted_batch.py"
+        self.write(script, Path(history.__file__).read_text(encoding="utf-8"))
+        self.write(helper, 'import hashlib, json\n'
+                   'TARGETS = {"vocab": ("korean_vocab.csv", None)}\n'
+                   'def _fingerprint(value):\n'
+                   '    return hashlib.sha256(json.dumps(value, ensure_ascii=False, '
+                   'sort_keys=True, separators=(",", ":")).encode("utf-8")).hexdigest()\n')
+        return script, helper, self.commit("install CLI fixture")
+
+    def cli_audit(self, script, head):
+        return subprocess.check_output(
+            [sys.executable, "-B", str(self.root / script), "--root", str(self.root),
+             "--manifest", self.manifest, "--promotion-manifest", self.manifest,
+             "--promotion", self.promotion, "--integration", self.promotion,
+             "--head", head], cwd=self.root,
+        )
+
+    def test_pinned_cli_ignores_uncommitted_fingerprint_helper(self):
+        script, helper, head = self.install_cli_fixture()
+        before = self.cli_audit(script, head)
+        with (self.root / helper).open("a", encoding="utf-8") as handle:
+            handle.write('\ndef _fingerprint(value):\n    return "uncommitted-hash"\n')
+        self.assertEqual(before, self.cli_audit(script, head))
+
+    def test_pinned_cli_ignores_later_committed_target_mapping(self):
+        script, helper, head = self.install_cli_fixture()
+        before = self.cli_audit(script, head)
+        # A later helper must not redirect an older audit to this new live file.
+        self.word("assets/data/later_vocab.csv", "나중")
+        with (self.root / helper).open("a", encoding="utf-8") as handle:
+            handle.write('\nTARGETS["vocab"] = ("later_vocab.csv", None)\n')
+        self.commit("change target mapping after pinned endpoint")
+        self.assertEqual(before, self.cli_audit(script, head))
 
     def test_nonancestor_promotion_is_rejected(self):
         self.git("checkout", "--orphan", "unrelated")
