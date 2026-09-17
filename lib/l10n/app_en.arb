@@ -1021,6 +1021,7 @@
   "bookResultSectionWords": "Words",
   "bookResultSectionExpressions": "Expressions",
   "bookResultSectionGrammar": "Grammar",
+  "bookResultOpenGrammar": "Open grammar card",
   "bookResultSectionSentences": "Sentences",
   "bookStudyAskTitle": "Ask {name} about this item",
   "@bookStudyAskTitle": {

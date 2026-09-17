@@ -5,14 +5,18 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
 import '../models/feedback_completion.dart';
+import '../models/grammar.dart';
 import '../services/analytics_service.dart';
 import '../services/book_analysis_service.dart';
 import '../services/book_analysis_text.dart';
+import '../services/book_grammar_links.dart';
 import '../services/book_image_service.dart';
 import '../services/book_ocr_document.dart';
 import '../services/grounded_book_study_service.dart';
 import '../services/bookshelf_service.dart';
 import '../services/custom_pack_service.dart';
+import '../services/data_loader.dart';
+import '../services/diagnostics_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_error.dart';
@@ -97,12 +101,14 @@ class BookResultScreen extends StatefulWidget {
   final Map<String, dynamic> args;
   final BookAnalyzer? analyzer;
   final BookPageSaver? pageSaver;
+  final Future<List<Grammar>> Function()? grammarLoader;
 
   const BookResultScreen({
     super.key,
     required this.args,
     this.analyzer,
     this.pageSaver,
+    this.grammarLoader,
   });
 
   @override
@@ -113,6 +119,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
   bool _loading = true;
   String? _error;
   BookAnalysisResult? _result;
+  Map<String, Grammar> _linkedGrammar = const {};
   late final BookResultSaveIntent _saveIntent;
   String? _analysisLanguage;
   int _analysisGeneration = 0;
@@ -243,6 +250,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
     setState(() {
       _loading = true;
       _error = null;
+      _linkedGrammar = const {};
     });
     try {
       // Quota erst nach erfolgreichem Aufruf erhöhen — Fehler zählen nicht.
@@ -287,6 +295,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
           ),
         );
       });
+      unawaited(_loadGrammarLinks(res, generation));
     } catch (_) {
       if (!mounted || generation != _analysisGeneration) {
         return;
@@ -295,6 +304,39 @@ class _BookResultScreenState extends State<BookResultScreen> {
         _loading = false;
         _error = AppL10n.of(context).loadErrorTryAgain;
       });
+    }
+  }
+
+  Future<void> _loadGrammarLinks(
+    BookAnalysisResult result,
+    int generation,
+  ) async {
+    if (!result.grammar.any(
+      (hit) => BookGrammarLinks.targets.containsKey(hit.patternId),
+    )) {
+      return;
+    }
+    try {
+      final catalog = await (widget.grammarLoader ?? DataLoader.loadGrammar)();
+      if (!mounted || generation != _analysisGeneration) {
+        return;
+      }
+      final links = <String, Grammar>{};
+      for (final hit in result.grammar) {
+        final target = BookGrammarLinks.resolve(hit.patternId, catalog);
+        if (target != null) {
+          links[hit.patternId] = target;
+        }
+      }
+      setState(() => _linkedGrammar = links);
+    } catch (error, stackTrace) {
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'book_result.grammar_links',
+          error,
+          stackTrace,
+        ),
+      );
     }
   }
 
@@ -520,7 +562,13 @@ class _BookResultScreenState extends State<BookResultScreen> {
               // 문법 패턴
               if (r.grammar.isNotEmpty) ...[
                 _SectionLabel(label: t.bookResultSectionGrammar),
-                ...r.grammar.map((g) => _GrammarCard(hit: g, result: r)),
+                ...r.grammar.map(
+                  (g) => _GrammarCard(
+                    hit: g,
+                    result: r,
+                    target: _linkedGrammar[g.patternId],
+                  ),
+                ),
                 const SizedBox(height: Spacing.lg),
               ],
               // 문장
@@ -977,7 +1025,8 @@ class _WordCard extends StatelessWidget {
 class _GrammarCard extends StatelessWidget {
   final GrammarHit hit;
   final BookAnalysisResult result;
-  const _GrammarCard({required this.hit, required this.result});
+  final Grammar? target;
+  const _GrammarCard({required this.hit, required this.result, this.target});
 
   @override
   Widget build(BuildContext context) {
@@ -1016,6 +1065,18 @@ class _GrammarCard extends StatelessWidget {
             if (hit.explanationDe.isNotEmpty) ...[
               const SizedBox(height: 4),
               Text(hit.explanationDe, style: SoriTextTheme.of(context).caption),
+            ],
+            if (target != null) ...[
+              const SizedBox(height: Spacing.sm),
+              SoriButton(
+                label: AppL10n.of(context).bookResultOpenGrammar,
+                icon: Icons.menu_book_outlined,
+                variant: SoriButtonVariant.outlined,
+                fullWidth: true,
+                onTap: () => Navigator.of(
+                  context,
+                ).pushNamed('/grammar', arguments: {'grammarId': target!.id}),
+              ),
             ],
           ],
         ),

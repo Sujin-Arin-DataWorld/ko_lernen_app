@@ -897,13 +897,8 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/grammar':
-              final grammarCourseContext =
-                  coursePracticeContextFromRouteArguments(
-                    settings.arguments,
-                    CurriculumContentKind.grammar,
-                  );
               return SoriTransitions.page(
-                (_) => GrammarScreen(courseContext: grammarCourseContext),
+                (_) => GrammarScreen.fromRouteArguments(settings.arguments),
                 settings: settings,
               );
             case '/grammar_choice_quiz':

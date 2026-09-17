@@ -1030,6 +1030,7 @@
   "bookResultSectionWords": "Wörter",
   "bookResultSectionExpressions": "Ausdrücke",
   "bookResultSectionGrammar": "Grammatik",
+  "bookResultOpenGrammar": "Grammatikkarte öffnen",
   "bookResultSectionSentences": "Sätze",
   "bookStudyAskTitle": "Frag {name} zu diesem Eintrag",
   "@bookStudyAskTitle": {

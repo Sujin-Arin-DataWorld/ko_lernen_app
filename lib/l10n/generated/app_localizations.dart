@@ -3415,6 +3415,12 @@ abstract class AppL10n {
   /// **'Grammatik'**
   String get bookResultSectionGrammar;
 
+  /// No description provided for @bookResultOpenGrammar.
+  ///
+  /// In de, this message translates to:
+  /// **'Grammatikkarte öffnen'**
+  String get bookResultOpenGrammar;
+
   /// No description provided for @bookResultSectionSentences.
   ///
   /// In de, this message translates to:
