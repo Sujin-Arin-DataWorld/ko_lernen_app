@@ -58,20 +58,24 @@ class SoriHomeAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    return Semantics(
-      button: true,
-      label: t.homeActionLabel,
-      // §B2(2026-09-03) — see SoriCloseAction.build for why `onTap` is
-      // repeated here: ExcludeSemantics below erases the SemanticsAction
-      // that SoriPressable's own GestureDetector would otherwise register.
-      onTap: () => _leave(context),
-      child: ExcludeSemantics(
-        child: SoriPressable(
-          onTap: () => _leave(context),
-          child: const SizedBox(
-            width: SoriLayout.chromeRowTouchHeight,
-            height: SoriLayout.chromeRowTouchHeight,
-            child: Icon(Icons.home_rounded),
+    return Tooltip(
+      message: t.homeActionLabel,
+      excludeFromSemantics: true,
+      child: Semantics(
+        button: true,
+        label: t.homeActionLabel,
+        // §B2(2026-09-03) — see SoriCloseAction.build for why `onTap` is
+        // repeated here: ExcludeSemantics below erases the SemanticsAction
+        // that SoriPressable's own GestureDetector would otherwise register.
+        onTap: () => _leave(context),
+        child: ExcludeSemantics(
+          child: SoriPressable(
+            onTap: () => _leave(context),
+            child: const SizedBox(
+              width: SoriLayout.chromeRowTouchHeight,
+              height: SoriLayout.chromeRowTouchHeight,
+              child: Icon(Icons.home_rounded),
+            ),
           ),
         ),
       ),
@@ -116,21 +120,25 @@ class SoriCloseAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    return Semantics(
-      button: true,
-      label: t.closeActionLabel,
-      // `ExcludeSemantics` 아래는 `SoriPressable`의 GestureDetector가 실제
-      // 터치를 직접 처리하지만, 그 기여분은 여기서 지워지므로 스크린리더의
-      // 이중 탭(SemanticsAction.tap)이 통할 자리가 없다 — `onTap`을 이
-      // Semantics 노드에 직접 달아 스크린리더 활성화 경로를 따로 준다.
-      onTap: () => _close(context),
-      child: ExcludeSemantics(
-        child: SoriPressable(
-          onTap: () => _close(context),
-          child: const SizedBox(
-            width: SoriLayout.chromeRowTouchHeight,
-            height: SoriLayout.chromeRowTouchHeight,
-            child: Icon(Icons.close_rounded),
+    return Tooltip(
+      message: t.closeActionLabel,
+      excludeFromSemantics: true,
+      child: Semantics(
+        button: true,
+        label: t.closeActionLabel,
+        // `ExcludeSemantics` 아래는 `SoriPressable`의 GestureDetector가 실제
+        // 터치를 직접 처리하지만, 그 기여분은 여기서 지워지므로 스크린리더의
+        // 이중 탭(SemanticsAction.tap)이 통할 자리가 없다 — `onTap`을 이
+        // Semantics 노드에 직접 달아 스크린리더 활성화 경로를 따로 준다.
+        onTap: () => _close(context),
+        child: ExcludeSemantics(
+          child: SoriPressable(
+            onTap: () => _close(context),
+            child: const SizedBox(
+              width: SoriLayout.chromeRowTouchHeight,
+              height: SoriLayout.chromeRowTouchHeight,
+              child: Icon(Icons.close_rounded),
+            ),
           ),
         ),
       ),

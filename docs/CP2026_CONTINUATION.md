@@ -68,7 +68,7 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 | S3 진행도 큐 | #329 병합, `pack_sync_queue.dart` | 실기기 강제종료·복원·Firestore 쓰기 실측을 코드 테스트와 구분 |
 | S4 / C5 빈 엔진 | 기존 게임 계약 있음 | 모든 레벨에 최소 5개 또는 명시적으로 숨김, 0건 경로 검증 |
 | S5 설치 크기 | Android `proofreading_feature` 선례 있음 | 앱 자산 분리 미완; App Bundle Explorer 실측부터, 기본 모듈 목표 150 MB |
-| S6 접근성 | 기존 Sori Semantics 규약 | 아이콘 Tooltip·Semantics 누락 조사, 작은 화면·큰 글자·기기 확인 |
+| S6 접근성 | AST 가드에서 발견한 아이콘 Tooltip 누락 13곳·읽기 라벨 누락 2곳 보완, CI 상시 가드 추가. DE/EN 버튼 라벨·동작·48dp 및 헤더 320dp/200% 위젯 검사 통과 | 원안의 Tooltip 0건은 현재 사실 아님(기존 Material IconButton 103곳에 존재). AST는 명시적 아이콘 구조만 검사하며 동적 라벨·사용자 정의 위젯 전체를 증명하지 않음. TalkBack/VoiceOver 실기기·전체 화면 접근성 검수 남음 |
 | B1 알림·SLO | #320 정책 5개·런북 병합 | **2026-09-16 실제 Monitoring 정책 조회 0개**. 채널·메트릭·정책 적용과 확인 필요; 코드 병합으로 닫지 않음 |
 | B2 함수 자원 | #333 병합, Gye limits·분할 Promise.all | 실제 배포 소스·운영 성능은 별도 확인 |
 | B3 쿼터 | `tts_request_guard.js` 여전히 전역 300/일 | 시간 버킷·사유 코드 설계/테스트/배포 검증, 상한을 임의 확대하지 않음 |
