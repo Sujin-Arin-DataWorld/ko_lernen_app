@@ -9,6 +9,7 @@ const {
   DAILY_LIMIT_ACCOUNT,
   DAILY_LIMIT_GLOBAL,
   DAILY_LIMIT_INSTALLATION,
+  HOURLY_LIMIT_GLOBAL,
   TtsRequestError,
   abandonTtsReplay,
   claimTtsReplay,
@@ -52,7 +53,7 @@ test("expensive TTS callable enforces App Check and matches the 12s client", () 
   assert.equal(CALLABLE_OPTIONS.maxInstances, 20);
 });
 
-test("rejects anonymous callers before any synthesis work", () => {
+test("rejects unauthenticated callers before any synthesis work", () => {
   assert.throws(
     () => validateTtsRequest({ data: { text: "안녕하세요" } }),
     (error) => error instanceof TtsRequestError && error.code === "unauthenticated",
@@ -118,13 +119,17 @@ test("rejects malformed installation IDs", () => {
 test("allows the 30th synthesis and atomically blocks the 31st per installation", async () => {
   const db = new FakeFirestore();
   for (let count = 0; count < DAILY_LIMIT_INSTALLATION; count += 1) {
-    const result = await consume(db, { uid: "account-a", installationId: INSTALLATION_A });
+    const result = await consume(db, {
+      uid: "account-a", installationId: INSTALLATION_A,
+      now: atHour(10 + Math.floor(count / 25)),
+    });
     assert.equal(result.allowed, true);
   }
   const before = db.serialized();
   const blocked = await consume(db, {
     uid: "account-a",
     installationId: INSTALLATION_A,
+    now: atHour(11),
   });
 
   assert.deepEqual(blocked, {
@@ -140,16 +145,19 @@ test("separate installations share the 50 synthesis account cap", async () => {
     assert.equal((await consume(db, {
       uid: "account-a",
       installationId: INSTALLATION_A,
+      now: atHour(10),
     })).allowed, true);
     assert.equal((await consume(db, {
       uid: "account-a",
       installationId: INSTALLATION_B,
+      now: atHour(11),
     })).allowed, true);
   }
 
   const blocked = await consume(db, {
     uid: "account-a",
     installationId: "029ff69d-1b66-445a-ac13-b415638faabd",
+    now: atHour(12),
   });
   assert.deepEqual(blocked, { allowed: false, exceededScope: "account" });
 });
@@ -162,6 +170,7 @@ test("all accounts share the 300 synthesis project cap", async () => {
         const result = await consume(db, {
           uid: `account-${account}`,
           installationId: uuidFor(account, installation),
+          now: atHour(account * 2 + installation),
         });
         assert.equal(result.allowed, true);
       }
@@ -172,6 +181,7 @@ test("all accounts share the 300 synthesis project cap", async () => {
   const blocked = await consume(db, {
     uid: "account-final",
     installationId: "f70daeb0-6664-42b6-8125-b94fd3357063",
+    now: atHour(12),
   });
   assert.deepEqual(blocked, { allowed: false, exceededScope: "global" });
 });
@@ -186,7 +196,7 @@ test("usage ledgers expire two UTC days after the counted day", async () => {
   });
 
   const stored = [...db.documents.entries()].filter(([key]) => key.startsWith("usage/")).map(([, value]) => value);
-  assert.equal(stored.length, 3);
+  assert.equal(stored.length, 4);
   for (const document of stored) {
     assert.deepEqual(document.expiresAt, quotaExpiresAt("2026-08-16"));
   }
@@ -194,6 +204,56 @@ test("usage ledgers expire two UTC days after the counted day", async () => {
     quotaExpiresAt("2026-08-16"),
     new Date("2026-08-18T00:00:00.000Z"),
   );
+});
+
+test("25 new syntheses share an hourly global cap without raising the daily cap", async () => {
+  const db = new FakeFirestore();
+  assert.equal(HOURLY_LIMIT_GLOBAL, 25);
+  assert.equal(DAILY_LIMIT_GLOBAL, 300);
+  for (let index = 0; index < 25; index += 1) {
+    assert.equal((await consume(db, {
+      uid: `account-${index}`, installationId: uuidFor(index, 0), now: atHour(10),
+    })).allowed, true);
+  }
+  const before = db.serialized();
+  assert.deepEqual(await consume(db, {
+    uid: "next-account", installationId: INSTALLATION_A, now: atHour(10),
+  }), { allowed: false, exceededScope: "global_hour" });
+  assert.equal(db.serialized(), before, "a rejected request must not charge any counter or cost");
+
+  assert.equal((await consume(db, {
+    uid: "next-account", installationId: INSTALLATION_A, now: atHour(11),
+  })).allowed, true);
+  assert.equal(db.documents.get("usage/tts_global_hour_2026-08-16T10").n, 25);
+  assert.equal(db.documents.get("usage/tts_global_hour_2026-08-16T11").n, 1);
+  assert.equal(db.documents.get("usage/tts_global_2026-08-16").n, 26);
+});
+
+test("corrupt hourly usage fails closed without mutating daily usage or cost", async () => {
+  for (const n of [-1, "24", null, Number.MAX_SAFE_INTEGER + 1]) {
+    const db = new FakeFirestore();
+    db.documents.set("usage/tts_global_hour_2026-08-16T10", { n });
+    const before = db.serialized();
+    assert.deepEqual(await consume(db, {
+      uid: "account-a", installationId: INSTALLATION_A, now: atHour(10),
+    }), { allowed: false, exceededScope: "global_hour" });
+    assert.equal(db.serialized(), before);
+  }
+});
+
+test("an existing quota document without a count fails closed in every scope", async () => {
+  for (const scope of ["installation", "account", "global", "global_hour"]) {
+    const db = new FakeFirestore();
+    const options = { uid: "account-a", installationId: INSTALLATION_A, now: atHour(10) };
+    assert.equal((await consume(db, options)).allowed, true);
+    const [key] = [...db.documents.entries()].find(
+      ([path, document]) => path.startsWith("usage/") && document.scope === scope,
+    );
+    db.documents.set(key, {});
+    const before = db.serialized();
+    assert.deepEqual(await consume(db, options), { allowed: false, exceededScope: scope });
+    assert.equal(db.serialized(), before, "invalid stored usage must not charge any counter or cost");
+  }
 });
 
 test("refunds a reserved synthesis when the provider fails", async () => {
@@ -361,6 +421,10 @@ test("UTC day rollover starts fresh counters", async () => {
 
 function consume(db, options) {
   return underDailyTtsQuotas(db, options);
+}
+
+function atHour(hour) {
+  return new Date(Date.UTC(2026, 7, 16, hour));
 }
 
 function uuidFor(account, installation) {
