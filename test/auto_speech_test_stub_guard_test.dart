@@ -182,7 +182,6 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/scenario_onboarding_completion_test.dart',
   'test/scenario_quest_fold_test.dart',
   'test/scenario_quest_responsive_test.dart',
-  'test/scenario_srs_persistence_flow_test.dart',
   'test/scenarios_list_screen_ui_test.dart',
   'test/screen_smoke_test.dart',
   'test/shared_game_feedback_route_test.dart',
@@ -208,4 +207,4 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/vocab_pack_uniform_card_test.dart',
   'test/wordbook_spotlight_coach_test.dart',
 ];
-const int knownUnstubbedCap = 57; // 2026-09-06 무료 접근 병합: requeue 테스트 스텁 도입 + repeat_counter 테스트 삭제로 하향
+const int knownUnstubbedCap = 56; // 2026-09-17 scenario SRS persistence 테스트의 음성 스텁 도입으로 하향

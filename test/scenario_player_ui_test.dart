@@ -243,7 +243,12 @@ void main() {
             en: 'Yes, here you go.',
           ),
         ],
-        quests: [],
+        quests: [
+          QuestSpec(
+            type: QuestType.diktat,
+            data: {'targetKo': spokenText},
+          ),
+        ],
       );
       final profileVoice = scenario.voiceForSpeaker('user');
       expect(

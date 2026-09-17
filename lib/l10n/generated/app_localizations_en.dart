@@ -10782,4 +10782,10 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingJourneyCompanionShort => 'Your companion';
+
+  @override
+  String get questUnavailableTitle => 'This exercise is unavailable';
+
+  @override
+  String get questUnavailableBody => 'Go back and choose another exercise.';
 }

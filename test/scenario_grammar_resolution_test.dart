@@ -266,7 +266,17 @@ Scenario _scenario({
   grammarIds: grammarIds,
   grammarBlock: grammarBlock,
   dialog: dialog,
-  quests: const [],
+  // The grammar-stage assertions still run inside an admissible real lesson.
+  quests: const [
+    QuestSpec(
+      type: QuestType.luecken,
+      data: {
+        'sentence': '저는 ___이에요.',
+        'options': ['학생', '안녕'],
+        'correctIndex': 0,
+      },
+    ),
+  ],
 );
 
 Grammar _grammar(String id, String pattern) => Grammar(

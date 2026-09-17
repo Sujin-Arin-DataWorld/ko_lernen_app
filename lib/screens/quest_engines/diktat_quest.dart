@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../models/scenario.dart';
 import '../../services/sound_service.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/text_field.dart';
 import '../../widgets/sori/tokens.dart';
+import 'quest_content.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
 import 'quest_models.dart';
+import 'quest_text.dart';
 
 /// Diktat-Quest (받아쓰기): koreanischen Satz **anhören und selbst tippen** —
 /// produktives Hör- + Schreibtraining. Zielsätze stammen aus echten
@@ -60,17 +63,12 @@ class DiktatQuest extends StatefulWidget {
 
   /// Normalisiert für den Vergleich: trimmt, kollabiert Mehrfach-Leerraum,
   /// entfernt abschließende Satzzeichen.
-  static String normalize(String s) {
-    return s
-        .trim()
-        .replaceAll(RegExp(r'\s+'), ' ')
-        .replaceAll(RegExp(r'[\s.,!?…·]+$'), '')
-        .trim();
-  }
+  static String normalize(String s) => normalizeQuestDictation(s);
 
   /// Exakte Übereinstimmung (Satzzeichen/Randleerraum egal, Wortabstand zählt).
   static bool isExact(String input, String target) {
-    return normalize(input) == normalize(target);
+    final normalized = normalize(input);
+    return hasQuestAnswerText(normalized) && normalized == normalize(target);
   }
 
   /// Matches the canonical target or an explicitly reviewed surface variant.
@@ -370,7 +368,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
     super.initState();
     // Beim Erscheinen einmal vorspielen.
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) {
+      if (mounted && _hasContent) {
         _playTts();
       }
     });
@@ -452,8 +450,14 @@ class _DiktatQuestState extends State<DiktatQuest> {
     widget.onComplete(const QuestResult(passed: false, firstTry: false));
   }
 
+  bool get _hasContent =>
+      hasPlayableQuestContent(QuestType.diktat, widget.data);
+
   @override
   Widget build(BuildContext context) {
+    if (!_hasContent) {
+      return const SoriQuestEmptyState();
+    }
     final t = AppL10n.of(context);
     final langCode = Localizations.localeOf(context).languageCode;
     final s = SoriSurfaces.of(context);
