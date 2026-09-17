@@ -4784,6 +4784,133 @@
       "beforeSha256": "cc1ff00f83aedc903343ba8c06889d4e5ed3df3fe061bd1343178ed56979018f",
       "afterSha256": "a00791c1320d6d71162564dd3a78369539904a0453beacd3a79a71f0b1c107c2",
       "reviewReceipt": "tools/content_factory/review/batch_05_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_a1_honorific_kke",
+      "level": "a1",
+      "fields": [
+        "example_en",
+        "example_german",
+        "explanation_de",
+        "note",
+        "note_en",
+        "quiz_distractor_ids",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "type_de"
+      ],
+      "beforeSha256": "6f5b6589c54b7c74f87b1109df10f40e15baa06d70ee9d27f6add11160b94db1",
+      "afterSha256": "bf3734c3bd5f0d5c1560453f5da81ffbf93760826d885fd0d7a70d23ce290d98",
+      "reviewReceipt": "tools/content_factory/review/batch_07_grammar_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_a2_humble_give",
+      "level": "a2",
+      "fields": [
+        "example_en",
+        "example_german",
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "quiz_distractor_ids",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "2f23b219ed544a43451048a1dfa6e2b92608c1d0d1c10ce3ce4ab9188bb00c01",
+      "afterSha256": "58bfb8567769f226b311ef534491e0ea9ad8016fd35da155feb6b03a63897b85",
+      "reviewReceipt": "tools/content_factory/review/batch_07_grammar_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b1_honorific_subject_kkeyseo",
+      "level": "b1",
+      "fields": [
+        "example_en",
+        "example_german",
+        "note",
+        "quiz_distractor_ids",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "type_de"
+      ],
+      "beforeSha256": "93411b9ced2097b8b2f71e06adc3a06af49943d10b1237e58a9bbd69a47b388b",
+      "afterSha256": "ba53d6d8e3879dba7448e86fad2b0c8749b05415d088166b94cf57d738de3d4a",
+      "reviewReceipt": "tools/content_factory/review/batch_07_grammar_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b2_rather_than_direct",
+      "level": "b2",
+      "fields": [
+        "example_en",
+        "example_german",
+        "example_korean",
+        "explanation_de",
+        "explanation_en",
+        "quiz_distractor_ids",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "8bf840a21cd9aa4b230549b1bc0524a895c7adc7c6ef75ee7c8aaf195d5d7a4d",
+      "afterSha256": "0af9ea3be774b23a6d55280fa131971bef37c03d46c10b0f7a08847691480db6",
+      "reviewReceipt": "tools/content_factory/review/batch_07_grammar_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c1_family_framing",
+      "level": "c1",
+      "fields": [
+        "example_en",
+        "example_german",
+        "example_korean",
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "pattern",
+        "quiz_distractor_ids",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "d2ca7992f273bd3aaa6895a6458421758240977484465c0235746565884c3b1f",
+      "afterSha256": "a6be95c1193fccaeb6d5d553341a30477a184e08c340c12a71fd38133f81fcae",
+      "reviewReceipt": "tools/content_factory/review/batch_07_grammar_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c2_regardless_of_kin",
+      "level": "c2",
+      "fields": [
+        "example_en",
+        "example_german",
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "quiz_distractor_ids",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "704c0bfe8286e8779bde3dd0bc35f0a60dc76f455e63eb2de542828639ebaf55",
+      "afterSha256": "ace8dedec47cda6fcffa7ebefd3aec532c65478b0cba70f1d916e7e23dd92a83",
+      "reviewReceipt": "tools/content_factory/review/batch_07_grammar_reconciliation_20260916.json"
     }
   ],
   "routingEntries": [
