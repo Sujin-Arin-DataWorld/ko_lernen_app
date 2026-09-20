@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../controllers/listening_playback_controller.dart';
+import '../data/chaekgado_shelf.dart';
+import '../widgets/sori/chaekgado/chaekgado_assets.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/feedback_completion.dart';
 import '../models/scenario.dart';
@@ -31,6 +33,7 @@ import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
+import '../widgets/sori/responsive.dart';
 
 Future<bool> _speakWithTts(String text, {required String voice}) =>
     TtsService.speak(text, voice: voice);
@@ -301,6 +304,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
         : t.listeningProgress(_playback.revealedCount, _scenario.dialog.length);
     return SoriStudyFrame(
       title: title.isEmpty ? t.listeningTitle : title,
+      adaptTitleAtNormalScale: true,
       eyebrow: progress,
       actions: [KeyedSubtree(key: _speedKey, child: const TtsSpeedAction())],
       particles: _playback.phase == ListeningPlaybackPhase.complete,
@@ -323,6 +327,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
 
   Widget _buildIntro(AppL10n t, String lang) {
     final intro = _scenario.intro.pick(lang);
+    final imageKey = chaekgadoImageKeyForShelf(_scenario.shelf);
     final speakers = <String>{
       for (final line in _scenario.dialog)
         if (line.speaker != 'narrator') _speakerName(t, line.speaker),
@@ -335,11 +340,29 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
               variant: SoriCardVariant.base,
               child: Column(
                 children: [
-                  const Mascot(
-                    kind: MascotKind.tiger,
-                    emotion: MascotEmotion.smile,
-                    size: 88,
-                  ),
+                  if (imageKey != null)
+                    ClipRRect(
+                      borderRadius: SoriRadius.brSm,
+                      child: SizedBox(
+                        height: 156,
+                        width: double.infinity,
+                        child: Image.asset(
+                          chaekgadoCardAsset(imageKey),
+                          fit: BoxFit.contain,
+                          errorBuilder: (_, _, _) => const Icon(
+                            Icons.headphones_rounded,
+                            size: 72,
+                            color: SoriColors.contentCta,
+                          ),
+                        ),
+                      ),
+                    )
+                  else
+                    const Icon(
+                      Icons.headphones_rounded,
+                      size: 72,
+                      color: SoriColors.contentCta,
+                    ),
                   const SizedBox(height: Spacing.md),
                   Text(
                     t.listeningSceneIntro,
@@ -500,60 +523,77 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     final surfaces = SoriSurfaces.of(context);
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     final xp = _completionXp;
-    return SingleChildScrollView(
-      child: Column(
+    return LayoutBuilder(
+      builder: (context, constraints) => Column(
         children: [
-          CharacterClipPlayer(
-            asset: CharacterClips.magpieCelebrate,
-            size: 104,
-            blendColor: surfaces.bg,
-            fallbackKind: MascotKind.magpie,
-            fallbackEmotion: MascotEmotion.celebrate,
-          ),
-          const SizedBox(height: Spacing.md),
-          Text(
-            t.listeningCompleteTitle,
-            style: SoriTextTheme.of(
-              context,
-            ).h2.copyWith(color: SoriColors.contentCta),
-          ),
-          const SizedBox(height: Spacing.sm),
-          if (_completionPersisted)
-            LearningRewardPresentation(
-              attempt: _learningAttempt,
-              kind: SoriRewardKind.xp,
-              amount: xp,
-              presentationComplete: _completionPersisted,
-              child: Text(
-                xp > 0
-                    ? t.listeningCompleteBody(_scenario.dialog.length, xp)
-                    : t.listeningCompleteReplayBody(_scenario.dialog.length),
-                textAlign: TextAlign.center,
-                style: SoriTextTheme.of(context).body,
+          Expanded(
+            child: SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CharacterClipPlayer(
+                      asset: CharacterClips.magpieCelebrate,
+                      size: 104,
+                      blendColor: surfaces.bg,
+                      fallbackKind: MascotKind.magpie,
+                      fallbackEmotion: MascotEmotion.celebrate,
+                    ),
+                    const SizedBox(height: Spacing.md),
+                    Text(
+                      t.listeningCompleteTitle,
+                      style: SoriTextTheme.of(
+                        context,
+                      ).h2.copyWith(color: SoriColors.contentCta),
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    if (_completionPersisted)
+                      LearningRewardPresentation(
+                        attempt: _learningAttempt,
+                        kind: SoriRewardKind.xp,
+                        amount: xp,
+                        presentationComplete: _completionPersisted,
+                        child: Text(
+                          xp > 0
+                              ? t.listeningCompleteBody(
+                                  _scenario.dialog.length,
+                                  xp,
+                                )
+                              : t.listeningCompleteReplayBody(
+                                  _scenario.dialog.length,
+                                ),
+                          textAlign: TextAlign.center,
+                          style: SoriTextTheme.of(context).body,
+                        ),
+                      ),
+                    const SizedBox(height: Spacing.md),
+                    if (_completionPersisted && xp > 0)
+                      LearningRewardPresentation(
+                        attempt: _learningAttempt,
+                        kind: SoriRewardKind.xp,
+                        amount: xp,
+                        presentationComplete: _completionPersisted,
+                        child: SoriBadge.xp(xp, size: 28),
+                      ),
+                    if (feedbackScope != null &&
+                        feedbackScope.featureGate.isEnabled &&
+                        _feedbackCompletion.current != null) ...[
+                      const SizedBox(height: Spacing.lg),
+                      ContentFeedbackCard(
+                        feedbackContext: _feedbackCompletion.current!.context,
+                        featureGate: feedbackScope.featureGate,
+                        submitFeedback: feedbackScope.submitFeedback,
+                        mascotKind: MascotKind.magpie,
+                        completedMissionIds: feedbackScope.completedMissionIds,
+                      ),
+                    ],
+                  ],
+                ),
               ),
             ),
+          ),
           const SizedBox(height: Spacing.md),
-          if (_completionPersisted && xp > 0)
-            LearningRewardPresentation(
-              attempt: _learningAttempt,
-              kind: SoriRewardKind.xp,
-              amount: xp,
-              presentationComplete: _completionPersisted,
-              child: SoriBadge.xp(xp, size: 28),
-            ),
-          if (feedbackScope != null &&
-              feedbackScope.featureGate.isEnabled &&
-              _feedbackCompletion.current != null) ...[
-            const SizedBox(height: Spacing.lg),
-            ContentFeedbackCard(
-              feedbackContext: _feedbackCompletion.current!.context,
-              featureGate: feedbackScope.featureGate,
-              submitFeedback: feedbackScope.submitFeedback,
-              mascotKind: MascotKind.magpie,
-              completedMissionIds: feedbackScope.completedMissionIds,
-            ),
-          ],
-          const SizedBox(height: Spacing.xl),
           SoriButton.filled(
             label: t.listeningReviewCta,
             accent: SoriColors.contentCta,

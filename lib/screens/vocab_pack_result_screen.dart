@@ -158,6 +158,11 @@ class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        PackCompletionStorage.resultScreenVisible.value = true;
+      }
+    });
     PackCompletionStorage.status.addListener(_captureAcknowledgement);
     _captureAcknowledgement();
   }
@@ -174,6 +179,7 @@ class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
 
   @override
   void dispose() {
+    PackCompletionStorage.resultScreenVisible.value = false;
     PackCompletionStorage.status.removeListener(_captureAcknowledgement);
     super.dispose();
   }

@@ -21,8 +21,6 @@ class _AppLoadingState extends State<AppLoading>
   late final AnimationController _ctrl;
   bool _motionEnabled = false;
 
-  static const _logoAsset = 'assets/icons/icon-192.png';
-
   /// 로고 에셋 로드 실패 시 쓰는 단청 3색 — 녹청 · 석간주 · 황.
   static const _dots = [SoriColors.primary, SoriColors.accent, SoriColors.gold];
 
@@ -111,25 +109,16 @@ class _AppLoadingState extends State<AppLoading>
   }
 
   Widget _visual(double pulse) {
-    final logo = ClipRRect(
-      borderRadius: BorderRadius.circular(14),
-      child: Image.asset(
-        _logoAsset,
-        fit: BoxFit.cover,
-        filterQuality: FilterQuality.medium,
-        errorBuilder: (_, __, ___) => FittedBox(
-          fit: BoxFit.scaleDown,
-          child: _DotFallback(controllerValue: _ctrl.value, colors: _dots),
-        ),
-      ),
-    );
     final visual = widget.asset == null
-        ? logo
+        ? _DotFallback(controllerValue: _ctrl.value, colors: _dots)
         : Image.asset(
             widget.asset!,
             fit: BoxFit.contain,
             filterQuality: FilterQuality.medium,
-            errorBuilder: (_, __, ___) => logo,
+            errorBuilder: (_, __, ___) => FittedBox(
+              fit: BoxFit.scaleDown,
+              child: _DotFallback(controllerValue: _ctrl.value, colors: _dots),
+            ),
           );
     return Transform.scale(scale: 0.96 + pulse * 0.07, child: visual);
   }
@@ -152,12 +141,12 @@ class _DotFallback extends StatelessWidget {
             ? Curves.easeOut.transform(1 - (phase * 4 - 1).abs())
             : 0.0;
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 2),
           child: Transform.translate(
             offset: Offset(0, -lift * 13),
             child: Container(
-              width: 12,
-              height: 12,
+              width: 8,
+              height: 8,
               decoration: BoxDecoration(
                 color: colors[i],
                 shape: BoxShape.circle,

@@ -28,9 +28,6 @@ const String kListeningCardArtDir = 'assets/illustrations/listening/';
 String chaekgadoCardAsset(String imageKey) =>
     '$kListeningCardArtDir$imageKey.webp';
 
-const String kHoerenScrollTop =
-    '$_chaekgadoAssetRoot/scroll/hoeren_scroll_top.png';
-
 const Map<String, String> _categoryVignettes = {
   'transit': 'vignette_01_transport.png',
   'taxi_stay': 'vignette_02_travel_lodging.png',

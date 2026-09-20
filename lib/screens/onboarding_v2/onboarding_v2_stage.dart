@@ -113,26 +113,24 @@ class _OnboardingCompanionStageState extends State<OnboardingCompanionStage> {
       ),
       widget.companions.firstWhere((c) => c.id == OnboardingV2Ids.companionJoy),
     ];
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        for (final (index, companion) in ordered.indexed) ...[
-          if (index > 0) const SizedBox(width: Spacing.md),
-          Expanded(
-            child: _CompanionStageChoice(
-              companion: companion,
-              selected: companion.id == widget.selectedCompanionId,
-              replayToken: _replay,
-              mediaEnabled: widget.mediaEnabled,
-              showDescription: widget.showDescription,
-              onTap: () {
-                setState(() => _replay++);
-                widget.onCompanionChanged(companion.id);
-              },
-            ),
-          ),
-        ],
-      ],
+    return ListView.separated(
+      padding: EdgeInsets.zero,
+      itemCount: ordered.length,
+      separatorBuilder: (_, _) => const SizedBox(height: Spacing.md),
+      itemBuilder: (context, index) {
+        final companion = ordered[index];
+        return _CompanionStageChoice(
+          companion: companion,
+          selected: companion.id == widget.selectedCompanionId,
+          replayToken: _replay,
+          mediaEnabled: widget.mediaEnabled,
+          showDescription: widget.showDescription,
+          onTap: () {
+            setState(() => _replay++);
+            widget.onCompanionChanged(companion.id);
+          },
+        );
+      },
     );
   }
 }

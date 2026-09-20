@@ -157,7 +157,14 @@ void main() {
       final taego = find.byKey(const ValueKey('onboarding-v2-companion-taego'));
       final joy = find.byKey(const ValueKey('onboarding-v2-companion-joy'));
       for (var index = 0; index < 30; index++) {
-        await tester.tap(index.isEven ? joy : taego);
+        final choice = index.isEven ? joy : taego;
+        await tester.scrollUntilVisible(
+          choice,
+          300,
+          scrollable: find.byType(Scrollable).last,
+        );
+        await tester.pump();
+        await tester.tap(choice);
       }
       await tester.pump();
 
@@ -260,6 +267,12 @@ void main() {
       await _releaseSaves(tester, repository, count: 1);
       expect(repository.state?.companionDraft, OnboardingCompanion.taego);
 
+      await tester.scrollUntilVisible(
+        joy,
+        300,
+        scrollable: find.byType(Scrollable).last,
+      );
+      await tester.pump();
       await tester.tap(joy);
       await tester.pump();
       expect(_isSelected(tester, OnboardingV2Ids.companionJoy), isTrue);

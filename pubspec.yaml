@@ -226,7 +226,6 @@ flutter:
     # kHoerenScrollTop(축 띠)만 카테고리 목록 화면(T-H3)이 계속 부른다.
     # W10 PR-C F3: kHoerenScrollShortCard(미사용 확정)도 같은 상대경로 구조를
     # 유지한 채 미사용 격리 디렉터리로 옮기고 여기서 뺐다.
-    - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_top.png
     - assets/hangul_sori_chaekgado_asset_pack_v1/categories/transparent/
     # 공유 이미지 두루마리 소재 — ShareSlipRenderer. F-D-share (STYLE_LOCK.json).
     - assets/illustrations/share/

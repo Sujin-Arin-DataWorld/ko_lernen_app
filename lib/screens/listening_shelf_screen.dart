@@ -14,10 +14,6 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 import 'listening_play_screen.dart';
 
-/// `hoeren_scroll_top.png` 실측 1152×320 (W10 T-H4 자산 정리 시 재확인) —
-/// [SoriLayout.heroFit]에 실제 비율을 줘야 축 띠가 늘어나거나 잘리지 않는다.
-const double _kScrollRodAspectRatio = 1152 / 320;
-
 /// 카테고리 목록 화면 — 두루마리(`showChaekgadoScroll`) 대체(Jin 결정 D-2,
 /// W10 T-H3). 전체 화면이라 태블릿에서도 여유가 있고, 목록이 짧아도 위쪽에
 /// 뭉치지 않는다([SoriAdaptiveStudyBody]가 짧은 목록을 세로로 채운다).
@@ -81,11 +77,6 @@ class _ListeningShelfScreenState extends State<ListeningShelfScreen> {
         return LayoutBuilder(
           builder: (context, constraints) {
             final viewportHeight = MediaQuery.sizeOf(context).height;
-            final rodSize = SoriLayout.heroFit(
-              availableWidth: constraints.maxWidth,
-              viewportHeight: viewportHeight,
-              aspectRatio: _kScrollRodAspectRatio,
-            );
             final artSize = SoriLayout.heroFit(
               availableWidth: constraints.maxWidth,
               viewportHeight: viewportHeight,
@@ -103,17 +94,6 @@ class _ListeningShelfScreenState extends State<ListeningShelfScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Center(
-                      child: SizedBox(
-                        width: rodSize.width,
-                        height: rodSize.height,
-                        child: Image.asset(
-                          kHoerenScrollTop,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.md),
                     Center(
                       child: SizedBox(
                         width: artSize.width,

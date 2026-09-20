@@ -29,6 +29,7 @@ class SoriStudyFrame extends StatelessWidget {
     this.homeEscape = const SoriHomeEscape(),
     this.onLeave,
     this.bottom,
+    this.adaptTitleAtNormalScale = false,
   });
 
   final String title;
@@ -56,6 +57,7 @@ class SoriStudyFrame extends StatelessWidget {
   /// [SoriHomeEscape.confirmWhen]이면 확인 시트에서 "떠나기"를 고른 뒤,
   /// 아니면 즉시 호출된다.
   final VoidCallback? onLeave;
+  final bool adaptTitleAtNormalScale;
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +102,7 @@ class SoriStudyFrame extends StatelessWidget {
           leading: SoriCloseAction(escape: homeEscape, onLeave: onLeave),
           automaticallyImplyLeading: automaticallyImplyLeading,
           bottom: bottom,
+          adaptTitleAtNormalScale: adaptTitleAtNormalScale,
         ),
         body: SoriScreenBackground(
           particles: particles,

@@ -265,48 +265,12 @@ const Set<String> kAvailableDecorations = {
   'decoration_hyangno',
 };
 
-/// 방별 무상 가구 풀 — grant·`Storage.ownedDecor`·`kDecorationRewardPool`
-/// (계 봉헌과 집합이 같아야 하는 퀘스트 보상 풀)을 건드리지 않는 별도 계층.
-///
-/// 정식 소유 경로는 `HanokGrantKind.venue` grant가 방을 열고, 그 방의 풀을
-/// 채우는 것은 퀘스트·보자기·팩·계(무제한, grant 아님) — 살아 있는 한옥
-/// 계획의 "가구 계층" 결정 참고. 지금은 사랑방 12종만 채워져 있고 나머지
-/// 방은 비어 있다 — 그 방 전용 가구가 생기면 여기에 항목을 추가한다.
-///
-/// 방마다 다른 풀을 두는 이유: 사랑방 12종이 A2 배선 당시 **모든** 방의
-/// 피커에 나타나는 버그가 있었다(`furnishedDecorSlugs`가 방을 구분하지
-/// 않고 하나의 평평한 집합을 합집합했다) — 이 맵이 그 경계를 만든다.
-const Map<PersonalRoomSurface, Set<String>> kRoomFurnishingPool = {
-  PersonalRoomSurface.sarangbang: {
-    'decoration_sabangtakja',
-    'decoration_boryo_set',
-    'decoration_bangseok_pair',
-    'decoration_bandaji',
-    'decoration_hwaro',
-    'decoration_deungjan',
-    'decoration_geomungo',
-    'decoration_baduk',
-    'decoration_mokchim',
-    'decoration_byeongpung_small',
-    'decoration_gobi',
-    'decoration_hyangno',
-  },
-};
-
-/// 방 인벤토리 피커가 실제로 보여줄 장식 slug 집합 — 순수 함수, 저장소에
-/// 쓰지 않는다. [owned] 는 언제나 `Storage.ownedDecor`(보자기로 얻은 것),
-/// 방을 안 가려 항상 전량 노출된다(계 봉헌·팩 보상은 어느 방에나 놓을 수
-/// 있는 것이 맞다). [openedVenues] 는 **화면이 주입**한다 — 이 파일은
-/// `hanok_v1_source_guard_test.dart`가 지키는 새 진행 시스템 4개 파일에
-/// 들어있지 않으므로 여기서 직접 `HanokExperienceProjection`을 읽지
-/// 않고, 호출부가 계산한 결과를 평범한 데이터로만 받는다.
+/// Returns the earned decoration slugs shown by the room inventory picker.
+/// Opening a room changes placement access, not reward ownership.
 Set<String> furnishedDecorSlugs(
   Iterable<String> owned, {
   required Set<PersonalRoomSurface> openedVenues,
-}) => {
-  ...owned.where(kAvailableDecorations.contains),
-  for (final venue in openedVenues) ...?kRoomFurnishingPool[venue],
-};
+}) => owned.where(kAvailableDecorations.contains).toSet();
 
 /// 표면 위의 명명된 자리. 좌표는 부모 크기에 대한 분수 —
 /// 마당의 `QuestLayout` 과 같은 규약이라 렌더 코드를 공유한다.

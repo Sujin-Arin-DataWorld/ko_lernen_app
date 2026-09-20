@@ -98,8 +98,8 @@ void main() {
   testWidgets(
     'companion cards preserve visual order and the 30th rapid choice exactly',
     (tester) async {
-      const size = Size(720, 1152);
-      _setViewport(tester, size, 2.5);
+      const size = Size(720, 2600);
+      _setViewport(tester, size, 1);
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       final semantics = tester.ensureSemantics();
@@ -132,8 +132,8 @@ void main() {
         isTrue,
       );
       expect(
-        tester.getCenter(taegoTile).dx,
-        lessThan(tester.getCenter(joyTile).dx),
+        tester.getCenter(taegoTile).dy,
+        lessThan(tester.getCenter(joyTile).dy),
       );
       for (final (tile, companion) in [(taegoTile, taego), (joyTile, joy)]) {
         final artwork = find.descendant(
