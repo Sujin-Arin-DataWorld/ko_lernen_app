@@ -5172,5 +5172,7 @@
   "onboardingJourneyGamesShort": "Spielend lernen",
   "onboardingJourneyBookShort": "Dein Buch",
   "onboardingJourneyHanokShort": "Dein Hanok",
-  "onboardingJourneyCompanionShort": "Deine Begleitung"
+  "onboardingJourneyCompanionShort": "Deine Begleitung",
+  "questUnavailableTitle": "Diese Übung ist nicht verfügbar",
+  "questUnavailableBody": "Geh zurück und wähle eine andere Übung."
 }

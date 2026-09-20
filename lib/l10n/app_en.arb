@@ -4996,5 +4996,7 @@
   "onboardingJourneyGamesShort": "Learn through play",
   "onboardingJourneyBookShort": "Your book",
   "onboardingJourneyHanokShort": "Your hanok",
-  "onboardingJourneyCompanionShort": "Your companion"
+  "onboardingJourneyCompanionShort": "Your companion",
+  "questUnavailableTitle": "This exercise is unavailable",
+  "questUnavailableBody": "Go back and choose another exercise."
 }

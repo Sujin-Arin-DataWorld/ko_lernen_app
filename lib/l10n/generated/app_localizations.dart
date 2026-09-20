@@ -18395,6 +18395,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Deine Begleitung'**
   String get onboardingJourneyCompanionShort;
+
+  /// No description provided for @questUnavailableTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Übung ist nicht verfügbar'**
+  String get questUnavailableTitle;
+
+  /// No description provided for @questUnavailableBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Geh zurück und wähle eine andere Übung.'**
+  String get questUnavailableBody;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

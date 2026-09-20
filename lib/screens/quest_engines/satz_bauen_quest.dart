@@ -4,12 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../models/scenario.dart';
 import '../../services/sound_service.dart';
 import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
+import 'quest_content.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
 import 'quest_models.dart';
+import 'quest_text.dart';
 
 /// Art des Fehlers beim Zusammensetzen — steuert das gezielte Feedback.
 enum SatzError { none, order, particle, tooMany, tooFew, word }
@@ -61,19 +64,10 @@ class SatzBauenQuest extends StatefulWidget {
   // ── Reine Logik (testbar, keine UI) ──────────────────────────────────
 
   /// Entfernt führende/abschließende Satzzeichen und trimmt einen Token.
-  static String normalizeToken(String t) {
-    return t.replaceAll(RegExp(r'^[\s.,!?…·"”’]+|[\s.,!?…·"”’]+$'), '').trim();
-  }
+  static String normalizeToken(String t) => normalizeQuestWordToken(t);
 
   /// Zerlegt einen koreanischen Satz in vergleichbare Wort-Tokens (어절).
-  static List<String> tokenize(String sentence) {
-    return sentence
-        .trim()
-        .split(RegExp(r'\s+'))
-        .map(normalizeToken)
-        .where((t) => t.isNotEmpty)
-        .toList();
-  }
+  static List<String> tokenize(String sentence) => questWordTokens(sentence);
 
   /// Returns the terminal question/exclamation mark taught as its own tile.
   static String? terminalPunctuation(String sentence) {
@@ -101,6 +95,9 @@ class SatzBauenQuest extends StatefulWidget {
   /// entsprechen. Satzzeichen/Leerraum werden ignoriert.
   static bool isCorrectOrder(List<String> assembled, String targetKo) {
     final target = tokenize(targetKo);
+    if (target.isEmpty || !hasQuestAnswerText(targetKo)) {
+      return false;
+    }
     final got = assembled
         .map(normalizeToken)
         .where((t) => t.isNotEmpty)
@@ -247,6 +244,9 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
   @override
   void initState() {
     super.initState();
+    if (!_hasContent) {
+      return;
+    }
     final tokens = SatzBauenQuest.tokenize(_targetKo);
     final distractors = ((widget.data['distractors'] as List?) ?? const [])
         .map((e) => SatzBauenQuest.normalizeToken(e.toString()))
@@ -283,7 +283,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     // 않았는데 햅틱이 울리면 오작동처럼 느껴진다.
     if (_audioKo.isNotEmpty) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) {
+        if (mounted && _hasContent) {
           SoriSpeech.speak(_audioKo);
         }
       });
@@ -422,8 +422,14 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     widget.onComplete(const QuestResult(passed: false, firstTry: false));
   }
 
+  bool get _hasContent =>
+      hasPlayableQuestContent(QuestType.satzBauen, widget.data);
+
   @override
   Widget build(BuildContext context) {
+    if (!_hasContent) {
+      return const SoriQuestEmptyState();
+    }
     final t = AppL10n.of(context);
     final langCode = Localizations.localeOf(context).languageCode;
     final s = SoriSurfaces.of(context);

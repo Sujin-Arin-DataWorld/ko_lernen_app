@@ -38,6 +38,7 @@ const _scenario = Scenario(
         'correctIndex': 0,
         'options': [
           {'de': 'Hallo', 'en': 'Hello'},
+          {'de': 'Danke', 'en': 'Thanks'},
         ],
       },
     ),
