@@ -1973,6 +1973,9 @@ class AppL10nEn extends AppL10n {
   String get bookResultSectionGrammar => 'Grammar';
 
   @override
+  String get bookResultOpenGrammar => 'Open grammar card';
+
+  @override
   String get bookResultSectionSentences => 'Sentences';
 
   @override
@@ -9013,6 +9016,10 @@ class AppL10nEn extends AppL10n {
       'Daily voice limit reached. It resets tomorrow.';
 
   @override
+  String get ttsUnavailableHourlyQuota =>
+      'Hourly voice limit reached. Try again later.';
+
+  @override
   String get ttsUnavailablePending =>
       'The voice is being generated. Tap again in a moment.';
 
@@ -10782,4 +10789,10 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingJourneyCompanionShort => 'Your companion';
+
+  @override
+  String get questUnavailableTitle => 'This exercise is unavailable';
+
+  @override
+  String get questUnavailableBody => 'Go back and choose another exercise.';
 }

@@ -5,6 +5,7 @@ import 'package:crypto/crypto.dart';
 
 import 'account/cloud_read_result.dart';
 import 'account/cloud_write_session.dart';
+import 'net/sori_net.dart';
 
 const int _defaultAccountDocumentLimit = 1024 * 1024;
 
@@ -123,10 +124,10 @@ class CloudSyncService {
 
     late CloudSyncDocument document;
     try {
-      document =
-          await (reader ?? firestoreDocumentReader(FirebaseFirestore.instance))(
-            uid,
-          );
+      document = await withNetTimeout(
+        (reader ?? firestoreDocumentReader(FirebaseFirestore.instance))(uid),
+        scope: 'cloud_sync.read_account',
+      );
     } catch (_) {
       return const CloudReadResult.unavailable();
     }

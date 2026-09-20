@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../models/scenario.dart';
 import '../../services/sound_service.dart';
 import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
+import 'quest_content.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
 import 'quest_models.dart';
@@ -158,7 +160,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
     super.initState();
     // 진입 시 자동 1회 TTS 재생
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) {
+      if (mounted && _hasContent) {
         SoriSpeech.speak(_audioKo);
       }
     });
@@ -386,8 +388,14 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
 
   // ── build ─────────────────────────────────────────────────────
 
+  bool get _hasContent =>
+      hasPlayableQuestContent(QuestType.batchimDrop, widget.data);
+
   @override
   Widget build(BuildContext context) {
+    if (!_hasContent) {
+      return const SoriQuestEmptyState();
+    }
     final t = AppL10n.of(context);
     final langCode = Localizations.localeOf(context).languageCode;
     final s = SoriSurfaces.of(context);

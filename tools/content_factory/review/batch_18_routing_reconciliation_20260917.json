@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "operation": "reconcile_existing_batch18_category_route",
+  "sourceHead": "b0b1745cf696ce2ba9c91b1c4b7964bff1e47811",
+  "reviewStatus": "MODEL_QA_REVIEWED",
+  "humanReviewStatus": "pending",
+  "approvalAdded": false,
+  "rightsAdded": false,
+  "runtimeChanged": false,
+  "frozenDraftsModified": false,
+  "manifest": "tools/content_factory/drafts/batch_18_manifest.json",
+  "map": "smalltalkCategoryUnitMap",
+  "id": "c2:job_hunting",
+  "originalPromotionCommit": "b8c9dec9ea32da44da8c42f83df3bd6eccf0f129",
+  "changeCommit": "fc0489b65da0e9c11631a37eabd57f22e9e6e3e8",
+  "before": {
+    "courseUnitId": "c2_02_technology_public_ethics",
+    "conceptIds": [
+      "concept_c2_accountable_systems"
+    ]
+  },
+  "after": {
+    "courseUnitId": "c2_03_automation_redress",
+    "conceptIds": [
+      "concept_c2_automation_redress"
+    ]
+  },
+  "beforeSha256": "bca0d0073ce5efd6a57d8650bee8074ca99ba75f24f612e33b6a5aa3898ca554",
+  "afterSha256": "c4f4ae2ca188f2e35fd3605c926f015ac0b8f924a95b2cafba862df33c404c2b",
+  "historicalEvidenceScope": "The original promotion, transition parent, transition result and current route were compared. This receipt does not claim a complete intervening-history audit or new approval.",
+  "implementationSource": "tools/content_factory/promote_batch_19_loader_coverage.py advanced_category_units",
+  "currentResolver": "lib/services/curriculum_catalog.dart smalltalk category practice links",
+  "ownershipContract": "docs/BATCH_19_LOADER_COVERAGE_AUDIT_2026-08-22.md: existing published can-do ownership is stable across later curriculum/category changes",
+  "currentCategoryMembers": [
+    {
+      "id": "smalltalk_c2_0042",
+      "phraseSha256": "979b1f382e2c6cd5a2d6a0a2d5bd1cfef88db3478292a816a9f68d3bf00bdfda",
+      "publishedAuthority": {
+        "kind": "smalltalk",
+        "id": "smalltalk_c2_0042",
+        "level": "c2",
+        "sourceSeedId": "seed_smalltalk_smalltalk_c2_0042_v1",
+        "courseUnitId": "c2_02_technology_public_ethics"
+      },
+      "publishedClusterIds": [
+        "cluster_c2_technology_responsibility_rights_v1"
+      ],
+      "rationaleKo": "결과를 바꿀 권한과 독립적인 이의 절차를 검토하므로 자동 판단의 설명·이의·재심 목표와 연결된다."
+    },
+    {
+      "id": "smalltalk_c2_0061",
+      "phraseSha256": "9f39e5644df4265477cddf2e62ce9291eaaed53577cbe1839961108e51352320",
+      "publishedAuthority": {
+        "kind": "smalltalk",
+        "id": "smalltalk_c2_0061",
+        "level": "c2",
+        "sourceSeedId": "seed_smalltalk_smalltalk_c2_0061_v1",
+        "courseUnitId": "c2_02_technology_public_ethics"
+      },
+      "publishedClusterIds": [
+        "cluster_c2_technology_traceability_appeal_v1"
+      ],
+      "rationaleKo": "결과를 바꿀 권한과 독립적인 이의 절차를 검토하므로 자동 판단의 설명·이의·재심 목표와 연결된다."
+    }
+  ],
+  "frozenFiles": [
+    {
+      "path": "tools/content_factory/drafts/batch_18_manifest.json",
+      "sha256": "fbb8fb5484462a635a8a6e54c89275f401124e7376ada387cdc684d2f89b7b0f"
+    },
+    {
+      "path": "tools/content_factory/drafts/c3_batch18_vocab_b2_c1_c2.csv",
+      "sha256": "1117fad4c7516cf9fd39f3394f6ab46e7d808af5567cfa68044b1c0450306b97"
+    },
+    {
+      "path": "tools/content_factory/review/c3_batch18_vocab.csv",
+      "sha256": "fc0a39cbaaf439e6a744243abe0a5e845c98816cbe7c03f0c1054f1b482ba3cb"
+    },
+    {
+      "path": "tools/content_factory/drafts/c4_batch18_grammar_b2_c1_c2.csv",
+      "sha256": "5d6c8290172439af50e72744ffb0bd336261c35fc3d0d24849eaec6982dc7988"
+    },
+    {
+      "path": "tools/content_factory/review/c4_batch18_grammar.csv",
+      "sha256": "ca7fadd1f074c54591639584e93f4d8ae23d9cb4522d34a80a969eb4fa54e397"
+    },
+    {
+      "path": "tools/content_factory/drafts/c2_batch18_smalltalk_b2_c1_c2.json",
+      "sha256": "16191fe830e4967aec2a88d7aae92cf5f60d5f887de548ae4d5aaf06c9adf16e"
+    },
+    {
+      "path": "tools/content_factory/review/c2_batch18_smalltalk.csv",
+      "sha256": "00fb440936f98bba732d3983bcd2c233f104fde58e7ece40e8a88adb6816c26c"
+    },
+    {
+      "path": "tools/content_factory/drafts/c2_batch18_cloze_b2_c1_c2.json",
+      "sha256": "246275f795c6365f66044fdfb392dfcb69e229ec1a63e571f65faedc594e83af"
+    },
+    {
+      "path": "tools/content_factory/review/c2_batch18_cloze.csv",
+      "sha256": "621dd72bea5d8877067efae225d4a62bf8e08c1714402206234006e39af28fcd"
+    },
+    {
+      "path": "tools/content_factory/drafts/c2_batch18_satz_b2_c1_c2.json",
+      "sha256": "682103b4c7a949af47a6cfd4f983532ba3ff13a4edeae153703178ec4ae273a7"
+    },
+    {
+      "path": "tools/content_factory/review/c2_batch18_satz.csv",
+      "sha256": "43f73a5ba04aab3e5ce7fbf677a53dbefeb40a2eda6dba0c555f02bb4bbaf88a"
+    }
+  ],
+  "reviewScope": "Two model review axes (language/spec and evidence/standards), limited to the rows and changes in this receipt. Native, CEFR, rights and historical human approval remain unverified."
+}

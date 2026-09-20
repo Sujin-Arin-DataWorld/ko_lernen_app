@@ -1978,6 +1978,9 @@ class AppL10nDe extends AppL10n {
   String get bookResultSectionGrammar => 'Grammatik';
 
   @override
+  String get bookResultOpenGrammar => 'Grammatikkarte öffnen';
+
+  @override
   String get bookResultSectionSentences => 'Sätze';
 
   @override
@@ -9057,6 +9060,10 @@ class AppL10nDe extends AppL10n {
       'Heutiges Sprachlimit erreicht. Morgen geht es weiter.';
 
   @override
+  String get ttsUnavailableHourlyQuota =>
+      'Für diese Stunde ist das Sprachlimit erreicht. Versuch es später noch einmal.';
+
+  @override
   String get ttsUnavailablePending =>
       'Die Stimme wird gerade erzeugt. Gleich nochmal antippen.';
 
@@ -10835,4 +10842,10 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingJourneyCompanionShort => 'Deine Begleitung';
+
+  @override
+  String get questUnavailableTitle => 'Diese Übung ist nicht verfügbar';
+
+  @override
+  String get questUnavailableBody => 'Geh zurück und wähle eine andere Übung.';
 }

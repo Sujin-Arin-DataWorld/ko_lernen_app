@@ -74,6 +74,9 @@ enum TtsUnavailableReason {
   /// 오늘치 동적 합성 한도를 다 썼다.
   quota,
 
+  /// 전역 시간당 동적 합성 한도에 닿았다.
+  hourlyQuota,
+
   /// 서버가 같은 문장을 합성하는 중이다 — 잠시 뒤 다시 되는 상태.
   pendingSynthesis,
 
@@ -128,13 +131,20 @@ TtsUnavailableReason? _unavailableReasonFrom(Object error) {
 }
 
 /// How the client should treat one Cloud Function TTS error.
-enum TtsCallableKind { retryInflight, blockQuota, blockUnavailable, fallback }
+enum TtsCallableKind {
+  retryInflight,
+  blockQuota,
+  blockHourlyQuota,
+  blockUnavailable,
+  fallback,
+}
 
 class TtsCallableProbe implements Exception {
-  const TtsCallableProbe({required this.code, this.message});
+  const TtsCallableProbe({required this.code, this.message, this.details});
 
   final String code;
   final String? message;
+  final Object? details;
 }
 
 class TtsCallableFailure {
@@ -142,19 +152,35 @@ class TtsCallableFailure {
       'TTS synthesis is already in progress.';
   static const audioUnavailableMessage = 'TTS audio is not available.';
   static const quotaMessage = 'Daily synthesis limit reached.';
+  static const hourlyQuotaMessage = 'Hourly synthesis limit reached.';
 
   static TtsCallableKind fromError(Object error) {
     if (error is FirebaseFunctionsException) {
-      return classify(code: error.code, message: error.message);
+      return classify(
+        code: error.code,
+        message: error.message,
+        details: error.details,
+      );
     }
     if (error is TtsCallableProbe) {
-      return classify(code: error.code, message: error.message);
+      return classify(
+        code: error.code,
+        message: error.message,
+        details: error.details,
+      );
     }
     return TtsCallableKind.fallback;
   }
 
-  static TtsCallableKind classify({required String code, String? message}) {
+  static TtsCallableKind classify({
+    required String code,
+    String? message,
+    Object? details,
+  }) {
     if (_codeMatches(code, 'resource-exhausted')) {
+      if (details is Map && details['reason'] == 'quota_global_hour') {
+        return TtsCallableKind.blockHourlyQuota;
+      }
       return TtsCallableKind.blockQuota;
     }
     if (_codeMatches(code, 'unavailable')) {
@@ -1531,6 +1557,12 @@ class TtsService {
           throw const TtsSynthesisBlocked(
             TtsCallableFailure.quotaMessage,
             reason: TtsUnavailableReason.quota,
+          );
+        }
+        if (kind == TtsCallableKind.blockHourlyQuota) {
+          throw const TtsSynthesisBlocked(
+            TtsCallableFailure.hourlyQuotaMessage,
+            reason: TtsUnavailableReason.hourlyQuota,
           );
         }
         if (kind == TtsCallableKind.blockUnavailable) {
