@@ -1978,6 +1978,9 @@ class AppL10nDe extends AppL10n {
   String get bookResultSectionGrammar => 'Grammatik';
 
   @override
+  String get bookResultOpenGrammar => 'Grammatikkarte öffnen';
+
+  @override
   String get bookResultSectionSentences => 'Sätze';
 
   @override

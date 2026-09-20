@@ -16,6 +16,7 @@ import '../models/grammar_study_copy.dart';
 import '../models/feedback_completion.dart';
 import '../models/learner_level.dart';
 import '../services/course_activity_reporter.dart';
+import '../services/course_mission_navigation.dart';
 import '../services/course_checkpoint_questions.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/analytics_service.dart';
@@ -126,10 +127,27 @@ typedef GrammarCheckpointRecorder =
     Future<void> Function(GrammarCheckpointAttempt attempt);
 
 class GrammarScreen extends StatefulWidget {
-  const GrammarScreen({super.key, this.courseContext, this.checkpointRecorder});
+  const GrammarScreen({
+    super.key,
+    this.courseContext,
+    this.checkpointRecorder,
+    this.initialGrammarId,
+  });
+
+  factory GrammarScreen.fromRouteArguments(Object? arguments) {
+    final id = arguments is Map ? arguments['grammarId'] : null;
+    return GrammarScreen(
+      courseContext: coursePracticeContextFromRouteArguments(
+        arguments,
+        CurriculumContentKind.grammar,
+      ),
+      initialGrammarId: id is String && id.trim().isNotEmpty ? id.trim() : null,
+    );
+  }
 
   final CoursePracticeContext? courseContext;
   final GrammarCheckpointRecorder? checkpointRecorder;
+  final String? initialGrammarId;
 
   @override
   State<GrammarScreen> createState() => _GrammarScreenState();
@@ -290,10 +308,15 @@ class _GrammarScreenState extends State<GrammarScreen>
   @override
   void didUpdateWidget(covariant GrammarScreen oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.courseContext != widget.courseContext) {
+    if (oldWidget.courseContext != widget.courseContext ||
+        oldWidget.initialGrammarId != widget.initialGrammarId) {
       _likeSourceGeneration++;
       _choiceOwner.replaceSource();
       _retirePlanOperationsForSourceChange();
+      if (oldWidget.initialGrammarId != widget.initialGrammarId) {
+        _legacyBrowseForVisit = false;
+        unawaited(_load());
+      }
     }
   }
 
@@ -372,7 +395,15 @@ class _GrammarScreenState extends State<GrammarScreen>
           : g
                 .where((item) => courseContentIds.contains(item.id))
                 .toList(growable: false);
-      final useLevel = _isCoursePractice
+      // A direct card visit is free browsing, never today's plan or assessment.
+      final directId = _isCoursePractice ? null : widget.initialGrammarId;
+      final directIndex = directId == null
+          ? -1
+          : available.indexWhere((item) => item.id == directId);
+      final directTarget = directIndex < 0 ? null : available[directIndex];
+      final useLevel = directId != null
+          ? directTarget?.level ?? 'Alle'
+          : _isCoursePractice
           ? 'Alle'
           : (userLvl != null && available.any((x) => x.level == userLvl)
                 ? userLvl
@@ -383,7 +414,8 @@ class _GrammarScreenState extends State<GrammarScreen>
           : plans[_planLevel ?? _userLevelForPlan];
       final planCompletedToday =
           activePlan?.servedIdsByDate.containsKey(Storage.todayIso()) ?? false;
-      final followingPlan = activePlan != null && !_legacyBrowseForVisit;
+      final followingPlan =
+          activePlan != null && !_legacyBrowseForVisit && directId == null;
       final initialSlice = !followingPlan || planCompletedToday
           ? const <Grammar>[]
           : GrammarPlanService.todaysSlice(
@@ -395,6 +427,9 @@ class _GrammarScreenState extends State<GrammarScreen>
             );
       setState(() {
         _all = g;
+        if (directId != null) {
+          _legacyBrowseForVisit = true;
+        }
         _plans = plans;
         _planDayCompletedForVisit = followingPlan && planCompletedToday;
         _courseContentIds = courseContentIds;
@@ -405,16 +440,27 @@ class _GrammarScreenState extends State<GrammarScreen>
         _missionStep = missionStep;
         _missionTitle = missionTitle;
         _level = useLevel;
-        _filtered = !followingPlan
+        _filtered = directId != null && directTarget == null
+            ? <Grammar>[]
+            : !followingPlan
             ? (useLevel == 'Alle'
                   ? available
                   : available.where((x) => x.level == useLevel).toList())
             : initialSlice;
         _loading = false;
         _loadFailed = g.isEmpty && DataLoader.lastError != null;
-        if (_idx >= _filtered.length) _idx = 0;
+        if (directTarget != null) {
+          _idx = _filtered.indexWhere((item) => item.id == directId);
+        } else if (_idx >= _filtered.length) {
+          _idx = 0;
+        }
       });
-      if (!mounted || _isCoursePractice || activePlan != null) return;
+      if (!mounted ||
+          _isCoursePractice ||
+          activePlan != null ||
+          directId != null) {
+        return;
+      }
       unawaited(_showPlanOnboardingSheet(allowLegacyBrowseOnDismissal: true));
     } catch (error) {
       if (!mounted) return;
@@ -1708,7 +1754,7 @@ class _GrammarScreenState extends State<GrammarScreen>
           ),
         );
       }
-      if (_planFinished) {
+      if (_isFollowingPlan && _planFinished) {
         return SoriStudyFrame(
           title: t.screenGrammarTitle,
           actions: const [TtsSpeedAction()],

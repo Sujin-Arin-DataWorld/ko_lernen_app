@@ -1973,6 +1973,9 @@ class AppL10nEn extends AppL10n {
   String get bookResultSectionGrammar => 'Grammar';
 
   @override
+  String get bookResultOpenGrammar => 'Open grammar card';
+
+  @override
   String get bookResultSectionSentences => 'Sentences';
 
   @override
