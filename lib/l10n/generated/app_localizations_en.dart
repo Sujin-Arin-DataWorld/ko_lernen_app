@@ -1973,6 +1973,9 @@ class AppL10nEn extends AppL10n {
   String get bookResultSectionGrammar => 'Grammar';
 
   @override
+  String get bookResultOpenGrammar => 'Open grammar card';
+
+  @override
   String get bookResultSectionSentences => 'Sentences';
 
   @override
@@ -9011,6 +9014,10 @@ class AppL10nEn extends AppL10n {
   @override
   String get ttsUnavailableQuota =>
       'Daily voice limit reached. It resets tomorrow.';
+
+  @override
+  String get ttsUnavailableHourlyQuota =>
+      'Hourly voice limit reached. Try again later.';
 
   @override
   String get ttsUnavailablePending =>

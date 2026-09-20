@@ -9,11 +9,14 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/screens/book_result_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
+
+import 'support/real_fonts.dart';
 
 const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
 
@@ -44,11 +47,11 @@ const _completeResult = BookAnalysisResult(
   ],
   grammar: <GrammarHit>[
     GrammarHit(
-      patternId: 'g_polite',
-      nameDe: 'Höfliche Endung',
-      matchedText: '습니다',
+      patternId: 'g_can',
+      nameDe: 'Fähigkeit',
+      matchedText: '을 수 있어요',
       level: 'A1',
-      explanationDe: 'Formelle höfliche Aussage.',
+      explanationDe: 'Drückt eine Fähigkeit aus.',
       sourceUnitId: 'unit-grammar',
     ),
   ],
@@ -64,12 +67,14 @@ const _completeResult = BookAnalysisResult(
 
 void main() {
   setUpAll(() async {
+    await loadSoriRealFonts();
     SharedPreferences.setMockInitialValues(<String, Object>{
       'kl_tut_book': true,
       'kl_tut_wordbook': true,
       'kl_bookshelf_v1': '{}',
     });
     await Storage.init();
+    await DataLoader.loadGrammar();
   });
 
   testWidgets(
@@ -119,6 +124,21 @@ void main() {
             );
           }
 
+          final grammar = find.widgetWithText(
+            SoriButton,
+            t.bookResultOpenGrammar,
+          );
+          await tester.scrollUntilVisible(
+            grammar,
+            280,
+            scrollable: find.byType(Scrollable).first,
+          );
+          await tester.pump();
+          _expectEnabledButtonSemantics(
+            tester,
+            grammar,
+            t.bookResultOpenGrammar,
+          );
           final save = find.widgetWithText(SoriButton, t.bookResultSave);
           await tester.scrollUntilVisible(
             save,
@@ -358,11 +378,11 @@ BookAnalysisResult _localizedCompleteResult(String language) {
     ],
     grammar: <GrammarHit>[
       GrammarHit(
-        patternId: 'g_polite',
-        nameDe: 'Polite ending',
-        matchedText: '습니다',
+        patternId: 'g_can',
+        nameDe: 'Ability',
+        matchedText: '을 수 있어요',
         level: 'A1',
-        explanationDe: 'Formal polite statement.',
+        explanationDe: 'Expresses ability.',
         sourceUnitId: 'unit-grammar',
       ),
     ],

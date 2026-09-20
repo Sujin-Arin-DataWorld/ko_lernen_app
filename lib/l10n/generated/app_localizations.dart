@@ -3415,6 +3415,12 @@ abstract class AppL10n {
   /// **'Grammatik'**
   String get bookResultSectionGrammar;
 
+  /// No description provided for @bookResultOpenGrammar.
+  ///
+  /// In de, this message translates to:
+  /// **'Grammatikkarte öffnen'**
+  String get bookResultOpenGrammar;
+
   /// No description provided for @bookResultSectionSentences.
   ///
   /// In de, this message translates to:
@@ -15341,6 +15347,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Heutiges Sprachlimit erreicht. Morgen geht es weiter.'**
   String get ttsUnavailableQuota;
+
+  /// Shown when the global hourly synthesis limit is reached; cached audio remains available.
+  ///
+  /// In de, this message translates to:
+  /// **'Für diese Stunde ist das Sprachlimit erreicht. Versuch es später noch einmal.'**
+  String get ttsUnavailableHourlyQuota;
 
   /// No description provided for @ttsUnavailablePending.
   ///

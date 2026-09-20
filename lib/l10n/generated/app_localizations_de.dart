@@ -1978,6 +1978,9 @@ class AppL10nDe extends AppL10n {
   String get bookResultSectionGrammar => 'Grammatik';
 
   @override
+  String get bookResultOpenGrammar => 'Grammatikkarte öffnen';
+
+  @override
   String get bookResultSectionSentences => 'Sätze';
 
   @override
@@ -9055,6 +9058,10 @@ class AppL10nDe extends AppL10n {
   @override
   String get ttsUnavailableQuota =>
       'Heutiges Sprachlimit erreicht. Morgen geht es weiter.';
+
+  @override
+  String get ttsUnavailableHourlyQuota =>
+      'Für diese Stunde ist das Sprachlimit erreicht. Versuch es später noch einmal.';
 
   @override
   String get ttsUnavailablePending =>
