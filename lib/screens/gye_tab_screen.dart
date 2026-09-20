@@ -177,24 +177,34 @@ class _GyeTabScreenState extends State<GyeTabScreen>
           // bottom=xxxl(48) 은 부모의 `SoriContentClamp` 하단 여백과 맞춘다.
           base: const EdgeInsets.fromLTRB(20, 0, 20, Spacing.xxxl),
         );
+        if (gyeList.isEmpty) {
+          return SliverPadding(
+            padding: padding,
+            sliver: SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: _introContent(
+                  context,
+                  introKey: _introKey,
+                  embedded: true,
+                  onFindOrCreate: _findOrCreate,
+                  onContinueSolo: _resolvedOnContinueSolo(context),
+                ),
+              ),
+            ),
+          );
+        }
         return SliverPadding(
           padding: padding,
           sliver: SliverList(
             delegate: SliverChildListDelegate(
-              gyeList.isEmpty
-                  ? _introContent(
-                      context,
-                      introKey: _introKey,
-                      embedded: true,
-                      onFindOrCreate: _findOrCreate,
-                      onContinueSolo: _resolvedOnContinueSolo(context),
-                    )
-                  : _gyeListContent(
-                      context,
-                      gyeList: gyeList,
-                      onFindOrCreate: _findOrCreate,
-                      onOpenGye: _openGye,
-                    ),
+              _gyeListContent(
+                context,
+                gyeList: gyeList,
+                onFindOrCreate: _findOrCreate,
+                onOpenGye: _openGye,
+              ),
             ),
           ),
         );
@@ -209,7 +219,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
   /// 대체한다 — 비임베디드 경로(아래 `build()`의 `Scaffold` 분기)는 그대로
   /// 둔다.
   Widget _buildEmbedded(BuildContext context) {
-    return SliverMainAxisGroup(slivers: [_buildContentSliver(context)]);
+    return _buildContentSliver(context);
   }
 
   @override

@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/gye.dart';
 import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_gye_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
@@ -118,6 +119,16 @@ void main() {
     expect(soloCalls, 1);
     expect(tester.takeException(), isNull);
     semantics.dispose();
+  });
+
+  testWidgets('embedded empty Gye landing fills the space above navigation', (
+    tester,
+  ) async {
+    await _pumpEmbedded(tester, () async => const <GyeMeta>[]);
+
+    expect(find.byType(SliverFillRemaining), findsOneWidget);
+    expect(find.byKey(const ValueKey('gye-continue-solo')), findsOneWidget);
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('existing Gye list keeps the optional shared-courtyard context', (
@@ -320,4 +331,20 @@ Future<void> _pump(
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
   }
+}
+
+Future<void> _pumpEmbedded(
+  WidgetTester tester,
+  Future<List<GyeMeta>> Function() loadGyeMetas,
+) async {
+  await tester.pumpWidget(
+    MaterialApp(
+      theme: AppTheme.light,
+      locale: const Locale('de'),
+      supportedLocales: AppL10n.supportedLocales,
+      localizationsDelegates: AppL10n.localizationsDelegates,
+      home: SoriStageGyeScreen(loadGyeMetas: loadGyeMetas),
+    ),
+  );
+  await tester.pumpAndSettle();
 }

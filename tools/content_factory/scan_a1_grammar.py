@@ -288,7 +288,7 @@ EXACT_SENTENCE_ALLOWLIST = {
     #     -아/어 보다 connector char "여" + "보세요", a lexical coincidence
     #     (아/어 보다 aux_try + 2 more grade-2 rules keying off the same
     #     "어보"/"어보세요" substring), not a genuine 아/어 보다 "try" form.
-    "여보세요, 저는 크리스티안이에요.",
+    "안녕하세요, 저는 크리스티안이에요.",
     #   - "가지고 있어요" (기본 소유, -고 있다 1급 진행형) coincidentally
     #     contains the substring "을 가지고", which nikl_kiiq_2017_grammar
     #     .csv grade 5 "를 가지고"/"을 가지고" (고급, "using N as a means",

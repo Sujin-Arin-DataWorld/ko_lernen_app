@@ -157,7 +157,7 @@ EXACT_SENTENCE_ALLOWLIST = {
     # C2d-2 (2026-09-16): kept in sync with scan_a1_grammar.py's own copy
     # (see that module for the full justification of each entry below).
     "짧은 예문을 하나 적으세요.", "짧은 예문을 하나 볼 수 있어요?",
-    "저는 바나나를 좋아해요.", "여보세요, 저는 크리스티안이에요.",
+    "저는 바나나를 좋아해요.", "안녕하세요, 저는 크리스티안이에요.",
     "저는 책을 가지고 있어요.",
 }
 

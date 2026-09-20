@@ -2531,7 +2531,7 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 가게,gage,"Laden, Geschäft",A1,Nomen,이 가게는 커피가 맛있어요.,In diesem Laden ist der Kaffee lecker.,결제와 배달,a1_payment_delivery_1,12,false,"shop, store",Noun,The coffee at this shop is delicious.,vocab_a1_0490
 인사,insa,"Gruß, Begrüßung",A1,Nomen,저는 매일 인사를 해요.,Ich sage jeden Tag Hallo.,Höflichkeit,a1_greetings_1,10,false,greeting,Noun,I greet people every day.,vocab_a1_0491
 축하,chukha,Glückwunsch,A1,Nomen,생일 정말 축하해요!,Herzlichen Glückwunsch zum Geburtstag!,Höflichkeit,a1_greetings_1,11,false,congratulations,Noun,Happy birthday!,vocab_a1_0492
-여보세요,yeoboseyo,Hallo? (am Telefon),A1,Ausdruck,"여보세요, 저는 크리스티안이에요.","Hallo, ich bin Christian.",Begrüßung,a1_greetings_1,12,false,hello (on the phone),Expression,"Hello, this is Christian.",vocab_a1_0493
+여보세요,yeoboseyo,Hallo? (am Telefon),A1,Ausdruck,"여보세요.","Hallo?",Begrüßung,a1_greetings_1,12,false,hello (on the phone),Expression,"Hello?",vocab_a1_0493
 안경,angyeong,Brille,A1,Nomen,저는 안경을 써요.,Ich trage eine Brille.,Alltag,a1_daily_1,10,false,glasses,Noun,I wear glasses.,vocab_a1_0494
 모자,moja,"Hut, Mütze",A1,Nomen,오늘 모자를 썼어요.,Heute habe ich eine Mütze getragen.,Alltag,a1_daily_1,11,false,hat,Noun,Today I wore a hat.,vocab_a1_0495
 신발,sinbal,Schuhe,A1,Nomen,신발이 아주 작아요.,Die Schuhe sind sehr klein.,Alltag,a1_daily_1,12,false,shoes,Noun,The shoes are very small.,vocab_a1_0496

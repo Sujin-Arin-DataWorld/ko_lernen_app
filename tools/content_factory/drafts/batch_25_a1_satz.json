@@ -479,14 +479,14 @@
     {
       "id": "satz_a1_0408",
       "level": "a1",
-      "targetKo": "여보세요, 저는 크리스티안이에요.",
+      "targetKo": "안녕하세요, 저는 크리스티안이에요.",
       "promptDe": "Hallo, ich bin Christian.",
       "promptEn": "Hello, this is Christian.",
       "distractors": [
         "설빔",
         "십"
       ],
-      "vocabKo": "여보세요",
+      "vocabKo": "안녕하세요",
       "sourceVocabId": "vocab_a1_0493",
       "courseUnitId": "a1_01_greetings_hangul"
     },

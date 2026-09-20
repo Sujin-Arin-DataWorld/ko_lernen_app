@@ -10968,7 +10968,7 @@
       "category": "restaurant",
       "sourceShard": "scenarios_a1.json",
       "sourceSha256": "a789fad341d62c0ba4f98cb8268d3d2f8cc853672ccfa599ff35c5ae99daeccf",
-      "semanticSummaryKo": "전화로 식당 자리 예약하기. 대화 핵심: 네, 다정식당입니다. / 여보세요. 자리를 예약하고 싶어요. 학습 목표 발화: 오늘 저녁 일곱 시요.",
+      "semanticSummaryKo": "전화로 식당 자리 예약하기. 대화 핵심: 네, 다정식당입니다. / 안녕하세요. 자리를 예약하고 싶어서 전화드렸어요. 학습 목표 발화: 오늘 저녁 일곱 시요.",
       "requiredSettingKo": "한국의 식당 내부",
       "requiredParticipants": [
         {
