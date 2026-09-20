@@ -64,14 +64,14 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 | 레인 | 현재 증거 | 남은 작업과 완료 조건 |
 |---|---|---|
 | S1 무음 실패 | #322/#325/#350 병합 | 하향 래칫·개인정보 없는 진단 유지 |
-| S2 timeout·backoff | #331 병합, `lib/services/net/sori_net.dart` | S2-T2 readAccount 잔여 await 검토; 오류·오프라인 회귀 증거 |
+| S2 timeout·backoff | #331 병합, `lib/services/net/sori_net.dart`. S2-T2 후속은 `CloudSyncService.readAccountDocument`의 reader를 공통 8초 제한으로 감싸 timeout을 `unavailable`로 반환하도록 구현 | 신규 회귀 7개를 포함한 로컬 관련 검사 152개·정적 분석 통과, Spec/Standards 검토 추가 finding 없음. 무한 대기·늦은 성공/실패·명시적 재시도·계정 전환/정지·로컬 초기화 뒤 복원 차단 확인. 정확한 PR/main 검사와 실제 기기 네트워크·오프라인 검증은 별도 |
 | S3 진행도 큐 | #329 병합, `pack_sync_queue.dart` | 실기기 강제종료·복원·Firestore 쓰기 실측을 코드 테스트와 구분 |
 | S4 / C5 빈 엔진 | 기존 게임 계약 있음 | 모든 레벨에 최소 5개 또는 명시적으로 숨김, 0건 경로 검증 |
 | S5 설치 크기 | Android `proofreading_feature` 선례 있음 | 앱 자산 분리 미완; App Bundle Explorer 실측부터, 기본 모듈 목표 150 MB |
 | S6 접근성 | 기존 Sori Semantics 규약 | 아이콘 Tooltip·Semantics 누락 조사, 작은 화면·큰 글자·기기 확인 |
 | B1 알림·SLO | #320 정책 5개·런북 병합 | **2026-09-16 실제 Monitoring 정책 조회 0개**. 채널·메트릭·정책 적용과 확인 필요; 코드 병합으로 닫지 않음 |
 | B2 함수 자원 | #333 병합, Gye limits·분할 Promise.all | 실제 배포 소스·운영 성능은 별도 확인 |
-| B3 쿼터 | `tts_request_guard.js` 여전히 전역 300/일 | 시간 버킷·사유 코드 설계/테스트/배포 검증, 상한을 임의 확대하지 않음 |
+| B3 쿼터 | 전역 25/UTC시를 기존 설치 30·계정 50·전역 300/일과 같은 트랜잭션에서 제한하는 코드 추가. 정각·자정 경계 반환은 예약 시각을 사용. 새 앱은 시간당 사유·DE/EN 안내를 구분하고 구버전은 재시도 없는 일반 안내를 유지 | 아직 미배포. 시간당 한도 외 세션/정책 사유 구분, 익명 계정 **생성** 속도 관측·B1 연동, 실제 배포·운영 검증은 남음. TTS 요청 횟수를 계정 생성 횟수로 간주하지 않음 |
 | B4 App Check | account/deletion runtime에 false 예외 존재 | 관측 기간·거절률·롤백 근거 후 단계적 enforce |
 | B5 Rules 읽기 | pack 규칙에 exists + cloudBackupDeletionPending 유지 | 삭제 펜스 보존하면서 읽기 감량, 에뮬레이터 증명 |
 | B6 위생 | 루트 google-services.json 존재 | 소비자·릴리스 해시·문서 수치 감사 후 필요한 것만 정리 |

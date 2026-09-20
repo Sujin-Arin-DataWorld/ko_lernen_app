@@ -26,6 +26,15 @@ fallback은 제거했다. 필드가 없는 과거 원본은 작성자가 오답�
 현재 두 수정 후보와 남은 134개 라이브 문장형 타일 문제는
 [`C1/C2 검수 패킷`](review/canonical_120_revisions_20260916/README.md)에 정리되어 있다.
 
+과거 승격 이력을 조사할 때는 `audit_review_history.py`로 최초 승격부터
+고정한 Git HEAD까지 초안·검수표·라이브를 따로 추적할 수 있다.
+보고서 schema 1의 대상 파일 표와 행 해시 규약은 감사기 안에 고정되어 있다.
+현재 승격 검증기의 수정이나 미커밋 작업은 과거 감사 결과에 영향을 주지 않는다.
+현재 검수 스냅샷이 최초 초안과 같다고 가정하지 않으며, 깨진 과거 CSV·JSON은
+추정해서 복원하지 않고 이력 공백으로 기록한다. 이 보고서는 승격 검증기의
+예외나 사람 승인으로 사용되지 않는다. [Batch 07 감사와 재현 명령](../../docs/data/review_packets/batch_07_history_20260916.md)에
+1,374행·15개 트랙의 근거와 남은 언어 교정 대상을 정리했다.
+
 PDF, OCR, 표 또는 Library 페이지 판독이 선행되는 작업은 먼저
 [`docs/CONTENT_REFERENCE_INTAKE_GUIDE.md`](../../docs/CONTENT_REFERENCE_INTAKE_GUIDE.md)와
 [`reference_intake/README.md`](reference_intake/README.md)를 따른다. source 원문은 draft로

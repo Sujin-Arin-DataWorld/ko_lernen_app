@@ -15348,6 +15348,12 @@ abstract class AppL10n {
   /// **'Heutiges Sprachlimit erreicht. Morgen geht es weiter.'**
   String get ttsUnavailableQuota;
 
+  /// Shown when the global hourly synthesis limit is reached; cached audio remains available.
+  ///
+  /// In de, this message translates to:
+  /// **'Für diese Stunde ist das Sprachlimit erreicht. Versuch es später noch einmal.'**
+  String get ttsUnavailableHourlyQuota;
+
   /// No description provided for @ttsUnavailablePending.
   ///
   /// In de, this message translates to:

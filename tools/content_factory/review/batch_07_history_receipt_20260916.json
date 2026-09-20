@@ -1,0 +1,607 @@
+{
+  "schemaVersion": 1,
+  "sourceHead": "f2275489379393e7a3655dc8180e0a8b317696bb",
+  "promotionCommit": "83b3865868ec5314de6884cb1f03d79adf947558",
+  "integrationCommit": "b5813937792cf7993ec85f231db4fdc67d57bc36",
+  "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+  "promotionManifest": "tools/content_factory/drafts/batch_07_manifest.json",
+  "scope": "Observed first-parent integration transitions; not approval, rights verification, or language QA.",
+  "summary": {
+    "records": 1374,
+    "originalDraftLiveMismatches": 0,
+    "draftRowsChangedSincePromotion": 833,
+    "rawDraftLiveDifferences": 1262,
+    "unparsedSnapshots": 11,
+    "transitionsByTrack": {
+      "draft": 842,
+      "review": 592,
+      "live": 3133
+    }
+  },
+  "kind": "review_history_evidence_receipt",
+  "reviewStatus": "HISTORY_TRACED_WITH_GAPS",
+  "humanReviewStatus": "not_assessed",
+  "approvalAdded": false,
+  "rightsAdded": false,
+  "runtimeChanged": false,
+  "fullReportSha256": "d7e63732697ea6f2876f8809bf0cdc6bc3f134b8a2613d6e6e458dd86e51065d",
+  "fullReportBytes": 6440097,
+  "fullReportLocalArtifact": "C:\\dev\\hangulsori\\_codex_artifacts\\cp2026-history-reconciliation-20260916\\batch07-three-track-history-strict.json",
+  "reproduction": [
+    "python",
+    "-B",
+    "tools/content_factory/audit_review_history.py",
+    "--manifest",
+    "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+    "--promotion-manifest",
+    "tools/content_factory/drafts/batch_07_manifest.json",
+    "--promotion",
+    "83b3865868ec5314de6884cb1f03d79adf947558",
+    "--integration",
+    "b5813937792cf7993ec85f231db4fdc67d57bc36",
+    "--head",
+    "f2275489379393e7a3655dc8180e0a8b317696bb",
+    "--output",
+    "batch07-history.json"
+  ],
+  "strictValidationAtSourceHead": {
+    "ok": false,
+    "error": "vocab:vocab_a1_0213: promoted value differs from reviewed draft"
+  },
+  "unexplainedRowsAtSourceHead": 827,
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "currentRecordCount": 432,
+      "promotionRecordCount": 432,
+      "originalDraftLiveMismatches": 0,
+      "draftRowsChangedSincePromotion": 245,
+      "rawDraftLiveDifferences": 322,
+      "unexplainedRows": 166,
+      "tracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c3_batch07_vocab_partner_family.csv",
+          "promotionBlobSha256": "0b720b6cab5efa93ea30970fd60af50ed95371f992d3eab26795b9c8e231d316",
+          "currentBlobSha256": "579e0a059144999eba726da11944b4f097f7d3ebf9560e6062435925e78f17f7",
+          "events": [
+            {
+              "commit": "5cffbf242fb389bd5091633198727542311a34a2",
+              "changedRows": 245
+            }
+          ],
+          "historyComplete": false,
+          "unparsedSnapshots": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "blobSha256": "4c0793c223d147d2e96fddacc7b2af19f0ab70876727235be8612e61b238667c",
+              "error": "tools/content_factory/drafts/c3_batch07_vocab_partner_family.csv: CSV column mismatch at line 195, id='When they asked about kids'"
+            },
+            {
+              "commit": "4d1e44691e44090399b702a675d5ac1a92421387",
+              "blobSha256": "68e6e7bc3eb1fcafae6701c13c3bb348fb7036e698ff3a3571e02c27b1d56505",
+              "error": "tools/content_factory/drafts/c3_batch07_vocab_partner_family.csv: CSV column mismatch at line 195, id='When they asked about kids'"
+            },
+            {
+              "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+              "blobSha256": "c8488bb1ecad5479e02a19009a6fb609416c8b7a6b381f96a9d266bf328c93b8",
+              "error": "tools/content_factory/drafts/c3_batch07_vocab_partner_family.csv: CSV column mismatch at line 138, id=\"I decided not to tell anyone about Hyunwoo's childhood.\""
+            }
+          ]
+        },
+        "review": {
+          "path": "tools/content_factory/review/c3_batch07_vocab_partner_family.csv",
+          "promotionBlobSha256": "b6867f8b0af6837705aa0c3579b05c490eb48246e91ae46823d05a9ead25e71d",
+          "currentBlobSha256": "4c908eba856a5e16ec6ed0aed1c5e70df6fcac82ffa3c9efe80aa5df02804b20",
+          "events": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "changedRows": 83
+            },
+            {
+              "commit": "4d1e44691e44090399b702a675d5ac1a92421387",
+              "changedRows": 2
+            },
+            {
+              "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+              "changedRows": 2
+            }
+          ],
+          "historyComplete": true,
+          "unparsedSnapshots": []
+        },
+        "live": {
+          "path": "assets/data/korean_vocab.csv",
+          "promotionBlobSha256": "eb72cb372d85a499fb716f31f4d1fa443c0e4743d503f15d9b0db4df911196bd",
+          "currentBlobSha256": "467cb8e10d0a7c6b881f44ac48ecb51243d873ca09c8f6e4fb6856a8b32e547d",
+          "events": [
+            {
+              "commit": "72ec06241342c1c3b4035dd82cb33b961855ac90",
+              "changedRows": 63
+            },
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "changedRows": 209
+            },
+            {
+              "commit": "4d1e44691e44090399b702a675d5ac1a92421387",
+              "changedRows": 161
+            },
+            {
+              "commit": "8931fd56d9f0e78fa604364f14f63788b743602d",
+              "changedRows": 31
+            },
+            {
+              "commit": "e2d0fc2858b2de6e5bb7082ba816d3b373f515e1",
+              "changedRows": 5
+            },
+            {
+              "commit": "5e98e49300e640994caa098d55ec5cd2e6655967",
+              "changedRows": 3
+            },
+            {
+              "commit": "10571b95b940f6cbeb38fd7738010ce663fe1e64",
+              "changedRows": 13
+            },
+            {
+              "commit": "95e04bef03936444d49158438a1cd6a8a1852960",
+              "changedRows": 1
+            },
+            {
+              "commit": "1cafb2cb4f850e3d2361834641e8a84d2cc4950b",
+              "changedRows": 1
+            },
+            {
+              "commit": "3f7ca99d7242c05cf8a5b0da3bdada5504b1abd8",
+              "changedRows": 1
+            },
+            {
+              "commit": "55c1a29eec494c37b3d8335fa4e5d5629760fdd2",
+              "changedRows": 101
+            },
+            {
+              "commit": "78daf0ddff031524d3892bb7a0ae89ee5c2f3dc5",
+              "changedRows": 176
+            },
+            {
+              "commit": "b43f26fa20759c61e7419c978544c8f900cd5828",
+              "changedRows": 10
+            },
+            {
+              "commit": "90d5027bb91a05da86e42eabe8c47f3da432a6ad",
+              "changedRows": 14
+            },
+            {
+              "commit": "2566cc3859d25a368b7268ed46838d4069d85a4c",
+              "changedRows": 19
+            },
+            {
+              "commit": "78030d421d7b1f231f2a7097dabc6b4c40d12d8e",
+              "changedRows": 1
+            },
+            {
+              "commit": "8bc5ca314c62632df1cfd63c3ef9507264ef7471",
+              "changedRows": 2
+            }
+          ],
+          "historyComplete": false,
+          "unparsedSnapshots": [
+            {
+              "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+              "blobSha256": "4e52ce0ef940022ca1ee744a638049721c4247878139765aff0397069641c7ed",
+              "error": "assets/data/korean_vocab.csv: CSV column mismatch at line 1326, id=\"I decided not to tell anyone about Hyunwoo's childhood.\""
+            },
+            {
+              "commit": "a5d496451f6b326cda3d7e0b29c34305a03070dc",
+              "blobSha256": "ff026193676815b8357572771efc7a7bd38bbca1c7ab3858b13b38e87dcd1060",
+              "error": "assets/data/korean_vocab.csv: CSV column mismatch at line 1326, id=\"I decided not to tell anyone about Hyunwoo's childhood.\""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "kind": "grammar",
+      "currentRecordCount": 6,
+      "promotionRecordCount": 6,
+      "originalDraftLiveMismatches": 0,
+      "draftRowsChangedSincePromotion": 3,
+      "rawDraftLiveDifferences": 4,
+      "unexplainedRows": 4,
+      "tracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c4_batch07_grammar_partner_family.csv",
+          "promotionBlobSha256": "159e5b13bd8cf8b316b67843582dafe976d59a0edfb0aef89756ddf562ecc080",
+          "currentBlobSha256": "1a15ecff90429d99dac0b0ea27ed753bb926287c457be20d54570c11576b4d07",
+          "events": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "changedRows": 3
+            }
+          ],
+          "historyComplete": true,
+          "unparsedSnapshots": []
+        },
+        "review": {
+          "path": "tools/content_factory/review/c4_batch07_grammar_partner_family.csv",
+          "promotionBlobSha256": "c8b4e22737a68ac672611a266bb2c3bedd2756fe829a8a868881a75c73fb532e",
+          "currentBlobSha256": "0f918da7782191b2a6a3499a578a080c22368f5be2d68bfd3e9a84193e88bd17",
+          "events": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "changedRows": 1
+            }
+          ],
+          "historyComplete": true,
+          "unparsedSnapshots": []
+        },
+        "live": {
+          "path": "assets/data/grammar.csv",
+          "promotionBlobSha256": "9061702e49f3cb9f627a57ee734a04a80c820bc0b64c88ff98ebcb2bf5fc5e9d",
+          "currentBlobSha256": "bf35db430bb21b7dee476ccba41d62066f92833531c4b5ea2fb0e6f3339ec2b6",
+          "events": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "changedRows": 3
+            },
+            {
+              "commit": "43769596687027ad85e637d2dd78443dc9c072fd",
+              "changedRows": 3
+            },
+            {
+              "commit": "8bc5ca314c62632df1cfd63c3ef9507264ef7471",
+              "changedRows": 1
+            }
+          ],
+          "historyComplete": true,
+          "unparsedSnapshots": []
+        }
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "currentRecordCount": 72,
+      "promotionRecordCount": 72,
+      "originalDraftLiveMismatches": 0,
+      "draftRowsChangedSincePromotion": 72,
+      "rawDraftLiveDifferences": 72,
+      "unexplainedRows": 72,
+      "tracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c2_batch07_smalltalk_partner_family.json",
+          "promotionBlobSha256": "98d1ae8fb777300e71738ba369417069fc77bc40f676109267e83a515567f09a",
+          "currentBlobSha256": "4d8107a59814177db1daf2c06597ce6be2764b5a061ff79facaea93353c9482f",
+          "events": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "changedRows": 72
+            },
+            {
+              "commit": "4d1e44691e44090399b702a675d5ac1a92421387",
+              "changedRows": 1
+            }
+          ],
+          "historyComplete": true,
+          "unparsedSnapshots": []
+        },
+        "review": {
+          "path": "tools/content_factory/review/c2_batch07_smalltalk_partner_family.csv",
+          "promotionBlobSha256": "0b783b4c0967b3826a7a7a98c4ae17e6a9b4456f956a0ac351ed88a103e30266",
+          "currentBlobSha256": "51865171d71c11a644824c5aec1b745e0220275d385cd627d3a52d9f14141f0e",
+          "events": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "changedRows": 15
+            },
+            {
+              "commit": "4d1e44691e44090399b702a675d5ac1a92421387",
+              "changedRows": 1
+            }
+          ],
+          "historyComplete": true,
+          "unparsedSnapshots": []
+        },
+        "live": {
+          "path": "assets/data/smalltalk.json",
+          "promotionBlobSha256": "c84bb9cc084b961d32020dcebfdb6c05871b9f4a894886e6539d18276ab2757d",
+          "currentBlobSha256": "c5cda7c6fb9339376a83863868adda173d669b1d0ee9ec7c792232a8ff6051ff",
+          "events": [
+            {
+              "commit": "72ec06241342c1c3b4035dd82cb33b961855ac90",
+              "changedRows": 72
+            },
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "changedRows": 46
+            },
+            {
+              "commit": "4d1e44691e44090399b702a675d5ac1a92421387",
+              "changedRows": 72
+            },
+            {
+              "commit": "a1c6aa5de241307c7fa5c69a50ed105116af0f4d",
+              "changedRows": 13
+            }
+          ],
+          "historyComplete": true,
+          "unparsedSnapshots": []
+        }
+      }
+    },
+    {
+      "kind": "cloze",
+      "currentRecordCount": 432,
+      "promotionRecordCount": 432,
+      "originalDraftLiveMismatches": 0,
+      "draftRowsChangedSincePromotion": 244,
+      "rawDraftLiveDifferences": 432,
+      "unexplainedRows": 174,
+      "tracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c2_batch07_cloze_partner_family.json",
+          "promotionBlobSha256": "b13c062c441641df8f6d51722a1ece3a2e7fc855f62b47c39df037081ebd9b66",
+          "currentBlobSha256": "60a51d2c0b064b9c676a4d21f4695cee0eec1da85b9538dd795308d647d09e3a",
+          "events": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "changedRows": 240
+            },
+            {
+              "commit": "4d1e44691e44090399b702a675d5ac1a92421387",
+              "changedRows": 3
+            },
+            {
+              "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+              "changedRows": 5
+            }
+          ],
+          "historyComplete": true,
+          "unparsedSnapshots": []
+        },
+        "review": {
+          "path": "tools/content_factory/review/c2_batch07_cloze_partner_family.csv",
+          "promotionBlobSha256": "11c98a88abbb6a21825e8cc517705d8ca1716c012734f0cadaa541ad6e1326e3",
+          "currentBlobSha256": "f7f0913e77ab95e606a5111e96105a86f2df03b95955df7e4fa3df8afcdcb5c7",
+          "events": [
+            {
+              "commit": "69e5cd2d1af7ea491568a8d6aab796d83042086c",
+              "changedRows": 244
+            }
+          ],
+          "historyComplete": false,
+          "unparsedSnapshots": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "blobSha256": "e5d06e48483856028fb1897a65cfba4336ce76c8c59ee4c8a1809b596aa8692e",
+              "error": "tools/content_factory/review/c2_batch07_cloze_partner_family.csv: CSV column mismatch at line 195, id='cloze_b1_0085'"
+            },
+            {
+              "commit": "4d1e44691e44090399b702a675d5ac1a92421387",
+              "blobSha256": "46c83225443dec8ea15715a1e390c893acfb9e0b1a9836a32100edff955ba845",
+              "error": "tools/content_factory/review/c2_batch07_cloze_partner_family.csv: CSV column mismatch at line 195, id='cloze_b1_0085'"
+            },
+            {
+              "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+              "blobSha256": "a5df05822200db6dc0a77f8d28ce7d74cda86debfe6bd5ad83df5e0c4db58220",
+              "error": "tools/content_factory/review/c2_batch07_cloze_partner_family.csv: CSV column mismatch at line 138, id='cloze_a2_0116'"
+            }
+          ]
+        },
+        "live": {
+          "path": "assets/data/cloze.json",
+          "promotionBlobSha256": "89a46ac80beab98c4bea1d33a34b6d862530147cf205e12efc35488d15b2e0a5",
+          "currentBlobSha256": "0533149a005e609b3f3ae9658765dbe81247b9a180e23e0fbfdd4e2464b08da7",
+          "events": [
+            {
+              "commit": "72ec06241342c1c3b4035dd82cb33b961855ac90",
+              "changedRows": 63
+            },
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "changedRows": 207
+            },
+            {
+              "commit": "4d1e44691e44090399b702a675d5ac1a92421387",
+              "changedRows": 432
+            },
+            {
+              "commit": "1f44aef788840b9a28d34c626ff79dcc21fff761",
+              "changedRows": 14
+            },
+            {
+              "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+              "changedRows": 5
+            },
+            {
+              "commit": "5e98e49300e640994caa098d55ec5cd2e6655967",
+              "changedRows": 4
+            },
+            {
+              "commit": "10571b95b940f6cbeb38fd7738010ce663fe1e64",
+              "changedRows": 13
+            },
+            {
+              "commit": "95e04bef03936444d49158438a1cd6a8a1852960",
+              "changedRows": 4
+            },
+            {
+              "commit": "1cafb2cb4f850e3d2361834641e8a84d2cc4950b",
+              "changedRows": 7
+            },
+            {
+              "commit": "3f7ca99d7242c05cf8a5b0da3bdada5504b1abd8",
+              "changedRows": 17
+            },
+            {
+              "commit": "55c1a29eec494c37b3d8335fa4e5d5629760fdd2",
+              "changedRows": 108
+            },
+            {
+              "commit": "aa0d932f69f6f738cb3ecd4847656edc0e7a09ff",
+              "changedRows": 182
+            },
+            {
+              "commit": "b43f26fa20759c61e7419c978544c8f900cd5828",
+              "changedRows": 10
+            },
+            {
+              "commit": "90d5027bb91a05da86e42eabe8c47f3da432a6ad",
+              "changedRows": 14
+            },
+            {
+              "commit": "2566cc3859d25a368b7268ed46838d4069d85a4c",
+              "changedRows": 19
+            },
+            {
+              "commit": "415d426e193b1235f5bb8b6b99a5a8234a887eda",
+              "changedRows": 66
+            },
+            {
+              "commit": "78030d421d7b1f231f2a7097dabc6b4c40d12d8e",
+              "changedRows": 1
+            },
+            {
+              "commit": "8bc5ca314c62632df1cfd63c3ef9507264ef7471",
+              "changedRows": 2
+            }
+          ],
+          "historyComplete": true,
+          "unparsedSnapshots": []
+        }
+      }
+    },
+    {
+      "kind": "satz",
+      "currentRecordCount": 432,
+      "promotionRecordCount": 432,
+      "originalDraftLiveMismatches": 0,
+      "draftRowsChangedSincePromotion": 269,
+      "rawDraftLiveDifferences": 432,
+      "unexplainedRows": 411,
+      "tracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c2_batch07_satz_partner_family.json",
+          "promotionBlobSha256": "8cf983bcb4abda306ed34bee85e17e3e3f6917c922dc34a8725214d443236b2a",
+          "currentBlobSha256": "58ff72aaec2c37fd14c8a7d93372c4b820048067e2c98b497df2ab6e36c6eab9",
+          "events": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "changedRows": 265
+            },
+            {
+              "commit": "4d1e44691e44090399b702a675d5ac1a92421387",
+              "changedRows": 3
+            },
+            {
+              "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+              "changedRows": 5
+            }
+          ],
+          "historyComplete": true,
+          "unparsedSnapshots": []
+        },
+        "review": {
+          "path": "tools/content_factory/review/c2_batch07_satz_partner_family.csv",
+          "promotionBlobSha256": "ccbb214ebc8caeb430356f7530b3630db8dda0cc3c74d0c4a61da2b3dc460c77",
+          "currentBlobSha256": "5b87ff70ebbb3c85cd6ed137fc4ee2b86a22140f83f947759fc025c777a097c7",
+          "events": [
+            {
+              "commit": "69e5cd2d1af7ea491568a8d6aab796d83042086c",
+              "changedRows": 244
+            }
+          ],
+          "historyComplete": false,
+          "unparsedSnapshots": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "blobSha256": "7f240555b0184ab1049398340f63da188671d44bf31176187a370df8d4cadf4a",
+              "error": "tools/content_factory/review/c2_batch07_satz_partner_family.csv: CSV column mismatch at line 195, id='satz_b1_0081'"
+            },
+            {
+              "commit": "4d1e44691e44090399b702a675d5ac1a92421387",
+              "blobSha256": "00297a388d150afb3aed1636afcd6d97424ca3b703f4d99e21562fb2edfa7fe5",
+              "error": "tools/content_factory/review/c2_batch07_satz_partner_family.csv: CSV column mismatch at line 195, id='satz_b1_0081'"
+            },
+            {
+              "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+              "blobSha256": "c0796804915b5fe45a012a052e079b0eea453e76a9a7bfdaadcbc838b9ff8766",
+              "error": "tools/content_factory/review/c2_batch07_satz_partner_family.csv: CSV column mismatch at line 138, id='satz_a2_0079'"
+            }
+          ]
+        },
+        "live": {
+          "path": "assets/data/satz_sentences.json",
+          "promotionBlobSha256": "e9e7769b35352e1199d54d0a0eaf4ddbeac341d10813b0b93839c0e68080269b",
+          "currentBlobSha256": "adb73b30df67bf09a1f79fd340c6d7e967706b1e8a345fcee38260511ff559ab",
+          "events": [
+            {
+              "commit": "72ec06241342c1c3b4035dd82cb33b961855ac90",
+              "changedRows": 120
+            },
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "changedRows": 207
+            },
+            {
+              "commit": "4d1e44691e44090399b702a675d5ac1a92421387",
+              "changedRows": 432
+            },
+            {
+              "commit": "1f44aef788840b9a28d34c626ff79dcc21fff761",
+              "changedRows": 14
+            },
+            {
+              "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+              "changedRows": 5
+            },
+            {
+              "commit": "5e98e49300e640994caa098d55ec5cd2e6655967",
+              "changedRows": 3
+            },
+            {
+              "commit": "10571b95b940f6cbeb38fd7738010ce663fe1e64",
+              "changedRows": 13
+            },
+            {
+              "commit": "95e04bef03936444d49158438a1cd6a8a1852960",
+              "changedRows": 1
+            },
+            {
+              "commit": "1cafb2cb4f850e3d2361834641e8a84d2cc4950b",
+              "changedRows": 1
+            },
+            {
+              "commit": "3f7ca99d7242c05cf8a5b0da3bdada5504b1abd8",
+              "changedRows": 1
+            },
+            {
+              "commit": "55c1a29eec494c37b3d8335fa4e5d5629760fdd2",
+              "changedRows": 101
+            },
+            {
+              "commit": "b43f26fa20759c61e7419c978544c8f900cd5828",
+              "changedRows": 10
+            },
+            {
+              "commit": "90d5027bb91a05da86e42eabe8c47f3da432a6ad",
+              "changedRows": 14
+            },
+            {
+              "commit": "2566cc3859d25a368b7268ed46838d4069d85a4c",
+              "changedRows": 19
+            },
+            {
+              "commit": "78030d421d7b1f231f2a7097dabc6b4c40d12d8e",
+              "changedRows": 1
+            },
+            {
+              "commit": "8bc5ca314c62632df1cfd63c3ef9507264ef7471",
+              "changedRows": 2
+            }
+          ],
+          "historyComplete": true,
+          "unparsedSnapshots": []
+        }
+      }
+    }
+  ]
+}

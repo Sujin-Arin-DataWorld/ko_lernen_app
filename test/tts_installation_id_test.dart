@@ -103,7 +103,12 @@ void main() {
         voice: 'female',
         installationId: _firstId,
       ),
-      {'text': '안녕하세요', 'voice': 'female', 'installationId': _firstId},
+      {
+        'text': '안녕하세요',
+        'voice': 'female',
+        'installationId': _firstId,
+        'errorReasonVersion': '1',
+      },
     );
   });
 }

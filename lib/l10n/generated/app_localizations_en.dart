@@ -9016,6 +9016,10 @@ class AppL10nEn extends AppL10n {
       'Daily voice limit reached. It resets tomorrow.';
 
   @override
+  String get ttsUnavailableHourlyQuota =>
+      'Hourly voice limit reached. Try again later.';
+
+  @override
   String get ttsUnavailablePending =>
       'The voice is being generated. Tap again in a moment.';
 

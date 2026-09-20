@@ -9060,6 +9060,10 @@ class AppL10nDe extends AppL10n {
       'Heutiges Sprachlimit erreicht. Morgen geht es weiter.';
 
   @override
+  String get ttsUnavailableHourlyQuota =>
+      'Für diese Stunde ist das Sprachlimit erreicht. Versuch es später noch einmal.';
+
+  @override
   String get ttsUnavailablePending =>
       'Die Stimme wird gerade erzeugt. Gleich nochmal antippen.';
 

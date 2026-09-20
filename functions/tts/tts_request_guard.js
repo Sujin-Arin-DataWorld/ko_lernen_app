@@ -67,6 +67,7 @@ const UUID_V4_PATTERN =
 const DAILY_LIMIT_INSTALLATION = 30;
 const DAILY_LIMIT_ACCOUNT = 50;
 const DAILY_LIMIT_GLOBAL = 300;
+const HOURLY_LIMIT_GLOBAL = 25;
 
 const DEFAULT_DAILY_LIMITS = Object.freeze({
   installation: DAILY_LIMIT_INSTALLATION,
@@ -286,16 +287,9 @@ function quotaExpiresAt(day) {
   return new Date(Date.UTC(year, month - 1, date + 2));
 }
 
-/**
- * 새 Cloud TTS 합성 한 건을 설치·계정·프로젝트 전체 세 범위에 원자적으로
- * 기록한다. 어느 하나라도 한도에 닿았으면 세 카운터 모두 증가시키지 않는다.
- * 원본 설치 ID와 uid는 문서 ID나 필드에 저장하지 않고 SHA-256만 사용한다.
- */
-async function underDailyTtsQuotas(
-  db,
-  { uid, installationId, now = new Date(), limits = DEFAULT_DAILY_LIMITS },
-) {
+function quotaSpecs(db, { uid, installationId, now, limits }) {
   const day = now.toISOString().slice(0, 10);
+  const hour = now.toISOString().slice(0, 13);
   const specs = [
     {
       scope: "installation",
@@ -314,15 +308,34 @@ async function underDailyTtsQuotas(
       limit: limits.global,
       ref: db.collection("usage").doc(`tts_global_${day}`),
     },
+    {
+      scope: "global_hour",
+      limit: HOURLY_LIMIT_GLOBAL,
+      hour,
+      ref: db.collection("usage").doc(`tts_global_hour_${hour}`),
+    },
   ];
+  return { day, specs };
+}
+
+/**
+ * 새 합성은 설치·계정·전역 일일 한도와 전역 UTC 시간당 한도를 함께 쓴다.
+ * 어느 하나라도 막히면 카운터와 비용 예약 모두 쓰지 않는다. 기존 300/일
+ * 상한도 유지한다. 원본 설치 ID와 uid는 저장하지 않고 SHA-256만 사용한다.
+ */
+async function underDailyTtsQuotas(
+  db,
+  { uid, installationId, now = new Date(), limits = DEFAULT_DAILY_LIMITS },
+) {
+  const { day, specs } = quotaSpecs(db, { uid, installationId, now, limits });
 
   return db.runTransaction(async (tx) => {
     const snapshots = await Promise.all(specs.map(({ ref }) => tx.get(ref)));
     const counts = snapshots.map((snapshot) => {
-      const raw = (snapshot.data() || {}).n;
-      if (raw === undefined) {
+      if (!snapshot.exists) {
         return 0;
       }
+      const raw = (snapshot.data() || {}).n;
       return Number.isSafeInteger(raw) && raw >= 0 ? raw : null;
     });
 
@@ -346,6 +359,7 @@ async function underDailyTtsQuotas(
           kind: "tts",
           scope: spec.scope,
           day,
+          ...(spec.hour ? { hour: spec.hour } : {}),
           limit: spec.limit,
           expiresAt: quotaExpiresAt(day),
         },
@@ -360,26 +374,7 @@ async function refundDailyTtsQuotas(
   db,
   { uid, installationId, now = new Date(), limits = DEFAULT_DAILY_LIMITS },
 ) {
-  const day = now.toISOString().slice(0, 10);
-  const specs = [
-    {
-      scope: "installation",
-      limit: limits.installation,
-      ref: db
-        .collection("usage")
-        .doc(`tts_installation_${day}_${subjectHash(installationId)}`),
-    },
-    {
-      scope: "account",
-      limit: limits.account,
-      ref: db.collection("usage").doc(`tts_account_${day}_${subjectHash(uid)}`),
-    },
-    {
-      scope: "global",
-      limit: limits.global,
-      ref: db.collection("usage").doc(`tts_global_${day}`),
-    },
-  ];
+  const { day, specs } = quotaSpecs(db, { uid, installationId, now, limits });
 
   return db.runTransaction(async (tx) => {
     const snapshots = await Promise.all(specs.map(({ ref }) => tx.get(ref)));
@@ -397,6 +392,7 @@ async function refundDailyTtsQuotas(
           kind: "tts",
           scope: spec.scope,
           day,
+          ...(spec.hour ? { hour: spec.hour } : {}),
           limit: spec.limit,
           expiresAt: quotaExpiresAt(day),
         },
@@ -414,6 +410,7 @@ module.exports = {
   DAILY_LIMIT_ACCOUNT,
   DAILY_LIMIT_GLOBAL,
   DAILY_LIMIT_INSTALLATION,
+  HOURLY_LIMIT_GLOBAL,
   IDEMPOTENCY_TTL_MS,
   MIN_AUDIO_BYTES,
   SYNTH_DEADLINE_MS,

@@ -11,7 +11,8 @@
     "tools/content_factory/drafts/batch_18_manifest.json",
     "tools/content_factory/drafts/batch_20_manifest.json",
     "tools/content_factory/drafts/batch_03_manifest.json",
-    "tools/content_factory/drafts/batch_05_manifest.json"
+    "tools/content_factory/drafts/batch_05_manifest.json",
+    "tools/content_factory/drafts/batch_12_manifest.json"
   ],
   "method": "Beyond Humanizer promoted-copy reconciliation",
   "humanReviewStatus": "required_before_native-quality-claim",
@@ -4784,6 +4785,392 @@
       "beforeSha256": "cc1ff00f83aedc903343ba8c06889d4e5ed3df3fe061bd1343178ed56979018f",
       "afterSha256": "a00791c1320d6d71162564dd3a78369539904a0453beacd3a79a71f0b1c107c2",
       "reviewReceipt": "tools/content_factory/review/batch_05_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_a1_honorific_kke",
+      "level": "a1",
+      "fields": [
+        "example_en",
+        "example_german",
+        "explanation_de",
+        "note",
+        "note_en",
+        "quiz_distractor_ids",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "type_de"
+      ],
+      "beforeSha256": "6f5b6589c54b7c74f87b1109df10f40e15baa06d70ee9d27f6add11160b94db1",
+      "afterSha256": "bf3734c3bd5f0d5c1560453f5da81ffbf93760826d885fd0d7a70d23ce290d98",
+      "reviewReceipt": "tools/content_factory/review/batch_07_grammar_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_a2_humble_give",
+      "level": "a2",
+      "fields": [
+        "example_en",
+        "example_german",
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "quiz_distractor_ids",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "2f23b219ed544a43451048a1dfa6e2b92608c1d0d1c10ce3ce4ab9188bb00c01",
+      "afterSha256": "58bfb8567769f226b311ef534491e0ea9ad8016fd35da155feb6b03a63897b85",
+      "reviewReceipt": "tools/content_factory/review/batch_07_grammar_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b1_honorific_subject_kkeyseo",
+      "level": "b1",
+      "fields": [
+        "example_en",
+        "example_german",
+        "note",
+        "quiz_distractor_ids",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "type_de"
+      ],
+      "beforeSha256": "93411b9ced2097b8b2f71e06adc3a06af49943d10b1237e58a9bbd69a47b388b",
+      "afterSha256": "ba53d6d8e3879dba7448e86fad2b0c8749b05415d088166b94cf57d738de3d4a",
+      "reviewReceipt": "tools/content_factory/review/batch_07_grammar_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b2_rather_than_direct",
+      "level": "b2",
+      "fields": [
+        "example_en",
+        "example_german",
+        "example_korean",
+        "explanation_de",
+        "explanation_en",
+        "quiz_distractor_ids",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "8bf840a21cd9aa4b230549b1bc0524a895c7adc7c6ef75ee7c8aaf195d5d7a4d",
+      "afterSha256": "0af9ea3be774b23a6d55280fa131971bef37c03d46c10b0f7a08847691480db6",
+      "reviewReceipt": "tools/content_factory/review/batch_07_grammar_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c1_family_framing",
+      "level": "c1",
+      "fields": [
+        "example_en",
+        "example_german",
+        "example_korean",
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "pattern",
+        "quiz_distractor_ids",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "d2ca7992f273bd3aaa6895a6458421758240977484465c0235746565884c3b1f",
+      "afterSha256": "a6be95c1193fccaeb6d5d553341a30477a184e08c340c12a71fd38133f81fcae",
+      "reviewReceipt": "tools/content_factory/review/batch_07_grammar_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c2_regardless_of_kin",
+      "level": "c2",
+      "fields": [
+        "example_en",
+        "example_german",
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "quiz_distractor_ids",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "704c0bfe8286e8779bde3dd0bc35f0a60dc76f455e63eb2de542828639ebaf55",
+      "afterSha256": "ace8dedec47cda6fcffa7ebefd3aec532c65478b0cba70f1d916e7e23dd92a83",
+      "reviewReceipt": "tools/content_factory/review/batch_07_grammar_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0025",
+      "level": "c1",
+      "fields": [
+        "ko",
+        "reply"
+      ],
+      "beforeSha256": "364eae733bd0be1c5e64a2d19b96849871fb0272eaccc6c1665ebdab179cfd18",
+      "afterSha256": "eef36c068a50198bb95a1a2f501ee25049a8553f0b87ee0c2cab0763116f352f",
+      "reviewReceipt": "tools/content_factory/review/batch_12_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0027",
+      "level": "c1",
+      "fields": [
+        "de",
+        "followUp",
+        "reply"
+      ],
+      "beforeSha256": "453c9550eac742a305b33e49fea55abdd85203b8ffb34332c73570d3bb77b16a",
+      "afterSha256": "859265f9c3f575cd87014bfe8cd4c09fb71fdf5876e2ba97ebb8b5475d331721",
+      "reviewReceipt": "tools/content_factory/review/batch_12_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0027",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en",
+        "followUp"
+      ],
+      "beforeSha256": "40ec741df4d24c67e9053b1bff313db732c8cb1ba85268730dc36783ad846b4d",
+      "afterSha256": "fc5f2a3ff6295c1f18fd10f7eeeab6011e37ecb44223497298bbe6f2d9c06e33",
+      "reviewReceipt": "tools/content_factory/review/batch_12_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0029",
+      "level": "c1",
+      "fields": [
+        "de",
+        "followUp",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "d425af34af9a8413471752e19ceab23d240f120a65a7a60641eb746c73198e6b",
+      "afterSha256": "905ba76ed6ef62bb5002e96173312fc98e73aec2453a3fb3f238d99d098c3a39",
+      "reviewReceipt": "tools/content_factory/review/batch_12_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0030",
+      "level": "c1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "f217eb08f30bc7cfe0b8af77842c0b448729483aec5639bc3aa79fcc8c6a08cd",
+      "afterSha256": "63c1071d7c9ec39fe0f04908c45f0be02f1370a75fed7f7625d0796ad32f53f2",
+      "reviewReceipt": "tools/content_factory/review/batch_12_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0029",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "a087b87b70424acfd5930bd1094e7dda665477d2f8ef20a215ef8f6137e3bba7",
+      "afterSha256": "526109e1201f36d7cf40116a566746820806dc827984b25ad12929cfbc4f7db2",
+      "reviewReceipt": "tools/content_factory/review/batch_12_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c2_0219",
+      "level": "c2",
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "76f0bccc4cb799f24d3a858008bc86cce641bacc7012312859db461b483ffda5",
+      "afterSha256": "5d929826d1b11cd9e92a87a28b45ecbdfe46a57c6bca1723df004101ff14db83",
+      "reviewReceipt": "tools/content_factory/review/batch_12_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "satz",
+      "id": "satz_c2_0221",
+      "level": "c2",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo",
+        "vocabKo"
+      ],
+      "beforeSha256": "c326ab99d3fef52caf9df5cd8a49018a0eb1b06e508b5c9f9ebb44270e0a477f",
+      "afterSha256": "edc879bacc29a332d5a70708651b9f9ce677ab0592bad012cdfcd71c54d43490",
+      "reviewReceipt": "tools/content_factory/review/batch_12_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0408",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "e354fe179bcb4713b7ca6a973d24775c844f19f352073234b2337767b3ef0d0e",
+      "afterSha256": "df98c0e00fe8f921910658b5b1e3f77ad7cc026e319f07ce35d810bbbb12eae8",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_a2_available_if",
+      "level": "a2",
+      "fields": [
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "d7ac833425cdff32cf8316d0adb2dbe88084cb40b8a113d483b0acea7bca5127",
+      "afterSha256": "b27bfb1f3bd36def592816c5f2a86b89ca2cc5afc8e8bccfcb7bb7b975002a1c",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b1_soft_request_batch19",
+      "level": "b1",
+      "fields": [
+        "example_german",
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "7c650fdb61ebf6f57930a8d0ae037280fb04abf52cdc504a6bb65baeb23862b2",
+      "afterSha256": "3577d879af9ee8ec07f75175b54e33843f4d1b3950c170d423ae360c1664cd3a",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b1_reason_context",
+      "level": "b1",
+      "fields": [
+        "note",
+        "note_en",
+        "quiz_distractor_ids",
+        "quiz_focus_en"
+      ],
+      "beforeSha256": "4e56925dc2dfd5c00467c07b5f84eace2cdeafcd537266d73e1c16d326c00710",
+      "afterSha256": "fab10f50443981796e8d3f19293fb8f57f025a54f6eef8dd3fc30dc655729980",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0320",
+      "level": "a1",
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "85b50196d4c1c97df1111f506892a3ef066ee2d66446f1688d3df140a34aadff",
+      "afterSha256": "f8767d811d785ad839ec56c2588e4c0b8d4e190ece41730d8872964d4b4df6f4",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0324",
+      "level": "a1",
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "2def6235f9b0f87c4d5bb4002fc856bc18e499d6bb45687d8ff227a4de2276ea",
+      "afterSha256": "ed617d3f3149c152c94096abce280faea57ebb2e380a3bc5cdcb332cdd264752",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0331",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "50b1db29263aabf5e15b37a330f5e61b24e4b0e969449612832751463c6cfb91",
+      "afterSha256": "649da38da109e2697e81c13e3e7d565bd7c213556292132f32434acfb2040649",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0315",
+      "level": "a1",
+      "fields": [
+        "distractors",
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "f895f4b2187a4809431d6a05635e14303c0dd1903040b2d473cc728823cd261a",
+      "afterSha256": "01422aaa0e28b53b0c0b1938c0bfbb24fbbb7a81183264c28f45a38b562e5d55",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0316",
+      "level": "a1",
+      "fields": [
+        "distractors"
+      ],
+      "beforeSha256": "a123f640fcff328a6a9b9e215ac6c3f997babb8f66938f0ebdcfd80ba9ec91b3",
+      "afterSha256": "a56be4eda521d69d668ae1240680696e783cc54c86174208de2127abe1799ac0",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0321",
+      "level": "a1",
+      "fields": [
+        "distractors"
+      ],
+      "beforeSha256": "6adeb079dbb21713011becdb4a5d4d73e65668c5ae0a247f95e7c4830cf814ff",
+      "afterSha256": "a7eeae7a0ccde0e6c499604eb69469d3fc161bd17092cddb64c41e0feca6f515",
+      "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
     }
   ],
   "routingEntries": [
@@ -4816,6 +5203,14 @@
       "beforeSha256": "780e1771cad9dd32ee83949445da15050cf460c6c83bf91d65e3d70f7dbf555d",
       "afterSha256": "a75bd32486f6446e74f74774a84bf8b9775ed2ee1a5487a2516895a984a9e778",
       "reviewReceipt": "tools/content_factory/review/batch_03_reconciliation_20260916.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_18_manifest.json",
+      "map": "smalltalkCategoryUnitMap",
+      "id": "c2:job_hunting",
+      "beforeSha256": "bca0d0073ce5efd6a57d8650bee8074ca99ba75f24f612e33b6a5aa3898ca554",
+      "afterSha256": "c4f4ae2ca188f2e35fd3605c926f015ac0b8f924a95b2cafba862df33c404c2b",
+      "reviewReceipt": "tools/content_factory/review/batch_18_routing_reconciliation_20260917.json"
     }
   ],
   "amendments": [
