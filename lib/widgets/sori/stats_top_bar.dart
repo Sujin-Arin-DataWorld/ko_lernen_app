@@ -20,7 +20,7 @@ class SoriStatsTopBar extends StatelessWidget {
   /// 셸에서만 켠다. 홈(레거시 셸)은 탭에 이미 있어 null(미표시) 유지.
   final VoidCallback? onProfileTap;
 
-  /// [onProfileTap] 아이콘의 툴팁/시맨틱 라벨 (l10n 은 호출부 소관).
+  /// [onProfileTap] 아이콘의 라벨 재정의. 비어 있으면 번역된 기본 라벨 사용.
   final String? profileTooltip;
 
   const SoriStatsTopBar({
@@ -107,15 +107,17 @@ class SoriStatsTopBar extends StatelessWidget {
               semanticLabel: 'Lv $level · $xp XP',
               onTap: onStatsTap,
             );
+            final profileLabel = profileTooltip?.trim();
+            final effectiveProfileLabel =
+                profileLabel == null || profileLabel.isEmpty
+                    ? t.soriStageProfileTooltip
+                    : profileLabel;
             final profileButton = onProfileTap == null
                 ? null
-                : Tooltip(
-                    message: profileTooltip ?? '',
-                    child: _RoundIconButton(
-                      icon: Icons.person_outline_rounded,
-                      semanticLabel: profileTooltip,
-                      onTap: onProfileTap!,
-                    ),
+                : _RoundIconButton(
+                    icon: Icons.person_outline_rounded,
+                    semanticLabel: effectiveProfileLabel,
+                    onTap: onProfileTap!,
                   );
             final settingsButton = _RoundIconButton(
               icon: Icons.settings_outlined,
@@ -234,11 +236,11 @@ class _HeaderChip extends StatelessWidget {
 class _RoundIconButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
-  final String? semanticLabel;
+  final String semanticLabel;
   const _RoundIconButton({
     required this.icon,
     required this.onTap,
-    this.semanticLabel,
+    required this.semanticLabel,
   });
 
   @override
@@ -246,25 +248,29 @@ class _RoundIconButton extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     // 눌리는 영역은 48dp(Material 최소 권고), 보이는 원판은 40dp.
     // 이전엔 36dp 원판이 곧 터치 타깃이라 손가락으로 놓치기 쉬웠다.
-    return Semantics(
-      button: true,
-      label: semanticLabel,
-      child: SoriPressable(
-        onTap: onTap,
-        haptic: SoriHaptic.selection,
-        child: SizedBox(
-          width: 48,
-          height: 48,
-          child: Center(
-            child: Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: s.surface.withValues(alpha: 0.62),
-                shape: BoxShape.circle,
-                border: Border.all(color: SoriColors.lightBorderStrong),
+    return Tooltip(
+      message: semanticLabel,
+      excludeFromSemantics: true,
+      child: Semantics(
+        button: true,
+        label: semanticLabel,
+        child: SoriPressable(
+          onTap: onTap,
+          haptic: SoriHaptic.selection,
+          child: SizedBox(
+            width: 48,
+            height: 48,
+            child: Center(
+              child: Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: s.surface.withValues(alpha: 0.62),
+                  shape: BoxShape.circle,
+                  border: Border.all(color: SoriColors.lightBorderStrong),
+                ),
+                child: Icon(icon, size: 20, color: s.textMuted),
               ),
-              child: Icon(icon, size: 20, color: s.textMuted),
             ),
           ),
         ),

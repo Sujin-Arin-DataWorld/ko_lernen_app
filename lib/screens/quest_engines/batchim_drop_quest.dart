@@ -419,33 +419,37 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
           Center(
             child: Column(
               children: [
-                Semantics(
-                  button: true,
-                  enabled: true,
-                  label: t.questListenAudio,
-                  excludeSemantics: true,
-                  onTap: _playAudio,
-                  child: GestureDetector(
-                    behavior: HitTestBehavior.opaque,
+                Tooltip(
+                  message: t.questListenAudio,
+                  excludeFromSemantics: true,
+                  child: Semantics(
+                    button: true,
+                    enabled: true,
+                    label: t.questListenAudio,
+                    excludeSemantics: true,
                     onTap: _playAudio,
-                    child: Container(
-                      width: 84,
-                      height: 84,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: SoriColors.info,
-                        boxShadow: [
-                          BoxShadow(
-                            color: SoriColors.info.withAlpha(80),
-                            blurRadius: 16,
-                            spreadRadius: 2,
-                          ),
-                        ],
-                      ),
-                      child: const Icon(
-                        Icons.volume_up_rounded,
-                        color: Colors.white,
-                        size: 36,
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: _playAudio,
+                      child: Container(
+                        width: 84,
+                        height: 84,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: SoriColors.info,
+                          boxShadow: [
+                            BoxShadow(
+                              color: SoriColors.info.withAlpha(80),
+                              blurRadius: 16,
+                              spreadRadius: 2,
+                            ),
+                          ],
+                        ),
+                        child: const Icon(
+                          Icons.volume_up_rounded,
+                          color: Colors.white,
+                          size: 36,
+                        ),
                       ),
                     ),
                   ),

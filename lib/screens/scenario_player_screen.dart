@@ -2630,17 +2630,21 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   /// Semantics 에도 같은 콜백을 달아야 스크린리더에서 실제로 작동한다.
   Widget _scenarioExitButton() {
     final t = AppL10n.of(context);
-    return Semantics(
-      button: true,
-      label: t.closeActionLabel,
-      onTap: () => unawaited(_exit()),
-      child: ExcludeSemantics(
-        child: SoriPressable(
-          onTap: () => unawaited(_exit()),
-          child: const SizedBox(
-            width: SoriLayout.chromeRowTouchHeight,
-            height: SoriLayout.chromeRowTouchHeight,
-            child: Icon(Icons.close_rounded),
+    return Tooltip(
+      message: t.closeActionLabel,
+      excludeFromSemantics: true,
+      child: Semantics(
+        button: true,
+        label: t.closeActionLabel,
+        onTap: () => unawaited(_exit()),
+        child: ExcludeSemantics(
+          child: SoriPressable(
+            onTap: () => unawaited(_exit()),
+            child: const SizedBox(
+              width: SoriLayout.chromeRowTouchHeight,
+              height: SoriLayout.chromeRowTouchHeight,
+              child: Icon(Icons.close_rounded),
+            ),
           ),
         ),
       ),
