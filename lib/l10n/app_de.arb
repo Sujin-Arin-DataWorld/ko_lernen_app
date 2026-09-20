@@ -4401,6 +4401,10 @@
   },
   "ttsUnavailableChannelOff": "Aussprache ist stumm geschaltet. Einstellungen → Ton",
   "ttsUnavailableQuota": "Heutiges Sprachlimit erreicht. Morgen geht es weiter.",
+  "ttsUnavailableHourlyQuota": "Für diese Stunde ist das Sprachlimit erreicht. Versuch es später noch einmal.",
+  "@ttsUnavailableHourlyQuota": {
+    "description": "Shown when the global hourly synthesis limit is reached; cached audio remains available."
+  },
   "ttsUnavailablePending": "Die Stimme wird gerade erzeugt. Gleich nochmal antippen.",
   "ttsUnavailableOffline": "Aussprache nicht verfügbar. Bist du online?",
   "ttsUnavailableAudio": "Audio ist gerade nicht verfügbar. Bitte versuche es erneut.",

@@ -114,4 +114,9 @@ Map<String, String> buildTtsCallableData({
   required String text,
   required String voice,
   required String installationId,
-}) => {'text': text, 'voice': voice, 'installationId': installationId};
+}) => {
+  'text': text,
+  'voice': voice,
+  'installationId': installationId,
+  'errorReasonVersion': '1',
+};

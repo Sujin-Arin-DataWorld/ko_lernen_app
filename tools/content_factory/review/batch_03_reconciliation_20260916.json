@@ -1,0 +1,454 @@
+{
+  "schemaVersion": 1,
+  "operation": "reconcile_batch03_exact_history",
+  "reviewStatus": "MODEL_QA_PASS",
+  "humanReviewStatus": "pending",
+  "approvalAdded": false,
+  "rightsAdded": false,
+  "frozenDraftsModified": false,
+  "sourceHead": "8a584eaffbf17e8cf379d8af710f2e749dfe25dd",
+  "formReference": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=38833",
+  "rows": [
+    {
+      "id": "grammar_b2_method_dependent",
+      "kind": "grammar",
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "originalPromotionCommit": "f718106c89831091966e4554eb662135c603666a",
+      "historicalTransition": {
+        "commit": "8bc5ca314c62632df1cfd63c3ef9507264ef7471",
+        "beforeSha256": "82c379f1a579e7d3e996f5ffc8cc11646d1971f55a5cb256c730ca52e0c6499f",
+        "afterSha256": "10165e693f3722c8cc995cdb224e2fb55ef3b4e562fb809146e508f447e86e4d",
+        "fields": {
+          "level": {
+            "before": "B2",
+            "after": "C1"
+          },
+          "quiz_distractor_ids": {
+            "before": "grammar_b2_according_to|grammar_b2_inevitability|grammar_b2_summary_judgment",
+            "after": "grammar_b2_inevitability|grammar_b2_negative_consequence|grammar_b2_formal_regarding"
+          }
+        }
+      },
+      "beforeSha256": "82c379f1a579e7d3e996f5ffc8cc11646d1971f55a5cb256c730ca52e0c6499f",
+      "comparisonAfterSha256": "507f9bea837ca403980e052443b1392b125f6910fff3510aaee9dd6819fc3be5",
+      "actualAfterSha256": "3c1e91198561e94aca557f0956cf60c374466740a8d04b85208d63544b17339c",
+      "levelNormalization": {
+        "id": "grammar_b2_method_dependent",
+        "kind": "grammar",
+        "from": "b2",
+        "to": "c1",
+        "movedAt": "2026-09-16",
+        "batch": "V2G1",
+        "reason": "NIKL 5급(C1) level_mismatch (F1 조사/표현 칸) -- Jin 결정 2, 2026-09-16."
+      },
+      "currentCorrectionFields": [
+        "example_en",
+        "example_german",
+        "example_korean",
+        "note",
+        "note_en"
+      ],
+      "reasonKo": "실천 방식에 따라 결과가 달라지는 뜻과 -기 나름이다를 자연스럽게 결합한다. 의문사를 앞에 놓도록 권장하던 note도 고친다.",
+      "current": {
+        "pattern": "V-기 나름이다",
+        "level": "C1",
+        "type_de": "Abhängig von der Art und Weise",
+        "explanation_de": "Drückt aus dass das Ergebnis davon abhängt wie man etwas tut oder damit umgeht. Es lenkt den Blick auf die Methode statt auf eine feste Regel.",
+        "example_korean": "같은 원칙이라도 실제 생활에서 어떤 결과가 나올지는 실천하기 나름이에요.",
+        "example_german": "Auch beim selben Prinzip fällt das Ergebnis im Alltag unterschiedlich aus, je nachdem, wie man es umsetzt.",
+        "note": "Die Form beschreibt, dass ein Ergebnis von der Art der Handlung abhängt: 실천하다 → 실천하기 나름이다.",
+        "type_en": "Method-dependent outcome",
+        "explanation_en": "Expresses that the result depends on how something is done or handled. It shifts attention from a fixed rule to the method.",
+        "example_en": "Even with the same principle, the outcome in everyday life varies depending on how you put it into practice.",
+        "note_en": "Attach -기 나름이다 to a verb stem to show that the outcome depends on how the action is carried out.",
+        "id": "grammar_b2_method_dependent",
+        "quiz_focus_de": "je nachdem",
+        "quiz_focus_en": "depending on how",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_b2_inevitability|grammar_b2_negative_consequence|grammar_b2_formal_regarding"
+      },
+      "distractors": [
+        {
+          "id": "grammar_b2_inevitability",
+          "pattern": "V-기 마련이다",
+          "level": "C1"
+        },
+        {
+          "id": "grammar_b2_negative_consequence",
+          "pattern": "V-다가는",
+          "level": "C1"
+        },
+        {
+          "id": "grammar_b2_formal_regarding",
+          "pattern": "N에 관하여",
+          "level": "C1"
+        }
+      ]
+    },
+    {
+      "id": "grammar_b2_impression_appearance",
+      "kind": "grammar",
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "originalPromotionCommit": "f718106c89831091966e4554eb662135c603666a",
+      "historicalTransition": {
+        "commit": "8bc5ca314c62632df1cfd63c3ef9507264ef7471",
+        "beforeSha256": "034532e89516cc88eda214b8963785adf9a51f8a09b351be0e6b914498f01f97",
+        "afterSha256": "be05cac6923f9014e16920fe0f7d4bc7765a5f30db4818a081d3e7dc408c9161",
+        "fields": {
+          "quiz_distractor_ids": {
+            "before": "grammar_b2_as_if|grammar_b2_contrast|grammar_b2_definition",
+            "after": "grammar_b2_granted_limit|grammar_b2_in_light_of|grammar_b2_futility"
+          }
+        }
+      },
+      "beforeSha256": "034532e89516cc88eda214b8963785adf9a51f8a09b351be0e6b914498f01f97",
+      "comparisonAfterSha256": "be05cac6923f9014e16920fe0f7d4bc7765a5f30db4818a081d3e7dc408c9161",
+      "actualAfterSha256": "be05cac6923f9014e16920fe0f7d4bc7765a5f30db4818a081d3e7dc408c9161",
+      "levelNormalization": null,
+      "currentCorrectionFields": [],
+      "reasonKo": "인상·추정을 나타내는 예문과 세 오답은 유지하며 기존 relevel의 선택지 변경만 정확히 기록한다.",
+      "current": {
+        "pattern": "A/V-(으)ㄴ/는 듯하다",
+        "level": "B2",
+        "type_de": "Vorsichtiger Eindruck",
+        "explanation_de": "Formuliert einen Eindruck oder eine Vermutung ohne ihn als sichere Tatsache darzustellen. Bei Verben steht meist -는 듯하다 und bei Adjektiven -(으)ㄴ 듯하다.",
+        "example_korean": "이 글은 담담한 듯하지만 마지막 문장에 깊은 아쉬움이 남아 있어요.",
+        "example_german": "Dieser Text wirkt nüchtern, doch im letzten Satz bleibt eine tiefe Wehmut zurück.",
+        "note": "Nützlich wenn eine Lesart angeboten wird ohne andere Deutungen auszuschließen.",
+        "type_en": "Cautious impression",
+        "explanation_en": "States an impression or inference without presenting it as certain fact. Verbs usually take -는 듯하다 and adjectives -(으)ㄴ 듯하다.",
+        "example_en": "This text seems restrained, yet the final sentence leaves a deep sense of regret.",
+        "note_en": "Useful when offering one reading without ruling out others.",
+        "id": "grammar_b2_impression_appearance",
+        "quiz_focus_de": "wirkt nüchtern",
+        "quiz_focus_en": "seems restrained",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_b2_granted_limit|grammar_b2_in_light_of|grammar_b2_futility"
+      },
+      "distractors": [
+        {
+          "id": "grammar_b2_granted_limit",
+          "pattern": "A/V-기로서니",
+          "level": "B2"
+        },
+        {
+          "id": "grammar_b2_in_light_of",
+          "pattern": "N에 비추어 볼 때",
+          "level": "B2"
+        },
+        {
+          "id": "grammar_b2_futility",
+          "pattern": "V-아/어 봤자",
+          "level": "B2"
+        }
+      ]
+    },
+    {
+      "id": "grammar_b2_topic_debate",
+      "kind": "grammar",
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "originalPromotionCommit": "f718106c89831091966e4554eb662135c603666a",
+      "historicalTransition": {
+        "commit": "8bc5ca314c62632df1cfd63c3ef9507264ef7471",
+        "beforeSha256": "4b1facbbb0c0f7596c212c63f6ad29ad27d2632128ca34428bff956da0d5c872",
+        "afterSha256": "8c3cdae70d852876a75e4c48442df404c008db0a0304aa12c8399e6b2928f5bc",
+        "fields": {
+          "quiz_distractor_ids": {
+            "before": "grammar_b2_according_to|grammar_b2_contrast|grammar_b2_definition",
+            "after": "grammar_b2_summary_judgment|grammar_b2_turning_point|grammar_b2_shared_merit"
+          }
+        }
+      },
+      "beforeSha256": "4b1facbbb0c0f7596c212c63f6ad29ad27d2632128ca34428bff956da0d5c872",
+      "comparisonAfterSha256": "8c3cdae70d852876a75e4c48442df404c008db0a0304aa12c8399e6b2928f5bc",
+      "actualAfterSha256": "8c3cdae70d852876a75e4c48442df404c008db0a0304aa12c8399e6b2928f5bc",
+      "levelNormalization": null,
+      "currentCorrectionFields": [],
+      "reasonKo": "논의의 대상을 나타내는 예문과 세 오답은 유지하며 기존 relevel의 선택지 변경만 정확히 기록한다.",
+      "current": {
+        "pattern": "N을/를 둘러싸고",
+        "level": "B2",
+        "type_de": "Debatte um ein Thema",
+        "explanation_de": "Bezeichnet unterschiedliche Reaktionen oder Diskussionen rund um ein Thema. Der Ausdruck passt zu gesellschaftlichen Fragen und öffentlichen Gesprächen.",
+        "example_korean": "새 표현의 사용을 둘러싸고 세대마다 의견이 다를 수 있어요.",
+        "example_german": "Rund um die Verwendung neuer Ausdrücke können die Meinungen zwischen den Generationen auseinandergehen.",
+        "note": "Die Form beschreibt das Diskussionsthema und nicht bloß einen räumlichen Kreis.",
+        "type_en": "Debate around a topic",
+        "explanation_en": "Names the topic around which reactions or discussion arise. It suits social questions and public conversation.",
+        "example_en": "Generations can disagree over the use of new expressions.",
+        "note_en": "It describes a subject of discussion rather than a physical circle.",
+        "id": "grammar_b2_topic_debate",
+        "quiz_focus_de": "Rund um die Verwendung",
+        "quiz_focus_en": "disagree over",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_b2_summary_judgment|grammar_b2_turning_point|grammar_b2_shared_merit"
+      },
+      "distractors": [
+        {
+          "id": "grammar_b2_summary_judgment",
+          "pattern": "V-(으)ㄴ/는 셈이다",
+          "level": "B2"
+        },
+        {
+          "id": "grammar_b2_turning_point",
+          "pattern": "N을/를 계기로",
+          "level": "B2"
+        },
+        {
+          "id": "grammar_b2_shared_merit",
+          "pattern": "A/V-다는 점에서",
+          "level": "B2"
+        }
+      ]
+    },
+    {
+      "id": "grammar_b2_negative_consequence",
+      "kind": "grammar",
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "originalPromotionCommit": "f718106c89831091966e4554eb662135c603666a",
+      "historicalTransition": {
+        "commit": "8bc5ca314c62632df1cfd63c3ef9507264ef7471",
+        "beforeSha256": "9fade2c4eb42bd2e82056bcf523ab5a392e3bcce113e80386cbd34a16696270c",
+        "afterSha256": "f84e2955b9f6412f296eba952cb817a2c69699180bd9c013676f834e454f36dc",
+        "fields": {
+          "level": {
+            "before": "B2",
+            "after": "C1"
+          },
+          "quiz_distractor_ids": {
+            "before": "grammar_b2_worry|grammar_b2_even_if|grammar_b2_formal_cause",
+            "after": "grammar_b2_method_dependent|grammar_c1_burden_recipient_batch20|grammar_b2_inevitability"
+          }
+        }
+      },
+      "beforeSha256": "9fade2c4eb42bd2e82056bcf523ab5a392e3bcce113e80386cbd34a16696270c",
+      "comparisonAfterSha256": "a80c5813624a1ed165b8c8f3d2e518ec41661c3b1eda34436022a34e40a8d4e5",
+      "actualAfterSha256": "79ec628b4d1db8ebb8bb928761cd00a7fda5790dead60aaf3a582ce705855e05",
+      "levelNormalization": {
+        "id": "grammar_b2_negative_consequence",
+        "kind": "grammar",
+        "from": "b2",
+        "to": "c1",
+        "movedAt": "2026-09-16",
+        "batch": "V2G1",
+        "reason": "NIKL 5급(C1) level_mismatch + 세종5(C1) 익힘책 5B unit8 '생겨나는 말, 사라지는 말' p.35에서도 확인(NIKL+세종 이중 근거) -- Jin 결정 2, 2026-09-16, 우선 적용."
+      },
+      "currentCorrectionFields": [
+        "quiz_focus_de"
+      ],
+      "reasonKo": "DE 강조를 판단 근거 명사구에서 부정적 결과를 경고하는 조건절로 맞춘다.",
+      "current": {
+        "pattern": "V-다가는",
+        "level": "C1",
+        "type_de": "Warnung vor einer negativen Folge",
+        "explanation_de": "Warnt davor dass eine fortgesetzte Handlung wahrscheinlich zu einem unerwünschten Ergebnis führt. Die Folge ist normalerweise negativ.",
+        "example_korean": "상대의 말투만 보고 의도를 단정하다가는 오해가 커질 수 있어요.",
+        "example_german": "Wenn man die Absicht nur aus dem Tonfall ableitet, können Missverständnisse größer werden.",
+        "note": "Nicht für neutrale Folgen verwenden. Der Satz sollte eine echte Warnung oder ein Risiko enthalten.",
+        "type_en": "Warning of a negative consequence",
+        "explanation_en": "Warns that continuing an action is likely to lead to an unwanted result. The result is normally negative.",
+        "example_en": "If you keep assuming intent from tone alone, misunderstandings can grow.",
+        "note_en": "Do not use it for neutral consequences. The sentence should contain a real warning or risk.",
+        "id": "grammar_b2_negative_consequence",
+        "quiz_focus_de": "Wenn man die Absicht nur aus dem Tonfall ableitet",
+        "quiz_focus_en": "If you keep assuming",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_b2_method_dependent|grammar_c1_burden_recipient_batch20|grammar_b2_inevitability"
+      },
+      "distractors": [
+        {
+          "id": "grammar_b2_method_dependent",
+          "pattern": "V-기 나름이다",
+          "level": "C1"
+        },
+        {
+          "id": "grammar_c1_burden_recipient_batch20",
+          "pattern": "N이/가 누구에게 돌아가는지 따져보다",
+          "level": "C1"
+        },
+        {
+          "id": "grammar_b2_inevitability",
+          "pattern": "V-기 마련이다",
+          "level": "C1"
+        }
+      ]
+    },
+    {
+      "id": "smalltalk_b2_0057",
+      "kind": "smalltalk",
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "originalPromotionCommit": "f718106c89831091966e4554eb662135c603666a",
+      "historicalTransition": {
+        "commit": "36ad3032a4af3d39954a2f4b542ad5489560d638",
+        "beforeSha256": "365af0f9e8aa88cffa8586e7af5dc7f3828b0947c2c3bfa92c0d09fe2905c4c8",
+        "afterSha256": "c5870824dbfe208debd0a2838149c268a18ac927c1eace8fb9c5d02ff8ecada4",
+        "fields": {
+          "safeAlternativeQuestions": {
+            "before": [
+              {
+                "turnKind": "question",
+                "ko": "그 부분이 어떤 감정을 남겼는지 말해 볼래요?",
+                "de": "Möchten Sie beschreiben, welches Gefühl dieser Teil hinterlassen hat?",
+                "en": "Would you describe what feeling that part left behind?"
+              }
+            ],
+            "after": [
+              {
+                "turnKind": "question",
+                "ko": "그 부분이 어떤 감정을 남겼는지 말해 볼래요?",
+                "de": "Was hat der Teil für ein Gefühl hinterlassen?",
+                "en": "What did that part leave you feeling?"
+              }
+            ]
+          }
+        }
+      },
+      "beforeSha256": "365af0f9e8aa88cffa8586e7af5dc7f3828b0947c2c3bfa92c0d09fe2905c4c8",
+      "comparisonAfterSha256": "0888afab6c81a15e777f4f79874c02772e997e767a5f86026898a94ed70433fa",
+      "actualAfterSha256": "0888afab6c81a15e777f4f79874c02772e997e767a5f86026898a94ed70433fa",
+      "levelNormalization": null,
+      "currentCorrectionFields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "reasonKo": "대답을 권하는 KO의 초대를 DE/EN에도 유지한다. 후속 반응은 다시 생각한다는 뜻이며 관점을 바꿨다고 단정하지 않는다.",
+      "current": {
+        "id": "smalltalk_b2_0057",
+        "category": "mood",
+        "level": "b2",
+        "kind": "question",
+        "ko": "이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?",
+        "de": "Welcher Teil dieses Textes ist Ihnen nach dem Lesen am längsten nachgegangen?",
+        "en": "Which part of this text stayed with you the longest after reading?",
+        "reply": {
+          "ko": "마지막에 나온 짧은 질문이 오래 남았어요.",
+          "de": "Die kurze Frage am Ende ist mir besonders lange nachgegangen.",
+          "en": "The short question at the end stayed with me for a long time."
+        },
+        "relationshipContext": "classmate",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 부분이 어떤 감정을 남겼는지 말해 볼래요?",
+            "de": "Möchten Sie beschreiben, welches Gefühl dieser Teil bei Ihnen hinterlassen hat?",
+            "en": "Would you like to describe the feeling that part left you with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "저는 그 여운 때문에 글 전체를 다시 생각하게 됐어요.",
+          "de": "Dieser Nachklang hat mich dazu gebracht, noch einmal über den ganzen Text nachzudenken.",
+          "en": "That lingering impression made me think about the whole text again."
+        }
+      }
+    },
+    {
+      "id": "smalltalk_b2_0062",
+      "kind": "smalltalk",
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "originalPromotionCommit": "f718106c89831091966e4554eb662135c603666a",
+      "historicalTransition": {
+        "commit": "e4fa55bad19a4b185f2d050afede4614b906a1f4",
+        "beforeSha256": "a42bef8c6f9170c033d4b9eea77200477bca0d7012373a604d2c61373132bb60",
+        "afterSha256": "d7aa98eca127017b1ff27485c45eb1cb2b9211d334dde26412d94ce386d505d1",
+        "fields": {
+          "de": {
+            "before": "Online kann derselbe Satz je nach Ton und Klangwirkung völlig unterschiedlich aufgenommen werden.",
+            "after": "Online kann dieselbe Aussage je nach Tonfall und Nuance ganz unterschiedlich ankommen."
+          }
+        }
+      },
+      "beforeSha256": "a42bef8c6f9170c033d4b9eea77200477bca0d7012373a604d2c61373132bb60",
+      "comparisonAfterSha256": "d7aa98eca127017b1ff27485c45eb1cb2b9211d334dde26412d94ce386d505d1",
+      "actualAfterSha256": "d7aa98eca127017b1ff27485c45eb1cb2b9211d334dde26412d94ce386d505d1",
+      "levelNormalization": null,
+      "currentCorrectionFields": [],
+      "reasonKo": "KO의 말투·어감에 따른 수용 차이를 현재 DE가 보존하므로 현 문장을 유지하고 실제 교정 커밋을 기록한다.",
+      "current": {
+        "id": "smalltalk_b2_0062",
+        "category": "screen",
+        "level": "b2",
+        "kind": "opener",
+        "ko": "온라인에서는 같은 말도 말투와 어감에 따라 전혀 다르게 받아들여질 수 있어요.",
+        "de": "Online kann dieselbe Aussage je nach Tonfall und Nuance ganz unterschiedlich ankommen.",
+        "en": "Online, the same words can be received very differently depending on tone and connotation.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이 문장을 더 분명하고 덜 차갑게 바꿔 볼까요?",
+            "de": "Wollen wir diesen Satz klarer und weniger kühl formulieren?",
+            "en": "Shall we rephrase this sentence to sound clearer and less cold?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇게 하면 의도가 더 잘 전달될 것 같아요.",
+          "de": "Dann kommt die Absicht vermutlich besser an.",
+          "en": "That should make the intention come across more clearly."
+        }
+      }
+    }
+  ],
+  "routing": [
+    {
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "map": "grammarRuleMap",
+      "id": "grammar_b2_method_dependent",
+      "beforeSha256": "780e1771cad9dd32ee83949445da15050cf460c6c83bf91d65e3d70f7dbf555d",
+      "afterSha256": "e57ac4128e936acfc04c3ac80d2641732cb13a065286506f5d19ea857bf3de37",
+      "reviewReceipt": "tools/content_factory/review/batch_03_reconciliation_20260916.json",
+      "before": {
+        "courseUnitId": "b2_02_professional_opinion",
+        "conceptIds": [
+          "concept_b2_opinion"
+        ]
+      },
+      "after": {
+        "courseUnitId": "c1_02_inclusive_sustainable_systems",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ]
+      },
+      "changeCommit": "8bc5ca314c62632df1cfd63c3ef9507264ef7471",
+      "bundle": "tools/content_factory/relevel/relevel_bundle_V2G1.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "map": "grammarRuleMap",
+      "id": "grammar_b2_negative_consequence",
+      "beforeSha256": "780e1771cad9dd32ee83949445da15050cf460c6c83bf91d65e3d70f7dbf555d",
+      "afterSha256": "a75bd32486f6446e74f74774a84bf8b9775ed2ee1a5487a2516895a984a9e778",
+      "reviewReceipt": "tools/content_factory/review/batch_03_reconciliation_20260916.json",
+      "before": {
+        "courseUnitId": "b2_02_professional_opinion",
+        "conceptIds": [
+          "concept_b2_opinion"
+        ]
+      },
+      "after": {
+        "courseUnitId": "c1_01_evidence_public_reasoning",
+        "conceptIds": [
+          "concept_c1_evidence_reasoning"
+        ]
+      },
+      "changeCommit": "8bc5ca314c62632df1cfd63c3ef9507264ef7471",
+      "bundle": "tools/content_factory/relevel/relevel_bundle_V2G1.json"
+    }
+  ],
+  "copyReview": {
+    "id": "smalltalk_b2_0057",
+    "previousDecision": {
+      "phraseId": "smalltalk_b2_0057",
+      "phraseFingerprintSha256": "c5870824dbfe208debd0a2838149c268a18ac927c1eace8fb9c5d02ff8ecada4",
+      "routingSource": "exactOverride",
+      "canDoSegmentId": "segment_b2_literary_cultural_response",
+      "canDoFingerprintSha256": "e99e9cacd4a66254c25cfb6957e52f6322313a7b1872d518f7b3601aa4b59409",
+      "semanticStatus": "approved",
+      "reasonCode": "topicAndFunctionMatch",
+      "reviewRevision": 3
+    },
+    "humanReviewStatus": "pending",
+    "ledger": "tools/content_factory/review/content_humanization_20260821.json"
+  }
+}

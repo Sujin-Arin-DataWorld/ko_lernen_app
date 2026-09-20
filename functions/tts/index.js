@@ -189,6 +189,8 @@ async function synthesizeTts(request) {
       }
 
       let costReservation;
+      // Refund the same UTC buckets even if synthesis crosses an hour/day.
+      const quotaTime = new Date();
       if (consume) {
         let quota;
         try {
@@ -196,6 +198,7 @@ async function synthesizeTts(request) {
           quota = await underDailyTtsQuotas(db, {
             uid: request.auth.uid,
             installationId,
+            now: quotaTime,
           });
         } catch (error) {
           // No synthesis has begun. Release only this undispatched replay lock;
@@ -210,12 +213,25 @@ async function synthesizeTts(request) {
           } catch {
             // Keep the quota error; the pending receipt expires.
           }
-          console.warn("Daily TTS synthesis limit reached", {
+          console.warn("TTS synthesis limit reached", {
             scope: quota.exceededScope,
           });
+          // Old clients label every resource-exhausted error as a daily limit.
+          // Keep their existing non-retrying availability path for hourly caps.
+          if (quota.exceededScope === "global_hour" &&
+              request.data?.errorReasonVersion !== "1") {
+            throw new HttpsError(
+              "unavailable",
+              "TTS audio is not available.",
+              { reason: "quota_global_hour" },
+            );
+          }
           throw new HttpsError(
             "resource-exhausted",
-            "Daily synthesis limit reached.",
+            quota.exceededScope === "global_hour"
+              ? "Hourly synthesis limit reached."
+              : "Daily synthesis limit reached.",
+            { reason: `quota_${quota.exceededScope}` },
           );
         }
       }
@@ -248,6 +264,7 @@ async function synthesizeTts(request) {
               await refundDailyTtsQuotas(db, {
                 uid: request.auth.uid,
                 installationId,
+                now: quotaTime,
               });
             } catch {
               console.warn("TTS quota refund failed", {
@@ -290,6 +307,7 @@ async function synthesizeTts(request) {
             await refundDailyTtsQuotas(db, {
               uid: request.auth.uid,
               installationId,
+              now: quotaTime,
             });
           } catch {
             console.warn("TTS quota refund failed", {

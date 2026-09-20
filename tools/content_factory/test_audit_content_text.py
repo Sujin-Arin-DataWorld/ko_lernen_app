@@ -43,7 +43,7 @@ class ContentTextAuditTest(unittest.TestCase):
             ]
         }
 
-        self.assertEqual(len(changed_ids), 42)
+        self.assertEqual(len(changed_ids), 44)
         for record_id in changed_ids:
             decision = decisions[record_id]
             self.assertEqual(decision["copyRevision"], 1)
@@ -90,8 +90,8 @@ class ContentTextAuditTest(unittest.TestCase):
                 "de": "Haben Sie Daten gesehen, die zeigen, dass die Spielzeitbegrenzung tatsächlich wirksam war?",
             },
             "smalltalk_c2_0026": {
-                "de": "Nur weil es eine Anlaufstelle gibt, ist noch keine wirksame Abhilfe gewährleistet.",
-                "en": "Having an appeals channel does not guarantee an effective remedy.",
+                "de": "Ich habe festgestellt, dass eine Anlaufstelle noch keine wirksame Abhilfe garantiert.",
+                "en": "I've found that having an appeals channel doesn't necessarily mean you get redress.",
             },
             "smalltalk_c2_0029": {
                 "en": "Whose perspective do you think shapes the way the story is being told now?",
