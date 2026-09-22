@@ -30225,13 +30225,13 @@
       "level": "a1",
       "targetKo": "안녕하세요, 저는 크리스티안이에요.",
       "promptDe": "Hallo, ich bin Christian.",
-      "promptEn": "Hello, this is Christian.",
+      "promptEn": "Hello, I'm Christian.",
       "distractors": [
         "설빔",
         "십"
       ],
       "vocabKo": "안녕하세요",
-      "sourceVocabId": "vocab_a1_0493",
+      "sourceVocabId": "vocab_a1_0001",
       "courseUnitId": "a1_01_greetings_hangul"
     },
     {

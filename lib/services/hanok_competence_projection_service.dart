@@ -32,16 +32,23 @@ abstract final class HanokCompetenceProjectionService {
     HanokCompetenceSnapshotReader? snapshotReader,
   }) async {
     final catalog = await (catalogLoader ?? CurriculumCatalog.load)();
-    final snapshot =
-        (snapshotReader ?? _readStoredSnapshot)(catalog) ??
-        const CourseMasterySnapshot.empty();
+    final snapshot = snapshotReader != null
+        ? snapshotReader(catalog)
+        : await _readStoredSnapshot(catalog);
     return HanokCompetenceProjection.fromSnapshot(
-      snapshot: snapshot,
+      snapshot: snapshot ?? const CourseMasterySnapshot.empty(),
       courseUnits: catalog.courseUnits,
     );
   }
 
-  static CourseMasterySnapshot? _readStoredSnapshot(
+  static Future<CourseMasterySnapshot?> _readStoredSnapshot(
     CurriculumCatalog catalog,
-  ) => CourseMasteryService(catalog).readForReconciliation();
+  ) async {
+    final service = CourseMasteryService(catalog);
+    // A lost native write reply leaves synchronous readers fenced. Retry must
+    // first confirm durable bytes, just like CourseProgressService, rather
+    // than remaining unavailable after the preference store has recovered.
+    await service.confirmDurableState();
+    return service.readForReconciliation();
+  }
 }

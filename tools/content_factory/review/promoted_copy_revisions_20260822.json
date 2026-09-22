@@ -5171,6 +5171,51 @@
       "beforeSha256": "6adeb079dbb21713011becdb4a5d4d73e65668c5ae0a247f95e7c4830cf814ff",
       "afterSha256": "a7eeae7a0ccde0e6c499604eb69469d3fc161bd17092cddb64c41e0feca6f515",
       "reviewReceipt": "tools/content_factory/review/batch_19_reconciliation_20260917.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0493",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "165e64153525a23dd1d75eaf4c2dce7da361b364f9156a27353660ca1fbd574c",
+      "afterSha256": "17c83da27eefb6d495f44b70e61cad8d1c10a104c0c6381227136ab57baccd9e",
+      "reviewReceipt": "tools/content_factory/review/batch_25_release_reconciliation_20260922.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0427",
+      "level": "a1",
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "f023ffccfce3b2198cf746348261fd718271416adcb07dfdacf5821110a1f17e",
+      "afterSha256": "7e59586486210d3aac35fd131d08ee4ee3bb4879fdbaa16d72d48ee77854461d",
+      "reviewReceipt": "tools/content_factory/review/batch_25_release_reconciliation_20260922.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0408",
+      "level": "a1",
+      "fields": [
+        "promptEn",
+        "sourceVocabId",
+        "targetKo",
+        "vocabKo"
+      ],
+      "beforeSha256": "60c377bac4868d79b5c5e021310b07844137cfd439dc9bb13c4824716cb78d2d",
+      "afterSha256": "5b288361812f5218405f18a64ec3f75abc602d4a3f24462ef30c398c97ae7c62",
+      "reviewReceipt": "tools/content_factory/review/batch_25_release_reconciliation_20260922.json"
     }
   ],
   "routingEntries": [

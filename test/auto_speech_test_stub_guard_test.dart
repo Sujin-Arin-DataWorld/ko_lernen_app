@@ -164,7 +164,6 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/features/study_library/study_bookmark_production_writer_test.dart',
   'test/features/study_library/study_library_language_test.dart',
   'test/flashcard_language_preferences_test.dart',
-  'test/game_layout_test.dart',
   'test/grammar_filter_position_test.dart',
   'test/grammar_plan_screen_test.dart',
   'test/hangul_content_locale_test.dart',
@@ -184,7 +183,6 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/scenario_quest_responsive_test.dart',
   'test/scenarios_list_screen_ui_test.dart',
   'test/screen_smoke_test.dart',
-  'test/shared_game_feedback_route_test.dart',
   'test/smalltalk_presentation_test.dart',
   'test/smalltalk_screen_ui_test.dart',
   'test/study_activity_responsive_test.dart',
@@ -207,4 +205,5 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/vocab_pack_uniform_card_test.dart',
   'test/wordbook_spotlight_coach_test.dart',
 ];
-const int knownUnstubbedCap = 56; // 2026-09-17 scenario SRS persistence 테스트의 음성 스텁 도입으로 하향
+const int knownUnstubbedCap =
+    54; // 2026-09-22 game layout/feedback 음성 스텁 도입으로 하향

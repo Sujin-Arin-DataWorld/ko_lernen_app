@@ -64,7 +64,7 @@ sys.path.insert(0, str(ROOT / "tool"))
 sys.path.insert(0, str(ROOT / "tools" / "content_factory"))
 
 from cefr_lexicon import CefrLexicon, GrammarIndex, GRADE_TO_CEFR  # noqa: E402
-from scan_a1_grammar import REVIEWED_HOMOGRAPH_HITS  # noqa: E402
+from scan_a1_grammar import REVIEWED_HOMOGRAPH_HITS, grammar_scan_text  # noqa: E402
 
 VOCAB_CSV = ROOT / "assets" / "data" / "korean_vocab.csv"
 CLOZE_JSON = ROOT / "assets" / "data" / "cloze.json"
@@ -157,7 +157,7 @@ EXACT_SENTENCE_ALLOWLIST = {
     # C2d-2 (2026-09-16): kept in sync with scan_a1_grammar.py's own copy
     # (see that module for the full justification of each entry below).
     "짧은 예문을 하나 적으세요.", "짧은 예문을 하나 볼 수 있어요?",
-    "저는 바나나를 좋아해요.", "안녕하세요, 저는 크리스티안이에요.",
+    "저는 바나나를 좋아해요.",
     "저는 책을 가지고 있어요.",
 }
 
@@ -200,7 +200,7 @@ def _has_rieul_batchim(ch: str) -> bool:
 def _grammar_hits_ge(lexicon: CefrLexicon, grammar_index: GrammarIndex, text: str, threshold: int):
     if text in EXACT_SENTENCE_ALLOWLIST:
         return []
-    sp = lexicon.sentence_profile(text, grammar_index)
+    sp = lexicon.sentence_profile(grammar_scan_text(text), grammar_index)
     hits = []
     for h in sp.grammar_hits:
         if h.grade < threshold:

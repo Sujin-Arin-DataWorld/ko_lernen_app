@@ -1584,6 +1584,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                         ),
                         // 시나리오 단어를 내 단어장에 담기.
                         AddToWordbookButton(
+                          enabled: widget.previewFixture == null,
                           korean: v.korean,
                           translationDe: v.note?.de ?? '',
                           translationEn: v.note?.en ?? '',
@@ -1851,6 +1852,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                       Align(
                                         alignment: Alignment.centerRight,
                                         child: AddToWordbookButton(
+                                          enabled:
+                                              widget.previewFixture == null,
                                           compact: true,
                                           korean: line.ko,
                                           translationDe: line.de,

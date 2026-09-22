@@ -30,6 +30,7 @@ class SoriStudyFrame extends StatelessWidget {
     this.onLeave,
     this.bottom,
     this.adaptTitleAtNormalScale = false,
+    this.titleBelowToolbar = false,
   });
 
   final String title;
@@ -58,6 +59,7 @@ class SoriStudyFrame extends StatelessWidget {
   /// 아니면 즉시 호출된다.
   final VoidCallback? onLeave;
   final bool adaptTitleAtNormalScale;
+  final bool titleBelowToolbar;
 
   @override
   Widget build(BuildContext context) {
@@ -96,13 +98,16 @@ class SoriStudyFrame extends StatelessWidget {
         appBar: SoriAppBar(
           title: title,
           textScale: MediaQuery.textScalerOf(context).scale(1),
-          viewportWidth: MediaQuery.sizeOf(context).width,
+          viewportWidth:
+              MediaQuery.sizeOf(context).width -
+              MediaQuery.paddingOf(context).horizontal,
           eyebrow: eyebrow,
           actions: effectiveActions,
           leading: SoriCloseAction(escape: homeEscape, onLeave: onLeave),
           automaticallyImplyLeading: automaticallyImplyLeading,
           bottom: bottom,
           adaptTitleAtNormalScale: adaptTitleAtNormalScale,
+          titleBelowToolbar: titleBelowToolbar,
         ),
         body: SoriScreenBackground(
           particles: particles,

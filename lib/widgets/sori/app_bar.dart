@@ -29,6 +29,7 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.textScale,
     required this.viewportWidth,
     this.adaptTitleAtNormalScale = false,
+    this.titleBelowToolbar = false,
   });
 
   final String title;
@@ -48,6 +49,9 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// unbounded titles even at the default system text scale. Eyebrow chrome and
   /// narrow phones are measured automatically.
   final bool adaptTitleAtNormalScale;
+
+  /// Gives a long scene title the full width below navigation and actions.
+  final bool titleBelowToolbar;
 
   // 레이아웃 측정 전용 — 색은 TextPainter geometry에 영향이 없어 뺐다.
   // `SoriTypeSpecs.chromeTitle`/`.eyebrow` 에서 직접 만든다 — 측정에는
@@ -75,7 +79,7 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// entire 320x640 viewport at a 200% accessibility setting.
   double get _chromeTextScale => math.min(math.max(1, textScale), 1.3);
 
-  bool get _stackTitle => textScale >= 1.6;
+  bool get _stackTitle => titleBelowToolbar || textScale >= 1.6;
 
   double get _titleAvailableWidth {
     if (_stackTitle) {
@@ -113,6 +117,7 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// phones, and explicitly unbounded titles expand instead of clipping or
   /// hiding measured multi-line copy.
   bool get _usesAdaptiveChrome =>
+      titleBelowToolbar ||
       textScale > 1 ||
       ((adaptTitleAtNormalScale ||
               eyebrow != null ||
@@ -210,7 +215,14 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
                     ),
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: scaledTitleBlock,
+                      child: Semantics(
+                        header: true,
+                        namesRoute: switch (Theme.of(context).platform) {
+                          TargetPlatform.iOS || TargetPlatform.macOS => false,
+                          _ => true,
+                        },
+                        child: scaledTitleBlock,
+                      ),
                     ),
                   ),
                 ),

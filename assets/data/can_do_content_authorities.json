@@ -30008,7 +30008,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_greetings_1",
         "sourceVocabId": "vocab_a1_0493",
-        "sourceVocabFingerprintSha256": "165e64153525a23dd1d75eaf4c2dce7da361b364f9156a27353660ca1fbd574c",
+        "sourceVocabFingerprintSha256": "17c83da27eefb6d495f44b70e61cad8d1c10a104c0c6381227136ab57baccd9e",
         "level": "a1",
         "canDoSegmentId": "segment_a1_01_greetings_hangul",
         "courseUnitId": "a1_01_greetings_hangul"
@@ -36937,8 +36937,8 @@
         "id": "satz_a1_0408",
         "sourceKind": "vocabPack",
         "sourceId": "a1_greetings_1",
-        "sourceVocabId": "vocab_a1_0493",
-        "sourceVocabFingerprintSha256": "165e64153525a23dd1d75eaf4c2dce7da361b364f9156a27353660ca1fbd574c",
+        "sourceVocabId": "vocab_a1_0001",
+        "sourceVocabFingerprintSha256": "c2a42aa7a33174ab0fd0861d12ab5e0570161cf7cf21f70900db9f74c4ae3f35",
         "level": "a1",
         "canDoSegmentId": "segment_a1_01_greetings_hangul",
         "courseUnitId": "a1_01_greetings_hangul"

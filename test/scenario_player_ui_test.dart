@@ -398,12 +398,7 @@ void main() {
       CustomPackService.revision.value = 0;
       final stub = stubSoriSpeech();
 
-      await _pumpPreview(
-        tester,
-        stage: ScenarioStage.dialog,
-        size: const Size(390, 844),
-        textScale: 1.3,
-      );
+      await _pumpLessonDialog(tester);
 
       // 대사 스테이지 진입 자동재생(T2.1)이 이미 첫 대사를 1회 읽었다 —
       // 책갈피 탭은 이 이력을 건드리지 않아야 한다(§9-2: 책갈피만, 재생
@@ -568,13 +563,7 @@ void main() {
       CustomPackService.revision.value = 0;
       stubSoriSpeech();
 
-      await _pumpPreview(
-        tester,
-        stage: ScenarioStage.dialog,
-        size: const Size(390, 844),
-        textScale: 1.3,
-        locale: const Locale('en'),
-      );
+      await _pumpLessonDialog(tester, locale: const Locale('en'));
 
       await tester.tap(find.byIcon(Icons.bookmark_add_outlined).first);
       await tester.pumpAndSettle();
@@ -830,6 +819,35 @@ void main() {
       expect(tester.takeException(), isNull);
     },
   );
+}
+
+/// 저장 계약은 쓰기가 차단된 갤러리 preview가 아닌 실제 학습 경로에서 검사한다.
+Future<void> _pumpLessonDialog(
+  WidgetTester tester, {
+  Locale locale = const Locale('de'),
+}) async {
+  CourseProgressService.shared.resetForTesting();
+  await tester.runAsync(CurriculumCatalog.load);
+  await _pumpPlayer(
+    tester,
+    child: ScenarioPlayerScreen(
+      scenarioId: scenarioAirportArrivalFixture.id,
+      scenarioLoader: (_) async => scenarioAirportArrivalFixture,
+    ),
+    size: const Size(390, 844),
+    textScale: 1.3,
+    locale: locale,
+  );
+  expect(find.byType(AppLoading), findsNothing);
+  expect(find.byType(AppError), findsNothing);
+
+  final isGerman = locale.languageCode == 'de';
+  await tester.tap(find.text(isGerman ? "Los geht's!" : "Let's go"));
+  await tester.pump();
+  await tester.pump(const Duration(milliseconds: 400));
+  await tester.tap(find.text(isGerman ? 'Weiter' : 'Next'));
+  await tester.pump();
+  await tester.pump(const Duration(milliseconds: 400));
 }
 
 Future<void> _pumpPreview(

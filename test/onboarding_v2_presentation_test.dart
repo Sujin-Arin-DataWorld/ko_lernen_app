@@ -206,11 +206,8 @@ void main() {
       expect(find.text('None'), findsNothing);
       expect(find.text('Skip'), findsNothing);
       final choice = find.byKey(const ValueKey('onboarding-v2-companion-joy'));
-      await tester.scrollUntilVisible(
-        choice,
-        300,
-        scrollable: find.byType(Scrollable).last,
-      );
+      await tester.ensureVisible(choice);
+      expect(choice.hitTestable(), findsOneWidget);
       await tester.pump();
       await tester.tap(choice);
       await tester.pump();

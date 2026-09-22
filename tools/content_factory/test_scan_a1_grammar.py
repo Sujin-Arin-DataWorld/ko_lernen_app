@@ -64,6 +64,16 @@ class DetectorUnitTest(unittest.TestCase):
 
     # -- must catch (real examples pulled from the pre-rewrite A1 corpora) --
 
+    def test_phone_greeting_is_lexical_not_try_grammar(self) -> None:
+        for text in ("여보세요.", "여보세요?", "여보세요, 저는 크리스티안이에요."):
+            with self.subTest(text=text):
+                self.assertFalse(self._hits(text))
+
+    def test_phone_greeting_does_not_hide_real_try_grammar(self) -> None:
+        for text in ("여보세요, 먹어 보세요.", "물을 데워보세요."):
+            with self.subTest(text=text):
+                self.assertTrue(self._hits(text))
+
     def test_catches_quoted_prohibition_하셨어요(self) -> None:
         # vocab_a1_0269 before C2d.
         hits = self._hits("차례상 앞에서는 사진을 찍지 말라고 하셨어요.")
