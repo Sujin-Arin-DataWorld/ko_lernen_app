@@ -5154,9 +5154,9 @@
     "semantic_hash": ""
   },
   "test/scenario_player_ui_test.dart": {
-    "mtime": 1790063555.5636709,
-    "seen": 1790063945.5503342,
-    "ast_hash": "44ef4e5791f31c22f471106d0de0923b",
+    "mtime": 1790074880.9148698,
+    "seen": 1790075105.7342515,
+    "ast_hash": "36e7ddc0496b5b250c1ec5d2766579bd",
     "semantic_hash": ""
   },
   "test/scenario_quest_catalog_integrity_test.dart": {
@@ -13608,9 +13608,9 @@
     "semantic_hash": ""
   },
   "test/auto_speech_test_stub_guard_test.dart": {
-    "mtime": 1790063555.1339455,
-    "seen": 1790063945.5495002,
-    "ast_hash": "cd362e85b0bd6a642bcc74d4d665a712",
+    "mtime": 1790074759.8128693,
+    "seen": 1790075105.627562,
+    "ast_hash": "d01b8dc716dcb5d05b600bdc0b9d6c95",
     "semantic_hash": ""
   },
   "test/chosung_quiz_audio_test.dart": {
@@ -18750,9 +18750,9 @@
     "semantic_hash": ""
   },
   "docs/CP2026_CONTINUATION.md": {
-    "mtime": 1790069508.6032963,
-    "seen": 1790072481.4348323,
-    "ast_hash": "6451ed13e4b592e18f3383acd32ee663",
+    "mtime": 1790075034.5919678,
+    "seen": 1790075106.0835717,
+    "ast_hash": "79cf4de5f91fa5e48a98f684296696d8",
     "semantic_hash": ""
   },
   "docs/data/a1_grammar_scan_2026-09-15.md": {
