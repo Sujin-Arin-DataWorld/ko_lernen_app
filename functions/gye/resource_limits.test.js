@@ -15,6 +15,19 @@ const assert = require("node:assert/strict");
 const deployed = require("./index");
 const { getFirestore } = require("firebase-admin/firestore");
 
+test("deleteCloudBackup preserves its deployed resource limits and secret", () => {
+  const endpoint = deployed.deleteCloudBackup.__endpoint;
+  assert.equal(endpoint.maxInstances, 20);
+  assert.equal(endpoint.timeoutSeconds, 60);
+  assert.equal(endpoint.availableMemoryMb, 256);
+  assert.equal(endpoint.cpu, 1);
+  assert.deepEqual(endpoint.region, ["europe-west3"]);
+  assert.deepEqual(
+    endpoint.secretEnvironmentVariables.map((secret) => secret.key),
+    ["DELETION_PROOF_HMAC_KEY"],
+  );
+});
+
 test("on_pack_cleared carries explicit resource limits", () => {
   const endpoint = deployed.on_pack_cleared.__endpoint;
   assert.equal(endpoint.maxInstances, 20);

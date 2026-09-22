@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show visibleForTesting;
 
 import '../models/learner_level.dart';
+import '../features/content_learning/content_learning_service.dart';
+import '../features/content_learning/content_learning_state.dart';
 import 'account/cloud_read_result.dart';
 import 'account/cloud_restore_result.dart';
 import 'account/cloud_write_session.dart';
@@ -53,6 +55,7 @@ class CloudSync {
     'hanok_state_json',
     'study_log_json',
     'gram_plan_json',
+    'content_learning_json',
   };
   static Future<CloudWriteResult> Function()? _backupWithResultForTesting;
   static Future<CloudRestoreResult> Function()? _restoreWithResultForTesting;
@@ -122,6 +125,11 @@ class CloudSync {
     // 오답 카운터 — SRS 만 복원되고 이게 빠지면 재설치 후 Extra-Lernset 이
     // 조용히 쪼그라든다. SRS 와 짝으로 백업.
     payload['wrong_count_json'] = Storage.wrongCountRawJson;
+    final contentLearningJson = Storage.contentLearningRawJson;
+    if (contentLearningJson.isNotEmpty) {
+      ContentLearningState.decode(contentLearningJson);
+      payload['content_learning_json'] = contentLearningJson;
+    }
     final studyLog = <String, List<String>>{
       for (final dateIso in Storage.studyLogDates())
         dateIso: Storage.studyLogIdsFor(dateIso),
@@ -626,6 +634,19 @@ class CloudSync {
       }
     }
     final grammarPlanJson = _rawJsonObject(data['gram_plan_json']);
+    if (data.containsKey('content_learning_json')) {
+      final raw = data['content_learning_json'];
+      if (raw is! String || raw.isEmpty) {
+        throw const FormatException('Invalid content learning backup.');
+      }
+      await _guardedWrite(
+        beforeWrite,
+        () => ContentLearningService.mergeCloudJson(
+          raw,
+          beforeWrite: beforeWrite,
+        ),
+      );
+    }
     if (grammarPlanJson != null) {
       await _guardedWrite(beforeWrite, () async {
         switch (await Storage.setGrammarPlanRawJsonForRestore(

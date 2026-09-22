@@ -3316,7 +3316,7 @@ class AppL10nEn extends AppL10n {
   String get listeningReviewCta => 'Review line by line';
 
   @override
-  String get listeningBackToScroll => 'Back to the scroll';
+  String get listeningBackToScroll => 'Back to the dialogue';
 
   @override
   String get listeningNextStory => 'Next story';
@@ -10803,4 +10803,248 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get questUnavailableBody => 'Go back and choose another exercise.';
+
+  @override
+  String get contentLearningGoals => 'Topic learning goals';
+
+  @override
+  String get contentLearningGoalIntro =>
+      'How many lessons would you like to study each day? Each level has its own goal.';
+
+  @override
+  String contentLearningGoal(String level) {
+    return '$level · daily goal';
+  }
+
+  @override
+  String contentLearningGoalCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count lessons',
+      one: '1 lesson',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get contentLearningFree => 'Free browse';
+
+  @override
+  String get contentLearningEditGoal => 'Edit goal';
+
+  @override
+  String contentLearningToday(int done, int total) {
+    String _temp0 = intl.Intl.pluralLogic(
+      total,
+      locale: localeName,
+      other: '$total lessons',
+      one: '1 lesson',
+    );
+    return 'Today: $done of $_temp0';
+  }
+
+  @override
+  String contentLearningPackProgress(int done, int total) {
+    String _temp0 = intl.Intl.pluralLogic(
+      total,
+      locale: localeName,
+      other: '$total lessons',
+      one: '1 lesson',
+    );
+    return '$done of $_temp0 completed';
+  }
+
+  @override
+  String get contentLearningResume => 'Resume';
+
+  @override
+  String get contentLearningStart => 'Start lesson';
+
+  @override
+  String get contentLearningLearn => 'Learn';
+
+  @override
+  String get contentLearningPractice => 'Practise';
+
+  @override
+  String get contentLearningNext => 'Continue';
+
+  @override
+  String get contentLearningPrevious => 'Previous';
+
+  @override
+  String get contentLearningCheck => 'Check';
+
+  @override
+  String get contentLearningFinish => 'Finish lesson';
+
+  @override
+  String get contentLearningDone => 'Lesson complete';
+
+  @override
+  String get contentLearningTodayDone => 'Your daily goal is complete';
+
+  @override
+  String contentLearningResult(int correct, int total) {
+    return '$correct of $total answers correct. The lesson counts regardless of your score.';
+  }
+
+  @override
+  String get contentLearningExit => 'Back to topics';
+
+  @override
+  String get contentLearningEndToday => 'Finish for today';
+
+  @override
+  String get contentLearningPracticePending =>
+      'Expressions studied · practice still to do';
+
+  @override
+  String get contentLearningListeningPending =>
+      'Listening complete · practice still to do';
+
+  @override
+  String get contentLearningNeedsReview => 'Completed · review needed';
+
+  @override
+  String get contentLearningReviewMistakes => 'Review mistakes';
+
+  @override
+  String get contentLearningReviewTopic =>
+      'Review what you studied in this topic';
+
+  @override
+  String get contentLearningNextTopicLesson => 'Next lesson in this topic';
+
+  @override
+  String get contentLearningEnd =>
+      'You have completed every lesson in this topic. You can review what you studied at any time.';
+
+  @override
+  String get contentLearningEmpty =>
+      'No lessons are available for this level yet.';
+
+  @override
+  String get contentLearningError =>
+      'That did not work. Your last saved progress is safe. Please try again.';
+
+  @override
+  String get contentLearningRetry => 'Try again';
+
+  @override
+  String get contentLearningAudio => 'Listen';
+
+  @override
+  String get contentLearningAudioError =>
+      'The audio could not be played. Tap Listen to try again.';
+
+  @override
+  String get contentLearningTranslation => 'Show translation';
+
+  @override
+  String get contentLearningUsage => 'Usage and next response';
+
+  @override
+  String get contentLearningEvidence => 'Source passage';
+
+  @override
+  String get contentLearningCorrect => 'Correct';
+
+  @override
+  String get contentLearningIncorrect => 'Check the explanation';
+
+  @override
+  String get contentLearningOrder =>
+      'Put the words in order. Tap a selected word to return it.';
+
+  @override
+  String contentLearningPosition(int current, int total) {
+    return '$current of $total';
+  }
+
+  @override
+  String get contentLearningReviewEmpty =>
+      'There are no studied questions to review here yet.';
+
+  @override
+  String get contentLearningYou => 'You';
+
+  @override
+  String get contentLearningNarrator => 'Narrator';
+
+  @override
+  String get contentLearningReviewNext => 'Next review';
+
+  @override
+  String get contentLearningReviewDone => 'Review complete';
+
+  @override
+  String get contentLearningPlayAll => 'Play from here';
+
+  @override
+  String get contentLearningPause => 'Pause';
+
+  @override
+  String get contentLearningExpressions => 'Key expressions';
+
+  @override
+  String get contentLearningRoleplay => 'Optional: practise the conversation';
+
+  @override
+  String get contentLearningGrammar => 'Optional: explore the grammar';
+
+  @override
+  String get contentLearningRoleplayHint =>
+      'Reply aloud to the previous line. You can reveal the original response afterwards.';
+
+  @override
+  String get contentLearningReveal => 'Reveal response';
+
+  @override
+  String get contentLearningBackResult => 'Back to the result';
+
+  @override
+  String contentLearningReviewResult(int correct, int total) {
+    return '$correct of $total answers correct. Reviewing does not change your daily goal.';
+  }
+
+  @override
+  String contentLearningExpressionCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count expressions',
+      one: '1 expression',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String contentLearningScenarioCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count conversations',
+      one: '1 conversation',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String contentLearningShortLesson(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count expressions',
+      one: '1 expression',
+    );
+    return 'Short lesson · $_temp0';
+  }
+
+  @override
+  String get contentLearningLearnAgain => 'Learn again';
+
+  @override
+  String get contentLearningListenAgain => 'Listen again';
 }

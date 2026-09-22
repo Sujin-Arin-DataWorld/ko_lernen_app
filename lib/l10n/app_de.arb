@@ -1691,7 +1691,7 @@
   "listeningReviewTitle": "Zeile für Zeile wiederholen",
   "listeningReviewBody": "Hör einzelne Zeilen erneut und öffne die Übersetzung nur bei Bedarf.",
   "listeningReviewCta": "Zeile für Zeile wiederholen",
-  "listeningBackToScroll": "Zurück zur Schriftrolle",
+  "listeningBackToScroll": "Zurück zum Dialog",
   "listeningNextStory": "Nächste Geschichte",
   "listeningTtsFailedTitle": "Diese Zeile konnte nicht abgespielt werden.",
   "listeningTtsFailedBody": "Versuch es erneut oder lerne mit dem koreanischen Text weiter.",
@@ -5182,5 +5182,149 @@
   "onboardingJourneyHanokShort": "Dein Hanok",
   "onboardingJourneyCompanionShort": "Deine Begleitung",
   "questUnavailableTitle": "Diese Übung ist nicht verfügbar",
-  "questUnavailableBody": "Geh zurück und wähle eine andere Übung."
+  "questUnavailableBody": "Geh zurück und wähle eine andere Übung.",
+  "contentLearningGoals": "Themen-Lernziele",
+  "contentLearningGoalIntro": "Wie viele Lektionen möchtest du pro Tag lernen? Jedes Niveau hat sein eigenes Ziel.",
+  "contentLearningGoal": "{level} · Tagesziel",
+  "@contentLearningGoal": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "contentLearningGoalCount": "{count, plural, =1{1 Lektion} other{{count} Lektionen}}",
+  "@contentLearningGoalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningFree": "Frei lernen",
+  "contentLearningEditGoal": "Ziel ändern",
+  "contentLearningToday": "Heute: {done} von {total, plural, =1{1 Lektion} other{{total} Lektionen}}",
+  "@contentLearningToday": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningPackProgress": "{done} von {total, plural, =1{1 Lektion} other{{total} Lektionen}} abgeschlossen",
+  "@contentLearningPackProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningResume": "Fortsetzen",
+  "contentLearningStart": "Lektion beginnen",
+  "contentLearningLearn": "Lernen",
+  "contentLearningPractice": "Üben",
+  "contentLearningNext": "Weiter",
+  "contentLearningPrevious": "Zurück",
+  "contentLearningCheck": "Prüfen",
+  "contentLearningFinish": "Lektion abschließen",
+  "contentLearningDone": "Lektion abgeschlossen",
+  "contentLearningTodayDone": "Dein Tagesziel ist erreicht",
+  "contentLearningResult": "{correct} von {total} Antworten richtig. Die Lektion zählt unabhängig vom Ergebnis.",
+  "@contentLearningResult": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningExit": "Zur Themenübersicht",
+  "contentLearningEndToday": "Für heute fertig",
+  "contentLearningPracticePending": "Ausdrücke gelernt · Übungen noch offen",
+  "contentLearningListeningPending": "Fertig gehört · Übungen noch offen",
+  "contentLearningNeedsReview": "Abgeschlossen · Wiederholung nötig",
+  "contentLearningReviewMistakes": "Fehler wiederholen",
+  "contentLearningReviewTopic": "Gelerntes zu diesem Thema wiederholen",
+  "contentLearningNextTopicLesson": "Nächste Lektion zum Thema",
+  "contentLearningEnd": "Alle Lektionen dieses Themas sind abgeschlossen. Du kannst Gelerntes jederzeit wiederholen.",
+  "contentLearningEmpty": "Für dieses Niveau sind noch keine Lektionen verfügbar.",
+  "contentLearningError": "Das hat nicht geklappt. Dein letzter gespeicherter Stand bleibt erhalten. Versuche es noch einmal.",
+  "contentLearningRetry": "Erneut versuchen",
+  "contentLearningAudio": "Anhören",
+  "contentLearningAudioError": "Die Aufnahme konnte nicht abgespielt werden. Tippe zum erneuten Versuch auf Anhören.",
+  "contentLearningTranslation": "Übersetzung zeigen",
+  "contentLearningUsage": "Verwendung und nächste Antwort",
+  "contentLearningEvidence": "Stelle im Dialog",
+  "contentLearningCorrect": "Richtig",
+  "contentLearningIncorrect": "Schau dir die Erklärung an",
+  "contentLearningOrder": "Setze die Wörter in die richtige Reihenfolge. Tippe auf ein gewähltes Wort, um es zurückzulegen.",
+  "contentLearningPosition": "{current} von {total}",
+  "@contentLearningPosition": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningReviewEmpty": "Hier gibt es noch keine gelernten Aufgaben zum Wiederholen.",
+  "contentLearningYou": "Du",
+  "contentLearningNarrator": "Erzählung",
+  "contentLearningReviewNext": "Nächste Wiederholung",
+  "contentLearningReviewDone": "Wiederholung abgeschlossen",
+  "contentLearningPlayAll": "Ab hier abspielen",
+  "contentLearningPause": "Pause",
+  "contentLearningExpressions": "Wichtige Ausdrücke",
+  "contentLearningRoleplay": "Freiwillig: Gespräch üben",
+  "contentLearningGrammar": "Freiwillig: Grammatik ansehen",
+  "contentLearningRoleplayHint": "Antworte laut auf die vorige Zeile. Du kannst die ursprüngliche Antwort danach aufdecken.",
+  "contentLearningReveal": "Antwort aufdecken",
+  "contentLearningBackResult": "Zurück zum Ergebnis",
+  "contentLearningReviewResult": "{correct} von {total} Antworten richtig. Deine Wiederholung verändert das Tagesziel nicht.",
+  "@contentLearningReviewResult": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningExpressionCount": "{count, plural, =1{1 Ausdruck} other{{count} Ausdrücke}}",
+  "@contentLearningExpressionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningScenarioCount": "{count, plural, =1{1 Gespräch} other{{count} Gespräche}}",
+  "@contentLearningScenarioCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningShortLesson": "Kurze Lektion · {count, plural, =1{1 Ausdruck} other{{count} Ausdrücke}}",
+  "@contentLearningShortLesson": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningLearnAgain": "Noch einmal lernen",
+  "contentLearningListenAgain": "Noch einmal hören"
 }
