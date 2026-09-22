@@ -5598,9 +5598,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_visual_evidence_test.dart": {
-    "mtime": 1790091914.5808012,
-    "seen": 1790092078.1827152,
-    "ast_hash": "e4fc1eae3380197eb962786b7035aeb2",
+    "mtime": 1790092756.9683115,
+    "seen": 1790093034.0535147,
+    "ast_hash": "15a7a13e2669ae9f7b06bb3b91fe220d",
     "semantic_hash": ""
   },
   "test/sori_standard_page_test.dart": {
@@ -13506,8 +13506,8 @@
     "semantic_hash": ""
   },
   "graphify-out/memory/2026-09-01-handoff-verification-and-release-record.md": {
-    "mtime": 1790063552.9672523,
-    "seen": 1790063945.5536025,
+    "mtime": 1790092278.7740166,
+    "seen": 1790093034.4533954,
     "ast_hash": "68f4d626b9590a00c3a8d166d0712f4e",
     "semantic_hash": ""
   },
@@ -14430,9 +14430,9 @@
     "semantic_hash": ""
   },
   "test/sori_stage_learn_sections_test.dart": {
-    "mtime": 1790063555.6489255,
-    "seen": 1790063945.5506036,
-    "ast_hash": "84e14ae8e2d96a1f46974df7acc0d57f",
+    "mtime": 1790092756.9683115,
+    "seen": 1790093034.051195,
+    "ast_hash": "2f40344b6f66cc982c2ece20604cc467",
     "semantic_hash": ""
   },
   "test/vertical_fill_guard_test.dart": {
@@ -19475,15 +19475,15 @@
     "ast_hash": "516806a251957a1fa0371c5815a36961",
     "semantic_hash": ""
   },
-  "docs/screenshots/sori-stage-book-card-390.png": {
+  "docs/screenshots/sori-stage-learn-390-book.png": {
     "mtime": 1790091931.0053506,
-    "seen": 1790092078.6298118,
+    "seen": 1790093034.4829235,
     "ast_hash": "8212c15e7b9d9b0a06c298c27bfcae26",
     "semantic_hash": ""
   },
-  "docs/screenshots/sori-stage-book-card-large-text.png": {
+  "docs/screenshots/sori-stage-learn-390-booklarge.png": {
     "mtime": 1790091931.4229612,
-    "seen": 1790092078.6298149,
+    "seen": 1790093034.4829266,
     "ast_hash": "b3ccc6f3a786308bae05dae6b9e144f8",
     "semantic_hash": ""
   }

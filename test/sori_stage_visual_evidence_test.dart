@@ -123,7 +123,7 @@ void main() {
         await expectLater(
           find.byKey(boundary),
           matchesGoldenFile(
-            '../docs/screenshots/sori-stage-book-card-${largeText ? 'large-text' : '390'}.png',
+            '../docs/screenshots/sori-stage-learn-390-${largeText ? 'booklarge' : 'book'}.png',
           ),
         );
       },
