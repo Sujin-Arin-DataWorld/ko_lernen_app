@@ -1,22 +1,27 @@
 {
-  "displayName": "account_deletion_worker scheduled executions stalled (0 over 25h)",
+  "displayName": "account_deletion_worker HTTP success stalled (25h)",
   "documentation": {
-    "content": "Cloud Scheduler job firebase-schedule-account_deletion_worker-europe-west3 normally fires every 5 minutes (confirmed live via `gcloud scheduler jobs list --project=ko-lernen-app --location=europe-west3` on 2026-09-14). If Cloud Monitoring sees no execution_count data for this job for 25 hours straight, the deletion worker has stopped running (Scheduler paused/deleted, IAM broken, or the underlying Cloud Run service failing to invoke) and the account-deletion queue is silently backing up. First checks: docs/runbooks/ops-alerts.md#04. Metric: cloudscheduler.googleapis.com/job/execution_count. UNVERIFIED: see tool/ops/alert_policies/_sources.md for the doc/live-API gap on this metric.",
+    "content": "No successful HTTP response from the scheduled account-deletion-worker in europe-west3 with a 5-minute alignment window plus a 24h55m retest window (25h total API evaluation limit). Uses the live-verified Cloud Run DELTA request_count, summed across revisions, with response_code_class=2xx. Missing data is treated as violating after the retest duration. This observes invocation liveness only: HTTP 2xx does not establish that pending deletions or Apple token revocations completed. Inspect the Scheduler state, service errors and deletion queue separately; never replay a deletion merely to test this alert. See docs/runbooks/ops-alerts.md#04. Before creation, apply_alerts requires a positive matching 2xx time series in the preceding 24 hours.",
     "mimeType": "text/markdown"
   },
   "combiner": "OR",
   "conditions": [
     {
-      "displayName": "No account_deletion_worker executions for 25h",
-      "conditionAbsent": {
-        "filter": "resource.type=\"cloud_scheduler_job\" AND resource.label.\"job_id\"=\"firebase-schedule-account_deletion_worker-europe-west3\" AND metric.type=\"cloudscheduler.googleapis.com/job/execution_count\"",
-        "duration": "90000s",
+      "displayName": "No successful worker responses for 25h",
+      "conditionThreshold": {
+        "filter": "resource.type=\"cloud_run_revision\" AND resource.label.\"project_id\"=\"ko-lernen-app\" AND resource.label.\"location\"=\"europe-west3\" AND resource.label.\"service_name\"=\"account-deletion-worker\" AND metric.type=\"run.googleapis.com/request_count\" AND metric.label.\"response_code_class\"=\"2xx\"",
+        "comparison": "COMPARISON_LT",
+        "thresholdValue": 1,
+        "duration": "89700s",
+        "evaluationMissingData": "EVALUATION_MISSING_DATA_ACTIVE",
         "aggregations": [
           {
-            "alignmentPeriod": "3600s",
-            "perSeriesAligner": "ALIGN_COUNT",
+            "alignmentPeriod": "300s",
+            "perSeriesAligner": "ALIGN_SUM",
             "crossSeriesReducer": "REDUCE_SUM",
-            "groupByFields": []
+            "groupByFields": [
+              "resource.label.service_name"
+            ]
           }
         ],
         "trigger": {
@@ -35,6 +40,6 @@
     "pr": "b1-ops-alerts",
     "component": "account-deletion"
   },
-  "_unverified": true,
-  "_unverified_reason": "cloudscheduler.googleapis.com/job/execution_count could not be confirmed: metricDescriptors.list returned zero cloudscheduler.googleapis.com/* descriptors for project ko-lernen-app on 2026-09-14 (live API check), and the general Cloud Monitoring metrics reference page (docs.cloud.google.com/monitoring/api/metrics_gcp_c) was too large to extract the Cloud Scheduler section via WebFetch (confirmed 'NOT FOUND IN CONTENT' after an explicit targeted search). Resource type/labels (cloud_scheduler_job: project_id, job_id, location) are Google's documented convention but not independently confirmed for this project. Jin should verify with `gcloud alpha monitoring policies create --dry-run` output and/or the Metrics Explorer UI before relying on this alert."
+  "_unverified": false,
+  "_requires": "Successful matching Cloud Run 2xx time series in preceding 24h, verified by apply_alerts.py before creation. The 25h outage alert itself still needs operational validation."
 }
