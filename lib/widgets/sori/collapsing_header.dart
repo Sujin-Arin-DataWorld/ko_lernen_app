@@ -225,6 +225,9 @@ class _SoriCollapsingHeaderDelegate extends SliverPersistentHeaderDelegate {
     );
     final expandedOpacity = (1 - progress).clamp(0.0, 1.0);
     final collapsedOpacity = progress;
+    // Scrolling can stop anywhere in the crossfade. Keep the more visible
+    // layer interactive, with exactly one copy exposed to accessibility.
+    final useCollapsedActions = progress >= 0.5;
 
     return ClipRect(
       child: SizedBox(
@@ -254,11 +257,14 @@ class _SoriCollapsingHeaderDelegate extends SliverPersistentHeaderDelegate {
                 child: Opacity(
                   key: const ValueKey('sori-collapsing-header-expanded'),
                   opacity: expandedOpacity,
-                  child: IgnorePointer(
-                    ignoring: expandedOpacity < 1,
-                    child: Transform.translate(
-                      offset: Offset(0, -progress * 12),
-                      child: expandedBuilder(context),
+                  child: ExcludeSemantics(
+                    excluding: useCollapsedActions,
+                    child: IgnorePointer(
+                      ignoring: useCollapsedActions,
+                      child: Transform.translate(
+                        offset: Offset(0, -progress * 12),
+                        child: expandedBuilder(context),
+                      ),
                     ),
                   ),
                 ),
@@ -275,21 +281,24 @@ class _SoriCollapsingHeaderDelegate extends SliverPersistentHeaderDelegate {
                 child: Opacity(
                   key: const ValueKey('sori-collapsing-header-collapsed'),
                   opacity: collapsedOpacity,
-                  child: IgnorePointer(
-                    ignoring: collapsedOpacity < 1,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Text(
-                            collapsedTitle,
-                            style: tt.chromeTitle,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
+                  child: ExcludeSemantics(
+                    excluding: !useCollapsedActions,
+                    child: IgnorePointer(
+                      ignoring: !useCollapsedActions,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              collapsedTitle,
+                              style: tt.chromeTitle,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
-                        ),
-                        if (trailing != null) trailing!,
-                      ],
+                          if (trailing != null) trailing!,
+                        ],
+                      ),
                     ),
                   ),
                 ),

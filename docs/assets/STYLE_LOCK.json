@@ -1863,7 +1863,8 @@
             "C1Methodology",
             "C1Policy",
             "C1Uncertainty",
-            "scenarios"
+            "scenarios",
+            "book_capture"
           ],
           "runtimeCommit": "37afe400dc1b8bde735d4cbbe36c2622beaf10a7",
           "sourceManifest": "assets_unused/pending_review/listening_cards/c1_source_original/MANIFEST.json",
@@ -1883,8 +1884,9 @@
             "uniqueColorsMin",
             "sha256 ledger"
           ],
-          "note": "2026-09-05: scenarios 를 이 계보로 편입했다. C1 시리즈에서 시작한 이름이지만 계약은 시리즈가 아니라 기법이다 — 공급된 PNG 팔레트와 원본 종이 질감을 그대로 두고 합성 아이보리 패치·그레인을 얹지 않는다. scenarios 의 원본은 별도 아카이브에 있다(sourceManifestExtra).",
-          "sourceManifestExtra": "assets_unused/pending_review/listening_cards/activities_source_original/MANIFEST.json"
+          "note": "2026-09-05: scenarios 를 이 계보로 편입했다. C1 시리즈에서 시작한 이름이지만 계약은 시리즈가 아니라 기법이다 — 공급된 PNG 팔레트와 원본 종이 질감을 그대로 두고 합성 아이보리 패치·그레인을 얹지 않는다. scenarios 의 원본은 별도 아카이브에 있다(sourceManifestExtra). 2026-09-22: Jin이 직접 제공하고 교체 요청한 book_capture 원본도 이 기법으로 반입한다. 해당 카드의 별도 승인·원본·정규화·런타임 해시는 sourceManifestBookCapture에 기록하며 기존 승인일과 원본 기록은 보존한다.",
+          "sourceManifestExtra": "assets_unused/pending_review/listening_cards/activities_source_original/MANIFEST.json",
+          "sourceManifestBookCapture": "docs/assets/BOOK_CAPTURE_SOURCE_APPROVAL.json"
         },
         "PACKS-premium-v1": {
           "authority": "User requested the locked PACKS Asset Design Bible v1.0 on 2026-09-10; its C1Access master, native texture and q90+ contract supersede the older recipe for this declared batch only.",

@@ -243,6 +243,7 @@ jobs:
           .github/workflows/ci.yml
           .github/workflows/play_closed.yml
           .github/workflows/playwright.yml
+          .github/workflows/play_internal_status.yml
 
   website:
     name: Website source and Worker release gate

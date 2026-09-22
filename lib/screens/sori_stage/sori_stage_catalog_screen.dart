@@ -203,6 +203,12 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
     final generation = ++_openGeneration;
     final lease = CatalogHistoryLease.capture();
     try {
+      // Capture does not award progress. Keep it usable even when the shared
+      // learning/reward snapshot is still loading or has failed.
+      if (entry.id == 'book_capture') {
+        await Navigator.of(context).pushNamed(entry.route);
+        return;
+      }
       final shared = LearningFocusScope.maybeOf(context);
       if (shared != null) {
         await shared.open(
