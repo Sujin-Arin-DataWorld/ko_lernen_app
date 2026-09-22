@@ -57,7 +57,6 @@ Widget catalogTestApp({
   SoriStageTab tab = SoriStageTab.learn,
   String locale = 'en',
   double scale = 1,
-  bool disableAnimations = true,
   ThemeData? theme,
   LearningFocusController? controller,
   FutureOr<void> Function(TodayLearningDestination destination, String? id)?
@@ -129,7 +128,7 @@ Widget catalogTestApp({
       return MediaQuery(
         data: MediaQuery.of(context).copyWith(
           textScaler: TextScaler.linear(scale),
-          disableAnimations: disableAnimations,
+          disableAnimations: true,
         ),
         child: Scaffold(
           body: Row(

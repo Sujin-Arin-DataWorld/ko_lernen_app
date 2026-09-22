@@ -42,7 +42,7 @@ void main() {
   }
 
   for (final state in ['loading', 'error', 'empty', 'ready']) {
-    testWidgets('all12 Learn activities remain reachable with $state focus', (
+    testWidgets('all13 Learn activities remain reachable with $state focus', (
       tester,
     ) async {
       await viewport(tester, const Size(390, 844));
@@ -80,7 +80,7 @@ void main() {
       final ordinary = soriActivityCatalog.where(
         (entry) => entry.tab == SoriStageTab.learn && entry.id != 'course',
       );
-      expect(ordinary, hasLength(11));
+      expect(ordinary, hasLength(12));
       for (final entry in ordinary) {
         final start = find.byKey(ValueKey('catalog-start-${entry.id}'));
         expect(start, findsOneWidget);
@@ -259,7 +259,7 @@ void main() {
             scrollable: find.byType(Scrollable).first,
           );
           await tester.pumpAndSettle();
-          expect(find.byType(SoriCatalogCard), findsNWidgets(11));
+          expect(find.byType(SoriCatalogCard), findsNWidgets(12));
           expect(
             find.descendant(
               of: find.byType(SoriCatalogCard),

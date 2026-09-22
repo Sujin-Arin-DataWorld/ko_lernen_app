@@ -26,11 +26,13 @@ import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
 
+import 'support/catalog_test_support.dart' as catalog;
 import 'support/real_fonts.dart';
 import 'support/sori_stage_pump.dart';
 
 const _captureEvidence = bool.fromEnvironment('CAPTURE_SORI_STAGE_EVIDENCE');
 late LearningFocusController _focusController;
+late LearningFocus _bookCardFocus;
 
 /// §LAYOUT-4(J14) — 5 root evidence PNGs (today/learn/hanok/gye) share one
 /// pipeline. Flag OFF (default `flutter test`): every `skip:
@@ -45,6 +47,7 @@ void main() {
 
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
   setUpAll(() async {
+    _bookCardFocus = await catalog.loadFirstCatalogFocus();
     glossary = CulturalGlossary.fromJsonString(
       await File(CulturalGlossaryRepository.assetPath).readAsString(),
     );
@@ -84,6 +87,56 @@ void main() {
 
   tearDown(CulturalGlossaryRepository.resetForTesting);
   tearDown(() => _focusController.dispose());
+
+  for (final largeText in [false, true]) {
+    testWidgets(
+      'capture illustrated book card largeText=$largeText',
+      skip: !_captureEvidence,
+      (tester) async {
+        tester.view.devicePixelRatio = 1;
+        tester.view.physicalSize = const Size(390, 844);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        addTearDown(tester.view.resetPhysicalSize);
+        final controller = LearningFocusController()..value = _bookCardFocus;
+        addTearDown(controller.dispose);
+        const boundary = ValueKey('book-card-evidence');
+        await tester.pumpWidget(
+          RepaintBoundary(
+            key: boundary,
+            child: catalog.catalogTestApp(
+              locale: 'de',
+              scale: largeText ? 2 : 1,
+              controller: controller,
+            ),
+          ),
+        );
+        await pumpSoriStage(tester);
+        final book = find.byKey(const ValueKey('catalog-card-book_capture'));
+        await tester.scrollUntilVisible(
+          book,
+          250,
+          scrollable: find.byType(Scrollable).last,
+        );
+        await Scrollable.ensureVisible(tester.element(book), alignment: .15);
+        await pumpSoriStage(tester);
+        await tester.runAsync(() async {
+          await precacheImage(
+            const AssetImage(
+              'assets/illustrations/activities/book_capture.webp',
+            ),
+            tester.element(book),
+          );
+        });
+        await pumpSoriStage(tester);
+        await expectLater(
+          find.byKey(boundary),
+          matchesGoldenFile(
+            '../docs/screenshots/sori-stage-book-card-${largeText ? 'large-text' : '390'}.png',
+          ),
+        );
+      },
+    );
+  }
 
   testWidgets('capture Today at 390dp', skip: !_captureEvidence, (
     tester,

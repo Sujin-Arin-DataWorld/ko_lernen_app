@@ -203,6 +203,12 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
     final generation = ++_openGeneration;
     final lease = CatalogHistoryLease.capture();
     try {
+      // Capture does not award progress. Keep it usable even when the shared
+      // learning/reward snapshot is still loading or has failed.
+      if (entry.id == 'book_capture') {
+        await Navigator.of(context).pushNamed(entry.route);
+        return;
+      }
       final shared = LearningFocusScope.maybeOf(context);
       if (shared != null) {
         await shared.open(
@@ -347,26 +353,7 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                           height: 1.35,
                         ),
                         collapsedTitle: title,
-                        trailingSlots: isGames ? 1 : 2,
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            if (!isGames) ...[
-                              IconButton(
-                                tooltip: t.bookCaptureTitle,
-                                constraints: const BoxConstraints(
-                                  minWidth: 48,
-                                  minHeight: 48,
-                                ),
-                                icon: const Icon(Icons.photo_camera_outlined),
-                                onPressed: () =>
-                                    Navigator.of(context).pushNamed('/book'),
-                              ),
-                              const SizedBox(width: Spacing.xs),
-                            ],
-                            const SoriAvatar(),
-                          ],
-                        ),
+                        trailing: const SoriAvatar(),
                       );
                     },
                   ),
