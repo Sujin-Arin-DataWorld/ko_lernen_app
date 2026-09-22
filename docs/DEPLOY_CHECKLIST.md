@@ -8,6 +8,12 @@
 > 이 문서와 `RELEASE_RUNBOOK_2026-08-02.md`의 과거 해시나 버전 번호를 새 AAB
 > 업로드에 사용하지 않는다.
 
+> **2026-09-22 경로 정정:** 현재 Android 빌드와 릴리스 검증의 Firebase 설정은
+> `android/app/google-services.json`이며, iOS는 `ios/Runner/GoogleService-Info.plist`다.
+> 루트의 오래된 Android 복사본은 사용하지 않는다. 아래 버전·검사 수·에셋 용량은
+> 과거 기록으로 유지하며, 현재 배포·음성·검수 상태는
+> [`CP2026_CONTINUATION.md`](CP2026_CONTINUATION.md)의 날짜별 기준선을 따른다.
+
 **대상:** `com.sujinarin.ko_lernen_app` · `version: 2.0.1+6`
 **최종 점검:** 2026-08-01 (Windows 릴리스 게이트 실측)
 **현재 결론:** 소스·서명 산출물 게이트는 통과했다. Redmi 실기기 릴리스 설치만 MIUI 사용자 승인 제한으로 보류 중이다(§5).
