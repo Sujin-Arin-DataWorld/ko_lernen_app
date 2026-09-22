@@ -1,17 +1,39 @@
 # 운영 알림 런북 (ops-alerts)
 
-`tool/ops/alert_policies/*.json`로 정의된 5개 알림 정책이 무엇을 뜻하는지,
-울렸을 때 뭘 먼저 볼지, 어떻게 잠재울지 정리한다. 정책은 이 PR(B1) 병합
-시점엔 **적용되어 있지 않다** — Jin이 `tool/ops/apply_alerts.sh`(또는
-`.ps1`)를 직접 실행해야 실제로 생긴다. 실행 전 반드시 `tool/ops/log_metrics.sh`
-로 로그 기반 메트릭부터 만든다 (03번 정책이 그 위에서 동작).
+정책 정의와 실제 적용 상태를 구분한다. 2026-09-22 읽기 전용 확인에서
+`ko-lernen-app`의 알림 정책과 수신 채널은 각각 0개였다. 아래 코드 수정은
+실제 정책 생성이나 알림 수신 성공을 의미하지 않는다.
 
-2026-09-14 실측: `gcloud alpha monitoring policies list --project=ko-lernen-app`
-= 0건, `gcloud logging metrics list --project=ko-lernen-app` = 0건. 즉 지금
-이 프로젝트엔 알림이 전혀 없다 — 이 PR은 그 공백을 코드로 채우는 것.
+Bash와 PowerShell은 `tool/ops/apply_alerts.py`를 공통으로 실행한다.
+Python 3.12와 로그인된 `gcloud`가 필요하다. `GCP_PROJECT`는 반드시
+`ko-lernen-app`, `NOTIFICATION_CHANNEL_ID`는 이 프로젝트의 실제 숫자 ID
+또는 `projects/ko-lernen-app/notificationChannels/<ID>`여야 한다.
+토큰은 메모리에만 두고 수신 주소·서버 응답 본문은 출력하지 않는다.
 
-각 파일의 정확한 메트릭 타입·출처 문서·실측 방법은
-`tool/ops/alert_policies/_sources.md`를 본다.
+```powershell
+$env:GCP_PROJECT = 'ko-lernen-app'
+$env:NOTIFICATION_CHANNEL_ID = '<실제 채널 ID>'
+python tool/ops/apply_alerts.py --dry-run --policy 01 --policy 02 --policy 04 --policy 05
+```
+
+`--dry-run`은 채널 상태, 메트릭 descriptor, 04의 최근 성공 시계열, 기존 정책을
+GET으로 검사한다. 실제 변경 시 같은 명령에서 `--dry-run`만 뺀다.
+`.sh`는 같은 인자, `.ps1`은 `-DryRun -Policy 01,02,04,05`를 사용한다.
+`PYTHON` 환경 변수로 사용할 Python 실행 파일을 지정할 수 있다.
+
+선택한 모든 정책의 사전 검사를 통과해야 첫 생성 요청을 보낸다. 같은 설정의
+기존 정책은 건너뛰며, 중복 또는 수동 변경이 있으면 적용을 중단한다. 수정·삭제는
+하지 않는다. 순차 재실행 시 이미 생성된 정책을 다시 만들지 않지만, API에는
+원자적인 중복 방지 키가 없으므로 **한 작업자만 적용한다**. 생성 응답이 불명확하면
+재시도하지 않고 실패로 종료한다. 다음 실행 전 실제 정책 목록을 확인한다.
+이미 생성된 정책의 JSON 영수증은 유지되며 후속 실패도 종료 코드 1로 전달된다.
+
+03은 로그 발생 계약이 미검증이므로 기본 전체 적용은 생성 전에 실패한다.
+위처럼 검증된 정책을 명시적으로 선택할 수 있다. 채널이 비활성 또는
+`UNVERIFIED`여도 적용하지 않는다. 사전 검사와 정책 생성은 실제 알림 수신,
+사고 재현, 계정 삭제 큐 처리 완료의 증거를 대신하지 않는다.
+
+메트릭과 검증 한계는 `tool/ops/alert_policies/_sources.md`에 기록한다.
 
 ---
 
@@ -64,7 +86,12 @@ App Check attestation을 들고 있거나, Play Integrity/DeviceCheck 공급자 
 
 ## 03 — AI 비용 브레이커 / Apple revocation 설정 불가 (10분 내 1건이라도)
 
-**의미:** 두 로그 기반 카운터 중 하나라도 10분 창에서 0을 넘었다.
+**미검증 — 자동 적용 차단.** 두 로그 기반 카운터 중 하나라도 10분 창에서
+0을 넘을 때의 정책 정의다. 예외를 던진다는 사실만으로 해당 문자열이 Cloud
+Logging에 기록되는 것은 아니다. TTS는 `ServiceCostError`를 일반 오류 로거
+앞에서 변환한다. 비용 정책·Apple 취소 양쪽의 실제 배포 코드, 개인정보 없는
+진단 발생과 필터 일치, 메트릭 수신을 확인한 후 이 보류를 해제한다.
+`log_metrics.sh`로 descriptor만 만드는 것은 이 검증을 충족하지 않는다.
 - `ai_cost_breaker_unavailable`: `functions/pronunciation/service_cost_policy.js`
   / `functions/tts/service_cost_policy.js`의 `readCostControl()`이
   `service_cost_controls/ai_v1` Firestore 문서 검증에 실패해 `ServiceCostError
@@ -94,31 +121,32 @@ App Check attestation을 들고 있거나, Play Integrity/DeviceCheck 공급자 
 
 ---
 
-## 04 — 계정 삭제 워커 정지 (25시간 동안 실행 0건) — **미검증 정책**
+## 04 — 계정 삭제 워커 HTTP 성공 정지 (25시간)
 
-**의미:** `firebase-schedule-account_deletion_worker-europe-west3` Cloud
-Scheduler 잡은 평소 5분마다 실행된다(2026-09-14 `gcloud scheduler jobs list`
-로 실측). 25시간 동안 실행 기록이 전혀 없으면 스케줄러가 멈췄거나, IAM이
-깨졌거나, 대상 Cloud Run 서비스가 invoke를 거부하고 있다 — **계정 삭제
-요청이 조용히 쌓이고 있다는 뜻.**
+**의미:** `account-deletion-worker`의 HTTP 2xx 응답이 5분 창마다 1건 미만인
+상태를 24시간 55분 동안 재검사한다. 5분 정렬 창을 더한 총 평가 기간은
+API 한도인 25시간이다. `europe-west3`의 실제 Cloud Run
+`run.googleapis.com/request_count`를 리비전 전체로 합산한다. 데이터가
+끊긴 경우도 위반으로 평가한다. 측정 수집 지연과 5분 정렬 경계 때문에 알림이
+정확히 마지막 응답 25시간 뒤 도착한다고 보장하지 않는다.
 
-**⚠️ 이 정책은 `_unverified: true`다.** `cloudscheduler.googleapis.com/job/execution_count`
-메트릭을 이 프로젝트에서 라이브로 확인하지 못했다(문서 페이지도 스크래핑
-실패, `metricDescriptors.list`도 0건 반환 — 상세는 `_sources.md`). Jin이
-`apply_alerts.sh --dry-run` 결과를 검토하거나, 실제 적용 후 Metrics
-Explorer에서 "Cloud Scheduler Job"으로 검색해 이 메트릭이 실제로 잡히는지
-먼저 확인할 것. 안 잡히면 정책이 생성 자체가 실패하거나(존재하지 않는
-메트릭 타입) 아무 데이터도 없어 계속 발동 상태로 남을 수 있다.
+2026-09-22 읽기 확인에서 최근 24시간 2xx 응답은 288건이었다. 이전
+`cloudscheduler.googleapis.com/job/execution_count`는 직접 descriptor 조회가
+404였으므로 제거했다. 적용 시에도 최근 24시간에 양수인 일치 시계열이 있어야
+이 정책을 생성할 수 있다. 이미 고장 난 워커라 이 검사가 실패하면 먼저 원인을
+조사한다. 인위적인 계정 삭제 호출로 검사를 통과시키지 않는다.
 
-**먼저 확인할 것 3가지:**
-1. `gcloud scheduler jobs describe firebase-schedule-account_deletion_worker-europe-west3 --project=ko-lernen-app --location=europe-west3` 로 잡이 `ENABLED`인지.
-2. `gcloud scheduler jobs list --project=ko-lernen-app --location=europe-west3` 에서 마지막 실행 시각/상태.
-3. Cloud Run `account-deletion-worker` 서비스가 최근 배포로 깨졌는지
-   (`gcloud run services describe account-deletion-worker --project=ko-lernen-app --region=europe-west3`).
+**한계:** HTTP 성공은 호출 생존 신호다. 큐가 비었거나 개별 삭제·Apple 토큰
+취소가 완료됐다는 뜻이 아니다. 삭제 요청의 나이·재시도·완료 상태는 별도
+운영 검증 대상으로 유지한다. 이 25시간 정지 알림의 실제 발화도 아직 미검증이다.
 
-**잠재우는 법:** 원인 조치 우선. Scheduler 잡을 수동으로
-`gcloud scheduler jobs run`으로 한 번 돌려 즉시 밀린 큐를 확인한 뒤에만
-스누즈.
+**확인 순서:**
+1. Scheduler `firebase-schedule-account_deletion_worker-europe-west3`의 활성 상태와 최근 시도.
+2. Cloud Run `account-deletion-worker`의 응답 상태·오류·최근 리비전 변경.
+3. 권한이 있는 읽기 경로로 삭제 큐 정체와 Apple 취소 상태를 별도 확인.
+
+원인 조사 중 필요하면 기간 한정 Snooze를 사용한다. 실제 계정 삭제 워커를
+알림 테스트 용도로 수동 실행하지 않는다.
 
 ---
 
@@ -142,16 +170,13 @@ Monitoring 임계값 조건은 짧은 롤링 윈도우에 맞게 설계돼 있�
 
 ---
 
-## 적용 영수증 (적용 영수증)
+## 적용과 수신 증거
 
-`tool/ops/apply_alerts.sh`(또는 `.ps1`) 실행 후, 출력된 `POLICY NAME / ERROR`
-열의 값을 아래 표에 채운다. `gcloud alpha monitoring policies list
---project=ko-lernen-app`로도 다시 확인 가능.
+스크립트는 정책별 `created`, `unchanged`, `would_create`를 JSON 한 줄로
+출력한다. 실패 시 `status=failed`와 고정 오류 코드를 출력하고 0이 아닌
+코드로 종료한다. stdout을 저장하면 부분 적용 후의 정책 ID도 남는다.
+`created`는 Monitoring API 접수 결과이며 실제 수신 성공과 구분한다.
 
-| 날짜 | 정책 파일 | Policy ID (name) | 적용자 |
-|---|---|---|---|
-| _(미기입)_ | 01_functions_5xx_rate.json | | |
-| _(미기입)_ | 02_appcheck_rejections.json | | |
-| _(미기입)_ | 03_ai_cost_breaker_unavailable.json | | |
-| _(미기입)_ | 04_deletion_worker_stalled.json | | |
-| _(미기입)_ | 05_firestore_write_surge.json | | |
+운영 기록에는 실행 시각, 정확한 소스 SHA, 선택 정책, 수신 채널 ID,
+생성·기존 정책 ID, 실제 수신 확인과 남은 검증을 따로 남긴다. 수신 이메일이나
+자격 증명 원문을 저장소나 공개 로그에 남기지 않는다.
