@@ -1,5 +1,38 @@
 # CP-2026 전체 계획 인수 및 실행 큐
 
+## 2026-09-22 23:09 UTC 서버·검증 기준선
+
+이 기준선이 아래의 이전 배포 대기 기록보다 우선한다. Android 내부 테스트 7626과 기존 iOS TestFlight 251은 그대로 제공 중이며, 실제 기기 검수는 별도다.
+
+- PR #392의 정확한 main `9a1e0e5cd6a0917e7d3a57b405e0f665162c6112`에서 CI `35792688903`과 Playwright `35792688891`이 모두 성공했다.
+- 같은 소스의 TTS 두 함수는 `synthesize-tts-00007-buh`, `synthesize-tts-v2-00007-tap`으로 업데이트했다. 배포 generation의 파일별 바이트, 기존 환경·IAM·자원 설정 보존, 무인증 요청 401을 확인했다. 시간당 25와 기존 일일 30/50/300 제한을 유지한다. 실제 기기 요청·음성 재생과 과거 HTTP500의 원인 확정은 별도다.
+- 발음 진단 함수도 `assesspronunciation-00005-lis`로 업데이트했고 배포 소스·설정·IAM 일치와 무인증 401을 확인했다. 현재 `azure_f0`와 기존 Secret 버전 1, 비용 승인을 유지하며 유료 사용이나 실기기 발음평가 성공을 의미하지 않는다.
+- Firestore 규칙 차이는 주석뿐이다. 실제 Storage의 `learning-art` 접근과 기존 TTS 계약을 보존해 규칙은 배포하지 않았다. TTL 4개(`service_idempotency_results`, `access_rate_limits`, `service_cost_ledgers`, `billing_event_receipts`) 미구성은 기존 운영 부채다. 결과 접근 만료와 물리 삭제를 구분하고 자동 TTL·과거 결제 기록 삭제는 수행하지 않았다.
+- Apple 계정 삭제는 worker 선행 배포·구 실행 배출·호환 worker 유지가 필요하다. 실제 배포본과 신규 runtime 혼용 오프라인 4검사에서 큐 선택·lease 보호와 구 worker rollback의 수동 해제 상태 소실 위험을 확인했다. 23:03 UTC 식별자 없는 집계는 전체 10, completed 3, cancelled 7, 다른 단계·활성 lease 0이다. 실제 계정 삭제나 14일 안정성 완료 증거는 아니다.
+- Cloudflare 관리자 접근은 확인했다. 공개 웹 #390의 갤러리 공개 범위 응답과 자동 배포·정확한 main 검사 순서 조정이 남는다. 일반 방문의 동의·페이지 이동·기존 GA 스트림 수신 검증도 이어간다.
+
+증거: `_codex_artifacts/cp2026-release-stabilization-20260922/`의 `pr392-merge-proof.json`, `backend-source-rollout/*-operation.json`, `backend-rollout-preflight/prerequisites.json`, `apple-rollout-compatibility/proof.json`, `apple-rollout-compatibility/queue-preflight.json`. 도우미 검사는 기존 8개를 포함한 9개이며, 실제 배포 증거와 구분한다.
+
+## 2026-09-22 22:15 UTC 통합·배포 기준선
+
+이 기준선이 아래의 19:20 및 오전 배포 대기 기록보다 우선한다. 날짜별 과거 증거는 보존한다.
+
+| 항목 | 확인한 상태 | 남은 완료 조건 |
+|---|---|---|
+| 최신 검증 main | PR #388 squash `15475519be60fce4dbe8087af9036a79dc38de19`, CI `35786735280`·Playwright `35786735425` success. B3 PR #386의 main `ffdc2828` 검사도 성공 | 이후 PR은 실제 head 검사·미해결 리뷰와 정확한 merged-main 검사를 각각 확인 |
+| Android 내부 테스트 | **2.0.9(7626)**, 소스 `ef6d9db69709f2ad9d94292d94620008bf0c8d22`. 업로드 run `35773390257` 및 게시 검증 run `35778348867` 성공, internal 게시 확인. 책 스캔 그림 카드와 일일 콘텐츠 학습 변경 포함 | [내부 테스트 업데이트](https://play.google.com/apps/internaltest/4700776025798297850) 후 실제 설치·카메라·화면·오프라인 검수. B3 후속·O2는 이 빌드에 미포함 |
+| 기존 iOS 내부 테스트 | **Hangul Sori 2.0.9(251)**, 소스 `fa1dcaccf302eda7c84a4cb30a2996eb1c7d2a14`. Cloud 251 성공, 기존 앱 `6798293722`의 `n.1tester` 2명에게 TestFlight 테스트 제공 확인. 책 스캔 그림 카드 포함 | 실제 iPhone의 251 업데이트와 화면·책 촬영 검수. 일일 콘텐츠 학습 후속·B3·O2는 미포함. 새 앱·외부 그룹·정식 심사 변경 없음 |
+| B1/B3 운영 | 비용 승인·진행도·개인정보 기준을 유지한 B3 사유/관측 코드 및 알림 적용 검증 도구 통합. 정책·수신 채널은 아직 미적용 | PR #392 진단 신호 통합, 정확한 main 확인 뒤 표적 함수 배포·메트릭·수신 검증. 수신 대상 응답 대기 |
+| 실제 서버와 소스 차이 | TTS 두 함수·발음 평가·Apple 인증 해제/삭제 처리기/조회 함수의 현재 revision, 원본 generation ZIP, 설정·환경 해시와 IAM을 읽기 비교. 대부분 9월 7일 소스. `deleteCloudBackup`만 9월 22일 `deletecloudbackup-00005-vop` 배포 확인 | TTS와 발음 평가의 기존 제한·승인·모드를 보존. Apple 해제는 새 체크포인트와 구 처리기의 호환성 때문에 단독 배포하지 않음. 새 Auth 생성 관측 함수는 아직 없음 |
+| 후속 PR | #391은 오래된 루트 Firebase 설정 복사본 정리, #392는 개인정보 없는 운영 진단, #393은 선택한 커스텀 팩의 게임 연결. 각각 검사/통합 중 | 이미 병합된 #378–#383 대기를 재개하거나 같은 SHA workflow를 중복 실행하지 않음. 새 main 반영과 스토어 배포를 구분 |
+| 사용자 검수·웹 | `jin-review/CHECKLIST.md`의 C01–C04 콘텐츠 및 D01–D08 실기기 검수 대기. 공개 웹 #390은 Cloudflare 접근과 별도 배포 범위를 확인 중 | 사람 표본 승인을 전체 승인으로 확대하지 않음. 기존 GA·동의 유지. 14일 적격 관측은 아직 완료하지 않음 |
+
+증거는 `C:/dev/hangulsori/_codex_artifacts/cp2026-release-stabilization-20260922/`의
+`internal-release-request.json`, `concurrent-release-owner.json`, `ios251-console-publication.json`,
+`pr388-merge-proof.json`, `backend-rollout-preflight/proof.json`과 검수표에 있다.
+Android 7626 게시 영수증은 `C:/dev/hangulsori/_codex_artifacts/daily-content-learning-integration-20260922/android-deploy-receipt.json`이다.
+이 기준선은 CP2026 전체 완료 판정이 아니다.
+
 ## 2026-09-22 운영 알림 적용 준비 보완
 
 PR #388은 기존 5개 알림 정책의 적용 절차를 보완한다. 고정 프로젝트의 활성·검증된
@@ -196,7 +229,7 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 | B3 쿼터 | 전역 25/UTC시를 기존 설치 30·계정 50·전역 300/일과 같은 트랜잭션에서 제한하는 코드 추가. 정각·자정 경계 반환은 예약 시각을 사용. 새 앱은 시간당 사유·DE/EN 안내를 구분하고 구버전은 재시도 없는 일반 안내를 유지 | 아직 미배포. 시간당 한도 외 세션/정책 사유 구분, 익명 계정 **생성** 속도 관측·B1 연동, 실제 배포·운영 검증은 남음. TTS 요청 횟수를 계정 생성 횟수로 간주하지 않음 |
 | B4 App Check | account/deletion runtime에 false 예외 존재 | 관측 기간·거절률·롤백 근거 후 단계적 enforce |
 | B5 Rules 읽기 | pack 규칙에 exists + cloudBackupDeletionPending 유지 | 삭제 펜스 보존하면서 읽기 감량, 에뮬레이터 증명 |
-| B6 위생 | 루트 google-services.json 존재 | 소비자·릴리스 해시·문서 수치 감사 후 필요한 것만 정리 |
+| B6 위생 | 2026-09-22 루트의 오래된 `google-services.json` 복사본을 제거하고 실제 Android/iOS 설정과 소비자는 바이트 그대로 보존. 릴리스 도구 pin은 이미 실해시로 채워져 있어 재작성하지 않음. AGENTS의 팩·음성 수치와 역사적 배포 문서의 현재 경로 안내 갱신 | 로컬 검증·독립 리뷰와 정확한 PR/main 검사로 통합. 설정 정리는 실제 기기 Analytics 수신·OAuth 성공·14일 관측의 완료 증거가 아님 |
 | C1 기존 판정 부채 | #319/#336 병합 | 이후 추가된 Batch/C9 검수는 별도 pending으로 유지 |
 | C2a RR / C2d A1 문법 | #327/#339/#348/#351 병합 | 기존 예외·요청 화행·한국어 원문 보존 |
 | C2b 번역·C2c 오답 | #341/#343/#345 병합 | B1-C2 전량 정제 범위 검증, A1 생동감 후속, 라이브 재사용/연어 부채 |
