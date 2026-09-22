@@ -36,6 +36,11 @@ const BACKUP_FIELDS = Object.freeze([
 const CALLABLE_OPTIONS = Object.freeze({
   region: "europe-west3",
   enforceAppCheck: false,
+  // Keep the deployed limits when updating this callable independently.
+  maxInstances: 20,
+  timeoutSeconds: 60,
+  memory: "256MiB",
+  cpu: 1,
 });
 const REQUEST_KEY_PATTERN = /^[A-Za-z0-9_-]{43,128}$/;
 const DIGEST_PATTERN = /^[a-f0-9]{64}$/;
