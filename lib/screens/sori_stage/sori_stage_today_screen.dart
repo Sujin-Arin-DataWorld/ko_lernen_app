@@ -1,3 +1,4 @@
+import '../../features/content_learning/content_learning_widgets.dart';
 import '../../widgets/sori/learning_focus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -534,6 +535,7 @@ class _TodayContent extends StatelessWidget {
             ),
             const SizedBox(height: Spacing.lg),
             const TodayGuideChecklistSection(),
+            const ContentDailyGoals(),
             // A partial Today snapshot must not look like a complete daily
             // dashboard. In particular, neither reward collection nor
             // unrelated activity CTAs may accompany its safe retry path.

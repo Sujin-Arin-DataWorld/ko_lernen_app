@@ -36,7 +36,7 @@ void main() {
     }
     expect(unresolved, isEmpty);
     expect(ambiguous, isEmpty);
-    expect(registered, hasLength(78));
+    expect(registered, hasLength(79));
     expect(registered.toSet(), hasLength(registered.length));
 
     final lock = File(_lockPath).readAsStringSync();
@@ -52,7 +52,7 @@ void main() {
       r'^\| `(/[^`]*)` \|',
       multiLine: true,
     ).allMatches(routeInventory).map((match) => match.group(1)!).toList();
-    expect(documented, hasLength(78));
+    expect(documented, hasLength(79));
     expect(documented.toSet(), hasLength(documented.length));
 
     registered.sort();
@@ -94,6 +94,7 @@ void main() {
     final publicSurfaceSources = <File>[
       ..._dartFiles(Directory('lib/screens')),
       ..._dartFiles(Directory('lib/features/guide')),
+      ..._dartFiles(Directory('lib/features/content_learning')),
     ];
     for (final source in publicSurfaceSources) {
       final contents = source.readAsStringSync();
@@ -107,9 +108,9 @@ void main() {
       }
     }
 
-    // Phase task screen plus the current Hanok preview owners.
-    expect(seen, hasLength(113));
-    expect(documented, hasLength(113));
+    // Includes the shared finite-step content layout and Hanok preview owners.
+    expect(seen, hasLength(116));
+    expect(documented, hasLength(116));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });

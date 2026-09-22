@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "scope": "assets/data/smalltalk.json",
+  "method": "Beyond Humanizer machine semantic review during lesson catalog authoring",
+  "humanReviewStatus": "required_before_native-quality-claim",
+  "semanticRoutePolicy": "Preserve existing semantic routing decisions and review revisions. This ledger records copy corrections, not new human approval.",
+  "changes": [
+    {
+      "id": "smalltalk_a1_0003",
+      "level": "a1",
+      "field": "de",
+      "before": "Mir geht's heute gut.",
+      "after": "Ich bin heute gut gelaunt.",
+      "issueClass": "meaning"
+    },
+    {
+      "id": "smalltalk_c1_0005",
+      "level": "c1",
+      "field": "de",
+      "before": "Der Aufzug ist außer Betrieb. Welche Alternative bieten wir einer Person an, die die Treppe nicht nutzen kann?",
+      "after": "Der Aufzug ist außer Betrieb. Welche Alternative sollten wir jemandem nennen, dem Treppensteigen schwerfällt?",
+      "issueClass": "meaning"
+    },
+    {
+      "id": "smalltalk_c1_0005",
+      "level": "c1",
+      "field": "en",
+      "before": "The elevator is out of service. What alternative should we offer someone who cannot use the stairs?",
+      "after": "The elevator has stopped. What alternative should we suggest to someone who has difficulty using the stairs?",
+      "issueClass": "meaning"
+    },
+    {
+      "id": "smalltalk_c2_0049",
+      "level": "c2",
+      "field": "de",
+      "before": "Wessen Einkommen und Zeitkosten setzt ein angemessener Preis voraus?",
+      "after": "Wessen Einkommen und Zeitkosten setzt ein als angemessen bezeichneter Preis voraus?",
+      "issueClass": "meaning"
+    },
+    {
+      "id": "smalltalk_c2_0049",
+      "level": "c2",
+      "field": "en",
+      "before": "Whose income and time costs does an affordable price assume?",
+      "after": "Whose income and time costs does a price described as reasonable assume?",
+      "issueClass": "meaning"
+    },
+    {
+      "id": "smalltalk_c2_0067",
+      "level": "c2",
+      "field": "de",
+      "before": "Verschwindet Diskriminierung, wenn personalisierte Preise individuelle Vorteile heißen?",
+      "after": "Verschwindet die Möglichkeit von Diskriminierung, wenn personalisierte Preise als maßgeschneiderte Vorteile bezeichnet werden?",
+      "issueClass": "meaning"
+    },
+    {
+      "id": "smalltalk_c2_0067",
+      "level": "c2",
+      "field": "en",
+      "before": "Does discrimination disappear when personalized pricing is called a tailored benefit?",
+      "after": "Does the possibility of discrimination disappear when personalized pricing is called a tailored benefit?",
+      "issueClass": "meaning"
+    },
+    {
+      "id": "smalltalk_c2_0077",
+      "level": "c2",
+      "field": "en",
+      "before": "The more I think about it, the more I understand why people love coming to amusement parks. The place is full of laughter, and everyone looks excited and happy.",
+      "after": "Thinking it over, I feel I can understand why people like coming to amusement parks. There is laughter everywhere, and everyone looks excited and happy.",
+      "issueClass": "meaning"
+    }
+  ]
+}
