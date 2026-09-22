@@ -158,11 +158,8 @@ void main() {
       final joy = find.byKey(const ValueKey('onboarding-v2-companion-joy'));
       for (var index = 0; index < 30; index++) {
         final choice = index.isEven ? joy : taego;
-        await tester.scrollUntilVisible(
-          choice,
-          300,
-          scrollable: find.byType(Scrollable).last,
-        );
+        await tester.ensureVisible(choice);
+        expect(choice.hitTestable(), findsOneWidget);
         await tester.pump();
         await tester.tap(choice);
       }
@@ -267,11 +264,8 @@ void main() {
       await _releaseSaves(tester, repository, count: 1);
       expect(repository.state?.companionDraft, OnboardingCompanion.taego);
 
-      await tester.scrollUntilVisible(
-        joy,
-        300,
-        scrollable: find.byType(Scrollable).last,
-      );
+      await tester.ensureVisible(joy);
+      expect(joy.hitTestable(), findsOneWidget);
       await tester.pump();
       await tester.tap(joy);
       await tester.pump();

@@ -27,6 +27,8 @@ import 'package:ko_lernen_app/widgets/sori/game_reward.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 const _packName =
     'private-name@example.com-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 
@@ -123,6 +125,7 @@ void main() {
   });
 
   setUp(() async {
+    stubSoriSpeech();
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
       'kl_tut_cpQuiz': true,

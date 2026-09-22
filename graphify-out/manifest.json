@@ -1602,9 +1602,9 @@
     "semantic_hash": ""
   },
   "lib/screens/scenario_player_screen.dart": {
-    "mtime": 1790063554.7388258,
-    "seen": 1790063945.5485976,
-    "ast_hash": "1ff81af0ef62ad9b92e38ac430068907",
+    "mtime": 1790071669.0275126,
+    "seen": 1790072480.7209055,
+    "ast_hash": "08b02199c42e6b790d9ed066e7cf94c1",
     "semantic_hash": ""
   },
   "lib/screens/scenarios_list_screen.dart": {
@@ -3318,9 +3318,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/wordbook_add.dart": {
-    "mtime": 1790063555.055522,
-    "seen": 1790063945.5494087,
-    "ast_hash": "eca876a251f232b80675bacb83937851",
+    "mtime": 1790071669.035649,
+    "seen": 1790072480.8509407,
+    "ast_hash": "f9924eae420f922174841019c8901903",
     "semantic_hash": ""
   },
   "lib/widgets/stroke_canvas.dart": {
@@ -4218,9 +4218,9 @@
     "semantic_hash": ""
   },
   "test/game_layout_test.dart": {
-    "mtime": 1790063555.2886353,
-    "seen": 1790063945.5497856,
-    "ast_hash": "781421e1382ebbc6421ba1d6e87294c3",
+    "mtime": 1790071667.0793962,
+    "seen": 1790072480.9311516,
+    "ast_hash": "4d145b5e067a292ef61b713f4ff70255",
     "semantic_hash": ""
   },
   "test/game_srs_evidence_test.dart": {
@@ -5460,9 +5460,9 @@
     "semantic_hash": ""
   },
   "test/shared_game_feedback_route_test.dart": {
-    "mtime": 1790063555.621225,
-    "seen": 1790063945.5505252,
-    "ast_hash": "e7b2aa075f78927e76978a5a45dc9d7c",
+    "mtime": 1790071667.0793962,
+    "seen": 1790072481.04454,
+    "ast_hash": "6bfb78d0a0e5767896bff4a507de5085",
     "semantic_hash": ""
   },
   "test/silben_puzzle_test.dart": {
@@ -5850,9 +5850,9 @@
     "semantic_hash": ""
   },
   "test/ux_gallery_no_write_test.dart": {
-    "mtime": 1790063555.7470355,
-    "seen": 1790063945.5507689,
-    "ast_hash": "4d3218fe007ff2097569c9647296e9a5",
+    "mtime": 1790071703.9715817,
+    "seen": 1790072481.0933337,
+    "ast_hash": "03930994fff3b0fcb018c1681a8108eb",
     "semantic_hash": ""
   },
   "test/ux_preview_app_test.dart": {
@@ -10800,9 +10800,9 @@
     "semantic_hash": ""
   },
   "lib/screens/onboarding_v2/onboarding_companion_screen.dart": {
-    "mtime": 1790067260.2651064,
-    "seen": 1790069465.3731036,
-    "ast_hash": "a8481125bc6bbaacd299d3e9fcedce4d",
+    "mtime": 1790071668.9423015,
+    "seen": 1790072480.708578,
+    "ast_hash": "edab9e5f2dfee5f54504f97ac4726545",
     "semantic_hash": ""
   },
   "lib/screens/onboarding_v2/onboarding_setup_screen.dart": {
@@ -11016,9 +11016,9 @@
     "semantic_hash": ""
   },
   "test/onboarding_v2_character_media_contract_test.dart": {
-    "mtime": 1790063555.4632754,
-    "seen": 1790063945.5500262,
-    "ast_hash": "bd0e08fd4c78953a6625bb20a643aa2c",
+    "mtime": 1790071669.1184354,
+    "seen": 1790072480.9865253,
+    "ast_hash": "e5bf0fc4db413c57b4ff0ae8b5468391",
     "semantic_hash": ""
   },
   "test/onboarding_v2_copy_builder_test.dart": {
@@ -11028,9 +11028,9 @@
     "semantic_hash": ""
   },
   "test/onboarding_v2_presentation_test.dart": {
-    "mtime": 1790063555.4642968,
-    "seen": 1790063945.5500293,
-    "ast_hash": "a2dea2d81671002361274971706fce13",
+    "mtime": 1790071667.0823965,
+    "seen": 1790072480.9868257,
+    "ast_hash": "e123b3fe425c48be0979b5981637cb43",
     "semantic_hash": ""
   },
   "test/onboarding_v2_runtime_catalog_test.dart": {
@@ -11046,9 +11046,9 @@
     "semantic_hash": ""
   },
   "lib/screens/onboarding_v2/onboarding_v2_stage.dart": {
-    "mtime": 1790068269.9487922,
-    "seen": 1790069465.3757782,
-    "ast_hash": "bc045da7b412c180a5d167d61a579d49",
+    "mtime": 1790071668.9536755,
+    "seen": 1790072480.7123103,
+    "ast_hash": "df00428b8731673bea099351fec0e571",
     "semantic_hash": ""
   },
   "lib/widgets/sori/chrome_row.dart": {
@@ -14436,9 +14436,9 @@
     "semantic_hash": ""
   },
   "test/vertical_fill_guard_test.dart": {
-    "mtime": 1790063555.7504394,
-    "seen": 1790063945.5507753,
-    "ast_hash": "c797f15cc18b41df2634015fdc509300",
+    "mtime": 1790072284.743899,
+    "seen": 1790072481.0949254,
+    "ast_hash": "0b99389d5ed0bbcde8b5e970803a53d3",
     "semantic_hash": ""
   },
   "tool/audit_grammar_card_faces.py": {
@@ -15630,9 +15630,9 @@
     "semantic_hash": ""
   },
   "test/game_answer_srs_recovery_test.dart": {
-    "mtime": 1790063555.2866364,
-    "seen": 1790063945.5497813,
-    "ast_hash": "7df5bcb9b52cd64454110b24eb9261f4",
+    "mtime": 1790071669.1017733,
+    "seen": 1790072480.9303808,
+    "ast_hash": "7c6cc4b1dabb922d48ad0a727f1d46f3",
     "semantic_hash": ""
   },
   "test/timed_game_srs_recovery_test.dart": {
@@ -18750,9 +18750,9 @@
     "semantic_hash": ""
   },
   "docs/CP2026_CONTINUATION.md": {
-    "mtime": 1790069223.9394245,
-    "seen": 1790069465.9131594,
-    "ast_hash": "2de1a975e4e8e2c3f70b9c4f2d1d91ac",
+    "mtime": 1790069508.6032963,
+    "seen": 1790072481.4348323,
+    "ast_hash": "6451ed13e4b592e18f3383acd32ee663",
     "semantic_hash": ""
   },
   "docs/data/a1_grammar_scan_2026-09-15.md": {

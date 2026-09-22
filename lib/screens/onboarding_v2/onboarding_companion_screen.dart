@@ -119,11 +119,21 @@ class OnboardingCompanionScreen extends StatelessWidget {
               ),
             ],
           );
-          if (constraints.maxHeight < 240) {
+          // Reserve the details action's 48dp minimum after measuring both
+          // choice labels. Large-text portrait layouts can still fit below
+          // the former fixed 240dp cutoff.
+          final minimumBodyHeight =
+              OnboardingCompanionStage.minimumHeight(
+                context,
+                companionCopy.companions,
+                constraints.maxWidth,
+              ) +
+              48;
+          if (constraints.maxHeight < minimumBodyHeight) {
             // A short landscape viewport must scroll the choices AND details;
             // reserving a details row can otherwise leave a 17dp tap viewport.
             return SingleChildScrollView(
-              child: SizedBox(height: 400, child: content),
+              child: SizedBox(height: minimumBodyHeight, child: content),
             );
           }
           return content;

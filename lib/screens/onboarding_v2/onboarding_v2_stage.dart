@@ -84,6 +84,25 @@ class OnboardingSetupStage extends StatelessWidget {
 }
 
 class OnboardingCompanionStage extends StatefulWidget {
+  static double minimumHeight(
+    BuildContext context,
+    List<OnboardingCompanionSpec> companions,
+    double width,
+  ) {
+    final minimumCardHeight = companions.fold<double>(0, (height, item) {
+      final labelHeight = _companionLabelHeight(
+        context,
+        item,
+        width - Spacing.sm * 3 - 4 - 48,
+        compact: true,
+      );
+      final requiredHeight =
+          (labelHeight > 48 ? labelHeight : 48) + Spacing.sm * 2 + 4;
+      return height > requiredHeight ? height : requiredHeight;
+    });
+    return minimumCardHeight * 2 + Spacing.md;
+  }
+
   const OnboardingCompanionStage({
     super.key,
     required this.companions,
@@ -139,18 +158,11 @@ class _OnboardingCompanionStageState extends State<OnboardingCompanionStage> {
     );
     return LayoutBuilder(
       builder: (context, constraints) {
-        final minimumCardHeight = ordered.fold<double>(0, (height, item) {
-          final labelHeight = _companionLabelHeight(
-            context,
-            item,
-            constraints.maxWidth - Spacing.sm * 3 - 4 - 48,
-            compact: true,
-          );
-          final requiredHeight =
-              (labelHeight > 48 ? labelHeight : 48) + Spacing.sm * 2 + 4;
-          return height > requiredHeight ? height : requiredHeight;
-        });
-        final minimumHeight = minimumCardHeight * 2 + Spacing.md;
+        final minimumHeight = OnboardingCompanionStage.minimumHeight(
+          context,
+          ordered,
+          constraints.maxWidth,
+        );
         if (constraints.maxHeight < minimumHeight) {
           // Landscape leaves little room after the fixed heading and footer.
           // Keep both choices reachable and their artwork height positive.

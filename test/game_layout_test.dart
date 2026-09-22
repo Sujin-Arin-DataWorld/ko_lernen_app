@@ -7,6 +7,8 @@ import 'package:flutter/services.dart' show FontLoader;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/screens/cloze_game_screen.dart';
@@ -51,6 +53,7 @@ void main() {
   setUpAll(_loadRealFonts);
 
   setUp(() async {
+    stubSoriSpeech();
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({'kl_user_level': 'a1'});
     await Storage.init();

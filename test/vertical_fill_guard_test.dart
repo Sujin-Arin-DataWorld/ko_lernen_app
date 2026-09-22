@@ -41,10 +41,17 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/models/custom_pack.dart';
+import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
+import 'package:ko_lernen_app/services/hanok_learning_receipt_service.dart';
+import 'package:ko_lernen_app/widgets/app_error.dart';
+import 'package:ko_lernen_app/widgets/app_loading.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/illustrated_card.dart';
@@ -55,6 +62,8 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    Storage.resetForTesting();
+    CourseProgressService.shared.resetForTesting();
     SharedPreferences.setMockInitialValues({
       'kl_user_level': 'a1',
       'kl_streak_days': 3,
@@ -106,30 +115,33 @@ void main() {
           addTearDown(tester.view.resetPhysicalSize);
           addTearDown(tester.view.resetDevicePixelRatio);
 
-          await tester.pumpWidget(wrapResponsive(entry.value));
-          // 무한 반복 애니메이션(SoriPulse 등)이 있을 수 있어 pumpAndSettle
-          // 대신 유한 pump 만 쓴다(test/support/sori_stage_pump.dart 와 같은
-          // 이유) — responsive_test.dart 가 이미 이 시퀀스로 같은 화면들의
-          // 비동기 로드(시나리오·due 카운트 등)를 안정적으로 해소한다.
+          // Await the real bundled corpus outside FakeAsync. A timed delay
+          // only measures a loading spinner when six-shard parsing is pending.
+          var screen = entry.value;
+          await tester.runAsync(() async {
+            await DataLoader.loadVocab();
+            await ScenarioLoader.load();
+            await CurriculumCatalog.load();
+            // Measure an enrolled learner's real course content, not the
+            // uninitialized-course error or a queue from an earlier test Zone.
+            await CourseProgressService.shared.initializeForPlacement('a1');
+            if (screen is SarangbangStudyScreen) {
+              final snapshot = await TodayLearningSnapshotLoader.load();
+              final receipt = await HanokLearningReceiptService.loadReceipt();
+              screen = SarangbangStudyScreen(
+                loadTodaySnapshot: () async => snapshot,
+                loadLearningReceipt: () async => receipt,
+              );
+            }
+          });
+          // Runtime screen callbacks are in the widget's FakeAsync Zone.
+          // Rebuild the queue there after the real-I/O preparation above.
+          CourseProgressService.shared.resetForTesting();
+          await tester.pumpWidget(wrapResponsive(screen));
+          // Repeating animations cannot use pumpAndSettle. The data is ready;
+          // finite frames now resolve screen futures and measure actual content.
           await tester.pump();
-          // `rootBundle.loadString` 같은 실제 자산 I/O(예: satz arcade의
-          // 문장 데이터)는 순수 `pump(Duration)` 만으로는 절대 안 끝난다
-          // (FakeAsync 존은 실제 IO를 진행시키지 않는다) — `runAsync` 로
-          // 실제 이벤트 루프를 여러 번 돌려 자산 I/O가 끝날 시간을 준다.
-          // ⚠️ `pumpWidget` 자체를 runAsync 로 감싸 실제 시간을 더 길게
-          // 주는 방식(또는 예산을 크게 늘리는 방식)도 시도했지만, 오디오
-          // 관련 실제 타이머가 그 사이에 발화해 mock 되지 않은 플랫폼
-          // 채널(MissingPluginException, 예: audioplayers)을 건드리는
-          // 새로운 거짓 RED를 만들었다(2026-09-05 실측: home). 그래서 짧은
-          // 지연 몇 번으로 예산을 제한한다 — `compute()`(isolate)로
-          // 파싱하는 scenarios list 는 이 예산 안에서 못 끝나 RED로
-          // 남는다(테스트 환경 한계, UI 결함 아님 — REPORT 참고).
-          for (var i = 0; i < 3; i++) {
-            await tester.runAsync(() async {
-              await Future<void>.delayed(const Duration(milliseconds: 100));
-            });
-            await tester.pump();
-          }
+          await tester.pump();
           await tester.pump(const Duration(milliseconds: 100));
           await tester.pump(const Duration(milliseconds: 1200));
 
@@ -138,6 +150,11 @@ void main() {
             isNull,
             reason: '${entry.key} render exception',
           );
+          if (entry.key == 'course mission' ||
+              entry.key == 'sarangbang study') {
+            expect(find.byType(AppLoading), findsNothing);
+            expect(find.byType(AppError), findsNothing);
+          }
 
           final bodyRect = _findBodyRect(tester);
           if (bodyRect == null) {

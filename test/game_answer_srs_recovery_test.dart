@@ -245,7 +245,12 @@ void main() {
             expect(find.byType(AppError), findsOneWidget);
             expect(Storage.xp, 0);
             expect(courseCalls, 0);
-            expect(speech.spoken, isEmpty);
+            // The prompt is spoken once on entry; a failed or retired judgment
+            // must never add answer speech.
+            expect(
+              speech.spoken,
+              flow == _Flow.cloze ? [_activeClozeItem.fullKo] : isEmpty,
+            );
             final retry = tester
                 .widget<AppError>(find.byType(AppError))
                 .onRetry!;
@@ -315,7 +320,12 @@ void main() {
         expect(Storage.chosungWrong, 0);
         expect(Storage.wrongCountOf(_id(flow)), 0);
         expect(courseCalls, 0);
-        expect(speech.spoken, isEmpty);
+        // The prompt is spoken once on entry; a failed or retired judgment
+        // must never add answer speech.
+        expect(
+          speech.spoken,
+          flow == _Flow.cloze ? [_activeClozeItem.fullKo] : isEmpty,
+        );
         await _dispose(tester);
       });
     }
@@ -332,7 +342,12 @@ void main() {
         await tester.pump();
         expect(Storage.srsTotalReviewed(), 0);
         expect(courseCalls, 0);
-        expect(speech.spoken, isEmpty);
+        // The prompt is spoken once on entry; a failed or retired judgment
+        // must never add answer speech.
+        expect(
+          speech.spoken,
+          flow == _Flow.cloze ? [_activeClozeItem.fullKo] : isEmpty,
+        );
         await _dispose(tester);
       },
     );
