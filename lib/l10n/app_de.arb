@@ -4402,6 +4402,14 @@
   },
   "ttsUnavailableChannelOff": "Aussprache ist stumm geschaltet. Einstellungen → Ton",
   "ttsUnavailableQuota": "Heutiges Sprachlimit erreicht. Morgen geht es weiter.",
+  "ttsUnavailableSession": "Deine Sitzung konnte nicht bestätigt werden. Öffne die App erneut und versuch es noch einmal.",
+  "@ttsUnavailableSession": {
+    "description": "TTS authentication or local account session unavailable; does not claim token expiry"
+  },
+  "ttsUnavailablePolicy": "Neue Audioaufnahmen sind vorübergehend pausiert. Vorhandene Aufnahmen kannst du weiter anhören.",
+  "@ttsUnavailablePolicy": {
+    "description": "Service cost policy blocks new TTS synthesis; existing cached audio remains available"
+  },
   "ttsUnavailableHourlyQuota": "Für diese Stunde ist das Sprachlimit erreicht. Versuch es später noch einmal.",
   "@ttsUnavailableHourlyQuota": {
     "description": "Shown when the global hourly synthesis limit is reached; cached audio remains available."

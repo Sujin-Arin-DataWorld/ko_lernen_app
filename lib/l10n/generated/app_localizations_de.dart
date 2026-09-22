@@ -9060,6 +9060,14 @@ class AppL10nDe extends AppL10n {
       'Heutiges Sprachlimit erreicht. Morgen geht es weiter.';
 
   @override
+  String get ttsUnavailableSession =>
+      'Deine Sitzung konnte nicht bestätigt werden. Öffne die App erneut und versuch es noch einmal.';
+
+  @override
+  String get ttsUnavailablePolicy =>
+      'Neue Audioaufnahmen sind vorübergehend pausiert. Vorhandene Aufnahmen kannst du weiter anhören.';
+
+  @override
   String get ttsUnavailableHourlyQuota =>
       'Für diese Stunde ist das Sprachlimit erreicht. Versuch es später noch einmal.';
 

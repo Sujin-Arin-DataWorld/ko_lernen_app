@@ -15348,6 +15348,18 @@ abstract class AppL10n {
   /// **'Heutiges Sprachlimit erreicht. Morgen geht es weiter.'**
   String get ttsUnavailableQuota;
 
+  /// TTS authentication or local account session unavailable; does not claim token expiry
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Sitzung konnte nicht bestätigt werden. Öffne die App erneut und versuch es noch einmal.'**
+  String get ttsUnavailableSession;
+
+  /// Service cost policy blocks new TTS synthesis; existing cached audio remains available
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Audioaufnahmen sind vorübergehend pausiert. Vorhandene Aufnahmen kannst du weiter anhören.'**
+  String get ttsUnavailablePolicy;
+
   /// Shown when the global hourly synthesis limit is reached; cached audio remains available.
   ///
   /// In de, this message translates to:

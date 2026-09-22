@@ -4229,6 +4229,8 @@
   },
   "ttsUnavailableChannelOff": "Pronunciation is muted. Settings → Sound",
   "ttsUnavailableQuota": "Daily voice limit reached. It resets tomorrow.",
+  "ttsUnavailableSession": "Your session couldn't be verified. Reopen the app and try again.",
+  "ttsUnavailablePolicy": "New audio generation is temporarily paused. Existing recordings are still available.",
   "ttsUnavailableHourlyQuota": "Hourly voice limit reached. Try again later.",
   "ttsUnavailablePending": "The voice is being generated. Tap again in a moment.",
   "ttsUnavailableOffline": "Pronunciation unavailable. Are you online?",

@@ -336,8 +336,12 @@ async function synthesizeTts(request) {
         throw error;
       }
     } catch (e) {
-      if (e instanceof TtsRequestError || e instanceof ServiceCostError) {
-        throw new HttpsError(e.code, e.message);
+      if (e instanceof ServiceCostError) {
+        throw new HttpsError(e.code, e.message, { reason: "service_policy" });
+      }
+      if (e instanceof TtsRequestError) {
+        throw new HttpsError(e.code, e.message,
+          e.code === "unauthenticated" ? { reason: "session_unavailable" } : undefined);
       }
       if (e instanceof HttpsError) {
         throw e;
