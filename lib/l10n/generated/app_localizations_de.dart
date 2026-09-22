@@ -3332,7 +3332,7 @@ class AppL10nDe extends AppL10n {
   String get listeningReviewCta => 'Zeile für Zeile wiederholen';
 
   @override
-  String get listeningBackToScroll => 'Zurück zur Schriftrolle';
+  String get listeningBackToScroll => 'Zurück zum Dialog';
 
   @override
   String get listeningNextStory => 'Nächste Geschichte';
@@ -9060,6 +9060,14 @@ class AppL10nDe extends AppL10n {
       'Heutiges Sprachlimit erreicht. Morgen geht es weiter.';
 
   @override
+  String get ttsUnavailableSession =>
+      'Deine Sitzung konnte nicht bestätigt werden. Öffne die App erneut und versuch es noch einmal.';
+
+  @override
+  String get ttsUnavailablePolicy =>
+      'Neue Audioaufnahmen sind vorübergehend pausiert. Vorhandene Aufnahmen kannst du weiter anhören.';
+
+  @override
   String get ttsUnavailableHourlyQuota =>
       'Für diese Stunde ist das Sprachlimit erreicht. Versuch es später noch einmal.';
 
@@ -10848,4 +10856,248 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get questUnavailableBody => 'Geh zurück und wähle eine andere Übung.';
+
+  @override
+  String get contentLearningGoals => 'Themen-Lernziele';
+
+  @override
+  String get contentLearningGoalIntro =>
+      'Wie viele Lektionen möchtest du pro Tag lernen? Jedes Niveau hat sein eigenes Ziel.';
+
+  @override
+  String contentLearningGoal(String level) {
+    return '$level · Tagesziel';
+  }
+
+  @override
+  String contentLearningGoalCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Lektionen',
+      one: '1 Lektion',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get contentLearningFree => 'Frei lernen';
+
+  @override
+  String get contentLearningEditGoal => 'Ziel ändern';
+
+  @override
+  String contentLearningToday(int done, int total) {
+    String _temp0 = intl.Intl.pluralLogic(
+      total,
+      locale: localeName,
+      other: '$total Lektionen',
+      one: '1 Lektion',
+    );
+    return 'Heute: $done von $_temp0';
+  }
+
+  @override
+  String contentLearningPackProgress(int done, int total) {
+    String _temp0 = intl.Intl.pluralLogic(
+      total,
+      locale: localeName,
+      other: '$total Lektionen',
+      one: '1 Lektion',
+    );
+    return '$done von $_temp0 abgeschlossen';
+  }
+
+  @override
+  String get contentLearningResume => 'Fortsetzen';
+
+  @override
+  String get contentLearningStart => 'Lektion beginnen';
+
+  @override
+  String get contentLearningLearn => 'Lernen';
+
+  @override
+  String get contentLearningPractice => 'Üben';
+
+  @override
+  String get contentLearningNext => 'Weiter';
+
+  @override
+  String get contentLearningPrevious => 'Zurück';
+
+  @override
+  String get contentLearningCheck => 'Prüfen';
+
+  @override
+  String get contentLearningFinish => 'Lektion abschließen';
+
+  @override
+  String get contentLearningDone => 'Lektion abgeschlossen';
+
+  @override
+  String get contentLearningTodayDone => 'Dein Tagesziel ist erreicht';
+
+  @override
+  String contentLearningResult(int correct, int total) {
+    return '$correct von $total Antworten richtig. Die Lektion zählt unabhängig vom Ergebnis.';
+  }
+
+  @override
+  String get contentLearningExit => 'Zur Themenübersicht';
+
+  @override
+  String get contentLearningEndToday => 'Für heute fertig';
+
+  @override
+  String get contentLearningPracticePending =>
+      'Ausdrücke gelernt · Übungen noch offen';
+
+  @override
+  String get contentLearningListeningPending =>
+      'Fertig gehört · Übungen noch offen';
+
+  @override
+  String get contentLearningNeedsReview => 'Abgeschlossen · Wiederholung nötig';
+
+  @override
+  String get contentLearningReviewMistakes => 'Fehler wiederholen';
+
+  @override
+  String get contentLearningReviewTopic =>
+      'Gelerntes zu diesem Thema wiederholen';
+
+  @override
+  String get contentLearningNextTopicLesson => 'Nächste Lektion zum Thema';
+
+  @override
+  String get contentLearningEnd =>
+      'Alle Lektionen dieses Themas sind abgeschlossen. Du kannst Gelerntes jederzeit wiederholen.';
+
+  @override
+  String get contentLearningEmpty =>
+      'Für dieses Niveau sind noch keine Lektionen verfügbar.';
+
+  @override
+  String get contentLearningError =>
+      'Das hat nicht geklappt. Dein letzter gespeicherter Stand bleibt erhalten. Versuche es noch einmal.';
+
+  @override
+  String get contentLearningRetry => 'Erneut versuchen';
+
+  @override
+  String get contentLearningAudio => 'Anhören';
+
+  @override
+  String get contentLearningAudioError =>
+      'Die Aufnahme konnte nicht abgespielt werden. Tippe zum erneuten Versuch auf Anhören.';
+
+  @override
+  String get contentLearningTranslation => 'Übersetzung zeigen';
+
+  @override
+  String get contentLearningUsage => 'Verwendung und nächste Antwort';
+
+  @override
+  String get contentLearningEvidence => 'Stelle im Dialog';
+
+  @override
+  String get contentLearningCorrect => 'Richtig';
+
+  @override
+  String get contentLearningIncorrect => 'Schau dir die Erklärung an';
+
+  @override
+  String get contentLearningOrder =>
+      'Setze die Wörter in die richtige Reihenfolge. Tippe auf ein gewähltes Wort, um es zurückzulegen.';
+
+  @override
+  String contentLearningPosition(int current, int total) {
+    return '$current von $total';
+  }
+
+  @override
+  String get contentLearningReviewEmpty =>
+      'Hier gibt es noch keine gelernten Aufgaben zum Wiederholen.';
+
+  @override
+  String get contentLearningYou => 'Du';
+
+  @override
+  String get contentLearningNarrator => 'Erzählung';
+
+  @override
+  String get contentLearningReviewNext => 'Nächste Wiederholung';
+
+  @override
+  String get contentLearningReviewDone => 'Wiederholung abgeschlossen';
+
+  @override
+  String get contentLearningPlayAll => 'Ab hier abspielen';
+
+  @override
+  String get contentLearningPause => 'Pause';
+
+  @override
+  String get contentLearningExpressions => 'Wichtige Ausdrücke';
+
+  @override
+  String get contentLearningRoleplay => 'Freiwillig: Gespräch üben';
+
+  @override
+  String get contentLearningGrammar => 'Freiwillig: Grammatik ansehen';
+
+  @override
+  String get contentLearningRoleplayHint =>
+      'Antworte laut auf die vorige Zeile. Du kannst die ursprüngliche Antwort danach aufdecken.';
+
+  @override
+  String get contentLearningReveal => 'Antwort aufdecken';
+
+  @override
+  String get contentLearningBackResult => 'Zurück zum Ergebnis';
+
+  @override
+  String contentLearningReviewResult(int correct, int total) {
+    return '$correct von $total Antworten richtig. Deine Wiederholung verändert das Tagesziel nicht.';
+  }
+
+  @override
+  String contentLearningExpressionCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Ausdrücke',
+      one: '1 Ausdruck',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String contentLearningScenarioCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Gespräche',
+      one: '1 Gespräch',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String contentLearningShortLesson(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Ausdrücke',
+      one: '1 Ausdruck',
+    );
+    return 'Kurze Lektion · $_temp0';
+  }
+
+  @override
+  String get contentLearningLearnAgain => 'Noch einmal lernen';
+
+  @override
+  String get contentLearningListenAgain => 'Noch einmal hören';
 }

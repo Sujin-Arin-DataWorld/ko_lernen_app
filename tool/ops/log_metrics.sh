@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # tool/ops/log_metrics.sh
 #
-# Creates the two log-based metrics that tool/ops/alert_policies/03_ai_cost_breaker_unavailable.json
-# depends on. Idempotent: describes each metric first and skips creation if it
+# Creates the two policy-03 log metrics and B3 Auth creation observation metric.
+# Idempotent: describes each metric first and skips creation if it
 # already exists. Never mutates an existing metric's filter (delete + recreate
 # by hand if the filter needs to change — this script will not silently
 # overwrite one).
@@ -61,5 +61,10 @@ create_metric \
   "apple_revocation_config_invalid" \
   "Counts log entries where Apple token-revocation config/secrets are invalid, so account deletion could not revoke the Apple grant. See functions/gye/apple_revocation_adapter.js." \
   'resource.type="cloud_run_revision" AND (textPayload:"apple/revocation-config-invalid" OR jsonPayload.message:"apple/revocation-config-invalid" OR jsonPayload.error.code="apple/revocation-config-invalid")'
+
+create_metric \
+  "auth_anonymous_account_created" \
+  "Auth creation event deliveries for accounts without a linked provider, email or phone. Includes Admin-created providerless accounts; duplicate deliveries are possible. Not login, token refresh or TTS request counts. See functions/gye/AUTH_CREATION_OBSERVATION.md." \
+  'resource.type="cloud_function" AND resource.labels.function_name="on_auth_account_created" AND jsonPayload.event="auth_account_created" AND jsonPayload.accountKind="anonymous" AND jsonPayload.schemaVersion=1'
 
 echo "Done. Verify with: gcloud logging metrics list --project=${GCP_PROJECT}"

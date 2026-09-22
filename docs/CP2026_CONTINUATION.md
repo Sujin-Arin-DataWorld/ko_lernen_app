@@ -1,5 +1,56 @@
 # CP-2026 전체 계획 인수 및 실행 큐
 
+## 2026-09-22 운영 알림 적용 준비 보완
+
+PR #388은 기존 5개 알림 정책의 적용 절차를 보완한다. 고정 프로젝트의 활성·검증된
+수신 채널, 실제 metric descriptor·시계열, 모든 페이지의 기존 정책을 먼저 읽는다.
+같은 설정은 재생성하지 않고, 중복·설정 차이·준비되지 않은 신호는 적용 전에 거절한다.
+생성 요청이 불확실하게 끝나도 자동 재시도·기존 정책 수정·삭제는 하지 않는다.
+Windows와 Bash는 같은 Python 검증 경로를 사용하며 자격 증명이나 수신 주소를 출력하지 않는다.
+
+워커의 HTTP 2xx 생존 신호는 삭제 큐 완료와 구분한다. 비용 승인·Apple 취소 설정 오류
+정책은 해당 진단 로그와 메트릭의 실제 준비 증거가 필요하며, 코드가 있다는 이유로
+관측이 작동한다고 판단하지 않는다. B3의 개인정보 없는 Auth 생성 관측 설명도 유지한다.
+
+최신 main `ffdc2828530659e770c88897d7643e284f29b2f5`를 정상 병합한 뒤 관련 Python
+35개 검사를 통과했다. 새 PR head 및 정확한 merged-main CI·Playwright, 실제 수신 채널
+확인·정책 적용·알림 발생과 수신·복구 검증은 별도 게이트다. 이번 보완에서 live 정책,
+메트릭, 채널, 함수 배포 또는 사용자 데이터는 변경하지 않았다. 14일 운영 품질 판정은 미완이다.
+
+## 2026-09-22 19:20 UTC 현재 배포·관측 기준선
+
+이 표는 아래 오전 착수 기록의 배포 대기 상태를 대체한다. 코드 검사, 콘솔 제공, 실제 기기 사용과 품질 관측은 각각 별도 증거다.
+
+| 항목 | 확인한 상태 | 다음 검증 |
+|---|---|---|
+| 안정화·책 스캔 카드 | #384의 main `63937f12`와 #385의 main `fa1dcacc` 각각 CI·Playwright 성공. 사용자 제공 휴대폰·책 이미지를 원본 보존 후 800×600 카드에 적용했고, Lernen의 `Wörter & Sätze`에서 직접 촬영 화면으로 진입 | 기존 진행도 유지, 오류·오프라인, DE/EN 큰 글자 및 실제 카메라 검수 |
+| Android 내부 테스트 | **2.0.9(7605), `fa1dcaccf302eda7c84a4cb30a2996eb1c7d2a14`**. [배포 run35762585914](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/35762585914) 성공, Play 콘솔 내부 테스터에게 제공됨·9월22일20:27(독일) 게시 확인. [테스터 업데이트 경로](https://play.google.com/apps/internaltest/4700776025798297850) | 실제 사용자 기기의 업데이트·사용 확인. 비공개/공개/프로덕션은 변경하지 않음 |
+| 기존 iOS 내부 테스트 | **Hangul Sori / 6798293722 / com.sujinarin.koLernenApp / 2.0.9(251)**, exact `fa1dcaccf302eda7c84a4cb30a2996eb1c7d2a14`. TestFlight 업로드 완료 후 내부 n.1tester(2명)에 추가했고 그룹 빌드 목록의 **테스트 중** 상태 확인. 새 책 스캔 이미지 포함 | 실제 iPhone 업데이트·카메라·오프라인·큰 글자 검수. 새 앱·외부 그룹·정식 심사는 변경하지 않음 |
+| 다운로드·설치 크기 | Play7605 신규 다운로드 표시 **482MB**, Redmi Note10/Android12 항목도482MB. Apple250의 iPhone16 예상 다운로드 **499MB**, 예상 설치 **616MB** | 콘솔 반올림·예상값을 기기 저장 공간 실측으로 대체하지 않음. #367 전후 동일 기기·조건의 측정 필요. 251 크기는 아직 미측정 |
+| 웹 측정 | 기존 GA538411104의 웹15425421435 최근48시간 수신 표시 확인. 일반 EN 동의 방문의 page_view/scroll HTTP204, SPA 언어 변경의 추가 조회 누락 확인. #390 수정 head CI·Playwright 성공 | 공개 배포와 기존 Enhanced Measurement의 browser-history 자동 조회(현재 ON)를 함께 조정해 중복 방지. 동의 거절/철회·실제 스트림 수신까지 재검증 |
+| 앱 분석·오류 | Android14916084564와 기존 iOS15411018706 최근48시간 수신 없음. Android Crashlytics 모든 이벤트·모든 이슈의 지난7일 데이터 없음, 기존 iOS는 시작 안내 화면. Play vitals 지난28일 crash/ANR/coldstart 분모·지표 없음 | 소스 SDK와 동의 적용 구조는 존재하지만 실제 내부 배포 기기의 동의→SDK→해당 스트림 도착 증거 필요. 데이터 부재를 오류0 또는 합격으로 판정하지 않음 |
+| 계정·운영 | `account_operations` 서버 COUNT 동일 readTime: 전체10, completed3, cancelled7, 다른 단계0. 문서 본문·식별자는 읽지 않음. Monitoring 정책0/채널0 | 현재 스냅샷을14일 무유실·정체 없음으로 확대하지 않음. 수신 채널 확인·정책 적용·신호 발생과 전달 검증 필요 |
+| 통합 큐 | #387은 exact main `3d0f85fe`의 자동 CI·Playwright 모두 성공. #386·#388·#390의 기존 head 검사는 성공 | #387 정확한 main 검사 성공 후 #386→#388→#390을 최신 main과 정상 병합·재검증해 순서대로 통합. 이전 head 성공으로 새 head 검사를 대신하지 않음 |
+
+Android 배포 허용 변수는 서명 job 시작 후 `false`로 복원·재확인했다. 앱 배포와 별개로 B3 Auth 관측 함수·시간당 쿼터가 포함된 최신 함수 소스·운영 메트릭·알림 정책·공개 웹 수정은 아직 배포하지 않았다. 현재 TTS 함수는9월7일 배포 revision이며 오류 원인과 개인정보 없는 운영 신호 검증을 이어간다. 비용·App Check·동의·진행도·원본 품질 기준을 완화하지 않는다.
+
+콘솔·실행 영수증과 Jin 검수표는 `C:/dev/hangulsori/_codex_artifacts/cp2026-release-stabilization-20260922/`의 `internal-release-request.json`, `android7605-console-publication.json`, `android7605-size-baseline.json`, `ios250-size-baseline.json`, `ga-current-streams-20260922.json`, `crashlytics-live-20260922.json`, `android-vitals-live-20260922.json`, `account-queue-current.json`, `jin-review/CHECKLIST.md`에 보존한다. 사람 콘텐츠 검수·실기기·14일 적격 관측은 미완이며 전체 완료를 선언하지 않는다.
+
+엄격한 과거 검토 정합성은 19:01 UTC에 같은 main tree로 다시 감사했다. merged manifest 24개 중 11개 통과·13개 미해결이며, 별도 live projection 감사 오류 0과 구분한다. 퇴역 시나리오 7 manifest와 권리·원문·교육과정·승인 출처 6 manifest의 첫 실패를 `current-main-strict-manifests.json`에 보존했다. 원본 검토 기록이나 사람 승인은 변경하지 않았다.
+
+
+## 2026-09-22 B3 후속 재개: 거절 사유와 실제 계정 생성 관측
+
+안정화 #384의 정확한 main `63937f12f0bfd7d3f735fa4834edcb0365592ac8`에서 중단된 B3 변경을 대조해 이어받았다. 원래 `cp2026-b3-reasons-metrics-20260917`의 수정 20파일은 그대로 남기고, `C:/dev/hangulsori/_codex_artifacts/cp2026-b3-reasons-metrics-20260917/resume-20260922/`에 원본 복사본·binary patch·SHA-256 증거를 보존했다. 옛 진행 문서는 덮어쓰지 않았고, 현행 ARB에 문자열을 추가한 뒤 현행 l10n을 재생성했다.
+
+| 범위 | 구현 및 검증 | 아직 필요한 증거 |
+|---|---|---|
+| TTS 거절 사유 | 세션 불가와 서비스 비용 정책 거절을 구분해 DE/EN으로 안내한다. 같은 요청을 자동 재시도하지 않는다. 설치 30/계정 50/전역 300 일 상한, UTC 시간당 25, 비용 승인 및 App Check·개인 캐시 보호는 유지한다 | 새 PR head 및 통합된 정확한 main의 필수 검사, 실제 배포 앱·서버 조합 확인 |
+| 익명 계정 생성 관측 | stable Gen1 Auth `onCreate`에 연결한다. 고정 이벤트명·스키마·bounded account kind만 기록하며 UID·이메일·전화·본문·토큰을 로그에 넣지 않는다. TTS 요청이나 기존 계정의 요청을 신규 계정 생성으로 세지 않는다 | 함수 배포, 실제 생성 이벤트→로그→메트릭 수신 및 B1 알림 연결. 전송 중복이 가능해 이벤트 수를 고유 계정 수로 주장하지 않는다 |
+| 관측 범위 | Gen2 Auth 트리거가 Preview임을 현재 Firebase 문서와 대조했다. 이 변경은 기존 Gen2 계정 함수 옆에 stable Gen1 관측 함수를 추가한다. 첫 custom-token 로그인은 Gen1 생성 이벤트를 발생시키지 않는 제한을 문서화했다 | 운영 계정 생성 경로와 실제 관측 범위 대조. Preview로의 이행은 이번 범위에 포함하지 않음 |
+
+현재 로컬 검증은 Node **24.18.0**에서 Gye 397개, TTS 75개, Flutter 거절 사유·개인 세션 23개 및 확대 TTS 회귀 72개, 운영 스크립트 9개, 전체 Flutter analyze no issues이다. 겹치는 Flutter 검사는 합산하지 않는다. 배포·CI의 Node **22** 검증은 별도다. Spec/Standards 검토 잔여 지적은 각각 0건이다. 아직 함수 소스 배포, live metric·quota·비용 정책 변경, 실제 기기 검증은 하지 않았다. 책 스캔 카드 PR #385 통합과 새 main 검사 게이트를 유지하며 B3 통합을 이어간다.
+
 ## 2026-09-22 재정렬: 배포본 안정화가 첫 목표
 
 Jin이 승인한 재정렬 계획을 적용한다. Claude 원계획의 목표는 **수백~수천 명이 사용해도 안정적이고 한국어 학습 품질을 검증할 수 있는 앱**이며, 현재 5탭과 무료 제공 방향을 유지한다. 아래 날짜 이전의 기록은 당시 기준선이다. 배포 여부, 코드 반영, 실기기 검증, 운영 품질 완료를 구분한다.

@@ -1642,7 +1642,7 @@
   "listeningReviewTitle": "Review line by line",
   "listeningReviewBody": "Replay individual lines and open translations only when you need them.",
   "listeningReviewCta": "Review line by line",
-  "listeningBackToScroll": "Back to the scroll",
+  "listeningBackToScroll": "Back to the dialogue",
   "listeningNextStory": "Next story",
   "listeningTtsFailedTitle": "This line could not be played.",
   "listeningTtsFailedBody": "Try again or keep learning from the Korean text.",
@@ -4229,6 +4229,8 @@
   },
   "ttsUnavailableChannelOff": "Pronunciation is muted. Settings → Sound",
   "ttsUnavailableQuota": "Daily voice limit reached. It resets tomorrow.",
+  "ttsUnavailableSession": "Your session couldn't be verified. Reopen the app and try again.",
+  "ttsUnavailablePolicy": "New audio generation is temporarily paused. Existing recordings are still available.",
   "ttsUnavailableHourlyQuota": "Hourly voice limit reached. Try again later.",
   "ttsUnavailablePending": "The voice is being generated. Tap again in a moment.",
   "ttsUnavailableOffline": "Pronunciation unavailable. Are you online?",
@@ -4998,5 +5000,149 @@
   "onboardingJourneyHanokShort": "Your hanok",
   "onboardingJourneyCompanionShort": "Your companion",
   "questUnavailableTitle": "This exercise is unavailable",
-  "questUnavailableBody": "Go back and choose another exercise."
+  "questUnavailableBody": "Go back and choose another exercise.",
+  "contentLearningGoals": "Topic learning goals",
+  "contentLearningGoalIntro": "How many lessons would you like to study each day? Each level has its own goal.",
+  "contentLearningGoal": "{level} · daily goal",
+  "@contentLearningGoal": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "contentLearningGoalCount": "{count, plural, =1{1 lesson} other{{count} lessons}}",
+  "@contentLearningGoalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningFree": "Free browse",
+  "contentLearningEditGoal": "Edit goal",
+  "contentLearningToday": "Today: {done} of {total, plural, =1{1 lesson} other{{total} lessons}}",
+  "@contentLearningToday": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningPackProgress": "{done} of {total, plural, =1{1 lesson} other{{total} lessons}} completed",
+  "@contentLearningPackProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningResume": "Resume",
+  "contentLearningStart": "Start lesson",
+  "contentLearningLearn": "Learn",
+  "contentLearningPractice": "Practise",
+  "contentLearningNext": "Continue",
+  "contentLearningPrevious": "Previous",
+  "contentLearningCheck": "Check",
+  "contentLearningFinish": "Finish lesson",
+  "contentLearningDone": "Lesson complete",
+  "contentLearningTodayDone": "Your daily goal is complete",
+  "contentLearningResult": "{correct} of {total} answers correct. The lesson counts regardless of your score.",
+  "@contentLearningResult": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningExit": "Back to topics",
+  "contentLearningEndToday": "Finish for today",
+  "contentLearningPracticePending": "Expressions studied · practice still to do",
+  "contentLearningListeningPending": "Listening complete · practice still to do",
+  "contentLearningNeedsReview": "Completed · review needed",
+  "contentLearningReviewMistakes": "Review mistakes",
+  "contentLearningReviewTopic": "Review what you studied in this topic",
+  "contentLearningNextTopicLesson": "Next lesson in this topic",
+  "contentLearningEnd": "You have completed every lesson in this topic. You can review what you studied at any time.",
+  "contentLearningEmpty": "No lessons are available for this level yet.",
+  "contentLearningError": "That did not work. Your last saved progress is safe. Please try again.",
+  "contentLearningRetry": "Try again",
+  "contentLearningAudio": "Listen",
+  "contentLearningAudioError": "The audio could not be played. Tap Listen to try again.",
+  "contentLearningTranslation": "Show translation",
+  "contentLearningUsage": "Usage and next response",
+  "contentLearningEvidence": "Source passage",
+  "contentLearningCorrect": "Correct",
+  "contentLearningIncorrect": "Check the explanation",
+  "contentLearningOrder": "Put the words in order. Tap a selected word to return it.",
+  "contentLearningPosition": "{current} of {total}",
+  "@contentLearningPosition": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningReviewEmpty": "There are no studied questions to review here yet.",
+  "contentLearningYou": "You",
+  "contentLearningNarrator": "Narrator",
+  "contentLearningReviewNext": "Next review",
+  "contentLearningReviewDone": "Review complete",
+  "contentLearningPlayAll": "Play from here",
+  "contentLearningPause": "Pause",
+  "contentLearningExpressions": "Key expressions",
+  "contentLearningRoleplay": "Optional: practise the conversation",
+  "contentLearningGrammar": "Optional: explore the grammar",
+  "contentLearningRoleplayHint": "Reply aloud to the previous line. You can reveal the original response afterwards.",
+  "contentLearningReveal": "Reveal response",
+  "contentLearningBackResult": "Back to the result",
+  "contentLearningReviewResult": "{correct} of {total} answers correct. Reviewing does not change your daily goal.",
+  "@contentLearningReviewResult": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningExpressionCount": "{count, plural, =1{1 expression} other{{count} expressions}}",
+  "@contentLearningExpressionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningScenarioCount": "{count, plural, =1{1 conversation} other{{count} conversations}}",
+  "@contentLearningScenarioCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningShortLesson": "Short lesson · {count, plural, =1{1 expression} other{{count} expressions}}",
+  "@contentLearningShortLesson": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningLearnAgain": "Learn again",
+  "contentLearningListenAgain": "Listen again"
 }

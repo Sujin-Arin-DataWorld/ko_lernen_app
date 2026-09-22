@@ -170,6 +170,18 @@ Monitoring 임계값 조건은 짧은 롤링 윈도우에 맞게 설계돼 있�
 
 ---
 
+## B3 계정 생성 관측
+
+`log_metrics.sh`는 `auth_anonymous_account_created`도 만든다. Auth 생성 트리거의
+로그만 집계하며 로그인·토큰 갱신·TTS 호출 횟수를 가입 수로 대신 쓰지 않는다.
+5분 `ALIGN_SUM`/전체 `REDUCE_SUM`으로 추이를 보고, 증가 시 02번 App Check와
+05번 쓰기 지표·최근 테스트 계정 생성 작업을 함께 확인한다. 자동 차단이나
+근거 없는 새 호출 한도는 추가하지 않는다.
+
+분류 기준, Admin 생성 계정 포함 여부, 이벤트 중복 가능성과 배포 후 확인은
+[Auth 생성 관측 계약](../../functions/gye/AUTH_CREATION_OBSERVATION.md)을 따른다.
+함수·메트릭 배포 및 실제 이벤트 증거가 없으면 관측이 작동한다고 기록하지 않는다.
+
 ## 적용과 수신 증거
 
 스크립트는 정책별 `created`, `unchanged`, `would_create`를 JSON 한 줄로

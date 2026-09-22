@@ -148,6 +148,7 @@ const db = getFirestore();
 const auth = getAuth();
 const messaging = getMessaging();
 setGlobalOptions({ region: "europe-west3" });
+exports.on_auth_account_created = require("./auth_creation_observer").onAuthAccountCreated;
 const deletionProofHmacKey = defineSecret("DELETION_PROOF_HMAC_KEY");
 const appleRevokeClientId = defineSecret("APPLE_REVOKE_CLIENT_ID");
 const appleRevokeTeamId = defineSecret("APPLE_REVOKE_TEAM_ID");

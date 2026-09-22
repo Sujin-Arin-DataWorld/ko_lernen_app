@@ -1,16 +1,16 @@
 # Graph Report - cp2026-ops-alert-readiness-20260922  (2026-09-22)
 
 ## Corpus Check
-- 3007 files · ~12,722,103 words
+- 3037 files · ~13,428,567 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 54271 nodes · 77516 edges · 1476 communities (1324 shown, 152 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 1136 edges (avg confidence: 0.86)
+- 54856 nodes · 78326 edges · 1507 communities (1352 shown, 155 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 1143 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `fa1dcacc`
+- Built from commit: `df8c08dd`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -21,31 +21,31 @@
 - Work items
 - _
 - StatelessWidget
-- package:shared_preferences/shared_preferences.dart
+- dart:async
 - study_library_screen.dart
 - grammar.dart
 - grammar_smalltalk_evidence_recovery_test.dart
 - SESSION_LOG_ARCHIVE — ko_lernen_app (Hangul Sori)
-- package:ko_lernen_app/l10n/generated/app_localizations.dart
-- responsive_screens.dart
+- package:ko_lernen_app/theme.dart
 - package:flutter/material.dart
+- package:ko_lernen_app/l10n/generated/app_localizations.dart
 - grammar_screen.dart
 - review_session_screen.dart
 - scenario_player_screen.dart
-- custom_pack_srs_recovery_test.dart
-- Object?
+- package:shared_preferences/shared_preferences.dart
+- crop_recovery_service.dart
 - _
+- dart:math
 - List
-- custom_pack_edit_screen.dart
 - onboarding_v2_accessibility_gate_test.dart
 - _
 - circular_feedback_widget_test.dart
 - profile_screen.dart
 - _
-- sarangbang_screen.dart
+- personal_room_furnish_screen.dart
 - _
-- course_reassessment_screen_test.dart
-- standalone_games_uiux_test.dart
+- dart:ui
+- responsive_screens.dart
 - _
 - gye_screen.dart
 - SESSION_LOG — ko_lernen_app (Hangul Sori)
@@ -72,19 +72,19 @@
 - account_switch_coordinator_test.dart
 - korean_proofreading_service.dart
 - test_relevel_bundle.py
-- course_mission_navigation.dart
+- vocab_pack_service.dart
 - course_segment_catalog.dart
 - _
 - gye/index.js
 - static const int
 - quest_engines_uiux_test.dart
 - course_mastery_service.dart
-- package:flutter/widgets.dart
+- diagnostics_route_observer.dart
 - _
 - kkeunmari_screen.dart
 - chosung_quiz_screen.dart
 - data_migration_service.dart
-- custom_pack_games_uiux_test.dart
+- course_reassessment_screen_test.dart
 - _
 - _
 - curriculum_catalog.dart
@@ -104,7 +104,7 @@
 - swipe_card.dart
 - word_web_ui_test.dart
 - account_operations_runtime.js
-- dancheong_burst.dart
+- CustomPainter
 - _
 - first_run_coordinator.dart
 - study_log_test.dart
@@ -112,19 +112,19 @@
 - TestBatch31VocabRows
 - character_clip.dart
 - settings_screen_test.dart
-- silben_kreuz_screen.dart
+- bool get
 - book_page.dart
-- quest_flow.dart
-- culture_notes_service.dart
+- onboarding_v2_stage.dart
+- vocab_packs_screen.dart
 - onboarding_v2_journey_screen.dart
 - pronunciation_studio_screen.dart
-- test_batch_25_draft.py
+- TestBatch25VocabRows
 - account_operation_client.dart
 - speed_match_screen.dart
 - generate_tts.py
 - audit_content_levels.py
 - main.py
-- character_selection_screen.dart
+- ../../services/storage_service.dart
 - account_deletion_receipt_recovery_test.dart
 - account_cleanup_test.dart
 - scan_grammar_level.py
@@ -135,7 +135,7 @@
 - TestBatch29VocabRows
 - _
 - _
-- account_hardening_test.dart
+- account_link_failure_visibility_test.dart
 - TestBatch27VocabRows
 - gye_dedication_runtime.js
 - intro_gate_screen.dart
@@ -144,7 +144,7 @@
 - Ledger
 - content_feed.dart
 - can_do_segment.dart
-- package:flutter/foundation.dart
+- scene_asset_resolver.dart
 - content_feedback_outbox_test.dart
 - curriculum.dart
 - heritage_journey_contract.dart
@@ -177,7 +177,7 @@
 - handle
 - TestBatch30VocabRows
 - curriculum_alignment_contract.dart
-- sori_stage_reward_receipt_sheet.dart
+- _State
 - spotlight_coach.dart
 - @immutable
 - ../../l10n/generated/app_localizations.dart
@@ -204,7 +204,7 @@
 - stroke_matcher.dart
 - cloze_distractor_rules.py
 - gemini_audit_canonical_scenarios.py
-- hanok_header.dart
+- hanok_migration_concurrency_test.dart
 - audit_curriculum_matrix.py
 - bookshelf_service.dart
 - PrivateTtsPlayerPlugin
@@ -218,7 +218,7 @@
 - account_operation_ui.dart
 - security.py
 - guide_presentation.dart
-- crop_recovery_service.dart
+- content_lesson_screen.dart
 - bookshelf_sync_outbox.dart
 - firestore_progress_service.dart
 - _
@@ -261,12 +261,12 @@
 - game_result_recovery.dart
 - learning_data_export_service.dart
 - Lernenweg × 일두고택 Implementation Plan
-- personal_room_furnish_screen.dart
+- Set
 - first_link_backfill_journal.dart
 - mission_recommender.dart
 - createFirestoreCloudBackupDeletionRepository
 - scenario_store.py
-- TestBatch34VocabRows
+- _load_json
 - confirmed_choice_action.dart
 - ADR-002: 소리를 카테고리별로 끄고 켠다 — AudioPolicy
 - phase_task_authoring.py
@@ -282,23 +282,23 @@
 - window_class.dart
 - hanok_tokens.dart
 - build
-- consent_screen.dart
+- splash_screen.dart
 - content_feedback_client.dart
 - 7. 전수표 (도구 생성)
-- tts_installation_id_test.dart
-- vocab_notebook_studio_screen.dart
+- tts_installation_id.dart
+- services/learning_focus.dart
 - integrate_review_batches.py
 - romanize_korean
 - test_audit_cloze_distractors.py
 - room_layout_service.dart
 - wordbook_add.dart
-- text_field.dart
+- Widget
 - onboarding_v2_character_media_contract_test.dart
-- ildu_world_state_service.dart
+- phase_task_catalog.dart
 - app_startup_coordinator.dart
 - android_release_evidence.py
 - build_backlog
-- durable_provider_link_test.dart
+- app_error.dart
 - 원어민 자연스러움 전수 재검사 — DE / KO / EN (2026-07-01)
 - SimpleNamespace
 - validate_directory
@@ -307,7 +307,7 @@
 - illustrated_card_grid.dart
 - dialog.dart
 - build_theme_park_date_tts_manifest.py
-- sori_net.dart
+- path_trail.dart
 - Batch 11 시나리오 36개 집필 계획
 - gye_dedication_service.dart
 - PackAssignmentPlanTest
@@ -320,14 +320,14 @@
 - W4 통합부터 W6 비영상 범위까지 완료 설계
 - detect_grammar
 - cloud_backup_deletion_runtime.test.js
-- bookshelf_custom_pack_uiux_test.dart
+- account_reconciliation_test.dart
 - _
-- static const
+- package:flutter/foundation.dart
 - package:flutter_test/flutter_test.dart
 - HistoryTraceTest
 - build_level_content_4x.py
 - docs/README.md
-- gye_dedication_runtime.test.js
+- dancheong_stamp.dart
 - Part 0 — round 2 (Fable review, KO changes)
 - study_library_screen_test.dart
 - audit_scenario_quests.py
@@ -341,7 +341,7 @@
 - Content UI Bible — Hangul Sori
 - smalltalk_screen.dart
 - sori_icon.dart
-- practice_hub_screen.dart
+- book_preview_screen.dart
 - package:image/image.dart
 - STEP 3: 앱 콘텐츠 설정 (필수 — 모두 완료해야 출시 가능)
 - ReleaseIntegrityTest
@@ -368,11 +368,11 @@
 - 기술 인계서 — Hangul Sori 앱 전면 개선 웨이브 (2026-08-27)
 - scripts
 - ildu_turntable_catalog.dart
-- app_loading_image_failure_test.dart
+- dancheong_burst.dart
 - particle_pop_quest.dart
 - _
 - data_loader.dart
-- study_frame.dart
+- standard_page.dart
 - privacy_preferences_platform.dart
 - audit_content_naturalness.py
 - test_ingest_nikl_grade_lists.py
@@ -387,10 +387,10 @@
 - 중문채·아래채·안채·안채곳간채: 입체 건축과 한국어 학습 설계안
 - phase_attempt_retention_test.dart
 - tts_request_guard.js
-- tts_private_playback.dart
+- motion.dart
 - hanok_experience_projector_test.dart
-- collapsing_header.dart
-- storage_cloud_backup_deletion_fence_test.dart
+- book_capture_screen.dart
+- content_learning_models.dart
 - pack_session_srs_ledger.dart
 - grounded_book_study_card.dart
 - classify_culture_word
@@ -406,9 +406,9 @@
 - BillableEndpointTest
 - createDeletionCleanupAdapters
 - picker_recovery_service.dart
-- File
+- chrome_stack_guard_test.dart
 - five_tabs_design_preview_test.dart
-- standard_page.dart
+- onboarding_story_practice.dart
 - apply_review.py
 - pronunciation_assessment_client.dart
 - build_stamp_contact_sheets.dart
@@ -425,16 +425,16 @@
 - SceneInventoryTest
 - SceneContractTest
 - ApplyAlertsTest
-- button.dart
-- ../../models/learner_level.dart
+- stroke_canvas.dart
+- storage_service.dart
 - tts_private_cache.dart
 - account_operation_client_test.dart
 - access_runtime.js
 - tester-application.ts
 - learning_semantic_contract.dart
-- ../models/scenario.dart
+- uebersetzen_quest.dart
 - productive_assessment_service_test.dart
-- onboarding_journey_repository.dart
+- onboarding_app_adapters.dart
 - build_pool.py
 - audit_vocab_levels.py
 - WordRelationPreservationTests
@@ -445,17 +445,17 @@
 - Hangul Sori — €5/월 구독 전략 + 4주 로드맵 (2026-05-29)
 - 참고 자료 재검토 및 게임 콘텐츠 공백 감사
 - apple_revocation_adapter.js
-- discover_screen.dart
+- practice_hub_screen.dart
 - cultural_glossary.dart
 - luecken_quest.dart
 - promote_ildu_anchae_turntable.py
 - audit_content_text.py
 - SceneContractTest
 - quest
-- TestBatch25VocabRows
+- onboarding_v3_demo_support.dart
 - c2d2_build_jin_packet.py
 - Batch17BuildTest
-- RelevelNormalizedLiveTest
+- RequireReviewedCopyRevisionBatchComposeTest
 - 출시 QA 체크리스트 — Hangul Sori
 - audit_loanword_spelling.py
 - scripts
@@ -481,7 +481,7 @@
 - UI 개편 작업지시서 v2 — Phase 3-2 → 4 (2026-08-14)
 - verify_deployed_source.py
 - FakeTransactionalFirestore
-- account_deletion_status_receipt_test.dart
+- celebration.dart
 - deck_coach.dart
 - Final fix wave (opus whole-branch review, `hardening-final-review.md`)
 - build_scene_art_manifest.py
@@ -495,11 +495,11 @@
 - FirestoreIdempotencyGate
 - prepare_korean_analysis_text
 - cloze_prompt.dart
-- TestBatch25Cloze
+- TestBatch34VocabRows
 - gye_tab_screen.dart
 - gye_dedication_action_test.dart
 - _
-- onboarding_games_demo.dart
+- quiz_choice.dart
 - ildu_anchor_placement_service.dart
 - access_snapshot_controller_test.dart
 - Task 7 report: App Check and typed server account operations
@@ -518,17 +518,17 @@
 - firestore.rules.test.js
 - hangul_composer.dart
 - onboarding_character_media_test.dart
-- app_shell.dart
-- scenario_write_after_roleplay_card_test.dart
+- normalizeOperation
+- scenario_writing_check_service_test.dart
 - review_session_queue.dart
 - Task 3 보고서 — `vocab_pack_screen` 다음 카드/문항 프리페치
 - check_home_hero_matte.py
-- static final
+- tts_request_rate_test.dart
 - Satz (24)
 - Smalltalk (24)
 - ScenarioCorpusPipelineTest
-- grammar_task
-- tester_feedback_runtime.test.js
+- card.dart
+- ambient_particles.dart
 - 결정
 - 함양 일두고택 실측 치수 조사 노트
 - 7.2 열 가지 갭 점검 (검토자 판정)
@@ -547,7 +547,7 @@
 - rr_romanize.py
 - TestBatch33Cloze
 - Handoff: 한옥 자산을 스킬로 다시 실측한 인수인계
-- learner_copy_scan_test.dart
+- smalltalk_loader.dart
 - 한옥·장식 에셋 전수 인벤토리 (2026-08-17)
 - 모듈 통합 그래프 — "Sori Brain" 설계
 - 한글소리 — 학습 콘텐츠 전수 진단 + 상용화 개선 계획
@@ -621,8 +621,8 @@
 - free_text
 - RelationshipGraphTest
 - Handoff: 살아 있는 한옥 — 실측으로 다시 고정한 인수인계 (2026-08-18 밤)
-- TestBatch27Cloze
-- push_ownership_transition_coordinator_test.dart
+- static const List
+- privacy_choice_feedback.dart
 - Analytics & Privacy Plan — Hangul Sori
 - 에셋 파일명 ↔ 트리거 1:1 매핑 (2026-07-31 갱신)
 - PART 1 -- Mechanical metrics
@@ -630,12 +630,12 @@
 - 역사적 배포 런북 — v2.0.4+10 내부 테스트 (2026-08-03, final Android build source `9d1a019`)
 - Android Closed Testing readiness checklist
 - Global Constraints
-- tts_installation_id.dart
+- content_learning_hub.dart
 - gye_dedication.dart
 - media_phrase.dart
 - pack_progress.dart
 - account_nudge.dart
-- _
+- content_learning_service.dart
 - Task 2 Report: Ordered cloud startup and privacy-safe crash/push lifecycle
 - Task 6 Report: Restore, English Book Analysis, and TTS Playback Rate
 - Task 8 Report: Managed Media Lifecycle and Picker Recovery
@@ -657,16 +657,16 @@
 - 2026-08-04 · 보자기 개봉 화면 + 진입점 + 게이트 2건
 - File Structure
 - billable_receipts.js
-- gye_entry_uiux_test.dart
+- test/profile_screen_test.dart
 - ildu_decoration_placement_service.dart
-- real_fonts.dart
+- gye_hanok.dart
 - C9SampleTest
 - game_layout.dart
-- _load_json
+- _
 - ui_chrome_ratchet_test.dart
 - Hangul Sori (한글소리) — Play Store Listing
 - T2.1 report — 스테이지 진입 대표 문장 자동재생 (지시서 4.5)
-- free_room_layer_test.dart
+- test_play_internal_status.cjs
 - dart_static_check.py
 - TestRealLexiconGoldenCases
 - SyntheticGateTest
@@ -701,7 +701,7 @@
 - apply_content_humanization.py
 - scripts
 - OrderedDict
-- test_batch_27_draft.py
+- ildu_world_state_service.dart
 - bookshelf_generation_outbox_retry_test.dart
 - audit_grammar_card_faces.py
 - sori_stage_progression_rules_test.dart
@@ -722,10 +722,10 @@
 - auth_cleanup/package.json
 - pronunciation/package.json
 - endpoint_singleflight.test.js
-- LearnerLevel
+- int get
 - data_integrity_test.dart
 - pronunciation_playback.dart
-- _load_vocab_rows
+- tts_bundled_manifest.dart
 - Task 6 report: server-owned deletion worker and restrictive rules
 - Task 3 Report: Android picker policy, signing safety, notification icon, and manifest privacy
 - W7 PR1 — Final Fix Wave Report
@@ -734,10 +734,10 @@
 - ios_store_contract_test.dart
 - study_home_escape_guard_test.dart
 - LearningPhaseProjectionTests
-- TestBatch27Satz
+- _
 - StyleLockLoaderTest
 - run
-- build_batch_34_a2_draft.py
+- TestBatch34TranslationSupportedChoices
 - build_kkeunmari_pool.py
 - Cloze (16)
 - Pronunciation (16)
@@ -766,14 +766,14 @@
 - cultural-glossary.tsx
 - chaekgado_shelf.dart
 - OnboardingCommitGateway
-- double get
+- content_learning_widgets.dart
 - SceneContractTest
-- gye_dedication_catalog.dart
-- ko_wrap.dart
+- gye_dedication_action.dart
+- account_failure_diagnostics.dart
 - Jin이 직접 해야 하는 일 (순서대로)
 - Kkeunmari 단어 풀 자동 확장 — 장기형 4-소스 파이프라인
 - R1 takeover report — data protection / migration failure boundary
-- cleanup_translation_cache.py
+- .error
 - cloze_dangling_stem_ratchet_test.dart
 - normalize_form_variants
 - build_vocab_pack_card_manifest.py
@@ -781,10 +781,10 @@
 - TestR7DerivedBasic2023MinSynthetic
 - CommittedAssetCheckTest
 - MigrationTransactionTest
-- packet
+- TestBatch30Cloze
 - dialogue
 - digital_contact_permission_responsibility
-- bridge.test.js
+- grammar_study_copy.dart
 - 회원·계정·개인정보 시스템 — 상용화 전수검사 & 듀오링고화 로드맵
 - 한글소리 콘텐츠 레벨 바이블
 - 정여창고택 시지각 공간분석 논문 정리
@@ -803,14 +803,14 @@
 - ci_scope.py
 - render_a2_contact_sheet.py
 - instagram.mjs
-- feed_physics_candidates.dart
+- scenario_write_after_roleplay_card_test.dart
 - test_audit_content_levels.py
 - release_integrity.py
 - R3 + R4 takeover report — 2026-09-03
 - cultural_term_surface_guard_test.dart
-- sheet.dart
+- _load_json
 - hanok_competence_fixture.dart
-- toast.dart
+- _Timer
 - check_committed_assets.py
 - learning_phase_contracts.py
 - promote_ildu_changgo_turntable.py
@@ -861,14 +861,14 @@
 - 2. 태스크 (§8 형식)
 - 개발팀이 반드시 지키게 해야 할 UI/UX 바이블
 - 한글소리를 위한 최종 추천안
-- hangul-sori-site-local/package.json
+- dependencies
 - LiveRatchetTest
 - smoke_test.py
 - runtime.test.js
 - Landing
 - beta_mission_catalog.dart
 - window_class_guard_test.dart
-- cta_vocabulary_guard_test.dart
+- managed_media_image.dart
 - screen_background.dart
 - required
 - prepare_firebase_hosting.cjs
@@ -884,10 +884,10 @@
 - build_batch_07_partner_family.py
 - build_hanok_grants.py
 - participantIds
-- test_batch_26_draft.py
+- _load_json
 - Handoff: SESSION_LOG 의무 폐지 · handoff 규칙
 - 2026-08-25 에러프리 감사 세션 인수인계
-- CP2026_CONTINUATION.md
+- 문법 선택지 8행·24개 의미 검토
 - CP-2026 전체 계획 인수 및 실행 큐
 - CEFR 커리큘럼 매트릭스 A1–C2 — 한국어 · 영어 · 독일어
 - C2d A1 Grammar Rewrite -- Jin 10% Sample
@@ -904,11 +904,11 @@
 - pronunciation_free_beta.test.js
 - PlayClosedWorkflowTest
 - privacy-consent-panel.tsx
-- page_header.dart
+- pressable.dart
 - Hangul Sori website
-- tts_request_rate_test.dart
-- PushAuthClient
-- PushMessagingClient
+- static const
+- satz_loader.dart
+- GeminiCanonicalAuditTest
 - ResolvedLemmaKeysTest
 - silent_catch_ratchet_test.dart
 - kp10
@@ -917,12 +917,12 @@
 - R2 Takeover Report — WebKit blank-screen fix + Playwright hardening
 - .load
 - gloss_resolver_fixtures.dart
-- PushTokenRepository
-- BookAnalysisFeedbackSource
+- level_filter_bar.dart
+- gate_art.dart
 - fix_dangling_stems.py
 - test_alert_policies.py
 - ocr_sejong_pages.py
-- ui_string_locale_guard_test.dart
+- _
 - cloud_sync.dart
 - partner_family_packs.py
 - build_satzbauen.py
@@ -953,7 +953,7 @@
 - W7 PR2 · 퀘스트 엔진 UI·오디오 (지시서 4.5 · 4.7 · 4.8/4.10 · 4.13 · 2.9 파생 · 1.24 파생)
 - Batch 12 설계 — C1/C2 유닛 확장 (extension 릴리스 트랙)
 - ai_policy.js
-- ArtifactContract
+- _card_style_baseline_text
 - ildu_world_projection_adapter.dart
 - korean_romanization.dart
 - rebalance_scenario_units.py
@@ -998,10 +998,10 @@
 - private_tts.test.js
 - PlayVersionCodeContractTest
 - privacy/page.tsx
-- curriculum_evidence_projector.dart
+- srs_commit_journal.dart
 - ThemeParkDateBuildTest
-- FakeFirestore
-- gye_lantern_progress.dart
+- score_pop.dart
+- author_listening_lessons.py
 - package.json
 - required
 - read_tester_feedback.cjs
@@ -1019,13 +1019,13 @@
 - TestR7CompoundPrefixNominaliserGoldenCases
 - PacksPremiumReviewTests
 - build_cloze.py
-- TestBatch25PromotedToLiveAssets
+- content_learning_state.dart
 - type
 - Batch12ReconciliationTest
 - GrammarQuizRepairContractTest
 - MoveShapeTest
 - ScenarioStoreTest
-- _State
+- vocab_notebook_studio_screen_test.dart
 - ReplacementBacklogTest
 - graphify reference: extra exports and benchmark
 - Grammar Card Faces Report (auto-generated)
@@ -1037,7 +1037,7 @@
 - C2 — 44행
 - B1
 - V2 콘텐츠 재검토 대기열 (relevel 아님)
-- FakeFirestore
+- placement_diagnostic.dart
 - 시나리오 씬 에셋 감사 리포트
 - Vocab Level Report (auto-generated)
 - 살아 있는 한옥 V1 출처·권리 원장
@@ -1059,27 +1059,27 @@
 - Duration
 - theme.dart
 - T2.5 — Silben SoriSpeech 이관 (지시서 2.9 파생)
-- jamo_speech_test.dart
+- grounded_book_study_card_test.dart
 - check_particle_mismatch
-- TopicMapper
+- author_smalltalk_lessons_20260922.py
 - sheet
 - refresh_can_do_vocab_fingerprints.py
 - stamp_normalize.py
-- package:ko_lernen_app/services/productive_assessment_service.dart
+- hanok_stage.dart
 - TestR7AuxiliaryConstructionGoldenCases
 - IntegrateReviewBatchesTest
 - build_batch_05_tts_manifest.py
 - build_batch_08_partner_family_scenarios.py
 - build_c1_batch04_scenarios.py
 - scroll_if_needed.dart
-- validate_batch_01
+- onboarding_story_catalog_projector_test.dart
 - NIKL 등급 사전 (`tools/content_factory/lexicon/`)
 - main
 - promote_batch25_a1_reinforcement.py
 - 단계별 역할
-- .error
+- record_smalltalk_review_approvals.py
 - Smalltalk (8)
-- FakeCollectionReference
+- hangul-sori-site-local/package.json
 - StudyLibraryBookshelfReader
 - StudyLibraryCustomPackReader
 - DistractorRepairUnitTest
@@ -1120,7 +1120,7 @@
 - UIUX_DUOLINGO_GAP_AND_PLAN.md
 - CircuitBreaker
 - apple_oauth_callback.test.js
-- test_audit_grammar_card_faces.py
+- scenario_character.dart
 - resource_limits.test.js
 - smoke_test.js
 - AppStoreScreenshotWorkflowContractTest
@@ -1128,9 +1128,9 @@
 - IosXcodeCloudWorkflowTest
 - StudyLibrarySrsReader
 - construction/app.js
-- languages
-- FakeSnapshot
-- VideoLeaseEligibilityBinding
+- _
+- build_batch_34_a2_draft.py
+- flip_card_advance_regression_test.dart
 - Task 9A report — cloud privacy and deletion reconciliation
 - R3/R4 release-integrity review -- commit 118b1933
 - Hardening dispatch 2 report — B (phase matrix) + C (remove `speaking` bools), plus dispatch-1 fix round
@@ -1142,7 +1142,7 @@
 - phase_objective_binding.dart
 - load_nouns
 - Onboarding companion media
-- kp27
+- LearnerLevel
 - RomanizationTests
 - TestR7AliasA1ExceptionsAndPriorityFix
 - TestGrammarIndexTableDriven
@@ -1192,18 +1192,21 @@
 - 🦁 F. 포효 (roar, 6장 — 선택, ambient 특별 모드)
 - 한글소리 ‘살아 있는 종갓집’ 한옥 월드 설계 백서
 - 최종 제품 청사진 — 이 게임을 “한옥 때문에 돌아오는 한국어 앱”으로 만드는 방법
-- kp28
+- TestBatch34A2GrammarScan
 - account-deletion/page.tsx
 - 한글소리 웹사이트 로컬 수정 안내
 - ux_preview_catalog.dart
 - quest_text.dart
 - 릴스 콘텐츠 뱅크 30편 (독일어 우선)
+- RelevelNormalizedLiveTest
 - W7 PR1 — Full Verification Report
 - Hardening dispatch 1 review — 445188b3..4f3227e4
 - example.spec.ts
 - clip_normalize.py
 - prepare_choose_videos.py
 - Alert policy metric sources
+- ai_voice_notice_host.dart
+- hangul_perturbation_test.dart
 - TestR3ConfidenceAndProperNouns
 - TestR7RieulAndBieupIrregularGoldenCases
 - TestR7NewEndingsGoldenCases
@@ -1214,6 +1217,7 @@
 - Scenario Persona Revision Review v2
 - Batch 06 — Complete Review Packet
 - properties
+- CP2026_CONTINUATION.md
 - Handoff: Batch 19 A1–C2 loader coverage
 - graphify reference: query, path, explain
 - Batch 01–20 라이브 승격 감사
@@ -1247,10 +1251,15 @@
 - CloudflareProductionWorkflowTest
 - WorkflowWiringTest
 - 인수인계 2026-08-27 반영 상태 · Play 릴리스 구조
+- SplitKiiqVocabEntryTests
 - Hangul Sori 개인정보 보호 출시 체크리스트
+- Batch03ReconciliationTest
 - build_promoted_copy_revision_ledger.py
 - phase_tasks_driver.dart
+- test_batch_26_draft.py
+- TestBatch26PromotedToLiveAssets
 - enum
+- Listening lesson catalog: content contract and QA
 - classify_romanization
 - _check
 - check_sfx.py
@@ -1297,6 +1306,7 @@
 - Release consolidation and iOS App Review submission
 - §7. 🦵 진짜 교대 보행 — 4다리 정확 메커니즘 (핵심)
 - 🪑 B. Idle / 앉기 (4장 — stand 또는 sit)
+- review_session_queue_test.dart
 - dependency_security.test.js
 - CircuitBreaker
 - CircuitBreaker
@@ -1304,6 +1314,7 @@
 - select_app_store_simulator_devices.py
 - Q: 놀이공원 scene 및 C1/C2 listening card 이미지 작업에서 확정한 자산 경로, 스타일 정본, 출력 형식은 무엇인가?
 - four-buildings-gallery.test.mjs
+- TestBatch30PromotedToLiveAssets
 - ad_service.dart
 - enum
 - required
@@ -1315,11 +1326,13 @@
 - decoration_normalize.py
 - gen_sfx.py
 - promote_four_buildings_construction.py
+- SmalltalkTranslationCopyHistoryTest
 - ClassifyLoanwordTests
 - TestR8ExactHeadwordFirstGoldenCases
 - TestR8CopulaNounPreferenceGoldenCases
 - TestR7WordGradeLemmaFallback
 - verify_staged_clips.py
+- Small Talk lesson catalog content QA
 - 정본 120개 자동 편집 감사
 - Environment State
 - Environment State
@@ -1339,6 +1352,7 @@
 - F3 -- 코스유닛 · 팩->유닛 맵 · 선반(shelf) 슬러그
 - Phase 문맥 용례 검수
 - Sejong Institute Textbook Inventory — Q-S Phase 1
+- Small Talk and Listening Topic Learning Implementation Plan
 - 0. 문제 진단
 - 1. 솔루션 컨셉
 - 8. 카테고리 7 — 출시 자료 (3 PNG)
@@ -1350,11 +1364,13 @@
 - 🔄 C. 방향 전환 (좌/우, profile로의 진입·복귀)
 - 화면별 개선 방향
 - 저장소와 HANDOFF를 전부 대조한 현재 상태
+- auth_creation_observer.test.js
 - preflight.sh
-- Dynamic TTS quotas
+- static final
 - capture_app_store_screenshots.sh
 - deployment-contract.test.mjs
 - const
+- build
 - Cache directory
 - SDD ledger — plan: docs/superpowers/plans/2026-09-01-handoff-verification-and-release.md
 - HARDENING DISPATCH 2 — B (phase transition matrix test) + C (remove zero-consumer `speaking` bools)
@@ -1368,7 +1384,7 @@
 - Batch 19 — Loader Coverage Review Packet
 - Batch 20 — Full-Surface A1-C2 Review Packet
 - Gemini 정본 120개 다국어·레벨 감사
-- ValidationReport
+- Batch05ReconciliationTest
 - _frame_key
 - CLAUDE.md → AGENTS.md
 - Immediate Next Steps
@@ -1403,6 +1419,8 @@
 - add_b1_expansion_packs.py
 - add_b2_expansion_packs.py
 - add_interest_scenarios.py
+- Batch18RoutingReconciliationTest
+- GrammarQuizReconciliationTest
 - build_smalltalk.py
 - canDoKo
 - counterpartGoal
@@ -1412,6 +1430,7 @@
 - playerGoal
 - portfolioBucket
 - titleKo
+- Path
 - turningPoint
 - writerRole
 - regressionThemes
@@ -1445,13 +1464,15 @@
 - phase_native_receipt.dart
 - FiveTabsPreview
 - verify_preview.py
+- check_e_daehae
 - check_session_worktree.sh
 - apply_alerts.sh script
 - add_levelmap_citations.py
 - session_worktree.sh
 - batch_18_review_packet.md
-- _auto_voice
-- _stable_content_link_id
+- main
+- BucketForShelfTest
+- reviewInteractions
 - bool?
 - DateTime
 - Exception
@@ -1460,47 +1481,57 @@
 - MethodChannel
 - Path
 - String?
+- auth_creation_observer.js
+- regen_cloze_distractors.py
+- @Deprecated
+- GyeFeedType
+- _SoriSwipeCardState
+- _stop_process_tree
+- TestBatch30DraftFilesExist
+- play-internal-publication.md
+- check_josa_dup
+- .test_target_is_at_least_three_tokens
 
 ## God Nodes (most connected - your core abstractions)
-1. `_` - 930 edges
+1. `_` - 935 edges
 2. `Work items` - 845 edges
 3. `SESSION_LOG_ARCHIVE — ko_lernen_app (Hangul Sori)` - 390 edges
 4. `_` - 298 edges
 5. `_` - 257 edges
 6. `_` - 221 edges
-7. `_` - 218 edges
-8. `_State` - 200 edges
+7. `_` - 220 edges
+8. `_State` - 207 edges
 9. `_` - 197 edges
 10. `SESSION_LOG — ko_lernen_app (Hangul Sori)` - 181 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `kp08()` --calls--> `post()`  [INFERRED]
   tools/content_factory/author_phase_a2_paths.py → functions/analyze_korean_text/smoke_test.py
-- `kp09()` --calls--> `post()`  [INFERRED]
-  tools/content_factory/author_phase_kp09.py → functions/analyze_korean_text/smoke_test.py
 - `transactional()` --indirect_call--> `run()`  [INFERRED]
   functions/analyze_korean_text/test_billable_singleflight.py → tool/test_cut_single_object.py
-- `_CountingRepository` --implements--> `OnboardingJourneyRepository`  [EXTRACTED]
-  test/onboarding_flow_test.dart → lib/features/onboarding_v2/onboarding_journey_repository.dart
+- `_Store` --implements--> `PreferenceStringStore`  [EXTRACTED]
+  test/content_learning_storage_test.dart → lib/services/storage_service.dart
 - `_CacheMutatingMarkerStore` --implements--> `PreferenceStringStore`  [EXTRACTED]
   test/crop_recovery_test.dart → lib/services/storage_service.dart
+- `_CacheMutatingStringStore` --implements--> `PreferenceStringStore`  [EXTRACTED]
+  test/media_serialization_test.dart → lib/services/storage_service.dart
 
 ## Import Cycles
 - None detected.
 
-## Communities (1476 total, 152 thin omitted)
+## Communities (1507 total, 155 thin omitted)
 
 ### Community 0 - "app_localizations.dart"
 Cohesion: 0.00
-Nodes (3062): app_localizations_de.dart, app_localizations_en.dart, accountAdditionalProviderConsent, accountAdditionalProviderTitle, accountAppleConfigurationBody, accountDeletionPendingBody, accountDeletionPendingTitle, accountFailureReasonAppCheck (+3054 more)
+Nodes (3124): app_localizations_de.dart, app_localizations_en.dart, accountAdditionalProviderConsent, accountAdditionalProviderTitle, accountAppleConfigurationBody, accountDeletionPendingBody, accountDeletionPendingTitle, accountFailureReasonAppCheck (+3116 more)
 
 ### Community 1 - "app_localizations_en.dart"
 Cohesion: 0.00
-Nodes (3051): accountAdditionalProviderConsent, accountAdditionalProviderTitle, accountAppleConfigurationBody, accountDeletionPendingBody, accountDeletionPendingTitle, accountFailureReasonAppCheck, accountFailureReasonAuth, accountFailureReasonOffline (+3043 more)
+Nodes (3114): app_localizations.dart, accountAdditionalProviderConsent, accountAdditionalProviderTitle, accountAppleConfigurationBody, accountDeletionPendingBody, accountDeletionPendingTitle, accountFailureReasonAppCheck, accountFailureReasonAuth (+3106 more)
 
 ### Community 2 - "app_localizations_de.dart"
 Cohesion: 0.00
-Nodes (3052): app_localizations.dart, accountAdditionalProviderConsent, accountAdditionalProviderTitle, accountAppleConfigurationBody, accountDeletionPendingBody, accountDeletionPendingTitle, accountFailureReasonAppCheck, accountFailureReasonAuth (+3044 more)
+Nodes (3113): accountAdditionalProviderConsent, accountAdditionalProviderTitle, accountAppleConfigurationBody, accountDeletionPendingBody, accountDeletionPendingTitle, accountFailureReasonAppCheck, accountFailureReasonAuth, accountFailureReasonOffline (+3105 more)
 
 ### Community 3 - "Work items"
 Cohesion: 0.00
@@ -1508,19 +1539,19 @@ Nodes (845): `A1|grammar_anchor|grammar_a1_action_location_particle|unassigned`,
 
 ### Community 4 - "_"
 Cohesion: 0.00
-Nodes (841): acknowledge, acknowledgedResult, _acknowledgement, _acknowledgementConfirmed, _acknowledgementGeneration, admissionClosed, admit, admitted (+833 more)
+Nodes (846): acknowledge, acknowledgedResult, _acknowledgement, _acknowledgementConfirmed, _acknowledgementGeneration, admissionClosed, admit, admitted (+838 more)
 
 ### Community 5 - "StatelessWidget"
 Cohesion: 0.00
-Nodes (595): Alignment, BorderRadius get, button.dart, card.dart, Color, CrossAxisAlignment, dancheong_stamp.dart, ../../data/pack_artwork_catalog.dart (+587 more)
+Nodes (526): activity_illustration.dart, Alignment, Border, button.dart, card.dart, character_clip.dart, Color, IconData (+518 more)
 
-### Community 6 - "package:shared_preferences/shared_preferences.dart"
+### Community 6 - "dart:async"
 Cohesion: 0.01
-Nodes (463): dart:async, LearningPhaseDetailScreen, ScenarioPlayerScreen, VocabPackRecallScreen, CloudSyncDocument, DataMigrationResult, DiagnosticsSink, FirebaseDiagnosticsSink (+455 more)
+Nodes (280): Completer, dart:async, CloudSyncDocument, raw, readLegacyPreferencesNativeSnapshot, StaleLocalDataLifetimeException, SoriNetTimeout, PackCompletionPendingException (+272 more)
 
 ### Community 7 - "study_library_screen.dart"
 Cohesion: 0.04
-Nodes (53): action, body, bookmarkHealth, _BookmarkHealthCard, bookmarkStore, color, createState, didChangeDependencies (+45 more)
+Nodes (51): action, body, bookmarkHealth, _BookmarkHealthCard, bookmarkStore, color, createState, didChangeDependencies (+43 more)
 
 ### Community 8 - "grammar.dart"
 Cohesion: 0.08
@@ -1528,94 +1559,93 @@ Nodes (25): exampleEn, exampleEnFocus, exampleFocusFor, exampleFor, exampleGerma
 
 ### Community 9 - "grammar_smalltalk_evidence_recovery_test.dart"
 Cohesion: 0.01
-Nodes (198): GrammarCheckpointRecorder? checkpointRecorder,
-  bool, AppL10n, AppL10nDe, AppL10nEn, of, GrammarPlanConflictException, GrammarPlanRecoveryValueException, build (+190 more)
+Nodes (214): GrammarCheckpointRecorder? checkpointRecorder,
+  bool, SoriChip, ConfirmedChoiceActionOwner, SoriContentFeed, package:flutter/semantics.dart, package:ko_lernen_app/data/feed_physics_candidates.dart, package:ko_lernen_app/models/smalltalk.dart, package:ko_lernen_app/screens/smalltalk_screen.dart (+206 more)
 
 ### Community 10 - "SESSION_LOG_ARCHIVE — ko_lernen_app (Hangul Sori)"
 Cohesion: 0.01
 Nodes (380): 2026-05-21 (2차) — 발견 이슈 수정 + 역동적 애니메이션, 2026-05-21 — 코드베이스 audit + 마스코트/퀘스트/홈 긴급 수정, 2026-05-22 — 출시 폴리시 Week 1–4 (plan: hangul-sori-temporal-wombat), 2026-05-25 — v1.0.0 출시 plan + Track A·C 완료 (plan: snappy-conjuring-lemur), 2026-05-27 (3차) — AAB 크기 최적화 (97MB → 예상 ~55MB), 2026-05-27 — Play Console 타겟 연령 결정 + iOS AdMob 잔재 정리, 2026-05-27 — Track D 콘텐츠 완료 (시나리오 13→21), 2026-05-27 — 출시 직전 더블 크로스체크 + Play Console 일관성 픽스 (+372 more)
 
-### Community 11 - "package:ko_lernen_app/l10n/generated/app_localizations.dart"
+### Community 11 - "package:ko_lernen_app/theme.dart"
 Cohesion: 0.01
-Nodes (379): CoursePracticeContext? courseContext,
-  bool, DecoratedBox, DropdownButtonFormField, Finder get, helpers/deck_actions.dart, Vocab, DefaultVocabPackFinishOperations, VocabPackFinishOperations (+371 more)
+Nodes (279): DecoratedBox, DropdownButtonFormField, Finder get, helpers/deck_actions.dart, Vocab, DefaultVocabPackFinishOperations, VocabPackFinishOperations, FlipCard (+271 more)
 
-### Community 12 - "responsive_screens.dart"
-Cohesion: 0.02
-Nodes (134): CalendarDatePicker, CheckboxListTile, IconButton, binding, canRecordOnboardingStarted, fullV2Coordinator, launch, main (+126 more)
-
-### Community 13 - "package:flutter/material.dart"
+### Community 12 - "package:flutter/material.dart"
 Cohesion: 0.01
-Nodes (325): ArgumentError, ChoiceChip, InkWell, SoriStageNetworkBeforeFields, SoriStageProgressionSnapshot, SoriStageTab, LearningFocus, TtsSynthesisBlocked (+317 more)
+Nodes (170): CalendarDatePicker, CheckboxListTile, IconButton, binding, canRecordOnboardingStarted, fullV2Coordinator, launch, main (+162 more)
+
+### Community 13 - "package:ko_lernen_app/l10n/generated/app_localizations.dart"
+Cohesion: 0.01
+Nodes (224): ArgumentError, ChoiceChip, InkWell, SarangchaeConstruction, SoriStageNetworkBeforeFields, SoriStageProgressionSnapshot, LearningFocus, SoriCatalogCard (+216 more)
 
 ### Community 14 - "grammar_screen.dart"
 Cohesion: 0.01
-Nodes (147): grammar_choice_quiz_screen.dart, Grammar? get, GrammarStudyPlan? get, _abandonTracker, _activePlan, _all, answerId, _applyFilters (+139 more)
+Nodes (149): grammar_choice_quiz_screen.dart, Grammar? get, GrammarStudyPlan? get, _abandonTracker, _activePlan, _all, answerId, _applyFilters (+141 more)
 
 ### Community 15 - "review_session_screen.dart"
 Cohesion: 0.01
-Nodes (322): class _CustomPackPlayScreenState extends State, class _LegacyVocabScreenState extends State, GrammarHit, _addExpressions, _addGrammar, _addSentences, _addWords, createProductionStudyLibraryRepository (+314 more)
+Nodes (222): class _CustomPackPlayScreenState extends State, class _LegacyVocabScreenState extends State, _advance, _Back, build, buildCoachSteps, _buildDone, _canUseCard (+214 more)
 
 ### Community 16 - "scenario_player_screen.dart"
 Cohesion: 0.01
-Nodes (255): class _ScenarioPlayerScreenState extends State, Future, ScenarioCanDoResult, firstTry, passed, QuestResult, _abandonTracker, _absorbQuestOverflowIntoPoster (+247 more)
+Nodes (243): class _ScenarioPlayerScreenState extends State, ScenarioCanDoResult, firstTry, passed, QuestResult, _abandonTracker, _absorbQuestOverflowIntoPoster, accept (+235 more)
 
-### Community 17 - "custom_pack_srs_recovery_test.dart"
+### Community 17 - "package:shared_preferences/shared_preferences.dart"
 Cohesion: 0.01
-Nodes (207): GameOverCard, package:ko_lernen_app/features/study_library/study_library.dart, package:ko_lernen_app/models/book_page.dart, package:ko_lernen_app/models/custom_pack.dart, package:ko_lernen_app/screens/custom_pack_matching_screen.dart, package:ko_lernen_app/screens/custom_pack_quiz_screen.dart, package:ko_lernen_app/screens/custom_pack_typing_screen.dart, package:ko_lernen_app/screens/study_library_screen.dart (+199 more)
+Nodes (306): AnimatedContainer, BoxDecoration, Container, IlDuWorldStateGenerationConflict, package:ko_lernen_app/data/milestone.dart, package:ko_lernen_app/features/content_learning/content_learning_service.dart, package:ko_lernen_app/features/content_learning/content_learning_state.dart, package:ko_lernen_app/features/study_library/study_library.dart (+298 more)
 
-### Community 18 - "Object?"
+### Community 18 - "crop_recovery_service.dart"
 Cohesion: 0.04
-Nodes (42): kQuestById, kQuestCatalog, _seasonChildrensDay, _seasonChuseok, _seasonHangeulDay, _seasonSeollal, all, arguments (+34 more)
+Nodes (52): ImageCropper, acceptBookCrop, BookCropAcceptance, BookCropSession, _cropMarker, _cropper, CropRecoveryGateway, CropRecoveryService (+44 more)
 
 ### Community 19 - "_"
 Cohesion: 0.01
 Nodes (245): account/account_deletion_status_receipt.dart, account/account_failure_reason.dart, account/account_operation_client.dart, account/account_reconciliation.dart, account/account_switch_coordinator.dart, account/account_transition_coordinator.dart, account/apple_oauth_request.dart, account/cloud_backup_deletion.dart (+237 more)
 
-### Community 20 - "List"
+### Community 20 - "dart:math"
 Cohesion: 0.01
-Nodes (495): bool get, celebration.dart, class _CustomPackMatchingScreenState extends State, class _CustomPackQuizScreenState extends State, class _CustomPackTypingScreenState extends State, class _DailyChallengeScreenState extends State, class _HardChoiceQuizScreenState extends State, content_feedback_card.dart (+487 more)
+Nodes (210): book_page.dart, celebration.dart, class _CustomPackMatchingScreenState extends State, class _CustomPackTypingScreenState extends State, class _HardChoiceQuizScreenState extends State, content_feedback_card.dart, dart:math, ../../data/milestone.dart (+202 more)
 
-### Community 21 - "custom_pack_edit_screen.dart"
-Cohesion: 0.02
-Nodes (92): book_page.dart, copyWith, createdAtIso, CustomPack, displayName, fromBookPage, fromJson, fromPortableJson (+84 more)
+### Community 21 - "List"
+Cohesion: 0.01
+Nodes (346): chosung_quiz_screen.dart, class _CustomPackQuizScreenState extends State, cloze_game_screen.dart, custom_pack_matching_screen.dart, custom_pack_play_screen.dart, custom_pack_quiz_screen.dart, custom_pack_typing_screen.dart, CustomPack get (+338 more)
 
 ### Community 22 - "onboarding_v2_accessibility_gate_test.dart"
 Cohesion: 0.01
-Nodes (162): AnimatedSwitcher, ClipPath, _CompanionHarnessState, OnboardingCharacterMedia, JourneyReading, DemoChoice, LocaleStringAttribute, package:ko_lernen_app/features/guide/guide_hub_screen.dart (+154 more)
+Nodes (181): AnimatedSwitcher, CachingAssetBundle, ClipPath, _CompanionHarnessState, OnboardingCharacterMedia, LocaleStringAttribute, package:ko_lernen_app/features/guide/guide_hub_screen.dart, package:ko_lernen_app/features/guide/guide_presentation.dart (+173 more)
 
 ### Community 23 - "_"
 Cohesion: 0.01
-Nodes (229): @Deprecated, _, acceptedVariants, accuracy, action, assessmentAttemptId, assessmentCatalog, assessmentItemId (+221 more)
+Nodes (226): _, acceptedVariants, accuracy, action, assessmentAttemptId, assessmentCatalog, assessmentItemId, assessmentItemIds (+218 more)
 
 ### Community 24 - "circular_feedback_widget_test.dart"
 Cohesion: 0.02
-Nodes (124): CustomPaint, Finder, SoriStandardPage, StrokeCanvas, math.Random, package:ko_lernen_app/data/hangul_data.dart, package:ko_lernen_app/data/hangul_strokes.dart, package:ko_lernen_app/screens/daily_char_sheet.dart (+116 more)
+Nodes (120): CustomPaint, Finder, SoriStandardPage, StrokeCanvas, math.Random, package:ko_lernen_app/data/hangul_data.dart, package:ko_lernen_app/data/hangul_strokes.dart, package:ko_lernen_app/screens/daily_char_sheet.dart (+112 more)
 
 ### Community 25 - "profile_screen.dart"
-Cohesion: 0.01
-Nodes (142): AccountUiOperations get, Color get, ../../data/learner_motivation.dart, LearnerMotivation get, LearnerMotivation? motivation,
-  MascotKind, accent, homeTigerBubble, icon (+134 more)
+Cohesion: 0.02
+Nodes (105): AccountUiOperations get, Color get, ../../data/learner_motivation.dart, LearnerMotivation get, LearnerMotivation? motivation,
+  MascotKind, accent, homeTigerBubble, icon (+97 more)
 
 ### Community 26 - "_"
 Cohesion: 0.06
-Nodes (33): _, _cleanKoreanHead, _cleanMeaning, _emptyParens, _hangul, hangulLineCount, _isKoreanHeadwordLine, _isMostlyKorean (+25 more)
+Nodes (34): _, _cleanKoreanHead, _cleanMeaning, _emptyParens, _hangul, hangulLineCount, _isKoreanHeadwordLine, _isMostlyKorean (+26 more)
 
-### Community 27 - "sarangbang_screen.dart"
-Cohesion: 0.02
-Nodes (137): main, _archiveCompleteCollection, _body, BojagiScreen, _BojagiScreenState, build, _CandidateCard, candidates (+129 more)
+### Community 27 - "personal_room_furnish_screen.dart"
+Cohesion: 0.01
+Nodes (189): ../../features/content_learning/content_learning_widgets.dart, assetFor, _assetRoot, dedicatedPackIds, hasDedicatedArtwork, PackArtworkCatalog, _archiveCompleteCollection, _body (+181 more)
 
 ### Community 28 - "_"
 Cohesion: 0.01
 Nodes (197): @visibleForTesting, finishPostMigrationStartup, launchKoLernenApp, runPostMigrationStudyLogMaintenance, runStartupMigrationBeforeCloudServices, configureForTesting, firstLearningActionForLessonType, resetConsentedFirstLearningActionForTesting (+189 more)
 
-### Community 29 - "course_reassessment_screen_test.dart"
+### Community 29 - "dart:ui"
 Cohesion: 0.01
-Nodes (168): Align, AnimatedOpacity, Border, BoxDecoration, ColoredBox, Container, EdgeInsets, FractionallySizedBox (+160 more)
+Nodes (286): Align, ColoredBox, dart:ui, EdgeInsets, FileImage, DisplaySizedFileImage, fit, hashCode (+278 more)
 
-### Community 30 - "standalone_games_uiux_test.dart"
-Cohesion: 0.02
-Nodes (111): ByteData, package:ko_lernen_app/models/silben_puzzle.dart, package:ko_lernen_app/screens/chosung_quiz_screen.dart, package:ko_lernen_app/screens/silben_kreuz_screen.dart, package:ko_lernen_app/screens/speed_match_screen.dart, package:ko_lernen_app/services/hangul_util.dart, package:ko_lernen_app/services/kkeunmari_engine.dart, package:ko_lernen_app/services/learner_level_selection.dart (+103 more)
+### Community 30 - "responsive_screens.dart"
+Cohesion: 0.01
+Nodes (220): ByteData, SilbenCrossingWedges, SoriIllustratedCard, SoriSpeechIndicator, package:ko_lernen_app/data/quest_catalog.dart, package:ko_lernen_app/models/silben_puzzle.dart, package:ko_lernen_app/screens/app_shell.dart, package:ko_lernen_app/screens/character_selection_screen.dart (+212 more)
 
 ### Community 31 - "_"
 Cohesion: 0.01
@@ -1623,7 +1653,7 @@ Nodes (184): FontWeight, _, accent, accentSoft, _base, bg, body, bodySmall (+176
 
 ### Community 32 - "gye_screen.dart"
 Cohesion: 0.01
-Nodes (156): ../../data/dure_title.dart, ../l10n/gye_error_text.dart, DureTitle, dureTitleFor, joined, maxContrib, gyeErrorMessage, GyeReportReason (+148 more)
+Nodes (178): app_review_demo_screen.dart, ../../data/dure_title.dart, ../l10n/gye_error_text.dart, DureTitle, dureTitleFor, joined, maxContrib, gyeErrorMessage (+170 more)
 
 ### Community 33 - "SESSION_LOG — ko_lernen_app (Hangul Sori)"
 Cohesion: 0.01
@@ -1631,23 +1661,23 @@ Nodes (181): 2026-08-17 (Claude) — Batch 11 시나리오 36편 review-only 초
 
 ### Community 34 - "sori_stage_today_screen.dart"
 Cohesion: 0.01
-Nodes (242): ../bojagi_screen.dart, ../../features/guide/today_guide_section.dart, gye_tab_screen.dart, SoriLearnSection, build, buildHanokPreviewRoute, _constructionFuture, createState (+234 more)
+Nodes (277): ../bojagi_screen.dart, ../../data/sori_activity_catalog.dart, ../../features/guide/today_guide_section.dart, Future, gye_tab_screen.dart, IlDuConstructionArtCatalog, IlDuConstructionArtReveal, IlDuConstructionArtStage (+269 more)
 
 ### Community 35 - "cloud_write_session.dart"
-Cohesion: 0.03
-Nodes (59): account_transition_journal.dart, cloud_write_session.dart, CloudWriteSession? get, CloudRestoreComponentResult, CloudRestoreResult, hasRemoteData, status, acquire (+51 more)
+Cohesion: 0.07
+Nodes (29): CloudWriteSession? get, acquire, assertCurrent, _changes, clear, CloudWriteFence, CloudWriteMode, CloudWriteSessionSynchronizer (+21 more)
 
 ### Community 36 - "content_feedback_lifecycle_test.dart"
 Cohesion: 0.02
-Nodes (121): AccountDeletionCleanupAdapter, AccountDeletionCleanupOperations, AccountDeletionJournal, ContentFeedbackCallableClient, ContentFeedbackClient, FeedbackOutboxStore, SecureFeedbackOutboxStore, ContentFeedbackResumeResult (+113 more)
+Nodes (119): AccountDeletionCleanupAdapter, AccountDeletionCleanupOperations, AccountDeletionFailure, AccountDeletionJournal, ContentFeedbackCallableClient, ContentFeedbackClient, FeedbackOutboxStore, SecureFeedbackOutboxStore (+111 more)
 
 ### Community 37 - "pronunciation_studio_screen_test.dart"
 Cohesion: 0.01
-Nodes (291): AudioRecorder, Completer, dart:typed_data, EditableText, IgnorePointer, int sampleRate,, _NativeRecorderDiagnostics, add (+283 more)
+Nodes (286): AudioRecorder, dart:typed_data, EditableText, IgnorePointer, int sampleRate,, _NativeRecorderDiagnostics, add, _carry (+278 more)
 
 ### Community 38 - "cloze_game_screen.dart"
-Cohesion: 0.02
-Nodes (106): class _ClozeGameScreenState extends State, class _SatzArcadeScreenState extends State, curriculum.dart, ../data/cloze_topic_groups.dart, generated/app_localizations.dart, ../l10n/cloze_topic_group_localizations.dart, ClozeTopicGroupId, ClozeTopicGroupLocalizations (+98 more)
+Cohesion: 0.01
+Nodes (143): class _ClozeGameScreenState extends State, class _DailyChallengeScreenState extends State, class _SatzArcadeScreenState extends State, cultural_help.dart, ../l10n/cloze_topic_group_localizations.dart, actions, body, build (+135 more)
 
 ### Community 39 - "_"
 Cohesion: 0.01
@@ -1662,28 +1692,28 @@ Cohesion: 0.09
 Nodes (21): blocklist, _Candidate, candidates, _choGroups, _choNeighbors, count, _jongGroups, _jongNeighbors (+13 more)
 
 ### Community 42 - "vocab_pack_screen.dart"
-Cohesion: 0.01
-Nodes (213): empty_state.dart, CourseMissionBrief, CourseMissionBriefStep, CourseMissionStep, build, _buildBriefFrame, _catalog, CourseMissionScreen (+205 more)
+Cohesion: 0.02
+Nodes (118): _abandonTracker, _advanceLearn, _advanceQuiz, _advanceTimer, advanceTimerFactory, _assessmentOrderRng, _assessmentOrdersPrepared, _bossCorrect (+110 more)
 
 ### Community 43 - "relevel_bundle.py"
 Cohesion: 0.04
 Nodes (134): _add_string_to_py_tuple(), _append_json_array_entry(), append_pack_progress_aliases(), append_report_section(), _atomic_write_bytes(), _balanced_object_spans(), _bucket_for_shelf(), _bump_order_entries() (+126 more)
 
 ### Community 44 - "personal_room_furnish_screen_test.dart"
-Cohesion: 0.02
-Nodes (93): Icon, CulturalGlossary, RoomLayoutMutation, PersonalRoomScene, package:ko_lernen_app/data/sticker_catalog.dart, package:ko_lernen_app/l10n/generated/app_localizations_de.dart, package:ko_lernen_app/l10n/generated/app_localizations_en.dart, package:ko_lernen_app/l10n/sticker_localizations.dart (+85 more)
+Cohesion: 0.03
+Nodes (80): CulturalGlossary, package:ko_lernen_app/data/learner_motivation.dart, package:ko_lernen_app/data/personal_room_catalog.dart, package:ko_lernen_app/data/sticker_catalog.dart, package:ko_lernen_app/l10n/generated/app_localizations_de.dart, package:ko_lernen_app/l10n/generated/app_localizations_en.dart, package:ko_lernen_app/l10n/sticker_localizations.dart, package:ko_lernen_app/models/cultural_glossary.dart (+72 more)
 
 ### Community 45 - "ildu_world_screen.dart"
 Cohesion: 0.01
 Nodes (136): _addDecoration, anchor, _anchorDirections, _anchorGestureActive, _anchorGestureMapTransform, _AnchorGestureSession, anchorId, _anchorPlacements (+128 more)
 
 ### Community 46 - "vocab_pack_finish_coordinator.dart"
-Cohesion: 0.02
-Nodes (89): course_activity_reporter.dart, course_mastery_service.dart, course_progress_service.dart, curriculum_catalog.dart, Expando, _, _backupCourseEvidence, clamp (+81 more)
+Cohesion: 0.03
+Nodes (59): bool configured, initialized,, course_activity_reporter.dart, Expando, anonymous, authenticationInitialized, blockingKeys, confirm, _identity (+51 more)
 
 ### Community 47 - "hangul_screen.dart"
 Cohesion: 0.01
-Nodes (185): ../data/hangul_data.dart, ../data/hangul_strokes.dart, HangulChar get, FeedbackCompletionSlot, _acceptedStrokes, _acceptStroke, _beginTracing, build (+177 more)
+Nodes (170): bookshelf_screen.dart, ../data/hangul_data.dart, HangulChar get, hard_words_screen.dart, _acceptedStrokes, _acceptStroke, _beginTracing, build (+162 more)
 
 ### Community 48 - "first_link_backfill.dart"
 Cohesion: 0.07
@@ -1695,13 +1725,13 @@ Nodes (45): double? maxWidth,
   EdgeInsets, alignment, base, baseStyle, budget, build, child, clamp (+37 more)
 
 ### Community 50 - "bookshelf_screen.dart"
-Cohesion: 0.03
-Nodes (82): _addPhoto, _bodyKey, BookshelfBody, _BookshelfBodyState, BookshelfScreen, _BookshelfScreenState, build, buildCoachSteps (+74 more)
+Cohesion: 0.02
+Nodes (129): _addPhoto, _bodyKey, BookshelfScreen, _BookshelfScreenState, build, buildCoachSteps, coachId, _code (+121 more)
 
 ### Community 51 - "course_mastery_test.dart"
 Cohesion: 0.01
-Nodes (388): CoursePracticeContext? courseContext,
-  Scenario, FormatException, LocalReconciliationGenerationConflict, CourseMasteryService, CourseUpdate, CurriculumCatalog, SoriStandardFrame, package:ko_lernen_app/features/onboarding_v2/onboarding_app_adapters.dart (+380 more)
+Nodes (298): CoursePracticeContext? courseContext,
+  Scenario, LocalReconciliationGenerationConflict, CourseMasteryService, CourseUpdate, CurriculumCatalog, CoursePick, ClozePromptCard, package:ko_lernen_app/features/onboarding_v2/onboarding_app_adapters.dart (+290 more)
 
 ### Community 52 - "_"
 Cohesion: 0.02
@@ -1709,7 +1739,7 @@ Nodes (120): cloud_read_result.dart, _, _accountCourseConflictKind, AccountLocal
 
 ### Community 53 - "main.dart"
 Cohesion: 0.02
-Nodes (119): config/ux_preview_feature.dart, features/guide/guide_runtime.dart, child, _contentFeedbackActivationBlocked, _contentFeedbackDeletionActive, _contentFeedbackLifecycle, ContentFeedbackLifecycleObserver, _ContentFeedbackLifecycleObserverState (+111 more)
+Nodes (119): config/ux_preview_feature.dart, features/content_learning/content_learning_hub.dart, features/guide/guide_runtime.dart, child, _contentFeedbackActivationBlocked, _contentFeedbackDeletionActive, _contentFeedbackLifecycle, ContentFeedbackLifecycleObserver (+111 more)
 
 ### Community 54 - "account_switch_coordinator_test.dart"
 Cohesion: 0.04
@@ -1720,12 +1750,12 @@ Cohesion: 0.02
 Nodes (117): anchors, _availabilityFromPlatformException, _availabilityFromWire, candidateInitial, candidateKey, candidateNumbers, candidateOffset, candidateRemainder (+109 more)
 
 ### Community 56 - "test_relevel_bundle.py"
-Cohesion: 0.04
-Nodes (39): GrammarMissingReviewTransactionTest, Releveling must not invent an unreviewed grammar answer set., ApplyTest, BucketForShelfTest, by_bundle_report(), CanDoClusterIdTest, _card_style_baseline_text(), _card_style_test_move() (+31 more)
+Cohesion: 0.05
+Nodes (31): GrammarMissingReviewTransactionTest, Releveling must not invent an unreviewed grammar answer set., ApplyTest, by_bundle_report(), CanDoClusterIdTest, DryRunTest, _grammar_move_dict(), GrammarApplyTest (+23 more)
 
-### Community 57 - "course_mission_navigation.dart"
-Cohesion: 0.03
-Nodes (60): bossWords, fallbackLabel, id, learnWords, level, normalWords, total, VocabPack (+52 more)
+### Community 57 - "vocab_pack_service.dart"
+Cohesion: 0.04
+Nodes (46): bookshelf_service.dart, custom_pack_service.dart, data_loader.dart, decoration_reward_service.dart, gye_member_quest_service.dart, _buildProgress, _calligraphyDaysInWindow, computeAll (+38 more)
 
 ### Community 58 - "course_segment_catalog.dart"
 Cohesion: 0.02
@@ -1738,26 +1768,25 @@ Nodes (112): account_failure_reason.dart, InMemorySharedPreferencesStore, _, _au
 ### Community 60 - "gye/index.js"
 Cohesion: 0.03
 Nodes (111): createGapicCollectionIdPager(), createRealAdapters(), {
-
   ACCESS_CALLABLE_OPTIONS, AccessFailure, createAccessRuntime,
-
 }, accessEnvironment, accessHandlers, accountDeletionWorkerRuntime, accountOperationHandlers, accountOperationRepository (+103 more)
 
 ### Community 61 - "static const int"
-Cohesion: 0.03
-Nodes (74): _compileTimeEnabled, _enabledOverride, isEnabled, UxPreviewFeatureGate, AccountDiagnosticsSink, AccountFailureDiagnostics, AccountFailureRecord, code (+66 more)
+Cohesion: 0.04
+Nodes (51): AgeGateService, conservativeYearDifference, isPlausibleYear, isSelfAttestedOnly, minGyeAge, needsBirthYear, saveBirthYear, configureForTesting (+43 more)
 
 ### Community 62 - "quest_engines_uiux_test.dart"
 Cohesion: 0.01
-Nodes (212): HanokHeader, ListeningPlayScreen, DancheongStamp, SoriIllustratedCard, Material, package:ko_lernen_app/controllers/listening_playback_controller.dart, package:ko_lernen_app/models/scenario.dart, package:ko_lernen_app/screens/dojangcheop_screen.dart (+204 more)
+Nodes (241): HanokHeader, Key? playerKey,
+  Size, ScenarioCompletionSummary, Material, package:ko_lernen_app/controllers/listening_playback_controller.dart, package:ko_lernen_app/features/guide/guide_scenario_category_stock.dart, package:ko_lernen_app/models/grammar.dart, package:ko_lernen_app/models/grammar_study_copy.dart (+233 more)
 
 ### Community 63 - "course_mastery_service.dart"
 Cohesion: 0.02
 Nodes (105): CourseMasterySnapshot get, CourseUnit? get, acceptedEvidence, _accuracy, _advanceIfPassed, applyReconciledSnapshot, _boundedCheckpoints, _boundedCheckpointsFor (+97 more)
 
-### Community 64 - "package:flutter/widgets.dart"
-Cohesion: 0.10
-Nodes (18): AnalyticsRouteObserver, LearningJourneyObserver, DiagnosticsRouteObserver, didPop, didPush, didReplace, _nameOf, _record (+10 more)
+### Community 64 - "diagnostics_route_observer.dart"
+Cohesion: 0.17
+Nodes (11): AnalyticsRouteObserver, LearningJourneyObserver, DiagnosticsRouteObserver, didPop, didPush, didReplace, _nameOf, _record (+3 more)
 
 ### Community 65 - "_"
 Cohesion: 0.02
@@ -1769,25 +1798,24 @@ Nodes (105): commonResidential,
   livedIn,, _, a1ConstructionStep, active, activeLoadout, actorId (+97 more)
 
 ### Community 66 - "kkeunmari_screen.dart"
-Cohesion: 0.02
-Nodes (101): class _KkeunmariScreenState extends State, cultural_help.dart, canRecordOnboardingCompleted, canRecordOnboardingStarted, coordinator, createCoordinator, FirstRunRuntime, recordCompanionPreviewFailure (+93 more)
+Cohesion: 0.03
+Nodes (79): class _KkeunmariScreenState extends State, _abandonTracker, _acceptsInput, _acceptUserWord, _armPendingTurnAction, build, buildCoachSteps, _cancelPendingTurnAction (+71 more)
 
 ### Community 67 - "chosung_quiz_screen.dart"
 Cohesion: 0.02
-Nodes (86): class _ChosungQuizScreenState extends State, _abandonTracker, _acceptsInput, _appendJamo, _backspaceJamo, build, buildCoachSteps, _captureDurationMs (+78 more)
+Nodes (115): class _ChosungQuizScreenState extends State, _abandonTracker, _acceptsInput, _appendJamo, _backspaceJamo, build, buildCoachSteps, _captureDurationMs (+107 more)
 
 ### Community 68 - "data_migration_service.dart"
-Cohesion: 0.02
-Nodes (100): ildu_world_state_service.dart, legacy_preferences_native_snapshot.dart, backend, _backupKey, backupPreferenceKey, capture, _checked, _cleanup (+92 more)
+Cohesion: 0.03
+Nodes (79): backend, _backupKey, backupPreferenceKey, capture, _checked, _cleanup, cleanupPending, code (+71 more)
 
-### Community 69 - "custom_pack_games_uiux_test.dart"
+### Community 69 - "course_reassessment_screen_test.dart"
 Cohesion: 0.02
-Nodes (77): package:ko_lernen_app/models/discover_catalog.dart, package:ko_lernen_app/screens/discover_screen.dart, package:ko_lernen_app/widgets/sori/deck_coach.dart, package:ko_lernen_app/widgets/sori/spotlight_coach.dart, package:ko_lernen_app/widgets/sori/text_field.dart, RenderBox, required Rect target,
-  int, answered (+69 more)
+Nodes (111): CanonicalCourseSegmentBundle, package:flutter/rendering.dart, package:ko_lernen_app/features/content_learning/content_learning_catalog.dart, package:ko_lernen_app/features/content_learning/content_learning_hub.dart, package:ko_lernen_app/features/content_learning/content_learning_models.dart, package:ko_lernen_app/features/content_learning/content_learning_widgets.dart, package:ko_lernen_app/features/content_learning/content_lesson_screen.dart, package:ko_lernen_app/screens/bojagi_screen.dart (+103 more)
 
 ### Community 70 - "_"
-Cohesion: 0.04
-Nodes (46): _, AccountDeletionStatusReceipt, AccountDeletionStatusReceiptFailureCode, AccountDeletionStatusReceiptGenerator, bindOperation, byteLength, bytes, _canonicalPattern (+38 more)
+Cohesion: 0.03
+Nodes (66): _, AccountDeletionStatusReceipt, AccountDeletionStatusReceiptFailure, AccountDeletionStatusReceiptFailureCode, AccountDeletionStatusReceiptGenerator, AccountDeletionStatusReceiptSecureStorage, bindOperation, byteLength (+58 more)
 
 ### Community 71 - "_"
 Cohesion: 0.02
@@ -1798,8 +1826,8 @@ Cohesion: 0.02
 Nodes (97): cloze_loader.dart, addMapped, assessmentGroups, assetPath, _buildLinks, byContent, _cache, clozeTopicUnitMap (+89 more)
 
 ### Community 73 - "account_switch_coordinator.dart"
-Cohesion: 0.04
-Nodes (47): account_reconciliation.dart, AccountSwitchBackfill, AccountSwitchCoordinator, AccountSwitchJournalCleaner, AccountSwitchJournalStore, AccountSwitchLocalPreflight, AccountSwitchOwnershipTransition, AccountSwitchPushRebind (+39 more)
+Cohesion: 0.03
+Nodes (68): account_reconciliation.dart, account_transition_journal.dart, cloud_write_session.dart, AccountSwitchBackfill, AccountSwitchCoordinator, AccountSwitchJournalCleaner, AccountSwitchJournalStore, AccountSwitchLocalPreflight (+60 more)
 
 ### Community 74 - "auth_service_test.dart"
 Cohesion: 0.02
@@ -1819,7 +1847,7 @@ Nodes (97): _accuracyBand, Analytics, AnalyticsController, AnalyticsEventClient,
 
 ### Community 78 - "learning_path_screen.dart"
 Cohesion: 0.02
-Nodes (88): _applyPreview, _autoScrolled, _autoScrollToTarget, body, buildCoachSteps, cleared, _clearedTotal, coachId (+80 more)
+Nodes (92): _applyPreview, _autoScrolled, _autoScrollToTarget, body, build, buildCoachSteps, cleared, _clearedTotal (+84 more)
 
 ### Community 79 - "ildu_construction_plan.dart"
 Cohesion: 0.02
@@ -1829,13 +1857,13 @@ Nodes (91): floorNumaru,
   identityFinish,, acceptedVariants, actionPrompt, addressee, allowEmpty, asset, _assetName, baseAsset (+83 more)
 
 ### Community 80 - "game_answer_srs_recovery_test.dart"
-Cohesion: 0.02
-Nodes (107): ClozePromptCard, SoriStudyFrame, package:ko_lernen_app/data/cloze_topic_groups.dart, package:ko_lernen_app/l10n/cloze_topic_group_localizations.dart, package:ko_lernen_app/screens/cloze_game_screen.dart, package:ko_lernen_app/screens/daily_challenge_screen.dart, package:ko_lernen_app/services/cloze_loader.dart, package:ko_lernen_app/widgets/sori/cloze_prompt.dart (+99 more)
+Cohesion: 0.01
+Nodes (272): CoursePracticeContext? courseContext,
+  bool, ContentLink, VocabPack, AppError, GameOutcome, GameOverCard, SoriStudyFrame, SoriTextField (+264 more)
 
 ### Community 81 - "choice_quizzes_uiux_test.dart"
 Cohesion: 0.01
-Nodes (173): AnimatedContainer, Key? playerKey,
-  Size, SilbenCrossingWedges, SoriSwipeRails, package:ko_lernen_app/screens/my_words_screen.dart, package:ko_lernen_app/widgets/sori/card.dart, package:ko_lernen_app/widgets/sori/hanok_tokens.dart, package:ko_lernen_app/widgets/sori/level_chip.dart (+165 more)
+Nodes (151): AnimatedOpacity, FractionallySizedBox, Icon, Opacity, package:ko_lernen_app/widgets/sori/card.dart, package:ko_lernen_app/widgets/sori/hanok_tokens.dart, package:ko_lernen_app/widgets/sori/level_chip.dart, package:ko_lernen_app/widgets/sori/mission_hero_card.dart (+143 more)
 
 ### Community 82 - "_"
 Cohesion: 0.02
@@ -1855,34 +1883,42 @@ Nodes (18): _load_json(), _load_vocab_rows(), _nikl_grades(), Path, The shape au
 
 ### Community 86 - "swipe_card.dart"
 Cohesion: 0.02
-Nodes (86): alignment, _anyWired, asset, _axis, _AxisDriver, badge, _blockedHintDistance, _blockedHintFired (+78 more)
+Nodes (83): alignment, _anyWired, asset, _axis, _AxisDriver, badge, _blockedHintDistance, _blockedHintFired (+75 more)
 
 ### Community 87 - "word_web_ui_test.dart"
 Cohesion: 0.02
-Nodes (97): ScenarioCompletionSummary, package:ko_lernen_app/screens/word_web_quiz_screen.dart, package:ko_lernen_app/screens/word_web_screen.dart, package:ko_lernen_app/screens/word_web_study_screen.dart, required Locale locale,
-  bool, required String source,
-  String, airport, dontKnowLabel (+89 more)
+Nodes (84): package:ko_lernen_app/models/word_relation.dart, package:ko_lernen_app/screens/word_web_quiz_screen.dart, package:ko_lernen_app/screens/word_web_screen.dart, package:ko_lernen_app/screens/word_web_study_screen.dart, package:ko_lernen_app/services/word_relation_service.dart, required String source,
+  String, _fixture, main (+76 more)
 
 ### Community 88 - "account_operations_runtime.js"
-Cohesion: 0.05
-Nodes (113): applyAttemptResult(), BLOCKED_REASON_CODES, CANCELLABLE_REPLACEMENT_PHASES, cancelReplacementOperation(), claimDeletionProof(), classifyRetry(), createOrReuseOperation(), initialOperation() (+105 more)
+Cohesion: 0.06
+Nodes (82): {
+  accountTombstoneCleanupAction,
+}, ACTIONABLE_DELETION_PHASES, assertParticipant(), authorizationHeader(), BoundaryFailure, CALLABLE_NAMES, CALLABLE_OPTIONS, {
+  cancelReplacementOperation,
+  claimDeletionProof,
+  createOrReuseOperation,
+  normalizeOperation,
+  operationResult,
+  transitionOperation,
+} (+74 more)
 
-### Community 89 - "dancheong_burst.dart"
-Cohesion: 0.01
-Nodes (153): BorderRadius?, Brightness, CustomPainter, display_sized_file_image.dart, double? noiseAlpha,
-  int, hanok_tokens.dart, _SunMoonStagePainter, _MagpiePainter (+145 more)
+### Community 89 - "CustomPainter"
+Cohesion: 0.04
+Nodes (46): BorderRadius?, CustomPainter, double? noiseAlpha,
+  int, hanok_tokens.dart, _SunMoonStagePainter, _MagpiePainter, _StrokePainter, _GiftSparks (+38 more)
 
 ### Community 90 - "_"
-Cohesion: 0.03
-Nodes (82): account/account_failure_diagnostics.dart, account/cloud_restore_result.dart, account/cloud_write_session.dart, cloud_sync.dart, ../data/pack_progress_aliases.dart, CloudWriteSession, CatalogHistoryLease, _historyGeneration (+74 more)
+Cohesion: 0.05
+Nodes (45): ../data/pack_progress_aliases.dart, _, bossClearThreshold, _currentPackId, _earliestClearedAt, effectiveStatus, getAll, invalid (+37 more)
 
 ### Community 91 - "first_run_coordinator.dart"
 Cohesion: 0.02
 Nodes (81): _RecordingJourneyEventSink, browseLevel, canonicalPlacementLevel, canRecordOnboardingCompleted, canRecordOnboardingStarted, commit, commitFromCompanion, commitFromCompanionMinimal (+73 more)
 
 ### Community 92 - "study_log_test.dart"
-Cohesion: 0.06
-Nodes (34): PreferenceStringStore, _SharedPreferenceStringStore, _LocalGrammarDuringReloadStore, _MicrotaskStalingStringStore, _RejectingStringStore, _RejectableCourseStateWriteStore, _RejectedCanonicalSnapshotWriteStore, _RejectedCourseMasteryWriteStore (+26 more)
+Cohesion: 0.07
+Nodes (33): PreferenceStringStore, _SharedPreferenceStringStore, _LocalGrammarDuringReloadStore, _MicrotaskStalingStringStore, _RejectingStringStore, _RejectableCourseStateWriteStore, _RejectedCanonicalSnapshotWriteStore, _RejectedCourseMasteryWriteStore (+25 more)
 
 ### Community 93 - "FixtureTest"
 Cohesion: 0.06
@@ -1893,29 +1929,29 @@ Cohesion: 0.03
 Nodes (17): _load_json(), _load_vocab_rows(), Path, Batch 31 was Jin-approved (7/64 sample, 2026-09-16, owner chat 'Batch 30·31 표본…, R.FORBIDDEN_GRAMMAR_PATTERNS only catches the specific grade>=3 short-fragment…, docs/CONTENT_LEVEL_BIBLE.md §B.2 ⑤: '2급 밖 단어 <=1' -- unlike A1's 0-tolerance…, The authoritative check the task brief asked for: 'scan_grammar_level --level…, D6 per-batch reuse cap (C3-T5b, 2026-09-16): cloze_distractor_rules.… (+9 more)
 
 ### Community 95 - "character_clip.dart"
-Cohesion: 0.03
-Nodes (80): applyMultiplyFilter, asset, _audio, _base, blendColor, build, CharacterClipFailureReason, CharacterClipFallbackPolicy (+72 more)
+Cohesion: 0.02
+Nodes (82): AudioPlayer, applyMultiplyFilter, asset, _audio, _base, blendColor, build, CharacterClipFailureReason (+74 more)
 
 ### Community 96 - "settings_screen_test.dart"
 Cohesion: 0.03
 Nodes (66): AppVersionReader, PackageAppVersionReader, package:ko_lernen_app/services/placement_diagnostic.dart, required Locale locale,
   TextScaler, main, appChild, appleSignInAvailable, _centerInCurrentScrollable (+58 more)
 
-### Community 97 - "silben_kreuz_screen.dart"
-Cohesion: 0.01
-Nodes (138): activity_illustration.dart, class _SilbenKreuzScreenState extends State, LearningJourneyResult get, answer, col, cols, dir, exampleDe (+130 more)
+### Community 97 - "bool get"
+Cohesion: 0.02
+Nodes (122): bool get, class _SilbenKreuzScreenState extends State, LearningJourneyResult get, _compileTimeEnabled, _enabledOverride, isEnabled, answer, col (+114 more)
 
 ### Community 98 - "book_page.dart"
 Cohesion: 0.03
 Nodes (79): alternativeHeadword, ambiguous, analysisLanguage, blockingWarnings, _bookLanguage, capturedAtIso, confidence, copyWith (+71 more)
 
-### Community 99 - "quest_flow.dart"
-Cohesion: 0.02
-Nodes (90): availability, _AvailabilityBadge, build, color, completedLabel, copy, footer, GuideHubScreen (+82 more)
+### Community 99 - "onboarding_v2_stage.dart"
+Cohesion: 0.03
+Nodes (77): availability, _AvailabilityBadge, build, color, completedLabel, copy, footer, GuideHubScreen (+69 more)
 
-### Community 100 - "culture_notes_service.dart"
-Cohesion: 0.12
-Nodes (15): all, _byKo, CultureNote, CultureNotesLoader, CultureNotesService, de, en, fromJson (+7 more)
+### Community 100 - "vocab_packs_screen.dart"
+Cohesion: 0.02
+Nodes (104): empty_state.dart, main, CourseMissionBrief, CourseMissionBriefStep, build, _buildBriefFrame, _catalog, CourseMissionScreen (+96 more)
 
 ### Community 101 - "onboarding_v2_journey_screen.dart"
 Cohesion: 0.04
@@ -1925,17 +1961,17 @@ Nodes (52): ../features/onboarding_v2/onboarding_journey_state.dart, FirstRunCoo
 Cohesion: 0.03
 Nodes (77): BytesBuilder, actionLabel, _assessAttempt, _assessing, _assessmentFailure, assessmentId, _audio, _audioDone (+69 more)
 
-### Community 103 - "test_batch_25_draft.py"
-Cohesion: 0.10
-Nodes (12): _eojeol_count(), _frame_key(), _load_json(), _load_vocab_rows(), Path, Sanity check for the selection rationale: every touched pack had exactly 12…, Fable R8 (2026-09-15): the vocab example, the cloze full sentence, and the satz…, Replace the (first occurrence of the) headword with a placeholder so two… (+4 more)
+### Community 103 - "TestBatch25VocabRows"
+Cohesion: 0.03
+Nodes (31): _eojeol_count(), _frame_key(), _load_json(), _load_vocab_rows(), Path, Batch 25 was Jin-approved and promoted 2026-09-15 (C3-T2): the manifest must…, Every one of the batch's 64 headwords must appear in the live korean_vocab.csv…, Frozen drafts keep the before-copy; live edits need exact ledger hashes.… (+23 more)
 
 ### Community 104 - "account_operation_client.dart"
 Cohesion: 0.03
 Nodes (76): account_deletion_status_receipt.dart, AccountOperationBlockedReason, AccountOperationClient, AccountOperationFailureCode, AccountOperationGateway, AccountOperationKind, AccountOperationPhase, AccountOperationRetryDelay (+68 more)
 
 ### Community 105 - "speed_match_screen.dart"
-Cohesion: 0.02
-Nodes (88): class _SpeedMatchScreenState extends State, createState, initialLevel, initState, LearningPhasesScreen, _LearningPhasesScreenState, _level, phase (+80 more)
+Cohesion: 0.03
+Nodes (74): class _SpeedMatchScreenState extends State, accent, _acceptsInput, _active, _all, _allLevels, _applyPendingSlotCount, _applySlotCount (+66 more)
 
 ### Community 106 - "generate_tts.py"
 Cohesion: 0.05
@@ -1949,33 +1985,33 @@ Nodes (76): apply_pack_overrides(), AuditResult, build_matrix(), build_summary()
 Cohesion: 0.05
 Nodes (63): CircuitBreaker, _exact_noun_in_response(), Exact noun lookup against the Korean Basic Dictionary Open API. The game only…, Returns True/False, or None when the protected API cannot be used., validate_exact_noun(), _analysis_response(), analyze_korean_text(), _cache_expires_at() (+55 more)
 
-### Community 109 - "character_selection_screen.dart"
-Cohesion: 0.03
-Nodes (78): accent, build, _buildConfirmationScreen, _buildOptionalCompanionScreen, _CharacterCard, CharacterSelectionScreen, _CharacterSelectionScreenState, _completeOptional (+70 more)
+### Community 109 - "../../services/storage_service.dart"
+Cohesion: 0.02
+Nodes (110): app_shell.dart, character_selection_screen.dart, canRecordOnboardingCompleted, canRecordOnboardingStarted, coordinator, createCoordinator, FirstRunRuntime, recordCompanionPreviewFailure (+102 more)
 
 ### Community 110 - "account_deletion_receipt_recovery_test.dart"
-Cohesion: 0.05
-Nodes (37): _JournalStore, AccountDeletionStatusReceiptStore, AccountOperationResult, AccountDeletionJournalStore, _SharedPreferencesAccountDeletionJournalStore, ackCalls, ackSawCompletedJournal, clearCompleted (+29 more)
+Cohesion: 0.04
+Nodes (47): _JournalStore, AccountDeletionStatusReceiptStore, AccountOperationFailure, AccountOperationResult, AccountDeletionJournalStore, AccountDeletionRecoveryException, _SharedPreferencesAccountDeletionJournalStore, package:ko_lernen_app/services/account/account_operation_client.dart (+39 more)
 
 ### Community 111 - "account_cleanup_test.dart"
-Cohesion: 0.10
-Nodes (19): PreferenceRemovalStore, PreferenceResetException, _SharedPreferenceRemovalStore, package:ko_lernen_app/services/word_image_service.dart, cache, containsKey, durable, _FakePreferenceRemovalStore (+11 more)
+Cohesion: 0.11
+Nodes (18): PreferenceRemovalStore, PreferenceResetException, _SharedPreferenceRemovalStore, cache, containsKey, durable, _FakePreferenceRemovalStore, getKeys (+10 more)
 
 ### Community 112 - "scan_grammar_level.py"
 Cohesion: 0.07
 Nodes (35): GrammarIndex, _GrammarRule, _literal_syllable_count(), R3 item 6 (rules c/d): the Hangul-syllable length of `raw`'s LONGEST…, Regex-based grammar-pattern detector (plan §4.1; R3-revised — see module…, _slug(), _apply_manual_hits(), _attributive_noun_hits() (+27 more)
 
 ### Community 113 - "account_ui_operations.dart"
-Cohesion: 0.03
-Nodes (71): account_failure_diagnostics.dart, account_operation_client.dart, account_switch_coordinator.dart, account_transition_coordinator.dart, apple_oauth_configuration.dart, C, cloud_backup_deletion.dart, durable_provider_link.dart (+63 more)
+Cohesion: 0.02
+Nodes (91): account_failure_diagnostics.dart, account_operation_client.dart, account_switch_coordinator.dart, account_transition_coordinator.dart, apple_oauth_configuration.dart, AuthorizationCredentialAppleID, C, cloud_backup_deletion.dart (+83 more)
 
 ### Community 114 - "video_lease.dart"
 Cohesion: 0.03
 Nodes (73): H?, _armWatchdog, asset, attach, _changed, completeFromPlayback, controller, _coordinator (+65 more)
 
 ### Community 115 - "validate_promoted_batch.py"
-Cohesion: 0.06
-Nodes (31): Batch03ReconciliationTest, Verify the real promotion and keep Batch 03 reconciliation exact., Batch05ReconciliationTest, Keep Batch 05 copy history exact without granting human approval., Batch18RoutingReconciliationTest, Reconcile one historical category route without moving published progress., GrammarQuizReconciliationTest, Keep exact historical evidence and reject known semantic alternate answers. (+23 more)
+Cohesion: 0.22
+Nodes (23): _base_pack(), _batch_field_revisions(), _copy_revisions(), _csv(), _fingerprint(), _json(), main(), PromotedBatchError (+15 more)
 
 ### Community 116 - "TestBatch28VocabRows"
 Cohesion: 0.04
@@ -1993,21 +2029,25 @@ Nodes (73): ../data/profanity_denylist.dart, _, _attempts, blockedUidsStream, bl
 Cohesion: 0.03
 Nodes (72): can_do_segment.dart, _, accuracy, assessmentAttemptId, assessmentItemId, authorityFingerprint, canDoSegmentId, conceptId (+64 more)
 
-### Community 120 - "account_hardening_test.dart"
-Cohesion: 0.02
-Nodes (99): FilledButton, AccountDeletionFailure, AccountOperationFailure, AccountSwitchResult, AccountUiLinkCompleted, AccountUiPendingState, CloudBackupDeletionJournalState, AccountDeletionRecoveryException (+91 more)
+### Community 120 - "account_link_failure_visibility_test.dart"
+Cohesion: 0.08
+Nodes (27): FilledButton, _PreviewAccountUiOperations, AccountUiOperations, AccountUiPendingStateSource, ProductionAccountUiOperations, package:ko_lernen_app/widgets/sori/account_operation_ui.dart, _AlwaysReadyAccountOperations, appleSignInAvailable (+19 more)
+
+### Community 121 - "TestBatch27VocabRows"
+Cohesion: 0.04
+Nodes (18): _is_noun_like(), _load_json(), _load_vocab_rows(), Path, Batch 27 was Jin-approved and promoted 2026-09-16 (C3-T3, alongside Batch 26):…, 진짜' must never appear -- A1 emphasis is always '정말' (Jin ruling carried over…, Cross-checked against the packet's own 화자 table via the manifest's…, Every non-verb Batch 27 headword is a Nomen, so at least 2 of the 3 distractors… (+10 more)
 
 ### Community 122 - "gye_dedication_runtime.js"
-Cohesion: 0.12
-Nodes (38): activeMembership(), activeRevision(), appendReceipt(), BoundaryFailure, createGyeDedicationRuntime(), execute(), setGyeDecorationDedication(), currentDedicationKind() (+30 more)
+Cohesion: 0.05
+Nodes (52): activeMembership(), activeRevision(), appendReceipt(), BoundaryFailure, CALLABLE_OPTIONS, createGyeDedicationCallable(), createGyeDedicationRuntime(), execute() (+44 more)
 
 ### Community 123 - "intro_gate_screen.dart"
 Cohesion: 0.03
-Nodes (71): ActivateIntent, _activate, build, child, _codeStarted, _complete, _completeGateAndNavigate, _courtyardAsset (+63 more)
+Nodes (69): ActivateIntent, _activate, build, child, _codeStarted, _complete, _completeGateAndNavigate, _courtyardAsset (+61 more)
 
 ### Community 124 - "onboarding_learning_demo.dart"
-Cohesion: 0.06
-Nodes (37): _animation, _area, beginner, build, _choose, color, _compact, _compactConversation (+29 more)
+Cohesion: 0.03
+Nodes (63): _board, build, _cell, _chain, _choices, _choicesPage, _compact, _compactCross (+55 more)
 
 ### Community 125 - "ildu_world_manifest.dart"
 Cohesion: 0.03
@@ -2025,9 +2065,9 @@ Nodes (68): deck_action_bar.dart, deck_coach.dart, bookmarked, bookmarkKey, book
 Cohesion: 0.03
 Nodes (68): assessmentItemId, assessmentRequirements, canDo, CanDoSegmentLifecycle, CanDoSegmentLifecycleX, code, conceptIds, constructLineageId (+60 more)
 
-### Community 129 - "package:flutter/foundation.dart"
-Cohesion: 0.02
-Nodes (89): audio_policy.dart, bool configured, initialized,, ../../firebase_options.dart, GoogleSignIn, android, DefaultFirebaseOptions, ios, _ (+81 more)
+### Community 129 - "scene_asset_resolver.dart"
+Cohesion: 0.08
+Nodes (23): audio_policy.dart, _assets, debugReset, debugSetAssets, isLoaded, load, _loaded, loopAsset (+15 more)
 
 ### Community 130 - "content_feedback_outbox_test.dart"
 Cohesion: 0.04
@@ -2045,11 +2085,11 @@ Nodes (67): approvalEvidenceId, approvedAtIso, approvedBy, assetApprovals, asset
 
 ### Community 133 - "privacy_consent_service.dart"
 Cohesion: 0.02
-Nodes (87): age_gate_service.dart, _accountBlocked, active, admitted, _ageEligible, _analytics, analyticsAdmitted, analyticsClient (+79 more)
+Nodes (88): age_gate_service.dart, _accountBlocked, active, admitted, _ageEligible, _analytics, analyticsAdmitted, analyticsClient (+80 more)
 
 ### Community 134 - "hanok_grant_catalog.dart"
-Cohesion: 0.04
-Nodes (44): HanokDesignSlot, HanokOptionProvenance, _decodeGrant, _denominatorSegmentIds, designSlot, era, fromJson, grants (+36 more)
+Cohesion: 0.03
+Nodes (64): course_segment_catalog.dart, hanok_grant_catalog.dart, CanDoSegment, HanokDesignSlot, HanokOptionProvenance, best, _bestSatisfyingProgress, candidateIds (+56 more)
 
 ### Community 135 - "guide_contract.dart"
 Cohesion: 0.03
@@ -2063,7 +2103,7 @@ Nodes (65): gamesStage,
 
 ### Community 136 - "_"
 Cohesion: 0.03
-Nodes (67): _, actorNickname, actorUid, code, createdAt, documentIdFor, fallback, fromDoc (+59 more)
+Nodes (64): _, actorNickname, actorUid, code, createdAt, documentIdFor, fallback, fromDoc (+56 more)
 
 ### Community 137 - "course_reassessment_screen.dart"
 Cohesion: 0.03
@@ -2075,36 +2115,36 @@ Nodes (67): _, angle, _arrangeBand, arrangeBlocksForReading, blockCount, blockIn
 
 ### Community 139 - "entry_onboarding_uiux_test.dart"
 Cohesion: 0.03
-Nodes (65): _MemoryJourneyRepository? repository,
-  LegacyOnboardingSnapshot, PageView, bounds, box, browse, candidates, _centerInScrollable, clear (+57 more)
+Nodes (66): _MemoryJourneyRepository? repository,
+  LegacyOnboardingSnapshot, package:ko_lernen_app/screens/onboarding_preview_screen.dart, PageView, bounds, box, browse, candidates, _centerInScrollable (+58 more)
 
 ### Community 140 - "verify_ios_store_contract.dart"
 Cohesion: 0.03
 Nodes (66): any, array, body, _bundleIdentifier, children, contains, _deCameraPurpose, _dePhotoPurpose (+58 more)
 
 ### Community 141 - "tester_feedback_runtime.js"
-Cohesion: 0.08
-Nodes (38): ACCOUNT_DELETION_INACTIVE_PHASES, accountOperationOwnerDocumentId(), activeDeletionOperation(), ALLOWED_CONTENT_TYPES, ALLOWED_FIELDS, appIdDocumentId(), BoundaryFailure, BUG_FREQUENCIES (+30 more)
+Cohesion: 0.05
+Nodes (53): ACCOUNT_DELETION_INACTIVE_PHASES, accountOperationOwnerDocumentId(), activeDeletionOperation(), ALLOWED_CONTENT_TYPES, ALLOWED_FIELDS, appIdDocumentId(), BoundaryFailure, BUG_FREQUENCIES (+45 more)
 
 ### Community 142 - "push_service.dart"
-Cohesion: 0.04
-Nodes (55): FirebaseMessaging get, addToken, _attemptCleanup, auth, bindCurrentUser, body, _cancelSubscriptions, _cancelSubscriptionsForCleanup (+47 more)
+Cohesion: 0.03
+Nodes (64): FirebaseMessaging get, addToken, _attemptCleanup, auth, bindCurrentUser, body, _cancelSubscriptions, _cancelSubscriptionsForCleanup (+56 more)
 
 ### Community 143 - "build_level_bible_tables.py"
 Cohesion: 0.06
 Nodes (48): build_f1(), build_f1_md(), build_f2_md(), build_f3_md(), build_f5_md(), build_f6_md(), build_f7_md(), build_f9_md() (+40 more)
 
 ### Community 144 - "apply_batch"
-Cohesion: 0.14
-Nodes (22): apply_batch(), check_target_level_grammar(), Any, Post-apply gate (Fable R8/R9, 2026-09-16): for every id this batch moved…, vocab/cloze_root/satz_root/authorities/curriculum 을 제자리 수정. (계획 로그, 경고, 새 항목이…, _authorities(), _batch(), _cloze_root() (+14 more)
+Cohesion: 0.16
+Nodes (19): apply_batch(), vocab/cloze_root/satz_root/authorities/curriculum 을 제자리 수정. (계획 로그, 경고, 새 항목이…, _authorities(), _batch(), _cloze_root(), _curriculum(), _empty_env(), _fixture() (+11 more)
 
 ### Community 145 - "표제어 교체 (63건)"
 Cohesion: 0.03
 Nodes (64): 10. cloze_b1_0138_v1 (b1), 11. cloze_b1_0138_v2 (b1) ✅ Jin 확정 적용 (2026-08-26) — 실제 cloze_id는 cloze_b1_0138 (v1/v2는 이 초안 문서 안의 두 후보안 구분용, 실데이터엔 버전 분기 없음). 표제어는 v2 초안대로 **발소리를 죽이다** 로 확정, 문장은 Jin이 새로 확정, 12. cloze_b1_0140_v1 (b1) ✅ Jin 확정 적용 (2026-08-26) — 실제 cloze_id는 cloze_b1_0140 (v1/v2는 이 초안 문서 안의 두 후보안 구분용). 표제어는 v1 초안대로 **다용도 공간** 으로 확정, 문장은 Jin이 새로 확정, 13. cloze_b1_0140_v2 (b1), 14. cloze_b1_0151_v1 (b1), 15. cloze_b1_0151_v2 (b1), 16. cloze_b1_0152 (b1), 17. cloze_b1_0154 (b1) (+56 more)
 
 ### Community 146 - "account_operations_runtime.test.js"
-Cohesion: 0.05
-Nodes (20): assert, AUTHENTICATED_CALLABLE_NAMES, CALLABLE_NAMES, callableRequest(), { createAuthUserDeletionBridge }, createDeletionOperation(), { createLegacyUserDeletionCleanupHandler }, { createTesterFeedbackRuntime } (+12 more)
+Cohesion: 0.03
+Nodes (30): createAuthUserDeletionBridge(), assert, { createAuthUserDeletionBridge }, test, admin, bridge, { createAuthUserDeletionBridge }, functionsV1 (+22 more)
 
 ### Community 147 - "word_relation.dart"
 Cohesion: 0.03
@@ -2119,7 +2159,7 @@ Cohesion: 0.03
 Nodes (63): activity, activityRules, art, artPath, build, button, compactArt, companionFrame (+55 more)
 
 ### Community 150 - "audit_learning_phases.py"
-Cohesion: 0.10
+Cohesion: 0.11
 Nodes (52): AppCorpus, build_summary(), _bullets(), _cell(), check_app_anchors(), check_axis_ids(), check_bridges(), check_coverage() (+44 more)
 
 ### Community 151 - "deploy-production.mjs"
@@ -2127,8 +2167,8 @@ Cohesion: 0.07
 Nodes (52): projectRoot, resilientRemoveOptions, createDeployArguments(), deployProduction(), ensureTargetIsCurrentMain(), execFileAsync, git(), gitExitCode() (+44 more)
 
 ### Community 152 - "scenario_corpus_pipeline.py"
-Cohesion: 0.14
-Nodes (58): assert_level_approved(), assert_tts_ready_for_promotion(), _brief_for(), build_prompt_packet(), build_tts_pending_manifest(), candidate_paths_for_level(), candidate_set_hash(), _canonical_dir() (+50 more)
+Cohesion: 0.12
+Nodes (63): assert_level_approved(), assert_tts_ready_for_promotion(), _auto_voice(), _brief_for(), build_prompt_packet(), build_tts_pending_manifest(), candidate_paths_for_level(), candidate_set_hash() (+55 more)
 
 ### Community 153 - "ContentValidator"
 Cohesion: 0.07
@@ -2147,28 +2187,28 @@ Cohesion: 0.03
 Nodes (62): _, analysisText, analysisUnits, append, blockIndex, BookOcrDocument, BookOcrDocumentBuilder, BookOcrForeignHint (+54 more)
 
 ### Community 157 - "course_progress_service.dart"
-Cohesion: 0.04
-Nodes (51): account/reconciliation_errors.dart, course_segment_catalog.dart, hanok_grant_catalog.dart, CanDoSegment, app, applyReconciledSnapshot, browseLevelCode, canonicalGeneration (+43 more)
+Cohesion: 0.02
+Nodes (115): account/reconciliation_errors.dart, course_mastery_service.dart, course_progress_service.dart, curriculum_catalog.dart, CourseAttemptCompanion, offer, byContentId, canRecordEvidence (+107 more)
 
 ### Community 158 - "_"
-Cohesion: 0.02
-Nodes (101): course_mission_navigation.dart, ../features/onboarding_v2/onboarding_learning_start.dart, learning_journey.dart, destination, GyePromiseNavigationKind, GyePromiseNavigationResolution, GyeWeeklyPromiseNavigation, kind (+93 more)
+Cohesion: 0.03
+Nodes (59): ../features/content_learning/content_learning_models.dart, ../features/onboarding_v2/onboarding_learning_start.dart, _, arguments, availability, _Captured, completedUnitIds, contentDaily (+51 more)
 
 ### Community 159 - "handle"
 Cohesion: 0.04
 Nodes (11): handle(), main(), probe(), (전체 길이, 앞 묵음, 뒤 묵음) 초. 실패하면 None., 프레임 경계에서 무손실 절단. 성공하면 True., trim(), PhaseAudioScopeTests, CRLF(윈도우 autocrlf 워킹카피)와 LF(Linux CI 체크아웃) 원본이 같은 내용이면 sourceSha256/전체 매니페스트가… (+3 more)
 
 ### Community 160 - "TestBatch30VocabRows"
-Cohesion: 0.03
-Nodes (20): _load_json(), _load_vocab_rows(), Path, Batch 30 was Jin-approved (7/62 sample, 2026-09-16, owner chat 'Batch 30·31 표본…, Every one of the batch's 62 headwords must appear in the live korean_vocab.csv…, Every draft id must be present live with byte-identical content…, None of the batch's headwords collide with a *different* word already live…, -지 말다' (prohibitive) is 2급 grammar, out of scope for this batch (Batch 28/29… (+12 more)
+Cohesion: 0.08
+Nodes (4): None of the batch's headwords collide with a *different* word already live…, -지 말다' (prohibitive) is 2급 grammar, out of scope for this batch (Batch 28/29…, R8 (Fable review, 2026-09-16): a row counts as a persona row only when the…, TestBatch30VocabRows
 
 ### Community 161 - "curriculum_alignment_contract.dart"
 Cohesion: 0.03
 Nodes (59): approvedDomains, approvedOfficialUrls, approvedTaskTypes, authority, checkedAtIso, contentId, contentLinks, CurriculumAlignmentRecord (+51 more)
 
-### Community 162 - "sori_stage_reward_receipt_sheet.dart"
-Cohesion: 0.04
-Nodes (50): IlDuConstructionArtCatalog, IlDuConstructionArtReveal, IlDuConstructionArtStage, RewardReceipt, RewardReceiptItem, _answer, build, _building (+42 more)
+### Community 162 - "_State"
+Cohesion: 0.02
+Nodes (152): _CompanionHarness, TodayGuideChecklistCard, _TodayGuideChecklistCardState, BojagiScreen, _BojagiScreenState, BookPreviewScreen, _BookPreviewScreenState, BookResultScreen (+144 more)
 
 ### Community 163 - "spotlight_coach.dart"
 Cohesion: 0.03
@@ -2179,8 +2219,8 @@ Cohesion: 0.04
 Nodes (58): @immutable, GuideDestinationOpenResult, activityIds, availability, available, descriptorVersion, displayUnit, estateId (+50 more)
 
 ### Community 165 - "../../l10n/generated/app_localizations.dart"
-Cohesion: 0.01
-Nodes (205): app_shell.dart, character_selection_screen.dart, chip.dart, ../../data/gye_dedication_catalog.dart, ../../data/quest_catalog.dart, ../../features/onboarding_v2/curriculum_evidence_projector.dart, ../../features/onboarding_v2/onboarding_story_catalog_projector.dart, FocusNode? (+197 more)
+Cohesion: 0.02
+Nodes (106): chip.dart, ../../data/quest_catalog.dart, ../../features/onboarding_v2/curriculum_evidence_projector.dart, ../../features/onboarding_v2/onboarding_story_catalog_projector.dart, FocusNode?, ../../l10n/generated/app_localizations.dart, QuestDefinition, build (+98 more)
 
 ### Community 166 - "sori_stage_progression.dart"
 Cohesion: 0.03
@@ -2199,8 +2239,8 @@ Cohesion: 0.08
 Nodes (35): build_current_index(), _canonical_sha256(), _context(), _decode_pointer_token(), _file_sha256(), _forbid_approval_claims(), _forbid_taxi_payment_claim(), _is_korean_path() (+27 more)
 
 ### Community 170 - "book_result_screen.dart"
-Cohesion: 0.02
-Nodes (96): Grammar, allowActions, allowTts, _analysisGeneration, _analysisLanguage, _analyze, analyzer, args (+88 more)
+Cohesion: 0.01
+Nodes (133): GrammarChoiceQuestion? get, Grammar, allowActions, allowTts, _analysisGeneration, _analysisLanguage, _analyze, analyzer (+125 more)
 
 ### Community 171 - "first_run_coordinator_test.dart"
 Cohesion: 0.03
@@ -2215,48 +2255,48 @@ Cohesion: 0.03
 Nodes (58): course_mission_screen.dart, discover_screen.dart, first_voice_success_screen.dart, gye_screen.dart, hanok_preview_screen.dart, learning_path_screen.dart, addListener, _airportArrivalScenario (+50 more)
 
 ### Community 174 - "audio_policy.dart"
-Cohesion: 0.04
-Nodes (44): id, nameDe, nameEn, nameFor, nameKo, profileFor, profiles, ScenarioCharacterCatalog (+36 more)
+Cohesion: 0.06
+Nodes (33): _ambienceGain, applyPlatformAudioContext, buildAndroidContext, _clamp01, _defaultOn, defaultOnOf, _defaultVol, defaultVolumeOf (+25 more)
 
 ### Community 175 - "_"
 Cohesion: 0.04
 Nodes (58): _, archivedProductiveEvidence, archivedProductiveProjectStepEvidence, bypassedPrerequisiteUnitIds, completedUnitIds, conflicted, conflicts, copyWith (+50 more)
 
 ### Community 176 - "AndroidReleaseEvidenceTest"
-Cohesion: 0.08
+Cohesion: 0.09
 Nodes (6): AndroidReleaseEvidenceTest, elf_fixture(), Path, Release-evidence boundary tests; external tools are local, pinned fakes. These…, Small little-endian ELF with real section headers and GNU build ID., sha256()
 
 ### Community 177 - "validate_batch_01.py"
-Cohesion: 0.14
-Nodes (51): _add_new_mapping(), ArtifactPayload, ArtifactSpec, _copy_json(), _course_catalog(), _curriculum_mapping_groups(), CurriculumAdditions, _expect_mapping_keys() (+43 more)
+Cohesion: 0.12
+Nodes (59): _add_new_mapping(), ArtifactContract, ArtifactPayload, ArtifactSpec, BatchValidationResult, _copy_json(), _course_catalog(), _curriculum_mapping_groups() (+51 more)
 
 ### Community 178 - "book_word_gloss_resolver.dart"
-Cohesion: 0.08
-Nodes (23): book_ocr_document.dart, alternativeHeadword, ambiguous, BookWordGlossResolver, _disambiguateNounVerbHomograph, _hangulRun, _hangulTokens, _indexCache (+15 more)
+Cohesion: 0.05
+Nodes (38): book_ocr_document.dart, alternativeHeadword, ambiguous, BookWordGlossResolver, _disambiguateNounVerbHomograph, _hangulRun, _hangulTokens, _indexCache (+30 more)
 
 ### Community 179 - "tiger_video.dart"
-Cohesion: 0.04
-Nodes (54): _audio, _audioStarted, blendColor, build, _builtFor, _completion, createState, didChangeDependencies (+46 more)
+Cohesion: 0.02
+Nodes (95): _ambienceVolume, animate, _applyVolume, aspectRatio, asset, build, createState, didChangeDependencies (+87 more)
 
 ### Community 180 - "trace_canvas.dart"
-Cohesion: 0.05
-Nodes (42): EagerGestureRecognizer, _activePointer, _beginStroke, build, _cancelActiveStroke, _cancelStroke, _changed, clearErrorGhost (+34 more)
+Cohesion: 0.04
+Nodes (55): EagerGestureRecognizer, RoomLayoutItem, _activePointer, _beginStroke, build, _cancelActiveStroke, _cancelStroke, _changed (+47 more)
 
 ### Community 181 - "custom_pack_service.dart"
-Cohesion: 0.04
-Nodes (44): account/media_cleanup_gate.dart, custom_pack_import_service.dart, addWord, addWords, addWordWithPendingImage, _collectGarbage, _collectGarbageBestEffort, _collectGarbageUnfenced (+36 more)
+Cohesion: 0.03
+Nodes (73): account/media_cleanup_gate.dart, book_image_service.dart, custom_pack_import_service.dart, ManagedMediaRef, PendingMediaLease, addWord, addWords, addWordWithPendingImage (+65 more)
 
 ### Community 182 - "_"
-Cohesion: 0.03
-Nodes (62): ClozeTopicGroups, countsForLevel, filterItems, groupForTopic, _ordered, partition, _topicToGroup, _ (+54 more)
+Cohesion: 0.06
+Nodes (34): _, chosung, cloze, CustomPackCorpusLoadResult, CustomPackCorpusResolver, empty, failedSources, forWords (+26 more)
 
 ### Community 183 - "speakable.dart"
 Cohesion: 0.04
-Nodes (44): TtsSpeechPhase, _activeSpeechGeneration, _activeSpeechKey, _activeSpeechText, aiVoiceNoticePending, _bindEngineListenerOnce, build, _cancelFlightAndRestorePrefetch (+36 more)
+Nodes (55): TtsSpeechPhase, buildCoachSteps, coachId, _coachPolls, coachReady, _firedThisSession, scheduleCoach, _syncTutorialReset (+47 more)
 
 ### Community 184 - "onboarding_journey_scenes.dart"
-Cohesion: 0.05
-Nodes (42): CustomClipper, art, beginner, build, _captured, child, _construction, createState (+34 more)
+Cohesion: 0.04
+Nodes (50): CustomClipper, ../../data/curriculum_alignment_registry.dart, OnboardingCurriculumEvidenceProjection, OnboardingCurriculumEvidenceProjector, project, _referenceIdentity, references, art (+42 more)
 
 ### Community 185 - "cloud_sync_test.dart"
 Cohesion: 0.05
@@ -2271,20 +2311,20 @@ Cohesion: 0.04
 Nodes (61): main(), pick_waiver_distractors(), judge(), main(), Plain-language ✗ judgement note for the substituted sentence -- Tier A: same…, judge(), main(), check_d2_particle_form() (+53 more)
 
 ### Community 188 - "gemini_audit_canonical_scenarios.py"
-Cohesion: 0.08
-Nodes (34): actual_cost(), _audit_instructions(), audit_request_hash(), audit_schema(), contents_for_level(), estimate_cost(), _extract_text(), _gcloud_output() (+26 more)
+Cohesion: 0.14
+Nodes (32): actual_cost(), _audit_instructions(), audit_request_hash(), audit_schema(), contents_for_level(), estimate_cost(), _extract_text(), _gcloud_output() (+24 more)
 
-### Community 189 - "hanok_header.dart"
-Cohesion: 0.05
-Nodes (38): _ambienceVolume, animate, _applyVolume, aspectRatio, asset, build, createState, didChangeDependencies (+30 more)
+### Community 189 - "hanok_migration_concurrency_test.dart"
+Cohesion: 0.02
+Nodes (95): DiagnosticsSink, FirebaseDiagnosticsSink, PrivacyAgeEligibilityException, MockFirebaseApp, package:firebase_core_platform_interface/test.dart, package:ko_lernen_app/features/onboarding_v2/onboarding_journey_state.dart, package:ko_lernen_app/services/account/account_failure_diagnostics.dart, package:ko_lernen_app/services/analytics_service.dart (+87 more)
 
 ### Community 190 - "audit_curriculum_matrix.py"
-Cohesion: 0.11
-Nodes (51): align_functional_grammar(), align_topics(), _app_grammar_normsets(), AuditResult, _bible_module(), build_evidence_requirements(), build_gap_rows(), build_summary() (+43 more)
+Cohesion: 0.09
+Nodes (54): align_functional_grammar(), align_topics(), _app_grammar_normsets(), AuditResult, _bible_module(), build_evidence_requirements(), build_gap_rows(), build_summary() (+46 more)
 
 ### Community 191 - "bookshelf_service.dart"
-Cohesion: 0.04
-Nodes (53): account/account_transition_journal.dart, account/bookshelf_generation_manifest.dart, account/bookshelf_sync_outbox.dart, FirebaseFirestore, activateManifest, _attemptPendingSync, BookshelfService, _collectGarbage (+45 more)
+Cohesion: 0.03
+Nodes (72): account/account_failure_diagnostics.dart, account/account_transition_journal.dart, account/bookshelf_generation_manifest.dart, account/bookshelf_sync_outbox.dart, account/cloud_restore_result.dart, account/cloud_write_session.dart, cloud_sync.dart, FirebaseFirestore (+64 more)
 
 ### Community 192 - "PrivateTtsPlayerPlugin"
 Cohesion: 0.06
@@ -2296,15 +2336,15 @@ Nodes (53): content_feedback_outbox.dart, content_feedback_version_provider.dart
 
 ### Community 194 - "_"
 Cohesion: 0.04
-Nodes (51): content_feedback.dart, FeedbackCompletion? get, _, bookAnalysis, chosung, cloze, complete, completeIfEligible (+43 more)
+Nodes (53): content_feedback.dart, FeedbackCompletion? get, _, bookAnalysis, BookAnalysisFeedbackSource, BookAnalysisFeedbackSourceWire, chosung, cloze (+45 more)
 
 ### Community 195 - "항목별 판정·근거"
 Cohesion: 0.04
 Nodes (53): H-01 — 반영, H-02 — 반영, H-03 — 반영, H-04 — 반영, H-05 — 반영, H-06 — 반영, H-07 — 반영, H-08 — 반영 (+45 more)
 
 ### Community 196 - "vocab_pack_result_screen.dart"
-Cohesion: 0.02
-Nodes (111): ContentFeedbackContext? get, CoursePracticeContext? get, LearningAttempt? get, _buildDone, accent, _acknowledgedId, _acknowledgedOwner, actualXpAwarded (+103 more)
+Cohesion: 0.03
+Nodes (67): ContentFeedbackContext? get, CoursePracticeContext? get, LearningAttempt? get, _buildDone, accent, _acknowledgedId, _acknowledgedOwner, actualXpAwarded (+59 more)
 
 ### Community 197 - "decoration_reward_service.dart"
 Cohesion: 0.04
@@ -2331,9 +2371,9 @@ Nodes (38): allowed_firebase_app_ids(), _as_nonnegative_int(), _as_utc_datetime(
 Cohesion: 0.04
 Nodes (50): guide_presentation.dart, actionLabel, actions, actionsTitle, appBarTitle, availabilityLabel, body, categories (+42 more)
 
-### Community 203 - "crop_recovery_service.dart"
-Cohesion: 0.04
-Nodes (53): book_image_service.dart, ImageCropper, ManagedMediaRef, PendingMediaLease, acceptBookCrop, BookCropAcceptance, BookCropSession, _cropMarker (+45 more)
+### Community 203 - "content_lesson_screen.dart"
+Cohesion: 0.03
+Nodes (62): class _ContentLessonScreenState extends State, ContentLessonProgress get, actions, _answer, _audio, _audioError, _audioGeneration, _autoplay (+54 more)
 
 ### Community 204 - "bookshelf_sync_outbox.dart"
 Cohesion: 0.04
@@ -2348,8 +2388,8 @@ Cohesion: 0.04
 Nodes (52): _, additionalExample, _additionalSentence, answer, _areComparableGrammarPatterns, _canonicalTarget, _comparableGrammarFamilies, explanation (+44 more)
 
 ### Community 207 - "push_service_test.dart"
-Cohesion: 0.05
-Nodes (38): PushCleanupException, PushOwnershipTransitionException, PushPermissionStatus, StackTrace?, additions, addToken, autoInitFailures, autoInitValues (+30 more)
+Cohesion: 0.04
+Nodes (50): PushCleanupException, PushOwnershipTransitionException, PushPermissionStatus, PushService, PushTokenOwner, ServerConfirmedPreMarkerRejection, package:ko_lernen_app/services/push_service.dart, StackTrace? (+42 more)
 
 ### Community 208 - "phase_task_screen.dart"
 Cohesion: 0.04
@@ -2368,8 +2408,8 @@ Cohesion: 0.04
 Nodes (50): _acceptedTargets, _addToken, allowDontKnow, allowWordBankFallback, _audioKo, availableTokens, borderColor, build (+42 more)
 
 ### Community 212 - "return"
-Cohesion: 0.04
-Nodes (50): grammar.dart, examples, fromGrammar, gloss, GrammarStudyCopy, GrammarStudyExample, korean, left (+42 more)
+Cohesion: 0.05
+Nodes (38): _categoryVignettes, _chaekgadoAssetRoot, chaekgadoCardAsset, chaekgadoCategoryVignetteAsset, filename, kListeningCardArtDir, package:ko_lernen_app/services/hangul_composer.dart, return (+30 more)
 
 ### Community 213 - "CefrLexicon"
 Cohesion: 0.09
@@ -2398,27 +2438,16 @@ Nodes (49): bool assessment,, CurriculumText prompt,, CurriculumText title,, int
 ### Community 219 - "deletion_cleanup_adapters.test.js"
 Cohesion: 0.05
 Nodes (21): createDeletionWorkerRuntime(), {
-
   anonymizeFeed,
-
   anonymizeMeta,
-
   anonymizeReport,
-
   anonymizeSticker,
-
   shouldDeleteReportForUid,
-
 }, applyFields(), assert, clone(), {
-
   createDeletionCleanupAdapters,
-
   createLegacyUserDeletionCleanupHandler,
-
 }, { createDeletionWorkerRuntime }, {
-
   createGyeDeletionPageCleaner,
-
 } (+13 more)
 
 ### Community 220 - "productive_mastery_service_test.dart"
@@ -2460,8 +2489,8 @@ Cohesion: 0.04
 Nodes (47): allowDontKnow, _answer, _audioKo, _bank, build, _buildTile, _check, compact (+39 more)
 
 ### Community 229 - "relevel_vocab.py"
-Cohesion: 0.24
-Nodes (12): load_batch(), load_vocab(), main(), migrate(), Path, 전체 트랜잭션: 배치를 읽어 `assets/data` 스테이지 사본 위에서 `apply_batch`를 실행하고,…, write_pack_map(), write_vocab() (+4 more)
+Cohesion: 0.16
+Nodes (18): check_target_level_grammar(), _grammar_scan_tools(), load_batch(), load_vocab(), main(), migrate(), Any, GrammarIndex (+10 more)
 
 ### Community 230 - "onboarding_character_media.dart"
 Cohesion: 0.04
@@ -2473,7 +2502,7 @@ Nodes (45): AppUpdateResult, AppUpdateAvailability, AppUpdateChecker, AppUpdateG
 
 ### Community 232 - "guide_progress_service.dart"
 Cohesion: 0.04
-Nodes (45): guide_progress_service.dart, guide_runtime.dart, GuideProgressService get, completedTopicIds, completedTopicIdsKey, dismissTodayCard, GuidePreferencesLoader, GuideProgressService (+37 more)
+Nodes (46): guide_progress_service.dart, guide_runtime.dart, GuideProgressService get, completedTopicIds, completedTopicIdsKey, dismissTodayCard, GuidePreferencesLoader, GuideProgressService (+38 more)
 
 ### Community 233 - "ildu_construction_art.dart"
 Cohesion: 0.04
@@ -2481,7 +2510,7 @@ Nodes (46): IlDuConstructionArtStage? get, afterSequence, afterStage, alt, _appr
 
 ### Community 234 - "listening_play_screen.dart"
 Cohesion: 0.01
-Nodes (193): ../controllers/listening_playback_controller.dart, ../data/chaekgado_shelf.dart, ../features/scenarios/scenario_browse_query.dart, LearnerLevel get, destination, GuideScenarioCategoryStock, GuideScenarioCategoryStockLoader, GuideScenarioLevelLoader (+185 more)
+Nodes (214): ../controllers/listening_playback_controller.dart, ../data/chaekgado_shelf.dart, ../features/scenarios/scenario_browse_query.dart, LearnerLevel get, destination, GuideScenarioCategoryStock, GuideScenarioCategoryStockLoader, GuideScenarioLevelLoader (+206 more)
 
 ### Community 235 - "properties"
 Cohesion: 0.04
@@ -2500,12 +2529,12 @@ Cohesion: 0.04
 Nodes (46): hanok_growth.dart, _, activeDesignSelections, actorId, carePreferences, _careSettingsKey, clock, compareTo (+38 more)
 
 ### Community 239 - "access_snapshot_controller.dart"
-Cohesion: 0.05
-Nodes (45): _, AccessSnapshot, aiPolicyId, bookDailyLimit, canUseCached, contentAccess, _dayMillis, environment (+37 more)
+Cohesion: 0.07
+Nodes (29): AccessSnapshotStore, checkpoint, create, dispose, _disposed, environment, _highWaterWall, invalidateIdentity (+21 more)
 
 ### Community 240 - "_"
-Cohesion: 0.06
-Nodes (38): _, accent, build, buildChosungHintPlan, chosung, ChosungHint, ChosungHintLiteral, ChosungHintPlan (+30 more)
+Cohesion: 0.05
+Nodes (44): _, accent, build, buildChosungHintPlan, chosung, ChosungHint, ChosungHintLiteral, ChosungHintPlan (+36 more)
 
 ### Community 241 - "ingest_nikl_grade_lists.py"
 Cohesion: 0.09
@@ -2520,24 +2549,24 @@ Cohesion: 0.05
 Nodes (42): ../app_error.dart, ../app_loading.dart, game_reward.dart, didChangeDependencies, dispose, _gameAttempt, _gameCompletion, _gameExpired (+34 more)
 
 ### Community 244 - "learning_data_export_service.dart"
-Cohesion: 0.07
-Nodes (25): ContentShareService, ShareOutcome, shareStory, buildPackage, bytes, data, _decodeMap, fileName (+17 more)
+Cohesion: 0.09
+Nodes (22): ../features/content_learning/content_learning_state.dart, buildPackage, bytes, data, _decodeMap, fileName, _fileTimestamp, _finiteDouble (+14 more)
 
 ### Community 245 - "Lernenweg × 일두고택 Implementation Plan"
 Cohesion: 0.05
 Nodes (41): 꼭 지킬 기술 경계, 다음 첫 작업, 새 세션에 전달할 시작 문장, 이번에 실제로 끝난 것, 일두고택 × Lernenweg — 다음 세션 시작 문서, 읽을 순서, 현재 소스와 보존할 WIP, 확정 사항 (+33 more)
 
-### Community 246 - "personal_room_furnish_screen.dart"
+### Community 246 - "Set"
 Cohesion: 0.01
-Nodes (229): BoxFit, ../../data/personal_room_catalog.dart, ../../data/sticker_catalog.dart, free_room_layer.dart, ../../l10n/sticker_localizations.dart, assetFor, _assetRoot, dedicatedPackIds (+221 more)
+Nodes (134): dancheong_stamp.dart, ../../data/pack_artwork_catalog.dart, ../../data/personal_room_catalog.dart, free_room_layer.dart, illustrated_card.dart, backgroundAsset, kPersonalRoomDefinitions, PersonalRoomDefinition (+126 more)
 
 ### Community 247 - "first_link_backfill_journal.dart"
 Cohesion: 0.05
 Nodes (40): bookshelfPending, clearIfCurrent, _controlCharacterPattern, createIfAbsent, currentVersion, FirstDurableLinkBackfillJournal, FirstDurableLinkBackfillJournalStore, fromJson (+32 more)
 
 ### Community 248 - "mission_recommender.dart"
-Cohesion: 0.05
-Nodes (42): CoursePick, dueCount, end, fraction, HangulIntroPick, i, level, missionNumber (+34 more)
+Cohesion: 0.06
+Nodes (36): dueCount, end, fraction, HangulIntroPick, i, level, missionNumber, MissionPick (+28 more)
 
 ### Community 249 - "createFirestoreCloudBackupDeletionRepository"
 Cohesion: 0.39
@@ -2547,21 +2576,21 @@ Nodes (20): processClaim(), createFirestoreCloudBackupDeletionRepository(), adva
 Cohesion: 0.07
 Nodes (27): apply_moves(), _load(), main(), main(), plan_migration(), Any, Path, 주입된 사본과 리포트를 만든다. 입력은 변형하지 않는다. (+19 more)
 
-### Community 251 - "TestBatch34VocabRows"
-Cohesion: 0.03
-Nodes (17): _load_json(), _load_vocab_rows(), _nikl_grades(), The shape audit_batch_live_promotion.py loads without structural errors (Batch…, Brief: 2-3 boss words per pack (live A2 convention: 3 for a 12-word pack, 2 for…, Hand-grep of the scanner blind spots the Batch 32 note lists plus two grade-3…, Batch 28-32 rule: a persona counts for a row only as (a) the unambiguous…, Each SPEAKER_CUE_WHITELIST entry must be traceable to the persona's own… (+9 more)
+### Community 251 - "_load_json"
+Cohesion: 0.07
+Nodes (8): _load_json(), _load_vocab_rows(), _nikl_grades(), The shape audit_batch_live_promotion.py loads without structural errors (Batch…, TestBatch34ManifestAuditShape, TestBatch34NeverTouchesLiveAssets, TestBatch34Packs, TestBatch34Satz
 
 ### Community 252 - "confirmed_choice_action.dart"
-Cohesion: 0.05
-Nodes (43): BuildContext?, ConfirmedLocalChoiceOperation, _acceptsInput, active, _assertCurrentGeneration, _buildFeedback, ConfirmedChoiceFamily, ConfirmedChoiceTarget (+35 more)
+Cohesion: 0.03
+Nodes (60): BuildContext?, CatalogHistoryLease, _historyGeneration, isCurrent, _local, resetForTesting, session, _testGeneration (+52 more)
 
 ### Community 253 - "ADR-002: 소리를 카테고리별로 끄고 켠다 — AudioPolicy"
 Cohesion: 0.05
 Nodes (43): 10. 실기기에서 확인할 것 (에뮬레이터로 안 잡힘), 11. Open Questions — Jin 결정 필요, 11-정정. 오디오를 어디에 실을 것인가 — 결론 (2026-08-01), 1-1. 소리를 내는 코드 지점 — 전부 6곳, 1-2. 🔴 `SoundService.enabled` 는 스위치가 아니다, 1-3. 🔴 앰비언스 배선은 있는데 죽어 있다, 1-4. 영상 오디오 실측 (`ffmpeg -af volumedetect`), 1-5. 효과음 파일 (+35 more)
 
 ### Community 254 - "phase_task_authoring.py"
-Cohesion: 0.07
-Nodes (28): production(), Authored A1 sentence production; no publication approvals are written here., A2 bounded production from explicit facts; publication requires review., kp12(), KP12 conditions and responsibilities; source generation is unsigned., kp15(), KP15 causal claims and evaluation. Source generation does not approve it., kp17() (+20 more)
+Cohesion: 0.06
+Nodes (40): production(), Authored A1 sentence production; no publication approvals are written here., kp05(), kp06(), kp07(), kp08(), Additional A2 genre/phonology practice, including explicitly unscored writing., writing() (+32 more)
 
 ### Community 255 - "._move"
 Cohesion: 0.08
@@ -2573,14 +2602,11 @@ Nodes (43): 3계층 — 무엇을 커밋하는가, AGENTS.md — ko_lernen_app (
 
 ### Community 257 - "content_feedback_card.dart"
 Cohesion: 0.05
-Nodes (42): content_feedback_sheet.dart, InheritedWidget, ContentFeedbackPassportStateReader, ContentFeedbackSubmitStatus, _acceptedStamp, build, completedMissionIds, _completionGeneration (+34 more)
+Nodes (43): content_feedback_sheet.dart, InheritedWidget, ContentFeedbackPassportStateReader, ContentFeedbackSubmitStatus, _acceptedStamp, build, completedMissionIds, _completionGeneration (+35 more)
 
 ### Community 258 - "_"
-Cohesion: 0.05
-Nodes (41): course_mastery.dart, dancheong,
-  gate,
-  windows,
-  sideBuilding,, hanok_stage.dart, ildu_construction_art.dart, CourseUnit, _, a1Ratio, a2Ratio (+33 more)
+Cohesion: 0.06
+Nodes (37): course_mastery.dart, curriculum.dart, hanok_stage.dart, ildu_construction_art.dart, contentKind, contentLinkId, CoursePracticeContext, courseUnitId (+29 more)
 
 ### Community 259 - "Global Constraints"
 Cohesion: 0.05
@@ -2599,8 +2625,8 @@ Cohesion: 0.05
 Nodes (42): beginnerDraft, canCommit, code, commitStage, companionDraft, copyWith, currentSchemaVersion, fromCode (+34 more)
 
 ### Community 263 - "cloze_loader.dart"
-Cohesion: 0.05
-Nodes (41): acceptedAnswers, acceptedVariants, accepts, answer, _cache, ClozeItem, ClozeLoader, de (+33 more)
+Cohesion: 0.08
+Nodes (23): acceptedAnswers, acceptedVariants, accepts, answer, _cache, ClozeItem, ClozeLoader, de (+15 more)
 
 ### Community 264 - "window_class.dart"
 Cohesion: 0.06
@@ -2614,12 +2640,12 @@ Cohesion: 0.05
 Nodes (42): a1, a2, b1, b2, baek, c1, c2, cheong (+34 more)
 
 ### Community 266 - "build"
-Cohesion: 0.09
-Nodes (18): build(), coverage_report(), fingerprint(), localized(), main(), Path, Publish individually model-reviewed Phase tasks; never infer full coverage., validate_task() (+10 more)
-
-### Community 267 - "consent_screen.dart"
 Cohesion: 0.07
-Nodes (32): app_review_demo_screen.dart, consent_screen.dart, ../features/onboarding_v2/first_run_coordinator.dart, ../features/onboarding_v2/onboarding_rollout_service.dart, intro_gate_screen.dart, FirstRunCoordinator, _accept, build (+24 more)
+Nodes (23): build(), main(), Path, Project the authored Phase goals and related live missions into a small asset.…, render(), build(), coverage_report(), fingerprint() (+15 more)
+
+### Community 267 - "splash_screen.dart"
+Cohesion: 0.06
+Nodes (36): consent_screen.dart, ../features/onboarding_v2/first_run_coordinator.dart, ../features/onboarding_v2/first_run_runtime.dart, ../features/onboarding_v2/onboarding_rollout_service.dart, intro_gate_screen.dart, FirstRunCoordinator, AppShell, _AppShellState (+28 more)
 
 ### Community 268 - "content_feedback_client.dart"
 Cohesion: 0.05
@@ -2629,13 +2655,13 @@ Nodes (41): ../../data/beta_mission_catalog.dart, acknowledgement, callableName,
 Cohesion: 0.05
 Nodes (42): 7. 전수표 (도구 생성), `assets/icons/` — 2개 · 0.2 MB · 번들 O · lib 미참조 0개, `assets/illustrations/activities/` — 24개 · 2.1 MB · 번들 O · lib 미참조 0개, `assets/illustrations/book/` — 5개 · 0.9 MB · 번들 O · lib 미참조 0개, `assets/illustrations/burst/` — 2개 · 0.3 MB · 번들 O · lib 미참조 0개, `assets/illustrations/decorations/` — 24개 · 8.2 MB · 번들 O · lib 미참조 0개, `assets/illustrations/empty/` — 2개 · 1.3 MB · 번들 O · lib 미참조 0개, `assets/illustrations/error/` — 2개 · 0.2 MB · 번들 O · lib 미참조 0개 (+34 more)
 
-### Community 270 - "tts_installation_id_test.dart"
-Cohesion: 0.12
-Nodes (17): SecureTtsInstallationIdStore, TtsInstallationIdStore, package:ko_lernen_app/services/tts_installation_id.dart, _DelayedStore, failRead, failWrite, _firstId, main (+9 more)
-
-### Community 271 - "vocab_notebook_studio_screen.dart"
+### Community 270 - "tts_installation_id.dart"
 Cohesion: 0.06
-Nodes (33): chosung_quiz_screen.dart, cloze_game_screen.dart, custom_pack_matching_screen.dart, custom_pack_play_screen.dart, custom_pack_quiz_screen.dart, custom_pack_typing_screen.dart, CustomPack get, CustomPackCorpusMatch get (+25 more)
+Nodes (31): FlutterSecureStorage, buildTtsCallableData, _cached, getOrCreate, _inFlight, _loadOrCreate, read, SecureTtsInstallationIdStore (+23 more)
+
+### Community 271 - "services/learning_focus.dart"
+Cohesion: 0.03
+Nodes (57): course_mission_navigation.dart, learning_journey.dart, kQuestById, kQuestCatalog, _seasonChildrensDay, _seasonChuseok, _seasonHangeulDay, _seasonSeollal (+49 more)
 
 ### Community 272 - "integrate_review_batches.py"
 Cohesion: 0.15
@@ -2651,39 +2677,39 @@ Nodes (12): D1BatchimClassTests, D2ParticleFormTests, D3PosFormTests, D4Activity
 
 ### Community 275 - "room_layout_service.dart"
 Cohesion: 0.05
-Nodes (40): analytics_service.dart, _, completeAfterLevelSelection, OnboardingFlowService, addItem, _decodeSurfaces, defaultWidth, _hasRoomCapacity (+32 more)
+Nodes (41): analytics_service.dart, _, completeAfterLevelSelection, OnboardingFlowService, addItem, _decodeSurfaces, defaultWidth, _hasRoomCapacity (+33 more)
 
 ### Community 276 - "wordbook_add.dart"
 Cohesion: 0.05
 Nodes (41): ../../features/study_library/study_library.dart, _add, addToWordbook, AddToWordbookButton, _AddToWordbookButtonState, addTypedBookmarkWithWordbookMirror, build, coachEnabled (+33 more)
 
-### Community 277 - "text_field.dart"
-Cohesion: 0.05
-Nodes (40): GestureTapCallback?, alignLabelWithHint, autocorrect, autofocus, build, controller, counterText, enabled (+32 more)
+### Community 277 - "Widget"
+Cohesion: 0.02
+Nodes (104): double get, GestureTapCallback?, _HanokMapHeaderDelegate, body, build, _buildExpanded, collapsedTitle, expandedBuilder (+96 more)
 
 ### Community 278 - "onboarding_v2_character_media_contract_test.dart"
 Cohesion: 0.05
 Nodes (40): LegacyOnboardingSnapshot, attemptedStates, browse, build, clear, companion, _CompanionHarness, completedSaves (+32 more)
 
-### Community 279 - "ildu_world_state_service.dart"
-Cohesion: 0.04
-Nodes (51): IlDuWorldState, assetPath, _cachedCatalog, CulturalGlossaryRepository, load, _loadSafely, resetForTesting, setLoaderForTesting (+43 more)
+### Community 279 - "phase_task_catalog.dart"
+Cohesion: 0.06
+Nodes (30): accepts, assetPath, _byId, forPhase, load, _loadValidated, objectives, parse (+22 more)
 
 ### Community 280 - "app_startup_coordinator.dart"
 Cohesion: 0.05
 Nodes (40): AccountStartupRestoration, AccountStartupRestorationKind, AppStartupCoordinator, blocked, cloudBackupDeletion, currentUserId, deletion, deletionReceiptPending (+32 more)
 
 ### Community 281 - "android_release_evidence.py"
-Cohesion: 0.17
-Nodes (39): Popen, archive_release(), _artifacts(), BuildRequest, _check_receipt(), _cli_positive_integer(), _cli_version(), _digest() (+31 more)
+Cohesion: 0.20
+Nodes (36): archive_release(), _artifacts(), BuildRequest, _check_receipt(), _cli_positive_integer(), _cli_version(), _digest(), _elf() (+28 more)
 
 ### Community 282 - "build_backlog"
 Cohesion: 0.12
 Nodes (27): BacklogError, build_backlog(), build_markdown(), _classification(), _grammar_keys(), _hashes(), _inside(), _item_key() (+19 more)
 
-### Community 283 - "durable_provider_link_test.dart"
-Cohesion: 0.07
-Nodes (28): AuthorizationCredentialAppleID, FirebaseAuthException, AccountLinkSafetyFailure, AppleOAuthConfiguration, AppleOAuthConfigurationMissing, fromEnvironment, redirectUrl, requireWebOptions (+20 more)
+### Community 283 - "app_error.dart"
+Cohesion: 0.04
+Nodes (55): Animation, AnimationController, asset, _BreathingTransform, _BreathingTransformState, build, _c, child (+47 more)
 
 ### Community 284 - "원어민 자연스러움 전수 재검사 — DE / KO / EN (2026-07-01)"
 Cohesion: 0.05
@@ -2703,32 +2729,32 @@ Nodes (30): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModu
 
 ### Community 288 - "hoerverstehen_quest.dart"
 Cohesion: 0.07
-Nodes (28): allowDontKnow, audioEnabled, _audioKo, build, _check, correctFeedback, _correctIndex, createState (+20 more)
+Nodes (29): allowDontKnow, audioEnabled, _audioKo, build, _check, correctFeedback, _correctIndex, createState (+21 more)
 
 ### Community 289 - "illustrated_card_grid.dart"
 Cohesion: 0.05
 Nodes (39): bodyPadding, bodyWidth, buffer, build, cached, cacheKey, cardBorderInset, _cellAspectRatio (+31 more)
 
 ### Community 290 - "dialog.dart"
-Cohesion: 0.06
-Nodes (30): AlignmentGeometry, Clip, Color? barrierColor,
-  bool, actions, actionsPadding, alignment, backgroundColor, barrierColor (+22 more)
+Cohesion: 0.05
+Nodes (40): AlignmentGeometry, Clip, Color? barrierColor,
+  bool, actions, actionsPadding, alignment, backgroundColor, barrierColor (+32 more)
 
 ### Community 291 - "build_theme_park_date_tts_manifest.py"
 Cohesion: 0.12
 Nodes (30): _auto_voice(), build_manifest(), _candidate_set_hash(), _character_voices(), _json(), main(), _mapping(), Any (+22 more)
 
-### Community 292 - "sori_net.dart"
-Cohesion: 0.08
-Nodes (23): backoffDelay, base, cappedMicros, clampedMicros, defaultNetTimeout, exponent, jitteredMicros, jitterFraction (+15 more)
+### Community 292 - "path_trail.dart"
+Cohesion: 0.04
+Nodes (50): ahead, badge, build, centersY, centerXFor, cleared, _clipBlend, _clipSize (+42 more)
 
 ### Community 293 - "Batch 11 시나리오 36개 집필 계획"
 Cohesion: 0.05
 Nodes (37): 36칸 확정표, A1 — xpReward 120, A2 — xpReward 140, B1 — xpReward 160, B2 — xpReward 180, Batch 11 시나리오 36개 집필 계획, C1 — xpReward 190, C2 — xpReward 200 (+29 more)
 
 ### Community 294 - "gye_dedication_service.dart"
-Cohesion: 0.05
-Nodes (38): absentExhibit, activeExhibit, callableName, category, decorationSlug, expectedRevision, _firebaseCallableInvokerForRegion, _firebaseFailure (+30 more)
+Cohesion: 0.06
+Nodes (35): absentExhibit, activeExhibit, callableName, category, decorationSlug, expectedRevision, _firebaseCallableInvokerForRegion, _firebaseFailure (+27 more)
 
 ### Community 295 - "PackAssignmentPlanTest"
 Cohesion: 0.19
@@ -2769,38 +2795,29 @@ Nodes (17): _attributive_candidates(), detect_grammar(), _load_grammar_patterns(
 ### Community 304 - "cloud_backup_deletion_runtime.test.js"
 Cohesion: 0.07
 Nodes (20): createCloudBackupDeletionRuntime(), createFirestoreCloudBackupStore(), assert, {
-
   BACKUP_FIELDS,
-
   BACKUP_ROOTS,
-
-  CALLABLE_OPTIONS,
-
   createCloudBackupDeletionCallable,
-
   createCloudBackupDeletionRuntime,
-
   createFirestoreCloudBackupDeletionRepository,
-
   createFirestoreCloudBackupStore,
-
 }, createHarness(), { createHmac }, createTransactionalFirestoreHarness(), CursorPagingBackupStore (+12 more)
 
-### Community 305 - "bookshelf_custom_pack_uiux_test.dart"
-Cohesion: 0.01
-Nodes (200): PackStatus, ManagedMediaStore, package:ko_lernen_app/models/pack_progress.dart, package:ko_lernen_app/screens/bookshelf_screen.dart, package:ko_lernen_app/services/account/account_reconciliation.dart, package:ko_lernen_app/services/account/account_transition_journal.dart, package:ko_lernen_app/services/account/cloud_read_result.dart, package:ko_lernen_app/services/account/cloud_write_session.dart (+192 more)
+### Community 305 - "account_reconciliation_test.dart"
+Cohesion: 0.02
+Nodes (86): PackStatus, CloudReadResult, package:ko_lernen_app/models/pack_progress.dart, package:ko_lernen_app/services/account/cloud_read_result.dart, package:ko_lernen_app/services/cloud_sync_service.dart, package:ko_lernen_app/services/firestore_progress_service.dart, package:ko_lernen_app/services/net/sori_net.dart, package:ko_lernen_app/services/pack_progress_service.dart (+78 more)
 
 ### Community 306 - "_"
 Cohesion: 0.06
 Nodes (38): ProductionStudyLibraryBookmarkReader, _, add, _bookmarkReader, _bookshelfReader, build, _comparePresentation, _customPackReader (+30 more)
 
-### Community 307 - "static const"
-Cohesion: 0.03
-Nodes (61): FilterQuality, first_run_coordinator.dart, fromRoute, level, levels, PhaseNativeConfiguration, restoreOnly, currentMode (+53 more)
+### Community 307 - "package:flutter/foundation.dart"
+Cohesion: 0.05
+Nodes (41): first_run_coordinator.dart, _compileTimeEnabled, _enabledOverride, isEnabled, UxPreviewFeatureGate, currentMode, defaultRaw, _fetch (+33 more)
 
 ### Community 308 - "package:flutter_test/flutter_test.dart"
 Cohesion: 0.01
-Nodes (428): Anfang, AnimatedBuilder, dart:convert, dart:io, dart:ui, Directory, FileSystemException, GestureDetector (+420 more)
+Nodes (415): AnimatedBuilder, dart:convert, dart:io, Directory, Fake, File, FileSystemException, GestureDetector (+407 more)
 
 ### Community 309 - "HistoryTraceTest"
 Cohesion: 0.06
@@ -2814,21 +2831,9 @@ Nodes (37): a1_production_quests(), apply_next_pack_orders(), build_scenario(), 
 Cohesion: 0.06
 Nodes (22): 공공누리 제1유형 자료의 예외, 금지 입력, 기존 데이터, 목적, 작성과 검수, 콘텐츠 출처 격리 정책, 허용 입력, 허용되는 격리 감사 (+14 more)
 
-### Community 312 - "gye_dedication_runtime.test.js"
-Cohesion: 0.07
-Nodes (14): CALLABLE_OPTIONS, createGyeDedicationCallable(), assert, BASE_PAYLOAD, {
-
-  CALLABLE_OPTIONS,
-
-  DEDICATION_RECEIPT_LIMIT,
-
-  DEDICATION_SLOT_COUNT,
-
-  createGyeDedicationCallable,
-
-  createGyeDedicationRuntime,
-
-}, clone(), createHarness(), FakeCollection (+6 more)
+### Community 312 - "dancheong_stamp.dart"
+Cohesion: 0.05
+Nodes (44): animate, assetPath, base, _baseOf, build, createState, _ctrl, dancheongMotifName (+36 more)
 
 ### Community 313 - "Part 0 — round 2 (Fable review, KO changes)"
 Cohesion: 0.05
@@ -2876,19 +2881,19 @@ Nodes (36): §0. Jin이 잠글 결정 (구현 전 확인), §10. Jin 확인 한 
 
 ### Community 324 - "smalltalk_screen.dart"
 Cohesion: 0.02
-Nodes (121): ../features/study_library/study_library_models.dart, alternative, assessmentLink, _assessmentLinkFor, attempt, build, _buildBody, buildCoachSteps (+113 more)
+Nodes (113): ../features/study_library/study_library_models.dart, _, CourseMissionStep, CourseMissionStepPlan, displayIndex, fromLinks, index, link (+105 more)
 
 ### Community 325 - "sori_icon.dart"
 Cohesion: 0.17
 Nodes (11): accuracy, cards, definition, locked, record, SoriGlyph, star, streak (+3 more)
 
-### Community 326 - "practice_hub_screen.dart"
-Cohesion: 0.01
-Nodes (180): BookOcrDocument? get, bookshelf_screen.dart, hard_words_screen.dart, bookCaptureJpegQuality, bookCaptureQuotaBlocksPick, BookCaptureScreen, _BookCaptureScreenState, build (+172 more)
+### Community 326 - "book_preview_screen.dart"
+Cohesion: 0.03
+Nodes (73): BookOcrDocument? get, dialog.dart, args, _BookPreviewImage, _BookPreviewImageFallback, bookPreviewImageMaxHeight, BookPreviewImageResolver, BookPreviewMediaOwner (+65 more)
 
 ### Community 327 - "package:image/image.dart"
-Cohesion: 0.10
-Nodes (17): package:image/image.dart, package:integration_test/integration_test_driver_extended.dart, package:ko_lernen_app/services/book_capture_image_quality.dart, checkerboard, main, create, integrationDriver, main (+9 more)
+Cohesion: 0.11
+Nodes (16): package:image/image.dart, package:integration_test/integration_test_driver_extended.dart, create, integrationDriver, main, output, outputDirectory, main (+8 more)
 
 ### Community 328 - "STEP 3: 앱 콘텐츠 설정 (필수 — 모두 완료해야 출시 가능)"
 Cohesion: 0.06
@@ -2899,12 +2904,12 @@ Cohesion: 0.14
 Nodes (25): _atomic_restore(), _atomic_write(), integrate(), _json_text(), main(), _project(), Any, Path (+17 more)
 
 ### Community 332 - "_"
-Cohesion: 0.06
-Nodes (35): account/cloud_read_result.dart, _, _canonicalize, CloudSyncCasResult, CloudSyncCasStatus, CloudSyncCasWriter, CloudSyncCompositeDocuments, CloudSyncCompositeReader (+27 more)
+Cohesion: 0.04
+Nodes (57): access_snapshot_controller.dart, account/cloud_read_result.dart, _access, accessSnapshotNotifier, AccessSnapshotService, _clock, _environment, _expiryTimer (+49 more)
 
 ### Community 333 - "onboarding_contract_validation.dart"
-Cohesion: 0.07
-Nodes (26): code, ContractValidationResult, ContractViolation, field, hasCode, isDartLocalizationKey, isSecurePublicUrl, isStableSemanticId (+18 more)
+Cohesion: 0.14
+Nodes (13): code, ContractValidationResult, ContractViolation, field, hasCode, isDartLocalizationKey, isSecurePublicUrl, isStableSemanticId (+5 more)
 
 ### Community 334 - "문장만 재작성 (34건)"
 Cohesion: 0.06
@@ -2932,7 +2937,7 @@ Nodes (32): BookshelfSyncOutboxStore, BookshelfSyncPending, SharedPreferencesBoo
 
 ### Community 340 - "package:ko_lernen_app/widgets/sori/button.dart"
 Cohesion: 0.01
-Nodes (206): Column, FileImage, BookAnalysisResult, ContentFeedbackDraft, ContentFeedbackSubmitResult, AppError, DisplaySizedFileImage, fit (+198 more)
+Nodes (153): Column, AppL10n, ContentFeedbackDraft, ContentFeedbackSubmitResult, GrammarPlanConflictException, GrammarPlanRecoveryValueException, SoriButton, ContentFeedbackCard (+145 more)
 
 ### Community 341 - "Deutsche Version"
 Cohesion: 0.06
@@ -2963,8 +2968,8 @@ Cohesion: 0.06
 Nodes (31): book_analysis_service.dart, book_word_gloss_resolver.dart, analyze, appCheckToken, autoFill, _blockedResult, BookAnalysisCredentials, BookAnalysisCredentialsProvider (+23 more)
 
 ### Community 349 - "mascot_pop.dart"
-Cohesion: 0.03
-Nodes (67): character_clip.dart, dancheong_burst.dart, accent, bubble, _BubbleTailPainter, build, color, forceStatic (+59 more)
+Cohesion: 0.06
+Nodes (33): dancheong_burst.dart, _avatar, build, _burstDuration, _BurstFrame, burstOrigin, burstScale, _cancelTimers (+25 more)
 
 ### Community 350 - "기술 인계서 — Hangul Sori 앱 전면 개선 웨이브 (2026-08-27)"
 Cohesion: 0.06
@@ -2976,11 +2981,11 @@ Nodes (33): @firebase/rules-unit-testing, firebase-tools, dependencies, firebase
 
 ### Community 352 - "ildu_turntable_catalog.dart"
 Cohesion: 0.06
-Nodes (33): anchorId, assetPath, contentBounds, directionForDegrees, displayBounds, _frame, frames, ilduTurntableForAnchor (+25 more)
+Nodes (34): anchorId, assetPath, contentBounds, directionForDegrees, displayBounds, _frame, frames, ilduTurntableForAnchor (+26 more)
 
-### Community 353 - "app_loading_image_failure_test.dart"
-Cohesion: 0.08
-Nodes (23): CachingAssetBundle, _bookAnalyzing, _dotFallbacks, _expectDotFallbackFromImageError, _expectOneLocalizedLiveRegion, _expectVisualBox, failedKeys, _failedPaths (+15 more)
+### Community 353 - "dancheong_burst.dart"
+Cohesion: 0.05
+Nodes (41): baseWidth, build, _BurstLayer, _BurstLayerState, _clampAxis, _coins, _coinSheet, createState (+33 more)
 
 ### Community 354 - "particle_pop_quest.dart"
 Cohesion: 0.06
@@ -2994,21 +2999,21 @@ Nodes (34): _, BookAnalysisTextPreprocessor, BookTextInspection, consideredChara
 Cohesion: 0.06
 Nodes (34): asset, _BundledContentCache, DataLoader, error, failureMessage, _generation, grammarError, _grammars (+26 more)
 
-### Community 357 - "study_frame.dart"
-Cohesion: 0.08
-Nodes (24): app_bar.dart, home_action.dart, actions, adaptTitleAtNormalScale, automaticallyImplyLeading, bottom, bottomNavigationBar, build (+16 more)
+### Community 357 - "standard_page.dart"
+Cohesion: 0.02
+Nodes (102): app_bar.dart, BoxFit, CrossAxisAlignment, ../data/cloze_topic_groups.dart, ../../data/sticker_catalog.dart, EdgeInsetsGeometry, generated/app_localizations.dart, home_action.dart (+94 more)
 
 ### Community 358 - "privacy_preferences_platform.dart"
 Cohesion: 0.06
 Nodes (33): applied, calls, clear, commitBeforeFailure, deleteEntered, deleteRelease, deleteUnsentReports, disable (+25 more)
 
 ### Community 359 - "audit_content_naturalness.py"
-Cohesion: 0.09
-Nodes (41): check_answer_repeat(), check_dangling_stem(), check_e_daehae(), check_generic_markers(), check_josa_dup(), check_level_length(), check_passive_pileup(), _escape_cell() (+33 more)
+Cohesion: 0.13
+Nodes (33): check_answer_repeat(), check_dangling_stem(), check_generic_markers(), _escape_cell(), Hit, _load_json(), _load_scenario_shards(), _load_vocab_headwords() (+25 more)
 
 ### Community 360 - "test_ingest_nikl_grade_lists.py"
-Cohesion: 0.07
-Nodes (11): _build_minimal_xlsx(), _escape(), GradeParsingTests, IngestIntegrationTests, _make_basic_fixture(), _make_kiiq_fixture(), Path, Tests for tool/ingest_nikl_grade_lists.py. Builds tiny synthetic xlsx fixtures… (+3 more)
+Cohesion: 0.11
+Nodes (10): _build_minimal_xlsx(), _escape(), GradeParsingTests, IngestIntegrationTests, _make_basic_fixture(), _make_kiiq_fixture(), Path, Tests for tool/ingest_nikl_grade_lists.py. Builds tiny synthetic xlsx fixtures… (+2 more)
 
 ### Community 361 - "render_adjudication_packets.py"
 Cohesion: 0.11
@@ -3023,8 +3028,8 @@ Cohesion: 0.06
 Nodes (32): 1. 레벨을 실제로 결정하는 것은 공식 목록이 아니라 수기 `level` 문자열이다, 2. 336형태에 뜻·기능·예문이 없다, 3. "표현" 축이 taxonomy 에 존재하지 않는다 — 가장 구조적인 공백, 4. 바이블 §B 가 A1·A2 만 물질화돼 있다, 5. 문서 간 모순 6건 (이 PR 에서 정리), (A) Jin 이 업로드한 딥리서치 보고서 (2026-09-09), (B) PR #289 산출물, Jin 이 정한 것 (2026-09-09) (+24 more)
 
 ### Community 364 - "_"
-Cohesion: 0.05
-Nodes (44): course_mission_step_plan.dart, CourseMasterySnapshot, _, _checkpointPassed, courseMissionMinutesFor, CourseMissionPhase, declaredIndex, displayIndex (+36 more)
+Cohesion: 0.06
+Nodes (33): course_mission_step_plan.dart, CourseMasterySnapshot, _, _checkpointPassed, courseMissionMinutesFor, CourseMissionPhase, declaredIndex, displayIndex (+25 more)
 
 ### Community 365 - "홈 개편 재계획 v2 — 검수 반영본"
 Cohesion: 0.06
@@ -3047,36 +3052,36 @@ Cohesion: 0.06
 Nodes (31): 네 건물 원도면 직접 확인 목록, 10. 원도면 확인으로 정한 적용 범위, 11.1 좌표와 설치 상태, 11.2 부재 접합과 설치 전제, 11.3 공정당 확인할 네 상태, 11. 어긋남을 막는 입체 제작 계약, 12.1 중문채 — `jungmunganchae`, 12.2 아래채 — `araechae` (+23 more)
 
 ### Community 370 - "phase_attempt_retention_test.dart"
-Cohesion: 0.11
-Nodes (18): PhaseTask, PhaseTaskResult, changed, containsKey, curriculum, failingResult, getString, main (+10 more)
+Cohesion: 0.10
+Nodes (19): PhaseTask, PhaseTaskResult, changed, containsKey, curriculum, failingResult, getString, main (+11 more)
 
 ### Community 371 - "tts_request_guard.js"
 Cohesion: 0.11
 Nodes (28): abandonTtsReplay(), CALLABLE_OPTIONS, claimTtsReplay(), completedTtsReceipt(), completeTtsReplay(), crypto, DEFAULT_DAILY_LIMITS, GRPC_STATUS_NAMES (+20 more)
 
-### Community 372 - "tts_private_playback.dart"
-Cohesion: 0.18
-Nodes (10): _activeId, _channel, _nextId, _pendingStopId, play, PrivateTtsRoute, requiresStop, routeFor (+2 more)
+### Community 372 - "motion.dart"
+Cohesion: 0.05
+Nodes (39): build, _c, cardCurve, cardDuration, child, createState, delay, _delayTimer (+31 more)
 
 ### Community 373 - "hanok_experience_projector_test.dart"
+Cohesion: 0.05
+Nodes (45): CourseSegmentCatalog, HanokGrantCatalog, ProductiveAssessmentCatalog, package:ko_lernen_app/models/hanok_growth.dart, package:ko_lernen_app/services/canonical_course_segment_loader.dart, package:ko_lernen_app/services/course_segment_catalog.dart, package:ko_lernen_app/services/hanok_experience_projector.dart, package:ko_lernen_app/services/hanok_grant_catalog.dart (+37 more)
+
+### Community 374 - "book_capture_screen.dart"
 Cohesion: 0.06
-Nodes (40): CourseSegmentCatalog, HanokGrantCatalog, ProductiveAssessmentCatalog, package:ko_lernen_app/models/hanok_growth.dart, package:ko_lernen_app/services/canonical_course_segment_loader.dart, package:ko_lernen_app/services/course_segment_catalog.dart, package:ko_lernen_app/services/hanok_experience_projector.dart, package:ko_lernen_app/services/hanok_grant_catalog.dart (+32 more)
+Nodes (37): bookCaptureJpegQuality, bookCaptureQuotaBlocksPick, BookCaptureScreen, _BookCaptureScreenState, build, buildBookPreviewArguments, _busy, captureMode (+29 more)
 
-### Community 374 - "collapsing_header.dart"
-Cohesion: 0.08
-Nodes (24): _HanokMapHeaderDelegate, body, build, _buildExpanded, collapsedTitle, expandedBuilder, expandedHeight, expandedTextWidth (+16 more)
-
-### Community 375 - "storage_cloud_backup_deletion_fence_test.dart"
-Cohesion: 0.11
-Nodes (17): CloudBackupDeletionResetBlockedException, package:ko_lernen_app/services/account/first_link_backfill_journal.dart, main, containsKey, durable, getKeys, getValue, insertedJournalKey (+9 more)
+### Community 375 - "content_learning_models.dart"
+Cohesion: 0.06
+Nodes (35): bool completed,, DateTime? lastUpdatedAt,, answers, completedAt, completedCount, completedIds, ContentDailyProgress, contentIds (+27 more)
 
 ### Community 376 - "pack_session_srs_ledger.dart"
 Cohesion: 0.06
-Nodes (32): _canRecordEvidence, evidenceAttempt, expectedPackId, fromRouteArgument, gotIt, isPracticeOnly, isValidForPack, ledger (+24 more)
+Nodes (33): _canRecordEvidence, evidenceAttempt, expectedPackId, fromRouteArgument, gotIt, isPracticeOnly, isValidForPack, ledger (+25 more)
 
 ### Community 377 - "grounded_book_study_card.dart"
 Cohesion: 0.09
-Nodes (22): GroundedBookQuestion, GroundedBookTarget, _answerContent, build, _content, createState, didUpdateWidget, GroundedBookAskButton (+14 more)
+Nodes (23): BookAnalysisResult, GroundedBookQuestion, GroundedBookTarget, _answerContent, build, _content, createState, didUpdateWidget (+15 more)
 
 ### Community 378 - "classify_culture_word"
 Cohesion: 0.11
@@ -3095,8 +3100,8 @@ Cohesion: 0.14
 Nodes (6): Batch01PreReviewValidationTest, Path, skipIf, Exercise the actual Batch 01 handoff on an isolated source tree., Do not restore tile pairs that complete a second natural answer. Satzbau…, Keep the pre-review validator fixture independent of live promotion.
 
 ### Community 382 - "account_transition_coordinator.dart"
-Cohesion: 0.09
-Nodes (22): AuthCredential?, class ExistingAccountLinkConflict extends, AccountLinkProvider, AccountLinkUnavailable, AnonymousCredentialLinked, AnonymousCredentialLinkResult, _attemptAnonymousCredentialLink, credential (+14 more)
+Cohesion: 0.06
+Nodes (38): AuthCredential?, class ExistingAccountLinkConflict extends, ../../firebase_options.dart, AccountLinkProvider, AccountLinkUnavailable, AnonymousCredentialLinked, AnonymousCredentialLinkResult, _attemptAnonymousCredentialLink (+30 more)
 
 ### Community 383 - "canonical_course_segment_loader_test.dart"
 Cohesion: 0.11
@@ -3121,26 +3126,24 @@ Nodes (31): FirebaseAuthPlatform, FirebaseFunctionsPlatform, FirebasePlatform, H
 ### Community 389 - "createDeletionCleanupAdapters"
 Cohesion: 0.17
 Nodes (31): boundedPageSize(), {
-
   buildDeletionCleanupTargetClaim,
-
 }, cleanupFailure(), COMMUNITY_COLLECTIONS, createDeletionCleanupAdapters(), assertActiveFence(), assertDeadline(), assertMarkerScope() (+23 more)
 
 ### Community 390 - "picker_recovery_service.dart"
 Cohesion: 0.05
 Nodes (43): ImagePicker, acceptPickedBook, acceptPickedWord, attemptId, deleteTrustedTemporary, displaced, error, gateway (+35 more)
 
-### Community 391 - "File"
-Cohesion: 0.03
-Nodes (52): AudioPlayer, Fake, File, collectDashes, de, en, main, unpluralized (+44 more)
+### Community 391 - "chrome_stack_guard_test.dart"
+Cohesion: 0.12
+Nodes (15): _blankStringsAndComments, chipWrapAllowlist, chipWrapSpans, _constructorSpans, end, hasPrivateChipRail, i, join (+7 more)
 
 ### Community 392 - "five_tabs_design_preview_test.dart"
 Cohesion: 0.06
 Nodes (31): support/five_tabs_preview/preview.dart, board, boundary, bytes, canvas, capture, columns, content (+23 more)
 
-### Community 393 - "standard_page.dart"
-Cohesion: 0.08
-Nodes (23): actions, appBarTitle, automaticallyImplyLeading, bottomNavigationBar, build, builder, child, children (+15 more)
+### Community 393 - "onboarding_story_practice.dart"
+Cohesion: 0.06
+Nodes (35): _answer, _BojagiReveal, build, character, _composed, composition, _correct, createState (+27 more)
 
 ### Community 394 - "apply_review.py"
 Cohesion: 0.17
@@ -3148,7 +3151,7 @@ Nodes (31): apply_review(), _bump_manifest(), _csv_text(), _index_by_id(), _json
 
 ### Community 395 - "pronunciation_assessment_client.dart"
 Cohesion: 0.06
-Nodes (32): accuracy, accuracyScore, assess, assessmentId, _assessmentIdPattern, callableName, category, completeness (+24 more)
+Nodes (33): accuracy, accuracyScore, assess, assessmentId, _assessmentIdPattern, callableName, category, completeness (+25 more)
 
 ### Community 396 - "build_stamp_contact_sheets.dart"
 Cohesion: 0.12
@@ -3180,7 +3183,7 @@ Nodes (30): 0. 한 줄 결론, 10. 검증 기록 (이 세션), 1. 지금 당장 
 
 ### Community 403 - "app_shell_onboarding_analytics_retry_test.dart"
 Cohesion: 0.05
-Nodes (35): LegacyOnboardingStateReader, StorageLegacyOnboardingStateReader, OnboardingJourneyState, package:ko_lernen_app/features/onboarding_v2/first_run_coordinator.dart, package:ko_lernen_app/features/onboarding_v2/onboarding_rollout_service.dart, allowed, _app, calls (+27 more)
+Nodes (37): OnboardingJourneyRepository, OnboardingJourneyState, package:ko_lernen_app/features/onboarding_v2/first_run_coordinator.dart, package:ko_lernen_app/features/onboarding_v2/onboarding_rollout_service.dart, allowed, _app, calls, canRecordOnboardingCompleted (+29 more)
 
 ### Community 404 - "study_library_repository_test.dart"
 Cohesion: 0.10
@@ -3206,17 +3209,17 @@ Nodes (9): build(), main(), Any, Path, _sort_key(), _to_record(), BuildOutputTes
 Cohesion: 0.11
 Nodes (4): ApplyAlertsTest, FakeApi, MonitoringTransportTest, Offline operator contracts: failures must precede writes; retries must not…
 
-### Community 410 - "button.dart"
-Cohesion: 0.09
-Nodes (22): accent, build, destructive, filled, _fontSize, fullWidth, ghost, _height (+14 more)
+### Community 410 - "stroke_canvas.dart"
+Cohesion: 0.06
+Nodes (34): ../data/hangul_strokes.dart, build, color, _completeWithoutMotion, _completionNotificationScheduled, createState, _ctrl, didChangeDependencies (+26 more)
 
-### Community 411 - "../../models/learner_level.dart"
-Cohesion: 0.04
-Nodes (51): class StorageOnboardingCommitGateway, _courseProgress, hasConsent, implements, initializePlacement, isLegacyOnboardingComplete, markLegacyOnboardingComplete, read (+43 more)
+### Community 411 - "storage_service.dart"
+Cohesion: 0.03
+Nodes (60): hanok_competence_projection_service.dart, CurriculumText, assetPath, _cached, goal, id, ids, illustrationAsset (+52 more)
 
 ### Community 412 - "tts_private_cache.dart"
-Cohesion: 0.04
-Nodes (50): access_snapshot_controller.dart, _access, accessSnapshotNotifier, AccessSnapshotService, _clock, _environment, _expiryTimer, _identity (+42 more)
+Cohesion: 0.03
+Nodes (64): GoogleSignIn, CloudWriteSession, CloudWriteSessionController, budget, bytes, clear, _clock, dispose (+56 more)
 
 ### Community 413 - "account_operation_client_test.dart"
 Cohesion: 0.07
@@ -3234,17 +3237,17 @@ Nodes (24): AssetFetcher, contentSecurityPolicy(), createNonce(), Env, Execution
 Cohesion: 0.07
 Nodes (29): learner_level.dart, action, aligned, allowedMutations, bookmark, browseLevel, BrowseLevelIntent, courseStart (+21 more)
 
-### Community 417 - "../models/scenario.dart"
-Cohesion: 0.22
-Nodes (10): _, HanokLearningReceiptService, HanokReceiptCatalogLoader, HanokReceiptScenarioLoader, HanokReceiptSnapshotReader, loadReceipt, _readStoredSnapshot, ../models/hanok_learning_receipt.dart (+2 more)
+### Community 417 - "uebersetzen_quest.dart"
+Cohesion: 0.06
+Nodes (33): build, hasPlayableQuestContent, index, options, SoriQuestEmptyState, text, allowDontKnow, audioEnabled (+25 more)
 
 ### Community 418 - "productive_assessment_service_test.dart"
 Cohesion: 0.07
 Nodes (28): ProductiveAssessmentDefinition, ProductiveOralProductionAuthority, package:ko_lernen_app/models/can_do_segment.dart, package:ko_lernen_app/models/productive_mastery.dart, _AdvancedFixture, assess, assessUnscripted, calls (+20 more)
 
-### Community 419 - "onboarding_journey_repository.dart"
-Cohesion: 0.13
-Nodes (15): clear, load, OnboardingJourneyRepository, preferenceKey, _quarantine, quarantinePreferenceKey, save, SharedPreferencesOnboardingJourneyRepository (+7 more)
+### Community 419 - "onboarding_app_adapters.dart"
+Cohesion: 0.06
+Nodes (31): class StorageOnboardingCommitGateway, LegacyOnboardingStateReader, _courseProgress, hasConsent, implements, initializePlacement, isLegacyOnboardingComplete, markLegacyOnboardingComplete (+23 more)
 
 ### Community 420 - "build_pool.py"
 Cohesion: 0.11
@@ -3259,8 +3262,8 @@ Cohesion: 0.09
 Nodes (14): build(), build_payload(), cluster(), enrich(), expression(), load_vocab(), main(), neighbor() (+6 more)
 
 ### Community 423 - "loc"
-Cohesion: 0.15
-Nodes (25): kp01(), kp02(), kp03(), kp04(), Additional authored A1 genres, kept separate from publication review., kp05(), kp06(), kp07() (+17 more)
+Cohesion: 0.10
+Nodes (37): kp01(), kp02(), kp03(), kp04(), Additional authored A1 genres, kept separate from publication review., kp02(), kp03(), kp04() (+29 more)
 
 ### Community 424 - "promote_batch_19_loader_coverage.py"
 Cohesion: 0.20
@@ -3285,28 +3288,23 @@ Nodes (28): 17개 PDF 재검증, 17권에서 추가로 추상화할 내용, 1. �
 ### Community 429 - "apple_revocation_adapter.js"
 Cohesion: 0.13
 Nodes (21): AppleRevocationError, createAppleRevocationAdapter(), createClientSecret(), {
-
   createPrivateKey,
-
   createPublicKey,
-
   sign,
-
   verify,
-
 }, encodeJson(), fail(), isBoundedString(), requiredAppleIdentifier() (+13 more)
 
-### Community 430 - "discover_screen.dart"
+### Community 430 - "practice_hub_screen.dart"
 Cohesion: 0.02
-Nodes (115): PrivacyPurpose, dialog.dart, accent, discoverCatalog, DiscoverCatalogEntry, DiscoverPurpose, icon, id (+107 more)
+Nodes (86): accent, discoverCatalog, DiscoverCatalogEntry, DiscoverPurpose, icon, id, purpose, ribbonType (+78 more)
 
 ### Community 431 - "cultural_glossary.dart"
 Cohesion: 0.07
 Nodes (28): _byTermId, CulturalGlossaryCopy, CulturalGlossaryEntry, CulturalGlossarySource, decorationSlugs, entries, entry, fromJson (+20 more)
 
 ### Community 432 - "luecken_quest.dart"
-Cohesion: 0.04
-Nodes (53): allowDontKnow, audioEnabled, build, _check, correctFeedback, _correctIndex, createState, data (+45 more)
+Cohesion: 0.07
+Nodes (27): allowDontKnow, audioEnabled, build, _check, correctFeedback, _correctIndex, createState, data (+19 more)
 
 ### Community 433 - "promote_ildu_anchae_turntable.py"
 Cohesion: 0.15
@@ -3321,12 +3319,12 @@ Cohesion: 0.08
 Nodes (9): build(), main(), Any, Path, _sort_key(), _to_record(), authored_levels(), BuildOutputTest (+1 more)
 
 ### Community 436 - "quest"
-Cohesion: 0.16
-Nodes (9): build(), main(), Any, Path, _sort_key(), _to_record(), Any, quest() (+1 more)
+Cohesion: 0.10
+Nodes (11): build(), main(), Any, Path, _sort_key(), _to_record(), Any, quest() (+3 more)
 
-### Community 437 - "TestBatch25VocabRows"
-Cohesion: 0.09
-Nodes (7): None of the batch's headwords collide with a *different* word already live…, Matches the convention already used by promote_batch24_supplement.py (`if ans…, Jin ruling (2026-09-15): A1 진짜 -> 정말. No draft example_korean may contain 진짜., Replacing each row's headword with a placeholder must not yield the same…, 와" reacts to something visible/present -- it must be followed by a…, 네" and "좋아요" answer a question -- valid only inside a reply. Every Batch 25…, TestBatch25VocabRows
+### Community 437 - "onboarding_v3_demo_support.dart"
+Cohesion: 0.06
+Nodes (34): _audioGeneration, build, children, _content, createState, demoAudioFailed, DemoChoice, DemoChoiceRow (+26 more)
 
 ### Community 438 - "c2d2_build_jin_packet.py"
 Cohesion: 0.12
@@ -3336,9 +3334,9 @@ Nodes (25): apply_cloze(), apply_satz(), apply_vocab(), main(), Mirror build_sat
 Cohesion: 0.12
 Nodes (14): Original B2 records for Batch 17: practical comparison and resolution., Original C1 records for Batch 17: evidence, trade-offs and mediation., Original C2 records for Batch 17: framing, implications and accountability., exercise(), Any, Shared authoring helpers for review-only Batch 17. The helpers keep Korean,…, smalltalk(), tri() (+6 more)
 
-### Community 440 - "RelevelNormalizedLiveTest"
-Cohesion: 0.13
-Nodes (7): PromotedBatchValidationTest, Path, skipIf, Task T2.9a: validate_promoted_batch must tolerate a live/draft difference…, Fable ruling 2026-09-15 (C2a follow-up): a row can carry both a per-row…, RelevelNormalizedLiveTest, RequireReviewedCopyRevisionBatchComposeTest
+### Community 440 - "RequireReviewedCopyRevisionBatchComposeTest"
+Cohesion: 0.18
+Nodes (5): PromotedBatchValidationTest, Path, skipIf, Fable ruling 2026-09-15 (C2a follow-up): a row can carry both a per-row…, RequireReviewedCopyRevisionBatchComposeTest
 
 ### Community 441 - "출시 QA 체크리스트 — Hangul Sori"
 Cohesion: 0.07
@@ -3349,12 +3347,12 @@ Cohesion: 0.13
 Nodes (27): Fetcher, build_report(), _cache_file(), _cache_key(), classify_loanword(), http_fetcher(), _load_cache(), load_lexicon_origin() (+19 more)
 
 ### Community 443 - "scripts"
-Cohesion: 0.06
-Nodes (31): scripts, audit:security, build, cf, cloudflare:login, deploy, deploy:built, deploy:check (+23 more)
+Cohesion: 0.07
+Nodes (28): scripts, audit:security, cf, cloudflare:login, deploy, deploy:built, deploy:check, deploy:dry-run (+20 more)
 
 ### Community 444 - "hanok_learning_receipt.dart"
-Cohesion: 0.07
-Nodes (26): defaultScenesPerBeam, earnedExpressionCount, empty, fromSnapshot, hanokExpressionForScenario, HanokLearningReceipt, latestSafeExpressionKo, latestSafeScenarioId (+18 more)
+Cohesion: 0.11
+Nodes (17): defaultScenesPerBeam, earnedExpressionCount, empty, fromSnapshot, hanokExpressionForScenario, HanokLearningReceipt, latestSafeExpressionKo, latestSafeScenarioId (+9 more)
 
 ### Community 445 - "quest.dart"
 Cohesion: 0.07
@@ -3377,8 +3375,8 @@ Cohesion: 0.16
 Nodes (19): _app_call_site(), _coverage_errors(), _distribution(), _level(), LoaderCoverageAudit, main(), _mapped_unit(), _pack_base() (+11 more)
 
 ### Community 451 - "build_can_do_segments.py"
-Cohesion: 0.19
-Nodes (26): _at_nested_field(), _copy_revision_metadata(), _default_seed(), _humanization_changes_by_id(), _json_bytes(), _json_fingerprint(), main(), _original_pack_id() (+18 more)
+Cohesion: 0.18
+Nodes (27): _at_nested_field(), build_assets(), _copy_revision_metadata(), _default_seed(), _humanization_changes_by_id(), _json_bytes(), _json_fingerprint(), main() (+19 more)
 
 ### Community 452 - "batch_10_scene_scripts.py"
 Cohesion: 0.12
@@ -3432,13 +3430,13 @@ Nodes (26): A. 작업 방법론 — 이 개편이 굴러가는 7단계 루프 (�
 Cohesion: 0.19
 Nodes (26): app_ids_from_deploy_env(), archive_source_digest(), declared_denylist(), _digest_entries(), download_deployed_archive(), firebase_app_ids_from_options(), _is_denied(), local_source_digest() (+18 more)
 
-### Community 466 - "account_deletion_status_receipt_test.dart"
-Cohesion: 0.10
-Nodes (20): AccountDeletionStatusReceiptFailure, AccountDeletionStatusReceiptSecureStorage, FlutterSecureAccountDeletionStatusReceiptStorage, package:flutter_secure_storage/flutter_secure_storage.dart, _SecureStorage, _activeOperations, delayOperations, delete (+12 more)
+### Community 466 - "celebration.dart"
+Cohesion: 0.06
+Nodes (34): angle, asset, _assets, build, burst, _CelebrationLayer, _CelebrationLayerState, _Coin (+26 more)
 
 ### Community 467 - "deck_coach.dart"
-Cohesion: 0.05
-Nodes (37): afterCoachIds, build, createState, didUpdateWidget, dispose, _hideTimer, initState, markSoriDeckNudgeShown (+29 more)
+Cohesion: 0.08
+Nodes (26): afterCoachIds, build, createState, didUpdateWidget, dispose, _hideTimer, initState, markSoriDeckNudgeShown (+18 more)
 
 ### Community 468 - "Final fix wave (opus whole-branch review, `hardening-final-review.md`)"
 Cohesion: 0.07
@@ -3449,8 +3447,8 @@ Cohesion: 0.20
 Nodes (26): build_manifest(), _clean_text(), _load_generation_overrides(), _load_rows(), _load_scene_style_family(), main(), _parser(), _participants() (+18 more)
 
 ### Community 471 - "pack_completion_record.dart"
-Cohesion: 0.08
-Nodes (25): bool justCleared,, after, boss, bossAccuracy, boxKey, courseContext, courseKeys, decode (+17 more)
+Cohesion: 0.07
+Nodes (26): bool justCleared,, after, boss, bossAccuracy, boxKey, courseContext, courseKeys, decode (+18 more)
 
 ### Community 472 - "content_feedback_lifecycle.dart"
 Cohesion: 0.08
@@ -3481,36 +3479,36 @@ Cohesion: 0.14
 Nodes (17): KoreanAnalysisTextQualityTest, Regression tests for bilingual OCR text preparation., contains_hangul(), _filter_supported_characters(), _is_forbidden_format_character(), _is_supported_character(), prepare_korean_analysis_text(), PreparedKoreanText (+9 more)
 
 ### Community 479 - "cloze_prompt.dart"
-Cohesion: 0.06
-Nodes (34): game_layout.dart, AiVoiceNoticeHost, _AiVoiceNoticeHostState, build, child, createState, dispose, initState (+26 more)
+Cohesion: 0.08
+Nodes (25): game_layout.dart, acceptedAnswers, build, candidates, ClozeOptionsList, emph, g, gloss (+17 more)
 
-### Community 480 - "TestBatch25Cloze"
-Cohesion: 0.10
-Nodes (8): R8 (Fable review, 2026-09-15): when the vocab row's headword is a Verb (pos_de)…, When ＿＿＿ is immediately followed by a batchim-alternating particle (이/가, 을/를,…, No single distractor word may be reused more than 4 times across the whole…, Jin ruling (2026-09-15): A1 진짜 -> 정말., test/cloze_test.dart's game contract: a 1-syllable answer is an unfair gap…, PREDICATE_SLOT_WAIVER (Fable R8, 2026-09-15): every waived item that belongs to…, Composition per waived item in this batch: 2 dictionary-form verbs + 1 bare…, TestBatch25Cloze
+### Community 480 - "TestBatch34VocabRows"
+Cohesion: 0.06
+Nodes (6): Brief: 2-3 boss words per pack (live A2 convention: 3 for a 12-word pack, 2 for…, Hand-grep of the scanner blind spots the Batch 32 note lists plus two grade-3…, Batch 28-32 rule: a persona counts for a row only as (a) the unambiguous…, Each SPEAKER_CUE_WHITELIST entry must be traceable to the persona's own…, 준 is 초등학교 3학년 / 9살 (character_profiles.json). No row may put him in another…, TestBatch34VocabRows
 
 ### Community 481 - "gye_tab_screen.dart"
-Cohesion: 0.03
-Nodes (72): gye_dedication_layer.dart, GyeLanternProgress get, hanok_header.dart, active, build, buildCoachSteps, _buildContentSliver, _buildEmbedded (+64 more)
+Cohesion: 0.04
+Nodes (45): active, build, buildCoachSteps, _buildContentSliver, _buildEmbedded, coachId, coachReady, createState (+37 more)
 
 ### Community 482 - "gye_dedication_action_test.dart"
 Cohesion: 0.12
 Nodes (15): GyeMembershipEpoch, GyeDedicationMutation, package:ko_lernen_app/widgets/sori/gye_dedication_action.dart, _currentExhibit, _host, main, _membershipEpochOne, _membershipEpochTwo (+7 more)
 
 ### Community 483 - "_"
-Cohesion: 0.13
-Nodes (16): _, assetPath, canonicalSha256, _copy, fromJson, load, SarangchaeConstruction, SarangchaeConstructionStage (+8 more)
+Cohesion: 0.14
+Nodes (15): _, assetPath, canonicalSha256, _copy, fromJson, load, SarangchaeConstructionStage, sequence (+7 more)
 
-### Community 484 - "onboarding_games_demo.dart"
-Cohesion: 0.08
-Nodes (25): _board, build, _cell, _chain, _choices, _choicesPage, _compact, _compactCross (+17 more)
+### Community 484 - "quiz_choice.dart"
+Cohesion: 0.06
+Nodes (31): double?, accent, build, fontSize, horizontalPadding, icon, idleBorderColor, label (+23 more)
 
 ### Community 485 - "ildu_anchor_placement_service.dart"
 Cohesion: 0.08
 Nodes (25): anchorId, copyWith, direction, halfHeight, halfWidth, IlDuAnchorPlacement, IlDuAnchorPlacementStore, key (+17 more)
 
 ### Community 486 - "access_snapshot_controller_test.dart"
-Cohesion: 0.10
-Nodes (19): ChangeNotifier, InheritedNotifier, ListeningPlaybackController, AccessSnapshotController, AudioPolicy, LearningFocusController, ContentFeedbackResumeDeliveryNotifier, LearningFocusScope (+11 more)
+Cohesion: 0.18
+Nodes (10): package:ko_lernen_app/services/access_snapshot_controller.dart, controller, create, elapsed, main, sessions, shortLivedSnapshot, snapshot (+2 more)
 
 ### Community 487 - "Task 7 report: App Check and typed server account operations"
 Cohesion: 0.08
@@ -3568,18 +3566,14 @@ Nodes (13): bounded_text(), millis(), Python mirror of the universal access poli
 ### Community 500 - "firestore.rules.test.js"
 Cohesion: 0.09
 Nodes (13): assert, {
-
   assertFails,
-
   assertSucceeds,
-
   initializeTestEnvironment,
-
 }, { createFirestoreDeletionAdapters }, fs, { getFirestore }, { initializeApp, deleteApp }, memberData(), path (+5 more)
 
 ### Community 501 - "hangul_composer.dart"
-Cohesion: 0.10
-Nodes (19): hangul_util.dart, Iterable, _addConsonant, addJamo, _addVowel, backspace, _cho, _choToJong (+11 more)
+Cohesion: 0.07
+Nodes (28): hangul_util.dart, Iterable, bossWords, fallbackLabel, id, learnWords, level, normalWords (+20 more)
 
 ### Community 502 - "onboarding_character_media_test.dart"
 Cohesion: 0.08
@@ -3587,13 +3581,13 @@ Nodes (24): OnboardingCharacterMotion, OnboardingCharacterMediaFailure? onFailur
   double, package:ko_lernen_app/screens/onboarding_v2/onboarding_character_media.dart, RawImage, required int replayToken,
   String, _animatedWebpBase64, animationAsset, _animationFinder (+16 more)
 
-### Community 503 - "app_shell.dart"
-Cohesion: 0.11
-Nodes (18): ../features/onboarding_v2/first_run_runtime.dart, AppShell, _AppShellState, build, createState, dispose, firstRunCoordinator, initState (+10 more)
+### Community 503 - "normalizeOperation"
+Cohesion: 0.15
+Nodes (31): applyAttemptResult(), BLOCKED_REASON_CODES, CANCELLABLE_REPLACEMENT_PHASES, cancelReplacementOperation(), claimDeletionProof(), classifyRetry(), createOrReuseOperation(), initialOperation() (+23 more)
 
-### Community 504 - "scenario_write_after_roleplay_card_test.dart"
-Cohesion: 0.05
-Nodes (42): KoreanProofreadingAvailability, KoreanProofreadingResult, package:ko_lernen_app/services/korean_proofreading_service.dart, package:ko_lernen_app/services/scenario_writing_check_service.dart, channel, main, messenger, app (+34 more)
+### Community 504 - "scenario_writing_check_service_test.dart"
+Cohesion: 0.08
+Nodes (23): KoreanProofreadingAvailability, package:ko_lernen_app/services/korean_proofreading_service.dart, package:ko_lernen_app/services/scenario_writing_check_service.dart, channel, main, messenger, availability, check (+15 more)
 
 ### Community 505 - "review_session_queue.dart"
 Cohesion: 0.11
@@ -3607,9 +3601,9 @@ Nodes (24): ① git diff --stat, ② RED 로그, ③ GREEN 로그, ④ analyze, 
 Cohesion: 0.15
 Nodes (22): check(), corners(), die(), find_ffmpeg(), floor_grey(), main(), Path, `GRID`x`GRID` RGB24 프레임의 네 모서리 픽셀. (+14 more)
 
-### Community 508 - "static final"
-Cohesion: 0.19
-Nodes (12): _ServicePlaybackPlatform, TtsPlaybackPlatform, static final, main, _RecordingPlatform, startAudio, started, _StartingPlatform (+4 more)
+### Community 508 - "tts_request_rate_test.dart"
+Cohesion: 0.11
+Nodes (20): _ServicePlaybackPlatform, TtsPlaybackPlatform, package:audioplayers/audioplayers.dart, main, _RecordingPlatform, startAudio, started, _StartingPlatform (+12 more)
 
 ### Community 509 - "Satz (24)"
 Cohesion: 0.08
@@ -3619,23 +3613,13 @@ Nodes (25): 10. `satz_b2_0153` · B2, 11. `satz_b2_0154` · B2, 12. `satz_b2_015
 Cohesion: 0.08
 Nodes (25): 10. `smalltalk_c1_0034` · C1, 11. `smalltalk_c1_0035` · C1, 12. `smalltalk_c1_0036` · C1, 13. `smalltalk_c1_0037` · C1, 14. `smalltalk_c1_0038` · C1, 15. `smalltalk_c1_0039` · C1, 16. `smalltalk_c1_0040` · C1, 17. `smalltalk_c2_0033` · C2 (+17 more)
 
-### Community 512 - "grammar_task"
-Cohesion: 0.13
-Nodes (13): kp02(), kp03(), kp04(), Authored A1 extensions; publication requires the separate review ledger., kp05(), A2 source authoring. Nothing here signs a publication review., kp06(), KP06 experience and duration sources; publication requires separate review. (+5 more)
+### Community 512 - "card.dart"
+Cohesion: 0.07
+Nodes (30): BorderRadius get, EdgeInsetsGeometry get, hanok/eaves_corner.dart, accent, _borderRadius, build, child, createState (+22 more)
 
-### Community 513 - "tester_feedback_runtime.test.js"
-Cohesion: 0.12
-Nodes (13): CALLABLE_OPTIONS, createTesterFeedbackCallable(), createTesterFeedbackRuntime(), execute(), assert, BASE_PAYLOAD, {
-
-  CALLABLE_OPTIONS,
-
-  MISSION_CATALOG,
-
-  createTesterFeedbackCallable,
-
-  createTesterFeedbackRuntime,
-
-}, createHarness() (+5 more)
+### Community 513 - "ambient_particles.dart"
+Cohesion: 0.07
+Nodes (30): Brightness, AmbientParticles, _AmbientParticlesState, brightness, build, _c, colorIdx, count (+22 more)
 
 ### Community 514 - "결정"
 Cohesion: 0.08
@@ -3672,11 +3656,8 @@ Nodes (19): adapterFailure(), collectionPathsFromPage(), deleteRootAndCleanupRec
 ### Community 522 - "deletion_adapters.test.js"
 Cohesion: 0.12
 Nodes (7): clone(), {
-
   createFirestoreDeletionAdapters,
-
   createGapicDocumentPager,
-
 }, createHarness(), directChildDocumentIdsIncludingMissing(), FakeDocumentSnapshot, FakeFirestore, test
 
 ### Community 523 - "hangul_stroke_order_test.dart"
@@ -3700,8 +3681,8 @@ Cohesion: 0.14
 Nodes (23): build_hoehwa_level(), build_main_workbook_level(), cite(), extract_cando_and_dialogue(), find_section_pages(), find_unit_body(), load_pages(), main() (+15 more)
 
 ### Community 528 - "_expand_ab_practice"
-Cohesion: 0.16
-Nodes (18): build_assets(), _build_c_specs(), _build_specs(), _expand_ab_practice(), _generic_can_do(), _named_spec(), _promotion_segment_key(), Route every existing A1-B2 practice source exactly once. Cloze rows inherit… (+10 more)
+Cohesion: 0.17
+Nodes (17): _build_c_specs(), _build_specs(), _expand_ab_practice(), _generic_can_do(), _named_spec(), PracticeRef, _promotion_segment_key(), Route every existing A1-B2 practice source exactly once. Cloze rows inherit… (+9 more)
 
 ### Community 529 - "rr_romanize.py"
 Cohesion: 0.13
@@ -3715,9 +3696,9 @@ Nodes (5): D6 per-batch STEM cap: the word counted with ALL particles and stacke
 Cohesion: 0.09
 Nodes (23): Architecture Overview, Assumptions Made, Blockers/Open Questions, Codebase Understanding, Context for Resuming Agent, Critical Files, Current State Summary, Decisions Made (+15 more)
 
-### Community 532 - "learner_copy_scan_test.dart"
-Cohesion: 0.13
-Nodes (14): _asciiGermanUmlauts, _brandFreeFiles, _collectSpoken, _generatorFiles, _generatorSkeletons, hits, main, _scanFile (+6 more)
+### Community 532 - "smalltalk_loader.dart"
+Cohesion: 0.07
+Nodes (28): ClozeTopicGroups, countsForLevel, filterItems, groupForTopic, _ordered, partition, _topicToGroup, assetPath (+20 more)
 
 ### Community 533 - "한옥·장식 에셋 전수 인벤토리 (2026-08-17)"
 Cohesion: 0.09
@@ -3780,8 +3761,8 @@ Cohesion: 0.09
 Nodes (22): `flutter analyze --no-pub`, `.github/scripts/ci_scope.py`, `.github/scripts/test_ci_scope.py`, `.github/workflows/ci.yml`, graphify 결과, l10n 재생성, `lib/services/tts_service.dart` (4개 충돌 블록, 모두 "양쪽 추가"), `lib/widgets/sori/speakable.dart` (+14 more)
 
 ### Community 549 - "listening_playback_controller.dart"
-Cohesion: 0.07
-Nodes (28): currentIndex, dispose, _disposed, enterReview, expandedTranslations, _generation, isPlaying, _legacyVoiceForLine (+20 more)
+Cohesion: 0.05
+Nodes (37): ChangeNotifier, InheritedNotifier, currentIndex, dispose, _disposed, enterReview, expandedTranslations, _generation (+29 more)
 
 ### Community 550 - "test_cefr_lexicon.py"
 Cohesion: 0.09
@@ -3792,12 +3773,12 @@ Cohesion: 0.17
 Nodes (15): ProtectsTheCharacter, 실루엣 가장자리 잠식 회귀 (2026-08-25). 보호대가 없던 판본은 외곽선에 붙은 옅은 무늬를 흰색으로 먹었다. `magpie_bob2`…, White matte · dark body · enclosed pale marking · soft ground shadow., synthetic(), _core_of(), dilate_n(), _ground_rows(), protected_body() (+7 more)
 
 ### Community 552 - "promote_batch23_l3a_units.py"
-Cohesion: 0.24
-Nodes (21): by_id(), check_cloze_contract(), check_satz_contract(), fingerprint(), insert_sorted(), new_row(), particle_after_blank(), phase_a() (+13 more)
+Cohesion: 0.23
+Nodes (22): by_id(), check_cloze_contract(), check_satz_contract(), fingerprint(), has_batchim(), insert_sorted(), new_row(), particle_after_blank() (+14 more)
 
 ### Community 553 - "TestBatch26VocabRows"
-Cohesion: 0.08
-Nodes (8): None of the batch's headwords collide with a *different* word already live…, Age must use native-Korean numerals (스무 살, 예순 살, ...), never a Sino-Korean…, Any personal name used in an example must be one of the app's recurring…, The exact "우리 같이" invitation opener may not appear in more than 6 rows, so it…, A sentence-initial reaction interjection (와/아/음/네/좋아요 등, followed by a comma or…, 와" reacts to something visible/present -- it must be followed by a…, 네" and "좋아요" answer a question -- valid only inside a reply. Every Batch 26…, TestBatch26VocabRows
+Cohesion: 0.09
+Nodes (7): None of the batch's headwords collide with a *different* word already live…, Age must use native-Korean numerals (스무 살, 예순 살, ...), never a Sino-Korean…, The exact "우리 같이" invitation opener may not appear in more than 6 rows, so it…, A sentence-initial reaction interjection (와/아/음/네/좋아요 등, followed by a comma or…, 와" reacts to something visible/present -- it must be followed by a…, 네" and "좋아요" answer a question -- valid only inside a reply. Every Batch 26…, TestBatch26VocabRows
 
 ### Community 554 - "app_review_demo_screen.dart"
 Cohesion: 0.12
@@ -3938,35 +3919,20 @@ Nodes (24): createFirestoreDeletionAdapters(), assertActiveLease(), captureCommu
 ### Community 589 - "tts/index.js"
 Cohesion: 0.15
 Nodes (20): admin, {
-
   CALLABLE_OPTIONS,
-
   SYNTH_DEADLINE_MS,
-
   TtsRequestError,
-
   abandonTtsReplay,
-
   claimTtsReplay,
-
   completeTtsReplay,
-
   isUsableAudioBuffer,
-
   refundDailyTtsQuotas,
-
   ttsLogErrorCode,
-
   ttsProviderBreaker,
-
   ttsSynthesisPlan,
-
   validateTtsRequest,
-
   underDailyTtsQuotas,
-
   withDeadline,
-
 }, { confirmTtsCost }, { HttpsError, onCall }, loadUsableAudio(), { scopedCacheKey, privateMetadataIsCurrent, cacheSaveOptions }, { ServiceCostError }, { setGlobalOptions } (+12 more)
 
 ### Community 590 - "_"
@@ -4022,8 +3988,8 @@ Cohesion: 0.22
 Nodes (15): apply_ledgers(), build_ledgers(), _csv_text(), main(), Any, Path, ValueError, Raised when a manifest cannot produce trustworthy review ledgers. (+7 more)
 
 ### Community 603 - "free_text"
-Cohesion: 0.14
-Nodes (10): kp11(), KP11 comparison and evidence-based review, unsigned until individual review., kp13(), KP13 sources, quotation and inference; generated material is unsigned., kp14(), KP14 definitions, roles, methods and comparisons. Source is unsigned., kp16(), KP16 scope of hypothetical conditions, concessions and alternatives. (+2 more)
+Cohesion: 0.13
+Nodes (11): kp06(), kp11(), KP11 comparison and evidence-based review, unsigned until individual review., kp12(), KP12 conditions and responsibilities; source generation is unsigned., kp14(), KP14 definitions, roles, methods and comparisons. Source is unsigned., kp16() (+3 more)
 
 ### Community 604 - "RelationshipGraphTest"
 Cohesion: 0.11
@@ -4033,13 +3999,13 @@ Nodes (5): CharacterProfilesSpeechStyleTest, _forbidden_a1_pattern(), Guards the
 Cohesion: 0.10
 Nodes (20): Architecture Overview, Assumptions Made, Codebase Understanding, Context for Resuming Agent, Critical Files, Current State Summary, Decisions Made, Files Modified (+12 more)
 
-### Community 606 - "TestBatch27Cloze"
-Cohesion: 0.14
-Nodes (3): R8 (Fable, 2026-09-15): 보다 (dictionary-form "watch/look at") is a too-natural…, Fable coordinator review of PR #344 (2026-09-15): when `answer` is a…, TestBatch27Cloze
+### Community 606 - "static const List"
+Cohesion: 0.06
+Nodes (29): all, byId, byScenarioId, cafeOrder, cafeOrderDefinition, courseUnitId, defaultId, directions (+21 more)
 
-### Community 607 - "push_ownership_transition_coordinator_test.dart"
-Cohesion: 0.15
-Nodes (12): PushService, PushTokenOwner, ServerConfirmedPreMarkerRejection, package:ko_lernen_app/services/push_service.dart, _Push, _FakePushTokenOwner, _FakePush, bindCurrentUser (+4 more)
+### Community 607 - "privacy_choice_feedback.dart"
+Cohesion: 0.07
+Nodes (29): PrivacyPurpose, build, _changed, createState, description, _desired, _dialogOpen, dispose (+21 more)
 
 ### Community 608 - "Analytics & Privacy Plan — Hangul Sori"
 Cohesion: 0.10
@@ -4069,13 +4035,13 @@ Nodes (20): 0. 후보 기록과 중단 조건, 1. Phase 5에서 지키는 학습
 Cohesion: 0.10
 Nodes (19): Global Constraints, Self-Review 결과, Task 10: `SoriHomeAction` 신설 + `kkeunmari_screen.dart` 배선 (지시서 4.16), Task 11: `content_audio_policy_guard` (RED — speakable.dart보다 먼저), Task 12: `speakable.dart` 구현 + `content_feed.dart` 인디케이터 슬롯/더블탭 재스코프 (검수#13), Task 13: `SoriSpeakable`을 `review_session_screen.dart`에 배선 (오디오 롤아웃 1/7단계, 표면 1/2), Task 14: `content_feed.dart` 피드 물리 재작성 — `FeedPhysics.legacy|snap` (지시서 1.7/1.11, 검수#1/#17), Task 15: `grammar_screen.dart` 필터 변경 시 위치 보존 + 이전 카드 플링 배선 (검수#17) (+11 more)
 
-### Community 615 - "tts_installation_id.dart"
-Cohesion: 0.13
-Nodes (14): FlutterSecureStorage, buildTtsCallableData, _cached, getOrCreate, _inFlight, _loadOrCreate, read, _storage (+6 more)
+### Community 615 - "content_learning_hub.dart"
+Cohesion: 0.07
+Nodes (28): content_learning_catalog.dart, content_learning_widgets.dart, content_lesson_screen.dart, build, _busy, ContentLearningHub, _ContentLearningHubState, createState (+20 more)
 
 ### Community 616 - "gye_dedication.dart"
-Cohesion: 0.10
-Nodes (19): currentSchemaVersion, decorationSlug, GyeDedicationState, hashCode, isActive, _isSafeIdentifier, _isSafeMembershipId, isWithdrawn (+11 more)
+Cohesion: 0.07
+Nodes (26): gye.dart, currentSchemaVersion, decorationSlug, GyeDedicationState, hashCode, isActive, _isSafeIdentifier, _isSafeMembershipId (+18 more)
 
 ### Community 617 - "media_phrase.dart"
 Cohesion: 0.10
@@ -4089,9 +4055,9 @@ Nodes (19): attempts, bossAccuracy, cleared, clearedAtIso, copyWith, fresh, from
 Cohesion: 0.15
 Nodes (13): account_operation_ui.dart, _AccountNudgeSheet, _AccountNudgeSheetState, accountOperations, build, _busy, _connectWith, createState (+5 more)
 
-### Community 620 - "_"
-Cohesion: 0.18
-Nodes (12): _, absent, CloudReadResult, CloudReadState, invalid, isPresent, present, revision (+4 more)
+### Community 620 - "content_learning_service.dart"
+Cohesion: 0.07
+Nodes (28): content_learning_state.dart, activeDaily, answer, beginReview, _cachedRaw, _cachedState, changes, ContentLearningService (+20 more)
 
 ### Community 621 - "Task 2 Report: Ordered cloud startup and privacy-safe crash/push lifecycle"
 Cohesion: 0.10
@@ -4172,20 +4138,19 @@ Nodes (18): File Structure, Flutter domain and UI, Global Constraints, Ildu Sara
 ### Community 641 - "billable_receipts.js"
 Cohesion: 0.18
 Nodes (11): resolvePronunciationPolicy(), {createHash, randomUUID}, millis(), {nextFreeTierUsage}, PronunciationReceipts, {PronunciationRequestError, nextQuotaState, pronunciationReplayId,
-
   pronunciationReplayFromDocument, pronunciationReplayDocument}, {resolvePronunciationPolicy, readCostControl, prepareCostReservation}, freeTierAssessmentEnabled() (+3 more)
 
-### Community 642 - "gye_entry_uiux_test.dart"
-Cohesion: 0.02
-Nodes (84): GyeMeta, GyeException, package:ko_lernen_app/data/dure_title.dart, package:ko_lernen_app/data/gye_dedication_catalog.dart, package:ko_lernen_app/data/profanity_denylist.dart, package:ko_lernen_app/models/gye.dart, package:ko_lernen_app/models/gye_dedication.dart, package:ko_lernen_app/models/gye_lantern_progress.dart (+76 more)
+### Community 642 - "test/profile_screen_test.dart"
+Cohesion: 0.01
+Nodes (248): FormatException, GyeMeta, AccountSwitchResult, AccountUiLinkCompleted, AccountUiPendingState, CloudBackupDeletionJournalState, ManagedMediaStore, GyeException (+240 more)
 
 ### Community 643 - "ildu_decoration_placement_service.dart"
 Cohesion: 0.11
 Nodes (18): copyWith, definitionId, IlDuDecorationPlacement, IlDuDecorationPlacementStore, instanceId, key, load, maximumPlacements (+10 more)
 
-### Community 644 - "real_fonts.dart"
-Cohesion: 0.17
-Nodes (11): cultureLoader, flutterRoot, load, _loaded, loader, _loadMaterialIconsIfFound, loadSoriRealFonts, _loadTextFonts (+3 more)
+### Community 644 - "gye_hanok.dart"
+Cohesion: 0.07
+Nodes (27): gye_dedication_layer.dart, GyeLanternProgress get, hanok_header.dart, animate, asset, _baseOpacity, build, createState (+19 more)
 
 ### Community 645 - "C9SampleTest"
 Cohesion: 0.21
@@ -4195,9 +4160,9 @@ Nodes (5): build(), main(), render(), sample_ids(), C9SampleTest
 Cohesion: 0.11
 Nodes (18): base, compact, compactHeight, compactTextScale, fair, gap, maximum, maxScale (+10 more)
 
-### Community 647 - "_load_json"
-Cohesion: 0.18
-Nodes (4): _load_json(), Path, Cross-checked against the packet's own 화자 table via the manifest's…, TestBatch27PacksFilledTo12
+### Community 647 - "_"
+Cohesion: 0.07
+Nodes (28): _, _backupCourseEvidence, clamp, conceptId, contentId, CourseActivityReporter, CourseContentAttempt, CourseContentAttemptResult (+20 more)
 
 ### Community 648 - "ui_chrome_ratchet_test.dart"
 Cohesion: 0.18
@@ -4211,9 +4176,9 @@ Nodes (18): 📱 ADB 스크린샷 명령, 🌐 App Names (per Locale), 🏷️ C
 Cohesion: 0.11
 Nodes (18): `audioEnabled` flag — no existing flag to reuse (INTERFACE clause, "없으면 보고"), Brief defect — uebersetzen_quest.dart excluded (STOP that item, per 상시 규칙 #12), Diffstat, Diffstat (this round, lib/ + test/), Fix round 1 (Fable 룰링, 2026-09-04), Implemented, Questions (≤3), Questions (max 3) (+10 more)
 
-### Community 651 - "free_room_layer_test.dart"
-Cohesion: 0.15
-Nodes (13): RoomLayoutItem, package:flutter/gestures.dart, build, changed, createState, current, ended, _host (+5 more)
+### Community 651 - "test_play_internal_status.cjs"
+Cohesion: 0.10
+Nodes (20): accessToken(), { createRequire }, fs, main(), path, queryReleases(), STATES, StatusError (+12 more)
 
 ### Community 652 - "dart_static_check.py"
 Cohesion: 0.15
@@ -4320,16 +4285,16 @@ Cohesion: 0.08
 Nodes (25): _backup, boot, clear, _done, expectLocked, failNext, failRead, _Fault (+17 more)
 
 ### Community 679 - "heritage_journey_contract_test.dart"
-Cohesion: 0.06
-Nodes (29): EstateProgressSnapshot, HeritageAssetAuthority, HeritageAvailability, LearningBeatBinding, package:ko_lernen_app/features/onboarding_v2/onboarding_story_catalog_projector.dart, package:ko_lernen_app/models/heritage_journey_contract.dart, approved, assetAuthority (+21 more)
+Cohesion: 0.11
+Nodes (17): EstateProgressSnapshot, HeritageAvailability, LearningBeatBinding, approvalEvidenceId, _approvedAsset, _approvedBinding, assetAuthority, availability (+9 more)
 
 ### Community 680 - "Map"
-Cohesion: 0.06
-Nodes (33): IconData get, int get, body, check, hashCode, icon, id, Milestone (+25 more)
+Cohesion: 0.07
+Nodes (26): kPackProgressAliases, completedDays, copyWith, fromJson, GrammarStudyPlan, itemsPerDay, level, servedIdsByDate (+18 more)
 
 ### Community 681 - "gye_dedication_service_test.dart"
-Cohesion: 0.12
-Nodes (15): GyeDedicationClientFailure, package:ko_lernen_app/services/gye_dedication_service.dart, calls, decorationSlug, expectedJoinedAtNanos, expectedJoinedAtSeconds, expectedMembershipId, expectedRevision (+7 more)
+Cohesion: 0.11
+Nodes (18): FirebaseGyeDedicationGateway, GyeDedicationClientFailure, GyeDedicationGateway, package:ko_lernen_app/services/gye_dedication_service.dart, calls, decorationSlug, expectedJoinedAtNanos, expectedJoinedAtSeconds (+10 more)
 
 ### Community 682 - "vocab_recall_evidence.dart"
 Cohesion: 0.11
@@ -4347,17 +4312,17 @@ Nodes (17): description, engines, node, name, private, scripts, ae, publish (+9 
 Cohesion: 0.22
 Nodes (14): OrderedDict, assign_pack_ids(), assign_pack_order_and_boss(), load_rows(), main(), Path, 1차: (level, topic) → pack_id_base, 2차: 같은 pack_id 단어 수가 PACK_SPLIT_THRESHOLD 초과 시 sub-pack 으로 분할. 분할은 row 순서 유지 —… (+6 more)
 
-### Community 686 - "test_batch_27_draft.py"
-Cohesion: 0.22
-Nodes (4): _is_noun_like(), Every non-verb Batch 27 headword is a Nomen, so at least 2 of the 3 distractors…, R8 (Fable, 2026-09-15): 수첩/건너편/대사관/기분 keep a bare open adjective/existential…, TestBatch27DraftFilesExist
+### Community 686 - "ildu_world_state_service.dart"
+Cohesion: 0.07
+Nodes (25): ildu_world_state_service.dart, legacy_preferences_native_snapshot.dart, IlDuWorldState, captureForCloudReconciliation, decode, generation, IlDuWorldStateLocalCapture, IlDuWorldStateService (+17 more)
 
 ### Community 687 - "bookshelf_generation_outbox_retry_test.dart"
 Cohesion: 0.11
 Nodes (17): activateManifest, active, casConflictsRemaining, clearIfMatches, generations, main, read, readActiveManifest (+9 more)
 
 ### Community 688 - "audit_grammar_card_faces.py"
-Cohesion: 0.22
-Nodes (17): audit(), derive_faces(), GrammarCardFaces, group_by_level(), level_summary(), load_rows(), main(), Path (+9 more)
+Cohesion: 0.12
+Nodes (22): audit(), derive_faces(), GrammarCardFaces, group_by_level(), level_summary(), load_rows(), main(), Path (+14 more)
 
 ### Community 689 - "sori_stage_progression_rules_test.dart"
 Cohesion: 0.14
@@ -4376,8 +4341,8 @@ Cohesion: 0.16
 Nodes (8): Batch09ReviewDraftTest, Batch10ScenarioDraftTest, _json_ids(), _live_ids(), PackSourceTest, Path, RevisedRomanizationTest, SupersededFourXTrackTest
 
 ### Community 693 - "static const String"
-Cohesion: 0.03
-Nodes (71): all, byId, byScenarioId, cafeOrder, cafeOrderDefinition, courseUnitId, defaultId, directions (+63 more)
+Cohesion: 0.05
+Nodes (41): AppBuildInfo, build, formatAppVersion, gitCommit, readVersion, short, version, all (+33 more)
 
 ### Community 694 - "ADR-001: 영상 플레이어 수명을 누가 소유하는가"
 Cohesion: 0.12
@@ -4431,12 +4396,12 @@ Nodes (16): dependencies, firebase-admin, firebase-functions, engines, node, fir
 Cohesion: 0.12
 Nodes (9): assert, azure, {FREE_TIER_DAILY_ASSESSMENTS}, fs, MemoryFirestore, path, {resolveAccess}, test (+1 more)
 
-### Community 707 - "LearnerLevel"
-Cohesion: 0.25
-Nodes (7): a2,
+### Community 707 - "int get"
+Cohesion: 0.08
+Nodes (22): a2,
   b1,
   b2,
-  c1,, c2, code, display, fromCode, LearnerLevel, rank
+  c1,, IconData get, int get, body, check, hashCode, icon, id (+14 more)
 
 ### Community 708 - "data_integrity_test.dart"
 Cohesion: 0.09
@@ -4446,9 +4411,9 @@ Nodes (22): contains, count, decl, _expectCorrectIndex, _expectHeader, _expectKo
 Cohesion: 0.07
 Nodes (30): _activePaths, AudioplayersPronunciationPlayback, _cancel, clear, _completionSubscription, dispose, _disposed, _done (+22 more)
 
-### Community 710 - "_load_vocab_rows"
-Cohesion: 0.36
-Nodes (3): _load_vocab_rows(), Batch 27 was Jin-approved and promoted 2026-09-16 (C3-T3, alongside Batch 26):…, TestBatch27PromotedToLiveAssets
+### Community 710 - "tts_bundled_manifest.dart"
+Cohesion: 0.07
+Nodes (25): assetFor, assetPath, _bundle, bundledAssetPath, _BundledRow, _bytesCache, bytesFor, _bytesLoading (+17 more)
 
 ### Community 711 - "Task 6 report: server-owned deletion worker and restrictive rules"
 Cohesion: 0.12
@@ -4476,11 +4441,11 @@ Nodes (16): appIconSource, deStringsSource, enStringsSource, infoPlistSource, _i
 
 ### Community 717 - "study_home_escape_guard_test.dart"
 Cohesion: 0.12
-Nodes (16): activeConfirmContracts, _blankStringsAndComments, _constructorInvocations, duplicateAllowlist, expectedStudyFrameScreens, index, join, main (+8 more)
+Nodes (15): activeConfirmContracts, _blankStringsAndComments, _constructorInvocations, duplicateAllowlist, expectedStudyFrameScreens, index, join, main (+7 more)
 
-### Community 718 - "LearningPhaseProjectionTests"
-Cohesion: 0.18
-Nodes (7): build(), main(), Path, Project the authored Phase goals and related live missions into a small asset.…, render(), LearningPhaseProjectionTests, Release contracts for the projection, not a second curriculum authority.
+### Community 719 - "_"
+Cohesion: 0.08
+Nodes (27): _, _analytics, _apply, build, _changed, child, _confirmed, _ConsentInviteBody (+19 more)
 
 ### Community 720 - "StyleLockLoaderTest"
 Cohesion: 0.12
@@ -4490,9 +4455,9 @@ Nodes (3): CheckStyleLockDocsTest, Tests for tool/style_lock.py and tool/check_s
 Cohesion: 0.25
 Nodes (8): CutSingleObjectTest, green_canvas(), put_block(), CompletedProcess, ndarray, Path, Gate tests for tool/cut_single_object.py., run()
 
-### Community 722 - "build_batch_34_a2_draft.py"
-Cohesion: 0.11
-Nodes (21): C(), lemma_components(), Authored, translation-supported Batch 34 choices; never a random word pool. The…, Reject missing task evidence; this does not certify semantic quality., T(), validate_choice_contract(), apply_predecessor_repairs(), build_batch34() (+13 more)
+### Community 722 - "TestBatch34TranslationSupportedChoices"
+Cohesion: 0.17
+Nodes (7): C(), lemma_components(), Authored, translation-supported Batch 34 choices; never a random word pool. The…, Reject missing task evidence; this does not certify semantic quality., T(), validate_choice_contract(), TestBatch34TranslationSupportedChoices
 
 ### Community 723 - "build_kkeunmari_pool.py"
 Cohesion: 0.21
@@ -4548,7 +4513,7 @@ Nodes (15): 10. vocab_a2_0282 (떡국 먹다) — grade3 -다 보면 + quotative
 
 ### Community 736 - "MOCKUP_MANIFEST.json"
 Cohesion: 0.12
-Nodes (15): awardsProgressOrXP, chapterCount, date, dependencies, entry, navigation, reviewInteractions, runtimeCatalog (+7 more)
+Nodes (15): awardsProgressOrXP, chapterCount, date, dependencies, entry, de, en, ko (+7 more)
 
 ### Community 737 - "Pronunciation assessment runbook"
 Cohesion: 0.12
@@ -4585,17 +4550,11 @@ Nodes (11): _audioExtensions, dot, _extensionOf, main, report, root, rows, _runt
 ### Community 746 - "weekly_contribution_runtime.js"
 Cohesion: 0.23
 Nodes (12): crypto, findEligiblePromiseCheckpoint(), isFiniteScore(), parseCourseMasterySnapshot(), shouldCreditPromiseContribution(), assert, {
-
   findEligiblePromiseCheckpoint,
-
   shouldCreditPromiseContribution,
-
   weeklyContributionReceiptId,
-
   weeklyContributionWeekKey,
-
   weeklyPromiseFor,
-
 }, test (+4 more)
 
 ### Community 748 - "cultural-glossary.tsx"
@@ -4610,21 +4569,21 @@ Nodes (15): ChaekgadoCompartment, chaekgadoImageKeyForShelf, chaekgadoShelfId, C
 Cohesion: 0.33
 Nodes (7): OnboardingCommitGateway, OnboardingCompanionCommitSnapshotReader, StorageOnboardingCommitGateway, _UnusedCommitGateway, _CommitGateway, _CommitGateway, _CommitGateway
 
-### Community 751 - "double get"
-Cohesion: 0.17
-Nodes (12): double get, _base, build, child, _factor, hashCode, operator, scale (+4 more)
+### Community 751 - "content_learning_widgets.dart"
+Cohesion: 0.09
+Nodes (25): content_learning_day_refresh.dart, content_learning_layout.dart, LearningContentKind, build, ContentDailyGoals, _ContentDailyGoalsState, ContentGoalEditor, _ContentGoalEditorState (+17 more)
 
 ### Community 752 - "SceneContractTest"
 Cohesion: 0.08
 Nodes (9): build(), main(), Any, Path, _sort_key(), _to_record(), BuildOutputTest, SceneContractTest (+1 more)
 
-### Community 753 - "gye_dedication_catalog.dart"
-Cohesion: 0.18
-Nodes (10): bottom, bySlot, eligibleGyeDedicationSlugs, GyeDedicationSlot, index, kGyeDedicationSlots, left, normalizeGyeDedications (+2 more)
+### Community 753 - "gye_dedication_action.dart"
+Cohesion: 0.03
+Nodes (73): ../../data/gye_dedication_catalog.dart, gye_dedication_picker.dart, bottom, bySlot, eligibleGyeDedicationSlugs, GyeDedicationSlot, index, kGyeDedicationSlots (+65 more)
 
-### Community 754 - "ko_wrap.dart"
-Cohesion: 0.12
-Nodes (15): build, _isHangul, kSoriWordJoiner, maxLines, out, overflow, runes, soriJoinEojeol (+7 more)
+### Community 754 - "account_failure_diagnostics.dart"
+Cohesion: 0.08
+Nodes (23): android, DefaultFirebaseOptions, ios, AccountDiagnosticsSink, AccountFailureDiagnostics, AccountFailureRecord, code, _defaultSink (+15 more)
 
 ### Community 755 - "Jin이 직접 해야 하는 일 (순서대로)"
 Cohesion: 0.12
@@ -4638,8 +4597,8 @@ Nodes (15): 0. 환경 변수, 1. 최소 구성 (DeepL만, 가장 일반적), 2. 
 Cohesion: 0.12
 Nodes (15): Behavioural summary of `lib/services/data_migration_service.dart` (+566/-162), Commit, Commits, Fix round 1 (Fable review of commit `d5cc12dd`), flutter analyze --no-pub, Full suite, git diff --check, Important — stamp-only fast path restored for version bumps without steps (+7 more)
 
-### Community 758 - "cleanup_translation_cache.py"
-Cohesion: 0.31
+### Community 758 - ".error"
+Cohesion: 0.23
 Nodes (12): cache_version_from_source(), cleanup_documents(), CleanupReport, _gcloud_credentials(), main(), _parser(), Any, ArgumentParser (+4 more)
 
 ### Community 759 - "cloze_dangling_stem_ratchet_test.dart"
@@ -4662,21 +4621,21 @@ Nodes (15): all_member_dirs(), allowed_models(), denied_models(), family_for_slu
 Cohesion: 0.15
 Nodes (7): _alias_row(), _basic_row(), _kiiq_row(), R8 item 4's second check (strip 적 further when the bare X적 stem is not itself…, R7 item 2, synthetic: pin down the exact 'medium' vs 'high' boundary…, TestR7DerivedBasic2023MinSynthetic, TestR8HeadwordCopulaSyntheticFixture
 
-### Community 766 - "packet"
-Cohesion: 0.19
-Nodes (10): kp01(), kp02(), kp03(), kp04(), A1 interaction, announcement and repair paths; unsigned until reviewed., kp20(), KP20 uncertainty, value and the limits of generalisation; unsigned source., kp29() (+2 more)
+### Community 766 - "TestBatch30Cloze"
+Cohesion: 0.09
+Nodes (5): D6 per-batch reuse cap (C3-T5b, 2026-09-16): cloze_distractor_rules.…, Game contract: a cloze answer under 2 syllables is trivially…, R8 (Fable review, 2026-09-16): a sentence-initial connective slot accepts…, Every headword NOT in one of the 5 special mechanism buckets above (adverb-…, TestBatch30Cloze
 
 ### Community 767 - "dialogue"
 Cohesion: 0.18
-Nodes (5): kp09(), KP09 remembered experience, intimate response and interview sources., AuthoredWordTileTests, dialogue(), Prevent sentence-sized tiles and partial writes during authored materialization.
+Nodes (5): kp13(), KP13 sources, quotation and inference; generated material is unsigned., AuthoredWordTileTests, dialogue(), Prevent sentence-sized tiles and partial writes during authored materialization.
 
 ### Community 768 - "digital_contact_permission_responsibility"
 Cohesion: 0.12
 Nodes (15): A1 · 발을 밟고 바로 사과하기, A1 · 카카오톡으로 연락 방법 정하기, A2 · 사진을 올려도 되는지 묻기, A2 · 첨부파일을 또 빠뜨리기, B1 · 단체 채팅방에 개인 메시지를 보냈을 때, B1 · 회사 계정으로 개인 글을 올리기, B2 · 촬영 범위와 허락을 협의하기, B2 · 친구의 무리한 방송이 민망할 때 (+7 more)
 
-### Community 769 - "bridge.test.js"
-Cohesion: 0.20
-Nodes (8): createAuthUserDeletionBridge(), assert, { createAuthUserDeletionBridge }, test, admin, bridge, { createAuthUserDeletionBridge }, functionsV1
+### Community 769 - "grammar_study_copy.dart"
+Cohesion: 0.10
+Nodes (20): grammar.dart, examples, fromGrammar, gloss, GrammarStudyCopy, GrammarStudyExample, korean, left (+12 more)
 
 ### Community 770 - "회원·계정·개인정보 시스템 — 상용화 전수검사 & 듀오링고화 로드맵"
 Cohesion: 0.13
@@ -4733,13 +4692,9 @@ Nodes (13): AZURE_SPEECH_KEY, callAzure(), {defineSecret}, {freeTierAssessmentEn
 ### Community 784 - "tts_privacy.js"
 Cohesion: 0.18
 Nodes (12): cacheKey(), crypto, normalizeVoice(), assert, test, {
-
   TTS_CACHE_REVISION,
-
   cacheKey,
-
   normalizeVoice,
-
 }, { cacheKey }, cacheSaveOptions() (+4 more)
 
 ### Community 785 - "ci_scope.py"
@@ -4754,9 +4709,9 @@ Nodes (14): ImageDraw, default_width(), fit(), label(), main(), parse_dart_maps(
 Cohesion: 0.29
 Nodes (14): cmdAdd(), cmdApprove(), cmdList(), cmdPublish(), HERE, loadEnv(), main(), MARKETING (+6 more)
 
-### Community 788 - "feed_physics_candidates.dart"
-Cohesion: 0.18
-Nodes (10): activeControls, approvedForSnap, axes, axesExercised, FeedPhysicsCandidate, feedPhysicsCandidates, id, nestedScrollRisk (+2 more)
+### Community 788 - "scenario_write_after_roleplay_card_test.dart"
+Cohesion: 0.10
+Nodes (20): KoreanProofreadingResult, package:ko_lernen_app/widgets/sori/scenario_write_after_roleplay_card.dart, app, availability, check, close, download, downloadAvailability (+12 more)
 
 ### Community 789 - "test_audit_content_levels.py"
 Cohesion: 0.33
@@ -4774,17 +4729,17 @@ Nodes (14): 1. Cleanup status, 2. Test counts, 3. CLI smoke tests (read-only, no
 Cohesion: 0.13
 Nodes (14): _blankStringsAndComments, catalog, _constructorSpans, end, index, join, main, matches (+6 more)
 
-### Community 793 - "sheet.dart"
-Cohesion: 0.18
-Nodes (10): build, child, enableDrag, isDismissible, maxHeightFactor, maxTextScaleFactor, scrollable, showHandle (+2 more)
+### Community 793 - "_load_json"
+Cohesion: 0.16
+Nodes (5): _load_json(), _load_vocab_rows(), Path, TestBatch30Packs, TestBatch30Satz
 
 ### Community 794 - "hanok_competence_fixture.dart"
 Cohesion: 0.13
 Nodes (14): a1Completed, a1Total, a2Completed, a2Total, addLevel, b1Completed, b1Total, b2Completed (+6 more)
 
-### Community 795 - "toast.dart"
-Cohesion: 0.18
-Nodes (10): duration, liveRegion, messenger, showSnackBar, showSoriActionNotice, showSoriToast, soriNotice, soriToast (+2 more)
+### Community 795 - "_Timer"
+Cohesion: 0.10
+Nodes (17): AppLifecycleListener, content_learning_service.dart, _dayLifecycle, _dayTimer, _displayedDate, dispose, initState, _scheduleDayRefresh (+9 more)
 
 ### Community 796 - "check_committed_assets.py"
 Cohesion: 0.31
@@ -4924,7 +4879,7 @@ Nodes (8): TypedStudyBookmarkStore, main, _MemoryRawStorage, raw, store, _wordBo
 
 ### Community 832 - "app_bar.dart"
 Cohesion: 0.09
-Nodes (21): actions, adaptTitleAtNormalScale, automaticallyImplyLeading, bottom, build, _chromeTextScale, eyebrow, _eyebrowStyle (+13 more)
+Nodes (22): actions, adaptTitleAtNormalScale, automaticallyImplyLeading, bottom, build, _chromeTextScale, eyebrow, _eyebrowStyle (+14 more)
 
 ### Community 833 - "scroll_palette.dart"
 Cohesion: 0.14
@@ -4974,13 +4929,13 @@ Nodes (13): Accessibility QA, Component ownership, Design token을 single source
 Cohesion: 0.15
 Nodes (13): Phone, Tablet, 그 후 버튼과 pill부터 바꾼다, 그다음 Exercise Shell, 그다음 Foundation을 코드에 고정한다, 그리고 tablet, 넓은 학습 화면, 마지막에 브랜드 표현을 강화한다 (+5 more)
 
-### Community 846 - "hangul-sori-site-local/package.json"
-Cohesion: 0.08
-Nodes (24): @fontsource/gowun-dodum, allowScripts, esbuild@0.28.1, unrs-resolver@1.11.1, workerd@1.20260911.1, dependencies, @fontsource/gowun-dodum, lucide-react (+16 more)
+### Community 846 - "dependencies"
+Cohesion: 0.15
+Nodes (13): @fontsource/gowun-dodum, dependencies, @fontsource/gowun-dodum, lucide-react, next, pretendard, react, react-dom (+5 more)
 
 ### Community 848 - "smoke_test.py"
-Cohesion: 0.26
-Nodes (12): app_id_from_app_check_token(), check(), credentials_from_environment(), main(), _parser(), post(), Read the JWT subject without printing or trusting it as verification. The…, Return the two credentials required by the production endpoint. (+4 more)
+Cohesion: 0.19
+Nodes (14): app_id_from_app_check_token(), check(), credentials_from_environment(), main(), _parser(), post(), Read the JWT subject without printing or trusting it as verification. The…, Return the two credentials required by the production endpoint. (+6 more)
 
 ### Community 849 - "runtime.test.js"
 Cohesion: 0.28
@@ -4995,12 +4950,12 @@ Cohesion: 0.15
 Nodes (12): allowedContentTypes, BetaMission, betaMissionCatalog, betaMissionCatalogVersion, completed, id, labelKey, matches (+4 more)
 
 ### Community 852 - "window_class_guard_test.dart"
-Cohesion: 0.11
-Nodes (18): _blankStringsAndComments, clean, entries, _expectAtMost, i, join, layoutSources, main (+10 more)
+Cohesion: 0.06
+Nodes (28): activeControls, approvedForSnap, axes, axesExercised, FeedPhysicsCandidate, feedPhysicsCandidates, id, nestedScrollRisk (+20 more)
 
-### Community 853 - "cta_vocabulary_guard_test.dart"
-Cohesion: 0.20
-Nodes (9): _allowedDe, _allowedEn, ctaKeys, de, en, _exceptionCeiling, _exceptionsDe, _exceptionsEn (+1 more)
+### Community 853 - "managed_media_image.dart"
+Cohesion: 0.11
+Nodes (19): display_sized_file_image.dart, borderRadius, build, createState, didChangeAppLifecycleState, didUpdateWidget, dispose, _file (+11 more)
 
 ### Community 854 - "screen_background.dart"
 Cohesion: 0.22
@@ -5062,9 +5017,9 @@ Nodes (12): build(), _default_base_revision(), _denominator_segment_ids(), _enco
 Cohesion: 0.15
 Nodes (13): minLength, type, items, type, items, type, items, minItems (+5 more)
 
-### Community 869 - "test_batch_26_draft.py"
-Cohesion: 0.10
-Nodes (15): _build_helper_word_scanner(), _load_json(), _load_nikl_grade1(), _load_vocab_rows(), Path, Batch 26 was Jin-approved and promoted 2026-09-16 (C3-T3, alongside Batch 27):…, Every one of the batch's 66 headwords must appear in the live korean_vocab.csv…, Every draft id must be present live with byte-identical content… (+7 more)
+### Community 869 - "_load_json"
+Cohesion: 0.21
+Nodes (6): _load_json(), _load_vocab_rows(), Path, Any personal name used in an example must be one of the app's recurring…, Sanity check for the selection rationale: every touched existing pack should…, TestBatch26PacksFilledTo12
 
 ### Community 870 - "Handoff: SESSION_LOG 의무 폐지 · handoff 규칙"
 Cohesion: 0.17
@@ -5074,13 +5029,13 @@ Nodes (8): Current State Summary, Handoff: SESSION_LOG 의무 폐지 · handoff 
 Cohesion: 0.17
 Nodes (11): 2026-08-25 에러프리 감사 세션 인수인계, main 자체의 고장, share-scroll red 의 원인 3개 (실측으로 판명), 검증 상태 (최종), 고친 것 (세션 브랜치 커밋 순), 미병합 작업 판정, 발견한 것, 세션 목표 (+3 more)
 
-### Community 872 - "CP2026_CONTINUATION.md"
-Cohesion: 0.10
-Nodes (13): C4-G1 문법 저작 검토 패킷, 근거와 판정, 삼언어 감사, 카드별 검토, grammar_a2_permission_check_batch20, grammar_a2_preference_soft_batch20, grammar_b1_conceded_context_batch20, grammar_b1_tentative_plan_batch20 (+5 more)
+### Community 872 - "문법 선택지 8행·24개 의미 검토"
+Cohesion: 0.20
+Nodes (9): grammar_a2_permission_check_batch20, grammar_a2_preference_soft_batch20, grammar_b1_conceded_context_batch20, grammar_b1_tentative_plan_batch20, grammar_b2_include_total_scope, grammar_b2_instead_supplement, grammar_b2_not_by_one_metric, grammar_b2_verify_human_review (+1 more)
 
 ### Community 873 - "CP-2026 전체 계획 인수 및 실행 큐"
-Cohesion: 0.11
-Nodes (18): 2026-09-16 인수 기록 (아래 수치·상태는 당시 기준), 2026-09-22 재정렬: 배포본 안정화가 첫 목표, Batch 03 후속 교정, Batch 05 문구 교정과 미해결 단원 이력, CP-2026 전체 계획 인수 및 실행 큐, 계정·보안·기기 후속 게이트, 기준과 원본, 다시 계산한 콘텐츠 기준선 (+10 more)
+Cohesion: 0.10
+Nodes (20): 2026-09-16 인수 기록 (아래 수치·상태는 당시 기준), 2026-09-22 19:20 UTC 현재 배포·관측 기준선, 2026-09-22 B3 후속 재개: 거절 사유와 실제 계정 생성 관측, 2026-09-22 재정렬: 배포본 안정화가 첫 목표, Batch 03 후속 교정, Batch 05 문구 교정과 미해결 단원 이력, CP-2026 전체 계획 인수 및 실행 큐, 계정·보안·기기 후속 게이트 (+12 more)
 
 ### Community 874 - "CEFR 커리큘럼 매트릭스 A1–C2 — 한국어 · 영어 · 독일어"
 Cohesion: 0.17
@@ -5142,25 +5097,21 @@ Nodes (3): CiWorkflowAppleConfigTest, PlayClosedWorkflowTest, ci.yml's release-i
 Cohesion: 0.26
 Nodes (11): CookiebotApi, copy, getCookiebot(), getLocale(), hasExplicitResponse(), Locale, PrivacyConsentPanel(), hideVendorDialog() (+3 more)
 
-### Community 889 - "page_header.dart"
-Cohesion: 0.22
-Nodes (8): body, build, eyebrow, SoriPageHeader, title, titleStyle, trailing, TextStyle?
+### Community 889 - "pressable.dart"
+Cohesion: 0.11
+Nodes (18): HitTestBehavior, alignment, behavior, build, child, createState, _ctrl, dispose (+10 more)
 
 ### Community 890 - "Hangul Sori website"
 Cohesion: 0.17
 Nodes (10): Deployment, Hangul Sori website, Local development, Quality gates, Requirements, Cloudflare Workers Builds fallback, GitHub Actions production deployment, Hangul Sori website release (+2 more)
 
-### Community 891 - "tts_request_rate_test.dart"
-Cohesion: 0.22
-Nodes (8): failFileStart, fileSessions, main, mutations, _StartAudio, stop, throwFileStarts, throwStops
+### Community 891 - "static const"
+Cohesion: 0.11
+Nodes (16): fromRoute, level, levels, PhaseNativeConfiguration, restoreOnly, canonical120, legacy, ScenarioCorpusGeneration (+8 more)
 
-### Community 892 - "PushAuthClient"
-Cohesion: 0.67
-Nodes (3): FirebasePushAuthClient, PushAuthClient, _FakePushAuth
-
-### Community 893 - "PushMessagingClient"
-Cohesion: 0.67
-Nodes (3): FirebasePushMessagingClient, PushMessagingClient, _FakePushMessaging
+### Community 892 - "satz_loader.dart"
+Cohesion: 0.11
+Nodes (18): _cache, distractors, filter, fromJson, hasExplicitId, id, level, load (+10 more)
 
 ### Community 895 - "silent_catch_ratchet_test.dart"
 Cohesion: 0.17
@@ -5183,16 +5134,20 @@ Cohesion: 0.17
 Nodes (11): 1. Cleanup status, 2. Node test — `tool/test_web_bootstrap.mjs`, 3. Static checks, 4. Commits, 5. Unexpected failures, 6. Open questions (≤3), (a) `web/index.html` diff scope, (b) `playwright.yml` — `uses:` SHA pinning + manifest cross-check (+3 more)
 
 ### Community 900 - ".load"
-Cohesion: 0.12
-Nodes (22): load_character_names(), load_f9_headword_embedded_grammar(), load_grammar_rows(), load_level_exceptions(), load_nikl_grammar_rows(), Path, Every `recurringCharacters[].displayNames.ko` name from…, Read assets/data/grammar.csv (id, level, pattern, ...). (+14 more)
+Cohesion: 0.14
+Nodes (19): load_character_names(), load_f9_headword_embedded_grammar(), load_grammar_rows(), load_level_exceptions(), load_nikl_grammar_rows(), Path, Every `recurringCharacters[].displayNames.ko` name from…, Read assets/data/grammar.csv (id, level, pattern, ...). (+11 more)
 
 ### Community 901 - "gloss_resolver_fixtures.dart"
-Cohesion: 0.17
-Nodes (11): build, buildF1TextbookPageDocument, buildF2ParticleAndVerbDocument, buildF3PageHintDocument, buildF4HomographDocument, kF1KnownMissTokens, kF1TotalHangulTokens, _line (+3 more)
+Cohesion: 0.10
+Nodes (19): Anfang, package:ko_lernen_app/services/book_ocr_document.dart, package:ko_lernen_app/services/vocab_notebook_parser.dart, Schule, build, buildF1TextbookPageDocument, buildF2ParticleAndVerbDocument, buildF3PageHintDocument (+11 more)
 
-### Community 902 - "PushTokenRepository"
-Cohesion: 0.67
-Nodes (3): FirestorePushTokenRepository, PushTokenRepository, _FakePushTokenRepository
+### Community 902 - "level_filter_bar.dart"
+Cohesion: 0.12
+Nodes (17): allLabel, build, _chip, _controller, createState, didUpdateWidget, dispose, _edgeFade (+9 more)
+
+### Community 903 - "gate_art.dart"
+Cohesion: 0.12
+Nodes (15): FilterQuality, build, _doorH, _doorLeft, _doorRightLeft, _doorTop, _doorW, filterQuality (+7 more)
 
 ### Community 904 - "fix_dangling_stems.py"
 Cohesion: 0.30
@@ -5206,21 +5161,21 @@ Nodes (6): AlertPolicyFilesTest, _all_conditions(), _all_filters(), Static check
 Cohesion: 0.27
 Nodes (10): list_status(), load_progress(), main(), ocr_quality_proxy(), process_chunk(), Q-S2: chunked OCR driver for the scanned (0%-text-layer) Sejong main-series…, Proxy for OCR quality (NOT an engine confidence -- see module docstring).…, render_pages() (+2 more)
 
-### Community 907 - "ui_string_locale_guard_test.dart"
-Cohesion: 0.22
-Nodes (8): at, _exemptFiles, _germanOnly, _hangul, _literal, main, _stripComment, _uiTextSlot
+### Community 907 - "_"
+Cohesion: 0.13
+Nodes (16): _, AccessSnapshot, aiPolicyId, bookDailyLimit, canUseCached, contentAccess, _dayMillis, environment (+8 more)
 
 ### Community 908 - "cloud_sync.dart"
-Cohesion: 0.01
-Nodes (146): auth_service.dart, bookshelf_service.dart, cloud_sync_service.dart, custom_pack_service.dart, data_loader.dart, ../../data/sori_activity_catalog.dart, DateTime get, decoration_reward_service.dart (+138 more)
+Cohesion: 0.02
+Nodes (85): auth_service.dart, cloud_sync_service.dart, DateTime get, diagnostics_service.dart, ../features/content_learning/content_learning_service.dart, firestore_progress_service.dart, gye_service.dart, legacy_hanok_v1_importer.dart (+77 more)
 
 ### Community 909 - "partner_family_packs.py"
 Cohesion: 0.26
 Nodes (7): Content-factory lexicons for review-only expansion batches. Learner-facing…, B1-C2 packs for meeting a Korean partner's family., _pack(), Any, Dedicated Korean-partner / in-law / holiday packs. Each pack has 12 original…, More A2 packs for the Korean-partner family track., A2-C2 packs for the Korean-partner / family / holiday track.
 
 ### Community 910 - "build_satzbauen.py"
-Cohesion: 0.31
-Nodes (7): build(), load_rows(), main(), strip_punct(), load_vocab(), main(), 레벨(소문자) → [(단어, 품사)] 목록.
+Cohesion: 0.70
+Nodes (4): build(), load_rows(), main(), strip_punct()
 
 ### Community 912 - "Deploy Checklist: 한글소리 에셋 배치 (신규 영상·이미지 트리거 검수)"
 Cohesion: 0.18
@@ -5233,11 +5188,8 @@ Nodes (10): 2026-09-07 발음 채점(Aussprache) Azure F0 재개 + Play 비공�
 ### Community 914 - "account-deletion-page.test.js"
 Cohesion: 0.25
 Nodes (8): consumeDeletionProof(), proofFromFragment(), renderBrowserStatus(), startBrowserPage(), assert, {
-
   CONSUMPTION_ENDPOINT,
-
   consumeDeletionProof,
-
 }, test, VALID_PROOF
 
 ### Community 915 - "B2, C1, C2 고급 콘텐츠 트랙"
@@ -5305,7 +5257,7 @@ Cohesion: 0.18
 Nodes (10): 1. TTS v2 → v3 캐시 마이그레이션 + CF 배포 (커밋 `fc1d865`), 2. UI 가독성 + CTA 호랑이 "까딱임" 정리 (`6f4082d`, `5ab9eec`), 3. 온보딩 순서 재배치 (`56ab2ac`), 4. 영상 배선, 5. Deploy Checklist 20260730 검증 + tts v2 흔적 제거, 검증, 동시세션 주의, 미검증 (실기기 — 헤드리스 불가) (+2 more)
 
 ### Community 931 - "Apple 로그인 설정 런북 — Firebase 제공자 활성화 + Android 웹 플로우 배선"
-Cohesion: 0.18
+Cohesion: 0.17
 Nodes (11): 0. 현재 상태 (2026-09-05 실측), 1. Apple Developer Console, 2. Firebase Console — Apple 제공자 활성화, 3. GitHub repo variables, 4.1 공개 파라미터 (.env 파일, 커밋 금지), 4.2 비밀 값 — `APPLE_REVOKE_*` 4종 교체, 4. 서버 파라미터 / 시크릿, 5. 배포 (Jin 승인 후에만 실행) (+3 more)
 
 ### Community 932 - "책 한 컷 Cloud Function 안전 배포 런북"
@@ -5331,6 +5283,10 @@ Nodes (10): 1. 문제, 2. 코드에서 확인한 계약, 3.1 새 릴리스 트�
 ### Community 937 - "ai_policy.js"
 Cohesion: 0.27
 Nodes (8): {FREE_TIER_DAILY_ASSESSMENTS}, {readCostControl, prepareCostReservation}, {resolveAccess}, approvalText(), prepareCostReservation(), readCostControl(), safeInt(), ServiceCostError
+
+### Community 938 - "_card_style_baseline_text"
+Cohesion: 0.23
+Nodes (7): _card_style_baseline_text(), _card_style_test_move(), CardStyleRegistrySyncEntryPointTest, EditCardStyleRegistryTest, Task T2.9b: docs/assets/CARD_STYLE_BASELINE.json path rename + STYLE_LOCK.json…, The standalone --sync-artwork-registry retroactive entry point (task T2.9b) --…, _style_lock_text()
 
 ### Community 939 - "ildu_world_projection_adapter.dart"
 Cohesion: 0.18
@@ -5492,13 +5448,17 @@ Nodes (8): assert, AUDIO, { cacheKey }, fs, harness(), path, test, vm
 Cohesion: 0.20
 Nodes (4): cookieInventory, heading, Locale, metadata
 
-### Community 983 - "curriculum_evidence_projector.dart"
-Cohesion: 0.25
-Nodes (7): ../../data/curriculum_alignment_registry.dart, OnboardingCurriculumEvidenceProjection, OnboardingCurriculumEvidenceProjector, project, _referenceIdentity, references, ../../models/curriculum_alignment_contract.dart
+### Community 983 - "srs_commit_journal.dart"
+Cohesion: 0.13
+Nodes (14): afterDeck, afterHistory, beforeDeck, beforeHistory, date, decode, encode, historyKey (+6 more)
 
-### Community 986 - "gye_lantern_progress.dart"
-Cohesion: 0.25
-Nodes (7): gye.dart, currentStepFor, fromMeta, GyeLanternProgress, hasWeeklyGoal, permanentElementCount, weeklyFraction
+### Community 985 - "score_pop.dart"
+Cohesion: 0.14
+Nodes (14): _bubble, build, _c, color, createState, dispose, initState, onDone (+6 more)
+
+### Community 986 - "author_listening_lessons.py"
+Cohesion: 0.28
+Nodes (13): advanced_rows(), basic_foils(), build(), contrast_explanation(), load_sources(), localized(), Build the listening catalog from immutable scenarios and authored inference…, response_rows() (+5 more)
 
 ### Community 987 - "package.json"
 Cohesion: 0.20
@@ -5548,25 +5508,21 @@ Nodes (9): classify_book(), fmt_ranges(), main(), process_pdf(), ranges_from_fla
 Cohesion: 0.20
 Nodes (3): Batch19ReconciliationTest, Guard quiz meaning and distinguish exact copy repair from scenario retirement., records()
 
-### Community 1000 - "SceneContractTest"
-Cohesion: 0.08
-Nodes (9): build(), main(), Any, Path, _sort_key(), _to_record(), BuildOutputTest, SceneContractTest (+1 more)
-
 ### Community 1003 - "build_cloze.py"
 Cohesion: 0.38
 Nodes (9): build(), is_clean_blank(), is_hangul(), load_rows(), main(), pick_distractors(), True, wenn `ko` in `ex` als sauberer (wortgrenzen-respektierender) Nomen-Slot…, 3 plausible Distraktoren: gleiches Level, andere Wörter; gleiche Wortart und… (+1 more)
 
-### Community 1004 - "TestBatch25PromotedToLiveAssets"
-Cohesion: 0.29
-Nodes (4): Batch 25 was Jin-approved and promoted 2026-09-15 (C3-T2): the manifest must…, Every one of the batch's 64 headwords must appear in the live korean_vocab.csv…, Frozen drafts keep the before-copy; live edits need exact ledger hashes.…, TestBatch25PromotedToLiveAssets
+### Community 1004 - "content_learning_state.dart"
+Cohesion: 0.14
+Nodes (13): content_learning_models.dart, _answers, _attempt, _compareTime, ContentLearningState, _date, decode, merge (+5 more)
 
 ### Community 1005 - "type"
 Cohesion: 0.20
 Nodes (10): items, type, type, items, type, interests, personality, writerHints (+2 more)
 
-### Community 1010 - "_State"
-Cohesion: 0.01
-Nodes (339): Animation, AnimationController, _CompanionHarness, Duration get, _Harness, _HarnessState, reduceMotion, reverseTransitionDuration (+331 more)
+### Community 1010 - "vocab_notebook_studio_screen_test.dart"
+Cohesion: 0.03
+Nodes (85): Duration get, _Harness, ContentLearningDayRefresh, _ContentLessonScreenState, reduceMotion, reverseTransitionDuration, _shouldReduceMotion, SoriPageRoute (+77 more)
 
 ### Community 1012 - "graphify reference: extra exports and benchmark"
 Cohesion: 0.22
@@ -5607,6 +5563,10 @@ Nodes (8): 10. KP10 · B1.2 — 사건의 경위와 결과 설명하기, 11. KP1
 ### Community 1021 - "V2 콘텐츠 재검토 대기열 (relevel 아님)"
 Cohesion: 0.22
 Nodes (8): §A `too_hard_or_survival_review` (55건), §B `too_easy_move_down` 중 구/서사 조각 표시 (45건), §C "발명된 시적 명사구" 패턴 (Jin 결정 8), D.1 이번 PR(V2G1, 문법 이동)로 새로 발생 — 4건, D.2 이전 배치(LCP L2b, 2026-09-07)에서 이미 있던 것 — 2건(이번 PR 무관, 재확인만), §D 시나리오 문법 레벨 경고 (6건), V2 콘텐츠 재검토 대기열 (relevel 아님), 상태
+
+### Community 1022 - "placement_diagnostic.dart"
+Cohesion: 0.14
+Nodes (13): choices, choicesDe, choicesEn, correctIndex, korean, PlacementDiagnosticQuestion, placementDiagnosticQuestions, PlacementDiagnosticSkill (+5 more)
 
 ### Community 1023 - "시나리오 씬 에셋 감사 리포트"
 Cohesion: 0.22
@@ -5673,8 +5633,8 @@ Cohesion: 0.25
 Nodes (6): Locale, STORE_LINKS, copy, focusValues, levelValues, TesterAccessForm()
 
 ### Community 1041 - "Duration"
-Cohesion: 0.08
-Nodes (23): Duration, alignment, duration, motionDuration, reveal, revealLazyScrollTarget, animated, build (+15 more)
+Cohesion: 0.04
+Nodes (49): Duration, backoffDelay, base, cappedMicros, clampedMicros, defaultNetTimeout, exponent, jitteredMicros (+41 more)
 
 ### Community 1042 - "theme.dart"
 Cohesion: 0.18
@@ -5684,17 +5644,17 @@ Nodes (10): AppTheme, _build, _buildTextTheme, dark, darkFor, light, lightFor, p
 Cohesion: 0.22
 Nodes (8): Diffstat, grep 출력, T2.5 — Silben SoriSpeech 이관 (지시서 2.9 파생), 개별 실행 결과, 순서 및 RED/GREEN 로그, 앵커 재검증, 예상 밖 가드 실패, 의문 (≤3)
 
-### Community 1044 - "jamo_speech_test.dart"
-Cohesion: 0.18
-Nodes (10): body, isSingleSyllable, leads, main, parseDartCarriers, parsePythonCarriers, runes, source (+2 more)
+### Community 1044 - "grounded_book_study_card_test.dart"
+Cohesion: 0.14
+Nodes (12): package:ko_lernen_app/services/grounded_book_study_service.dart, package:ko_lernen_app/widgets/grounded_book_study_card.dart, app, expression, futureGrammar, main, result, word (+4 more)
 
 ### Community 1045 - "check_particle_mismatch"
-Cohesion: 0.22
-Nodes (9): check_particle_mismatch(), find_particle_after_blank(), has_batchim(), `sentence_ko` 에서 빈칸(`blank`) 바로 뒤에 오는 조사 1글자. 조사 후보(이/가·은/는·을/를)가 아니면 None 을…, 빈칸 뒤 조사와 받침이 불합치하는 distractor 목록 (cloze 전용). 빈 리스트 = 히트 없음(조사 자체가 대상 조사 집합…, `word` 마지막 글자의 받침 유무. 완성형 한글 음절이 아니면 None. 유니코드 한글 음절 분해식: (코드포인트 - 0xAC00) %…, main(), syllables() (+1 more)
+Cohesion: 0.25
+Nodes (8): check_particle_mismatch(), find_particle_after_blank(), has_batchim(), `sentence_ko` 에서 빈칸(`blank`) 바로 뒤에 오는 조사 1글자. 조사 후보(이/가·은/는·을/를)가 아니면 None 을…, 빈칸 뒤 조사와 받침이 불합치하는 distractor 목록 (cloze 전용). 빈 리스트 = 히트 없음(조사 자체가 대상 조사 집합…, `word` 마지막 글자의 받침 유무. 완성형 한글 음절이 아니면 None. 유니코드 한글 음절 분해식: (코드포인트 - 0xAC00) %…, main(), syllables()
 
-### Community 1046 - "TopicMapper"
-Cohesion: 0.22
-Nodes (3): Resolves app labels to taxonomy topic ids using ``appAliases``., Keyword match on the underscore tokens of a pack/unit id. A keyword must equal…, TopicMapper
+### Community 1046 - "author_smalltalk_lessons_20260922.py"
+Cohesion: 0.30
+Nodes (13): alternatives(), build(), main(), meaning(), near_topic(), nuance_rows(), Rebuild the authored Small Talk catalog; no network, randomness or source…, Rank reviewed source contrasts; never turn free paraphrases into errors. The… (+5 more)
 
 ### Community 1047 - "sheet"
 Cohesion: 0.33
@@ -5708,9 +5668,12 @@ Nodes (6): _fingerprint(), _load_smalltalk(), _load_vocab(), main(), MainWritesL
 Cohesion: 0.36
 Nodes (8): cutout(), fit_circle(), main(), Image, 테두리에서 닿는 흰 영역만 투명으로. scipy 없이 PIL 의 4-연결 플러드필만 쓴다 (기기 VM 에 scipy 가 없고 네트워크도…, 원이 캔버스를 차지하는 비율을 기존 8종에 맞춘다. 기존 도장은 투명 25.5% 안팎 = 원 지름이 캔버스의 97.4%. 생성물은 34%…, P 모드 + 이진 투명으로 변환 — 기존 8종과 같은 형식. RGBA 로 두면 파일이 2배가 된다. 도장은 색수가 적어 255색이면 손실이…, to_palette()
 
-### Community 1050 - "package:ko_lernen_app/services/productive_assessment_service.dart"
-Cohesion: 0.33
-Nodes (5): package:ko_lernen_app/services/productive_assessment_service.dart, decoded, draftProductiveAssessmentPath, fromJson, loadDraftProductiveAssessmentCatalog
+### Community 1050 - "hanok_stage.dart"
+Cohesion: 0.15
+Nodes (12): dancheong,
+  gate,
+  windows,
+  sideBuilding,, a1, a2, assetSlug, b1, b2, computeStage, fromJsonValue (+4 more)
 
 ### Community 1052 - "IntegrateReviewBatchesTest"
 Cohesion: 0.25
@@ -5732,9 +5695,9 @@ Nodes (8): line(), main(), manifest_for(), Any, records(), scenario(), text(), w
 Cohesion: 0.40
 Nodes (5): applyTo, kSoriCardFacePhysics, ScrollOnlyIfOverflowing, shouldAcceptUserOffset, ScrollPhysics?
 
-### Community 1057 - "validate_batch_01"
-Cohesion: 0.33
-Nodes (6): BatchValidationResult, main(), _parse_args(), Namespace, Validate the historic immutable Batch 01 handoff without writes., validate_batch_01()
+### Community 1057 - "onboarding_story_catalog_projector_test.dart"
+Cohesion: 0.15
+Nodes (12): HeritageAssetAuthority, package:ko_lernen_app/features/onboarding_v2/onboarding_story_catalog_projector.dart, package:ko_lernen_app/models/heritage_journey_contract.dart, approved, assetAuthority, estateId, _heritageChapter, _heritageDescriptorWithoutIldu (+4 more)
 
 ### Community 1058 - "NIKL 등급 사전 (`tools/content_factory/lexicon/`)"
 Cohesion: 0.22
@@ -5752,13 +5715,17 @@ Nodes (7): main(), Path, read_vocab_csv(), rj(), wj(), write_review_csv(), write
 Cohesion: 0.22
 Nodes (8): `audit`, Hangul Sori Canonical Scenario Prompt v1, `ko_scene`, `learning_extract`, `localize`, 단계별 역할, 실행 슬롯, 절대 원칙
 
-### Community 1062 - ".error"
-Cohesion: 0.27
+### Community 1062 - "record_smalltalk_review_approvals.py"
+Cohesion: 0.36
 Nodes (8): _capture_current_and_previous(), compute_all_entries(), main(), _next_constant_name(), Return (to_record, segment_changed, other_issues). * to_record: {phraseId:…, Run `build_assets()` once with `_validate_smalltalk_review_history` swapped for…, record(), _render_tuple_literal()
 
 ### Community 1063 - "Smalltalk (8)"
 Cohesion: 0.22
 Nodes (9): 1. `smalltalk_b1_0053` · B1, 2. `smalltalk_b1_0054` · B1, 3. `smalltalk_b2_0081` · B2, 4. `smalltalk_b2_0082` · B2, 5. `smalltalk_c1_0017` · C1, 6. `smalltalk_c1_0018` · C1, 7. `smalltalk_c2_0017` · C2, 8. `smalltalk_c2_0018` · C2 (+1 more)
+
+### Community 1064 - "hangul-sori-site-local/package.json"
+Cohesion: 0.17
+Nodes (11): allowScripts, esbuild@0.28.1, unrs-resolver@1.11.1, workerd@1.20260911.1, displayName, engines, node, name (+3 more)
 
 ### Community 1065 - "StudyLibraryBookshelfReader"
 Cohesion: 0.40
@@ -5813,7 +5780,7 @@ Cohesion: 0.25
 Nodes (7): C4-G1 저작 결과 (2026-09-17), V2 문법 저작 대기열 (신규 콘텐츠 필요 — 이 PR에서 저작하지 않음), 우선순위 1 — 간접화법 어미족 (B1, 세종 3B 직접 근거), 우선순위 2 — `-거든1` (연결어미, B1, 세종 3A 직접 근거), 우선순위 3 — A2 결손 6건 (세종 미검증, NIKL 근거만), 우선순위 4 — `-는 만큼` (B1로 확정, 세종은 C2에서만 확인), 참고 — 그 밖의 세종 결손(저작 상세 없음, 목록만)
 
 ### Community 1079 - "Batch 03: 문법·smalltalk 이력과 표현 교정"
-Cohesion: 0.25
+Cohesion: 0.22
 Nodes (8): Batch 03: 문법·smalltalk 이력과 표현 교정, can-do와 사람 검수, grammar_b2_impression_appearance, grammar_b2_method_dependent, grammar_b2_negative_consequence, grammar_b2_topic_debate, smalltalk_b2_0057, smalltalk_b2_0062
 
 ### Community 1080 - "Jin 표본 7행"
@@ -5877,8 +5844,8 @@ Cohesion: 0.25
 Nodes (7): Account operation release verification — 2026-07-31 source gate, External gates — explicitly not verified, Fresh command evidence, Independent review, Release verdict, Required static safety scans, Source claims reviewed
 
 ### Community 1095 - "운영 알림 런북 (ops-alerts)"
-Cohesion: 0.25
-Nodes (7): 01 — Functions 5xx ratio > 2% (5분, 서비스별), 02 — App Check 거부 급증 (>50건 / 5분), 03 — AI 비용 브레이커 / Apple revocation 설정 불가 (10분 내 1건이라도), 04 — 계정 삭제 워커 HTTP 성공 정지 (25시간), 05 — Firestore 쓰기 급증 (>10,000 / 15분, 하루 200,000의 대리 지표), 운영 알림 런북 (ops-alerts), 적용과 수신 증거
+Cohesion: 0.12
+Nodes (13): 01 — Functions 5xx ratio > 2% (5분, 서비스별), 02 — App Check 거부 급증 (>50건 / 5분), 03 — AI 비용 브레이커 / Apple revocation 설정 불가 (10분 내 1건이라도), 04 — 계정 삭제 워커 HTTP 성공 정지 (25시간), 05 — Firestore 쓰기 급증 (>10,000 / 15분, 하루 200,000의 대리 지표), B3 계정 생성 관측, 운영 알림 런북 (ops-alerts), 적용과 수신 증거 (+5 more)
 
 ### Community 1096 - "세션 2026-07-31 — 온보딩 캐릭터 선택 + 책장 앱바 UI 수정"
 Cohesion: 0.25
@@ -5916,9 +5883,9 @@ Nodes (3): CircuitBreaker, In-process fail-fast guard for DeepL, Azure, and Clou
 Cohesion: 0.32
 Nodes (6): ALLOWED_FIELDS, appleOAuthCallback(), { appleOAuthCallback }, assert, invoke(), test
 
-### Community 1105 - "test_audit_grammar_card_faces.py"
-Cohesion: 0.29
-Nodes (5): CsvLoadingTest, DeriveFacesTest, Unit tests for tool/audit_grammar_card_faces.py -- W10 PR-A T-G4. 2 개 테스트, 지시서…, ReportTest, _row()
+### Community 1105 - "scenario_character.dart"
+Cohesion: 0.17
+Nodes (11): id, nameDe, nameEn, nameFor, nameKo, profileFor, profiles, ScenarioCharacterCatalog (+3 more)
 
 ### Community 1106 - "resource_limits.test.js"
 Cohesion: 0.29
@@ -5940,13 +5907,17 @@ Nodes (5): ProductionStudyLibrarySrsReader, StudyLibrarySrsReader, _SrsReader, _
 Cohesion: 0.43
 Nodes (7): copy, notes, selectBuilding(), show(), stop(), translateUi(), ui()
 
-### Community 1113 - "languages"
-Cohesion: 0.50
-Nodes (4): de, en, ko, languages
+### Community 1113 - "_"
+Cohesion: 0.18
+Nodes (12): TtsBundledCachePath, _, currentRevision, forRequest, hash, isUsableAudio, _repairedLocalObjects, revision (+4 more)
 
-### Community 1115 - "VideoLeaseEligibilityBinding"
-Cohesion: 0.67
-Nodes (3): ContentSpeechController, VideoLeaseEligibilityBinding, RouteAware
+### Community 1114 - "build_batch_34_a2_draft.py"
+Cohesion: 0.42
+Nodes (10): apply_predecessor_repairs(), build_batch34(), build_packet(), main(), Path, replace_csv_row(), replace_json_item(), sha256() (+2 more)
+
+### Community 1115 - "flip_card_advance_regression_test.dart"
+Cohesion: 0.18
+Nodes (10): _HarnessState, advance, build, card, createState, flipped, _Harness, _HarnessState (+2 more)
 
 ### Community 1116 - "Task 9A report — cloud privacy and deletion reconciliation"
 Cohesion: 0.25
@@ -5991,6 +5962,10 @@ Nodes (7): build_pool(), is_pure_hangul(), load_nouns(), main(), Path, vocab CSV
 ### Community 1126 - "Onboarding companion media"
 Cohesion: 0.25
 Nodes (7): Bundled choose gestures, Import author-supplied alpha media, Import command, Input, Onboarding companion media, Tool tests, Validate an existing file
+
+### Community 1127 - "LearnerLevel"
+Cohesion: 0.18
+Nodes (10): LearnerLevel, de, en, focus, fromJson, id, ko, level (+2 more)
 
 ### Community 1131 - "Gye Admin 패널 (계 모더레이션)"
 Cohesion: 0.25
@@ -6172,6 +6147,10 @@ Nodes (6): 사랑방 자산은 현재 방향이 꽤 좋다, 연구 결론 — �
 Cohesion: 0.29
 Nodes (7): “건물 해금”보다 “이 집에서 할 수 있는 일”이 늘어난다, 유저가 “내 집”이라고 느끼는 선택은 구조가 아니라 표면에서 준다, 이 프로젝트의 한 줄 디자인 헌법, 종가 전체의 최종 건물 위계, 집 전체에 “살아 있는 상태”를 만든다, 첫 화면은 끝까지 “한눈에 보는 종가”다, 최종 제품 청사진 — 이 게임을 “한옥 때문에 돌아오는 한국어 앱”으로 만드는 방법
 
+### Community 1177 - "TestBatch34A2GrammarScan"
+Cohesion: 0.22
+Nodes (3): The authoritative check: 'scan_grammar_level --level A2 must return 0 on your…, TestBatch34A2GrammarScan, TestBatch34DraftFilesExist
+
 ### Community 1178 - "account-deletion/page.tsx"
 Cohesion: 0.38
 Nodes (6): AccountDeletion(), content, generateMetadata(), Locale, localeFrom(), PageProps
@@ -6216,6 +6195,14 @@ Nodes (6): matte_video_frame(), prepare(), ndarray, Path, Prepare the two author
 Cohesion: 0.25
 Nodes (7): 01_functions_5xx_rate.json — Cloud Run request count, 02_appcheck_rejections.json — App Check verification count, 03_ai_cost_breaker_unavailable.json — custom log counters, 04_deletion_worker_stalled.json — Cloud Run HTTP success liveness, 05_firestore_write_surge.json — Firestore writes, Alert policy metric sources, Application prerequisites and remaining evidence
 
+### Community 1190 - "ai_voice_notice_host.dart"
+Cohesion: 0.22
+Nodes (9): AiVoiceNoticeHost, _AiVoiceNoticeHostState, build, child, createState, dispose, initState, _onPendingChanged (+1 more)
+
+### Community 1191 - "hangul_perturbation_test.dart"
+Cohesion: 0.20
+Nodes (8): package:ko_lernen_app/services/hangul_perturbation.dart, package:ko_lernen_app/services/hangul_util.dart, main, diffs, main, _oneJamoEdit, ra, rb
+
 ### Community 1196 - "SettlementArtTest"
 Cohesion: 0.38
 Nodes (3): Integrity and approval boundaries for the preserved settlement artwork., read_json(), SettlementArtTest
@@ -6239,6 +6226,10 @@ Nodes (6): 1. `b1_repair_visit_followup` · B1, 2. `b2_device_failure_escalation
 ### Community 1201 - "properties"
 Cohesion: 0.29
 Nodes (7): type, properties, type, type, de, en, ko
+
+### Community 1202 - "CP2026_CONTINUATION.md"
+Cohesion: 0.28
+Nodes (4): C4-G1 문법 저작 검토 패킷, 근거와 판정, 삼언어 감사, 카드별 검토
 
 ### Community 1203 - "Handoff: Batch 19 A1–C2 loader coverage"
 Cohesion: 0.33
@@ -6368,9 +6359,21 @@ Nodes (6): build(), _bytes(), _fingerprint(), main(), Any, _read_records()
 Cohesion: 0.33
 Nodes (4): package:integration_test/integration_test_driver.dart, phase_native_receipt.dart, main, main
 
+### Community 1241 - "test_batch_26_draft.py"
+Cohesion: 0.28
+Nodes (5): _build_helper_word_scanner(), _load_nikl_grade1(), Every non-headword word in example_korean must be judged against the NIKL KIIQ…, TestBatch26DraftFilesExist, _unresolved_helper_tokens()
+
+### Community 1242 - "TestBatch26PromotedToLiveAssets"
+Cohesion: 0.22
+Nodes (5): Batch 26 was Jin-approved and promoted 2026-09-16 (C3-T3, alongside Batch 27):…, Every one of the batch's 66 headwords must appear in the live korean_vocab.csv…, Every draft id must be present live with byte-identical content…, Batch 26 must not reuse any of Batch 25's 64 headwords., TestBatch26PromotedToLiveAssets
+
 ### Community 1243 - "enum"
 Cohesion: 0.33
 Nodes (6): business, casual, intimate, polite, register, enum
+
+### Community 1244 - "Listening lesson catalog: content contract and QA"
+Cohesion: 0.25
+Nodes (7): Independent model-review repairs, Legacy quest issues avoided, Listening lesson catalog: content contract and QA, Reproduction and validation, Review status and limits, Scene and task lock, Scope and source authority
 
 ### Community 1245 - "classify_romanization"
 Cohesion: 0.33
@@ -6544,6 +6547,10 @@ Nodes (5): §7. 🦵 진짜 교대 보행 — 4다리 정확 메커니즘 (핵�
 Cohesion: 0.40
 Nodes (5): 🪑 B. Idle / 앉기 (4장 — stand 또는 sit), `sit_idle_a` (앉은 기본 자세), `sit_idle_b` (앉은 미세 변화), `stand_idle_a` (살짝 체중 이동), `stand_idle_b` (귀·꼬리 변화)
 
+### Community 1291 - "review_session_queue_test.dart"
+Cohesion: 0.25
+Nodes (7): _Item, package:ko_lernen_app/services/review_session_queue.dart, id, _Item, label, main, _queue
+
 ### Community 1292 - "dependency_security.test.js"
 Cohesion: 0.40
 Nodes (4): assert, qs, test, uuid
@@ -6555,6 +6562,10 @@ Nodes (4): main(), Any, _read_payload(), _select()
 ### Community 1297 - "Q: 놀이공원 scene 및 C1/C2 listening card 이미지 작업에서 확정한 자산 경로, 스타일 정본, 출력 형식은 무엇인가?"
 Cohesion: 0.40
 Nodes (4): Answer, Outcome, Q: 놀이공원 scene 및 C1/C2 listening card 이미지 작업에서 확정한 자산 경로, 스타일 정본, 출력 형식은 무엇인가?, Source Nodes
+
+### Community 1299 - "TestBatch30PromotedToLiveAssets"
+Cohesion: 0.25
+Nodes (4): Batch 30 was Jin-approved (7/62 sample, 2026-09-16, owner chat 'Batch 30·31 표본…, Every one of the batch's 62 headwords must appear in the live korean_vocab.csv…, Every draft id must be present live with byte-identical content…, TestBatch30PromotedToLiveAssets
 
 ### Community 1300 - "ad_service.dart"
 Cohesion: 0.40
@@ -6599,6 +6610,10 @@ Nodes (4): main(), Promote Jin-approved PNG bytes and publish only the learner-f
 ### Community 1316 - "verify_staged_clips.py"
 Cohesion: 0.60
 Nodes (4): compare(), main(), probe(), Path
+
+### Community 1317 - "Small Talk lesson catalog content QA"
+Cohesion: 0.29
+Nodes (6): Authoring contract, Independent model review follow-up, Scope and result, Small Talk lesson catalog content QA, Source translation repairs and regeneration provenance, Validation and limitations
 
 ### Community 1318 - "정본 120개 자동 편집 감사"
 Cohesion: 0.40
@@ -6676,6 +6691,10 @@ Nodes (3): Phase 문맥 용례 검수, 레벨별 원문 근거와 남은 평가 
 Cohesion: 0.50
 Nodes (3): NOT_EXTRACTABLE policy, Per-file text-layer page ranges (1-based, yes/no), Sejong Institute Textbook Inventory — Q-S Phase 1
 
+### Community 1337 - "Small Talk and Listening Topic Learning Implementation Plan"
+Cohesion: 0.29
+Nodes (6): Catalog contract (owned independently per content), Core API (root supplies), Global constraints, Small Talk and Listening Topic Learning Implementation Plan, Task boundaries and interfaces, Verification commands
+
 ### Community 1338 - "0. 문제 진단"
 Cohesion: 0.50
 Nodes (4): 0.1 사용자 보고, 0.2 데이터 실측 (2026-05-31), 0.3 디자인 결함, 0. 문제 진단
@@ -6720,17 +6739,25 @@ Nodes (4): Lesson 목록, 문법 / 설명 콘텐츠, 홈 / 학습 허브, 화면
 Cohesion: 0.50
 Nodes (4): HANDOFF들의 시간순 의미, 기존 화풍에 대한 정확한 판정, 저장소와 HANDOFF를 전부 대조한 현재 상태, 지금 저장소에 실제로 있는 한옥 골격
 
+### Community 1349 - "auth_creation_observer.test.js"
+Cohesion: 0.29
+Nodes (6): assert, deployed, fs, logger, path, test
+
 ### Community 1350 - "preflight.sh"
 Cohesion: 0.83
 Nodes (3): bad(), ok(), preflight.sh script
 
-### Community 1351 - "Dynamic TTS quotas"
-Cohesion: 0.50
-Nodes (3): Dynamic TTS quotas, Error response compatibility, Remaining CP2026 B3 work
+### Community 1351 - "static final"
+Cohesion: 0.29
+Nodes (6): _cache, ContentLearningCatalog, load, reset, validate, static final
 
 ### Community 1354 - "const"
 Cohesion: 0.50
 Nodes (4): de-DE, en, supportLanguages, const
+
+### Community 1355 - "build"
+Cohesion: 0.48
+Nodes (6): build(), main(), Any, Path, _sort_key(), _to_record()
 
 ### Community 1356 - "Cache directory"
 Cohesion: 0.50
@@ -6844,6 +6871,10 @@ Nodes (3): minLength, type, portfolioBucket
 Cohesion: 0.67
 Nodes (3): titleKo, minLength, type
 
+### Community 1417 - "Path"
+Cohesion: 0.40
+Nodes (3): build, Path, TestBatch34Regeneration
+
 ### Community 1418 - "turningPoint"
 Cohesion: 0.67
 Nodes (3): turningPoint, minLength, type
@@ -6856,25 +6887,57 @@ Nodes (3): writerRole, minLength, type
 Cohesion: 0.67
 Nodes (3): regressionThemes, minItems, type
 
+### Community 1453 - "check_e_daehae"
+Cohesion: 0.20
+Nodes (6): check_e_daehae(), check_level_length(), check_passive_pileup(), `되어지`·`지게 되` 이중 피동/사동 겹침 포함 여부., `에 대해` 가 한 문장에 2회 이상., a1 문장 40자 초과, a2 문장 60자 초과 (그 외 레벨은 이 마커 대상 아님).
+
+### Community 1466 - "main"
+Cohesion: 0.60
+Nodes (4): is_hangul_word(), main(), next_count/is_dead_end über die Menge neu berechnen (build_kkeunmari_pool-…, recompute()
+
+### Community 1468 - "reviewInteractions"
+Cohesion: 0.50
+Nodes (4): reviewInteractions, Enlarge the candidate artwork; retain separate fitting, roof-layer and ondol detail diagrams., Overlay the unchanged completed master with adjustable opacity., Switch between candidate artwork and explanatory sketch.
+
+### Community 1498 - "regen_cloze_distractors.py"
+Cohesion: 0.67
+Nodes (3): load_vocab(), main(), 레벨(소문자) → [(단어, 품사)] 목록.
+
+### Community 1499 - "@Deprecated"
+Cohesion: 0.67
+Nodes (3): @Deprecated, evaluate, SarangbangStudyRecommendationLoader
+
+### Community 1500 - "GyeFeedType"
+Cohesion: 0.67
+Nodes (3): GyeFeedType, GyeFeedTypeReaction, GyeFeedTypeWire
+
+### Community 1501 - "_SoriSwipeCardState"
+Cohesion: 0.67
+Nodes (3): SoriSwipeCard, _SoriSwipeCardState, TickerProviderStateMixin
+
+### Community 1502 - "_stop_process_tree"
+Cohesion: 0.67
+Nodes (3): Popen, Stop only this invocation and its children, including Firebase's Java., _stop_process_tree()
+
 ## Knowledge Gaps
-- **38210 isolated node(s):** `capture_app_store_screenshots.sh script`, `PATH`, `uvx`, `test`, `assert` (+38205 more)
+- **38663 isolated node(s):** `capture_app_store_screenshots.sh script`, `PATH`, `uvx`, `test`, `assert` (+38658 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **152 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **155 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `handle()` connect `handle` to `C9SampleTest`, `apply_review.py`, `apply_batch`, `build`, `integrate_review_batches.py`, `rr_romanize.py`, `build_theme_park_date_smalltalk.py`, `SceneContractTest`, `ContentValidator`, `build_backlog`, `IntegrateReviewBatchesTest`, `build_batch_05_tts_manifest.py`, `build_batch_08_partner_family_scenarios.py`, `build_c1_batch04_scenarios.py`, `C4G1GrammarTest`, `WordRelationPreservationTests`, `promote_batch_19_loader_coverage.py`, `promote_batch_20_full_surface.py`, `relevel_bundle.py`, `rebalance_scenario_units.py`, `validate_batch_01.py`, `audit_content_text.py`, `SceneContractTest`, `quest`, `HistoryTraceTest`, `build_level_content_4x.py`, `Batch17BuildTest`, `test_level_content_4x.py`, `test_relevel_bundle.py`, `render_packet`, `build_batch_18_social_language.py`, `audit_game_loader_coverage.py`, `build_can_do_segments.py`, `ApplyReviewTest`, `ReferenceIntakeValidator`, `integrate_scenario_batch.py`, `StyleLockLoaderTest`, `build_promoted_copy_revision_ledger.py`, `ThemeParkDateBuildTest`, `materialize_canonical_scenarios.py`, `plan_pack_assignments.py`, `build_ledgers`, `gen_silben_puzzles.py`, `RelationshipGraphTest`, `build_batch_07_partner_family.py`, `SceneContractTest`, `render_adjudication_packets.py`, `generate_tts.py`, `CanDoSegmentGeneratorTest`, `collect`, `SceneContractTest`, `validate_promoted_batch.py`, `build_batch_17_social_topics.py`, `build_vocab_pack_card_manifest.py`, `normalize_scene_poster`, `scenario_store.py`, `Batch01PreReviewValidationTest`?**
-  _High betweenness centrality (0.049) - this node is a cross-community bridge._
-- **Why does `check_can_do_consistency()` connect `relevel_bundle.py` to `main`, `.load`, `promote_batch25_a1_reinforcement.py`, `.error`, `promote_batch23_l3a_units.py`?**
-  _High betweenness centrality (0.047) - this node is a cross-community bridge._
+- **Why does `handle()` connect `handle` to `C9SampleTest`, `apply_review.py`, `apply_batch`, `build`, `integrate_review_batches.py`, `rr_romanize.py`, `build_theme_park_date_smalltalk.py`, `SceneContractTest`, `ContentValidator`, `build_backlog`, `IntegrateReviewBatchesTest`, `build_batch_05_tts_manifest.py`, `build_batch_08_partner_family_scenarios.py`, `build_c1_batch04_scenarios.py`, `C4G1GrammarTest`, `WordRelationPreservationTests`, `promote_batch_19_loader_coverage.py`, `promote_batch_20_full_surface.py`, `relevel_bundle.py`, `rebalance_scenario_units.py`, `validate_batch_01.py`, `audit_content_text.py`, `SceneContractTest`, `quest`, `HistoryTraceTest`, `build_level_content_4x.py`, `Batch17BuildTest`, `test_level_content_4x.py`, `test_relevel_bundle.py`, `render_packet`, `build_batch_18_social_language.py`, `audit_game_loader_coverage.py`, `build_can_do_segments.py`, `ApplyReviewTest`, `ReferenceIntakeValidator`, `build`, `integrate_scenario_batch.py`, `StyleLockLoaderTest`, `build_promoted_copy_revision_ledger.py`, `ThemeParkDateBuildTest`, `materialize_canonical_scenarios.py`, `plan_pack_assignments.py`, `build_ledgers`, `gen_silben_puzzles.py`, `RelationshipGraphTest`, `build_batch_07_partner_family.py`, `SceneContractTest`, `render_adjudication_packets.py`, `generate_tts.py`, `CanDoSegmentGeneratorTest`, `collect`, `SceneContractTest`, `validate_promoted_batch.py`, `build_batch_17_social_topics.py`, `build_vocab_pack_card_manifest.py`, `normalize_scene_poster`, `scenario_store.py`, `Batch01PreReviewValidationTest`?**
+  _High betweenness centrality (0.072) - this node is a cross-community bridge._
 - **Why does `main()` connect `gen_silben_puzzles.py` to `handle`?**
-  _High betweenness centrality (0.047) - this node is a cross-community bridge._
+  _High betweenness centrality (0.067) - this node is a cross-community bridge._
+- **Why does `main()` connect `.load` to `promote_batch23_l3a_units.py`, `relevel_bundle.py`, `scan_grammar_level.py`, `CefrLexicon`, `check_particle_mismatch`?**
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
 - **What connects `capture_app_store_screenshots.sh script`, `PATH`, `uvx` to the rest of the system?**
-  _38210 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _38663 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `app_localizations.dart` be split into smaller, more focused modules?**
-  _Cohesion score 0.000652954619653934 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.00064 - nodes in this community are weakly interconnected._
 - **Should `app_localizations_en.dart` be split into smaller, more focused modules?**
-  _Cohesion score 0.000655307994757536 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0006420545746388443 - nodes in this community are weakly interconnected._
 - **Should `app_localizations_de.dart` be split into smaller, more focused modules?**
-  _Cohesion score 0.0006550933508024893 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0006422607578676942 - nodes in this community are weakly interconnected._
