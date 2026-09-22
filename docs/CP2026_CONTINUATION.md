@@ -1,5 +1,18 @@
 # CP-2026 전체 계획 인수 및 실행 큐
 
+## 2026-09-22 23:09 UTC 서버·검증 기준선
+
+이 기준선이 아래의 이전 배포 대기 기록보다 우선한다. Android 내부 테스트 7626과 기존 iOS TestFlight 251은 그대로 제공 중이며, 실제 기기 검수는 별도다.
+
+- PR #392의 정확한 main `9a1e0e5cd6a0917e7d3a57b405e0f665162c6112`에서 CI `35792688903`과 Playwright `35792688891`이 모두 성공했다.
+- 같은 소스의 TTS 두 함수는 `synthesize-tts-00007-buh`, `synthesize-tts-v2-00007-tap`으로 업데이트했다. 배포 generation의 파일별 바이트, 기존 환경·IAM·자원 설정 보존, 무인증 요청 401을 확인했다. 시간당 25와 기존 일일 30/50/300 제한을 유지한다. 실제 기기 요청·음성 재생과 과거 HTTP500의 원인 확정은 별도다.
+- 발음 진단 함수도 `assesspronunciation-00005-lis`로 업데이트했고 배포 소스·설정·IAM 일치와 무인증 401을 확인했다. 현재 `azure_f0`와 기존 Secret 버전 1, 비용 승인을 유지하며 유료 사용이나 실기기 발음평가 성공을 의미하지 않는다.
+- Firestore 규칙 차이는 주석뿐이다. 실제 Storage의 `learning-art` 접근과 기존 TTS 계약을 보존해 규칙은 배포하지 않았다. TTL 4개(`service_idempotency_results`, `access_rate_limits`, `service_cost_ledgers`, `billing_event_receipts`) 미구성은 기존 운영 부채다. 결과 접근 만료와 물리 삭제를 구분하고 자동 TTL·과거 결제 기록 삭제는 수행하지 않았다.
+- Apple 계정 삭제는 worker 선행 배포·구 실행 배출·호환 worker 유지가 필요하다. 실제 배포본과 신규 runtime 혼용 오프라인 4검사에서 큐 선택·lease 보호와 구 worker rollback의 수동 해제 상태 소실 위험을 확인했다. 23:03 UTC 식별자 없는 집계는 전체 10, completed 3, cancelled 7, 다른 단계·활성 lease 0이다. 실제 계정 삭제나 14일 안정성 완료 증거는 아니다.
+- Cloudflare 관리자 접근은 확인했다. 공개 웹 #390의 갤러리 공개 범위 응답과 자동 배포·정확한 main 검사 순서 조정이 남는다. 일반 방문의 동의·페이지 이동·기존 GA 스트림 수신 검증도 이어간다.
+
+증거: `_codex_artifacts/cp2026-release-stabilization-20260922/`의 `pr392-merge-proof.json`, `backend-source-rollout/*-operation.json`, `backend-rollout-preflight/prerequisites.json`, `apple-rollout-compatibility/proof.json`, `apple-rollout-compatibility/queue-preflight.json`. 도우미 검사는 기존 8개를 포함한 9개이며, 실제 배포 증거와 구분한다.
+
 ## 2026-09-22 22:15 UTC 통합·배포 기준선
 
 이 기준선이 아래의 19:20 및 오전 배포 대기 기록보다 우선한다. 날짜별 과거 증거는 보존한다.
