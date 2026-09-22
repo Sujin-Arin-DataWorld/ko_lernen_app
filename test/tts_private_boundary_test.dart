@@ -203,6 +203,25 @@ void main() {
     expect(TtsService.unavailable.value, TtsUnavailableReason.quota);
   });
 
+  test('missing private session reports its cause without a callable', () async {
+    sessions.clear();
+    expect(await TtsService.speak(personal, voice: 'female'), isFalse);
+    expect(TtsService.unavailable.value, TtsUnavailableReason.sessionUnavailable);
+    expect(calls, 0);
+    expect(nativeCalls, isEmpty);
+  });
+
+  test('private policy denial survives resolution without becoming offline', () async {
+    response = () async => throw const TtsCallableProbe(
+      code: 'unavailable',
+      details: {'reason': 'service_policy'},
+    );
+    expect(await TtsService.speak(personal, voice: 'female'), isFalse);
+    expect(TtsService.unavailable.value, TtsUnavailableReason.servicePolicy);
+    expect(calls, 1);
+    expect(nativeCalls, isEmpty);
+  });
+
   for (final transition in ['uid', 'epoch', 'mode']) {
     test(
       'private $transition invalidation preserves real canonical offline cache',

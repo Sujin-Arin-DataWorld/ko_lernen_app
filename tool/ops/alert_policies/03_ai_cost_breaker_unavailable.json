@@ -57,6 +57,7 @@
     "pr": "b1-ops-alerts",
     "component": "ai-cost-breaker"
   },
-  "_unverified": false,
-  "_requires": "tool/ops/log_metrics.sh must run before apply_alerts, so these two logging.googleapis.com/user/* metrics exist"
+  "_unverified": true,
+  "_requires": "tool/ops/log_metrics.sh must run before apply_alerts, so these two logging.googleapis.com/user/* metrics exist",
+  "_unverified_reason": "Creating log metric descriptors does not prove matching diagnostic events are emitted. TTS catches ServiceCostError and translates it before the generic error logger; a thrown message alone is not Cloud Logging evidence. Both cost-policy and Apple-revocation event emission, deployed revision, filters and receipt must be validated before enabling this policy."
 }

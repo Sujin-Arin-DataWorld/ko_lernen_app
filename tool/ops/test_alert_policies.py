@@ -23,7 +23,12 @@ EXPECTED_METRIC_STRINGS = {
         "logging.googleapis.com/user/ai_cost_breaker_unavailable",
         "logging.googleapis.com/user/apple_revocation_config_invalid",
     ],
-    "04_deletion_worker_stalled.json": ["cloudscheduler.googleapis.com/job/execution_count"],
+    "04_deletion_worker_stalled.json": [
+        "run.googleapis.com/request_count", 'metric.label."response_code_class"="2xx"',
+        'resource.label."service_name"="account-deletion-worker"',
+        'resource.label."location"="europe-west3"',
+        'resource.label."project_id"="ko-lernen-app"',
+    ],
     "05_firestore_write_surge.json": ["firestore.googleapis.com/document/write_count"],
 }
 
@@ -33,6 +38,7 @@ EXPECTED_THRESHOLDS = {
     "01_functions_5xx_rate.json": {"thresholdValue": 0.02, "duration": "300s"},
     "02_appcheck_rejections.json": {"thresholdValue": 50, "duration": "300s"},
     "03_ai_cost_breaker_unavailable.json": {"thresholdValue": 0, "duration": "0s"},
+    "04_deletion_worker_stalled.json": {"thresholdValue": 1, "duration": "89700s"},
     "05_firestore_write_surge.json": {"thresholdValue": 10000, "duration": "0s"},
 }
 
@@ -74,8 +80,25 @@ class AlertPolicyFilesTest(unittest.TestCase):
             ],
         )
 
+    def test_worker_counts_success_across_revisions_and_treats_missing_data_as_outage(self):
+        policy = json.loads((ALERT_DIR / "04_deletion_worker_stalled.json").read_text(encoding="utf-8"))
+        block = policy["conditions"][0]["conditionThreshold"]
+        self.assertEqual(block["comparison"], "COMPARISON_LT")
+        self.assertEqual(block["evaluationMissingData"], "EVALUATION_MISSING_DATA_ACTIVE")
+        self.assertEqual(block["aggregations"], [{"alignmentPeriod": "300s", "perSeriesAligner": "ALIGN_SUM", "crossSeriesReducer": "REDUCE_SUM", "groupByFields": ["resource.label.service_name"]}])
+        self.assertNotIn("revision_name", block["filter"])
+
     def test_sources_md_exists(self):
         self.assertTrue(SOURCES_MD.is_file(), f"missing: {SOURCES_MD}")
+
+    def test_metric_threshold_alignment_plus_retest_fits_25_hour_api_limit(self):
+        for path in ALERT_DIR.glob("[0-9]*.json"):
+            policy = json.loads(path.read_text(encoding="utf-8"))
+            for kind, block in _all_conditions(policy):
+                if kind == "conditionThreshold":
+                    alignment = max(int(a["alignmentPeriod"].removesuffix("s")) for a in block["aggregations"])
+                    retest = int(block["duration"].removesuffix("s"))
+                    self.assertLessEqual(alignment + retest, 90000, path.name)
 
 
 def _make_policy_test(filename: str):
@@ -166,17 +189,17 @@ class UnverifiedFlagsListedInSourcesTest(unittest.TestCase):
                     f"{path.name}: _sources.md doesn't explain the gap near its mention",
                 )
 
-    def test_04_is_the_one_currently_flagged_unverified(self):
+    def test_03_requires_real_log_emission_before_it_can_be_verified(self):
         # Documents the current, intentional state so a silent flip doesn't
         # slip through review unnoticed. Update this test if that changes.
-        with open(ALERT_DIR / "04_deletion_worker_stalled.json", encoding="utf-8") as f:
+        with open(ALERT_DIR / "03_ai_cost_breaker_unavailable.json", encoding="utf-8") as f:
             policy = json.load(f)
         self.assertTrue(policy.get("_unverified") is True)
 
         for name in [
             "01_functions_5xx_rate.json",
             "02_appcheck_rejections.json",
-            "03_ai_cost_breaker_unavailable.json",
+            "04_deletion_worker_stalled.json",
             "05_firestore_write_surge.json",
         ]:
             with open(ALERT_DIR / name, encoding="utf-8") as f:
