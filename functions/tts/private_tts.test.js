@@ -144,6 +144,34 @@ test("cost policy failures have a safe reason and never synthesize or charge usa
   }
 });
 
+test("missing and invalid cost approval emit one bounded diagnostic without private data", async () => {
+  for (const missing of [true, false]) {
+    const h = harness();
+    if (missing) h.documents.delete("service_cost_controls/ai_v1");
+    else h.documents.get("service_cost_controls/ai_v1").approvedBy = "PRIVATE_APPROVAL_CANARY";
+    await assert.rejects(h.invoke("PRIVATE_UID_CANARY"), {code: "unavailable"});
+    assert.equal(h.syntheses(), 0);
+    assert.equal(h.logs.length, 1);
+    assert.equal(h.logs[0][0], "AI cost approval unavailable.");
+    assert.deepEqual({...h.logs[0][1]}, {
+      event: "ai_cost_approval_unavailable", service: "tts", schemaVersion: 1,
+    });
+    assert.equal(JSON.stringify(h.logs).includes("PRIVATE_"), false);
+    assert.equal(JSON.stringify(h.logs).includes(PERSONAL), false);
+  }
+});
+
+test("exhausted budget and corrupt ledger do not masquerade as missing approval", async () => {
+  for (const corruptLedger of [false, true]) {
+    const h = harness();
+    if (corruptLedger) h.documents.set(`service_cost_ledgers/${new Date().toISOString().slice(0, 10)}`, {reservedUnits: "invalid"});
+    else h.documents.get("service_cost_controls/ai_v1").dailyUnitLimit = 0;
+    await assert.rejects(h.invoke(), {code: corruptLedger ? "unavailable" : "resource-exhausted"});
+    assert.equal(h.syntheses(), 0);
+    assert.deepEqual(h.logs, []);
+  }
+});
+
 for (const hour of [10, 23]) {
   test(`provider failure across UTC hour ${hour} refunds only the original reservation`, async () => {
     const start = new Date();

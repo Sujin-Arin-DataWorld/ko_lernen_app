@@ -3,7 +3,19 @@
 // Canonical shared Node cost boundary. TTS carries a deployment-local checked copy.
 const DAY_MS = 86400000;
 class ServiceCostError extends Error {
-  constructor(code, message) { super(message); this.code = code; }
+  constructor(code, message, reason) { super(message); this.code = code; this.reason = reason; }
+}
+
+function recordCostApprovalFailure(error, service, logger = console) {
+  if (!(error instanceof ServiceCostError) || error.reason !== "approval_unavailable" ||
+      !["tts", "pronunciation"].includes(service)) return;
+  try {
+    logger.warn("AI cost approval unavailable.", {
+      event: "ai_cost_approval_unavailable", service, schemaVersion: 1,
+    });
+  } catch {
+    // An unavailable log sink must not change the fail-closed response.
+  }
 }
 
 const safeInt = (n) => Number.isSafeInteger(n) && n >= 0;
@@ -20,7 +32,7 @@ async function readCostControl(db, tx, now) {
       !safeInt(config.bookReservationUnits) || config.bookReservationUnits === 0 ||
       !safeInt(config.pronunciationReservationUnits) || config.pronunciationReservationUnits === 0 ||
       !safeInt(config.ttsReservationUnits) || config.ttsReservationUnits === 0) {
-    throw new ServiceCostError("unavailable", "AI cost approval unavailable.");
+    throw new ServiceCostError("unavailable", "AI cost approval unavailable.", "approval_unavailable");
   }
   return config;
 }
@@ -55,4 +67,4 @@ async function prepareCostReservation(db, tx, now, config, existing, kind = "pro
     expiresAt: new Date(Date.parse(`${day}T00:00:00Z`) + 2 * DAY_MS)}};
 }
 
-module.exports = {ServiceCostError, readCostControl, prepareCostReservation};
+module.exports = {ServiceCostError, readCostControl, prepareCostReservation, recordCostApprovalFailure};
