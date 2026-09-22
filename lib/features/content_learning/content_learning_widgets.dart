@@ -2,6 +2,7 @@ import '../../services/local_data_lifetime.dart';
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../models/learner_level.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/study_frame.dart';
@@ -139,14 +140,20 @@ class _ContentGoalEditorState extends State<ContentGoalEditor> {
       for (final value in [1, 2, 3, 0])
         Padding(
           padding: const EdgeInsets.only(bottom: Spacing.xs),
-          child: SoriButton.outlined(
-            key: ValueKey('content-goal-$value'),
-            label: value == 0
-                ? t.contentLearningFree
-                : t.contentLearningGoalCount(value),
-            icon: goal == value ? Icons.check_circle_outline : null,
-            onTap: _saving ? null : () => _save(value),
-            fullWidth: true,
+          child: Semantics(
+            selected: goal == value,
+            child: SoriButton(
+              key: ValueKey('content-goal-$value'),
+              label: value == 0
+                  ? t.contentLearningFree
+                  : t.contentLearningGoalCount(value),
+              variant: goal == value
+                  ? SoriButtonVariant.filled
+                  : SoriButtonVariant.outlined,
+              size: SoriButtonSize.md,
+              onTap: _saving ? null : () => _save(value),
+              fullWidth: true,
+            ),
           ),
         ),
       if (_saving) const LinearProgressIndicator(),
@@ -178,7 +185,7 @@ class ContentGoalSettingsScreen extends StatefulWidget {
 
 class _ContentGoalSettingsScreenState extends State<ContentGoalSettingsScreen> {
   LearningContentKind _kind = LearningContentKind.smalltalk;
-  String _level = 'a1';
+  String _level = LearnerLevel.a1.code;
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -206,11 +213,8 @@ class _ContentGoalSettingsScreenState extends State<ContentGoalSettingsScreen> {
           DropdownButtonFormField<String>(
             initialValue: _level,
             items: [
-              for (final level in ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'])
-                DropdownMenuItem(
-                  value: level,
-                  child: Text(level.toUpperCase()),
-                ),
+              for (final level in LearnerLevel.values)
+                DropdownMenuItem(value: level.code, child: Text(level.display)),
             ],
             onChanged: (value) {
               if (value != null) {

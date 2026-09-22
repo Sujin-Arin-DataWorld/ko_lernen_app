@@ -18,8 +18,11 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/smalltalk_loader.dart';
 import 'package:ko_lernen_app/services/local_data_lifetime.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/app_loading.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'support/real_fonts.dart';
 import 'support/reward_preferences_platform.dart';
+import 'support/sori_speech_stubs.dart';
 
 const _title = LocalizedText(
   ko: '기분',
@@ -146,6 +149,7 @@ void main() {
     await SmalltalkLoader.load();
   });
   setUp(() async {
+    stubSoriSpeech();
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
@@ -160,6 +164,18 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('content-goal-2')));
     await tester.pumpAndSettle();
     expect(ContentLearningService.goal(LearningContentKind.smalltalk, 'a1'), 2);
+    expect(
+      tester
+          .widget<SoriButton>(find.byKey(const ValueKey('content-goal-2')))
+          .variant,
+      SoriButtonVariant.filled,
+    );
+    expect(
+      tester
+          .widget<SoriButton>(find.byKey(const ValueKey('content-goal-1')))
+          .variant,
+      SoriButtonVariant.outlined,
+    );
     expect(
       ContentLearningService.goal(LearningContentKind.smalltalk, 'a2'),
       isNull,
@@ -676,7 +692,7 @@ void main() {
       ),
     );
     await tester.pump();
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    expect(find.byType(AppLoading), findsOneWidget);
     pending.completeError(StateError('load failure'));
     await tester.pumpAndSettle();
     expect(find.byType(ContentLearningFailure), findsOneWidget);
@@ -977,7 +993,7 @@ Future<void> _save(WidgetTester tester, String name) async {
   await tester.runAsync(() async {
     final image = await boundary.toImage(pixelRatio: 1);
     final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
-    final file = File('docs/screenshots/$name');
+    final file = File('docs/screenshots/content-learning/$name');
     await file.parent.create(recursive: true);
     await file.writeAsBytes(bytes!.buffer.asUint8List());
     image.dispose();

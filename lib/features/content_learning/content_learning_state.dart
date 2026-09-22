@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart' show setEquals, listEquals;
+import '../../models/learner_level.dart';
 import 'content_learning_models.dart';
 
 /// Portable versioned state with a pure deterministic account/device merge.
@@ -242,7 +243,8 @@ abstract final class ContentLearningState {
 
   static String _scope(Map<String, dynamic> value) {
     LearningContentKind.values.byName(value['kind'] as String);
-    if (!const ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'].contains(value['level'])) {
+    final level = value['level'];
+    if (level is! String || LearnerLevel.fromCode(level)?.code != level) {
       throw const FormatException('Invalid content level.');
     }
     return '${value['kind']}.${value['level']}';

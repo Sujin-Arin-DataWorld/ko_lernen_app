@@ -92,9 +92,11 @@ void main() {
               final bytes = await rendered.toByteData(
                 format: ui.ImageByteFormat.png,
               );
-              await File(
-                'docs/screenshots/content-real-${kind.name}-$lang-${size.width.toInt()}.png',
-              ).writeAsBytes(bytes!.buffer.asUint8List());
+              final file = File(
+                'docs/screenshots/content-learning/content-real-${kind.name}-$lang-${size.width.toInt()}.png',
+              );
+              await file.parent.create(recursive: true);
+              await file.writeAsBytes(bytes!.buffer.asUint8List());
               rendered.dispose();
             });
           }

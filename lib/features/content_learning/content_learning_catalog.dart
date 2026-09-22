@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import '../../models/learner_level.dart';
 import 'content_learning_models.dart';
 
 /// Authored stable lessons. Adding sources never repartitions existing lessons.
@@ -9,13 +10,12 @@ abstract final class ContentLearningCatalog {
     if (_cache[kind] case final cached?) {
       return cached;
     }
+    final path = switch (kind) {
+      LearningContentKind.smalltalk => 'assets/data/smalltalk_lessons.json',
+      LearningContentKind.listening => 'assets/data/listening_lessons.json',
+    };
     final raw =
-        jsonDecode(
-              await rootBundle.loadString(
-                'assets/data/${kind.name}_lessons.json',
-              ),
-            )
-            as Map<String, dynamic>;
+        jsonDecode(await rootBundle.loadString(path)) as Map<String, dynamic>;
     if (raw['version'] != 1) {
       throw const FormatException('Unsupported content lesson catalog.');
     }
@@ -35,7 +35,7 @@ abstract final class ContentLearningCatalog {
       if (lesson.id.isEmpty ||
           !ids.add(lesson.id) ||
           lesson.kind != kind ||
-          !const ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'].contains(lesson.level) ||
+          LearnerLevel.fromCode(lesson.level)?.code != lesson.level ||
           lesson.topicId.isEmpty ||
           lesson.contentIds.isEmpty ||
           lesson.questions.isEmpty) {

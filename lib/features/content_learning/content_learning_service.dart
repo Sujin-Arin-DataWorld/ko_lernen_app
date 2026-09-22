@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import '../../models/learner_level.dart';
 import '../../services/storage_service.dart';
 import 'content_learning_models.dart';
 import 'content_learning_state.dart';
@@ -23,7 +24,7 @@ abstract final class ContentLearningService {
   }
 
   static String _scope(LearningContentKind kind, String level) {
-    if (!const ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'].contains(level)) {
+    if (LearnerLevel.fromCode(level)?.code != level) {
       throw ArgumentError.value(level, 'level');
     }
     return '${kind.name}.$level';

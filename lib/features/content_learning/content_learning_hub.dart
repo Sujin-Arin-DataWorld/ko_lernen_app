@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../data/chaekgado_shelf.dart';
 import '../../l10n/generated/app_localizations.dart';
+import '../../motion/transitions.dart';
+import '../../widgets/app_loading.dart';
 import '../../models/scenario.dart';
 import '../../services/smalltalk_loader.dart';
 import '../../services/storage_service.dart';
@@ -148,14 +150,14 @@ class _ContentLearningHubState extends State<ContentLearningHub>
       return;
     }
     await Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        settings: const RouteSettings(name: '/content/lesson'),
-        builder: (_) => ContentLessonScreen(
+      SoriTransitions.page<void>(
+        (_) => ContentLessonScreen(
           lesson: lesson,
           scope: _levelLessons,
           reviewQueue: review ?? const [],
           mistakesOnly: mistakesOnly,
         ),
+        settings: const RouteSettings(name: '/content/lesson'),
       ),
     );
   });
@@ -211,7 +213,7 @@ class _ContentLearningHubState extends State<ContentLearningHub>
     return SoriStudyFrame(
       title: contentKindTitle(t, widget.kind),
       child: _loading
-          ? const Center(child: CircularProgressIndicator())
+          ? const AppLoading()
           : _error
           ? Center(child: ContentLearningFailure(onRetry: _load))
           : ValueListenableBuilder<int>(
@@ -413,12 +415,6 @@ class _ContentLearningHubState extends State<ContentLearningHub>
                                                 0
                                       ? t.contentLearningResume
                                       : t.contentLearningStart,
-                                  icon:
-                                      ContentLearningService.progress(
-                                        lesson.id,
-                                      ).completed
-                                      ? Icons.check_circle_outline
-                                      : Icons.play_arrow,
                                   onTap: _busy ? null : () => _open(lesson),
                                 ),
                               ],

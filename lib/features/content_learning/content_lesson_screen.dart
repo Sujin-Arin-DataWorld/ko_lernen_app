@@ -7,6 +7,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../motion/transitions.dart';
+import '../../widgets/app_loading.dart';
 import '../../models/scenario.dart';
 import '../../models/smalltalk.dart';
 import '../../services/scenario_loader.dart';
@@ -266,7 +268,6 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
       semanticLabel: _playing
           ? t.contentLearningPause
           : '${t.contentLearningAudio}: $ko',
-      icon: _playing ? Icons.stop : Icons.volume_up_outlined,
       onTap: _busy ? null : () => _play(ko, voice: voice),
     );
   }
@@ -473,13 +474,14 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
           return;
         }
         await Navigator.of(context).pushReplacement(
-          MaterialPageRoute<void>(
-            builder: (_) => ContentLessonScreen(
+          SoriTransitions.page<void>(
+            (_) => ContentLessonScreen(
               lesson: lesson,
               scope: widget.scope,
               reviewQueue: review ? widget.reviewQueue : const [],
               mistakesOnly: widget.mistakesOnly,
             ),
+            settings: const RouteSettings(name: '/content/lesson'),
           ),
         );
       });
@@ -505,7 +507,6 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
             label: _autoplay
                 ? t.contentLearningPause
                 : t.contentLearningPlayAll,
-            icon: _autoplay ? Icons.pause : Icons.play_arrow,
             onTap: _busy ? null : _playAll,
           ),
         Text(
@@ -806,8 +807,6 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
         reviewIndex >= 0 && reviewIndex + 1 < widget.reviewQueue.length;
     return _LessonContent(
       body: [
-        const Icon(Icons.task_alt, size: 52, color: SoriColors.primary),
-        const SizedBox(height: Spacing.lg),
         Text(
           progress.reviewMode
               ? t.contentLearningReviewDone
@@ -1104,7 +1103,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
           onLeave: _stopAudio,
           homeEscape: SoriHomeEscape(confirmWhen: _hasUnsubmittedAnswer),
           child: _loading
-              ? const Center(child: CircularProgressIndicator())
+              ? const AppLoading()
               : _loadError
               ? ContentLearningFailure(onRetry: _load)
               : ContentLearningLayout(
