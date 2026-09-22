@@ -143,6 +143,49 @@ class ApplyAlertsTest(unittest.TestCase):
                 self.run_plan(api, dry_run=False)
             self.assertEqual(api.posts, [])
 
+    def test_invalid_existing_policy_blocks_entire_batch_without_success_receipt(self):
+        for validity in ({"code": 3, "message": "private provider details"},
+                         {"code": 5}, {"code": "0"}, {"code": False}, None, []):
+            api = FakeApi()
+            existing = app.load_policies(POLICIES, ("02",), CHANNEL)[0][1]
+            existing["name"] = "projects/ko-lernen-app/alertPolicies/456"
+            existing["validity"] = validity
+            api.existing = [existing]
+            output = io.StringIO()
+            with self.subTest(validity=validity), redirect_stdout(output):
+                with self.assertRaisesRegex(app.OpsError, "existing_policy_drift_02"):
+                    app.apply(api, app.load_policies(POLICIES, ("01", "02"), CHANNEL),
+                              CHANNEL, dry_run=False)
+                self.assertEqual(output.getvalue(), "")
+                self.assertEqual(api.posts, [])
+
+    def test_ok_or_omitted_validity_code_is_unchanged(self):
+        for validity in ({}, {"code": 0}):
+            api = FakeApi()
+            existing = app.load_policies(POLICIES, ("01",), CHANNEL)[0][1]
+            existing["name"] = "projects/ko-lernen-app/alertPolicies/456"
+            existing["validity"] = validity
+            api.existing = [existing]
+            with self.subTest(validity=validity):
+                self.assertEqual(self.run_plan(api, ("01",), False)[0]["status"], "unchanged")
+                self.assertEqual(api.posts, [])
+
+    def test_server_default_opened_prompt_does_not_duplicate_on_second_invocation(self):
+        api = FakeApi()
+        first = self.run_plan(api, ("01",), False)
+        api.existing[0].setdefault("alertStrategy", {})["notificationPrompts"] = ["OPENED"]
+        second = self.run_plan(api, ("01",), False)
+        self.assertEqual((first[0]["status"], second[0]["status"]), ("created", "unchanged"))
+        self.assertEqual(len(api.posts), 1)
+
+    def test_different_or_unknown_notification_prompts_remain_drift(self):
+        desired = app.load_policies(POLICIES, ("01",), CHANNEL)[0][1]
+        for prompts in (["OPENED", "CLOSED"], ["CLOSED"], ["NOTIFICATION_PROMPT_UNSPECIFIED"]):
+            actual = copy.deepcopy(desired)
+            actual.setdefault("alertStrategy", {})["notificationPrompts"] = prompts
+            with self.subTest(prompts=prompts):
+                self.assertFalse(app.same_configuration(desired, actual))
+
     def test_duplicate_name_blocks_every_write(self):
         api = FakeApi()
         policy = app.load_policies(POLICIES, ("02",), CHANNEL)[0][1]

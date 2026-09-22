@@ -150,6 +150,8 @@ def same_configuration(desired, actual):
         policy = copy.deepcopy(policy)
         for key in ("name", "creationRecord", "mutationRecord", "validity"):
             policy.pop(key, None)
+        # The API may materialize the default on GET after omitting it on POST.
+        policy.setdefault("alertStrategy", {}).setdefault("notificationPrompts", ["OPENED"])
         policy["notificationChannels"] = [channel_name(c) for c in policy.get("notificationChannels", [])]
         for condition in policy.get("conditions", []):
             condition.pop("name", None)
@@ -183,6 +185,13 @@ def same_configuration(desired, actual):
     try:
         # enabled is a wrapper boolean, not interchangeable with a numeric value.
         if actual.get("enabled") is not True:
+            return False
+        validity = actual.get("validity", {})
+        if not isinstance(validity, dict):
+            return False
+        code = validity.get("code", 0)
+        # Invalid policies do not generate incidents, even if config is equal.
+        if type(code) is not int or code != 0:
             return False
         return canonical(desired) == canonical(actual)
     except (OpsError, TypeError, AttributeError):
