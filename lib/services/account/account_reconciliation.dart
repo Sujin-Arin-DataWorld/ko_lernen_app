@@ -6,6 +6,7 @@ import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../models/course_mastery.dart';
+import '../../features/content_learning/content_learning_state.dart';
 import '../../models/ildu_world_state.dart';
 import '../../models/pack_progress.dart';
 import '../cloud_sync.dart';
@@ -80,6 +81,17 @@ class AccountReconciliationSnapshot {
     Map<String, int?> packRevisions = const {},
     int? packMembershipRevision,
   }) {
+    if (document.containsKey('content_learning_json')) {
+      try {
+        final raw = document['content_learning_json'];
+        if (raw is! String || raw.isEmpty) {
+          return const CloudReadResult.invalid();
+        }
+        ContentLearningState.decode(raw);
+      } on Object {
+        return const CloudReadResult.invalid();
+      }
+    }
     final courseResult = _decodeCourseMastery(document['course_mastery_json']);
     if (!courseResult.isPresent) {
       return const CloudReadResult.invalid();
@@ -503,6 +515,21 @@ class AccountReconciliationMerger {
   ) {
     final canonicalLocal = _canonicalFieldValue(local);
     final canonicalRemote = _canonicalFieldValue(remote);
+    if (path == 'content_learning_json' &&
+        local is String &&
+        remote is String) {
+      try {
+        return ContentLearningState.mergeJson(local, remote);
+      } on Object {
+        conflicts.add(
+          const AccountReconciliationConflict(
+            kind: AccountReconciliationConflictKind.documentField,
+            id: 'content_learning_json',
+          ),
+        );
+        return canonicalLocal;
+      }
+    }
     if (_deepEquals(canonicalLocal, canonicalRemote)) return canonicalLocal;
     if (canonicalLocal is num && canonicalRemote is num) {
       return canonicalLocal >= canonicalRemote

@@ -1219,6 +1219,10 @@ class Storage {
   static Future<void> _recoveredWordMutation = Future<void>.value();
   static Future<void> _pronunciationProgressMutation = Future<void>.value();
   static Future<void> _catalogHistoryMutation = Future<void>.value();
+  static Future<void>? _contentLearningMutation;
+  static String? _contentLearningConfirmedRaw;
+  static final contentLearningChanges = ValueNotifier<int>(0);
+  static const contentLearningPreferenceKey = 'kl_content_learning_v1';
   static int _catalogHistoryMutationCount = 0;
   static int _catalogHistoryGeneration = 0;
   static int _catalogHistoryResetting = 0;
@@ -1727,6 +1731,7 @@ class Storage {
   /// frische Werte liefert. Im Produktionscode niemals aufrufen.
   @visibleForTesting
   static void resetForTesting() {
+    _contentLearningConfirmedRaw = null;
     CatalogHistoryLease.resetForTesting();
     final privacyDrain = PrivacyChoiceStorage.drain();
     final privacyHasWrites = PrivacyChoiceStorage._native.isNotEmpty;
@@ -1735,6 +1740,10 @@ class Storage {
     _packProgressMutation = Future<void>.value();
     _packProgressMutationCount = 0;
     final drains = <Future<void>>[if (privacyHasWrites) privacyDrain];
+    if (_contentLearningMutation case final pendingContentLearning?) {
+      drains.add(pendingContentLearning);
+    }
+    _contentLearningMutation = null;
     final previousResetDrain = _srsResetDrainBarrier;
     if (_srsResetDrainPending && previousResetDrain != null) {
       drains.add(previousResetDrain);
@@ -1876,6 +1885,8 @@ class Storage {
   /// 마이그레이션 롤백처럼 저장소를 밖에서 되돌린 경우에 쓴다. [resetForTesting]
   /// 과 달리 `_prefs` 핸들은 유지하므로 재초기화가 필요 없다.
   static void resetCachesAfterExternalWrite() {
+    _contentLearningConfirmedRaw = null;
+    contentLearningChanges.value++;
     // A draining migration may invalidate caches while deletion still owns
     // the reset fence. Only the reset's finalizer may release that fence.
     PrivacyChoiceStorage.retire(close: _learningResetCount > 0);
@@ -6268,6 +6279,86 @@ class Storage {
 
   static String get ilduWorldStateRawJson => _s(ilduWorldStatePreferenceKey);
 
+  static String get contentLearningRawJson {
+    if (_unknownStrictKeys.contains(contentLearningPreferenceKey)) {
+      throw const PreferenceOutcomeUnknownException(
+        contentLearningPreferenceKey,
+      );
+    }
+    if (_contentLearningConfirmedRaw case final confirmed?) {
+      return confirmed;
+    }
+    final raw = _prefs?.get(contentLearningPreferenceKey);
+    if (raw != null && raw is! String) {
+      throw const FormatException('Invalid local content learning data.');
+    }
+    return _contentLearningConfirmedRaw = raw as String? ?? '';
+  }
+
+  /// One durable transaction contains cursor, answers and daily completion.
+  /// Reset drains admitted transactions and rejects new ones before deletion.
+  static Future<void> mutateContentLearning(
+    String Function(String before) mutate, {
+    PreferenceStringStore? preferences,
+    void Function()? assertCurrentWrite,
+  }) {
+    if (_learningResetCount > 0) {
+      return Future.error(const StaleLocalDataLifetimeException());
+    }
+    final lease = LocalDataLifetime.capture();
+    final operation = (_contentLearningMutation ?? Future<void>.value()).then((
+      _,
+    ) async {
+      lease.assertCurrent();
+      assertCurrentWrite?.call();
+      final store = preferences ?? _stringStore();
+      // The callback derives its value only after this reload, so unlike
+      // precomputed setters it can safely recover an unknown outcome here.
+      if (_unknownStrictKeys.contains(contentLearningPreferenceKey)) {
+        await _refreshUnknownStringKeys(store, [contentLearningPreferenceKey]);
+        lease.assertCurrent();
+        assertCurrentWrite?.call();
+        _contentLearningConfirmedRaw = null;
+      }
+      final before = await _prepareStringMutation(
+        store,
+        contentLearningPreferenceKey,
+      );
+      _contentLearningConfirmedRaw = before.value ?? '';
+      final encoded = mutate(before.value ?? '');
+      if (encoded == (before.value ?? '')) {
+        return;
+      }
+      lease.assertCurrent();
+      assertCurrentWrite?.call();
+      await _ssStrict(
+        contentLearningPreferenceKey,
+        encoded,
+        preferences: store,
+        beforeState: before,
+        assertCurrentWrite: () {
+          lease.assertCurrent();
+          assertCurrentWrite?.call();
+        },
+      );
+      _contentLearningConfirmedRaw = encoded;
+      contentLearningChanges.value++;
+    });
+    _contentLearningMutation = operation.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    final drain = _contentLearningMutation!;
+    unawaited(
+      drain.then((_) {
+        if (identical(_contentLearningMutation, drain)) {
+          _contentLearningMutation = null;
+        }
+      }),
+    );
+    return operation;
+  }
+
   static Future<void> setIlDuWorldStateRawJsonStrict(
     String json, {
     PreferenceStringStore? preferences,
@@ -7912,6 +8003,8 @@ class Storage {
     operation = () async {
       try {
         await Future.wait([
+          if (_contentLearningMutation case final pendingContentLearning?)
+            pendingContentLearning,
           if (_dataMigrationMutation case final migration?) migration,
           PrivacyChoiceStorage.drain(),
           if (_packProgressMutationCount > 0) _packProgressMutation,

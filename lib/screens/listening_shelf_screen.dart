@@ -131,14 +131,7 @@ class _CategoryArt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final imageKey = compartment.imageKey;
-    final vignette = chaekgadoCategoryVignetteAsset(compartment.slug);
-    final fallback = vignette == null
-        ? const _CategoryIconFallback()
-        : Image.asset(
-            vignette,
-            fit: BoxFit.contain,
-            errorBuilder: (_, _, _) => const _CategoryIconFallback(),
-          );
+    const fallback = _CategoryIconFallback();
     if (imageKey == null) {
       return fallback;
     }

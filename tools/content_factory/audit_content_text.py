@@ -223,6 +223,20 @@ SURFACES: tuple[ContentSurface, ...] = (
         "turn intent, relationship, safe alternatives, and follow-ups",
     ),
     ContentSurface(
+        "smalltalk_lessons.json",
+        "small-talk topic lessons and practice",
+        "ContentLearningCatalog / ContentLessonScreen",
+        ("lessons",),
+        "KO/DE/EN lesson situations, prompts, options, explanations and Korean evidence",
+    ),
+    ContentSurface(
+        "listening_lessons.json",
+        "listening scenario lessons and practice",
+        "ContentLearningCatalog / ContentLessonScreen",
+        ("lessons",),
+        "KO/DE/EN scenario understanding, prompts, options, explanations and Korean evidence",
+    ),
+    ContentSurface(
         "tts_first_line_manifest.json",
         "derived TTS cache manifest",
         "TtsBundledManifest",
@@ -278,7 +292,7 @@ SURFACES: tuple[ContentSurface, ...] = (
 # ledger: they are data, but not copy a humanizer should rewrite.
 COPY_KEYS = frozenset({
     "answer", "audioKo", "body", "canDo", "de", "description", "en",
-    "english", "exampleDe", "exampleEn", "exampleKo", "example_english",
+    "english", "evidenceKo", "exampleDe", "exampleEn", "exampleKo", "example_english",
     "example_german", "example_korean", "explanation", "explanation_de",
     "explanation_en", "followUp", "fullKo", "german", "grammarBlock",
     "korean", "ko", "label", "meaning", "name_de", "name_en", "note",
@@ -291,7 +305,7 @@ UNRESOLVED_MARKER = re.compile(r"(?:^|\W)(?:TODO|TBD|FIXME)(?:$|\W)", re.IGNOREC
 
 LANGUAGE_KEYS = {
     "ko": frozenset({
-        "answer", "audioKo", "exampleKo", "example_korean", "fullKo",
+        "answer", "audioKo", "evidenceKo", "exampleKo", "example_korean", "fullKo",
         "ko", "korean", "sentenceKo", "targetKo", "targetWord",
         "vocabKo", "word",
     }),

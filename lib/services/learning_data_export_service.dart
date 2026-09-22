@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:share_plus/share_plus.dart';
 
 import '../models/course_mastery.dart';
+import '../features/content_learning/content_learning_state.dart';
 import 'storage_service.dart';
 
 class LearningDataExportPackage {
@@ -100,6 +101,7 @@ abstract final class LearningDataExportService {
           dateIso: Storage.studyLogIdsFor(dateIso),
       },
       'grammarPlan': _readGrammarPlan(),
+      'contentLearning': _readContentLearning(),
       'review': {
         'cards': _readReviewCards(),
         'wrongCounts': _readWrongCounts(),
@@ -132,6 +134,15 @@ abstract final class LearningDataExportService {
       final map = decoded.map((key, value) => MapEntry(key.toString(), value));
       return CourseMasterySnapshot.decodeAndMigrate(map).toJson();
     } catch (_) {
+      return null;
+    }
+  }
+
+  static Map<String, dynamic>? _readContentLearning() {
+    try {
+      final raw = Storage.contentLearningRawJson;
+      return raw.isEmpty ? null : ContentLearningState.decode(raw);
+    } on Object {
       return null;
     }
   }
