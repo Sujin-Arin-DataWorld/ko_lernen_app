@@ -119,15 +119,7 @@ void main() {
         );
         await Scrollable.ensureVisible(tester.element(book), alignment: .15);
         await pumpSoriStage(tester);
-        await tester.runAsync(() async {
-          await precacheImage(
-            const AssetImage(
-              'assets/illustrations/activities/book_capture.webp',
-            ),
-            tester.element(book),
-          );
-        });
-        await pumpSoriStage(tester);
+        await _awaitImageDecode(tester);
         await expectLater(
           find.byKey(boundary),
           matchesGoldenFile(
