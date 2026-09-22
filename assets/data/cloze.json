@@ -29787,9 +29787,9 @@
     {
       "id": "cloze_a1_0427",
       "level": "a1",
-      "sentenceKo": "＿＿＿.",
+      "sentenceKo": "＿＿＿?",
       "answer": "여보세요",
-      "fullKo": "여보세요.",
+      "fullKo": "여보세요?",
       "de": "Hallo?",
       "en": "Hello?",
       "distractors": [

@@ -113,26 +113,93 @@ class _OnboardingCompanionStageState extends State<OnboardingCompanionStage> {
       ),
       widget.companions.firstWhere((c) => c.id == OnboardingV2Ids.companionJoy),
     ];
-    return ListView.separated(
-      padding: EdgeInsets.zero,
-      itemCount: ordered.length,
-      separatorBuilder: (_, _) => const SizedBox(height: Spacing.md),
-      itemBuilder: (context, index) {
-        final companion = ordered[index];
-        return _CompanionStageChoice(
-          companion: companion,
-          selected: companion.id == widget.selectedCompanionId,
-          replayToken: _replay,
-          mediaEnabled: widget.mediaEnabled,
-          showDescription: widget.showDescription,
-          onTap: () {
-            setState(() => _replay++);
-            widget.onCompanionChanged(companion.id);
-          },
-        );
+    final choices = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        for (final (index, companion) in ordered.indexed) ...[
+          if (index > 0) const SizedBox(height: Spacing.md),
+          Expanded(
+            child: LayoutBuilder(
+              builder: (context, constraints) => _CompanionStageChoice(
+                companion: companion,
+                selected: companion.id == widget.selectedCompanionId,
+                replayToken: _replay,
+                mediaEnabled: widget.mediaEnabled,
+                showDescription:
+                    widget.showDescription && constraints.maxHeight >= 260,
+                onTap: () {
+                  setState(() => _replay++);
+                  widget.onCompanionChanged(companion.id);
+                },
+              ),
+            ),
+          ),
+        ],
+      ],
+    );
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final minimumCardHeight = ordered.fold<double>(0, (height, item) {
+          final labelHeight = _companionLabelHeight(
+            context,
+            item,
+            constraints.maxWidth - Spacing.sm * 3 - 4 - 48,
+            compact: true,
+          );
+          final requiredHeight =
+              (labelHeight > 48 ? labelHeight : 48) + Spacing.sm * 2 + 4;
+          return height > requiredHeight ? height : requiredHeight;
+        });
+        final minimumHeight = minimumCardHeight * 2 + Spacing.md;
+        if (constraints.maxHeight < minimumHeight) {
+          // Landscape leaves little room after the fixed heading and footer.
+          // Keep both choices reachable and their artwork height positive.
+          return SingleChildScrollView(
+            child: SizedBox(height: minimumHeight, child: choices),
+          );
+        }
+        return choices;
       },
     );
   }
+}
+
+bool _compactCompanionNames(BuildContext context, double width) =>
+    width < SoriAdaptiveWidth.companionNameRow &&
+    MediaQuery.textScalerOf(context).scale(16) > 24;
+
+double _companionLabelHeight(
+  BuildContext context,
+  OnboardingCompanionSpec companion,
+  double width, {
+  required bool compact,
+}) {
+  final text = SoriTextTheme.of(context);
+  Size measure(String value, TextStyle style, {Locale? locale}) {
+    final painter = TextPainter(
+      text: TextSpan(text: value, style: style),
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+      locale: locale,
+    )..layout(maxWidth: width);
+    final size = painter.size;
+    painter.dispose();
+    return size;
+  }
+
+  final name = measure(companion.name, compact ? text.h3 : text.h2);
+  var labelHeight = name.height;
+  if (!compact) {
+    final korean = measure(
+      companion.koreanName,
+      text.meta,
+      locale: const Locale('ko'),
+    );
+    labelHeight = name.width + Spacing.sm + korean.width > width
+        ? name.height + korean.height
+        : (name.height > korean.height ? name.height : korean.height);
+  }
+  return labelHeight;
 }
 
 class _CompanionStageChoice extends StatelessWidget {
@@ -184,9 +251,38 @@ class _CompanionStageChoice extends StatelessWidget {
             ),
             child: LayoutBuilder(
               builder: (context, constraints) {
-                final compactNames =
-                    constraints.maxWidth < SoriAdaptiveWidth.companionNameRow &&
-                    MediaQuery.textScalerOf(context).scale(16) > 24;
+                final compactNames = _compactCompanionNames(
+                  context,
+                  constraints.maxWidth,
+                );
+                final labelHeight = _companionLabelHeight(
+                  context,
+                  companion,
+                  constraints.maxWidth,
+                  compact: compactNames,
+                );
+                final horizontal =
+                    constraints.hasBoundedHeight &&
+                    constraints.maxHeight < labelHeight + Spacing.sm * 2 + 48;
+                Widget names({required bool compact}) => Wrap(
+                  alignment: WrapAlignment.center,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  spacing: Spacing.sm,
+                  children: [
+                    Text(
+                      companion.name,
+                      textAlign: TextAlign.center,
+                      style: compact ? text.h3 : text.h2,
+                    ),
+                    if (!compact)
+                      Text(
+                        companion.koreanName,
+                        locale: const Locale('ko'),
+                        textAlign: TextAlign.center,
+                        style: text.meta,
+                      ),
+                  ],
+                );
                 final artwork = Stack(
                   fit: StackFit.expand,
                   children: [
@@ -227,6 +323,15 @@ class _CompanionStageChoice extends StatelessWidget {
                     ),
                   ],
                 );
+                if (horizontal) {
+                  return Row(
+                    children: [
+                      SizedBox(width: 48, child: artwork),
+                      const SizedBox(width: Spacing.sm),
+                      Expanded(child: names(compact: true)),
+                    ],
+                  );
+                }
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisSize: constraints.hasBoundedHeight
@@ -238,25 +343,7 @@ class _CompanionStageChoice extends StatelessWidget {
                     else
                       AspectRatio(aspectRatio: 1, child: artwork),
                     const SizedBox(height: Spacing.sm),
-                    Wrap(
-                      alignment: WrapAlignment.center,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      spacing: Spacing.sm,
-                      children: [
-                        Text(
-                          companion.name,
-                          textAlign: TextAlign.center,
-                          style: compactNames ? text.h3 : text.h2,
-                        ),
-                        if (!compactNames)
-                          Text(
-                            companion.koreanName,
-                            locale: const Locale('ko'),
-                            textAlign: TextAlign.center,
-                            style: text.meta,
-                          ),
-                      ],
-                    ),
+                    names(compact: compactNames),
                     if (showDescription) ...[
                       const SizedBox(height: Spacing.sm),
                       Text(

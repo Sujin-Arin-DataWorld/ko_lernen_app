@@ -33,7 +33,6 @@ import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
-import '../widgets/sori/responsive.dart';
 
 Future<bool> _speakWithTts(String text, {required String voice}) =>
     TtsService.speak(text, voice: voice);
@@ -305,6 +304,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     return SoriStudyFrame(
       title: title.isEmpty ? t.listeningTitle : title,
       adaptTitleAtNormalScale: true,
+      titleBelowToolbar: true,
       eyebrow: progress,
       actions: [KeyedSubtree(key: _speedKey, child: const TtsSpeedAction())],
       particles: _playback.phase == ListeningPlaybackPhase.complete,
@@ -315,7 +315,10 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
         Spacing.lg,
       ),
       child: SoriAdaptiveStudyBody(
-        minHeight: 520,
+        // The intro card already scrolls independently. Reserve only enough
+        // height for its preview and the persistent start action, so a wrapped
+        // scene title cannot push that action below an ordinary phone viewport.
+        minHeight: _playback.phase == ListeningPlaybackPhase.intro ? 160 : 520,
         child: switch (_playback.phase) {
           ListeningPlaybackPhase.intro => _buildIntro(t, lang),
           ListeningPlaybackPhase.complete => _buildComplete(t),

@@ -46,78 +46,88 @@ class OnboardingCompanionScreen extends StatelessWidget {
       ),
       bodyKey: const ValueKey('onboarding-v2-companion-scroll'),
       body: LayoutBuilder(
-        builder: (context, constraints) => Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: OnboardingCompanionStage(
-                mediaEnabled: mediaEnabled,
-                companions: companionCopy.companions,
-                selectedCompanionId: selectedCompanionId,
-                onCompanionChanged: onCompanionChanged,
-                showDescription:
-                    constraints.maxHeight >= 300 &&
-                    MediaQuery.textScalerOf(context).scale(16) <= 24,
+        builder: (context, constraints) {
+          final content = Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: OnboardingCompanionStage(
+                  mediaEnabled: mediaEnabled,
+                  companions: companionCopy.companions,
+                  selectedCompanionId: selectedCompanionId,
+                  onCompanionChanged: onCompanionChanged,
+                  showDescription:
+                      constraints.maxHeight >= 300 &&
+                      MediaQuery.textScalerOf(context).scale(16) <= 24,
+                ),
               ),
-            ),
-            if (constraints.maxHeight >= 650) ...[
-              const SizedBox(height: Spacing.sm),
-              Text(
-                companionCopy.body,
-                textAlign: TextAlign.center,
-                style: text.body,
-              ),
-            ],
-            OnboardingV2DetailsButton(
-              key: const ValueKey('onboarding-v2-companion-details'),
-              label: AppL10n.of(context).onboardingV2DetailsAction,
-              sheetTitle: companionCopy.title,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(
-                    companionCopy.title,
-                    textAlign: TextAlign.center,
-                    style: text.h3,
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  Text(
-                    companionCopy.body,
-                    textAlign: TextAlign.center,
-                    style: text.body,
-                  ),
-                  const SizedBox(height: Spacing.md),
-                  for (final companion in companionCopy.companions) ...[
+              if (constraints.maxHeight >= 650) ...[
+                const SizedBox(height: Spacing.sm),
+                Text(
+                  companionCopy.body,
+                  textAlign: TextAlign.center,
+                  style: text.body,
+                ),
+              ],
+              OnboardingV2DetailsButton(
+                key: const ValueKey('onboarding-v2-companion-details'),
+                label: AppL10n.of(context).onboardingV2DetailsAction,
+                sheetTitle: companionCopy.title,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
                     Text(
-                      '${companion.name} · ${companion.koreanName}',
+                      companionCopy.title,
                       textAlign: TextAlign.center,
-                      style: text.h2,
+                      style: text.h3,
                     ),
+                    const SizedBox(height: Spacing.sm),
                     Text(
-                      companion.rhythm,
-                      textAlign: TextAlign.center,
-                      style: text.cardTitle,
-                    ),
-                    Text(
-                      companion.body,
+                      companionCopy.body,
                       textAlign: TextAlign.center,
                       style: text.body,
                     ),
                     const SizedBox(height: Spacing.md),
-                  ],
-                  Text(
-                    companionCopy.equalLearningNote,
-                    key: const ValueKey(
-                      'onboarding-v2-companion-equal-learning-note',
+                    for (final companion in companionCopy.companions) ...[
+                      Text(
+                        '${companion.name} · ${companion.koreanName}',
+                        textAlign: TextAlign.center,
+                        style: text.h2,
+                      ),
+                      Text(
+                        companion.rhythm,
+                        textAlign: TextAlign.center,
+                        style: text.cardTitle,
+                      ),
+                      Text(
+                        companion.body,
+                        textAlign: TextAlign.center,
+                        style: text.body,
+                      ),
+                      const SizedBox(height: Spacing.md),
+                    ],
+                    Text(
+                      companionCopy.equalLearningNote,
+                      key: const ValueKey(
+                        'onboarding-v2-companion-equal-learning-note',
+                      ),
+                      textAlign: TextAlign.center,
+                      style: text.bodySmall,
                     ),
-                    textAlign: TextAlign.center,
-                    style: text.bodySmall,
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
+            ],
+          );
+          if (constraints.maxHeight < 240) {
+            // A short landscape viewport must scroll the choices AND details;
+            // reserving a details row can otherwise leave a 17dp tap viewport.
+            return SingleChildScrollView(
+              child: SizedBox(height: 400, child: content),
+            );
+          }
+          return content;
+        },
       ),
       footer: OnboardingV2FooterActions(
         backKey: const ValueKey('onboarding-v2-companion-back'),

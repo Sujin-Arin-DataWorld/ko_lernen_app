@@ -6,7 +6,6 @@ import '../../data/sori_activity_catalog.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/account/cloud_write_session.dart';
-import '../../services/auth_service.dart';
 import '../../services/catalog_history_lease.dart';
 import '../../services/sori_stage_progression_service.dart';
 import '../../services/sori_stage_reward_receipt_service.dart';
@@ -29,20 +28,6 @@ import 'sori_stage_reward_receipt_sheet.dart';
 // Compatibility for the unchanged shared pack/listening grid cache contract.
 export '../../widgets/sori/illustrated_card_grid.dart'
     show cellAspectRatioCacheKey;
-
-/// displayName에서 최대 2글자 이니셜 추출. (sori_stage_common.dart와 동일)
-String? _extractInitials(String? displayName) {
-  if (displayName == null || displayName.isEmpty) return null;
-  final trimmed = displayName.trim();
-  if (trimmed.isEmpty) return null;
-  final words = trimmed.split(RegExp(r'\s+'));
-  final initials = words
-      .where((w) => w.isNotEmpty)
-      .map((w) => w[0])
-      .take(2)
-      .join();
-  return initials.isEmpty ? null : initials;
-}
 
 class SoriStageCatalogScreen extends StatefulWidget {
   const SoriStageCatalogScreen({
@@ -355,17 +340,14 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                   padding: EdgeInsets.symmetric(horizontal: padding.left),
                   sliver: Builder(
                     builder: (context) {
-                      final displayName = AuthService.displayName;
-                      final photoUrl = AuthService.photoUrl;
-                      final initials = _extractInitials(displayName);
                       return SoriCollapsingHeader(
                         title: title,
-                        titleStyle: text.h1.copyWith(fontSize: 26, height: 1.35),
-                        collapsedTitle: title,
-                        trailing: SoriAvatar(
-                          photoUrl: photoUrl,
-                          initials: initials,
+                        titleStyle: text.h1.copyWith(
+                          fontSize: 26,
+                          height: 1.35,
                         ),
+                        collapsedTitle: title,
+                        trailing: const SoriAvatar(),
                       );
                     },
                   ),

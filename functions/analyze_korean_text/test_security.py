@@ -35,6 +35,7 @@ from security import (  # noqa: E402
 
 ANDROID_APP_ID = "1:573567222361:android:38d26a50001ee64c356748"
 IOS_APP_ID = "1:573567222361:ios:e1847f3ea5dcbbc1356748"
+CURRENT_IOS_APP_ID = "1:573567222361:ios:0f8c0734410bb6cc356748"
 
 
 class _Request:
@@ -44,7 +45,21 @@ class _Request:
 
 class CallerVerificationTest(unittest.TestCase):
     def test_default_app_check_allowlist_covers_both_mobile_apps(self):
-        self.assertEqual(DEFAULT_ALLOWED_APP_IDS, {ANDROID_APP_ID, IOS_APP_ID})
+        self.assertEqual(DEFAULT_ALLOWED_APP_IDS, {ANDROID_APP_ID, IOS_APP_ID, CURRENT_IOS_APP_ID})
+
+    def test_verified_current_and_compatible_ios_apps_require_revocation_checked_auth(self):
+        request = _Request({"X-Firebase-AppCheck": "verified-check", "Authorization": "Bearer verified-auth"})
+        for app_id in (CURRENT_IOS_APP_ID, IOS_APP_ID):
+            with self.subTest(app_id=app_id):
+                auth_calls = []
+                caller = verify_caller(
+                    request,
+                    verify_app_check=lambda _: {"sub": app_id},
+                    verify_auth=lambda token, check_revoked: auth_calls.append((token, check_revoked)) or {"uid": "verified-user"},
+                    allowed_app_ids=DEFAULT_ALLOWED_APP_IDS,
+                )
+                self.assertEqual(caller.app_id, app_id)
+                self.assertEqual(auth_calls, [("verified-auth", True)])
 
     def test_returns_only_the_uid_from_the_verified_auth_token(self):
         request = _Request(

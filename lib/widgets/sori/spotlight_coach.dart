@@ -118,6 +118,7 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
   int _i = 0;
   AnimationController? _pulse;
   Rect? _targetRect;
+  final _layerKey = GlobalKey();
 
   @override
   void initState() {
@@ -128,7 +129,7 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
         duration: const Duration(milliseconds: 800),
       )..repeat(reverse: true);
     }
-    WidgetsBinding.instance.addPostFrameCallback((_) => _measure());
+    WidgetsBinding.instance.addPostFrameCallback(_trackTarget);
   }
 
   @override
@@ -139,6 +140,16 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
 
   // ── 타겟 측정 ────────────────────────────────────────────────────────────
 
+  void _trackTarget(Duration _) {
+    if (!mounted) {
+      return;
+    }
+    _measure();
+    // Observe frames caused by navigation, scrolling or resizing. Registering
+    // a callback does not request a frame, so a still guide does no idle work.
+    WidgetsBinding.instance.addPostFrameCallback(_trackTarget);
+  }
+
   Rect? _rectFor(GlobalKey key) {
     final ctx = key.currentContext;
     if (ctx == null) {
@@ -148,11 +159,14 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
     if (ro is! RenderBox) {
       return null;
     }
-    if (!ro.hasSize) {
+    final layer = _layerKey.currentContext?.findRenderObject();
+    if (!ro.attached || !ro.hasSize || layer is! RenderBox || !layer.hasSize) {
       return null;
     }
-    final offset = ro.localToGlobal(Offset.zero);
-    return offset & ro.size;
+    return MatrixUtils.transformRect(
+      ro.getTransformTo(layer),
+      Offset.zero & ro.size,
+    );
   }
 
   void _measure() {
@@ -164,9 +178,11 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
       _skipToNextMeasurable();
       return;
     }
-    setState(() {
-      _targetRect = rect;
-    });
+    if (_targetRect != rect) {
+      setState(() {
+        _targetRect = rect;
+      });
+    }
   }
 
   void _skipToNextMeasurable() {
@@ -197,7 +213,6 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
       _i = nextIndex;
       _targetRect = null;
     });
-    WidgetsBinding.instance.addPostFrameCallback((_) => _measure());
   }
 
   void _skipAll() {
@@ -229,6 +244,7 @@ class _SpotlightLayerState extends State<_SpotlightLayer>
 
     return Positioned.fill(
       child: Stack(
+        key: _layerKey,
         children: [
           // ─ 딤 + 구멍 레이어 (탭 → 다음 단계)
           Semantics(
@@ -306,7 +322,7 @@ enum _CoachSide { above, below, left, right }
 class _CoachTooltipLayout extends SingleChildLayoutDelegate {
   const _CoachTooltipLayout({required this.target, required this.safeInsets});
 
-  /// 스포트라이트가 뚫은 타겟 사각형(전역 좌표).
+  /// 스포트라이트가 뚫은 타겟 사각형(오버레이 내부 좌표).
   final Rect target;
 
   /// 상태바·제스처바 등 시스템 인셋. 말풍선이 그 뒤로 잘리면 안 된다.

@@ -7,7 +7,6 @@ import '../../models/sarangchae_construction.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/sori_stage_progression_service.dart';
 import '../../services/storage_service.dart';
-import '../../services/auth_service.dart';
 import '../../widgets/app_loading.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/button.dart';
@@ -57,16 +56,6 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
 
   Future<SarangchaeConstruction> _loadConstruction() =>
       (widget.loadConstruction ?? SarangchaeConstruction.load)();
-
-  String? _extractInitials(String? displayName) {
-    if (displayName == null || displayName.isEmpty) return null;
-    final parts = displayName.split(RegExp(r'\s+'));
-    final initials = parts
-        .map((part) => part.isNotEmpty ? part[0].toUpperCase() : '')
-        .join('')
-        .substring(0, math.min(2, displayName.length));
-    return initials.isNotEmpty ? initials : null;
-  }
 
   @override
   void initState() {
@@ -131,9 +120,6 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                   ),
                   sliver: Builder(
                     builder: (context) {
-                      final displayName = AuthService.displayName;
-                      final photoUrl = AuthService.photoUrl;
-                      final initials = _extractInitials(displayName);
                       return SoriCollapsingHeader(
                         title: t.soriStageNavHanok,
                         titleStyle: SoriTextTheme.of(
@@ -148,10 +134,7 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                           children: [
                             const CulturalHelpButton(termId: 'hanok'),
                             const SizedBox(width: Spacing.xs),
-                            SoriAvatar(
-                              photoUrl: photoUrl,
-                              initials: initials,
-                            ),
+                            const SoriAvatar(),
                           ],
                         ),
                       );

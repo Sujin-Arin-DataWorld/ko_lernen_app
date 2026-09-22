@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../services/auth_service.dart';
 import '../../widgets/sori/avatar.dart';
 import '../../widgets/sori/page_header.dart';
 import '../../widgets/sori/responsive.dart';
@@ -58,21 +57,6 @@ class SoriStageSafeViewport extends StatelessWidget {
   }
 }
 
-/// displayName에서 최대 2글자 이니셜 추출.
-String? _extractInitials(String? displayName) {
-  if (displayName == null || displayName.isEmpty) return null;
-  final trimmed = displayName.trim();
-  if (trimmed.isEmpty) return null;
-  // 공백으로 구분된 단어들의 첫 글자 수집 (최대 2글자).
-  final words = trimmed.split(RegExp(r'\s+'));
-  final initials = words
-      .where((w) => w.isNotEmpty)
-      .map((w) => w[0])
-      .take(2)
-      .join();
-  return initials.isEmpty ? null : initials;
-}
-
 /// SoriStage 루트 탭 공용 헤더 — 2026-08-13 부터 [SoriPageHeader] 에 위임.
 /// (eyebrow/hero 위계는 토큰화된 공용판이 소유하고, 여기는 프로필 진입
 /// 아이콘과 대문자화 정책만 담당한다.)
@@ -90,20 +74,11 @@ class SoriStageRootHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Google displayName과 photoUrl을 프로필 버튼에 전달.
-    final displayName = AuthService.displayName;
-    final photoUrl = AuthService.photoUrl;
-    final initials = _extractInitials(displayName);
-
     return SoriPageHeader(
       eyebrow: eyebrow.toUpperCase(),
       title: title,
       body: body,
-      // §W-G G3: 프로필 진입 아이콘 → SoriAvatar (사진/이니셜/마스코트 폴백).
-      trailing: SoriAvatar(
-        photoUrl: photoUrl,
-        initials: initials,
-      ),
+      trailing: const SoriAvatar(),
     );
   }
 }

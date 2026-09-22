@@ -54,6 +54,17 @@ class SourceVerificationError(RuntimeError):
     """Raised when a local or deployed source manifest is unsafe or stale."""
 
 
+# Firebase registration and the deployed allowlist were checked on 2026-09-22.
+# Retain the previously supported com.hangulsori.app only for this exact app
+# family; an arbitrary extra Firebase ID must still fail verification.
+COMPATIBILITY_APP_IDS = {
+    (
+        "1:573567222361:android:38d26a50001ee64c356748",
+        "1:573567222361:ios:0f8c0734410bb6cc356748",
+    ): frozenset({"1:573567222361:ios:e1847f3ea5dcbbc1356748"}),
+}
+
+
 def firebase_app_ids_from_options(options_path: Path) -> tuple[str, str]:
     """Read Android/iOS App IDs from the FlutterFire runtime configuration."""
     source = options_path.read_text(encoding="utf-8")
@@ -76,7 +87,7 @@ def firebase_app_ids_from_options(options_path: Path) -> tuple[str, str]:
     return app_ids[0], app_ids[1]
 
 
-def app_ids_from_deploy_env(deploy_env_path: Path) -> tuple[str, str]:
+def app_ids_from_deploy_env(deploy_env_path: Path) -> tuple[str, ...]:
     """Read the only permitted non-secret deployment setting."""
     active = [
         line.strip()
@@ -91,9 +102,13 @@ def app_ids_from_deploy_env(deploy_env_path: Path) -> tuple[str, str]:
     if match is None:
         raise SourceVerificationError("deploy env setting is not the App ID allowlist")
     app_ids = tuple(item.strip() for item in match.group(1).split(","))
-    if len(app_ids) != 2 or any(not item.startswith("1:") for item in app_ids):
-        raise SourceVerificationError("deploy env must contain two Firebase App IDs")
-    return app_ids[0], app_ids[1]
+    if (
+        len(app_ids) not in (2, 3)
+        or len(set(app_ids)) != len(app_ids)
+        or any(not re.fullmatch(r"1:\d+:(?:android|ios):[a-zA-Z0-9]+", item) for item in app_ids)
+    ):
+        raise SourceVerificationError("deploy env must contain distinct mobile Firebase App IDs")
+    return app_ids
 
 
 def validate_deploy_app_ids(
@@ -102,8 +117,8 @@ def validate_deploy_app_ids(
     options_path: Path | None = None,
     android_config_path: Path | None = None,
     deploy_env_path: Path | None = None,
-) -> tuple[str, str]:
-    """Require deploy IDs to match real Flutter and Android app configs."""
+) -> tuple[str, ...]:
+    """Require exact current app IDs plus explicitly retained compatibility IDs."""
     repository = source_dir.resolve().parents[1]
     options_path = options_path or repository / "lib" / "firebase_options.dart"
     android_config_path = (
@@ -124,9 +139,10 @@ def validate_deploy_app_ids(
         raise SourceVerificationError("Android Firebase app configuration is invalid") from error
     if configured[0] not in native_android_ids:
         raise SourceVerificationError("Flutter and Android Firebase App IDs differ")
-    if deployed != configured:
+    expected = set(configured) | COMPATIBILITY_APP_IDS.get(configured, frozenset())
+    if set(deployed) != expected:
         raise SourceVerificationError("deploy App IDs differ from the app configuration")
-    return configured
+    return deployed
 
 
 def _normalized_archive_name(raw_name: str) -> str:

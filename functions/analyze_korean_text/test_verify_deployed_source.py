@@ -23,6 +23,26 @@ DENYLIST_PATTERNS = (
 
 
 class DeployedSourceVerificationTest(unittest.TestCase):
+    def test_current_repository_and_explicit_compatibility_ids_are_exact(self):
+        source_dir = Path(__file__).resolve().parent
+        android, ios = next(iter(verifier.COMPATIBILITY_APP_IDS))
+        legacy, = verifier.COMPATIBILITY_APP_IDS[(android, ios)]
+        expected = {android, ios, legacy}
+        self.assertEqual(set(verifier.validate_deploy_app_ids(source_dir)), expected)
+        with tempfile.TemporaryDirectory() as temporary:
+            deploy = Path(temporary) / 'deploy.env.yaml'
+            invalid = (
+                [android, legacy],  # Released current iOS missing.
+                [android, ios],     # Existing clients must not lose access.
+                [android, ios, '1:573567222361:ios:unknown'],
+                [android, ios, ios],
+            )
+            for values in invalid:
+                with self.subTest(values=values):
+                    deploy.write_text(f'ALLOWED_FIREBASE_APP_IDS: "{",".join(values)}"\n', encoding='utf-8')
+                    with self.assertRaises(verifier.SourceVerificationError):
+                        verifier.validate_deploy_app_ids(source_dir, deploy_env_path=deploy)
+
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)

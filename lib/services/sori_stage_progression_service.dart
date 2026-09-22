@@ -6,6 +6,7 @@ import '../models/pack_progress.dart';
 import '../models/sori_stage_progression.dart';
 import 'decoration_reward_service.dart';
 import 'course_progress_service.dart';
+import 'diagnostics_service.dart';
 import 'gye_service.dart';
 import 'hanok_competence_projection_service.dart';
 import 'quest_tracker.dart';
@@ -23,11 +24,19 @@ abstract final class SoriStageProgressionService {
     TodaySnapshotReader? loadToday,
     HanokCompetenceProjectionReader? loadHanokCompetence,
   }) async {
-    final todayFuture = (loadToday ?? TodayLearningSnapshotLoader.load)();
-    final hanokFuture =
-        (loadHanokCompetence ?? HanokCompetenceProjectionService.readCurrent)();
-    final questsFuture = QuestTracker.computeAll();
-    final gyeLanternFuture = _loadGyeLanternCount();
+    final todayFuture = _readObserved(
+      'today',
+      loadToday ?? TodayLearningSnapshotLoader.load,
+    );
+    final hanokFuture = _readObserved(
+      'hanok',
+      loadHanokCompetence ?? HanokCompetenceProjectionService.readCurrent,
+    );
+    final questsFuture = _readObserved('quests', QuestTracker.computeAll);
+    final gyeLanternFuture = _readObserved(
+      'gye_lanterns',
+      _loadGyeLanternCount,
+    );
 
     for (final future in <Future<dynamic>>[
       todayFuture,
@@ -42,7 +51,10 @@ abstract final class SoriStageProgressionService {
     final quests = await questsFuture;
     final gyeLanternCount = await gyeLanternFuture;
     final activity = activityForRoute(today.destination?.route);
-    final activityProgress = await _loadActivityProgress();
+    final activityProgress = await _readObserved(
+      'activities',
+      _loadActivityProgress,
+    );
 
     return SoriStageProgressionSnapshot(
       today: today,
@@ -58,6 +70,26 @@ abstract final class SoriStageProgressionService {
       gameBests: _loadGameBests(),
       gyeLanternCount: gyeLanternCount,
     );
+  }
+
+  static Future<T> _readObserved<T>(
+    String source,
+    Future<T> Function() read,
+  ) async {
+    try {
+      return await read();
+    } catch (error, stack) {
+      // Retain the failing source and stack, never serialized learner data
+      // embedded in a parser/platform exception. Collection stays opt-in.
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'stage_progression.$source',
+          StateError(error.runtimeType.toString()),
+          stack,
+        ),
+      );
+      rethrow;
+    }
   }
 
   static Future<Map<String, SoriActivityProgress>>

@@ -52,6 +52,41 @@ void main() {
     expect(find.text('XP'), findsOneWidget);
   });
 
+  testWidgets(
+    'failed aggregate offers retry without treating progress as empty',
+    (tester) async {
+      final t = await AppL10n.delegate.load(const Locale('en'));
+      await Storage.setXp(320);
+      var attempts = 0;
+      await _pumpToday(
+        tester,
+        loadSnapshot: () async {
+          if (attempts++ == 0) {
+            throw const FormatException('unreadable saved progress');
+          }
+          return _readySnapshot();
+        },
+      );
+      expect(find.text(t.homeLocalUnavailableTitle), findsOneWidget);
+      expect(find.text(t.soriStageTodayEmpty), findsNothing);
+      expect(find.byIcon(Icons.cloud_off_outlined), findsNothing);
+      expect(Storage.xp, 320);
+      expect(Storage.celebratedMilestones, isEmpty);
+      expect(Storage.pendingBoxes, isEmpty);
+
+      await tester.tap(
+        find.widgetWithText(SoriButton, t.homeUnavailableRetryGeneric),
+      );
+      await tester.pumpAndSettle();
+      expect(attempts, 2);
+      expect(find.text(t.homeLocalUnavailableTitle), findsNothing);
+      expect(find.byType(SoriLearningCompanion), findsOneWidget);
+      expect(Storage.xp, 320);
+      expect(Storage.celebratedMilestones, isEmpty);
+      expect(Storage.pendingBoxes, isEmpty);
+    },
+  );
+
   testWidgets('purpose never changes the Today companion message', (
     tester,
   ) async {

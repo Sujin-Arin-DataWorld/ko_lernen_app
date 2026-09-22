@@ -1,10 +1,7 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/gye.dart';
-import '../../services/auth_service.dart';
 import '../../widgets/sori/avatar.dart';
 import '../../widgets/sori/collapsing_header.dart';
 import '../../widgets/sori/responsive.dart';
@@ -38,16 +35,6 @@ class SoriStageGyeScreen extends StatelessWidget {
   /// this seam to drive a deterministic one-gye state.
   final Future<List<GyeMeta>> Function()? loadGyeMetas;
 
-  String? _extractInitials(String? displayName) {
-    if (displayName == null || displayName.isEmpty) return null;
-    final parts = displayName.split(RegExp(r'\s+'));
-    final initials = parts
-        .map((part) => part.isNotEmpty ? part[0].toUpperCase() : '')
-        .join('')
-        .substring(0, math.min(2, displayName.length));
-    return initials.isNotEmpty ? initials : null;
-  }
-
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -69,9 +56,6 @@ class SoriStageGyeScreen extends StatelessWidget {
                   ),
                   sliver: Builder(
                     builder: (context) {
-                      final displayName = AuthService.displayName;
-                      final photoUrl = AuthService.photoUrl;
-                      final initials = _extractInitials(displayName);
                       return SoriCollapsingHeader(
                         title: t.soriStageNavGye,
                         titleStyle: SoriTextTheme.of(
@@ -94,10 +78,7 @@ class SoriStageGyeScreen extends StatelessWidget {
                               icon: const Icon(Icons.help_outline_rounded),
                             ),
                             const SizedBox(width: Spacing.xs),
-                            SoriAvatar(
-                              photoUrl: photoUrl,
-                              initials: initials,
-                            ),
+                            const SoriAvatar(),
                           ],
                         ),
                       );
