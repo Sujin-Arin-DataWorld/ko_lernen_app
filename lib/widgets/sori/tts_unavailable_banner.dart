@@ -29,6 +29,10 @@ class TtsUnavailableBanner extends StatelessWidget {
         return t.ttsUnavailableQuota;
       case TtsUnavailableReason.hourlyQuota:
         return t.ttsUnavailableHourlyQuota;
+      case TtsUnavailableReason.sessionUnavailable:
+        return t.ttsUnavailableSession;
+      case TtsUnavailableReason.servicePolicy:
+        return t.ttsUnavailablePolicy;
       case TtsUnavailableReason.pendingSynthesis:
         return t.ttsUnavailablePending;
       case TtsUnavailableReason.offline:

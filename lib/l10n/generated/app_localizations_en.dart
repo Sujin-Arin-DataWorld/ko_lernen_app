@@ -9016,6 +9016,14 @@ class AppL10nEn extends AppL10n {
       'Daily voice limit reached. It resets tomorrow.';
 
   @override
+  String get ttsUnavailableSession =>
+      'Your session couldn\'t be verified. Reopen the app and try again.';
+
+  @override
+  String get ttsUnavailablePolicy =>
+      'New audio generation is temporarily paused. Existing recordings are still available.';
+
+  @override
   String get ttsUnavailableHourlyQuota =>
       'Hourly voice limit reached. Try again later.';
 
