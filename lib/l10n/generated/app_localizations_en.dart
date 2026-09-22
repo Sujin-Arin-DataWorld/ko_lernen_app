@@ -11047,4 +11047,16 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get contentLearningListenAgain => 'Listen again';
+
+  @override
+  String get kkeunmariSelectionHint =>
+      'Play with your selected words that are in the verified game dictionary. At least two must connect.';
+
+  @override
+  String get kkeunmariSelectionEmpty =>
+      'Your selection has no word chain yet. Choose at least two words from the game dictionary where the last syllable of one is the first of another.';
+
+  @override
+  String get kkeunmariNotInSelection =>
+      'This word is not in your selection for this round.';
 }

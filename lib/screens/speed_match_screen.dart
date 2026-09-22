@@ -11,6 +11,7 @@ import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
 import '../services/analytics_service.dart';
 import '../services/data_loader.dart';
+import '../services/vocab_deck_source.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_error.dart';
@@ -34,13 +35,21 @@ import '../widgets/sori/tokens.dart';
 /// die Mechanik (Aufwärm-/Geschwindigkeitsschicht), Abruf liefern die anderen
 /// Spiele. Selbst-Wettbewerb (persönliche Bestleistung) — keine Rangliste.
 class SpeedMatchScreen extends StatefulWidget {
-  /// Optional test fixture; production loads the curated vocabulary set.
-  final List<Vocab>? items;
+  /// Optional notebook subset; library play loads the curated vocabulary set.
+  final List<Vocab>? _items;
+  final VocabDeckSource? source;
+  List<Vocab>? get items => source?.vocabulary ?? _items;
 
   /// Optional deterministic seam. Production keeps [DataLoader.loadVocab].
   final Future<List<Vocab>> Function()? vocabLoader;
 
-  const SpeedMatchScreen({super.key, this.items, this.vocabLoader});
+  const SpeedMatchScreen({
+    super.key,
+    List<Vocab>? items,
+    this.source,
+    this.vocabLoader,
+  }) : assert(items == null || source == null),
+       _items = items;
 
   @override
   State<SpeedMatchScreen> createState() => _SpeedMatchScreenState();
