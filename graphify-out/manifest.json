@@ -8124,9 +8124,9 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1790087812.4404953,
-    "seen": 1790099823.1738718,
-    "ast_hash": "909a384c12cc6995f8b80cf3845e07d6",
+    "mtime": 1790101304.372458,
+    "seen": 1790101632.9671602,
+    "ast_hash": "0e13ab249819f2ca10f7e236f704ba4a",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-07-29-account-transition-and-deletion/task-6-report.md": {
@@ -19911,6 +19911,30 @@
     "mtime": 1790094211.6963744,
     "seen": 1790099823.176407,
     "ast_hash": "2cbcb5b5ed471fae0eca4a4cf342d205",
+    "semantic_hash": ""
+  },
+  "tool/play_internal_status.cjs": {
+    "mtime": 1790101304.4097748,
+    "seen": 1790101632.735616,
+    "ast_hash": "1c836c4db4aa4ac021b0f4d6771bda3a",
+    "semantic_hash": ""
+  },
+  "tool/test_play_internal_status.cjs": {
+    "mtime": 1790101304.4130003,
+    "seen": 1790101632.7512743,
+    "ast_hash": "e03634c4c5756dc45e95a87456a33d26",
+    "semantic_hash": ""
+  },
+  ".github/workflows/play_internal_status.yml": {
+    "mtime": 1790101304.3755352,
+    "seen": 1790101632.9673955,
+    "ast_hash": "2d7ec741003ed5261deda3135cd091a3",
+    "semantic_hash": ""
+  },
+  "docs/runbooks/play-internal-publication.md": {
+    "mtime": 1790101304.3788867,
+    "seen": 1790101633.0527277,
+    "ast_hash": "7c623c92151e369124597f8a9e4ae227",
     "semantic_hash": ""
   }
 }
