@@ -805,6 +805,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
         // ── Erscheinungsbild: Dark Mode in v2.0 deaktiviert ──
         // (App läuft ausschließlich im Light-Theme — Auswahl entfernt.)
+        ListTile(
+          leading: const Icon(Icons.menu_book_outlined),
+          title: Text(t.contentLearningGoals),
+          subtitle: Text('${t.smalltalkTitle} · ${t.listeningTitle}'),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => Navigator.of(context).pushNamed('/content/goals'),
+        ),
 
         // ── Sprache ──
         _Section(label: t.settingsLanguage),

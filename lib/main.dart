@@ -1,3 +1,6 @@
+import 'features/content_learning/content_learning_hub.dart';
+import 'features/content_learning/content_learning_models.dart';
+import 'features/content_learning/content_learning_widgets.dart';
 import 'widgets/sori/pack_completion_recovery_banner.dart';
 import 'services/pack_completion_owner.dart';
 import 'services/vocab_pack_finish_coordinator.dart';
@@ -97,7 +100,6 @@ import 'screens/vocab_packs_screen.dart';
 import 'screens/grammar_screen.dart';
 import 'screens/grammar_choice_quiz_screen.dart';
 import 'screens/kkeunmari_screen.dart';
-import 'screens/listening_screen.dart';
 import 'screens/chosung_quiz_screen.dart';
 import 'screens/cloze_game_screen.dart';
 import 'screens/daily_challenge_screen.dart';
@@ -727,8 +729,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
                       if (record != null) {
                         _packRecoveryNavigator.currentState?.push(
                           SoriTransitions.page(
-                            (_) =>
-                                VocabPackResultScreen.fromRecovered(record),
+                            (_) => VocabPackResultScreen.fromRecovered(record),
                           ),
                         );
                       }
@@ -935,7 +936,12 @@ class _KoLernenAppState extends State<KoLernenApp> {
               );
             case '/listening':
               return SoriTransitions.page(
-                (_) => const ListeningScreen(),
+                (_) => ContentLearningHub(
+                  kind: LearningContentKind.listening,
+                  initialLevel: settings.arguments is String
+                      ? settings.arguments as String
+                      : null,
+                ),
                 settings: settings,
               );
             case '/listening/play':
@@ -944,8 +950,14 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 (_) =>
                     listeningScenario is Scenario &&
                         listeningScenario.dialog.isNotEmpty
-                    ? ListeningPlayScreen(scenario: listeningScenario)
-                    : const ListeningScreen(),
+                    ? ContentLearningHub(
+                        kind: LearningContentKind.listening,
+                        initialLevel: listeningScenario.level.code,
+                        initialContentId: listeningScenario.id,
+                      )
+                    : const ContentLearningHub(
+                        kind: LearningContentKind.listening,
+                      ),
                 settings: settings,
               );
             case '/kkeunmari':
@@ -1033,6 +1045,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 ),
                 settings: settings,
               );
+            case '/content/goals':
+              return SoriTransitions.page(
+                (_) => const ContentGoalSettingsScreen(),
+                settings: settings,
+              );
             case '/settings':
               return SoriTransitions.page(
                 (_) => SettingsScreen(
@@ -1082,7 +1099,14 @@ class _KoLernenAppState extends State<KoLernenApp> {
                     CurriculumContentKind.smalltalk,
                   );
               return SoriTransitions.page(
-                (_) => SmalltalkScreen(courseContext: smalltalkCourseContext),
+                (_) => smalltalkCourseContext == null
+                    ? ContentLearningHub(
+                        kind: LearningContentKind.smalltalk,
+                        initialLevel: settings.arguments is String
+                            ? settings.arguments as String
+                            : null,
+                      )
+                    : SmalltalkScreen(courseContext: smalltalkCourseContext),
                 settings: settings,
               );
             case '/media_phrases':
