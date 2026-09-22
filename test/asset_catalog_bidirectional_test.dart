@@ -188,7 +188,6 @@ void main() {
     // 않아 이 webp 를 옮길 곳이 없다 — 같은 패턴이라 여기 합류시킨다.
     const activitiesOrphanAllowlist = <String>{
       'bookshelf',
-      'book_capture',
       'hard_words',
       'word_search',
       'vocab_notebook',

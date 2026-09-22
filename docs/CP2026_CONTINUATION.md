@@ -9,11 +9,12 @@ Jin이 승인한 재정렬 계획을 적용한다. Claude 원계획의 목표는
 | 항목 | 2026-09-22 확인 결과 |
 |---|---|
 | 원계획 | `C:/Users/vjinn/.claude/plans/hangulsori-rippling-cake.md`; SHA-256 `110e64d163551bb77ae820104b7c5735a16f1b4dccd6ff5cc79d29f223e8b90c` 재확인 |
-| 원격 main | `ec19fd271cfb28090a24e5c5ebb6c450ca4d21a8`; CI `35532536670` failure, Playwright `35532536747` success |
+| 안정화 main | PR #384의 정확한 squash main `63937f12f0bfd7d3f735fa4834edcb0365592ac8`; CI `35726006202`와 Playwright `35726006169` success. 이전 `ec19fd27`의 실패와 구분 |
 | 이미 통합됨 | #378–#383은 merged. 과거 순차 병합 대기 지시는 폐기한다 |
 | #367 | open, head `e3840a4c8a6f40f69fa1569fd0e03d598ee932fb`; 다운로드 동의·오프라인 재실행·팩 삭제·AAB/IPA 설치 크기 실측까지 HOLD |
-| 앱 버전 | 현재 source `pubspec.yaml`은 `2.0.9+37`. 사용자가 iOS·Android 배포를 보고했지만 실제 스토어 빌드 번호와 소스 SHA 연결은 아직 미확인 |
-| 로컬 작업 | `cp2026-release-stabilization-20260922`, branch `session/cp2026-release-stabilization-20260922-2026-09-22`; 기본 main과 다른 작업 공간의 WIP 보존 |
+| Android 내부 테스트 | main `63937f12`의 run `35734406519`에서 `7602` AAB 업로드와 internal/completed edit commit이 9월 22일 14:24:33Z 성공. `PLAY_INTERNAL_RELEASE_ENABLED=false` 복원. 사용자는 콘솔에서 이전 날짜를 보고했으며 현재 콘솔 제공 상태와 기기 설치는 미검증. 업로드를 설치 가능으로 확대하지 않음 |
+| 기존 iOS 내부 테스트 | 기존 Hangul Sori `6798293722` / `com.sujinarin.koLernenApp`의 Cloud 250이 main `63937f12`로 실행됨. 마지막 14:14Z archive 진행 관측 이후 TestFlight 처리와 내부 `n.1tester` 연결·설치 가능은 미검증. 새 앱 `6810396770`은 이 배포 대상이 아님 |
+| 로컬 작업 | `cp2026-release-stabilization-20260922`의 후속 branch `session/cp2026-book-entry-20260922`, PR #385에서 책 스캔 카드 복원 및 사용자 지정 이미지 교체. 기본 main과 다른 작업 공간의 WIP 보존 |
 | 증거 위치 | `C:/dev/hangulsori/_codex_artifacts/cp2026-release-stabilization-20260922/`의 검사 로그와 JSON. 아래 로컬 통과는 새 PR/main 원격 통과를 뜻하지 않음 |
 
 ### 첫 안정화 묶음
@@ -25,7 +26,8 @@ Jin이 승인한 재정렬 계획을 적용한다. Claude 원계획의 목표는
 | Hören 긴 제목 | 제목을 뒤로 가기·속도 버튼 아래 독립 영역에 줄바꿈; 가로 화면의 시작 버튼 접근 유지 | 작은 폰/태블릿, DE/EN, 큰 글자 실기기 확인 |
 | 공통 프로필 | Lernen·Spielen·Hanok·Gye가 선택 상태를 구독. 숨김은 일반 아이콘, Joy 프로필은 기존 정면 그림. 새 아트·영상 제작 없음 | 배포 앱에서 캐릭터 전환·재시작 확인 |
 | 온보딩 | Taego→Joy 세로 순서 유지. 큰 글자에서 카드 내부 그림·이름을 가로 배치하고, 아주 낮은 화면은 설명까지 함께 스크롤 | 기존 single-screen 30개와 경계 높이 20개 통과; 영상 재생·실기기는 별도 |
-| main 콘텐츠/에셋 실패 | Batch 25 검토 원본과 frozen draft를 복원하고, 배포된 전화 인사·자기소개 3행의 수정 이력을 별도 기록. `여보세요`의 문법 오탐을 토큰 단위로 수정. 전화 상황 문맥 검토 hash와 can-do/TTS/장면 파생 목록 재정합 | 사람 검수 pending 유지; 새 원격 TTS 합성/삭제 없음. 새 PR와 정확한 merged-main 전체 검사 필요 |
+| main 콘텐츠/에셋 실패 | Batch 25 검토 원본과 frozen draft를 복원하고, 배포된 전화 인사·자기소개 3행의 수정 이력을 별도 기록. `여보세요`의 문법 오탐을 토큰 단위로 수정. 전화 상황 문맥 검토 hash와 can-do/TTS/장면 파생 목록 재정합. PR #384와 정확한 merged-main 필수 검사 성공 | 사람 검수 pending 유지; 새 원격 TTS 합성/삭제 없음. 기기 확인은 별도 |
+| 책 스캔 진입 복원 | PR #385에서 Lernen의 Wörter & Sätze 영역에 큰 그림·이름이 있는 `Buch fotografieren` / `Scan a book` 카드를 복원. 9월 22일 Jin이 제공한 휴대폰·책 그림으로 교체. `/book`으로 직접 이동하며 진행도 로딩 실패 중에도 접근, 진입 자체로 학습 진행도·보상을 변경하지 않음 | 새 이미지가 포함된 정확한 PR head/main 검사와 두 플랫폼 내부 배포. 기존 Android 7602에는 이 후속 수정이 없음. 카메라 권한과 실제 촬영은 기기 검수 |
 | iOS 책 스캔 | 실제 Firebase 등록과 대조해 현재 iOS App ID `0f8c0734410bb6cc356748`를 기존 Android·legacy iOS와 함께 허용. 운영 revision `analyze-korean-text-00018-puc` ACTIVE. 전후 배포 소스 12파일 바이트 동일, 다른 환경/서비스 설정 동일, 무인증 요청 401 | 배포 iOS의 정상 App Check+Auth 토큰으로 실제 스캔 성공 확인. 서버 소스와 최신 main은 아직 다르며 전체 책 스캔 소스를 새로 배포했다고 주장하지 않음 |
 
 로컬 증거: `content-final.log` 1,299개/skip 20; `asset-suite-final.log` 806개/skip 2; `book-security-python312.log` 119개; `onboarding-boundary-final.log` 50개; `recovery-layout-green.log` 50개; `flutter-analyze-final.log` no issues; `ui-capture-final.log` 8개. 중복 검사는 합산하지 않는다. `docs/screenshots/` 루트 증거를 갱신했으며 Linux golden 기준은 변경하지 않았다. Spec/Standards 독립 검토의 확정 잔여 결함 0건은 실기기·사람 콘텐츠 검수 완료와 다르다.
@@ -56,6 +58,10 @@ B2–C2 기존 콘텐츠의 품질 개선은 포함한다. 대규모 어휘 확�
 전체 완료는 다섯 영역의 증거를 모두 충족할 때만 판정한다: **동의한 사용자 cohort 14일, crash-free sessions ≥99.5%, ANR <0.47%, 진행도 유실 0, 저사양 cold-start 중앙값 ≤2.5초, 콘텐츠 표본 오류율 ≤1%, 사람 검수 부채 0, 필수 TTS 누락 0**, 실기기·운영 검증. 현재 CP2026 전체 완료 상태가 아니다.
 
 자동화 `cp2026-pr-ci`는 종료된 #378–#383 대기에서 현재 안정화 추적으로 변경했다. 같은 SHA workflow를 중복 실행/반복 폴링하지 않고, 의미 있는 성공·실패·필요 조치만 알린다. 작업 공간은 정확한 merged-main 필수 검사 성공과 새 ignored/숨김/프로세스/고유 커밋/그림/음성/SDD 보존 감사 이후에만 정리한다.
+
+9월 22일 Jin은 이 재정렬 전체를 지속 실행 목표로 지정했다. PR 검사·실기기·사람 검수의
+대기만으로 전체 작업을 중단하지 않고, 충돌하지 않는 측정·백엔드·콘텐츠 기술 작업을 계속한다.
+대기 중인 사람 승인과 14일 적격 관측은 자동으로 완료 처리하지 않는다.
 
 사용자가 제공한 다운로드 영상 4개는 조이 3개·태고 1개다. `companion-video-inspection/probe.json`에 경로·SHA-256을 기록했다. 실제 H.264/yuv420p MP4에는 alpha가 없고 흰 배경이 포함되어 있어 투명 영상으로 runtime에 승격하지 않았다.
 
