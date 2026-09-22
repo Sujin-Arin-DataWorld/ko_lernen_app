@@ -1632,9 +1632,9 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_catalog_screen.dart": {
-    "mtime": 1790067260.3371713,
-    "seen": 1790069465.3827305,
-    "ast_hash": "d121184684a7915a85c62dd2009bda2a",
+    "mtime": 1790087965.4515119,
+    "seen": 1790088352.3241262,
+    "ast_hash": "470a4b6df63346708135e7afa2c0942c",
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_common.dart": {
@@ -13806,9 +13806,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/collapsing_header.dart": {
-    "mtime": 1790063554.9612706,
-    "seen": 1790063945.549149,
-    "ast_hash": "388a6955f7a3e54c597767ece3f3b1a0",
+    "mtime": 1790088218.7863617,
+    "seen": 1790088352.3809955,
+    "ast_hash": "ac1ddd7510b45110273d68fe9b889fcc",
     "semantic_hash": ""
   },
   "lib/widgets/sori/progress_meter.dart": {
@@ -17238,9 +17238,9 @@
     "semantic_hash": ""
   },
   "test/support/catalog_test_support.dart": {
-    "mtime": 1790063555.6938758,
-    "seen": 1790063945.5506897,
-    "ast_hash": "7a558fc928ebddda5d09cdf638ad5d96",
+    "mtime": 1790088218.7973597,
+    "seen": 1790088352.580422,
+    "ast_hash": "c5ecf474cc94a9cf3def0b305f419663",
     "semantic_hash": ""
   },
   "test/support/five_tabs_preview/first_activity.json": {
@@ -19467,6 +19467,12 @@
     "mtime": 1790067335.2546337,
     "seen": 1790069465.8630185,
     "ast_hash": "197335da51867417545f68319ab88c26",
+    "semantic_hash": ""
+  },
+  "test/sori_stage_catalog_book_entry_test.dart": {
+    "mtime": 1790088162.5092478,
+    "seen": 1790088352.5630968,
+    "ast_hash": "3c78de7df3e2e2ffc563a81de3dca208",
     "semantic_hash": ""
   }
 }

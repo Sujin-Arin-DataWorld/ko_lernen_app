@@ -57,18 +57,21 @@ Widget catalogTestApp({
   SoriStageTab tab = SoriStageTab.learn,
   String locale = 'en',
   double scale = 1,
+  bool disableAnimations = true,
   ThemeData? theme,
   LearningFocusController? controller,
   FutureOr<void> Function(TodayLearningDestination destination, String? id)?
   onOpen,
   Future<SoriStageProgressionSnapshot> Function()? loadSnapshot,
   ScrollController? scrollController,
+  RouteFactory? onGenerateRoute,
 }) => MaterialApp(
   debugShowCheckedModeBanner: false,
   theme: theme ?? AppTheme.light,
   locale: Locale(locale),
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
+  onGenerateRoute: onGenerateRoute,
   home: Builder(
     builder: (context) {
       final t = AppL10n.of(context);
@@ -126,7 +129,7 @@ Widget catalogTestApp({
       return MediaQuery(
         data: MediaQuery.of(context).copyWith(
           textScaler: TextScaler.linear(scale),
-          disableAnimations: true,
+          disableAnimations: disableAnimations,
         ),
         child: Scaffold(
           body: Row(

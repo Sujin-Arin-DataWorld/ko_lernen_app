@@ -347,7 +347,26 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                           height: 1.35,
                         ),
                         collapsedTitle: title,
-                        trailing: const SoriAvatar(),
+                        trailingSlots: isGames ? 1 : 2,
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            if (!isGames) ...[
+                              IconButton(
+                                tooltip: t.bookCaptureTitle,
+                                constraints: const BoxConstraints(
+                                  minWidth: 48,
+                                  minHeight: 48,
+                                ),
+                                icon: const Icon(Icons.photo_camera_outlined),
+                                onPressed: () =>
+                                    Navigator.of(context).pushNamed('/book'),
+                              ),
+                              const SizedBox(width: Spacing.xs),
+                            ],
+                            const SoriAvatar(),
+                          ],
+                        ),
                       );
                     },
                   ),
