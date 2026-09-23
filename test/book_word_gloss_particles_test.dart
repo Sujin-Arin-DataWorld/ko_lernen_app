@@ -37,12 +37,18 @@ void main() {
         '친구한테도': '친구',
         '친구한테서도': '친구',
         '집으로도': '집',
+        '집으로만은': '집',
+        '학교로만은': '학교',
+        '길로만은': '길',
         '학교로는': '학교',
         '학교로도': '학교',
         '학교까지만': '학교',
         '학교부터는': '학교',
         '책만은': '책',
         '학교에서만은': '학교',
+        '오늘만은': '오늘',
+        '내일까지만': '내일',
+        '어제부터는': '어제',
       };
       for (final entry in cases.entries) {
         test('${entry.key} retains bundled meaning and source', () async {
@@ -94,7 +100,7 @@ void main() {
       test(
         'unknown or recursively repeated suffixes do not invent words',
         () async {
-          for (final token in ['뾰롱섬에서도', '학교에서도도', '먹다에게도']) {
+          for (final token in ['뾰롱섬에서도', '학교에서도도', '먹다에게도', '빠르다만은']) {
             final words = await BookWordGlossResolver().resolve(
               _document(token),
               targetLang: lang,
@@ -128,6 +134,16 @@ void main() {
           expect(words.single.translationEn, server.translationEn);
         },
       );
+
+      for (final token in ['빨리에게도', '천천히한테만']) {
+        test('$token rejects a dative chain on an adverb', () async {
+          final words = await BookWordGlossResolver().resolve(
+            _document(token),
+            targetLang: lang,
+          );
+          expect(words, isEmpty);
+        });
+      }
     });
   }
 }
