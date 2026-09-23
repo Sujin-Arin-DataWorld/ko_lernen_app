@@ -20088,15 +20088,15 @@
     "semantic_hash": ""
   },
   "tool/collect_android_coldstart.py": {
-    "mtime": 1790184340.7750251,
-    "seen": 1790196979.7461061,
-    "ast_hash": "5d2c1c338d04b046218f05cc2be7ec0f",
+    "mtime": 1790203404.7750459,
+    "seen": 1790203656.3667884,
+    "ast_hash": "700abfb6cdaf9fb2a0618b34537accf3",
     "semantic_hash": ""
   },
   "tool/test_collect_android_coldstart.py": {
-    "mtime": 1790184396.2576013,
-    "seen": 1790196979.7464356,
-    "ast_hash": "da87a71201f75f950bd0121806122cd2",
+    "mtime": 1790203549.3463485,
+    "seen": 1790203656.3882058,
+    "ast_hash": "71cf87a3b510ba2538c24e0cb548bc24",
     "semantic_hash": ""
   }
 }

@@ -62,7 +62,18 @@ def package_identity(raw: str) -> dict:
         raise MeasurementError("installed package version is unavailable")
     if re.search(r"\bDEBUGGABLE\b", raw):
         raise MeasurementError("debuggable builds are not benchmark candidates")
-    return {"versionCode": int(code.group(1)), "versionName": name.group(1).strip()}
+    # Reinstalling a different APK can retain the version code/name. Android's
+    # package update timestamp is a continuity marker, not an artifact hash.
+    updates = re.findall(r"^[ \t]*lastUpdateTime=([^\r\n]*)", raw, flags=re.MULTILINE)
+    if len(updates) != 1:
+        raise MeasurementError("installed package installation marker is unavailable")
+    updated = updates[0].strip()
+    try:
+        datetime.strptime(updated, "%Y-%m-%d %H:%M:%S")
+    except ValueError:
+        raise MeasurementError("installed package installation marker is invalid") from None
+    return {"versionCode": int(code.group(1)), "versionName": name.group(1).strip(),
+            "lastUpdateTime": updated}
 
 
 def parse_launch(raw: str) -> dict:
@@ -121,6 +132,8 @@ def collect(adb: Adb, expected_version_code: int, settle=time.sleep) -> dict:
             "emulatorProperty": adb.run("shell", "getprop", "ro.kernel.qemu"),
         }
         for index in range(SAMPLE_COUNT):
+            if package_identity(adb.run("shell", "dumpsys", "package", PACKAGE)) != identity:
+                raise MeasurementError("installed build changed during collection")
             adb.run("shell", "am", "force-stop", PACKAGE)
             if adb.run("shell", "pidof", PACKAGE, allow_absent=True):
                 raise MeasurementError("app process survived force-stop")

@@ -17,7 +17,8 @@ class FakeAdb:
     def __init__(self):
         self.calls = []
         self.launches = [launch(ms) for ms in (9000, 1000, 2500, 4000, 2000, 3000)]
-        self.identity = "versionCode=7653 minSdk=23\nversionName=2.0.9\nflags=[ HAS_CODE ]"
+        self.identity = ("versionCode=7653 minSdk=23\nversionName=2.0.9\nflags=[ HAS_CODE ]"
+                         "\nlastUpdateTime=2026-09-23 21:36:15")
         self.pid = ""
         self.launch_error = None
 
@@ -85,13 +86,19 @@ class ColdstartTest(unittest.TestCase):
                           ["reportedLaunchState"])
 
     def test_wrong_build_or_debuggable_or_missing_version_never_force_stops(self):
-        for identity in ("", "versionCode=249\nversionName=2.0.9",
-                         "versionCode=7653\nversionName=2.0.9\nflags=[ DEBUGGABLE ]"):
+        base = FakeAdb().identity
+        cases = (("", "installed package version is unavailable"),
+                 (base.replace("versionCode=7653", "versionCode=249"),
+                  "installed build differs from expected version code"),
+                 (base.replace("HAS_CODE", "DEBUGGABLE"),
+                  "debuggable builds are not benchmark candidates"))
+        for identity, failure in cases:
             with self.subTest(identity=identity):
                 adb = FakeAdb()
                 adb.identity = identity
                 report = target.collect(adb, 7653, settle=lambda _: None)
                 self.assertFalse(report["measurementComplete"])
+                self.assertEqual(report["failure"], failure)
                 self.assertFalse(any("force-stop" in call for call in adb.calls))
 
     def test_surviving_process_never_launches(self):
@@ -104,11 +111,50 @@ class ColdstartTest(unittest.TestCase):
     def test_changed_build_invalidates_entire_measurement(self):
         adb = FakeAdb()
         def update_during_settle(_):
-            adb.identity = "versionCode=7656\nversionName=2.0.9"
+            adb.identity = adb.identity.replace("versionCode=7653", "versionCode=7656")
         report = target.collect(adb, 7653, settle=update_during_settle)
         self.assertFalse(report["measurementComplete"])
         self.assertIn("changed", report["failure"])
         self.assertNotIn("numericThresholdMet", report)
+
+    def test_same_version_replacement_between_samples_stops_before_next_launch(self):
+        adb = FakeAdb()
+        def replace_during_settle(_):
+            adb.identity = adb.identity.replace("21:36:15", "21:37:15")
+        report = target.collect(adb, 7653, settle=replace_during_settle)
+        self.assertFalse(report["measurementComplete"])
+        self.assertIn("changed", report["failure"])
+        self.assertNotIn("medianMs", report)
+        self.assertEqual(len(report["samples"]), 1)
+        self.assertEqual(len(adb.launches), 5)
+
+    def test_same_version_replacement_during_launch_invalidates_measurement(self):
+        adb = FakeAdb()
+        original = adb.run
+        def replace_after_launch(*args, **kwargs):
+            result = original(*args, **kwargs)
+            if args[1:3] == ("am", "start"):
+                adb.identity = adb.identity.replace("21:36:15", "21:37:15")
+            return result
+        adb.run = replace_after_launch
+        report = target.collect(adb, 7653, settle=lambda _: None)
+        self.assertFalse(report["measurementComplete"])
+        self.assertIn("changed", report["failure"])
+        self.assertNotIn("numericThresholdMet", report)
+        self.assertEqual(len(adb.launches), 5)
+
+    def test_unavailable_or_ambiguous_installation_marker_never_force_stops(self):
+        base = FakeAdb().identity.split("\nlastUpdateTime=")[0]
+        for marker in ("", "\nlastUpdateTime=null", "\nlastUpdateTime=bad",
+                       "\nlastUpdateTime=2026-02-30 21:36:15",
+                       "\nlastUpdateTime=2026-09-23 21:36:15\nlastUpdateTime=2026-09-23 21:36:15"):
+            with self.subTest(marker=marker):
+                adb = FakeAdb()
+                adb.identity = base + marker
+                report = target.collect(adb, 7653, settle=lambda _: None)
+                self.assertFalse(report["measurementComplete"])
+                self.assertIn("installation marker", report["failure"])
+                self.assertFalse(any("force-stop" in call for call in adb.calls))
 
     def test_timeout_is_terminal_no_automatic_retry(self):
         adb = FakeAdb()
