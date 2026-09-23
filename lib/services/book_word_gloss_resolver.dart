@@ -73,8 +73,8 @@ class BookWordGlossResolver {
   ];
 
   /// Common complete particle chains, matched once rather than recursively.
-  /// Only a bundled nominal headword can satisfy this fallback; an existing
-  /// exact word or single-particle phrase retains precedence.
+  /// Bundled nominal headwords can host these particles. Adverbs are limited
+  /// to auxiliary chains. Exact words and single-particle phrases stay first.
   static const List<String> _particleChains = [
     '에게서는',
     '에게서도',
@@ -84,6 +84,7 @@ class BookWordGlossResolver {
     '한테서만',
     '에서만은',
     '으로만은',
+    '로만은',
     '에서도',
     '에서만',
     '에게는',
@@ -115,6 +116,20 @@ class BookWordGlossResolver {
     'Substantiv',
     'Pronomen',
     'Zahlwort',
+  };
+
+  // Time words such as 오늘/내일 are Adverb entries in the bundled corpus.
+  // Allow auxiliary chains, but not case chains such as 빨리에게도.
+  // Copula hosts remain restricted to the nominal parts of speech above.
+  static const Set<String> _adverbParticleChains = {
+    '까지는',
+    '까지도',
+    '까지만',
+    '부터는',
+    '부터도',
+    '부터만',
+    '만은',
+    '만도',
   };
 
   /// Complete copula forms; true means the contracted form requires a
@@ -315,9 +330,15 @@ class BookWordGlossResolver {
     final stripped = _stripLongestParticle(token);
     var hit = stripped != null ? index[stripped] : null;
     if (hit == null || hit.isEmpty) {
-      final nominal = _stripLongestParticle(token, suffixes: _particleChains);
-      hit = index[nominal]
-          ?.where((entry) => _nominalPartsOfSpeech.contains(entry.posDe))
+      final stem = _stripLongestParticle(token, suffixes: _particleChains);
+      final chain = stem == null ? null : token.substring(stem.length);
+      hit = index[stem]
+          ?.where(
+            (entry) =>
+                _nominalPartsOfSpeech.contains(entry.posDe) ||
+                (entry.posDe == 'Adverb' &&
+                    _adverbParticleChains.contains(chain)),
+          )
           .toList(growable: false);
     }
     if (hit == null || hit.isEmpty) {
