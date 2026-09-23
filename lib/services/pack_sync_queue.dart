@@ -99,6 +99,7 @@ class PackSyncQueue {
   Timer? _idleTimer;
   Future<void>? _inFlightFlush;
   bool Function()? _flushOwnerIsCurrent;
+  bool _flushRequestedWhileInFlight = false;
 
   /// Test/debug seam: packs currently waiting for a flush.
   @visibleForTesting
@@ -205,11 +206,18 @@ class PackSyncQueue {
   /// concurrent call for the same owner joins the original pass. The caller
   /// waits at most eight seconds; the pass keeps its actual SDK acknowledgement
   /// after that bound, rather than starting a second pass on another trigger.
+  /// A joined trigger requests one follow-up pass once the original settles,
+  /// so newer progress is not stranded after its idle/status trigger fires.
   Future<void> flush() {
     final inFlight = _inFlightFlush;
     if (inFlight != null && (_flushOwnerIsCurrent?.call() ?? false)) {
+      _flushRequestedWhileInFlight = true;
       return _waitForFlush(inFlight);
     }
+    return _startFlush(<_PendingPackBackup>{});
+  }
+
+  Future<void> _startFlush(Set<_PendingPackBackup> attempted) {
     final uid = _backupUid();
     final identityEpoch = _sessions.identityEpoch;
     final lifetime = LocalDataLifetime.capture();
@@ -218,11 +226,21 @@ class PackSyncQueue {
         uid == _backupUid() &&
         identityEpoch == _sessions.identityEpoch;
     _flushOwnerIsCurrent = isCurrent;
+    _flushRequestedWhileInFlight = false;
     late final Future<void> future;
-    future = _flush(isCurrent).whenComplete(() {
+    future = _flush(isCurrent, attempted).whenComplete(() {
       if (identical(_inFlightFlush, future)) {
+        final followUpRequested = _flushRequestedWhileInFlight;
+        _flushRequestedWhileInFlight = false;
         _inFlightFlush = null;
         _flushOwnerIsCurrent = null;
+        if (followUpRequested &&
+            isCurrent() &&
+            _pending.values.any((entry) => !attempted.contains(entry))) {
+          // Consume joined triggers once, not once per remaining entry. A
+          // blocked/failed follow-up waits for another external trigger.
+          unawaited(_startFlush(attempted));
+        }
       }
     });
     _inFlightFlush = future;
@@ -306,7 +324,10 @@ class PackSyncQueue {
     return Storage.setPendingPackSyncIds(ids.toList()..sort());
   }
 
-  Future<void> _flush(bool Function() ownerIsCurrent) async {
+  Future<void> _flush(
+    bool Function() ownerIsCurrent,
+    Set<_PendingPackBackup> attempted,
+  ) async {
     _idleTimer?.cancel();
     _idleTimer = null;
     _discardRetiredEntries();
@@ -322,9 +343,10 @@ class PackSyncQueue {
         return;
       }
       final entry = _pending[packId];
-      if (entry == null) {
+      if (entry == null || attempted.contains(entry)) {
         continue; // Already flushed by a re-entrant call.
       }
+      attempted.add(entry);
       await _write(entry);
     }
   }

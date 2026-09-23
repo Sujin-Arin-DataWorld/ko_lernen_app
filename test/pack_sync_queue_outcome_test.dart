@@ -108,14 +108,13 @@ void main() {
   test('late acknowledgement cannot remove newer progress', () {
     fakeAsync((async) {
       final first = Completer<CloudWriteResult>();
+      final second = Completer<CloudWriteResult>();
       final saved = <PackProgress>[];
       final queue = PackSyncQueue(
         canMirror: () => true,
         savePack: (pack) {
           saved.add(pack);
-          return saved.length == 1
-              ? first.future
-              : Future.value(CloudWriteResult.completed);
+          return saved.length == 1 ? first.future : second.future;
         },
       );
       queue.enqueue(_pack);
@@ -131,15 +130,126 @@ void main() {
       expect(saved, hasLength(1));
       first.complete(CloudWriteResult.completed);
       async.flushMicrotasks();
+      expect(saved, [_pack, newer]);
       expect(queue.pendingCount, 1);
       expect(Storage.pendingPackSyncIds, contains(_pack.packId));
-      queue.flush();
+      second.complete(CloudWriteResult.completed);
       async.flushMicrotasks();
       expect(saved, [_pack, newer]);
       expect(queue.pendingCount, 0);
       expect(Storage.pendingPackSyncIds, isEmpty);
     });
   });
+
+  for (final trigger in ['idle', 'status change', 'terminal']) {
+    test('$trigger during a retained write backs up newer progress', () {
+      fakeAsync((async) {
+        final first = Completer<CloudWriteResult>();
+        final saved = <PackProgress>[];
+        final queue = PackSyncQueue(
+          canMirror: () => true,
+          savePack: (pack) {
+            saved.add(pack);
+            return saved.length == 1
+                ? first.future
+                : Future.value(CloudWriteResult.completed);
+          },
+        );
+        queue.enqueue(_pack);
+        queue.flush();
+        async.elapse(const Duration(seconds: 8));
+        final newer = PackProgress.fromJson(_pack.packId, {
+          ..._pack.toJson(),
+          'wordsLearned': 8,
+          if (trigger == 'terminal') 'status': PackStatus.cleared.name,
+        });
+        queue.enqueue(
+          newer,
+          previousStatus: trigger == 'status change'
+              ? PackStatus.available
+              : _pack.status,
+        );
+        async.elapse(const Duration(seconds: 40));
+        expect(saved, [_pack]);
+        first.complete(CloudWriteResult.completed);
+        async.flushMicrotasks();
+        expect(saved, [_pack, newer]);
+        expect(queue.pendingCount, 0);
+        expect(Storage.pendingPackSyncIds, isEmpty);
+      });
+    });
+  }
+
+  test('joined triggers coalesce and a blocked retry does not spin', () {
+    fakeAsync((async) {
+      final first = Completer<CloudWriteResult>();
+      var calls = 0;
+      final queue = PackSyncQueue(
+        canMirror: () => true,
+        savePack: (_) => ++calls == 1
+            ? first.future
+            : Future.value(CloudWriteResult.blocked),
+      );
+      queue.enqueue(_pack);
+      queue.flush();
+      async.elapse(const Duration(seconds: 8));
+      queue.enqueue(
+        PackProgress.fromJson(_pack.packId, {
+          ..._pack.toJson(),
+          'wordsLearned': 8,
+        }),
+      );
+      queue.flush();
+      queue.flushAll();
+      first.complete(CloudWriteResult.blocked);
+      async.flushMicrotasks();
+      expect(calls, 2);
+      async.elapse(const Duration(minutes: 2));
+      expect(calls, 2);
+      expect(queue.pendingCount, 1);
+      expect(Storage.pendingPackSyncIds, contains(_pack.packId));
+    });
+  });
+
+  for (final failsWithError in [false, true]) {
+    test('new pack passes a retained failure (error: $failsWithError)', () {
+      fakeAsync((async) {
+        final first = Completer<CloudWriteResult>();
+        final saved = <PackProgress>[];
+        final newer = PackProgress.fromJson('a1_new_pack', _pack.toJson());
+        final queue = PackSyncQueue(
+          canMirror: () => true,
+          savePack: (pack) {
+            saved.add(pack);
+            if (saved.length == 1) {
+              return first.future;
+            }
+            if (pack.packId == _pack.packId) {
+              return Completer<CloudWriteResult>().future;
+            }
+            return Future.value(CloudWriteResult.completed);
+          },
+        );
+        queue.enqueue(_pack);
+        queue.flush();
+        async.elapse(const Duration(seconds: 8));
+        queue.enqueue(newer);
+        async.elapse(const Duration(seconds: 40));
+        expect(saved, [_pack]);
+        if (failsWithError) {
+          first.completeError(StateError('server rejected'));
+        } else {
+          first.complete(CloudWriteResult.blocked);
+        }
+        async.flushMicrotasks();
+        expect(saved, [_pack, newer]);
+        expect(queue.pendingCount, 1);
+        expect(Storage.pendingPackSyncIds, [_pack.packId]);
+        async.elapse(const Duration(minutes: 2));
+        expect(saved, [_pack, newer]);
+      });
+    });
+  }
 
   test('settled late failure retries only at the next explicit trigger', () {
     fakeAsync((async) {
