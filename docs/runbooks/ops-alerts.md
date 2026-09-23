@@ -39,6 +39,39 @@ GET으로 검사한다. 실제 변경 시 같은 명령에서 `--dry-run`만 뺀
 
 메트릭과 검증 한계는 `tool/ops/alert_policies/_sources.md`에 기록한다.
 
+## 로그 기반 카운터 사전 검사와 생성
+
+`tool/ops/log_metrics.py`는 비용 브레이커, Apple 설정 오류, Auth 생성의 기존
+세 필터를 유지한다. Bash `log_metrics.sh`와 PowerShell `log_metrics.ps1`도
+이 도구를 실행한다. Python 3.12와 로그인된 `gcloud`가 필요하며 프로젝트를
+`ko-lernen-app`으로 명시해야 한다. 별도 수신 채널은 필요하지 않다.
+
+```powershell
+$env:GCP_PROJECT = 'ko-lernen-app'
+python tool/ops/log_metrics.py --dry-run
+# 한 카운터만 검사할 때:
+python tool/ops/log_metrics.py --dry-run --metric auth_anonymous_account_created
+```
+
+`.sh`는 같은 인자, `.ps1`은 `-DryRun -Metric auth_anonymous_account_created`를
+받는다. 실제 생성은 검토한 명령에서 dry-run 옵션만 제거한다.
+선택한 카운터를 모두 GET으로 읽은 뒤 필요한 것만 생성한다. 명시적인 404만
+부재로 판단하며 권한 거절·호출 제한·네트워크 오류는 쓰기 전에 중단한다.
+필터, 설명, 활성 상태, 프로젝트/버킷 범위, DELTA/INT64 집계, 단위 또는
+사용자 라벨이 다르면 기존 메트릭을 수정·삭제하지 않고 중단한다.
+
+생성 직전 `create_requested`, 생성 응답과 재조회 설정이 모두 일치하면
+`created`를 JSON으로 출력한다. 동일 설정은 `unchanged`, dry-run의 부재는
+`would_create`다. 부분 성공 뒤 실패해도 앞의 영수증을 유지하고 종료 코드 1을
+반환한다. 한 작업자만 적용하며 불명확한 POST 응답·409 충돌을 자동 재시도하지
+않는다. 실제 상태를 dry-run으로 확인한 뒤 다시 판단한다. 토큰·서버 본문·실제
+로그 항목은 출력하지 않는다.
+
+이는 메트릭 **설정** 확인이다. 생성 이전 이벤트를 소급 집계하지 않으며,
+실제 새 이벤트의 일치와 시계열 수신은 별도로 검증한다. 영수증의
+`eventDeliveryVerified`는 항상 false다. 이 도구는 알림 정책이나 테스트 계정을
+만들지 않으며, 03의 로그 계약 검증 차단도 해제하지 않는다.
+
 ---
 
 ## 01 — Functions 5xx ratio > 2% (5분, 서비스별)
