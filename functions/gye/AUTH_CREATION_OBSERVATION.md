@@ -24,7 +24,8 @@ The log contains only `event`, `schemaVersion` and `accountKind`:
 UIDs, email addresses, phone numbers, tokens and raw event payloads are not logged.
 The function does not read or write Firestore, send messages or change quotas.
 
-`tool/ops/log_metrics.sh` creates `auth_anonymous_account_created`. Its filter
+`tool/ops/log_metrics.py` (also exposed through the Bash and PowerShell wrappers)
+creates `auth_anonymous_account_created`. Its filter
 selects this function's generation-1 resource and the versioned anonymous event.
 In Monitoring, use `logging.googleapis.com/user/auth_anonymous_account_created`
 with `ALIGN_SUM` over 300 seconds and `REDUCE_SUM` to observe a five-minute count.

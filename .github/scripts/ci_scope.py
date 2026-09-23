@@ -190,6 +190,13 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
             result["gye"] = True
             continue
 
+        # The Auth observer contract checks the shared log metric definition.
+        if path in {"tool/ops/log_metrics.py", "tool/ops/log_metrics.sh",
+                    "tool/ops/log_metrics.ps1"}:
+            result["app"] = True
+            result["gye"] = True
+            continue
+
         if path.startswith("functions/pronunciation/"):
             result["pronunciation"] = True
             continue

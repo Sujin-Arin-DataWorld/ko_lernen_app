@@ -41,6 +41,12 @@ class CiScopeTest(unittest.TestCase):
         self.assert_enabled(["assets/data/cloze.json"], "app", "tts", "content")
         self.assert_enabled(["assets/data/korean_vocab.csv"], "app", "tts", "content")
 
+    def test_log_metric_changes_include_auth_observer_contract(self):
+        for path in ["tool/ops/log_metrics.py", "tool/ops/log_metrics.sh",
+                     "tool/ops/log_metrics.ps1"]:
+            with self.subTest(path=path):
+                self.assert_enabled([path], "app", "gye")
+
     def test_unlisted_assets_data_file_selects_app_and_tts(self):
         self.assert_enabled(["assets/data/foo.json"], "app", "tts")
 
