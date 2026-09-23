@@ -27,6 +27,12 @@ class FakeApi:
         self.fail_metric = False
         self.worker_points = [{"value": {"int64Value": "1"}}]
         self.fail_create = False
+        # Descriptor shapes read from Monitoring, not inferred from policy JSON.
+        self.metric_resources = {
+            "run.googleapis.com/request_count": ["cloud_run_instance", "cloud_run_revision"],
+            "firebaseappcheck.googleapis.com/services/verification_count": ["firebaseappcheck.googleapis.com/Service"],
+            "firestore.googleapis.com/document/write_count": ["firestore_instance"],
+        }
 
     def request(self, method, path, params=None, body=None):
         self.calls.append((method, path, params, copy.deepcopy(body)))
@@ -35,8 +41,9 @@ class FakeApi:
         if path.startswith("metricDescriptors/"):
             if self.fail_metric:
                 raise app.OpsError("monitoring_http_404")
-            return {"type": path.removeprefix("metricDescriptors/"),
-                    "metricKind": "DELTA", "valueType": "INT64"}
+            metric = path.removeprefix("metricDescriptors/")
+            return {"type": metric, "metricKind": "DELTA", "valueType": "INT64",
+                    "monitoredResourceTypes": self.metric_resources[metric]}
         if path == "timeSeries":
             return {"timeSeries": [{"points": self.worker_points}]}
         if path == "alertPolicies" and method == "GET":
@@ -107,6 +114,43 @@ class ApplyAlertsTest(unittest.TestCase):
         with self.assertRaisesRegex(app.OpsError, "404"):
             self.run_plan(api, dry_run=False)
         self.assertEqual(api.posts, [])
+
+    def test_actual_firestore_resource_accepts_write_policy(self):
+        api = FakeApi()
+        policies = app.load_policies(POLICIES, ("05",), CHANNEL)
+        block = policies[0][1]["conditions"][0]["conditionThreshold"]
+        self.assertIn('resource.type="firestore_instance"', block["filter"])
+        with redirect_stdout(io.StringIO()):
+            result = app.apply(api, policies, CHANNEL, dry_run=True)
+        self.assertEqual(result[0]["status"], "would_create")
+        self.assertEqual(api.posts, [])
+
+    def test_incompatible_firestore_resource_blocks_whole_batch_before_write(self):
+        api = FakeApi()
+        policies = app.load_policies(POLICIES, ("01", "05"), CHANNEL)
+        block = policies[1][1]["conditions"][0]["conditionThreshold"]
+        block["filter"] = 'resource.type="firestore.googleapis.com/Database" AND metric.type="firestore.googleapis.com/document/write_count"'
+        with redirect_stdout(io.StringIO()), self.assertRaisesRegex(app.OpsError, "metric_resource_mismatch"):
+            app.apply(api, policies, CHANNEL, dry_run=False)
+        self.assertEqual(api.posts, [])
+
+    def test_incompatible_denominator_resource_cannot_pass_numerator_check(self):
+        api = FakeApi()
+        policies = app.load_policies(POLICIES, ("01",), CHANNEL)
+        block = policies[0][1]["conditions"][0]["conditionThreshold"]
+        block["denominatorFilter"] = block["denominatorFilter"].replace('"cloud_run_revision"', '"firestore_instance"')
+        with redirect_stdout(io.StringIO()), self.assertRaisesRegex(app.OpsError, "metric_resource_mismatch"):
+            app.apply(api, policies, CHANNEL, dry_run=False)
+        self.assertEqual(api.posts, [])
+
+    def test_missing_or_malformed_resource_contract_blocks_writes(self):
+        for resources in (None, [], "cloud_run_revision", [None], ["cloud_run_revision", 1]):
+            api = FakeApi()
+            api.metric_resources["run.googleapis.com/request_count"] = resources
+            with self.subTest(resources=resources), redirect_stdout(io.StringIO()):
+                with self.assertRaisesRegex(app.OpsError, "metric_resource_mismatch"):
+                    self.run_plan(api, selected=("01",), dry_run=False)
+                self.assertEqual(api.posts, [])
 
     def test_absent_zero_and_malformed_worker_series_cannot_arm_liveness(self):
         for points in ([], [{"value": {"int64Value": "0"}}],

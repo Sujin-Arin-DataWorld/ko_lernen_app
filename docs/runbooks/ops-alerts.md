@@ -18,6 +18,9 @@ python tool/ops/apply_alerts.py --dry-run --policy 01 --policy 02 --policy 04 --
 
 `--dry-run`은 채널 상태, 메트릭 descriptor, 04의 최근 성공 시계열, 기존 정책을
 GET으로 검사한다. 실제 변경 시 같은 명령에서 `--dry-run`만 뺀다.
+각 조건의 분자·분모 필터에 지정한 리소스 유형이 해당 메트릭 descriptor의
+`monitoredResourceTypes`에 포함되는지도 검사한다. 누락·불일치 시 모든 정책
+생성 전에 중단한다.
 `.sh`는 같은 인자, `.ps1`은 `-DryRun -Policy 01,02,04,05`를 사용한다.
 `PYTHON` 환경 변수로 사용할 Python 실행 파일을 지정할 수 있다.
 
@@ -195,6 +198,10 @@ Monitoring 임계값 조건은 짧은 롤링 윈도우에 맞게 설계돼 있�
 약 4.8배에 해당하는 15분 버스트를 대리 지표로 쓴다(정확한 산식은 정책
 파일의 `documentation.content` 참조). 재시도 폭풍, 클라이언트 동기화 루프
 버그, 또는 비용 브레이커가 열린 채로 방치된 상황을 잡기 위함.
+
+리소스 유형은 `firestore_instance`다. 2026-09-23 실제 descriptor·시계열 조회로
+확인했으며, 이전 `firestore.googleapis.com/Database` 조합은 HTTP 400으로
+거절됐다. 조회 가능한 설정으로 수정한 것이며 실제 알림 적용·수신은 별도다.
 
 **먼저 확인할 것 3가지:**
 1. Cloud Logging에서 최근 15분 `resource.type="cloud_run_revision"` 에러율이
