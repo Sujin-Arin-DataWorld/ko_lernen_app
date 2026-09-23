@@ -541,14 +541,20 @@ jobs:
             CODE_SIGNING_ALLOWED=NO ARCHS=x86_64 ONLY_ACTIVE_ARCH=YES \
             BUILD_DIR="$PWD/build/ios" FLUTTER_BUILD_MODE=debug \
             2>&1 | tee "$RUNNER_TEMP/phase-native-build.log"
-          xcrun simctl install "$simulator_id" build/ios/Debug-iphonesimulator/Runner.app
-          xcrun simctl privacy "$simulator_id" grant microphone com.hangulsori.app
+          phase_app=build/ios/Debug-iphonesimulator/Runner.app
+          # Use the identity of the built app for permissions and process death.
+          # A stale hard-coded ID targets a different app and invalidates restore QA.
+          app_bundle_id="$(plutil -extract CFBundleIdentifier raw -o - "$phase_app/Info.plist")"
+          test -n "$app_bundle_id"
+          xcrun simctl install "$simulator_id" "$phase_app"
+          xcrun simctl get_app_container "$simulator_id" "$app_bundle_id" app >/dev/null
+          xcrun simctl privacy "$simulator_id" grant microphone "$app_bundle_id"
           native_failed=0
           for qa_level in "${qa_levels[@]}"; do
             # Reassert permission after relaunches and allow the previous native
             # audio session to release before an independent level begins.
-            xcrun simctl terminate "$simulator_id" com.hangulsori.app || true
-            xcrun simctl privacy "$simulator_id" grant microphone com.hangulsori.app
+            xcrun simctl terminate "$simulator_id" "$app_bundle_id" || true
+            xcrun simctl privacy "$simulator_id" grant microphone "$app_bundle_id"
             sleep 2
             if ! flutter drive --no-pub --no-dds --keep-app-running --no-uninstall-first \
               --use-application-binary=build/ios/Debug-iphonesimulator/Runner.app \
@@ -560,7 +566,7 @@ jobs:
               continue
             fi
             cp build/integration_response_data.json "$RUNNER_TEMP/phase-native-$qa_level-receipt.json"
-            xcrun simctl terminate "$simulator_id" com.hangulsori.app
+            xcrun simctl terminate "$simulator_id" "$app_bundle_id"
             # Without keep-app-running, Flutter drive also uninstalls the app
             # after restoring it, discarding data and the microphone grant.
             # The next loop explicitly terminates only the process.
