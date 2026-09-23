@@ -5326,5 +5326,8 @@
     }
   },
   "contentLearningLearnAgain": "Noch einmal lernen",
-  "contentLearningListenAgain": "Noch einmal hören"
+  "contentLearningListenAgain": "Noch einmal hören",
+  "kkeunmariSelectionHint": "Du spielst mit deinen ausgewählten Wörtern, die im geprüften Spielwörterbuch stehen. Mindestens zwei müssen sich verbinden lassen.",
+  "kkeunmariSelectionEmpty": "In deiner Auswahl gibt es noch keine Wortkette. Wähle mindestens zwei Wörter aus dem Spielwörterbuch, bei denen die letzte Silbe des einen die erste des anderen ist.",
+  "kkeunmariNotInSelection": "Dieses Wort gehört nicht zu deiner Auswahl für diese Runde."
 }

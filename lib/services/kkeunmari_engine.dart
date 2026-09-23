@@ -105,11 +105,14 @@ class KkeunmariEngine {
     rootBundle.evict(_poolAsset);
   }
 
-  static List<KkeunmariWord> _cumulativePool(LearnerLevel? maxLevel) {
+  static List<KkeunmariWord> _cumulativePool(
+    LearnerLevel? maxLevel,
+    List<KkeunmariWord> source,
+  ) {
     if (maxLevel == null) {
-      return pool;
+      return source;
     }
-    return pool.where((word) {
+    return source.where((word) {
       final wordLevel = LearnerLevel.fromCode(word.level);
       return wordLevel != null && wordLevel.rank <= maxLevel.rank;
     }).toList();
@@ -171,14 +174,21 @@ class KkeunmariEngine {
     return candidates.where((word) => (liveCounts[word] ?? 0) >= 1).toList();
   }
 
+  static bool hasChain(List<KkeunmariWord> source) =>
+      source.any((word) => _liveNextCount(word, source, const <String>{}) > 0);
+
   /// "안전한" 시작 단어 — 현재 살아 있는 후보 집합 안에 후속 단어가 있는 것을 우선.
   ///
   /// With [maxLevel], candidates first come from the cumulative A1..level
   /// subset. If that subset has no live chain, the full pool is used as a
   /// fallback so a sparse B1/B2 pool cannot create an unwinnable opening.
-  static KkeunmariWord pickStart({LearnerLevel? maxLevel}) {
+  static KkeunmariWord pickStart({
+    LearnerLevel? maxLevel,
+    List<KkeunmariWord>? source,
+  }) {
+    final allowed = source ?? pool;
     final usedWords = <String>{};
-    final scoped = _cumulativePool(maxLevel);
+    final scoped = _cumulativePool(maxLevel, allowed);
     final scopedCandidates = _availableCandidates(scoped, usedWords);
     final scopedLive = _prioritizedLiveCandidates(
       scopedCandidates,
@@ -189,16 +199,20 @@ class KkeunmariEngine {
       return scopedLive[_rng.nextInt(scopedLive.length)];
     }
 
-    final allCandidates = _availableCandidates(pool, usedWords);
-    final allLive = _prioritizedLiveCandidates(allCandidates, pool, usedWords);
-    final source = allLive.isNotEmpty
+    final allCandidates = _availableCandidates(allowed, usedWords);
+    final allLive = _prioritizedLiveCandidates(
+      allCandidates,
+      allowed,
+      usedWords,
+    );
+    final choices = allLive.isNotEmpty
         ? allLive
         : (scopedCandidates.isNotEmpty ? scopedCandidates : allCandidates);
-    return source[_rng.nextInt(source.length)];
+    return choices[_rng.nextInt(choices.length)];
   }
 
-  static KkeunmariWord? findExact(String word) {
-    for (final w in pool) {
+  static KkeunmariWord? findExact(String word, {List<KkeunmariWord>? source}) {
+    for (final w in source ?? pool) {
       if (w.word == word) return w;
     }
     return null;
@@ -215,8 +229,10 @@ class KkeunmariEngine {
     String requiredFirst,
     Set<String> usedWords, {
     LearnerLevel? maxLevel,
+    List<KkeunmariWord>? source,
   }) {
-    final scoped = _cumulativePool(maxLevel);
+    final allowed = source ?? pool;
+    final scoped = _cumulativePool(maxLevel, allowed);
     final scopedCandidates = _availableCandidates(
       scoped,
       usedWords,
@@ -232,14 +248,18 @@ class KkeunmariEngine {
     }
 
     final allCandidates = _availableCandidates(
-      pool,
+      allowed,
       usedWords,
       requiredFirst: requiredFirst,
     );
     if (allCandidates.isEmpty) {
       return const [];
     }
-    final allLive = _prioritizedLiveCandidates(allCandidates, pool, usedWords);
+    final allLive = _prioritizedLiveCandidates(
+      allCandidates,
+      allowed,
+      usedWords,
+    );
     return allLive.isNotEmpty
         ? allLive
         : (scopedCandidates.isNotEmpty ? scopedCandidates : allCandidates);
@@ -254,7 +274,13 @@ class KkeunmariEngine {
     String requiredFirst,
     Set<String> usedWords, {
     LearnerLevel? maxLevel,
-  }) => _tigerCandidates(requiredFirst, usedWords, maxLevel: maxLevel).length;
+    List<KkeunmariWord>? source,
+  }) => _tigerCandidates(
+    requiredFirst,
+    usedWords,
+    maxLevel: maxLevel,
+    source: source,
+  ).length;
 
   /// Selects a fair tiger reply from the current live candidate set.
   ///
@@ -264,16 +290,18 @@ class KkeunmariEngine {
     String requiredFirst,
     Set<String> usedWords, {
     LearnerLevel? maxLevel,
+    List<KkeunmariWord>? source,
   }) {
-    final source = _tigerCandidates(
+    final choices = _tigerCandidates(
       requiredFirst,
       usedWords,
       maxLevel: maxLevel,
+      source: source,
     );
-    if (source.isEmpty) {
+    if (choices.isEmpty) {
       return null;
     }
-    return source[_rng.nextInt(source.length)];
+    return choices[_rng.nextInt(choices.length)];
   }
 
   /// 사용자의 다음 단어가 유효한지 검증.
@@ -285,8 +313,9 @@ class KkeunmariEngine {
   static (bool valid, String reason, KkeunmariWord? word) validateUserWord(
     String input,
     String requiredFirst,
-    Set<String> usedWords,
-  ) {
+    Set<String> usedWords, {
+    List<KkeunmariWord>? source,
+  }) {
     final trimmed = input.trim();
     if (trimmed.isEmpty) return (false, 'not_in_pool', null);
     // Hangul only check (Unicode 0xAC00..0xD7A3 syllable block)
@@ -294,7 +323,7 @@ class KkeunmariEngine {
     if (!isHangul) return (false, 'not_korean', null);
     // wrong_start first — most actionable hint
     if (trimmed[0] != requiredFirst) return (false, 'wrong_start', null);
-    final w = findExact(trimmed);
+    final w = findExact(trimmed, source: source);
     if (w == null) return (false, 'not_in_pool', null);
     if (usedWords.contains(w.word)) return (false, 'already_used', w);
     return (true, 'ok', w);
