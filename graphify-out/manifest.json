@@ -18072,9 +18072,9 @@
     "semantic_hash": ""
   },
   "lib/services/book_word_gloss_resolver.dart": {
-    "mtime": 1790169045.6724863,
-    "seen": 1790195635.3778818,
-    "ast_hash": "31cc703c7659dded08853d6c07f2c06e",
+    "mtime": 1790202310.3631346,
+    "seen": 1790202607.1934636,
+    "ast_hash": "08deb966bca4eb6615a6f4515e30d6f5",
     "semantic_hash": ""
   },
   "lib/services/net/sori_net.dart": {
@@ -20103,6 +20103,12 @@
     "mtime": 1790168444.293851,
     "seen": 1790195635.3783557,
     "ast_hash": "c9c9fded5ccc49d580128d6004669c72",
+    "semantic_hash": ""
+  },
+  "test/book_word_gloss_dedup_ambiguity_test.dart": {
+    "mtime": 1790202310.3711762,
+    "seen": 1790202607.3036218,
+    "ast_hash": "d8215d2bb89bfb7f6f6aaac45654dcfe",
     "semantic_hash": ""
   }
 }

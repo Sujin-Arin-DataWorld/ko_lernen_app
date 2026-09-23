@@ -236,9 +236,18 @@ class BookWordGlossResolver {
         );
         previousToken = token;
         if (match != null) {
-          resolved.putIfAbsent(
+          // One row represents every occurrence of this headword on the page.
+          // An exact occurrence elsewhere does not disambiguate this surface.
+          // Keep the first meaning/source, but never drop a later ambiguity.
+          resolved.update(
             match.vocab.korean,
-            () => _wordFromVocab(
+            (existing) => existing.copyWith(
+              ambiguous: existing.ambiguous || match.ambiguous,
+              alternativeHeadword: existing.alternativeHeadword.isNotEmpty
+                  ? existing.alternativeHeadword
+                  : match.alternativeHeadword,
+            ),
+            ifAbsent: () => _wordFromVocab(
               match.vocab,
               unit,
               ambiguous: match.ambiguous,
