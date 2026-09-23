@@ -97,7 +97,12 @@ class CommercialSecurityContractTest(unittest.TestCase):
             # Both runs must retain its data and OS microphone permission.
             self.assertIn('--keep-app-running', command)
             self.assertIn('--no-uninstall-first', command)
-        self.assertIn('xcrun simctl terminate "$simulator_id" com.hangulsori.app', phase)
+        self.assertIn('plutil -extract CFBundleIdentifier raw -o - "$phase_app/Info.plist"', phase)
+        self.assertIn('test -n "$app_bundle_id"', phase)
+        self.assertIn('xcrun simctl get_app_container "$simulator_id" "$app_bundle_id" app', phase)
+        self.assertEqual(phase.count('xcrun simctl terminate "$simulator_id" "$app_bundle_id"'), 2)
+        self.assertEqual(phase.count('grant microphone "$app_bundle_id"'), 2)
+        self.assertNotIn('com.hangulsori.app', phase)
 
     def test_ios_simulator_uses_native_intel_for_locked_mlkit_slices(self):
         release, simulator = self.ios_jobs()
