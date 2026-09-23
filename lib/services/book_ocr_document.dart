@@ -407,11 +407,14 @@ BookOcrUnitRole classifyBookOcrRole(
   // A shared prefix alone is not a task: 쓰다/쓰레기 and 다음 주에 만나요
   // are learning content. Require a complete heading or a task imperative.
   final taskHeading = RegExp(
-    r'^(다음|보기|빈칸|연결|대답|완성|연결하기|고르기|쓰기|읽기|대답하기|완성하기)'
-    r'[.!?。！？:]?$',
+    r'^(?:(다음|보기|빈칸|연결|대답|완성)|'
+    r'(?:(읽고|듣고|보고|쓰고|고르고|찾고)\s*)*'
+    r'(연결하기|고르기|쓰기|읽기|듣기|말하기|답하기|대답하기|완성하기)'
+    r'(?:\s+연습)?)[.!?。！？:]?$',
   ).hasMatch(text);
   final taskOpening = RegExp(
-    r'^(다음을\s|다음\s*(글|문장|대화|문제|그림|표|보기|빈칸|내용|질문|말|단어)'
+    r'^(다음을\s|다음\s+중(?:에서)?\s|다음과\s+같이\s|'
+    r'다음\s*(글|문장|대화|문제|그림|표|보기|빈칸|내용|질문|말|단어)'
     r'(?:에서|으로|[을를의에와과로이가]|\s|$)|'
     r'보기(에서|와\s*같이|처럼|를)|'
     r'(알맞은|맞는|틀린)\s+(답|말|단어|문장|표현|것)'
