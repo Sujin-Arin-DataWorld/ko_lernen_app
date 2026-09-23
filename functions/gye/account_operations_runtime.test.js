@@ -2528,7 +2528,9 @@ async () => {
 test("continues Apple-linked deletion when revoke secrets are unconfigured",
 async () => {
   const rawAppleCode = "apple-code-used-only-for-unconfigured-secrets";
+  const logs = [];
   const harness = createHarness({
+    logger: {warn: (...args) => logs.push(args)},
     tokens: {
       apple: decodedToken({
         uid: "apple-unconfigured-account",
@@ -2575,6 +2577,9 @@ async () => {
   assert.equal(stored.deletionProgress.appleRevocationComplete, false);
   assert.equal(stored.deletionProgress.appleManualRevocationRequired, true);
   assert.equal(JSON.stringify(stored).includes(rawAppleCode), false);
+  assert.deepEqual(logs, [["apple/revocation-config-invalid", {
+    event: "apple_revocation_config_invalid", schemaVersion: 1,
+  }]]);
 });
 
 test("keeps Apple revocation pending with only a safe resumable failure code",
@@ -2883,7 +2888,9 @@ test("keeps an early-phase deletion pending with only a safe resumable " +
 test("continues an early-phase deletion when Apple revoke secrets are " +
     "unconfigured", async () => {
   const rawAppleCode = "apple-code-unconfigured-secrets-early-phase";
+  const logs = [];
   const harness = createHarness({
+    logger: {warn: (...args) => logs.push(args)},
     tokens: {
       apple: decodedToken({
         uid: "apple-unconfigured-early-account",
@@ -2917,6 +2924,9 @@ test("continues an early-phase deletion when Apple revoke secrets are " +
     "apple-revocation-unavailable",
   );
   assert.equal(JSON.stringify(stored).includes(rawAppleCode), false);
+  assert.deepEqual(logs, [["apple/revocation-config-invalid", {
+    event: "apple_revocation_config_invalid", schemaVersion: 1,
+  }]]);
 });
 
 test("renews a server worker lease and fences the superseded lease token",
@@ -4234,9 +4244,11 @@ async () => {
   assert.equal(persisted.includes(terminalStatusReceipt), false);
 });
 
-test("configuration failure preserves manual-required disposition without claiming revocation",
+test("configuration failure preserves manual-required disposition even if its logger fails",
 async () => {
+  let warnings = 0;
   const harness = createHarness({
+    logger: {warn() { warnings += 1; throw new Error("synthetic logging outage"); }},
     tokens: {
       apple: decodedToken({ uid: "apple-config-source", provider: "apple.com" }),
     },
@@ -4258,6 +4270,7 @@ async () => {
   assert.equal(stored.deletionProgress.appleRevocationComplete, false);
   assert.equal(stored.deletionProgress.appleManualRevocationRequired, true);
   assert.equal(stored.deletionProgress.statusCode, "apple-revocation-unavailable");
+  assert.equal(warnings, 1);
 });
 
 test("accepted Apple deletion abandoned before code supply completes after cleanup retry",

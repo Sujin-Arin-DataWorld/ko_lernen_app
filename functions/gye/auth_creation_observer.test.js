@@ -57,7 +57,7 @@ test("creation logs classify identities without logging their attributes", async
 });
 
 test("B1 metric selects the real observer's anonymous creation log contract", () => {
-  const script = fs.readFileSync(path.join(__dirname, "../../tool/ops/log_metrics.sh"), "utf8");
+  const script = fs.readFileSync(path.join(__dirname, "../../tool/ops/log_metrics.py"), "utf8");
   assert.ok(script.includes('"auth_anonymous_account_created"'));
   for (const clause of [
     'resource.type="cloud_function"',
