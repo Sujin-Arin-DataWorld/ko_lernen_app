@@ -67,6 +67,7 @@ import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 
 import 'scenario_fixtures.dart';
+import 'scenario_stock_fixtures.dart';
 
 /// 반응형 회귀를 거는 화면들 — **무인자 생성자만**.
 ///
@@ -270,7 +271,8 @@ Map<String, Widget> verticalFillGuardExtraScreens() => <String, Widget>{
   // `ScenariosListScreen.loadScenarios` — 다른 화면 테스트(예:
   // test/scenarios_list_screen_ui_test.dart)와 같은 시험용 구멍.
   'scenarios list': ScenariosListScreen(
-    loadScenarios: () async => _verticalFillGuardScenarios(),
+    loadScenarios: () async =>
+        _verticalFillGuardScenarios().map(stockedCatalogLesson).toList(),
   ),
   // `AppShell.loadTodaySnapshot`(이 PR에서 새로 뚫음) — Today 탭까지 그대로
   // 전달돼 5탭 셸 전체가 실제 데이터로 그려진다.

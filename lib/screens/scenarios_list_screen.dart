@@ -1,5 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import '../features/scenarios/scenario_quest_stock.dart';
 
 import '../features/scenarios/scenario_browse_query.dart';
 import '../models/guide_contract.dart';
@@ -113,11 +114,16 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
       (null, null) => ScenarioLoader.load(),
     };
     if (!mounted) return;
+    final stock = ScenarioQuestStock.fromCorpus(list);
+    final assessable = list.where(stock.allowsScenario).toList(growable: false);
     final browseResult = destination == null
         ? null
-        : ScenarioBrowseQuery.resolve(destination: destination, corpus: list);
+        : ScenarioBrowseQuery.resolve(
+            destination: destination,
+            corpus: assessable,
+          );
     setState(() {
-      _all = browseResult?.scenarios ?? list;
+      _all = browseResult?.scenarios ?? assessable;
       _browseStatus = browseResult?.status;
       _loading = false;
       _loadFailed = list.isEmpty && ScenarioLoader.lastError != null;

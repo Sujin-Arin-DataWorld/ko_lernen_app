@@ -17,6 +17,7 @@ import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 import 'support/scenario_fixtures.dart';
+import 'support/scenario_stock_fixtures.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -58,6 +59,30 @@ void main() {
     );
     await _scrollTo(tester, find.text('5 to 7 minutes · +120 XP'));
     expect(find.text('5 to 7 minutes · +120 XP'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('sparse catalog hides assessment and retains prior progress', (
+    tester,
+  ) async {
+    await Storage.setScenarioStars(scenarioAirportArrivalFixture.id, 2);
+    final preferences = await SharedPreferences.getInstance();
+    final before = {
+      for (final key in preferences.getKeys()) key: preferences.get(key),
+    };
+    await _pumpScenarios(
+      tester,
+      size: const Size(320, 640),
+      textScale: 2,
+      scenarios: const [scenarioAirportArrivalFixture],
+      completeFixtureStock: false,
+    );
+    expect(find.text('Einreise am Flughafen'), findsNothing);
+    expect(find.byType(ScenarioPlayerScreen), findsNothing);
+    expect(Storage.scenarioStars[scenarioAirportArrivalFixture.id], 2);
+    expect({
+      for (final key in preferences.getKeys()) key: preferences.get(key),
+    }, before);
     expect(tester.takeException(), isNull);
   });
 
@@ -338,6 +363,7 @@ Future<void> _pumpScenarios(
   required List<Scenario> scenarios,
   Locale locale = const Locale('de'),
   ScenarioBrowseDestination? browseDestination,
+  bool completeFixtureStock = true,
 }) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
@@ -361,7 +387,9 @@ Future<void> _pumpScenarios(
         );
       },
       home: ScenariosListScreen(
-        loadScenarios: () async => scenarios,
+        loadScenarios: () async => completeFixtureStock
+            ? scenarios.map(stockedCatalogLesson).toList()
+            : scenarios,
         browseDestination: browseDestination,
       ),
     ),

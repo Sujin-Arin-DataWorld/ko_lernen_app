@@ -3,6 +3,7 @@ import '../../models/guide_contract.dart';
 import '../../models/scenario.dart';
 import '../../services/scenario_loader.dart';
 import '../scenarios/scenario_browse_query.dart';
+import '../scenarios/scenario_quest_stock.dart';
 
 typedef GuideScenarioLevelLoader =
     Future<List<Scenario>> Function(LearnerLevel level);
@@ -62,6 +63,10 @@ abstract final class GuideScenarioCategoryStockLoader {
     required Iterable<Scenario> corpus,
   }) {
     final scenarios = List<Scenario>.unmodifiable(corpus);
+    final stock = ScenarioQuestStock.fromCorpus(scenarios);
+    final assessable = scenarios
+        .where(stock.allowsScenario)
+        .toList(growable: false);
     final slots = kChaekgadoSlots[level] ?? const <ChaekgadoSlot>[];
     final stocked = <GuideScenarioCategoryStock>[];
 
@@ -72,7 +77,7 @@ abstract final class GuideScenarioCategoryStockLoader {
       );
       final result = ScenarioBrowseQuery.resolve(
         destination: destination,
-        corpus: scenarios,
+        corpus: assessable,
       );
       if (result.status != ScenarioBrowseQueryStatus.ready) {
         continue;
