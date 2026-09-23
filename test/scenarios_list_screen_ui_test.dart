@@ -86,6 +86,69 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  for (final locale in ['de', 'en']) {
+    for (final selectedIds in <Set<String>>[
+      {},
+      {'unknown'},
+      {_b1Scenario.id},
+    ]) {
+      testWidgets(
+        '$locale notebook selection $selectedIds never opens unrelated lessons',
+        (tester) async {
+          await _pumpScenarios(
+            tester,
+            size: const Size(390, 844),
+            textScale: 1.3,
+            locale: Locale(locale),
+            scenarios: const [_b1Scenario, _b1OtherShelfScenario],
+            scenarioIds: selectedIds,
+          );
+          if (selectedIds.contains(_b1Scenario.id)) {
+            await _scrollTo(tester, find.text(_b1Scenario.title.pick(locale)));
+            expect(find.text(_b1Scenario.title.pick(locale)), findsWidgets);
+          } else {
+            expect(find.text(_b1Scenario.title.pick(locale)), findsNothing);
+            expect(
+              find.text(
+                locale == 'de'
+                    ? 'Alle Szenarien abgeschlossen'
+                    : 'All scenarios completed',
+              ),
+              findsNothing,
+            );
+            expect(find.byIcon(Icons.celebration_outlined), findsNothing);
+          }
+          expect(
+            find.text(_b1OtherShelfScenario.title.pick(locale)),
+            findsNothing,
+          );
+          expect(Storage.xp, 0);
+          expect(Storage.completedScenarios, isEmpty);
+          expect(tester.takeException(), isNull);
+        },
+      );
+    }
+  }
+
+  testWidgets('notebook selection cannot authorize a sparse corpus', (
+    tester,
+  ) async {
+    await _pumpScenarios(
+      tester,
+      size: const Size(390, 844),
+      textScale: 1.3,
+      scenarios: const [scenarioAirportArrivalFixture],
+      scenarioIds: {scenarioAirportArrivalFixture.id},
+      completeFixtureStock: false,
+    );
+    expect(find.text(scenarioAirportArrivalFixture.title.de), findsNothing);
+    expect(find.text('Alle Szenarien abgeschlossen'), findsNothing);
+    expect(find.byIcon(Icons.celebration_outlined), findsNothing);
+    expect(Storage.xp, 0);
+    expect(Storage.completedScenarios, isEmpty);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('open scenario card is a labeled button and keeps its route', (
     tester,
   ) async {
@@ -364,6 +427,7 @@ Future<void> _pumpScenarios(
   Locale locale = const Locale('de'),
   ScenarioBrowseDestination? browseDestination,
   bool completeFixtureStock = true,
+  Set<String>? scenarioIds,
 }) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
@@ -387,6 +451,7 @@ Future<void> _pumpScenarios(
         );
       },
       home: ScenariosListScreen(
+        scenarioIds: scenarioIds,
         loadScenarios: () async => completeFixtureStock
             ? scenarios.map(stockedCatalogLesson).toList()
             : scenarios,

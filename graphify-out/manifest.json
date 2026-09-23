@@ -1602,9 +1602,9 @@
     "semantic_hash": ""
   },
   "lib/screens/scenarios_list_screen.dart": {
-    "mtime": 1790158779.5370817,
-    "seen": 1790160115.0304992,
-    "ast_hash": "deeaa3a14a032060b8d17d77d3105f24",
+    "mtime": 1790173939.9548173,
+    "seen": 1790173974.9663393,
+    "ast_hash": "d201cb41781a5cf6836073f198b02f13",
     "semantic_hash": ""
   },
   "lib/screens/settings_screen.dart": {
@@ -1716,9 +1716,9 @@
     "semantic_hash": ""
   },
   "lib/screens/vocab_notebook_studio_screen.dart": {
-    "mtime": 1790158509.8587441,
-    "seen": 1790160115.0305302,
-    "ast_hash": "6e4234b14bc9e45bea1205ee1f0bf51a",
+    "mtime": 1790173663.8090026,
+    "seen": 1790173974.9701278,
+    "ast_hash": "4a4ffab752c1f3ea24e55a02ebc0b429",
     "semantic_hash": ""
   },
   "lib/screens/vocab_nuance_screen.dart": {
@@ -5196,9 +5196,9 @@
     "semantic_hash": ""
   },
   "test/scenarios_list_screen_ui_test.dart": {
-    "mtime": 1790159656.1100733,
-    "seen": 1790160115.0334167,
-    "ast_hash": "96ab6cb787ab2fcc6e1dca8d9b184667",
+    "mtime": 1790173939.9686341,
+    "seen": 1790173975.1408453,
+    "ast_hash": "a0b60041ac06234e066699ba4bfd4f07",
     "semantic_hash": ""
   },
   "test/scene_asset_resolver_test.dart": {
@@ -5910,9 +5910,9 @@
     "semantic_hash": ""
   },
   "test/vocab_notebook_studio_screen_test.dart": {
-    "mtime": 1790158510.7970028,
-    "seen": 1790160115.034244,
-    "ast_hash": "b4f944c00f47c640cd8b1a1a73617779",
+    "mtime": 1790173623.87912,
+    "seen": 1790173975.1854117,
+    "ast_hash": "e990f1a5d65f8bbeee8ac2457a8ac0f7",
     "semantic_hash": ""
   },
   "test/vocab_nuance_screen_test.dart": {

@@ -35,6 +35,10 @@ class ScenariosListScreen extends StatefulWidget {
   /// keeps the bundled [ScenarioLoader] by leaving this null.
   final Future<List<Scenario>> Function()? loadScenarios;
 
+  /// Notebook matches narrow the visible lessons after full-corpus assessment
+  /// eligibility is calculated. A small selection is not a sparse corpus.
+  final Set<String>? scenarioIds;
+
   /// Optional guide/library browse intent. Unlike course placement, this only
   /// narrows the catalog to one exact level + shelf and never changes learner
   /// progress.
@@ -43,6 +47,7 @@ class ScenariosListScreen extends StatefulWidget {
   const ScenariosListScreen({
     super.key,
     this.loadScenarios,
+    this.scenarioIds,
     this.browseDestination,
   });
 
@@ -115,7 +120,14 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
     };
     if (!mounted) return;
     final stock = ScenarioQuestStock.fromCorpus(list);
-    final assessable = list.where(stock.allowsScenario).toList(growable: false);
+    final selectedIds = widget.scenarioIds;
+    final assessable = list
+        .where(stock.allowsScenario)
+        .where(
+          (scenario) =>
+              selectedIds == null || selectedIds.contains(scenario.id),
+        )
+        .toList(growable: false);
     final browseResult = destination == null
         ? null
         : ScenarioBrowseQuery.resolve(
@@ -189,8 +201,9 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
         ],
       );
     }
-    if (widget.browseDestination != null &&
-        _browseStatus != ScenarioBrowseQueryStatus.ready) {
+    if (_all.isEmpty ||
+        (widget.browseDestination != null &&
+            _browseStatus != ScenarioBrowseQueryStatus.ready)) {
       return SoriStandardPage(
         appBarTitle: t.scenariosListTitle,
         maxWidth: SoriMaxWidth.hub,

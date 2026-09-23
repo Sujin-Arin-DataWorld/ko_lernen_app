@@ -472,7 +472,9 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                 ? null
                 : () => _openPage(
                     ScenariosListScreen(
-                      loadScenarios: () async => match.scenarios,
+                      scenarioIds: {
+                        for (final scenario in match.scenarios) scenario.id,
+                      },
                     ),
                   ),
           ),
