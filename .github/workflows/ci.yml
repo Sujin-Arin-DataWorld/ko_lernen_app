@@ -175,6 +175,9 @@ jobs:
       - name: Verify CI and release contracts
         run: python3 -m unittest discover -s .github/scripts -p "test_*.py"
 
+      - name: Verify operations configuration tools
+        run: python3 -m unittest discover -s tool/ops -p "test_*.py" -t .
+
       - name: Verify append-only Living Hanok grant history
         env:
           CI_EVENT_NAME: ${{ github.event_name }}

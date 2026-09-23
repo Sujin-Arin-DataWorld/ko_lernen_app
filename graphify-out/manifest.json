@@ -12,9 +12,9 @@
     "semantic_hash": ""
   },
   ".github/scripts/ci_scope.py": {
-    "mtime": 1790121577.9454043,
-    "seen": 1790122670.7543335,
-    "ast_hash": "5730cf8295c8410735f372999eb8d3b8",
+    "mtime": 1790123759.5450468,
+    "seen": 1790124031.1130593,
+    "ast_hash": "fc9e399cb671385fd6b029d3820afd87",
     "semantic_hash": ""
   },
   ".github/scripts/select_flutter_tests.py": {
@@ -24,9 +24,9 @@
     "semantic_hash": ""
   },
   ".github/scripts/test_ci_scope.py": {
-    "mtime": 1790121577.9489553,
-    "seen": 1790122670.7543416,
-    "ast_hash": "38c29f53ff29defec70943667d1b7c41",
+    "mtime": 1790123759.5450468,
+    "seen": 1790124031.1137068,
+    "ast_hash": "7c1161443e98fa2b76eb9a1028cb812b",
     "semantic_hash": ""
   },
   ".github/scripts/test_cloudflare_production_workflow.py": {
@@ -8118,9 +8118,9 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1790121577.9580042,
-    "seen": 1790122670.7578802,
-    "ast_hash": "0e13ab249819f2ca10f7e236f704ba4a",
+    "mtime": 1790123999.7833574,
+    "seen": 1790124031.7475393,
+    "ast_hash": "c0634b654e2af58f83fbfcd10ebc3fa5",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-07-29-account-transition-and-deletion/task-6-report.md": {
@@ -17856,9 +17856,9 @@
     "semantic_hash": ""
   },
   "tool/ops/log_metrics.sh": {
-    "mtime": 1790122058.521902,
-    "seen": 1790122670.7565987,
-    "ast_hash": "ab35274cc971992b72b6420add60d0d2",
+    "mtime": 1790122824.872557,
+    "seen": 1790124031.5304558,
+    "ast_hash": "a1d5a4249600ec2f3bdffe36065bceba",
     "semantic_hash": ""
   },
   "tool/ops/test_alert_policies.py": {
@@ -18744,9 +18744,9 @@
     "semantic_hash": ""
   },
   "docs/CP2026_CONTINUATION.md": {
-    "mtime": 1790122425.601185,
-    "seen": 1790122670.7580116,
-    "ast_hash": "f34cf8364e0573ee12111f920da80359",
+    "mtime": 1790122723.9306972,
+    "seen": 1790124031.7740006,
+    "ast_hash": "3a767b6380f0b4688f917735f8ace6f0",
     "semantic_hash": ""
   },
   "docs/data/a1_grammar_scan_2026-09-15.md": {
@@ -19512,9 +19512,9 @@
     "semantic_hash": ""
   },
   "functions/gye/auth_creation_observer.test.js": {
-    "mtime": 1790121590.603928,
-    "seen": 1790122670.7545087,
-    "ast_hash": "e1b9bc32464b9fb6f57f7b6d02b8c500",
+    "mtime": 1790123759.5440452,
+    "seen": 1790124031.1390188,
+    "ast_hash": "9692f6cc850cdb3126bc99bcbadcd236",
     "semantic_hash": ""
   },
   "test/tts_unavailable_reasons_test.dart": {
@@ -19524,9 +19524,9 @@
     "semantic_hash": ""
   },
   "functions/gye/AUTH_CREATION_OBSERVATION.md": {
-    "mtime": 1790121590.5925212,
-    "seen": 1790122670.7584374,
-    "ast_hash": "898490a6a6815c91c4b95f583a8e6eb2",
+    "mtime": 1790123759.5460482,
+    "seen": 1790124031.850454,
+    "ast_hash": "bb226b81fd9f9964e771af73f7f2aa84",
     "semantic_hash": ""
   },
   "lib/features/content_learning/content_learning_catalog.dart": {
