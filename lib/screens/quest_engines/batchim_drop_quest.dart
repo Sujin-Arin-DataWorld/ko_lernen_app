@@ -454,15 +454,19 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 8),
-                Text(
-                  _targetWord,
-                  style: SoriTextTheme.of(context).meta.copyWith(
-                    color: s.textMuted,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
+                // Keep the answer out of both the visible prompt and its
+                // semantics until grading or an explicit reveal resolves it.
+                if (_completed) ...[
+                  const SizedBox(height: 8),
+                  Text(
+                    _targetWord,
+                    style: SoriTextTheme.of(context).meta.copyWith(
+                      color: s.textMuted,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
+                ],
               ],
             ),
           ),
