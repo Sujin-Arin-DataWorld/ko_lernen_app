@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
@@ -51,7 +53,7 @@ class _GyeJoinScreenState extends State<GyeJoinScreen> {
       final meta = widget.joinGye == null
           ? await GyeService.joinGye(code: _code.text, nickname: _nick.text)
           : await widget.joinGye!(code: _code.text, nickname: _nick.text);
-      await Analytics.gyeJoined();
+      unawaited(Analytics.gyeJoined());
       if (!mounted) {
         return;
       }
