@@ -27,6 +27,7 @@ import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 
+import 'support/scenario_stock_fixtures.dart';
 import 'support/reward_preferences_platform.dart';
 import 'support/sori_speech_stubs.dart';
 
@@ -294,6 +295,8 @@ void main() {
               scenarioId: fixture.scenario.id,
               courseContext: CoursePracticeContext.fromLink(fixture.link),
               scenarioLoader: (_) async => fixture.scenario,
+              questCorpusLoader: (_) async =>
+                  stockedScenarioCorpus(fixture.scenario),
               grammarLoader: () async => const <Grammar>[],
               resultPersister: (_, _, _) async {
                 resultPersistenceCalls++;
@@ -423,6 +426,8 @@ void main() {
             scenarioId: fixture.scenario.id,
             courseContext: CoursePracticeContext.fromLink(fixture.link),
             scenarioLoader: (_) async => fixture.scenario,
+            questCorpusLoader: (_) async =>
+                stockedScenarioCorpus(fixture.scenario),
             grammarLoader: () async => const <Grammar>[],
             resultPersister: (_, _, _) async {
               resultPersistenceCalls++;
@@ -484,6 +489,8 @@ void main() {
           ScenarioPlayerScreen(
             scenarioId: fixture.scenario.id,
             scenarioLoader: (_) async => fixture.scenario,
+            questCorpusLoader: (_) async =>
+                stockedScenarioCorpus(fixture.scenario),
             grammarLoader: () async => const <Grammar>[],
             resultPersister: (_, _, _) async {
               resultPersistenceCalls++;
@@ -565,6 +572,8 @@ void main() {
             scenarioId: fixture.scenario.id,
             courseContext: CoursePracticeContext.fromLink(fixture.link),
             scenarioLoader: (_) async => fixture.scenario,
+            questCorpusLoader: (_) async =>
+                stockedScenarioCorpus(fixture.scenario),
             grammarLoader: () async => const <Grammar>[],
             resultPersister: (_, _, _) async {
               resultPersistenceCalls++;
@@ -649,6 +658,8 @@ void main() {
           scenarioId: fixture.scenario.id,
           courseContext: CoursePracticeContext.fromLink(fixture.link),
           scenarioLoader: (_) async => fixture.scenario,
+          questCorpusLoader: (_) async =>
+              stockedScenarioCorpus(fixture.scenario),
           grammarLoader: () async => const <Grammar>[],
           resultPersister: (_, _, _) async {
             resultPersistenceCalls++;
@@ -737,6 +748,8 @@ void main() {
             scenarioId: fixture.scenario.id,
             courseContext: invalid,
             scenarioLoader: (_) async => fixture.scenario,
+            questCorpusLoader: (_) async =>
+                stockedScenarioCorpus(fixture.scenario),
             grammarLoader: () async => const <Grammar>[],
           ),
         ),
@@ -779,6 +792,7 @@ void main() {
             scenarioId: scenario.id,
             courseContext: mismatched,
             scenarioLoader: (_) async => scenario,
+            questCorpusLoader: (_) async => stockedScenarioCorpus(scenario),
             grammarLoader: () async => const <Grammar>[],
           ),
         ),
@@ -820,6 +834,8 @@ void main() {
           scenarioId: fixture.scenario.id,
           courseContext: CoursePracticeContext.fromLink(fixture.link),
           scenarioLoader: (_) async => fixture.scenario,
+          questCorpusLoader: (_) async =>
+              stockedScenarioCorpus(fixture.scenario),
           grammarLoader: () async => const <Grammar>[],
           resultPersister: (_, _, _) async {
             resultPersistenceCalls++;
