@@ -48,6 +48,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    stubSoriSpeech();
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
@@ -686,7 +687,6 @@ void main() {
   ) async {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
-    stubSoriSpeech();
     final corpus = (await tester.runAsync(ScenarioLoader.load))!;
     final selected = corpus.first;
     expect(selected.quests.length, lessThan(5));
