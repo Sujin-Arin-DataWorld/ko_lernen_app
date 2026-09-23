@@ -14,6 +14,9 @@ import audit_scenario_quests  # noqa: E402
 
 
 class ScenarioQuestAuditCheckTest(unittest.TestCase):
+    def test_checked_in_report_matches_current_shards(self) -> None:
+        self.assertEqual(audit_scenario_quests.main(["--check"]), 0)
+
     def test_check_is_read_only_and_detects_report_drift(self) -> None:
         groups, diagnostics = audit_scenario_quests.scan_all()
         rendered = audit_scenario_quests.render_report(groups, diagnostics)
