@@ -69,6 +69,7 @@ import 'quest_engines/diktat_quest.dart';
 import 'quest_engines/particle_pop_quest.dart';
 import 'quest_engines/quest_models.dart';
 import 'quest_engines/quest_content.dart';
+import '../features/scenarios/scenario_quest_stock.dart';
 import 'quest_engines/satz_bauen_quest.dart';
 import 'quest_engines/uebersetzen_quest.dart';
 
@@ -582,6 +583,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
   final LearnerLevel? levelHint;
   final CoursePracticeContext? courseContext;
   final Future<Scenario?> Function(String scenarioId)? scenarioLoader;
+  final Future<List<Scenario>> Function(LearnerLevel level)? questCorpusLoader;
   final ScenarioGrammarLoader? grammarLoader;
   final ScenarioResultPersister? resultPersister;
   final ScenarioCompletionCallback? onCompleted;
@@ -596,6 +598,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
     this.levelHint,
     this.courseContext,
     this.scenarioLoader,
+    this.questCorpusLoader,
     this.grammarLoader,
     this.resultPersister,
     this.onCompleted,
@@ -613,6 +616,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
        levelHint = null,
        courseContext = null,
        scenarioLoader = null,
+       questCorpusLoader = null,
        grammarLoader = null,
        resultPersister = null,
        onCompleted = null,
@@ -648,6 +652,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         ScreenCoachMixin<ScenarioPlayerScreen>,
         StudyEvidenceRecovery<ScenarioPlayerScreen> {
   Scenario? _scenario;
+  ScenarioQuestStock? _questStock;
   CourseMissionStep? _missionStep;
   String? _missionTitle;
   CoursePracticeContext? _effectiveCourseContext;
@@ -841,6 +846,23 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       return;
     }
     if (s != null) {
+      final corpus =
+          await (widget.questCorpusLoader ?? ScenarioLoader.loadLevel)(s.level);
+      if (!mounted || !_loadLifecycle.canContinue) {
+        return;
+      }
+      if (widget.questCorpusLoader == null &&
+          corpus.isEmpty &&
+          ScenarioLoader.lastError != null) {
+        throw StateError('Scenario assessment stock could not be loaded.');
+      }
+      _questStock = ScenarioQuestStock.fromCorpus(corpus);
+    }
+    if (s != null && !_hasRequiredQuestContent(s)) {
+      setState(() => _scenario = s);
+      return;
+    }
+    if (s != null) {
       _loadLifecycle.startLessonTracking(() {
         Analytics.lessonStarted(
           lessonType: 'scenario',
@@ -976,7 +998,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     setState(() {
       _loadFailure = null;
       _courseRouteRejected = false;
+      _questStock = null;
     });
+    if (widget.questCorpusLoader == null) {
+      ScenarioLoader.reset();
+    }
     await _loadScenario();
   }
 
@@ -1221,6 +1247,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       studyEvidenceIsCurrent &&
       _loadLifecycle.canContinue &&
       identical(_scenario, scenario) &&
+      _hasRequiredQuestContent(scenario) &&
       _stage == stageIndex &&
       stageIndex >= 0 &&
       stageIndex < _plan.length &&
@@ -1935,7 +1962,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     required int stageIndex,
   }) {
     // PageView may build a neighboring quest before that stage is active.
-    if (!hasPlayableQuestContent(spec.type, spec.data)) {
+    if (_scenario == null ||
+        !_hasRequiredQuestContent(_scenario!) ||
+        !hasPlayableQuestContent(spec.type, spec.data)) {
       return const SoriQuestEmptyState();
     }
     Widget questWidget;
@@ -2462,8 +2491,12 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         : preview?.stage;
     // Read-only gallery fixtures may show just dialog, roleplay, or results.
     // Real lessons and previews of a quest still require playable quest data.
-    return (preview != null && stage != ScenarioStage.quest) ||
-        _hasPlayableQuests(scenario);
+    if (preview != null) {
+      // Gallery fixtures are read-only samples, not learner assessments.
+      return stage != ScenarioStage.quest || _hasPlayableQuests(scenario);
+    }
+    return _hasPlayableQuests(scenario) &&
+        (_questStock?.allowsScenario(scenario) ?? false);
   }
 
   @override
