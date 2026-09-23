@@ -97,8 +97,8 @@
       "grammar": {
         "nikl_rows": 67,
         "match": 13,
-        "level_mismatch": 10,
-        "missing_in_app": 44,
+        "level_mismatch": 8,
+        "missing_in_app": 46,
         "brief_highlights": {
           "level_mismatch": 10,
           "match": 7,
@@ -269,8 +269,8 @@
     "grammar_brief:level_mismatch": 32,
     "grammar_brief:missing": 25,
     "grammar_discourse:missing": 3,
-    "grammar_nikl:level_mismatch": 35,
-    "grammar_nikl:missing_in_app": 178,
+    "grammar_nikl:level_mismatch": 33,
+    "grammar_nikl:missing_in_app": 180,
     "register:absent": 7,
     "speech_act:missing": 7,
     "speech_act:recognition_missing": 4,
