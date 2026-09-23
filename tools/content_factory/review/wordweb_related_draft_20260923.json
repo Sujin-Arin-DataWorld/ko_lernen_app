@@ -1,0 +1,503 @@
+{
+  "schemaVersion": 1,
+  "status": "PENDING_HUMAN_REVIEW",
+  "runtimePromoted": false,
+  "modelReview": "PENDING",
+  "sourceCommit": "5c9572a4cd3ba8af8bbe4ce2d2aaa1eb84b4d8c8",
+  "sourceAuthority": "Existing runtime clusters and vocabulary labels are locked; only proposed related entries are authored.",
+  "scope": "Fill the 12 currently empty A1/A2 related lists; do not change synonyms, antonyms, expressions, IDs, levels, or vocabulary.",
+  "sceneLock": {
+    "mode": "AUTHOR+AUDIT",
+    "channel": "learner reference card",
+    "audience": "A1/A2 Korean learners using de-DE or English",
+    "speaker": "app learning explanation",
+    "relationship": "app addresses learner with du; no inferred character relations",
+    "task": "recognize a thematic or functional relation, not synonym or antonym equivalence",
+    "speechStyle": "explanatory haeyo in review notes; du in German",
+    "unknowns": "actual delivery rules, transit ticket policy, appointment participants",
+    "crossLevelPolicy": "Target levels recorded without releveling or counting this as new at-level coverage."
+  },
+  "rights": "Original relationship explanations; vocabulary labels from repository. No textbook or corpus sentences copied.",
+  "humanDecision": null,
+  "items": [
+    {
+      "clusterId": "rel_batch19_a1_01",
+      "sourceKo": "결제하다",
+      "sourceVocabId": "vocab_a1_0412",
+      "level": "A1",
+      "sourceClusterSha256": "37acf17dfdd276f8d2d2b9f5500ea7d0c3d4cd64a192a7a70bce658717ac9e9c",
+      "related": [
+        {
+          "ko": "가격",
+          "de": "Preis",
+          "en": "price",
+          "nuanceDe": "Der Preis sagt dir, wie viel du für etwas bezahlst.",
+          "nuanceEn": "The price tells you how much you pay for something.",
+          "vocabId": "vocab_a1_0318"
+        },
+        {
+          "ko": "영수증",
+          "de": "Quittung / Kassenbon",
+          "en": "receipt",
+          "nuanceDe": "Auf dem Kassenbon kannst du sehen, was du bezahlt hast und wie viel.",
+          "nuanceEn": "A receipt shows what you paid for and how much.",
+          "vocabId": "vocab_a2_0037"
+        }
+      ],
+      "relationReview": [
+        {
+          "vocabId": "vocab_a1_0318",
+          "meaningKo": "물건이나 서비스에 얼마를 내는지 나타내는 말이에요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "51ca2d17077289cd5491ab0ad642cc634aa114a4b893249a972dcf08591616ff"
+        },
+        {
+          "vocabId": "vocab_a2_0037",
+          "meaningKo": "결제한 내용과 금액이 적힌 기록이에요.",
+          "targetLevel": "A2",
+          "sourceVocabularySha256": "6b408395e3c7d569a93a788305412432b8a804856faeb482a8ed15d5afc0d0f5"
+        }
+      ]
+    },
+    {
+      "clusterId": "rel_batch19_a1_02",
+      "sourceKo": "배달비",
+      "sourceVocabId": "vocab_a1_0413",
+      "level": "A1",
+      "sourceClusterSha256": "6f1f0c886ce7e95150bf8993d32e3d7e1557babf5f29a028be0f9ac6f4978eb8",
+      "related": [
+        {
+          "ko": "배달",
+          "de": "Lieferdienst / Lieferung",
+          "en": "delivery service",
+          "nuanceDe": "Die Liefergebühr fällt für das Bringen von Waren oder Essen an.",
+          "nuanceEn": "The delivery fee is the cost of bringing goods or food.",
+          "vocabId": "vocab_a2_0095"
+        },
+        {
+          "ko": "가격",
+          "de": "Preis",
+          "en": "price",
+          "nuanceDe": "Du kannst den Warenpreis und die Liefergebühr getrennt prüfen.",
+          "nuanceEn": "You can check the item price and delivery fee separately.",
+          "vocabId": "vocab_a1_0318"
+        }
+      ],
+      "relationReview": [
+        {
+          "vocabId": "vocab_a2_0095",
+          "meaningKo": "배달비는 물건이나 음식을 가져다주는 데 드는 비용이에요.",
+          "targetLevel": "A2",
+          "sourceVocabularySha256": "bea7c670df2d5939bf9177d29b392703b973f991ae5b175fd69a3ed59ba0b950"
+        },
+        {
+          "vocabId": "vocab_a1_0318",
+          "meaningKo": "물건 가격과 배달비를 구분해서 확인해요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "51ca2d17077289cd5491ab0ad642cc634aa114a4b893249a972dcf08591616ff"
+        }
+      ]
+    },
+    {
+      "clusterId": "rel_batch19_a1_03",
+      "sourceKo": "주소를 확인하다",
+      "sourceVocabId": "vocab_a1_0414",
+      "level": "A1",
+      "sourceClusterSha256": "1ff8c067fe912e92ff9e39b4c98ce51dcea67e5f71580670369941936841aceb",
+      "related": [
+        {
+          "ko": "주소",
+          "de": "Adresse",
+          "en": "address",
+          "nuanceDe": "Die Adresse zeigt, wohin die Lieferung gehen soll.",
+          "nuanceEn": "The address shows where the delivery should go.",
+          "vocabId": "vocab_a1_0314"
+        },
+        {
+          "ko": "전화번호",
+          "de": "Telefonnummer",
+          "en": "phone number",
+          "nuanceDe": "Die Adresse nennt den Lieferort, die Telefonnummer dient zur Kontaktaufnahme.",
+          "nuanceEn": "The address gives the delivery location; the phone number is for contact.",
+          "vocabId": "vocab_a1_0438"
+        }
+      ],
+      "relationReview": [
+        {
+          "vocabId": "vocab_a1_0314",
+          "meaningKo": "물건을 받을 곳을 확인할 때 보는 정보예요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "4ea291bc658c25198f11acf90aeb56d573fd82a7f8a71e6ab2dbb938b37dc78b"
+        },
+        {
+          "vocabId": "vocab_a1_0438",
+          "meaningKo": "주소는 받을 곳, 전화번호는 연락할 번호예요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "3832a6879dadcee4dd2decb9fcf21abf31dd4510bf1597dfe2b1f791e1537d96"
+        }
+      ]
+    },
+    {
+      "clusterId": "rel_batch19_a1_04",
+      "sourceKo": "도착 시간",
+      "sourceVocabId": "vocab_a1_0415",
+      "level": "A1",
+      "sourceClusterSha256": "41991370a431a7d5341c0df4540c3bc0dadd0dd3f947f034b1c5f10370d974ef",
+      "related": [
+        {
+          "ko": "시간",
+          "de": "Zeit / Stunde",
+          "en": "time / hour",
+          "nuanceDe": "Die Ankunftszeit sagt, wann du am Ziel ankommst.",
+          "nuanceEn": "The arrival time tells you when you reach your destination.",
+          "vocabId": "vocab_a1_0156"
+        },
+        {
+          "ko": "도착하다",
+          "de": "ankommen",
+          "en": "to arrive",
+          "nuanceDe": "도착하다 bedeutet, am Ziel anzukommen.",
+          "nuanceEn": "도착하다 means to arrive at a destination.",
+          "vocabId": "vocab_a2_0044"
+        }
+      ],
+      "relationReview": [
+        {
+          "vocabId": "vocab_a1_0156",
+          "meaningKo": "도착 시간은 목적지에 언제 도착하는지 나타내요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "8dab0e1bfa3c7b3d81d47caa9cd9965b8deae80e9212d6b114a216da56156c18"
+        },
+        {
+          "vocabId": "vocab_a2_0044",
+          "meaningKo": "도착하다는 목적지에 이르는 행동을 나타내요.",
+          "targetLevel": "A2",
+          "sourceVocabularySha256": "21e6e0e1c24ffb704b21c55225fb7d1274da05c90ad4e62f05903432380c6949"
+        }
+      ]
+    },
+    {
+      "clusterId": "rel_batch19_a2_01",
+      "sourceKo": "약속을 잡다",
+      "sourceVocabId": "vocab_a2_0461",
+      "level": "A2",
+      "sourceClusterSha256": "a1c403765f07bea5ee7c9f54bacdd71cab3ccb68fea65fb4fb9ecb631e817fd4",
+      "related": [
+        {
+          "ko": "약속",
+          "de": "Verabredung; Versprechen",
+          "en": "appointment; promise",
+          "nuanceDe": "약속 meint hier eine Verabredung, nicht ein Versprechen.",
+          "nuanceEn": "Here, 약속 means an arrangement to meet, not a promise.",
+          "vocabId": "vocab_a2_0495"
+        },
+        {
+          "ko": "만나다",
+          "de": "treffen",
+          "en": "to meet",
+          "nuanceDe": "Wenn du dich verabredest, legst du fest, wen du wann triffst.",
+          "nuanceEn": "When arranging to meet, you decide who to meet and when.",
+          "vocabId": "vocab_a1_0098"
+        }
+      ],
+      "relationReview": [
+        {
+          "vocabId": "vocab_a2_0495",
+          "meaningKo": "여기서 약속은 누군가와 만나기로 한 것을 뜻해요.",
+          "targetLevel": "A2",
+          "sourceVocabularySha256": "bb3d92ebdf20bd496ff4075e072864dafab400ab9b99a28c0f6217a9cdf1c7a5"
+        },
+        {
+          "vocabId": "vocab_a1_0098",
+          "meaningKo": "약속을 잡을 때 누구를 언제 만날지 정해요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "b1b88a46d24f6b0484dbcfaeafed7b9180ceb1db5e925f374a53b69aad3c8814"
+        }
+      ]
+    },
+    {
+      "clusterId": "rel_batch19_a2_02",
+      "sourceKo": "일정을 바꾸다",
+      "sourceVocabId": "vocab_a2_0462",
+      "level": "A2",
+      "sourceClusterSha256": "128e8585bfd486dd0056e9275ea115a195c09fde3165c959825210b98e0900ae",
+      "related": [
+        {
+          "ko": "날짜",
+          "de": "Datum",
+          "en": "date",
+          "nuanceDe": "Wenn sich der Plan ändert, kann auch das Datum auf einen anderen Tag fallen.",
+          "nuanceEn": "When a schedule changes, the date may move to a different day.",
+          "vocabId": "vocab_a1_0505"
+        },
+        {
+          "ko": "시간",
+          "de": "Zeit / Stunde",
+          "en": "time / hour",
+          "nuanceDe": "Auch am selben Tag kannst du die geplante Uhrzeit ändern.",
+          "nuanceEn": "You can also change the planned time within the same day.",
+          "vocabId": "vocab_a1_0156"
+        }
+      ],
+      "relationReview": [
+        {
+          "vocabId": "vocab_a1_0505",
+          "meaningKo": "일정을 바꿀 때 날짜를 다른 날로 옮길 수 있어요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "1b368e0dd56b45017862a3bb72055fec640a69cf0756cb34f2b43d711fe9f3ac"
+        },
+        {
+          "vocabId": "vocab_a1_0156",
+          "meaningKo": "같은 날에도 예정된 시간을 바꿀 수 있어요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "8dab0e1bfa3c7b3d81d47caa9cd9965b8deae80e9212d6b114a216da56156c18"
+        }
+      ]
+    },
+    {
+      "clusterId": "rel_batch19_a2_03",
+      "sourceKo": "시간이 되다",
+      "sourceVocabId": "vocab_a2_0463",
+      "level": "A2",
+      "sourceClusterSha256": "c5b9b488be1a89b0004ce941e5a21bf9f5addf30c5671bf91e1f54735e2626bd",
+      "related": [
+        {
+          "ko": "바쁘다",
+          "de": "beschäftigt (sein)",
+          "en": "to be busy",
+          "nuanceDe": "Wenn du beschäftigt bist, hast du vielleicht keine Zeit für ein Treffen.",
+          "nuanceEn": "If you are busy, you may not have time to meet.",
+          "vocabId": "vocab_a2_0061"
+        },
+        {
+          "ko": "주말",
+          "de": "Wochenende",
+          "en": "weekend",
+          "nuanceDe": "Du kannst fragen, ob jemand am Wochenende Zeit für ein Treffen hat.",
+          "nuanceEn": "You can ask whether someone has time to meet at the weekend.",
+          "vocabId": "vocab_a1_0082"
+        }
+      ],
+      "relationReview": [
+        {
+          "vocabId": "vocab_a2_0061",
+          "meaningKo": "바쁘면 만날 시간이 없을 수 있어요.",
+          "targetLevel": "A2",
+          "sourceVocabularySha256": "8199c1f66de74ea691bd9ffffa84b77624d7da717954646d8cdea0a920cf3a7b"
+        },
+        {
+          "vocabId": "vocab_a1_0082",
+          "meaningKo": "주말에 시간이 되는지 물어서 만날 때를 정할 수 있어요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "01dc30ee1ffcd3b450adb6afbd90fc19d9067b60ec570c1a6f28ceea8590c9f6"
+        }
+      ]
+    },
+    {
+      "clusterId": "rel_batch19_a2_04",
+      "sourceKo": "만날 곳을 정하다",
+      "sourceVocabId": "vocab_a2_0464",
+      "level": "A2",
+      "sourceClusterSha256": "86429a1472e3fbc458b5f68229d62220bfffcd54a40e31d8165e52ffdbb5795f",
+      "related": [
+        {
+          "ko": "장소",
+          "de": "Ort, Platz",
+          "en": "place, venue",
+          "nuanceDe": "장소 bezeichnet den Ort, etwa den Treffpunkt.",
+          "nuanceEn": "장소 means a place, such as a meeting place.",
+          "vocabId": "vocab_a1_0700"
+        },
+        {
+          "ko": "역",
+          "de": "Bahnhof, Station",
+          "en": "station",
+          "nuanceDe": "Ihr könnt euch vor dem Bahnhof oder im Bahnhof verabreden.",
+          "nuanceEn": "You can arrange to meet outside or inside the station.",
+          "vocabId": "vocab_a1_0446"
+        }
+      ],
+      "relationReview": [
+        {
+          "vocabId": "vocab_a1_0700",
+          "meaningKo": "장소는 만날 곳을 이야기할 때 쓰는 말이에요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "e9451e2c1573234c50ceb643439dbf00feace65a370b918669895350cd408b41"
+        },
+        {
+          "vocabId": "vocab_a1_0446",
+          "meaningKo": "역 앞이나 역 안을 만날 곳으로 정할 수 있어요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "5436f52999ccbe8fdf3415c7fb114bde244ab2e8df39ac647c923ff2aab77b19"
+        }
+      ]
+    },
+    {
+      "clusterId": "rel_batch20_a1_01",
+      "sourceKo": "우체국 위치",
+      "sourceVocabId": "vocab_a1_0416",
+      "level": "A1",
+      "sourceClusterSha256": "4b3fb9f5f93bc5322ecf7b3117ad32cc53c889e885510427c256bc733352642b",
+      "related": [
+        {
+          "ko": "주소",
+          "de": "Adresse",
+          "en": "address",
+          "nuanceDe": "Um das Postamt zu finden, kannst du die Adresse nachsehen.",
+          "nuanceEn": "You can check the address to find the post office.",
+          "vocabId": "vocab_a1_0314"
+        },
+        {
+          "ko": "길",
+          "de": "Weg / Straße",
+          "en": "road / way",
+          "nuanceDe": "Der Standort des Postamts und der Weg dorthin hängen zusammen.",
+          "nuanceEn": "The location of the post office and the way to get there are connected.",
+          "vocabId": "vocab_a2_0105"
+        }
+      ],
+      "relationReview": [
+        {
+          "vocabId": "vocab_a1_0314",
+          "meaningKo": "우체국을 찾을 때 주소를 확인할 수 있어요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "4ea291bc658c25198f11acf90aeb56d573fd82a7f8a71e6ab2dbb938b37dc78b"
+        },
+        {
+          "vocabId": "vocab_a2_0105",
+          "meaningKo": "우체국이 어디 있는지와 어떻게 가는지는 연결된 정보예요.",
+          "targetLevel": "A2",
+          "sourceVocabularySha256": "ee50691c16eb09f480a83a217dd4455bfd2ee90c038a2b6b15edd7a413d5b4dc"
+        }
+      ]
+    },
+    {
+      "clusterId": "rel_batch20_a1_02",
+      "sourceKo": "지하철역",
+      "sourceVocabId": "vocab_a1_0419",
+      "level": "A1",
+      "sourceClusterSha256": "b53f04dd60622bbf97c8d9ce70763f5b48a8d390cdf626514d62457fd2eaac10",
+      "related": [
+        {
+          "ko": "지하철",
+          "de": "U-Bahn",
+          "en": "subway",
+          "nuanceDe": "An der U-Bahn-Station steigst du in die U-Bahn ein oder aus.",
+          "nuanceEn": "At a subway station, you get on or off the subway.",
+          "vocabId": "vocab_a1_0028"
+        },
+        {
+          "ko": "표",
+          "de": "Ticket, Karte",
+          "en": "ticket",
+          "nuanceDe": "표 meint hier einen Fahrschein für die U-Bahn.",
+          "nuanceEn": "Here, 표 means a ticket for the subway.",
+          "vocabId": "vocab_a1_0600"
+        }
+      ],
+      "relationReview": [
+        {
+          "vocabId": "vocab_a1_0028",
+          "meaningKo": "지하철역은 지하철을 타거나 내리는 곳이에요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "51c2068bebab06c57bd730ec4508193a46b6dca5510c72886acab4b671e7e58a"
+        },
+        {
+          "vocabId": "vocab_a1_0600",
+          "meaningKo": "여기서 표는 지하철을 탈 때 쓰는 승차권이에요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "a38ce039d56e2f8910081c36825f7917efa8e9ca53b0c012158f9dea98e45923"
+        }
+      ]
+    },
+    {
+      "clusterId": "rel_batch20_a1_03",
+      "sourceKo": "영수증 확인",
+      "sourceVocabId": "vocab_a1_0422",
+      "level": "A1",
+      "sourceClusterSha256": "06448416d29132c563d5af74431a0bf777b4593997dffccbaff537eae5814d9b",
+      "related": [
+        {
+          "ko": "영수증",
+          "de": "Quittung / Kassenbon",
+          "en": "receipt",
+          "nuanceDe": "Beim Prüfen des Kassenbons schaust du dir die Angaben zur Zahlung noch einmal an.",
+          "nuanceEn": "Checking a receipt means looking over the payment details again.",
+          "vocabId": "vocab_a2_0037"
+        },
+        {
+          "ko": "가격",
+          "de": "Preis",
+          "en": "price",
+          "nuanceDe": "Du kannst prüfen, ob die Preise auf dem Kassenbon stimmen.",
+          "nuanceEn": "You can check whether the prices on the receipt are correct.",
+          "vocabId": "vocab_a1_0318"
+        }
+      ],
+      "relationReview": [
+        {
+          "vocabId": "vocab_a2_0037",
+          "meaningKo": "영수증 확인은 결제한 내용을 다시 살펴보는 일이에요.",
+          "targetLevel": "A2",
+          "sourceVocabularySha256": "6b408395e3c7d569a93a788305412432b8a804856faeb482a8ed15d5afc0d0f5"
+        },
+        {
+          "vocabId": "vocab_a1_0318",
+          "meaningKo": "영수증에 적힌 가격이 맞는지 확인할 수 있어요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "51ca2d17077289cd5491ab0ad642cc634aa114a4b893249a972dcf08591616ff"
+        }
+      ]
+    },
+    {
+      "clusterId": "rel_batch20_a1_04",
+      "sourceKo": "순서",
+      "sourceVocabId": "vocab_a1_0425",
+      "level": "A1",
+      "sourceClusterSha256": "b67264ccf55b4b520626de84053c84c8065389c67ae9cb453bbd89a90bc68b03",
+      "related": [
+        {
+          "ko": "번호",
+          "de": "Nummer",
+          "en": "number",
+          "nuanceDe": "Wo es Wartenummern gibt, erkennst du daran, wann du an der Reihe bist.",
+          "nuanceEn": "Where numbered tickets are used, the number tells you when it is your turn.",
+          "vocabId": "vocab_a1_0454"
+        },
+        {
+          "ko": "기다리다",
+          "de": "warten",
+          "en": "to wait",
+          "nuanceDe": "Du kannst warten, bis du an der Reihe bist.",
+          "nuanceEn": "You can wait until it is your turn.",
+          "vocabId": "vocab_a1_0455"
+        }
+      ],
+      "relationReview": [
+        {
+          "vocabId": "vocab_a1_0454",
+          "meaningKo": "번호표를 쓰는 곳에서는 번호로 차례를 확인해요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "0ca8b836b35bba28b220320d55b1aedfe4c0c1c06004d72a783bc8b919927187"
+        },
+        {
+          "vocabId": "vocab_a1_0455",
+          "meaningKo": "자기 차례가 올 때까지 기다릴 수 있어요.",
+          "targetLevel": "A1",
+          "sourceVocabularySha256": "af714f3668bfb5e4d9edba207ac7ad9fdc0410468cc90b6f66747435458cff6c"
+        }
+      ]
+    }
+  ],
+  "promotionGate": {
+    "status": "BLOCKED_PENDING_REFERENCE_AND_QUIZ_REVIEW",
+    "referenceHumanApproval": null,
+    "quizSuitabilityApproval": null,
+    "reason": "WordRelationService.buildQuiz also uses the first related entry as answer and a global related pool as distractors. Reference-text approval alone does not establish unique answers.",
+    "requirements": [
+      "Human review of the exact 24 reference relationships and explanations.",
+      "Review all generated question/option combinations or implement an explicit reviewed quiz contract before runtime promotion.",
+      "Recheck source cluster and target vocabulary hashes before applying."
+    ]
+  }
+}
