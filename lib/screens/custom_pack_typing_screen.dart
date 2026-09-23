@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/game_result_recovery.dart';
 import 'dart:math' as math;
@@ -251,10 +253,12 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
         total: _order.length,
       ),
     );
-    await Analytics.gameCompleted(
-      gameType: 'typing',
-      result: pct >= 60 ? 'win' : 'lose',
-      score: pct,
+    unawaited(
+      Analytics.gameCompleted(
+        gameType: 'typing',
+        result: pct >= 60 ? 'win' : 'lose',
+        score: pct,
+      ),
     );
     if (!studyEvidenceIsCurrent || presentation != _presentation) return;
     _abandonTracker.markCompleted();

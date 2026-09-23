@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -77,7 +79,7 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
         _code = meta.code;
         _gyeName = meta.name;
       });
-      await Analytics.gyeCreated();
+      unawaited(Analytics.gyeCreated());
     } on GyeException catch (e) {
       if (mounted) {
         _snack(gyeErrorMessage(AppL10n.of(context), e.error));
