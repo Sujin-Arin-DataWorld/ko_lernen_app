@@ -228,7 +228,7 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 | S5 설치 크기 | Android `proofreading_feature` 선례 있음 | 앱 자산 분리 미완; App Bundle Explorer 실측부터, 기본 모듈 목표 150 MB |
 | S6 접근성 | AST 가드에서 발견한 아이콘 Tooltip 누락 13곳·읽기 라벨 누락 2곳 보완, CI 상시 가드 추가. DE/EN 버튼 라벨·동작·48dp 및 헤더 320dp/200% 위젯 검사 통과 | 원안의 Tooltip 0건은 현재 사실 아님(기존 Material IconButton 103곳에 존재). AST는 명시적 아이콘 구조만 검사하며 동적 라벨·사용자 정의 위젯 전체를 증명하지 않음. TalkBack/VoiceOver 실기기·전체 화면 접근성 검수 남음 |
 | B1 알림·SLO | #320 정책 5개·런북 병합 | **2026-09-16 실제 Monitoring 정책 조회 0개**. 채널·메트릭·정책 적용과 확인 필요; 코드 병합으로 닫지 않음 |
-| B2 함수 자원 | #333 병합, Gye limits·분할 Promise.all | 실제 배포 소스·운영 성능은 별도 확인 |
+| B2 함수 자원 | Gye 30개 export를 실제 운영과 읽기 대조했다. weekly_goal_rollover는 운영 60초·256MiB·max20·concurrency80이며, 저장소의 540초·512MiB·max1과 달랐다. Gen2에서는 max1만으로 요청이 직렬화되지 않아 concurrency1을 명시하고 회귀 검사를 추가했다. 기존 그룹별 트랜잭션·주간 키·일정·재시도·보상 로직은 유지 | 정확한 PR/main 검사 뒤 운영 소스와 Scheduler를 함께 대조해 표적 반영. 설정 선언과 실제 배포·부하·중복 보상 검증을 구분하며, 실제 사용자 주간 진행도에 시험 실행하지 않음 |
 | B3 쿼터 | 전역 25/UTC시를 기존 설치 30·계정 50·전역 300/일과 같은 트랜잭션에서 제한하는 코드 추가. 정각·자정 경계 반환은 예약 시각을 사용. 새 앱은 시간당 사유·DE/EN 안내를 구분하고 구버전은 재시도 없는 일반 안내를 유지 | 아직 미배포. 시간당 한도 외 세션/정책 사유 구분, 익명 계정 **생성** 속도 관측·B1 연동, 실제 배포·운영 검증은 남음. TTS 요청 횟수를 계정 생성 횟수로 간주하지 않음 |
 | B4 App Check | account/deletion runtime에 false 예외 존재 | 관측 기간·거절률·롤백 근거 후 단계적 enforce |
 | B5 Rules 읽기 | pack 규칙에 exists + cloudBackupDeletionPending 유지 | 삭제 펜스 보존하면서 읽기 감량, 에뮬레이터 증명 |
