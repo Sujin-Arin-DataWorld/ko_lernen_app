@@ -82,39 +82,6 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
         '';
   }
 
-  // ── 받침 jamo → 종성 코드 매핑 ─────────────────────────────────
-
-  static const Map<String, int> _batchimCode = {
-    '': 0,
-    'ㄱ': 1,
-    'ㄲ': 2,
-    'ㄳ': 3,
-    'ㄴ': 4,
-    'ㄵ': 5,
-    'ㄶ': 6,
-    'ㄷ': 7,
-    'ㄹ': 8,
-    'ㄺ': 9,
-    'ㄻ': 10,
-    'ㄼ': 11,
-    'ㄽ': 12,
-    'ㄾ': 13,
-    'ㄿ': 14,
-    'ㅀ': 15,
-    'ㅁ': 16,
-    'ㅂ': 17,
-    'ㅄ': 18,
-    'ㅅ': 19,
-    'ㅆ': 20,
-    'ㅇ': 21,
-    'ㅈ': 22,
-    'ㅊ': 23,
-    'ㅋ': 24,
-    'ㅌ': 25,
-    'ㅍ': 26,
-    'ㅎ': 27,
-  };
-
   /// 채점 뒤 강조색. 미통과(`_passed == false`)는 학습자가 틀린 답을 보고 있는
   /// 상태가 아니라 **공개된 정답**을 보고 있는 상태다 — 2회 오답이나 "모르겠어요"
   /// 뒤 `_selected` 가 `_correctIndex` 로 덮이기 때문이다. 그 정답 음절을 오답
@@ -147,7 +114,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
     if (base.isEmpty) return base;
     final baseCode = base.codeUnitAt(0);
     if (baseCode < 0xAC00 || baseCode > 0xD7A3) return base + jamo;
-    final bCode = _batchimCode[jamo];
+    final bCode = batchimFinalConsonantCodes[jamo];
     if (bCode == null) return base + jamo; // fallback
     final baseIdx = baseCode - 0xAC00;
     return String.fromCharCode(0xAC00 + baseIdx + bCode);

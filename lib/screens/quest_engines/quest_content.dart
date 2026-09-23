@@ -5,6 +5,38 @@ import '../../models/scenario.dart';
 import '../../widgets/sori/empty_state.dart';
 import 'quest_text.dart';
 
+/// Unicode Hangul final-consonant offsets shared by validation and rendering.
+const batchimFinalConsonantCodes = <String, int>{
+  '': 0,
+  'ㄱ': 1,
+  'ㄲ': 2,
+  'ㄳ': 3,
+  'ㄴ': 4,
+  'ㄵ': 5,
+  'ㄶ': 6,
+  'ㄷ': 7,
+  'ㄹ': 8,
+  'ㄺ': 9,
+  'ㄻ': 10,
+  'ㄼ': 11,
+  'ㄽ': 12,
+  'ㄾ': 13,
+  'ㄿ': 14,
+  'ㅀ': 15,
+  'ㅁ': 16,
+  'ㅂ': 17,
+  'ㅄ': 18,
+  'ㅅ': 19,
+  'ㅆ': 20,
+  'ㅇ': 21,
+  'ㅈ': 22,
+  'ㅊ': 23,
+  'ㅋ': 24,
+  'ㅌ': 25,
+  'ㅍ': 26,
+  'ㅎ': 27,
+};
+
 /// Renderer prerequisites only; this does not certify language quality or
 /// replace the authored content review. Invalid input must never become a
 /// completed question, even via the "don't know" action.
@@ -86,10 +118,32 @@ bool hasPlayableQuestContent(QuestType type, Map<String, dynamic> data) {
           options.every(text);
     case QuestType.batchimDrop:
       final word = data['targetWord'];
-      return text(data['audioKo']) &&
-          text(word) &&
-          index(data['targetSyllableIndex'], (word as String).length) &&
-          options.every(text);
+      if (!text(data['audioKo']) || word is! String || word.trim().isEmpty) {
+        return false;
+      }
+      // The renderer selects a displayed character, not a UTF-16 code unit.
+      final syllables = word.characters.toList();
+      final targetIndex = data['targetSyllableIndex'];
+      if (!index(targetIndex, syllables.length) ||
+          !options.every(
+            (option) =>
+                text(option) && batchimFinalConsonantCodes.containsKey(option),
+          ) ||
+          options.toSet().length != options.length) {
+        return false;
+      }
+      final target = syllables[(targetIndex as num).toInt()];
+      if (target.length != 1) {
+        return false;
+      }
+      final code = target.codeUnitAt(0);
+      if (code < 0xAC00 || code > 0xD7A3) {
+        return false;
+      }
+      final finalConsonant = (code - 0xAC00) % 28;
+      final correct = options[(data['correctIndex'] as num).toInt()];
+      return finalConsonant != 0 &&
+          batchimFinalConsonantCodes[correct] == finalConsonant;
     case QuestType.satzBauen:
     case QuestType.diktat:
     case QuestType.schreiben:
