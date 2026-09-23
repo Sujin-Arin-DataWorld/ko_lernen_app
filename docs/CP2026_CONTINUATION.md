@@ -1,13 +1,15 @@
 # CP-2026 전체 계획 인수 및 실행 큐
 
-## 2026-09-23 04:00 UTC 현재 상태 정합
+## 2026-09-23 07:14 UTC 현재 상태 정합
 
 아래 날짜별 기록은 그 시점의 증거이며, 현재 상태는 이 절과 실행 표를 우선한다. 앱 내부 배포와 서버 소스 배포, 실제 기기 성공, 사람 검수는 별도다. Android 7626과 기존 iOS 251에 새 책 스캔 그림 카드가 제공되지만 O2 커스텀 게임 후속은 아직 포함되지 않았다.
 
 - TTS 두 함수·발음 평가·Apple 삭제 worker/callable·Auth 생성 관측은 아래 00:18 기준선의 배포 영수증대로 반영됐다. 기존 Auth 삭제 트리거도 01:05 UTC `on_auth_user_deleted` version 3 / Node 22 / ACTIVE로 업데이트했다. 배포 소스 4파일, 기존 설정·IAM 및 생성 관측/삭제 소비자를 보존했고 실제 계정을 생성·삭제하지 않았다. 이전의 “아직 미배포” 문장은 해당 과거 시점에만 적용된다.
 - Android Play Integrity에 기존 `c1-bestehen` 연결을 보존하며 `ko-lernen-app`을 추가했다. Play 앱 서명의 SHA-256 `03542a694d2ffe298916acca53df1dc5cd73302e3a2e586f88ebedf25a7d9219`를 기존 Firebase Android 등록에 추가했고 이전 인증서 4개와 App Check 정책·TTL 3600초를 보존했다. 실제 기기의 책 스캔·음성 성공과 과거 오류의 인과관계는 미검증이다.
 - PR #394의 main `dea1b103`에서 CI `35808346481`·Playwright `35808346493` 성공 후 로그 메트릭 3개를 생성하고 같은 설정의 읽기 검증을 마쳤다. 실제 이벤트 수신·알림 정책·수신 채널은 별도 미완이다. #395 main `62e7d62a`의 CI `35812805935`·Playwright `35812805924`도 성공했고, 주간 함수 `weekly-goal-rollover-00010-qut`의 소스 43파일·CPU 1·540초·512MiB·max1·concurrency1과 Scheduler 600초를 검증했다. 최초 업로드403과 API의 CPU 자동 감소는 별도 복구했고 기존 환경·IAM·다른 함수는 보존했다. 실제 사용자 보상이나 주간 실행을 시험 호출하지 않았다.
-- #393 O2는 head `e77cb710`의 CI `35813642069`·Playwright `35813641970` 성공과 새 리뷰0 확인 후 03:59:37 UTC main `b3be8f37`로 squash 병합했다. PR/main 트리 차이는0이며 정확한 main 자동 CI `35816507814`·Playwright `35816507822`는 진행 중이다. 새 내부 빌드와 실기기 게임 검증은 이 gate 뒤에 진행한다. #397은 수동 iOS 복구 검증의 앱 식별자를 실제 빌드에서 읽도록 수정한 별도 PR이며 실제 native 성공은 아직 미검증이다.
+- #393 O2의 exact-main `b3be8f37` CI `35816507814`·Playwright `35816507822`는 모두 성공했다. 이어서 #398 최종 확인 읽기 제한도 main `481be6ea`의 CI `35821856578`·Playwright `35821856609`까지 통과했다. #399 팩 백업 후속 요청 보존 수정은 새 head `b0373eed`의 두 검사와 새 리뷰0 확인 후 06:53:59 UTC main `833e87b7`로 병합했다. 이 정확한 main은 07:10 UTC 확인에서 Playwright `35828943693` 성공, CI `35828943687` 진행 중이다.
+- 새 내부 배포는 이 exact-main gate가 성공하면 우선 진행한다. 현재 제공되는 Android7626·기존 iOS251에는 O2와 #398·#399가 아직 포함되지 않는다. 업로드, 콘솔 내부 제공, 사용자 기기 설치·사용은 각각 따로 확인한다. #397 수동 iOS 복구 검증의 앱 식별자 수정은 이전 PR head 검사만 성공했으며, 최신 main 통합과 실제 native 실행은 아직 미검증이다.
+- #400 받침 퀘스트는 제출 전 정답의 시각·접근성 노출을 막고 정답·두 번째 오답·모르겠어요 뒤에 공개한다. head `fe48baea`의 CI `35827686412`·Playwright `35827686462` 성공을 확인했지만 main 통합 전이다. #401은 선택적 Analytics 응답이 계 가입 이동·저장된 학습 결과 표시·완료 판정을 막지 않도록 보완한다. 최신 main을 정상 병합한 head `87c383eb`에서 관련 152검사·전체 분석·두축 검토를 통과했고 자동 PR 검사는 진행 중이다. 실제 기기·GA 스트림 수신이나 C5 콘텐츠 보충 완료를 의미하지 않는다.
 - 현재 main과 같은 시나리오 6개 샤드를 다시 세면 **178개 시나리오·547개 문항**이다. `scenario_quest_report.md`의 이전 419개·1,765개는 오래된 수치였으며 원래 감사기로 재생성했다. 현재 문항의 중복·미지원 타입·깨진 payload는 각각 0건이지만, 의미 품질·사람 승인이나 C5 완료를 뜻하지 않는다. 보고서 최신성도 기존 도구 테스트에서 검사한다.
 
 | 내장 퀘스트 엔진 | A1 | A2 | B1 | B2 | C1 | C2 |
@@ -19,7 +21,7 @@
 
 5개 미만인 실제 문항은 레벨별 `theme_park_date` 시나리오 6개에 포함된다. 빈/잘못된 입력 가드는 이미 적용됐지만 최소 수량 정책을 대신하지 않는다. 기존 문항을 조용히 건너뛰어 완료·보상을 지급하지 않으며, 미검수 문항을 라이브로 추가하지 않는다. C5 전체 보충/노출 제한과 실제 화면 검증은 남아 있다.
 
-증거는 공통 artifacts 폴더 `C:/dev/hangulsori/_codex_artifacts/cp2026-release-stabilization-20260922/`의 `legacy-auth-delete-rollout/completion.json`, `android-appcheck-setup-completion-20260923.json`, `pr394-merge-proof.json`, `log-metrics-20260923/completion.json`, `pr395-merge-proof.json`, `weekly-rollover-rollout/completion.json`, `pr393-merge-proof.json`, `c5-current-surface-audit-20260923.json` 및 아래 기존 배포 영수증이다. 알림 수신인·웹 갤러리 범위 응답, C01–C04 사람 검수, D01–D08 기기 검수와 14일 적격 관측은 계속 미완이다.
+증거는 공통 artifacts 폴더 `C:/dev/hangulsori/_codex_artifacts/cp2026-release-stabilization-20260922/`의 `legacy-auth-delete-rollout/completion.json`, `android-appcheck-setup-completion-20260923.json`, `pr394-merge-proof.json`, `log-metrics-20260923/completion.json`, `pr395-merge-proof.json`, `weekly-rollover-rollout/completion.json`, `pr393-merge-proof.json`, `pr398-main-gate.json`, `pr399-main-gate.json`, `analytics-main399/proof.json`, `c5-current-surface-audit-20260923.json` 및 아래 기존 배포 영수증이다. 알림 수신인·웹 갤러리 범위 응답, C01–C04 사람 검수, D01–D08 기기 검수와 14일 적격 관측은 계속 미완이다.
 
 ## 2026-09-23 00:18 UTC 서버·검증 기준선
 

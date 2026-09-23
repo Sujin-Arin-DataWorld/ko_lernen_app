@@ -233,10 +233,12 @@ class CloudSyncService {
     } on StateError {
       return false;
     }
-    final documents =
-        await (reader ?? firestoreCompositeReader(FirebaseFirestore.instance))(
-          uid,
-        );
+    // Propagate timeout to the coordinator's unavailable path. Treating an
+    // unknown confirmation as a revision conflict would retry remote writes.
+    final documents = await withNetTimeout(
+      (reader ?? firestoreCompositeReader(FirebaseFirestore.instance))(uid),
+      scope: 'cloud_sync.confirm_reconciliation',
+    );
     try {
       sessions.assertCurrent(session);
     } on StateError {
