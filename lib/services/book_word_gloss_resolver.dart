@@ -72,6 +72,44 @@ class BookWordGlossResolver {
     '요',
   ];
 
+  /// Common complete particle chains, matched once rather than recursively.
+  /// Only a bundled nominal headword can satisfy this fallback; an existing
+  /// exact word or single-particle phrase retains precedence.
+  static const List<String> _particleChains = [
+    '에게서는',
+    '에게서도',
+    '에게서만',
+    '한테서는',
+    '한테서도',
+    '한테서만',
+    '에서만은',
+    '으로만은',
+    '에서도',
+    '에서만',
+    '에게는',
+    '에게도',
+    '에게만',
+    '한테는',
+    '한테도',
+    '한테만',
+    '으로도',
+    '으로만',
+    '까지는',
+    '까지도',
+    '까지만',
+    '부터는',
+    '부터도',
+    '부터만',
+    '에는',
+    '에도',
+    '에만',
+    '로는',
+    '로도',
+    '로만',
+    '만은',
+    '만도',
+  ];
+
   /// Basic vowel-contraction fallbacks: a contracted stem syllable mapped to
   /// the dictionary stem syllable before appending 다 (봐 -> 보다, not 봐다).
   static const Map<String, String> _vowelContractionFallback = {
@@ -189,8 +227,10 @@ class BookWordGlossResolver {
     return resolved.values.toList(growable: false);
   }
 
-  List<String> _hangulTokens(String text) =>
-      _hangulRun.allMatches(text).map((m) => m.group(0)!).toList(growable: false);
+  List<String> _hangulTokens(String text) => _hangulRun
+      .allMatches(text)
+      .map((m) => m.group(0)!)
+      .toList(growable: false);
 
   _VocabMatch? _resolveAgainstVocab(
     Map<String, List<Vocab>> index,
@@ -209,6 +249,19 @@ class BookWordGlossResolver {
     }
     final stripped = _stripLongestParticle(token);
     var hit = stripped != null ? index[stripped] : null;
+    if (hit == null || hit.isEmpty) {
+      final nominal = _stripLongestParticle(token, suffixes: _particleChains);
+      hit = index[nominal]
+          ?.where(
+            (entry) => const {
+              'Nomen',
+              'Substantiv',
+              'Pronomen',
+              'Zahlwort',
+            }.contains(entry.posDe),
+          )
+          .toList(growable: false);
+    }
     if (hit == null || hit.isEmpty) {
       for (final candidate in _verbHeadwordCandidates(token)) {
         final verbHit = index[candidate];
@@ -283,9 +336,12 @@ class BookWordGlossResolver {
   /// Longest-match-once particle stripping. Tries the token itself is
   /// handled by the caller (direct index lookup); this only produces the
   /// single stripped candidate, if any particle suffix actually applies.
-  String? _stripLongestParticle(String token) {
+  String? _stripLongestParticle(
+    String token, {
+    List<String> suffixes = kParticleSuffixes,
+  }) {
     String? longestSuffix;
-    for (final suffix in kParticleSuffixes) {
+    for (final suffix in suffixes) {
       if (token.length <= suffix.length || !token.endsWith(suffix)) {
         continue;
       }
@@ -395,7 +451,11 @@ class BookWordGlossResolver {
 }
 
 class _VocabMatch {
-  const _VocabMatch(this.vocab, this.ambiguous, {this.alternativeHeadword = ''});
+  const _VocabMatch(
+    this.vocab,
+    this.ambiguous, {
+    this.alternativeHeadword = '',
+  });
 
   final Vocab vocab;
   final bool ambiguous;
