@@ -6,6 +6,7 @@ import '../models/custom_pack.dart';
 import '../motion/transitions.dart';
 import '../services/custom_pack_corpus_resolver.dart';
 import '../services/custom_pack_service.dart';
+import '../services/vocab_deck_source.dart';
 import '../services/vocab_nuance_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
@@ -17,6 +18,7 @@ import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 import 'chosung_quiz_screen.dart';
+import 'kkeunmari_screen.dart';
 import 'cloze_game_screen.dart';
 import 'custom_pack_matching_screen.dart';
 import 'custom_pack_play_screen.dart';
@@ -165,8 +167,9 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
         : 'de';
     final selected = _selected;
     final match = _match;
-    final ownVocab = CustomPackCorpusResolver.notebookVocab(selected);
-    final ownChosung = CustomPackCorpusResolver.notebookChosung(selected);
+    final source = VocabDeckSource(packId: pack.id, words: selected);
+    final ownVocab = source.vocabulary;
+    final ownChosung = source.chosung;
     final nuanceCount = VocabNuanceService.questionsFor(
       selected,
       language: language,
@@ -335,7 +338,7 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
           fullWidth: true,
           onTap: ownVocab.length < 2
               ? null
-              : () => _openPage(SpeedMatchScreen(items: ownVocab)),
+              : () => _openPage(SpeedMatchScreen(source: source)),
         ),
         const SizedBox(height: Spacing.sm),
         SoriButton.outlined(
@@ -343,7 +346,22 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
           fullWidth: true,
           onTap: ownChosung.isEmpty
               ? null
-              : () => _openPage(ChosungQuizScreen(deck: ownChosung)),
+              : () => _openPage(ChosungQuizScreen(source: source)),
+        ),
+        const SizedBox(height: Spacing.sm),
+        SoriButton.outlined(
+          label: t.kkeunmariTitle,
+          fullWidth: true,
+          onTap: selected.isEmpty
+              ? null
+              : () => _openPage(KkeunmariScreen(source: source)),
+        ),
+        const SizedBox(height: Spacing.sm),
+        Text(
+          t.kkeunmariSelectionHint,
+          style: SoriTextTheme.of(
+            context,
+          ).caption.copyWith(color: surfaces.textMuted),
         ),
         const SizedBox(height: Spacing.lg),
         Semantics(

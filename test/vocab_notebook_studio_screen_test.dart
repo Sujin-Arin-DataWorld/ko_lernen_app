@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/models/smalltalk.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/word_relation.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
+import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/screens/cloze_game_screen.dart';
 import 'package:ko_lernen_app/screens/custom_pack_matching_screen.dart';
 import 'package:ko_lernen_app/screens/custom_pack_play_screen.dart';
@@ -650,6 +651,7 @@ void main() {
       label: 'Speed pairs · 4 words',
     );
     expect(speed.items!.map((item) => item.korean), _selectedKorean);
+    expect(speed.source!.packId, 'nb-studio-matrix');
     expect(speed.items!.map((item) => item.german), <String>[
       'Schule',
       'Anfang',
@@ -663,6 +665,17 @@ void main() {
       label: 'First-sound quiz · 4 words',
     );
     expect(chosung.deck!.map((item) => item.korean), _selectedKorean);
+    expect(chosung.source!.packId, 'nb-studio-matrix');
+
+    final chain = await _openStudioDestination<KkeunmariScreen>(
+      tester,
+      key: 'chain',
+      label: 'Word Chain',
+    );
+    expect(chain.source!.packId, 'nb-studio-matrix');
+    _expectSelectedWords(chain.source!.words);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(const Duration(milliseconds: 500));
   });
 
   testWidgets('all corpus destinations receive exact matched payloads', (

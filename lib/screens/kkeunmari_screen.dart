@@ -12,6 +12,7 @@ import '../models/feedback_completion.dart';
 import '../services/data_loader.dart';
 import '../services/kkeunmari_dictionary_service.dart';
 import '../services/kkeunmari_engine.dart';
+import '../services/vocab_deck_source.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/sound_service.dart';
@@ -53,7 +54,14 @@ enum _PendingTurnAction { none, deadEnd, tigerMove }
 /// 호랑이 차례: 자동으로 다음 단어 선택 → 호랑이가 단어 없으면 사용자 승.
 /// dead_end 단어가 나오면 그 차례 종료 (다음 차례 응답 못 함).
 class KkeunmariScreen extends StatefulWidget {
-  const KkeunmariScreen({super.key, this.poolLoader, this.dictionaryValidator});
+  const KkeunmariScreen({
+    super.key,
+    this.poolLoader,
+    this.dictionaryValidator,
+    this.source,
+  });
+
+  final VocabDeckSource? source;
 
   /// Optional deterministic seam. Production keeps [KkeunmariEngine.load].
   final Future<List<KkeunmariWord>> Function()? poolLoader;
@@ -77,6 +85,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   bool _loading = true;
   bool _loadFailed = false;
   List<KkeunmariWord> _chain = [];
+  List<KkeunmariWord> _pool = const [];
+  bool get _hasPlayablePool =>
+      _pool.isNotEmpty &&
+      (widget.source == null || KkeunmariEngine.hasChain(_pool));
   final Set<String> _used = {};
   Set<String> _vocabKeys = {}; // M1: nur diese Wörter speisen das SRS
   _Turn _turn = _Turn.user;
@@ -209,13 +221,13 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     try {
       final poolLoader = widget.poolLoader;
       if (poolLoader == null) {
-        await KkeunmariEngine.load();
+        _pool = await KkeunmariEngine.load();
       } else {
         final pool = await poolLoader();
         if (!_acceptsInput || generation != _roundGeneration) {
           return;
         }
-        KkeunmariEngine.setPoolForTesting(pool);
+        _pool = List<KkeunmariWord>.unmodifiable(pool);
       }
     } catch (_) {
       if (!_acceptsInput || generation != _roundGeneration) {
@@ -239,9 +251,14 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       });
       return;
     }
+    if (widget.source != null) {
+      _pool = widget.source!.wordChainPool(_pool);
+    }
     // M1: Vokabel-Keys laden → nur Kkeunmari-Wörter, die echte Vokabeln sind,
     // speisen das SRS (best-effort; Spiel läuft auch ohne).
-    if (widget.poolLoader == null && _vocabKeys.isEmpty) {
+    if (widget.source == null &&
+        widget.poolLoader == null &&
+        _vocabKeys.isEmpty) {
       try {
         final vocab = await DataLoader.loadVocab();
         if (!_acceptsInput || generation != _roundGeneration) {
@@ -255,12 +272,12 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     if (!_acceptsInput || generation != _roundGeneration) {
       return;
     }
-    if (KkeunmariEngine.pool.isEmpty) {
+    if (!_hasPlayablePool) {
       // Pool leer (Asset fehlt/defekt) → Leer-Zustand zeigen statt pickStart-Crash.
       setState(() => _loading = false);
       return;
     }
-    final start = KkeunmariEngine.pickStart();
+    final start = KkeunmariEngine.pickStart(source: _pool);
     setState(() {
       _chain = [start];
       _used
@@ -424,9 +441,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       input,
       _required,
       _used,
+      source: _pool,
     );
     if (!valid) {
-      if (reason != 'not_in_pool') {
+      if (reason != 'not_in_pool' || widget.source != null) {
         _showValidationError(reason);
         return;
       }
@@ -501,7 +519,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         'not_korean' => t.kkeunmariNotKorean,
         'wrong_start' => t.kkeunmariWrongStart(_required),
         'already_used' => t.kkeunmariAlreadyUsed,
-        _ => t.kkeunmariNotInPool,
+        _ =>
+          widget.source == null
+              ? t.kkeunmariNotInPool
+              : t.kkeunmariNotInSelection,
       };
     });
   }
@@ -554,7 +575,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     // The bundle-level `is_dead_end` is only an unused-pool snapshot. A real
     // turn must account for already-used words, otherwise a stale next_count
     // can end a valid chain (or delay an impossible one).
-    if (KkeunmariEngine.nextCountFor(w.last, _used) == 0) {
+    if (KkeunmariEngine.nextCountFor(w.last, _used, source: _pool) == 0) {
       _stopTimer();
       _schedulePendingTurnAction(
         _PendingTurnAction.deadEnd,
@@ -577,7 +598,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     if (!_acceptsInput || _finishing || _end != _End.none) {
       return;
     }
-    final next = KkeunmariEngine.pickTigerNext(_required, _used);
+    final next = KkeunmariEngine.pickTigerNext(_required, _used, source: _pool);
     if (next == null) {
       _endGame(_End.tigerStuck);
       return;
@@ -711,7 +732,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       );
     }
 
-    if (KkeunmariEngine.pool.isEmpty) {
+    if (!_hasPlayablePool) {
       return SoriStudyFrame(
         onLeave: _retireStudy,
         title: t.kkeunmariTitle,
@@ -719,7 +740,9 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
           asset: 'assets/illustrations/mascot/magpie_encourage.png',
           icon: Icons.link_off_rounded,
           title: t.kkeunmariTitle,
-          body: t.kkeunmariEmptyBody,
+          body: widget.source == null
+              ? t.kkeunmariEmptyBody
+              : t.kkeunmariSelectionEmpty,
         ),
       );
     }
@@ -749,6 +772,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                if (widget.source != null) ...[
+                  Text(t.kkeunmariSelectionHint),
+                  const SizedBox(height: Spacing.md),
+                ],
                 // ── chain 시각화 ──
                 _ChainStrip(chain: _chain),
                 const SizedBox(height: Spacing.md),
@@ -798,7 +825,13 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                   // ── 마지막 단어 카드 (last 음절 강조) ──
                   KeyedSubtree(
                     key: _lastWordCardKey,
-                    child: _LastWordCard(word: _last!),
+                    child: _LastWordCard(
+                      word: _last!,
+                      meaning: widget.source?.meaningFor(
+                        _last!.word,
+                        Localizations.localeOf(context).languageCode,
+                      ),
+                    ),
                   ),
                   const SizedBox(height: Spacing.md),
 
@@ -1060,13 +1093,15 @@ class _Timer extends StatelessWidget {
 
 class _LastWordCard extends StatelessWidget {
   final KkeunmariWord word;
-  const _LastWordCard({required this.word});
+  final String? meaning;
+  const _LastWordCard({required this.word, this.meaning});
 
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
     final chars = word.word.split('');
+    final gloss = meaning ?? word.german;
     void onListen() => unawaited(TtsService.speak(word.word));
     return SoriCard(
       variant: SoriCardVariant.hero,
@@ -1124,9 +1159,9 @@ class _LastWordCard extends StatelessWidget {
           const SizedBox(height: Spacing.sm),
           // Nur echte Übersetzungen zeigen — "TODO"/leer wird ausgeblendet
           // (der Pool ist fragment-lastig; siehe tools/content_factory/README).
-          if (word.german.isNotEmpty && word.german != 'TODO')
+          if (gloss.isNotEmpty && gloss != 'TODO')
             Text(
-              word.german,
+              gloss,
               textAlign: TextAlign.center,
               style: SoriTextTheme.of(context).caption.copyWith(
                 color: s.textMuted,
@@ -1239,14 +1274,16 @@ class _ResultCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: Spacing.md),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Wrap(
+              alignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: Spacing.sm,
+              runSpacing: Spacing.sm,
               children: [
                 SoriChip(
                   label: t.kkeunmariChainLength(chainLength),
                   accent: SoriColors.accent,
                 ),
-                const SizedBox(width: Spacing.sm),
                 if (rewardReady)
                   LearningRewardPresentation(
                     attempt: learningAttempt,
@@ -1272,12 +1309,14 @@ class _ResultCard extends StatelessWidget {
                       color: SoriColors.gold,
                     ),
                     const SizedBox(width: 5),
-                    Text(
-                      t.gameNewBest,
-                      style: SoriTextTheme.of(context).caption.copyWith(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        color: SoriColors.gold,
+                    Flexible(
+                      child: Text(
+                        t.gameNewBest,
+                        style: SoriTextTheme.of(context).caption.copyWith(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: SoriColors.gold,
+                        ),
                       ),
                     ),
                   ],
