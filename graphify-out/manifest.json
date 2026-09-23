@@ -15972,9 +15972,9 @@
     "semantic_hash": ""
   },
   "tool/curriculum_completion_backlog.json": {
-    "mtime": 1790205320.392884,
-    "seen": 1790206146.8930056,
-    "ast_hash": "61e7747e0f04d17a538ab1b604eada2f",
+    "mtime": 1790207550.9485683,
+    "seen": 1790207842.842156,
+    "ast_hash": "27f57873befcf191f602bf4eb3e83517",
     "semantic_hash": ""
   },
   "tool/curriculum_context_inventory.py": {
@@ -16038,9 +16038,9 @@
     "semantic_hash": ""
   },
   "docs/data/curriculum_completion_backlog.md": {
-    "mtime": 1790205316.6893623,
-    "seen": 1790206146.8946128,
-    "ast_hash": "361197dc6e5c3e39cce7cad9e5486deb",
+    "mtime": 1790207550.9485683,
+    "seen": 1790207843.0859416,
+    "ast_hash": "a04d5f0c7cc60ea056bc5803c70f2c64",
     "semantic_hash": ""
   },
   "docs/superpowers/plans/2026-09-10-level-content-completion.md": {
