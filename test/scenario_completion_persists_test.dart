@@ -30,6 +30,7 @@ import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
+import 'support/scenario_stock_fixtures.dart';
 import 'support/sori_speech_stubs.dart';
 
 const _questWord = '실패 단어';
@@ -163,6 +164,7 @@ void main() {
         home: ScenarioPlayerScreen(
           scenarioId: _playableA1.id,
           scenarioLoader: (_) async => _playableA1,
+          questCorpusLoader: (_) async => stockedScenarioCorpus(_playableA1),
           onExit: () => exitCalls++,
         ),
       ),
@@ -231,6 +233,7 @@ Future<void> _failTheOnlyQuest(WidgetTester tester, Scenario scenario) async {
       home: ScenarioPlayerScreen(
         scenarioId: scenario.id,
         scenarioLoader: (_) async => scenario,
+        questCorpusLoader: (_) async => stockedScenarioCorpus(scenario),
       ),
     ),
   );
@@ -272,7 +275,8 @@ Future<void> _expectLevelBadge(WidgetTester tester, String label) async {
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
       home: ScenariosListScreen(
-        loadScenarios: () async => const [_playableA1, _otherA1],
+        loadScenarios: () async =>
+            [_playableA1, _otherA1].map(stockedCatalogLesson).toList(),
       ),
     ),
   );
