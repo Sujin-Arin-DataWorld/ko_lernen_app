@@ -143,8 +143,40 @@ class ApplyAlertsTest(unittest.TestCase):
             app.apply(api, policies, CHANNEL, dry_run=False)
         self.assertEqual(api.posts, [])
 
-    def test_missing_or_malformed_resource_contract_blocks_writes(self):
-        for resources in (None, [], "cloud_run_revision", [None], ["cloud_run_revision", 1]):
+    def test_unrestricted_descriptor_accepts_missing_or_empty_resource_list(self):
+        for omitted in (False, True):
+            with self.subTest(omitted=omitted):
+                api = FakeApi()
+                api.metric_resources["run.googleapis.com/request_count"] = []
+                original = api.request
+
+                def unrestricted(method, path, params=None, body=None):
+                    result = original(method, path, params, body)
+                    if omitted and path.startswith("metricDescriptors/"):
+                        result.pop("monitoredResourceTypes", None)
+                    return result
+
+                api.request = unrestricted
+                result = self.run_plan(api, selected=("01",), dry_run=False)
+                self.assertEqual(result[0]["status"], "created")
+                self.assertEqual(len(api.posts), 1)
+
+    def test_unrestricted_first_metric_does_not_bypass_later_incompatible_metric(self):
+        api = FakeApi()
+        # Descriptors are checked in sorted metric order: Firestore before Run.
+        api.metric_resources["firestore.googleapis.com/document/write_count"] = []
+        api.metric_resources["run.googleapis.com/request_count"] = ["firestore_instance"]
+        with self.assertRaisesRegex(app.OpsError, "metric_resource_mismatch"):
+            self.run_plan(api, selected=("01", "05"), dry_run=False)
+        self.assertEqual(
+            [call[1] for call in api.calls if call[1].startswith("metricDescriptors/")],
+            ["metricDescriptors/firestore.googleapis.com/document/write_count",
+             "metricDescriptors/run.googleapis.com/request_count"],
+        )
+        self.assertEqual(api.posts, [])
+
+    def test_malformed_resource_contract_blocks_writes(self):
+        for resources in (None, "cloud_run_revision", [None], [""], ["cloud_run_revision", 1]):
             api = FakeApi()
             api.metric_resources["run.googleapis.com/request_count"] = resources
             with self.subTest(resources=resources), redirect_stdout(io.StringIO()):

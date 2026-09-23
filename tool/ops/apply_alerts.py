@@ -222,10 +222,12 @@ def preflight(api, policies, channel):
                                  params={"fields": "type,metricKind,valueType,monitoredResourceTypes"})
         if descriptor.get("type") != metric or descriptor.get("metricKind") != "DELTA" or descriptor.get("valueType") != "INT64":
             raise OpsError("metric_descriptor_mismatch")
-        supported = descriptor.get("monitoredResourceTypes")
-        if (not isinstance(supported, list) or not supported or
+        # Google lists resource restrictions only when the descriptor has them.
+        # An omitted or empty repeated field does not restrict resource types.
+        supported = descriptor.get("monitoredResourceTypes", [])
+        if (not isinstance(supported, list) or
                 any(not isinstance(value, str) or not value for value in supported) or
-                not requested_resources.issubset(supported)):
+                (supported and not requested_resources.issubset(supported))):
             raise OpsError("metric_resource_mismatch")
     for number, policy in policies:
         if number != "04":
