@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
 import 'package:ko_lernen_app/main.dart';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/models/content_feedback.dart';
 import 'package:ko_lernen_app/models/pack_progress.dart';
 import 'package:ko_lernen_app/services/content_feedback_client.dart';
@@ -27,6 +28,7 @@ void main() {
         canMirror: () => true,
         savePack: (PackProgress p) async {
           flushCalls += 1;
+          return CloudWriteResult.completed;
         },
       );
       // Prime one pending pack so flush() has something to actually save.
