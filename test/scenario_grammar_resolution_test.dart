@@ -14,6 +14,9 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 
+import 'support/scenario_stock_fixtures.dart';
+
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -227,6 +230,7 @@ Future<void> _pumpToGrammar(
       home: ScenarioPlayerScreen(
         scenarioId: scenario.id,
         scenarioLoader: (_) async => scenario,
+        questCorpusLoader: (_) async => stockedScenarioCorpus(scenario),
         grammarLoader: grammarLoader,
       ),
     ),

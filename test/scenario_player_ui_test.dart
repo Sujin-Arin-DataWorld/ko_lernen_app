@@ -24,6 +24,7 @@ import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
+import 'support/scenario_stock_fixtures.dart';
 import 'support/scenario_fixtures.dart';
 import 'support/sori_speech_stubs.dart';
 
@@ -71,6 +72,8 @@ void main() {
       child: ScenarioPlayerScreen(
         scenarioId: scenarioAirportArrivalFixture.id,
         scenarioLoader: (_) => pending.future,
+        questCorpusLoader: (_) async =>
+            stockedScenarioCorpus(scenarioAirportArrivalFixture),
       ),
       size: const Size(390, 844),
       textScale: 1.3,
@@ -108,6 +111,8 @@ void main() {
           child: ScenarioPlayerScreen(
             key: ValueKey('load-${locale.languageCode}'),
             scenarioId: scenarioAirportArrivalFixture.id,
+            questCorpusLoader: (_) async =>
+                stockedScenarioCorpus(scenarioAirportArrivalFixture),
             scenarioLoader: (_) async {
               attempts += 1;
               if (attempts == 1) {
@@ -160,6 +165,8 @@ void main() {
         child: ScenarioPlayerScreen(
           scenarioId: scenarioAirportArrivalFixture.id,
           scenarioLoader: (_) => pending.future,
+          questCorpusLoader: (_) async =>
+              stockedScenarioCorpus(scenarioAirportArrivalFixture),
         ),
         size: const Size(320, 640),
         textScale: 2,
@@ -244,10 +251,7 @@ void main() {
           ),
         ],
         quests: [
-          QuestSpec(
-            type: QuestType.diktat,
-            data: {'targetKo': spokenText},
-          ),
+          QuestSpec(type: QuestType.diktat, data: {'targetKo': spokenText}),
         ],
       );
       final profileVoice = scenario.voiceForSpeaker('user');
@@ -390,201 +394,188 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets(
-    '대사 카드 책갈피 탭은 문장형 typed bookmark로 1회 저장되고 quickAdd 미러도 남는다 '
-    '(PR2 리뷰 Important 3-a/3-b, a11y HIGH)',
-    (tester) async {
-      TypedStudyBookmarkStore.resetProductionForTesting();
-      CustomPackService.revision.value = 0;
-      final stub = stubSoriSpeech();
+  testWidgets('대사 카드 책갈피 탭은 문장형 typed bookmark로 1회 저장되고 quickAdd 미러도 남는다 '
+      '(PR2 리뷰 Important 3-a/3-b, a11y HIGH)', (tester) async {
+    TypedStudyBookmarkStore.resetProductionForTesting();
+    CustomPackService.revision.value = 0;
+    final stub = stubSoriSpeech();
 
-      await _pumpLessonDialog(tester);
+    await _pumpLessonDialog(tester);
 
-      // 대사 스테이지 진입 자동재생(T2.1)이 이미 첫 대사를 1회 읽었다 —
-      // 책갈피 탭은 이 이력을 건드리지 않아야 한다(§9-2: 책갈피만, 재생
-      // 트리거 아님).
-      expect(stub.spoken, ['여권 보여주세요.']);
-      expect(CustomPackService.containsKorean('여권 보여주세요.'), isFalse);
+    // 대사 스테이지 진입 자동재생(T2.1)이 이미 첫 대사를 1회 읽었다 —
+    // 책갈피 탭은 이 이력을 건드리지 않아야 한다(§9-2: 책갈피만, 재생
+    // 트리거 아님).
+    expect(stub.spoken, ['여권 보여주세요.']);
+    expect(CustomPackService.containsKorean('여권 보여주세요.'), isFalse);
 
-      // 줄마다 다른 접근성 이름이 붙어야 한다 — 카드 본문의 재생 라벨과도,
-      // 다른 대사 줄의 책갈피 버튼과도 겹치면 안 된다(a11y HIGH, WCAG
-      // 4.1.2). IconButton.tooltip이 곧 시맨틱 이름이므로(Tooltip이
-      // Semantics(label:)로 감싼다) 위젯 트리의 Tooltip.message로 직접
-      // 확인한다 — 카드 본문의 "Aussprache: …" 라벨과 혼동되지 않는다.
-      final bookmarkTooltip = find.byWidgetPredicate(
-        (widget) =>
-            widget is Tooltip &&
-            (widget.message?.contains('여권 보여주세요') ?? false),
-      );
-      expect(bookmarkTooltip, findsOneWidget);
+    // 줄마다 다른 접근성 이름이 붙어야 한다 — 카드 본문의 재생 라벨과도,
+    // 다른 대사 줄의 책갈피 버튼과도 겹치면 안 된다(a11y HIGH, WCAG
+    // 4.1.2). IconButton.tooltip이 곧 시맨틱 이름이므로(Tooltip이
+    // Semantics(label:)로 감싼다) 위젯 트리의 Tooltip.message로 직접
+    // 확인한다 — 카드 본문의 "Aussprache: …" 라벨과 혼동되지 않는다.
+    final bookmarkTooltip = find.byWidgetPredicate(
+      (widget) =>
+          widget is Tooltip && (widget.message?.contains('여권 보여주세요') ?? false),
+    );
+    expect(bookmarkTooltip, findsOneWidget);
 
-      await tester.tap(find.byIcon(Icons.bookmark_add_outlined).first);
-      await tester.pumpAndSettle();
+    await tester.tap(find.byIcon(Icons.bookmark_add_outlined).first);
+    await tester.pumpAndSettle();
 
-      // 정본 저장소: 대사 한 줄은 문장이다 — smalltalk_screen.dart의
-      // `_savePhrase`와 같은 typed bookmark 경로(itemType: sentence)로,
-      // 활성 로케일(de)로 저장된다(Important 3-a/3-b).
-      final bookmarks = TypedStudyBookmarkStore.production().read().bookmarks;
-      expect(bookmarks, hasLength(1));
-      expect(bookmarks.single.key.type, StudyLibraryItemType.sentence);
-      expect(bookmarks.single.key.id, '여권 보여주세요.');
-      expect(bookmarks.single.primaryText, '여권 보여주세요.');
-      expect(bookmarks.single.secondaryLanguage, 'de');
-      expect(
-        bookmarks.single.sourceUnitId,
-        scenarioAirportArrivalFixture.id,
-        reason: 'provenance는 smalltalk_screen.dart:598처럼 출처 단위를 '
-            '남겨야 한다(대사 줄엔 고유 id가 없어 시나리오 id를 쓴다)',
-      );
+    // 정본 저장소: 대사 한 줄은 문장이다 — smalltalk_screen.dart의
+    // `_savePhrase`와 같은 typed bookmark 경로(itemType: sentence)로,
+    // 활성 로케일(de)로 저장된다(Important 3-a/3-b).
+    final bookmarks = TypedStudyBookmarkStore.production().read().bookmarks;
+    expect(bookmarks, hasLength(1));
+    expect(bookmarks.single.key.type, StudyLibraryItemType.sentence);
+    expect(bookmarks.single.key.id, '여권 보여주세요.');
+    expect(bookmarks.single.primaryText, '여권 보여주세요.');
+    expect(bookmarks.single.secondaryLanguage, 'de');
+    expect(
+      bookmarks.single.sourceUnitId,
+      scenarioAirportArrivalFixture.id,
+      reason:
+          'provenance는 smalltalk_screen.dart:598처럼 출처 단위를 '
+          '남겨야 한다(대사 줄엔 고유 id가 없어 시나리오 id를 쓴다)',
+    );
 
-      // 호환 미러: 단어 게임/플래시카드가 계속 보는 quickAdd 팩.
-      final pack = CustomPackService.getById(CustomPackService.quickPackId);
-      expect(pack, isNotNull);
-      final mirrored = pack!.words.where(
-        (w) => w.korean == '여권 보여주세요.',
-      );
-      expect(
-        mirrored.length,
-        1,
-        reason: '탭 1회는 quickAdd 1회여야 한다(중복 없음)',
-      );
-      expect(mirrored.single.translationLanguage, 'de');
-      expect(
-        stub.spoken,
-        ['여권 보여주세요.'],
-        reason: '책갈피 탭은 카드 재생(SoriSpeech.speak)을 트리거하지 않아야 한다 — '
-            'onTap 아레나로 전파되지 않는다',
-      );
-      expect(tester.takeException(), isNull);
-    },
-  );
+    // 호환 미러: 단어 게임/플래시카드가 계속 보는 quickAdd 팩.
+    final pack = CustomPackService.getById(CustomPackService.quickPackId);
+    expect(pack, isNotNull);
+    final mirrored = pack!.words.where((w) => w.korean == '여권 보여주세요.');
+    expect(mirrored.length, 1, reason: '탭 1회는 quickAdd 1회여야 한다(중복 없음)');
+    expect(mirrored.single.translationLanguage, 'de');
+    expect(
+      stub.spoken,
+      ['여권 보여주세요.'],
+      reason:
+          '책갈피 탭은 카드 재생(SoriSpeech.speak)을 트리거하지 않아야 한다 — '
+          'onTap 아레나로 전파되지 않는다',
+    );
+    expect(tester.takeException(), isNull);
+  });
 
-  testWidgets(
-    '첫 대사(자동재생 대상) 카드 하나가 재생 정지 컨트롤이다 (WCAG 1.4.2) — '
-    '별도 인디케이터를 중첩하지 않는다 (WCAG 4.1.2)',
-    (tester) async {
-      final stub = stubSoriSpeech(completeSpeak: false);
-      final semantics = tester.ensureSemantics();
+  testWidgets('첫 대사(자동재생 대상) 카드 하나가 재생 정지 컨트롤이다 (WCAG 1.4.2) — '
+      '별도 인디케이터를 중첩하지 않는다 (WCAG 4.1.2)', (tester) async {
+    final stub = stubSoriSpeech(completeSpeak: false);
+    final semantics = tester.ensureSemantics();
 
-      await _pumpPreview(
-        tester,
-        stage: ScenarioStage.dialog,
-        size: const Size(390, 844),
-        textScale: 1.3,
-      );
+    await _pumpPreview(
+      tester,
+      stage: ScenarioStage.dialog,
+      size: const Size(390, 844),
+      textScale: 1.3,
+    );
 
-      // 진입 자동재생이 첫 대사를 speak 요청했다. completeSpeak:false라
-      // future가 pending 상태로 남아 phase가 idle로 돌아오지 않는다 —
-      // "3초 넘게 이어지는 자동재생"을 흉내내는 이 테스트의 전제.
-      expect(stub.spoken, ['여권 보여주세요.']);
-      expect(SoriSpeech.phase.value, isNot(TtsSpeechPhase.idle));
+    // 진입 자동재생이 첫 대사를 speak 요청했다. completeSpeak:false라
+    // future가 pending 상태로 남아 phase가 idle로 돌아오지 않는다 —
+    // "3초 넘게 이어지는 자동재생"을 흉내내는 이 테스트의 전제.
+    expect(stub.spoken, ['여권 보여주세요.']);
+    expect(SoriSpeech.phase.value, isNot(TtsSpeechPhase.idle));
 
-      // 리뷰 High: 카드(재생) 안에 별도 SoriSpeechIndicator(재생/정지
-      // 토글)를 또 넣으면 같은 위치에 버튼 시맨틱이 중첩된다. 자동재생
-      // 대상 줄에는 그 컴포넌트를 아예 두지 않는다 — 컨트롤은 카드 하나뿐.
-      final indicator = find.byWidgetPredicate(
-        (widget) =>
-            widget is SoriSpeechIndicator && widget.text == '여권 보여주세요.',
-      );
-      expect(
-        indicator,
-        findsNothing,
-        reason: '자동재생 대상 줄은 카드 하나가 유일한 컨트롤이어야 한다 — '
-            '별도 인디케이터를 두면 버튼 시맨틱이 중첩된다(WCAG 4.1.2)',
-      );
+    // 리뷰 High: 카드(재생) 안에 별도 SoriSpeechIndicator(재생/정지
+    // 토글)를 또 넣으면 같은 위치에 버튼 시맨틱이 중첩된다. 자동재생
+    // 대상 줄에는 그 컴포넌트를 아예 두지 않는다 — 컨트롤은 카드 하나뿐.
+    final indicator = find.byWidgetPredicate(
+      (widget) => widget is SoriSpeechIndicator && widget.text == '여권 보여주세요.',
+    );
+    expect(
+      indicator,
+      findsNothing,
+      reason:
+          '자동재생 대상 줄은 카드 하나가 유일한 컨트롤이어야 한다 — '
+          '별도 인디케이터를 두면 버튼 시맨틱이 중첩된다(WCAG 4.1.2)',
+    );
 
-      // 둘째 대사는 자동재생 대상이 아니므로 중복 정지 컨트롤을 만들지 않는다.
-      final secondLineIndicator = find.byWidgetPredicate(
-        (widget) =>
-            widget is SoriSpeechIndicator && widget.text == '네, 여기 있어요.',
-      );
-      expect(secondLineIndicator, findsNothing);
+    // 둘째 대사는 자동재생 대상이 아니므로 중복 정지 컨트롤을 만들지 않는다.
+    final secondLineIndicator = find.byWidgetPredicate(
+      (widget) => widget is SoriSpeechIndicator && widget.text == '네, 여기 있어요.',
+    );
+    expect(secondLineIndicator, findsNothing);
 
-      // 첫 대사 카드 자체가 정지 가능한 컨트롤이다 — 카드의 버튼 시맨틱
-      // label로 찾는다(다른 줄과 구분되는 고유 이름, a11y HIGH 회귀 방지).
-      final card = find.bySemanticsLabel(
-        RegExp(r'^Aussprache: 여권 보여주세요\.'),
-      );
-      expect(card, findsOneWidget);
-      final beforeTapData = tester.getSemantics(card).getSemanticsData();
-      expect(beforeTapData.flagsCollection.isButton, isTrue);
-      expect(
-        beforeTapData.value,
-        'Wird geladen',
-        reason: 'resolving 단계에서는 SoriSpeechIndicator와 같은 arb 키'
-            '(speechIndicatorResolving)를 카드 value로 노출해야 한다',
-      );
+    // 첫 대사 카드 자체가 정지 가능한 컨트롤이다 — 카드의 버튼 시맨틱
+    // label로 찾는다(다른 줄과 구분되는 고유 이름, a11y HIGH 회귀 방지).
+    final card = find.bySemanticsLabel(RegExp(r'^Aussprache: 여권 보여주세요\.'));
+    expect(card, findsOneWidget);
+    final beforeTapData = tester.getSemantics(card).getSemanticsData();
+    expect(beforeTapData.flagsCollection.isButton, isTrue);
+    expect(
+      beforeTapData.value,
+      'Wird geladen',
+      reason:
+          'resolving 단계에서는 SoriSpeechIndicator와 같은 arb 키'
+          '(speechIndicatorResolving)를 카드 value로 노출해야 한다',
+    );
 
-      // 첫 대사 카드 시맨틱 서브트리 안의 button 노드는 정확히 2개여야
-      // 한다 — 카드 자신(재생/정지, 통합 컨트롤)과 책갈피
-      // (AddToWordbookButton, 별개 동작·별개 라벨)뿐이다. 예전엔
-      // SoriSpeechIndicator가 카드 안에 하나 더 있어 재생 위치에 동작이
-      // 다른 버튼 2개(카드=재생 전용 / 인디케이터=토글 정지)가
-      // 중첩됐다(리뷰 High, WCAG 4.1.2) — 그 회귀가 재발하면 이 카운트가
-      // 3으로 늘어난다.
-      final buttonNodeCount = _countButtonSemanticsNodes(
-        tester.getSemantics(card),
-      );
-      expect(
-        buttonNodeCount,
-        2,
-        reason: '카드(재생/정지 통합 컨트롤) + 책갈피 버튼만 있어야 한다 — '
-            '3개 이상이면 같은 자리에 재생 컨트롤이 중첩된 것이다(WCAG 4.1.2)',
-      );
+    // 첫 대사 카드 시맨틱 서브트리 안의 button 노드는 정확히 2개여야
+    // 한다 — 카드 자신(재생/정지, 통합 컨트롤)과 책갈피
+    // (AddToWordbookButton, 별개 동작·별개 라벨)뿐이다. 예전엔
+    // SoriSpeechIndicator가 카드 안에 하나 더 있어 재생 위치에 동작이
+    // 다른 버튼 2개(카드=재생 전용 / 인디케이터=토글 정지)가
+    // 중첩됐다(리뷰 High, WCAG 4.1.2) — 그 회귀가 재발하면 이 카운트가
+    // 3으로 늘어난다.
+    final buttonNodeCount = _countButtonSemanticsNodes(
+      tester.getSemantics(card),
+    );
+    expect(
+      buttonNodeCount,
+      2,
+      reason:
+          '카드(재생/정지 통합 컨트롤) + 책갈피 버튼만 있어야 한다 — '
+          '3개 이상이면 같은 자리에 재생 컨트롤이 중첩된 것이다(WCAG 4.1.2)',
+    );
 
-      await tester.tap(card);
-      await tester.pump();
+    await tester.tap(card);
+    await tester.pump();
 
-      expect(
-        stub.stops,
-        1,
-        reason: '재생 중 탭은 정지여야 한다(WCAG 1.4.2) — 다시 재생을 걸면 안 된다',
-      );
-      expect(stub.spoken, ['여권 보여주세요.']);
-      expect(SoriSpeech.phase.value, TtsSpeechPhase.idle);
+    expect(
+      stub.stops,
+      1,
+      reason: '재생 중 탭은 정지여야 한다(WCAG 1.4.2) — 다시 재생을 걸면 안 된다',
+    );
+    expect(stub.spoken, ['여권 보여주세요.']);
+    expect(SoriSpeech.phase.value, TtsSpeechPhase.idle);
 
-      final afterTapData = tester.getSemantics(card).getSemanticsData();
-      expect(
-        afterTapData.value,
-        'Nicht aktiv',
-        reason: '정지 후에는 speechIndicatorIdle 문구로 돌아와야 한다',
-      );
+    final afterTapData = tester.getSemantics(card).getSemanticsData();
+    expect(
+      afterTapData.value,
+      'Nicht aktiv',
+      reason: '정지 후에는 speechIndicatorIdle 문구로 돌아와야 한다',
+    );
 
-      expect(tester.takeException(), isNull);
-      semantics.dispose();
-    },
-  );
+    expect(tester.takeException(), isNull);
+    semantics.dispose();
+  });
 
-  testWidgets(
-    'EN 로케일에서 대사 카드 책갈피는 translationLanguage=en으로 저장된다 '
-    '(PR2 리뷰 Important 3-b)',
-    (tester) async {
-      TypedStudyBookmarkStore.resetProductionForTesting();
-      CustomPackService.revision.value = 0;
-      stubSoriSpeech();
+  testWidgets('EN 로케일에서 대사 카드 책갈피는 translationLanguage=en으로 저장된다 '
+      '(PR2 리뷰 Important 3-b)', (tester) async {
+    TypedStudyBookmarkStore.resetProductionForTesting();
+    CustomPackService.revision.value = 0;
+    stubSoriSpeech();
 
-      await _pumpLessonDialog(tester, locale: const Locale('en'));
+    await _pumpLessonDialog(tester, locale: const Locale('en'));
 
-      await tester.tap(find.byIcon(Icons.bookmark_add_outlined).first);
-      await tester.pumpAndSettle();
+    await tester.tap(find.byIcon(Icons.bookmark_add_outlined).first);
+    await tester.pumpAndSettle();
 
-      final bookmarks = TypedStudyBookmarkStore.production().read().bookmarks;
-      expect(bookmarks, hasLength(1));
-      expect(bookmarks.single.key.type, StudyLibraryItemType.sentence);
-      expect(
-        bookmarks.single.secondaryLanguage,
-        'en',
-        reason: 'EN 사용자의 책갈피가 독일어로 표시되는 회귀를 막는다',
-      );
+    final bookmarks = TypedStudyBookmarkStore.production().read().bookmarks;
+    expect(bookmarks, hasLength(1));
+    expect(bookmarks.single.key.type, StudyLibraryItemType.sentence);
+    expect(
+      bookmarks.single.secondaryLanguage,
+      'en',
+      reason: 'EN 사용자의 책갈피가 독일어로 표시되는 회귀를 막는다',
+    );
 
-      final pack = CustomPackService.getById(CustomPackService.quickPackId);
-      expect(
-        pack!.words.singleWhere((w) => w.korean == '여권 보여주세요.').translationLanguage,
-        'en',
-      );
-      expect(tester.takeException(), isNull);
-    },
-  );
+    final pack = CustomPackService.getById(CustomPackService.quickPackId);
+    expect(
+      pack!.words
+          .singleWhere((w) => w.korean == '여권 보여주세요.')
+          .translationLanguage,
+      'en',
+    );
+    expect(tester.takeException(), isNull);
+  });
 
   testWidgets('대사 카드 본문 탭은 여전히 발화를 1회 추가한다', (tester) async {
     final stub = stubSoriSpeech();
@@ -598,16 +589,13 @@ void main() {
 
     expect(stub.spoken, ['여권 보여주세요.'], reason: '진입 자동재생 1회');
 
-    await tester.tap(
-      find.bySemanticsLabel(RegExp(r'^Aussprache: 여권 보여주세요\.')),
-    );
+    await tester.tap(find.bySemanticsLabel(RegExp(r'^Aussprache: 여권 보여주세요\.')));
     await tester.pump();
 
-    expect(
-      stub.spoken,
-      ['여권 보여주세요.', '여권 보여주세요.'],
-      reason: '책갈피 버튼을 추가해도 카드 본문 탭 재생 계약은 그대로여야 한다',
-    );
+    expect(stub.spoken, [
+      '여권 보여주세요.',
+      '여권 보여주세요.',
+    ], reason: '책갈피 버튼을 추가해도 카드 본문 탭 재생 계약은 그대로여야 한다');
     expect(tester.takeException(), isNull);
   });
 
@@ -717,9 +705,7 @@ void main() {
 
       final closeFinder = find.bySemanticsLabel('Schließen');
       expect(closeFinder, findsOneWidget);
-      final semanticsData = tester
-          .getSemantics(closeFinder)
-          .getSemanticsData();
+      final semanticsData = tester.getSemantics(closeFinder).getSemanticsData();
       expect(semanticsData.flagsCollection.isButton, isTrue);
       expect(semanticsData.hasAction(ui.SemanticsAction.tap), isTrue);
       expect(tester.getSize(closeFinder).height, greaterThanOrEqualTo(48));
@@ -774,51 +760,49 @@ void main() {
     },
   );
 
-  testWidgets(
-    '진입 시 모든 대사 줄(≤12)을 prefetch하고 speak는 첫 줄만 1회 (지시서 4.3)',
-    (tester) async {
-      // scenarioAirportArrivalFixture.dialog 는 2줄(officer/male,
-      // user/female) — 상한 12줄 이내라 둘 다 prefetch 대상이다.
-      CourseProgressService.shared.resetForTesting();
-      await tester.runAsync(CurriculumCatalog.load);
-      final stub = stubSoriSpeech();
+  testWidgets('진입 시 모든 대사 줄(≤12)을 prefetch하고 speak는 첫 줄만 1회 (지시서 4.3)', (
+    tester,
+  ) async {
+    // scenarioAirportArrivalFixture.dialog 는 2줄(officer/male,
+    // user/female) — 상한 12줄 이내라 둘 다 prefetch 대상이다.
+    CourseProgressService.shared.resetForTesting();
+    await tester.runAsync(CurriculumCatalog.load);
+    final stub = stubSoriSpeech();
 
-      await _pumpPlayer(
-        tester,
-        child: ScenarioPlayerScreen(
-          scenarioId: scenarioAirportArrivalFixture.id,
-          scenarioLoader: (_) async => scenarioAirportArrivalFixture,
-        ),
-        size: const Size(390, 844),
-        textScale: 1.3,
-      );
+    await _pumpPlayer(
+      tester,
+      child: ScenarioPlayerScreen(
+        scenarioId: scenarioAirportArrivalFixture.id,
+        scenarioLoader: (_) async => scenarioAirportArrivalFixture,
+        questCorpusLoader: (_) async =>
+            stockedScenarioCorpus(scenarioAirportArrivalFixture),
+      ),
+      size: const Size(390, 844),
+      textScale: 1.3,
+    );
 
-      // 진입(인트로) 시점에 전체 대사가 이미 prefetch돼 있어야 한다 —
-      // 아직 자동재생(speak)은 한 번도 없어야 한다.
-      expect(stub.prefetched, ['여권 보여주세요.', '네, 여기 있어요.']);
-      expect(stub.spoken, isEmpty, reason: 'prefetch는 재생하지 않는다');
+    // 진입(인트로) 시점에 전체 대사가 이미 prefetch돼 있어야 한다 —
+    // 아직 자동재생(speak)은 한 번도 없어야 한다.
+    expect(stub.prefetched, ['여권 보여주세요.', '네, 여기 있어요.']);
+    expect(stub.spoken, isEmpty, reason: 'prefetch는 재생하지 않는다');
 
-      // intro → vocab → dialog: dialog 진입 시 첫 줄만 자동재생된다.
-      await tester.tap(find.text("Los geht's!"));
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 400));
-      await tester.tap(find.text('Weiter'));
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 400));
+    // intro → vocab → dialog: dialog 진입 시 첫 줄만 자동재생된다.
+    await tester.tap(find.text("Los geht's!"));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.tap(find.text('Weiter'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
 
-      expect(
-        stub.spoken,
-        ['여권 보여주세요.'],
-        reason: '자동재생은 여전히 대사 첫 줄 1회뿐이다(_autoPlayDialogEntry 불변)',
-      );
-      expect(
-        stub.prefetched,
-        ['여권 보여주세요.', '네, 여기 있어요.'],
-        reason: '재진입 없이 다시 prefetch를 반복하지 않는다',
-      );
-      expect(tester.takeException(), isNull);
-    },
-  );
+    expect(stub.spoken, [
+      '여권 보여주세요.',
+    ], reason: '자동재생은 여전히 대사 첫 줄 1회뿐이다(_autoPlayDialogEntry 불변)');
+    expect(stub.prefetched, [
+      '여권 보여주세요.',
+      '네, 여기 있어요.',
+    ], reason: '재진입 없이 다시 prefetch를 반복하지 않는다');
+    expect(tester.takeException(), isNull);
+  });
 }
 
 /// 저장 계약은 쓰기가 차단된 갤러리 preview가 아닌 실제 학습 경로에서 검사한다.
@@ -833,6 +817,8 @@ Future<void> _pumpLessonDialog(
     child: ScenarioPlayerScreen(
       scenarioId: scenarioAirportArrivalFixture.id,
       scenarioLoader: (_) async => scenarioAirportArrivalFixture,
+      questCorpusLoader: (_) async =>
+          stockedScenarioCorpus(scenarioAirportArrivalFixture),
     ),
     size: const Size(390, 844),
     textScale: 1.3,

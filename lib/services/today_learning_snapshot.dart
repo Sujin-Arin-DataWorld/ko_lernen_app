@@ -3,6 +3,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import '../features/onboarding_v2/onboarding_learning_start.dart';
 import '../features/content_learning/content_learning_models.dart';
 import '../features/content_learning/content_learning_service.dart';
+import '../features/scenarios/scenario_quest_stock.dart';
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
 import '../models/pack_progress.dart';
@@ -379,7 +380,13 @@ class TodayLearningSnapshotLoader {
     final userLevel =
         LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
     final completed = Storage.completedScenarios.toSet();
-    final scenarios = await ScenarioLoader.load();
+    final corpus = await ScenarioLoader.load();
+    final stock = ScenarioQuestStock.fromCorpus(corpus);
+    // Count the complete corpus before choosing a level or a fallback. Today
+    // must not recommend a lesson that the assessment player cannot open.
+    final scenarios = corpus
+        .where(stock.allowsScenario)
+        .toList(growable: false);
     Scenario? current;
     for (final scenario in scenarios.where((item) => item.level == userLevel)) {
       if (!completed.contains(scenario.id)) {
