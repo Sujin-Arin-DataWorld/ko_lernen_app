@@ -8,7 +8,7 @@
 > 표면형 교집합으로 설명되지 않는 대응은 `tools/content_factory/cefr_matrix/grammar_correspondence.json`의 정확한 `G{급}:{원형}` 키만 사용하며, reviewed_source + semantically_confirmed 항목만 매치로 반영.
 > 기존 표면형 매치는 의미 검수 전 후보이며, 위 대응표의 명시적 검수와 구분한다. 이 표의 match는 학습·과제·평가 완료를 뜻하지 않는다.
 
-**요약:** match 123 · level_mismatch 35 · missing_in_app 178 (nikl 문법 336행) · app_only 85(앱 문법 261개 중)
+**요약:** match 123 · level_mismatch 33 · missing_in_app 180 (nikl 문법 336행) · app_only 85(앱 문법 261개 중)
 
 ## 국제통용 -> 앱 매핑
 
@@ -116,7 +116,7 @@
 | 3(B1) | 연결어미 | -어야 | -아야, -여야, -어야만, -아야만, -여야만 | -- | -- | missing_in_app |
 | 3(B1) | 연결어미 | -어야지1 | -아야지1, -여야지1 | -- | -- | missing_in_app |
 | 3(B1) | 연결어미 | -었더니 | -았더니, -였더니 | -- | -- | missing_in_app |
-| 3(B1) | 연결어미 | -으나 | -나4 | grammar_a1_or_particle | A2 | level_mismatch |
+| 3(B1) | 연결어미 | -으나 | -나4 | -- | -- | missing_in_app |
 | 3(B1) | 연결어미 | -으니2 | -니4 | -- | -- | missing_in_app |
 | 3(B1) | 연결어미 | -으려면 | -려면 | -- | -- | missing_in_app |
 | 3(B1) | 연결어미 | -자마자 | -자2 | grammar_b1_immediate_sequence | B1 | match |
@@ -129,9 +129,9 @@
 | 3(B1) | 조사 | 아1 | 야1 | -- | -- | missing_in_app |
 | 3(B1) | 조사 | 요1 |  | -- | -- | missing_in_app |
 | 3(B1) | 조사 | 으로부터 |  | -- | -- | missing_in_app |
-| 3(B1) | 조사 | 이고 | 고1 | grammar_a1_sequence_connector | A1 | level_mismatch |
+| 3(B1) | 조사 | 이고 | 고1 | -- | -- | missing_in_app |
 | 3(B1) | 조사 | 이라고1 | 라고1, 라3, 이라 | grammar_b1_indirect_speech, grammar_c2_defined_as | B1, C2 | match |
-| 3(B1) | 종결어미 | -거든2 | 거든요 | grammar_b1_conditional_geodeun, grammar_b1_explanatory_reason | B1, B1 | match |
+| 3(B1) | 종결어미 | -거든2 | 거든요 | grammar_b1_explanatory_reason | B1 | match |
 | 3(B1) | 종결어미 | -는구나 | -구나 | -- | -- | missing_in_app |
 | 3(B1) | 종결어미 | -는다 | -ㄴ다, -다2 | -- | -- | missing_in_app |
 | 3(B1) | 종결어미 | -니2 | -으니5 | -- | -- | missing_in_app |
