@@ -35,6 +35,7 @@ final class _PrivacyChannel {
   bool durable = false;
   PrivacyApplicationStatus status = PrivacyApplicationStatus.inactive;
   Future<void>? active;
+  bool _activePersistsChoice = false;
   final _sdkOwners = <Future<void>>{};
   int _disableFailures = 0;
 
@@ -44,7 +45,9 @@ final class _PrivacyChannel {
 
   bool get canCollect => admitted && desired != false && read();
   Future<void> choose(bool enabled, {bool persistChoice = true}) {
-    if (active != null && desired == enabled) {
+    if (active != null &&
+        desired == enabled &&
+        (!persistChoice || _activePersistsChoice)) {
       return active!;
     }
     if (desired == enabled &&
@@ -56,6 +59,7 @@ final class _PrivacyChannel {
     }
     final token = ++revision;
     desired = enabled;
+    _activePersistsChoice = persistChoice;
     admitted = false;
     durable = !persistChoice;
     status = PrivacyApplicationStatus.pending;
@@ -129,6 +133,18 @@ final class _PrivacyChannel {
     }();
     active = operation;
     return operation;
+  }
+
+  Future<void> applyStored() async {
+    // A startup-only disable does not own a later user's durable choice.
+    // Wait for the current operation, then re-read confirmed eligibility.
+    while (active != null) {
+      await active!;
+    }
+    final enabled = read();
+    if (desired == null || (desired == false && enabled)) {
+      await choose(enabled, persistChoice: false);
+    }
   }
 
   Future<void> _deleteBeforeGrant() {
@@ -254,16 +270,8 @@ class PrivacyConsentController {
   bool get analyticsAdmitted => _analytics.canCollect;
   bool get crashAdmitted => _crash.canCollect;
 
-  Future<void> applyStored() => Future.wait<void>([
-    if (_analytics.active != null)
-      _analytics.active!
-    else if (_analytics.desired == null)
-      _analytics.choose(analyticsConsent(), persistChoice: false),
-    if (_crash.active != null)
-      _crash.active!
-    else if (_crash.desired == null)
-      _crash.choose(crashConsent(), persistChoice: false),
-  ]);
+  Future<void> applyStored() =>
+      Future.wait<void>([_analytics.applyStored(), _crash.applyStored()]);
   Future<void> setAnalytics(bool enabled, {bool persist = true}) =>
       _analytics.choose(enabled, persistChoice: persist);
   Future<void> setCrash(bool enabled, {bool persist = true}) =>
