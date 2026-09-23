@@ -4,9 +4,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart' show visibleForTesting;
 
 import '../models/pack_progress.dart';
+import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'diagnostics_service.dart';
 import 'firestore_progress_service.dart';
+import 'local_data_lifetime.dart';
+import 'net/sori_net.dart';
 import 'storage_service.dart';
 
 /// Debounces the Firestore *backup* mirror of pack progress.
@@ -55,15 +58,19 @@ import 'storage_service.dart';
 /// `_persist` call, including in test environments with no Firebase app.
 class PackSyncQueue {
   PackSyncQueue({
-    Future<void> Function(PackProgress p)? savePack,
+    Future<CloudWriteResult> Function(PackProgress p)? savePack,
     this.idleDuration = const Duration(seconds: 30),
     Timer Function(Duration duration, void Function() callback)? createTimer,
     DateTime Function()? clock,
     bool Function()? canMirror,
-  }) : _savePack = savePack ?? FirestoreProgressService.savePack,
+    String? Function()? backupUid,
+    CloudWriteSessionController? sessions,
+  }) : _savePack = savePack ?? FirestoreProgressService.savePackAcknowledged,
        _createTimer = createTimer ?? Timer.new,
        _clock = clock ?? DateTime.now,
-       _canMirror = canMirror ?? _defaultCanMirror;
+       _canMirror = canMirror ?? _defaultCanMirror,
+       _backupUid = backupUid ?? (() => AuthService.cloudBackupUid),
+       _sessions = sessions ?? cloudWriteSessionController;
 
   /// Singleton used by production code. Tests may swap it wholesale via
   /// [resetForTesting] to inject a fake `savePack` / timer / clock.
@@ -75,7 +82,7 @@ class PackSyncQueue {
     instance = PackSyncQueue();
   }
 
-  final Future<void> Function(PackProgress p) _savePack;
+  final Future<CloudWriteResult> Function(PackProgress p) _savePack;
   final Duration idleDuration;
   final Timer Function(Duration duration, void Function() callback)
   _createTimer;
@@ -84,11 +91,14 @@ class PackSyncQueue {
   // itself is expressed entirely in terms of [Timer].
   final DateTime Function() _clock;
   final bool Function() _canMirror;
+  final String? Function() _backupUid;
+  final CloudWriteSessionController _sessions;
 
-  final Map<String, PackProgress> _pending = {};
+  final Map<String, _PendingPackBackup> _pending = {};
   final Map<String, PackStatus> _lastKnownStatus = {};
   Timer? _idleTimer;
   Future<void>? _inFlightFlush;
+  bool Function()? _flushOwnerIsCurrent;
 
   /// Test/debug seam: packs currently waiting for a flush.
   @visibleForTesting
@@ -156,10 +166,11 @@ class PackSyncQueue {
   /// "still pending" and failed the test on — see the 55-file CI failure
   /// this guard fixes.
   void enqueue(PackProgress p, {PackStatus? previousStatus}) {
+    _discardRetiredEntries();
     if (!_canMirror()) {
       return;
     }
-    _pending[p.packId] = p;
+    _pending[p.packId] = _capture(p);
     unawaited(_syncPendingIdsToStorage());
 
     final effectivePrevious =
@@ -168,8 +179,7 @@ class PackSyncQueue {
         _seedStatusFromStorage(p.packId);
     _lastKnownStatus[p.packId] = p.status;
 
-    final changed =
-        effectivePrevious != null && effectivePrevious != p.status;
+    final changed = effectivePrevious != null && effectivePrevious != p.status;
     final isTerminal = p.status == PackStatus.cleared;
 
     _idleTimer?.cancel();
@@ -192,18 +202,40 @@ class PackSyncQueue {
   }
 
   /// Flushes every pack currently queued, once each, sequentially. A
-  /// concurrent call while a flush is already running returns the same
-  /// in-flight future rather than starting a second pass.
+  /// concurrent call for the same owner joins the original pass. The caller
+  /// waits at most eight seconds; the pass keeps its actual SDK acknowledgement
+  /// after that bound, rather than starting a second pass on another trigger.
   Future<void> flush() {
     final inFlight = _inFlightFlush;
-    if (inFlight != null) {
-      return inFlight;
+    if (inFlight != null && (_flushOwnerIsCurrent?.call() ?? false)) {
+      return _waitForFlush(inFlight);
     }
-    final future = _flush();
-    _inFlightFlush = future;
-    return future.whenComplete(() {
-      _inFlightFlush = null;
+    final uid = _backupUid();
+    final identityEpoch = _sessions.identityEpoch;
+    final lifetime = LocalDataLifetime.capture();
+    bool isCurrent() =>
+        lifetime.isCurrent &&
+        uid == _backupUid() &&
+        identityEpoch == _sessions.identityEpoch;
+    _flushOwnerIsCurrent = isCurrent;
+    late final Future<void> future;
+    future = _flush(isCurrent).whenComplete(() {
+      if (identical(_inFlightFlush, future)) {
+        _inFlightFlush = null;
+        _flushOwnerIsCurrent = null;
+      }
     });
+    _inFlightFlush = future;
+    return _waitForFlush(future);
+  }
+
+  Future<void> _waitForFlush(Future<void> future) async {
+    try {
+      await withNetTimeout(future, scope: 'pack_sync_queue.flush');
+    } on SoriNetTimeout {
+      // The serial pass retains its original SDK future. A later caller joins
+      // it; only an actual acknowledgement can clear the durable marker.
+    }
   }
 
   /// Alias for [flush] called from the app-lifecycle observer on
@@ -227,58 +259,106 @@ class PackSyncQueue {
   /// currently possible, this is a no-op and leaves every id exactly where
   /// it was in `Storage` for a later call to try again.
   Future<void> flushPendingFromStorage() async {
+    _discardRetiredEntries();
     if (!_canMirror()) {
       return;
     }
     final ids = Storage.pendingPackSyncIds;
+    final missing = <String>{};
     for (final packId in ids) {
       if (_pending.containsKey(packId)) {
         continue; // Already tracked (e.g. a re-entrant call).
       }
       final json = Storage.packProgressJson(packId);
       if (json == null) {
-        continue; // Nothing local left to recover; dropped by the sync below.
+        missing.add(packId);
+        continue;
       }
       final progress = PackProgress.fromJson(packId, json);
-      _pending[packId] = progress;
+      _pending[packId] = _capture(progress);
       _lastKnownStatus[packId] = progress.status;
+    }
+    if (missing.isNotEmpty) {
+      await _syncPendingIdsToStorage(removeIds: missing);
     }
     await flush();
   }
 
-  Future<void> _syncPendingIdsToStorage() =>
-      Storage.setPendingPackSyncIds(_pending.keys.toList()..sort());
+  _PendingPackBackup _capture(PackProgress progress) =>
+      _PendingPackBackup(progress, _backupUid(), _sessions.identityEpoch);
 
-  Future<void> _flush() async {
+  bool _isCurrent(_PendingPackBackup entry) =>
+      entry.lifetime.isCurrent &&
+      entry.uid == _backupUid() &&
+      entry.identityEpoch == _sessions.identityEpoch;
+
+  void _discardRetiredEntries() {
+    _pending.removeWhere((_, entry) => !_isCurrent(entry));
+    _lastKnownStatus.removeWhere((id, _) => !_pending.containsKey(id));
+  }
+
+  Future<void> _syncPendingIdsToStorage({Set<String> removeIds = const {}}) {
+    _discardRetiredEntries();
+    // Preserve durable entries not loaded by this queue, including an older
+    // account's marker until explicit recovery reads the current local data.
+    final ids = {...Storage.pendingPackSyncIds, ..._pending.keys};
+    ids.removeAll(removeIds);
+    return Storage.setPendingPackSyncIds(ids.toList()..sort());
+  }
+
+  Future<void> _flush(bool Function() ownerIsCurrent) async {
     _idleTimer?.cancel();
     _idleTimer = null;
+    _discardRetiredEntries();
+    if (!_canMirror()) {
+      return;
+    }
     // Snapshot the keys up front: an enqueue() that arrives while this loop
     // awaits a save stays queued for the *next* trigger instead of being
     // swept up half-written.
     final packIds = _pending.keys.toList(growable: false);
     for (final packId in packIds) {
-      final progress = _pending[packId];
-      if (progress == null) {
+      if (!ownerIsCurrent() || !_canMirror()) {
+        return;
+      }
+      final entry = _pending[packId];
+      if (entry == null) {
         continue; // Already flushed by a re-entrant call.
       }
-      try {
-        await _savePack(progress);
-        // Only drop it if nothing newer replaced it while this awaited.
-        if (identical(_pending[packId], progress)) {
-          _pending.remove(packId);
-        }
-      } catch (error, stackTrace) {
-        // ignore: discarded_futures
-        await DiagnosticsService.reportSwallowed(
-          'pack_sync_queue.flush',
-          error,
-          stackTrace,
-        );
-        // Left queued — retried on the next enqueue/idle/flushAll trigger.
-      }
+      await _write(entry);
     }
-    // Reflect the post-flush state (removals and retained failures alike)
-    // in Storage — durability gap B.
-    await _syncPendingIdsToStorage();
   }
+
+  Future<void> _write(_PendingPackBackup entry) async {
+    final packId = entry.progress.packId;
+    try {
+      final result = await _savePack(entry.progress);
+      if (!_isCurrent(entry)) {
+        _discardRetiredEntries();
+        return;
+      }
+      if (result == CloudWriteResult.completed &&
+          identical(_pending[packId], entry)) {
+        _pending.remove(packId);
+        await _syncPendingIdsToStorage(removeIds: {packId});
+      }
+    } catch (error, stackTrace) {
+      await DiagnosticsService.reportSwallowed(
+        'pack_sync_queue.flush',
+        error,
+        stackTrace,
+      );
+      // A settled failure can retry on the next trigger; a timeout above
+      // cannot reach this branch while the original SDK write is pending.
+    }
+  }
+}
+
+class _PendingPackBackup {
+  _PendingPackBackup(this.progress, this.uid, this.identityEpoch);
+
+  final PackProgress progress;
+  final String? uid;
+  final int identityEpoch;
+  final LocalDataLifetimeLease lifetime = LocalDataLifetime.capture();
 }
