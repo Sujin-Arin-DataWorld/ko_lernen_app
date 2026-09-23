@@ -404,14 +404,53 @@ BookOcrUnitRole classifyBookOcrRole(
   if (RegExp(r'^제?\s*\d+\s*(과|장|단원)(?:\s+.*)?[.!?。！？]?$').hasMatch(text)) {
     return BookOcrUnitRole.pageFurniture;
   }
-  if (RegExp(
-    r'^(다음|보기|알맞은|맞는|틀린|빈칸|연결|고르|쓰|읽|대답|완성)|'
-    r'^(괄호|그림|표|주어진).*(하세요|해\s*보세요|고르세요|쓰세요|완성하세요)'
-    r'[.!?。！？]?$|'
-    r'^(어휘|단어|표현|문법|문장|대화|발음)(을|를)?\s*'
-    r'(배우|배웁|익히|익힙|연습하|연습합|완성하|읽|쓰|말하|들어)|'
+  // A shared prefix alone is not a task: 쓰다/쓰레기 and 다음 주에 만나요
+  // are learning content. Require a complete heading or a task imperative.
+  final taskHeading = RegExp(
+    r'^(다음|보기|빈칸|연결|대답|완성|연결하기|고르기|쓰기|읽기|대답하기|완성하기)'
+    r'[.!?。！？:]?$',
+  ).hasMatch(text);
+  final taskOpening = RegExp(
+    r'^(다음을\s|다음\s*(글|문장|대화|문제|그림|표|보기|빈칸|내용|질문|말|단어)'
+    r'(?:에서|으로|[을를의에와과로이가]|\s|$)|'
+    r'보기(에서|와\s*같이|처럼|를)|'
+    r'(알맞은|맞는|틀린)\s+(답|말|단어|문장|표현|것)'
+    r'(?:에서|으로|[을를의에와과로이가]|\s|$)|'
+    r'(빈칸|괄호)(에|을|\s)|'
+    r'(그림|표)(을|를)\s*보고\s|'
+    r'주어진\s+(글|문장|대화|문제|그림|표|보기|빈칸|내용|질문|말|단어)'
+    r'(?:에서|으로|[을를의에와과로이가]|\s|$)|'
+    r'(어휘|단어|표현|문법|문장|대화|발음)(을|를)\s*)',
+  ).hasMatch(text);
+  const taskCommand =
+      r'((읽|쓰|적|고르|찾|채우|말하|듣|들|보|연결하|대답하|답하|완성하|선택하|표시하|연습하)'
+      r'(으?세요|으?십시오|으?시오|라)|'
+      r'(읽어|써|골라|찾아|채워|말해|들어|연결해|대답해|답해|완성해|선택해|표시해|연습해|배워|익혀)'
+      r'\s*(보세요|봅시다|주세요|라)|'
+      r'배웁시다|익힙시다|연습합시다|읽읍시다|씁시다|말합시다|들읍시다)'
+      r'[.!?。！？]?$';
+  final directTask = RegExp(
+    r'^((읽고|듣고|보고|쓰고|고르고|찾고)\s*)*' + taskCommand,
+  ).hasMatch(text);
+  // A picture/table alone can be ordinary content (표를 받으세요).
+  // Only a recognized task verb makes this weaker context an instruction.
+  final visualTask =
+      RegExp(r'^(그림|표)(에서|[을를의에와과로이가]|\s|$)').hasMatch(text) &&
+      RegExp(taskCommand).hasMatch(text);
+  // In an explicit textbook context, other task verbs (e.g. 바꾸세요 or
+  // 이야기하세요) are valid too. A bare shared prefix is never sufficient.
+  final contextualCommand = RegExp(
+    r'(으?세요|으?십시오|으?시오|합시다|봅시다)[.!?。！？]?$',
+  ).hasMatch(text);
+  final learningInvitation = RegExp(
     r'(익혀|배워|연습해)\s*봅시다[.!?。！？]?$',
-  ).hasMatch(text)) {
+  ).hasMatch(text);
+  if (taskHeading ||
+      directTask ||
+      visualTask ||
+      (taskOpening &&
+          (contextualCommand || RegExp(taskCommand).hasMatch(text))) ||
+      learningInvitation) {
     return BookOcrUnitRole.instruction;
   }
   if (!RegExp(r'[.!?。！？]$').hasMatch(text) &&
