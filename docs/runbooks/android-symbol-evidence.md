@@ -1,6 +1,6 @@
 # Android Crashlytics symbol-evidence gate (R4)
 
-Before the Play upload in `play_closed.yml`, `tool/android_release_evidence.py`
+Before the Play upload in `ci.yml` (internal) and `play_closed.yml` (alpha/beta), `tool/android_release_evidence.py`
 can independently verify that the exact built AAB's native symbols were
 uploaded to Crashlytics, using a fail-closed receipt (no trust-on-first-use
 for any tool it runs). The gate is off by default; nothing about the Play
@@ -24,7 +24,7 @@ step never runs on unverified symbols.
 - `FIREBASE_ANDROID_APP_ID` (repository **variable**) — the
   `mobilesdk_app_id` for `com.sujinarin.ko_lernen_app` from
   `android/app/google-services.json`.
-- `FIREBASE_SYMBOLS_SA_JSON` (repository **secret**) — a service-account key
+- `FIREBASE_SYMBOLS_SA_JSON` (environment **secret**) — a service-account key
   JSON authorized only for `firebase crashlytics:symbols:upload` (Firebase
   Crashlytics admin/write on this project), scoped to the `google-play-internal`
   environment. Do not reuse the Play upload service account.
@@ -82,3 +82,22 @@ gate variable, or symbol-only credential. No setting was created or changed.
 That metadata result does not prove that any actual Crashlytics symbol upload
 failed; it only means there is no enabled, exact-SHA gate evidence yet. This
 configuration and documentation update does not activate the gate.
+
+## Internal testing lane
+
+The internal lane uses the same pinned tools and `upload` / `verify` / `archive`
+helper as public testing. Its existing main-only environment and
+`PLAY_INTERNAL_RELEASE_ENABLED` dispatch gate remain independent. Enabling
+symbol evidence does not dispatch a release or change the Play track.
+
+The original AAB, checksum and Dart symbols are preserved before symbol upload,
+so a failed upload leaves the exact inputs available for diagnosis. With the
+symbol gate enabled, any credential, tool, AAB identity, upload, receipt or archive
+failure prevents the subsequent Play upload. The temporary publisher credential
+is removed in an `always()` step; it is never part of the artifact.
+
+An unset/false symbol gate remains an explicitly unverified release, with a
+workflow warning. Connecting these steps does not provision credentials or
+activate the gate. The next internal release must have an enabled exact-build
+receipt before automated symbol publication is considered operational. Actual
+consented crash ingestion and symbolicated device stacks remain separate checks.
