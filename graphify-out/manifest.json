@@ -972,9 +972,9 @@
     "semantic_hash": ""
   },
   "lib/models/book_page.dart": {
-    "mtime": 1790169045.69368,
-    "seen": 1790195635.3775754,
-    "ast_hash": "43496a4c8e2120d2574ee8c0900b5820",
+    "mtime": 1790198381.27303,
+    "seen": 1790198728.2774816,
+    "ast_hash": "057309231035669b079f357c3a665f99",
     "semantic_hash": ""
   },
   "lib/models/can_do_segment.dart": {
@@ -4686,9 +4686,9 @@
     "semantic_hash": ""
   },
   "test/media_serialization_test.dart": {
-    "mtime": 1790168444.55822,
-    "seen": 1790195635.3787575,
-    "ast_hash": "24aed5c76a2ee33933684f5d55981991",
+    "mtime": 1790198459.7860174,
+    "seen": 1790198728.4537072,
+    "ast_hash": "292aa85fc023bf2e569be59f6ef4fd02",
     "semantic_hash": ""
   },
   "test/milestone_feedback_widget_test.dart": {
@@ -18744,9 +18744,9 @@
     "semantic_hash": ""
   },
   "docs/CP2026_CONTINUATION.md": {
-    "mtime": 1790195341.1249127,
-    "seen": 1790195635.3809052,
-    "ast_hash": "6032ea11be62893dab094b1f0069deac",
+    "mtime": 1790198527.8747413,
+    "seen": 1790198728.7552266,
+    "ast_hash": "9d4d74428a793f40fe57c6c516f25efa",
     "semantic_hash": ""
   },
   "docs/data/a1_grammar_scan_2026-09-15.md": {

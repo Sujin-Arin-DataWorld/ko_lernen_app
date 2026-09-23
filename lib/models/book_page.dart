@@ -269,6 +269,8 @@ class ExtractedWord {
     if (source != 'server') 'source': source,
     if (confidence != 1.0) 'confidence': confidence,
     if (ambiguous) 'ambiguous': ambiguous,
+    if (alternativeHeadword.isNotEmpty)
+      'alternativeHeadword': alternativeHeadword,
   };
 
   Map<String, dynamic> toJson() => toLocalJson();
