@@ -301,10 +301,12 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         misses: _misses,
       ),
     );
-    await Analytics.gameCompleted(
-      gameType: 'matching',
-      result: 'win',
-      score: _round.length,
+    unawaited(
+      Analytics.gameCompleted(
+        gameType: 'matching',
+        result: 'win',
+        score: _round.length,
+      ),
     );
     if (!studyEvidenceIsCurrent || presentation != _presentation) return;
     _abandonTracker.markCompleted();
