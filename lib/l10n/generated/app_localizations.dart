@@ -18773,6 +18773,24 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Noch einmal hören'**
   String get contentLearningListenAgain;
+
+  /// No description provided for @kkeunmariSelectionHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Du spielst mit deinen ausgewählten Wörtern, die im geprüften Spielwörterbuch stehen. Mindestens zwei müssen sich verbinden lassen.'**
+  String get kkeunmariSelectionHint;
+
+  /// No description provided for @kkeunmariSelectionEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'In deiner Auswahl gibt es noch keine Wortkette. Wähle mindestens zwei Wörter aus dem Spielwörterbuch, bei denen die letzte Silbe des einen die erste des anderen ist.'**
+  String get kkeunmariSelectionEmpty;
+
+  /// No description provided for @kkeunmariNotInSelection.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Wort gehört nicht zu deiner Auswahl für diese Runde.'**
+  String get kkeunmariNotInSelection;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

@@ -1,12 +1,13 @@
 # CP-2026 전체 계획 인수 및 실행 큐
 
-## 2026-09-23 03:05 UTC 현재 상태 정합
+## 2026-09-23 04:00 UTC 현재 상태 정합
 
 아래 날짜별 기록은 그 시점의 증거이며, 현재 상태는 이 절과 실행 표를 우선한다. 앱 내부 배포와 서버 소스 배포, 실제 기기 성공, 사람 검수는 별도다. Android 7626과 기존 iOS 251에 새 책 스캔 그림 카드가 제공되지만 O2 커스텀 게임 후속은 아직 포함되지 않았다.
 
 - TTS 두 함수·발음 평가·Apple 삭제 worker/callable·Auth 생성 관측은 아래 00:18 기준선의 배포 영수증대로 반영됐다. 기존 Auth 삭제 트리거도 01:05 UTC `on_auth_user_deleted` version 3 / Node 22 / ACTIVE로 업데이트했다. 배포 소스 4파일, 기존 설정·IAM 및 생성 관측/삭제 소비자를 보존했고 실제 계정을 생성·삭제하지 않았다. 이전의 “아직 미배포” 문장은 해당 과거 시점에만 적용된다.
 - Android Play Integrity에 기존 `c1-bestehen` 연결을 보존하며 `ko-lernen-app`을 추가했다. Play 앱 서명의 SHA-256 `03542a694d2ffe298916acca53df1dc5cd73302e3a2e586f88ebedf25a7d9219`를 기존 Firebase Android 등록에 추가했고 이전 인증서 4개와 App Check 정책·TTL 3600초를 보존했다. 실제 기기의 책 스캔·음성 성공과 과거 오류의 인과관계는 미검증이다.
-- PR #394의 main `dea1b103`에서 CI `35808346481`·Playwright `35808346493` 성공 후 로그 메트릭 3개를 생성하고 같은 설정의 읽기 검증을 마쳤다. 실제 이벤트 수신·알림 정책·수신 채널은 별도 미완이다. #395 주간 처리는 main `62e7d62a`에 병합됐고 이 SHA의 CI `35812805935`·Playwright `35812805924` 진행 중으로 아직 서버에 적용하지 않았다. #393 O2는 head `c71f763a`의 CI·Playwright 성공이며 이후 main 정합과 통합 순서를 유지한다.
+- PR #394의 main `dea1b103`에서 CI `35808346481`·Playwright `35808346493` 성공 후 로그 메트릭 3개를 생성하고 같은 설정의 읽기 검증을 마쳤다. 실제 이벤트 수신·알림 정책·수신 채널은 별도 미완이다. #395 main `62e7d62a`의 CI `35812805935`·Playwright `35812805924`도 성공했고, 주간 함수 `weekly-goal-rollover-00010-qut`의 소스 43파일·CPU 1·540초·512MiB·max1·concurrency1과 Scheduler 600초를 검증했다. 최초 업로드403과 API의 CPU 자동 감소는 별도 복구했고 기존 환경·IAM·다른 함수는 보존했다. 실제 사용자 보상이나 주간 실행을 시험 호출하지 않았다.
+- #393 O2는 head `e77cb710`의 CI `35813642069`·Playwright `35813641970` 성공과 새 리뷰0 확인 후 03:59:37 UTC main `b3be8f37`로 squash 병합했다. PR/main 트리 차이는0이며 정확한 main 자동 CI `35816507814`·Playwright `35816507822`는 진행 중이다. 새 내부 빌드와 실기기 게임 검증은 이 gate 뒤에 진행한다. #397은 수동 iOS 복구 검증의 앱 식별자를 실제 빌드에서 읽도록 수정한 별도 PR이며 실제 native 성공은 아직 미검증이다.
 - 현재 main과 같은 시나리오 6개 샤드를 다시 세면 **178개 시나리오·547개 문항**이다. `scenario_quest_report.md`의 이전 419개·1,765개는 오래된 수치였으며 원래 감사기로 재생성했다. 현재 문항의 중복·미지원 타입·깨진 payload는 각각 0건이지만, 의미 품질·사람 승인이나 C5 완료를 뜻하지 않는다. 보고서 최신성도 기존 도구 테스트에서 검사한다.
 
 | 내장 퀘스트 엔진 | A1 | A2 | B1 | B2 | C1 | C2 |
@@ -18,7 +19,7 @@
 
 5개 미만인 실제 문항은 레벨별 `theme_park_date` 시나리오 6개에 포함된다. 빈/잘못된 입력 가드는 이미 적용됐지만 최소 수량 정책을 대신하지 않는다. 기존 문항을 조용히 건너뛰어 완료·보상을 지급하지 않으며, 미검수 문항을 라이브로 추가하지 않는다. C5 전체 보충/노출 제한과 실제 화면 검증은 남아 있다.
 
-증거는 공통 artifacts 폴더 `C:/dev/hangulsori/_codex_artifacts/cp2026-release-stabilization-20260922/`의 `legacy-auth-delete-rollout/completion.json`, `android-appcheck-setup-completion-20260923.json`, `pr394-merge-proof.json`, `log-metrics-20260923/completion.json`, `pr395-merge-proof.json`, `c5-current-surface-audit-20260923.json` 및 아래 기존 배포 영수증이다. 알림 수신인·웹 갤러리 범위 응답, C01–C04 사람 검수, D01–D08 기기 검수와 14일 적격 관측은 계속 미완이다.
+증거는 공통 artifacts 폴더 `C:/dev/hangulsori/_codex_artifacts/cp2026-release-stabilization-20260922/`의 `legacy-auth-delete-rollout/completion.json`, `android-appcheck-setup-completion-20260923.json`, `pr394-merge-proof.json`, `log-metrics-20260923/completion.json`, `pr395-merge-proof.json`, `weekly-rollover-rollout/completion.json`, `pr393-merge-proof.json`, `c5-current-surface-audit-20260923.json` 및 아래 기존 배포 영수증이다. 알림 수신인·웹 갤러리 범위 응답, C01–C04 사람 검수, D01–D08 기기 검수와 14일 적격 관측은 계속 미완이다.
 
 ## 2026-09-23 00:18 UTC 서버·검증 기준선
 
@@ -248,7 +249,7 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 | S5 설치 크기 | Android `proofreading_feature` 선례 있음 | 앱 자산 분리 미완; App Bundle Explorer 실측부터, 기본 모듈 목표 150 MB |
 | S6 접근성 | AST 가드에서 발견한 아이콘 Tooltip 누락 13곳·읽기 라벨 누락 2곳 보완, CI 상시 가드 추가. DE/EN 버튼 라벨·동작·48dp 및 헤더 320dp/200% 위젯 검사 통과 | 원안의 Tooltip 0건은 현재 사실 아님(기존 Material IconButton 103곳에 존재). AST는 명시적 아이콘 구조만 검사하며 동적 라벨·사용자 정의 위젯 전체를 증명하지 않음. TalkBack/VoiceOver 실기기·전체 화면 접근성 검수 남음 |
 | B1 알림·SLO | #320 정책 5개·런북 병합 | **2026-09-16 실제 Monitoring 정책 조회 0개**. 채널·메트릭·정책 적용과 확인 필요; 코드 병합으로 닫지 않음 |
-| B2 함수 자원 | Gye 30개 export를 실제 운영과 읽기 대조했다. weekly_goal_rollover는 운영 60초·256MiB·max20·concurrency80이며, 저장소의 540초·512MiB·max1과 달랐다. Gen2에서는 max1만으로 요청이 직렬화되지 않아 concurrency1을 명시하고 회귀 검사를 추가했다. 기존 그룹별 트랜잭션·주간 키·일정·재시도·보상 로직은 유지 | 정확한 PR/main 검사 뒤 운영 소스와 Scheduler를 함께 대조해 표적 반영. 설정 선언과 실제 배포·부하·중복 보상 검증을 구분하며, 실제 사용자 주간 진행도에 시험 실행하지 않음 |
+| B2 함수 자원 | Gye 30개 export를 운영과 대조했다. #395의 정확한 main 검사 뒤 주간 함수는 소스 43파일과 CPU1·540초·512MiB·max1·concurrency1, Scheduler deadline600초를 실제 readback했다. `weekly-goal-rollover-00010-qut`가 Ready·트래픽100%이며 기존 환경·IAM·다른 함수·주간 일정·재시도·보상·삭제 펜스를 보존했다 | 자연 주간 실행·부하·중복 보상 관측은 미완. 실제 사용자 주간 진행도에 시험 실행하지 않음. 최초 업로드403 및 CPU 자동 감소의 복구와 최종 성공은 영수증에서 구분 |
 | B3 쿼터 | 전역 25/UTC시와 기존 설치 30·계정 50·전역 300/일 제한, 원예약 시각 환불을 포함한 TTS 두 함수 소스를 `9a1e0e5c`에서 배포했다. 세션/정책 사유 구분 후속 코드도 통합했고 Auth 생성 관측 version 1은 `cea2af1e`에서 ACTIVE 배포됐다 | 앱 내부7626/251은 B3 후속 미포함. 실제 기기 안내·시간 경계·거절/환불, 새 Auth 이벤트·메트릭 수신과 B1 알림 연동이 남는다. 이벤트 전달 중복·Admin 생성 providerless 계정 가능성을 유지하며 요청 로그를 계정 생성 수로 세지 않음 |
 | B4 App Check | Android Play Integrity의 Firebase 프로젝트 연결 및 실제 Play 앱 서명 SHA-256 등록 보완. 기존 프로젝트 연결·인증서·App Check 정책/TTL 보존. account/deletion runtime의 기존 false 예외는 유지 | 실제 기기 토큰·책 스캔·음성, 서비스별 관측 기간/분모·거절률·롤백 근거 후 단계적 enforce. 설정 복구를 과거 오류 전부의 원인 확정이나 7일 관측 완료로 간주하지 않음 |
 | B5 Rules 읽기 | pack 규칙에 exists + cloudBackupDeletionPending 유지 | 삭제 펜스 보존하면서 읽기 감량, 에뮬레이터 증명 |
@@ -264,7 +265,7 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 | C8 합성 음성 고지 | #321 병합 | 설정·최초 재생 동작 유지 |
 | C9 심화 노트 | #356 파일럿, #362 pending | C9-1 판정·통합 후 B1 100어 단위 확대, B2 20클러스터; C1/C2 범위 결정은 별도 |
 | O1 OCR 뜻 | #330/#352 병합 | O1-T2 조사 중첩·서술격·불규칙·동형어 검증, 혼합 교재 실측 |
-| O2 표준 게임 공급 | 단어장 studio는 custom 전용 화면 연결 | 표준 초성·스피드매치·끝말잇기에서 custom source 사용 경로 |
+| O2 표준 게임 공급 | Studio의 기존 초성·스피드매치 연결을 확인하고, 선택 행·packId를 보존하는 `VocabDeckSource`로 통일했다. 끝말잇기는 선택 단어와 검증된 게임 사전의 교집합으로만 진행하며 일반 게임 풀·팩 저장값을 바꾸지 않는다. 연결 불가능/미검증/빈 선택은 게임·보상 없이 안내, 선택 밖 입력은 서버 사전 우회 없이 거절한다. DE/EN 320px·글자2배 완료 화면 넘침도 수정. 관련 9파일 144 Flutter 검사 통과 | PR/head/main 검사와 새 내부 빌드·실기기 검증. 사전 밖 단어는 새 검증 증거 없이 자동 허용하지 않는다. cloze·satz는 계속 기존 검토 문장 매칭만 사용하며 문장을 생성하지 않는다 |
 | O3 OCR/발음 오류 | 기존 진단·사용량 경로 | 오류·잔여 횟수·상한 도달·마이크 거부의 실제 사용자 경로 검증 |
 | O4 OCR 문법 | 43개 감지 ID 중 의미 범위가 맞는 37개를 현재 grammar.csv 카드 ID에 연결. 결과의 DE/EN 버튼과 실제 `/grammar` 경로에서 지정 카드를 열고 일일 계획·학습 레벨은 보존. 카탈로그 지연/실패가 분석 결과 표시를 막지 않으며 이전 결과의 늦은 연결을 차단 | 로컬 관련 검사 96개·정적 분석 통과, Spec/Standards 지적 교정 후 추가 finding 없음. 과거 진행형·동사/형용사 혼합 현재 관형형·너무·-다면·일반 과정 표현·존재 위치를 포함한 -에의 6개는 충분히 일치하는 카드가 없어 명시적 미연결. 정확한 PR/main 검사·미연결 콘텐츠 보완·실제 OCR 사진/기기 검증은 별도 |
 | Q1 가드 | #347 workflow-pins 안정화 병합 | 나머지 lint·raw button·route·timeout 가드 범위 감사 |

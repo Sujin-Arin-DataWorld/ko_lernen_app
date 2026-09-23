@@ -11100,4 +11100,16 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get contentLearningListenAgain => 'Noch einmal hören';
+
+  @override
+  String get kkeunmariSelectionHint =>
+      'Du spielst mit deinen ausgewählten Wörtern, die im geprüften Spielwörterbuch stehen. Mindestens zwei müssen sich verbinden lassen.';
+
+  @override
+  String get kkeunmariSelectionEmpty =>
+      'In deiner Auswahl gibt es noch keine Wortkette. Wähle mindestens zwei Wörter aus dem Spielwörterbuch, bei denen die letzte Silbe des einen die erste des anderen ist.';
+
+  @override
+  String get kkeunmariNotInSelection =>
+      'Dieses Wort gehört nicht zu deiner Auswahl für diese Runde.';
 }

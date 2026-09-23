@@ -9,6 +9,7 @@ import '../models/vocab.dart';
 import '../models/feedback_completion.dart';
 import '../models/learner_level.dart';
 import '../services/data_loader.dart';
+import '../services/vocab_deck_source.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/learner_level_selection.dart';
@@ -87,10 +88,18 @@ const List<String> _vowelPadKeys = [
 enum _State { waiting, correct, wrong }
 
 class ChosungQuizScreen extends StatefulWidget {
-  const ChosungQuizScreen({super.key, this.deck, this.vocabLoader});
+  const ChosungQuizScreen({
+    super.key,
+    List<Vocab>? deck,
+    this.source,
+    this.vocabLoader,
+  }) : assert(deck == null || source == null),
+       _deck = deck;
 
   /// Optional notebook / pack subset. Production library play leaves this null.
-  final List<Vocab>? deck;
+  final List<Vocab>? _deck;
+  final VocabDeckSource? source;
+  List<Vocab>? get deck => source?.chosung ?? _deck;
 
   /// Optional deterministic seam. Production keeps [DataLoader.loadVocab].
   final Future<List<Vocab>> Function()? vocabLoader;
