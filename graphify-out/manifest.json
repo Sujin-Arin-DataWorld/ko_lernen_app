@@ -8118,9 +8118,9 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1790177204.8891163,
-    "seen": 1790177550.2005801,
-    "ast_hash": "608f3bb3e7acfe1994f1fdbcdb4b816b",
+    "mtime": 1790178101.494999,
+    "seen": 1790179028.9731677,
+    "ast_hash": "b44163898f34034e96f1aca6e1eb6f4a",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-07-29-account-transition-and-deletion/task-6-report.md": {
@@ -11178,9 +11178,9 @@
     "semantic_hash": ""
   },
   ".github/workflows/play_closed.yml": {
-    "mtime": 1790177105.444825,
-    "seen": 1790177550.2005816,
-    "ast_hash": "9800a44fd923ba8e29d2c9a4fe6a0c31",
+    "mtime": 1790178101.4963624,
+    "seen": 1790179028.9731708,
+    "ast_hash": "eea31d95dc78f09a5bc670f563cfb6b5",
     "semantic_hash": ""
   },
   "docs/HANDOFF-2026-08-27-waves.md": {
@@ -13980,9 +13980,9 @@
     "semantic_hash": ""
   },
   "tool/android_release_evidence.py": {
-    "mtime": 1790177119.4996827,
-    "seen": 1790177550.1990802,
-    "ast_hash": "49a41ac4e0971a10a15edf80edf16a3e",
+    "mtime": 1790178750.5837617,
+    "seen": 1790179028.7529314,
+    "ast_hash": "52d6d116a531d25b4d483dbb7d4dc47b",
     "semantic_hash": ""
   },
   "tool/release_integrity.py": {
@@ -13998,9 +13998,9 @@
     "semantic_hash": ""
   },
   "tool/test_android_release_evidence.py": {
-    "mtime": 1790177119.643675,
-    "seen": 1790177550.1992776,
-    "ast_hash": "c153ea9e980ce58ebf2ab2e21ccb680b",
+    "mtime": 1790178750.5851543,
+    "seen": 1790179028.7831495,
+    "ast_hash": "a83ed3dafb404e71022a885412b7d606",
     "semantic_hash": ""
   },
   "tool/test_release_integrity.py": {
@@ -14154,15 +14154,15 @@
     "semantic_hash": ""
   },
   "tool/android_release_tools.json": {
-    "mtime": 1790177119.5007465,
-    "seen": 1790177550.1990817,
-    "ast_hash": "f89f7b92e3cf600eb8d46f27a65a1a64",
+    "mtime": 1790178101.493878,
+    "seen": 1790179028.7529342,
+    "ast_hash": "6cd3c2aa04648afae058898e5ab3d7ba",
     "semantic_hash": ""
   },
   "tool/test_android_release_tools_config.py": {
-    "mtime": 1790177119.645148,
-    "seen": 1790177550.199279,
-    "ast_hash": "c2ec35e1c85bf203c1d7c24e0285ca78",
+    "mtime": 1790178168.388963,
+    "seen": 1790179028.7831528,
+    "ast_hash": "54240920e516ef8a196f754201c8f1cd",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-09-03-ci-release-gates/brief.md": {
@@ -14196,9 +14196,9 @@
     "semantic_hash": ""
   },
   "docs/runbooks/android-symbol-evidence.md": {
-    "mtime": 1790177204.8901157,
-    "seen": 1790177550.200997,
-    "ast_hash": "8524ad41360dc993e664a8322847b1c0",
+    "mtime": 1790178750.5851543,
+    "seen": 1790179029.0444098,
+    "ast_hash": "37a1e356eb5d1ab6709473eb01156d38",
     "semantic_hash": ""
   },
   "test/cloze_dangling_stem_ratchet_test.dart": {
@@ -15036,9 +15036,9 @@
     "semantic_hash": ""
   },
   "docs/runbooks/android-release-tools-provenance.json": {
-    "mtime": 1790177116.6029239,
-    "seen": 1790177550.1965277,
-    "ast_hash": "c9b209df6ff3d7b1f2a68bb9ccaac10f",
+    "mtime": 1790178101.494999,
+    "seen": 1790179028.3886578,
+    "ast_hash": "80cccb1ccf31e2603d850766cedc9268",
     "semantic_hash": ""
   },
   "test/managed_media_image_test.dart": {
@@ -20052,9 +20052,9 @@
     "semantic_hash": ""
   },
   "tool/test_internal_symbol_workflow.py": {
-    "mtime": 1790177252.5247285,
-    "seen": 1790177550.1993356,
-    "ast_hash": "29a5ac4d6c561e96724a2944a66a3b30",
+    "mtime": 1790178168.3878317,
+    "seen": 1790179028.7896216,
+    "ast_hash": "f4dc369b16b914102a77fbe66f01973d",
     "semantic_hash": ""
   }
 }

@@ -39,8 +39,8 @@ class InternalSymbolWorkflowTest(unittest.TestCase):
             'Pin release-toolchain Java',
             'Download and verify bundletool',
             'Download and verify firebase-tools',
+            'Download and verify Crashlytics buildtools',
             'Write release-evidence tools manifest',
-            'Materialise Firebase credentials',
             'Upload and verify Crashlytics symbol evidence',
             'Archive symbol evidence',
             'Preserve symbol evidence artifact',
@@ -61,7 +61,7 @@ class InternalSymbolWorkflowTest(unittest.TestCase):
         public_steps = [step for job in public['jobs'].values() for step in job.get('steps', [])]
         for name in ('Read pinned release-toolchain versions', 'Pin release-toolchain Java',
                      'Download and verify bundletool', 'Download and verify firebase-tools',
-                     'Write release-evidence tools manifest', 'Materialise Firebase credentials',
+                     'Write release-evidence tools manifest', 'Download and verify Crashlytics buildtools',
                      'Upload and verify Crashlytics symbol evidence', 'Archive symbol evidence'):
             with self.subTest(step=name):
                 reference = next(step for step in public_steps if step.get('name') == name)
@@ -69,7 +69,7 @@ class InternalSymbolWorkflowTest(unittest.TestCase):
 
     def test_diagnostic_inputs_survive_symbol_failure_without_credentials(self):
         inputs = self.by_name['Preserve AAB and Dart symbols']
-        self.assertLess(self.index(inputs['name']), self.index('Materialise Firebase credentials'))
+        self.assertLess(self.index(inputs['name']), self.index('Upload and verify Crashlytics symbol evidence'))
         self.assertEqual(inputs['with']['if-no-files-found'], 'error')
         self.assertEqual(inputs['with']['path'].splitlines(), [
             'build/app/outputs/bundle/release/app-release.aab',
@@ -80,9 +80,10 @@ class InternalSymbolWorkflowTest(unittest.TestCase):
         self.assertEqual(evidence['with']['retention-days'], 90)
         self.assertEqual(evidence['with']['if-no-files-found'], 'error')
         self.assertEqual(evidence['with']['path'], '${{ steps.archive-evidence.outputs.archive-dir }}')
-        cleanup = self.by_name['Remove temporary Firebase publisher credential']
-        self.assertEqual(cleanup['if'], 'always()')
-        self.assertEqual(cleanup['run'].strip(), 'rm -f -- "$RUNNER_TEMP/firebase-sa.json"')
+        self.assertNotIn('Materialise Firebase credentials', self.by_name)
+        for name in ('Upload and verify Crashlytics symbol evidence', 'Archive symbol evidence'):
+            self.assertNotIn('GOOGLE_APPLICATION_CREDENTIALS', self.by_name[name]['env'])
+
 
 
 if __name__ == '__main__':
