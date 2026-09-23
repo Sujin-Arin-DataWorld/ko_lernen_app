@@ -1016,6 +1016,11 @@
   "bookResultCredentialsNotice": "Secure analysis is unavailable on this device. Sign in, check the connection, and try again.",
   "bookResultRateLimited": "Cloud analysis limit reached. Please try again in a minute.",
   "bookResultQualityNotice": "Uncertain or non-Korean content was kept out of vocabulary, grammar, and audio.",
+  "bookResultAmbiguousWord": "This word can have more than one meaning. Check which one fits the sentence.",
+  "bookResultAlternativeWord": "{word} is also possible. Check which meaning fits the sentence.",
+  "@bookResultAlternativeWord": {
+    "placeholders": {"word": {"type": "String"}}
+  },
   "bookResultTranslationUnavailable": "The translation service did not return every meaning. Check the result before saving or try again.",
   "bookResultNoKoreanNotice": "No reliable Korean text remained. Check the text or retake the page.",
   "bookResultSectionWords": "Words",

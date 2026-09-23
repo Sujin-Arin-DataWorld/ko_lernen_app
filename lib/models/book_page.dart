@@ -47,7 +47,11 @@ String? _managedRefFor(Object? value, ManagedMediaKind kind) {
   return reference?.kind == kind ? reference?.encoded : null;
 }
 
-const Set<String> _knownExtractedWordSources = {'bundled', 'pageHint', 'server'};
+const Set<String> _knownExtractedWordSources = {
+  'bundled',
+  'pageHint',
+  'server',
+};
 
 String _safeWordSource(Object? value) =>
     value is String && _knownExtractedWordSources.contains(value)
@@ -86,9 +90,9 @@ class ExtractedWord {
   final double confidence;
   // 다의어(여러 뜻)일 때 첫 뜻만 쓰고 표시한다.
   final bool ambiguous;
-  // O1 (품사 동형이의어 명확화): [ambiguous] 가 문법적 신호 없이 명사/동사(형용사)
-  // 동형이의어(예: '가요' = 노래/가다의 -아어요) 사이에서 결정 못 했을 때만
-  // 채워지는, 놓친 다른 후보의 표제어. 그 외에는 항상 ''.
+  // O1: 같은 표면형에서 서로 다른 표제어가 가능할 때 보존하는 대안.
+  // 명사/용언(가요: 노래/가다) 또는 용언끼리(걸어요: 걸다/걷다)의
+  // 모호함을 [ambiguous]와 함께 표시한다. 다른 표제어가 없으면 ''.
   final String alternativeHeadword;
 
   const ExtractedWord({
@@ -244,7 +248,8 @@ class ExtractedWord {
     if (source != 'server') 'source': source,
     if (confidence != 1.0) 'confidence': confidence,
     if (ambiguous) 'ambiguous': ambiguous,
-    if (alternativeHeadword.isNotEmpty) 'alternativeHeadword': alternativeHeadword,
+    if (alternativeHeadword.isNotEmpty)
+      'alternativeHeadword': alternativeHeadword,
   };
 
   Map<String, dynamic> toPortableJson() => {

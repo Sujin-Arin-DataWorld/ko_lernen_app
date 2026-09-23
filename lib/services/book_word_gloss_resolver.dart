@@ -145,6 +145,36 @@ class BookWordGlossResolver {
     '줘': '주',
   };
 
+  /// Common irregular/contraction bases before polite 요 or past ㅆ어요.
+  /// These are morphological aliases, never meanings: a real bundled
+  /// Verb/Adjektiv must still supply the entry. Do not infer irregularity
+  /// solely from a final consonant (잡다, for example, is regular).
+  static const Map<String, String> _inflectedPredicateBases = {
+    '도와': '돕다',
+    '추워': '춥다',
+    '더워': '덥다',
+    '아름다워': '아름답다',
+    '쉬워': '쉽다',
+    '어려워': '어렵다',
+    '매워': '맵다',
+    '몰라': '모르다',
+    '불러': '부르다',
+    '달라': '다르다',
+    '빨라': '빠르다',
+    '게을러': '게으르다',
+    '서툴러': '서투르다',
+    '배불러': '배부르다',
+    '골라': '고르다',
+    '써': '쓰다',
+    '커': '크다',
+    '바빠': '바쁘다',
+    '예뻐': '예쁘다',
+    '슬퍼': '슬프다',
+    '그래': '그렇다',
+    '들어': '듣다',
+    '걸어': '걷다',
+  };
+
   /// Case/locative particles that, when they end the token immediately
   /// preceding a NOUN/VERB(-ADJEKTIV) homograph (예: 가요 = "팝송" 명사 또는
   /// 가다의 -아/어요 활용형), signal that the verb reading is meant — see
@@ -285,18 +315,41 @@ class BookWordGlossResolver {
       hit = _copulaMatches(index, token);
     }
     if (hit.isEmpty) {
-      for (final candidate in _verbHeadwordCandidates(token)) {
-        final verbHit = index[candidate];
-        if (verbHit != null && verbHit.isNotEmpty) {
-          hit = verbHit;
-          break;
-        }
-      }
+      hit = _predicateMatches(index, token);
     }
-    if (hit == null || hit.isEmpty) {
+    if (hit.isEmpty) {
       return null;
     }
-    return _VocabMatch(hit.first, hit.length > 1);
+    final primary = hit.first;
+    final alternatives = hit.where((word) => word.korean != primary.korean);
+    return _VocabMatch(
+      primary,
+      hit.length > 1,
+      alternativeHeadword: alternatives.isEmpty
+          ? ''
+          : alternatives.first.korean,
+    );
+  }
+
+  List<Vocab> _predicateMatches(Map<String, List<Vocab>> index, String token) {
+    final candidates = <String>{..._verbHeadwordCandidates(token)};
+    for (final entry in _inflectedPredicateBases.entries) {
+      final base = entry.key;
+      // Every explicit base ends in an open Hangul syllable. Adding jongseong
+      // ssang-siot yields the past base: 도와 -> 도왔, 몰라 -> 몰랐.
+      final past =
+          base.substring(0, base.length - 1) +
+          String.fromCharCode(base.codeUnitAt(base.length - 1) + 20);
+      if (token == '$base요' || token == '$past어요') {
+        candidates.add(entry.value);
+      }
+    }
+    return [
+      for (final candidate in candidates)
+        ...?index[candidate]?.where(
+          (word) => word.posDe == 'Verb' || word.posDe == 'Adjektiv',
+        ),
+    ];
   }
 
   List<Vocab> _copulaMatches(Map<String, List<Vocab>> index, String token) {

@@ -1956,6 +1956,15 @@ class AppL10nEn extends AppL10n {
       'Uncertain or non-Korean content was kept out of vocabulary, grammar, and audio.';
 
   @override
+  String get bookResultAmbiguousWord =>
+      'This word can have more than one meaning. Check which one fits the sentence.';
+
+  @override
+  String bookResultAlternativeWord(String word) {
+    return '$word is also possible. Check which meaning fits the sentence.';
+  }
+
+  @override
   String get bookResultTranslationUnavailable =>
       'The translation service did not return every meaning. Check the result before saving or try again.';
 
