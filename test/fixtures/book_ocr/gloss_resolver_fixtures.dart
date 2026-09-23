@@ -27,15 +27,13 @@ BookOcrLine _line({
 /// followed (same OCR block) by its printed German translation line. The
 /// German lines never contain Hangul, so `BookOcrDocumentBuilder` already
 /// drops them before they can become analysis units — the resolver only ever
-/// sees the Korean side. One sentence (S2) uses the copula `이에요`, which is
-/// intentionally outside this PR's particle/verb-ending coverage (tracked as
-/// a known miss for O1-T2) and keeps the fixture's resolution rate below
-/// 100% while remaining above the 95% floor asserted by the test.
+/// sees the Korean side. S2 includes the formerly unresolved copula
+/// `학생이에요`; its canonical nominal must now resolve as 학생.
 ///
 /// Sentence -> German gloss pairs, and the Hangul tokens each sentence
 /// contributes (used by the test to compute the expected resolution ratio):
 ///   S1  안녕하세요.                -> Hallo.                          [안녕하세요]
-///   S2  저는 학생이에요.           -> Ich bin Student.                [저는, 학생이에요]*
+///   S2  저는 학생이에요.           -> Ich bin Student.                [저는, 학생이에요]
 ///   S3  오늘 학교에 가요.          -> Ich gehe heute zur Schule.      [오늘, 학교에, 가요]
 ///   S4  내일 친구를 만나요.        -> Ich treffe morgen einen Freund. [내일, 친구를, 만나요]
 ///   S5  책을 읽어요.               -> Ich lese ein Buch.              [책을, 읽어요]
@@ -44,7 +42,6 @@ BookOcrLine _line({
 ///   S8  저는 집에 있어요.          -> Ich bin zu Hause.               [저는, 집에, 있어요]
 ///   S9  친구가 옷을 사요.          -> Ich kaufe Kleidung.             [친구가, 옷을, 사요]
 ///   S10 친구가 집에 와요.          -> Ich komme nach Hause.           [친구가, 집에, 와요]
-/// (* = the one expected miss: 학생이에요)
 BookOcrDocument buildF1TextbookPageDocument() {
   const pairs = <(String korean, String german)>[
     ('안녕하세요.', 'Hallo.'),
@@ -63,9 +60,7 @@ BookOcrDocument buildF1TextbookPageDocument() {
   for (var block = 0; block < pairs.length; block++) {
     final (korean, german) = pairs[block];
     final top = block * 80.0;
-    lines.add(
-      _line(text: korean, blockIndex: block, lineIndex: 0, top: top),
-    );
+    lines.add(_line(text: korean, blockIndex: block, lineIndex: 0, top: top));
     lines.add(
       _line(text: german, blockIndex: block, lineIndex: 1, top: top + 28),
     );
@@ -73,11 +68,35 @@ BookOcrDocument buildF1TextbookPageDocument() {
   return BookOcrDocumentBuilder.build(lines);
 }
 
-/// Total Hangul tokens across [buildF1TextbookPageDocument] (see the table
-/// above), and the one token the bundled/page-hint tiers cannot resolve in
-/// this PR (an irregular copula form).
+/// Authored expectations, checked against actual per-sentence resolutions.
 const int kF1TotalHangulTokens = 23;
-const Set<String> kF1KnownMissTokens = {'학생이에요'};
+const Map<String, String> kF1ExpectedTokenHeadwords = {
+  '안녕하세요': '안녕하세요',
+  '저는': '저',
+  '학생이에요': '학생',
+  '오늘': '오늘',
+  '학교에': '학교',
+  '가요': '가다',
+  '내일': '내일',
+  '친구를': '친구',
+  '만나요': '만나다',
+  '책을': '책',
+  '읽어요': '읽다',
+  '감사합니다': '감사합니다',
+  '방이': '방',
+  '작아요': '작다',
+  '집에': '집',
+  '있어요': '있다',
+  '친구가': '친구',
+  '옷을': '옷',
+  '사요': '사다',
+  '와요': '오다',
+};
+
+BookOcrDocument buildGlossLineDocument(String text) =>
+    BookOcrDocumentBuilder.build([
+      _line(text: text, blockIndex: 0, lineIndex: 0, top: 0),
+    ]);
 
 /// F2 — particle-stripping and verb-ending cases named in the design:
 ///   학교에서 -> 학교, 친구를 -> 친구, 책은 -> 책 (noun + particle)
