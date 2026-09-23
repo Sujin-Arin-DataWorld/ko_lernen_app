@@ -2520,9 +2520,9 @@
     "semantic_hash": ""
   },
   "lib/services/today_learning_snapshot.dart": {
-    "mtime": 1790158510.0005758,
-    "seen": 1790174790.0041895,
-    "ast_hash": "ef0bd1b1221b37855f21cd7498df4903",
+    "mtime": 1790175943.3058414,
+    "seen": 1790176409.6158097,
+    "ast_hash": "1ee75289ee429e2ff5a592c5ba3a5a8c",
     "semantic_hash": ""
   },
   "lib/services/tts_installation_id.dart": {
@@ -20073,6 +20073,12 @@
     "mtime": 1790159374.9653654,
     "seen": 1790174790.0052986,
     "ast_hash": "276fe2cc41e873e7b88da9ef37ed9cdc",
+    "semantic_hash": ""
+  },
+  "test/today_scenario_stock_test.dart": {
+    "mtime": 1790175943.3178427,
+    "seen": 1790176409.789945,
+    "ast_hash": "88d5c9876e4b3768c24c4f53b9789cdb",
     "semantic_hash": ""
   }
 }
