@@ -18072,9 +18072,9 @@
     "semantic_hash": ""
   },
   "lib/services/book_word_gloss_resolver.dart": {
-    "mtime": 1790161995.345533,
-    "seen": 1790162538.6330159,
-    "ast_hash": "646b8c051ebae519b28beffb06cd3221",
+    "mtime": 1790165108.599373,
+    "seen": 1790165398.3493428,
+    "ast_hash": "34841b391a7dcb0cee2233b2de66da4d",
     "semantic_hash": ""
   },
   "lib/services/net/sori_net.dart": {
@@ -18090,15 +18090,15 @@
     "semantic_hash": ""
   },
   "test/book_word_gloss_resolver_test.dart": {
-    "mtime": 1790161760.5186045,
-    "seen": 1790162538.6335871,
-    "ast_hash": "5b42aa4c80af5947426b938ed7d43865",
+    "mtime": 1790164661.7879205,
+    "seen": 1790165398.4193063,
+    "ast_hash": "dd5609fa6a30e05c374cc2565323383d",
     "semantic_hash": ""
   },
   "test/fixtures/book_ocr/gloss_resolver_fixtures.dart": {
-    "mtime": 1790161760.9517016,
-    "seen": 1790162538.633826,
-    "ast_hash": "a8efdb2b61d8dba6fe237ca357b89ade",
+    "mtime": 1790164661.7959917,
+    "seen": 1790165398.4486616,
+    "ast_hash": "250074aab12618beec1d685a34bf8a6c",
     "semantic_hash": ""
   },
   "test/goldens/vocab_pack_usage_note_golden_test.dart": {
@@ -20037,6 +20037,12 @@
     "mtime": 1790161995.353976,
     "seen": 1790162538.6335847,
     "ast_hash": "da68ae2a4de18f6924faf10de5b04969",
+    "semantic_hash": ""
+  },
+  "test/book_word_gloss_copula_test.dart": {
+    "mtime": 1790164491.5050075,
+    "seen": 1790165398.419117,
+    "ast_hash": "4b2eb66ae8282d1d2faacb6a211f1dea",
     "semantic_hash": ""
   }
 }

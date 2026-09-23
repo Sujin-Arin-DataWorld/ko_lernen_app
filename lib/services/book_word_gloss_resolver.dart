@@ -11,7 +11,7 @@ import 'data_loader.dart';
 /// returned `words: const []`). This resolver fills that gap without ever
 /// calling the network, using three tiers in priority order:
 ///
-///   ① bundled  — `assets/data/korean_vocab.csv` (2,499 curated headwords),
+///   ① bundled  — `assets/data/korean_vocab.csv`,
 ///      matched after stripping a Korean particle or a verb/adjective
 ///      conjugation ending from each OCR token.
 ///   ② pageHint — the German/English gloss the book itself printed next to
@@ -109,6 +109,32 @@ class BookWordGlossResolver {
     '만은',
     '만도',
   ];
+
+  static const Set<String> _nominalPartsOfSpeech = {
+    'Nomen',
+    'Substantiv',
+    'Pronomen',
+    'Zahlwort',
+  };
+
+  /// Complete copula forms; true means the contracted form requires a
+  /// vowel-final nominal (친구예요, but not 학생예요). The uncontracted
+  /// 이에요/이어요 forms also remain valid after vowels.
+  static const Map<String, bool> _copulaForms = {
+    '이었습니다': false,
+    '였습니다': true,
+    '이었어요': false,
+    '였어요': true,
+    '이에요': false,
+    '이어요': false,
+    '입니다': false,
+    '입니까': false,
+    '이었다': false,
+    '였다': true,
+    '예요': true,
+    '여요': true,
+    '이다': false,
+  };
 
   /// Basic vowel-contraction fallbacks: a contracted stem syllable mapped to
   /// the dictionary stem syllable before appending 다 (봐 -> 보다, not 봐다).
@@ -252,17 +278,13 @@ class BookWordGlossResolver {
     if (hit == null || hit.isEmpty) {
       final nominal = _stripLongestParticle(token, suffixes: _particleChains);
       hit = index[nominal]
-          ?.where(
-            (entry) => const {
-              'Nomen',
-              'Substantiv',
-              'Pronomen',
-              'Zahlwort',
-            }.contains(entry.posDe),
-          )
+          ?.where((entry) => _nominalPartsOfSpeech.contains(entry.posDe))
           .toList(growable: false);
     }
     if (hit == null || hit.isEmpty) {
+      hit = _copulaMatches(index, token);
+    }
+    if (hit.isEmpty) {
       for (final candidate in _verbHeadwordCandidates(token)) {
         final verbHit = index[candidate];
         if (verbHit != null && verbHit.isNotEmpty) {
@@ -275,6 +297,30 @@ class BookWordGlossResolver {
       return null;
     }
     return _VocabMatch(hit.first, hit.length > 1);
+  }
+
+  List<Vocab> _copulaMatches(Map<String, List<Vocab>> index, String token) {
+    final stem = _stripLongestParticle(token, suffixes: _copulaForms.keys);
+    if (stem == null) {
+      return const [];
+    }
+    final ending = token.substring(stem.length);
+    final lastSyllable = stem.codeUnitAt(stem.length - 1);
+    if (_copulaForms[ending]! && (lastSyllable - 0xAC00) % 28 != 0) {
+      return const [];
+    }
+    // A lexical predicate such as 효율적이다 keeps its dictionary entry.
+    // Otherwise only a real bundled nominal can supply the meaning.
+    final predicates = index['$stem이다']
+        ?.where((entry) => entry.posDe == 'Verb' || entry.posDe == 'Adjektiv')
+        .toList(growable: false);
+    if (predicates != null && predicates.isNotEmpty) {
+      return predicates;
+    }
+    return index[stem]
+            ?.where((entry) => _nominalPartsOfSpeech.contains(entry.posDe))
+            .toList(growable: false) ??
+        const [];
   }
 
   /// Bundled-tier (tier ①) homograph guard. [token] exactly matches a NOUN
@@ -338,7 +384,7 @@ class BookWordGlossResolver {
   /// single stripped candidate, if any particle suffix actually applies.
   String? _stripLongestParticle(
     String token, {
-    List<String> suffixes = kParticleSuffixes,
+    Iterable<String> suffixes = kParticleSuffixes,
   }) {
     String? longestSuffix;
     for (final suffix in suffixes) {
