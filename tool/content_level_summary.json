@@ -34,7 +34,7 @@
     },
     "satz": {
       "fallback_over2": 0,
-      "over1": 161,
+      "over1": 160,
       "over2": 20,
       "total": 2861,
       "under2": 645,
@@ -58,8 +58,8 @@
     },
     "vocab": {
       "fallback_over2": 66,
-      "over1": 312,
-      "over2": 159,
+      "over1": 313,
+      "over2": 158,
       "total": 2944,
       "under2": 229,
       "unknown": 56
@@ -68,15 +68,15 @@
   "coverage": {
     "grade1": {
       "at_level": 596,
-      "missing": 2,
+      "missing": 1,
       "present_in_app": 712,
-      "total_unique": 714
+      "total_unique": 713
     },
     "grade2": {
       "at_level": 204,
-      "missing": 658,
+      "missing": 656,
       "present_in_app": 412,
-      "total_unique": 1070
+      "total_unique": 1068
     }
   },
   "generatedFrom": "assets/data/* + tools/content_factory/lexicon/* (tool/audit_content_levels.py)",

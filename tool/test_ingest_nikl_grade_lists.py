@@ -189,6 +189,24 @@ class SplitHomographTests(unittest.TestCase):
 
 
 class SplitKiiqVocabEntryTests(unittest.TestCase):
+    def test_hyphenation_point_pairs_real_source_forms_and_pos(self) -> None:
+        # U+2027 occurs in four real workbook headword cells. It is not
+        # U+2219, despite looking nearly identical at normal text sizes.
+        for grade, raw, pos, expected in [
+            (1, "천만02‧천만01/천만03", "수사‧관형사/명사", [("천만", 2, "수사"), ("천만", 1, "관형사"), ("천만", 3, "명사")]),
+            (2, "셋째02‧셋째01/셋째03", "수사‧관형사/명사", [("셋째", 2, "수사"), ("셋째", 1, "관형사"), ("셋째", 3, "명사")]),
+            (2, "첫째02‧첫째01/첫째03", "수사‧관형사/명사", [("첫째", 2, "수사"), ("첫째", 1, "관형사"), ("첫째", 3, "명사")]),
+            (4, "소극적01‧소극적02", "관형사‧명사", [("소극적", 1, "관형사"), ("소극적", 2, "명사")]),
+        ]:
+            with self.subTest(raw=raw):
+                rows = ingest_mod.split_kiiq_vocab_entry(grade, raw, pos, "원본‧설명", "초급")
+                self.assertEqual([(r.headword, r.homograph, r.pos) for r in rows], expected)
+                self.assertTrue(all(r.grade == grade and r.guide == "원본‧설명" for r in rows))
+
+    def test_hyphenation_point_does_not_split_unpaired_pos(self) -> None:
+        rows = ingest_mod.split_kiiq_vocab_entry(3, "스무째", "수사‧관형사/명사", "", "중급")
+        self.assertEqual([(r.headword, r.pos) for r in rows], [("스무째", "수사‧관형사/명사")])
+
     def test_slash_joined_headword_and_pos_pair_positionally(self) -> None:
         rows = ingest_mod.split_kiiq_vocab_entry(
             1, "오늘02/오늘01", "부사/명사", "오늘 날씨가 좋다", "초급"
@@ -329,6 +347,19 @@ class IngestIntegrationTests(unittest.TestCase):
         # LF line endings, no CRLF.
         raw = (self.out_dir / "nikl_kiiq_2017_vocab.csv").read_bytes()
         self.assertNotIn(b"\r\n", raw)
+
+    def test_workbook_hyphenation_point_preserves_homographs(self) -> None:
+        _build_minimal_xlsx(self.kiiq, {
+            "어휘": [_VOCAB_HEADER,
+                     ["1", "1", "1급", "천만02‧천만01/천만03", "수사‧관형사/명사", "숫자", "초급", "1급"]],
+            "문법": [_GRAMMAR_HEADER],
+        })
+        summary = ingest_mod.ingest(self.kiiq, self.basic, self.out_dir)
+        self.assertEqual(summary.counts_by_grade["kiiq_vocab_post_split"], {1: 3})
+        with (self.out_dir / "nikl_kiiq_2017_vocab.csv").open(encoding="utf-8", newline="") as stream:
+            rows = list(csv.DictReader(stream))
+        self.assertEqual([(r['headword'], r['homograph'], r['pos']) for r in rows],
+                         [("천만", "1", "관형사"), ("천만", "2", "수사"), ("천만", "3", "명사")])
 
     def test_grammar_csv_matches_golden_row(self) -> None:
         ingest_mod.ingest(self.kiiq, self.basic, self.out_dir)
