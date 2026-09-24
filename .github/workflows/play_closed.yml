@@ -182,11 +182,27 @@ jobs:
           chmod 0555 "$firebase_bin"
           echo "firebase_bin=$firebase_bin" >> "$GITHUB_OUTPUT"
 
+      - name: Download and verify Crashlytics buildtools
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        id: crashlytics-buildtools
+        shell: bash
+        env:
+          BUILDTOOLS_URL: ${{ steps.toolchain.outputs.crashlytics_buildtools_url }}
+          BUILDTOOLS_SHA256: ${{ steps.toolchain.outputs.crashlytics_buildtools_sha256 }}
+        run: |
+          set -euo pipefail
+          jar="$RUNNER_TEMP/crashlytics-buildtools.jar"
+          curl -fsSL --retry 3 -o "$jar" "$BUILDTOOLS_URL"
+          echo "${BUILDTOOLS_SHA256}  $jar" | sha256sum -c -
+          echo "jar=$jar" >> "$GITHUB_OUTPUT"
+
       - name: Write release-evidence tools manifest
         if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
         id: tools-json
         shell: bash
         env:
+          CRASHLYTICS_JAR: ${{ steps.crashlytics-buildtools.outputs.jar }}
+          CRASHLYTICS_JAR_SHA256: ${{ steps.toolchain.outputs.crashlytics_buildtools_sha256 }}
           JAVA_BIN_SHA256: ${{ steps.toolchain.outputs.java_sha256 }}
           BUNDLETOOL_JAR: ${{ steps.bundletool.outputs.bundletool_jar }}
           BUNDLETOOL_JAR_SHA256: ${{ steps.toolchain.outputs.bundletool_sha256 }}
@@ -207,6 +223,11 @@ jobs:
                   "argv": [java_bin, "-jar", bundletool_jar],
                   "sha256": {java_bin: os.environ["JAVA_BIN_SHA256"],
                              bundletool_jar: os.environ["BUNDLETOOL_JAR_SHA256"]},
+              },
+              "crashlytics-buildtools": {
+                  "argv": [java_bin, "-jar", os.environ["CRASHLYTICS_JAR"]],
+                  "sha256": {java_bin: os.environ["JAVA_BIN_SHA256"],
+                             os.environ["CRASHLYTICS_JAR"]: os.environ["CRASHLYTICS_JAR_SHA256"]},
               },
               "firebase": {
                   "argv": [firebase_bin],
@@ -326,32 +347,11 @@ jobs:
             done
           fi
 
-      - name: Materialise Firebase credentials
-        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
-        shell: bash
-        env:
-          FIREBASE_SYMBOLS_SA_JSON: ${{ secrets.FIREBASE_SYMBOLS_SA_JSON }}
-        run: |
-          set -euo pipefail
-          if [[ -z "$FIREBASE_SYMBOLS_SA_JSON" ]]; then
-            echo "::error::Missing required secret: FIREBASE_SYMBOLS_SA_JSON"
-            exit 1
-          fi
-          if [[ -n "${FIREBASE_TOKEN:-}" ]]; then
-            echo "::error::FIREBASE_TOKEN must not be set; this gate authenticates only via GOOGLE_APPLICATION_CREDENTIALS."
-            exit 1
-          fi
-          (
-            umask 077
-            printf '%s' "$FIREBASE_SYMBOLS_SA_JSON" > "$RUNNER_TEMP/firebase-sa.json"
-          )
-
       - name: Upload and verify Crashlytics symbol evidence
         if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
         id: symbol-evidence
         shell: bash
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-sa.json
           TOOLS_JSON: ${{ steps.tools-json.outputs.manifest }}
           VERSION_CODE: ${{ steps.release-meta.outputs.version-code }}
           FIREBASE_ANDROID_APP_ID: ${{ vars.FIREBASE_ANDROID_APP_ID }}
@@ -382,7 +382,6 @@ jobs:
         id: archive-evidence
         shell: bash
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/firebase-sa.json
           TOOLS_JSON: ${{ steps.tools-json.outputs.manifest }}
           VERSION_CODE: ${{ steps.release-meta.outputs.version-code }}
           FIREBASE_ANDROID_APP_ID: ${{ vars.FIREBASE_ANDROID_APP_ID }}
