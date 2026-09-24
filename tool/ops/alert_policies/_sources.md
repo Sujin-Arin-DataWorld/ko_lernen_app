@@ -75,7 +75,10 @@ its monitored resource type. The former `firestore.googleapis.com/Database`
 filter returned HTTP 400 (incompatible metric/resource pair). The corrected
 filter returned actual write counter points. Preflight now checks every
 numerator and denominator resource type against its metric descriptor before
-any policy creation. Missing or malformed resource metadata also blocks apply.
+any policy creation. Missing resource types in a policy filter, malformed
+descriptor resource lists, and listed restrictions incompatible with the filter
+block apply. An omitted or empty descriptor list imposes no resource-type
+restriction, matching the [MetricDescriptor contract](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors#MetricDescriptor).
 This correction does not create a notification channel, deploy a policy or
 prove an alert was delivered.
 

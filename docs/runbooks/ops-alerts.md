@@ -18,9 +18,11 @@ python tool/ops/apply_alerts.py --dry-run --policy 01 --policy 02 --policy 04 --
 
 `--dry-run`은 채널 상태, 메트릭 descriptor, 04의 최근 성공 시계열, 기존 정책을
 GET으로 검사한다. 실제 변경 시 같은 명령에서 `--dry-run`만 뺀다.
-각 조건의 분자·분모 필터에 지정한 리소스 유형이 해당 메트릭 descriptor의
-`monitoredResourceTypes`에 포함되는지도 검사한다. 누락·불일치 시 모든 정책
-생성 전에 중단한다.
+각 조건의 분자·분모 필터에 리소스 유형이 하나씩 지정됐는지 검사한다.
+메트릭 descriptor의 `monitoredResourceTypes`가 비어 있지 않으면 지정한 유형이
+그 목록에 포함돼야 한다. Google API 규약상 목록 생략·빈 배열은 리소스 유형
+제한이 없다는 뜻이다. 필터의 리소스 유형 누락, 제한 목록과의 불일치 또는
+목록 형식 오류 시 모든 정책 생성 전에 중단한다.
 `.sh`는 같은 인자, `.ps1`은 `-DryRun -Policy 01,02,04,05`를 사용한다.
 `PYTHON` 환경 변수로 사용할 Python 실행 파일을 지정할 수 있다.
 
