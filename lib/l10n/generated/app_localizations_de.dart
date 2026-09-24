@@ -1961,6 +1961,15 @@ class AppL10nDe extends AppL10n {
       'Unsichere oder nicht-koreanische Inhalte wurden nicht in Wörter, Grammatik oder Audio übernommen.';
 
   @override
+  String get bookResultAmbiguousWord =>
+      'Dieses Wort kann mehrere Bedeutungen haben. Prüfe, welche zum Satz passt.';
+
+  @override
+  String bookResultAlternativeWord(String word) {
+    return 'Auch $word ist möglich. Prüfe, welche Bedeutung zum Satz passt.';
+  }
+
+  @override
   String get bookResultTranslationUnavailable =>
       'Der Übersetzungsdienst hat nicht alle Bedeutungen geliefert. Prüfe das Ergebnis vor dem Speichern oder versuche es erneut.';
 
