@@ -11,7 +11,7 @@ import 'data_loader.dart';
 /// returned `words: const []`). This resolver fills that gap without ever
 /// calling the network, using three tiers in priority order:
 ///
-///   ① bundled  — `assets/data/korean_vocab.csv` (2,499 curated headwords),
+///   ① bundled  — `assets/data/korean_vocab.csv`,
 ///      matched after stripping a Korean particle or a verb/adjective
 ///      conjugation ending from each OCR token.
 ///   ② pageHint — the German/English gloss the book itself printed next to
@@ -72,6 +72,85 @@ class BookWordGlossResolver {
     '요',
   ];
 
+  /// Common complete particle chains, matched once rather than recursively.
+  /// Bundled nominal headwords can host these particles. Adverbs are limited
+  /// to auxiliary chains. Exact words and single-particle phrases stay first.
+  static const List<String> _particleChains = [
+    '에게서는',
+    '에게서도',
+    '에게서만',
+    '한테서는',
+    '한테서도',
+    '한테서만',
+    '에서만은',
+    '으로만은',
+    '로만은',
+    '에서도',
+    '에서만',
+    '에게는',
+    '에게도',
+    '에게만',
+    '한테는',
+    '한테도',
+    '한테만',
+    '으로도',
+    '으로만',
+    '까지는',
+    '까지도',
+    '까지만',
+    '부터는',
+    '부터도',
+    '부터만',
+    '에는',
+    '에도',
+    '에만',
+    '로는',
+    '로도',
+    '로만',
+    '만은',
+    '만도',
+  ];
+
+  static const Set<String> _nominalPartsOfSpeech = {
+    'Nomen',
+    'Substantiv',
+    'Pronomen',
+    'Zahlwort',
+  };
+
+  // Time words such as 오늘/내일 are Adverb entries in the bundled corpus.
+  // Allow auxiliary chains, but not case chains such as 빨리에게도.
+  // Copula hosts remain restricted to the nominal parts of speech above.
+  static const Set<String> _adverbParticleChains = {
+    '까지는',
+    '까지도',
+    '까지만',
+    '부터는',
+    '부터도',
+    '부터만',
+    '만은',
+    '만도',
+  };
+
+  /// Complete copula forms; true means the contracted form requires a
+  /// vowel-final nominal (친구예요, but not 학생예요). The uncontracted
+  /// 이에요/이어요 forms also remain valid after vowels.
+  static const Map<String, bool> _copulaForms = {
+    '이었습니다': false,
+    '였습니다': true,
+    '이었어요': false,
+    '였어요': true,
+    '이에요': false,
+    '이어요': false,
+    '입니다': false,
+    '입니까': false,
+    '이었다': false,
+    '였다': true,
+    '예요': true,
+    '여요': true,
+    '이다': false,
+  };
+
   /// Basic vowel-contraction fallbacks: a contracted stem syllable mapped to
   /// the dictionary stem syllable before appending 다 (봐 -> 보다, not 봐다).
   static const Map<String, String> _vowelContractionFallback = {
@@ -79,6 +158,36 @@ class BookWordGlossResolver {
     '봐': '보',
     '와': '오',
     '줘': '주',
+  };
+
+  /// Common irregular/contraction bases before polite 요 or past ㅆ어요.
+  /// These are morphological aliases, never meanings: a real bundled
+  /// Verb/Adjektiv must still supply the entry. Do not infer irregularity
+  /// solely from a final consonant (잡다, for example, is regular).
+  static const Map<String, String> _inflectedPredicateBases = {
+    '도와': '돕다',
+    '추워': '춥다',
+    '더워': '덥다',
+    '아름다워': '아름답다',
+    '쉬워': '쉽다',
+    '어려워': '어렵다',
+    '매워': '맵다',
+    '몰라': '모르다',
+    '불러': '부르다',
+    '달라': '다르다',
+    '빨라': '빠르다',
+    '게을러': '게으르다',
+    '서툴러': '서투르다',
+    '배불러': '배부르다',
+    '골라': '고르다',
+    '써': '쓰다',
+    '커': '크다',
+    '바빠': '바쁘다',
+    '예뻐': '예쁘다',
+    '슬퍼': '슬프다',
+    '그래': '그렇다',
+    '들어': '듣다',
+    '걸어': '걷다',
   };
 
   /// Case/locative particles that, when they end the token immediately
@@ -142,9 +251,18 @@ class BookWordGlossResolver {
         );
         previousToken = token;
         if (match != null) {
-          resolved.putIfAbsent(
+          // One row represents every occurrence of this headword on the page.
+          // An exact occurrence elsewhere does not disambiguate this surface.
+          // Keep the first meaning/source, but never drop a later ambiguity.
+          resolved.update(
             match.vocab.korean,
-            () => _wordFromVocab(
+            (existing) => existing.copyWith(
+              ambiguous: existing.ambiguous || match.ambiguous,
+              alternativeHeadword: existing.alternativeHeadword.isNotEmpty
+                  ? existing.alternativeHeadword
+                  : match.alternativeHeadword,
+            ),
+            ifAbsent: () => _wordFromVocab(
               match.vocab,
               unit,
               ambiguous: match.ambiguous,
@@ -189,8 +307,10 @@ class BookWordGlossResolver {
     return resolved.values.toList(growable: false);
   }
 
-  List<String> _hangulTokens(String text) =>
-      _hangulRun.allMatches(text).map((m) => m.group(0)!).toList(growable: false);
+  List<String> _hangulTokens(String text) => _hangulRun
+      .allMatches(text)
+      .map((m) => m.group(0)!)
+      .toList(growable: false);
 
   _VocabMatch? _resolveAgainstVocab(
     Map<String, List<Vocab>> index,
@@ -210,18 +330,80 @@ class BookWordGlossResolver {
     final stripped = _stripLongestParticle(token);
     var hit = stripped != null ? index[stripped] : null;
     if (hit == null || hit.isEmpty) {
-      for (final candidate in _verbHeadwordCandidates(token)) {
-        final verbHit = index[candidate];
-        if (verbHit != null && verbHit.isNotEmpty) {
-          hit = verbHit;
-          break;
-        }
-      }
+      final stem = _stripLongestParticle(token, suffixes: _particleChains);
+      final chain = stem == null ? null : token.substring(stem.length);
+      hit = index[stem]
+          ?.where(
+            (entry) =>
+                _nominalPartsOfSpeech.contains(entry.posDe) ||
+                (entry.posDe == 'Adverb' &&
+                    _adverbParticleChains.contains(chain)),
+          )
+          .toList(growable: false);
     }
     if (hit == null || hit.isEmpty) {
+      hit = _copulaMatches(index, token);
+    }
+    if (hit.isEmpty) {
+      hit = _predicateMatches(index, token);
+    }
+    if (hit.isEmpty) {
       return null;
     }
-    return _VocabMatch(hit.first, hit.length > 1);
+    final primary = hit.first;
+    final alternatives = hit.where((word) => word.korean != primary.korean);
+    return _VocabMatch(
+      primary,
+      hit.length > 1,
+      alternativeHeadword: alternatives.isEmpty
+          ? ''
+          : alternatives.first.korean,
+    );
+  }
+
+  List<Vocab> _predicateMatches(Map<String, List<Vocab>> index, String token) {
+    final candidates = <String>{..._verbHeadwordCandidates(token)};
+    for (final entry in _inflectedPredicateBases.entries) {
+      final base = entry.key;
+      // Every explicit base ends in an open Hangul syllable. Adding jongseong
+      // ssang-siot yields the past base: 도와 -> 도왔, 몰라 -> 몰랐.
+      final past =
+          base.substring(0, base.length - 1) +
+          String.fromCharCode(base.codeUnitAt(base.length - 1) + 20);
+      if (token == '$base요' || token == '$past어요') {
+        candidates.add(entry.value);
+      }
+    }
+    return [
+      for (final candidate in candidates)
+        ...?index[candidate]?.where(
+          (word) => word.posDe == 'Verb' || word.posDe == 'Adjektiv',
+        ),
+    ];
+  }
+
+  List<Vocab> _copulaMatches(Map<String, List<Vocab>> index, String token) {
+    final stem = _stripLongestParticle(token, suffixes: _copulaForms.keys);
+    if (stem == null) {
+      return const [];
+    }
+    final ending = token.substring(stem.length);
+    final lastSyllable = stem.codeUnitAt(stem.length - 1);
+    if (_copulaForms[ending]! && (lastSyllable - 0xAC00) % 28 != 0) {
+      return const [];
+    }
+    // A lexical predicate such as 효율적이다 keeps its dictionary entry.
+    // Otherwise only a real bundled nominal can supply the meaning.
+    final predicates = index['$stem이다']
+        ?.where((entry) => entry.posDe == 'Verb' || entry.posDe == 'Adjektiv')
+        .toList(growable: false);
+    if (predicates != null && predicates.isNotEmpty) {
+      return predicates;
+    }
+    return index[stem]
+            ?.where((entry) => _nominalPartsOfSpeech.contains(entry.posDe))
+            .toList(growable: false) ??
+        const [];
   }
 
   /// Bundled-tier (tier ①) homograph guard. [token] exactly matches a NOUN
@@ -283,9 +465,12 @@ class BookWordGlossResolver {
   /// Longest-match-once particle stripping. Tries the token itself is
   /// handled by the caller (direct index lookup); this only produces the
   /// single stripped candidate, if any particle suffix actually applies.
-  String? _stripLongestParticle(String token) {
+  String? _stripLongestParticle(
+    String token, {
+    Iterable<String> suffixes = kParticleSuffixes,
+  }) {
     String? longestSuffix;
-    for (final suffix in kParticleSuffixes) {
+    for (final suffix in suffixes) {
       if (token.length <= suffix.length || !token.endsWith(suffix)) {
         continue;
       }
@@ -395,7 +580,11 @@ class BookWordGlossResolver {
 }
 
 class _VocabMatch {
-  const _VocabMatch(this.vocab, this.ambiguous, {this.alternativeHeadword = ''});
+  const _VocabMatch(
+    this.vocab,
+    this.ambiguous, {
+    this.alternativeHeadword = '',
+  });
 
   final Vocab vocab;
   final bool ambiguous;
