@@ -658,6 +658,8 @@ def build_f1_md(root: Path = REPO) -> Tuple[str, F1Result]:
     lines.append("> `particle_token_variants`(앱 패턴의 `N`-접두 토큰을 개별 후보로 추가)로도 매칭.")
     lines.append("> 표면형 교집합으로 설명되지 않는 대응은 `tools/content_factory/cefr_matrix/grammar_correspondence.json`의 정확한 `G{급}:{원형}` 키만 사용하며, reviewed_source + semantically_confirmed 항목만 매치로 반영.")
     lines.append("> 기존 표면형 매치는 의미 검수 전 후보이며, 위 대응표의 명시적 검수와 구분한다. 이 표의 match는 학습·과제·평가 완료를 뜻하지 않는다.")
+    lines.append("> 범위: 앱 비교 대상은 `assets/data/grammar.csv`의 문법 카드다. `missing_in_app`은 이 목록에서 대응 카드를 찾지 못했다는 기존 상태 이름이며, Phase 과제·시나리오 등 앱 전체에 해당 문법 학습이 없다는 판정이 아니다.")
+    lines.append("> 기존 Phase 과제는 `assets/data/phase_tasks.json`과 `assets/data/learning_phases.json`의 연결을 별도로 확인한다. [B1 Phase 범위와 남은 검증](../b1_phase_coverage_scope.md)을 참고한다.")
     lines.append("")
     lines.append(
         "**요약:** match {m} · level_mismatch {lm} · missing_in_app {mia} (nikl 문법 {tot}행) · "

@@ -14580,9 +14580,9 @@
     "semantic_hash": ""
   },
   "tool/build_level_bible_tables.py": {
-    "mtime": 1790205320.3467891,
-    "seen": 1790206146.8929758,
-    "ast_hash": "bfab82ba8fb4c3690381e8d63f897965",
+    "mtime": 1790219131.8789039,
+    "seen": 1790219466.4862998,
+    "ast_hash": "5d6bfd9a887b503298e755c43149388c",
     "semantic_hash": ""
   },
   "tool/cefr_lexicon.py": {
@@ -14676,9 +14676,9 @@
     "semantic_hash": ""
   },
   "docs/data/level_bible/F1_grammar_map.md": {
-    "mtime": 1790205875.6361423,
-    "seen": 1790206146.8946407,
-    "ast_hash": "27f12aae396f666ba043913410b79ff4",
+    "mtime": 1790219132.7070146,
+    "seen": 1790219466.837544,
+    "ast_hash": "d71c9ed7c32837eaf522685bf6eb60c4",
     "semantic_hash": ""
   },
   "docs/data/level_bible/F2_vocab_coverage.md": {
@@ -20109,6 +20109,12 @@
     "mtime": 1790205826.4169211,
     "seen": 1790206146.8946376,
     "ast_hash": "7154be662f4cd352cfdee37508585b53",
+    "semantic_hash": ""
+  },
+  "docs/data/b1_phase_coverage_scope.md": {
+    "mtime": 1790219131.8789039,
+    "seen": 1790219466.8299165,
+    "ast_hash": "f8ae01b8325b2c1cbe68b014b69ed86d",
     "semantic_hash": ""
   }
 }
