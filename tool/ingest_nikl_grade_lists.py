@@ -20,13 +20,14 @@ Normalisation rules (plan §3.C / §4.1):
 * Whitespace (including embedded newlines from wrapped spreadsheet cells)
   is stripped from every field.
 * A headword field joined with ``/``, ``∙`` (U+2219 bullet operator), ``·``
-  (U+00B7 middle dot), or ``•`` (U+2022 bullet) is split into one row per
-  part — all four are equivalent split points. ``/`` is the common case
+  (U+00B7 middle dot), ``•`` (U+2022 bullet), or ``‧`` (U+2027 hyphenation
+  point) is split into one row per
+  part — all five are equivalent split points. ``/`` is the common case
   (e.g. ``오늘02/오늘01``); the 2017 vocab sheet also uses ``∙`` (sometimes
   with an embedded newline that ``_clean`` collapses to a space first) for
   ~262 rows that join homograph/POS variants, e.g. ``마흔02∙마흔`` /
   ``독립적01∙\n독립적02``. When the paired 품사(pos) field is also joined by
-  any of the same four separators into the same number of parts, the parts
+  any of the same five separators into the same number of parts, the parts
   are paired positionally (e.g. ``수사∙관형사`` → ``['수사', '관형사']``);
   otherwise the whole pos string is repeated for every headword part (this
   also covers the rare case — 3 rows in the 2017 list — where pos is
@@ -67,8 +68,9 @@ _HOMOGRAPH_RE = re.compile(r"^(.*?)(\d{2})$")
 # Headword/pos "multi-form" separators (module docstring): '/' is the
 # documented split point; '∙' (U+2219), '·' (U+00B7) and '•' (U+2022) are
 # used interchangeably by ~262 rows of the 2017 kiiq vocab sheet to join
-# homograph/POS variants. All four are equivalent split points.
-_MULTI_FORM_SEPARATORS = "/∙·•"
+# homograph/POS variants. U+2027 ('‧', HYPHENATION POINT) joins another
+# four source rows (천만, 셋째, 첫째, 소극적). Split only headword/POS fields.
+_MULTI_FORM_SEPARATORS = "/∙·•‧"
 _MULTI_FORM_SPLIT_RE = re.compile("[" + re.escape(_MULTI_FORM_SEPARATORS) + "]")
 
 
@@ -229,7 +231,7 @@ def split_kiiq_vocab_entry(
 ) -> list[VocabRow]:
     """Expand one 어휘 sheet row into one or more :class:`VocabRow`.
 
-    Implements the separator-split (``/``, ``∙``, ``·``, ``•``) +
+    Implements the separator-split (``/``, ``∙``, ``·``, ``•``, ``‧``) +
     positional-pos-pairing + trailing-homograph rules documented in the
     module docstring.
     """
