@@ -70,6 +70,18 @@ and queue-age monitoring still need operational evidence.
 module, version and op labels. >10,000 writes/15min remains a burst proxy for
 the 200,000/day target, not a measured rolling daily cap.
 
+On **2026-09-23**, the live descriptor declared only `firestore_instance` as
+its monitored resource type. The former `firestore.googleapis.com/Database`
+filter returned HTTP 400 (incompatible metric/resource pair). The corrected
+filter returned actual write counter points. Preflight now checks every
+numerator and denominator resource type against its metric descriptor before
+any policy creation. Missing resource types in a policy filter, malformed
+descriptor resource lists, and listed restrictions incompatible with the filter
+block apply. An omitted or empty descriptor list imposes no resource-type
+restriction, matching the [MetricDescriptor contract](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors#MetricDescriptor).
+This correction does not create a notification channel, deploy a policy or
+prove an alert was delivered.
+
 [Firestore usage monitoring](https://docs.cloud.google.com/firestore/docs/monitor-usage).
 
 ## Application prerequisites and remaining evidence

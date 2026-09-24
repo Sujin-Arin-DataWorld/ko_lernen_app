@@ -203,7 +203,7 @@ def preflight(api, policies, channel):
                            params={"fields": "name,enabled,verificationStatus"})
     if channel_name(resource.get("name", "")) != channel or resource.get("enabled") is not True or resource.get("verificationStatus") == "UNVERIFIED":
         raise OpsError("notification_channel_not_ready")
-    metrics = set()
+    metric_resources = {}
     for _, policy in policies:
         for condition in policy["conditions"]:
             block = condition["conditionThreshold"]
@@ -213,12 +213,22 @@ def preflight(api, policies, channel):
                 found = re.findall(r'metric\.type\s*=\s*"([a-zA-Z0-9_./-]+)"', block[field])
                 if len(found) != 1:
                     raise OpsError("unsupported_policy_metric_filter")
-                metrics.update(found)
-    for metric in sorted(metrics):
+                resources = re.findall(r'resource\.type\s*=\s*"([a-zA-Z0-9_./-]+)"', block[field])
+                if len(resources) != 1:
+                    raise OpsError("unsupported_policy_resource_filter")
+                metric_resources.setdefault(found[0], set()).update(resources)
+    for metric, requested_resources in sorted(metric_resources.items()):
         descriptor = api.request("GET", "metricDescriptors/" + metric,
-                                 params={"fields": "type,metricKind,valueType"})
+                                 params={"fields": "type,metricKind,valueType,monitoredResourceTypes"})
         if descriptor.get("type") != metric or descriptor.get("metricKind") != "DELTA" or descriptor.get("valueType") != "INT64":
             raise OpsError("metric_descriptor_mismatch")
+        # Google lists resource restrictions only when the descriptor has them.
+        # An omitted or empty repeated field does not restrict resource types.
+        supported = descriptor.get("monitoredResourceTypes", [])
+        if (not isinstance(supported, list) or
+                any(not isinstance(value, str) or not value for value in supported) or
+                (supported and not requested_resources.issubset(supported))):
+            raise OpsError("metric_resource_mismatch")
     for number, policy in policies:
         if number != "04":
             continue
