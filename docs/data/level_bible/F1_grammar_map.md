@@ -3,12 +3,12 @@
 > 생성: `python tool/build_level_bible_tables.py` (plan §3.F, T1.4). 직접 편집 금지.
 > 매칭 알고리즘(R5 개정): `normalize_form_variants`(top-level `' / '` 대안 분리 -> 
 > 청크별 슬롯 접두사(토큰마다)·앞뒤 `-`·동형어 번호·말미 `?` 제거, 
-> `(으)ㄹ/(으)ㄴ/(이)/(으)` 전개) 후 리터럴 문자열 교집합. nikl 조사(category)는 
+> `(으)ㄹ/(으)ㄴ/(이)/(으)/(서)/(에)` 전개) 후 리터럴 문자열 교집합. nikl 조사(category)는
 > `particle_token_variants`(앱 패턴의 `N`-접두 토큰을 개별 후보로 추가)로도 매칭.
 > 표면형 교집합으로 설명되지 않는 대응은 `tools/content_factory/cefr_matrix/grammar_correspondence.json`의 정확한 `G{급}:{원형}` 키만 사용하며, reviewed_source + semantically_confirmed 항목만 매치로 반영.
 > 기존 표면형 매치는 의미 검수 전 후보이며, 위 대응표의 명시적 검수와 구분한다. 이 표의 match는 학습·과제·평가 완료를 뜻하지 않는다.
 
-**요약:** match 123 · level_mismatch 33 · missing_in_app 180 (nikl 문법 336행) · app_only 85(앱 문법 261개 중)
+**요약:** match 125 · level_mismatch 34 · missing_in_app 177 (nikl 문법 336행) · app_only 84(앱 문법 261개 중)
 
 ## 국제통용 -> 앱 매핑
 
@@ -145,7 +145,7 @@
 | 3(B1) | 표현 | -기 위해 | -기 위해서, -기 위한, 을 위해, 를 위해 | grammar_a2_purpose | A2 | level_mismatch |
 | 3(B1) | 표현 | -기는 | -긴, -기는요, -긴요 | -- | -- | missing_in_app |
 | 3(B1) | 표현 | -나 보다 |  | -- | -- | missing_in_app |
-| 3(B1) | 표현 | -는 대신에 | -ㄴ 대신에, -은 대신에 | -- | -- | missing_in_app |
+| 3(B1) | 표현 | -는 대신에 | -ㄴ 대신에, -은 대신에 | grammar_b2_instead_tradeoff | B2 | level_mismatch |
 | 3(B1) | 표현 | -는 만큼 | -ㄴ 만큼, -은 만큼, -ㄹ 만큼, -을 만큼 | grammar_b1_proportional_mankeum | B1 | match |
 | 3(B1) | 표현 | -는 모양이다 | -ㄴ 모양이다, -은 모양이다 | -- | -- | missing_in_app |
 | 3(B1) | 표현 | -는 반면 | -ㄴ 반면에, -은 반면에 | -- | -- | missing_in_app |
@@ -170,7 +170,7 @@
 | 3(B1) | 표현 | -을 테니 | -ㄹ 테니, -을 테니까, -ㄹ 테니까 | -- | -- | missing_in_app |
 | 3(B1) | 표현 | -을 텐데 | -ㄹ 텐데, -을 텐데요, -ㄹ 텐데요 | grammar_b1_expectation | B1 | match |
 | 3(B1) | 표현 | 만 아니면 |  | -- | -- | missing_in_app |
-| 3(B1) | 표현 | 에 대하여 | 에 대해, 에 대해서, 에 대한 | -- | -- | missing_in_app |
+| 3(B1) | 표현 | 에 대하여 | 에 대해, 에 대해서, 에 대한 | grammar_b1_about | B1 | match |
 | 4(B2) | 연결어미 | -거니와 |  | -- | -- | missing_in_app |
 | 4(B2) | 연결어미 | -고도 |  | -- | -- | missing_in_app |
 | 4(B2) | 연결어미 | -고서 | -고서는, -고서야 | -- | -- | missing_in_app |
@@ -237,7 +237,7 @@
 | 4(B2) | 표현 | 에 따라 | 에 따르면 | grammar_b2_according_to | B2 | match |
 | 4(B2) | 표현 | 에 비하여 | 에 비하면 | -- | -- | missing_in_app |
 | 4(B2) | 표현 | 에 의하여 | 에 의하면 | -- | -- | missing_in_app |
-| 4(B2) | 표현 | 으로 인하여 | 로 인하여, 으로 인해, 로 인해 | -- | -- | missing_in_app |
+| 4(B2) | 표현 | 으로 인하여 | 로 인하여, 으로 인해, 로 인해 | grammar_b2_formal_cause | B2 | match |
 | 5(C1) | 연결어미 | -고는 | -곤, -고는 하다, -곤 하다 | -- | -- | missing_in_app |
 | 5(C1) | 연결어미 | -길래 |  | -- | -- | missing_in_app |
 | 5(C1) | 연결어미 | -느니1 | -느니보다, -느니보다는 | -- | -- | missing_in_app |
@@ -406,7 +406,6 @@ F9(예외표)에 사유란과 함께 이관된다.
 | grammar_b2_formal_written_request |
 | grammar_b2_futility |
 | grammar_b2_indirect_speech |
-| grammar_b2_instead_tradeoff |
 | grammar_b2_not_automatic_conclusion |
 | grammar_b2_not_by_one_metric |
 | grammar_b2_not_only |

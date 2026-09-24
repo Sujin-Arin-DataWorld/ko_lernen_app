@@ -169,7 +169,7 @@ B1,grammar_nikl,-고 싶어 하다,표현,missing_in_app,nikl_kiiq_2017,add_gram
 B1,grammar_nikl,-기 위해,표현,level_mismatch,app_levels=A2;ids=grammar_a2_purpose,relevel_or_add_same_level_row
 B1,grammar_nikl,-기는,"표현 -긴, -기는요, -긴요",missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-나 보다,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
-B1,grammar_nikl,-는 대신에,"표현 -ㄴ 대신에, -은 대신에",missing_in_app,nikl_kiiq_2017,add_grammar_row
+B1,grammar_nikl,-는 대신에,표현,level_mismatch,app_levels=B2;ids=grammar_b2_instead_tradeoff,relevel_or_add_same_level_row
 B1,grammar_nikl,-는 모양이다,"표현 -ㄴ 모양이다, -은 모양이다",missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-는 반면,"표현 -ㄴ 반면에, -은 반면에",missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-는 중이다,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
@@ -213,7 +213,6 @@ B1,grammar_nikl,만큼,조사 <유의> 만치,missing_in_app,nikl_kiiq_2017,add_
 B1,grammar_nikl,보고,조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,뿐,조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,아1,조사 야1,missing_in_app,nikl_kiiq_2017,add_grammar_row
-B1,grammar_nikl,에 대하여,"표현 에 대해, 에 대해서, 에 대한",missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,요1,조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,으로부터,조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,이고,조사 고1,missing_in_app,nikl_kiiq_2017,add_grammar_row
@@ -270,7 +269,6 @@ B2,grammar_anchor,grammar_b2_verify_human_review,grammar.csv row never shown in 
 B2,grammar_anchor,grammar_b2_whether_or_not,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b2_worth_doing,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_brief,-(으)ㄴ 덕분에,Jin brief highlight,missing,nikl=;app_levels=;ids=,add_grammar_row
-B2,grammar_brief,-(으)ㄴ/는 대신에,Jin brief highlight,missing,nikl=B1;app_levels=;ids=,add_grammar_row
 B2,grammar_brief,-(으)ㄴ/는 반면에,Jin brief highlight,level_mismatch,nikl=B1;app_levels=B1;ids=grammar_b2_contrast,review_level
 B2,grammar_brief,-(으)ㄴ/는 편이다,Jin brief highlight,level_mismatch,nikl=B1;app_levels=B1;ids=grammar_b1_tendency,review_level
 B2,grammar_brief,-(으)ㄹ 리가 없다,Jin brief highlight,missing,nikl=;app_levels=;ids=,add_grammar_row
@@ -325,7 +323,6 @@ B2,grammar_nikl,마저,조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,만 같아도,표현,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,에 비하여,표현 에 비하면,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,에 의하여,표현 에 의하면,missing_in_app,nikl_kiiq_2017,add_grammar_row
-B2,grammar_nikl,으로 인하여,"표현 로 인하여, 으로 인해, 로 인해",missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,으로서,조사 로서,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,으로써,조사 로써,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B2,grammar_nikl,이나마,조사 나마,missing_in_app,nikl_kiiq_2017,add_grammar_row
@@ -364,7 +361,7 @@ C1,grammar_brief,-(으)ㄹ 가능성이 있다,Jin brief highlight,missing,nikl=
 C1,grammar_brief,-(으)며,Jin brief highlight,missing,nikl=B2;app_levels=;ids=,add_grammar_row
 C1,grammar_brief,-(으)므로,Jin brief highlight,level_mismatch,nikl=B2;app_levels=B2;ids=grammar_b2_formal_reason,review_level
 C1,grammar_brief,-고자,Jin brief highlight,level_mismatch,nikl=B2;app_levels=B2;ids=grammar_b2_formal_intention,review_level
-C1,grammar_brief,-기에 앞서,Jin brief highlight,level_mismatch,nikl=;app_levels=B2;ids=grammar_b2_reasoned_perspective,review_level
+C1,grammar_brief,-기에 앞서,Jin brief highlight,level_mismatch,nikl=C1;app_levels=B2;ids=grammar_b2_reasoned_perspective,review_level
 C1,grammar_brief,-는 것으로 나타나다,Jin brief highlight,level_mismatch,nikl=;app_levels=A2;ids=grammar_b1_nominalization,review_level
 C1,grammar_brief,-다는 점에서,Jin brief highlight,level_mismatch,nikl=;app_levels=B2;ids=grammar_b2_shared_merit,review_level
 C1,grammar_brief,-다는 측면에서,Jin brief highlight,missing,nikl=;app_levels=;ids=,add_grammar_row
