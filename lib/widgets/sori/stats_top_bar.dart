@@ -88,9 +88,9 @@ class SoriStatsTopBar extends StatelessWidget {
               style: TextStyle(
                 fontFamily: SoriFonts.sans,
                 fontSize: 16,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w500,
                 color: s.text,
-                letterSpacing: -0.3,
+                letterSpacing: 0.2,
               ),
             );
             final streakChip = _HeaderChip(
@@ -110,8 +110,8 @@ class SoriStatsTopBar extends StatelessWidget {
             final profileLabel = profileTooltip?.trim();
             final effectiveProfileLabel =
                 profileLabel == null || profileLabel.isEmpty
-                    ? t.soriStageProfileTooltip
-                    : profileLabel;
+                ? t.soriStageProfileTooltip
+                : profileLabel;
             final profileButton = onProfileTap == null
                 ? null
                 : _RoundIconButton(
