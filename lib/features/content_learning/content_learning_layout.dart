@@ -5,9 +5,8 @@ import '../../widgets/sori/tokens.dart';
 
 /// Balances one finite learning step within its actual available viewport.
 ///
-/// The header stays near the top, the body uses the middle, and actions stay
-/// near the bottom. Only surplus height becomes space between those groups;
-/// long text keeps its natural height and scrolls together with the actions.
+/// The header, body, and actions form one centered reading flow on tall
+/// windows. Long text keeps its natural height and scrolls with the actions.
 /// No intrinsic layout is requested, so buttons and other LayoutBuilder-based
 /// Sori widgets remain safe at large text sizes and narrow widths.
 class ContentLearningLayout extends StatelessWidget {
@@ -29,9 +28,10 @@ class ContentLearningLayout extends StatelessWidget {
     intrinsic: false,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         header ?? const SizedBox.shrink(),
+        if (header != null) const SizedBox(height: Spacing.lg),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: Spacing.md),
           child: Column(
@@ -40,6 +40,7 @@ class ContentLearningLayout extends StatelessWidget {
             children: body,
           ),
         ),
+        const SizedBox(height: Spacing.lg),
         Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,

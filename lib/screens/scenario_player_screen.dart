@@ -1504,56 +1504,135 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   Widget _buildIntro(AppL10n t, String lang) {
     final s = _scenario!;
     final ss = SoriSurfaces.of(context);
+    final missionStep = _missionStep;
     return _StageScroll(
+      fill: true,
+      maxWidth: 960,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _ScenarioIntroArt(
-            posterAsset: _backdropPoster,
-            alignment: scenarioIntroAlignmentFor(s),
-            emoji: s.emoji,
-            sidekick: s.sidekick,
-          ),
-          const SizedBox(height: Spacing.xl),
-          Text(
-            t.scenarioIntroTitle,
-            style: SoriTextTheme.of(
-              context,
-            ).caption.copyWith(letterSpacing: 1.2, fontWeight: FontWeight.w600),
-          ),
-          const SizedBox(height: Spacing.xs),
-          Text(
-            s.title.pick(lang),
-            style: SoriTextTheme.of(context).display,
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: Spacing.lg),
-          Text(
-            s.intro.pick(lang),
-            style: SoriTextTheme.of(
-              context,
-            ).gloss.copyWith(color: ss.textMuted, height: 1.7),
-            textAlign: TextAlign.center,
-          ),
-          if (s.playerCharacterId.isNotEmpty) ...[
-            const SizedBox(height: Spacing.md),
-            Text.rich(
-              TextSpan(
+          if (missionStep != null) ...[
+            Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 720),
+                child: MissionContextBar(
+                  missionTitle: _missionTitle ?? t.courseMissionTitleShort,
+                  step: missionStep,
+                  prominent:
+                      MediaQuery.sizeOf(context).width >= SoriBreakpoints.grid,
+                ),
+              ),
+            ),
+            const SizedBox(height: Spacing.xl),
+          ],
+          LayoutBuilder(
+            builder: (context, bounds) {
+              final poster = _backdropPoster;
+              final textScale = MediaQuery.textScalerOf(context).scale(1);
+              final sideBySide =
+                  poster != null && bounds.maxWidth >= 760 && textScale <= 1.3;
+              final reading = Column(
+                key: const ValueKey('scenario-intro-copy'),
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TextSpan(text: '${t.scenarioAssignedRole}: '),
-                  TextSpan(
-                    text: s.playerRoleDisplayName(
-                      fallbackYou: t.listeningSpeakerYou,
+                  Row(
+                    children: [
+                      Text(
+                        t.scenarioIntroTitle,
+                        style: SoriTextTheme.of(
+                          context,
+                        ).h3.copyWith(color: ss.textMuted, letterSpacing: 0.3),
+                      ),
+                      const SizedBox(width: Spacing.md),
+                      SoriBadge.level(s.level.display, size: 28),
+                    ],
+                  ),
+                  const SizedBox(height: Spacing.md),
+                  Text(
+                    s.title.pick(lang),
+                    style: SoriTextTheme.of(context).display,
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                  SizedBox(
+                    width: Spacing.xxxl,
+                    height: 4,
+                    child: ColoredBox(color: SoriColors.primary),
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                  Text(
+                    s.intro.pick(lang),
+                    style: SoriTextTheme.of(context).gloss.copyWith(
+                      color: ss.text,
+                      fontSize: bounds.maxWidth >= 520 ? 22 : 18,
+                      height: 1.5,
                     ),
-                    style: const TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                  if (s.playerCharacterId.isNotEmpty) ...[
+                    const SizedBox(height: Spacing.lg),
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(text: '${t.scenarioAssignedRole}: '),
+                          TextSpan(
+                            text: s.playerRoleDisplayName(
+                              fallbackYou: t.listeningSpeakerYou,
+                            ),
+                            style: const TextStyle(fontWeight: FontWeight.w700),
+                          ),
+                        ],
+                      ),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).meta.copyWith(color: ss.text),
+                    ),
+                  ],
+                ],
+              );
+              if (sideBySide) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: _ScenarioIntroArt(
+                        posterAsset: poster,
+                        alignment: scenarioIntroAlignmentFor(s),
+                        emoji: s.emoji,
+                        sidekick: s.sidekick,
+                        height: 280,
+                      ),
+                    ),
+                    const SizedBox(width: Spacing.xxl),
+                    Expanded(child: reading),
+                  ],
+                );
+              }
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (poster != null) ...[
+                    ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 620),
+                      child: _ScenarioIntroArt(
+                        posterAsset: poster,
+                        alignment: scenarioIntroAlignmentFor(s),
+                        emoji: s.emoji,
+                        sidekick: s.sidekick,
+                        height: bounds.maxWidth < 420 ? 160 : 240,
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.xl),
+                  ],
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 620),
+                    child: reading,
                   ),
                 ],
-              ),
-              style: SoriTextTheme.of(context).meta.copyWith(color: ss.text),
-              textAlign: TextAlign.center,
-            ),
-          ],
-          const SizedBox(height: Spacing.lg),
-          SoriBadge.level(s.level.display, size: 28),
+              );
+            },
+          ),
         ],
       ),
     );
@@ -2466,12 +2545,19 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         Spacing.xl,
         Spacing.xxl,
       ),
-      child: SoriButton.filled(
-        key: _nextBtnKey,
-        label: isIntro ? t.scenarioStartBtn : t.scenarioNextBtn,
-        accent: SoriColors.contentCta,
-        fullWidth: true,
-        onTap: enabled ? _next : null,
+      child: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: isIntro ? 720 : double.infinity,
+          ),
+          child: SoriButton.filled(
+            key: _nextBtnKey,
+            label: isIntro ? t.scenarioStartBtn : t.scenarioNextBtn,
+            accent: SoriColors.contentCta,
+            fullWidth: true,
+            onTap: enabled ? _next : null,
+          ),
+        ),
       ),
     );
   }
@@ -2535,7 +2621,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     final playerBody = SoriScreenBackground(
       child: Stack(
         children: [
-          if (_backdropPoster != null && !_isQuestStage && !_isRoleplayStage)
+          if (_backdropPoster != null &&
+              _stage != 0 &&
+              !_isQuestStage &&
+              !_isRoleplayStage)
             Positioned.fill(
               child: IgnorePointer(
                 child: Opacity(
@@ -2551,7 +2640,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           SafeArea(
             child: Column(
               children: [
-                if (_missionStep case final step?)
+                if (_stage != 0 && _missionStep != null)
                   Padding(
                     padding: const EdgeInsets.fromLTRB(
                       Spacing.lg,
@@ -2559,9 +2648,15 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                       Spacing.lg,
                       Spacing.sm,
                     ),
-                    child: MissionContextBar(
-                      missionTitle: _missionTitle ?? t.courseMissionTitleShort,
-                      step: step,
+                    child: Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 720),
+                        child: MissionContextBar(
+                          missionTitle:
+                              _missionTitle ?? t.courseMissionTitleShort,
+                          step: _missionStep!,
+                        ),
+                      ),
                     ),
                   ),
                 Expanded(
@@ -2760,6 +2855,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
 class _StageScroll extends StatelessWidget {
   final Widget child;
+  final double? maxWidth;
 
   /// 콘텐츠가 viewport보다 짧을 때 세로를 채워 중앙 정렬할지.
   ///
@@ -2771,13 +2867,14 @@ class _StageScroll extends StatelessWidget {
   /// `maxHeight`가 infinity로 남아 flex child가 assert 한다.
   final bool fill;
 
-  const _StageScroll({required this.child, this.fill = false});
+  const _StageScroll({required this.child, this.fill = false, this.maxWidth});
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final pad = soriClampPadding(
       width,
+      maxWidth: maxWidth,
       base: const EdgeInsets.symmetric(
         horizontal: Spacing.lg,
         vertical: Spacing.xl,
@@ -2806,12 +2903,14 @@ class _ScenarioIntroArt extends StatelessWidget {
   final Alignment alignment;
   final String emoji;
   final String? sidekick;
+  final double height;
 
   const _ScenarioIntroArt({
     required this.posterAsset,
     required this.alignment,
     required this.emoji,
     required this.sidekick,
+    required this.height,
   });
 
   @override
@@ -2829,7 +2928,7 @@ class _ScenarioIntroArt extends StatelessWidget {
     // Backdrop만 표시 (호랑이 없이 — 배경 자체가 시각적 focal point)
     if (posterAsset == null) {
       return Container(
-        height: 140,
+        height: height,
         width: double.infinity,
         decoration: BoxDecoration(
           color: SoriColors.primary.withValues(alpha: 0.12),
@@ -2857,7 +2956,7 @@ class _ScenarioIntroArt extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(SoriRadius.lg),
       child: SizedBox(
-        height: 140,
+        height: height,
         width: double.infinity,
         child: Stack(
           fit: StackFit.expand,

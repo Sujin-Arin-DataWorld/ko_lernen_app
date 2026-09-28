@@ -155,6 +155,7 @@ class DemoChoice extends StatelessWidget {
                   style: TextStyle(
                     fontSize: korean ? (dense ? 17 : 21) : 13,
                     height: 1.15,
+                    fontFamily: korean ? SoriFonts.learningKorean : null,
                   ),
                 )
               : Row(
@@ -229,7 +230,9 @@ class _DemoPagedTextState extends State<DemoPagedText> {
         ),
         height: 1.35,
         fontWeight: widget.korean ? FontWeight.w600 : FontWeight.normal,
-        fontFamily: Theme.of(context).textTheme.bodyLarge?.fontFamily,
+        fontFamily: widget.korean
+            ? SoriFonts.learningKorean
+            : Theme.of(context).textTheme.bodyLarge?.fontFamily,
       );
       final painter = TextPainter(
         textDirection: TextDirection.ltr,

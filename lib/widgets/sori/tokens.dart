@@ -570,10 +570,11 @@ class SoriMotion {
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// TEXT — Paperlogy 중앙 TextStyle 토큰
+// TEXT — role-based font families and central TextStyle tokens
 // ─────────────────────────────────────────────────────────────────────────
 /// 앱 폰트 패밀리 상수 — 역할로만 선택한다.
-/// - [sans] Paperlogy: UI·DE/EN·학습 본문·숫자의 기본 폰트.
+/// - [sans] IBM Plex Sans: DE/EN UI·헤드라인·본문·숫자의 기본 폰트.
+/// - [learningKorean] Noto Sans KR: 자모·어휘·문장 등 한국어 학습 본문.
 /// - [culture] Maru Buri: 짧은 한국어 문화 제목과 특별한 완료 순간 전용.
 ///   버튼·메뉴·긴 본문에는 사용하지 않는다.
 ///
@@ -586,9 +587,12 @@ class SoriMotion {
 /// **2026-09-03 재교체**: Jin 지시로 Wanted Sans → Paperlogy(OFL, 400/500/
 /// 600/700 4무게 번들). 헤드라인(hero/display/h1/h2/numeral)은 [culture]
 /// (Maru Buri w600)로 분리했다 — §A2 참조.
+/// **2026-09-28 교체**: DE/EN은 IBM Plex Sans, 학습용 한국어는 Noto Sans KR.
+/// Maru Buri는 문화 맥락의 짧은 한국어 제목에 유지한다.
 class SoriFonts {
   SoriFonts._();
-  static const String sans = 'Paperlogy';
+  static const String sans = 'IBMPlexSans';
+  static const String learningKorean = 'NotoSansKR';
   static const String culture = 'MaruBuri';
 }
 
@@ -641,7 +645,7 @@ class SoriTypeSpecs {
 /// 사이즈·weight·letter-spacing·height 만 중앙화.
 ///
 /// **타이포 보이스(2026-08-20)**: 현대적 학습 UI 80 + 한국적 문화 정체성 20.
-/// 기본 위계는 Paperlogy의 크기·굵기로 만들고, 검증된 한국어 문화 맥락에만
+/// 기본 위계는 IBM Plex Sans의 크기·굵기로 만들고, 검증된 한국어 문화 맥락에만
 /// Maru Buri를 제한적으로 사용한다.
 class SoriTextTheme {
   final SoriSurfaces _s;
@@ -656,15 +660,15 @@ class SoriTextTheme {
   static SoriTextTheme of(BuildContext context) =>
       SoriTextTheme._(SoriSurfaces.of(context));
 
-  // ── Display / Heading (Maru Buri w600 — 2026-09-03 헤드라인 문화화) ────
-  // 위계는 크기·굵기로만. 헤드라인(hero/display/h1/h2/numeral)은 Maru Buri
-  // w600(번들 400/600) — 진짜 SemiBold, 합성볼드 아님. h3 이하는 sans.
+  // ── Display / Heading ───────────────────────────────────────────────
+  // DE/EN headings use the same Latin sans as body copy. cultureTitle alone
+  // retains Maru Buri for short Korean cultural titles.
   TextStyle get display => _base(
     fontSize: 32,
     weight: FontWeight.w600,
     letterSpacing: -0.2,
     height: 1.15,
-    fontFamily: SoriFonts.culture,
+    fontFamily: SoriFonts.sans,
   );
 
   /// 페이지 대형 헤드라인 (2026-08-13 UI 개편 Phase 1).
@@ -673,13 +677,13 @@ class SoriTextTheme {
   ///
   /// **2026-09-03 §E7**: 40 → 36. 390dp에서 "Wähle, wie du lernen
   /// möchtest." 가 3줄·≈130dp를 차지해 첫 화면을 과점했다(Fable 시각 심사).
-  /// MaruBuri w600/letterSpacing 은 그대로.
+  /// Size and spacing stay stable with the Latin sans face.
   TextStyle get hero => _base(
     fontSize: 36,
     weight: FontWeight.w600,
     letterSpacing: -0.2,
     height: 1.08,
-    fontFamily: SoriFonts.culture,
+    fontFamily: SoriFonts.sans,
   );
 
   /// 헤드라인 위의 소형 대문자 라벨 (자간 넓힘, 기본 석간주).
@@ -697,14 +701,14 @@ class SoriTextTheme {
     weight: FontWeight.w600,
     letterSpacing: -0.2,
     height: 1.25,
-    fontFamily: SoriFonts.culture,
+    fontFamily: SoriFonts.sans,
   );
   TextStyle get h2 => _base(
     fontSize: 22,
     weight: FontWeight.w600,
     letterSpacing: -0.2,
     height: 1.3,
-    fontFamily: SoriFonts.culture,
+    fontFamily: SoriFonts.sans,
   );
 
   /// 문화 카드 안의 짧은 한국어 표제.
@@ -723,7 +727,7 @@ class SoriTextTheme {
     letterSpacing: -0.2,
     height: 1.1,
     tabular: true,
-    fontFamily: SoriFonts.culture,
+    fontFamily: SoriFonts.sans,
   );
   TextStyle get h3 => _base(
     fontSize: 18,
@@ -756,12 +760,13 @@ class SoriTextTheme {
     color: _s.textMuted,
   );
 
-  /// Content-player Korean hero. Hierarchy is size/weight only — no new font.
+  /// Content-player Korean hero.
   TextStyle get koDisplay => _base(
     fontSize: 30,
     weight: FontWeight.w700,
     letterSpacing: -0.4,
     height: 1.25,
+    fontFamily: SoriFonts.learningKorean,
   );
 
   /// Content-player DE/EN gloss under the Korean word.
@@ -826,6 +831,7 @@ class SoriTextTheme {
     String fontFamily = SoriFonts.sans,
   }) => TextStyle(
     fontFamily: fontFamily,
+    fontFamilyFallback: const [SoriFonts.learningKorean],
     fontSize: fontSize,
     fontWeight: weight,
     letterSpacing: letterSpacing,

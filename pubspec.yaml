@@ -238,30 +238,31 @@ flutter:
     - assets/video/home_hero/
     - assets/video/gye/
 
-  # ── Paperlogy (한글 11,172자+라틴/독일어, OFL, 2026-09-03 교체) ──
-  # ⚠️ 과거 PretendardStd/WantedSansStd(라틴 전용 서브셋)는 한글 글리프가
-  # 0개였다 — 한국어가 전부 OS 폴백 폰트로 그려졌다. Wanted Sans(2026-08-19)를
-  # 거쳐 2026-09-03 Paperlogy로 재교체. test/font_bundle_guard_test.dart 가
-  # 재발을 막는다. 라틴 전용 서브셋은 쓰지 말 것.
+  # IBM Plex Sans handles DE/EN UI. Noto Sans KR handles Korean learning text
+  # and backs up IBM Plex Sans for Korean UI glyphs. Licenses are bundled.
   fonts:
-    - family: Paperlogy
+    - family: IBMPlexSans
       fonts:
-        - asset: assets/fonts/Paperlogy/Paperlogy-Regular.ttf
+        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Paperlogy/Paperlogy-Medium.ttf
+        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf
+        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/Paperlogy/Paperlogy-Bold.ttf
+        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-Bold.ttf
           weight: 700
-    # Maru Buri는 한국어 문화 제목·완료 순간에만 쓰는 display family다.
-    # DE/EN UI, 버튼, 학습 본문은 Paperlogy를 유지한다.
+    # Maru Buri is reserved for short Korean cultural titles.
     - family: MaruBuri
       fonts:
         - asset: assets/fonts/MaruBuri/MaruBuri-Regular.otf
           weight: 400
         - asset: assets/fonts/MaruBuri/MaruBuri-SemiBold.otf
           weight: 600
+    # Korean learning examples use a consistent face across phones and Pads.
+    # Source and license: google/fonts/ofl/notosanskr (OFL); variable wght 100–900.
+    - family: NotoSansKR
+      fonts:
+        - asset: assets/fonts/NotoSansKR/NotoSansKR[wght].ttf
 
 # ─────────────────────────────────────────────────────────
 # Launcher Icon — generiert mit:

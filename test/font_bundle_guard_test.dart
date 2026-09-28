@@ -4,41 +4,38 @@ import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
-/// 번들 폰트가 **한글과 독일어를 실제로 담고 있는지** 검사한다.
+/// 번들 폰트가 자기 역할에 필요한 글리프를 실제로 담고 있는지 검사한다.
 ///
 /// 2026-08-19 발견: `PretendardStd-*.otf` 5개가 라틴 전용 서브셋이라 한글 글리프가
 /// 0개였고, 한국어 전부가 OS 폴백 폰트로 그려지고 있었다. pubspec 주석은
 /// "한국어 모던 산세리프"라고 적혀 있었다. 의존성 없이 OTF `cmap`(format 4/12)을
 /// 직접 읽어 `가`·`힣`·`ㄱ`·`ä`·`ß` 가 있는지 본다.
 void main() {
-  test('font roles keep UI sans and culture display separate', () {
-    expect(SoriFonts.sans, 'Paperlogy');
+  test('font roles keep UI, Korean learning, and culture display separate', () {
+    expect(SoriFonts.sans, 'IBMPlexSans');
+    expect(SoriFonts.learningKorean, 'NotoSansKR');
     expect(SoriFonts.culture, 'MaruBuri');
   });
 
-  test('pubspec 에 선언된 모든 폰트 파일이 한글·독일어 글리프를 가진다', () {
+  test('pubspec fonts contain German; Korean roles cover all Hangul', () {
     final pubspec = File('pubspec.yaml').readAsStringSync();
     final assets = RegExp(
       r'asset:\s*(assets/fonts/\S+\.(?:otf|ttf))',
     ).allMatches(pubspec).map((m) => m.group(1)!).toList();
     expect(assets, isNotEmpty, reason: 'pubspec fonts: 블록이 비어 있다');
-    const required = <String, int>{
-      '가': 0xAC00,
-      '힣': 0xD7A3,
-      'ㄱ': 0x3131,
-      'ä': 0xE4,
-      'ß': 0xDF,
-      '€': 0x20AC,
-    };
+    const latinRequired = <String, int>{'ä': 0xE4, 'ß': 0xDF, '€': 0x20AC};
     for (final asset in assets) {
       final cps = _cmapCodepoints(File(asset).readAsBytesSync());
-      final missing = required.entries
+      final missing = latinRequired.entries
           .where((e) => !cps.contains(e.value))
           .map((e) => e.key)
           .toList();
       expect(missing, isEmpty, reason: '$asset 에 글리프 없음: $missing');
-      final hangul = cps.where((c) => c >= 0xAC00 && c <= 0xD7A3).length;
-      expect(hangul, 11172, reason: '$asset 한글 음절 $hangul/11172 — 서브셋 금지');
+      if (!asset.contains('/IBMPlexSans/')) {
+        expect(cps, containsAll(<int>[0xAC00, 0xD7A3, 0x3131]));
+        final hangul = cps.where((c) => c >= 0xAC00 && c <= 0xD7A3).length;
+        expect(hangul, 11172, reason: '$asset 한글 음절 $hangul/11172 — 서브셋 금지');
+      }
     }
   });
 }

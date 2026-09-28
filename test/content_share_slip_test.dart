@@ -1,31 +1,16 @@
-import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show FontLoader;
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/widgets/sori/share_slip.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
+import 'support/real_fonts.dart';
 
 /// ⛔ 실제 폰트를 안 실으면 `flutter test` 는 모든 글자를 같은 폭의 사각형으로
 /// 그린다 — 꼬리말 사각형 띠가 textColumn 을 넘어 마진 검사를 깨고, 크기
 /// 이분 탐색도 실기기와 다르게 돈다 (`chaekgado_shelf_test.dart` 와 같은 이유).
-Future<void> _loadRealFonts() async {
-  final loader = FontLoader('Paperlogy');
-  for (final path in const [
-    'assets/fonts/Paperlogy/Paperlogy-Regular.ttf',
-    'assets/fonts/Paperlogy/Paperlogy-Medium.ttf',
-    'assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf',
-    'assets/fonts/Paperlogy/Paperlogy-Bold.ttf',
-  ]) {
-    final bytes = File(path).readAsBytesSync();
-    loader.addFont(Future.value(ByteData.view(bytes.buffer)));
-  }
-  await loader.load();
-}
-
 /// 픽셀을 읽을 수 있게 디코드해 둔 렌더 결과.
 class _Slip {
   _Slip(this._data, this.image);
@@ -49,12 +34,7 @@ class _Slip {
 
   Color at(int x, int y) {
     final i = (y * image.width + x) * 4;
-    return Color.fromARGB(
-      _data[i + 3],
-      _data[i],
-      _data[i + 1],
-      _data[i + 2],
-    );
+    return Color.fromARGB(_data[i + 3], _data[i], _data[i + 1], _data[i + 2]);
   }
 
   /// [rect] 안에서 가장 어두운 픽셀의 상대 휘도. 글자가 넘쳐 들어왔는지 본다.
@@ -101,7 +81,7 @@ class _Slip {
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUpAll(_loadRealFonts);
+  setUpAll(loadSoriRealFonts);
 
   // 실제 에셋의 황갈 종이는 **선형** 휘도(computeLuminance)로 바닥이 0.30,
   // 그레인 최저치가 0.32~0.37이다 (2026-08-25 PIL 선형 실측 — 절차형 폴백의
@@ -125,10 +105,7 @@ void main() {
     expect(isBlackOutline(slip.at(0, 0)), isFalse);
     expect(isBlackOutline(slip.at(image.width - 1, 0)), isFalse);
     expect(isBlackOutline(slip.at(0, image.height - 1)), isFalse);
-    expect(
-      isBlackOutline(slip.at(image.width - 1, image.height - 1)),
-      isFalse,
-    );
+    expect(isBlackOutline(slip.at(image.width - 1, image.height - 1)), isFalse);
 
     final mid = slip.at(image.width ~/ 2, (image.height * 0.12).round());
     expect(
@@ -170,9 +147,15 @@ void main() {
 
     // 축·마구리까지 포함한 에셋 전체를 그릴 자리도 좌우상하에 여백이 남는다.
     expect(l.scrollImageRect.left, greaterThan(0));
-    expect(l.scrollImageRect.right, lessThan(ShareSlipRenderer.storySize.width));
+    expect(
+      l.scrollImageRect.right,
+      lessThan(ShareSlipRenderer.storySize.width),
+    );
     expect(l.scrollImageRect.top, greaterThan(0));
-    expect(l.scrollImageRect.bottom, lessThan(ShareSlipRenderer.storySize.height));
+    expect(
+      l.scrollImageRect.bottom,
+      lessThan(ShareSlipRenderer.storySize.height),
+    );
     slip.dispose();
   });
 
@@ -273,7 +256,7 @@ void main() {
     // 대조군: 어절이 둘이면 접혀서 한 줄이 는다 — 띠 세는 방법 자체가
     // 줄 수에 반응한다는 확인이다(항상 3 을 뱉는 검사가 아니다).
     final twoWords = await _Slip.render(
-      korean: '잘 부탁드립니다',
+      korean: '안녕하세요 반갑습니다',
       gloss: 'Guten Tag',
     );
     expect(twoWords.inkBandsIn(l.contentArea.deflate(8), bandThreshold), 4);

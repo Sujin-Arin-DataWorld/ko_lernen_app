@@ -142,11 +142,27 @@ abstract final class SoriMaxWidth {
 /// 창 전체의 size class가 아니라 padding과 clamp를 지난 실제 내부 폭에 쓴다.
 /// 화면 파일에 숫자 비교가 흩어지지 않도록 이곳에서만 관리한다.
 abstract final class SoriAdaptiveWidth {
+  /// Two companion choices remain readable after onboarding page padding.
+  static const double companionChoicesRow = 620;
+
+  /// Four short answers can form two columns inside the focused study frame.
+  static const double clozeChoicesGrid = 480;
+
+  /// Matching tiles can grow after the phone-sized focus column.
+  static const double matchingTileWide = 480;
+
+  /// The crossword can increase its cell size without crowding its clues.
+  static const double crosswordLargeCells = 520;
+
   /// The featured catalog's 128dp artwork fits beside its title and description.
   static const double catalogFeaturedRow = 285;
 
   /// Learning-focus artwork and the mission title share a readable content row.
   static const double learningFocusHeroRow = 300;
+
+  /// On wide cards the start action fits below the title beside the artwork.
+  static const double learningFocusActionRow = 520;
+  static const double learningFocusActionMax = 320;
 
   /// Learning-focus position and the learning-path action fit beside each other.
   static const double learningFocusFooterRow = 285;
@@ -174,6 +190,16 @@ abstract final class SoriAdaptiveWidth {
 
   /// Compact metadata and its adjacent action can remain on one row.
   static const double compactMetadataRow = 285;
+}
+
+/// Maximum sizes for focus surfaces that would otherwise consume spare height.
+abstract final class SoriAdaptiveHeight {
+  static const double companionChoice = 440;
+  static const double onboardingDemoBoard = 420;
+  static const double grammarCard = 440;
+  static const double clozeChoice = 108;
+  static const double matchingTile = 104;
+  static const double matchingTilePhone = 92;
 }
 
 /// [SafeArea] + 최대 너비 클램프를 한 번에 적용하는 화면 프레임.

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
@@ -159,11 +160,34 @@ void main() {
     final prefs = await SharedPreferences.getInstance();
     final before = {for (final key in prefs.getKeys()) key: prefs.get(key)};
     await show(tester, const OnboardingGamesDemo(level: LearnerLevel.a1));
+    Future<void> selectGame(int game) async {
+      final back = find.byKey(const ValueKey('demo-games-back'));
+      if (back.evaluate().isNotEmpty) {
+        await tester.tap(back);
+        await tester.pumpAndSettle();
+      }
+      final choice = find.byKey(ValueKey('demo-game-$game'));
+      await tester.ensureVisible(choice);
+      await tester.pumpAndSettle();
+      await tester.tap(choice);
+      await tester.pumpAndSettle();
+    }
+
+    await selectGame(0);
+    expect(find.byKey(const ValueKey('demo-choice-안녕')), findsOneWidget);
+    expect(find.byKey(const ValueKey('demo-choice-아니요')), findsOneWidget);
+    expect(find.byKey(const ValueKey('demo-choice-이름')), findsOneWidget);
+    expect(find.byKey(const ValueKey('demo-more-choices')), findsNothing);
     await tester.tap(find.byKey(const ValueKey('demo-choice-안녕')));
     await tester.pump();
-    expect(find.byKey(const ValueKey('demo-initial-answer')), findsOneWidget);
-    await tester.tap(find.byKey(const ValueKey('demo-game-1')));
-    await tester.pump();
+    expect(
+      find.byKey(const ValueKey('demo-initial-answer')).evaluate().isNotEmpty ||
+          tester
+              .widgetList<DemoPagedText>(find.byType(DemoPagedText))
+              .any((widget) => widget.text == '안녕'),
+      isTrue,
+    );
+    await selectGame(1);
     await tester.tap(find.byKey(const ValueKey('demo-cross-cell-1')));
     await tester.tap(find.byKey(const ValueKey('demo-choice-제')));
     await tester.pump();
@@ -173,8 +197,7 @@ void main() {
           .label,
       '제',
     );
-    await tester.tap(find.byKey(const ValueKey('demo-game-2')));
-    await tester.pump();
+    await selectGame(2);
     await tester.tap(find.byKey(const ValueKey('demo-choice-이름')));
     await tester.pump();
     expect(
@@ -183,8 +206,7 @@ void main() {
           .data,
       contains('이름'),
     );
-    await tester.tap(find.byKey(const ValueKey('demo-game-3')));
-    await tester.pump();
+    await selectGame(3);
     await tester.tap(find.byKey(const ValueKey('demo-pair-ko-0')));
     await tester.pump();
     await tester.tap(find.byKey(const ValueKey('demo-pair-meaning-0')));
@@ -195,16 +217,14 @@ void main() {
           .label,
       contains('↔'),
     );
-    await tester.tap(find.byKey(const ValueKey('demo-game-4')));
-    await tester.pump();
+    await selectGame(4);
     await tester.tap(find.byKey(const ValueKey('demo-word-0')));
     await tester.pump();
     expect(
       tester.widget<Text>(find.byKey(const ValueKey('demo-assembled'))).data,
       '저는',
     );
-    await tester.tap(find.byKey(const ValueKey('demo-game-5')));
-    await tester.pump();
+    await selectGame(5);
     await tester.tap(find.byKey(const ValueKey('demo-chain-next')));
     await tester.pump();
     expect(find.text('과자'), findsOneWidget);
@@ -227,6 +247,7 @@ void main() {
           lang: lang,
           scale: 2,
         );
+        await tester.ensureVisible(find.byKey(const ValueKey('demo-game-4')));
         await tester.tap(find.byKey(const ValueKey('demo-game-4')));
         await tester.pump();
         expect(find.byKey(const ValueKey('demo-game-example')), findsNothing);
@@ -260,6 +281,46 @@ void main() {
   );
 
   for (final lang in ['de', 'en']) {
+    testWidgets('$lang 320dp at 200% keeps game names on whole lines', (
+      tester,
+    ) async {
+      stubSoriSpeech();
+      await show(
+        tester,
+        OnboardingGamesDemo(key: ValueKey(lang), level: LearnerLevel.a1),
+        lang: lang,
+        scale: 2,
+      );
+      for (var game = 0; game < 6; game++) {
+        final choice = find.byKey(ValueKey('demo-game-$game'));
+        await tester.ensureVisible(choice);
+        await tester.pump();
+        expect(tester.getSize(choice).width, greaterThan(200));
+        expect(tester.getSize(choice).height, greaterThanOrEqualTo(48));
+        final label = find.descendant(of: choice, matching: find.byType(Text));
+        final paragraph = tester.renderObject<RenderParagraph>(label);
+        final labelText = tester.widget<Text>(label).data!;
+        var offset = 0;
+        for (final word in labelText.split(RegExp(r'[\s-]+'))) {
+          final start = labelText.indexOf(word, offset);
+          expect(
+            paragraph.getBoxesForSelection(
+              TextSelection(
+                baseOffset: start,
+                extentOffset: start + word.length,
+              ),
+            ),
+            hasLength(1),
+            reason: '$lang game $game must not split $word across lines',
+          );
+          offset = start + word.length;
+        }
+      }
+      expect(tester.takeException(), isNull);
+    });
+  }
+
+  for (final lang in ['de', 'en']) {
     testWidgets('$lang all levels and boards fit a bounded 320 x 640 page', (
       tester,
     ) async {
@@ -290,13 +351,18 @@ void main() {
           scale: 1.2,
         );
         for (var game = 0; game < 6; game++) {
-          await tester.tap(find.byKey(ValueKey('demo-game-$game')));
-          await tester.pump();
+          final back = find.byKey(const ValueKey('demo-games-back'));
+          if (back.evaluate().isNotEmpty) {
+            await tester.tap(back);
+            await tester.pumpAndSettle();
+          }
+          final choice = find.byKey(ValueKey('demo-game-$game'));
+          await tester.ensureVisible(choice);
+          await tester.pumpAndSettle();
+          expect(tester.getSize(choice).height, greaterThanOrEqualTo(48));
+          await tester.tap(choice);
+          await tester.pumpAndSettle();
           expect(tester.takeException(), isNull, reason: '$level game $game');
-          expect(
-            tester.getSize(find.byKey(ValueKey('demo-game-$game'))).height,
-            greaterThanOrEqualTo(48),
-          );
         }
       }
     });
@@ -352,6 +418,10 @@ void main() {
         }
 
         Future<void> tap(String key) async {
+          if (RegExp(r'^demo-game-[0-5]$').hasMatch(key)) {
+            await tester.ensureVisible(find.byKey(ValueKey(key)));
+            await tester.pumpAndSettle();
+          }
           await tester.tap(find.byKey(ValueKey(key)));
           await tester.pumpAndSettle();
           expect(tester.takeException(), isNull, reason: '$lang after $key');

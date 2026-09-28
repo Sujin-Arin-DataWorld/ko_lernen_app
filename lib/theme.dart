@@ -34,6 +34,7 @@ class AppTheme {
       scaffoldBackgroundColor: s.bg,
       colorScheme: colorScheme,
       fontFamily: SoriFonts.sans,
+      fontFamilyFallback: const [SoriFonts.learningKorean],
 
       // ── Page transitions §B1(2026-09-03) ────────────────────────────
       // 플랫폼 네이티브 전환 — Android predictive-back, iOS/macOS

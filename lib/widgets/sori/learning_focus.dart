@@ -68,6 +68,19 @@ class SoriLearningFocus extends StatelessWidget {
         ],
       ],
     );
+    final startAction = !controller.loading && focus != null && focus.ready
+        ? SoriButton(
+            label: t.learningFocusStart,
+            onTap: controller.launching
+                ? null
+                : () => scope.open(
+                    context,
+                    focus.destination!,
+                    focus: focus,
+                    activityId: focus.activityId,
+                  ),
+          )
+        : null;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -77,9 +90,13 @@ class SoriLearningFocus extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (entry == null || !focus!.ready)
-                metadata
-              else
+              if (entry == null || !focus!.ready) ...[
+                metadata,
+                if (startAction != null) ...[
+                  const SizedBox(height: 12),
+                  startAction,
+                ],
+              ] else
                 LayoutBuilder(
                   builder: (context, constraints) {
                     final illustration = ClipRRect(
@@ -112,16 +129,46 @@ class SoriLearningFocus extends StatelessWidget {
                           illustration,
                           const SizedBox(height: Spacing.md),
                           metadata,
+                          if (startAction != null) ...[
+                            const SizedBox(height: 12),
+                            startAction,
+                          ],
                         ],
                       );
                     }
-                    return Row(
+                    final wideAction =
+                        constraints.maxWidth >=
+                        SoriAdaptiveWidth.learningFocusActionRow;
+                    final hero = Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         illustration,
                         const SizedBox(width: Spacing.md),
-                        Expanded(child: metadata),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              metadata,
+                              if (wideAction && startAction != null) ...[
+                                const SizedBox(height: 12),
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: SizedBox(
+                                    width: SoriAdaptiveWidth
+                                        .learningFocusActionMax,
+                                    child: startAction,
+                                  ),
+                                ),
+                              ],
+                            ],
+                          ),
+                        ),
                       ],
+                    );
+                    if (wideAction || startAction == null) return hero;
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [hero, const SizedBox(height: 12), startAction],
                     );
                   },
                 ),
@@ -151,20 +198,6 @@ class SoriLearningFocus extends StatelessWidget {
                     ),
                     child: Text(t.reviewHubTitle),
                   ),
-              ],
-              if (!controller.loading && focus != null && focus.ready) ...[
-                const SizedBox(height: 12),
-                SoriButton(
-                  label: t.learningFocusStart,
-                  onTap: controller.launching
-                      ? null
-                      : () => scope.open(
-                          context,
-                          focus.destination!,
-                          focus: focus,
-                          activityId: focus.activityId,
-                        ),
-                ),
               ],
               if (!controller.loading &&
                   focus != null &&

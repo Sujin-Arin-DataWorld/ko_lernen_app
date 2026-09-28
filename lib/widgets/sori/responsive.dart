@@ -14,6 +14,41 @@ double soriAdaptiveContentMaxWidth(double availableWidth) {
       (SoriBreakpoints.tabletContent - SoriBreakpoints.content) * progress;
 }
 
+/// Browsing cards switch to two columns only when each card retains room for
+/// a German title and action. The decision uses this widget's content width,
+/// after rails and page padding, and returns to one column for large text.
+class SoriAdaptiveCardWrap extends StatelessWidget {
+  const SoriAdaptiveCardWrap({
+    super.key,
+    required this.children,
+    this.minimumCardWidth = 340,
+    this.spacing = Spacing.md,
+  });
+
+  final List<Widget> children;
+  final double minimumCardWidth;
+  final double spacing;
+
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, constraints) {
+      final twoColumns =
+          constraints.maxWidth >= minimumCardWidth * 2 + spacing &&
+          MediaQuery.textScalerOf(context).scale(16) <= 24;
+      final width = twoColumns
+          ? (constraints.maxWidth - spacing) / 2
+          : constraints.maxWidth;
+      return Wrap(
+        spacing: spacing,
+        runSpacing: spacing,
+        children: [
+          for (final child in children) SizedBox(width: width, child: child),
+        ],
+      );
+    },
+  );
+}
+
 // ── Immersive study cards: tablet width ramp ───────────────────────────────
 // Fixed-focus flashcard/quiz screens (grammar·vocab·cloze…) show a single
 // hero card, so — unlike browsing text — they can afford a wider card on

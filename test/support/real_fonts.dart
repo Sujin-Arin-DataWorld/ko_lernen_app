@@ -3,7 +3,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/services.dart' show FontLoader;
 
-/// Loads Hangul Sori's real display fonts (Paperlogy + MaruBuri + Material
+/// Loads Hangul Sori's real display fonts (IBM Plex Sans + MaruBuri + Noto Sans KR + Material
 /// Icons) into the test binding.
 ///
 /// §W-F3 root cause: `flutter_test`'s default binding renders every glyph as
@@ -11,7 +11,7 @@ import 'package:flutter/services.dart' show FontLoader;
 /// every character, in every script, at the same width. For layout-budget
 /// assertions (fold checks, line-count checks) that inflates measured text
 /// width/height by roughly 2-3× versus the real, proportionally-spaced
-/// MaruBuri/Paperlogy faces, which silently invents a much taller header and
+/// IBM Plex Sans/Noto Sans KR faces, which silently invents a much taller header and
 /// wrongly implies the layout doesn't fit. Any test that measures rects or
 /// line counts against real copy must call this first — a rendering
 /// smoke/existence test (does it build, is a key present) does not need it.
@@ -50,20 +50,20 @@ Future<void> loadSoriRealFonts({bool materialIcons = false}) async {
 }
 
 Future<void> _loadTextFonts() async {
-  final loader = FontLoader('Paperlogy');
+  final loader = FontLoader('IBMPlexSans');
   for (final path in const <String>[
-    'assets/fonts/Paperlogy/Paperlogy-Regular.ttf',
-    'assets/fonts/Paperlogy/Paperlogy-Medium.ttf',
-    'assets/fonts/Paperlogy/Paperlogy-SemiBold.ttf',
-    'assets/fonts/Paperlogy/Paperlogy-Bold.ttf',
+    'assets/fonts/IBMPlexSans/IBMPlexSans-Regular.ttf',
+    'assets/fonts/IBMPlexSans/IBMPlexSans-Medium.ttf',
+    'assets/fonts/IBMPlexSans/IBMPlexSans-SemiBold.ttf',
+    'assets/fonts/IBMPlexSans/IBMPlexSans-Bold.ttf',
   ]) {
     final bytes = File(path).readAsBytesSync();
     loader.addFont(Future<ByteData>.value(ByteData.view(bytes.buffer)));
   }
   await loader.load();
 
-  // hero/h1/h2/numeral 은 MaruBuri(culture)로 렌더된다 — Paperlogy만 로드하면
-  // 헤드라인이 tofu(폰트 없음 네모)로 나와 폭/줄수가 또 달라진다.
+  // 문화 제목은 MaruBuri로 렌더된다. 실제 글꼴을 함께 로드해야
+  // 헤드라인 폭과 줄 수를 기기 화면처럼 측정할 수 있다.
   final cultureLoader = FontLoader('MaruBuri');
   for (final path in const <String>[
     'assets/fonts/MaruBuri/MaruBuri-Regular.otf',
@@ -73,6 +73,15 @@ Future<void> _loadTextFonts() async {
     cultureLoader.addFont(Future<ByteData>.value(ByteData.view(bytes.buffer)));
   }
   await cultureLoader.load();
+
+  final learningKoreanLoader = FontLoader('NotoSansKR');
+  final learningKoreanBytes = File(
+    'assets/fonts/NotoSansKR/NotoSansKR[wght].ttf',
+  ).readAsBytesSync();
+  learningKoreanLoader.addFont(
+    Future<ByteData>.value(ByteData.view(learningKoreanBytes.buffer)),
+  );
+  await learningKoreanLoader.load();
 }
 
 /// Best-effort only — pixel-evidence tests opt in via `materialIcons: true`;

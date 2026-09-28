@@ -41,11 +41,16 @@ import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/chrome_row.dart';
+import 'package:ko_lernen_app/widgets/sori/cloze_prompt.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/section_header.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
+
+import 'support/real_fonts.dart';
+
+const _padStudyEvidenceDir = String.fromEnvironment('PAD_STUDY_EVIDENCE_DIR');
 
 const _packId = 'responsive-study-pack';
 
@@ -194,6 +199,7 @@ const _listeningScenario = Scenario(
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
 
   setUp(() async {
     Storage.resetForTesting();
@@ -319,6 +325,108 @@ void main() {
     }
   }
 
+  // Representative focus screens at the window sizes used for Pad 6 QA.
+  // The full activity inventory above remains the narrow-screen regression.
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    for (final viewport in const <({Size size, double textScale})>[
+      (size: Size(600, 800), textScale: 1),
+      (size: Size(720, 1152), textScale: 1),
+      (size: Size(720, 1152), textScale: 2),
+      (size: Size(1152, 720), textScale: 1),
+      (size: Size(1280, 900), textScale: 1),
+    ]) {
+      for (final name in const [
+        'grammar deck',
+        'cloze game',
+        'speed match',
+        'syllable crossword',
+        'listening player',
+        'word chain',
+      ]) {
+        testWidgets('Pad focus $name ${locale.languageCode} '
+            '${viewport.size.width.toInt()}x${viewport.size.height.toInt()} '
+            '×${viewport.textScale}', (tester) async {
+          addTearDown(tester.view.resetPhysicalSize);
+          addTearDown(tester.view.resetDevicePixelRatio);
+          tester.view.devicePixelRatio = 1;
+          tester.view.physicalSize = viewport.size;
+          await tester.pumpWidget(
+            _host(
+              locale: locale,
+              textScale: viewport.textScale,
+              child: activities[name]!(),
+            ),
+          );
+          await tester.pump(const Duration(milliseconds: 500));
+          expect(find.byType(SoriStudyFrame), findsOneWidget);
+          final ready = _readyFinderFor(name);
+          if (ready != null) {
+            await _pumpUntilVisible(tester, ready);
+            expect(ready, findsOneWidget);
+          }
+          expect(tester.takeException(), isNull);
+          if (name == 'cloze game' &&
+              viewport.size == const Size(720, 1152) &&
+              viewport.textScale == 1) {
+            expect(
+              find.byKey(const ValueKey('cloze-focus-group')),
+              findsOneWidget,
+            );
+            final promptBottom = tester
+                .getRect(find.byType(ClozePromptCard))
+                .bottom;
+            final optionsTop = tester
+                .getRect(find.byType(ClozeOptionsList))
+                .top;
+            expect(optionsTop - promptBottom, inInclusiveRange(0, 80));
+          }
+          if (_padStudyEvidenceDir.isNotEmpty &&
+              viewport.textScale == 1 &&
+              (viewport.size.width == 720 || viewport.size.width == 1152)) {
+            await expectLater(
+              find.byKey(const ValueKey('pad-study-evidence')),
+              matchesGoldenFile(
+                Uri.file(
+                  '$_padStudyEvidenceDir/${name.replaceAll(' ', '-')}-${locale.languageCode}-${viewport.size.width.toInt()}x${viewport.size.height.toInt()}.png',
+                ),
+              ),
+            );
+          }
+        });
+      }
+    }
+  }
+
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    testWidgets('Pad word chain submit stays reachable above keyboard '
+        'in ${locale.languageCode}', (tester) async {
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = const Size(720, 1152);
+      await tester.pumpWidget(
+        _host(
+          locale: locale,
+          textScale: 1,
+          keyboardInset: 360,
+          child: const KkeunmariScreen(),
+        ),
+      );
+      await tester.pump(const Duration(milliseconds: 500));
+      await _pumpUntilVisible(
+        tester,
+        find.byKey(const ValueKey('kkeunmari-gameplay')),
+      );
+      final t = AppL10n.of(tester.element(find.byType(KkeunmariScreen)));
+      final submit = find.text(t.kkeunmariSubmit);
+      await tester.ensureVisible(submit);
+      await tester.pump();
+      expect(submit, findsOneWidget);
+      expect(tester.getRect(submit).bottom, lessThanOrEqualTo(1152 - 360));
+      expect(tester.takeException(), isNull);
+    });
+  }
+
   for (final locale in const [Locale('de'), Locale('en')]) {
     for (final viewport in const <({Size size, double textScale})>[
       (size: Size(320, 640), textScale: 2),
@@ -359,11 +467,11 @@ void main() {
         // horizontal padding sum can: pre-fix it hit 384 at 1024dp, fixed
         // it stays at 24 (base) since the ListView's own LayoutBuilder now
         // sees the already-clamped ~760dp column, not the full 1024dp.
-        final overviewScroll = find.byKey(
-          const Key('hangul-overview-scroll'),
-        );
+        final overviewScroll = find.byKey(const Key('hangul-overview-scroll'));
         if (overviewScroll.evaluate().isNotEmpty) {
-          final padding = tester.widget<ListView>(overviewScroll).padding!
+          final padding = tester
+              .widget<ListView>(overviewScroll)
+              .padding!
               .resolve(TextDirection.ltr);
           expect(padding.horizontal, lessThanOrEqualTo(24 + 2 * 60));
         }
@@ -702,6 +810,7 @@ Widget _host({
   required Locale locale,
   required double textScale,
   required Widget child,
+  double keyboardInset = 0,
 }) {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -716,10 +825,16 @@ Widget _host({
         data: media.copyWith(
           padding: safeInsets,
           viewPadding: safeInsets,
+          viewInsets: EdgeInsets.only(bottom: keyboardInset),
           textScaler: TextScaler.linear(textScale),
           disableAnimations: true,
         ),
-        child: SoriTypeScale(child: appChild!),
+        child: SoriTypeScale(
+          child: RepaintBoundary(
+            key: const ValueKey('pad-study-evidence'),
+            child: appChild!,
+          ),
+        ),
       );
     },
     home: child,
