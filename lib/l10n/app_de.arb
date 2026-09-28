@@ -1025,6 +1025,11 @@
   "bookResultCredentialsNotice": "Die geschützte Analyse ist auf diesem Gerät nicht verfügbar. Melde dich an, prüfe die Verbindung und versuche es erneut.",
   "bookResultRateLimited": "Cloud-Analyse-Limit erreicht. Bitte versuche es in einer Minute erneut.",
   "bookResultQualityNotice": "Unsichere oder nicht-koreanische Inhalte wurden nicht in Wörter, Grammatik oder Audio übernommen.",
+  "bookResultAmbiguousWord": "Dieses Wort kann mehrere Bedeutungen haben. Prüfe, welche zum Satz passt.",
+  "bookResultAlternativeWord": "Auch {word} ist möglich. Prüfe, welche Bedeutung zum Satz passt.",
+  "@bookResultAlternativeWord": {
+    "placeholders": {"word": {"type": "String"}}
+  },
   "bookResultTranslationUnavailable": "Der Übersetzungsdienst hat nicht alle Bedeutungen geliefert. Prüfe das Ergebnis vor dem Speichern oder versuche es erneut.",
   "bookResultNoKoreanNotice": "Es blieb kein verlässlicher koreanischer Text übrig. Bitte prüfe den Text oder nimm die Seite neu auf.",
   "bookResultSectionWords": "Wörter",

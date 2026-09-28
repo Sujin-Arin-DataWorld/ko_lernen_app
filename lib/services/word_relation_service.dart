@@ -108,6 +108,10 @@ class WordRelationService {
   }) {
     final rng = random ?? Random();
     final candidates = <_QuizSeed>[];
+    final knownRelations = _knownRelations([
+      ...clusters,
+      ...?distractorClusters,
+    ]);
     for (final cluster in clusters) {
       if (cluster.synonyms.isNotEmpty) {
         final answer = cluster.synonyms.first;
@@ -144,7 +148,7 @@ class WordRelationService {
             answerKo: answer.ko,
             promptDe: cluster.sourceKo,
             promptEn: cluster.sourceKo,
-            blocked: {cluster.sourceKo, ...cluster.related.map((n) => n.ko)},
+            blocked: {cluster.sourceKo, ...?knownRelations[cluster.sourceKo]},
           ),
         );
       }
@@ -205,6 +209,36 @@ class WordRelationService {
       );
     }
     return items;
+  }
+
+  /// "Related" includes known synonyms, antonyms, and expressions too.
+  /// Treat explicit links in either direction as valid associations. Missing
+  /// links do not prove unrelatedness: authored question review is still needed.
+  static Map<String, Set<String>> _knownRelations(
+    Iterable<WordRelationCluster> clusters,
+  ) {
+    final relations = <String, Set<String>>{};
+    for (final cluster in clusters) {
+      final source = cluster.sourceKo.trim();
+      if (source.isEmpty) {
+        continue;
+      }
+      final neighbors = [
+        ...cluster.synonyms.map((item) => item.ko),
+        ...cluster.antonyms.map((item) => item.ko),
+        ...cluster.related.map((item) => item.ko),
+        ...cluster.expressions.map((item) => item.ko),
+      ];
+      for (final raw in neighbors) {
+        final neighbor = raw.trim();
+        if (neighbor.isEmpty) {
+          continue;
+        }
+        relations.putIfAbsent(source, () => <String>{}).add(neighbor);
+        relations.putIfAbsent(neighbor, () => <String>{}).add(source);
+      }
+    }
+    return relations;
   }
 
   static void _addPool(
