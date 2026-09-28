@@ -10014,69 +10014,69 @@
     "semantic_hash": ""
   },
   "test/goldens/baselines/level_chips.png": {
-    "mtime": 1790186111.6396682,
-    "seen": 1790605098.5581405,
-    "ast_hash": "a1c733def3f806ecdc88864e265c1111",
+    "mtime": 1790624054.9602103,
+    "seen": 1790624251.0113418,
+    "ast_hash": "0e57df99db37c5047a16dc11b193c372",
     "semantic_hash": ""
   },
   "test/goldens/baselines/mission_hero_states.png": {
-    "mtime": 1790186111.6396682,
-    "seen": 1790605098.5581455,
-    "ast_hash": "4607f5a6f1bd779fbd9dbe71a6d4334e",
+    "mtime": 1790624054.9612124,
+    "seen": 1790624251.011345,
+    "ast_hash": "e1e384fd0264c0ee4b8977b607a23fcf",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_settings_compact.png": {
-    "mtime": 1790186111.6421492,
-    "seen": 1790605098.5581503,
-    "ast_hash": "f4a782d36ecfe26562a2ff9b1a23b2a0",
+    "mtime": 1790624054.9622586,
+    "seen": 1790624251.0113473,
+    "ast_hash": "8c87eb5f4263416585fc03fe4686f37c",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_settings_expanded.png": {
-    "mtime": 1790186111.646148,
-    "seen": 1790605098.5581563,
-    "ast_hash": "54c662af17dd20dc4700414f259c536b",
+    "mtime": 1790624054.9662783,
+    "seen": 1790624251.011349,
+    "ast_hash": "32392df50c067296f0478236bcf5c02c",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_settings_medium.png": {
-    "mtime": 1790186111.651259,
-    "seen": 1790605098.5581603,
-    "ast_hash": "48a0b58ee4c99d74cf75d7685e0869e2",
+    "mtime": 1790624054.9692812,
+    "seen": 1790624251.0113502,
+    "ast_hash": "4569297489941df818d104bd52f211d3",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_compact.png": {
-    "mtime": 1790186111.652461,
-    "seen": 1790605098.5581636,
-    "ast_hash": "3d92357ebf218a9021f5b383c85e4b7b",
+    "mtime": 1790624054.9702778,
+    "seen": 1790624251.0113523,
+    "ast_hash": "5e05cafbb3a1e27e6f782bcb364a4abd",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_expanded.png": {
-    "mtime": 1790186111.6535242,
-    "seen": 1790605098.5581665,
-    "ast_hash": "d5fc903ff57474c5bab461766afe77ec",
+    "mtime": 1790624054.9722784,
+    "seen": 1790624251.0113542,
+    "ast_hash": "3a11c7cc3164d55392f473693a48e17e",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_medium.png": {
-    "mtime": 1790186111.654993,
-    "seen": 1790605098.5581706,
-    "ast_hash": "931a6f95306ffbad7a36fdc28808c20e",
+    "mtime": 1790624054.9737084,
+    "seen": 1790624251.0113566,
+    "ast_hash": "4776a3ad16a3ed0324dc469cef824240",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_vocab_packs_compact.png": {
-    "mtime": 1790186111.6574702,
-    "seen": 1790605098.5581756,
-    "ast_hash": "dc1d2cfdc655848472dfcc661169b5b6",
+    "mtime": 1790624054.9737084,
+    "seen": 1790624251.0113587,
+    "ast_hash": "0f96b2d99c29980589764bb11f405eb7",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_vocab_packs_expanded.png": {
-    "mtime": 1790186111.6605842,
-    "seen": 1790605098.5581803,
-    "ast_hash": "177a7c92ab06cd3d2e100afbdbcf74d6",
+    "mtime": 1790624054.9778204,
+    "seen": 1790624251.0113604,
+    "ast_hash": "85d37053b898545165ad9d7d8a4e72aa",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_vocab_packs_medium.png": {
-    "mtime": 1790186111.663927,
-    "seen": 1790605098.558185,
-    "ast_hash": "9fadd6abf49ac90bb0d43091ee54ee46",
+    "mtime": 1790624054.9778204,
+    "seen": 1790624251.0113623,
+    "ast_hash": "c12d25ddb4404d594b7ba7910cea7043",
     "semantic_hash": ""
   },
   "test/goldens/baselines/sori_card_v2.png": {
@@ -19014,15 +19014,15 @@
     "semantic_hash": ""
   },
   "test/goldens/baselines/vocab_pack_usage_note_back_compact.png": {
-    "mtime": 1790186111.6663773,
-    "seen": 1790605098.5581954,
-    "ast_hash": "8467a95d7b3fff2c62f2e9d7725203b1",
+    "mtime": 1790624054.9778204,
+    "seen": 1790624251.0116377,
+    "ast_hash": "07fa468f98ab772ca4c2ab374eb0f677",
     "semantic_hash": ""
   },
   "test/goldens/baselines/vocab_pack_usage_note_back_medium.png": {
-    "mtime": 1790186111.668577,
-    "seen": 1790605098.5582008,
-    "ast_hash": "bad6fd5c5a04f773f97e02b3b7892245",
+    "mtime": 1790624054.9778204,
+    "seen": 1790624251.011641,
+    "ast_hash": "825662d9ca12d9878496392a37fe80bd",
     "semantic_hash": ""
   },
   "tool/test_c4_g1_grammar.py": {
