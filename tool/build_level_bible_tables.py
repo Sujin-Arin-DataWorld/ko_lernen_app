@@ -371,6 +371,10 @@ def _expand_token(token: str) -> List[str]:
     _apply("(으)ㄴ", ("은", "ㄴ"))
     _apply("(이)", ("이", ""))
     _apply("(으)", ("으", ""))
+    # Authored optional suffixes, e.g. 대해(서), 대신(에). Keep the
+    # surrounding expression; do not strip arbitrary parenthetical text.
+    _apply("(서)", ("서", ""))
+    _apply("(에)", ("에", ""))
 
     final: List[str] = []
     for v in variants:
@@ -654,7 +658,7 @@ def build_f1_md(root: Path = REPO) -> Tuple[str, F1Result]:
     lines.append("> 생성: `python tool/build_level_bible_tables.py` (plan §3.F, T1.4). 직접 편집 금지.")
     lines.append("> 매칭 알고리즘(R5 개정): `normalize_form_variants`(top-level `' / '` 대안 분리 -> ")
     lines.append("> 청크별 슬롯 접두사(토큰마다)·앞뒤 `-`·동형어 번호·말미 `?` 제거, ")
-    lines.append("> `(으)ㄹ/(으)ㄴ/(이)/(으)` 전개) 후 리터럴 문자열 교집합. nikl 조사(category)는 ")
+    lines.append("> `(으)ㄹ/(으)ㄴ/(이)/(으)/(서)/(에)` 전개) 후 리터럴 문자열 교집합. nikl 조사(category)는")
     lines.append("> `particle_token_variants`(앱 패턴의 `N`-접두 토큰을 개별 후보로 추가)로도 매칭.")
     lines.append("> 표면형 교집합으로 설명되지 않는 대응은 `tools/content_factory/cefr_matrix/grammar_correspondence.json`의 정확한 `G{급}:{원형}` 키만 사용하며, reviewed_source + semantically_confirmed 항목만 매치로 반영.")
     lines.append("> 기존 표면형 매치는 의미 검수 전 후보이며, 위 대응표의 명시적 검수와 구분한다. 이 표의 match는 학습·과제·평가 완료를 뜻하지 않는다.")

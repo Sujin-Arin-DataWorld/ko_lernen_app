@@ -87,6 +87,19 @@ def _write_fixture_sources(dest: Path) -> None:
 
 
 class NormalizeFormVariantsTest(unittest.TestCase):
+    def test_literal_optional_suffixes_keep_the_complete_expression(self):
+        for pattern, expected in (
+            ("N에 대해(서)", {"에대해", "에대해서"}),
+            ("V-는 대신(에)", {"는대신", "는대신에"}),
+            ("N(으)로 인해(서)", {"으로인해", "으로인해서", "로인해", "로인해서"}),
+        ):
+            with self.subTest(pattern=pattern):
+                self.assertEqual(normalize_form_variants(pattern), frozenset(expected))
+
+    def test_optional_suffix_support_does_not_drop_arbitrary_parentheses(self):
+        self.assertEqual(normalize_form_variants("V-지(요)"), frozenset({"지(요)"}))
+        self.assertEqual(normalize_form_variants("-거든(2)"), frozenset({"거든(2)"}))
+
     def test_combined_slot_order_is_not_a_literal_alternative(self):
         for pattern in ("V/A-음", "A/V-음"):
             with self.subTest(pattern=pattern):
@@ -555,6 +568,24 @@ class B1GrammarSenseCoverageTest(unittest.TestCase):
     def setUpClass(cls):
         _document, result = build_f1_md(REPO)
         cls.rows = {(row.nikl_grade, row.nikl_form): row for row in result.rows}
+
+    def test_optional_suffix_finds_about_card_at_its_existing_level(self):
+        row = self.rows[(3, "에 대하여")]
+        self.assertEqual(row.matched_app_ids, ("grammar_b1_about",))
+        self.assertEqual(row.matched_app_levels, ("B1",))
+        self.assertEqual(row.status, "match")
+
+    def test_optional_suffix_keeps_instead_card_as_other_level(self):
+        row = self.rows[(3, "-는 대신에")]
+        self.assertEqual(row.matched_app_ids, ("grammar_b2_instead_tradeoff",))
+        self.assertEqual(row.matched_app_levels, ("B2",))
+        self.assertEqual(row.status, "level_mismatch")
+
+    def test_optional_suffix_finds_formal_cause_without_relevelling(self):
+        row = self.rows[(4, "으로 인하여")]
+        self.assertEqual(row.matched_app_ids, ("grammar_b2_formal_cause",))
+        self.assertEqual(row.matched_app_levels, ("B2",))
+        self.assertEqual(row.status, "match")
 
     def test_contrast_ending_is_not_covered_by_choice_particle(self):
         row = self.rows[(3, "-으나")]

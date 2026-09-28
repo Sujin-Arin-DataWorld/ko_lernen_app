@@ -2,7 +2,7 @@
 
 > 이 목록은 W0b3의 검토용 분류 큐입니다. 완료된 교육과정, 확정된 카드 누락 수, 전체 요구 분모를 뜻하지 않습니다.
 
-- 고유 작업 항목: 844
+- 고유 작업 항목: 841
 - 고유 sampleLexis 후보: 196 (Phase×단어 맥락 312)
 - Phase C18 병합 경고 참조: 72; C11 정보성 참조: 5
 - 자동 문법 진단은 의미·원 급·기존 연결 검토 전 확정 결손이 아닙니다.
@@ -11,7 +11,7 @@
 
 SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체크아웃의 줄바꿈 차이는 내용 변경으로 세지 않습니다.
 
-- `tool/curriculum_matrix_gaps.csv`: `9e89823c1230f0fff59208fd5e406b9c71d6967a7e428a7d498b318005910a0c`
+- `tool/curriculum_matrix_gaps.csv`: `55f3912419ed14dfcf99b4ceaca0abcf378a6e94575969d0c3cd7ff966731391`
 - `tool/learning_phase_findings.csv`: `292b2c66122451c329a9801ec88a2e054031cde8a4841e2e8466df21ad2a76de`
 - `tool/learning_phase_summary.json`: `ae37ca748f434e72438d28f6b9316bcb896be343af3364f3b417a569a1e79824`
 - `tools/content_factory/cefr_matrix/phases.json`: `b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9`
@@ -1942,11 +1942,11 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 
 ### `B1|grammar_nikl|G3:-는 대신에|unassigned`
 
-- 항목: 표현 -ㄴ 대신에, -은 대신에
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked, matching_error
-- 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
-- 조치: add_grammar_row
-- 근거: missing_in_app: nikl_kiiq_2017
+- 항목: 표현
+- 상태: needs_review; 확정 분류: 없음; 후보: wrong_level_or_sense
+- 안내: 레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.
+- 조치: relevel_or_add_same_level_row
+- 근거: level_mismatch: app_levels=B2;ids=grammar_b2_instead_tradeoff
 
 ### `B1|grammar_nikl|G3:-는 모양이다|unassigned`
 
@@ -2287,14 +2287,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 ### `B1|grammar_nikl|G3:아1|unassigned`
 
 - 항목: 조사 야1
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked, matching_error
-- 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
-- 조치: add_grammar_row
-- 근거: missing_in_app: nikl_kiiq_2017
-
-### `B1|grammar_nikl|G3:에 대하여|unassigned`
-
-- 항목: 표현 에 대해, 에 대해서, 에 대한
 - 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked, matching_error
 - 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
 - 조치: add_grammar_row
@@ -2988,14 +2980,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: add_grammar_row
 - 근거: missing: nikl=;app_levels=;ids=
 
-### `B2|grammar_brief|-(으)ㄴ/는 대신에|unassigned`
-
-- 항목: Jin brief highlight
-- 상태: needs_review; 확정 분류: 없음; 후보: assessment_missing, content_missing, existing_unlinked
-- 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
-- 조치: add_grammar_row
-- 근거: missing: nikl=B1;app_levels=;ids=
-
 ### `B2|grammar_brief|-(으)ㄴ/는 반면에|unassigned`
 
 - 항목: Jin brief highlight
@@ -3423,14 +3407,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 ### `B2|grammar_nikl|G4:에 의하여|unassigned`
 
 - 항목: 표현 에 의하면
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked, matching_error
-- 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
-- 조치: add_grammar_row
-- 근거: missing_in_app: nikl_kiiq_2017
-
-### `B2|grammar_nikl|G4:으로 인하여|unassigned`
-
-- 항목: 표현 로 인하여, 으로 인해, 로 인해
 - 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked, matching_error
 - 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
 - 조치: add_grammar_row
@@ -3922,7 +3898,7 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 상태: needs_review; 확정 분류: 없음; 후보: wrong_level_or_sense
 - 안내: 레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.
 - 조치: review_level
-- 근거: level_mismatch: nikl=;app_levels=B2;ids=grammar_b2_reasoned_perspective
+- 근거: level_mismatch: nikl=C1;app_levels=B2;ids=grammar_b2_reasoned_perspective
 
 ### `C1|grammar_brief|-는 것으로 나타나다|unassigned`
 

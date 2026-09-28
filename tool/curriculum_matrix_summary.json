@@ -96,9 +96,9 @@
       },
       "grammar": {
         "nikl_rows": 67,
-        "match": 13,
-        "level_mismatch": 8,
-        "missing_in_app": 46,
+        "match": 14,
+        "level_mismatch": 9,
+        "missing_in_app": 44,
         "brief_highlights": {
           "level_mismatch": 10,
           "match": 7,
@@ -138,13 +138,13 @@
       },
       "grammar": {
         "nikl_rows": 67,
-        "match": 14,
+        "match": 15,
         "level_mismatch": 9,
-        "missing_in_app": 44,
+        "missing_in_app": 43,
         "brief_highlights": {
           "level_mismatch": 3,
-          "match": 4,
-          "missing": 10
+          "match": 5,
+          "missing": 9
         },
         "discourse_features": {
           "covered": 3,
@@ -262,15 +262,15 @@
     "app_earlier": 3,
     "missing": 2
   },
-  "gap_total": 521,
+  "gap_total": 518,
   "gap_counts": {
     "functional_grammar:missing": 2,
     "grammar_anchor:no_scenario_anchor": 161,
     "grammar_brief:level_mismatch": 32,
-    "grammar_brief:missing": 25,
+    "grammar_brief:missing": 24,
     "grammar_discourse:missing": 3,
-    "grammar_nikl:level_mismatch": 33,
-    "grammar_nikl:missing_in_app": 180,
+    "grammar_nikl:level_mismatch": 34,
+    "grammar_nikl:missing_in_app": 177,
     "register:absent": 7,
     "speech_act:missing": 7,
     "speech_act:recognition_missing": 4,
