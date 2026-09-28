@@ -618,9 +618,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/app/site.tsx": {
-    "mtime": 1790607080.2429447,
-    "seen": 1790607915.429287,
-    "ast_hash": "5558b06421c0afe1c35cbe12b96edcd1",
+    "mtime": 1790619459.4303007,
+    "seen": 1790619815.0174313,
+    "ast_hash": "a2362c5939dea939a86dc167672a2d2d",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/app/sitemap.ts": {
@@ -720,9 +720,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/scripts/verify-live.mjs": {
-    "mtime": 1790610021.2949371,
-    "seen": 1790610301.9651628,
-    "ast_hash": "5d8fdedc88f889407b0cc242f464b403",
+    "mtime": 1790619459.4337287,
+    "seen": 1790619815.0360966,
+    "ast_hash": "0e8506f3d611614eb3633e458d9b063e",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/scripts/verify-tester-email.mjs": {
@@ -750,9 +750,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/rendered-html.test.mjs": {
-    "mtime": 1790616213.1965854,
-    "seen": 1790616461.9889767,
-    "ast_hash": "4db97d84582025e781f79410dc698953",
+    "mtime": 1790619459.4347951,
+    "seen": 1790619815.0524728,
+    "ast_hash": "ad6a393fbdffc93566f33b0be90e504c",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tsconfig.json": {
@@ -1428,9 +1428,9 @@
     "semantic_hash": ""
   },
   "lib/screens/intro_gate_screen.dart": {
-    "mtime": 1790186111.1695037,
-    "seen": 1790605098.5518916,
-    "ast_hash": "ded85acce61cf8a53111237fcb3e33cd",
+    "mtime": 1790619459.436858,
+    "seen": 1790619815.2681727,
+    "ast_hash": "3c01c6e396b759de50cf042af63930c5",
     "semantic_hash": ""
   },
   "lib/screens/kkeunmari_screen.dart": {
@@ -20148,9 +20148,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/scripts/store-cta-contract.mjs": {
-    "mtime": 1790610021.2928271,
-    "seen": 1790610301.964698,
-    "ast_hash": "dac6648cc5f55d0838a3d58f31e4ae4c",
+    "mtime": 1790619459.4313,
+    "seen": 1790619815.0345075,
+    "ast_hash": "c875810499cfc771dde962c67b06eaad",
     "semantic_hash": ""
   }
 }

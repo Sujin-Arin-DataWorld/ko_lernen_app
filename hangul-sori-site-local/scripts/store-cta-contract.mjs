@@ -20,6 +20,11 @@ export function assertStoreAccessCtas(html, url) {
     androidCtas.length,
     `${url} must offer the iOS application and Android open test equally`,
   );
+  assert.ok(
+    androidCtas.every((cta) => /target=["']_blank["']/i.test(cta) &&
+      /rel=["'][^"']*\bnoopener\b[^"']*\bnoreferrer\b[^"']*["']/i.test(cta)),
+    `${url} must keep the site open while Google Play loads in a new tab`,
+  );
   assert.equal(
     iosCtas.length + androidCtas.length,
     storeCtas.length,
