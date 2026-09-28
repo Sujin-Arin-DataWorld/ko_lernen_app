@@ -305,7 +305,15 @@ class _IntroGateScreenState extends State<IntroGateScreen>
     // ── 스케일 ──────────────────────────────────────────────────────────────
     // 마당은 천천히, 대문은 빠르게 커지며 통과 → 전진 parallax.
     final courtyardScale = 1.06 + pushIn * 0.32;
-    final gateScale = 1.0 + pushIn * 1.55;
+    // The gate artwork was composed for a narrow phone. On a Pad, BoxFit.cover
+    // sizes it by width, which leaves the doorway much smaller relative to the
+    // screen than it appears on a phone. Preserve the phone framing while
+    // keeping the roof and steps visible in the fallback animation.
+    final viewportAspect = size.height <= 0 ? 0.0 : size.width / size.height;
+    final gateViewportScale = (viewportAspect / (390 / 844))
+        .clamp(1.0, 1.22)
+        .toDouble();
+    final gateScale = gateViewportScale * (1.0 + pushIn * 1.55);
 
     return Stack(
       fit: StackFit.expand,
@@ -615,6 +623,7 @@ class _IntroVideoState extends State<_IntroVideo> {
   VideoLeaseEligibilityBinding? _eligibility;
   bool _ready = false;
   bool _done = false;
+  int _failedAttempts = 0;
 
   @override
   void initState() {
@@ -675,7 +684,11 @@ class _IntroVideoState extends State<_IntroVideo> {
   }
 
   void _onFailed(Object _, StackTrace __) {
-    if (mounted) {
+    // The shared lease retries a transient native decoder failure twice.
+    // Switching scenes on the first failure disposes this request before
+    // either retry can restore the usual cinematic entrance.
+    _failedAttempts += 1;
+    if (mounted && _failedAttempts >= 3) {
       widget.onFallback();
     }
   }
