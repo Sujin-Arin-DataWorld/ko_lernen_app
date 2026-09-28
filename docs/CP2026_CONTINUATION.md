@@ -3,13 +3,13 @@
 <!-- CP2026_CLOSEOUT_CURRENT_START -->
 ## 2026-09-28 재개 마감 기준선
 
-확인 시각: 2026-09-28T13:12:48.317411+00:00. **마감 진행 중 — 미완료 항목을 완료로 보지 않음.** 검증된 코드 기준 main은 `4d2288c8c6f4fa4241b7018d9bcf78ccbcc9c8c7`이다. 이번 범위는 #412–#416과 인계 문서의 통합·검증·안전한 작업 공간 정리이며, 새 내부 배포와 원계획 후속 구현은 포함하지 않는다.
+확인 시각: 2026-09-28T13:59:32.502841+00:00. **마감 진행 중 — 미완료 항목을 완료로 보지 않음.** 검증된 코드 기준 main은 `dd59a5135246870b22315401ae1d78c413c2b324`이다. 이번 범위는 #412–#416과 인계 문서의 통합·검증·안전한 작업 공간 정리이며, 새 내부 배포와 원계획 후속 구현은 포함하지 않는다.
 
 #411 main `4d2288c8`의 CI35953059633 재실행은 9월25일14:53:42 UTC 성공했고 같은 SHA의 Playwright35953059678도 성공했다. 과거의 취소/진행 중 기록은 당시 이력이다.
 
 | PR | 검증한 PR HEAD | 병합 SHA | 결과와 main 검사 |
 |---|---|---|---|
-| #412 | `2ea9484dcfa99ce410efb5af447517a5881eac02` | `dd59a5135246870b22315401ae1d78c413c2b324` | 병합됨, main 검사 미완; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36426327791) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36426327845) |
+| #412 | `2ea9484dcfa99ce410efb5af447517a5881eac02` | `dd59a5135246870b22315401ae1d78c413c2b324` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36426327791) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36426327845) |
 | #413 | 최신 PR HEAD 재조회 | 미병합 | 순차 통합 대기 |
 | #414 | 최신 PR HEAD 재조회 | 미병합 | 순차 통합 대기 |
 | #415 | 최신 PR HEAD 재조회 | 미병합 | 순차 통합 대기 |
