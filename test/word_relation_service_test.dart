@@ -258,6 +258,71 @@ void main() {
   );
 
   test(
+    'related questions exclude known synonym and antonym neighbors',
+    () async {
+      final all = await WordRelationService.load();
+      final source = all.singleWhere((cluster) => cluster.sourceKo == '알다');
+      final known = {
+        ...source.synonyms.map((word) => word.ko),
+        ...source.antonyms.map((word) => word.ko),
+        ...source.related.map((word) => word.ko),
+        ...source.expressions.map((word) => word.ko),
+      };
+      expect(known, contains('이해하다'));
+      for (var seed = 0; seed < 100; seed++) {
+        final item = WordRelationService.buildQuiz(
+          clusters: [source],
+          distractorClusters: all,
+          random: Random(seed),
+        ).singleWhere((item) => item.kind == WordRelationKind.related);
+        expect(item.options, hasLength(4));
+        expect(item.options, contains(item.answerKo));
+        expect(
+          item.options
+              .where((word) => word != item.answerKo)
+              .toSet()
+              .intersection(known),
+          isEmpty,
+          reason: 'Known relations are not wrong answers (seed $seed)',
+        );
+      }
+    },
+  );
+
+  test('related questions respect incoming relations from the full pool', () {
+    WordNeighbor neighbor(String ko) => WordNeighbor(ko: ko, de: ko, en: ko);
+    WordRelationCluster cluster(String ko, List<String> related) =>
+        WordRelationCluster(
+          id: ko,
+          sourceKo: ko,
+          sourceVocabId: ko,
+          level: 'A1',
+          related: related.map(neighbor).toList(),
+        );
+    final source = cluster('바다', ['파도']);
+    final pool = [
+      cluster('해변', ['바다']),
+      cluster('여행', ['해변']),
+      cluster('주방', ['냄비', '숟가락', '접시', '가스레인지']),
+    ];
+    for (var seed = 0; seed < 20; seed++) {
+      final item = WordRelationService.buildQuiz(
+        clusters: [source],
+        distractorClusters: pool,
+        random: Random(seed),
+      ).single;
+      expect(item.sourceKo, '바다');
+      expect(item.answerKo, '파도');
+      expect(item.options.toSet(), hasLength(4));
+      expect(item.options, contains('파도'));
+      expect(item.options, isNot(contains('바다')));
+      expect(item.options, isNot(contains('해변')));
+    }
+    expect(source.related.single.ko, '파도');
+    expect(pool.first.related.single.ko, '바다');
+  });
+
+  test(
     'thin learned singleton uses the full seed only for distractors',
     () async {
       final all = await WordRelationService.load();

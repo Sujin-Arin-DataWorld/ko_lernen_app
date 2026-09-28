@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { assertDeletionPageContract } from "../scripts/deletion-page-contract.mjs";
+import { assertStoreAccessCtas } from "../scripts/store-cta-contract.mjs";
 
 test("renders finished site metadata", async () => {
   const releaseManifest = JSON.parse(
@@ -58,16 +59,10 @@ test("renders finished site metadata", async () => {
   assert.doesNotMatch(html, /class=["'][^"']*analytics-consent/i);
   assert.match(html, /instagram\.com\/hangulsori_learnkorean/i);
   assert.match(html, /social\/sori-check-01\.png/i);
-  // Both store CTAs stay gated behind the tester form: Apple and Google only
-  // open the download for emails we added as testers, so the rendered page must
-  // not expose an install link to anyone who has not applied.
-  const storeCtas = html.match(/<a[^>]*class=["']store-button["'][^>]*>/gi) ?? [];
-  assert.ok(storeCtas.length >= 2, "the store CTAs must render");
-  for (const cta of storeCtas) {
-    assert.match(cta, /href=["']#tester-access["']/i);
-  }
+  // iOS retains the invitation flow; Android reaches the public Play opt-in.
+  assertStoreAccessCtas(html, "rendered home page");
+  assert.match(html, /href=["']https:\/\/play\.google\.com\/apps\/testing\/com\.sujinarin\.ko_lernen_app["'][^>]*>[\s\S]*?Join the Android open test/i);
   assert.doesNotMatch(html, /href=["']https:\/\/testflight\.apple\.com/i);
-  assert.doesNotMatch(html, /href=["']https:\/\/play\.google\.com/i);
   assert.match(html, /iOS beta testing/i);
   assert.match(html, /name=["']platform["']/i);
   assert.match(html, /name=["']focus["']/i);
@@ -75,6 +70,20 @@ test("renders finished site metadata", async () => {
   assert.match(html, /Send test application/i);
   assert.doesNotMatch(html, /mailto:[^"']*Testzugang/i);
   assert.doesNotMatch(html, /<button[^>]*class=["'][^"']*tester-submit[^"']*["'][^>]*disabled/i);
+});
+
+test("rejects stale or unexpected store CTA destinations", () => {
+  const ios = '<a class="store-button" href="#tester-access">iOS</a>';
+  const android =
+    '<a class="store-button" href="https://play.google.com/apps/testing/com.sujinarin.ko_lernen_app">Android</a>';
+  assert.doesNotThrow(() => assertStoreAccessCtas(ios + android, "test home"));
+  assert.throws(() => assertStoreAccessCtas(ios + ios, "test home"));
+  assert.throws(() =>
+    assertStoreAccessCtas(
+      ios + '<a class="store-button" href="https://example.com">Android</a>',
+      "test home",
+    ),
+  );
 });
 
 test("provides an accurate first-party consent panel with equal choices", async () => {

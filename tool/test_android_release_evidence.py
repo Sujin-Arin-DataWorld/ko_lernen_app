@@ -80,7 +80,7 @@ import json, os, pathlib, subprocess, sys, time, zipfile
 kind, *args = sys.argv[1:]
 log = pathlib.Path(os.environ["EVIDENCE_FAKE_LOG"])
 with log.open("a", encoding="utf-8") as output:
-    output.write(json.dumps({"kind": kind, "args": args}) + "\n")
+    output.write(json.dumps({"kind": kind, "args": args, "jar": os.environ.get("CRASHLYTICS_LOCAL_JAR"), "path": os.environ.get("PATH")}) + "\n")
 mode = os.environ.get("EVIDENCE_FAKE_MODE", "success")
 if kind == "bundletool":
     bundle = next(a.split("=", 1)[1] for a in args if a.startswith("--bundle="))
@@ -117,13 +117,11 @@ class AndroidReleaseEvidenceTest(unittest.TestCase):
             "mobilesdk_app_id": APP_ID,
             "android_client_info": {"package_name": PACKAGE},
         }}]}), encoding="utf-8")
-        self.adc = self.root / "explicit-adc.json"
-        self.adc.write_text("DO NOT PARSE CREDENTIAL CONTENTS", encoding="utf-8")
         self.tool = self.root / "fake_external_tool.py"
         self.tool.write_text(FAKE_TOOL, encoding="utf-8")
         self.log = self.root / "calls.jsonl"
-        self.env = {**os.environ, "GOOGLE_APPLICATION_CREDENTIALS": str(self.adc),
-                    "EVIDENCE_FAKE_LOG": str(self.log)}
+        self.env = {**os.environ, "EVIDENCE_FAKE_LOG": str(self.log)}
+        self.env.pop("GOOGLE_APPLICATION_CREDENTIALS", None)
         self.env.pop("FIREBASE_TOKEN", None)
         pins = {str(Path(sys.executable).resolve()): sha256(Path(sys.executable)),
                 str(self.tool): sha256(self.tool)}
@@ -131,6 +129,14 @@ class AndroidReleaseEvidenceTest(unittest.TestCase):
             (str(Path(sys.executable).resolve()), str(self.tool), "bundletool"), pins)
         self.firebase = evidence.ToolCommand(
             (str(Path(sys.executable).resolve()), str(self.tool), "firebase"), pins)
+        self.java = self.root / ("java.exe" if os.name == "nt" else "java")
+        self.java.write_bytes(b"pinned Java fixture; fake CLI does not execute it")
+        self.java.chmod(0o700)
+        self.jar = self.root / "buildtools.jar"
+        self.jar.write_bytes(b"pinned buildtools fixture")
+        self.buildtools = evidence.ToolCommand(
+            (str(self.java), "-jar", str(self.jar)),
+            {str(self.java): sha256(self.java), str(self.jar): sha256(self.jar)})
         self.write_bundle()
         self.request = evidence.BuildRequest(
             aab=self.aab, symbols=self.symbols, google_services=self.config,
@@ -158,7 +164,7 @@ class AndroidReleaseEvidenceTest(unittest.TestCase):
     def upload(self, request=None, **kwargs):
         return evidence.upload_symbols(
             request or self.request, self.receipt,
-            bundletool=self.bundletool, firebase=self.firebase,
+            bundletool=self.bundletool, firebase=self.firebase, buildtools=self.buildtools,
             environment=self.env, timeout_seconds=2, **kwargs,
         )
 
@@ -343,11 +349,62 @@ class AndroidReleaseEvidenceTest(unittest.TestCase):
         path.write_bytes(corrupt)
         self.assert_rejected_without_upload()
 
-    def test_explicit_adc_file_presence_required_without_reading_contents(self):
-        self.env.pop("GOOGLE_APPLICATION_CREDENTIALS")
-        self.assert_rejected_without_upload()
-        self.env["GOOGLE_APPLICATION_CREDENTIALS"] = str(self.root / "missing.json")
-        self.assert_rejected_without_upload()
+    def test_native_upload_needs_no_iam_credentials(self):
+        self.assertNotIn("GOOGLE_APPLICATION_CREDENTIALS", self.env)
+        self.upload()
+        self.assertTrue(self.gate())
+
+    def test_ambient_credentials_or_runtime_injection_are_rejected(self):
+        for name in ("GOOGLE_APPLICATION_CREDENTIALS", "FIREBASE_TOKEN", "NODE_OPTIONS",
+                     "JAVA_TOOL_OPTIONS", "_JAVA_OPTIONS", "JDK_JAVA_OPTIONS"):
+            with self.subTest(variable=name):
+                self.env[name] = "must-not-be-used"
+                with self.assertRaises(evidence.EvidenceError):
+                    self.upload()
+                self.assertEqual(self.calls(), [])
+                self.env.pop(name)
+
+    def test_pinned_child_java_and_jar_override_ambient_resolution(self):
+        self.env["CRASHLYTICS_LOCAL_JAR"] = str(self.root / "untrusted.jar")
+        self.upload()
+        upload = self.uploads()[0]
+        self.assertEqual(upload["jar"], str(self.jar))
+        self.assertEqual(upload["path"], str(self.java.parent))
+
+    def test_child_java_name_must_match_the_platform(self):
+        other = self.root / ("java" if os.name == "nt" else "java.exe")
+        other.write_bytes(self.java.read_bytes())
+        other.chmod(0o700)
+        self.buildtools = evidence.ToolCommand(
+            (str(other), "-jar", str(self.jar)),
+            {str(other): sha256(other), str(self.jar): sha256(self.jar)})
+        with self.assertRaises(evidence.EvidenceError):
+            self.upload()
+        self.assertEqual(self.calls(), [])
+
+    @unittest.skipIf(os.name == "nt", "POSIX executable permission boundary")
+    def test_non_executable_child_java_never_falls_back_to_ambient_path(self):
+        self.java.chmod(0o600)
+        with self.assertRaises(evidence.EvidenceError):
+            self.upload()
+        self.assertEqual(self.calls(), [])
+
+    def test_missing_or_modified_child_dependencies_never_run(self):
+        for path in (self.java, self.jar):
+            with self.subTest(dependency=path.name):
+                original = path.read_bytes()
+                path.write_bytes(original + b"changed")
+                with self.assertRaises(evidence.EvidenceError):
+                    self.upload()
+                self.assertEqual(self.calls(), [])
+                path.write_bytes(original)
+
+    def test_child_dependency_change_during_upload_cannot_record_success(self):
+        self.env.update(EVIDENCE_FAKE_MODE="mutate", EVIDENCE_FAKE_MUTATE=str(self.jar))
+        with self.assertRaises(evidence.EvidenceError):
+            self.upload()
+        self.assertFalse(self.gate())
+        self.assertEqual(json.loads(self.receipt.read_text())["uploadResult"]["status"], "failed")
 
     def test_cli_older_than_11_9_is_rejected(self):
         self.env["EVIDENCE_FAKE_VERSION"] = "11.8.9"
@@ -375,7 +432,7 @@ class AndroidReleaseEvidenceTest(unittest.TestCase):
         self.env["EVIDENCE_FAKE_MODE"] = "timeout"
         with self.assertRaises(evidence.EvidenceError):
             evidence.upload_symbols(self.request, self.receipt,
-                bundletool=self.bundletool, firebase=self.firebase,
+                bundletool=self.bundletool, firebase=self.firebase, buildtools=self.buildtools,
                 environment=self.env, timeout_seconds=0.5)
         self.assertFalse(self.gate())
 
@@ -394,7 +451,7 @@ class AndroidReleaseEvidenceTest(unittest.TestCase):
         self.env.update(EVIDENCE_FAKE_MODE="child-timeout", EVIDENCE_FAKE_CHILD_MARKER=str(marker))
         with self.assertRaises(evidence.EvidenceError):
             evidence.upload_symbols(self.request, self.receipt,
-                bundletool=self.bundletool, firebase=self.firebase,
+                bundletool=self.bundletool, firebase=self.firebase, buildtools=self.buildtools,
                 environment=self.env, timeout_seconds=0.5)
         time.sleep(2.2)
         self.assertFalse(marker.exists(), "timed-out upload child kept running")
@@ -495,7 +552,7 @@ class AndroidReleaseEvidenceTest(unittest.TestCase):
         (self.symbols / "app.android-arm64.symbols").write_bytes(b"corrupt after upload")
         self.assertFalse(self.gate())
 
-    def test_ambient_firebase_token_cannot_override_explicit_adc(self):
+    def test_ambient_firebase_token_is_rejected(self):
         self.env["FIREBASE_TOKEN"] = "must-not-be-used"
         self.assert_rejected_without_upload()
 
@@ -539,7 +596,8 @@ class AndroidReleaseEvidenceTest(unittest.TestCase):
     def test_cli_round_trip_and_strict_numeric_inputs(self):
         tools_path = self.root / "tools.json"
         tools_path.write_text(json.dumps({name: dataclasses.asdict(command) for name, command in
-            (("bundletool", self.bundletool), ("firebase", self.firebase))}), encoding="utf-8")
+            (("bundletool", self.bundletool), ("firebase", self.firebase),
+             ("crashlytics-buildtools", self.buildtools))}), encoding="utf-8")
         arguments = [str(Path(evidence.__file__)), "upload",
             "--aab", str(self.aab), "--symbols", str(self.symbols),
             "--google-services", str(self.config), "--receipt", str(self.receipt),
