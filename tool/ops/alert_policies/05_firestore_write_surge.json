@@ -9,7 +9,7 @@
     {
       "displayName": "Firestore document writes > 10000 over 15m (project-wide)",
       "conditionThreshold": {
-        "filter": "resource.type=\"firestore.googleapis.com/Database\" AND metric.type=\"firestore.googleapis.com/document/write_count\"",
+        "filter": "resource.type=\"firestore_instance\" AND metric.type=\"firestore.googleapis.com/document/write_count\"",
         "comparison": "COMPARISON_GT",
         "thresholdValue": 10000,
         "duration": "0s",
