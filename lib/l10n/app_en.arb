@@ -884,6 +884,8 @@
   "gyeErrAgeRestricted": "Gye is for ages 16 and up. Because only your self-declared on-device birth year is stored, the conservative check unlocks at a year difference of at least 17.",
   "gyeAgeYearTitle": "Birth year",
   "gyeAgeYearBody": "Gye is for ages 16 and up. Your birth year is self-declared, stored only on this device, and is not identity verification. Without month and day, the conservative check unlocks at a year difference of at least 17.",
+  "privacyAgeYearBody": "The app needs your age declaration before you can voluntarily enable usage statistics or crash reports. Your self-declared birth year stays on this device. Without month and day, these options unlock conservatively at a year difference of at least 17.",
+  "privacyAgeRestricted": "Usage statistics and crash reports cannot be enabled with this age declaration. Because only the year is known, the app requires a year difference of at least 17.",
   "gyeAgeYearHint": "e.g. 2005",
   "gyeOpenCta": "Open gye",
   "gyeTitle": "Gye",
