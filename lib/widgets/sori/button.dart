@@ -217,8 +217,11 @@ class SoriButton extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: SoriFonts.sans,
+                        fontFamilyFallback: SoriFonts.fallback,
                         color: fg,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: variant == SoriButtonVariant.filled
+                            ? FontWeight.w600
+                            : FontWeight.w500,
                         fontSize: visualFontSize,
                         letterSpacing: -0.2,
                         height: 1.2,

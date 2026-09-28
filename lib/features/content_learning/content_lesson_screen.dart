@@ -5,6 +5,7 @@ import '../../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../motion/transitions.dart';
@@ -17,6 +18,12 @@ import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/route_observer.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
+import '../../widgets/sori/celebration.dart';
+import '../../widgets/sori/character_clip.dart';
+import '../../widgets/sori/mascot.dart';
+import '../../widgets/sori/mascot_preference.dart';
+import '../../widgets/sori/motion.dart';
+import '../../widgets/sori/progress_meter.dart';
 import '../../widgets/sori/study_frame.dart';
 import '../../widgets/sori/tokens.dart';
 import 'content_learning_models.dart';
@@ -60,6 +67,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
   bool _translation = false;
   bool _audioError = false;
   bool _playing = false;
+  String? _playingKo;
   bool _autoplay = false;
   String? _optional;
   int _roleplayPosition = 0;
@@ -112,6 +120,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
     _audioGeneration++;
     _autoplay = false;
     _playing = false;
+    _playingKo = null;
     _speechLifecycle.didPushNext();
   }
 
@@ -127,6 +136,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
     _audioGeneration++;
     _autoplay = false;
     _playing = false;
+    _playingKo = null;
     _speechLifecycle.deactivate();
     super.deactivate();
   }
@@ -144,6 +154,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
     if (mounted) {
       setState(() {
         _playing = false;
+        _playingKo = null;
         _autoplay = false;
       });
     }
@@ -244,6 +255,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
     setState(() {
       _audioError = false;
       _playing = true;
+      _playingKo = ko;
     });
     bool success = false;
     try {
@@ -256,6 +268,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
     if (mounted && generation == _audioGeneration) {
       setState(() {
         _playing = false;
+        _playingKo = null;
         _audioError = !success;
       });
     }
@@ -272,6 +285,50 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
     );
   }
 
+  Widget _listenCue(String ko, AppL10n t) {
+    final active = _playing && !_autoplay && _playingKo == ko;
+    final surfaces = SoriSurfaces.of(context);
+    final foreground = surfaces.brightness == Brightness.light
+        ? SoriColors.primaryOnLight
+        : SoriColors.primaryOnDark;
+    final icon = AnimatedContainer(
+      duration: SoriMotion.reduceMotion(context)
+          ? Duration.zero
+          : SoriAnimation.quick,
+      width: 40,
+      height: 40,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: active
+            ? SoriColors.primary
+            : Color.alphaBlend(
+                SoriColors.primary.withValues(alpha: 0.14),
+                surfaces.surface,
+              ),
+      ),
+      child: Icon(
+        active ? Icons.graphic_eq_rounded : Icons.volume_up_rounded,
+        color: active ? SoriColors.onFill(SoriColors.primary) : foreground,
+        size: 21,
+      ),
+    );
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        active
+            ? RepaintBoundary(child: SoriPulse(maxScale: 1.08, child: icon))
+            : icon,
+        const SizedBox(width: Spacing.sm),
+        Flexible(
+          child: Text(
+            active ? t.contentLearningPause : t.contentLearningAudio,
+            style: SoriTextTheme.of(context).label.copyWith(color: foreground),
+          ),
+        ),
+      ],
+    );
+  }
+
   Future<void> _playAll() async {
     if (_autoplay) {
       _stopAudio();
@@ -285,6 +342,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
     setState(() {
       _autoplay = true;
       _playing = true;
+      _playingKo = null;
       _audioError = false;
       _retry = null;
     });
@@ -340,6 +398,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
         setState(() {
           _autoplay = false;
           _playing = false;
+          _playingKo = null;
         });
       }
     }
@@ -446,6 +505,10 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
           _feedback = question;
           _correct = correct;
         });
+        if (correct) {
+          unawaited(HapticFeedback.lightImpact());
+          SoriCelebration.burst(context, particles: 16);
+        }
       }
     },
   );
@@ -457,6 +520,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
       setState(() {
         _feedback = null;
       });
+      SoriCelebration.burst(context, particles: 26);
     }
   });
   Future<void> _replace(ContentLesson lesson, {bool review = false}) =>
@@ -486,6 +550,82 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
         );
       });
 
+  Widget _coachIntro(AppL10n t) {
+    final surfaces = SoriSurfaces.of(context);
+    final type = SoriTextTheme.of(context);
+    return Container(
+      padding: const EdgeInsets.all(Spacing.md),
+      decoration: BoxDecoration(
+        color: surfaces.brightness == Brightness.light
+            ? SoriColors.primarySoft
+            : surfaces.surfaceAlt,
+        borderRadius: SoriRadius.brLg,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            t.contentLearningLearn,
+            style: type.eyebrow.copyWith(color: surfaces.textMuted),
+          ),
+          const SizedBox(height: Spacing.xs),
+          Text(widget.lesson.intro.pick(_lang), style: type.bodySmall),
+        ],
+      ),
+    );
+  }
+
+  Widget _usageExample(
+    String ko,
+    String translation,
+    AppL10n t, {
+    bool nextTurn = false,
+    String? voice,
+  }) {
+    final type = SoriTextTheme.of(context);
+    final active = _playing && !_autoplay && _playingKo == ko;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.sm),
+      child: SoriCard(
+        key: nextTurn ? const ValueKey('content-next-turn') : null,
+        variant: nextTurn ? SoriCardVariant.base : SoriCardVariant.compact,
+        accent: active
+            ? SoriColors.primary
+            : nextTurn
+            ? SoriColors.tiger
+            : SoriColors.accent,
+        tinted: nextTurn || active,
+        onTap: _busy ? null : () => _play(ko, voice: voice),
+        semanticLabel: '${t.contentLearningAudio}: $ko',
+        semanticValue: active ? t.contentLearningPause : t.contentLearningAudio,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (nextTurn) ...[
+              Row(
+                children: [
+                  const Icon(Icons.forum_rounded, size: 18),
+                  const SizedBox(width: Spacing.xs),
+                  Expanded(
+                    child: Text(t.smalltalkNextTurn, style: type.eyebrow),
+                  ),
+                ],
+              ),
+              const SizedBox(height: Spacing.sm),
+            ],
+            Text(ko, style: type.h3),
+            if (translation.isNotEmpty) ...[
+              const SizedBox(height: Spacing.xs),
+              Text(translation, style: type.bodySmall),
+            ],
+            const SizedBox(height: Spacing.sm),
+            _listenCue(ko, t),
+          ],
+        ),
+      ),
+    );
+  }
+
   _LessonContent _learn(AppL10n t) {
     final count = _scenario?.dialog.length ?? _phrases.length;
     if (_scenario != null && _progress.position >= count) {
@@ -501,7 +641,27 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
     final ko = phrase?.ko ?? line!.ko;
     return _LessonContent(
       body: [
-        Text(t.contentLearningLearn, style: SoriTextTheme.of(context).eyebrow),
+        CompanionBuilder(
+          builder: (context, kind) => Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              CharacterClipPlayer(
+                key: ValueKey('content-coach-${kind.name}'),
+                asset: kind == MascotKind.magpie
+                    ? CharacterClips.magpieBob
+                    : CharacterClips.tigerSitting2,
+                size: 124,
+                loop: true,
+                fallbackKind: kind,
+                staticFallback: CharacterClipPlayer.videoUnavailable(context),
+              ),
+              const SizedBox(width: Spacing.sm),
+              Expanded(child: _coachIntro(t)),
+            ],
+          ),
+          noneBuilder: (_) => _coachIntro(t),
+        ),
+        const SizedBox(height: Spacing.md),
         if (_scenario != null)
           SoriButton.outlined(
             label: _autoplay
@@ -509,71 +669,130 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
                 : t.contentLearningPlayAll,
             onTap: _busy ? null : _playAll,
           ),
-        Text(
-          widget.lesson.intro.pick(_lang),
-          style: SoriTextTheme.of(context).body,
-        ),
-        const SizedBox(height: Spacing.lg),
+        if (_scenario != null) const SizedBox(height: Spacing.md),
         Text(
           t.contentLearningPosition(position + 1, count),
           style: SoriTextTheme.of(context).meta,
         ),
         const SizedBox(height: Spacing.sm),
-        SoriCard(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              if (line != null)
-                Text(
-                  _scenario!.speakerDisplayName(
-                    line.speaker,
-                    fallbackYou: t.contentLearningYou,
-                    fallbackNarrator: t.contentLearningNarrator,
+        SoriProgressMeter.segments(
+          key: const ValueKey('content-learn-progress'),
+          filled: position + 1,
+          total: count,
+          height: 8,
+          gap: 6,
+        ),
+        const SizedBox(height: Spacing.md),
+        SoriEntrance(
+          key: ValueKey('content-entrance-$ko'),
+          duration: const Duration(milliseconds: 360),
+          slideY: 10,
+          child: SoriCard(
+            key: const ValueKey('content-learn-sentence'),
+            variant: SoriCardVariant.hero,
+            accent: SoriColors.primary,
+            tinted: true,
+            onTap: _busy
+                ? null
+                : () => _play(
+                    ko,
+                    voice: line == null
+                        ? null
+                        : _scenario!.voiceForSpeaker(line.speaker),
                   ),
-                  style: SoriTextTheme.of(context).eyebrow,
-                ),
-              SelectableText(ko, style: SoriTextTheme.of(context).h2),
-              const SizedBox(height: Spacing.md),
-              _audio(
-                ko,
-                voice: line == null
-                    ? null
-                    : _scenario!.voiceForSpeaker(line.speaker),
-              ),
-              SoriButton.ghost(
-                label: t.contentLearningTranslation,
-                onTap: () => setState(() => _translation = !_translation),
-              ),
-              if (_translation)
-                Text(
-                  phrase?.translation(_lang) ?? line!.pick(_lang),
-                  style: SoriTextTheme.of(context).body,
-                ),
-              if (phrase != null) ...[
-                const SizedBox(height: Spacing.lg),
-                Text(
-                  t.contentLearningUsage,
-                  style: SoriTextTheme.of(context).h3,
-                ),
-                const SizedBox(height: Spacing.sm),
-                Text(
-                  t.smalltalkUseWith(
-                    phrase.relationshipContext.labelFor(_lang),
+            semanticLabel: '${t.contentLearningAudio}: $ko',
+            semanticValue: _playing && !_autoplay && _playingKo == ko
+                ? t.contentLearningPause
+                : t.contentLearningAudio,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                if (line != null)
+                  Text(
+                    _scenario!.speakerDisplayName(
+                      line.speaker,
+                      fallbackYou: t.contentLearningYou,
+                      fallbackNarrator: t.contentLearningNarrator,
+                    ),
+                    style: SoriTextTheme.of(context).eyebrow,
                   ),
-                ),
-                for (final alternative in phrase.safeAlternativeQuestions) ...[
-                  Text(alternative.ko, style: SoriTextTheme.of(context).body),
-                  Text(alternative.translation(_lang)),
-                  _audio(alternative.ko),
-                ],
-                Text(phrase.followUp.ko, style: SoriTextTheme.of(context).body),
-                Text(phrase.followUp.translation(_lang)),
-                _audio(phrase.followUp.ko),
+                Text(ko, style: SoriTextTheme.of(context).h2),
+                const SizedBox(height: Spacing.md),
+                _listenCue(ko, t),
               ],
-            ],
+            ),
           ),
         ),
-        const SizedBox(height: Spacing.lg),
+        SoriButton.ghost(
+          label: t.contentLearningTranslation,
+          onTap: () => setState(() => _translation = !_translation),
+        ),
+        if (_translation)
+          SoriEntrance(
+            duration: const Duration(milliseconds: 260),
+            slideY: 6,
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(Spacing.md),
+              decoration: BoxDecoration(
+                color: SoriSurfaces.of(context).surface,
+                borderRadius: SoriRadius.brMd,
+              ),
+              child: Text(
+                phrase?.translation(_lang) ?? line!.pick(_lang),
+                style: SoriTextTheme.of(context).body,
+              ),
+            ),
+          ),
+        if (phrase != null) ...[
+          const SizedBox(height: Spacing.sm),
+          _usageExample(
+            phrase.followUp.ko,
+            phrase.followUp.translation(_lang),
+            t,
+            nextTurn: true,
+          ),
+          ExpansionTile(
+            key: ValueKey('content-usage-$ko'),
+            title: Text(
+              t.contentLearningUsage,
+              style: SoriTextTheme.of(context).h3,
+            ),
+            leading: const Icon(Icons.auto_stories_rounded),
+            tilePadding: const EdgeInsets.symmetric(horizontal: Spacing.md),
+            childrenPadding: const EdgeInsets.only(
+              left: Spacing.sm,
+              right: Spacing.sm,
+              bottom: Spacing.sm,
+            ),
+            backgroundColor: SoriSurfaces.of(context).surface,
+            collapsedBackgroundColor: SoriSurfaces.of(context).surface,
+            shape: const RoundedRectangleBorder(borderRadius: SoriRadius.brMd),
+            collapsedShape: const RoundedRectangleBorder(
+              borderRadius: SoriRadius.brMd,
+            ),
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: Spacing.sm),
+                  child: Text(
+                    t.smalltalkUseWith(
+                      phrase.relationshipContext.labelFor(_lang),
+                    ),
+                    style: SoriTextTheme.of(context).meta,
+                  ),
+                ),
+              ),
+              for (final alternative in phrase.safeAlternativeQuestions)
+                _usageExample(
+                  alternative.ko,
+                  alternative.translation(_lang),
+                  t,
+                ),
+            ],
+          ),
+        ],
       ],
       actions: [
         SoriButton.filled(
@@ -613,36 +832,94 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
     final index = cursor >= 0 ? cursor : _progress.position;
     if (_feedback != null) {
       final question = _feedback!;
+      final correct = _correct!;
       return _LessonContent(
         body: [
-          Semantics(
-            liveRegion: true,
-            child: Text(
-              _correct! ? t.contentLearningCorrect : t.contentLearningIncorrect,
-              style: SoriTextTheme.of(context).h2,
+          SoriEntrance(
+            key: ValueKey('content-feedback-${question.id}'),
+            duration: SoriAnimation.cardDuration,
+            slideY: 12,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  children: [
+                    CompanionBuilder(
+                      builder: (context, kind) {
+                        final emotion = correct
+                            ? MascotEmotion.celebrate
+                            : MascotEmotion.worry;
+                        final clip = CharacterClips.feedbackFor(kind, emotion);
+                        return clip == null
+                            ? Mascot(kind: kind, emotion: emotion, size: 104)
+                            : CharacterClipPlayer(
+                                key: ValueKey('content-reaction-${kind.name}'),
+                                asset: clip,
+                                size: 104,
+                                fallbackKind: kind,
+                                fallbackEmotion: emotion,
+                                staticFallback:
+                                    CharacterClipPlayer.videoUnavailable(
+                                      context,
+                                    ),
+                              );
+                      },
+                      noneBuilder: (_) => SizedBox(
+                        width: 104,
+                        height: 104,
+                        child: Icon(
+                          correct
+                              ? Icons.stars_rounded
+                              : Icons.lightbulb_rounded,
+                          color: correct
+                              ? SoriColors.success
+                              : SoriColors.tiger,
+                          size: 64,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: Spacing.md),
+                    Expanded(
+                      child: Semantics(
+                        liveRegion: true,
+                        child: Text(
+                          correct
+                              ? t.contentLearningCorrect
+                              : t.contentLearningIncorrect,
+                          style: SoriTextTheme.of(context).h2,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: Spacing.md),
+                SoriCard(
+                  key: const ValueKey('content-feedback-stage'),
+                  accent: correct ? SoriColors.success : SoriColors.tiger,
+                  tinted: true,
+                  child: Text(
+                    question.explanation.pick(_lang),
+                    style: SoriTextTheme.of(context).body,
+                  ),
+                ),
+                if (question.evidenceKo.isNotEmpty) ...[
+                  const SizedBox(height: Spacing.lg),
+                  Text(
+                    t.contentLearningEvidence,
+                    style: SoriTextTheme.of(context).h3,
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                  _usageExample(
+                    question.evidenceKo,
+                    '',
+                    t,
+                    voice: _evidenceVoice(question.evidenceKo),
+                  ),
+                ],
+                const SizedBox(height: Spacing.lg),
+              ],
             ),
           ),
-          const SizedBox(height: Spacing.md),
-          Text(
-            question.explanation.pick(_lang),
-            style: SoriTextTheme.of(context).body,
-          ),
-          if (question.evidenceKo.isNotEmpty) ...[
-            const SizedBox(height: Spacing.lg),
-            Text(
-              t.contentLearningEvidence,
-              style: SoriTextTheme.of(context).h3,
-            ),
-            SelectableText(
-              question.evidenceKo,
-              style: SoriTextTheme.of(context).body,
-            ),
-            _audio(
-              question.evidenceKo,
-              voice: _evidenceVoice(question.evidenceKo),
-            ),
-          ],
-          const SizedBox(height: Spacing.lg),
         ],
         actions: [
           SoriButton.filled(
@@ -695,19 +972,56 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
       ..shuffle(Random(question.id.length));
     return _LessonContent(
       body: [
-        Text(
-          t.contentLearningPractice,
-          style: SoriTextTheme.of(context).eyebrow,
+        SoriEntrance(
+          key: ValueKey('content-practice-entrance-${question.id}'),
+          duration: SoriAnimation.cardDuration,
+          slideY: 12,
+          child: SoriCard(
+            key: const ValueKey('content-practice-question'),
+            variant: SoriCardVariant.hero,
+            accent: SoriColors.accent,
+            tinted: true,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        t.contentLearningPractice,
+                        style: SoriTextTheme.of(context).eyebrow,
+                      ),
+                    ),
+                    Text(
+                      t.contentLearningPosition(index + 1, queue.length),
+                      style: SoriTextTheme.of(context).meta,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: Spacing.sm),
+                SoriProgressMeter.segments(
+                  filled: index + 1,
+                  total: queue.length,
+                  height: 7,
+                  gap: 5,
+                ),
+                const SizedBox(height: Spacing.lg),
+                Text(
+                  question.prompt.pick(_lang),
+                  style: SoriTextTheme.of(context).h2,
+                ),
+                if (question.audioKo.isNotEmpty) ...[
+                  const SizedBox(height: Spacing.md),
+                  _audio(
+                    question.audioKo,
+                    voice: _evidenceVoice(question.audioKo),
+                  ),
+                ],
+              ],
+            ),
+          ),
         ),
-        Text(
-          t.contentLearningPosition(index + 1, queue.length),
-          style: SoriTextTheme.of(context).meta,
-        ),
-        const SizedBox(height: Spacing.lg),
-        Text(question.prompt.pick(_lang), style: SoriTextTheme.of(context).h2),
-        if (question.audioKo.isNotEmpty)
-          _audio(question.audioKo, voice: _evidenceVoice(question.audioKo)),
-        const SizedBox(height: Spacing.lg),
+        const SizedBox(height: Spacing.md),
         if (question.type == 'order') ...[
           Text(t.contentLearningOrder),
           const SizedBox(height: Spacing.md),
@@ -742,20 +1056,91 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
             ],
           ),
         ] else ...[
-          for (final option in options)
+          for (
+            var displayIndex = 0;
+            displayIndex < options.length;
+            displayIndex++
+          )
             Padding(
               padding: const EdgeInsets.only(bottom: Spacing.sm),
-              child: SoriCard(
-                selectable: true,
-                selected: _choice == option,
-                onTap: _busy ? null : () => setState(() => _choice = option),
-                child: Text(
-                  question.options[option].pick(_lang),
-                  style: SoriTextTheme.of(context).body,
+              child: SoriEntrance(
+                delay: Duration(milliseconds: 55 * displayIndex),
+                duration: const Duration(milliseconds: 340),
+                slideY: 8,
+                child: SoriCard(
+                  key: ValueKey('content-option-${options[displayIndex]}'),
+                  selectable: true,
+                  selected: _choice == options[displayIndex],
+                  onTap: _busy
+                      ? null
+                      : () {
+                          unawaited(HapticFeedback.selectionClick());
+                          setState(() => _choice = options[displayIndex]);
+                        },
+                  child: Row(
+                    children: [
+                      Icon(
+                        _choice == options[displayIndex]
+                            ? Icons.check_circle_rounded
+                            : Icons.radio_button_unchecked_rounded,
+                        color: _choice == options[displayIndex]
+                            ? SoriColors.primary
+                            : SoriSurfaces.of(context).textMuted,
+                        size: 24,
+                      ),
+                      const SizedBox(width: Spacing.md),
+                      Expanded(
+                        child: Text(
+                          question.options[options[displayIndex]].pick(_lang),
+                          style: SoriTextTheme.of(context).body,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
         ],
+        if (MediaQuery.sizeOf(context).height >= 800)
+          CompanionBuilder(
+            builder: (context, kind) => Padding(
+              padding: const EdgeInsets.only(top: Spacing.md),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: SoriCard(
+                        variant: SoriCardVariant.compact,
+                        accent: SoriColors.primary,
+                        tinted: true,
+                        child: Text(
+                          t.contentLearningYourTurn,
+                          style: SoriTextTheme.of(context).label,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: Spacing.sm),
+                  ExcludeSemantics(
+                    child: CharacterClipPlayer(
+                      key: ValueKey('content-thinking-${kind.name}'),
+                      asset: CharacterClips.thinkingFor(kind),
+                      size: 150,
+                      loop: true,
+                      fallbackKind: kind,
+                      fallbackEmotion: MascotEmotion.thinking,
+                      staticFallback: CharacterClipPlayer.videoUnavailable(
+                        context,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            noneBuilder: (_) => const SizedBox.shrink(),
+          ),
         const SizedBox(height: Spacing.lg),
       ],
       actions: [
@@ -791,6 +1176,10 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
 
   _LessonContent _result(AppL10n t) {
     final progress = _progress;
+    final correctCount = progress.practiceQuestionIds
+        .where((id) => progress.answers[id] == true)
+        .length;
+    final questionCount = progress.practiceQuestionIds.length;
     final daily = ContentLearningService.daily(
       widget.lesson.kind,
       widget.lesson.level,
@@ -805,34 +1194,105 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
     );
     final hasReviewNext =
         reviewIndex >= 0 && reviewIndex + 1 < widget.reviewQueue.length;
+    final title = progress.reviewMode
+        ? t.contentLearningReviewDone
+        : daily.isComplete && daily.target > 0
+        ? t.contentLearningTodayDone
+        : t.contentLearningDone;
     return _LessonContent(
       body: [
-        Text(
-          progress.reviewMode
-              ? t.contentLearningReviewDone
-              : daily.isComplete && daily.target > 0
-              ? t.contentLearningTodayDone
-              : t.contentLearningDone,
-          style: SoriTextTheme.of(context).h1,
-        ),
-        const SizedBox(height: Spacing.md),
-        if (daily.target > 0)
-          Text(
-            t.contentLearningToday(daily.completedCount, daily.target),
-            style: SoriTextTheme.of(context).h3,
+        SoriEntrance(
+          duration: SoriAnimation.entranceDuration,
+          child: SoriCard(
+            key: const ValueKey('content-result-stage'),
+            variant: SoriCardVariant.hero,
+            accent: SoriColors.tiger,
+            tinted: true,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  children: [
+                    CompanionBuilder(
+                      builder: (context, kind) => CharacterClipPlayer(
+                        key: ValueKey('content-result-${kind.name}'),
+                        asset: CharacterClips.sessionCompleteFor(kind),
+                        size: 104,
+                        fallbackKind: kind,
+                        fallbackEmotion: MascotEmotion.celebrate,
+                        staticFallback: CharacterClipPlayer.videoUnavailable(
+                          context,
+                        ),
+                      ),
+                      noneBuilder: (_) => const SizedBox(
+                        width: 104,
+                        height: 104,
+                        child: Icon(
+                          Icons.emoji_events_rounded,
+                          color: SoriColors.tiger,
+                          size: 64,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: Spacing.sm),
+                    Expanded(
+                      child: Text(title, style: SoriTextTheme.of(context).h2),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: Spacing.lg),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SoriProgressMeter.ring(
+                      value: questionCount == 0
+                          ? 0
+                          : correctCount / questionCount,
+                      size: 72,
+                      stroke: 7,
+                      center: Text(
+                        '$correctCount/$questionCount',
+                        style: SoriTextTheme.of(context).label,
+                      ),
+                    ),
+                    const SizedBox(width: Spacing.md),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          if (daily.target > 0)
+                            Text(
+                              t.contentLearningToday(
+                                daily.completedCount,
+                                daily.target,
+                              ),
+                              style: SoriTextTheme.of(context).h3,
+                            ),
+                          Text(
+                            (progress.reviewMode
+                                ? t.contentLearningReviewResult
+                                : t.contentLearningResult)(
+                              correctCount,
+                              questionCount,
+                            ),
+                            style: SoriTextTheme.of(context).bodySmall,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                if (progress.missedQuestionIds.isNotEmpty) ...[
+                  const SizedBox(height: Spacing.md),
+                  Text(
+                    t.contentLearningNeedsReview,
+                    style: SoriTextTheme.of(context).bodySmall,
+                  ),
+                ],
+              ],
+            ),
           ),
-        Text(
-          (progress.reviewMode
-              ? t.contentLearningReviewResult
-              : t.contentLearningResult)(
-            progress.practiceQuestionIds
-                .where((id) => progress.answers[id] == true)
-                .length,
-            progress.practiceQuestionIds.length,
-          ),
         ),
-        if (progress.missedQuestionIds.isNotEmpty)
-          Text(t.contentLearningNeedsReview),
       ],
       actions: [
         SoriButton.outlined(
@@ -1127,6 +1587,9 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
                       : null,
                   body: content!.body,
                   actions: content.actions,
+                  topAligned:
+                      _optional == null &&
+                      _progress.phase != ContentLessonPhase.complete,
                 ),
         ),
       ),

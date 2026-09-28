@@ -1320,36 +1320,38 @@ class _ConversationTurn extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final tt = SoriTextTheme.of(context);
     final foreground = textColor ?? SoriColors.primaryOnLight;
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Icon(
-          turn.turnKind == SmalltalkTurnKind.question
-              ? Icons.help_outline_rounded
-              : Icons.forum_outlined,
-          size: 16,
-          color: SoriColors.primary.withValues(alpha: 0.8),
+        Row(
+          children: [
+            Icon(
+              turn.turnKind == SmalltalkTurnKind.question
+                  ? Icons.help_outline_rounded
+                  : Icons.forum_outlined,
+              size: 16,
+              color: SoriColors.primary.withValues(alpha: 0.8),
+            ),
+            const SizedBox(width: Spacing.sm),
+            Expanded(
+              child: Text(label, style: tt.label.copyWith(color: s.textMuted)),
+            ),
+          ],
         ),
-        const SizedBox(width: Spacing.sm),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(label, style: tt.label.copyWith(color: s.textMuted)),
-              const SizedBox(height: 2),
-              Text(turn.ko, style: tt.cardTitle.copyWith(color: foreground)),
-              const SizedBox(height: 2),
-              Text(
-                turn.translation(lang),
-                style: tt.cardSubtitle.copyWith(color: s.textMuted),
-              ),
-            ],
+        const SizedBox(height: 2),
+        Text(turn.ko, style: tt.cardTitle.copyWith(color: foreground)),
+        const SizedBox(height: 2),
+        Text(
+          turn.translation(lang),
+          style: tt.cardSubtitle.copyWith(color: s.textMuted),
+        ),
+        Align(
+          alignment: Alignment.centerRight,
+          child: _InlineSpeakButton(
+            korean: turn.ko,
+            color: SoriColors.primary.withValues(alpha: 0.7),
+            iconSize: 19,
           ),
-        ),
-        _InlineSpeakButton(
-          korean: turn.ko,
-          color: SoriColors.primary.withValues(alpha: 0.7),
-          iconSize: 19,
         ),
       ],
     );
@@ -1372,45 +1374,31 @@ class _ReplyView extends StatelessWidget {
         color: SoriColors.primary.withValues(alpha: 0.08),
         borderRadius: SoriRadius.brSm,
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(top: 2, right: 6),
-                      child: Icon(
-                        Icons.forum_outlined,
-                        size: 15,
-                        color: SoriColors.primaryOnLight,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        reply.ko,
-                        style: tt.cardTitle.copyWith(
-                          color: SoriColors.primaryOnLight,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  reply.translation(lang),
-                  style: tt.caption.copyWith(color: s.textMuted),
-                ),
-              ],
-            ),
+          Text(
+            reply.ko,
+            style: tt.cardTitle.copyWith(color: SoriColors.primaryOnLight),
           ),
-          _InlineSpeakButton(
-            korean: reply.ko,
-            color: SoriColors.primary.withValues(alpha: 0.7),
+          const SizedBox(height: 2),
+          Text(
+            reply.translation(lang),
+            style: tt.caption.copyWith(color: s.textMuted),
+          ),
+          Row(
+            children: [
+              const Icon(
+                Icons.forum_outlined,
+                size: 15,
+                color: SoriColors.primaryOnLight,
+              ),
+              const Spacer(),
+              _InlineSpeakButton(
+                korean: reply.ko,
+                color: SoriColors.primary.withValues(alpha: 0.7),
+              ),
+            ],
           ),
         ],
       ),

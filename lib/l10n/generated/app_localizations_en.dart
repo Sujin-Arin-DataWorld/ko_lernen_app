@@ -10885,6 +10885,9 @@ class AppL10nEn extends AppL10n {
   String get contentLearningPractice => 'Practise';
 
   @override
+  String get contentLearningYourTurn => 'Your turn';
+
+  @override
   String get contentLearningNext => 'Continue';
 
   @override
@@ -10960,7 +10963,7 @@ class AppL10nEn extends AppL10n {
   String get contentLearningTranslation => 'Show translation';
 
   @override
-  String get contentLearningUsage => 'Usage and next response';
+  String get contentLearningUsage => 'Usage and alternatives';
 
   @override
   String get contentLearningEvidence => 'Source passage';
