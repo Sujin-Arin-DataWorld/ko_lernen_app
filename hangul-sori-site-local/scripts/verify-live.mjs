@@ -234,7 +234,7 @@ for (const origin of origins) {
       visibleText(html).includes(marker),
       `${url} must contain the visible text ${JSON.stringify(marker)}`,
     );
-    if (path === "/") {
+    if (["/", "/de", "/en", "/ko"].includes(path)) {
       assertStoreAccessCtas(html, url);
       assert.doesNotMatch(
         html,

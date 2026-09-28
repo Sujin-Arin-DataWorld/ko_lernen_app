@@ -126,7 +126,7 @@ Future<void> board(
     text: TextSpan(
       text: heading ?? name,
       style: const TextStyle(
-        fontFamily: 'MaruBuri',
+        fontFamily: 'NotoSansKR',
         fontSize: 30,
         color: Color(0xFF1A1F1D),
       ),
@@ -139,7 +139,7 @@ Future<void> board(
       text:
           'DESIGN REVIEW · Real bundled art · Illustrative states · No account or reward writes',
       style: TextStyle(
-        fontFamily: 'Paperlogy',
+        fontFamily: 'IBMPlexSans',
         fontSize: 14,
         color: Color(0xFF5C6660),
       ),
@@ -164,7 +164,7 @@ Future<void> board(
       text: TextSpan(
         text: files[i],
         style: const TextStyle(
-          fontFamily: 'Paperlogy',
+          fontFamily: 'IBMPlexSans',
           fontSize: 15,
           color: Color(0xFF1A1F1D),
         ),
