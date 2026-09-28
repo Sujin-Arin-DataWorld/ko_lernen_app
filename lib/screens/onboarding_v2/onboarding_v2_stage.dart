@@ -106,7 +106,12 @@ class OnboardingCompanionStage extends StatefulWidget {
           (labelHeight > 48 ? labelHeight : 48) + Spacing.sm * 2 + 4;
       return height > requiredHeight ? height : requiredHeight;
     });
-    return sideBySide ? minimumCardHeight : minimumCardHeight * 2 + Spacing.md;
+    // The stage only switches to a row at 300dp. Reserve that height in the
+    // outer scroll calculation as well, so short landscape windows never
+    // compress two cards into an unscrollable space.
+    return sideBySide
+        ? (minimumCardHeight > 300 ? minimumCardHeight : 300)
+        : minimumCardHeight * 2 + Spacing.md;
   }
 
   const OnboardingCompanionStage({

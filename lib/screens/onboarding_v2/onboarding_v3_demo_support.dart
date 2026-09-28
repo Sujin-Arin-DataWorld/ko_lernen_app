@@ -113,6 +113,7 @@ class DemoChoice extends StatelessWidget {
     this.icon,
     this.korean = false,
     this.dense = false,
+    this.fontSize,
   });
   final String label;
   final VoidCallback? onTap;
@@ -120,6 +121,7 @@ class DemoChoice extends StatelessWidget {
   final IconData? icon;
   final bool korean;
   final bool dense;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -152,11 +154,19 @@ class DemoChoice extends StatelessWidget {
                   label,
                   textAlign: TextAlign.center,
                   locale: korean ? const Locale('ko') : null,
-                  style: TextStyle(
-                    fontSize: korean ? (dense ? 17 : 21) : 13,
-                    height: 1.15,
-                    fontFamily: korean ? SoriFonts.learningKorean : null,
-                  ),
+                  style:
+                      (korean
+                              ? SoriTextTheme.of(context).koDisplay
+                              : SoriTextTheme.of(context).label)
+                          .copyWith(
+                            fontSize: korean
+                                ? (dense ? 17 : 21)
+                                : fontSize ?? 13,
+                            height: 1.15,
+                            color: selected
+                                ? SoriColors.contentCtaOn
+                                : colors.onSurface,
+                          ),
                 )
               : Row(
                   mainAxisAlignment: MainAxisAlignment.center,

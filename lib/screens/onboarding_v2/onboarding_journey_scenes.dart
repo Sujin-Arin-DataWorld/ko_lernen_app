@@ -176,8 +176,12 @@ double _journeyReadingSize(
   // The example is the focal point of the path card. Keep the compact phone
   // size while making short Korean examples legible on a Pad.
   final tablet = appWindowClassOf(context).isAtLeastMedium;
-  if (!korean) return tablet ? 23 : 16;
-  if (!tablet) return 28;
+  if (!korean) {
+    return tablet ? 23 : 16;
+  }
+  if (!tablet) {
+    return 28;
+  }
   return text.runes.length <= 12 ? 52 : 40;
 }
 
@@ -252,29 +256,30 @@ class _OnboardingPathSceneState extends State<OnboardingPathScene> {
                                     korean,
                                     locale: const Locale('ko'),
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontSize: _journeyReadingSize(
-                                        context,
-                                        korean,
-                                        korean: true,
-                                      ),
-                                      fontWeight: FontWeight.w600,
-                                      height: 1.25,
-                                      fontFamily: SoriFonts.learningKorean,
-                                    ),
+                                    style: SoriTextTheme.of(context).koDisplay
+                                        .copyWith(
+                                          fontSize: _journeyReadingSize(
+                                            context,
+                                            korean,
+                                            korean: true,
+                                          ),
+                                          fontWeight: FontWeight.w600,
+                                          height: 1.25,
+                                        ),
                                   ),
                                   const SizedBox(height: 8),
                                   Text(
                                     demoMeaning(context, example),
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontSize: _journeyReadingSize(
-                                        context,
-                                        korean,
-                                        korean: false,
-                                      ),
-                                      height: 1.35,
-                                    ),
+                                    style: SoriTextTheme.of(context).gloss
+                                        .copyWith(
+                                          fontSize: _journeyReadingSize(
+                                            context,
+                                            korean,
+                                            korean: false,
+                                          ),
+                                          height: 1.35,
+                                        ),
                                   ),
                                 ],
                               ),

@@ -1579,7 +1579,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                             text: s.playerRoleDisplayName(
                               fallbackYou: t.listeningSpeakerYou,
                             ),
-                            style: const TextStyle(fontWeight: FontWeight.w700),
+                            style: SoriTextTheme.of(context).meta.copyWith(
+                              fontWeight: FontWeight.w700,
+                              color: ss.text,
+                            ),
                           ),
                         ],
                       ),

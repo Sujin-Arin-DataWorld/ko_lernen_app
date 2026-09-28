@@ -50,8 +50,6 @@ import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 import 'support/real_fonts.dart';
 
-const _padStudyEvidenceDir = String.fromEnvironment('PAD_STUDY_EVIDENCE_DIR');
-
 const _packId = 'responsive-study-pack';
 
 const _packWords = <ExtractedWord>[
@@ -379,18 +377,6 @@ void main() {
                 .getRect(find.byType(ClozeOptionsList))
                 .top;
             expect(optionsTop - promptBottom, inInclusiveRange(0, 80));
-          }
-          if (_padStudyEvidenceDir.isNotEmpty &&
-              viewport.textScale == 1 &&
-              (viewport.size.width == 720 || viewport.size.width == 1152)) {
-            await expectLater(
-              find.byKey(const ValueKey('pad-study-evidence')),
-              matchesGoldenFile(
-                Uri.file(
-                  '$_padStudyEvidenceDir/${name.replaceAll(' ', '-')}-${locale.languageCode}-${viewport.size.width.toInt()}x${viewport.size.height.toInt()}.png',
-                ),
-              ),
-            );
           }
         });
       }

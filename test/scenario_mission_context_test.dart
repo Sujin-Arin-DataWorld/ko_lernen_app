@@ -17,10 +17,6 @@ import 'package:ko_lernen_app/widgets/sori/mission_context_bar.dart';
 import 'support/scenario_stock_fixtures.dart';
 import 'support/real_fonts.dart';
 
-const _padScenarioEvidenceDir = String.fromEnvironment(
-  'PAD_SCENARIO_EVIDENCE_DIR',
-);
-
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
@@ -93,21 +89,6 @@ void main() {
           expect(poster, findsOneWidget);
           final posterRect = tester.getRect(poster);
           expect(posterRect.top - missionRect.bottom, inInclusiveRange(0, 80));
-          if (_padScenarioEvidenceDir.isNotEmpty) {
-            final image = tester.widget<Image>(poster);
-            await tester.runAsync(() async {
-              await precacheImage(image.image, tester.element(poster));
-            });
-            await tester.pump();
-            await expectLater(
-              find.byType(ScenarioPlayerScreen),
-              matchesGoldenFile(
-                Uri.file(
-                  '$_padScenarioEvidenceDir/mission-intro-${locale.languageCode}-${size.width.toInt()}x${size.height.toInt()}.png',
-                ),
-              ),
-            );
-          }
         }
         expect(tester.takeException(), isNull);
       },

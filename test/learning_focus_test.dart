@@ -19,8 +19,6 @@ import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 import 'support/real_fonts.dart';
 
-const _todayEvidenceDir = String.fromEnvironment('PAD_TODAY_EVIDENCE_DIR');
-
 const unit = CourseUnit(
   id: 'a1',
   level: 'a1',
@@ -116,16 +114,6 @@ void main() {
         expect(tester.getSize(start).width, lessThanOrEqualTo(320));
       }
       expect(tester.takeException(), isNull);
-      if (_todayEvidenceDir.isNotEmpty) {
-        await expectLater(
-          find.byKey(const ValueKey('today-evidence')),
-          matchesGoldenFile(
-            Uri.file(
-              '$_todayEvidenceDir/${viewport.size.width.toInt()}x${viewport.size.height.toInt()}-${viewport.scale.toInt()}x.png',
-            ),
-          ),
-        );
-      }
     }
   });
 

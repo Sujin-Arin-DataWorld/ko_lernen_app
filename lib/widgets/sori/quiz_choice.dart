@@ -16,6 +16,10 @@ import 'tokens.dart';
 ///   학습자가 정답을 확인할 수 있고(오답을 골랐어도), 선택한 오답은 빨강으로
 ///   표시된다. 나머지는 흐려진다. Duolingo·Quizlet의 정답 공개 패턴.
 class QuizChoice extends StatefulWidget {
+  static TextStyle optionTextStyle(BuildContext context) => SoriTextTheme.of(
+    context,
+  ).label.copyWith(fontSize: 17, fontWeight: FontWeight.w600);
+
   /// 표시 텍스트(보기).
   final String text;
 
@@ -163,11 +167,9 @@ class _QuizChoiceState extends State<QuizChoice>
               children: [
                 Text(
                   widget.text,
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                    color: fg,
-                  ),
+                  style: QuizChoice.optionTextStyle(
+                    context,
+                  ).copyWith(color: fg),
                 ),
                 if (widget.subtitle != null &&
                     widget.subtitle!.trim().isNotEmpty) ...[

@@ -32,8 +32,6 @@ import 'support/scenario_fixtures.dart';
 import 'support/sori_speech_stubs.dart';
 import 'support/real_fonts.dart';
 
-const _padIntroEvidenceDir = String.fromEnvironment('PAD_INTRO_EVIDENCE_DIR');
-
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
@@ -704,92 +702,77 @@ void main() {
         );
         expect(tester.getSize(actionButton).width, lessThanOrEqualTo(720));
         expect(tester.takeException(), isNull);
-        if (_padIntroEvidenceDir.isNotEmpty) {
-          await expectLater(
-            find.byType(ScenarioPlayerScreen),
-            matchesGoldenFile(
-              Uri.file(
-                '$_padIntroEvidenceDir/${locale.languageCode}-${size.width.toInt()}x${size.height.toInt()}.png',
-              ),
-            ),
-          );
-        }
       }
     }
   });
 
-  testWidgets('Pad introduction places scene art beside copy when space allows', (
-    tester,
-  ) async {
-    SceneAssetResolver.debugReset();
-    addTearDown(SceneAssetResolver.debugReset);
-    const scenario = Scenario(
-      id: 'pad-intro-airport',
-      level: LearnerLevel.a1,
-      emoji: '✈️',
-      register: Register.polite,
-      title: LocalizedText(ko: '공항', de: 'Am Flughafen', en: 'At the airport'),
-      intro: LocalizedText(
-        ko: '',
-        de: 'Du beantwortest die ersten Fragen am Flughafen.',
-        en: 'You answer the first questions at the airport.',
-      ),
-      backdrop: 'airport',
-      vocab: [],
-      grammarIds: [],
-      dialog: [],
-      quests: [],
-    );
-    for (final size in const [Size(720, 1152), Size(1152, 720)]) {
-      for (final textScale in const [1.0, 2.0]) {
-        await _pumpPlayer(
-          tester,
-          child: ScenarioPlayerScreen.preview(
-            key: ValueKey('poster-${size.width}-$textScale'),
-            fixture: const ScenarioPlayerPreviewFixture.action(
-              scenario: scenario,
-              stage: ScenarioStage.intro,
-            ),
-          ),
-          size: size,
-          textScale: textScale,
-        );
-        await tester.runAsync(() async {
-          await precacheImage(
-            const AssetImage('assets/illustrations/scenes/airport.png'),
-            tester.element(find.byType(ScenarioPlayerScreen)),
-          );
-        });
-        await tester.pumpAndSettle();
-        final art = tester.getRect(
-          find.byKey(const ValueKey('scenario-intro-art-image')),
-        );
-        final copy = tester.getRect(
-          find.byKey(const ValueKey('scenario-intro-copy')),
-        );
-        if (size.width > size.height && textScale <= 1.3) {
-          expect(art.right + 24, lessThan(copy.left));
-        } else {
-          expect(art.bottom + 16, lessThan(copy.top));
-        }
-        expect(art.height, greaterThan(200));
-        final action = find.text("Los geht's!");
-        expect(action, findsOneWidget);
-        expect(tester.getRect(action).bottom, lessThanOrEqualTo(size.height));
-        expect(tester.takeException(), isNull);
-        if (_padIntroEvidenceDir.isNotEmpty && textScale == 1) {
-          await expectLater(
-            find.byType(ScenarioPlayerScreen),
-            matchesGoldenFile(
-              Uri.file(
-                '$_padIntroEvidenceDir/de-poster-${size.width.toInt()}x${size.height.toInt()}.png',
+  testWidgets(
+    'Pad introduction places scene art beside copy when space allows',
+    (tester) async {
+      SceneAssetResolver.debugReset();
+      addTearDown(SceneAssetResolver.debugReset);
+      const scenario = Scenario(
+        id: 'pad-intro-airport',
+        level: LearnerLevel.a1,
+        emoji: '✈️',
+        register: Register.polite,
+        title: LocalizedText(
+          ko: '공항',
+          de: 'Am Flughafen',
+          en: 'At the airport',
+        ),
+        intro: LocalizedText(
+          ko: '',
+          de: 'Du beantwortest die ersten Fragen am Flughafen.',
+          en: 'You answer the first questions at the airport.',
+        ),
+        backdrop: 'airport',
+        vocab: [],
+        grammarIds: [],
+        dialog: [],
+        quests: [],
+      );
+      for (final size in const [Size(720, 1152), Size(1152, 720)]) {
+        for (final textScale in const [1.0, 2.0]) {
+          await _pumpPlayer(
+            tester,
+            child: ScenarioPlayerScreen.preview(
+              key: ValueKey('poster-${size.width}-$textScale'),
+              fixture: const ScenarioPlayerPreviewFixture.action(
+                scenario: scenario,
+                stage: ScenarioStage.intro,
               ),
             ),
+            size: size,
+            textScale: textScale,
           );
+          await tester.runAsync(() async {
+            await precacheImage(
+              const AssetImage('assets/illustrations/scenes/airport.png'),
+              tester.element(find.byType(ScenarioPlayerScreen)),
+            );
+          });
+          await tester.pumpAndSettle();
+          final art = tester.getRect(
+            find.byKey(const ValueKey('scenario-intro-art-image')),
+          );
+          final copy = tester.getRect(
+            find.byKey(const ValueKey('scenario-intro-copy')),
+          );
+          if (size.width > size.height && textScale <= 1.3) {
+            expect(art.right + 24, lessThan(copy.left));
+          } else {
+            expect(art.bottom + 16, lessThan(copy.top));
+          }
+          expect(art.height, greaterThan(200));
+          final action = find.text("Los geht's!");
+          expect(action, findsOneWidget);
+          expect(tester.getRect(action).bottom, lessThanOrEqualTo(size.height));
+          expect(tester.takeException(), isNull);
         }
       }
-    }
-  });
+    },
+  );
 
   testWidgets('home confirmation follows intro, active, and result stages', (
     tester,

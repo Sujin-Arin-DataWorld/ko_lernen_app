@@ -294,6 +294,33 @@ void main() {
       expect(tester.takeException(), isNull);
     },
   );
+
+  testWidgets('short Pad window scrolls both companion cards and details', (
+    tester,
+  ) async {
+    const size = Size(720, 520);
+    _setViewport(tester, size, 1);
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(_app(const _CompanionHarness()));
+    await _pumpFinite(tester);
+
+    final taego = find.byKey(const ValueKey('onboarding-v2-companion-taego'));
+    final joy = find.byKey(const ValueKey('onboarding-v2-companion-joy'));
+    final details = find.byKey(
+      const ValueKey('onboarding-v2-companion-details'),
+    );
+    expect(taego, findsOneWidget);
+    expect(joy, findsOneWidget);
+    expect(tester.getSize(taego).height, greaterThanOrEqualTo(48));
+    expect(tester.getSize(joy).height, greaterThanOrEqualTo(48));
+    await tester.ensureVisible(details);
+    await tester.pumpAndSettle();
+    _expectLabeled48DpButton(tester, details);
+    final cta = find.byKey(const ValueKey('onboarding-v2-companion-continue'));
+    _expectInsideSafeViewport(tester, cta, size);
+    expect(tester.takeException(), isNull);
+  });
 }
 
 class _GeometryScreen extends StatelessWidget {

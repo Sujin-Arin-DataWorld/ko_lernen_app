@@ -165,7 +165,9 @@ class SoriLearningFocus extends StatelessWidget {
                         ),
                       ],
                     );
-                    if (wideAction || startAction == null) return hero;
+                    if (wideAction || startAction == null) {
+                      return hero;
+                    }
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [hero, const SizedBox(height: 12), startAction],

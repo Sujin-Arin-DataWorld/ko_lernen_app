@@ -9,8 +9,8 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
-import 'support/real_fonts.dart';
-import 'support/sori_speech_stubs.dart';
+import '../support/real_fonts.dart';
+import '../support/sori_speech_stubs.dart';
 
 // Opt-in rendered evidence, following the existing Sori Stage capture contract.
 // Pass --dart-define=ONBOARDING_EVIDENCE_DIR=<absolute directory> --update-goldens.

@@ -231,15 +231,12 @@ class ClozeOptionsList extends StatelessWidget {
               final painter = TextPainter(
                 text: TextSpan(
                   text: option,
-                  style: const TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: QuizChoice.optionTextStyle(context),
                 ),
                 textDirection: Directionality.of(context),
                 textScaler: scaler,
                 maxLines: 2,
-              )..layout(maxWidth: cellWidth - 68);
+              )..layout(maxWidth: cellWidth - 84);
               final fits = !painter.didExceedMaxLines;
               painter.dispose();
               return fits;

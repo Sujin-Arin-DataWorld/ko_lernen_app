@@ -234,6 +234,54 @@ void main() {
     expect(find.byKey(const ValueKey('demo-initial-answer')), findsNothing);
   });
 
+  testWidgets('short crossword exposes its final choice without paging', (
+    tester,
+  ) async {
+    stubSoriSpeech();
+    final data =
+        jsonDecode(
+              File(
+                'assets/data/onboarding_v3_demo_content.json',
+              ).readAsStringSync(),
+            )
+            as Map<String, dynamic>;
+    final levels = data['levels'] as Map<String, dynamic>;
+    final a1 = levels['A1'] as Map<String, dynamic>;
+    final cross = a1['cross'] as Map<String, dynamic>;
+    final lastChoice = (cross['solution'] as List)
+        .cast<String>()
+        .where((value) => value.isNotEmpty)
+        .toSet()
+        .last;
+
+    for (final scale in [1.0, 2.0]) {
+      await show(
+        tester,
+        OnboardingGamesDemo(
+          key: ValueKey('cross-$scale'),
+          level: LearnerLevel.a1,
+        ),
+        scale: scale,
+      );
+      await tester.tap(find.byKey(const ValueKey('demo-game-1')));
+      await tester.pumpAndSettle();
+      final option = find.byKey(ValueKey('demo-choice-$lastChoice'));
+      expect(option, findsOneWidget);
+      expect(find.byKey(const ValueKey('demo-more-choices')), findsNothing);
+      await tester.ensureVisible(option);
+      await tester.pumpAndSettle();
+      await tester.tap(option);
+      await tester.pump();
+      expect(
+        tester
+            .widget<DemoChoice>(find.byKey(const ValueKey('demo-cross-cell-0')))
+            .label,
+        lastChoice,
+      );
+      expect(tester.takeException(), isNull);
+    }
+  });
+
   testWidgets(
     'compact sentence toolbar offers working reset without a no-op example',
     (tester) async {
