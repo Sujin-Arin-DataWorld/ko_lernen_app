@@ -127,7 +127,8 @@ class _PreviewState extends State<FiveTabsPreview> {
   }) => Text(
     s,
     style: TextStyle(
-      fontFamily: serif ? 'MaruBuri' : 'Paperlogy',
+      fontFamily: serif ? 'NotoSansKR' : 'IBMPlexSans',
+      fontFamilyFallback: const ['NotoSansKR'],
       fontSize: size,
       height: 1.35,
       fontWeight: bold ? FontWeight.w600 : FontWeight.w400,
