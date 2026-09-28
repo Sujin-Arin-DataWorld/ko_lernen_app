@@ -37,8 +37,8 @@ class AndroidReleaseToolsConfigTest(unittest.TestCase):
         self.assertTrue(value == PLACEHOLDER or SHA256.fullmatch(value),
                         f"sha256 field must be 64-hex or the harvest placeholder, got {value!r}")
 
-    def test_top_level_keys_are_exactly_the_three_pinned_tools(self):
-        self.assertEqual(set(self.config), {"bundletool", "firebase-tools", "java"})
+    def test_top_level_keys_cover_direct_and_child_tools(self):
+        self.assertEqual(set(self.config), {"bundletool", "firebase-tools", "java", "crashlytics-buildtools"})
 
     def test_bundletool_pins_a_real_github_release_jar(self):
         entry = self.config["bundletool"]
@@ -63,6 +63,16 @@ class AndroidReleaseToolsConfigTest(unittest.TestCase):
         self.assertEqual(entry["url"],
                          f"https://github.com/firebase/firebase-tools/releases/download/v{entry['version']}/firebase-tools-linux")
         self._sha256_field(entry["sha256"])
+
+    def test_crashlytics_buildtools_pins_official_google_maven_artifact(self):
+        entry = self.config["crashlytics-buildtools"]
+        self.assertEqual(set(entry), {"version", "url", "sha256"})
+        self.assertTrue(SEMVER.fullmatch(entry["version"]))
+        self.assertEqual(entry["url"],
+            "https://dl.google.com/android/maven2/com/google/firebase/"
+            f"firebase-crashlytics-buildtools/{entry['version']}/"
+            f"firebase-crashlytics-buildtools-{entry['version']}.jar")
+        self.assertTrue(SHA256.fullmatch(entry["sha256"]))
 
     def test_java_pins_an_exact_temurin_build(self):
         entry = self.config["java"]

@@ -12,5 +12,10 @@
   "java": {
     "version": "17.0.20.1+1",
     "sha256": "f5aed21d3a0b0f4b05d3a3f9fe71263916d5bc0d47b53aa52a3340b90f0b4805"
+  },
+  "crashlytics-buildtools": {
+    "version": "3.0.3",
+    "url": "https://dl.google.com/android/maven2/com/google/firebase/firebase-crashlytics-buildtools/3.0.3/firebase-crashlytics-buildtools-3.0.3.jar",
+    "sha256": "953b6f3942283f8332cc17a59bca2649ea49d14e0072f2c1f01762ebaebdf357"
   }
 }

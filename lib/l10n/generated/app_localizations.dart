@@ -3385,6 +3385,18 @@ abstract class AppL10n {
   /// **'Unsichere oder nicht-koreanische Inhalte wurden nicht in Wörter, Grammatik oder Audio übernommen.'**
   String get bookResultQualityNotice;
 
+  /// No description provided for @bookResultAmbiguousWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Wort kann mehrere Bedeutungen haben. Prüfe, welche zum Satz passt.'**
+  String get bookResultAmbiguousWord;
+
+  /// No description provided for @bookResultAlternativeWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Auch {word} ist möglich. Prüfe, welche Bedeutung zum Satz passt.'**
+  String bookResultAlternativeWord(String word);
+
   /// No description provided for @bookResultTranslationUnavailable.
   ///
   /// In de, this message translates to:
