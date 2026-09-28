@@ -3,6 +3,7 @@ import { Apple, ArrowRight, Brain, Check, Coffee, Gamepad2, Headphones, Language
 import { TesterAccessForm } from "./tester-access-form";
 import { CookieSettingsButton } from "./cookie-settings-button";
 import { CulturalLocaleSync, CulturalTerm } from "./cultural-glossary";
+import { STORE_LINKS } from "./store-links";
 
 export type Locale = "de" | "en" | "ko";
 
@@ -190,12 +191,10 @@ function ButtonLink({ href, children, variant = "primary", compact = false }: { 
 
 function StoreButtons({ locale, light = false }: { locale: Locale; light?: boolean }) {
   const t = testerCopy[locale];
-  // Both test tracks are invite-only: Apple and Google only open the download
-  // once that email sits on our tester list, so neither CTA may jump straight
-  // to a store link. Both open the tester application form instead.
+  // iOS needs an invitation; Android can join the public test on Google Play.
   return <div className={`store-buttons${light ? " store-buttons-light" : ""}`} aria-label="App testing access">
     <a className="store-button" href="#tester-access" aria-haspopup="dialog"><span className="store-icon" aria-hidden="true"><Apple size={20} strokeWidth={2}/></span><span><small>{t.ios}</small><b>App Store</b></span></a>
-    <a className="store-button" href="#tester-access" aria-haspopup="dialog"><span className="store-icon play-icon" aria-hidden="true"><Play size={18} fill="currentColor" strokeWidth={1.8}/></span><span><small>{t.android}</small><b>Google Play</b></span></a>
+    <a className="store-button" href={STORE_LINKS.android}><span className="store-icon play-icon" aria-hidden="true"><Play size={18} fill="currentColor" strokeWidth={1.8}/></span><span><small>{t.android}</small><b>Google Play</b></span></a>
   </div>;
 }
 

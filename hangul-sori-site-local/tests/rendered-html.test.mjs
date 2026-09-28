@@ -58,16 +58,15 @@ test("renders finished site metadata", async () => {
   assert.doesNotMatch(html, /class=["'][^"']*analytics-consent/i);
   assert.match(html, /instagram\.com\/hangulsori_learnkorean/i);
   assert.match(html, /social\/sori-check-01\.png/i);
-  // Both store CTAs stay gated behind the tester form: Apple and Google only
-  // open the download for emails we added as testers, so the rendered page must
-  // not expose an install link to anyone who has not applied.
+  // iOS retains the invitation flow; Android reaches the public Play opt-in.
   const storeCtas = html.match(/<a[^>]*class=["']store-button["'][^>]*>/gi) ?? [];
   assert.ok(storeCtas.length >= 2, "the store CTAs must render");
-  for (const cta of storeCtas) {
-    assert.match(cta, /href=["']#tester-access["']/i);
-  }
+  const iosCtas = storeCtas.filter((cta) => /href=["']#tester-access["']/i.test(cta));
+  const androidCtas = storeCtas.filter((cta) => /href=["']https:\/\/play\.google\.com\/apps\/testing\/com\.sujinarin\.ko_lernen_app["']/i.test(cta));
+  assert.equal(iosCtas.length, storeCtas.length / 2);
+  assert.equal(androidCtas.length, storeCtas.length / 2);
+  assert.match(html, /href=["']https:\/\/play\.google\.com\/apps\/testing\/com\.sujinarin\.ko_lernen_app["'][^>]*>[\s\S]*?Join the Android open test/i);
   assert.doesNotMatch(html, /href=["']https:\/\/testflight\.apple\.com/i);
-  assert.doesNotMatch(html, /href=["']https:\/\/play\.google\.com/i);
   assert.match(html, /iOS beta testing/i);
   assert.match(html, /name=["']platform["']/i);
   assert.match(html, /name=["']focus["']/i);
