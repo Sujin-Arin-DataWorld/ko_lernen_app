@@ -137,6 +137,38 @@ test("adds production-only CSP and HSTS headers", async () => {
   assert.doesNotMatch(html, /<script(?![^>]*\snonce=)/i);
 });
 
+test("prevents edge rewriting only for the byte-verified gallery HTML", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("gallery-no-transform", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const galleryHtml = '<!doctype html><html><script src="app.js"></script></html>';
+  const response = await worker.fetch(
+    new Request("https://hangul-sori.com/hanok/construction/"),
+    {
+      ASSETS: {
+        fetch: async () =>
+          new Response(galleryHtml, {
+            headers: { "content-type": "text/html; charset=UTF-8" },
+          }),
+      },
+    },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get("cache-control") ?? "", /\bno-transform\b/);
+  assert.match(response.headers.get("content-security-policy") ?? "", /script-src 'nonce-/);
+  assert.match(await response.text(), /<script nonce="[^"]+" src="app\.js"/);
+
+  const normalResponse = await worker.fetch(
+    new Request("https://hangul-sori.com/de"),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  assert.equal(normalResponse.status, 200);
+  assert.doesNotMatch(normalResponse.headers.get("cache-control") ?? "", /\bno-transform\b/);
+});
+
 test("validates and emails a tester application without storing it", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("tester-api", `${process.pid}-${Date.now()}`);
