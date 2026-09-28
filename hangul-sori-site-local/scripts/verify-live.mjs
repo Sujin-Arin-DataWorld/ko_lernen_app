@@ -5,6 +5,7 @@ import { resolve } from "node:path";
 import { promisify } from "node:util";
 import { assertDeletionPageContract } from "./deletion-page-contract.mjs";
 import { assertPublicAssetBody, requestPublicAsset } from "./public-asset-response.mjs";
+import { assertStoreAccessCtas } from "./store-cta-contract.mjs";
 
 const execFileAsync = promisify(execFile);
 const TESTFLIGHT_URL = "https://testflight.apple.com/join/sbvJNQSt";
@@ -234,15 +235,7 @@ for (const origin of origins) {
       `${url} must contain the visible text ${JSON.stringify(marker)}`,
     );
     if (path === "/") {
-      const storeCtas = html.match(/<a[^>]*class=["']store-button["'][^>]*>/gi) ?? [];
-      assert.ok(storeCtas.length >= 2, `${url} must retain the store CTAs`);
-      for (const cta of storeCtas) {
-        assert.match(
-          cta,
-          /href=["']#tester-access["']/i,
-          `${url} must keep every store CTA gated behind the tester form`,
-        );
-      }
+      assertStoreAccessCtas(html, url);
       assert.doesNotMatch(
         html,
         /href=["']https:\/\/testflight\.apple\.com/i,
@@ -328,5 +321,5 @@ if (external) {
 }
 
 console.log(
-  `Verified release ${observedRelease ?? "legacy-without-release-header"}, ${routeMarkers.size} routes, ${referencedBuildAssets.size} referenced build assets, exact 404 behavior, tester API GET rejection and binding presence, security headers, ${publicFiles.length} owned assets (HTML permits only the production script nonce), and the gated store CTAs on ${origins.join(" and ")}${external ? ", including Apple" : ""}.`,
+  `Verified release ${observedRelease ?? "legacy-without-release-header"}, ${routeMarkers.size} routes, ${referencedBuildAssets.size} referenced build assets, exact 404 behavior, tester API GET rejection and binding presence, security headers, ${publicFiles.length} owned assets (HTML permits only the production script nonce), and the iOS application / Android open-test CTAs on ${origins.join(" and ")}${external ? ", including Apple" : ""}.`,
 );

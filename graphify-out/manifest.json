@@ -720,9 +720,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/scripts/verify-live.mjs": {
-    "mtime": 1790186110.9871998,
-    "seen": 1790605098.5514739,
-    "ast_hash": "651d69930bf6630b02709364c0b8bd65",
+    "mtime": 1790610021.2949371,
+    "seen": 1790610301.9651628,
+    "ast_hash": "5d8fdedc88f889407b0cc242f464b403",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/scripts/verify-tester-email.mjs": {
@@ -750,9 +750,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/rendered-html.test.mjs": {
-    "mtime": 1790607080.263155,
-    "seen": 1790607915.4598606,
-    "ast_hash": "ecb102523a2e9d16608c3d4f72c5bc8e",
+    "mtime": 1790610021.29697,
+    "seen": 1790610301.9668417,
+    "ast_hash": "d7c4fb663b1d0c7287ec9073e5eef98d",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tsconfig.json": {
@@ -9270,9 +9270,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/WORKER_RELEASE.md": {
-    "mtime": 1790186110.3679197,
-    "seen": 1790605098.5575597,
-    "ast_hash": "fb36e7f1928bd14f68df65bbb723f1bf",
+    "mtime": 1790610021.2917671,
+    "seen": 1790610302.7154279,
+    "ast_hash": "471e20aa2a4ddbee7edf763cd4e19817",
     "semantic_hash": ""
   },
   "ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md": {
@@ -20145,6 +20145,12 @@
     "mtime": 1790186903.5169485,
     "seen": 1790605098.5572617,
     "ast_hash": "e525e450fd5693f5cb7ac18744ee9080",
+    "semantic_hash": ""
+  },
+  "hangul-sori-site-local/scripts/store-cta-contract.mjs": {
+    "mtime": 1790610021.2928271,
+    "seen": 1790610301.964698,
+    "ast_hash": "dac6648cc5f55d0838a3d58f31e4ae4c",
     "semantic_hash": ""
   }
 }
