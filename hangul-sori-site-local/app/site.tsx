@@ -194,7 +194,7 @@ function StoreButtons({ locale, light = false }: { locale: Locale; light?: boole
   // iOS needs an invitation; Android can join the public test on Google Play.
   return <div className={`store-buttons${light ? " store-buttons-light" : ""}`} aria-label="App testing access">
     <a className="store-button" href="#tester-access" aria-haspopup="dialog"><span className="store-icon" aria-hidden="true"><Apple size={20} strokeWidth={2}/></span><span><small>{t.ios}</small><b>App Store</b></span></a>
-    <a className="store-button" href={STORE_LINKS.android}><span className="store-icon play-icon" aria-hidden="true"><Play size={18} fill="currentColor" strokeWidth={1.8}/></span><span><small>{t.android}</small><b>Google Play</b></span></a>
+    <a className="store-button" href={STORE_LINKS.android} target="_blank" rel="noopener noreferrer"><span className="store-icon play-icon" aria-hidden="true"><Play size={18} fill="currentColor" strokeWidth={1.8}/></span><span><small>{t.android}</small><b>Google Play</b></span></a>
   </div>;
 }
 
