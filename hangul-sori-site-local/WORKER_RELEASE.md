@@ -69,6 +69,10 @@ application CTA, and the direct Android open-test CTA. If the new version fails
 verification and is still the active version, the release command rolls back to
 the exact previously active Worker version.
 
+The static Hanok construction HTML uses `Cache-Control: no-transform` so
+Cloudflare Bot Fight Mode does not inject code into its byte-verified response.
+Other site HTML keeps the bot signal.
+
 For a manual or stricter check:
 
 ```bash
