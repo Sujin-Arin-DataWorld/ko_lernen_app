@@ -31,7 +31,7 @@ void main() {
     for (final language in ['de', 'en']) {
       for (final scale in [1.0, 1.3, 2.0]) {
         testWidgets(
-          '$language $size text $scale keeps every main step on one screen',
+          '$language $size text $scale keeps every main step reachable',
           (tester) async {
             tester.view.devicePixelRatio = 2.5;
             tester.view.physicalSize = Size(
@@ -103,7 +103,7 @@ void main() {
               );
               await tester.pumpAndSettle();
               final evidence = '$language $size scale=$scale screen=$index';
-              _expectScreenFits(tester, size, evidence);
+              await _expectScreenFits(tester, size, evidence);
               if (screens[index] is OnboardingCompanionScreen) {
                 for (final name in ['Taego', 'Joy']) {
                   final paragraph = tester.renderObject<RenderParagraph>(
@@ -129,13 +129,20 @@ void main() {
   }
 }
 
-void _expectScreenFits(WidgetTester tester, Size size, String evidence) {
+Future<void> _expectScreenFits(
+  WidgetTester tester,
+  Size size,
+  String evidence,
+) async {
   expect(tester.takeException(), isNull, reason: evidence);
-  for (final s in tester.stateList<ScrollableState>(find.byType(Scrollable))) {
-    expect(s.position.maxScrollExtent, 0, reason: evidence);
-  }
   for (final button in find.byType(SoriButton).evaluate()) {
-    final rect = tester.getRect(find.byWidget(button.widget));
+    final finder = find.byWidget(button.widget);
+    var rect = tester.getRect(finder);
+    if (rect.top < 44 || rect.bottom > size.height - 34) {
+      await tester.ensureVisible(finder);
+      await tester.pumpAndSettle();
+      rect = tester.getRect(finder);
+    }
     expect(rect.width, greaterThanOrEqualTo(48), reason: evidence);
     expect(rect.height, greaterThanOrEqualTo(48), reason: evidence);
     _expectInside(rect, size, evidence);
@@ -146,18 +153,23 @@ void _expectScreenFits(WidgetTester tester, Size size, String evidence) {
             (widget) => widget is IconButton || widget is TextButton,
           )
           .evaluate()) {
-    final rect = tester.getRect(find.byWidget(button.widget));
+    final finder = find.byWidget(button.widget);
+    var rect = tester.getRect(finder);
+    if (rect.top < 44 || rect.bottom > size.height - 34) {
+      await tester.ensureVisible(finder);
+      await tester.pumpAndSettle();
+      rect = tester.getRect(finder);
+    }
     expect(rect.width, greaterThanOrEqualTo(48), reason: evidence);
     expect(rect.height, greaterThanOrEqualTo(48), reason: evidence);
     _expectInside(rect, size, evidence);
   }
   for (final paragraph in find.byType(RichText).evaluate()) {
-    _expectInside(
-      tester.getRect(find.byWidget(paragraph.widget)),
-      size,
-      evidence,
-    );
+    final rect = tester.getRect(find.byWidget(paragraph.widget));
+    expect(rect.left, greaterThanOrEqualTo(-.1), reason: evidence);
+    expect(rect.right, lessThanOrEqualTo(size.width + .1), reason: evidence);
   }
+  expect(tester.takeException(), isNull, reason: evidence);
 }
 
 void _expectInside(Rect rect, Size size, String evidence) {

@@ -72,7 +72,10 @@ class _OnboardingGamesDemoState
             bounds.maxWidth,
             names,
           );
-          final selectorFontSize = bounds.maxWidth >= 600 ? 17.0 : 15.0;
+          final selectorFontSize =
+              bounds.maxWidth >= SoriAdaptiveWidth.demoWideSelector
+              ? 17.0
+              : 15.0;
           if (bounds.maxHeight < 500 ||
               MediaQuery.textScalerOf(context).scale(1) > 1.5 ||
               selectorColumns < 3) {
@@ -156,7 +159,7 @@ class _OnboardingGamesDemoState
   }
 
   int _selectorColumns(BuildContext context, double width, List<String> names) {
-    final fontSize = width >= 600 ? 17.0 : 15.0;
+    final fontSize = width >= SoriAdaptiveWidth.demoWideSelector ? 17.0 : 15.0;
     final painter = TextPainter(
       textDirection: Directionality.of(context),
       textScaler: MediaQuery.textScalerOf(context),

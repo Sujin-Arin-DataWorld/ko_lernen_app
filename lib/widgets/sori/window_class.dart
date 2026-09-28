@@ -142,6 +142,18 @@ abstract final class SoriMaxWidth {
 /// 창 전체의 size class가 아니라 padding과 clamp를 지난 실제 내부 폭에 쓴다.
 /// 화면 파일에 숫자 비교가 흩어지지 않도록 이곳에서만 관리한다.
 abstract final class SoriAdaptiveWidth {
+  /// Demo game names need three readable columns and a larger selector label.
+  static const double demoWideSelector = 600;
+
+  /// Intro poster and prose can sit beside each other without narrow text.
+  static const double scenarioIntroSideBySide = 760;
+
+  /// Scenario prose can use its larger reading size.
+  static const double scenarioIntroLargeProse = 520;
+
+  /// The intro art uses a shorter crop in a narrow content column.
+  static const double scenarioIntroNarrowArt = 420;
+
   /// Two companion choices remain readable after onboarding page padding.
   static const double companionChoicesRow = 620;
 

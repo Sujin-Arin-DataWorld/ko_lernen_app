@@ -53,6 +53,7 @@ import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/speakable.dart';
@@ -1531,7 +1532,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
               final poster = _backdropPoster;
               final textScale = MediaQuery.textScalerOf(context).scale(1);
               final sideBySide =
-                  poster != null && bounds.maxWidth >= 760 && textScale <= 1.3;
+                  poster != null &&
+                  bounds.maxWidth >=
+                      SoriAdaptiveWidth.scenarioIntroSideBySide &&
+                  textScale <= 1.3;
               final reading = Column(
                 key: const ValueKey('scenario-intro-copy'),
                 mainAxisSize: MainAxisSize.min,
@@ -1565,7 +1569,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                     s.intro.pick(lang),
                     style: SoriTextTheme.of(context).gloss.copyWith(
                       color: ss.text,
-                      fontSize: bounds.maxWidth >= 520 ? 22 : 18,
+                      fontSize:
+                          bounds.maxWidth >=
+                              SoriAdaptiveWidth.scenarioIntroLargeProse
+                          ? 22
+                          : 18,
                       height: 1.5,
                     ),
                   ),
@@ -1623,7 +1631,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                         alignment: scenarioIntroAlignmentFor(s),
                         emoji: s.emoji,
                         sidekick: s.sidekick,
-                        height: bounds.maxWidth < 420 ? 160 : 240,
+                        height:
+                            bounds.maxWidth <
+                                SoriAdaptiveWidth.scenarioIntroNarrowArt
+                            ? 160
+                            : 240,
                       ),
                     ),
                     const SizedBox(height: Spacing.xl),

@@ -38,7 +38,7 @@ class QuizChoice extends StatefulWidget {
   /// 선택 보조 설명(로마자·품사 등). 없으면 미표시.
   final String? subtitle;
 
-  /// 최소 높이(dp). null이면 콘텐츠 높이. 넉넉한 화면을 채워야 하는 화면
+  /// 최소 높이(dp). null이면 접근성 기준인 48dp. 넉넉한 화면을 채워야 하는 화면
   /// (단어팩 등)에서 보기 박스를 더 크게·탭하기 쉽게 만들 때만 지정.
   final double? minHeight;
 
@@ -146,9 +146,13 @@ class _QuizChoiceState extends State<QuizChoice>
       duration: SoriMotion.respect(context, SoriAnimation.quick),
       curve: Curves.easeOut,
       width: double.infinity,
-      constraints: widget.minHeight != null
-          ? BoxConstraints(minHeight: widget.minHeight!)
-          : null,
+      constraints: BoxConstraints(
+        minHeight:
+            widget.minHeight != null &&
+                widget.minHeight! > kMinInteractiveDimension
+            ? widget.minHeight!
+            : kMinInteractiveDimension,
+      ),
       decoration: BoxDecoration(
         color: bg,
         border: Border.all(color: border, width: 1.6),

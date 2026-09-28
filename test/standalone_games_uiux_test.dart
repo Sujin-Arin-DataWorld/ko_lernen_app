@@ -910,7 +910,7 @@ void main() {
     _expectButton(tester, find.byKey(const ValueKey('silben-cell-0-0')));
     final syllableTile = find.bySemanticsLabel('가');
     _expectButton(tester, syllableTile);
-    expect(tester.getSize(syllableTile), const Size(46, 46));
+    expect(tester.getSize(syllableTile), const Size(48, 48));
 
     await _pumpPhone(
       tester,
