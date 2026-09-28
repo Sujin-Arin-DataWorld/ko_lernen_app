@@ -34,7 +34,7 @@ class AppTheme {
       scaffoldBackgroundColor: s.bg,
       colorScheme: colorScheme,
       fontFamily: SoriFonts.sans,
-      fontFamilyFallback: const [SoriFonts.learningKorean],
+      fontFamilyFallback: SoriFonts.fallback,
 
       // ── Page transitions §B1(2026-09-03) ────────────────────────────
       // 플랫폼 네이티브 전환 — Android predictive-back, iOS/macOS
@@ -62,8 +62,9 @@ class AppTheme {
         titleTextStyle: TextStyle(
           color: s.text,
           // §W-A2 b (2026-09-03): SoriAppBar 의 chromeTitle 과 동일 스펙으로
-          // 수렴 — SoriTypeSpecs.chromeTitle 단일 원천(20/w700/-0.2).
+          // 수렴 — SoriTypeSpecs.chromeTitle 단일 원천.
           fontFamily: SoriFonts.sans,
+          fontFamilyFallback: SoriFonts.fallback,
           fontWeight: SoriTypeSpecs.chromeTitle.weight,
           fontSize: SoriTypeSpecs.chromeTitle.size,
           letterSpacing: SoriTypeSpecs.chromeTitle.letterSpacing,
@@ -81,7 +82,7 @@ class AppTheme {
           ),
           textStyle: const TextStyle(
             fontFamily: SoriFonts.sans,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w600,
             fontSize: 15,
             letterSpacing: -0.2,
           ),
@@ -98,7 +99,7 @@ class AppTheme {
           side: BorderSide(color: s.border, width: 1.5),
           textStyle: const TextStyle(
             fontFamily: SoriFonts.sans,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w500,
             fontSize: 14,
           ),
         ),
@@ -109,7 +110,7 @@ class AppTheme {
           foregroundColor: primary,
           textStyle: const TextStyle(
             fontFamily: SoriFonts.sans,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w500,
             fontSize: 14,
           ),
         ),
@@ -135,7 +136,7 @@ class AppTheme {
           borderRadius: SoriRadius.brLg,
           borderSide: BorderSide(color: primary, width: 2),
         ),
-        hintStyle: TextStyle(color: s.textDim, fontWeight: FontWeight.w500),
+        hintStyle: TextStyle(color: s.textDim, fontWeight: FontWeight.w400),
       ),
 
       // ── Chips ────────────────────────────────────────────────────────
@@ -145,13 +146,13 @@ class AppTheme {
         labelStyle: TextStyle(
           color: s.text,
           fontFamily: SoriFonts.sans,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w500,
           fontSize: 13.5,
         ),
         secondaryLabelStyle: const TextStyle(
           color: Colors.white,
           fontFamily: SoriFonts.sans,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w600,
           fontSize: 13.5,
         ),
         side: BorderSide(color: s.border),
@@ -175,7 +176,7 @@ class AppTheme {
         contentTextStyle: TextStyle(
           color: s.bg,
           fontFamily: SoriFonts.sans,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w400,
         ),
         shape: RoundedRectangleBorder(borderRadius: SoriRadius.brLg),
         behavior: SnackBarBehavior.floating,
@@ -189,13 +190,13 @@ class AppTheme {
         titleTextStyle: TextStyle(
           color: s.text,
           fontFamily: SoriFonts.sans,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w500,
           fontSize: 15,
         ),
         subtitleTextStyle: TextStyle(
           color: s.textMuted,
           fontFamily: SoriFonts.sans,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w400,
           fontSize: 13.5,
         ),
       ),
@@ -210,7 +211,7 @@ class AppTheme {
           return TextStyle(
             fontFamily: SoriFonts.sans,
             fontSize: 13,
-            fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+            fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
             color: selected ? primary : s.textMuted,
           );
         }),
@@ -245,6 +246,7 @@ class AppTheme {
       Color? color,
     }) => TextStyle(
       fontFamily: SoriFonts.sans,
+      fontFamilyFallback: SoriFonts.fallback,
       fontSize: size,
       fontWeight: w,
       height: height,
@@ -259,15 +261,15 @@ class AppTheme {
       headlineLarge: tt.h1,
       headlineMedium: tt.h2,
       headlineSmall: tt.h3,
-      titleLarge: base(18, FontWeight.w700, height: 1.4),
-      titleMedium: base(16, FontWeight.w600, height: 1.4),
-      titleSmall: base(14, FontWeight.w600, height: 1.4, color: s.textMuted),
-      bodyLarge: base(17, FontWeight.w500, height: 1.5),
-      bodyMedium: base(16, FontWeight.w500, height: 1.5),
-      bodySmall: base(14, FontWeight.w500, height: 1.5, color: s.textMuted),
-      labelLarge: base(15, FontWeight.w700),
-      labelMedium: base(13.5, FontWeight.w700, color: s.textMuted),
-      labelSmall: base(13, FontWeight.w700, color: s.textMuted, spacing: 0.5),
+      titleLarge: base(18, FontWeight.w500, height: 1.4),
+      titleMedium: base(16, FontWeight.w500, height: 1.4),
+      titleSmall: base(14, FontWeight.w500, height: 1.4, color: s.textMuted),
+      bodyLarge: base(17, FontWeight.w400, height: 1.5),
+      bodyMedium: base(16, FontWeight.w400, height: 1.5),
+      bodySmall: base(14, FontWeight.w400, height: 1.5, color: s.textMuted),
+      labelLarge: base(15, FontWeight.w600),
+      labelMedium: base(13.5, FontWeight.w500, color: s.textMuted),
+      labelSmall: base(13, FontWeight.w500, color: s.textMuted, spacing: 0.5),
     );
   }
 }

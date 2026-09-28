@@ -1898,37 +1898,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                             ),
                                       ),
                                       const SizedBox(height: Spacing.xs),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Expanded(
-                                            child: Text(
-                                              line.ko,
-                                              style: SoriTextTheme.of(
-                                                context,
-                                              ).h3.copyWith(color: ss.text),
-                                            ),
-                                          ),
-                                          const SizedBox(width: Spacing.sm),
-                                          // 버블 전체가 탭 대상이므로 아이콘은
-                                          // 시각적 힌트만 담당(별도
-                                          // GestureDetector 불필요) — 자동재생
-                                          // 대상 줄은 재생 단계에 따라 아이콘만
-                                          // 바뀐다(SoriSpeechIndicator와 같은
-                                          // 매핑), 시맨틱 노드는 만들지 않는다.
-                                          ExcludeSemantics(
-                                            child: Icon(
-                                              trailingIcon,
-                                              color: bubbleAccent.withValues(
-                                                alpha: 0.7,
-                                              ),
-                                              size: 18,
-                                            ),
-                                          ),
-                                        ],
+                                      Text(
+                                        line.ko,
+                                        style: SoriTextTheme.of(
+                                          context,
+                                        ).h3.copyWith(color: ss.text),
                                       ),
                                       if (line.pick(lang).isNotEmpty) ...[
                                         const SizedBox(height: Spacing.xs),
@@ -1955,24 +1929,37 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                       // 이름을 붙인다 — 카드가 여럿이면 같은
                                       // 이름의 버튼이 여러 개 뜨는 문제(a11y
                                       // HIGH, WCAG 4.1.2).
-                                      Align(
-                                        alignment: Alignment.centerRight,
-                                        child: AddToWordbookButton(
-                                          enabled:
-                                              widget.previewFixture == null,
-                                          compact: true,
-                                          korean: line.ko,
-                                          translationDe: line.de,
-                                          translationEn: line.en,
-                                          translationLanguage: lang,
-                                          itemType:
-                                              StudyLibraryItemType.sentence,
-                                          itemId: line.ko,
-                                          sourceUnitId: sc.id,
-                                          source: 'scenario_player',
-                                          semanticLabel:
-                                              '${t.wbAddTooltip}: ${line.ko}',
-                                        ),
+                                      Row(
+                                        children: [
+                                          // 장식용 듣기 아이콘은 본문 아래에 둬서
+                                          // 긴 문장에 카드 전체 너비를 준다.
+                                          ExcludeSemantics(
+                                            child: Icon(
+                                              trailingIcon,
+                                              color: bubbleAccent.withValues(
+                                                alpha: 0.7,
+                                              ),
+                                              size: 18,
+                                            ),
+                                          ),
+                                          const Spacer(),
+                                          AddToWordbookButton(
+                                            enabled:
+                                                widget.previewFixture == null,
+                                            compact: true,
+                                            korean: line.ko,
+                                            translationDe: line.de,
+                                            translationEn: line.en,
+                                            translationLanguage: lang,
+                                            itemType:
+                                                StudyLibraryItemType.sentence,
+                                            itemId: line.ko,
+                                            sourceUnitId: sc.id,
+                                            source: 'scenario_player',
+                                            semanticLabel:
+                                                '${t.wbAddTooltip}: ${line.ko}',
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),

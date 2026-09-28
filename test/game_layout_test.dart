@@ -24,7 +24,7 @@ import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 /// 800×1280 에서 Blitz-Paare 는 화면의 63%, Satz bauen 은 57% 가 빈 공간이었고,
 /// 보기 버튼은 폰·태블릿 모두 42~53dp 로 **완전히 동일**했다. `SoriStudyScale`
 /// 이 붙어 있어도 그건 본문 글씨만 키우고 버튼 높이엔 안 걸린다.
-/// 앱이 실제로 쓰는 IBM Plex Sans·Noto Sans KR을 로드한다.
+/// 앱이 실제로 쓰는 IBM Plex Sans와 Noto Sans KR을 로드한다.
 ///
 /// ⛔ 이게 없으면 `flutter test` 는 **모든 글자를 같은 폭의 사각형으로 그리는
 /// 테스트 폰트**를 쓴다. 글자 폭 기반 판정(`didExceedMaxLines`)이 실기기와

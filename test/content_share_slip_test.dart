@@ -255,10 +255,7 @@ void main() {
 
     // 대조군: 어절이 둘이면 접혀서 한 줄이 는다 — 띠 세는 방법 자체가
     // 줄 수에 반응한다는 확인이다(항상 3 을 뱉는 검사가 아니다).
-    final twoWords = await _Slip.render(
-      korean: '안녕하세요 반갑습니다',
-      gloss: 'Guten Tag',
-    );
+    final twoWords = await _Slip.render(korean: '잘 부탁드립니다', gloss: 'Guten Tag');
     expect(twoWords.inkBandsIn(l.contentArea.deflate(8), bandThreshold), 4);
     twoWords.dispose();
   });

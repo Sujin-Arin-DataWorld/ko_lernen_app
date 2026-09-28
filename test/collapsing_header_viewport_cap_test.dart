@@ -25,7 +25,7 @@ import 'support/real_fonts.dart';
 ///
 /// Uses real fonts (`loadSoriRealFonts`) — this is a layout-budget (height)
 /// assertion, and the default test font's uniform 1em-square glyphs would
-/// invent wrap points the real Paperlogy/MaruBuri faces don't have, which
+/// invent wrap points the real Plex/Noto faces don't have, which
 /// would make the "control" case unreliable (§W-F3, `test/support/real_fonts.dart`).
 void main() {
   setUpAll(loadSoriRealFonts);

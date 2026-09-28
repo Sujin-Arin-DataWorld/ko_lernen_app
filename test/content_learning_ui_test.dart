@@ -14,12 +14,17 @@ import 'package:ko_lernen_app/features/content_learning/content_lesson_screen.da
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/smalltalk.dart';
+import 'package:ko_lernen_app/services/audio_policy.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/smalltalk_loader.dart';
 import 'package:ko_lernen_app/services/local_data_lifetime.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot.dart';
+import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
+import 'package:ko_lernen_app/widgets/sori/motion.dart';
+import 'package:ko_lernen_app/widgets/sori/progress_meter.dart';
 import 'support/real_fonts.dart';
 import 'support/reward_preferences_platform.dart';
 import 'support/sori_speech_stubs.dart';
@@ -153,6 +158,8 @@ void main() {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
+    await AudioPolicy.instance.setChannelOn(SoundChannel.companion, false);
+    MascotPreference.load();
   });
   testWidgets('goals are per level and read-only hub does not start a day', (
     tester,
@@ -382,6 +389,11 @@ void main() {
         ContentLearningService.progress(_lesson.id).missedQuestionIds,
         contains('q1'),
       );
+      expect(
+        find.byKey(const ValueKey('content-feedback-stage')),
+        findsOneWidget,
+      );
+      expect(find.byType(Mascot), findsOneWidget);
       expect(find.text('Source passage'), findsOneWidget);
       await _tap(tester, find.byKey(const ValueKey('content-feedback-next')));
       await _tap(tester, find.text('기분이'));
@@ -420,6 +432,8 @@ void main() {
   testWidgets(
     'listening resumes exact dialogue line and listening alone never completes',
     (tester) async {
+      final spoken = <String>[];
+      final voices = <String>[];
       await ContentLearningService.setGoal(
         LearningContentKind.listening,
         'a1',
@@ -437,15 +451,29 @@ void main() {
           lesson: _listening,
           scope: const [_listening],
           scenario: _scenario,
-          speak: (text, {voice = 'auto'}) async => true,
+          speak: (text, {voice = 'auto'}) async {
+            spoken.add(text);
+            voices.add(voice);
+            return true;
+          },
         ),
       );
       await tester.pumpAndSettle();
       expect(find.text('반가워요.'), findsOneWidget);
-      await _tap(tester, find.text('Listen'));
+      expect(
+        tester.widget<SoriProgressMeter>(find.byType(SoriProgressMeter)).filled,
+        2,
+      );
+      await _tap(tester, find.byKey(const ValueKey('content-learn-sentence')));
+      expect(spoken, ['반가워요.']);
+      expect(voices, [_scenario.voiceForSpeaker('minsu')]);
       expect(ContentLearningService.progress(_listening.id).completed, isFalse);
       await _tap(tester, find.byKey(const ValueKey('content-learn-next')));
       expect(ContentLearningService.progress(_listening.id).position, 2);
+      expect(
+        tester.widget<SoriProgressMeter>(find.byType(SoriProgressMeter)).filled,
+        3,
+      );
       await _tap(tester, find.byKey(const ValueKey('content-learn-next')));
       expect(find.text('Key expressions'), findsWidgets);
       expect(
@@ -460,6 +488,73 @@ void main() {
       expect(ContentLearningService.progress(_listening.id).completed, isFalse);
     },
   );
+  testWidgets('learn step introduces the companion and reveals usage on tap', (
+    tester,
+  ) async {
+    await ContentLearningService.startLesson(_lesson, [_lesson]);
+    await _pump(
+      tester,
+      const ContentLessonScreen(
+        lesson: _lesson,
+        scope: [_lesson],
+        phrases: _phrases,
+      ),
+      size: const Size(390, 844),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(Mascot), findsOneWidget);
+    expect(find.text('그렇군요.'), findsOneWidget);
+    expect(find.text('요즘 어떻게 지내세요?'), findsNothing);
+    await _tap(tester, find.text('Usage and alternatives'));
+    expect(find.text('요즘 어떻게 지내세요?'), findsOneWidget);
+  });
+  testWidgets('sentence card reacts while its Korean audio is playing', (
+    tester,
+  ) async {
+    final playback = Completer<bool>();
+    await ContentLearningService.startLesson(_lesson, [_lesson]);
+    await _pump(
+      tester,
+      ContentLessonScreen(
+        lesson: _lesson,
+        scope: const [_lesson],
+        phrases: _phrases,
+        speak: (text, {voice = 'auto'}) => playback.future,
+      ),
+      size: const Size(390, 844),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('content-learn-sentence')));
+    await tester.pump(const Duration(milliseconds: 250));
+    expect(find.byType(SoriPulse), findsOneWidget);
+    playback.complete(true);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 250));
+    expect(find.byType(SoriPulse), findsNothing);
+  });
+  testWidgets('practice question stays in a visible stage near the top', (
+    tester,
+  ) async {
+    await ContentLearningService.startLesson(_lesson, [_lesson]);
+    await _pump(
+      tester,
+      const ContentLessonScreen(
+        lesson: _lesson,
+        scope: [_lesson],
+        phrases: _phrases,
+      ),
+      size: const Size(390, 844),
+    );
+    await tester.pumpAndSettle();
+    await _tap(tester, find.byKey(const ValueKey('content-learn-next')));
+    await _tap(tester, find.byKey(const ValueKey('content-learn-next')));
+    final stage = find.byKey(const ValueKey('content-practice-question'));
+    expect(stage, findsOneWidget);
+    expect(tester.getRect(stage).top, lessThan(280));
+    expect(find.byType(SoriProgressMeter), findsOneWidget);
+    expect(find.byType(Mascot), findsOneWidget);
+    expect(find.text('Your turn'), findsOneWidget);
+  });
   testWidgets('autoplay ignores a late completion after pause', (tester) async {
     await ContentLearningService.startLesson(_listening, [_listening]);
     final playback = Completer<bool>();
@@ -786,6 +881,13 @@ void main() {
         expect(tester.takeException(), isNull);
         _expectBalancedAction(tester, 'content-learn-next', size);
         if (_capture) {
+          await tester.runAsync(
+            () => precacheImage(
+              const AssetImage(Mascot.kTigerAsset),
+              tester.element(find.byType(ContentLessonScreen)),
+            ),
+          );
+          await tester.pump();
           await _save(
             tester,
             'content-learning-$language-${_evidenceSize(size)}.png',
@@ -806,6 +908,12 @@ void main() {
           find.text(_lesson.questions.first.options[1].pick(language)),
         );
         await _tap(tester, find.byKey(const ValueKey('content-check')));
+        if (_capture) {
+          await _save(
+            tester,
+            'content-feedback-$language-${_evidenceSize(size)}.png',
+          );
+        }
         await _tap(tester, find.byKey(const ValueKey('content-feedback-next')));
         await _tap(tester, find.text('기분이'));
         await _tap(tester, find.text('좋아요.'));
@@ -821,6 +929,11 @@ void main() {
           find.text(strings.contentLearningReviewMistakes),
           findsOneWidget,
         );
+        expect(
+          find.byKey(const ValueKey('content-result-stage')),
+          findsOneWidget,
+        );
+        expect(find.byType(SoriProgressMeter), findsOneWidget);
         expect(tester.takeException(), isNull);
         _expectBalancedAction(tester, 'content-result-exit', size);
         final heading = tester.getRect(

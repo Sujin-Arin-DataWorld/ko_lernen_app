@@ -1688,6 +1688,14 @@ class AppL10nEn extends AppL10n {
       'Gye is for ages 16 and up. Your birth year is self-declared, stored only on this device, and is not identity verification. Without month and day, the conservative check unlocks at a year difference of at least 17.';
 
   @override
+  String get privacyAgeYearBody =>
+      'The app needs your age declaration before you can voluntarily enable usage statistics or crash reports. Your self-declared birth year stays on this device. Without month and day, these options unlock conservatively at a year difference of at least 17.';
+
+  @override
+  String get privacyAgeRestricted =>
+      'Usage statistics and crash reports cannot be enabled with this age declaration. Because only the year is known, the app requires a year difference of at least 17.';
+
+  @override
   String get gyeAgeYearHint => 'e.g. 2005';
 
   @override
@@ -10877,6 +10885,9 @@ class AppL10nEn extends AppL10n {
   String get contentLearningPractice => 'Practise';
 
   @override
+  String get contentLearningYourTurn => 'Your turn';
+
+  @override
   String get contentLearningNext => 'Continue';
 
   @override
@@ -10952,7 +10963,7 @@ class AppL10nEn extends AppL10n {
   String get contentLearningTranslation => 'Show translation';
 
   @override
-  String get contentLearningUsage => 'Usage and next response';
+  String get contentLearningUsage => 'Usage and alternatives';
 
   @override
   String get contentLearningEvidence => 'Source passage';

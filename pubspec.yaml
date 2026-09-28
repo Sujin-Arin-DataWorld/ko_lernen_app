@@ -238,32 +238,16 @@ flutter:
     - assets/video/home_hero/
     - assets/video/gye/
 
-  # IBM Plex Sans handles DE/EN UI. Noto Sans KR handles Korean learning text
-  # and backs up IBM Plex Sans for Korean UI glyphs. Licenses are bundled.
+  # ── IBM Plex Sans(라틴) + Noto Sans KR(한글) 가변 서체, OFL ──
+  # Plex Sans 라틴 파일은 한글이 없다. SoriFonts.fallback에 Noto Sans KR을
+  # 명시해 기기 기본 글꼴로 새지 않게 한다. test/font_bundle_guard_test.dart 검사.
   fonts:
     - family: IBMPlexSans
       fonts:
-        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-Bold.ttf
-          weight: 700
-    # Maru Buri is reserved for short Korean cultural titles.
-    - family: MaruBuri
-      fonts:
-        - asset: assets/fonts/MaruBuri/MaruBuri-Regular.otf
-          weight: 400
-        - asset: assets/fonts/MaruBuri/MaruBuri-SemiBold.otf
-          weight: 600
-    # Korean learning examples use a consistent face across phones and Pads.
-    # Source and license: google/fonts/ofl/notosanskr (OFL); variable wght 100–900.
+        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-Variable.ttf
     - family: NotoSansKR
       fonts:
-        - asset: assets/fonts/NotoSansKR/NotoSansKR[wght].ttf
-
+        - asset: assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf
 # ─────────────────────────────────────────────────────────
 # Launcher Icon — generiert mit:
 #   flutter pub run flutter_launcher_icons

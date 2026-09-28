@@ -1691,6 +1691,14 @@ class AppL10nDe extends AppL10n {
       'Gye ist ab 16 Jahren nutzbar. Dein Geburtsjahr ist eine Selbstauskunft, wird nur auf diesem Gerät gespeichert und ist keine Identitätsprüfung. Ohne Monat und Tag wird konservativ erst bei mindestens 17 Jahren Jahresdifferenz freigeschaltet.';
 
   @override
+  String get privacyAgeYearBody =>
+      'Für freiwillige Nutzungsstatistiken und Absturzberichte braucht die App zuerst deine Altersangabe. Dein selbst angegebenes Geburtsjahr bleibt auf diesem Gerät. Ohne Monat und Tag schalten wir diese Optionen konservativ erst bei mindestens 17 Jahren Jahresdifferenz frei.';
+
+  @override
+  String get privacyAgeRestricted =>
+      'Nutzungsstatistiken und Absturzberichte können mit dieser Altersangabe nicht aktiviert werden. Die App prüft wegen der jahresgenauen Angabe konservativ erst ab mindestens 17 Jahren Jahresdifferenz.';
+
+  @override
   String get gyeAgeYearHint => 'z. B. 2005';
 
   @override
@@ -10930,6 +10938,9 @@ class AppL10nDe extends AppL10n {
   String get contentLearningPractice => 'Üben';
 
   @override
+  String get contentLearningYourTurn => 'Jetzt bist du dran';
+
+  @override
   String get contentLearningNext => 'Weiter';
 
   @override
@@ -11005,7 +11016,7 @@ class AppL10nDe extends AppL10n {
   String get contentLearningTranslation => 'Übersetzung zeigen';
 
   @override
-  String get contentLearningUsage => 'Verwendung und nächste Antwort';
+  String get contentLearningUsage => 'Verwendung und Varianten';
 
   @override
   String get contentLearningEvidence => 'Stelle im Dialog';

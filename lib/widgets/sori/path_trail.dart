@@ -536,8 +536,7 @@ class _NowDiscState extends State<_NowDisc>
                 ),
                 child: Text(
                   widget.badge,
-                  // w800/w900 은 typography_guard_test 의 래칫 상한에 걸린다
-                  // (Pretendard 는 400~800만 번들 → w900 은 어차피 800으로 렌더).
+                  // w800/w900 은 typography_guard_test 의 래칫 상한에 걸린다.
                   style: const TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,

@@ -65,7 +65,15 @@ async function withSecurityHeaders(response: Response, url: URL) {
   headers.set("permissions-policy", "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()");
   headers.set("cross-origin-opener-policy", "same-origin");
   if (isHtml) {
-    headers.set("cache-control", "no-store, max-age=0, must-revalidate");
+    // Cloudflare Bot Fight Mode injects JavaScript into HTML unless the
+    // response forbids transformation. The static gallery is byte-verified;
+    // keep normal site pages eligible for the bot signal.
+    headers.set(
+      "cache-control",
+      securedGalleryDocuments.has(url.pathname)
+        ? "no-store, no-transform, max-age=0, must-revalidate"
+        : "no-store, max-age=0, must-revalidate",
+    );
   }
 
   const isLocal = url.hostname === "localhost" || url.hostname === "127.0.0.1";

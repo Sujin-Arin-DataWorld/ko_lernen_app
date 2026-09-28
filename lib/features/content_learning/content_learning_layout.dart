@@ -15,11 +15,13 @@ class ContentLearningLayout extends StatelessWidget {
     required this.body,
     required this.actions,
     this.header,
+    this.topAligned = false,
   });
 
   final List<Widget> body;
   final List<Widget> actions;
   final Widget? header;
+  final bool topAligned;
 
   @override
   Widget build(BuildContext context) => SoriAdaptiveStudyBody(
@@ -28,19 +30,38 @@ class ContentLearningLayout extends StatelessWidget {
     intrinsic: false,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: topAligned
+          ? MainAxisAlignment.spaceBetween
+          : MainAxisAlignment.center,
       children: [
-        header ?? const SizedBox.shrink(),
-        if (header != null) const SizedBox(height: Spacing.lg),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: Spacing.md),
-          child: Column(
+        if (topAligned)
+          Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: body,
+            children: [
+              if (header != null) header!,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: Spacing.md),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: body,
+                ),
+              ),
+            ],
           ),
-        ),
-        const SizedBox(height: Spacing.lg),
+        if (!topAligned) header ?? const SizedBox.shrink(),
+        if (!topAligned && header != null) const SizedBox(height: Spacing.lg),
+        if (!topAligned)
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: Spacing.md),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: body,
+            ),
+          ),
+        if (!topAligned) const SizedBox(height: Spacing.lg),
         Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,

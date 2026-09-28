@@ -570,13 +570,11 @@ class SoriMotion {
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// TEXT — role-based font families and central TextStyle tokens
+// TEXT — IBM Plex Sans(EN/DE) + Noto Sans KR(KO) 중앙 TextStyle 토큰
 // ─────────────────────────────────────────────────────────────────────────
 /// 앱 폰트 패밀리 상수 — 역할로만 선택한다.
-/// - [sans] IBM Plex Sans: DE/EN UI·헤드라인·본문·숫자의 기본 폰트.
-/// - [learningKorean] Noto Sans KR: 자모·어휘·문장 등 한국어 학습 본문.
-/// - [culture] Maru Buri: 짧은 한국어 문화 제목과 특별한 완료 순간 전용.
-///   버튼·메뉴·긴 본문에는 사용하지 않는다.
+/// - [sans] IBM Plex Sans: DE/EN UI와 라틴 문자의 기본 폰트.
+/// - [korean] Noto Sans KR: 같은 문장 안의 한글 폴백과 한국어 문화 제목.
 ///
 /// **2026-08-19 교체**: 이전 PretendardStd 는 라틴 전용 서브셋이라 한글 글리프가
 /// 0개였다. 한국어는 전부 OS 폴백(맑은 고딕·제조사 기본·Apple SD Gothic)으로
@@ -584,16 +582,17 @@ class SoriMotion {
 /// 한글에서 처음으로 성립한다. `test/font_bundle_guard_test.dart` 가 번들 폰트의
 /// 한글·독일어 글리프를 검사해 재발을 막는다.
 ///
-/// **2026-09-03 재교체**: Jin 지시로 Wanted Sans → Paperlogy(OFL, 400/500/
-/// 600/700 4무게 번들). 헤드라인(hero/display/h1/h2/numeral)은 [culture]
-/// (Maru Buri w600)로 분리했다 — §A2 참조.
-/// **2026-09-28 교체**: DE/EN은 IBM Plex Sans, 학습용 한국어는 Noto Sans KR.
-/// Maru Buri는 문화 맥락의 짧은 한국어 제목에 유지한다.
+/// **2026-09-28**: KO는 Noto Sans KR, DE/EN은 IBM Plex Sans로 묶는다.
+/// Plex Sans 라틴 파일에 한글이 없으므로 폴백을 명시해야 기기 기본 서체로
+/// 새지 않는다.
 class SoriFonts {
   SoriFonts._();
   static const String sans = 'IBMPlexSans';
-  static const String learningKorean = 'NotoSansKR';
-  static const String culture = 'MaruBuri';
+  static const String korean = 'NotoSansKR';
+  // Learning cards name this role explicitly; both roles use the same face.
+  static const String learningKorean = korean;
+  static const String culture = korean;
+  static const List<String> fallback = [korean];
 }
 
 /// Context-free type spec — size/weight/letterSpacing/height만, 색·family
@@ -621,7 +620,7 @@ class SoriTypeSpecs {
   /// `lib/theme.dart`의 `AppBarTheme.titleTextStyle` 둘 다 이 상수에서 만든다.
   static const chromeTitle = SoriTypeSpec(
     size: 20,
-    weight: FontWeight.w700,
+    weight: FontWeight.w600,
     letterSpacing: -0.2,
     height: 1.3,
   );
@@ -630,7 +629,7 @@ class SoriTypeSpecs {
   /// `SoriAppBar`의 측정 전용 상수가 공유한다.
   static const eyebrow = SoriTypeSpec(
     size: 13,
-    weight: FontWeight.w700,
+    weight: FontWeight.w500,
     letterSpacing: 1.2,
     height: 1.2,
   );
@@ -644,9 +643,8 @@ class SoriTypeSpecs {
 /// 색은 surface 기반 — `s.text` (default), `s.textMuted`, `s.textDim`.
 /// 사이즈·weight·letter-spacing·height 만 중앙화.
 ///
-/// **타이포 보이스(2026-08-20)**: 현대적 학습 UI 80 + 한국적 문화 정체성 20.
-/// 기본 위계는 IBM Plex Sans의 크기·굵기로 만들고, 검증된 한국어 문화 맥락에만
-/// Maru Buri를 제한적으로 사용한다.
+/// 위계는 기본 Regular(400), 제목 Medium(500), 주요 행동 SemiBold(600)
+/// 중심으로 만든다. 한글은 같은 스타일의 Noto Sans KR 폴백으로 그린다.
 class SoriTextTheme {
   final SoriSurfaces _s;
 
@@ -660,15 +658,13 @@ class SoriTextTheme {
   static SoriTextTheme of(BuildContext context) =>
       SoriTextTheme._(SoriSurfaces.of(context));
 
-  // ── Display / Heading ───────────────────────────────────────────────
-  // DE/EN headings use the same Latin sans as body copy. cultureTitle alone
-  // retains Maru Buri for short Korean cultural titles.
+  // ── Display / Heading ────────────────────────────────────────────────
+  // 학습 제목과 통계 숫자도 같은 Latin/Korean fallback 쌍으로 렌더한다.
   TextStyle get display => _base(
     fontSize: 32,
-    weight: FontWeight.w600,
+    weight: FontWeight.w500,
     letterSpacing: -0.2,
     height: 1.15,
-    fontFamily: SoriFonts.sans,
   );
 
   /// 페이지 대형 헤드라인 (2026-08-13 UI 개편 Phase 1).
@@ -677,13 +673,12 @@ class SoriTextTheme {
   ///
   /// **2026-09-03 §E7**: 40 → 36. 390dp에서 "Wähle, wie du lernen
   /// möchtest." 가 3줄·≈130dp를 차지해 첫 화면을 과점했다(Fable 시각 심사).
-  /// Size and spacing stay stable with the Latin sans face.
+  /// 제목 서체도 DE/EN은 Plex Sans, KO는 Noto Sans KR이다.
   TextStyle get hero => _base(
     fontSize: 36,
     weight: FontWeight.w600,
     letterSpacing: -0.2,
     height: 1.08,
-    fontFamily: SoriFonts.sans,
   );
 
   /// 헤드라인 위의 소형 대문자 라벨 (자간 넓힘, 기본 석간주).
@@ -698,24 +693,22 @@ class SoriTextTheme {
   );
   TextStyle get h1 => _base(
     fontSize: 26,
-    weight: FontWeight.w600,
+    weight: FontWeight.w500,
     letterSpacing: -0.2,
     height: 1.25,
-    fontFamily: SoriFonts.sans,
   );
   TextStyle get h2 => _base(
     fontSize: 22,
-    weight: FontWeight.w600,
+    weight: FontWeight.w500,
     letterSpacing: -0.2,
     height: 1.3,
-    fontFamily: SoriFonts.sans,
   );
 
   /// 문화 카드 안의 짧은 한국어 표제.
   TextStyle get cultureTitle => _base(
     fontSize: 21,
-    weight: FontWeight.w600,
-    letterSpacing: -0.35,
+    weight: FontWeight.w500,
+    letterSpacing: 0,
     height: 1.35,
     fontFamily: SoriFonts.culture,
   );
@@ -723,15 +716,14 @@ class SoriTextTheme {
   /// 큰 통계 숫자 — tabular(자릿수 정렬). 스트릭·XP 히어로 수치.
   TextStyle get numeral => _base(
     fontSize: 30,
-    weight: FontWeight.w600,
+    weight: FontWeight.w500,
     letterSpacing: -0.2,
     height: 1.1,
     tabular: true,
-    fontFamily: SoriFonts.sans,
   );
   TextStyle get h3 => _base(
     fontSize: 18,
-    weight: FontWeight.w700,
+    weight: FontWeight.w500,
     letterSpacing: -0.2,
     height: 1.3,
   );
@@ -739,13 +731,13 @@ class SoriTextTheme {
   // ── Body ─────────────────────────────────────────────────────────────
   TextStyle get body => _base(
     fontSize: 16,
-    weight: FontWeight.w500,
+    weight: FontWeight.w400,
     letterSpacing: 0,
     height: 1.45,
   );
   TextStyle get bodySmall => _base(
     fontSize: 15,
-    weight: FontWeight.w500,
+    weight: FontWeight.w400,
     letterSpacing: -0.05,
     height: 1.4,
     color: _s.textMuted,
@@ -754,7 +746,7 @@ class SoriTextTheme {
   // ── Caption / Label ──────────────────────────────────────────────────
   TextStyle get caption => _base(
     fontSize: 13.5,
-    weight: FontWeight.w500,
+    weight: FontWeight.w400,
     letterSpacing: 0,
     height: 1.35,
     color: _s.textMuted,
@@ -763,8 +755,8 @@ class SoriTextTheme {
   /// Content-player Korean hero.
   TextStyle get koDisplay => _base(
     fontSize: 30,
-    weight: FontWeight.w700,
-    letterSpacing: -0.4,
+    weight: FontWeight.w500,
+    letterSpacing: 0,
     height: 1.25,
     fontFamily: SoriFonts.learningKorean,
   );
@@ -772,7 +764,7 @@ class SoriTextTheme {
   /// Content-player DE/EN gloss under the Korean word.
   TextStyle get gloss => _base(
     fontSize: 18,
-    weight: FontWeight.w500,
+    weight: FontWeight.w400,
     letterSpacing: -0.1,
     height: 1.4,
     color: _s.textMuted,
@@ -781,39 +773,36 @@ class SoriTextTheme {
   /// Content-player chrome (progress `3 / 12`, hints). Do not go below 13.
   TextStyle get meta => _base(
     fontSize: 13.5,
-    weight: FontWeight.w500,
+    weight: FontWeight.w400,
     letterSpacing: 0,
     height: 1.35,
     color: _s.textMuted,
   );
   TextStyle get label => _base(
     fontSize: 14,
-    weight: FontWeight.w700,
+    weight: FontWeight.w500,
     letterSpacing: 0,
     height: 1.2,
   );
 
   // ── Card (앱 최빈 패턴 — 카드 제목/부제. B-2 타이포 통일 2026-06-12) ──
-  // §4.3 (2026-08-04): 카드 제목 = 15~17 w700 — w800 금지 규정에 맞춰
-  // 14/w800 → 15/w700. 2026-09-03: 스케일 재정의로 17/w700. 위계는 크기 차
-  // (제목 17 vs 본문 13.5~16)로 낸다.
+  // 위계는 17px 제목과 13.5~16px 본문 간 크기 차로 낸다.
   TextStyle get cardTitle => _base(
     fontSize: 17,
-    weight: FontWeight.w700,
+    weight: FontWeight.w500,
     letterSpacing: -0.2,
     height: 1.3,
   );
   TextStyle get cardSubtitle => _base(
     fontSize: 13.5,
-    weight: FontWeight.w500,
+    weight: FontWeight.w400,
     letterSpacing: 0,
     height: 1.35,
     color: _s.textMuted,
   );
 
   /// 앱바 타이틀 크롬 전용 토큰 (2026-09-03, §A4). 화면 헤드라인은 [h2]가
-  /// 맡고, 내비게이션 크롬은 [h2]가 Maru Buri 로 이동한 뒤에도 sans/w700을
-  /// 유지한다 — `SoriAppBar` 의 옛 사설 상수를 대체한다.
+  /// 맡고, 내비게이션 크롬은 Plex Sans / Noto Sans KR의 600을 쓴다.
   TextStyle get chromeTitle => _base(
     fontSize: SoriTypeSpecs.chromeTitle.size,
     weight: SoriTypeSpecs.chromeTitle.weight,
@@ -831,7 +820,7 @@ class SoriTextTheme {
     String fontFamily = SoriFonts.sans,
   }) => TextStyle(
     fontFamily: fontFamily,
-    fontFamilyFallback: const [SoriFonts.learningKorean],
+    fontFamilyFallback: SoriFonts.fallback,
     fontSize: fontSize,
     fontWeight: weight,
     letterSpacing: letterSpacing,

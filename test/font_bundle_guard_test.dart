@@ -4,37 +4,58 @@ import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
-/// 번들 폰트가 자기 역할에 필요한 글리프를 실제로 담고 있는지 검사한다.
+/// 라틴 UI와 한글 폴백의 글리프가 실제 번들에 있는지 검사한다.
 ///
 /// 2026-08-19 발견: `PretendardStd-*.otf` 5개가 라틴 전용 서브셋이라 한글 글리프가
 /// 0개였고, 한국어 전부가 OS 폴백 폰트로 그려지고 있었다. pubspec 주석은
 /// "한국어 모던 산세리프"라고 적혀 있었다. 의존성 없이 OTF `cmap`(format 4/12)을
-/// 직접 읽어 `가`·`힣`·`ㄱ`·`ä`·`ß` 가 있는지 본다.
+/// 직접 읽어 Plex의 독일어와 Noto의 완성형 한글을 검사한다.
 void main() {
-  test('font roles keep UI, Korean learning, and culture display separate', () {
+  test('Latin UI uses Plex and Korean falls back to bundled Noto', () {
     expect(SoriFonts.sans, 'IBMPlexSans');
-    expect(SoriFonts.learningKorean, 'NotoSansKR');
-    expect(SoriFonts.culture, 'MaruBuri');
+    expect(SoriFonts.korean, 'NotoSansKR');
+    expect(SoriFonts.culture, SoriFonts.korean);
+    expect(SoriFonts.fallback, [SoriFonts.korean]);
   });
 
-  test('pubspec fonts contain German; Korean roles cover all Hangul', () {
+  test('pubspec 폰트는 독일어와 한글 폴백 글리프를 포함한다', () {
     final pubspec = File('pubspec.yaml').readAsStringSync();
     final assets = RegExp(
       r'asset:\s*(assets/fonts/\S+\.(?:otf|ttf))',
     ).allMatches(pubspec).map((m) => m.group(1)!).toList();
     expect(assets, isNotEmpty, reason: 'pubspec fonts: 블록이 비어 있다');
-    const latinRequired = <String, int>{'ä': 0xE4, 'ß': 0xDF, '€': 0x20AC};
+    expect(
+      assets,
+      contains('assets/fonts/IBMPlexSans/IBMPlexSans-Variable.ttf'),
+    );
+    expect(assets, contains('assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf'));
+    const requiredLatin = <String, int>{
+      'Ä': 0xC4,
+      'ä': 0xE4,
+      'Ö': 0xD6,
+      'ö': 0xF6,
+      'Ü': 0xDC,
+      'ü': 0xFC,
+      'ß': 0xDF,
+      '€': 0x20AC,
+    };
     for (final asset in assets) {
       final cps = _cmapCodepoints(File(asset).readAsBytesSync());
-      final missing = latinRequired.entries
+      final missing = requiredLatin.entries
           .where((e) => !cps.contains(e.value))
           .map((e) => e.key)
           .toList();
       expect(missing, isEmpty, reason: '$asset 에 글리프 없음: $missing');
-      if (!asset.contains('/IBMPlexSans/')) {
-        expect(cps, containsAll(<int>[0xAC00, 0xD7A3, 0x3131]));
+      if (asset.contains('NotoSansKR')) {
+        expect(cps, containsAll([0x3131, 0xAC00, 0xD7A3]));
         final hangul = cps.where((c) => c >= 0xAC00 && c <= 0xD7A3).length;
-        expect(hangul, 11172, reason: '$asset 한글 음절 $hangul/11172 — 서브셋 금지');
+        expect(hangul, 11172, reason: '$asset 한글 음절 $hangul/11172');
+      } else if (asset.contains('IBMPlexSans')) {
+        expect(
+          cps.contains(0xAC00),
+          isFalse,
+          reason: '한글은 명시한 Noto fallback으로 렌더되어야 한다',
+        );
       }
     }
   });
