@@ -2965,6 +2965,18 @@ abstract class AppL10n {
   /// **'Gye ist ab 16 Jahren nutzbar. Dein Geburtsjahr ist eine Selbstauskunft, wird nur auf diesem Gerät gespeichert und ist keine Identitätsprüfung. Ohne Monat und Tag wird konservativ erst bei mindestens 17 Jahren Jahresdifferenz freigeschaltet.'**
   String get gyeAgeYearBody;
 
+  /// No description provided for @privacyAgeYearBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Für freiwillige Nutzungsstatistiken und Absturzberichte braucht die App zuerst deine Altersangabe. Dein selbst angegebenes Geburtsjahr bleibt auf diesem Gerät. Ohne Monat und Tag schalten wir diese Optionen konservativ erst bei mindestens 17 Jahren Jahresdifferenz frei.'**
+  String get privacyAgeYearBody;
+
+  /// No description provided for @privacyAgeRestricted.
+  ///
+  /// In de, this message translates to:
+  /// **'Nutzungsstatistiken und Absturzberichte können mit dieser Altersangabe nicht aktiviert werden. Die App prüft wegen der jahresgenauen Angabe konservativ erst ab mindestens 17 Jahren Jahresdifferenz.'**
+  String get privacyAgeRestricted;
+
   /// No description provided for @gyeAgeYearHint.
   ///
   /// In de, this message translates to:

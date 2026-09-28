@@ -532,6 +532,61 @@ void main() {
     expect(analytics.applied, isTrue);
   });
 
+  testWidgets('analytics switch asks for age before saving consent', (
+    tester,
+  ) async {
+    await Storage.setBirthYear(0);
+    await _mount(
+      tester,
+      const Scaffold(
+        body: PrivacyChoiceControl(
+          purpose: PrivacyPurpose.analytics,
+          title: 'Analytics',
+          description: 'Optional',
+          icon: Icons.insights,
+        ),
+      ),
+    );
+    final t = AppL10n.of(tester.element(find.byType(Scaffold)));
+    await _tap(tester, find.byType(SwitchListTile));
+    expect(find.text(t.privacyAgeYearBody), findsOneWidget);
+    expect(native.values['kl_analytics_consent'], isNull);
+    await _tap(tester, find.text(t.btnCancel));
+    expect(native.values['kl_analytics_consent'], isNull);
+    await _tap(tester, find.byType(SwitchListTile));
+    await tester.enterText(
+      find.byType(TextField),
+      '${DateTime.now().year - 25}',
+    );
+    await _tap(tester, find.widgetWithText(SoriButton, t.btnConfirm));
+    expect(native.values['kl_analytics_consent'], isTrue);
+    expect(PrivacyConsentService.canCollectAnalytics, isTrue);
+    expect(analytics.applied, isTrue);
+    expect(find.byType(PrivacyChoiceFeedback), findsNothing);
+  });
+
+  testWidgets('analytics switch explains an ineligible birth year', (
+    tester,
+  ) async {
+    await Storage.setBirthYear(DateTime.now().year - 10);
+    await _mount(
+      tester,
+      const Scaffold(
+        body: PrivacyChoiceControl(
+          purpose: PrivacyPurpose.analytics,
+          title: 'Analytics',
+          description: 'Optional',
+          icon: Icons.insights,
+        ),
+      ),
+    );
+    final t = AppL10n.of(tester.element(find.byType(Scaffold)));
+    await _tap(tester, find.byType(SwitchListTile));
+    expect(find.text(t.privacyAgeRestricted), findsOneWidget);
+    expect(native.values['kl_analytics_consent'], isNull);
+    expect(PrivacyConsentService.canCollectAnalytics, isFalse);
+  });
+
   for (final retire in [false, true]) {
     testWidgets(
       'issued assessment response respects off versus retirement $retire',

@@ -43,13 +43,34 @@ Future<bool> ensureGyeAgeAllowed(BuildContext context) async {
   return context.mounted && AgeGateService.isGyeAllowed;
 }
 
-Future<void> _showBlocked(BuildContext context) async {
+/// Ask for the same local age declaration before optional telemetry consent.
+/// The Gye wording is intentionally not shown in the Settings privacy section.
+Future<bool> ensureOptionalCollectionAgeAllowed(BuildContext context) async {
+  final t = AppL10n.of(context);
+  if (AgeGateService.isUnderMinAge) {
+    await _showBlocked(context, message: t.privacyAgeRestricted);
+    return false;
+  }
+  if (AgeGateService.needsBirthYear) {
+    final year = await _askBirthYear(context, body: t.privacyAgeYearBody);
+    if (year == null || !context.mounted) {
+      return false;
+    }
+    if (AgeGateService.isUnderMinAge) {
+      await _showBlocked(context, message: t.privacyAgeRestricted);
+      return false;
+    }
+  }
+  return context.mounted && AgeGateService.isGyeAllowed;
+}
+
+Future<void> _showBlocked(BuildContext context, {String? message}) async {
   final t = AppL10n.of(context);
   await showSoriDialog<void>(
     context: context,
     builder: (ctx) => SoriDialog(
       icon: const Icon(Icons.lock_outline_rounded),
-      content: Text(t.gyeErrAgeRestricted),
+      content: Text(message ?? t.gyeErrAgeRestricted),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(ctx).pop(),
@@ -60,7 +81,7 @@ Future<void> _showBlocked(BuildContext context) async {
   );
 }
 
-Future<int?> _askBirthYear(BuildContext context) {
+Future<int?> _askBirthYear(BuildContext context, {String? body}) {
   // ⚠️ 컨트롤러를 이 함수에서 만들고 `await showDialog` 직후 dispose하면 안 된다:
   // pop 후에도 다이얼로그 퇴장 애니메이션 동안 TextField가 리빌드되며
   // "used after being disposed" → framework `_dependents.isEmpty` 레드스크린
@@ -68,12 +89,14 @@ Future<int?> _askBirthYear(BuildContext context) {
   // → State가 컨트롤러를 소유해 route 트리 파괴 후 dispose되게 한다.
   return showSoriDialog<int>(
     context: context,
-    builder: (_) => const _BirthYearDialog(),
+    builder: (_) => _BirthYearDialog(body: body),
   );
 }
 
 class _BirthYearDialog extends StatefulWidget {
-  const _BirthYearDialog();
+  const _BirthYearDialog({this.body});
+
+  final String? body;
 
   @override
   State<_BirthYearDialog> createState() => _BirthYearDialogState();
@@ -161,7 +184,7 @@ class _BirthYearDialogState extends State<_BirthYearDialog> {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(t.gyeAgeYearBody),
+          Text(widget.body ?? t.gyeAgeYearBody),
           const SizedBox(height: 12),
           if (_saving || _saveFailed)
             PrivacyChoiceFeedback(
