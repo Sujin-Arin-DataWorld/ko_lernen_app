@@ -60,6 +60,7 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   // 수치가 갈라질 수 없다(§W-A2 d, 2026-09-03 — 옛 수동 동기화 제거).
   static final _titleStyle = TextStyle(
     fontFamily: SoriFonts.sans,
+    fontFamilyFallback: SoriFonts.fallback,
     fontSize: SoriTypeSpecs.chromeTitle.size,
     fontWeight: SoriTypeSpecs.chromeTitle.weight,
     letterSpacing: SoriTypeSpecs.chromeTitle.letterSpacing,
@@ -67,6 +68,7 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   );
   static final _eyebrowStyle = TextStyle(
     fontFamily: SoriFonts.sans,
+    fontFamilyFallback: SoriFonts.fallback,
     fontSize: SoriTypeSpecs.eyebrow.size,
     fontWeight: SoriTypeSpecs.eyebrow.weight,
     letterSpacing: SoriTypeSpecs.eyebrow.letterSpacing,

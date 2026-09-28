@@ -75,8 +75,11 @@ test("renders finished site metadata", async () => {
 test("rejects stale or unexpected store CTA destinations", () => {
   const ios = '<a class="store-button" href="#tester-access">iOS</a>';
   const android =
-    '<a class="store-button" href="https://play.google.com/apps/testing/com.sujinarin.ko_lernen_app">Android</a>';
+    '<a class="store-button" href="https://play.google.com/apps/testing/com.sujinarin.ko_lernen_app" target="_blank" rel="noopener noreferrer">Android</a>';
   assert.doesNotThrow(() => assertStoreAccessCtas(ios + android, "test home"));
+  assert.throws(() =>
+    assertStoreAccessCtas(ios + android.replace(' target="_blank"', ''), "test home"),
+  );
   assert.throws(() => assertStoreAccessCtas(ios + ios, "test home"));
   assert.throws(() =>
     assertStoreAccessCtas(

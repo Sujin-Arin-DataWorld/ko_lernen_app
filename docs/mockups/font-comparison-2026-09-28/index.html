@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>한글소리 · 실제 학습 화면 비교</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="study">
+      <header class="study-header">
+        <div>
+          <p class="kicker">HANGUL SORI / FLUTTER LEARNING FLOW</p>
+          <h1>학습에 반응이 생긴 한글소리</h1>
+          <p class="study-intro">실제 Flutter 화면에서 문장을 듣고, 답하고, 피드백을 받는 흐름을 독일어·영어로 비교합니다.</p>
+        </div>
+        <nav class="locale-switch" aria-label="비교 언어">
+          <button type="button" data-locale="en" aria-pressed="true">한국어 + English</button>
+          <button type="button" data-locale="de" aria-pressed="false">한국어 + Deutsch</button>
+        </nav>
+      </header>
+
+      <section class="flutter-evidence" aria-label="실제 Flutter 학습 화면">
+        <h2>실제 앱의 학습 흐름</h2>
+        <p>현재 Flutter 위젯을 390 × 844로 렌더링했습니다. 문장 카드 전체를 눌러 듣고, 재생 중에는 소리 표시가 반응합니다. 정답 선택과 완료에는 짧은 움직임과 캐릭터 반응이 이어집니다.</p>
+        <div class="flow-stage">
+          <div class="flow-stage-heading"><span>01</span><h3>문장 배우기</h3><p>문장은 한 줄 흐름을 우선하고 듣기는 카드 전체에서 됩니다.</p></div>
+          <div class="flutter-evidence-grid">
+            <figure><img src="flutter-learning-de.png" width="390" height="844" alt="독일어 UI의 실제 Flutter 문장 배우기 화면"><figcaption>한국어 + Deutsch</figcaption></figure>
+            <figure><img src="flutter-learning-en.png" width="390" height="844" alt="영어 UI의 실제 Flutter 문장 배우기 화면"><figcaption>한국어 + English</figcaption></figure>
+          </div>
+        </div>
+        <div class="flow-stage">
+          <div class="flow-stage-heading"><span>02</span><h3>직접 답하기</h3><p>선택 카드, 진행도, 호랑이의 짧은 응원이 같은 화면에서 반응합니다.</p></div>
+          <div class="flutter-evidence-grid">
+            <figure><img src="flutter-practice-de.png" width="390" height="844" alt="독일어 UI의 실제 Flutter 문제 선택 화면"><figcaption>한국어 + Deutsch</figcaption></figure>
+            <figure><img src="flutter-practice-en.png" width="390" height="844" alt="영어 UI의 실제 Flutter 문제 선택 화면"><figcaption>한국어 + English</figcaption></figure>
+          </div>
+        </div>
+        <div class="flow-stage">
+          <div class="flow-stage-heading"><span>03</span><h3>즉시 피드백</h3><p>설명과 근거 문장을 구분하고, 근거 문장도 카드에서 바로 들을 수 있습니다.</p></div>
+          <div class="flutter-evidence-grid">
+            <figure><img src="flutter-feedback-de.png" width="390" height="844" alt="독일어 UI의 실제 Flutter 답변 피드백 화면"><figcaption>한국어 + Deutsch</figcaption></figure>
+            <figure><img src="flutter-feedback-en.png" width="390" height="844" alt="영어 UI의 실제 Flutter 답변 피드백 화면"><figcaption>한국어 + English</figcaption></figure>
+          </div>
+        </div>
+        <div class="flow-stage">
+          <div class="flow-stage-heading"><span>04</span><h3>학습 완료</h3><p>학습 결과를 한 장의 무대로 묶고 복습으로 이어집니다.</p></div>
+          <div class="flutter-evidence-grid">
+            <figure><img src="flutter-result-de.png" width="390" height="844" alt="독일어 UI의 실제 Flutter 학습 완료 화면"><figcaption>한국어 + Deutsch</figcaption></figure>
+            <figure><img src="flutter-result-en.png" width="390" height="844" alt="영어 UI의 실제 Flutter 학습 완료 화면"><figcaption>한국어 + English</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="type-study" aria-label="글씨체별 화면 비교">
+        <h2>글꼴 비교 자료</h2>
+        <p>아래는 글꼴 검토 때 만든 A1 공항 시나리오 목업입니다. 위의 학습 흐름은 실제 Flutter 코드로 렌더링했습니다.</p>
+        <div class="comparison" id="comparison"></div>
+      </section>
+      <footer class="study-footer">
+        <span>① Noto Sans KR 전체</span>
+        <span>② IBM Plex Sans + Noto Sans KR</span>
+        <span>③ 이전 Paperlogy + Maru Buri</span>
+        <span>④ Pretendard</span>
+        <p>앱의 라틴 문자에는 IBM Plex Sans, 한국어에는 Noto Sans KR을 사용합니다.</p>
+      </footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
