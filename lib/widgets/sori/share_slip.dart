@@ -419,6 +419,7 @@ class ShareSlipPainter extends CustomPainter {
   ) {
     final style = TextStyle(
       fontFamily: SoriFonts.sans,
+      fontFamilyFallback: SoriFonts.fallback,
       fontSize: fontSize,
       fontWeight: weight,
       height: lineHeight,
@@ -519,8 +520,9 @@ class ShareSlipPainter extends CustomPainter {
         text: _wordmark,
         style: TextStyle(
           fontFamily: SoriFonts.sans,
+          fontFamilyFallback: SoriFonts.fallback,
           fontSize: 27 * u,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w500,
           letterSpacing: 1.6 * u,
           // 먹 78% — 실측 종이 톤 위에서 5.5:1(AA 여유). _paintContent 의
           // 뜻 줄과 같은 이유로 같은 값을 쓴다.

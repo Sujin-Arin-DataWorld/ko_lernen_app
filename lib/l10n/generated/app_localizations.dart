@@ -18516,6 +18516,12 @@ abstract class AppL10n {
   /// **'Üben'**
   String get contentLearningPractice;
 
+  /// No description provided for @contentLearningYourTurn.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt bist du dran'**
+  String get contentLearningYourTurn;
+
   /// No description provided for @contentLearningNext.
   ///
   /// In de, this message translates to:
@@ -18651,7 +18657,7 @@ abstract class AppL10n {
   /// No description provided for @contentLearningUsage.
   ///
   /// In de, this message translates to:
-  /// **'Verwendung und nächste Antwort'**
+  /// **'Verwendung und Varianten'**
   String get contentLearningUsage;
 
   /// No description provided for @contentLearningEvidence.
