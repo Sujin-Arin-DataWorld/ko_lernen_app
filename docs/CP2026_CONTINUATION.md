@@ -1,5 +1,27 @@
 # CP-2026 전체 계획 인수 및 실행 큐
 
+<!-- CP2026_CLOSEOUT_CURRENT_START -->
+## 2026-09-28 재개 마감 기준선
+
+확인 시각: 2026-09-28T13:12:48.317411+00:00. **마감 진행 중 — 미완료 항목을 완료로 보지 않음.** 검증된 코드 기준 main은 `4d2288c8c6f4fa4241b7018d9bcf78ccbcc9c8c7`이다. 이번 범위는 #412–#416과 인계 문서의 통합·검증·안전한 작업 공간 정리이며, 새 내부 배포와 원계획 후속 구현은 포함하지 않는다.
+
+#411 main `4d2288c8`의 CI35953059633 재실행은 9월25일14:53:42 UTC 성공했고 같은 SHA의 Playwright35953059678도 성공했다. 과거의 취소/진행 중 기록은 당시 이력이다.
+
+| PR | 검증한 PR HEAD | 병합 SHA | 결과와 main 검사 |
+|---|---|---|---|
+| #412 | `2ea9484dcfa99ce410efb5af447517a5881eac02` | `dd59a5135246870b22315401ae1d78c413c2b324` | 병합됨, main 검사 미완; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36426327791) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36426327845) |
+| #413 | 최신 PR HEAD 재조회 | 미병합 | 순차 통합 대기 |
+| #414 | 최신 PR HEAD 재조회 | 미병합 | 순차 통합 대기 |
+| #415 | 최신 PR HEAD 재조회 | 미병합 | 순차 통합 대기 |
+| #416 | 최신 PR HEAD 재조회 | 미병합 | 순차 통합 대기 |
+
+각 PR의 HEAD 검사·전체 리뷰 페이지·원본 보존·병합 tree 동일성은 `C:/dev/hangulsori/_codex_artifacts/cp2026-release-stabilization-20260922/session-closeout-20260928/`의 `prN-merge-preflight.json`, `prN-merge-proof.json`, `mainN-live.json`으로 확인한다. 실제 생성된 영수증만 근거로 사용한다. 문서 PR의 최종 SHA와 삭제 결과는 같은 폴더의 최종 영수증에 기록한다.
+
+마지막으로 보관된 제공 영수증은 Android7680(SHA80b13fa3,9월23일)과 기존 iOS254(SHA1a1cf0b5,9월24일)다. 두 영수증의 기기 설치 확인은 false이며 이번에는 콘솔 최신 제공 상태를 재검증하지 않았다. #412–#416을 새 모바일 빌드에 배포했다고 보지 않는다. 사람 검수·실기기·운영 수신·14일 관측은 계속 미완이다.
+
+[전체 항목별 재개 절차와 인계서](CP2026_HANDOVER_20260925.md)를 먼저 읽는다. 아래 날짜별 기록과 옛 상태표는 역사 자료이며 최신 기준선을 대체하지 않는다.
+<!-- CP2026_CLOSEOUT_CURRENT_END -->
+
 ## 2026-09-23 23:40 UTC 현재 실행 기준선
 
 | 영역 | 확인된 상태 | 남은 검증 |
@@ -253,7 +275,7 @@ Batch 32·33 기존 회귀검증은 기준 main에서 144개 통과했고, 수�
 
 통합 음성 재검증(2026-09-16): 누락분 91개만 합성·업로드한 후 `tool/generate_tts.py --verify-storage`로 **expected 12,630 / remote 21,133 / missing 0 / stale 8,503**을 실제 확인했다. stale 객체는 삭제하지 않았다. 정확한 출력과 원본·검토 기록은 `C:/dev/hangulsori/_codex_artifacts/cp2026-integration-20260916/`에 보존한다. 이는 음성 키 완전성 증거이며 모든 클립을 사람이 청취했다는 뜻은 아니다.
 
-## 전체 프로그램 상태표
+## 전체 프로그램 상태표 — 당시 이력, 최신 상태는 상단 인계서 참조
 
 `병합 확인`은 Git의 현재 main 포함을 뜻한다. `후속`은 목표 전체의 완료 증거가 아직 없다는 뜻이며, 새 작업 전에 해당 source를 읽어 이미 있는 동작을 보존한다.
 
