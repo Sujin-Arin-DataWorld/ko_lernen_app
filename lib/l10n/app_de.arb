@@ -893,6 +893,8 @@
   "gyeErrAgeRestricted": "Gye ist ab 16 Jahren nutzbar. Da nur dein lokal selbst angegebenes Geburtsjahr gespeichert wird, prüft die App konservativ und schaltet erst bei mindestens 17 Jahren Jahresdifferenz frei.",
   "gyeAgeYearTitle": "Geburtsjahr",
   "gyeAgeYearBody": "Gye ist ab 16 Jahren nutzbar. Dein Geburtsjahr ist eine Selbstauskunft, wird nur auf diesem Gerät gespeichert und ist keine Identitätsprüfung. Ohne Monat und Tag wird konservativ erst bei mindestens 17 Jahren Jahresdifferenz freigeschaltet.",
+  "privacyAgeYearBody": "Für freiwillige Nutzungsstatistiken und Absturzberichte braucht die App zuerst deine Altersangabe. Dein selbst angegebenes Geburtsjahr bleibt auf diesem Gerät. Ohne Monat und Tag schalten wir diese Optionen konservativ erst bei mindestens 17 Jahren Jahresdifferenz frei.",
+  "privacyAgeRestricted": "Nutzungsstatistiken und Absturzberichte können mit dieser Altersangabe nicht aktiviert werden. Die App prüft wegen der jahresgenauen Angabe konservativ erst ab mindestens 17 Jahren Jahresdifferenz.",
   "gyeAgeYearHint": "z. B. 2005",
   "gyeOpenCta": "Gye öffnen",
   "gyeTitle": "Gye",
