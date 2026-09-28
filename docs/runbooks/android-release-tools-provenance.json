@@ -39,6 +39,19 @@
       },
       "archive_member": "jdk-17.0.20.1+1/bin/java",
       "executable_sha256": "f5aed21d3a0b0f4b05d3a3f9fe71263916d5bc0d47b53aa52a3340b90f0b4805"
+    },
+    "crashlytics-buildtools": {
+      "version": "3.0.3",
+      "platform": "java-jar",
+      "publisher_url": "https://dl.google.com/android/maven2/com/google/firebase/firebase-crashlytics-buildtools/3.0.3/firebase-crashlytics-buildtools-3.0.3.jar",
+      "publisher_metadata_url": "https://dl.google.com/android/maven2/com/google/firebase/firebase-crashlytics-buildtools/3.0.3/firebase-crashlytics-buildtools-3.0.3.jar.sha256",
+      "archive_verification": {
+        "type": "sha256",
+        "value": "953b6f3942283f8332cc17a59bca2649ea49d14e0072f2c1f01762ebaebdf357"
+      },
+      "archive_member": "firebase-crashlytics-buildtools-3.0.3.jar",
+      "archive_member_kind": "downloaded-artifact",
+      "executable_sha256": "953b6f3942283f8332cc17a59bca2649ea49d14e0072f2c1f01762ebaebdf357"
     }
   }
 }

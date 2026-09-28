@@ -77,6 +77,65 @@ void main() {
     await DataLoader.loadGrammar();
   });
 
+  testWidgets('ambiguous meanings stay visible and readable in DE and EN', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+    for (final locale in const [Locale('de'), Locale('en')]) {
+      final t = lookupAppL10n(locale);
+      for (final alternative in ['', '걷다']) {
+        final message = alternative.isEmpty
+            ? t.bookResultAmbiguousWord
+            : t.bookResultAlternativeWord(alternative);
+        for (final size in const [Size(320, 640), Size(720, 1024)]) {
+          await tester.pumpWidget(const SizedBox.shrink());
+          final word = ExtractedWord(
+            korean: '걸다',
+            romanization: '',
+            posDe: 'Verb',
+            translationDe: 'aufhängen',
+            translationEn: 'hang',
+            translationLanguage: locale.languageCode,
+            exampleKorean: '',
+            exampleDe: '',
+            savedToPackId: null,
+            ambiguous: true,
+            alternativeHeadword: alternative,
+          );
+          await _pumpResult(
+            tester,
+            locale: locale,
+            size: size,
+            textScale: 2,
+            result: BookAnalysisResult(
+              words: [word],
+              grammar: const [],
+              sentences: const [],
+              warnings: const [],
+            ),
+          );
+          await tester.scrollUntilVisible(
+            find.text(message),
+            220,
+            scrollable: find.byType(Scrollable).first,
+          );
+          await tester.pump();
+          expect(find.text(message), findsOneWidget);
+          expect(
+            find.bySemanticsLabel(RegExp(RegExp.escape(message))),
+            findsOneWidget,
+          );
+          expect(tester.takeException(), isNull);
+        }
+      }
+      await tester.pumpWidget(const SizedBox.shrink());
+      await _pumpResult(tester, locale: locale, result: _completeResult);
+      expect(find.text(t.bookResultAmbiguousWord), findsNothing);
+      expect(find.text(t.bookResultAlternativeWord('걷다')), findsNothing);
+    }
+    semantics.dispose();
+  });
+
   testWidgets(
     'complete result stays reachable across the DE/EN viewport matrix',
     (tester) async {
