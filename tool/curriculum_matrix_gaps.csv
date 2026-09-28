@@ -195,7 +195,7 @@ B1,grammar_nikl,-어야지1,"연결어미 -아야지1, -여야지1",missing_in_a
 B1,grammar_nikl,-어지다,표현,level_mismatch,app_levels=A2;ids=grammar_a2_become,relevel_or_add_same_level_row
 B1,grammar_nikl,-었더니,"연결어미 -았더니, -였더니",missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-었었-,"선어말어미 -았었-, -였었-",missing_in_app,nikl_kiiq_2017,add_grammar_row
-B1,grammar_nikl,-으나,연결어미,level_mismatch,app_levels=A2;ids=grammar_a1_or_particle,relevel_or_add_same_level_row
+B1,grammar_nikl,-으나,연결어미 -나4,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-으니2,연결어미 -니4,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-으려다가,"표현 -려다가, -으려다, 려다",missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,-으려면,연결어미 -려면,missing_in_app,nikl_kiiq_2017,add_grammar_row
@@ -216,7 +216,7 @@ B1,grammar_nikl,아1,조사 야1,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,에 대하여,"표현 에 대해, 에 대해서, 에 대한",missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,요1,조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,grammar_nikl,으로부터,조사,missing_in_app,nikl_kiiq_2017,add_grammar_row
-B1,grammar_nikl,이고,조사,level_mismatch,app_levels=A1;ids=grammar_a1_sequence_connector,relevel_or_add_same_level_row
+B1,grammar_nikl,이고,조사 고1,missing_in_app,nikl_kiiq_2017,add_grammar_row
 B1,speech_act,evaluate_assess_critique,평가·비판·한계 지적하기,missing,scenarios=0;units=0,add_scenario_with_this_intent
 B1,speech_act,negotiate_compromise_conditions,협상·절충·조건 조율하기,thin,scenarios=1;units=0,add_scenario_with_this_intent
 B1,speech_act,persuade_argue_justify,설득·논증·정당화하기,thin,scenarios=1;units=0,add_scenario_with_this_intent

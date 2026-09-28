@@ -9150,18 +9150,20 @@
       "classificationStatus": "needs_review",
       "classifications": [],
       "id": "G3:-으나",
-      "koreanGuidance": "레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.",
+      "koreanGuidance": "자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.",
       "labels": [
-        "연결어미"
+        "연결어미 -나4"
       ],
       "level": "B1",
       "mode": "unassigned",
       "phaseIds": [],
       "provisionalClassifications": [
-        "wrong_level_or_sense"
+        "content_missing",
+        "existing_unlinked",
+        "matching_error"
       ],
       "reasons": [
-        "level_mismatch: app_levels=A2;ids=grammar_a1_or_particle"
+        "missing_in_app: nikl_kiiq_2017"
       ],
       "sourceReferences": [
         {
@@ -9170,7 +9172,7 @@
         }
       ],
       "suggestedActions": [
-        "relevel_or_add_same_level_row"
+        "add_grammar_row"
       ],
       "warningChecks": [],
       "workKey": "B1|grammar_nikl|G3:-으나|unassigned"
@@ -9814,18 +9816,20 @@
       "classificationStatus": "needs_review",
       "classifications": [],
       "id": "G3:이고",
-      "koreanGuidance": "레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.",
+      "koreanGuidance": "자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.",
       "labels": [
-        "조사"
+        "조사 고1"
       ],
       "level": "B1",
       "mode": "unassigned",
       "phaseIds": [],
       "provisionalClassifications": [
-        "wrong_level_or_sense"
+        "content_missing",
+        "existing_unlinked",
+        "matching_error"
       ],
       "reasons": [
-        "level_mismatch: app_levels=A1;ids=grammar_a1_sequence_connector"
+        "missing_in_app: nikl_kiiq_2017"
       ],
       "sourceReferences": [
         {
@@ -9834,7 +9838,7 @@
         }
       ],
       "suggestedActions": [
-        "relevel_or_add_same_level_row"
+        "add_grammar_row"
       ],
       "warningChecks": [],
       "workKey": "B1|grammar_nikl|G3:이고|unassigned"
@@ -29570,7 +29574,7 @@
   "schemaVersion": 1,
   "sourceHashConvention": "UTF-8 bytes with CRLF normalized to LF",
   "sourceSha256": {
-    "tool/curriculum_matrix_gaps.csv": "f4b3d25c0b9f796fad02adf97b843cacc85285a3c663cfb388a1d5ca37b0467b",
+    "tool/curriculum_matrix_gaps.csv": "9e89823c1230f0fff59208fd5e406b9c71d6967a7e428a7d498b318005910a0c",
     "tool/learning_phase_findings.csv": "292b2c66122451c329a9801ec88a2e054031cde8a4841e2e8466df21ad2a76de",
     "tool/learning_phase_summary.json": "ae37ca748f434e72438d28f6b9316bcb896be343af3364f3b417a569a1e79824",
     "tools/content_factory/cefr_matrix/ko.json": "c642d91721753ea990a5b7c0373b9cb1da8923ae984e0c583de2825fc26cb4cf",

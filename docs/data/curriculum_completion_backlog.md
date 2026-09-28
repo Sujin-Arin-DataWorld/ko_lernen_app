@@ -11,7 +11,7 @@
 
 SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체크아웃의 줄바꿈 차이는 내용 변경으로 세지 않습니다.
 
-- `tool/curriculum_matrix_gaps.csv`: `f4b3d25c0b9f796fad02adf97b843cacc85285a3c663cfb388a1d5ca37b0467b`
+- `tool/curriculum_matrix_gaps.csv`: `9e89823c1230f0fff59208fd5e406b9c71d6967a7e428a7d498b318005910a0c`
 - `tool/learning_phase_findings.csv`: `292b2c66122451c329a9801ec88a2e054031cde8a4841e2e8466df21ad2a76de`
 - `tool/learning_phase_summary.json`: `ae37ca748f434e72438d28f6b9316bcb896be343af3364f3b417a569a1e79824`
 - `tools/content_factory/cefr_matrix/phases.json`: `b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9`
@@ -2150,11 +2150,11 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 
 ### `B1|grammar_nikl|G3:-으나|unassigned`
 
-- 항목: 연결어미
-- 상태: needs_review; 확정 분류: 없음; 후보: wrong_level_or_sense
-- 안내: 레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.
-- 조치: relevel_or_add_same_level_row
-- 근거: level_mismatch: app_levels=A2;ids=grammar_a1_or_particle
+- 항목: 연결어미 -나4
+- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked, matching_error
+- 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
+- 조치: add_grammar_row
+- 근거: missing_in_app: nikl_kiiq_2017
 
 ### `B1|grammar_nikl|G3:-으니2|unassigned`
 
@@ -2318,11 +2318,11 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 
 ### `B1|grammar_nikl|G3:이고|unassigned`
 
-- 항목: 조사
-- 상태: needs_review; 확정 분류: 없음; 후보: wrong_level_or_sense
-- 안내: 레벨 또는 동형어 의미가 맞는지 검토해야 하며 자동 재배정하지 않습니다.
-- 조치: relevel_or_add_same_level_row
-- 근거: level_mismatch: app_levels=A1;ids=grammar_a1_sequence_connector
+- 항목: 조사 고1
+- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked, matching_error
+- 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
+- 조치: add_grammar_row
+- 근거: missing_in_app: nikl_kiiq_2017
 
 ### `B1|phase_warning|C13_transfer:DE · B1|unassigned`
 

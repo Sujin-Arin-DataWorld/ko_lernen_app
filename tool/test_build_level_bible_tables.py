@@ -550,6 +550,46 @@ class GrammarCorrespondenceValidationTest(unittest.TestCase):
         self.assertEqual(result.rows[0].status, "missing_in_app")
 
 
+class B1GrammarSenseCoverageTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        _document, result = build_f1_md(REPO)
+        cls.rows = {(row.nikl_grade, row.nikl_form): row for row in result.rows}
+
+    def test_contrast_ending_is_not_covered_by_choice_particle(self):
+        row = self.rows[(3, "-으나")]
+        self.assertNotIn("grammar_a1_or_particle", row.matched_app_ids)
+        self.assertEqual(row.status, "missing_in_app")
+
+    def test_inclusive_particle_is_not_covered_by_action_sequence(self):
+        row = self.rows[(3, "이고")]
+        self.assertNotIn("grammar_a1_sequence_connector", row.matched_app_ids)
+        self.assertEqual(row.status, "missing_in_app")
+
+    def test_explanatory_ending_does_not_count_future_condition(self):
+        row = self.rows[(3, "-거든2")]
+        self.assertEqual(row.matched_app_ids, ("grammar_b1_explanatory_reason",))
+        self.assertEqual(row.status, "match")
+
+    def test_matching_homographs_and_quotation_family_remain_covered(self):
+        expected = {
+            (2, "이나"): "grammar_a1_or_particle",
+            (1, "-고3"): "grammar_a1_sequence_connector",
+            (3, "-거든1"): "grammar_b1_conditional_geodeun",
+        }
+        for key, app_id in expected.items():
+            with self.subTest(key=key):
+                self.assertIn(app_id, self.rows[key].matched_app_ids)
+                self.assertEqual(self.rows[key].status, "match")
+        self.assertEqual(
+            set(self.rows[(3, "-는다고3")].matched_app_ids),
+            {
+                "grammar_b1_indirect_speech", "grammar_b1_indirect_question",
+                "grammar_b1_indirect_command", "grammar_b1_indirect_suggestion",
+            },
+        )
+
+
 class F1RepositorySelectionTest(unittest.TestCase):
     def test_alternate_roots_use_their_own_grammar_and_reference_rows(self):
         with tempfile.TemporaryDirectory() as temporary:
