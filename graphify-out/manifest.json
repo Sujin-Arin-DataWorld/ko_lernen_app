@@ -606,9 +606,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/app/privacy/page.tsx": {
-    "mtime": 1790186110.3797145,
-    "seen": 1790605098.5514002,
-    "ast_hash": "4ab51e519a206152839df3899a4e8ba2",
+    "mtime": 1790607080.2374241,
+    "seen": 1790607915.4281764,
+    "ast_hash": "a63e7d0a2152852f0d8050b5c1a8f5a7",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/app/robots.ts": {
@@ -618,9 +618,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/app/site.tsx": {
-    "mtime": 1790186110.3808355,
-    "seen": 1790605098.5514066,
-    "ast_hash": "59b98d1d752127af9be8ef4a5e76cf77",
+    "mtime": 1790607080.2429447,
+    "seen": 1790607915.429287,
+    "ast_hash": "5558b06421c0afe1c35cbe12b96edcd1",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/app/sitemap.ts": {
@@ -630,9 +630,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/app/store-links.ts": {
-    "mtime": 1790186110.382139,
-    "seen": 1790605098.5514128,
-    "ast_hash": "ccfd00b21442d4fe91e93a089184884b",
+    "mtime": 1790607080.2496986,
+    "seen": 1790607915.4299722,
+    "ast_hash": "2d1560fc0dc221ae103436b4684fbd5b",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/app/support/page.tsx": {
@@ -648,9 +648,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/app/tester-access-form.tsx": {
-    "mtime": 1790186110.3835778,
-    "seen": 1790605098.5514216,
-    "ast_hash": "87255b53e7feaa9dd8a8ba7a7255946f",
+    "mtime": 1790607080.2568972,
+    "seen": 1790607915.4316294,
+    "ast_hash": "6c03758e80af69a27cd74652723b40a2",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/eslint.config.mjs": {
@@ -750,9 +750,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tests/rendered-html.test.mjs": {
-    "mtime": 1790186110.992377,
-    "seen": 1790605098.5515032,
-    "ast_hash": "ad50667de9d327d7ba312745a9584df6",
+    "mtime": 1790607080.263155,
+    "seen": 1790607915.4598606,
+    "ast_hash": "ecb102523a2e9d16608c3d4f72c5bc8e",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/tsconfig.json": {
