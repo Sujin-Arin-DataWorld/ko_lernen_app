@@ -16,11 +16,13 @@ class ContentLearningLayout extends StatelessWidget {
     required this.body,
     required this.actions,
     this.header,
+    this.topAligned = false,
   });
 
   final List<Widget> body;
   final List<Widget> actions;
   final Widget? header;
+  final bool topAligned;
 
   @override
   Widget build(BuildContext context) => SoriAdaptiveStudyBody(
@@ -31,15 +33,32 @@ class ContentLearningLayout extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        header ?? const SizedBox.shrink(),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: Spacing.md),
-          child: Column(
+        if (topAligned)
+          Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: body,
+            children: [
+              if (header != null) header!,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: Spacing.md),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: body,
+                ),
+              ),
+            ],
           ),
-        ),
+        if (!topAligned) header ?? const SizedBox.shrink(),
+        if (!topAligned)
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: Spacing.md),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: body,
+            ),
+          ),
         Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
