@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/privacy_consent_service.dart';
 import '../../services/storage_service.dart';
+import 'age_gate_prompt.dart';
 import 'button.dart';
 import 'dialog.dart';
 
@@ -65,6 +66,16 @@ class _PrivacyChoiceControlState extends State<PrivacyChoiceControl> {
     final epoch = PrivacyChoiceStorage.epoch;
     _epoch = epoch;
     final revision = ++_revision;
+    if (enabled && widget.purpose != PrivacyPurpose.pronunciation) {
+      final eligible = await ensureOptionalCollectionAgeAllowed(context);
+      if (!mounted ||
+          epoch != PrivacyChoiceStorage.epoch ||
+          revision != _revision ||
+          ModalRoute.of(context)?.isCurrent != true ||
+          !eligible) {
+        return;
+      }
+    }
     _requested = enabled;
     if (enabled && widget.purpose == PrivacyPurpose.pronunciation) {
       if (_dialogOpen) {
