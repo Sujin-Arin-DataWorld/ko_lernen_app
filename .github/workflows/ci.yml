@@ -423,8 +423,9 @@ jobs:
           export PATH="$HOME/flutter/bin:$HOME/.pub-cache/bin:$PATH"
           flutter build ios --release --no-codesign
 
-  # The cold Intel simulator setup/build needs its own bounded 75-minute clock;
-  # device release keeps 45 minutes. Both jobs retain the same toolchain contract.
+  # A cold Intel run used 18 minutes for setup and was still compiling the app
+  # at the old 75-minute limit (36511915822). Keep all native tests and allow
+  # 90 minutes for setup, compilation and execution; device release keeps 45.
   ios-native-tests:
     name: iOS simulator native tests
     needs: changes
@@ -433,7 +434,7 @@ jobs:
       (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
     # Locked ML Kit binaries provide x86_64 simulator slices, not arm64 simulator.
     runs-on: macos-15-intel
-    timeout-minutes: 75
+    timeout-minutes: 90
     env:
       CI_PRIMARY_REPOSITORY_PATH: ${{ github.workspace }}
       DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer

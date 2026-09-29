@@ -11,6 +11,7 @@ import '../../widgets/sori/external_link.dart';
 import '../../widgets/sori/tokens.dart';
 import 'onboarding_v2_shell.dart';
 import 'onboarding_v3_demo_support.dart';
+import '../../widgets/sori/window_class.dart';
 
 /// A short heading leaves the learning surface and footer their own space.
 class JourneyHeading extends StatelessWidget {
@@ -97,6 +98,7 @@ class JourneyChoice extends StatelessWidget {
                             style: SoriTextTheme.of(context).h1.copyWith(
                               fontSize: b.maxHeight > 230 ? 46 : 30,
                               color: c.primary,
+                              fontFamily: SoriFonts.learningKorean,
                             ),
                           ),
                         ),
@@ -157,8 +159,30 @@ class JourneyReading extends StatelessWidget {
   final String text;
   final bool korean;
   @override
-  Widget build(BuildContext context) =>
-      DemoPagedText(text: text, korean: korean, fontSize: korean ? 28 : 16);
+  Widget build(BuildContext context) {
+    return DemoPagedText(
+      text: text,
+      korean: korean,
+      fontSize: _journeyReadingSize(context, text, korean: korean),
+    );
+  }
+}
+
+double _journeyReadingSize(
+  BuildContext context,
+  String text, {
+  required bool korean,
+}) {
+  // The example is the focal point of the path card. Keep the compact phone
+  // size while making short Korean examples legible on a Pad.
+  final tablet = appWindowClassOf(context).isAtLeastMedium;
+  if (!korean) {
+    return tablet ? 23 : 16;
+  }
+  if (!tablet) {
+    return 28;
+  }
+  return text.runes.length <= 12 ? 52 : 40;
 }
 
 class OnboardingPathScene extends StatefulWidget {
@@ -205,42 +229,89 @@ class _OnboardingPathSceneState extends State<OnboardingPathScene> {
             ),
             const SizedBox(height: 8),
             Expanded(
-              child: JourneyPanel(
-                child: LayoutBuilder(
-                  builder: (context, bounds) {
-                    if (bounds.maxHeight < 280 ||
-                        MediaQuery.textScalerOf(context).scale(16) > 24) {
-                      return DemoPagedText(
-                        text:
-                            '${demoMeaning(context, path)}\n\n${example['ko']}\n${demoMeaning(context, example)}',
-                        korean: false,
-                        fontSize: 20,
-                      );
-                    }
-                    return Column(
-                      children: [
-                        Text(
-                          '${(_selected + 1).toString().padLeft(2, '0')} · ${demoMeaning(context, path)}',
-                          textAlign: TextAlign.center,
-                          style: SoriTextTheme.of(context).cardTitle,
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: JourneyReading(
-                            text: example['ko'] as String,
-                            korean: true,
-                          ),
-                        ),
-                        Expanded(
-                          flex: 2,
-                          child: JourneyReading(
-                            text: demoMeaning(context, example),
-                            korean: false,
-                          ),
-                        ),
-                      ],
-                    );
-                  },
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(
+                    maxWidth: 640,
+                    maxHeight: 440,
+                  ),
+                  child: JourneyPanel(
+                    child: LayoutBuilder(
+                      builder: (context, bounds) {
+                        if (bounds.maxHeight < 280 ||
+                            MediaQuery.textScalerOf(context).scale(16) > 24) {
+                          final korean = example['ko'] as String;
+                          return SingleChildScrollView(
+                            child: Center(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    '${(_selected + 1).toString().padLeft(2, '0')} · ${demoMeaning(context, path)}',
+                                    textAlign: TextAlign.center,
+                                    style: SoriTextTheme.of(context).cardTitle,
+                                  ),
+                                  const SizedBox(height: 12),
+                                  Text(
+                                    korean,
+                                    locale: const Locale('ko'),
+                                    textAlign: TextAlign.center,
+                                    style: SoriTextTheme.of(context).koDisplay
+                                        .copyWith(
+                                          fontSize: _journeyReadingSize(
+                                            context,
+                                            korean,
+                                            korean: true,
+                                          ),
+                                          fontWeight: FontWeight.w600,
+                                          height: 1.25,
+                                        ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    demoMeaning(context, example),
+                                    textAlign: TextAlign.center,
+                                    style: SoriTextTheme.of(context).gloss
+                                        .copyWith(
+                                          fontSize: _journeyReadingSize(
+                                            context,
+                                            korean,
+                                            korean: false,
+                                          ),
+                                          height: 1.35,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        }
+                        return Column(
+                          children: [
+                            Text(
+                              '${(_selected + 1).toString().padLeft(2, '0')} · ${demoMeaning(context, path)}',
+                              textAlign: TextAlign.center,
+                              style: SoriTextTheme.of(context).cardTitle,
+                            ),
+                            Expanded(
+                              flex: 3,
+                              child: JourneyReading(
+                                text: example['ko'] as String,
+                                korean: true,
+                              ),
+                            ),
+                            Expanded(
+                              flex: 2,
+                              child: JourneyReading(
+                                text: demoMeaning(context, example),
+                                korean: false,
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ),
             ),

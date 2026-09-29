@@ -363,7 +363,7 @@ void main() {
         await tester.ensureVisible(find.bySemanticsLabel(wrongTile).first);
         expect(
           tester.getSize(find.bySemanticsLabel(wrongTile).first),
-          const Size(46, 46),
+          const Size(48, 48),
         );
         await tester.tap(find.bySemanticsLabel(wrongTile).first);
         await tester.pump();

@@ -717,6 +717,39 @@ void main() {
     semantics.dispose();
   });
 
+  testWidgets('Pad portrait and landscape retain the authored gate video', (
+    tester,
+  ) async {
+    addTearDown(() => TigerStageVideo.videoReady = false);
+    TigerStageVideo.videoReady = true;
+    for (final size in const [Size(720, 1152), Size(1152, 720)]) {
+      final repository = _MemoryJourneyRepository(_gateState());
+      await _pumpEntry(
+        tester,
+        IntroGateScreen(
+          deferVideoLeaseForTesting: true,
+          firstRunCoordinator: _coordinator(repository: repository),
+        ),
+        locale: const Locale('de'),
+        viewport: (size: size, textScale: 1),
+        disableAnimations: false,
+      );
+      await _pumpUntilFound(
+        tester,
+        find.byKey(const ValueKey('intro-video-skip')),
+      );
+      expect(find.byKey(const ValueKey('intro-skip')), findsNothing);
+      await _tapPointerOwned(
+        tester,
+        find.byKey(const ValueKey('intro-video-skip')),
+      );
+      await _pumpUntilFound(tester, find.byType(AppShell));
+      expect(repository.state?.gateIntroConsumed, isTrue);
+      expect(tester.takeException(), isNull);
+      await _disposeEntry(tester);
+    }
+  });
+
   testWidgets('preview advances without an animated intermediate state', (
     tester,
   ) async {

@@ -15,10 +15,11 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/mission_context_bar.dart';
 
 import 'support/scenario_stock_fixtures.dart';
-
+import 'support/real_fonts.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
 
   setUp(() async {
     Storage.resetForTesting();
@@ -29,50 +30,70 @@ void main() {
     CurriculumCatalog.reset();
   });
 
-  testWidgets('shows mission context for its exact scenario link', (
-    tester,
-  ) async {
-    late ContentLink link;
-    late Scenario scenario;
-    await tester.runAsync(() async {
-      await ScenarioLoader.load();
-      final catalog = await CurriculumCatalog.load();
-      link = catalog.contentLinks.firstWhere((entry) {
-        if (entry.contentKind != CurriculumContentKind.scenario ||
-            entry.role != ContentLinkRole.assess ||
-            !entry.courseUnitId.startsWith('a1_')) {
-          return false;
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    testWidgets(
+      'shows mission context for its exact scenario link in ${locale.languageCode}',
+      (tester) async {
+        tester.view.physicalSize = const Size(1152, 720);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        late ContentLink link;
+        late Scenario scenario;
+        await tester.runAsync(() async {
+          await ScenarioLoader.load();
+          final catalog = await CurriculumCatalog.load();
+          link = catalog.contentLinks.firstWhere((entry) {
+            if (entry.contentKind != CurriculumContentKind.scenario ||
+                entry.role != ContentLinkRole.assess ||
+                !entry.courseUnitId.startsWith('a1_')) {
+              return false;
+            }
+            final unit = catalog.courseUnitFor(entry.courseUnitId);
+            final candidate = ScenarioLoader.byId(entry.contentId);
+            return candidate?.level == LearnerLevel.a1 &&
+                unit?.checkpointContentIds.contains(entry.contentKey) == true;
+          });
+          scenario = ScenarioLoader.byId(link.contentId)!;
+        });
+
+        await tester.pumpWidget(
+          MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: AppTheme.light,
+            locale: locale,
+            supportedLocales: AppL10n.supportedLocales,
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            home: ScenarioPlayerScreen(
+              scenarioId: scenario.id,
+              courseContext: CoursePracticeContext.fromLink(link),
+              scenarioLoader: (_) async => scenario,
+              questCorpusLoader: (_) async => stockedScenarioCorpus(scenario),
+            ),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 300));
+
+        for (final size in const [Size(1152, 720), Size(720, 1152)]) {
+          tester.view.physicalSize = size;
+          await tester.pump();
+          await tester.pump(const Duration(milliseconds: 300));
+          expect(find.byType(MissionContextBar), findsOneWidget);
+          final t = AppL10n.of(tester.element(find.byType(MissionContextBar)));
+          expect(find.text(t.missionContextLabel), findsOneWidget);
+          final missionRect = tester.getRect(find.byType(MissionContextBar));
+          expect(missionRect.width, lessThanOrEqualTo(720));
+          expect(missionRect.center.dx, closeTo(size.width / 2, 1));
+          final poster = find.byKey(const ValueKey('scenario-intro-art-image'));
+          expect(poster, findsOneWidget);
+          final posterRect = tester.getRect(poster);
+          expect(posterRect.top - missionRect.bottom, inInclusiveRange(0, 80));
         }
-        final unit = catalog.courseUnitFor(entry.courseUnitId);
-        final candidate = ScenarioLoader.byId(entry.contentId);
-        return candidate?.level == LearnerLevel.a1 &&
-            unit?.checkpointContentIds.contains(entry.contentKey) == true;
-      });
-      scenario = ScenarioLoader.byId(link.contentId)!;
-    });
-
-    await tester.pumpWidget(
-      MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.light,
-        locale: const Locale('en'),
-        supportedLocales: AppL10n.supportedLocales,
-        localizationsDelegates: AppL10n.localizationsDelegates,
-        home: ScenarioPlayerScreen(
-          scenarioId: scenario.id,
-          courseContext: CoursePracticeContext.fromLink(link),
-          scenarioLoader: (_) async => scenario,
-          questCorpusLoader: (_) async => stockedScenarioCorpus(scenario),
-        ),
-      ),
+        expect(tester.takeException(), isNull);
+      },
     );
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 300));
-
-    expect(find.byType(MissionContextBar), findsOneWidget);
-    expect(find.text('Current mission'), findsOneWidget);
-    expect(tester.takeException(), isNull);
-  });
+  }
 
   testWidgets('리스트/추천에서 courseContext 없이 열려도 활성 체크포인트면 자동 유도된다', (
     tester,

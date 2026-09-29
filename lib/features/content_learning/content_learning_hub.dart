@@ -13,6 +13,7 @@ import '../../widgets/sori/card.dart';
 import '../../widgets/sori/chaekgado/chaekgado_assets.dart';
 import '../../widgets/sori/level_filter_bar.dart';
 import '../../widgets/sori/study_frame.dart';
+import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/tokens.dart';
 import 'content_learning_catalog.dart';
 import 'content_learning_day_refresh.dart';
@@ -357,153 +358,168 @@ class _ContentLearningHubState extends State<ContentLearningHub>
                         t.contentLearningLearn,
                         style: SoriTextTheme.of(context).h3,
                       ),
-                      for (final lesson in selected)
-                        Padding(
-                          padding: const EdgeInsets.only(top: Spacing.md),
-                          child: SoriCard(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                Text(
-                                  lesson.title.pick(lang),
-                                  style: SoriTextTheme.of(context).h3,
-                                ),
-                                const SizedBox(height: Spacing.sm),
-                                Text(lesson.intro.pick(lang)),
-                                if (ContentLearningService.progress(
-                                  lesson.id,
-                                ).completed)
-                                  Text(
-                                    ContentLearningService.progress(
-                                          lesson.id,
-                                        ).missedQuestionIds.isNotEmpty
-                                        ? t.contentLearningNeedsReview
-                                        : t.contentLearningDone,
-                                  )
-                                else if (lesson.contentIds.every(
-                                  ContentLearningService.progress(
-                                    lesson.id,
-                                  ).seenIds.contains,
-                                ))
-                                  Text(
-                                    widget.kind == LearningContentKind.listening
-                                        ? t.contentLearningListeningPending
-                                        : t.contentLearningPracticePending,
-                                  ),
-                                if (widget.kind ==
-                                        LearningContentKind.smalltalk &&
-                                    lesson.contentIds.length <= 2)
-                                  Text(
-                                    t.contentLearningShortLesson(
-                                      lesson.contentIds.length,
+                      SoriAdaptiveCardWrap(
+                        children: [
+                          for (final lesson in selected)
+                            Padding(
+                              padding: const EdgeInsets.only(top: Spacing.md),
+                              child: SoriCard(
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    Text(
+                                      lesson.title.pick(lang),
+                                      style: SoriTextTheme.of(context).h3,
                                     ),
-                                    style: SoriTextTheme.of(context).meta,
-                                  ),
-                                const SizedBox(height: Spacing.md),
-                                SoriButton.filled(
-                                  label:
+                                    const SizedBox(height: Spacing.sm),
+                                    Text(lesson.intro.pick(lang)),
+                                    if (ContentLearningService.progress(
+                                      lesson.id,
+                                    ).completed)
+                                      Text(
+                                        ContentLearningService.progress(
+                                              lesson.id,
+                                            ).missedQuestionIds.isNotEmpty
+                                            ? t.contentLearningNeedsReview
+                                            : t.contentLearningDone,
+                                      )
+                                    else if (lesson.contentIds.every(
                                       ContentLearningService.progress(
                                         lesson.id,
-                                      ).completed
-                                      ? t.contentLearningDone
-                                      : ContentLearningService.progress(
-                                              lesson.id,
-                                            ).seenIds.isNotEmpty ||
-                                            ContentLearningService.progress(
-                                                  lesson.id,
-                                                ).position >
-                                                0
-                                      ? t.contentLearningResume
-                                      : t.contentLearningStart,
-                                  onTap: _busy ? null : () => _open(lesson),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                    ] else ...[
-                      for (final topic in topics)
-                        Padding(
-                          padding: const EdgeInsets.only(top: Spacing.md),
-                          child: SoriCard(
-                            onTap: () => setState(() => _topic = topic),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                if (widget.kind ==
-                                        LearningContentKind.listening &&
-                                    _slot(topic) != null)
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      bottom: Spacing.md,
-                                    ),
-                                    child: Image.asset(
-                                      chaekgadoCardAsset(
-                                        _slot(topic)!.imageKey,
+                                      ).seenIds.contains,
+                                    ))
+                                      Text(
+                                        widget.kind ==
+                                                LearningContentKind.listening
+                                            ? t.contentLearningListeningPending
+                                            : t.contentLearningPracticePending,
                                       ),
-                                      height: 136,
-                                      fit: BoxFit.contain,
-                                      excludeFromSemantics: true,
-                                      errorBuilder: (_, _, _) => const Icon(
-                                        Icons.headphones,
-                                        size: 48,
-                                      ),
-                                    ),
-                                  ),
-                                Text(
-                                  _topicTitle(topic),
-                                  style: SoriTextTheme.of(context).h2,
-                                ),
-                                const SizedBox(height: Spacing.sm),
-                                Text(
-                                  widget.kind == LearningContentKind.smalltalk
-                                      ? t.contentLearningExpressionCount(
-                                          levelLessons
-                                              .where(
-                                                (lesson) =>
-                                                    lesson.topicId == topic,
-                                              )
-                                              .expand(
-                                                (lesson) => lesson.contentIds,
-                                              )
-                                              .toSet()
-                                              .length,
-                                        )
-                                      : t.contentLearningScenarioCount(
-                                          levelLessons
-                                              .where(
-                                                (lesson) =>
-                                                    lesson.topicId == topic,
-                                              )
-                                              .expand(
-                                                (lesson) => lesson.contentIds,
-                                              )
-                                              .toSet()
-                                              .length,
+                                    if (widget.kind ==
+                                            LearningContentKind.smalltalk &&
+                                        lesson.contentIds.length <= 2)
+                                      Text(
+                                        t.contentLearningShortLesson(
+                                          lesson.contentIds.length,
                                         ),
+                                        style: SoriTextTheme.of(context).meta,
+                                      ),
+                                    const SizedBox(height: Spacing.md),
+                                    SoriButton.filled(
+                                      label:
+                                          ContentLearningService.progress(
+                                            lesson.id,
+                                          ).completed
+                                          ? t.contentLearningDone
+                                          : ContentLearningService.progress(
+                                                  lesson.id,
+                                                ).seenIds.isNotEmpty ||
+                                                ContentLearningService.progress(
+                                                      lesson.id,
+                                                    ).position >
+                                                    0
+                                          ? t.contentLearningResume
+                                          : t.contentLearningStart,
+                                      onTap: _busy ? null : () => _open(lesson),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  t.contentLearningPackProgress(
-                                    levelLessons
-                                        .where(
-                                          (lesson) =>
-                                              lesson.topicId == topic &&
-                                              ContentLearningService.progress(
-                                                lesson.id,
-                                              ).completed,
-                                        )
-                                        .length,
-                                    levelLessons
-                                        .where(
-                                          (lesson) => lesson.topicId == topic,
-                                        )
-                                        .length,
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                          ),
-                        ),
+                        ],
+                      ),
+                    ] else ...[
+                      SoriAdaptiveCardWrap(
+                        children: [
+                          for (final topic in topics)
+                            Padding(
+                              padding: const EdgeInsets.only(top: Spacing.md),
+                              child: SoriCard(
+                                onTap: () => setState(() => _topic = topic),
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    if (widget.kind ==
+                                            LearningContentKind.listening &&
+                                        _slot(topic) != null)
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          bottom: Spacing.md,
+                                        ),
+                                        child: Image.asset(
+                                          chaekgadoCardAsset(
+                                            _slot(topic)!.imageKey,
+                                          ),
+                                          height: 136,
+                                          fit: BoxFit.contain,
+                                          excludeFromSemantics: true,
+                                          errorBuilder: (_, _, _) => const Icon(
+                                            Icons.headphones,
+                                            size: 48,
+                                          ),
+                                        ),
+                                      ),
+                                    Text(
+                                      _topicTitle(topic),
+                                      style: SoriTextTheme.of(context).h2,
+                                    ),
+                                    const SizedBox(height: Spacing.sm),
+                                    Text(
+                                      widget.kind ==
+                                              LearningContentKind.smalltalk
+                                          ? t.contentLearningExpressionCount(
+                                              levelLessons
+                                                  .where(
+                                                    (lesson) =>
+                                                        lesson.topicId == topic,
+                                                  )
+                                                  .expand(
+                                                    (lesson) =>
+                                                        lesson.contentIds,
+                                                  )
+                                                  .toSet()
+                                                  .length,
+                                            )
+                                          : t.contentLearningScenarioCount(
+                                              levelLessons
+                                                  .where(
+                                                    (lesson) =>
+                                                        lesson.topicId == topic,
+                                                  )
+                                                  .expand(
+                                                    (lesson) =>
+                                                        lesson.contentIds,
+                                                  )
+                                                  .toSet()
+                                                  .length,
+                                            ),
+                                    ),
+                                    Text(
+                                      t.contentLearningPackProgress(
+                                        levelLessons
+                                            .where(
+                                              (lesson) =>
+                                                  lesson.topicId == topic &&
+                                                  ContentLearningService.progress(
+                                                    lesson.id,
+                                                  ).completed,
+                                            )
+                                            .length,
+                                        levelLessons
+                                            .where(
+                                              (lesson) =>
+                                                  lesson.topicId == topic,
+                                            )
+                                            .length,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
                     ],
                     const SizedBox(height: Spacing.xl),
                   ];

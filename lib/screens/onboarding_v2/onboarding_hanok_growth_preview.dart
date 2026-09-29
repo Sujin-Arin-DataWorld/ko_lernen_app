@@ -26,7 +26,7 @@ class OnboardingHanokGrowthPreview extends StatelessWidget {
             ? constraints.maxHeight
             : availableWidth * 3 / 4;
         final width = math
-            .min(math.min(availableWidth, availableHeight * 4 / 3), 360.0)
+            .min(math.min(availableWidth, availableHeight * 4 / 3), 480.0)
             .toDouble();
         return Center(
           child: SizedBox(

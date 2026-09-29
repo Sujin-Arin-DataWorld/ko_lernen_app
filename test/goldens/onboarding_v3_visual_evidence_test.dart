@@ -9,8 +9,8 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
-import 'support/real_fonts.dart';
-import 'support/sori_speech_stubs.dart';
+import '../support/real_fonts.dart';
+import '../support/sori_speech_stubs.dart';
 
 // Opt-in rendered evidence, following the existing Sori Stage capture contract.
 // Pass --dart-define=ONBOARDING_EVIDENCE_DIR=<absolute directory> --update-goldens.
@@ -22,7 +22,12 @@ void main() {
     stubSoriSpeech();
     TigerStageVideo.videoReady = false;
   });
-  for (final size in const [Size(390, 844), Size(720, 1152), Size(320, 640)]) {
+  for (final size in const [
+    Size(390, 844),
+    Size(720, 1152),
+    Size(1152, 720),
+    Size(320, 640),
+  ]) {
     for (var step = 0; step < 7; step++) {
       testWidgets(
         'render step ${step + 1} at ${size.width}',
@@ -104,6 +109,23 @@ void main() {
               ),
             ),
           );
+          if (step == 1) {
+            for (final (choice, name) in [(1, 'word'), (2, 'sentence')]) {
+              await tester.tap(
+                find.byKey(ValueKey('onboarding-v3-path-$choice')),
+              );
+              await tester.pumpAndSettle();
+              expect(tester.takeException(), isNull);
+              await expectLater(
+                find.byKey(const ValueKey('capture')),
+                matchesGoldenFile(
+                  Uri.file(
+                    '$_evidenceDir/native-${size.width.toInt()}-2-$name.png',
+                  ),
+                ),
+              );
+            }
+          }
         },
       );
     }
