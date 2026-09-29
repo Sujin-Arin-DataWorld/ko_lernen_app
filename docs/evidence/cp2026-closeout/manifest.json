@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "snapshotMain": "0a11b03ebbeaceda2660ffa721b73f4e5faf6b58",
+  "snapshotMain": "9c4c46dbd02447f104a60dc38d707445a311a50a",
   "files": [
     {
       "file": "public-test-preflight.json",
@@ -169,6 +169,77 @@
       "bytes": 11006,
       "sourceSha256": "87154978590d9b2ae8e5f027bd35b03639c715f36769a24002babfd46d91ebe6",
       "copy": "selected review and device sections; explanatory snapshot header added; portable LF line endings"
+    },
+    {
+      "file": "pr424-merge-preflight.json",
+      "sha256": "087ff4ec30225738a7d4017936e6190d3b02c3be8905e607f32c2cbbecc04a7e",
+      "bytes": 2040,
+      "copy": "original receipt fields preserved; portable LF line endings",
+      "sourceSha256": "297af798a5fce9d888ec6217a4afed3e0d325a5562b128207003b569dd8b45e2"
+    },
+    {
+      "file": "pr424-merge-proof.json",
+      "sha256": "5c21c22bf46ab6fad9c4b21557e1a5399ea07ce0a2733726dffe8fe7fc6a2e1d",
+      "bytes": 2295,
+      "copy": "original receipt fields preserved; portable LF line endings",
+      "sourceSha256": "efde3a0414b5ee6226fa43a5651861ac684e057408c7f7a73aac8caf89ef7aed"
+    },
+    {
+      "file": "main424-live.json",
+      "sha256": "84f95d4b0db83fecbf2e17412fd0b46158a90354eb85b25438a280d905655573",
+      "bytes": 1670,
+      "copy": "original receipt fields preserved; portable LF line endings",
+      "sourceSha256": "eec4e9a7efd7a75c77b0e4e03b1ce730af05beaaab1e63e84901624ce40b5ca1"
+    },
+    {
+      "file": "pr425-merge-preflight.json",
+      "sha256": "11364e6116cb84b974b1650633d4996198c2d356c74009c48e52ac8a8415007e",
+      "bytes": 2143,
+      "copy": "original receipt fields preserved; portable LF line endings",
+      "sourceSha256": "f07d0a684341831279f76d0c9a7dbea02b4673f2ed1bd9b11745e98d777ab384"
+    },
+    {
+      "file": "pr425-merge-proof.json",
+      "sha256": "e8b96a79c7478872bf4c895bfdbe2ee2c6b5ec84bb8caaec31a3281cb1621ccd",
+      "bytes": 2398,
+      "copy": "mainGateEvidence renamed from main425.json to portable main425-live.json; all other fields preserved; portable LF line endings",
+      "sourceSha256": "7828cb85276f0e3ce14e8be1e9011ca20a733393dc1e162f56338eb142064ea5"
+    },
+    {
+      "file": "main425-live.json",
+      "sha256": "38e34821c55056cfd88a8bd85068a4629eb97e0a1f2bf20fef4a807471704092",
+      "bytes": 1670,
+      "copy": "original receipt fields preserved; portable LF line endings",
+      "sourceSha256": "ba528b15d69ed7a733278d161d99ef946c53035fb159590a71e0b049498f9026"
+    },
+    {
+      "file": "pr426-merge-preflight.json",
+      "sha256": "5effeb31838f22c109b018f9710424137e6160364dec499ee19374cb0d984f7e",
+      "bytes": 2144,
+      "copy": "original receipt fields preserved; portable LF line endings",
+      "sourceSha256": "0a2c07441d10aadd41b3eeaeaa74056794842e775e6679e2fecbdf2a616078c9"
+    },
+    {
+      "file": "pr426-merge-proof.json",
+      "sha256": "2266e61d2c9f63164c817298425861783550aa73d0d3beffaf3822807b8d3f19",
+      "bytes": 2297,
+      "copy": "original receipt fields preserved; portable LF line endings",
+      "sourceSha256": "80006b732afa1dfe8eb32e1d1474fa341ad8631d8db3049cd0870704973c6a5a"
+    },
+    {
+      "file": "main426-live.json",
+      "sha256": "94a908c89fe690ead6c9b12cfba119bbca656b246e2e8c33cd9fe82d56f678b1",
+      "bytes": 1661,
+      "copy": "original receipt fields preserved; portable LF line endings",
+      "sourceSha256": "750370191fc992eafd11030ce4fba90d1c40da9ab3a6c98c960185c2665bd080"
+    },
+    {
+      "file": "pr426-native-success.json",
+      "sha256": "cc9f1a3ffb876b6057a9523c5bb2c50e7bb3582aa0a96484ae45e2632f26f7e5",
+      "bytes": 707,
+      "copy": "original receipt fields preserved; portable LF line endings",
+      "sourceSha256": "8767fada942145473aab4e04bb4f4650af6d9237b321618b06abbc6499ba30cc"
     }
-  ]
+  ],
+  "observedAt": "2026-09-29T10:31:51.830810+00:00"
 }

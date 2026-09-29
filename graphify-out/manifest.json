@@ -18738,9 +18738,9 @@
     "semantic_hash": ""
   },
   "docs/CP2026_CONTINUATION.md": {
-    "mtime": 1790643335.6158576,
-    "seen": 1790671121.2425685,
-    "ast_hash": "0f98a35347189570754c6dcc1b38c4e3",
+    "mtime": 1790677911.8352983,
+    "seen": 1790678150.45472,
+    "ast_hash": "ad42448422622d28ad648348fee18928",
     "semantic_hash": ""
   },
   "docs/data/a1_grammar_scan_2026-09-15.md": {
@@ -20250,9 +20250,9 @@
     "semantic_hash": ""
   },
   "docs/CP2026_HANDOVER_20260925.md": {
-    "mtime": 1790643229.4293635,
-    "seen": 1790671121.2425702,
-    "ast_hash": "94d2a1b76c9ae576f48fc9f48d1b165a",
+    "mtime": 1790677911.8352983,
+    "seen": 1790678150.4547262,
+    "ast_hash": "85d3efac4144a21dd5ffc42ae0dfea3f",
     "semantic_hash": ""
   },
   "docs/evidence/cp2026-closeout/android7680-publication-receipt.json": {
@@ -20310,9 +20310,9 @@
     "semantic_hash": ""
   },
   "docs/evidence/cp2026-closeout/manifest.json": {
-    "mtime": 1790643130.6965046,
-    "seen": 1790671121.2378337,
-    "ast_hash": "b24532677ee2f8f4100e134edaf5b849",
+    "mtime": 1790677911.8352983,
+    "seen": 1790678149.8883307,
+    "ast_hash": "124027d336d6e6d734a6c9c4088f4f63",
     "semantic_hash": ""
   },
   "docs/evidence/cp2026-closeout/pr412-merge-preflight.json": {
@@ -20388,9 +20388,9 @@
     "semantic_hash": ""
   },
   "docs/evidence/cp2026-closeout/README.md": {
-    "mtime": 1790643130.7737305,
-    "seen": 1790671121.2428331,
-    "ast_hash": "172de8475de3d36df64df0af02137c88",
+    "mtime": 1790677474.6432524,
+    "seen": 1790678150.4942782,
+    "ast_hash": "b490bf1ce1290753ae8d5243f63a5ea6",
     "semantic_hash": ""
   },
   "docs/evidence/cp2026-closeout/review-checklist-snapshot.md": {
@@ -20421,6 +20421,66 @@
     "mtime": 1790670862.159541,
     "seen": 1790671121.2400947,
     "ast_hash": "5da24faa217e8765c2edf41bdbde2cbb",
+    "semantic_hash": ""
+  },
+  "docs/evidence/cp2026-closeout/main424-live.json": {
+    "mtime": 1790677911.8352983,
+    "seen": 1790678149.8883224,
+    "ast_hash": "48795a75dbc68f051c71ad31e05af0c0",
+    "semantic_hash": ""
+  },
+  "docs/evidence/cp2026-closeout/main425-live.json": {
+    "mtime": 1790677911.8352983,
+    "seen": 1790678149.888326,
+    "ast_hash": "099548c8723a1783c59dc447d82d4316",
+    "semantic_hash": ""
+  },
+  "docs/evidence/cp2026-closeout/main426-live.json": {
+    "mtime": 1790677911.8352983,
+    "seen": 1790678149.8883278,
+    "ast_hash": "ddd4834d6df3b18365e47ec7952870ec",
+    "semantic_hash": ""
+  },
+  "docs/evidence/cp2026-closeout/pr424-merge-preflight.json": {
+    "mtime": 1790677911.8352983,
+    "seen": 1790678149.890952,
+    "ast_hash": "1f6c455e923a44c1b7dd1dc015596a57",
+    "semantic_hash": ""
+  },
+  "docs/evidence/cp2026-closeout/pr424-merge-proof.json": {
+    "mtime": 1790677911.8352983,
+    "seen": 1790678149.8909543,
+    "ast_hash": "d757d046d723713bf88cef1666251ccd",
+    "semantic_hash": ""
+  },
+  "docs/evidence/cp2026-closeout/pr425-merge-preflight.json": {
+    "mtime": 1790677911.8352983,
+    "seen": 1790678149.8909557,
+    "ast_hash": "dd560db49fdbe2ec30944aa992a91a15",
+    "semantic_hash": ""
+  },
+  "docs/evidence/cp2026-closeout/pr425-merge-proof.json": {
+    "mtime": 1790677911.8352983,
+    "seen": 1790678149.8909578,
+    "ast_hash": "c8e143fddb2550f313e61b26d2fc8cf5",
+    "semantic_hash": ""
+  },
+  "docs/evidence/cp2026-closeout/pr426-merge-preflight.json": {
+    "mtime": 1790677911.8352983,
+    "seen": 1790678149.890959,
+    "ast_hash": "15ad8f7583d944ff1aca718f6c6a295f",
+    "semantic_hash": ""
+  },
+  "docs/evidence/cp2026-closeout/pr426-merge-proof.json": {
+    "mtime": 1790677911.8352983,
+    "seen": 1790678149.8909605,
+    "ast_hash": "ba933006cd0e719e6335b5a55f89b5c3",
+    "semantic_hash": ""
+  },
+  "docs/evidence/cp2026-closeout/pr426-native-success.json": {
+    "mtime": 1790677911.8352983,
+    "seen": 1790678149.8909614,
+    "ast_hash": "66bc958a8f64529a4b29194bc8e9b170",
     "semantic_hash": ""
   }
 }

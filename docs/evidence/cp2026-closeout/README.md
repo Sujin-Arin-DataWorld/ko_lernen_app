@@ -10,15 +10,21 @@ The local `.gitattributes` fixes LF line endings in this evidence directory.
 The manifest records both original source hashes and portable receipt hashes;
 line-ending normalization is recorded separately from any selected-field copy.
 
-- `pr412` through `pr416` merge preflight/proof files bind the PR HEAD, base,
+- `pr412` through `pr416`, plus `pr424`, `pr425` and `pr426`, merge preflight/proof files bind the PR HEAD, base,
   review-thread gate, squash SHA and equal trees. `mainN-live.json` records the
-  exact merged SHA's successful **push** CI and Playwright, including GitHub URLs.
+  exact merged SHA's **push** CI and Playwright, including GitHub URLs. Read the
+  `gateCompleted` field: a running receipt does not establish a successful gate.
+- `pr426-native-success.json` records three passing RunnerTests and the verified
+  artifact/log digests for PR HEAD `7854e3ff`. Its ZIP/log filenames refer to the
+  original archive A; the raw files are not copied here. The receipt links the
+  run by ID; it does not prove the later merged-main result.
 - `final-content-coverage.json` is the audit rerun after #416. Denominator repair
   adds neither content nor human approvals.
 - `public-test-preflight.json` observes the **old Android 7680** open-test release.
   The Android/iOS publication receipts describe the earlier 7680/254 distributions.
   Their nested local log references were not copied; these are observation receipts,
-  not a complete raw console/log archive. Device installation remains unverified.
+  not a complete raw console/log archive. These receipts do not prove installation
+  or functional verification on a device.
 - `release-coordination.json` contains the confirmed authorization scope with the
   private session transcript path removed and the original receipt digest retained.
 - `main411-live.json` records the successful retried #411 main gate.
@@ -41,10 +47,14 @@ For a newer SHA or current store availability, rerun the relevant check.
 
 ## Deliberately unfinished / archive-only material
 
-The #425 merge, subsequent Android release, and this session's five-worktree cleanup
-were **not complete when this snapshot was committed**. No corresponding final
-receipt is asserted here. Obtain their live PR/Actions/Play Console results before
-claiming completion; the closing PR description will link the final result.
+The #425 handover, #424 Pad 6 changes and #426 Java release-input repair have been
+merged. Their exact-head and merged-main results are kept distinct in the receipts.
+This documentation correction's merge, the new Android release and final cleanup
+decision happen after this snapshot. No future completion receipt is asserted here.
+The [#425 closing description](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/425)
+will link the actual final PR/Actions/Play Console evidence. Four worktrees were
+removed by this session; the #416 post-check limitation and the two held worktrees
+are explained in the dated handover. These observations do not authorize removal.
 
 Large Graphify originals, ignored files, user review packets, source media, raw
 console logs and local draft candidates remain in A. They are not included or
