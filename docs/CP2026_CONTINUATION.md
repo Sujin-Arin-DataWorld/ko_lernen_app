@@ -3,17 +3,17 @@
 <!-- CP2026_CLOSEOUT_CURRENT_START -->
 ## 2026-09-28 재개 마감 기준선
 
-확인 시각: 2026-09-28T20:40:36.007468+00:00. **마감 진행 중 — 미완료 항목을 완료로 보지 않음.** 이번 범위에서 마지막으로 병합·검증한 코드 PR의 main은 `dd59a5135246870b22315401ae1d78c413c2b324`이다. 이번 범위는 #412–#416과 인계 문서의 통합·검증·안전한 작업 공간 정리다. **9월28일 추가 요청에 따라 최종 검증 main의 Android 공개 테스트 배포도 수행한다.** 기존 `play_closed.yml` 수동 워크플로에 최종 `expected_sha`와 `target_track=beta`를 명시해 직접 배포한다. iOS 재배포와 원계획 후속 구현은 인계한다. 실제 배포 결과는 `A/session-closeout-20260928/`의 공개 테스트 영수증으로 확인하며, 이 문서 작성 시점에는 통합 이후 실행할 작업이다. **두 채팅 조율 후 추가된 배포 범위:** 다른 채팅의 실제 사용자 승인(9월28일15:49 UTC, “병합·세 트랙 배포까지”)을 확인해, 동일한 최종 AAB/버전을 공개(beta)·비공개(alpha)·내부 테스트에 맞춘다. Android 배포는 이 세션이 한 번 맡으며 `PLAY_INTERNAL_RELEASE_ENABLED=false`는 유지한다. 승인·조율 근거는 `A/session-closeout-20260928/release-coordination.json`이다.
+확인 시각: 2026-09-29T00:18:04.355108+00:00. **코드 PR 다섯 건 병합·main 검사 완료; 문서 PR/정리 영수증은 별도 확인.** 이번 범위에서 마지막으로 병합·검증한 코드 PR의 main은 `0a11b03ebbeaceda2660ffa721b73f4e5faf6b58`이다. 이번 범위는 #412–#416과 인계 문서의 통합·검증·안전한 작업 공간 정리다. **9월28일 추가 요청에 따라 최종 검증 main의 Android 공개 테스트 배포도 수행한다.** 기존 `play_closed.yml` 수동 워크플로에 최종 `expected_sha`와 `target_track=beta`를 명시해 직접 배포한다. iOS 재배포와 원계획 후속 구현은 인계한다. 실제 배포 결과는 `A/session-closeout-20260928/`의 공개 테스트 영수증으로 확인하며, 이 문서 작성 시점에는 통합 이후 실행할 작업이다. **두 채팅 조율 후 추가된 배포 범위:** 다른 채팅의 실제 사용자 승인(9월28일15:49 UTC, “병합·세 트랙 배포까지”)을 확인해, 동일한 최종 AAB/버전을 공개(beta)·비공개(alpha)·내부 테스트에 맞춘다. Android 배포는 이 세션이 한 번 맡으며 `PLAY_INTERNAL_RELEASE_ENABLED=false`는 유지한다. 승인·조율 근거는 `A/session-closeout-20260928/release-coordination.json`이다.
 
 #411 main `4d2288c8`의 CI35953059633 재실행은 9월25일14:53:42 UTC 성공했고 같은 SHA의 Playwright35953059678도 성공했다. 과거의 취소/진행 중 기록은 당시 이력이다.
 
 | PR | PR HEAD·로컬 준비 커밋 | 병합 SHA | 결과와 main 검사 |
 |---|---|---|---|
 | #412 | `2ea9484dcfa99ce410efb5af447517a5881eac02` | `dd59a5135246870b22315401ae1d78c413c2b324` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36426327791) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36426327845) |
-| #413 | 원격 `72ed73c4bcb5fd167a8c322ccddade89b718219b`<br>로컬 `78958e37369f1e5f1d05c840073491a0542ccbbc` | 미병합 | 로컬 커밋 보존됨; 대상 `main`. 최종 HEAD/main 검사·순차 통합 대기 |
-| #414 | 원격 `1ed5aaffe8eaabb5967e5fdb8308d76e5d4ce90a`<br>로컬 `e5ee662a146d23c7fd6766936e0a841799e1eec4` | 미병합 | 로컬 커밋 보존됨; 대상 `main`. 최종 HEAD/main 검사·순차 통합 대기 |
-| #415 | 원격 `5a7610febe0dfedeac15c8fd0837f620b77a89a4`<br>로컬 `2993c291b6eef1ab05936adff5fb74fc3af4ba56` | 미병합 | 로컬 변경 있음; 대상 `main`. 최종 HEAD/main 검사·순차 통합 대기 |
-| #416 | 원격 `4935093423bc9b10519c00340c972dae1a5db0b5`<br>로컬 `cda996a94a7a4320f5392b87d73dbbb995620693` | 미병합 | 로컬 변경 있음; 대상 `session/cp2026-grammar-optional-suffix-20260924-2026-09-24`. 최종 HEAD/main 검사·순차 통합 대기 |
+| #413 | `f473dc01c2008bc98e24c8684eeaa64cd37af8a5` | `f1929833e172d41cf7d9727d5dd5361c33f8f574` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36488012362) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36488012417) |
+| #414 | `d7dc47bc0120526932be96f434ac9d6ed3cf6652` | `0048dfd62e34942c7d80c40652595d4687b0bd20` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36492239185) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36492239210) |
+| #415 | `e97b8ec433a1980dd3a557786aac32df498a92bb` | `cee096c28e93c59ffd28ce3b4afb46ea5b72cfd9` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36496175324) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36496175270) |
+| #416 | `2e5a20f13de0924ac5fb2f95785585286a34336b` | `0a11b03ebbeaceda2660ffa721b73f4e5faf6b58` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36500048747) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36500048760) |
 
 각 PR의 HEAD 검사·전체 리뷰 페이지·원본 보존·병합 tree 동일성은 `C:/dev/hangulsori/_codex_artifacts/cp2026-release-stabilization-20260922/session-closeout-20260928/`의 `prN-merge-preflight.json`, `prN-merge-proof.json`, `mainN-live.json`으로 확인한다. 실제 생성된 영수증만 근거로 사용한다. 문서 PR의 최종 SHA와 삭제 결과는 같은 폴더의 최종 영수증에 기록한다.
 
