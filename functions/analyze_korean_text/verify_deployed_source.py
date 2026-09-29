@@ -30,6 +30,7 @@ import zipfile
 # data read by grammar_analysis.py). Sorted for a deterministic diff.
 #
 #   main.py -> dictionary_validation, grammar_analysis, security, text_quality
+#   dictionary_validation.py -> kkeunmari_nouns.json (positive offline index)
 #   security.py -> ai_policy (module-level) and access_policy (lazy, in
 #                  FirestoreIdempotencyGate.claim)
 #   ai_policy.py -> access_policy (module-level)
@@ -43,6 +44,7 @@ RUNTIME_FILES = (
     "dictionary_validation.py",
     "grammar_analysis.py",
     "grammar_patterns.json",
+    "kkeunmari_nouns.json",
     "main.py",
     "requirements.txt",
     "security.py",

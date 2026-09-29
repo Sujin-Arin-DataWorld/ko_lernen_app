@@ -6862,7 +6862,7 @@ abstract class AppL10n {
   /// No description provided for @kkeunmariDictionaryUnavailable.
   ///
   /// In de, this message translates to:
-  /// **'Das Wörterbuch kann gerade nicht geprüft werden. Versuche ein bekanntes Wort oder probiere es gleich noch einmal.'**
+  /// **'Das Online-Wörterbuch ist gerade nicht erreichbar. Deine Zeit bleibt stehen. Versuche ein anderes Wort oder sende dieses noch einmal.'**
   String get kkeunmariDictionaryUnavailable;
 
   /// No description provided for @kkeunmariNotInPool.
@@ -11760,6 +11760,54 @@ abstract class AppL10n {
   /// **'Kurzer Einstufungscheck'**
   String get placementTitle;
 
+  /// No description provided for @placementSkip.
+  ///
+  /// In de, this message translates to:
+  /// **'Das weiß ich noch nicht'**
+  String get placementSkip;
+
+  /// No description provided for @placementScope.
+  ///
+  /// In de, this message translates to:
+  /// **'18 Fragen von A1 bis C2. Für eine Empfehlung brauchst du auf jeder Stufe bis dahin mindestens zwei richtige Antworten. Der Check prüft das Verstehen, nicht das Sprechen oder Schreiben, und ist kein Sprachzertifikat.'**
+  String get placementScope;
+
+  /// No description provided for @coursePreviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kursinhalte ansehen'**
+  String get coursePreviewTitle;
+
+  /// No description provided for @coursePreviewBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecke Themen, Lernziele und Übungen von A1 bis C2. Das Anschauen ändert weder deinen Startpunkt noch deinen Lernfortschritt.'**
+  String get coursePreviewBody;
+
+  /// No description provided for @hanokHowTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wie wächst mein Hanok?'**
+  String get hanokHowTitle;
+
+  /// No description provided for @hanokHowBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffne deinen Lernpfad und schließe eine Kurseinheit mit den zugehörigen Übungen und Prüfungen ab. Abgeschlossene Einheiten von A1 bis B2 bringen den Hanok hier voran. Ein höher gewählter Startpunkt oder das Wiederholen einer bereits abgeschlossenen Einheit bringt keinen zusätzlichen Baufortschritt. Die Bauphasen kannst du auch separat erkunden; allein durch das Anschauen wächst dein Hanok nicht.'**
+  String get hanokHowBody;
+
+  /// No description provided for @hanokHowAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Meinen Lernpfad öffnen'**
+  String get hanokHowAction;
+
+  /// No description provided for @dictionaryOfflineSourceRole.
+  ///
+  /// In de, this message translates to:
+  /// **'Offline-Prüfung von Nomen für die Wortkette; nur Stichwörter, keine Definitionen.'**
+  String get dictionaryOfflineSourceRole;
+
   /// No description provided for @placementProgress.
   ///
   /// In de, this message translates to:
@@ -16437,7 +16485,7 @@ abstract class AppL10n {
   /// No description provided for @settingsRecheckLevelDescription.
   ///
   /// In de, this message translates to:
-  /// **'Mache freiwillig einen Test mit acht Aufgaben. Das Ergebnis ist eine Empfehlung; den Startpunkt wählst weiterhin du.'**
+  /// **'Probiere 18 Fragen von A1 bis C2. Das Ergebnis empfiehlt einen Startpunkt fürs Lernen; du kannst auch eine andere Stufe wählen.'**
   String get settingsRecheckLevelDescription;
 
   /// No description provided for @settingsCompanionVisibleTitle.

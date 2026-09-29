@@ -3903,7 +3903,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get kkeunmariDictionaryUnavailable =>
-      'The dictionary cannot be checked right now. Try a known word or try again shortly.';
+      'The online dictionary is unavailable. Your timer is paused. Try another word or send this one again.';
 
   @override
   String get kkeunmariNotInPool =>
@@ -6771,6 +6771,34 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get placementTitle => 'Quick placement check';
+
+  @override
+  String get placementSkip => 'I don\'t know yet';
+
+  @override
+  String get placementScope =>
+      '18 questions across A1–C2. A recommendation needs at least two correct answers in each level up to that point. This checks understanding, not speaking or writing, and is not a language certificate.';
+
+  @override
+  String get coursePreviewTitle => 'Explore course contents';
+
+  @override
+  String get coursePreviewBody =>
+      'Browse A1–C2 topics, learning goals and activities. Looking around does not change your starting point or progress.';
+
+  @override
+  String get hanokHowTitle => 'How does my Hanok grow?';
+
+  @override
+  String get hanokHowBody =>
+      'Open your learning path and complete a course unit, including its required practice and checks. Completed units in A1–B2 advance the Hanok shown here. Choosing a higher starting level or repeating an already completed unit does not add construction progress. You can explore the construction stages separately; browsing them does not build your Hanok.';
+
+  @override
+  String get hanokHowAction => 'Open my learning path';
+
+  @override
+  String get dictionaryOfflineSourceRole =>
+      'Offline noun checks for Word Chain; headwords only, without definitions.';
 
   @override
   String placementProgress(Object current, Object total) {
@@ -9648,7 +9676,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get settingsRecheckLevelDescription =>
-      'Take an optional eight-question check. Its result is a recommendation; you still choose your starting point.';
+      'Try 18 questions across A1–C2. The result suggests a learning starting point; you can choose another level.';
 
   @override
   String get settingsCompanionVisibleTitle => 'Show study buddy';

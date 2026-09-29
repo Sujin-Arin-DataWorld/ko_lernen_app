@@ -1940,7 +1940,7 @@
   "kkeunmariSubmit": "Senden",
   "kkeunmariDictionaryChecking": "Wörterbuch wird geprüft…",
   "kkeunmariNotDictionaryWord": "Dieses Wort ist kein gültiges Wörterbuch-Stichwort für das Spiel.",
-  "kkeunmariDictionaryUnavailable": "Das Wörterbuch kann gerade nicht geprüft werden. Versuche ein bekanntes Wort oder probiere es gleich noch einmal.",
+  "kkeunmariDictionaryUnavailable": "Das Online-Wörterbuch ist gerade nicht erreichbar. Deine Zeit bleibt stehen. Versuche ein anderes Wort oder sende dieses noch einmal.",
   "kkeunmariNotInPool": "Das kenne ich noch nicht. Versuch ein anderes Wort. 🐯",
   "kkeunmariNotKorean": "Nur Hangul-Wörter, bitte",
   "kkeunmariWrongStart": "Muss mit »{syl}« anfangen",
@@ -3353,6 +3353,14 @@
     }
   },
   "placementTitle": "Kurzer Einstufungscheck",
+  "placementSkip": "Das weiß ich noch nicht",
+  "placementScope": "18 Fragen von A1 bis C2. Für eine Empfehlung brauchst du auf jeder Stufe bis dahin mindestens zwei richtige Antworten. Der Check prüft das Verstehen, nicht das Sprechen oder Schreiben, und ist kein Sprachzertifikat.",
+  "coursePreviewTitle": "Kursinhalte ansehen",
+  "coursePreviewBody": "Entdecke Themen, Lernziele und Übungen von A1 bis C2. Das Anschauen ändert weder deinen Startpunkt noch deinen Lernfortschritt.",
+  "hanokHowTitle": "Wie wächst mein Hanok?",
+  "hanokHowBody": "Öffne deinen Lernpfad und schließe eine Kurseinheit mit den zugehörigen Übungen und Prüfungen ab. Abgeschlossene Einheiten von A1 bis B2 bringen den Hanok hier voran. Ein höher gewählter Startpunkt oder das Wiederholen einer bereits abgeschlossenen Einheit bringt keinen zusätzlichen Baufortschritt. Die Bauphasen kannst du auch separat erkunden; allein durch das Anschauen wächst dein Hanok nicht.",
+  "hanokHowAction": "Meinen Lernpfad öffnen",
+  "dictionaryOfflineSourceRole": "Offline-Prüfung von Nomen für die Wortkette; nur Stichwörter, keine Definitionen.",
   "placementProgress": "Frage {current} von {total}",
   "@placementProgress": {
     "placeholders": {
@@ -4673,7 +4681,7 @@
   "settingsBrowseLevelTitle": "Stufe zum Stöbern",
   "settingsBrowseLevelDescription": "Filtert nur Bibliotheken und Szenarien. Dein Lernpfad-Fortschritt bleibt unverändert.",
   "settingsRecheckLevelTitle": "Mein Level neu einschätzen",
-  "settingsRecheckLevelDescription": "Mache freiwillig einen Test mit acht Aufgaben. Das Ergebnis ist eine Empfehlung; den Startpunkt wählst weiterhin du.",
+  "settingsRecheckLevelDescription": "Probiere 18 Fragen von A1 bis C2. Das Ergebnis empfiehlt einen Startpunkt fürs Lernen; du kannst auch eine andere Stufe wählen.",
   "settingsCompanionVisibleTitle": "Lernfreund anzeigen",
   "settingsCompanionVisibleDescription": "Blende deinen Lernfreund ein oder aus, ohne die gewählte Figur zu ändern.",
   "settingsGuideSection": "App-Anleitung",

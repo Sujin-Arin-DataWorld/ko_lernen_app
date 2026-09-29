@@ -38,7 +38,7 @@ preflight는 다음을 모두 강제하며 외부 상태를 변경하지 않는�
 
 `functions/analyze_korean_text/.gcloudignore`는 테스트·도구·비밀 파일 이름을
 나열해 제외하는 **deny-list**다. 이 디렉터리는 flat하므로 남는 파일이 곧 현재
-import closure에 필요한 다음 **9개**다.
+import closure에 필요한 다음 **10개**다.
 
 1. `access_policy.py`
 2. `ai_policy.py`
@@ -49,6 +49,7 @@ import closure에 필요한 다음 **9개**다.
 7. `requirements.txt`
 8. `security.py`
 9. `text_quality.py`
+10. `kkeunmari_nouns.json` (끝말잇기 오프라인 명사 확인 자료)
 
 `ai_policy.py`(`security.py`가 모듈 최상단에서 import)와 `access_policy.py`
 (`ai_policy.py`가 모듈 최상단에서, `security.py`의

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import 'book_analysis_service.dart';
+import 'korean_noun_lexicon.dart';
 
 enum KkeunmariDictionaryStatus { valid, invalid, unavailable }
 
@@ -30,51 +31,90 @@ class KkeunmariDictionaryService {
     required String word,
     http.Client? client,
     BookAnalysisCredentialsProvider? credentialsProvider,
+    Future<bool> Function(String)? offlineLookup,
+    Duration timeout = _timeout,
   }) async {
-    final credentials =
-        await (credentialsProvider ??
-            BookAnalysisService.firebaseCredentials)();
-    if (credentials == null) {
-      return const KkeunmariDictionaryResult(
-        KkeunmariDictionaryStatus.unavailable,
-      );
+    final normalized = word.trim();
+    if (!RegExp(r'^[가-힣]{1,20}$').hasMatch(normalized)) {
+      return const KkeunmariDictionaryResult(KkeunmariDictionaryStatus.invalid);
     }
-
     final ownsClient = client == null;
     final effectiveClient = client ?? http.Client();
+    var retired = false;
+    const unavailable = KkeunmariDictionaryResult(
+      KkeunmariDictionaryStatus.unavailable,
+    );
     try {
-      final request = http.Request('POST', trustedEndpoint)
-        ..followRedirects = false
-        ..headers.addAll({
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ${credentials.idToken}',
-          'X-Firebase-AppCheck': credentials.appCheckToken,
-        })
-        ..body = jsonEncode({'word': word});
-      final response = await http.Response.fromStream(
-        await effectiveClient.send(request).timeout(_timeout),
-      );
-      if (response.statusCode != 200) {
-        return const KkeunmariDictionaryResult(
-          KkeunmariDictionaryStatus.unavailable,
+      // One deadline includes asset loading, Firebase credentials, headers and
+      // the complete body. Late credentials must not start a ghost request.
+      return await (() async {
+        try {
+          if (await (offlineLookup ?? KoreanNounLexicon.contains)(normalized)) {
+            return const KkeunmariDictionaryResult(
+              KkeunmariDictionaryStatus.valid,
+            );
+          }
+        } catch (_) {
+          // A damaged offline asset must not turn a valid word into an error.
+        }
+        if (retired) {
+          return unavailable;
+        }
+        final credentials =
+            await (credentialsProvider ??
+                BookAnalysisService.firebaseCredentials)();
+        if (retired ||
+            credentials == null ||
+            credentials.idToken.isEmpty ||
+            credentials.appCheckToken.isEmpty) {
+          return unavailable;
+        }
+        final request = http.Request('POST', trustedEndpoint)
+          ..followRedirects = false
+          ..headers.addAll({
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ${credentials.idToken}',
+            'X-Firebase-AppCheck': credentials.appCheckToken,
+          })
+          ..body = jsonEncode({'word': normalized});
+        final streamed = await effectiveClient.send(request);
+        var bytes = 0;
+        final response = await http.Response.fromStream(
+          http.StreamedResponse(
+            streamed.stream.timeout(timeout).map((chunk) {
+              bytes += chunk.length;
+              if (bytes > 4096) {
+                throw const FormatException('Oversized dictionary response');
+              }
+              return chunk;
+            }),
+            streamed.statusCode,
+            headers: streamed.headers,
+          ),
         );
-      }
-      final body = jsonDecode(response.body);
-      if (body is! Map<String, dynamic> || body['valid'] is! bool) {
-        return const KkeunmariDictionaryResult(
-          KkeunmariDictionaryStatus.unavailable,
+        if (response.statusCode != 200) {
+          return const KkeunmariDictionaryResult(
+            KkeunmariDictionaryStatus.unavailable,
+          );
+        }
+        final body = jsonDecode(response.body);
+        if (body is! Map<String, dynamic> || body['valid'] is! bool) {
+          return const KkeunmariDictionaryResult(
+            KkeunmariDictionaryStatus.unavailable,
+          );
+        }
+        return KkeunmariDictionaryResult(
+          body['valid'] as bool
+              ? KkeunmariDictionaryStatus.valid
+              : KkeunmariDictionaryStatus.invalid,
         );
-      }
-      return KkeunmariDictionaryResult(
-        body['valid'] as bool
-            ? KkeunmariDictionaryStatus.valid
-            : KkeunmariDictionaryStatus.invalid,
-      );
+      })().timeout(timeout);
     } catch (_) {
       return const KkeunmariDictionaryResult(
         KkeunmariDictionaryStatus.unavailable,
       );
     } finally {
+      retired = true;
       if (ownsClient) {
         effectiveClient.close();
       }

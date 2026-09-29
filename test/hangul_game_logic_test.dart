@@ -107,5 +107,18 @@ void main() {
       expect(word.last, '\uC0AC');
       expect(word.isDeadEnd, isFalse);
     });
+
+    test(
+      'production bot pool excludes person names and sentence fragments',
+      () async {
+        KkeunmariEngine.reset();
+        final words = await KkeunmariEngine.load();
+        expect(words, isNotEmpty);
+        expect(words.map((w) => w.word), isNot(contains('밀러')));
+        expect(words.map((w) => w.word), isNot(contains('러셀')));
+        expect(words.map((w) => w.word), isNot(contains('거야')));
+        expect(KkeunmariEngine.hasChain(words), isTrue);
+      },
+    );
   });
 }
