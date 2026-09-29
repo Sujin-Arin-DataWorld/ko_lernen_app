@@ -248,6 +248,75 @@
         "path": "docs/data/level_bible/V2_grammar_authoring_queue.md",
         "requiredText": "`-는다고2/-냐고/-으라고/-자고`"
       }
+    },
+    {
+      "sourceKey": "G3:-으나",
+      "appGrammarIds": [
+        "grammar_a1_or_particle"
+      ],
+      "reviewState": "observed_syntactic_candidate",
+      "semanticStatus": "observed_syntactic_candidate",
+      "rationale": {
+        "meaning": "NIKL marks this connective ending as contrast; the app card instead teaches a choice between nouns. This pair is not a semantic correspondence.",
+        "form": "The source variant -나4 collides with N(이)나 after homograph normalization. Keep the exact G3 sense separate from the G2:이나 choice particle."
+      },
+      "exampleReferences": [
+        {
+          "appGrammarId": "grammar_a1_or_particle",
+          "field": "example_korean",
+          "value": "커피나 차를 드세요."
+        }
+      ],
+      "reviewedSource": {
+        "path": "docs/data/level_bible/B1_grammar_sense_audit.md",
+        "requiredText": "| `G3:-으나` | `grammar_a1_or_particle` |"
+      }
+    },
+    {
+      "sourceKey": "G3:이고",
+      "appGrammarIds": [
+        "grammar_a1_sequence_connector"
+      ],
+      "reviewState": "observed_syntactic_candidate",
+      "semanticStatus": "observed_syntactic_candidate",
+      "rationale": {
+        "meaning": "NIKL marks this particle as inclusive enumeration; the app card connects successive actions with V-고. This pair does not establish the particle meaning.",
+        "form": "The source particle variant 고1 and the verbal connector normalize to 고. Exclude only this source/card pair, preserving G1:-고3."
+      },
+      "exampleReferences": [
+        {
+          "appGrammarId": "grammar_a1_sequence_connector",
+          "field": "example_korean",
+          "value": "밥을 먹고 공부해요."
+        }
+      ],
+      "reviewedSource": {
+        "path": "docs/data/level_bible/B1_grammar_sense_audit.md",
+        "requiredText": "| `G3:이고` | `grammar_a1_sequence_connector` |"
+      }
+    },
+    {
+      "sourceKey": "G3:-거든2",
+      "appGrammarIds": [
+        "grammar_b1_conditional_geodeun"
+      ],
+      "reviewState": "observed_syntactic_candidate",
+      "semanticStatus": "observed_syntactic_candidate",
+      "rationale": {
+        "meaning": "NIKL marks this sentence-final ending as reason; the app card teaches a condition preceding a request. Preserve the separate explanatory-reason card.",
+        "form": "The homographs -거든1 and -거든2 share a surface form but have different clause roles. Exclude the conditional card only for G3:-거든2."
+      },
+      "exampleReferences": [
+        {
+          "appGrammarId": "grammar_b1_conditional_geodeun",
+          "field": "example_korean",
+          "value": "서류가 준비되거든 연락해 주십시오. / 집에 도착하거든 전화해 줘."
+        }
+      ],
+      "reviewedSource": {
+        "path": "docs/data/level_bible/B1_grammar_sense_audit.md",
+        "requiredText": "| `G3:-거든2` | `grammar_b1_conditional_geodeun` |"
+      }
     }
   ]
 }

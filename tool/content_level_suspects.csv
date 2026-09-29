@@ -877,7 +877,6 @@ satz,satz_a1_0330,a1,a2,1,over1 lex_p90=1.7,,,step_up_or_swap
 satz,satz_a1_0336,a1,a2,1,over1 lex_p90=1.8,,a1_city_services_2026_1,step_up_or_swap
 satz,satz_a1_0353,a1,a2,1,over1 lex_p90=2.0,,a1_first_class_1,step_up_or_swap
 satz,satz_a1_0380,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_food_2,step_up_or_swap
-satz,satz_a1_0408,a1,a2,1,over1 grammar=grammar_a2_try_experience:2,,a1_greetings_1,step_up_or_swap
 satz,satz_a1_0424,a1,c1,4,over2 grammar=nikl_g5_를_가지고_v1:5,,a1_daily_2,bundle_move
 satz,satz_a1_0438,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_misc_1,step_up_or_swap
 satz,satz_a1_0439,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_misc_1,step_up_or_swap
@@ -1871,7 +1870,7 @@ smalltalk,smalltalk_c1_0012,c1,b1,-2,under2 lex_p90=3.0,can_do_ref,,downgrade_ca
 smalltalk,smalltalk_c1_0016,c1,b1,-2,under2 grammar=nikl_g3_게_하다:3,can_do_ref,,downgrade_candidate
 smalltalk,smalltalk_c1_0019,c1,a2,-3,under2 lex_p90=2.3,can_do_ref,,downgrade_candidate
 smalltalk,smalltalk_c1_0020,c1,b1,-2,under2 length,can_do_ref,,downgrade_candidate
-smalltalk,smalltalk_c1_0025,c1,b1,-2,under2 lex_p90=3.4,can_do_ref,,downgrade_candidate
+smalltalk,smalltalk_c1_0025,c1,a2,-3,under2 grammar=grammar_b1_resultant_state:2,can_do_ref,,downgrade_candidate
 smalltalk,smalltalk_c1_0029,c1,a2,-3,under2 grammar=grammar_a2_simultaneous:2,can_do_ref,,downgrade_candidate
 smalltalk,smalltalk_c1_0031,c1,b1,-2,under2 lex_p90=2.6,can_do_ref,,downgrade_candidate
 smalltalk,smalltalk_c1_0032,c1,b1,-2,under2 grammar=grammar_b1_tendency:3,can_do_ref,,downgrade_candidate
@@ -2262,7 +2261,7 @@ vocab,vocab_b1_0091,b1,b2,1,over1,satz_ref+can_do_ref,b1_descriptions_2,step_up_
 vocab,vocab_b1_0092,b1,b2,1,over1,satz_ref+can_do_ref,b1_descriptions_2,step_up_or_swap
 vocab,vocab_b1_0093,b1,a1,-2,under2,satz_ref+can_do_ref,b1_descriptions_2,downgrade_candidate
 vocab,vocab_b1_0096,b1,b2,1,over1,satz_ref+can_do_ref,b1_descriptions_2,step_up_or_swap
-vocab,vocab_b1_0097,b1,c1,2,over2,satz_ref+can_do_ref,b1_descriptions_2,word_move
+vocab,vocab_b1_0097,b1,b2,1,over1,satz_ref+can_do_ref,b1_descriptions_2,step_up_or_swap
 vocab,vocab_b1_0098,b1,b2,1,over1,satz_ref+can_do_ref,b1_descriptions_2,step_up_or_swap
 vocab,vocab_b1_0100,b1,a1,-2,under2,satz_ref+can_do_ref,b1_emotions_relations_3,downgrade_candidate
 vocab,vocab_b1_0101,b1,a1,-2,under2,satz_ref+can_do_ref,b1_emotions_relations_3,downgrade_candidate

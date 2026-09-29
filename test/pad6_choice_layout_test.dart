@@ -5,7 +5,11 @@ import 'package:ko_lernen_app/widgets/sori/cloze_prompt.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:ko_lernen_app/widgets/sori/responsive.dart';
 
+import 'support/real_fonts.dart';
+
 void main() {
+  setUpAll(loadSoriRealFonts);
+
   const choices = ['하나', '둘', '셋', '넷'];
 
   Future<void> pumpChoices(
