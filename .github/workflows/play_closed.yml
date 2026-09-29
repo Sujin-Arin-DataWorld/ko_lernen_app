@@ -148,7 +148,8 @@ jobs:
         uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
         with:
           distribution: temurin
-          java-version: ${{ steps.toolchain.outputs.java_version }}
+          # setup-java consumes Adoptium version_data.semver, not openjdk_version.
+          java-version: ${{ steps.toolchain.outputs.java_setup_version }}
 
       - name: Download and verify bundletool
         if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'

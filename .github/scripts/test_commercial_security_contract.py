@@ -57,7 +57,7 @@ class CommercialSecurityContractTest(unittest.TestCase):
 
     def test_ios_jobs_have_distinct_bounded_release_and_cold_intel_budgets(self):
         release, simulator = self.ios_jobs()
-        for job, expected in ((release, "45"), (simulator, "75")):
+        for job, expected in ((release, "45"), (simulator, "90")):
             self.assertEqual(re.findall(r"(?m)^    timeout-minutes: (.+)$", job), [expected])
             self.assertNotIn("continue-on-error", job)
         self.assertIn("xcodebuild test", simulator)

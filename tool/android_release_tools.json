@@ -11,6 +11,7 @@
   },
   "java": {
     "version": "17.0.20.1+1",
+    "setup_version": "17.0.20+101",
     "sha256": "f5aed21d3a0b0f4b05d3a3f9fe71263916d5bc0d47b53aa52a3340b90f0b4805"
   },
   "crashlytics-buildtools": {
