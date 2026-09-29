@@ -115,9 +115,9 @@ void main() {
       courseUnitId: 'a1_01_greetings_hangul',
     );
     const profiles = <({String name, Size view, Size art})>[
-      (name: 'compact', view: Size(320, 844), art: Size(288, 140)),
-      (name: 'medium', view: Size(390, 844), art: Size(358, 140)),
-      (name: 'expanded', view: Size(720, 844), art: Size(608, 140)),
+      (name: 'compact', view: Size(320, 844), art: Size(288, 160)),
+      (name: 'medium', view: Size(390, 844), art: Size(358, 160)),
+      (name: 'expanded', view: Size(720, 844), art: Size(620, 240)),
     ];
 
     for (final profile in profiles) {

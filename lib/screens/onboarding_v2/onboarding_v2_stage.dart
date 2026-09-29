@@ -89,18 +89,29 @@ class OnboardingCompanionStage extends StatefulWidget {
     List<OnboardingCompanionSpec> companions,
     double width,
   ) {
+    final sideBySide =
+        width >= SoriAdaptiveWidth.companionChoicesRow &&
+        MediaQuery.textScalerOf(context).scale(16) <= 24;
     final minimumCardHeight = companions.fold<double>(0, (height, item) {
       final labelHeight = _companionLabelHeight(
         context,
         item,
-        width - Spacing.sm * 3 - 4 - 48,
+        (sideBySide ? (width - Spacing.md) / 2 : width) -
+            Spacing.sm * 3 -
+            4 -
+            48,
         compact: true,
       );
       final requiredHeight =
           (labelHeight > 48 ? labelHeight : 48) + Spacing.sm * 2 + 4;
       return height > requiredHeight ? height : requiredHeight;
     });
-    return minimumCardHeight * 2 + Spacing.md;
+    // The stage only switches to a row at 300dp. Reserve that height in the
+    // outer scroll calculation as well, so short landscape windows never
+    // compress two cards into an unscrollable space.
+    return sideBySide
+        ? (minimumCardHeight > 300 ? minimumCardHeight : 300)
+        : minimumCardHeight * 2 + Spacing.md;
   }
 
   const OnboardingCompanionStage({
@@ -132,32 +143,52 @@ class _OnboardingCompanionStageState extends State<OnboardingCompanionStage> {
       ),
       widget.companions.firstWhere((c) => c.id == OnboardingV2Ids.companionJoy),
     ];
-    final choices = Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        for (final (index, companion) in ordered.indexed) ...[
-          if (index > 0) const SizedBox(height: Spacing.md),
-          Expanded(
-            child: LayoutBuilder(
-              builder: (context, constraints) => _CompanionStageChoice(
-                companion: companion,
-                selected: companion.id == widget.selectedCompanionId,
-                replayToken: _replay,
-                mediaEnabled: widget.mediaEnabled,
-                showDescription:
-                    widget.showDescription && constraints.maxHeight >= 260,
-                onTap: () {
-                  setState(() => _replay++);
-                  widget.onCompanionChanged(companion.id);
-                },
-              ),
-            ),
-          ),
-        ],
-      ],
+    Widget choice(OnboardingCompanionSpec companion) => LayoutBuilder(
+      builder: (context, constraints) => _CompanionStageChoice(
+        companion: companion,
+        selected: companion.id == widget.selectedCompanionId,
+        replayToken: _replay,
+        mediaEnabled: widget.mediaEnabled,
+        showDescription: widget.showDescription && constraints.maxHeight >= 260,
+        onTap: () {
+          setState(() => _replay++);
+          widget.onCompanionChanged(companion.id);
+        },
+      ),
     );
     return LayoutBuilder(
       builder: (context, constraints) {
+        final sideBySide =
+            constraints.maxWidth >= SoriAdaptiveWidth.companionChoicesRow &&
+            constraints.maxHeight >= 300 &&
+            MediaQuery.textScalerOf(context).scale(16) <= 24;
+        if (sideBySide) {
+          return Center(
+            child: SizedBox(
+              height: constraints.maxHeight.clamp(
+                300.0,
+                SoriAdaptiveHeight.companionChoice,
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(child: choice(ordered[0])),
+                  const SizedBox(width: Spacing.md),
+                  Expanded(child: choice(ordered[1])),
+                ],
+              ),
+            ),
+          );
+        }
+        final choices = Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            for (final (index, companion) in ordered.indexed) ...[
+              if (index > 0) const SizedBox(height: Spacing.md),
+              Expanded(child: choice(companion)),
+            ],
+          ],
+        );
         final minimumHeight = OnboardingCompanionStage.minimumHeight(
           context,
           ordered,

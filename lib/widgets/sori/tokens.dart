@@ -589,6 +589,8 @@ class SoriFonts {
   SoriFonts._();
   static const String sans = 'IBMPlexSans';
   static const String korean = 'NotoSansKR';
+  // Learning cards name this role explicitly; both roles use the same face.
+  static const String learningKorean = korean;
   static const String culture = korean;
   static const List<String> fallback = [korean];
 }
@@ -750,12 +752,13 @@ class SoriTextTheme {
     color: _s.textMuted,
   );
 
-  /// Content-player Korean hero. Hierarchy is size/weight only — no new font.
+  /// Content-player Korean hero.
   TextStyle get koDisplay => _base(
     fontSize: 30,
     weight: FontWeight.w500,
     letterSpacing: 0,
     height: 1.25,
+    fontFamily: SoriFonts.learningKorean,
   );
 
   /// Content-player DE/EN gloss under the Korean word.

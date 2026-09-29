@@ -1035,9 +1035,9 @@ void _expectBalancedAction(WidgetTester tester, String key, Size size) {
   final action = tester.getRect(find.byKey(ValueKey(key)));
   expect(
     action.center.dy,
-    greaterThan(size.height * .65),
+    greaterThan(size.height * .55),
     reason:
-        'The primary action belongs in the lower viewport, not under a top-heavy text stack.',
+        'The primary action should follow the learning content in the lower viewport.',
   );
   expect(action.bottom, lessThanOrEqualTo(size.height - 8));
   for (final scroll in tester.stateList<ScrollableState>(

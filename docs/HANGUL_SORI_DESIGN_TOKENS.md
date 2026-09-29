@@ -205,35 +205,36 @@ SoriRadius.brPill // BorderRadius.all(Radius.circular(999))
 
 **파일:** `SoriFonts` / `SoriTextTheme` class in `lib/widgets/sori/tokens.dart`
 
-앱 폰트는 2개뿐 — 역할로만 선택한다. 크기·색은 별도 클래스가 아니라 `SoriTextTheme.of(context)` 프리셋을 통해서만 얻는다. `TextStyle(fontFamily: '...')` 문자열 하드코딩은 금지.
+앱 번들 폰트는 2개 — 역할로만 선택한다. 크기·색은 `SoriTextTheme.of(context)` 프리셋을 통해 얻고, `TextStyle(fontFamily: '...')` 문자열 하드코딩은 금지한다. 2026-09-28 Jin 선택에 따라 한국어와 DE/EN UI를 분리했다.
 
 | 토큰 | 폰트 | 번들 웨이트 | 용도 |
 |---|---|---|---|
-| `SoriFonts.sans` | Paperlogy | 400/500/600/700 | 기본 UI, DE/EN 전체, 학습 본문·숫자 |
-| `SoriFonts.culture` | Maru Buri | **400/600만** | 짧은 한국어 문화 타이틀·완성 순간 전용 |
+| `SoriFonts.sans` | IBM Plex Sans | variable | DE/EN UI, 제목·본문·숫자 |
+| `SoriFonts.korean` / `learningKorean` | Noto Sans KR | variable | 자모·어휘·문장 등 한국어 학습 글자 |
+| `SoriFonts.fallback` | Noto Sans KR | variable | DE/EN·한국어 혼합 문장의 한글 폴백 |
+| `SoriFonts.culture` | Noto Sans KR | variable | 짧은 한국어 문화 제목 |
 
-> Maru Buri는 버튼·메뉴·긴 본문이나 DE/EN 카피에는 쓰지 않는다. 번들에 700/800 페이스가 없어 그 굵기를 요청하면 조용히 **합성 볼드**로 렌더된다 — `SoriTextTheme.cultureTitle`(w600)처럼 번들 웨이트 안에서만 쓴다.
+> 문화 제목도 같은 한국어 폰트로 그려 서체 혼용을 줄인다. DE/EN은 IBM Plex Sans를 기본으로 하고, 한글은 Noto Sans KR로 폴백한다.
 
 #### SoriTextTheme 프리셋 (발췌, 2026-09-03 §A3 재정의)
 | 토큰 | 크기 | 굵기 | 폰트 | 용도 |
 |---|---|---|---|---|
-| `tt.hero` | 36 | w600 | **culture** | 페이지 대형 헤드라인 (2026-09-03 §E7: 40→36) |
-| `tt.display` | 32 | w600 | **culture** | Display heading |
-| `tt.h1` | 26 | w600 | **culture** | 화면 제목 |
-| `tt.h2` | 22 | w600 | **culture** | 섹션 제목 |
-| `tt.h3` | 18 | w700 | sans | 소제목 |
-| `tt.cultureTitle` | 21 | w600 | **culture** | 문화 카드 안의 짧은 한국어 표제 |
-| `tt.cardTitle` | 17 | w700 | sans | 카드 제목 (§4.3: 카드 제목 w800 금지) |
-| `tt.body` | 16 | w500 | sans | 본문 |
-| `tt.label` | 14 | w700 | sans | 라벨 |
-| `tt.caption` / `tt.meta` / `tt.cardSubtitle` | 13.5 | w500 | sans | 보조 텍스트 하한(13 아래 금지) |
-| `tt.chromeTitle` | 20 | w700 | sans | 앱바 크롬 전용(`SoriAppBar`, §A4) |
-| `tt.numeral` | 30 | w600 | **culture** (tabular) | 스트릭·XP 큰 숫자 |
+| `tt.hero` | 36 | w600 | sans | 페이지 대형 헤드라인 (2026-09-03 §E7: 40→36) |
+| `tt.display` | 32 | w500 | sans | Display heading |
+| `tt.h1` | 26 | w500 | sans | 화면 제목 |
+| `tt.h2` | 22 | w500 | sans | 섹션 제목 |
+| `tt.h3` | 18 | w500 | sans | 소제목 |
+| `tt.cultureTitle` | 21 | w500 | culture | 문화 카드 안의 짧은 한국어 표제 |
+| `tt.cardTitle` | 17 | w500 | sans | 카드 제목 (§4.3: 카드 제목 w800 금지) |
+| `tt.body` | 16 | w400 | sans | 본문 |
+| `tt.koDisplay` | 30 | w500 | learningKorean | 한국어 학습 본문 |
+| `tt.label` | 14 | w500 | sans | 라벨 |
+| `tt.caption` / `tt.meta` / `tt.cardSubtitle` | 13.5 | w400 | sans | 보조 텍스트 하한(13 아래 금지) |
+| `tt.chromeTitle` | 20 | w600 | sans | 앱바 크롬 전용(`SoriAppBar`, §A4) |
+| `tt.numeral` | 30 | w500 | sans (tabular) | 스트릭·XP 큰 숫자 |
 
-> 2026-09-03: 헤드라인(hero/display/h1/h2/numeral)이 Wanted Sans/Paperlogy(sans) 에서
-> Maru Buri(**culture**, w600)로 이동했다 — h3 이하는 sans 그대로. 상세 배경은
-> `lib/widgets/sori/tokens.dart`의 `SoriTextTheme` doc 주석 참조.
+> 2026-09-28: DE/EN 헤드라인은 IBM Plex Sans, 한국어 학습 글자와 문화 제목은 Noto Sans KR로 그린다.
 
 **가드 테스트** — 위반 재발 방지:
 - `test/typography_guard_test.dart` — `FontWeight.w800`/`w900` 래칫(내려가기만 한다), `fontFamily: '...'` 문자열 리터럴 0.
-- `test/font_bundle_guard_test.dart` — `SoriFonts.sans`/`culture` 역할 분리 검증 + 번들 폰트 파일이 실제 한글 11172음절·독일어(ä/ß/€) 글리프를 담고 있는지 OTF `cmap` 직접 검사.
+- `test/font_bundle_guard_test.dart` — DE/EN의 ä/ß/€, 한국어 폰트의 한글 11172음절을 실제 `cmap`으로 검사.

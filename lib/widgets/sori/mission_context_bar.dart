@@ -13,10 +13,12 @@ class MissionContextBar extends StatelessWidget {
     super.key,
     required this.missionTitle,
     required this.step,
+    this.prominent = false,
   });
 
   final String missionTitle;
   final CourseMissionStep step;
+  final bool prominent;
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +58,14 @@ class MissionContextBar extends StatelessWidget {
                       Flexible(
                         child: Text(
                           t.missionContextLabel,
-                          style: SoriTextTheme.of(
-                            context,
-                          ).label.copyWith(color: SoriColors.primary),
+                          style:
+                              (prominent
+                                      ? SoriTextTheme.of(context).body
+                                      : SoriTextTheme.of(context).label)
+                                  .copyWith(
+                                    color: SoriColors.primary,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                         ),
                       ),
                     ],
@@ -66,9 +73,11 @@ class MissionContextBar extends StatelessWidget {
                   final progress = Text(
                     progressLabel,
                     textAlign: stackHeader ? TextAlign.start : TextAlign.end,
-                    style: SoriTextTheme.of(
-                      context,
-                    ).bodySmall.copyWith(color: s.textMuted),
+                    style:
+                        (prominent
+                                ? SoriTextTheme.of(context).body
+                                : SoriTextTheme.of(context).bodySmall)
+                            .copyWith(color: s.textMuted),
                   );
                   if (stackHeader) {
                     return Column(
@@ -92,9 +101,11 @@ class MissionContextBar extends StatelessWidget {
               const SizedBox(height: Spacing.xs),
               Text(
                 missionTitle,
-                style: SoriTextTheme.of(
-                  context,
-                ).body.copyWith(fontWeight: FontWeight.w700),
+                style:
+                    (prominent
+                            ? SoriTextTheme.of(context).h3
+                            : SoriTextTheme.of(context).body)
+                        .copyWith(fontWeight: FontWeight.w700),
               ),
               const SizedBox(height: Spacing.sm),
               SoriProgressBar(

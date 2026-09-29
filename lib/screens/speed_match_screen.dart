@@ -28,6 +28,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/game_layout.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// **Speed-Match** — gegen die Uhr Koreanisch ↔ Bedeutung paaren.
 ///
@@ -703,7 +704,10 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
                   final tileHeight = soriFairTileHeight(
                     available: c.maxHeight,
                     count: _active.length,
-                    minimum: 44,
+                    minimum: 48,
+                    maximum: c.maxWidth >= SoriAdaptiveWidth.matchingTileWide
+                        ? SoriAdaptiveHeight.matchingTile
+                        : SoriAdaptiveHeight.matchingTilePhone,
                   );
                   final expandForText = _boardNeedsScroll(
                     context,
@@ -716,6 +720,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
                     children: [
                       Expanded(
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             for (final v in _active)
                               _MatchTile(
@@ -733,6 +738,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
                       const SizedBox(width: Spacing.md),
                       Expanded(
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             for (final v in _rightOrder)
                               _MatchTile(
@@ -753,7 +759,10 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
                   if (expandForText) {
                     return SingleChildScrollView(child: board);
                   }
-                  return board;
+                  // Wide tablets leave spare height once tiles reach their
+                  // touch-friendly cap. Keep the board in the study area's
+                  // center instead of stranding every pair at the top.
+                  return Center(child: board);
                 },
               ),
             ),

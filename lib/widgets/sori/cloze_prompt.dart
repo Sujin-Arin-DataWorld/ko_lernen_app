@@ -6,6 +6,7 @@ import 'game_layout.dart';
 import 'quiz_choice.dart';
 import 'speakable.dart';
 import 'tokens.dart';
+import 'window_class.dart';
 
 /// Ein Textstück der Übersetzung: [emph] = das gesuchte Wort (fett + Akzent).
 class TextSegment {
@@ -219,39 +220,79 @@ class ClozeOptionsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        // 예전에는 `spaceEvenly` 가 남는 세로를 **버튼 사이 간격**으로만 흘려
-        // 보내서, 태블릿에서 화면은 다 쓰는데 버튼은 폰과 똑같이 42~53dp 였다
-        // (2026-08-07 실측: 폰·태블릿 높이 동일). 남는 높이를 버튼 자체에
-        // 넣어야 "단어 카드가 너무 작아"가 풀린다.
-        final tileHeight = soriFairTileHeight(
-          available: constraints.maxHeight,
-          count: options.length,
-          gap: Spacing.xs * 2,
-        );
+        final cellWidth = (constraints.maxWidth - Spacing.sm * 2) / 2;
+        final scaler = MediaQuery.textScalerOf(context);
+        final useGrid =
+            options.length == 4 &&
+            constraints.maxWidth >= SoriAdaptiveWidth.clozeChoicesGrid &&
+            constraints.maxHeight >= 210 &&
+            scaler.scale(16) <= 24 &&
+            options.every((option) {
+              final painter = TextPainter(
+                text: TextSpan(
+                  text: option,
+                  style: QuizChoice.optionTextStyle(context),
+                ),
+                textDirection: Directionality.of(context),
+                textScaler: scaler,
+                maxLines: 2,
+              )..layout(maxWidth: cellWidth - 84);
+              final fits = !painter.didExceedMaxLines;
+              painter.dispose();
+              return fits;
+            });
+        final tileHeight = useGrid
+            ? 88.0
+            : soriFairTileHeight(
+                available: constraints.maxHeight,
+                count: options.length,
+                gap: Spacing.xs * 2,
+                maximum: SoriAdaptiveHeight.clozeChoice,
+              );
         // 오답을 고른 순간에는 정답을 드러내지 않는다 — 재시도가 허용된
         // 게임이라 정답이 보이면 다시 고를 이유가 사라진다.
         final wrongPick = picked != null && !acceptedAnswers.contains(picked);
+        Widget choice(String opt) => QuizChoice(
+          text: opt,
+          minHeight: tileHeight,
+          revealCorrect: !wrongPick,
+          isCorrect: acceptedAnswers.contains(opt),
+          isSelected: picked == opt,
+          revealed: revealed,
+          onSelected: revealed ? null : () => onPick(opt),
+        );
         return SingleChildScrollView(
           child: ConstrainedBox(
             constraints: BoxConstraints(minHeight: constraints.maxHeight),
             child: IntrinsicHeight(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  for (final opt in options)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: Spacing.xs),
-                      child: QuizChoice(
-                        text: opt,
-                        minHeight: tileHeight,
-                        revealCorrect: !wrongPick,
-                        isCorrect: acceptedAnswers.contains(opt),
-                        isSelected: picked == opt,
-                        revealed: revealed,
-                        onSelected: revealed ? null : () => onPick(opt),
-                      ),
-                    ),
-                ],
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: useGrid
+                    ? [
+                        for (var row = 0; row < 2; row++)
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: Spacing.xs,
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(child: choice(options[row * 2])),
+                                const SizedBox(width: Spacing.sm * 2),
+                                Expanded(child: choice(options[row * 2 + 1])),
+                              ],
+                            ),
+                          ),
+                      ]
+                    : [
+                        for (final opt in options)
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: Spacing.xs,
+                            ),
+                            child: choice(opt),
+                          ),
+                      ],
               ),
             ),
           ),

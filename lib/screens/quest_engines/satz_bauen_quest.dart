@@ -540,6 +540,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       content: exerciseBody,
       action: action,
       gap: compactGap,
+      contentAlignment: Alignment.center,
       showTtsSpeed: _audioKo.isNotEmpty && widget.showSpeedControl,
     );
   }

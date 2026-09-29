@@ -13,12 +13,15 @@ import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
+import 'package:ko_lernen_app/services/scene_asset_resolver.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/tts_service.dart' show TtsSpeechPhase;
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
+import 'package:ko_lernen_app/widgets/sori/badge.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
@@ -27,9 +30,11 @@ import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'support/scenario_stock_fixtures.dart';
 import 'support/scenario_fixtures.dart';
 import 'support/sori_speech_stubs.dart';
+import 'support/real_fonts.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
 
   setUp(() async {
     Storage.resetForTesting();
@@ -631,7 +636,9 @@ void main() {
             matching: find.text(expectedTitle),
           ),
         );
-        expect(title.overflow, TextOverflow.clip);
+        // Normal-scale one-line chrome uses the platform AppBar Text, while
+        // measured multi-line chrome clips only at its full line count.
+        expect(title.overflow, isNot(TextOverflow.ellipsis));
         expect(find.bySemanticsLabel(_closeLabel(locale)), findsOneWidget);
 
         if (testCase.stage == ScenarioStage.result) {
@@ -656,6 +663,116 @@ void main() {
       }
     }
   });
+
+  testWidgets('Pad introduction uses readable label and body in DE and EN', (
+    tester,
+  ) async {
+    for (final locale in const [Locale('de'), Locale('en')]) {
+      for (final size in const [Size(720, 1152), Size(1152, 720)]) {
+        await _pumpPreview(
+          tester,
+          stage: ScenarioStage.intro,
+          size: size,
+          textScale: 1,
+          locale: locale,
+        );
+        final t = AppL10n.of(tester.element(find.byType(ScenarioPlayerScreen)));
+        final label = tester.widget<Text>(find.text(t.scenarioIntroTitle));
+        final body = tester.widget<Text>(
+          find.text(
+            scenarioAirportArrivalFixture.intro.pick(locale.languageCode),
+          ),
+        );
+        expect(label.style!.fontSize, greaterThanOrEqualTo(18));
+        expect(body.style!.fontSize, greaterThanOrEqualTo(22));
+        expect(
+          find.byKey(const ValueKey('scenario-intro-art-image')),
+          findsNothing,
+        );
+        expect(
+          tester.getSize(find.byType(SoriBadge).first).width,
+          lessThan(100),
+        );
+        final action = find.text(
+          locale.languageCode == 'de' ? "Los geht's!" : "Let's go",
+        );
+        final actionButton = find.ancestor(
+          of: action,
+          matching: find.byType(SoriButton),
+        );
+        expect(tester.getSize(actionButton).width, lessThanOrEqualTo(720));
+        expect(tester.takeException(), isNull);
+      }
+    }
+  });
+
+  testWidgets(
+    'Pad introduction places scene art beside copy when space allows',
+    (tester) async {
+      SceneAssetResolver.debugReset();
+      addTearDown(SceneAssetResolver.debugReset);
+      const scenario = Scenario(
+        id: 'pad-intro-airport',
+        level: LearnerLevel.a1,
+        emoji: '✈️',
+        register: Register.polite,
+        title: LocalizedText(
+          ko: '공항',
+          de: 'Am Flughafen',
+          en: 'At the airport',
+        ),
+        intro: LocalizedText(
+          ko: '',
+          de: 'Du beantwortest die ersten Fragen am Flughafen.',
+          en: 'You answer the first questions at the airport.',
+        ),
+        backdrop: 'airport',
+        vocab: [],
+        grammarIds: [],
+        dialog: [],
+        quests: [],
+      );
+      for (final size in const [Size(720, 1152), Size(1152, 720)]) {
+        for (final textScale in const [1.0, 2.0]) {
+          await _pumpPlayer(
+            tester,
+            child: ScenarioPlayerScreen.preview(
+              key: ValueKey('poster-${size.width}-$textScale'),
+              fixture: const ScenarioPlayerPreviewFixture.action(
+                scenario: scenario,
+                stage: ScenarioStage.intro,
+              ),
+            ),
+            size: size,
+            textScale: textScale,
+          );
+          await tester.runAsync(() async {
+            await precacheImage(
+              const AssetImage('assets/illustrations/scenes/airport.png'),
+              tester.element(find.byType(ScenarioPlayerScreen)),
+            );
+          });
+          await tester.pumpAndSettle();
+          final art = tester.getRect(
+            find.byKey(const ValueKey('scenario-intro-art-image')),
+          );
+          final copy = tester.getRect(
+            find.byKey(const ValueKey('scenario-intro-copy')),
+          );
+          if (size.width > size.height && textScale <= 1.3) {
+            expect(art.right + 24, lessThan(copy.left));
+          } else {
+            expect(art.bottom + 16, lessThan(copy.top));
+          }
+          expect(art.height, greaterThan(200));
+          final action = find.text("Los geht's!");
+          expect(action, findsOneWidget);
+          expect(tester.getRect(action).bottom, lessThanOrEqualTo(size.height));
+          expect(tester.takeException(), isNull);
+        }
+      }
+    },
+  );
 
   testWidgets('home confirmation follows intro, active, and result stages', (
     tester,
