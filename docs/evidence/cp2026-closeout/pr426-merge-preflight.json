@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-09-29T09:46:05.885300+00:00",
+  "pr": 426,
+  "head": "7854e3ffde804d313985f0e71105b7e347647571",
+  "base": "9c4c46dbd02447f104a60dc38d707445a311a50a",
+  "gates": {
+    "9c4c46dbd02447f104a60dc38d707445a311a50a": {
+      "CI": {
+        "conclusion": "success",
+        "createdAt": "2026-09-29T08:33:17Z",
+        "databaseId": 36543452311,
+        "event": "push",
+        "headSha": "9c4c46dbd02447f104a60dc38d707445a311a50a",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36543452311",
+        "workflowName": "CI"
+      },
+      "Playwright Tests": {
+        "conclusion": "success",
+        "createdAt": "2026-09-29T08:33:17Z",
+        "databaseId": 36543452273,
+        "event": "push",
+        "headSha": "9c4c46dbd02447f104a60dc38d707445a311a50a",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36543452273",
+        "workflowName": "Playwright Tests"
+      }
+    },
+    "7854e3ffde804d313985f0e71105b7e347647571": {
+      "CI": {
+        "conclusion": "success",
+        "createdAt": "2026-09-29T08:46:43Z",
+        "databaseId": 36544884389,
+        "event": "pull_request",
+        "headSha": "7854e3ffde804d313985f0e71105b7e347647571",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36544884389",
+        "workflowName": "CI"
+      },
+      "Playwright Tests": {
+        "conclusion": "success",
+        "createdAt": "2026-09-29T08:46:43Z",
+        "databaseId": 36544884244,
+        "event": "pull_request",
+        "headSha": "7854e3ffde804d313985f0e71105b7e347647571",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36544884244",
+        "workflowName": "Playwright Tests"
+      }
+    }
+  },
+  "reviewPages": 1,
+  "reviewThreads": [
+    {
+      "id": "PRRT_kwDOSjNLQs6m7j9H",
+      "isResolved": true,
+      "isOutdated": false
+    }
+  ],
+  "merged": false,
+  "releaseStartedByThisMerge": false,
+  "androidOpenTestingAuthorized": true
+}

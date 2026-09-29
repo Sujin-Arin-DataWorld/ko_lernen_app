@@ -1,0 +1,18 @@
+{
+  "observedAt": "2026-09-29T09:47:19.729284+00:00",
+  "run": 36544884389,
+  "head": "7854e3ffde804d313985f0e71105b7e347647571",
+  "artifactId": 11024596079,
+  "archive": "pr426-native-success.zip",
+  "archiveSha256": "c55f8eb63c3ff6d6fbc183f62686b8739c1e34c2cb277b6f19e09beb0441b7c4",
+  "logSha256": "86c0919ed2c32d890c3ef85e776dd93e8a440e2cfe735dc3f2ceedff299f5a75",
+  "testSummary": [
+    "** TEST SUCCEEDED **"
+  ],
+  "passedCases": [
+    "RunnerTests.testPrivatePlayerRejectsInvalidAudioWithoutRetainingARequest()",
+    "RunnerTests.testPrivatePlayerStopsOnlyItsCurrentInMemoryRequest()",
+    "RunnerTests.testRegisteredPrivatePlayerFinishesWhenItsEngineIsDeallocated()"
+  ],
+  "passedCaseCount": 3
+}

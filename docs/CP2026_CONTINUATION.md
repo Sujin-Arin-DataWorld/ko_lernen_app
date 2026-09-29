@@ -1,23 +1,30 @@
 # CP-2026 전체 계획 인수 및 실행 큐
 
 <!-- CP2026_CLOSEOUT_CURRENT_START -->
-## 2026-09-28 재개 마감 기준선
+## 2026-09-29 통합·배포 마감 기준선
 
-확인 시각: 2026-09-29T00:18:04.355108+00:00. **코드 PR 다섯 건 병합·main 검사 완료; 문서 PR/정리 영수증은 별도 확인.** 이번 범위에서 마지막으로 병합·검증한 코드 PR의 main은 `0a11b03ebbeaceda2660ffa721b73f4e5faf6b58`이다. 이번 범위는 #412–#416과 인계 문서의 통합·검증·안전한 작업 공간 정리다. **9월28일 추가 요청에 따라 최종 검증 main의 Android 공개 테스트 배포도 수행한다.** 기존 `play_closed.yml` 수동 워크플로에 최종 `expected_sha`와 `target_track=beta`를 명시해 직접 배포한다. iOS 재배포와 원계획 후속 구현은 인계한다. 실제 배포 결과는 `A/session-closeout-20260928/`의 공개 테스트 영수증으로 확인하며, 이 문서 작성 시점에는 통합 이후 실행할 작업이다. **두 채팅 조율 후 추가된 배포 범위:** 다른 채팅의 실제 사용자 승인(9월28일15:49 UTC, “병합·세 트랙 배포까지”)을 확인해, 동일한 최종 AAB/버전을 공개(beta)·비공개(alpha)·내부 테스트에 맞춘다. Android 배포는 이 세션이 한 번 맡으며 `PLAY_INTERNAL_RELEASE_ENABLED=false`는 유지한다. 승인·조율 근거는 [E/release-coordination.json](evidence/cp2026-closeout/release-coordination.json)이다.
+확인 시각: 2026-09-29T10:31:51.830810+00:00. **8개 PR 병합 완료; #426의 main CI만 실행 중, 나머지 7개 main 검사 완료.** 최신 검사 완료 main은 `9c4c46dbd02447f104a60dc38d707445a311a50a`다. 원래 범위 #412–#416 및 인계서 #425에 더해, 9월29일 사용자 요청으로 **Pad 6 화면 보완 #424를 이번 공개 테스트 빌드에 포함**했다. 공개 테스트 실행을 막던 Java 입력 형식 수정 #426도 병합했다. 아래 기록은 이 문서 작성 시점의 실제 결과이며 새 Android 배포 완료를 뜻하지 않는다.
 
-#411 main `4d2288c8`의 CI35953059633 재실행은 9월25일14:53:42 UTC 성공했고 같은 SHA의 Playwright35953059678도 성공했다. 과거의 취소/진행 중 기록은 당시 이력이다.
-
-| PR | PR HEAD·로컬 준비 커밋 | 병합 SHA | 결과와 main 검사 |
+| PR | 최종 PR HEAD | 병합 main SHA | 결과와 정확한 main 검사 |
 |---|---|---|---|
-| #412 | `2ea9484dcfa99ce410efb5af447517a5881eac02` | `dd59a5135246870b22315401ae1d78c413c2b324` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36426327791) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36426327845) |
-| #413 | `f473dc01c2008bc98e24c8684eeaa64cd37af8a5` | `f1929833e172d41cf7d9727d5dd5361c33f8f574` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36488012362) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36488012417) |
-| #414 | `d7dc47bc0120526932be96f434ac9d6ed3cf6652` | `0048dfd62e34942c7d80c40652595d4687b0bd20` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36492239185) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36492239210) |
-| #415 | `e97b8ec433a1980dd3a557786aac32df498a92bb` | `cee096c28e93c59ffd28ce3b4afb46ea5b72cfd9` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36496175324) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36496175270) |
-| #416 | `2e5a20f13de0924ac5fb2f95785585286a34336b` | `0a11b03ebbeaceda2660ffa721b73f4e5faf6b58` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36500048747) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36500048760) |
+| [#412](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/412) | `2ea9484dcfa99ce410efb5af447517a5881eac02` | `dd59a5135246870b22315401ae1d78c413c2b324` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36426327791) / [Playwright](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36426327845) |
+| [#413](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/413) | `f473dc01c2008bc98e24c8684eeaa64cd37af8a5` | `f1929833e172d41cf7d9727d5dd5361c33f8f574` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36488012362) / [Playwright](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36488012417) |
+| [#414](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/414) | `d7dc47bc0120526932be96f434ac9d6ed3cf6652` | `0048dfd62e34942c7d80c40652595d4687b0bd20` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36492239185) / [Playwright](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36492239210) |
+| [#415](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/415) | `e97b8ec433a1980dd3a557786aac32df498a92bb` | `cee096c28e93c59ffd28ce3b4afb46ea5b72cfd9` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36496175324) / [Playwright](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36496175270) |
+| [#416](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/416) | `2e5a20f13de0924ac5fb2f95785585286a34336b` | `0a11b03ebbeaceda2660ffa721b73f4e5faf6b58` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36500048747) / [Playwright](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36500048760) |
+| [#425](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/425) | `c7488fa040411722095aa8ff369c0c4a213e1cc0` | `e28626cc8b4d154f5f6226b4b0c43a0f8bc3214c` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36506770289) / [Playwright](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36506770298) |
+| [#424](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/424) | `53d40543d678ea6238026b42b81dd884c0ff867e` | `9c4c46dbd02447f104a60dc38d707445a311a50a` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36543452311) / [Playwright](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36543452273) |
+| [#426](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/426) | `7854e3ffde804d313985f0e71105b7e347647571` | `3b2b2e059b9a04b1943938673cd8b5f0af0f22c7` | 병합 완료; main CI 실행 중 / Playwright 성공; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36551294549) / [Playwright](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36551294665) |
 
-각 PR의 HEAD 검사·리뷰 게이트·병합 tree 동일성은 저장소에 포함한 [이식 가능한 증거 E](evidence/cp2026-closeout/README.md)의 `prN-merge-preflight.json`, `prN-merge-proof.json`, `mainN-live.json`으로 확인한다. E는 이 문서 기준 상대 경로 `evidence/cp2026-closeout/`이며 Mac·Windows·Linux checkout에서 동일하게 열린다. [manifest](evidence/cp2026-closeout/manifest.json)의 SHA-256으로 사본을 검증할 수 있다. 대용량 원본 보존 자료는 별도 로컬 보관소 A에만 남으며, E의 범위에 포함되지 않는다. 문서 PR 병합·새 Android 배포·다섯 작업 공간 정리는 이 스냅샷 작성 시점에 미완이다. 최종 결과는 [#425](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/425)의 마감 결과와 연결된 실제 검사·배포 증거로 확인한다.
+#411 main `4d2288c8`의 CI35953059633 재실행과 Playwright35953059678은 모두 성공했다. 과거의 취소·검사 대기 문구는 당시 이력이다. 각 PR의 HEAD 검사·리뷰 게이트·동일 tree와 main 검사 영수증은 [이식 가능한 증거 E](evidence/cp2026-closeout/README.md) 및 [manifest](evidence/cp2026-closeout/manifest.json)에서 확인한다. E의 상대 경로는 Mac·Windows·Linux checkout에서 동일하게 열린다. 대용량 원본과 보존 파일은 원래 호스트의 보관소 A에만 있다.
 
-9월28일 Play Console에서 기존 Android7680(SHA80b13fa3)의 **공개 테스트 제공**을 직접 확인했다. 근거는 [E/public-test-preflight.json](evidence/cp2026-closeout/public-test-preflight.json)이다. 이는 이전 소스의 트랙 승격이며 #412–#416의 새 빌드 제공은 아직 아니다. iOS의 마지막 보관 영수증은 기존254(SHA1a1cf0b5,9월24일)이며 이번에 최신 제공 상태를 재검증하지 않았다. 이 작업에서는 두 플랫폼의 실제 기기 설치를 확인하지 않았다. 사람 검수·실기기·운영 수신·14일 관측은 계속 미완이다.
+**배포 절차:** 이 문서 정정을 포함한 최종 main의 필수 CI·Playwright 성공 후 `play_closed.yml`에 `expected_sha=<검증된 최종 main>`과 `target_track=beta`를 명시한다. 같은 AAB/버전을 공개(beta)·비공개(alpha)·내부 테스트에 맞추며 `PLAY_INTERNAL_RELEASE_ENABLED=false`를 유지한다. 세 트랙 범위는 [실제 사용자 승인·조율 기록](evidence/cp2026-closeout/release-coordination.json)에 근거한다. 배포는 이 세션이 담당한다. iOS 재배포와 원계획 후속 구현은 인계한다.
+
+이 문서의 커밋·병합 뒤에 생기는 실제 배포 SHA·버전·AAB 해시·트랙별 제공/심사 상태와 최종 정리는 **[#425의 마감 결과](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/425)** 및 거기서 연결한 검사·배포 증거를 따른다. 아직 만들어지지 않은 최종 영수증을 완료 근거로 인용하지 않는다. 로컬 작업 자료는 `A/session-closeout-20260928/`에 있다.
+
+**기존 빌드와 검증 경계:** Android 2.0.9(7680), SHA80b13fa3의 공개 테스트 제공은 9월28일 확인했다. 9월29일에는 연결된 Pad 6에서 Play Store 설치 7680의 패키지 메타데이터도 확인했다. 이는 새 빌드 설치·실제 학습 동작·진행 보존 검증이 아니다. iOS의 마지막 보관 영수증은 254(SHA1a1cf0b5,9월24일)이며 최신 제공 상태는 이번에 재검증하지 않았다. D01–D08, 운영 수신·사람 검수·14일 적격 관측은 계속 미완이다.
+
+**정리 현황:** 이 세션이 #413–#416 공간 4개를 제거했고 12,144개 보존 파일을 확인했다. 폴더 논리 크기 합계 10.98 GiB는 실제 디스크 여유 증가량이 아니다. #411·#412는 외부 작업에서 제거됐으므로 이 세션 실적에서 제외한다. #416 삭제 후 보호 상태 검사에는 동시 로컬 커밋으로 인한 예외가 있었으며, 삭제 호출 전후 primary main WIP 전체의 바이트 동일성은 재구성할 수 없다. 이 한계를 정상 통과로 바꾸지 않는다. #424는 ADB 사용·폴더 잠금, 인계서 공간은 진행 중인 작업·`docs` 잠금으로 보존 중이다. 기본 main, B3의 20파일 WIP, #367·#390, 다른 세션의 공간·브랜치·stash는 보존한다. 삭제 판단에는 새 파일·프로세스·소유권·잠금 감사가 필요하다.
 
 [전체 항목별 재개 절차와 인계서](CP2026_HANDOVER_20260925.md)를 먼저 읽는다. 아래 날짜별 기록과 옛 상태표는 역사 자료이며 최신 기준선을 대체하지 않는다.
 
