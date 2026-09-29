@@ -1,0 +1,19 @@
+{
+  "observedDate": "2026-09-28",
+  "source": "Authenticated Google Play Console accessibility state in a separate task tab",
+  "packageName": "com.sujinarin.ko_lernen_app",
+  "consoleAppId": "4973411185448968270",
+  "track": "open testing",
+  "trackConsoleId": "4698137960274722025",
+  "trackState": "active",
+  "releaseName": "1653 · open · v7680 · 80b13fa3",
+  "versionCode": 7680,
+  "sourceShortSha": "80b13fa3",
+  "consoleAvailabilityText": "제한된 테스터에게 제공됨",
+  "consolePublishedLocalTime": "2026-09-28 15:58",
+  "countriesRegions": 178,
+  "releaseDetailsUrl": "https://play.google.com/console/u/0/developers/4748524301811844346/app/4973411185448968270/tracks/4698137960274722025/releases/4/details",
+  "changesMadeInThisCheck": false,
+  "deviceInstallVerifiedByThisTask": false,
+  "nextRelease": "Final CP2026 closeout main after exact-head and exact-main gates; preserve existing audience and region settings"
+}

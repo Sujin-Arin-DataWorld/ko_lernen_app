@@ -3,7 +3,7 @@
 <!-- CP2026_CLOSEOUT_CURRENT_START -->
 ## 2026-09-28 재개 마감 기준선
 
-확인 시각: 2026-09-29T00:18:04.355108+00:00. **코드 PR 다섯 건 병합·main 검사 완료; 문서 PR/정리 영수증은 별도 확인.** 이번 범위에서 마지막으로 병합·검증한 코드 PR의 main은 `0a11b03ebbeaceda2660ffa721b73f4e5faf6b58`이다. 이번 범위는 #412–#416과 인계 문서의 통합·검증·안전한 작업 공간 정리다. **9월28일 추가 요청에 따라 최종 검증 main의 Android 공개 테스트 배포도 수행한다.** 기존 `play_closed.yml` 수동 워크플로에 최종 `expected_sha`와 `target_track=beta`를 명시해 직접 배포한다. iOS 재배포와 원계획 후속 구현은 인계한다. 실제 배포 결과는 `A/session-closeout-20260928/`의 공개 테스트 영수증으로 확인하며, 이 문서 작성 시점에는 통합 이후 실행할 작업이다. **두 채팅 조율 후 추가된 배포 범위:** 다른 채팅의 실제 사용자 승인(9월28일15:49 UTC, “병합·세 트랙 배포까지”)을 확인해, 동일한 최종 AAB/버전을 공개(beta)·비공개(alpha)·내부 테스트에 맞춘다. Android 배포는 이 세션이 한 번 맡으며 `PLAY_INTERNAL_RELEASE_ENABLED=false`는 유지한다. 승인·조율 근거는 `A/session-closeout-20260928/release-coordination.json`이다.
+확인 시각: 2026-09-29T00:18:04.355108+00:00. **코드 PR 다섯 건 병합·main 검사 완료; 문서 PR/정리 영수증은 별도 확인.** 이번 범위에서 마지막으로 병합·검증한 코드 PR의 main은 `0a11b03ebbeaceda2660ffa721b73f4e5faf6b58`이다. 이번 범위는 #412–#416과 인계 문서의 통합·검증·안전한 작업 공간 정리다. **9월28일 추가 요청에 따라 최종 검증 main의 Android 공개 테스트 배포도 수행한다.** 기존 `play_closed.yml` 수동 워크플로에 최종 `expected_sha`와 `target_track=beta`를 명시해 직접 배포한다. iOS 재배포와 원계획 후속 구현은 인계한다. 실제 배포 결과는 `A/session-closeout-20260928/`의 공개 테스트 영수증으로 확인하며, 이 문서 작성 시점에는 통합 이후 실행할 작업이다. **두 채팅 조율 후 추가된 배포 범위:** 다른 채팅의 실제 사용자 승인(9월28일15:49 UTC, “병합·세 트랙 배포까지”)을 확인해, 동일한 최종 AAB/버전을 공개(beta)·비공개(alpha)·내부 테스트에 맞춘다. Android 배포는 이 세션이 한 번 맡으며 `PLAY_INTERNAL_RELEASE_ENABLED=false`는 유지한다. 승인·조율 근거는 [E/release-coordination.json](evidence/cp2026-closeout/release-coordination.json)이다.
 
 #411 main `4d2288c8`의 CI35953059633 재실행은 9월25일14:53:42 UTC 성공했고 같은 SHA의 Playwright35953059678도 성공했다. 과거의 취소/진행 중 기록은 당시 이력이다.
 
@@ -15,11 +15,12 @@
 | #415 | `e97b8ec433a1980dd3a557786aac32df498a92bb` | `cee096c28e93c59ffd28ce3b4afb46ea5b72cfd9` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36496175324) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36496175270) |
 | #416 | `2e5a20f13de0924ac5fb2f95785585286a34336b` | `0a11b03ebbeaceda2660ffa721b73f4e5faf6b58` | 병합·main 검사 완료; [CI](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36500048747) / [Playwright Tests](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36500048760) |
 
-각 PR의 HEAD 검사·전체 리뷰 페이지·원본 보존·병합 tree 동일성은 `C:/dev/hangulsori/_codex_artifacts/cp2026-release-stabilization-20260922/session-closeout-20260928/`의 `prN-merge-preflight.json`, `prN-merge-proof.json`, `mainN-live.json`으로 확인한다. 실제 생성된 영수증만 근거로 사용한다. 문서 PR의 최종 SHA와 삭제 결과는 같은 폴더의 최종 영수증에 기록한다.
+각 PR의 HEAD 검사·리뷰 게이트·병합 tree 동일성은 저장소에 포함한 [이식 가능한 증거 E](evidence/cp2026-closeout/README.md)의 `prN-merge-preflight.json`, `prN-merge-proof.json`, `mainN-live.json`으로 확인한다. E는 이 문서 기준 상대 경로 `evidence/cp2026-closeout/`이며 Mac·Windows·Linux checkout에서 동일하게 열린다. [manifest](evidence/cp2026-closeout/manifest.json)의 SHA-256으로 사본을 검증할 수 있다. 대용량 원본 보존 자료는 별도 로컬 보관소 A에만 남으며, E의 범위에 포함되지 않는다. 문서 PR 병합·새 Android 배포·다섯 작업 공간 정리는 이 스냅샷 작성 시점에 미완이다. 최종 결과는 [#425](https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/pull/425)의 마감 결과와 연결된 실제 검사·배포 증거로 확인한다.
 
-9월28일 Play Console에서 기존 Android7680(SHA80b13fa3)의 **공개 테스트 제공**을 직접 확인했다. 근거는 `A/session-closeout-20260928/public-test-preflight.json`이다. 이는 이전 소스의 트랙 승격이며 #412–#416의 새 빌드 제공은 아직 아니다. iOS의 마지막 보관 영수증은 기존254(SHA1a1cf0b5,9월24일)이며 이번에 최신 제공 상태를 재검증하지 않았다. 이 작업에서는 두 플랫폼의 실제 기기 설치를 확인하지 않았다. 사람 검수·실기기·운영 수신·14일 관측은 계속 미완이다.
+9월28일 Play Console에서 기존 Android7680(SHA80b13fa3)의 **공개 테스트 제공**을 직접 확인했다. 근거는 [E/public-test-preflight.json](evidence/cp2026-closeout/public-test-preflight.json)이다. 이는 이전 소스의 트랙 승격이며 #412–#416의 새 빌드 제공은 아직 아니다. iOS의 마지막 보관 영수증은 기존254(SHA1a1cf0b5,9월24일)이며 이번에 최신 제공 상태를 재검증하지 않았다. 이 작업에서는 두 플랫폼의 실제 기기 설치를 확인하지 않았다. 사람 검수·실기기·운영 수신·14일 관측은 계속 미완이다.
 
 [전체 항목별 재개 절차와 인계서](CP2026_HANDOVER_20260925.md)를 먼저 읽는다. 아래 날짜별 기록과 옛 상태표는 역사 자료이며 최신 기준선을 대체하지 않는다.
+
 <!-- CP2026_CLOSEOUT_CURRENT_END -->
 
 ## 2026-09-23 23:40 UTC 현재 실행 기준선

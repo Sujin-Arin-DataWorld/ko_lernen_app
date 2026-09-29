@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-09-28T22:24:49.747303+00:00",
+  "pr": 414,
+  "head": "d7dc47bc0120526932be96f434ac9d6ed3cf6652",
+  "base": "f1929833e172d41cf7d9727d5dd5361c33f8f574",
+  "gates": {
+    "f1929833e172d41cf7d9727d5dd5361c33f8f574": {
+      "CI": {
+        "conclusion": "success",
+        "createdAt": "2026-09-28T21:43:41Z",
+        "databaseId": 36488012362,
+        "event": "push",
+        "headSha": "f1929833e172d41cf7d9727d5dd5361c33f8f574",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36488012362",
+        "workflowName": "CI"
+      },
+      "Playwright Tests": {
+        "conclusion": "success",
+        "createdAt": "2026-09-28T21:43:41Z",
+        "databaseId": 36488012417,
+        "event": "push",
+        "headSha": "f1929833e172d41cf7d9727d5dd5361c33f8f574",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36488012417",
+        "workflowName": "Playwright Tests"
+      }
+    },
+    "d7dc47bc0120526932be96f434ac9d6ed3cf6652": {
+      "CI": {
+        "conclusion": "success",
+        "createdAt": "2026-09-28T22:10:32Z",
+        "databaseId": 36490792963,
+        "event": "pull_request",
+        "headSha": "d7dc47bc0120526932be96f434ac9d6ed3cf6652",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36490792963",
+        "workflowName": "CI"
+      },
+      "Playwright Tests": {
+        "conclusion": "success",
+        "createdAt": "2026-09-28T22:10:32Z",
+        "databaseId": 36490792970,
+        "event": "pull_request",
+        "headSha": "d7dc47bc0120526932be96f434ac9d6ed3cf6652",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36490792970",
+        "workflowName": "Playwright Tests"
+      }
+    }
+  },
+  "reviewPages": 1,
+  "reviewThreads": [],
+  "merged": true,
+  "releaseStartedByThisMerge": false,
+  "androidOpenTestingAuthorized": true,
+  "mergedAt": "2026-09-28T22:24:51Z",
+  "mergeCommit": "0048dfd62e34942c7d80c40652595d4687b0bd20",
+  "treeIdentical": true,
+  "mainGateCompleted": true,
+  "mainGateObservedAt": "2026-09-28T22:50:09.539433+00:00",
+  "mainGateEvidence": "main414-live.json"
+}
