@@ -1,0 +1,2 @@
+# Preserve receipt bytes and SHA-256 across macOS, Linux and Windows checkouts.
+* text eol=lf

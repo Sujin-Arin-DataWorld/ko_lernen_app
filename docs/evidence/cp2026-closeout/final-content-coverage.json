@@ -1,0 +1,246 @@
+{
+  "checkedAt": "2026-09-29T00:17:26.229374+00:00",
+  "main": "0a11b03ebbeaceda2660ffa721b73f4e5faf6b58",
+  "head": "2e5a20f13de0924ac5fb2f95785585286a34336b",
+  "tree": "6234c29b002955bf0a6de7bcecdd092ddacb737b",
+  "method": "tool.audit_content_levels.run_audit and build_summary; report writers not called",
+  "summary": {
+    "generatedFrom": "verified main 0a11b03ebbeaceda2660ffa721b73f4e5faf6b58",
+    "counts": {
+      "vocab": {
+        "over2": 158,
+        "over1": 313,
+        "under2": 229,
+        "unknown": 56,
+        "fallback_over2": 66,
+        "total": 2944
+      },
+      "grammar": {
+        "over2": 3,
+        "over1": 11,
+        "under2": 39,
+        "unknown": 0,
+        "fallback_over2": 0,
+        "total": 261
+      },
+      "scenario": {
+        "over2": 0,
+        "over1": 22,
+        "under2": 23,
+        "unknown": 0,
+        "fallback_over2": 0,
+        "total": 178
+      },
+      "cloze": {
+        "over2": 28,
+        "over1": 165,
+        "under2": 454,
+        "unknown": 0,
+        "fallback_over2": 0,
+        "total": 2341
+      },
+      "satz": {
+        "over2": 20,
+        "over1": 160,
+        "under2": 645,
+        "unknown": 0,
+        "fallback_over2": 0,
+        "total": 2861
+      },
+      "smalltalk": {
+        "over2": 19,
+        "over1": 101,
+        "under2": 112,
+        "unknown": 0,
+        "fallback_over2": 1,
+        "total": 582
+      },
+      "pronunciation": {
+        "over2": 0,
+        "over1": 7,
+        "under2": 17,
+        "unknown": 0,
+        "fallback_over2": 0,
+        "total": 84
+      },
+      "media": {
+        "over2": 6,
+        "over1": 22,
+        "under2": 13,
+        "unknown": 0,
+        "fallback_over2": 1,
+        "total": 136
+      }
+    },
+    "packs": {
+      "a1": {
+        "median_ge_plus2": 0,
+        "share_ge_plus2_top10": [
+          {
+            "pack_id": "a1_adjectives_1",
+            "median": 0.0,
+            "share_ge_plus2": 0.0,
+            "n_hm": 12,
+            "n_low": 0
+          },
+          {
+            "pack_id": "a1_adjectives_2",
+            "median": 0.0,
+            "share_ge_plus2": 0.0,
+            "n_hm": 12,
+            "n_low": 0
+          },
+          {
+            "pack_id": "a1_adverbs_1",
+            "median": 0.0,
+            "share_ge_plus2": 0.0,
+            "n_hm": 12,
+            "n_low": 0
+          },
+          {
+            "pack_id": "a1_adverbs_2",
+            "median": 0,
+            "share_ge_plus2": 0.0,
+            "n_hm": 7,
+            "n_low": 0
+          },
+          {
+            "pack_id": "a1_belongings_1",
+            "median": 0.0,
+            "share_ge_plus2": 0.0,
+            "n_hm": 12,
+            "n_low": 0
+          },
+          {
+            "pack_id": "a1_body",
+            "median": 0.0,
+            "share_ge_plus2": 0.0,
+            "n_hm": 12,
+            "n_low": 0
+          },
+          {
+            "pack_id": "a1_city_services_2026_1",
+            "median": 0.0,
+            "share_ge_plus2": 0.0,
+            "n_hm": 12,
+            "n_low": 0
+          },
+          {
+            "pack_id": "a1_colors",
+            "median": 1.0,
+            "share_ge_plus2": 0.0,
+            "n_hm": 6,
+            "n_low": 0
+          },
+          {
+            "pack_id": "a1_counters_1",
+            "median": 0.0,
+            "share_ge_plus2": 0.0,
+            "n_hm": 12,
+            "n_low": 0
+          },
+          {
+            "pack_id": "a1_countries_1",
+            "median": 0.0,
+            "share_ge_plus2": 0.0,
+            "n_hm": 12,
+            "n_low": 0
+          }
+        ],
+        "over2_unbacklogged": 0
+      },
+      "a2": {
+        "median_ge_plus2": 0,
+        "share_ge_plus2_top10": [
+          {
+            "pack_id": "a2_pharmacy_ask_1",
+            "median": 1.0,
+            "share_ge_plus2": 0.25,
+            "n_hm": 8,
+            "n_low": 2
+          },
+          {
+            "pack_id": "a2_gym_class_1",
+            "median": 0.0,
+            "share_ge_plus2": 0.2,
+            "n_hm": 10,
+            "n_low": 0
+          },
+          {
+            "pack_id": "a2_salon_visit_1",
+            "median": 0.5,
+            "share_ge_plus2": 0.2,
+            "n_hm": 10,
+            "n_low": 0
+          },
+          {
+            "pack_id": "a2_partner_photo_thanks_1",
+            "median": 0,
+            "share_ge_plus2": 0.1111,
+            "n_hm": 9,
+            "n_low": 0
+          },
+          {
+            "pack_id": "a2_school_supplies_1",
+            "median": 0,
+            "share_ge_plus2": 0.1111,
+            "n_hm": 9,
+            "n_low": 2
+          },
+          {
+            "pack_id": "a2_people_jobs_1",
+            "median": 0,
+            "share_ge_plus2": 0.0909,
+            "n_hm": 11,
+            "n_low": 1
+          },
+          {
+            "pack_id": "a2_weather_layer_1",
+            "median": 0,
+            "share_ge_plus2": 0.0909,
+            "n_hm": 11,
+            "n_low": 1
+          },
+          {
+            "pack_id": "a2_food_2",
+            "median": 0.0,
+            "share_ge_plus2": 0.0833,
+            "n_hm": 12,
+            "n_low": 0
+          },
+          {
+            "pack_id": "a2_food_more_1",
+            "median": -0.5,
+            "share_ge_plus2": 0.0833,
+            "n_hm": 12,
+            "n_low": 0
+          },
+          {
+            "pack_id": "a2_change_verbs_1",
+            "median": 0.0,
+            "share_ge_plus2": 0.0,
+            "n_hm": 12,
+            "n_low": 0
+          }
+        ],
+        "over2_unbacklogged": 0
+      }
+    },
+    "coverage": {
+      "grade1": {
+        "total_unique": 713,
+        "present_in_app": 712,
+        "at_level": 596,
+        "missing": 1
+      },
+      "grade2": {
+        "total_unique": 1068,
+        "present_in_app": 412,
+        "at_level": 204,
+        "missing": 656
+      }
+    }
+  },
+  "newContentCount": 0,
+  "newHumanApprovals": 0
+}

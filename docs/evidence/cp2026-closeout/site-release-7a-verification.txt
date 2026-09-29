@@ -1,0 +1,1 @@
+Verified release 7a0a09819cb4482c6e075023d9b6710ea3873a6b, 11 routes, 23 referenced build assets, exact 404 behavior, tester API GET rejection and binding presence, security headers, 75 owned assets (HTML permits only the production script nonce), and the iOS application / Android open-test CTAs on https://hangul-sori.com and https://www.hangul-sori.com.
