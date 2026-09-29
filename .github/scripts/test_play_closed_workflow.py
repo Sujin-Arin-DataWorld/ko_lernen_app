@@ -29,6 +29,9 @@ class PlayClosedWorkflowTest(unittest.TestCase):
         workflow = self.workflow
         self.assertIn("actions: read", workflow)
         self.assertIn("actions/workflows/ci.yml/runs", workflow)
+        # Narrow the server-side result before applying the local safety checks.
+        # A bounded, unfiltered history page can omit the successful release SHA.
+        self.assertIn("runs?head_sha=${GITHUB_SHA}&branch=main&event=push&status=success&", workflow)
         self.assertIn(".head_sha == $sha", workflow)
         self.assertIn('.head_branch == "main"', workflow)
         self.assertIn('.event == "push"', workflow)

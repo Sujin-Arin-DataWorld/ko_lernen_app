@@ -79,7 +79,7 @@ jobs:
           set -euo pipefail
           successes="$(
             gh api \
-              "repos/${GITHUB_REPOSITORY}/actions/workflows/ci.yml/runs?branch=main&status=completed&per_page=100" |
+              "repos/${GITHUB_REPOSITORY}/actions/workflows/ci.yml/runs?head_sha=${GITHUB_SHA}&branch=main&event=push&status=success&per_page=100" |
               jq --arg sha "$GITHUB_SHA" \
                 '[.workflow_runs[] | select(.head_sha == $sha and .head_branch == "main" and .event == "push" and .conclusion == "success")] | length'
           )"
