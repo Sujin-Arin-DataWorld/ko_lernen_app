@@ -37,10 +37,6 @@ class AppL10nDe extends AppL10n {
   String get learningPhasesTitle => '30 Lernphasen';
 
   @override
-  String get learningPhasesIntro =>
-      'Entdecke die Lernziele von A1 bis C2 und übe dazu passende Gespräche. Dein bisheriger Lernfortschritt bleibt erhalten.';
-
-  @override
   String get learningPhasePracticeTitle => 'Verwandte Gespräche frei üben';
 
   @override
@@ -6813,7 +6809,7 @@ class AppL10nDe extends AppL10n {
       '18 Fragen von A1 bis C2. Für eine Empfehlung brauchst du auf jeder Stufe bis dahin mindestens zwei richtige Antworten. Der Check prüft das Verstehen, nicht das Sprechen oder Schreiben, und ist kein Sprachzertifikat.';
 
   @override
-  String get coursePreviewTitle => 'Kursinhalte ansehen';
+  String get coursePreviewTitle => 'Lerninhalte ansehen';
 
   @override
   String get coursePreviewBody =>
@@ -6824,7 +6820,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get hanokHowBody =>
-      'Öffne deinen Lernpfad und schließe eine Kurseinheit mit den zugehörigen Übungen und Prüfungen ab. Abgeschlossene Einheiten von A1 bis B2 bringen den Hanok hier voran. Ein höher gewählter Startpunkt oder das Wiederholen einer bereits abgeschlossenen Einheit bringt keinen zusätzlichen Baufortschritt. Die Bauphasen kannst du auch separat erkunden; allein durch das Anschauen wächst dein Hanok nicht.';
+      'Öffne deinen Lernpfad und schließe eine Lerneinheit mit den zugehörigen Übungen und Prüfungen ab. Abgeschlossene Einheiten von A1 bis B2 bringen den Hanok hier voran. Ein höher gewählter Startpunkt oder das Wiederholen einer bereits abgeschlossenen Einheit bringt keinen zusätzlichen Baufortschritt. Die Bauphasen kannst du auch separat erkunden; allein durch das Anschauen wächst dein Hanok nicht.';
 
   @override
   String get hanokHowAction => 'Meinen Lernpfad öffnen';

@@ -708,6 +708,17 @@ void main() {
       if (key == 'AssetManifest.bin') {
         return _assetManifest;
       }
+      if (key == 'assets/data/kkeunmari_nouns.json') {
+        return ByteData.sublistView(
+          Uint8List.fromList(
+            utf8.encode(
+              jsonEncode({
+                'words': _chainWords.map((word) => word.word).toList(),
+              }),
+            ),
+          ),
+        );
+      }
       if (key != 'assets/data/kkeunmari_pool.json') {
         return null;
       }

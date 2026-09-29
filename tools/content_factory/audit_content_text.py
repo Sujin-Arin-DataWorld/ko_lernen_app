@@ -139,6 +139,13 @@ SURFACES: tuple[ContentSurface, ...] = (
         "curated Korean headwords and German glosses",
     ),
     ContentSurface(
+        "kkeunmari_nouns.json",
+        "derived positive noun membership index",
+        "KoreanNounLexicon / KkeunmariEngine",
+        (),
+        "generated attributed dictionary headwords for validation only; no definitions or independent learner copy",
+    ),
+    ContentSurface(
         "korean_vocab.csv",
         "vocabulary catalog and packs",
         "DataLoader / VocabPackService / ReviewDeckService",

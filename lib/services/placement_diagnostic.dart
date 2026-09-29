@@ -1,3 +1,5 @@
+import '../models/learner_level.dart';
+
 /// A short recommendation of where to start, not a certified proficiency test.
 /// Three independently scored items per band prevent beginner-only success
 /// from being relabelled as C1/C2. Productive speaking/writing are not measured.
@@ -12,7 +14,7 @@ enum PlacementDiagnosticSkill {
 
 class PlacementDiagnosticQuestion {
   const PlacementDiagnosticQuestion({
-    required this.level,
+    required LearnerLevel level,
     required this.skill,
     required this.promptDe,
     required this.promptEn,
@@ -20,8 +22,9 @@ class PlacementDiagnosticQuestion {
     required this.choicesDe,
     required this.choicesEn,
     required this.correctIndex,
-  });
-  final String level;
+  }) : _level = level;
+  final LearnerLevel _level;
+  String get level => _level.code;
   final PlacementDiagnosticSkill skill;
   final String promptDe;
   final String promptEn;
@@ -37,7 +40,7 @@ class PlacementDiagnosticQuestion {
 
 const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
   PlacementDiagnosticQuestion(
-    level: 'a1',
+    level: LearnerLevel.a1,
     skill: PlacementDiagnosticSkill.listening,
     promptDe: 'Hör zu und wähle die Bedeutung.',
     promptEn: 'Listen and choose the meaning.',
@@ -47,7 +50,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 0,
   ),
   PlacementDiagnosticQuestion(
-    level: 'a1',
+    level: LearnerLevel.a1,
     skill: PlacementDiagnosticSkill.particle,
     promptDe: 'Du sagst, wo du lernst. Welche Partikel passt?',
     promptEn: 'You are saying where you study. Which particle fits?',
@@ -57,7 +60,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 1,
   ),
   PlacementDiagnosticQuestion(
-    level: 'a1',
+    level: LearnerLevel.a1,
     skill: PlacementDiagnosticSkill.meaning,
     promptDe: 'Was bestellt die Person?',
     promptEn: 'What is the person ordering?',
@@ -77,7 +80,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 2,
   ),
   PlacementDiagnosticQuestion(
-    level: 'a2',
+    level: LearnerLevel.a2,
     skill: PlacementDiagnosticSkill.meaning,
     promptDe: 'Was macht die Person zuerst?',
     promptEn: 'What will the person do first?',
@@ -97,7 +100,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 3,
   ),
   PlacementDiagnosticQuestion(
-    level: 'a2',
+    level: LearnerLevel.a2,
     skill: PlacementDiagnosticSkill.meaning,
     promptDe: 'Was erlaubt dieser Hinweis?',
     promptEn: 'What does this notice allow?',
@@ -117,7 +120,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 0,
   ),
   PlacementDiagnosticQuestion(
-    level: 'a2',
+    level: LearnerLevel.a2,
     skill: PlacementDiagnosticSkill.meaning,
     promptDe: 'Welche Aussage stimmt?',
     promptEn: 'Which statement is correct?',
@@ -137,7 +140,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 1,
   ),
   PlacementDiagnosticQuestion(
-    level: 'b1',
+    level: LearnerLevel.b1,
     skill: PlacementDiagnosticSkill.meaning,
     promptDe: 'Welche Information gibt Mina weiter?',
     promptEn: 'What information is Mina passing on?',
@@ -157,7 +160,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 2,
   ),
   PlacementDiagnosticQuestion(
-    level: 'b1',
+    level: LearnerLevel.b1,
     skill: PlacementDiagnosticSkill.meaning,
     promptDe: 'Was ist tatsächlich passiert?',
     promptEn: 'What actually happened?',
@@ -177,7 +180,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 3,
   ),
   PlacementDiagnosticQuestion(
-    level: 'b1',
+    level: LearnerLevel.b1,
     skill: PlacementDiagnosticSkill.speechStyle,
     promptDe: 'Wie reagiert B auf die Einladung?',
     promptEn: 'How does B respond to the invitation?',
@@ -197,7 +200,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 0,
   ),
   PlacementDiagnosticQuestion(
-    level: 'b2',
+    level: LearnerLevel.b2,
     skill: PlacementDiagnosticSkill.inference,
     promptDe: 'Welche Schlussfolgerung lässt der Bericht zu?',
     promptEn: 'Which conclusion does the report support?',
@@ -218,7 +221,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 1,
   ),
   PlacementDiagnosticQuestion(
-    level: 'b2',
+    level: LearnerLevel.b2,
     skill: PlacementDiagnosticSkill.meaning,
     promptDe: 'Welche Erwartung wurde nicht erfüllt?',
     promptEn: 'Which expectation was not met?',
@@ -238,7 +241,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 2,
   ),
   PlacementDiagnosticQuestion(
-    level: 'b2',
+    level: LearnerLevel.b2,
     skill: PlacementDiagnosticSkill.speechStyle,
     promptDe: 'Welche Antwort fasst die Position zusammen?',
     promptEn: 'Which answer summarizes the position?',
@@ -259,7 +262,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 3,
   ),
   PlacementDiagnosticQuestion(
-    level: 'c1',
+    level: LearnerLevel.c1,
     skill: PlacementDiagnosticSkill.inference,
     promptDe: 'Welche Zusammenfassung bewahrt Quelle und Unsicherheit?',
     promptEn: 'Which summary preserves the source and uncertainty?',
@@ -280,7 +283,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 0,
   ),
   PlacementDiagnosticQuestion(
-    level: 'c1',
+    level: LearnerLevel.c1,
     skill: PlacementDiagnosticSkill.inference,
     promptDe: 'Welche Unterscheidung macht der Text?',
     promptEn: 'What distinction does the passage make?',
@@ -301,7 +304,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 1,
   ),
   PlacementDiagnosticQuestion(
-    level: 'c1',
+    level: LearnerLevel.c1,
     skill: PlacementDiagnosticSkill.inference,
     promptDe: 'Welche Aussage über die Begründung trifft zu?',
     promptEn: 'Which statement about the reasoning is correct?',
@@ -322,7 +325,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 2,
   ),
   PlacementDiagnosticQuestion(
-    level: 'c2',
+    level: LearnerLevel.c2,
     skill: PlacementDiagnosticSkill.inference,
     promptDe: 'Worauf zielt die Kritik, trotz der eingeräumten Stärke?',
     promptEn:
@@ -344,7 +347,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 3,
   ),
   PlacementDiagnosticQuestion(
-    level: 'c2',
+    level: LearnerLevel.c2,
     skill: PlacementDiagnosticSkill.inference,
     promptDe: 'Welche Lesart erfasst den ironischen Abstand?',
     promptEn: 'Which reading captures the ironic distance?',
@@ -365,7 +368,7 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
     correctIndex: 0,
   ),
   PlacementDiagnosticQuestion(
-    level: 'c2',
+    level: LearnerLevel.c2,
     skill: PlacementDiagnosticSkill.inference,
     promptDe: 'Welche Wiedergabe bewahrt die doppelte Einschränkung?',
     promptEn: 'Which paraphrase preserves both qualifications?',
@@ -390,8 +393,9 @@ const placementDiagnosticQuestions = <PlacementDiagnosticQuestion>[
 /// Requires at least two of three answers in every band up to the recommendation.
 /// Skips, incomplete answers, and malformed indices never contribute evidence.
 String recommendPlacement(List<int> answers) {
-  var recommendation = 'a1';
-  for (final level in const ['a1', 'a2', 'b1', 'b2', 'c1', 'c2']) {
+  var recommendation = LearnerLevel.a1.code;
+  for (final band in LearnerLevel.values) {
+    final level = band.code;
     var correct = 0;
     for (var i = 0; i < placementDiagnosticQuestions.length; i++) {
       final question = placementDiagnosticQuestions[i];

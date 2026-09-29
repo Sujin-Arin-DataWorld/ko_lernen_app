@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "functions/analyze_korean_text/dictionary_validation.py": {
-    "mtime": 1790682952.7559502,
-    "seen": 1790685040.417924,
-    "ast_hash": "a600dee197741f8937895a8870610aaa",
+    "mtime": 1790687320.243595,
+    "seen": 1790687359.1356487,
+    "ast_hash": "0b153bb8cfd6ea3e0be6bbcf8bb2ec68",
     "semantic_hash": ""
   },
   "functions/analyze_korean_text/grammar_analysis.py": {
@@ -198,9 +198,9 @@
     "semantic_hash": ""
   },
   "functions/analyze_korean_text/test_dictionary_validation.py": {
-    "mtime": 1790683015.4015653,
-    "seen": 1790685040.4201736,
-    "ast_hash": "02a7cb01f019300a0e797eb6c379a61c",
+    "mtime": 1790687320.245112,
+    "seen": 1790687359.137698,
+    "ast_hash": "380469c1ad8fa63f33c19d056a85f90a",
     "semantic_hash": ""
   },
   "functions/analyze_korean_text/test_endpoint_security.py": {
@@ -252,8 +252,8 @@
     "semantic_hash": ""
   },
   "functions/analyze_korean_text/verify_deployed_source.py": {
-    "mtime": 1790683749.3987231,
-    "seen": 1790685040.4224145,
+    "mtime": 1790685553.6196854,
+    "seen": 1790686318.4928358,
     "ast_hash": "4dbdb77dc4037f3930d8dc6a8a66c880",
     "semantic_hash": ""
   },
@@ -936,20 +936,20 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1790683485.8208842,
-    "seen": 1790685040.4767644,
+    "mtime": 1790685553.6338153,
+    "seen": 1790686318.6958501,
     "ast_hash": "abe2611eb87dc21553c75030147ad6fd",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1790683485.5692115,
-    "seen": 1790685040.476767,
+    "mtime": 1790685553.6360464,
+    "seen": 1790686318.6958551,
     "ast_hash": "90d78471a7bc5c0b1ddca2661c431aca",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1790683485.6972594,
-    "seen": 1790685040.476769,
+    "mtime": 1790685553.6381502,
+    "seen": 1790686318.6958587,
     "ast_hash": "60fc3706aae0fb0cbf6c3ef165f7e939",
     "semantic_hash": ""
   },
@@ -1434,14 +1434,14 @@
     "semantic_hash": ""
   },
   "lib/screens/kkeunmari_screen.dart": {
-    "mtime": 1790682858.0085828,
-    "seen": 1790685040.50204,
+    "mtime": 1790685553.6396549,
+    "seen": 1790686318.7383802,
     "ast_hash": "81ad8d22bf46617dbb023e33441d8063",
     "semantic_hash": ""
   },
   "lib/screens/learning_path_screen.dart": {
-    "mtime": 1790683477.2453625,
-    "seen": 1790685040.5020423,
+    "mtime": 1790685553.6408763,
+    "seen": 1790686318.7383857,
     "ast_hash": "9521c37152ebd62ae72a3485a55937db",
     "semantic_hash": ""
   },
@@ -1482,8 +1482,8 @@
     "semantic_hash": ""
   },
   "lib/screens/placement_diagnostic_screen.dart": {
-    "mtime": 1790683487.867351,
-    "seen": 1790685040.508275,
+    "mtime": 1790685553.6431086,
+    "seen": 1790686318.7493618,
     "ast_hash": "17768594f94cc2cf63534c363fe70420",
     "semantic_hash": ""
   },
@@ -1608,8 +1608,8 @@
     "semantic_hash": ""
   },
   "lib/screens/settings_screen.dart": {
-    "mtime": 1790684428.6747756,
-    "seen": 1790685040.5148537,
+    "mtime": 1790685553.644158,
+    "seen": 1790686318.7612464,
     "ast_hash": "32c53f871c500f55f93f6909411102a7",
     "semantic_hash": ""
   },
@@ -1644,8 +1644,8 @@
     "semantic_hash": ""
   },
   "lib/screens/sori_stage/sori_stage_hanok_screen.dart": {
-    "mtime": 1790683549.5440497,
-    "seen": 1790685040.5163782,
+    "mtime": 1790685553.6452105,
+    "seen": 1790686318.7637284,
     "ast_hash": "6d30e86be2c68ce477715f0166d7a530",
     "semantic_hash": ""
   },
@@ -2220,14 +2220,14 @@
     "semantic_hash": ""
   },
   "lib/services/kkeunmari_dictionary_service.dart": {
-    "mtime": 1790683109.7987201,
-    "seen": 1790685040.5453968,
+    "mtime": 1790685553.6467595,
+    "seen": 1790686318.820742,
     "ast_hash": "eeb56bbb22d4f4b68e9153661d8c228d",
     "semantic_hash": ""
   },
   "lib/services/kkeunmari_engine.dart": {
-    "mtime": 1790684968.606823,
-    "seen": 1790685040.5453992,
+    "mtime": 1790685553.6467595,
+    "seen": 1790686318.820747,
     "ast_hash": "ce05c9819111bcb66afa79e4cbc85bc8",
     "semantic_hash": ""
   },
@@ -2340,9 +2340,9 @@
     "semantic_hash": ""
   },
   "lib/services/placement_diagnostic.dart": {
-    "mtime": 1790684020.2002373,
-    "seen": 1790685040.5535867,
-    "ast_hash": "b42d7882d54d0713e6e0a48bd71b1cc1",
+    "mtime": 1790685553.6486788,
+    "seen": 1790686318.8363893,
+    "ast_hash": "a9368cbd52ec7b92ceeb9865f75aa5c4",
     "semantic_hash": ""
   },
   "lib/services/privacy_consent_service.dart": {
@@ -4404,8 +4404,8 @@
     "semantic_hash": ""
   },
   "test/hangul_game_logic_test.dart": {
-    "mtime": 1790683020.1987064,
-    "seen": 1790685040.681776,
+    "mtime": 1790685553.6486788,
+    "seen": 1790686319.0668216,
     "ast_hash": "0667f6c989e18230d9915a414455f49a",
     "semantic_hash": ""
   },
@@ -4542,8 +4542,8 @@
     "semantic_hash": ""
   },
   "test/kkeunmari_dictionary_service_test.dart": {
-    "mtime": 1790682952.7569492,
-    "seen": 1790685040.6930695,
+    "mtime": 1790685553.6501884,
+    "seen": 1790686319.0826933,
     "ast_hash": "bf800395eb7005be19e0b955f879726e",
     "semantic_hash": ""
   },
@@ -4830,14 +4830,14 @@
     "semantic_hash": ""
   },
   "test/placement_diagnostic_test.dart": {
-    "mtime": 1790684428.6823304,
-    "seen": 1790685040.7222457,
-    "ast_hash": "a9a02b94a7470c86776c4c26be319133",
+    "mtime": 1790685553.6517494,
+    "seen": 1790686319.1237073,
+    "ast_hash": "76d9450ab5093384c1835be70d8cf8af",
     "semantic_hash": ""
   },
   "test/placement_pronunciation_responsive_accessibility_test.dart": {
-    "mtime": 1790684428.6906226,
-    "seen": 1790685040.722249,
+    "mtime": 1790685553.652811,
+    "seen": 1790686319.1237125,
     "ast_hash": "efd264311455e3b513534bbd6875bf84",
     "semantic_hash": ""
   },
@@ -5544,8 +5544,8 @@
     "semantic_hash": ""
   },
   "test/sori_stage_hanok_shortcuts_test.dart": {
-    "mtime": 1790684428.738474,
-    "seen": 1790685040.7692783,
+    "mtime": 1790685553.6533153,
+    "seen": 1790686319.1892998,
     "ast_hash": "f02cf0544c55713b9c2f55db656ad7cd",
     "semantic_hash": ""
   },
@@ -6036,8 +6036,8 @@
     "semantic_hash": ""
   },
   "test/widgets/settings_screen_test.dart": {
-    "mtime": 1790684428.7293663,
-    "seen": 1790685040.8187084,
+    "mtime": 1790685553.6553307,
+    "seen": 1790686319.2406871,
     "ast_hash": "7a4fdfdc2f64f877aeab51ca17050225",
     "semantic_hash": ""
   },
@@ -6498,9 +6498,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/audit_content_text.py": {
-    "mtime": 1790223394.109283,
-    "seen": 1790671121.2410927,
-    "ast_hash": "9b8b45bcd80fc675b04ffcc030bde6c3",
+    "mtime": 1790686490.3717346,
+    "seen": 1790687359.5079155,
+    "ast_hash": "7615e9199380e76c0482dc07a775bd26",
     "semantic_hash": ""
   },
   "tools/content_factory/audit_game_loader_coverage.py": {
@@ -9060,9 +9060,9 @@
     "semantic_hash": ""
   },
   "docs/store/cloud-function-deploy.md": {
-    "mtime": 1790684972.3734062,
-    "seen": 1790685041.2346325,
-    "ast_hash": "6ba689dcc8f7524f9cdbe582f8a88d01",
+    "mtime": 1790685553.6145072,
+    "seen": 1790686319.635469,
+    "ast_hash": "10fe0f468512d908462a22d11840183a",
     "semantic_hash": ""
   },
   "docs/store/data-safety.md": {
@@ -9078,9 +9078,9 @@
     "semantic_hash": ""
   },
   "docs/store/kkeunmari-dictionary-deploy.md": {
-    "mtime": 1790684385.4490752,
-    "seen": 1790685041.2353594,
-    "ast_hash": "fe176917c65a8642c56e2ecbeed2303d",
+    "mtime": 1790686750.6329226,
+    "seen": 1790687359.7420309,
+    "ast_hash": "832b10f94ee9d258dc65ca05554061e7",
     "semantic_hash": ""
   },
   "docs/store/listing-de.md": {
@@ -13326,9 +13326,9 @@
     "semantic_hash": ""
   },
   "functions/tts/canonical_manifest.json": {
-    "mtime": 1790223389.3283422,
-    "seen": 1790671121.2380202,
-    "ast_hash": "a4ec730b3df9ba2a61a15da7e70fa866",
+    "mtime": 1790685965.1685102,
+    "seen": 1790686318.5212793,
+    "ast_hash": "70759fc7d3d70a026c090c40ec87ef40",
     "semantic_hash": ""
   },
   "functions/tts/privacy_migration.js": {
@@ -14076,8 +14076,8 @@
     "semantic_hash": ""
   },
   "docs/screenshots/sori-stage-hanok-390.png": {
-    "mtime": 1790684411.9792316,
-    "seen": 1790685041.304637,
+    "mtime": 1790685553.613502,
+    "seen": 1790686319.6984713,
     "ast_hash": "600cd57d3cf844a76fee388786c9954d",
     "semantic_hash": ""
   },
@@ -15270,8 +15270,8 @@
     "semantic_hash": ""
   },
   "lib/screens/learning_phases_screen.dart": {
-    "mtime": 1790683870.3979363,
-    "seen": 1790685040.5020447,
+    "mtime": 1790685553.6413803,
+    "seen": 1790686318.738391,
     "ast_hash": "53b19f0e365ee9396859591af27fef51",
     "semantic_hash": ""
   },
@@ -15630,8 +15630,8 @@
     "semantic_hash": ""
   },
   "test/timed_game_srs_recovery_test.dart": {
-    "mtime": 1790683488.002656,
-    "seen": 1790685040.790205,
+    "mtime": 1790685553.654329,
+    "seen": 1790686319.2151828,
     "ast_hash": "c22975ec6d4b1dafa7cee921b2678b3f",
     "semantic_hash": ""
   },
@@ -20484,33 +20484,33 @@
     "semantic_hash": ""
   },
   "functions/analyze_korean_text/kkeunmari_nouns.json": {
-    "mtime": 1790682957.503654,
-    "seen": 1790685040.4185133,
+    "mtime": 1790685553.618144,
+    "seen": 1790686318.4812593,
     "ast_hash": "4c952072bf2070a04b2b1dd9fdbe4fb5",
     "semantic_hash": ""
   },
   "lib/services/korean_noun_lexicon.dart": {
-    "mtime": 1790684428.6119626,
-    "seen": 1790685040.5454016,
-    "ast_hash": "94b201c93725f67445429ee17c6176ff",
+    "mtime": 1790685553.6481745,
+    "seen": 1790686318.8207521,
+    "ast_hash": "347a8f0d0ee692f68733fbd068a251b6",
     "semantic_hash": ""
   },
   "test/korean_noun_lexicon_recovery_test.dart": {
-    "mtime": 1790685131.3270435,
-    "seen": 1790685313.1908796,
-    "ast_hash": "52759334b97d1c0421f888c5a5eb5799",
+    "mtime": 1790685553.6501884,
+    "seen": 1790686319.0830262,
+    "ast_hash": "c135f50b6a501a44822a5236f6e47802",
     "semantic_hash": ""
   },
   "tool/build_kkeunmari_lexicon.py": {
-    "mtime": 1790682952.7539413,
-    "seen": 1790685040.830577,
-    "ast_hash": "a6a21704bc27923795568c76fda4da43",
+    "mtime": 1790685553.6553307,
+    "seen": 1790686319.2544756,
+    "ast_hash": "2a7bdb44ac419b3b4c589a09b6995c8e",
     "semantic_hash": ""
   },
   "tool/test_build_kkeunmari_lexicon.py": {
-    "mtime": 1790684968.6046968,
-    "seen": 1790685040.8755827,
-    "ast_hash": "f4ae3c069cea3250a63abd5668cabb59",
+    "mtime": 1790685553.6563303,
+    "seen": 1790686319.3034854,
+    "ast_hash": "71108acde0ebfcd3a88bf74518344c43",
     "semantic_hash": ""
   }
 }

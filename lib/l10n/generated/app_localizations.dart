@@ -145,12 +145,6 @@ abstract class AppL10n {
   /// **'30 Lernphasen'**
   String get learningPhasesTitle;
 
-  /// No description provided for @learningPhasesIntro.
-  ///
-  /// In de, this message translates to:
-  /// **'Entdecke die Lernziele von A1 bis C2 und übe dazu passende Gespräche. Dein bisheriger Lernfortschritt bleibt erhalten.'**
-  String get learningPhasesIntro;
-
   /// No description provided for @learningPhasePracticeTitle.
   ///
   /// In de, this message translates to:
@@ -11775,7 +11769,7 @@ abstract class AppL10n {
   /// No description provided for @coursePreviewTitle.
   ///
   /// In de, this message translates to:
-  /// **'Kursinhalte ansehen'**
+  /// **'Lerninhalte ansehen'**
   String get coursePreviewTitle;
 
   /// No description provided for @coursePreviewBody.
@@ -11793,7 +11787,7 @@ abstract class AppL10n {
   /// No description provided for @hanokHowBody.
   ///
   /// In de, this message translates to:
-  /// **'Öffne deinen Lernpfad und schließe eine Kurseinheit mit den zugehörigen Übungen und Prüfungen ab. Abgeschlossene Einheiten von A1 bis B2 bringen den Hanok hier voran. Ein höher gewählter Startpunkt oder das Wiederholen einer bereits abgeschlossenen Einheit bringt keinen zusätzlichen Baufortschritt. Die Bauphasen kannst du auch separat erkunden; allein durch das Anschauen wächst dein Hanok nicht.'**
+  /// **'Öffne deinen Lernpfad und schließe eine Lerneinheit mit den zugehörigen Übungen und Prüfungen ab. Abgeschlossene Einheiten von A1 bis B2 bringen den Hanok hier voran. Ein höher gewählter Startpunkt oder das Wiederholen einer bereits abgeschlossenen Einheit bringt keinen zusätzlichen Baufortschritt. Die Bauphasen kannst du auch separat erkunden; allein durch das Anschauen wächst dein Hanok nicht.'**
   String get hanokHowBody;
 
   /// No description provided for @hanokHowAction.

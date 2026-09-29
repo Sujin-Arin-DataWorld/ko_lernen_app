@@ -37,10 +37,6 @@ class AppL10nEn extends AppL10n {
   String get learningPhasesTitle => '30 learning phases';
 
   @override
-  String get learningPhasesIntro =>
-      'Explore the learning goals from A1 to C2 and practise related conversations. Your existing learning progress is preserved.';
-
-  @override
   String get learningPhasePracticeTitle =>
       'Free practice: related conversations';
 
@@ -6777,21 +6773,21 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get placementScope =>
-      '18 questions across A1–C2. A recommendation needs at least two correct answers in each level up to that point. This checks understanding, not speaking or writing, and is not a language certificate.';
+      '18 questions across A1 to C2. A recommendation needs at least two correct answers in each level up to that point. This checks understanding, not speaking or writing, and is not a language certificate.';
 
   @override
-  String get coursePreviewTitle => 'Explore course contents';
+  String get coursePreviewTitle => 'Explore learning content';
 
   @override
   String get coursePreviewBody =>
-      'Browse A1–C2 topics, learning goals and activities. Looking around does not change your starting point or progress.';
+      'Browse A1 to C2 topics, learning goals and activities. Looking around does not change your starting point or progress.';
 
   @override
   String get hanokHowTitle => 'How does my Hanok grow?';
 
   @override
   String get hanokHowBody =>
-      'Open your learning path and complete a course unit, including its required practice and checks. Completed units in A1–B2 advance the Hanok shown here. Choosing a higher starting level or repeating an already completed unit does not add construction progress. You can explore the construction stages separately; browsing them does not build your Hanok.';
+      'Open your learning path and complete a learning unit, including its required practice and checks. Completed units in A1 to B2 advance the Hanok shown here. Choosing a higher starting level or repeating an already completed unit does not add construction progress. You can explore the construction stages separately; browsing them does not build your Hanok.';
 
   @override
   String get hanokHowAction => 'Open my learning path';
@@ -9676,7 +9672,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get settingsRecheckLevelDescription =>
-      'Try 18 questions across A1–C2. The result suggests a learning starting point; you can choose another level.';
+      'Try 18 questions across A1 to C2. The result suggests a learning starting point; you can choose another level.';
 
   @override
   String get settingsCompanionVisibleTitle => 'Show study buddy';

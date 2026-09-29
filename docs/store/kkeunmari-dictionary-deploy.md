@@ -2,7 +2,10 @@
 
 `validate_kkeunmari_word` is a protected Gen2 HTTP function in `ko-lernen-app`,
 `europe-west3`. It checks the generated positive noun index first, then uses the
-Korean Basic Dictionary API for words absent from that index when configured.
+Korean Basic Dictionary and Standard Korean Language Dictionary APIs for words
+absent from that index when configured. Both use exact headword/noun queries
+within one four-second server deadline. A positive response from either wins;
+an outage or incomplete response is never evidence of an invalid word.
 Absence from the index is **not** evidence that a Korean word is invalid.
 Firebase Auth, App Check, and the separate `kkeunmari_dictionary_v1` quota remain
 mandatory. No book-scan quota is consumed.
@@ -33,9 +36,10 @@ service account with the existing Firebase token-verification and Firestore
 quota permissions. Inspect the live account and bindings before choosing it.
 Do not copy dotenv contents into a shell command or upload a dotenv file.
 
-An optional `KRDIC_API_KEY` must be attached from Secret Manager, never embedded
+`KRDIC_API_KEY` and `STDICT_API_KEY` must be attached from Secret Manager, never embedded
 in Flutter, the source archive, logs, or a committed file. Without that key,
-bundled nouns still work; unlisted words return 503 `dictionary_unavailable`.
+bundled nouns still work; if neither key is configured, unlisted words return
+503 `dictionary_unavailable`.
 This is degraded operation, not complete external-dictionary coverage.
 
 ```powershell
@@ -51,8 +55,9 @@ gcloud functions deploy validate_kkeunmari_word --gen2 --runtime=python312 `
 Public HTTP invocation permits the mobile client to reach the application
 boundary; it does not bypass the required Firebase Auth and App Check checks.
 If an API key has been provisioned with least-privilege Secret Manager access,
-add `--set-secrets=KRDIC_API_KEY=KRDIC_API_KEY:PINNED_VERSION` using its real
-version. Do not replace or redeploy `analyze_korean_text` just to deploy this
+add `--set-secrets=KRDIC_API_KEY=KRDIC_API_KEY:PINNED_VERSION,STDICT_API_KEY=STDICT_API_KEY:PINNED_VERSION`
+using each real version. Grant this runtime account accessor access to each
+individual secret only. Do not replace or redeploy `analyze_korean_text` just to deploy this
 separate entry point.
 
 ## Verify the deployed revision
@@ -66,3 +71,8 @@ it does not prove successful end-to-end lookup or device game behavior.
 The new app validates the noun index offline before requesting credentials,
 bounds the entire fallback request, and pauses the current turn on an outage.
 The existing learning and reward ledgers are unchanged.
+
+Provider contracts: https://krdict.korean.go.kr/kor/openApi/openApiInfo and
+https://stdict.korean.go.kr/openapi/openApiInfo.do. Standard-dictionary internal
+hyphens such as `노트-북` are syllable markers, while spaces, carets and affix
+boundary markers remain significant. Definitions are not copied into answers.

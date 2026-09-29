@@ -1,8 +1,10 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
 import 'book_analysis_service.dart';
+import 'diagnostics_service.dart';
 import 'korean_noun_lexicon.dart';
 
 enum KkeunmariDictionaryStatus { valid, invalid, unavailable }
@@ -54,8 +56,15 @@ class KkeunmariDictionaryService {
               KkeunmariDictionaryStatus.valid,
             );
           }
-        } catch (_) {
+        } catch (error, stackTrace) {
           // A damaged offline asset must not turn a valid word into an error.
+          unawaited(
+            DiagnosticsService.reportSwallowed(
+              'kkeunmari_dictionary.offline_index',
+              error,
+              stackTrace,
+            ),
+          );
         }
         if (retired) {
           return unavailable;
