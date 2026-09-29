@@ -49,6 +49,31 @@ void main() {
 
   tearDown(() => cloudJournalState.dispose());
 
+  testWidgets('course preview from settings is read-only and reachable', (
+    tester,
+  ) async {
+    final beforePlacement = Storage.dedicatedCoursePlacementLevelCode;
+    final beforeMastery = Storage.courseMasterySnapshotRawJson;
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+          appVersionReader: const _FixedAppVersionReader('2.0.5 (11)'),
+        ),
+      ),
+    );
+    await tester.pump();
+    final preview = find.byKey(const ValueKey('settings-course-preview'));
+    await _ensureSettingsActionVisible(tester, preview);
+    await tester.tap(preview);
+    await tester.pumpAndSettle();
+    expect(find.text('Course preview target'), findsOneWidget);
+    expect(Storage.dedicatedCoursePlacementLevelCode, beforePlacement);
+    expect(Storage.courseMasterySnapshotRawJson, beforeMastery);
+  });
+
   Future<Finder> pumpUpdateSettings(
     WidgetTester tester,
     _FakeAppUpdateChecker checker, {
@@ -689,7 +714,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(PlacementDiagnosticScreen), findsOneWidget);
-      expect(find.text('Frage 1 von 8'), findsOneWidget);
+      expect(find.text('Frage 1 von 18'), findsOneWidget);
 
       for (
         var questionIndex = 0;
@@ -701,7 +726,11 @@ void main() {
         );
         expect(question, findsOneWidget);
         final choice = find.text(
-          placementDiagnosticQuestions[questionIndex].choicesDe.first,
+          placementDiagnosticQuestions[questionIndex].choicesDe[questionIndex <
+                  12
+              ? placementDiagnosticQuestions[questionIndex].correctIndex
+              : (placementDiagnosticQuestions[questionIndex].correctIndex + 1) %
+                    4],
         );
         await _centerInCurrentScrollable(tester, choice);
         await tester.tap(choice);
@@ -2147,6 +2176,8 @@ Widget _wrapForLocale(
     ),
     routes: {
       '/splash': (_) => const Scaffold(body: Text('consent-restart-test')),
+      '/course/phases': (_) =>
+          const Scaffold(body: Text('Course preview target')),
     },
     home: child,
   );

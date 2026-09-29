@@ -69,7 +69,7 @@ class _LearningPhasesScreenState extends State<LearningPhasesScreen> {
           return ListView(
             padding: padding,
             children: [
-              Text(t.learningPhasesIntro, style: type.body),
+              Text(t.coursePreviewBody, style: type.body),
               const SizedBox(height: Spacing.md),
               SoriLevelFilterBar(
                 selected: _level.toLowerCase(),

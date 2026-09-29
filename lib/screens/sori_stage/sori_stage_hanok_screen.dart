@@ -165,6 +165,22 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
+                            ExpansionTile(
+                              key: const ValueKey('hanok-how-to-build'),
+                              tilePadding: EdgeInsets.zero,
+                              title: Text(t.hanokHowTitle),
+                              children: [
+                                Text(
+                                  t.hanokHowBody,
+                                  style: SoriTextTheme.of(context).body,
+                                ),
+                                const SizedBox(height: Spacing.sm),
+                                SoriButton.outlined(
+                                  label: t.hanokHowAction,
+                                  onTap: () => _openShortcut('/path'),
+                                ),
+                              ],
+                            ),
                             Text(
                               t.soriStageHanokLearningSummary,
                               style: SoriTextTheme.of(context).cardTitle,

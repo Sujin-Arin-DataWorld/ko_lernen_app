@@ -3,10 +3,11 @@ import 'dart:math';
 import 'package:flutter/services.dart' show rootBundle;
 
 import '../models/scenario.dart';
+import 'korean_noun_lexicon.dart';
 
 /// 끝말잇기 (Word Chain) 엔진.
 ///
-/// `assets/data/kkeunmari_pool.json` 의 큐레이션 단어 풀(2,634 단어)을 사용한다.
+/// `assets/data/kkeunmari_pool.json`에서 명사로 확인된 단어를 사용한다.
 /// 각 단어에는 `first`/`last` 음절과 `is_dead_end` 메타데이터가 있다.
 /// (2026-06-18: OpenSubtitles 자막조각 미번역 2,061개 제거 후 next_count/is_dead_end 재계산.)
 ///
@@ -74,10 +75,17 @@ class KkeunmariEngine {
     try {
       final raw = await rootBundle.loadString(_poolAsset);
       final j = jsonDecode(raw) as Map<String, dynamic>;
+      final nouns = await KoreanNounLexicon.load();
       final list = (j['words'] as List? ?? const [])
           .whereType<Map<String, dynamic>>()
           .map(KkeunmariWord.fromJson)
-          .where((w) => w.word.isNotEmpty)
+          .where(
+            (w) =>
+                nouns.contains(w.word) &&
+                w.word.length >= 2 &&
+                w.first == w.word[0] &&
+                w.last == w.word[w.word.length - 1],
+          )
           .toList();
       _cached = list;
       lastError = null;
@@ -320,12 +328,14 @@ class KkeunmariEngine {
     if (trimmed.isEmpty) return (false, 'not_in_pool', null);
     // Hangul only check (Unicode 0xAC00..0xD7A3 syllable block)
     final isHangul = trimmed.runes.every((c) => c >= 0xAC00 && c <= 0xD7A3);
-    if (!isHangul) return (false, 'not_korean', null);
+    if (!isHangul || trimmed.length > 20) return (false, 'not_korean', null);
     // wrong_start first — most actionable hint
     if (trimmed[0] != requiredFirst) return (false, 'wrong_start', null);
+    // Remote answers are not inserted into the bot pool. Check the complete
+    // played history first, including those dictionary-only answers.
+    if (usedWords.contains(trimmed)) return (false, 'already_used', null);
     final w = findExact(trimmed, source: source);
     if (w == null) return (false, 'not_in_pool', null);
-    if (usedWords.contains(w.word)) return (false, 'already_used', w);
     return (true, 'ok', w);
   }
 }

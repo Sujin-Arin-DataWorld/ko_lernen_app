@@ -523,7 +523,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
         final collapsedChildren = <Widget>[
           SoriButton.outlined(
             key: const ValueKey('path-learning-phases'),
-            label: t.learningPhasesTitle,
+            label: t.coursePreviewTitle,
             trailingIcon: Icons.grid_view_rounded,
             fullWidth: true,
             onTap: () async {

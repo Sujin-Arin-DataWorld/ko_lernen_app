@@ -37,10 +37,6 @@ class AppL10nDe extends AppL10n {
   String get learningPhasesTitle => '30 Lernphasen';
 
   @override
-  String get learningPhasesIntro =>
-      'Entdecke die Lernziele von A1 bis C2 und übe dazu passende Gespräche. Dein bisheriger Lernfortschritt bleibt erhalten.';
-
-  @override
   String get learningPhasePracticeTitle => 'Verwandte Gespräche frei üben';
 
   @override
@@ -3920,7 +3916,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get kkeunmariDictionaryUnavailable =>
-      'Das Wörterbuch kann gerade nicht geprüft werden. Versuche ein bekanntes Wort oder probiere es gleich noch einmal.';
+      'Das Online-Wörterbuch ist gerade nicht erreichbar. Deine Zeit bleibt stehen. Versuche ein anderes Wort oder sende dieses noch einmal.';
 
   @override
   String get kkeunmariNotInPool =>
@@ -6804,6 +6800,34 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get placementTitle => 'Kurzer Einstufungscheck';
+
+  @override
+  String get placementSkip => 'Das weiß ich noch nicht';
+
+  @override
+  String get placementScope =>
+      '18 Fragen von A1 bis C2. Für eine Empfehlung brauchst du auf jeder Stufe bis dahin mindestens zwei richtige Antworten. Der Check prüft das Verstehen, nicht das Sprechen oder Schreiben, und ist kein Sprachzertifikat.';
+
+  @override
+  String get coursePreviewTitle => 'Lerninhalte ansehen';
+
+  @override
+  String get coursePreviewBody =>
+      'Entdecke Themen, Lernziele und Übungen von A1 bis C2. Das Anschauen ändert weder deinen Startpunkt noch deinen Lernfortschritt.';
+
+  @override
+  String get hanokHowTitle => 'Wie wächst mein Hanok?';
+
+  @override
+  String get hanokHowBody =>
+      'Öffne deinen Lernpfad und schließe eine Lerneinheit mit den zugehörigen Übungen und Prüfungen ab. Abgeschlossene Einheiten von A1 bis B2 bringen den Hanok hier voran. Ein höher gewählter Startpunkt oder das Wiederholen einer bereits abgeschlossenen Einheit bringt keinen zusätzlichen Baufortschritt. Die Bauphasen kannst du auch separat erkunden; allein durch das Anschauen wächst dein Hanok nicht.';
+
+  @override
+  String get hanokHowAction => 'Meinen Lernpfad öffnen';
+
+  @override
+  String get dictionaryOfflineSourceRole =>
+      'Offline-Prüfung von Nomen für die Wortkette; nur Stichwörter, keine Definitionen.';
 
   @override
   String placementProgress(Object current, Object total) {
@@ -9696,7 +9720,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get settingsRecheckLevelDescription =>
-      'Mache freiwillig einen Test mit acht Aufgaben. Das Ergebnis ist eine Empfehlung; den Startpunkt wählst weiterhin du.';
+      'Probiere 18 Fragen von A1 bis C2. Das Ergebnis empfiehlt einen Startpunkt fürs Lernen; du kannst auch eine andere Stufe wählen.';
 
   @override
   String get settingsCompanionVisibleTitle => 'Lernfreund anzeigen';

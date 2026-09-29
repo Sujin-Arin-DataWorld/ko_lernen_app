@@ -87,8 +87,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   List<KkeunmariWord> _chain = [];
   List<KkeunmariWord> _pool = const [];
   bool get _hasPlayablePool =>
-      _pool.isNotEmpty &&
-      (widget.source == null || KkeunmariEngine.hasChain(_pool));
+      _pool.isNotEmpty && KkeunmariEngine.hasChain(_pool);
   final Set<String> _used = {};
   Set<String> _vocabKeys = {}; // M1: nur diese Wörter speisen das SRS
   _Turn _turn = _Turn.user;
@@ -98,6 +97,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   LearningAttempt? _learningAttempt;
   int? _persistedXp;
   bool _dictionaryChecking = false;
+  bool _dictionaryUnavailable = false;
   int _roundGeneration = 0;
   int _turnGeneration = 0;
   int _dictionaryGeneration = 0;
@@ -291,6 +291,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       _learningAttempt = null;
       _persistedXp = null;
       _dictionaryChecking = false;
+      _dictionaryUnavailable = false;
       _errorMsg = '';
       _remaining = _turnSeconds;
       _loading = false;
@@ -337,6 +338,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       }
       if (!_acceptsInput ||
           _dictionaryChecking ||
+          _dictionaryUnavailable ||
           _finishing ||
           _end != _End.none ||
           _turn != _Turn.user) {
@@ -471,7 +473,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
           (word) => KkeunmariDictionaryService.validate(word: word);
       late final KkeunmariDictionaryResult result;
       try {
-        result = await validator(input);
+        result = await validator(input).timeout(const Duration(seconds: 8));
       } catch (_) {
         result = const KkeunmariDictionaryResult(
           KkeunmariDictionaryStatus.unavailable,
@@ -481,6 +483,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
           _finishing ||
           generation != _roundGeneration ||
           turnGeneration != _turnGeneration ||
+          dictionaryGeneration != _dictionaryGeneration ||
           _end != _End.none ||
           _turn != _Turn.user) {
         return;
@@ -495,6 +498,11 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       }
       HapticFeedback.mediumImpact();
       setState(() {
+        // Do not make learners lose a turn because our dictionary is down.
+        // Keep this turn paused until a valid answer advances the game.
+        if (result.status == KkeunmariDictionaryStatus.unavailable) {
+          _dictionaryUnavailable = true;
+        }
         _errorMsg = switch (result.status) {
           KkeunmariDictionaryStatus.invalid => t.kkeunmariNotDictionaryWord,
           KkeunmariDictionaryStatus.unavailable =>
@@ -564,6 +572,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     SoundService.correct();
     setState(() {
       _turnGeneration++;
+      _dictionaryUnavailable = false;
       _chain.add(w);
       _used.add(w.word);
       _last = w;
@@ -853,6 +862,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                       focusNode: _focusNode,
                       autofocus: true,
                       enabled: !_dictionaryChecking,
+                      maxLength: 20,
                       textAlign: TextAlign.center,
                       hintText: t.kkeunmariInputHint,
                       style: SoriTextTheme.of(context).caption.copyWith(
