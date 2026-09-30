@@ -222,7 +222,6 @@ jobs:
   workflow-integrity:
     name: Workflow action pins
     runs-on: ubuntu-latest
-    timeout-minutes: 8
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -1040,7 +1039,6 @@ jobs:
     needs: changes
     if: needs.changes.outputs.book == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 8
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -1076,7 +1074,6 @@ jobs:
     needs: changes
     if: needs.changes.outputs.gye == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -1115,7 +1112,6 @@ jobs:
     needs: changes
     if: needs.changes.outputs.pronunciation == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 8
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -1140,7 +1136,6 @@ jobs:
     needs: changes
     if: needs.changes.outputs.tts == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 8
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -1177,7 +1172,6 @@ jobs:
       needs.changes.outputs.content == 'true' &&
       (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
-    timeout-minutes: 8
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -1213,7 +1207,6 @@ jobs:
     needs: changes
     if: needs.changes.outputs.auth_cleanup == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 8
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4

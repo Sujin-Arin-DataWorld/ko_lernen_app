@@ -8118,9 +8118,9 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1790782674.6895952,
-    "seen": 1790784125.8522213,
-    "ast_hash": "416ca542304c7fcd7e30e8081bfbf6b5",
+    "mtime": 1790793255.6337595,
+    "seen": 1790793622.2992265,
+    "ast_hash": "a5c8e0fbaa25cc6868752fb5343e53fa",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-07-29-account-transition-and-deletion/task-6-report.md": {
