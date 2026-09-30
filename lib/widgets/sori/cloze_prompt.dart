@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../services/cloze_loader.dart';
 import 'card.dart';
 import 'game_layout.dart';
+import 'ko_wrap.dart';
 import 'quiz_choice.dart';
 import 'speakable.dart';
 import 'tokens.dart';
@@ -86,6 +87,20 @@ final RegExp kClozeBlankPattern = RegExp('\u{FF3F}+');
   );
 }
 
+/// Keep the styled cloze slot attached to its Korean particle while allowing
+/// the sentence to wrap at spaces. The returned joiners are visual only.
+({String before, String slot, String after}) joinClozeParts(
+  ({String before, String slot, String after}) parts,
+) => (
+  before: soriJoinEojeol(parts.before),
+  slot:
+      '${_joinClozeBoundary(parts.before, parts.slot)}'
+      '${soriJoinEojeol(parts.slot).replaceAllMapped(RegExp(r'＿(?=＿)'), (_) => '＿$kSoriWordJoiner')}',
+  after:
+      '${_joinClozeBoundary(parts.slot, parts.after)}'
+      '${soriJoinEojeol(parts.after)}',
+);
+
 /// Frage-Karte für Lückentext/Tages-Challenge: koreanischer Satz mit Lücke,
 /// Übersetzung mit hervorgehobenem gesuchtem Wort, TTS.
 class ClozePromptCard extends StatelessWidget {
@@ -122,6 +137,9 @@ class ClozePromptCard extends StatelessWidget {
     );
     final segments = splitEmphasis(item.meaning(lang), gloss);
     final slot = splitClozeSlot(item.sentenceKo, filled: picked);
+    // Flutter can break Korean between syllables. Keep each eojeol together,
+    // including the styled answer/blank and its attached particle.
+    final joined = joinClozeParts(slot);
     final koStyle = type.koDisplay;
     // 빈칸이 비어 있을 때도 "여기가 문제다"가 보이도록 액센트를 준다 —
     // 예전에는 밑줄이 본문과 같은 색이라 어디를 채우는지 눈에 안 들어왔다.
@@ -153,15 +171,16 @@ class ClozePromptCard extends StatelessWidget {
                 Text.rich(
                   TextSpan(
                     children: [
-                      TextSpan(text: slot.before, style: koStyle),
+                      TextSpan(text: joined.before, style: koStyle),
                       TextSpan(
-                        text: slot.slot,
+                        text: joined.slot,
                         style: koStyle.copyWith(color: slotColor),
                       ),
-                      TextSpan(text: slot.after, style: koStyle),
+                      TextSpan(text: joined.after, style: koStyle),
                     ],
                   ),
                   textAlign: TextAlign.center,
+                  semanticsLabel: '${slot.before}${slot.slot}${slot.after}',
                 ),
                 const SizedBox(height: Spacing.lg),
                 Text.rich(
@@ -197,6 +216,16 @@ class ClozePromptCard extends StatelessWidget {
       ],
     );
   }
+}
+
+String _joinClozeBoundary(String left, String right) {
+  if (left.isEmpty || right.isEmpty) {
+    return '';
+  }
+  if (RegExp(r'\s$').hasMatch(left) || RegExp(r'^\s').hasMatch(right)) {
+    return '';
+  }
+  return kSoriWordJoiner;
 }
 
 /// Antwort-Optionen, die den verfügbaren vertikalen Raum großzügig füllen

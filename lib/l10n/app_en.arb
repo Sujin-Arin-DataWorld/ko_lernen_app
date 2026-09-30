@@ -500,6 +500,8 @@
   "hangulConsonantsLabel": "자음 · Consonants",
   "hangulVowelsLabel": "모음 · Vowels",
   "hangulSyllableLabel": "🧩 음절 구조 · Syllable composition",
+  "hangulSyllableTableTitle": "Syllable chart",
+  "hangulSyllableTableHint": "Tap a syllable to hear it. Swipe sideways for more vowels.",
   "hangulPronounceBtn": "Pronounce",
   "hangulRulesTitle": "Hangul writing rules",
   "hangulRulesBody": "① Top → Bottom   ② Horizontal → Vertical   ③ Left → Right",

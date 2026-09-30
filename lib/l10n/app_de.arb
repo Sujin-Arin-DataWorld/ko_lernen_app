@@ -509,6 +509,8 @@
   "hangulConsonantsLabel": "자음 · Konsonanten",
   "hangulVowelsLabel": "모음 · Vokale",
   "hangulSyllableLabel": "🧩 음절 구조 · Silbenaufbau",
+  "hangulSyllableTableTitle": "Silbentafel",
+  "hangulSyllableTableHint": "Tippe auf eine Silbe, um sie zu hören. Wische seitlich für weitere Vokale.",
   "hangulPronounceBtn": "Aussprechen",
   "hangulRulesTitle": "Hangul-Schreibregeln",
   "hangulRulesBody": "① Oben → Unten   ② Horizontal → Vertikal   ③ Links → Rechts",

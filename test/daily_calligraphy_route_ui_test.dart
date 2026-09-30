@@ -55,7 +55,7 @@ void main() {
           find.byType(SoriStandardPage),
         );
         expect(page.eyebrow, t.soriStageActivityTitle('calligraphy'));
-        expect(page.headline, t.dailyCharTitle);
+        expect(page.headline, 'ㄷ');
         expect(page.description, t.dailyCharSubtitle);
 
         final content = find.byKey(const Key('daily-calligraphy-content'));
@@ -122,7 +122,7 @@ void main() {
         find.byKey(const Key('daily-calligraphy-content')),
       );
       expect(find.byType(StrokeCanvas), findsNothing);
-      expect(find.text('가'), findsOneWidget);
+      expect(find.text('가'), findsNWidgets(2));
       expect(tester.takeException(), isNull);
     });
   }

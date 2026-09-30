@@ -1118,6 +1118,13 @@ class AppL10nEn extends AppL10n {
   String get hangulSyllableLabel => '🧩 음절 구조 · Syllable composition';
 
   @override
+  String get hangulSyllableTableTitle => 'Syllable chart';
+
+  @override
+  String get hangulSyllableTableHint =>
+      'Tap a syllable to hear it. Swipe sideways for more vowels.';
+
+  @override
   String get hangulPronounceBtn => 'Pronounce';
 
   @override

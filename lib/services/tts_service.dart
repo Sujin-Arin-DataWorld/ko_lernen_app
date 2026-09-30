@@ -23,6 +23,7 @@ import 'tts_private_cache.dart';
 import 'tts_private_playback.dart';
 import 'tts_public_web_audio.dart';
 import 'diagnostics_service.dart';
+import 'tts_recorded_jamo.dart';
 
 export 'tts_cache_key.dart';
 
@@ -234,6 +235,9 @@ class TtsVoicePolicy {
   static const String _salt = 'hangul-sori-auto-voice-v1';
 
   static String resolve({required String text, String voice = autoVoice}) {
+    if (voice == TtsRecordedJamo.voiceTag) {
+      return voice;
+    }
     if (voice == 'female' || voice == 'male') {
       return voice;
     }
@@ -1078,6 +1082,25 @@ class TtsService {
     String voice, {
     bool allowSynthesis = true,
   }) async {
+    if (voice == TtsRecordedJamo.voiceTag) {
+      try {
+        final recorded = await TtsRecordedJamo.bytesForCarrier(
+          text,
+        ).timeout(_diskTimeout);
+        if (recorded != null) return TtsAudio.bytes(recorded);
+      } catch (error, stackTrace) {
+        // The approved recording is unavailable. Do not substitute the
+        // synthesized pronunciation that the learner explicitly rejected.
+        unawaited(
+          DiagnosticsService.reportSwallowed(
+            'tts_service.resolve_audio_recorded_jamo',
+            error,
+            stackTrace,
+          ),
+        );
+      }
+      return null;
+    }
     final key = TtsCacheKey.forRequest(voice: voice, text: text);
     var bundleOutcome = 'absent';
 

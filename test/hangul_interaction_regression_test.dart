@@ -40,7 +40,16 @@ void main() {
       await tester.pump();
 
       final target = find.byKey(const ValueKey('hangul-overview-ㅃ'));
-      await tester.ensureVisible(target);
+      await tester.scrollUntilVisible(
+        target,
+        300,
+        scrollable: find
+            .descendant(
+              of: find.byKey(const Key('hangul-overview-scroll')),
+              matching: find.byType(Scrollable),
+            )
+            .first,
+      );
       await tester.pump();
       await tester.tap(target);
       await tester.pump();
