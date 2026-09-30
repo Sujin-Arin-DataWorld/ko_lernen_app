@@ -20,9 +20,10 @@ PackProgress _progress(
   required PackStatus status,
   int learned = 0,
   int total = 10,
+  String level = 'A1',
 }) => PackProgress(
   packId: id,
-  level: 'A1',
+  level: level,
   status: status,
   wordsLearned: learned,
   wordsTotal: total,
@@ -35,9 +36,10 @@ PackProgress _progress(
   String id, {
   required PackStatus status,
   int learned = 0,
+  String level = 'A1',
 }) => (
-  pack: VocabPack(id: id, level: 'A1', words: const []),
-  progress: _progress(id, status: status, learned: learned),
+  pack: VocabPack(id: id, level: level, words: const []),
+  progress: _progress(id, status: status, learned: learned, level: level),
 );
 
 MissionPick? _run({
@@ -82,12 +84,62 @@ void main() {
       expect(pick.missionNumber, 1);
     });
 
-    test('전 미션 완료면 코스를 건너뛴다(다음 소스로)', () {
+    test('A1 선택은 같은 order의 C2 유닛보다 A1을 추천한다', () {
       final pick = _run(
-        units: units,
-        completed: {'u1', 'u2', 'u3'},
-        due: 99,
+        units: [
+          _unit('c2_first', 1, level: 'c2'),
+          _unit('a2_first', 1, level: 'a2'),
+          _unit('a1_second', 2),
+          _unit('a1_first', 1),
+        ],
+        userLevel: LearnerLevel.a1,
       );
+      expect(pick, isA<CoursePick>());
+      final course = pick! as CoursePick;
+      expect(course.unit.id, 'a1_first');
+      expect(course.totalMissions, 2);
+      expect(course.missionNumber, 1);
+    });
+
+    test('기존 C2 현재 ID가 있어도 A1 선택에 C2를 추천하지 않는다', () {
+      final pick = _run(
+        units: [
+          _unit('c2_first', 1, level: 'c2'),
+          _unit('a1_first', 1),
+        ],
+        currentId: 'c2_first',
+        userLevel: LearnerLevel.a1,
+      );
+      expect((pick as CoursePick).unit.id, 'a1_first');
+    });
+
+    test('C2로 변경하면 이전 A1 현재 ID를 추천하지 않는다', () {
+      final pick = _run(
+        units: [
+          _unit('a1_first', 1),
+          _unit('c2_first', 1, level: 'c2'),
+        ],
+        currentId: 'a1_first',
+        userLevel: LearnerLevel.c2,
+      );
+      expect((pick as CoursePick).unit.id, 'c2_first');
+    });
+
+    test('A1을 모두 마친 뒤 자동 진급한 A2 현재 유닛은 유지한다', () {
+      final pick = _run(
+        units: [
+          _unit('a1_first', 1),
+          _unit('a2_first', 1, level: 'a2'),
+        ],
+        currentId: 'a2_first',
+        completed: {'a1_first'},
+        userLevel: LearnerLevel.a1,
+      );
+      expect((pick as CoursePick).unit.id, 'a2_first');
+    });
+
+    test('전 미션 완료면 코스를 건너뛴다(다음 소스로)', () {
+      final pick = _run(units: units, completed: {'u1', 'u2', 'u3'}, due: 99);
       expect(pick, isA<ReviewPick>());
     });
 
@@ -103,7 +155,9 @@ void main() {
 
   group('② 진행 중 팩', () {
     test('시작한(fraction>0) 미완 팩이면 PackPick', () {
-      final pick = _run(nowNode: _node('p1', status: PackStatus.inProgress, learned: 4));
+      final pick = _run(
+        nowNode: _node('p1', status: PackStatus.inProgress, learned: 4),
+      );
       expect(pick, isA<PackPick>());
       expect((pick as PackPick).fraction, greaterThan(0));
     });
@@ -111,6 +165,20 @@ void main() {
     test('미시작 팩(fraction 0)은 팩으로 추천하지 않는다', () {
       final pick = _run(nowNode: _node('p1', status: PackStatus.available));
       expect(pick, isNull);
+    });
+
+    test('A1 학습자에게 진행 중인 C2 팩도 추천하지 않는다', () {
+      final pick = _run(
+        nowNode: _node(
+          'c2_pack',
+          status: PackStatus.inProgress,
+          learned: 4,
+          level: 'C2',
+        ),
+        due: 10,
+        userLevel: LearnerLevel.a1,
+      );
+      expect(pick, isA<ReviewPick>());
     });
   });
 

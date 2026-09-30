@@ -9,6 +9,34 @@ import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 
 void main() {
+  test('Today uses the selected A1 course level over a stale C2 mirror', () {
+    expect(
+      todayRecommendationLevel(placementLevelCode: 'a1', legacyLevelCode: 'c2'),
+      LearnerLevel.a1,
+    );
+  });
+
+  test('Today recommends A1 when the catalog also has C2 order one', () {
+    const c2 = CourseUnit(
+      id: 'c2_first',
+      level: 'c2',
+      order: 1,
+      title: CurriculumText(ko: '고급', de: 'Fortgeschritten', en: 'Advanced'),
+      canDo: CurriculumText(ko: '', de: '', en: ''),
+    );
+    const a1 = CourseUnit(
+      id: 'a1_first',
+      level: 'a1',
+      order: 1,
+      title: CurriculumText(ko: '시작', de: 'Anfang', en: 'Start'),
+      canDo: CurriculumText(ko: '', de: '', en: ''),
+    );
+    final today = TodayLearningSnapshot.fromInputs(
+      TodayLearningInputs(courseUnits: [c2, a1], userLevel: LearnerLevel.a1),
+    );
+    expect((today.pick as CoursePick).unit.id, 'a1_first');
+  });
+
   const course = CourseUnit(
     id: 'a1_hello',
     level: 'a1',
@@ -48,10 +76,17 @@ void main() {
   );
 
   test('uses the existing priority once for every today surface', () {
+    const a2Course = CourseUnit(
+      id: 'a2_hello',
+      level: 'a2',
+      order: 1,
+      title: CurriculumText(ko: '인사', de: 'Begrüßung', en: 'Greetings'),
+      canDo: CurriculumText(ko: '인사해요', de: 'Ich grüße', en: 'I greet'),
+    );
     final snapshot = TodayLearningSnapshot.fromInputs(
       TodayLearningInputs(
-        courseUnits: [course],
-        currentCourseUnitId: 'a1_hello',
+        courseUnits: [a2Course],
+        currentCourseUnitId: 'a2_hello',
         nowNode: node,
         dueCount: 12,
         scenarioCompleted: false,
@@ -61,7 +96,7 @@ void main() {
     );
 
     expect(snapshot.pick, isA<CoursePick>());
-    expect((snapshot.pick as CoursePick).unit.id, 'a1_hello');
+    expect((snapshot.pick as CoursePick).unit.id, 'a2_hello');
     expect(
       snapshot.destination,
       const TodayLearningDestination(route: '/course/mission'),
