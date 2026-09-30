@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/data/ildu_turntable_catalog.dart';
+import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_turntable_2d.dart';
 
 void main() {
@@ -13,6 +14,9 @@ void main() {
     late StateSetter update;
     await tester.pumpWidget(
       MaterialApp(
+        locale: const Locale('en'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
         home: Scaffold(
           body: Center(
             child: SizedBox(
@@ -76,6 +80,9 @@ void main() {
     final semantics = tester.ensureSemantics();
     await tester.pumpWidget(
       MaterialApp(
+        locale: const Locale('en'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
         home: SizedBox(
           width: 240,
           height: 160,
@@ -111,6 +118,9 @@ void main() {
     late StateSetter update;
     await tester.pumpWidget(
       MaterialApp(
+        locale: const Locale('en'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
         home: Scaffold(
           body: Center(
             child: SizedBox(
