@@ -166,7 +166,9 @@ class WorkflowWiringTest(unittest.TestCase):
         )
         self.assertNotIn("fetch-depth: 0", active)
         self.assertIn("fetch-depth: 1", active)
-        self.assertIn("timeout-minutes: 15", active)
+        # A slow checkout must not cancel this required check before it runs.
+        changes_job = active.split("\n  workflow-integrity:\n", 1)[0]
+        self.assertNotIn("timeout-minutes:", changes_job)
         self.assertIn("Fetch comparison history", active)
         self.assertIn("filter=blob:none", active)
         self.assertIn("+refs/heads/${CI_DEFAULT_BRANCH}", active)
