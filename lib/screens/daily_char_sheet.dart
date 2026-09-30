@@ -11,6 +11,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/feedback_completion.dart';
 import '../services/daily_char_service.dart';
 import '../services/storage_service.dart';
+import '../services/tts_recorded_jamo.dart';
 import '../services/stroke_matcher.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
@@ -35,7 +36,9 @@ Future<void> showDailyCharSheet(
   String? character,
 }) async {
   final resolvedCharacter = character ?? DailyCharService.today();
-  unawaited(SoriSpeech.prefetch(speakableJamo(resolvedCharacter)));
+  if (!TtsRecordedJamo.hasLetter(resolvedCharacter)) {
+    unawaited(SoriSpeech.prefetch(speakableJamo(resolvedCharacter)));
+  }
   await showSoriSheet<void>(
     context: context,
     builder: (_) => _DailyCharSheet(character: resolvedCharacter),
@@ -59,7 +62,7 @@ class DailyCalligraphyRouteScreen extends StatelessWidget {
     return SoriStandardPage(
       appBarTitle: t.dailyCharTitle,
       eyebrow: t.soriStageActivityTitle('calligraphy'),
-      headline: t.dailyCharTitle,
+      headline: resolvedCharacter,
       description: hasStrokes
           ? t.dailyCharSubtitle
           : t.dailyCharFallbackSubtitle,
@@ -107,7 +110,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
       if (!mounted) {
         return;
       }
-      unawaited(SoriSpeech.speak(speakableJamo(_char)));
+      unawaited(_speakCurrentChar());
     });
   }
 
@@ -120,6 +123,11 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
   }
 
   List<Stroke> get _targetStrokes => hangulStrokes[_char] ?? const <Stroke>[];
+
+  Future<bool> _speakCurrentChar() => SoriSpeech.speak(
+    speakableJamo(_char),
+    voice: TtsRecordedJamo.hasLetter(_char) ? TtsRecordedJamo.voiceTag : null,
+  );
 
   bool get _canFinish =>
       _targetStrokes.isEmpty ||
@@ -344,8 +352,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
                     backgroundColor: SoriColors.primary.withValues(alpha: 0.12),
                     foregroundColor: SoriColors.primary,
                   ),
-                  onPressed: () =>
-                      unawaited(SoriSpeech.speak(speakableJamo(_char))),
+                  onPressed: () => unawaited(_speakCurrentChar()),
                   icon: const Icon(Icons.volume_up_rounded),
                 ),
               ),

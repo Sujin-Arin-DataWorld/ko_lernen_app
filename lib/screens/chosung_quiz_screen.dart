@@ -868,19 +868,19 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                             Row(
                               children: [
                                 Expanded(
-                                  flex: 3,
                                   child: SoriButton.filled(
                                     label: t.chosungSubmitBtn,
                                     fullWidth: true,
+                                    maxLines: 1,
                                     onTap: () => _submit(presentation),
                                   ),
                                 ),
                                 const SizedBox(width: Spacing.sm + 2),
                                 Expanded(
-                                  flex: 2,
                                   child: SoriButton.outlined(
                                     label: t.btnSkip,
                                     fullWidth: true,
+                                    maxLines: 1,
                                     onTap: () => _skip(presentation),
                                   ),
                                 ),

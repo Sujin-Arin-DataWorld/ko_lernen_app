@@ -6,6 +6,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations_de.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations_en.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/tts_recorded_jamo.dart';
 import 'package:ko_lernen_app/widgets/sori/ai_voice_notice_host.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 
@@ -137,6 +138,22 @@ void main() {
     final de = AppL10nDe();
     expect(find.text(de.aiVoiceNoticeFirstPlay), findsOneWidget);
     expect(Storage.aiVoiceNoticeShownV1, isTrue);
+  });
+
+  testWidgets('직접 녹음한 자모는 AI 음성 고지를 앞당기지 않는다', (tester) async {
+    await tester.pumpWidget(buildApp());
+
+    await SoriSpeech.speak('으', voice: TtsRecordedJamo.voiceTag);
+    await tester.pump();
+    await tester.pump();
+    expect(SoriSpeech.aiVoiceNoticePending.value, isFalse);
+    expect(Storage.aiVoiceNoticeShownV1, isFalse);
+
+    await SoriSpeech.speak('안녕');
+    await tester.pump();
+    await tester.pump();
+    expect(Storage.aiVoiceNoticeShownV1, isTrue);
+    expect(find.text(AppL10nDe().aiVoiceNoticeFirstPlay), findsOneWidget);
   });
 
   testWidgets('AiVoiceNoticeHost 가 없는 화면 트리에서는 speak() 를 불러도 Storage 에 안 쓴다', (

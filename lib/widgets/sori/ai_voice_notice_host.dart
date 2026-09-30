@@ -5,10 +5,10 @@ import '../../services/storage_service.dart';
 import 'speakable.dart';
 import 'toast.dart';
 
-/// C8 (EU AI Act Art. 50(2)) — 앱을 통틀어 [SoriSpeech.speak] 가 처음
-/// 트리거되는 순간(직접 호출 스크린이든 [SoriSpeakable]/
-/// [SoriSpeechIndicator] 든 가리지 않고) "이 목소리는 AI 로 합성됨" 스낵바를
-/// 딱 한 번 띄운다.
+/// C8 (EU AI Act Art. 50(2)) — 앱을 통틀어 [SoriSpeech.speak] 로 AI 합성
+/// 음성이 처음 요청되는 순간(직접 호출 스크린이든 [SoriSpeakable]/
+/// [SoriSpeechIndicator] 든 가리지 않고) 고지 스낵바를 딱 한 번 띄운다.
+/// 사용자 녹음 재생은 합성 음성으로 취급하지 않는다.
 ///
 /// 왜 여기 하나뿐인가: `SoriSpeech.speak()` 호출부가 화면 30여 곳에 흩어져
 /// 있어(퀘스트 엔진, 온보딩 데모, 시나리오 자동재생 등) 위젯 여러 곳에
@@ -58,6 +58,9 @@ class _AiVoiceNoticeHostState extends State<AiVoiceNoticeHost> {
       Storage.setAiVoiceNoticeShownV1();
       soriNotice(context, AppL10n.of(context).aiVoiceNoticeFirstPlay);
     });
+    // A direct speech call can happen while the UI is idle. Ensure the
+    // callback gets a frame even when no widget has requested a rebuild.
+    WidgetsBinding.instance.scheduleFrame();
   }
 
   @override

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/storage_service.dart';
+import '../../services/tts_recorded_jamo.dart';
 import '../../services/tts_service.dart';
 import 'pressable.dart';
 import 'route_observer.dart';
@@ -169,7 +170,9 @@ class SoriSpeech {
     // 영구화되지 않는다. `pending`이 이미 true 면 [ValueNotifier] 가 같은
     // 값 재대입을 무시하므로, 호스트가 아직 처리하기 전에 speak() 가
     // 여러 번 불려도 스낵바가 중복 예약되지 않는다.
-    if (!Storage.aiVoiceNoticeShownV1) {
+    // Jin's bundled recordings are human speech; the notice waits until the
+    // learner actually requests a synthesized voice.
+    if (voice != TtsRecordedJamo.voiceTag && !Storage.aiVoiceNoticeShownV1) {
       aiVoiceNoticePending.value = true;
     }
     final resolvedVoice = voice ?? 'auto';

@@ -1120,6 +1120,13 @@ class AppL10nDe extends AppL10n {
   String get hangulSyllableLabel => '🧩 음절 구조 · Silbenaufbau';
 
   @override
+  String get hangulSyllableTableTitle => 'Silbentafel';
+
+  @override
+  String get hangulSyllableTableHint =>
+      'Tippe auf eine Silbe, um sie zu hören. Wische seitlich für weitere Vokale.';
+
+  @override
   String get hangulPronounceBtn => 'Aussprechen';
 
   @override

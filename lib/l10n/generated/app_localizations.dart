@@ -2005,6 +2005,18 @@ abstract class AppL10n {
   /// **'🧩 음절 구조 · Silbenaufbau'**
   String get hangulSyllableLabel;
 
+  /// No description provided for @hangulSyllableTableTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Silbentafel'**
+  String get hangulSyllableTableTitle;
+
+  /// No description provided for @hangulSyllableTableHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf eine Silbe, um sie zu hören. Wische seitlich für weitere Vokale.'**
+  String get hangulSyllableTableHint;
+
   /// No description provided for @hangulPronounceBtn.
   ///
   /// In de, this message translates to:

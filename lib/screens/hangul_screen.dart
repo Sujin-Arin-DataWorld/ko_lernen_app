@@ -35,8 +35,10 @@ import '../services/stroke_matcher.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/stroke_canvas.dart';
 import '../widgets/trace_canvas.dart';
+import '../widgets/hangul_syllable_table.dart';
 import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
+import '../services/tts_recorded_jamo.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class HangulScreen extends StatefulWidget {
@@ -134,7 +136,8 @@ class _HangulScreenState extends State<HangulScreen>
   /// 실패는 무시한다 — 못 받아도 누르면 평소 경로로 재생된다.
   void _warmJamoAudio() {
     final texts = [
-      for (final c in [...consonants, ...vowels]) speakableJamo(c.letter),
+      for (final c in [...consonants, ...vowels])
+        if (!TtsRecordedJamo.hasLetter(c.letter)) speakableJamo(c.letter),
     ];
     if (widget.textPrefetcher != null) {
       unawaited(Future.wait([for (final t in texts) _prefetch(t)]));
@@ -222,8 +225,23 @@ class _HangulScreenState extends State<HangulScreen>
 
   Future<bool> _speakJamo(String letter) {
     final text = speakableJamo(letter);
-    return widget.speechPlayer?.call(text) ?? SoriSpeech.speak(text);
+    return widget.speechPlayer?.call(text) ??
+        SoriSpeech.speak(
+          text,
+          voice: TtsRecordedJamo.hasLetter(letter)
+              ? TtsRecordedJamo.voiceTag
+              : null,
+        );
   }
+
+  Future<bool> _speakSyllable(String syllable) =>
+      widget.speechPlayer?.call(syllable) ??
+      SoriSpeech.speak(
+        syllable,
+        voice: TtsRecordedJamo.hasCarrier(syllable)
+            ? TtsRecordedJamo.voiceTag
+            : null,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -258,7 +276,7 @@ class _HangulScreenState extends State<HangulScreen>
         // 넘어간다(2026-08-18 실측). 탭 전환은 상단 TabBar 로 한다.
         physics: _tabIndex == 0 ? null : const NeverScrollableScrollPhysics(),
         children: [
-          _OverviewTab(speak: _speakJamo),
+          _OverviewTab(speak: _speakJamo, speakSyllable: _speakSyllable),
           _CardsTab(
             onFinish: _finishCards,
             random: widget.cardsRandom ?? math.Random(),
@@ -277,8 +295,9 @@ class _HangulScreenState extends State<HangulScreen>
 // ═══════════════════════════════════════════════════════════════════════════
 
 class _OverviewTab extends StatelessWidget {
-  const _OverviewTab({required this.speak});
+  const _OverviewTab({required this.speak, required this.speakSyllable});
   final Future<bool> Function(String letter) speak;
+  final Future<bool> Function(String syllable) speakSyllable;
 
   @override
   Widget build(BuildContext context) {
@@ -289,6 +308,9 @@ class _OverviewTab extends StatelessWidget {
         key: const Key('hangul-overview-scroll'),
         padding: padding,
         children: [
+          _SectionLabel(t.hangulSyllableTableTitle),
+          HangulSyllableTable(speak: speakSyllable),
+          const SizedBox(height: 24),
           _SectionLabel('${t.hangulConsonantsLabel} (${consonants.length})'),
           _CharGrid(chars: consonants, color: SoriColors.primary, speak: speak),
           const SizedBox(height: 24),
@@ -706,7 +728,9 @@ class _CardsTabState extends State<_CardsTab> {
     }
     for (final offset in const [0, 1, -1]) {
       final c = pool[(_idx + offset + pool.length) % pool.length];
-      unawaited(widget.prefetch(speakableJamo(c.letter)));
+      if (!TtsRecordedJamo.hasLetter(c.letter)) {
+        unawaited(widget.prefetch(speakableJamo(c.letter)));
+      }
       if (c.exampleWord.isNotEmpty) {
         unawaited(widget.prefetch(c.exampleWord));
       }
