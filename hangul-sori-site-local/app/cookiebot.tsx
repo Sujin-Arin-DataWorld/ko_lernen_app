@@ -51,6 +51,13 @@ const consentCleanupScript = `
 
     window.addEventListener('CookiebotOnConsentReady', applyCurrentConsent);
     window.addEventListener('CookiebotOnDecline', applyCurrentConsent);
+    window.addEventListener('pageshow', function (event) {
+      if (!event.persisted) return;
+      // Cached Cookiebot state can disagree with consent changed in another
+      // document. Stop the cached tag and let a fresh document re-check consent.
+      window['ga-disable-${GOOGLE_ANALYTICS_ID}'] = true;
+      window.location.reload();
+    });
   })();
 `;
 
@@ -61,30 +68,71 @@ const analyticsScript = `
       !window.Cookiebot.consent ||
       window.Cookiebot.consent.method !== 'explicit' ||
       !window.Cookiebot.consent.statistics) return;
+  if (window.__hangulSoriAnalyticsListening) return;
+  window.__hangulSoriAnalyticsListening = true;
+  var routes = ['/', '/de', '/en', '/ko', '/features', '/support', '/privacy',
+    '/impressum', '/terms', '/press', '/account-deletion'];
+  var currentPage = null;
+  var previousPublicPage = null;
+  function gtag(){window.dataLayer.push(arguments);}
 
-  window.__hangulSoriAnalyticsLoaded = true;
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
-  gtag('consent', 'default', {
-    analytics_storage: 'granted',
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied'
-  });
-  gtag('set', 'ads_data_redaction', true);
-  gtag('js', new Date());
-  gtag('config', '${GOOGLE_ANALYTICS_ID}', {
-    allow_google_signals: false,
-    allow_ad_personalization_signals: false,
-    cookie_expires: 15552000,
-    cookie_flags: 'SameSite=Lax;Secure'
-  });
-
-  var analyticsTag = document.createElement('script');
-  analyticsTag.async = true;
-  analyticsTag.src = 'https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}';
-  document.head.appendChild(analyticsTag);
+  function trackCurrentPage() {
+    if (!window.Cookiebot || !window.Cookiebot.hasResponse || !window.Cookiebot.consent ||
+        window.Cookiebot.consent.method !== 'explicit' ||
+        !window.Cookiebot.consent.statistics) return;
+    // Only public route names enter analytics: no query, fragment or proof token.
+    var path = window.location.pathname;
+    if (routes.indexOf(path) === -1) {
+      currentPage = null;
+      return;
+    }
+    var page = window.location.origin + path;
+    if (page === currentPage) return;
+    var referrer = previousPublicPage || '';
+    if (!previousPublicPage && document.referrer) {
+      try { referrer = new URL(document.referrer).origin; } catch (error) {}
+    }
+    if (referrer === page) referrer = '';
+    var fields = {page_location: page, page_title: document.title,
+      page_referrer: referrer};
+    var initialize = !window.__hangulSoriAnalyticsLoaded;
+    if (initialize) {
+      window.__hangulSoriAnalyticsLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = gtag;
+      gtag('consent', 'default', {
+        analytics_storage: 'granted',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+      gtag('set', 'ads_data_redaction', true);
+      gtag('js', new Date());
+    }
+    // Use the same global scope before config and on later visits, so implicit
+    // events do not retain higher-priority metadata from the first config.
+    gtag('set', fields);
+    if (initialize) {
+      gtag('config', '${GOOGLE_ANALYTICS_ID}', {
+        send_page_view: false,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+        cookie_expires: 15552000,
+        cookie_flags: 'SameSite=Lax;Secure'
+      });
+    }
+    gtag('event', 'page_view', fields);
+    currentPage = page;
+    previousPublicPage = page;
+    if (initialize) {
+      var analyticsTag = document.createElement('script');
+      analyticsTag.async = true;
+      analyticsTag.src = 'https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}';
+      document.head.appendChild(analyticsTag);
+    }
+  }
+  window.addEventListener('hangul-sori:page-view', trackCurrentPage);
+  trackCurrentPage();
   })();
 `;
 
