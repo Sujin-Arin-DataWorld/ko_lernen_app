@@ -8118,9 +8118,9 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1790782674.6895952,
-    "seen": 1790784125.8522213,
-    "ast_hash": "416ca542304c7fcd7e30e8081bfbf6b5",
+    "mtime": 1790793666.6567798,
+    "seen": 1790795195.8545368,
+    "ast_hash": "71c49dd7b69b8e3ca29df63563139a34",
     "semantic_hash": ""
   },
   ".superpowers/sdd/2026-07-29-account-transition-and-deletion/task-6-report.md": {
@@ -13326,9 +13326,9 @@
     "semantic_hash": ""
   },
   "functions/tts/canonical_manifest.json": {
-    "mtime": 1790770989.3823998,
-    "seen": 1790784125.845247,
-    "ast_hash": "70759fc7d3d70a026c090c40ec87ef40",
+    "mtime": 1790794614.6011267,
+    "seen": 1790795195.116996,
+    "ast_hash": "8e4b1f6f0efd5502de39aa9c8bfe926c",
     "semantic_hash": ""
   },
   "functions/tts/privacy_migration.js": {
@@ -18390,9 +18390,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/drafts/batch_26_a1_satz.json": {
-    "mtime": 1790768947.8145676,
-    "seen": 1790784125.8510218,
-    "ast_hash": "b7cd5954814a90f9f9c5e581ee1bf2fa",
+    "mtime": 1790794609.6521912,
+    "seen": 1790795195.7273166,
+    "ast_hash": "eab8dcdc8cade7d7f49d83e6ebd4e680",
     "semantic_hash": ""
   },
   "tools/content_factory/drafts/batch_27_a1_cloze.json": {
