@@ -20,6 +20,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/free_room_layer.dart';
+import '../widgets/sori/home_action.dart';
 import '../widgets/sori/personal_room_scene.dart';
 import '../widgets/sori/placed_decoration.dart';
 import '../widgets/sori/responsive.dart';
@@ -250,7 +251,7 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
   }
 
   Future<void> _openBojagi() async {
-    await Navigator.of(context).pushNamed('/bojagi');
+    await Navigator.of(context).pushNamed('/bojagi', arguments: 'furnish');
     if (mounted) {
       setState(_reloadLayouts);
     }
@@ -267,6 +268,7 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
         textScale: MediaQuery.textScalerOf(context).scale(1),
         viewportWidth: MediaQuery.sizeOf(context).width,
         actions: [
+          const SoriHomeAction(),
           if (widget.surface == PersonalRoomSurface.sarangbang)
             const CulturalHelpButton(termId: 'sarangbang'),
           if (widget.surface == PersonalRoomSurface.sarangbang)

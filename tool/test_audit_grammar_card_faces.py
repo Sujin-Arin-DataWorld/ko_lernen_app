@@ -1,8 +1,7 @@
 """Unit tests for tool/audit_grammar_card_faces.py -- W10 PR-A T-G4.
 
-2 개 테스트, 지시서 3항 요구대로:
-  (a) 규칙(rule)이 있고 예문이 2개인 행은 flag 안 됨; rule 이 비고 예문이
-      1개인 행은 flag 됨.
+실제 앞면은 패턴과 유형만 공개한다. 규칙이나 첫 예문 하나만 있어도
+뒷면에 새로운 정보가 있으므로 flag 하지 않는다.
   (b) 생성된 마크다운 리포트에 레벨별 표와 flag 된 id 가 실제로 들어있음.
 
 CI 배선은 파일 패턴 자동이다 (`tool/test_*.py`, 선례:
@@ -85,7 +84,7 @@ class DeriveFacesTest(unittest.TestCase):
         self.assertEqual(len(faces.examples), 2)
         self.assertFalse(faces.back_adds_nothing)
 
-    def test_empty_rule_and_one_example_is_flagged(self) -> None:
+    def test_empty_rule_and_one_example_still_adds_new_information(self) -> None:
         row = _row(
             row_id="grammar_a1_no_rule",
             explanation_de="Nur eine kurze Erklärung ohne weitere Klauseln.",
@@ -96,7 +95,16 @@ class DeriveFacesTest(unittest.TestCase):
         self.assertEqual(faces.rules, [])
         self.assertEqual(len(faces.examples), 1)
         self.assertEqual(faces.note, "")
-        self.assertTrue(faces.back_adds_nothing)
+        self.assertFalse(faces.back_adds_nothing)
+
+    def test_back_without_explanation_or_example_is_flagged(self) -> None:
+        row = _row(
+            row_id="grammar_a1_no_new_content",
+            explanation_de="Thema-Partikel",
+            example_korean="",
+            example_german="",
+        )
+        self.assertTrue(audit.derive_faces(row).back_adds_nothing)
 
 
 class ReportTest(unittest.TestCase):
@@ -105,9 +113,9 @@ class ReportTest(unittest.TestCase):
             _row(
                 row_id="grammar_a1_flagged",
                 level="A1",
-                explanation_de="Nur eine kurze Erklärung ohne weitere Klauseln.",
-                example_korean="집에 가요.",
-                example_german="Ich gehe nach Hause.",
+                explanation_de="Thema-Partikel",
+                example_korean="",
+                example_german="",
             ),
             _row(
                 row_id="grammar_a2_not_flagged",
@@ -135,9 +143,9 @@ class CsvLoadingTest(unittest.TestCase):
     def test_load_rows_round_trips_through_real_csv_writer(self) -> None:
         row = _row(
             row_id="grammar_a1_csv_roundtrip",
-            explanation_de="Nur eine kurze Erklärung ohne weitere Klauseln.",
-            example_korean="집에 가요.",
-            example_german="Ich gehe nach Hause.",
+            explanation_de="Thema-Partikel",
+            example_korean="",
+            example_german="",
         )
         with tempfile.TemporaryDirectory() as tmp:
             csv_path = Path(tmp) / "grammar.csv"

@@ -34,6 +34,11 @@ import 'support/real_fonts.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  test('quest poster leaves room for the answer area on compact phones', () {
+    expect(scenarioQuestPosterHeight(viewportHeight: 844, textScale: 1), 120);
+    expect(scenarioQuestPosterHeight(viewportHeight: 640, textScale: 1), 96);
+    expect(scenarioQuestPosterHeight(viewportHeight: 844, textScale: 2), 72);
+  });
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
 
   setUp(() async {

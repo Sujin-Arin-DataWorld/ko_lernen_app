@@ -5531,7 +5531,26 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get gyePromiseEligibility =>
-      'Als Beitrag zählt nur die passende Lernpfad-Szene mit mindestens 70 %.';
+      'Diese Woche zählt pro Person nur die passende A1-Lernpfad-Szene ab 70 %. Drei verschiedene Personen können je ein Licht beitragen. Freie Szenen und andere Heute-Aufgaben zählen nicht.';
+
+  @override
+  String get gyePromiseSelfIntroductionRoute =>
+      'A1 · Einheit 2: Sich vorstellen → Szene „Stell dich vor“';
+
+  @override
+  String get gyePromiseCafeOrderRoute =>
+      'A1 · Einheit 4: Höflich bestellen → passende Szene';
+
+  @override
+  String get gyePromiseDirectionsRoute =>
+      'A1 · Einheit 6: Nach dem Weg fragen → passende Szene';
+
+  @override
+  String get gyePromisePathCta => 'Weiterlernen';
+
+  @override
+  String get gyePromiseFallbackNotCount =>
+      'Nur die oben genannte Szene als Lernpfad-Mission zählt für diese Wochenaufgabe.';
 
   @override
   String gyePromiseProgress(int done, int target) {
@@ -6123,14 +6142,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachGrammarStep1Body =>
-      'Tippe auf die Karte, um Erklärung und Beispiele zu sehen';
+      'Tippe für Erklärung und Beispiele auf die Karte. Wische nach links zur nächsten und nach rechts zur vorherigen Karte.';
 
   @override
   String get coachGrammarStep2Title => 'Filtern & markieren';
 
   @override
   String get coachGrammarStep2Body =>
-      'Wähle Niveau oder Typ. Markiere schwierige Karten mit 🤔 als schwer.';
+      'Nach dem Umdrehen kannst du nach oben wischen, wenn du das Muster verstanden hast. Für manche Karten gibt es eine kurze Übung.';
 
   @override
   String get coachSmalltalkStep1Title => 'Thema auswählen';

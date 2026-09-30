@@ -1,5 +1,6 @@
 import '../services/learning_journey.dart';
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
@@ -23,6 +24,7 @@ import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/data_loader.dart';
 import '../services/grammar_plan_service.dart';
+import '../services/grammar_choice_quiz.dart';
 import '../services/storage_service.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/app_loading.dart';
@@ -737,6 +739,28 @@ class _GrammarScreenState extends State<GrammarScreen>
     Navigator.of(context).push(
       SoriTransitions.page(
         (_) => GrammarChoiceQuizScreen(initialLevel: initialLevel),
+      ),
+    );
+  }
+
+  bool _hasCurrentChoicePractice(Grammar grammar, String languageCode) =>
+      buildGrammarChoiceRound(
+        source: _all,
+        level: grammar.level,
+        languageCode: languageCode,
+        random: math.Random(0),
+        maxQuestions: 1,
+        allowedTargetIds: {grammar.id},
+      ).isNotEmpty;
+
+  void _openCurrentChoicePractice(Grammar grammar) {
+    Navigator.of(context).push(
+      SoriTransitions.page(
+        (_) => GrammarChoiceQuizScreen(
+          initialLevel: grammar.level,
+          allowedTargetIds: {grammar.id},
+          maxQuestions: 1,
+        ),
       ),
     );
   }
@@ -1815,6 +1839,12 @@ class _GrammarScreenState extends State<GrammarScreen>
     // (못 본 패턴에 쉬움/어려움을 매기면 스케줄이 망가진다). 그 외에는 앞면이
     // 패턴을 그대로 보여주므로 일반 덱과 같은 판정 계약을 쓴다.
     final allowJudging = !canRecordCheckpoint;
+    final hasCurrentChoicePractice =
+        !canRecordCheckpoint &&
+        _hasCurrentChoicePractice(
+          g,
+          Localizations.localeOf(context).languageCode,
+        );
     // 4방향 덱 코치 — 화면 코치('grammar')가 끝난 뒤에만 뜨고,
     // `Storage.tutSeen('soriDeck')` 로 사용자당 1회다. 단어장·복습·커스텀팩이
     // 쓰는 것과 같은 공용 헬퍼라 네 방향의 의미가 앱 전체에서 한 번만 학습된다.
@@ -2017,10 +2047,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                                     SoriAdaptiveHeight.grammarCard,
                                   )
                                 : 360.0;
-                            // Sori Deck 2.0 — 단어장·복습 덱과 같은 4방향
-                            // 제스처. 좌=Schwierig · 우=Verstanden ·
-                            // 아래=평가 없이 넘기기. 위(저장)는 문법
-                            // 패턴이 단어장 저장 대상이 아니라 끈다.
+                            // 좌/우는 카드 탐색(평가 기록 없음), 세로 플링은
+                            // 뒤집기 전 스킵 또는 뒤집은 뒤 이해도 평가다.
                             //
                             // `enabled` 는 **좌/우 판정 허용** 계약이다:
                             // 뒤집어 뜻을 보기 전에는 판정할 수 없다
@@ -2067,7 +2095,17 @@ class _GrammarScreenState extends State<GrammarScreen>
                                   child: SoriContentFeed(
                                     judgmentsEnabled: allowJudging && _flipped,
                                     onBlockedJudgment: allowJudging
-                                        ? () {}
+                                        ? () => soriToast(
+                                            context,
+                                            t.hintTapForExplanation,
+                                          )
+                                        : null,
+                                    onBrowseNext:
+                                        allowJudging && _canNavigateDeck
+                                        ? _skipCurrent
+                                        : null,
+                                    onBrowsePrevious: allowJudging && _idx > 0
+                                        ? _goToPreviousCard
                                         : null,
                                     onNext: allowJudging
                                         ? () => _judge(understood: true)
@@ -2159,6 +2197,16 @@ class _GrammarScreenState extends State<GrammarScreen>
               ),
               const SizedBox(height: Spacing.md),
 
+              if (_flipped && hasCurrentChoicePractice) ...[
+                SoriButton.outlined(
+                  key: const Key('grammar-card-practice'),
+                  label: t.grammarChoiceCta,
+                  size: SoriButtonSize.sm,
+                  onTap: () => _openCurrentChoicePractice(g),
+                ),
+                const SizedBox(height: Spacing.sm),
+              ],
+
               // 진행바 → [듣기] 위치 [되돌리기]. Hören 과 같은 배치다.
               // Zurück 은 전진 흐름을 막지 않도록 작은 실행취소 아이콘
               // 하나로 줄였고(Tinder 의 Rewind 위계), 첫 카드에서는 되돌릴
@@ -2201,11 +2249,8 @@ class _GrammarScreenState extends State<GrammarScreen>
               ),
               const SizedBox(height: Spacing.sm),
 
-              // 판정은 **스와이프 전용**이다(Jin 확정) — 하단 CTA 를 없애
-              // 카드가 세로를 더 갖는다. 제스처를 못 쓰는 사용자를 위한
-              // 대체 수단은 시각적 버튼이 아니라 카드의 Semantics 액션이
-              // 맡는다(WCAG 2.2 §2.5.1 — 대체 수단은 필요하지만 그게
-              // 화면을 차지하는 버튼이어야 할 필요는 없다).
+              // 평가 대체 수단은 카드의 Semantics 액션이 맡는다.
+              // 짧은 검수 퀴즈가 있는 카드에는 뒤집은 후 별도 버튼을 보인다.
               //
               // 코스 체크포인트만 CTA 를 유지한다 — "카드 전체 탭과 하단
               // CTA 가 같은 채점 시트를 연다" 는 기존 계약이 있다.
@@ -2434,9 +2479,7 @@ class _Front extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
-    final copy = GrammarStudyCopy.fromGrammar(g, lang);
     final h = cardHeight;
-    final preview = copy.examples.isEmpty ? null : copy.examples.first;
     return SoriCard(
       variant: SoriCardVariant.hero,
       accent: SoriColors.primary,
@@ -2471,7 +2514,7 @@ class _Front extends StatelessWidget {
                 ),
                 const SizedBox(height: Spacing.sm),
                 SoriPhraseWrap(
-                  copy.title.isEmpty ? g.typeFor(lang) : copy.title,
+                  g.typeFor(lang),
                   textAlign: TextAlign.center,
                   style: SoriTextTheme.of(context).caption.copyWith(
                     fontSize: soriFillSize(h, 0.048, 14, 22),
@@ -2482,43 +2525,6 @@ class _Front extends StatelessWidget {
                 ),
               ],
             ),
-            if (preview != null)
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 14,
-                  vertical: 10,
-                ),
-                decoration: BoxDecoration(
-                  color: SoriColors.primary.withValues(alpha: 0.08),
-                  borderRadius: BorderRadius.circular(SoriRadius.md),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SoriPhraseWrap(
-                      preview.korean,
-                      style: SoriTextTheme.of(context).caption.copyWith(
-                        fontSize: soriFillSize(h, 0.07, 17, 32),
-                        fontWeight: FontWeight.w700,
-                        color: s.text,
-                        height: 1.35,
-                      ),
-                    ),
-                    if (preview.gloss.isNotEmpty) ...[
-                      const SizedBox(height: 4),
-                      SoriPhraseWrap(
-                        preview.gloss,
-                        style: SoriTextTheme.of(context).caption.copyWith(
-                          fontSize: soriFillSize(h, 0.045, 13, 20),
-                          color: s.textMuted,
-                          fontStyle: FontStyle.italic,
-                          height: 1.35,
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
-              ),
             Text(
               t.hintTapForExplanation,
               textAlign: TextAlign.center,
@@ -2544,6 +2550,7 @@ class _Back extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final copy = GrammarStudyCopy.fromGrammar(g, lang);
     final h = cardHeight;
@@ -2552,7 +2559,8 @@ class _Back extends StatelessWidget {
         : copy.examples.length;
     return SoriCard(
       variant: SoriCardVariant.hero,
-      accent: SoriColors.primary,
+      accent: SoriColors.info,
+      tinted: true,
       width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.only(bottom: 44),
@@ -2560,6 +2568,13 @@ class _Back extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text(
+              t.grammarChoiceExplanationLabel,
+              style: SoriTextTheme.of(context).label.copyWith(
+                color: SoriColors.info,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [

@@ -52,6 +52,33 @@ void main() {
     expect(skip, 0);
   });
 
+  testWidgets('opted-in horizontal browsing never records a judgment', (
+    tester,
+  ) async {
+    var next = 0;
+    var previous = 0;
+    var judged = 0;
+    await tester.pumpWidget(
+      wrap(
+        SoriContentFeed(
+          judgmentsEnabled: true,
+          onNext: () => judged++,
+          onBrowseNext: () => next++,
+          onBrowsePrevious: () => previous++,
+          child: const SizedBox.expand(child: Text('문법 카드')),
+        ),
+      ),
+    );
+
+    await tester.drag(find.text('문법 카드'), const Offset(-220, 0));
+    await tester.pumpAndSettle();
+    await tester.drag(find.text('문법 카드'), const Offset(220, 0));
+    await tester.pumpAndSettle();
+    expect(next, 1);
+    expect(previous, 1);
+    expect(judged, 0);
+  });
+
   testWidgets('unrevealed vertical fling skips, not know', (tester) async {
     var next = 0;
     var skip = 0;
@@ -324,51 +351,56 @@ void main() {
     },
   );
 
-  testWidgets('snap physics: revealed fling still calls onNext after animation', (
-    tester,
-  ) async {
-    var next = 0;
-    await tester.pumpWidget(
-      wrap(
-        SoriContentFeed(
-          physics: FeedPhysics.snap,
-          judgmentsEnabled: true,
-          onNext: () => next++,
-          knowLabel: 'Gewusst!',
-          child: const SizedBox.expand(child: Text('한국말')),
+  testWidgets(
+    'snap physics: revealed fling still calls onNext after animation',
+    (tester) async {
+      var next = 0;
+      await tester.pumpWidget(
+        wrap(
+          SoriContentFeed(
+            physics: FeedPhysics.snap,
+            judgmentsEnabled: true,
+            onNext: () => next++,
+            knowLabel: 'Gewusst!',
+            child: const SizedBox.expand(child: Text('한국말')),
+          ),
         ),
-      ),
-    );
-    await tester.fling(find.text('한국말'), const Offset(0, -400), 1200);
-    await tester.pumpAndSettle();
-    expect(next, 1);
-  });
+      );
+      await tester.fling(find.text('한국말'), const Offset(0, -400), 1200);
+      await tester.pumpAndSettle();
+      expect(next, 1);
+    },
+  );
 
-  testWidgets('snap physics + reduce motion: commits instantly (no lingering animation)', (
-    tester,
-  ) async {
-    var next = 0;
-    await tester.pumpWidget(
-      MaterialApp(
-        theme: AppTheme.light,
-        supportedLocales: AppL10n.supportedLocales,
-        localizationsDelegates: AppL10n.localizationsDelegates,
-        home: MediaQuery(
-          data: const MediaQueryData(size: Size(400, 800), disableAnimations: true),
-          child: Scaffold(
-            body: SoriContentFeed(
-              physics: FeedPhysics.snap,
-              onNext: () => next++,
-              child: const SizedBox.expand(child: Text('한국말')),
+  testWidgets(
+    'snap physics + reduce motion: commits instantly (no lingering animation)',
+    (tester) async {
+      var next = 0;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          home: MediaQuery(
+            data: const MediaQueryData(
+              size: Size(400, 800),
+              disableAnimations: true,
+            ),
+            child: Scaffold(
+              body: SoriContentFeed(
+                physics: FeedPhysics.snap,
+                onNext: () => next++,
+                child: const SizedBox.expand(child: Text('한국말')),
+              ),
             ),
           ),
         ),
-      ),
-    );
-    await tester.fling(find.text('한국말'), const Offset(0, -400), 1200);
-    await tester.pump();
-    expect(next, 1); // 애니메이션 없이 즉시
-  });
+      );
+      await tester.fling(find.text('한국말'), const Offset(0, -400), 1200);
+      await tester.pump();
+      expect(next, 1); // 애니메이션 없이 즉시
+    },
+  );
 
   testWidgets(
     'snap physics: underlay opacity returns to resting 0.18 after each commit (not pinned at 1.0)',
@@ -403,10 +435,7 @@ void main() {
 
       double underlayOpacity() => tester
           .widget<Opacity>(
-            find.ancestor(
-              of: find.text('다음'),
-              matching: find.byType(Opacity),
-            ),
+            find.ancestor(of: find.text('다음'), matching: find.byType(Opacity)),
           )
           .opacity;
 
@@ -504,7 +533,8 @@ void main() {
       expect(
         hapticCount,
         1,
-        reason: '재진입 드래그엔드는 committed 판정보다 먼저 걸러져야 한다 — '
+        reason:
+            '재진입 드래그엔드는 committed 판정보다 먼저 걸러져야 한다 — '
             '커밋 햅틱이 두 번 나가면 안 된다',
       );
     },

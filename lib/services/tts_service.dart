@@ -1079,6 +1079,7 @@ class TtsService {
     bool allowSynthesis = true,
   }) async {
     final key = TtsCacheKey.forRequest(voice: voice, text: text);
+    var bundleOutcome = 'absent';
 
     // 1. Manifest-declared rootBundle bytes. The manifest loader validates
     // schema/key/path/hash format eagerly at load() time; bytesFor() reads,
@@ -1088,6 +1089,7 @@ class TtsService {
     // chain.
     final bundledPath = await key.bundledAssetPath();
     if (bundledPath != null) {
+      bundleOutcome = 'miss';
       try {
         final bundledBytes = await (await TtsBundledManifest.load())
             .bytesFor(key)
@@ -1096,8 +1098,10 @@ class TtsService {
           return TtsAudio.bytes(bundledBytes);
         }
       } on TimeoutException {
+        bundleOutcome = 'timeout';
         // A stalled rootBundle read falls through to the existing cache tiers.
       } catch (error, stackTrace) {
+        bundleOutcome = 'error';
         // Missing/corrupt declared bytes must never block disk/network fallback.
         unawaited(
           DiagnosticsService.reportSwallowed(
@@ -1176,6 +1180,7 @@ class TtsService {
     }
 
     // 3. Firebase Storage (사전생성된 고정 콘텐츠)
+    var storageOutcome = 'empty';
     try {
       final download = _canonicalDownloadForTesting;
       final Uint8List? data =
@@ -1193,8 +1198,10 @@ class TtsService {
         return await _cacheAndWrap(key, file, data);
       }
     } on TimeoutException {
+      storageOutcome = 'timeout';
       // 느린 회선 — 무한정 붙잡느니 CF 를 시도한다.
     } catch (error, stackTrace) {
+      storageOutcome = 'error';
       // object-not-found / 오프라인 → CF 시도
       unawaited(
         DiagnosticsService.reportSwallowed(
@@ -1208,6 +1215,7 @@ class TtsService {
     // A native SDK miss must not hide an available reviewed public object.
     // Reuse the Web transport's manifest, size, MP3 and redirect guards before
     // attempting synthesis. Unknown/private text returned above this tier.
+    var publicOutcome = 'miss';
     if (!kIsWeb) {
       final data = await TtsPublicWebAudio.read(
         key,
@@ -1217,6 +1225,8 @@ class TtsService {
       if (data != null) {
         return await _cacheAndWrap(key, file, data);
       }
+    } else {
+      publicOutcome = 'web';
     }
 
     // 4. Authenticated Firebase callable (dynamic synthesis).
@@ -1265,6 +1275,11 @@ class TtsService {
         reason: TtsUnavailableReason.offline,
       );
     }
+    unawaited(
+      DiagnosticsService.logBreadcrumb(
+        'tts_no_audio bundle=$bundleOutcome storage=$storageOutcome public=$publicOutcome callable=empty',
+      ),
+    );
     return null;
   }
 

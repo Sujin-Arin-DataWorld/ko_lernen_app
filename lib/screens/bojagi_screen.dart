@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../services/decoration_reward_service.dart';
+import '../services/learning_journey.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
@@ -206,7 +207,13 @@ class _BojagiScreenState extends State<BojagiScreen> {
     }
     final claimed = _claimed;
     if (claimed != null) {
-      return _ClaimedView(slug: claimed, hasNext: _hasNext, onNext: _load);
+      return _ClaimedView(
+        slug: claimed,
+        hasNext: _hasNext,
+        onNext: _load,
+        onRoom: _goToRoom,
+        onHome: _goHome,
+      );
     }
 
     final offer = _offer;
@@ -253,6 +260,26 @@ class _BojagiScreenState extends State<BojagiScreen> {
         onCta: _load,
       ),
     };
+  }
+
+  void _goToRoom() {
+    final navigator = Navigator.of(context);
+    if (ModalRoute.of(context)?.settings.arguments == 'furnish') {
+      navigator.pop();
+    } else {
+      navigator.pushReplacementNamed('/sarangbang/furnish');
+    }
+  }
+
+  void _goHome() {
+    if (LearningJourneyObserver.forContext(context)?.returnHome(context) ==
+        true) {
+      return;
+    }
+    Navigator.of(
+      context,
+      rootNavigator: true,
+    ).pushNamedAndRemoveUntil('/', (route) => false);
   }
 }
 
@@ -502,11 +529,15 @@ class _ClaimedView extends StatelessWidget {
   final String slug;
   final bool hasNext;
   final Future<void> Function() onNext;
+  final VoidCallback onRoom;
+  final VoidCallback onHome;
 
   const _ClaimedView({
     required this.slug,
     required this.hasNext,
     required this.onNext,
+    required this.onRoom,
+    required this.onHome,
   });
 
   @override
@@ -560,10 +591,12 @@ class _ClaimedView extends StatelessWidget {
               ],
             ),
             const SizedBox(height: Spacing.xl),
+            SoriButton(label: t.bojagiGoToRoom, onTap: onRoom),
+            const SizedBox(height: Spacing.sm),
             SoriButton(
-              label: t.bojagiGoToRoom,
-              onTap: () =>
-                  Navigator.of(context).pushNamed('/sarangbang/furnish'),
+              label: t.homeActionLabel,
+              variant: SoriButtonVariant.outlined,
+              onTap: onHome,
             ),
             if (hasNext) ...[
               const SizedBox(height: Spacing.sm),

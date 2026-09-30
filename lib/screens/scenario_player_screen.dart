@@ -371,6 +371,14 @@ double scenarioPosterHeight({
   return (viewportHeight * 0.24).clamp(120.0, 240.0);
 }
 
+double scenarioQuestPosterHeight({
+  required double viewportHeight,
+  required double textScale,
+}) => math.min(
+  scenarioPosterHeight(viewportHeight: viewportHeight, textScale: textScale),
+  120.0,
+);
+
 class _QuestSegmentProgress extends StatelessWidget {
   const _QuestSegmentProgress({
     required this.current,
@@ -698,9 +706,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   // Das Poster nimmt sonst bis zu 24 % der Höhe ein; Hörverstehen mit vier
   // Antworten passte dann nicht mehr über die Falz — die letzten Optionen
   // wurden am Scroll-Rand hart angeschnitten (Jin 2026-08-23, Screenshot
-  // "Einreise am Flughafen"). Statt das Poster überall statisch zu
-  // verkleinern, gibt es genau den gemessenen Überlauf ab (bis hinunter zur
-  // Kleinformat-Höhe [_questPosterMinHeight]). Monoton pro Szenario-Besuch,
+  // "Einreise am Flughafen"). Das Quest-Poster startet nun bei hoechstens
+  // 120dp und gibt bei gemessenem Ueberlauf weiteren Platz ab. Monoton pro Besuch,
   // damit Poster-Höhe und Scroll-Viewport nicht gegeneinander oszillieren.
   double _questPosterConcession = 0;
 
@@ -2178,7 +2185,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     );
     final media = MediaQuery.of(context);
     final textScale = media.textScaler.scale(1);
-    final basePosterHeight = scenarioPosterHeight(
+    final basePosterHeight = scenarioQuestPosterHeight(
       viewportHeight: media.size.height,
       textScale: textScale,
     );
@@ -2258,7 +2265,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       return false;
     }
     final media = MediaQuery.of(context);
-    final base = scenarioPosterHeight(
+    final base = scenarioQuestPosterHeight(
       viewportHeight: media.size.height,
       textScale: media.textScaler.scale(1),
     );

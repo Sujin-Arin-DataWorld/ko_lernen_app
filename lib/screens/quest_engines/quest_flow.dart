@@ -308,7 +308,7 @@ class SoriPromptCard extends StatelessWidget {
       label: label,
       excludeSemantics: true,
       onTap: usesSpeakable
-          ? () => SoriSpeech.speak(resolvedSpeakText!, voice: voice)
+          ? () => SoriSpeech.replay(resolvedSpeakText!, voice: voice)
           : onReplay,
       child: SoriPressable(
         // The outer SoriSpeakable owns pointer taps when [speakText] is set.
@@ -393,7 +393,12 @@ class SoriPromptCard extends StatelessWidget {
       ),
     );
     if (!usesSpeakable) return card;
-    return SoriSpeakable(text: resolvedSpeakText!, voice: voice, child: card);
+    return SoriSpeakable(
+      text: resolvedSpeakText!,
+      voice: voice,
+      restartOnTap: true,
+      child: card,
+    );
   }
 }
 

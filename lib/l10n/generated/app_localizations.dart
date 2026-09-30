@@ -9585,8 +9585,38 @@ abstract class AppL10n {
   /// No description provided for @gyePromiseEligibility.
   ///
   /// In de, this message translates to:
-  /// **'Als Beitrag zählt nur die passende Lernpfad-Szene mit mindestens 70 %.'**
+  /// **'Diese Woche zählt pro Person nur die passende A1-Lernpfad-Szene ab 70 %. Drei verschiedene Personen können je ein Licht beitragen. Freie Szenen und andere Heute-Aufgaben zählen nicht.'**
   String get gyePromiseEligibility;
+
+  /// No description provided for @gyePromiseSelfIntroductionRoute.
+  ///
+  /// In de, this message translates to:
+  /// **'A1 · Einheit 2: Sich vorstellen → Szene „Stell dich vor“'**
+  String get gyePromiseSelfIntroductionRoute;
+
+  /// No description provided for @gyePromiseCafeOrderRoute.
+  ///
+  /// In de, this message translates to:
+  /// **'A1 · Einheit 4: Höflich bestellen → passende Szene'**
+  String get gyePromiseCafeOrderRoute;
+
+  /// No description provided for @gyePromiseDirectionsRoute.
+  ///
+  /// In de, this message translates to:
+  /// **'A1 · Einheit 6: Nach dem Weg fragen → passende Szene'**
+  String get gyePromiseDirectionsRoute;
+
+  /// No description provided for @gyePromisePathCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiterlernen'**
+  String get gyePromisePathCta;
+
+  /// No description provided for @gyePromiseFallbackNotCount.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur die oben genannte Szene als Lernpfad-Mission zählt für diese Wochenaufgabe.'**
+  String get gyePromiseFallbackNotCount;
 
   /// No description provided for @gyePromiseProgress.
   ///
@@ -10545,7 +10575,7 @@ abstract class AppL10n {
   /// No description provided for @coachGrammarStep1Body.
   ///
   /// In de, this message translates to:
-  /// **'Tippe auf die Karte, um Erklärung und Beispiele zu sehen'**
+  /// **'Tippe für Erklärung und Beispiele auf die Karte. Wische nach links zur nächsten und nach rechts zur vorherigen Karte.'**
   String get coachGrammarStep1Body;
 
   /// No description provided for @coachGrammarStep2Title.
@@ -10557,7 +10587,7 @@ abstract class AppL10n {
   /// No description provided for @coachGrammarStep2Body.
   ///
   /// In de, this message translates to:
-  /// **'Wähle Niveau oder Typ. Markiere schwierige Karten mit 🤔 als schwer.'**
+  /// **'Nach dem Umdrehen kannst du nach oben wischen, wenn du das Muster verstanden hast. Für manche Karten gibt es eine kurze Übung.'**
   String get coachGrammarStep2Body;
 
   /// No description provided for @coachSmalltalkStep1Title.
