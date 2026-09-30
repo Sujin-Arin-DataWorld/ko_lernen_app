@@ -1,0 +1,24 @@
+[
+  {
+    "source": "hanok-painted-red-v1.png",
+    "sourceSha256": "071a4466445430f3e152275c8a065d8b4b2312e9d9650193c5e7c129f351d540",
+    "normal": "hanok-painted-red-normal-v1.png",
+    "physicalSwatchMeters": [
+      0.6,
+      1.8
+    ],
+    "bumpDistanceMeters": 0.00055,
+    "strength": 0.25
+  },
+  {
+    "source": "hanok-painted-green-v1.png",
+    "sourceSha256": "56d41a91caf1dfb14cc7c059186cf1264ca2e6a2c66c52e4760c4c2fdbfbd72a",
+    "normal": "hanok-painted-green-normal-v1.png",
+    "physicalSwatchMeters": [
+      0.6,
+      1.8
+    ],
+    "bumpDistanceMeters": 0.00055,
+    "strength": 0.25
+  }
+]

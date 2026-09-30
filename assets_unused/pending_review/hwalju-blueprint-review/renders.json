@@ -1,0 +1,98 @@
+[
+  {
+    "state": "before",
+    "view": "front",
+    "camera": [
+      7.2,
+      -28,
+      6.7
+    ],
+    "target": [
+      7.2,
+      0,
+      2.9
+    ],
+    "orthographicScale": 21,
+    "sha256": "f1ed2c40f7a4d04a3b87be57bf7cc38ff77c820e69fefbfd756e39b26a738ecd"
+  },
+  {
+    "state": "before",
+    "view": "numaru",
+    "camera": [
+      3.5,
+      -15,
+      7
+    ],
+    "target": [
+      11,
+      -2.8,
+      2.45
+    ],
+    "orthographicScale": 12,
+    "sha256": "c4bc2358c88c6d1d88ad776d0ad6f87fd309e55347175dfd05b2dc1f077d1188"
+  },
+  {
+    "state": "before",
+    "view": "left",
+    "camera": [
+      -6,
+      -9,
+      5
+    ],
+    "target": [
+      -0.4,
+      -0.2,
+      2.45
+    ],
+    "orthographicScale": 7,
+    "sha256": "948bb7f2dd8505b9018986915029e9d0eca70528de3b400d6ddd0ad9f97d4daa"
+  },
+  {
+    "state": "after",
+    "view": "front",
+    "camera": [
+      7.2,
+      -28,
+      6.7
+    ],
+    "target": [
+      7.2,
+      0,
+      2.9
+    ],
+    "orthographicScale": 21,
+    "sha256": "c5ef369967d28b99143bb271d518613e68ba0d8627ebfeeb93fe0411a23f6524"
+  },
+  {
+    "state": "after",
+    "view": "numaru",
+    "camera": [
+      3.5,
+      -15,
+      7
+    ],
+    "target": [
+      11,
+      -2.8,
+      2.45
+    ],
+    "orthographicScale": 12,
+    "sha256": "d05df0efa491e2ebabecf092b619c24428a40bb9bcbb9d9c3b62036bab89e718"
+  },
+  {
+    "state": "after",
+    "view": "left",
+    "camera": [
+      -6,
+      -9,
+      5
+    ],
+    "target": [
+      -0.4,
+      -0.2,
+      2.45
+    ],
+    "orthographicScale": 7,
+    "sha256": "0b338c4a031b9326c750abcae63c811abbcb873cca278858d99486f8d67a36bf"
+  }
+]

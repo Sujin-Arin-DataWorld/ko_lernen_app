@@ -1,0 +1,976 @@
+{
+  "version": 1,
+  "reviewDate": "2026-09-29",
+  "units": "mm unless specified",
+  "fullSurveyAccuracyClaimed": false,
+  "authorityOrder": [
+    "개별 도면 인쇄 치수·창호표",
+    "해당 건물 평면·입면·단면 교차 대조",
+    "002 전체 배치도 위치·회전",
+    "정본·8면도 스타일·재료",
+    "실사 표면·생활 흔적"
+  ],
+  "candidateOnly": true,
+  "buildings": [
+    {
+      "id": "site",
+      "title": "전체 배치 · 002",
+      "sources": [
+        "site002"
+      ],
+      "printedDimensions": [
+        [
+          "기준",
+          "2007 기록화 전체 배치도 002"
+        ],
+        [
+          "정합 기준",
+          "기둥 중심점 + 담장 중심선"
+        ],
+        [
+          "건물 크기",
+          "개별 도면 치수 유지 · 배치 정합에 맞춰 늘이지 않음"
+        ]
+      ],
+      "interpretation": [
+        "지붕 끝을 임의로 정렬하지 않고 배치도의 기둥축으로 위치와 회전을 대조합니다.",
+        "사랑채·중문채의 기존 연결을 유지하고 북측 건물을 해당 도면 좌표에 정합했습니다."
+      ],
+      "candidateChanges": [
+        "후보 모델에 002 좌표 정합과 사당문·장독대 협문 사이 담장 연결 반영"
+      ],
+      "unresolved": [
+        "스캔 선두께·도면 간 차이가 있어 정합 잔차가 남습니다. 건물별 수치는 아래 정합 결과에 공개합니다.",
+        "002 범례 6·7의 명칭과 개별 안곳간채·중문채 평면의 연결 형상이 서로 맞지 않습니다. 이 충돌을 해결하기 전 배치 100% 일치를 주장하지 않습니다."
+      ],
+      "candidateRender": null
+    },
+    {
+      "id": "jarGate",
+      "title": "장독대 협문",
+      "sources": [
+        "gate084",
+        "gate085"
+      ],
+      "printedDimensions": [
+        [
+          "기둥 중심 간격",
+          "1,020 mm"
+        ],
+        [
+          "기둥 단면",
+          "85 × 85 mm"
+        ],
+        [
+          "문선",
+          "60 × 45 mm"
+        ],
+        [
+          "문짝",
+          "2짝 · 각 420 × 1,400 mm"
+        ],
+        [
+          "판재",
+          "WD1 창호표 30 mm"
+        ],
+        [
+          "상·하인방",
+          "85 × 150 mm"
+        ],
+        [
+          "지붕 평면",
+          "2,210 × 1,516 mm"
+        ],
+        [
+          "단면 높이",
+          "2,400 mm"
+        ]
+      ],
+      "interpretation": [
+        "작고 낮은 장독대 출입문입니다. 성인 눈높이 통과 검사에 맞추어 높이를 키우지 않습니다.",
+        "각서까래 40 × 50, 판재 20, 박공판 25 mm를 별도 입체 부재로 구성합니다."
+      ],
+      "candidateChanges": [
+        "사진 추정 170 mm 기둥을 도면의 85 mm로 교정",
+        "문짝 2짝, 문틀·인방·측면 가새와 서까래 실체 반영",
+        "지붕 끝 좌표의 부동소수 오차로 판재가 길게 늘어지던 결함 수정"
+      ],
+      "unresolved": [
+        "단면에는 문 THK20, WD1에는 THK30이 표기됩니다. 전용 창호표 30 mm를 채택하되 충돌은 보존합니다.",
+        "지붕 곡선·철물 크기·맞춤 여유는 해석값입니다. 지붕 최고점 후보는 약 2,394 mm로 2,400 mm 표기와 약 6 mm 차이가 남습니다."
+      ],
+      "candidateRender": "jar-gate-survey-candidate.png"
+    },
+    {
+      "id": "sadangmun",
+      "title": "사당문",
+      "sources": [
+        "sadang-gate-plan",
+        "sadang-gate-section"
+      ],
+      "printedDimensions": [
+        [
+          "기둥 축",
+          "1,350 × 1,000 mm"
+        ],
+        [
+          "원기둥",
+          "지름 170 mm"
+        ],
+        [
+          "문짝 전체",
+          "1,020 × 1,500 mm · 두께 30 mm"
+        ],
+        [
+          "문선",
+          "72 × 90 mm"
+        ],
+        [
+          "상·하인방",
+          "72 × 150 mm"
+        ],
+        [
+          "지붕 평면",
+          "2,570 × 1,940 mm"
+        ],
+        [
+          "기둥머리 높이",
+          "기단 위 1,800 mm"
+        ]
+      ],
+      "interpretation": [
+        "086 평면·지붕평면과 087 단면을 함께 읽습니다.",
+        "원주, 문선, 인방, 회전축과 30 mm 문판을 구분합니다."
+      ],
+      "candidateChanges": [
+        "기존 후보의 문틀·문판·각서까래 실체를 도면 치수와 재검사"
+      ],
+      "unresolved": [
+        "태극 채색·풍화·꽃담 문양 간격은 실사 보완 영역입니다.",
+        "일부 바닥 기준점은 도면별 100/200 mm 차이가 있어 공통 기준면을 따로 관리합니다."
+      ],
+      "candidateRender": null
+    },
+    {
+      "id": "sadang",
+      "title": "사당",
+      "sources": [
+        "sadang-plan",
+        "sadang-front"
+      ],
+      "printedDimensions": [
+        [
+          "정면 기둥축",
+          "6,760 = 2,150 + 2,450 + 2,160 mm"
+        ],
+        [
+          "깊이",
+          "4,200 = 실내 2,940 + 퇴칸 1,260 mm"
+        ],
+        [
+          "전면 원기둥",
+          "4개 모두 지름 240 mm"
+        ],
+        [
+          "후면·벽체 기둥",
+          "230 × 230 mm"
+        ],
+        [
+          "문선",
+          "87 × 150 mm"
+        ]
+      ],
+      "interpretation": [
+        "058 평면의 원주 지시선을 확대 확인했습니다. 양 끝 기둥만 두껍게 만들 근거가 없습니다.",
+        "059 정면은 한짝·두짝·한짝 창호 구성을 보여줍니다."
+      ],
+      "candidateChanges": [
+        "끝 기둥 260 mm 확대를 해제하고 모두 240 mm로 교정",
+        "문틀 깊이와 한짝·두짝·한짝 구성 유지"
+      ],
+      "unresolved": [
+        "현재 높이와 개구부 크기 일부는 059 입면 선형에서 잰 값입니다. 2007 해당 단면 치수 확보 전 확정할 수 없습니다.",
+        "1996 도면은 정면 6,750 mm 등 2007 평면과 다르므로 높이만 섞어 쓰지 않습니다.",
+        "단청·공포 세부와 지붕 비례의 완성 검토가 남아 있습니다."
+      ],
+      "candidateRender": "sadang-detail-survey-candidate.png"
+    },
+    {
+      "id": "anchae",
+      "title": "안채",
+      "sources": [
+        "anchae-plan",
+        "anchae-front",
+        "anchae-section",
+        "anchae-schedule1",
+        "anchae-schedule2",
+        "anchae-schedule3"
+      ],
+      "printedDimensions": [
+        [
+          "8칸 합계",
+          "18,095 mm"
+        ],
+        [
+          "칸 간격",
+          "1,440 / 2,545 / 2,570 / 2,580 / 2,410 / 2,555 / 2,545 / 1,450 mm"
+        ],
+        [
+          "주 몸체 깊이",
+          "3,800 = 실내 2,625 + 앞 퇴칸 1,175 mm"
+        ],
+        [
+          "대들보",
+          "330 × 330 mm"
+        ],
+        [
+          "마루판",
+          "45 mm"
+        ],
+        [
+          "부엌 WD1",
+          "1,120 × 1,720 mm · 판재 24 · 띠장 65 × 40 mm"
+        ],
+        [
+          "부엌 WW9",
+          "1,626 × 560 mm · 틀 52 × 40 · 살 8 × 25 mm"
+        ],
+        [
+          "방3 WD5",
+          "4짝 · 전체 2,274 × 1,710 mm"
+        ]
+      ],
+      "interpretation": [
+        "평면, 047 정면, 052 단면과 창호 상세 3장을 대조했습니다.",
+        "오른쪽 중간 기둥선은 실내 앞벽이 아닙니다. 앞 퇴칸과 실내 벽선을 구분해야 합니다.",
+        "WD7·WD8이 들어 있는 기존 상세 파일의 kitchen이라는 이름은 잘못된 분류입니다. 원문 용도는 방1입니다."
+      ],
+      "candidateChanges": [
+        "오른쪽 앞 퇴칸 깊이를 임의 1,900 mm에서 도면 1,175 mm로 교정",
+        "부엌 문판 24 mm·띠장 65 × 40 mm와 마름모 살 8 × 25 mm 적용"
+      ],
+      "unresolved": [
+        "방3 WD5와 WW5~WW8을 어느 벽면에 배치할지 평면·측면도를 더 대조해야 합니다. 현재 끝방을 막힌 상태로 완성 처리하지 않습니다.",
+        "부엌 WD1·WW9의 개별 규격은 확인했지만 현재 모델의 높이 배치에서 서로 가까워지는 문제가 있습니다. 바닥·아궁이 높이도 간섭이 있어 최종 실내로 승인하지 않습니다.",
+        "공개된 2007 수리도면 목록을 추가로 찾았으나 제공 파일은 로그인·신청 방식입니다. 기록화 도면과 수리 현황 도면의 연도를 구분해야 합니다."
+      ],
+      "candidateRender": "anchae-kitchen-door-survey-candidate.png"
+    },
+    {
+      "id": "arae",
+      "title": "아래채",
+      "sources": [
+        "arae-grid",
+        "arae-doors1",
+        "arae-doors2"
+      ],
+      "printedDimensions": [
+        [
+          "표기 총폭",
+          "7,500 mm"
+        ],
+        [
+          "개별 칸 치수",
+          "2,430 + 2,370 + 2,670 = 7,470 mm"
+        ],
+        [
+          "깊이",
+          "4,000 = 실내 2,820 + 퇴칸 1,180 mm"
+        ],
+        [
+          "정면 왼쪽 WD2",
+          "1,980 × 1,340 mm · 4짝"
+        ],
+        [
+          "정면 가운데 WD6",
+          "1,110 × 1,210 mm · 2짝"
+        ],
+        [
+          "정면 오른쪽 WD4",
+          "1,220 × 1,340 mm · 2짝"
+        ]
+      ],
+      "interpretation": [
+        "026 지붕평면, 027 창호부호 평면, 028 창호표로 아래채를 별도 확인했습니다.",
+        "사용자가 중문채라고 정정한 1990 정면도는 아래채 근거에서 제외합니다."
+      ],
+      "candidateChanges": [
+        "뒤바뀌어 있던 정면 가운데 WD6·오른쪽 WD4 규격 교정"
+      ],
+      "unresolved": [
+        "총폭과 칸별 합계에 30 mm 불일치가 있습니다. 후보의 칸별 +10 mm 배분은 임시값이며 실측값이 아닙니다.",
+        "해당 2007 아래채 단면·입면이 현재 보유 묶음에 없어 높이는 확정하지 못했습니다."
+      ],
+      "candidateRender": "arae-survey-candidate.png"
+    },
+    {
+      "id": "angotgan",
+      "title": "안곳간채",
+      "sources": [
+        "angotgan-plan",
+        "angotgan-section",
+        "angotgan-doors"
+      ],
+      "printedDimensions": [
+        [
+          "기둥 축",
+          "9,360 × 2,700 mm"
+        ],
+        [
+          "4칸",
+          "2,250 / 2,250 / 2,430 / 2,430 mm"
+        ],
+        [
+          "출입문 WD1",
+          "정면 3곳 · 폭 900 · 문판 높이 1,500 mm"
+        ],
+        [
+          "문 높이 구분",
+          "회전축 포함 1,620 mm"
+        ],
+        [
+          "대들보",
+          "180 × 240 mm"
+        ],
+        [
+          "마루면→용마루",
+          "4,350 mm"
+        ]
+      ],
+      "interpretation": [
+        "029 평면, 033 단면, 037 창호표를 구분해 읽었습니다.",
+        "문판 높이와 위아래 회전축을 포함한 높이를 혼동하지 않습니다."
+      ],
+      "candidateChanges": [
+        "4칸·3개 정면 출입문과 대들보 단면 유지 확인"
+      ],
+      "unresolved": [
+        "기둥은 평면 190 × 190, 단면 195 × 195 mm로 차이가 있습니다.",
+        "문판은 평면 30, 단면 20 mm로 충돌합니다. 창호별 최종 채택 근거 확인이 남습니다.",
+        "002 범례 6·7과 개별 평면의 건물명·자리 대조가 남습니다."
+      ],
+      "candidateRender": null
+    },
+    {
+      "id": "gokgan",
+      "title": "곳간채 · 광채",
+      "sources": [
+        "gokgan1993-plan",
+        "gokgan2007-plan"
+      ],
+      "printedDimensions": [
+        [
+          "채택 후보 평면",
+          "1993 · 9,750 × 5,460 mm"
+        ],
+        [
+          "기둥 축",
+          "5 × 1,950 / 깊이 2 × 2,730 mm"
+        ],
+        [
+          "기둥",
+          "195 × 195 mm"
+        ],
+        [
+          "중앙 출입구",
+          "1,360 mm"
+        ],
+        [
+          "비교 도면",
+          "2007 곳간채 · 14,240 × 3,010 mm · 6칸"
+        ]
+      ],
+      "interpretation": [
+        "사용자 명칭인 곳간채=광채를 유지합니다. 안곳간채는 별개입니다.",
+        "002 북측 2번의 넓은 5칸 평면과 1993 도면을 대조했습니다.",
+        "2007 곳간채라는 제목의 6칸 도면은 평면 형상이 다릅니다. 이름만 보고 치수를 합치지 않습니다."
+      ],
+      "candidateChanges": [
+        "5칸 후보 유지 · 동일 건물 중복 생성 없음"
+      ],
+      "unresolved": [
+        "1993 5칸 도면과 2007 002의 동일 건물 대응은 형상 비교 판단입니다. 기록상의 명칭·연혁 확인이 남습니다."
+      ],
+      "candidateRender": null
+    },
+    {
+      "id": "ansarang",
+      "title": "안사랑채 · 별당",
+      "sources": [
+        "ansarang-plan"
+      ],
+      "printedDimensions": [
+        [
+          "기둥 축",
+          "10,920 = 4 × 2,730 mm"
+        ],
+        [
+          "깊이",
+          "4,260 mm"
+        ],
+        [
+          "기둥",
+          "200 × 200 mm"
+        ],
+        [
+          "마루판",
+          "45 mm"
+        ],
+        [
+          "오른쪽 퇴칸",
+          "1,200 mm"
+        ]
+      ],
+      "interpretation": [
+        "048 별당 평면의 왼쪽 부엌·상부 다락, 방, 오른쪽 대청과 둘레 퇴를 구분합니다.",
+        "정본과 기존 연결 모델을 재사용합니다."
+      ],
+      "candidateChanges": [
+        "이번 재대조에서는 기존 형상 유지"
+      ],
+      "unresolved": [
+        "실내·단면 전체를 재구성 완료했다는 뜻은 아닙니다. 현재 평면 확인 범위를 넘는 세부는 별도 검증이 필요합니다."
+      ],
+      "candidateRender": null
+    },
+    {
+      "id": "ansarangGate",
+      "title": "안사랑채 쪽 협문",
+      "sources": [
+        "ansarang-gate"
+      ],
+      "printedDimensions": [
+        [
+          "도면",
+          "090 정면·좌측면"
+        ],
+        [
+          "기준",
+          "인쇄 치수 없음 · 스케일바로 환산"
+        ],
+        [
+          "도면 특징",
+          "돌계단 5단과 별도 문기둥·인방"
+        ]
+      ],
+      "interpretation": [
+        "정면 그림의 크기를 사진 비율로 바꾸지 않고 스케일바를 먼저 사용합니다."
+      ],
+      "candidateChanges": [
+        "기존 후보 유지"
+      ],
+      "unresolved": [
+        "현재 기둥축 1,420 mm·기둥 145 mm 등의 수치는 선형 환산값입니다. 직접 표기된 실측치로 분류하지 않습니다."
+      ],
+      "candidateRender": null
+    },
+    {
+      "id": "jung",
+      "title": "중문채",
+      "sources": [
+        "jung-plan"
+      ],
+      "printedDimensions": [
+        [
+          "기둥 축",
+          "10,240 × 2,570 mm"
+        ],
+        [
+          "5칸",
+          "2,100 / 3,050 / 2,330 / 1,830 / 930 mm"
+        ],
+        [
+          "형상",
+          "끝 통로칸 + 방 + 마루 · 사랑채 쪽 연결"
+        ]
+      ],
+      "interpretation": [
+        "038 평면의 출입구와 사랑채 연결부를 확인했습니다.",
+        "사용자가 정정한 1990 아래채 제목 도면을 현재 아래채로 다시 만들지 않습니다."
+      ],
+      "candidateChanges": [
+        "완성된 중문채 재사용 · 새 복제 모델 생성 없음"
+      ],
+      "unresolved": [
+        "002 범례 6·7의 개별 평면 대응은 별도 확인이 필요합니다."
+      ],
+      "candidateRender": null
+    },
+    {
+      "id": "sarang",
+      "title": "사랑채 · 기존 정본",
+      "sources": [
+        "sarang-ceiling"
+      ],
+      "printedDimensions": [
+        [
+          "전체 가로 기둥 축",
+          "14,545 mm"
+        ],
+        [
+          "분절",
+          "2,595 + 9,295 + 2,655 mm"
+        ],
+        [
+          "주 몸체 깊이",
+          "3,985 mm"
+        ],
+        [
+          "돌출부 폭",
+          "3,970 mm"
+        ],
+        [
+          "전체 세로 기둥 축",
+          "7,980 = 5,320 + 2,660 mm"
+        ]
+      ],
+      "interpretation": [
+        "014 천정평면의 ㄱ자 골조와 돌출부를 다시 확인했습니다.",
+        "이미 승인된 사랑채 모델은 재생성하지 않습니다."
+      ],
+      "candidateChanges": [
+        "기존 정본 형상 유지"
+      ],
+      "unresolved": [
+        "이번에는 건물 정체성과 주요 축 확인을 했으며 기존 모델의 전 부재를 재측정한 것은 아닙니다."
+      ],
+      "candidateRender": null
+    },
+    {
+      "id": "mainGate",
+      "title": "솟을대문",
+      "sources": [],
+      "printedDimensions": [
+        [
+          "도면 상태",
+          "현재 대응하는 실측 도면 미확보"
+        ],
+        [
+          "근거",
+          "사용자 제공 실사·정본"
+        ]
+      ],
+      "interpretation": [
+        "실측 도면이 없는 예외 항목입니다. 사진으로 추정한 높이·폭은 실측값으로 기록하지 않습니다."
+      ],
+      "candidateChanges": [
+        "이번 도면 재대조에서 추가 형상 변경 없음"
+      ],
+      "unresolved": [
+        "기존 사진 비례 보정값을 도면 100% 일치로 표시하지 않습니다."
+      ],
+      "candidateRender": null
+    }
+  ],
+  "sources": [
+    {
+      "key": "gate084",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\협문\\도면_국가민속문화재_함양_일두_고택_기록화사업_장독대_협문_평면도,천정평면도,지붕평면도,종,횡단면도.jpg",
+      "file": "references/survey-audit/gate084.jpg",
+      "size": [
+        3285,
+        2200
+      ],
+      "sha256": "aeb839956dc9a61e51df165fe3aedafd1ac2378e1e3ccab7ee648be0705c68ab",
+      "bytes": 773762,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/gate084-preview.png"
+    },
+    {
+      "key": "gate085",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\협문\\도면_국가민속문화재_함양_일두_고택_기록화사업_장독대_협문_정면도,배면도,좌,우측면도.jpg",
+      "file": "references/survey-audit/gate085.jpg",
+      "size": [
+        3280,
+        2201
+      ],
+      "sha256": "3d38be751043f45c21050acb372db3ead64b6e0ab8f9204badf772706ae25537",
+      "bytes": 687439,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/gate085-preview.png"
+    },
+    {
+      "key": "ansarang-gate",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\협문\\도면_국가민속문화재_함양_일두_고택_기록화사업_안사랑채_협문_정면도,좌측면도.jpg",
+      "file": "references/survey-audit/ansarang-gate.jpg",
+      "size": [
+        3295,
+        2327
+      ],
+      "sha256": "ccf967490b9a70d03025e7f8a30b597716d0ece29e28c8c36ac5fcd75ddf5aff",
+      "bytes": 623061,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/ansarang-gate-preview.png"
+    },
+    {
+      "key": "angotgan-plan",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화사업_안곳간채_평면도.jpg",
+      "file": "references/survey-audit/angotgan-plan.jpg",
+      "size": [
+        3294,
+        2207
+      ],
+      "sha256": "c59569189ccae45d277d76c3fa9b57378f4aa982b226d38f3004cb9b84a9492a",
+      "bytes": 585592,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/angotgan-plan-preview.png"
+    },
+    {
+      "key": "angotgan-section",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화사업_안곳간채_종단면도.jpg",
+      "file": "references/survey-audit/angotgan-section.jpg",
+      "size": [
+        3301,
+        2197
+      ],
+      "sha256": "3d0501df7d56402d61e0728d9e15c667f881f835c0b3328e0d900585bd44c7dd",
+      "bytes": 582041,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/angotgan-section-preview.png"
+    },
+    {
+      "key": "angotgan-doors",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화사업_안곳간채_창호부호도,창호도.jpg",
+      "file": "references/survey-audit/angotgan-doors.jpg",
+      "size": [
+        3295,
+        2193
+      ],
+      "sha256": "d10406122d1845677c2ef05393afd0a183aaa2c70a113bc2c1984c841ace358e",
+      "bytes": 630254,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/angotgan-doors-preview.png"
+    },
+    {
+      "key": "arae-grid",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화사업_아래채_지붕평면도.jpg",
+      "file": "references/survey-audit/arae-grid.jpg",
+      "size": [
+        3305,
+        2200
+      ],
+      "sha256": "15c6cafb869be501b2ccdac97d1a3a5045a165b733a5172bf42bd2b85d823228",
+      "bytes": 643291,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/arae-grid-preview.png"
+    },
+    {
+      "key": "arae-doors1",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화사업_아래채_창호부호도1.jpg",
+      "file": "references/survey-audit/arae-doors1.jpg",
+      "size": [
+        3297,
+        2198
+      ],
+      "sha256": "f1ee0d094e88c01d48d5e647be82de6a97e82a28513ee3b6a09c764bd6f458b3",
+      "bytes": 590563,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/arae-doors1-preview.png"
+    },
+    {
+      "key": "arae-doors2",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화사업_아래채_창호부호도2.jpg",
+      "file": "references/survey-audit/arae-doors2.jpg",
+      "size": [
+        3300,
+        2203
+      ],
+      "sha256": "c0f07436d10ebe247ec46672cfe608bef44520b4352972168542ac8958ad39f2",
+      "bytes": 747274,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/arae-doors2-preview.png"
+    },
+    {
+      "key": "gokgan1993-plan",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\gokgan\\blueprint_1993_평면도1.jpg",
+      "file": "references/survey-audit/gokgan1993-plan.jpg",
+      "size": [
+        4967,
+        3191
+      ],
+      "sha256": "355bfd806a7f04423137cf37867b2e41bf3ff682fe186451eace7f7956e52101",
+      "bytes": 902180,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/gokgan1993-plan-preview.png"
+    },
+    {
+      "key": "gokgan2007-plan",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화사업_곳간채_평면도.jpg",
+      "file": "references/survey-audit/gokgan2007-plan.jpg",
+      "size": [
+        3302,
+        2327
+      ],
+      "sha256": "35c525fcd4248070bf567d970fc02064ed4db38dc18c673293e3526ecd52be8b",
+      "bytes": 678476,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/gokgan2007-plan-preview.png"
+    },
+    {
+      "key": "jung-plan",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화사업_중문채_평면도.jpg",
+      "file": "references/survey-audit/jung-plan.jpg",
+      "size": [
+        3299,
+        2205
+      ],
+      "sha256": "a96318109540e73f675e224bc105ac986a975d2b0677784b27c6da5c83eda157",
+      "bytes": 680488,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/jung-plan-preview.png"
+    },
+    {
+      "key": "ansarang-plan",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화사업_별당_평면도.jpg",
+      "file": "references/survey-audit/ansarang-plan.jpg",
+      "size": [
+        3292,
+        2202
+      ],
+      "sha256": "198378480291d2a0ebda7155d5890e6e060d55db7435136c2efd5d9c75ed2f93",
+      "bytes": 749644,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/ansarang-plan-preview.png"
+    },
+    {
+      "key": "anchae-front",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\anchae\\blueprint_도면_국가민속문화재_함양_일두_고택_기록화보고서_안채_정면도.jpg",
+      "file": "references/survey-audit/anchae-front.jpg",
+      "size": [
+        3288,
+        2200
+      ],
+      "sha256": "70e17fd7d8ce80fd69e8f4c21b5987c4d4ae47b07b029d389938bbfe61aaa611",
+      "bytes": 683073,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/anchae-front-preview.png"
+    },
+    {
+      "key": "anchae-section",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\anchae\\blueprint_도면_국가민속문화재_함양_일두_고택_기록화보고서_안채_종단면도-3.jpg",
+      "file": "references/survey-audit/anchae-section.jpg",
+      "size": [
+        3295,
+        2197
+      ],
+      "sha256": "b1b3996e7c1f64b60ba53084fa55ec20fcaab3fde62bfa752f32b3f316128498",
+      "bytes": 646799,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/anchae-section-preview.png"
+    },
+    {
+      "key": "anchae-schedule1",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\anchae\\blueprint_도면_국가민속문화재_함양_일두_고택_기록화보고서_안채_창호_상세도1.jpg",
+      "file": "references/survey-audit/anchae-schedule1.jpg",
+      "size": [
+        3279,
+        2300
+      ],
+      "sha256": "c97dbe932b940a1aff1dcecf0899012f01f0f4c62ea09bb10e825fc6909a6d7a",
+      "bytes": 796322,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/anchae-schedule1-preview.png"
+    },
+    {
+      "key": "anchae-schedule2",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\anchae\\blueprint_도면_국가민속문화재_함양_일두_고택_기록화보고서_안채_창호_상세도2.jpg",
+      "file": "references/survey-audit/anchae-schedule2.jpg",
+      "size": [
+        3276,
+        2284
+      ],
+      "sha256": "32364d6778f7c69ff702a070e2234d9967343ab4c166cd5070854cbb71cf9c8b",
+      "bytes": 792301,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/anchae-schedule2-preview.png"
+    },
+    {
+      "key": "anchae-schedule3",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\anchae\\blueprint_도면_국가민속문화재_함양_일두_고택_기록화보고서_안채_창호_상세도3.jpg",
+      "file": "references/survey-audit/anchae-schedule3.jpg",
+      "size": [
+        3286,
+        2206
+      ],
+      "sha256": "dd8ca74641827db218ca60f1f18af2d9075732b2f0d4b2b911119bd09f1dbd3c",
+      "bytes": 666881,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/anchae-schedule3-preview.png"
+    },
+    {
+      "key": "sadang-plan",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadang\\blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_평면도.jpg",
+      "file": "references/survey-audit/sadang-plan.jpg",
+      "size": [
+        3295,
+        2331
+      ],
+      "sha256": "633d5e22e7633b3ebf9f7d19dd3fd18fe57c20a38d6811c381315c95f3c541c2",
+      "bytes": 634321,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/sadang-plan-preview.png"
+    },
+    {
+      "key": "sadang-front",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadang\\blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_정면도.jpg",
+      "file": "references/survey-audit/sadang-front.jpg",
+      "size": [
+        3280,
+        2304
+      ],
+      "sha256": "6cbdb96de2c3f7c0be03bd7991c2842571bf75e1fe76d56583e9a401bb707540",
+      "bytes": 657457,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/sadang-front-preview.png"
+    },
+    {
+      "key": "sadang-gate-section",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadangmun\\blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_협문_종,횡단면도.jpg",
+      "file": "references/survey-audit/sadang-gate-section.jpg",
+      "size": [
+        3303,
+        2205
+      ],
+      "sha256": "61571a8682d58077bc1bb2c44172da6e52d304168db31521a9fc26da62baa8ed",
+      "bytes": 708643,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/sadang-gate-section-preview.png"
+    },
+    {
+      "key": "sadang-gate-plan",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadangmun\\blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_협문_평면도,앙시도,지붕평면도.jpg",
+      "file": "references/survey-audit/sadang-gate-plan.jpg",
+      "size": [
+        3302,
+        2197
+      ],
+      "sha256": "a419ac59f0f87ebf18f0c844a707349af4b3641446e8e88d514b22e5b4986229",
+      "bytes": 719001,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/sadang-gate-plan-preview.png"
+    },
+    {
+      "key": "sarang-ceiling",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\사랑채\\도면_국가민속문화재_함양_일두_고택_기록화보고서_사랑채_천정_평면도.jpg",
+      "file": "references/survey-audit/sarang-ceiling.jpg",
+      "size": [
+        3290,
+        2207
+      ],
+      "sha256": "553e75ac9b914a24b069274c00fefc6f6cc28a5990c72e761829655a6b2dcadf",
+      "bytes": 970658,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/sarang-ceiling-preview.png"
+    },
+    {
+      "key": "site002",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\도면_국가민속문화재_함양_일두_고택_기록화보고서_함양_일두고택_전체_배치도.jpg",
+      "file": "references/survey-audit/site002.jpg",
+      "size": [
+        3284,
+        2203
+      ],
+      "sha256": "3cdb496da05b9ff69d60937a5006ef107496bf47fe81219765947f18bdcd066d",
+      "bytes": 933414,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/site002-preview.png"
+    },
+    {
+      "key": "anchae-plan",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\anchae\\codil-plan-image-0.png",
+      "file": "references/survey-audit/anchae-plan.png",
+      "size": [
+        1589,
+        723
+      ],
+      "sha256": "a4f94c17923240fe3452eefbc4e5e7954dd0e9cb0ce383fe7a11736053874541",
+      "bytes": 120228,
+      "sourceBytesMatch": true,
+      "preview": "references/survey-audit/anchae-plan-preview.png"
+    }
+  ],
+  "siteRegistration": [
+    {
+      "id": "anchae",
+      "rmsAfterPixels": 3.207837420086053,
+      "maxAfterPixels": 6.728130266287589,
+      "dimensionScale": 1
+    },
+    {
+      "id": "arae",
+      "rmsAfterPixels": 3.6804259230941536,
+      "maxAfterPixels": 4.68561042415983,
+      "dimensionScale": 1
+    },
+    {
+      "id": "angotgan",
+      "rmsAfterPixels": 1.9337469077516165,
+      "maxAfterPixels": 2.498559904476529,
+      "dimensionScale": 1
+    },
+    {
+      "id": "gokgan",
+      "rmsAfterPixels": 2.8169101008340003,
+      "maxAfterPixels": 3.817007650969087,
+      "dimensionScale": 1
+    },
+    {
+      "id": "sadang",
+      "rmsAfterPixels": 1.9796601531372433,
+      "maxAfterPixels": 3.0294770513881364,
+      "dimensionScale": 1
+    },
+    {
+      "id": "sadangmun",
+      "rmsAfterPixels": 0.38572173972296825,
+      "maxAfterPixels": 0.3857217397229855,
+      "dimensionScale": 1
+    }
+  ],
+  "geometryValidation": {
+    "passed": 179,
+    "total": 179,
+    "allPassed": true,
+    "sceneSha256": "bf28acbbf131f0c2c912ec90406bf5506ecc530fe06f660c745a196a50a83719",
+    "report": "survey-candidate-validation.json",
+    "scope": "구현한 형상 조건 검사. 역사적 고증이나 미확정 도면의 해결을 뜻하지 않음."
+  },
+  "artifacts": [
+    {
+      "file": "spatial-detail-study.blend",
+      "role": "수정 후보",
+      "bytes": 71536088,
+      "sha256": "bf28acbbf131f0c2c912ec90406bf5506ecc530fe06f660c745a196a50a83719"
+    },
+    {
+      "file": "scene.blend",
+      "role": "기존 브라우저용 원본",
+      "bytes": 70650109,
+      "sha256": "039c677626ab43b59d40dbcf1df33b604d9765cecc6d0c86175a33c9fd94f3ae"
+    },
+    {
+      "file": "northern.glb",
+      "role": "기존 브라우저 모델",
+      "bytes": 380012712,
+      "sha256": "d34f8b8bd346fcb177620439b312b1ab5cb4ec97e957f42c109fce799ac3d4d1"
+    },
+    {
+      "file": "../side-connections/connected.glb",
+      "role": "기존 사랑채 연결 모델",
+      "bytes": 586073772,
+      "sha256": "90307546bd46734a5c90e2b9e4254c55034d88ad18ef162346492ca279c9745f"
+    }
+  ],
+  "externalSources": [
+    {
+      "title": "국가유산청 2007 기록화 보고서",
+      "url": "https://digital.khs.go.kr/record/recordDetailReport.do?ichDataUid=13897469727560800355&bizId=BIZ200700002080",
+      "access": "로그인 필요. 대용량은 제공 신청 방식."
+    },
+    {
+      "title": "국가유산청 2007 안채 수리 현황 좌우측면도",
+      "url": "https://digital.khs.go.kr/record/recordDetailDwg.do?ichDataUid=13897469014735525410&bizId=BIZ200700002055",
+      "access": "도면 목록·메타데이터 확인. 공개 본문 미열람; 로그인·제공 신청 필요."
+    }
+  ]
+}

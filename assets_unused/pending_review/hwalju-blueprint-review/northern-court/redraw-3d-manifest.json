@@ -1,0 +1,87 @@
+[
+  {
+    "building": "jar-gate",
+    "state": "open",
+    "file": "jar-gate-open.glb",
+    "meshes": 51,
+    "bytes": 5135976,
+    "sha256": "ebca05541bd730b1c8d3213a68223566db7d3450161db12014fb5c848d7d257d",
+    "candidateSceneSha256": "6abcee5d48ef6c1c02e7627947084ba39a0a751f3186f53f0671d77821a7a951",
+    "positionQuantizationBits": 16
+  },
+  {
+    "building": "jar-gate",
+    "state": "closed",
+    "file": "jar-gate-closed.glb",
+    "meshes": 51,
+    "bytes": 5135988,
+    "sha256": "313e3efb52d698114786ae47feec7b385e30cb75abc19272fbb0c201b39bcbf5",
+    "candidateSceneSha256": "6abcee5d48ef6c1c02e7627947084ba39a0a751f3186f53f0671d77821a7a951",
+    "positionQuantizationBits": 16
+  },
+  {
+    "building": "anchae",
+    "state": "open",
+    "file": "anchae-open.glb",
+    "meshes": 405,
+    "bytes": 9263700,
+    "sha256": "02d9bc91382014c127be4033ebb12704b70a0601b94c851c1547de6a4f1deb66",
+    "candidateSceneSha256": "4af0a376893a40b314a48ccb6b1a22c08ac534b986f2b362e031bfbac444de0b",
+    "positionQuantizationBits": 16
+  },
+  {
+    "building": "sadang",
+    "state": "closed",
+    "file": "sadang-closed.glb",
+    "meshes": 224,
+    "bytes": 17085020,
+    "sha256": "a5c204917c283f372d546e5791fff620fe0f1cecaf94f04cbf56f43a8497746f",
+    "candidateSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "positionQuantizationBits": 16,
+    "nativePigmentFactors": 7
+  },
+  {
+    "building": "sadang",
+    "state": "open",
+    "file": "sadang-open.glb",
+    "meshes": 224,
+    "bytes": 17085016,
+    "sha256": "01c81bf4441cb4f900d2464ae9abfce8f8e32332c47491753fb715d37bf19ef6",
+    "candidateSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "positionQuantizationBits": 16,
+    "nativePigmentFactors": 7
+  },
+  {
+    "building": "ansarang",
+    "state": "open",
+    "file": "ansarang-open.glb",
+    "meshes": 377,
+    "bytes": 16715796,
+    "sha256": "b3748d68f9528eb212c918492babd533b1872a7412f3c7ace1d7224ad8cab8cd",
+    "candidateSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "positionQuantizationBits": 16,
+    "nativePigmentFactors": 0
+  },
+  {
+    "building": "sadangmun",
+    "state": "open",
+    "file": "sadangmun-open.glb",
+    "meshes": 84,
+    "bytes": 6703972,
+    "sha256": "8f07cb42c151fc889fdeb82f5ba1f8eb767b5a7ed390371ed9fb978003f00a87",
+    "candidateSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "positionQuantizationBits": 16,
+    "nativePigmentFactors": 3
+  },
+  {
+    "building": "sadangmun",
+    "state": "closed",
+    "file": "sadangmun-closed.glb",
+    "meshes": 84,
+    "bytes": 6703012,
+    "sha256": "5fe47b501d00357348333ce4833fb3327eeed524e03ee4e813300b3ecd950d7a",
+    "candidateSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "positionQuantizationBits": 16,
+    "nativePigmentFactors": 3
+  }
+]

@@ -1,0 +1,681 @@
+{
+  "gate": {
+    "North.site.rear yard gate.stone plinth": {
+      "min": [
+        -0.6168209910392761,
+        -0.5155752897262573,
+        -0.016187429428100586
+      ],
+      "max": [
+        0.6100003719329834,
+        0.5100006461143494,
+        0.06058299541473389
+      ],
+      "parts": 2
+    },
+    "North.site.rear yard gate.ground sill 100x115": {
+      "min": [
+        -0.5599992275238037,
+        -0.5099999308586121,
+        0.04499995708465576
+      ],
+      "max": [
+        0.5600001811981201,
+        0.5099999308586121,
+        0.15999996662139893
+      ],
+      "parts": 2
+    },
+    "North.site.rear yard gate.main post 85x85": {
+      "min": [
+        -0.5524993538856506,
+        -0.04250049591064453,
+        0.04499995708465576
+      ],
+      "max": [
+        0.552500307559967,
+        0.042500607669353485,
+        2.065000057220459
+      ],
+      "parts": 2
+    },
+    "North.site.rear yard gate.return jamb 45x40": {
+      "min": [
+        -0.532500147819519,
+        -0.44500014185905457,
+        0.14499998092651367
+      ],
+      "max": [
+        0.5325008034706116,
+        0.4450001120567322,
+        1.6449999809265137
+      ],
+      "parts": 4
+    },
+    "North.site.rear yard gate.transverse head 85x150": {
+      "min": [
+        -0.5525003671646118,
+        -0.4675004482269287,
+        1.5950000286102295
+      ],
+      "max": [
+        0.5525003671646118,
+        0.46750038862228394,
+        1.744999885559082
+      ],
+      "parts": 2
+    },
+    "North.site.rear yard gate.cross brace 40x45": {
+      "min": [
+        -0.5300005674362183,
+        -0.404715359210968,
+        0.18415677547454834
+      ],
+      "max": [
+        0.5300005674362183,
+        0.404715359210968,
+        1.6058430671691895
+      ],
+      "parts": 4
+    },
+    "North.site.rear yard gate.head sill 85x150": {
+      "min": [
+        -0.5524993538856506,
+        -0.04250049591064453,
+        0.04499995708465576
+      ],
+      "max": [
+        0.552500307559967,
+        0.042500466108322144,
+        1.744999885559082
+      ],
+      "parts": 2
+    },
+    "North.site.rear yard gate.main jamb 60x45": {
+      "min": [
+        -0.4799996018409729,
+        -0.022500287741422653,
+        0.1950000524520874
+      ],
+      "max": [
+        0.4800006151199341,
+        0.022500254213809967,
+        1.5950000286102295
+      ],
+      "parts": 2
+    },
+    "North.site.rear yard gate.plank door.leaf1.WD1 plank 30mm": {
+      "min": [
+        -0.41900014877319336,
+        -0.015000329352915287,
+        0.1950000524520874
+      ],
+      "max": [
+        -0.0009993400890380144,
+        0.015000361949205399,
+        1.5950000286102295
+      ],
+      "parts": 3
+    },
+    "North.site.rear yard gate.plank door.leaf1.back rail": {
+      "min": [
+        -0.41750019788742065,
+        0.01499975100159645,
+        0.21500003337860107
+      ],
+      "max": [
+        -0.0024991966784000397,
+        0.05500023066997528,
+        1.5750000476837158
+      ],
+      "parts": 2
+    },
+    "North.site.rear yard gate.plank door.leaf1.hinge pin": {
+      "min": [
+        -0.4280003011226654,
+        0.01699965074658394,
+        0.21000003814697266
+      ],
+      "max": [
+        -0.41200050711631775,
+        0.03299946337938309,
+        1.5799999237060547
+      ],
+      "parts": 2
+    },
+    "North.site.rear yard gate.plank door.leaf1.iron ring": {
+      "min": [
+        -0.08045656979084015,
+        -0.036500442773103714,
+        0.8700063228607178
+      ],
+      "max": [
+        -0.02954305149614811,
+        -0.029499562457203865,
+        0.9199938774108887
+      ],
+      "parts": 6
+    },
+    "North.site.rear yard gate.plank door.leaf2.WD1 plank 30mm": {
+      "min": [
+        0.0010002932976931334,
+        -0.0150003582239151,
+        0.1950000524520874
+      ],
+      "max": [
+        0.419000506401062,
+        0.015000496990978718,
+        1.5950000286102295
+      ],
+      "parts": 3
+    },
+    "North.site.rear yard gate.plank door.leaf2.back rail": {
+      "min": [
+        0.0025006087962538004,
+        0.014999856241047382,
+        0.21500003337860107
+      ],
+      "max": [
+        0.41750067472457886,
+        0.055000364780426025,
+        1.5750000476837158
+      ],
+      "parts": 2
+    },
+    "North.site.rear yard gate.plank door.leaf2.hinge pin": {
+      "min": [
+        0.4120003879070282,
+        0.016999922692775726,
+        0.21000003814697266
+      ],
+      "max": [
+        0.42800021171569824,
+        0.032999735325574875,
+        1.5799999237060547
+      ],
+      "parts": 2
+    },
+    "North.site.rear yard gate.plank door.leaf2.iron ring": {
+      "min": [
+        0.029543079435825348,
+        -0.03650035709142685,
+        0.8700063228607178
+      ],
+      "max": [
+        0.08045758306980133,
+        -0.029499473050236702,
+        0.9199938774108887
+      ],
+      "parts": 6
+    },
+    "North.site.rear yard gate.eave purlin 60x40": {
+      "min": [
+        -0.7679999470710754,
+        -0.4450000524520874,
+        1.7149999141693115
+      ],
+      "max": [
+        0.7680009007453918,
+        0.4450000524520874,
+        1.755000114440918
+      ],
+      "parts": 2
+    },
+    "North.site.rear yard gate.ridge purlin 85x90": {
+      "min": [
+        -0.7680004835128784,
+        -0.042500026524066925,
+        1.9869999885559082
+      ],
+      "max": [
+        0.7680006623268127,
+        0.04249998927116394,
+        2.0769999027252197
+      ],
+      "parts": 1
+    },
+    "North.site.rear yard gate.roof": {
+      "min": [
+        -1.1050007343292236,
+        -0.7580007314682007,
+        1.836852788925171
+      ],
+      "max": [
+        1.1050007343292236,
+        0.7580007910728455,
+        2.1815385818481445
+      ],
+      "parts": 43
+    },
+    "North.site.rear yard gate.roof.001": {
+      "min": [
+        -1.1050001382827759,
+        -0.7580004930496216,
+        1.8391599655151367
+      ],
+      "max": [
+        1.1050010919570923,
+        0.7580004930496216,
+        2.1299550533294678
+      ],
+      "parts": 38
+    },
+    "North.site.rear yard gate.roof.002": {
+      "min": [
+        -1.1050001382827759,
+        -0.7580003142356873,
+        1.836852788925171
+      ],
+      "max": [
+        1.1050007343292236,
+        0.7580007314682007,
+        2.1549999713897705
+      ],
+      "parts": 38
+    },
+    "North.site.rear yard gate.roof.003": {
+      "min": [
+        -1.105000376701355,
+        -0.7580006122589111,
+        1.8367595672607422
+      ],
+      "max": [
+        1.1050008535385132,
+        0.7580006122589111,
+        2.1657557487487793
+      ],
+      "parts": 41
+    },
+    "North.site.rear yard gate.roof.004": {
+      "min": [
+        -1.1050001382827759,
+        -0.7580002546310425,
+        1.836759090423584
+      ],
+      "max": [
+        1.1050008535385132,
+        0.7580001950263977,
+        2.1158902645111084
+      ],
+      "parts": 37
+    },
+    "North.site.rear yard gate.roof.005": {
+      "min": [
+        -1.1050001382827759,
+        -0.7580000758171082,
+        1.8367595672607422
+      ],
+      "max": [
+        1.1050004959106445,
+        0.7580004930496216,
+        2.110006809234619
+      ],
+      "parts": 37
+    },
+    "North.site.rear yard gate.roof.round tile ends": {
+      "min": [
+        -1.0352214574813843,
+        -0.7730010151863098,
+        1.874999761581421
+      ],
+      "max": [
+        1.035223364830017,
+        0.7730015516281128,
+        1.951230764389038
+      ],
+      "parts": 18
+    },
+    "North.site.rear yard gate.roof.ridge stack": {
+      "min": [
+        -1.1218467950820923,
+        -0.067000612616539,
+        2.0942792892456055
+      ],
+      "max": [
+        1.1218477487564087,
+        0.06700075417757034,
+        2.264453411102295
+      ],
+      "parts": 1
+    },
+    "North.site.rear yard gate.roof.ridge stack.001": {
+      "min": [
+        -1.1218467950820923,
+        -0.067000612616539,
+        2.1592793464660645
+      ],
+      "max": [
+        1.12184739112854,
+        0.06700075417757034,
+        2.329453468322754
+      ],
+      "parts": 1
+    },
+    "North.site.rear yard gate.roof.ridge stack.002": {
+      "min": [
+        -1.1218467950820923,
+        -0.067000612616539,
+        2.2242794036865234
+      ],
+      "max": [
+        1.12184739112854,
+        0.06700075417757034,
+        2.394453525543213
+      ],
+      "parts": 1
+    },
+    "North.site.rear yard gate.square rafter 40x50": {
+      "min": [
+        -0.7400005459785461,
+        -0.6299822330474854,
+        1.7720792293548584
+      ],
+      "max": [
+        0.7400007843971252,
+        0.6299823522567749,
+        2.087920904159546
+      ],
+      "parts": 14
+    },
+    "North.site.rear yard gate.gable board 25mm": {
+      "min": [
+        -0.7804999351501465,
+        -0.6200006008148193,
+        1.7850000858306885
+      ],
+      "max": [
+        0.7805008888244629,
+        0.6200006008148193,
+        2.059999942779541
+      ],
+      "parts": 2
+    },
+    "North.site.rear yard gate.roof board 20mm": {
+      "min": [
+        -1.1050007343292236,
+        -0.7580007314682007,
+        1.8399999141693115
+      ],
+      "max": [
+        1.1050010919570923,
+        0.7580007314682007,
+        2.078000068664551
+      ],
+      "parts": 1
+    }
+  },
+  "flowerMeshes": [
+    {
+      "name": "North.site.shrine gate right inset petal tile edges",
+      "polygons": 15360
+    }
+  ],
+  "kitchen": {
+    "North.anchae.kitchen front": {
+      "min": [
+        -7.50750207901001,
+        -2.3075010776519775,
+        0.2799999713897705
+      ],
+      "max": [
+        -5.16249942779541,
+        -2.2174997329711914,
+        2.7899999618530273
+      ],
+      "hidden": false
+    },
+    "North.anchae.kitchen front.jamb": {
+      "min": [
+        -6.9375,
+        -2.3575007915496826,
+        0.2999999523162842
+      ],
+      "max": [
+        -5.732500076293945,
+        -2.1674997806549072,
+        2.119999885559082
+      ],
+      "hidden": false
+    },
+    "North.anchae.kitchen front.head/sill": {
+      "min": [
+        -6.955001354217529,
+        -2.3575003147125244,
+        0.309999942779541
+      ],
+      "max": [
+        -5.714998722076416,
+        -2.1674997806549072,
+        2.109999895095825
+      ],
+      "hidden": false
+    },
+    "North.anchae.kitchen.leaf1.iron ring": {
+      "materials": [
+        "North forged iron"
+      ]
+    },
+    "North.anchae.kitchen.leaf2.iron ring": {
+      "materials": [
+        "North forged iron"
+      ]
+    },
+    "North.anchae.kitchen high ventilator black void": {
+      "min": [
+        -7.148001194000244,
+        -2.3140006065368652,
+        2.0200002193450928
+      ],
+      "max": [
+        -5.522001266479492,
+        -2.283999443054199,
+        2.5799999237060547
+      ],
+      "hidden": false
+    },
+    "North.anchae.kitchen high ventilator.stile": {
+      "min": [
+        -7.148001670837402,
+        -2.368999481201172,
+        2.0200002193450928
+      ],
+      "max": [
+        -5.52200174331665,
+        -2.278999090194702,
+        2.5799999237060547
+      ],
+      "hidden": false
+    },
+    "North.anchae.kitchen high ventilator.rail": {
+      "min": [
+        -7.113002777099609,
+        -2.368999481201172,
+        2.0200002193450928
+      ],
+      "max": [
+        -5.557000637054443,
+        -2.2789995670318604,
+        2.5799999237060547
+      ],
+      "hidden": false
+    },
+    "North.anchae.kitchen.leaf1.photo curved plank": {
+      "materials": [
+        "North anchae wood",
+        "Illustrated pine longgrain v1",
+        "Illustrated pine endgrain v1"
+      ]
+    },
+    "North.anchae.kitchen.leaf1.photo front timber rail": {
+      "materials": [
+        "North anchae beam",
+        "Illustrated pine longgrain v1",
+        "Illustrated pine endgrain v1"
+      ]
+    },
+    "North.anchae.kitchen.leaf2.photo curved plank": {
+      "materials": [
+        "North anchae wood",
+        "Illustrated pine longgrain v1",
+        "Illustrated pine endgrain v1"
+      ]
+    },
+    "North.anchae.kitchen.leaf2.photo front timber rail": {
+      "materials": [
+        "North anchae beam",
+        "Illustrated pine longgrain v1",
+        "Illustrated pine endgrain v1"
+      ]
+    },
+    "North.anchae.kitchen high ventilator diamond sal": {
+      "min": [
+        -7.102829456329346,
+        -2.3625006675720215,
+        2.427171468734741
+      ],
+      "max": [
+        -5.567171096801758,
+        -2.3374993801116943,
+        2.8928284645080566
+      ],
+      "hidden": false
+    },
+    "North.anchae.photo kitchen stove 0.arched fire mouth": {
+      "materials": [
+        "North lime plaster"
+      ]
+    },
+    "North.anchae.photo kitchen stove 0.hearth cheek": {
+      "materials": [
+        "North lime plaster"
+      ]
+    },
+    "North.anchae.photo kitchen stove 0.rear hearth body": {
+      "materials": [
+        "North lime plaster"
+      ]
+    },
+    "North.anchae.photo kitchen stove 0.cooking top": {
+      "materials": [
+        "North lime plaster"
+      ]
+    },
+    "North.anchae.photo kitchen stove 0.cast iron lid": {
+      "materials": [
+        "North forged iron"
+      ]
+    },
+    "North.anchae.photo kitchen stove 0.lid knob": {
+      "materials": [
+        "North forged iron"
+      ]
+    },
+    "North.anchae.photo kitchen stove 1.arched fire mouth": {
+      "materials": [
+        "North lime plaster"
+      ]
+    },
+    "North.anchae.photo kitchen stove 1.hearth cheek": {
+      "materials": [
+        "North lime plaster"
+      ]
+    },
+    "North.anchae.photo kitchen stove 1.rear hearth body": {
+      "materials": [
+        "North lime plaster"
+      ]
+    },
+    "North.anchae.photo kitchen stove 1.cooking top": {
+      "materials": [
+        "North lime plaster"
+      ]
+    },
+    "North.anchae.photo kitchen stove 1.cast iron lid": {
+      "materials": [
+        "North forged iron"
+      ]
+    },
+    "North.anchae.photo kitchen stove 1.lid knob": {
+      "materials": [
+        "North forged iron"
+      ]
+    },
+    "North.anchae.photo kitchen stove 2.arched fire mouth": {
+      "materials": [
+        "North lime plaster"
+      ]
+    },
+    "North.anchae.photo kitchen stove 2.hearth cheek": {
+      "materials": [
+        "North lime plaster"
+      ]
+    },
+    "North.anchae.photo kitchen stove 2.rear hearth body": {
+      "materials": [
+        "North lime plaster"
+      ]
+    },
+    "North.anchae.photo kitchen stove 2.cooking top": {
+      "materials": [
+        "North lime plaster"
+      ]
+    },
+    "North.anchae.photo kitchen stove 2.cast iron lid": {
+      "materials": [
+        "North forged iron"
+      ]
+    },
+    "North.anchae.photo kitchen stove 2.lid knob": {
+      "materials": [
+        "North forged iron"
+      ]
+    }
+  },
+  "kitchenRays": [
+    {
+      "z": 2.45,
+      "object": "North.anchae.kitchen high ventilator black void",
+      "local": [
+        -6.3350019454956055,
+        -2.3140006065368652,
+        2.450000047683716
+      ]
+    },
+    {
+      "z": 2.55,
+      "object": "North.anchae.roof.rafters",
+      "local": [
+        -6.3350019454956055,
+        -2.983908176422119,
+        2.5500001907348633
+      ]
+    },
+    {
+      "z": 2.65,
+      "object": "North.anchae.roof solid bedding",
+      "local": [
+        -6.335001468658447,
+        -2.9844257831573486,
+        2.6500000953674316
+      ]
+    },
+    {
+      "z": 2.75,
+      "object": "North.anchae.roof solid bedding",
+      "local": [
+        -6.33500337600708,
+        -2.793982982635498,
+        2.75
+      ]
+    },
+    {
+      "z": 2.85,
+      "object": "North.anchae.roof solid bedding",
+      "local": [
+        -6.335002422332764,
+        -2.603602647781372,
+        2.8499999046325684
+      ]
+    }
+  ]
+}

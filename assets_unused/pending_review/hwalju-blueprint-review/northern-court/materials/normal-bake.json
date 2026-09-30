@@ -1,0 +1,24 @@
+[
+  {
+    "source": "hanok-pine-longgrain-v1.png",
+    "sourceSha256": "c298bf7d2d53d61862249cea4df1b8793e8e09ffb62eb41c43a215c1d6cd15e3",
+    "normal": "hanok-pine-longgrain-normal-v1.png",
+    "bumpDistanceMeters": 0.00045,
+    "strength": 0.24,
+    "physicalSwatchMeters": [
+      1.2,
+      2.8
+    ]
+  },
+  {
+    "source": "hanok-pine-endgrain-v1.png",
+    "sourceSha256": "0cc85243924ddaeaf5b5db942d034f0824c807dcd509dc4c97cddeb3d4133ea6",
+    "normal": "hanok-pine-endgrain-normal-v1.png",
+    "bumpDistanceMeters": 0.00045,
+    "strength": 0.24,
+    "physicalSwatchMeters": [
+      1.2,
+      2.8
+    ]
+  }
+]

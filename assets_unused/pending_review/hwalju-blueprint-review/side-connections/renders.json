@@ -1,0 +1,553 @@
+[
+  {
+    "view": "ansarang-left",
+    "file": "ansarang-left.png",
+    "camera": [
+      16,
+      -0.6,
+      3.7
+    ],
+    "target": [
+      23.7,
+      -6.0,
+      1.9
+    ],
+    "scale": 9,
+    "sourceSceneSha256": "f9230c6a052ac880a0255dfc50a7a271913cbad26da4699f5237293a5a173806",
+    "sha256": "780c93de3a5043fb501eac5ccafaf3e331cdd38d1b6c1766c77a604fb17a6d25",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "left-junction",
+    "file": "left-junction.png",
+    "camera": [
+      -3,
+      10,
+      6
+    ],
+    "target": [
+      -5,
+      3.8,
+      1.9
+    ],
+    "scale": 9.5,
+    "sourceSceneSha256": "1f0c56f104914d7d21d0b75704165451e6a6c5682bc70214c864e73555598cb6",
+    "sha256": "c4ae92c09f69f431b041db0a9ebc313e75c23eef30cc86b03beaf14c66e25e77",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "left-front",
+    "file": "left-front.png",
+    "camera": [
+      -6,
+      -5,
+      4.1
+    ],
+    "target": [
+      -3.2,
+      3.8,
+      2.4
+    ],
+    "scale": 10,
+    "sourceSceneSha256": "1f0c56f104914d7d21d0b75704165451e6a6c5682bc70214c864e73555598cb6",
+    "sha256": "897d4ec4cc51ef36fa64766198188e680efd65a8616e5eba8f4740ff6a69d1c6",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "right-front",
+    "file": "right-front.png",
+    "camera": [
+      17,
+      -11,
+      4.0
+    ],
+    "target": [
+      18.092,
+      0.083,
+      1.9
+    ],
+    "scale": 8.5,
+    "sourceSceneSha256": "1f0c56f104914d7d21d0b75704165451e6a6c5682bc70214c864e73555598cb6",
+    "sha256": "0ae0b204dcca12598e0b171562970e6a87c07a21bd1165e6de2a590c873e289f",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "right-rear",
+    "file": "right-rear.png",
+    "camera": [
+      22,
+      11,
+      5
+    ],
+    "target": [
+      18.092,
+      0.083,
+      1.9
+    ],
+    "scale": 10,
+    "sourceSceneSha256": "1f0c56f104914d7d21d0b75704165451e6a6c5682bc70214c864e73555598cb6",
+    "sha256": "3c485668d22d92684eb3a86b178c853d9294e7266db5f00a8df8d0be181e2999",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "left-rear",
+    "file": "left-rear.png",
+    "camera": [
+      -5,
+      12,
+      4.4
+    ],
+    "target": [
+      -2.1,
+      3.8,
+      2.4
+    ],
+    "scale": 9.5,
+    "sourceSceneSha256": "1f0c56f104914d7d21d0b75704165451e6a6c5682bc70214c864e73555598cb6",
+    "sha256": "ee52e63e8436d043c818bc3268504f332091ab9cae21395a13703076ef6e1e3c",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "whole",
+    "file": "whole.png",
+    "camera": [
+      -25,
+      -40,
+      31
+    ],
+    "target": [
+      8,
+      -2,
+      1.5
+    ],
+    "scale": 50,
+    "sourceSceneSha256": "1f0c56f104914d7d21d0b75704165451e6a6c5682bc70214c864e73555598cb6",
+    "sha256": "41568f6b1ced46d3584a4cc68d7f9ecb348a8bf022c8f8aa29631937e9467436",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "gate-detail",
+    "file": "gate-detail.png",
+    "camera": [
+      18.2,
+      -3,
+      3.2
+    ],
+    "target": [
+      18.092,
+      0.083,
+      1.9
+    ],
+    "scale": 6.7,
+    "sourceSceneSha256": "1f0c56f104914d7d21d0b75704165451e6a6c5682bc70214c864e73555598cb6",
+    "sha256": "9b006fe80894c60df87dae9e9739ca1867c1420e387f26b4c8802d1c1a244dc1",
+    "warehouseIsolated": false,
+    "gateDoorState": "closed"
+  },
+  {
+    "view": "wall-corridor",
+    "file": "wall-corridor.png",
+    "camera": [
+      18,
+      -18,
+      3.5
+    ],
+    "target": [
+      18,
+      0.1,
+      1.8
+    ],
+    "scale": 20,
+    "sourceSceneSha256": "1f0c56f104914d7d21d0b75704165451e6a6c5682bc70214c864e73555598cb6",
+    "sha256": "f28aa737d8ff71356e7ec73e51a9ca3c734cb553c83a58eb8c7d880a75444660",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "ansarang",
+    "file": "ansarang.png",
+    "camera": [
+      11,
+      -18,
+      7
+    ],
+    "target": [
+      24,
+      -9.7,
+      2.2
+    ],
+    "scale": 17,
+    "sourceSceneSha256": "1f0c56f104914d7d21d0b75704165451e6a6c5682bc70214c864e73555598cb6",
+    "sha256": "954a3cb97b06981f1ba04ca0f9f2e1f3c034eb682b68db43d58a99e78ae75918",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "ansarang-right",
+    "file": "ansarang-right.png",
+    "camera": [
+      16,
+      -22,
+      3.7
+    ],
+    "target": [
+      23.7,
+      -13.9,
+      1.9
+    ],
+    "scale": 9,
+    "sourceSceneSha256": "1f0c56f104914d7d21d0b75704165451e6a6c5682bc70214c864e73555598cb6",
+    "sha256": "8fad3afcb8c0a8125ed3d477c5cf45de1630ed20b9f21973c144a34ded7060b6",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "warehouse",
+    "file": "warehouse.png",
+    "camera": [
+      12,
+      3.5,
+      9.5
+    ],
+    "target": [
+      -8.634,
+      3.105,
+      2.0
+    ],
+    "scale": 17,
+    "sourceSceneSha256": "1f0c56f104914d7d21d0b75704165451e6a6c5682bc70214c864e73555598cb6",
+    "sha256": "737ba6b759dc1eea26157d7f8ad13bc3de7fd099174afddf84beb91c8e8fe725",
+    "warehouseIsolated": true,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "plan",
+    "file": "plan.png",
+    "camera": [
+      10,
+      -4,
+      55
+    ],
+    "target": [
+      10,
+      -4,
+      0
+    ],
+    "scale": 62,
+    "sourceSceneSha256": "c706021a1f1377834f4274654c8c416dd5e9fe63a66f6a9ab6431a5c254b1723",
+    "sha256": "b384d53760e6eac454fa23f453b8f5d40936b5d795388294d0d5002fac9c0675",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "numaru-wall",
+    "file": "numaru-wall.png",
+    "camera": [
+      21,
+      -19,
+      8
+    ],
+    "target": [
+      12.7,
+      -5.5,
+      1.7
+    ],
+    "scale": 19,
+    "sourceSceneSha256": "c706021a1f1377834f4274654c8c416dd5e9fe63a66f6a9ab6431a5c254b1723",
+    "sha256": "1e4b6acc21375821ef85efe47f14aacea3f44cdfc319b2d11ca80418044e3e86",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "ansarang-enclosure",
+    "file": "ansarang-enclosure.png",
+    "camera": [
+      6,
+      -30,
+      27
+    ],
+    "target": [
+      22,
+      -10,
+      1.3
+    ],
+    "scale": 32,
+    "sourceSceneSha256": "5eb05a4209408ef8a24b6a234932007180967f1719817424e2cb0b59a5fa8129",
+    "sha256": "2c4f22ae2d228e0160ca03ea228f7f923ac591c80fe4ddef254f1f4da9613a9e",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "open-path",
+    "file": "open-path.png",
+    "camera": [
+      11.3,
+      -13.5,
+      1.72
+    ],
+    "target": [
+      24,
+      -14.2,
+      1.8
+    ],
+    "scale": 12,
+    "sourceSceneSha256": "5eb05a4209408ef8a24b6a234932007180967f1719817424e2cb0b59a5fa8129",
+    "sha256": "eed673caf74a848d7506cbb1b4c9ba1c37d691cf8342cafd1c799a9a3d78c237",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "ansarang-joinery",
+    "file": "ansarang-joinery.png",
+    "camera": [
+      17,
+      -14,
+      2.5
+    ],
+    "target": [
+      23.3,
+      -13.7,
+      1.85
+    ],
+    "scale": 5.5,
+    "sourceSceneSha256": "5eb05a4209408ef8a24b6a234932007180967f1719817424e2cb0b59a5fa8129",
+    "sha256": "306053aef5df13ca1c171b37fbc04c59a79e4f534a54405f7b62a99529e1b03d",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "warehouse-end",
+    "file": "warehouse-end.png",
+    "camera": [
+      -9.6,
+      -9,
+      3.3
+    ],
+    "target": [
+      -8.65,
+      -3.535,
+      2.2
+    ],
+    "scale": 8.5,
+    "sourceSceneSha256": "c8719c28b3e58aac358f785cbdd06686e01f97bf7aa20ff822760ed26dab9ed3",
+    "sha256": "2dd5920bd24a061b0ae030fe0aa868563cc17de0fe99d20fd269c5e229224f11",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "main-gate-front",
+    "file": "main-gate-front.png",
+    "camera": [
+      -14,
+      -24,
+      7
+    ],
+    "target": [
+      -6.5,
+      -13.18,
+      2.35
+    ],
+    "scale": 15.5,
+    "sourceSceneSha256": "c8719c28b3e58aac358f785cbdd06686e01f97bf7aa20ff822760ed26dab9ed3",
+    "sha256": "fd21601f5fd2437c9cc61b6f17819814a0565f278e5c30b4f10d82e5b9eed929",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "main-gate-inner",
+    "file": "main-gate-inner.png",
+    "camera": [
+      0,
+      -2,
+      6.8
+    ],
+    "target": [
+      -6.5,
+      -13.18,
+      2.3
+    ],
+    "scale": 16,
+    "sourceSceneSha256": "c8719c28b3e58aac358f785cbdd06686e01f97bf7aa20ff822760ed26dab9ed3",
+    "sha256": "dc2abc7324892fdac515aab568406467e14940200f30237559c44555b122bed5",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "main-gate-detail",
+    "file": "main-gate-detail.png",
+    "camera": [
+      -8,
+      -19,
+      3.4
+    ],
+    "target": [
+      -6.6,
+      -14.4,
+      2.1
+    ],
+    "scale": 5.5,
+    "sourceSceneSha256": "c8719c28b3e58aac358f785cbdd06686e01f97bf7aa20ff822760ed26dab9ed3",
+    "sha256": "6314a5552171bead1c54c3e592ba82c8a0fe8835fc340f1eef7fb2f9127645ca",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "main-gate-soffit",
+    "file": "main-gate-soffit.png",
+    "camera": [
+      -6.95,
+      -16.6,
+      1.65
+    ],
+    "target": [
+      -6.45,
+      -12.8,
+      3.4
+    ],
+    "scale": 5.8,
+    "sourceSceneSha256": "c8719c28b3e58aac358f785cbdd06686e01f97bf7aa20ff822760ed26dab9ed3",
+    "sha256": "9cfae8846b871bba31b94878ed295a206dc3f702e12c55f2f8afacdba9d92210",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "toilet",
+    "file": "toilet.png",
+    "camera": [
+      -16,
+      -10,
+      3.5
+    ],
+    "target": [
+      -18.5,
+      -7,
+      1.5
+    ],
+    "scale": 6,
+    "sourceSceneSha256": "c8719c28b3e58aac358f785cbdd06686e01f97bf7aa20ff822760ed26dab9ed3",
+    "sha256": "96cd8e73441556a26672addf1f22b401886429f929e035d3cd7c4120a45322ae",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "estate",
+    "file": "estate.png",
+    "camera": [
+      -39,
+      -51,
+      44
+    ],
+    "target": [
+      3,
+      -5,
+      1.5
+    ],
+    "scale": 66,
+    "sourceSceneSha256": "c8719c28b3e58aac358f785cbdd06686e01f97bf7aa20ff822760ed26dab9ed3",
+    "sha256": "72918705f3f5b37d9eed092c9e6a691276bddd0ea40f6d890a24a5d206828fe3",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "estate-plan",
+    "file": "estate-plan.png",
+    "camera": [
+      3,
+      0,
+      70
+    ],
+    "target": [
+      3,
+      0,
+      0
+    ],
+    "scale": 85,
+    "sourceSceneSha256": "c8719c28b3e58aac358f785cbdd06686e01f97bf7aa20ff822760ed26dab9ed3",
+    "sha256": "f4f51e4df30e86b6f9df31febce0271aa8783c410423842890c9094ba7c0d1b6",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "warehouse-to-gate",
+    "file": "warehouse-to-gate.png",
+    "camera": [
+      -31,
+      -19,
+      20
+    ],
+    "target": [
+      -13,
+      -7,
+      1.1
+    ],
+    "scale": 28,
+    "sourceSceneSha256": "c8719c28b3e58aac358f785cbdd06686e01f97bf7aa20ff822760ed26dab9ed3",
+    "sha256": "0d4b7d2ee636335a664b976f5336303cd5d1d7b0aca03d5863ef20e3e4e504d0",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "ansarang-to-gate",
+    "file": "ansarang-to-gate.png",
+    "camera": [
+      28,
+      -36,
+      26
+    ],
+    "target": [
+      6,
+      -15,
+      1.3
+    ],
+    "scale": 47,
+    "sourceSceneSha256": "c8719c28b3e58aac358f785cbdd06686e01f97bf7aa20ff822760ed26dab9ed3",
+    "sha256": "313bbf8a1299627d1c43b212c7ed1372d343488bf0f13e96454f391ec40f9268",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "main-gate-photo-front",
+    "file": "main-gate-photo-front.png",
+    "camera": [
+      -9.9,
+      -39.0,
+      3.3
+    ],
+    "target": [
+      -6.5,
+      -13.18,
+      2.25
+    ],
+    "scale": 14,
+    "sourceSceneSha256": "16817d97b67c1ae84f5db98612b4e85e3c5d2340f221eca35e7d3741da8d8b86",
+    "sha256": "cb82019a243739f1d18368294295441b6aa58c193228dcd597a2e9bac5dd3153",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  },
+  {
+    "view": "main-gate-photo-inner",
+    "file": "main-gate-photo-inner.png",
+    "camera": [
+      -5.33,
+      -4.26,
+      3.2
+    ],
+    "target": [
+      -6.5,
+      -13.18,
+      2.25
+    ],
+    "scale": 14,
+    "sourceSceneSha256": "16817d97b67c1ae84f5db98612b4e85e3c5d2340f221eca35e7d3741da8d8b86",
+    "sha256": "c2ae42e9c68304c216822bedd71a4aa653e9561b1704e52991eaa2303906ba39",
+    "warehouseIsolated": false,
+    "gateDoorState": "photograph: left both78deg, right leaf2 78deg"
+  }
+]

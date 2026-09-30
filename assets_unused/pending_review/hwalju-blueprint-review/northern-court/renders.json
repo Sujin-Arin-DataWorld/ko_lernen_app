@@ -1,0 +1,1124 @@
+[
+  {
+    "view": "anchae-detail-material-study",
+    "camera": [
+      1.5,
+      12,
+      5.0
+    ],
+    "target": [
+      10.945,
+      17.7,
+      3.7
+    ],
+    "scale": 10.2,
+    "file": "anchae-detail-material-study.png",
+    "sourceSceneSha256": "d81c798951a2dc78d64c054a76592e54c66629f471e7fd477258cd4c6f2fbd94",
+    "isolated": true,
+    "sha256": "7c10eaec3cb2f136031bbdc6c303a7d4e202d61ae6360c832dbd1588bcea3a64"
+  },
+  {
+    "view": "anchae-material-study",
+    "camera": [
+      -5,
+      6,
+      10
+    ],
+    "target": [
+      10.945,
+      20.012,
+      3.1
+    ],
+    "scale": 25,
+    "file": "anchae-material-study.png",
+    "sourceSceneSha256": "d81c798951a2dc78d64c054a76592e54c66629f471e7fd477258cd4c6f2fbd94",
+    "isolated": true,
+    "sha256": "eb82c21b21851fc1105bb32367a0281832d15af83cc697de2bbfcef6be24b47b"
+  },
+  {
+    "view": "anchae-mineral-study",
+    "camera": [
+      -5,
+      6,
+      10
+    ],
+    "target": [
+      10.945,
+      20.012,
+      3.1
+    ],
+    "scale": 25,
+    "file": "anchae-mineral-study.png",
+    "sourceSceneSha256": "122c123cb8993fd923249c1629d26e02fa979521d92c099d92dd548916de4128",
+    "isolated": true,
+    "sha256": "1781af2a0b4cca3083fcd0590f4e257b0e6aeb50d4d666534ac1c20f3d2f5a5f"
+  },
+  {
+    "view": "sadangmun-mineral-study",
+    "camera": [
+      16,
+      11,
+      4.7
+    ],
+    "target": [
+      19.859,
+      16.853,
+      2.9
+    ],
+    "scale": 6.0,
+    "file": "sadangmun-mineral-study.png",
+    "sourceSceneSha256": "d5b981684c17459cb00d4bd6dab3af090b5d9ff76104ca4af6131fe88c57b35f",
+    "isolated": true,
+    "sha256": "5464374a07b2e504b56fa5b53d3fb6a71f04c92fae2fa958d2dc91a519acfe12"
+  },
+  {
+    "view": "anchae-detail-mineral-study",
+    "camera": [
+      1.5,
+      12,
+      5.0
+    ],
+    "target": [
+      10.945,
+      17.7,
+      3.7
+    ],
+    "scale": 10.2,
+    "file": "anchae-detail-mineral-study.png",
+    "sourceSceneSha256": "d5b981684c17459cb00d4bd6dab3af090b5d9ff76104ca4af6131fe88c57b35f",
+    "isolated": true,
+    "sha256": "2408c50db2f5d93a807c32a4a8a0e62028dd55a3a2f102e592cb81b9b5c86ec6"
+  },
+  {
+    "view": "sadangmun-shrine-study",
+    "camera": [
+      16,
+      11,
+      4.7
+    ],
+    "target": [
+      19.859,
+      16.853,
+      2.9
+    ],
+    "scale": 6.0,
+    "file": "sadangmun-shrine-study.png",
+    "sourceSceneSha256": "0ca2e6ab78469cabbab100d994f207f59f1f55ab3be23b2797c4af81b150e0e3",
+    "isolated": true,
+    "sha256": "1a87048e8bc4a3db3853986758f847f0a167f49106da6397050dd9d1187993c8"
+  },
+  {
+    "view": "sadangmun-rear-shrine-study",
+    "camera": [
+      19.859,
+      24.853,
+      5.5
+    ],
+    "target": [
+      19.859,
+      16.853,
+      3.5
+    ],
+    "scale": 6.0,
+    "file": "sadangmun-rear-shrine-study.png",
+    "sourceSceneSha256": "0ca2e6ab78469cabbab100d994f207f59f1f55ab3be23b2797c4af81b150e0e3",
+    "isolated": true,
+    "sha256": "ffa63faa2db31534c4eed8e7cf5a326e93615abb2c80946193a630c75a63d39a"
+  },
+  {
+    "view": "sadang-detail-shrine-study",
+    "camera": [
+      15.0,
+      19.5,
+      4.4
+    ],
+    "target": [
+      24.311,
+      22.429,
+      4.0
+    ],
+    "scale": 9.6,
+    "file": "sadang-detail-shrine-study.png",
+    "sourceSceneSha256": "0ca2e6ab78469cabbab100d994f207f59f1f55ab3be23b2797c4af81b150e0e3",
+    "isolated": true,
+    "sha256": "e90dfdc0358fff0f5b3a648500405650c59ad133add75fce92d023b2a8353698"
+  },
+  {
+    "view": "sadangmun",
+    "camera": [
+      16,
+      11,
+      4.7
+    ],
+    "target": [
+      19.859,
+      16.853,
+      2.9
+    ],
+    "scale": 6.0,
+    "file": "sadangmun.png",
+    "sourceSceneSha256": "0d8f26e28af232b84d6f1f7ecd503a12bfe79005f340be45800274ea51a8ca65",
+    "isolated": true,
+    "sha256": "fd1c141fbf73d66320067c8c2578d26bbd98d6e44270a4bc0d59a91c908279ff"
+  },
+  {
+    "view": "sadangmun-rear",
+    "camera": [
+      19.859,
+      24.853,
+      5.5
+    ],
+    "target": [
+      19.859,
+      16.853,
+      3.5
+    ],
+    "scale": 6.0,
+    "file": "sadangmun-rear.png",
+    "sourceSceneSha256": "0d8f26e28af232b84d6f1f7ecd503a12bfe79005f340be45800274ea51a8ca65",
+    "isolated": true,
+    "sha256": "33bb3a77641b6a19a881dc7c5f97af29880b2bbd411b1200511bf4f44985d766"
+  },
+  {
+    "view": "sadang-rear-joinery-study",
+    "camera": [
+      32.311,
+      22.429,
+      5.5
+    ],
+    "target": [
+      24.311,
+      22.429,
+      3.5
+    ],
+    "scale": 10.96,
+    "file": "sadang-rear-joinery-study.png",
+    "sourceSceneSha256": "294b62297fc5ef73c463a4772678febd9110aba547e78af28502bc44e4a0a722",
+    "isolated": true,
+    "sha256": "244a3555b26f4c88cf60ba12f88ebb936adbe7ed5bd61cd31626cc294a4125fc"
+  },
+  {
+    "view": "sadang-detail-joinery-study",
+    "camera": [
+      15.0,
+      19.5,
+      4.4
+    ],
+    "target": [
+      24.311,
+      22.429,
+      4.0
+    ],
+    "scale": 9.6,
+    "file": "sadang-detail-joinery-study.png",
+    "sourceSceneSha256": "f6852e37bb02591690d9203c91888ded0245dbdfc130953ec208685178f72878",
+    "isolated": true,
+    "sha256": "535262f8721a1ce02992d98bd69e7c55bf0e51542b1f99be4cf6dc2f43c55e19"
+  },
+  {
+    "view": "sadang-brackets",
+    "camera": [
+      19.6,
+      22.6,
+      4.2
+    ],
+    "target": [
+      22.211,
+      23.659,
+      4.72
+    ],
+    "scale": 3.1,
+    "file": "sadang-brackets.png",
+    "sourceSceneSha256": "3d355f7b10cdd5ada8346447b8c3b0410afc6fc28c6caea564fd0d9ad61197ad",
+    "isolated": true,
+    "sha256": "2d6a274f88a15b1df43db034ee0c6336f741444c8921fd7e811ecbf61e445256"
+  },
+  {
+    "view": "sadang",
+    "camera": [
+      12,
+      13,
+      9
+    ],
+    "target": [
+      24.311,
+      22.429,
+      4.2
+    ],
+    "scale": 12,
+    "file": "sadang.png",
+    "sourceSceneSha256": "3d355f7b10cdd5ada8346447b8c3b0410afc6fc28c6caea564fd0d9ad61197ad",
+    "isolated": true,
+    "sha256": "3a4ead81a5dde85546af99835b9f2893a06e61492043ea3f52c1b14fc412e08b"
+  },
+  {
+    "view": "sadang-rear",
+    "camera": [
+      32.311,
+      22.429,
+      5.5
+    ],
+    "target": [
+      24.311,
+      22.429,
+      3.5
+    ],
+    "scale": 10.96,
+    "file": "sadang-rear.png",
+    "sourceSceneSha256": "3d355f7b10cdd5ada8346447b8c3b0410afc6fc28c6caea564fd0d9ad61197ad",
+    "isolated": true,
+    "sha256": "c48f77934f19c5307a2b8350bc56751e68c396740d1f284914331b107b4b830e"
+  },
+  {
+    "view": "sadang-detail",
+    "camera": [
+      15.0,
+      19.5,
+      4.4
+    ],
+    "target": [
+      24.311,
+      22.429,
+      4.0
+    ],
+    "scale": 9.6,
+    "file": "sadang-detail.png",
+    "sourceSceneSha256": "3d355f7b10cdd5ada8346447b8c3b0410afc6fc28c6caea564fd0d9ad61197ad",
+    "isolated": true,
+    "sha256": "00a554c169339ae14593d548d8a131f91b3773de5530f5ab4fb52be9d5307fb9"
+  },
+  {
+    "view": "arae-rear-roof-study",
+    "camera": [
+      2.855,
+      36.004000000000005,
+      5.5
+    ],
+    "target": [
+      2.855,
+      28.004,
+      3.5
+    ],
+    "scale": 11.7,
+    "file": "arae-rear-roof-study.png",
+    "sourceSceneSha256": "5267833c3fc3d9c5029ef339198bc60f3ae974a32c7781ace3b93fbd2862787e",
+    "isolated": true,
+    "sha256": "4b5f309b8726407ae31e76e426b9b85f3269ba3efede80b9b459c10d33d4acfa"
+  },
+  {
+    "view": "anchae-detail-roof-study",
+    "camera": [
+      1.5,
+      12,
+      5.0
+    ],
+    "target": [
+      10.945,
+      17.7,
+      3.7
+    ],
+    "scale": 10.2,
+    "file": "anchae-detail-roof-study.png",
+    "sourceSceneSha256": "73044d091a5593bf54ad823e475fead385daad181f003396c3c6349cf7fbb822",
+    "isolated": true,
+    "sha256": "f9f998343badd985bd2aba0a71435d12f6f7d14837b097e99f35ee540c83e24f"
+  },
+  {
+    "view": "gokgan-roof-study",
+    "camera": [
+      10,
+      -1,
+      9
+    ],
+    "target": [
+      24.909,
+      10.51,
+      3.6
+    ],
+    "scale": 16,
+    "file": "gokgan-roof-study.png",
+    "sourceSceneSha256": "73044d091a5593bf54ad823e475fead385daad181f003396c3c6349cf7fbb822",
+    "isolated": true,
+    "sha256": "b19f3ecebd5247dbf6b88edc0bc99e4a4d29038409ef84c47f96c9e5cfa4d815"
+  },
+  {
+    "view": "arae",
+    "camera": [
+      11,
+      16,
+      7
+    ],
+    "target": [
+      2.855,
+      28.004,
+      3.0
+    ],
+    "scale": 12.5,
+    "file": "arae.png",
+    "sourceSceneSha256": "f85b21b243bf4141029ff1788bc25d3a9c73513b910d6b1a5f7ae9417dd1c14e",
+    "isolated": true,
+    "sha256": "a67db08fe6bde182f2efa4c290c04dc088e5e4091b8f8c0550a5b952c8a411a5"
+  },
+  {
+    "view": "arae-rear",
+    "camera": [
+      2.855,
+      36.004000000000005,
+      5.5
+    ],
+    "target": [
+      2.855,
+      28.004,
+      3.5
+    ],
+    "scale": 11.7,
+    "file": "arae-rear.png",
+    "sourceSceneSha256": "f85b21b243bf4141029ff1788bc25d3a9c73513b910d6b1a5f7ae9417dd1c14e",
+    "isolated": true,
+    "sha256": "4d045a13354b089db82c7ea00873f8896050bd1a1188bad4d4884fb93cd2e122"
+  },
+  {
+    "view": "angotgan",
+    "camera": [
+      9,
+      10,
+      9
+    ],
+    "target": [
+      -4.447,
+      21.683,
+      3.2
+    ],
+    "scale": 14,
+    "file": "angotgan.png",
+    "sourceSceneSha256": "f85b21b243bf4141029ff1788bc25d3a9c73513b910d6b1a5f7ae9417dd1c14e",
+    "isolated": true,
+    "sha256": "ee8a38c9aa0a2f792be3f6ebb33d68f72adaa59b53226b9be2401aa03f9ecd4a"
+  },
+  {
+    "view": "angotgan-rear",
+    "camera": [
+      -12.447,
+      21.683,
+      5.5
+    ],
+    "target": [
+      -4.447,
+      21.683,
+      3.5
+    ],
+    "scale": 13.559999999999999,
+    "file": "angotgan-rear.png",
+    "sourceSceneSha256": "f85b21b243bf4141029ff1788bc25d3a9c73513b910d6b1a5f7ae9417dd1c14e",
+    "isolated": true,
+    "sha256": "2b372f0c9fd198e62be2fbfd4b6b1bc7abcfb768b03a56e7c410fe3fd5d04a28"
+  },
+  {
+    "view": "gokgan",
+    "camera": [
+      10,
+      -1,
+      9
+    ],
+    "target": [
+      24.909,
+      10.51,
+      3.6
+    ],
+    "scale": 16,
+    "file": "gokgan.png",
+    "sourceSceneSha256": "f85b21b243bf4141029ff1788bc25d3a9c73513b910d6b1a5f7ae9417dd1c14e",
+    "isolated": true,
+    "sha256": "312b454c2efa0e55153a195fa239f72b114b07b3ae281bce097b0ef5db60ae5f"
+  },
+  {
+    "view": "gokgan-rear",
+    "camera": [
+      33.1965,
+      10.51,
+      5.5
+    ],
+    "target": [
+      24.909,
+      10.51,
+      3.5
+    ],
+    "scale": 13.95,
+    "file": "gokgan-rear.png",
+    "sourceSceneSha256": "f85b21b243bf4141029ff1788bc25d3a9c73513b910d6b1a5f7ae9417dd1c14e",
+    "isolated": true,
+    "sha256": "9ad4149e265a27a7c3cdb6dc78f5e798f1cf5a20c15c261f8526433b593493ea"
+  },
+  {
+    "view": "anchae-detail-plan-study",
+    "camera": [
+      1.5,
+      12,
+      5.0
+    ],
+    "target": [
+      10.945,
+      17.7,
+      3.7
+    ],
+    "scale": 10.2,
+    "file": "anchae-detail-plan-study.png",
+    "sourceSceneSha256": "0e2a56c2ba4a28053258476008f782aca91c1476612a3b5a97c3d1a13644403f",
+    "isolated": true,
+    "sha256": "2beefbf61d061ba19992dd9701225cf370b1e3807c7c0a6632dae4f765af3b97"
+  },
+  {
+    "view": "anchae-rear-plan-study",
+    "camera": [
+      26.32575,
+      20.012,
+      5.5
+    ],
+    "target": [
+      10.945,
+      20.012,
+      3.5
+    ],
+    "scale": 22.294999999999998,
+    "file": "anchae-rear-plan-study.png",
+    "sourceSceneSha256": "f3d44378ec7ac4d2381898d9c3861dd38d7696190d4a2776e6d79a466bd8ccd3",
+    "isolated": true,
+    "sha256": "2df0986dc898b14f468e6ea2c0da9ab0775c2cee97861c65c61b1637410c0b2c"
+  },
+  {
+    "view": "anchae-veranda-study",
+    "camera": [
+      -5,
+      6,
+      10
+    ],
+    "target": [
+      10.945,
+      20.012,
+      3.1
+    ],
+    "scale": 25,
+    "file": "anchae-veranda-study.png",
+    "sourceSceneSha256": "e02cf4b15168fedd6a7282afd8355934e8f61535de909ec94f861cb4d2aba054",
+    "isolated": true,
+    "sha256": "e6fe8287af8866bfb4464035be66f0260445073d751d68785205cd13cb2df619"
+  },
+  {
+    "view": "anchae-veranda-veranda-study",
+    "camera": [
+      18.6,
+      27.5,
+      4.6
+    ],
+    "target": [
+      13.15,
+      24.0,
+      2.7
+    ],
+    "scale": 10.7,
+    "file": "anchae-veranda-veranda-study.png",
+    "sourceSceneSha256": "73a9bb8c98afee7ad8546af9e0d8dbe22f55d1c27d3114d68e4fe283ef3cf1fd",
+    "isolated": true,
+    "sha256": "3b9709472664d149fe016a422bcf634fc00b25b76535202f738089a2bee7b123"
+  },
+  {
+    "view": "anchae-detail-veranda-study",
+    "camera": [
+      1.5,
+      12,
+      5.0
+    ],
+    "target": [
+      10.945,
+      17.7,
+      3.7
+    ],
+    "scale": 10.2,
+    "file": "anchae-detail-veranda-study.png",
+    "sourceSceneSha256": "73a9bb8c98afee7ad8546af9e0d8dbe22f55d1c27d3114d68e4fe283ef3cf1fd",
+    "isolated": true,
+    "sha256": "3f03a25da366e901de8bb2320de053e122bd3b4ab905e3f773ee12170c391a1d"
+  },
+  {
+    "view": "anchae-veranda-access-study",
+    "camera": [
+      18.6,
+      27.5,
+      4.6
+    ],
+    "target": [
+      13.15,
+      24.0,
+      2.7
+    ],
+    "scale": 10.7,
+    "file": "anchae-veranda-access-study.png",
+    "sourceSceneSha256": "44e8b051500656b1c7498d5ffca12ce7d13270c000a1d36f8c2a60a49392fb2a",
+    "isolated": true,
+    "sha256": "0530cd6e5c443580609333f295efe4770d036772dac4577cb36cd1b2edd38b29"
+  },
+  {
+    "view": "anchae-access-access-study",
+    "camera": [
+      16.9,
+      25.8,
+      3.15
+    ],
+    "target": [
+      12.55,
+      22.5,
+      2.8
+    ],
+    "scale": 6.0,
+    "file": "anchae-access-access-study.png",
+    "sourceSceneSha256": "d4710e4e693b3a579eb69422179d14375f26705b4d3fe15183f4b00d00a75340",
+    "isolated": true,
+    "sha256": "aeabf476963da2e77d172b5d80866c8ebf5f85cc367be8776f9629a378942312"
+  },
+  {
+    "view": "anchae-access",
+    "camera": [
+      16.9,
+      25.8,
+      3.15
+    ],
+    "target": [
+      12.55,
+      22.5,
+      2.8
+    ],
+    "scale": 6.0,
+    "file": "anchae-access.png",
+    "sourceSceneSha256": "b618f02a43cdf08c45d54d2b070d63acb2e049258143ea733bfe171b8a19c43f",
+    "isolated": true,
+    "sha256": "ae9ec15085b80389254554696f53ad89d2947b389751e9bf5157ac7eb0aee32b"
+  },
+  {
+    "view": "anchae-veranda",
+    "camera": [
+      18.6,
+      27.5,
+      4.6
+    ],
+    "target": [
+      13.15,
+      24.0,
+      2.7
+    ],
+    "scale": 10.7,
+    "file": "anchae-veranda.png",
+    "sourceSceneSha256": "b618f02a43cdf08c45d54d2b070d63acb2e049258143ea733bfe171b8a19c43f",
+    "isolated": true,
+    "sha256": "dfdcbf6af68c1d6ca9e0bc319aefce218180a4455eb0c15fbe0a8d1049c12d69"
+  },
+  {
+    "view": "anchae-rear",
+    "camera": [
+      26.32575,
+      20.012,
+      5.5
+    ],
+    "target": [
+      10.945,
+      20.012,
+      3.5
+    ],
+    "scale": 22.294999999999998,
+    "file": "anchae-rear.png",
+    "sourceSceneSha256": "b618f02a43cdf08c45d54d2b070d63acb2e049258143ea733bfe171b8a19c43f",
+    "isolated": true,
+    "sha256": "637cbfddf7d43fa11c263ab41388ae2c7f40336192b668db24dc78037289e057"
+  },
+  {
+    "view": "route",
+    "camera": [
+      18,
+      3.6,
+      3.4
+    ],
+    "target": [
+      19,
+      17,
+      3
+    ],
+    "scale": 18,
+    "file": "route.png",
+    "sourceSceneSha256": "b618f02a43cdf08c45d54d2b070d63acb2e049258143ea733bfe171b8a19c43f",
+    "isolated": false,
+    "sha256": "b09c62816186d1092d69c30d98d06154068c32253a02826f702e5ddeed3b37c2"
+  },
+  {
+    "view": "jars",
+    "camera": [
+      12,
+      19,
+      12
+    ],
+    "target": [
+      15.8,
+      26.8,
+      2.0
+    ],
+    "scale": 12,
+    "file": "jars.png",
+    "sourceSceneSha256": "b618f02a43cdf08c45d54d2b070d63acb2e049258143ea733bfe171b8a19c43f",
+    "isolated": false,
+    "sha256": "fa08f4912cc2bf5450f3146f4942c682f95ba6a79277d3c2e217fd720c4a3766"
+  },
+  {
+    "view": "anchae-hall-study",
+    "camera": [
+      10.095,
+      16.612,
+      3.4
+    ],
+    "target": [
+      11.191,
+      19.9245,
+      3.05
+    ],
+    "scale": 3.0,
+    "file": "anchae-hall-study.png",
+    "sourceSceneSha256": "49c1b49f7454dde16cfa1467a493e2d5a2e9abaddf40d35584ff9998c504c452",
+    "isolated": true,
+    "inspectionFill": true,
+    "sha256": "747bf5f64ff0ea6d090bcd513cfda4e265ead0d90d274fd1e5b737d66d46987f"
+  },
+  {
+    "view": "anchae-hall-open-study",
+    "camera": [
+      10.095,
+      16.612,
+      3.4
+    ],
+    "target": [
+      11.191,
+      19.9245,
+      3.05
+    ],
+    "scale": 3.0,
+    "file": "anchae-hall-open-study.png",
+    "sourceSceneSha256": "49c1b49f7454dde16cfa1467a493e2d5a2e9abaddf40d35584ff9998c504c452",
+    "isolated": true,
+    "inspectionFill": true,
+    "sha256": "f5dabfa822376dc0d1ad25b0225c03f83b021955317d43eb0c3a6cd6c225a83e"
+  },
+  {
+    "view": "anchae-hall",
+    "camera": [
+      10.095,
+      16.612,
+      3.4
+    ],
+    "target": [
+      11.191,
+      19.9245,
+      3.05
+    ],
+    "scale": 3.0,
+    "file": "anchae-hall.png",
+    "sourceSceneSha256": "039c677626ab43b59d40dbcf1df33b604d9765cecc6d0c86175a33c9fd94f3ae",
+    "isolated": true,
+    "inspectionFill": true,
+    "sha256": "0bd5df719c82d1d61b2f9d38a541174a1c64a63c31b083404b1d54624d7dbc5a"
+  },
+  {
+    "view": "anchae-hall-open",
+    "camera": [
+      10.095,
+      16.612,
+      3.4
+    ],
+    "target": [
+      11.191,
+      19.9245,
+      3.05
+    ],
+    "scale": 3.0,
+    "file": "anchae-hall-open.png",
+    "sourceSceneSha256": "039c677626ab43b59d40dbcf1df33b604d9765cecc6d0c86175a33c9fd94f3ae",
+    "isolated": true,
+    "inspectionFill": true,
+    "sha256": "a9e26a4fb59bb02158e65a96623952ea00a378a05859cfaf1e4f459d65d31cf5"
+  },
+  {
+    "view": "anchae-detail",
+    "camera": [
+      1.5,
+      12,
+      5.0
+    ],
+    "target": [
+      10.945,
+      17.7,
+      3.7
+    ],
+    "scale": 10.2,
+    "file": "anchae-detail.png",
+    "sourceSceneSha256": "039c677626ab43b59d40dbcf1df33b604d9765cecc6d0c86175a33c9fd94f3ae",
+    "isolated": true,
+    "inspectionFill": false,
+    "sha256": "b5f3d330c61f87097b7f0110997454e69cfb9fe3690456bf1cd79fdb600dcdb2"
+  },
+  {
+    "view": "anchae",
+    "camera": [
+      -5,
+      6,
+      10
+    ],
+    "target": [
+      10.945,
+      20.012,
+      3.1
+    ],
+    "scale": 25,
+    "file": "anchae.png",
+    "sourceSceneSha256": "039c677626ab43b59d40dbcf1df33b604d9765cecc6d0c86175a33c9fd94f3ae",
+    "isolated": true,
+    "inspectionFill": false,
+    "sha256": "77f1f2c154fc669504cd4f8450ae2caf60e0dc15edf0e535233245f0b1c29031"
+  },
+  {
+    "view": "north",
+    "camera": [
+      -24,
+      -9,
+      34
+    ],
+    "target": [
+      11,
+      17,
+      2
+    ],
+    "scale": 53,
+    "file": "north.png",
+    "sourceSceneSha256": "039c677626ab43b59d40dbcf1df33b604d9765cecc6d0c86175a33c9fd94f3ae",
+    "isolated": false,
+    "inspectionFill": false,
+    "sha256": "4a91e2d696e79ea02b42966302fe87c7e5639a2e023d3e17dd77b9f6dc26e6c3"
+  },
+  {
+    "view": "plan",
+    "camera": [
+      10,
+      8,
+      85
+    ],
+    "target": [
+      10,
+      8,
+      0
+    ],
+    "scale": 78,
+    "file": "plan.png",
+    "sourceSceneSha256": "039c677626ab43b59d40dbcf1df33b604d9765cecc6d0c86175a33c9fd94f3ae",
+    "isolated": false,
+    "inspectionFill": false,
+    "sha256": "7dc331241cfc5fe98e779b7fbea052178e42c5b1cbcb2f4bce503b77ac5e1e6a"
+  },
+  {
+    "view": "court",
+    "camera": [
+      -1,
+      13,
+      8
+    ],
+    "target": [
+      5,
+      23,
+      2.5
+    ],
+    "scale": 30,
+    "file": "court.png",
+    "sourceSceneSha256": "039c677626ab43b59d40dbcf1df33b604d9765cecc6d0c86175a33c9fd94f3ae",
+    "isolated": false,
+    "inspectionFill": false,
+    "sha256": "6a876e2cdde3040db9bcec99279ef38d062496d350c9cf38d47ad84baeee5a3a"
+  },
+  {
+    "view": "anchae-spatial-candidate",
+    "camera": [
+      -5,
+      6,
+      10
+    ],
+    "target": [
+      10.945,
+      20.012,
+      3.1
+    ],
+    "scale": 25,
+    "file": "anchae-spatial-candidate.png",
+    "sourceSceneSha256": "ad966dcdb01a66447a5362925e101113f4c49cde9d32b3525d2acba306e86aad",
+    "isolated": true,
+    "inspectionFill": false,
+    "sha256": "188f900a6b422b54765b2f9317ea3742e804d5e1134bebc5fabe9523b1095a2a"
+  },
+  {
+    "view": "sadangmun-spatial-candidate",
+    "camera": [
+      16,
+      11,
+      4.7
+    ],
+    "target": [
+      19.859,
+      16.853,
+      2.9
+    ],
+    "scale": 6.0,
+    "file": "sadangmun-spatial-candidate.png",
+    "sourceSceneSha256": "ad966dcdb01a66447a5362925e101113f4c49cde9d32b3525d2acba306e86aad",
+    "isolated": true,
+    "inspectionFill": false,
+    "sha256": "5d14fc691b082ceb1a8978433fbab66297fb57dac3cfc7a0cfc57de01c37e992"
+  },
+  {
+    "view": "anchae-corner-photo-candidate",
+    "camera": [
+      6.492318153381348,
+      3.403674602508545,
+      4.099999904632568
+    ],
+    "target": [
+      9.980401039123535,
+      8.817848205566406,
+      2.5999999046325684
+    ],
+    "scale": 7.5,
+    "file": "anchae-corner-photo-candidate.png",
+    "sourceSceneSha256": "4072416827c614eae5ef07822b618166354a34cb2f413f1dd0a216cee39b4de1",
+    "isolated": true,
+    "inspectionFill": false,
+    "sha256": "982f9fae4a5b9f918daeeed1ad8ccae9d5c8b33e90bcdd8a2431cf0fdbfae8ba"
+  },
+  {
+    "view": "jars-photo-candidate",
+    "camera": [
+      12,
+      19,
+      12
+    ],
+    "target": [
+      15.8,
+      26.8,
+      2.0
+    ],
+    "scale": 12,
+    "file": "jars-photo-candidate.png",
+    "sourceSceneSha256": "4072416827c614eae5ef07822b618166354a34cb2f413f1dd0a216cee39b4de1",
+    "isolated": false,
+    "inspectionFill": false,
+    "sha256": "40520f29bac30e9513fb19c7fd21ba05ffa6bbc73840d330dbddbc2646baa11e"
+  },
+  {
+    "view": "sadang-detail-photo-candidate",
+    "camera": [
+      15.200624465942383,
+      19.24098777770996,
+      4.400000095367432
+    ],
+    "target": [
+      24.355270385742188,
+      22.627168655395508,
+      4.0
+    ],
+    "scale": 9.6,
+    "file": "sadang-detail-photo-candidate.png",
+    "sourceSceneSha256": "f1a509301cfe729ccd47807d68605db5f835b41c4e2ceab866bae76e19b1f72b",
+    "isolated": true,
+    "inspectionFill": false,
+    "sha256": "2565a34bc0c38c25f26489b2a201a92410e8b22d8c38e53588af30ad9b630157"
+  },
+  {
+    "view": "rear-gates-photo-candidate",
+    "camera": [
+      18.8,
+      8.7,
+      3.8
+    ],
+    "target": [
+      18.8,
+      16.7,
+      2.7
+    ],
+    "scale": 8.0,
+    "file": "rear-gates-photo-candidate.png",
+    "sourceSceneSha256": "74adb46f0eece0f26f4667aa08a4008c11f0e8458940ff26a3347ea5ee28de92",
+    "isolated": false,
+    "inspectionFill": false,
+    "sha256": "b7e83a183f7c0e595fbb7c29520ed4dac8309523dc28aa9737e674832c69515a"
+  },
+  {
+    "view": "flower-wall-photo-candidate",
+    "camera": [
+      20.8,
+      15.2,
+      3.5
+    ],
+    "target": [
+      24,
+      16.7,
+      2.35
+    ],
+    "scale": 5.7,
+    "file": "flower-wall-photo-candidate.png",
+    "sourceSceneSha256": "74adb46f0eece0f26f4667aa08a4008c11f0e8458940ff26a3347ea5ee28de92",
+    "isolated": false,
+    "inspectionFill": false,
+    "sha256": "0bedb95be7064f60c22db0e332c0ed7bb2cb9c35877a05f15e5a5d7db818927b"
+  },
+  {
+    "view": "anchae-kitchen-photo-candidate",
+    "camera": [
+      7.080573558807373,
+      24.822181701660156,
+      3.049999952316284
+    ],
+    "target": [
+      10.973843574523926,
+      25.05120086669922,
+      2.299999952316284
+    ],
+    "scale": 4.5,
+    "file": "anchae-kitchen-photo-candidate.png",
+    "sourceSceneSha256": "74adb46f0eece0f26f4667aa08a4008c11f0e8458940ff26a3347ea5ee28de92",
+    "isolated": true,
+    "inspectionFill": false,
+    "sha256": "06fce11cbe4b9808ec54b16e452522ddb010b8dca33ef5c38c42604d08bfd62e"
+  },
+  {
+    "view": "anchae-hearth-photo-candidate",
+    "camera": [
+      6.92556095123291,
+      12.131176948547363,
+      2.6500000953674316
+    ],
+    "target": [
+      9.341383934020996,
+      12.273286819458008,
+      1.850000023841858
+    ],
+    "scale": 3.7,
+    "file": "anchae-hearth-photo-candidate.png",
+    "sourceSceneSha256": "74adb46f0eece0f26f4667aa08a4008c11f0e8458940ff26a3347ea5ee28de92",
+    "isolated": true,
+    "inspectionFill": false,
+    "sha256": "9e4ec8266af9e33e263dc139adac088c1ab5c363fd7b5e01989171955b27ae12"
+  },
+  {
+    "view": "rear-gates-survey-candidate",
+    "camera": [
+      18.8,
+      8.7,
+      3.8
+    ],
+    "target": [
+      18.8,
+      16.7,
+      2.7
+    ],
+    "scale": 8.0,
+    "file": "rear-gates-survey-candidate.png",
+    "sourceSceneSha256": "5bc274fda8a1f10b88123b1c88f22dcdc9e957a2b2acd1bd250928145dc121f9",
+    "isolated": false,
+    "inspectionFill": false,
+    "sha256": "8709e18cebe8580d841c7de55f213a202d7ed1565c4db2aad84a937fa7ceb00f"
+  },
+  {
+    "view": "anchae-kitchen-survey-candidate",
+    "camera": [
+      7.080573558807373,
+      24.822181701660156,
+      3.049999952316284
+    ],
+    "target": [
+      10.973843574523926,
+      25.05120086669922,
+      2.299999952316284
+    ],
+    "scale": 4.5,
+    "file": "anchae-kitchen-survey-candidate.png",
+    "sourceSceneSha256": "5bc274fda8a1f10b88123b1c88f22dcdc9e957a2b2acd1bd250928145dc121f9",
+    "isolated": true,
+    "inspectionFill": false,
+    "sha256": "556bc0cf31c790c8206b8d8d92534ec048f4fe1b7d8016c6ef67cb85b54bfa8c"
+  },
+  {
+    "view": "jar-gate-survey-candidate",
+    "camera": [
+      12.89566421508789,
+      18.56231117248535,
+      4.300000190734863
+    ],
+    "target": [
+      15.851531028747559,
+      13.85669231414795,
+      2.75
+    ],
+    "scale": 3.55,
+    "file": "jar-gate-survey-candidate.png",
+    "sourceSceneSha256": "bf28acbbf131f0c2c912ec90406bf5506ecc530fe06f660c745a196a50a83719",
+    "isolated": true,
+    "inspectionFill": false,
+    "sha256": "a9244be732b6461368c1bab592b3f98c93d24b9077877e1a3c9ede63c9776bdc"
+  },
+  {
+    "view": "anchae-kitchen-door-survey-candidate",
+    "camera": [
+      4.9430928230285645,
+      23.69471549987793,
+      3.5
+    ],
+    "target": [
+      8.37833023071289,
+      24.89851951599121,
+      3.200000047683716
+    ],
+    "scale": 3.6,
+    "file": "anchae-kitchen-door-survey-candidate.png",
+    "sourceSceneSha256": "bf28acbbf131f0c2c912ec90406bf5506ecc530fe06f660c745a196a50a83719",
+    "isolated": true,
+    "inspectionFill": false,
+    "sha256": "21003e422f1a53079bf3e8313c537acb12a51dbac6ac7e1346a75ae3c69b436d"
+  },
+  {
+    "view": "arae-survey-candidate",
+    "camera": [
+      11.413277626037598,
+      15.952441215515137,
+      7.0
+    ],
+    "target": [
+      2.3894214630126953,
+      27.31056785583496,
+      3.0
+    ],
+    "scale": 12.5,
+    "file": "arae-survey-candidate.png",
+    "sourceSceneSha256": "bf28acbbf131f0c2c912ec90406bf5506ecc530fe06f660c745a196a50a83719",
+    "isolated": true,
+    "inspectionFill": false,
+    "sha256": "f9427563c4368ca92b82095decd6363fcd74c177539dfdb0a73462dde85ee88c"
+  },
+  {
+    "view": "sadang-detail-survey-candidate",
+    "camera": [
+      15.200624465942383,
+      19.24098777770996,
+      4.400000095367432
+    ],
+    "target": [
+      24.355270385742188,
+      22.627168655395508,
+      4.0
+    ],
+    "scale": 9.6,
+    "file": "sadang-detail-survey-candidate.png",
+    "sourceSceneSha256": "bf28acbbf131f0c2c912ec90406bf5506ecc530fe06f660c745a196a50a83719",
+    "isolated": true,
+    "inspectionFill": false,
+    "sha256": "b13d5a11b0c080bad322343682af7cc47b79e60cd1109312f05c793b85537b03"
+  }
+]

@@ -1,0 +1,357 @@
+{
+  "anchae": [
+    {
+      "material": "Reference anchae wood",
+      "faces": 14414,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\anchae\\canonical.png"
+      ]
+    },
+    {
+      "material": "Reference anchae beam",
+      "faces": 5124,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\anchae\\canonical.png"
+      ]
+    },
+    {
+      "material": "Canonical gate wood pigment.011",
+      "faces": 420,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\anchae\\canonical.png"
+      ]
+    }
+  ],
+  "angotgan": [
+    {
+      "material": "Illustrated pine longgrain v1",
+      "faces": 80543,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-longgrain-normal-v1.png",
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-longgrain-v1.png"
+      ]
+    },
+    {
+      "material": "Illustrated pine endgrain v1",
+      "faces": 1280,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-endgrain-normal-v1.png",
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-endgrain-v1.png"
+      ]
+    }
+  ],
+  "ansarang": [
+    {
+      "material": "Reference ansarang wood",
+      "faces": 35818,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\ansarang-canonical.png"
+      ]
+    },
+    {
+      "material": "Ansarang aged timber fissures",
+      "faces": 523,
+      "images": []
+    },
+    {
+      "material": "Ansarang retained Warm hanji in timber lattice",
+      "faces": 132,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\97-color.png",
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\97-normal.png",
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\97-roughness.png"
+      ]
+    },
+    {
+      "material": "Reference ansarang beam",
+      "faces": 84,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\ansarang-canonical.png"
+      ]
+    },
+    {
+      "material": "Canonical gate wood pigment.006",
+      "faces": 60,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\ansarang-canonical.png"
+      ]
+    }
+  ],
+  "arae": [
+    {
+      "material": "Illustrated pine longgrain v1",
+      "faces": 95972,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-longgrain-normal-v1.png",
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-longgrain-v1.png"
+      ]
+    },
+    {
+      "material": "Illustrated pine endgrain v1",
+      "faces": 2186,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-endgrain-normal-v1.png",
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-endgrain-v1.png"
+      ]
+    }
+  ],
+  "changgo": [
+    {
+      "material": "Warehouse approved illustration wood",
+      "faces": 36910,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets\\illustrations\\personal_hanok_v3\\construction\\changgo\\stage_08_complete.png"
+      ]
+    },
+    {
+      "material": "Warehouse approved illustration beam",
+      "faces": 7055,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets\\illustrations\\personal_hanok_v3\\construction\\changgo\\stage_08_complete.png"
+      ]
+    },
+    {
+      "material": "Illustrated pine longgrain v1",
+      "faces": 8,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-longgrain-normal-v1.png",
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-longgrain-v1.png"
+      ]
+    },
+    {
+      "material": "Illustrated pine endgrain v1",
+      "faces": 4,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-endgrain-normal-v1.png",
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-endgrain-v1.png"
+      ]
+    }
+  ],
+  "gokgan": [
+    {
+      "material": "Illustrated pine longgrain v1",
+      "faces": 10436,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-longgrain-normal-v1.png",
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-longgrain-v1.png"
+      ]
+    },
+    {
+      "material": "Illustrated pine endgrain v1",
+      "faces": 1688,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-endgrain-normal-v1.png",
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-endgrain-v1.png"
+      ]
+    }
+  ],
+  "jung": [
+    {
+      "material": "Jung dark walnut",
+      "faces": 2617,
+      "images": [
+        "\\\\..\\..\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\sources\\art-jungmunganchae.png"
+      ]
+    },
+    {
+      "material": "Warm hanji in timber lattice",
+      "faces": 66,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-spatial-preservation-plan-20260922\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\reconstruction-reference-v3\\references\\photo-05.png"
+      ]
+    }
+  ],
+  "left_changgo": [
+    {
+      "material": "Reference gate wood",
+      "faces": 4412,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png"
+      ]
+    },
+    {
+      "material": "Canonical gate wood pigment.008",
+      "faces": 84,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png"
+      ]
+    },
+    {
+      "material": "Reference gate beam",
+      "faces": 66,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png"
+      ]
+    },
+    {
+      "material": "Canonical gate beam pigment.005",
+      "faces": 48,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png"
+      ]
+    }
+  ],
+  "main_gate": [
+    {
+      "material": "Canonical gate wood pigment.003",
+      "faces": 122004,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\hyeopmun_try03_blueprint_colored.png"
+      ]
+    },
+    {
+      "material": "Canonical gate beam pigment.003",
+      "faces": 292,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\hyeopmun_try03_blueprint_colored.png"
+      ]
+    },
+    {
+      "material": "Canonical gate wood pigment.010",
+      "faces": 48,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png"
+      ]
+    },
+    {
+      "material": "Canonical gate beam pigment.007",
+      "faces": 6,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png"
+      ]
+    }
+  ],
+  "north_site": [
+    {
+      "material": "Reference gate wood",
+      "faces": 1404,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png"
+      ]
+    },
+    {
+      "material": "Reference gate beam",
+      "faces": 382,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png"
+      ]
+    }
+  ],
+  "right_ansarang": [
+    {
+      "material": "Reference gate wood",
+      "faces": 3216,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png"
+      ]
+    },
+    {
+      "material": "Canonical gate wood pigment.009",
+      "faces": 84,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png"
+      ]
+    },
+    {
+      "material": "Reference gate beam",
+      "faces": 66,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png"
+      ]
+    },
+    {
+      "material": "Canonical gate beam pigment.006",
+      "faces": 48,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png"
+      ]
+    }
+  ],
+  "sadang": [
+    {
+      "material": "Canonical gate wood pigment.004",
+      "faces": 872,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\photos\\sadang-side-sep29.png"
+      ]
+    },
+    {
+      "material": "Sep29 sadang Reference sadang bargeboard red",
+      "faces": 326,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadang\\canonical.png"
+      ]
+    },
+    {
+      "material": "Sep29 altar Canonical gate wood pigment.007",
+      "faces": 321,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadang\\canonical.png"
+      ]
+    },
+    {
+      "material": "Reference sadang wood",
+      "faces": 192,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadang\\canonical.png"
+      ]
+    },
+    {
+      "material": "Canonical gate wood pigment.007",
+      "faces": 36,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadang\\canonical.png"
+      ]
+    }
+  ],
+  "sadangmun": [
+    {
+      "material": "Canonical gate wood pigment.005",
+      "faces": 168,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\photos\\sadang-side-sep29.png"
+      ]
+    }
+  ],
+  "sarang": [
+    {
+      "material": "Sarang vertical timber grain",
+      "faces": 1926,
+      "images": [
+        "\\\\..\\..\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\sources\\master-sarangchae.png"
+      ]
+    }
+  ],
+  "toilet": [
+    {
+      "material": "Canonical gate wood pigment.002",
+      "faces": 2586,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\hyeopmun_try03_blueprint_colored.png"
+      ]
+    },
+    {
+      "material": "Canonical gate beam pigment.002",
+      "faces": 1990,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\hyeopmun_try03_blueprint_colored.png"
+      ]
+    }
+  ],
+  "toilet1": [
+    {
+      "material": "Canonical gate wood pigment.002",
+      "faces": 2586,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\hyeopmun_try03_blueprint_colored.png"
+      ]
+    },
+    {
+      "material": "Canonical gate beam pigment.002",
+      "faces": 1990,
+      "images": [
+        "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\hyeopmun_try03_blueprint_colored.png"
+      ]
+    }
+  ]
+}

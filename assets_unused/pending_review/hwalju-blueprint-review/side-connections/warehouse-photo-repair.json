@@ -1,0 +1,33 @@
+{
+  "sceneSha256": "99d636f4b0c9f99d8fec893b57ade3b45c970608bfca50b950b6808794bc40ca",
+  "forecourtSha256": "ef4dcdfcc2303b49f68b61fa7f90851ac35b684ec8f9fc5db3b45b3bfa6f0b9e",
+  "trimmedAndLoweredMeshes": [
+    "Forecourt.wall.warehouse-toilet.0.core",
+    "Forecourt.wall.warehouse-toilet.0.rubble",
+    "Forecourt.wall.warehouse-toilet.0.pan",
+    "Forecourt.wall.warehouse-toilet.0.cover",
+    "Forecourt.wall.warehouse-toilet.0.tile ends",
+    "Forecourt.wall.warehouse-toilet.0.ridge",
+    "Forecourt.wall.warehouse-toilet.1.core",
+    "Forecourt.wall.warehouse-toilet.1.rubble",
+    "Forecourt.wall.warehouse-toilet.1.pan",
+    "Forecourt.wall.warehouse-toilet.1.cover",
+    "Forecourt.wall.warehouse-toilet.1.tile ends",
+    "Forecourt.wall.warehouse-toilet.1.ridge",
+    "Forecourt.wall.warehouse-toilet.2.core",
+    "Forecourt.wall.warehouse-toilet.2.rubble",
+    "Forecourt.wall.warehouse-toilet.2.pan",
+    "Forecourt.wall.warehouse-toilet.2.cover",
+    "Forecourt.wall.warehouse-toilet.2.tile ends",
+    "Forecourt.wall.warehouse-toilet.2.ridge"
+  ],
+  "addedPlasterObjects": [
+    "PhotoWarehouse.end ochre infill",
+    "PhotoWarehouse.end lime plaster",
+    "PhotoWarehouse.gable ochre"
+  ],
+  "wallStart": [
+    -10.055,
+    -3.535
+  ]
+}

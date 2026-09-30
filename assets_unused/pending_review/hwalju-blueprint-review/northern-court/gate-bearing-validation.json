@@ -1,0 +1,139 @@
+{
+  "sceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+  "checks": [
+    {
+      "gate": "left_changgo",
+      "point": [
+        -4.227999925613403,
+        3.0271999835968018,
+        3.375540256500244
+      ],
+      "gap": null,
+      "bearing": null,
+      "pass": false
+    },
+    {
+      "gate": "left_changgo",
+      "point": [
+        -2.1679999828338623,
+        3.0271999835968018,
+        3.375540256500244
+      ],
+      "gap": null,
+      "bearing": null,
+      "pass": false
+    },
+    {
+      "gate": "left_changgo",
+      "point": [
+        -4.227999925613403,
+        3.8019999265670776,
+        3.809999942779541
+      ],
+      "gap": 0.625000093460083,
+      "bearing": "V27.left_changgo.frame.lintel",
+      "pass": false
+    },
+    {
+      "gate": "left_changgo",
+      "point": [
+        -2.1679999828338623,
+        3.8019999265670776,
+        3.809999942779541
+      ],
+      "gap": 0.6250001530647278,
+      "bearing": "V27.left_changgo.frame.lintel",
+      "pass": false
+    },
+    {
+      "gate": "left_changgo",
+      "point": [
+        -4.227999925613403,
+        4.5767998695373535,
+        3.375540256500244
+      ],
+      "gap": null,
+      "bearing": null,
+      "pass": false
+    },
+    {
+      "gate": "left_changgo",
+      "point": [
+        -2.1679999828338623,
+        4.5767998695373535,
+        3.375540256500244
+      ],
+      "gap": null,
+      "bearing": null,
+      "pass": false
+    },
+    {
+      "gate": "right_ansarang",
+      "point": [
+        17.381999969482422,
+        -0.37979884445667267,
+        2.9902970790863037
+      ],
+      "gap": null,
+      "bearing": null,
+      "pass": false
+    },
+    {
+      "gate": "right_ansarang",
+      "point": [
+        18.802000045776367,
+        -0.37979884445667267,
+        2.9902970790863037
+      ],
+      "gap": null,
+      "bearing": null,
+      "pass": false
+    },
+    {
+      "gate": "right_ansarang",
+      "point": [
+        17.381999969482422,
+        0.0830011460930109,
+        3.2754454612731934
+      ],
+      "gap": 0.3304455916881561,
+      "bearing": "V27.right_ansarang.frame.lintel",
+      "pass": false
+    },
+    {
+      "gate": "right_ansarang",
+      "point": [
+        18.802000045776367,
+        0.0830011460930109,
+        3.2754454612731934
+      ],
+      "gap": 0.3304455916881561,
+      "bearing": "V27.right_ansarang.frame.lintel",
+      "pass": false
+    },
+    {
+      "gate": "right_ansarang",
+      "point": [
+        17.381999969482422,
+        0.5458011627197266,
+        2.9902970790863037
+      ],
+      "gap": null,
+      "bearing": null,
+      "pass": false
+    },
+    {
+      "gate": "right_ansarang",
+      "point": [
+        18.802000045776367,
+        0.5458011627197266,
+        2.9902970790863037
+      ],
+      "gap": null,
+      "bearing": null,
+      "pass": false
+    }
+  ],
+  "passed": 0,
+  "total": 12
+}

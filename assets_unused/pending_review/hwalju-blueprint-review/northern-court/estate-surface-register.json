@@ -1,0 +1,4470 @@
+{
+  "sceneSha256": "ecc558480ea129159230474709eeb5b923b2e5c6aa5dc82af4e3232db000f1b1",
+  "buildings": {
+    "anchae": {
+      "Reference anchae tile": 33886,
+      "Reference anchae wood": 14414,
+      "North lime tile ends": 3780,
+      "Canonical gate wood pigment.011": 420
+    },
+    "angotgan": {
+      "Gye angotgan painted pine v1": 80543,
+      "North lime tile ends": 1560,
+      "Illustrated pine endgrain v1": 1280
+    },
+    "ansarang": {
+      "Reference ansarang wood": 35818,
+      "Reference ansarang tile": 18769,
+      "Ansarang retained Pale ceramic tile ends": 2912,
+      "Ansarang aged timber fissures": 523,
+      "Ansarang retained Warm hanji in timber lattice": 132,
+      "Canonical gate wood pigment.006": 60
+    },
+    "arae": {
+      "Gye arae painted pine v1": 95972,
+      "Illustrated pine endgrain v1": 2186,
+      "North lime tile ends": 1290
+    },
+    "changgo": {
+      "Warehouse approved illustration wood": 36910,
+      "V33 changgo source ceramic 3": 3553,
+      "V33 changgo source ceramic 0": 2706,
+      "V33 changgo source ceramic 2": 2357,
+      "V33 changgo source ceramic 1": 2334,
+      "Pale ceramic tile ends.001": 2148,
+      "V33 changgo source ceramic 4": 1876,
+      "V33 changgo source ceramic 5": 1716,
+      "Illustrated pine longgrain v1": 8,
+      "Illustrated pine endgrain v1": 4
+    },
+    "connection_garden": {
+      "Gate retained Jung dark weathered giwa 2": 22226,
+      "Craft garden pale tile noses": 10404
+    },
+    "estate_wall": {
+      "Ansarang retained V33 main_gate source ceramic 2": 77234,
+      "Forecourt aged lime tile ends": 39132
+    },
+    "forecourt_wall": {
+      "Ansarang retained V33 main_gate source ceramic 2": 21731,
+      "Forecourt aged lime tile ends": 11016
+    },
+    "gokgan": {
+      "Gye gokgan painted pine v1": 10436,
+      "North lime tile ends": 3030,
+      "Illustrated pine endgrain v1": 1688
+    },
+    "jung": {
+      "Jung dark walnut": 33093,
+      "Pale ceramic tile ends": 18876,
+      "Jung dark weathered giwa 0": 1803,
+      "Jung dark weathered giwa 3": 1795,
+      "Jung dark weathered giwa 1": 1781,
+      "Jung dark weathered giwa 2": 1514,
+      "Jung dark weathered giwa 4": 1298,
+      "Jung dark weathered giwa 5": 1031,
+      "Charcoal grey giwa 0": 444,
+      "Charcoal grey giwa 1": 444,
+      "Charcoal grey giwa 3": 444,
+      "Charcoal grey giwa 4": 444,
+      "Charcoal grey giwa 2": 370,
+      "Charcoal grey giwa 5": 370,
+      "Warm hanji in timber lattice": 66
+    },
+    "left_changgo": {
+      "Reference gate tile": 6183,
+      "Reference gate wood": 4412,
+      "Gate retained Pale ceramic tile ends": 984,
+      "Canonical gate wood pigment.008": 84
+    },
+    "main_gate": {
+      "Canonical gate wood pigment.003": 122004,
+      "Ansarang retained V33 main_gate source ceramic 0": 4555,
+      "Ansarang retained V33 main_gate source ceramic 3": 4547,
+      "Ansarang retained V33 main_gate source ceramic 2": 4193,
+      "Ansarang retained V33 main_gate source ceramic 1": 4147,
+      "Ansarang retained V33 main_gate source ceramic 4": 2744,
+      "Ansarang retained V33 main_gate source ceramic 5": 2744,
+      "Photo gate weathered lime tile end": 1904,
+      "Canonical gate wood pigment.010": 48
+    },
+    "north_site": {
+      "Ansarang retained V33 main_gate source ceramic 2": 25658,
+      "Forecourt aged lime tile ends": 12996,
+      "Reference gate tile": 1758,
+      "North lime tile ends": 1424,
+      "Reference gate wood": 1404
+    },
+    "right_ansarang": {
+      "Reference gate tile": 7647,
+      "Reference gate wood": 3216,
+      "Gate retained Pale ceramic tile ends": 1296,
+      "Canonical gate wood pigment.009": 84
+    },
+    "sadang": {
+      "Reference sadang roof ceramic corrected": 17436,
+      "North lime tile ends": 2052,
+      "Canonical gate wood pigment.004": 872,
+      "Sep29 altar Canonical gate wood pigment.007": 321,
+      "Reference sadang wood": 192,
+      "Canonical gate wood pigment.007": 36
+    },
+    "sadangmun": {
+      "Reference sadangmun tile": 4567,
+      "North lime tile ends": 316,
+      "Canonical gate wood pigment.005": 168
+    },
+    "sarang": {
+      "Pale ceramic tile ends": 55330,
+      "Sarang golden aged timber": 26603,
+      "Charcoal grey giwa 2": 7686,
+      "Sarang vertical timber grain": 7614,
+      "Charcoal grey giwa 3": 5276,
+      "Charcoal grey giwa 0": 5251,
+      "Charcoal grey giwa 1": 5190,
+      "Craft roof lining timber": 4537,
+      "Charcoal grey giwa 4": 4375,
+      "Charcoal grey giwa 5": 3743,
+      "Jung dark walnut": 360,
+      "Warm hanji in timber lattice": 198
+    },
+    "toilet": {
+      "Ansarang retained V33 toilet source ceramic 2": 3247,
+      "Canonical gate wood pigment.002": 2586,
+      "Ansarang retained V33 toilet source ceramic 3": 1433,
+      "Ansarang retained V33 toilet source ceramic 0": 1315,
+      "Ansarang retained Pale ceramic tile ends.001": 1260,
+      "Ansarang retained V33 toilet source ceramic 1": 1195,
+      "Ansarang retained V33 toilet source ceramic 4": 880,
+      "Ansarang retained V33 toilet source ceramic 5": 720
+    },
+    "toilet1": {
+      "Ansarang retained V33 toilet source ceramic 2": 3247,
+      "Canonical gate wood pigment.002": 2586,
+      "Ansarang retained V33 toilet source ceramic 3": 1433,
+      "Ansarang retained V33 toilet source ceramic 0": 1315,
+      "Ansarang retained Pale ceramic tile ends.001": 1260,
+      "Ansarang retained V33 toilet source ceramic 1": 1195,
+      "Ansarang retained V33 toilet source ceramic 4": 880,
+      "Ansarang retained V33 toilet source ceramic 5": 720
+    }
+  },
+  "materials": {
+    "Sarang golden aged timber": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "master-sarangchae.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\sources\\master-sarangchae.png",
+          "sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a"
+        }
+      ],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.1080000028014183,
+            0.061650000512599945,
+            0.026165999472141266,
+            1.0
+          ],
+          [
+            0.18000000715255737,
+            0.10274999588727951,
+            0.04360999912023544,
+            1.0
+          ],
+          [
+            0.24300000071525574,
+            0.1386750042438507,
+            0.05891800299286842,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.7599999904632568,
+            0.75,
+            0.7300000190734863,
+            1.0
+          ],
+          [
+            1.1699999570846558,
+            1.1200000047683716,
+            1.0399999618530273,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.6600000262260437,
+            0.6299999952316284,
+            0.5600000023841858,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.1200000047683716,
+            1.090000033378601,
+            1.0199999809265137,
+            1.0
+          ]
+        ],
+        "색상 램프.003": [
+          [
+            0.5199999809265137,
+            0.44999998807907104,
+            0.3700000047683716,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0800000429153442,
+            1.0399999618530273,
+            0.9900000095367432,
+            1.0
+          ]
+        ],
+        "색상 램프.004": [
+          [
+            0.550000011920929,
+            0.550000011920929,
+            0.550000011920929,
+            1.0
+          ],
+          [
+            0.7599999904632568,
+            0.7599999904632568,
+            0.7599999904632568,
+            1.0
+          ]
+        ],
+        "색상 램프.005": [
+          [
+            0.5699999928474426,
+            0.5199999809265137,
+            0.4399999976158142,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.006": [
+          [
+            0.6700000166893005,
+            0.6200000047683716,
+            0.5600000023841858,
+            1.0
+          ],
+          [
+            0.8299999833106995,
+            0.7900000214576721,
+            0.7400000095367432,
+            1.0
+          ],
+          [
+            1.0499999523162842,
+            1.0299999713897705,
+            1.0,
+            1.0
+          ],
+          [
+            1.0800000429153442,
+            1.0499999523162842,
+            1.0099999904632568,
+            1.0
+          ]
+        ],
+        "색상 램프.007": [
+          [
+            0.699999988079071,
+            0.6600000262260437,
+            0.6000000238418579,
+            1.0
+          ],
+          [
+            1.059999942779541,
+            1.0399999618530273,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.008": [
+          [
+            0.5699999928474426,
+            0.5699999928474426,
+            0.5699999928474426,
+            1.0
+          ],
+          [
+            0.8100000023841858,
+            0.8100000023841858,
+            0.8100000023841858,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "TEX_IMAGE",
+        "MIX_RGB",
+        "ATTRIBUTE",
+        "VALTORGB",
+        "MIX_RGB",
+        "VALTORGB",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "BUMP",
+        "VALTORGB",
+        "UVMAP",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "MATH",
+        "MATH",
+        "VALTORGB",
+        "MIX_RGB",
+        "TEX_COORD",
+        "UVMAP",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "MATH",
+        "MATH",
+        "MAP_RANGE",
+        "VALTORGB",
+        "MIX_RGB",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB",
+        "MIX_RGB"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "Gye aged walnut glaze",
+      "Roughness": 0.7699999809265137,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.23000000417232513,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Sarang vertical timber grain": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "master-sarangchae.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\sources\\master-sarangchae.png",
+          "sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a"
+        }
+      ],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.1080000028014183,
+            0.061650000512599945,
+            0.026165999472141266,
+            1.0
+          ],
+          [
+            0.18000000715255737,
+            0.10274999588727951,
+            0.04360999912023544,
+            1.0
+          ],
+          [
+            0.24300000071525574,
+            0.1386750042438507,
+            0.05891800299286842,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.7599999904632568,
+            0.75,
+            0.7300000190734863,
+            1.0
+          ],
+          [
+            1.1699999570846558,
+            1.1200000047683716,
+            1.0399999618530273,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.6600000262260437,
+            0.6299999952316284,
+            0.5600000023841858,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.1200000047683716,
+            1.090000033378601,
+            1.0199999809265137,
+            1.0
+          ]
+        ],
+        "색상 램프.003": [
+          [
+            0.5199999809265137,
+            0.44999998807907104,
+            0.3700000047683716,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0800000429153442,
+            1.0399999618530273,
+            0.9900000095367432,
+            1.0
+          ]
+        ],
+        "색상 램프.004": [
+          [
+            0.550000011920929,
+            0.550000011920929,
+            0.550000011920929,
+            1.0
+          ],
+          [
+            0.7599999904632568,
+            0.7599999904632568,
+            0.7599999904632568,
+            1.0
+          ]
+        ],
+        "색상 램프.005": [
+          [
+            0.5699999928474426,
+            0.5199999809265137,
+            0.4399999976158142,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.006": [
+          [
+            0.6700000166893005,
+            0.6200000047683716,
+            0.5600000023841858,
+            1.0
+          ],
+          [
+            0.8299999833106995,
+            0.7900000214576721,
+            0.7400000095367432,
+            1.0
+          ],
+          [
+            1.0499999523162842,
+            1.0299999713897705,
+            1.0,
+            1.0
+          ],
+          [
+            1.0800000429153442,
+            1.0499999523162842,
+            1.0099999904632568,
+            1.0
+          ]
+        ],
+        "색상 램프.007": [
+          [
+            0.699999988079071,
+            0.6600000262260437,
+            0.6000000238418579,
+            1.0
+          ],
+          [
+            1.059999942779541,
+            1.0399999618530273,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.008": [
+          [
+            0.5699999928474426,
+            0.5699999928474426,
+            0.5699999928474426,
+            1.0
+          ],
+          [
+            0.8100000023841858,
+            0.8100000023841858,
+            0.8100000023841858,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "TEX_IMAGE",
+        "MIX_RGB",
+        "ATTRIBUTE",
+        "VALTORGB",
+        "MIX_RGB",
+        "VALTORGB",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "BUMP",
+        "VALTORGB",
+        "UVMAP",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "MATH",
+        "MATH",
+        "VALTORGB",
+        "MIX_RGB",
+        "TEX_COORD",
+        "UVMAP",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "MATH",
+        "MATH",
+        "MAP_RANGE",
+        "VALTORGB",
+        "MIX_RGB",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB",
+        "MIX_RGB"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "Gye aged walnut glaze",
+      "Roughness": 0.7699999809265137,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.23000000417232513,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Warm hanji in timber lattice": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "photo-05.png.001",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-spatial-preservation-plan-20260922\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\reconstruction-reference-v3\\references\\photo-05.png",
+          "sha256": "5cb0249dc77198c73d6c7f6eb3d7df32e024887e89fd1d1b3668b319f9bd0628"
+        }
+      ],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.2800000011920929,
+            0.28999999165534973,
+            0.30000001192092896,
+            1.0
+          ],
+          [
+            1.0700000524520874,
+            1.0499999523162842,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.0949999988079071,
+            0.0729999989271164,
+            0.04699999839067459,
+            1.0
+          ],
+          [
+            0.27000001072883606,
+            0.20000000298023224,
+            0.12999999523162842,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "RGB",
+        "UVMAP",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "TEX_IMAGE",
+        "RGBTOBW",
+        "VALTORGB",
+        "MIX_RGB",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP"
+      ],
+      "baseColor": [
+        0.8199999928474426,
+        0.7699999809265137,
+        0.6499999761581421,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시).001",
+      "Roughness": 0.8299999833106995,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.5,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Jung dark walnut": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "art-jungmunganchae.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\sources\\art-jungmunganchae.png",
+          "sha256": null
+        }
+      ],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.12555000185966492,
+            0.05636399984359741,
+            0.01979999989271164,
+            1.0
+          ],
+          [
+            0.20925000309944153,
+            0.09393999725580215,
+            0.032999999821186066,
+            1.0
+          ],
+          [
+            0.2825549840927124,
+            0.1268800050020218,
+            0.04455000162124634,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.7599999904632568,
+            0.75,
+            0.7300000190734863,
+            1.0
+          ],
+          [
+            1.1699999570846558,
+            1.1200000047683716,
+            1.0399999618530273,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.6600000262260437,
+            0.6299999952316284,
+            0.5600000023841858,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.1200000047683716,
+            1.090000033378601,
+            1.0199999809265137,
+            1.0
+          ]
+        ],
+        "색상 램프.003": [
+          [
+            0.5199999809265137,
+            0.44999998807907104,
+            0.3700000047683716,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0800000429153442,
+            1.0399999618530273,
+            0.9900000095367432,
+            1.0
+          ]
+        ],
+        "색상 램프.004": [
+          [
+            0.550000011920929,
+            0.550000011920929,
+            0.550000011920929,
+            1.0
+          ],
+          [
+            0.7599999904632568,
+            0.7599999904632568,
+            0.7599999904632568,
+            1.0
+          ]
+        ],
+        "색상 램프.005": [
+          [
+            0.5699999928474426,
+            0.5199999809265137,
+            0.4399999976158142,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.006": [
+          [
+            0.6700000166893005,
+            0.6200000047683716,
+            0.5600000023841858,
+            1.0
+          ],
+          [
+            0.8299999833106995,
+            0.7900000214576721,
+            0.7400000095367432,
+            1.0
+          ],
+          [
+            1.0499999523162842,
+            1.0299999713897705,
+            1.0,
+            1.0
+          ],
+          [
+            1.0800000429153442,
+            1.0499999523162842,
+            1.0099999904632568,
+            1.0
+          ]
+        ],
+        "색상 램프.007": [
+          [
+            0.699999988079071,
+            0.6600000262260437,
+            0.6000000238418579,
+            1.0
+          ],
+          [
+            1.059999942779541,
+            1.0399999618530273,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.008": [
+          [
+            0.5699999928474426,
+            0.5699999928474426,
+            0.5699999928474426,
+            1.0
+          ],
+          [
+            0.8100000023841858,
+            0.8100000023841858,
+            0.8100000023841858,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "TEX_IMAGE",
+        "MIX_RGB",
+        "ATTRIBUTE",
+        "VALTORGB",
+        "MIX_RGB",
+        "VALTORGB",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "BUMP",
+        "VALTORGB",
+        "UVMAP",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "MATH",
+        "MATH",
+        "VALTORGB",
+        "MIX_RGB",
+        "TEX_COORD",
+        "UVMAP",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "MATH",
+        "MATH",
+        "MAP_RANGE",
+        "VALTORGB",
+        "MIX_RGB",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시).006",
+      "Roughness": 0.7699999809265137,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.23000000417232513,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Charcoal grey giwa 0": {
+      "images": [],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.034299999475479126,
+            0.039000000804662704,
+            0.03807999938726425,
+            1.0
+          ],
+          [
+            0.04399999976158142,
+            0.05000000074505806,
+            0.04879999905824661,
+            1.0
+          ],
+          [
+            0.051500000059604645,
+            0.05849999934434891,
+            0.057120002806186676,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.699999988079071,
+            0.699999988079071,
+            0.699999988079071,
+            1.0
+          ],
+          [
+            0.8700000047683716,
+            0.8700000047683716,
+            0.8700000047683716,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.7799999713897705,
+            0.7900000214576721,
+            0.800000011920929,
+            1.0
+          ],
+          [
+            1.1299999952316284,
+            1.1200000047683716,
+            1.090000033378601,
+            1.0
+          ]
+        ],
+        "색상 램프.003": [
+          [
+            0.6600000262260437,
+            0.6600000262260437,
+            0.6600000262260437,
+            1.0
+          ],
+          [
+            0.8799999952316284,
+            0.8799999952316284,
+            0.8799999952316284,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "TEX_NOISE",
+        "BUMP",
+        "BUMP",
+        "VALTORGB",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시)",
+      "Roughness": 0.7699999809265137,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Charcoal grey giwa 1": {
+      "images": [],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.046799998730421066,
+            0.052299998700618744,
+            0.04808000102639198,
+            1.0
+          ],
+          [
+            0.05999999865889549,
+            0.06700000166893005,
+            0.06159999966621399,
+            1.0
+          ],
+          [
+            0.07020000368356705,
+            0.07840000092983246,
+            0.07208000123500824,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.699999988079071,
+            0.699999988079071,
+            0.699999988079071,
+            1.0
+          ],
+          [
+            0.8700000047683716,
+            0.8700000047683716,
+            0.8700000047683716,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.7799999713897705,
+            0.7900000214576721,
+            0.800000011920929,
+            1.0
+          ],
+          [
+            1.1299999952316284,
+            1.1200000047683716,
+            1.090000033378601,
+            1.0
+          ]
+        ],
+        "색상 램프.003": [
+          [
+            0.6600000262260437,
+            0.6600000262260437,
+            0.6600000262260437,
+            1.0
+          ],
+          [
+            0.8799999952316284,
+            0.8799999952316284,
+            0.8799999952316284,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "TEX_NOISE",
+        "BUMP",
+        "BUMP",
+        "VALTORGB",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시)",
+      "Roughness": 0.7699999809265137,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Charcoal grey giwa 2": {
+      "images": [],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.05380000174045563,
+            0.05689999833703041,
+            0.04927999898791313,
+            1.0
+          ],
+          [
+            0.0689999982714653,
+            0.0729999989271164,
+            0.06320000439882278,
+            1.0
+          ],
+          [
+            0.08070000261068344,
+            0.08540000021457672,
+            0.07391999661922455,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.699999988079071,
+            0.699999988079071,
+            0.699999988079071,
+            1.0
+          ],
+          [
+            0.8700000047683716,
+            0.8700000047683716,
+            0.8700000047683716,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.7799999713897705,
+            0.7900000214576721,
+            0.800000011920929,
+            1.0
+          ],
+          [
+            1.1299999952316284,
+            1.1200000047683716,
+            1.090000033378601,
+            1.0
+          ]
+        ],
+        "색상 램프.003": [
+          [
+            0.6600000262260437,
+            0.6600000262260437,
+            0.6600000262260437,
+            1.0
+          ],
+          [
+            0.8799999952316284,
+            0.8799999952316284,
+            0.8799999952316284,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "TEX_NOISE",
+        "BUMP",
+        "BUMP",
+        "VALTORGB",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시)",
+      "Roughness": 0.7699999809265137,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Charcoal grey giwa 3": {
+      "images": [],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.02889999933540821,
+            0.034299999475479126,
+            0.03367999941110611,
+            1.0
+          ],
+          [
+            0.03700000047683716,
+            0.04399999976158142,
+            0.04320000112056732,
+            1.0
+          ],
+          [
+            0.043299999088048935,
+            0.051500000059604645,
+            0.05055999755859375,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.699999988079071,
+            0.699999988079071,
+            0.699999988079071,
+            1.0
+          ],
+          [
+            0.8700000047683716,
+            0.8700000047683716,
+            0.8700000047683716,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.7799999713897705,
+            0.7900000214576721,
+            0.800000011920929,
+            1.0
+          ],
+          [
+            1.1299999952316284,
+            1.1200000047683716,
+            1.090000033378601,
+            1.0
+          ]
+        ],
+        "색상 램프.003": [
+          [
+            0.6600000262260437,
+            0.6600000262260437,
+            0.6600000262260437,
+            1.0
+          ],
+          [
+            0.8799999952316284,
+            0.8799999952316284,
+            0.8799999952316284,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "TEX_NOISE",
+        "BUMP",
+        "BUMP",
+        "VALTORGB",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시)",
+      "Roughness": 0.7699999809265137,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Charcoal grey giwa 4": {
+      "images": [],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.05849999934434891,
+            0.06319999694824219,
+            0.05616000294685364,
+            1.0
+          ],
+          [
+            0.07500000298023224,
+            0.08100000023841858,
+            0.07200000435113907,
+            1.0
+          ],
+          [
+            0.08780000358819962,
+            0.09480000287294388,
+            0.08424000442028046,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.699999988079071,
+            0.699999988079071,
+            0.699999988079071,
+            1.0
+          ],
+          [
+            0.8700000047683716,
+            0.8700000047683716,
+            0.8700000047683716,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.7799999713897705,
+            0.7900000214576721,
+            0.800000011920929,
+            1.0
+          ],
+          [
+            1.1299999952316284,
+            1.1200000047683716,
+            1.090000033378601,
+            1.0
+          ]
+        ],
+        "색상 램프.003": [
+          [
+            0.6600000262260437,
+            0.6600000262260437,
+            0.6600000262260437,
+            1.0
+          ],
+          [
+            0.8799999952316284,
+            0.8799999952316284,
+            0.8799999952316284,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "TEX_NOISE",
+        "BUMP",
+        "BUMP",
+        "VALTORGB",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시)",
+      "Roughness": 0.7699999809265137,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Charcoal grey giwa 5": {
+      "images": [],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.042899999767541885,
+            0.04600000008940697,
+            0.041200000792741776,
+            1.0
+          ],
+          [
+            0.054999999701976776,
+            0.05900000035762787,
+            0.052799999713897705,
+            1.0
+          ],
+          [
+            0.06440000236034393,
+            0.0689999982714653,
+            0.06176000088453293,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.699999988079071,
+            0.699999988079071,
+            0.699999988079071,
+            1.0
+          ],
+          [
+            0.8700000047683716,
+            0.8700000047683716,
+            0.8700000047683716,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.7799999713897705,
+            0.7900000214576721,
+            0.800000011920929,
+            1.0
+          ],
+          [
+            1.1299999952316284,
+            1.1200000047683716,
+            1.090000033378601,
+            1.0
+          ]
+        ],
+        "색상 램프.003": [
+          [
+            0.6600000262260437,
+            0.6600000262260437,
+            0.6600000262260437,
+            1.0
+          ],
+          [
+            0.8799999952316284,
+            0.8799999952316284,
+            0.8799999952316284,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "TEX_NOISE",
+        "BUMP",
+        "BUMP",
+        "VALTORGB",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시)",
+      "Roughness": 0.7699999809265137,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Pale ceramic tile ends": {
+      "images": [],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.49000000953674316,
+            0.4650000035762787,
+            0.4129999876022339,
+            1.0
+          ],
+          [
+            0.6399999856948853,
+            0.6129999756813049,
+            0.5550000071525574,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.7799999713897705,
+            0.7900000214576721,
+            0.800000011920929,
+            1.0
+          ],
+          [
+            1.1299999952316284,
+            1.1200000047683716,
+            1.090000033378601,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.6600000262260437,
+            0.6600000262260437,
+            0.6600000262260437,
+            1.0
+          ],
+          [
+            0.8799999952316284,
+            0.8799999952316284,
+            0.8799999952316284,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "BUMP",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시)",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Jung dark weathered giwa 0": {
+      "images": [],
+      "ramps": {
+        "Color Ramp": [
+          [
+            0.039536003023386,
+            0.042768001556396484,
+            0.03697500005364418,
+            1.0
+          ],
+          [
+            0.07022400200366974,
+            0.07603199779987335,
+            0.06568499654531479,
+            1.0
+          ]
+        ],
+        "색상 램프": [
+          [
+            0.8600000143051147,
+            0.8500000238418579,
+            0.8199999928474426,
+            1.0
+          ],
+          [
+            1.090000033378601,
+            1.059999942779541,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.7799999713897705,
+            0.7900000214576721,
+            0.800000011920929,
+            1.0
+          ],
+          [
+            1.1299999952316284,
+            1.1200000047683716,
+            1.090000033378601,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.6600000262260437,
+            0.6600000262260437,
+            0.6600000262260437,
+            1.0
+          ],
+          [
+            0.8799999952316284,
+            0.8799999952316284,
+            0.8799999952316284,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "BUMP",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.04899999871850014,
+        0.054999999701976776,
+        0.05900000035762787,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시).001",
+      "Roughness": 0.800000011920929,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Jung dark weathered giwa 1": {
+      "images": [],
+      "ramps": {
+        "Color Ramp": [
+          [
+            0.043568000197410583,
+            0.04665600135922432,
+            0.04010700061917305,
+            1.0
+          ],
+          [
+            0.07739199697971344,
+            0.08294400572776794,
+            0.07125300168991089,
+            1.0
+          ]
+        ],
+        "색상 램프": [
+          [
+            0.8600000143051147,
+            0.8500000238418579,
+            0.8199999928474426,
+            1.0
+          ],
+          [
+            1.090000033378601,
+            1.059999942779541,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.7799999713897705,
+            0.7900000214576721,
+            0.800000011920929,
+            1.0
+          ],
+          [
+            1.1299999952316284,
+            1.1200000047683716,
+            1.090000033378601,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.6600000262260437,
+            0.6600000262260437,
+            0.6600000262260437,
+            1.0
+          ],
+          [
+            0.8799999952316284,
+            0.8799999952316284,
+            0.8799999952316284,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "BUMP",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.05400000140070915,
+        0.05999999865889549,
+        0.06400000303983688,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시).001",
+      "Roughness": 0.800000011920929,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Jung dark weathered giwa 2": {
+      "images": [],
+      "ramps": {
+        "Color Ramp": [
+          [
+            0.047600001096725464,
+            0.050543997436761856,
+            0.04323900118470192,
+            1.0
+          ],
+          [
+            0.08455999940633774,
+            0.08985599875450134,
+            0.07682099938392639,
+            1.0
+          ]
+        ],
+        "색상 램프": [
+          [
+            0.8600000143051147,
+            0.8500000238418579,
+            0.8199999928474426,
+            1.0
+          ],
+          [
+            1.090000033378601,
+            1.059999942779541,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.7799999713897705,
+            0.7900000214576721,
+            0.800000011920929,
+            1.0
+          ],
+          [
+            1.1299999952316284,
+            1.1200000047683716,
+            1.090000033378601,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.6600000262260437,
+            0.6600000262260437,
+            0.6600000262260437,
+            1.0
+          ],
+          [
+            0.8799999952316284,
+            0.8799999952316284,
+            0.8799999952316284,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "BUMP",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.05900000035762787,
+        0.06499999761581421,
+        0.0689999982714653,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시).001",
+      "Roughness": 0.800000011920929,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Jung dark weathered giwa 3": {
+      "images": [],
+      "ramps": {
+        "Color Ramp": [
+          [
+            0.051632001996040344,
+            0.05443200096487999,
+            0.04637100175023079,
+            1.0
+          ],
+          [
+            0.09172800183296204,
+            0.09676799923181534,
+            0.08238900452852249,
+            1.0
+          ]
+        ],
+        "색상 램프": [
+          [
+            0.8600000143051147,
+            0.8500000238418579,
+            0.8199999928474426,
+            1.0
+          ],
+          [
+            1.090000033378601,
+            1.059999942779541,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.7799999713897705,
+            0.7900000214576721,
+            0.800000011920929,
+            1.0
+          ],
+          [
+            1.1299999952316284,
+            1.1200000047683716,
+            1.090000033378601,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.6600000262260437,
+            0.6600000262260437,
+            0.6600000262260437,
+            1.0
+          ],
+          [
+            0.8799999952316284,
+            0.8799999952316284,
+            0.8799999952316284,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "BUMP",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.06400000303983688,
+        0.07000000029802322,
+        0.07400000095367432,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시).001",
+      "Roughness": 0.800000011920929,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Jung dark weathered giwa 4": {
+      "images": [],
+      "ramps": {
+        "Color Ramp": [
+          [
+            0.055663999170064926,
+            0.058320000767707825,
+            0.04950299859046936,
+            1.0
+          ],
+          [
+            0.09889599680900574,
+            0.10367999970912933,
+            0.0879569947719574,
+            1.0
+          ]
+        ],
+        "색상 램프": [
+          [
+            0.8600000143051147,
+            0.8500000238418579,
+            0.8199999928474426,
+            1.0
+          ],
+          [
+            1.090000033378601,
+            1.059999942779541,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.7799999713897705,
+            0.7900000214576721,
+            0.800000011920929,
+            1.0
+          ],
+          [
+            1.1299999952316284,
+            1.1200000047683716,
+            1.090000033378601,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.6600000262260437,
+            0.6600000262260437,
+            0.6600000262260437,
+            1.0
+          ],
+          [
+            0.8799999952316284,
+            0.8799999952316284,
+            0.8799999952316284,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "BUMP",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.0689999982714653,
+        0.07500000298023224,
+        0.07900000363588333,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시).001",
+      "Roughness": 0.800000011920929,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Jung dark weathered giwa 5": {
+      "images": [],
+      "ramps": {
+        "Color Ramp": [
+          [
+            0.059696000069379807,
+            0.06220800057053566,
+            0.05263499915599823,
+            1.0
+          ],
+          [
+            0.10606399923563004,
+            0.11059200018644333,
+            0.0935249999165535,
+            1.0
+          ]
+        ],
+        "색상 램프": [
+          [
+            0.8600000143051147,
+            0.8500000238418579,
+            0.8199999928474426,
+            1.0
+          ],
+          [
+            1.090000033378601,
+            1.059999942779541,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.7799999713897705,
+            0.7900000214576721,
+            0.800000011920929,
+            1.0
+          ],
+          [
+            1.1299999952316284,
+            1.1200000047683716,
+            1.090000033378601,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.6600000262260437,
+            0.6600000262260437,
+            0.6600000262260437,
+            1.0
+          ],
+          [
+            0.8799999952316284,
+            0.8799999952316284,
+            0.8799999952316284,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "BUMP",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "TEX_NOISE",
+        "BUMP",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.07400000095367432,
+        0.07999999821186066,
+        0.08399999886751175,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시).001",
+      "Roughness": 0.800000011920929,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Craft roof lining timber": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "master-sarangchae.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\sources\\master-sarangchae.png",
+          "sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a"
+        }
+      ],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.18000000715255737,
+            0.08219999819993973,
+            0.029400000348687172,
+            1.0
+          ],
+          [
+            0.30000001192092896,
+            0.13699999451637268,
+            0.04899999871850014,
+            1.0
+          ],
+          [
+            0.4050000011920929,
+            0.18494999408721924,
+            0.06615000218153,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.7599999904632568,
+            0.75,
+            0.7300000190734863,
+            1.0
+          ],
+          [
+            1.1699999570846558,
+            1.1200000047683716,
+            1.0399999618530273,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.6600000262260437,
+            0.6299999952316284,
+            0.5600000023841858,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.1200000047683716,
+            1.090000033378601,
+            1.0199999809265137,
+            1.0
+          ]
+        ],
+        "색상 램프.003": [
+          [
+            0.5199999809265137,
+            0.44999998807907104,
+            0.3700000047683716,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0800000429153442,
+            1.0399999618530273,
+            0.9900000095367432,
+            1.0
+          ]
+        ],
+        "색상 램프.004": [
+          [
+            0.550000011920929,
+            0.550000011920929,
+            0.550000011920929,
+            1.0
+          ],
+          [
+            0.7599999904632568,
+            0.7599999904632568,
+            0.7599999904632568,
+            1.0
+          ]
+        ],
+        "색상 램프.005": [
+          [
+            0.5699999928474426,
+            0.5199999809265137,
+            0.4399999976158142,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.006": [
+          [
+            0.6700000166893005,
+            0.6200000047683716,
+            0.5600000023841858,
+            1.0
+          ],
+          [
+            0.8299999833106995,
+            0.7900000214576721,
+            0.7400000095367432,
+            1.0
+          ],
+          [
+            1.0499999523162842,
+            1.0299999713897705,
+            1.0,
+            1.0
+          ],
+          [
+            1.0800000429153442,
+            1.0499999523162842,
+            1.0099999904632568,
+            1.0
+          ]
+        ],
+        "색상 램프.007": [
+          [
+            0.699999988079071,
+            0.6600000262260437,
+            0.6000000238418579,
+            1.0
+          ],
+          [
+            1.059999942779541,
+            1.0399999618530273,
+            1.0,
+            1.0
+          ]
+        ],
+        "색상 램프.008": [
+          [
+            0.5699999928474426,
+            0.5699999928474426,
+            0.5699999928474426,
+            1.0
+          ],
+          [
+            0.8100000023841858,
+            0.8100000023841858,
+            0.8100000023841858,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "VECT_MATH",
+        "TEX_IMAGE",
+        "MIX_RGB",
+        "ATTRIBUTE",
+        "VALTORGB",
+        "MIX_RGB",
+        "VALTORGB",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "BUMP",
+        "VALTORGB",
+        "UVMAP",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "MATH",
+        "MATH",
+        "VALTORGB",
+        "MIX_RGB",
+        "TEX_COORD",
+        "UVMAP",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "MATH",
+        "MATH",
+        "MAP_RANGE",
+        "VALTORGB",
+        "MIX_RGB",
+        "VECT_MATH",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시).006",
+      "Roughness": 0.7699999809265137,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.23000000417232513,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Reference ansarang wood": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "ansarang-canonical.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\ansarang-canonical.png",
+          "sha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8799999952316284,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained Pale ceramic tile ends": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "25-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\25-color.png",
+          "sha256": "e3d2ac379ff481967bf148aa327224f1b2fb2a29a33ce46e5e751b74e86a48ef"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "25-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\25-normal.png",
+          "sha256": "4f9f846de425d0ee15f4259818402b156806f2e6bc130450bba68a79da2e631e"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "25-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\25-roughness.png",
+          "sha256": "2e32c8e66622bd03ca5c0d242a46de4f58515a6d3188ec0b66b17297f355d505"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Reference ansarang tile": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "ansarang-canonical.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\ansarang-canonical.png",
+          "sha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "HUE_SAT"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "Gye low-chroma giwa",
+      "Roughness": 0.9200000166893005,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.11999999731779099,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Warehouse approved illustration wood": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "stage_08_complete.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets\\illustrations\\personal_hanok_v3\\construction\\changgo\\stage_08_complete.png",
+          "sha256": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Pale ceramic tile ends.001": {
+      "images": [],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.49000000953674316,
+            0.4650000035762787,
+            0.4129999876022339,
+            1.0
+          ],
+          [
+            0.6399999856948853,
+            0.6129999756813049,
+            0.5550000071525574,
+            1.0
+          ]
+        ],
+        "색상 램프.001": [
+          [
+            0.7799999713897705,
+            0.7900000214576721,
+            0.800000011920929,
+            1.0
+          ],
+          [
+            1.1299999952316284,
+            1.1200000047683716,
+            1.090000033378601,
+            1.0
+          ]
+        ],
+        "색상 램프.002": [
+          [
+            0.6600000262260437,
+            0.6600000262260437,
+            0.6600000262260437,
+            1.0
+          ],
+          [
+            0.8799999952316284,
+            0.8799999952316284,
+            0.8799999952316284,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "BUMP",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "TEX_NOISE",
+        "VALTORGB",
+        "MIX_RGB",
+        "BUMP",
+        "BUMP",
+        "VALTORGB"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시)",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "V33 changgo source ceramic 5": {
+      "images": [],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.04740477353334427,
+            0.046107929199934006,
+            0.05006164684891701,
+            1.0
+          ],
+          [
+            0.05678154155611992,
+            0.05522817745804787,
+            0.059963952749967575,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "TEX_NOISE",
+        "BUMP"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "색상 램프",
+      "Roughness": 0.6899999976158142,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2800000011920929,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "V33 changgo source ceramic 4": {
+      "images": [],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.046631745994091034,
+            0.04535605013370514,
+            0.04924529418349266,
+            1.0
+          ],
+          [
+            0.055855605751276016,
+            0.054327577352523804,
+            0.0589861236512661,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "TEX_NOISE",
+        "BUMP"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "색상 램프",
+      "Roughness": 0.6899999976158142,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2800000011920929,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "V33 changgo source ceramic 3": {
+      "images": [],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.0458587184548378,
+            0.04460417106747627,
+            0.048428941518068314,
+            1.0
+          ],
+          [
+            0.05492967367172241,
+            0.05342697352170944,
+            0.05800829455256462,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "TEX_NOISE",
+        "BUMP"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "색상 램프",
+      "Roughness": 0.6899999976158142,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2800000011920929,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "V33 changgo source ceramic 2": {
+      "images": [],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.045085690915584564,
+            0.04385228827595711,
+            0.04761258885264397,
+            1.0
+          ],
+          [
+            0.05400373786687851,
+            0.05252636969089508,
+            0.057030461728572845,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "TEX_NOISE",
+        "BUMP"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "색상 램프",
+      "Roughness": 0.6899999976158142,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2800000011920929,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "V33 changgo source ceramic 1": {
+      "images": [],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.04431266337633133,
+            0.04310040920972824,
+            0.04679623618721962,
+            1.0
+          ],
+          [
+            0.05307780206203461,
+            0.05162576586008072,
+            0.05605263262987137,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "TEX_NOISE",
+        "BUMP"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "색상 램프",
+      "Roughness": 0.6899999976158142,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2800000011920929,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "V33 changgo source ceramic 0": {
+      "images": [],
+      "ramps": {
+        "색상 램프": [
+          [
+            0.043539635837078094,
+            0.042348530143499374,
+            0.04597988352179527,
+            1.0
+          ],
+          [
+            0.052151869982481,
+            0.05072516202926636,
+            0.05507480353116989,
+            1.0
+          ]
+        ]
+      },
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "TEX_COORD",
+        "TEX_NOISE",
+        "VALTORGB",
+        "TEX_NOISE",
+        "BUMP"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "색상 램프",
+      "Roughness": 0.6899999976158142,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2800000011920929,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained Warm hanji in timber lattice": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "97-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\97-color.png",
+          "sha256": "e0570ca214c1c7968ce26fd2d0d36cfc028a29a397a31362e1184a13f418fce3"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "97-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\97-normal.png",
+          "sha256": "ed6dcfcc408fe15216413d990e7aa772c8ff39b60718f52b340423ff6ad5398a"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "97-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\97-roughness.png",
+          "sha256": "a94c3ace4579f92ad887afb99d99c5f0f3788e54ae236e199b656b083ea19795"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Gate retained Pale ceramic tile ends": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "25-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\25-color.png",
+          "sha256": "e3d2ac379ff481967bf148aa327224f1b2fb2a29a33ce46e5e751b74e86a48ef"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "25-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\25-normal.png",
+          "sha256": "4f9f846de425d0ee15f4259818402b156806f2e6bc130450bba68a79da2e631e"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "25-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\25-roughness.png",
+          "sha256": "2e32c8e66622bd03ca5c0d242a46de4f58515a6d3188ec0b66b17297f355d505"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.5,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Reference gate tile": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "canonical-gate.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png",
+          "sha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8999999761581421,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.11999999731779099,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Reference gate wood": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "canonical-gate.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png",
+          "sha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8799999952316284,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Gate retained Jung dark weathered giwa 2": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "10-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\10-color.png",
+          "sha256": "7eda53c1a1af8440e8379abc834bcd9c2525e9db83600aee52bf772928c5e322"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "10-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\10-normal.png",
+          "sha256": "ab74efaa54ffee06296e52255f10aa0947697dda9dc88e9f944f662c811dff45"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "10-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\10-roughness.png",
+          "sha256": "2e32c8e66622bd03ca5c0d242a46de4f58515a6d3188ec0b66b17297f355d505"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.5,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Craft garden pale tile noses": {
+      "images": [],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL"
+      ],
+      "baseColor": [
+        0.5799999833106995,
+        0.5,
+        0.36000001430511475,
+        1.0
+      ],
+      "colorSource": null,
+      "Roughness": 0.8799999952316284,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.5,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang aged timber fissures": {
+      "images": [],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL"
+      ],
+      "baseColor": [
+        0.054999999701976776,
+        0.03200000151991844,
+        0.014000000432133675,
+        1.0
+      ],
+      "colorSource": null,
+      "Roughness": 0.949999988079071,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.5,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Canonical gate wood pigment.002": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "hyeopmun_try03_blueprint_colored.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\hyeopmun_try03_blueprint_colored.png",
+          "sha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained V33 toilet source ceramic 2": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "88-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\88-color.png",
+          "sha256": "19c43294de4f8f013c5a47858eecff7b500355a5e2dd7715651de658e49d9ada"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "88-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\88-normal.png",
+          "sha256": "78774bb0982bcb399a68f7f2c6d4a0d574867e0411fbd9f0d2181c720324222c"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "88-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\88-roughness.png",
+          "sha256": "e5d314d508d41ba7555047203154538fd06101481375e258f81d2d137b40591d"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained V33 toilet source ceramic 4": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "90-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\90-color.png",
+          "sha256": "11466eccbd366536e0628dd01e7f3e291fc053915c10e20e20e162c8ce3eba44"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "90-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\90-normal.png",
+          "sha256": "78774bb0982bcb399a68f7f2c6d4a0d574867e0411fbd9f0d2181c720324222c"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "90-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\90-roughness.png",
+          "sha256": "e5d314d508d41ba7555047203154538fd06101481375e258f81d2d137b40591d"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained V33 toilet source ceramic 3": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "89-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\89-color.png",
+          "sha256": "60ae4bb5496dbdeeffe998b0cd2ce50bc9b2365cb6e39bc7b30df0fa27c0f4a7"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "89-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\89-normal.png",
+          "sha256": "78774bb0982bcb399a68f7f2c6d4a0d574867e0411fbd9f0d2181c720324222c"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "89-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\89-roughness.png",
+          "sha256": "e5d314d508d41ba7555047203154538fd06101481375e258f81d2d137b40591d"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained Pale ceramic tile ends.001": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "25-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\25-color.png",
+          "sha256": "e3d2ac379ff481967bf148aa327224f1b2fb2a29a33ce46e5e751b74e86a48ef"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "25-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\25-normal.png",
+          "sha256": "4f9f846de425d0ee15f4259818402b156806f2e6bc130450bba68a79da2e631e"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "25-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\25-roughness.png",
+          "sha256": "2e32c8e66622bd03ca5c0d242a46de4f58515a6d3188ec0b66b17297f355d505"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained V33 toilet source ceramic 1": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "87-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\87-color.png",
+          "sha256": "f38216c108fd633f3f430a3411b63da74222b42c704d9d78b7e77d6b47b66384"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "87-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\87-normal.png",
+          "sha256": "78774bb0982bcb399a68f7f2c6d4a0d574867e0411fbd9f0d2181c720324222c"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "87-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\87-roughness.png",
+          "sha256": "e5d314d508d41ba7555047203154538fd06101481375e258f81d2d137b40591d"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained V33 toilet source ceramic 0": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "86-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\86-color.png",
+          "sha256": "4df4676925f3ac93bfa3f4cf98cad4bdc46320bbec45fff39ddc044ebd211dec"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "86-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\86-normal.png",
+          "sha256": "78774bb0982bcb399a68f7f2c6d4a0d574867e0411fbd9f0d2181c720324222c"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "86-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\86-roughness.png",
+          "sha256": "e5d314d508d41ba7555047203154538fd06101481375e258f81d2d137b40591d"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained V33 toilet source ceramic 5": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "91-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\91-color.png",
+          "sha256": "2908cac026d88fe21324891e811a0d06074dc10bbd7df55ee8ee1feb5d292ac6"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "91-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\91-normal.png",
+          "sha256": "78774bb0982bcb399a68f7f2c6d4a0d574867e0411fbd9f0d2181c720324222c"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "91-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\91-roughness.png",
+          "sha256": "e5d314d508d41ba7555047203154538fd06101481375e258f81d2d137b40591d"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained V33 main_gate source ceramic 2": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "76-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\76-color.png",
+          "sha256": "a43c5c669b3e0b7a126e8df1c1371ba3505e9bf3a2386a172a22eb3715a94bc9"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "76-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\76-normal.png",
+          "sha256": "78774bb0982bcb399a68f7f2c6d4a0d574867e0411fbd9f0d2181c720324222c"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "76-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\76-roughness.png",
+          "sha256": "e5d314d508d41ba7555047203154538fd06101481375e258f81d2d137b40591d"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Forecourt aged lime tile ends": {
+      "images": [],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL"
+      ],
+      "baseColor": [
+        0.47999998927116394,
+        0.44999998807907104,
+        0.36000001430511475,
+        1.0
+      ],
+      "colorSource": null,
+      "Roughness": 0.5,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.5,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Canonical gate wood pigment.003": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "hyeopmun_try03_blueprint_colored.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\hyeopmun_try03_blueprint_colored.png",
+          "sha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained V33 main_gate source ceramic 0": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "74-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\74-color.png",
+          "sha256": "d70fe39abf6cdecfa2a88bf59e23bbd3e9ce788db7f6cae49b2ed3ba0301554f"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "74-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\74-normal.png",
+          "sha256": "78774bb0982bcb399a68f7f2c6d4a0d574867e0411fbd9f0d2181c720324222c"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "74-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\74-roughness.png",
+          "sha256": "e5d314d508d41ba7555047203154538fd06101481375e258f81d2d137b40591d"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained V33 main_gate source ceramic 1": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "75-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\75-color.png",
+          "sha256": "044c5949fb835a7f84471b3f68e86459b7170a26d0d318df230a982dad1b8d37"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "75-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\75-normal.png",
+          "sha256": "78774bb0982bcb399a68f7f2c6d4a0d574867e0411fbd9f0d2181c720324222c"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "75-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\75-roughness.png",
+          "sha256": "e5d314d508d41ba7555047203154538fd06101481375e258f81d2d137b40591d"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained V33 main_gate source ceramic 3": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "77-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\77-color.png",
+          "sha256": "395220b3166476fb7ab581ec3e7da2b310094ea705d3ea31ccb38d1fbd0b0d7d"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "77-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\77-normal.png",
+          "sha256": "78774bb0982bcb399a68f7f2c6d4a0d574867e0411fbd9f0d2181c720324222c"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "77-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\77-roughness.png",
+          "sha256": "e5d314d508d41ba7555047203154538fd06101481375e258f81d2d137b40591d"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained V33 main_gate source ceramic 4": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "78-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\78-color.png",
+          "sha256": "95d8bedde76cca817dac45ae012cb2e58bf604b6fd7c9c159ce1beaed8c8a7e7"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "78-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\78-normal.png",
+          "sha256": "78774bb0982bcb399a68f7f2c6d4a0d574867e0411fbd9f0d2181c720324222c"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "78-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\78-roughness.png",
+          "sha256": "e5d314d508d41ba7555047203154538fd06101481375e258f81d2d137b40591d"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Ansarang retained V33 main_gate source ceramic 5": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "79-color.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\79-color.png",
+          "sha256": "ae8dd65e89c5bb3824c3162ac02a05bc841944f2733aa40df70d2f4543dbb104"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "79-normal.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\79-normal.png",
+          "sha256": "78774bb0982bcb399a68f7f2c6d4a0d574867e0411fbd9f0d2181c720324222c"
+        },
+        {
+          "node": "이미지 텍스처.002",
+          "image": "79-roughness.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\existing-estate-v36\\textures\\79-roughness.png",
+          "sha256": "e5d314d508d41ba7555047203154538fd06101481375e258f81d2d137b40591d"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP",
+        "TEX_IMAGE",
+        "VERTEX_COLOR",
+        "MIX"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "조합",
+      "Roughness": 0.5,
+      "RoughnessLinked": true,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Photo gate weathered lime tile end": {
+      "images": [],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL"
+      ],
+      "baseColor": [
+        0.5299999713897705,
+        0.5,
+        0.41999998688697815,
+        1.0
+      ],
+      "colorSource": null,
+      "Roughness": 0.8999999761581421,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.5,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Illustrated pine longgrain v1": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "hanok-pine-longgrain-v1.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-longgrain-v1.png",
+          "sha256": "c298bf7d2d53d61862249cea4df1b8793e8e09ffb62eb41c43a215c1d6cd15e3"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "hanok-pine-longgrain-normal-v1.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-longgrain-normal-v1.png",
+          "sha256": "acf6d930580688c60f142b2f2c938f718822142e0aaab3cdfcb20b539b65b664"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Illustrated pine endgrain v1": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "hanok-pine-endgrain-v1.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-endgrain-v1.png",
+          "sha256": "0cc85243924ddaeaf5b5db942d034f0824c807dcd509dc4c97cddeb3d4133ea6"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "hanok-pine-endgrain-normal-v1.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-endgrain-normal-v1.png",
+          "sha256": "01faa70855026a8a91274cb1bb57dbaa3c79e7a2924acb5d2e8af27bba3d53bf"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Reference anchae wood": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "canonical.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\anchae\\canonical.png",
+          "sha256": "7d1c6cb2c9caafafacba4df82cdb9d829837e17b90424eba5aa3175528506d50"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8799999952316284,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Reference anchae tile": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "canonical.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\anchae\\canonical.png",
+          "sha256": "7d1c6cb2c9caafafacba4df82cdb9d829837e17b90424eba5aa3175528506d50"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "HUE_SAT"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "Gye low-chroma giwa",
+      "Roughness": 0.9200000166893005,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.11999999731779099,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "North lime tile ends": {
+      "images": [],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL"
+      ],
+      "baseColor": [
+        0.6100000143051147,
+        0.550000011920929,
+        0.4099999964237213,
+        1.0
+      ],
+      "colorSource": null,
+      "Roughness": 0.8500000238418579,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.5,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Gye arae painted pine v1": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "hanok-pine-arae-painted-v1.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-arae-painted-v1.png",
+          "sha256": "02717ee71188c26ddc065a105b74ff02f4c346e3bfae9fbaff9d15a0bc496a6c"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "hanok-pine-longgrain-normal-v1.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-longgrain-normal-v1.png",
+          "sha256": "acf6d930580688c60f142b2f2c938f718822142e0aaab3cdfcb20b539b65b664"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Gye angotgan painted pine v1": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "hanok-pine-angotgan-painted-v1.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-angotgan-painted-v1.png",
+          "sha256": "42b3c281e9c38d136fcbce34aa94f03ba8243fd14e16740b34411abe1e9b9997"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "hanok-pine-longgrain-normal-v1.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-longgrain-normal-v1.png",
+          "sha256": "acf6d930580688c60f142b2f2c938f718822142e0aaab3cdfcb20b539b65b664"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Gye gokgan painted pine v1": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "hanok-pine-gokgan-painted-v1.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-gokgan-painted-v1.png",
+          "sha256": "dda71adb7dca41eaba29074f93e419c7551728f8c368de50d7aa0c2b3fa97242"
+        },
+        {
+          "node": "이미지 텍스처.001",
+          "image": "hanok-pine-longgrain-normal-v1.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-pine-longgrain-normal-v1.png",
+          "sha256": "acf6d930580688c60f142b2f2c938f718822142e0aaab3cdfcb20b539b65b664"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "TEX_IMAGE",
+        "NORMAL_MAP"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.20000000298023224,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Reference sadang wood": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "canonical.png.004",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadang\\canonical.png",
+          "sha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8799999952316284,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Reference sadangmun tile": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "canonical.png.005",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadangmun\\canonical.png",
+          "sha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "HUE_SAT"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "Gye low-chroma giwa",
+      "Roughness": 0.9200000166893005,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.11999999731779099,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Canonical gate wood pigment.005": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "sadang-side-sep29.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\photos\\sadang-side-sep29.png",
+          "sha256": "6c61ea7da0566c316727f3a6a1558fc02919cbef686bc84a178b1518490edd6b"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Canonical gate wood pigment.004": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "sadang-side-sep29.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\photos\\sadang-side-sep29.png",
+          "sha256": "6c61ea7da0566c316727f3a6a1558fc02919cbef686bc84a178b1518490edd6b"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Reference sadang roof ceramic corrected": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "canonical.png.004",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadang\\canonical.png",
+          "sha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "HUE_SAT"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "Gye low-chroma giwa",
+      "Roughness": 0.9200000166893005,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Canonical gate wood pigment.006": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "ansarang-canonical.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\ansarang-canonical.png",
+          "sha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Sep29 altar Canonical gate wood pigment.007": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "canonical.png.004",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadang\\canonical.png",
+          "sha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE",
+        "MIX_RGB"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "믹스 (레거시)",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Canonical gate wood pigment.007": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "canonical.png.004",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadang\\canonical.png",
+          "sha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Canonical gate wood pigment.008": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "canonical-gate.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png",
+          "sha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Canonical gate wood pigment.009": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "canonical-gate.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png",
+          "sha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Canonical gate wood pigment.010": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "canonical-gate.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png",
+          "sha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    },
+    "Canonical gate wood pigment.011": {
+      "images": [
+        {
+          "node": "이미지 텍스처",
+          "image": "canonical.png",
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\anchae\\canonical.png",
+          "sha256": "7d1c6cb2c9caafafacba4df82cdb9d829837e17b90424eba5aa3175528506d50"
+        }
+      ],
+      "ramps": {},
+      "nodes": [
+        "BSDF_PRINCIPLED",
+        "OUTPUT_MATERIAL",
+        "UVMAP",
+        "TEX_IMAGE"
+      ],
+      "baseColor": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "colorSource": "이미지 텍스처",
+      "Roughness": 0.8600000143051147,
+      "RoughnessLinked": false,
+      "Specular IOR Level": 0.2199999988079071,
+      "Specular IOR LevelLinked": false,
+      "Metallic": 0.0,
+      "MetallicLinked": false
+    }
+  }
+}

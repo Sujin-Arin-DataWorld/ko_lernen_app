@@ -1,0 +1,24 @@
+[
+  {
+    "source": "hanok-granite-v1.png",
+    "sourceSha256": "ab782b8f051a39052d59dbc680b4ff1592146eb5f878ce7ede80d5430a9be0ce",
+    "normal": "hanok-granite-normal-v1.png",
+    "physicalSwatchMeters": [
+      0.7,
+      0.7
+    ],
+    "bumpDistanceMeters": 0.0012,
+    "strength": 0.22
+  },
+  {
+    "source": "hanok-clay-v1.png",
+    "sourceSha256": "1cb20da261866a9c39a54c0f0f2bf1a65766261ecf13d0929f68c2bc4cd8026e",
+    "normal": "hanok-clay-normal-v1.png",
+    "physicalSwatchMeters": [
+      0.7,
+      0.7
+    ],
+    "bumpDistanceMeters": 0.00035,
+    "strength": 0.22
+  }
+]

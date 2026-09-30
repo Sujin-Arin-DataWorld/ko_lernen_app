@@ -1,0 +1,8 @@
+{
+  "generator": "Built-in image_gen.imagegen",
+  "prompt": "Create a production-quality opaque seamless albedo texture image ONLY, filling the entire square canvas edge-to-edge, for warm aged structural pine/walnut wood on a historical Korean hanok Sarangchae. NOT a building, not a photograph, not a mockup, not a wooden sign. Hand-painted illustrated game-art mineral-pigment surface, softly faceted irregular brushwork, grounded warm walnut-brown around #80532D with sun-worn lighter ochre-brown fibres and muted umber recesses. Grain runs vertically up the entire texture, with varied widths, gently wandering split fibres, interrupted broad brushed patches, a handful of very subdued asymmetric knots and rubbed areas. Large readable wood fibre character at game-map scale. Avoid fine black pinstripes, ruler straight repetitive grain, glossy varnish, uniform digitally cut slabs, pale yellow plywood, orange saturation, photoreal grain, checker grids, ambient occlusion, cast shadows and lighting gradients. No plank border, no gaps or seams, no discrete board outlines, no text, no background. The style should look like the softly angular hand-painted timber of a Korean illustrated hanok illustration, with restrained natural variation, not visual noise. Entire field is one wood material for UV mapping to different structural members.",
+  "transparent_background": false,
+  "generatedSource": "C:/Users/vjinn/.codex/generated_images/01a0f22f-611d-72f2-8e9b-52fda88f29d9/exec-afbcb773-0607-453f-8275-6645bcc246f6.png",
+  "projectImage": "materials/hanok-sarang-wood-painted-v1.png",
+  "runtimePromotion": false
+}

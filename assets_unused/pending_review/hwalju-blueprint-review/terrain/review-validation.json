@@ -1,0 +1,25 @@
+{
+  "allPass": true,
+  "protectedMeshes": 940,
+  "geometryChecks": 10,
+  "matchedRenders": 6,
+  "renderInputsMatchFinalScene": true,
+  "previousHwaljuSceneAndGlbUnchanged": true,
+  "oldStagePlatesInVisibleScene": 0,
+  "newContinuousTerrainObjects": 1,
+  "retainedHwaljuCorrectionObjects": 30,
+  "referenceCopiesIdentical": 3,
+  "servedFilesHttp200": 12,
+  "browserVisualChecks": [
+    "same-camera before/after toggle",
+    "connection close-up",
+    "rising gate approach",
+    "overall pair and hwalju",
+    "mouse drag rotation",
+    "wheel zoom"
+  ],
+  "browserUrl": "http://127.0.0.1:8785/terrain/review.html",
+  "runtimePromoted": false,
+  "geometrySceneSha256": "3d183474f4475fa9fb044ce800881599cf8088d379bdd727cb4fc5c1b3b4a29d",
+  "glbSha256": "66dc4cbb3a1e30872ecb88c629c90b68308e748344dba8aa8a4e835d21f502e0"
+}

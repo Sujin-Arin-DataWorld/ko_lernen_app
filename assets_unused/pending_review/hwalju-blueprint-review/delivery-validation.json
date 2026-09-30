@@ -1,0 +1,17 @@
+{
+  "sourceGlbSha256": "45d3adcf551eac7e872cd3a83415994d2dc272c40794f15a5cbc28e9ea1deccd",
+  "glbSha256": "29db745568acdf0a5b28b7a4c579d59834a4e5431485c4ce724e4bd262d417cd",
+  "bytes": 245942500,
+  "retainedOriginalBinaryBytes": 240857548,
+  "retainedBinarySha256": "a6fce883006af235eca2359030756f02edcf6afb2f50f6fec9a36129ff9b423f",
+  "originalNodesMeshesMaterialsIdentical": true,
+  "detachedOldSupportNodes": [
+    82,
+    83,
+    84,
+    556
+  ],
+  "newObjects": 30,
+  "geometryDecimated": false,
+  "textureRebaked": false
+}

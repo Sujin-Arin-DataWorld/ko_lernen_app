@@ -1,0 +1,543 @@
+{
+  "sourceSha256": "3cdb496da05b9ff69d60937a5006ef107496bf47fe81219765947f18bdcd066d",
+  "worldToPixelMatrix": [
+    [
+      2.1948936535333057,
+      -19.94112904212616
+    ],
+    [
+      -19.972095512215674,
+      -2.3004266114769507
+    ],
+    [
+      1420.954757141081,
+      1424.9737205127365
+    ]
+  ],
+  "buildings": [
+    {
+      "id": "anchae",
+      "beforeCenter": [
+        10.945,
+        20.012
+      ],
+      "beforeAngle": -1.5707963267948966,
+      "center": [
+        11.046371031000087,
+        18.709515499113113
+      ],
+      "angle": -1.512039483716118,
+      "localColumnAnchors": [
+        [
+          -9.0475,
+          -2.2625
+        ],
+        [
+          -7.6075,
+          -2.2625
+        ],
+        [
+          -5.0625,
+          -2.2625
+        ],
+        [
+          -2.4924999999999997,
+          -2.2625
+        ],
+        [
+          0.08750000000000036,
+          -2.2625
+        ],
+        [
+          2.4975000000000005,
+          -2.2625
+        ],
+        [
+          5.0525,
+          -2.2625
+        ],
+        [
+          7.5975,
+          -2.2625
+        ],
+        [
+          9.0475,
+          -2.2625
+        ],
+        [
+          -9.0475,
+          1.5375
+        ],
+        [
+          -7.6075,
+          1.5375
+        ],
+        [
+          0.08750000000000036,
+          1.5375
+        ],
+        [
+          9.0475,
+          1.5375
+        ]
+      ],
+      "sourcePixelAnchors": [
+        [
+          890,
+          1195
+        ],
+        [
+          919,
+          1197
+        ],
+        [
+          971,
+          1202
+        ],
+        [
+          1022,
+          1205
+        ],
+        [
+          1073,
+          1209
+        ],
+        [
+          1119,
+          1210
+        ],
+        [
+          1169,
+          1213
+        ],
+        [
+          1219,
+          1215
+        ],
+        [
+          1246,
+          1217
+        ],
+        [
+          891,
+          1120
+        ],
+        [
+          922,
+          1124
+        ],
+        [
+          1077,
+          1131
+        ],
+        [
+          1248,
+          1140
+        ]
+      ],
+      "fittedPixelAnchors": [
+        [
+          887.6764226407306,
+          1196.818790065348
+        ],
+        [
+          916.5722125362564,
+          1198.43944248088
+        ],
+        [
+          967.641507872446,
+          1201.3037205347193
+        ],
+        [
+          1019.2124662276551,
+          1204.1961349152175
+        ],
+        [
+          1070.9840897904721,
+          1207.0998038263788
+        ],
+        [
+          1119.3444048239562,
+          1209.8121457162622
+        ],
+        [
+          1170.6143653677536,
+          1212.6876783007651
+        ],
+        [
+          1221.6836607039431,
+          1215.5519563546045
+        ],
+        [
+          1250.7801158070768,
+          1217.1838633007999
+        ],
+        [
+          891.5459010045239,
+          1120.6599312732526
+        ],
+        [
+          920.4416909000497,
+          1122.2805836887846
+        ],
+        [
+          1074.8535681542655,
+          1130.9409450342835
+        ],
+        [
+          1254.6495941708702,
+          1141.0250045087046
+        ]
+      ],
+      "rmsBeforePixels": 28.8295100208788,
+      "rmsAfterPixels": 3.2078374200860478,
+      "maxAfterPixels": 6.728130266287589,
+      "dimensionScale": 1,
+      "traceTolerancePixels": 3,
+      "source": "002 site plan column centres; hand traced, individual plan dimensions retained"
+    },
+    {
+      "id": "arae",
+      "beforeCenter": [
+        2.855,
+        28.004
+      ],
+      "beforeAngle": 0,
+      "center": [
+        2.3894214711857655,
+        27.310568529485842
+      ],
+      "angle": 0.07520210600963145,
+      "localColumnAnchors": [
+        [
+          -3.75,
+          -2
+        ],
+        [
+          3.75,
+          -2
+        ],
+        [
+          3.75,
+          2
+        ],
+        [
+          -3.75,
+          2
+        ]
+      ],
+      "sourcePixelAnchors": [
+        [
+          920,
+          1389
+        ],
+        [
+          920,
+          1244
+        ],
+        [
+          846,
+          1240
+        ],
+        [
+          837,
+          1385
+        ]
+      ],
+      "fittedPixelAnchors": [
+        [
+          918.3304985308712,
+          1391.307455062591
+        ],
+        [
+          923.4917116680999,
+          1240.8754368827226
+        ],
+        [
+          843.169501469129,
+          1237.692544937409
+        ],
+        [
+          838.0082883319002,
+          1388.1245631172776
+        ]
+      ],
+      "rmsBeforePixels": 18.335112843489696,
+      "rmsAfterPixels": 3.6804259230941354,
+      "maxAfterPixels": 4.68561042415983,
+      "dimensionScale": 1,
+      "traceTolerancePixels": 3,
+      "source": "002 site plan column centres; hand traced, individual plan dimensions retained"
+    },
+    {
+      "id": "angotgan",
+      "beforeCenter": [
+        -4.447,
+        21.683
+      ],
+      "beforeAngle": 1.5707963267948966,
+      "center": [
+        -4.427205707209941,
+        21.6295536523556
+      ],
+      "angle": 1.6845145049430224,
+      "localColumnAnchors": [
+        [
+          -4.68,
+          -1.35
+        ],
+        [
+          4.68,
+          -1.35
+        ],
+        [
+          4.68,
+          1.35
+        ],
+        [
+          -4.68,
+          1.35
+        ]
+      ],
+      "sourcePixelAnchors": [
+        [
+          1072,
+          1437
+        ],
+        [
+          887,
+          1437
+        ],
+        [
+          887,
+          1490
+        ],
+        [
+          1071,
+          1490
+        ]
+      ],
+      "fittedPixelAnchors": [
+        [
+          1073.165766851777,
+          1436.5075823138457
+        ],
+        [
+          885.1031633079842,
+          1436.2943262311346
+        ],
+        [
+          885.3342331482231,
+          1490.4924176861543
+        ],
+        [
+          1073.3968366920158,
+          1490.7056737688654
+        ]
+      ],
+      "rmsBeforePixels": 11.238409153224657,
+      "rmsAfterPixels": 1.9337469077516265,
+      "maxAfterPixels": 2.498559904476529,
+      "dimensionScale": 1,
+      "traceTolerancePixels": 3,
+      "source": "002 site plan column centres; hand traced, individual plan dimensions retained"
+    },
+    {
+      "id": "gokgan",
+      "beforeCenter": [
+        24.909,
+        10.51
+      ],
+      "beforeAngle": -1.5707963267948966,
+      "center": [
+        25.27888997835441,
+        10.273795866709953
+      ],
+      "angle": -1.6452844729978058,
+      "localColumnAnchors": [
+        [
+          -4.875,
+          -2.73
+        ],
+        [
+          4.875,
+          -2.73
+        ],
+        [
+          4.875,
+          2.73
+        ],
+        [
+          -4.875,
+          2.73
+        ]
+      ],
+      "sourcePixelAnchors": [
+        [
+          1168,
+          933
+        ],
+        [
+          1354,
+          968
+        ],
+        [
+          1376,
+          862
+        ],
+        [
+          1187,
+          826
+        ]
+      ],
+      "fittedPixelAnchors": [
+        [
+          1164.9192474016868,
+          932.6529548355628
+        ],
+        [
+          1357.5146174781532,
+          969.4889631929018
+        ],
+        [
+          1377.5807525983134,
+          861.847045164437
+        ],
+        [
+          1184.9853825218468,
+          825.011036807098
+        ]
+      ],
+      "rmsBeforePixels": 12.377435006475634,
+      "rmsAfterPixels": 2.8169101008339648,
+      "maxAfterPixels": 3.817007650969087,
+      "dimensionScale": 1,
+      "traceTolerancePixels": 3,
+      "source": "002 site plan column centres; hand traced, individual plan dimensions retained"
+    },
+    {
+      "id": "sadang",
+      "beforeCenter": [
+        24.311,
+        22.429
+      ],
+      "beforeAngle": -1.5707963267948966,
+      "center": [
+        24.355269821075648,
+        22.627169193390102
+      ],
+      "angle": -1.5212893962481455,
+      "localColumnAnchors": [
+        [
+          -3.38,
+          -2.1
+        ],
+        [
+          3.38,
+          -2.1
+        ],
+        [
+          3.38,
+          2.1
+        ],
+        [
+          -3.38,
+          2.1
+        ]
+      ],
+      "sourcePixelAnchors": [
+        [
+          952,
+          925
+        ],
+        [
+          1086,
+          934
+        ],
+        [
+          1092,
+          848
+        ],
+        [
+          960,
+          842
+        ]
+      ],
+      "fittedPixelAnchors": [
+        [
+          952.1818098932769,
+          924.8836676580851
+        ],
+        [
+          1087.7620153497144,
+          933.7445892546662
+        ],
+        [
+          1092.8181901067233,
+          849.6163323419149
+        ],
+        [
+          957.2379846502856,
+          840.7554107453338
+        ]
+      ],
+      "rmsBeforePixels": 6.007919403228082,
+      "rmsAfterPixels": 1.9796601531372802,
+      "maxAfterPixels": 3.0294770513882865,
+      "dimensionScale": 1,
+      "traceTolerancePixels": 3,
+      "source": "002 site plan column centres; hand traced, individual plan dimensions retained"
+    },
+    {
+      "id": "sadangmun",
+      "beforeCenter": [
+        19.859,
+        16.853
+      ],
+      "beforeAngle": 0,
+      "center": [
+        19.813636483254946,
+        16.895752471502064
+      ],
+      "angle": -0.042922162648504264,
+      "localColumnAnchors": [
+        [
+          -0.675,
+          0
+        ],
+        [
+          0.675,
+          0
+        ]
+      ],
+      "sourcePixelAnchors": [
+        [
+          1125,
+          1004
+        ],
+        [
+          1129,
+          978
+        ]
+      ],
+      "fittedPixelAnchors": [
+        [
+          1124.9413482383522,
+          1004.3812364507107
+        ],
+        [
+          1129.058651761648,
+          977.6187635492893
+        ]
+      ],
+      "rmsBeforePixels": 1.4281761114079907,
+      "rmsAfterPixels": 0.38572173972296825,
+      "maxAfterPixels": 0.3857217397229855,
+      "dimensionScale": 1,
+      "traceTolerancePixels": 3,
+      "source": "002 site plan column centres; hand traced, individual plan dimensions retained"
+    }
+  ],
+  "interpretation": "Rigid least squares only. Raster line thickness and individual-plan/site-plan discrepancies remain visible as residuals. No exact-survey accuracy claimed.",
+  "legendConflict": "002 positions 6 and 7 have names reversed relative to individual 029 and 038 drawings and the user-confirmed attached Jung model. Preserve existing model identities; fit their physical footprints."
+}

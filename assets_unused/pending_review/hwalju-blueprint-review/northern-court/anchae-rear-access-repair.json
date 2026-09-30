@@ -1,0 +1,232 @@
+{
+  "nativeScene": "scene.blend",
+  "nativeSha256": "b618f02a43cdf08c45d54d2b070d63acb2e049258143ea733bfe171b8a19c43f",
+  "unchangedOtherMeshes": 2865,
+  "changes": [
+    {
+      "building": "anchae",
+      "objects": [
+        "North.anchae.room rear",
+        "North.anchae.room rear.jamb",
+        "North.anchae.room rear.head/sill",
+        "North.anchae.foundation",
+        "North.anchae.room rear 2.fixed.jamb",
+        "North.anchae.room rear 2.fixed.head and sill",
+        "North.anchae.room rear 2.fixed.plaster",
+        "North.anchae.room rear 2.leaf1.stile",
+        "North.anchae.room rear 2.leaf1.rail",
+        "North.anchae.room rear 2.leaf1.vertical sal",
+        "North.anchae.room rear 2.leaf1.horizontal sal",
+        "North.anchae.room rear 2.leaf1.hanji",
+        "North.anchae.room rear 2.leaf1.hinge pin",
+        "North.anchae.room rear 2.leaf1.hinge strap",
+        "North.anchae.room rear 2.leaf1.ring plate",
+        "North.anchae.room rear 2.leaf1.iron ring",
+        "North.anchae.room rear 2.fixed.ring plate",
+        "North.anchae.room rear 2.fixed.iron ring",
+        "North.anchae.room rear 3.fixed.jamb",
+        "North.anchae.room rear 3.fixed.head and sill",
+        "North.anchae.room rear 3.fixed.plaster",
+        "North.anchae.room rear 3.leaf1.stile",
+        "North.anchae.room rear 3.leaf1.rail",
+        "North.anchae.room rear 3.leaf1.vertical sal",
+        "North.anchae.room rear 3.leaf1.horizontal sal",
+        "North.anchae.room rear 3.leaf1.hanji",
+        "North.anchae.room rear 3.leaf1.hinge pin",
+        "North.anchae.room rear 3.leaf1.hinge strap",
+        "North.anchae.room rear 3.leaf1.ring plate",
+        "North.anchae.room rear 3.leaf1.iron ring",
+        "North.anchae.room rear 3.fixed.ring plate",
+        "North.anchae.room rear 3.fixed.iron ring",
+        "North.anchae.rear level foundation.recessed earth mortar",
+        "North.anchae.rear level foundation earth top",
+        "North.anchae.rear veranda low footing.recessed earth mortar",
+        "North.anchae.rear veranda low footing",
+        "North.anchae.rear veranda earth surface"
+      ],
+      "removedObjects": [
+        "North.anchae.room rear 2.leaf1.stile",
+        "North.anchae.room rear 2.leaf1.rail",
+        "North.anchae.room rear 2.leaf1.recessed lower board",
+        "North.anchae.room rear 2.leaf1.lower moulding.stile",
+        "North.anchae.room rear 2.leaf1.lower moulding.rail",
+        "North.anchae.room rear 2.leaf1.lock rail",
+        "North.anchae.room rear 2.leaf1.hanji backing",
+        "North.anchae.room rear 2.leaf1.rebated bead.stile",
+        "North.anchae.room rear 2.leaf1.rebated bead.rail",
+        "North.anchae.room rear 2.leaf1.vertical sal",
+        "North.anchae.room rear 2.leaf1.horizontal band",
+        "North.anchae.room rear 2.leaf1.rear paper rail",
+        "North.anchae.room rear 2.leaf2.stile",
+        "North.anchae.room rear 2.leaf2.rail",
+        "North.anchae.room rear 2.leaf2.recessed lower board",
+        "North.anchae.room rear 2.leaf2.lower moulding.stile",
+        "North.anchae.room rear 2.leaf2.lower moulding.rail",
+        "North.anchae.room rear 2.leaf2.lock rail",
+        "North.anchae.room rear 2.leaf2.hanji backing",
+        "North.anchae.room rear 2.leaf2.rebated bead.stile",
+        "North.anchae.room rear 2.leaf2.rebated bead.rail",
+        "North.anchae.room rear 2.leaf2.vertical sal",
+        "North.anchae.room rear 2.leaf2.horizontal band",
+        "North.anchae.room rear 2.leaf2.rear paper rail",
+        "North.anchae.room rear 3.leaf1.stile",
+        "North.anchae.room rear 3.leaf1.rail",
+        "North.anchae.room rear 3.leaf1.recessed lower board",
+        "North.anchae.room rear 3.leaf1.lower moulding.stile",
+        "North.anchae.room rear 3.leaf1.lower moulding.rail",
+        "North.anchae.room rear 3.leaf1.lock rail",
+        "North.anchae.room rear 3.leaf1.hanji backing",
+        "North.anchae.room rear 3.leaf1.rebated bead.stile",
+        "North.anchae.room rear 3.leaf1.rebated bead.rail",
+        "North.anchae.room rear 3.leaf1.vertical sal",
+        "North.anchae.room rear 3.leaf1.horizontal band",
+        "North.anchae.room rear 3.leaf1.rear paper rail",
+        "North.anchae.room rear 3.leaf2.stile",
+        "North.anchae.room rear 3.leaf2.rail",
+        "North.anchae.room rear 3.leaf2.recessed lower board",
+        "North.anchae.room rear 3.leaf2.lower moulding.stile",
+        "North.anchae.room rear 3.leaf2.lower moulding.rail",
+        "North.anchae.room rear 3.leaf2.lock rail",
+        "North.anchae.room rear 3.leaf2.hanji backing",
+        "North.anchae.room rear 3.leaf2.rebated bead.stile",
+        "North.anchae.room rear 3.leaf2.rebated bead.rail",
+        "North.anchae.room rear 3.leaf2.vertical sal",
+        "North.anchae.room rear 3.leaf2.horizontal band",
+        "North.anchae.room rear 3.leaf2.rear paper rail",
+        "North.anchae.foundation.recessed earth mortar",
+        "North.anchae.foundation earth top"
+      ],
+      "illustratedTimber": [
+        {
+          "object": "North.anchae.room rear 2.fixed.jamb",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.room rear 2.fixed.head and sill",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.room rear 2.leaf1.stile",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.room rear 2.leaf1.rail",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.room rear 2.leaf1.vertical sal",
+          "building": "anchae",
+          "solidComponents": 6,
+          "longGrainFaces": 24,
+          "cutEndFaces": 12,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.room rear 2.leaf1.horizontal sal",
+          "building": "anchae",
+          "solidComponents": 16,
+          "longGrainFaces": 64,
+          "cutEndFaces": 32,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.room rear 3.fixed.jamb",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.room rear 3.fixed.head and sill",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.room rear 3.leaf1.stile",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.room rear 3.leaf1.rail",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.room rear 3.leaf1.vertical sal",
+          "building": "anchae",
+          "solidComponents": 6,
+          "longGrainFaces": 24,
+          "cutEndFaces": 12,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.room rear 3.leaf1.horizontal sal",
+          "building": "anchae",
+          "solidComponents": 16,
+          "longGrainFaces": 64,
+          "cutEndFaces": 32,
+          "geometryUnchanged": true
+        }
+      ],
+      "mineralSurfaces": [
+        {
+          "object": "North.anchae.rear level foundation.recessed earth mortar",
+          "building": "anchae",
+          "kinds": [
+            "granite"
+          ],
+          "components": 1,
+          "faces": 18,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.rear veranda low footing.recessed earth mortar",
+          "building": "anchae",
+          "kinds": [
+            "granite"
+          ],
+          "components": 1,
+          "faces": 6,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.rear veranda low footing",
+          "building": "anchae",
+          "kinds": [
+            "granite"
+          ],
+          "components": 34,
+          "faces": 578,
+          "geometryUnchanged": true
+        }
+      ],
+      "fullSurveyAccuracyClaimed": false
+    }
+  ]
+}

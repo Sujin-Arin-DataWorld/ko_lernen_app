@@ -1,0 +1,20 @@
+{
+  "mode": "built-in image_gen",
+  "canonicalReference": "../references/anchae/canonical.png",
+  "generatedInterpretation": true,
+  "albedoPixelsUnaltered": true,
+  "textures": [
+    {
+      "file": "hanok-granite-v1.png",
+      "generatedSource": "C:/Users/vjinn/.codex/generated_images/01a0e7fc-a227-7751-9096-a43234ca27f9/exec-7aba1471-d27d-4be6-890d-3b7a0a5b1baf.png",
+      "prompt": "Use case: stylized-concept. Generate a seamless square material ALBEDO map of weathered Korean granite, to wrap onto actual modeled plinth and foundation stones in a premium illustrated 3D Korean hanok learning app. The attached canonical hanok artwork is the authority for the restrained hand-painted style and warm grey-brown granite palette only. Do NOT redraw the building or any masonry arrangement. Full-frame orthographic perfectly flat surface of one continuous granite material, no stone silhouette, no individual blocks, no joints, no mortar, no perspective, no lighting gradient, no baked highlights or shadows. Quiet warm mineral grey with a little sandy taupe, delicate small feldspar and quartz flecks, a few tiny darker mineral grains, subtle weather-softened fine granular hand-painted brushwork. Moderate warm midtone, fine-scale detail over roughly 70 centimetres of stone surface, low contrast; not marble, no swirls, no huge veins, no glitter, no rough diamond facets, no large black cracks, no moss, no extreme damage. Visible geometry will provide the actual broad facets and thickness. High quality painterly architectural game texture, neutral diffuse light, all four edges seamless, no text or border."
+    },
+    {
+      "file": "hanok-clay-v1.png",
+      "generatedSource": "C:/Users/vjinn/.codex/generated_images/01a0e7fc-a227-7751-9096-a43234ca27f9/exec-c9a91282-b7d3-45f6-bfca-d0935e113681.png",
+      "prompt": "Use case: stylized-concept. Generate a seamless square material ALBEDO texture of traditional Korean fired grey clay roof tile. The attached canonical hanok artwork is the reference for premium understated hand-painted architectural illustration style and the charcoal/slate-grey ceramic palette. Do NOT depict a roof, tile shapes, ridges, individual tiles or tile seams. Fill the whole square with one uninterrupted matte fired-clay surface, flat orthographic view, fully diffuse neutral illumination, no lighting gradient, no edge-darkening, no highlights or cast shadows. A restrained medium-dark slate grey with a faint warm charcoal undertone, irregular fine clay grains and pores, faint soft wisps from hand pressing, small cloudy kiln variation, occasional tiny grey mineral specks. Low contrast, gently varied, not solid black and not bright white. No dramatic chips, no cracks, no terracotta orange, no glazed shine, no metallic finish, no marble veins, no geometric repeating pattern, no large spots, no lettering. This is a neutral base color map for actual curved overlapping 3D tiles; the geometry and scene light provide tile shape, depth, edges and shadows. All edges must tile seamlessly. The surface represents roughly 70cm by 70cm; keep clay pores and pigments fine, legible but restrained."
+    }
+  ],
+  "photoReference": "https://hhl6103.tistory.com/1990?category=1078884",
+  "photoObservations": "Courtyard photos inspected in browser: blue-grey overlapping ceramic, low natural plinth stones with subdued mineral contrast. Texture maps are new illustration interpretations, not scans."
+}

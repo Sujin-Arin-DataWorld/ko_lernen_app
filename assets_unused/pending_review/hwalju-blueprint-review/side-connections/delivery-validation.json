@@ -1,0 +1,22 @@
+{
+  "glbSha256": "90307546bd46734a5c90e2b9e4254c55034d88ad18ef162346492ca279c9745f",
+  "bytes": 586073772,
+  "approvedPairSha256": "66dc4cbb3a1e30872ecb88c629c90b68308e748344dba8aa8a4e835d21f502e0",
+  "approvedBinaryBytesRetained": 245823468,
+  "approvedNodesMeshesMaterialsIdentical": true,
+  "detachedOldGroundNodes": [
+    964
+  ],
+  "addedSourceComponents": 199,
+  "addedTerrainObjects": 1,
+  "sourceGeometryAndTexturesRecompressed": false,
+  "sourceComponentBytes": 29461628,
+  "runtimePromoted": false,
+  "craftedGateAndGardenNodes": 294,
+  "nativeSceneSha256": "16817d97b67c1ae84f5db98612b4e85e3c5d2340f221eca35e7d3741da8d8b86",
+  "craftedGlbSha256": "8acafcc77f9b07d88206d9527f859a8233f04d7e8fc6af3086b70fe458581321",
+  "craftedAnsarangNodes": 363,
+  "craftedAnsarangSha256": "416426eff1ba33e2a675fac3ba7db7b79d133fa0126d8d8ab08c761ca5dae726",
+  "forecourtNodes": 288,
+  "forecourtSha256": "4792de175cf82d43ca362592b3023d3709f2adad4d0ed60c5130cde1d545df36"
+}

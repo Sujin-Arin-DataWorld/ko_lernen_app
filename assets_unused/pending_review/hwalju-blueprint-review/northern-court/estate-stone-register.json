@@ -1,0 +1,234 @@
+{
+  "sceneSha256": "4ec1dcee49eea6e3d1a4e1cb97838e1ddf3037d41cffdf57fcf72fbbe8fb09cb",
+  "owners": {
+    "anchae": {
+      "Reference anchae stone": 2557
+    },
+    "angotgan": {
+      "Illustrated granite v1 0": 1961
+    },
+    "ansarang": {
+      "Reference ansarang stone": 2100
+    },
+    "arae": {
+      "Illustrated granite v1 0": 1009
+    },
+    "changgo": {
+      "Jung warm fieldstone 4.001": 1118,
+      "Jung warm fieldstone 2.001": 932,
+      "Jung warm fieldstone 3.001": 703,
+      "Jung warm fieldstone 1.001": 617,
+      "Jung warm fieldstone 0.001": 420
+    },
+    "connection_garden": {
+      "Canonical gate stone pigment": 54604
+    },
+    "estate_path": {
+      "Illustrated granite v1 0": 731
+    },
+    "estate_wall": {
+      "Canonical gate stone pigment.004": 102748
+    },
+    "forecourt_wall": {
+      "Canonical gate stone pigment.002": 47338
+    },
+    "gokgan": {
+      "Illustrated granite v1 0": 1616
+    },
+    "jung": {
+      "Jung warm fieldstone 3": 1971,
+      "Jung warm fieldstone 2": 1902,
+      "Jung warm fieldstone 1": 1882,
+      "Jung warm fieldstone 0": 1436,
+      "Jung warm fieldstone 4": 1009
+    },
+    "left_changgo": {
+      "Reference gate stone": 6355
+    },
+    "main_gate": {
+      "Canonical gate stone pigment.003": 4709
+    },
+    "north_site": {
+      "Canonical gate stone pigment.004": 34595,
+      "Illustrated granite v1 0": 1831,
+      "Reference gate stone": 34
+    },
+    "right_ansarang": {
+      "Reference gate stone": 11010
+    },
+    "sadang": {
+      "Reference sadang stone": 1249
+    },
+    "sadangmun": {
+      "Reference sadangmun stone": 205
+    },
+    "sarang": {
+      "Pale granite 2": 107292,
+      "Pale granite 4": 99508,
+      "Pale granite 3": 93750,
+      "Pale granite 0": 84378,
+      "Pale granite 1": 80658,
+      "Gye hand-chipped warm stone 5": 321,
+      "Gye hand-chipped warm stone 1": 299,
+      "Gye hand-chipped warm stone 0": 292,
+      "Gye hand-chipped warm stone 4": 275,
+      "Gye hand-chipped warm stone 2": 223,
+      "Gye hand-chipped warm stone 3": 190
+    },
+    "toilet": {
+      "Canonical gate stone pigment.002": 1210
+    },
+    "toilet1": {
+      "Canonical gate stone pigment.002": 1210
+    }
+  },
+  "materials": {
+    "Pale granite 2": {
+      "images": []
+    },
+    "Pale granite 3": {
+      "images": []
+    },
+    "Jung warm fieldstone 2": {
+      "images": []
+    },
+    "Jung warm fieldstone 3": {
+      "images": []
+    },
+    "Jung warm fieldstone 0": {
+      "images": []
+    },
+    "Jung warm fieldstone 1": {
+      "images": []
+    },
+    "Jung warm fieldstone 4": {
+      "images": []
+    },
+    "Pale granite 4": {
+      "images": []
+    },
+    "Pale granite 0": {
+      "images": []
+    },
+    "Pale granite 1": {
+      "images": []
+    },
+    "Reference ansarang stone": {
+      "images": [
+        {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\ansarang-canonical.png",
+          "sha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497"
+        }
+      ]
+    },
+    "Reference gate stone": {
+      "images": [
+        {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png",
+          "sha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56"
+        }
+      ]
+    },
+    "Jung warm fieldstone 0.001": {
+      "images": []
+    },
+    "Jung warm fieldstone 4.001": {
+      "images": []
+    },
+    "Jung warm fieldstone 3.001": {
+      "images": []
+    },
+    "Jung warm fieldstone 1.001": {
+      "images": []
+    },
+    "Jung warm fieldstone 2.001": {
+      "images": []
+    },
+    "Canonical gate stone pigment": {
+      "images": [
+        {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\hyeopmun_try03_blueprint_colored.png",
+          "sha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56"
+        }
+      ]
+    },
+    "Canonical gate stone pigment.002": {
+      "images": [
+        {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\hyeopmun_try03_blueprint_colored.png",
+          "sha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56"
+        }
+      ]
+    },
+    "Canonical gate stone pigment.003": {
+      "images": [
+        {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\hyeopmun_try03_blueprint_colored.png",
+          "sha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56"
+        }
+      ]
+    },
+    "Reference anchae stone": {
+      "images": [
+        {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\anchae\\canonical.png",
+          "sha256": "7d1c6cb2c9caafafacba4df82cdb9d829837e17b90424eba5aa3175528506d50"
+        }
+      ]
+    },
+    "Illustrated granite v1 0": {
+      "images": [
+        {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-granite-v1.png",
+          "sha256": "ab782b8f051a39052d59dbc680b4ff1592146eb5f878ce7ede80d5430a9be0ce"
+        },
+        {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\materials\\hanok-granite-normal-v1.png",
+          "sha256": "29f4217a99ec864d767b2b3ffa40af453759ee991f0c9ace24f429ace0f9330d"
+        }
+      ]
+    },
+    "Reference sadang stone": {
+      "images": [
+        {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadang\\canonical.png",
+          "sha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069"
+        }
+      ]
+    },
+    "Reference sadangmun stone": {
+      "images": [
+        {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadangmun\\canonical.png",
+          "sha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e"
+        }
+      ]
+    },
+    "Canonical gate stone pigment.004": {
+      "images": [
+        {
+          "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\personal_hanok_v3\\hyeopmun_try03_blueprint_colored.png",
+          "sha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56"
+        }
+      ]
+    },
+    "Gye hand-chipped warm stone 5": {
+      "images": []
+    },
+    "Gye hand-chipped warm stone 0": {
+      "images": []
+    },
+    "Gye hand-chipped warm stone 1": {
+      "images": []
+    },
+    "Gye hand-chipped warm stone 3": {
+      "images": []
+    },
+    "Gye hand-chipped warm stone 4": {
+      "images": []
+    },
+    "Gye hand-chipped warm stone 2": {
+      "images": []
+    }
+  }
+}

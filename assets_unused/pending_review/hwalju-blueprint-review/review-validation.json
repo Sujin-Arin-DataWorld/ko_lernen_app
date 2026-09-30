@@ -1,0 +1,18 @@
+{
+  "scope": "Front hwalju placement correction for user markers1/2; not a complete art or estate approval",
+  "sceneSha256": "6e34c080e7da4ed677b8a7211685804549728d9e3769eca21bfd73a9d246eaad",
+  "glbSha256": "29db745568acdf0a5b28b7a4c579d59834a4e5431485c4ce724e4bd262d417cd",
+  "protectedMeshes": 913,
+  "contactChecksPassed": 12,
+  "matchedCameraRenders": 6,
+  "unmodifiedReferenceCopies": 6,
+  "v26SourceUnchanged": true,
+  "browser": {
+    "url": "http://127.0.0.1:8785/review.html",
+    "observed": "CUA loaded final GLB, before/after toggles, Numaru/left presets, final corrected terrace visible",
+    "automatedConsoleOrPixelComparison": false
+  },
+  "runtimePromoted": false,
+  "reviewStatus": "candidate",
+  "checkedAt": "2026-09-28T13:21:46.839229+00:00"
+}

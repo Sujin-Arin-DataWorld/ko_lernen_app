@@ -1,0 +1,2168 @@
+{
+  "scene": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\estate-fabric.blend",
+  "cores": [
+    {
+      "name": "ConnectionGarden.wall1.ochre core",
+      "group": "ConnectionGarden.wall1.ochre",
+      "building": "connection_garden",
+      "start": [
+        14.82,
+        -12.8
+      ],
+      "stop": [
+        14.82,
+        -4.1
+      ],
+      "zMin": 0.005,
+      "zMax": 1.22,
+      "materials": [
+        "Craft garden ochre joints"
+      ]
+    },
+    {
+      "name": "ConnectionGarden.wall2.ochre core",
+      "group": "ConnectionGarden.wall2.ochre",
+      "building": "connection_garden",
+      "start": [
+        14.82,
+        -21.1
+      ],
+      "stop": [
+        14.82,
+        -15.6
+      ],
+      "zMin": 0.005,
+      "zMax": 1.22,
+      "materials": [
+        "Craft garden ochre joints"
+      ]
+    },
+    {
+      "name": "ConnectionGarden.wall3.ochre core",
+      "group": "ConnectionGarden.wall3.ochre",
+      "building": "connection_garden",
+      "start": [
+        23.25,
+        0.083
+      ],
+      "stop": [
+        29.5,
+        0.083
+      ],
+      "zMin": 0.005,
+      "zMax": 2.24,
+      "materials": [
+        "Craft garden ochre joints"
+      ]
+    },
+    {
+      "name": "ConnectionGarden.wall4.ochre core",
+      "group": "ConnectionGarden.wall4.ochre",
+      "building": "connection_garden",
+      "start": [
+        29.5,
+        -21.1
+      ],
+      "stop": [
+        29.5,
+        0.083
+      ],
+      "zMin": 0.005,
+      "zMax": 2.24,
+      "materials": [
+        "Craft garden ochre joints"
+      ]
+    },
+    {
+      "name": "ConnectionGarden.wall5.ochre core",
+      "group": "ConnectionGarden.wall5.ochre",
+      "building": "connection_garden",
+      "start": [
+        14.82,
+        -21.1
+      ],
+      "stop": [
+        29.5,
+        -21.1
+      ],
+      "zMin": 0.005,
+      "zMax": 2.24,
+      "materials": [
+        "Craft garden ochre joints"
+      ]
+    },
+    {
+      "name": "Estate.fabric.gotgan garden return.earth core",
+      "group": "Estate.fabric.gotgan garden return",
+      "building": "estate_wall",
+      "start": [
+        -11.1325,
+        13.4649
+      ],
+      "stop": [
+        -10.813,
+        10.2553
+      ],
+      "zMin": 0.6,
+      "zMax": 2.2058,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.gotgan rear boundary.earth core",
+      "group": "Estate.fabric.gotgan rear boundary",
+      "building": "estate_wall",
+      "start": [
+        -25.1778,
+        12.4528
+      ],
+      "stop": [
+        -11.1106,
+        13.4464
+      ],
+      "zMin": 0.6617,
+      "zMax": 2.248,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.gwang byeoldang join.earth core",
+      "group": "Estate.fabric.gwang byeoldang join",
+      "building": "estate_wall",
+      "start": [
+        29.5067,
+        0.0642
+      ],
+      "stop": [
+        30.1,
+        2.4
+      ],
+      "zMin": 0.3957,
+      "zMax": 2.6303,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.jung building tie.earth core",
+      "group": "Estate.fabric.jung building tie",
+      "building": "estate_wall",
+      "start": [
+        -1.3272,
+        16.2948
+      ],
+      "stop": [
+        -1.3235,
+        15.3539
+      ],
+      "zMin": 1.28,
+      "zMax": 2.5,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.jung to gotgan boundary.earth core",
+      "group": "Estate.fabric.jung to gotgan boundary",
+      "building": "estate_wall",
+      "start": [
+        -11.1498,
+        13.4394
+      ],
+      "stop": [
+        -1.308,
+        16.2803
+      ],
+      "zMin": 0.9226,
+      "zMax": 2.5,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.northwest field wall.earth core",
+      "group": "Estate.fabric.northwest field wall",
+      "building": "estate_wall",
+      "start": [
+        39.2016,
+        58.3002
+      ],
+      "stop": [
+        42.6327,
+        51.2791
+      ],
+      "zMin": 1.5,
+      "zMax": 2.76,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.northwest road wall.earth core",
+      "group": "Estate.fabric.northwest road wall",
+      "building": "estate_wall",
+      "start": [
+        41.5806,
+        29.8828
+      ],
+      "stop": [
+        42.6249,
+        51.317
+      ],
+      "zMin": 1.5,
+      "zMax": 2.76,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.road behind shrine.earth core",
+      "group": "Estate.fabric.road behind shrine",
+      "building": "estate_wall",
+      "start": [
+        29.0827,
+        28.5292
+      ],
+      "stop": [
+        41.6015,
+        29.905
+      ],
+      "zMin": 1.5,
+      "zMax": 2.81,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.shrine gwang join.earth core",
+      "group": "Estate.fabric.shrine gwang join",
+      "building": "estate_wall",
+      "start": [
+        30.5,
+        15.7798
+      ],
+      "stop": [
+        30.5,
+        18.9002
+      ],
+      "zMin": 1.5,
+      "zMax": 2.85,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.south edge middle.earth core",
+      "group": "Estate.fabric.south edge middle",
+      "building": "estate_wall",
+      "start": [
+        -25.1598,
+        12.4741
+      ],
+      "stop": [
+        -23.6124,
+        -3.5537
+      ],
+      "zMin": 0.6,
+      "zMax": 1.9834,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.south edge west.earth core",
+      "group": "Estate.fabric.south edge west",
+      "building": "estate_wall",
+      "start": [
+        -26.6051,
+        31.0914
+      ],
+      "stop": [
+        -25.1563,
+        12.4342
+      ],
+      "zMin": 0.6957,
+      "zMax": 2.55,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.toilet1 east.earth core",
+      "group": "Estate.fabric.toilet1 east",
+      "building": "estate_wall",
+      "start": [
+        -14.4509,
+        23.795
+      ],
+      "stop": [
+        -9.4591,
+        24.3436
+      ],
+      "zMin": 1.28,
+      "zMax": 2.5,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.toilet1 outer return.earth core",
+      "group": "Estate.fabric.toilet1 outer return",
+      "building": "estate_wall",
+      "start": [
+        -15.4143,
+        32.3213
+      ],
+      "stop": [
+        -14.885,
+        27.7328
+      ],
+      "zMin": 1.28,
+      "zMax": 2.5,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.toilet1 short north.earth core",
+      "group": "Estate.fabric.toilet1 short north",
+      "building": "estate_wall",
+      "start": [
+        -9.8881,
+        28.3222
+      ],
+      "stop": [
+        -9.5812,
+        25.662
+      ],
+      "zMin": 1.28,
+      "zMax": 2.5,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.toilet1 south.earth core",
+      "group": "Estate.fabric.toilet1 south",
+      "building": "estate_wall",
+      "start": [
+        -14.8896,
+        27.7725
+      ],
+      "stop": [
+        -14.4287,
+        23.7773
+      ],
+      "zMin": 1.28,
+      "zMax": 2.5,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.toilet1 west.earth core",
+      "group": "Estate.fabric.toilet1 west",
+      "building": "estate_wall",
+      "start": [
+        -14.9072,
+        27.7505
+      ],
+      "stop": [
+        -9.8659,
+        28.3045
+      ],
+      "zMin": 1.28,
+      "zMax": 2.5,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.west estate edge.earth core",
+      "group": "Estate.fabric.west estate edge",
+      "building": "estate_wall",
+      "start": [
+        -26.6234,
+        31.0693
+      ],
+      "stop": [
+        3.0787,
+        34.3335
+      ],
+      "zMin": 1.28,
+      "zMax": 2.77,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.west field south return.earth core",
+      "group": "Estate.fabric.west field south return",
+      "building": "estate_wall",
+      "start": [
+        3.0588,
+        34.3113
+      ],
+      "stop": [
+        3.0877,
+        44.9693
+      ],
+      "zMin": 1.5,
+      "zMax": 2.76,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Estate.fabric.west field wall.earth core",
+      "group": "Estate.fabric.west field wall",
+      "building": "estate_wall",
+      "start": [
+        3.0689,
+        44.9424
+      ],
+      "stop": [
+        39.2292,
+        58.2891
+      ],
+      "zMin": 1.5,
+      "zMax": 2.76,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Forecourt.wall.gate-ansarang.0.core",
+      "group": "Forecourt.wall.gate-ansarang.0",
+      "building": "forecourt_wall",
+      "start": [
+        -1.9896,
+        -23.2396
+      ],
+      "stop": [
+        -1.7552,
+        -13.7686
+      ],
+      "zMin": -0.1,
+      "zMax": 1.72,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Forecourt.wall.gate-ansarang.1.core",
+      "group": "Forecourt.wall.gate-ansarang.1",
+      "building": "forecourt_wall",
+      "start": [
+        -2.0178,
+        -23.2067
+      ],
+      "stop": [
+        14.8498,
+        -21.0963
+      ],
+      "zMin": -0.1,
+      "zMax": 1.72,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Forecourt.wall.warehouse-toilet.0.core",
+      "group": "Forecourt.wall.warehouse-toilet.0",
+      "building": "forecourt_wall",
+      "start": [
+        -23.643,
+        -3.535
+      ],
+      "stop": [
+        -10.055,
+        -3.535
+      ],
+      "zMin": 0.5,
+      "zMax": 1.72,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Forecourt.wall.warehouse-toilet.1.core",
+      "group": "Forecourt.wall.warehouse-toilet.1",
+      "building": "forecourt_wall",
+      "start": [
+        -23.618,
+        -10.489
+      ],
+      "stop": [
+        -23.613,
+        -3.505
+      ],
+      "zMin": -0.1,
+      "zMax": 1.72,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "Forecourt.wall.warehouse-toilet.2.core",
+      "group": "Forecourt.wall.warehouse-toilet.2",
+      "building": "forecourt_wall",
+      "start": [
+        -23.6478,
+        -10.4539
+      ],
+      "stop": [
+        -11.1825,
+        -12.5741
+      ],
+      "zMin": -0.1,
+      "zMax": 1.72,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "North.site.gwang east.earth core",
+      "group": "North.site.gwang east",
+      "building": "north_site",
+      "start": [
+        18.3496,
+        5.0723
+      ],
+      "stop": [
+        30.0999,
+        2.4
+      ],
+      "zMin": 1.5,
+      "zMax": 2.62,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "North.site.gwang north.earth core",
+      "group": "North.site.gwang north",
+      "building": "north_site",
+      "start": [
+        30.1,
+        2.3999
+      ],
+      "stop": [
+        30.5,
+        15.78
+      ],
+      "zMin": 1.5,
+      "zMax": 2.62,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "North.site.jar yard east lower.earth core",
+      "group": "North.site.jar yard east lower",
+      "building": "north_site",
+      "start": [
+        13.5803,
+        13.8092
+      ],
+      "stop": [
+        15.3618,
+        13.8403
+      ],
+      "zMin": 1.5,
+      "zMax": 2.62,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "North.site.jar yard east upper.earth core",
+      "group": "North.site.jar yard east upper",
+      "building": "north_site",
+      "start": [
+        16.3413,
+        13.873
+      ],
+      "stop": [
+        18.7227,
+        13.9201
+      ],
+      "zMin": 1.5,
+      "zMax": 2.62,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "North.site.jar yard return.earth core",
+      "group": "North.site.jar yard return",
+      "building": "north_site",
+      "start": [
+        18.5363,
+        16.6753
+      ],
+      "stop": [
+        18.7039,
+        13.8997
+      ],
+      "zMin": 1.5,
+      "zMax": 2.62,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "North.site.jar yard west.earth core",
+      "group": "North.site.jar yard west",
+      "building": "north_site",
+      "start": [
+        12.0006,
+        28.8073
+      ],
+      "stop": [
+        18.5142,
+        28.7674
+      ],
+      "zMin": 1.5,
+      "zMax": 2.62,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "North.site.shrine east.earth core",
+      "group": "North.site.shrine east",
+      "building": "north_site",
+      "start": [
+        18.4942,
+        28.7875
+      ],
+      "stop": [
+        18.5376,
+        16.6354
+      ],
+      "zMin": 1.5,
+      "zMax": 2.85,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "North.site.shrine gate left earth core",
+      "group": "North.site.shrine",
+      "building": "north_site",
+      "start": [
+        18.5375,
+        16.6554
+      ],
+      "stop": [
+        19.1393,
+        16.9247
+      ],
+      "zMin": 1.5,
+      "zMax": 2.85,
+      "materials": [
+        "North earthen plaster"
+      ]
+    },
+    {
+      "name": "North.site.shrine gate right earth core",
+      "group": "North.site.shrine",
+      "building": "north_site",
+      "start": [
+        20.488,
+        16.8668
+      ],
+      "stop": [
+        30.5,
+        18.9
+      ],
+      "zMin": 1.5,
+      "zMax": 2.85,
+      "materials": [
+        "North earthen plaster"
+      ]
+    },
+    {
+      "name": "North.site.shrine rear.earth core",
+      "group": "North.site.shrine rear",
+      "building": "north_site",
+      "start": [
+        29.1032,
+        28.5514
+      ],
+      "stop": [
+        30.5,
+        18.9
+      ],
+      "zMin": 1.5,
+      "zMax": 2.85,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "North.site.shrine west.earth core",
+      "group": "North.site.shrine west",
+      "building": "north_site",
+      "start": [
+        18.4743,
+        28.768
+      ],
+      "stop": [
+        29.1226,
+        28.531
+      ],
+      "zMin": 1.5,
+      "zMax": 2.85,
+      "materials": [
+        "Forecourt ochre lime mortar"
+      ]
+    },
+    {
+      "name": "V27.left_changgo.wall to sarang.earth core",
+      "group": "V27.left_changgo.wall to sarang",
+      "building": "left_changgo",
+      "start": [
+        -2.092,
+        3.802
+      ],
+      "stop": [
+        -0.08,
+        3.802
+      ],
+      "zMin": 0.02,
+      "zMax": 3.06,
+      "materials": [
+        "Gate retained V30 warm earthen wall mortar"
+      ]
+    },
+    {
+      "name": "V27.left_changgo.wall to warehouse.earth core",
+      "group": "V27.left_changgo.wall to warehouse",
+      "building": "left_changgo",
+      "start": [
+        -7.23,
+        3.0227
+      ],
+      "stop": [
+        -4.304,
+        3.802
+      ],
+      "zMin": 0.62,
+      "zMax": 1.8,
+      "materials": [
+        "Gate retained V30 warm earthen wall mortar"
+      ]
+    },
+    {
+      "name": "V27.right_ansarang.wall to ansarang.earth core",
+      "group": "V27.right_ansarang.wall to ansarang",
+      "building": "right_ansarang",
+      "start": [
+        18.862,
+        0.083
+      ],
+      "stop": [
+        23.25,
+        0.083
+      ],
+      "zMin": 0.02,
+      "zMax": 2.24,
+      "materials": [
+        "Gate retained V30 warm earthen wall mortar"
+      ]
+    },
+    {
+      "name": "V27.right_ansarang.wall to sarang.earth core",
+      "group": "V27.right_ansarang.wall to sarang",
+      "building": "right_ansarang",
+      "start": [
+        14.6,
+        0.083
+      ],
+      "stop": [
+        17.322,
+        0.083
+      ],
+      "zMin": 0.02,
+      "zMax": 2.24,
+      "materials": [
+        "Gate retained V30 warm earthen wall mortar"
+      ]
+    }
+  ],
+  "groups": {
+    "ConnectionGarden.wall1": {
+      "objects": 2,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 2
+      },
+      "buildings": {
+        "connection_garden": 2
+      }
+    },
+    "ConnectionGarden.wall1.end": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate stone pigment": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall1.fieldstone": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate stone pigment": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall1.layered": {
+      "objects": 1,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall1.ochre": {
+      "objects": 1,
+      "materials": {
+        "Craft garden ochre joints": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall1.tile": {
+      "objects": 1,
+      "materials": {
+        "Craft garden pale tile noses": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall1.turned": {
+      "objects": 1,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall2": {
+      "objects": 2,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 2
+      },
+      "buildings": {
+        "connection_garden": 2
+      }
+    },
+    "ConnectionGarden.wall2.end": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate stone pigment": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall2.fieldstone": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate stone pigment": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall2.layered": {
+      "objects": 1,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall2.ochre": {
+      "objects": 1,
+      "materials": {
+        "Craft garden ochre joints": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall2.tile": {
+      "objects": 1,
+      "materials": {
+        "Craft garden pale tile noses": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall2.turned": {
+      "objects": 1,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall3": {
+      "objects": 2,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 2
+      },
+      "buildings": {
+        "connection_garden": 2
+      }
+    },
+    "ConnectionGarden.wall3.end": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate stone pigment": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall3.fieldstone": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate stone pigment": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall3.layered": {
+      "objects": 1,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall3.ochre": {
+      "objects": 1,
+      "materials": {
+        "Craft garden ochre joints": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall3.tile": {
+      "objects": 1,
+      "materials": {
+        "Craft garden pale tile noses": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall3.turned": {
+      "objects": 1,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall4": {
+      "objects": 2,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 2
+      },
+      "buildings": {
+        "connection_garden": 2
+      }
+    },
+    "ConnectionGarden.wall4.end": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate stone pigment": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall4.fieldstone": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate stone pigment": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall4.layered": {
+      "objects": 1,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall4.ochre": {
+      "objects": 1,
+      "materials": {
+        "Craft garden ochre joints": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall4.tile": {
+      "objects": 1,
+      "materials": {
+        "Craft garden pale tile noses": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall4.turned": {
+      "objects": 1,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall5": {
+      "objects": 2,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 2
+      },
+      "buildings": {
+        "connection_garden": 2
+      }
+    },
+    "ConnectionGarden.wall5.end": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate stone pigment": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall5.fieldstone": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate stone pigment": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall5.layered": {
+      "objects": 1,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall5.ochre": {
+      "objects": 1,
+      "materials": {
+        "Craft garden ochre joints": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall5.tile": {
+      "objects": 1,
+      "materials": {
+        "Craft garden pale tile noses": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionGarden.wall5.turned": {
+      "objects": 1,
+      "materials": {
+        "Gate retained Jung dark weathered giwa 2": 1
+      },
+      "buildings": {
+        "connection_garden": 1
+      }
+    },
+    "ConnectionLeft.high": {
+      "objects": 9,
+      "materials": {
+        "Canonical gate stone pigment": 9,
+        "Reference gate stone": 9
+      },
+      "buildings": {
+        "left_changgo": 9
+      }
+    },
+    "Continuity.numaru": {
+      "objects": 6,
+      "materials": {
+        "Warm lime plaster": 2,
+        "Sarang golden aged timber": 4
+      },
+      "buildings": {
+        "": 6
+      }
+    },
+    "Correction.rear": {
+      "objects": 3,
+      "materials": {
+        "Warm lime plaster": 1,
+        "Sarang golden aged timber": 2
+      },
+      "buildings": {
+        "": 3
+      }
+    },
+    "Estate.fabric.gotgan garden return": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.gotgan rear boundary": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.gwang byeoldang join": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.jung building tie": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.jung to gotgan boundary": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.northwest field wall": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.northwest road wall": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.road behind shrine": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.shrine gwang join": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.south edge middle": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.south edge west": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.toilet1 east": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.toilet1 outer return": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.toilet1 short north": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.toilet1 south": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.toilet1 west": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.west estate edge": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.west field south return": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Estate.fabric.west field wall": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "estate_wall": 6
+      }
+    },
+    "Forecourt.wall.gate-ansarang.0": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.002": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "forecourt_wall": 6
+      }
+    },
+    "Forecourt.wall.gate-ansarang.1": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.002": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "forecourt_wall": 6
+      }
+    },
+    "Forecourt.wall.warehouse-toilet.0": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.002": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "forecourt_wall": 6
+      }
+    },
+    "Forecourt.wall.warehouse-toilet.1": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.002": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "forecourt_wall": 6
+      }
+    },
+    "Forecourt.wall.warehouse-toilet.2": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.002": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "forecourt_wall": 6
+      }
+    },
+    "North.anchae.daechong": {
+      "objects": 3,
+      "materials": {
+        "North lime plaster": 1,
+        "North anchae beam": 2,
+        "Illustrated pine longgrain v1": 2,
+        "Illustrated pine endgrain v1": 2,
+        "Reference anchae wood": 2
+      },
+      "buildings": {
+        "anchae": 3
+      }
+    },
+    "North.anchae.redraw": {
+      "objects": 3,
+      "materials": {
+        "North lime plaster": 3
+      },
+      "buildings": {
+        "anchae": 3
+      }
+    },
+    "North.angotgan.front": {
+      "objects": 1,
+      "materials": {
+        "North angotgan wood": 1,
+        "Gye angotgan painted pine v1": 1,
+        "Illustrated pine endgrain v1": 1
+      },
+      "buildings": {
+        "angotgan": 1
+      }
+    },
+    "North.angotgan.rear": {
+      "objects": 1,
+      "materials": {
+        "North angotgan wood": 1,
+        "Gye angotgan painted pine v1": 1,
+        "Illustrated pine endgrain v1": 1
+      },
+      "buildings": {
+        "angotgan": 1
+      }
+    },
+    "North.angotgan.side": {
+      "objects": 1,
+      "materials": {
+        "North angotgan wood": 1,
+        "Gye angotgan painted pine v1": 1,
+        "Illustrated pine endgrain v1": 1
+      },
+      "buildings": {
+        "angotgan": 1
+      }
+    },
+    "North.arae.interior": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate plaster pigment.001": 1
+      },
+      "buildings": {
+        "arae": 1
+      }
+    },
+    "North.site.gwang east": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "north_site": 6
+      }
+    },
+    "North.site.gwang north": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "north_site": 6
+      }
+    },
+    "North.site.jar": {
+      "objects": 2,
+      "materials": {
+        "North anchae stone.001": 2,
+        "Illustrated granite v1 0": 2
+      },
+      "buildings": {
+        "north_site": 2
+      }
+    },
+    "North.site.jar yard east lower": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "north_site": 6
+      }
+    },
+    "North.site.jar yard east upper": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "north_site": 6
+      }
+    },
+    "North.site.jar yard return": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "north_site": 6
+      }
+    },
+    "North.site.jar yard west": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "north_site": 6
+      }
+    },
+    "North.site.onggi": {
+      "objects": 14,
+      "materials": {
+        "North onggi glaze 0": 4,
+        "North onggi glaze 1": 4,
+        "North onggi glaze 2": 2,
+        "North onggi glaze 3": 2,
+        "North onggi glaze 4": 2
+      },
+      "buildings": {
+        "north_site": 14
+      }
+    },
+    "North.site.path": {
+      "objects": 1,
+      "materials": {
+        "North anchae stone": 1,
+        "Illustrated granite v1 0": 1
+      },
+      "buildings": {
+        "north_site": 1
+      }
+    },
+    "North.site.rear": {
+      "objects": 66,
+      "materials": {
+        "North anchae stone": 2,
+        "Illustrated granite v1 0": 2,
+        "Reference gate stone": 1,
+        "North anchae beam": 7,
+        "Illustrated pine longgrain v1": 13,
+        "Illustrated pine endgrain v1": 13,
+        "Reference gate wood": 12,
+        "North anchae wood": 12,
+        "Reference gate post": 1,
+        "Reference gate beam": 6,
+        "North forged iron": 4,
+        "North lime plaster": 3,
+        "Ansarang retained V33 main_gate source ceramic 0": 6,
+        "Illustrated clay v1 0": 2,
+        "Ansarang retained V33 main_gate source ceramic 1": 6,
+        "Illustrated clay v1 1": 2,
+        "Ansarang retained V33 main_gate source ceramic 2": 6,
+        "Illustrated clay v1 2": 2,
+        "Ansarang retained V33 main_gate source ceramic 3": 6,
+        "Illustrated clay v1 3": 2,
+        "Ansarang retained V33 main_gate source ceramic 4": 6,
+        "Illustrated clay v1 4": 2,
+        "Ansarang retained V33 main_gate source ceramic 5": 6,
+        "Illustrated clay v1 5": 2,
+        "North earthen plaster": 1,
+        "Reference gate tile": 24,
+        "North lime tile ends": 1
+      },
+      "buildings": {
+        "north_site": 66
+      }
+    },
+    "North.site.rear yard gate": {
+      "objects": 1,
+      "materials": {
+        "North anchae beam": 1,
+        "Illustrated pine longgrain v1": 1,
+        "Illustrated pine endgrain v1": 1,
+        "Reference gate beam": 1
+      },
+      "buildings": {
+        "north_site": 1
+      }
+    },
+    "North.site.shrine": {
+      "objects": 20,
+      "materials": {
+        "North earthen plaster": 4,
+        "Ansarang retained V33 main_gate source ceramic 0": 2,
+        "Illustrated clay v1 0": 2,
+        "Ansarang retained V33 main_gate source ceramic 1": 2,
+        "Illustrated clay v1 1": 2,
+        "Ansarang retained V33 main_gate source ceramic 2": 2,
+        "Illustrated clay v1 2": 2,
+        "Ansarang retained V33 main_gate source ceramic 3": 4,
+        "Illustrated clay v1 3": 4,
+        "Ansarang retained V33 main_gate source ceramic 4": 2,
+        "Illustrated clay v1 4": 2,
+        "Ansarang retained V33 main_gate source ceramic 5": 2,
+        "Illustrated clay v1 5": 2,
+        "North lime tile ends": 2
+      },
+      "buildings": {
+        "north_site": 20
+      }
+    },
+    "North.site.shrine east": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "north_site": 6
+      }
+    },
+    "North.site.shrine gate left": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate stone pigment.004": 1
+      },
+      "buildings": {
+        "north_site": 1
+      }
+    },
+    "North.site.shrine gate left coping": {
+      "objects": 2,
+      "materials": {
+        "Ansarang retained V33 main_gate source ceramic 0": 1,
+        "Illustrated clay v1 0": 1,
+        "Ansarang retained V33 main_gate source ceramic 1": 1,
+        "Illustrated clay v1 1": 1
+      },
+      "buildings": {
+        "north_site": 2
+      }
+    },
+    "North.site.shrine gate right": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate stone pigment.004": 1
+      },
+      "buildings": {
+        "north_site": 1
+      }
+    },
+    "North.site.shrine gate right coping": {
+      "objects": 2,
+      "materials": {
+        "Ansarang retained V33 main_gate source ceramic 0": 1,
+        "Illustrated clay v1 0": 1,
+        "Ansarang retained V33 main_gate source ceramic 1": 1,
+        "Illustrated clay v1 1": 1
+      },
+      "buildings": {
+        "north_site": 2
+      }
+    },
+    "North.site.shrine rear": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "north_site": 6
+      }
+    },
+    "North.site.shrine west": {
+      "objects": 6,
+      "materials": {
+        "Forecourt ochre lime mortar": 1,
+        "Canonical gate stone pigment.004": 1,
+        "Ansarang retained V33 main_gate source ceramic 2": 3,
+        "Forecourt aged lime tile ends": 1
+      },
+      "buildings": {
+        "north_site": 6
+      }
+    },
+    "Projection.Numaru": {
+      "objects": 4,
+      "materials": {
+        "Warm lime plaster": 1,
+        "Sarang golden aged timber": 3
+      },
+      "buildings": {
+        "": 4
+      }
+    },
+    "Ref.Sarang": {
+      "objects": 1,
+      "materials": {
+        "Sarang golden aged timber": 1
+      },
+      "buildings": {
+        "": 1
+      }
+    },
+    "Sarang.left": {
+      "objects": 3,
+      "materials": {
+        "Warm lime plaster": 1,
+        "Sarang golden aged timber": 2
+      },
+      "buildings": {
+        "": 3
+      }
+    },
+    "Sep29.ansarang.left": {
+      "objects": 1,
+      "materials": {
+        "North earthen plaster": 1
+      },
+      "buildings": {
+        "ansarang": 1
+      }
+    },
+    "V25.recess": {
+      "objects": 2,
+      "materials": {
+        "Warm lime plaster": 1,
+        "Sarang golden aged timber": 1
+      },
+      "buildings": {
+        "": 2
+      }
+    },
+    "V25.wing": {
+      "objects": 4,
+      "materials": {
+        "Warm lime plaster": 1,
+        "Sarang golden aged timber": 3
+      },
+      "buildings": {
+        "": 4
+      }
+    },
+    "V26.Jung.WD02": {
+      "objects": 3,
+      "materials": {
+        "Jung lime plaster": 1,
+        "Jung dark walnut": 2
+      },
+      "buildings": {
+        "jung": 3
+      }
+    },
+    "V26.Jung.WD03": {
+      "objects": 3,
+      "materials": {
+        "Jung lime plaster": 1,
+        "Jung dark walnut": 2
+      },
+      "buildings": {
+        "jung": 3
+      }
+    },
+    "V26.Jung.WD04": {
+      "objects": 3,
+      "materials": {
+        "Jung lime plaster": 1,
+        "Jung dark walnut": 2
+      },
+      "buildings": {
+        "jung": 3
+      }
+    },
+    "V26.Jung.WD05": {
+      "objects": 3,
+      "materials": {
+        "Jung lime plaster": 1,
+        "Jung dark walnut": 2
+      },
+      "buildings": {
+        "jung": 3
+      }
+    },
+    "V26.Jung.WD06": {
+      "objects": 3,
+      "materials": {
+        "Jung lime plaster": 1,
+        "Jung dark walnut": 2
+      },
+      "buildings": {
+        "jung": 3
+      }
+    },
+    "V26.Jung.WD07": {
+      "objects": 3,
+      "materials": {
+        "Jung lime plaster": 1,
+        "Jung dark walnut": 2
+      },
+      "buildings": {
+        "jung": 3
+      }
+    },
+    "V26.Jung.WW01": {
+      "objects": 3,
+      "materials": {
+        "Jung lime plaster": 1,
+        "Jung dark walnut": 2
+      },
+      "buildings": {
+        "jung": 3
+      }
+    },
+    "V26.Jung.gate": {
+      "objects": 3,
+      "materials": {
+        "Jung lime plaster": 1,
+        "Jung dark walnut": 2
+      },
+      "buildings": {
+        "jung": 3
+      }
+    },
+    "V27.left_changgo.wall": {
+      "objects": 14,
+      "materials": {
+        "Gate retained Pale ceramic tile ends": 2,
+        "Gate retained V33 jung source ceramic 5": 2,
+        "Reference gate tile": 12,
+        "Gate retained V33 jung source ceramic 4": 2,
+        "Gate retained V33 jung source ceramic 3": 2,
+        "Gate retained V33 jung source ceramic 2": 2,
+        "Gate retained V33 jung source ceramic 1": 2,
+        "Gate retained V33 jung source ceramic 0": 2
+      },
+      "buildings": {
+        "left_changgo": 14
+      }
+    },
+    "V27.left_changgo.wall to sarang": {
+      "objects": 1,
+      "materials": {
+        "Gate retained V30 warm earthen wall mortar": 1
+      },
+      "buildings": {
+        "left_changgo": 1
+      }
+    },
+    "V27.left_changgo.wall to sarang.coping": {
+      "objects": 1,
+      "materials": {
+        "Gate retained V33 jung source ceramic 1": 1,
+        "Reference gate tile": 1
+      },
+      "buildings": {
+        "left_changgo": 1
+      }
+    },
+    "V27.left_changgo.wall to warehouse": {
+      "objects": 1,
+      "materials": {
+        "Gate retained V30 warm earthen wall mortar": 1
+      },
+      "buildings": {
+        "left_changgo": 1
+      }
+    },
+    "V27.left_changgo.wall to warehouse.coping": {
+      "objects": 1,
+      "materials": {
+        "Gate retained V33 jung source ceramic 1": 1,
+        "Reference gate tile": 1
+      },
+      "buildings": {
+        "left_changgo": 1
+      }
+    },
+    "V27.right_ansarang.wall": {
+      "objects": 14,
+      "materials": {
+        "Gate retained Pale ceramic tile ends": 2,
+        "Gate retained V33 ansarang source ceramic 5": 2,
+        "Reference gate tile": 12,
+        "Gate retained V33 ansarang source ceramic 4": 2,
+        "Gate retained V33 ansarang source ceramic 3": 2,
+        "Gate retained V33 ansarang source ceramic 2": 2,
+        "Gate retained V33 ansarang source ceramic 1": 2,
+        "Gate retained V33 ansarang source ceramic 0": 2
+      },
+      "buildings": {
+        "right_ansarang": 14
+      }
+    },
+    "V27.right_ansarang.wall to ansarang": {
+      "objects": 1,
+      "materials": {
+        "Gate retained V30 warm earthen wall mortar": 1
+      },
+      "buildings": {
+        "right_ansarang": 1
+      }
+    },
+    "V27.right_ansarang.wall to ansarang.coping": {
+      "objects": 1,
+      "materials": {
+        "Gate retained V33 ansarang source ceramic 1": 1,
+        "Reference gate tile": 1
+      },
+      "buildings": {
+        "right_ansarang": 1
+      }
+    },
+    "V27.right_ansarang.wall to sarang": {
+      "objects": 1,
+      "materials": {
+        "Gate retained V30 warm earthen wall mortar": 1
+      },
+      "buildings": {
+        "right_ansarang": 1
+      }
+    },
+    "V27.right_ansarang.wall to sarang.coping": {
+      "objects": 1,
+      "materials": {
+        "Gate retained V33 ansarang source ceramic 1": 1,
+        "Reference gate tile": 1
+      },
+      "buildings": {
+        "right_ansarang": 1
+      }
+    },
+    "V28.toilet.front": {
+      "objects": 3,
+      "materials": {
+        "Canonical gate wood pigment.002": 2,
+        "Canonical gate plaster pigment": 1
+      },
+      "buildings": {
+        "toilet": 3
+      }
+    },
+    "V28.toilet.rear": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate plaster pigment": 1
+      },
+      "buildings": {
+        "toilet": 1
+      }
+    },
+    "V28.toilet.side": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate plaster pigment": 1
+      },
+      "buildings": {
+        "toilet": 1
+      }
+    },
+    "V28.toilet1.front": {
+      "objects": 3,
+      "materials": {
+        "Canonical gate wood pigment.002": 2,
+        "Canonical gate plaster pigment": 1
+      },
+      "buildings": {
+        "toilet1": 3
+      }
+    },
+    "V28.toilet1.rear": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate plaster pigment": 1
+      },
+      "buildings": {
+        "toilet1": 1
+      }
+    },
+    "V28.toilet1.side": {
+      "objects": 1,
+      "materials": {
+        "Canonical gate plaster pigment": 1
+      },
+      "buildings": {
+        "toilet1": 1
+      }
+    },
+    "V30.left_changgo.wall to sarang": {
+      "objects": 20,
+      "materials": {
+        "Canonical gate stone pigment": 20,
+        "Reference gate stone": 20
+      },
+      "buildings": {
+        "left_changgo": 20
+      }
+    },
+    "V30.left_changgo.wall to warehouse": {
+      "objects": 20,
+      "materials": {
+        "Canonical gate stone pigment": 20,
+        "Reference gate stone": 20
+      },
+      "buildings": {
+        "left_changgo": 20
+      }
+    },
+    "V30.right_ansarang.wall to ansarang": {
+      "objects": 20,
+      "materials": {
+        "Canonical gate stone pigment": 20,
+        "Reference gate stone": 20
+      },
+      "buildings": {
+        "right_ansarang": 20
+      }
+    },
+    "V30.right_ansarang.wall to sarang": {
+      "objects": 20,
+      "materials": {
+        "Canonical gate stone pigment": 20,
+        "Reference gate stone": 20
+      },
+      "buildings": {
+        "right_ansarang": 20
+      }
+    },
+    "V31.ansarang.front": {
+      "objects": 12,
+      "materials": {
+        "Canonical gate wood pigment.001": 8,
+        "Illustrated pine longgrain v1": 8,
+        "Illustrated pine endgrain v1": 8,
+        "Reference ansarang wood": 8,
+        "Ansarang retained Warm lime plaster": 4
+      },
+      "buildings": {
+        "ansarang": 12
+      }
+    },
+    "V32.ansarang.front": {
+      "objects": 3,
+      "materials": {
+        "Canonical gate wood pigment.001": 2,
+        "Illustrated pine longgrain v1": 2,
+        "Illustrated pine endgrain v1": 2,
+        "Reference ansarang wood": 2,
+        "Ansarang retained Warm lime plaster": 1
+      },
+      "buildings": {
+        "ansarang": 3
+      }
+    },
+    "V32.ansarang.inside": {
+      "objects": 6,
+      "materials": {
+        "Canonical gate wood pigment.001": 4,
+        "Illustrated pine longgrain v1": 4,
+        "Illustrated pine endgrain v1": 4,
+        "Reference ansarang wood": 4,
+        "Ansarang retained Warm lime plaster": 2
+      },
+      "buildings": {
+        "ansarang": 6
+      }
+    },
+    "V32.ansarang.left": {
+      "objects": 3,
+      "materials": {
+        "Canonical gate wood pigment.001": 2,
+        "Illustrated pine longgrain v1": 2,
+        "Illustrated pine endgrain v1": 2,
+        "Reference ansarang wood": 2,
+        "Ansarang retained Warm lime plaster": 1
+      },
+      "buildings": {
+        "ansarang": 3
+      }
+    },
+    "V32.ansarang.rear": {
+      "objects": 12,
+      "materials": {
+        "Canonical gate wood pigment.001": 8,
+        "Illustrated pine longgrain v1": 8,
+        "Illustrated pine endgrain v1": 8,
+        "Reference ansarang wood": 8,
+        "Ansarang retained Warm lime plaster": 4
+      },
+      "buildings": {
+        "ansarang": 12
+      }
+    },
+    "V32.ansarang.right": {
+      "objects": 6,
+      "materials": {
+        "Canonical gate wood pigment.001": 4,
+        "Illustrated pine longgrain v1": 4,
+        "Illustrated pine endgrain v1": 4,
+        "Reference ansarang wood": 4,
+        "Ansarang retained Warm lime plaster": 2
+      },
+      "buildings": {
+        "ansarang": 6
+      }
+    }
+  }
+}

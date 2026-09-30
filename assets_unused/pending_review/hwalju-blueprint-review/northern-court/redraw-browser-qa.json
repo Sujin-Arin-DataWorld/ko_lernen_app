@@ -1,0 +1,21 @@
+{
+  "viewport": [
+    390,
+    844
+  ],
+  "browser": "Chromium via agent-browser",
+  "actualIPhoneTest": false,
+  "modelsLoaded": [
+    "jar-gate-open",
+    "jar-gate-closed",
+    "sadangmun-open",
+    "sadangmun-closed",
+    "anchae-open",
+    "ansarang-open",
+    "sadang-closed"
+  ],
+  "pageErrors": 0,
+  "pageHorizontalOverflow": false,
+  "sceneSha256": "4af0a376893a40b314a48ccb6b1a22c08ac534b986f2b362e031bfbac444de0b",
+  "latestAnchaeGlbSha256": "02d9bc91382014c127be4033ebb12704b70a0601b94c851c1547de6a4f1deb66"
+}

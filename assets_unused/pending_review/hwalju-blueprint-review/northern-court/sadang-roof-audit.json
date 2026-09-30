@@ -1,0 +1,122 @@
+{
+  "changedBuilding": "sadang",
+  "changedScope": "roof only; columns, rooms, foundation and doors protected",
+  "removed": [
+    "North.sadang.roof",
+    "North.sadang.roof.001",
+    "North.sadang.roof.002",
+    "North.sadang.roof.003",
+    "North.sadang.roof.004",
+    "North.sadang.roof.005",
+    "North.sadang.roof.rafters",
+    "North.sadang.roof.round tile ends",
+    "North.sadang.roof.eave beam",
+    "North.sadang.roof.ridge stack",
+    "North.sadang.roof.ridge stack.001",
+    "North.sadang.roof.ridge stack.002",
+    "North.sadang.roof.ridge stack.003",
+    "North.sadang.roof.ridge stack.004",
+    "North.sadang.joinery.solid roof bedding",
+    "North.sadang.joinery.packed ridge core"
+  ],
+  "retainedAndRegistered": [
+    "North.sadang.roof.lower exposed rafters",
+    "North.sadang.double eave square buyeon",
+    "North.sadang.painted rafter end",
+    "North.sadang.photo rafter rosette ground",
+    "North.sadang.photo rafter rosette petal",
+    "North.sadang.photo rafter rosette green outline",
+    "North.sadang.photo rafter rosette ochre eye",
+    "North.sadang.photo painted rafter collar",
+    "North.sadang.photo painted rafter collar.001",
+    "North.sadang.photo painted rafter collar.002",
+    "North.sadang.photo painted rafter collar.003",
+    "North.sadang.joinery.gable thirty millimetre planks",
+    "North.sadang.joinery.gable 45x27 cover batten"
+  ],
+  "protectedMeshCount": 3277,
+  "protectedMeshFingerprintSha256": "7fcad5c8e751d8635af722b44a923d1da6b40b80b06ba37c026220d416a493e5",
+  "previousErrors": [
+    "Used foundation 8360x5940 as roof instead of roof datums 8560x7100",
+    "Applied 2.16/1.46 vertical stretch to tiles and ridge as well as slope",
+    "Main roof field peak confused with top of ridge"
+  ],
+  "survey": {
+    "printedBodyAxes": [
+      6.76,
+      4.2
+    ],
+    "printedEaveProjection": [
+      0.9,
+      1.45
+    ],
+    "printedDepthSplit": [
+      1.01,
+      0.44
+    ],
+    "roofDatums": [
+      8.56,
+      7.1
+    ],
+    "ridgeCourses": 5,
+    "descendingCourses": 3,
+    "tileSpecification": "한식기와(중와,B형)",
+    "tileRuns": 28,
+    "tileRunsAuthority": "066 drawing count; schematic, not a printed count",
+    "fieldEave": 3.1,
+    "fieldRidge": 4.55,
+    "ridgeTopCenter": 5.119,
+    "ridgeTopEnd": 5.39,
+    "verticalAuthority": "059/061 line traces calibrated to 6760/4200 axes; estimated tolerance +/-40 mm, NOT printed heights",
+    "trace059": {
+      "displaySize": [
+        1867,
+        1312
+      ],
+      "columnAxisX": [
+        596.5,
+        1101.5
+      ],
+      "groundY": 976,
+      "centerRidgeY": 594,
+      "eaveCoverY": 737,
+      "upperFieldY": 635
+    },
+    "trace061": {
+      "imageSize": [
+        3301,
+        2198
+      ],
+      "columnAxisX": [
+        1245,
+        1798
+      ],
+      "groundY": 1597,
+      "ridgeEndY": 887,
+      "roofFieldApexY": 986,
+      "eaveEndY": 1165
+    },
+    "ceramicShellMeters": 0.008,
+    "tileSectionAuthority": "Fitted to elevation strokes and canonical curved tile silhouette; no individual tile dimensions printed",
+    "sources": [
+      {
+        "sheet": "059",
+        "file": "references\\sadang\\blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_정면도.jpg",
+        "sha256": "6cbdb96de2c3f7c0be03bd7991c2842571bf75e1fe76d56583e9a401bb707540"
+      },
+      {
+        "sheet": "061",
+        "file": "references\\sadang\\blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_우측면도.jpg",
+        "sha256": "04d730b44a4199ec8fd8fa2e477d108cc1fb0c7c9d8f934df8928001a83c4a9c"
+      },
+      {
+        "sheet": "066",
+        "file": "references\\sadang\\blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_지붕평면도.jpg",
+        "sha256": "fcde8a8efbd7048477eb78756de42c394c951cf37c9abc7f62e861a779f60a26"
+      }
+    ]
+  },
+  "fullSurveyAccuracyClaimed": false,
+  "previousSceneSha256": "4af0a376893a40b314a48ccb6b1a22c08ac534b986f2b362e031bfbac444de0b",
+  "correctedSceneSha256": "fa670923cefe263c6849f058bb096c97cb728df4135aa5a828d6783819979488"
+}

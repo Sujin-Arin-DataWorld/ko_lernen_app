@@ -1,0 +1,3153 @@
+{
+  "nativeScene": "scene.blend",
+  "nativeSha256": "8622a7bf61d888be52e7e73aa857dd62245349b5f4d2cad1f932cc2bfaed341d",
+  "geometryObjectsUnchangedBySurfacePass": 3165,
+  "tileEndProfiles": [
+    {
+      "object": "North.anchae.roof.round tile ends",
+      "components": 202,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.anchae.roof.hip round tile ends",
+      "components": 50,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.126,
+      "heightMeters": 0.045,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.arae.roof.round tile ends",
+      "components": 86,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.angotgan.roof.round tile ends",
+      "components": 104,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.gokgan.hip roof white ends",
+      "components": 202,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.086,
+      "heightMeters": 0.05,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.sadang.roof.round tile ends",
+      "components": 82,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.sadangmun.roof.round tile ends",
+      "components": 26,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine west coping.round tile ends",
+      "components": 128,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine rear coping.round tile ends",
+      "components": 104,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine east coping.round tile ends",
+      "components": 128,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine gate left coping.round tile ends",
+      "components": 10,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine gate right coping.round tile ends",
+      "components": 80,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.jar yard rear coping.round tile ends",
+      "components": 48,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.jar yard return coping.round tile ends",
+      "components": 12,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.rear court west coping.round tile ends",
+      "components": 214,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.rear court east coping.round tile ends",
+      "components": 12,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.inner store west coping.round tile ends",
+      "components": 166,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.inner court south west coping.round tile ends",
+      "components": 58,
+      "profile": "solid half ellipse with flat base",
+      "widthMeters": 0.106,
+      "heightMeters": 0.047,
+      "roofShellUnchanged": true,
+      "fitIsInterpretation": true
+    }
+  ],
+  "tileShells": [
+    {
+      "object": "North.anchae.roof",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 9432,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.anchae.roof.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 10044,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.anchae.roof.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 8644,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.anchae.roof.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 9444,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.anchae.roof.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 10064,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.anchae.roof.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 8624,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.anchae.annex roof",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 48,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.anchae.annex roof.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 48,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.anchae.annex roof.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 52,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.anchae.annex roof.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 52,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.anchae.annex roof.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 52,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.anchae.annex roof.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 48,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.arae.roof",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2792,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.arae.roof.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3064,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.arae.roof.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3064,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.arae.roof.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2764,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.arae.roof.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3016,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.arae.roof.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3016,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.angotgan.roof",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3340,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.angotgan.roof.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3672,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.angotgan.roof.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3692,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.angotgan.roof.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3380,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.angotgan.roof.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3680,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.angotgan.roof.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3660,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.gokgan.hip roof tiled channels",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3888,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.gokgan.hip roof curved cover tiles",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 5044,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.gokgan.hip roof tiled channels.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3896,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.gokgan.hip roof curved cover tiles.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 5656,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.gokgan.hip roof tiled channels.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3896,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.gokgan.hip roof curved cover tiles.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 5656,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.gokgan.hip roof tiled channels.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3896,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.gokgan.hip roof curved cover tiles.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 5056,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.gokgan.hip roof tiled channels.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3904,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.gokgan.hip roof curved cover tiles.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 5656,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.gokgan.hip roof tiled channels.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3904,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.gokgan.hip roof curved cover tiles.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 5656,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.sadang.roof",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2648,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.sadang.roof.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2900,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.sadang.roof.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2920,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.sadang.roof.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2652,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.sadang.roof.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2892,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.sadang.roof.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2880,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.sadangmun.roof",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 772,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.sadangmun.roof.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 648,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.sadangmun.roof.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 648,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.sadangmun.roof.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 744,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.sadangmun.roof.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 648,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.sadangmun.roof.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 648,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine west coping",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3716,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine west coping.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3204,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine west coping.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3204,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine west coping.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3716,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine west coping.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3192,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine west coping.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3192,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine rear coping",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3020,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine rear coping.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2604,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine rear coping.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2604,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine rear coping.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3020,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine rear coping.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2592,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine rear coping.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2592,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine east coping",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3716,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine east coping.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3204,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine east coping.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3204,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine east coping.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3716,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine east coping.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3192,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine east coping.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 3192,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine gate left coping",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 300,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine gate left coping.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 252,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine gate left coping.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 252,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine gate left coping.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 284,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine gate left coping.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 252,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine gate left coping.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 240,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine gate right coping",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2324,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine gate right coping.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2004,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine gate right coping.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2004,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine gate right coping.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 2324,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine gate right coping.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 1992,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.shrine gate right coping.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 1992,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.jar yard rear coping",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 1392,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.jar yard rear coping.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 1200,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.jar yard rear coping.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 1200,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.jar yard rear coping.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 1392,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.jar yard rear coping.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 1200,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.jar yard rear coping.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 1200,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.jar yard return coping",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 348,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.jar yard return coping.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 300,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.jar yard return coping.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 300,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.jar yard return coping.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 348,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.jar yard return coping.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 300,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.jar yard return coping.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 300,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.rear court west coping",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 6216,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.rear court west coping.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 5352,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.rear court west coping.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 5352,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.rear court west coping.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 6200,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.rear court west coping.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 5352,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.rear court west coping.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 5340,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.rear court east coping",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 348,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.rear court east coping.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 300,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.rear court east coping.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 300,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.rear court east coping.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 348,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.rear court east coping.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 300,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.rear court east coping.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 300,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.inner store west coping",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 4824,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.inner store west coping.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 4152,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.inner store west coping.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 4152,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.inner store west coping.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 4808,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.inner store west coping.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 4152,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.inner store west coping.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 4140,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.inner court south west coping",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 1692,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.inner court south west coping.001",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 1452,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.inner court south west coping.002",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 1452,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.inner court south west coping.003",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 1676,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.inner court south west coping.004",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 1452,
+      "fitIsInterpretation": true
+    },
+    {
+      "object": "North.site.inner court south west coping.005",
+      "thicknessMeters": 0.008,
+      "inward": true,
+      "previousBoundaryEdges": 1440,
+      "fitIsInterpretation": true
+    }
+  ],
+  "surfaces": [
+    {
+      "object": "North.anchae.foundation.recessed earth mortar",
+      "building": "anchae",
+      "kinds": [
+        "granite"
+      ],
+      "components": 1,
+      "faces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.foundation",
+      "building": "anchae",
+      "kinds": [
+        "granite"
+      ],
+      "components": 88,
+      "faces": 1496,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.foundation individual plinth",
+      "building": "anchae",
+      "kinds": [
+        "granite"
+      ],
+      "components": 27,
+      "faces": 459,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 764,
+      "faces": 4200,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.001",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 815,
+      "faces": 4200,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.002",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 715,
+      "faces": 3600,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.003",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 765,
+      "faces": 4200,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.004",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 817,
+      "faces": 4208,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.005",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 712,
+      "faces": 3588,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.hip ridge",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 12,
+      "faces": 1920,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.gable barge",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 6,
+      "faces": 120,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.ridge stack",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 459,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.ridge stack.001",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 459,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.ridge stack.002",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 459,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.ridge stack.003",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 459,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.ridge stack.004",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 459,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof continuous bed",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 4472,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.annex roof",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 12,
+      "faces": 12,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.annex tile cover",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 75,
+      "faces": 750,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.annex roof.001",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 12,
+      "faces": 12,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.annex roof.002",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 13,
+      "faces": 13,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.annex roof.003",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 13,
+      "faces": 13,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.annex roof.004",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 13,
+      "faces": 13,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.annex roof.005",
+      "building": "anchae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 12,
+      "faces": 12,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.worn stepping stones",
+      "building": "anchae",
+      "kinds": [
+        "granite"
+      ],
+      "components": 3,
+      "faces": 51,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.photo detached stepping stone",
+      "building": "anchae",
+      "kinds": [
+        "granite"
+      ],
+      "components": 5,
+      "faces": 85,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.foundation.recessed earth mortar",
+      "building": "arae",
+      "kinds": [
+        "granite"
+      ],
+      "components": 1,
+      "faces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.foundation",
+      "building": "arae",
+      "kinds": [
+        "granite"
+      ],
+      "components": 46,
+      "faces": 782,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.foundation individual plinth",
+      "building": "arae",
+      "kinds": [
+        "granite"
+      ],
+      "components": 12,
+      "faces": 204,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.roof",
+      "building": "arae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 230,
+      "faces": 1300,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.roof.001",
+      "building": "arae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 253,
+      "faces": 1300,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.roof.002",
+      "building": "arae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 253,
+      "faces": 1300,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.roof.003",
+      "building": "arae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 228,
+      "faces": 1280,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.roof.004",
+      "building": "arae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 249,
+      "faces": 1280,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.roof.005",
+      "building": "arae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 249,
+      "faces": 1280,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.roof.ridge stack",
+      "building": "arae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 2,
+      "faces": 922,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.roof.ridge stack.001",
+      "building": "arae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 2,
+      "faces": 922,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.roof.ridge stack.002",
+      "building": "arae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 2,
+      "faces": 922,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.roof.ridge stack.003",
+      "building": "arae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 461,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.roof.ridge stack.004",
+      "building": "arae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 461,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.roof.ridge stack.005",
+      "building": "arae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 461,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.roof continuous bed",
+      "building": "arae",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 1628,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.arae.door stepping stone",
+      "building": "arae",
+      "kinds": [
+        "granite"
+      ],
+      "components": 1,
+      "faces": 17,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.foundation.recessed earth mortar",
+      "building": "angotgan",
+      "kinds": [
+        "granite"
+      ],
+      "components": 1,
+      "faces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.foundation",
+      "building": "angotgan",
+      "kinds": [
+        "granite"
+      ],
+      "components": 105,
+      "faces": 1785,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.foundation individual plinth",
+      "building": "angotgan",
+      "kinds": [
+        "granite"
+      ],
+      "components": 10,
+      "faces": 170,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.roof",
+      "building": "angotgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 275,
+      "faces": 1552,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.roof.001",
+      "building": "angotgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 303,
+      "faces": 1560,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.roof.002",
+      "building": "angotgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 305,
+      "faces": 1568,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.roof.003",
+      "building": "angotgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 279,
+      "faces": 1568,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.roof.004",
+      "building": "angotgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 304,
+      "faces": 1560,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.roof.005",
+      "building": "angotgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 302,
+      "faces": 1552,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.roof.ridge stack",
+      "building": "angotgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 461,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.roof.ridge stack.001",
+      "building": "angotgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 461,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.roof.ridge stack.002",
+      "building": "angotgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 461,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.roof.ridge stack.003",
+      "building": "angotgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 461,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.roof.ridge stack.004",
+      "building": "angotgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 461,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.angotgan.roof continuous bed",
+      "building": "angotgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 1855,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.foundation.recessed earth mortar",
+      "building": "gokgan",
+      "kinds": [
+        "granite"
+      ],
+      "components": 1,
+      "faces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.foundation",
+      "building": "gokgan",
+      "kinds": [
+        "granite"
+      ],
+      "components": 67,
+      "faces": 1139,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.foundation individual plinth",
+      "building": "gokgan",
+      "kinds": [
+        "granite"
+      ],
+      "components": 12,
+      "faces": 204,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.side centre plinth",
+      "building": "gokgan",
+      "kinds": [
+        "granite"
+      ],
+      "components": 2,
+      "faces": 34,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof continuous bed",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 12,
+      "faces": 2424,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof tiled channels",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 377,
+      "faces": 1616,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof curved cover tiles",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 335,
+      "faces": 2424,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof tiled channels.001",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 378,
+      "faces": 1616,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof curved cover tiles.001",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 404,
+      "faces": 2424,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof tiled channels.002",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 378,
+      "faces": 1616,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof curved cover tiles.002",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 404,
+      "faces": 2424,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof tiled channels.003",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 378,
+      "faces": 1616,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof curved cover tiles.003",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 336,
+      "faces": 2424,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof tiled channels.004",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 380,
+      "faces": 1616,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof curved cover tiles.004",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 404,
+      "faces": 2424,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof tiled channels.005",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 380,
+      "faces": 1616,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof curved cover tiles.005",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 404,
+      "faces": 2424,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof five ridge courses",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 279,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof five ridge courses.001",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 279,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof five ridge courses.002",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 279,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof five ridge courses.003",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 279,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof five ridge courses.004",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 279,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof three hip courses",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 4,
+      "faces": 672,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof three hip courses.001",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 4,
+      "faces": 672,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.hip roof three hip courses.002",
+      "building": "gokgan",
+      "kinds": [
+        "clay"
+      ],
+      "components": 4,
+      "faces": 672,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.central threshold step.recessed earth mortar",
+      "building": "gokgan",
+      "kinds": [
+        "granite"
+      ],
+      "components": 2,
+      "faces": 12,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.gokgan.central threshold step",
+      "building": "gokgan",
+      "kinds": [
+        "granite"
+      ],
+      "components": 13,
+      "faces": 221,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.foundation.recessed earth mortar",
+      "building": "sadang",
+      "kinds": [
+        "granite"
+      ],
+      "components": 1,
+      "faces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.foundation",
+      "building": "sadang",
+      "kinds": [
+        "granite"
+      ],
+      "components": 52,
+      "faces": 884,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.foundation individual plinth",
+      "building": "sadang",
+      "kinds": [
+        "granite"
+      ],
+      "components": 12,
+      "faces": 204,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.round stone plinth",
+      "building": "sadang",
+      "kinds": [
+        "granite"
+      ],
+      "components": 4,
+      "faces": 104,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.roof",
+      "building": "sadang",
+      "kinds": [
+        "clay"
+      ],
+      "components": 218,
+      "faces": 1232,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.roof.001",
+      "building": "sadang",
+      "kinds": [
+        "clay"
+      ],
+      "components": 239,
+      "faces": 1232,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.roof.002",
+      "building": "sadang",
+      "kinds": [
+        "clay"
+      ],
+      "components": 241,
+      "faces": 1240,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.roof.003",
+      "building": "sadang",
+      "kinds": [
+        "clay"
+      ],
+      "components": 219,
+      "faces": 1228,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.roof.004",
+      "building": "sadang",
+      "kinds": [
+        "clay"
+      ],
+      "components": 239,
+      "faces": 1228,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.roof.005",
+      "building": "sadang",
+      "kinds": [
+        "clay"
+      ],
+      "components": 238,
+      "faces": 1220,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.roof.ridge stack",
+      "building": "sadang",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 463,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.roof.ridge stack.001",
+      "building": "sadang",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 463,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.roof.ridge stack.002",
+      "building": "sadang",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 463,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.roof.ridge stack.003",
+      "building": "sadang",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 463,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.roof.ridge stack.004",
+      "building": "sadang",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 463,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.roof continuous bed",
+      "building": "sadang",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 1596,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadang.granite step",
+      "building": "sadang",
+      "kinds": [
+        "granite"
+      ],
+      "components": 3,
+      "faces": 51,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadangmun.foundation.recessed earth mortar",
+      "building": "sadangmun",
+      "kinds": [
+        "granite"
+      ],
+      "components": 1,
+      "faces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadangmun.foundation",
+      "building": "sadangmun",
+      "kinds": [
+        "granite"
+      ],
+      "components": 11,
+      "faces": 187,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadangmun.roof",
+      "building": "sadangmun",
+      "kinds": [
+        "clay"
+      ],
+      "components": 62,
+      "faces": 368,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadangmun.roof.001",
+      "building": "sadangmun",
+      "kinds": [
+        "clay"
+      ],
+      "components": 54,
+      "faces": 276,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadangmun.roof.002",
+      "building": "sadangmun",
+      "kinds": [
+        "clay"
+      ],
+      "components": 54,
+      "faces": 276,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadangmun.roof.003",
+      "building": "sadangmun",
+      "kinds": [
+        "clay"
+      ],
+      "components": 60,
+      "faces": 348,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadangmun.roof.004",
+      "building": "sadangmun",
+      "kinds": [
+        "clay"
+      ],
+      "components": 54,
+      "faces": 276,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadangmun.roof.005",
+      "building": "sadangmun",
+      "kinds": [
+        "clay"
+      ],
+      "components": 54,
+      "faces": 276,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadangmun.roof.ridge stack",
+      "building": "sadangmun",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 465,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadangmun.roof.ridge stack.001",
+      "building": "sadangmun",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 465,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadangmun.roof.ridge stack.002",
+      "building": "sadangmun",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 465,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadangmun.roof continuous bed",
+      "building": "sadangmun",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 169,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadangmun.photo granite sill",
+      "building": "sadangmun",
+      "kinds": [
+        "granite"
+      ],
+      "components": 1,
+      "faces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.sadangmun.photo granite entry step",
+      "building": "sadangmun",
+      "kinds": [
+        "granite"
+      ],
+      "components": 1,
+      "faces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine west irregular stone",
+      "building": "north_site",
+      "kinds": [
+        "granite"
+      ],
+      "components": 405,
+      "faces": 6885,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine west coping",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 299,
+      "faces": 1752,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine west coping.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 267,
+      "faces": 1368,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine west coping.002",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 267,
+      "faces": 1368,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine west coping.003",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 299,
+      "faces": 1752,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine west coping.004",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 266,
+      "faces": 1360,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine west coping.005",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 266,
+      "faces": 1360,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine west coping.ridge stack",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine west coping.ridge stack.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine rear irregular stone",
+      "building": "north_site",
+      "kinds": [
+        "granite"
+      ],
+      "components": 329,
+      "faces": 5593,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine rear coping",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 243,
+      "faces": 1424,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine rear coping.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 217,
+      "faces": 1112,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine rear coping.002",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 217,
+      "faces": 1112,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine rear coping.003",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 243,
+      "faces": 1424,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine rear coping.004",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 216,
+      "faces": 1104,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine rear coping.005",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 216,
+      "faces": 1104,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine rear coping.ridge stack",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine rear coping.ridge stack.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine east irregular stone",
+      "building": "north_site",
+      "kinds": [
+        "granite"
+      ],
+      "components": 400,
+      "faces": 6800,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine east coping",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 299,
+      "faces": 1752,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine east coping.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 267,
+      "faces": 1368,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine east coping.002",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 267,
+      "faces": 1368,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine east coping.003",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 299,
+      "faces": 1752,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine east coping.004",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 266,
+      "faces": 1360,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine east coping.005",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 266,
+      "faces": 1360,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine east coping.ridge stack",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine east coping.ridge stack.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate left irregular stone",
+      "building": "north_site",
+      "kinds": [
+        "granite"
+      ],
+      "components": 36,
+      "faces": 612,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate left coping",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 24,
+      "faces": 144,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate left coping.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 21,
+      "faces": 108,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate left coping.002",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 21,
+      "faces": 108,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate left coping.003",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 23,
+      "faces": 132,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate left coping.004",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 21,
+      "faces": 108,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate left coping.005",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 20,
+      "faces": 100,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate left coping.ridge stack",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate left coping.ridge stack.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate right irregular stone",
+      "building": "north_site",
+      "kinds": [
+        "granite"
+      ],
+      "components": 254,
+      "faces": 4318,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate right coping",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 187,
+      "faces": 1096,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate right coping.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 167,
+      "faces": 856,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate right coping.002",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 167,
+      "faces": 856,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate right coping.003",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 187,
+      "faces": 1096,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate right coping.004",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 166,
+      "faces": 848,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate right coping.005",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 166,
+      "faces": 848,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate right coping.ridge stack",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.shrine gate right coping.ridge stack.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard rear irregular stone",
+      "building": "north_site",
+      "kinds": [
+        "granite"
+      ],
+      "components": 128,
+      "faces": 2176,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard rear coping",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 112,
+      "faces": 656,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard rear coping.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 100,
+      "faces": 512,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard rear coping.002",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 100,
+      "faces": 512,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard rear coping.003",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 112,
+      "faces": 656,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard rear coping.004",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 100,
+      "faces": 512,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard rear coping.005",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 100,
+      "faces": 512,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard rear coping.ridge stack",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard rear coping.ridge stack.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard return irregular stone",
+      "building": "north_site",
+      "kinds": [
+        "granite"
+      ],
+      "components": 39,
+      "faces": 663,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard return coping",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 28,
+      "faces": 164,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard return coping.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 25,
+      "faces": 128,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard return coping.002",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 25,
+      "faces": 128,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard return coping.003",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 28,
+      "faces": 164,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard return coping.004",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 25,
+      "faces": 128,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard return coping.005",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 25,
+      "faces": 128,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard return coping.ridge stack",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar yard return coping.ridge stack.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court west irregular stone",
+      "building": "north_site",
+      "kinds": [
+        "granite"
+      ],
+      "components": 551,
+      "faces": 9367,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court west coping",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 500,
+      "faces": 2932,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court west coping.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 446,
+      "faces": 2284,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court west coping.002",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 446,
+      "faces": 2284,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court west coping.003",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 499,
+      "faces": 2920,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court west coping.004",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 446,
+      "faces": 2284,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court west coping.005",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 445,
+      "faces": 2276,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court west coping.ridge stack",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court west coping.ridge stack.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court east irregular stone",
+      "building": "north_site",
+      "kinds": [
+        "granite"
+      ],
+      "components": 31,
+      "faces": 527,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court east coping",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 28,
+      "faces": 164,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court east coping.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 25,
+      "faces": 128,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court east coping.002",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 25,
+      "faces": 128,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court east coping.003",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 28,
+      "faces": 164,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court east coping.004",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 25,
+      "faces": 128,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court east coping.005",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 25,
+      "faces": 128,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court east coping.ridge stack",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.rear court east coping.ridge stack.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner store west irregular stone",
+      "building": "north_site",
+      "kinds": [
+        "granite"
+      ],
+      "components": 435,
+      "faces": 7395,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner store west coping",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 388,
+      "faces": 2276,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner store west coping.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 346,
+      "faces": 1772,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner store west coping.002",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 346,
+      "faces": 1772,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner store west coping.003",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 387,
+      "faces": 2264,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner store west coping.004",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 346,
+      "faces": 1772,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner store west coping.005",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 345,
+      "faces": 1764,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner store west coping.ridge stack",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner store west coping.ridge stack.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner court south west irregular stone",
+      "building": "north_site",
+      "kinds": [
+        "granite"
+      ],
+      "components": 155,
+      "faces": 2635,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner court south west coping",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 136,
+      "faces": 800,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner court south west coping.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 121,
+      "faces": 620,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner court south west coping.002",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 121,
+      "faces": 620,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner court south west coping.003",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 135,
+      "faces": 788,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner court south west coping.004",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 121,
+      "faces": 620,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner court south west coping.005",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 120,
+      "faces": 612,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner court south west coping.ridge stack",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.inner court south west coping.ridge stack.001",
+      "building": "north_site",
+      "kinds": [
+        "clay"
+      ],
+      "components": 1,
+      "faces": 441,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.path worn stepping stone",
+      "building": "north_site",
+      "kinds": [
+        "granite"
+      ],
+      "components": 78,
+      "faces": 1326,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar platform.recessed earth mortar",
+      "building": "north_site",
+      "kinds": [
+        "granite"
+      ],
+      "components": 1,
+      "faces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.site.jar platform",
+      "building": "north_site",
+      "kinds": [
+        "granite"
+      ],
+      "components": 22,
+      "faces": 374,
+      "geometryUnchanged": true
+    }
+  ],
+  "sourceImagesUnaltered": true,
+  "generatedInterpretation": true
+}

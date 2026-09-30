@@ -1,0 +1,2707 @@
+{
+  "sceneSha256": "bd921e4b0768bb7b9d0dba5c97fab3ce079e8f3ba649a2a9039334023b79450b",
+  "sceneFile": "estate-fabric.blend",
+  "glbSha256": "98cb36da2e3d1f90bff4ea6aa367d307a9a53c55563758dc8802707ce811d926",
+  "bytes": 332775840,
+  "chunks": [
+    {
+      "file": "current-estate-00.bin",
+      "bytes": 20971520,
+      "sha256": "87ee210d7c00c5aee013eae436ceb07c693f8215a75b2aec14b90609845a2804"
+    },
+    {
+      "file": "current-estate-01.bin",
+      "bytes": 20971520,
+      "sha256": "b81b0f5c3d7d24d3c3c6a575360c3ad1c74484f347a890cfe2a67fe9ffb0d309"
+    },
+    {
+      "file": "current-estate-02.bin",
+      "bytes": 20971520,
+      "sha256": "d670ae76a9a14fb9da7e510dbf4a46654a5ba4158313d55f7f6705d5948ceba2"
+    },
+    {
+      "file": "current-estate-03.bin",
+      "bytes": 20971520,
+      "sha256": "3ad366066d5a8f82319ff6d3c4f96743a91d9a4bdffbe9382ad96390785ee666"
+    },
+    {
+      "file": "current-estate-04.bin",
+      "bytes": 20971520,
+      "sha256": "68d36e53fcc41b6b4d46a9ec61d93515a4dbf3cfb5424975025225b14ad47aaa"
+    },
+    {
+      "file": "current-estate-05.bin",
+      "bytes": 20971520,
+      "sha256": "7726f6b7d65b5ce19a4d0eb23314f536cde50aec0dcac01fc3e1d48f7d87a106"
+    },
+    {
+      "file": "current-estate-06.bin",
+      "bytes": 20971520,
+      "sha256": "dd29345408261fea11f829e4bc1952b7a05b5f16a91228ecbf28757117266fb5"
+    },
+    {
+      "file": "current-estate-07.bin",
+      "bytes": 20971520,
+      "sha256": "83fe0e18a3b089f7c81e7fb77a56359d0f8cd67c64ea8852c06f4d2c8d6b81a5"
+    },
+    {
+      "file": "current-estate-08.bin",
+      "bytes": 20971520,
+      "sha256": "42932896a981c8c7c60eadb1f4c4a980c68278d5c38ecc99520a57afe524754b"
+    },
+    {
+      "file": "current-estate-09.bin",
+      "bytes": 20971520,
+      "sha256": "7ac0d6af5cb38e3c01e525e5b7922074608563071644f3086c1c2383566ac09b"
+    },
+    {
+      "file": "current-estate-10.bin",
+      "bytes": 20971520,
+      "sha256": "44c6a29a0231b7822041606f2e3b5fb65b42cbb211e9462fec2f4233e0dbba2c"
+    },
+    {
+      "file": "current-estate-11.bin",
+      "bytes": 20971520,
+      "sha256": "0f532f813ac3cd8154470b3c0be7cad56c03825179b950848552635def32f58c"
+    },
+    {
+      "file": "current-estate-12.bin",
+      "bytes": 20971520,
+      "sha256": "980d50f6035ed1565db48cf77a9d8290bd881a4dbf5519555accca891335b381"
+    },
+    {
+      "file": "current-estate-13.bin",
+      "bytes": 20971520,
+      "sha256": "9f22910f7e84a3f51e313b46433c83e6c2f04cf3370f113b6244fa153466a396"
+    },
+    {
+      "file": "current-estate-14.bin",
+      "bytes": 20971520,
+      "sha256": "7ea18e199b83cba3c9872252b106ac8b120056668a91537ab5ce9f5ba686e3e2"
+    },
+    {
+      "file": "current-estate-15.bin",
+      "bytes": 18203040,
+      "sha256": "81fa31198955ce63731adba3d370959f3db97465ad563381ffdfa6df0873bdf0"
+    }
+  ],
+  "meshCounts": {
+    "connection_garden": 42,
+    "left_changgo": 141,
+    "site": 2,
+    "sarang": 710,
+    "ansarang": 382,
+    "estate_wall": 114,
+    "garden_arae": 1,
+    "garden_changgo": 1,
+    "estate_path": 1,
+    "forecourt_wall": 30,
+    "anchae": 406,
+    "angotgan": 79,
+    "arae": 251,
+    "changgo": 209,
+    "gokgan": 71,
+    "jung": 244,
+    "main_gate": 184,
+    "sadang": 229,
+    "sadangmun": 89,
+    "toilet1": 83,
+    "toilet": 83,
+    "north_site": 164,
+    "right_ansarang": 137
+  },
+  "buildings": [
+    {
+      "id": "anchae",
+      "center": [
+        11.046371031000087,
+        18.709515499113117
+      ],
+      "angle": -1.512039483716118,
+      "datum": 1.5,
+      "bays": [
+        1.44,
+        2.545,
+        2.57,
+        2.58,
+        2.41,
+        2.555,
+        2.545,
+        1.45
+      ],
+      "bodyWidth": 18.095,
+      "bodyDepth": 4.525,
+      "authority": "2007 front sheet 047 and eight bay axes; 1995 plan retained separately; canonical and eight views for craft",
+      "canonicalSha256": "7d1c6cb2c9caafafacba4df82cdb9d829837e17b90424eba5aa3175528506d50",
+      "placementAuthority": "002 traced column centres; rigid least-squares fit, no dimension scaling",
+      "leftBodyDepth": 3.8,
+      "rightBodyDepth": 4.525,
+      "timberSectionAuthority": "1995 plan main 210x210, rear 165x165/135x135; 2007 section 052 daeryang 330x330; rafters 150",
+      "bounds": {
+        "min": [
+          1.295424461364746,
+          -1.9106736183166504,
+          0.0
+        ],
+        "max": [
+          14.994105339050293,
+          29.453540802001953,
+          6.385203838348389
+        ]
+      },
+      "meshes": 361,
+      "rearPlanVersion": 1,
+      "mainBodyDepth": 3.8,
+      "rearProjectionBays": [
+        6,
+        7
+      ],
+      "rearVerandaPlan": {
+        "bays": [
+          1,
+          2,
+          3
+        ],
+        "depth": 1.2,
+        "outerPostSections": [
+          [
+            0.165,
+            0.165
+          ],
+          [
+            0.165,
+            0.165
+          ],
+          [
+            0.165,
+            0.165
+          ],
+          [
+            0.165,
+            0.167
+          ]
+        ],
+        "geometryComplete": true,
+        "floorTop": 0.605,
+        "floorboardThickness": 0.045,
+        "purlinSection": [
+          0.165,
+          0.165
+        ],
+        "jangyeoSection": [
+          0.09,
+          0.15
+        ],
+        "floorGirderSection": [
+          0.09,
+          0.135
+        ],
+        "purlinBottom": 2.13,
+        "postBase": 0.1
+      },
+      "planAuthority": "NRICH 2009 Development of the Seismic Capacity Evaluation Item on Wooden Structure, p136 fig4.15; matches 2007 sheet047 bay dimensions",
+      "postSectionAuthority": "Labelled 2007 plan posts used individually; unlabelled main positions retain nominal 210 mm and are not newly surveyed",
+      "rearVerandaVersion": 1,
+      "roofSection052": {
+        "profile": [
+          [
+            -3.4047845691382763,
+            2.705340136054422
+          ],
+          [
+            -2.2625,
+            3.304557823129252
+          ],
+          [
+            -0.8232214428857718,
+            4.116156462585034
+          ],
+          [
+            -0.3510771543086175,
+            4.419557823129252
+          ],
+          [
+            0.09060621242484945,
+            4.116156462585034
+          ],
+          [
+            1.5374999999999996,
+            3.304557823129252
+          ],
+          [
+            2.725475951903807,
+            2.690170068027211
+          ],
+          [
+            3.2737725450901802,
+            2.4398639455782316
+          ]
+        ],
+        "sourcePixels": [
+          [
+            54,
+            356
+          ],
+          [
+            126,
+            323
+          ],
+          [
+            282,
+            242
+          ],
+          [
+            472,
+            135
+          ],
+          [
+            530,
+            95
+          ],
+          [
+            592,
+            135
+          ],
+          [
+            781,
+            242
+          ],
+          [
+            931,
+            321
+          ]
+        ],
+        "sourceCropOrigin": [
+          980,
+          740
+        ],
+        "ridgeY": -0.36250000000000027,
+        "frontEave": -3.4025,
+        "rearEave": 3.2775,
+        "authority": "2007 section 052: explicit spans/member sizes, traced upper roof line; full rear elevation and absolute terrain registration still unverified",
+        "tracedNotSurveyed": true
+      },
+      "rearAccessVersion": 1,
+      "rearAccess": {
+        "schedule": "057 WD6",
+        "bays": [
+          2,
+          3
+        ],
+        "leafWidth": 0.655,
+        "leafHeight": 1.45,
+        "leafCountPerDoor": 1,
+        "stileSection": [
+          0.054,
+          0.032
+        ],
+        "salSection": [
+          0.009,
+          0.015
+        ],
+        "fixedJambSection": [
+          0.09,
+          0.12
+        ],
+        "rearGroundLocal": 0.06999999999999995,
+        "floorRise": 0.535,
+        "absoluteSiteElevationSurveyed": false,
+        "rearFootingBounds": [
+          -7.7145233154296875,
+          0.2824896574020386,
+          1.7874999999999996,
+          3.0174999999999996
+        ]
+      },
+      "hallAccessVersion": 1,
+      "hallAccess": {
+        "doors": [
+          {
+            "building": "anchae",
+            "prefix": "North.anchae.hall room 1",
+            "hinges": [
+              [
+                10.843657493591309,
+                19.838499069213867,
+                2.1649999618530273
+              ]
+            ],
+            "rotationSigns": [
+              -1
+            ],
+            "width": 0.695,
+            "height": 1.74,
+            "doorBottom": 0.665,
+            "state": "closed",
+            "leaves": 1,
+            "schedule": "057 WD4",
+            "partitionAxis": 4,
+            "centerLocalY": 0.2461580086580082,
+            "hingeLocal": [
+              0.1734999999999999,
+              -0.10134199134199179,
+              0.665
+            ],
+            "jambDepth": 0.175,
+            "authority": "057 WD4 695x1740; ulgumi54x45; sal12x30. Plan munsun90x175 / 90x140; single leaves swing into daechong.",
+            "unmeasuredDetails": "Plan centre traced at y330.5px, 6mm clearance, 15mm leaf/sill gap, sill level, stops and small iron profiles interpreted."
+          },
+          {
+            "building": "anchae",
+            "prefix": "North.anchae.hall room 2",
+            "hinges": [
+              [
+                10.843657493591309,
+                15.027998924255371,
+                2.1649999618530273
+              ]
+            ],
+            "rotationSigns": [
+              1
+            ],
+            "width": 0.695,
+            "height": 1.74,
+            "doorBottom": 0.665,
+            "state": "closed",
+            "leaves": 1,
+            "schedule": "057 WD4",
+            "partitionAxis": 6,
+            "centerLocalY": 0.2461580086580082,
+            "hingeLocal": [
+              4.984,
+              -0.10134199134199179,
+              0.665
+            ],
+            "jambDepth": 0.14,
+            "authority": "057 WD4 695x1740; ulgumi54x45; sal12x30. Plan munsun90x175 / 90x140; single leaves swing into daechong.",
+            "unmeasuredDetails": "Plan centre traced at y330.5px, 6mm clearance, 15mm leaf/sill gap, sill level, stops and small iron profiles interpreted."
+          }
+        ],
+        "stileSection": [
+          0.054,
+          0.045
+        ],
+        "salSection": [
+          0.012,
+          0.03
+        ],
+        "roomFloorLevelRetained": 0.6335,
+        "floorInfillInterpretation": true
+      },
+      "openCorner": {
+        "bay": 7,
+        "openSideDepth": 1.175,
+        "floorThickness": 0.045,
+        "authority": "NRICH fig4.15: front veranda 1175, enclosed room depth 2625. Middle side post is not a partition line.",
+        "frontRoomWallInterpretation": true
+      },
+      "placementTransform": [
+        [
+          0.9982743263244629,
+          -0.058723025023937225,
+          0.0,
+          1.295424461364746
+        ],
+        [
+          0.058723025023937225,
+          0.9982743263244629,
+          0.0,
+          -1.9106736183166504
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "room3Redraw": {
+        "sideDoor": {
+          "schedule": "WD5",
+          "width": 2.274,
+          "height": 1.71,
+          "leafWidths": [
+            0.552,
+            0.585,
+            0.585,
+            0.552
+          ],
+          "frame": [
+            0.033,
+            0.024
+          ],
+          "sal": [
+            0.01,
+            0.024
+          ]
+        },
+        "frontPorchDepth": 1.175,
+        "rearProjection": 0.725,
+        "windows": [
+          "WW5 1254x705",
+          "WW8 1217x705"
+        ],
+        "placementAuthority": "Plan spatial fit and window schedule; end-room aperture assignment remains an interpretation pending opening-symbol plan."
+      }
+    },
+    {
+      "id": "arae",
+      "center": [
+        2.389421471185766,
+        27.31056852948585
+      ],
+      "angle": 0.07520210600963183,
+      "datum": 1.5,
+      "bays": [
+        2.44,
+        2.38,
+        2.68
+      ],
+      "bodyWidth": 7.5,
+      "bodyDepth": 4.0,
+      "authority": "2007 sheet 026 roof grid, 7500 overall; WD01..07 schedule; old Jung elevation excluded",
+      "canonicalSha256": "3839db13db63588c24949a6adf6a930f012cc531283cfada697249194c068534",
+      "placementAuthority": "002 traced column centres; rigid least-squares fit, no dimension scaling",
+      "bounds": {
+        "min": [
+          -2.242332935333252,
+          23.99201202392578,
+          1.428450107574463
+        ],
+        "max": [
+          7.021175861358643,
+          30.629125595092773,
+          6.073248863220215
+        ]
+      },
+      "meshes": 248,
+      "placementTransform": [
+        [
+          0.9971736669540405,
+          -0.0751313641667366,
+          0.0,
+          1.6464693546295166
+        ],
+        [
+          0.0751313641667366,
+          0.9971736669540405,
+          0.0,
+          -0.8287826776504517
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "frontOpeningSchedule": [
+        {
+          "tag": "WD02",
+          "width": 1.98,
+          "height": 1.34,
+          "leaves": 4
+        },
+        {
+          "tag": "WD06",
+          "width": 1.11,
+          "height": 1.21,
+          "leaves": 2
+        },
+        {
+          "tag": "WD04",
+          "width": 1.22,
+          "height": 1.34,
+          "leaves": 2
+        }
+      ],
+      "sourceDimensionConflict": {
+        "printedOverall": 7.5,
+        "printedBays": [
+          2.43,
+          2.37,
+          2.67
+        ],
+        "sumPrintedBays": 7.47,
+        "candidateBays": [
+          2.44,
+          2.38,
+          2.68
+        ],
+        "status": "Unresolved 30 mm inconsistency in sheets 026 and 027. Candidate equal +10 mm adjustment is provisional, not a survey value."
+      }
+    },
+    {
+      "id": "angotgan",
+      "center": [
+        -4.427205707209941,
+        21.6295536523556
+      ],
+      "angle": 1.6845145049430226,
+      "datum": 1.5,
+      "bays": [
+        2.25,
+        2.25,
+        2.43,
+        2.43
+      ],
+      "bodyWidth": 9.36,
+      "bodyDepth": 2.7,
+      "authority": "2007 sheets 029/032/034: four bays, three WD1 doors, 1260 lower boards, 940-1000 upper lime panel, floor-to-ridge 4350; ground exposure 440-740",
+      "canonicalSha256": "37b3b0b35bc27a07b72190b11a8ceccacee265efea79b1f4c4bc91ec41301d7b",
+      "placementAuthority": "002 traced column centres; rigid least-squares fit, no dimension scaling",
+      "timberSectionAuthority": "2007 section 034: posts 190x190, beams 180x240, purlins 180x180, rafters 135",
+      "bounds": {
+        "min": [
+          -7.874730110168457,
+          16.041996002197266,
+          1.4283506870269775
+        ],
+        "max": [
+          -0.9796799421310425,
+          27.21710777282715,
+          6.353391647338867
+        ]
+      },
+      "meshes": 74,
+      "placementTransform": [
+        [
+          0.9935410618782043,
+          -0.1134733334183693,
+          0.0,
+          2.4515140056610107
+        ],
+        [
+          0.1134733334183693,
+          0.9935410618782043,
+          0.0,
+          0.5912171602249146
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "id": "gokgan",
+      "center": [
+        25.278889978354407,
+        10.273795866709964
+      ],
+      "angle": -1.6452844729978056,
+      "datum": 1.5,
+      "bays": [
+        1.95,
+        1.95,
+        1.95,
+        1.95,
+        1.95
+      ],
+      "bodyWidth": 9.75,
+      "bodyDepth": 5.46,
+      "authority": "1993 sheets 023-030: 9750 x 5460, five 1950 bays, two 2730 side bays, central 1360 door; four-slope hip roof with 1350 eaves. Excludes 2007 six-bay store.",
+      "canonicalSha256": "6e5f7b91eb60a417906f742c695749b50cf9a471eb01c92e8106b18f06ccb709",
+      "placementAuthority": "002 traced column centres; rigid least-squares fit, no dimension scaling",
+      "bounds": {
+        "min": [
+          20.68264389038086,
+          3.6981287002563477,
+          1.4281978607177734
+        ],
+        "max": [
+          29.875133514404297,
+          16.849462509155273,
+          7.136353015899658
+        ]
+      },
+      "meshes": 66,
+      "timberSectionAuthority": "1993 sheet 027: round daeryang diameter 300; upper tie 180x210; lower 90x150; 195-square columns retained",
+      "placementTransform": [
+        [
+          0.9972270131111145,
+          0.0744192972779274,
+          0.0,
+          -0.34318387508392334
+        ],
+        [
+          -0.0744192972779274,
+          0.9972270131111145,
+          0.0,
+          1.6466504335403442
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "id": "sadang",
+      "center": [
+        24.355269821075648,
+        22.62716919339011
+      ],
+      "angle": -1.5212893962481455,
+      "datum": 1.5,
+      "bays": [
+        2.15,
+        2.45,
+        2.16
+      ],
+      "bodyWidth": 6.76,
+      "bodyDepth": 4.2,
+      "authority": "2007 shrine sheet 058 floor and elevations; 6760 x 4200, front porch 1260; double eaves means one roof with two rafter rows",
+      "canonicalSha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
+      "placementAuthority": "002 traced column centres; rigid least-squares fit, no dimension scaling",
+      "timberSectionAuthority": "1985 section 051: main beam 360x390; front 240 round column retained; current 2007 bay grid retained",
+      "bounds": {
+        "min": [
+          20.977758407592773,
+          18.282119750976562,
+          1.4289484024047852
+        ],
+        "max": [
+          27.59439468383789,
+          26.972213745117188,
+          7.123198509216309
+        ]
+      },
+      "meshes": 145,
+      "frontColumnDiameters": [
+        0.24,
+        0.24,
+        0.24,
+        0.24
+      ],
+      "placementTransform": [
+        [
+          0.9987747669219971,
+          -0.0494866818189621,
+          0.0,
+          1.1839934587478638
+        ],
+        [
+          0.0494866818189621,
+          0.9987747669219971,
+          0.0,
+          -0.9774218797683716
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "elevationHeightRepair": {
+        "eaveDrop": 0.7,
+        "oldEave": 3.7,
+        "eave": 3.0,
+        "ridge": 5.16,
+        "columnHead": 2.57,
+        "authority": "059 elevation line tracing calibrated by 6760 end-column spacing; not a printed vertical dimension",
+        "printedHorizontalBeamSectionsUnchanged": true
+      },
+      "sanctuaryOpenings": [
+        {
+          "building": "sadang",
+          "tag": "survey sanctuary 0",
+          "center": [
+            -2.3049999999999997,
+            -0.887,
+            1.38
+          ],
+          "width": 0.78,
+          "height": 1.52,
+          "leaves": 1,
+          "authority": "059 elevation line trace; user photographs confirm single/double/single"
+        },
+        {
+          "building": "sadang",
+          "tag": "survey sanctuary 1",
+          "center": [
+            -0.0050000000000000044,
+            -0.887,
+            1.38
+          ],
+          "width": 1.08,
+          "height": 1.52,
+          "leaves": 2,
+          "authority": "059 elevation line trace; user photographs confirm single/double/single"
+        },
+        {
+          "building": "sadang",
+          "tag": "survey sanctuary 2",
+          "center": [
+            2.3,
+            -0.887,
+            1.38
+          ],
+          "width": 0.78,
+          "height": 1.52,
+          "leaves": 1,
+          "authority": "059 elevation line trace; user photographs confirm single/double/single"
+        }
+      ],
+      "roofSurvey": {
+        "printedBodyAxes": [
+          6.76,
+          4.2
+        ],
+        "printedEaveProjection": [
+          0.9,
+          1.45
+        ],
+        "printedDepthSplit": [
+          1.01,
+          0.44
+        ],
+        "roofDatums": [
+          8.56,
+          7.1
+        ],
+        "ridgeCourses": 5,
+        "descendingCourses": 3,
+        "tileSpecification": "한식기와(중와,B형)",
+        "tileRuns": 28,
+        "tileRunsAuthority": "066 drawing count; schematic, not a printed count",
+        "fieldEave": 3.1,
+        "fieldRidge": 4.55,
+        "ridgeTopCenter": 5.119,
+        "ridgeTopEnd": 5.39,
+        "verticalAuthority": "059/061 line traces calibrated to 6760/4200 axes; estimated tolerance +/-40 mm, NOT printed heights",
+        "trace059": {
+          "displaySize": [
+            1867,
+            1312
+          ],
+          "columnAxisX": [
+            596.5,
+            1101.5
+          ],
+          "groundY": 976,
+          "centerRidgeY": 594,
+          "eaveCoverY": 737,
+          "upperFieldY": 635
+        },
+        "trace061": {
+          "imageSize": [
+            3301,
+            2198
+          ],
+          "columnAxisX": [
+            1245,
+            1798
+          ],
+          "groundY": 1597,
+          "ridgeEndY": 887,
+          "roofFieldApexY": 986,
+          "eaveEndY": 1165
+        },
+        "ceramicShellMeters": 0.008,
+        "tileSectionAuthority": "Fitted to elevation strokes and canonical curved tile silhouette; no individual tile dimensions printed",
+        "sources": [
+          {
+            "sheet": "059",
+            "file": "references\\sadang\\blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_정면도.jpg",
+            "sha256": "6cbdb96de2c3f7c0be03bd7991c2842571bf75e1fe76d56583e9a401bb707540"
+          },
+          {
+            "sheet": "061",
+            "file": "references\\sadang\\blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_우측면도.jpg",
+            "sha256": "04d730b44a4199ec8fd8fa2e477d108cc1fb0c7c9d8f934df8928001a83c4a9c"
+          },
+          {
+            "sheet": "066",
+            "file": "references\\sadang\\blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_지붕평면도.jpg",
+            "sha256": "fcde8a8efbd7048477eb78756de42c394c951cf37c9abc7f62e861a779f60a26"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sadangmun",
+      "center": [
+        19.813636483254946,
+        16.895752471502075
+      ],
+      "angle": -0.04292216264850438,
+      "datum": 1.5,
+      "bays": [
+        1.35
+      ],
+      "bodyWidth": 1.35,
+      "bodyDepth": 1.0,
+      "authority": "2007 shrine side-gate sheet 086: posts 1350 apart, door 1020 x 1500, roof 2570 x 1940",
+      "canonicalSha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+      "placementAuthority": "002 traced column centres; rigid least-squares fit, no dimension scaling",
+      "bounds": {
+        "min": [
+          18.48491859436035,
+          15.863441467285156,
+          1.4291592836380005
+        ],
+        "max": [
+          21.14099884033203,
+          17.928062438964844,
+          4.6529951095581055
+        ]
+      },
+      "meshes": 65,
+      "placementTransform": [
+        [
+          0.9990789890289307,
+          0.042909082025289536,
+          0.0,
+          -0.7502197027206421
+        ],
+        [
+          -0.042909082025289536,
+          0.9990789890289307,
+          0.0,
+          0.9104047417640686
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "id": "toilet1",
+      "site002PlanNumber": 11,
+      "sourcePixelCentre": [
+        872,
+        1605
+      ],
+      "center": [
+        -12.045989507032958,
+        26.16225677981441
+      ],
+      "ground": 1.2799999713897705,
+      "planarScaleFromToilet2": 0.85,
+      "entryHeightMeters": 1.85,
+      "roofVerticalScaleAboveWallPlate": 0.66,
+      "meshes": 78,
+      "canonicalStyle": "assets_unused/pending_review/personal_hanok_v3/화장실.png",
+      "formStatus": "One small review interpretation; 002 gives location, 2007 table lists two front bays but user requested a small single unit."
+    }
+  ],
+  "ansarang": {
+    "center": [
+      24.445909278828402,
+      -9.783103210600016
+    ],
+    "angle": -1.5707963267948966,
+    "width": 10.92,
+    "depth": 4.26,
+    "ground": 0.12,
+    "floor": 0.9900000000000001,
+    "wallTop": 3.1599999999999997,
+    "eave": 3.1599999999999997,
+    "ridge": 4.880000000000001,
+    "bays": 4,
+    "identity": "canonical left room, recessed 2/2/4 leaves, wraparound maru, paljak roof; sheet048 four 2730mm bays and 4260mm depth",
+    "label": "안사랑채",
+    "dimensionAuthority": "048 plan 10920x4260; source master controls front door design; 055/056 rear and side joinery",
+    "stages": [
+      "터와 방 자리",
+      "기단",
+      "초석과 기둥 밑 맞춤",
+      "앞뒤 기둥열",
+      "보와 도리",
+      "서까래와 추녀",
+      "지붕 바탕",
+      "기와와 용마루",
+      "벽체와 방 구획",
+      "부엌과 온돌",
+      "대청마루",
+      "앞·옆 툇마루",
+      "창호",
+      "안사랑채 완성"
+    ],
+    "foundationBounds": [
+      -6.96,
+      6.96,
+      -3.63,
+      3.63,
+      0.72,
+      1.0899999999999999
+    ],
+    "foundationAuthority": "048 1500mm perimeter beyond post axes; 052 370mm foundation and 500mm floor rise"
+  },
+  "walls": [
+    {
+      "name": "shrine west",
+      "start": [
+        29.102630897714214,
+        28.531404561482603
+      ],
+      "stop": [
+        18.494246275547635,
+        28.76752019169686
+      ],
+      "base": 1.5,
+      "height": 1.35,
+      "floral": false,
+      "authority": "002 source-pixel wall centreline trace; wall height and tile-shard pattern are photographic interpretations"
+    },
+    {
+      "name": "shrine rear",
+      "start": [
+        29.102630897714214,
+        28.531404561482603
+      ],
+      "stop": [
+        28.75545917513423,
+        16.32627541709797
+      ],
+      "base": 1.5,
+      "height": 1.35,
+      "floral": false,
+      "authority": "002 source-pixel wall centreline trace; wall height and tile-shard pattern are photographic interpretations"
+    },
+    {
+      "name": "shrine east",
+      "start": [
+        18.494246275547635,
+        28.76752019169686
+      ],
+      "stop": [
+        18.53752918606122,
+        16.65537109515117
+      ],
+      "base": 1.5,
+      "height": 1.35,
+      "floral": false,
+      "authority": "002 source-pixel wall centreline trace; wall height and tile-shard pattern are photographic interpretations"
+    },
+    {
+      "name": "shrine gate left",
+      "start": [
+        18.53752918606122,
+        16.65537109515117
+      ],
+      "stop": [
+        19.139259338378906,
+        16.924715042114258
+      ],
+      "base": 1.5,
+      "height": 1.35,
+      "floral": true,
+      "authority": "002 source-pixel wall centreline trace; wall height and tile-shard pattern are photographic interpretations"
+    },
+    {
+      "name": "shrine gate right",
+      "start": [
+        20.488014221191406,
+        16.866788864135742
+      ],
+      "stop": [
+        28.75545917513423,
+        16.32627541709797
+      ],
+      "base": 1.5,
+      "height": 1.35,
+      "floral": true,
+      "authority": "002 source-pixel wall centreline trace; wall height and tile-shard pattern are photographic interpretations"
+    },
+    {
+      "name": "jar yard return",
+      "start": [
+        18.53752918606122,
+        16.65537109515117
+      ],
+      "stop": [
+        18.702678320902738,
+        13.919678429420053
+      ],
+      "base": 1.5,
+      "height": 1.12,
+      "floral": false,
+      "authority": "002 source-pixel wall centreline trace; wall height and tile-shard pattern are photographic interpretations"
+    },
+    {
+      "name": "jar yard east upper",
+      "start": [
+        18.702678320902738,
+        13.919678429420053
+      ],
+      "stop": [
+        16.361256408080482,
+        13.873413068536902
+      ],
+      "base": 1.5,
+      "height": 1.12,
+      "floral": false,
+      "authority": "002 source-pixel wall centreline trace; wall height and tile-shard pattern are photographic interpretations"
+    },
+    {
+      "name": "jar yard east lower",
+      "start": [
+        15.3418047631329,
+        13.839971423636147
+      ],
+      "stop": [
+        13.600324279230252,
+        13.809568576260082
+      ],
+      "base": 1.5,
+      "height": 1.12,
+      "floral": false,
+      "authority": "002 source-pixel wall centreline trace; wall height and tile-shard pattern are photographic interpretations"
+    },
+    {
+      "name": "jar yard west",
+      "start": [
+        18.494246275547635,
+        28.76752019169686
+      ],
+      "stop": [
+        12.020634799887166,
+        28.807131020522938
+      ],
+      "base": 1.5,
+      "height": 1.12,
+      "floral": false,
+      "authority": "002 source-pixel wall centreline trace; wall height and tile-shard pattern are photographic interpretations"
+    },
+    {
+      "name": "gwang north",
+      "start": [
+        28.620121671560298,
+        15.760633648522923
+      ],
+      "stop": [
+        27.98361006919048,
+        4.324824364677583
+      ],
+      "base": 1.5,
+      "height": 1.12,
+      "floral": false,
+      "authority": "002 source-pixel wall centreline trace; wall height and tile-shard pattern are photographic interpretations"
+    },
+    {
+      "name": "gwang east",
+      "start": [
+        27.98361006919048,
+        4.324824364677583
+      ],
+      "stop": [
+        18.36951097844413,
+        5.070768870709422
+      ],
+      "base": 1.5,
+      "height": 1.12,
+      "floral": false,
+      "authority": "002 source-pixel wall centreline trace; wall height and tile-shard pattern are photographic interpretations"
+    },
+    {
+      "name": "northwest road wall",
+      "sourcePixelStart": [
+        490,
+        457
+      ],
+      "sourcePixelStop": [
+        915,
+        527
+      ],
+      "start": [
+        42.623896018653866,
+        51.29705470187944
+      ],
+      "stop": [
+        41.58162127908021,
+        29.90282083444258
+      ],
+      "heightStart": 1.26,
+      "heightStop": 1.26,
+      "masonry": {
+        "stones": 577,
+        "widthRangeMeters": [
+          0.156,
+          0.719
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "northwest field wall",
+      "sourcePixelStart": [
+        343,
+        509
+      ],
+      "sourcePixelStop": [
+        490,
+        457
+      ],
+      "start": [
+        39.21040887579973,
+        58.282188467557845
+      ],
+      "stop": [
+        42.623896018653866,
+        51.29705470187944
+      ],
+      "heightStart": 1.26,
+      "heightStop": 1.26,
+      "masonry": {
+        "stones": 226,
+        "widthRangeMeters": [
+          0.203,
+          0.715
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "west field wall",
+      "sourcePixelStart": [
+        343,
+        509
+      ],
+      "sourcePixelStop": [
+        530,
+        1260
+      ],
+      "start": [
+        39.21040887579973,
+        58.282188467557845
+      ],
+      "stop": [
+        3.087645797292933,
+        44.9493049318151
+      ],
+      "heightStart": 1.26,
+      "heightStop": 1.26,
+      "masonry": {
+        "stones": 1132,
+        "widthRangeMeters": [
+          0.2,
+          0.717
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "west field south return",
+      "sourcePixelStart": [
+        530,
+        1260
+      ],
+      "sourcePixelStop": [
+        742,
+        1285
+      ],
+      "start": [
+        3.087645797292933,
+        44.9493049318151
+      ],
+      "stop": [
+        3.058854562656839,
+        34.33133079041994
+      ],
+      "heightStart": 1.26,
+      "heightStop": 1.26,
+      "masonry": {
+        "stones": 313,
+        "widthRangeMeters": [
+          0.194,
+          0.711
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "west estate edge",
+      "sourcePixelStart": [
+        742,
+        1285
+      ],
+      "sourcePixelStop": [
+        742,
+        1884
+      ],
+      "start": [
+        3.058854562656839,
+        34.33133079041994
+      ],
+      "stop": [
+        -26.603507494637718,
+        31.07149607810635
+      ],
+      "heightStart": 1.27,
+      "heightStop": 1.27,
+      "masonry": {
+        "stones": 876,
+        "widthRangeMeters": [
+          0.121,
+          0.717
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "south edge west",
+      "sourcePixelStart": [
+        742,
+        1884
+      ],
+      "sourcePixelStop": [
+        1117,
+        1898
+      ],
+      "start": [
+        -26.603507494637718,
+        31.07149607810635
+      ],
+      "stop": [
+        -25.15786284615948,
+        12.454172547464932
+      ],
+      "heightStart": 1.27,
+      "heightStop": 1.27,
+      "masonry": {
+        "stones": 554,
+        "widthRangeMeters": [
+          0.118,
+          0.719
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "south edge middle",
+      "sourcePixelStart": [
+        1117,
+        1898
+      ],
+      "sourcePixelStop": [
+        1439.7,
+        1904.0
+      ],
+      "start": [
+        -25.15786284615948,
+        12.454172547464932
+      ],
+      "stop": [
+        -23.614368079397885,
+        -3.533743840020296
+      ],
+      "heightStart": 1.27,
+      "heightStop": 1.12,
+      "masonry": {
+        "stones": 434,
+        "widthRangeMeters": [
+          0.164,
+          0.72
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "road behind shrine",
+      "sourcePixelStart": [
+        915,
+        527
+      ],
+      "sourcePixelStop": [
+        915,
+        779
+      ],
+      "start": [
+        41.58162127908021,
+        29.90282083444258
+      ],
+      "stop": [
+        29.102630897714214,
+        28.531404561482603
+      ],
+      "heightStart": 1.31,
+      "heightStop": 1.31,
+      "masonry": {
+        "stones": 373,
+        "widthRangeMeters": [
+          0.119,
+          0.719
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "shrine gwang join",
+      "sourcePixelStart": [
+        1158,
+        814
+      ],
+      "sourcePixelStop": [
+        1169,
+        818
+      ],
+      "start": [
+        28.75545917513423,
+        16.32627541709797
+      ],
+      "stop": [
+        28.620121671560298,
+        15.760633648522923
+      ],
+      "heightStart": 1.35,
+      "heightStop": 1.12,
+      "masonry": {
+        "stones": 22,
+        "widthRangeMeters": [
+          0.167,
+          0.582
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "gwang byeoldang join",
+      "sourcePixelStart": [
+        1396,
+        857
+      ],
+      "sourcePixelStop": [
+        1484.0464,
+        836.5195
+      ],
+      "start": [
+        27.98361006919048,
+        4.324824364677583
+      ],
+      "stop": [
+        29.49999872315853,
+        0.08300166183206414
+      ],
+      "heightStart": 1.8556389393521073,
+      "heightStop": 1.7806234680658353,
+      "masonry": {
+        "stones": 193,
+        "widthRangeMeters": [
+          0.165,
+          0.693
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "jung to gotgan boundary",
+      "sourcePixelStart": [
+        1093,
+        1414
+      ],
+      "sourcePixelStop": [
+        1128,
+        1616
+      ],
+      "start": [
+        -1.3271691465214752,
+        16.274795091251605
+      ],
+      "stop": [
+        -11.130536662945035,
+        13.44497940613811
+      ],
+      "heightStart": 1.22,
+      "heightStop": 1.22,
+      "masonry": {
+        "stones": 251,
+        "widthRangeMeters": [
+          0.163,
+          0.712
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "jung building tie",
+      "sourcePixelStart": [
+        1093,
+        1414
+      ],
+      "sourcePixelStop": [
+        1111,
+        1416
+      ],
+      "start": [
+        -1.3271691465214752,
+        16.274795091251605
+      ],
+      "stop": [
+        -1.3235405019121949,
+        15.373936415707439
+      ],
+      "heightStart": 1.22,
+      "heightStop": 1.22,
+      "masonry": {
+        "stones": 28,
+        "widthRangeMeters": [
+          0.122,
+          0.586
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "gotgan rear boundary",
+      "sourcePixelStart": [
+        1128,
+        1616
+      ],
+      "sourcePixelStop": [
+        1117,
+        1898
+      ],
+      "start": [
+        -11.130536662945035,
+        13.44497940613811
+      ],
+      "stop": [
+        -25.15786284615948,
+        12.454172547464932
+      ],
+      "heightStart": 1.22,
+      "heightStop": 1.22,
+      "masonry": {
+        "stones": 373,
+        "widthRangeMeters": [
+          0.184,
+          0.72
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "gotgan garden return",
+      "sourcePixelStart": [
+        1128,
+        1616
+      ],
+      "sourcePixelStop": [
+        1192,
+        1617
+      ],
+      "start": [
+        -11.130536662945035,
+        13.44497940613811
+      ],
+      "stop": [
+        -10.815013796496903,
+        10.275183786836813
+      ],
+      "heightStart": 1.22,
+      "heightStop": 1.22,
+      "masonry": {
+        "stones": 100,
+        "widthRangeMeters": [
+          0.174,
+          0.701
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "toilet1 outer return",
+      "sourcePixelStart": [
+        742,
+        1658
+      ],
+      "sourcePixelStop": [
+        834,
+        1658
+      ],
+      "start": [
+        -15.412031993888853,
+        32.30141702131649
+      ],
+      "stop": [
+        -14.887283156412463,
+        27.752658877667617
+      ],
+      "heightStart": 1.22,
+      "heightStop": 1.22,
+      "masonry": {
+        "stones": 127,
+        "widthRangeMeters": [
+          0.162,
+          0.663
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "toilet1 west",
+      "sourcePixelStart": [
+        834,
+        1658
+      ],
+      "sourcePixelStop": [
+        834,
+        1557
+      ],
+      "start": [
+        -14.887283156412463,
+        27.752658877667617
+      ],
+      "stop": [
+        -9.885783043245937,
+        28.30231381246507
+      ],
+      "heightStart": 1.22,
+      "heightStop": 1.22,
+      "masonry": {
+        "stones": 151,
+        "widthRangeMeters": [
+          0.12,
+          0.694
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "toilet1 short north",
+      "sourcePixelStart": [
+        834,
+        1557
+      ],
+      "sourcePixelStop": [
+        887,
+        1557
+      ],
+      "start": [
+        -9.885783043245937,
+        28.30231381246507
+      ],
+      "stop": [
+        -9.583482082525844,
+        25.681833577536914
+      ],
+      "heightStart": 1.22,
+      "heightStop": 1.22,
+      "masonry": {
+        "stones": 63,
+        "widthRangeMeters": [
+          0.131,
+          0.718
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "toilet1 east",
+      "sourcePixelStart": [
+        914,
+        1558
+      ],
+      "sourcePixelStop": [
+        914,
+        1658
+      ],
+      "start": [
+        -9.478999509410604,
+        24.34142982035527
+      ],
+      "stop": [
+        -14.430979819476473,
+        23.79721701362512
+      ],
+      "heightStart": 1.22,
+      "heightStop": 1.22,
+      "masonry": {
+        "stones": 131,
+        "widthRangeMeters": [
+          0.125,
+          0.692
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    },
+    {
+      "name": "toilet1 south",
+      "sourcePixelStart": [
+        834,
+        1658
+      ],
+      "sourcePixelStop": [
+        914,
+        1658
+      ],
+      "start": [
+        -14.887283156412463,
+        27.752658877667617
+      ],
+      "stop": [
+        -14.430979819476473,
+        23.79721701362512
+      ],
+      "heightStart": 1.22,
+      "heightStop": 1.22,
+      "masonry": {
+        "stones": 120,
+        "widthRangeMeters": [
+          0.189,
+          0.683
+        ]
+      },
+      "authority": "2007 plan 002 centreline, tied to retained walls; height and individual stones are photographic interpretations"
+    }
+  ],
+  "doors": [
+    {
+      "building": "anchae",
+      "prefix": "North.anchae.kitchen",
+      "hinges": [
+        [
+          8.360654830932617,
+          25.454442977905273,
+          1.850000023841858
+        ],
+        [
+          8.425954818725586,
+          24.344362258911133,
+          1.850000023841858
+        ]
+      ],
+      "rotationSigns": [
+        -1,
+        1
+      ],
+      "width": 1.12,
+      "height": 1.72,
+      "doorBottom": 0.35,
+      "state": "closed"
+    },
+    {
+      "building": "anchae",
+      "prefix": "North.anchae.daechong rear door 4",
+      "hinges": [
+        [
+          12.597602844238281,
+          18.052974700927734,
+          2.25
+        ],
+        [
+          12.661728858947754,
+          16.962860107421875,
+          2.25
+        ]
+      ],
+      "rotationSigns": [
+        -1,
+        1
+      ],
+      "width": 1.1,
+      "height": 1.43,
+      "doorBottom": 0.75,
+      "state": "closed"
+    },
+    {
+      "building": "anchae",
+      "prefix": "North.anchae.daechong rear door 5",
+      "hinges": [
+        [
+          12.743382453918457,
+          15.574761390686035,
+          2.25
+        ],
+        [
+          12.80750846862793,
+          14.484643936157227,
+          2.25
+        ]
+      ],
+      "rotationSigns": [
+        -1,
+        1
+      ],
+      "width": 1.1,
+      "height": 1.43,
+      "doorBottom": 0.75,
+      "state": "closed"
+    },
+    {
+      "building": "angotgan",
+      "prefix": "North.angotgan.front WD1 0",
+      "hinges": [
+        [
+          -2.6418535709381104,
+          17.806447982788086,
+          1.940000057220459
+        ],
+        [
+          -2.7430717945098877,
+          18.692686080932617,
+          1.940000057220459
+        ]
+      ],
+      "rotationSigns": [
+        -1,
+        1
+      ],
+      "width": 0.9,
+      "height": 1.62,
+      "doorBottom": 0.44,
+      "state": "closed"
+    },
+    {
+      "building": "angotgan",
+      "prefix": "North.angotgan.front WD1 2",
+      "hinges": [
+        [
+          -3.162696123123169,
+          22.36680030822754,
+          1.940000057220459
+        ],
+        [
+          -3.2639143466949463,
+          23.253040313720703,
+          1.940000057220459
+        ]
+      ],
+      "rotationSigns": [
+        -1,
+        1
+      ],
+      "width": 0.9,
+      "height": 1.62,
+      "doorBottom": 0.44,
+      "state": "closed"
+    },
+    {
+      "building": "angotgan",
+      "prefix": "North.angotgan.front WD1 3",
+      "hinges": [
+        [
+          -3.438436508178711,
+          24.78110694885254,
+          1.940000057220459
+        ],
+        [
+          -3.5396547317504883,
+          25.66734504699707,
+          1.940000057220459
+        ]
+      ],
+      "rotationSigns": [
+        -1,
+        1
+      ],
+      "width": 0.9,
+      "height": 1.62,
+      "doorBottom": 0.44,
+      "state": "closed"
+    },
+    {
+      "building": "gokgan",
+      "prefix": "North.gokgan.central grain door",
+      "hinges": [
+        [
+          22.616741180419922,
+          11.150341987609863,
+          1.75
+        ],
+        [
+          22.516124725341797,
+          9.802090644836426,
+          1.75
+        ]
+      ],
+      "rotationSigns": [
+        -1,
+        1
+      ],
+      "width": 1.36,
+      "height": 1.72,
+      "doorBottom": 0.25,
+      "state": "closed"
+    },
+    {
+      "building": "sadangmun",
+      "prefix": "North.sadangmun.taegeuk leaves",
+      "hinges": [
+        [
+          19.30853271484375,
+          16.927453994750977,
+          1.850000023841858
+        ],
+        [
+          20.319599151611328,
+          16.884031295776367,
+          1.850000023841858
+        ]
+      ],
+      "rotationSigns": [
+        -1,
+        1
+      ],
+      "width": 1.02,
+      "height": 1.5,
+      "doorBottom": 0.35,
+      "state": "closed"
+    },
+    {
+      "building": "anchae",
+      "prefix": "North.anchae.room rear 2",
+      "hinges": [
+        [
+          12.443511009216309,
+          22.247665405273438,
+          2.125
+        ]
+      ],
+      "rotationSigns": [
+        -1
+      ],
+      "width": 0.655,
+      "height": 1.45,
+      "doorBottom": 0.625,
+      "state": "closed",
+      "leaves": 1,
+      "schedule": "057 WD6",
+      "authority": "2007 sheet057 WD6: 655x1450, ulgumi54x32, sal9x15; location and outward single-leaf swing from matching plan fig4.15",
+      "unmeasuredDetails": "6mm operating gaps, iron profiles and ring placement interpreted from drawing"
+    },
+    {
+      "building": "anchae",
+      "prefix": "North.anchae.room rear 3",
+      "hinges": [
+        [
+          12.594722747802734,
+          19.677106857299805,
+          2.125
+        ]
+      ],
+      "rotationSigns": [
+        -1
+      ],
+      "width": 0.655,
+      "height": 1.45,
+      "doorBottom": 0.625,
+      "state": "closed",
+      "leaves": 1,
+      "schedule": "057 WD6",
+      "authority": "2007 sheet057 WD6: 655x1450, ulgumi54x32, sal9x15; location and outward single-leaf swing from matching plan fig4.15",
+      "unmeasuredDetails": "6mm operating gaps, iron profiles and ring placement interpreted from drawing"
+    },
+    {
+      "building": "anchae",
+      "prefix": "North.anchae.hall room 1",
+      "hinges": [
+        [
+          10.955391883850098,
+          18.530363082885742,
+          2.1649999618530273
+        ]
+      ],
+      "rotationSigns": [
+        -1
+      ],
+      "width": 0.695,
+      "height": 1.74,
+      "doorBottom": 0.665,
+      "state": "closed",
+      "leaves": 1,
+      "schedule": "057 WD4",
+      "partitionAxis": 4,
+      "centerLocalY": 0.2461580086580082,
+      "hingeLocal": [
+        0.1734999999999999,
+        -0.10134199134199179,
+        0.665
+      ],
+      "jambDepth": 0.175,
+      "authority": "057 WD4 695x1740; ulgumi54x45; sal12x30. Plan munsun90x175 / 90x140; single leaves swing into daechong.",
+      "unmeasuredDetails": "Plan centre traced at y330.5px, 6mm clearance, 15mm leaf/sill gap, sill level, stops and small iron profiles interpreted."
+    },
+    {
+      "building": "anchae",
+      "prefix": "North.anchae.hall room 2",
+      "hinges": [
+        [
+          11.237879753112793,
+          13.728164672851562,
+          2.1649999618530273
+        ]
+      ],
+      "rotationSigns": [
+        1
+      ],
+      "width": 0.695,
+      "height": 1.74,
+      "doorBottom": 0.665,
+      "state": "closed",
+      "leaves": 1,
+      "schedule": "057 WD4",
+      "partitionAxis": 6,
+      "centerLocalY": 0.2461580086580082,
+      "hingeLocal": [
+        4.984,
+        -0.10134199134199179,
+        0.665
+      ],
+      "jambDepth": 0.14,
+      "authority": "057 WD4 695x1740; ulgumi54x45; sal12x30. Plan munsun90x175 / 90x140; single leaves swing into daechong.",
+      "unmeasuredDetails": "Plan centre traced at y330.5px, 6mm clearance, 15mm leaf/sill gap, sill level, stops and small iron profiles interpreted."
+    },
+    {
+      "building": "north_site",
+      "prefix": "North.site.rear yard gate.plank door",
+      "hinges": [
+        [
+          16.271304792349813,
+          13.870462335163305,
+          1.695
+        ],
+        [
+          15.43175637886357,
+          13.842922157009744,
+          1.695
+        ]
+      ],
+      "rotationSigns": [
+        -1,
+        1
+      ],
+      "width": 0.84,
+      "height": 1.4,
+      "doorBottom": 0.195,
+      "state": "closed"
+    },
+    {
+      "building": "sadang",
+      "id": "sadang_center",
+      "prefix": "North.sadang.survey sanctuary 1",
+      "hinges": [
+        [
+          23.44327735900879,
+          23.109628677368164,
+          2.1399998664855957
+        ],
+        [
+          23.49494171142578,
+          22.06690788269043,
+          2.1399998664855957
+        ]
+      ],
+      "rotationSigns": [
+        -1,
+        1
+      ],
+      "width": 1.08,
+      "height": 1.52,
+      "doorBottom": 0.64,
+      "state": "closed",
+      "authority": "Existing leaf side axes; outward opening inspection, angle not surveyed"
+    },
+    {
+      "building": "jung",
+      "id": "jung_WD01_passage",
+      "prefix": "V26.Jung.WD01 door",
+      "hinges": [
+        [
+          0,
+          15.006,
+          1.76
+        ],
+        [
+          0,
+          13.344,
+          1.76
+        ]
+      ],
+      "rotationSigns": [
+        1,
+        -1
+      ],
+      "width": 1.662,
+      "height": 2.01,
+      "doorBottom": 1.76,
+      "state": "closed",
+      "authority": "Retained WD01 geometry; hinges at actual jamb-side leaf edges, opening angle illustrative"
+    },
+    {
+      "id": "changgo_bay1",
+      "building": "changgo",
+      "prefix": "V28.changgo.bay1",
+      "hinges": [
+        [
+          -7.483817939447535,
+          -3.4234462038246654,
+          0.95
+        ],
+        [
+          -7.483817939447535,
+          -1.4341128704913308,
+          0.95
+        ]
+      ],
+      "width": 2.0133333333333336,
+      "height": 1.9,
+      "first": 7,
+      "maxDegrees": 80,
+      "rotationSigns": [
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "changgo_bay2",
+      "building": "changgo",
+      "prefix": "V28.changgo.bay2",
+      "hinges": [
+        [
+          -7.483817939447535,
+          -1.2101128704913315,
+          0.95
+        ],
+        [
+          -7.483817939447535,
+          0.779220462842002,
+          0.95
+        ]
+      ],
+      "width": 2.013333333333333,
+      "height": 1.9,
+      "first": 7,
+      "maxDegrees": 80,
+      "rotationSigns": [
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "changgo_bay3",
+      "building": "changgo",
+      "prefix": "V28.changgo.bay3",
+      "hinges": [
+        [
+          -7.483817939447535,
+          1.0032204628420023,
+          0.95
+        ],
+        [
+          -7.483817939447535,
+          2.9925537961753355,
+          0.95
+        ]
+      ],
+      "width": 2.013333333333333,
+      "height": 1.9,
+      "first": 7,
+      "maxDegrees": 80,
+      "rotationSigns": [
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "changgo_bay4",
+      "building": "changgo",
+      "prefix": "V28.changgo.bay4",
+      "hinges": [
+        [
+          -7.483817939447535,
+          3.216553796175336,
+          0.95
+        ],
+        [
+          -7.483817939447535,
+          5.205887129508669,
+          0.95
+        ]
+      ],
+      "width": 2.013333333333333,
+      "height": 1.9,
+      "first": 7,
+      "maxDegrees": 80,
+      "rotationSigns": [
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "changgo_bay5",
+      "building": "changgo",
+      "prefix": "V28.changgo.bay5",
+      "hinges": [
+        [
+          -7.483817939447535,
+          5.4298871295086695,
+          0.95
+        ],
+        [
+          -7.483817939447535,
+          7.419220462842002,
+          0.95
+        ]
+      ],
+      "width": 2.013333333333333,
+      "height": 1.9,
+      "first": 7,
+      "maxDegrees": 80,
+      "rotationSigns": [
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "changgo_bay6",
+      "building": "changgo",
+      "prefix": "V28.changgo.bay6",
+      "hinges": [
+        [
+          -7.483817939447535,
+          7.643220462842001,
+          0.95
+        ],
+        [
+          -7.483817939447535,
+          9.632553796175335,
+          0.95
+        ]
+      ],
+      "width": 2.0133333333333336,
+      "height": 1.9,
+      "first": 7,
+      "maxDegrees": 80,
+      "rotationSigns": [
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "ansarang_front0",
+      "building": "ansarang",
+      "prefix": "V28.ansarang.front joinery0",
+      "hinges": [
+        [
+          22.365909278828404,
+          -5.338103210600017,
+          1.31
+        ]
+      ],
+      "width": 0.71,
+      "height": 1.265,
+      "first": 13,
+      "maxDegrees": 75,
+      "rotationSigns": [
+        1
+      ]
+    },
+    {
+      "id": "ansarang_front1",
+      "building": "ansarang",
+      "prefix": "V28.ansarang.front joinery1",
+      "hinges": [
+        [
+          23.565909278828403,
+          -7.813103210600016,
+          1.0700000000000003
+        ],
+        [
+          23.565909278828403,
+          -9.023103210600016,
+          1.0700000000000003
+        ]
+      ],
+      "width": 1.22,
+      "height": 1.7,
+      "first": 13,
+      "maxDegrees": 75,
+      "rotationSigns": [
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "ansarang_front2",
+      "building": "ansarang",
+      "prefix": "V28.ansarang.front joinery2",
+      "hinges": [
+        [
+          23.565909278828403,
+          -10.543103210600016,
+          1.0700000000000003
+        ],
+        [
+          23.565909278828403,
+          -11.753103210600017,
+          1.0700000000000003
+        ]
+      ],
+      "width": 1.22,
+      "height": 1.7,
+      "first": 13,
+      "maxDegrees": 75,
+      "rotationSigns": [
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "ansarang_front3",
+      "building": "ansarang",
+      "prefix": "V28.ansarang.front joinery3",
+      "hinges": [
+        [
+          23.539909278828404,
+          -12.723103210600016,
+          1.04
+        ],
+        [
+          23.539909278828404,
+          -15.033103210600016,
+          1.04
+        ]
+      ],
+      "width": 2.32,
+      "height": 1.9,
+      "first": 13,
+      "maxDegrees": 75,
+      "rotationSigns": [
+        1,
+        -1
+      ],
+      "leafGroups": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "motionNote": "Four articulated leaves: outer axes open 75 degrees and inner axes counter-rotate 150 degrees.",
+      "folds": [
+        {
+          "group": 0,
+          "leaf": 2,
+          "hinge": [
+            23.491909278828402,
+            -13.298103210600015,
+            1.6400000000000001
+          ],
+          "relativeSign": -2
+        },
+        {
+          "group": 1,
+          "leaf": 3,
+          "hinge": [
+            23.491909278828402,
+            -14.458103210600015,
+            1.6400000000000001
+          ],
+          "relativeSign": 2
+        }
+      ],
+      "unmeasuredLeafDepth": 0.0408
+    },
+    {
+      "id": "left_changgo",
+      "building": "left_changgo",
+      "prefix": "V27.left_changgo.door",
+      "hinges": [
+        [
+          -4.048,
+          3.887,
+          0.77
+        ],
+        [
+          -2.348,
+          3.887,
+          0.77
+        ]
+      ],
+      "width": 1.7,
+      "height": 2.07,
+      "first": 4,
+      "maxDegrees": 80,
+      "rotationSigns": [
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "right_ansarang",
+      "building": "right_ansarang",
+      "prefix": "V27.right_ansarang.door",
+      "hinges": [
+        [
+          17.572,
+          0.168,
+          0.94
+        ],
+        [
+          18.612,
+          0.168,
+          0.94
+        ]
+      ],
+      "width": 1.04,
+      "height": 1.66,
+      "first": 4,
+      "maxDegrees": 80,
+      "rotationSigns": [
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "ansarang_rear_WD02_bay1",
+      "building": "ansarang",
+      "prefix": "V32.ansarang.rear WD02 bay1",
+      "hinges": [
+        [
+          26.625909278828402,
+          -7.813103210600016,
+          1.3000000000000003
+        ],
+        [
+          26.625909278828402,
+          -9.023103210600016,
+          1.3000000000000003
+        ]
+      ],
+      "width": 1.22,
+      "height": 1.19,
+      "first": 13,
+      "maxDegrees": 70,
+      "rotationSigns": [
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "ansarang_rear_WD02_bay2",
+      "building": "ansarang",
+      "prefix": "V32.ansarang.rear WD02 bay2",
+      "hinges": [
+        [
+          26.625909278828402,
+          -10.543103210600016,
+          1.3000000000000003
+        ],
+        [
+          26.625909278828402,
+          -11.753103210600017,
+          1.3000000000000003
+        ]
+      ],
+      "width": 1.22,
+      "height": 1.19,
+      "first": 13,
+      "maxDegrees": 70,
+      "rotationSigns": [
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "ansarang_rear_WD02_bay3",
+      "building": "ansarang",
+      "prefix": "V32.ansarang.rear WD02 bay3",
+      "hinges": [
+        [
+          26.625909278828402,
+          -13.273103210600016,
+          1.3000000000000003
+        ],
+        [
+          26.625909278828402,
+          -14.483103210600017,
+          1.3000000000000003
+        ]
+      ],
+      "width": 1.22,
+      "height": 1.19,
+      "first": 13,
+      "maxDegrees": 70,
+      "rotationSigns": [
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "ansarang_right_WD03",
+      "building": "ansarang",
+      "prefix": "V32.ansarang.right WD03",
+      "hinges": [
+        [
+          25.045909278828404,
+          -15.219103210600016,
+          1.23
+        ],
+        [
+          25.975909278828404,
+          -15.219103210600016,
+          1.23
+        ]
+      ],
+      "width": 0.94,
+      "height": 1.35,
+      "first": 13,
+      "maxDegrees": 70,
+      "rotationSigns": [
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "ansarang_right_WD05",
+      "building": "ansarang",
+      "prefix": "V32.ansarang.right WD05",
+      "hinges": [
+        [
+          23.660909278828402,
+          -15.193103210600016,
+          1.23
+        ]
+      ],
+      "width": 0.65,
+      "height": 1.35,
+      "first": 13,
+      "maxDegrees": 70,
+      "rotationSigns": [
+        1
+      ]
+    },
+    {
+      "id": "ansarang_inside_WD07",
+      "building": "ansarang",
+      "prefix": "V32.ansarang.inside WD07",
+      "hinges": [
+        [
+          25.410909278828402,
+          -7.003103210600017,
+          1.17
+        ]
+      ],
+      "width": 0.48,
+      "height": 0.92,
+      "first": 13,
+      "maxDegrees": 70,
+      "rotationSigns": [
+        1
+      ]
+    },
+    {
+      "id": "ansarang_front_room_WD06",
+      "building": "ansarang",
+      "prefix": "V32.ansarang.front room WD06",
+      "hinges": [
+        [
+          22.620909278828403,
+          -7.003103210600017,
+          1.17
+        ]
+      ],
+      "width": 0.6,
+      "height": 1.35,
+      "first": 13,
+      "maxDegrees": 70,
+      "rotationSigns": [
+        1
+      ]
+    },
+    {
+      "id": "toilet_entry",
+      "building": "toilet",
+      "prefix": "V28.toilet.entry",
+      "hinges": [
+        [
+          -18.650043155383017,
+          -7.9512920243497005,
+          0.385
+        ]
+      ],
+      "width": 0.6900000000000001,
+      "height": 1.8499999999999999,
+      "first": 11,
+      "maxDegrees": 80,
+      "rotationSigns": [
+        1
+      ]
+    },
+    {
+      "id": "main_gate_entry",
+      "building": "main_gate",
+      "prefix": "PhotoGate.entry",
+      "hinges": [
+        [
+          -7.434072971343994,
+          -12.407302856445312,
+          0.12093022465705872
+        ],
+        [
+          -5.405337333679199,
+          -12.67253303527832,
+          0.12093022465705872
+        ]
+      ],
+      "width": 1.6926000000000003,
+      "height": 2.1790697674418604,
+      "first": 10,
+      "maxDegrees": 80,
+      "rotationSigns": [
+        -1,
+        1
+      ]
+    }
+  ],
+  "layout": "Original shared world coordinates; #11 small canonical-style candidate and 002 wall routes added separately",
+  "precision": "18-bit Draco positions; approved originals unchanged",
+  "webMaterialNote": "Legacy procedural materials use native palette midpoint; complete procedural micrograin is available in native scene and renders.",
+  "deliveryPaletteFix": {
+    "materials": [
+      "Warm lime plaster",
+      "Craft rafter end grain",
+      "Jung lime plaster",
+      "Jung dark weathered giwa 0",
+      "Jung dark weathered giwa 1",
+      "Jung dark weathered giwa 2",
+      "Jung dark weathered giwa 3",
+      "Jung dark weathered giwa 4",
+      "Jung dark weathered giwa 5",
+      "Pale ceramic tile ends",
+      "Charcoal grey giwa 0",
+      "Charcoal grey giwa 1",
+      "Charcoal grey giwa 2",
+      "Charcoal grey giwa 3",
+      "Charcoal grey giwa 4",
+      "Charcoal grey giwa 5",
+      "Warm papered ondol floor",
+      "Courtyard compacted earth.001",
+      "V31 changgo warm ochre infill",
+      "V33 changgo source ceramic 0",
+      "V33 changgo source ceramic 1",
+      "V33 changgo source ceramic 2",
+      "V33 changgo source ceramic 3",
+      "V33 changgo source ceramic 4",
+      "V33 changgo source ceramic 5",
+      "Pale ceramic tile ends.001"
+    ],
+    "geometryAndImagesUnchanged": true
+  },
+  "legacyWoodShaderBakes": {
+    "materials": [
+      "Reference gate stone",
+      "Pale granite 2",
+      "Pale granite 3",
+      "Pale granite 0",
+      "Pale granite 1",
+      "Pale granite 4",
+      "Sarang floor grain 0",
+      "Sarang floor grain 1",
+      "Sarang floor grain 2",
+      "Craft roof lining timber",
+      "Sarang floor grain 3",
+      "Illustrated granite v1 0",
+      "Gye paving warm stone 0",
+      "Gye paving warm stone 1",
+      "Gye paving warm stone 2",
+      "Gye paving warm stone 3",
+      "Gye paving warm stone 4",
+      "Gye hand-chipped warm stone 0",
+      "Gye hand-chipped warm stone 1",
+      "Gye hand-chipped warm stone 2",
+      "Gye hand-chipped warm stone 3",
+      "Gye hand-chipped warm stone 4",
+      "Gye hand-chipped warm stone 5",
+      "Pale granite 3",
+      "Jung plank 0",
+      "Jung plank 1",
+      "Jung plank 2",
+      "Jung plank 3",
+      "Jung warm fieldstone 2",
+      "Jung warm fieldstone 0",
+      "Jung warm fieldstone 1",
+      "Jung warm fieldstone 3",
+      "Jung warm fieldstone 4",
+      "Reference anchae tile",
+      "Reference anchae wood",
+      "North lime plaster",
+      "Reference anchae stone",
+      "Reference anchae wood",
+      "North earthen plaster",
+      "Reference anchae tile",
+      "North lime plaster",
+      "North earthen plaster",
+      "Reference anchae tile",
+      "Illustrated granite v1 0",
+      "Reference sadang stone",
+      "Reference sadang roof ceramic corrected",
+      "Reference sadangmun stone",
+      "Reference sadangmun tile",
+      "Reference sadangmun tile",
+      "Reference gate stone",
+      "Canonical gate stone pigment.003",
+      "Canonical gate wood pigment.003",
+      "Photo gate warm lime plaster",
+      "Sep29 altar Canonical gate wood pigment.007",
+      "Reference ansarang wood",
+      "Reference ansarang stone",
+      "Reference ansarang wood",
+      "Jung warm fieldstone 3.001",
+      "Jung warm fieldstone 1.001",
+      "Jung warm fieldstone 2.001",
+      "Jung warm fieldstone 0.001",
+      "Jung warm fieldstone 4.001",
+      "North lime plaster",
+      "Canonical gate wood pigment.002",
+      "Canonical gate wood pigment.002",
+      "Gye toilet foundation mineral pigment",
+      "Canonical gate wood pigment.002",
+      "Reference ansarang tile",
+      "Reference ansarang tile"
+    ],
+    "resolution": 512,
+    "roofResolution": 1024,
+    "sourceImagesAndGeometryUnchanged": true
+  }
+}

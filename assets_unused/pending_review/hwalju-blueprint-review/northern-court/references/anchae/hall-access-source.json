@@ -1,0 +1,59 @@
+{
+  "sourceFiles": [
+    {
+      "file": "blueprint_도면_국가민속문화재_함양_일두_고택_기록화보고서_안채_창호_상세도1.jpg",
+      "sha256": "c97dbe932b940a1aff1dcecf0899012f01f0f4c62ea09bb10e825fc6909a6d7a"
+    },
+    {
+      "file": "codil-plan-image-0.png",
+      "sha256": "a4f94c17923240fe3452eefbc4e5e7954dd0e9cb0ce383fe7a11736053874541"
+    },
+    {
+      "file": "WD4-hall-door-detail.png",
+      "sha256": "c8882abb3c68a6f4e0072438683cc99def48847f16b80fd9bd50edd0fa914e3e"
+    },
+    {
+      "file": "daechong-plan-doors-detail.png",
+      "sha256": "5b374121b588f9ccd0b20688ea69a44e87bbfc4f61519c0f42bcdf4c231acc37"
+    }
+  ],
+  "primaryReport": "https://www.codil.or.kr/filebank/original/RK/OTKCRK190980/OTKCRK190980.pdf",
+  "planPage": "printed 136, figure 4.15",
+  "measuredMillimetres": {
+    "WD4": {
+      "leaf": [
+        695,
+        1740
+      ],
+      "frame": [
+        54,
+        45
+      ],
+      "sal": [
+        12,
+        30
+      ],
+      "count": 2
+    },
+    "room1Jamb": [
+      90,
+      175
+    ],
+    "room2Jamb": [
+      90,
+      140
+    ]
+  },
+  "planTrace": {
+    "rearPixelY": 252,
+    "frontPixelY": 483,
+    "measuredDepth": 3800,
+    "doorCenterPixelY": 330.5
+  },
+  "interpretation": [
+    "Door sill elevation, 6mm clearance, rebate stops and small iron sizes",
+    "Lattice rhythm traced from drawing",
+    "Existing room floor elevations retained; infill terminates at current wall faces"
+  ],
+  "fullSurveyAccuracyClaimed": false
+}

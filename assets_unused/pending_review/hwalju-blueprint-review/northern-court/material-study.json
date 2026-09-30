@@ -1,0 +1,1985 @@
+{
+  "nativeScene": "scene.blend",
+  "nativeSha256": "b4e6f20bb132dd634b35386046558fdad29e4f442df7d137ddd33e585eaecb35",
+  "geometryObjectsUnchanged": 3165,
+  "surfaces": [
+    {
+      "object": "North.anchae.frame square post",
+      "building": "anchae",
+      "solidComponents": 27,
+      "longGrainFaces": 108,
+      "cutEndFaces": 54,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.frame transverse beam",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 37,
+      "cutEndFaces": 17,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.frame longitudinal beam",
+      "building": "anchae",
+      "solidComponents": 6,
+      "longGrainFaces": 24,
+      "cutEndFaces": 12,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.frame mortise peg",
+      "building": "anchae",
+      "solidComponents": 36,
+      "longGrainFaces": 296,
+      "cutEndFaces": 136,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.floor under joists",
+      "building": "anchae",
+      "solidComponents": 8,
+      "longGrainFaces": 32,
+      "cutEndFaces": 16,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.floor individual boards",
+      "building": "anchae",
+      "solidComponents": 121,
+      "longGrainFaces": 484,
+      "cutEndFaces": 242,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.end bay plaster.jamb",
+      "building": "anchae",
+      "solidComponents": 4,
+      "longGrainFaces": 16,
+      "cutEndFaces": 8,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.end bay plaster.head/sill",
+      "building": "anchae",
+      "solidComponents": 4,
+      "longGrainFaces": 16,
+      "cutEndFaces": 8,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.end high lattice 0.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.end high lattice 0.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.end high lattice 0 three horizontal bars",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen front.jamb",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen front.head/sill",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen.leaf1.solid board",
+      "building": "anchae",
+      "solidComponents": 4,
+      "longGrainFaces": 16,
+      "cutEndFaces": 8,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen.leaf1.rear rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen.leaf2.solid board",
+      "building": "anchae",
+      "solidComponents": 4,
+      "longGrainFaces": 16,
+      "cutEndFaces": 8,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen.leaf2.rear rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen high ventilator.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen high ventilator.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen high ventilator three horizontal bars",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear.jamb",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear.head/sill",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.vertical sal",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 36,
+      "cutEndFaces": 18,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.vertical sal",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 36,
+      "cutEndFaces": 18,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room facade.jamb",
+      "building": "anchae",
+      "solidComponents": 6,
+      "longGrainFaces": 24,
+      "cutEndFaces": 12,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room facade.head/sill",
+      "building": "anchae",
+      "solidComponents": 6,
+      "longGrainFaces": 24,
+      "cutEndFaces": 12,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.vertical sal",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 36,
+      "cutEndFaces": 18,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.vertical sal",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 36,
+      "cutEndFaces": 18,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear.jamb",
+      "building": "anchae",
+      "solidComponents": 6,
+      "longGrainFaces": 24,
+      "cutEndFaces": 12,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear.head/sill",
+      "building": "anchae",
+      "solidComponents": 6,
+      "longGrainFaces": 24,
+      "cutEndFaces": 12,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.vertical sal",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 36,
+      "cutEndFaces": 18,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf2.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf2.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf2.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf2.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf2.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf2.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf2.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf2.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf2.vertical sal",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 36,
+      "cutEndFaces": 18,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf2.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf2.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.vertical sal",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 36,
+      "cutEndFaces": 18,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.vertical sal",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 36,
+      "cutEndFaces": 18,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.vertical sal",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 36,
+      "cutEndFaces": 18,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf2.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf2.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf2.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf2.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf2.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf2.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf2.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf2.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf2.vertical sal",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 36,
+      "cutEndFaces": 18,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf2.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf2.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.daechong rear wall.jamb",
+      "building": "anchae",
+      "solidComponents": 4,
+      "longGrainFaces": 16,
+      "cutEndFaces": 8,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.daechong rear wall.head/sill",
+      "building": "anchae",
+      "solidComponents": 4,
+      "longGrainFaces": 16,
+      "cutEndFaces": 8,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.daechong rear door 4.leaf1.solid board",
+      "building": "anchae",
+      "solidComponents": 4,
+      "longGrainFaces": 16,
+      "cutEndFaces": 8,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.daechong rear door 4.leaf1.rear rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.daechong rear door 4.leaf2.solid board",
+      "building": "anchae",
+      "solidComponents": 4,
+      "longGrainFaces": 16,
+      "cutEndFaces": 8,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.daechong rear door 4.leaf2.rear rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.daechong rear door 5.leaf1.solid board",
+      "building": "anchae",
+      "solidComponents": 4,
+      "longGrainFaces": 16,
+      "cutEndFaces": 8,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.daechong rear door 5.leaf1.rear rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.daechong rear door 5.leaf2.solid board",
+      "building": "anchae",
+      "solidComponents": 4,
+      "longGrainFaces": 16,
+      "cutEndFaces": 8,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.daechong rear door 5.leaf2.rear rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.vertical sal",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 36,
+      "cutEndFaces": 18,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.vertical sal",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 36,
+      "cutEndFaces": 18,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.vertical sal",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 36,
+      "cutEndFaces": 18,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.vertical sal",
+      "building": "anchae",
+      "solidComponents": 9,
+      "longGrainFaces": 36,
+      "cutEndFaces": 18,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.end high lattice 7.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.end high lattice 7.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.end high lattice 7 three horizontal bars",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end.jamb",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end.head/sill",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf1.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf1.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf1.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf1.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf1.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf1.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf1.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf1.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf1.vertical sal",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf1.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf1.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf2.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf2.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf2.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf2.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf2.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf2.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf2.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf2.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf2.vertical sal",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf2.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.right room end lattice.leaf2.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.rafters",
+      "building": "anchae",
+      "solidComponents": 202,
+      "longGrainFaces": 2020,
+      "cutEndFaces": 404,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.lower exposed rafters",
+      "building": "anchae",
+      "solidComponents": 202,
+      "longGrainFaces": 2424,
+      "cutEndFaces": 404,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.eave beam",
+      "building": "anchae",
+      "solidComponents": 4,
+      "longGrainFaces": 3232,
+      "cutEndFaces": 596,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.gable timber",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 2048,
+      "cutEndFaces": 0,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.gable frame",
+      "building": "anchae",
+      "solidComponents": 4,
+      "longGrainFaces": 48,
+      "cutEndFaces": 12,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.gable centre post",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 20,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.gable brace",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 32,
+      "cutEndFaces": 8,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.hip exposed rafters",
+      "building": "anchae",
+      "solidComponents": 50,
+      "longGrainFaces": 600,
+      "cutEndFaces": 100,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof.hip eave beam",
+      "building": "anchae",
+      "solidComponents": 4,
+      "longGrainFaces": 960,
+      "cutEndFaces": 192,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.roof continuous bed.001",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4446,
+      "cutEndFaces": 26,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen annex.jamb",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen annex.head/sill",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.recessed lower board",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.lower moulding.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.lower moulding.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.lock rail",
+      "building": "anchae",
+      "solidComponents": 1,
+      "longGrainFaces": 4,
+      "cutEndFaces": 2,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.rebated bead.stile",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.rebated bead.rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.vertical sal",
+      "building": "anchae",
+      "solidComponents": 10,
+      "longGrainFaces": 40,
+      "cutEndFaces": 20,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.horizontal band",
+      "building": "anchae",
+      "solidComponents": 12,
+      "longGrainFaces": 48,
+      "cutEndFaces": 24,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.rear paper rail",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 12,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.kitchen annex corner",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.photo sireong shelf rail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 480,
+      "cutEndFaces": 78,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.photo sireong hanging support",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 36,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.photo sireong cross support",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 36,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.photo low maru handrail",
+      "building": "anchae",
+      "solidComponents": 2,
+      "longGrainFaces": 8,
+      "cutEndFaces": 4,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.photo low maru upright",
+      "building": "anchae",
+      "solidComponents": 7,
+      "longGrainFaces": 28,
+      "cutEndFaces": 14,
+      "geometryUnchanged": true
+    },
+    {
+      "object": "North.anchae.photo curved daechong beam",
+      "building": "anchae",
+      "solidComponents": 3,
+      "longGrainFaces": 30,
+      "cutEndFaces": 6,
+      "geometryUnchanged": true
+    }
+  ],
+  "sourceImagesUnaltered": true,
+  "generatedInterpretation": true
+}

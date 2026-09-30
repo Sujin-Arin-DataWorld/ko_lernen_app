@@ -1,0 +1,3039 @@
+{
+  "checks": {
+    "baseSceneUnchanged": true,
+    "originalGeometryUnchanged": true,
+    "originalUvAndMaterialSlotsPreserved": true,
+    "warehouseWallMeetsDoor3And4Post": true,
+    "imageTexturedWallUvPresent": true,
+    "masonryCopingHasNoBuildingTimbers": true,
+    "masonryHasNoWoodMaterials": true,
+    "toilet1HasSeparateSourceNames": true,
+    "toilet1MatchesGround": true,
+    "deliveryMatchesCandidate": true,
+    "deliveryChunksIntact": true,
+    "originalGateAnsarangWallRetained": true,
+    "paleNorthWallsReplaced": true,
+    "flowerOrnamentsPreserved": true,
+    "northWallStoneRebuilt": true,
+    "duplicateByeoldangRoutesAbsent": true,
+    "wallJunctionsConnected": true,
+    "newStoneUsesCanonicalPigment": true,
+    "newCopingUsesRetainedCeramic": true,
+    "twoEmptyServiceGardens": true,
+    "gyeWoodRoofPaletteApplied": true,
+    "sarangStoneIsHandFaceted": true,
+    "rejectedGardenAbsent": true,
+    "distinctBuildingWoodPreservesWarehouse": true,
+    "roofOutliersUseWarmCharcoalFamily": true,
+    "paintedPlasterPreservesOriginalUvAndWebMapping": true,
+    "buildingStoneUsesPaintedPigmentAndPreservesOriginals": true,
+    "buildingWoodAndRoofShareMatteFinishAndKeepGrain": true,
+    "shrineGableUsesDistinctPaintedWoodAndKeepsSource": true,
+    "timberCornersVaryWhileSourceCoreAndDoorPartsRemain": true,
+    "sarangAndJungUseDistinctFullPaintedGrain": true,
+    "platformTopsUseIrregularStoneAndKeepEarthCourtyards": true,
+    "gokganRearWallHasClearanceAndKeepsBuildingPosition": true
+  },
+  "originalMeshesChecked": 3298,
+  "protectedSurfacesChecked": 2707,
+  "changedGeometry": [],
+  "changedProtectedSurfaces": [],
+  "deliberatelyAlignedWallMeshes": [
+    "V27.left_changgo.wall to warehouse.coping",
+    "V27.left_changgo.wall to warehouse.coping.001",
+    "V27.left_changgo.wall to warehouse.coping.002",
+    "V27.left_changgo.wall to warehouse.coping.003",
+    "V27.left_changgo.wall to warehouse.coping.004",
+    "V27.left_changgo.wall to warehouse.coping.005",
+    "V27.left_changgo.wall to warehouse.coping.plain ends",
+    "V27.left_changgo.wall to warehouse.coping.ridge",
+    "V27.left_changgo.wall to warehouse.earth core",
+    "V30.left_changgo.wall to warehouse.rubble face0",
+    "V30.left_changgo.wall to warehouse.rubble face0.001",
+    "V30.left_changgo.wall to warehouse.rubble face0.002",
+    "V30.left_changgo.wall to warehouse.rubble face0.003",
+    "V30.left_changgo.wall to warehouse.rubble face0.004",
+    "V30.left_changgo.wall to warehouse.rubble face1",
+    "V30.left_changgo.wall to warehouse.rubble face1.001",
+    "V30.left_changgo.wall to warehouse.rubble face1.002",
+    "V30.left_changgo.wall to warehouse.rubble face1.003",
+    "V30.left_changgo.wall to warehouse.rubble face1.004",
+    "V30.left_changgo.wall to warehouse.rubble face2",
+    "V30.left_changgo.wall to warehouse.rubble face2.001",
+    "V30.left_changgo.wall to warehouse.rubble face2.002",
+    "V30.left_changgo.wall to warehouse.rubble face2.003",
+    "V30.left_changgo.wall to warehouse.rubble face2.004",
+    "V30.left_changgo.wall to warehouse.rubble face3",
+    "V30.left_changgo.wall to warehouse.rubble face3.001",
+    "V30.left_changgo.wall to warehouse.rubble face3.002",
+    "V30.left_changgo.wall to warehouse.rubble face3.003",
+    "V30.left_changgo.wall to warehouse.rubble face3.004"
+  ],
+  "door3And4PostY": 3.0226649045944214,
+  "wallEndY": 3.022664785385132,
+  "wallGateY": 3.802000045776367,
+  "imageTexturedWallMeshesChecked": 76,
+  "missingWallUv": [],
+  "timberOnCaps": [],
+  "woodOnMasonry": [],
+  "chunkFailures": [],
+  "toilet1Bounds": {
+    "min": [
+      -13.944236755371094,
+      24.409942626953125,
+      1.2899999618530273
+    ],
+    "max": [
+      -10.123209953308105,
+      27.92196273803711,
+      5.017699718475342
+    ]
+  },
+  "sceneSha256": "bd921e4b0768bb7b9d0dba5c97fab3ce079e8f3ba649a2a9039334023b79450b",
+  "glbSha256": "98cb36da2e3d1f90bff4ea6aa367d307a9a53c55563758dc8802707ce811d926",
+  "gyeStylePass": {
+    "stoneCourses": 137,
+    "stoneFeet": 23,
+    "palette": {
+      "tile": "#393B35",
+      "wood": "#80532D",
+      "plaster": "#D6C7A7",
+      "stone": [
+        "#807663",
+        "#918671",
+        "#A69B83",
+        "#726A58",
+        "#B0A48B",
+        "#8B806A"
+      ]
+    }
+  },
+  "gyeTimberRegister": {
+    "valid": true,
+    "buildings": {
+      "arae": {
+        "imageSha256Matches": true,
+        "albedoNodePresent": true,
+        "normalStrength": 0.18000000715255737,
+        "targetFaces": 95972,
+        "otherBuildingFaces": 0,
+        "oldPineFaces": 0,
+        "recordedFaces": 95972
+      },
+      "angotgan": {
+        "imageSha256Matches": true,
+        "albedoNodePresent": true,
+        "normalStrength": 0.18000000715255737,
+        "targetFaces": 80543,
+        "otherBuildingFaces": 0,
+        "oldPineFaces": 0,
+        "recordedFaces": 80543
+      },
+      "gokgan": {
+        "imageSha256Matches": true,
+        "albedoNodePresent": true,
+        "normalStrength": 0.18000000715255737,
+        "targetFaces": 10436,
+        "otherBuildingFaces": 0,
+        "oldPineFaces": 0,
+        "recordedFaces": 10436
+      }
+    },
+    "warehouseApprovedWoodFaces": 36910
+  },
+  "gyeRoofPalette": {
+    "valid": true,
+    "buildings": {
+      "sadang": {
+        "sourceImageSha256Matches": true,
+        "nativeTintMatches": true,
+        "webTintBaked": true,
+        "faces": 17436,
+        "otherBuildingFaces": 0,
+        "webUvSets": [
+          0
+        ],
+        "webUvSetsPreserved": true,
+        "webRoughnessMatches": true
+      },
+      "ansarang": {
+        "sourceImageSha256Matches": true,
+        "nativeTintMatches": true,
+        "webTintBaked": true,
+        "faces": 18769,
+        "otherBuildingFaces": 0,
+        "webUvSets": [
+          2,
+          2
+        ],
+        "webUvSetsPreserved": true,
+        "webRoughnessMatches": true
+      },
+      "sadangmun": {
+        "sourceImageSha256Matches": true,
+        "nativeTintMatches": true,
+        "webTintBaked": true,
+        "faces": 4567,
+        "otherBuildingFaces": 0,
+        "webUvSets": [
+          1,
+          1
+        ],
+        "webUvSetsPreserved": true,
+        "webRoughnessMatches": true
+      },
+      "anchae": {
+        "sourceImageSha256Matches": true,
+        "nativeTintMatches": true,
+        "webTintBaked": true,
+        "faces": 33886,
+        "otherBuildingFaces": 0,
+        "webUvSets": [
+          2,
+          1,
+          2
+        ],
+        "webUvSetsPreserved": true,
+        "webRoughnessMatches": true
+      }
+    }
+  },
+  "gyePlasterWash": {
+    "valid": true,
+    "materials": {
+      "North lime plaster": {
+        "nativeGlazeMatches": true,
+        "mappedFaces": 14437,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          4,
+          0,
+          3
+        ],
+        "objects": 52
+      },
+      "North earthen plaster": {
+        "nativeGlazeMatches": true,
+        "mappedFaces": 6318,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0,
+          4
+        ],
+        "objects": 26
+      },
+      "Photo gate warm lime plaster": {
+        "nativeGlazeMatches": true,
+        "mappedFaces": 236,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "objects": 5
+      }
+    },
+    "mappedObjectsMatch": true,
+    "imageSha256Matches": true
+  },
+  "gyeStonePigment": {
+    "valid": true,
+    "materials": {
+      "Gye hand-chipped warm stone 0": {
+        "nativePigmentMatches": true,
+        "faces": 292,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          1
+        ],
+        "webPrimitivesChecked": 2
+      },
+      "Gye hand-chipped warm stone 1": {
+        "nativePigmentMatches": true,
+        "faces": 299,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          1
+        ],
+        "webPrimitivesChecked": 2
+      },
+      "Gye hand-chipped warm stone 2": {
+        "nativePigmentMatches": true,
+        "faces": 223,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          1
+        ],
+        "webPrimitivesChecked": 2
+      },
+      "Gye hand-chipped warm stone 3": {
+        "nativePigmentMatches": true,
+        "faces": 190,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          1
+        ],
+        "webPrimitivesChecked": 2
+      },
+      "Gye hand-chipped warm stone 4": {
+        "nativePigmentMatches": true,
+        "faces": 275,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          1
+        ],
+        "webPrimitivesChecked": 2
+      },
+      "Gye hand-chipped warm stone 5": {
+        "nativePigmentMatches": true,
+        "faces": 321,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          1
+        ],
+        "webPrimitivesChecked": 2
+      },
+      "Pale granite 0": {
+        "nativePigmentMatches": true,
+        "faces": 84378,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "webPrimitivesChecked": 6
+      },
+      "Pale granite 1": {
+        "nativePigmentMatches": true,
+        "faces": 80658,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "webPrimitivesChecked": 7
+      },
+      "Pale granite 2": {
+        "nativePigmentMatches": true,
+        "faces": 107292,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "webPrimitivesChecked": 21
+      },
+      "Pale granite 3": {
+        "nativePigmentMatches": true,
+        "faces": 93750,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0,
+          1
+        ],
+        "webPrimitivesChecked": 33
+      },
+      "Pale granite 4": {
+        "nativePigmentMatches": true,
+        "faces": 99508,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "webPrimitivesChecked": 9
+      },
+      "Jung warm fieldstone 0": {
+        "nativePigmentMatches": true,
+        "faces": 1436,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "webPrimitivesChecked": 8
+      },
+      "Jung warm fieldstone 1": {
+        "nativePigmentMatches": true,
+        "faces": 1882,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "webPrimitivesChecked": 8
+      },
+      "Jung warm fieldstone 2": {
+        "nativePigmentMatches": true,
+        "faces": 1902,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "webPrimitivesChecked": 10
+      },
+      "Jung warm fieldstone 3": {
+        "nativePigmentMatches": true,
+        "faces": 1971,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "webPrimitivesChecked": 9
+      },
+      "Jung warm fieldstone 4": {
+        "nativePigmentMatches": true,
+        "faces": 1009,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "webPrimitivesChecked": 6
+      },
+      "Jung warm fieldstone 0.001": {
+        "nativePigmentMatches": true,
+        "faces": 420,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "webPrimitivesChecked": 6
+      },
+      "Jung warm fieldstone 1.001": {
+        "nativePigmentMatches": true,
+        "faces": 617,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "webPrimitivesChecked": 6
+      },
+      "Jung warm fieldstone 2.001": {
+        "nativePigmentMatches": true,
+        "faces": 932,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "webPrimitivesChecked": 6
+      },
+      "Jung warm fieldstone 3.001": {
+        "nativePigmentMatches": true,
+        "faces": 703,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "webPrimitivesChecked": 6
+      },
+      "Jung warm fieldstone 4.001": {
+        "nativePigmentMatches": true,
+        "faces": 1118,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          0
+        ],
+        "webPrimitivesChecked": 6
+      },
+      "Reference anchae stone": {
+        "nativePigmentMatches": true,
+        "faces": 2557,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          2
+        ],
+        "webPrimitivesChecked": 9
+      },
+      "Reference ansarang stone": {
+        "nativePigmentMatches": true,
+        "faces": 2100,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          2
+        ],
+        "webPrimitivesChecked": 23
+      },
+      "Reference sadang stone": {
+        "nativePigmentMatches": true,
+        "faces": 1249,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          2
+        ],
+        "webPrimitivesChecked": 5
+      },
+      "Reference sadangmun stone": {
+        "nativePigmentMatches": true,
+        "faces": 205,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          2
+        ],
+        "webPrimitivesChecked": 4
+      },
+      "Reference gate stone": {
+        "nativePigmentMatches": true,
+        "faces": 17399,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          1,
+          2
+        ],
+        "webPrimitivesChecked": 116
+      },
+      "Illustrated granite v1 0": {
+        "nativePigmentMatches": true,
+        "faces": 7148,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          1,
+          2
+        ],
+        "webPrimitivesChecked": 18
+      },
+      "Canonical gate stone pigment.003": {
+        "nativePigmentMatches": true,
+        "faces": 4709,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          1
+        ],
+        "webPrimitivesChecked": 6
+      },
+      "Gye toilet foundation mineral pigment": {
+        "nativePigmentMatches": true,
+        "faces": 2420,
+        "newUvPresent": true,
+        "webPigmentAndUvValid": true,
+        "webUvSets": [
+          1
+        ],
+        "webPrimitivesChecked": 44
+      }
+    },
+    "originalImagesUnchanged": true,
+    "scopedMaterialCopiesValid": true,
+    "mappedObjectsMatch": true,
+    "buildingsCovered": [
+      "anchae",
+      "angotgan",
+      "ansarang",
+      "arae",
+      "changgo",
+      "gokgan",
+      "jung",
+      "main_gate",
+      "sadang",
+      "sadangmun",
+      "sarang",
+      "toilet",
+      "toilet1"
+    ]
+  },
+  "gyeMatteSurface": {
+    "valid": true,
+    "materials": {
+      "Ansarang retained Pale ceramic tile ends": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Ansarang retained Pale ceramic tile ends.001": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Ansarang retained V33 main_gate source ceramic 0": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Ansarang retained V33 main_gate source ceramic 1": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Ansarang retained V33 main_gate source ceramic 2": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Ansarang retained V33 main_gate source ceramic 3": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Ansarang retained V33 main_gate source ceramic 4": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Ansarang retained V33 main_gate source ceramic 5": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Ansarang retained V33 toilet source ceramic 0": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Ansarang retained V33 toilet source ceramic 1": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Ansarang retained V33 toilet source ceramic 2": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Ansarang retained V33 toilet source ceramic 3": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Ansarang retained V33 toilet source ceramic 4": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Ansarang retained V33 toilet source ceramic 5": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Canonical gate wood pigment.002": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 3
+      },
+      "Canonical gate wood pigment.003": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Canonical gate wood pigment.004": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Canonical gate wood pigment.005": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Canonical gate wood pigment.006": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Canonical gate wood pigment.007": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Canonical gate wood pigment.008": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Canonical gate wood pigment.009": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Canonical gate wood pigment.010": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Canonical gate wood pigment.011": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Charcoal grey giwa 0": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Charcoal grey giwa 1": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Charcoal grey giwa 2": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Charcoal grey giwa 3": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Charcoal grey giwa 4": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Charcoal grey giwa 5": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Craft garden pale tile noses": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Craft roof lining timber": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Forecourt aged lime tile ends": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Gate retained Jung dark weathered giwa 2": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Gate retained Pale ceramic tile ends": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Gye angotgan painted pine v1": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 3
+      },
+      "Gye arae painted pine v1": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 4
+      },
+      "Gye gokgan painted pine v1": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 3
+      },
+      "Illustrated pine endgrain v1": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 3
+      },
+      "Illustrated pine longgrain v1": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Jung dark walnut": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 2
+      },
+      "Jung dark weathered giwa 0": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Jung dark weathered giwa 1": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Jung dark weathered giwa 2": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Jung dark weathered giwa 3": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Jung dark weathered giwa 4": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Jung dark weathered giwa 5": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "North lime tile ends": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Pale ceramic tile ends": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Pale ceramic tile ends.001": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Photo gate weathered lime tile end": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Reference anchae tile": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 3
+      },
+      "Reference anchae wood": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 2
+      },
+      "Reference ansarang tile": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 2
+      },
+      "Reference ansarang wood": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 2
+      },
+      "Reference gate tile": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 3
+      },
+      "Reference gate wood": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 3
+      },
+      "Reference sadang roof ceramic corrected": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Reference sadang wood": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Reference sadangmun tile": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 2
+      },
+      "Sarang golden aged timber": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 2
+      },
+      "Sarang vertical timber grain": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Sep29 altar Canonical gate wood pigment.007": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "V33 changgo source ceramic 0": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "V33 changgo source ceramic 1": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "V33 changgo source ceramic 2": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "V33 changgo source ceramic 3": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "V33 changgo source ceramic 4": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "V33 changgo source ceramic 5": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 1
+      },
+      "Warehouse approved illustration wood": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 2
+      },
+      "Illustrated clay v1 0": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 3
+      },
+      "Illustrated clay v1 1": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 3
+      },
+      "Illustrated clay v1 2": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 3
+      },
+      "Illustrated clay v1 3": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 3
+      },
+      "Illustrated clay v1 4": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 3
+      },
+      "Illustrated clay v1 5": {
+        "nativeFinishMatches": true,
+        "webFinishMatches": true,
+        "facesMatch": true,
+        "webMaterialCount": 3
+      }
+    },
+    "timberOutliers": {
+      "anchae": {
+        "nativePigmentAndBakeMatch": true,
+        "grainUvPreserved": true,
+        "webUvSets": [
+          0,
+          1
+        ],
+        "webPrimitivesChecked": 226
+      },
+      "ansarang": {
+        "nativePigmentAndBakeMatch": true,
+        "grainUvPreserved": true,
+        "webUvSets": [
+          1
+        ],
+        "webPrimitivesChecked": 245
+      }
+    },
+    "sourceImagesUnchanged": true,
+    "allBuildingWoodAndRoofsCovered": true
+  },
+  "gyeShrineGable": {
+    "valid": true,
+    "nativeImageMatches": true,
+    "sourcePhotographUnchanged": true,
+    "webImageBytesMatch": true,
+    "webUvMatchesOriginal": true,
+    "facesByOwner": {
+      "sadang": 872
+    },
+    "webPrimitivesChecked": 2,
+    "webUvSets": [
+      1
+    ]
+  },
+  "gyeTimberArris": {
+    "valid": true,
+    "membersChecked": 165,
+    "countsByBuilding": {
+      "sarang": 61,
+      "jung": 9,
+      "changgo": 18,
+      "ansarang": 6,
+      "toilet": 7,
+      "main_gate": 11,
+      "anchae": 12,
+      "arae": 5,
+      "angotgan": 7,
+      "gokgan": 4,
+      "sadang": 16,
+      "sadangmun": 2,
+      "toilet1": 7
+    },
+    "allBuildingsCovered": true,
+    "members": {
+      "Sarang.main front post.capital": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.011213503115382828,
+        "nativeTriangles": 540,
+        "webTriangles": 540
+      },
+      "Sarang.main front post.capital tongue": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.010803409972962363,
+        "nativeTriangles": 1080,
+        "webTriangles": 1080
+      },
+      "Sarang.room front post.wood": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.015334971674460851,
+        "nativeTriangles": 540,
+        "webTriangles": 540
+      },
+      "Sarang.room front post.capital": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01168983774486404,
+        "nativeTriangles": 540,
+        "webTriangles": 540
+      },
+      "Sarang.room front post.capital tongue": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.010714947722470503,
+        "nativeTriangles": 1080,
+        "webTriangles": 1080
+      },
+      "Sarang.rear post.wood": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.015282139263849304,
+        "nativeTriangles": 540,
+        "webTriangles": 540
+      },
+      "Sarang.rear post.capital": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.011514248095895796,
+        "nativeTriangles": 540,
+        "webTriangles": 540
+      },
+      "Sarang.rear post.capital tongue": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.010732336356089611,
+        "nativeTriangles": 1080,
+        "webTriangles": 1080
+      },
+      "Sarang.wing post.wood": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0150608257152951,
+        "nativeTriangles": 808,
+        "webTriangles": 808
+      },
+      "Sarang.wing post.capital": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0113825621058386,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Sarang.wing post.capital tongue": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.010864197818084342,
+        "nativeTriangles": 1296,
+        "webTriangles": 1296
+      },
+      "Sarang.numaru front measured post.capital": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.010871550324348223,
+        "nativeTriangles": 324,
+        "webTriangles": 324
+      },
+      "Sarang.numaru front measured post.capital tongue": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.010438797036542602,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Sarang.main beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01577689034795704,
+        "nativeTriangles": 324,
+        "webTriangles": 324
+      },
+      "Sarang.wing beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.014372052055285911,
+        "nativeTriangles": 216,
+        "webTriangles": 216
+      },
+      "Sarang.attic king post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.014373935594111764,
+        "nativeTriangles": 1100,
+        "webTriangles": 1100
+      },
+      "Jung.registered post.wood": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.015084700989147493,
+        "nativeTriangles": 1512,
+        "webTriangles": 1512
+      },
+      "Jung.registered post.capital": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.011712739617753931,
+        "nativeTriangles": 1512,
+        "webTriangles": 1512
+      },
+      "Jung.registered post.capital tongue": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01101213629190606,
+        "nativeTriangles": 3024,
+        "webTriangles": 3024
+      },
+      "Jung.longitudinal beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.013718257143650714,
+        "nativeTriangles": 216,
+        "webTriangles": 216
+      },
+      "Jung.cross beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.014029599598594511,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Jung.maru floor beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.010459042104316696,
+        "nativeTriangles": 324,
+        "webTriangles": 324
+      },
+      "Sarang.main roof.gable centre post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.010570211532656693,
+        "nativeTriangles": 232,
+        "webTriangles": 232
+      },
+      "Sarang.numaru roof.gable centre post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01025730663171076,
+        "nativeTriangles": 116,
+        "webTriangles": 116
+      },
+      "Ref.Jung interior ceiling boards": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.002418737526942244,
+        "nativeTriangles": 1188,
+        "webTriangles": 1188
+      },
+      "Ref.Jung.main roof.eave beam.square fascia": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.008424738944250165,
+        "nativeTriangles": 5736,
+        "webTriangles": 5736
+      },
+      "Craft.Sarang broad apron boards": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.006194870486966653,
+        "nativeTriangles": 540,
+        "webTriangles": 540
+      },
+      "Craft.Sarang broad apron boards.001": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.006064656963230997,
+        "nativeTriangles": 540,
+        "webTriangles": 540
+      },
+      "Craft.Sarang broad apron boards.002": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.006243802394649278,
+        "nativeTriangles": 540,
+        "webTriangles": 540
+      },
+      "Craft.Sarang continuous post 0": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.015421415078643586,
+        "nativeTriangles": 1676,
+        "webTriangles": 1676
+      },
+      "Craft.Sarang continuous post 2.595": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01565583638354906,
+        "nativeTriangles": 1676,
+        "webTriangles": 1676
+      },
+      "Craft.Sarang continuous post 5.27": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.015665849809711085,
+        "nativeTriangles": 1676,
+        "webTriangles": 1676
+      },
+      "Craft.Sarang continuous post 7.915": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01523086735812118,
+        "nativeTriangles": 1676,
+        "webTriangles": 1676
+      },
+      "Craft.Sarang continuous post 10.575": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.014546243937411107,
+        "nativeTriangles": 1676,
+        "webTriangles": 1676
+      },
+      "Craft.Numaru continuous post 10.575": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.014969658089324878,
+        "nativeTriangles": 1676,
+        "webTriangles": 1676
+      },
+      "Craft.Numaru continuous post 12.56": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01374525033402585,
+        "nativeTriangles": 1676,
+        "webTriangles": 1676
+      },
+      "Craft.Numaru continuous post 14.545": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.014947279986263773,
+        "nativeTriangles": 1676,
+        "webTriangles": 1676
+      },
+      "Craft.Numaru front head beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.012704584734366087,
+        "nativeTriangles": 108,
+        "webTriangles": 108
+      },
+      "Craft.Sarang.main roof.eave beam.thin bedding board": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.005390577593690521,
+        "nativeTriangles": 1760,
+        "webTriangles": 1760
+      },
+      "Craft.Sarang.main roof.hip eave beam.thin bedding board": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.005767140828469852,
+        "nativeTriangles": 890,
+        "webTriangles": 890
+      },
+      "Craft.Sarang.numaru roof.hip eave beam.thin bedding board": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.005252909684694385,
+        "nativeTriangles": 856,
+        "webTriangles": 856
+      },
+      "FloorRepair.Craft.Sarang maru inset boards": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0051230607145180684,
+        "nativeTriangles": 5756,
+        "webTriangles": 5756
+      },
+      "FloorRepair.Craft.Sarang maru inset boards.001": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.004797265890570834,
+        "nativeTriangles": 5000,
+        "webTriangles": 5000
+      },
+      "FloorRepair.Craft.Sarang maru inset boards.002": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0048711677236057405,
+        "nativeTriangles": 3840,
+        "webTriangles": 3840
+      },
+      "FloorRepair.Craft.Sarang maru inset boards.003": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.004709902552591905,
+        "nativeTriangles": 3840,
+        "webTriangles": 3840
+      },
+      "Continuity.numaru corner posts": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.012259647196629864,
+        "nativeTriangles": 432,
+        "webTriangles": 432
+      },
+      "Projection.Numaru maru return end board": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.004413212648606668,
+        "nativeTriangles": 216,
+        "webTriangles": 216
+      },
+      "Enclosure.Numaru lower front vertical board": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.005828314917861899,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Enclosure.Numaru lower front vertical board.001": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.006030991428958549,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Enclosure.Numaru lower front vertical board.002": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.005985541949521167,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Enclosure.Numaru lower front vertical board.003": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.006008138300192978,
+        "nativeTriangles": 540,
+        "webTriangles": 540
+      },
+      "Enclosure.Numaru lower left vertical board": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.00596816338375647,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Enclosure.Numaru lower left vertical board.001": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0057848940975488705,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Enclosure.Numaru lower left vertical board.002": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.005463620930227786,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Enclosure.Numaru lower left vertical board.003": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0059785671698964205,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Enclosure.Numaru lower right vertical board": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.006026987224511948,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Enclosure.Numaru lower right vertical board.001": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.005729058699232015,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Enclosure.Numaru lower right vertical board.002": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.005881952875463919,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Enclosure.Numaru lower right vertical board.003": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.006102639914946639,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Enclosure.Numaru lower rear vertical board": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.005525622342829495,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Enclosure.Numaru lower rear vertical board.001": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.006078587660416218,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Enclosure.Numaru lower rear vertical board.002": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.005353564483993184,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "Enclosure.Numaru lower rear vertical board.003": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0057887524602843465,
+        "nativeTriangles": 540,
+        "webTriangles": 540
+      },
+      "V25.left horizontal boarding": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.006176161495129645,
+        "nativeTriangles": 108,
+        "webTriangles": 108
+      },
+      "V25.left horizontal boarding.001": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.005547631146646137,
+        "nativeTriangles": 108,
+        "webTriangles": 108
+      },
+      "V25.left horizontal boarding.002": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.00592876110689311,
+        "nativeTriangles": 108,
+        "webTriangles": 108
+      },
+      "V25.left boarding continuous backing": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0021614154899533555,
+        "nativeTriangles": 108,
+        "webTriangles": 108
+      },
+      "V25.left boarding end post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.005656910572246376,
+        "nativeTriangles": 324,
+        "webTriangles": 324
+      },
+      "V25.wing rear floor beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.013552301861996685,
+        "nativeTriangles": 108,
+        "webTriangles": 108
+      },
+      "V26.Jung.gate end wall boards": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0032823496447055567,
+        "nativeTriangles": 1296,
+        "webTriangles": 1296
+      },
+      "V31.changgo.roof.gable upright boards.003": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0020489379611109415,
+        "nativeTriangles": 1296,
+        "webTriangles": 1296
+      },
+      "V31.changgo.roof.gable upright boards.002": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.001985894432276758,
+        "nativeTriangles": 1296,
+        "webTriangles": 1296
+      },
+      "V31.changgo.roof.gable upright boards.001": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.002052537738132576,
+        "nativeTriangles": 1296,
+        "webTriangles": 1296
+      },
+      "V31.changgo.roof.gable upright boards": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.002064406975752081,
+        "nativeTriangles": 1296,
+        "webTriangles": 1296
+      },
+      "V28.changgo.roof.eave beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.008930776959215847,
+        "nativeTriangles": 43344,
+        "webTriangles": 43344
+      },
+      "V28.changgo.roof boarding": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.00217329675239733,
+        "nativeTriangles": 108,
+        "webTriangles": 108
+      },
+      "V28.changgo.rear boards.003": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0025329024989784177,
+        "nativeTriangles": 2052,
+        "webTriangles": 2052
+      },
+      "V28.changgo.rear boards.002": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.002463961623011046,
+        "nativeTriangles": 2052,
+        "webTriangles": 2052
+      },
+      "V28.changgo.rear boards.001": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0025907161165561465,
+        "nativeTriangles": 2160,
+        "webTriangles": 2160
+      },
+      "V28.changgo.rear boards": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0025381250886314655,
+        "nativeTriangles": 2160,
+        "webTriangles": 2160
+      },
+      "V28.changgo.frame.post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01328172782042003,
+        "nativeTriangles": 1512,
+        "webTriangles": 1512
+      },
+      "V28.changgo.frame.long beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.011236239954669713,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "V28.changgo.frame.cross beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.013225792913580836,
+        "nativeTriangles": 756,
+        "webTriangles": 756
+      },
+      "V28.changgo.end boards.003": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.002537621446788707,
+        "nativeTriangles": 864,
+        "webTriangles": 864
+      },
+      "V28.changgo.end boards.002": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.002476212331209565,
+        "nativeTriangles": 864,
+        "webTriangles": 864
+      },
+      "V28.changgo.end boards.001": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.00256566429831917,
+        "nativeTriangles": 864,
+        "webTriangles": 864
+      },
+      "V28.changgo.end boards": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.002518150927162094,
+        "nativeTriangles": 1080,
+        "webTriangles": 1080
+      },
+      "V28.ansarang.roof frame.purlin": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.009979125695916746,
+        "nativeTriangles": 324,
+        "webTriangles": 324
+      },
+      "V28.ansarang.roof frame.king post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.008135659355431868,
+        "nativeTriangles": 440,
+        "webTriangles": 440
+      },
+      "V28.ansarang.frame.post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01463836306769134,
+        "nativeTriangles": 1080,
+        "webTriangles": 1080
+      },
+      "V28.ansarang.frame.long beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.011523304026786196,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "V28.ansarang.frame.cross beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.013332302223273418,
+        "nativeTriangles": 540,
+        "webTriangles": 540
+      },
+      "V28.toilet.roof.hip eave beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.009290873604255179,
+        "nativeTriangles": 13160,
+        "webTriangles": 13160
+      },
+      "V28.toilet.roof.gable centre post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01118501724743598,
+        "nativeTriangles": 232,
+        "webTriangles": 232
+      },
+      "V28.toilet.roof.eave beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.008965380171717108,
+        "nativeTriangles": 13784,
+        "webTriangles": 13784
+      },
+      "V28.toilet.roof frame.purlin": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.008971593547373535,
+        "nativeTriangles": 324,
+        "webTriangles": 324
+      },
+      "V28.toilet.frame.post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.014990146915113689,
+        "nativeTriangles": 432,
+        "webTriangles": 432
+      },
+      "V28.toilet.frame.long beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.011343352195134326,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "V28.toilet.frame.cross beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.012941540815432806,
+        "nativeTriangles": 216,
+        "webTriangles": 216
+      },
+      "PhotoGate.frame weathered post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.015248619102926297,
+        "nativeTriangles": 1968,
+        "webTriangles": 1968
+      },
+      "PhotoGate.wing head beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.012003918455670615,
+        "nativeTriangles": 432,
+        "webTriangles": 432
+      },
+      "PhotoGate.outside stone sill beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0071661087905342535,
+        "nativeTriangles": 284,
+        "webTriangles": 284
+      },
+      "PhotoGate.roof0.eave beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.009074245560571681,
+        "nativeTriangles": 13816,
+        "webTriangles": 13816
+      },
+      "PhotoGate.roof supporting purlin": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.012684740799164373,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "PhotoGate.roof1.eave beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.00970887320742353,
+        "nativeTriangles": 13816,
+        "webTriangles": 13816
+      },
+      "PhotoGate.roof2.eave beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.009475026674465037,
+        "nativeTriangles": 11784,
+        "webTriangles": 11784
+      },
+      "PhotoGate.portal upper transverse beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.013254258929448315,
+        "nativeTriangles": 216,
+        "webTriangles": 216
+      },
+      "PhotoGate.portal cross beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.012041384733975091,
+        "nativeTriangles": 216,
+        "webTriangles": 216
+      },
+      "PhotoWarehouse.gable king post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.006502292244935232,
+        "nativeTriangles": 108,
+        "webTriangles": 108
+      },
+      "North.anchae.frame square post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.015605192925300049,
+        "nativeTriangles": 2916,
+        "webTriangles": 2916
+      },
+      "North.anchae.frame transverse beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.015361682832860879,
+        "nativeTriangles": 972,
+        "webTriangles": 972
+      },
+      "North.anchae.frame longitudinal beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.011524406232155504,
+        "nativeTriangles": 432,
+        "webTriangles": 432
+      },
+      "North.anchae.floor individual boards": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.00334049375939921,
+        "nativeTriangles": 11556,
+        "webTriangles": 11556
+      },
+      "North.anchae.roof.eave beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.011462722736300557,
+        "nativeTriangles": 49238,
+        "webTriangles": 49238
+      },
+      "North.anchae.roof.gable centre post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01076327977497149,
+        "nativeTriangles": 228,
+        "webTriangles": 228
+      },
+      "North.anchae.roof.hip eave beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.010430362922433156,
+        "nativeTriangles": 16940,
+        "webTriangles": 16940
+      },
+      "North.anchae.photo curved daechong beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.015303338582849824,
+        "nativeTriangles": 540,
+        "webTriangles": 540
+      },
+      "North.arae.frame square post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.013775501585317262,
+        "nativeTriangles": 1296,
+        "webTriangles": 1296
+      },
+      "North.arae.frame transverse beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.015153922998290548,
+        "nativeTriangles": 432,
+        "webTriangles": 432
+      },
+      "North.arae.frame longitudinal beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.013056044967634906,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "North.arae.floor individual boards": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0036728316921206816,
+        "nativeTriangles": 6040,
+        "webTriangles": 6040
+      },
+      "North.arae.roof.eave beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.009326363662853776,
+        "nativeTriangles": 28624,
+        "webTriangles": 28624
+      },
+      "North.angotgan.frame square post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.013552320163785048,
+        "nativeTriangles": 1080,
+        "webTriangles": 1080
+      },
+      "North.angotgan.frame transverse beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.012242680188479238,
+        "nativeTriangles": 540,
+        "webTriangles": 540
+      },
+      "North.angotgan.frame longitudinal beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.010956500992688467,
+        "nativeTriangles": 432,
+        "webTriangles": 432
+      },
+      "North.angotgan.front plank wall": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.002227736528036539,
+        "nativeTriangles": 2592,
+        "webTriangles": 2592
+      },
+      "North.angotgan.rear or closed bay plank wall": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0022381468533614335,
+        "nativeTriangles": 7236,
+        "webTriangles": 7236
+      },
+      "North.angotgan.side plank wall": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.002205726266079483,
+        "nativeTriangles": 3672,
+        "webTriangles": 3672
+      },
+      "North.angotgan.roof.eave beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.00858439496750546,
+        "nativeTriangles": 33672,
+        "webTriangles": 33672
+      },
+      "North.gokgan.frame square post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.014219136967910662,
+        "nativeTriangles": 1296,
+        "webTriangles": 1296
+      },
+      "North.gokgan.frame longitudinal beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.012641869670831696,
+        "nativeTriangles": 432,
+        "webTriangles": 432
+      },
+      "North.gokgan.side centre post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.013808460348816443,
+        "nativeTriangles": 216,
+        "webTriangles": 216
+      },
+      "North.gokgan.central door sideboards": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0019765914949321645,
+        "nativeTriangles": 216,
+        "webTriangles": 216
+      },
+      "North.sadang.frame round red column": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.015531593340511352,
+        "nativeTriangles": 1136,
+        "webTriangles": 1136
+      },
+      "North.sadang.frame square post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.015679362890150594,
+        "nativeTriangles": 864,
+        "webTriangles": 864
+      },
+      "North.sadang.frame transverse beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.015118044157989452,
+        "nativeTriangles": 432,
+        "webTriangles": 432
+      },
+      "North.sadang.frame longitudinal beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.014146799359593842,
+        "nativeTriangles": 540,
+        "webTriangles": 540
+      },
+      "North.sadang.floor individual boards": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0033331788216565544,
+        "nativeTriangles": 4104,
+        "webTriangles": 4104
+      },
+      "North.sadang.dancheong painted beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01455349357259661,
+        "nativeTriangles": 432,
+        "webTriangles": 432
+      },
+      "North.sadang.photo column lotus ochre eye": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0002968334649769769,
+        "nativeTriangles": 1504,
+        "webTriangles": 1504
+      },
+      "North.sadang.photo column painted collar.002": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0013081022420272995,
+        "nativeTriangles": 2272,
+        "webTriangles": 2272
+      },
+      "North.sadang.photo column painted collar.003": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0013358606284197827,
+        "nativeTriangles": 2272,
+        "webTriangles": 2272
+      },
+      "North.sadang.photo side red beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.00873452214541881,
+        "nativeTriangles": 432,
+        "webTriangles": 432
+      },
+      "North.sadangmun.round vermilion gatepost": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.012002676151098512,
+        "nativeTriangles": 424,
+        "webTriangles": 424
+      },
+      "North.sadangmun.roof.solid gable boarding": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0021967761098185684,
+        "nativeTriangles": 3024,
+        "webTriangles": 3024
+      },
+      "North.sadang.joinery.gable thirty millimetre planks": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0022249720043409915,
+        "nativeTriangles": 8160,
+        "webTriangles": 8160
+      },
+      "North.anchae.room projection square post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.010523169588196879,
+        "nativeTriangles": 216,
+        "webTriangles": 216
+      },
+      "North.anchae.rear veranda square post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.014070354916978944,
+        "nativeTriangles": 432,
+        "webTriangles": 432
+      },
+      "North.anchae.rear veranda purlin": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01068985967460212,
+        "nativeTriangles": 324,
+        "webTriangles": 324
+      },
+      "North.anchae.rear veranda floor boards": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0033383175510981467,
+        "nativeTriangles": 4536,
+        "webTriangles": 4536
+      },
+      "North.sadang.roof.T45 W320 bargeboard": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.003272268376509402,
+        "nativeTriangles": 3932,
+        "webTriangles": 3932
+      },
+      "Sep29.ansarang.left kitchen.room3 end post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01424166791188547,
+        "nativeTriangles": 108,
+        "webTriangles": 108
+      },
+      "Sep29.sadang.painted column band": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0008873975665032036,
+        "nativeTriangles": 2288,
+        "webTriangles": 2288
+      },
+      "Sep29.sadang.painted column band.001": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0008747583424921421,
+        "nativeTriangles": 2288,
+        "webTriangles": 2288
+      },
+      "Sep29.sadang.painted column band.002": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.000865028485661834,
+        "nativeTriangles": 2288,
+        "webTriangles": 2288
+      },
+      "Sep29.sadang.painted column band.003": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0008579287472505748,
+        "nativeTriangles": 2288,
+        "webTriangles": 2288
+      },
+      "PhotoRepair.main_gate.bearing.king post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01108603154771326,
+        "nativeTriangles": 216,
+        "webTriangles": 216
+      },
+      "PhotoRepair.main_gate.bearing.ridge purlin": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.008991930472910914,
+        "nativeTriangles": 108,
+        "webTriangles": 108
+      },
+      "V28.toilet1.roof.hip eave beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.0073954577228538265,
+        "nativeTriangles": 16008,
+        "webTriangles": 16008
+      },
+      "V28.toilet1.roof.gable centre post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.008358050111016702,
+        "nativeTriangles": 232,
+        "webTriangles": 232
+      },
+      "V28.toilet1.roof.eave beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.00798865053490505,
+        "nativeTriangles": 12220,
+        "webTriangles": 12220
+      },
+      "V28.toilet1.roof frame.purlin": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.00723072835353869,
+        "nativeTriangles": 324,
+        "webTriangles": 324
+      },
+      "V28.toilet1.frame.post": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.01513769998407688,
+        "nativeTriangles": 432,
+        "webTriangles": 432
+      },
+      "V28.toilet1.frame.long beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.011485217317725782,
+        "nativeTriangles": 648,
+        "webTriangles": 648
+      },
+      "V28.toilet1.frame.cross beam": {
+        "valid": true,
+        "sourceCoreAndUvUnchanged": true,
+        "edgeWeightsMatch": true,
+        "modifierMatches": true,
+        "evaluatedSurfaceMatches": true,
+        "webSurfaceMatches": true,
+        "maximumWeightedWidthMeters": 0.010306091641265613,
+        "nativeTriangles": 216,
+        "webTriangles": 216
+      }
+    },
+    "sourceCoreUnchanged": true,
+    "renderedCornersChanged": true,
+    "runtimePromotion": false
+  },
+  "requestedCraft": {
+    "heritageWood": {
+      "valid": true,
+      "materials": {
+        "Sarang golden aged timber": {
+          "nativeArtMatches": true,
+          "webImageBytesMatch": true
+        },
+        "Sarang vertical timber grain": {
+          "nativeArtMatches": true,
+          "webImageBytesMatch": true
+        },
+        "Jung dark walnut": {
+          "nativeArtMatches": true,
+          "webImageBytesMatch": true
+        }
+      },
+      "originalMembersChecked": 578,
+      "webPrimitivesChecked": 578
+    },
+    "platformStone": {
+      "valid": true,
+      "buildings": {
+        "sarang": {
+          "stoneCountMatches": true,
+          "stones": 423,
+          "webStoneSurfaceMatches": true
+        },
+        "jung": {
+          "stoneCountMatches": true,
+          "stones": 163,
+          "webStoneSurfaceMatches": true
+        },
+        "ansarang": {
+          "stoneCountMatches": true,
+          "stones": 317,
+          "webStoneSurfaceMatches": true
+        },
+        "changgo": {
+          "stoneCountMatches": true,
+          "stones": 170,
+          "webStoneSurfaceMatches": true
+        },
+        "toilet": {
+          "stoneCountMatches": true,
+          "stones": 32,
+          "webStoneSurfaceMatches": true
+        },
+        "main_gate": {
+          "stoneCountMatches": true,
+          "stones": 111,
+          "webStoneSurfaceMatches": true
+        },
+        "arae": {
+          "stoneCountMatches": true,
+          "stones": 118,
+          "webStoneSurfaceMatches": true
+        },
+        "angotgan": {
+          "stoneCountMatches": true,
+          "stones": 129,
+          "webStoneSurfaceMatches": true
+        },
+        "gokgan": {
+          "stoneCountMatches": true,
+          "stones": 241,
+          "webStoneSurfaceMatches": true
+        },
+        "sadang": {
+          "stoneCountMatches": true,
+          "stones": 144,
+          "webStoneSurfaceMatches": true
+        },
+        "sadangmun": {
+          "stoneCountMatches": true,
+          "stones": 11,
+          "webStoneSurfaceMatches": true
+        },
+        "anchae": {
+          "stoneCountMatches": true,
+          "stones": 312,
+          "webStoneSurfaceMatches": true
+        },
+        "toilet1": {
+          "stoneCountMatches": true,
+          "stones": 25,
+          "webStoneSurfaceMatches": true
+        }
+      },
+      "courtyardEarthUnchanged": true
+    },
+    "gokganClearance": {
+      "valid": true,
+      "movedWallMeshes": 44,
+      "routes": {
+        "North.site.gwang east.earth core": {
+          "gapMeters": 0.317624530697151,
+          "registeredGapMatches": true
+        },
+        "North.site.gwang north.earth core": {
+          "gapMeters": 1.1164997770065612,
+          "registeredGapMatches": true
+        },
+        "Estate.fabric.gwang byeoldang join.earth core": {
+          "gapMeters": 2.497603506448574,
+          "registeredGapMatches": true
+        },
+        "Estate.fabric.shrine gwang join.earth core": {
+          "gapMeters": 1.130935405466728,
+          "registeredGapMatches": true
+        },
+        "North.site.shrine gate right earth core": {
+          "gapMeters": 0.8838931412953914,
+          "registeredGapMatches": true
+        },
+        "North.site.shrine rear.earth core": {
+          "gapMeters": 3.4272697958007625,
+          "registeredGapMatches": true
+        }
+      },
+      "buildingMoved": false
+    }
+  },
+  "deferredGyeShrineGardenStudy": {
+    "reason": "The current tree and pavilion study did not meet the requested illustration quality.",
+    "removedObjects": 264,
+    "runtimePromotion": false
+  },
+  "wallJunctions": {
+    "gateToAnsarang": true,
+    "gwangToByeoldang": true,
+    "jungTie": true,
+    "gotganRear": true,
+    "gotganSouthEdge": true,
+    "southEdgeToForecourt": true
+  },
+  "retainedWallObjects": [
+    "Forecourt.wall.gate-ansarang.1.core",
+    "Forecourt.wall.gate-ansarang.1.rubble",
+    "Forecourt.wall.gate-ansarang.1.pan",
+    "Forecourt.wall.gate-ansarang.1.cover",
+    "Forecourt.wall.gate-ansarang.1.tile ends",
+    "Forecourt.wall.gate-ansarang.1.ridge"
+  ],
+  "visualReview": "Awaiting current browser review",
+  "runtimePromotion": false
+}

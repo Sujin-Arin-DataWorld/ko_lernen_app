@@ -1,0 +1,272 @@
+{
+  "sourceSceneSha256": "6e34c080e7da4ed677b8a7211685804549728d9e3769eca21bfd73a9d246eaad",
+  "sceneSha256": "3d183474f4475fa9fb044ce800881599cf8088d379bdd727cb4fc5c1b3b4a29d",
+  "removedObjects": [
+    "Terrain.continuous ground",
+    "Terrain.edge",
+    "Terrain.sparse rear grass"
+  ],
+  "addedObjects": [
+    "TerrainFix.continuous rising courtyard"
+  ],
+  "protectedMeshes": 940,
+  "protectedMeshFingerprintsUnchanged": true,
+  "checks": [
+    {
+      "check": "Sarang foreground < Jung lower courtyard < far gate approach < high courtyard",
+      "pass": true,
+      "heights": [
+        0.0,
+        0.5999999046325684,
+        1.2793216705322266,
+        1.5
+      ]
+    },
+    {
+      "check": "Section042 cross-building grade difference 900mm",
+      "pass": true
+    },
+    {
+      "check": "Continuous rising grade at x=-3.0",
+      "pass": true,
+      "maxRisePer100mm": 0.026600360870361328
+    },
+    {
+      "check": "Continuous rising grade at x=-0.8",
+      "pass": true,
+      "maxRisePer100mm": 0.026600360870361328
+    },
+    {
+      "check": "Continuous rising grade at x=4.0",
+      "pass": true,
+      "maxRisePer100mm": 0.03905057907104492
+    },
+    {
+      "check": "maru stair ground below usable stone surface",
+      "pass": true,
+      "groundZ": 0.5999999046325684,
+      "stoneZ": 0.815000057220459,
+      "stone": "Jung.front maru stone stairs.core"
+    },
+    {
+      "check": "room plinth ground below usable stone surface",
+      "pass": true,
+      "groundZ": 0.5999999046325684,
+      "stoneZ": 0.8685598373413086,
+      "stone": "Ref.Jung fieldstone plinth.face0.001"
+    },
+    {
+      "check": "Gate approach meets three exposed risers and retained 1640mm top course",
+      "pass": true,
+      "maxRiser": 0.2608642578125,
+      "exposedRiserCount": 3,
+      "route": [
+        {
+          "x": -2.9,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.85,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.8,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.75,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.6999999999999997,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.65,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.5999999999999996,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.55,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.5,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.4499999999999997,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.4,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.3499999999999996,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.3,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.25,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.1999999999999997,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.15,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.0999999999999996,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1536140441894531
+        },
+        {
+          "x": -2.05,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.2557828426361084
+        },
+        {
+          "x": -2.0,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.2542104721069336
+        },
+        {
+          "x": -1.9499999999999997,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.2525050640106201
+        },
+        {
+          "x": -1.9,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.2486200332641602
+        },
+        {
+          "x": -1.8499999999999999,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.1999995708465576
+        },
+        {
+          "x": -1.7999999999999998,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.200000286102295
+        },
+        {
+          "x": -1.7499999999999998,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.200000286102295
+        },
+        {
+          "x": -1.6999999999999997,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.460864543914795
+        },
+        {
+          "x": -1.65,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.4598619937896729
+        },
+        {
+          "x": -1.5999999999999999,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.4588592052459717
+        },
+        {
+          "x": -1.5499999999999998,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.4577522277832031
+        },
+        {
+          "x": -1.4999999999999998,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.4200005531311035
+        },
+        {
+          "x": -1.4499999999999997,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.4200000762939453
+        },
+        {
+          "x": -1.4,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.4200000762939453
+        },
+        {
+          "x": -1.3499999999999999,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.6399996280670166
+        },
+        {
+          "x": -1.2999999999999998,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.6399996280670166
+        },
+        {
+          "x": -1.2499999999999998,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.6399998664855957
+        },
+        {
+          "x": -1.1999999999999997,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.6399993896484375
+        },
+        {
+          "x": -1.15,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.6399998664855957
+        },
+        {
+          "x": -1.0999999999999999,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.6399996280670166
+        },
+        {
+          "x": -1.0499999999999998,
+          "groundZ": 1.1536140441894531,
+          "surfaceZ": 1.6391973495483398
+        }
+      ]
+    },
+    {
+      "check": "All other meshes retain world geometry and construction metadata",
+      "pass": true,
+      "meshCount": 940
+    },
+    {
+      "check": "No stage display plates in corrected scene",
+      "pass": true
+    }
+  ],
+  "allPass": true,
+  "limitations": [
+    "Common surveyed datum between the buildings is unavailable; V26 +600mm courtyard registration is retained.",
+    "The rising gate approach and smooth slopes are interpreted from039/042, not surveyed contour points.",
+    "Building floors, roof connection and hwalju correction are unchanged."
+  ]
+}

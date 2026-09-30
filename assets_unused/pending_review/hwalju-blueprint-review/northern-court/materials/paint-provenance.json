@@ -1,0 +1,19 @@
+{
+  "mode": "built-in image_gen",
+  "generatedInterpretation": true,
+  "albedoPixelsUnaltered": true,
+  "canonicalReference": "../references/sadang/canonical.png",
+  "photoReference": "../references/photos/sadangmun-gate.png",
+  "textures": [
+    {
+      "file": "hanok-painted-red-v1.png",
+      "generatedSource": "C:/Users/vjinn/.codex/generated_images/01a0e7fc-a227-7751-9096-a43234ca27f9/exec-b422b998-24f2-4e22-a30e-19782b05cf09.png",
+      "prompt": "Generate a seamless square ALBEDO material texture for actual solid painted timber in a premium illustrated 3D Korean hanok learning app. Reference 1 is the unchanged canonical shrine illustration: use its fine, hand-painted architectural finish, not its lighting. Reference 2 is the actual IlDu shrine gate: use the restrained, gently aged red mineral paint seen on its posts and planked doors. Do not draw a building, a post, a door, panels, joints, geometry silhouettes, motifs, or the taegeuk symbol. Fill the entire image with one uninterrupted flat painted pine surface. Muted traditional Korean red oxide / deep warm crimson, closer to the real gate's wine-red ochre than bright orange, with low-contrast subtle lengthwise pine grain running perfectly vertically. The original wood fibers are faintly perceptible beneath the thin matte pigment, a few quiet narrow grain streaks and small restrained brush variations, healthy maintained wood with believable age. No glossy varnish, no plasticky gradients, no huge knots, no large damaged patches, no bare white scratches, no cracks, no baked directional highlights or shadows. Neutral diffuse illumination, no perspective, no vignette. All four edges seamless. The square depicts about 60 centimetres width and 180 centimetres length of painted wood to be mapped physically, so grain is fine, long, and subtle. Beautiful restrained illustrated material, fine detail, not photoreal noisy damage. The references remain unchanged."
+    },
+    {
+      "file": "hanok-painted-green-v1.png",
+      "generatedSource": "C:/Users/vjinn/.codex/generated_images/01a0e7fc-a227-7751-9096-a43234ca27f9/exec-00fe3c52-0e32-4234-a05a-c032511bef97.png",
+      "prompt": "Generate a seamless square ALBEDO material texture for actual solid painted timber in a premium illustrated 3D Korean hanok learning app. Reference 1 is the unchanged canonical shrine illustration: use its fine architectural illustration finish only. Reference 2 is the real IlDu shrine gate: use its muted traditional green mineral pigment on lintels and rafters, between soft grey-green and weathered malachite green. Do not draw a building, beam, post, joints, carving, colored outlines, flower motif or any geometric object. Full frame one uninterrupted flat green-painted pine surface, no silhouettes. Muted medium-dark grey malachite / traditional dancheong green, with quiet tonal depth and very fine low-contrast vertical pine fibers just visible beneath the matte mineral paint. Slight natural hand-brushed pigment variation, elegant and maintained, a faint dusty softness; do not make it bright emerald, turquoise plastic, black-green, fluorescent, glossy, or heavily damaged. No large peeling areas, no bare scratches, no cracks, no directional highlights, no shadows, no vignette. Perfectly diffuse neutral illumination, orthographic flat surface. All four edges seamless. The map represents about 60 centimetres width and 180 centimetres length, so grain is subtle and long. Restrained high-quality illustrated material with beautiful painterly detail, not generic photographic grunge. Preserve reference images unchanged."
+    }
+  ]
+}

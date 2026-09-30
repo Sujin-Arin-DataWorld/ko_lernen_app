@@ -1,0 +1,104 @@
+[
+  {
+    "state": "before",
+    "view": "connection",
+    "sceneSha256": "6e34c080e7da4ed677b8a7211685804549728d9e3769eca21bfd73a9d246eaad",
+    "camera": [
+      -48,
+      1,
+      10
+    ],
+    "target": [
+      4,
+      4.5,
+      2.3
+    ],
+    "orthographicScale": 26,
+    "sha256": "961b7dae4adc6b16052503676269796c8717ebaae11dcfd3b07fc612454236ba"
+  },
+  {
+    "state": "before",
+    "view": "junction",
+    "sceneSha256": "6e34c080e7da4ed677b8a7211685804549728d9e3769eca21bfd73a9d246eaad",
+    "camera": [
+      -18,
+      -6.56,
+      6
+    ],
+    "target": [
+      0,
+      3.7,
+      1.5
+    ],
+    "orthographicScale": 10,
+    "sha256": "a7bc6c4f092a68f8dd060cafecde33c64561f24694eb00cd5025614be15bf079"
+  },
+  {
+    "state": "before",
+    "view": "gate",
+    "sceneSha256": "6e34c080e7da4ed677b8a7211685804549728d9e3769eca21bfd73a9d246eaad",
+    "camera": [
+      -20,
+      23.2,
+      7.7
+    ],
+    "target": [
+      0,
+      12.8,
+      1.9
+    ],
+    "orthographicScale": 13,
+    "sha256": "0ddf9339994242b60058158f8657426d4af488523e4c546ee50e70ceec402e68"
+  },
+  {
+    "state": "after",
+    "view": "connection",
+    "sceneSha256": "3d183474f4475fa9fb044ce800881599cf8088d379bdd727cb4fc5c1b3b4a29d",
+    "camera": [
+      -48,
+      1,
+      10
+    ],
+    "target": [
+      4,
+      4.5,
+      2.3
+    ],
+    "orthographicScale": 26,
+    "sha256": "64e66c9f686fef298b0eeb7e76f65fbe8ad21c0b98e5b29a823aa14d5d02ac5c"
+  },
+  {
+    "state": "after",
+    "view": "junction",
+    "sceneSha256": "3d183474f4475fa9fb044ce800881599cf8088d379bdd727cb4fc5c1b3b4a29d",
+    "camera": [
+      -18,
+      -6.56,
+      6
+    ],
+    "target": [
+      0,
+      3.7,
+      1.5
+    ],
+    "orthographicScale": 10,
+    "sha256": "25d2d25d0d1c69be0fdcdb208824a23317e09ec250303eea1a50cc5dd51721ed"
+  },
+  {
+    "state": "after",
+    "view": "gate",
+    "sceneSha256": "3d183474f4475fa9fb044ce800881599cf8088d379bdd727cb4fc5c1b3b4a29d",
+    "camera": [
+      -20,
+      23.2,
+      7.7
+    ],
+    "target": [
+      0,
+      12.8,
+      1.9
+    ],
+    "orthographicScale": 13,
+    "sha256": "c02e86b29f85b2af30bed439b79cfa0821d531c92b213ecd9d99bc1fdaaeccc4"
+  }
+]

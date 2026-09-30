@@ -1,0 +1,9 @@
+{
+  "combinedSha256": "361681a9fc33e2726a9eb7d4b7348064157a7223d849dd44feee90d97e7e1191",
+  "southSha256": "90307546bd46734a5c90e2b9e4254c55034d88ad18ef162346492ca279c9745f",
+  "southBytesRetained": 582803204,
+  "southNodesUnchanged": 2110,
+  "northNodes": 1141,
+  "northNativeSha256": "039c677626ab43b59d40dbcf1df33b604d9765cecc6d0c86175a33c9fd94f3ae",
+  "runtimePromoted": false
+}

@@ -1,0 +1,30 @@
+{
+  "combinedSha256": "c067a40decae8b5313ea846ac21d58588f3aeb73977c331d3ee15328770920e7",
+  "view": "anchaeTimber",
+  "screenshot": "browser-material-proof.png",
+  "screenshotSha256": "b6e156544baf5fc2aaffc9fd6f6f92c1ad678406ad75b37c7a712cc6dae4441c",
+  "browserConsoleErrors": [],
+  "visualChecks": [
+    "Long grain follows posts and beams",
+    "Cross-cut ends differ from long faces",
+    "Floorboards show individual material grain without cylindrical baked highlights",
+    "Floorboards retain 45 mm section and visible supporting girder",
+    "Quiet mineral grain on solid plinth stones",
+    "Semicircular lime plugs remain inside dark ceramic ends"
+  ],
+  "remainingSurveyChecks": [],
+  "fullSurveyAccuracyClaimed": false,
+  "resolvedSurveyChecks": [
+    {
+      "component": "anchae and sadang floorboards",
+      "sourceLabels": "청판 THK45 / THK45",
+      "deliveredThicknessMeters": 0.045,
+      "validation": "geometry-validation.json",
+      "nativeSceneSha256": "8622a7bf61d888be52e7e73aa857dd62245349b5f4d2cad1f932cc2bfaed341d"
+    }
+  ],
+  "remainingVisualWork": [
+    "Shrine painted timber is too saturated compared with supplied photographs",
+    "Shrine gate tile count and raised barge-end ornaments need separate drawing and photo reconciliation"
+  ]
+}

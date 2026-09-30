@@ -1,0 +1,12 @@
+{
+  "mode": "builtin-imagegen",
+  "interpretation": true,
+  "generatedSource": "C:/Users/vjinn/.codex/generated_images/01a0e7fc-a227-7751-9096-a43234ca27f9/exec-764c5453-6803-4d53-b5e7-9c6d5d3f1cca.png",
+  "file": "hanok-dancheong-frieze-v1.png",
+  "prompt": "Use case: style-transfer. Derive ONE seamless horizontal ornamental PAINT ALBEDO texture for the front face of a real wooden beam of the IlDu historic shrine, using the attached first image for illustrated craft style and the second actual photograph for the Korean dancheong motifs and colors. The output is a flat orthographic pigment surface, not a building render. Landscape image 1536x384 if possible. Fill the entire image edge to edge with ONE continuous horizontal beam painted in muted malachite/teal green. A slim warm cream and ochre double rule at the very top and bottom. Across the middle, a carefully hand-painted long sinuous pale mint lotus-vine scroll in the deep green field. At roughly the left and right quarter marks, delicate vertical alternating cream, ochre, muted vermilion and lapis wave stripes with a small lotus medallion beside each. Make a continuous sophisticated Korean shrine beam frieze like the references: extremely fine clean readable hand-painted botanical lines, subdued natural mineral pigment, subtle long horizontal wood fibers showing beneath thin matte paint, tiny tonal irregularities but no distracting cracks. The middle field occupies 70 percent of height; decoration is paint on wood, not carved relief. Absolutely NO perspective, timber outlines, beam edge shadow, baked lighting, ambient occlusion, 3D extrusion, roof, columns, letters, watermark, empty margins, gradient lighting, magenta background. Uniform diffuse color suitable as a material for a 3D educational hanok model. This is a new illustrated surface interpretation, not a forensic copy of historic wear. Preserve the reference's beautiful restrained illustrative finish.",
+  "sources": [
+    "../references/sadang/canonical.png",
+    "../references/photos/sadang-front-dancheong.png"
+  ],
+  "usage": "Unchanged generated image mapped using UVs to the painted band; white margins excluded in UV coordinates; no pixel editing"
+}

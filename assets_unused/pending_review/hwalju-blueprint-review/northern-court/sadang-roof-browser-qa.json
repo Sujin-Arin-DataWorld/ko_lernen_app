@@ -1,0 +1,21 @@
+{
+  "sceneSha256": "fa670923cefe263c6849f058bb096c97cb728df4135aa5a828d6783819979488",
+  "viewport": [
+    390,
+    844
+  ],
+  "drawingButtonsVerified": [
+    "059",
+    "061",
+    "066"
+  ],
+  "modelSrc": "redraw/sadang-closed.glb",
+  "modelLoadMessage": "사당 3D 표시 완료",
+  "modelSha256": "0f2365a82b20e598b010c435ed62489d0bfdfd6316c1cabbcdcff2b8fae6bb9b",
+  "browserErrors": [],
+  "screenshot": "C:/dev/hangulsori/_codex_artifacts/ildu-sadang-roof-mobile-20260929.png",
+  "scope": "Local Chromium at phone viewport; not a physical iPhone test",
+  "siteCommit": "9294cc739da6bd3ca5381eaaa49010bdbc2b47b1",
+  "deploymentStatus": "succeeded",
+  "deploymentId": "appgdep_6abbab3b57bc819196c73eab71aed7b1"
+}

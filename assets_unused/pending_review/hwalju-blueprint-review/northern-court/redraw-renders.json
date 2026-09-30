@@ -1,0 +1,317 @@
+[
+  {
+    "view": "jar-gate",
+    "file": "jar-gate-redraw-preview.png",
+    "sourceSceneSha256": "1bb21a6422370a55e4e8a60048f9c112e80e6fcf01a638c44a616a61fbd7d2c9",
+    "sha256": "7f7dad724964892e21ed218e4ebeb87c557661af8210986b7a4c691c21d52457",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadangmun",
+    "file": "sadangmun-redraw-preview.png",
+    "sourceSceneSha256": "1bb21a6422370a55e4e8a60048f9c112e80e6fcf01a638c44a616a61fbd7d2c9",
+    "sha256": "d22736eaeb406d71710a055d437a8f8cc827d89f5105e7c9fa958721c39ce1c9",
+    "openedForInspection": true
+  },
+  {
+    "view": "anchae-corner",
+    "file": "anchae-corner-redraw-preview.png",
+    "sourceSceneSha256": "5f924e94f18f53f2db14f0e05d981c78e92a491b072e1794ef9bd86eb46f58d1",
+    "sha256": "826550bbf322f1305be1fb1c5cef85592ea2cd3f92f7174ee4c01b7059f6fe8e",
+    "openedForInspection": true
+  },
+  {
+    "view": "anchae-kitchen",
+    "file": "anchae-kitchen-redraw-preview.png",
+    "sourceSceneSha256": "256f10f2874417ef50ece1e3ad14e5f95a188da02bc6c38bf84b08ec3fe7b23b",
+    "sha256": "c1f9b299619956f7fdc3acd71c8d386e94217806d1367cd1ae4912e01f43b32d",
+    "openedForInspection": true
+  },
+  {
+    "view": "ansarang",
+    "file": "ansarang-redraw-preview.png",
+    "sourceSceneSha256": "1bb21a6422370a55e4e8a60048f9c112e80e6fcf01a638c44a616a61fbd7d2c9",
+    "sha256": "5ac5c5149ed49c1a44dae942f7f18da91c7a2890ef3a60607b698463886306c0",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadang",
+    "file": "sadang-redraw-preview.png",
+    "sourceSceneSha256": "cb83031ae3fd30fe0e9f7eb2d54915292e19e251f1c54cea853a90e6ed32b374",
+    "sha256": "da50c8a9e15f74798a8ba4011b54895a9c18ed25c878dbe3d5905175f53aa6bc",
+    "openedForInspection": true
+  },
+  {
+    "view": "jar-gate-front",
+    "file": "jar-gate-front-redraw-preview.png",
+    "sourceSceneSha256": "5f924e94f18f53f2db14f0e05d981c78e92a491b072e1794ef9bd86eb46f58d1",
+    "sha256": "c9208ff52939e66e1c8ad50d43d3abf820a67528f61e32e84d42c4231e1c7e86",
+    "openedForInspection": true
+  },
+  {
+    "view": "jar-gate-context",
+    "file": "jar-gate-context-redraw-preview.png",
+    "sourceSceneSha256": "1bb21a6422370a55e4e8a60048f9c112e80e6fcf01a638c44a616a61fbd7d2c9",
+    "sha256": "3b20e936d16b7cba1b9161cf61bae750022798713d226125f0af9f8532e712fe",
+    "openedForInspection": true
+  },
+  {
+    "view": "jar-gate",
+    "file": "jar-gate-redraw.png",
+    "sourceSceneSha256": "6abcee5d48ef6c1c02e7627947084ba39a0a751f3186f53f0671d77821a7a951",
+    "sha256": "22fe6ef7133a582dee8812d5a91c2a49eec9c28ff7dcad5ca10035798ea1d2e8",
+    "openedForInspection": true
+  },
+  {
+    "view": "jar-gate-front",
+    "file": "jar-gate-front-redraw.png",
+    "sourceSceneSha256": "6abcee5d48ef6c1c02e7627947084ba39a0a751f3186f53f0671d77821a7a951",
+    "sha256": "e9124fb2de303c73fad22fb3e92d249fadc07ad8234e487da327f9b06fb07d6c",
+    "openedForInspection": true
+  },
+  {
+    "view": "jar-gate-back",
+    "file": "jar-gate-back-redraw.png",
+    "sourceSceneSha256": "6abcee5d48ef6c1c02e7627947084ba39a0a751f3186f53f0671d77821a7a951",
+    "sha256": "2f7018d430e5327b1cbeb5b88f13320c43e837d19bbad86d5d17d714093c691d",
+    "openedForInspection": true
+  },
+  {
+    "view": "jar-gate-context",
+    "file": "jar-gate-context-redraw.png",
+    "sourceSceneSha256": "4114d8e449c09be2413f7b51599d4b2aaa14cd4db1ee786eb38ffb4505531c47",
+    "sha256": "a8a2b87e262fa0c86dfb6c7d424b328e9ff4d16ab0f081701f9ace5e49a8e387",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadangmun",
+    "file": "sadangmun-redraw.png",
+    "sourceSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "sha256": "33c6452861a2eeb8bbce255d1636301544c89e24bdf513a8bef3e0c0de0416e2",
+    "openedForInspection": true
+  },
+  {
+    "view": "anchae",
+    "file": "anchae-redraw.png",
+    "sourceSceneSha256": "4af0a376893a40b314a48ccb6b1a22c08ac534b986f2b362e031bfbac444de0b",
+    "sha256": "76bcdbd5e525977d9cfc69cb57953e4c27d64d32692b037f32dc94cf44abe4a1",
+    "openedForInspection": true
+  },
+  {
+    "view": "ansarang",
+    "file": "ansarang-redraw.png",
+    "sourceSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "sha256": "47df27a3fd47953c27dd3a2ce2111f80d74f965e3a5042ea11db4d22af9df741",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadang",
+    "file": "sadang-redraw.png",
+    "sourceSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "sha256": "38e7375b253e74e682b07a0528d100af2e10f53297f2f5e8e86364bbb2e44838",
+    "openedForInspection": true
+  },
+  {
+    "view": "anchae-corner",
+    "file": "anchae-corner-redraw.png",
+    "sourceSceneSha256": "4af0a376893a40b314a48ccb6b1a22c08ac534b986f2b362e031bfbac444de0b",
+    "sha256": "ffaf59cdd2a5f969b2051ef87462546faab533732453371b64bb5150d2d4c991",
+    "openedForInspection": true
+  },
+  {
+    "view": "anchae-kitchen",
+    "file": "anchae-kitchen-redraw.png",
+    "sourceSceneSha256": "4af0a376893a40b314a48ccb6b1a22c08ac534b986f2b362e031bfbac444de0b",
+    "sha256": "36f042fb9d6c82fc941d1294cf787644cc9b536a1a823330a4e4afc327a23553",
+    "openedForInspection": true
+  },
+  {
+    "view": "anchae-hall",
+    "file": "anchae-hall-redraw.png",
+    "sourceSceneSha256": "4af0a376893a40b314a48ccb6b1a22c08ac534b986f2b362e031bfbac444de0b",
+    "sha256": "bf2aa2cbf8b1c4dbf79a072d6e1ba744495bd9998d9ea768b86eabf06b74690c",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadang-joinery",
+    "file": "sadang-joinery-redraw.png",
+    "sourceSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "sha256": "c7d6ee32e00bc4e59f487ba328b265913a8171a97a09bf6b7f19787bb965b3ba",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadang-front",
+    "file": "sadang-front-redraw-preview.png",
+    "sourceSceneSha256": "cb83031ae3fd30fe0e9f7eb2d54915292e19e251f1c54cea853a90e6ed32b374",
+    "sha256": "b8b918a0179b943afb810d55ada2e403dae0de959b338f78a16d1162a3bf0219",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadang-right",
+    "file": "sadang-right-redraw-preview.png",
+    "sourceSceneSha256": "cb83031ae3fd30fe0e9f7eb2d54915292e19e251f1c54cea853a90e6ed32b374",
+    "sha256": "ca38d5f48c053a0da16d30a835bb235502c2f4d9329de10c29d4f59e1b476890",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadang-front",
+    "file": "sadang-front-redraw.png",
+    "sourceSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "sha256": "b20da4b996144923e40470d66c82925287066ad597c033b8f05921f71078797f",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadang-right",
+    "file": "sadang-right-redraw.png",
+    "sourceSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "sha256": "5f08007edf11fcbb468cfe6312ae38c0c6d558e6886122c0be2572590d5fd9b4",
+    "openedForInspection": true
+  },
+  {
+    "view": "ansarang-kitchen",
+    "file": "ansarang-kitchen-redraw-preview.png",
+    "sourceSceneSha256": "f81e029ebb80cbeef6bec8c56105de89c789260f2ee916b26602abee131d969b",
+    "sha256": "c89f28be5656301737b543d3863dd4cdf94f3b60e229204622cbe817137c6121",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadang-interior",
+    "file": "sadang-interior-redraw-preview.png",
+    "sourceSceneSha256": "b04795b4d141f1db2ea4100955bf1bcaab76decc220509c3591eab81997fbd72",
+    "sha256": "7d40acfbca555b71ab7db0e5efc9f219e3845e5d3d7c3bd06fa3b53cbbca9af2",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadang-porch",
+    "file": "sadang-porch-redraw-preview.png",
+    "sourceSceneSha256": "f81e029ebb80cbeef6bec8c56105de89c789260f2ee916b26602abee131d969b",
+    "sha256": "d8650225a21b5d0ff051384df177e348d806656b5908322e53aae599e96e16d0",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadangmun-front",
+    "file": "sadangmun-front-redraw-preview.png",
+    "sourceSceneSha256": "f81e029ebb80cbeef6bec8c56105de89c789260f2ee916b26602abee131d969b",
+    "sha256": "1736cd506cb4205c50afd5f0452993b7cbf7714f98531197e4a6f61a078d9ac6",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadangmun-context",
+    "file": "sadangmun-context-redraw-preview.png",
+    "sourceSceneSha256": "b04795b4d141f1db2ea4100955bf1bcaab76decc220509c3591eab81997fbd72",
+    "sha256": "f5aa5c4d6235738918beba5bf7a5e04519343d89deefb6bce933adc17c5d343e",
+    "openedForInspection": true
+  },
+  {
+    "view": "ansarang-left",
+    "file": "ansarang-left-redraw-preview.png",
+    "sourceSceneSha256": "b04795b4d141f1db2ea4100955bf1bcaab76decc220509c3591eab81997fbd72",
+    "sha256": "685768984ccc871cb3a130e02d64f9be70f750458dc1f08a692c680f77e933e7",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadang-porch",
+    "file": "sadang-porch-redraw.png",
+    "sourceSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "sha256": "36d328d34a36ca6f882ffdb235042006d6caa7d1c5e5a5e2747c8b8158740f2b",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadang-interior",
+    "file": "sadang-interior-redraw.png",
+    "sourceSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "sha256": "617fa251fed80601a57f3a6ddd6dfac1d6da7319dbf5862b4bc6e25638078df7",
+    "openedForInspection": true
+  },
+  {
+    "view": "ansarang-left",
+    "file": "ansarang-left-redraw.png",
+    "sourceSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "sha256": "a17cfb75150e7b0d6f79cd3e3c6ac4ffa308803c47c0ef098bb6488e7d7f859f",
+    "openedForInspection": true
+  },
+  {
+    "view": "ansarang-kitchen",
+    "file": "ansarang-kitchen-redraw.png",
+    "sourceSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "sha256": "a23ddb20568f9973401146611c6a09b7e12101cd66886962754d9f4437b0b6ef",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadangmun-front",
+    "file": "sadangmun-front-redraw.png",
+    "sourceSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "sha256": "52d70260a790643c82e3e0e7a9c66014d4bb33ea5324c408863c1b0d0bacb3dc",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadangmun-hardware",
+    "file": "sadangmun-hardware-redraw.png",
+    "sourceSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "sha256": "c81725dd834174245d018466bb7201e0ce1343f3b9b65bf3ef29362550cba291",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadangmun-context",
+    "file": "sadangmun-context-redraw.png",
+    "sourceSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+    "sha256": "a2c9e4d72be49ed61ebbec06c98480830f6db87b893601f636b8f9f57cefbe83",
+    "openedForInspection": true
+  },
+  {
+    "view": "left-gate-front",
+    "file": "left-gate-front-redraw-preview.png",
+    "sourceSceneSha256": "691778b7ff85522b55f1311546e731a6d2067aeb50b0c35fdd5b32366a97516d",
+    "sha256": "e25069befe0822e4726fb6febfafda90d1ba92e3e3dbe1c9bd5b7ecb1d1d650a",
+    "openedForInspection": true
+  },
+  {
+    "view": "left-gate-side",
+    "file": "left-gate-side-redraw-preview.png",
+    "sourceSceneSha256": "0f74d37681f7214d73f874646d9a9e30ffcc06ddce7ca44f5c8af216b135c6a1",
+    "sha256": "2b763722da66f544651cbf02f9bcf4d2c54bcb870e6e21bdf524a0c41c039e11",
+    "openedForInspection": true
+  },
+  {
+    "view": "left-gate-eaves",
+    "file": "left-gate-eaves-redraw-preview.png",
+    "sourceSceneSha256": "0f74d37681f7214d73f874646d9a9e30ffcc06ddce7ca44f5c8af216b135c6a1",
+    "sha256": "3058ff59c5ec3aebda40a00355ceb473e584cde20c83955b3f3d67092f7e64fa",
+    "openedForInspection": true
+  },
+  {
+    "view": "right-gate-eaves",
+    "file": "right-gate-eaves-redraw-preview.png",
+    "sourceSceneSha256": "691778b7ff85522b55f1311546e731a6d2067aeb50b0c35fdd5b32366a97516d",
+    "sha256": "1ebfff5a22fc600c16ac93be63162317a89bdcc536e9f18e169cf5d6185d17c2",
+    "openedForInspection": true
+  },
+  {
+    "view": "jung-passage",
+    "file": "jung-passage-redraw-preview.png",
+    "sourceSceneSha256": "95aa5203f7e8d65b866d1f4b756a6c2a18b43329ef483d1a406c9f13a3245f39",
+    "sha256": "c0658f09360be89018017cba825d6ccd1d865364a30fe80ae1c51cfae23712b2",
+    "openedForInspection": true
+  },
+  {
+    "view": "main-gate-eaves",
+    "file": "main-gate-eaves-redraw-preview.png",
+    "sourceSceneSha256": "691778b7ff85522b55f1311546e731a6d2067aeb50b0c35fdd5b32366a97516d",
+    "sha256": "1df4c203f5e6e976ef64a13ad1b7a81afb39a6294494cf9c072af571bd49859e",
+    "openedForInspection": true
+  },
+  {
+    "view": "main-gate-inside",
+    "file": "main-gate-inside-redraw-preview.png",
+    "sourceSceneSha256": "691778b7ff85522b55f1311546e731a6d2067aeb50b0c35fdd5b32366a97516d",
+    "sha256": "cdae9ed4043277fd27b796c36c6f342cf2c3e9598a26a1ada08d459abbaaabf7",
+    "openedForInspection": true
+  },
+  {
+    "view": "sadang-eaves",
+    "file": "sadang-eaves-redraw-preview.png",
+    "sourceSceneSha256": "95aa5203f7e8d65b866d1f4b756a6c2a18b43329ef483d1a406c9f13a3245f39",
+    "sha256": "aabe4432faa9e544e22a6a997b657fd7af515800ce4aba844d2f1983a0e2d9ac",
+    "openedForInspection": true
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "archive": "estate-source-20260930.zip",
+  "sha256": "36d98a3caf2d6e4187483c7a8ccd1700d8f68415ff06da6d2d3e579fea58abad",
+  "bytes": 246427281,
+  "members": 88,
+  "sceneSha256": "bd921e4b0768bb7b9d0dba5c97fab3ce079e8f3ba649a2a9039334023b79450b",
+  "note": "Exact native bytes and external image bytes. Historical scenes/GLBs are kept locally.",
+  "parts": [
+    {
+      "file": "estate-source-20260930.zip.part00",
+      "bytes": 94371840,
+      "sha256": "872902780a85652bb53f3367b27f3b39170c2b21c2b12914ea386151cc739b76"
+    },
+    {
+      "file": "estate-source-20260930.zip.part01",
+      "bytes": 94371840,
+      "sha256": "d2bff12f3b614830fb886e5a15678bdc93f416a166d76755205fe222e5698c84"
+    },
+    {
+      "file": "estate-source-20260930.zip.part02",
+      "bytes": 57683601,
+      "sha256": "2b8cfeda9ba39e9982eea27185987a761258eeb8117e823762c27af8899a5b85"
+    }
+  ]
+}

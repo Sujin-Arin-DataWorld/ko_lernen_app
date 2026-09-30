@@ -1,0 +1,34 @@
+{
+  "allPassed": true,
+  "northernGlbSha256": "41987bbe1901aebfdf1a7313f33868b1890e462e48780c5fecdda88fd39beead",
+  "materialChecks": [
+    {
+      "material": "Illustrated pine longgrain v1",
+      "primitives": 237,
+      "baseColorUV": 1,
+      "normalUV": 1,
+      "embeddedAlbedoAndNormal": true
+    },
+    {
+      "material": "Illustrated pine endgrain v1",
+      "primitives": 237,
+      "baseColorUV": 1,
+      "normalUV": 1,
+      "embeddedAlbedoAndNormal": true
+    },
+    {
+      "material": "Illustrated pine longgrain v1",
+      "primitives": 10,
+      "baseColorUV": 1,
+      "normalUV": 1,
+      "embeddedAlbedoAndNormal": true
+    },
+    {
+      "material": "Illustrated pine endgrain v1",
+      "primitives": 9,
+      "baseColorUV": 1,
+      "normalUV": 1,
+      "embeddedAlbedoAndNormal": true
+    }
+  ]
+}

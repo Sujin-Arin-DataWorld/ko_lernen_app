@@ -1,0 +1,8 @@
+{
+  "generator": "Built-in image_gen.imagegen",
+  "prompt": "Create one production-quality opaque seamless albedo texture ONLY, whole square canvas filled edge-to-edge, for old hand-hewn timber on a lived-in Korean hanok Jungmunganchae gate-house. This is a distinct darker, quieter counterpart to sun-warmed Sarangchae wood. Softly faceted hand-painted Korean architectural game illustration material, muted dark walnut around #6B4D32, dusky umber, small areas of rubbed grey-brown and low contrast honey-brown fibres. Vertical grain across full image: fine to medium fibres meander unevenly, broken lengths, worn soft patches and two faint irregular knots. Readable organic flowing wood grain, moderately broad painterly facets and brush marks, no bark peeling, no carved gouges, not noisy. Pigment should remain neutral warm brown, not orange, not black. Avoid identical pinstriped parallel lines, uniform pristine board cuts, shiny varnish, photo-realism, heavy cracks, dramatic light and dark bands, cast shadows, ambient occlusion, perspective. No building, no plank outlines, no plank seams, no sign, no text, no background. Single flat wood surface for UV mapping; retain subtle hand-painted life and irregularity without exaggeration.",
+  "transparent_background": false,
+  "generatedSource": "C:/Users/vjinn/.codex/generated_images/01a0f22f-611d-72f2-8e9b-52fda88f29d9/exec-35e673d2-379f-4de3-92ff-4a2f6580365e.png",
+  "projectImage": "materials/hanok-jung-wood-painted-v1.png",
+  "runtimePromotion": false
+}

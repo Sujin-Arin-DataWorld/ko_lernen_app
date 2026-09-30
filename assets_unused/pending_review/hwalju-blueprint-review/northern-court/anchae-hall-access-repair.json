@@ -1,0 +1,201 @@
+{
+  "nativeScene": "scene.blend",
+  "nativeSha256": "039c677626ab43b59d40dbcf1df33b604d9765cecc6d0c86175a33c9fd94f3ae",
+  "unchangedExistingMeshes": 3185,
+  "changes": [
+    {
+      "building": "anchae",
+      "objects": [
+        "North.anchae.interior partition",
+        "North.anchae.room ondol raised clay",
+        "North.anchae.room warm paper floor",
+        "North.anchae.hall room 1.fixed.jamb",
+        "North.anchae.hall room 1.fixed.head",
+        "North.anchae.hall room 1.fixed.sill",
+        "North.anchae.hall room 1.fixed.plaster",
+        "North.anchae.hall room 1.fixed.rebate stop",
+        "North.anchae.hall room 1.fixed.rebate head",
+        "North.anchae.hall room 1.leaf1.stile",
+        "North.anchae.hall room 1.leaf1.rail",
+        "North.anchae.hall room 1.leaf1.vertical sal",
+        "North.anchae.hall room 1.leaf1.horizontal sal",
+        "North.anchae.hall room 1.leaf1.hanji",
+        "North.anchae.hall room 1.leaf1.hinge pin",
+        "North.anchae.hall room 1.leaf1.hinge strap",
+        "North.anchae.hall room 1.leaf1.ring plate",
+        "North.anchae.hall room 1.leaf1.iron ring",
+        "North.anchae.hall room 1.fixed.ring plate",
+        "North.anchae.hall room 1.fixed.iron ring",
+        "North.anchae.hall room 2.fixed.jamb",
+        "North.anchae.hall room 2.fixed.head",
+        "North.anchae.hall room 2.fixed.sill",
+        "North.anchae.hall room 2.fixed.plaster",
+        "North.anchae.hall room 2.fixed.rebate stop",
+        "North.anchae.hall room 2.fixed.rebate head",
+        "North.anchae.hall room 2.leaf1.stile",
+        "North.anchae.hall room 2.leaf1.rail",
+        "North.anchae.hall room 2.leaf1.vertical sal",
+        "North.anchae.hall room 2.leaf1.horizontal sal",
+        "North.anchae.hall room 2.leaf1.hanji",
+        "North.anchae.hall room 2.leaf1.hinge pin",
+        "North.anchae.hall room 2.leaf1.hinge strap",
+        "North.anchae.hall room 2.leaf1.ring plate",
+        "North.anchae.hall room 2.leaf1.iron ring",
+        "North.anchae.hall room 2.fixed.ring plate",
+        "North.anchae.hall room 2.fixed.iron ring",
+        "North.anchae.hall room 1.room ondol raised clay",
+        "North.anchae.hall room 2.room ondol raised clay",
+        "North.anchae.hall room 1.room warm paper floor",
+        "North.anchae.hall room 2.room warm paper floor"
+      ],
+      "illustratedTimber": [
+        {
+          "object": "North.anchae.hall room 1.fixed.jamb",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 1.fixed.head",
+          "building": "anchae",
+          "solidComponents": 1,
+          "longGrainFaces": 4,
+          "cutEndFaces": 2,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 1.fixed.sill",
+          "building": "anchae",
+          "solidComponents": 1,
+          "longGrainFaces": 4,
+          "cutEndFaces": 2,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 1.fixed.rebate stop",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 1.fixed.rebate head",
+          "building": "anchae",
+          "solidComponents": 1,
+          "longGrainFaces": 4,
+          "cutEndFaces": 2,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 1.leaf1.stile",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 1.leaf1.rail",
+          "building": "anchae",
+          "solidComponents": 3,
+          "longGrainFaces": 12,
+          "cutEndFaces": 6,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 1.leaf1.vertical sal",
+          "building": "anchae",
+          "solidComponents": 14,
+          "longGrainFaces": 56,
+          "cutEndFaces": 28,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 1.leaf1.horizontal sal",
+          "building": "anchae",
+          "solidComponents": 16,
+          "longGrainFaces": 64,
+          "cutEndFaces": 32,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 2.fixed.jamb",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 2.fixed.head",
+          "building": "anchae",
+          "solidComponents": 1,
+          "longGrainFaces": 4,
+          "cutEndFaces": 2,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 2.fixed.sill",
+          "building": "anchae",
+          "solidComponents": 1,
+          "longGrainFaces": 4,
+          "cutEndFaces": 2,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 2.fixed.rebate stop",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 2.fixed.rebate head",
+          "building": "anchae",
+          "solidComponents": 1,
+          "longGrainFaces": 4,
+          "cutEndFaces": 2,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 2.leaf1.stile",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 2.leaf1.rail",
+          "building": "anchae",
+          "solidComponents": 3,
+          "longGrainFaces": 12,
+          "cutEndFaces": 6,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 2.leaf1.vertical sal",
+          "building": "anchae",
+          "solidComponents": 14,
+          "longGrainFaces": 56,
+          "cutEndFaces": 28,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.hall room 2.leaf1.horizontal sal",
+          "building": "anchae",
+          "solidComponents": 16,
+          "longGrainFaces": 64,
+          "cutEndFaces": 32,
+          "geometryUnchanged": true
+        }
+      ],
+      "mineralSurfaces": [],
+      "fullSurveyAccuracyClaimed": false
+    }
+  ]
+}

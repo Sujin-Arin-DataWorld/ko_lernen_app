@@ -1,0 +1,933 @@
+{
+  "canonicalImage": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\hyeopmun_try03_blueprint_colored.png",
+  "canonicalSha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56",
+  "sourceImageEdited": false,
+  "uvRegionsNormalized": {
+    "wood": [
+      [
+        0.334,
+        0.405,
+        0.356,
+        0.618
+      ],
+      [
+        0.389,
+        0.406,
+        0.414,
+        0.619
+      ],
+      [
+        0.425,
+        0.409,
+        0.449,
+        0.617
+      ],
+      [
+        0.568,
+        0.406,
+        0.592,
+        0.617
+      ],
+      [
+        0.604,
+        0.406,
+        0.631,
+        0.619
+      ],
+      [
+        0.642,
+        0.406,
+        0.665,
+        0.619
+      ]
+    ],
+    "post": [
+      [
+        0.244,
+        0.328,
+        0.282,
+        0.68
+      ]
+    ],
+    "beam": [
+      [
+        0.303,
+        0.332,
+        0.708,
+        0.353
+      ]
+    ],
+    "tile": [
+      [
+        0.475,
+        0.174,
+        0.481,
+        0.181
+      ],
+      [
+        0.552,
+        0.177,
+        0.558,
+        0.184
+      ],
+      [
+        0.431,
+        0.174,
+        0.437,
+        0.181
+      ]
+    ],
+    "stone": [
+      [
+        0.192,
+        0.728,
+        0.286,
+        0.756
+      ],
+      [
+        0.391,
+        0.786,
+        0.498,
+        0.81
+      ],
+      [
+        0.62,
+        0.795,
+        0.69,
+        0.821
+      ]
+    ]
+  },
+  "mappedSurfaces": [
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.004",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.003",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.002",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.001",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3",
+      "kind": "stone",
+      "components": 6
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.004",
+      "kind": "stone",
+      "components": 14
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.003",
+      "kind": "stone",
+      "components": 22
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.002",
+      "kind": "stone",
+      "components": 20
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.001",
+      "kind": "stone",
+      "components": 20
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2",
+      "kind": "stone",
+      "components": 23
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.004",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.003",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.002",
+      "kind": "stone",
+      "components": 5
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.001",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.004",
+      "kind": "stone",
+      "components": 18
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.003",
+      "kind": "stone",
+      "components": 27
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.002",
+      "kind": "stone",
+      "components": 24
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.001",
+      "kind": "stone",
+      "components": 16
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0",
+      "kind": "stone",
+      "components": 21
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.004",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.003",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.002",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.001",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.004",
+      "kind": "stone",
+      "components": 30
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.003",
+      "kind": "stone",
+      "components": 26
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.002",
+      "kind": "stone",
+      "components": 40
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.001",
+      "kind": "stone",
+      "components": 29
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2",
+      "kind": "stone",
+      "components": 37
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.004",
+      "kind": "stone",
+      "components": 5
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.003",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.002",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.001",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.004",
+      "kind": "stone",
+      "components": 44
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.003",
+      "kind": "stone",
+      "components": 25
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.002",
+      "kind": "stone",
+      "components": 34
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.001",
+      "kind": "stone",
+      "components": 29
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0",
+      "kind": "stone",
+      "components": 33
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.004",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.003",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.002",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.004",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.003",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.002",
+      "kind": "stone",
+      "components": 15
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.001",
+      "kind": "stone",
+      "components": 7
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2",
+      "kind": "stone",
+      "components": 7
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.004",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.003",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.002",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.004",
+      "kind": "stone",
+      "components": 7
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.003",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.002",
+      "kind": "stone",
+      "components": 10
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.001",
+      "kind": "stone",
+      "components": 10
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0",
+      "kind": "stone",
+      "components": 13
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.004",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.003",
+      "kind": "stone",
+      "components": 5
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.002",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.001",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.004",
+      "kind": "stone",
+      "components": 18
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.003",
+      "kind": "stone",
+      "components": 14
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.002",
+      "kind": "stone",
+      "components": 11
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.001",
+      "kind": "stone",
+      "components": 17
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2",
+      "kind": "stone",
+      "components": 13
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.004",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.003",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.002",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.001",
+      "kind": "stone",
+      "components": 5
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.004",
+      "kind": "stone",
+      "components": 10
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.003",
+      "kind": "stone",
+      "components": 20
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.002",
+      "kind": "stone",
+      "components": 15
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.001",
+      "kind": "stone",
+      "components": 10
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0",
+      "kind": "stone",
+      "components": 16
+    },
+    {
+      "object": "V28.right_ansarang.roof.rafters",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.right_ansarang.roof.purlin",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "V28.right_ansarang.roof.fascia",
+      "kind": "beam",
+      "components": 2
+    },
+    {
+      "object": "V28.right_ansarang.roof.boarding",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.left_changgo.roof.rafters",
+      "kind": "wood",
+      "components": 15
+    },
+    {
+      "object": "V28.left_changgo.roof.purlin",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "V28.left_changgo.roof.fascia",
+      "kind": "beam",
+      "components": 2
+    },
+    {
+      "object": "V28.left_changgo.roof.boarding",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.frame.threshold",
+      "kind": "beam",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.frame.side brace",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.frame.post",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.frame.lintel",
+      "kind": "beam",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.frame.jamb packing",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.frame.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread5.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread5",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread4.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread4",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread3.002",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread3.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread3",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread2.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread2",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread1.002",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread1.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread1",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.post stone.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.post stone",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.paving.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.paving",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.finish.approach.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.finish.approach",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.door.leaf2.boards.001",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.door.leaf2.boards",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.door.leaf2.back rail",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "V27.right_ansarang.door.leaf1.boards.001",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.door.leaf1.boards",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.door.leaf1.back rail",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "V27.left_changgo.frame.threshold",
+      "kind": "beam",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.frame.side brace",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V27.left_changgo.frame.post",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "V27.left_changgo.frame.lintel",
+      "kind": "beam",
+      "components": 2
+    },
+    {
+      "object": "V27.left_changgo.frame.jamb packing",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V27.left_changgo.frame.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V27.left_changgo.foundation.post stone.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.foundation.post stone",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.foundation.paving.002",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.foundation.paving.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.foundation.paving",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.finish.approach.002",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.finish.approach.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.finish.approach",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf2.boards.003",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf2.boards.002",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf2.boards.001",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf2.boards",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf2.back rail",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "V27.left_changgo.door.leaf2.back brace",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf1.boards.003",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf1.boards.002",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf1.boards.001",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf1.boards",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf1.back rail",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "V27.left_changgo.door.leaf1.back brace",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.001",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.002",
+      "kind": "stone",
+      "components": 13
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.003",
+      "kind": "stone",
+      "components": 10
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.004",
+      "kind": "stone",
+      "components": 12
+    },
+    {
+      "object": "ConnectionLeft.high wall lower end",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "ConnectionLeft.high wall lower end.001",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "ConnectionLeft.high wall lower end.002",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "ConnectionLeft.high wall lower end.003",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "ConnectionGarden.wall1.fieldstone",
+      "kind": "stone",
+      "components": 298
+    },
+    {
+      "object": "ConnectionGarden.wall1.end stones",
+      "kind": "stone",
+      "components": 12
+    },
+    {
+      "object": "ConnectionGarden.wall2.fieldstone",
+      "kind": "stone",
+      "components": 191
+    },
+    {
+      "object": "ConnectionGarden.wall2.end stones",
+      "kind": "stone",
+      "components": 12
+    },
+    {
+      "object": "ConnectionGarden.wall3.fieldstone",
+      "kind": "stone",
+      "components": 392
+    },
+    {
+      "object": "ConnectionGarden.wall3.end stones",
+      "kind": "stone",
+      "components": 22
+    },
+    {
+      "object": "ConnectionGarden.wall4.fieldstone",
+      "kind": "stone",
+      "components": 1307
+    },
+    {
+      "object": "ConnectionGarden.wall4.end stones",
+      "kind": "stone",
+      "components": 22
+    },
+    {
+      "object": "ConnectionGarden.wall5.fieldstone",
+      "kind": "stone",
+      "components": 913
+    },
+    {
+      "object": "ConnectionGarden.wall5.end stones",
+      "kind": "stone",
+      "components": 22
+    },
+    {
+      "object": "ConnectionGarden.open path stone lip",
+      "kind": "stone",
+      "components": 7
+    },
+    {
+      "object": "ConnectionGarden.path edging",
+      "kind": "stone",
+      "components": 14
+    }
+  ],
+  "newIronworkMeshes": 20,
+  "gateMeshes": 294,
+  "sceneSha256": "b5eb6cdb2d986b5e37f8ecec04960ce2aa0add92d8f26015dcbfd3e8adab0c9c",
+  "gateGlbSha256": "8acafcc77f9b07d88206d9527f859a8233f04d7e8fc6af3086b70fe458581321",
+  "openingPostAndRoofDimensionsChanged": false
+}

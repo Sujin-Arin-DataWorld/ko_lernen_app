@@ -1,0 +1,109 @@
+{
+  "anchors": {
+    "sarang": {
+      "point": [
+        0.0029012858867645264,
+        0.00014940649271011353,
+        2.7807998657226562
+      ],
+      "object": "Craft.Sarang continuous post 0"
+    },
+    "jung": {
+      "point": [
+        0.0,
+        3.984999895095825,
+        3.1494998931884766
+      ],
+      "object": "Jung.registered post.wood"
+    },
+    "changgo": {
+      "point": [
+        -10.07381820678711,
+        -3.5354461669921875,
+        2.2293999195098877
+      ],
+      "object": "V28.changgo.frame.post"
+    },
+    "ansarang": {
+      "point": [
+        22.31591033935547,
+        -15.24310302734375,
+        2.042799949645996
+      ],
+      "object": "V28.ansarang.frame.post"
+    },
+    "toilet": {
+      "point": [
+        -19.957908630371094,
+        -7.911411285400391,
+        1.5540000200271606
+      ],
+      "object": "V28.toilet.frame.post"
+    },
+    "main_gate": {
+      "point": [
+        -11.37870979309082,
+        -13.883398056030273,
+        1.4329311847686768
+      ],
+      "object": "PhotoGate.frame weathered post"
+    },
+    "anchae": {
+      "point": [
+        9.319071769714355,
+        9.544767379760742,
+        3.244199752807617
+      ],
+      "object": "North.anchae.frame square post"
+    },
+    "arae": {
+      "point": [
+        -1.1997171640396118,
+        25.034481048583984,
+        3.052799940109253
+      ],
+      "object": "North.arae.frame square post"
+    },
+    "angotgan": {
+      "point": [
+        -5.237430572509766,
+        16.82659149169922,
+        3.2789998054504395
+      ],
+      "object": "North.angotgan.frame square post"
+    },
+    "gokgan": {
+      "point": [
+        22.19366455078125,
+        5.615478515625,
+        3.4182000160217285
+      ],
+      "object": "North.gokgan.frame square post"
+    },
+    "sadang": {
+      "point": [
+        22.425106048583984,
+        19.147388458251953,
+        3.1459999084472656
+      ],
+      "object": "North.sadang.frame round red column"
+    },
+    "sadangmun": {
+      "point": [
+        19.139259338378906,
+        16.924715042114258,
+        2.74399995803833
+      ],
+      "object": "North.sadangmun.round vermilion gatepost"
+    },
+    "toilet1": {
+      "point": [
+        -13.27167797088623,
+        25.384843826293945,
+        2.8340001106262207
+      ],
+      "object": "V28.toilet1.frame.post"
+    }
+  },
+  "coordinates": "Retained source building world axes; Blender XYZ"
+}

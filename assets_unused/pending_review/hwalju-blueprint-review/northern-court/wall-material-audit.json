@@ -1,0 +1,2008 @@
+{
+  "objects": 286,
+  "woodOnMasonry": [],
+  "assignments": [
+    {
+      "object": "Ref.Jung fieldstone plinth.face0",
+      "materials": [
+        "Jung warm fieldstone 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face0.001",
+      "materials": [
+        "Jung warm fieldstone 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face0.002",
+      "materials": [
+        "Jung warm fieldstone 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face0.003",
+      "materials": [
+        "Jung warm fieldstone 4"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face0.004",
+      "materials": [
+        "Jung warm fieldstone 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face1",
+      "materials": [
+        "Jung warm fieldstone 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face1.001",
+      "materials": [
+        "Jung warm fieldstone 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face1.002",
+      "materials": [
+        "Jung warm fieldstone 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face1.003",
+      "materials": [
+        "Jung warm fieldstone 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face1.004",
+      "materials": [
+        "Jung warm fieldstone 4"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face2",
+      "materials": [
+        "Jung warm fieldstone 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face2.001",
+      "materials": [
+        "Jung warm fieldstone 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face2.002",
+      "materials": [
+        "Jung warm fieldstone 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face2.003",
+      "materials": [
+        "Jung warm fieldstone 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face2.004",
+      "materials": [
+        "Jung warm fieldstone 4"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face3",
+      "materials": [
+        "Jung warm fieldstone 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face3.001",
+      "materials": [
+        "Jung warm fieldstone 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face3.002",
+      "materials": [
+        "Jung warm fieldstone 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "Ref.Jung fieldstone plinth.face3.003",
+      "materials": [
+        "Jung warm fieldstone 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.earth core",
+      "materials": [
+        "Gate retained V30 warm earthen wall mortar"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping.ridge",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping.plain ends",
+      "materials": [
+        "Gate retained Pale ceramic tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping.005",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping.004",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping.003",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping.002",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping.001",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.earth core",
+      "materials": [
+        "Gate retained V30 warm earthen wall mortar"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping.ridge",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping.plain ends",
+      "materials": [
+        "Gate retained Pale ceramic tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping.005",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping.004",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping.003",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping.002",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping.001",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.earth core",
+      "materials": [
+        "Gate retained V30 warm earthen wall mortar"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping.ridge",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping.plain ends",
+      "materials": [
+        "Gate retained Pale ceramic tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping.005",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping.004",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping.003",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping.002",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping.001",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.earth core",
+      "materials": [
+        "Gate retained V30 warm earthen wall mortar"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping.ridge",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping.plain ends",
+      "materials": [
+        "Gate retained Pale ceramic tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping.005",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping.004",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping.003",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping.002",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping.001",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping",
+      "materials": [
+        "Reference gate tile"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.001",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.002",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.003",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.004",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "ConnectionGarden.wall1.fieldstone",
+      "materials": [
+        "Canonical gate stone pigment"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "ConnectionGarden.wall2.fieldstone",
+      "materials": [
+        "Canonical gate stone pigment"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "ConnectionGarden.wall3.fieldstone",
+      "materials": [
+        "Canonical gate stone pigment"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "ConnectionGarden.wall4.fieldstone",
+      "materials": [
+        "Canonical gate stone pigment"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "ConnectionGarden.wall5.fieldstone",
+      "materials": [
+        "Canonical gate stone pigment"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "PhotoGate.front irregular fieldstone",
+      "materials": [
+        "Canonical gate stone pigment.003"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "PhotoGate.return fieldstone",
+      "materials": [
+        "Canonical gate stone pigment.003"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.sadang.round stone plinth",
+      "materials": [
+        "Reference sadang stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.sadang.granite step",
+      "materials": [
+        "Reference sadang stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.sadangmun.photo granite sill",
+      "materials": [
+        "Reference sadangmun stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.sadangmun.photo granite entry step",
+      "materials": [
+        "Reference sadangmun stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine west earth core",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine west irregular stone",
+      "materials": [
+        "Illustrated granite v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine west coping",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine west coping.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine west coping.002",
+      "materials": [
+        "Illustrated clay v1 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine west coping.003",
+      "materials": [
+        "Illustrated clay v1 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine west coping.004",
+      "materials": [
+        "Illustrated clay v1 4"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine west coping.005",
+      "materials": [
+        "Illustrated clay v1 5"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine west coping.round tile ends",
+      "materials": [
+        "North lime tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine west coping.ridge stack",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine west coping.ridge stack.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine rear earth core",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine rear irregular stone",
+      "materials": [
+        "Illustrated granite v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine rear coping",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine rear coping.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine rear coping.002",
+      "materials": [
+        "Illustrated clay v1 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine rear coping.003",
+      "materials": [
+        "Illustrated clay v1 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine rear coping.004",
+      "materials": [
+        "Illustrated clay v1 4"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine rear coping.005",
+      "materials": [
+        "Illustrated clay v1 5"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine rear coping.round tile ends",
+      "materials": [
+        "North lime tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine rear coping.ridge stack",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine rear coping.ridge stack.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine east earth core",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine east irregular stone",
+      "materials": [
+        "Illustrated granite v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine east coping",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine east coping.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine east coping.002",
+      "materials": [
+        "Illustrated clay v1 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine east coping.003",
+      "materials": [
+        "Illustrated clay v1 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine east coping.004",
+      "materials": [
+        "Illustrated clay v1 4"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine east coping.005",
+      "materials": [
+        "Illustrated clay v1 5"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine east coping.round tile ends",
+      "materials": [
+        "North lime tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine east coping.ridge stack",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine east coping.ridge stack.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate left earth core",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate left irregular stone",
+      "materials": [
+        "Illustrated granite v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate left coping",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate left coping.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate left coping.002",
+      "materials": [
+        "Illustrated clay v1 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate left coping.003",
+      "materials": [
+        "Illustrated clay v1 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate left coping.004",
+      "materials": [
+        "Illustrated clay v1 4"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate left coping.005",
+      "materials": [
+        "Illustrated clay v1 5"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate left coping.round tile ends",
+      "materials": [
+        "North lime tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate left coping.ridge stack",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate left coping.ridge stack.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate right earth core",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate right irregular stone",
+      "materials": [
+        "Illustrated granite v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate right inset petal tile edges",
+      "materials": [
+        "Illustrated clay v1 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate right inset central petal",
+      "materials": [
+        "Illustrated clay v1 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate right coping",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate right coping.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate right coping.002",
+      "materials": [
+        "Illustrated clay v1 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate right coping.003",
+      "materials": [
+        "Illustrated clay v1 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate right coping.004",
+      "materials": [
+        "Illustrated clay v1 4"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate right coping.005",
+      "materials": [
+        "Illustrated clay v1 5"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate right coping.round tile ends",
+      "materials": [
+        "North lime tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate right coping.ridge stack",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate right coping.ridge stack.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard return earth core",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard return irregular stone",
+      "materials": [
+        "Illustrated granite v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard return coping",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard return coping.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard return coping.002",
+      "materials": [
+        "Illustrated clay v1 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard return coping.003",
+      "materials": [
+        "Illustrated clay v1 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard return coping.004",
+      "materials": [
+        "Illustrated clay v1 4"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard return coping.005",
+      "materials": [
+        "Illustrated clay v1 5"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard return coping.round tile ends",
+      "materials": [
+        "North lime tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard return coping.ridge stack",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard return coping.ridge stack.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east upper earth core",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east upper irregular stone",
+      "materials": [
+        "Illustrated granite v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east upper coping",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east upper coping.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east upper coping.002",
+      "materials": [
+        "Illustrated clay v1 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east upper coping.003",
+      "materials": [
+        "Illustrated clay v1 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east upper coping.004",
+      "materials": [
+        "Illustrated clay v1 4"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east upper coping.005",
+      "materials": [
+        "Illustrated clay v1 5"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east upper coping.round tile ends",
+      "materials": [
+        "North lime tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east upper coping.ridge stack",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east upper coping.ridge stack.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east lower earth core",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east lower irregular stone",
+      "materials": [
+        "Illustrated granite v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east lower coping",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east lower coping.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east lower coping.002",
+      "materials": [
+        "Illustrated clay v1 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east lower coping.003",
+      "materials": [
+        "Illustrated clay v1 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east lower coping.004",
+      "materials": [
+        "Illustrated clay v1 4"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east lower coping.005",
+      "materials": [
+        "Illustrated clay v1 5"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east lower coping.round tile ends",
+      "materials": [
+        "North lime tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east lower coping.ridge stack",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east lower coping.ridge stack.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard west earth core",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard west irregular stone",
+      "materials": [
+        "Illustrated granite v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard west coping",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard west coping.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard west coping.002",
+      "materials": [
+        "Illustrated clay v1 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard west coping.003",
+      "materials": [
+        "Illustrated clay v1 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard west coping.004",
+      "materials": [
+        "Illustrated clay v1 4"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard west coping.005",
+      "materials": [
+        "Illustrated clay v1 5"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard west coping.round tile ends",
+      "materials": [
+        "North lime tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard west coping.ridge stack",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard west coping.ridge stack.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang north earth core",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang north irregular stone",
+      "materials": [
+        "Illustrated granite v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang north coping",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang north coping.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang north coping.002",
+      "materials": [
+        "Illustrated clay v1 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang north coping.003",
+      "materials": [
+        "Illustrated clay v1 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang north coping.004",
+      "materials": [
+        "Illustrated clay v1 4"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang north coping.005",
+      "materials": [
+        "Illustrated clay v1 5"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang north coping.round tile ends",
+      "materials": [
+        "North lime tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang north coping.ridge stack",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang north coping.ridge stack.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang east earth core",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang east irregular stone",
+      "materials": [
+        "Illustrated granite v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang east coping",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang east coping.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang east coping.002",
+      "materials": [
+        "Illustrated clay v1 2"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang east coping.003",
+      "materials": [
+        "Illustrated clay v1 3"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang east coping.004",
+      "materials": [
+        "Illustrated clay v1 4"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang east coping.005",
+      "materials": [
+        "Illustrated clay v1 5"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang east coping.round tile ends",
+      "materials": [
+        "North lime tile ends"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang east coping.ridge stack",
+      "materials": [
+        "Illustrated clay v1 0"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang east coping.ridge stack.001",
+      "materials": [
+        "Illustrated clay v1 1"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.rear yard gate.stone plinth",
+      "materials": [
+        "Reference gate stone"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine west earthen tile bedding",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine rear earthen tile bedding",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine east earthen tile bedding",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate left earthen tile bedding",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.shrine gate right earthen tile bedding",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard return earthen tile bedding",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east upper earthen tile bedding",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard east lower earthen tile bedding",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.jar yard west earthen tile bedding",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang north earthen tile bedding",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    },
+    {
+      "object": "North.site.gwang east earthen tile bedding",
+      "materials": [
+        "North earthen plaster"
+      ],
+      "woodMaterials": []
+    }
+  ]
+}

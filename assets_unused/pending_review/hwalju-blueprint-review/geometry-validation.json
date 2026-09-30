@@ -1,0 +1,89 @@
+{
+  "sourceSceneSha256": "056861c8628b45d396db2bfeb3112f5afa1402dc091f977b9523ee73a239dfa6",
+  "sceneSha256": "6e34c080e7da4ed677b8a7211685804549728d9e3769eca21bfd73a9d246eaad",
+  "frontSupports": [
+    {
+      "id": "02-main-left",
+      "drawingNo": 2,
+      "x": -0.91,
+      "y": -0.9,
+      "base": 1.1,
+      "comment": 2,
+      "bearingZ": 4.45004940032959,
+      "bearingObject": "Craft.Sarang roof underside boarding",
+      "bottomZ": 1.2400000000000002
+    },
+    {
+      "id": "03-numaru-inner",
+      "drawingNo": 3,
+      "x": 9.68,
+      "y": -4.9,
+      "base": 0.43,
+      "comment": 1,
+      "bearingZ": 4.190425395965576,
+      "bearingObject": "Craft.Sarang.numaru roof.hip exposed rafters.end grain",
+      "bottomZ": 0.5700000000000001
+    },
+    {
+      "id": "04-numaru-outer",
+      "drawingNo": 4,
+      "x": 15.76,
+      "y": -5.205,
+      "base": 0.0,
+      "comment": 1,
+      "bearingZ": 4.424455642700195,
+      "bearingObject": "Craft.Sarang.numaru roof.hip exposed rafters",
+      "bottomZ": 0.14
+    }
+  ],
+  "removedObjects": [
+    "Craft.hwalju continuous timber 15.04",
+    "Craft.hwalju continuous timber -0.79",
+    "Craft.hwalju pale base sleeve",
+    "Sarang.hwalju stone foot"
+  ],
+  "addedObjects": [
+    "HwaljuFix.left terrace masonry 0-0",
+    "HwaljuFix.left terrace masonry 0-1",
+    "HwaljuFix.left terrace masonry 1-0",
+    "HwaljuFix.left terrace masonry 1-1",
+    "HwaljuFix.left terrace masonry 2-0",
+    "HwaljuFix.left terrace masonry 2-1",
+    "HwaljuFix.left front apron masonry 0-0",
+    "HwaljuFix.left front apron masonry 0-1",
+    "HwaljuFix.left front apron masonry 0-2",
+    "HwaljuFix.left front apron masonry 1-0",
+    "HwaljuFix.left front apron masonry 1-1",
+    "HwaljuFix.left front apron masonry 1-2",
+    "HwaljuFix.left front apron masonry 2-0",
+    "HwaljuFix.left front apron masonry 2-1",
+    "HwaljuFix.left front apron masonry 2-2",
+    "HwaljuFix.numaru inner apron masonry 0-0",
+    "HwaljuFix.numaru front apron masonry 0-0",
+    "HwaljuFix.numaru front apron masonry 0-1",
+    "HwaljuFix.numaru front apron masonry 0-2",
+    "HwaljuFix.numaru front apron masonry 0-3",
+    "HwaljuFix.numaru front apron masonry 0-4",
+    "HwaljuFix.02-main-left timber",
+    "HwaljuFix.02-main-left pale sleeve",
+    "HwaljuFix.02-main-left stone foot",
+    "HwaljuFix.03-numaru-inner timber",
+    "HwaljuFix.03-numaru-inner pale sleeve",
+    "HwaljuFix.03-numaru-inner stone foot",
+    "HwaljuFix.04-numaru-outer timber",
+    "HwaljuFix.04-numaru-outer pale sleeve",
+    "HwaljuFix.04-numaru-outer stone foot"
+  ],
+  "protectedMeshes": 913,
+  "protectedMeshFingerprintsUnchanged": true,
+  "authority": [
+    "004 floor plan",
+    "005 front elevation",
+    "007 right elevation",
+    "028 hwalju detail key plan"
+  ],
+  "limits": [
+    "XY read to approximately 40mm from scan; local terrace infill and current roof bearing heights are reconstruction details. Rear No1 outside this front-marker correction.",
+    "No new material art direction applied in this geometric correction."
+  ]
+}

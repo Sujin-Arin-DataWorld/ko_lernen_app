@@ -1,0 +1,5941 @@
+{
+  "method": "Semantic artwork-region UVs on volumetric members; originals byte-preserved",
+  "sources": [
+    {
+      "building": "gate",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\canonical-gate.png",
+      "sha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56",
+      "sourceEdited": false,
+      "regionsNormalizedXY": {
+        "post": [
+          [
+            0.244,
+            0.328,
+            0.275,
+            0.67
+          ]
+        ],
+        "wood": [
+          [
+            0.334,
+            0.405,
+            0.351,
+            0.618
+          ],
+          [
+            0.389,
+            0.406,
+            0.405,
+            0.619
+          ],
+          [
+            0.568,
+            0.406,
+            0.583,
+            0.617
+          ]
+        ],
+        "beam": [
+          [
+            0.312,
+            0.334,
+            0.7,
+            0.35
+          ]
+        ],
+        "floor": [
+          [
+            0.31,
+            0.698,
+            0.65,
+            0.709
+          ]
+        ],
+        "tile": [
+          [
+            0.477,
+            0.176,
+            0.481,
+            0.188
+          ]
+        ],
+        "stone": [
+          [
+            0.396,
+            0.789,
+            0.449,
+            0.807
+          ]
+        ]
+      }
+    },
+    {
+      "building": "anchae",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\anchae\\canonical.png",
+      "sha256": "7d1c6cb2c9caafafacba4df82cdb9d829837e17b90424eba5aa3175528506d50",
+      "sourceEdited": false,
+      "regionsNormalizedXY": {
+        "post": [
+          [
+            0.4295,
+            0.437,
+            0.433,
+            0.57
+          ]
+        ],
+        "wood": [
+          [
+            0.242,
+            0.477,
+            0.255,
+            0.59
+          ]
+        ],
+        "beam": [
+          [
+            0.352,
+            0.61,
+            0.413,
+            0.621
+          ]
+        ],
+        "floor": [
+          [
+            0.59,
+            0.606,
+            0.67,
+            0.613
+          ]
+        ],
+        "tile": [
+          [
+            0.399,
+            0.246,
+            0.402,
+            0.265
+          ]
+        ],
+        "stone": [
+          [
+            0.255,
+            0.705,
+            0.29,
+            0.736
+          ]
+        ]
+      }
+    },
+    {
+      "building": "ansarang",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\side-connections\\ansarang-canonical.png",
+      "sha256": "b5f58783f01005b6babac4ac5a85a7b8a86e3f06c90154e4cbc670fee1f47497",
+      "sourceEdited": false,
+      "regionsNormalizedXY": {
+        "post": [
+          [
+            0.393,
+            0.492,
+            0.407,
+            0.718
+          ]
+        ],
+        "wood": [
+          [
+            0.394,
+            0.493,
+            0.405,
+            0.688
+          ]
+        ],
+        "beam": [
+          [
+            0.239,
+            0.688,
+            0.371,
+            0.7
+          ]
+        ],
+        "floor": [
+          [
+            0.468,
+            0.697,
+            0.53,
+            0.713
+          ]
+        ],
+        "tile": [
+          [
+            0.518,
+            0.21,
+            0.527,
+            0.224
+          ]
+        ],
+        "stone": [
+          [
+            0.279,
+            0.781,
+            0.314,
+            0.803
+          ]
+        ]
+      }
+    },
+    {
+      "building": "sadang",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadang\\canonical.png",
+      "sha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069",
+      "sourceEdited": false,
+      "regionsNormalizedXY": {
+        "post": [
+          [
+            0.5,
+            0.57,
+            0.513,
+            0.75
+          ]
+        ],
+        "wood": [
+          [
+            0.25,
+            0.793,
+            0.28,
+            0.8
+          ]
+        ],
+        "floor": [
+          [
+            0.25,
+            0.793,
+            0.28,
+            0.8
+          ]
+        ],
+        "beam": [
+          [
+            0.57,
+            0.397,
+            0.63,
+            0.414
+          ]
+        ],
+        "decoration": [
+          [
+            0.371,
+            0.461,
+            0.465,
+            0.482
+          ]
+        ],
+        "tile": [
+          [
+            0.462,
+            0.255,
+            0.468,
+            0.269
+          ]
+        ],
+        "stone": [
+          [
+            0.305,
+            0.882,
+            0.331,
+            0.916
+          ]
+        ]
+      }
+    },
+    {
+      "building": "sadangmun",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928\\assets_unused\\pending_review\\hwalju-blueprint-review\\northern-court\\references\\sadangmun\\canonical.png",
+      "sha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e",
+      "sourceEdited": false,
+      "regionsNormalizedXY": {
+        "post": [
+          [
+            0.205,
+            0.445,
+            0.23,
+            0.735
+          ]
+        ],
+        "wood": [
+          [
+            0.285,
+            0.45,
+            0.31,
+            0.7
+          ]
+        ],
+        "beam": [
+          [
+            0.31,
+            0.412,
+            0.58,
+            0.425
+          ]
+        ],
+        "tile": [
+          [
+            0.487,
+            0.258,
+            0.504,
+            0.271
+          ]
+        ],
+        "stone": [
+          [
+            0.25,
+            0.81,
+            0.35,
+            0.835
+          ]
+        ]
+      }
+    }
+  ],
+  "mapped": [
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.004",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.003",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.002",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3.001",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face3",
+      "kind": "stone",
+      "components": 6
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.004",
+      "kind": "stone",
+      "components": 14
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.003",
+      "kind": "stone",
+      "components": 22
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.002",
+      "kind": "stone",
+      "components": 20
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2.001",
+      "kind": "stone",
+      "components": 20
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face2",
+      "kind": "stone",
+      "components": 23
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.004",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.003",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.002",
+      "kind": "stone",
+      "components": 5
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1.001",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face1",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.004",
+      "kind": "stone",
+      "components": 18
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.003",
+      "kind": "stone",
+      "components": 27
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.002",
+      "kind": "stone",
+      "components": 24
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0.001",
+      "kind": "stone",
+      "components": 16
+    },
+    {
+      "object": "V30.right_ansarang.wall to sarang.rubble face0",
+      "kind": "stone",
+      "components": 21
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.004",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.003",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.002",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3.001",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face3",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.004",
+      "kind": "stone",
+      "components": 30
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.003",
+      "kind": "stone",
+      "components": 26
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.002",
+      "kind": "stone",
+      "components": 40
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2.001",
+      "kind": "stone",
+      "components": 29
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face2",
+      "kind": "stone",
+      "components": 37
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.004",
+      "kind": "stone",
+      "components": 5
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.003",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.002",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1.001",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face1",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.004",
+      "kind": "stone",
+      "components": 44
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.003",
+      "kind": "stone",
+      "components": 25
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.002",
+      "kind": "stone",
+      "components": 34
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0.001",
+      "kind": "stone",
+      "components": 29
+    },
+    {
+      "object": "V30.right_ansarang.wall to ansarang.rubble face0",
+      "kind": "stone",
+      "components": 33
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.004",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.003",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.002",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face3",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.004",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.003",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.002",
+      "kind": "stone",
+      "components": 15
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2.001",
+      "kind": "stone",
+      "components": 7
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face2",
+      "kind": "stone",
+      "components": 7
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.004",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.003",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.002",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face1",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.004",
+      "kind": "stone",
+      "components": 7
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.003",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.002",
+      "kind": "stone",
+      "components": 10
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0.001",
+      "kind": "stone",
+      "components": 10
+    },
+    {
+      "object": "V30.left_changgo.wall to warehouse.rubble face0",
+      "kind": "stone",
+      "components": 13
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.004",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.003",
+      "kind": "stone",
+      "components": 5
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.002",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3.001",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face3",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.004",
+      "kind": "stone",
+      "components": 18
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.003",
+      "kind": "stone",
+      "components": 14
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.002",
+      "kind": "stone",
+      "components": 11
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2.001",
+      "kind": "stone",
+      "components": 17
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face2",
+      "kind": "stone",
+      "components": 13
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.004",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.003",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.002",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1.001",
+      "kind": "stone",
+      "components": 5
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face1",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.004",
+      "kind": "stone",
+      "components": 10
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.003",
+      "kind": "stone",
+      "components": 20
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.002",
+      "kind": "stone",
+      "components": 15
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0.001",
+      "kind": "stone",
+      "components": 10
+    },
+    {
+      "object": "V30.left_changgo.wall to sarang.rubble face0",
+      "kind": "stone",
+      "components": 16
+    },
+    {
+      "object": "V28.right_ansarang.roof.ridge",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "V28.right_ansarang.roof.rafters",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.right_ansarang.roof.purlin",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "V28.right_ansarang.roof.pan tiles.005",
+      "kind": "tile",
+      "components": 22
+    },
+    {
+      "object": "V28.right_ansarang.roof.pan tiles.004",
+      "kind": "tile",
+      "components": 22
+    },
+    {
+      "object": "V28.right_ansarang.roof.pan tiles.003",
+      "kind": "tile",
+      "components": 22
+    },
+    {
+      "object": "V28.right_ansarang.roof.pan tiles.002",
+      "kind": "tile",
+      "components": 22
+    },
+    {
+      "object": "V28.right_ansarang.roof.pan tiles.001",
+      "kind": "tile",
+      "components": 22
+    },
+    {
+      "object": "V28.right_ansarang.roof.pan tiles",
+      "kind": "tile",
+      "components": 22
+    },
+    {
+      "object": "V28.right_ansarang.roof.finial",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "V28.right_ansarang.roof.fascia",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.right_ansarang.roof.descending ridge",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "V28.right_ansarang.roof.cover tiles.005",
+      "kind": "tile",
+      "components": 22
+    },
+    {
+      "object": "V28.right_ansarang.roof.cover tiles.004",
+      "kind": "tile",
+      "components": 22
+    },
+    {
+      "object": "V28.right_ansarang.roof.cover tiles.003",
+      "kind": "tile",
+      "components": 22
+    },
+    {
+      "object": "V28.right_ansarang.roof.cover tiles.002",
+      "kind": "tile",
+      "components": 22
+    },
+    {
+      "object": "V28.right_ansarang.roof.cover tiles.001",
+      "kind": "tile",
+      "components": 22
+    },
+    {
+      "object": "V28.right_ansarang.roof.cover tiles",
+      "kind": "tile",
+      "components": 22
+    },
+    {
+      "object": "V28.right_ansarang.roof.boarding",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.left_changgo.roof.ridge",
+      "kind": "tile",
+      "components": 3
+    },
+    {
+      "object": "V28.left_changgo.roof.rafters",
+      "kind": "wood",
+      "components": 15
+    },
+    {
+      "object": "V28.left_changgo.roof.purlin",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "V28.left_changgo.roof.pan tiles.005",
+      "kind": "tile",
+      "components": 26
+    },
+    {
+      "object": "V28.left_changgo.roof.pan tiles.004",
+      "kind": "tile",
+      "components": 26
+    },
+    {
+      "object": "V28.left_changgo.roof.pan tiles.003",
+      "kind": "tile",
+      "components": 26
+    },
+    {
+      "object": "V28.left_changgo.roof.pan tiles.002",
+      "kind": "tile",
+      "components": 26
+    },
+    {
+      "object": "V28.left_changgo.roof.pan tiles.001",
+      "kind": "tile",
+      "components": 25
+    },
+    {
+      "object": "V28.left_changgo.roof.pan tiles",
+      "kind": "tile",
+      "components": 25
+    },
+    {
+      "object": "V28.left_changgo.roof.finial",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "V28.left_changgo.roof.fascia",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.left_changgo.roof.descending ridge",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "V28.left_changgo.roof.cover tiles.005",
+      "kind": "tile",
+      "components": 26
+    },
+    {
+      "object": "V28.left_changgo.roof.cover tiles.004",
+      "kind": "tile",
+      "components": 26
+    },
+    {
+      "object": "V28.left_changgo.roof.cover tiles.003",
+      "kind": "tile",
+      "components": 26
+    },
+    {
+      "object": "V28.left_changgo.roof.cover tiles.002",
+      "kind": "tile",
+      "components": 26
+    },
+    {
+      "object": "V28.left_changgo.roof.cover tiles.001",
+      "kind": "tile",
+      "components": 25
+    },
+    {
+      "object": "V28.left_changgo.roof.cover tiles",
+      "kind": "tile",
+      "components": 25
+    },
+    {
+      "object": "V28.left_changgo.roof.boarding",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping.ridge",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping.005",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping.003",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping.002",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "V27.right_ansarang.wall to sarang.coping",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping.ridge",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping.005",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping.004",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping.003",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping.002",
+      "kind": "tile",
+      "components": 9
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping.001",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "V27.right_ansarang.wall to ansarang.coping",
+      "kind": "tile",
+      "components": 9
+    },
+    {
+      "object": "V27.right_ansarang.frame.threshold",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.frame.side brace",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.frame.post",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.frame.lintel",
+      "kind": "beam",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.frame.jamb packing",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.frame.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread5.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread5",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread4.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread4",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread3.002",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread3.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread3",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread2.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread2",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread1.002",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread1.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.tread1",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.post stone.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.post stone",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.paving.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.foundation.paving",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.finish.approach.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.finish.approach",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V27.right_ansarang.door.leaf2.boards.001",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.door.leaf2.boards",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.door.leaf2.back rail",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "V27.right_ansarang.door.leaf1.boards.001",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.door.leaf1.boards",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.right_ansarang.door.leaf1.back rail",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping.ridge",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping.005",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping.004",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping.002",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "V27.left_changgo.wall to warehouse.coping",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping.ridge",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping.005",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping.004",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping.003",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping.002",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping.001",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "V27.left_changgo.wall to sarang.coping",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "V27.left_changgo.frame.threshold",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.frame.side brace",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V27.left_changgo.frame.post",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "V27.left_changgo.frame.lintel",
+      "kind": "beam",
+      "components": 2
+    },
+    {
+      "object": "V27.left_changgo.frame.jamb packing",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V27.left_changgo.frame.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V27.left_changgo.foundation.post stone.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.foundation.post stone",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.foundation.paving.002",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.foundation.paving.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.foundation.paving",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.finish.approach.002",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.finish.approach.001",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.finish.approach",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf2.boards.003",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf2.boards.002",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf2.boards.001",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf2.boards",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf2.back rail",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "V27.left_changgo.door.leaf2.back brace",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf1.boards.003",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf1.boards.002",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf1.boards.001",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf1.boards",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V27.left_changgo.door.leaf1.back rail",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "V27.left_changgo.door.leaf1.back brace",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.001",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.002",
+      "kind": "stone",
+      "components": 13
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.003",
+      "kind": "stone",
+      "components": 10
+    },
+    {
+      "object": "ConnectionLeft.high wall lower fieldstone.004",
+      "kind": "stone",
+      "components": 12
+    },
+    {
+      "object": "ConnectionLeft.high wall lower end",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "ConnectionLeft.high wall lower end.001",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "ConnectionLeft.high wall lower end.002",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "ConnectionLeft.high wall lower end.003",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "North.site.rear yard gate.stone plinth",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "North.site.rear yard gate.ground sill 100x115",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.site.rear yard gate.main post 85x85",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.site.rear yard gate.return jamb 45x40",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "North.site.rear yard gate.transverse head 85x150",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.site.rear yard gate.cross brace 40x45",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "North.site.rear yard gate.head sill 85x150",
+      "kind": "beam",
+      "components": 2
+    },
+    {
+      "object": "North.site.rear yard gate.main jamb 60x45",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.site.rear yard gate.plank door.leaf1.back rail",
+      "kind": "beam",
+      "components": 2
+    },
+    {
+      "object": "North.site.rear yard gate.plank door.leaf2.back rail",
+      "kind": "beam",
+      "components": 2
+    },
+    {
+      "object": "North.site.rear yard gate.eave purlin 60x40",
+      "kind": "beam",
+      "components": 2
+    },
+    {
+      "object": "North.site.rear yard gate.ridge purlin 85x90",
+      "kind": "beam",
+      "components": 1
+    },
+    {
+      "object": "North.site.rear yard gate.square rafter 40x50",
+      "kind": "wood",
+      "components": 14
+    },
+    {
+      "object": "North.site.rear yard gate.redraw.solid door stop",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.site.rear yard gate.redraw.head stop",
+      "kind": "beam",
+      "components": 1
+    },
+    {
+      "object": "North.site.rear yard gate.finish pungjipan THK45",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof deck",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.site.rear yard gate.finish yeonham 60x80",
+      "kind": "beam",
+      "components": 2
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof sukiwa",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof amkiwa",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof sukiwa.001",
+      "kind": "tile",
+      "components": 9
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof amkiwa.001",
+      "kind": "tile",
+      "components": 9
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof sukiwa.002",
+      "kind": "tile",
+      "components": 9
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof amkiwa.002",
+      "kind": "tile",
+      "components": 9
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof sukiwa.003",
+      "kind": "tile",
+      "components": 9
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof amkiwa.003",
+      "kind": "tile",
+      "components": 9
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof sukiwa.004",
+      "kind": "tile",
+      "components": 7
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof amkiwa.004",
+      "kind": "tile",
+      "components": 7
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof sukiwa.005",
+      "kind": "tile",
+      "components": 7
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof amkiwa.005",
+      "kind": "tile",
+      "components": 7
+    },
+    {
+      "object": "North.site.rear yard gate.finish shaped barge board",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof ridge courses",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof ridge courses.001",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof ridge courses.002",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof ridge courses.003",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof ridge courses.004",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof ridge courses.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof ridge cap",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof ridge cap.001",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof ridge cap.002",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof ridge cap.003",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof ridge cap.004",
+      "kind": "tile",
+      "components": 3
+    },
+    {
+      "object": "North.site.rear yard gate.finish roof ridge cap.005",
+      "kind": "tile",
+      "components": 3
+    },
+    {
+      "object": "North.site.rear yard gate.plank door.leaf1.WD1 solid board 30mm",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.site.rear yard gate.plank door.leaf2.WD1 solid board 30mm",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.foundation",
+      "kind": "stone",
+      "components": 74
+    },
+    {
+      "object": "North.anchae.foundation individual plinth",
+      "kind": "stone",
+      "components": 27
+    },
+    {
+      "object": "North.anchae.frame transverse beam",
+      "kind": "beam",
+      "components": 9
+    },
+    {
+      "object": "North.anchae.frame longitudinal beam",
+      "kind": "beam",
+      "components": 4
+    },
+    {
+      "object": "North.anchae.frame mortise peg",
+      "kind": "wood",
+      "components": 36
+    },
+    {
+      "object": "North.anchae.floor under joists",
+      "kind": "floor",
+      "components": 6
+    },
+    {
+      "object": "North.anchae.floor individual boards",
+      "kind": "floor",
+      "components": 107
+    },
+    {
+      "object": "North.anchae.end bay plaster.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.end bay plaster.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.end high lattice 0.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.end high lattice 0.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.end high lattice 0 three horizontal bars",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.kitchen front.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen front.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 9
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 9
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.kitchen rear window.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.room facade.jamb",
+      "kind": "wood",
+      "components": 6
+    },
+    {
+      "object": "North.anchae.room facade.head/sill",
+      "kind": "wood",
+      "components": 6
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 9
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.room front 2.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 9
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.room front 2.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.room rear.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 9
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.room front 3.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 9
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.room front 3.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.daechong rear wall.jamb",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "North.anchae.daechong rear wall.head/sill",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "North.anchae.daechong rear door 4.leaf1.solid board",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "North.anchae.daechong rear door 4.leaf1.rear rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.daechong rear door 4.leaf2.solid board",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "North.anchae.daechong rear door 4.leaf2.rear rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.daechong rear door 5.leaf1.solid board",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "North.anchae.daechong rear door 5.leaf1.rear rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.daechong rear door 5.leaf2.solid board",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "North.anchae.daechong rear door 5.leaf2.rear rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 9
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.room front 6.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 9
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.room front 6.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 9
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 9
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.room rear 6.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.roof",
+      "kind": "tile",
+      "components": 764
+    },
+    {
+      "object": "North.anchae.roof.001",
+      "kind": "tile",
+      "components": 815
+    },
+    {
+      "object": "North.anchae.roof.002",
+      "kind": "tile",
+      "components": 715
+    },
+    {
+      "object": "North.anchae.roof.003",
+      "kind": "tile",
+      "components": 765
+    },
+    {
+      "object": "North.anchae.roof.004",
+      "kind": "tile",
+      "components": 817
+    },
+    {
+      "object": "North.anchae.roof.005",
+      "kind": "tile",
+      "components": 712
+    },
+    {
+      "object": "North.anchae.roof.rafters",
+      "kind": "wood",
+      "components": 202
+    },
+    {
+      "object": "North.anchae.roof.lower exposed rafters",
+      "kind": "wood",
+      "components": 202
+    },
+    {
+      "object": "North.anchae.roof.eave beam",
+      "kind": "beam",
+      "components": 4
+    },
+    {
+      "object": "North.anchae.roof.gable timber",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.roof.gable frame",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "North.anchae.roof.gable brace",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.roof.hip exposed rafters",
+      "kind": "wood",
+      "components": 50
+    },
+    {
+      "object": "North.anchae.roof.hip eave beam",
+      "kind": "beam",
+      "components": 4
+    },
+    {
+      "object": "North.anchae.roof.hip ridge",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.roof.gable barge",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.anchae.roof.ridge stack",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.roof.ridge stack.001",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.roof.ridge stack.002",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.roof.ridge stack.003",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.roof.ridge stack.004",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.kitchen annex.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen annex.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 10
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.kitchen annex small door.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.kitchen annex corner",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.annex roof",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.annex tile cover",
+      "kind": "tile",
+      "components": 75
+    },
+    {
+      "object": "North.anchae.annex roof.001",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.annex roof.002",
+      "kind": "tile",
+      "components": 13
+    },
+    {
+      "object": "North.anchae.annex roof.003",
+      "kind": "tile",
+      "components": 13
+    },
+    {
+      "object": "North.anchae.annex roof.004",
+      "kind": "tile",
+      "components": 13
+    },
+    {
+      "object": "North.anchae.annex roof.005",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "North.anchae.worn stepping stones",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.photo sireong shelf rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.photo sireong hanging support",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.photo sireong cross support",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.photo detached stepping stone",
+      "kind": "stone",
+      "components": 5
+    },
+    {
+      "object": "North.anchae.photo curved daechong beam",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.roof solid bedding",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.roof packed ridge core",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.room projection stone foot",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room projection longitudinal timber",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room projection return timber",
+      "kind": "wood",
+      "components": 6
+    },
+    {
+      "object": "North.anchae.rear veranda stone foot",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "North.anchae.rear veranda purlin",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.rear veranda jangyeo",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.rear veranda floor girder",
+      "kind": "floor",
+      "components": 6
+    },
+    {
+      "object": "North.anchae.rear veranda floor joist",
+      "kind": "floor",
+      "components": 15
+    },
+    {
+      "object": "North.anchae.rear veranda floor boards",
+      "kind": "floor",
+      "components": 42
+    },
+    {
+      "object": "North.anchae.room rear 2.fixed.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 2.fixed.head and sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 6
+    },
+    {
+      "object": "North.anchae.room rear 2.leaf1.horizontal sal",
+      "kind": "wood",
+      "components": 16
+    },
+    {
+      "object": "North.anchae.room rear 3.fixed.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 3.fixed.head and sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 6
+    },
+    {
+      "object": "North.anchae.room rear 3.leaf1.horizontal sal",
+      "kind": "wood",
+      "components": 16
+    },
+    {
+      "object": "North.anchae.rear level foundation.recessed earth mortar",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.rear veranda low footing.recessed earth mortar",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.rear veranda low footing",
+      "kind": "stone",
+      "components": 34
+    },
+    {
+      "object": "North.anchae.hall room 1.fixed.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.hall room 1.fixed.head",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.hall room 1.fixed.sill",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.hall room 1.fixed.rebate stop",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.hall room 1.fixed.rebate head",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.hall room 1.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.hall room 1.leaf1.rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.hall room 1.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 14
+    },
+    {
+      "object": "North.anchae.hall room 1.leaf1.horizontal sal",
+      "kind": "wood",
+      "components": 16
+    },
+    {
+      "object": "North.anchae.hall room 2.fixed.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.hall room 2.fixed.head",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.hall room 2.fixed.sill",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.hall room 2.fixed.rebate stop",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.hall room 2.fixed.rebate head",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.hall room 2.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.hall room 2.leaf1.rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.hall room 2.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 14
+    },
+    {
+      "object": "North.anchae.hall room 2.leaf1.horizontal sal",
+      "kind": "wood",
+      "components": 16
+    },
+    {
+      "object": "North.anchae.open corner.solid sitting floor",
+      "kind": "floor",
+      "components": 8
+    },
+    {
+      "object": "North.anchae.open corner.side floor binding",
+      "kind": "floor",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.open corner.rear floor binding",
+      "kind": "floor",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.kitchen.leaf1.photo curved plank",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "North.anchae.kitchen.leaf1.photo front timber rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen.leaf2.photo curved plank",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "North.anchae.kitchen.leaf2.photo front timber rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen high ventilator.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen high ventilator.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.kitchen high ventilator diamond sal",
+      "kind": "wood",
+      "components": 36
+    },
+    {
+      "object": "North.anchae.photo low maru handrail",
+      "kind": "floor",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.photo low maru upright",
+      "kind": "floor",
+      "components": 7
+    },
+    {
+      "object": "North.anchae.photo low maru inset panel",
+      "kind": "floor",
+      "components": 6
+    },
+    {
+      "object": "North.anchae.redraw interrupted floor binding",
+      "kind": "floor",
+      "components": 6
+    },
+    {
+      "object": "North.anchae.redraw kitchen vent head",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.redraw room3 ceiling",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.redraw room3 WW5.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.redraw room3 WW5.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.redraw room3 WW5.diamond sal",
+      "kind": "wood",
+      "components": 33
+    },
+    {
+      "object": "North.anchae.redraw room3 WW8.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.redraw room3 WW8.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.redraw room3 WW8.diamond sal",
+      "kind": "wood",
+      "components": 31
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5 jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5 head sill",
+      "kind": "beam",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf1.rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf1.lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 5
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf1.horizontal sal",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf2.rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf2.lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 5
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf2.horizontal sal",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf3.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf3.rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf3.lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf3.vertical sal",
+      "kind": "wood",
+      "components": 5
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf3.horizontal sal",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf4.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf4.rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf4.lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf4.vertical sal",
+      "kind": "wood",
+      "components": 5
+    },
+    {
+      "object": "North.anchae.redraw room3 WD5.leaf4.horizontal sal",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V35.ansarang.roof.tapered hip rafters",
+      "kind": "wood",
+      "components": 40
+    },
+    {
+      "object": "V35.ansarang.roof.tapered full rafters",
+      "kind": "wood",
+      "components": 216
+    },
+    {
+      "object": "V35.ansarang.roof.ridge stack.004",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "V35.ansarang.roof.ridge stack.003",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "V35.ansarang.roof.ridge stack.002",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "V35.ansarang.roof.ridge stack.001",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "V35.ansarang.roof.ridge stack",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "V35.ansarang.roof.ridge end finish",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "V35.ansarang.roof.rectangular hip fascia",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "V35.ansarang.roof.rectangular front fascia",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "V35.ansarang.roof.hip ridge",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "V35.ansarang.roof.gable barge",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "V35.ansarang.roof.continuous lower tile lap",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "V35.ansarang.roof.005",
+      "kind": "tile",
+      "components": 282
+    },
+    {
+      "object": "V35.ansarang.roof.004",
+      "kind": "tile",
+      "components": 318
+    },
+    {
+      "object": "V35.ansarang.roof.003",
+      "kind": "tile",
+      "components": 300
+    },
+    {
+      "object": "V35.ansarang.roof.002",
+      "kind": "tile",
+      "components": 282
+    },
+    {
+      "object": "V35.ansarang.roof.001",
+      "kind": "tile",
+      "components": 318
+    },
+    {
+      "object": "V35.ansarang.roof",
+      "kind": "tile",
+      "components": 302
+    },
+    {
+      "object": "V32.ansarang.roof.ridge finial",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.roof.ridge cap seam",
+      "kind": "tile",
+      "components": 31
+    },
+    {
+      "object": "V32.ansarang.right WD05.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.right WD05.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD05.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD05.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD05.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.right WD05.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD05.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.right WD05 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD05 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.right WD03 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 10
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 10
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 9
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 9
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD08 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD08 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD08 recessed panel",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD08 leaf.stile",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.inside WD08 leaf.rail",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "V32.ansarang.inside WD07.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.inside WD07.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD07.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD07.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD07.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.inside WD07.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD07.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.inside WD07 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD07 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.front room WD06.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.front room WD06.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.front room WD06.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.front room WD06.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.front room WD06.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.front room WD06.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.front room WD06.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.front room WD06 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.front room WD06 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.foundation terrace slabs.004",
+      "kind": "stone",
+      "components": 19
+    },
+    {
+      "object": "V32.ansarang.foundation terrace slabs.003",
+      "kind": "stone",
+      "components": 16
+    },
+    {
+      "object": "V32.ansarang.foundation terrace slabs.002",
+      "kind": "stone",
+      "components": 20
+    },
+    {
+      "object": "V32.ansarang.foundation terrace slabs.001",
+      "kind": "stone",
+      "components": 16
+    },
+    {
+      "object": "V32.ansarang.foundation terrace slabs",
+      "kind": "stone",
+      "components": 15
+    },
+    {
+      "object": "V32.ansarang.foundation dressed return.004",
+      "kind": "stone",
+      "components": 6
+    },
+    {
+      "object": "V32.ansarang.foundation dressed return.003",
+      "kind": "stone",
+      "components": 5
+    },
+    {
+      "object": "V32.ansarang.foundation dressed return.002",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "V32.ansarang.foundation dressed return.001",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "V32.ansarang.foundation dressed return",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge.004",
+      "kind": "stone",
+      "components": 12
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge.003",
+      "kind": "stone",
+      "components": 12
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge.002",
+      "kind": "stone",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge.001",
+      "kind": "stone",
+      "components": 14
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge",
+      "kind": "stone",
+      "components": 22
+    },
+    {
+      "object": "V32.ansarang.finish terrace approach",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V32.ansarang.finish maru stepping stone",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V32.ansarang.finish lower approach",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V31.ansarang.roof.gable grille vertical",
+      "kind": "wood",
+      "components": 18
+    },
+    {
+      "object": "V31.ansarang.roof.gable grille reveal",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.roof.gable grille horizontal",
+      "kind": "wood",
+      "components": 10
+    },
+    {
+      "object": "V31.ansarang.roof.gable grille frame",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "V31.ansarang.front wall3.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.front wall3.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.front wall2.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.front wall2.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.front wall1.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.front wall1.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.front wall0.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.front wall0.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.roof.gable frame",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "V28.ansarang.roof frame.purlin",
+      "kind": "beam",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.roof frame.king post",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.right porch floor.003",
+      "kind": "floor",
+      "components": 6
+    },
+    {
+      "object": "V28.ansarang.right porch floor.002",
+      "kind": "floor",
+      "components": 6
+    },
+    {
+      "object": "V28.ansarang.right porch floor.001",
+      "kind": "floor",
+      "components": 6
+    },
+    {
+      "object": "V28.ansarang.right porch floor",
+      "kind": "floor",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.maru support",
+      "kind": "floor",
+      "components": 15
+    },
+    {
+      "object": "V28.ansarang.maru floor.003",
+      "kind": "floor",
+      "components": 12
+    },
+    {
+      "object": "V28.ansarang.maru floor.002",
+      "kind": "floor",
+      "components": 12
+    },
+    {
+      "object": "V28.ansarang.maru floor.001",
+      "kind": "floor",
+      "components": 12
+    },
+    {
+      "object": "V28.ansarang.maru floor",
+      "kind": "floor",
+      "components": 12
+    },
+    {
+      "object": "V28.ansarang.maru brace",
+      "kind": "floor",
+      "components": 6
+    },
+    {
+      "object": "V28.ansarang.hall floor.003",
+      "kind": "floor",
+      "components": 4
+    },
+    {
+      "object": "V28.ansarang.hall floor.002",
+      "kind": "floor",
+      "components": 4
+    },
+    {
+      "object": "V28.ansarang.hall floor.001",
+      "kind": "floor",
+      "components": 4
+    },
+    {
+      "object": "V28.ansarang.hall floor",
+      "kind": "floor",
+      "components": 4
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery0.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery0.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery0.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery0.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery0.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery0.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery0.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.frame.post",
+      "kind": "post",
+      "components": 10
+    },
+    {
+      "object": "V28.ansarang.frame.long beam",
+      "kind": "beam",
+      "components": 6
+    },
+    {
+      "object": "V28.ansarang.frame.cross beam",
+      "kind": "beam",
+      "components": 5
+    },
+    {
+      "object": "V28.ansarang.frame.bracket.upper bearing",
+      "kind": "wood",
+      "components": 5
+    },
+    {
+      "object": "V28.ansarang.frame.bracket.shaped timber shoulder",
+      "kind": "wood",
+      "components": 5
+    },
+    {
+      "object": "V28.ansarang.frame.bracket.lower seating block",
+      "kind": "wood",
+      "components": 5
+    },
+    {
+      "object": "V28.ansarang.foundation.post stone.004",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V28.ansarang.foundation.post stone.003",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.foundation.post stone.002",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.foundation.post stone.001",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.foundation.post stone",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.ceiling",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "North.ansarang.redraw janggwiteul",
+      "kind": "floor",
+      "components": 4
+    },
+    {
+      "object": "North.ansarang.redraw donggwiteul",
+      "kind": "floor",
+      "components": 1
+    },
+    {
+      "object": "North.ansarang.redraw wraparound binding",
+      "kind": "floor",
+      "components": 1
+    },
+    {
+      "object": "North.sadang.foundation.recessed earth mortar",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "North.sadang.foundation",
+      "kind": "stone",
+      "components": 52
+    },
+    {
+      "object": "North.sadang.foundation individual plinth",
+      "kind": "stone",
+      "components": 12
+    },
+    {
+      "object": "North.sadang.round stone plinth",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "North.sadang.frame round red column",
+      "kind": "post",
+      "components": 4
+    },
+    {
+      "object": "North.sadang.frame square post",
+      "kind": "post",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.frame mortise peg",
+      "kind": "wood",
+      "components": 16
+    },
+    {
+      "object": "North.sadang.floor under joists",
+      "kind": "floor",
+      "components": 7
+    },
+    {
+      "object": "North.sadang.floor individual boards",
+      "kind": "floor",
+      "components": 38
+    },
+    {
+      "object": "North.sadang.dancheong red flower eye",
+      "kind": "post",
+      "components": 44
+    },
+    {
+      "object": "North.sadang.granite step",
+      "kind": "stone",
+      "components": 3
+    },
+    {
+      "object": "North.sadang.photo rafter rosette petal",
+      "kind": "post",
+      "components": 640
+    },
+    {
+      "object": "North.sadang.photo painted rafter collar.002",
+      "kind": "post",
+      "components": 80
+    },
+    {
+      "object": "North.sadang.photo column lotus petal",
+      "kind": "post",
+      "components": 64
+    },
+    {
+      "object": "North.sadang.photo column painted collar.003",
+      "kind": "post",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.photo side red beam",
+      "kind": "post",
+      "components": 4
+    },
+    {
+      "object": "North.sadang.joinery.gable thirty millimetre planks",
+      "kind": "post",
+      "components": 68
+    },
+    {
+      "object": "North.sadang.joinery.gable 45x27 cover batten",
+      "kind": "post",
+      "components": 66
+    },
+    {
+      "object": "North.sadang.joinery.bracket painted vermilion contour",
+      "kind": "post",
+      "components": 256
+    },
+    {
+      "object": "North.sadang.measured porch donggwiteul",
+      "kind": "floor",
+      "components": 1
+    },
+    {
+      "object": "North.sadang.measured porch janggwiteul",
+      "kind": "floor",
+      "components": 4
+    },
+    {
+      "object": "North.sadang.survey sanctuary 0.measured jamb",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.survey sanctuary 0.measured head and sill",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.survey sanctuary 1.measured jamb",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.survey sanctuary 1.measured head and sill",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.survey sanctuary 2.measured jamb",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.survey sanctuary 2.measured head and sill",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadangmun.foundation.recessed earth mortar",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "North.sadangmun.foundation",
+      "kind": "stone",
+      "components": 11
+    },
+    {
+      "object": "North.sadangmun.round vermilion gatepost",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadangmun.taegeuk leaves.leaf1.solid board",
+      "kind": "post",
+      "components": 4
+    },
+    {
+      "object": "North.sadangmun.taegeuk leaves.leaf1.taegeuk paint.001",
+      "kind": "post",
+      "components": 1
+    },
+    {
+      "object": "North.sadangmun.taegeuk leaves.leaf2.solid board",
+      "kind": "post",
+      "components": 4
+    },
+    {
+      "object": "North.sadangmun.taegeuk leaves.leaf2.taegeuk paint.001",
+      "kind": "post",
+      "components": 1
+    },
+    {
+      "object": "North.sadangmun.photo granite sill",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "North.sadangmun.photo granite entry step",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "North.sadangmun.roof.red fascia",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadangmun.roof.concave amkiwa",
+      "kind": "tile",
+      "components": 18
+    },
+    {
+      "object": "North.sadangmun.roof.wing return sukiwa",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadangmun.roof.concave amkiwa.001",
+      "kind": "tile",
+      "components": 18
+    },
+    {
+      "object": "North.sadangmun.roof.wing return sukiwa.001",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "North.sadangmun.roof.concave amkiwa.002",
+      "kind": "tile",
+      "components": 17
+    },
+    {
+      "object": "North.sadangmun.roof.wing return sukiwa.002",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "North.sadangmun.roof.concave amkiwa.003",
+      "kind": "tile",
+      "components": 17
+    },
+    {
+      "object": "North.sadangmun.roof.wing return sukiwa.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadangmun.roof.concave amkiwa.004",
+      "kind": "tile",
+      "components": 17
+    },
+    {
+      "object": "North.sadangmun.roof.wing return sukiwa.004",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "North.sadangmun.roof.concave amkiwa.005",
+      "kind": "tile",
+      "components": 17
+    },
+    {
+      "object": "North.sadangmun.roof.wing return sukiwa.005",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "North.sadangmun.roof.six central sukiwa",
+      "kind": "tile",
+      "components": 15
+    },
+    {
+      "object": "North.sadangmun.roof.six central sukiwa.001",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "North.sadangmun.roof.six central sukiwa.002",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "North.sadangmun.roof.six central sukiwa.003",
+      "kind": "tile",
+      "components": 15
+    },
+    {
+      "object": "North.sadangmun.roof.six central sukiwa.004",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "North.sadangmun.roof.six central sukiwa.005",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "North.sadangmun.roof.three course descending ridge",
+      "kind": "tile",
+      "components": 14
+    },
+    {
+      "object": "North.sadangmun.roof.three course descending ridge.001",
+      "kind": "tile",
+      "components": 14
+    },
+    {
+      "object": "North.sadangmun.roof.three course descending ridge.002",
+      "kind": "tile",
+      "components": 14
+    },
+    {
+      "object": "North.sadangmun.roof.descending ridge curved cover",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadangmun.roof.three course descending ridge.003",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "North.sadangmun.roof.descending ridge curved cover.001",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "North.sadangmun.roof.three course descending ridge.004",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "North.sadangmun.roof.descending ridge curved cover.002",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "North.sadangmun.roof.three course descending ridge.005",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "North.sadangmun.roof.descending ridge curved cover.003",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "North.sadangmun.roof.descending ridge curved cover.004",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "North.sadangmun.roof.descending ridge curved cover.005",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "North.sadangmun.roof.hollow barge terminal",
+      "kind": "tile",
+      "components": 4
+    },
+    {
+      "object": "North.sadangmun.roof.packed ridge bedding",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "North.sadangmun.roof.three course main ridge",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "North.sadangmun.roof.three course main ridge.001",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "North.sadangmun.roof.three course main ridge.002",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "North.sadangmun.roof.solid gable boarding",
+      "kind": "post",
+      "components": 28
+    },
+    {
+      "object": "North.sadangmun.measured side support",
+      "kind": "post",
+      "components": 4
+    },
+    {
+      "object": "North.sadangmun.measured sill and head",
+      "kind": "post",
+      "components": 1
+    },
+    {
+      "object": "North.sadangmun.measured recessed jamb",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadangmun.taegeuk leaves.leaf1.measured rear daejang",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadangmun.taegeuk leaves.leaf1.measured centre daejang",
+      "kind": "post",
+      "components": 1
+    },
+    {
+      "object": "North.sadangmun.taegeuk leaves.leaf1.measured mundunte",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadangmun.taegeuk leaves.leaf1.solid pivot pin",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadangmun.taegeuk leaves.leaf1.bolt keeper",
+      "kind": "post",
+      "components": 1
+    },
+    {
+      "object": "North.sadangmun.taegeuk leaves.leaf2.measured rear daejang",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadangmun.taegeuk leaves.leaf2.measured centre daejang",
+      "kind": "post",
+      "components": 1
+    },
+    {
+      "object": "North.sadangmun.taegeuk leaves.leaf2.measured mundunte",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadangmun.taegeuk leaves.leaf2.solid pivot pin",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadangmun.taegeuk leaves.leaf2.bolt keeper",
+      "kind": "post",
+      "components": 1
+    },
+    {
+      "object": "North.sadangmun.redraw.solid door stop",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadangmun.redraw.head stop",
+      "kind": "post",
+      "components": 1
+    },
+    {
+      "object": "North.anchae.frame square post",
+      "kind": "post",
+      "components": 27
+    },
+    {
+      "object": "North.anchae.roof.gable centre post",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.room projection square post",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.anchae.rear veranda square post",
+      "kind": "post",
+      "components": 4
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.001",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.002",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.003",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.004",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.005",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.descending course 1",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.descending course 2",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.descending course 3",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.T45 W320 bargeboard",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.upright end cap",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.001",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.002",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.003",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.004",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.005",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.descending course 1",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.descending course 2",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.descending course 3",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.descending packed core",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.side laid covers",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.001",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.002",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.003",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.004",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.005",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.T45 W320 bargeboard",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.upright end cap",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.001",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.002",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.003",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.004",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.005",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.descending course 1",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.descending course 2",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.descending course 3",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.descending packed core",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.side laid covers",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.001",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.002",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.003",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.004",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.005",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.T45 W320 bargeboard",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.upright end cap",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof",
+      "kind": "tile",
+      "components": 195
+    },
+    {
+      "object": "North.sadang.roof.001",
+      "kind": "tile",
+      "components": 209
+    },
+    {
+      "object": "North.sadang.roof.002",
+      "kind": "tile",
+      "components": 181
+    },
+    {
+      "object": "North.sadang.roof.003",
+      "kind": "tile",
+      "components": 197
+    },
+    {
+      "object": "North.sadang.roof.004",
+      "kind": "tile",
+      "components": 212
+    },
+    {
+      "object": "North.sadang.roof.005",
+      "kind": "tile",
+      "components": 182
+    },
+    {
+      "object": "North.sadang.joinery.packed ridge core",
+      "kind": "tile",
+      "components": 1
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 1.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 2.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 3.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 4.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.001",
+      "kind": "tile",
+      "components": 6
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.002",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.003",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.004",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge course 5.005",
+      "kind": "tile",
+      "components": 5
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.001",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.002",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.003",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.004",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.ridge chaggo.005",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.descending course 1",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.descending course 2",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.descending course 3",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.descending packed core",
+      "kind": "tile",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.side laid pans",
+      "kind": "tile",
+      "components": 10
+    },
+    {
+      "object": "North.sadang.roof.side laid covers",
+      "kind": "tile",
+      "components": 12
+    },
+    {
+      "object": "North.sadang.roof.side laid pans.001",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.001",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid pans.002",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.002",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid pans.003",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.003",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid pans.004",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.004",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid pans.005",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.side laid covers.005",
+      "kind": "tile",
+      "components": 8
+    },
+    {
+      "object": "North.sadang.roof.T45 W320 bargeboard",
+      "kind": "post",
+      "components": 2
+    },
+    {
+      "object": "North.sadang.roof.upright end cap",
+      "kind": "tile",
+      "components": 2
+    }
+  ],
+  "coverage": "All faces of each mapped component, including returns and ends",
+  "generatedSubstituteAlbedo": false
+}

@@ -1,0 +1,1326 @@
+{
+  "northernGlbSha256": "64bd0bcc3e18c77b3ff589fffd100756ceef84e7f1580de1b7895b88506fb076",
+  "checks": [
+    {
+      "check": "All exported mineral primitives retain tint, albedo, normal and their UV set",
+      "pass": true,
+      "count": 218
+    },
+    {
+      "check": "Generated mineral albedo and normal images embedded in GLB",
+      "pass": true
+    }
+  ],
+  "primitives": [
+    {
+      "mesh": "North.anchae.annex roof",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.annex roof.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.annex roof.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.annex roof.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.annex roof.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.annex roof.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.annex tile cover",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.foundation",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.foundation individual plinth",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.foundation.recessed earth mortar",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.photo detached stepping stone",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.roof",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.roof continuous bed",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.roof.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.roof.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.roof.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.roof.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.roof.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.roof.gable barge",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.roof.hip ridge",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.roof.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.roof.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.roof.ridge stack.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.roof.ridge stack.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.roof.ridge stack.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.anchae.worn stepping stones",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.foundation",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.foundation individual plinth",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.foundation.recessed earth mortar",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.roof",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.roof continuous bed",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.roof.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.roof.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.roof.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.roof.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.roof.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.roof.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.roof.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.roof.ridge stack.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.roof.ridge stack.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.angotgan.roof.ridge stack.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.door stepping stone",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.foundation",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.foundation individual plinth",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.foundation.recessed earth mortar",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.roof",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.roof continuous bed",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.roof.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.roof.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.roof.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.roof.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.roof.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.roof.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.roof.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.roof.ridge stack.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.roof.ridge stack.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.roof.ridge stack.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.arae.roof.ridge stack.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.central threshold step",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.central threshold step.recessed earth mortar",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.foundation",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.foundation individual plinth",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.foundation.recessed earth mortar",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof continuous bed",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof curved cover tiles",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof curved cover tiles.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof curved cover tiles.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof curved cover tiles.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof curved cover tiles.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof curved cover tiles.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof five ridge courses",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof five ridge courses.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof five ridge courses.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof five ridge courses.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof five ridge courses.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof three hip courses",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof three hip courses.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof three hip courses.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof tiled channels",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof tiled channels.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof tiled channels.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof tiled channels.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof tiled channels.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.hip roof tiled channels.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.gokgan.side centre plinth",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.foundation",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.foundation individual plinth",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.foundation.recessed earth mortar",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.granite step",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.roof",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.roof continuous bed",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.roof.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.roof.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.roof.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.roof.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.roof.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.roof.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.roof.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.roof.ridge stack.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.roof.ridge stack.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.roof.ridge stack.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadang.round stone plinth",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadangmun.foundation",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadangmun.foundation.recessed earth mortar",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadangmun.photo granite entry step",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadangmun.photo granite sill",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadangmun.roof",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadangmun.roof continuous bed",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadangmun.roof.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadangmun.roof.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadangmun.roof.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadangmun.roof.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadangmun.roof.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadangmun.roof.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadangmun.roof.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.sadangmun.roof.ridge stack.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner court south west coping",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner court south west coping.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner court south west coping.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner court south west coping.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner court south west coping.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner court south west coping.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner court south west coping.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner court south west coping.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner court south west irregular stone",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner store west coping",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner store west coping.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner store west coping.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner store west coping.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner store west coping.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner store west coping.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner store west coping.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner store west coping.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.inner store west irregular stone",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar platform",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar platform.recessed earth mortar",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard rear coping",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard rear coping.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard rear coping.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard rear coping.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard rear coping.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard rear coping.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard rear coping.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard rear coping.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard rear irregular stone",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard return coping",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard return coping.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard return coping.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard return coping.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard return coping.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard return coping.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard return coping.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard return coping.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.jar yard return irregular stone",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.path worn stepping stone",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court east coping",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court east coping.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court east coping.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court east coping.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court east coping.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court east coping.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court east coping.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court east coping.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court east irregular stone",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court west coping",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court west coping.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court west coping.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court west coping.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court west coping.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court west coping.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court west coping.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court west coping.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.rear court west irregular stone",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine east coping",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine east coping.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine east coping.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine east coping.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine east coping.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine east coping.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine east coping.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine east coping.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine east irregular stone",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate left coping",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate left coping.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate left coping.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate left coping.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate left coping.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate left coping.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate left coping.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate left coping.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate left irregular stone",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate right coping",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate right coping.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate right coping.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate right coping.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate right coping.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate right coping.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate right coping.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate right coping.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine gate right irregular stone",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine rear coping",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine rear coping.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine rear coping.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine rear coping.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine rear coping.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine rear coping.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine rear coping.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine rear coping.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine rear irregular stone",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine west coping",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine west coping.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine west coping.002",
+      "primitive": 0,
+      "material": "Illustrated clay v1 2",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine west coping.003",
+      "primitive": 0,
+      "material": "Illustrated clay v1 3",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine west coping.004",
+      "primitive": 0,
+      "material": "Illustrated clay v1 4",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine west coping.005",
+      "primitive": 0,
+      "material": "Illustrated clay v1 5",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine west coping.ridge stack",
+      "primitive": 0,
+      "material": "Illustrated clay v1 0",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine west coping.ridge stack.001",
+      "primitive": 0,
+      "material": "Illustrated clay v1 1",
+      "pass": true
+    },
+    {
+      "mesh": "North.site.shrine west irregular stone",
+      "primitive": 0,
+      "material": "Illustrated granite v1 0",
+      "pass": true
+    }
+  ],
+  "allPassed": true,
+  "exportWarningInvestigation": "Actual mineral primitives include COLOR_0; exporter warning is emitted for a material slot whose shader does not use an active color attribute. No mineral tint or normal map was dropped."
+}

@@ -1,0 +1,302 @@
+[
+  {
+    "key": "gate084",
+    "file": "references/survey-audit/gate084.jpg",
+    "size": [
+      3285,
+      2200
+    ],
+    "sha256": "aeb839956dc9a61e51df165fe3aedafd1ac2378e1e3ccab7ee648be0705c68ab",
+    "bytes": 773762,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/gate084-preview.png"
+  },
+  {
+    "key": "gate085",
+    "file": "references/survey-audit/gate085.jpg",
+    "size": [
+      3280,
+      2201
+    ],
+    "sha256": "3d38be751043f45c21050acb372db3ead64b6e0ab8f9204badf772706ae25537",
+    "bytes": 687439,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/gate085-preview.png"
+  },
+  {
+    "key": "ansarang-gate",
+    "file": "references/survey-audit/ansarang-gate.jpg",
+    "size": [
+      3295,
+      2327
+    ],
+    "sha256": "ccf967490b9a70d03025e7f8a30b597716d0ece29e28c8c36ac5fcd75ddf5aff",
+    "bytes": 623061,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/ansarang-gate-preview.png"
+  },
+  {
+    "key": "angotgan-plan",
+    "file": "references/survey-audit/angotgan-plan.jpg",
+    "size": [
+      3294,
+      2207
+    ],
+    "sha256": "c59569189ccae45d277d76c3fa9b57378f4aa982b226d38f3004cb9b84a9492a",
+    "bytes": 585592,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/angotgan-plan-preview.png"
+  },
+  {
+    "key": "angotgan-section",
+    "file": "references/survey-audit/angotgan-section.jpg",
+    "size": [
+      3301,
+      2197
+    ],
+    "sha256": "3d0501df7d56402d61e0728d9e15c667f881f835c0b3328e0d900585bd44c7dd",
+    "bytes": 582041,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/angotgan-section-preview.png"
+  },
+  {
+    "key": "angotgan-doors",
+    "file": "references/survey-audit/angotgan-doors.jpg",
+    "size": [
+      3295,
+      2193
+    ],
+    "sha256": "d10406122d1845677c2ef05393afd0a183aaa2c70a113bc2c1984c841ace358e",
+    "bytes": 630254,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/angotgan-doors-preview.png"
+  },
+  {
+    "key": "arae-grid",
+    "file": "references/survey-audit/arae-grid.jpg",
+    "size": [
+      3305,
+      2200
+    ],
+    "sha256": "15c6cafb869be501b2ccdac97d1a3a5045a165b733a5172bf42bd2b85d823228",
+    "bytes": 643291,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/arae-grid-preview.png"
+  },
+  {
+    "key": "arae-doors1",
+    "file": "references/survey-audit/arae-doors1.jpg",
+    "size": [
+      3297,
+      2198
+    ],
+    "sha256": "f1ee0d094e88c01d48d5e647be82de6a97e82a28513ee3b6a09c764bd6f458b3",
+    "bytes": 590563,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/arae-doors1-preview.png"
+  },
+  {
+    "key": "arae-doors2",
+    "file": "references/survey-audit/arae-doors2.jpg",
+    "size": [
+      3300,
+      2203
+    ],
+    "sha256": "c0f07436d10ebe247ec46672cfe608bef44520b4352972168542ac8958ad39f2",
+    "bytes": 747274,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/arae-doors2-preview.png"
+  },
+  {
+    "key": "gokgan1993-plan",
+    "file": "references/survey-audit/gokgan1993-plan.jpg",
+    "size": [
+      4967,
+      3191
+    ],
+    "sha256": "355bfd806a7f04423137cf37867b2e41bf3ff682fe186451eace7f7956e52101",
+    "bytes": 902180,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/gokgan1993-plan-preview.png"
+  },
+  {
+    "key": "gokgan2007-plan",
+    "file": "references/survey-audit/gokgan2007-plan.jpg",
+    "size": [
+      3302,
+      2327
+    ],
+    "sha256": "35c525fcd4248070bf567d970fc02064ed4db38dc18c673293e3526ecd52be8b",
+    "bytes": 678476,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/gokgan2007-plan-preview.png"
+  },
+  {
+    "key": "jung-plan",
+    "file": "references/survey-audit/jung-plan.jpg",
+    "size": [
+      3299,
+      2205
+    ],
+    "sha256": "a96318109540e73f675e224bc105ac986a975d2b0677784b27c6da5c83eda157",
+    "bytes": 680488,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/jung-plan-preview.png"
+  },
+  {
+    "key": "ansarang-plan",
+    "file": "references/survey-audit/ansarang-plan.jpg",
+    "size": [
+      3292,
+      2202
+    ],
+    "sha256": "198378480291d2a0ebda7155d5890e6e060d55db7435136c2efd5d9c75ed2f93",
+    "bytes": 749644,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/ansarang-plan-preview.png"
+  },
+  {
+    "key": "anchae-front",
+    "file": "references/survey-audit/anchae-front.jpg",
+    "size": [
+      3288,
+      2200
+    ],
+    "sha256": "70e17fd7d8ce80fd69e8f4c21b5987c4d4ae47b07b029d389938bbfe61aaa611",
+    "bytes": 683073,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/anchae-front-preview.png"
+  },
+  {
+    "key": "anchae-section",
+    "file": "references/survey-audit/anchae-section.jpg",
+    "size": [
+      3295,
+      2197
+    ],
+    "sha256": "b1b3996e7c1f64b60ba53084fa55ec20fcaab3fde62bfa752f32b3f316128498",
+    "bytes": 646799,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/anchae-section-preview.png"
+  },
+  {
+    "key": "anchae-schedule1",
+    "file": "references/survey-audit/anchae-schedule1.jpg",
+    "size": [
+      3279,
+      2300
+    ],
+    "sha256": "c97dbe932b940a1aff1dcecf0899012f01f0f4c62ea09bb10e825fc6909a6d7a",
+    "bytes": 796322,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/anchae-schedule1-preview.png"
+  },
+  {
+    "key": "anchae-schedule2",
+    "file": "references/survey-audit/anchae-schedule2.jpg",
+    "size": [
+      3276,
+      2284
+    ],
+    "sha256": "32364d6778f7c69ff702a070e2234d9967343ab4c166cd5070854cbb71cf9c8b",
+    "bytes": 792301,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/anchae-schedule2-preview.png"
+  },
+  {
+    "key": "anchae-schedule3",
+    "file": "references/survey-audit/anchae-schedule3.jpg",
+    "size": [
+      3286,
+      2206
+    ],
+    "sha256": "dd8ca74641827db218ca60f1f18af2d9075732b2f0d4b2b911119bd09f1dbd3c",
+    "bytes": 666881,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/anchae-schedule3-preview.png"
+  },
+  {
+    "key": "sadang-plan",
+    "file": "references/survey-audit/sadang-plan.jpg",
+    "size": [
+      3295,
+      2331
+    ],
+    "sha256": "633d5e22e7633b3ebf9f7d19dd3fd18fe57c20a38d6811c381315c95f3c541c2",
+    "bytes": 634321,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/sadang-plan-preview.png"
+  },
+  {
+    "key": "sadang-front",
+    "file": "references/survey-audit/sadang-front.jpg",
+    "size": [
+      3280,
+      2304
+    ],
+    "sha256": "6cbdb96de2c3f7c0be03bd7991c2842571bf75e1fe76d56583e9a401bb707540",
+    "bytes": 657457,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/sadang-front-preview.png"
+  },
+  {
+    "key": "sadang-gate-section",
+    "file": "references/survey-audit/sadang-gate-section.jpg",
+    "size": [
+      3303,
+      2205
+    ],
+    "sha256": "61571a8682d58077bc1bb2c44172da6e52d304168db31521a9fc26da62baa8ed",
+    "bytes": 708643,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/sadang-gate-section-preview.png"
+  },
+  {
+    "key": "sadang-gate-plan",
+    "file": "references/survey-audit/sadang-gate-plan.jpg",
+    "size": [
+      3302,
+      2197
+    ],
+    "sha256": "a419ac59f0f87ebf18f0c844a707349af4b3641446e8e88d514b22e5b4986229",
+    "bytes": 719001,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/sadang-gate-plan-preview.png"
+  },
+  {
+    "key": "sarang-ceiling",
+    "file": "references/survey-audit/sarang-ceiling.jpg",
+    "size": [
+      3290,
+      2207
+    ],
+    "sha256": "553e75ac9b914a24b069274c00fefc6f6cc28a5990c72e761829655a6b2dcadf",
+    "bytes": 970658,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/sarang-ceiling-preview.png"
+  },
+  {
+    "key": "site002",
+    "file": "references/survey-audit/site002.jpg",
+    "size": [
+      3284,
+      2203
+    ],
+    "sha256": "3cdb496da05b9ff69d60937a5006ef107496bf47fe81219765947f18bdcd066d",
+    "bytes": 933414,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/site002-preview.png"
+  },
+  {
+    "key": "anchae-plan",
+    "file": "references/survey-audit/anchae-plan.png",
+    "size": [
+      1589,
+      723
+    ],
+    "sha256": "a4f94c17923240fe3452eefbc4e5e7954dd0e9cb0ce383fe7a11736053874541",
+    "bytes": 120228,
+    "sourceBytesMatch": true,
+    "preview": "references/survey-audit/anchae-plan-preview.png"
+  }
+]

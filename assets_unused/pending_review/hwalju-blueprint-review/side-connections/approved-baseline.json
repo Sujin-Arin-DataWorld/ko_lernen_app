@@ -1,0 +1,10 @@
+{
+  "acceptedByUser": true,
+  "userDecision": "이걸로 결정하자",
+  "source": "../terrain/review.html",
+  "sha256": {
+    "scene.blend": "3d183474f4475fa9fb044ce800881599cf8088d379bdd727cb4fc5c1b3b4a29d",
+    "pair-corrected.glb": "66dc4cbb3a1e30872ecb88c629c90b68308e748344dba8aa8a4e835d21f502e0"
+  },
+  "runtimePromotionRequested": false
+}

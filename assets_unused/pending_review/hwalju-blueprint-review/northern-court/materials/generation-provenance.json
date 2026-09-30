@@ -1,0 +1,24 @@
+{
+  "tool": "Built-in image_gen",
+  "intent": "generate",
+  "scope": [
+    "anchae"
+  ],
+  "generatedInterpretation": true,
+  "authority": "Canonical artwork guides illustration, drawings govern geometry; these are not photographs of historic timber.",
+  "textures": [
+    {
+      "file": "hanok-pine-longgrain-v1.png",
+      "generatedSource": "C:/Users/vjinn/.codex/generated_images/01a0e7fc-a227-7751-9096-a43234ca27f9/exec-9375e832-7e27-40f3-8df3-cda52ba26a85.png",
+      "reference": "../references/anchae/canonical.png",
+      "prompt": "Use case: stylized-concept. Create a high-resolution seamless 3D material base-color texture for the OLD PINE TIMBER in the supplied authoritative Korean hanok illustration. Input image 1 is ONLY the illustration style and wood color reference; do not redraw the house. Output is one full-frame square flat material texture, orthographic front-on, no object, no frame, no perspective, no cast shadow, no lettering. Preserve the reference's restrained dark warm umber and weathered grey-brown Korean pine palette, matte hand-painted premium architectural game-art feeling. A broad continuous unjointed solid wood surface with VERTICAL fine long natural grain, delicate irregular growth lines, two or three small understated elongated knots, occasional hairline seasoning checks, softly worn fibre. Extremely subtle broad tonal variation, no shiny highlight, no directional lighting gradient, no edge-darkening, no plank seams, no boards or strips, no repeating dark stripes, no large black cracks, no orange varnish, no log curvature, no old rotten damage. This is a neutral ALBEDO texture to be wrapped around real beams, posts and flat floorboards in a 3D educational Korean-language app. The modeled geometry and scene light must supply depth and shadow. All four edges should tile seamlessly. Favor quiet legible hand-painted wood detail over photoreal noisy grain; high resolution suitable for close inspection of a 210mm solid timber column."
+    },
+    {
+      "file": "hanok-pine-endgrain-v1.png",
+      "generatedSource": "C:/Users/vjinn/.codex/generated_images/01a0e7fc-a227-7751-9096-a43234ca27f9/exec-6573361f-bcff-446b-8f4d-dab595b327ed.png",
+      "reference": "hanok-pine-longgrain-v1.png",
+      "prompt": "Generate a companion CUT-END WOOD texture for the attached long-grain old Korean pine material. Same dark warm umber and weathered grey-brown palette, same quiet matte hand-painted illustration brushwork. Single square full-frame BASE COLOR / ALBEDO surface, perfectly frontal orthographic, completely flat ambient light. The surface shows a broad solid pine cross-section with irregular closely spaced annual growth rings, subdued fibrous radial lines and one tiny hairline seasoning check. The pith is gently off center. Dense believable irregular annual rings, varying softly rather than geometric concentric target circles. Continuous wood covers the entire square; NO log silhouette, NO bark border, NO bevel, NO outer outline, NO dark frame, NO directional lighting, NO cast shadow, NO white background, NO furniture, NO text, NO board seams, NO dark dramatic split, no orange or varnished finish. This texture will be applied to the ACTUAL end caps of volumetric 210mm posts and 330mm beams in a 3D Korean heritage learning app. Do not illustrate a building. Keep contrast restrained so modeled geometry supplies the shape."
+    }
+  ],
+  "normalMaps": "Blender tangent-space bake, 0.45 mm input distance, 0.24 bump strength, applied normal strength 0.5"
+}

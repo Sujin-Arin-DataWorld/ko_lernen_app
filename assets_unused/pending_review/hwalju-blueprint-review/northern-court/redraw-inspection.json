@@ -1,0 +1,8664 @@
+[
+  {
+    "name": "V32.ansarang.right WD05.leaf1.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.77290916442871,
+      -15.273603439331055,
+      1.2829999923706055
+    ],
+    "max": [
+      24.18890953063965,
+      -15.248602867126465,
+      2.5269999504089355
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD05.leaf1.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.66090965270996,
+      -15.277103424072266,
+      1.2300000190734863
+    ],
+    "max": [
+      24.3009090423584,
+      -15.20910358428955,
+      2.5799999237060547
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD05.leaf1.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.702909469604492,
+      -15.277603149414062,
+      1.24399995803833
+    ],
+    "max": [
+      24.258909225463867,
+      -15.252603530883789,
+      2.5419998168945312
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD05.leaf1.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.714908599853516,
+      -15.277603149414062,
+      1.24399995803833
+    ],
+    "max": [
+      24.246910095214844,
+      -15.252603530883789,
+      2.5419998168945312
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD05.leaf1.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.710908889770508,
+      -15.21910285949707,
+      1.4023998975753784
+    ],
+    "max": [
+      24.25090980529785,
+      -15.201103210449219,
+      2.4200401306152344
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD05.leaf1.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.703908920288086,
+      -15.277103424072266,
+      1.2300000190734863
+    ],
+    "max": [
+      24.257909774780273,
+      -15.20910358428955,
+      2.5799999237060547
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD05.leaf1.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.710908889770508,
+      -15.285102844238281,
+      1.3215399980545044
+    ],
+    "max": [
+      24.25090980529785,
+      -15.26710319519043,
+      2.5008997917175293
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD05.leaf1.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      23.710908889770508,
+      -15.223103523254395,
+      1.2829999923706055
+    ],
+    "max": [
+      24.25090980529785,
+      -15.217103004455566,
+      2.5269999504089355
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD05 wall.jamb",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.553409576416016,
+      -15.353103637695312,
+      1.125
+    ],
+    "max": [
+      24.408409118652344,
+      -15.133103370666504,
+      2.684999942779541
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD05 wall.head/sill",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.53590965270996,
+      -15.353103637695312,
+      1.1349999904632568
+    ],
+    "max": [
+      24.4259090423584,
+      -15.133103370666504,
+      2.6750001907348633
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD05 wall",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      23.51590919494629,
+      -15.303104400634766,
+      0.9864645004272461
+    ],
+    "max": [
+      24.44590950012207,
+      -15.183103561401367,
+      3.1650004386901855
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf2.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.605409622192383,
+      -15.26140308380127,
+      1.2829999923706055
+    ],
+    "max": [
+      25.886409759521484,
+      -15.246402740478516,
+      2.5269999504089355
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf2.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.51590919494629,
+      -15.263503074645996,
+      1.2300000190734863
+    ],
+    "max": [
+      25.975910186767578,
+      -15.22270393371582,
+      2.5799999237060547
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf2.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.55790901184082,
+      -15.263803482055664,
+      1.24399995803833
+    ],
+    "max": [
+      25.933908462524414,
+      -15.24880313873291,
+      2.5419998168945312
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf2.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.569910049438477,
+      -15.263803482055664,
+      1.24399995803833
+    ],
+    "max": [
+      25.92190933227539,
+      -15.24880313873291,
+      2.5419998168945312
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf2.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.565908432006836,
+      -15.228703498840332,
+      1.4023998975753784
+    ],
+    "max": [
+      25.9259090423584,
+      -15.217903137207031,
+      2.4200401306152344
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf2.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.558908462524414,
+      -15.263503074645996,
+      1.2300000190734863
+    ],
+    "max": [
+      25.93290901184082,
+      -15.22270393371582,
+      2.5799999237060547
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf2.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.565908432006836,
+      -15.268302917480469,
+      1.3215399980545044
+    ],
+    "max": [
+      25.9259090423584,
+      -15.257503509521484,
+      2.5008997917175293
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf2.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      25.565908432006836,
+      -15.231103897094727,
+      1.2829999923706055
+    ],
+    "max": [
+      25.9259090423584,
+      -15.227502822875977,
+      2.5269999504089355
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf1.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.135408401489258,
+      -15.26140308380127,
+      1.2829999923706055
+    ],
+    "max": [
+      25.41640853881836,
+      -15.246402740478516,
+      2.5269999504089355
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf1.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.045909881591797,
+      -15.263503074645996,
+      1.2300000190734863
+    ],
+    "max": [
+      25.505908966064453,
+      -15.22270393371582,
+      2.5799999237060547
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf1.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.087909698486328,
+      -15.263803482055664,
+      1.24399995803833
+    ],
+    "max": [
+      25.463909149169922,
+      -15.24880313873291,
+      2.5419998168945312
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf1.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.09990882873535,
+      -15.263803482055664,
+      1.24399995803833
+    ],
+    "max": [
+      25.4519100189209,
+      -15.24880313873291,
+      2.5419998168945312
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf1.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.095909118652344,
+      -15.228703498840332,
+      1.4023998975753784
+    ],
+    "max": [
+      25.455909729003906,
+      -15.217903137207031,
+      2.4200401306152344
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf1.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.088909149169922,
+      -15.263503074645996,
+      1.2300000190734863
+    ],
+    "max": [
+      25.462909698486328,
+      -15.22270393371582,
+      2.5799999237060547
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf1.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.095909118652344,
+      -15.268302917480469,
+      1.3215399980545044
+    ],
+    "max": [
+      25.455909729003906,
+      -15.257503509521484,
+      2.5008997917175293
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03.leaf1.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      25.095909118652344,
+      -15.231103897094727,
+      1.2829999923706055
+    ],
+    "max": [
+      25.455909729003906,
+      -15.227502822875977,
+      2.5269999504089355
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03 wall.jamb",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      24.93840980529785,
+      -15.353103637695312,
+      1.125
+    ],
+    "max": [
+      26.08340835571289,
+      -15.133103370666504,
+      2.684999942779541
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03 wall.head/sill",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      24.920909881591797,
+      -15.353103637695312,
+      1.1349999904632568
+    ],
+    "max": [
+      26.100910186767578,
+      -15.133103370666504,
+      2.6750001907348633
+    ]
+  },
+  {
+    "name": "V32.ansarang.right WD03 wall",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      24.44590950012207,
+      -15.303104400634766,
+      0.9864645004272461
+    ],
+    "max": [
+      26.575908660888672,
+      -15.183103561401367,
+      3.1650004386901855
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf2.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.581409454345703,
+      -14.376103401184082,
+      1.3529999256134033
+    ],
+    "max": [
+      26.606409072875977,
+      -13.990102767944336,
+      2.436999797821045
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf2.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -14.483102798461914,
+      1.2999999523162842
+    ],
+    "max": [
+      26.609909057617188,
+      -13.883103370666504,
+      2.489999771118164
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf2.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -14.441102981567383,
+      1.3140000104904175
+    ],
+    "max": [
+      26.610408782958984,
+      -13.925103187561035,
+      2.452000141143799
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf2.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -14.429102897644043,
+      1.3140000104904175
+    ],
+    "max": [
+      26.610408782958984,
+      -13.937103271484375,
+      2.452000141143799
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf2.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.53390884399414,
+      -14.433103561401367,
+      1.4564000368118286
+    ],
+    "max": [
+      26.551908493041992,
+      -13.933103561401367,
+      2.34443998336792
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf2.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -14.440103530883789,
+      1.2999999523162842
+    ],
+    "max": [
+      26.609909057617188,
+      -13.926103591918945,
+      2.489999771118164
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf2.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.59990882873535,
+      -14.433103561401367,
+      1.3859399557113647
+    ],
+    "max": [
+      26.617908477783203,
+      -13.933103561401367,
+      2.4148998260498047
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf2.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      26.549909591674805,
+      -14.433103561401367,
+      1.3529999256134033
+    ],
+    "max": [
+      26.555910110473633,
+      -13.933103561401367,
+      2.436999797821045
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf1.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.581409454345703,
+      -13.76610279083252,
+      1.3529999256134033
+    ],
+    "max": [
+      26.606409072875977,
+      -13.38010311126709,
+      2.436999797821045
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf1.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -13.873103141784668,
+      1.2999999523162842
+    ],
+    "max": [
+      26.609909057617188,
+      -13.273102760314941,
+      2.489999771118164
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf1.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -13.831103324890137,
+      1.3140000104904175
+    ],
+    "max": [
+      26.610408782958984,
+      -13.315103530883789,
+      2.452000141143799
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf1.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -13.819103240966797,
+      1.3140000104904175
+    ],
+    "max": [
+      26.610408782958984,
+      -13.327103614807129,
+      2.452000141143799
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf1.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.53390884399414,
+      -13.823102951049805,
+      1.4564000368118286
+    ],
+    "max": [
+      26.551908493041992,
+      -13.323102951049805,
+      2.34443998336792
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf1.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -13.830102920532227,
+      1.2999999523162842
+    ],
+    "max": [
+      26.609909057617188,
+      -13.316102981567383,
+      2.489999771118164
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf1.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.59990882873535,
+      -13.823102951049805,
+      1.3859399557113647
+    ],
+    "max": [
+      26.617908477783203,
+      -13.323102951049805,
+      2.4148998260498047
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3.leaf1.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      26.549909591674805,
+      -13.823102951049805,
+      1.3529999256134033
+    ],
+    "max": [
+      26.555910110473633,
+      -13.323102951049805,
+      2.436999797821045
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3 wall.jamb",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.465909957885742,
+      -14.59060287475586,
+      1.1949999332427979
+    ],
+    "max": [
+      26.685909271240234,
+      -13.165603637695312,
+      2.5949997901916504
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3 wall.head/sill",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.465909957885742,
+      -14.608102798461914,
+      1.2049999237060547
+    ],
+    "max": [
+      26.685909271240234,
+      -13.148102760314941,
+      2.5850000381469727
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay3 wall",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      26.515907287597656,
+      -15.24310302734375,
+      0.9864645004272461
+    ],
+    "max": [
+      26.635910034179688,
+      -12.513103485107422,
+      3.1649999618530273
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf2.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.581409454345703,
+      -11.646102905273438,
+      1.3529999256134033
+    ],
+    "max": [
+      26.606409072875977,
+      -11.260103225708008,
+      2.436999797821045
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf2.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -11.753103256225586,
+      1.2999999523162842
+    ],
+    "max": [
+      26.609909057617188,
+      -11.15310287475586,
+      2.489999771118164
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf2.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -11.711103439331055,
+      1.3140000104904175
+    ],
+    "max": [
+      26.610408782958984,
+      -11.195103645324707,
+      2.452000141143799
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf2.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -11.699103355407715,
+      1.3140000104904175
+    ],
+    "max": [
+      26.610408782958984,
+      -11.20710277557373,
+      2.452000141143799
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf2.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.53390884399414,
+      -11.703103065490723,
+      1.4564000368118286
+    ],
+    "max": [
+      26.551908493041992,
+      -11.203103065490723,
+      2.34443998336792
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf2.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -11.710103034973145,
+      1.2999999523162842
+    ],
+    "max": [
+      26.609909057617188,
+      -11.1961030960083,
+      2.489999771118164
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf2.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.59990882873535,
+      -11.703103065490723,
+      1.3859399557113647
+    ],
+    "max": [
+      26.617908477783203,
+      -11.203103065490723,
+      2.4148998260498047
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf2.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      26.549909591674805,
+      -11.703103065490723,
+      1.3529999256134033
+    ],
+    "max": [
+      26.555910110473633,
+      -11.203103065490723,
+      2.436999797821045
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf1.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.581409454345703,
+      -11.036103248596191,
+      1.3529999256134033
+    ],
+    "max": [
+      26.606409072875977,
+      -10.650103569030762,
+      2.436999797821045
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf1.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -11.14310359954834,
+      1.2999999523162842
+    ],
+    "max": [
+      26.609909057617188,
+      -10.543103218078613,
+      2.489999771118164
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf1.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -11.101102828979492,
+      1.3140000104904175
+    ],
+    "max": [
+      26.610408782958984,
+      -10.585103034973145,
+      2.452000141143799
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf1.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -11.089102745056152,
+      1.3140000104904175
+    ],
+    "max": [
+      26.610408782958984,
+      -10.597103118896484,
+      2.452000141143799
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf1.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.53390884399414,
+      -11.093103408813477,
+      1.4564000368118286
+    ],
+    "max": [
+      26.551908493041992,
+      -10.593103408813477,
+      2.34443998336792
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf1.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -11.100103378295898,
+      1.2999999523162842
+    ],
+    "max": [
+      26.609909057617188,
+      -10.586103439331055,
+      2.489999771118164
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf1.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.59990882873535,
+      -11.093103408813477,
+      1.3859399557113647
+    ],
+    "max": [
+      26.617908477783203,
+      -10.593103408813477,
+      2.4148998260498047
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2.leaf1.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      26.549909591674805,
+      -11.093103408813477,
+      1.3529999256134033
+    ],
+    "max": [
+      26.555910110473633,
+      -10.593103408813477,
+      2.436999797821045
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2 wall.jamb",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.465909957885742,
+      -11.860603332519531,
+      1.1949999332427979
+    ],
+    "max": [
+      26.685909271240234,
+      -10.435603141784668,
+      2.5949997901916504
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2 wall.head/sill",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.465909957885742,
+      -11.878103256225586,
+      1.2049999237060547
+    ],
+    "max": [
+      26.685909271240234,
+      -10.418103218078613,
+      2.5850000381469727
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay2 wall",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      26.515907287597656,
+      -12.513103485107422,
+      0.9864645004272461
+    ],
+    "max": [
+      26.635910034179688,
+      -9.783102989196777,
+      3.1649999618530273
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf2.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.581409454345703,
+      -8.91610336303711,
+      1.3529999256134033
+    ],
+    "max": [
+      26.606409072875977,
+      -8.53010368347168,
+      2.436999797821045
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf2.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -9.023102760314941,
+      1.2999999523162842
+    ],
+    "max": [
+      26.609909057617188,
+      -8.423103332519531,
+      2.489999771118164
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf2.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -8.98110294342041,
+      1.3140000104904175
+    ],
+    "max": [
+      26.610408782958984,
+      -8.465103149414062,
+      2.452000141143799
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf2.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -8.96910285949707,
+      1.3140000104904175
+    ],
+    "max": [
+      26.610408782958984,
+      -8.477103233337402,
+      2.452000141143799
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf2.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.53390884399414,
+      -8.973103523254395,
+      1.4564000368118286
+    ],
+    "max": [
+      26.551908493041992,
+      -8.473103523254395,
+      2.34443998336792
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf2.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -8.980103492736816,
+      1.2999999523162842
+    ],
+    "max": [
+      26.609909057617188,
+      -8.466103553771973,
+      2.489999771118164
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf2.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.59990882873535,
+      -8.973103523254395,
+      1.3859399557113647
+    ],
+    "max": [
+      26.617908477783203,
+      -8.473103523254395,
+      2.4148998260498047
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf2.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      26.549909591674805,
+      -8.973103523254395,
+      1.3529999256134033
+    ],
+    "max": [
+      26.555910110473633,
+      -8.473103523254395,
+      2.436999797821045
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf1.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.581409454345703,
+      -8.306102752685547,
+      1.3529999256134033
+    ],
+    "max": [
+      26.606409072875977,
+      -7.920103073120117,
+      2.436999797821045
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf1.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -8.413103103637695,
+      1.2999999523162842
+    ],
+    "max": [
+      26.609909057617188,
+      -7.813103199005127,
+      2.489999771118164
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf1.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -8.371103286743164,
+      1.3140000104904175
+    ],
+    "max": [
+      26.610408782958984,
+      -7.855103015899658,
+      2.452000141143799
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf1.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -8.359103202819824,
+      1.3140000104904175
+    ],
+    "max": [
+      26.610408782958984,
+      -7.867103099822998,
+      2.452000141143799
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf1.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.53390884399414,
+      -8.363102912902832,
+      1.4564000368118286
+    ],
+    "max": [
+      26.551908493041992,
+      -7.86310338973999,
+      2.34443998336792
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf1.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -8.370102882385254,
+      1.2999999523162842
+    ],
+    "max": [
+      26.609909057617188,
+      -7.856103420257568,
+      2.489999771118164
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf1.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.59990882873535,
+      -8.363102912902832,
+      1.3859399557113647
+    ],
+    "max": [
+      26.617908477783203,
+      -7.86310338973999,
+      2.4148998260498047
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1.leaf1.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      26.549909591674805,
+      -8.363102912902832,
+      1.3529999256134033
+    ],
+    "max": [
+      26.555910110473633,
+      -7.86310338973999,
+      2.436999797821045
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1 wall.jamb",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.465909957885742,
+      -9.130602836608887,
+      1.1949999332427979
+    ],
+    "max": [
+      26.685909271240234,
+      -7.705603122711182,
+      2.5949997901916504
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1 wall.head/sill",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.465909957885742,
+      -9.148102760314941,
+      1.2049999237060547
+    ],
+    "max": [
+      26.685909271240234,
+      -7.688103199005127,
+      2.5850000381469727
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear WD02 bay1 wall",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      26.515907287597656,
+      -9.783102989196777,
+      0.9864645004272461
+    ],
+    "max": [
+      26.635910034179688,
+      -7.053103446960449,
+      3.1649999618530273
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear room base",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      26.440908432006836,
+      -15.24310302734375,
+      0.49000000953674316
+    ],
+    "max": [
+      26.620908737182617,
+      -4.323103427886963,
+      0.9399999380111694
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01.leaf2.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.581409454345703,
+      -6.253148555755615,
+      2.563000202178955
+    ],
+    "max": [
+      26.606409072875977,
+      -5.788057804107666,
+      2.7870001792907715
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01.leaf2.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -6.348103046417236,
+      2.5099997520446777
+    ],
+    "max": [
+      26.609909057617188,
+      -5.693103313446045,
+      2.8400001525878906
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01.leaf2.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -6.306103229522705,
+      2.5240001678466797
+    ],
+    "max": [
+      26.610408782958984,
+      -5.735103130340576,
+      2.802000045776367
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01.leaf2.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -6.294103145599365,
+      2.5240001678466797
+    ],
+    "max": [
+      26.610408782958984,
+      -5.747103214263916,
+      2.802000045776367
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01.leaf2.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.53390884399414,
+      -6.298103332519531,
+      2.580399990081787
+    ],
+    "max": [
+      26.551908493041992,
+      -5.74310302734375,
+      2.7718400955200195
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01.leaf2.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -6.305103302001953,
+      2.5099997520446777
+    ],
+    "max": [
+      26.609909057617188,
+      -5.736103057861328,
+      2.8400001525878906
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01.leaf2.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.59990882873535,
+      -6.298103332519531,
+      2.611760139465332
+    ],
+    "max": [
+      26.617908477783203,
+      -5.74310302734375,
+      2.7382397651672363
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01.leaf1.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.581409454345703,
+      -5.588148593902588,
+      2.563000202178955
+    ],
+    "max": [
+      26.606409072875977,
+      -5.123057842254639,
+      2.7870001792907715
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01.leaf1.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -5.683103084564209,
+      2.5099997520446777
+    ],
+    "max": [
+      26.609909057617188,
+      -5.028103351593018,
+      2.8400001525878906
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01.leaf1.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -5.641103267669678,
+      2.5240001678466797
+    ],
+    "max": [
+      26.610408782958984,
+      -5.070103168487549,
+      2.802000045776367
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01.leaf1.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.58540916442871,
+      -5.629103183746338,
+      2.5240001678466797
+    ],
+    "max": [
+      26.610408782958984,
+      -5.082103252410889,
+      2.802000045776367
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01.leaf1.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.53390884399414,
+      -5.633103370666504,
+      2.580399990081787
+    ],
+    "max": [
+      26.551908493041992,
+      -5.078103065490723,
+      2.7718400955200195
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01.leaf1.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.54191017150879,
+      -5.640103340148926,
+      2.5099997520446777
+    ],
+    "max": [
+      26.609909057617188,
+      -5.071103096008301,
+      2.8400001525878906
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01.leaf1.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.59990882873535,
+      -5.633103370666504,
+      2.611760139465332
+    ],
+    "max": [
+      26.617908477783203,
+      -5.078103065490723,
+      2.7382397651672363
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01 wall.jamb",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.465909957885742,
+      -6.455603122711182,
+      2.4050002098083496
+    ],
+    "max": [
+      26.685909271240234,
+      -4.920603275299072,
+      2.945000171661377
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01 wall.head/sill",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      26.465909957885742,
+      -6.473103046417236,
+      2.4149999618530273
+    ],
+    "max": [
+      26.685909271240234,
+      -4.903103351593018,
+      2.934999942779541
+    ]
+  },
+  {
+    "name": "V32.ansarang.rear kitchen WW01 wall",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      26.515907287597656,
+      -7.053103446960449,
+      0.9864645004272461
+    ],
+    "max": [
+      26.635910034179688,
+      -4.323103427886963,
+      3.1649999618530273
+    ]
+  },
+  {
+    "name": "V32.ansarang.middle room partition",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      23.51590919494629,
+      -9.843103408813477,
+      0.9900000095367432
+    ],
+    "max": [
+      26.575908660888672,
+      -9.723103523254395,
+      3.1599998474121094
+    ]
+  },
+  {
+    "name": "V32.ansarang.left room return",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      22.315908432006836,
+      -4.383103370666504,
+      0.9900000095367432
+    ],
+    "max": [
+      23.965909957885742,
+      -4.263103008270264,
+      3.1599998474121094
+    ]
+  },
+  {
+    "name": "V32.ansarang.left room base",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      22.315908432006836,
+      -4.458103179931641,
+      0.49000000953674316
+    ],
+    "max": [
+      23.965909957885742,
+      -4.278103351593018,
+      0.9399999380111694
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf2.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.370908737182617,
+      -4.31760311126709,
+      2.373000144958496
+    ],
+    "max": [
+      25.78590965270996,
+      -4.292603015899658,
+      2.867000102996826
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf2.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.275909423828125,
+      -4.35710334777832,
+      2.320000171661377
+    ],
+    "max": [
+      25.880908966064453,
+      -4.289103031158447,
+      2.9200000762939453
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf2.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.317909240722656,
+      -4.313603401184082,
+      2.3340001106262207
+    ],
+    "max": [
+      25.838909149169922,
+      -4.28860330581665,
+      2.881999969482422
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf2.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.32990837097168,
+      -4.313603401184082,
+      2.3340001106262207
+    ],
+    "max": [
+      25.8269100189209,
+      -4.28860330581665,
+      2.881999969482422
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf2.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.325908660888672,
+      -4.365103244781494,
+      2.4173998832702637
+    ],
+    "max": [
+      25.830909729003906,
+      -4.347103118896484,
+      2.8275399208068848
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf2.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.31890869140625,
+      -4.35710334777832,
+      2.320000171661377
+    ],
+    "max": [
+      25.837909698486328,
+      -4.289103031158447,
+      2.9200000762939453
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf2.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.325908660888672,
+      -4.299103260040283,
+      2.4865598678588867
+    ],
+    "max": [
+      25.830909729003906,
+      -4.281103134155273,
+      2.7534399032592773
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf2.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      25.325908660888672,
+      -4.349102973937988,
+      2.373000144958496
+    ],
+    "max": [
+      25.830909729003906,
+      -4.343103408813477,
+      2.867000102996826
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf1.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      24.755908966064453,
+      -4.31760311126709,
+      2.373000144958496
+    ],
+    "max": [
+      25.170909881591797,
+      -4.292603015899658,
+      2.867000102996826
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf1.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      24.66090965270996,
+      -4.35710334777832,
+      2.320000171661377
+    ],
+    "max": [
+      25.26590919494629,
+      -4.289103031158447,
+      2.9200000762939453
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf1.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      24.702909469604492,
+      -4.313603401184082,
+      2.3340001106262207
+    ],
+    "max": [
+      25.223909378051758,
+      -4.28860330581665,
+      2.881999969482422
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf1.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      24.714908599853516,
+      -4.313603401184082,
+      2.3340001106262207
+    ],
+    "max": [
+      25.2119083404541,
+      -4.28860330581665,
+      2.881999969482422
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf1.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      24.710908889770508,
+      -4.365103244781494,
+      2.4173998832702637
+    ],
+    "max": [
+      25.215909957885742,
+      -4.347103118896484,
+      2.8275399208068848
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf1.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      24.703908920288086,
+      -4.35710334777832,
+      2.320000171661377
+    ],
+    "max": [
+      25.222909927368164,
+      -4.289103031158447,
+      2.9200000762939453
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf1.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      24.710908889770508,
+      -4.299103260040283,
+      2.4865598678588867
+    ],
+    "max": [
+      25.215909957885742,
+      -4.281103134155273,
+      2.7534399032592773
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02.leaf1.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      24.710908889770508,
+      -4.349102973937988,
+      2.373000144958496
+    ],
+    "max": [
+      25.215909957885742,
+      -4.343103408813477,
+      2.867000102996826
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02 wall.jamb",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      24.553409576416016,
+      -4.433103084564209,
+      2.2150001525878906
+    ],
+    "max": [
+      25.9884090423584,
+      -4.213103294372559,
+      3.0250000953674316
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02 wall.head/sill",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      24.53590965270996,
+      -4.433103084564209,
+      2.2249999046325684
+    ],
+    "max": [
+      26.005908966064453,
+      -4.213103294372559,
+      3.0149998664855957
+    ]
+  },
+  {
+    "name": "V32.ansarang.left kitchen WW02 wall",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      23.965909957885742,
+      -4.383103370666504,
+      0.4864645004272461
+    ],
+    "max": [
+      26.575908660888672,
+      -4.263103008270264,
+      3.1650004386901855
+    ]
+  },
+  {
+    "name": "V32.ansarang.kitchen room partition",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      23.905908584594727,
+      -7.053103446960449,
+      0.9900000095367432
+    ],
+    "max": [
+      24.025909423828125,
+      -4.323103427886963,
+      3.1599998474121094
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD08 wall.jamb",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.843408584594727,
+      -7.163103103637695,
+      1.0449999570846558
+    ],
+    "max": [
+      24.68840980529785,
+      -6.943103313446045,
+      1.584999918937683
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD08 wall.head/sill",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.825908660888672,
+      -7.163103103637695,
+      1.0549999475479126
+    ],
+    "max": [
+      24.705909729003906,
+      -6.943103313446045,
+      1.5749999284744263
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD08 wall",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      23.51590919494629,
+      -7.113103866577148,
+      0.9864645004272461
+    ],
+    "max": [
+      24.845909118652344,
+      -6.99310302734375,
+      3.1650004386901855
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD08 recessed panel",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.962909698486328,
+      -7.057103157043457,
+      1.1769999265670776
+    ],
+    "max": [
+      24.56890869140625,
+      -7.037103176116943,
+      1.4529999494552612
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD08 leaf.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.935909271240234,
+      -7.073103427886963,
+      1.149999976158142
+    ],
+    "max": [
+      24.595909118652344,
+      -7.033102989196777,
+      1.4799998998641968
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD08 leaf.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.960908889770508,
+      -7.073103427886963,
+      1.149999976158142
+    ],
+    "max": [
+      24.57090950012207,
+      -7.033102989196777,
+      1.4799998998641968
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD07.leaf1.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.501659393310547,
+      -7.083603382110596,
+      1.222999930381775
+    ],
+    "max": [
+      25.790159225463867,
+      -7.058603286743164,
+      2.0370001792907715
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD07.leaf1.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.41090965270996,
+      -7.087103366851807,
+      1.1699999570846558
+    ],
+    "max": [
+      25.880908966064453,
+      -7.019103050231934,
+      2.0900001525878906
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD07.leaf1.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.452909469604492,
+      -7.0876030921936035,
+      1.184000015258789
+    ],
+    "max": [
+      25.838909149169922,
+      -7.062602996826172,
+      2.052000045776367
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD07.leaf1.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.464908599853516,
+      -7.0876030921936035,
+      1.184000015258789
+    ],
+    "max": [
+      25.8269100189209,
+      -7.062602996826172,
+      2.052000045776367
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD07.leaf1.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.460908889770508,
+      -7.0291032791137695,
+      1.299399971961975
+    ],
+    "max": [
+      25.830909729003906,
+      -7.01110315322876,
+      1.9687398672103882
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD07.leaf1.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.453908920288086,
+      -7.087103366851807,
+      1.1699999570846558
+    ],
+    "max": [
+      25.837909698486328,
+      -7.019103050231934,
+      2.0900001525878906
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD07.leaf1.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.460908889770508,
+      -7.0951032638549805,
+      1.4133599996566772
+    ],
+    "max": [
+      25.830909729003906,
+      -7.077103137969971,
+      1.8466399908065796
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD07.leaf1.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      25.460908889770508,
+      -7.033102989196777,
+      1.222999930381775
+    ],
+    "max": [
+      25.830909729003906,
+      -7.027103424072266,
+      2.0370001792907715
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD07 wall.jamb",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.303409576416016,
+      -7.163103103637695,
+      1.0649999380111694
+    ],
+    "max": [
+      25.9884090423584,
+      -6.943103313446045,
+      2.195000171661377
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD07 wall.head/sill",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      25.28590965270996,
+      -7.163103103637695,
+      1.0749999284744263
+    ],
+    "max": [
+      26.005908966064453,
+      -6.943103313446045,
+      2.184999942779541
+    ]
+  },
+  {
+    "name": "V32.ansarang.inside WD07 wall",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      24.845909118652344,
+      -7.113103866577148,
+      0.9864645004272461
+    ],
+    "max": [
+      26.575908660888672,
+      -6.993102550506592,
+      3.1650004386901855
+    ]
+  },
+  {
+    "name": "V32.ansarang.hall room partition",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      23.51590919494629,
+      -12.573102951049805,
+      0.9900000095367432
+    ],
+    "max": [
+      26.575908660888672,
+      -12.453103065490723,
+      3.1599998474121094
+    ]
+  },
+  {
+    "name": "V32.ansarang.front room WD06.leaf1.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.726659774780273,
+      -7.083603382110596,
+      1.222999930381775
+    ],
+    "max": [
+      23.105159759521484,
+      -7.058603286743164,
+      2.4670000076293945
+    ]
+  },
+  {
+    "name": "V32.ansarang.front room WD06.leaf1.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.620908737182617,
+      -7.087103366851807,
+      1.1699999570846558
+    ],
+    "max": [
+      23.210908889770508,
+      -7.019103050231934,
+      2.5199999809265137
+    ]
+  },
+  {
+    "name": "V32.ansarang.front room WD06.leaf1.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.66290855407715,
+      -7.0876030921936035,
+      1.184000015258789
+    ],
+    "max": [
+      23.168909072875977,
+      -7.062602996826172,
+      2.4819998741149902
+    ]
+  },
+  {
+    "name": "V32.ansarang.front room WD06.leaf1.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.674909591674805,
+      -7.0876030921936035,
+      1.184000015258789
+    ],
+    "max": [
+      23.156909942626953,
+      -7.062602996826172,
+      2.4819998741149902
+    ]
+  },
+  {
+    "name": "V32.ansarang.front room WD06.leaf1.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.670909881591797,
+      -7.0291032791137695,
+      1.3423999547958374
+    ],
+    "max": [
+      23.16090965270996,
+      -7.01110315322876,
+      2.3600401878356934
+    ]
+  },
+  {
+    "name": "V32.ansarang.front room WD06.leaf1.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.663909912109375,
+      -7.087103366851807,
+      1.1699999570846558
+    ],
+    "max": [
+      23.167909622192383,
+      -7.019103050231934,
+      2.5199999809265137
+    ]
+  },
+  {
+    "name": "V32.ansarang.front room WD06.leaf1.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.670909881591797,
+      -7.0951032638549805,
+      1.2615399360656738
+    ],
+    "max": [
+      23.16090965270996,
+      -7.077103137969971,
+      2.4408998489379883
+    ]
+  },
+  {
+    "name": "V32.ansarang.front room WD06.leaf1.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      22.670909881591797,
+      -7.033102989196777,
+      1.222999930381775
+    ],
+    "max": [
+      23.16090965270996,
+      -7.027103424072266,
+      2.4670000076293945
+    ]
+  },
+  {
+    "name": "V32.ansarang.front room WD06 wall.jamb",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.513408660888672,
+      -7.163103103637695,
+      1.0649999380111694
+    ],
+    "max": [
+      23.318408966064453,
+      -6.943103313446045,
+      2.625
+    ]
+  },
+  {
+    "name": "V32.ansarang.front room WD06 wall.head/sill",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.495908737182617,
+      -7.163103103637695,
+      1.0749999284744263
+    ],
+    "max": [
+      23.335908889770508,
+      -6.943103313446045,
+      2.614999771118164
+    ]
+  },
+  {
+    "name": "V32.ansarang.front room WD06 wall",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      22.315908432006836,
+      -7.113103866577148,
+      0.9864645004272461
+    ],
+    "max": [
+      23.51590919494629,
+      -6.99310302734375,
+      3.1650004386901855
+    ]
+  },
+  {
+    "name": "V32.ansarang.finish terrace approach",
+    "materials": [
+      "Canonical gate stone pigment.001"
+    ],
+    "min": [
+      20.71339988708496,
+      -10.7806396484375,
+      0.3049999475479126
+    ],
+    "max": [
+      21.149003982543945,
+      -9.4850492477417,
+      0.49000000953674316
+    ]
+  },
+  {
+    "name": "V32.ansarang.finish maru stepping stone",
+    "materials": [
+      "Canonical gate stone pigment.001"
+    ],
+    "min": [
+      21.868534088134766,
+      -10.588303565979004,
+      0.4865901470184326
+    ],
+    "max": [
+      22.31415367126465,
+      -9.67336654663086,
+      0.7420111894607544
+    ]
+  },
+  {
+    "name": "V32.ansarang.finish lower approach",
+    "materials": [
+      "Canonical gate stone pigment.001"
+    ],
+    "min": [
+      20.372451782226562,
+      -10.936437606811523,
+      0.12000000476837158
+    ],
+    "max": [
+      20.836694717407227,
+      -9.334592819213867,
+      0.3049999475479126
+    ]
+  },
+  {
+    "name": "V31.ansarang.left room subfloor",
+    "materials": [
+      "Ansarang retained Courtyard compacted earth"
+    ],
+    "min": [
+      22.315908432006836,
+      -7.053103446960449,
+      0.43999993801116943
+    ],
+    "max": [
+      23.965909957885742,
+      -4.323103427886963,
+      0.9499999284744263
+    ]
+  },
+  {
+    "name": "V31.ansarang.front wall3.jamb",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.405908584594727,
+      -15.130602836608887,
+      0.9369999170303345
+    ],
+    "max": [
+      23.62590980529785,
+      -12.625603675842285,
+      3.042999744415283
+    ]
+  },
+  {
+    "name": "V31.ansarang.front wall3.head/sill",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.405908584594727,
+      -15.148102760314941,
+      0.9470000267028809
+    ],
+    "max": [
+      23.62590980529785,
+      -12.608102798461914,
+      3.0329999923706055
+    ]
+  },
+  {
+    "name": "V31.ansarang.front wall3",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      23.455909729003906,
+      -15.24310302734375,
+      0.9900000095367432
+    ],
+    "max": [
+      23.575908660888672,
+      -12.513103485107422,
+      3.1640000343322754
+    ]
+  },
+  {
+    "name": "V31.ansarang.front wall2.jamb",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.405908584594727,
+      -11.850603103637695,
+      0.9670000076293945
+    ],
+    "max": [
+      23.62590980529785,
+      -10.445603370666504,
+      2.873000144958496
+    ]
+  },
+  {
+    "name": "V31.ansarang.front wall2.head/sill",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.405908584594727,
+      -11.86810302734375,
+      0.9769999980926514
+    ],
+    "max": [
+      23.62590980529785,
+      -10.42810344696045,
+      2.86299991607666
+    ]
+  },
+  {
+    "name": "V31.ansarang.front wall2",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      23.455909729003906,
+      -12.513103485107422,
+      0.9871715307235718
+    ],
+    "max": [
+      23.575908660888672,
+      -9.783102989196777,
+      3.1640000343322754
+    ]
+  },
+  {
+    "name": "V31.ansarang.front wall1.jamb",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.405908584594727,
+      -9.120603561401367,
+      0.9670000076293945
+    ],
+    "max": [
+      23.62590980529785,
+      -7.715603351593018,
+      2.873000144958496
+    ]
+  },
+  {
+    "name": "V31.ansarang.front wall1.head/sill",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.405908584594727,
+      -9.138103485107422,
+      0.9769999980926514
+    ],
+    "max": [
+      23.62590980529785,
+      -7.698103427886963,
+      2.86299991607666
+    ]
+  },
+  {
+    "name": "V31.ansarang.front wall1",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      23.455909729003906,
+      -9.783102989196777,
+      0.9871715307235718
+    ],
+    "max": [
+      23.575908660888672,
+      -7.053103446960449,
+      3.1640000343322754
+    ]
+  },
+  {
+    "name": "V31.ansarang.front wall0.jamb",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.205909729003906,
+      -6.135603427886963,
+      1.2070000171661377
+    ],
+    "max": [
+      22.4259090423584,
+      -5.240603446960449,
+      2.677999973297119
+    ]
+  },
+  {
+    "name": "V31.ansarang.front wall0.head/sill",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.205909729003906,
+      -6.153103351593018,
+      1.2170000076293945
+    ],
+    "max": [
+      22.4259090423584,
+      -5.223103046417236,
+      2.667999744415283
+    ]
+  },
+  {
+    "name": "V31.ansarang.front wall0",
+    "materials": [
+      "Ansarang retained Warm lime plaster"
+    ],
+    "min": [
+      22.255908966064453,
+      -7.053103446960449,
+      0.9871715307235718
+    ],
+    "max": [
+      22.37590980529785,
+      -4.323103427886963,
+      3.1640000343322754
+    ]
+  },
+  {
+    "name": "V28.ansarang.right porch floor.003",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.830608367919922,
+      -16.17310333251953,
+      0.9449999332427979
+    ],
+    "max": [
+      26.402009963989258,
+      -15.24310302734375,
+      1.034999966621399
+    ]
+  },
+  {
+    "name": "V28.ansarang.right porch floor.002",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.66020965576172,
+      -16.17310333251953,
+      0.9449999332427979
+    ],
+    "max": [
+      26.231609344482422,
+      -15.24310302734375,
+      1.034999966621399
+    ]
+  },
+  {
+    "name": "V28.ansarang.right porch floor.001",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.489809036254883,
+      -16.17310333251953,
+      0.9449999332427979
+    ],
+    "max": [
+      26.061208724975586,
+      -15.24310302734375,
+      1.034999966621399
+    ]
+  },
+  {
+    "name": "V28.ansarang.right porch floor",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.319408416748047,
+      -16.17310333251953,
+      0.9449999332427979
+    ],
+    "max": [
+      26.57240867614746,
+      -15.24310302734375,
+      1.034999966621399
+    ]
+  },
+  {
+    "name": "V28.ansarang.ondol rooms",
+    "materials": [
+      "Ansarang retained Warm papered ondol floor"
+    ],
+    "min": [
+      23.51590919494629,
+      -12.513103485107422,
+      0.9449999332427979
+    ],
+    "max": [
+      26.575908660888672,
+      -7.053103446960449,
+      1.034999966621399
+    ]
+  },
+  {
+    "name": "V28.ansarang.maru support",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.23090934753418,
+      -15.323102951049805,
+      0.5019999742507935
+    ],
+    "max": [
+      26.66090965270996,
+      -4.24310302734375,
+      0.9900000095367432
+    ]
+  },
+  {
+    "name": "V28.ansarang.maru floor.003",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.315908432006836,
+      -15.239603042602539,
+      0.9449999332427979
+    ],
+    "max": [
+      23.51590919494629,
+      -7.568478107452393,
+      1.034999966621399
+    ]
+  },
+  {
+    "name": "V28.ansarang.maru floor.002",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.315908432006836,
+      -15.068978309631348,
+      0.9449999332427979
+    ],
+    "max": [
+      23.51590919494629,
+      -7.397853374481201,
+      1.034999966621399
+    ]
+  },
+  {
+    "name": "V28.ansarang.maru floor.001",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.315908432006836,
+      -14.898353576660156,
+      0.9449999332427979
+    ],
+    "max": [
+      23.51590919494629,
+      -7.227228164672852,
+      1.034999966621399
+    ]
+  },
+  {
+    "name": "V28.ansarang.maru floor",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.315908432006836,
+      -14.727727890014648,
+      0.9449999332427979
+    ],
+    "max": [
+      23.51590919494629,
+      -7.05660343170166,
+      1.034999966621399
+    ]
+  },
+  {
+    "name": "V28.ansarang.maru brace",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.279857635498047,
+      -15.08035659790039,
+      0.5019999742507935
+    ],
+    "max": [
+      22.351959228515625,
+      -7.21584939956665,
+      0.934565544128418
+    ]
+  },
+  {
+    "name": "V28.ansarang.left front room",
+    "materials": [
+      "Ansarang retained Warm papered ondol floor"
+    ],
+    "min": [
+      22.315908432006836,
+      -7.053103446960449,
+      0.9449999332427979
+    ],
+    "max": [
+      23.965909957885742,
+      -4.323103427886963,
+      1.034999966621399
+    ]
+  },
+  {
+    "name": "V28.ansarang.kitchen floor",
+    "materials": [
+      "Ansarang retained Courtyard compacted earth"
+    ],
+    "min": [
+      23.965909957885742,
+      -7.053103446960449,
+      0.4299999475479126
+    ],
+    "max": [
+      26.575908660888672,
+      -4.323103427886963,
+      0.5299999713897705
+    ]
+  },
+  {
+    "name": "V28.ansarang.hall floor.003",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.51590919494629,
+      -15.239603042602539,
+      0.9449999332427979
+    ],
+    "max": [
+      26.575908660888672,
+      -13.028478622436523,
+      1.034999966621399
+    ]
+  },
+  {
+    "name": "V28.ansarang.hall floor.002",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.51590919494629,
+      -15.068978309631348,
+      0.9449999332427979
+    ],
+    "max": [
+      26.575908660888672,
+      -12.857852935791016,
+      1.034999966621399
+    ]
+  },
+  {
+    "name": "V28.ansarang.hall floor.001",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.51590919494629,
+      -14.898353576660156,
+      0.9449999332427979
+    ],
+    "max": [
+      26.575908660888672,
+      -12.687228202819824,
+      1.034999966621399
+    ]
+  },
+  {
+    "name": "V28.ansarang.hall floor",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.51590919494629,
+      -14.727727890014648,
+      0.9449999332427979
+    ],
+    "max": [
+      26.575908660888672,
+      -12.516603469848633,
+      1.034999966621399
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf4.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.497610092163086,
+      -14.929853439331055,
+      1.4399999380111694
+    ],
+    "max": [
+      23.512609481811523,
+      -14.566352844238281,
+      2.88700008392334
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf4.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.49551010131836,
+      -15.033102989196777,
+      1.0399999618530273
+    ],
+    "max": [
+      23.53631019592285,
+      -14.463103294372559,
+      2.940000057220459
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf4.recessed lower board",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.513809204101562,
+      -14.990102767944336,
+      1.0770000219345093
+    ],
+    "max": [
+      23.52880859375,
+      -14.506103515625,
+      1.3830000162124634
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf4.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.495208740234375,
+      -14.991103172302246,
+      1.4339998960494995
+    ],
+    "max": [
+      23.510210037231445,
+      -14.50510311126709,
+      2.9019999504089355
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf4.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.495208740234375,
+      -14.979103088378906,
+      1.4339998960494995
+    ],
+    "max": [
+      23.510210037231445,
+      -14.51710319519043,
+      2.9019999504089355
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf4.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.530309677124023,
+      -14.983102798461914,
+      1.5796998739242554
+    ],
+    "max": [
+      23.541109085083008,
+      -14.513103485107422,
+      2.7617697715759277
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf4.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.49551010131836,
+      -14.990102767944336,
+      1.0399999618530273
+    ],
+    "max": [
+      23.53631019592285,
+      -14.506103515625,
+      2.940000057220459
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf4.lower moulding.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.497909545898438,
+      -14.98110294342041,
+      1.0920000076293945
+    ],
+    "max": [
+      23.508710861206055,
+      -14.515103340148926,
+      1.412000060081482
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf4.lower moulding.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.497909545898438,
+      -14.96910285949707,
+      1.0920000076293945
+    ],
+    "max": [
+      23.508710861206055,
+      -14.527103424072266,
+      1.412000060081482
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf4.lock rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.496110916137695,
+      -15.02060317993164,
+      1.399999976158142
+    ],
+    "max": [
+      23.535709381103516,
+      -14.475603103637695,
+      1.4399999380111694
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf4.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.49070930480957,
+      -14.983102798461914,
+      1.4856449365615845
+    ],
+    "max": [
+      23.501508712768555,
+      -14.513103485107422,
+      2.8558249473571777
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf4.hinge strap barrel",
+    "materials": [
+      "Ansarang retained Dark iron fittings"
+    ],
+    "min": [
+      23.534202575683594,
+      -15.038725852966309,
+      1.2020000219345093
+    ],
+    "max": [
+      23.545616149902344,
+      -15.027480125427246,
+      2.7779998779296875
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf4.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      23.527910232543945,
+      -14.983102798461914,
+      1.4399999380111694
+    ],
+    "max": [
+      23.531509399414062,
+      -14.513103485107422,
+      2.88700008392334
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.497610092163086,
+      -14.349853515625,
+      1.4399999380111694
+    ],
+    "max": [
+      23.512609481811523,
+      -13.986352920532227,
+      2.88700008392334
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.49551010131836,
+      -14.453103065490723,
+      1.0399999618530273
+    ],
+    "max": [
+      23.53631019592285,
+      -13.883103370666504,
+      2.940000057220459
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.small ring plate",
+    "materials": [
+      "Ansarang retained Dark iron fittings"
+    ],
+    "min": [
+      23.468910217285156,
+      -13.942103385925293,
+      1.9499999284744263
+    ],
+    "max": [
+      23.47890853881836,
+      -13.914103507995605,
+      1.9899998903274536
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.small ring",
+    "materials": [
+      "Ansarang retained Dark iron fittings"
+    ],
+    "min": [
+      23.45648956298828,
+      -13.946898460388184,
+      1.9314931631088257
+    ],
+    "max": [
+      23.464458465576172,
+      -13.909306526184082,
+      1.9685066938400269
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.recessed lower board",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.513809204101562,
+      -14.410102844238281,
+      1.0770000219345093
+    ],
+    "max": [
+      23.52880859375,
+      -13.926103591918945,
+      1.3830000162124634
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.495208740234375,
+      -14.411103248596191,
+      1.4339998960494995
+    ],
+    "max": [
+      23.510210037231445,
+      -13.925103187561035,
+      2.9019999504089355
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.495208740234375,
+      -14.399103164672852,
+      1.4339998960494995
+    ],
+    "max": [
+      23.510210037231445,
+      -13.937103271484375,
+      2.9019999504089355
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.530309677124023,
+      -14.40310287475586,
+      1.5796998739242554
+    ],
+    "max": [
+      23.541109085083008,
+      -13.933103561401367,
+      2.7617697715759277
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.49551010131836,
+      -14.410102844238281,
+      1.0399999618530273
+    ],
+    "max": [
+      23.53631019592285,
+      -13.926103591918945,
+      2.940000057220459
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.lower moulding.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.497909545898438,
+      -14.401103019714355,
+      1.0920000076293945
+    ],
+    "max": [
+      23.508710861206055,
+      -13.935103416442871,
+      1.412000060081482
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.lower moulding.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.497909545898438,
+      -14.389102935791016,
+      1.0920000076293945
+    ],
+    "max": [
+      23.508710861206055,
+      -13.947103500366211,
+      1.412000060081482
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.lock rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.496110916137695,
+      -14.440603256225586,
+      1.399999976158142
+    ],
+    "max": [
+      23.535709381103516,
+      -13.89560317993164,
+      1.4399999380111694
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.49070930480957,
+      -14.40310287475586,
+      1.4856449365615845
+    ],
+    "max": [
+      23.501508712768555,
+      -13.933103561401367,
+      2.8558249473571777
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.hinge strap barrel",
+    "materials": [
+      "Ansarang retained Dark iron fittings"
+    ],
+    "min": [
+      23.486202239990234,
+      -14.463726043701172,
+      1.2020000219345093
+    ],
+    "max": [
+      23.497615814208984,
+      -14.45248031616211,
+      2.7779998779296875
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf3.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      23.527910232543945,
+      -14.40310287475586,
+      1.4399999380111694
+    ],
+    "max": [
+      23.531509399414062,
+      -13.933103561401367,
+      2.88700008392334
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.497610092163086,
+      -13.769853591918945,
+      1.4399999380111694
+    ],
+    "max": [
+      23.512609481811523,
+      -13.406352996826172,
+      2.88700008392334
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.49551010131836,
+      -13.873103141784668,
+      1.0399999618530273
+    ],
+    "max": [
+      23.53631019592285,
+      -13.30310344696045,
+      2.940000057220459
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.small ring plate",
+    "materials": [
+      "Ansarang retained Dark iron fittings"
+    ],
+    "min": [
+      23.468910217285156,
+      -13.842103004455566,
+      1.9499999284744263
+    ],
+    "max": [
+      23.47890853881836,
+      -13.814103126525879,
+      1.9899998903274536
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.small ring",
+    "materials": [
+      "Ansarang retained Dark iron fittings"
+    ],
+    "min": [
+      23.45648956298828,
+      -13.846898078918457,
+      1.9314931631088257
+    ],
+    "max": [
+      23.464458465576172,
+      -13.809308052062988,
+      1.9685066938400269
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.recessed lower board",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.513809204101562,
+      -13.830102920532227,
+      1.0770000219345093
+    ],
+    "max": [
+      23.52880859375,
+      -13.34610366821289,
+      1.3830000162124634
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.495208740234375,
+      -13.831103324890137,
+      1.4339998960494995
+    ],
+    "max": [
+      23.510210037231445,
+      -13.34510326385498,
+      2.9019999504089355
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.495208740234375,
+      -13.819103240966797,
+      1.4339998960494995
+    ],
+    "max": [
+      23.510210037231445,
+      -13.35710334777832,
+      2.9019999504089355
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.530309677124023,
+      -13.823102951049805,
+      1.5796998739242554
+    ],
+    "max": [
+      23.541109085083008,
+      -13.353103637695312,
+      2.7617697715759277
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.49551010131836,
+      -13.830102920532227,
+      1.0399999618530273
+    ],
+    "max": [
+      23.53631019592285,
+      -13.34610366821289,
+      2.940000057220459
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.lower moulding.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.497909545898438,
+      -13.8211030960083,
+      1.0920000076293945
+    ],
+    "max": [
+      23.508710861206055,
+      -13.355103492736816,
+      1.412000060081482
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.lower moulding.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.497909545898438,
+      -13.809103012084961,
+      1.0920000076293945
+    ],
+    "max": [
+      23.508710861206055,
+      -13.367103576660156,
+      1.412000060081482
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.lock rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.496110916137695,
+      -13.860603332519531,
+      1.399999976158142
+    ],
+    "max": [
+      23.535709381103516,
+      -13.315603256225586,
+      1.4399999380111694
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.49070930480957,
+      -13.823102951049805,
+      1.4856449365615845
+    ],
+    "max": [
+      23.501508712768555,
+      -13.353103637695312,
+      2.8558249473571777
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.hinge strap barrel",
+    "materials": [
+      "Ansarang retained Dark iron fittings"
+    ],
+    "min": [
+      23.486202239990234,
+      -13.303726196289062,
+      1.2020000219345093
+    ],
+    "max": [
+      23.497615814208984,
+      -13.29248046875,
+      2.7779998779296875
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf2.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      23.527910232543945,
+      -13.823102951049805,
+      1.4399999380111694
+    ],
+    "max": [
+      23.531509399414062,
+      -13.353103637695312,
+      2.88700008392334
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf1.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.497610092163086,
+      -13.18985366821289,
+      1.4399999380111694
+    ],
+    "max": [
+      23.512609481811523,
+      -12.826353073120117,
+      2.88700008392334
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf1.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.49551010131836,
+      -13.293103218078613,
+      1.0399999618530273
+    ],
+    "max": [
+      23.53631019592285,
+      -12.723103523254395,
+      2.940000057220459
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf1.recessed lower board",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.513809204101562,
+      -13.250102996826172,
+      1.0770000219345093
+    ],
+    "max": [
+      23.52880859375,
+      -12.76610279083252,
+      1.3830000162124634
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf1.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.495208740234375,
+      -13.251103401184082,
+      1.4339998960494995
+    ],
+    "max": [
+      23.510210037231445,
+      -12.765103340148926,
+      2.9019999504089355
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf1.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.495208740234375,
+      -13.239103317260742,
+      1.4339998960494995
+    ],
+    "max": [
+      23.510210037231445,
+      -12.777103424072266,
+      2.9019999504089355
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf1.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.530309677124023,
+      -13.24310302734375,
+      1.5796998739242554
+    ],
+    "max": [
+      23.541109085083008,
+      -12.773102760314941,
+      2.7617697715759277
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf1.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.49551010131836,
+      -13.250102996826172,
+      1.0399999618530273
+    ],
+    "max": [
+      23.53631019592285,
+      -12.76610279083252,
+      2.940000057220459
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf1.lower moulding.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.497909545898438,
+      -13.241103172302246,
+      1.0920000076293945
+    ],
+    "max": [
+      23.508710861206055,
+      -12.775103569030762,
+      1.412000060081482
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf1.lower moulding.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.497909545898438,
+      -13.229103088378906,
+      1.0920000076293945
+    ],
+    "max": [
+      23.508710861206055,
+      -12.787103652954102,
+      1.412000060081482
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf1.lock rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.496110916137695,
+      -13.280603408813477,
+      1.399999976158142
+    ],
+    "max": [
+      23.535709381103516,
+      -12.735603332519531,
+      1.4399999380111694
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf1.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.49070930480957,
+      -13.24310302734375,
+      1.4856449365615845
+    ],
+    "max": [
+      23.501508712768555,
+      -12.773102760314941,
+      2.8558249473571777
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf1.hinge strap barrel",
+    "materials": [
+      "Ansarang retained Dark iron fittings"
+    ],
+    "min": [
+      23.534202575683594,
+      -12.728726387023926,
+      1.2020000219345093
+    ],
+    "max": [
+      23.545616149902344,
+      -12.717479705810547,
+      2.7779998779296875
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery3.leaf1.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      23.527910232543945,
+      -13.24310302734375,
+      1.4399999380111694
+    ],
+    "max": [
+      23.531509399414062,
+      -12.773102760314941,
+      2.88700008392334
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf2.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.485408782958984,
+      -11.646102905273438,
+      1.4299999475479126
+    ],
+    "max": [
+      23.510408401489258,
+      -11.260103225708008,
+      2.7170000076293945
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf2.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481908798217773,
+      -11.753103256225586,
+      1.0699999332427979
+    ],
+    "max": [
+      23.549909591674805,
+      -11.15310287475586,
+      2.7699999809265137
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf2.recessed lower board",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.512409210205078,
+      -11.710103034973145,
+      1.1069999933242798
+    ],
+    "max": [
+      23.53740882873535,
+      -11.1961030960083,
+      1.3730000257492065
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf2.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481409072875977,
+      -11.711103439331055,
+      1.4239999055862427
+    ],
+    "max": [
+      23.50640869140625,
+      -11.195103645324707,
+      2.7319998741149902
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf2.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481409072875977,
+      -11.699103355407715,
+      1.4239999055862427
+    ],
+    "max": [
+      23.50640869140625,
+      -11.20710277557373,
+      2.7319998741149902
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf2.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.53990936279297,
+      -11.703103065490723,
+      1.5537000894546509
+    ],
+    "max": [
+      23.55790901184082,
+      -11.203103065490723,
+      2.606170177459717
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf2.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481908798217773,
+      -11.710103034973145,
+      1.0699999332427979
+    ],
+    "max": [
+      23.549909591674805,
+      -11.1961030960083,
+      2.7699999809265137
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf2.lower moulding.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.48590850830078,
+      -11.701103210449219,
+      1.121999979019165
+    ],
+    "max": [
+      23.503910064697266,
+      -11.205102920532227,
+      1.402000069618225
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf2.lower moulding.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.48590850830078,
+      -11.689103126525879,
+      1.121999979019165
+    ],
+    "max": [
+      23.503910064697266,
+      -11.217103004455566,
+      1.402000069618225
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf2.lock rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.48291015625,
+      -11.74060344696045,
+      1.3899999856948853
+    ],
+    "max": [
+      23.54891014099121,
+      -11.165603637695312,
+      1.4299999475479126
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf2.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.473909378051758,
+      -11.703103065490723,
+      1.4700449705123901
+    ],
+    "max": [
+      23.49190902709961,
+      -11.203103065490723,
+      2.6898250579833984
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf2.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      23.53590965270996,
+      -11.703103065490723,
+      1.4299999475479126
+    ],
+    "max": [
+      23.54191017150879,
+      -11.203103065490723,
+      2.7170000076293945
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf1.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.485408782958984,
+      -11.036103248596191,
+      1.4299999475479126
+    ],
+    "max": [
+      23.510408401489258,
+      -10.650103569030762,
+      2.7170000076293945
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf1.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481908798217773,
+      -11.14310359954834,
+      1.0699999332427979
+    ],
+    "max": [
+      23.549909591674805,
+      -10.543103218078613,
+      2.7699999809265137
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf1.recessed lower board",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.512409210205078,
+      -11.100103378295898,
+      1.1069999933242798
+    ],
+    "max": [
+      23.53740882873535,
+      -10.586103439331055,
+      1.3730000257492065
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf1.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481409072875977,
+      -11.101102828979492,
+      1.4239999055862427
+    ],
+    "max": [
+      23.50640869140625,
+      -10.585103034973145,
+      2.7319998741149902
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf1.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481409072875977,
+      -11.089102745056152,
+      1.4239999055862427
+    ],
+    "max": [
+      23.50640869140625,
+      -10.597103118896484,
+      2.7319998741149902
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf1.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.53990936279297,
+      -11.093103408813477,
+      1.5537000894546509
+    ],
+    "max": [
+      23.55790901184082,
+      -10.593103408813477,
+      2.606170177459717
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf1.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481908798217773,
+      -11.100103378295898,
+      1.0699999332427979
+    ],
+    "max": [
+      23.549909591674805,
+      -10.586103439331055,
+      2.7699999809265137
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf1.lower moulding.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.48590850830078,
+      -11.091103553771973,
+      1.121999979019165
+    ],
+    "max": [
+      23.503910064697266,
+      -10.59510326385498,
+      1.402000069618225
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf1.lower moulding.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.48590850830078,
+      -11.079103469848633,
+      1.121999979019165
+    ],
+    "max": [
+      23.503910064697266,
+      -10.60710334777832,
+      1.402000069618225
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf1.lock rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.48291015625,
+      -11.130602836608887,
+      1.3899999856948853
+    ],
+    "max": [
+      23.54891014099121,
+      -10.55560302734375,
+      1.4299999475479126
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf1.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.473909378051758,
+      -11.093103408813477,
+      1.4700449705123901
+    ],
+    "max": [
+      23.49190902709961,
+      -10.593103408813477,
+      2.6898250579833984
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery2.leaf1.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      23.53590965270996,
+      -11.093103408813477,
+      1.4299999475479126
+    ],
+    "max": [
+      23.54191017150879,
+      -10.593103408813477,
+      2.7170000076293945
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf2.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.485408782958984,
+      -8.91610336303711,
+      1.4299999475479126
+    ],
+    "max": [
+      23.510408401489258,
+      -8.53010368347168,
+      2.7170000076293945
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf2.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481908798217773,
+      -9.023102760314941,
+      1.0699999332427979
+    ],
+    "max": [
+      23.549909591674805,
+      -8.423103332519531,
+      2.7699999809265137
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf2.recessed lower board",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.512409210205078,
+      -8.980103492736816,
+      1.1069999933242798
+    ],
+    "max": [
+      23.53740882873535,
+      -8.466103553771973,
+      1.3730000257492065
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf2.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481409072875977,
+      -8.98110294342041,
+      1.4239999055862427
+    ],
+    "max": [
+      23.50640869140625,
+      -8.465103149414062,
+      2.7319998741149902
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf2.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481409072875977,
+      -8.96910285949707,
+      1.4239999055862427
+    ],
+    "max": [
+      23.50640869140625,
+      -8.477103233337402,
+      2.7319998741149902
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf2.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.53990936279297,
+      -8.973103523254395,
+      1.5537000894546509
+    ],
+    "max": [
+      23.55790901184082,
+      -8.473103523254395,
+      2.606170177459717
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf2.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481908798217773,
+      -8.980103492736816,
+      1.0699999332427979
+    ],
+    "max": [
+      23.549909591674805,
+      -8.466103553771973,
+      2.7699999809265137
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf2.lower moulding.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.48590850830078,
+      -8.97110366821289,
+      1.121999979019165
+    ],
+    "max": [
+      23.503910064697266,
+      -8.475103378295898,
+      1.402000069618225
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf2.lower moulding.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.48590850830078,
+      -8.95910358428955,
+      1.121999979019165
+    ],
+    "max": [
+      23.503910064697266,
+      -8.487103462219238,
+      1.402000069618225
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf2.lock rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.48291015625,
+      -9.010602951049805,
+      1.3899999856948853
+    ],
+    "max": [
+      23.54891014099121,
+      -8.435603141784668,
+      1.4299999475479126
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf2.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.473909378051758,
+      -8.973103523254395,
+      1.4700449705123901
+    ],
+    "max": [
+      23.49190902709961,
+      -8.473103523254395,
+      2.6898250579833984
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf2.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      23.53590965270996,
+      -8.973103523254395,
+      1.4299999475479126
+    ],
+    "max": [
+      23.54191017150879,
+      -8.473103523254395,
+      2.7170000076293945
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf1.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.485408782958984,
+      -8.306102752685547,
+      1.4299999475479126
+    ],
+    "max": [
+      23.510408401489258,
+      -7.920103073120117,
+      2.7170000076293945
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf1.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481908798217773,
+      -8.413103103637695,
+      1.0699999332427979
+    ],
+    "max": [
+      23.549909591674805,
+      -7.813103199005127,
+      2.7699999809265137
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf1.recessed lower board",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.512409210205078,
+      -8.370102882385254,
+      1.1069999933242798
+    ],
+    "max": [
+      23.53740882873535,
+      -7.856103420257568,
+      1.3730000257492065
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf1.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481409072875977,
+      -8.371103286743164,
+      1.4239999055862427
+    ],
+    "max": [
+      23.50640869140625,
+      -7.855103015899658,
+      2.7319998741149902
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf1.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481409072875977,
+      -8.359103202819824,
+      1.4239999055862427
+    ],
+    "max": [
+      23.50640869140625,
+      -7.867103099822998,
+      2.7319998741149902
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf1.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.53990936279297,
+      -8.363102912902832,
+      1.5537000894546509
+    ],
+    "max": [
+      23.55790901184082,
+      -7.86310338973999,
+      2.606170177459717
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf1.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.481908798217773,
+      -8.370102882385254,
+      1.0699999332427979
+    ],
+    "max": [
+      23.549909591674805,
+      -7.856103420257568,
+      2.7699999809265137
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf1.lower moulding.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.48590850830078,
+      -8.361103057861328,
+      1.121999979019165
+    ],
+    "max": [
+      23.503910064697266,
+      -7.865103244781494,
+      1.402000069618225
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf1.lower moulding.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.48590850830078,
+      -8.349102973937988,
+      1.121999979019165
+    ],
+    "max": [
+      23.503910064697266,
+      -7.877103328704834,
+      1.402000069618225
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf1.lock rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.48291015625,
+      -8.400603294372559,
+      1.3899999856948853
+    ],
+    "max": [
+      23.54891014099121,
+      -7.825603008270264,
+      1.4299999475479126
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf1.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.473909378051758,
+      -8.363102912902832,
+      1.4700449705123901
+    ],
+    "max": [
+      23.49190902709961,
+      -7.86310338973999,
+      2.6898250579833984
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery1.leaf1.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      23.53590965270996,
+      -8.363102912902832,
+      1.4299999475479126
+    ],
+    "max": [
+      23.54191017150879,
+      -7.86310338973999,
+      2.7170000076293945
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery0.leaf1.vertical sal",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.285409927368164,
+      -5.918603420257568,
+      1.3630000352859497
+    ],
+    "max": [
+      22.310409545898438,
+      -5.4576029777526855,
+      2.5219998359680176
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery0.leaf1.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.281909942626953,
+      -6.038103103637695,
+      1.309999942779541
+    ],
+    "max": [
+      22.34990882873535,
+      -5.338103294372559,
+      2.5749998092651367
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery0.leaf1.rebated bead.stile",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.281410217285156,
+      -5.996103286743164,
+      1.3240000009536743
+    ],
+    "max": [
+      22.30640983581543,
+      -5.38010311126709,
+      2.5370001792907715
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery0.leaf1.rebated bead.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.281410217285156,
+      -5.984103202819824,
+      1.3240000009536743
+    ],
+    "max": [
+      22.30640983581543,
+      -5.39210319519043,
+      2.5370001792907715
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery0.leaf1.rear paper rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.339908599853516,
+      -5.98810338973999,
+      1.4738999605178833
+    ],
+    "max": [
+      22.35791015625,
+      -5.388103008270264,
+      2.422689914703369
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery0.leaf1.rail",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.281909942626953,
+      -5.995103359222412,
+      1.309999942779541
+    ],
+    "max": [
+      22.34990882873535,
+      -5.381103038787842,
+      2.5749998092651367
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery0.leaf1.horizontal band",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.273908615112305,
+      -5.98810338973999,
+      1.3985649347305298
+    ],
+    "max": [
+      22.29191017150879,
+      -5.388103008270264,
+      2.4980249404907227
+    ]
+  },
+  {
+    "name": "V28.ansarang.front joinery0.leaf1.hanji backing",
+    "materials": [
+      "Ansarang retained Warm hanji in timber lattice"
+    ],
+    "min": [
+      22.335908889770508,
+      -5.98810338973999,
+      1.3630000352859497
+    ],
+    "max": [
+      22.341909408569336,
+      -5.388103008270264,
+      2.5219998359680176
+    ]
+  },
+  {
+    "name": "V28.ansarang.frame.post",
+    "materials": [
+      "Canonical gate post pigment.001"
+    ],
+    "min": [
+      22.225910186767578,
+      -15.33310317993164,
+      0.5
+    ],
+    "max": [
+      26.665908813476562,
+      -4.233103275299072,
+      3.1599998474121094
+    ]
+  },
+  {
+    "name": "V28.ansarang.frame.long beam",
+    "materials": [
+      "Canonical gate beam pigment.001"
+    ],
+    "min": [
+      22.220909118652344,
+      -15.323102951049805,
+      0.5199999809265137
+    ],
+    "max": [
+      26.670909881591797,
+      -4.24310302734375,
+      3.2800002098083496
+    ]
+  },
+  {
+    "name": "V28.ansarang.frame.cross beam",
+    "materials": [
+      "Canonical gate beam pigment.001"
+    ],
+    "min": [
+      22.205909729003906,
+      -15.33310317993164,
+      2.9699997901916504
+    ],
+    "max": [
+      26.685909271240234,
+      -4.233103275299072,
+      3.1700000762939453
+    ]
+  },
+  {
+    "name": "V28.ansarang.frame.bracket.upper bearing",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      21.705909729003906,
+      -15.363102912902832,
+      3.1110000610351562
+    ],
+    "max": [
+      22.685909271240234,
+      -4.203103065490723,
+      3.2210001945495605
+    ]
+  },
+  {
+    "name": "V28.ansarang.frame.bracket.shaped timber shoulder",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      21.757152557373047,
+      -15.351102828979492,
+      2.850306987762451
+    ],
+    "max": [
+      22.595909118652344,
+      -4.2151031494140625,
+      3.0949997901916504
+    ]
+  },
+  {
+    "name": "V28.ansarang.frame.bracket.lower seating block",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      22.12590980529785,
+      -15.388103485107422,
+      2.864999771118164
+    ],
+    "max": [
+      22.4259090423584,
+      -4.178103446960449,
+      2.9650001525878906
+    ]
+  },
+  {
+    "name": "V28.ansarang.ceiling",
+    "materials": [
+      "Canonical gate wood pigment.001"
+    ],
+    "min": [
+      23.82090950012207,
+      -15.24310302734375,
+      3.1024999618530273
+    ],
+    "max": [
+      26.370908737182617,
+      -4.323103427886963,
+      3.1475000381469727
+    ]
+  },
+  {
+    "name": "CraftAnsarang.frame timber pegs",
+    "materials": [
+      "Ansarang endgrain pegs"
+    ],
+    "min": [
+      22.172908782958984,
+      -15.256103515625,
+      1.187000036239624
+    ],
+    "max": [
+      22.180910110473633,
+      -4.310102939605713,
+      2.953000068664551
+    ]
+  },
+  {
+    "name": "North.anchae.floor individual boards",
+    "parts": [
+      {
+        "min": [
+          -7.604000568389893,
+          -2.260000467300415,
+          0.5999999046325684
+        ],
+        "max": [
+          -7.431914806365967,
+          -1.0900006294250488,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -7.424915313720703,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -7.252828121185303,
+          -1.0900006294250488,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -7.245828628540039,
+          -2.260000467300415,
+          0.5999999046325684
+        ],
+        "max": [
+          -7.073741436004639,
+          -1.0900009870529175,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -7.066743850708008,
+          -2.260000467300415,
+          0.5999999046325684
+        ],
+        "max": [
+          -6.894656658172607,
+          -1.0900005102157593,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -6.887659072875977,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          -6.715569972991943,
+          -1.0900003910064697,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -6.7085723876953125,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -6.536485195159912,
+          -1.090000867843628,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -6.529485702514648,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -6.35739803314209,
+          -1.0900005102157593,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -6.350400924682617,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          -6.178311347961426,
+          -1.0900003910064697,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -6.171314239501953,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -5.9992265701293945,
+          -1.0900007486343384,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -5.992229461669922,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -5.8201398849487305,
+          -1.0900005102157593,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -5.8131422996521,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          -5.641053199768066,
+          -1.0900003910064697,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -5.6340556144714355,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -5.461968421936035,
+          -1.0900007486343384,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -5.454970836639404,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -5.282881736755371,
+          -1.0900003910064697,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -5.27588415145874,
+          -2.260000467300415,
+          0.5999999046325684
+        ],
+        "max": [
+          -5.103795051574707,
+          -1.0900007486343384,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -5.096797466278076,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          -4.924712181091309,
+          -1.0900007486343384,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -4.917712688446045,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          -4.745625019073486,
+          -1.0900001525878906,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -4.738626003265381,
+          -2.260000467300415,
+          0.5999999046325684
+        ],
+        "max": [
+          -4.566538333892822,
+          -1.0900005102157593,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -4.559539318084717,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -4.387453556060791,
+          -1.0900006294250488,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -4.3804545402526855,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          -4.208366870880127,
+          -1.0900001525878906,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -4.201367378234863,
+          -2.260000467300415,
+          0.5999999046325684
+        ],
+        "max": [
+          -4.029280185699463,
+          -1.0900005102157593,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -4.022280693054199,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          -3.8501954078674316,
+          -1.0900006294250488,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -3.843195915222168,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -3.6711087226867676,
+          -1.0900007486343384,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -3.664109230041504,
+          -2.260000467300415,
+          0.5999999046325684
+        ],
+        "max": [
+          -3.4920217990875244,
+          -1.0900005102157593,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -3.48502254486084,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          -3.312937021255493,
+          -1.0900006294250488,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -3.3059377670288086,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -3.133850336074829,
+          -1.0900007486343384,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -3.1268508434295654,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -2.954763650894165,
+          -1.0900005102157593,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -2.9477639198303223,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          -2.7756786346435547,
+          -1.0900006294250488,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -2.768679141998291,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -2.5965919494628906,
+          -1.0900007486343384,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -2.589592456817627,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -2.4175071716308594,
+          -1.0900002717971802,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -2.410505771636963,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          -2.2384204864501953,
+          -1.0900003910064697,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -2.2314207553863525,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -2.059333562850952,
+          -1.0900007486343384,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -2.0523343086242676,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -1.8802486658096313,
+          -1.0900002717971802,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -1.8732494115829468,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          -1.7011619806289673,
+          -1.0900002717971802,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -1.6941626071929932,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          -1.5220752954483032,
+          -1.0900006294250488,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -1.515075922012329,
+          -2.260000467300415,
+          0.5999999046325684
+        ],
+        "max": [
+          -1.3429903984069824,
+          -1.0900009870529175,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -1.3359910249710083,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          -1.1639037132263184,
+          -1.0900002717971802,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -1.1569043397903442,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -0.9848169088363647,
+          -1.0900006294250488,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -0.9778175354003906,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -0.8057321310043335,
+          -1.0900009870529175,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -0.7987326383590698,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          -0.6266453266143799,
+          -1.0900001525878906,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -0.6196478605270386,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          -0.4475586414337158,
+          -1.0900005102157593,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -0.44056111574172974,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          -0.2684738039970398,
+          -1.090000867843628,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -0.2614762783050537,
+          -2.2599995136260986,
+          0.5999999046325684
+        ],
+        "max": [
+          -0.08938701450824738,
+          -1.090000033378601,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          -0.08238955587148666,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          0.08969970047473907,
+          -1.0900003910064697,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          0.09669718146324158,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          0.2687845230102539,
+          -1.0900007486343384,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          0.27578204870224,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          0.44787126779556274,
+          -1.090000033378601,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          0.45486876368522644,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          0.6269580125808716,
+          -1.0900003910064697,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          0.6339554786682129,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          0.8060428500175476,
+          -1.0900006294250488,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          0.8130403757095337,
+          -2.2599995136260986,
+          0.5999999046325684
+        ],
+        "max": [
+          0.9851295948028564,
+          -1.090000033378601,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          0.9921271204948425,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          1.1642162799835205,
+          -1.0900003910064697,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          1.1712138652801514,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          1.3433011770248413,
+          -1.0900006294250488,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          1.3502987623214722,
+          -2.2599992752075195,
+          0.5999999046325684
+        ],
+        "max": [
+          1.5223859548568726,
+          -1.0899999141693115,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          1.5293854475021362,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          1.7014708518981934,
+          -1.0900002717971802,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          1.7084702253341675,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          1.8805575370788574,
+          -1.0900005102157593,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          1.887557029724121,
+          -2.260000228881836,
+          0.5999999046325684
+        ],
+        "max": [
+          2.0596444606781006,
+          -1.0900001525878906,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          2.066643714904785,
+          -2.2599995136260986,
+          0.5999999046325684
+        ],
+        "max": [
+          2.238729238510132,
+          -1.0900001525878906,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          2.2457284927368164,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          2.417815923690796,
+          -1.0900005102157593,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          2.4248154163360596,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          2.596902847290039,
+          -1.0900001525878906,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          2.60390305519104,
+          -2.2599995136260986,
+          0.5999999046325684
+        ],
+        "max": [
+          2.775987148284912,
+          -1.0900001525878906,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          2.782987117767334,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          2.9550740718841553,
+          -1.0900003910064697,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          2.962073802947998,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          3.1341607570648193,
+          -1.090000033378601,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          3.141160726547241,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          3.3132457733154297,
+          -1.090000033378601,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          3.3202455043792725,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          3.4923324584960938,
+          -1.0900003910064697,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          3.4993321895599365,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          3.671419143676758,
+          -1.090000033378601,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          3.6784188747406006,
+          -2.2599995136260986,
+          0.5999999046325684
+        ],
+        "max": [
+          3.850503921508789,
+          -1.090000033378601,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          3.857503652572632,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          4.029590606689453,
+          -1.0900002717971802,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          4.036590576171875,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          4.208676338195801,
+          -1.0899999141693115,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          4.215675354003906,
+          -2.2599995136260986,
+          0.5999999046325684
+        ],
+        "max": [
+          4.387763023376465,
+          -1.0899999141693115,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          4.39476203918457,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          4.566849231719971,
+          -1.0900002717971802,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          4.573847770690918,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          4.745934963226318,
+          -1.0899999141693115,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          4.752933502197266,
+          -2.2599992752075195,
+          0.5999999046325684
+        ],
+        "max": [
+          4.925020694732666,
+          -1.089999794960022,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          4.932019233703613,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          5.10410737991333,
+          -1.0900001525878906,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          5.111105918884277,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          5.283193111419678,
+          -1.089999794960022,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          5.290192127227783,
+          -2.2599992752075195,
+          0.5999999046325684
+        ],
+        "max": [
+          5.462278842926025,
+          -1.089999794960022,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          5.469277858734131,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          5.6413655281066895,
+          -1.090000033378601,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          5.648364543914795,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          5.820451259613037,
+          -1.0899996757507324,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          5.827450275421143,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          5.999537467956543,
+          -1.090000033378601,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          6.00653600692749,
+          -2.2599995136260986,
+          0.5999999046325684
+        ],
+        "max": [
+          6.178623199462891,
+          -1.090000033378601,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          6.185622692108154,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          6.357708930969238,
+          -1.0900003910064697,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          6.364708423614502,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          6.536794662475586,
+          -1.0899999141693115,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          6.54379415512085,
+          -2.2599995136260986,
+          0.5999999046325684
+        ],
+        "max": [
+          6.715880393981934,
+          -1.0899999141693115,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          6.722880840301514,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          6.894967079162598,
+          -1.0900003910064697,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          6.9019670486450195,
+          -2.259999990463257,
+          0.5999999046325684
+        ],
+        "max": [
+          7.074052810668945,
+          -1.0899999141693115,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          7.081052780151367,
+          -2.2599995136260986,
+          0.5999999046325684
+        ],
+        "max": [
+          7.253138542175293,
+          -1.0899999141693115,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          7.260137557983398,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          7.432225227355957,
+          -1.0900001525878906,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          7.4392242431640625,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          7.611311435699463,
+          -1.089999794960022,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          7.61830997467041,
+          -2.2599992752075195,
+          0.5999999046325684
+        ],
+        "max": [
+          7.7903971672058105,
+          -1.0899999141693115,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          7.797395706176758,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          7.969483852386475,
+          -1.0900001525878906,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          7.97648286819458,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          8.148569107055664,
+          -1.089999794960022,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          8.15556812286377,
+          -2.2599992752075195,
+          0.5999999046325684
+        ],
+        "max": [
+          8.327654838562012,
+          -1.089999794960022,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          8.334654808044434,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          8.506741523742676,
+          -1.0900001525878906,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          8.513740539550781,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          8.68582820892334,
+          -1.0899996757507324,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          8.692827224731445,
+          -2.2599992752075195,
+          0.5999999046325684
+        ],
+        "max": [
+          8.864912986755371,
+          -1.089999794960022,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          8.871912002563477,
+          -2.2599997520446777,
+          0.5999999046325684
+        ],
+        "max": [
+          9.043999671936035,
+          -1.090000033378601,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          0.09100063145160675,
+          -1.0900009870529175,
+          0.5999999046325684
+        ],
+        "max": [
+          0.26131966710090637,
+          1.537501573562622,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          0.2683200538158417,
+          -1.0900003910064697,
+          0.5999999046325684
+        ],
+        "max": [
+          0.4386428892612457,
+          1.5375018119812012,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          0.44564327597618103,
+          -1.0900007486343384,
+          0.5999999046325684
+        ],
+        "max": [
+          0.6159641742706299,
+          1.5375018119812012,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          0.6229626536369324,
+          -1.0900007486343384,
+          0.5999999046325684
+        ],
+        "max": [
+          0.7932854890823364,
+          1.5375014543533325,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          0.8002858757972717,
+          -1.0900006294250488,
+          0.5999999046325684
+        ],
+        "max": [
+          0.970606803894043,
+          1.5375018119812012,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          0.9776052832603455,
+          -1.0900007486343384,
+          0.5999999046325684
+        ],
+        "max": [
+          1.1479281187057495,
+          1.5375018119812012,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          1.15492844581604,
+          -1.0900007486343384,
+          0.5999999046325684
+        ],
+        "max": [
+          1.325249433517456,
+          1.537501573562622,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          1.3322498798370361,
+          -1.0900005102157593,
+          0.5999999046325684
+        ],
+        "max": [
+          1.5025707483291626,
+          1.5375014543533325,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          1.5095710754394531,
+          -1.0900007486343384,
+          0.5999999046325684
+        ],
+        "max": [
+          1.6798919439315796,
+          1.5375008583068848,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          1.6868923902511597,
+          -1.0900007486343384,
+          0.5999999046325684
+        ],
+        "max": [
+          1.8572152853012085,
+          1.5375006198883057,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          1.8642137050628662,
+          -1.0900003910064697,
+          0.5999999046325684
+        ],
+        "max": [
+          2.0345346927642822,
+          1.5375009775161743,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          2.0415351390838623,
+          -1.0900007486343384,
+          0.5999999046325684
+        ],
+        "max": [
+          2.211857795715332,
+          1.5375009775161743,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          2.2188563346862793,
+          -1.0900007486343384,
+          0.5999999046325684
+        ],
+        "max": [
+          2.3891773223876953,
+          1.5375007390975952,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          2.3961775302886963,
+          -1.0900003910064697,
+          0.5999999046325684
+        ],
+        "max": [
+          2.566500425338745,
+          1.5375009775161743,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          2.5734989643096924,
+          -1.0900006294250488,
+          0.5999999046325684
+        ],
+        "max": [
+          2.74381947517395,
+          1.5375009775161743,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          2.750819683074951,
+          -1.0900006294250488,
+          0.5999999046325684
+        ],
+        "max": [
+          2.921142816543579,
+          1.5375006198883057,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          2.928142547607422,
+          -1.0900003910064697,
+          0.5999999046325684
+        ],
+        "max": [
+          3.098464250564575,
+          1.5375010967254639,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          3.105462074279785,
+          -1.0900006294250488,
+          0.5999999046325684
+        ],
+        "max": [
+          3.275785446166992,
+          1.5375010967254639,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          3.282785415649414,
+          -1.0900006294250488,
+          0.5999999046325684
+        ],
+        "max": [
+          3.453106641769409,
+          1.5375007390975952,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          3.4601049423217773,
+          -1.0900001525878906,
+          0.5999999046325684
+        ],
+        "max": [
+          3.6304280757904053,
+          1.5375009775161743,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          3.637427806854248,
+          -1.0900005102157593,
+          0.5999999046325684
+        ],
+        "max": [
+          3.8077495098114014,
+          1.5375008583068848,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          3.8147473335266113,
+          -1.0900005102157593,
+          0.5999999046325684
+        ],
+        "max": [
+          3.9850714206695557,
+          1.5375007390975952,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          3.9920706748962402,
+          -1.0900002717971802,
+          0.5999999046325684
+        ],
+        "max": [
+          4.1623921394348145,
+          1.5375010967254639,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          4.169390678405762,
+          -1.0900005102157593,
+          0.5999999046325684
+        ],
+        "max": [
+          4.339713096618652,
+          1.5375010967254639,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          4.346712589263916,
+          -1.0900005102157593,
+          0.5999999046325684
+        ],
+        "max": [
+          4.517034530639648,
+          1.5375008583068848,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          4.524033546447754,
+          -1.0900001525878906,
+          0.5999999046325684
+        ],
+        "max": [
+          4.6943559646606445,
+          1.5375010967254639,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          4.701355934143066,
+          -1.0900003910064697,
+          0.5999999046325684
+        ],
+        "max": [
+          4.871677398681641,
+          1.5375010967254639,
+          0.6449999809265137
+        ]
+      },
+      {
+        "min": [
+          4.8786773681640625,
+          -1.0900005102157593,
+          0.5999999046325684
+        ],
+        "max": [
+          5.048999309539795,
+          1.5375008583068848,
+          0.6449999809265137
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.room ondol raised clay",
+    "parts": [
+      {
+        "min": [
+          -7.507503032684326,
+          -1.0450007915496826,
+          0.2200000286102295
+        ],
+        "max": [
+          -5.162500381469727,
+          1.213134527206421,
+          0.5999999046325684
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.room warm paper floor",
+    "parts": [
+      {
+        "min": [
+          -7.497503280639648,
+          -1.0350003242492676,
+          0.5985000133514404
+        ],
+        "max": [
+          -5.172501087188721,
+          1.205365777015686,
+          0.6335000991821289
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.interior partition",
+    "parts": [
+      {
+        "min": [
+          -7.652502059936523,
+          -1.209999918937683,
+          0.619999885559082
+        ],
+        "max": [
+          -7.562500476837158,
+          1.526710867881775,
+          2.7860002517700195
+        ]
+      },
+      {
+        "min": [
+          -5.1075005531311035,
+          -1.209999680519104,
+          0.619999885559082
+        ],
+        "max": [
+          -5.017501354217529,
+          1.5267112255096436,
+          2.7860002517700195
+        ]
+      },
+      {
+        "min": [
+          7.5524983406066895,
+          -1.209999442100525,
+          0.619999885559082
+        ],
+        "max": [
+          7.6424994468688965,
+          2.2400004863739014,
+          2.7860002517700195
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.end bay plaster",
+    "parts": [
+      {
+        "min": [
+          -8.947501182556152,
+          -1.1325006484985352,
+          0.619999885559082
+        ],
+        "max": [
+          -7.707501411437988,
+          -1.0425000190734863,
+          2.7899999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.end bay plaster.jamb",
+    "parts": [
+      {
+        "min": [
+          -8.8100004196167,
+          -1.1825003623962402,
+          2.0
+        ],
+        "max": [
+          -8.72499942779541,
+          -0.9924998879432678,
+          2.6399998664855957
+        ]
+      },
+      {
+        "min": [
+          -7.929999828338623,
+          -1.1825000047683716,
+          2.0
+        ],
+        "max": [
+          -7.84499979019165,
+          -0.9924994707107544,
+          2.6399998664855957
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.end bay plaster.head/sill",
+    "parts": [
+      {
+        "min": [
+          -8.82750129699707,
+          -1.1825003623962402,
+          2.009999990463257
+        ],
+        "max": [
+          -7.827500343322754,
+          -0.9924994111061096,
+          2.0899999141693115
+        ]
+      },
+      {
+        "min": [
+          -8.82750129699707,
+          -1.1825003623962402,
+          2.5500001907348633
+        ],
+        "max": [
+          -7.827500343322754,
+          -0.9924994111061096,
+          2.630000114440918
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.end bay rear",
+    "parts": [
+      {
+        "min": [
+          -8.97500228881836,
+          1.5025378465652466,
+          0.619999885559082
+        ],
+        "max": [
+          -7.679999828338623,
+          1.5824999809265137,
+          2.7899999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.kitchen front",
+    "parts": [
+      {
+        "min": [
+          -7.50750207901001,
+          -2.3075010776519775,
+          0.2799999713897705
+        ],
+        "max": [
+          -5.16249942779541,
+          -2.2174997329711914,
+          2.7899999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.kitchen front.jamb",
+    "parts": [
+      {
+        "min": [
+          -6.9375,
+          -2.3575007915496826,
+          0.2999999523162842
+        ],
+        "max": [
+          -6.852500915527344,
+          -2.1674997806549072,
+          2.119999885559082
+        ]
+      },
+      {
+        "min": [
+          -5.817502498626709,
+          -2.3575003147125244,
+          0.2999999523162842
+        ],
+        "max": [
+          -5.732500076293945,
+          -2.1675000190734863,
+          2.119999885559082
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.kitchen front.head/sill",
+    "parts": [
+      {
+        "min": [
+          -6.955001354217529,
+          -2.3575003147125244,
+          0.309999942779541
+        ],
+        "max": [
+          -5.714998722076416,
+          -2.1674997806549072,
+          0.38999998569488525
+        ]
+      },
+      {
+        "min": [
+          -6.955001354217529,
+          -2.3575003147125244,
+          2.0299999713897705
+        ],
+        "max": [
+          -5.714998722076416,
+          -2.1674997806549072,
+          2.109999895095825
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.kitchen high ventilator black void",
+    "parts": [
+      {
+        "min": [
+          -7.148001194000244,
+          -2.3140006065368652,
+          2.0200002193450928
+        ],
+        "max": [
+          -5.522001266479492,
+          -2.283999443054199,
+          2.5799999237060547
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end",
+    "parts": [
+      {
+        "min": [
+          9.0024995803833,
+          -1.0874998569488525,
+          0.619999885559082
+        ],
+        "max": [
+          9.092499732971191,
+          1.5824997425079346,
+          2.7899999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end.jamb",
+    "parts": [
+      {
+        "min": [
+          8.952498435974121,
+          -0.39750027656555176,
+          0.9600000381469727
+        ],
+        "max": [
+          9.142498016357422,
+          -0.31250011920928955,
+          2.490000009536743
+        ]
+      },
+      {
+        "min": [
+          8.952499389648438,
+          0.95250004529953,
+          0.9600000381469727
+        ],
+        "max": [
+          9.142498016357422,
+          1.0375010967254639,
+          2.490000009536743
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end.head/sill",
+    "parts": [
+      {
+        "min": [
+          8.952499389648438,
+          -0.41499990224838257,
+          0.9700000286102295
+        ],
+        "max": [
+          9.142498970031738,
+          1.05500066280365,
+          1.0499999523162842
+        ]
+      },
+      {
+        "min": [
+          8.952499389648438,
+          -0.41499990224838257,
+          2.4000000953674316
+        ],
+        "max": [
+          9.142498970031738,
+          1.05500066280365,
+          2.4800000190734863
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf1.stile",
+    "parts": [
+      {
+        "min": [
+          9.01349925994873,
+          -0.3499996066093445,
+          1.0099999904632568
+        ],
+        "max": [
+          9.081500053405762,
+          -0.3069995045661926,
+          2.440000057220459
+        ]
+      },
+      {
+        "min": [
+          9.01349925994873,
+          0.27200061082839966,
+          1.0099999904632568
+        ],
+        "max": [
+          9.081500053405762,
+          0.3150007128715515,
+          2.440000057220459
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf1.rail",
+    "parts": [
+      {
+        "min": [
+          9.01349925994873,
+          -0.3069996237754822,
+          1.0099999904632568
+        ],
+        "max": [
+          9.081500053405762,
+          0.27200067043304443,
+          1.0529999732971191
+        ]
+      },
+      {
+        "min": [
+          9.01349925994873,
+          -0.3069996237754822,
+          2.3970000743865967
+        ],
+        "max": [
+          9.081500053405762,
+          0.27200067043304443,
+          2.440000057220459
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf1.recessed lower board",
+    "parts": [
+      {
+        "min": [
+          9.025999069213867,
+          -0.3069995641708374,
+          1.0469999313354492
+        ],
+        "max": [
+          9.05099868774414,
+          0.2720010280609131,
+          1.1731998920440674
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf1.lower moulding.stile",
+    "parts": [
+      {
+        "min": [
+          9.05949878692627,
+          -0.2979992628097534,
+          1.062000036239624
+        ],
+        "max": [
+          9.077500343322754,
+          -0.28599813580513,
+          1.202199935913086
+        ]
+      },
+      {
+        "min": [
+          9.059499740600586,
+          0.25100088119506836,
+          1.062000036239624
+        ],
+        "max": [
+          9.077500343322754,
+          0.26300108432769775,
+          1.202199935913086
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf1.lower moulding.rail",
+    "parts": [
+      {
+        "min": [
+          9.059499740600586,
+          -0.28599852323532104,
+          1.062000036239624
+        ],
+        "max": [
+          9.077499389648438,
+          0.2510012984275818,
+          1.0739998817443848
+        ]
+      },
+      {
+        "min": [
+          9.059499740600586,
+          -0.28599852323532104,
+          1.1902000904083252
+        ],
+        "max": [
+          9.077499389648438,
+          0.2510012984275818,
+          1.202199935913086
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf1.lock rail",
+    "parts": [
+      {
+        "min": [
+          9.014498710632324,
+          -0.3374987244606018,
+          1.1902000904083252
+        ],
+        "max": [
+          9.080498695373535,
+          0.30250173807144165,
+          1.2302000522613525
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf1.hanji backing",
+    "parts": [
+      {
+        "min": [
+          9.02149772644043,
+          -0.2999989092350006,
+          1.2302000522613525
+        ],
+        "max": [
+          9.027499198913574,
+          0.2650015354156494,
+          2.38700008392334
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf1.rebated bead.stile",
+    "parts": [
+      {
+        "min": [
+          9.056998252868652,
+          -0.3079996109008789,
+          1.2242000102996826
+        ],
+        "max": [
+          9.081998825073242,
+          -0.2959984540939331,
+          2.4019999504089355
+        ]
+      },
+      {
+        "min": [
+          9.056999206542969,
+          0.26100122928619385,
+          1.2242000102996826
+        ],
+        "max": [
+          9.081998825073242,
+          0.27300137281417847,
+          2.4019999504089355
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf1.rebated bead.rail",
+    "parts": [
+      {
+        "min": [
+          9.056998252868652,
+          -0.29599887132644653,
+          1.2242000102996826
+        ],
+        "max": [
+          9.081998825073242,
+          0.2610015273094177,
+          1.2362000942230225
+        ]
+      },
+      {
+        "min": [
+          9.056998252868652,
+          -0.29599887132644653,
+          2.390000104904175
+        ],
+        "max": [
+          9.081998825073242,
+          0.2610015273094177,
+          2.4019999504089355
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf1.vertical sal",
+    "parts": [
+      {
+        "min": [
+          9.052998542785645,
+          -0.2620384097099304,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          -0.25103822350502014,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052999496459961,
+          -0.2185753881931305,
+          1.2302000522613525
+        ],
+        "max": [
+          9.07800006866455,
+          -0.20757544040679932,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052999496459961,
+          -0.1751139760017395,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          -0.16411399841308594,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052998542785645,
+          -0.1316540539264679,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          -0.12065252661705017,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052998542785645,
+          -0.08819103240966797,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          -0.07719102501869202,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052998542785645,
+          -0.044729530811309814,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          -0.03372958302497864,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052999496459961,
+          -0.0012696385383605957,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.009731829166412354,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052998542785645,
+          0.04219341278076172,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.05319327116012573,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052998542785645,
+          0.08565479516983032,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.09665483236312866,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052999496459961,
+          0.1291162371635437,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.14011627435684204,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052998542785645,
+          0.17257779836654663,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.18357831239700317,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052999496459961,
+          0.21603924036026,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.2270391583442688,
+          2.38700008392334
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf1.horizontal band",
+    "parts": [
+      {
+        "min": [
+          9.071499824523926,
+          -0.2999986410140991,
+          1.2575902938842773
+        ],
+        "max": [
+          9.089499473571777,
+          0.26500165462493896,
+          1.2675902843475342
+        ]
+      },
+      {
+        "min": [
+          9.071499824523926,
+          -0.2999986410140991,
+          1.2980782985687256
+        ],
+        "max": [
+          9.089499473571777,
+          0.26500165462493896,
+          1.3080782890319824
+        ]
+      },
+      {
+        "min": [
+          9.071499824523926,
+          -0.2999986410140991,
+          1.3385663032531738
+        ],
+        "max": [
+          9.089499473571777,
+          0.26500165462493896,
+          1.3485662937164307
+        ]
+      },
+      {
+        "min": [
+          9.071499824523926,
+          -0.2999986410140991,
+          1.6647839546203613
+        ],
+        "max": [
+          9.089499473571777,
+          0.26500165462493896,
+          1.6747839450836182
+        ]
+      },
+      {
+        "min": [
+          9.071499824523926,
+          -0.2999986410140991,
+          1.7052719593048096
+        ],
+        "max": [
+          9.089499473571777,
+          0.26500165462493896,
+          1.7152719497680664
+        ]
+      },
+      {
+        "min": [
+          9.071499824523926,
+          -0.2999986410140991,
+          1.7457599639892578
+        ],
+        "max": [
+          9.089499473571777,
+          0.26500165462493896,
+          1.7557599544525146
+        ]
+      },
+      {
+        "min": [
+          9.071499824523926,
+          -0.2999986410140991,
+          1.786247968673706
+        ],
+        "max": [
+          9.089499473571777,
+          0.26500165462493896,
+          1.796247959136963
+        ]
+      },
+      {
+        "min": [
+          9.071499824523926,
+          -0.2999986410140991,
+          1.8267359733581543
+        ],
+        "max": [
+          9.089499473571777,
+          0.26500165462493896,
+          1.8367359638214111
+        ]
+      },
+      {
+        "min": [
+          9.071499824523926,
+          -0.2999986410140991,
+          2.2374000549316406
+        ],
+        "max": [
+          9.089499473571777,
+          0.26500165462493896,
+          2.2474000453948975
+        ]
+      },
+      {
+        "min": [
+          9.071499824523926,
+          -0.2999986410140991,
+          2.277888059616089
+        ],
+        "max": [
+          9.089499473571777,
+          0.26500165462493896,
+          2.2878880500793457
+        ]
+      },
+      {
+        "min": [
+          9.071499824523926,
+          -0.2999986410140991,
+          2.318376064300537
+        ],
+        "max": [
+          9.089499473571777,
+          0.26500165462493896,
+          2.328376054763794
+        ]
+      },
+      {
+        "min": [
+          9.071499824523926,
+          -0.2999986410140991,
+          2.3588640689849854
+        ],
+        "max": [
+          9.089499473571777,
+          0.26500165462493896,
+          2.368864059448242
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf1.rear paper rail",
+    "parts": [
+      {
+        "min": [
+          9.005497932434082,
+          -0.2999987006187439,
+          1.3408799171447754
+        ],
+        "max": [
+          9.023499488830566,
+          0.26500165462493896,
+          1.3508799076080322
+        ]
+      },
+      {
+        "min": [
+          9.005497932434082,
+          -0.2999987006187439,
+          1.7457599639892578
+        ],
+        "max": [
+          9.023499488830566,
+          0.26500165462493896,
+          1.7557599544525146
+        ]
+      },
+      {
+        "min": [
+          9.005497932434082,
+          -0.2999987006187439,
+          2.277888059616089
+        ],
+        "max": [
+          9.023499488830566,
+          0.26500165462493896,
+          2.2878880500793457
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf2.stile",
+    "parts": [
+      {
+        "min": [
+          9.01349925994873,
+          0.32500094175338745,
+          1.0099999904632568
+        ],
+        "max": [
+          9.081499099731445,
+          0.3680001497268677,
+          2.440000057220459
+        ]
+      },
+      {
+        "min": [
+          9.01349925994873,
+          0.9470002055168152,
+          1.0099999904632568
+        ],
+        "max": [
+          9.081499099731445,
+          0.9900013208389282,
+          2.440000057220459
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf2.rail",
+    "parts": [
+      {
+        "min": [
+          9.01349925994873,
+          0.3680000305175781,
+          1.0099999904632568
+        ],
+        "max": [
+          9.081499099731445,
+          0.9470003843307495,
+          1.0529999732971191
+        ]
+      },
+      {
+        "min": [
+          9.01349925994873,
+          0.3680000305175781,
+          2.3970000743865967
+        ],
+        "max": [
+          9.081499099731445,
+          0.9470003843307495,
+          2.440000057220459
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf2.recessed lower board",
+    "parts": [
+      {
+        "min": [
+          9.025999069213867,
+          0.3680000901222229,
+          1.0469999313354492
+        ],
+        "max": [
+          9.05099868774414,
+          0.9470006227493286,
+          1.1731998920440674
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf2.lower moulding.stile",
+    "parts": [
+      {
+        "min": [
+          9.05949878692627,
+          0.3770003914833069,
+          1.062000036239624
+        ],
+        "max": [
+          9.077499389648438,
+          0.3890005946159363,
+          1.202199935913086
+        ]
+      },
+      {
+        "min": [
+          9.05949878692627,
+          0.9260005950927734,
+          1.062000036239624
+        ],
+        "max": [
+          9.077499389648438,
+          0.9380017518997192,
+          1.202199935913086
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf2.lower moulding.rail",
+    "parts": [
+      {
+        "min": [
+          9.05949878692627,
+          0.3890002369880676,
+          1.062000036239624
+        ],
+        "max": [
+          9.077499389648438,
+          0.9260009527206421,
+          1.0739998817443848
+        ]
+      },
+      {
+        "min": [
+          9.05949878692627,
+          0.3890002369880676,
+          1.1902000904083252
+        ],
+        "max": [
+          9.077499389648438,
+          0.9260009527206421,
+          1.202199935913086
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf2.lock rail",
+    "parts": [
+      {
+        "min": [
+          9.014497756958008,
+          0.3375009298324585,
+          1.1902000904083252
+        ],
+        "max": [
+          9.080498695373535,
+          0.9775004386901855,
+          1.2302000522613525
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf2.hanji backing",
+    "parts": [
+      {
+        "min": [
+          9.021498680114746,
+          0.3749998211860657,
+          1.2302000522613525
+        ],
+        "max": [
+          9.027499198913574,
+          0.9400011301040649,
+          2.38700008392334
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf2.rebated bead.stile",
+    "parts": [
+      {
+        "min": [
+          9.056999206542969,
+          0.367000937461853,
+          1.2242000102996826
+        ],
+        "max": [
+          9.081998825073242,
+          0.3790011405944824,
+          2.4019999504089355
+        ]
+      },
+      {
+        "min": [
+          9.056998252868652,
+          0.935999870300293,
+          1.2242000102996826
+        ],
+        "max": [
+          9.081998825073242,
+          0.9480010271072388,
+          2.4019999504089355
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf2.rebated bead.rail",
+    "parts": [
+      {
+        "min": [
+          9.056998252868652,
+          0.37900078296661377,
+          1.2242000102996826
+        ],
+        "max": [
+          9.081998825073242,
+          0.9360002875328064,
+          1.2362000942230225
+        ]
+      },
+      {
+        "min": [
+          9.056998252868652,
+          0.37900078296661377,
+          2.390000104904175
+        ],
+        "max": [
+          9.081998825073242,
+          0.9360002875328064,
+          2.4019999504089355
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf2.vertical sal",
+    "parts": [
+      {
+        "min": [
+          9.052998542785645,
+          0.4129621982574463,
+          1.2302000522613525
+        ],
+        "max": [
+          9.07800006866455,
+          0.42396241426467896,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052999496459961,
+          0.45642364025115967,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077998161315918,
+          0.46742385625839233,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052998542785645,
+          0.49988478422164917,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.510886549949646,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052999496459961,
+          0.5433465242385864,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.5543467402458191,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052998542785645,
+          0.5868080258369446,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.5978081822395325,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052999496459961,
+          0.6302710175514221,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.6412709355354309,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052998542785645,
+          0.6737309098243713,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.6847324371337891,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052998542785645,
+          0.7171924710273743,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.7281926274299622,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052999496459961,
+          0.7606554627418518,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.7716553807258606,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052998542785645,
+          0.804115355014801,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.815116822719574,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052999496459961,
+          0.8475767970085144,
+          1.2302000522613525
+        ],
+        "max": [
+          9.077999114990234,
+          0.8585770130157471,
+          2.38700008392334
+        ]
+      },
+      {
+        "min": [
+          9.052998542785645,
+          0.8910398483276367,
+          1.2302000522613525
+        ],
+        "max": [
+          9.07800006866455,
+          0.9020398259162903,
+          2.38700008392334
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf2.horizontal band",
+    "parts": [
+      {
+        "min": [
+          9.07149887084961,
+          0.3750000596046448,
+          1.2575902938842773
+        ],
+        "max": [
+          9.089499473571777,
+          0.940001368522644,
+          1.2675902843475342
+        ]
+      },
+      {
+        "min": [
+          9.07149887084961,
+          0.3750000596046448,
+          1.2980782985687256
+        ],
+        "max": [
+          9.089499473571777,
+          0.940001368522644,
+          1.3080782890319824
+        ]
+      },
+      {
+        "min": [
+          9.07149887084961,
+          0.3750000596046448,
+          1.3385663032531738
+        ],
+        "max": [
+          9.089499473571777,
+          0.940001368522644,
+          1.3485662937164307
+        ]
+      },
+      {
+        "min": [
+          9.07149887084961,
+          0.3750000596046448,
+          1.6647839546203613
+        ],
+        "max": [
+          9.089499473571777,
+          0.940001368522644,
+          1.6747839450836182
+        ]
+      },
+      {
+        "min": [
+          9.07149887084961,
+          0.3750000596046448,
+          1.7052719593048096
+        ],
+        "max": [
+          9.089499473571777,
+          0.940001368522644,
+          1.7152719497680664
+        ]
+      },
+      {
+        "min": [
+          9.07149887084961,
+          0.3750000596046448,
+          1.7457599639892578
+        ],
+        "max": [
+          9.089499473571777,
+          0.940001368522644,
+          1.7557599544525146
+        ]
+      },
+      {
+        "min": [
+          9.07149887084961,
+          0.3750000596046448,
+          1.786247968673706
+        ],
+        "max": [
+          9.089499473571777,
+          0.940001368522644,
+          1.796247959136963
+        ]
+      },
+      {
+        "min": [
+          9.07149887084961,
+          0.3750000596046448,
+          1.8267359733581543
+        ],
+        "max": [
+          9.089499473571777,
+          0.940001368522644,
+          1.8367359638214111
+        ]
+      },
+      {
+        "min": [
+          9.07149887084961,
+          0.3750000596046448,
+          2.2374000549316406
+        ],
+        "max": [
+          9.089499473571777,
+          0.940001368522644,
+          2.2474000453948975
+        ]
+      },
+      {
+        "min": [
+          9.07149887084961,
+          0.3750000596046448,
+          2.277888059616089
+        ],
+        "max": [
+          9.089499473571777,
+          0.940001368522644,
+          2.2878880500793457
+        ]
+      },
+      {
+        "min": [
+          9.07149887084961,
+          0.3750000596046448,
+          2.318376064300537
+        ],
+        "max": [
+          9.089499473571777,
+          0.940001368522644,
+          2.328376054763794
+        ]
+      },
+      {
+        "min": [
+          9.07149887084961,
+          0.3750000596046448,
+          2.3588640689849854
+        ],
+        "max": [
+          9.089499473571777,
+          0.940001368522644,
+          2.368864059448242
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.right room end lattice.leaf2.rear paper rail",
+    "parts": [
+      {
+        "min": [
+          9.005498886108398,
+          0.375,
+          1.3408799171447754
+        ],
+        "max": [
+          9.023499488830566,
+          0.940001368522644,
+          1.3508799076080322
+        ]
+      },
+      {
+        "min": [
+          9.005498886108398,
+          0.375,
+          1.7457599639892578
+        ],
+        "max": [
+          9.023499488830566,
+          0.940001368522644,
+          1.7557599544525146
+        ]
+      },
+      {
+        "min": [
+          9.005498886108398,
+          0.375,
+          2.277888059616089
+        ],
+        "max": [
+          9.023499488830566,
+          0.940001368522644,
+          2.2878880500793457
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.hall room 1.room ondol raised clay",
+    "parts": [
+      {
+        "min": [
+          -5.0175018310546875,
+          -1.0424997806549072,
+          0.2200000286102295
+        ],
+        "max": [
+          0.042498067021369934,
+          1.4925001859664917,
+          0.5999999046325684
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.hall room 2.room ondol raised clay",
+    "parts": [
+      {
+        "min": [
+          5.097499370574951,
+          -1.0425010919570923,
+          0.2200000286102295
+        ],
+        "max": [
+          7.552499771118164,
+          2.217499256134033,
+          0.5999999046325684
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.hall room 1.room warm paper floor",
+    "parts": [
+      {
+        "min": [
+          -5.0175018310546875,
+          -1.0424997806549072,
+          0.5985000133514404
+        ],
+        "max": [
+          0.042498067021369934,
+          1.4925001859664917,
+          0.6335000991821289
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.hall room 2.room warm paper floor",
+    "parts": [
+      {
+        "min": [
+          5.097499370574951,
+          -1.0425010919570923,
+          0.5985000133514404
+        ],
+        "max": [
+          7.552499771118164,
+          2.217499256134033,
+          0.6335000991821289
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.open corner.room front plaster",
+    "parts": [
+      {
+        "min": [
+          7.677498817443848,
+          -1.1325007677078247,
+          0.619999885559082
+        ],
+        "max": [
+          8.967500686645508,
+          -1.0425002574920654,
+          3.0399999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.open corner.room front head",
+    "parts": [
+      {
+        "min": [
+          7.587499141693115,
+          -1.1550008058547974,
+          2.9000000953674316
+        ],
+        "max": [
+          9.057499885559082,
+          -1.0199992656707764,
+          3.0799999237060547
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.open corner.room rear plaster",
+    "parts": [
+      {
+        "min": [
+          7.677499294281006,
+          1.4924991130828857,
+          0.619999885559082
+        ],
+        "max": [
+          8.967499732971191,
+          1.5824997425079346,
+          3.0399999618530273
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.open corner.room floor",
+    "parts": [
+      {
+        "min": [
+          7.662499904632568,
+          -1.0425009727478027,
+          0.5985000133514404
+        ],
+        "max": [
+          8.982501029968262,
+          1.4924997091293335,
+          0.6335000991821289
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.open corner.room ceiling",
+    "parts": [
+      {
+        "min": [
+          7.677498817443848,
+          -1.0875003337860107,
+          3.0275001525878906
+        ],
+        "max": [
+          8.967500686645508,
+          1.5375001430511475,
+          3.072500228881836
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.open corner.solid sitting floor",
+    "parts": [
+      {
+        "min": [
+          7.63100004196167,
+          -2.232499599456787,
+          0.5975000858306885
+        ],
+        "max": [
+          7.797751426696777,
+          -1.1275001764297485,
+          0.6424999237060547
+        ]
+      },
+      {
+        "min": [
+          7.804749965667725,
+          -2.232499361038208,
+          0.5975000858306885
+        ],
+        "max": [
+          7.971500873565674,
+          -1.127500057220459,
+          0.6424999237060547
+        ]
+      },
+      {
+        "min": [
+          7.978500843048096,
+          -2.232499599456787,
+          0.5975000858306885
+        ],
+        "max": [
+          8.145251274108887,
+          -1.127500057220459,
+          0.6424999237060547
+        ]
+      },
+      {
+        "min": [
+          8.152249336242676,
+          -2.232499837875366,
+          0.5975000858306885
+        ],
+        "max": [
+          8.319001197814941,
+          -1.127500295639038,
+          0.6424999237060547
+        ]
+      },
+      {
+        "min": [
+          8.32599925994873,
+          -2.232499599456787,
+          0.5975000858306885
+        ],
+        "max": [
+          8.492751121520996,
+          -1.1275001764297485,
+          0.6424999237060547
+        ]
+      },
+      {
+        "min": [
+          8.499749183654785,
+          -2.232499361038208,
+          0.5975000858306885
+        ],
+        "max": [
+          8.66650104522705,
+          -1.1274998188018799,
+          0.6424999237060547
+        ]
+      },
+      {
+        "min": [
+          8.67349910736084,
+          -2.232499599456787,
+          0.5975000858306885
+        ],
+        "max": [
+          8.840250015258789,
+          -1.127500057220459,
+          0.6424999237060547
+        ]
+      },
+      {
+        "min": [
+          8.847249984741211,
+          -2.232499837875366,
+          0.5975000858306885
+        ],
+        "max": [
+          9.01400089263916,
+          -1.1275004148483276,
+          0.6424999237060547
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.open corner.side floor binding",
+    "parts": [
+      {
+        "min": [
+          8.979999542236328,
+          -2.262500762939453,
+          0.3799999952316284
+        ],
+        "max": [
+          9.114999771118164,
+          -1.0875002145767212,
+          0.619999885559082
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.open corner.rear floor binding",
+    "parts": [
+      {
+        "min": [
+          7.597499370574951,
+          -1.1550005674362183,
+          0.3799999952316284
+        ],
+        "max": [
+          9.047499656677246,
+          -1.0199995040893555,
+          0.619999885559082
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.kitchen high ventilator.stile",
+    "parts": [
+      {
+        "min": [
+          -7.148000240325928,
+          -2.369999647140503,
+          2.0200002193450928
+        ],
+        "max": [
+          -7.0960001945495605,
+          -2.330000162124634,
+          2.5799999237060547
+        ]
+      },
+      {
+        "min": [
+          -5.574000835418701,
+          -2.369999408721924,
+          2.0200002193450928
+        ],
+        "max": [
+          -5.521999359130859,
+          -2.330000162124634,
+          2.5799999237060547
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.kitchen high ventilator.rail",
+    "parts": [
+      {
+        "min": [
+          -7.096001148223877,
+          -2.369999408721924,
+          2.0200002193450928
+        ],
+        "max": [
+          -5.573999404907227,
+          -2.330000162124634,
+          2.07200026512146
+        ]
+      },
+      {
+        "min": [
+          -7.096001148223877,
+          -2.369999408721924,
+          2.5279998779296875
+        ],
+        "max": [
+          -5.573999404907227,
+          -2.330000162124634,
+          2.5799999237060547
+        ]
+      }
+    ]
+  },
+  {
+    "name": "North.anchae.kitchen high ventilator diamond sal",
+    "parts": [
+      {
+        "min": [
+          -7.09882926940918,
+          -2.3625006675720215,
+          2.069171905517578
+        ],
+        "max": [
+          -6.985172271728516,
+          -2.3374996185302734,
+          2.182828664779663
+        ]
+      },
+      {
+        "min": [
+          -7.09882926940918,
+          -2.3625006675720215,
+          2.069171905517578
+        ],
+        "max": [
+          -6.877171039581299,
+          -2.3374998569488525,
+          2.2908287048339844
+        ]
+      },
+      {
+        "min": [
+          -7.09882926940918,
+          -2.3625006675720215,
+          2.069171905517578
+        ],
+        "max": [
+          -6.76917028427124,
+          -2.3374998569488525,
+          2.3988287448883057
+        ]
+      },
+      {
+        "min": [
+          -7.09882926940918,
+          -2.3625006675720215,
+          2.069171905517578
+        ],
+        "max": [
+          -6.6611714363098145,
+          -2.3374998569488525,
+          2.5068283081054688
+        ]
+      },
+      {
+        "min": [
+          -7.014829158782959,
+          -2.362499952316284,
+          2.069171905517578
+        ],
+        "max": [
+          -6.553171157836914,
+          -2.3374998569488525,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.9068284034729,
+          -2.3625001907348633,
+          2.069171905517578
+        ],
+        "max": [
+          -6.445170879364014,
+          -2.3374998569488525,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.798829078674316,
+          -2.3625001907348633,
+          2.069171905517578
+        ],
+        "max": [
+          -6.33717155456543,
+          -2.3374998569488525,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.690829753875732,
+          -2.362499952316284,
+          2.069171905517578
+        ],
+        "max": [
+          -6.2291717529296875,
+          -2.3375000953674316,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.582828998565674,
+          -2.3625001907348633,
+          2.069171905517578
+        ],
+        "max": [
+          -6.121170520782471,
+          -2.3374996185302734,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.474829196929932,
+          -2.3625001907348633,
+          2.069171905517578
+        ],
+        "max": [
+          -6.013171195983887,
+          -2.3374998569488525,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.366828441619873,
+          -2.3625001907348633,
+          2.069171905517578
+        ],
+        "max": [
+          -5.905171871185303,
+          -2.3375000953674316,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.258829116821289,
+          -2.3625004291534424,
+          2.069171905517578
+        ],
+        "max": [
+          -5.797170639038086,
+          -2.3374996185302734,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.150827884674072,
+          -2.3625006675720215,
+          2.069171905517578
+        ],
+        "max": [
+          -5.689171314239502,
+          -2.3374996185302734,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.0428290367126465,
+          -2.3625004291534424,
+          2.069171905517578
+        ],
+        "max": [
+          -5.581172466278076,
+          -2.3374996185302734,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -5.9348297119140625,
+          -2.3625004291534424,
+          2.1671717166900635
+        ],
+        "max": [
+          -5.57117223739624,
+          -2.3374996185302734,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -5.826828479766846,
+          -2.3625004291534424,
+          2.2751717567443848
+        ],
+        "max": [
+          -5.57117223739624,
+          -2.3374996185302734,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -5.7188286781311035,
+          -2.3625004291534424,
+          2.383171796798706
+        ],
+        "max": [
+          -5.57117223739624,
+          -2.3374996185302734,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -5.6108293533325195,
+          -2.3625004291534424,
+          2.4911718368530273
+        ],
+        "max": [
+          -5.57117223739624,
+          -2.3374996185302734,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -5.684829235076904,
+          -2.3625004291534424,
+          2.069171905517578
+        ],
+        "max": [
+          -5.57117223739624,
+          -2.3374996185302734,
+          2.182828664779663
+        ]
+      },
+      {
+        "min": [
+          -5.792829990386963,
+          -2.3625004291534424,
+          2.069171905517578
+        ],
+        "max": [
+          -5.57117223739624,
+          -2.3374996185302734,
+          2.2908287048339844
+        ]
+      },
+      {
+        "min": [
+          -5.900829315185547,
+          -2.3625004291534424,
+          2.069171905517578
+        ],
+        "max": [
+          -5.57117223739624,
+          -2.3374996185302734,
+          2.3988287448883057
+        ]
+      },
+      {
+        "min": [
+          -6.008828639984131,
+          -2.3625004291534424,
+          2.069171905517578
+        ],
+        "max": [
+          -5.57117223739624,
+          -2.3374996185302734,
+          2.5068283081054688
+        ]
+      },
+      {
+        "min": [
+          -6.1168293952941895,
+          -2.3625001907348633,
+          2.069171905517578
+        ],
+        "max": [
+          -5.6551713943481445,
+          -2.3374998569488525,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.224828720092773,
+          -2.3625001907348633,
+          2.069171905517578
+        ],
+        "max": [
+          -5.763171672821045,
+          -2.3374996185302734,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.332828521728516,
+          -2.3625001907348633,
+          2.069171905517578
+        ],
+        "max": [
+          -5.871170997619629,
+          -2.3375000953674316,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.440830230712891,
+          -2.3625001907348633,
+          2.069171905517578
+        ],
+        "max": [
+          -5.979171276092529,
+          -2.3374998569488525,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.548829078674316,
+          -2.3625001907348633,
+          2.069171905517578
+        ],
+        "max": [
+          -6.087172508239746,
+          -2.3374998569488525,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.6568284034729,
+          -2.362499952316284,
+          2.069171905517578
+        ],
+        "max": [
+          -6.1951704025268555,
+          -2.3374998569488525,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.764829635620117,
+          -2.3625001907348633,
+          2.069171905517578
+        ],
+        "max": [
+          -6.303170680999756,
+          -2.3374996185302734,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.872828960418701,
+          -2.3625004291534424,
+          2.069171905517578
+        ],
+        "max": [
+          -6.411171913146973,
+          -2.3374998569488525,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -6.980828285217285,
+          -2.3625004291534424,
+          2.069171905517578
+        ],
+        "max": [
+          -6.519171714782715,
+          -2.3374996185302734,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -7.088829517364502,
+          -2.3625004291534424,
+          2.069171905517578
+        ],
+        "max": [
+          -6.627170562744141,
+          -2.3374996185302734,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -7.09882926940918,
+          -2.3625006675720215,
+          2.1671717166900635
+        ],
+        "max": [
+          -6.735172271728516,
+          -2.3374998569488525,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -7.09882926940918,
+          -2.3625006675720215,
+          2.2751717567443848
+        ],
+        "max": [
+          -6.8431715965271,
+          -2.3374996185302734,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -7.09882926940918,
+          -2.3625006675720215,
+          2.383171796798706
+        ],
+        "max": [
+          -6.951170921325684,
+          -2.3374998569488525,
+          2.5308284759521484
+        ]
+      },
+      {
+        "min": [
+          -7.09882926940918,
+          -2.3625006675720215,
+          2.4911718368530273
+        ],
+        "max": [
+          -7.059171676635742,
+          -2.3374998569488525,
+          2.5308284759521484
+        ]
+      }
+    ]
+  }
+]

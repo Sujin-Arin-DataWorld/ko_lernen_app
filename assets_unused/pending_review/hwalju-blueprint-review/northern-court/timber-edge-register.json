@@ -1,0 +1,2038 @@
+{
+  "api": {
+    "edge_weight": "bevel_weight_edge",
+    "vertex_weight": "bevel_weight_vert"
+  },
+  "members": {
+    "sarang": [
+      {
+        "object": "Sarang.main front post.capital",
+        "vertices": 40,
+        "faces": 30,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          10.914999961853027,
+          0.36000001430511475,
+          0.15999984741210938
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.main front post.capital tongue",
+        "vertices": 80,
+        "faces": 60,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          11.02500057220459,
+          0.2800000011920929,
+          0.2200000286102295
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.room front post.wood",
+        "vertices": 40,
+        "faces": 30,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          10.782999992370605,
+          0.2080000638961792,
+          2.0300002098083496
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.room front post.capital",
+        "vertices": 40,
+        "faces": 30,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          10.914999961853027,
+          0.36000001430511475,
+          0.15999984741210938
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.room front post.capital tongue",
+        "vertices": 80,
+        "faces": 60,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          11.02500057220459,
+          0.2799999713897705,
+          0.2199997901916504
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.rear post.wood",
+        "vertices": 40,
+        "faces": 30,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          10.782999992370605,
+          1.4279999732971191,
+          2.7100000381469727
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.rear post.capital",
+        "vertices": 40,
+        "faces": 30,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          10.914999961853027,
+          1.5800001621246338,
+          0.15999984741210938
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.rear post.capital tongue",
+        "vertices": 80,
+        "faces": 60,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          11.02500057220459,
+          1.499999761581421,
+          0.2199997901916504
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.wing post.wood",
+        "vertices": 96,
+        "faces": 60,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.9149370193481445,
+          6.243968486785889,
+          3.370000123977661
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.wing post.capital",
+        "vertices": 48,
+        "faces": 36,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.994999885559082,
+          6.369999885559082,
+          0.15999984741210938
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.wing post.capital tongue",
+        "vertices": 96,
+        "faces": 72,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          3.1050004959106445,
+          6.289999485015869,
+          0.2199997901916504
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.numaru front measured post.capital",
+        "vertices": 24,
+        "faces": 18,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          4.310000419616699,
+          0.3600001335144043,
+          0.15999984741210938
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.numaru front measured post.capital tongue",
+        "vertices": 48,
+        "faces": 36,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          4.420000076293945,
+          0.2800002098083496,
+          0.2199997901916504
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.main beam",
+        "vertices": 24,
+        "faces": 18,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          14.699999809265137,
+          5.444999694824219,
+          0.24000000953674316
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.wing beam",
+        "vertices": 16,
+        "faces": 12,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          4.210000038146973,
+          9.399999618530273,
+          0.24000000953674316
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.attic king post",
+        "vertices": 80,
+        "faces": 50,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          10.770465850830078,
+          0.1960698366165161,
+          2.010000228881836
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.dark original plaque.board",
+        "vertices": 8,
+        "faces": 6,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          1.7400000095367432,
+          0.0949999988079071,
+          0.5099999904632568
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.light original plaque.board",
+        "vertices": 8,
+        "faces": 6,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          4.850000381469727,
+          0.0949999988079071,
+          0.6600000858306885
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Sarang.main roof.gable centre post",
+        "vertices": 40,
+        "faces": 24,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          13.000600814819336,
+          0.14836478233337402,
+          1.417041301727295
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      },
+      {
+        "object": "Sarang.numaru roof.gable centre post",
+        "vertices": 20,
+        "faces": 12,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.15600013732910156,
+          0.14836502075195312,
+          1.431990146636963
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      },
+      {
+        "object": "Craft.Sarang continuous post 0",
+        "vertices": 680,
+        "faces": 642,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.2622871994972229,
+          0.261430025100708,
+          2.760000228881836
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.0020000000949949026,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Craft.Sarang continuous post 2.595",
+        "vertices": 680,
+        "faces": 642,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.2622873783111572,
+          0.261430025100708,
+          2.760000228881836
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.0020000000949949026,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Craft.Sarang continuous post 5.27",
+        "vertices": 680,
+        "faces": 642,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.26228761672973633,
+          0.261430025100708,
+          2.760000228881836
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.0020000000949949026,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Craft.Sarang continuous post 7.915",
+        "vertices": 680,
+        "faces": 642,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.2622871398925781,
+          0.261430025100708,
+          2.760000228881836
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.0020000000949949026,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Craft.Sarang continuous post 10.575",
+        "vertices": 680,
+        "faces": 642,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.2622871398925781,
+          0.261430025100708,
+          2.760000228881836
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.0020000000949949026,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Craft.Numaru continuous post 10.575",
+        "vertices": 680,
+        "faces": 642,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.2623748779296875,
+          0.26143336296081543,
+          3.380000114440918
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.0020000000949949026,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Craft.Numaru continuous post 12.56",
+        "vertices": 680,
+        "faces": 642,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.26229000091552734,
+          0.26143336296081543,
+          3.380000114440918
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.0020000000949949026,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Craft.Numaru continuous post 14.545",
+        "vertices": 680,
+        "faces": 642,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.26239681243896484,
+          0.26143336296081543,
+          3.380000114440918
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.0020000000949949026,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Craft.Numaru front head beam",
+        "vertices": 8,
+        "faces": 6,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          4.170000076293945,
+          0.23999977111816406,
+          0.2500002384185791
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.0020000000949949026,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Craft.Sarang.main roof.eave beam.thin bedding board",
+        "vertices": 208,
+        "faces": 252,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          17.30500030517578,
+          0.07800006866455078,
+          0.7679996490478516
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      },
+      {
+        "object": "Craft.Sarang.main roof.hip eave beam.thin bedding board",
+        "vertices": 100,
+        "faces": 121,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.07800006866455078,
+          7.965000152587891,
+          0.7679996490478516
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      },
+      {
+        "object": "Craft.Sarang.numaru roof.hip eave beam.thin bedding board",
+        "vertices": 96,
+        "faces": 116,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          6.449583053588867,
+          0.07800006866455078,
+          0.7679996490478516
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      },
+      {
+        "object": "Craft.Sarang roof underside boarding",
+        "vertices": 4788,
+        "faces": 4537,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          17.316221237182617,
+          11.969400405883789,
+          2.5142524242401123
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Board thickness",
+            "type": "SOLIDIFY",
+            "width": null,
+            "segments": null,
+            "limit": null
+          }
+        ]
+      },
+      {
+        "object": "Continuity.numaru corner posts",
+        "vertices": 32,
+        "faces": 24,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.8249998092651367,
+          2.869999885559082,
+          1.9200000762939453
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.003000000026077032,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Projection.Numaru maru return end board",
+        "vertices": 16,
+        "faces": 12,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          4.810000419616699,
+          0.21000003814697266,
+          0.06499993801116943
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.003000000026077032,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "V25.left boarding continuous backing",
+        "vertices": 8,
+        "faces": 6,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.03500000014901161,
+          3.9200000762939453,
+          0.8300000429153442
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.004999999888241291,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "V25.left boarding end post",
+        "vertices": 24,
+        "faces": 18,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.07999999821186066,
+          3.950000047683716,
+          0.8400000333786011
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.004999999888241291,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "V25.wing rear floor beam",
+        "vertices": 8,
+        "faces": 6,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.75,
+          0.23000001907348633,
+          0.19000005722045898
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.004999999888241291,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      }
+    ],
+    "jung": [
+      {
+        "object": "Jung.registered post.wood",
+        "vertices": 112,
+        "faces": 84,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.779599905014038,
+          11.449600219726562,
+          2.2750000953674316
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Jung.registered post.capital",
+        "vertices": 112,
+        "faces": 84,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.930000066757202,
+          11.579999923706055,
+          0.16000008583068848
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Jung.registered post.capital tongue",
+        "vertices": 224,
+        "faces": 168,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.8500001430511475,
+          11.6899995803833,
+          0.2199997901916504
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Jung.longitudinal beam",
+        "vertices": 16,
+        "faces": 12,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.7699999809265137,
+          11.449999809265137,
+          0.21000003814697266
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Jung.cross beam",
+        "vertices": 48,
+        "faces": 36,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          3.2300000190734863,
+          10.4399995803833,
+          0.18999958038330078
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Jung.maru floor beam",
+        "vertices": 24,
+        "faces": 18,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.569999933242798,
+          3.9100000858306885,
+          0.1799999475479126
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.008999999612569809,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Ref.Jung interior ceiling boards",
+        "vertices": 88,
+        "faces": 66,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.302999973297119,
+          3.5,
+          0.034999847412109375
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.006000000052154064,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "Ref.Jung.main roof.eave beam.square fascia",
+        "vertices": 656,
+        "faces": 804,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          4.98799991607666,
+          9.239999771118164,
+          0.26199984550476074
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      },
+      {
+        "object": "V26.Jung.gate end wall boards",
+        "vertices": 96,
+        "faces": 72,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.365999937057495,
+          0.04500007629394531,
+          0.880000114440918
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.001500000013038516,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      }
+    ],
+    "changgo": [
+      {
+        "object": "V28.changgo.roof boarding",
+        "vertices": 8,
+        "faces": 6,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.880000114440918,
+          13.279999732971191,
+          0.03500008583068848
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      },
+      {
+        "object": "V28.changgo.rear boards.003",
+        "vertices": 152,
+        "faces": 114,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.034999847412109375,
+          12.425718307495117,
+          2.1100001335144043
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "V28.changgo.rear boards.002",
+        "vertices": 152,
+        "faces": 114,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.034999847412109375,
+          12.425718307495117,
+          2.1100001335144043
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "V28.changgo.rear boards.001",
+        "vertices": 160,
+        "faces": 120,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.034999847412109375,
+          13.106742858886719,
+          2.1100001335144043
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "V28.changgo.rear boards",
+        "vertices": 160,
+        "faces": 120,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.034999847412109375,
+          13.106743812561035,
+          2.1100001335144043
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "V28.changgo.end boards.003",
+        "vertices": 64,
+        "faces": 48,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.1993532180786133,
+          13.3149995803833,
+          2.1100001335144043
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "V28.changgo.end boards.002",
+        "vertices": 64,
+        "faces": 48,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.1993532180786133,
+          13.3149995803833,
+          2.1100001335144043
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "V28.changgo.end boards.001",
+        "vertices": 64,
+        "faces": 48,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.1993532180786133,
+          13.3149995803833,
+          2.1100001335144043
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "V28.changgo.end boards",
+        "vertices": 80,
+        "faces": 60,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.877000331878662,
+          13.3149995803833,
+          2.1100001335144043
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "PhotoWarehouse.gable king post",
+        "vertices": 8,
+        "faces": 6,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.1099996566772461,
+          0.12999987602233887,
+          1.0400002002716064
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.023000000044703484,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      }
+    ],
+    "ansarang": [
+      {
+        "object": "V28.ansarang.roof frame.king post",
+        "vertices": 32,
+        "faces": 20,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.11999893188476562,
+          5.579999923706055,
+          1.559999704360962
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      },
+      {
+        "object": "Sep29.ansarang.left kitchen.room3 end post",
+        "vertices": 8,
+        "faces": 6,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.20000076293945312,
+          0.19999980926513672,
+          2.6600000858306885
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.0020000000949949026,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      }
+    ],
+    "toilet": [
+      {
+        "object": "V28.toilet.roof.gable centre post",
+        "vertices": 40,
+        "faces": 24,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.9746856689453125,
+          0.5220417976379395,
+          0.5889205932617188
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      },
+      {
+        "object": "V28.toilet.roof frame.purlin",
+        "vertices": 24,
+        "faces": 18,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          1.7373294830322266,
+          1.435655117034912,
+          0.5283000469207764
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      }
+    ],
+    "main_gate": [
+      {
+        "object": "PhotoGate.roof0.eave beam",
+        "vertices": 1136,
+        "faces": 924,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          4.7678961753845215,
+          4.460123062133789,
+          0.2744874954223633
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      },
+      {
+        "object": "PhotoGate.roof1.eave beam",
+        "vertices": 1136,
+        "faces": 924,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          4.76789665222168,
+          4.460123062133789,
+          0.2744874954223633
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      },
+      {
+        "object": "PhotoGate.roof2.eave beam",
+        "vertices": 960,
+        "faces": 772,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          4.18311071395874,
+          4.383205413818359,
+          0.24847078323364258
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      },
+      {
+        "object": "PhotoRepair.main_gate.bearing.king post",
+        "vertices": 16,
+        "faces": 12,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.496762275695801,
+          0.5013999938964844,
+          0.5399999618530273
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.0020000000949949026,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      }
+    ],
+    "arae": [
+      {
+        "object": "North.arae.frame square post",
+        "vertices": 96,
+        "faces": 72,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          7.689999580383301,
+          4.190000534057617,
+          2.1600000858306885
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "North.arae.frame transverse beam",
+        "vertices": 32,
+        "faces": 24,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          7.720000267028809,
+          4.260000228881836,
+          0.25999999046325684
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "North.arae.frame longitudinal beam",
+        "vertices": 48,
+        "faces": 36,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          7.670000076293945,
+          4.180000305175781,
+          2.1449999809265137
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "North.arae.floor individual boards",
+        "vertices": 446,
+        "faces": 336,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          7.500999927520752,
+          4.029998779296875,
+          0.04999995231628418
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "North.arae.roof.eave beam",
+        "vertices": 2000,
+        "faces": 1656,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          8.838452339172363,
+          5.989999771118164,
+          0.4070916175842285
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      }
+    ],
+    "angotgan": [
+      {
+        "object": "North.angotgan.frame square post",
+        "vertices": 80,
+        "faces": 60,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.890000104904175,
+          9.549999237060547,
+          2.549999952316284
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "North.angotgan.frame transverse beam",
+        "vertices": 40,
+        "faces": 30,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.9600000381469727,
+          9.539999008178711,
+          0.23999977111816406
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.004000000189989805,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "North.angotgan.frame longitudinal beam",
+        "vertices": 32,
+        "faces": 24,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.8799991607666016,
+          9.530000686645508,
+          2.625
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.004000000189989805,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "North.angotgan.front plank wall",
+        "vertices": 192,
+        "faces": 144,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          0.029999971389770508,
+          9.167499542236328,
+          1.4099998474121094
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "North.angotgan.rear or closed bay plank wall",
+        "vertices": 536,
+        "faces": 402,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.7299997806549072,
+          9.167499542236328,
+          1.4099998474121094
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "North.angotgan.side plank wall",
+        "vertices": 272,
+        "faces": 204,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.697500228881836,
+          9.389999389648438,
+          1.4099998474121094
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "North.angotgan.roof.eave beam",
+        "vertices": 2384,
+        "faces": 1996,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          5.729999542236328,
+          10.593328475952148,
+          0.40782737731933594
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      }
+    ],
+    "gokgan": [
+      {
+        "object": "North.gokgan.frame square post",
+        "vertices": 96,
+        "faces": 72,
+        "scale": [
+          0.9999999403953552,
+          0.9999999403953552,
+          1.0
+        ],
+        "size": [
+          5.65500020980835,
+          9.944998741149902,
+          2.7900002002716064
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "North.gokgan.frame transverse beam",
+        "vertices": 288,
+        "faces": 156,
+        "scale": [
+          0.9999999403953552,
+          0.9999999403953552,
+          1.0
+        ],
+        "size": [
+          5.719998836517334,
+          10.04999828338623,
+          0.3000001907348633
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "North.gokgan.frame longitudinal beam",
+        "vertices": 32,
+        "faces": 24,
+        "scale": [
+          0.9999999403953552,
+          0.9999999403953552,
+          1.0
+        ],
+        "size": [
+          5.639998912811279,
+          9.919999122619629,
+          3.055000066757202
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.004000000189989805,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "North.gokgan.side centre post",
+        "vertices": 16,
+        "faces": 12,
+        "scale": [
+          0.9999999403953552,
+          0.9999999403953552,
+          1.0
+        ],
+        "size": [
+          0.19499966502189636,
+          9.944998741149902,
+          2.7900002002716064
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.00800000037997961,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      },
+      {
+        "object": "North.gokgan.central door sideboards",
+        "vertices": 16,
+        "faces": 12,
+        "scale": [
+          0.9999999403953552,
+          0.9999999403953552,
+          1.0
+        ],
+        "size": [
+          0.030000682920217514,
+          1.7475001811981201,
+          1.7200000286102295
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.0035000001080334187,
+            "segments": 2,
+            "limit": "ANGLE"
+          }
+        ]
+      }
+    ],
+    "sadangmun": [
+      {
+        "object": "North.sadangmun.roof.solid gable boarding",
+        "vertices": 224,
+        "faces": 168,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.5699996948242188,
+          1.9379997253417969,
+          0.687962532043457
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      }
+    ],
+    "sadang": [
+      {
+        "object": "North.sadang.joinery.gable thirty millimetre planks",
+        "vertices": 680,
+        "faces": 476,
+        "scale": [
+          0.9999999403953552,
+          0.9999999403953552,
+          1.0
+        ],
+        "size": [
+          7.098807334899902,
+          8.530007362365723,
+          2.2208473682403564
+        ],
+        "dataUsers": 1,
+        "modifiers": [
+          {
+            "name": "Small softened handmade edges",
+            "type": "BEVEL",
+            "width": 0.0024999999441206455,
+            "segments": 3,
+            "limit": "ANGLE"
+          }
+        ]
+      }
+    ],
+    "toilet1": [
+      {
+        "object": "V28.toilet1.roof.gable centre post",
+        "vertices": 40,
+        "faces": 24,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          2.528482437133789,
+          0.44373512268066406,
+          0.3886876106262207
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      },
+      {
+        "object": "V28.toilet1.roof frame.purlin",
+        "vertices": 24,
+        "faces": 18,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "size": [
+          1.4767303466796875,
+          1.220306396484375,
+          0.3486781120300293
+        ],
+        "dataUsers": 1,
+        "modifiers": []
+      }
+    ]
+  }
+}

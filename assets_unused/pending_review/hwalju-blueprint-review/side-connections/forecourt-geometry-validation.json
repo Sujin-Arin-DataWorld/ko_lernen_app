@@ -1,0 +1,182 @@
+{
+  "sceneSha256": "16817d97b67c1ae84f5db98612b4e85e3c5d2340f221eca35e7d3741da8d8b86",
+  "checks": [
+    {
+      "check": "All previously checked building, wall and terrain meshes retained",
+      "pass": true,
+      "count": 1797
+    },
+    {
+      "check": "main_gate has solid multi-part architecture",
+      "pass": true,
+      "meshes": 175,
+      "bounds": [
+        [
+          -11.919585227966309,
+          -16.755800247192383,
+          -0.03999999910593033
+        ],
+        [
+          -1.0883499383926392,
+          -10.461304664611816,
+          4.429999828338623
+        ]
+      ]
+    },
+    {
+      "check": "toilet has solid multi-part architecture",
+      "pass": true,
+      "meshes": 78,
+      "bounds": [
+        [
+          -20.749155044555664,
+          -9.05835247039795,
+          0.009999999776482582
+        ],
+        [
+          -16.253829956054688,
+          -4.926564693450928,
+          4.364999771118164
+        ]
+      ]
+    },
+    {
+      "check": "Toilet lies inside warehouse-to-gate left enclosure",
+      "pass": true
+    },
+    {
+      "check": "Main gate open leaves provide a traversable central route",
+      "pass": true,
+      "obstacles": []
+    },
+    {
+      "check": "Forecourt.wall.warehouse-toilet.0 has physical masonry and coping",
+      "pass": true,
+      "firstHit": "Forecourt.wall.warehouse-toilet.0.ridge"
+    },
+    {
+      "check": "Forecourt.wall.warehouse-toilet.0 core is continuously grounded",
+      "pass": true,
+      "groundRange": [
+        0.5999965667724609,
+        0.6000022888183594
+      ]
+    },
+    {
+      "check": "Forecourt.wall.warehouse-toilet.1 has physical masonry and coping",
+      "pass": true,
+      "firstHit": "Forecourt.wall.warehouse-toilet.1.ridge"
+    },
+    {
+      "check": "Forecourt.wall.warehouse-toilet.1 core is continuously grounded",
+      "pass": true,
+      "groundRange": [
+        -1.9073486328125e-06,
+        0.6000003814697266
+      ]
+    },
+    {
+      "check": "Forecourt.wall.warehouse-toilet.2 has physical masonry and coping",
+      "pass": true,
+      "firstHit": "Forecourt.wall.warehouse-toilet.2.ridge"
+    },
+    {
+      "check": "Forecourt.wall.warehouse-toilet.2 core is continuously grounded",
+      "pass": true,
+      "groundRange": [
+        -1.9073486328125e-06,
+        1.9073486328125e-06
+      ]
+    },
+    {
+      "check": "Forecourt.wall.gate-ansarang.0 has physical masonry and coping",
+      "pass": true,
+      "firstHit": "Forecourt.wall.gate-ansarang.0.pan"
+    },
+    {
+      "check": "Forecourt.wall.gate-ansarang.0 core is continuously grounded",
+      "pass": true,
+      "groundRange": [
+        -1.9073486328125e-06,
+        3.814697265625e-06
+      ]
+    },
+    {
+      "check": "Forecourt.wall.gate-ansarang.1 has physical masonry and coping",
+      "pass": true,
+      "firstHit": "Forecourt.wall.gate-ansarang.1.ridge"
+    },
+    {
+      "check": "Forecourt.wall.gate-ansarang.1 core is continuously grounded",
+      "pass": true,
+      "groundRange": [
+        -3.814697265625e-06,
+        1.9073486328125e-06
+      ]
+    },
+    {
+      "check": "warehouse connection overlaps real existing construction",
+      "pass": true,
+      "parts": [
+        "V28.changgo.rear boards",
+        "V28.changgo.frame.post",
+        "V28.changgo.frame.long beam",
+        "V28.changgo.end boards",
+        "Forecourt.wall.warehouse-toilet.0.core",
+        "Forecourt.wall.warehouse-toilet.0.rubble"
+      ]
+    },
+    {
+      "check": "ansarang-wall connection overlaps real existing construction",
+      "pass": true,
+      "parts": [
+        "ConnectionGarden.wall2.ochre core",
+        "ConnectionGarden.wall2.fieldstone",
+        "ConnectionGarden.wall2.end stones",
+        "ConnectionGarden.wall5.ochre core",
+        "ConnectionGarden.wall5.fieldstone",
+        "ConnectionGarden.wall5.end stones",
+        "Forecourt.wall.gate-ansarang.1.core",
+        "Forecourt.wall.gate-ansarang.1.rubble"
+      ]
+    },
+    {
+      "check": "Main gate left wall ends at wing return",
+      "pass": true
+    },
+    {
+      "check": "Main gate right wall ends at wing return",
+      "pass": true
+    },
+    {
+      "check": "Four exterior windows have the photographed horizontal and fine vertical sal",
+      "pass": true
+    },
+    {
+      "check": "Five separate inscription boards use the attached photograph",
+      "pass": true
+    },
+    {
+      "check": "Central passage is stone rather than timber planks",
+      "pass": true
+    },
+    {
+      "check": "White lime roof underside has exposed curved rafters",
+      "pass": true
+    },
+    {
+      "check": "Warehouse gable is not crossed by the courtyard boundary",
+      "pass": true,
+      "maxBounds": [
+        -10.055000305175781,
+        -3.197000026702881,
+        2.0240001678466797
+      ]
+    },
+    {
+      "check": "Toilet has three thick door battens",
+      "pass": true
+    }
+  ],
+  "allPassed": true
+}

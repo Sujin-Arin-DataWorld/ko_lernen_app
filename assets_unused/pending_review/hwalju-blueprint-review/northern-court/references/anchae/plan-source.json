@@ -1,0 +1,27 @@
+{
+  "title": "목조 건축물의 내진성능 평가항목 개발을 위한 조사연구",
+  "publisher": "국립문화재연구소",
+  "year": 2009,
+  "url": "https://www.codil.or.kr/filebank/original/RK/OTKCRK190980/OTKCRK190980.pdf",
+  "printedPage": 136,
+  "pdfPageIndex": 151,
+  "figure": "4.15 함양 일두 고택 안채 평면도 및 벽체상세",
+  "pdfSha256": "4afb0cfc213b7c7ebfab2dcce2f991e3f996bfac3b9a255b913790a2971e4be3",
+  "extractedPlan": "codil-plan-image-0.png",
+  "extractedPlanSha256": "a4f94c17923240fe3452eefbc4e5e7954dd0e9cb0ce383fe7a11736053874541",
+  "bayWidthsMm": [
+    1440,
+    2545,
+    2570,
+    2580,
+    2410,
+    2555,
+    2545,
+    1450
+  ],
+  "mainBodyDepthMm": 3800,
+  "roomRearProjectionMm": 725,
+  "rearVerandaDepthMm": 1200,
+  "sectionsCrossCheck": "2007 drawing 052",
+  "interpretation": "The main rear post line is straight through the hall. Only rooms 2/3 project behind it; the rear veranda lies behind kitchen and room 1. Heights and full rear porch roof still require separate section reconciliation."
+}

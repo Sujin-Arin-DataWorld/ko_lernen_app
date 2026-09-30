@@ -1,0 +1,115 @@
+{
+  "nativeSceneSha256": "5eb05a4209408ef8a24b6a234932007180967f1719817424e2cb0b59a5fa8129",
+  "glbSha256": "2da283b82e7c80c14798b6388b9875f31c26d0c6bbc7464a31c47e29cc63a44f",
+  "meshCount": 314,
+  "protectedMeshesUnchanged": 1797,
+  "materialGroups": {
+    "stone": 58,
+    "ceramic": 60,
+    "wood": 111,
+    "retained": 23,
+    "beam": 11,
+    "post": 2
+  },
+  "mappedSurfaces": 190,
+  "wallRuns": [
+    {
+      "id": "Forecourt.wall.warehouse-toilet.0",
+      "start": [
+        -7.21,
+        -3.535
+      ],
+      "end": [
+        -23.613,
+        -3.535
+      ],
+      "coreWidth": 0.4,
+      "coreTop": 2.24,
+      "base": 0.49999656677246096,
+      "overlap": 0.03
+    },
+    {
+      "id": "Forecourt.wall.warehouse-toilet.1",
+      "start": [
+        -23.613,
+        -3.535
+      ],
+      "end": [
+        -23.618,
+        -10.459
+      ],
+      "coreWidth": 0.4,
+      "coreTop": 2.24,
+      "base": -0.10000190734863282,
+      "overlap": 0.03
+    },
+    {
+      "id": "Forecourt.wall.warehouse-toilet.2",
+      "start": [
+        -23.618,
+        -10.459
+      ],
+      "end": [
+        -11.560933317028702,
+        -12.523299125303005
+      ],
+      "coreWidth": 0.4,
+      "coreTop": 2.24,
+      "base": -0.10000190734863282,
+      "overlap": 0.03
+    },
+    {
+      "id": "Forecourt.wall.gate-ansarang.0",
+      "start": [
+        -1.4470020011378635,
+        -13.845567380023894
+      ],
+      "end": [
+        -1.988,
+        -23.203
+      ],
+      "coreWidth": 0.4,
+      "coreTop": 1.72,
+      "base": -0.1,
+      "overlap": 0.03
+    },
+    {
+      "id": "Forecourt.wall.gate-ansarang.1",
+      "start": [
+        -1.988,
+        -23.203
+      ],
+      "end": [
+        14.82,
+        -21.1
+      ],
+      "coreWidth": 0.4,
+      "coreTop": 1.72,
+      "base": -0.10000381469726563,
+      "overlap": 0.03
+    }
+  ],
+  "referenceGeometry": "canonical and site002 registration; no surveyed elevation claimed",
+  "finishSurfaceObjects": [
+    "Forecourt.wall.warehouse-toilet.0.pan",
+    "Forecourt.wall.warehouse-toilet.0.cover",
+    "Forecourt.wall.warehouse-toilet.0.ridge",
+    "Forecourt.wall.warehouse-toilet.1.pan",
+    "Forecourt.wall.warehouse-toilet.1.cover",
+    "Forecourt.wall.warehouse-toilet.1.ridge",
+    "Forecourt.wall.warehouse-toilet.2.pan",
+    "Forecourt.wall.warehouse-toilet.2.cover",
+    "Forecourt.wall.warehouse-toilet.2.ridge",
+    "Forecourt.wall.gate-ansarang.0.pan",
+    "Forecourt.wall.gate-ansarang.0.cover",
+    "Forecourt.wall.gate-ansarang.0.ridge",
+    "Forecourt.wall.gate-ansarang.1.pan",
+    "Forecourt.wall.gate-ansarang.1.cover",
+    "Forecourt.wall.gate-ansarang.1.ridge",
+    "V28.toilet.side wall",
+    "V28.toilet.rear wall",
+    "V28.toilet.front wall"
+  ],
+  "toiletCanonicalSha256": "bde2af8fb1cef2095e2ef897a9dce4c65fab2ba7bcfe306a99995f9c0366207d",
+  "canonicalImageEdited": false
+}

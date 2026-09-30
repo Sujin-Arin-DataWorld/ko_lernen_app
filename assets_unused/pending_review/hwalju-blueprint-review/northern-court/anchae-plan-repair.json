@@ -1,0 +1,115 @@
+{
+  "nativeScene": "scene.blend",
+  "nativeSha256": "f94a592697c726d87c04a7f16f9126330d5756ea3c56db8b670593fda11a8b6b",
+  "unchangedOtherMeshes": 3162,
+  "changes": [
+    {
+      "building": "anchae",
+      "objects": [
+        "North.anchae.daechong rear door 4.leaf1.forged hinge",
+        "North.anchae.daechong rear door 4.leaf1.iron ring",
+        "North.anchae.daechong rear door 4.leaf1.nail",
+        "North.anchae.daechong rear door 4.leaf1.rear rail",
+        "North.anchae.daechong rear door 4.leaf1.solid board",
+        "North.anchae.daechong rear door 4.leaf2.forged hinge",
+        "North.anchae.daechong rear door 4.leaf2.iron ring",
+        "North.anchae.daechong rear door 4.leaf2.nail",
+        "North.anchae.daechong rear door 4.leaf2.rear rail",
+        "North.anchae.daechong rear door 4.leaf2.solid board",
+        "North.anchae.daechong rear door 5.leaf1.forged hinge",
+        "North.anchae.daechong rear door 5.leaf1.iron ring",
+        "North.anchae.daechong rear door 5.leaf1.nail",
+        "North.anchae.daechong rear door 5.leaf1.rear rail",
+        "North.anchae.daechong rear door 5.leaf1.solid board",
+        "North.anchae.daechong rear door 5.leaf2.forged hinge",
+        "North.anchae.daechong rear door 5.leaf2.iron ring",
+        "North.anchae.daechong rear door 5.leaf2.nail",
+        "North.anchae.daechong rear door 5.leaf2.rear rail",
+        "North.anchae.daechong rear door 5.leaf2.solid board",
+        "North.anchae.daechong rear wall",
+        "North.anchae.daechong rear wall.head/sill",
+        "North.anchae.daechong rear wall.jamb",
+        "North.anchae.floor individual boards",
+        "North.anchae.floor under joists",
+        "North.anchae.foundation individual plinth",
+        "North.anchae.frame longitudinal beam",
+        "North.anchae.frame mortise peg",
+        "North.anchae.frame square post",
+        "North.anchae.frame transverse beam",
+        "North.anchae.interior partition",
+        "North.anchae.photo curved daechong beam",
+        "North.anchae.room projection longitudinal timber",
+        "North.anchae.room projection return timber",
+        "North.anchae.room projection square post",
+        "North.anchae.room projection stone foot"
+      ],
+      "rearJointAudit": {
+        "raySamples": 63,
+        "gaps": []
+      },
+      "illustratedTimber": [
+        {
+          "object": "North.anchae.frame square post",
+          "building": "anchae",
+          "solidComponents": 27,
+          "longGrainFaces": 108,
+          "cutEndFaces": 54,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.frame transverse beam",
+          "building": "anchae",
+          "solidComponents": 9,
+          "longGrainFaces": 36,
+          "cutEndFaces": 18,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.frame longitudinal beam",
+          "building": "anchae",
+          "solidComponents": 6,
+          "longGrainFaces": 24,
+          "cutEndFaces": 12,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.room projection square post",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.room projection longitudinal timber",
+          "building": "anchae",
+          "solidComponents": 2,
+          "longGrainFaces": 8,
+          "cutEndFaces": 4,
+          "geometryUnchanged": true
+        },
+        {
+          "object": "North.anchae.room projection return timber",
+          "building": "anchae",
+          "solidComponents": 6,
+          "longGrainFaces": 24,
+          "cutEndFaces": 12,
+          "geometryUnchanged": true
+        }
+      ],
+      "mineralSurfaces": [
+        {
+          "object": "North.anchae.room projection stone foot",
+          "building": "anchae",
+          "kinds": [
+            "granite"
+          ],
+          "components": 2,
+          "faces": 34,
+          "geometryUnchanged": true
+        }
+      ],
+      "fullSurveyAccuracyClaimed": false
+    }
+  ]
+}

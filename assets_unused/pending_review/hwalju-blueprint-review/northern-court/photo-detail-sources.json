@@ -1,0 +1,65 @@
+[
+  {
+    "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-d9d7ca05-de85-4662-88bc-85719ccaca17.png",
+    "file": "references\\photos\\sadang-side-sep29.png",
+    "sha256": "6c61ea7da0566c316727f3a6a1558fc02919cbef686bc84a178b1518490edd6b",
+    "copySha256": "6c61ea7da0566c316727f3a6a1558fc02919cbef686bc84a178b1518490edd6b",
+    "role": "Porch, sculpted brackets, weathered gable boards"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-84730e65-3a90-4e17-a209-e486ccf8e332.png",
+    "file": "references\\photos\\sadang-front-sep29.png",
+    "sha256": "ab966434f366bc9f6de952dd669b2fb9d749e3df7a674bf1cdeb750301fcda20",
+    "copySha256": "ab966434f366bc9f6de952dd669b2fb9d749e3df7a674bf1cdeb750301fcda20",
+    "role": "Single-double-single doors, round columns, painted brackets"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-38a23fb2-ee37-4a75-a144-2c3b0d859ec1.png",
+    "file": "references\\photos\\sadang-altar-sep29.png",
+    "sha256": "18a90ae974da8ebb52e6d90a2303c1a9536d67dc8e9893eb4c0ab0003eb1b2cf",
+    "copySha256": "18a90ae974da8ebb52e6d90a2303c1a9536d67dc8e9893eb4c0ab0003eb1b2cf",
+    "role": "Cabinet, altar, brass candle stands, incense vessel, woven mats; unmeasured"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-4c59eea7-d33b-40d6-874a-7c4847c1863e.png",
+    "file": "references\\photos\\jeong-yeochang-portrait-reference.png",
+    "sha256": "d88ff1822b72a987bdc0b18a0b5686b0a580164f081f8f0d3a0d5e3b218d597a",
+    "copySha256": "d88ff1822b72a987bdc0b18a0b5686b0a580164f081f8f0d3a0d5e3b218d597a",
+    "role": "Identity reference; installation location unknown and not modeled"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-e795d0fb-8c31-4257-80c8-9c06f9b5c175.png",
+    "file": "references\\photos\\ansarang-left-sep29.png",
+    "sha256": "77eeee94fac5080285631d2de016dba73e8deddb3f5fd37dbfee098ea3707abc",
+    "copySha256": "77eeee94fac5080285631d2de016dba73e8deddb3f5fd37dbfee098ea3707abc",
+    "role": "Open kitchen under loft, side opening; sheets048/050 control geometry"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-50adc951-f135-4f4e-a942-ed116b9edd51.png",
+    "file": "references\\photos\\sadangmun-front-sep29.png",
+    "sha256": "3cafbe1334680c5a65c5d7955c27956c91d11b494b098230edfd1234fde179f8",
+    "copySha256": "3cafbe1334680c5a65c5d7955c27956c91d11b494b098230edfd1234fde179f8",
+    "role": "Closed gate hardware, subdued red paint, green framing, flower wall"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-e744bda3-ae43-415e-a0f6-d063f83c0dbe.png",
+    "file": "references\\photos\\sadangmun-front-sep29-duplicate.png",
+    "sha256": "3cafbe1334680c5a65c5d7955c27956c91d11b494b098230edfd1234fde179f8",
+    "copySha256": "3cafbe1334680c5a65c5d7955c27956c91d11b494b098230edfd1234fde179f8",
+    "role": "Additional supplied gate photograph"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\안사랑채\\도면_국가민속문화재_함양_일두_고택_기록화사업_별당_좌,우측면도.jpg",
+    "file": "references\\survey-audit\\ansarang-survey050.jpg",
+    "sha256": "24a080d292b368595054ba5dd94f4f0f9dc0c221be75e47c7c94b70c60516fe7",
+    "copySha256": "24a080d292b368595054ba5dd94f4f0f9dc0c221be75e47c7c94b70c60516fe7",
+    "role": "Measured 2007 survey; geometry authority"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\안사랑채\\도면_국가민속문화재_함양_일두_고택_기록화사업_별당채_종단면도.jpg",
+    "file": "references\\survey-audit\\ansarang-survey052.jpg",
+    "sha256": "4fbba5dc0e038634203db16200c4fe898e3e24217521e0f15bb060ba3f7e406f",
+    "copySha256": "4fbba5dc0e038634203db16200c4fe898e3e24217521e0f15bb060ba3f7e406f",
+    "role": "Measured 2007 survey; geometry authority"
+  }
+]

@@ -1,0 +1,1492 @@
+{
+  "sceneSha256": "4e0e83fea571611f1ad18fe45aaf2dc3a83fa24cb5dcaf49375301ec88ed7110",
+  "checks": [
+    {
+      "check": "Anchae rear infill and depth return have no unintended vertical openings",
+      "pass": true,
+      "raySamples": 63,
+      "gaps": []
+    },
+    {
+      "check": "anchae transverse beams bear on every retained column axis",
+      "pass": true,
+      "postCount": 27,
+      "missedPosts": []
+    },
+    {
+      "check": "arae transverse beams bear on every retained column axis",
+      "pass": true,
+      "postCount": 12,
+      "missedPosts": []
+    },
+    {
+      "check": "Exactly six distinct new buildings",
+      "pass": true
+    },
+    {
+      "check": "Originals and all copied references match recorded hashes",
+      "pass": true,
+      "references": 89
+    },
+    {
+      "check": "anchae has one canonical and eight distinct source views",
+      "pass": true
+    },
+    {
+      "check": "anchae has solid separately constructed parts",
+      "pass": true,
+      "meshes": 407
+    },
+    {
+      "check": "anchae geometry has finite coordinates",
+      "pass": true
+    },
+    {
+      "check": "anchae has no empty material slots",
+      "pass": true
+    },
+    {
+      "check": "anchae fired-clay pigment comes from its unchanged canonical",
+      "pass": true
+    },
+    {
+      "check": "anchae uses mineral surfaces on solid stones",
+      "pass": true
+    },
+    {
+      "check": "arae has one canonical and eight distinct source views",
+      "pass": true
+    },
+    {
+      "check": "arae has solid separately constructed parts",
+      "pass": true,
+      "meshes": 246
+    },
+    {
+      "check": "arae geometry has finite coordinates",
+      "pass": true
+    },
+    {
+      "check": "arae has no empty material slots",
+      "pass": true
+    },
+    {
+      "check": "arae has six distinct fired-clay body materials",
+      "pass": true,
+      "materials": [
+        "Illustrated clay v1 0",
+        "Illustrated clay v1 1",
+        "Illustrated clay v1 2",
+        "Illustrated clay v1 3",
+        "Illustrated clay v1 4",
+        "Illustrated clay v1 5"
+      ]
+    },
+    {
+      "check": "arae uses mineral surfaces on solid stones",
+      "pass": true
+    },
+    {
+      "check": "angotgan has one canonical and eight distinct source views",
+      "pass": true
+    },
+    {
+      "check": "angotgan has solid separately constructed parts",
+      "pass": true,
+      "meshes": 74
+    },
+    {
+      "check": "angotgan geometry has finite coordinates",
+      "pass": true
+    },
+    {
+      "check": "angotgan has no empty material slots",
+      "pass": true
+    },
+    {
+      "check": "angotgan has six distinct fired-clay body materials",
+      "pass": true,
+      "materials": [
+        "Illustrated clay v1 0",
+        "Illustrated clay v1 1",
+        "Illustrated clay v1 2",
+        "Illustrated clay v1 3",
+        "Illustrated clay v1 4",
+        "Illustrated clay v1 5"
+      ]
+    },
+    {
+      "check": "angotgan uses mineral surfaces on solid stones",
+      "pass": true
+    },
+    {
+      "check": "gokgan has one canonical and eight distinct source views",
+      "pass": true
+    },
+    {
+      "check": "gokgan has solid separately constructed parts",
+      "pass": true,
+      "meshes": 66
+    },
+    {
+      "check": "gokgan geometry has finite coordinates",
+      "pass": true
+    },
+    {
+      "check": "gokgan has no empty material slots",
+      "pass": true
+    },
+    {
+      "check": "gokgan has six distinct fired-clay body materials",
+      "pass": true,
+      "materials": [
+        "Illustrated clay v1 0",
+        "Illustrated clay v1 1",
+        "Illustrated clay v1 2",
+        "Illustrated clay v1 3",
+        "Illustrated clay v1 4",
+        "Illustrated clay v1 5"
+      ]
+    },
+    {
+      "check": "gokgan uses mineral surfaces on solid stones",
+      "pass": true
+    },
+    {
+      "check": "sadang has one canonical and eight distinct source views",
+      "pass": true
+    },
+    {
+      "check": "sadang has solid separately constructed parts",
+      "pass": true,
+      "meshes": 224
+    },
+    {
+      "check": "sadang geometry has finite coordinates",
+      "pass": true
+    },
+    {
+      "check": "sadang has no empty material slots",
+      "pass": true
+    },
+    {
+      "check": "sadang fired-clay pigment comes from its unchanged canonical",
+      "pass": true
+    },
+    {
+      "check": "sadang uses mineral surfaces on solid stones",
+      "pass": true
+    },
+    {
+      "check": "sadangmun has one canonical and eight distinct source views",
+      "pass": true
+    },
+    {
+      "check": "sadangmun has solid separately constructed parts",
+      "pass": true,
+      "meshes": 84
+    },
+    {
+      "check": "sadangmun geometry has finite coordinates",
+      "pass": true
+    },
+    {
+      "check": "sadangmun has no empty material slots",
+      "pass": true
+    },
+    {
+      "check": "sadangmun fired-clay pigment comes from its unchanged canonical",
+      "pass": true
+    },
+    {
+      "check": "sadangmun uses mineral surfaces on solid stones",
+      "pass": true
+    },
+    {
+      "check": "No new copy of Jung or Sarang",
+      "pass": true
+    },
+    {
+      "check": "Four-bay inner store has three front doors",
+      "pass": true
+    },
+    {
+      "check": "Gokgan uses the located five-bay measured sheet",
+      "pass": true
+    },
+    {
+      "check": "Shrine front is round, inner and rear columns square",
+      "pass": true
+    },
+    {
+      "check": "Anchae unequal depths retained",
+      "pass": true
+    },
+    {
+      "check": "Anchae daechong has no front plank door duplicate",
+      "pass": true
+    },
+    {
+      "check": "Illustrated timber is scoped to requested wood repairs with finite physical UVs",
+      "pass": true,
+      "meshes": 580
+    },
+    {
+      "check": "Canonical timber covers solid faces with finite nondegenerate artwork UVs",
+      "pass": true,
+      "faces": 66384,
+      "invalidObjects": []
+    },
+    {
+      "check": "Generated albedo files retained without pixel edits",
+      "pass": true
+    },
+    {
+      "check": "anchae beam sections match measured drawing within 1 mm",
+      "pass": true,
+      "sections": [
+        [
+          0.3299999237060547,
+          0.3299999237060547
+        ],
+        [
+          0.3300013542175293,
+          0.3299999237060547
+        ],
+        [
+          0.3299999237060547,
+          0.3299999237060547
+        ],
+        [
+          0.3300015926361084,
+          0.3299999237060547
+        ],
+        [
+          0.32999998331069946,
+          0.3299999237060547
+        ],
+        [
+          0.3299999237060547,
+          0.3299999237060547
+        ],
+        [
+          0.3300008773803711,
+          0.3299999237060547
+        ],
+        [
+          0.3299994468688965,
+          0.3299999237060547
+        ],
+        [
+          0.3300008773803711,
+          0.3299999237060547
+        ]
+      ]
+    },
+    {
+      "check": "Anchae main posts retain the registered drawing sections",
+      "pass": true,
+      "sections": [
+        [
+          0.165,
+          0.162
+        ],
+        [
+          0.203,
+          0.219
+        ],
+        [
+          0.205,
+          0.21
+        ],
+        [
+          0.205,
+          0.215
+        ],
+        [
+          0.21,
+          0.21
+        ],
+        [
+          0.212,
+          0.215
+        ],
+        [
+          0.215,
+          0.23
+        ],
+        [
+          0.22,
+          0.217
+        ],
+        [
+          0.22,
+          0.225
+        ],
+        [
+          0.225,
+          0.21
+        ],
+        [
+          0.225,
+          0.215
+        ],
+        [
+          0.225,
+          0.223
+        ],
+        [
+          0.225,
+          0.24
+        ],
+        [
+          0.23,
+          0.22
+        ],
+        [
+          0.242,
+          0.237
+        ]
+      ]
+    },
+    {
+      "check": "Anchae structural members are rigid rectangular solids without depth-step shear",
+      "pass": true,
+      "members": 40
+    },
+    {
+      "check": "All nine main rear posts follow the 3800 mm body line",
+      "pass": true,
+      "rearAxes": [
+        1.537501573562622,
+        1.5375010967254639,
+        1.5375001430511475,
+        1.537500023841858,
+        1.5375001430511475,
+        1.5374999046325684,
+        1.5374996662139893,
+        1.5374996662139893,
+        1.5374985933303833
+      ]
+    },
+    {
+      "check": "Two-bay daechong rear wall lies on main rear line, not room projection",
+      "pass": true
+    },
+    {
+      "check": "Daechong floor ends at its rear wall",
+      "pass": true,
+      "boards": 28
+    },
+    {
+      "check": "Relocated hall joists retain their 100 mm timber depth",
+      "pass": true,
+      "depths": [
+        0.10000026226043701,
+        0.10000115633010864,
+        0.10000123083591461,
+        0.1000002920627594,
+        0.1000012755393982,
+        0.09999942779541016
+      ]
+    },
+    {
+      "check": "Moved rear door hinge pivots follow their door assemblies",
+      "pass": true
+    },
+    {
+      "check": "Room projection has two separate 155 mm outer columns",
+      "pass": true
+    },
+    {
+      "check": "angotgan beam sections match measured drawing within 1 mm",
+      "pass": true,
+      "sections": [
+        [
+          0.18000078201293945,
+          0.23999977111816406
+        ],
+        [
+          0.18000197410583496,
+          0.23999977111816406
+        ],
+        [
+          0.18000195920467377,
+          0.23999977111816406
+        ],
+        [
+          0.18000006675720215,
+          0.23999977111816406
+        ],
+        [
+          0.18000030517578125,
+          0.23999977111816406
+        ]
+      ]
+    },
+    {
+      "check": "sadang beam sections match measured drawing within 1 mm",
+      "pass": true,
+      "sections": [
+        [
+          0.360001802444458,
+          0.3899996280670166
+        ],
+        [
+          0.3600003719329834,
+          0.3899996280670166
+        ],
+        [
+          0.35999977588653564,
+          0.3899996280670166
+        ],
+        [
+          0.3600027561187744,
+          0.3899996280670166
+        ]
+      ]
+    },
+    {
+      "check": "gokgan beam sections match measured drawing within 1 mm",
+      "pass": true,
+      "sections": [
+        [
+          0.3000011444091797,
+          0.3000001907348633
+        ],
+        [
+          0.2999999523162842,
+          0.3000001907348633
+        ],
+        [
+          0.30000007152557373,
+          0.3000001907348633
+        ],
+        [
+          0.30000001192092896,
+          0.3000001907348633
+        ],
+        [
+          0.3000013828277588,
+          0.3000001907348633
+        ],
+        [
+          0.3000001907348633,
+          0.3000001907348633
+        ]
+      ]
+    },
+    {
+      "check": "Mineral source maps retained without pixel edits",
+      "pass": true
+    },
+    {
+      "check": "Curved ceramic shells have closed thickness after modifiers",
+      "pass": true,
+      "meshes": 150,
+      "failures": []
+    },
+    {
+      "check": "Half-round lime end plugs are closed solids",
+      "pass": true,
+      "meshes": 17,
+      "failures": []
+    },
+    {
+      "check": "anchae floorboards match THK45 section within 0.1 mm",
+      "pass": true,
+      "boards": 107,
+      "minimum": 0.04500007629394531,
+      "maximum": 0.04500007629394531
+    },
+    {
+      "check": "sadang floorboards match THK45 section within 0.1 mm",
+      "pass": true,
+      "boards": 38,
+      "minimum": 0.04499995708465576,
+      "maximum": 0.04499995708465576
+    },
+    {
+      "check": "anchae roof bedding is a closed volume",
+      "pass": true,
+      "boundaryEdges": 0
+    },
+    {
+      "check": "anchae ridge fill is a closed volume",
+      "pass": true,
+      "boundaryEdges": 0
+    },
+    {
+      "check": "anchae roof has a continuous solid modelling envelope",
+      "pass": true,
+      "samples": [
+        0.23999834060668945,
+        0.23999977111816406,
+        0.23999881744384766,
+        0.24000048637390137,
+        0.23999905586242676,
+        0.23999977111816406,
+        0.24000120162963867,
+        0.23999786376953125,
+        0.24000024795532227,
+        0.23999834060668945,
+        0.23999977111816406,
+        0.23999977111816406,
+        0.23999929428100586,
+        0.23999881744384766,
+        0.23999905586242676,
+        0.24000072479248047,
+        0.24000120162963867,
+        0.23999786376953125,
+        0.23999738693237305,
+        0.23999977111816406,
+        0.23999881744384766,
+        0.23999929428100586,
+        0.24000191688537598,
+        0.24000239372253418,
+        0.23999953269958496
+      ],
+      "expectedThickness": 0.24,
+      "surveyThicknessClaimed": false
+    },
+    {
+      "check": "anchae ridge foot has no through gaps",
+      "pass": true,
+      "raySamples": 19,
+      "gaps": []
+    },
+    {
+      "check": "arae roof bedding is a closed volume",
+      "pass": true,
+      "boundaryEdges": 0
+    },
+    {
+      "check": "arae ridge fill is a closed volume",
+      "pass": true,
+      "boundaryEdges": 0
+    },
+    {
+      "check": "arae roof has a continuous solid modelling envelope",
+      "pass": true,
+      "samples": [
+        0.05999898910522461,
+        0.05999946594238281,
+        0.05999755859375,
+        0.060001373291015625,
+        0.05999755859375,
+        0.059998512268066406,
+        0.059998512268066406,
+        0.06000041961669922,
+        0.05999946594238281,
+        0.059998512268066406,
+        0.05999946594238281,
+        0.060002803802490234,
+        0.059999942779541016,
+        0.05999946594238281,
+        0.0599980354309082,
+        0.060001373291015625,
+        0.059998512268066406,
+        0.06000232696533203,
+        0.05999946594238281,
+        0.060001373291015625,
+        0.06000328063964844,
+        0.06000185012817383,
+        0.059999942779541016,
+        0.05999898910522461,
+        0.05999946594238281
+      ],
+      "expectedThickness": 0.06,
+      "surveyThicknessClaimed": false
+    },
+    {
+      "check": "arae ridge foot has no through gaps",
+      "pass": true,
+      "raySamples": 19,
+      "gaps": []
+    },
+    {
+      "check": "angotgan roof bedding is a closed volume",
+      "pass": true,
+      "boundaryEdges": 0
+    },
+    {
+      "check": "angotgan ridge fill is a closed volume",
+      "pass": true,
+      "boundaryEdges": 0
+    },
+    {
+      "check": "angotgan roof has a continuous solid modelling envelope",
+      "pass": true,
+      "samples": [
+        0.0599980354309082,
+        0.05999946594238281,
+        0.05999898910522461,
+        0.06000185012817383,
+        0.059999942779541016,
+        0.060001373291015625,
+        0.06000185012817383,
+        0.059999942779541016,
+        0.05999898910522461,
+        0.06000089645385742,
+        0.05999898910522461,
+        0.05999946594238281,
+        0.059998512268066406,
+        0.05999755859375,
+        0.059999942779541016,
+        0.059998512268066406,
+        0.06000185012817383,
+        0.06000185012817383,
+        0.0599980354309082,
+        0.060001373291015625,
+        0.06000185012817383,
+        0.05999946594238281,
+        0.05999946594238281,
+        0.05999946594238281,
+        0.059999942779541016
+      ],
+      "expectedThickness": 0.06,
+      "surveyThicknessClaimed": false
+    },
+    {
+      "check": "angotgan ridge foot has no through gaps",
+      "pass": true,
+      "raySamples": 19,
+      "gaps": []
+    },
+    {
+      "check": "gokgan roof bedding is a closed volume",
+      "pass": true,
+      "boundaryEdges": 0
+    },
+    {
+      "check": "gokgan ridge fill is a closed volume",
+      "pass": true,
+      "boundaryEdges": 0
+    },
+    {
+      "check": "gokgan roof has a continuous solid modelling envelope",
+      "pass": true,
+      "samples": [
+        0.059999942779541016,
+        0.05999898910522461,
+        0.05999946594238281,
+        0.06000089645385742,
+        0.05999946594238281,
+        0.05999946594238281,
+        0.06000232696533203,
+        0.06000089645385742,
+        0.06000232696533203,
+        0.05999946594238281,
+        0.059999942779541016,
+        0.059999942779541016,
+        0.060001373291015625,
+        0.059999942779541016,
+        0.06000041961669922,
+        0.059999942779541016,
+        0.06000089645385742,
+        0.059999942779541016,
+        0.05999946594238281,
+        0.06000041961669922,
+        0.06000041961669922,
+        0.060001373291015625,
+        0.060001373291015625,
+        0.05999755859375,
+        0.059998512268066406
+      ],
+      "expectedThickness": 0.06,
+      "surveyThicknessClaimed": false
+    },
+    {
+      "check": "gokgan ridge foot has no through gaps",
+      "pass": true,
+      "raySamples": 19,
+      "gaps": []
+    },
+    {
+      "check": "Rear veranda has four 165 mm posts on the 1200 mm outer axis",
+      "pass": true
+    },
+    {
+      "check": "Rear veranda boards have THK45 and an actual 1200 mm walkable depth",
+      "pass": true
+    },
+    {
+      "check": "Rear veranda clear height above its floor is 1525 mm to the purlin",
+      "pass": true
+    },
+    {
+      "check": "Rear veranda purlin has the section 052 cross-section",
+      "pass": true
+    },
+    {
+      "check": "Rear veranda jangyeo has the section 052 cross-section",
+      "pass": true
+    },
+    {
+      "check": "Rear veranda floor girder has the section 052 cross-section",
+      "pass": true
+    },
+    {
+      "check": "Rear veranda floor joist has the section 052 cross-section",
+      "pass": true
+    },
+    {
+      "check": "Reprofiled Anchae roof stays within the measured building height",
+      "pass": true,
+      "minimum": 2.019540309906006,
+      "maximum": 4.885203838348389
+    },
+    {
+      "check": "Anchae soffit retains photographed lime between rafters",
+      "pass": true,
+      "faces": 4472
+    },
+    {
+      "check": "Painted timber retains physical UVs and stays on shrine buildings",
+      "pass": true,
+      "meshes": 88
+    },
+    {
+      "check": "Paint source albedos retained byte for byte",
+      "pass": true
+    },
+    {
+      "check": "Shrine transverse beams seat across both front and rear column axes",
+      "pass": true,
+      "ends": [
+        [
+          -2.22999906539917,
+          2.230003833770752
+        ],
+        [
+          -2.2300009727478027,
+          2.2300007343292236
+        ],
+        [
+          -2.23000168800354,
+          2.2300000190734863
+        ],
+        [
+          -2.230003833770752,
+          2.229999542236328
+        ]
+      ]
+    },
+    {
+      "check": "Shrine buyeon has 87x120 section from sheet 059",
+      "pass": true,
+      "count": 80
+    },
+    {
+      "check": "joinery.gable thirty millimetre planks has surveyed real thickness",
+      "pass": true,
+      "count": 68,
+      "width": 0.03
+    },
+    {
+      "check": "joinery.gable 45x27 cover batten has surveyed real thickness",
+      "pass": true,
+      "count": 66,
+      "width": 0.027
+    },
+    {
+      "check": "joinery.solid roof bedding is a closed solid",
+      "pass": true,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0
+    },
+    {
+      "check": "joinery.packed ridge core is a closed solid",
+      "pass": true,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0
+    },
+    {
+      "check": "joinery.sculpted bracket shoulder is a closed solid",
+      "pass": true,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0
+    },
+    {
+      "check": "joinery.gable thirty millimetre planks is a closed solid",
+      "pass": true,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0
+    },
+    {
+      "check": "Illustrated dancheong source retained byte for byte",
+      "pass": true
+    },
+    {
+      "check": "Solid shrine roof retains photographed lime plaster beneath rafters",
+      "pass": true,
+      "undersideFaces": 2688
+    },
+    {
+      "check": "Both shrine gable heads close the visible roof joint",
+      "pass": true,
+      "raySamples": 40,
+      "gaps": []
+    },
+    {
+      "check": "Shrine roof uses sheet 066 eave datums, not sheet 058 foundation size",
+      "pass": true,
+      "roofPlanSpan": [
+        8.560003280639648,
+        7.100003242492676
+      ]
+    },
+    {
+      "check": "Shrine roof overhang from column axes is 900 and 1450 mm",
+      "pass": true
+    },
+    {
+      "check": "Shrine roof references match the original 059 061 066 bytes",
+      "pass": true
+    },
+    {
+      "check": "Shrine tile ends follow 28 runs traced on sheet 066 on each side",
+      "pass": true,
+      "count": 56
+    },
+    {
+      "check": "Shrine roof end height fits the 061 independently calibrated silhouette",
+      "pass": true,
+      "measuredRoofTop": 5.389999866485596,
+      "tracedHeight": 5.3924050632911396,
+      "tolerance": 0.04
+    },
+    {
+      "check": "Shrine central ridge fits the 059 silhouette without stretching courses",
+      "pass": true,
+      "measuredRoofTop": 5.11899995803833,
+      "tracedHeight": 5.11350495049505,
+      "tolerance": 0.04
+    },
+    {
+      "check": "Shrine ceramic shell thickness is independent of roof height",
+      "pass": true,
+      "fieldMeshes": 6
+    },
+    {
+      "check": "Shrine ridge course count matches sheet 066",
+      "pass": true,
+      "levels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "check": "Shrine descending course count matches sheet 066",
+      "pass": true,
+      "levels": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "check": "Shrine gate seven rafters have surveyed 75x90 mm square section",
+      "pass": true,
+      "sections": [
+        [
+          0.07499957084655762,
+          1.8800010681152344,
+          0.08999991416931152
+        ],
+        [
+          0.0749976634979248,
+          1.8800008296966553,
+          0.08999991416931152
+        ],
+        [
+          0.07499963045120239,
+          1.8799998760223389,
+          0.08999991416931152
+        ],
+        [
+          0.07499963045120239,
+          1.8800007104873657,
+          0.08999991416931152
+        ],
+        [
+          0.07500147819519043,
+          1.8800008296966553,
+          0.08999991416931152
+        ],
+        [
+          0.07499957084655762,
+          1.8799997568130493,
+          0.08999991416931152
+        ],
+        [
+          0.07499969005584717,
+          1.8799998760223389,
+          0.08999991416931152
+        ]
+      ]
+    },
+    {
+      "check": "Shrine gate ceiling and gable boards have real 30 mm thickness",
+      "pass": true,
+      "ceilingBoards": 14,
+      "gableBoards": 28
+    },
+    {
+      "check": "Shrine gate has six central sukiwa terminations on each slope",
+      "pass": true,
+      "centres": [
+        [
+          -0.675,
+          -0.405,
+          -0.135,
+          0.135,
+          0.405,
+          0.675
+        ],
+        [
+          -0.675,
+          -0.405,
+          -0.135,
+          0.135,
+          0.405,
+          0.675
+        ]
+      ]
+    },
+    {
+      "check": "Shrine gate earthen roof bedding is a closed volume",
+      "pass": true,
+      "boundaryEdges": 0
+    },
+    {
+      "check": "Shrine gate post head is 1800 mm above its 200 mm footing",
+      "pass": true
+    },
+    {
+      "check": "Shrine gate raised ridge terminals are four closed shell noses",
+      "pass": true
+    },
+    {
+      "check": "All supplied photos preserved byte for byte",
+      "pass": true
+    },
+    {
+      "check": "Rear room 2 is one WD6 leaf with one hinge pivot",
+      "pass": true
+    },
+    {
+      "check": "Rear room 2 leaf is 655x1450 with 54x32 frame",
+      "pass": true,
+      "measuredSpan": [
+        0.6549983024597168,
+        0.03199970722198486,
+        1.4500000476837158
+      ]
+    },
+    {
+      "check": "Rear room 2 WD6 grid has solid 9x15 sal and 7x17 cells",
+      "pass": true
+    },
+    {
+      "check": "Rear room 2 fixed jambs match 90x120 plan section",
+      "pass": true
+    },
+    {
+      "check": "Rear room 3 is one WD6 leaf with one hinge pivot",
+      "pass": true
+    },
+    {
+      "check": "Rear room 3 leaf is 655x1450 with 54x32 frame",
+      "pass": true,
+      "measuredSpan": [
+        0.6550021767616272,
+        0.03200042247772217,
+        1.4500000476837158
+      ]
+    },
+    {
+      "check": "Rear room 3 WD6 grid has solid 9x15 sal and 7x17 cells",
+      "pass": true
+    },
+    {
+      "check": "Rear room 3 fixed jambs match 90x120 plan section",
+      "pass": true
+    },
+    {
+      "check": "Rear veranda has 535 mm rise from its own ground to the floor",
+      "pass": true,
+      "groundLocal": 0.0700000524520874
+    },
+    {
+      "check": "Four veranda footings are visible above the lowered earth",
+      "pass": true,
+      "firstHits": [
+        "North.anchae.rear veranda stone foot",
+        "North.anchae.rear veranda stone foot",
+        "North.anchae.rear veranda stone foot",
+        "North.anchae.rear veranda stone foot"
+      ]
+    },
+    {
+      "check": "Hall WD4 room 1 has measured 695x1740 leaf and 54x45 solid stiles",
+      "pass": true,
+      "measuredSpan": [
+        0.04500065743923187,
+        0.6950013041496277,
+        1.7400000095367432
+      ]
+    },
+    {
+      "check": "Hall room 1 fixed frame has measured 90mm face and 175mm depth",
+      "pass": true
+    },
+    {
+      "check": "Hall room 1 lattice members have real 12x30 sections",
+      "pass": true
+    },
+    {
+      "check": "Hall room 1 joinery is closed-volume geometry",
+      "pass": true,
+      "openMeshes": []
+    },
+    {
+      "check": "Hall room 1 swings about the iron pin without cutting through its frame",
+      "pass": true,
+      "collidingAngles": []
+    },
+    {
+      "check": "Hall WD4 room 2 has measured 695x1740 leaf and 54x45 solid stiles",
+      "pass": true,
+      "measuredSpan": [
+        0.04500007629394531,
+        0.6950012445449829,
+        1.7400000095367432
+      ]
+    },
+    {
+      "check": "Hall room 2 fixed frame has measured 90mm face and 140mm depth",
+      "pass": true
+    },
+    {
+      "check": "Hall room 2 lattice members have real 12x30 sections",
+      "pass": true
+    },
+    {
+      "check": "Hall room 2 joinery is closed-volume geometry",
+      "pass": true,
+      "openMeshes": []
+    },
+    {
+      "check": "Hall room 2 swings about the iron pin without cutting through its frame",
+      "pass": true,
+      "collidingAngles": []
+    },
+    {
+      "check": "Two closed hall doors block the doorway with their actual leaves",
+      "pass": true,
+      "firstHits": [
+        "North.anchae.hall room 1.leaf1.rail",
+        "North.anchae.hall room 1.leaf1.hanji",
+        "North.anchae.hall room 2.leaf1.rail",
+        "North.anchae.hall room 2.leaf1.hanji"
+      ]
+    },
+    {
+      "check": "Room floors cross the old bay trench and reach the rear wall",
+      "pass": true,
+      "floorSamples": [
+        {
+          "object": "North.anchae.hall room 1.room warm paper floor",
+          "height": 0.6335000991821289
+        },
+        {
+          "object": "North.anchae.hall room 1.room warm paper floor",
+          "height": 0.6335000991821289
+        },
+        {
+          "object": "North.anchae.hall room 2.room warm paper floor",
+          "height": 0.6335000991821289
+        }
+      ]
+    },
+    {
+      "check": "Shrine uses single-double-single leaves from elevation and photographs",
+      "pass": true,
+      "actual": [
+        [
+          "1"
+        ],
+        [
+          "1",
+          "2"
+        ],
+        [
+          "1"
+        ]
+      ]
+    },
+    {
+      "check": "Shrine opening 0 has 87x150 solid jambs",
+      "pass": true
+    },
+    {
+      "check": "Shrine opening 1 has 87x150 solid jambs",
+      "pass": true
+    },
+    {
+      "check": "Shrine opening 2 has 87x150 solid jambs",
+      "pass": true
+    },
+    {
+      "check": "Shrine retains four surveyed 240 mm round posts",
+      "pass": true,
+      "sections": [
+        [
+          -3.3800013065338135,
+          0.24000024795532227
+        ],
+        [
+          -1.2299976348876953,
+          0.24000000953674316
+        ],
+        [
+          1.21999990940094,
+          0.24000191688537598
+        ],
+        [
+          3.3799996376037598,
+          0.23999977111816406
+        ]
+      ]
+    },
+    {
+      "check": "Flower tile edges cover each gate-wall span long enough for a full motif",
+      "pass": true,
+      "eligibleWalls": [
+        "North.site.shrine gate right"
+      ]
+    },
+    {
+      "check": "Open Gwang forecourt has no transverse wall",
+      "pass": true
+    },
+    {
+      "check": "Rear-yard chimney cap has solid sidewalls around an open vent",
+      "pass": true
+    },
+    {
+      "check": "User photographs match preserved source bytes",
+      "pass": true
+    },
+    {
+      "check": "Kitchen diamond grille has separate wood members",
+      "pass": true
+    },
+    {
+      "check": "Three kitchen stove mouths and east hearth are modeled",
+      "pass": true
+    },
+    {
+      "check": "Jar-yard gate has two 85x85 mm posts on 1020 mm axes",
+      "pass": true
+    },
+    {
+      "check": "Jar-yard WD1 planks are 30 mm thick and 1400 mm tall",
+      "pass": true
+    },
+    {
+      "check": "Jar-yard roof boards stay within the measured roof envelope without out-of-bounds spikes",
+      "pass": true
+    },
+    {
+      "check": "Gate side elevations include twelve solid 45 mm wind boards",
+      "pass": true
+    },
+    {
+      "check": "Anchae WD1 solid door boards retain the printed 24 mm thickness",
+      "pass": true
+    },
+    {
+      "check": "Anchae WW9 diamond sal measure 8x25 mm rather than enlarged round rods",
+      "pass": true,
+      "members": 36
+    },
+    {
+      "check": "Sep29 supplied photo and survey copies retain their original bytes",
+      "pass": true
+    },
+    {
+      "check": "Byeoldang kitchen loft follows 2210x2610 plan compartment with 45mm wood floor",
+      "pass": true,
+      "measuredSpan": [
+        2.2100000381469727,
+        2.6100006103515625,
+        0.04500007629394531
+      ]
+    },
+    {
+      "check": "Byeoldang left opening has nine clear rays through the former solid wall into kitchen",
+      "pass": true,
+      "obstacles": []
+    },
+    {
+      "check": "Byeoldang kitchen room3 return is supported by a 200mm square post",
+      "pass": true
+    },
+    {
+      "check": "Byeoldang side loft grille remains above the open lower kitchen",
+      "pass": true
+    },
+    {
+      "check": "Carved shrine furniture, scroll brackets and gate escutcheons have closed sides and back faces",
+      "pass": true,
+      "meshes": 8,
+      "openMeshes": []
+    },
+    {
+      "check": "Shrine incense vessel has closed outer and inner bowl surfaces",
+      "pass": true,
+      "nonManifoldEdges": 0
+    },
+    {
+      "check": "Shrine cabinet bears on altar without a floating gap",
+      "pass": true,
+      "gapMeters": -0.03000020980834961
+    },
+    {
+      "check": "Shrine central pair has preserved leaf geometry and explicit review pivots",
+      "pass": true
+    },
+    {
+      "check": "Unknown portrait installation has not been invented",
+      "pass": true
+    },
+    {
+      "check": "New solid timber has nondegenerate artwork UVs on all assigned surfaces",
+      "pass": true,
+      "invalidObjects": []
+    },
+    {
+      "check": "North.anchae.kitchen leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 1
+    },
+    {
+      "check": "North.anchae.kitchen leaf 2 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 1
+    },
+    {
+      "check": "North.anchae.daechong rear door 4 leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 3
+    },
+    {
+      "check": "North.anchae.daechong rear door 4 leaf 2 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 3
+    },
+    {
+      "check": "North.anchae.daechong rear door 5 leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 3
+    },
+    {
+      "check": "North.anchae.daechong rear door 5 leaf 2 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 3
+    },
+    {
+      "check": "North.angotgan.front WD1 0 leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 3
+    },
+    {
+      "check": "North.angotgan.front WD1 0 leaf 2 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 3
+    },
+    {
+      "check": "North.angotgan.front WD1 2 leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 3
+    },
+    {
+      "check": "North.angotgan.front WD1 2 leaf 2 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 3
+    },
+    {
+      "check": "North.angotgan.front WD1 3 leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 3
+    },
+    {
+      "check": "North.angotgan.front WD1 3 leaf 2 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 3
+    },
+    {
+      "check": "North.gokgan.central grain door leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 3
+    },
+    {
+      "check": "North.gokgan.central grain door leaf 2 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 3
+    },
+    {
+      "check": "North.sadangmun.taegeuk leaves leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 1,
+      "hardwareMeshes": 4
+    },
+    {
+      "check": "North.sadangmun.taegeuk leaves leaf 2 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 1,
+      "hardwareMeshes": 4
+    },
+    {
+      "check": "North.anchae.room rear 2 leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 4
+    },
+    {
+      "check": "North.anchae.room rear 3 leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 4
+    },
+    {
+      "check": "North.anchae.hall room 1 leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 4
+    },
+    {
+      "check": "North.anchae.hall room 2 leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 4
+    },
+    {
+      "check": "North.site.rear yard gate.plank door leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 4,
+      "hardwareMeshes": 2
+    },
+    {
+      "check": "North.site.rear yard gate.plank door leaf 2 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 4,
+      "hardwareMeshes": 2
+    },
+    {
+      "check": "North.sadang.survey sanctuary 1 leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 9,
+      "hardwareMeshes": 1
+    },
+    {
+      "check": "North.sadang.survey sanctuary 1 leaf 2 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 9,
+      "hardwareMeshes": 1
+    },
+    {
+      "check": "V26.Jung.WD01 door leaf 1 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 1
+    },
+    {
+      "check": "V26.Jung.WD01 door leaf 2 has volumetric wood members and hardware",
+      "pass": true,
+      "woodMeshes": 2,
+      "hardwareMeshes": 1
+    },
+    {
+      "check": "Both hall WD4 doors open through real room connections",
+      "pass": true,
+      "raySamples": 4,
+      "obstacles": []
+    },
+    {
+      "check": "Both opened rear room doors lead through real openings onto the veranda",
+      "pass": true,
+      "raySamples": 4,
+      "obstacles": []
+    },
+    {
+      "check": "Shrine apron has modeled ventilation bores",
+      "pass": true
+    },
+    {
+      "check": "All six shrine apron bores pass a ray through their centers",
+      "pass": true,
+      "blocked": []
+    },
+    {
+      "check": "Approach routes clear except the explicitly surveyed low jar-yard lintel",
+      "pass": true,
+      "obstacles": [],
+      "standingHeadObstructions": [
+        {
+          "point": [
+            15.87114793920502,
+            13.667519184564894,
+            1.65
+          ],
+          "object": "North.site.rear yard gate.head sill 85x150"
+        }
+      ]
+    },
+    {
+      "check": "Opened 1400 mm jar-yard gate clears a lowered passage at 1300 mm; standing clearance is not claimed",
+      "pass": true,
+      "obstacles": [],
+      "openingHeightMm": 1400
+    },
+    {
+      "check": "Shrine gate opens through the enclosure",
+      "pass": true,
+      "obstacles": []
+    },
+    {
+      "check": "Stone and earthen walls have no timber grain materials",
+      "pass": true,
+      "objects": 286,
+      "violations": []
+    },
+    {
+      "check": "Ceramic wall coping has earth bedding and no building rafters or timber fascia",
+      "pass": true,
+      "leftovers": []
+    }
+  ],
+  "passed": 206,
+  "total": 206,
+  "allPassed": true,
+  "fullSurveyAccuracyClaimed": false
+}

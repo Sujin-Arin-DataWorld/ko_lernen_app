@@ -1,0 +1,17 @@
+{
+  "tool": "Built-in ImageGen",
+  "date": "2026-09-30",
+  "sourceOutput": "C:/Users/vjinn/.codex/generated_images/01a0f22f-611d-72f2-8e9b-52fda88f29d9/exec-c934cedc-ba04-40de-990a-6effb28c691e.png",
+  "savedImage": "hanok-stone-painted-v2.png",
+  "sha256": "90234b2e7924b3bf61c5ac69dc4405ee89c6dc720dcdfd6d42f2a816ab4202b7",
+  "runtimePromotion": false,
+  "references": [
+    "C:/Users/vjinn/.codex/generated_images/01a0f22f-611d-72f2-8e9b-52fda88f29d9/exec-6634c8b8-ed9a-4e8a-870b-f5bedcd963a9.png",
+    "C:/dev/hangulsori/ko_lernen_app_worktrees/hanok-hwalju-20260928/assets/illustrations/gye/gye_haenglangchae.png"
+  ],
+  "previousIterationReferences": [
+    "materials/hanok-granite-v1.png",
+    "assets/illustrations/gye/gye_haenglangchae.png"
+  ],
+  "prompt": "Repaint image 1 with MUCH lower spatial frequency, as the hand-painted stone on the foundation in style reference 2. The current swatch is still far too densely flecked. Remove the fine aggregate/gravel field almost entirely. Across the ENTIRE square, show only about 8 to 14 LARGE irregular softly interrupted opaque pigment patches, each covering roughly 8 to 20 percent of the texture width. Inside them, only a few long sparse dry-brush and subtle hand-chisel color traces, a very faint quiet fine paper-pigment grain. Small color differences: warm muted granite taupe #918671 with restrained grey-cream and warm umber planes. No sharp polygon borders; do not draw triangular facets, cracks, joints or discrete rocks. These broad painted mineral fields must feel calm and hand-worked, not smooth vector or noisy photographic stone. Seamless full-bleed flat square material albedo, evenly unlit, no relief shadows or directional lighting, no objects, text, frame or vignette. Return only the opaque square texture. Reference 2 is only the visual paint style, never its building or stone-block outlines."
+}

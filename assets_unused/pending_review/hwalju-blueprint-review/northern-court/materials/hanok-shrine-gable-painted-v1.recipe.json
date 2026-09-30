@@ -1,0 +1,13 @@
+{
+  "tool": "Built-in ImageGen",
+  "date": "2026-09-30",
+  "sourceOutput": "C:/Users/vjinn/.codex/generated_images/01a0f22f-611d-72f2-8e9b-52fda88f29d9/exec-62367d6b-ef0d-4f47-87ed-5c6978b1021c.png",
+  "savedImage": "hanok-shrine-gable-painted-v1.png",
+  "sha256": "9451b3b84aaf48962a9aa5752130d463f0835f168d3f8e0364990aa3f49fceb0",
+  "runtimePromotion": false,
+  "references": [
+    "review3d/web-materials/b7f1eb8ae0506473.png",
+    "assets/illustrations/gye/gye_haenglangchae.png"
+  ],
+  "prompt": "Create ONE square seamless architectural material albedo, using image 1 only as the age and grain reference of the sun-bleached upright timber boards across its TOP strip. Image 2 is the hand-painted Hangul Sori gye illustration style reference. Paint only a flat full-bleed timber swatch, no building or photograph composition. Old Korean shrine gable timber, weathered walnut and greyed warm umber around #927D62, with darker aged-walnut fibres around #80532D and restrained dusty pale-buff scuffs. Broad opaque hand-painted strokes, sparse irregular vertical fibres, a few long naturally bent fibres and modest elongated knot traces, uneven rubbed pigment and sun-worn edges in the paint. It should be clearly different from honey pine or dense repeated dark grain: dry, bleached, calm, lived-in walnut-grey with muted warmer islands. Keep very low contrast so geometry and the actual plank joints carry the form. Remove the source photo's lilac, pinkish white, and glossy streaking. No pale purple or blue. Evenly unlit matte material; no baked sunlight, shadows, relief shading, plank boundaries, seams, panels, perspective, vignette, border, objects, letters or signs. No glossy wood, photographic noise, perfectly straight vector fibres, triangulated facets or distressed crack patterns. Match the soft opaque painterly mineral-and-timber treatment in image 2. Output only the opaque seamless square timber albedo."
+}

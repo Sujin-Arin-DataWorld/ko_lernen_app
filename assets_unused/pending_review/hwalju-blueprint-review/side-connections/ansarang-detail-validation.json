@@ -1,0 +1,1507 @@
+{
+  "baseComponents": 361,
+  "craftedComponents": 363,
+  "materialGroups": {
+    "wood": 258,
+    "ceramic": 18,
+    "beam": 4,
+    "retained": 57,
+    "stone": 23,
+    "post": 1
+  },
+  "mapped": [
+    {
+      "object": "V35.ansarang.roof.tapered hip rafters",
+      "kind": "wood",
+      "components": 40
+    },
+    {
+      "object": "V35.ansarang.roof.tapered full rafters",
+      "kind": "wood",
+      "components": 216
+    },
+    {
+      "object": "V35.ansarang.roof.rectangular hip fascia",
+      "kind": "beam",
+      "components": 4
+    },
+    {
+      "object": "V35.ansarang.roof.rectangular front fascia",
+      "kind": "beam",
+      "components": 4
+    },
+    {
+      "object": "V32.ansarang.right WD05.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.right WD05.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD05.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD05.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD05.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.right WD05.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD05.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.right WD05 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD05 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.right WD03 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.right WD03 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay3 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay2 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear WD02 bay1 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 10
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 10
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.rear kitchen WW01 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 9
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 9
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.left kitchen WW02 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD08 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD08 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD08 recessed panel",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD08 leaf.stile",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.inside WD08 leaf.rail",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "V32.ansarang.inside WD07.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.inside WD07.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD07.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD07.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD07.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.inside WD07.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD07.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.inside WD07 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.inside WD07 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.front room WD06.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V32.ansarang.front room WD06.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.front room WD06.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.front room WD06.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.front room WD06.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V32.ansarang.front room WD06.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.front room WD06.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.front room WD06 wall.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.front room WD06 wall.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V32.ansarang.foundation terrace slabs.004",
+      "kind": "stone",
+      "components": 19
+    },
+    {
+      "object": "V32.ansarang.foundation terrace slabs.003",
+      "kind": "stone",
+      "components": 16
+    },
+    {
+      "object": "V32.ansarang.foundation terrace slabs.002",
+      "kind": "stone",
+      "components": 20
+    },
+    {
+      "object": "V32.ansarang.foundation terrace slabs.001",
+      "kind": "stone",
+      "components": 16
+    },
+    {
+      "object": "V32.ansarang.foundation terrace slabs",
+      "kind": "stone",
+      "components": 15
+    },
+    {
+      "object": "V32.ansarang.foundation dressed return.004",
+      "kind": "stone",
+      "components": 6
+    },
+    {
+      "object": "V32.ansarang.foundation dressed return.003",
+      "kind": "stone",
+      "components": 5
+    },
+    {
+      "object": "V32.ansarang.foundation dressed return.002",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "V32.ansarang.foundation dressed return.001",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "V32.ansarang.foundation dressed return",
+      "kind": "stone",
+      "components": 9
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge.004",
+      "kind": "stone",
+      "components": 12
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge.003",
+      "kind": "stone",
+      "components": 12
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge.002",
+      "kind": "stone",
+      "components": 13
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge.001",
+      "kind": "stone",
+      "components": 14
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge",
+      "kind": "stone",
+      "components": 22
+    },
+    {
+      "object": "V32.ansarang.finish terrace approach",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V32.ansarang.finish maru stepping stone",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V32.ansarang.finish lower approach",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V31.ansarang.roof.gable grille vertical",
+      "kind": "wood",
+      "components": 18
+    },
+    {
+      "object": "V31.ansarang.roof.gable grille reveal",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.roof.gable grille horizontal",
+      "kind": "wood",
+      "components": 10
+    },
+    {
+      "object": "V31.ansarang.roof.gable grille frame",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "V31.ansarang.front wall3.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.front wall3.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.front wall2.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.front wall2.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.front wall1.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.front wall1.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.front wall0.jamb",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V31.ansarang.front wall0.head/sill",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.roof.gable frame",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "V28.ansarang.roof frame.purlin",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.roof frame.king post",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.right porch floor.003",
+      "kind": "wood",
+      "components": 6
+    },
+    {
+      "object": "V28.ansarang.right porch floor.002",
+      "kind": "wood",
+      "components": 6
+    },
+    {
+      "object": "V28.ansarang.right porch floor.001",
+      "kind": "wood",
+      "components": 6
+    },
+    {
+      "object": "V28.ansarang.right porch floor",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.maru support",
+      "kind": "wood",
+      "components": 15
+    },
+    {
+      "object": "V28.ansarang.maru floor.003",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "V28.ansarang.maru floor.002",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "V28.ansarang.maru floor.001",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "V28.ansarang.maru floor",
+      "kind": "wood",
+      "components": 12
+    },
+    {
+      "object": "V28.ansarang.maru brace",
+      "kind": "wood",
+      "components": 6
+    },
+    {
+      "object": "V28.ansarang.hall floor.003",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "V28.ansarang.hall floor.002",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "V28.ansarang.hall floor.001",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "V28.ansarang.hall floor",
+      "kind": "wood",
+      "components": 4
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf4.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf3.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery3.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery2.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf2.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.recessed lower board",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.lower moulding.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.lower moulding.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.lock rail",
+      "kind": "wood",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.front joinery1.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.front joinery0.leaf1.vertical sal",
+      "kind": "wood",
+      "components": 7
+    },
+    {
+      "object": "V28.ansarang.front joinery0.leaf1.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery0.leaf1.rebated bead.stile",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery0.leaf1.rebated bead.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery0.leaf1.rear paper rail",
+      "kind": "wood",
+      "components": 3
+    },
+    {
+      "object": "V28.ansarang.front joinery0.leaf1.rail",
+      "kind": "wood",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.front joinery0.leaf1.horizontal band",
+      "kind": "wood",
+      "components": 13
+    },
+    {
+      "object": "V28.ansarang.frame.post",
+      "kind": "post",
+      "components": 10
+    },
+    {
+      "object": "V28.ansarang.frame.long beam",
+      "kind": "beam",
+      "components": 6
+    },
+    {
+      "object": "V28.ansarang.frame.cross beam",
+      "kind": "beam",
+      "components": 5
+    },
+    {
+      "object": "V28.ansarang.frame.bracket.upper bearing",
+      "kind": "wood",
+      "components": 5
+    },
+    {
+      "object": "V28.ansarang.frame.bracket.shaped timber shoulder",
+      "kind": "wood",
+      "components": 5
+    },
+    {
+      "object": "V28.ansarang.frame.bracket.lower seating block",
+      "kind": "wood",
+      "components": 5
+    },
+    {
+      "object": "V28.ansarang.foundation.post stone.004",
+      "kind": "stone",
+      "components": 4
+    },
+    {
+      "object": "V28.ansarang.foundation.post stone.003",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.foundation.post stone.002",
+      "kind": "stone",
+      "components": 1
+    },
+    {
+      "object": "V28.ansarang.foundation.post stone.001",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.foundation.post stone",
+      "kind": "stone",
+      "components": 2
+    },
+    {
+      "object": "V28.ansarang.ceiling",
+      "kind": "wood",
+      "components": 1
+    }
+  ],
+  "smallGeometryChanges": [
+    {
+      "object": "V32.ansarang.foundation dressed return.004",
+      "edgeVariationMetres": 0.01,
+      "heightVariationMetres": 0.005
+    },
+    {
+      "object": "V32.ansarang.foundation dressed return.003",
+      "edgeVariationMetres": 0.01,
+      "heightVariationMetres": 0.005
+    },
+    {
+      "object": "V32.ansarang.foundation dressed return.002",
+      "edgeVariationMetres": 0.01,
+      "heightVariationMetres": 0.005
+    },
+    {
+      "object": "V32.ansarang.foundation dressed return.001",
+      "edgeVariationMetres": 0.01,
+      "heightVariationMetres": 0.005
+    },
+    {
+      "object": "V32.ansarang.foundation dressed return",
+      "edgeVariationMetres": 0.01,
+      "heightVariationMetres": 0.005
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge.004",
+      "edgeVariationMetres": 0.01,
+      "heightVariationMetres": 0.005
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge.003",
+      "edgeVariationMetres": 0.01,
+      "heightVariationMetres": 0.005
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge.002",
+      "edgeVariationMetres": 0.01,
+      "heightVariationMetres": 0.005
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge.001",
+      "edgeVariationMetres": 0.01,
+      "heightVariationMetres": 0.005
+    },
+    {
+      "object": "V32.ansarang.foundation dressed edge",
+      "edgeVariationMetres": 0.01,
+      "heightVariationMetres": 0.005
+    },
+    {
+      "object": "V32.ansarang.finish maru stepping stone",
+      "edgeVariationMetres": 0.01,
+      "heightVariationMetres": 0.005
+    }
+  ],
+  "sourcePigmentSha256": "119c09be21745203122d1b0270fce249fad0a59cb48fb6c69a2ea023e0c0bc56",
+  "canonicalImageEdited": false,
+  "measuredOpeningsAndRoofAxesChanged": false,
+  "sceneSha256": "c706021a1f1377834f4274654c8c416dd5e9fe63a66f6a9ab6431a5c254b1723",
+  "craftedGlbSha256": "416426eff1ba33e2a675fac3ba7db7b79d133fa0126d8d8ab08c761ca5dae726",
+  "historicalDamageMeasured": false
+}

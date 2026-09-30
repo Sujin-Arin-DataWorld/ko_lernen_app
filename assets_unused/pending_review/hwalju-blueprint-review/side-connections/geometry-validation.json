@@ -1,0 +1,340 @@
+{
+  "sceneSha256": "16817d97b67c1ae84f5db98612b4e85e3c5d2340f221eca35e7d3741da8d8b86",
+  "protectedMeshes": 940,
+  "checks": [
+    {
+      "check": "940 approved native building meshes unchanged",
+      "pass": true
+    },
+    {
+      "check": "Open path ground has no cliff",
+      "pass": true,
+      "maxRisePerSample": 0.0068683624267578125
+    },
+    {
+      "check": "Forecourt connection has no gate",
+      "pass": true
+    },
+    {
+      "check": "Open path clear width 2.8m",
+      "pass": true
+    },
+    {
+      "check": "Right gate stair low side faces Sarang forecourt",
+      "pass": true,
+      "heights": [
+        -1.9073486328125e-06,
+        0.720001220703125
+      ]
+    },
+    {
+      "check": "Ansarang foundation datum matches ground",
+      "pass": true
+    },
+    {
+      "check": "Open route unobstructed at walking and eye heights",
+      "pass": true,
+      "hits": []
+    },
+    {
+      "check": "Entry faces right fourth bay rather than centre",
+      "pass": true,
+      "entryY": -14.2,
+      "buildingCentreY": -9.7831032106
+    },
+    {
+      "check": "Eye line through opening reaches rightmost four-leaf joinery",
+      "pass": true,
+      "firstVisibleObject": "V28.ansarang.front joinery3.leaf3.hanji backing"
+    },
+    {
+      "check": "Garden wall starts at marked OUTER Numaru front corner",
+      "pass": true,
+      "bounds": [
+        [
+          14.482000350952148,
+          -12.85458755493164,
+          -0.002473600674420595
+        ],
+        [
+          15.157999992370605,
+          -4.049428462982178,
+          1.5239999294281006
+        ]
+      ]
+    },
+    {
+      "check": "Garden wall is straight on outer corner axis",
+      "pass": true,
+      "bounds": [
+        [
+          14.635000228881836,
+          -12.800000190734863,
+          0.004999999888241291
+        ],
+        [
+          15.005000114440918,
+          -4.099999904632568,
+          1.2200000286102295
+        ]
+      ]
+    },
+    {
+      "check": "Garden masonry touches Numaru outer corner timber",
+      "pass": true,
+      "wall": [
+        [
+          14.635000228881836,
+          -12.800000190734863,
+          0.004999999888241291
+        ],
+        [
+          15.005000114440918,
+          -4.099999904632568,
+          1.2200000286102295
+        ]
+      ],
+      "post": [
+        [
+          14.415614128112793,
+          -4.127649784088135,
+          0.5600000023841858
+        ],
+        [
+          14.678024291992188,
+          -3.866201162338257,
+          3.940000057220459
+        ]
+      ]
+    },
+    {
+      "check": "Left gate to Sarang wall rises without lifting footing",
+      "pass": true,
+      "bounds": [
+        [
+          -2.0920000076293945,
+          3.6019999980926514,
+          0.019999999552965164
+        ],
+        [
+          -0.07999995350837708,
+          4.002000331878662,
+          3.06000018119812
+        ]
+      ]
+    },
+    {
+      "check": "Raised left wall has real lower masonry courses",
+      "pass": true,
+      "bounds": [
+        [
+          -2.1520533561706543,
+          3.5401611328125,
+          0.002668156987056136
+        ],
+        [
+          -0.023209014907479286,
+          4.057000160217285,
+          0.9180659055709839
+        ]
+      ]
+    },
+    {
+      "check": "High coping joins just below left gate eaves",
+      "pass": true,
+      "top": 3.284454822540283,
+      "gateEave": 3.38
+    },
+    {
+      "check": "left_changgo wall to warehouse straight and joined to gate post",
+      "pass": true,
+      "bounds": [
+        [
+          -7.229999542236328,
+          3.6019997596740723,
+          0.6200000047683716
+        ],
+        [
+          -4.303999900817871,
+          4.002000331878662,
+          1.8000000715255737
+        ]
+      ],
+      "overlap": 0.014000099182128523
+    },
+    {
+      "check": "left_changgo wall to sarang straight and joined to gate post",
+      "pass": true,
+      "bounds": [
+        [
+          -2.0920000076293945,
+          3.6019999980926514,
+          0.019999999552965164
+        ],
+        [
+          -0.07999995350837708,
+          4.002000331878662,
+          3.06000018119812
+        ]
+      ],
+      "overlap": 0.014000007629394684
+    },
+    {
+      "check": "right_ansarang wall to sarang straight and joined to gate post",
+      "pass": true,
+      "bounds": [
+        [
+          14.600000381469727,
+          -0.11700001358985901,
+          0.019999999552965164
+        ],
+        [
+          17.322002410888672,
+          0.28300005197525024,
+          2.240000009536743
+        ]
+      ],
+      "overlap": 0.012502410888671989
+    },
+    {
+      "check": "right_ansarang wall to ansarang straight and joined to gate post",
+      "pass": true,
+      "bounds": [
+        [
+          18.861997604370117,
+          -0.11700010299682617,
+          0.019999999552965164
+        ],
+        [
+          23.25,
+          0.28299999237060547,
+          2.240000009536743
+        ]
+      ],
+      "overlap": 0.012502395629880425
+    },
+    {
+      "check": "Ansarang remains freestanding within rectangular courtyard",
+      "pass": true
+    },
+    {
+      "check": "Outer enclosure wall3 stays outside Ansarang footprint",
+      "pass": true,
+      "bounds": [
+        [
+          23.25,
+          -0.10199999809265137,
+          0.004999999888241291
+        ],
+        [
+          29.5,
+          0.2680000066757202,
+          2.240000009536743
+        ]
+      ]
+    },
+    {
+      "check": "Outer enclosure wall4 stays outside Ansarang footprint",
+      "pass": true,
+      "bounds": [
+        [
+          29.315000534057617,
+          -21.100000381469727,
+          0.004999999888241291
+        ],
+        [
+          29.684999465942383,
+          0.08299999684095383,
+          2.240000009536743
+        ]
+      ]
+    },
+    {
+      "check": "Outer enclosure wall5 stays outside Ansarang footprint",
+      "pass": true,
+      "bounds": [
+        [
+          14.819999694824219,
+          -21.28499984741211,
+          0.004999999888241291
+        ],
+        [
+          29.5,
+          -20.915000915527344,
+          2.240000009536743
+        ]
+      ]
+    },
+    {
+      "check": "Courtyard perimeter present on north",
+      "pass": true,
+      "object": "ConnectionGarden.wall3.fieldstone"
+    },
+    {
+      "check": "Courtyard perimeter present on east",
+      "pass": true,
+      "object": "ConnectionGarden.wall4.ochre core"
+    },
+    {
+      "check": "Courtyard perimeter present on south",
+      "pass": true,
+      "object": "ConnectionGarden.wall5.ochre core"
+    },
+    {
+      "check": "Courtyard perimeter present on west",
+      "pass": true,
+      "object": "ConnectionGarden.wall1.ochre core"
+    },
+    {
+      "check": "No invented wall blocks Ansarang left-side passage",
+      "pass": true,
+      "hitObject": null
+    },
+    {
+      "check": "Each left approach stone is embedded in local grade",
+      "pass": true,
+      "stones": [
+        {
+          "name": "V27.left_changgo.finish.approach.002",
+          "topAboveGrade": 0.034999996423721313,
+          "bottomAboveGrade": -0.04499998688697815
+        },
+        {
+          "name": "V27.left_changgo.finish.approach.001",
+          "topAboveGrade": 0.034999966621398926,
+          "bottomAboveGrade": -0.04500001668930054
+        },
+        {
+          "name": "V27.left_changgo.finish.approach",
+          "topAboveGrade": 0.03500187397003174,
+          "bottomAboveGrade": -0.044998109340667725
+        }
+      ]
+    },
+    {
+      "check": "Actual first gate tread is on south approach",
+      "pass": true
+    },
+    {
+      "check": "left_changgo original door dimensions retained",
+      "pass": true,
+      "width": 1.6980199813842773,
+      "height": 2.070000112056732
+    },
+    {
+      "check": "left_changgo paired crafted iron rings",
+      "pass": true
+    },
+    {
+      "check": "right_ansarang original door dimensions retained",
+      "pass": true,
+      "width": 1.0380401611328125,
+      "height": 1.6599999070167542
+    },
+    {
+      "check": "right_ansarang paired crafted iron rings",
+      "pass": true
+    }
+  ],
+  "allPassed": true
+}

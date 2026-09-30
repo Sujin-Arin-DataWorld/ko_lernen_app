@@ -1,0 +1,383 @@
+{
+  "sceneSha256": "bd921e4b0768bb7b9d0dba5c97fab3ce079e8f3ba649a2a9039334023b79450b",
+  "files": [
+    {
+      "file": "completion-plan.md",
+      "bytes": 8742,
+      "sha256": "225de082a70e0763838382b4b083ccdf4500eb13a37b0acc53caa53206ee217d"
+    },
+    {
+      "file": "estate/manifest.json",
+      "bytes": 65083,
+      "sha256": "7647c95e1ff54251db2636a6426010a6caf0ff342e36ea5a6ce0f54506a47cce"
+    },
+    {
+      "file": "estate-fabric-validation.json",
+      "bytes": 97796,
+      "sha256": "5002905ccc104347f21a143d25c80463447d02f0ae35b4fe09a799a225d5302f"
+    },
+    {
+      "file": "estate-viewer.js",
+      "bytes": 12969,
+      "sha256": "d64a299920ed416182324f0930b555613126c78e3922e92d4ff591fb537ed63d"
+    },
+    {
+      "file": "estate.html",
+      "bytes": 6784,
+      "sha256": "a8a9bf83e0f12c7343b1368ad582a15cb397c67f11747c030823cbb023905164"
+    },
+    {
+      "file": "index.html",
+      "bytes": 8582,
+      "sha256": "fbc9f5dc02ed5c7e5b9c5cd31888ecb0a024f4d84ba997403411bf6d83ab078b"
+    },
+    {
+      "file": "photo-comparison.json",
+      "bytes": 3524,
+      "sha256": "ada7db0365f58a18d6adc422591bb8ce876b35a76c656e298eab2632be343962"
+    },
+    {
+      "file": "placement-review.html",
+      "bytes": 18728,
+      "sha256": "67d1a68990356f34f65abb5364e30209e174e0167b24932a7ea962a0c76a34ad"
+    },
+    {
+      "file": "placement-site002.jpg",
+      "bytes": 933414,
+      "sha256": "3cdb496da05b9ff69d60937a5006ef107496bf47fe81219765947f18bdcd066d"
+    },
+    {
+      "file": "redraw/atlas-part-map.json",
+      "bytes": 140229,
+      "sha256": "c07507e37e5b516ad78eeca8e525c69faf7dd23182a6265aff45fbe10d1d0503"
+    },
+    {
+      "file": "redraw/detail-redraw-validation.json",
+      "bytes": 37064,
+      "sha256": "d148632eeebca9d4c696726687b9ffd1ead8dac5c3d8b0891e7c7e1c4731b98c"
+    },
+    {
+      "file": "references/anchae-arris-after-20260930.png",
+      "bytes": 526021,
+      "sha256": "24d4d1de4621651230f030f051f430eafe0c03b7084096062dde7652b3b5f67b"
+    },
+    {
+      "file": "references/anchae-arris-before-20260930.png",
+      "bytes": 525249,
+      "sha256": "bdf431572bd8525b496c8f4729e168be4791b57ecc55b8f29f9c3c2950d81eb4"
+    },
+    {
+      "file": "references/anchae-plaster-detail-20260930.png",
+      "bytes": 524553,
+      "sha256": "fe6a87c5518aed72e6cafc83d82ee708c4da9e2a086f512dce729aee8ccc7add"
+    },
+    {
+      "file": "references/anchae-roof-after-20260930.png",
+      "bytes": 453011,
+      "sha256": "45c8b2ddf451592a2eda291febe818e77e3479f19e7c87edefa24fc5128a906e"
+    },
+    {
+      "file": "references/anchae-roof-before-20260930.png",
+      "bytes": 450345,
+      "sha256": "cbbc5088eb6d96efd0f53aaaaa1e35389f4c4d2540904d3aca2d7acda3f88878"
+    },
+    {
+      "file": "references/anchae-timber-after-20260930.png",
+      "bytes": 461824,
+      "sha256": "72b6d6d86503312c0c5f7c2eeeee8a3623277e5aa22bf5dd2a3bc8e95cc63512"
+    },
+    {
+      "file": "references/anchae-timber-before-20260930.png",
+      "bytes": 470789,
+      "sha256": "dfd57c5a58aae7064b865190b4c5d5a36158cc4a86fa8180851e5fbaf21efe44"
+    },
+    {
+      "file": "references/angotgan-wood-canvas-20260930.png",
+      "bytes": 983251,
+      "sha256": "e8588ffef219224191e654f33b93a63d004713e768076a0aaed610aaa7988c6d"
+    },
+    {
+      "file": "references/ansarang-roof-before-20260930.png",
+      "bytes": 904185,
+      "sha256": "0ecbc45444c3fde1a7bbedb1c42da167b0c91eb94dc19b0f5b01694d7eda5154"
+    },
+    {
+      "file": "references/ansarang-roof-uv-fixed-20260930.png",
+      "bytes": 451657,
+      "sha256": "ced480422a9825fbcb8e19bd98fba04233a3bb2a0c3e0c5347684ff7c8e814ca"
+    },
+    {
+      "file": "references/ansarang-stone-after-20260930.png",
+      "bytes": 469884,
+      "sha256": "16c315aa50bff8bb440fbcaea6ab7707b321d9713959cf6edfe4026f7ee85e25"
+    },
+    {
+      "file": "references/ansarang-stone-before-20260930.png",
+      "bytes": 470994,
+      "sha256": "dbdc49a74f668da88609fe9e51aa6bcb35bf3c692b89997b3c0f7e0fe3e2bc98"
+    },
+    {
+      "file": "references/ansarang-timber-after-20260930.png",
+      "bytes": 460594,
+      "sha256": "bc6ca360050c460910d737c6a94bd28c0b3b7d95e1f500233327dc7bff65d27f"
+    },
+    {
+      "file": "references/ansarang-timber-before-20260930.png",
+      "bytes": 476386,
+      "sha256": "f8ff621aa31f80460c7469abf61928ed935598d85847e6b8e59ab4313be51234"
+    },
+    {
+      "file": "references/arae-arris-after-20260930.png",
+      "bytes": 499884,
+      "sha256": "c2af1080318672b1c3014dd3adb4c511f4e8da03c1597d1cda735918e7e14f3a"
+    },
+    {
+      "file": "references/arae-arris-before-20260930.png",
+      "bytes": 499772,
+      "sha256": "2cc5339e729ec8fc3b1db38ec9ab2338e50165561c33732c21e15371f602f639"
+    },
+    {
+      "file": "references/arae-wood-canvas-20260930.png",
+      "bytes": 973390,
+      "sha256": "34470e870ef7ccc3f5befffc0a1a3611d8a099e968096904fabece4e8557ad5d"
+    },
+    {
+      "file": "references/changgo-approved-20260930.png",
+      "bytes": 4112877,
+      "sha256": "867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488"
+    },
+    {
+      "file": "references/changgo-before-20260930.png",
+      "bytes": 1206465,
+      "sha256": "602ac42068ad3e741fba9776251bc9c2859742c6f800b36cf7dc4ae6b7bf0d62"
+    },
+    {
+      "file": "references/changgo-wall-after-20260930.png",
+      "bytes": 1235016,
+      "sha256": "7504ce978e631dbfaef44cd178b53f66c39b6cffc80b0e906c5745042484a516"
+    },
+    {
+      "file": "references/changgo-wall-request-20260930.png",
+      "bytes": 159477,
+      "sha256": "e4f8d772cd109eb9eefa847286dc73df4d9884133377cc789b403ddcaa11c24f"
+    },
+    {
+      "file": "references/cream-plaster-pigment-20260930.png",
+      "bytes": 2484196,
+      "sha256": "ed02b0922ee936b33d156e72896b2a680aeb3f02da6a0edc108798dff01fae90"
+    },
+    {
+      "file": "references/cream-plaster-pigment-recipe-20260930.json",
+      "bytes": 1328,
+      "sha256": "035a9d6aa160bc495fd28d048b7e2517e0d8204ce83d9acfc18262e814371788"
+    },
+    {
+      "file": "references/estate-craft-overview-20260930.png",
+      "bytes": 233609,
+      "sha256": "53484c61fea1fed833f6cd0bbd62e7570f7b3a2804222457dc9a44b625da25e6"
+    },
+    {
+      "file": "references/gokgan-gap-after-20260930.png",
+      "bytes": 546575,
+      "sha256": "e638254db6755373ae2a9353f247339b4b6fe380c9ff1a4e9fe1320ed3e17bfa"
+    },
+    {
+      "file": "references/gokgan-gap-before-20260930.png",
+      "bytes": 525485,
+      "sha256": "b37e3ff9abe8a1e6226fe086f92f3698694988b2ac623e548732837c99bf54ec"
+    },
+    {
+      "file": "references/gokgan-wood-canvas-20260930.png",
+      "bytes": 917030,
+      "sha256": "77ae3c864c3f012985598570e837b1a93165be466e13eadc5960c07d1f89019b"
+    },
+    {
+      "file": "references/jung-craft-detail-after-20260930.png",
+      "bytes": 486265,
+      "sha256": "2e90e1ce0eb7d50c463e77917800d860ed712fb70ab27f91320dcade617ecc8a"
+    },
+    {
+      "file": "references/jung-craft-detail-before-20260930.png",
+      "bytes": 478338,
+      "sha256": "cc38f9f2a9d72d9b407da87cfe5467e1672257a2f057b112d1bf481c6b50222c"
+    },
+    {
+      "file": "references/jung-painted-wood-20260930.png",
+      "bytes": 2184037,
+      "sha256": "f1bbd3dde4277cc8aea9fb436e9456968ce9dfa79590a0e1832da394a232eb96"
+    },
+    {
+      "file": "references/sadang-roof-before-20260930.png",
+      "bytes": 913056,
+      "sha256": "c3224184042ffe545bad7dd83e9312a8a897801d90c7dabf9cb5ff85683a933d"
+    },
+    {
+      "file": "references/sadang-roof-hidden-check-20260930.png",
+      "bytes": 435123,
+      "sha256": "81e2a3b54609ae3e4233add182bd27cfc59b8067f73982b8ced7e616b8089396"
+    },
+    {
+      "file": "references/sadang-roof-uv-fixed-20260930.png",
+      "bytes": 441294,
+      "sha256": "90163f8caa359adabd4c500386e590f980e7c8826b232e041b764037c3bc4ea0"
+    },
+    {
+      "file": "references/sarang-craft-detail-after-20260930.png",
+      "bytes": 570982,
+      "sha256": "8b757a60cce489211dfdf7f5746e1fc15b09ac211ee1e86a45826310eda10626"
+    },
+    {
+      "file": "references/sarang-craft-detail-before-20260930.png",
+      "bytes": 556239,
+      "sha256": "1fcec78ca254053257d58e045be03b13cc35277671234336ba29071e40611a34"
+    },
+    {
+      "file": "references/sarang-matte-after-20260930.png",
+      "bytes": 516923,
+      "sha256": "a2c6e60e995f03240e2b562f8b7c5ac619d70658220fe87aa0cda52d93c59822"
+    },
+    {
+      "file": "references/sarang-matte-before-20260930.png",
+      "bytes": 518672,
+      "sha256": "abb4af40a5a261450aac239ea348884b07129d67ad0ed2bc7994949703a38276"
+    },
+    {
+      "file": "references/sarang-painted-wood-20260930.png",
+      "bytes": 2264645,
+      "sha256": "d74b1bffd60e4378d741f5fde875b12dc0b9a657dc2aea87bbc6a39f15553458"
+    },
+    {
+      "file": "references/sarang-stone-after-20260930.png",
+      "bytes": 518548,
+      "sha256": "09453b2652ba2fb67fa526b783b36db68fe7015e8d2357baf77f6a566e95b8c9"
+    },
+    {
+      "file": "references/sarang-stone-before-20260930.png",
+      "bytes": 518772,
+      "sha256": "ccc481cb7ecc6ee4fa8cf9acb79fceace47265ee6f25ad4e11f2227837f9afe3"
+    },
+    {
+      "file": "references/shrine-gable-after-20260930.png",
+      "bytes": 432008,
+      "sha256": "7d18ee4568e7901d125f8929469c6085acb6413b1c1f4953c4636ba06de21adf"
+    },
+    {
+      "file": "references/shrine-gable-pigment-20260930.png",
+      "bytes": 2454967,
+      "sha256": "9451b3b84aaf48962a9aa5752130d463f0835f168d3f8e0364990aa3f49fceb0"
+    },
+    {
+      "file": "references/shrine-gable-recipe-20260930.json",
+      "bytes": 1927,
+      "sha256": "dda2c11e3eedd66947bd529de670a8205b245025244eacfbb96a58a037244907"
+    },
+    {
+      "file": "references/stone-pigment-20260930.png",
+      "bytes": 2452694,
+      "sha256": "90234b2e7924b3bf61c5ac69dc4405ee89c6dc720dcdfd6d42f2a816ab4202b7"
+    },
+    {
+      "file": "references/stone-pigment-recipe-20260930.json",
+      "bytes": 1877,
+      "sha256": "9303307ff964715e05855b611d942156d6eb9a221f0bfb0f1a270bd65a981ccc"
+    },
+    {
+      "file": "site002-fit.svg",
+      "bytes": 7572,
+      "sha256": "b9e8b55b00a9439a1a125ef37a7c8dad0285bd11924e5ce36b3b3ff0ed37e504"
+    },
+    {
+      "file": "survey-audit.html",
+      "bytes": 29578,
+      "sha256": "68e0aaa724cce147bd067b96169497ae32b0d88fed1806c60ce3565b9773fd1e"
+    },
+    {
+      "file": "survey-authority.json",
+      "bytes": 28283,
+      "sha256": "58c4360b952a390f91c0fe73a918a6a4e2f7e1d51366c27754837afbbad2277c"
+    },
+    {
+      "file": "survey-candidate-validation.json",
+      "bytes": 33752,
+      "sha256": "6e47dc1cdedbb1384d12c5a011daded805039954379bde16eb748c71502b7d6e"
+    },
+    {
+      "file": "survey-source-manifest.json",
+      "bytes": 8427,
+      "sha256": "7a378e9b6308c24af1dc858bb48f85e8099b414cf982dfe83706e18d4c37d15e"
+    },
+    {
+      "file": "timber-detail-cameras.json",
+      "bytes": 2410,
+      "sha256": "a7b4c894acee30fdeefc147727b63d9b93cdf28a5295ef05770d91c16ede4509"
+    },
+    {
+      "file": "vendor/model-viewer.min.js",
+      "bytes": 979139,
+      "sha256": "8367184a607fbe07a78b650c0d359e5ebbd96f7e2b22f95f761f559b63430386"
+    },
+    {
+      "file": "vendor/three/build/three.core.js",
+      "bytes": 1458113,
+      "sha256": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6"
+    },
+    {
+      "file": "vendor/three/build/three.module.js",
+      "bytes": 662772,
+      "sha256": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea"
+    },
+    {
+      "file": "vendor/three/examples/jsm/controls/OrbitControls.js",
+      "bytes": 40755,
+      "sha256": "3d79d07ecb686b4e5d93232eedab255331c1beef711e13164eaa1f68655a5f2b"
+    },
+    {
+      "file": "vendor/three/examples/jsm/libs/draco/gltf/draco_decoder.js",
+      "bytes": 512465,
+      "sha256": "8625489da79a805f4f2a7d511c3e52d8b4085608a9d2a4d5f4f9de5db0aea04f"
+    },
+    {
+      "file": "vendor/three/examples/jsm/libs/draco/gltf/draco_decoder.wasm",
+      "bytes": 192420,
+      "sha256": "a680d927bed9cb864ddbd63521868891af2bfbe755092761b4837487618df8ac"
+    },
+    {
+      "file": "vendor/three/examples/jsm/libs/draco/gltf/draco_wasm_wrapper.js",
+      "bytes": 58456,
+      "sha256": "8bb2952d2ba7d67e1414f8df819410cb0434a666be53f671fff75f68843d76f6"
+    },
+    {
+      "file": "vendor/three/examples/jsm/loaders/DRACOLoader.js",
+      "bytes": 19030,
+      "sha256": "fdafdf4aa11bbc65d89adb338efd844bedf94073702f9049240ff1f1ea48ad5f"
+    },
+    {
+      "file": "vendor/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 117570,
+      "sha256": "131c0f78c01d19368ae495caa65b3adaa10487810a36a05bb5901b769a35ac16"
+    },
+    {
+      "file": "vendor/three/examples/jsm/utils/BufferGeometryUtils.js",
+      "bytes": 37712,
+      "sha256": "9fb63427ce6641fa14fd0baff9cc4d1b5f9c3d85fd084bf2e90e803c44ec1797"
+    },
+    {
+      "file": "vendor/three/examples/jsm/utils/SkeletonUtils.js",
+      "bytes": 11535,
+      "sha256": "b1632a703206c3d830de9fcbe515696770d04b71a15ee6b50afa6d2c3298c86f"
+    },
+    {
+      "file": "vendor/three/LICENSE",
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    },
+    {
+      "file": "work-status.html",
+      "bytes": 29334,
+      "sha256": "0841d4fa075a173f6915fd5b405f584f899a4548f1c680a43a481236338a9fc0"
+    }
+  ],
+  "missingLinks": [],
+  "glbChunks": "Kept in the existing local server; regenerate from the checkpoint native scene.",
+  "browserReview": "Latest scene loaded, no browser errors; timber/clearance and roof-visible overview inspected."
+}

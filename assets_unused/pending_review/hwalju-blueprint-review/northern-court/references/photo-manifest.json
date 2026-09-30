@@ -1,0 +1,273 @@
+{
+  "photos": [
+    {
+      "building": "sadang",
+      "source": "C:\\Users\\vjinn\\Pictures\\Screenshots\\사당\\스크린샷 2026-08-29 221750.png",
+      "file": "photos/sadang-front-dancheong.png",
+      "sha256": "7415222d0712b09539989007cb27ec3a1304df60227bad64edbf2d3ca095bc4d",
+      "features": "양쪽 외짝문과 가운데 두짝문, 겹처마 단청, 붉은 앞기둥, 마루 아래 환기구",
+      "role": "user-photograph",
+      "geometryAuthority": "Details corroborate drawings; photograph-only dimensions remain estimates."
+    },
+    {
+      "building": "sadangmun",
+      "source": "C:\\Users\\vjinn\\Pictures\\Screenshots\\사당\\스크린샷 2026-08-29 221808.png",
+      "file": "photos/sadangmun-gate.png",
+      "sha256": "6b81e2e28b3911ff72f48e85690f7219a55e2211578d477fc8fe44c857d2fa8f",
+      "features": "녹색 보와 서까래, 태극 판문, 돌 문턱과 계단",
+      "role": "user-photograph",
+      "geometryAuthority": "Details corroborate drawings; photograph-only dimensions remain estimates."
+    },
+    {
+      "building": "sadang",
+      "source": "C:\\Users\\vjinn\\Pictures\\Screenshots\\사당\\스크린샷 2026-08-24 144622.png",
+      "file": "photos/sadang-oblique.png",
+      "sha256": "bdd7e58ff97a880e7351f40a84c6060d3c9b35333bbad35e122eea293f46fbe7",
+      "features": "원기둥과 공포, 낮은 기단, 물러난 창호면",
+      "role": "user-photograph",
+      "geometryAuthority": "Details corroborate drawings; photograph-only dimensions remain estimates."
+    },
+    {
+      "building": "sadang",
+      "source": "C:\\Users\\vjinn\\Pictures\\Screenshots\\사당\\스크린샷 2026-08-29 221517.png",
+      "file": "photos/sadang-porch.png",
+      "sha256": "e83c5696535367851c43272b9d4ac7a5682b2b1331167895e99b0b2ab03798df",
+      "features": "툇마루 깊이, 단청, 낮은 돌 디딤판",
+      "role": "user-photograph",
+      "geometryAuthority": "Details corroborate drawings; photograph-only dimensions remain estimates."
+    },
+    {
+      "building": "anchae",
+      "source": "C:\\Users\\vjinn\\Pictures\\Screenshots\\안채\\안채.jpg",
+      "file": "photos/anchae-front.jpg",
+      "sha256": "4482c850a23c4a5fb7d20b0d3539e75da7e90f9259b2b56bf6b755a09946c04d",
+      "features": "낮고 긴 처마, 열린 두 칸 대청, 부엌과 방의 구분",
+      "role": "user-photograph",
+      "geometryAuthority": "Details corroborate drawings; photograph-only dimensions remain estimates."
+    },
+    {
+      "building": "anchae",
+      "source": "C:\\Users\\vjinn\\Pictures\\Screenshots\\안채\\스크린샷 2026-08-24 115123.png",
+      "file": "photos/anchae-daechong.png",
+      "sha256": "d72883bc02855adc0b185e4c1f9e94a2237821b4675f8c9129b483a873572575",
+      "features": "앞이 열린 대청과 뒤 판문, 굽은 보, 툇마루 끝 낮은 난간",
+      "role": "user-photograph",
+      "geometryAuthority": "Details corroborate drawings; photograph-only dimensions remain estimates."
+    },
+    {
+      "building": "anchae",
+      "source": "C:\\Users\\vjinn\\Pictures\\Screenshots\\안채\\스크린샷 2026-08-24 115401.png",
+      "file": "photos/anchae-sireong.png",
+      "sha256": "8aaa5a78f35ad62161b944761e5d7dcfe1aad847eea26c0e4ebac1612e89ae6a",
+      "features": "처마 아래 시렁, 창호 살대, 분리된 디딤돌",
+      "role": "user-photograph",
+      "geometryAuthority": "Details corroborate drawings; photograph-only dimensions remain estimates."
+    },
+    {
+      "building": "anchae",
+      "source": "C:\\Users\\vjinn\\Pictures\\Screenshots\\안채\\스크린샷 2026-08-29 161645.png",
+      "file": "photos/anchae-jar-yard.png",
+      "sha256": "83012a9742bf3326a263205db03311e6747c4893d3eaf704034b6e9040e85e65",
+      "features": "안채 뒤쪽의 좁은 장독 마당과 담장",
+      "role": "user-photograph",
+      "geometryAuthority": "Details corroborate drawings; photograph-only dimensions remain estimates."
+    },
+    {
+      "building": "sadangmun",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-e53a86a9-c5e7-4451-9181-42acc992ca80.png",
+      "file": "photos/rear-yard-and-shrine-gates.png",
+      "sha256": "7abbb5310396864ff4a5cdc2125d26f6592f29c43844126dffadda1a730c47db",
+      "features": "안채 뒤뜰 협문과 사당문, 낮은 돌담과 꽃담",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "gokgan",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-ae127f26-dd51-4756-816a-15ce69ea3050.png",
+      "file": "photos/gwang-open-forecourt.png",
+      "sha256": "1e72b2a7ad2ec4eafeb39ef5c784ff830bdf2fb1244a364d95b85df686e30cea",
+      "features": "곳간 앞 열린 마당과 두 협문",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "right_ansarang",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-9b728cbd-66ef-4e2e-859b-499cd7222888.png",
+      "file": "photos/ansarang-porch-latest.png",
+      "sha256": "c393b96c045fa9d7d58e458b70d8288f9c7e5b1067d21b8e53f2253e00f64b95",
+      "features": "안사랑채 마루 아래 공간과 기둥, 옆 협문",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "sadang",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-cd76ed47-05cd-41ef-8f37-973f0e149a85.png",
+      "file": "photos/sadang-single-double-single.png",
+      "sha256": "c4c7639158595e48610a3d2f2ec5bf95416d3f9f8c1b6bf1c491ac29590c3fdf",
+      "features": "사당 양쪽 외짝문과 중앙 두짝문, 뒤로 물러난 창호면",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "sadang",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-a0d607e2-5a80-4a23-abfd-0f07db5fd9aa.png",
+      "file": "photos/sadang-side-depth.png",
+      "sha256": "162c5dc1ebf96106a14e0f18dd0000517d88ea47b951a4454262979ac230cbd1",
+      "features": "사당 원기둥과 툇마루 깊이, 풍판과 단청",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "sadang",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-bd2f2091-b955-4e18-b456-dc236eed5867.png",
+      "file": "photos/sadang-from-jar-yard.png",
+      "sha256": "299bb7c4fb1f7eb19dc8103b4886b5d07fc02be4d4c2677f28879ee178b9b215",
+      "features": "장독대에서 본 사당과 돌담",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "sadang",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-c3ba6cab-548b-4165-a5e7-86da3ce113ce.png",
+      "file": "photos/sadang-flower-wall.png",
+      "sha256": "30908a1da496d534499ad579bab08aee0d482683b315469746d2b33981ea52cc",
+      "features": "돌담 하부와 황토면에 박힌 기와조각 꽃문양",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "anchae",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-9f7f435a-d62e-4960-b1b0-9db3f9b52331.png",
+      "file": "photos/anchae-rear-chimney-jars.png",
+      "sha256": "be0fae4bd3ba301a4c1aead8b028b1c25346cb00d7fe21cee2eb4d800a7fb0e6",
+      "features": "안채 뒤 툇마루와 기와 굴뚝, 장독, 협문",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "angotgan",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-c843a041-76cd-426a-9a36-df1aa4eaeed7.png",
+      "file": "photos/inner-store-side-photo.png",
+      "sha256": "c241bf3d845ca03a1d205ef6b0eec3ce39057b2e92cbf35f64980d6ae06c8fdd",
+      "features": "안채 쪽 곳간 측면의 판벽과 작은 격자창",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "anchae",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-39f0596e-0033-4885-a8fd-cf54832adca1.png",
+      "file": "photos/inner-court-from-porch.png",
+      "sha256": "0bb6e3d1c6c4d5a375001719c978c4d22a317f07d135642647a5da9609f6043a",
+      "features": "안채마당의 시선과 처마 간격, 기단과 배수로",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "jung",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-5ed1c637-e927-49fd-be19-bc1301bed815.png",
+      "file": "photos/sarang-jung-rear-photo.png",
+      "sha256": "6931df3147fe2d172a02d1e2a31289ed1a36fb1c0a35293f95951910a9a44306",
+      "features": "사랑채와 중문 뒷면, 기와 굴뚝과 열린 통로",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "anchae",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-382861f0-11f8-4fc7-9847-6060b1cc89dd.png",
+      "file": "photos/anchae-open-daechong-photo.png",
+      "sha256": "7a32fd4b1224d483fd76ee129b83020df2870ddba3184d2efadae8e5bd027747",
+      "features": "안채 대청 내부에서 보이는 마당과 두꺼운 대들보",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "anchae",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-ab6bedd2-e4da-46a4-b069-a35100f82c48.png",
+      "file": "photos/anchae-kitchen-door-photo.png",
+      "sha256": "a8b6f27d04925c573740a1fbe44d723a246edcef214e28a09e12ad85469ea26b",
+      "features": "안채 부엌문 빗살 환기창과 둥글게 내려온 문 밑단",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "anchae",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-66aa659a-cc04-4d97-b82d-3aad0c398e71.png",
+      "file": "photos/anchae-kitchen-door-close.png",
+      "sha256": "45a173dfd915d90f00ec6ad468d1d1a8f84bb85d2115fa9766d867210f6751de",
+      "features": "부엌 판문과 긴 띠장, 문울거미와 걸쇠",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "anchae",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-7eb97381-06b6-4130-85ce-a282850539ee.png",
+      "file": "photos/anchae-kitchen-hearth-photo.png",
+      "sha256": "b3ac94e7f648e351d612ac5e9c56b21c61a6c856b5c70bc89c42b4e6fbb0b192",
+      "features": "안채 부엌 내부의 세 솥과 불구멍, 낮은 창",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "anchae",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-2d90ec5a-afa7-4863-8033-a270f00dc889.png",
+      "file": "photos/anchae-right-hearth-photo.png",
+      "sha256": "b52aa433bbe49a9ed405ae1dfee307b56ae3f7c4bd50bfc3cea24ebc4f163b06",
+      "features": "건넌방 툇마루 아래 낮은 아궁이와 판난간",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "anchae",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-d4dc4794-6735-4e10-8976-3e489000eef4.png",
+      "file": "photos/anchae-right-hearth-close.png",
+      "sha256": "8f6bdc5b95d9424e690123350eb7737512193a23bbc8f1289e16df782f3a4276",
+      "features": "툇마루 아래 아궁이, 솥뚜껑과 낮은 흙벽",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    },
+    {
+      "building": "anchae",
+      "source": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-5bcd91fb-9845-4fe0-a9bb-b7b4783c3afa.png",
+      "file": "photos/anchae-daechong-front-photo.png",
+      "sha256": "557609010d38515deee5559edb2971f7d8cb8660bf7de9b0af054c116068a557",
+      "features": "열린 대청마루와 뒤 판문, 마루널과 주춧돌",
+      "role": "user-photograph",
+      "geometryAuthority": "Visible details corroborate drawings; photo-only dimensions remain estimates."
+    }
+  ],
+  "webSources": [
+    {
+      "title": "국가유산청 · 일두고택 원형기록",
+      "url": "https://digital.khs.go.kr/heri/heriDetail.do?ctptNo=1483801860000&ctptUid=13898859686647401778",
+      "role": "official-record-index"
+    },
+    {
+      "title": "국가유산청 · 2021년 정기조사 실사",
+      "url": "https://digital.khs.go.kr/buis/buisDetail.do?bizUid=13898748261851900019&ctptNo=1483801860000&ctptUid=13898859686647401778&nation=&stakeholdersSes=",
+      "role": "official-photograph-index"
+    },
+    {
+      "title": "큰누리 · 일두고택 직접 촬영 답사",
+      "url": "https://hhl6103.tistory.com/1990?category=1078884",
+      "role": "eyewitness-photographs",
+      "visuallyInspected": [
+        "안곳간과 아래채 안마당 사진",
+        "안채 툇마루와 시렁 사진",
+        "사당문과 안채 쪽 문 연결 사진"
+      ],
+      "features": "Open front porch, suspended shelf, three-bay Arae facing courtyard, paired shrine gate and inner court gate; dates may differ from measured drawings."
+    }
+  ],
+  "naming": {
+    "gokgan": "곳간채 (광채)",
+    "angotgan": "안곳간채",
+    "authority": "User correction 2026-09-28; distinct buildings"
+  },
+  "authorityOrder": [
+    "Building identity checked against site and user corrections",
+    "Measured drawing axes/openings/sections",
+    "Canonical illustration and its eight views for visual style",
+    "Multiple real photographs for interpretation and craft"
+  ],
+  "fullPhotoOrSurveyAccuracyClaimed": false
+}

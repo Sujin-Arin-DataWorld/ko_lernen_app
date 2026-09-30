@@ -1,0 +1,38 @@
+[
+  {
+    "source": "C:\\Users\\vjinn\\Pictures\\Screenshots\\스크린샷 2026-09-23 113112.png",
+    "copy": "photo-front.png",
+    "sha256": "85e1e973a25b7aaab691c52a0fd407f0b14113c130a03c915b9ee8909598a6ce",
+    "bytes": 507703
+  },
+  {
+    "source": "C:\\Users\\vjinn\\Pictures\\Screenshots\\스크린샷 2026-09-23 113059.png",
+    "copy": "photo-numaru.png",
+    "sha256": "6c6c6d0b63e4157974f8cf88f7122f664abadf1cfbaf29bb190d34447f6dcb59",
+    "bytes": 499671
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-spatial-preservation-plan-20260922\\assets_unused\\pending_review\\ildu_spatial_preservation_20260922\\sources\\rear-junction-reference\\sarang-floor-user-marked.jpg",
+    "copy": "plan004.jpg",
+    "sha256": "65c5bf2fb31b8408d8f650960c3abc837c14401053051cbcf6bb7eaa6c3461ea",
+    "bytes": 843348
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\사랑채\\도면_국가민속문화재_함양_일두_고택_기록화보고서_사랑채_정면도.jpg",
+    "copy": "front005.jpg",
+    "sha256": "8ccf349e089d88ee4a0a259ad8a91151f2684b04fd51bdbbfc480ac2df5e6ba2",
+    "bytes": 716085
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\사랑채\\도면_국가민속문화재_함양_일두_고택_기록화보고서_사랑채_우측면도.jpg",
+    "copy": "side007.jpg",
+    "sha256": "27a3be77f7ce4da81d363d79a70b1fea4cfbfda25ad9f040fb586d6bb22b039d",
+    "bytes": 574596
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\사랑채\\도면_국가민속문화재_함양_일두_고택_기록화보고서_사랑채_기둥_상세도(4).jpg",
+    "copy": "detail028.jpg",
+    "sha256": "c69a757d527511a557e6dcf007adeb723f22bb595a80b4bd007b951ad286271d",
+    "bytes": 611879
+  }
+]

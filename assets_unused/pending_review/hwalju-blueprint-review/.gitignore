@@ -1,0 +1,17 @@
+# Commit source scripts, contracts, generated artwork and the current checkpoint.
+# Historical scenes, Blender backups, logs and regenerated exports stay local.
+*
+!*/
+!.gitignore
+!*.json
+!*.html
+!*.js
+!*.svg
+!*.py
+!northern-court/materials/**
+!northern-court/checkpoint/*.zip.part??
+!northern-court/review-checkpoint/**
+*.log
+northern-court/craft-surface-register.json
+northern-court/estate-fabric-craft-attempt-scope-review.json
+/vendor/

@@ -1,0 +1,57 @@
+[
+  {
+    "file": "anchae-front.jpg",
+    "sha256": "70e17fd7d8ce80fd69e8f4c21b5987c4d4ae47b07b029d389938bbfe61aaa611"
+  },
+  {
+    "file": "anchae-plan.jpg",
+    "sha256": "bcaf4f280edd88f729435d46d99d18e47eba9c11467adce54cd6c23443cc5fdb"
+  },
+  {
+    "file": "angotgan-front.jpg",
+    "sha256": "b0f4a1449e2e00275afa245a16972fc8857e9f469fff2f8a2e71465b5811153f"
+  },
+  {
+    "file": "angotgan-plan.jpg",
+    "sha256": "c59569189ccae45d277d76c3fa9b57378f4aa982b226d38f3004cb9b84a9492a"
+  },
+  {
+    "file": "jung-front-1990-excluded-from-arae.jpg",
+    "sha256": "86b7223fd64b3e98f91d66ae90a790f6d9f493e34420adf331486f9ab4e6e657",
+    "buildingIdentity": "jung",
+    "useForNewGeometry": false,
+    "reason": "User confirmed 2026-09-28: existing Jungmunchae; older drawing title says Arae. Excluded from Arae modeling. Existing approved Jung retained without duplication."
+  },
+  {
+    "file": "arae-roof.jpg",
+    "sha256": "15c6cafb869be501b2ccdac97d1a3a5045a165b733a5172bf42bd2b85d823228"
+  },
+  {
+    "file": "sadang-section.jpg",
+    "sha256": "7ba3a418fef2df738f2469e9f7585f2f0e65f4e30f56f710ec2b42b1b0747936"
+  },
+  {
+    "file": "sadang-side.jpg",
+    "sha256": "6c1eef5f5e1836f4cb025ee0dc7292635de38b754fbc727ac8806579578ffd55"
+  },
+  {
+    "file": "anchae-canonical.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\anchae_final.png",
+    "sha256": "7d1c6cb2c9caafafacba4df82cdb9d829837e17b90424eba5aa3175528506d50"
+  },
+  {
+    "file": "arae-canonical.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\araechae_try04_oblique.png",
+    "sha256": "3839db13db63588c24949a6adf6a930f012cc531283cfada697249194c068534"
+  },
+  {
+    "file": "sadang-canonical.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\canonical\\sadang\\sadang-v3-canonical.png",
+    "sha256": "8cfc8bb5ca7ce6ae652c9defd1eb0bb3b523ac29eef1cf3afc6e370223869069"
+  },
+  {
+    "file": "sadangmun-canonical.png",
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\canonical\\sadangmun\\sadangmun-v3-canonical.png",
+    "sha256": "336dcc5251b2f3edfaaa57d0dbd2902b0034491f36c4eda8fdc01a5c0d52be4e"
+  }
+]

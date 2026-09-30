@@ -1,0 +1,61 @@
+{
+  "sources": [
+    {
+      "file": "blueprint_도면_국가민속문화재_함양_일두_고택_기록화보고서_안채_창호_상세도1.jpg",
+      "sha256": "c97dbe932b940a1aff1dcecf0899012f01f0f4c62ea09bb10e825fc6909a6d7a"
+    },
+    {
+      "file": "codil-plan-image-0.png",
+      "sha256": "a4f94c17923240fe3452eefbc4e5e7954dd0e9cb0ce383fe7a11736053874541"
+    },
+    {
+      "file": "blueprint_도면_국가민속문화재_함양_일두_고택_기록화보고서_안채_종단면도-3.jpg",
+      "sha256": "b1b3996e7c1f64b60ba53084fa55ec20fcaab3fde62bfa752f32b3f316128498"
+    }
+  ],
+  "door": {
+    "schedule": "2007 sheet057 WD6",
+    "location": "two outward single leaves in room1 facing the 1200mm rear veranda, matching plan fig4.15",
+    "widthMm": 655,
+    "heightMm": 1450,
+    "frameMm": [
+      54,
+      32
+    ],
+    "salMm": [
+      9,
+      15
+    ],
+    "fixedJambMm": [
+      90,
+      120
+    ],
+    "gridCells": [
+      7,
+      17
+    ]
+  },
+  "veranda": {
+    "section": "2007 sheet052",
+    "floorRiseFromRearEarthMm": 535,
+    "postBaseAboveRearEarthMm": 30,
+    "mainPostFootingsRetainSupportingFoundation": true
+  },
+  "unmeasured": [
+    "absolute site elevation",
+    "operating gaps",
+    "iron profiles and exact ring placement",
+    "local earth transition outside measured section"
+  ],
+  "detailCrop": {
+    "file": "WD6-rear-door-detail.png",
+    "box": [
+      945,
+      1120,
+      1510,
+      2070
+    ],
+    "source": "blueprint_도면_국가민속문화재_함양_일두_고택_기록화보고서_안채_창호_상세도1.jpg"
+  },
+  "fullSurveyAccuracyClaimed": false
+}

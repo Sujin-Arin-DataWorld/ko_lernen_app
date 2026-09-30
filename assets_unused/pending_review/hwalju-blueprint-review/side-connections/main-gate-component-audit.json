@@ -1,0 +1,3504 @@
+[
+  {
+    "name": "V34.main_gate.return rounded fieldstone.004",
+    "min": [
+      -5.242,
+      -1.3179,
+      0.209
+    ],
+    "max": [
+      5.242,
+      1.3118,
+      1.2687
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 1344
+  },
+  {
+    "name": "V34.main_gate.return rounded fieldstone.003",
+    "min": [
+      -5.242,
+      -1.3201,
+      0.209
+    ],
+    "max": [
+      5.242,
+      1.3137,
+      1.2687
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 1088
+  },
+  {
+    "name": "V34.main_gate.return rounded fieldstone.002",
+    "min": [
+      -5.242,
+      -1.3203,
+      0.209
+    ],
+    "max": [
+      5.242,
+      1.3137,
+      1.2695
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 896
+  },
+  {
+    "name": "V34.main_gate.return rounded fieldstone.001",
+    "min": [
+      -5.242,
+      -1.3197,
+      0.209
+    ],
+    "max": [
+      5.242,
+      1.3117,
+      1.2687
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 768
+  },
+  {
+    "name": "V34.main_gate.return rounded fieldstone",
+    "min": [
+      -5.242,
+      -1.12,
+      0.209
+    ],
+    "max": [
+      5.242,
+      1.3137,
+      1.2687
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 832
+  },
+  {
+    "name": "V34.main_gate.front rounded fieldstone.004",
+    "min": [
+      -4.2361,
+      -1.521,
+      0.1931
+    ],
+    "max": [
+      5.0906,
+      -1.425,
+      1.2812
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 1280
+  },
+  {
+    "name": "V34.main_gate.front rounded fieldstone.003",
+    "min": [
+      -4.3872,
+      -1.521,
+      0.1899
+    ],
+    "max": [
+      5.0914,
+      -1.425,
+      1.2798
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 1216
+  },
+  {
+    "name": "V34.main_gate.front rounded fieldstone.002",
+    "min": [
+      -5.095,
+      -1.521,
+      0.1926
+    ],
+    "max": [
+      5.0919,
+      -1.425,
+      1.2798
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 1216
+  },
+  {
+    "name": "V34.main_gate.front rounded fieldstone.001",
+    "min": [
+      -5.0965,
+      -1.521,
+      0.1931
+    ],
+    "max": [
+      5.0908,
+      -1.425,
+      1.2798
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 1856
+  },
+  {
+    "name": "V34.main_gate.front rounded fieldstone",
+    "min": [
+      -5.0949,
+      -1.521,
+      0.1908
+    ],
+    "max": [
+      4.5054,
+      -1.425,
+      1.2805
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 1664
+  },
+  {
+    "name": "V33.main_gate.roof rake terminal",
+    "min": [
+      -5.643,
+      -1.921,
+      3.302
+    ],
+    "max": [
+      5.643,
+      1.921,
+      4.548
+    ],
+    "materials": [
+      "Ansarang retained Pale ceramic tile ends.001"
+    ],
+    "vertices": 576
+  },
+  {
+    "name": "V33.main_gate.roof curved rake caps.005",
+    "min": [
+      -5.654,
+      -1.4347,
+      3.4311
+    ],
+    "max": [
+      5.654,
+      1.4347,
+      4.867
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 5"
+    ],
+    "vertices": 816
+  },
+  {
+    "name": "V33.main_gate.roof curved rake caps.004",
+    "min": [
+      -5.654,
+      -1.1966,
+      3.5327
+    ],
+    "max": [
+      5.654,
+      1.1966,
+      5.0085
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 4"
+    ],
+    "vertices": 816
+  },
+  {
+    "name": "V33.main_gate.roof curved rake caps.003",
+    "min": [
+      -5.654,
+      -0.9585,
+      3.6582
+    ],
+    "max": [
+      5.654,
+      0.9585,
+      5.1687
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 3"
+    ],
+    "vertices": 816
+  },
+  {
+    "name": "V33.main_gate.roof curved rake caps.002",
+    "min": [
+      -5.654,
+      -1.905,
+      3.33
+    ],
+    "max": [
+      5.654,
+      1.905,
+      5.3462
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 2"
+    ],
+    "vertices": 1224
+  },
+  {
+    "name": "V33.main_gate.roof curved rake caps.001",
+    "min": [
+      -5.654,
+      -1.905,
+      3.33
+    ],
+    "max": [
+      5.654,
+      1.905,
+      5.54
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 1"
+    ],
+    "vertices": 1530
+  },
+  {
+    "name": "V33.main_gate.roof curved rake caps",
+    "min": [
+      -5.654,
+      -1.6728,
+      3.3586
+    ],
+    "max": [
+      5.654,
+      1.6728,
+      5.54
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 0"
+    ],
+    "vertices": 1122
+  },
+  {
+    "name": "V31.main_gate.roof.ridge end plate",
+    "min": [
+      -5.546,
+      -0.19,
+      4.39
+    ],
+    "max": [
+      5.546,
+      0.19,
+      5.9
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 2"
+    ],
+    "vertices": 96
+  },
+  {
+    "name": "V31.main_gate.roof.ridge end border",
+    "min": [
+      -5.567,
+      -0.205,
+      4.375
+    ],
+    "max": [
+      5.567,
+      0.205,
+      5.915
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 4"
+    ],
+    "vertices": 672
+  },
+  {
+    "name": "V31.main_gate.roof.ridge cap joint",
+    "min": [
+      -5.416,
+      -0.071,
+      4.419
+    ],
+    "max": [
+      5.306,
+      0.071,
+      5.6625
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 3"
+    ],
+    "vertices": 1280
+  },
+  {
+    "name": "V31.main_gate.outside rear window tie",
+    "min": [
+      -4.405,
+      -1.313,
+      1.846
+    ],
+    "max": [
+      4.405,
+      -1.287,
+      1.864
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 32
+  },
+  {
+    "name": "V31.main_gate.outside low timber rail",
+    "min": [
+      -5.1,
+      -1.535,
+      1.265
+    ],
+    "max": [
+      5.1,
+      -1.425,
+      1.395
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V31.main_gate.entry upper lintel",
+    "min": [
+      -1.025,
+      -1.365,
+      3.13
+    ],
+    "max": [
+      1.025,
+      -1.165,
+      3.26
+    ],
+    "materials": [
+      "Canonical gate beam pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V31.main_gate.entry jamb",
+    "min": [
+      -1.0425,
+      -1.35,
+      0.23
+    ],
+    "max": [
+      1.0425,
+      -1.17,
+      3.13
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V31.main_gate.end warm masonry core",
+    "min": [
+      -5.185,
+      -1.325,
+      0.2
+    ],
+    "max": [
+      5.185,
+      1.325,
+      1.3
+    ],
+    "materials": [
+      "Ansarang retained V30 warm earthen wall mortar"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V31.main_gate.end low timber rail",
+    "min": [
+      -5.245,
+      -1.325,
+      1.265
+    ],
+    "max": [
+      5.245,
+      1.325,
+      1.395
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.wing end",
+    "min": [
+      -5.16,
+      -1.325,
+      0.22
+    ],
+    "max": [
+      5.16,
+      1.325,
+      2.92
+    ],
+    "materials": [
+      "Ansarang retained Jung lime plaster"
+    ],
+    "vertices": 32
+  },
+  {
+    "name": "V28.main_gate.roof.round tile ends.002",
+    "min": [
+      -1.485,
+      -1.92,
+      4.21
+    ],
+    "max": [
+      1.485,
+      1.92,
+      4.4255
+    ],
+    "materials": [
+      "Ansarang retained Pale ceramic tile ends.001"
+    ],
+    "vertices": 768
+  },
+  {
+    "name": "V28.main_gate.roof.round tile ends.001",
+    "min": [
+      0.9956,
+      -1.92,
+      3.15
+    ],
+    "max": [
+      5.5144,
+      1.92,
+      3.3838
+    ],
+    "materials": [
+      "Ansarang retained Pale ceramic tile ends.001"
+    ],
+    "vertices": 1152
+  },
+  {
+    "name": "V28.main_gate.roof.round tile ends",
+    "min": [
+      -5.5144,
+      -1.92,
+      3.15
+    ],
+    "max": [
+      -0.9956,
+      1.92,
+      3.3838
+    ],
+    "materials": [
+      "Ansarang retained Pale ceramic tile ends.001"
+    ],
+    "vertices": 1152
+  },
+  {
+    "name": "V28.main_gate.roof.ridge stack.011",
+    "min": [
+      -1.5499,
+      -0.067,
+      5.4413
+    ],
+    "max": [
+      1.5499,
+      0.067,
+      5.6813
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 3"
+    ],
+    "vertices": 602
+  },
+  {
+    "name": "V28.main_gate.roof.ridge stack.010",
+    "min": [
+      -1.5499,
+      -0.067,
+      5.3763
+    ],
+    "max": [
+      1.5499,
+      0.067,
+      5.6163
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 2"
+    ],
+    "vertices": 602
+  },
+  {
+    "name": "V28.main_gate.roof.ridge stack.009",
+    "min": [
+      -1.5499,
+      -0.067,
+      5.3113
+    ],
+    "max": [
+      1.5499,
+      0.067,
+      5.5513
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 1"
+    ],
+    "vertices": 602
+  },
+  {
+    "name": "V28.main_gate.roof.ridge stack.008",
+    "min": [
+      -1.5499,
+      -0.067,
+      5.2463
+    ],
+    "max": [
+      1.5499,
+      0.067,
+      5.4863
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 0"
+    ],
+    "vertices": 602
+  },
+  {
+    "name": "V28.main_gate.roof.ridge stack.007",
+    "min": [
+      0.9388,
+      -0.067,
+      4.4213
+    ],
+    "max": [
+      5.5712,
+      0.067,
+      4.6651
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 3"
+    ],
+    "vertices": 594
+  },
+  {
+    "name": "V28.main_gate.roof.ridge stack.006",
+    "min": [
+      0.9388,
+      -0.067,
+      4.3563
+    ],
+    "max": [
+      5.5712,
+      0.067,
+      4.6001
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 2"
+    ],
+    "vertices": 594
+  },
+  {
+    "name": "V28.main_gate.roof.ridge stack.005",
+    "min": [
+      0.9388,
+      -0.067,
+      4.2913
+    ],
+    "max": [
+      5.5712,
+      0.067,
+      4.5351
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 1"
+    ],
+    "vertices": 594
+  },
+  {
+    "name": "V28.main_gate.roof.ridge stack.004",
+    "min": [
+      0.9388,
+      -0.067,
+      4.2263
+    ],
+    "max": [
+      5.5712,
+      0.067,
+      4.4701
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 0"
+    ],
+    "vertices": 594
+  },
+  {
+    "name": "V28.main_gate.roof.ridge stack.003",
+    "min": [
+      -5.5712,
+      -0.067,
+      4.4213
+    ],
+    "max": [
+      -0.9388,
+      0.067,
+      4.6651
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 3"
+    ],
+    "vertices": 594
+  },
+  {
+    "name": "V28.main_gate.roof.ridge stack.002",
+    "min": [
+      -5.5712,
+      -0.067,
+      4.3563
+    ],
+    "max": [
+      -0.9388,
+      0.067,
+      4.6001
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 2"
+    ],
+    "vertices": 594
+  },
+  {
+    "name": "V28.main_gate.roof.ridge stack.001",
+    "min": [
+      -5.5712,
+      -0.067,
+      4.2913
+    ],
+    "max": [
+      -0.9388,
+      0.067,
+      4.5351
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 1"
+    ],
+    "vertices": 594
+  },
+  {
+    "name": "V28.main_gate.roof.ridge stack",
+    "min": [
+      -5.5712,
+      -0.067,
+      4.2263
+    ],
+    "max": [
+      -0.9388,
+      0.067,
+      4.4701
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 0"
+    ],
+    "vertices": 594
+  },
+  {
+    "name": "V28.main_gate.roof.rafters.002",
+    "min": [
+      -1.48,
+      -1.913,
+      4.0183
+    ],
+    "max": [
+      1.48,
+      1.913,
+      4.2605
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 640
+  },
+  {
+    "name": "V28.main_gate.roof.rafters.001",
+    "min": [
+      1.0006,
+      -1.9135,
+      2.9584
+    ],
+    "max": [
+      5.5094,
+      1.9135,
+      3.2192
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 960
+  },
+  {
+    "name": "V28.main_gate.roof.rafters",
+    "min": [
+      -5.5094,
+      -1.9135,
+      2.9584
+    ],
+    "max": [
+      -1.0006,
+      1.9135,
+      3.2192
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 960
+  },
+  {
+    "name": "V28.main_gate.roof.lower exposed rafters.002",
+    "min": [
+      -1.501,
+      -1.8692,
+      3.8834
+    ],
+    "max": [
+      1.501,
+      1.8692,
+      4.2995
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 768
+  },
+  {
+    "name": "V28.main_gate.roof.lower exposed rafters.001",
+    "min": [
+      0.9796,
+      -1.8702,
+      2.824
+    ],
+    "max": [
+      5.5304,
+      1.8702,
+      3.2621
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 1152
+  },
+  {
+    "name": "V28.main_gate.roof.lower exposed rafters",
+    "min": [
+      -5.5304,
+      -1.8702,
+      2.824
+    ],
+    "max": [
+      -0.9796,
+      1.8702,
+      3.2621
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 1152
+  },
+  {
+    "name": "V28.main_gate.roof.gable timber.002",
+    "min": [
+      -1.52,
+      -1.905,
+      4.2
+    ],
+    "max": [
+      1.52,
+      1.905,
+      5.22
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16992
+  },
+  {
+    "name": "V28.main_gate.roof.gable timber.001",
+    "min": [
+      0.96,
+      -1.905,
+      3.14
+    ],
+    "max": [
+      5.55,
+      1.905,
+      4.2
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16992
+  },
+  {
+    "name": "V28.main_gate.roof.gable timber",
+    "min": [
+      -5.55,
+      -1.905,
+      3.14
+    ],
+    "max": [
+      -0.96,
+      1.905,
+      4.2
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16992
+  },
+  {
+    "name": "V28.main_gate.roof.eave beam.002",
+    "min": [
+      -1.5514,
+      -1.97,
+      3.955
+    ],
+    "max": [
+      1.5514,
+      1.97,
+      4.3169
+    ],
+    "materials": [
+      "Canonical gate beam pigment.002"
+    ],
+    "vertices": 784
+  },
+  {
+    "name": "V28.main_gate.roof.eave beam.001",
+    "min": [
+      0.9349,
+      -1.97,
+      2.895
+    ],
+    "max": [
+      5.5751,
+      1.97,
+      3.2599
+    ],
+    "materials": [
+      "Canonical gate beam pigment.002"
+    ],
+    "vertices": 1152
+  },
+  {
+    "name": "V28.main_gate.roof.eave beam",
+    "min": [
+      -5.5751,
+      -1.97,
+      2.895
+    ],
+    "max": [
+      -0.9349,
+      1.97,
+      3.2599
+    ],
+    "materials": [
+      "Canonical gate beam pigment.002"
+    ],
+    "vertices": 1152
+  },
+  {
+    "name": "V28.main_gate.roof.017",
+    "min": [
+      -1.52,
+      -1.905,
+      4.21
+    ],
+    "max": [
+      1.52,
+      1.905,
+      5.2625
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 5"
+    ],
+    "vertices": 798
+  },
+  {
+    "name": "V28.main_gate.roof.016",
+    "min": [
+      -1.52,
+      -1.905,
+      4.21
+    ],
+    "max": [
+      1.52,
+      1.905,
+      5.2625
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 4"
+    ],
+    "vertices": 798
+  },
+  {
+    "name": "V28.main_gate.roof.015",
+    "min": [
+      -1.52,
+      -1.905,
+      4.21
+    ],
+    "max": [
+      1.52,
+      1.905,
+      5.4033
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 3"
+    ],
+    "vertices": 981
+  },
+  {
+    "name": "V28.main_gate.roof.014",
+    "min": [
+      -1.52,
+      -1.905,
+      4.21
+    ],
+    "max": [
+      1.52,
+      1.905,
+      5.3032
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 2"
+    ],
+    "vertices": 813
+  },
+  {
+    "name": "V28.main_gate.roof.013",
+    "min": [
+      -1.52,
+      -1.905,
+      4.21
+    ],
+    "max": [
+      1.52,
+      1.905,
+      5.3032
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 1"
+    ],
+    "vertices": 813
+  },
+  {
+    "name": "V28.main_gate.roof.012",
+    "min": [
+      -1.52,
+      -1.905,
+      4.21
+    ],
+    "max": [
+      1.52,
+      1.905,
+      5.4033
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 0"
+    ],
+    "vertices": 981
+  },
+  {
+    "name": "V28.main_gate.roof.011",
+    "min": [
+      0.96,
+      -1.905,
+      3.15
+    ],
+    "max": [
+      5.55,
+      1.905,
+      4.362
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 5"
+    ],
+    "vertices": 1212
+  },
+  {
+    "name": "V28.main_gate.roof.010",
+    "min": [
+      0.96,
+      -1.905,
+      3.15
+    ],
+    "max": [
+      5.55,
+      1.905,
+      4.3018
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 4"
+    ],
+    "vertices": 1212
+  },
+  {
+    "name": "V28.main_gate.roof.009",
+    "min": [
+      0.96,
+      -1.905,
+      3.15
+    ],
+    "max": [
+      5.55,
+      1.905,
+      4.394
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 3"
+    ],
+    "vertices": 1464
+  },
+  {
+    "name": "V28.main_gate.roof.008",
+    "min": [
+      0.96,
+      -1.905,
+      3.15
+    ],
+    "max": [
+      5.55,
+      1.905,
+      4.2699
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 2"
+    ],
+    "vertices": 1212
+  },
+  {
+    "name": "V28.main_gate.roof.007",
+    "min": [
+      0.96,
+      -1.905,
+      3.15
+    ],
+    "max": [
+      5.55,
+      1.905,
+      4.3018
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 1"
+    ],
+    "vertices": 1212
+  },
+  {
+    "name": "V28.main_gate.roof.006",
+    "min": [
+      0.96,
+      -1.905,
+      3.15
+    ],
+    "max": [
+      5.55,
+      1.905,
+      4.394
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 0"
+    ],
+    "vertices": 1464
+  },
+  {
+    "name": "V28.main_gate.roof.005",
+    "min": [
+      -5.55,
+      -1.905,
+      3.15
+    ],
+    "max": [
+      -0.96,
+      1.905,
+      4.362
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 5"
+    ],
+    "vertices": 1212
+  },
+  {
+    "name": "V28.main_gate.roof.004",
+    "min": [
+      -5.55,
+      -1.905,
+      3.15
+    ],
+    "max": [
+      -0.96,
+      1.905,
+      4.3018
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 4"
+    ],
+    "vertices": 1212
+  },
+  {
+    "name": "V28.main_gate.roof.003",
+    "min": [
+      -5.55,
+      -1.905,
+      3.15
+    ],
+    "max": [
+      -0.96,
+      1.905,
+      4.394
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 3"
+    ],
+    "vertices": 1464
+  },
+  {
+    "name": "V28.main_gate.roof.002",
+    "min": [
+      -5.55,
+      -1.905,
+      3.15
+    ],
+    "max": [
+      -0.96,
+      1.905,
+      4.2699
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 2"
+    ],
+    "vertices": 1212
+  },
+  {
+    "name": "V28.main_gate.roof.001",
+    "min": [
+      -5.55,
+      -1.905,
+      3.15
+    ],
+    "max": [
+      -0.96,
+      1.905,
+      4.3018
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 1"
+    ],
+    "vertices": 1212
+  },
+  {
+    "name": "V28.main_gate.roof backing",
+    "min": [
+      -5.1,
+      -1.325,
+      2.9025
+    ],
+    "max": [
+      5.1,
+      1.325,
+      4.0375
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.roof",
+    "min": [
+      -5.55,
+      -1.905,
+      3.15
+    ],
+    "max": [
+      -0.96,
+      1.905,
+      4.394
+    ],
+    "materials": [
+      "Ansarang retained V33 main_gate source ceramic 0"
+    ],
+    "vertices": 1464
+  },
+  {
+    "name": "V28.main_gate.passage floor.003",
+    "min": [
+      -0.4965,
+      -1.465,
+      0.04
+    ],
+    "max": [
+      0.4965,
+      1.465,
+      0.11
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.passage floor.002",
+    "min": [
+      -0.6965,
+      -1.465,
+      0.04
+    ],
+    "max": [
+      1.0965,
+      1.465,
+      0.11
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.passage floor.001",
+    "min": [
+      -0.8965,
+      -1.465,
+      0.04
+    ],
+    "max": [
+      0.8965,
+      1.465,
+      0.11
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.passage floor",
+    "min": [
+      -1.0965,
+      -1.465,
+      0.04
+    ],
+    "max": [
+      0.6965,
+      1.465,
+      0.11
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.outside window vertical sal",
+    "min": [
+      -4.4095,
+      -1.375,
+      1.65
+    ],
+    "max": [
+      4.4095,
+      -1.325,
+      2.05
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 224
+  },
+  {
+    "name": "V28.main_gate.outside plaster.jamb",
+    "min": [
+      -4.4925,
+      -1.435,
+      1.57
+    ],
+    "max": [
+      4.4925,
+      -1.215,
+      2.13
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 64
+  },
+  {
+    "name": "V28.main_gate.outside plaster.head/sill",
+    "min": [
+      -4.51,
+      -1.435,
+      1.58
+    ],
+    "max": [
+      4.51,
+      -1.215,
+      2.12
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 64
+  },
+  {
+    "name": "V28.main_gate.outside plaster",
+    "min": [
+      -5.1,
+      -1.385,
+      1.25
+    ],
+    "max": [
+      5.1,
+      -1.265,
+      2.92
+    ],
+    "materials": [
+      "Ansarang retained Jung lime plaster"
+    ],
+    "vertices": 88
+  },
+  {
+    "name": "V28.main_gate.outside masonry core",
+    "min": [
+      -5.1,
+      -1.46,
+      0.16
+    ],
+    "max": [
+      5.1,
+      -1.19,
+      1.28
+    ],
+    "materials": [
+      "Ansarang retained V30 warm earthen wall mortar"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.inside plaster.jamb",
+    "min": [
+      -4.5725,
+      0.665,
+      0.65
+    ],
+    "max": [
+      4.5725,
+      0.885,
+      2.71
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 64
+  },
+  {
+    "name": "V28.main_gate.inside plaster.head/sill",
+    "min": [
+      -4.59,
+      0.665,
+      0.66
+    ],
+    "max": [
+      4.59,
+      0.885,
+      2.7
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 64
+  },
+  {
+    "name": "V28.main_gate.inside plaster",
+    "min": [
+      -5.1,
+      0.715,
+      0.36
+    ],
+    "max": [
+      5.1,
+      0.835,
+      2.92
+    ],
+    "materials": [
+      "Ansarang retained Jung lime plaster"
+    ],
+    "vertices": 88
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_1.leaf1.vertical sal",
+    "min": [
+      3.8288,
+      0.7805,
+      1.0778
+    ],
+    "max": [
+      4.3712,
+      0.8055,
+      2.542
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 104
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_1.leaf1.stile",
+    "min": [
+      3.74,
+      0.741,
+      0.765
+    ],
+    "max": [
+      4.46,
+      0.809,
+      2.595
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_1.leaf1.recessed lower board",
+    "min": [
+      3.783,
+      0.7535,
+      0.802
+    ],
+    "max": [
+      4.417,
+      0.7785,
+      1.0208
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_1.leaf1.rebated bead.stile",
+    "min": [
+      3.782,
+      0.7845,
+      1.0718
+    ],
+    "max": [
+      4.418,
+      0.8095,
+      2.557
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_1.leaf1.rebated bead.rail",
+    "min": [
+      3.794,
+      0.7845,
+      1.0718
+    ],
+    "max": [
+      4.406,
+      0.8095,
+      2.557
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_1.leaf1.rear paper rail",
+    "min": [
+      3.79,
+      0.733,
+      1.2192
+    ],
+    "max": [
+      4.41,
+      0.751,
+      2.4152
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_1.leaf1.rail",
+    "min": [
+      3.783,
+      0.741,
+      0.765
+    ],
+    "max": [
+      4.417,
+      0.809,
+      2.595
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_1.leaf1.lower moulding.stile",
+    "min": [
+      3.792,
+      0.787,
+      0.817
+    ],
+    "max": [
+      4.408,
+      0.805,
+      1.0498
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_1.leaf1.lower moulding.rail",
+    "min": [
+      3.804,
+      0.787,
+      0.817
+    ],
+    "max": [
+      4.396,
+      0.805,
+      1.0498
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_1.leaf1.lock rail",
+    "min": [
+      3.7525,
+      0.742,
+      1.0378
+    ],
+    "max": [
+      4.4475,
+      0.808,
+      1.0778
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_1.leaf1.horizontal band",
+    "min": [
+      3.79,
+      0.799,
+      1.1138
+    ],
+    "max": [
+      4.41,
+      0.817,
+      2.5177
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 96
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_1.leaf1.hanji backing",
+    "min": [
+      3.79,
+      0.749,
+      1.0778
+    ],
+    "max": [
+      4.41,
+      0.755,
+      2.542
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_0.leaf1.vertical sal",
+    "min": [
+      1.8288,
+      0.7805,
+      1.0778
+    ],
+    "max": [
+      2.3712,
+      0.8055,
+      2.542
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 104
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_0.leaf1.stile",
+    "min": [
+      1.74,
+      0.741,
+      0.765
+    ],
+    "max": [
+      2.46,
+      0.809,
+      2.595
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_0.leaf1.recessed lower board",
+    "min": [
+      1.783,
+      0.7535,
+      0.802
+    ],
+    "max": [
+      2.417,
+      0.7785,
+      1.0208
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_0.leaf1.rebated bead.stile",
+    "min": [
+      1.782,
+      0.7845,
+      1.0718
+    ],
+    "max": [
+      2.418,
+      0.8095,
+      2.557
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_0.leaf1.rebated bead.rail",
+    "min": [
+      1.794,
+      0.7845,
+      1.0718
+    ],
+    "max": [
+      2.406,
+      0.8095,
+      2.557
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_0.leaf1.rear paper rail",
+    "min": [
+      1.79,
+      0.733,
+      1.2192
+    ],
+    "max": [
+      2.41,
+      0.751,
+      2.4152
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_0.leaf1.rail",
+    "min": [
+      1.783,
+      0.741,
+      0.765
+    ],
+    "max": [
+      2.417,
+      0.809,
+      2.595
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_0.leaf1.lower moulding.stile",
+    "min": [
+      1.792,
+      0.787,
+      0.817
+    ],
+    "max": [
+      2.408,
+      0.805,
+      1.0498
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_0.leaf1.lower moulding.rail",
+    "min": [
+      1.804,
+      0.787,
+      0.817
+    ],
+    "max": [
+      2.396,
+      0.805,
+      1.0498
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_0.leaf1.lock rail",
+    "min": [
+      1.7525,
+      0.742,
+      1.0378
+    ],
+    "max": [
+      2.4475,
+      0.808,
+      1.0778
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_0.leaf1.horizontal band",
+    "min": [
+      1.79,
+      0.799,
+      1.1138
+    ],
+    "max": [
+      2.41,
+      0.817,
+      2.5177
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 96
+  },
+  {
+    "name": "V28.main_gate.inside lattice1_0.leaf1.hanji backing",
+    "min": [
+      1.79,
+      0.749,
+      1.0778
+    ],
+    "max": [
+      2.41,
+      0.755,
+      2.542
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_1.leaf1.vertical sal",
+    "min": [
+      -2.3712,
+      0.7805,
+      1.0778
+    ],
+    "max": [
+      -1.8288,
+      0.8055,
+      2.542
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 104
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_1.leaf1.stile",
+    "min": [
+      -2.46,
+      0.741,
+      0.765
+    ],
+    "max": [
+      -1.74,
+      0.809,
+      2.595
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_1.leaf1.recessed lower board",
+    "min": [
+      -2.417,
+      0.7535,
+      0.802
+    ],
+    "max": [
+      -1.783,
+      0.7785,
+      1.0208
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_1.leaf1.rebated bead.stile",
+    "min": [
+      -2.418,
+      0.7845,
+      1.0718
+    ],
+    "max": [
+      -1.782,
+      0.8095,
+      2.557
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_1.leaf1.rebated bead.rail",
+    "min": [
+      -2.406,
+      0.7845,
+      1.0718
+    ],
+    "max": [
+      -1.794,
+      0.8095,
+      2.557
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_1.leaf1.rear paper rail",
+    "min": [
+      -2.41,
+      0.733,
+      1.2192
+    ],
+    "max": [
+      -1.79,
+      0.751,
+      2.4152
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_1.leaf1.rail",
+    "min": [
+      -2.417,
+      0.741,
+      0.765
+    ],
+    "max": [
+      -1.783,
+      0.809,
+      2.595
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_1.leaf1.lower moulding.stile",
+    "min": [
+      -2.408,
+      0.787,
+      0.817
+    ],
+    "max": [
+      -1.792,
+      0.805,
+      1.0498
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_1.leaf1.lower moulding.rail",
+    "min": [
+      -2.396,
+      0.787,
+      0.817
+    ],
+    "max": [
+      -1.804,
+      0.805,
+      1.0498
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_1.leaf1.lock rail",
+    "min": [
+      -2.4475,
+      0.742,
+      1.0378
+    ],
+    "max": [
+      -1.7525,
+      0.808,
+      1.0778
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_1.leaf1.horizontal band",
+    "min": [
+      -2.41,
+      0.799,
+      1.1138
+    ],
+    "max": [
+      -1.79,
+      0.817,
+      2.5177
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 96
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_1.leaf1.hanji backing",
+    "min": [
+      -2.41,
+      0.749,
+      1.0778
+    ],
+    "max": [
+      -1.79,
+      0.755,
+      2.542
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_0.leaf1.vertical sal",
+    "min": [
+      -4.3712,
+      0.7805,
+      1.0778
+    ],
+    "max": [
+      -3.8288,
+      0.8055,
+      2.542
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 104
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_0.leaf1.stile",
+    "min": [
+      -4.46,
+      0.741,
+      0.765
+    ],
+    "max": [
+      -3.74,
+      0.809,
+      2.595
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_0.leaf1.recessed lower board",
+    "min": [
+      -4.417,
+      0.7535,
+      0.802
+    ],
+    "max": [
+      -3.783,
+      0.7785,
+      1.0208
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_0.leaf1.rebated bead.stile",
+    "min": [
+      -4.418,
+      0.7845,
+      1.0718
+    ],
+    "max": [
+      -3.782,
+      0.8095,
+      2.557
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_0.leaf1.rebated bead.rail",
+    "min": [
+      -4.406,
+      0.7845,
+      1.0718
+    ],
+    "max": [
+      -3.794,
+      0.8095,
+      2.557
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_0.leaf1.rear paper rail",
+    "min": [
+      -4.41,
+      0.733,
+      1.2192
+    ],
+    "max": [
+      -3.79,
+      0.751,
+      2.4152
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_0.leaf1.rail",
+    "min": [
+      -4.417,
+      0.741,
+      0.765
+    ],
+    "max": [
+      -3.783,
+      0.809,
+      2.595
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_0.leaf1.lower moulding.stile",
+    "min": [
+      -4.408,
+      0.787,
+      0.817
+    ],
+    "max": [
+      -3.792,
+      0.805,
+      1.0498
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_0.leaf1.lower moulding.rail",
+    "min": [
+      -4.396,
+      0.787,
+      0.817
+    ],
+    "max": [
+      -3.804,
+      0.805,
+      1.0498
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_0.leaf1.lock rail",
+    "min": [
+      -4.4475,
+      0.742,
+      1.0378
+    ],
+    "max": [
+      -3.7525,
+      0.808,
+      1.0778
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_0.leaf1.horizontal band",
+    "min": [
+      -4.41,
+      0.799,
+      1.1138
+    ],
+    "max": [
+      -3.79,
+      0.817,
+      2.5177
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 96
+  },
+  {
+    "name": "V28.main_gate.inside lattice-1_0.leaf1.hanji backing",
+    "min": [
+      -4.41,
+      0.749,
+      1.0778
+    ],
+    "max": [
+      -3.79,
+      0.755,
+      2.542
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.identity.sign board",
+    "min": [
+      -0.98,
+      -1.3825,
+      3.275
+    ],
+    "max": [
+      0.98,
+      -1.3375,
+      3.865
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.identity.side tablet",
+    "min": [
+      -1.22,
+      -1.5075,
+      1.935
+    ],
+    "max": [
+      1.22,
+      -1.4725,
+      3.165
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.identity.original side tablet1",
+    "min": [
+      0.98,
+      -1.515,
+      1.935
+    ],
+    "max": [
+      1.22,
+      -1.515,
+      3.165
+    ],
+    "materials": [
+      "V28.main_gate.identity.original side tablet1 original pigment"
+    ],
+    "vertices": 4
+  },
+  {
+    "name": "V28.main_gate.identity.original side tablet0",
+    "min": [
+      -1.22,
+      -1.515,
+      1.935
+    ],
+    "max": [
+      -0.98,
+      -1.515,
+      3.165
+    ],
+    "materials": [
+      "V28.main_gate.identity.original side tablet0 original pigment"
+    ],
+    "vertices": 4
+  },
+  {
+    "name": "V28.main_gate.identity.original plaque2",
+    "min": [
+      0.33,
+      -1.385,
+      3.27
+    ],
+    "max": [
+      0.98,
+      -1.385,
+      3.87
+    ],
+    "materials": [
+      "V28.main_gate.identity.original plaque2 original pigment"
+    ],
+    "vertices": 4
+  },
+  {
+    "name": "V28.main_gate.identity.original plaque1",
+    "min": [
+      -0.3,
+      -1.385,
+      3.27
+    ],
+    "max": [
+      0.3,
+      -1.385,
+      3.87
+    ],
+    "materials": [
+      "V28.main_gate.identity.original plaque1 original pigment"
+    ],
+    "vertices": 4
+  },
+  {
+    "name": "V28.main_gate.identity.original plaque0",
+    "min": [
+      -0.98,
+      -1.385,
+      3.27
+    ],
+    "max": [
+      -0.33,
+      -1.385,
+      3.87
+    ],
+    "materials": [
+      "V28.main_gate.identity.original plaque0 original pigment"
+    ],
+    "vertices": 4
+  },
+  {
+    "name": "V28.main_gate.frame.post",
+    "min": [
+      -5.24,
+      -1.465,
+      0.19
+    ],
+    "max": [
+      5.24,
+      1.465,
+      4.02
+    ],
+    "materials": [
+      "Canonical gate post pigment.002"
+    ],
+    "vertices": 288
+  },
+  {
+    "name": "V28.main_gate.frame.cross",
+    "min": [
+      -5.215,
+      -1.425,
+      2.71
+    ],
+    "max": [
+      5.215,
+      1.425,
+      4.03
+    ],
+    "materials": [
+      "Canonical gate beam pigment.002"
+    ],
+    "vertices": 48
+  },
+  {
+    "name": "V28.main_gate.frame.beam",
+    "min": [
+      -5.1,
+      -1.45,
+      2.71
+    ],
+    "max": [
+      5.1,
+      1.45,
+      4.03
+    ],
+    "materials": [
+      "Canonical gate beam pigment.002"
+    ],
+    "vertices": 48
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face3.004",
+    "min": [
+      -1.33,
+      -1.3198,
+      0.0231
+    ],
+    "max": [
+      5.1726,
+      1.2069,
+      0.2783
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 118
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face3.003",
+    "min": [
+      -1.33,
+      -0.8217,
+      0.0219
+    ],
+    "max": [
+      5.1945,
+      1.3208,
+      0.2784
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 118
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face3.002",
+    "min": [
+      -1.33,
+      -1.3202,
+      0.0215
+    ],
+    "max": [
+      5.1867,
+      0.7043,
+      0.2784
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 100
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face3.001",
+    "min": [
+      -1.33,
+      -0.3798,
+      0.0231
+    ],
+    "max": [
+      5.1922,
+      1.3228,
+      0.2785
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 124
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face3",
+    "min": [
+      -1.33,
+      -1.3207,
+      0.0215
+    ],
+    "max": [
+      5.1865,
+      1.0948,
+      0.2782
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 100
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face2.004",
+    "min": [
+      -5.1817,
+      -0.7601,
+      0.0229
+    ],
+    "max": [
+      1.33,
+      1.3199,
+      0.2786
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 93
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face2.003",
+    "min": [
+      -5.1835,
+      -1.3206,
+      0.0214
+    ],
+    "max": [
+      1.33,
+      1.3196,
+      0.2785
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 112
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face2.002",
+    "min": [
+      -5.1939,
+      -1.3197,
+      0.0218
+    ],
+    "max": [
+      1.33,
+      0.2109,
+      0.2788
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 112
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face2.001",
+    "min": [
+      -5.1821,
+      -1.3207,
+      0.0218
+    ],
+    "max": [
+      1.33,
+      0.8301,
+      0.2784
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 180
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face2",
+    "min": [
+      -5.1844,
+      -0.7397,
+      0.0214
+    ],
+    "max": [
+      1.33,
+      1.3203,
+      0.2367
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 81
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face1.004",
+    "min": [
+      -3.8699,
+      1.095,
+      0.0214
+    ],
+    "max": [
+      5.0956,
+      1.4123,
+      0.2782
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 199
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face1.003",
+    "min": [
+      -4.4556,
+      1.095,
+      0.0226
+    ],
+    "max": [
+      3.5278,
+      1.4196,
+      0.2789
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 149
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face1.002",
+    "min": [
+      -4.9028,
+      1.095,
+      0.0213
+    ],
+    "max": [
+      2.1971,
+      1.4192,
+      0.2773
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 143
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face1.001",
+    "min": [
+      -5.0967,
+      1.095,
+      0.0209
+    ],
+    "max": [
+      5.0204,
+      1.417,
+      0.2787
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 137
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face1",
+    "min": [
+      -2.3326,
+      1.095,
+      0.0216
+    ],
+    "max": [
+      4.5184,
+      1.4106,
+      0.2783
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 180
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face0.004",
+    "min": [
+      -5.0948,
+      -1.4058,
+      0.0211
+    ],
+    "max": [
+      4.4705,
+      -1.095,
+      0.2785
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 168
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face0.003",
+    "min": [
+      -3.2663,
+      -1.4195,
+      0.0214
+    ],
+    "max": [
+      5.0977,
+      -1.095,
+      0.2784
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 348
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face0.002",
+    "min": [
+      -3.8689,
+      -1.4194,
+      0.0214
+    ],
+    "max": [
+      3.9987,
+      -1.095,
+      0.2787
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 118
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face0.001",
+    "min": [
+      -4.5689,
+      -1.4061,
+      0.0217
+    ],
+    "max": [
+      -1.2378,
+      -1.095,
+      0.2769
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 81
+  },
+  {
+    "name": "V28.main_gate.foundation.wing.face0",
+    "min": [
+      -5.0946,
+      -1.4172,
+      0.0213
+    ],
+    "max": [
+      2.9133,
+      -1.095,
+      0.2782
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 75
+  },
+  {
+    "name": "V28.main_gate.foundation.wing core",
+    "min": [
+      -5.175,
+      -1.45,
+      0.015
+    ],
+    "max": [
+      5.175,
+      1.45,
+      0.265
+    ],
+    "materials": [
+      "Ansarang retained Courtyard compacted earth.001"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.foundation.post",
+    "min": [
+      -5.315,
+      -1.55,
+      0.01
+    ],
+    "max": [
+      5.315,
+      1.55,
+      0.19
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 192
+  },
+  {
+    "name": "V28.main_gate.finish.approach stone.004",
+    "min": [
+      1.7057,
+      -1.84,
+      -0.005
+    ],
+    "max": [
+      2.3657,
+      -1.45,
+      0.095
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.finish.approach stone.003",
+    "min": [
+      0.3486,
+      -1.84,
+      -0.005
+    ],
+    "max": [
+      3.7229,
+      -1.45,
+      0.095
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 32
+  },
+  {
+    "name": "V28.main_gate.finish.approach stone.002",
+    "min": [
+      -2.3657,
+      -1.84,
+      -0.005
+    ],
+    "max": [
+      5.08,
+      -1.45,
+      0.095
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 32
+  },
+  {
+    "name": "V28.main_gate.finish.approach stone.001",
+    "min": [
+      -3.7229,
+      -1.84,
+      -0.005
+    ],
+    "max": [
+      -0.3486,
+      -1.45,
+      0.095
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 32
+  },
+  {
+    "name": "V28.main_gate.finish.approach stone",
+    "min": [
+      -5.08,
+      -1.84,
+      -0.005
+    ],
+    "max": [
+      -4.42,
+      -1.45,
+      0.095
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.source stud",
+    "min": [
+      0.062,
+      -1.397,
+      0.49
+    ],
+    "max": [
+      0.848,
+      -1.376,
+      2.88
+    ],
+    "materials": [
+      "Ansarang retained Dark iron fittings.001"
+    ],
+    "vertices": 360
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.source strap",
+    "min": [
+      0.603,
+      -1.39,
+      0.483
+    ],
+    "max": [
+      0.893,
+      -1.364,
+      2.887
+    ],
+    "materials": [
+      "Ansarang retained Dark iron fittings.001"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.source ring plate",
+    "min": [
+      0.142,
+      -1.4005,
+      1.55
+    ],
+    "max": [
+      0.262,
+      -1.3755,
+      1.77
+    ],
+    "materials": [
+      "Ansarang retained Dark iron fittings.001"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.source ring",
+    "min": [
+      0.0822,
+      -1.44,
+      1.4622
+    ],
+    "max": [
+      0.3218,
+      -1.41,
+      1.6978
+    ],
+    "materials": [
+      "Ansarang retained Dark iron fittings.001"
+    ],
+    "vertices": 212
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.source fastener",
+    "min": [
+      0.624,
+      -1.407,
+      0.491
+    ],
+    "max": [
+      0.872,
+      -1.392,
+      2.879
+    ],
+    "materials": [
+      "Ansarang retained Dark iron fittings.001"
+    ],
+    "vertices": 144
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.boards.003",
+    "min": [
+      0.5451,
+      -1.3475,
+      0.235
+    ],
+    "max": [
+      0.7193,
+      -1.3025,
+      3.12
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.boards.002",
+    "min": [
+      0.3679,
+      -1.3475,
+      0.235
+    ],
+    "max": [
+      0.5421,
+      -1.3025,
+      3.12
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.boards.001",
+    "min": [
+      0.1907,
+      -1.3475,
+      0.235
+    ],
+    "max": [
+      0.3649,
+      -1.3025,
+      3.12
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.boards",
+    "min": [
+      0.0135,
+      -1.3475,
+      0.235
+    ],
+    "max": [
+      0.8965,
+      -1.3025,
+      3.12
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.back rail",
+    "min": [
+      0.0395,
+      -1.2895,
+      0.315
+    ],
+    "max": [
+      0.8705,
+      -1.2245,
+      3.04
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.source stud",
+    "min": [
+      -0.848,
+      -1.397,
+      0.49
+    ],
+    "max": [
+      -0.062,
+      -1.376,
+      2.88
+    ],
+    "materials": [
+      "Ansarang retained Dark iron fittings.001"
+    ],
+    "vertices": 360
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.source strap",
+    "min": [
+      -0.893,
+      -1.39,
+      0.483
+    ],
+    "max": [
+      -0.603,
+      -1.364,
+      2.887
+    ],
+    "materials": [
+      "Ansarang retained Dark iron fittings.001"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.source ring plate",
+    "min": [
+      -0.262,
+      -1.4005,
+      1.55
+    ],
+    "max": [
+      -0.142,
+      -1.3755,
+      1.77
+    ],
+    "materials": [
+      "Ansarang retained Dark iron fittings.001"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.source ring",
+    "min": [
+      -0.3218,
+      -1.44,
+      1.4622
+    ],
+    "max": [
+      -0.0822,
+      -1.41,
+      1.6978
+    ],
+    "materials": [
+      "Ansarang retained Dark iron fittings.001"
+    ],
+    "vertices": 212
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.source fastener",
+    "min": [
+      -0.872,
+      -1.407,
+      0.491
+    ],
+    "max": [
+      -0.624,
+      -1.392,
+      2.879
+    ],
+    "materials": [
+      "Ansarang retained Dark iron fittings.001"
+    ],
+    "vertices": 144
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.boards.003",
+    "min": [
+      -0.3649,
+      -1.3475,
+      0.235
+    ],
+    "max": [
+      -0.1907,
+      -1.3025,
+      3.12
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.boards.002",
+    "min": [
+      -0.5421,
+      -1.3475,
+      0.235
+    ],
+    "max": [
+      -0.3679,
+      -1.3025,
+      3.12
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.boards.001",
+    "min": [
+      -0.7193,
+      -1.3475,
+      0.235
+    ],
+    "max": [
+      -0.5451,
+      -1.3025,
+      3.12
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.boards",
+    "min": [
+      -0.8965,
+      -1.3475,
+      0.235
+    ],
+    "max": [
+      -0.0135,
+      -1.3025,
+      3.12
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.back rail",
+    "min": [
+      -0.8705,
+      -1.2895,
+      0.315
+    ],
+    "max": [
+      -0.0395,
+      -1.2245,
+      3.04
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.courtyard maru.003",
+    "min": [
+      -5.1,
+      1.4535,
+      0.595
+    ],
+    "max": [
+      5.1,
+      1.6715,
+      0.665
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.courtyard maru.002",
+    "min": [
+      -5.1,
+      1.2285,
+      0.595
+    ],
+    "max": [
+      5.1,
+      1.4465,
+      0.665
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.courtyard maru.001",
+    "min": [
+      -5.1,
+      1.0035,
+      0.595
+    ],
+    "max": [
+      5.1,
+      1.2215,
+      0.665
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "V28.main_gate.courtyard maru support",
+    "min": [
+      -5.16,
+      1.485,
+      0.13
+    ],
+    "max": [
+      5.16,
+      1.605,
+      0.63
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 48
+  },
+  {
+    "name": "V28.main_gate.courtyard maru",
+    "min": [
+      -5.1,
+      0.7785,
+      0.595
+    ],
+    "max": [
+      5.1,
+      0.9965,
+      0.665
+    ],
+    "materials": [
+      "Canonical gate wood pigment.002"
+    ],
+    "vertices": 16
+  },
+  {
+    "name": "Forecourt.main_gate.side rubble",
+    "min": [
+      -5.2157,
+      -1.3363,
+      0.1865
+    ],
+    "max": [
+      5.2158,
+      1.32,
+      1.2477
+    ],
+    "materials": [
+      "Canonical gate stone pigment.002"
+    ],
+    "vertices": 1360
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.crafted hinge strap",
+    "min": [
+      -0.83,
+      -1.424,
+      0.4015
+    ],
+    "max": [
+      -0.35,
+      -1.4,
+      2.9885
+    ],
+    "materials": [
+      "Forecourt forged iron"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.crafted hinge rivet",
+    "min": [
+      -0.788,
+      -1.445,
+      0.412
+    ],
+    "max": [
+      -0.392,
+      -1.431,
+      2.978
+    ],
+    "materials": [
+      "Forecourt forged iron"
+    ],
+    "vertices": 216
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.crafted ring escutcheon",
+    "min": [
+      -0.24,
+      -1.433,
+      1.425
+    ],
+    "max": [
+      -0.12,
+      -1.413,
+      1.595
+    ],
+    "materials": [
+      "Forecourt forged iron"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.crafted drop ring",
+    "min": [
+      -0.2709,
+      -1.477,
+      1.3206
+    ],
+    "max": [
+      -0.0891,
+      -1.455,
+      1.4994
+    ],
+    "materials": [
+      "Forecourt forged iron"
+    ],
+    "vertices": 212
+  },
+  {
+    "name": "V28.main_gate.entry.leaf1.crafted ring pin",
+    "min": [
+      -0.2,
+      -1.473,
+      1.5
+    ],
+    "max": [
+      -0.16,
+      -1.435,
+      1.54
+    ],
+    "materials": [
+      "Forecourt forged iron"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.crafted hinge strap",
+    "min": [
+      0.35,
+      -1.424,
+      0.4015
+    ],
+    "max": [
+      0.83,
+      -1.4,
+      2.9885
+    ],
+    "materials": [
+      "Forecourt forged iron"
+    ],
+    "vertices": 24
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.crafted hinge rivet",
+    "min": [
+      0.392,
+      -1.445,
+      0.412
+    ],
+    "max": [
+      0.788,
+      -1.431,
+      2.978
+    ],
+    "materials": [
+      "Forecourt forged iron"
+    ],
+    "vertices": 216
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.crafted ring escutcheon",
+    "min": [
+      0.12,
+      -1.433,
+      1.425
+    ],
+    "max": [
+      0.24,
+      -1.413,
+      1.595
+    ],
+    "materials": [
+      "Forecourt forged iron"
+    ],
+    "vertices": 8
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.crafted drop ring",
+    "min": [
+      0.0891,
+      -1.477,
+      1.3206
+    ],
+    "max": [
+      0.2709,
+      -1.455,
+      1.4994
+    ],
+    "materials": [
+      "Forecourt forged iron"
+    ],
+    "vertices": 212
+  },
+  {
+    "name": "V28.main_gate.entry.leaf2.crafted ring pin",
+    "min": [
+      0.16,
+      -1.473,
+      1.5
+    ],
+    "max": [
+      0.2,
+      -1.435,
+      1.54
+    ],
+    "materials": [
+      "Forecourt forged iron"
+    ],
+    "vertices": 24
+  }
+]

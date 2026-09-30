@@ -1,0 +1,11 @@
+{
+  "nativeScene": "scene.blend",
+  "nativeSha256": "c346bdded80ccaa69196a8412d65698753fdd7fd8b83168ec2c1d66c16bb2922",
+  "unchangedOtherBuildingMeshes": 3049,
+  "changes": {
+    "shrineJoinery": [],
+    "mineralSurfaces": [],
+    "paintedTimber": []
+  },
+  "fullSurveyAccuracyClaimed": false
+}

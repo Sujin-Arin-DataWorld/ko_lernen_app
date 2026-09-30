@@ -1,0 +1,103 @@
+{
+  "sceneSha256": "6e34c080e7da4ed677b8a7211685804549728d9e3769eca21bfd73a9d246eaad",
+  "checks": [
+    {
+      "id": "02-main-left",
+      "check": "timber bottom meets stone top",
+      "gapMetres": 0.0,
+      "pass": true
+    },
+    {
+      "id": "02-main-left",
+      "check": "upper end enters roof bearing by <=15mm",
+      "overlapMetres": 0.007999897003173828,
+      "pass": true
+    },
+    {
+      "id": "02-main-left",
+      "check": "foot rests on terrace or ground",
+      "support": "HwaljuFix.left terrace masonry 2-0",
+      "gapMetres": 0.0,
+      "pass": true
+    },
+    {
+      "id": "02-main-left",
+      "check": "plan center delivered",
+      "actualXY": [
+        -0.9100000560283661,
+        -0.9000000059604645
+      ],
+      "planXY": [
+        -0.91,
+        -0.9
+      ],
+      "pass": true
+    },
+    {
+      "id": "03-numaru-inner",
+      "check": "timber bottom meets stone top",
+      "gapMetres": 0.0,
+      "pass": true
+    },
+    {
+      "id": "03-numaru-inner",
+      "check": "upper end enters roof bearing by <=15mm",
+      "overlapMetres": 0.007999897003173828,
+      "pass": true
+    },
+    {
+      "id": "03-numaru-inner",
+      "check": "foot rests on terrace or ground",
+      "support": "HwaljuFix.numaru inner apron masonry 0-0",
+      "gapMetres": 0.0,
+      "pass": true
+    },
+    {
+      "id": "03-numaru-inner",
+      "check": "plan center delivered",
+      "actualXY": [
+        9.680000305175781,
+        -4.900000095367432
+      ],
+      "planXY": [
+        9.68,
+        -4.9
+      ],
+      "pass": true
+    },
+    {
+      "id": "04-numaru-outer",
+      "check": "timber bottom meets stone top",
+      "gapMetres": 0.0,
+      "pass": true
+    },
+    {
+      "id": "04-numaru-outer",
+      "check": "upper end enters roof bearing by <=15mm",
+      "overlapMetres": 0.007999897003173828,
+      "pass": true
+    },
+    {
+      "id": "04-numaru-outer",
+      "check": "foot rests on terrace or ground",
+      "support": "Terrain.continuous ground",
+      "gapMetres": 0.0,
+      "pass": true
+    },
+    {
+      "id": "04-numaru-outer",
+      "check": "plan center delivered",
+      "actualXY": [
+        15.760000228881836,
+        -5.204999923706055
+      ],
+      "planXY": [
+        15.76,
+        -5.205
+      ],
+      "pass": true
+    }
+  ],
+  "allPass": true,
+  "scope": "Front supports only; source scan coordinates are observations with approx40mm uncertainty, not survey dimensions."
+}

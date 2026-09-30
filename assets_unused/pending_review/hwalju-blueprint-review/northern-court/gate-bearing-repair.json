@@ -1,0 +1,250 @@
+{
+  "sourceSceneSha256": "f9fb596cb4ae0451c9537e1822010b2f145cc8dc3be133a3797a8fca4e06db80",
+  "sources": [
+    {
+      "file": "references\\photos\\sarang-left-gate-eaves.png",
+      "original": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-5ee171a2-60a8-4561-8298-94d4bfcb1457.png",
+      "sha256": "ec83fbc3f7554a0aa94510118753b5a81f817ec4b7dc536a24fa8e7053d01673",
+      "subject": "sarang-left-gate-eaves"
+    },
+    {
+      "file": "references\\photos\\jung-courtyard-passage.png",
+      "original": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-7e2d8859-d9f1-4607-9c98-0d25367327dd.png",
+      "sha256": "624ab5c81093d5520274c6e292b44b3cf72f4ea11fdc726b45b846b19bb446ba",
+      "subject": "jung-courtyard-passage"
+    },
+    {
+      "file": "references\\photos\\anchae-eaves-sireong.png",
+      "original": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-0cdddaf3-2c93-463b-89e9-743f7d0c3764.png",
+      "sha256": "c645e580bb70931aaa46c5436773c366ea265db3265a396ab9c784dab13cd051",
+      "subject": "anchae-eaves-sireong"
+    },
+    {
+      "file": "references\\photos\\sadang-painted-eaves.png",
+      "original": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-12623d27-1642-41c4-895b-2c7a47dcfbf0.png",
+      "sha256": "594b54b9af2fefe891006d800c8a5ebaf73bcc1af1a8503077f3e25fb38772bc",
+      "subject": "sadang-painted-eaves"
+    },
+    {
+      "file": "references\\photos\\main-gate-courtyard.png",
+      "original": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-c2cba827-d544-4487-8dc3-92cc4e8946f2.png",
+      "sha256": "481f9908b8c454a3f00618e5f48e93aec3cddf792cbcf484bc2c35e20de49ef7",
+      "subject": "main-gate-courtyard"
+    },
+    {
+      "file": "references\\photos\\main-gate-exterior.png",
+      "original": "C:\\Users\\vjinn\\AppData\\Local\\Temp\\codex-clipboard-72ea1102-d507-42bf-93c7-77d267c8d0c2.png",
+      "sha256": "6f3cec017b83b2ba90dd62237b86bf3f6a1b3cfa0c5236e06e532790cc80324a",
+      "subject": "main-gate-exterior"
+    }
+  ],
+  "added": [
+    "PhotoRepair.left_changgo.bearing.transverse beam 0",
+    "PhotoRepair.left_changgo.bearing.purlin seat 0 0",
+    "PhotoRepair.left_changgo.bearing.purlin seat 0 1",
+    "PhotoRepair.left_changgo.bearing.purlin seat 0 2",
+    "PhotoRepair.left_changgo.bearing.short knee 0",
+    "PhotoRepair.left_changgo.bearing.transverse beam 1",
+    "PhotoRepair.left_changgo.bearing.purlin seat 1 0",
+    "PhotoRepair.left_changgo.bearing.purlin seat 1 1",
+    "PhotoRepair.left_changgo.bearing.purlin seat 1 2",
+    "PhotoRepair.left_changgo.bearing.short knee 1",
+    "PhotoRepair.left_changgo.bearing.header neck",
+    "PhotoRepair.left_changgo.bearing.header infill",
+    "PhotoRepair.left_changgo.gable wind board",
+    "PhotoRepair.right_ansarang.bearing.transverse beam 0",
+    "PhotoRepair.right_ansarang.bearing.purlin seat 0 0",
+    "PhotoRepair.right_ansarang.bearing.purlin seat 0 1",
+    "PhotoRepair.right_ansarang.bearing.purlin seat 0 2",
+    "PhotoRepair.right_ansarang.bearing.short knee 0",
+    "PhotoRepair.right_ansarang.bearing.transverse beam 1",
+    "PhotoRepair.right_ansarang.bearing.purlin seat 1 0",
+    "PhotoRepair.right_ansarang.bearing.purlin seat 1 1",
+    "PhotoRepair.right_ansarang.bearing.purlin seat 1 2",
+    "PhotoRepair.right_ansarang.bearing.short knee 1",
+    "PhotoRepair.right_ansarang.bearing.header neck",
+    "PhotoRepair.right_ansarang.bearing.header infill",
+    "PhotoRepair.right_ansarang.gable wind board",
+    "PhotoRepair.jung.passage earth",
+    "PhotoRepair.jung.curved threshold",
+    "PhotoRepair.jung.passage outer lintel",
+    "PhotoRepair.jung.passage outer jamb",
+    "PhotoRepair.jung.wooden pivot peg",
+    "PhotoRepair.jung.roof lime backing",
+    "PhotoRepair.main_gate.bearing.eave seat",
+    "PhotoRepair.main_gate.bearing.tie",
+    "PhotoRepair.main_gate.bearing.king post",
+    "PhotoRepair.main_gate.bearing.ridge purlin",
+    "PhotoRepair.anchae.stored pole",
+    "PhotoRepair.anchae.bamboo node"
+  ],
+  "removed": [
+    "Jung.gate floor",
+    "Jung.gate floor.001",
+    "Jung.gate floor.002",
+    "Jung.gate floor.003"
+  ],
+  "modified": [
+    "V28.left_changgo.roof.rafters",
+    "V28.left_changgo.roof.boarding",
+    "V28.right_ansarang.roof.rafters",
+    "V28.right_ansarang.roof.boarding"
+  ],
+  "protectedMeshes": 3408,
+  "gates": [
+    {
+      "gate": "left_changgo",
+      "headerTop": 3.184999942779541,
+      "eavePurlinBottom": 3.375540256500244,
+      "previousUnsupportedGap": 0.19054031372070312,
+      "photoRafterDiameter": 0.088,
+      "roofEnvelopePreserved": true,
+      "doorDimensionsPreserved": true
+    },
+    {
+      "gate": "right_ansarang",
+      "headerTop": 2.944999933242798,
+      "eavePurlinBottom": 2.9902970790863037,
+      "previousUnsupportedGap": 0.04529714584350586,
+      "photoRafterDiameter": 0.088,
+      "roofEnvelopePreserved": true,
+      "doorDimensionsPreserved": true
+    }
+  ],
+  "bearingChecks": [
+    {
+      "gate": "left_changgo",
+      "point": [
+        -4.227999925613403,
+        3.0271999835968018,
+        3.375540256500244
+      ],
+      "gap": -0.0004998703002929688,
+      "bearing": "PhotoRepair.left_changgo.bearing.purlin seat 0 0",
+      "pass": true
+    },
+    {
+      "gate": "left_changgo",
+      "point": [
+        -2.1679999828338623,
+        3.0271999835968018,
+        3.375540256500244
+      ],
+      "gap": -0.0004998703002929688,
+      "bearing": "PhotoRepair.left_changgo.bearing.purlin seat 1 0",
+      "pass": true
+    },
+    {
+      "gate": "left_changgo",
+      "point": [
+        -4.227999925613403,
+        3.8019999265670776,
+        3.809999942779541
+      ],
+      "gap": -0.0004998703002929688,
+      "bearing": "PhotoRepair.left_changgo.bearing.purlin seat 0 1",
+      "pass": true
+    },
+    {
+      "gate": "left_changgo",
+      "point": [
+        -2.1679999828338623,
+        3.8019999265670776,
+        3.809999942779541
+      ],
+      "gap": -0.0004998703002929688,
+      "bearing": "PhotoRepair.left_changgo.bearing.purlin seat 1 1",
+      "pass": true
+    },
+    {
+      "gate": "left_changgo",
+      "point": [
+        -4.227999925613403,
+        4.5767998695373535,
+        3.375540256500244
+      ],
+      "gap": -0.0004998703002929688,
+      "bearing": "PhotoRepair.left_changgo.bearing.purlin seat 0 2",
+      "pass": true
+    },
+    {
+      "gate": "left_changgo",
+      "point": [
+        -2.1679999828338623,
+        4.5767998695373535,
+        3.375540256500244
+      ],
+      "gap": -0.0004998703002929688,
+      "bearing": "PhotoRepair.left_changgo.bearing.purlin seat 1 2",
+      "pass": true
+    },
+    {
+      "gate": "right_ansarang",
+      "point": [
+        17.381999969482422,
+        -0.37979884445667267,
+        2.9902970790863037
+      ],
+      "gap": -0.0004998704167082906,
+      "bearing": "PhotoRepair.right_ansarang.bearing.purlin seat 0 0",
+      "pass": true
+    },
+    {
+      "gate": "right_ansarang",
+      "point": [
+        18.802000045776367,
+        -0.37979884445667267,
+        2.9902970790863037
+      ],
+      "gap": -0.0004998704167082906,
+      "bearing": "PhotoRepair.right_ansarang.bearing.purlin seat 1 0",
+      "pass": true
+    },
+    {
+      "gate": "right_ansarang",
+      "point": [
+        17.381999969482422,
+        0.0830011460930109,
+        3.2754454612731934
+      ],
+      "gap": -0.0004998703002929688,
+      "bearing": "PhotoRepair.right_ansarang.bearing.purlin seat 0 1",
+      "pass": true
+    },
+    {
+      "gate": "right_ansarang",
+      "point": [
+        18.802000045776367,
+        0.0830011460930109,
+        3.2754454612731934
+      ],
+      "gap": -0.0004998703002929688,
+      "bearing": "PhotoRepair.right_ansarang.bearing.purlin seat 1 1",
+      "pass": true
+    },
+    {
+      "gate": "right_ansarang",
+      "point": [
+        17.381999969482422,
+        0.5458011627197266,
+        2.9902970790863037
+      ],
+      "gap": -0.0004998704167082906,
+      "bearing": "PhotoRepair.right_ansarang.bearing.purlin seat 0 2",
+      "pass": true
+    },
+    {
+      "gate": "right_ansarang",
+      "point": [
+        18.802000045776367,
+        0.5458011627197266,
+        2.9902970790863037
+      ],
+      "gap": -0.0004998704167082906,
+      "bearing": "PhotoRepair.right_ansarang.bearing.purlin seat 1 2",
+      "pass": true
+    }
+  ],
+  "authority": "Roof envelopes and door measurements retained. Supporting joints, threshold wear and shelf fittings reconstructed from supplied photographs. Left gate sheet021 association remains unconfirmed.",
+  "sceneSha256": "4e0e83fea571611f1ad18fe45aaf2dc3a83fa24cb5dcaf49375301ec88ed7110"
+}

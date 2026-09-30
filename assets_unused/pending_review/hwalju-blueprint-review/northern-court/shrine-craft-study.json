@@ -1,0 +1,1640 @@
+{
+  "nativeScene": "scene.blend",
+  "nativeSha256": "5f0cfae3b34e786fe586bbe47873cfdac1759e5666a4c893e294b21b721b71ec",
+  "protectedGeometryObjects": 3125,
+  "protectedSouthMaterialObjects": 2085,
+  "changes": {
+    "shrineGateCraft": [
+      {
+        "building": "sadangmun",
+        "replacedMeshes": 18,
+        "newMeshes": 43,
+        "centralCoverRuns": 6,
+        "wingReturnRuns": 2,
+        "raisedDescendingRidges": 2,
+        "ridgeCourses": 3,
+        "rafterSectionMeters": [
+          0.075,
+          0.09
+        ],
+        "ceilingBoardThicknessMeters": 0.03,
+        "postHeadAboveFootingMeters": 1.8,
+        "centralRidgeAboveFootingMeters": 2.875,
+        "evidence": "2007 sheets 086, 087 and 088 plus supplied actual gate photograph",
+        "profileCurvatureIsPhotographicFit": true
+      }
+    ],
+    "tileEndProfiles": [
+      {
+        "object": "North.sadangmun.roof.round tile ends",
+        "components": 16,
+        "profile": "solid half ellipse with flat base",
+        "widthMeters": 0.124,
+        "heightMeters": 0.052,
+        "roofShellUnchanged": true,
+        "fitIsInterpretation": true
+      }
+    ],
+    "tileShells": [
+      {
+        "object": "North.sadangmun.roof.concave amkiwa",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 328,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.wing return sukiwa",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 132,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.concave amkiwa.001",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 328,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.wing return sukiwa.001",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 104,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.concave amkiwa.002",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 308,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.wing return sukiwa.002",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 104,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.concave amkiwa.003",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 308,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.wing return sukiwa.003",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 132,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.concave amkiwa.004",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 308,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.wing return sukiwa.004",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 104,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.concave amkiwa.005",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 308,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.wing return sukiwa.005",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 104,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.six central sukiwa",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 396,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.six central sukiwa.001",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 312,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.six central sukiwa.002",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 312,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.six central sukiwa.003",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 396,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.six central sukiwa.004",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 312,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.six central sukiwa.005",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 312,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course descending ridge",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 60,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course descending ridge.001",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 60,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course descending ridge.002",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 60,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.descending ridge curved cover",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 160,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course descending ridge.003",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 48,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.descending ridge curved cover.001",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 104,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course descending ridge.004",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 48,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.descending ridge curved cover.002",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 104,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course descending ridge.005",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 48,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.descending ridge curved cover.003",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 104,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.descending ridge curved cover.004",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 104,
+        "fitIsInterpretation": true
+      },
+      {
+        "object": "North.sadangmun.roof.descending ridge curved cover.005",
+        "thicknessMeters": 0.008,
+        "inward": true,
+        "previousBoundaryEdges": 104,
+        "fitIsInterpretation": true
+      }
+    ],
+    "mineralSurfaces": [
+      {
+        "object": "North.sadangmun.roof.concave amkiwa",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 18,
+        "faces": 160,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.wing return sukiwa",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 5,
+        "faces": 72,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.concave amkiwa.001",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 18,
+        "faces": 160,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.wing return sukiwa.001",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 4,
+        "faces": 48,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.concave amkiwa.002",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 17,
+        "faces": 144,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.wing return sukiwa.002",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 4,
+        "faces": 48,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.concave amkiwa.003",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 17,
+        "faces": 144,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.wing return sukiwa.003",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 5,
+        "faces": 72,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.concave amkiwa.004",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 17,
+        "faces": 144,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.wing return sukiwa.004",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 4,
+        "faces": 48,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.concave amkiwa.005",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 17,
+        "faces": 144,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.wing return sukiwa.005",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 4,
+        "faces": 48,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.six central sukiwa",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 15,
+        "faces": 216,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.six central sukiwa.001",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 12,
+        "faces": 144,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.six central sukiwa.002",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 12,
+        "faces": 144,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.six central sukiwa.003",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 15,
+        "faces": 216,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.six central sukiwa.004",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 12,
+        "faces": 144,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.six central sukiwa.005",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 12,
+        "faces": 144,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course descending ridge",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 14,
+        "faces": 16,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course descending ridge.001",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 14,
+        "faces": 16,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course descending ridge.002",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 14,
+        "faces": 16,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.descending ridge curved cover",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 6,
+        "faces": 96,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course descending ridge.003",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 12,
+        "faces": 12,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.descending ridge curved cover.001",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 4,
+        "faces": 48,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course descending ridge.004",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 12,
+        "faces": 12,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.descending ridge curved cover.002",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 4,
+        "faces": 48,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course descending ridge.005",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 12,
+        "faces": 12,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.descending ridge curved cover.003",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 4,
+        "faces": 48,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.descending ridge curved cover.004",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 4,
+        "faces": 48,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.descending ridge curved cover.005",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 4,
+        "faces": 48,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.hollow barge terminal",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 4,
+        "faces": 144,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.packed ridge bedding",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 1,
+        "faces": 68,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course main ridge",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 1,
+        "faces": 565,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course main ridge.001",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 1,
+        "faces": 565,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.three course main ridge.002",
+        "building": "sadangmun",
+        "kinds": [
+          "clay"
+        ],
+        "components": 1,
+        "faces": 565,
+        "geometryUnchanged": true
+      }
+    ],
+    "paintedTimber": [
+      {
+        "object": "North.sadang.frame round red column",
+        "building": "sadang",
+        "paint": [
+          "red"
+        ],
+        "components": 4,
+        "faces": 104,
+        "cylindricalFaces": 96,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.frame square post",
+        "building": "sadang",
+        "paint": [
+          "red"
+        ],
+        "components": 8,
+        "faces": 48,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.frame transverse beam",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 4,
+        "faces": 24,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.frame longitudinal beam",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 5,
+        "faces": 30,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.front sanctuary infill.jamb",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 6,
+        "faces": 36,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.front sanctuary infill.head/sill",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 6,
+        "faces": 36,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf1.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf1.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf1.recessed lower board",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 1,
+        "faces": 6,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf1.lower moulding.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf1.lower moulding.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf1.lock rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 1,
+        "faces": 6,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf1.rebated bead.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf1.rebated bead.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf1.vertical sal",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 15,
+        "faces": 90,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf1.horizontal band",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 12,
+        "faces": 72,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf1.rear paper rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 3,
+        "faces": 18,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf2.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf2.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf2.recessed lower board",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 1,
+        "faces": 6,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf2.lower moulding.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf2.lower moulding.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf2.lock rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 1,
+        "faces": 6,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf2.rebated bead.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf2.rebated bead.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf2.vertical sal",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 15,
+        "faces": 90,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf2.horizontal band",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 12,
+        "faces": 72,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 0.leaf2.rear paper rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 3,
+        "faces": 18,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf1.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf1.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf1.recessed lower board",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 1,
+        "faces": 6,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf1.lower moulding.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf1.lower moulding.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf1.lock rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 1,
+        "faces": 6,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf1.rebated bead.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf1.rebated bead.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf1.vertical sal",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 19,
+        "faces": 114,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf1.horizontal band",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 12,
+        "faces": 72,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf1.rear paper rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 3,
+        "faces": 18,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf2.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf2.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf2.recessed lower board",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 1,
+        "faces": 6,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf2.lower moulding.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf2.lower moulding.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf2.lock rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 1,
+        "faces": 6,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf2.rebated bead.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf2.rebated bead.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf2.vertical sal",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 19,
+        "faces": 114,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf2.horizontal band",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 12,
+        "faces": 72,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 1.leaf2.rear paper rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 3,
+        "faces": 18,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf1.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf1.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf1.recessed lower board",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 1,
+        "faces": 6,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf1.lower moulding.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf1.lower moulding.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf1.lock rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 1,
+        "faces": 6,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf1.rebated bead.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf1.rebated bead.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf1.vertical sal",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 15,
+        "faces": 90,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf1.horizontal band",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 12,
+        "faces": 72,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf1.rear paper rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 3,
+        "faces": 18,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf2.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf2.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf2.recessed lower board",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 1,
+        "faces": 6,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf2.lower moulding.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf2.lower moulding.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf2.lock rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 1,
+        "faces": 6,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf2.rebated bead.stile",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf2.rebated bead.rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf2.vertical sal",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 15,
+        "faces": 90,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf2.horizontal band",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 12,
+        "faces": 72,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.green sanctuary pair 2.leaf2.rear paper rail",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 3,
+        "faces": 18,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.dancheong painted beam",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 4,
+        "faces": 24,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.dancheong carved bracket.shaped timber shoulder",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 8,
+        "faces": 120,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.dancheong carved bracket.upper bearing",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 8,
+        "faces": 48,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.dancheong carved bracket.lower seating block",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 8,
+        "faces": 48,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.roof.rafters",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 82,
+        "faces": 984,
+        "cylindricalFaces": 820,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.roof.lower exposed rafters",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 82,
+        "faces": 1148,
+        "cylindricalFaces": 984,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.roof.eave beam",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 4,
+        "faces": 1576,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.roof.gable timber",
+        "building": "sadang",
+        "paint": [
+          "red"
+        ],
+        "components": 2,
+        "faces": 95680,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.double eave square buyeon",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 80,
+        "faces": 480,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.photo carved wing bracket",
+        "building": "sadang",
+        "paint": [
+          "green"
+        ],
+        "components": 16,
+        "faces": 256,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadang.photo side red beam",
+        "building": "sadang",
+        "paint": [
+          "red"
+        ],
+        "components": 4,
+        "faces": 24,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.round vermilion gatepost",
+        "building": "sadangmun",
+        "paint": [
+          "red"
+        ],
+        "components": 2,
+        "faces": 40,
+        "cylindricalFaces": 36,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.threshold",
+        "building": "sadangmun",
+        "paint": [
+          "red"
+        ],
+        "components": 1,
+        "faces": 6,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.taegeuk leaves.leaf1.solid board",
+        "building": "sadangmun",
+        "paint": [
+          "red"
+        ],
+        "components": 4,
+        "faces": 24,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.taegeuk leaves.leaf1.rear rail",
+        "building": "sadangmun",
+        "paint": [
+          "red"
+        ],
+        "components": 3,
+        "faces": 18,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.taegeuk leaves.leaf2.solid board",
+        "building": "sadangmun",
+        "paint": [
+          "red"
+        ],
+        "components": 4,
+        "faces": 24,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.taegeuk leaves.leaf2.rear rail",
+        "building": "sadangmun",
+        "paint": [
+          "red"
+        ],
+        "components": 3,
+        "faces": 18,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.rear roof support",
+        "building": "sadangmun",
+        "paint": [
+          "red"
+        ],
+        "components": 4,
+        "faces": 24,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.measured square rafter",
+        "building": "sadangmun",
+        "paint": [
+          "green"
+        ],
+        "components": 7,
+        "faces": 42,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.measured dori",
+        "building": "sadangmun",
+        "paint": [
+          "green"
+        ],
+        "components": 1,
+        "faces": 6,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.red fascia",
+        "building": "sadangmun",
+        "paint": [
+          "red"
+        ],
+        "components": 2,
+        "faces": 12,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      },
+      {
+        "object": "North.sadangmun.roof.solid gable boarding",
+        "building": "sadangmun",
+        "paint": [
+          "red"
+        ],
+        "components": 28,
+        "faces": 168,
+        "cylindricalFaces": 0,
+        "geometryUnchanged": true
+      }
+    ]
+  },
+  "fullSurveyAccuracyClaimed": false
+}

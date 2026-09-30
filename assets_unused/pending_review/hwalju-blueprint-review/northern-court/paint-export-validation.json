@@ -1,0 +1,37 @@
+{
+  "nativeSha256": "039c677626ab43b59d40dbcf1df33b604d9765cecc6d0c86175a33c9fd94f3ae",
+  "glbSha256": "d34f8b8bd346fcb177620439b312b1ab5cb4ec97e957f42c109fce799ac3d4d1",
+  "checks": [
+    {
+      "material": "Illustrated mineral paint green v1",
+      "primitives": 76,
+      "passed": true
+    },
+    {
+      "material": "Illustrated shrine dancheong frieze v1",
+      "primitives": 3,
+      "passed": true
+    },
+    {
+      "material": "Illustrated mineral paint green v1",
+      "primitives": 5,
+      "passed": true
+    },
+    {
+      "material": "Illustrated mineral paint red v1",
+      "primitives": 5,
+      "passed": true
+    },
+    {
+      "material": "Illustrated mineral paint red v1",
+      "primitives": 9,
+      "passed": true
+    },
+    {
+      "material": "Illustrated shrine dancheong frieze v1",
+      "primitives": 1,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

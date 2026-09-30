@@ -1,0 +1,846 @@
+{
+  "owners": {
+    "anchae": {
+      "Reference anchae tile": 33886,
+      "North lime tile ends": 3780
+    },
+    "angotgan": {
+      "Illustrated clay v1 0": 3868,
+      "Illustrated clay v1 2": 2287,
+      "Illustrated clay v1 3": 2029,
+      "Illustrated clay v1 1": 2021,
+      "Illustrated clay v1 4": 2021,
+      "North lime tile ends": 1560,
+      "Illustrated clay v1 5": 1552
+    },
+    "ansarang": {
+      "Reference ansarang tile": 18769,
+      "Ansarang retained Pale ceramic tile ends": 2912
+    },
+    "arae": {
+      "Illustrated clay v1 0": 3850,
+      "Illustrated clay v1 2": 2480,
+      "Illustrated clay v1 1": 2222,
+      "Illustrated clay v1 3": 1741,
+      "Illustrated clay v1 4": 1741,
+      "Illustrated clay v1 5": 1741,
+      "North lime tile ends": 1290
+    },
+    "changgo": {
+      "V33 changgo source ceramic 3": 3553,
+      "V33 changgo source ceramic 0": 2706,
+      "V33 changgo source ceramic 2": 2357,
+      "V33 changgo source ceramic 1": 2334,
+      "Pale ceramic tile ends.001": 2148,
+      "V33 changgo source ceramic 4": 1876,
+      "V33 changgo source ceramic 5": 1716
+    },
+    "connection_garden": {
+      "Gate retained Jung dark weathered giwa 2": 22226,
+      "Craft garden pale tile noses": 10404
+    },
+    "estate_wall": {
+      "Ansarang retained V33 main_gate source ceramic 2": 77234,
+      "Forecourt aged lime tile ends": 39132
+    },
+    "forecourt_wall": {
+      "Ansarang retained V33 main_gate source ceramic 2": 21731,
+      "Forecourt aged lime tile ends": 11016
+    },
+    "gokgan": {
+      "Illustrated clay v1 0": 7415,
+      "Illustrated clay v1 2": 5249,
+      "Illustrated clay v1 1": 4991,
+      "Illustrated clay v1 3": 4319,
+      "Illustrated clay v1 4": 4319,
+      "Illustrated clay v1 5": 4040,
+      "North lime tile ends": 3030
+    },
+    "jung": {
+      "Pale ceramic tile ends": 18876,
+      "Jung dark weathered giwa 0": 1803,
+      "Jung dark weathered giwa 3": 1795,
+      "Jung dark weathered giwa 1": 1781,
+      "Jung dark weathered giwa 2": 1514,
+      "Jung dark weathered giwa 4": 1298,
+      "Jung dark weathered giwa 5": 1031,
+      "Charcoal grey giwa 0": 444,
+      "Charcoal grey giwa 1": 444,
+      "Charcoal grey giwa 3": 444,
+      "Charcoal grey giwa 4": 444,
+      "Charcoal grey giwa 2": 370,
+      "Charcoal grey giwa 5": 370
+    },
+    "left_changgo": {
+      "Reference gate tile": 6183,
+      "Gate retained Pale ceramic tile ends": 984
+    },
+    "main_gate": {
+      "Ansarang retained V33 main_gate source ceramic 0": 4555,
+      "Ansarang retained V33 main_gate source ceramic 3": 4547,
+      "Ansarang retained V33 main_gate source ceramic 2": 4193,
+      "Ansarang retained V33 main_gate source ceramic 1": 4147,
+      "Ansarang retained V33 main_gate source ceramic 4": 2744,
+      "Ansarang retained V33 main_gate source ceramic 5": 2744,
+      "Photo gate weathered lime tile end": 1904
+    },
+    "north_site": {
+      "Ansarang retained V33 main_gate source ceramic 2": 25658,
+      "Illustrated clay v1 3": 19560,
+      "Forecourt aged lime tile ends": 12996,
+      "Illustrated clay v1 0": 2254,
+      "Illustrated clay v1 1": 1942,
+      "Reference gate tile": 1758,
+      "North lime tile ends": 1424,
+      "Illustrated clay v1 2": 1052,
+      "Illustrated clay v1 4": 1044,
+      "Illustrated clay v1 5": 1044
+    },
+    "right_ansarang": {
+      "Reference gate tile": 7647,
+      "Gate retained Pale ceramic tile ends": 1296
+    },
+    "sadang": {
+      "Reference sadang roof ceramic corrected": 17436,
+      "North lime tile ends": 2052
+    },
+    "sadangmun": {
+      "Reference sadangmun tile": 4567,
+      "North lime tile ends": 316
+    },
+    "sarang": {
+      "Pale ceramic tile ends": 55330,
+      "Charcoal grey giwa 2": 7686,
+      "Charcoal grey giwa 3": 5276,
+      "Charcoal grey giwa 0": 5251,
+      "Charcoal grey giwa 1": 5190,
+      "Charcoal grey giwa 4": 4375,
+      "Charcoal grey giwa 5": 3743
+    },
+    "toilet": {
+      "Ansarang retained V33 toilet source ceramic 2": 3247,
+      "Ansarang retained V33 toilet source ceramic 3": 1433,
+      "Ansarang retained V33 toilet source ceramic 0": 1315,
+      "Ansarang retained Pale ceramic tile ends.001": 1260,
+      "Ansarang retained V33 toilet source ceramic 1": 1195,
+      "Ansarang retained V33 toilet source ceramic 4": 880,
+      "Ansarang retained V33 toilet source ceramic 5": 720
+    },
+    "toilet1": {
+      "Ansarang retained V33 toilet source ceramic 2": 3247,
+      "Ansarang retained V33 toilet source ceramic 3": 1433,
+      "Ansarang retained V33 toilet source ceramic 0": 1315,
+      "Ansarang retained Pale ceramic tile ends.001": 1260,
+      "Ansarang retained V33 toilet source ceramic 1": 1195,
+      "Ansarang retained V33 toilet source ceramic 4": 880,
+      "Ansarang retained V33 toilet source ceramic 5": 720
+    }
+  },
+  "anchaeColorAttributes": [
+    {
+      "object": "North.anchae.roof",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.8299137353897095,
+            0.8555811643600464,
+            0.8855265378952026,
+            1.0
+          ],
+          "max": [
+            0.9664568305015564,
+            0.9963472485542297,
+            1.0312193632125854,
+            1.0
+          ],
+          "mean": [
+            0.9012115001678467,
+            0.9290741086006165,
+            0.9616106748580933,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.roof.001",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.8491829037666321,
+            0.8754462599754333,
+            0.9060869216918945,
+            1.0
+          ],
+          "max": [
+            0.9889973402023315,
+            1.0195848941802979,
+            1.0552703142166138,
+            1.0
+          ],
+          "mean": [
+            0.9176738858222961,
+            0.9460603594779968,
+            0.9791721105575562,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.roof.002",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.8686802983283997,
+            0.8955466747283936,
+            0.9268907904624939,
+            1.0
+          ],
+          "max": [
+            1.0115101337432861,
+            1.042793869972229,
+            1.0792917013168335,
+            1.0
+          ],
+          "mean": [
+            0.9367780685424805,
+            0.9657559394836426,
+            0.999542236328125,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.roof.003",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.8882114291191101,
+            0.9156818985939026,
+            0.9477307200431824,
+            1.0
+          ],
+          "max": [
+            1.0343657732009888,
+            1.0663564205169678,
+            1.1036789417266846,
+            1.0
+          ],
+          "mean": [
+            0.9616514444351196,
+            0.9914150238037109,
+            1.026108980178833,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.roof.004",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.9076148271560669,
+            0.935685396194458,
+            0.9684343934059143,
+            1.0
+          ],
+          "max": [
+            1.056918978691101,
+            1.0896072387695312,
+            1.1277434825897217,
+            1.0
+          ],
+          "mean": [
+            0.98172527551651,
+            1.012084722518921,
+            1.0475115776062012,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.roof.005",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.9268777370452881,
+            0.9555440545082092,
+            0.9889881014823914,
+            1.0
+          ],
+          "max": [
+            1.0791064500808716,
+            1.112480878829956,
+            1.1514177322387695,
+            1.0
+          ],
+          "mean": [
+            1.004059076309204,
+            1.0351060628890991,
+            1.0713521242141724,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.roof.hip ridge",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.8799095749855042,
+            0.9071232676506042,
+            0.9388725757598877,
+            1.0
+          ],
+          "max": [
+            0.9867064356803894,
+            1.0172231197357178,
+            1.052825927734375,
+            1.0
+          ],
+          "mean": [
+            0.9431412220001221,
+            0.9723225831985474,
+            1.0063265562057495,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.roof.gable barge",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.8819516897201538,
+            0.9092285633087158,
+            0.9410515427589417,
+            1.0
+          ],
+          "max": [
+            1.0053988695144653,
+            1.0364937782287598,
+            1.0727709531784058,
+            1.0
+          ],
+          "mean": [
+            0.9433794021606445,
+            0.9725598096847534,
+            1.0065929889678955,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.roof.ridge stack",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.9220687747001648,
+            0.9505863785743713,
+            0.9838569164276123,
+            1.0
+          ],
+          "max": [
+            0.9220687747001648,
+            0.9505863785743713,
+            0.9838569164276123,
+            1.0
+          ],
+          "mean": [
+            0.9220897555351257,
+            0.9505706429481506,
+            0.9838794469833374,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.roof.ridge stack.001",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.9444288611412048,
+            0.9736380577087402,
+            1.0077153444290161,
+            1.0
+          ],
+          "max": [
+            0.9444288611412048,
+            0.9736380577087402,
+            1.0077153444290161,
+            1.0
+          ],
+          "mean": [
+            0.9444493055343628,
+            0.9736332297325134,
+            1.0077059268951416,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.roof.ridge stack.002",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            1.0007474422454834,
+            1.0316983461380005,
+            1.0678077936172485,
+            1.0
+          ],
+          "max": [
+            1.0007474422454834,
+            1.0316983461380005,
+            1.0678077936172485,
+            1.0
+          ],
+          "mean": [
+            1.0007342100143433,
+            1.031716227531433,
+            1.0677908658981323,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.roof.ridge stack.003",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.944038450717926,
+            0.973235547542572,
+            1.0072987079620361,
+            1.0
+          ],
+          "max": [
+            0.944038450717926,
+            0.973235547542572,
+            1.0072987079620361,
+            1.0
+          ],
+          "mean": [
+            0.9440629482269287,
+            0.9732398390769958,
+            1.0073174238204956,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.roof.ridge stack.004",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.9085639715194702,
+            0.9366638660430908,
+            0.969447135925293,
+            1.0
+          ],
+          "max": [
+            0.9085639715194702,
+            0.9366638660430908,
+            0.969447135925293,
+            1.0
+          ],
+          "mean": [
+            0.9085689187049866,
+            0.9366515278816223,
+            0.9694598913192749,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.annex roof",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.846875011920929,
+            0.8730670213699341,
+            0.903624415397644,
+            1.0
+          ],
+          "max": [
+            0.9495484232902527,
+            0.9789159297943115,
+            1.0131779909133911,
+            1.0
+          ],
+          "mean": [
+            0.8961994647979736,
+            0.9239168167114258,
+            0.9562540054321289,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.annex tile cover",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.8313095569610596,
+            0.8570201396942139,
+            0.8870158195495605,
+            1.0
+          ],
+          "max": [
+            0.9664270877838135,
+            0.9963166117668152,
+            1.031187653541565,
+            1.0
+          ],
+          "mean": [
+            0.8986465930938721,
+            0.9264436960220337,
+            0.958869218826294,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.annex roof.001",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.8701297640800476,
+            0.8970410227775574,
+            0.9284374713897705,
+            1.0
+          ],
+          "max": [
+            0.9663554430007935,
+            0.9962427616119385,
+            1.031111240386963,
+            1.0
+          ],
+          "mean": [
+            0.9124494194984436,
+            0.9406691193580627,
+            0.9735925793647766,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.annex roof.002",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.8813919425010681,
+            0.9086514711380005,
+            0.9404543042182922,
+            1.0
+          ],
+          "max": [
+            1.0036319494247437,
+            1.0346721410751343,
+            1.0708856582641602,
+            1.0
+          ],
+          "mean": [
+            0.9399382472038269,
+            0.9690086841583252,
+            1.0029234886169434,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.annex roof.003",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.8995805382728577,
+            0.9274026155471802,
+            0.9598617553710938,
+            1.0
+          ],
+          "max": [
+            1.0288349390029907,
+            1.0606545209884644,
+            1.0977774858474731,
+            1.0
+          ],
+          "mean": [
+            0.9636765122413635,
+            0.9934805631637573,
+            1.0282524824142456,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.annex roof.004",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.9128044247627258,
+            0.9410354495048523,
+            0.9739717245101929,
+            1.0
+          ],
+          "max": [
+            1.0444084405899048,
+            1.0767097473144531,
+            1.1143945455551147,
+            1.0
+          ],
+          "mean": [
+            0.981236457824707,
+            1.0115838050842285,
+            1.0469894409179688,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.annex roof.005",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.9269009232521057,
+            0.9555679559707642,
+            0.9890128374099731,
+            1.0
+          ],
+          "max": [
+            1.0778292417526245,
+            1.1111642122268677,
+            1.150054931640625,
+            1.0
+          ],
+          "mean": [
+            1.0284312963485718,
+            1.060238242149353,
+            1.097346544265747,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    },
+    {
+      "object": "North.anchae.roof solid bedding",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.8346124291419983,
+            0.8604251742362976,
+            0.8905400633811951,
+            1.0
+          ],
+          "max": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "mean": [
+            0.9200016856193542,
+            0.9324039816856384,
+            0.9470468163490295,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Ansarang retained PBR",
+        "Mineral surface metres",
+        "Canonical gate pigment",
+        "Craft timber metres",
+        "Gye plaster wash metres"
+      ]
+    },
+    {
+      "object": "North.anchae.roof packed ridge core",
+      "colorAttributes": [
+        {
+          "name": "Mineral component tint",
+          "active": true,
+          "min": [
+            0.9372789263725281,
+            0.966266930103302,
+            1.0000863075256348,
+            1.0
+          ],
+          "max": [
+            0.9372789263725281,
+            0.966266930103302,
+            1.0000863075256348,
+            1.0
+          ],
+          "mean": [
+            0.937270998954773,
+            0.9662600159645081,
+            1.0000759363174438,
+            1.0
+          ]
+        }
+      ],
+      "uvLayers": [
+        "Mineral surface metres",
+        "Canonical gate pigment"
+      ]
+    }
+  ]
+}

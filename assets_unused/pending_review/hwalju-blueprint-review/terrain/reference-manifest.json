@@ -1,0 +1,20 @@
+[
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\중문채\\도면_국가민속문화재_함양_일두_고택_기록화사업_중문채_정면도1.jpg",
+    "copy": "elevation039.jpg",
+    "sha256": "2ddb086ab46f06a1e0b85f0e2c8fd3c11600488b72995ff7f188aab0845131ae",
+    "bytes": 677996
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\중문채\\도면_국가민속문화재_함양_일두_고택_기록화사업_중문채_종단면도-1,2.jpg",
+    "copy": "section042.jpg",
+    "sha256": "caa22123f118f98097091cbd1dac5837fd55de21c4389a0e782bd646d27d17f4",
+    "bytes": 836009
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets_unused\\pending_review\\personal_hanok_v3\\ildu_Blueprint\\중문채\\도면_국가민속문화재_함양_일두_고택_기록화사업_중문채_횡단면도.jpg",
+    "copy": "section043.jpg",
+    "sha256": "fe512909aa9ab972c8441f5af5bf7cf2f896289969fc6d57c94cae1f6d3df601",
+    "bytes": 667432
+  }
+]
