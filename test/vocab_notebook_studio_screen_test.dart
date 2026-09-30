@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/models/smalltalk.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/word_relation.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
+import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/screens/cloze_game_screen.dart';
 import 'package:ko_lernen_app/screens/custom_pack_matching_screen.dart';
 import 'package:ko_lernen_app/screens/custom_pack_play_screen.dart';
@@ -31,6 +32,7 @@ import 'package:ko_lernen_app/services/cloze_loader.dart';
 import 'package:ko_lernen_app/services/custom_pack_corpus_resolver.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/satz_loader.dart';
+import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
@@ -40,10 +42,13 @@ import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
+import 'support/sori_speech_stubs.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    stubSoriSpeech();
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
@@ -650,6 +655,7 @@ void main() {
       label: 'Speed pairs · 4 words',
     );
     expect(speed.items!.map((item) => item.korean), _selectedKorean);
+    expect(speed.source!.packId, 'nb-studio-matrix');
     expect(speed.items!.map((item) => item.german), <String>[
       'Schule',
       'Anfang',
@@ -663,6 +669,57 @@ void main() {
       label: 'First-sound quiz · 4 words',
     );
     expect(chosung.deck!.map((item) => item.korean), _selectedKorean);
+    expect(chosung.source!.packId, 'nb-studio-matrix');
+
+    final chain = await _openStudioDestination<KkeunmariScreen>(
+      tester,
+      key: 'chain',
+      label: 'Word Chain',
+    );
+    expect(chain.source!.packId, 'nb-studio-matrix');
+    _expectSelectedWords(chain.source!.words);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump(const Duration(milliseconds: 500));
+  });
+
+  testWidgets('one notebook match remains visible against full bundled stock', (
+    tester,
+  ) async {
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final corpus = (await tester.runAsync(ScenarioLoader.load))!;
+    final selected = corpus.first;
+    expect(selected.quests.length, lessThan(5));
+    await CustomPackService.save(
+      CustomPack.manual(
+        id: 'nb-studio-matrix',
+        name: 'One matched scene',
+        words: [
+          ExtractedWord.manual(
+            korean: selected.vocab.first.korean,
+            translationDe: 'Aus dem Buch',
+          ),
+          ExtractedWord.manual(korean: '학생', translationDe: 'Schüler'),
+        ],
+      ),
+    );
+    await _openStudioDestination<ScenariosListScreen>(
+      tester,
+      key: 'single-bundled-scenario',
+      label: 'Scenario · 1 scene',
+      match: CustomPackCorpusMatch(
+        cloze: const [],
+        satz: const [],
+        vocab: const [],
+        scenarios: [selected],
+      ),
+    );
+    final title = find.text(selected.title.en);
+    expect(title, findsWidgets);
+    expect(find.text(corpus[1].title.en), findsNothing);
+    expect(Storage.xp, 0);
+    expect(Storage.completedScenarios, isEmpty);
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('all corpus destinations receive exact matched payloads', (
@@ -711,7 +768,12 @@ void main() {
       label: 'Scenario · 1 scene',
       match: _corpusMatch,
     );
-    expect(await scenarios.loadScenarios!(), <Scenario>[_scenario]);
+    expect(scenarios.scenarioIds, {_scenario.id});
+    expect(
+      scenarios.loadScenarios,
+      isNull,
+      reason: 'Notebook selection must not replace the assessment corpus',
+    );
 
     final wordWeb = await _openStudioDestination<WordWebScreen>(
       tester,

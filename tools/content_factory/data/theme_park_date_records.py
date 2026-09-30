@@ -755,7 +755,7 @@ RECORDS: list[dict[str, Any]] = [
         1,
         "why_people_return",
         "reaction",
-        ("곰곰이 생각해 보니까 사람들이 왜 놀이공원에 오는 걸 좋아하는지 알 것 같아. 여기는 웃음이 가득하잖아. 다들 설레고 신나 보이고.", "Wenn ich so darüber nachdenke, glaube ich zu verstehen, warum Menschen so gern in Freizeitparks kommen. Hier ist überall Lachen, und alle wirken erwartungsvoll und ausgelassen.", "The more I think about it, the more I understand why people love coming to amusement parks. The place is full of laughter, and everyone looks excited and happy."),
+        ("곰곰이 생각해 보니까 사람들이 왜 놀이공원에 오는 걸 좋아하는지 알 것 같아. 여기는 웃음이 가득하잖아. 다들 설레고 신나 보이고.", "Wenn ich so darüber nachdenke, glaube ich zu verstehen, warum Menschen so gern in Freizeitparks kommen. Hier ist überall Lachen, und alle wirken erwartungsvoll und ausgelassen.", "Thinking it over, I feel I can understand why people like coming to amusement parks. There is laughter everywhere, and everyone looks excited and happy."),
         alternative=("너는 사람들이 여기서 무엇을 얻어 간다고 생각해?", "Was nehmen die Menschen deiner Meinung nach von hier mit?", "What do you think people take away from a place like this?"),
         follow_up=("아마 놀이기구보다 그 분위기를 기억하는 사람도 많을 거야.", "Viele erinnern sich wahrscheinlich stärker an die Stimmung als an die einzelnen Fahrgeschäfte.", "A lot of people probably remember the atmosphere more than the individual rides."),
         target="Move from observation to a hedged explanation while invoking shared evidence with -잖아.",

@@ -1,0 +1,68 @@
+{
+  "checkedAt": "2026-09-23T21:47:55.632346+00:00",
+  "platform": "Android",
+  "package": "com.sujinarin.ko_lernen_app",
+  "version": "2.0.9",
+  "versionCode": 7680,
+  "sha": "80b13fa3fcf4e1ac23f7092ef09e39d015f97271",
+  "run": 35917800287,
+  "signedJob": 107384352857,
+  "signedJobCompletedAt": "2026-09-23T21:36:15Z",
+  "workflowConclusion": "success",
+  "releaseName": "1653 · internal · v7680 · 80b13fa3",
+  "track": "internal",
+  "status": "completed",
+  "consoleStatus": "내부 테스터에게 제공됨",
+  "publishedLocal": "2026-09-23 23:36 Europe/Berlin",
+  "consoleRelease": 80,
+  "consoleUrl": "https://play.google.com/console/u/0/developers/4748524301811844346/app/4973411185448968270/tracks/4700776025798297850/releases/80/details",
+  "optInLink": "https://play.google.com/apps/internaltest/4700776025798297850",
+  "uploadVerified": true,
+  "publicationVerified": true,
+  "deviceInstallVerified": false,
+  "releaseEnabledFlag": "false",
+  "flagReadbackAt": "2026-09-23T21:43:51Z",
+  "artifactId": 10777957168,
+  "artifactArchiveBytes": 581450475,
+  "includedBeyond7653": [
+    "PR396 scenario audit freshness",
+    "PR397 native CI compatibility",
+    "PR400 batchim answer concealment",
+    "PR401 optional analytics does not block learning",
+    "PR402 book analysis bounded wait and HTTP lifetime",
+    "PR403 invalid batchim input guards",
+    "PR404 scenario minimum inventory and Today recommendation consistency",
+    "PR409 saved privacy consent after age eligibility",
+    "PR410 notebook test isolation"
+  ],
+  "notIncluded": [
+    "PR405",
+    "PR406",
+    "PR407",
+    "PR408",
+    "PR411",
+    "PR412",
+    "PR413"
+  ],
+  "evidence": [
+    "android7680-release-job.log",
+    "android7680-release-detail.txt",
+    "android7680-observation-2144.json"
+  ],
+  "consoleSizeEstimates": {
+    "newDownloadMB": 483,
+    "updateMB": 8.59
+  },
+  "limits": [
+    "Console availability does not verify device installation.",
+    "Console size estimates are not device storage measurements.",
+    "Firebase Dart symbol automation PR408 is not in this build.",
+    "No alpha/beta/production/public-track changes."
+  ],
+  "manualDartSymbols": {
+    "uploadVerified": true,
+    "receipt": "C:\\dev\\hangulsori\\_codex_artifacts\\cp2026-release-stabilization-20260922\\android7680-symbol-preservation.json",
+    "automaticCIGate": false,
+    "deviceCrashVerified": false
+  }
+}

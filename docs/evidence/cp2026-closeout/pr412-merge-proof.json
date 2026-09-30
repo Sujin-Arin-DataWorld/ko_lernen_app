@@ -1,0 +1,64 @@
+{
+  "checkedAt": "2026-09-28T13:07:01.174815+00:00",
+  "pr": 412,
+  "head": "2ea9484dcfa99ce410efb5af447517a5881eac02",
+  "base": "4d2288c8c6f4fa4241b7018d9bcf78ccbcc9c8c7",
+  "gates": {
+    "4d2288c8c6f4fa4241b7018d9bcf78ccbcc9c8c7": {
+      "CI": {
+        "conclusion": "success",
+        "createdAt": "2026-09-24T03:49:37Z",
+        "databaseId": 35953059633,
+        "headSha": "4d2288c8c6f4fa4241b7018d9bcf78ccbcc9c8c7",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/35953059633",
+        "workflowName": "CI"
+      },
+      "Playwright Tests": {
+        "conclusion": "success",
+        "createdAt": "2026-09-24T03:49:37Z",
+        "databaseId": 35953059678,
+        "headSha": "4d2288c8c6f4fa4241b7018d9bcf78ccbcc9c8c7",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/35953059678",
+        "workflowName": "Playwright Tests"
+      }
+    },
+    "2ea9484dcfa99ce410efb5af447517a5881eac02": {
+      "CI": {
+        "conclusion": "success",
+        "createdAt": "2026-09-28T12:58:20Z",
+        "databaseId": 36425313227,
+        "headSha": "2ea9484dcfa99ce410efb5af447517a5881eac02",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36425313227",
+        "workflowName": "CI"
+      },
+      "Playwright Tests": {
+        "conclusion": "success",
+        "createdAt": "2026-09-28T12:58:20Z",
+        "databaseId": 36425313235,
+        "headSha": "2ea9484dcfa99ce410efb5af447517a5881eac02",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36425313235",
+        "workflowName": "Playwright Tests"
+      }
+    }
+  },
+  "reviewPages": 1,
+  "reviewThreads": [
+    {
+      "id": "PRRT_kwDOSjNLQs6lT0En",
+      "isResolved": true,
+      "isOutdated": false
+    }
+  ],
+  "merged": true,
+  "newReleaseRequested": false,
+  "mergedAt": "2026-09-28T13:07:06Z",
+  "mergeCommit": "dd59a5135246870b22315401ae1d78c413c2b324",
+  "treeIdentical": true,
+  "mainGateCompleted": true,
+  "mainGateObservedAt": "2026-09-28T15:31:57.297861+00:00",
+  "mainGateEvidence": "main412-live.json"
+}

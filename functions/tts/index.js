@@ -23,7 +23,7 @@ const { setGlobalOptions } = require("firebase-functions/v2");
 const admin = require("firebase-admin");
 const textToSpeech = require("@google-cloud/text-to-speech");
 const { scopedCacheKey, privateMetadataIsCurrent, cacheSaveOptions } = require("./tts_privacy");
-const { ServiceCostError } = require("./service_cost_policy");
+const { ServiceCostError, recordCostApprovalFailure } = require("./service_cost_policy");
 const { confirmTtsCost } = require("./tts_cost_adapter");
 const {
   CALLABLE_OPTIONS,
@@ -336,8 +336,13 @@ async function synthesizeTts(request) {
         throw error;
       }
     } catch (e) {
-      if (e instanceof TtsRequestError || e instanceof ServiceCostError) {
-        throw new HttpsError(e.code, e.message);
+      if (e instanceof ServiceCostError) {
+        recordCostApprovalFailure(e, "tts", console);
+        throw new HttpsError(e.code, e.message, { reason: "service_policy" });
+      }
+      if (e instanceof TtsRequestError) {
+        throw new HttpsError(e.code, e.message,
+          e.code === "unauthenticated" ? { reason: "session_unavailable" } : undefined);
       }
       if (e instanceof HttpsError) {
         throw e;

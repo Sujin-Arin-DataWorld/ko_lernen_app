@@ -1,10 +1,121 @@
+import 'dart:async';
+
+import 'package:fake_async/fake_async.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ko_lernen_app/services/account/cloud_read_result.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/cloud_sync_service.dart';
+import 'package:ko_lernen_app/services/net/sori_net.dart';
+
+const _confirmation = CloudSyncCompositeDocuments(
+  root: CloudSyncDocument.present({
+    'sync_revision': 1,
+    'reconciliation_operation_id': 'operation-1',
+    'reconciliation_payload_hash':
+        '44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a',
+  }),
+  packMembership: CloudSyncDocument.present({
+    'revision': 1,
+    'reconciliation_operation_id': 'operation-1',
+    'pack_ids': <String>[],
+  }),
+);
 
 void main() {
+  group('composite confirmation deadline', () {
+    for (final sessionChange in ['none', 'account switch', 'quiesce']) {
+      test('read before deadline preserves the $sessionChange fence', () {
+        fakeAsync((clock) {
+          final sessions = CloudWriteSessionController()..acquire('uid-a');
+          final session = sessions.transition(CloudWriteMode.reconciling);
+          final pending = Completer<CloudSyncCompositeDocuments>();
+          bool? result;
+          unawaited(
+            CloudSyncService.validateReconciledAccountComposite(
+              uid: 'uid-a',
+              data: const {},
+              expectedRevision: 1,
+              expectedMembershipRevision: 1,
+              expectedMembershipPackIds: const {},
+              operationId: 'operation-1',
+              session: session,
+              sessions: sessions,
+              reader: (_) => pending.future,
+            ).then((value) {
+              result = value;
+            }),
+          );
+          clock.elapse(const Duration(milliseconds: 7999));
+          if (sessionChange == 'account switch') {
+            sessions.acquire('uid-b');
+          } else if (sessionChange == 'quiesce') {
+            sessions.transition(CloudWriteMode.quiesced);
+          }
+          pending.complete(_confirmation);
+          clock.flushMicrotasks();
+          expect(result, sessionChange == 'none');
+          clock.elapse(const Duration(seconds: 8));
+          expect(result, sessionChange == 'none');
+        });
+      });
+    }
+    for (final lateError in [false, true]) {
+      test(
+        'times out once and ignores late ${lateError ? 'error' : 'success'}',
+        () {
+          fakeAsync((clock) {
+            final sessions = CloudWriteSessionController()..acquire('uid-a');
+            final session = sessions.transition(CloudWriteMode.reconciling);
+            final pending = Completer<CloudSyncCompositeDocuments>();
+            var reads = 0;
+            Object? failure;
+            bool? result;
+            unawaited(
+              CloudSyncService.validateReconciledAccountComposite(
+                uid: 'uid-a',
+                data: const {},
+                expectedRevision: 1,
+                expectedMembershipRevision: 1,
+                expectedMembershipPackIds: const {},
+                operationId: 'operation-1',
+                session: session,
+                sessions: sessions,
+                reader: (_) {
+                  reads += 1;
+                  return pending.future;
+                },
+              ).then(
+                (value) {
+                  result = value;
+                },
+                onError: (Object error) {
+                  failure = error;
+                },
+              ),
+            );
+            clock.elapse(const Duration(milliseconds: 7999));
+            expect(failure, isNull);
+            clock.elapse(const Duration(milliseconds: 1));
+            expect(failure, isA<SoriNetTimeout>());
+            expect(result, isNull);
+            expect(reads, 1);
+            if (lateError) {
+              pending.completeError(StateError('late transport error'));
+            } else {
+              pending.complete(_confirmation);
+            }
+            clock.flushMicrotasks();
+            clock.elapse(const Duration(seconds: 8));
+            expect(failure, isA<SoriNetTimeout>());
+            expect(result, isNull);
+            expect(reads, 1);
+          });
+        },
+      );
+    }
+  });
+
   group('CloudSyncService.readAccountDocument', () {
     test('returns absent only for an explicit missing document', () async {
       final result = await CloudSyncService.readAccountDocument(

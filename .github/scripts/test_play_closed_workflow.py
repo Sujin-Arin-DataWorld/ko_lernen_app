@@ -29,6 +29,9 @@ class PlayClosedWorkflowTest(unittest.TestCase):
         workflow = self.workflow
         self.assertIn("actions: read", workflow)
         self.assertIn("actions/workflows/ci.yml/runs", workflow)
+        # Narrow the server-side result before applying the local safety checks.
+        # A bounded, unfiltered history page can omit the successful release SHA.
+        self.assertIn("runs?head_sha=${GITHUB_SHA}&branch=main&event=push&status=success&", workflow)
         self.assertIn(".head_sha == $sha", workflow)
         self.assertIn('.head_branch == "main"', workflow)
         self.assertIn('.event == "push"', workflow)
@@ -88,11 +91,12 @@ class PlayClosedWorkflowTest(unittest.TestCase):
         executable = workflow.index('chmod 0555 "$firebase_bin"', download)
         manifest = workflow.index("- name: Write release-evidence tools manifest")
         signing = workflow.index("- name: Restore Android upload signing")
-        firebase_secret = workflow.index("- name: Materialise Firebase credentials")
+        self.assertNotIn("Materialise Firebase credentials", workflow)
+        self.assertNotIn("FIREBASE_SYMBOLS_SA_JSON", workflow)
+        self.assertNotIn("GOOGLE_APPLICATION_CREDENTIALS", workflow)
         self.assertLess(checksum, executable)
         self.assertLess(executable, manifest)
         self.assertLess(manifest, signing)
-        self.assertLess(signing, firebase_secret)
         step = workflow[download:manifest]
         self.assertIn("set -euo pipefail", step)
         self.assertIn("if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'", step)
@@ -102,6 +106,7 @@ class PlayClosedWorkflowTest(unittest.TestCase):
             "Pin release-toolchain Java",
             "Download and verify bundletool",
             "Download and verify firebase-tools",
+            "Download and verify Crashlytics buildtools",
             "Write release-evidence tools manifest",
         ):
             start = workflow.index(f"- name: {name}")
@@ -111,7 +116,13 @@ class PlayClosedWorkflowTest(unittest.TestCase):
                 self.assertIn("if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'",
                               workflow[start:end])
         upload = workflow.index("- name: Upload and verify Crashlytics symbol evidence")
-        self.assertEqual(workflow.index("      - name:", firebase_secret), upload - 6)
+        publication = workflow.index("- name: Upload to Google Play Public Testing")
+        self.assertLess(signing, upload)
+        self.assertLess(upload, publication)
+        upload_end = workflow.index("      - name:", upload)
+        self.assertIn('--tools-json "$TOOLS_JSON"', workflow[upload:upload_end])
+        self.assertIn("if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'",
+                      workflow[upload:upload_end])
 
 
 class CiWorkflowAppleConfigTest(unittest.TestCase):

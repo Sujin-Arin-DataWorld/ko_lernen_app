@@ -1,5 +1,9 @@
 import 'dart:io';
 
+import 'package:analyzer/dart/analysis/utilities.dart';
+import 'package:analyzer/dart/ast/ast.dart';
+import 'package:analyzer/dart/ast/visitor.dart';
+
 import 'package:flutter_test/flutter_test.dart';
 
 // S2 (net timeouts/backoff) regression guard.
@@ -46,7 +50,11 @@ import 'package:flutter_test/flutter_test.dart';
 // (`test/services/cloud_sync_net_timeout_test.dart`), not by this guard.
 //
 // `knownUnboundedAwaitCap` is 0 — there is no accepted residual among the 12
-// sites this detector can see. A new awaited call to one of these primitives
+// sites this detector can see. The background pack queue retains its actual
+// transaction acknowledgement after a bounded caller wait. Only its exact
+// transaction and membership read are checked through the separate contract
+// below; no method-wide exclusion or increased residual cap is allowed.
+// A new awaited call to one of these primitives
 // on these three files must be wrapped in `withNetTimeout` or this guard
 // fails.
 const int knownUnboundedAwaitCap = 0;
@@ -224,6 +232,9 @@ bool _isWrappedByNetTimeout(String src, int matchIndex) {
 
 List<String> _unboundedAwaitsIn(String path, String content) {
   final cleaned = _stripNoise(content);
+  final retainedSites = path == 'lib/services/firestore_progress_service.dart'
+      ? _retainedPackWriteSites(content, cleaned)
+      : <int>{};
   final violations = <String>[];
   for (final pattern in _networkCallPatterns) {
     for (final match in pattern.allMatches(cleaned)) {
@@ -231,6 +242,9 @@ List<String> _unboundedAwaitsIn(String path, String content) {
         continue;
       }
       if (_isWrappedByNetTimeout(cleaned, match.start)) {
+        continue;
+      }
+      if (retainedSites.contains(match.start)) {
         continue;
       }
       final line =
@@ -241,7 +255,118 @@ List<String> _unboundedAwaitsIn(String path, String content) {
   return violations;
 }
 
+class _Calls extends RecursiveAstVisitor<void> {
+  final methods = <MethodDeclaration>[];
+  final calls = <MethodInvocation>[];
+
+  @override
+  void visitMethodDeclaration(MethodDeclaration node) {
+    methods.add(node);
+    super.visitMethodDeclaration(node);
+  }
+
+  @override
+  void visitMethodInvocation(MethodInvocation node) {
+    calls.add(node);
+    super.visitMethodInvocation(node);
+  }
+}
+
+Set<int> _retainedPackWriteSites(String source, String cleaned) {
+  final nodes = _Calls();
+  parseString(content: source).unit.accept(nodes);
+  final wrapper = nodes.methods
+      .where((m) => m.name.lexeme == 'savePackWithResult')
+      .single;
+  final boundedAck = nodes.calls.where(
+    (call) =>
+        call.methodName.name == 'savePackAcknowledged' &&
+        call.offset >= wrapper.offset &&
+        call.end <= wrapper.end &&
+        _isWrappedByNetTimeout(cleaned, call.offset),
+  );
+  if (boundedAck.length != 1) {
+    return {};
+  }
+  final raw = nodes.methods
+      .where((m) => m.name.lexeme == 'savePackAcknowledged')
+      .single;
+  final transactions = nodes.calls.where(
+    (call) =>
+        call.offset >= raw.offset &&
+        call.end <= raw.end &&
+        call.target?.toSource() == 'db' &&
+        call.methodName.name == 'runTransaction',
+  );
+  if (transactions.length != 1) {
+    return {};
+  }
+  final transaction = transactions.single;
+  final membershipReads = nodes.calls.where(
+    (call) =>
+        call.offset > transaction.offset &&
+        call.end < transaction.end &&
+        call.target?.toSource() == 'transaction' &&
+        call.methodName.name == 'get' &&
+        call.argumentList.toSource() == '(membershipRef)',
+  );
+  if (membershipReads.length != 1) {
+    return {};
+  }
+  return {
+    transaction.methodName.offset - 1,
+    membershipReads.single.methodName.offset - 1,
+  };
+}
+
 void main() {
+  test(
+    'retained pack acknowledgement has only bounded or retaining callers',
+    () {
+      final references = <String>[];
+      for (final file in Directory(
+        'lib',
+      ).listSync(recursive: true).whereType<File>()) {
+        if (!file.path.endsWith('.dart')) {
+          continue;
+        }
+        final count = RegExp(
+          r'\bsavePackAcknowledged\b',
+        ).allMatches(_stripNoise(file.readAsStringSync())).length;
+        for (var i = 0; i < count; i++) {
+          references.add(file.path.replaceAll('\\', '/'));
+        }
+      }
+      expect(references..sort(), [
+        'lib/services/firestore_progress_service.dart',
+        'lib/services/firestore_progress_service.dart',
+        'lib/services/pack_sync_queue.dart',
+      ]);
+    },
+  );
+
+  test(
+    'removing bounded wrapper or adding raw reads still fails the guard',
+    () {
+      const path = 'lib/services/firestore_progress_service.dart';
+      final source = File(path).readAsStringSync().replaceAll('\r\n', '\n');
+      final withoutWrapper = source.replaceFirst(
+        'return await withNetTimeout(\n        savePackAcknowledged(p),',
+        'return await unboundedWait(\n        savePackAcknowledged(p),',
+      );
+      expect(withoutWrapper, isNot(source));
+      expect(_unboundedAwaitsIn(path, withoutWrapper), hasLength(2));
+      final extraRead = source.replaceFirst(
+        'final membershipSnapshot = await transaction.get(membershipRef);',
+        'await transaction.get(otherRef);\n'
+            'final membershipSnapshot = await transaction.get(membershipRef);',
+        source.indexOf('static Future<CloudWriteResult> savePackAcknowledged'),
+      );
+      expect(extraRead, isNot(source));
+      expect(_unboundedAwaitsIn(path, extraRead), hasLength(1));
+    },
+  );
+
   test('every awaited Firestore/Storage/callable call on the sync paths is '
       'bounded by withNetTimeout', () {
     final violations = <String>[];

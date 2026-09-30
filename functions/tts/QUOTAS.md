@@ -41,8 +41,16 @@ enforcement, cache scope, account checks, App Check, or cost approval.
 
 ## Remaining CP2026 B3 work
 
-These changes cover hourly quotas and quota-specific reasons. Session versus
-policy reasons, anonymous account-creation observation and B1 metric integration
-remain separate requirements. Anonymous TTS request counts are not account
-creation counts. Code and local tests do not establish a live deployment or
-operational observation period.
+The callable also supplies `session_unavailable` for its missing-authentication
+guard and `service_policy` for service-cost denials. New clients distinguish
+unverifiable authentication and an inactive local account session from service
+policy pauses. They do not retry either denial or clear account state. SDK
+authentication rejection can occur before the handler, so the UI does not claim
+that a token is specifically expired. Account deletion and App Check fences are
+unchanged. Unknown details do not create a policy diagnosis.
+
+Actual Auth creation events and the B1 metric hook are described in
+[Auth creation observation](../gye/AUTH_CREATION_OBSERVATION.md). Anonymous TTS
+request counts are not account creation counts. Deployment, a real matching Auth
+event/metric receipt, and operating verification remain pending. Code and local
+tests do not establish a live deployment or observation period.

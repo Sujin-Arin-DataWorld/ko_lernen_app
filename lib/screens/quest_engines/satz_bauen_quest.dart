@@ -457,9 +457,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
         const SizedBox(height: SoriGaps.questionToOptions),
         Text(
           t.questBuildAnswerLabel,
-          style: SoriTextTheme.of(
-            context,
-          ).label.copyWith(color: s.text, fontWeight: FontWeight.w700),
+          style: SoriTextTheme.of(context).label.copyWith(color: s.text),
         ),
         SizedBox(height: Spacing.xs),
         Text(
@@ -542,6 +540,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       content: exerciseBody,
       action: action,
       gap: compactGap,
+      contentAlignment: Alignment.center,
       showTtsSpeed: _audioKo.isNotEmpty && widget.showSpeedControl,
     );
   }

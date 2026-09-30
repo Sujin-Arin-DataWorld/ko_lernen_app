@@ -249,8 +249,8 @@ listed dependency.
 | `/vocab/legacy` | `LegacyVocabScreen` / mixed | Preserve rollback route; remove only residual visual divergence | legacy SRS and flip gate | R/S/D legacy deck | H / 3A |
 | `/grammar` | `GrammarScreen` / Study | Replace residual raw type/radius with existing study tokens | grammar loaders/course context | R/S/D grammar | H / 3B |
 | `/grammar_choice_quiz` | `GrammarChoiceQuizScreen` / Study | Preserve the shared choice/result shell and plan context | plan target slice/day label, scoring, grammar-hard filter; no course evidence or vocab SRS | R/D choice quizzes | H / 5B |
-| `/listening` | `ListeningScreen` → `ListeningShelfScreen` / Std | Standard browsing hierarchy/states | scenario shelf and TTS availability | R/S/D listening | M / 3B |
-| `/listening/play` | `ListeningPlayScreen` / Study | Keep player controls and transcript reachability | audio/TTS and scenario dialog | R/D study activity | H / 3B |
+| `/listening` | `ContentLearningHub` / Study; `ListeningScreen` and `ListeningShelfScreen` remain compatibility surfaces | Topic packs, per-level goals, finite learn/practice/results | scenario shelf and TTS availability | content learning + R/S/D listening | M / 3B |
+| `/listening/play` | `ContentLearningHub` → `ContentLessonScreen` / Study; `ListeningPlayScreen` remains a compatibility surface | Open the selected scenario lesson, retain source audio and transcript reachability | audio/TTS, scenario dialog, content learning progress | content learning + R/D study activity | H / 3B |
 | `/kkeunmari` | `KkeunmariScreen` / Study | Tokenize dense play surface without geometry/rule change | dictionary engine and timers | R/S/D game engine | H / 5A |
 | `/hangul` | `HangulScreen` / Custom | Normalize type/actions around owned composer/canvas | composition, strokes, writing gates | R/S/D Hangul battery | H / 3B |
 | `/chosung` | `ChosungQuizScreen` / Study | Preserve hitboxes; unify hints, input, results | quiz rules and hint plan | R/S/D game tests | H / 5A |
@@ -270,7 +270,8 @@ listed dependency.
 | `/profile` | `ProfileScreen` / Std | Standardize identity/action hierarchy | auth, sync, account linking | R/D profile | H / 4A |
 | `/review` | `ReviewSessionScreen` / Study | Preserve approved Deck and SRS evidence | SRS order/ledger/flip gate | R/D deck battery | H / 3A |
 | `/review/hub` | `ReviewHubScreen` / Std | Keep the review launch, due count, and Today summary coherent | daily-ledger selection and handoff to `/review`; review-session SRS/XP/completion | R/S/D review hub | H / 3A |
-| `/smalltalk` | `SmalltalkScreen` / Study | Shared prompt/feedback hierarchy | course evidence and speech/content | R/D smalltalk | H / 3C |
+| `/smalltalk` | `ContentLearningHub` / Study; `SmalltalkScreen` for course context | Topic lessons and review; preserve explicit course evidence boundary | course evidence and speech/content | content learning + R/D smalltalk | H / 3C |
+| `/content/goals` | `ContentGoalSettingsScreen` / Study | Per-content and per-level daily targets, free browse | content learning storage | content learning UI/service | 3C |
 | `/scenarios` | `ScenariosListScreen` / Std | Preserve shelf art; reduce residual local type/card styles | scenario availability/catalog | R/S/D scenario shelf | M / 3C |
 | `/quests` | `QuestsScreen` / Std | Shared reward/empty/progress language | quest tracker, reward evidence | R/D quest battery | H / 3D |
 | `/book` | `BookCaptureScreen` / Std | Standard capture states and one clear next action | camera/OCR/privacy boundary | D book flow/security | H / 4B |
@@ -320,6 +321,8 @@ not disappear from phase review.
 
 | Surface | Current state | Target / dependency | Tests | Phase |
 |---|---|---|---|---|
+| `ContentLessonScreen` / `ContentGoalSettingsScreen` | shared Study frame | Resume source/practice, explicit completion, optional review, per-content per-level goals | content learning UI/service/catalog/evidence | 3C |
+| `ContentLearningLayout` | shared finite-step study body | Fill the actual viewport; balance body and bottom actions; scroll natural content at large text scales | DE/EN phone and landscape/portrait tablet geometry; 320x640 at 200% | 3C |
 | `SoriStageTodayScreen` | approved custom tab + golden | Preserve Today v2; shared chrome/state checks only | R/G/D Today | 2B |
 | `SoriStageCatalogScreen` | approved custom tab | Preserve 4:3 catalog and reward flow | R/D catalog | 2B |
 | `SoriStageGyeScreen` | safe viewport + embedded Gye | Preserve chooser/membership behavior | R/D Gye | 2C |

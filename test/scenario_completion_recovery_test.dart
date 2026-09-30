@@ -17,6 +17,7 @@ import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
+import 'support/scenario_stock_fixtures.dart';
 import 'support/sori_speech_stubs.dart';
 import 'support/reward_preferences_platform.dart';
 
@@ -338,6 +339,7 @@ Future<void> _finish(
       home: ScenarioPlayerScreen(
         scenarioId: scenario.id,
         scenarioLoader: (_) async => scenario,
+        questCorpusLoader: (_) async => stockedScenarioCorpus(scenario),
         courseContext: courseContext,
         mode: ScenarioPlayerMode.onboardingFirstScene,
         onCompleted: (_) => onCompleted(),

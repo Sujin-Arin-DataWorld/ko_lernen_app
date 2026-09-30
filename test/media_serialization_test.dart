@@ -124,6 +124,86 @@ void main() {
     expect(decoded.toLocalJson(), original.toLocalJson());
   });
 
+  const ambiguousWord = ExtractedWord(
+    korean: '걸다',
+    romanization: 'geolda',
+    posDe: 'Verb',
+    translationDe: 'hängen',
+    translationEn: 'hang',
+    exampleKorean: '걸어요.',
+    exampleDe: '',
+    savedToPackId: null,
+    sourceUnitId: 'unit:0',
+    source: 'bundled',
+    confidence: 0.8,
+    ambiguous: true,
+    alternativeHeadword: '걷다',
+    imagePath: 'word:photo.jpg',
+  );
+
+  test('bookshelf remote round trip retains the other OCR headword', () {
+    final page = BookPage(
+      id: 'ambiguous_page',
+      localThumbnailPath: 'book:page.jpg',
+      extractedText: '걸어요.',
+      note: '',
+      words: const [ambiguousWord],
+      grammar: const [],
+      sentences: const [],
+      capturedAtIso: '2026-09-23T00:00:00.000Z',
+      customPackId: null,
+    );
+    final restored = BookPage.fromPortableJson(page.id, page.toFirestoreJson());
+    final word = restored.words.single;
+    expect(word.alternativeHeadword, '걷다');
+    expect(word.ambiguous, isTrue);
+    expect(word.korean, '걸다');
+    expect(word.translationFor('de'), 'hängen');
+    expect(word.translationFor('en'), 'hang');
+    expect(word.sourceUnitId, 'unit:0');
+    expect(word.source, 'bundled');
+    expect(word.confidence, 0.8);
+    expect(word.imagePath, isEmpty);
+    expect(restored.localThumbnailPath, isNull);
+  });
+
+  test(
+    'custom pack backup and restore retain OCR ambiguity provenance',
+    () async {
+      final pack = CustomPack.manual(
+        id: 'cp_ambiguous',
+        name: 'OCR words',
+        words: const [ambiguousWord],
+      );
+      await Storage.setCustomPacksRawJson(
+        jsonEncode({pack.id: pack.toLocalJson()}),
+      );
+      final backup = await CloudSync.buildBackupPayload();
+      final remote = CustomPackService.decodePortableRemote(
+        backup['custom_packs_json'],
+      );
+      expect(remote.isPresent, isTrue);
+      final remotePack = CustomPack.fromPortableJson(
+        pack.id,
+        remote.value![pack.id]!,
+      );
+      expect(remotePack.words.single.alternativeHeadword, '걷다');
+      // Only mocked local preferences are cleared to represent another device.
+    await Storage.setCustomPacksRawJson('');
+      await CloudSync.applyRestorePayload(backup);
+      final restored = CustomPackService.getById(pack.id)!.words.single;
+      expect(restored.alternativeHeadword, '걷다');
+      expect(restored.ambiguous, isTrue);
+      expect(restored.korean, '걸다');
+      expect(restored.translationFor('de'), 'hängen');
+      expect(restored.translationFor('en'), 'hang');
+      expect(restored.source, 'bundled');
+      expect(restored.sourceUnitId, 'unit:0');
+      expect(restored.confidence, 0.8);
+      expect(restored.imagePath, isEmpty);
+    },
+  );
+
   test('portable word and pack serialization strips all local refs', () {
     final word = fullWord();
     final pack = CustomPack.manual(id: 'cp', name: 'Pack', words: [word]);

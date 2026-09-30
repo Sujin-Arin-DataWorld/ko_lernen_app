@@ -190,7 +190,6 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/ux_preview_app_test.dart',
   'test/visual_layout_regression_test.dart',
   'test/vocab_notebook_result_screen_test.dart',
-  'test/vocab_notebook_studio_screen_test.dart',
   'test/vocab_pack_advance_timer_test.dart',
   'test/vocab_pack_assessment_order_test.dart',
   'test/vocab_pack_finish_screen_test.dart',
@@ -206,4 +205,4 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/wordbook_spotlight_coach_test.dart',
 ];
 const int knownUnstubbedCap =
-    54; // 2026-09-22 game layout/feedback 음성 스텁 도입으로 하향
+    53; // 2026-09-23 notebook studio 음성 스텁 도입으로 하향

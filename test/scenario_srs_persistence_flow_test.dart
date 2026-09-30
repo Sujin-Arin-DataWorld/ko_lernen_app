@@ -13,6 +13,7 @@ import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
+import 'support/scenario_stock_fixtures.dart';
 import 'support/sori_speech_stubs.dart';
 
 const _failedTarget = '실패 단어';
@@ -60,10 +61,7 @@ const _roleplayScenario = Scenario(
   ],
   // Keep the fixture admissible while this test exercises only roleplay Skip.
   quests: [
-    QuestSpec(
-      type: QuestType.diktat,
-      data: {'targetKo': _roleplayTrackedWord},
-    ),
+    QuestSpec(type: QuestType.diktat, data: {'targetKo': _roleplayTrackedWord}),
   ],
 );
 
@@ -161,6 +159,7 @@ void main() {
           home: ScenarioPlayerScreen(
             scenarioId: _scenario.id,
             scenarioLoader: (_) async => _scenario,
+            questCorpusLoader: (_) async => stockedScenarioCorpus(_scenario),
           ),
         ),
       );
@@ -242,6 +241,8 @@ void main() {
           home: ScenarioPlayerScreen(
             scenarioId: _roleplayScenario.id,
             scenarioLoader: (_) async => _roleplayScenario,
+            questCorpusLoader: (_) async =>
+                stockedScenarioCorpus(_roleplayScenario),
             grammarLoader: () async => const [],
             resultPersister: (_, _, _) async {
               persistenceCalls += 1;

@@ -19,10 +19,10 @@ CLI: upload|verify|archive --tools-json <private reviewed command config> ...
 tools JSON: {"bundletool": {"argv": ["/abs/java", "-jar", "/abs/tool.jar"],
 "sha256": {"/abs/java": "<64 hex>", "/abs/tool.jar": "<64 hex>"}},
 "firebase": {"argv": ["/abs/firebase-tools-linux"], "sha256": {...}}}
-Authentication requires an explicit GOOGLE_APPLICATION_CREDENTIALS file.
-Firebase CLI performs actual authentication; this helper neither inspects
-the principal nor widens its authority. Use an isolated CI account without
-cached Firebase login; FIREBASE_TOKEN is rejected to avoid alternate auth.
+The native-symbol command uses the Firebase app ID, not an IAM publisher key.
+Run it without cached Firebase login or credential environment variables.
+Its child Java and Crashlytics buildtools JAR must also be pinned: otherwise
+the CLI silently downloads an executable dependency outside this gate.
 
 References:
 https://firebase.google.com/docs/crashlytics/flutter/get-started
@@ -503,13 +503,28 @@ def _write_receipt(path: Path, value: dict) -> None:
 
 
 def upload_symbols(request: BuildRequest, receipt_path: Path, *, bundletool: ToolCommand,
-                   firebase: ToolCommand, environment: Mapping[str, str] | None = None,
+                   firebase: ToolCommand, buildtools: ToolCommand | None = None,
+                   environment: Mapping[str, str] | None = None,
                    timeout_seconds: float = 120) -> dict:
     """Upload once, or retry only the identical recorded build and symbol set."""
     env = dict(os.environ if environment is None else environment)
     _validate_identity(request)
     _validate_tool(bundletool)
     _validate_tool(firebase)
+    _validate_tool(buildtools)
+    if (len(buildtools.argv) != 3 or buildtools.argv[1] != "-jar"
+            or Path(buildtools.argv[0]).name != ("java.exe" if os.name == "nt" else "java")
+            or not os.access(buildtools.argv[0], os.X_OK)
+            or Path(buildtools.argv[2]).suffix.lower() != ".jar"):
+        raise EvidenceError("invalid_tool")
+    if any(env.get(name) for name in (
+            "GOOGLE_APPLICATION_CREDENTIALS", "FIREBASE_TOKEN", "NODE_OPTIONS",
+            "JAVA_TOOL_OPTIONS", "_JAVA_OPTIONS", "JDK_JAVA_OPTIONS")):
+        raise EvidenceError("invalid_auth")
+    # Force the CLI's child process onto reviewed binaries. Never inherit an
+    # arbitrary CRASHLYTICS_LOCAL_JAR or let it fetch an unverified JAR.
+    env["CRASHLYTICS_LOCAL_JAR"] = buildtools.argv[2]
+    env["PATH"] = str(Path(buildtools.argv[0]).parent)
     identity = _identity(request, bundletool, env, timeout_seconds)
     path = _receipt_path(request, receipt_path)
     with _receipt_lock(path):
@@ -517,10 +532,6 @@ def upload_symbols(request: BuildRequest, receipt_path: Path, *, bundletool: Too
             previous = _read_json(path)
             if _check_receipt(previous, identity) == "success":
                 return previous
-        if not env.get("GOOGLE_APPLICATION_CREDENTIALS") or env.get("FIREBASE_TOKEN"):
-            raise EvidenceError("invalid_auth")
-        # Check presence only. Even malformed credentials are never parsed here.
-        _file(Path(env["GOOGLE_APPLICATION_CREDENTIALS"]))
         version = _cli_version(_run(firebase, ["--version"], env, timeout_seconds,
                                     capture=True).strip())
         pending = {**identity, "uploadResult": {"status": "pending", "cliVersion": version}}
@@ -528,9 +539,11 @@ def upload_symbols(request: BuildRequest, receipt_path: Path, *, bundletool: Too
         try:
             if _identity(request, bundletool, env, timeout_seconds) != identity:
                 raise EvidenceError("artifact_changed")
+            _validate_tool(buildtools)
             _run(firebase, ["crashlytics:symbols:upload", "--app", request.firebase_app_id,
                             str(_path(request.symbols)), "--non-interactive"],
                  env, timeout_seconds, capture=False)
+            _validate_tool(buildtools)
             try:
                 if _identity(request, bundletool, env, timeout_seconds) != identity:
                     raise EvidenceError("artifact_changed")
@@ -657,7 +670,8 @@ def main(argv: list[str] | None = None) -> int:
                                args.firebase_app_id, args.expected_aab_sha256)
         common = {"bundletool": tools["bundletool"], "timeout_seconds": args.timeout_seconds}
         if args.operation == "upload":
-            upload_symbols(request, args.receipt, firebase=tools["firebase"], **common)
+            upload_symbols(request, args.receipt, firebase=tools["firebase"],
+                           buildtools=tools["crashlytics-buildtools"], **common)
         elif args.operation == "verify":
             if not verify_success_receipt(request, args.receipt, **common):
                 raise EvidenceError("invalid_receipt")

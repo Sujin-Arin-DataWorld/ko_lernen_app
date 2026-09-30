@@ -335,96 +335,116 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
       for (final line in _scenario.dialog)
         if (line.speaker != 'narrator') _speakerName(t, line.speaker),
     }.join(', ');
-    return Column(
-      children: [
-        Expanded(
-          child: SingleChildScrollView(
-            child: SoriCard(
-              variant: SoriCardVariant.base,
-              child: Column(
-                children: [
-                  if (imageKey != null)
-                    ClipRRect(
-                      borderRadius: SoriRadius.brSm,
-                      child: SizedBox(
-                        height: 156,
-                        width: double.infinity,
-                        child: Image.asset(
-                          chaekgadoCardAsset(imageKey),
-                          fit: BoxFit.contain,
-                          errorBuilder: (_, _, _) => const Icon(
-                            Icons.headphones_rounded,
-                            size: 72,
-                            color: SoriColors.contentCta,
-                          ),
-                        ),
-                      ),
-                    )
-                  else
-                    const Icon(
-                      Icons.headphones_rounded,
-                      size: 72,
-                      color: SoriColors.contentCta,
-                    ),
-                  const SizedBox(height: Spacing.md),
-                  Text(
-                    t.listeningSceneIntro,
-                    style: SoriTextTheme.of(
-                      context,
-                    ).meta.copyWith(color: SoriColors.contentCta),
+    final card = SoriCard(
+      variant: SoriCardVariant.base,
+      child: Column(
+        children: [
+          if (imageKey != null)
+            ClipRRect(
+              borderRadius: SoriRadius.brSm,
+              child: SizedBox(
+                height: 156,
+                width: double.infinity,
+                child: Image.asset(
+                  chaekgadoCardAsset(imageKey),
+                  fit: BoxFit.contain,
+                  errorBuilder: (_, _, _) => const Icon(
+                    Icons.headphones_rounded,
+                    size: 72,
+                    color: SoriColors.contentCta,
                   ),
-                  const SizedBox(height: Spacing.xs),
-                  if (intro.isNotEmpty)
-                    Text(
-                      intro,
-                      textAlign: TextAlign.center,
-                      style: SoriTextTheme.of(context).body,
-                    ),
-                  const SizedBox(height: Spacing.lg),
-                  _IntroFact(
-                    icon: Icons.people_outline_rounded,
-                    label: t.listeningParticipants,
-                    value: speakers,
-                  ),
-                  if (_scenario.playerCharacterId.isNotEmpty) ...[
-                    const SizedBox(height: Spacing.sm),
-                    _IntroFact(
-                      icon: Icons.theater_comedy_outlined,
-                      label: t.scenarioAssignedRole,
-                      value: _scenario.playerRoleDisplayName(
-                        fallbackYou: t.listeningSpeakerYou,
-                      ),
-                    ),
-                  ],
-                  const SizedBox(height: Spacing.sm),
-                  _IntroFact(
-                    icon: Icons.format_list_numbered_rounded,
-                    label: t.listeningTitle,
-                    value: t.listeningLineCount(_scenario.dialog.length),
-                  ),
-                  const SizedBox(height: Spacing.lg),
-                  const TtsSpeedControl(
-                    mode: TtsSpeedControlMode.row,
-                    minInteractiveHeight: 48,
-                  ),
-                ],
+                ),
+              ),
+            )
+          else
+            const Icon(
+              Icons.headphones_rounded,
+              size: 72,
+              color: SoriColors.contentCta,
+            ),
+          const SizedBox(height: Spacing.md),
+          Text(
+            t.listeningSceneIntro,
+            style: SoriTextTheme.of(
+              context,
+            ).meta.copyWith(color: SoriColors.contentCta),
+          ),
+          const SizedBox(height: Spacing.xs),
+          if (intro.isNotEmpty)
+            Text(
+              intro,
+              textAlign: TextAlign.center,
+              style: SoriTextTheme.of(context).body,
+            ),
+          const SizedBox(height: Spacing.lg),
+          _IntroFact(
+            icon: Icons.people_outline_rounded,
+            label: t.listeningParticipants,
+            value: speakers,
+          ),
+          if (_scenario.playerCharacterId.isNotEmpty) ...[
+            const SizedBox(height: Spacing.sm),
+            _IntroFact(
+              icon: Icons.theater_comedy_outlined,
+              label: t.scenarioAssignedRole,
+              value: _scenario.playerRoleDisplayName(
+                fallbackYou: t.listeningSpeakerYou,
               ),
             ),
+          ],
+          const SizedBox(height: Spacing.sm),
+          _IntroFact(
+            icon: Icons.format_list_numbered_rounded,
+            label: t.listeningTitle,
+            value: t.listeningLineCount(_scenario.dialog.length),
           ),
-        ),
-        const SizedBox(height: Spacing.md),
-        SoriButton.filled(
-          key: const ValueKey('listening-dialogue-start'),
-          label: t.listeningDialogueStart,
-          icon: Icons.play_arrow_rounded,
-          accent: SoriColors.contentCta,
-          fullWidth: true,
-          onTap: () {
-            _playback.start();
-            scheduleCoach();
-          },
-        ),
-      ],
+          const SizedBox(height: Spacing.lg),
+          const TtsSpeedControl(
+            mode: TtsSpeedControlMode.row,
+            minInteractiveHeight: 48,
+          ),
+        ],
+      ),
+    );
+    final start = SoriButton.filled(
+      key: const ValueKey('listening-dialogue-start'),
+      label: t.listeningDialogueStart,
+      icon: Icons.play_arrow_rounded,
+      accent: SoriColors.contentCta,
+      fullWidth: true,
+      onTap: () {
+        _playback.start();
+        scheduleCoach();
+      },
+    );
+    return LayoutBuilder(
+      builder: (context, bounds) {
+        // Short windows keep the start action pinned while the scene scrolls.
+        if (bounds.maxHeight < 720 ||
+            MediaQuery.textScalerOf(context).scale(16) > 24) {
+          return Column(
+            children: [
+              Expanded(child: SingleChildScrollView(child: card)),
+              const SizedBox(height: Spacing.md),
+              start,
+            ],
+          );
+        }
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: bounds.maxHeight),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                card,
+                const SizedBox(height: Spacing.md),
+                start,
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 

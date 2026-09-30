@@ -978,6 +978,17 @@ class _WordCard extends StatelessWidget {
                 ).bodySmall.copyWith(fontWeight: FontWeight.w600),
               ),
             ],
+            if (word.ambiguous) ...[
+              const SizedBox(height: Spacing.sm),
+              Text(
+                word.alternativeHeadword.isEmpty
+                    ? AppL10n.of(context).bookResultAmbiguousWord
+                    : AppL10n.of(
+                        context,
+                      ).bookResultAlternativeWord(word.alternativeHeadword),
+                style: SoriTextTheme.of(context).bodySmall,
+              ),
+            ],
             if (word.posDe.isNotEmpty) ...[
               const SizedBox(height: 2),
               Text(word.posDe, style: SoriTextTheme.of(context).cardSubtitle),

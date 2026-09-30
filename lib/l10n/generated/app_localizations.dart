@@ -145,12 +145,6 @@ abstract class AppL10n {
   /// **'30 Lernphasen'**
   String get learningPhasesTitle;
 
-  /// No description provided for @learningPhasesIntro.
-  ///
-  /// In de, this message translates to:
-  /// **'Entdecke die Lernziele von A1 bis C2 und übe dazu passende Gespräche. Dein bisheriger Lernfortschritt bleibt erhalten.'**
-  String get learningPhasesIntro;
-
   /// No description provided for @learningPhasePracticeTitle.
   ///
   /// In de, this message translates to:
@@ -2965,6 +2959,18 @@ abstract class AppL10n {
   /// **'Gye ist ab 16 Jahren nutzbar. Dein Geburtsjahr ist eine Selbstauskunft, wird nur auf diesem Gerät gespeichert und ist keine Identitätsprüfung. Ohne Monat und Tag wird konservativ erst bei mindestens 17 Jahren Jahresdifferenz freigeschaltet.'**
   String get gyeAgeYearBody;
 
+  /// No description provided for @privacyAgeYearBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Für freiwillige Nutzungsstatistiken und Absturzberichte braucht die App zuerst deine Altersangabe. Dein selbst angegebenes Geburtsjahr bleibt auf diesem Gerät. Ohne Monat und Tag schalten wir diese Optionen konservativ erst bei mindestens 17 Jahren Jahresdifferenz frei.'**
+  String get privacyAgeYearBody;
+
+  /// No description provided for @privacyAgeRestricted.
+  ///
+  /// In de, this message translates to:
+  /// **'Nutzungsstatistiken und Absturzberichte können mit dieser Altersangabe nicht aktiviert werden. Die App prüft wegen der jahresgenauen Angabe konservativ erst ab mindestens 17 Jahren Jahresdifferenz.'**
+  String get privacyAgeRestricted;
+
   /// No description provided for @gyeAgeYearHint.
   ///
   /// In de, this message translates to:
@@ -3384,6 +3390,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Unsichere oder nicht-koreanische Inhalte wurden nicht in Wörter, Grammatik oder Audio übernommen.'**
   String get bookResultQualityNotice;
+
+  /// No description provided for @bookResultAmbiguousWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Wort kann mehrere Bedeutungen haben. Prüfe, welche zum Satz passt.'**
+  String get bookResultAmbiguousWord;
+
+  /// No description provided for @bookResultAlternativeWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Auch {word} ist möglich. Prüfe, welche Bedeutung zum Satz passt.'**
+  String bookResultAlternativeWord(String word);
 
   /// No description provided for @bookResultTranslationUnavailable.
   ///
@@ -5764,7 +5782,7 @@ abstract class AppL10n {
   /// No description provided for @listeningBackToScroll.
   ///
   /// In de, this message translates to:
-  /// **'Zurück zur Schriftrolle'**
+  /// **'Zurück zum Dialog'**
   String get listeningBackToScroll;
 
   /// No description provided for @listeningNextStory.
@@ -6838,7 +6856,7 @@ abstract class AppL10n {
   /// No description provided for @kkeunmariDictionaryUnavailable.
   ///
   /// In de, this message translates to:
-  /// **'Das Wörterbuch kann gerade nicht geprüft werden. Versuche ein bekanntes Wort oder probiere es gleich noch einmal.'**
+  /// **'Das Online-Wörterbuch ist gerade nicht erreichbar. Deine Zeit bleibt stehen. Versuche ein anderes Wort oder sende dieses noch einmal.'**
   String get kkeunmariDictionaryUnavailable;
 
   /// No description provided for @kkeunmariNotInPool.
@@ -11736,6 +11754,54 @@ abstract class AppL10n {
   /// **'Kurzer Einstufungscheck'**
   String get placementTitle;
 
+  /// No description provided for @placementSkip.
+  ///
+  /// In de, this message translates to:
+  /// **'Das weiß ich noch nicht'**
+  String get placementSkip;
+
+  /// No description provided for @placementScope.
+  ///
+  /// In de, this message translates to:
+  /// **'18 Fragen von A1 bis C2. Für eine Empfehlung brauchst du auf jeder Stufe bis dahin mindestens zwei richtige Antworten. Der Check prüft das Verstehen, nicht das Sprechen oder Schreiben, und ist kein Sprachzertifikat.'**
+  String get placementScope;
+
+  /// No description provided for @coursePreviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lerninhalte ansehen'**
+  String get coursePreviewTitle;
+
+  /// No description provided for @coursePreviewBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Entdecke Themen, Lernziele und Übungen von A1 bis C2. Das Anschauen ändert weder deinen Startpunkt noch deinen Lernfortschritt.'**
+  String get coursePreviewBody;
+
+  /// No description provided for @hanokHowTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wie wächst mein Hanok?'**
+  String get hanokHowTitle;
+
+  /// No description provided for @hanokHowBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffne deinen Lernpfad und schließe eine Lerneinheit mit den zugehörigen Übungen und Prüfungen ab. Abgeschlossene Einheiten von A1 bis B2 bringen den Hanok hier voran. Ein höher gewählter Startpunkt oder das Wiederholen einer bereits abgeschlossenen Einheit bringt keinen zusätzlichen Baufortschritt. Die Bauphasen kannst du auch separat erkunden; allein durch das Anschauen wächst dein Hanok nicht.'**
+  String get hanokHowBody;
+
+  /// No description provided for @hanokHowAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Meinen Lernpfad öffnen'**
+  String get hanokHowAction;
+
+  /// No description provided for @dictionaryOfflineSourceRole.
+  ///
+  /// In de, this message translates to:
+  /// **'Offline-Prüfung von Nomen für die Wortkette; nur Stichwörter, keine Definitionen.'**
+  String get dictionaryOfflineSourceRole;
+
   /// No description provided for @placementProgress.
   ///
   /// In de, this message translates to:
@@ -15348,6 +15414,18 @@ abstract class AppL10n {
   /// **'Heutiges Sprachlimit erreicht. Morgen geht es weiter.'**
   String get ttsUnavailableQuota;
 
+  /// TTS authentication or local account session unavailable; does not claim token expiry
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Sitzung konnte nicht bestätigt werden. Öffne die App erneut und versuch es noch einmal.'**
+  String get ttsUnavailableSession;
+
+  /// Service cost policy blocks new TTS synthesis; existing cached audio remains available
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Audioaufnahmen sind vorübergehend pausiert. Vorhandene Aufnahmen kannst du weiter anhören.'**
+  String get ttsUnavailablePolicy;
+
   /// Shown when the global hourly synthesis limit is reached; cached audio remains available.
   ///
   /// In de, this message translates to:
@@ -16401,7 +16479,7 @@ abstract class AppL10n {
   /// No description provided for @settingsRecheckLevelDescription.
   ///
   /// In de, this message translates to:
-  /// **'Mache freiwillig einen Test mit acht Aufgaben. Das Ergebnis ist eine Empfehlung; den Startpunkt wählst weiterhin du.'**
+  /// **'Probiere 18 Fragen von A1 bis C2. Das Ergebnis empfiehlt einen Startpunkt fürs Lernen; du kannst auch eine andere Stufe wählen.'**
   String get settingsRecheckLevelDescription;
 
   /// No description provided for @settingsCompanionVisibleTitle.
@@ -18407,6 +18485,384 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Geh zurück und wähle eine andere Übung.'**
   String get questUnavailableBody;
+
+  /// No description provided for @contentLearningGoals.
+  ///
+  /// In de, this message translates to:
+  /// **'Themen-Lernziele'**
+  String get contentLearningGoals;
+
+  /// No description provided for @contentLearningGoalIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Wie viele Lektionen möchtest du pro Tag lernen? Jedes Niveau hat sein eigenes Ziel.'**
+  String get contentLearningGoalIntro;
+
+  /// No description provided for @contentLearningGoal.
+  ///
+  /// In de, this message translates to:
+  /// **'{level} · Tagesziel'**
+  String contentLearningGoal(String level);
+
+  /// No description provided for @contentLearningGoalCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 Lektion} other{{count} Lektionen}}'**
+  String contentLearningGoalCount(int count);
+
+  /// No description provided for @contentLearningFree.
+  ///
+  /// In de, this message translates to:
+  /// **'Frei lernen'**
+  String get contentLearningFree;
+
+  /// No description provided for @contentLearningEditGoal.
+  ///
+  /// In de, this message translates to:
+  /// **'Ziel ändern'**
+  String get contentLearningEditGoal;
+
+  /// No description provided for @contentLearningToday.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute: {done} von {total, plural, =1{1 Lektion} other{{total} Lektionen}}'**
+  String contentLearningToday(int done, int total);
+
+  /// No description provided for @contentLearningPackProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{done} von {total, plural, =1{1 Lektion} other{{total} Lektionen}} abgeschlossen'**
+  String contentLearningPackProgress(int done, int total);
+
+  /// No description provided for @contentLearningResume.
+  ///
+  /// In de, this message translates to:
+  /// **'Fortsetzen'**
+  String get contentLearningResume;
+
+  /// No description provided for @contentLearningStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Lektion beginnen'**
+  String get contentLearningStart;
+
+  /// No description provided for @contentLearningLearn.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernen'**
+  String get contentLearningLearn;
+
+  /// No description provided for @contentLearningPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben'**
+  String get contentLearningPractice;
+
+  /// No description provided for @contentLearningYourTurn.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt bist du dran'**
+  String get contentLearningYourTurn;
+
+  /// No description provided for @contentLearningNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get contentLearningNext;
+
+  /// No description provided for @contentLearningPrevious.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück'**
+  String get contentLearningPrevious;
+
+  /// No description provided for @contentLearningCheck.
+  ///
+  /// In de, this message translates to:
+  /// **'Prüfen'**
+  String get contentLearningCheck;
+
+  /// No description provided for @contentLearningFinish.
+  ///
+  /// In de, this message translates to:
+  /// **'Lektion abschließen'**
+  String get contentLearningFinish;
+
+  /// No description provided for @contentLearningDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Lektion abgeschlossen'**
+  String get contentLearningDone;
+
+  /// No description provided for @contentLearningTodayDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Tagesziel ist erreicht'**
+  String get contentLearningTodayDone;
+
+  /// No description provided for @contentLearningResult.
+  ///
+  /// In de, this message translates to:
+  /// **'{correct} von {total} Antworten richtig. Die Lektion zählt unabhängig vom Ergebnis.'**
+  String contentLearningResult(int correct, int total);
+
+  /// No description provided for @contentLearningExit.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur Themenübersicht'**
+  String get contentLearningExit;
+
+  /// No description provided for @contentLearningEndToday.
+  ///
+  /// In de, this message translates to:
+  /// **'Für heute fertig'**
+  String get contentLearningEndToday;
+
+  /// No description provided for @contentLearningPracticePending.
+  ///
+  /// In de, this message translates to:
+  /// **'Ausdrücke gelernt · Übungen noch offen'**
+  String get contentLearningPracticePending;
+
+  /// No description provided for @contentLearningListeningPending.
+  ///
+  /// In de, this message translates to:
+  /// **'Fertig gehört · Übungen noch offen'**
+  String get contentLearningListeningPending;
+
+  /// No description provided for @contentLearningNeedsReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Abgeschlossen · Wiederholung nötig'**
+  String get contentLearningNeedsReview;
+
+  /// No description provided for @contentLearningReviewMistakes.
+  ///
+  /// In de, this message translates to:
+  /// **'Fehler wiederholen'**
+  String get contentLearningReviewMistakes;
+
+  /// No description provided for @contentLearningReviewTopic.
+  ///
+  /// In de, this message translates to:
+  /// **'Gelerntes zu diesem Thema wiederholen'**
+  String get contentLearningReviewTopic;
+
+  /// No description provided for @contentLearningNextTopicLesson.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächste Lektion zum Thema'**
+  String get contentLearningNextTopicLesson;
+
+  /// No description provided for @contentLearningEnd.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Lektionen dieses Themas sind abgeschlossen. Du kannst Gelerntes jederzeit wiederholen.'**
+  String get contentLearningEnd;
+
+  /// No description provided for @contentLearningEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Für dieses Niveau sind noch keine Lektionen verfügbar.'**
+  String get contentLearningEmpty;
+
+  /// No description provided for @contentLearningError.
+  ///
+  /// In de, this message translates to:
+  /// **'Das hat nicht geklappt. Dein letzter gespeicherter Stand bleibt erhalten. Versuche es noch einmal.'**
+  String get contentLearningError;
+
+  /// No description provided for @contentLearningRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut versuchen'**
+  String get contentLearningRetry;
+
+  /// No description provided for @contentLearningAudio.
+  ///
+  /// In de, this message translates to:
+  /// **'Anhören'**
+  String get contentLearningAudio;
+
+  /// No description provided for @contentLearningAudioError.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Aufnahme konnte nicht abgespielt werden. Tippe zum erneuten Versuch auf Anhören.'**
+  String get contentLearningAudioError;
+
+  /// No description provided for @contentLearningTranslation.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersetzung zeigen'**
+  String get contentLearningTranslation;
+
+  /// No description provided for @contentLearningUsage.
+  ///
+  /// In de, this message translates to:
+  /// **'Verwendung und Varianten'**
+  String get contentLearningUsage;
+
+  /// No description provided for @contentLearningEvidence.
+  ///
+  /// In de, this message translates to:
+  /// **'Stelle im Dialog'**
+  String get contentLearningEvidence;
+
+  /// No description provided for @contentLearningCorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig'**
+  String get contentLearningCorrect;
+
+  /// No description provided for @contentLearningIncorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Schau dir die Erklärung an'**
+  String get contentLearningIncorrect;
+
+  /// No description provided for @contentLearningOrder.
+  ///
+  /// In de, this message translates to:
+  /// **'Setze die Wörter in die richtige Reihenfolge. Tippe auf ein gewähltes Wort, um es zurückzulegen.'**
+  String get contentLearningOrder;
+
+  /// No description provided for @contentLearningPosition.
+  ///
+  /// In de, this message translates to:
+  /// **'{current} von {total}'**
+  String contentLearningPosition(int current, int total);
+
+  /// No description provided for @contentLearningReviewEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier gibt es noch keine gelernten Aufgaben zum Wiederholen.'**
+  String get contentLearningReviewEmpty;
+
+  /// No description provided for @contentLearningYou.
+  ///
+  /// In de, this message translates to:
+  /// **'Du'**
+  String get contentLearningYou;
+
+  /// No description provided for @contentLearningNarrator.
+  ///
+  /// In de, this message translates to:
+  /// **'Erzählung'**
+  String get contentLearningNarrator;
+
+  /// No description provided for @contentLearningReviewNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächste Wiederholung'**
+  String get contentLearningReviewNext;
+
+  /// No description provided for @contentLearningReviewDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Wiederholung abgeschlossen'**
+  String get contentLearningReviewDone;
+
+  /// No description provided for @contentLearningPlayAll.
+  ///
+  /// In de, this message translates to:
+  /// **'Ab hier abspielen'**
+  String get contentLearningPlayAll;
+
+  /// No description provided for @contentLearningPause.
+  ///
+  /// In de, this message translates to:
+  /// **'Pause'**
+  String get contentLearningPause;
+
+  /// No description provided for @contentLearningExpressions.
+  ///
+  /// In de, this message translates to:
+  /// **'Wichtige Ausdrücke'**
+  String get contentLearningExpressions;
+
+  /// No description provided for @contentLearningRoleplay.
+  ///
+  /// In de, this message translates to:
+  /// **'Freiwillig: Gespräch üben'**
+  String get contentLearningRoleplay;
+
+  /// No description provided for @contentLearningGrammar.
+  ///
+  /// In de, this message translates to:
+  /// **'Freiwillig: Grammatik ansehen'**
+  String get contentLearningGrammar;
+
+  /// No description provided for @contentLearningRoleplayHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Antworte laut auf die vorige Zeile. Du kannst die ursprüngliche Antwort danach aufdecken.'**
+  String get contentLearningRoleplayHint;
+
+  /// No description provided for @contentLearningReveal.
+  ///
+  /// In de, this message translates to:
+  /// **'Antwort aufdecken'**
+  String get contentLearningReveal;
+
+  /// No description provided for @contentLearningBackResult.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zum Ergebnis'**
+  String get contentLearningBackResult;
+
+  /// No description provided for @contentLearningReviewResult.
+  ///
+  /// In de, this message translates to:
+  /// **'{correct} von {total} Antworten richtig. Deine Wiederholung verändert das Tagesziel nicht.'**
+  String contentLearningReviewResult(int correct, int total);
+
+  /// No description provided for @contentLearningExpressionCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 Ausdruck} other{{count} Ausdrücke}}'**
+  String contentLearningExpressionCount(int count);
+
+  /// No description provided for @contentLearningScenarioCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 Gespräch} other{{count} Gespräche}}'**
+  String contentLearningScenarioCount(int count);
+
+  /// No description provided for @contentLearningShortLesson.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurze Lektion · {count, plural, =1{1 Ausdruck} other{{count} Ausdrücke}}'**
+  String contentLearningShortLesson(int count);
+
+  /// No description provided for @contentLearningLearnAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch einmal lernen'**
+  String get contentLearningLearnAgain;
+
+  /// No description provided for @contentLearningListenAgain.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch einmal hören'**
+  String get contentLearningListenAgain;
+
+  /// No description provided for @kkeunmariSelectionHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Du spielst mit deinen ausgewählten Wörtern, die im geprüften Spielwörterbuch stehen. Mindestens zwei müssen sich verbinden lassen.'**
+  String get kkeunmariSelectionHint;
+
+  /// No description provided for @kkeunmariSelectionEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'In deiner Auswahl gibt es noch keine Wortkette. Wähle mindestens zwei Wörter aus dem Spielwörterbuch, bei denen die letzte Silbe des einen die erste des anderen ist.'**
+  String get kkeunmariSelectionEmpty;
+
+  /// No description provided for @kkeunmariNotInSelection.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Wort gehört nicht zu deiner Auswahl für diese Runde.'**
+  String get kkeunmariNotInSelection;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

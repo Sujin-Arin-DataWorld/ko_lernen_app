@@ -43,15 +43,22 @@ void main() {
 
     await tester.tap(next);
     await tester.pump();
-    for (var questionIndex = 1; questionIndex < 8; questionIndex++) {
-      final choiceLabel =
-          placementDiagnosticQuestions[questionIndex].choicesDe.first;
+    for (
+      var questionIndex = 1;
+      questionIndex < placementDiagnosticQuestions.length;
+      questionIndex++
+    ) {
+      final question = placementDiagnosticQuestions[questionIndex];
+      final choiceLabel = question.choicesDe[question.correctIndex];
       final choice = find.text(choiceLabel);
       await _centerInScrollable(tester, choice);
       await tester.tap(choice);
       await tester.pump();
 
-      final actionLabel = questionIndex == 7 ? 'Empfehlung ansehen' : 'Weiter';
+      final actionLabel =
+          questionIndex == placementDiagnosticQuestions.length - 1
+          ? 'Empfehlung ansehen'
+          : 'Weiter';
       final action = find.widgetWithText(SoriButton, actionLabel);
       await _centerInScrollable(tester, action);
       _expectButtonSemantics(tester, action, actionLabel);
@@ -61,9 +68,9 @@ void main() {
     }
 
     expect(find.text('Empfohlener Start'), findsOneWidget);
-    final recommendedStart = find.widgetWithText(SoriButton, 'Mit B2 starten');
+    final recommendedStart = find.widgetWithText(SoriButton, 'Mit C2 starten');
     await _centerInScrollable(tester, recommendedStart);
-    _expectButtonSemantics(tester, recommendedStart, 'Mit B2 starten');
+    _expectButtonSemantics(tester, recommendedStart, 'Mit C2 starten');
     expect(tester.takeException(), isNull);
     semantics.dispose();
   });

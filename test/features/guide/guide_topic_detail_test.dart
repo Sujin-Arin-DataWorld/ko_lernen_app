@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/motion/transitions.dart';
 import 'package:ko_lernen_app/services/analytics_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../support/scenario_stock_fixtures.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -763,7 +764,7 @@ Scenario _scenario({
   vocab: const [],
   grammarIds: const [],
   dialog: const [],
-  quests: const [],
+  quests: stockQuestions,
   shelf: shelf,
 );
 

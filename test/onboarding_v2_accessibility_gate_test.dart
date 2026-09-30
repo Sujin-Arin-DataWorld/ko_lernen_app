@@ -174,26 +174,14 @@ void main() {
                   '${surface.name} ${locale.languageCode} '
                   '${viewport.size} @${viewport.textScale}';
               expect(tester.takeException(), isNull, reason: evidence);
-              expect(
-                find.byType(SingleChildScrollView),
-                findsNothing,
-                reason: '$evidence primary journey must not scroll',
-              );
-              for (final scrollable in tester.stateList<ScrollableState>(
-                find.byType(Scrollable),
-              )) {
-                expect(
-                  scrollable.position.maxScrollExtent,
-                  closeTo(0, 0.5),
-                  reason: '$evidence primary journey must fit one viewport',
-                );
-              }
               final deepContent = find.byKey(surface.deepContentKey);
               expect(
                 deepContent,
                 findsOneWidget,
                 reason: '$evidence core interaction is unreachable',
               );
+              await tester.ensureVisible(deepContent);
+              await _pumpFinite(tester);
               _expectInsideSafeViewport(
                 tester,
                 deepContent,

@@ -30,6 +30,8 @@
     },
     "java": {
       "version": "17.0.20.1+1",
+      "setup_version": "17.0.20+101",
+      "version_metadata_url": "https://api.adoptium.net/v3/assets/version/17.0.20.1%2B1?architecture=x64&heap_size=normal&image_type=jdk&jvm_impl=hotspot&os=linux&project=jdk&vendor=eclipse",
       "platform": "linux-x64",
       "publisher_url": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.20.1%2B1/OpenJDK17U-jdk_x64_linux_hotspot_17.0.20.1_1.tar.gz",
       "publisher_metadata_url": "https://api.github.com/repos/adoptium/temurin17-binaries/releases/tags/jdk-17.0.20.1%2B1",
@@ -39,6 +41,19 @@
       },
       "archive_member": "jdk-17.0.20.1+1/bin/java",
       "executable_sha256": "f5aed21d3a0b0f4b05d3a3f9fe71263916d5bc0d47b53aa52a3340b90f0b4805"
+    },
+    "crashlytics-buildtools": {
+      "version": "3.0.3",
+      "platform": "java-jar",
+      "publisher_url": "https://dl.google.com/android/maven2/com/google/firebase/firebase-crashlytics-buildtools/3.0.3/firebase-crashlytics-buildtools-3.0.3.jar",
+      "publisher_metadata_url": "https://dl.google.com/android/maven2/com/google/firebase/firebase-crashlytics-buildtools/3.0.3/firebase-crashlytics-buildtools-3.0.3.jar.sha256",
+      "archive_verification": {
+        "type": "sha256",
+        "value": "953b6f3942283f8332cc17a59bca2649ea49d14e0072f2c1f01762ebaebdf357"
+      },
+      "archive_member": "firebase-crashlytics-buildtools-3.0.3.jar",
+      "archive_member_kind": "downloaded-artifact",
+      "executable_sha256": "953b6f3942283f8332cc17a59bca2649ea49d14e0072f2c1f01762ebaebdf357"
     }
   }
 }

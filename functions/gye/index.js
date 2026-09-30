@@ -148,6 +148,7 @@ const db = getFirestore();
 const auth = getAuth();
 const messaging = getMessaging();
 setGlobalOptions({ region: "europe-west3" });
+exports.on_auth_account_created = require("./auth_creation_observer").onAuthAccountCreated;
 const deletionProofHmacKey = defineSecret("DELETION_PROOF_HMAC_KEY");
 const appleRevokeClientId = defineSecret("APPLE_REVOKE_CLIENT_ID");
 const appleRevokeTeamId = defineSecret("APPLE_REVOKE_TEAM_ID");
@@ -589,8 +590,9 @@ const WEEKLY_ROLLOVER_GYE_CHUNK_SIZE = 20;
 
 /**
  * 매주 월 00:00 KST — 주간 진행도 리셋 + 보상.
- * maxInstances: 1 — Cloud Scheduler must never have two overlapping
- * rollover invocations running against the same Gye documents.
+ * Bound both instances and requests per instance. Gen2 otherwise accepts
+ * concurrent requests even with maxInstances: 1. Per-Gye transactions and
+ * lastRolloverKey remain required for duplicate delivery or rollout overlap.
  */
 exports.weekly_goal_rollover = onSchedule(
   {
@@ -600,6 +602,7 @@ exports.weekly_goal_rollover = onSchedule(
     timeoutSeconds: 540,
     memory: "512MiB",
     maxInstances: 1,
+    concurrency: 1,
   },
   async (event) => {
     try {

@@ -2259,6 +2259,7 @@ function operationFailureMapping(code) {
 function createAccountOperationRuntime({
   auth,
   repository,
+  logger = console,
   nowMillis = () => Date.now(),
   newDeletionProof = () => crypto.randomBytes(32).toString("base64url"),
   newWorkerInvocationId = () => crypto.randomUUID(),
@@ -2300,6 +2301,16 @@ function createAccountOperationRuntime({
   }
   if (typeof makeError !== "function") {
     throw new TypeError("A safe callable error adapter is required.");
+  }
+
+  function recordAppleRevocationConfigFailure() {
+    try {
+      logger.warn("apple/revocation-config-invalid", {
+        event: "apple_revocation_config_invalid", schemaVersion: 1,
+      });
+    } catch {
+      // Observability must not interrupt the existing deletion checkpoint flow.
+    }
   }
 
   async function authenticate(request, requiredAccountType = "any") {
@@ -2639,6 +2650,7 @@ function createAccountOperationRuntime({
               throw repositoryFailure("apple-revocation-pending");
             }
             revocationUnavailable = true;
+            recordAppleRevocationConfigFailure();
           }
           await checkpoint({
             progress: {
@@ -2674,6 +2686,7 @@ function createAccountOperationRuntime({
             throw repositoryFailure("apple-revocation-pending");
           }
           revocationUnavailable = true;
+          recordAppleRevocationConfigFailure();
         }
         await checkpoint({
           progress: {

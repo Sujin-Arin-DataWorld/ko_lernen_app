@@ -13,6 +13,7 @@ import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'package:ko_lernen_app/widgets/sori/ko_wrap.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
+import 'support/scenario_stock_fixtures.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -76,7 +77,7 @@ void main() {
       await tester.pumpWidget(
         _wrap(
           ScenariosListScreen(
-            loadScenarios: () async => const [_scenarioFixture],
+            loadScenarios: () async => [stockedCatalogLesson(_scenarioFixture)],
           ),
         ),
       );

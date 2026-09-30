@@ -1,0 +1,50 @@
+{
+  "observedAt": "2026-09-28T23:32:58.639796+00:00",
+  "sha": "cee096c28e93c59ffd28ce3b4afb46ea5b72cfd9",
+  "requiredEvent": "push",
+  "runs": [
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-28T23:06:10Z",
+      "databaseId": 36496175270,
+      "event": "push",
+      "headSha": "cee096c28e93c59ffd28ce3b4afb46ea5b72cfd9",
+      "status": "completed",
+      "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36496175270",
+      "workflowName": "Playwright Tests"
+    },
+    {
+      "conclusion": "success",
+      "createdAt": "2026-09-28T23:06:10Z",
+      "databaseId": 36496175324,
+      "event": "push",
+      "headSha": "cee096c28e93c59ffd28ce3b4afb46ea5b72cfd9",
+      "status": "completed",
+      "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36496175324",
+      "workflowName": "CI"
+    }
+  ],
+  "selected": {
+    "CI": {
+      "conclusion": "success",
+      "createdAt": "2026-09-28T23:06:10Z",
+      "databaseId": 36496175324,
+      "event": "push",
+      "headSha": "cee096c28e93c59ffd28ce3b4afb46ea5b72cfd9",
+      "status": "completed",
+      "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36496175324",
+      "workflowName": "CI"
+    },
+    "Playwright Tests": {
+      "conclusion": "success",
+      "createdAt": "2026-09-28T23:06:10Z",
+      "databaseId": 36496175270,
+      "event": "push",
+      "headSha": "cee096c28e93c59ffd28ce3b4afb46ea5b72cfd9",
+      "status": "completed",
+      "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36496175270",
+      "workflowName": "Playwright Tests"
+    }
+  },
+  "gateCompleted": true
+}

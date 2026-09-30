@@ -627,7 +627,11 @@ class _LetterDemoState extends OnboardingDemoSpeechState<_LetterDemo>
             Text(
               '${_letters[_letter]} → ${_syllables[_letter]} · ${_words[_letter]}',
               locale: const Locale('ko'),
-              style: const TextStyle(fontSize: 23, fontWeight: FontWeight.w600),
+              style: const TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.w600,
+                fontFamily: SoriFonts.learningKorean,
+              ),
             ),
             Text(meanings[_letter], style: const TextStyle(fontSize: 13)),
             DemoChoiceRow(

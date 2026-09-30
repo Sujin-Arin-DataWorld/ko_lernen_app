@@ -63,7 +63,7 @@ class GrammarCorrespondenceCatalogTest(unittest.TestCase):
         )
         self.assertEqual(
             {item.source_key for item in correspondences} - {"G1:-지 않다"},
-            set(EXPECTED) | {"G2:-지", "G3:-는다고3"},
+            set(EXPECTED) | {"G2:-지", "G3:-는다고3", "G3:-으나", "G3:이고", "G3:-거든2"},
         )
 
         result = build_f1(grammar_rows, nikl_rows, correspondences)
@@ -103,6 +103,12 @@ class GrammarCorrespondenceCatalogTest(unittest.TestCase):
         self.assertEqual(partial_ji.status, "missing_in_app")
         self.assertEqual(partial_ji.matched_app_ids, ())
         correspondence_by_key = {item.source_key: item for item in correspondences}
+        for source_key in ("G3:-으나", "G3:이고", "G3:-거든2"):
+            with self.subTest(unconfirmed_source_key=source_key):
+                correspondence = correspondence_by_key[source_key]
+                self.assertEqual(correspondence.review_state, "observed_syntactic_candidate")
+                self.assertEqual(correspondence.semantic_status, "observed_syntactic_candidate")
+                self.assertFalse(correspondence.is_confirmed_semantic_match)
         self.assertEqual(
             correspondence_by_key["G2:-지"].semantic_status,
             "observed_syntactic_candidate",

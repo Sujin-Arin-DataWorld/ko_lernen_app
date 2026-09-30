@@ -10,6 +10,7 @@ void main() {
   late String source;
 
   const targetScreens = <String>[
+    'lib/features/content_learning/content_lesson_screen.dart',
     'lib/screens/vocab_pack_screen.dart',
     'lib/screens/legacy_vocab_screen.dart',
     'lib/screens/custom_pack_play_screen.dart',

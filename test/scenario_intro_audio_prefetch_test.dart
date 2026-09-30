@@ -16,6 +16,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
+import 'support/scenario_stock_fixtures.dart';
 import 'support/scenario_fixtures.dart';
 
 void main() {
@@ -157,38 +158,39 @@ void main() {
     );
   });
 
-  testWidgets(
-    'resolved intro prefetches every dialog line (지시서 4.3, 상한 12줄)',
-    (tester) async {
-      CourseProgressService.shared.resetForTesting();
-      await tester.runAsync(CurriculumCatalog.load);
-      final calls = <(String, String)>[];
-      var speakCalls = 0;
-      SoriSpeech.prefetchImpl = (text, voice) async {
-        calls.add((text, voice));
-      };
-      SoriSpeech.speakImpl = (text, voice) async {
-        speakCalls += 1;
-        return true;
-      };
+  testWidgets('resolved intro prefetches every dialog line (지시서 4.3, 상한 12줄)', (
+    tester,
+  ) async {
+    CourseProgressService.shared.resetForTesting();
+    await tester.runAsync(CurriculumCatalog.load);
+    final calls = <(String, String)>[];
+    var speakCalls = 0;
+    SoriSpeech.prefetchImpl = (text, voice) async {
+      calls.add((text, voice));
+    };
+    SoriSpeech.speakImpl = (text, voice) async {
+      speakCalls += 1;
+      return true;
+    };
 
-      await _pumpPlayer(
-        tester,
-        ScenarioPlayerScreen(
-          scenarioId: scenarioAirportArrivalFixture.id,
-          scenarioLoader: (_) async => scenarioAirportArrivalFixture,
-        ),
-      );
+    await _pumpPlayer(
+      tester,
+      ScenarioPlayerScreen(
+        scenarioId: scenarioAirportArrivalFixture.id,
+        scenarioLoader: (_) async => scenarioAirportArrivalFixture,
+        questCorpusLoader: (_) async =>
+            stockedScenarioCorpus(scenarioAirportArrivalFixture),
+      ),
+    );
 
-      // scenarioAirportArrivalFixture.dialog 는 2줄(officer/male,
-      // user/female) — 더 이상 첫 줄만이 아니라 둘 다 prefetch된다.
-      expect(calls, const <(String, String)>[
-        ('여권 보여주세요.', 'male'),
-        ('네, 여기 있어요.', 'female'),
-      ]);
-      expect(speakCalls, 0, reason: 'prefetch must never autoplay');
-    },
-  );
+    // scenarioAirportArrivalFixture.dialog 는 2줄(officer/male,
+    // user/female) — 더 이상 첫 줄만이 아니라 둘 다 prefetch된다.
+    expect(calls, const <(String, String)>[
+      ('여권 보여주세요.', 'male'),
+      ('네, 여기 있어요.', 'female'),
+    ]);
+    expect(speakCalls, 0, reason: 'prefetch must never autoplay');
+  });
 
   testWidgets(
     'one intro state calls its injected prefetcher once per line, never again on rebuild',

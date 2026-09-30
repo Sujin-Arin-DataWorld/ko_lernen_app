@@ -4,10 +4,29 @@ import 'package:ko_lernen_app/features/guide/guide_scenario_category_stock.dart'
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 
+import '../../support/scenario_stock_fixtures.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   tearDown(ScenarioLoader.reset);
+
+  for (final count in [0, 4, 5]) {
+    test('guide hides a shelf with $count distinct engine questions', () {
+      final lesson = _scenario(
+        id: 'threshold',
+        level: LearnerLevel.a1,
+        shelf: 'a1_eat',
+        quests: List.generate(count, question),
+      );
+      final stock = GuideScenarioCategoryStockLoader.project(
+        level: LearnerLevel.a1,
+        corpus: [lesson],
+      );
+      expect(stock.length, count == 5 ? 1 : 0);
+      expect(lesson.quests.length, count);
+    });
+  }
 
   test('browse-level resolution mirrors the non-progress library filter', () {
     expect(
@@ -89,7 +108,9 @@ void main() {
           final count = corpus
               .where(
                 (scenario) =>
-                    scenario.level == level && scenario.shelf == shelfId,
+                    scenario.level == level &&
+                    scenario.shelf == shelfId &&
+                    !scenario.id.contains('theme_park_date'),
               )
               .length;
           if (count > 0) {
@@ -142,6 +163,7 @@ Scenario _scenario({
   required String id,
   required LearnerLevel level,
   required String shelf,
+  List<QuestSpec>? quests,
 }) => Scenario(
   id: id,
   level: level,
@@ -152,6 +174,6 @@ Scenario _scenario({
   vocab: const [],
   grammarIds: const [],
   dialog: const [],
-  quests: const [],
+  quests: quests ?? stockQuestions,
   shelf: shelf,
 );

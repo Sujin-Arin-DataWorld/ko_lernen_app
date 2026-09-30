@@ -8,7 +8,6 @@
   "srsRecoveryRetry": "Wiederholung erneut speichern",
   "@@locale": "de",
   "learningPhasesTitle": "30 Lernphasen",
-  "learningPhasesIntro": "Entdecke die Lernziele von A1 bis C2 und übe dazu passende Gespräche. Dein bisheriger Lernfortschritt bleibt erhalten.",
   "learningPhasePracticeTitle": "Verwandte Gespräche frei üben",
   "learningPhasePracticeScope": "Hier übst du verwandte Themen. Diese Gespräche werden weiterhin über die bisherigen Missionsprüfungen erfasst. Bewertungen aus verfügbaren Phasenaufgaben werden separat gespeichert.",
   "learningPhaseImagePreparing": "Bild in Vorbereitung",
@@ -893,6 +892,8 @@
   "gyeErrAgeRestricted": "Gye ist ab 16 Jahren nutzbar. Da nur dein lokal selbst angegebenes Geburtsjahr gespeichert wird, prüft die App konservativ und schaltet erst bei mindestens 17 Jahren Jahresdifferenz frei.",
   "gyeAgeYearTitle": "Geburtsjahr",
   "gyeAgeYearBody": "Gye ist ab 16 Jahren nutzbar. Dein Geburtsjahr ist eine Selbstauskunft, wird nur auf diesem Gerät gespeichert und ist keine Identitätsprüfung. Ohne Monat und Tag wird konservativ erst bei mindestens 17 Jahren Jahresdifferenz freigeschaltet.",
+  "privacyAgeYearBody": "Für freiwillige Nutzungsstatistiken und Absturzberichte braucht die App zuerst deine Altersangabe. Dein selbst angegebenes Geburtsjahr bleibt auf diesem Gerät. Ohne Monat und Tag schalten wir diese Optionen konservativ erst bei mindestens 17 Jahren Jahresdifferenz frei.",
+  "privacyAgeRestricted": "Nutzungsstatistiken und Absturzberichte können mit dieser Altersangabe nicht aktiviert werden. Die App prüft wegen der jahresgenauen Angabe konservativ erst ab mindestens 17 Jahren Jahresdifferenz.",
   "gyeAgeYearHint": "z. B. 2005",
   "gyeOpenCta": "Gye öffnen",
   "gyeTitle": "Gye",
@@ -1025,6 +1026,11 @@
   "bookResultCredentialsNotice": "Die geschützte Analyse ist auf diesem Gerät nicht verfügbar. Melde dich an, prüfe die Verbindung und versuche es erneut.",
   "bookResultRateLimited": "Cloud-Analyse-Limit erreicht. Bitte versuche es in einer Minute erneut.",
   "bookResultQualityNotice": "Unsichere oder nicht-koreanische Inhalte wurden nicht in Wörter, Grammatik oder Audio übernommen.",
+  "bookResultAmbiguousWord": "Dieses Wort kann mehrere Bedeutungen haben. Prüfe, welche zum Satz passt.",
+  "bookResultAlternativeWord": "Auch {word} ist möglich. Prüfe, welche Bedeutung zum Satz passt.",
+  "@bookResultAlternativeWord": {
+    "placeholders": {"word": {"type": "String"}}
+  },
   "bookResultTranslationUnavailable": "Der Übersetzungsdienst hat nicht alle Bedeutungen geliefert. Prüfe das Ergebnis vor dem Speichern oder versuche es erneut.",
   "bookResultNoKoreanNotice": "Es blieb kein verlässlicher koreanischer Text übrig. Bitte prüfe den Text oder nimm die Seite neu auf.",
   "bookResultSectionWords": "Wörter",
@@ -1691,7 +1697,7 @@
   "listeningReviewTitle": "Zeile für Zeile wiederholen",
   "listeningReviewBody": "Hör einzelne Zeilen erneut und öffne die Übersetzung nur bei Bedarf.",
   "listeningReviewCta": "Zeile für Zeile wiederholen",
-  "listeningBackToScroll": "Zurück zur Schriftrolle",
+  "listeningBackToScroll": "Zurück zum Dialog",
   "listeningNextStory": "Nächste Geschichte",
   "listeningTtsFailedTitle": "Diese Zeile konnte nicht abgespielt werden.",
   "listeningTtsFailedBody": "Versuch es erneut oder lerne mit dem koreanischen Text weiter.",
@@ -1933,7 +1939,7 @@
   "kkeunmariSubmit": "Senden",
   "kkeunmariDictionaryChecking": "Wörterbuch wird geprüft…",
   "kkeunmariNotDictionaryWord": "Dieses Wort ist kein gültiges Wörterbuch-Stichwort für das Spiel.",
-  "kkeunmariDictionaryUnavailable": "Das Wörterbuch kann gerade nicht geprüft werden. Versuche ein bekanntes Wort oder probiere es gleich noch einmal.",
+  "kkeunmariDictionaryUnavailable": "Das Online-Wörterbuch ist gerade nicht erreichbar. Deine Zeit bleibt stehen. Versuche ein anderes Wort oder sende dieses noch einmal.",
   "kkeunmariNotInPool": "Das kenne ich noch nicht. Versuch ein anderes Wort. 🐯",
   "kkeunmariNotKorean": "Nur Hangul-Wörter, bitte",
   "kkeunmariWrongStart": "Muss mit »{syl}« anfangen",
@@ -3346,6 +3352,14 @@
     }
   },
   "placementTitle": "Kurzer Einstufungscheck",
+  "placementSkip": "Das weiß ich noch nicht",
+  "placementScope": "18 Fragen von A1 bis C2. Für eine Empfehlung brauchst du auf jeder Stufe bis dahin mindestens zwei richtige Antworten. Der Check prüft das Verstehen, nicht das Sprechen oder Schreiben, und ist kein Sprachzertifikat.",
+  "coursePreviewTitle": "Lerninhalte ansehen",
+  "coursePreviewBody": "Entdecke Themen, Lernziele und Übungen von A1 bis C2. Das Anschauen ändert weder deinen Startpunkt noch deinen Lernfortschritt.",
+  "hanokHowTitle": "Wie wächst mein Hanok?",
+  "hanokHowBody": "Öffne deinen Lernpfad und schließe eine Lerneinheit mit den zugehörigen Übungen und Prüfungen ab. Abgeschlossene Einheiten von A1 bis B2 bringen den Hanok hier voran. Ein höher gewählter Startpunkt oder das Wiederholen einer bereits abgeschlossenen Einheit bringt keinen zusätzlichen Baufortschritt. Die Bauphasen kannst du auch separat erkunden; allein durch das Anschauen wächst dein Hanok nicht.",
+  "hanokHowAction": "Meinen Lernpfad öffnen",
+  "dictionaryOfflineSourceRole": "Offline-Prüfung von Nomen für die Wortkette; nur Stichwörter, keine Definitionen.",
   "placementProgress": "Frage {current} von {total}",
   "@placementProgress": {
     "placeholders": {
@@ -4402,6 +4416,14 @@
   },
   "ttsUnavailableChannelOff": "Aussprache ist stumm geschaltet. Einstellungen → Ton",
   "ttsUnavailableQuota": "Heutiges Sprachlimit erreicht. Morgen geht es weiter.",
+  "ttsUnavailableSession": "Deine Sitzung konnte nicht bestätigt werden. Öffne die App erneut und versuch es noch einmal.",
+  "@ttsUnavailableSession": {
+    "description": "TTS authentication or local account session unavailable; does not claim token expiry"
+  },
+  "ttsUnavailablePolicy": "Neue Audioaufnahmen sind vorübergehend pausiert. Vorhandene Aufnahmen kannst du weiter anhören.",
+  "@ttsUnavailablePolicy": {
+    "description": "Service cost policy blocks new TTS synthesis; existing cached audio remains available"
+  },
   "ttsUnavailableHourlyQuota": "Für diese Stunde ist das Sprachlimit erreicht. Versuch es später noch einmal.",
   "@ttsUnavailableHourlyQuota": {
     "description": "Shown when the global hourly synthesis limit is reached; cached audio remains available."
@@ -4658,7 +4680,7 @@
   "settingsBrowseLevelTitle": "Stufe zum Stöbern",
   "settingsBrowseLevelDescription": "Filtert nur Bibliotheken und Szenarien. Dein Lernpfad-Fortschritt bleibt unverändert.",
   "settingsRecheckLevelTitle": "Mein Level neu einschätzen",
-  "settingsRecheckLevelDescription": "Mache freiwillig einen Test mit acht Aufgaben. Das Ergebnis ist eine Empfehlung; den Startpunkt wählst weiterhin du.",
+  "settingsRecheckLevelDescription": "Probiere 18 Fragen von A1 bis C2. Das Ergebnis empfiehlt einen Startpunkt fürs Lernen; du kannst auch eine andere Stufe wählen.",
   "settingsCompanionVisibleTitle": "Lernfreund anzeigen",
   "settingsCompanionVisibleDescription": "Blende deinen Lernfreund ein oder aus, ohne die gewählte Figur zu ändern.",
   "settingsGuideSection": "App-Anleitung",
@@ -5174,5 +5196,153 @@
   "onboardingJourneyHanokShort": "Dein Hanok",
   "onboardingJourneyCompanionShort": "Deine Begleitung",
   "questUnavailableTitle": "Diese Übung ist nicht verfügbar",
-  "questUnavailableBody": "Geh zurück und wähle eine andere Übung."
+  "questUnavailableBody": "Geh zurück und wähle eine andere Übung.",
+  "contentLearningGoals": "Themen-Lernziele",
+  "contentLearningGoalIntro": "Wie viele Lektionen möchtest du pro Tag lernen? Jedes Niveau hat sein eigenes Ziel.",
+  "contentLearningGoal": "{level} · Tagesziel",
+  "@contentLearningGoal": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "contentLearningGoalCount": "{count, plural, =1{1 Lektion} other{{count} Lektionen}}",
+  "@contentLearningGoalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningFree": "Frei lernen",
+  "contentLearningEditGoal": "Ziel ändern",
+  "contentLearningToday": "Heute: {done} von {total, plural, =1{1 Lektion} other{{total} Lektionen}}",
+  "@contentLearningToday": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningPackProgress": "{done} von {total, plural, =1{1 Lektion} other{{total} Lektionen}} abgeschlossen",
+  "@contentLearningPackProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningResume": "Fortsetzen",
+  "contentLearningStart": "Lektion beginnen",
+  "contentLearningLearn": "Lernen",
+  "contentLearningPractice": "Üben",
+  "contentLearningYourTurn": "Jetzt bist du dran",
+  "contentLearningNext": "Weiter",
+  "contentLearningPrevious": "Zurück",
+  "contentLearningCheck": "Prüfen",
+  "contentLearningFinish": "Lektion abschließen",
+  "contentLearningDone": "Lektion abgeschlossen",
+  "contentLearningTodayDone": "Dein Tagesziel ist erreicht",
+  "contentLearningResult": "{correct} von {total} Antworten richtig. Die Lektion zählt unabhängig vom Ergebnis.",
+  "@contentLearningResult": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningExit": "Zur Themenübersicht",
+  "contentLearningEndToday": "Für heute fertig",
+  "contentLearningPracticePending": "Ausdrücke gelernt · Übungen noch offen",
+  "contentLearningListeningPending": "Fertig gehört · Übungen noch offen",
+  "contentLearningNeedsReview": "Abgeschlossen · Wiederholung nötig",
+  "contentLearningReviewMistakes": "Fehler wiederholen",
+  "contentLearningReviewTopic": "Gelerntes zu diesem Thema wiederholen",
+  "contentLearningNextTopicLesson": "Nächste Lektion zum Thema",
+  "contentLearningEnd": "Alle Lektionen dieses Themas sind abgeschlossen. Du kannst Gelerntes jederzeit wiederholen.",
+  "contentLearningEmpty": "Für dieses Niveau sind noch keine Lektionen verfügbar.",
+  "contentLearningError": "Das hat nicht geklappt. Dein letzter gespeicherter Stand bleibt erhalten. Versuche es noch einmal.",
+  "contentLearningRetry": "Erneut versuchen",
+  "contentLearningAudio": "Anhören",
+  "contentLearningAudioError": "Die Aufnahme konnte nicht abgespielt werden. Tippe zum erneuten Versuch auf Anhören.",
+  "contentLearningTranslation": "Übersetzung zeigen",
+  "contentLearningUsage": "Verwendung und Varianten",
+  "contentLearningEvidence": "Stelle im Dialog",
+  "contentLearningCorrect": "Richtig",
+  "contentLearningIncorrect": "Schau dir die Erklärung an",
+  "contentLearningOrder": "Setze die Wörter in die richtige Reihenfolge. Tippe auf ein gewähltes Wort, um es zurückzulegen.",
+  "contentLearningPosition": "{current} von {total}",
+  "@contentLearningPosition": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningReviewEmpty": "Hier gibt es noch keine gelernten Aufgaben zum Wiederholen.",
+  "contentLearningYou": "Du",
+  "contentLearningNarrator": "Erzählung",
+  "contentLearningReviewNext": "Nächste Wiederholung",
+  "contentLearningReviewDone": "Wiederholung abgeschlossen",
+  "contentLearningPlayAll": "Ab hier abspielen",
+  "contentLearningPause": "Pause",
+  "contentLearningExpressions": "Wichtige Ausdrücke",
+  "contentLearningRoleplay": "Freiwillig: Gespräch üben",
+  "contentLearningGrammar": "Freiwillig: Grammatik ansehen",
+  "contentLearningRoleplayHint": "Antworte laut auf die vorige Zeile. Du kannst die ursprüngliche Antwort danach aufdecken.",
+  "contentLearningReveal": "Antwort aufdecken",
+  "contentLearningBackResult": "Zurück zum Ergebnis",
+  "contentLearningReviewResult": "{correct} von {total} Antworten richtig. Deine Wiederholung verändert das Tagesziel nicht.",
+  "@contentLearningReviewResult": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningExpressionCount": "{count, plural, =1{1 Ausdruck} other{{count} Ausdrücke}}",
+  "@contentLearningExpressionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningScenarioCount": "{count, plural, =1{1 Gespräch} other{{count} Gespräche}}",
+  "@contentLearningScenarioCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningShortLesson": "Kurze Lektion · {count, plural, =1{1 Ausdruck} other{{count} Ausdrücke}}",
+  "@contentLearningShortLesson": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningLearnAgain": "Noch einmal lernen",
+  "contentLearningListenAgain": "Noch einmal hören",
+  "kkeunmariSelectionHint": "Du spielst mit deinen ausgewählten Wörtern, die im geprüften Spielwörterbuch stehen. Mindestens zwei müssen sich verbinden lassen.",
+  "kkeunmariSelectionEmpty": "In deiner Auswahl gibt es noch keine Wortkette. Wähle mindestens zwei Wörter aus dem Spielwörterbuch, bei denen die letzte Silbe des einen die erste des anderen ist.",
+  "kkeunmariNotInSelection": "Dieses Wort gehört nicht zu deiner Auswahl für diese Runde."
 }

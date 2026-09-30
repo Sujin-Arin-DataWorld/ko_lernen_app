@@ -71142,13 +71142,17 @@
         },
         {
           "phraseId": "smalltalk_a1_0003",
-          "phraseFingerprintSha256": "3cf82d9760e7668e604e0238395682fb41dc843cfd3011a2e58f71a897334bea",
+          "phraseFingerprintSha256": "5544b57a265ca0810a88a6af64bdf74c5ea0fe88435c3b1c056f30b8c1c15460",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a1_12_daily_negation",
           "canDoFingerprintSha256": "fbea0f8682214cf2ea2c2d029ca3522039241f46111ce026233ae8f5a6d42658",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_translation_corrections_20260922.json",
+          "previousPhraseFingerprintSha256": "3cf82d9760e7668e604e0238395682fb41dc843cfd3011a2e58f71a897334bea"
         },
         {
           "phraseId": "smalltalk_a1_0004",

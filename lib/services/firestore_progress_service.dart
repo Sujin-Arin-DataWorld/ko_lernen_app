@@ -611,6 +611,20 @@ class FirestoreProgressService {
   }
 
   static Future<CloudWriteResult> savePackWithResult(PackProgress p) async {
+    try {
+      return await withNetTimeout(
+        savePackAcknowledged(p),
+        scope: 'firestore_progress.save_pack_write',
+      );
+    } catch (_) {
+      return CloudWriteResult.blocked;
+    }
+  }
+
+  /// Original server acknowledgement for the background backup queue.
+  /// The queue bounds its caller's wait but retains this future after timeout,
+  /// so another lifecycle event cannot start a duplicate pending transaction.
+  static Future<CloudWriteResult> savePackAcknowledged(PackProgress p) async {
     final uid = AuthService.cloudBackupUid;
     if (uid == null) {
       return CloudWriteResult.blocked;
@@ -624,7 +638,7 @@ class FirestoreProgressService {
       prepare: () async {
         final db = _db;
         if (db == null) {
-          return;
+          throw StateError('Pack backup database unavailable');
         }
         firestore = db;
         payload = Map<String, dynamic>.from(p.toJson())
@@ -641,27 +655,24 @@ class FirestoreProgressService {
               .doc(uid)
               .collection('packs');
           final membershipRef = _membershipDocument(db, uid);
-          await withNetTimeout(
-            db.runTransaction((transaction) async {
-              final membershipSnapshot = await transaction.get(membershipRef);
-              final current = _membershipFromData(
-                membershipSnapshot.data(),
-                exists: membershipSnapshot.exists,
-              );
-              final next = current.afterWriting([p.packId]);
-              transaction.set(
-                collection.doc(p.packId),
-                data,
-                SetOptions(merge: true),
-              );
-              transaction.set(membershipRef, {
-                'revision': next.revision,
-                'pack_ids': next.packIds.toList()..sort(),
-                'updatedAt': FieldValue.serverTimestamp(),
-              });
-            }),
-            scope: 'firestore_progress.save_pack_write',
-          );
+          await db.runTransaction((transaction) async {
+            final membershipSnapshot = await transaction.get(membershipRef);
+            final current = _membershipFromData(
+              membershipSnapshot.data(),
+              exists: membershipSnapshot.exists,
+            );
+            final next = current.afterWriting([p.packId]);
+            transaction.set(
+              collection.doc(p.packId),
+              data,
+              SetOptions(merge: true),
+            );
+            transaction.set(membershipRef, {
+              'revision': next.revision,
+              'pack_ids': next.packIds.toList()..sort(),
+              'updatedAt': FieldValue.serverTimestamp(),
+            });
+          });
         }
       },
     );

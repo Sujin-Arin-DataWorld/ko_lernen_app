@@ -126,6 +126,7 @@ class ContentTextAuditTest(unittest.TestCase):
                     "ko": "근거를 같이 확인해 볼까요?",
                     "de": "Wollen wir die Belege gemeinsam prüfen?",
                     "en": "Shall we check the evidence together?",
+                    "evidenceKo": "근거를 같이 확인해 볼까요?",
                     "reply": {
                         "ko": "좋아요.",
                         "de": "Gern.",
@@ -143,6 +144,7 @@ class ContentTextAuditTest(unittest.TestCase):
                 "$.phrases[0].ko",
                 "$.phrases[0].de",
                 "$.phrases[0].en",
+                "$.phrases[0].evidenceKo",
                 "$.phrases[0].reply.ko",
                 "$.phrases[0].reply.de",
                 "$.phrases[0].reply.en",
@@ -152,7 +154,7 @@ class ContentTextAuditTest(unittest.TestCase):
         self.assertEqual({leaf["level"] for leaf in leaves}, {"c1"})
         self.assertEqual(
             [leaf["language"] for leaf in leaves],
-            ["ko", "de", "en", "ko", "de", "en"],
+            ["ko", "de", "en", "ko", "ko", "de", "en"],
         )
         self.assertEqual(leaves[0]["text"], "근거를 같이 확인해 볼까요?")
         self.assertTrue(all(len(leaf["sha256"]) == 64 for leaf in leaves))

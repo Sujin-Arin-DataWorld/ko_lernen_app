@@ -3,12 +3,35 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
-const {readCostControl, prepareCostReservation} = require("./service_cost_policy");
+const {ServiceCostError, readCostControl, prepareCostReservation, recordCostApprovalFailure} = require("./service_cost_policy");
 const fixture = require("../../test/fixtures/access_policy/cost-v1.json");
 
 test("deployed TTS cost boundary equals canonical Node source", () => {
   const read = (p) => fs.readFileSync(path.join(__dirname, p), "utf8").replace(/\r\n/g, "\n");
   assert.equal(read("service_cost_policy.js"), read("../pronunciation/service_cost_policy.js"));
+});
+
+test("cost diagnostics ignore untyped errors, other categories and unknown services", () => {
+  const logs = [];
+  const logger = {warn: (...args) => logs.push(args)};
+  for (const error of [
+    Object.assign(new Error("PRIVATE_CANARY"), {reason: "approval_unavailable"}),
+    new ServiceCostError("resource-exhausted", "PRIVATE_CANARY"),
+    new ServiceCostError("unavailable", "AI cost approval unavailable."),
+  ]) recordCostApprovalFailure(error, "tts", logger);
+  recordCostApprovalFailure(new ServiceCostError("unavailable", "PRIVATE_CANARY", "approval_unavailable"), "PRIVATE_SERVICE_CANARY", logger);
+  assert.deepEqual(logs, []);
+});
+
+test("cost diagnostic never logs the error message or lets a broken sink escape", () => {
+  const error = new ServiceCostError("unavailable", "PRIVATE_ERROR_CANARY", "approval_unavailable");
+  error.uid = "PRIVATE_UID_CANARY";
+  const logs = [];
+  recordCostApprovalFailure(error, "tts", {warn: (...args) => logs.push(args)});
+  assert.deepEqual(logs, [["AI cost approval unavailable.", {
+    event: "ai_cost_approval_unavailable", service: "tts", schemaVersion: 1,
+  }]]);
+  assert.doesNotThrow(() => recordCostApprovalFailure(error, "tts", {warn() {throw new Error("sink down");}}));
 });
 
 for (const c of fixture.cases) {

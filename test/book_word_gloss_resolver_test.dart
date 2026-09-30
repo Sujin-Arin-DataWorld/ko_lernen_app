@@ -35,6 +35,7 @@ void main() {
         const expectedHeadwords = <String>{
           '안녕하세요',
           '저',
+          '학생',
           '오늘',
           '학교',
           '가다',
@@ -61,14 +62,30 @@ void main() {
           expect(byKorean[headword]!.source, 'bundled');
         }
 
-        // The one documented miss (irregular copula) never leaks through.
+        // Return the nominal headword, not the copular surface token.
         expect(byKorean.containsKey('학생이에요'), isFalse);
 
-        // Ratio computed from the fixture's authored token table (see the
-        // doc comment on buildF1TextbookPageDocument) and cross-checked by
-        // the per-headword presence assertions above.
-        final resolvedTokens = kF1TotalHangulTokens - kF1KnownMissTokens.length;
-        expect(resolvedTokens / kF1TotalHangulTokens, greaterThanOrEqualTo(0.95));
+        // Measure the real output per sentence, including repeated tokens;
+        // an assumed count minus a fixed known-miss list cannot prove coverage.
+        var totalTokens = 0;
+        var resolvedTokens = 0;
+        for (final unit in document.analysisUnits) {
+          final sentenceWords = await resolver.resolve(
+            buildGlossLineDocument(unit.korean),
+            targetLang: 'de',
+          );
+          for (final token in RegExp(r'[가-힣]+').allMatches(unit.korean)) {
+            final headword = kF1ExpectedTokenHeadwords[token.group(0)];
+            expect(headword, isNotNull, reason: token.group(0));
+            totalTokens++;
+            if (sentenceWords.any((word) => word.korean == headword)) {
+              resolvedTokens++;
+            }
+          }
+        }
+        expect(totalTokens, kF1TotalHangulTokens);
+        expect(resolvedTokens / totalTokens, greaterThanOrEqualTo(0.95));
+        expect(resolvedTokens, totalTokens);
 
         // 0 German tokens in output: every resolved word's korean field is
         // pure Hangul, and none of the printed German glosses leaked in as a
@@ -116,31 +133,34 @@ void main() {
   });
 
   group('F2 — particle stripping and verb endings', () {
-    test('nouns lose their particle, verbs resolve to their headword', () async {
-      final document = buildF2ParticleAndVerbDocument();
-      final resolver = BookWordGlossResolver();
+    test(
+      'nouns lose their particle, verbs resolve to their headword',
+      () async {
+        final document = buildF2ParticleAndVerbDocument();
+        final resolver = BookWordGlossResolver();
 
-      final words = await resolver.resolve(document, targetLang: 'de');
-      final byKorean = {for (final w in words) w.korean: w};
+        final words = await resolver.resolve(document, targetLang: 'de');
+        final byKorean = {for (final w in words) w.korean: w};
 
-      const expected = <String, String>{
-        '학교에서': '학교',
-        '친구를': '친구',
-        '책은': '책',
-        '먹어요': '먹다',
-        '가요': '가다',
-        '봐요': '보다',
-      };
-      for (final entry in expected.entries) {
-        expect(
-          byKorean.containsKey(entry.value),
-          isTrue,
-          reason: '${entry.key} should resolve to headword ${entry.value}',
-        );
-        expect(byKorean[entry.value]!.source, 'bundled');
-      }
-      expect(words, hasLength(expected.length));
-    });
+        const expected = <String, String>{
+          '학교에서': '학교',
+          '친구를': '친구',
+          '책은': '책',
+          '먹어요': '먹다',
+          '가요': '가다',
+          '봐요': '보다',
+        };
+        for (final entry in expected.entries) {
+          expect(
+            byKorean.containsKey(entry.value),
+            isTrue,
+            reason: '${entry.key} should resolve to headword ${entry.value}',
+          );
+          expect(byKorean[entry.value]!.source, 'bundled');
+        }
+        expect(words, hasLength(expected.length));
+      },
+    );
   });
 
   group('F3 — page-hint tier', () {
@@ -212,31 +232,34 @@ void main() {
   });
 
   group('tier 3 — server merge', () {
-    test('server words win over a bundled match for the same headword', () async {
-      final document = buildF2ParticleAndVerbDocument(); // contains 학교에서
-      final resolver = BookWordGlossResolver();
+    test(
+      'server words win over a bundled match for the same headword',
+      () async {
+        final document = buildF2ParticleAndVerbDocument(); // contains 학교에서
+        final resolver = BookWordGlossResolver();
 
-      final words = await resolver.resolve(
-        document,
-        targetLang: 'de',
-        serverWords: const [
-          ExtractedWord(
-            korean: '학교',
-            romanization: 'hakgyo',
-            posDe: 'Nomen',
-            translationDe: 'SERVER_SCHULE',
-            translationEn: 'SERVER_SCHOOL',
-            exampleKorean: '',
-            exampleDe: '',
-            savedToPackId: null,
-          ),
-        ],
-      );
-      final byKorean = {for (final w in words) w.korean: w};
+        final words = await resolver.resolve(
+          document,
+          targetLang: 'de',
+          serverWords: const [
+            ExtractedWord(
+              korean: '학교',
+              romanization: 'hakgyo',
+              posDe: 'Nomen',
+              translationDe: 'SERVER_SCHULE',
+              translationEn: 'SERVER_SCHOOL',
+              exampleKorean: '',
+              exampleDe: '',
+              savedToPackId: null,
+            ),
+          ],
+        );
+        final byKorean = {for (final w in words) w.korean: w};
 
-      expect(byKorean['학교']!.translationDe, 'SERVER_SCHULE');
-      expect(byKorean['학교']!.source, 'server');
-      expect(byKorean['학교']!.confidence, closeTo(0.9, 0.0001));
-    });
+        expect(byKorean['학교']!.translationDe, 'SERVER_SCHULE');
+        expect(byKorean['학교']!.source, 'server');
+        expect(byKorean['학교']!.confidence, closeTo(0.9, 0.0001));
+      },
+    );
   });
 }

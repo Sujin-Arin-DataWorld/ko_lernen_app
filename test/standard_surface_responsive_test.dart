@@ -44,6 +44,7 @@ import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:ko_lernen_app/widgets/sori/window_class.dart';
+import 'support/scenario_stock_fixtures.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -301,7 +302,7 @@ void main() {
     await tester.pumpWidget(
       _host(
         ScenariosListScreen(
-          loadScenarios: () async => const [_scenarioFixture],
+          loadScenarios: () async => [stockedCatalogLesson(_scenarioFixture)],
         ),
       ),
     );

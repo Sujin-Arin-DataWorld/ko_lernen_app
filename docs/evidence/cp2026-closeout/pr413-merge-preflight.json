@@ -1,0 +1,57 @@
+{
+  "checkedAt": "2026-09-28T21:43:37.230741+00:00",
+  "pr": 413,
+  "head": "f473dc01c2008bc98e24c8684eeaa64cd37af8a5",
+  "base": "474a010aa7025320644ebfd3eb5c7eb282972278",
+  "gates": {
+    "474a010aa7025320644ebfd3eb5c7eb282972278": {
+      "CI": {
+        "conclusion": "success",
+        "createdAt": "2026-09-28T20:47:59Z",
+        "databaseId": 36481735551,
+        "event": "push",
+        "headSha": "474a010aa7025320644ebfd3eb5c7eb282972278",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36481735551",
+        "workflowName": "CI"
+      },
+      "Playwright Tests": {
+        "conclusion": "success",
+        "createdAt": "2026-09-28T20:47:59Z",
+        "databaseId": 36481735467,
+        "event": "push",
+        "headSha": "474a010aa7025320644ebfd3eb5c7eb282972278",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36481735467",
+        "workflowName": "Playwright Tests"
+      }
+    },
+    "f473dc01c2008bc98e24c8684eeaa64cd37af8a5": {
+      "CI": {
+        "conclusion": "success",
+        "createdAt": "2026-09-28T20:58:00Z",
+        "databaseId": 36482888714,
+        "event": "pull_request",
+        "headSha": "f473dc01c2008bc98e24c8684eeaa64cd37af8a5",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36482888714",
+        "workflowName": "CI"
+      },
+      "Playwright Tests": {
+        "conclusion": "success",
+        "createdAt": "2026-09-28T20:58:00Z",
+        "databaseId": 36482888596,
+        "event": "pull_request",
+        "headSha": "f473dc01c2008bc98e24c8684eeaa64cd37af8a5",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36482888596",
+        "workflowName": "Playwright Tests"
+      }
+    }
+  },
+  "reviewPages": 1,
+  "reviewThreads": [],
+  "merged": false,
+  "releaseStartedByThisMerge": false,
+  "androidOpenTestingAuthorized": true
+}

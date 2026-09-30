@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_hanok_screen.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
@@ -236,6 +237,61 @@ void main() {
     );
     expect(find.text('Title 8'), findsOneWidget);
   });
+
+  testWidgets(
+    'Hanok help explains progress and opens the learning path without awarding',
+    (tester) async {
+      tester.view.physicalSize = const Size(320, 640);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final before = Storage.courseMasterySnapshotRawJson;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          locale: const Locale('en'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          builder: (context, child) => MediaQuery(
+            data: MediaQuery.of(
+              context,
+            ).copyWith(textScaler: const TextScaler.linear(2)),
+            child: child!,
+          ),
+          home: SoriStageHanokScreen(
+            loadSnapshot: () async =>
+                _snapshot(questDone: false, pendingBojagi: 0),
+            loadConstruction: () async => _constructionFixture(),
+          ),
+          routes: {
+            '/path': (_) => const Scaffold(body: Text('Learning path target')),
+          },
+        ),
+      );
+      await tester.pumpAndSettle();
+      final help = find.text('How does my Hanok grow?');
+      await tester.scrollUntilVisible(
+        help,
+        240,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(help);
+      await tester.pumpAndSettle();
+      final action = find.widgetWithText(SoriButton, 'Open my learning path');
+      await tester.scrollUntilVisible(
+        action,
+        240,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.ensureVisible(action);
+      await tester.pumpAndSettle();
+      await tester.tap(action);
+      await tester.pumpAndSettle();
+      expect(find.text('Learning path target'), findsOneWidget);
+      expect(Storage.courseMasterySnapshotRawJson, before);
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets('Hanok Stage shortcuts stay complete at 320dp and 200%', (
     tester,

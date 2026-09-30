@@ -1,3 +1,4 @@
+import '../features/content_learning/content_learning_widgets.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -398,6 +399,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                           },
                         ),
                         const SizedBox(height: Spacing.lg),
+                        const ContentDailyGoals(),
                         _SarangbangReturnActions(
                           canOpenToday:
                               !(_snapshot?.isUnavailable ?? false) &&

@@ -41,16 +41,23 @@ class CloudWriteSession {
 class CloudWriteSessionController {
   CloudWriteSession? _current;
   int _latestEpoch = 0;
+  int _identityEpoch = 0;
   bool _hasBeenActivated = false;
   final ValueNotifier<CloudWriteSession?> _changes =
       ValueNotifier<CloudWriteSession?>(null);
 
   CloudWriteSession? get current => _current;
+
+  /// Process-local identity generation, including sign-out and same-UID
+  /// reacquisition. Permission-only transitions keep pending local work owned
+  /// by the same identity; A-to-B-to-A must never revive an old snapshot.
+  int get identityEpoch => _identityEpoch;
   bool get hasBeenActivated => _hasBeenActivated;
   ValueListenable<CloudWriteSession?> get changes => _changes;
 
   CloudWriteSession acquire(String uid) {
     _requireUid(uid);
+    _identityEpoch++;
     final session = CloudWriteSession(
       uid: uid,
       epoch: ++_latestEpoch,
@@ -81,6 +88,9 @@ class CloudWriteSessionController {
       throw StateError('Cannot resume a stale cloud-write session.');
     }
     _latestEpoch = session.epoch;
+    if (current == null) {
+      _identityEpoch++;
+    }
     _hasBeenActivated = true;
     _setCurrent(session);
     return session;
@@ -114,6 +124,7 @@ class CloudWriteSessionController {
   }
 
   void clear() {
+    _identityEpoch++;
     _setCurrent(null);
   }
 

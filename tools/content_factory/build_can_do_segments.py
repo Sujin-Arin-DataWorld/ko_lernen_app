@@ -37,6 +37,10 @@ CONTENT_HUMANIZATION_LEDGER_PATH = (
 CONTENT_HUMANIZATION_LEDGER_REF = (
     "tools/content_factory/review/content_humanization_20260821.json"
 )
+SMALLTALK_TRANSLATION_LEDGER_REF = (
+    "tools/content_factory/review/smalltalk_translation_corrections_20260922.json"
+)
+SMALLTALK_TRANSLATION_LEDGER_PATH = ROOT / SMALLTALK_TRANSLATION_LEDGER_REF
 PUBLISHED_AT = "2026-08-16T00:00:00.000Z"
 LEVELS = ("a1", "a2", "b1", "b2", "c1", "c2")
 EXPECTED_COUNTS = {"a1": 16, "a2": 16, "b1": 18, "b2": 20, "c1": 8, "c2": 8}
@@ -1294,6 +1298,20 @@ def _at_nested_field(record: dict[str, Any], field_path: str) -> tuple[dict[str,
 
 def _copy_revision_metadata(row: dict[str, Any]) -> dict[str, Any] | None:
     changes = _humanization_changes_by_id().get(row["id"])
+    ledger_ref = CONTENT_HUMANIZATION_LEDGER_REF
+    ledger = _read_json(SMALLTALK_TRANSLATION_LEDGER_PATH)
+    if ledger.get("scope") != "assets/data/smalltalk.json":
+        raise ValueError("smalltalk translation ledger has an unexpected scope")
+    translation_changes = [
+        change for change in ledger["changes"] if change["id"] == row["id"]
+    ]
+    if translation_changes:
+        if changes:
+            raise ValueError(f"{row['id']}: overlapping copy revision ledgers")
+        if any(change["field"] not in {"de", "en"} for change in translation_changes):
+            raise ValueError("smalltalk translation ledger must only change DE/EN copy")
+        changes = translation_changes
+        ledger_ref = SMALLTALK_TRANSLATION_LEDGER_REF
     if not changes:
         return None
     previous = copy.deepcopy(row)
@@ -1302,14 +1320,14 @@ def _copy_revision_metadata(row: dict[str, Any]) -> dict[str, Any] | None:
         if current_parent.get(current_key) != change["after"]:
             raise ValueError(
                 f"{row['id']}.{change['field']}: live copy does not match "
-                "the humanization ledger"
+                f"the copy revision ledger {ledger_ref}"
             )
         previous_parent, previous_key = _at_nested_field(previous, change["field"])
         previous_parent[previous_key] = change["before"]
     return {
         "copyRevision": 1,
         "copyReviewStatus": "nativeReviewRequired",
-        "copyRevisionLedger": CONTENT_HUMANIZATION_LEDGER_REF,
+        "copyRevisionLedger": ledger_ref,
         "previousPhraseFingerprintSha256": _json_fingerprint(previous),
     }
 
@@ -4331,7 +4349,10 @@ def _validate_smalltalk_review_history(
                 )
             if decision.get("copyReviewStatus") != "nativeReviewRequired":
                 raise ValueError(f"smalltalk {phrase_id!r} copy review gate is invalid")
-            if decision.get("copyRevisionLedger") != CONTENT_HUMANIZATION_LEDGER_REF:
+            if decision.get("copyRevisionLedger") not in {
+                CONTENT_HUMANIZATION_LEDGER_REF,
+                SMALLTALK_TRANSLATION_LEDGER_REF,
+            }:
                 raise ValueError(f"smalltalk {phrase_id!r} copy revision ledger is invalid")
             previous_fingerprint = decision.get("previousPhraseFingerprintSha256")
             if old.get("phraseFingerprintSha256") not in {
@@ -4352,6 +4373,11 @@ def _validate_smalltalk_review_history(
             }
             keys = set(old) | set(decision)
             if any(old.get(key) != decision.get(key) for key in keys - ignored):
+                if decision["copyRevisionLedger"] == SMALLTALK_TRANSLATION_LEDGER_REF:
+                    raise ValueError(
+                        f"smalltalk {phrase_id!r} translation correction changed "
+                        "its semantic route"
+                    )
                 # C7b, Jin 승인 2026-09-15: PR #288's curriculum canDo-text
                 # edits shifted canDoFingerprintSha256 for many segments
                 # without actually re-routing any copy-revision phrase --

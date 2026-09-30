@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:ui' show Rect;
 
@@ -10,15 +11,15 @@ import '../models/book_page.dart';
 import 'book_analysis_text.dart';
 import 'book_ocr_document.dart';
 import 'book_word_gloss_resolver.dart';
-import 'dart:async' show unawaited;
 import 'diagnostics_service.dart';
+import 'net/sori_net.dart';
 
 /// Phase 5 (stately-rising-jongga) — Cloud Function 클라이언트 + 로컬 fallback.
 ///
 /// **흐름**:
 ///   1. POST → a fixed trusted Cloud Function URL with verified credentials
-///   2. 5초 timeout / 5xx 응답 시 → **로컬 stub** 으로 graceful degrade
-///      (grammar pattern 만 작동, 번역은 placeholder)
+///   2. Credentials have an 8-second deadline; the full HTTP response has
+///      a separate 12-second deadline. Failures use bundled local analysis.
 ///
 /// The production request target is intentionally fixed. This avoids sending
 /// user text or Firebase credentials to a value that can be edited locally.
@@ -67,7 +68,23 @@ class BookAnalysisService {
       );
     }
 
-    final credentials = await (credentialsProvider ?? firebaseCredentials)();
+    BookAnalysisCredentials? credentials;
+    try {
+      // Await tokens before constructing the request. Late SDK completion must
+      // not send the page after the learner has already received local results.
+      credentials = await withNetTimeout(
+        (credentialsProvider ?? firebaseCredentials)(),
+        scope: 'book_analysis.credentials',
+      );
+    } on Exception catch (error, stackTrace) {
+      unawaited(
+        DiagnosticsService.reportSwallowed(
+          'book_analysis_service.credentials',
+          error,
+          stackTrace,
+        ),
+      );
+    }
     if (credentials == null) {
       return _localStub(
         prepared.text,
@@ -200,27 +217,43 @@ class BookAnalysisService {
   }) async {
     final ownsClient = client == null;
     final effectiveClient = client ?? http.Client();
+    final abort = Completer<void>();
     try {
-      final request = http.Request('POST', trustedEndpoint)
-        ..followRedirects = false
-        ..headers.addAll({
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ${credentials.idToken}',
-          'X-Firebase-AppCheck': credentials.appCheckToken,
-        })
-        ..body = jsonEncode(<String, dynamic>{
-          'text': text,
-          'lang': language,
-          'analysisLanguage': language,
-          if (document != null) ...<String, dynamic>{
-            'schemaVersion': BookOcrDocument.schemaVersion,
-            'units': document.toAnalysisRequestUnits(),
-          },
-        });
-      final streamed = await effectiveClient.send(request).timeout(_timeout);
-      return http.Response.fromStream(streamed);
+      final request =
+          http.AbortableRequest(
+              'POST',
+              trustedEndpoint,
+              abortTrigger: abort.future,
+            )
+            ..followRedirects = false
+            ..headers.addAll({
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ${credentials.idToken}',
+              'X-Firebase-AppCheck': credentials.appCheckToken,
+            })
+            ..body = jsonEncode(<String, dynamic>{
+              'text': text,
+              'lang': language,
+              'analysisLanguage': language,
+              if (document != null) ...<String, dynamic>{
+                'schemaVersion': BookOcrDocument.schemaVersion,
+                'units': document.toAnalysisRequestUnits(),
+              },
+            });
+      // One deadline covers both headers and the entire body, including a
+      // stalled or slowly trickling stream. Await before closing our client.
+      return await (() async {
+        final streamed = await effectiveClient.send(request);
+        return http.Response.fromStream(streamed);
+      })().timeout(_timeout);
     } finally {
-      if (ownsClient) effectiveClient.close();
+      // Default IO/browser clients abort the pending request/body on timeout.
+      // The trigger is harmless once the body has completed. Injected clients
+      // stay caller-owned and may have their own cancellation support.
+      abort.complete();
+      if (ownsClient) {
+        effectiveClient.close();
+      }
     }
   }
 

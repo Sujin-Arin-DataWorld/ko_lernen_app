@@ -215,7 +215,6 @@ class _ListeningScreenState extends State<ListeningScreen>
     final progress = compartment.progress.clamp(0.0, 1.0);
     final doneCount = (progress * compartment.count).round();
     final cleared = stocked && progress >= 1;
-    final vignette = chaekgadoCategoryVignetteAsset(compartment.slug);
     final imageKey = compartment.imageKey;
 
     final footer = Row(
@@ -250,13 +249,7 @@ class _ListeningScreenState extends State<ListeningScreen>
           ? t.listeningShelfScenarioCount(compartment.count)
           : t.listeningShelfEmpty,
       illustrationAsset: imageKey == null ? null : chaekgadoCardAsset(imageKey),
-      fallback: vignette == null
-          ? const _CategoryIconFallback()
-          : Image.asset(
-              vignette,
-              fit: BoxFit.contain,
-              errorBuilder: (_, _, _) => const _CategoryIconFallback(),
-            ),
+      fallback: const _CategoryIconFallback(),
       footer: footer,
       state: cleared
           ? SoriIllustratedCardState.cleared

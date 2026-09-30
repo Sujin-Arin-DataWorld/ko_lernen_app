@@ -6,6 +6,7 @@
 // Lokale Storage-Pfad bleibt voll funktional → testbar.
 
 import 'dart:async';
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -294,7 +295,7 @@ void main() {
         var enqueued = false;
         PackSyncQueue.instance = PackSyncQueue(
           canMirror: () => true,
-          savePack: (_) async {},
+          savePack: (_) async => CloudWriteResult.completed,
           createTimer: (duration, callback) {
             enqueued = true;
             return Timer(duration, callback);

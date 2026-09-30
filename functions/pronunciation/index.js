@@ -6,7 +6,7 @@ const {getAuth} = require("firebase-admin/auth");
 const {HttpsError, onCall} = require("firebase-functions/v2/https");
 const {defineSecret} = require("firebase-functions/params");
 const {PronunciationReceipts} = require("./billable_receipts");
-const {ServiceCostError} = require("./service_cost_policy");
+const {ServiceCostError, recordCostApprovalFailure} = require("./service_cost_policy");
 const {PronunciationRequestError, pronunciationProviderBreaker,
   validatePronunciationRequest, pcm16ToWav, parseAzureAssessment,
 } = require("./pronunciation_request_guard");
@@ -104,6 +104,7 @@ exports.assessPronunciation = onCall({
     }
   } catch (error) {
     if (error instanceof HttpsError) throw error;
+    if (error instanceof ServiceCostError) recordCostApprovalFailure(error, "pronunciation", console);
     if (error instanceof PronunciationRequestError || error instanceof ServiceCostError) throw new HttpsError(error.code, error.message);
     // Never log audio, reference text, tokens, or provider payloads.
     throw unavailable("storage-unavailable");

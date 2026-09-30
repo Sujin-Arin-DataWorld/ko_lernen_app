@@ -219,7 +219,8 @@ void main() {
           expect(
             find.byKey(const ValueKey('sarangchae-stage-artwork-1')),
             findsOneWidget,
-            reason: 'Capture the confirmed first-stage preview, not its loader.',
+            reason:
+                'Capture the confirmed first-stage preview, not its loader.',
           );
           expect(
             find.byKey(const ValueKey('hanok-map-header')),
@@ -365,7 +366,10 @@ void main() {
     expect(find.byKey(const ValueKey('hanok-progress-error')), findsOneWidget);
     expect(find.byKey(const ValueKey('hanok-confirmed-units')), findsNothing);
     expect(
-      find.text(lookupAppL10n(const Locale('en')).btnRetry),
+      find.widgetWithText(
+        TextButton,
+        lookupAppL10n(const Locale('en')).btnRetry,
+      ),
       findsOneWidget,
     );
   });

@@ -145,7 +145,7 @@ void main() {
     final preview = find.byKey(
       const ValueKey('onboarding-v2-hanok-growth-preview'),
     );
-    expect(tester.getSize(preview), const Size(360, 270));
+    expect(tester.getSize(preview), const Size(480, 360));
     final image = tester.widget<Image>(
       find.descendant(of: preview, matching: find.byType(Image)),
     );

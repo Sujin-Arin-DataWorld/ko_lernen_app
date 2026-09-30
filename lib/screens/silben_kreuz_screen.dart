@@ -31,6 +31,7 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
+import '../widgets/sori/window_class.dart';
 
 /// **Silben-Kreuz** — 음절 크로스워드. Wordle식 6줄 보드를 대체한다
 /// (Jin 2026-08-11: "줄끼리 연결이 안 보인다" → 단어들이 공유 음절에서
@@ -572,12 +573,16 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         const maxGap = 10.0;
         const minCell = 48.0;
         final cols = p.cols;
+        final maxCell =
+            constraints.maxWidth >= SoriAdaptiveWidth.crosswordLargeCells
+            ? 96.0
+            : 52.0;
         double cellFor(double gap) =>
-            math.min(52.0, (constraints.maxWidth - (cols - 1) * gap) / cols);
+            math.min(maxCell, (constraints.maxWidth - (cols - 1) * gap) / cols);
         var gap = maxGap;
         var cell = cellFor(gap);
         if (cell < minCell) {
-          final cellNoGap = math.min(52.0, constraints.maxWidth / cols);
+          final cellNoGap = math.min(maxCell, constraints.maxWidth / cols);
           if (cellNoGap >= minCell && cols > 1) {
             gap = ((constraints.maxWidth - minCell * cols) / (cols - 1)).clamp(
               0.0,
@@ -763,8 +768,8 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                 behavior: HitTestBehavior.opaque,
                 onTap: _tileUsed[i] ? null : () => _onTileTap(i, presentation),
                 child: Container(
-                  width: 46,
-                  height: 46,
+                  width: 48,
+                  height: 48,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: s.surface,

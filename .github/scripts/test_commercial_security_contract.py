@@ -57,7 +57,7 @@ class CommercialSecurityContractTest(unittest.TestCase):
 
     def test_ios_jobs_have_distinct_bounded_release_and_cold_intel_budgets(self):
         release, simulator = self.ios_jobs()
-        for job, expected in ((release, "45"), (simulator, "75")):
+        for job, expected in ((release, "45"), (simulator, "90")):
             self.assertEqual(re.findall(r"(?m)^    timeout-minutes: (.+)$", job), [expected])
             self.assertNotIn("continue-on-error", job)
         self.assertIn("xcodebuild test", simulator)
@@ -97,7 +97,12 @@ class CommercialSecurityContractTest(unittest.TestCase):
             # Both runs must retain its data and OS microphone permission.
             self.assertIn('--keep-app-running', command)
             self.assertIn('--no-uninstall-first', command)
-        self.assertIn('xcrun simctl terminate "$simulator_id" com.hangulsori.app', phase)
+        self.assertIn('plutil -extract CFBundleIdentifier raw -o - "$phase_app/Info.plist"', phase)
+        self.assertIn('test -n "$app_bundle_id"', phase)
+        self.assertIn('xcrun simctl get_app_container "$simulator_id" "$app_bundle_id" app', phase)
+        self.assertEqual(phase.count('xcrun simctl terminate "$simulator_id" "$app_bundle_id"'), 2)
+        self.assertEqual(phase.count('grant microphone "$app_bundle_id"'), 2)
+        self.assertNotIn('com.hangulsori.app', phase)
 
     def test_ios_simulator_uses_native_intel_for_locked_mlkit_slices(self):
         release, simulator = self.ios_jobs()
