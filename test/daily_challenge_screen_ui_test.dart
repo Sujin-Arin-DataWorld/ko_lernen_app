@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/features/study_library/study_library.dart';
 import 'package:ko_lernen_app/screens/daily_challenge_screen.dart';
 import 'package:ko_lernen_app/services/cloze_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -15,6 +16,7 @@ import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
+import 'package:ko_lernen_app/widgets/sori/wordbook_add.dart';
 
 const _item = ClozeItem(
   level: 'a1',
@@ -162,6 +164,35 @@ void main() {
     expect(find.text(t.clozeEmptyBody), findsOneWidget);
     expect(find.byType(GameOverCard), findsNothing);
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('unmatched daily answer saves the reviewed full sentence', (
+    tester,
+  ) async {
+    _configureView(tester, const Size(390, 844));
+    await tester.pumpWidget(
+      _host(
+        locale: const Locale('de'),
+        textScale: 1,
+        child: const DailyChallengeScreen(items: [_item]),
+      ),
+    );
+    await _pumpUntilVisible(tester, find.byType(ClozePromptCard));
+    final save = tester.widget<AddToWordbookButton>(
+      find.byType(AddToWordbookButton),
+    );
+    expect(save.itemType, StudyLibraryItemType.sentence);
+    expect(save.korean, _item.fullKo);
+    expect(save.translationDe, _item.de);
+    expect(save.translationDe, isNot(_item.answer));
+
+    await tester.tap(find.byType(AddToWordbookButton));
+    await tester.pumpAndSettle();
+    final bookmarks = TypedStudyBookmarkStore.production().read().bookmarks;
+    expect(bookmarks, hasLength(1));
+    expect(bookmarks.single.key.type, StudyLibraryItemType.sentence);
+    expect(bookmarks.single.primaryText, _item.fullKo);
+    expect(bookmarks.single.secondaryText, _item.de);
   });
 
   testWidgets('retry keeps first-attempt score and first completion bonus', (

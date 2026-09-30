@@ -203,6 +203,15 @@ class _GyeScreenState extends State<GyeScreen>
     }
   }
 
+  Future<void> _openPromisePath() async {
+    final openRoute = widget.openTodayRoute;
+    if (openRoute != null) {
+      await openRoute('/path', null);
+    } else {
+      await Navigator.of(context).pushNamed('/path');
+    }
+  }
+
   void _openMembers() {
     final override = widget.onOpenMembers;
     if (override != null) {
@@ -387,6 +396,7 @@ class _GyeScreenState extends State<GyeScreen>
                                   meta: meta,
                                   navigation: _navigationFor(meta),
                                   onOpenNavigation: _openPromiseNavigation,
+                                  onOpenPath: _openPromisePath,
                                   board:
                                       meta.weeklyPromiseSchemaVersion == 1 &&
                                           meta.weeklyPromiseId.isNotEmpty
@@ -737,12 +747,14 @@ class _GyeWeeklyPromise extends StatelessWidget {
     required this.board,
     required this.navigation,
     required this.onOpenNavigation,
+    required this.onOpenPath,
   });
 
   final GyeMeta meta;
   final Widget board;
   final Future<GyePromiseNavigationResolution> navigation;
   final ValueChanged<GyePromiseNavigationResolution> onOpenNavigation;
+  final VoidCallback onOpenPath;
 
   @override
   Widget build(BuildContext context) {
@@ -778,6 +790,14 @@ class _GyeWeeklyPromise extends StatelessWidget {
               t.gyePromiseEligibility,
               style: SoriTextTheme.of(context).caption,
             ),
+            const SizedBox(height: Spacing.xs),
+            Text(switch (meta.weeklyPromiseId) {
+              GyeWeeklyPromises.selfIntroduction =>
+                t.gyePromiseSelfIntroductionRoute,
+              GyeWeeklyPromises.cafeOrder => t.gyePromiseCafeOrderRoute,
+              GyeWeeklyPromises.directions => t.gyePromiseDirectionsRoute,
+              _ => '',
+            }, style: SoriTextTheme.of(context).bodySmall),
           ],
           const SizedBox(height: Spacing.md),
           FutureBuilder<GyePromiseNavigationResolution>(
@@ -795,19 +815,27 @@ class _GyeWeeklyPromise extends StatelessWidget {
                     key: const ValueKey('gye-promise-primary'),
                     label: eligible
                         ? t.gyePromiseSceneCta
-                        : t.gyeTodayFallbackCta,
+                        : t.gyePromisePathCta,
                     fullWidth: true,
-                    onTap: resolution == null || unavailable
-                        ? null
-                        : () => onOpenNavigation(resolution),
+                    onTap: eligible
+                        ? () => onOpenNavigation(resolution!)
+                        : onOpenPath,
                   ),
-                  if (unavailable) ...[
+                  if (!eligible) ...[
                     const SizedBox(height: Spacing.xs),
                     Text(
-                      t.gyeTodayUnavailable,
+                      t.gyePromiseFallbackNotCount,
                       textAlign: TextAlign.center,
                       style: SoriTextTheme.of(context).caption,
                     ),
+                    if (!unavailable && resolution != null) ...[
+                      const SizedBox(height: Spacing.xs),
+                      SoriButton.outlined(
+                        label: t.gyeTodayFallbackCta,
+                        fullWidth: true,
+                        onTap: () => onOpenNavigation(resolution),
+                      ),
+                    ],
                   ],
                 ],
               );

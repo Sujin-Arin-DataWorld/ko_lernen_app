@@ -5512,7 +5512,26 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get gyePromiseEligibility =>
-      'Only the matching learning path scene completed at 70% counts as a contribution.';
+      'This week, only the matching A1 learning-path scene at 70% or higher counts. Three different people can each light one lantern. Free scenes and other Today tasks do not count.';
+
+  @override
+  String get gyePromiseSelfIntroductionRoute =>
+      'A1 · Unit 2: Introduce yourself → “Introduce yourself” scene';
+
+  @override
+  String get gyePromiseCafeOrderRoute =>
+      'A1 · Unit 4: Order politely → matching scene';
+
+  @override
+  String get gyePromiseDirectionsRoute =>
+      'A1 · Unit 6: Ask for directions → matching scene';
+
+  @override
+  String get gyePromisePathCta => 'Continue learning';
+
+  @override
+  String get gyePromiseFallbackNotCount =>
+      'Only the scene above, completed as a learning-path mission, counts for this week\'s goal.';
 
   @override
   String gyePromiseProgress(int done, int target) {
@@ -6099,14 +6118,14 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachGrammarStep1Body =>
-      'Tap the card to reveal the explanation and examples';
+      'Tap the card for its explanation and examples. Swipe left for the next card, or right for the previous one.';
 
   @override
   String get coachGrammarStep2Title => 'Filter & mark';
 
   @override
   String get coachGrammarStep2Body =>
-      'Filter by level or type. Mark tricky cards with 🤔 as hard.';
+      'After flipping, swipe up when you understand the pattern. Some cards also have a short exercise.';
 
   @override
   String get coachSmalltalkStep1Title => 'Pick a topic';

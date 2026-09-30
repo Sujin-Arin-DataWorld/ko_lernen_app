@@ -338,13 +338,14 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
 
+    expect(find.text('Continue learning'), findsOneWidget);
     expect(find.text('Go to Today'), findsOneWidget);
     expect(find.text('Open today’s scene'), findsNothing);
     tester
         .widget<SoriButton>(find.byKey(const ValueKey('gye-promise-primary')))
         .onTap!();
     await tester.pump();
-    expect(openedRoute, '/course/mission');
+    expect(openedRoute, '/path');
   });
 
   testWidgets('life promise survives the planned width and text-scale matrix', (

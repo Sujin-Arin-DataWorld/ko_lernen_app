@@ -69,9 +69,7 @@ class SoriSpeech {
   /// (`ux_gallery_no_write_test.dart`). 같은 값 재대입은 [ValueNotifier]
   /// 가 리스너를 다시 안 부르므로, 호스트가 처리하기 전에 `speak()` 가
   /// 여러 번 불려도 이 신호는 자연히 멱등이다.
-  static final ValueNotifier<bool> aiVoiceNoticePending = ValueNotifier(
-    false,
-  );
+  static final ValueNotifier<bool> aiVoiceNoticePending = ValueNotifier(false);
 
   /// TtsService.phase(엔진 레이어)가 실제 재생 시작을 알릴 때만 우리 phase를
   /// speaking으로 승격한다. 단순히 "활성 키가 있다"만으로는 부족하다 — 화면
@@ -191,6 +189,13 @@ class SoriSpeech {
       );
     }
     return _startSpeak(key, text, resolvedVoice, speakImpl);
+  }
+
+  /// An explicit replay is a new attempt, even while autoplay or prefetch is
+  /// still resolving the same sentence.
+  static Future<bool> replay(String text, {String? voice}) async {
+    await stop();
+    return speak(text, voice: voice);
   }
 
   static Future<bool> speakSlow(String text, {String? voice}) {
@@ -405,16 +410,22 @@ class SoriSpeakable extends StatelessWidget {
     required this.text,
     required this.child,
     this.voice,
+    this.restartOnTap = false,
   });
 
   final String text;
   final String? voice;
+  final bool restartOnTap;
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
     void handleTap() {
-      SoriSpeech.speak(text, voice: voice);
+      if (restartOnTap) {
+        SoriSpeech.replay(text, voice: voice);
+      } else {
+        SoriSpeech.speak(text, voice: voice);
+      }
     }
 
     return Semantics(

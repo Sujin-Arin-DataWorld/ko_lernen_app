@@ -16,19 +16,14 @@ the same").
     (라인 101-118, ` / ` 우선, 아니면 `|`) 로 각각 쪼개 `examples` 로 짝
     짓는다 (라인 42-50). `note` 컬럼은 이미 title 또는 어느 rule 과 같은
     내용이면 버린다 (`_sameClause`, 라인 52-57, 131-135).
-  - `lib/screens/grammar_screen.dart:1718-1828` (`_Front`) -- 보여주는
-    것: level 칩, `pattern`, `copy.title`(비어 있으면 `type_de`),
-    `copy.examples.first` (한국어 + 글로스) 하나, 정적 힌트 문구.
-  - `lib/screens/grammar_screen.dart:1830-1913` (`_Back`) -- 보여주는
-    것: level 칩, `pattern`(동일), `copy.title`(비어 있지 않을 때만, 앞면과
-    동일 텍스트), `copy.rules[i]`/`copy.examples[i]` 쌍을
+  - `lib/screens/grammar_screen.dart` (`_Front`) -- 보여주는 것: level 칩,
+    `pattern`, `type_de`, 정적 뒤집기 힌트. 예문과 설명은 공개하지 않는다.
+  - `lib/screens/grammar_screen.dart` (`_Back`) -- 보여주는 것: level 칩,
+    `pattern`(동일), `copy.title`, `copy.rules[i]`/`copy.examples[i]` 쌍을
     `max(len(rules), len(examples))` 만큼, 마지막으로 `copy.note`.
 
-즉 뒷면 고유 콘텐츠는 `rules`, `examples[1:]`(둘째 예문부터), `note` 뿐이다
--- `pattern`/`title`/`examples[0]` 은 앞면과 완전히 같은 텍스트라 "추가"가
-아니다. 이 도구는 그래서 다음일 때만 `back_adds_nothing = true` 로 표시한다:
-
-    len(rules) == 0  AND  len(examples) <= 1  AND  note == ""
+뒷면의 제목·규칙·예문·note 가운데 앞면의 패턴·유형에 없는 텍스트가
+하나도 없을 때만 `back_adds_nothing = true` 로 표시한다.
 
 애매했던 지점 (모듈 docstring에 문서화, 지시서 요구):
   - `explanation_de`/`example_german`/`note` (DE 3종)을 정본으로 썼다.
@@ -57,7 +52,7 @@ REPO = Path(__file__).resolve().parent.parent
 GRAMMAR_CSV = REPO / "assets/data/grammar.csv"
 REPORT_MD = REPO / "docs/data/grammar_card_faces_report.md"
 
-REPORT_DATE = "2026-09-05"
+REPORT_DATE = "2026-09-30"
 
 _CLAUSE_SPLIT_RE = re.compile(r"\s*·\s*")
 _WS_RE = re.compile(r"\s+")
@@ -141,13 +136,8 @@ def derive_faces(row: dict[str, str]) -> GrammarCardFaces:
     ):
         note = ""
 
-    # -- 앞면 (grammar_screen.dart:1718-1828) --
-    front_parts = [pattern, title or type_de]
-    if examples:
-        k, g = examples[0]
-        front_parts.append(k)
-        if g:
-            front_parts.append(g)
+    # -- 앞면: 패턴과 유형만 --
+    front_parts = [pattern, type_de]
 
     # -- 뒷면 (grammar_screen.dart:1830-1913) --
     back_parts = [pattern]
@@ -165,7 +155,7 @@ def derive_faces(row: dict[str, str]) -> GrammarCardFaces:
     if note:
         back_parts.append(note)
 
-    back_adds_nothing = len(rules) == 0 and len(examples) <= 1 and not note
+    back_adds_nothing = not any(part not in front_parts for part in back_parts)
 
     return GrammarCardFaces(
         row_id=row.get("id", "").strip(),
@@ -227,7 +217,7 @@ def write_report(faces: list[GrammarCardFaces], out_path: Path) -> None:
         "> 직접 편집 금지. 재생성은 스크립트를 다시 실행할 것.",
         "",
         "지시서 1.11 (\"front and back look the same\") 감사 -- 뒷면이 앞면 위에",
-        "규칙(rule)·둘째 이상 예문·note 중 아무것도 더하지 않는 카드를 찾는다.",
+        "제목·규칙·예문·note 중 앞면에 없는 내용을 전혀 더하지 않는 카드를 찾는다.",
         "파생 규칙은 `tool/audit_grammar_card_faces.py` 모듈 docstring 참고.",
         "",
         f"**총 문법 카드**: {total}",

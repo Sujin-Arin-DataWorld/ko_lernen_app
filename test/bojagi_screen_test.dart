@@ -147,6 +147,88 @@ void main() {
     expect(find.text('Nächstes Bündel öffnen'), findsNothing);
   });
 
+  testWidgets('claimed bundle has a direct route back to the menu', (
+    tester,
+  ) async {
+    await Storage.setPendingBoxes(['q_punggyeong']);
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        routes: {
+          '/': (context) => Scaffold(
+            body: TextButton(
+              onPressed: () => Navigator.of(context).pushNamed('/bojagi'),
+              child: const Text('MENU'),
+            ),
+          ),
+          '/bojagi': (_) => const BojagiScreen(),
+        },
+      ),
+    );
+    await tester.tap(find.text('MENU'));
+    await _pumpBojagiMotion(tester);
+    await tester.tap(find.byKey(const Key('bojagi_knot')));
+    await _pumpBojagiMotion(tester);
+    await tester.tap(find.text(_guk));
+    await _pumpBojagiMotion(tester);
+
+    final home = find.text('Zur Startseite');
+    await tester.ensureVisible(home);
+    await tester.tap(home);
+    await tester.pumpAndSettle();
+    expect(find.text('MENU'), findsOneWidget);
+    expect(find.byType(BojagiScreen), findsNothing);
+  });
+
+  testWidgets('room entry returns to the existing room after claiming', (
+    tester,
+  ) async {
+    await Storage.setPendingBoxes(['q_punggyeong']);
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        routes: {
+          '/': (context) => Scaffold(
+            body: TextButton(
+              onPressed: () =>
+                  Navigator.of(context).pushNamed('/sarangbang/furnish'),
+              child: const Text('MENU'),
+            ),
+          ),
+          '/sarangbang/furnish': (context) => Scaffold(
+            body: TextButton(
+              onPressed: () => Navigator.of(
+                context,
+              ).pushNamed('/bojagi', arguments: 'furnish'),
+              child: const Text('ROOM'),
+            ),
+          ),
+          '/bojagi': (_) => const BojagiScreen(),
+        },
+      ),
+    );
+    await tester.tap(find.text('MENU'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('ROOM'));
+    await _pumpBojagiMotion(tester);
+    await tester.tap(find.byKey(const Key('bojagi_knot')));
+    await _pumpBojagiMotion(tester);
+    await tester.tap(find.text(_guk));
+    await _pumpBojagiMotion(tester);
+    await tester.ensureVisible(find.text('In der Stube aufstellen'));
+    await tester.tap(find.text('In der Stube aufstellen'));
+    await tester.pumpAndSettle();
+    expect(find.text('ROOM'), findsOneWidget);
+    expect(find.byType(BojagiScreen), findsNothing);
+    tester.state<NavigatorState>(find.byType(Navigator)).pop();
+    await tester.pumpAndSettle();
+    expect(find.text('MENU'), findsOneWidget);
+  });
+
   testWidgets('원래 후보를 모두 가졌으면 다음 결정적 후보를 고르게 한다', (tester) async {
     await Storage.setPendingBoxes(['q_punggyeong']);
     for (final slug in [

@@ -17,7 +17,8 @@ enum FeedPhysics { legacy, snap }
 
 /// Vertical content feed. Replaces the four-way Tinder deck on live screens.
 ///
-/// - Vertical fling only. Horizontal drags are ignored (system back wins).
+/// - Vertical fling handles judgments; horizontal drags are ignored unless a
+///   screen explicitly opts into judgment-free card browsing.
 /// - Unrevealed vertical fling = [onSkip] if present, else flip hint.
 /// - Revealed vertical fling = [onNext] (know / got-it).
 /// - Double-tap / ♡ = [onLike] (not bookmark).
@@ -33,6 +34,8 @@ class SoriContentFeed extends StatefulWidget {
     this.onBlockedJudgment,
     this.onNext,
     this.onPrevious,
+    this.onBrowseNext,
+    this.onBrowsePrevious,
     this.onHard,
     this.onSkip,
     this.onLike,
@@ -71,6 +74,10 @@ class SoriContentFeed extends StatefulWidget {
   /// Know / got-it after flip. Also the public hook tests call directly.
   final VoidCallback? onNext;
   final VoidCallback? onPrevious;
+
+  /// Optional horizontal card browsing; it never records a judgment.
+  final VoidCallback? onBrowseNext;
+  final VoidCallback? onBrowsePrevious;
   final VoidCallback? onHard;
   final VoidCallback? onSkip;
   final VoidCallback? onLike;
@@ -121,6 +128,7 @@ class _SoriContentFeedState extends State<SoriContentFeed>
   static const double _snapOverscrollCap = _commitPx + 48; // 검수#1 오버스크롤 핸드오프
 
   double _dy = 0;
+  double _dx = 0;
   int _tapCount = 0;
   Timer? _tapReset;
   Timer? _burstHide;
@@ -247,6 +255,18 @@ class _SoriContentFeedState extends State<SoriContentFeed>
     }
   }
 
+  void _onHorizontalDragEnd(DragEndDetails details) {
+    final velocity = details.primaryVelocity ?? 0;
+    final goNext = _dx < -64 || velocity < -650;
+    final goPrevious = _dx > 64 || velocity > 650;
+    _dx = 0;
+    if (goNext) {
+      widget.onBrowseNext?.call();
+    } else if (goPrevious) {
+      widget.onBrowsePrevious?.call();
+    }
+  }
+
   /// legacy: 기존과 100% 동일 — 콜백 실행 후 즉시 `_dy=0`(텔레포트).
   /// snap: `AnimationController`로 120-220ms 스냅 아웃 후 콜백, 리듀스모션은
   /// legacy와 동일하게 즉시 전환(검수 요구 "reduce-motion 즉시 전환").
@@ -324,6 +344,21 @@ class _SoriContentFeedState extends State<SoriContentFeed>
                   behavior: HitTestBehavior.translucent,
                   onVerticalDragUpdate: _onVerticalDragUpdate,
                   onVerticalDragEnd: _onVerticalDragEnd,
+                  onHorizontalDragUpdate:
+                      widget.onBrowseNext == null &&
+                          widget.onBrowsePrevious == null
+                      ? null
+                      : (details) => _dx += details.delta.dx,
+                  onHorizontalDragEnd:
+                      widget.onBrowseNext == null &&
+                          widget.onBrowsePrevious == null
+                      ? null
+                      : _onHorizontalDragEnd,
+                  onHorizontalDragCancel:
+                      widget.onBrowseNext == null &&
+                          widget.onBrowsePrevious == null
+                      ? null
+                      : () => _dx = 0,
                   child: Transform.translate(
                     offset: Offset(0, offset),
                     child: widget.child,
