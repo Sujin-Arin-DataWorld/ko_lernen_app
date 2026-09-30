@@ -11105,10 +11105,6 @@ class AppL10nEn extends AppL10n {
       'This word is not in your selection for this round.';
 
   @override
-  String get learningPhasesIntro =>
-      'Explore the learning goals from A1 to C2 and practise related conversations. Your existing learning progress is preserved.';
-
-  @override
   String get hanokAssetsImageLoading => 'Preparing the Hanok artwork…';
 
   @override

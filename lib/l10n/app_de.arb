@@ -5345,7 +5345,6 @@
   "kkeunmariSelectionHint": "Du spielst mit deinen ausgewählten Wörtern, die im geprüften Spielwörterbuch stehen. Mindestens zwei müssen sich verbinden lassen.",
   "kkeunmariSelectionEmpty": "In deiner Auswahl gibt es noch keine Wortkette. Wähle mindestens zwei Wörter aus dem Spielwörterbuch, bei denen die letzte Silbe des einen die erste des anderen ist.",
   "kkeunmariNotInSelection": "Dieses Wort gehört nicht zu deiner Auswahl für diese Runde.",
-  "learningPhasesIntro": "Entdecke die Lernziele von A1 bis C2 und übe dazu passende Gespräche. Dein bisheriger Lernfortschritt bleibt erhalten.",
   "hanokAssetsImageLoading": "Hanok-Bild wird vorbereitet…",
   "hanokAssetsCellularNeeded": "Bei mobilen Daten oder einer unbekannten Verbindung musst du diesen Download ausdrücklich starten.",
   "hanokAssetsDownloadNow": "Laden",

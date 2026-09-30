@@ -83,6 +83,13 @@ SURFACES: tuple[ContentSurface, ...] = (
         "world labels and structural routes; reviewed outside lesson copy",
     ),
     ContentSurface(
+        "hanok_download_manifest.json",
+        "downloadable Hanok artwork catalog",
+        "HanokAssetManifest / HanokDownloadsScreen",
+        ("packs",),
+        "KO/DE/EN pack titles and immutable artwork references; no lesson copy",
+    ),
+    ContentSurface(
         "sarangchae_construction_v3.json",
         "approved construction lessons",
         "SarangchaeConstruction",

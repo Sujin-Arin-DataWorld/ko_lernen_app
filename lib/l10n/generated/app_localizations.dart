@@ -18864,12 +18864,6 @@ abstract class AppL10n {
   /// **'Dieses Wort gehört nicht zu deiner Auswahl für diese Runde.'**
   String get kkeunmariNotInSelection;
 
-  /// No description provided for @learningPhasesIntro.
-  ///
-  /// In de, this message translates to:
-  /// **'Entdecke die Lernziele von A1 bis C2 und übe dazu passende Gespräche. Dein bisheriger Lernfortschritt bleibt erhalten.'**
-  String get learningPhasesIntro;
-
   /// No description provided for @hanokAssetsImageLoading.
   ///
   /// In de, this message translates to:

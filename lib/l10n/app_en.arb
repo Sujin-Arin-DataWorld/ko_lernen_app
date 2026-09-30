@@ -5163,7 +5163,6 @@
   "kkeunmariSelectionHint": "Play with your selected words that are in the verified game dictionary. At least two must connect.",
   "kkeunmariSelectionEmpty": "Your selection has no word chain yet. Choose at least two words from the game dictionary where the last syllable of one is the first of another.",
   "kkeunmariNotInSelection": "This word is not in your selection for this round.",
-  "learningPhasesIntro": "Explore the learning goals from A1 to C2 and practise related conversations. Your existing learning progress is preserved.",
   "hanokAssetsImageLoading": "Preparing the Hanok artwork…",
   "hanokAssetsCellularNeeded": "Start this download explicitly when using mobile data or an unknown connection.",
   "hanokAssetsDownloadNow": "Download",

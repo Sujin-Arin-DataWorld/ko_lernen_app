@@ -11158,10 +11158,6 @@ class AppL10nDe extends AppL10n {
       'Dieses Wort gehört nicht zu deiner Auswahl für diese Runde.';
 
   @override
-  String get learningPhasesIntro =>
-      'Entdecke die Lernziele von A1 bis C2 und übe dazu passende Gespräche. Dein bisheriger Lernfortschritt bleibt erhalten.';
-
-  @override
   String get hanokAssetsImageLoading => 'Hanok-Bild wird vorbereitet…';
 
   @override
