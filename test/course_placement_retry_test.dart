@@ -9,6 +9,7 @@ import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/services/course_mastery_service.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
+import 'package:ko_lernen_app/services/hanok_competence_projection_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
@@ -108,6 +109,29 @@ void main() {
   }
 
   for (final committed in [false, true]) {
+    test(
+      'Hanok retries a lost placement reply without writing; committed=$committed',
+      () async {
+        platform.commitBeforeLosingReply = committed;
+        await failPlacement();
+        await expectLater(
+          HanokCompetenceProjectionService.readCurrent(),
+          throwsA(isA<PreferenceOutcomeUnknownException>()),
+        );
+        final beforeRead = Map<String, Object>.of(platform.values);
+        final writes = platform.canonicalWrites;
+        platform.unavailable = false;
+
+        final projection = await HanokCompetenceProjectionService.readCurrent();
+
+        expect(projection.completedUnitCount, 0);
+        expect(projection.sarangchaeConstructionStage, 0);
+        expect(Storage.hasUnconfirmedCourseMasteryState, isFalse);
+        expect(platform.values, beforeRead);
+        expect(platform.canonicalWrites, writes);
+      },
+    );
+
     test(
       'gateway read retry confirms durable placement; committed=$committed',
       () async {

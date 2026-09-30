@@ -1,0 +1,39 @@
+{
+  "checkedAt": "2026-09-24T00:23:16.750508+00:00",
+  "platform": "iOS",
+  "appStoreId": "6798293722",
+  "bundle": "com.sujinarin.koLernenApp",
+  "version": "2.0.9",
+  "build": 254,
+  "sha": "1a1cf0b5501f7f673ccbcfc0e269c67541000de0",
+  "cloudBuildId": "3fe8a1e1-58bd-423f-b2b9-8c15caf00a25",
+  "testFlightBuildId": "8651c4d8-8134-49dd-9987-6fdb60e4dc16",
+  "group": "n.1tester",
+  "groupId": "61ee9cdb-6ae5-4ea0-bf5e-dec43a175913",
+  "groupType": "internal",
+  "groupCount": 1,
+  "testers": 2,
+  "consoleStatus": "테스트 중",
+  "uploadVerified": true,
+  "publicationVerified": true,
+  "deviceInstallVerified": false,
+  "externalGroupAdded": false,
+  "productionSubmitted": false,
+  "installation": "TestFlight -> existing Hangul Sori -> Update -> 2.0.9 (254)",
+  "includes": "Verified main through PR406, including Android7680 follow-ups and OCR405/406.",
+  "notIncluded": [
+    "PR407",
+    "PR408",
+    "PR411",
+    "PR412",
+    "PR413",
+    "PR414"
+  ],
+  "evidence": [
+    "ios254-cloud-success.json",
+    "ios254-internal-build-row.txt"
+  ],
+  "limits": [
+    "Console distribution verified; actual device update and acceptance QA remain unverified."
+  ]
+}

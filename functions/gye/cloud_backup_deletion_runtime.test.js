@@ -7,7 +7,6 @@ const test = require("node:test");
 const {
   BACKUP_FIELDS,
   BACKUP_ROOTS,
-  CALLABLE_OPTIONS,
   createCloudBackupDeletionCallable,
   createCloudBackupDeletionRuntime,
   createFirestoreCloudBackupDeletionRepository,
@@ -841,6 +840,7 @@ test("cloud backup deletion removes every root and descendant while preserving o
     progress: { xp: 12 },
     bookshelf_json: "legacy",
     course_mastery_json: '{"version":2}',
+    content_learning_json: '{"version":1,"lessons":{}}',
     ildu_world_state_json: '{"schemaVersion":3}',
     hanok_state_json: '{"schemaVersion":1}',
     displayName: "operational profile",
@@ -858,6 +858,7 @@ test("cloud backup deletion removes every root and descendant while preserving o
   assert.deepEqual(store.user.fcmTokens, ["token"]);
   assert.equal(store.user.displayName, "operational profile");
   assert.equal(Object.hasOwn(store.user, "course_mastery_json"), false);
+  assert.equal(Object.hasOwn(store.user, "content_learning_json"), false);
   assert.equal(Object.hasOwn(store.user, "ildu_world_state_json"), false);
   assert.equal(Object.hasOwn(store.user, "hanok_state_json"), false);
   for (const field of BACKUP_FIELDS) {
@@ -1337,7 +1338,7 @@ test("an expired worker cannot erase data written after successor completion", a
   assert.equal(firestore.value("users/durable").progress, 999);
 });
 
-test("registers the callable with App Check enforcement and token consumption", () => {
+test("registers the callable with deployed limits, advisory App Check and its secret", () => {
   const registrations = [];
   const callable = createCloudBackupDeletionCallable({
     handler: async () => ({ state: "pending" }),
@@ -1349,7 +1350,12 @@ test("registers the callable with App Check enforcement and token consumption", 
   });
 
   assert.deepEqual(registrations[0].options, {
-    ...CALLABLE_OPTIONS,
+    region: "europe-west3",
+    enforceAppCheck: false,
+    maxInstances: 20,
+    timeoutSeconds: 60,
+    memory: "256MiB",
+    cpu: 1,
     secrets: [{ name: "DELETION_PROOF_HMAC_KEY" }],
   });
   assert.deepEqual(callable.options, registrations[0].options);

@@ -30008,7 +30008,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_greetings_1",
         "sourceVocabId": "vocab_a1_0493",
-        "sourceVocabFingerprintSha256": "165e64153525a23dd1d75eaf4c2dce7da361b364f9156a27353660ca1fbd574c",
+        "sourceVocabFingerprintSha256": "17c83da27eefb6d495f44b70e61cad8d1c10a104c0c6381227136ab57baccd9e",
         "level": "a1",
         "canDoSegmentId": "segment_a1_01_greetings_hangul",
         "courseUnitId": "a1_01_greetings_hangul"
@@ -32582,7 +32582,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_verbs_daily_2",
         "sourceVocabId": "vocab_a1_0727",
-        "sourceVocabFingerprintSha256": "4358eef8ee8438eb9fc444d6417b1275f9db956bb223113744784ccde1e3070a",
+        "sourceVocabFingerprintSha256": "3616aeecd6c8e1a8152b5374fcadf1d94b44ff90aab54ceefdf5eb0d45148602",
         "level": "a1",
         "canDoSegmentId": "segment_a1_12_daily_negation",
         "courseUnitId": "a1_12_daily_negation"
@@ -36937,8 +36937,8 @@
         "id": "satz_a1_0408",
         "sourceKind": "vocabPack",
         "sourceId": "a1_greetings_1",
-        "sourceVocabId": "vocab_a1_0493",
-        "sourceVocabFingerprintSha256": "165e64153525a23dd1d75eaf4c2dce7da361b364f9156a27353660ca1fbd574c",
+        "sourceVocabId": "vocab_a1_0001",
+        "sourceVocabFingerprintSha256": "c2a42aa7a33174ab0fd0861d12ab5e0570161cf7cf21f70900db9f74c4ae3f35",
         "level": "a1",
         "canDoSegmentId": "segment_a1_01_greetings_hangul",
         "courseUnitId": "a1_01_greetings_hangul"
@@ -39512,7 +39512,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_verbs_daily_2",
         "sourceVocabId": "vocab_a1_0727",
-        "sourceVocabFingerprintSha256": "4358eef8ee8438eb9fc444d6417b1275f9db956bb223113744784ccde1e3070a",
+        "sourceVocabFingerprintSha256": "3616aeecd6c8e1a8152b5374fcadf1d94b44ff90aab54ceefdf5eb0d45148602",
         "level": "a1",
         "canDoSegmentId": "segment_a1_12_daily_negation",
         "courseUnitId": "a1_12_daily_negation"
@@ -43208,7 +43208,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_daily_2",
         "sourceVocabId": "vocab_a2_0509",
-        "sourceVocabFingerprintSha256": "5e476e614226743d8f2e4f0a0c667f1d41e68797b46fa6ad32aa32469c6363bf",
+        "sourceVocabFingerprintSha256": "3f86f638df24c764a77bdff06f8d73206a2de31841f957dd27748d3e1a08c012",
         "level": "a2",
         "canDoSegmentId": "segment_a2_haeyo_register_transition",
         "courseUnitId": "a2_01_haeyo_transition"
@@ -43461,7 +43461,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_health_misc_1",
         "sourceVocabId": "vocab_a2_0533",
-        "sourceVocabFingerprintSha256": "72469a853fcd66ec095548c466d6cd39506446c426483f2a3302e11bf47f4603",
+        "sourceVocabFingerprintSha256": "30b3df2dfce030f031a38645fa10078d42fdaaba59c7eaaa22a85361f3498b11",
         "level": "a2",
         "canDoSegmentId": "segment_a2_pharmacy_headache",
         "courseUnitId": "a2_04_feelings_health"
@@ -48840,7 +48840,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_daily_2",
         "sourceVocabId": "vocab_a2_0509",
-        "sourceVocabFingerprintSha256": "5e476e614226743d8f2e4f0a0c667f1d41e68797b46fa6ad32aa32469c6363bf",
+        "sourceVocabFingerprintSha256": "3f86f638df24c764a77bdff06f8d73206a2de31841f957dd27748d3e1a08c012",
         "level": "a2",
         "canDoSegmentId": "segment_a2_haeyo_register_transition",
         "courseUnitId": "a2_01_haeyo_transition"
@@ -49104,7 +49104,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_health_misc_1",
         "sourceVocabId": "vocab_a2_0533",
-        "sourceVocabFingerprintSha256": "72469a853fcd66ec095548c466d6cd39506446c426483f2a3302e11bf47f4603",
+        "sourceVocabFingerprintSha256": "30b3df2dfce030f031a38645fa10078d42fdaaba59c7eaaa22a85361f3498b11",
         "level": "a2",
         "canDoSegmentId": "segment_a2_pharmacy_headache",
         "courseUnitId": "a2_04_feelings_health"
@@ -71142,13 +71142,17 @@
         },
         {
           "phraseId": "smalltalk_a1_0003",
-          "phraseFingerprintSha256": "3cf82d9760e7668e604e0238395682fb41dc843cfd3011a2e58f71a897334bea",
+          "phraseFingerprintSha256": "5544b57a265ca0810a88a6af64bdf74c5ea0fe88435c3b1c056f30b8c1c15460",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a1_12_daily_negation",
           "canDoFingerprintSha256": "fbea0f8682214cf2ea2c2d029ca3522039241f46111ce026233ae8f5a6d42658",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_translation_corrections_20260922.json",
+          "previousPhraseFingerprintSha256": "3cf82d9760e7668e604e0238395682fb41dc843cfd3011a2e58f71a897334bea"
         },
         {
           "phraseId": "smalltalk_a1_0004",
@@ -74644,13 +74648,17 @@
         },
         {
           "phraseId": "smalltalk_b2_0057",
-          "phraseFingerprintSha256": "c5870824dbfe208debd0a2838149c268a18ac927c1eace8fb9c5d02ff8ecada4",
+          "phraseFingerprintSha256": "0888afab6c81a15e777f4f79874c02772e997e767a5f86026898a94ed70433fa",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_literary_cultural_response",
           "canDoFingerprintSha256": "e99e9cacd4a66254c25cfb6957e52f6322313a7b1872d518f7b3601aa4b59409",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
+          "previousPhraseFingerprintSha256": "c5870824dbfe208debd0a2838149c268a18ac927c1eace8fb9c5d02ff8ecada4"
         },
         {
           "phraseId": "smalltalk_b2_0058",
@@ -74728,13 +74736,17 @@
         },
         {
           "phraseId": "smalltalk_b2_0065",
-          "phraseFingerprintSha256": "5f2b65db566f617b6f22290cf2a940eed74cf1052c4bba21b818a26945ca574c",
+          "phraseFingerprintSha256": "bd1bdb1ab836b6c5673c17a4843d29ad6d3635622cb034374b266d7c6e3374f3",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_collaborative_feedback",
           "canDoFingerprintSha256": "f36974cbb488136ef241cb172292e5a4a196d3e263af87bf3ae8f6c4e02486c5",
           "semanticStatus": "exactMapped",
           "reasonCode": "explicitSemanticRoute",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
+          "previousPhraseFingerprintSha256": "5f2b65db566f617b6f22290cf2a940eed74cf1052c4bba21b818a26945ca574c"
         },
         {
           "phraseId": "smalltalk_b2_0066",

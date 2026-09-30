@@ -25,6 +25,7 @@ from typing import Any, Iterable
 
 import relevel_ledger
 import scenario_store
+from copy_field_path import text_field
 from shelf_assignment import ALL_SHELVES
 
 
@@ -309,14 +310,12 @@ class ContentValidator:
             levels.add(level)
             if row.get("level") != level:
                 self.issue(source, f"{record_id} level drift: {row.get('level')!r} != {level!r}")
-            current: Any = row
-            for part in field_path.split("."):
-                if not isinstance(current, dict) or part not in current:
-                    self.issue(source, f"{record_id}.{field_path} is missing")
-                    current = None
-                    break
-                current = current[part]
-            if current is not None and current != after:
+            try:
+                parent, key = text_field(row, field_path)
+            except ValueError as error:
+                self.issue(source, str(error))
+                continue
+            if parent[key] != after:
                 self.issue(source, f"{record_id}.{field_path} does not match approved overlay")
         if levels != LOWER_LEVELS:
             self.issue(source, f"ledger must cover A1-C2, got {sorted(levels)!r}")
@@ -1117,6 +1116,8 @@ class ContentValidator:
         if not isinstance(items, list):
             self.issue(name, "root must contain a clusters array")
             return
+        _, vocab_rows = self.load_csv("korean_vocab.csv")
+        vocab_by_id = {row.get("id"): row for row in vocab_rows}
         seen: set[str] = set()
         for index, item in enumerate(items):
             if not isinstance(item, dict):
@@ -1134,6 +1135,15 @@ class ContentValidator:
             for field in ("sourceKo", "sourceVocabId", "sourceDe", "sourceEn"):
                 if not self._is_nonempty_string(item.get(field)):
                     self.issue(name, f"{ident} {field} must be a nonempty string")
+            source_id = item.get("sourceVocabId")
+            source = vocab_by_id.get(source_id) if isinstance(source_id, str) else None
+            if source is None:
+                self.issue(name, f"{ident} sourceVocabId is not a live vocab row")
+            else:
+                if item.get("sourceKo") != source.get("korean"):
+                    self.issue(name, f"{ident} sourceKo disagrees with live vocab")
+                if level != str(source.get("level") or "").strip().lower():
+                    self.issue(name, f"{ident} level disagrees with live vocab")
             for field in ("synonyms", "antonyms", "related", "expressions"):
                 if not isinstance(item.get(field), list):
                     self.issue(name, f"{ident} {field} must be an array")

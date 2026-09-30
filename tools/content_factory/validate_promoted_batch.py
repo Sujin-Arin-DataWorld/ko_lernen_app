@@ -52,14 +52,13 @@ SCENARIO_PROMOTION_FIELDS = frozenset(("shelf", "backdrop"))
 # fails (via a copy revision's stale-fingerprint check, or _require_equal).
 # Scenario ids carry no level segment and already have their own
 # unconditional promotion-field allowance above, so "scenario" is left out
-# of LEDGER_TOLERANT_KINDS. "grammar" *is* a valid relevel_ledger.py kind
-# (see its KINDS constant), but neither relevel_bundle.py nor tool/
-# relevel_vocab.py currently moves a grammar row -- grammar.csv is never
-# touched by either -- so it is left out too, matching what the tooling
-# actually does today rather than a hypothetical.
+# of LEDGER_TOLERANT_KINDS. Grammar moves are now implemented by
+# relevel_bundle.py. They normalize only level, and only when both ends
+# match the ledger's exact from/to transition. Authored quiz replacements
+# and all other copy changes still require their own exact revision.
 VOCAB_RELEVEL_TOLERATED_FIELDS = frozenset(("level", "pack_id", "pack_order"))
 GENERIC_RELEVEL_TOLERATED_FIELDS = frozenset(("level",))
-LEDGER_TOLERANT_KINDS = frozenset(("vocab", "cloze", "satz", "smalltalk", "pronunciation"))
+LEDGER_TOLERANT_KINDS = frozenset(("vocab", "cloze", "satz", "smalltalk", "pronunciation", "grammar"))
 COPY_REVISION_LEDGER = Path(
     "tools/content_factory/review/promoted_copy_revisions_20260822.json"
 )
@@ -296,21 +295,23 @@ def _relevel_normalized_live(
     """Return `live` (already run through `_promotion_projection`) with any
     field this ledger's relevel record for (kind, ident) explains --
     level/pack_id/pack_order for vocab, level alone for cloze/satz/
-    smalltalk/pronunciation -- reset to `draft`'s value for that field.
+    smalltalk/pronunciation/grammar -- reset to `draft`'s value for that field.
 
-    Resets values rather than deleting keys on purpose: a copy revision's
-    stored beforeSha256/afterSha256 (COPY_REVISION_LEDGER) was
-    fingerprinted against the *full* row shape from before this id ever
-    relevelled (every relevel_ledger.json entry postdates every entry in
-    that copy-revision ledger), when live and draft still agreed on level/
-    pack_id/pack_order. Deleting those keys would change the fingerprinted
-    shape and break that stored hash for an id that is both relevel-moved
-    and copy-revision-covered; resetting their *values* instead reproduces
-    exactly the pre-relevel row _require_reviewed_copy_revision already
-    validates against. An id relevel-moved alone now compares fully equal
-    to its draft (nothing left to differ) instead of raising."""
+    Reset values rather than deleting keys to preserve the full row shape
+    used by copy-revision fingerprints. Ledger-explained routing fields
+    use the frozen draft's values in this comparison projection, including
+    when a copy revision was reconstructed after a relevel. All other
+    fields retain their current values and still require exact comparison
+    or an exact copy revision. The original live row is never mutated."""
 
-    if kind not in LEDGER_TOLERANT_KINDS or ledger.get(kind, ident) is None:
+    entry = ledger.get(kind, ident)
+    if kind not in LEDGER_TOLERANT_KINDS or entry is None:
+        return live
+    if kind == "grammar" and (
+        str(draft.get("level") or "").lower() != entry.from_level
+        or str(live.get("level") or "").lower() != entry.to_level
+    ):
+        # Presence in a ledger cannot explain a different or stale move.
         return live
     tolerated = VOCAB_RELEVEL_TOLERATED_FIELDS if kind == "vocab" else GENERIC_RELEVEL_TOLERATED_FIELDS
     return {

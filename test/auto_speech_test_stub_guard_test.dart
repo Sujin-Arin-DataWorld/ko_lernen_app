@@ -164,7 +164,6 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/features/study_library/study_bookmark_production_writer_test.dart',
   'test/features/study_library/study_library_language_test.dart',
   'test/flashcard_language_preferences_test.dart',
-  'test/game_layout_test.dart',
   'test/grammar_filter_position_test.dart',
   'test/grammar_plan_screen_test.dart',
   'test/hangul_content_locale_test.dart',
@@ -182,10 +181,8 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/scenario_onboarding_completion_test.dart',
   'test/scenario_quest_fold_test.dart',
   'test/scenario_quest_responsive_test.dart',
-  'test/scenario_srs_persistence_flow_test.dart',
   'test/scenarios_list_screen_ui_test.dart',
   'test/screen_smoke_test.dart',
-  'test/shared_game_feedback_route_test.dart',
   'test/smalltalk_presentation_test.dart',
   'test/smalltalk_screen_ui_test.dart',
   'test/study_activity_responsive_test.dart',
@@ -193,7 +190,6 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/ux_preview_app_test.dart',
   'test/visual_layout_regression_test.dart',
   'test/vocab_notebook_result_screen_test.dart',
-  'test/vocab_notebook_studio_screen_test.dart',
   'test/vocab_pack_advance_timer_test.dart',
   'test/vocab_pack_assessment_order_test.dart',
   'test/vocab_pack_finish_screen_test.dart',
@@ -208,4 +204,5 @@ const List<String> knownUnstubbedTestFiles = <String>[
   'test/vocab_pack_uniform_card_test.dart',
   'test/wordbook_spotlight_coach_test.dart',
 ];
-const int knownUnstubbedCap = 57; // 2026-09-06 무료 접근 병합: requeue 테스트 스텁 도입 + repeat_counter 테스트 삭제로 하향
+const int knownUnstubbedCap =
+    53; // 2026-09-23 notebook studio 음성 스텁 도입으로 하향

@@ -6,6 +6,11 @@ part of 'storage_service.dart';
 abstract final class PackCompletionStorage {
   static final status = ValueNotifier(PackCompletionStatus.ready);
 
+  /// The result route owns the completion presentation while it is mounted.
+  /// The app-wide recovery banner must stay available everywhere else, but
+  /// showing it above the result route duplicates that route's content.
+  static final resultScreenVisible = ValueNotifier(false);
+
   /// Retires route-local acknowledged presentation without recreating a record.
   static final presentationGeneration = ValueNotifier(0);
   static PackCompletionRecord? _record;
@@ -75,6 +80,7 @@ abstract final class PackCompletionStorage {
     _snapshotting = false;
     _nativeWrites.clear();
     _active = null;
+    resultScreenVisible.value = false;
     validateContent = null;
     onSettled = null;
     status.value = PackCompletionStatus.ready;

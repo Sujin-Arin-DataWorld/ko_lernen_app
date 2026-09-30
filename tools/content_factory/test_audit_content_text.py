@@ -43,7 +43,7 @@ class ContentTextAuditTest(unittest.TestCase):
             ]
         }
 
-        self.assertEqual(len(changed_ids), 42)
+        self.assertEqual(len(changed_ids), 44)
         for record_id in changed_ids:
             decision = decisions[record_id]
             self.assertEqual(decision["copyRevision"], 1)
@@ -90,8 +90,8 @@ class ContentTextAuditTest(unittest.TestCase):
                 "de": "Haben Sie Daten gesehen, die zeigen, dass die Spielzeitbegrenzung tatsächlich wirksam war?",
             },
             "smalltalk_c2_0026": {
-                "de": "Nur weil es eine Anlaufstelle gibt, ist noch keine wirksame Abhilfe gewährleistet.",
-                "en": "Having an appeals channel does not guarantee an effective remedy.",
+                "de": "Ich habe festgestellt, dass eine Anlaufstelle noch keine wirksame Abhilfe garantiert.",
+                "en": "I've found that having an appeals channel doesn't necessarily mean you get redress.",
             },
             "smalltalk_c2_0029": {
                 "en": "Whose perspective do you think shapes the way the story is being told now?",
@@ -126,6 +126,7 @@ class ContentTextAuditTest(unittest.TestCase):
                     "ko": "근거를 같이 확인해 볼까요?",
                     "de": "Wollen wir die Belege gemeinsam prüfen?",
                     "en": "Shall we check the evidence together?",
+                    "evidenceKo": "근거를 같이 확인해 볼까요?",
                     "reply": {
                         "ko": "좋아요.",
                         "de": "Gern.",
@@ -143,6 +144,7 @@ class ContentTextAuditTest(unittest.TestCase):
                 "$.phrases[0].ko",
                 "$.phrases[0].de",
                 "$.phrases[0].en",
+                "$.phrases[0].evidenceKo",
                 "$.phrases[0].reply.ko",
                 "$.phrases[0].reply.de",
                 "$.phrases[0].reply.en",
@@ -152,7 +154,7 @@ class ContentTextAuditTest(unittest.TestCase):
         self.assertEqual({leaf["level"] for leaf in leaves}, {"c1"})
         self.assertEqual(
             [leaf["language"] for leaf in leaves],
-            ["ko", "de", "en", "ko", "de", "en"],
+            ["ko", "de", "en", "ko", "ko", "de", "en"],
         )
         self.assertEqual(leaves[0]["text"], "근거를 같이 확인해 볼까요?")
         self.assertTrue(all(len(leaf["sha256"]) == 64 for leaf in leaves))

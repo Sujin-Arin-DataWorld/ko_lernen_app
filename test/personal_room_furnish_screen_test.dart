@@ -346,11 +346,9 @@ void main() {
       scrollable: find.byType(Scrollable).first,
     );
 
-    // 11 = kDecorationRewardPool(퀘스트 보상으로 획득) + 12 = A2 사랑방
-    // 가구(furnishedDecorSlugs 의 방별 무상 풀 — Storage.ownedDecor 와 무관하게
-    // 이 방(sarangbang)이 openedVenues 에 있으면 항상 보인다.
-    // `kRoomFurnishingPool` 문서 참고).
-    expect(find.byType(SoriDecorationImage), findsNWidgets(23));
+    // Only decorations in Storage.ownedDecor are available. Opening a room
+    // must not expose its unrewarded furnishing pool.
+    expect(find.byType(SoriDecorationImage), findsNWidgets(11));
     expect(
       find.byType(CulturalDecorationHelpButton),
       findsNWidgets(6),

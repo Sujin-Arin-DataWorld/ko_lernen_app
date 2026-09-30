@@ -14,6 +14,9 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/can_do_result_card.dart';
 
+import 'support/scenario_stock_fixtures.dart';
+
+
 const _unit = CourseUnit(
   id: 'a1_01',
   level: 'a1',
@@ -47,6 +50,7 @@ const _scenario = Scenario(
         'correctIndex': 0,
         'options': [
           {'de': 'Correct response', 'en': 'Correct response'},
+          {'de': 'Other response', 'en': 'Other response'},
         ],
       },
     ),
@@ -135,6 +139,7 @@ void main() {
         home: ScenarioPlayerScreen(
           scenarioId: _scenario.id,
           scenarioLoader: (_) async => _scenario,
+          questCorpusLoader: (_) async => stockedScenarioCorpus(_scenario),
           onExit: () => exitCalls++,
         ),
       ),
@@ -185,6 +190,7 @@ void main() {
             firstSuccess = summary.firstSuccess;
           },
           scenarioLoader: (_) async => _scenario,
+          questCorpusLoader: (_) async => stockedScenarioCorpus(_scenario),
           resultPersister: (_, _, _) async {
             saveCalls++;
             return const ScenarioCanDoResult(

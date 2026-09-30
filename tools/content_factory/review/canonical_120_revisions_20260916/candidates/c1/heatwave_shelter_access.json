@@ -1,0 +1,298 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "heatwave_shelter_access",
+  "scenario": {
+    "id": "heatwave_shelter_access",
+    "level": "c1",
+    "emoji": "🏠",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "폭염 쉼터가 있어도 이용하기 어려울 때",
+      "de": "Wenn Hitzeschutzräume praktisch unerreichbar sind",
+      "en": "When heat shelters are inaccessible in practice"
+    },
+    "intro": {
+      "ko": "쉼터 수는 충분하지만 계단과 짧은 운영 시간 때문에 이용하지 못하는 주민이 있어요.",
+      "de": "Es gibt genug Hitzeschutzräume, doch Treppen und kurze Öffnungszeiten schließen einige Menschen aus.",
+      "en": "There are enough heat shelters, but stairs and short hours keep some residents from using them."
+    },
+    "courseUnitId": "c1_02_inclusive_sustainable_systems",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "resident",
+      "official"
+    ],
+    "relationshipContext": "현아와 주민, 담당자",
+    "intent": "시설 개수보다 실제 접근 조건을 근거로 개선 우선순위를 제안한다",
+    "shelf": "c1_mediation",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "In diesem Gebiet betreiben wir mehr Hitzeschutzräume, als der Richtwert vorsieht.",
+          "en": "This area operates more heat shelters than the benchmark calls for."
+        }
+      },
+      {
+        "korean": "가까운 곳은 계단뿐이고, 경사로가 있는 곳은 제가 갈 때 이미 닫혀요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Einrichtung in der Nähe hat nur Treppen, und die mit einer Rampe ist schon geschlossen, wenn ich dort ankomme.",
+          "en": "The nearby one only has stairs, and the one with a ramp is already closed when I get there."
+        }
+      },
+      {
+        "korean": "쉼터가 있다는 것과 실제로 이용할 수 있다는 것은 같은 말이 아닙니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dass ein Schutzraum vorhanden ist, heißt noch nicht, dass er praktisch nutzbar ist.",
+          "en": "Having a shelter is not the same as being able to use it."
+        }
+      },
+      {
+        "korean": "새 시설을 더 지정하는 방안부터 검토하겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir werden zunächst prüfen, ob wir weitere Einrichtungen als Schutzräume ausweisen können.",
+          "en": "We'll first look into designating more facilities as shelters."
+        }
+      },
+      {
+        "korean": "시설 수에 국한하면 운영 시간과 이동 경로의 문제를 놓치게 됩니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn wir uns auf die Anzahl der Einrichtungen beschränken, übersehen wir Probleme bei den Öffnungszeiten und Zugangswegen.",
+          "en": "If we focus only on the number of facilities, we overlook problems with opening hours and access routes."
+        }
+      },
+      {
+        "korean": "운영 시간을 늘리고 경사로가 있는 곳을 먼저 알려 주는 게 더 도움이 됩니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es wäre hilfreicher, die Öffnungszeiten zu verlängern und zuerst über die Einrichtungen mit einer Rampe zu informieren.",
+          "en": "It would help more to extend the opening hours and let us know first which shelters have a ramp."
+        }
+      },
+      {
+        "korean": "새 시설을 늘리기 전에 안내부터 고치고, 계약과 인력 여건이 되는 곳부터 운영 시간을 늘리면 어떨까요?",
+        "note": {
+          "ko": "제약을 반영해 개선 순서를 제안해요.",
+          "de": "Bevor wir weitere Einrichtungen aufnehmen, könnten wir zuerst die Hinweise verbessern und die Öffnungszeiten dort verlängern, wo es die Verträge und die Personalsituation zulassen.",
+          "en": "Before adding more facilities, could we improve the information first and extend opening hours where the agreements and staffing allow it?"
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_inclusive_systems"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_c1_limited_to"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에 국한하면",
+        "de": "Geltungsbereich einschränken",
+        "en": "Limiting the scope"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Grenzt eine Aussage auf einen bestimmten Ausschnitt ein und zeigt, dass sie darüber hinaus nicht gilt.",
+        "en": "Restricts a claim to one slice of the data and signals that it does not hold beyond it."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.",
+        "de": "In diesem Gebiet betreiben wir mehr Hitzeschutzräume, als der Richtwert vorsieht.",
+        "en": "This area operates more heat shelters than the benchmark calls for."
+      },
+      {
+        "speaker": "resident",
+        "ko": "가까운 곳은 계단뿐이고, 경사로가 있는 곳은 제가 갈 때 이미 닫혀요.",
+        "de": "Die Einrichtung in der Nähe hat nur Treppen, und die mit einer Rampe ist schon geschlossen, wenn ich dort ankomme.",
+        "en": "The nearby one only has stairs, and the one with a ramp is already closed when I get there."
+      },
+      {
+        "speaker": "user",
+        "ko": "쉼터가 있다는 것과 실제로 이용할 수 있다는 것은 같은 말이 아닙니다.",
+        "de": "Dass ein Schutzraum vorhanden ist, heißt noch nicht, dass er praktisch nutzbar ist.",
+        "en": "Having a shelter is not the same as being able to use it."
+      },
+      {
+        "speaker": "official",
+        "ko": "새 시설을 더 지정하는 방안부터 검토하겠습니다.",
+        "de": "Wir werden zunächst prüfen, ob wir weitere Einrichtungen als Schutzräume ausweisen können.",
+        "en": "We'll first look into designating more facilities as shelters."
+      },
+      {
+        "speaker": "user",
+        "ko": "시설 수에 국한하면 운영 시간과 이동 경로의 문제를 놓치게 됩니다.",
+        "de": "Wenn wir uns auf die Anzahl der Einrichtungen beschränken, übersehen wir Probleme bei den Öffnungszeiten und Zugangswegen.",
+        "en": "If we focus only on the number of facilities, we overlook problems with opening hours and access routes."
+      },
+      {
+        "speaker": "resident",
+        "ko": "운영 시간을 늘리고 경사로가 있는 곳을 먼저 알려 주는 게 더 도움이 됩니다.",
+        "de": "Es wäre hilfreicher, die Öffnungszeiten zu verlängern und zuerst über die Einrichtungen mit einer Rampe zu informieren.",
+        "en": "It would help more to extend the opening hours and let us know first which shelters have a ramp."
+      },
+      {
+        "speaker": "official",
+        "ko": "운영 인력이 부족하고, 장소 계약상 일부 쉼터는 저녁에 문을 열 수 없습니다.",
+        "de": "Uns fehlt Personal, und bei manchen Schutzräumen lassen die Nutzungsverträge keine Abendöffnung zu.",
+        "en": "We're short of staff, and the agreements for some shelters don't allow evening opening."
+      },
+      {
+        "speaker": "user",
+        "ko": "새 시설을 늘리기 전에 안내부터 고치고, 계약과 인력 여건이 되는 곳부터 운영 시간을 늘리면 어떨까요?",
+        "de": "Bevor wir weitere Einrichtungen aufnehmen, könnten wir zuerst die Hinweise verbessern und die Öffnungszeiten dort verlängern, wo es die Verträge und die Personalsituation zulassen.",
+        "en": "Before adding more facilities, could we improve the information first and extend opening hours where the agreements and staffing allow it?"
+      },
+      {
+        "speaker": "official",
+        "ko": "안내는 먼저 고치겠습니다. 운영 시간을 늘릴 수 있는 곳은 다음 회의에서 말씀드리겠습니다.",
+        "de": "Wir verbessern zuerst die Hinweise. In der nächsten Sitzung stellen wir vor, wo längere Öffnungszeiten möglich sind.",
+        "en": "We'll improve the information first. At the next meeting, we'll report which facilities could stay open longer."
+      },
+      {
+        "speaker": "resident",
+        "ko": "어느 쉼터를 언제 이용할 수 있는지 알면 갈 곳을 정하기가 훨씬 수월하겠네요.",
+        "de": "Wenn ich weiß, welchen Schutzraum ich wann nutzen kann, fällt es mir viel leichter zu entscheiden, wohin ich gehe.",
+        "en": "Knowing which shelter I can use and when would make it much easier to decide where to go."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_heatwave_shelter_access_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.",
+          "options": [
+            {
+              "de": "In diesem Gebiet betreiben wir mehr Hitzeschutzräume, als der Richtwert vorsieht.",
+              "en": "This area operates more heat shelters than the benchmark calls for."
+            },
+            {
+              "de": "Die Einrichtung in der Nähe hat nur Treppen, und die mit einer Rampe ist schon geschlossen, wenn ich dort ankomme.",
+              "en": "The nearby one only has stairs, and the one with a ramp is already closed when I get there."
+            },
+            {
+              "de": "Dass ein Schutzraum vorhanden ist, heißt noch nicht, dass er praktisch nutzbar ist.",
+              "en": "Having a shelter is not the same as being able to use it."
+            },
+            {
+              "de": "Wir werden zunächst prüfen, ob wir weitere Einrichtungen als Schutzräume ausweisen können.",
+              "en": "We'll first look into designating more facilities as shelters."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_heatwave_shelter_access_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Dass ein Schutzraum vorhanden ist, heißt noch nicht, dass er praktisch nutzbar ist.",
+          "promptEn": "Having a shelter is not the same as being able to use it.",
+          "options": [
+            {
+              "ko": "쉼터가 있다는 것과 실제로 이용할 수 있다는 것은 같은 말이 아닙니다."
+            },
+            {
+              "ko": "이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다."
+            },
+            {
+              "ko": "가까운 곳은 계단뿐이고, 경사로가 있는 곳은 제가 갈 때 이미 닫혀요."
+            },
+            {
+              "ko": "새 시설을 더 지정하는 방안부터 검토하겠습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_heatwave_shelter_access_03",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ],
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "시설 수에 국한하면 운영 시간과 이동 경로의 문제를 놓치게 됩니다.",
+          "audioKo": "시설 수에 국한하면 운영 시간과 이동 경로의 문제를 놓치게 됩니다.",
+          "promptDe": "Wenn wir uns auf die Anzahl der Einrichtungen beschränken, übersehen wir Probleme bei den Öffnungszeiten und Zugangswegen.",
+          "promptEn": "If we focus only on the number of facilities, we overlook problems with opening hours and access routes.",
+          "distractors": [
+            "늘리면",
+            "계약만",
+            "충분합니다"
+          ]
+        }
+      },
+      {
+        "id": "quest_heatwave_shelter_access_04",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ],
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "새 시설을 늘리기 전에 안내부터 고치고, 계약과 인력 여건이 되는 곳부터 운영 시간을 늘리면 어떨까요?",
+          "audioKo": "새 시설을 늘리기 전에 안내부터 고치고, 계약과 인력 여건이 되는 곳부터 운영 시간을 늘리면 어떨까요?",
+          "promptDe": "Bevor wir weitere Einrichtungen aufnehmen, könnten wir zuerst die Hinweise verbessern und die Öffnungszeiten dort verlängern, wo es die Verträge und die Personalsituation zulassen.",
+          "promptEn": "Before adding more facilities, could we improve the information first and extend opening hours where the agreements and staffing allow it?",
+          "distractors": [
+            "나중에",
+            "줄이면",
+            "불가능한"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Revision awaits independent model review and native wording review."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Revision awaits independent model review and native wording review."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Revision awaits independent model review and native wording review."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Revision awaits independent model review and native wording review."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Revision awaits independent model review and native wording review."
+      ]
+    },
+    "warnings": [
+      "Review-only revision; the earlier candidate-set approval does not authorize this changed candidate."
+    ],
+    "provenance": "cp2026_curriculum_revision_pending"
+  },
+  "editorialSource": "tools/content_factory/review/canonical_120_revisions_20260916"
+}

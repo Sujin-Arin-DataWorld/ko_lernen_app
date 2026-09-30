@@ -137,6 +137,28 @@ class R8QuestionMismatchTest(unittest.TestCase):
         self.assertNotIn("R8", hits)
 
 
+class TextBoundReviewTest(unittest.TestCase):
+    def test_new_exceptions_expire_after_any_reviewed_text_edit(self):
+        rows = {row["id"]: row for row in s.load_rows()}
+        for ident, review in s.C7_REVIEW.items():
+            row = rows[ident]
+            for rule in review["rules"]:
+                with self.subTest(ident=ident, rule=rule):
+                    self.assertTrue(s.is_documented_false_positive(rule, ident, row))
+                    self.assertFalse(s.is_documented_false_positive(rule, ident))
+                    for field in s.REVIEW_FIELDS:
+                        changed = {**row, field: row[field] + " changed"}
+                        self.assertFalse(s.is_documented_false_positive(rule, ident, changed))
+                    self.assertFalse(s.is_documented_false_positive("R1", ident, row))
+
+    def test_report_uses_the_supplied_text_not_the_current_live_row(self):
+        row = next(r for r in s.load_rows() if r["id"] == "vocab_a1_0537")
+        flagged = {**row, "hits": s.scan_row(row)}
+        self.assertNotIn("**UNEXPLAINED**", s.build_report("A1", [flagged], 1))
+        flagged["example_german"] = "Unreviewed replacement"
+        self.assertIn("**UNEXPLAINED**", s.build_report("A1", [flagged], 1))
+
+
 class A1LiveRatchetTest(unittest.TestCase):
     """Live ratchet: every raw lint hit against the CURRENT A1 corpus must
     be a documented, justified false positive (see scanner's
@@ -149,7 +171,7 @@ class A1LiveRatchetTest(unittest.TestCase):
         unexplained = []
         for row in a1_rows:
             for rule_id, detail in s.scan_row(row):
-                if not s.is_documented_false_positive(rule_id, row["id"]):
+                if not s.is_documented_false_positive(rule_id, row["id"], row):
                     unexplained.append((rule_id, row["id"], detail))
         self.assertEqual(
             unexplained, [],
@@ -170,7 +192,7 @@ class A2LiveRatchetTest(unittest.TestCase):
         unexplained = []
         for row in a2_rows:
             for rule_id, detail in s.scan_row(row):
-                if not s.is_documented_false_positive(rule_id, row["id"]):
+                if not s.is_documented_false_positive(rule_id, row["id"], row):
                     unexplained.append((rule_id, row["id"], detail))
         self.assertEqual(
             unexplained, [],

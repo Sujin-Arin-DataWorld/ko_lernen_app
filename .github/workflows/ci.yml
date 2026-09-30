@@ -28,6 +28,7 @@ on:
       - 'docs/data/curriculum_matrix_report.md'
       - 'docs/data/cefr_curriculum_matrix.md'
       - 'docs/data/curriculum_completion_backlog.md'
+      - 'docs/data/scenario_quest_report.md'
       - 'docs/assets/STYLE_LOCK.json'
       - 'docs/assets/CARD_STYLE_BASELINE.json'
       - 'docs/assets/VOCAB_PACK_CARD_MANIFEST.json'
@@ -60,6 +61,7 @@ on:
       - 'docs/data/curriculum_matrix_report.md'
       - 'docs/data/cefr_curriculum_matrix.md'
       - 'docs/data/curriculum_completion_backlog.md'
+      - 'docs/data/scenario_quest_report.md'
       - 'docs/assets/STYLE_LOCK.json'
       - 'docs/assets/CARD_STYLE_BASELINE.json'
       - 'docs/assets/VOCAB_PACK_CARD_MANIFEST.json'
@@ -141,6 +143,7 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 1
+          filter: blob:none
 
       - name: Fetch comparison history
         env:
@@ -174,6 +177,9 @@ jobs:
 
       - name: Verify CI and release contracts
         run: python3 -m unittest discover -s .github/scripts -p "test_*.py"
+
+      - name: Verify operations configuration tools
+        run: python3 -m unittest discover -s tool/ops -p "test_*.py" -t .
 
       - name: Verify append-only Living Hanok grant history
         env:
@@ -243,6 +249,7 @@ jobs:
           .github/workflows/ci.yml
           .github/workflows/play_closed.yml
           .github/workflows/playwright.yml
+          .github/workflows/play_internal_status.yml
 
   website:
     name: Website source and Worker release gate
@@ -256,6 +263,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          # Site checks only need the Worker source and a few canonical docs.
+          # Avoid fetching the full app asset tree before this 15-minute job.
+          filter: blob:none
+          sparse-checkout: |
+            .github/workflows/ci.yml
+            assets/data/ildu_construction_art_v1.json
+            assets_unused/pending_review/personal_hanok_v3/four_buildings_construction_29deg_v1/construction_catalog.json
+            docs/CNAME
+            docs/data/cultural_glossary.json
+            docs/assets/ildu_four_buildings_construction_20260914
+            hangul-sori-site-local
+            wrangler.jsonc
+          sparse-checkout-cone-mode: false
 
       - name: Set up pinned website Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
@@ -402,8 +423,9 @@ jobs:
           export PATH="$HOME/flutter/bin:$HOME/.pub-cache/bin:$PATH"
           flutter build ios --release --no-codesign
 
-  # The cold Intel simulator setup/build needs its own bounded 75-minute clock;
-  # device release keeps 45 minutes. Both jobs retain the same toolchain contract.
+  # A cold Intel run used 18 minutes for setup and was still compiling the app
+  # at the old 75-minute limit (36511915822). Keep all native tests and allow
+  # 90 minutes for setup, compilation and execution; device release keeps 45.
   ios-native-tests:
     name: iOS simulator native tests
     needs: changes
@@ -412,7 +434,7 @@ jobs:
       (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
     # Locked ML Kit binaries provide x86_64 simulator slices, not arm64 simulator.
     runs-on: macos-15-intel
-    timeout-minutes: 75
+    timeout-minutes: 90
     env:
       CI_PRIMARY_REPOSITORY_PATH: ${{ github.workspace }}
       DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
@@ -535,14 +557,20 @@ jobs:
             CODE_SIGNING_ALLOWED=NO ARCHS=x86_64 ONLY_ACTIVE_ARCH=YES \
             BUILD_DIR="$PWD/build/ios" FLUTTER_BUILD_MODE=debug \
             2>&1 | tee "$RUNNER_TEMP/phase-native-build.log"
-          xcrun simctl install "$simulator_id" build/ios/Debug-iphonesimulator/Runner.app
-          xcrun simctl privacy "$simulator_id" grant microphone com.hangulsori.app
+          phase_app=build/ios/Debug-iphonesimulator/Runner.app
+          # Use the identity of the built app for permissions and process death.
+          # A stale hard-coded ID targets a different app and invalidates restore QA.
+          app_bundle_id="$(plutil -extract CFBundleIdentifier raw -o - "$phase_app/Info.plist")"
+          test -n "$app_bundle_id"
+          xcrun simctl install "$simulator_id" "$phase_app"
+          xcrun simctl get_app_container "$simulator_id" "$app_bundle_id" app >/dev/null
+          xcrun simctl privacy "$simulator_id" grant microphone "$app_bundle_id"
           native_failed=0
           for qa_level in "${qa_levels[@]}"; do
             # Reassert permission after relaunches and allow the previous native
             # audio session to release before an independent level begins.
-            xcrun simctl terminate "$simulator_id" com.hangulsori.app || true
-            xcrun simctl privacy "$simulator_id" grant microphone com.hangulsori.app
+            xcrun simctl terminate "$simulator_id" "$app_bundle_id" || true
+            xcrun simctl privacy "$simulator_id" grant microphone "$app_bundle_id"
             sleep 2
             if ! flutter drive --no-pub --no-dds --keep-app-running --no-uninstall-first \
               --use-application-binary=build/ios/Debug-iphonesimulator/Runner.app \
@@ -554,7 +582,7 @@ jobs:
               continue
             fi
             cp build/integration_response_data.json "$RUNNER_TEMP/phase-native-$qa_level-receipt.json"
-            xcrun simctl terminate "$simulator_id" com.hangulsori.app
+            xcrun simctl terminate "$simulator_id" "$app_bundle_id"
             # Without keep-app-running, Flutter drive also uninstalls the app
             # after restoring it, discarding data and the microphone grant.
             # The next loop explicitly terminates only the process.
@@ -662,6 +690,117 @@ jobs:
           } > "$HOME/.gradle/gradle.properties"
           free -h
 
+      - name: Read pinned release-toolchain versions
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        id: toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - >> "$GITHUB_OUTPUT" <<'PY'
+          import json
+          with open("tool/android_release_tools.json", encoding="utf-8") as handle:
+              config = json.load(handle)
+          for tool, fields in config.items():
+              prefix = tool.replace("-", "_")
+              for field, value in fields.items():
+                  print(f"{prefix}_{field}={value}")
+          PY
+
+      - name: Pin release-toolchain Java
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
+        with:
+          distribution: temurin
+          # setup-java consumes Adoptium version_data.semver, not openjdk_version.
+          java-version: ${{ steps.toolchain.outputs.java_setup_version }}
+
+      - name: Download and verify bundletool
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        id: bundletool
+        shell: bash
+        env:
+          BUNDLETOOL_URL: ${{ steps.toolchain.outputs.bundletool_url }}
+          BUNDLETOOL_SHA256: ${{ steps.toolchain.outputs.bundletool_sha256 }}
+          BUNDLETOOL_VERSION: ${{ steps.toolchain.outputs.bundletool_version }}
+        run: |
+          set -euo pipefail
+          jar="$RUNNER_TEMP/bundletool-all-${BUNDLETOOL_VERSION}.jar"
+          curl -fsSL --retry 3 -o "$jar" "$BUNDLETOOL_URL"
+          echo "${BUNDLETOOL_SHA256}  $jar" | sha256sum -c -
+          echo "bundletool_jar=$jar" >> "$GITHUB_OUTPUT"
+
+      # The standalone publisher artifact includes its runtime and dependencies.
+      # Verify every byte before making it executable; no npm install hooks run.
+      - name: Download and verify firebase-tools
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        id: firebase-tools
+        shell: bash
+        env:
+          FIREBASE_TOOLS_URL: ${{ steps.toolchain.outputs.firebase_tools_url }}
+          FIREBASE_TOOLS_SHA256: ${{ steps.toolchain.outputs.firebase_tools_sha256 }}
+        run: |
+          set -euo pipefail
+          firebase_bin="$RUNNER_TEMP/firebase-tools-linux"
+          curl -fsSL --retry 3 -o "$firebase_bin" "$FIREBASE_TOOLS_URL"
+          echo "${FIREBASE_TOOLS_SHA256}  $firebase_bin" | sha256sum -c -
+          chmod 0555 "$firebase_bin"
+          echo "firebase_bin=$firebase_bin" >> "$GITHUB_OUTPUT"
+
+      - name: Download and verify Crashlytics buildtools
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        id: crashlytics-buildtools
+        shell: bash
+        env:
+          BUILDTOOLS_URL: ${{ steps.toolchain.outputs.crashlytics_buildtools_url }}
+          BUILDTOOLS_SHA256: ${{ steps.toolchain.outputs.crashlytics_buildtools_sha256 }}
+        run: |
+          set -euo pipefail
+          jar="$RUNNER_TEMP/crashlytics-buildtools.jar"
+          curl -fsSL --retry 3 -o "$jar" "$BUILDTOOLS_URL"
+          echo "${BUILDTOOLS_SHA256}  $jar" | sha256sum -c -
+          echo "jar=$jar" >> "$GITHUB_OUTPUT"
+
+      - name: Write release-evidence tools manifest
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        id: tools-json
+        shell: bash
+        env:
+          CRASHLYTICS_JAR: ${{ steps.crashlytics-buildtools.outputs.jar }}
+          CRASHLYTICS_JAR_SHA256: ${{ steps.toolchain.outputs.crashlytics_buildtools_sha256 }}
+          JAVA_BIN_SHA256: ${{ steps.toolchain.outputs.java_sha256 }}
+          BUNDLETOOL_JAR: ${{ steps.bundletool.outputs.bundletool_jar }}
+          BUNDLETOOL_JAR_SHA256: ${{ steps.toolchain.outputs.bundletool_sha256 }}
+          FIREBASE_BIN: ${{ steps.firebase-tools.outputs.firebase_bin }}
+          FIREBASE_BIN_SHA256: ${{ steps.toolchain.outputs.firebase_tools_sha256 }}
+        run: |
+          set -euo pipefail
+          export JAVA_BIN="$(command -v java)"
+          manifest="$RUNNER_TEMP/release-evidence-tools.json"
+          python3 - > "$manifest" <<'PY'
+          import json
+          import os
+          java_bin = os.environ["JAVA_BIN"]
+          bundletool_jar = os.environ["BUNDLETOOL_JAR"]
+          firebase_bin = os.environ["FIREBASE_BIN"]
+          print(json.dumps({
+              "bundletool": {
+                  "argv": [java_bin, "-jar", bundletool_jar],
+                  "sha256": {java_bin: os.environ["JAVA_BIN_SHA256"],
+                             bundletool_jar: os.environ["BUNDLETOOL_JAR_SHA256"]},
+              },
+              "crashlytics-buildtools": {
+                  "argv": [java_bin, "-jar", os.environ["CRASHLYTICS_JAR"]],
+                  "sha256": {java_bin: os.environ["JAVA_BIN_SHA256"],
+                             os.environ["CRASHLYTICS_JAR"]: os.environ["CRASHLYTICS_JAR_SHA256"]},
+              },
+              "firebase": {
+                  "argv": [firebase_bin],
+                  "sha256": {firebase_bin: os.environ["FIREBASE_BIN_SHA256"]},
+              },
+          }))
+          PY
+          echo "manifest=$manifest" >> "$GITHUB_OUTPUT"
+
       - name: Restore Android upload signing
         shell: bash
         env:
@@ -746,6 +885,88 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
+      # Reuse the exact-AAB symbol verifier from the public-testing lane.
+      # Activation requires verified tool pins and the app ID; see the runbook.
+      - name: Symbol evidence gate status
+        shell: bash
+        env:
+          GATE_ENABLED: ${{ vars.ANDROID_SYMBOL_EVIDENCE_GATE }}
+        run: |
+          set -euo pipefail
+          if [[ "$GATE_ENABLED" == "true" ]]; then
+            echo "Symbol evidence gate: ENABLED (must pass before Play upload)."
+          else
+            echo "::warning::Symbol evidence gate is disabled; this run does not prove Crashlytics symbol upload."
+          fi
+
+      - name: Upload and verify Crashlytics symbol evidence
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        id: symbol-evidence
+        shell: bash
+        env:
+          TOOLS_JSON: ${{ steps.tools-json.outputs.manifest }}
+          VERSION_CODE: ${{ steps.release-meta.outputs.version-code }}
+          FIREBASE_ANDROID_APP_ID: ${{ vars.FIREBASE_ANDROID_APP_ID }}
+        run: |
+          set -euo pipefail
+          aab=build/app/outputs/bundle/release/app-release.aab
+          expected_sha256="$(cut -d' ' -f1 "$aab.sha256")"
+          receipt="$RUNNER_TEMP/symbol-receipt.json"
+          common_args=(
+            --aab "$aab"
+            --symbols build/app/outputs/symbols
+            --google-services android/app/google-services.json
+            --receipt "$receipt"
+            --tools-json "$TOOLS_JSON"
+            --git-sha "$GITHUB_SHA"
+            --run-id "$GITHUB_RUN_ID"
+            --run-attempt "$GITHUB_RUN_ATTEMPT"
+            --version-code "$VERSION_CODE"
+            --firebase-app-id "$FIREBASE_ANDROID_APP_ID"
+            --expected-aab-sha256 "$expected_sha256"
+          )
+          python3 tool/android_release_evidence.py upload "${common_args[@]}"
+          python3 tool/android_release_evidence.py verify "${common_args[@]}"
+          echo "receipt=$receipt" >> "$GITHUB_OUTPUT"
+
+      - name: Archive symbol evidence
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        id: archive-evidence
+        shell: bash
+        env:
+          TOOLS_JSON: ${{ steps.tools-json.outputs.manifest }}
+          VERSION_CODE: ${{ steps.release-meta.outputs.version-code }}
+          FIREBASE_ANDROID_APP_ID: ${{ vars.FIREBASE_ANDROID_APP_ID }}
+          RECEIPT: ${{ steps.symbol-evidence.outputs.receipt }}
+        run: |
+          set -euo pipefail
+          aab=build/app/outputs/bundle/release/app-release.aab
+          expected_sha256="$(cut -d' ' -f1 "$aab.sha256")"
+          archive_dir="$RUNNER_TEMP/symbol-evidence"
+          python3 tool/android_release_evidence.py archive \
+            --aab "$aab" \
+            --symbols build/app/outputs/symbols \
+            --google-services android/app/google-services.json \
+            --receipt "$RECEIPT" \
+            --tools-json "$TOOLS_JSON" \
+            --git-sha "$GITHUB_SHA" \
+            --run-id "$GITHUB_RUN_ID" \
+            --run-attempt "$GITHUB_RUN_ATTEMPT" \
+            --version-code "$VERSION_CODE" \
+            --firebase-app-id "$FIREBASE_ANDROID_APP_ID" \
+            --expected-aab-sha256 "$expected_sha256" \
+            --archive-dir "$archive_dir"
+          echo "archive-dir=$archive_dir" >> "$GITHUB_OUTPUT"
+
+      - name: Preserve symbol evidence artifact
+        if: vars.ANDROID_SYMBOL_EVIDENCE_GATE == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: android-symbol-evidence-v${{ steps.release-meta.outputs.version-code }}-${{ github.sha }}
+          path: ${{ steps.archive-evidence.outputs.archive-dir }}
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Upload to Google Play Internal Testing
         uses: r0adkll/upload-google-play@e738b9dd8f2476ea806d921b64aacd24f34515a5 # v1.1.5
         with:
@@ -825,6 +1046,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          # Python/Node parity and data contracts also read sibling functions,
+          # app data, native Firebase identities, and shared fixtures.
+          # Cone mode retains root rules/indexes.
+          sparse-checkout: |
+            functions
+            assets/data
+            test/fixtures
+            lib
+            android/app
 
       - name: Set up Python
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
@@ -1029,17 +1260,17 @@ jobs:
       # diagnosable on its own instead of hiding inside the full discover run.
       - name: Run tool/ release-integrity tests
         timeout-minutes: 5
-        run: python -m unittest tool.test_release_integrity tool.test_android_release_evidence tool.test_android_release_tools_config -v
+        run: python -m unittest tool.test_release_integrity tool.test_android_release_evidence tool.test_android_release_tools_config tool.test_internal_symbol_workflow -v
 
       - name: Run tool/ unit tests (image pipeline and the rest)
         run: python -m unittest discover -s tool -p "test_*.py" -t .
 
   content-validate:
-    name: Content validator (validate_content + ledger tests)
+    name: Content validator (full content_factory suite)
     needs: changes
     if: needs.changes.outputs.content == 'true' || needs.changes.outputs.app == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -1053,10 +1284,16 @@ jobs:
       - name: Validate content assets (schema, IDs, level/pack_id/shelf contracts)
         run: python tools/content_factory/validate_content.py --json
 
-      # tools/content_factory 전체 discover는 기존 baseline 실패(5건)가
-      # 있어 지정 모듈만 실행한다 — 플랜 §4.7
-      - name: Run validate_content and relevel ledger unit tests
-        run: python -m unittest tools.content_factory.test_validate_content tools.content_factory.test_relevel_ledger -v
+      - name: Run all content_factory tests including promotion validators
+        run: python -B -m unittest discover -s tools/content_factory -p 'test_*.py' -t .
+
+      - name: Verify can-do freshness and draft versus live boundaries
+        run: |
+          python -B tools/content_factory/build_can_do_segments.py --check
+          python -B tools/content_factory/audit_batch_live_promotion.py --check
+
+      - name: Ensure content tests preserve tracked source and review evidence
+        run: git diff --exit-code
 
       - name: Verify curriculum audit and backlog freshness
         run: |

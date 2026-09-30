@@ -46,6 +46,7 @@ LIVE_CSV_BY_KIND = {
     "grammar": "grammar.csv",
 }
 SKIP_STATUSES = {"index", "superseded"}
+DRAFT_STATUSES = {"draft", "review_only_draft"}
 
 
 class BatchAuditError(ValueError):
@@ -194,6 +195,7 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
     reports: list[dict[str, Any]] = []
     tracked_total = 0
     live_total = 0
+    pending_total = 0
     drafts = root / "tools" / "content_factory" / "drafts"
     for path in sorted(drafts.glob(MANIFEST_GLOB), key=lambda item: item.name):
         manifest = _read_json(path)
@@ -225,6 +227,9 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
             and str(approval.get("authority") or "").strip().casefold() == "jin"
         )
         legacy_promotion = bool(str(provenance.get("promotedAt") or "").strip())
+        pending = status in DRAFT_STATUSES and not legacy_promotion
+        if pending and approval:
+            manifest_errors.append(f"{path.name}: pending draft carries conflicting approval evidence")
         tracked = 0
         present = 0
         for artifact in manifest.get("artifacts", []):
@@ -268,12 +273,16 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
             for ident in draft_index:
                 live_record = live_indexes[kind].get(ident)
                 if live_record is None:
+                    if pending:
+                        continue
                     if kind == "scenario" and canonical_scenario_runtime:
                         retired_scenarios.append(ident)
                         continue
                     missing.append(f"{kind}:{ident}")
                     continue
                 present += 1
+                if pending:
+                    manifest_errors.append(f"{path.name}: unpromoted draft is live: {kind}:{ident}")
                 projection.append({"kind": kind, "id": ident, "record": live_record})
                 if kind == "scenario":
                     if not str(live_record.get("shelf") or "").strip():
@@ -319,8 +328,10 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
             for key in normalized:
                 if key in live_index:
                     supplemental_present += 1
+                    if pending:
+                        manifest_errors.append(f"{path.name}: unpromoted draft is live: {kind}:{key}")
                     projection.append({"kind": kind, "id": key, "record": live_index[key]})
-                else:
+                elif not pending:
                     missing.append(f"{kind}:{key}")
         if manifest.get("supplementalRecordCount", supplemental_tracked) != supplemental_tracked:
             manifest_errors.append(
@@ -335,12 +346,14 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
                 f"{path.name}: modern merged approval requires all review rows approved; "
                 f"found {dict(sorted(review_statuses.items()))}"
             )
-        if not structured_approval and not legacy_promotion:
+        if not pending and not structured_approval and not legacy_promotion:
             manifest_errors.append(
                 f"{path.name}: live records lack structured Jin approval or legacy promotedAt evidence"
             )
 
-        if missing:
+        if pending:
+            audit_status = "invalid" if manifest_errors else "pending_not_live"
+        elif missing:
             audit_status = "not_live"
         elif manifest_errors:
             audit_status = "invalid"
@@ -352,8 +365,11 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
             audit_status = "live_verified_modern"
         else:
             audit_status = "live_verified_legacy_authorized"
-        tracked_total += tracked
-        live_total += present
+        if pending:
+            pending_total += tracked
+        else:
+            tracked_total += tracked
+            live_total += present
         errors.extend(manifest_errors)
         errors.extend(f"{path.name}: missing {item}" for item in missing)
         reports.append({
@@ -371,6 +387,8 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
                 if structured_approval
                 else "legacy_promoted_at"
                 if legacy_promotion
+                else "not_promoted"
+                if pending
                 else "missing"
             ),
             "reviewStatuses": dict(sorted(review_statuses.items())),
@@ -380,10 +398,11 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
         })
 
     return {
-        "version": 3,
+        "version": 4,
         "scope": "all tools/content_factory/drafts/batch*manifest.json files",
         "trackedIds": tracked_total,
         "liveIds": live_total,
+        "pendingIds": pending_total,
         "retiredScenarioIds": sum(
             len(report.get("retiredScenarios", [])) for report in reports
         ),

@@ -9,15 +9,19 @@ from __future__ import annotations
 
 import csv
 import io
+import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools" / "content_factory"))
 
 from relevel_ledger import Ledger, LedgerEntry  # noqa: E402
 from relevel_vocab import COLUMNS, apply_batch, check_target_level_grammar  # noqa: E402
+import relevel_vocab  # noqa: E402
 
 
 def _row(
@@ -133,9 +137,164 @@ def _empty_env() -> dict:
         authorities=_authorities(),
         segments_doc=_segments_doc(),
         curriculum=_curriculum(),
+        word_relations={"clusters": []},
         ledger=Ledger(version=1, entries=[]),
         batch_name="test_batch",
     )
+
+
+class MigrationTransactionTest(unittest.TestCase):
+    """Exercise the file-writing entry point as well as its pure move helper."""
+
+    def setUp(self) -> None:
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name)
+        data = self.root / "assets/data"
+        data.mkdir(parents=True)
+        (self.root / "docs/data").mkdir(parents=True)
+        relevel_vocab.write_vocab(_fixture(), data / "korean_vocab.csv")
+        self.relation = {"id": "rel_test", "sourceVocabId": "vocab_b2_경우", "sourceKo": "경우", "level": "B2", "related": [{"ko": "상황"}]}
+        documents = {
+            "cloze.json": _cloze_root({"id": "cloze_b2_0001", "level": "b2", "fullKo": "경우 예문"}),
+            "satz_sentences.json": _satz_root({"id": "satz_b2_0001", "level": "b2", "vocabKo": "경우", "targetKo": "경우 예문"}),
+            "can_do_content_authorities.json": _authorities(),
+            "can_do_segments.json": _segments_doc(),
+            "curriculum_manifest.json": _curriculum(),
+            "word_relations.json": {"version": 1, "clusters": [self.relation]},
+        }
+        for name, doc in documents.items():
+            relevel_vocab._write_json(data / name, doc)
+        for relative in ("tools/content_factory/content_audit_manifest.json", "functions/analyze_korean_text/grammar_patterns.json"):
+            path = self.root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("{}", encoding="utf-8")
+        self.ledger_path = self.root / "ledger.json"
+        Ledger(version=1, entries=[]).save(self.ledger_path)
+        self.batch_path = self.root / "move.csv"
+        batch = _batch(("vocab_b2_경우", "경우", "B2", "B1"))
+        with self.batch_path.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=list(batch[0]))
+            writer.writeheader()
+            writer.writerows(batch)
+        # The small fixture intentionally omits unrelated app corpora. Full
+        # corpus validation is covered by the real bundle-transaction test.
+        validator = patch("relevel_vocab.ContentValidator")
+        self.validator = validator.start()
+        self.addCleanup(validator.stop)
+        self.validator.return_value.validate.return_value = []
+
+    def snapshot(self):
+        return {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
+
+    def test_dry_run_is_read_only_and_apply_persists_word_web_level(self):
+        before = self.snapshot()
+        relevel_vocab.migrate(self.batch_path, root=self.root, ledger_path=self.ledger_path, apply=False)
+        self.assertEqual(self.snapshot(), before)
+        relevel_vocab.migrate(self.batch_path, root=self.root, ledger_path=self.ledger_path, apply=True)
+        result = json.loads((self.root / "assets/data/word_relations.json").read_text(encoding="utf-8"))
+        self.assertEqual(result["clusters"], [{**self.relation, "level": "B1"}])
+        self.assertTrue(self.validator.return_value.validate.called)
+
+    def test_failed_grammar_gate_keeps_every_file_unchanged(self):
+        before = self.snapshot()
+        with patch("relevel_vocab.check_target_level_grammar", return_value=["invalid target grammar"]) as gate:
+            with self.assertRaisesRegex(SystemExit, "목표 레벨 문법 상한"):
+                relevel_vocab.migrate(self.batch_path, root=self.root, ledger_path=self.ledger_path, apply=True)
+        self.assertEqual(gate.call_args.kwargs["cloze_by_id"]["cloze_b2_0001"]["level"], "b1")
+        self.assertEqual(gate.call_args.kwargs["satz_by_id"]["satz_b2_0001"]["level"], "b1")
+        self.assertEqual(self.snapshot(), before)
+
+    def test_late_partial_write_failure_restores_data_ledger_and_new_file(self):
+        before = self.snapshot()
+        real_copy = relevel_vocab.shutil.copy2
+        pack_map = self.root / "docs/data/vocab_pack_map.md"
+
+        def fail_last_write(source, target, *args, **kwargs):
+            if Path(target) == pack_map:
+                pack_map.write_bytes(b"interrupted write")
+                raise OSError("injected pack map failure")
+            return real_copy(source, target, *args, **kwargs)
+
+        with patch("relevel_vocab.shutil.copy2", side_effect=fail_last_write):
+            with self.assertRaisesRegex(OSError, "injected pack map failure"):
+                relevel_vocab.migrate(self.batch_path, root=self.root, ledger_path=self.ledger_path, apply=True)
+        self.assertEqual(self.snapshot(), before)
+
+    def test_relation_copy_failure_restores_existing_target_bytes(self):
+        before = self.snapshot()
+        real_copy = relevel_vocab.shutil.copy2
+        relation_path = self.root / "assets/data/word_relations.json"
+
+        def fail_relation_write(source, target, *args, **kwargs):
+            if Path(target) == relation_path:
+                relation_path.write_bytes(b"interrupted write")
+                raise OSError("injected relation failure")
+            return real_copy(source, target, *args, **kwargs)
+
+        with patch("relevel_vocab.shutil.copy2", side_effect=fail_relation_write):
+            with self.assertRaisesRegex(OSError, "injected relation failure"):
+                relevel_vocab.migrate(self.batch_path, root=self.root, ledger_path=self.ledger_path, apply=True)
+        self.assertEqual(self.snapshot(), before)
+
+    def test_locked_unchanged_destination_does_not_block_other_restoration(self):
+        before = self.snapshot()
+        real_copy = relevel_vocab.shutil.copy2
+        real_write = Path.write_bytes
+        relation_path = self.root / "assets/data/word_relations.json"
+
+        def locked_copy(source, target, *args, **kwargs):
+            if Path(target) == relation_path:
+                raise PermissionError("locked relation")
+            return real_copy(source, target, *args, **kwargs)
+
+        def locked_write(path, content):
+            if path == relation_path:
+                raise PermissionError("still locked relation")
+            return real_write(path, content)
+
+        with patch("relevel_vocab.shutil.copy2", side_effect=locked_copy), patch.object(Path, "write_bytes", locked_write):
+            with self.assertRaisesRegex(PermissionError, "locked relation"):
+                relevel_vocab.migrate(self.batch_path, root=self.root, ledger_path=self.ledger_path, apply=True)
+        self.assertEqual(self.snapshot(), before)
+
+    def test_failed_restore_preserves_recovery_bytes_and_restores_other_files(self):
+        before = self.snapshot()
+        real_copy = relevel_vocab.shutil.copy2
+        real_write = Path.write_bytes
+        relation_path = self.root / "assets/data/word_relations.json"
+        recovery = self.root / "recovery"
+        recovery.mkdir()
+        real_mkdtemp = relevel_vocab.tempfile.mkdtemp
+
+        def recovery_directory(*args, **kwargs):
+            if kwargs.get("prefix") == "relevel-vocab-recovery-":
+                return str(recovery)
+            return real_mkdtemp(*args, **kwargs)
+
+        def corrupt_then_lock(source, target, *args, **kwargs):
+            if Path(target) == relation_path:
+                real_write(relation_path, b"partial")
+                raise OSError("write failed")
+            return real_copy(source, target, *args, **kwargs)
+
+        def locked_write(path, content):
+            if path == relation_path:
+                raise PermissionError("restore locked")
+            return real_write(path, content)
+
+        with patch("relevel_vocab.shutil.copy2", side_effect=corrupt_then_lock), patch.object(Path, "write_bytes", locked_write), patch("relevel_vocab.tempfile.mkdtemp", side_effect=recovery_directory):
+            with self.assertRaisesRegex(RuntimeError, "Recovery originals") as caught:
+                relevel_vocab.migrate(self.batch_path, root=self.root, ledger_path=self.ledger_path, apply=True)
+        self.assertIsInstance(caught.exception.__cause__, OSError)
+        relative = relation_path.relative_to(self.root)
+        for path, content in before.items():
+            if path != relative:
+                self.assertEqual((self.root / path).read_bytes(), content, str(path))
+        manifest = json.loads((recovery / "manifest.json").read_text(encoding="utf-8"))
+        record = manifest["unrestored"][0]
+        self.assertEqual(Path(record["path"]), relation_path)
+        self.assertEqual((recovery / record["original"]).read_bytes(), before[relative])
 
 
 class PackIntegrityTest(unittest.TestCase):
@@ -224,6 +383,17 @@ class PackIntegrityTest(unittest.TestCase):
 class SyncedMoveTest(unittest.TestCase):
     """T2.5 Part C: satz 거부 대신 cloze/satz/can_do 예속행을 함께 옮긴다."""
 
+    def test_word_relations_follow_source_level_without_changing_content(self) -> None:
+        vocab = _fixture()
+        env = _empty_env()
+        moved = {"id": "rel_b2_test", "sourceVocabId": "vocab_b2_경우", "sourceKo": "경우", "level": "B2", "related": [{"ko": "상황"}]}
+        untouched = {"id": "rel_b2_other", "sourceVocabId": "vocab_b2_가치", "sourceKo": "가치", "level": "B2"}
+        env["word_relations"] = {"clusters": [moved, untouched], "version": 1}
+        plan, _, _ = apply_batch(vocab, batch=_batch(("vocab_b2_경우", "경우", "B2", "B1")), **env)
+        self.assertEqual(moved, {"id": "rel_b2_test", "sourceVocabId": "vocab_b2_경우", "sourceKo": "경우", "level": "B1", "related": [{"ko": "상황"}]})
+        self.assertEqual(untouched["level"], "B2")
+        self.assertTrue(any("rel_b2_test" in line for line in plan))
+
     def test_satz_word_is_moved_not_rejected(self) -> None:
         vocab = _fixture()
         satz_root = _satz_root({"id": "satz_b2_0001", "level": "b2", "vocabKo": "경우"})
@@ -238,6 +408,17 @@ class SyncedMoveTest(unittest.TestCase):
         self.assertIsNotNone(entry)
         self.assertEqual((entry.from_level, entry.to_level), ("b2", "b1"))
         self.assertEqual(entry.batch, "test_batch")
+
+    def test_word_relation_move_uses_the_same_normalized_id_as_vocab(self) -> None:
+        vocab = _fixture()
+        env = _empty_env()
+        relation = {"id": "rel_test", "sourceVocabId": "vocab_b2_경우", "level": "B2"}
+        env["word_relations"]["clusters"].append(relation)
+        apply_batch(
+            vocab, batch=_batch(("  vocab_b2_경우  ", "경우", "B2", "B1")), **env,
+        )
+        self.assertEqual(relation["level"], "B1")
+        self.assertEqual(next(row for row in vocab if row["id"] == "vocab_b2_경우")["level"], "B1")
 
     def test_cloze_word_is_moved_via_example_korean(self) -> None:
         vocab = _fixture()

@@ -383,7 +383,7 @@ void main() {
         answer();
         await _flush(tester);
         expect(calls, 1);
-        await tester.pump(const Duration(seconds: 65));
+        await tester.pump(const Duration(seconds: 3));
         expect(Storage.xp, 0);
         reply.complete(KkeunmariDictionaryResult(status));
         await _flush(tester);
@@ -392,7 +392,11 @@ void main() {
         await _flush(tester);
         expect(
           Storage.gameBest('kkeunmari'),
-          status == KkeunmariDictionaryStatus.valid ? 2 : 1,
+          status == KkeunmariDictionaryStatus.valid
+              ? 2
+              : status == KkeunmariDictionaryStatus.invalid
+              ? 1
+              : 0,
         );
         expect(
           Storage.kkeunmariWins,
@@ -535,7 +539,7 @@ void main() {
   }
 
   testWidgets(
-    'dictionary exception is recoverable and resumes the existing countdown',
+    'dictionary exception keeps time paused and accepts a local recovery answer',
     (tester) async {
       await _pump(
         tester,
@@ -550,10 +554,54 @@ void main() {
       final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
       expect(find.text(t.kkeunmariDictionaryUnavailable), findsOneWidget);
       expect(tester.takeException(), isNull);
+      await tester.pump(const Duration(seconds: 65));
+      await _flush(tester);
+      expect(Storage.gameBest('kkeunmari'), 0);
+      expect(Storage.kkeunmariWins, 0);
+      (await _answerAction(tester, 'chain'))();
+      await _flush(tester);
       await tester.pump(const Duration(milliseconds: 1100));
       await _flush(tester);
-      expect(Storage.gameBest('kkeunmari'), 1);
+      expect(Storage.gameBest('kkeunmari'), 2);
+      expect(Storage.kkeunmariWins, 1);
+      await _dispose(tester);
+    },
+  );
+
+  testWidgets(
+    'dictionary timeout ignores a late success and survives backgrounding',
+    (tester) async {
+      final reply = Completer<KkeunmariDictionaryResult>();
+      await _pump(
+        tester,
+        'chain',
+        screen: KkeunmariScreen(dictionaryValidator: (_) => reply.future),
+      );
+      await tester.pump(const Duration(seconds: 29));
+      (await _answerAction(tester, 'chain', chainWord: '과자'))();
+      await _flush(tester);
+      await tester.pump(const Duration(seconds: 9));
+      await _flush(tester);
+      _pause(tester);
+      await tester.pump(const Duration(seconds: 40));
+      _resume(tester);
+      reply.complete(
+        const KkeunmariDictionaryResult(KkeunmariDictionaryStatus.valid),
+      );
+      await _flush(tester);
+      await tester.pump(const Duration(seconds: 10));
+      expect(Storage.gameBest('kkeunmari'), 0);
       expect(Storage.kkeunmariWins, 0);
+      expect(Storage.xp, 0);
+      expect(
+        find.byWidgetPredicate((w) => w is Text && w.data == '과자'),
+        findsNothing,
+      );
+      expect(
+        tester.widget<TextField>(find.byType(TextField)).controller!.text,
+        '과자',
+      );
+      expect(tester.takeException(), isNull);
       await _dispose(tester);
     },
   );

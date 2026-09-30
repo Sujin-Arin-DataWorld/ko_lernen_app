@@ -118,23 +118,27 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                     left: padding.left,
                     right: padding.right,
                   ),
-                  sliver: SoriCollapsingHeader(
-                    title: t.soriStageNavHanok,
-                    titleStyle: SoriTextTheme.of(
-                      context,
-                    ).h1.copyWith(fontSize: 26, height: 1.35),
-                    // 접힌 56dp 크롬 바용 짧은 제목 — 없으면 title 전체가
-                    // ellipsis 로 잘린다.
-                    collapsedTitle: t.soriStageNavHanok,
-                    trailingSlots: 2,
-                    trailing: const Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        CulturalHelpButton(termId: 'hanok'),
-                        SizedBox(width: Spacing.xs),
-                        SoriAvatar(),
-                      ],
-                    ),
+                  sliver: Builder(
+                    builder: (context) {
+                      return SoriCollapsingHeader(
+                        title: t.soriStageNavHanok,
+                        titleStyle: SoriTextTheme.of(
+                          context,
+                        ).h1.copyWith(fontSize: 26, height: 1.35),
+                        // 접힌 56dp 크롬 바용 짧은 제목 — 없으면 title 전체가
+                        // ellipsis 로 잘린다.
+                        collapsedTitle: t.soriStageNavHanok,
+                        trailingSlots: 2,
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const CulturalHelpButton(termId: 'hanok'),
+                            const SizedBox(width: Spacing.xs),
+                            const SoriAvatar(),
+                          ],
+                        ),
+                      );
+                    },
                   ),
                 ),
                 const SliverToBoxAdapter(child: SizedBox(height: Spacing.xl)),
@@ -161,6 +165,22 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
+                            ExpansionTile(
+                              key: const ValueKey('hanok-how-to-build'),
+                              tilePadding: EdgeInsets.zero,
+                              title: Text(t.hanokHowTitle),
+                              children: [
+                                Text(
+                                  t.hanokHowBody,
+                                  style: SoriTextTheme.of(context).body,
+                                ),
+                                const SizedBox(height: Spacing.sm),
+                                SoriButton.outlined(
+                                  label: t.hanokHowAction,
+                                  onTap: () => _openShortcut('/path'),
+                                ),
+                              ],
+                            ),
                             Text(
                               t.soriStageHanokLearningSummary,
                               style: SoriTextTheme.of(context).cardTitle,

@@ -76,6 +76,7 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
 
         data = self.root / "assets" / "data"
         vocab_bases: set[str] = set()
+        replay_grammar_ids: set[str] = set()
 
         live_targets = {
             kind: (target_name, collection)
@@ -173,6 +174,8 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
         ]:
             manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
             remove_artifacts(manifest)
+
+            replay_grammar_ids.update(intent["id"] for intent in manifest.get("grammarIntents", []))
 
             vocab_bases.update(integration._base_pack_id(pack["packId"]) for pack in manifest["vocabPacks"])
             manifest["status"] = "review_only_draft"
@@ -296,7 +299,7 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
         ]
         for base in later_bases:
             curriculum["vocabPackUnitMap"].pop(base, None)
-        for ident in later_grammar_ids:
+        for ident in later_grammar_ids | replay_grammar_ids:
             curriculum["grammarRuleMap"].pop(ident, None)
 
         remaining_smalltalk = json.loads(

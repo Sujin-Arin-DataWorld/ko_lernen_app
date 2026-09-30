@@ -63,12 +63,14 @@ Widget catalogTestApp({
   onOpen,
   Future<SoriStageProgressionSnapshot> Function()? loadSnapshot,
   ScrollController? scrollController,
+  RouteFactory? onGenerateRoute,
 }) => MaterialApp(
   debugShowCheckedModeBanner: false,
   theme: theme ?? AppTheme.light,
   locale: Locale(locale),
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
+  onGenerateRoute: onGenerateRoute,
   home: Builder(
     builder: (context) {
       final t = AppL10n.of(context);

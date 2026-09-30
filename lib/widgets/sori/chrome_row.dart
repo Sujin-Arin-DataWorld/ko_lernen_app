@@ -85,19 +85,23 @@ class _ChromeSlot extends StatelessWidget {
     // 않는다: 그 트릭은 조상이 44dp 인 채로 남아 있을 때만 필요했는데,
     // 이제 SoriChromeRow 자신이 48dp 이므로 불필요하고, 여전히 조상이
     // 44dp 라고 착각하게 만드는 코드 냄새다.
-    return Semantics(
-      button: true,
-      enabled: true,
-      label: semanticLabel,
-      onTap: onTap,
-      child: ExcludeSemantics(
-        child: SoriPressable(
-          key: pressableKey,
-          onTap: onTap,
-          child: SizedBox(
-            width: SoriLayout.chromeRowTouchHeight,
-            height: SoriLayout.chromeRowTouchHeight,
-            child: Center(child: Icon(icon, size: 22, color: s.text)),
+    return Tooltip(
+      message: semanticLabel,
+      excludeFromSemantics: true,
+      child: Semantics(
+        button: true,
+        enabled: true,
+        label: semanticLabel,
+        onTap: onTap,
+        child: ExcludeSemantics(
+          child: SoriPressable(
+            key: pressableKey,
+            onTap: onTap,
+            child: SizedBox(
+              width: SoriLayout.chromeRowTouchHeight,
+              height: SoriLayout.chromeRowTouchHeight,
+              child: Center(child: Icon(icon, size: 22, color: s.text)),
+            ),
           ),
         ),
       ),

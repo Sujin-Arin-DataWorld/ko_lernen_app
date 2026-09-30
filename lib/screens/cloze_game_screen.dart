@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
 import 'package:flutter/material.dart';
@@ -232,6 +234,9 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
       _feedbackCompletion.reset();
       resetGameResult();
     });
+    if (_round.isNotEmpty) {
+      unawaited(SoriSpeech.speak(_round.first.fullKo));
+    }
   }
 
   void _setLevel(String? level, int presentation) {
@@ -426,29 +431,35 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
         _score++;
       }
     });
-    // 2.9 잔여 — 답 공개 직후(정/오답 무관) 완성 문장을 1회 자동으로 읽는다.
+    // 답 공개 직후(정/오답 무관) 완성 문장을 읽고, 재생이 끝난 뒤에만
+    // 다음 상태로 옮긴다. 문제를 표시하는 순간에도 같은 문장이 자동 재생돼
+    // 학습자가 먼저 듣고 고를 수 있다.
     // 카드 좌상단 인디케이터(cloze_prompt.dart)·탭 재생은 같은
     // item.fullKo 텍스트를 쓰므로 SoriSpeech 의 텍스트별 in-flight
     // dedupe 로 인디케이터 탭=정지 계약이 그대로 성립한다.
-    SoriSpeech.speak(item.fullKo);
+    final speech = SoriSpeech.speak(item.fullKo);
 
     if (ok) {
       HapticFeedback.lightImpact();
       SoundService.correct();
-      Future.delayed(const Duration(milliseconds: 1100), () {
-        if (!_isCurrentQuestion(judgment, item) || _picked != option) {
-          return;
-        }
-        setState(() {
-          _presentation++;
-          _idx++;
-          _picked = null;
-          _retried = false;
-        });
-        if (_idx >= _round.length) {
-          _finish(_presentation);
-        }
+      await Future.wait<void>([
+        speech.then<void>((_) {}),
+        Future<void>.delayed(const Duration(milliseconds: 1100)),
+      ]);
+      if (!_isCurrentQuestion(judgment, item) || _picked != option) {
+        return;
+      }
+      setState(() {
+        _presentation++;
+        _idx++;
+        _picked = null;
+        _retried = false;
       });
+      if (_idx >= _round.length) {
+        _finish(_presentation);
+      } else {
+        unawaited(SoriSpeech.speak(_round[_idx].fullKo));
+      }
       return;
     }
 
@@ -457,15 +468,17 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
     // 무엇이 맞는 답이었는지 손으로 확인할 기회가 없었다.
     HapticFeedback.mediumImpact();
     SoundService.wrong();
-    Future.delayed(const Duration(milliseconds: 700), () {
-      if (!_isCurrentQuestion(judgment, item) || _picked != option) {
-        return;
-      }
-      setState(() {
-        _presentation++;
-        _picked = null;
-        _retried = true;
-      });
+    await Future.wait<void>([
+      speech.then<void>((_) {}),
+      Future<void>.delayed(const Duration(milliseconds: 700)),
+    ]);
+    if (!_isCurrentQuestion(judgment, item) || _picked != option) {
+      return;
+    }
+    setState(() {
+      _presentation++;
+      _picked = null;
+      _retried = true;
     });
   }
 
@@ -600,6 +613,21 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
       picked: _picked,
       pickedWrong: _picked != null && !item.accepts(_picked!),
     );
+    final prompt = revealed
+        ? SoriSpeakable(text: item.fullKo, child: promptCard)
+        : promptCard;
+    final choices = ClozeOptionsList(
+      options: options,
+      acceptedAnswers: item.acceptedAnswers,
+      picked: _picked,
+      revealed: revealed,
+      onPick: (opt) => _pick(item, opt, presentation),
+    );
+    final window = MediaQuery.sizeOf(context);
+    final focusedTallWindow =
+        window.width >= 600 &&
+        window.height >= 900 &&
+        MediaQuery.textScalerOf(context).scale(1) <= 1.3;
 
     return SoriStudyFrame(
       onLeave: _retireStudy,
@@ -612,42 +640,54 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
       actions: const [TtsSpeedAction()],
       child: SoriAdaptiveStudyBody(
         minHeight: 520,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            if (widget.items == null) _levelChrome(t, presentation),
-            Text(
-              t.clozeInstruction,
-              style: SoriTextTheme.of(
-                context,
-              ).meta.copyWith(color: s.textMuted),
-            ),
-            const SizedBox(height: Spacing.md),
-            Flexible(
-              flex: 3,
-              child: SingleChildScrollView(
-                // Fable R1 스포일러 정정: item.fullKo 는 빈칸이 채워진 "정답"
-                // 문장이다 — 공개 전(picked == null)에 탭-재생 래퍼를 씌우면
-                // 사용자가 카드를 탭해 답을 미리 들을 수 있었다. 공개 후에만
-                // SoriSpeakable 로 감싼다("진입 무음, 답 공개 후 읽기").
-                child: revealed
-                    ? SoriSpeakable(text: item.fullKo, child: promptCard)
-                    : promptCard,
+        child: focusedTallWindow
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  if (widget.items == null) _levelChrome(t, presentation),
+                  Expanded(
+                    child: Center(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          key: const ValueKey('cloze-focus-group'),
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text(
+                              t.clozeInstruction,
+                              style: SoriTextTheme.of(
+                                context,
+                              ).meta.copyWith(color: s.textMuted),
+                            ),
+                            const SizedBox(height: Spacing.md),
+                            prompt,
+                            const SizedBox(height: Spacing.xl),
+                            SizedBox(height: 256, child: choices),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  if (widget.items == null) _levelChrome(t, presentation),
+                  Text(
+                    t.clozeInstruction,
+                    style: SoriTextTheme.of(
+                      context,
+                    ).meta.copyWith(color: s.textMuted),
+                  ),
+                  const SizedBox(height: Spacing.md),
+                  Flexible(
+                    flex: 3,
+                    child: SingleChildScrollView(child: prompt),
+                  ),
+                  const SizedBox(height: Spacing.xl),
+                  Expanded(flex: 4, child: choices),
+                ],
               ),
-            ),
-            const SizedBox(height: Spacing.xl),
-            Expanded(
-              flex: 4,
-              child: ClozeOptionsList(
-                options: options,
-                acceptedAnswers: item.acceptedAnswers,
-                picked: _picked,
-                revealed: revealed,
-                onPick: (opt) => _pick(item, opt, presentation),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }

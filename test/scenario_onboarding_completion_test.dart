@@ -14,6 +14,9 @@ import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
+import 'support/scenario_stock_fixtures.dart';
+
+
 final _fiveQuestScene = Scenario(
   id: 'airport_arrival_test',
   level: LearnerLevel.a1,
@@ -76,6 +79,8 @@ void main() {
           scenarioId: _fiveQuestScene.id,
           mode: ScenarioPlayerMode.onboardingFirstScene,
           scenarioLoader: (_) async => _fiveQuestScene,
+          questCorpusLoader: (_) async =>
+              stockedScenarioCorpus(_fiveQuestScene),
           resultPersister: (_, _, _) async {
             saveCalls++;
             return null;
@@ -129,6 +134,8 @@ void main() {
           scenarioId: _fiveQuestScene.id,
           mode: ScenarioPlayerMode.onboardingFirstScene,
           scenarioLoader: (_) async => _fiveQuestScene,
+          questCorpusLoader: (_) async =>
+              stockedScenarioCorpus(_fiveQuestScene),
           resultPersister: (_, _, _) async {
             saveCalls++;
             await saveGate.future;
@@ -299,6 +306,7 @@ Future<ScenarioCompletionSummary> _tapDontKnowOnEveryAirportQuest(
         scenarioId: airport.id,
         mode: ScenarioPlayerMode.onboardingFirstScene,
         scenarioLoader: (_) async => airport,
+        questCorpusLoader: (_) async => stockedScenarioCorpus(airport),
         resultPersister: persistForReal
             ? null
             : (_, _, _) async {

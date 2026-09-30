@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "operation": "restore_batch25_review_sources_and_reconcile_released_phone_greeting",
+  "sourceHead": "ec19fd271cfb28090a24e5c5ebb6c450ca4d21a8",
+  "reviewStatus": "MODEL_QA_PASS_HUMAN_REVIEW_PENDING",
+  "humanReviewStatus": "pending",
+  "approvalAdded": false,
+  "rightsAdded": false,
+  "reviewOriginalsUnchanged": true,
+  "frozenDraftRestoration": [
+    {
+      "path": "tools/content_factory/drafts/batch_25_a1_rows.csv",
+      "interruptedSha256": "a3b5abc16443b7a627ef1a390c7f00ff62f11e26e069f9e94f8ca4604d4b5b90",
+      "restoredSha256": "4e045af1bf029e7466d957aecc6ae07101c1afe9b9bf1e638225a9549e5cd33a",
+      "restoredFrom": "8e061685c0a824f4fe295b087e9c4844765cae12"
+    },
+    {
+      "path": "tools/content_factory/drafts/batch_25_a1_cloze.json",
+      "interruptedSha256": "f63caff662a6878eb1474a952b6dbeb982d5daea43ae5897623bc03dd5df3a62",
+      "restoredSha256": "18d6f9348bcb44833091328dcf3b5fe18e33677927a8a07adc2f3032338333b4",
+      "restoredFrom": "8e061685c0a824f4fe295b087e9c4844765cae12"
+    },
+    {
+      "path": "tools/content_factory/drafts/batch_25_a1_satz.json",
+      "interruptedSha256": "153f1d9d50cb8f50018623b8a0bfffa6682f54263604b620b73518bb3581f2d3",
+      "restoredSha256": "683c62702087314d5884db2496fb745df01211c4231a8330ed51cb96078ba089",
+      "restoredFrom": "8e061685c0a824f4fe295b087e9c4844765cae12"
+    }
+  ],
+  "protectedFiles": {
+    "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json": "97199d0f0a5fbca53c9908d9b75c5a7c45d7db84a478a03c64684941165f50c5",
+    "tools/content_factory/review/batch_25_a1_vocab_review.csv": "de7011f264513ec5f258e6a6bb9a876f7945a6250f845be66e99054291a81aa7",
+    "tools/content_factory/review/batch_25_a1_cloze_review.csv": "9a83305a07e6e986dbfde617ae425336cdfed5615514195fc5d0da690cc7f493",
+    "tools/content_factory/review/batch_25_a1_satz_review.csv": "49e0b28999f65383092ebadc8197f657060e60861e4bd63ceaa6c1a38de67172"
+  },
+  "sceneLock": {
+    "vocabAndCloze": "A1 phone opening/contact check: 여보세요? / Hallo? / Hello?; no addressee identity or relationship invented.",
+    "satz": "Preserve released polite greeting and self-introduction 안녕하세요, 저는 크리스티안이에요.; attach existing 안녕하세요 vocabulary source. EN self-introduction is I am, DE ich bin.",
+    "scope": "Three existing identities only. No curriculum expansion, new rights claim, or human language approval."
+  },
+  "changes": [
+    {
+      "kind": "vocab",
+      "id": "vocab_a1_0493",
+      "reviewed": {
+        "korean": "여보세요",
+        "romanization": "yeoboseyo",
+        "german": "Hallo? (am Telefon)",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "여보세요, 저는 크리스티안이에요.",
+        "example_german": "Hallo, ich bin Christian.",
+        "topic": "Begrüßung",
+        "pack_id": "a1_greetings_1",
+        "pack_order": "12",
+        "is_review_boss": "false",
+        "english": "hello (on the phone)",
+        "pos_en": "Expression",
+        "example_english": "Hello, this is Christian.",
+        "id": "vocab_a1_0493"
+      },
+      "deployedBefore": {
+        "korean": "여보세요",
+        "romanization": "yeoboseyo",
+        "german": "Hallo? (am Telefon)",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "여보세요.",
+        "example_german": "Hallo?",
+        "topic": "Begrüßung",
+        "pack_id": "a1_greetings_1",
+        "pack_order": "12",
+        "is_review_boss": "false",
+        "english": "hello (on the phone)",
+        "pos_en": "Expression",
+        "example_english": "Hello?",
+        "id": "vocab_a1_0493"
+      },
+      "reconciled": {
+        "korean": "여보세요",
+        "romanization": "yeoboseyo",
+        "german": "Hallo? (am Telefon)",
+        "level": "A1",
+        "pos_de": "Ausdruck",
+        "example_korean": "여보세요?",
+        "example_german": "Hallo?",
+        "topic": "Begrüßung",
+        "pack_id": "a1_greetings_1",
+        "pack_order": "12",
+        "is_review_boss": "false",
+        "english": "hello (on the phone)",
+        "pos_en": "Expression",
+        "example_english": "Hello?",
+        "id": "vocab_a1_0493"
+      },
+      "ledgerEntry": {
+        "manifest": "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
+        "kind": "vocab",
+        "id": "vocab_a1_0493",
+        "level": "a1",
+        "fields": [
+          "example_english",
+          "example_german",
+          "example_korean"
+        ],
+        "beforeSha256": "165e64153525a23dd1d75eaf4c2dce7da361b364f9156a27353660ca1fbd574c",
+        "afterSha256": "17c83da27eefb6d495f44b70e61cad8d1c10a104c0c6381227136ab57baccd9e",
+        "reviewReceipt": "tools/content_factory/review/batch_25_release_reconciliation_20260922.json"
+      }
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0427",
+      "reviewed": {
+        "id": "cloze_a1_0427",
+        "level": "a1",
+        "sentenceKo": "＿＿＿, 저는 크리스티안이에요.",
+        "answer": "여보세요",
+        "fullKo": "여보세요, 저는 크리스티안이에요.",
+        "de": "Hallo, ich bin Christian.",
+        "en": "Hello, this is Christian.",
+        "distractors": [
+          "길다",
+          "침대",
+          "내일"
+        ],
+        "topic": "Begrüßung",
+        "sourceVocabId": "vocab_a1_0493",
+        "courseUnitId": "a1_01_greetings_hangul"
+      },
+      "deployedBefore": {
+        "id": "cloze_a1_0427",
+        "level": "a1",
+        "sentenceKo": "＿＿＿.",
+        "answer": "여보세요",
+        "fullKo": "여보세요.",
+        "de": "Hallo?",
+        "en": "Hello?",
+        "distractors": [
+          "끝나다",
+          "쓰다",
+          "과"
+        ],
+        "topic": "Begrüßung",
+        "sourceVocabId": "vocab_a1_0493",
+        "courseUnitId": "a1_01_greetings_hangul"
+      },
+      "reconciled": {
+        "id": "cloze_a1_0427",
+        "level": "a1",
+        "sentenceKo": "＿＿＿?",
+        "answer": "여보세요",
+        "fullKo": "여보세요?",
+        "de": "Hallo?",
+        "en": "Hello?",
+        "distractors": [
+          "끝나다",
+          "쓰다",
+          "과"
+        ],
+        "topic": "Begrüßung",
+        "sourceVocabId": "vocab_a1_0493",
+        "courseUnitId": "a1_01_greetings_hangul"
+      },
+      "ledgerEntry": {
+        "manifest": "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
+        "kind": "cloze",
+        "id": "cloze_a1_0427",
+        "level": "a1",
+        "fields": [
+          "de",
+          "distractors",
+          "en",
+          "fullKo",
+          "sentenceKo"
+        ],
+        "beforeSha256": "f023ffccfce3b2198cf746348261fd718271416adcb07dfdacf5821110a1f17e",
+        "afterSha256": "7e59586486210d3aac35fd131d08ee4ee3bb4879fdbaa16d72d48ee77854461d",
+        "reviewReceipt": "tools/content_factory/review/batch_25_release_reconciliation_20260922.json"
+      }
+    },
+    {
+      "kind": "satz",
+      "id": "satz_a1_0408",
+      "reviewed": {
+        "id": "satz_a1_0408",
+        "level": "a1",
+        "targetKo": "여보세요, 저는 크리스티안이에요.",
+        "promptDe": "Hallo, ich bin Christian.",
+        "promptEn": "Hello, this is Christian.",
+        "distractors": [
+          "설빔",
+          "십"
+        ],
+        "vocabKo": "여보세요",
+        "sourceVocabId": "vocab_a1_0493",
+        "courseUnitId": "a1_01_greetings_hangul"
+      },
+      "deployedBefore": {
+        "id": "satz_a1_0408",
+        "level": "a1",
+        "targetKo": "안녕하세요, 저는 크리스티안이에요.",
+        "promptDe": "Hallo, ich bin Christian.",
+        "promptEn": "Hello, this is Christian.",
+        "distractors": [
+          "설빔",
+          "십"
+        ],
+        "vocabKo": "안녕하세요",
+        "sourceVocabId": "vocab_a1_0493",
+        "courseUnitId": "a1_01_greetings_hangul"
+      },
+      "reconciled": {
+        "id": "satz_a1_0408",
+        "level": "a1",
+        "targetKo": "안녕하세요, 저는 크리스티안이에요.",
+        "promptDe": "Hallo, ich bin Christian.",
+        "promptEn": "Hello, I'm Christian.",
+        "distractors": [
+          "설빔",
+          "십"
+        ],
+        "vocabKo": "안녕하세요",
+        "sourceVocabId": "vocab_a1_0001",
+        "courseUnitId": "a1_01_greetings_hangul"
+      },
+      "ledgerEntry": {
+        "manifest": "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
+        "kind": "satz",
+        "id": "satz_a1_0408",
+        "level": "a1",
+        "fields": [
+          "promptEn",
+          "sourceVocabId",
+          "targetKo",
+          "vocabKo"
+        ],
+        "beforeSha256": "60c377bac4868d79b5c5e021310b07844137cfd439dc9bb13c4824716cb78d2d",
+        "afterSha256": "5b288361812f5218405f18a64ec3f75abc602d4a3f24462ef30c398c97ae7c62",
+        "reviewReceipt": "tools/content_factory/review/batch_25_release_reconciliation_20260922.json"
+      }
+    }
+  ]
+}

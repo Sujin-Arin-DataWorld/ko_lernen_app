@@ -24,6 +24,7 @@ SEMVER = re.compile(r"[0-9]+\.[0-9]+\.[0-9]+")
 # Temurin release identifiers look like "17.0.20.1+1" (openjdk_version), not
 # strict semver -- allow 2-4 dotted numeric components plus a "+build".
 JAVA_VERSION = re.compile(r"[0-9]+(?:\.[0-9]+){1,3}\+[0-9]+")
+JAVA_SETUP_VERSION = re.compile(r"[0-9]+\.[0-9]+\.[0-9]+\+[0-9]+")
 BUNDLETOOL_URL_PREFIX = "/google/bundletool/releases/download/"
 
 
@@ -37,8 +38,8 @@ class AndroidReleaseToolsConfigTest(unittest.TestCase):
         self.assertTrue(value == PLACEHOLDER or SHA256.fullmatch(value),
                         f"sha256 field must be 64-hex or the harvest placeholder, got {value!r}")
 
-    def test_top_level_keys_are_exactly_the_three_pinned_tools(self):
-        self.assertEqual(set(self.config), {"bundletool", "firebase-tools", "java"})
+    def test_top_level_keys_cover_direct_and_child_tools(self):
+        self.assertEqual(set(self.config), {"bundletool", "firebase-tools", "java", "crashlytics-buildtools"})
 
     def test_bundletool_pins_a_real_github_release_jar(self):
         entry = self.config["bundletool"]
@@ -64,12 +65,36 @@ class AndroidReleaseToolsConfigTest(unittest.TestCase):
                          f"https://github.com/firebase/firebase-tools/releases/download/v{entry['version']}/firebase-tools-linux")
         self._sha256_field(entry["sha256"])
 
+    def test_crashlytics_buildtools_pins_official_google_maven_artifact(self):
+        entry = self.config["crashlytics-buildtools"]
+        self.assertEqual(set(entry), {"version", "url", "sha256"})
+        self.assertTrue(SEMVER.fullmatch(entry["version"]))
+        self.assertEqual(entry["url"],
+            "https://dl.google.com/android/maven2/com/google/firebase/"
+            f"firebase-crashlytics-buildtools/{entry['version']}/"
+            f"firebase-crashlytics-buildtools-{entry['version']}.jar")
+        self.assertTrue(SHA256.fullmatch(entry["sha256"]))
+
     def test_java_pins_an_exact_temurin_build(self):
         entry = self.config["java"]
-        self.assertEqual(set(entry), {"version", "sha256"})
+        self.assertEqual(set(entry), {"version", "setup_version", "sha256"})
         self.assertIsInstance(entry["version"], str)
         self.assertTrue(JAVA_VERSION.fullmatch(entry["version"]), entry["version"])
         self._sha256_field(entry["sha256"])
+
+    def test_java_action_input_uses_publisher_semver_not_openjdk_identifier(self):
+        root = CONFIG.parent.parent
+        provenance = json.loads((root / "docs/runbooks/android-release-tools-provenance.json").read_text(encoding="utf-8"))["tools"]["java"]
+        entry = self.config["java"]
+        self.assertTrue(JAVA_SETUP_VERSION.fullmatch(entry["setup_version"]))
+        self.assertEqual(entry["setup_version"], provenance["setup_version"])
+        self.assertEqual(entry["version"], provenance["version"])
+        # The 4-component upstream identifier triggered the real setup-java failure.
+        self.assertFalse(JAVA_SETUP_VERSION.fullmatch("17.0.20.1+1"))
+        workflow = (root / ".github/workflows/play_closed.yml").read_text(encoding="utf-8")
+        step = workflow.split("- name: Pin release-toolchain Java", 1)[1].split("- name:", 1)[0]
+        self.assertIn("java-version: ${{ steps.toolchain.outputs.java_setup_version }}", step)
+        self.assertNotIn("java-version: ${{ steps.toolchain.outputs.java_version }}", step)
 
     def test_no_field_other_than_sha256_may_carry_the_harvest_placeholder(self):
         for name, entry in self.config.items():

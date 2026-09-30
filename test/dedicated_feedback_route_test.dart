@@ -27,6 +27,7 @@ import 'package:ko_lernen_app/widgets/sori/tts_speed_control.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'helpers/deck_actions.dart';
+import 'support/scenario_stock_fixtures.dart';
 import 'support/pack_completion_widget_driver.dart';
 
 const _privatePackName =
@@ -68,6 +69,7 @@ const _scenario = Scenario(
         'correctIndex': 0,
         'options': [
           {'de': 'Correct response', 'en': 'Correct response'},
+          {'de': 'Other response', 'en': 'Other response'},
         ],
       },
     ),
@@ -150,6 +152,7 @@ void main() {
         ScenarioPlayerScreen(
           scenarioId: _scenario.id,
           scenarioLoader: (_) async => _scenario,
+          questCorpusLoader: (_) async => stockedScenarioCorpus(_scenario),
           resultPersister: (_, _, _) async => null,
         ),
       ),

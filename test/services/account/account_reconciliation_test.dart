@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:fake_async/fake_async.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/models/custom_pack.dart';
 import 'package:ko_lernen_app/models/course_mastery.dart';
@@ -506,6 +507,130 @@ void main() {
       reconciling = sessions.transition(CloudWriteMode.reconciling);
       journalStore = _MemoryJournalStore();
     });
+
+    test(
+      'confirmation timeout preserves the journal and prevents late local effects',
+      () {
+        fakeAsync((clock) {
+          final pending = Completer<CloudSyncCompositeDocuments>();
+          final local = _snapshot(srs: {'word-a': _srs(reviewCount: 1)});
+          final remote = _snapshot(srs: {'word-b': _srs(reviewCount: 2)});
+          var localWrites = 0;
+          var confirmationReads = 0;
+          var replyImmediately = false;
+          final operationIds = <String>[];
+          const confirmation = CloudSyncCompositeDocuments(
+            root: CloudSyncDocument.present({
+              'sync_revision': 1,
+              'reconciliation_operation_id': 'operation-1',
+              'reconciliation_payload_hash':
+                  '44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a',
+            }),
+            packMembership: CloudSyncDocument.present({
+              'revision': 1,
+              'reconciliation_operation_id': 'operation-1',
+              'pack_ids': <String>[],
+            }),
+          );
+          final coordinator = AccountReconciliationCoordinator(
+            sessions: sessions,
+            journalStore: journalStore,
+            readRemote: () async =>
+                CloudReadResult.present(remote, revision: 0),
+            loadLocal: () => local,
+            writeRemote:
+                (
+                  value, {
+                  required expectedRevision,
+                  required operationId,
+                }) async {
+                  operationIds.add(operationId);
+                  // The writes have returned; production awaits this same final read
+                  // before recording remoteWritten or applying any local merge.
+                  final confirmed =
+                      await CloudSyncService.validateReconciledAccountComposite(
+                        uid: 'uid-a',
+                        data: const {},
+                        expectedRevision: 1,
+                        expectedMembershipRevision: 1,
+                        expectedMembershipPackIds: const {},
+                        operationId: operationId,
+                        session: reconciling,
+                        sessions: sessions,
+                        reader: (_) {
+                          confirmationReads += 1;
+                          return replyImmediately
+                              ? Future.value(confirmation)
+                              : pending.future;
+                        },
+                      );
+                  return confirmed
+                      ? const ReconciliationWriteResult.committed(revision: 1)
+                      : const ReconciliationWriteResult.revisionConflict();
+                },
+            writeLocal: (value, {required session, required sessions}) async {
+              localWrites += 1;
+              expect(value.srsCards.keys.toSet(), {'word-a', 'word-b'});
+            },
+          );
+          AccountReconciliationResult? first;
+          unawaited(
+            coordinator
+                .reconcile(
+                  session: reconciling,
+                  operationId: 'operation-1',
+                  catalog: const {},
+                )
+                .then((value) {
+                  first = value;
+                }),
+          );
+          clock.flushMicrotasks();
+          clock.elapse(const Duration(seconds: 8));
+          expect(first?.status, AccountReconciliationStatus.unavailable);
+          expect(
+            journalStore.value?.reconciliationCheckpoint,
+            ReconciliationCheckpoint.merged,
+          );
+          expect(localWrites, 0);
+          expect(operationIds, ['operation-1']);
+          expect(confirmationReads, 1);
+
+          pending.complete(confirmation);
+          clock.flushMicrotasks();
+          expect(first?.status, AccountReconciliationStatus.unavailable);
+          expect(localWrites, 0);
+          expect(
+            journalStore.value?.reconciliationCheckpoint,
+            ReconciliationCheckpoint.merged,
+          );
+          expect(operationIds, ['operation-1']);
+
+          replyImmediately = true;
+          AccountReconciliationResult? retried;
+          unawaited(
+            coordinator
+                .reconcile(
+                  session: reconciling,
+                  operationId: 'operation-1',
+                  catalog: const {},
+                )
+                .then((value) {
+                  retried = value;
+                }),
+          );
+          clock.flushMicrotasks();
+          expect(retried?.status, AccountReconciliationStatus.completed);
+          expect(localWrites, 1);
+          expect(operationIds, ['operation-1', 'operation-1']);
+          expect(confirmationReads, 2);
+          expect(
+            journalStore.value?.reconciliationCheckpoint,
+            ReconciliationCheckpoint.completed,
+          );
+        });
+      },
+    );
 
     test('unavailable remote data never writes either side', () async {
       var remoteWrites = 0;

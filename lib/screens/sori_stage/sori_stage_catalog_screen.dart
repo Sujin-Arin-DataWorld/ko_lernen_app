@@ -203,6 +203,12 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
     final generation = ++_openGeneration;
     final lease = CatalogHistoryLease.capture();
     try {
+      // Capture does not award progress. Keep it usable even when the shared
+      // learning/reward snapshot is still loading or has failed.
+      if (entry.id == 'book_capture') {
+        await Navigator.of(context).pushNamed(entry.route);
+        return;
+      }
       final shared = LearningFocusScope.maybeOf(context);
       if (shared != null) {
         await shared.open(
@@ -338,11 +344,18 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                 SliverToBoxAdapter(child: SizedBox(height: padding.top)),
                 SliverPadding(
                   padding: EdgeInsets.symmetric(horizontal: padding.left),
-                  sliver: SoriCollapsingHeader(
-                    title: title,
-                    titleStyle: text.h1.copyWith(fontSize: 26, height: 1.35),
-                    collapsedTitle: title,
-                    trailing: const SoriAvatar(),
+                  sliver: Builder(
+                    builder: (context) {
+                      return SoriCollapsingHeader(
+                        title: title,
+                        titleStyle: text.h1.copyWith(
+                          fontSize: 26,
+                          height: 1.35,
+                        ),
+                        collapsedTitle: title,
+                        trailing: const SoriAvatar(),
+                      );
+                    },
                   ),
                 ),
                 const SliverToBoxAdapter(child: SizedBox(height: 16)),

@@ -23,7 +23,7 @@ const { setGlobalOptions } = require("firebase-functions/v2");
 const admin = require("firebase-admin");
 const textToSpeech = require("@google-cloud/text-to-speech");
 const { scopedCacheKey, privateMetadataIsCurrent, cacheSaveOptions } = require("./tts_privacy");
-const { ServiceCostError } = require("./service_cost_policy");
+const { ServiceCostError, recordCostApprovalFailure } = require("./service_cost_policy");
 const { confirmTtsCost } = require("./tts_cost_adapter");
 const {
   CALLABLE_OPTIONS,
@@ -189,6 +189,8 @@ async function synthesizeTts(request) {
       }
 
       let costReservation;
+      // Refund the same UTC buckets even if synthesis crosses an hour/day.
+      const quotaTime = new Date();
       if (consume) {
         let quota;
         try {
@@ -196,6 +198,7 @@ async function synthesizeTts(request) {
           quota = await underDailyTtsQuotas(db, {
             uid: request.auth.uid,
             installationId,
+            now: quotaTime,
           });
         } catch (error) {
           // No synthesis has begun. Release only this undispatched replay lock;
@@ -210,12 +213,25 @@ async function synthesizeTts(request) {
           } catch {
             // Keep the quota error; the pending receipt expires.
           }
-          console.warn("Daily TTS synthesis limit reached", {
+          console.warn("TTS synthesis limit reached", {
             scope: quota.exceededScope,
           });
+          // Old clients label every resource-exhausted error as a daily limit.
+          // Keep their existing non-retrying availability path for hourly caps.
+          if (quota.exceededScope === "global_hour" &&
+              request.data?.errorReasonVersion !== "1") {
+            throw new HttpsError(
+              "unavailable",
+              "TTS audio is not available.",
+              { reason: "quota_global_hour" },
+            );
+          }
           throw new HttpsError(
             "resource-exhausted",
-            "Daily synthesis limit reached.",
+            quota.exceededScope === "global_hour"
+              ? "Hourly synthesis limit reached."
+              : "Daily synthesis limit reached.",
+            { reason: `quota_${quota.exceededScope}` },
           );
         }
       }
@@ -248,6 +264,7 @@ async function synthesizeTts(request) {
               await refundDailyTtsQuotas(db, {
                 uid: request.auth.uid,
                 installationId,
+                now: quotaTime,
               });
             } catch {
               console.warn("TTS quota refund failed", {
@@ -290,6 +307,7 @@ async function synthesizeTts(request) {
             await refundDailyTtsQuotas(db, {
               uid: request.auth.uid,
               installationId,
+              now: quotaTime,
             });
           } catch {
             console.warn("TTS quota refund failed", {
@@ -318,8 +336,13 @@ async function synthesizeTts(request) {
         throw error;
       }
     } catch (e) {
-      if (e instanceof TtsRequestError || e instanceof ServiceCostError) {
-        throw new HttpsError(e.code, e.message);
+      if (e instanceof ServiceCostError) {
+        recordCostApprovalFailure(e, "tts", console);
+        throw new HttpsError(e.code, e.message, { reason: "service_policy" });
+      }
+      if (e instanceof TtsRequestError) {
+        throw new HttpsError(e.code, e.message,
+          e.code === "unauthenticated" ? { reason: "session_unavailable" } : undefined);
       }
       if (e instanceof HttpsError) {
         throw e;

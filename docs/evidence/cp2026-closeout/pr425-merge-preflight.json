@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-09-29T01:12:09.808015+00:00",
+  "pr": 425,
+  "head": "c7488fa040411722095aa8ff369c0c4a213e1cc0",
+  "base": "0a11b03ebbeaceda2660ffa721b73f4e5faf6b58",
+  "gates": {
+    "0a11b03ebbeaceda2660ffa721b73f4e5faf6b58": {
+      "CI": {
+        "conclusion": "success",
+        "createdAt": "2026-09-28T23:50:04Z",
+        "databaseId": 36500048747,
+        "event": "push",
+        "headSha": "0a11b03ebbeaceda2660ffa721b73f4e5faf6b58",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36500048747",
+        "workflowName": "CI"
+      },
+      "Playwright Tests": {
+        "conclusion": "success",
+        "createdAt": "2026-09-28T23:50:04Z",
+        "databaseId": 36500048760,
+        "event": "push",
+        "headSha": "0a11b03ebbeaceda2660ffa721b73f4e5faf6b58",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36500048760",
+        "workflowName": "Playwright Tests"
+      }
+    },
+    "c7488fa040411722095aa8ff369c0c4a213e1cc0": {
+      "CI": {
+        "conclusion": "success",
+        "createdAt": "2026-09-29T01:02:10Z",
+        "databaseId": 36505957371,
+        "event": "pull_request",
+        "headSha": "c7488fa040411722095aa8ff369c0c4a213e1cc0",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36505957371",
+        "workflowName": "CI"
+      },
+      "Playwright Tests": {
+        "conclusion": "success",
+        "createdAt": "2026-09-29T01:02:11Z",
+        "databaseId": 36505958382,
+        "event": "pull_request",
+        "headSha": "c7488fa040411722095aa8ff369c0c4a213e1cc0",
+        "status": "completed",
+        "url": "https://github.com/Sujin-Arin-DataWorld/ko_lernen_app/actions/runs/36505958382",
+        "workflowName": "Playwright Tests"
+      }
+    }
+  },
+  "reviewPages": 1,
+  "reviewThreads": [
+    {
+      "id": "PRRT_kwDOSjNLQs6m6eUy",
+      "isResolved": true,
+      "isOutdated": true
+    }
+  ],
+  "merged": false,
+  "releaseStartedByThisMerge": false,
+  "androidOpenTestingAuthorized": true
+}

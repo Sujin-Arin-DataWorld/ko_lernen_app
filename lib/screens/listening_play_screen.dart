@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../controllers/listening_playback_controller.dart';
+import '../data/chaekgado_shelf.dart';
+import '../widgets/sori/chaekgado/chaekgado_assets.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/feedback_completion.dart';
 import '../models/scenario.dart';
@@ -301,6 +303,8 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
         : t.listeningProgress(_playback.revealedCount, _scenario.dialog.length);
     return SoriStudyFrame(
       title: title.isEmpty ? t.listeningTitle : title,
+      adaptTitleAtNormalScale: true,
+      titleBelowToolbar: true,
       eyebrow: progress,
       actions: [KeyedSubtree(key: _speedKey, child: const TtsSpeedAction())],
       particles: _playback.phase == ListeningPlaybackPhase.complete,
@@ -311,7 +315,10 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
         Spacing.lg,
       ),
       child: SoriAdaptiveStudyBody(
-        minHeight: 520,
+        // The intro card already scrolls independently. Reserve only enough
+        // height for its preview and the persistent start action, so a wrapped
+        // scene title cannot push that action below an ordinary phone viewport.
+        minHeight: _playback.phase == ListeningPlaybackPhase.intro ? 160 : 520,
         child: switch (_playback.phase) {
           ListeningPlaybackPhase.intro => _buildIntro(t, lang),
           ListeningPlaybackPhase.complete => _buildComplete(t),
@@ -323,82 +330,121 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
 
   Widget _buildIntro(AppL10n t, String lang) {
     final intro = _scenario.intro.pick(lang);
+    final imageKey = chaekgadoImageKeyForShelf(_scenario.shelf);
     final speakers = <String>{
       for (final line in _scenario.dialog)
         if (line.speaker != 'narrator') _speakerName(t, line.speaker),
     }.join(', ');
-    return Column(
-      children: [
-        Expanded(
-          child: SingleChildScrollView(
-            child: SoriCard(
-              variant: SoriCardVariant.base,
-              child: Column(
-                children: [
-                  const Mascot(
-                    kind: MascotKind.tiger,
-                    emotion: MascotEmotion.smile,
-                    size: 88,
+    final card = SoriCard(
+      variant: SoriCardVariant.base,
+      child: Column(
+        children: [
+          if (imageKey != null)
+            ClipRRect(
+              borderRadius: SoriRadius.brSm,
+              child: SizedBox(
+                height: 156,
+                width: double.infinity,
+                child: Image.asset(
+                  chaekgadoCardAsset(imageKey),
+                  fit: BoxFit.contain,
+                  errorBuilder: (_, _, _) => const Icon(
+                    Icons.headphones_rounded,
+                    size: 72,
+                    color: SoriColors.contentCta,
                   ),
-                  const SizedBox(height: Spacing.md),
-                  Text(
-                    t.listeningSceneIntro,
-                    style: SoriTextTheme.of(
-                      context,
-                    ).meta.copyWith(color: SoriColors.contentCta),
-                  ),
-                  const SizedBox(height: Spacing.xs),
-                  if (intro.isNotEmpty)
-                    Text(
-                      intro,
-                      textAlign: TextAlign.center,
-                      style: SoriTextTheme.of(context).body,
-                    ),
-                  const SizedBox(height: Spacing.lg),
-                  _IntroFact(
-                    icon: Icons.people_outline_rounded,
-                    label: t.listeningParticipants,
-                    value: speakers,
-                  ),
-                  if (_scenario.playerCharacterId.isNotEmpty) ...[
-                    const SizedBox(height: Spacing.sm),
-                    _IntroFact(
-                      icon: Icons.theater_comedy_outlined,
-                      label: t.scenarioAssignedRole,
-                      value: _scenario.playerRoleDisplayName(
-                        fallbackYou: t.listeningSpeakerYou,
-                      ),
-                    ),
-                  ],
-                  const SizedBox(height: Spacing.sm),
-                  _IntroFact(
-                    icon: Icons.format_list_numbered_rounded,
-                    label: t.listeningTitle,
-                    value: t.listeningLineCount(_scenario.dialog.length),
-                  ),
-                  const SizedBox(height: Spacing.lg),
-                  const TtsSpeedControl(
-                    mode: TtsSpeedControlMode.row,
-                    minInteractiveHeight: 48,
-                  ),
-                ],
+                ),
+              ),
+            )
+          else
+            const Icon(
+              Icons.headphones_rounded,
+              size: 72,
+              color: SoriColors.contentCta,
+            ),
+          const SizedBox(height: Spacing.md),
+          Text(
+            t.listeningSceneIntro,
+            style: SoriTextTheme.of(
+              context,
+            ).meta.copyWith(color: SoriColors.contentCta),
+          ),
+          const SizedBox(height: Spacing.xs),
+          if (intro.isNotEmpty)
+            Text(
+              intro,
+              textAlign: TextAlign.center,
+              style: SoriTextTheme.of(context).body,
+            ),
+          const SizedBox(height: Spacing.lg),
+          _IntroFact(
+            icon: Icons.people_outline_rounded,
+            label: t.listeningParticipants,
+            value: speakers,
+          ),
+          if (_scenario.playerCharacterId.isNotEmpty) ...[
+            const SizedBox(height: Spacing.sm),
+            _IntroFact(
+              icon: Icons.theater_comedy_outlined,
+              label: t.scenarioAssignedRole,
+              value: _scenario.playerRoleDisplayName(
+                fallbackYou: t.listeningSpeakerYou,
               ),
             ),
+          ],
+          const SizedBox(height: Spacing.sm),
+          _IntroFact(
+            icon: Icons.format_list_numbered_rounded,
+            label: t.listeningTitle,
+            value: t.listeningLineCount(_scenario.dialog.length),
           ),
-        ),
-        const SizedBox(height: Spacing.md),
-        SoriButton.filled(
-          key: const ValueKey('listening-dialogue-start'),
-          label: t.listeningDialogueStart,
-          icon: Icons.play_arrow_rounded,
-          accent: SoriColors.contentCta,
-          fullWidth: true,
-          onTap: () {
-            _playback.start();
-            scheduleCoach();
-          },
-        ),
-      ],
+          const SizedBox(height: Spacing.lg),
+          const TtsSpeedControl(
+            mode: TtsSpeedControlMode.row,
+            minInteractiveHeight: 48,
+          ),
+        ],
+      ),
+    );
+    final start = SoriButton.filled(
+      key: const ValueKey('listening-dialogue-start'),
+      label: t.listeningDialogueStart,
+      icon: Icons.play_arrow_rounded,
+      accent: SoriColors.contentCta,
+      fullWidth: true,
+      onTap: () {
+        _playback.start();
+        scheduleCoach();
+      },
+    );
+    return LayoutBuilder(
+      builder: (context, bounds) {
+        // Short windows keep the start action pinned while the scene scrolls.
+        if (bounds.maxHeight < 720 ||
+            MediaQuery.textScalerOf(context).scale(16) > 24) {
+          return Column(
+            children: [
+              Expanded(child: SingleChildScrollView(child: card)),
+              const SizedBox(height: Spacing.md),
+              start,
+            ],
+          );
+        }
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: bounds.maxHeight),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                card,
+                const SizedBox(height: Spacing.md),
+                start,
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -500,60 +546,77 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     final surfaces = SoriSurfaces.of(context);
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     final xp = _completionXp;
-    return SingleChildScrollView(
-      child: Column(
+    return LayoutBuilder(
+      builder: (context, constraints) => Column(
         children: [
-          CharacterClipPlayer(
-            asset: CharacterClips.magpieCelebrate,
-            size: 104,
-            blendColor: surfaces.bg,
-            fallbackKind: MascotKind.magpie,
-            fallbackEmotion: MascotEmotion.celebrate,
-          ),
-          const SizedBox(height: Spacing.md),
-          Text(
-            t.listeningCompleteTitle,
-            style: SoriTextTheme.of(
-              context,
-            ).h2.copyWith(color: SoriColors.contentCta),
-          ),
-          const SizedBox(height: Spacing.sm),
-          if (_completionPersisted)
-            LearningRewardPresentation(
-              attempt: _learningAttempt,
-              kind: SoriRewardKind.xp,
-              amount: xp,
-              presentationComplete: _completionPersisted,
-              child: Text(
-                xp > 0
-                    ? t.listeningCompleteBody(_scenario.dialog.length, xp)
-                    : t.listeningCompleteReplayBody(_scenario.dialog.length),
-                textAlign: TextAlign.center,
-                style: SoriTextTheme.of(context).body,
+          Expanded(
+            child: SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CharacterClipPlayer(
+                      asset: CharacterClips.magpieCelebrate,
+                      size: 104,
+                      blendColor: surfaces.bg,
+                      fallbackKind: MascotKind.magpie,
+                      fallbackEmotion: MascotEmotion.celebrate,
+                    ),
+                    const SizedBox(height: Spacing.md),
+                    Text(
+                      t.listeningCompleteTitle,
+                      style: SoriTextTheme.of(
+                        context,
+                      ).h2.copyWith(color: SoriColors.contentCta),
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    if (_completionPersisted)
+                      LearningRewardPresentation(
+                        attempt: _learningAttempt,
+                        kind: SoriRewardKind.xp,
+                        amount: xp,
+                        presentationComplete: _completionPersisted,
+                        child: Text(
+                          xp > 0
+                              ? t.listeningCompleteBody(
+                                  _scenario.dialog.length,
+                                  xp,
+                                )
+                              : t.listeningCompleteReplayBody(
+                                  _scenario.dialog.length,
+                                ),
+                          textAlign: TextAlign.center,
+                          style: SoriTextTheme.of(context).body,
+                        ),
+                      ),
+                    const SizedBox(height: Spacing.md),
+                    if (_completionPersisted && xp > 0)
+                      LearningRewardPresentation(
+                        attempt: _learningAttempt,
+                        kind: SoriRewardKind.xp,
+                        amount: xp,
+                        presentationComplete: _completionPersisted,
+                        child: SoriBadge.xp(xp, size: 28),
+                      ),
+                    if (feedbackScope != null &&
+                        feedbackScope.featureGate.isEnabled &&
+                        _feedbackCompletion.current != null) ...[
+                      const SizedBox(height: Spacing.lg),
+                      ContentFeedbackCard(
+                        feedbackContext: _feedbackCompletion.current!.context,
+                        featureGate: feedbackScope.featureGate,
+                        submitFeedback: feedbackScope.submitFeedback,
+                        mascotKind: MascotKind.magpie,
+                        completedMissionIds: feedbackScope.completedMissionIds,
+                      ),
+                    ],
+                  ],
+                ),
               ),
             ),
+          ),
           const SizedBox(height: Spacing.md),
-          if (_completionPersisted && xp > 0)
-            LearningRewardPresentation(
-              attempt: _learningAttempt,
-              kind: SoriRewardKind.xp,
-              amount: xp,
-              presentationComplete: _completionPersisted,
-              child: SoriBadge.xp(xp, size: 28),
-            ),
-          if (feedbackScope != null &&
-              feedbackScope.featureGate.isEnabled &&
-              _feedbackCompletion.current != null) ...[
-            const SizedBox(height: Spacing.lg),
-            ContentFeedbackCard(
-              feedbackContext: _feedbackCompletion.current!.context,
-              featureGate: feedbackScope.featureGate,
-              submitFeedback: feedbackScope.submitFeedback,
-              mascotKind: MascotKind.magpie,
-              completedMissionIds: feedbackScope.completedMissionIds,
-            ),
-          ],
-          const SizedBox(height: Spacing.xl),
           SoriButton.filled(
             label: t.listeningReviewCta,
             accent: SoriColors.contentCta,

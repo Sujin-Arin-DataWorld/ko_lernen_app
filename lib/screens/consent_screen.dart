@@ -111,8 +111,8 @@ class _ConsentScreenState extends State<ConsentScreen> {
                     padding: const EdgeInsets.all(Spacing.xl),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Spacer(),
                         // §G 공통 프레임: eyebrow + hero 헤드라인 + 본문 1줄 —
                         // 법적 문구(ARB 키)는 그대로, 프레임만 교체.
                         SoriPageHeader(
@@ -158,7 +158,7 @@ class _ConsentScreenState extends State<ConsentScreen> {
                             ),
                           ],
                         ),
-                        const Spacer(),
+                        const SizedBox(height: Spacing.xl),
                         SoriButton.filled(
                           label: t.consentContinueCta,
                           fullWidth: true,

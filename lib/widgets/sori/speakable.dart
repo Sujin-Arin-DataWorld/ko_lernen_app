@@ -487,33 +487,37 @@ class SoriSpeechIndicator extends StatelessWidget {
         };
         final iconAlpha = phase == TtsSpeechPhase.resolving ? 0.6 : 1.0;
 
-        return Semantics(
-          button: true,
-          label: t.speechIndicatorLabel,
-          value: semanticsValue,
-          onTap: handleTap,
-          // 48x48 터치 타깃 안 44x44 원형 배지(s.surface 0.85) + 18px 아이콘 —
-          // 기존 SizedBox/Center/DecoratedBox 구조는 그대로, icon/alpha만 phase값을 따른다.
-          child: ExcludeSemantics(
-            child: SoriPressable(
-              onTap: handleTap,
-              child: SizedBox(
-                width: SoriLayout.chromeRowTouchHeight,
-                height: SoriLayout.chromeRowTouchHeight,
-                child: Center(
-                  child: SizedBox(
-                    width: 44,
-                    height: 44,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: s.surface.withValues(alpha: 0.85),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(
-                        icon,
-                        size: 18,
-                        color: SoriColors.contentCta.withValues(
-                          alpha: iconAlpha,
+        return Tooltip(
+          message: t.speechIndicatorLabel,
+          excludeFromSemantics: true,
+          child: Semantics(
+            button: true,
+            label: t.speechIndicatorLabel,
+            value: semanticsValue,
+            onTap: handleTap,
+            // 48x48 터치 타깃 안 44x44 원형 배지(s.surface 0.85) + 18px 아이콘 —
+            // 기존 SizedBox/Center/DecoratedBox 구조는 그대로, icon/alpha만 phase값을 따른다.
+            child: ExcludeSemantics(
+              child: SoriPressable(
+                onTap: handleTap,
+                child: SizedBox(
+                  width: SoriLayout.chromeRowTouchHeight,
+                  height: SoriLayout.chromeRowTouchHeight,
+                  child: Center(
+                    child: SizedBox(
+                      width: 44,
+                      height: 44,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: s.surface.withValues(alpha: 0.85),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          icon,
+                          size: 18,
+                          color: SoriColors.contentCta.withValues(
+                            alpha: iconAlpha,
+                          ),
                         ),
                       ),
                     ),

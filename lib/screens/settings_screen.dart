@@ -806,6 +806,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
         // ── Erscheinungsbild: Dark Mode in v2.0 deaktiviert ──
         // (App läuft ausschließlich im Light-Theme — Auswahl entfernt.)
+        ListTile(
+          leading: const Icon(Icons.menu_book_outlined),
+          title: Text(t.contentLearningGoals),
+          subtitle: Text('${t.smalltalkTitle} · ${t.listeningTitle}'),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => Navigator.of(context).pushNamed('/content/goals'),
+        ),
 
         // ── Sprache ──
         _Section(label: t.settingsLanguage),
@@ -837,6 +844,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
         // Course placement and browsing filters are intentionally independent.
         _Section(label: t.settingsLearningLevelsSection),
+        ListTile(
+          key: const ValueKey('settings-course-preview'),
+          leading: const Icon(
+            Icons.menu_book_outlined,
+            color: SoriColors.primary,
+          ),
+          title: Text(t.coursePreviewTitle),
+          subtitle: Text(t.coursePreviewBody),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => Navigator.of(
+            context,
+          ).pushNamed('/course/phases', arguments: Storage.userLevelCode),
+        ),
         ListTile(
           key: _courseStartKey,
           focusNode: _courseStartFocusNode,
@@ -1553,6 +1573,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   '연구책임자 김한샘 외',
             ),
             _DataSourceCard(
+              name: '국립국어원 온용어 · 한국전력공사 전력 용어 사전 — 러너',
+              role: t.dictionaryOfflineSourceRole,
+              license: 'KOGL Type 1',
+              url:
+                  'https://kli.korean.go.kr/term/trgtWord/indexTrgtWord.do?trgtWordNo=102155',
+              attribution: '국립국어원 / 한국전력공사',
+            ),
+            _DataSourceCard(
               name: '세종한국어 회화 익힘책 1-1 · 1-2 (한국어판)',
               role: t.settingsDataSourceRoleSejongConversation,
               license: 'KOGL Type 1',
@@ -1714,6 +1742,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
       builder: (ctx) => SoriSimpleDialog(
         title: Text(title),
         children: [
+          SoriButton.ghost(
+            label: t.coursePreviewTitle,
+            onTap: () => Navigator.of(
+              ctx,
+            ).pushNamed('/course/phases', arguments: current.code),
+          ),
           for (final level in LearnerLevel.values)
             SimpleDialogOption(
               onPressed: () => Navigator.of(ctx).pop(level),

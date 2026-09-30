@@ -1,3 +1,4 @@
+import '../../features/content_learning/content_learning_widgets.dart';
 import '../../widgets/sori/learning_focus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -534,6 +535,7 @@ class _TodayContent extends StatelessWidget {
             ),
             const SizedBox(height: Spacing.lg),
             const TodayGuideChecklistSection(),
+            const ContentDailyGoals(),
             // A partial Today snapshot must not look like a complete daily
             // dashboard. In particular, neither reward collection nor
             // unrelated activity CTAs may accompany its safe retry path.
@@ -1155,25 +1157,36 @@ class _TodayError extends StatelessWidget {
   const _TodayError({required this.onRetry});
   final VoidCallback onRetry;
   @override
-  Widget build(BuildContext context) => Center(
-    child: Padding(
-      padding: const EdgeInsets.all(Spacing.xl),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Icon(Icons.cloud_off_outlined, size: 48),
-          const SizedBox(height: Spacing.md),
-          Text(
-            AppL10n.of(context).soriStageTodayEmpty,
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: Spacing.lg),
-          SoriButton.outlined(
-            label: AppL10n.of(context).btnRetry,
-            onTap: onRetry,
-          ),
-        ],
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    return Center(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(Spacing.xl),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.refresh_rounded, size: 48),
+            const SizedBox(height: Spacing.md),
+            Text(
+              t.homeLocalUnavailableTitle,
+              style: text.h3,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: Spacing.sm),
+            Text(
+              t.homeLocalUnavailableDescriptionNoReview,
+              style: text.body,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: Spacing.lg),
+            SoriButton.outlined(
+              label: t.homeUnavailableRetryGeneric,
+              onTap: onRetry,
+            ),
+          ],
+        ),
       ),
-    ),
-  );
+    );
+  }
 }

@@ -1,0 +1,1774 @@
+{
+  "schemaVersion": 1,
+  "operation": "reconcile_batch19_selected_copy_and_exact_scenario_retirement",
+  "sourceHead": "065279c4338cdd5774df9da3fac7409030e611dc",
+  "reviewStatus": "MODEL_QA_PASS_HUMAN_REVIEW_PENDING",
+  "humanReviewStatus": "pending",
+  "approvalAdded": false,
+  "rightsAdded": false,
+  "frozenDraftsModified": false,
+  "runtimeChanged": true,
+  "koreanUtterancesChanged": false,
+  "taskContract": "Grammar quiz shows localized example and highlighted focus; choose one Korean pattern. Korean example and notes appear after answering.",
+  "originalPromotionCommit": "fc0489b65da0e9c11631a37eabd57f22e9e6e3e8",
+  "promotionFinalizationCommit": "85621a27de70ee8e865db1e709e1a363a540436f",
+  "firstParentIntegrationCommit": "fe19460338fb0361bd28856b694d6fdae6b9b20d",
+  "historySourceHead": "b0b1745cf696ce2ba9c91b1c4b7964bff1e47811",
+  "historyScope": "Selected ten row identities only; observed Git transitions, not approval or language QA. Three retired scenarios and other batch rows are outside this report.",
+  "historyReportSha256": "86fa94f9a7bc28fa8c13a82b632be85fcbd5284cbac9ea52f10295604bf5341a",
+  "historyReportSummary": {
+    "selectedRows": 10,
+    "initialDraftLiveDifferences": 0,
+    "draftRowsChangedSincePromotion": 2,
+    "unparsedSnapshots": 0,
+    "transitionsByTrack": {
+      "draft": 2,
+      "review": 0,
+      "live": 14
+    }
+  },
+  "frozenFiles": [
+    {
+      "path": "tools/content_factory/drafts/batch_19_manifest.json",
+      "sha256": "9698ae3d5169e36acd77011573839fb4584d441bfde81c0d0f82faa4ac4e3d97"
+    },
+    {
+      "path": "tools/content_factory/drafts/batch19_vocab.csv",
+      "sha256": "d0f1b7ccbbbf0f63ac2979bba3154d66881f41f211ba826f7768938f4a9177fd"
+    },
+    {
+      "path": "tools/content_factory/review/batch19_vocab.csv",
+      "sha256": "4134575662f2c4d779fc108a2b1f255b6723fcf321b7b04ea1a2f406e0c5019a"
+    },
+    {
+      "path": "tools/content_factory/drafts/batch19_grammar.csv",
+      "sha256": "5c7b6c620f3430c41f77989a162a93ccc305da230d439d3bb8f455c4023ba35e"
+    },
+    {
+      "path": "tools/content_factory/review/batch19_grammar.csv",
+      "sha256": "a0223fab5c48e1cb61dc9050f6ada06c1f872fe63a10a6575c3215127b364280"
+    },
+    {
+      "path": "tools/content_factory/drafts/batch19_scenario.json",
+      "sha256": "15d4ebd07724efb36c428069d01699d1c9b9287cfb51d4123ad17d6d55e3b38a"
+    },
+    {
+      "path": "tools/content_factory/review/batch19_scenario.csv",
+      "sha256": "ec0220cbd15468ca68d03d3e419d606ec08a64938f31263ee00f43691a8b2034"
+    },
+    {
+      "path": "tools/content_factory/drafts/batch19_smalltalk.json",
+      "sha256": "08b87c0892d834e8690c4c713a22cca47f969a0a88b13a9ebe5257bdd1d508d4"
+    },
+    {
+      "path": "tools/content_factory/review/batch19_smalltalk.csv",
+      "sha256": "471aa361bcc2674e54559a589847145825c92593086777116b8a216c14e7044f"
+    },
+    {
+      "path": "tools/content_factory/drafts/batch19_cloze.json",
+      "sha256": "31bf79ead68f01457c85c89c766c6484cf722bc4d20fc7266580eca49b086773"
+    },
+    {
+      "path": "tools/content_factory/review/batch19_cloze.csv",
+      "sha256": "7bffb35f0e5e64334d2032265f247e5b3d72638e674c42ccaf1934008d2cd686"
+    },
+    {
+      "path": "tools/content_factory/drafts/batch19_satz.json",
+      "sha256": "65422bbf36ee70c5a6330d5001cad91b6cf028c41e52981590d2784cba640b7e"
+    },
+    {
+      "path": "tools/content_factory/review/batch19_satz.csv",
+      "sha256": "91f1b6b26a0c7a945893a97c658cd89a9da3badaf4a7a33b0c6979078f1ee3ea"
+    },
+    {
+      "path": "tools/content_factory/drafts/batch19_pronunciation.json",
+      "sha256": "70c1168f8c438b5d038e26fae57a4f79f01f94fe44d997f1ac4bfd31854ba2b3"
+    },
+    {
+      "path": "tools/content_factory/review/batch19_pronunciation.csv",
+      "sha256": "504de55207adb14766a3edb0fad4892175a7ed0668e37beb9f4c39edc4dded87"
+    },
+    {
+      "path": "tools/content_factory/drafts/batch_02_manifest.json",
+      "sha256": "9a0ac9fb2f989d820e86bfa3b31e696d684306caaba57c0113ef732d596f0913"
+    },
+    {
+      "path": "tools/content_factory/drafts/c4_batch02_grammar_b1_b2.csv",
+      "sha256": "0f322097bb72fdaf5ec35ed04ca192dffaf3651b9f1dd311daf213581a71db61"
+    },
+    {
+      "path": "tools/content_factory/review/c4_batch02_grammar.csv",
+      "sha256": "94cdddbdc3221ea39d0472d3ded75621ce4c5a3eb081cc8756cc31dac8a1c24b"
+    }
+  ],
+  "primarySource": {
+    "url": "https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&pageIndex=1&qna_seq=312863",
+    "date": "2025-04-14",
+    "accessedAt": "2026-09-17",
+    "paraphrase": "The National Institute of Korean Language describes -는 바람에 as cause/reason and generally used where the earlier event has a negative effect. This supports a usual-use note, not a universal ban on positive results."
+  },
+  "rows": [
+    {
+      "kind": "vocab",
+      "id": "vocab_a1_0408",
+      "beforeSha256": "e354fe179bcb4713b7ca6a973d24775c844f19f352073234b2337767b3ef0d0e",
+      "priorLiveSha256": "df98c0e00fe8f921910658b5b1e3f77ad7cc026e319f07ce35d810bbbb12eae8",
+      "actualAfterSha256": "df98c0e00fe8f921910658b5b1e3f77ad7cc026e319f07ce35d810bbbb12eae8",
+      "comparisonAfterSha256": "df98c0e00fe8f921910658b5b1e3f77ad7cc026e319f07ce35d810bbbb12eae8",
+      "currentLevel": "A1",
+      "revisionRegistered": true,
+      "fields": {
+        "example_english": {
+          "before": "Please play the pronunciation of this word again.",
+          "after": "Can I hear the pronunciation of this word again?"
+        },
+        "example_german": {
+          "before": "Bitte spielen Sie die Aussprache dieses Wortes noch einmal ab.",
+          "after": "Kann ich die Aussprache dieses Wortes noch einmal hören?"
+        },
+        "example_korean": {
+          "before": "이 단어 발음을 다시 들려주세요.",
+          "after": "이 단어 발음을 다시 들을 수 있어요?"
+        }
+      },
+      "currentCorrectionFields": {},
+      "current": {
+        "korean": "발음",
+        "romanization": "bareum",
+        "german": "Aussprache",
+        "level": "A1",
+        "pos_de": "Nomen",
+        "example_korean": "이 단어 발음을 다시 들을 수 있어요?",
+        "example_german": "Kann ich die Aussprache dieses Wortes noch einmal hören?",
+        "topic": "다시 묻기",
+        "pack_id": "a1_repair_language_1",
+        "pack_order": "1",
+        "is_review_boss": "false",
+        "english": "pronunciation",
+        "pos_en": "Noun",
+        "example_english": "Can I hear the pronunciation of this word again?",
+        "id": "vocab_a1_0408"
+      },
+      "reasonKo": "발음을 다시 들을 수 있는지 묻는 현재 KO와 DE/EN의 가능 질문을 함께 검토했다. 과거 들려주세요에서 바뀐 이력을 보존한다.",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/batch19_vocab.csv",
+          "promotionBlobSha256": "d0f1b7ccbbbf0f63ac2979bba3154d66881f41f211ba826f7768938f4a9177fd",
+          "currentBlobSha256": "d0f1b7ccbbbf0f63ac2979bba3154d66881f41f211ba826f7768938f4a9177fd",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "vocab_a1_0408",
+            "promotionSha256": "e354fe179bcb4713b7ca6a973d24775c844f19f352073234b2337767b3ef0d0e",
+            "currentSha256": "e354fe179bcb4713b7ca6a973d24775c844f19f352073234b2337767b3ef0d0e",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/batch19_vocab.csv",
+          "promotionBlobSha256": "4134575662f2c4d779fc108a2b1f255b6723fcf321b7b04ea1a2f406e0c5019a",
+          "currentBlobSha256": "4134575662f2c4d779fc108a2b1f255b6723fcf321b7b04ea1a2f406e0c5019a",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "vocab_a1_0408",
+            "promotionSha256": "ec5c7902155aa3b4859fc32377db4e7f69efe8c8455c0b841ad790bedc43811f",
+            "currentSha256": "ec5c7902155aa3b4859fc32377db4e7f69efe8c8455c0b841ad790bedc43811f",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/korean_vocab.csv",
+          "promotionBlobSha256": "0391267a347efaba4d2d8725c2a8d294fb7e07112f2be9ed0c5ae675d622f6b0",
+          "currentBlobSha256": "467cb8e10d0a7c6b881f44ac48ecb51243d873ca09c8f6e4fb6856a8b32e547d",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "vocab_a1_0408",
+            "promotionSha256": "e354fe179bcb4713b7ca6a973d24775c844f19f352073234b2337767b3ef0d0e",
+            "currentSha256": "df98c0e00fe8f921910658b5b1e3f77ad7cc026e319f07ce35d810bbbb12eae8",
+            "transitions": [
+              {
+                "commit": "78030d421d7b1f231f2a7097dabc6b4c40d12d8e",
+                "beforeSha256": "e354fe179bcb4713b7ca6a973d24775c844f19f352073234b2337767b3ef0d0e",
+                "afterSha256": "df98c0e00fe8f921910658b5b1e3f77ad7cc026e319f07ce35d810bbbb12eae8",
+                "fields": {
+                  "example_english": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Please play the pronunciation of this word again.",
+                    "after": "Can I hear the pronunciation of this word again?"
+                  },
+                  "example_german": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Bitte spielen Sie die Aussprache dieses Wortes noch einmal ab.",
+                    "after": "Kann ich die Aussprache dieses Wortes noch einmal hören?"
+                  },
+                  "example_korean": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "이 단어 발음을 다시 들려주세요.",
+                    "after": "이 단어 발음을 다시 들을 수 있어요?"
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_a2_available_if",
+      "beforeSha256": "d7ac833425cdff32cf8316d0adb2dbe88084cb40b8a113d483b0acea7bca5127",
+      "priorLiveSha256": "b27bfb1f3bd36def592816c5f2a86b89ca2cc5afc8e8bccfcb7bb7b975002a1c",
+      "actualAfterSha256": "b27bfb1f3bd36def592816c5f2a86b89ca2cc5afc8e8bccfcb7bb7b975002a1c",
+      "comparisonAfterSha256": "b27bfb1f3bd36def592816c5f2a86b89ca2cc5afc8e8bccfcb7bb7b975002a1c",
+      "currentLevel": "A2",
+      "revisionRegistered": true,
+      "fields": {
+        "quiz_distractor_ids": {
+          "before": "grammar_a2_future_intention|grammar_a2_conditional|grammar_a2_contrast",
+          "after": "grammar_a2_among_set|grammar_a2_become|grammar_a2_after_finishing"
+        }
+      },
+      "currentCorrectionFields": {},
+      "current": {
+        "pattern": "V-(으)면, S",
+        "level": "A2",
+        "type_de": "Bedingung für einen Plan",
+        "explanation_de": "Nennt eine Bedingung, unter der ein Plan möglich oder sinnvoll ist.",
+        "example_korean": "시간이 되면 같이 점심을 먹어요.",
+        "example_german": "Wenn du Zeit hast, essen wir zusammen zu Mittag.",
+        "note": "Die Bedingung steht vor dem Ergebnis oder Vorschlag.",
+        "type_en": "Condition for a plan",
+        "explanation_en": "States the condition under which a plan is possible or useful.",
+        "example_en": "If you have time, let's have lunch together.",
+        "note_en": "The condition comes before the result or proposal.",
+        "id": "grammar_a2_available_if",
+        "quiz_focus_de": "Wenn du Zeit hast",
+        "quiz_focus_en": "If you have time",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_a2_among_set|grammar_a2_become|grammar_a2_after_finishing"
+      },
+      "reasonKo": "시간이 되면의 조건을 기준으로 집합·변화·완료 후의 세 보기를 검토했다. 과거 pattern 수정도 draft/live 각 트랙에 기록한다.",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/batch19_grammar.csv",
+          "promotionBlobSha256": "586cd59b4d13fc7fc2d9a5d983bbba2474de6ec125c7605f07b7b2d0ecfaee38",
+          "currentBlobSha256": "5c7b6c620f3430c41f77989a162a93ccc305da230d439d3bb8f455c4023ba35e",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "grammar_a2_available_if",
+            "promotionSha256": "686b494074ed9f3386ffcd41939b409ccf99d99d51204e7f611918350e7bf7c3",
+            "currentSha256": "d7ac833425cdff32cf8316d0adb2dbe88084cb40b8a113d483b0acea7bca5127",
+            "transitions": [
+              {
+                "commit": "fe19460338fb0361bd28856b694d6fdae6b9b20d",
+                "beforeSha256": "686b494074ed9f3386ffcd41939b409ccf99d99d51204e7f611918350e7bf7c3",
+                "afterSha256": "d7ac833425cdff32cf8316d0adb2dbe88084cb40b8a113d483b0acea7bca5127",
+                "fields": {
+                  "pattern": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "V-(으)면",
+                    "after": "V-(으)면, S"
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/batch19_grammar.csv",
+          "promotionBlobSha256": "5ca1554a79a33ff21c9ed70535f8f85865bbc81657cfc636c4e12c9049f46325",
+          "currentBlobSha256": "a0223fab5c48e1cb61dc9050f6ada06c1f872fe63a10a6575c3215127b364280",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "grammar_a2_available_if",
+            "promotionSha256": "404e5339ae66a02797adcc89c76f779df3786aa7743d2f4a8aa214793e582bf3",
+            "currentSha256": "404e5339ae66a02797adcc89c76f779df3786aa7743d2f4a8aa214793e582bf3",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/grammar.csv",
+          "promotionBlobSha256": "98a997a8a09a53fb2bf7d33756943b27d728a6cb314e35a41059f13fb0c70fb8",
+          "currentBlobSha256": "2b37615f6530986cced75e192f4e09ef5e0391711f35ce8658796b321a05a289",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "grammar_a2_available_if",
+            "promotionSha256": "686b494074ed9f3386ffcd41939b409ccf99d99d51204e7f611918350e7bf7c3",
+            "currentSha256": "b27bfb1f3bd36def592816c5f2a86b89ca2cc5afc8e8bccfcb7bb7b975002a1c",
+            "transitions": [
+              {
+                "commit": "fe19460338fb0361bd28856b694d6fdae6b9b20d",
+                "beforeSha256": "686b494074ed9f3386ffcd41939b409ccf99d99d51204e7f611918350e7bf7c3",
+                "afterSha256": "d7ac833425cdff32cf8316d0adb2dbe88084cb40b8a113d483b0acea7bca5127",
+                "fields": {
+                  "pattern": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "V-(으)면",
+                    "after": "V-(으)면, S"
+                  }
+                },
+                "unparsedInterval": []
+              },
+              {
+                "commit": "43769596687027ad85e637d2dd78443dc9c072fd",
+                "beforeSha256": "d7ac833425cdff32cf8316d0adb2dbe88084cb40b8a113d483b0acea7bca5127",
+                "afterSha256": "b27bfb1f3bd36def592816c5f2a86b89ca2cc5afc8e8bccfcb7bb7b975002a1c",
+                "fields": {
+                  "quiz_distractor_ids": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "grammar_a2_future_intention|grammar_a2_conditional|grammar_a2_contrast",
+                    "after": "grammar_a2_among_set|grammar_a2_become|grammar_a2_after_finishing"
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_b1_soft_request_batch19",
+      "beforeSha256": "7c650fdb61ebf6f57930a8d0ae037280fb04abf52cdc504a6bb65baeb23862b2",
+      "priorLiveSha256": "b7c9ba5c6867a4dc3094366c2202d35398435926156fc7fb937cb32f3ed83d48",
+      "actualAfterSha256": "3577d879af9ee8ec07f75175b54e33843f4d1b3950c170d423ae360c1664cd3a",
+      "comparisonAfterSha256": "3577d879af9ee8ec07f75175b54e33843f4d1b3950c170d423ae360c1664cd3a",
+      "currentLevel": "B1",
+      "revisionRegistered": true,
+      "fields": {
+        "example_german": {
+          "before": "Könnten Sie mir den geänderten Termin noch heute mitteilen?",
+          "after": "Könnten Sie mir den geänderten Zeitplan noch heute mitteilen?"
+        },
+        "quiz_distractor_ids": {
+          "before": "grammar_b1_nominalization|grammar_b1_after|grammar_b1_before",
+          "after": "grammar_b1_takes_time|grammar_b1_state_while|grammar_b1_skill"
+        }
+      },
+      "currentCorrectionFields": {
+        "example_german": {
+          "before": "Könnten Sie mir den geänderten Termin noch heute mitteilen?",
+          "after": "Könnten Sie mir den geänderten Zeitplan noch heute mitteilen?"
+        },
+        "quiz_distractor_ids": {
+          "before": "grammar_b1_soft_request|grammar_b1_state_while|grammar_b1_skill",
+          "after": "grammar_b1_takes_time|grammar_b1_state_while|grammar_b1_skill"
+        }
+      },
+      "current": {
+        "pattern": "V-아/어 주실 수 있을까요?",
+        "level": "B1",
+        "type_de": "abgeschwächte Bitte",
+        "explanation_de": "Bittet höflich um eine konkrete Handlung, ohne sie als selbstverständlich darzustellen.",
+        "example_korean": "변경된 일정을 오늘 안에 알려 주실 수 있을까요?",
+        "example_german": "Könnten Sie mir den geänderten Zeitplan noch heute mitteilen?",
+        "note": "Die Frageform lässt eine Ablehnung oder Alternative zu.",
+        "type_en": "Softened request",
+        "explanation_en": "Politely asks for a concrete action without treating it as automatic.",
+        "example_en": "Could you let me know the revised schedule today?",
+        "note_en": "The question form leaves room for refusal or an alternative.",
+        "id": "grammar_b1_soft_request_batch19",
+        "quiz_focus_de": "Könnten Sie",
+        "quiz_focus_en": "Could you",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_b1_takes_time|grammar_b1_state_while|grammar_b1_skill"
+      },
+      "reasonKo": "일정을 단일 약속으로 좁히지 않는다. 같은 정중한 부탁으로 답할 수 있는 -아/어 주시면 좋겠다를 오답에서 제거한다.",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/batch19_grammar.csv",
+          "promotionBlobSha256": "586cd59b4d13fc7fc2d9a5d983bbba2474de6ec125c7605f07b7b2d0ecfaee38",
+          "currentBlobSha256": "5c7b6c620f3430c41f77989a162a93ccc305da230d439d3bb8f455c4023ba35e",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "grammar_b1_soft_request_batch19",
+            "promotionSha256": "7c650fdb61ebf6f57930a8d0ae037280fb04abf52cdc504a6bb65baeb23862b2",
+            "currentSha256": "7c650fdb61ebf6f57930a8d0ae037280fb04abf52cdc504a6bb65baeb23862b2",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/batch19_grammar.csv",
+          "promotionBlobSha256": "5ca1554a79a33ff21c9ed70535f8f85865bbc81657cfc636c4e12c9049f46325",
+          "currentBlobSha256": "a0223fab5c48e1cb61dc9050f6ada06c1f872fe63a10a6575c3215127b364280",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "grammar_b1_soft_request_batch19",
+            "promotionSha256": "c6f523273b28002069ff695887e0b2c72c5b5c657aee3bdc0cff30f07dc34584",
+            "currentSha256": "c6f523273b28002069ff695887e0b2c72c5b5c657aee3bdc0cff30f07dc34584",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/grammar.csv",
+          "promotionBlobSha256": "98a997a8a09a53fb2bf7d33756943b27d728a6cb314e35a41059f13fb0c70fb8",
+          "currentBlobSha256": "2b37615f6530986cced75e192f4e09ef5e0391711f35ce8658796b321a05a289",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "grammar_b1_soft_request_batch19",
+            "promotionSha256": "7c650fdb61ebf6f57930a8d0ae037280fb04abf52cdc504a6bb65baeb23862b2",
+            "currentSha256": "b7c9ba5c6867a4dc3094366c2202d35398435926156fc7fb937cb32f3ed83d48",
+            "transitions": [
+              {
+                "commit": "43769596687027ad85e637d2dd78443dc9c072fd",
+                "beforeSha256": "7c650fdb61ebf6f57930a8d0ae037280fb04abf52cdc504a6bb65baeb23862b2",
+                "afterSha256": "b7c9ba5c6867a4dc3094366c2202d35398435926156fc7fb937cb32f3ed83d48",
+                "fields": {
+                  "quiz_distractor_ids": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "grammar_b1_nominalization|grammar_b1_after|grammar_b1_before",
+                    "after": "grammar_b1_soft_request|grammar_b1_state_while|grammar_b1_skill"
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_b1_reason_context",
+      "beforeSha256": "4e56925dc2dfd5c00467c07b5f84eace2cdeafcd537266d73e1c16d326c00710",
+      "priorLiveSha256": "29797d1dbe75e305f919941837d344cb026466de015413a532b187aa38bf0f05",
+      "actualAfterSha256": "0ebd732a24e5999de7fb217995efc937d7d0e8d55b16c3371e3936265643f23f",
+      "comparisonAfterSha256": "fab10f50443981796e8d3f19293fb8f57f025a54f6eef8dd3fc30dc655729980",
+      "currentLevel": "B2",
+      "revisionRegistered": true,
+      "fields": {
+        "note": {
+          "before": "Für beabsichtigte oder positive Ergebnisse ist diese Form unpassend.",
+          "after": "Meist beschreibt die Form eine unbeabsichtigte, oft ungünstige Folge."
+        },
+        "note_en": {
+          "before": "This form does not fit intentional or positive results.",
+          "after": "The form usually describes an unintended, often unfavorable consequence."
+        },
+        "quiz_distractor_ids": {
+          "before": "grammar_b1_nominalization|grammar_b1_after|grammar_b1_before",
+          "after": "grammar_b1_as_soon_as|grammar_b1_whether|grammar_b2_definition"
+        },
+        "quiz_focus_en": {
+          "before": "The server went down unexpectedly",
+          "after": "The server went down unexpectedly, so"
+        }
+      },
+      "currentCorrectionFields": {
+        "note": {
+          "before": "Für beabsichtigte oder positive Ergebnisse ist diese Form unpassend.",
+          "after": "Meist beschreibt die Form eine unbeabsichtigte, oft ungünstige Folge."
+        },
+        "note_en": {
+          "before": "This form does not fit intentional or positive results.",
+          "after": "The form usually describes an unintended, often unfavorable consequence."
+        },
+        "quiz_distractor_ids": {
+          "before": "grammar_b1_as_soon_as|grammar_b1_whether|grammar_b2_according_to",
+          "after": "grammar_b1_as_soon_as|grammar_b1_whether|grammar_b2_definition"
+        },
+        "quiz_focus_en": {
+          "before": "The server went down unexpectedly",
+          "after": "The server went down unexpectedly, so"
+        }
+      },
+      "current": {
+        "pattern": "V-는 바람에, S",
+        "level": "B2",
+        "type_de": "unerwarteter negativer Grund",
+        "explanation_de": "Erklärt eine unerwartete Ursache, die zu einem meist ungünstigen Ergebnis geführt hat.",
+        "example_korean": "서버가 멈추는 바람에 자료를 늦게 보냈어요.",
+        "example_german": "Weil der Server unerwartet ausfiel, habe ich die Unterlagen verspätet geschickt.",
+        "note": "Meist beschreibt die Form eine unbeabsichtigte, oft ungünstige Folge.",
+        "type_en": "Unexpected negative cause",
+        "explanation_en": "Explains an unexpected cause that led to a usually unfavorable result.",
+        "example_en": "The server went down unexpectedly, so I sent the materials late.",
+        "note_en": "The form usually describes an unintended, often unfavorable consequence.",
+        "id": "grammar_b1_reason_context",
+        "quiz_focus_de": "Weil der Server unerwartet ausfiel",
+        "quiz_focus_en": "The server went down unexpectedly, so",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_b1_as_soon_as|grammar_b1_whether|grammar_b2_definition"
+      },
+      "reasonKo": "현재 B2 배치를 유지한다. 인과로 읽을 수 있는 에 따라를 오답에서 제외하고 영어 focus에 so를 포함한다. 긍정 결과를 예외 없이 금지하던 note를 일반적 쓰임으로 고친다.",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/batch19_grammar.csv",
+          "promotionBlobSha256": "586cd59b4d13fc7fc2d9a5d983bbba2474de6ec125c7605f07b7b2d0ecfaee38",
+          "currentBlobSha256": "5c7b6c620f3430c41f77989a162a93ccc305da230d439d3bb8f455c4023ba35e",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "grammar_b1_reason_context",
+            "promotionSha256": "a148bb985e6767e75459895c995fa9341f41fb4eab51cacc648641692df7cd1b",
+            "currentSha256": "4e56925dc2dfd5c00467c07b5f84eace2cdeafcd537266d73e1c16d326c00710",
+            "transitions": [
+              {
+                "commit": "fe19460338fb0361bd28856b694d6fdae6b9b20d",
+                "beforeSha256": "a148bb985e6767e75459895c995fa9341f41fb4eab51cacc648641692df7cd1b",
+                "afterSha256": "4e56925dc2dfd5c00467c07b5f84eace2cdeafcd537266d73e1c16d326c00710",
+                "fields": {
+                  "pattern": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "V-는 바람에",
+                    "after": "V-는 바람에, S"
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/batch19_grammar.csv",
+          "promotionBlobSha256": "5ca1554a79a33ff21c9ed70535f8f85865bbc81657cfc636c4e12c9049f46325",
+          "currentBlobSha256": "a0223fab5c48e1cb61dc9050f6ada06c1f872fe63a10a6575c3215127b364280",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "grammar_b1_reason_context",
+            "promotionSha256": "3b3adc3bba12000428ee4f02b42e640fb850a8e92000fb621897718369bf205f",
+            "currentSha256": "3b3adc3bba12000428ee4f02b42e640fb850a8e92000fb621897718369bf205f",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/grammar.csv",
+          "promotionBlobSha256": "98a997a8a09a53fb2bf7d33756943b27d728a6cb314e35a41059f13fb0c70fb8",
+          "currentBlobSha256": "2b37615f6530986cced75e192f4e09ef5e0391711f35ce8658796b321a05a289",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "grammar_b1_reason_context",
+            "promotionSha256": "a148bb985e6767e75459895c995fa9341f41fb4eab51cacc648641692df7cd1b",
+            "currentSha256": "29797d1dbe75e305f919941837d344cb026466de015413a532b187aa38bf0f05",
+            "transitions": [
+              {
+                "commit": "fe19460338fb0361bd28856b694d6fdae6b9b20d",
+                "beforeSha256": "a148bb985e6767e75459895c995fa9341f41fb4eab51cacc648641692df7cd1b",
+                "afterSha256": "4e56925dc2dfd5c00467c07b5f84eace2cdeafcd537266d73e1c16d326c00710",
+                "fields": {
+                  "pattern": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "V-는 바람에",
+                    "after": "V-는 바람에, S"
+                  }
+                },
+                "unparsedInterval": []
+              },
+              {
+                "commit": "43769596687027ad85e637d2dd78443dc9c072fd",
+                "beforeSha256": "4e56925dc2dfd5c00467c07b5f84eace2cdeafcd537266d73e1c16d326c00710",
+                "afterSha256": "5e0adbb90de097fc8b0dc3bf806a0f149be43b497c50023cea6122069e048458",
+                "fields": {
+                  "quiz_distractor_ids": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "grammar_b1_nominalization|grammar_b1_after|grammar_b1_before",
+                    "after": "grammar_b1_prepared_state|grammar_b1_recalled_past|grammar_b1_planned_future"
+                  }
+                },
+                "unparsedInterval": []
+              },
+              {
+                "commit": "8bc5ca314c62632df1cfd63c3ef9507264ef7471",
+                "beforeSha256": "5e0adbb90de097fc8b0dc3bf806a0f149be43b497c50023cea6122069e048458",
+                "afterSha256": "29797d1dbe75e305f919941837d344cb026466de015413a532b187aa38bf0f05",
+                "fields": {
+                  "level": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "B1",
+                    "after": "B2"
+                  },
+                  "quiz_distractor_ids": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "grammar_b1_prepared_state|grammar_b1_recalled_past|grammar_b1_planned_future",
+                    "after": "grammar_b1_as_soon_as|grammar_b1_whether|grammar_b2_according_to"
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0320",
+      "beforeSha256": "85b50196d4c1c97df1111f506892a3ef066ee2d66446f1688d3df140a34aadff",
+      "priorLiveSha256": "f8767d811d785ad839ec56c2588e4c0b8d4e190ece41730d8872964d4b4df6f4",
+      "actualAfterSha256": "f8767d811d785ad839ec56c2588e4c0b8d4e190ece41730d8872964d4b4df6f4",
+      "comparisonAfterSha256": "f8767d811d785ad839ec56c2588e4c0b8d4e190ece41730d8872964d4b4df6f4",
+      "currentLevel": "a1",
+      "revisionRegistered": true,
+      "fields": {
+        "de": {
+          "before": "Bitte zeigen Sie mir einen kurzen Beispielsatz.",
+          "after": "Kann ich einen kurzen Beispielsatz sehen?"
+        },
+        "distractors": {
+          "before": [
+            "주소",
+            "사진",
+            "가격"
+          ],
+          "after": [
+            "사진",
+            "가격",
+            "일요일"
+          ]
+        },
+        "en": {
+          "before": "Please show me one short example sentence.",
+          "after": "Can I see one short example sentence?"
+        },
+        "fullKo": {
+          "before": "짧은 예문을 하나 보여 주세요.",
+          "after": "짧은 예문을 하나 볼 수 있어요?"
+        },
+        "sentenceKo": {
+          "before": "짧은 ＿＿＿을 하나 보여 주세요.",
+          "after": "짧은 ＿＿＿을 하나 볼 수 있어요?"
+        }
+      },
+      "currentCorrectionFields": {},
+      "current": {
+        "id": "cloze_a1_0320",
+        "level": "a1",
+        "topic": "다시 묻기",
+        "fullKo": "짧은 예문을 하나 볼 수 있어요?",
+        "answer": "예문",
+        "sentenceKo": "짧은 ＿＿＿을 하나 볼 수 있어요?",
+        "de": "Kann ich einen kurzen Beispielsatz sehen?",
+        "en": "Can I see one short example sentence?",
+        "distractors": [
+          "사진",
+          "가격",
+          "일요일"
+        ],
+        "courseUnitId": "a1_08_clarify_repair",
+        "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+      },
+      "reasonKo": "예문을 보고 싶다는 번역과 빈칸을 기준으로 사진·가격·일요일을 각각 치환해 검토했다.",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/batch19_cloze.json",
+          "promotionBlobSha256": "33a8e59ab175dba9a958dda8f316d3c692bdbe31913a0d84173f4cff9b774de8",
+          "currentBlobSha256": "31bf79ead68f01457c85c89c766c6484cf722bc4d20fc7266580eca49b086773",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "cloze_a1_0320",
+            "promotionSha256": "85b50196d4c1c97df1111f506892a3ef066ee2d66446f1688d3df140a34aadff",
+            "currentSha256": "85b50196d4c1c97df1111f506892a3ef066ee2d66446f1688d3df140a34aadff",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/batch19_cloze.csv",
+          "promotionBlobSha256": "635e42ec662d0d1488f065b6b393a1ef9c1a28e55b4b5cc4ff7a60f5e689df1d",
+          "currentBlobSha256": "7bffb35f0e5e64334d2032265f247e5b3d72638e674c42ccaf1934008d2cd686",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "cloze_a1_0320",
+            "promotionSha256": "4bd2471c10faaf5384cb2a2f3cb29d0852de50c74cc29b32e54f97911fe86c96",
+            "currentSha256": "4bd2471c10faaf5384cb2a2f3cb29d0852de50c74cc29b32e54f97911fe86c96",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/cloze.json",
+          "promotionBlobSha256": "982ee01025ba020aa1d9e7da0b2e68a103a8025cbeece3e27527f31955b23cf7",
+          "currentBlobSha256": "0533149a005e609b3f3ae9658765dbe81247b9a180e23e0fbfdd4e2464b08da7",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "cloze_a1_0320",
+            "promotionSha256": "85b50196d4c1c97df1111f506892a3ef066ee2d66446f1688d3df140a34aadff",
+            "currentSha256": "f8767d811d785ad839ec56c2588e4c0b8d4e190ece41730d8872964d4b4df6f4",
+            "transitions": [
+              {
+                "commit": "aa0d932f69f6f738cb3ecd4847656edc0e7a09ff",
+                "beforeSha256": "85b50196d4c1c97df1111f506892a3ef066ee2d66446f1688d3df140a34aadff",
+                "afterSha256": "bba2885d77952991a9fb63c632a85d007d0bd13f9b83862cf26844a7518cba11",
+                "fields": {
+                  "distractors": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": [
+                      "주소",
+                      "사진",
+                      "가격"
+                    ],
+                    "after": [
+                      "사진",
+                      "가격",
+                      "일요일"
+                    ]
+                  }
+                },
+                "unparsedInterval": []
+              },
+              {
+                "commit": "78030d421d7b1f231f2a7097dabc6b4c40d12d8e",
+                "beforeSha256": "bba2885d77952991a9fb63c632a85d007d0bd13f9b83862cf26844a7518cba11",
+                "afterSha256": "f8767d811d785ad839ec56c2588e4c0b8d4e190ece41730d8872964d4b4df6f4",
+                "fields": {
+                  "de": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Bitte zeigen Sie mir einen kurzen Beispielsatz.",
+                    "after": "Kann ich einen kurzen Beispielsatz sehen?"
+                  },
+                  "en": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Please show me one short example sentence.",
+                    "after": "Can I see one short example sentence?"
+                  },
+                  "fullKo": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "짧은 예문을 하나 보여 주세요.",
+                    "after": "짧은 예문을 하나 볼 수 있어요?"
+                  },
+                  "sentenceKo": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "짧은 ＿＿＿을 하나 보여 주세요.",
+                    "after": "짧은 ＿＿＿을 하나 볼 수 있어요?"
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0324",
+      "beforeSha256": "2def6235f9b0f87c4d5bb4002fc856bc18e499d6bb45687d8ff227a4de2276ea",
+      "priorLiveSha256": "ed617d3f3149c152c94096abce280faea57ebb2e380a3bc5cdcb332cdd264752",
+      "actualAfterSha256": "ed617d3f3149c152c94096abce280faea57ebb2e380a3bc5cdcb332cdd264752",
+      "comparisonAfterSha256": "ed617d3f3149c152c94096abce280faea57ebb2e380a3bc5cdcb332cdd264752",
+      "currentLevel": "a1",
+      "revisionRegistered": true,
+      "fields": {
+        "answer": {
+          "before": "확인해 주세요",
+          "after": "확인할 수 있어요"
+        },
+        "de": {
+          "before": "Bitte prüfen Sie die Adresse noch einmal.",
+          "after": "Können Sie die Adresse noch einmal überprüfen?"
+        },
+        "distractors": {
+          "before": [
+            "주문해 주세요",
+            "출발해 주세요",
+            "닫아 주세요"
+          ],
+          "after": [
+            "주문할 수 있어요",
+            "출발할 수 있어요",
+            "닫을 수 있어요"
+          ]
+        },
+        "en": {
+          "before": "Please check the address once more.",
+          "after": "Can you check the address once more?"
+        },
+        "fullKo": {
+          "before": "주소를 한 번 더 확인해 주세요.",
+          "after": "주소를 한 번 더 확인할 수 있어요?"
+        },
+        "sentenceKo": {
+          "before": "주소를 한 번 더 ＿＿＿.",
+          "after": "주소를 한 번 더 ＿＿＿?"
+        }
+      },
+      "currentCorrectionFields": {},
+      "current": {
+        "id": "cloze_a1_0324",
+        "level": "a1",
+        "topic": "다시 묻기",
+        "fullKo": "주소를 한 번 더 확인할 수 있어요?",
+        "answer": "확인할 수 있어요",
+        "sentenceKo": "주소를 한 번 더 ＿＿＿?",
+        "de": "Können Sie die Adresse noch einmal überprüfen?",
+        "en": "Can you check the address once more?",
+        "distractors": [
+          "주문할 수 있어요",
+          "출발할 수 있어요",
+          "닫을 수 있어요"
+        ],
+        "courseUnitId": "a1_08_clarify_repair",
+        "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+      },
+      "reasonKo": "주소를 다시 확인해 달라는 요청을 유지한다. 주문·출발·닫기는 전체 문장과 번역에서 확인의 뜻을 충족하지 않는다.",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/batch19_cloze.json",
+          "promotionBlobSha256": "33a8e59ab175dba9a958dda8f316d3c692bdbe31913a0d84173f4cff9b774de8",
+          "currentBlobSha256": "31bf79ead68f01457c85c89c766c6484cf722bc4d20fc7266580eca49b086773",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "cloze_a1_0324",
+            "promotionSha256": "2def6235f9b0f87c4d5bb4002fc856bc18e499d6bb45687d8ff227a4de2276ea",
+            "currentSha256": "2def6235f9b0f87c4d5bb4002fc856bc18e499d6bb45687d8ff227a4de2276ea",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/batch19_cloze.csv",
+          "promotionBlobSha256": "635e42ec662d0d1488f065b6b393a1ef9c1a28e55b4b5cc4ff7a60f5e689df1d",
+          "currentBlobSha256": "7bffb35f0e5e64334d2032265f247e5b3d72638e674c42ccaf1934008d2cd686",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "cloze_a1_0324",
+            "promotionSha256": "2d23d33fb84394594c33e19a79b2efd67fc60394eaf58f975542f409ba0b017e",
+            "currentSha256": "2d23d33fb84394594c33e19a79b2efd67fc60394eaf58f975542f409ba0b017e",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/cloze.json",
+          "promotionBlobSha256": "982ee01025ba020aa1d9e7da0b2e68a103a8025cbeece3e27527f31955b23cf7",
+          "currentBlobSha256": "0533149a005e609b3f3ae9658765dbe81247b9a180e23e0fbfdd4e2464b08da7",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "cloze_a1_0324",
+            "promotionSha256": "2def6235f9b0f87c4d5bb4002fc856bc18e499d6bb45687d8ff227a4de2276ea",
+            "currentSha256": "ed617d3f3149c152c94096abce280faea57ebb2e380a3bc5cdcb332cdd264752",
+            "transitions": [
+              {
+                "commit": "78030d421d7b1f231f2a7097dabc6b4c40d12d8e",
+                "beforeSha256": "2def6235f9b0f87c4d5bb4002fc856bc18e499d6bb45687d8ff227a4de2276ea",
+                "afterSha256": "ed617d3f3149c152c94096abce280faea57ebb2e380a3bc5cdcb332cdd264752",
+                "fields": {
+                  "answer": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "확인해 주세요",
+                    "after": "확인할 수 있어요"
+                  },
+                  "de": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Bitte prüfen Sie die Adresse noch einmal.",
+                    "after": "Können Sie die Adresse noch einmal überprüfen?"
+                  },
+                  "distractors": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": [
+                      "주문해 주세요",
+                      "출발해 주세요",
+                      "닫아 주세요"
+                    ],
+                    "after": [
+                      "주문할 수 있어요",
+                      "출발할 수 있어요",
+                      "닫을 수 있어요"
+                    ]
+                  },
+                  "en": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Please check the address once more.",
+                    "after": "Can you check the address once more?"
+                  },
+                  "fullKo": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "주소를 한 번 더 확인해 주세요.",
+                    "after": "주소를 한 번 더 확인할 수 있어요?"
+                  },
+                  "sentenceKo": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "주소를 한 번 더 ＿＿＿.",
+                    "after": "주소를 한 번 더 ＿＿＿?"
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_a1_0331",
+      "beforeSha256": "50b1db29263aabf5e15b37a330f5e61b24e4b0e969449612832751463c6cfb91",
+      "priorLiveSha256": "649da38da109e2697e81c13e3e7d565bd7c213556292132f32434acfb2040649",
+      "actualAfterSha256": "649da38da109e2697e81c13e3e7d565bd7c213556292132f32434acfb2040649",
+      "comparisonAfterSha256": "649da38da109e2697e81c13e3e7d565bd7c213556292132f32434acfb2040649",
+      "currentLevel": "a1",
+      "revisionRegistered": true,
+      "fields": {
+        "de": {
+          "before": "Bitte stellen Sie es vor die Tür.",
+          "after": "Können Sie es vor die Tür stellen?"
+        },
+        "en": {
+          "before": "Please leave it at the door.",
+          "after": "Can you leave it at the door?"
+        },
+        "fullKo": {
+          "before": "문 앞에 놓아 주세요.",
+          "after": "문 앞에 놓을 수 있어요?"
+        },
+        "sentenceKo": {
+          "before": "＿＿＿ 놓아 주세요.",
+          "after": "＿＿＿ 놓을 수 있어요?"
+        }
+      },
+      "currentCorrectionFields": {},
+      "current": {
+        "id": "cloze_a1_0331",
+        "level": "a1",
+        "topic": "결제와 배달",
+        "fullKo": "문 앞에 놓을 수 있어요?",
+        "answer": "문 앞에",
+        "sentenceKo": "＿＿＿ 놓을 수 있어요?",
+        "de": "Können Sie es vor die Tür stellen?",
+        "en": "Can you leave it at the door?",
+        "distractors": [
+          "역 안에",
+          "책상에서",
+          "친구하고"
+        ],
+        "courseUnitId": "a1_14_payment_delivery",
+        "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
+      },
+      "reasonKo": "문 앞이라는 장소를 유지한다. 역 안·책상에서·친구하고는 번역의 장소 의미와 일치하지 않는다.",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/batch19_cloze.json",
+          "promotionBlobSha256": "33a8e59ab175dba9a958dda8f316d3c692bdbe31913a0d84173f4cff9b774de8",
+          "currentBlobSha256": "31bf79ead68f01457c85c89c766c6484cf722bc4d20fc7266580eca49b086773",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "cloze_a1_0331",
+            "promotionSha256": "50b1db29263aabf5e15b37a330f5e61b24e4b0e969449612832751463c6cfb91",
+            "currentSha256": "50b1db29263aabf5e15b37a330f5e61b24e4b0e969449612832751463c6cfb91",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/batch19_cloze.csv",
+          "promotionBlobSha256": "635e42ec662d0d1488f065b6b393a1ef9c1a28e55b4b5cc4ff7a60f5e689df1d",
+          "currentBlobSha256": "7bffb35f0e5e64334d2032265f247e5b3d72638e674c42ccaf1934008d2cd686",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "cloze_a1_0331",
+            "promotionSha256": "ff6b10c775ec0bbe7e42d9c12b3d1eb2a732b8a7f65ef602c7792e0079d6a0f3",
+            "currentSha256": "ff6b10c775ec0bbe7e42d9c12b3d1eb2a732b8a7f65ef602c7792e0079d6a0f3",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/cloze.json",
+          "promotionBlobSha256": "982ee01025ba020aa1d9e7da0b2e68a103a8025cbeece3e27527f31955b23cf7",
+          "currentBlobSha256": "0533149a005e609b3f3ae9658765dbe81247b9a180e23e0fbfdd4e2464b08da7",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "cloze_a1_0331",
+            "promotionSha256": "50b1db29263aabf5e15b37a330f5e61b24e4b0e969449612832751463c6cfb91",
+            "currentSha256": "649da38da109e2697e81c13e3e7d565bd7c213556292132f32434acfb2040649",
+            "transitions": [
+              {
+                "commit": "78030d421d7b1f231f2a7097dabc6b4c40d12d8e",
+                "beforeSha256": "50b1db29263aabf5e15b37a330f5e61b24e4b0e969449612832751463c6cfb91",
+                "afterSha256": "649da38da109e2697e81c13e3e7d565bd7c213556292132f32434acfb2040649",
+                "fields": {
+                  "de": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Bitte stellen Sie es vor die Tür.",
+                    "after": "Können Sie es vor die Tür stellen?"
+                  },
+                  "en": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Please leave it at the door.",
+                    "after": "Can you leave it at the door?"
+                  },
+                  "fullKo": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "문 앞에 놓아 주세요.",
+                    "after": "문 앞에 놓을 수 있어요?"
+                  },
+                  "sentenceKo": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "＿＿＿ 놓아 주세요.",
+                    "after": "＿＿＿ 놓을 수 있어요?"
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "satz",
+      "id": "satz_a1_0315",
+      "beforeSha256": "f895f4b2187a4809431d6a05635e14303c0dd1903040b2d473cc728823cd261a",
+      "priorLiveSha256": "01422aaa0e28b53b0c0b1938c0bfbb24fbbb7a81183264c28f45a38b562e5d55",
+      "actualAfterSha256": "01422aaa0e28b53b0c0b1938c0bfbb24fbbb7a81183264c28f45a38b562e5d55",
+      "comparisonAfterSha256": "01422aaa0e28b53b0c0b1938c0bfbb24fbbb7a81183264c28f45a38b562e5d55",
+      "currentLevel": "a1",
+      "revisionRegistered": true,
+      "fields": {
+        "distractors": {
+          "before": [
+            "주문",
+            "내일"
+          ],
+          "after": [
+            "호예요",
+            "웃었어요"
+          ]
+        },
+        "promptDe": {
+          "before": "Bitte spielen Sie die Aussprache dieses Wortes noch einmal ab.",
+          "after": "Kann ich die Aussprache dieses Wortes noch einmal hören?"
+        },
+        "promptEn": {
+          "before": "Please play the pronunciation of this word again.",
+          "after": "Can I hear the pronunciation of this word again?"
+        },
+        "targetKo": {
+          "before": "이 단어 발음을 다시 들려주세요.",
+          "after": "이 단어 발음을 다시 들을 수 있어요?"
+        }
+      },
+      "currentCorrectionFields": {},
+      "current": {
+        "id": "satz_a1_0315",
+        "level": "a1",
+        "targetKo": "이 단어 발음을 다시 들을 수 있어요?",
+        "promptDe": "Kann ich die Aussprache dieses Wortes noch einmal hören?",
+        "promptEn": "Can I hear the pronunciation of this word again?",
+        "vocabKo": "발음",
+        "distractors": [
+          "호예요",
+          "웃었어요"
+        ],
+        "courseUnitId": "a1_08_clarify_repair",
+        "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+      },
+      "reasonKo": "발음을 다시 들을 수 있는지 묻는 문장을 vocab과 맞춰 검토했다. 호예요·웃었어요는 제시 번역을 만들지 못한다.",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/batch19_satz.json",
+          "promotionBlobSha256": "cf89b4d0c0e6cb4628c27c209c51a9dd311eb22bb38551a0c873e83f7aa69fc0",
+          "currentBlobSha256": "65422bbf36ee70c5a6330d5001cad91b6cf028c41e52981590d2784cba640b7e",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "satz_a1_0315",
+            "promotionSha256": "f895f4b2187a4809431d6a05635e14303c0dd1903040b2d473cc728823cd261a",
+            "currentSha256": "f895f4b2187a4809431d6a05635e14303c0dd1903040b2d473cc728823cd261a",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/batch19_satz.csv",
+          "promotionBlobSha256": "7af0100bdcb67603e9efeb558b50c7c20644eab9eba19f7bb79d0669e1f32448",
+          "currentBlobSha256": "91f1b6b26a0c7a945893a97c658cd89a9da3badaf4a7a33b0c6979078f1ee3ea",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "satz_a1_0315",
+            "promotionSha256": "5d0353c4d9e5d5703cc37b2c56bbd6d725fd78e833b81a7ce8b6961836e41d68",
+            "currentSha256": "5d0353c4d9e5d5703cc37b2c56bbd6d725fd78e833b81a7ce8b6961836e41d68",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/satz_sentences.json",
+          "promotionBlobSha256": "8eb8d478683f242c5a99843c09d419bc045748afcd5cffbc2e8c90b45efbff86",
+          "currentBlobSha256": "adb73b30df67bf09a1f79fd340c6d7e967706b1e8a345fcee38260511ff559ab",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "satz_a1_0315",
+            "promotionSha256": "f895f4b2187a4809431d6a05635e14303c0dd1903040b2d473cc728823cd261a",
+            "currentSha256": "01422aaa0e28b53b0c0b1938c0bfbb24fbbb7a81183264c28f45a38b562e5d55",
+            "transitions": [
+              {
+                "commit": "78030d421d7b1f231f2a7097dabc6b4c40d12d8e",
+                "beforeSha256": "f895f4b2187a4809431d6a05635e14303c0dd1903040b2d473cc728823cd261a",
+                "afterSha256": "01422aaa0e28b53b0c0b1938c0bfbb24fbbb7a81183264c28f45a38b562e5d55",
+                "fields": {
+                  "distractors": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": [
+                      "주문",
+                      "내일"
+                    ],
+                    "after": [
+                      "호예요",
+                      "웃었어요"
+                    ]
+                  },
+                  "promptDe": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Bitte spielen Sie die Aussprache dieses Wortes noch einmal ab.",
+                    "after": "Kann ich die Aussprache dieses Wortes noch einmal hören?"
+                  },
+                  "promptEn": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Please play the pronunciation of this word again.",
+                    "after": "Can I hear the pronunciation of this word again?"
+                  },
+                  "targetKo": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "이 단어 발음을 다시 들려주세요.",
+                    "after": "이 단어 발음을 다시 들을 수 있어요?"
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "satz",
+      "id": "satz_a1_0316",
+      "beforeSha256": "a123f640fcff328a6a9b9e215ac6c3f997babb8f66938f0ebdcfd80ba9ec91b3",
+      "priorLiveSha256": "a56be4eda521d69d668ae1240680696e783cc54c86174208de2127abe1799ac0",
+      "actualAfterSha256": "a56be4eda521d69d668ae1240680696e783cc54c86174208de2127abe1799ac0",
+      "comparisonAfterSha256": "a56be4eda521d69d668ae1240680696e783cc54c86174208de2127abe1799ac0",
+      "currentLevel": "a1",
+      "revisionRegistered": true,
+      "fields": {
+        "distractors": {
+          "before": [
+            "가격",
+            "빨리"
+          ],
+          "after": [
+            "단어",
+            "친절해요"
+          ]
+        }
+      },
+      "currentCorrectionFields": {},
+      "current": {
+        "id": "satz_a1_0316",
+        "level": "a1",
+        "targetKo": "짧은 예문을 하나 적어 주세요.",
+        "promptDe": "Bitte schreiben Sie einen kurzen Beispielsatz auf.",
+        "promptEn": "Please write one short example sentence.",
+        "vocabKo": "예문",
+        "distractors": [
+          "단어",
+          "친절해요"
+        ],
+        "courseUnitId": "a1_08_clarify_repair",
+        "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+      },
+      "reasonKo": "짧은 예문을 적어 달라는 번역에서 단어·친절해요가 대체 정답을 만들지 않는지 검토했다.",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/batch19_satz.json",
+          "promotionBlobSha256": "cf89b4d0c0e6cb4628c27c209c51a9dd311eb22bb38551a0c873e83f7aa69fc0",
+          "currentBlobSha256": "65422bbf36ee70c5a6330d5001cad91b6cf028c41e52981590d2784cba640b7e",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "satz_a1_0316",
+            "promotionSha256": "a123f640fcff328a6a9b9e215ac6c3f997babb8f66938f0ebdcfd80ba9ec91b3",
+            "currentSha256": "a123f640fcff328a6a9b9e215ac6c3f997babb8f66938f0ebdcfd80ba9ec91b3",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/batch19_satz.csv",
+          "promotionBlobSha256": "7af0100bdcb67603e9efeb558b50c7c20644eab9eba19f7bb79d0669e1f32448",
+          "currentBlobSha256": "91f1b6b26a0c7a945893a97c658cd89a9da3badaf4a7a33b0c6979078f1ee3ea",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "satz_a1_0316",
+            "promotionSha256": "5915717953713699899faa2c40c3ea6b99107ef96145e279166cac64cdea10a2",
+            "currentSha256": "5915717953713699899faa2c40c3ea6b99107ef96145e279166cac64cdea10a2",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/satz_sentences.json",
+          "promotionBlobSha256": "8eb8d478683f242c5a99843c09d419bc045748afcd5cffbc2e8c90b45efbff86",
+          "currentBlobSha256": "adb73b30df67bf09a1f79fd340c6d7e967706b1e8a345fcee38260511ff559ab",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "satz_a1_0316",
+            "promotionSha256": "a123f640fcff328a6a9b9e215ac6c3f997babb8f66938f0ebdcfd80ba9ec91b3",
+            "currentSha256": "a56be4eda521d69d668ae1240680696e783cc54c86174208de2127abe1799ac0",
+            "transitions": [
+              {
+                "commit": "78030d421d7b1f231f2a7097dabc6b4c40d12d8e",
+                "beforeSha256": "a123f640fcff328a6a9b9e215ac6c3f997babb8f66938f0ebdcfd80ba9ec91b3",
+                "afterSha256": "a56be4eda521d69d668ae1240680696e783cc54c86174208de2127abe1799ac0",
+                "fields": {
+                  "distractors": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": [
+                      "가격",
+                      "빨리"
+                    ],
+                    "after": [
+                      "단어",
+                      "친절해요"
+                    ]
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "satz",
+      "id": "satz_a1_0321",
+      "beforeSha256": "6adeb079dbb21713011becdb4a5d4d73e65668c5ae0a247f95e7c4830cf814ff",
+      "priorLiveSha256": "a7eeae7a0ccde0e6c499604eb69469d3fc161bd17092cddb64c41e0feca6f515",
+      "actualAfterSha256": "a7eeae7a0ccde0e6c499604eb69469d3fc161bd17092cddb64c41e0feca6f515",
+      "comparisonAfterSha256": "a7eeae7a0ccde0e6c499604eb69469d3fc161bd17092cddb64c41e0feca6f515",
+      "currentLevel": "a1",
+      "revisionRegistered": true,
+      "fields": {
+        "distractors": {
+          "before": [
+            "먹다",
+            "하지만"
+          ],
+          "after": [
+            "먹어요",
+            "교회"
+          ]
+        }
+      },
+      "currentCorrectionFields": {},
+      "current": {
+        "id": "satz_a1_0321",
+        "level": "a1",
+        "targetKo": "이름을 종이에 적어 주세요.",
+        "promptDe": "Bitte schreiben Sie den Namen auf das Papier.",
+        "promptEn": "Please write the name on the paper.",
+        "vocabKo": "적어 주다",
+        "distractors": [
+          "먹어요",
+          "교회"
+        ],
+        "courseUnitId": "a1_08_clarify_repair",
+        "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+      },
+      "reasonKo": "이름을 종이에 적어 달라는 번역에서 먹어요·교회가 대체 정답을 만들지 않는지 검토했다.",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/batch19_satz.json",
+          "promotionBlobSha256": "cf89b4d0c0e6cb4628c27c209c51a9dd311eb22bb38551a0c873e83f7aa69fc0",
+          "currentBlobSha256": "65422bbf36ee70c5a6330d5001cad91b6cf028c41e52981590d2784cba640b7e",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "satz_a1_0321",
+            "promotionSha256": "6adeb079dbb21713011becdb4a5d4d73e65668c5ae0a247f95e7c4830cf814ff",
+            "currentSha256": "6adeb079dbb21713011becdb4a5d4d73e65668c5ae0a247f95e7c4830cf814ff",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/batch19_satz.csv",
+          "promotionBlobSha256": "7af0100bdcb67603e9efeb558b50c7c20644eab9eba19f7bb79d0669e1f32448",
+          "currentBlobSha256": "91f1b6b26a0c7a945893a97c658cd89a9da3badaf4a7a33b0c6979078f1ee3ea",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "satz_a1_0321",
+            "promotionSha256": "91e84532e938d9eb7102b7f98fad8302b681c450f25814bb352f185bf6fb5733",
+            "currentSha256": "91e84532e938d9eb7102b7f98fad8302b681c450f25814bb352f185bf6fb5733",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/satz_sentences.json",
+          "promotionBlobSha256": "8eb8d478683f242c5a99843c09d419bc045748afcd5cffbc2e8c90b45efbff86",
+          "currentBlobSha256": "adb73b30df67bf09a1f79fd340c6d7e967706b1e8a345fcee38260511ff559ab",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "satz_a1_0321",
+            "promotionSha256": "6adeb079dbb21713011becdb4a5d4d73e65668c5ae0a247f95e7c4830cf814ff",
+            "currentSha256": "a7eeae7a0ccde0e6c499604eb69469d3fc161bd17092cddb64c41e0feca6f515",
+            "transitions": [
+              {
+                "commit": "78030d421d7b1f231f2a7097dabc6b4c40d12d8e",
+                "beforeSha256": "6adeb079dbb21713011becdb4a5d4d73e65668c5ae0a247f95e7c4830cf814ff",
+                "afterSha256": "a7eeae7a0ccde0e6c499604eb69469d3fc161bd17092cddb64c41e0feca6f515",
+                "fields": {
+                  "distractors": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": [
+                      "먹다",
+                      "하지만"
+                    ],
+                    "after": [
+                      "먹어요",
+                      "교회"
+                    ]
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "relatedCorrections": [
+    {
+      "kind": "grammar",
+      "id": "grammar_b1_soft_request",
+      "manifest": "tools/content_factory/drafts/batch_02_manifest.json",
+      "revisionRegistered": false,
+      "historicalReviewStatus": "pending",
+      "reasonKo": "연계 카드에서도 같은 부탁 표현을 오답으로 사용하지 않는다. Zeitplan으로 일정 범위를 보존하고 1인칭 수신자는 현지화 선택으로 me/mir를 사용한다. KO는 me/us를 특정하지 않는다. Batch02 전체 이력·권리·승인 검토를 대신하지 않는다.",
+      "priorLiveSha256": "7439f448eef73f97cf7b65f3856eb395c20de1656101f58f136dcda4c49bd130",
+      "actualAfterSha256": "5eb2de3c3ba3eb0a50095cb9bc00657e482efa500a48a530b5fdf60233ec20f0",
+      "currentCorrectionFields": {
+        "example_en": {
+          "before": "I would appreciate it if you could let us know as soon as possible when the schedule changes.",
+          "after": "If the schedule changes, I would appreciate it if you could let me know as soon as possible."
+        },
+        "example_german": {
+          "before": "Es wäre hilfreich, wenn Sie uns so früh wie möglich informieren würden, falls sich der Termin ändert.",
+          "after": "Es wäre hilfreich, wenn Sie mir so bald wie möglich Bescheid geben könnten, falls sich der Zeitplan ändert."
+        },
+        "quiz_distractor_ids": {
+          "before": "grammar_b1_skill|grammar_b1_soft_request_batch19|grammar_b1_self_should",
+          "after": "grammar_b1_skill|grammar_b1_takes_time|grammar_b1_self_should"
+        }
+      },
+      "current": {
+        "pattern": "V-아/어 주시면 좋겠다",
+        "level": "B1",
+        "type_de": "Höfliche Bitte",
+        "explanation_de": "Drückt eine vorsichtige Bitte aus, indem die gewünschte Handlung als hilfreiche Möglichkeit formuliert wird.",
+        "example_korean": "일정이 바뀌면 가능한 한 빨리 알려 주시면 좋겠어요.",
+        "example_german": "Es wäre hilfreich, wenn Sie mir so bald wie möglich Bescheid geben könnten, falls sich der Zeitplan ändert.",
+        "note": "Höflicher und weniger direkt als eine Verpflichtung; passt zu Kolleginnen, Kollegen oder Dienstleistenden.",
+        "type_en": "Soft request",
+        "explanation_en": "Expresses a gentle request by presenting the desired action as something that would be helpful.",
+        "example_en": "If the schedule changes, I would appreciate it if you could let me know as soon as possible.",
+        "note_en": "It is more polite and less direct than an obligation and suits coworkers or service staff.",
+        "id": "grammar_b1_soft_request",
+        "quiz_focus_de": "Es wäre hilfreich",
+        "quiz_focus_en": "I would appreciate it",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_b1_skill|grammar_b1_takes_time|grammar_b1_self_should"
+      }
+    }
+  ],
+  "retirements": {
+    "status": "exact_retirement_verified_without_validator_exception",
+    "directRemovalCommit": "ca00acad2ff0d1470dc241bfdfb8d15685a7d1a0",
+    "firstParentIntegrationCommit": "9e8dd09f7b5dd3a1183eb54d93be821bb0169e3a",
+    "eventDate": "2026-09-01",
+    "ledgerIntroducedCommit": "d8776426f1936df47bed6974eeabde4324771467",
+    "ledgerIntroducedDate": "2026-09-15",
+    "referenceCleanupCommit": "78daf0ddff031524d3892bb7a0ae89ee5c2f3dc5",
+    "ledger": {
+      "path": "tools/content_factory/relevel/canonical_120_v1_retired_seeds.json",
+      "sha256": "bb133326afbb394a6866f68531f207b42e1e503821d1b4822e82e62c19384386"
+    },
+    "oneToOneSuccessorMap": null,
+    "replacementSemanticCoverage": "not_verified",
+    "physicalDeviceMigrationVerification": "not_executed",
+    "progressSourceBehavior": "On a corpus-generation change the source clears scenario completion/stars and ordinary course mastery, archives productive/project evidence, and retains XP, placement and phase evidence. This is not a one-to-one completion-credit transfer or a verified device migration.",
+    "progressSources": [
+      "lib/services/storage_service.dart",
+      "lib/services/course_mastery_service.dart"
+    ],
+    "strictValidator": "Intentionally unchanged; Batch19 still fails the live-presence check for retired scenarios.",
+    "rows": [
+      {
+        "id": "a1_register_first_day_choice",
+        "clusterId": "cluster_a1_13_register_switching_v1",
+        "seedId": "seed_scenario_a1_register_first_day_choice_v1",
+        "initialPromotionSha256": "161b4531bf8856de3a17a1e1e0a803a2740fc5af0bfbdbda32c1fcd217e93d4f",
+        "finalizationSha256": "3e018373153c82d41512d3f609ed5a0053082acfcbff4ed4beee0ee9d1ee31be",
+        "preservedSha256": "3e018373153c82d41512d3f609ed5a0053082acfcbff4ed4beee0ee9d1ee31be",
+        "beforeRemovalSha256": "3e018373153c82d41512d3f609ed5a0053082acfcbff4ed4beee0ee9d1ee31be",
+        "finalizationFields": {
+          "grammarBlock": {
+            "before": {
+              "title": {
+                "ko": "N은/는",
+                "de": "N은/는: Thema und einfacher Kontrast",
+                "en": "N은/는: Topic and simple contrast"
+              },
+              "explanation": {
+                "ko": "대화의 주제를 세우거나 두 정보를 간단히 대비할 때 씁니다.",
+                "de": "Markiert das Gesprächsthema und kann zwei einfache Angaben gegenüberstellen.",
+                "en": "Marks the topic and can contrast two simple pieces of information."
+              }
+            },
+            "after": {
+              "title": {
+                "ko": "N은/는, N은/는",
+                "de": "N은/는, N은/는: Thema und einfacher Kontrast",
+                "en": "N은/는, N은/는: Topic and simple contrast"
+              },
+              "explanation": {
+                "ko": "대화의 주제를 세우거나 두 정보를 간단히 대비할 때 씁니다.",
+                "de": "Markiert das Gesprächsthema und kann zwei einfache Angaben gegenüberstellen.",
+                "en": "Marks the topic and can contrast two simple pieces of information."
+              }
+            }
+          },
+          "quests": {
+            "before": [
+              {
+                "id": "quest_a1_register_first_day_choice_hear",
+                "type": "hoerverstehen",
+                "conceptIds": [
+                  "concept_a1_register_switch"
+                ],
+                "data": {
+                  "audioKo": "안녕하세요. 저는 수진이에요.",
+                  "options": [
+                    {
+                      "ko": "선생님, 안녕!",
+                      "de": "Hallo, Lehrerin!",
+                      "en": "Hi, teacher!"
+                    },
+                    {
+                      "ko": "안녕하세요. 저는 수진이에요.",
+                      "de": "Guten Tag. Ich bin Sujin.",
+                      "en": "Hello. I'm Sujin."
+                    },
+                    {
+                      "ko": "민지 씨, 어느 나라에서 왔어요?",
+                      "de": "Minji, aus welchem Land kommen Sie?",
+                      "en": "Minji, which country are you from?"
+                    },
+                    {
+                      "ko": "그럼 지금은 ‘안녕하세요’라고 할게요.",
+                      "de": "Dann sage ich jetzt 안녕하세요.",
+                      "en": "Then I'll use 안녕하세요 for now."
+                    }
+                  ],
+                  "correctIndex": 1
+                }
+              },
+              {
+                "id": "quest_a1_register_first_day_choice_translate",
+                "type": "uebersetzen",
+                "conceptIds": [
+                  "concept_a1_register_switch"
+                ],
+                "data": {
+                  "promptDe": "Dann sage ich jetzt 안녕하세요.",
+                  "promptEn": "Then I'll use 안녕하세요 for now.",
+                  "options": [
+                    {
+                      "ko": "선생님, 안녕!"
+                    },
+                    {
+                      "ko": "민지 씨, 어느 나라에서 왔어요?"
+                    },
+                    {
+                      "ko": "그럼 지금은 ‘안녕하세요’라고 할게요."
+                    },
+                    {
+                      "ko": "안녕하세요. 저는 수진이에요."
+                    }
+                  ],
+                  "correctIndex": 2
+                }
+              },
+              {
+                "id": "quest_a1_register_first_day_choice_gap",
+                "type": "luecken",
+                "conceptIds": [
+                  "concept_a1_register_switch"
+                ],
+                "data": {
+                  "sentence": "선생님께는 ___라고 인사해요.",
+                  "options": [
+                    "안녕하세요",
+                    "안녕",
+                    "잘 자",
+                    "고마워"
+                  ],
+                  "correctIndex": 0
+                }
+              },
+              {
+                "id": "quest_a1_register_first_day_choice_build",
+                "type": "satzBauen",
+                "conceptIds": [
+                  "concept_a1_register_switch"
+                ],
+                "data": {
+                  "targetKo": "처음 만난 친구에게도 해요체로 말해요.",
+                  "promptDe": "Auch mit einer neuen Mitschülerin spreche ich zunächst höflich.",
+                  "promptEn": "I use polite speech with a new classmate too.",
+                  "distractors": [
+                    "무조건",
+                    "낮춰서"
+                  ],
+                  "audioKo": "처음 만난 친구에게도 해요체로 말해요."
+                }
+              },
+              {
+                "id": "quest_a1_register_first_day_choice_dictation",
+                "type": "diktat",
+                "conceptIds": [
+                  "concept_a1_register_switch"
+                ],
+                "data": {
+                  "targetKo": "관계를 모르겠을 때는 공손하게 말해요.",
+                  "audioKo": "관계를 모르겠을 때는 공손하게 말해요.",
+                  "promptDe": "Wenn die Beziehung unklar ist, spreche ich höflich.",
+                  "promptEn": "When the relationship is unclear, I speak politely."
+                }
+              }
+            ],
+            "after": [
+              {
+                "id": "quest_a1_register_first_day_choice_hear",
+                "type": "hoerverstehen",
+                "conceptIds": [
+                  "concept_a1_register_switch"
+                ],
+                "data": {
+                  "audioKo": "안녕하세요. 저는 수진이에요.",
+                  "options": [
+                    {
+                      "ko": "선생님, 안녕!",
+                      "de": "Hallo, Lehrerin!",
+                      "en": "Hi, teacher!"
+                    },
+                    {
+                      "ko": "안녕하세요. 저는 수진이에요.",
+                      "de": "Guten Tag. Ich bin Sujin.",
+                      "en": "Hello. I'm Sujin."
+                    },
+                    {
+                      "ko": "민지 씨, 어느 나라에서 왔어요?",
+                      "de": "Minji, aus welchem Land kommen Sie?",
+                      "en": "Minji, which country are you from?"
+                    },
+                    {
+                      "ko": "그럼 지금은 ‘안녕하세요’라고 할게요.",
+                      "de": "Dann sage ich jetzt 안녕하세요.",
+                      "en": "Then I'll use 안녕하세요 for now."
+                    }
+                  ],
+                  "correctIndex": 1
+                }
+              },
+              {
+                "id": "quest_a1_register_first_day_choice_translate",
+                "type": "uebersetzen",
+                "conceptIds": [
+                  "concept_a1_register_switch"
+                ],
+                "data": {
+                  "promptDe": "Dann sage ich jetzt 안녕하세요.",
+                  "promptEn": "Then I'll use 안녕하세요 for now.",
+                  "options": [
+                    {
+                      "ko": "선생님, 안녕!"
+                    },
+                    {
+                      "ko": "민지 씨, 어느 나라에서 왔어요?"
+                    },
+                    {
+                      "ko": "그럼 지금은 ‘안녕하세요’라고 할게요."
+                    },
+                    {
+                      "ko": "안녕하세요. 저는 수진이에요."
+                    }
+                  ],
+                  "correctIndex": 2
+                }
+              },
+              {
+                "id": "quest_a1_register_first_day_choice_gap",
+                "type": "particlePop",
+                "conceptIds": [
+                  "concept_topic_particle"
+                ],
+                "data": {
+                  "prefix": "저",
+                  "suffix": " 수진이에요.",
+                  "options": [
+                    "는",
+                    "은",
+                    "이",
+                    "가"
+                  ],
+                  "correctIndex": 0,
+                  "explanationDe": "저 endet auf einen Vokal. Als Gesprächsthema steht deshalb 저는.",
+                  "explanationEn": "저 ends in a vowel, so 저는 marks it as the topic."
+                }
+              },
+              {
+                "id": "quest_a1_register_first_day_choice_build",
+                "type": "satzBauen",
+                "conceptIds": [
+                  "concept_a1_register_switch"
+                ],
+                "data": {
+                  "targetKo": "처음 만난 친구에게도 해요체로 말해요.",
+                  "promptDe": "Auch mit einer neuen Mitschülerin spreche ich zunächst höflich.",
+                  "promptEn": "I use polite speech with a new classmate too.",
+                  "distractors": [
+                    "무조건",
+                    "낮춰서"
+                  ],
+                  "audioKo": "처음 만난 친구에게도 해요체로 말해요."
+                }
+              },
+              {
+                "id": "quest_a1_register_first_day_choice_dictation",
+                "type": "diktat",
+                "conceptIds": [
+                  "concept_a1_register_switch"
+                ],
+                "data": {
+                  "targetKo": "관계를 모르겠을 때는 공손하게 말해요.",
+                  "audioKo": "관계를 모르겠을 때는 공손하게 말해요.",
+                  "promptDe": "Wenn die Beziehung unklar ist, spreche ich höflich.",
+                  "promptEn": "When the relationship is unclear, I speak politely."
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "a2_plan_weather_change",
+        "clusterId": "cluster_a2_plans_with_friend_v1",
+        "seedId": "seed_scenario_a2_plan_weather_change_v1",
+        "initialPromotionSha256": "90bc7ab11a8e5a68eadbe244f70afd32aea9961deb9287f76c3f099659e56902",
+        "finalizationSha256": "51abac76f6a116be6974e1618a76bf77b37d7f3b99a8ff0f562d9f3341f8dafb",
+        "preservedSha256": "51abac76f6a116be6974e1618a76bf77b37d7f3b99a8ff0f562d9f3341f8dafb",
+        "beforeRemovalSha256": "51abac76f6a116be6974e1618a76bf77b37d7f3b99a8ff0f562d9f3341f8dafb",
+        "finalizationFields": {
+          "grammarBlock": {
+            "before": {
+              "title": {
+                "ko": "V-(으)ㄹ까요?",
+                "de": "V-(으)ㄹ까요?: gemeinsamer Vorschlag",
+                "en": "V-(으)ㄹ까요?: Polite joint proposal"
+              },
+              "explanation": {
+                "ko": "상대의 선택 공간을 남기면서 함께 할 일을 제안할 때 씁니다.",
+                "de": "Schlägt eine gemeinsame Handlung höflich vor und lässt der anderen Person Raum.",
+                "en": "Politely proposes doing something together and leaves room for the other person."
+              }
+            },
+            "after": {
+              "title": {
+                "ko": "같이 V-(으)ㄹ까요?",
+                "de": "같이 V-(으)ㄹ까요?: gemeinsamer Vorschlag",
+                "en": "같이 V-(으)ㄹ까요?: Polite joint proposal"
+              },
+              "explanation": {
+                "ko": "상대의 선택 공간을 남기면서 함께 할 일을 제안할 때 씁니다.",
+                "de": "Schlägt eine gemeinsame Handlung höflich vor und lässt der anderen Person Raum.",
+                "en": "Politely proposes doing something together and leaves room for the other person."
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "b1_work_deadline_soft_request",
+        "clusterId": "cluster_b1_team_role_coordination_v1",
+        "seedId": "seed_scenario_b1_work_deadline_soft_request_v1",
+        "initialPromotionSha256": "89ae7d25857eb3548b884f55f806eaf969fe2e6a31492709dab8813bfee50d3b",
+        "finalizationSha256": "89ae7d25857eb3548b884f55f806eaf969fe2e6a31492709dab8813bfee50d3b",
+        "preservedSha256": "89ae7d25857eb3548b884f55f806eaf969fe2e6a31492709dab8813bfee50d3b",
+        "beforeRemovalSha256": "89ae7d25857eb3548b884f55f806eaf969fe2e6a31492709dab8813bfee50d3b",
+        "finalizationFields": {}
+      }
+    ]
+  },
+  "independentModelReviews": {
+    "standards": "No remaining actionable findings in selected scope. Independently checked frozen18 files, exact10 revisions,16 draft/live transitions and retirement chronology.",
+    "spec": "No remaining actionable findings in selected scope. Reviewed4 grammar cards and12 choices against localized highlighted-focus prompts; native/CEFR review remains pending."
+  },
+  "verification": {
+    "contentFactoryTests": 1295,
+    "failures": 0,
+    "skipped": 20,
+    "contentFilesUnchangedDuringFullSuite": 860,
+    "targetedReconciliationTests": 7,
+    "flutterGrammarQuizTtsTests": 42,
+    "localMigrationRegressionTests": 2,
+    "physicalDeviceTested": false,
+    "ttsMissing": 0,
+    "strictHistoricalManifestsPassing": 11,
+    "strictHistoricalManifestsTotal": 24,
+    "batch19UnexplainedCopyRows": 0,
+    "batch19MissingRetiredScenarios": 3
+  }
+}

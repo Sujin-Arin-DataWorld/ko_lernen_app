@@ -4,17 +4,18 @@
   "grainFormulaVersion": 1,
   "files": {
     "assets/illustrations/activities/book_capture.webp": {
-      "sha256": "43e4cf3c9fa394d2706f8e060d0b57140b498664296357d6c74b92a3f6416192",
-      "kb": 88.2,
-      "ivoryFrac": 0.6094,
-      "fine": 4.86,
-      "coarse": 0.739,
-      "uniqueColors": 40149,
-      "top8": 0.7013,
+      "sha256": "cdc5bf1d1982238d9f5c2512e3f26b6b1bb179d611dfc14fd76c4100b01666fa",
+      "kb": 94.1,
+      "ivoryFrac": 0.6057,
+      "fine": 0.68,
+      "coarse": 0.372,
+      "uniqueColors": 22556,
+      "top8": 0.8189,
       "patchXY": [
-        80,
+        488,
         0
-      ]
+      ],
+      "profile": "C1-source-original"
     },
     "assets/illustrations/activities/bookshelf.webp": {
       "sha256": "21c775be5d9cd625426f9094f8294f1e8225316a7030da2527818f0f2babefdf",

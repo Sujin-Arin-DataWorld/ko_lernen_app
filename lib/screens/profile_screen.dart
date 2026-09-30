@@ -818,13 +818,6 @@ class _AvatarState extends State<_Avatar> {
 
   @override
   Widget build(BuildContext context) {
-    // Jin 2026-08-06: 프로필 아바타 = 캐릭터 영상 복원. Impeller 를 끈 뒤
-    // (AndroidManifest) Android<33 fence 버그가 사라져, 홈 히어로와 디코더를
-    // 영상 lease 로 직렬화하면 깜빡임 없이 재생된다(탭 전환 시 보이는 쪽만
-    // lease 획득). 클립은 카탈로그(`_tigerProfileClips`)가 정한 프로필 포즈를
-    // 따른다 — 까치=magpie_bob2 대기 홉, 호랑이(태고)=tiger_sitting2 앉은 자세.
-    // 둘 다 **루프 가능**해야 한다: 원샷을 쓰면 재생이 끝나며 텍스처가 회수돼
-    // 아바타가 비어 버린다(tiger_walking_front 가 그랬다).
     final preference = widget.preference ?? MascotPreference.preference.value;
     final kind = MascotPreference.mascotKindFor(preference);
     if (kind == null) {
@@ -842,24 +835,20 @@ class _AvatarState extends State<_Avatar> {
         ),
       );
     }
-    final isMagpie = kind == MascotKind.magpie;
+    if (kind == MascotKind.magpie) {
+      // Joy faces the learner using the existing approved still artwork.
+      return Mascot.magpie(
+        key: const ValueKey('profile_avatar_magpie'),
+        emotion: MascotEmotion.neutral,
+        size: widget.size,
+      );
+    }
     return SizedBox.square(
       dimension: widget.size,
       child: Center(
         child: CharacterClipPlayer(
           key: ValueKey('profile_avatar_${kind.name}'),
-          // ⚠️ 까치는 `magpieBob2` 를 쓰지 않는다 — **에셋이 불량이다.**
-          // 실측(960² 첫 프레임): 눈에 보이는 회색(min 225~239)이 화면의
-          // 15.3%, 그중 5.8% 는 푸른끼(#EAE8FE 계열)다. 다른 클립은 전부
-          // 0.5% 미만(`magpie_perched` 0.30% · `tiger_roar` 0.08%).
-          // multiply 는 **순백만** 지우므로 이 그림자는 그대로 남아
-          // teal 카드(#EDF3ED) 위에서 #D9DDEC 푸른 얼룩으로 보인다
-          // (Jin 2026-08-13 실기기). `check_clip_matte.py` 는 **모서리만**
-          // 표본해서 이걸 못 잡았다 — 모서리는 순백이 맞다.
-          // `magpie_bob2.mp4` 를 순백 배경으로 다시 내보내면 되돌려도 된다.
-          asset: isMagpie
-              ? CharacterClips.magpiePerched
-              : CharacterClips.tigerSitting2,
+          asset: CharacterClips.tigerSitting2,
           size: widget.size,
           // 둘 다 루프 가능한 클립이라 loop:true. 원샷 클립을 쓰면 재생이
           // 끝나는 순간 lease 가 반납돼 아바타가 비므로 금지(아래 ⚠️ 참고).

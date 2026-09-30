@@ -53,6 +53,7 @@ import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/speakable.dart';
@@ -68,6 +69,8 @@ import 'quest_engines/batchim_drop_quest.dart';
 import 'quest_engines/diktat_quest.dart';
 import 'quest_engines/particle_pop_quest.dart';
 import 'quest_engines/quest_models.dart';
+import 'quest_engines/quest_content.dart';
+import '../features/scenarios/scenario_quest_stock.dart';
 import 'quest_engines/satz_bauen_quest.dart';
 import 'quest_engines/uebersetzen_quest.dart';
 
@@ -581,6 +584,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
   final LearnerLevel? levelHint;
   final CoursePracticeContext? courseContext;
   final Future<Scenario?> Function(String scenarioId)? scenarioLoader;
+  final Future<List<Scenario>> Function(LearnerLevel level)? questCorpusLoader;
   final ScenarioGrammarLoader? grammarLoader;
   final ScenarioResultPersister? resultPersister;
   final ScenarioCompletionCallback? onCompleted;
@@ -595,6 +599,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
     this.levelHint,
     this.courseContext,
     this.scenarioLoader,
+    this.questCorpusLoader,
     this.grammarLoader,
     this.resultPersister,
     this.onCompleted,
@@ -612,6 +617,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
        levelHint = null,
        courseContext = null,
        scenarioLoader = null,
+       questCorpusLoader = null,
        grammarLoader = null,
        resultPersister = null,
        onCompleted = null,
@@ -647,6 +653,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         ScreenCoachMixin<ScenarioPlayerScreen>,
         StudyEvidenceRecovery<ScenarioPlayerScreen> {
   Scenario? _scenario;
+  ScenarioQuestStock? _questStock;
   CourseMissionStep? _missionStep;
   String? _missionTitle;
   CoursePracticeContext? _effectiveCourseContext;
@@ -747,6 +754,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     if (preview != null) {
       final scenario = preview.scenario;
       _scenario = scenario;
+      if (!_hasRequiredQuestContent(scenario)) {
+        _pageCtrl = PageController();
+        return;
+      }
       _missionStep = preview.missionStep;
       _missionTitle = preview.missionTitle;
       _plan = buildScenarioStagePlan(
@@ -829,6 +840,27 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         ? await providedLoader(widget.scenarioId)
         : await _loadScenarioFromCatalog(widget.scenarioId);
     if (!mounted || !_loadLifecycle.canContinue) {
+      return;
+    }
+    if (s != null && !_hasPlayableQuests(s)) {
+      setState(() => _scenario = s);
+      return;
+    }
+    if (s != null) {
+      final corpus =
+          await (widget.questCorpusLoader ?? ScenarioLoader.loadLevel)(s.level);
+      if (!mounted || !_loadLifecycle.canContinue) {
+        return;
+      }
+      if (widget.questCorpusLoader == null &&
+          corpus.isEmpty &&
+          ScenarioLoader.lastError != null) {
+        throw StateError('Scenario assessment stock could not be loaded.');
+      }
+      _questStock = ScenarioQuestStock.fromCorpus(corpus);
+    }
+    if (s != null && !_hasRequiredQuestContent(s)) {
+      setState(() => _scenario = s);
       return;
     }
     if (s != null) {
@@ -967,7 +999,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     setState(() {
       _loadFailure = null;
       _courseRouteRejected = false;
+      _questStock = null;
     });
+    if (widget.questCorpusLoader == null) {
+      ScenarioLoader.reset();
+    }
     await _loadScenario();
   }
 
@@ -1212,6 +1248,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       studyEvidenceIsCurrent &&
       _loadLifecycle.canContinue &&
       identical(_scenario, scenario) &&
+      _hasRequiredQuestContent(scenario) &&
       _stage == stageIndex &&
       stageIndex >= 0 &&
       stageIndex < _plan.length &&
@@ -1364,6 +1401,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }
 
   Future<void> _complete(int stars, int earnedXp) async {
+    if (_scenario == null || !_hasRequiredQuestContent(_scenario!)) {
+      return;
+    }
     final preview = widget.previewFixture;
     if (preview != null) {
       if (!_resultPersisted && mounted) {
@@ -1465,56 +1505,149 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   Widget _buildIntro(AppL10n t, String lang) {
     final s = _scenario!;
     final ss = SoriSurfaces.of(context);
+    final missionStep = _missionStep;
     return _StageScroll(
+      fill: true,
+      maxWidth: 960,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _ScenarioIntroArt(
-            posterAsset: _backdropPoster,
-            alignment: scenarioIntroAlignmentFor(s),
-            emoji: s.emoji,
-            sidekick: s.sidekick,
-          ),
-          const SizedBox(height: Spacing.xl),
-          Text(
-            t.scenarioIntroTitle,
-            style: SoriTextTheme.of(
-              context,
-            ).caption.copyWith(letterSpacing: 1.2, fontWeight: FontWeight.w600),
-          ),
-          const SizedBox(height: Spacing.xs),
-          Text(
-            s.title.pick(lang),
-            style: SoriTextTheme.of(context).display,
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: Spacing.lg),
-          Text(
-            s.intro.pick(lang),
-            style: SoriTextTheme.of(
-              context,
-            ).gloss.copyWith(color: ss.textMuted, height: 1.7),
-            textAlign: TextAlign.center,
-          ),
-          if (s.playerCharacterId.isNotEmpty) ...[
-            const SizedBox(height: Spacing.md),
-            Text.rich(
-              TextSpan(
+          if (missionStep != null) ...[
+            Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 720),
+                child: MissionContextBar(
+                  missionTitle: _missionTitle ?? t.courseMissionTitleShort,
+                  step: missionStep,
+                  prominent:
+                      MediaQuery.sizeOf(context).width >= SoriBreakpoints.grid,
+                ),
+              ),
+            ),
+            const SizedBox(height: Spacing.xl),
+          ],
+          LayoutBuilder(
+            builder: (context, bounds) {
+              final poster = _backdropPoster;
+              final textScale = MediaQuery.textScalerOf(context).scale(1);
+              final sideBySide =
+                  poster != null &&
+                  bounds.maxWidth >=
+                      SoriAdaptiveWidth.scenarioIntroSideBySide &&
+                  textScale <= 1.3;
+              final reading = Column(
+                key: const ValueKey('scenario-intro-copy'),
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TextSpan(text: '${t.scenarioAssignedRole}: '),
-                  TextSpan(
-                    text: s.playerRoleDisplayName(
-                      fallbackYou: t.listeningSpeakerYou,
+                  Row(
+                    children: [
+                      Text(
+                        t.scenarioIntroTitle,
+                        style: SoriTextTheme.of(
+                          context,
+                        ).h3.copyWith(color: ss.textMuted, letterSpacing: 0.3),
+                      ),
+                      const SizedBox(width: Spacing.md),
+                      SoriBadge.level(s.level.display, size: 28),
+                    ],
+                  ),
+                  const SizedBox(height: Spacing.md),
+                  Text(
+                    s.title.pick(lang),
+                    style: SoriTextTheme.of(context).display,
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                  SizedBox(
+                    width: Spacing.xxxl,
+                    height: 4,
+                    child: ColoredBox(color: SoriColors.primary),
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                  Text(
+                    s.intro.pick(lang),
+                    style: SoriTextTheme.of(context).gloss.copyWith(
+                      color: ss.text,
+                      fontSize:
+                          bounds.maxWidth >=
+                              SoriAdaptiveWidth.scenarioIntroLargeProse
+                          ? 22
+                          : 18,
+                      height: 1.5,
                     ),
-                    style: const TextStyle(fontWeight: FontWeight.w700),
+                  ),
+                  if (s.playerCharacterId.isNotEmpty) ...[
+                    const SizedBox(height: Spacing.lg),
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(text: '${t.scenarioAssignedRole}: '),
+                          TextSpan(
+                            text: s.playerRoleDisplayName(
+                              fallbackYou: t.listeningSpeakerYou,
+                            ),
+                            style: SoriTextTheme.of(context).meta.copyWith(
+                              fontWeight: FontWeight.w700,
+                              color: ss.text,
+                            ),
+                          ),
+                        ],
+                      ),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).meta.copyWith(color: ss.text),
+                    ),
+                  ],
+                ],
+              );
+              if (sideBySide) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: _ScenarioIntroArt(
+                        posterAsset: poster,
+                        alignment: scenarioIntroAlignmentFor(s),
+                        emoji: s.emoji,
+                        sidekick: s.sidekick,
+                        height: 280,
+                      ),
+                    ),
+                    const SizedBox(width: Spacing.xxl),
+                    Expanded(child: reading),
+                  ],
+                );
+              }
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (poster != null) ...[
+                    ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 620),
+                      child: _ScenarioIntroArt(
+                        posterAsset: poster,
+                        alignment: scenarioIntroAlignmentFor(s),
+                        emoji: s.emoji,
+                        sidekick: s.sidekick,
+                        height:
+                            bounds.maxWidth <
+                                SoriAdaptiveWidth.scenarioIntroNarrowArt
+                            ? 160
+                            : 240,
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.xl),
+                  ],
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 620),
+                    child: reading,
                   ),
                 ],
-              ),
-              style: SoriTextTheme.of(context).meta.copyWith(color: ss.text),
-              textAlign: TextAlign.center,
-            ),
-          ],
-          const SizedBox(height: Spacing.lg),
-          SoriBadge.level(s.level.display, size: 28),
+              );
+            },
+          ),
         ],
       ),
     );
@@ -1572,6 +1705,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                         ),
                         // 시나리오 단어를 내 단어장에 담기.
                         AddToWordbookButton(
+                          enabled: widget.previewFixture == null,
                           korean: v.korean,
                           translationDe: v.note?.de ?? '',
                           translationEn: v.note?.en ?? '',
@@ -1779,37 +1913,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                             ),
                                       ),
                                       const SizedBox(height: Spacing.xs),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Expanded(
-                                            child: Text(
-                                              line.ko,
-                                              style: SoriTextTheme.of(
-                                                context,
-                                              ).h3.copyWith(color: ss.text),
-                                            ),
-                                          ),
-                                          const SizedBox(width: Spacing.sm),
-                                          // 버블 전체가 탭 대상이므로 아이콘은
-                                          // 시각적 힌트만 담당(별도
-                                          // GestureDetector 불필요) — 자동재생
-                                          // 대상 줄은 재생 단계에 따라 아이콘만
-                                          // 바뀐다(SoriSpeechIndicator와 같은
-                                          // 매핑), 시맨틱 노드는 만들지 않는다.
-                                          ExcludeSemantics(
-                                            child: Icon(
-                                              trailingIcon,
-                                              color: bubbleAccent.withValues(
-                                                alpha: 0.7,
-                                              ),
-                                              size: 18,
-                                            ),
-                                          ),
-                                        ],
+                                      Text(
+                                        line.ko,
+                                        style: SoriTextTheme.of(
+                                          context,
+                                        ).h3.copyWith(color: ss.text),
                                       ),
                                       if (line.pick(lang).isNotEmpty) ...[
                                         const SizedBox(height: Spacing.xs),
@@ -1836,22 +1944,37 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                       // 이름을 붙인다 — 카드가 여럿이면 같은
                                       // 이름의 버튼이 여러 개 뜨는 문제(a11y
                                       // HIGH, WCAG 4.1.2).
-                                      Align(
-                                        alignment: Alignment.centerRight,
-                                        child: AddToWordbookButton(
-                                          compact: true,
-                                          korean: line.ko,
-                                          translationDe: line.de,
-                                          translationEn: line.en,
-                                          translationLanguage: lang,
-                                          itemType:
-                                              StudyLibraryItemType.sentence,
-                                          itemId: line.ko,
-                                          sourceUnitId: sc.id,
-                                          source: 'scenario_player',
-                                          semanticLabel:
-                                              '${t.wbAddTooltip}: ${line.ko}',
-                                        ),
+                                      Row(
+                                        children: [
+                                          // 장식용 듣기 아이콘은 본문 아래에 둬서
+                                          // 긴 문장에 카드 전체 너비를 준다.
+                                          ExcludeSemantics(
+                                            child: Icon(
+                                              trailingIcon,
+                                              color: bubbleAccent.withValues(
+                                                alpha: 0.7,
+                                              ),
+                                              size: 18,
+                                            ),
+                                          ),
+                                          const Spacer(),
+                                          AddToWordbookButton(
+                                            enabled:
+                                                widget.previewFixture == null,
+                                            compact: true,
+                                            korean: line.ko,
+                                            translationDe: line.de,
+                                            translationEn: line.en,
+                                            translationLanguage: lang,
+                                            itemType:
+                                                StudyLibraryItemType.sentence,
+                                            itemId: line.ko,
+                                            sourceUnitId: sc.id,
+                                            source: 'scenario_player',
+                                            semanticLabel:
+                                                '${t.wbAddTooltip}: ${line.ko}',
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),
@@ -1919,6 +2042,12 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     required int questIndex,
     required int stageIndex,
   }) {
+    // PageView may build a neighboring quest before that stage is active.
+    if (_scenario == null ||
+        !_hasRequiredQuestContent(_scenario!) ||
+        !hasPlayableQuestContent(spec.type, spec.data)) {
+      return const SoriQuestEmptyState();
+    }
     Widget questWidget;
     final scenario = _scenario!;
     final allowDontKnow =
@@ -2418,24 +2547,52 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         Spacing.xl,
         Spacing.xxl,
       ),
-      child: SoriButton.filled(
-        key: _nextBtnKey,
-        label: isIntro ? t.scenarioStartBtn : t.scenarioNextBtn,
-        accent: SoriColors.contentCta,
-        fullWidth: true,
-        onTap: enabled ? _next : null,
+      child: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: isIntro ? 720 : double.infinity,
+          ),
+          child: SoriButton.filled(
+            key: _nextBtnKey,
+            label: isIntro ? t.scenarioStartBtn : t.scenarioNextBtn,
+            accent: SoriColors.contentCta,
+            fullWidth: true,
+            onTap: enabled ? _next : null,
+          ),
+        ),
       ),
     );
   }
 
   // ─── Build ─────────────────────────────────────────────────────────────────
 
+  bool _hasPlayableQuests(Scenario scenario) =>
+      scenario.quests.isNotEmpty &&
+      scenario.quests.every(
+        (quest) => hasPlayableQuestContent(quest.type, quest.data),
+      );
+
+  bool _hasRequiredQuestContent(Scenario scenario) {
+    final preview = widget.previewFixture;
+    final stage = _stage >= 0 && _stage < _plan.length
+        ? _plan[_stage]
+        : preview?.stage;
+    // Read-only gallery fixtures may show just dialog, roleplay, or results.
+    // Real lessons and previews of a quest still require playable quest data.
+    if (preview != null) {
+      // Gallery fixtures are read-only samples, not learner assessments.
+      return stage != ScenarioStage.quest || _hasPlayableQuests(scenario);
+    }
+    return _hasPlayableQuests(scenario) &&
+        (_questStock?.allowsScenario(scenario) ?? false);
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
 
-    if (_scenario == null) {
+    if (_scenario == null || !_hasRequiredQuestContent(_scenario!)) {
       // 시나리오가 아직 없으면(로딩/실패) `_stage`/`_isResultStage` 는
       // 의미가 없다 — 확인 없이 닫히되, onExit(온보딩 임베딩)이 있으면
       // §_withExitScope 가 시스템 백도 그리로 돌린다.
@@ -2444,7 +2601,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           title: t.scenariosListTitle,
           onLeave: _onExitCleanup,
           padding: EdgeInsets.zero,
-          child: _loadFailure == null
+          child: _scenario != null
+              ? const SoriQuestEmptyState()
+              : _loadFailure == null
               ? const AppLoading()
               : AppError(
                   message: _courseRouteRejected
@@ -2464,7 +2623,10 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     final playerBody = SoriScreenBackground(
       child: Stack(
         children: [
-          if (_backdropPoster != null && !_isQuestStage && !_isRoleplayStage)
+          if (_backdropPoster != null &&
+              _stage != 0 &&
+              !_isQuestStage &&
+              !_isRoleplayStage)
             Positioned.fill(
               child: IgnorePointer(
                 child: Opacity(
@@ -2480,7 +2642,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           SafeArea(
             child: Column(
               children: [
-                if (_missionStep case final step?)
+                if (_stage != 0 && _missionStep != null)
                   Padding(
                     padding: const EdgeInsets.fromLTRB(
                       Spacing.lg,
@@ -2488,9 +2650,15 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                       Spacing.lg,
                       Spacing.sm,
                     ),
-                    child: MissionContextBar(
-                      missionTitle: _missionTitle ?? t.courseMissionTitleShort,
-                      step: step,
+                    child: Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 720),
+                        child: MissionContextBar(
+                          missionTitle:
+                              _missionTitle ?? t.courseMissionTitleShort,
+                          step: _missionStep!,
+                        ),
+                      ),
                     ),
                   ),
                 Expanded(
@@ -2595,17 +2763,21 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   /// Semantics 에도 같은 콜백을 달아야 스크린리더에서 실제로 작동한다.
   Widget _scenarioExitButton() {
     final t = AppL10n.of(context);
-    return Semantics(
-      button: true,
-      label: t.closeActionLabel,
-      onTap: () => unawaited(_exit()),
-      child: ExcludeSemantics(
-        child: SoriPressable(
-          onTap: () => unawaited(_exit()),
-          child: const SizedBox(
-            width: SoriLayout.chromeRowTouchHeight,
-            height: SoriLayout.chromeRowTouchHeight,
-            child: Icon(Icons.close_rounded),
+    return Tooltip(
+      message: t.closeActionLabel,
+      excludeFromSemantics: true,
+      child: Semantics(
+        button: true,
+        label: t.closeActionLabel,
+        onTap: () => unawaited(_exit()),
+        child: ExcludeSemantics(
+          child: SoriPressable(
+            onTap: () => unawaited(_exit()),
+            child: const SizedBox(
+              width: SoriLayout.chromeRowTouchHeight,
+              height: SoriLayout.chromeRowTouchHeight,
+              child: Icon(Icons.close_rounded),
+            ),
           ),
         ),
       ),
@@ -2685,6 +2857,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
 class _StageScroll extends StatelessWidget {
   final Widget child;
+  final double? maxWidth;
 
   /// 콘텐츠가 viewport보다 짧을 때 세로를 채워 중앙 정렬할지.
   ///
@@ -2696,13 +2869,14 @@ class _StageScroll extends StatelessWidget {
   /// `maxHeight`가 infinity로 남아 flex child가 assert 한다.
   final bool fill;
 
-  const _StageScroll({required this.child, this.fill = false});
+  const _StageScroll({required this.child, this.fill = false, this.maxWidth});
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final pad = soriClampPadding(
       width,
+      maxWidth: maxWidth,
       base: const EdgeInsets.symmetric(
         horizontal: Spacing.lg,
         vertical: Spacing.xl,
@@ -2731,12 +2905,14 @@ class _ScenarioIntroArt extends StatelessWidget {
   final Alignment alignment;
   final String emoji;
   final String? sidekick;
+  final double height;
 
   const _ScenarioIntroArt({
     required this.posterAsset,
     required this.alignment,
     required this.emoji,
     required this.sidekick,
+    required this.height,
   });
 
   @override
@@ -2754,7 +2930,7 @@ class _ScenarioIntroArt extends StatelessWidget {
     // Backdrop만 표시 (호랑이 없이 — 배경 자체가 시각적 focal point)
     if (posterAsset == null) {
       return Container(
-        height: 140,
+        height: height,
         width: double.infinity,
         decoration: BoxDecoration(
           color: SoriColors.primary.withValues(alpha: 0.12),
@@ -2782,7 +2958,7 @@ class _ScenarioIntroArt extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(SoriRadius.lg),
       child: SizedBox(
-        height: 140,
+        height: height,
         width: double.infinity,
         child: Stack(
           fit: StackFit.expand,

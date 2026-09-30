@@ -161,6 +161,22 @@ class C4G1GrammarTest(unittest.TestCase):
         self.assertIn("-는 것", row["note"])
         self.assertNotIn("future", row["explanation_en"].lower())
 
+    def test_mankeum_teaches_the_completed_verb_form_used_by_its_quiz(self):
+        row = self.by_id["grammar_b1_proportional_mankeum"]
+        self.assertIn("연습한 만큼", row["example_korean"].split(" / ")[0])
+        self.assertEqual(set(row["pattern"].split(" / ")), {
+            "V-는 만큼", "V-(으)ㄴ 만큼", "A-(으)ㄴ 만큼",
+        })
+        for field in ("explanation_de", "explanation_en", "note", "note_en"):
+            with self.subTest(field=field):
+                self.assertIn("V-(으)ㄴ 만큼", row[field])
+        self.assertIn("abgeschlossene", row["explanation_de"])
+        self.assertIn("completed", row["explanation_en"])
+        self.assertIn("완료", row["note"])
+        packet = (ROOT / "docs/data/review_packets/c4_g1_grammar_jin_sample.md").read_text(encoding="utf-8")
+        card_line = next(line for line in packet.splitlines() if line.startswith("| `grammar_b1_proportional_mankeum`"))
+        self.assertIn(row["pattern"], card_line)
+
     def test_reviewed_correspondences_reuse_existing_cards(self):
         expected = {
             "G2:-다가1(1)": "grammar_a2_interrupted_action",

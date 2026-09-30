@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "asset": "assets/illustrations/activities/book_capture.webp",
+  "approvedBy": "Jin",
+  "approvedAt": "2026-09-22",
+  "authority": "User supplied the phone-scanning-an-open-book image and explicitly requested this image for the restored book scan card.",
+  "source": {
+    "filename": "ChatGPT Image 2026년 8월 26일 오후 02_21_36.png",
+    "sha256": "8bdca790c836a17c42e31a491d6aca43a5bfb31291a9fa0796584e980d421bb0",
+    "bytes": 1753001,
+    "dimensions": [
+      1448,
+      1086
+    ]
+  },
+  "normalization": {
+    "mode": "RGB",
+    "dimensions": [
+      800,
+      600
+    ],
+    "resize": "LANCZOS",
+    "format": "WebP",
+    "quality": 100,
+    "method": 6,
+    "crop": false,
+    "colorCorrection": false,
+    "addedGrain": false
+  },
+  "runtime": {
+    "sha256": "cdc5bf1d1982238d9f5c2512e3f26b6b1bb179d611dfc14fd76c4100b01666fa",
+    "bytes": 96384
+  },
+  "previousRuntime": {
+    "sha256": "43e4cf3c9fa394d2706f8e060d0b57140b498664296357d6c74b92a3f6416192",
+    "bytes": 90340,
+    "preservedCommit": "63937f12f0bfd7d3f735fa4834edcb0365592ac8"
+  },
+  "sourceArchive": "C:/dev/hangulsori/_codex_artifacts/cp2026-release-stabilization-20260922/book-card-image-replacement/source.png",
+  "profile": "C1-source-original",
+  "scope": "This single user-supplied original retains its native palette and texture. Existing size, container, palette, diversity and hash gates remain. Historical approval manifests are unchanged."
+}

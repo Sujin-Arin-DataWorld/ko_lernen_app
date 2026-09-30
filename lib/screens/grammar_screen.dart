@@ -16,6 +16,7 @@ import '../models/grammar_study_copy.dart';
 import '../models/feedback_completion.dart';
 import '../models/learner_level.dart';
 import '../services/course_activity_reporter.dart';
+import '../services/course_mission_navigation.dart';
 import '../services/course_checkpoint_questions.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/analytics_service.dart';
@@ -40,6 +41,7 @@ import '../widgets/sori/motion.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/window_class.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/content_feed.dart';
@@ -126,10 +128,27 @@ typedef GrammarCheckpointRecorder =
     Future<void> Function(GrammarCheckpointAttempt attempt);
 
 class GrammarScreen extends StatefulWidget {
-  const GrammarScreen({super.key, this.courseContext, this.checkpointRecorder});
+  const GrammarScreen({
+    super.key,
+    this.courseContext,
+    this.checkpointRecorder,
+    this.initialGrammarId,
+  });
+
+  factory GrammarScreen.fromRouteArguments(Object? arguments) {
+    final id = arguments is Map ? arguments['grammarId'] : null;
+    return GrammarScreen(
+      courseContext: coursePracticeContextFromRouteArguments(
+        arguments,
+        CurriculumContentKind.grammar,
+      ),
+      initialGrammarId: id is String && id.trim().isNotEmpty ? id.trim() : null,
+    );
+  }
 
   final CoursePracticeContext? courseContext;
   final GrammarCheckpointRecorder? checkpointRecorder;
+  final String? initialGrammarId;
 
   @override
   State<GrammarScreen> createState() => _GrammarScreenState();
@@ -290,10 +309,15 @@ class _GrammarScreenState extends State<GrammarScreen>
   @override
   void didUpdateWidget(covariant GrammarScreen oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.courseContext != widget.courseContext) {
+    if (oldWidget.courseContext != widget.courseContext ||
+        oldWidget.initialGrammarId != widget.initialGrammarId) {
       _likeSourceGeneration++;
       _choiceOwner.replaceSource();
       _retirePlanOperationsForSourceChange();
+      if (oldWidget.initialGrammarId != widget.initialGrammarId) {
+        _legacyBrowseForVisit = false;
+        unawaited(_load());
+      }
     }
   }
 
@@ -372,7 +396,15 @@ class _GrammarScreenState extends State<GrammarScreen>
           : g
                 .where((item) => courseContentIds.contains(item.id))
                 .toList(growable: false);
-      final useLevel = _isCoursePractice
+      // A direct card visit is free browsing, never today's plan or assessment.
+      final directId = _isCoursePractice ? null : widget.initialGrammarId;
+      final directIndex = directId == null
+          ? -1
+          : available.indexWhere((item) => item.id == directId);
+      final directTarget = directIndex < 0 ? null : available[directIndex];
+      final useLevel = directId != null
+          ? directTarget?.level ?? 'Alle'
+          : _isCoursePractice
           ? 'Alle'
           : (userLvl != null && available.any((x) => x.level == userLvl)
                 ? userLvl
@@ -383,7 +415,8 @@ class _GrammarScreenState extends State<GrammarScreen>
           : plans[_planLevel ?? _userLevelForPlan];
       final planCompletedToday =
           activePlan?.servedIdsByDate.containsKey(Storage.todayIso()) ?? false;
-      final followingPlan = activePlan != null && !_legacyBrowseForVisit;
+      final followingPlan =
+          activePlan != null && !_legacyBrowseForVisit && directId == null;
       final initialSlice = !followingPlan || planCompletedToday
           ? const <Grammar>[]
           : GrammarPlanService.todaysSlice(
@@ -395,6 +428,9 @@ class _GrammarScreenState extends State<GrammarScreen>
             );
       setState(() {
         _all = g;
+        if (directId != null) {
+          _legacyBrowseForVisit = true;
+        }
         _plans = plans;
         _planDayCompletedForVisit = followingPlan && planCompletedToday;
         _courseContentIds = courseContentIds;
@@ -405,16 +441,27 @@ class _GrammarScreenState extends State<GrammarScreen>
         _missionStep = missionStep;
         _missionTitle = missionTitle;
         _level = useLevel;
-        _filtered = !followingPlan
+        _filtered = directId != null && directTarget == null
+            ? <Grammar>[]
+            : !followingPlan
             ? (useLevel == 'Alle'
                   ? available
                   : available.where((x) => x.level == useLevel).toList())
             : initialSlice;
         _loading = false;
         _loadFailed = g.isEmpty && DataLoader.lastError != null;
-        if (_idx >= _filtered.length) _idx = 0;
+        if (directTarget != null) {
+          _idx = _filtered.indexWhere((item) => item.id == directId);
+        } else if (_idx >= _filtered.length) {
+          _idx = 0;
+        }
       });
-      if (!mounted || _isCoursePractice || activePlan != null) return;
+      if (!mounted ||
+          _isCoursePractice ||
+          activePlan != null ||
+          directId != null) {
+        return;
+      }
       unawaited(_showPlanOnboardingSheet(allowLegacyBrowseOnDismissal: true));
     } catch (error) {
       if (!mounted) return;
@@ -1708,7 +1755,7 @@ class _GrammarScreenState extends State<GrammarScreen>
           ),
         );
       }
-      if (_planFinished) {
+      if (_isFollowingPlan && _planFinished) {
         return SoriStudyFrame(
           title: t.screenGrammarTitle,
           actions: const [TtsSpeedAction()],
@@ -1965,7 +2012,10 @@ class _GrammarScreenState extends State<GrammarScreen>
                         child: LayoutBuilder(
                           builder: (context, cardConstraints) {
                             final cardH = cardConstraints.maxHeight.isFinite
-                                ? cardConstraints.maxHeight
+                                ? cardConstraints.maxHeight.clamp(
+                                    0.0,
+                                    SoriAdaptiveHeight.grammarCard,
+                                  )
                                 : 360.0;
                             // Sori Deck 2.0 — 단어장·복습 덱과 같은 4방향
                             // 제스처. 좌=Schwierig · 우=Verstanden ·
@@ -1985,95 +2035,113 @@ class _GrammarScreenState extends State<GrammarScreen>
                             // 있다. onPrevious 는 처음엔 이 목록에서
                             // 빠졌었다 — 아래 플링만 대체수단이 없는 채로
                             // 남았던 것을 접근성 후속수정으로 마저 채운다.
-                            return Semantics(
-                              container: true,
-                              customSemanticsActions:
-                                  <CustomSemanticsAction, VoidCallback>{
-                                    if (allowJudging)
-                                      CustomSemanticsAction(
-                                        label: t.grammarEasy,
-                                      ): () =>
-                                          _judge(understood: true),
-                                    if (allowJudging)
-                                      CustomSemanticsAction(
-                                        label: t.grammarHard,
-                                      ): () =>
-                                          _judge(understood: false),
-                                    CustomSemanticsAction(
-                                      label: t.deckActionSave,
-                                    ): _saveCurrent,
-                                    if (_canNavigateDeck)
-                                      CustomSemanticsAction(label: t.btnSkip):
-                                          _skipCurrent,
-                                    if (_idx > 0)
-                                      CustomSemanticsAction(
-                                        label: t.grammarPreviousCard,
-                                      ): _goToPreviousCard,
-                                  },
-                              child: SoriContentFeed(
-                                judgmentsEnabled: allowJudging && _flipped,
-                                onBlockedJudgment: allowJudging ? () {} : null,
-                                onNext: allowJudging
-                                    ? () => _judge(understood: true)
-                                    : null,
-                                onPrevious: _idx > 0 ? _goToPreviousCard : null,
-                                onHard: allowJudging
-                                    ? () => _judge(understood: false)
-                                    : null,
-                                onSkip: _canNavigateDeck ? _skipCurrent : null,
-                                skipEnabled: _canNavigateDeck,
-                                onLike: () =>
-                                    _likeGrammar(g, likeSourceGeneration),
-                                onBookmark: _saveCurrent,
-                                showShare: false,
-                                onFlip: canRecordCheckpoint
-                                    ? () => _showCheckpoint(g, assessmentLink!)
-                                    : _onFlip,
-                                liked: LikedContentService.isLiked(
-                                  kind: LikedContentService.grammar,
-                                  id: g.pattern,
-                                ),
-                                bookmarked: CustomPackService.containsKorean(
-                                  g.pattern,
-                                ),
-                                bookmarkLabel: t.deckActionSave,
-                                // §A3 지시서 2.9: 듣기 아이콘은 카드박스
-                                // 상단 왼쪽 구석 — 카드 하단 중앙의 자체
-                                // 원형 _ListenButton 을 걷어내고
-                                // SoriContentFeed 의 topAccessory 슬롯을
-                                // 쓴다(review_session_screen.dart:672 와
-                                // 같은 패턴). 체크포인트 카드는 원래도
-                                // 듣기 버튼이 없었다(canRecordCheckpoint).
-                                topAccessory: canRecordCheckpoint
-                                    ? null
-                                    : () {
-                                        final speakKorean =
-                                            GrammarStudyCopy.fromGrammar(
+                            return Center(
+                              child: SizedBox(
+                                height: cardH,
+                                child: Semantics(
+                                  container: true,
+                                  customSemanticsActions:
+                                      <CustomSemanticsAction, VoidCallback>{
+                                        if (allowJudging)
+                                          CustomSemanticsAction(
+                                            label: t.grammarEasy,
+                                          ): () =>
+                                              _judge(understood: true),
+                                        if (allowJudging)
+                                          CustomSemanticsAction(
+                                            label: t.grammarHard,
+                                          ): () =>
+                                              _judge(understood: false),
+                                        CustomSemanticsAction(
+                                          label: t.deckActionSave,
+                                        ): _saveCurrent,
+                                        if (_canNavigateDeck)
+                                          CustomSemanticsAction(
+                                            label: t.btnSkip,
+                                          ): _skipCurrent,
+                                        if (_idx > 0)
+                                          CustomSemanticsAction(
+                                            label: t.grammarPreviousCard,
+                                          ): _goToPreviousCard,
+                                      },
+                                  child: SoriContentFeed(
+                                    judgmentsEnabled: allowJudging && _flipped,
+                                    onBlockedJudgment: allowJudging
+                                        ? () {}
+                                        : null,
+                                    onNext: allowJudging
+                                        ? () => _judge(understood: true)
+                                        : null,
+                                    onPrevious: _idx > 0
+                                        ? _goToPreviousCard
+                                        : null,
+                                    onHard: allowJudging
+                                        ? () => _judge(understood: false)
+                                        : null,
+                                    onSkip: _canNavigateDeck
+                                        ? _skipCurrent
+                                        : null,
+                                    skipEnabled: _canNavigateDeck,
+                                    onLike: () =>
+                                        _likeGrammar(g, likeSourceGeneration),
+                                    onBookmark: _saveCurrent,
+                                    showShare: false,
+                                    onFlip: canRecordCheckpoint
+                                        ? () => _showCheckpoint(
+                                            g,
+                                            assessmentLink!,
+                                          )
+                                        : _onFlip,
+                                    liked: LikedContentService.isLiked(
+                                      kind: LikedContentService.grammar,
+                                      id: g.pattern,
+                                    ),
+                                    bookmarked:
+                                        CustomPackService.containsKorean(
+                                          g.pattern,
+                                        ),
+                                    bookmarkLabel: t.deckActionSave,
+                                    // §A3 지시서 2.9: 듣기 아이콘은 카드박스
+                                    // 상단 왼쪽 구석 — 카드 하단 중앙의 자체
+                                    // 원형 _ListenButton 을 걷어내고
+                                    // SoriContentFeed 의 topAccessory 슬롯을
+                                    // 쓴다(review_session_screen.dart:672 와
+                                    // 같은 패턴). 체크포인트 카드는 원래도
+                                    // 듣기 버튼이 없었다(canRecordCheckpoint).
+                                    topAccessory: canRecordCheckpoint
+                                        ? null
+                                        : () {
+                                            final speakKorean =
+                                                GrammarStudyCopy.fromGrammar(
+                                                  g,
+                                                  Localizations.localeOf(
+                                                    context,
+                                                  ).languageCode,
+                                                ).speakKorean;
+                                            return speakKorean.isEmpty
+                                                ? null
+                                                : SoriSpeechIndicator(
+                                                    text: speakKorean,
+                                                  );
+                                          }(),
+                                    child: FlipCard(
+                                      key: _cardKey,
+                                      flipped: _flipped,
+                                      onTap: canRecordCheckpoint
+                                          ? () => _showCheckpoint(
                                               g,
-                                              Localizations.localeOf(
-                                                context,
-                                              ).languageCode,
-                                            ).speakKorean;
-                                        return speakKorean.isEmpty
-                                            ? null
-                                            : SoriSpeechIndicator(
-                                                text: speakKorean,
-                                              );
-                                      }(),
-                                child: FlipCard(
-                                  key: _cardKey,
-                                  flipped: _flipped,
-                                  onTap: canRecordCheckpoint
-                                      ? () =>
-                                            _showCheckpoint(g, assessmentLink!)
-                                      : _onFlip,
-                                  front: canRecordCheckpoint
-                                      ? _CourseCheckpointFront(
-                                          g: g,
-                                          cardHeight: cardH,
-                                        )
-                                      : _Front(g: g, cardHeight: cardH),
-                                  back: _Back(g: g, cardHeight: cardH),
+                                              assessmentLink!,
+                                            )
+                                          : _onFlip,
+                                      front: canRecordCheckpoint
+                                          ? _CourseCheckpointFront(
+                                              g: g,
+                                              cardHeight: cardH,
+                                            )
+                                          : _Front(g: g, cardHeight: cardH),
+                                      back: _Back(g: g, cardHeight: cardH),
+                                    ),
+                                  ),
                                 ),
                               ),
                             );

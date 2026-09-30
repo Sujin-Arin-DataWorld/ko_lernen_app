@@ -54,31 +54,35 @@ class SoriStageGyeScreen extends StatelessWidget {
                     left: padding.left,
                     right: padding.right,
                   ),
-                  sliver: SoriCollapsingHeader(
-                    title: t.soriStageNavGye,
-                    titleStyle: SoriTextTheme.of(
-                      context,
-                    ).h1.copyWith(fontSize: 26, height: 1.35),
-                    // 접힌 56dp 크롬 바용 짧은 제목(§W-G G5.1) — 없으면
-                    // title 전체가 ellipsis 로 잘린다.
-                    collapsedTitle: t.soriStageNavGye,
-                    // §W-G G5.2(D4 확정): trailing = ⓘ 문화 설명 + 아바타
-                    // 둘 다. 두 액션 모두 48dp 히트영역 — trailingSlots=2가
-                    // 헤더 텍스트 폭 예산에서 그만큼을 미리 뺀다.
-                    trailingSlots: 2,
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IconButton(
-                          key: const ValueKey('cultural_help_gye'),
-                          tooltip: t.gyeExplainMore,
-                          onPressed: () => showGyeDetails(context),
-                          icon: const Icon(Icons.help_outline_rounded),
+                  sliver: Builder(
+                    builder: (context) {
+                      return SoriCollapsingHeader(
+                        title: t.soriStageNavGye,
+                        titleStyle: SoriTextTheme.of(
+                          context,
+                        ).h1.copyWith(fontSize: 26, height: 1.35),
+                        // 접힌 56dp 크롬 바용 짧은 제목(§W-G G5.1) — 없으면
+                        // title 전체가 ellipsis 로 잘린다.
+                        collapsedTitle: t.soriStageNavGye,
+                        // §W-G G5.2(D4 확정): trailing = ⓘ 문화 설명 + 아바타
+                        // 둘 다. 두 액션 모두 48dp 히트영역 — trailingSlots=2가
+                        // 헤더 텍스트 폭 예산에서 그만큼을 미리 뺀다.
+                        trailingSlots: 2,
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                              key: const ValueKey('cultural_help_gye'),
+                              tooltip: t.gyeExplainMore,
+                              onPressed: () => showGyeDetails(context),
+                              icon: const Icon(Icons.help_outline_rounded),
+                            ),
+                            const SizedBox(width: Spacing.xs),
+                            const SoriAvatar(),
+                          ],
                         ),
-                        const SizedBox(width: Spacing.xs),
-                        const SoriAvatar(),
-                      ],
-                    ),
+                      );
+                    },
                   ),
                 ),
                 const SliverToBoxAdapter(child: SizedBox(height: Spacing.lg)),

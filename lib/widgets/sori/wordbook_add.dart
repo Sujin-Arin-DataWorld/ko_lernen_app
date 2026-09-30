@@ -204,6 +204,7 @@ class AddToWordbookButton extends StatefulWidget {
   final String exampleEn;
   final bool compact;
   final bool coachEnabled;
+  final bool enabled;
 
   /// null이 아니면 단어가 아닌 타입(예: sentence)으로 typed bookmark 경로에
   /// 저장한다.
@@ -233,6 +234,7 @@ class AddToWordbookButton extends StatefulWidget {
     this.exampleEn = '',
     this.compact = false,
     this.coachEnabled = true,
+    this.enabled = true,
     this.itemType,
     this.itemId,
     this.sourceUnitId,
@@ -267,7 +269,8 @@ class _AddToWordbookButtonState extends State<AddToWordbookButton> {
   @override
   void didUpdateWidget(covariant AddToWordbookButton oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if ((!oldWidget.coachEnabled && widget.coachEnabled) ||
+    if ((!oldWidget.enabled && widget.enabled) ||
+        (!oldWidget.coachEnabled && widget.coachEnabled) ||
         (oldWidget.korean.trim().isEmpty && widget.korean.trim().isNotEmpty)) {
       _scheduleCoach();
     }
@@ -275,7 +278,8 @@ class _AddToWordbookButtonState extends State<AddToWordbookButton> {
 
   void _scheduleCoach() {
     _syncTutorialReset();
-    if (!widget.coachEnabled ||
+    if (!widget.enabled ||
+        !widget.coachEnabled ||
         _coachShownThisSession ||
         Storage.tutWordbookSeen) {
       return;
@@ -283,6 +287,7 @@ class _AddToWordbookButtonState extends State<AddToWordbookButton> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _syncTutorialReset();
       if (!mounted ||
+          !widget.enabled ||
           !widget.coachEnabled ||
           _coachShownThisSession ||
           Storage.tutWordbookSeen ||
@@ -310,6 +315,9 @@ class _AddToWordbookButtonState extends State<AddToWordbookButton> {
   }
 
   Future<WordbookAddResult> _add(BuildContext context) {
+    if (!widget.enabled) {
+      return Future.value(WordbookAddResult.failed);
+    }
     final itemType = widget.itemType;
     if (itemType != null) {
       return addTypedBookmarkWithWordbookMirror(
@@ -346,7 +354,7 @@ class _AddToWordbookButtonState extends State<AddToWordbookButton> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final enabled = widget.korean.trim().isNotEmpty;
+    final enabled = widget.enabled && widget.korean.trim().isNotEmpty;
     // 담긴 상태를 아이콘이 직접 말한다. 성공 알림을 없앤 자리를 이게 채운다.
     return ValueListenableBuilder<int>(
       valueListenable: CustomPackService.revision,

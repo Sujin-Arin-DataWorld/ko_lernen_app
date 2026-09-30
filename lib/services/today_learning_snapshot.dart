@@ -1,6 +1,9 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 
 import '../features/onboarding_v2/onboarding_learning_start.dart';
+import '../features/content_learning/content_learning_models.dart';
+import '../features/content_learning/content_learning_service.dart';
+import '../features/scenarios/scenario_quest_stock.dart';
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
 import '../models/pack_progress.dart';
@@ -82,7 +85,7 @@ class TodayLearningInputs {
 ///
 /// Naming the failed family lets the presentation stay conservative without
 /// throwing away healthy, read-only inputs that can still help diagnostics.
-enum TodayLearningSource { course, pack, scenario, review }
+enum TodayLearningSource { course, pack, scenario, review, contentLearning }
 
 enum TodayLearningAvailability { ready, unavailable }
 
@@ -176,6 +179,7 @@ class TodayLearningSnapshot {
   final TodayLearningAvailability availability;
   final TodayLearningUnavailableReason? unavailableReason;
   final Set<TodayLearningSource> unavailableSources;
+  final List<ContentDailyProgress> contentDaily;
 
   const TodayLearningSnapshot({
     required this.pick,
@@ -187,6 +191,7 @@ class TodayLearningSnapshot {
     this.availability = TodayLearningAvailability.ready,
     this.unavailableReason,
     this.unavailableSources = const {},
+    this.contentDaily = const [],
   }) : assert(
          availability == TodayLearningAvailability.ready
              ? unavailableReason == null
@@ -206,6 +211,7 @@ class TodayLearningSnapshot {
     TodayLearningAvailability availability = TodayLearningAvailability.ready,
     TodayLearningUnavailableReason? unavailableReason,
     Set<TodayLearningSource> unavailableSources = const {},
+    List<ContentDailyProgress> contentDaily = const [],
   }) {
     final pick = startWithHangul
         ? const HangulIntroPick()
@@ -230,6 +236,7 @@ class TodayLearningSnapshot {
       availability: availability,
       unavailableReason: unavailableReason,
       unavailableSources: Set.unmodifiable(unavailableSources),
+      contentDaily: List.unmodifiable(contentDaily),
     );
   }
 }
@@ -285,18 +292,24 @@ class TodayLearningSnapshotLoader {
     final scenario = await scenarioFuture;
     final review = await reviewFuture;
     final networkStatus = await networkFuture;
+    final contentDaily = await _capture<List<ContentDailyProgress>>(
+      () async => ContentLearningService.activeDaily(),
+      const [],
+    );
 
     final unavailableSources = <TodayLearningSource>{
       if (course.failed) TodayLearningSource.course,
       if (nowNode.failed) TodayLearningSource.pack,
       if (scenario.failed) TodayLearningSource.scenario,
       if (review.failed) TodayLearningSource.review,
+      if (contentDaily.failed) TodayLearningSource.contentLearning,
     };
     final sourceReasons = <TodayLearningUnavailableReason>{
       if (course.failureReason case final reason?) reason,
       if (nowNode.failureReason case final reason?) reason,
       if (scenario.failureReason case final reason?) reason,
       if (review.failureReason case final reason?) reason,
+      if (contentDaily.failureReason case final reason?) reason,
     };
     final unavailableReason = networkStatus == TodayNetworkStatus.offline
         ? TodayLearningUnavailableReason.offline
@@ -331,6 +344,7 @@ class TodayLearningSnapshotLoader {
         userLevel: scenario.value.userLevel,
       ),
       hardCount: review.value.hardCount,
+      contentDaily: contentDaily.value,
       startWithHangul: startWithHangul,
       availability: unavailableReason == null
           ? TodayLearningAvailability.ready
@@ -366,7 +380,13 @@ class TodayLearningSnapshotLoader {
     final userLevel =
         LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
     final completed = Storage.completedScenarios.toSet();
-    final scenarios = await ScenarioLoader.load();
+    final corpus = await ScenarioLoader.load();
+    final stock = ScenarioQuestStock.fromCorpus(corpus);
+    // Count the complete corpus before choosing a level or a fallback. Today
+    // must not recommend a lesson that the assessment player cannot open.
+    final scenarios = corpus
+        .where(stock.allowsScenario)
+        .toList(growable: false);
     Scenario? current;
     for (final scenario in scenarios.where((item) => item.level == userLevel)) {
       if (!completed.contains(scenario.id)) {

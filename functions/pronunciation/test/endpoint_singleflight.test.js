@@ -56,11 +56,13 @@ function request(data = {}) {
 function harness({providerTimeoutMs = 15000} = {}) {
   const db = new MemoryFirestore();
   const calls = [];
+  const logs = [];
   let user = {disabled: false, metadata: {creationTime: new Date(0).toISOString()}};
   let provider = async () => ({ok: true, json: async () => azure});
   class HttpsError extends Error { constructor(code, message, details) { super(message); this.code = code; this.details = details; } }
   const module = {exports: {}};
   const context = {module, exports: module.exports, Buffer, URL, Date, AbortController,
+    console: {warn: (...args) => logs.push(args), error: (...args) => logs.push(args)},
     process: {env: {PRONUNCIATION_ASSESSMENT_MODE: "azure_f0"}},
     setTimeout: (fn, delay) => setTimeout(fn, Math.min(delay, providerTimeoutMs)), clearTimeout,
     fetch: async (...args) => { calls.push(args); return provider(...args); },
@@ -78,7 +80,7 @@ function harness({providerTimeoutMs = 15000} = {}) {
   };
   vm.runInNewContext(fs.readFileSync(path.join(__dirname, "..", "index.js"), "utf8"), context);
   require("../pronunciation_request_guard").pronunciationProviderBreaker.recordSuccess();
-  return {db, calls, api: module.exports, run: module.exports.assessPronunciation,
+  return {db, calls, logs, api: module.exports, run: module.exports.assessPronunciation,
     setUser: (value) => { user = value; }, setProvider: (fn) => { provider = fn; }};
 }
 
@@ -147,6 +149,35 @@ test("deletion fence denies completed replay", async () => {
 });
 
 module.exports = {harness, request, azure, MemoryFirestore};
+
+test("missing and invalid approval emit only one bounded cost diagnostic", async () => {
+  for (const missing of [true, false]) {
+    const h = harness();
+    if (missing) h.db.store.delete("service_cost_controls/ai_v1");
+    else h.db.store.get("service_cost_controls/ai_v1").approvedBy = "PRIVATE_APPROVAL_CANARY";
+    await assert.rejects(h.run(request({referenceText: "비공개 문장"})), {code: "unavailable"});
+    assert.equal(h.calls.length, 0);
+    assert.equal(h.logs.length, 1);
+    assert.equal(h.logs[0][0], "AI cost approval unavailable.");
+    assert.deepEqual({...h.logs[0][1]}, {
+      event: "ai_cost_approval_unavailable", service: "pronunciation", schemaVersion: 1,
+    });
+    assert.equal(JSON.stringify(h.logs).includes("PRIVATE_"), false);
+    assert.equal(JSON.stringify(h.logs).includes("비공개 문장"), false);
+  }
+});
+
+test("valid approval, exhausted budget and corrupt ledger do not emit approval alarms", async () => {
+  for (const condition of ["valid", "exhausted", "corrupt"]) {
+    const h = harness();
+    if (condition === "exhausted") h.db.store.get("service_cost_controls/ai_v1").dailyUnitLimit = 0;
+    if (condition === "corrupt") h.db.store.set(`service_cost_ledgers/${new Date().toISOString().slice(0, 10)}`, {reservedUnits: "invalid"});
+    if (condition === "valid") await h.run(request());
+    else await assert.rejects(h.run(request()), {code: condition === "exhausted" ? "resource-exhausted" : "unavailable"});
+    assert.equal(h.calls.length, condition === "valid" ? 1 : 0);
+    assert.deepEqual(h.logs, []);
+  }
+});
 
 function seedDaily(h, dayCount) {
   const now = new Date().toISOString();

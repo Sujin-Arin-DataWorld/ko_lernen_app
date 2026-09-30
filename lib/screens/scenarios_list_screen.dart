@@ -1,5 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import '../features/scenarios/scenario_quest_stock.dart';
 
 import '../features/scenarios/scenario_browse_query.dart';
 import '../models/guide_contract.dart';
@@ -34,6 +35,10 @@ class ScenariosListScreen extends StatefulWidget {
   /// keeps the bundled [ScenarioLoader] by leaving this null.
   final Future<List<Scenario>> Function()? loadScenarios;
 
+  /// Notebook matches narrow the visible lessons after full-corpus assessment
+  /// eligibility is calculated. A small selection is not a sparse corpus.
+  final Set<String>? scenarioIds;
+
   /// Optional guide/library browse intent. Unlike course placement, this only
   /// narrows the catalog to one exact level + shelf and never changes learner
   /// progress.
@@ -42,6 +47,7 @@ class ScenariosListScreen extends StatefulWidget {
   const ScenariosListScreen({
     super.key,
     this.loadScenarios,
+    this.scenarioIds,
     this.browseDestination,
   });
 
@@ -113,11 +119,23 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
       (null, null) => ScenarioLoader.load(),
     };
     if (!mounted) return;
+    final stock = ScenarioQuestStock.fromCorpus(list);
+    final selectedIds = widget.scenarioIds;
+    final assessable = list
+        .where(stock.allowsScenario)
+        .where(
+          (scenario) =>
+              selectedIds == null || selectedIds.contains(scenario.id),
+        )
+        .toList(growable: false);
     final browseResult = destination == null
         ? null
-        : ScenarioBrowseQuery.resolve(destination: destination, corpus: list);
+        : ScenarioBrowseQuery.resolve(
+            destination: destination,
+            corpus: assessable,
+          );
     setState(() {
-      _all = browseResult?.scenarios ?? list;
+      _all = browseResult?.scenarios ?? assessable;
       _browseStatus = browseResult?.status;
       _loading = false;
       _loadFailed = list.isEmpty && ScenarioLoader.lastError != null;
@@ -183,8 +201,9 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
         ],
       );
     }
-    if (widget.browseDestination != null &&
-        _browseStatus != ScenarioBrowseQueryStatus.ready) {
+    if (_all.isEmpty ||
+        (widget.browseDestination != null &&
+            _browseStatus != ScenarioBrowseQueryStatus.ready)) {
       return SoriStandardPage(
         appBarTitle: t.scenariosListTitle,
         maxWidth: SoriMaxWidth.hub,

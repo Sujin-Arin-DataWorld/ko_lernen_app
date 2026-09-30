@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/learner_level.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/window_class.dart';
 import 'onboarding_v3_demo_support.dart';
 
 /// Six distinct sample boards. All selections disappear when the demo closes.
@@ -19,7 +20,6 @@ class _OnboardingGamesDemoState
   int _chain = 0;
   int _cell = 0;
   int _pair = -1;
-  int _choicesPage = 0;
   int _resetId = 0;
   String _word = '';
   final Set<int> _matched = {};
@@ -36,7 +36,6 @@ class _OnboardingGamesDemoState
       _cell = 0;
       _gridRow = 0;
       _pair = -1;
-      _choicesPage = 0;
       _word = '';
       _matched.clear();
       _cross.clear();
@@ -68,35 +67,65 @@ class _OnboardingGamesDemoState
       builder: (context, bounds) => OnboardingDemoContent(
         level: widget.level,
         builder: (data) {
-          if (bounds.maxHeight < 340 ||
-              MediaQuery.textScalerOf(context).scale(1) > 1.5) {
-            return _compact(data, names);
+          final selectorColumns = _selectorColumns(
+            context,
+            bounds.maxWidth,
+            names,
+          );
+          final selectorFontSize =
+              bounds.maxWidth >= SoriAdaptiveWidth.demoWideSelector
+              ? 17.0
+              : 15.0;
+          if (bounds.maxHeight < 500 ||
+              MediaQuery.textScalerOf(context).scale(1) > 1.5 ||
+              selectorColumns < 3) {
+            return _compact(data, names, selectorColumns, selectorFontSize);
           }
           return Column(
             children: [
-              for (var row = 0; row < 2; row++) ...[
-                DemoChoiceRow(
-                  children: [
-                    for (var col = 0; col < 3; col++)
-                      DemoChoice(
-                        key: ValueKey('demo-game-${row * 3 + col}'),
-                        label: names[row * 3 + col],
-                        selected: _game == row * 3 + col,
-                        onTap: () => _reset(row * 3 + col),
-                      ),
-                  ],
+              for (
+                var row = 0;
+                row < names.length ~/ selectorColumns;
+                row++
+              ) ...[
+                SizedBox(
+                  height: selectorFontSize >= 17 ? 64 : 48,
+                  child: DemoChoiceRow(
+                    children: [
+                      for (var col = 0; col < selectorColumns; col++)
+                        DemoChoice(
+                          key: ValueKey(
+                            'demo-game-${row * selectorColumns + col}',
+                          ),
+                          label: names[row * selectorColumns + col],
+                          fontSize: selectorFontSize,
+                          selected: _game == row * selectorColumns + col,
+                          onTap: () => _reset(row * selectorColumns + col),
+                        ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 4),
               ],
               Expanded(
-                child: Container(
-                  key: ValueKey('demo-board-$_game'),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.surfaceContainerLow,
-                    borderRadius: BorderRadius.circular(SoriRadius.md),
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(
+                      maxWidth: 640,
+                      maxHeight: SoriAdaptiveHeight.onboardingDemoBoard,
+                    ),
+                    child: Container(
+                      key: ValueKey('demo-board-$_game'),
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.surfaceContainerLow,
+                        borderRadius: BorderRadius.circular(SoriRadius.md),
+                      ),
+                      child: _board(data),
+                    ),
                   ),
-                  child: _board(data),
                 ),
               ),
               const SizedBox(height: 4),
@@ -120,7 +149,7 @@ class _OnboardingGamesDemoState
               if (demoAudioFailed)
                 Text(
                   t.onboardingDemoAudioUnavailable,
-                  style: const TextStyle(fontSize: 13),
+                  style: SoriTextTheme.of(context).caption,
                 ),
             ],
           );
@@ -129,31 +158,99 @@ class _OnboardingGamesDemoState
     );
   }
 
-  Widget _compact(Map<String, dynamic> data, List<String> names) {
+  int _selectorColumns(BuildContext context, double width, List<String> names) {
+    final fontSize = width >= SoriAdaptiveWidth.demoWideSelector ? 17.0 : 15.0;
+    final painter = TextPainter(
+      textDirection: Directionality.of(context),
+      textScaler: MediaQuery.textScalerOf(context),
+      maxLines: 1,
+    );
+    var widestLabel = 0.0;
+    for (final name in names) {
+      for (final word in name.split(RegExp(r'[\s-]+'))) {
+        painter.text = TextSpan(
+          text: word,
+          style: SoriTextTheme.of(
+            context,
+          ).label.copyWith(fontSize: fontSize, height: 1.15),
+        );
+        painter.layout();
+        if (painter.width > widestLabel) {
+          widestLabel = painter.width;
+        }
+      }
+    }
+    painter.dispose();
+    // Include button padding and a font-rendering margin. Large text also needs
+    // a comfortable card width, even when this font paints narrow words.
+    final minTileWidth = MediaQuery.textScalerOf(context).scale(1) > 1.5
+        ? 200.0
+        : 0.0;
+    for (final columns in [3, 2]) {
+      final tileWidth = (width - 4 * (columns - 1)) / columns;
+      if (tileWidth >= widestLabel + 24 && tileWidth >= minTileWidth) {
+        return columns;
+      }
+    }
+    return 1;
+  }
+
+  Widget _compact(
+    Map<String, dynamic> data,
+    List<String> names,
+    int columns,
+    double selectorFontSize,
+  ) {
     final t = AppL10n.of(context);
     if (_picker) {
-      return Column(
+      final rowCount = (names.length / columns).ceil();
+      final fontSize = selectorFontSize;
+      final measuredHeight =
+          MediaQuery.textScalerOf(context).scale(fontSize) * 1.15 + 16;
+      final rowHeight = measuredHeight > (fontSize >= 17 ? 64 : 48)
+          ? measuredHeight
+          : (fontSize >= 17 ? 64.0 : 48.0);
+      final grid = Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          for (var row = 0; row < 3; row++)
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 4),
+          for (var row = 0; row < rowCount; row++)
+            Padding(
+              padding: EdgeInsets.only(bottom: row == rowCount - 1 ? 0 : 4),
+              child: SizedBox(
+                height: rowHeight,
                 child: DemoChoiceRow(
                   children: [
-                    for (var col = 0; col < 2; col++)
-                      DemoChoice(
-                        key: ValueKey('demo-game-${row * 2 + col}'),
-                        label: names[row * 2 + col],
-                        onTap: () {
-                          _reset(row * 2 + col);
-                          setState(() => _picker = false);
-                        },
-                      ),
+                    for (var col = 0; col < columns; col++)
+                      if (row * columns + col < names.length)
+                        DemoChoice(
+                          key: ValueKey('demo-game-${row * columns + col}'),
+                          label: names[row * columns + col],
+                          fontSize: fontSize,
+                          onTap: () {
+                            _reset(row * columns + col);
+                            setState(() => _picker = false);
+                          },
+                        ),
                   ],
                 ),
               ),
             ),
         ],
+      );
+      return LayoutBuilder(
+        builder: (context, bounds) {
+          final content = Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 900),
+              child: grid,
+            ),
+          );
+          if (bounds.maxHeight >=
+              rowCount * rowHeight + (rowCount - 1) * 4 + 64) {
+            return content;
+          }
+          return SingleChildScrollView(child: grid);
+        },
       );
     }
     return Column(
@@ -352,15 +449,21 @@ class _OnboardingGamesDemoState
     }
   }
 
-  Widget _choices(List<String> values, ValueChanged<String> choose) {
-    final pageCount = (values.length / 2).ceil();
-    final page = _choicesPage.clamp(0, pageCount - 1);
-    return Row(
+  Widget _choices(
+    List<String> values,
+    ValueChanged<String> choose, {
+    int columns = 2,
+  }) {
+    // Keep every choice in the board's flow. The compact crossword scrolls
+    // as a whole when there is not enough height for the grid and options.
+    final choices = Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        Expanded(
-          child: DemoChoiceRow(
+        for (var row = 0; row < values.length; row += columns) ...[
+          if (row > 0) const SizedBox(height: 4),
+          DemoChoiceRow(
             children: [
-              for (final value in values.skip(page * 2).take(2))
+              for (final value in values.skip(row).take(columns))
                 DemoChoice(
                   key: ValueKey('demo-choice-$value'),
                   label: value,
@@ -371,22 +474,10 @@ class _OnboardingGamesDemoState
                 ),
             ],
           ),
-        ),
-        if (pageCount > 1)
-          SizedBox(
-            height: 48,
-            width: 48,
-            child: IconButton(
-              key: const ValueKey('demo-more-choices'),
-              tooltip:
-                  '${AppL10n.of(context).onboardingDemoWords} ${page + 1}/$pageCount',
-              onPressed: () =>
-                  setState(() => _choicesPage = (page + 1) % pageCount),
-              icon: const Icon(Icons.chevron_right),
-            ),
-          ),
+        ],
       ],
     );
+    return choices;
   }
 
   Widget _compactCross(Map<String, dynamic> puzzle) {
@@ -395,61 +486,69 @@ class _OnboardingGamesDemoState
     final cols = puzzle['cols'] as int;
     final row = _gridRow % rows;
     final clues = (puzzle['clues'] as List).cast<Map<String, dynamic>>();
-    return Column(
-      children: [
-        SizedBox(
-          height: 48,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              for (var col = 0; col < cols; col++)
-                SizedBox(
-                  width: 48,
-                  height: 48,
-                  child: solution[row * cols + col].isEmpty
-                      ? const SizedBox.shrink()
-                      : DemoChoice(
-                          key: ValueKey('demo-cross-cell-${row * cols + col}'),
-                          label: _example
-                              ? solution[row * cols + col]
-                              : _cross[row * cols + col] ?? '·',
-                          korean: true,
-                          dense: true,
-                          selected: _cell == row * cols + col,
-                          onTap: () => setState(() => _cell = row * cols + col),
-                        ),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 48,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                for (var col = 0; col < cols; col++)
+                  SizedBox(
+                    width: 48,
+                    height: 48,
+                    child: solution[row * cols + col].isEmpty
+                        ? const SizedBox.shrink()
+                        : DemoChoice(
+                            key: ValueKey(
+                              'demo-cross-cell-${row * cols + col}',
+                            ),
+                            label: _example
+                                ? solution[row * cols + col]
+                                : _cross[row * cols + col] ?? '·',
+                            korean: true,
+                            dense: true,
+                            selected: _cell == row * cols + col,
+                            onTap: () =>
+                                setState(() => _cell = row * cols + col),
+                          ),
+                  ),
+                IconButton(
+                  key: const ValueKey('demo-cross-row'),
+                  tooltip:
+                      '${AppL10n.of(context).onboardingDemoNext} ${row + 1}/$rows',
+                  icon: const Icon(Icons.keyboard_arrow_down),
+                  onPressed: () => setState(() {
+                    _gridRow = (row + 1) % rows;
+                    _cell = _gridRow * cols;
+                  }),
                 ),
-              IconButton(
-                key: const ValueKey('demo-cross-row'),
-                tooltip:
-                    '${AppL10n.of(context).onboardingDemoNext} ${row + 1}/$rows',
-                icon: const Icon(Icons.keyboard_arrow_down),
-                onPressed: () => setState(() {
-                  _gridRow = (row + 1) % rows;
-                  _cell = _gridRow * cols;
-                }),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        Expanded(
-          child: DemoPagedText(
-            text: clues
-                .map(
-                  (clue) => '${clue['dir'] == 'h' ? '→' : '↓'} ${clue['ko']}',
-                )
-                .join('\n'),
-            fontSize: 18,
+          _choices(
+            solution.where((s) => s.isNotEmpty).toSet().toList(),
+            (syllable) => setState(() {
+              _cross[_cell] = syllable;
+              _example = false;
+            }),
+            columns: 3,
           ),
-        ),
-        _choices(
-          solution.where((s) => s.isNotEmpty).toSet().toList(),
-          (syllable) => setState(() {
-            _cross[_cell] = syllable;
-            _example = false;
-          }),
-        ),
-      ],
+          const SizedBox(height: Spacing.xs),
+          SizedBox(
+            height: 80,
+            child: DemoPagedText(
+              text: clues
+                  .map(
+                    (clue) => '${clue['dir'] == 'h' ? '→' : '↓'} ${clue['ko']}',
+                  )
+                  .join('\n'),
+              fontSize: 18,
+            ),
+          ),
+        ],
+      ),
     );
   }
 

@@ -178,6 +178,23 @@ const Map<LearnerLevel, List<ChaekgadoSlot>> kChaekgadoSlots = {
 String chaekgadoShelfId(LearnerLevel level, String slug) =>
     '${level.code}_$slug';
 
+/// Resolves the approved listening card art for a scenario shelf id.
+String? chaekgadoImageKeyForShelf(String shelf) {
+  for (final entry in kChaekgadoSlots.entries) {
+    final prefix = '${entry.key.code}_';
+    if (!shelf.startsWith(prefix)) {
+      continue;
+    }
+    final slug = shelf.substring(prefix.length);
+    for (final slot in entry.value) {
+      if (slot.slug == slug) {
+        return slot.imageKey;
+      }
+    }
+  }
+  return null;
+}
+
 /// 칸 이름표 — ARB 가 정본, 여기는 `imageKey` → getter 매핑만 한다.
 /// 표시명 원문은 `docs/LISTENING_CARD_ART_SPEC.md` 의 "표시명 (DE)" 열.
 String chaekgadoSlotLabel(AppL10n t, String imageKey) => switch (imageKey) {

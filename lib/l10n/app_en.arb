@@ -8,7 +8,6 @@
   "srsRecoveryRetry": "Retry saving review",
   "@@locale": "en",
   "learningPhasesTitle": "30 learning phases",
-  "learningPhasesIntro": "Explore the learning goals from A1 to C2 and practise related conversations. Your existing learning progress is preserved.",
   "learningPhasePracticeTitle": "Free practice: related conversations",
   "learningPhasePracticeScope": "These conversations practise related topics and continue to use the existing mission checks. Assessments from available phase tasks are recorded separately.",
   "learningPhaseImagePreparing": "Image in preparation",
@@ -884,6 +883,8 @@
   "gyeErrAgeRestricted": "Gye is for ages 16 and up. Because only your self-declared on-device birth year is stored, the conservative check unlocks at a year difference of at least 17.",
   "gyeAgeYearTitle": "Birth year",
   "gyeAgeYearBody": "Gye is for ages 16 and up. Your birth year is self-declared, stored only on this device, and is not identity verification. Without month and day, the conservative check unlocks at a year difference of at least 17.",
+  "privacyAgeYearBody": "The app needs your age declaration before you can voluntarily enable usage statistics or crash reports. Your self-declared birth year stays on this device. Without month and day, these options unlock conservatively at a year difference of at least 17.",
+  "privacyAgeRestricted": "Usage statistics and crash reports cannot be enabled with this age declaration. Because only the year is known, the app requires a year difference of at least 17.",
   "gyeAgeYearHint": "e.g. 2005",
   "gyeOpenCta": "Open gye",
   "gyeTitle": "Gye",
@@ -1016,11 +1017,17 @@
   "bookResultCredentialsNotice": "Secure analysis is unavailable on this device. Sign in, check the connection, and try again.",
   "bookResultRateLimited": "Cloud analysis limit reached. Please try again in a minute.",
   "bookResultQualityNotice": "Uncertain or non-Korean content was kept out of vocabulary, grammar, and audio.",
+  "bookResultAmbiguousWord": "This word can have more than one meaning. Check which one fits the sentence.",
+  "bookResultAlternativeWord": "{word} is also possible. Check which meaning fits the sentence.",
+  "@bookResultAlternativeWord": {
+    "placeholders": {"word": {"type": "String"}}
+  },
   "bookResultTranslationUnavailable": "The translation service did not return every meaning. Check the result before saving or try again.",
   "bookResultNoKoreanNotice": "No reliable Korean text remained. Check the text or retake the page.",
   "bookResultSectionWords": "Words",
   "bookResultSectionExpressions": "Expressions",
   "bookResultSectionGrammar": "Grammar",
+  "bookResultOpenGrammar": "Open grammar card",
   "bookResultSectionSentences": "Sentences",
   "bookStudyAskTitle": "Ask {name} about this item",
   "@bookStudyAskTitle": {
@@ -1641,7 +1648,7 @@
   "listeningReviewTitle": "Review line by line",
   "listeningReviewBody": "Replay individual lines and open translations only when you need them.",
   "listeningReviewCta": "Review line by line",
-  "listeningBackToScroll": "Back to the scroll",
+  "listeningBackToScroll": "Back to the dialogue",
   "listeningNextStory": "Next story",
   "listeningTtsFailedTitle": "This line could not be played.",
   "listeningTtsFailedBody": "Try again or keep learning from the Korean text.",
@@ -1882,7 +1889,7 @@
   "kkeunmariSubmit": "Send",
   "kkeunmariDictionaryChecking": "Checking the dictionary…",
   "kkeunmariNotDictionaryWord": "This is not a dictionary word for the game.",
-  "kkeunmariDictionaryUnavailable": "The dictionary cannot be checked right now. Try a known word or try again shortly.",
+  "kkeunmariDictionaryUnavailable": "The online dictionary is unavailable. Your timer is paused. Try another word or send this one again.",
   "kkeunmariNotInPool": "I don't know that one yet. Try another word. 🐯",
   "kkeunmariNotKorean": "Hangul only, please",
   "kkeunmariWrongStart": "Must start with “{syl}”",
@@ -3207,6 +3214,14 @@
     }
   },
   "placementTitle": "Quick placement check",
+  "placementSkip": "I don't know yet",
+  "placementScope": "18 questions across A1 to C2. A recommendation needs at least two correct answers in each level up to that point. This checks understanding, not speaking or writing, and is not a language certificate.",
+  "coursePreviewTitle": "Explore learning content",
+  "coursePreviewBody": "Browse A1 to C2 topics, learning goals and activities. Looking around does not change your starting point or progress.",
+  "hanokHowTitle": "How does my Hanok grow?",
+  "hanokHowBody": "Open your learning path and complete a learning unit, including its required practice and checks. Completed units in A1 to B2 advance the Hanok shown here. Choosing a higher starting level or repeating an already completed unit does not add construction progress. You can explore the construction stages separately; browsing them does not build your Hanok.",
+  "hanokHowAction": "Open my learning path",
+  "dictionaryOfflineSourceRole": "Offline noun checks for Word Chain; headwords only, without definitions.",
   "placementProgress": "Question {current} of {total}",
   "placementNoRecording": "No recording. Just choose the best answer.",
   "placementSeeRecommendation": "See recommendation",
@@ -4228,6 +4243,9 @@
   },
   "ttsUnavailableChannelOff": "Pronunciation is muted. Settings → Sound",
   "ttsUnavailableQuota": "Daily voice limit reached. It resets tomorrow.",
+  "ttsUnavailableSession": "Your session couldn't be verified. Reopen the app and try again.",
+  "ttsUnavailablePolicy": "New audio generation is temporarily paused. Existing recordings are still available.",
+  "ttsUnavailableHourlyQuota": "Hourly voice limit reached. Try again later.",
   "ttsUnavailablePending": "The voice is being generated. Tap again in a moment.",
   "ttsUnavailableOffline": "Pronunciation unavailable. Are you online?",
   "ttsUnavailableAudio": "Audio isn’t available right now. Please try again.",
@@ -4480,7 +4498,7 @@
   "settingsBrowseLevelTitle": "Browse content level",
   "settingsBrowseLevelDescription": "Filters libraries and scenarios only. It does not move your learning path progress.",
   "settingsRecheckLevelTitle": "Recheck my level",
-  "settingsRecheckLevelDescription": "Take an optional eight-question check. Its result is a recommendation; you still choose your starting point.",
+  "settingsRecheckLevelDescription": "Try 18 questions across A1 to C2. The result suggests a learning starting point; you can choose another level.",
   "settingsCompanionVisibleTitle": "Show study buddy",
   "settingsCompanionVisibleDescription": "Hide or show your study buddy without changing the selected character.",
   "settingsGuideSection": "App guide",
@@ -4995,6 +5013,157 @@
   "onboardingJourneyBookShort": "Your book",
   "onboardingJourneyHanokShort": "Your hanok",
   "onboardingJourneyCompanionShort": "Your companion",
+  "questUnavailableTitle": "This exercise is unavailable",
+  "questUnavailableBody": "Go back and choose another exercise.",
+  "contentLearningGoals": "Topic learning goals",
+  "contentLearningGoalIntro": "How many lessons would you like to study each day? Each level has its own goal.",
+  "contentLearningGoal": "{level} · daily goal",
+  "@contentLearningGoal": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "contentLearningGoalCount": "{count, plural, =1{1 lesson} other{{count} lessons}}",
+  "@contentLearningGoalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningFree": "Free browse",
+  "contentLearningEditGoal": "Edit goal",
+  "contentLearningToday": "Today: {done} of {total, plural, =1{1 lesson} other{{total} lessons}}",
+  "@contentLearningToday": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningPackProgress": "{done} of {total, plural, =1{1 lesson} other{{total} lessons}} completed",
+  "@contentLearningPackProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningResume": "Resume",
+  "contentLearningStart": "Start lesson",
+  "contentLearningLearn": "Learn",
+  "contentLearningPractice": "Practise",
+  "contentLearningYourTurn": "Your turn",
+  "contentLearningNext": "Continue",
+  "contentLearningPrevious": "Previous",
+  "contentLearningCheck": "Check",
+  "contentLearningFinish": "Finish lesson",
+  "contentLearningDone": "Lesson complete",
+  "contentLearningTodayDone": "Your daily goal is complete",
+  "contentLearningResult": "{correct} of {total} answers correct. The lesson counts regardless of your score.",
+  "@contentLearningResult": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningExit": "Back to topics",
+  "contentLearningEndToday": "Finish for today",
+  "contentLearningPracticePending": "Expressions studied · practice still to do",
+  "contentLearningListeningPending": "Listening complete · practice still to do",
+  "contentLearningNeedsReview": "Completed · review needed",
+  "contentLearningReviewMistakes": "Review mistakes",
+  "contentLearningReviewTopic": "Review what you studied in this topic",
+  "contentLearningNextTopicLesson": "Next lesson in this topic",
+  "contentLearningEnd": "You have completed every lesson in this topic. You can review what you studied at any time.",
+  "contentLearningEmpty": "No lessons are available for this level yet.",
+  "contentLearningError": "That did not work. Your last saved progress is safe. Please try again.",
+  "contentLearningRetry": "Try again",
+  "contentLearningAudio": "Listen",
+  "contentLearningAudioError": "The audio could not be played. Tap Listen to try again.",
+  "contentLearningTranslation": "Show translation",
+  "contentLearningUsage": "Usage and alternatives",
+  "contentLearningEvidence": "Source passage",
+  "contentLearningCorrect": "Correct",
+  "contentLearningIncorrect": "Check the explanation",
+  "contentLearningOrder": "Put the words in order. Tap a selected word to return it.",
+  "contentLearningPosition": "{current} of {total}",
+  "@contentLearningPosition": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningReviewEmpty": "There are no studied questions to review here yet.",
+  "contentLearningYou": "You",
+  "contentLearningNarrator": "Narrator",
+  "contentLearningReviewNext": "Next review",
+  "contentLearningReviewDone": "Review complete",
+  "contentLearningPlayAll": "Play from here",
+  "contentLearningPause": "Pause",
+  "contentLearningExpressions": "Key expressions",
+  "contentLearningRoleplay": "Optional: practise the conversation",
+  "contentLearningGrammar": "Optional: explore the grammar",
+  "contentLearningRoleplayHint": "Reply aloud to the previous line. You can reveal the original response afterwards.",
+  "contentLearningReveal": "Reveal response",
+  "contentLearningBackResult": "Back to the result",
+  "contentLearningReviewResult": "{correct} of {total} answers correct. Reviewing does not change your daily goal.",
+  "@contentLearningReviewResult": {
+    "placeholders": {
+      "correct": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningExpressionCount": "{count, plural, =1{1 expression} other{{count} expressions}}",
+  "@contentLearningExpressionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningScenarioCount": "{count, plural, =1{1 conversation} other{{count} conversations}}",
+  "@contentLearningScenarioCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningShortLesson": "Short lesson · {count, plural, =1{1 expression} other{{count} expressions}}",
+  "@contentLearningShortLesson": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "contentLearningLearnAgain": "Learn again",
+  "contentLearningListenAgain": "Listen again",
+  "kkeunmariSelectionHint": "Play with your selected words that are in the verified game dictionary. At least two must connect.",
+  "kkeunmariSelectionEmpty": "Your selection has no word chain yet. Choose at least two words from the game dictionary where the last syllable of one is the first of another.",
+  "kkeunmariNotInSelection": "This word is not in your selection for this round.",
+  "learningPhasesIntro": "Explore the learning goals from A1 to C2 and practise related conversations. Your existing learning progress is preserved.",
   "hanokAssetsImageLoading": "Preparing the Hanok artwork…",
   "hanokAssetsCellularNeeded": "Start this download explicitly when using mobile data or an unknown connection.",
   "hanokAssetsDownloadNow": "Download",
@@ -5011,15 +5180,21 @@
   "hanokDownloadsSize": "Size: {size}",
   "@hanokDownloadsSize": {
     "placeholders": {
-      "size": {"type": "String"}
+      "size": {
+        "type": "String"
+      }
     }
   },
   "hanokDownloadsIncluded": "Included in the app",
   "hanokDownloadsDownloading": "Preparing {available} of {total}",
   "@hanokDownloadsDownloading": {
     "placeholders": {
-      "available": {"type": "String"},
-      "total": {"type": "String"}
+      "available": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
     }
   },
   "hanokDownloadsAvailableOffline": "Downloaded and available offline",
@@ -5027,8 +5202,12 @@
   "hanokDownloadsPartial": "{available} of {total} is ready",
   "@hanokDownloadsPartial": {
     "placeholders": {
-      "available": {"type": "String"},
-      "total": {"type": "String"}
+      "available": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
     }
   },
   "hanokDownloadsNotDownloaded": "Not downloaded",

@@ -688,12 +688,24 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                           style: tt.bodySmall.copyWith(color: s.textMuted),
                         ),
                         const SizedBox(height: 8),
-                        GestureDetector(
-                          onTap: () => TtsService.speak(widget.bonusPhrase!.ko),
-                          child: const Icon(
-                            Icons.volume_up_rounded,
-                            color: SoriColors.highlight,
-                            size: 22,
+                        Tooltip(
+                          message: t.ttsListenTarget(widget.bonusPhrase!.ko),
+                          excludeFromSemantics: true,
+                          child: IconButton(
+                            constraints: const BoxConstraints(
+                              minWidth: 48,
+                              minHeight: 48,
+                            ),
+                            onPressed: () =>
+                                TtsService.speak(widget.bonusPhrase!.ko),
+                            icon: Icon(
+                              Icons.volume_up_rounded,
+                              semanticLabel: t.ttsListenTarget(
+                                widget.bonusPhrase!.ko,
+                              ),
+                              color: SoriColors.highlight,
+                              size: 22,
+                            ),
                           ),
                         ),
                       ],
@@ -1103,21 +1115,25 @@ class _SpeakButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
-      button: true,
-      label: label,
-      child: Material(
-        color: SoriColors.primary.withValues(alpha: 0.12),
-        shape: const CircleBorder(),
-        clipBehavior: Clip.antiAlias,
-        child: InkWell(
-          onTap: () => TtsService.speak(text),
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Icon(
-              Icons.volume_up_rounded,
-              color: SoriColors.primary,
-              size: size,
+    return Tooltip(
+      message: label,
+      excludeFromSemantics: true,
+      child: Semantics(
+        button: true,
+        label: label,
+        child: Material(
+          color: SoriColors.primary.withValues(alpha: 0.12),
+          shape: const CircleBorder(),
+          clipBehavior: Clip.antiAlias,
+          child: InkWell(
+            onTap: () => TtsService.speak(text),
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Icon(
+                Icons.volume_up_rounded,
+                color: SoriColors.primary,
+                size: size,
+              ),
             ),
           ),
         ),

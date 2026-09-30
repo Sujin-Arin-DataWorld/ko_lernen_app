@@ -119,7 +119,7 @@ class PromotedBatchValidationTest(unittest.TestCase):
 class RelevelNormalizedLiveTest(unittest.TestCase):
     """Task T2.9a: validate_promoted_batch must tolerate a live/draft
     difference confined to level/pack_id (vocab) or level (cloze/satz/
-    smalltalk/pronunciation) for an id relevel_ledger.json records as
+    smalltalk/pronunciation/grammar) for an id relevel_ledger.json records as
     relevel-moved -- any other field differing must still fail. Exercises
     `_relevel_normalized_live` directly against small, hand-built fixture
     ledgers rather than the real (7000+ line) relevel_ledger.json, per the
@@ -182,18 +182,27 @@ class RelevelNormalizedLiveTest(unittest.TestCase):
         self.assertEqual(normalized["level"], "a1", "level is tolerated")
         self.assertEqual(normalized["topic"], "y", "topic is not tolerated -- must stay live's value")
 
-    def test_grammar_kind_is_never_ledger_tolerant(self) -> None:
-        # "grammar" is a valid relevel_ledger.py kind (its KINDS constant
-        # includes it), so this ledger entry is itself well-formed -- but
-        # neither relevel_bundle.py nor tool/relevel_vocab.py ever moves a
-        # grammar row, and LEDGER_TOLERANT_KINDS deliberately omits it
-        # (matches current tooling, not a hypothetical). Even a real,
-        # well-formed grammar ledger entry must not grant tolerance.
+    def test_grammar_normalizes_only_the_recorded_level_transition(self) -> None:
         ledger = self._ledger(self._entry("grammar_a1_topic", "grammar", from_level="a1", to_level="a2"))
-        draft = {"id": "grammar_a1_topic", "level": "a1"}
-        live = {"id": "grammar_a1_topic", "level": "a2"}
+        draft = {"id": "grammar_a1_topic", "level": "A1", "quiz_distractor_ids": "old"}
+        live = {"id": "grammar_a1_topic", "level": "A2", "quiz_distractor_ids": "new"}
         normalized = promoted._relevel_normalized_live("grammar", "grammar_a1_topic", live, draft, ledger)
-        self.assertEqual(normalized, live)
+        self.assertEqual(normalized, {**live, "level": "A1"})
+        self.assertEqual(live["level"], "A2", "normalization must not mutate live data")
+
+    def test_grammar_unknown_or_stale_transition_is_not_hidden(self) -> None:
+        ledger = self._ledger(self._entry("grammar_a1_topic", "grammar", from_level="a1", to_level="a2"))
+        for ident, before, after in (
+            ("grammar_a1_topic", "A1", "B1"),
+            ("grammar_a1_topic", "B1", "A2"),
+            ("grammar_a1_unknown", "A1", "A2"),
+        ):
+            with self.subTest(id=ident, before=before, after=after):
+                draft = {"id": ident, "level": before}
+                live = {"id": ident, "level": after}
+                normalized = promoted._relevel_normalized_live("grammar", ident, live, draft, ledger)
+                self.assertEqual(normalized, live)
+                self.assertNotEqual(normalized, draft)
 
 
 class RequireReviewedCopyRevisionBatchComposeTest(unittest.TestCase):

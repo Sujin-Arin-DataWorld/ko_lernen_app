@@ -21,6 +21,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 
+import 'support/scenario_stock_fixtures.dart';
 import 'support/scenario_fixtures.dart';
 
 /// Flutter 공식 접근성 가이드라인 자동 검사.
@@ -58,7 +59,9 @@ void main() {
     'practice hub': PracticeHubScreen.new,
     'vocab packs': VocabPacksScreen.new,
     'scenarios list': () => ScenariosListScreen(
-      loadScenarios: () async => const [scenarioAirportArrivalFixture],
+      loadScenarios: () async => [
+        stockedCatalogLesson(scenarioAirportArrivalFixture),
+      ],
     ),
     'scenario player vocabulary': () => ScenarioPlayerScreen.preview(
       fixture: const ScenarioPlayerPreviewFixture.action(

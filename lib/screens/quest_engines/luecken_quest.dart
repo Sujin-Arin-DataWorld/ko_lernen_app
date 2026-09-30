@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../models/scenario.dart';
 import '../../services/sound_service.dart';
 import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
+import 'quest_content.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
 import 'quest_models.dart';
@@ -164,8 +166,14 @@ class _LueckenQuestState extends State<LueckenQuest> {
     );
   }
 
+  bool get _hasContent =>
+      hasPlayableQuestContent(QuestType.luecken, widget.data);
+
   @override
   Widget build(BuildContext context) {
+    if (!_hasContent) {
+      return const SoriQuestEmptyState();
+    }
     final t = AppL10n.of(context);
     return QuestLayout(
       contentAlignment: Alignment.center,

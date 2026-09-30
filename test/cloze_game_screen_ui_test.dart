@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ import 'package:ko_lernen_app/widgets/sori/cloze_prompt.dart';
 import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:ko_lernen_app/widgets/sori/sheet.dart';
+import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
@@ -36,6 +38,16 @@ const _item = ClozeItem(
   distractors: ['운동을', '요리를', '독서를'],
 );
 
+const _nextItem = ClozeItem(
+  level: 'a1',
+  sentenceKo: '내일은 ＿＿＿ 합니다.',
+  answer: '여행을',
+  fullKo: '내일은 여행을 합니다.',
+  de: 'Morgen reise ich.',
+  en: 'Tomorrow I travel.',
+  distractors: ['운동을', '요리를', '독서를'],
+);
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -47,7 +59,7 @@ void main() {
     await Storage.init();
     await ClozeLoader.load();
     await DataLoader.loadVocab();
-    // T1(2.9) — _pick() 이 답 공개 직후 SoriSpeech.speak 을 자동 호출한다.
+    // T1 — 첫 문제 표시와 답 공개 모두 SoriSpeech.speak 을 자동 호출한다.
     // 스텁 없이는 이 파일의 기존 탭 테스트들이 실제 TtsService 로 흘러
     // in-flight 키를 잠근다(auto_speech_test_stub_guard_test.dart 의 T3
     // 함정) — 모든 테스트를 보호하려면 파일 단위 setUp 에 걸어야 한다.
@@ -417,13 +429,14 @@ void main() {
         ),
       );
       await _pumpUntilVisible(tester, find.byType(ClozePromptCard));
-      expect(speechStub.spoken, isEmpty, reason: '진입 시 무음이어야 한다');
+      expect(speechStub.spoken, [_item.fullKo], reason: '첫 문제는 표시 즉시 읽어야 한다');
 
       await tester.tap(find.text(_item.answer));
       await tester.pump();
       expect(speechStub.spoken, [
         _item.fullKo,
-      ], reason: '답 공개 직후 완성 문장을 1회 자동으로 읽어야 한다');
+        _item.fullKo,
+      ], reason: '답 공개 직후에도 완성 문장을 다시 읽어야 한다');
       expect(tester.takeException(), isNull);
       await tester.pump(const Duration(milliseconds: 1100));
     },
@@ -447,18 +460,57 @@ void main() {
       await tester.pump();
       expect(speechStub.spoken, [
         _item.fullKo,
-      ], reason: '오답이어도 정/오답 무관하게 완성 문장을 1회 자동으로 읽어야 한다');
+        _item.fullKo,
+      ], reason: '오답이어도 완성 문장을 다시 읽어야 한다');
       expect(tester.takeException(), isNull);
       await tester.pump(const Duration(milliseconds: 700));
     },
   );
 
-  // Fable R1 스포일러 정정: item.fullKo 는 빈칸이 채워진 "정답" 문장이다.
-  // 카드 좌상단 인디케이터(cloze_prompt.dart)와 카드 전체 탭(SoriSpeakable,
-  // cloze_game_screen.dart)이 둘 다 이 텍스트를 재생하므로, 답 공개 전엔
-  // 둘 다 죽어 있어야 한다("진입 무음, 답 공개 후 읽기").
+  testWidgets('waits for feedback speech before advancing to the next prompt', (
+    tester,
+  ) async {
+    _configureView(tester, const Size(390, 844));
+
+    await tester.pumpWidget(
+      _host(
+        locale: const Locale('de'),
+        textScale: 1,
+        child: const ClozeGameScreen(items: [_item, _nextItem]),
+      ),
+    );
+    await _pumpUntilVisible(tester, find.byType(ClozePromptCard));
+    final item = tester.widget<ClozePromptCard>(find.byType(ClozePromptCard)).item;
+    final feedbackSpeech = Completer<bool>();
+    SoriSpeech.speakImpl = (text, voice) {
+      speechStub.spoken.add(text);
+      return feedbackSpeech.future;
+    };
+
+    await tester.tap(find.text(item.answer));
+    await tester.pump(const Duration(seconds: 2));
+
+    expect(
+      tester.widget<SoriStudyFrame>(find.byType(SoriStudyFrame)).eyebrow,
+      startsWith('1 / 2'),
+      reason: '정답 피드백 음성이 끝나기 전에는 다음 문제로 넘어가면 안 된다',
+    );
+
+    feedbackSpeech.complete(true);
+    await tester.pump();
+
+    expect(
+      tester.widget<SoriStudyFrame>(find.byType(SoriStudyFrame)).eyebrow,
+      startsWith('2 / 2'),
+    );
+    expect(tester.takeException(), isNull);
+  });
+
+  // 답은 처음부터 자동 재생하지만, 카드의 수동 재생 컨트롤은 답 공개 후에만
+  // 보여야 한다. 이 컨트롤이 먼저 보이면 사용자가 정답 단어를 읽으며
+  // 발음을 확인하게 되어 듣기 문제의 의도가 흐려진다.
   testWidgets(
-    'before reveal: no speech indicator and tapping the card stays silent',
+    'before reveal: auto-speaks but keeps the manual speech control hidden',
     (tester) async {
       _configureView(tester, const Size(390, 844));
 
@@ -476,14 +528,15 @@ void main() {
         findsNothing,
         reason: '공개 전엔 인디케이터가 아예 렌더되면 안 된다',
       );
+      expect(speechStub.spoken, [_item.fullKo]);
 
       await tester.tap(find.byType(ClozePromptCard));
       await tester.pump();
 
       expect(
         speechStub.spoken,
-        isEmpty,
-        reason: '공개 전엔 카드를 탭해도 완성 문장이 재생되면 안 된다(스포일러)',
+        [_item.fullKo],
+        reason: '공개 전 카드 탭은 자동 재생에 추가 발화를 만들면 안 된다',
       );
       expect(tester.takeException(), isNull);
     },
@@ -514,12 +567,17 @@ void main() {
         findsOneWidget,
         reason: '공개 후엔 인디케이터가 보여야 한다',
       );
-      expect(speechStub.spoken, [_item.fullKo], reason: '공개 직후 자동 1회');
+      expect(
+        speechStub.spoken,
+        [_item.fullKo, _item.fullKo],
+        reason: '첫 문제와 답 공개 시 각각 자동 재생한다',
+      );
 
       await tester.tap(find.byType(ClozePromptCard));
       await tester.pump();
 
       expect(speechStub.spoken, [
+        _item.fullKo,
         _item.fullKo,
         _item.fullKo,
       ], reason: '공개 후엔 카드를 탭하면 완성 문장을 다시 들을 수 있어야 한다');

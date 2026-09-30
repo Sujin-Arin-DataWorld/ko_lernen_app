@@ -1,0 +1,80 @@
+name: Verify Play Internal Publication
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/play_internal_status.yml'
+      - 'tool/play_internal_status.cjs'
+      - 'tool/test_play_internal_status.cjs'
+      - 'functions/tts/package-lock.json'
+  workflow_dispatch:
+    inputs:
+      expected_version_code:
+        description: 'Exact uploaded internal versionCode to verify (for example 7602)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 1
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/workflows/play_internal_status.yml
+            /tool/play_internal_status.cjs
+            /tool/test_play_internal_status.cjs
+            /functions/tts/package.json
+            /functions/tts/package-lock.json
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - run: npm ci --ignore-scripts --prefix functions/tts
+      - run: node --test tool/test_play_internal_status.cjs
+
+  verify:
+    needs: test
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    environment:
+      name: google-play-internal
+    concurrency:
+      # GET-only verification must not replace a queued upload in its group.
+      group: google-play-internal-status
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 1
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/workflows/play_internal_status.yml
+            /tool/play_internal_status.cjs
+            /tool/test_play_internal_status.cjs
+            /functions/tts/package.json
+            /functions/tts/package-lock.json
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Install the existing locked Google auth dependency
+        run: npm ci --ignore-scripts --prefix functions/tts
+      - name: Read the exact internal release lifecycle without publishing
+        env:
+          EXPECTED_VERSION_CODE: ${{ inputs.expected_version_code }}
+          GOOGLE_PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
+        run: node tool/play_internal_status.cjs
+      - name: Preserve publication evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: play-internal-status-${{ github.run_id }}
+          path: play-internal-status.json
+          if-no-files-found: ignore
+          retention-days: 7

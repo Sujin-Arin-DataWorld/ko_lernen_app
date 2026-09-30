@@ -6,7 +6,11 @@ void main() {
   test(
     'new learning-data keys are registered in the cloud backup allowlist',
     () {
-      const requiredPayloadKeys = <String>['study_log_json', 'gram_plan_json'];
+      const requiredPayloadKeys = <String>[
+        'study_log_json',
+        'gram_plan_json',
+        'content_learning_json',
+      ];
       final cloudSyncSource = File(
         'lib/services/cloud_sync.dart',
       ).readAsStringSync();
@@ -30,6 +34,11 @@ void main() {
         cloudSyncSource.contains('Storage.grammarPlanRawJson'),
         isTrue,
         reason: 'the grammar plan is not read by the cloud-backup path',
+      );
+      expect(
+        exportSource.contains('contentLearning'),
+        isTrue,
+        reason: 'topic lesson progress is absent from the data exporter',
       );
       expect(
         exportSource.contains('studyLog') &&

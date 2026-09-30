@@ -21,14 +21,14 @@ import 'support/real_fonts.dart';
 ///
 /// Uses real fonts (`loadSoriRealFonts`) — this is a layout-budget
 /// (line-count) assertion, and the default test font's uniform 1em-square
-/// glyphs would silently invent wrap points the real Paperlogy/MaruBuri
-/// faces don't have.
+/// glyphs would silently invent wrap points the real Plex/Noto faces don't have.
 // §LAYOUT-3(J11): equivalent to `SoriTextTheme.hero`/`.chromeTitle`
 // (lib/widgets/sori/tokens.dart) minus the `color:` — layout/line-wrapping
 // never depends on color, only on family/size/weight/letterSpacing/height,
 // so this avoids needing a BuildContext/SoriSurfaces just to measure.
 const _heroStyle = TextStyle(
-  fontFamily: SoriFonts.culture,
+  fontFamily: SoriFonts.sans,
+  fontFamilyFallback: SoriFonts.fallback,
   fontSize: 36,
   fontWeight: FontWeight.w600,
   letterSpacing: -0.2,
@@ -36,6 +36,7 @@ const _heroStyle = TextStyle(
 );
 final _chromeTitleStyle = TextStyle(
   fontFamily: SoriFonts.sans,
+  fontFamilyFallback: SoriFonts.fallback,
   fontSize: SoriTypeSpecs.chromeTitle.size,
   fontWeight: SoriTypeSpecs.chromeTitle.weight,
   letterSpacing: SoriTypeSpecs.chromeTitle.letterSpacing,

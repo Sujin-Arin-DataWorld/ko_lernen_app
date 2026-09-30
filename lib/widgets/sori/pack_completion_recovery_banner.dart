@@ -20,60 +20,66 @@ class PackCompletionRecoveryBanner extends StatelessWidget {
   final VoidCallback onViewResult;
 
   @override
-  Widget build(BuildContext context) => Column(
-    children: [
-      ValueListenableBuilder<PackCompletionStatus>(
-        valueListenable: PackCompletionStorage.status,
-        builder: (context, status, _) {
-          if (status == PackCompletionStatus.ready) {
-            return const SizedBox.shrink();
-          }
-          final t = AppL10n.of(context);
-          return ConstrainedBox(
-            constraints: BoxConstraints(
-              maxHeight: MediaQuery.sizeOf(context).height * .25,
-            ),
-            child: SingleChildScrollView(
-              child: SafeArea(
-                bottom: false,
-                child: Padding(
-                  padding: const EdgeInsets.all(Spacing.sm),
-                  child: Material(
-                    color: SoriSurfaces.of(context).surface,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Semantics(
-                          liveRegion: true,
-                          child: Text(
-                            status == PackCompletionStatus.result
-                                ? t.packCompletionSaved
-                                : status == PackCompletionStatus.blocked
-                                ? t.vocabPackFinishSaveError
-                                : t.packCompletionPending,
-                            style: SoriTextTheme.of(context).caption,
+  Widget build(BuildContext context) => ListenableBuilder(
+    listenable: Listenable.merge([
+      PackCompletionStorage.status,
+      PackCompletionStorage.resultScreenVisible,
+    ]),
+    builder: (context, _) {
+      final status = PackCompletionStorage.status.value;
+      final showBanner =
+          status != PackCompletionStatus.ready &&
+          (status != PackCompletionStatus.result ||
+              !PackCompletionStorage.resultScreenVisible.value);
+      return Column(
+        children: [
+          if (showBanner)
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.sizeOf(context).height * .25,
+              ),
+              child: SingleChildScrollView(
+                child: SafeArea(
+                  bottom: false,
+                  child: Padding(
+                    padding: const EdgeInsets.all(Spacing.sm),
+                    child: Material(
+                      color: SoriSurfaces.of(context).surface,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Semantics(
+                            liveRegion: true,
+                            child: Text(
+                              status == PackCompletionStatus.result
+                                  ? AppL10n.of(context).packCompletionSaved
+                                  : status == PackCompletionStatus.blocked
+                                  ? AppL10n.of(context).vocabPackFinishSaveError
+                                  : AppL10n.of(context).packCompletionPending,
+                              style: SoriTextTheme.of(context).caption,
+                            ),
                           ),
-                        ),
-                        SoriButton.ghost(
-                          label: status == PackCompletionStatus.result
-                              ? t.packCompletionView
-                              : t.btnRetry,
-                          size: SoriButtonSize.md,
-                          onTap: status == PackCompletionStatus.result
-                              ? onViewResult
-                              : () => unawaited(PackCompletionStorage.retry()),
-                        ),
-                      ],
+                          SoriButton.ghost(
+                            label: status == PackCompletionStatus.result
+                                ? AppL10n.of(context).packCompletionView
+                                : AppL10n.of(context).btnRetry,
+                            size: SoriButtonSize.md,
+                            onTap: status == PackCompletionStatus.result
+                                ? onViewResult
+                                : () =>
+                                      unawaited(PackCompletionStorage.retry()),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          );
-        },
-      ),
-      Expanded(child: child),
-    ],
+          Expanded(child: child),
+        ],
+      );
+    },
   );
 }
 

@@ -14,6 +14,9 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 
+import 'support/scenario_stock_fixtures.dart';
+
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -227,6 +230,7 @@ Future<void> _pumpToGrammar(
       home: ScenarioPlayerScreen(
         scenarioId: scenario.id,
         scenarioLoader: (_) async => scenario,
+        questCorpusLoader: (_) async => stockedScenarioCorpus(scenario),
         grammarLoader: grammarLoader,
       ),
     ),
@@ -266,7 +270,17 @@ Scenario _scenario({
   grammarIds: grammarIds,
   grammarBlock: grammarBlock,
   dialog: dialog,
-  quests: const [],
+  // The grammar-stage assertions still run inside an admissible real lesson.
+  quests: const [
+    QuestSpec(
+      type: QuestType.luecken,
+      data: {
+        'sentence': '저는 ___이에요.',
+        'options': ['학생', '안녕'],
+        'correctIndex': 0,
+      },
+    ),
+  ],
 );
 
 Grammar _grammar(String id, String pattern) => Grammar(

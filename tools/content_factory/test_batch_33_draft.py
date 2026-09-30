@@ -883,7 +883,13 @@ class TestBatch33Packs(unittest.TestCase):
         for n in (31, 32, 33):
             path = DRAFTS / f"batch_{n}_a2_rows.csv"
             drafted |= {r["korean"] for r in _load_vocab_rows(path)}
-        self.assertEqual(len(g2 - live - drafted), 599)
+        # The manifest records the pre-2026-09-24 source normalization.
+        # Keep that historical receipt, but check today's corrected input
+        # without counting the two malformed joined headwords as vocabulary.
+        self.assertEqual(len(g2), 1083)
+        self.assertTrue({"셋째", "첫째"}.issubset(g2))
+        self.assertTrue({"셋째02‧셋째", "첫째02‧첫째"}.isdisjoint(g2))
+        self.assertEqual(len(g2 - live - drafted), 597)
 
     def test_sejong_leftovers_from_batch32_all_used(self):
         korean = {r["korean"] for r in self.rows}

@@ -11,6 +11,7 @@ import 'package:fake_async/fake_async.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/models/pack_progress.dart';
 import 'package:ko_lernen_app/services/diagnostics_service.dart';
 import 'package:ko_lernen_app/services/pack_sync_queue.dart';
@@ -52,6 +53,7 @@ void main() {
           canMirror: () => true,
           savePack: (p) async {
             saved.add(p);
+            return CloudWriteResult.completed;
           },
         );
 
@@ -83,6 +85,7 @@ void main() {
         canMirror: () => true,
         savePack: (p) async {
           saved.add(p);
+          return CloudWriteResult.completed;
         },
       );
 
@@ -107,6 +110,7 @@ void main() {
         canMirror: () => true,
         savePack: (p) async {
           saved.add(p);
+          return CloudWriteResult.completed;
         },
       );
 
@@ -138,6 +142,7 @@ void main() {
               throw StateError('firestore unavailable');
             }
             saved.add(p);
+            return CloudWriteResult.completed;
           },
         );
 
@@ -173,6 +178,7 @@ void main() {
         canMirror: () => true,
         savePack: (p) async {
           saved.add(p);
+          return CloudWriteResult.completed;
         },
       );
 
@@ -208,6 +214,7 @@ void main() {
           canMirror: () => true,
           savePack: (p) async {
             saved.add(p);
+            return CloudWriteResult.completed;
           },
         );
 
@@ -236,6 +243,7 @@ void main() {
           canMirror: () => true,
           savePack: (p) async {
             saved.add(p);
+            return CloudWriteResult.completed;
           },
         );
 
@@ -266,6 +274,7 @@ void main() {
           canMirror: () => true,
           savePack: (p) async {
             saved.add(p);
+            return CloudWriteResult.completed;
           },
         );
 
@@ -322,6 +331,7 @@ void main() {
         canMirror: () => true,
         savePack: (p) async {
           saved.add(p);
+          return CloudWriteResult.completed;
         },
       );
       await queue2.flushPendingFromStorage();

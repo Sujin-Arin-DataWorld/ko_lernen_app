@@ -63,7 +63,7 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
 
   void _next() {
     final selected = _selected;
-    if (selected == null) return;
+    if (selected == null || _done || _saving) return;
     // 배치고사는 진단이지 게임이 아니다 — 정답음/오답음을 넣으면 이 화면이 의도적으로
     // 감추는 "이 문항 틀렸다"가 소리로 새어나가고, 남은 문항 수행에도 영향을 준다.
     // 그래서 정오와 무관한 중립 확정 피드백만 준다.
@@ -141,9 +141,10 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(question.prompt(_lang), style: SoriTextTheme.of(context).h3),
-              if (question.korean.isNotEmpty) ...[
+              if (question.korean.isNotEmpty &&
+                  question.skill != PlacementDiagnosticSkill.listening) ...[
                 const SizedBox(height: Spacing.lg),
-                Text(question.korean, style: SoriTextTheme.of(context).display),
+                Text(question.korean, style: SoriTextTheme.of(context).body),
               ],
               // 청취 문제는 다시 듣기 버튼 제공(등장 시 자동 재생 + 재생 반복).
               if (question.skill == PlacementDiagnosticSkill.listening &&
@@ -202,12 +203,20 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
           fullWidth: true,
           onTap: _selected == null ? null : _next,
         ),
+        const SizedBox(height: Spacing.sm),
+        SoriButton.ghost(
+          label: t.placementSkip,
+          onTap: () {
+            _selected = -1;
+            _next();
+          },
+        ),
       ],
     );
   }
 
   Widget _result(AppL10n t, EdgeInsets padding) {
-    final recommendation = recommendPlacement(_correct);
+    final recommendation = recommendPlacement(_answers);
     return ListView(
       key: const ValueKey('placement-result'),
       primary: false,
@@ -239,6 +248,11 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
                   placementDiagnosticQuestions.length,
                 ),
                 style: SoriTextTheme.of(context).body,
+              ),
+              const SizedBox(height: Spacing.sm),
+              Text(
+                t.placementScope,
+                style: SoriTextTheme.of(context).bodySmall,
               ),
               const SizedBox(height: Spacing.lg),
               SoriButton.filled(

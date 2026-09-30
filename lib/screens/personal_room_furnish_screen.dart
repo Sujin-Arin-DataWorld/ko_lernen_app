@@ -489,12 +489,12 @@ class _RoomItemToolbar extends StatelessWidget {
                 onPressed: onMoveDown,
               ),
               _tool(
-                icon: Icons.zoom_out_map_rounded,
+                icon: Icons.zoom_in_map_rounded,
                 tooltip: t.personalRoomMakeSmaller,
                 onPressed: onSmaller,
               ),
               _tool(
-                icon: Icons.zoom_in_map_rounded,
+                icon: Icons.zoom_out_map_rounded,
                 tooltip: t.personalRoomMakeLarger,
                 onPressed: onLarger,
               ),

@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import re
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -67,11 +68,11 @@ class RenderAdjudicationPacketsTest(unittest.TestCase):
         )
 
     def test_packets_written_to_disk_exist(self) -> None:
-        rap.PACKETS_DIR.mkdir(parents=True, exist_ok=True)
-        for path, content in self.outputs.items():
-            path.write_text(content, encoding="utf-8")
-        for path in self.outputs:
-            self.assertTrue(path.is_file(), f"missing packet: {path}")
+        with tempfile.TemporaryDirectory() as directory:
+            for path, content in self.outputs.items():
+                output = Path(directory) / path.name
+                output.write_text(content, encoding="utf-8")
+                self.assertEqual(output.read_text(encoding="utf-8"), content)
 
     def test_scenarios52_row_count_and_ids(self) -> None:
         markdown = self.outputs[rap.PACKETS_DIR / "2026-09-15_adjudication_scenarios52.md"]

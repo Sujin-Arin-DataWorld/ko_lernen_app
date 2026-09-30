@@ -13,6 +13,9 @@ import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
+import 'support/scenario_stock_fixtures.dart';
+import 'support/sori_speech_stubs.dart';
+
 const _failedTarget = '실패 단어';
 const _passivelyShownWord = '소개만 단어';
 const _wrongOption = '다른 단어';
@@ -56,13 +59,17 @@ const _roleplayScenario = Scenario(
     DialogLine(speaker: 'partner', ko: '안녕하세요?', de: 'Hallo?', en: 'Hello?'),
     DialogLine(speaker: 'user', ko: '안녕하세요.', de: 'Guten Tag.', en: 'Hello.'),
   ],
-  quests: [],
+  // Keep the fixture admissible while this test exercises only roleplay Skip.
+  quests: [
+    QuestSpec(type: QuestType.diktat, data: {'targetKo': _roleplayTrackedWord}),
+  ],
 );
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    stubSoriSpeech();
     final view =
         TestWidgetsFlutterBinding.instance.platformDispatcher.views.first;
     view.physicalSize = const Size(480, 900);
@@ -152,6 +159,7 @@ void main() {
           home: ScenarioPlayerScreen(
             scenarioId: _scenario.id,
             scenarioLoader: (_) async => _scenario,
+            questCorpusLoader: (_) async => stockedScenarioCorpus(_scenario),
           ),
         ),
       );
@@ -233,6 +241,8 @@ void main() {
           home: ScenarioPlayerScreen(
             scenarioId: _roleplayScenario.id,
             scenarioLoader: (_) async => _roleplayScenario,
+            questCorpusLoader: (_) async =>
+                stockedScenarioCorpus(_roleplayScenario),
             grammarLoader: () async => const [],
             resultPersister: (_, _, _) async {
               persistenceCalls += 1;

@@ -11,18 +11,21 @@ void main() {
   // real ARB `soriStageCatalogCopy` select branch, not the ICU `other`
   // fallback — a key without a branch would silently render generic
   // "Reward"/"Belohnung" copy instead of the intended chip text.
-  test('every SoriCopyKey resolves to a real ARB branch, not the ICU other fallback', () {
-    for (final key in SoriCopyKey.values) {
-      expect(
-        AppL10nEn().soriStageCatalogCopy(key.name),
-        isNot(AppL10nEn().soriStageCatalogCopy('__none__')),
-      );
-      expect(
-        AppL10nDe().soriStageCatalogCopy(key.name),
-        isNot(AppL10nDe().soriStageCatalogCopy('__none__')),
-      );
-    }
-  });
+  test(
+    'every SoriCopyKey resolves to a real ARB branch, not the ICU other fallback',
+    () {
+      for (final key in SoriCopyKey.values) {
+        expect(
+          AppL10nEn().soriStageCatalogCopy(key.name),
+          isNot(AppL10nEn().soriStageCatalogCopy('__none__')),
+        );
+        expect(
+          AppL10nDe().soriStageCatalogCopy(key.name),
+          isNot(AppL10nDe().soriStageCatalogCopy('__none__')),
+        );
+      }
+    },
+  );
 
   test('Learn catalog maps every approved content family exactly once', () {
     final learn = soriActivityCatalog
@@ -38,13 +41,17 @@ void main() {
       'vocab_packs',
       'srs',
       'my_words',
+      'book_capture',
       'word_web',
       'grammar',
       'listening',
       'scenarios',
       'smalltalk',
     });
-    expect(learn, hasLength(12)); // W10 T-L2 (was 13)
+    expect(
+      learn,
+      hasLength(13),
+    ); // Dedicated illustrated book capture restored.
   });
 
   test('Games catalog maps every built-in and custom game exactly once', () {
@@ -67,10 +74,7 @@ void main() {
   });
 
   test('every entry has one stable id and complete action/reward metadata', () {
-    expect(
-      soriActivityCatalog.map((entry) => entry.id).toSet(),
-      hasLength(20), // W10 T-L2+T-L3 (was 23, then 22, now 20)
-    );
+    expect(soriActivityCatalog.map((entry) => entry.id).toSet(), hasLength(21));
     for (final entry in soriActivityCatalog) {
       expect(entry.route, startsWith('/'), reason: entry.id);
       expect(entry.minutes, greaterThan(0), reason: entry.id);
@@ -112,7 +116,6 @@ void main() {
       '/wordbook/search',
       '/bookshelf',
       '/hard_words',
-      '/book',
     ]) {
       expect(
         activityForRoute(route)?.id,
@@ -121,6 +124,9 @@ void main() {
             'legacy/detail route $route must resolve to its canonical owner',
       );
     }
+
+    expect(activityForRoute('/book')?.id, 'book_capture');
+    expect(activityForRoute('/book')?.learnSection, SoriLearnSection.words);
 
     // W10 T-L3: single merged launcher tile (was three: custom_quiz/
     // custom_matching/custom_typing).

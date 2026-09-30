@@ -1,0 +1,2098 @@
+{
+  "schemaVersion": 1,
+  "operation": "reconcile_batch12_selected_copy_and_observed_history",
+  "sourceHead": "b0b1745cf696ce2ba9c91b1c4b7964bff1e47811",
+  "reviewStatus": "MODEL_QA_REVIEWED",
+  "humanReviewStatus": "pending",
+  "approvalAdded": false,
+  "rightsAdded": false,
+  "frozenDraftsModified": false,
+  "runtimeChanged": true,
+  "originalPromotionCommit": "f9f3a9494676c1d07c9afbb69468e888d0dd3e81",
+  "firstParentIntegrationCommit": "d42a9fef4b54949e2c1608d761a8d434e2731cbb",
+  "historyScope": "Observed first-parent integration transitions; not approval, rights verification, or language QA.",
+  "historyReportSha256": "070762f4e97a08d34ba7d0d3011af2c7852d180cde566face93eac118f28bf8d",
+  "historyReportSummary": {
+    "records": 312,
+    "originalDraftLiveMismatches": 2,
+    "draftRowsChangedSincePromotion": 1,
+    "rawDraftLiveDifferences": 65,
+    "unparsedSnapshots": 3,
+    "transitionsByTrack": {
+      "draft": 1,
+      "review": 3,
+      "live": 67
+    }
+  },
+  "broaderHistoryGaps": [
+    {
+      "kind": "vocab",
+      "track": "draft",
+      "path": "tools/content_factory/drafts/c3_batch12_vocab_c1_c2.csv",
+      "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+      "blobSha256": "db7add19cedddc887408801d9cacb28858cebff345d39b930545a8a97c8af553",
+      "error": "tools/content_factory/drafts/c3_batch12_vocab_c1_c2.csv: CSV column mismatch at line 96, id=' productive discussion becomes difficult.'"
+    },
+    {
+      "kind": "vocab",
+      "track": "live",
+      "path": "assets/data/korean_vocab.csv",
+      "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+      "blobSha256": "4e52ce0ef940022ca1ee744a638049721c4247878139765aff0397069641c7ed",
+      "error": "assets/data/korean_vocab.csv: CSV column mismatch at line 1326, id=\"I decided not to tell anyone about Hyunwoo's childhood.\""
+    },
+    {
+      "kind": "vocab",
+      "track": "live",
+      "path": "assets/data/korean_vocab.csv",
+      "commit": "a5d496451f6b326cda3d7e0b29c34305a03070dc",
+      "blobSha256": "ff026193676815b8357572771efc7a7bd38bbca1c7ab3858b13b38e87dcd1060",
+      "error": "assets/data/korean_vocab.csv: CSV column mismatch at line 1326, id=\"I decided not to tell anyone about Hyunwoo's childhood.\""
+    }
+  ],
+  "approvalChronology": {
+    "status": "unresolved",
+    "recordedProvenanceDate": "2026-08-17",
+    "recordedApproval": {
+      "authority": "Jin",
+      "approvedAt": "2026-08-15",
+      "scope": "all records promoted to bundled app content"
+    },
+    "recordedMergedAt": "2026-08-15",
+    "reason": "Recorded approval and merge dates precede the stated provenance/design date. This pass preserves these records and does not verify who approved which content or when."
+  },
+  "frozenFiles": [
+    {
+      "path": "tools/content_factory/drafts/batch_12_manifest.json",
+      "sha256": "6a34c4ab8d2cc939de4baaa1c212ab7ffd4bbe33357b66053a1e97cd3e11acb5"
+    },
+    {
+      "path": "tools/content_factory/drafts/c3_batch12_vocab_c1_c2.csv",
+      "sha256": "2b52b97949e3d410adce4223ad64144ad918543c647d779a511b390b296dafd2"
+    },
+    {
+      "path": "tools/content_factory/review/c3_batch12_vocab_c1_c2.csv",
+      "sha256": "f6ffdaa9cdf149d1113a75efa9aaf67571790d51ba60637c2a1be85f0af25d52"
+    },
+    {
+      "path": "tools/content_factory/drafts/c4_batch12_grammar_c1_c2.csv",
+      "sha256": "1c5f360510cfd3cefe7e94c17b1d1fc615514d852243cedd75396121cbca905c"
+    },
+    {
+      "path": "tools/content_factory/review/c4_batch12_grammar_c1_c2.csv",
+      "sha256": "e6278e82b190a1a8401d99a76f0961989c87c0199c467b1021240a0423f44188"
+    },
+    {
+      "path": "tools/content_factory/drafts/c2_batch12_smalltalk_c1_c2.json",
+      "sha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6"
+    },
+    {
+      "path": "tools/content_factory/review/c2_batch12_smalltalk_c1_c2.csv",
+      "sha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b"
+    },
+    {
+      "path": "tools/content_factory/drafts/c2_batch12_cloze_c1_c2.json",
+      "sha256": "f5ac4f7818f626bafaccb0b6ff1f3086e68dab53531228904f460e9f5869a203"
+    },
+    {
+      "path": "tools/content_factory/review/c2_batch12_cloze_c1_c2.csv",
+      "sha256": "8fe7e457fa973cdde981b6642c8362f04411ea24c90c1f3a02a3f7b516d51e97"
+    },
+    {
+      "path": "tools/content_factory/drafts/c2_batch12_satz_c1_c2.json",
+      "sha256": "a2fc7bdd2de706872b584ced93eaaa04f9da1d7e60f0a02accd8e25199ec4b4f"
+    },
+    {
+      "path": "tools/content_factory/review/c2_batch12_satz_c1_c2.csv",
+      "sha256": "fc179dba56e3aceca71adc5efac200db6707dae552d5f3a2b7e6f6b21a15f56b"
+    }
+  ],
+  "preservedOwnershipFiles": [
+    {
+      "path": "assets/data/can_do_content_authorities.json",
+      "sha256": "8ce83a91794c4d7394b83d95fc08db8c003fe0f216c34d8ad71019e39d5785f1"
+    },
+    {
+      "path": "assets/data/can_do_segments.json",
+      "sha256": "f42ba3efaa312024ac54fcbc1cee84a50c1f0fc0fa9a19dbf601b3392729e4f6"
+    }
+  ],
+  "unresolvedCategoryChanges": {
+    "ids": [
+      "smalltalk_c2_0025",
+      "smalltalk_c2_0026"
+    ],
+    "status": "unresolved",
+    "currentUiMeaning": {
+      "ko": "전화",
+      "de": "Telefonieren",
+      "en": "On the phone"
+    },
+    "reason": "Both conversations can be used on a phone, but neither establishes that channel. The current c2_03_automation_redress unit fits their meaning; that does not prove the historical daily-to-phone category decision. No category exemption is registered or runtime category changed.",
+    "authoringSource": "tools/content_factory/data/batch_12_slice1_records.py"
+  },
+  "rows": [
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0025",
+      "beforeSha256": "364eae733bd0be1c5e64a2d19b96849871fb0272eaccc6c1665ebdab179cfd18",
+      "initialPromotionDelta": {},
+      "originalPromotedSha256": "364eae733bd0be1c5e64a2d19b96849871fb0272eaccc6c1665ebdab179cfd18",
+      "preCorrectionSha256": "6fba7aa256b29fce7bddf30efa918f00f843185b48162942cd5aa58e048e84ac",
+      "actualAfterSha256": "eef36c068a50198bb95a1a2f501ee25049a8553f0b87ee0c2cab0763116f352f",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c2_batch12_smalltalk_c1_c2.json",
+          "promotionBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "currentBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c1_0025",
+            "promotionSha256": "364eae733bd0be1c5e64a2d19b96849871fb0272eaccc6c1665ebdab179cfd18",
+            "currentSha256": "364eae733bd0be1c5e64a2d19b96849871fb0272eaccc6c1665ebdab179cfd18",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/c2_batch12_smalltalk_c1_c2.csv",
+          "promotionBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "currentBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c1_0025",
+            "promotionSha256": "e5857b1f5617069cad957f7e042a9771fb443d3e68f52eb4f091d83a2d18a5a8",
+            "currentSha256": "e5857b1f5617069cad957f7e042a9771fb443d3e68f52eb4f091d83a2d18a5a8",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/smalltalk.json",
+          "promotionBlobSha256": "ed4bdb161cc50303839c3e8f1330ca22f2d5f15981209688ff9d97b654bb67ff",
+          "currentBlobSha256": "c5cda7c6fb9339376a83863868adda173d669b1d0ee9ec7c792232a8ff6051ff",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c1_0025",
+            "promotionSha256": "364eae733bd0be1c5e64a2d19b96849871fb0272eaccc6c1665ebdab179cfd18",
+            "currentSha256": "6fba7aa256b29fce7bddf30efa918f00f843185b48162942cd5aa58e048e84ac",
+            "transitions": [
+              {
+                "commit": "a1c6aa5de241307c7fa5c69a50ed105116af0f4d",
+                "beforeSha256": "364eae733bd0be1c5e64a2d19b96849871fb0272eaccc6c1665ebdab179cfd18",
+                "afterSha256": "6fba7aa256b29fce7bddf30efa918f00f843185b48162942cd5aa58e048e84ac",
+                "fields": {
+                  "reply": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": {
+                      "ko": "숫자는 안 나오고 결론만 크게 나왔어요.",
+                      "de": "Zahlen kamen nicht vor, nur die Schlussfolgerung war groß.",
+                      "en": "No numbers came up, just a bold conclusion."
+                    },
+                    "after": {
+                      "ko": "숫자는 안 나오고 결론만 크게 나왔어요.",
+                      "de": "Es wurden keine Zahlen genannt, nur eine sehr weitreichende Schlussfolgerung.",
+                      "en": "There were no numbers, just a sweeping conclusion."
+                    }
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      },
+      "currentCorrections": {
+        "ko": {
+          "before": "그 영상 주장은 표본이 몇 명이었는지 나와 있었어요?",
+          "after": "그 영상에 표본이 몇 명이었는지 나와 있었어요?"
+        },
+        "reply.de": {
+          "before": "Es wurden keine Zahlen genannt, nur eine sehr weitreichende Schlussfolgerung.",
+          "after": "Es wurden keine Zahlen genannt; nur die Schlussfolgerung wurde hervorgehoben."
+        },
+        "reply.en": {
+          "before": "There were no numbers, just a sweeping conclusion.",
+          "after": "No figures were given; only the conclusion was highlighted."
+        }
+      },
+      "revisionRegistered": true,
+      "reasonKo": "표본 수를 묻는 한국어 주어·부사어를 바로잡고, 결론이 강조됐다는 말을 과도한 일반화라는 평가로 바꾸지 않는다.",
+      "current": {
+        "id": "smalltalk_c1_0025",
+        "category": "screen",
+        "level": "c1",
+        "kind": "question",
+        "ko": "그 영상에 표본이 몇 명이었는지 나와 있었어요?",
+        "de": "Stand in dem Video, wie groß die Stichprobe war?",
+        "en": "Did the video say how large the sample was?",
+        "reply": {
+          "ko": "숫자는 안 나오고 결론만 크게 나왔어요.",
+          "de": "Es wurden keine Zahlen genannt; nur die Schlussfolgerung wurde hervorgehoben.",
+          "en": "No figures were given; only the conclusion was highlighted."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "출처 링크는 설명란에 있었어요?",
+            "de": "War der Quellenlink in der Beschreibung?",
+            "en": "Was the source link in the description?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그러면 저도 한 번 더 확인해 볼게요.",
+          "de": "Dann schaue ich selbst noch einmal nach.",
+          "en": "Then I'll check it once more myself."
+        }
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0025",
+      "beforeSha256": "46923658c9577c94709272d285f2f55407d2c428edc64e2ea5d1e9691b40d6d7",
+      "initialPromotionDelta": {
+        "category": {
+          "before": "daily",
+          "after": "phone"
+        }
+      },
+      "originalPromotedSha256": "5562d8ce16b91684f106af7e3060e7af78d79c6c622d0de3eb98d84c3e21d374",
+      "preCorrectionSha256": "1e677bc32a63e09cb6c16a45284c5367f65d806481091901b1a989e85ac5e59e",
+      "actualAfterSha256": "1e677bc32a63e09cb6c16a45284c5367f65d806481091901b1a989e85ac5e59e",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c2_batch12_smalltalk_c1_c2.json",
+          "promotionBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "currentBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c2_0025",
+            "promotionSha256": "46923658c9577c94709272d285f2f55407d2c428edc64e2ea5d1e9691b40d6d7",
+            "currentSha256": "46923658c9577c94709272d285f2f55407d2c428edc64e2ea5d1e9691b40d6d7",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/c2_batch12_smalltalk_c1_c2.csv",
+          "promotionBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "currentBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c2_0025",
+            "promotionSha256": "3ea82da5d08a07582a835fb9bc0f0f44085dfc05122a4a256981f816515ca85e",
+            "currentSha256": "3ea82da5d08a07582a835fb9bc0f0f44085dfc05122a4a256981f816515ca85e",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/smalltalk.json",
+          "promotionBlobSha256": "ed4bdb161cc50303839c3e8f1330ca22f2d5f15981209688ff9d97b654bb67ff",
+          "currentBlobSha256": "c5cda7c6fb9339376a83863868adda173d669b1d0ee9ec7c792232a8ff6051ff",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c2_0025",
+            "promotionSha256": "5562d8ce16b91684f106af7e3060e7af78d79c6c622d0de3eb98d84c3e21d374",
+            "currentSha256": "1e677bc32a63e09cb6c16a45284c5367f65d806481091901b1a989e85ac5e59e",
+            "transitions": [
+              {
+                "commit": "a1c6aa5de241307c7fa5c69a50ed105116af0f4d",
+                "beforeSha256": "5562d8ce16b91684f106af7e3060e7af78d79c6c622d0de3eb98d84c3e21d374",
+                "afterSha256": "1e677bc32a63e09cb6c16a45284c5367f65d806481091901b1a989e85ac5e59e",
+                "fields": {
+                  "de": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Rechnung Einspruch einlegt?",
+                    "after": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt?"
+                  },
+                  "en": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "If you appeal an automatically calculated bill, does a person review it again?",
+                    "after": "If you challenge an automatically calculated charge, does a person review it?"
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      },
+      "currentCorrections": {},
+      "revisionRegistered": false,
+      "reasonKo": "요금과 청구서를 구분한 기존 번역을 검토했다. 최초 승격의 daily→phone 채널 변경은 근거가 미해결이므로 copy 예외로 등록하지 않는다.",
+      "current": {
+        "id": "smalltalk_c2_0025",
+        "category": "phone",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?",
+        "de": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt?",
+        "en": "If you challenge an automatically calculated charge, does a person review it?",
+        "reply": {
+          "ko": "같은 시스템이 다시 돌린다고만 안내받았어요.",
+          "de": "Mir wurde nur gesagt, dasselbe System rechne erneut.",
+          "en": "I was only told the same system runs it again."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "결과는 며칠 안에 통보되나요?",
+            "de": "In wie vielen Tagen kommt die Mitteilung?",
+            "en": "Within how many days does the notification come?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그러면 서면으로 남겨 두는 편이 낫겠네요.",
+          "de": "Dann ist es besser, das schriftlich festzuhalten.",
+          "en": "Then it's better to put it in writing."
+        }
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0026",
+      "beforeSha256": "a9f76cc93fc60998dedecb33ffcbfad7c78a0a0b1c033713e5d8be5780f09361",
+      "initialPromotionDelta": {
+        "category": {
+          "before": "daily",
+          "after": "phone"
+        }
+      },
+      "originalPromotedSha256": "9f817c0b3cce3089a4060acd6ff8a5044b9ad09c67c81d35417d4e03a500755a",
+      "preCorrectionSha256": "abb97eaf1dd9741324a92d9ba2808102be39c9e8237fe22c60e202ae63909700",
+      "actualAfterSha256": "85c444f9f2e3a5e43c899176eba127a00b10c5605979c1f5440defb8f2632d07",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c2_batch12_smalltalk_c1_c2.json",
+          "promotionBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "currentBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c2_0026",
+            "promotionSha256": "a9f76cc93fc60998dedecb33ffcbfad7c78a0a0b1c033713e5d8be5780f09361",
+            "currentSha256": "a9f76cc93fc60998dedecb33ffcbfad7c78a0a0b1c033713e5d8be5780f09361",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/c2_batch12_smalltalk_c1_c2.csv",
+          "promotionBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "currentBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c2_0026",
+            "promotionSha256": "1cb02f330308489f2ed3c10f47be642fecdb999759ad817b091a9089276f9280",
+            "currentSha256": "1cb02f330308489f2ed3c10f47be642fecdb999759ad817b091a9089276f9280",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/smalltalk.json",
+          "promotionBlobSha256": "ed4bdb161cc50303839c3e8f1330ca22f2d5f15981209688ff9d97b654bb67ff",
+          "currentBlobSha256": "c5cda7c6fb9339376a83863868adda173d669b1d0ee9ec7c792232a8ff6051ff",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c2_0026",
+            "promotionSha256": "9f817c0b3cce3089a4060acd6ff8a5044b9ad09c67c81d35417d4e03a500755a",
+            "currentSha256": "abb97eaf1dd9741324a92d9ba2808102be39c9e8237fe22c60e202ae63909700",
+            "transitions": [
+              {
+                "commit": "a1c6aa5de241307c7fa5c69a50ed105116af0f4d",
+                "beforeSha256": "9f817c0b3cce3089a4060acd6ff8a5044b9ad09c67c81d35417d4e03a500755a",
+                "afterSha256": "abb97eaf1dd9741324a92d9ba2808102be39c9e8237fe22c60e202ae63909700",
+                "fields": {
+                  "de": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Dass es eine Stelle gibt, heißt noch nicht, dass Abhilfe kommt.",
+                    "after": "Nur weil es eine Anlaufstelle gibt, ist noch keine wirksame Abhilfe gewährleistet."
+                  },
+                  "en": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Having a desk to complain to doesn't mean redress follows.",
+                    "after": "Having an appeals channel does not guarantee an effective remedy."
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      },
+      "currentCorrections": {
+        "de": {
+          "before": "Nur weil es eine Anlaufstelle gibt, ist noch keine wirksame Abhilfe gewährleistet.",
+          "after": "Ich habe festgestellt, dass eine Anlaufstelle noch keine wirksame Abhilfe garantiert."
+        },
+        "en": {
+          "before": "Having an appeals channel does not guarantee an effective remedy.",
+          "after": "I've found that having an appeals channel doesn't necessarily mean you get redress."
+        },
+        "followUp.ko": {
+          "before": "그 숫자가 없으면 절차만 남는 셈이죠.",
+          "after": "그 숫자가 없으면 실제로 구제가 되는지 판단하기 어렵죠."
+        },
+        "followUp.de": {
+          "before": "Ohne diese Zahl bleibt nur das Verfahren übrig.",
+          "after": "Ohne diese Zahl lässt sich schwer beurteilen, ob tatsächlich Abhilfe geschaffen wird."
+        },
+        "followUp.en": {
+          "before": "Without that number only the procedure is left.",
+          "after": "Without that figure, it's hard to judge whether people actually get redress."
+        }
+      },
+      "revisionRegistered": false,
+      "reasonKo": "경험적 발견을 복원한다. 통계가 없다는 사실에서 실제 구제도 없다는 결론을 내리지 않는다. phone 채널 분류는 별도 미해결이다.",
+      "current": {
+        "id": "smalltalk_c2_0026",
+        "category": "phone",
+        "level": "c2",
+        "kind": "reaction",
+        "ko": "창구가 있다고 해서 구제가 되는 건 아니더라고요.",
+        "de": "Ich habe festgestellt, dass eine Anlaufstelle noch keine wirksame Abhilfe garantiert.",
+        "en": "I've found that having an appeals channel doesn't necessarily mean you get redress.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이의가 받아들여진 비율은 공개돼 있나요?",
+            "de": "Ist veröffentlicht, wie oft Einsprüche Erfolg haben?",
+            "en": "Is it published how often appeals succeed?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그 숫자가 없으면 실제로 구제가 되는지 판단하기 어렵죠.",
+          "de": "Ohne diese Zahl lässt sich schwer beurteilen, ob tatsächlich Abhilfe geschaffen wird.",
+          "en": "Without that figure, it's hard to judge whether people actually get redress."
+        }
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0027",
+      "beforeSha256": "453c9550eac742a305b33e49fea55abdd85203b8ffb34332c73570d3bb77b16a",
+      "initialPromotionDelta": {},
+      "originalPromotedSha256": "453c9550eac742a305b33e49fea55abdd85203b8ffb34332c73570d3bb77b16a",
+      "preCorrectionSha256": "cafc24cb56dadd5dbf85b081cbf7e46a0fda32d6b55c4465d3c5e8f81a7efc37",
+      "actualAfterSha256": "859265f9c3f575cd87014bfe8cd4c09fb71fdf5876e2ba97ebb8b5475d331721",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c2_batch12_smalltalk_c1_c2.json",
+          "promotionBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "currentBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c1_0027",
+            "promotionSha256": "453c9550eac742a305b33e49fea55abdd85203b8ffb34332c73570d3bb77b16a",
+            "currentSha256": "453c9550eac742a305b33e49fea55abdd85203b8ffb34332c73570d3bb77b16a",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/c2_batch12_smalltalk_c1_c2.csv",
+          "promotionBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "currentBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c1_0027",
+            "promotionSha256": "8d0e8db71a9b45545b1c97e637bfb4a85c16ec090356f1d8f49ff4689dd508cc",
+            "currentSha256": "8d0e8db71a9b45545b1c97e637bfb4a85c16ec090356f1d8f49ff4689dd508cc",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/smalltalk.json",
+          "promotionBlobSha256": "ed4bdb161cc50303839c3e8f1330ca22f2d5f15981209688ff9d97b654bb67ff",
+          "currentBlobSha256": "c5cda7c6fb9339376a83863868adda173d669b1d0ee9ec7c792232a8ff6051ff",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c1_0027",
+            "promotionSha256": "453c9550eac742a305b33e49fea55abdd85203b8ffb34332c73570d3bb77b16a",
+            "currentSha256": "cafc24cb56dadd5dbf85b081cbf7e46a0fda32d6b55c4465d3c5e8f81a7efc37",
+            "transitions": [
+              {
+                "commit": "a1c6aa5de241307c7fa5c69a50ed105116af0f4d",
+                "beforeSha256": "453c9550eac742a305b33e49fea55abdd85203b8ffb34332c73570d3bb77b16a",
+                "afterSha256": "cafc24cb56dadd5dbf85b081cbf7e46a0fda32d6b55c4465d3c5e8f81a7efc37",
+                "fields": {
+                  "de": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Haben Sie Daten gesehen, dass die Zeitbegrenzung beim Spielen wirklich gewirkt hat?",
+                    "after": "Haben Sie Daten gesehen, die zeigen, dass die Spielzeitbegrenzung tatsächlich wirksam war?"
+                  },
+                  "reply": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": {
+                      "ko": "시간이 줄었다는 표는 봤는데 잠은 그대로였어요.",
+                      "de": "Ich sah eine Tabelle mit weniger Zeit, der Schlaf blieb aber gleich.",
+                      "en": "I saw a table with less time, but sleep stayed the same."
+                    },
+                    "after": {
+                      "ko": "시간이 줄었다는 표는 봤는데 잠은 그대로였어요.",
+                      "de": "Ich habe eine Tabelle gesehen, nach der die Spielzeit sank; am Schlaf änderte sich aber nichts.",
+                      "en": "I saw a table with less time, but sleep stayed the same."
+                    }
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      },
+      "currentCorrections": {
+        "reply.en": {
+          "before": "I saw a table with less time, but sleep stayed the same.",
+          "after": "I saw a table showing that gaming time had fallen, but there was no change in sleep."
+        },
+        "followUp.de": {
+          "before": "Bei einer anderen Altersgruppe fällt der Schluss anders aus.",
+          "after": "Bei einer anderen Altersgruppe dürfte die Schlussfolgerung auch anders ausfallen."
+        },
+        "followUp.en": {
+          "before": "With a different age group the conclusion changes.",
+          "after": "With a different age group, the conclusion would probably differ too."
+        }
+      },
+      "revisionRegistered": true,
+      "reasonKo": "줄어든 것이 게임 시간임을 분명히 하고, 연령대에 따른 결론 변화를 확정하지 않고 추론으로 남긴다.",
+      "current": {
+        "id": "smalltalk_c1_0027",
+        "category": "hobby",
+        "level": "c1",
+        "kind": "question",
+        "ko": "게임 시간 제한이 실제로 효과가 있었다는 자료 보신 적 있어요?",
+        "de": "Haben Sie Daten gesehen, die zeigen, dass die Spielzeitbegrenzung tatsächlich wirksam war?",
+        "en": "Have you seen data showing the play-time limit actually worked?",
+        "reply": {
+          "ko": "시간이 줄었다는 표는 봤는데 잠은 그대로였어요.",
+          "de": "Ich habe eine Tabelle gesehen, nach der die Spielzeit sank; am Schlaf änderte sich aber nichts.",
+          "en": "I saw a table showing that gaming time had fallen, but there was no change in sleep."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 자료는 어느 연령대였어요?",
+            "de": "Welche Altersgruppe war das?",
+            "en": "Which age group was that?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "연령대가 다르면 결론도 달라지겠네요.",
+          "de": "Bei einer anderen Altersgruppe dürfte die Schlussfolgerung auch anders ausfallen.",
+          "en": "With a different age group, the conclusion would probably differ too."
+        }
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0027",
+      "beforeSha256": "40ec741df4d24c67e9053b1bff313db732c8cb1ba85268730dc36783ad846b4d",
+      "initialPromotionDelta": {},
+      "originalPromotedSha256": "40ec741df4d24c67e9053b1bff313db732c8cb1ba85268730dc36783ad846b4d",
+      "preCorrectionSha256": "88687e220fa66c32fc93e0e278e084818a02fd6e2c2693814517d785a474380d",
+      "actualAfterSha256": "fc5f2a3ff6295c1f18fd10f7eeeab6011e37ecb44223497298bbe6f2d9c06e33",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c2_batch12_smalltalk_c1_c2.json",
+          "promotionBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "currentBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c2_0027",
+            "promotionSha256": "40ec741df4d24c67e9053b1bff313db732c8cb1ba85268730dc36783ad846b4d",
+            "currentSha256": "40ec741df4d24c67e9053b1bff313db732c8cb1ba85268730dc36783ad846b4d",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/c2_batch12_smalltalk_c1_c2.csv",
+          "promotionBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "currentBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c2_0027",
+            "promotionSha256": "fbf4ea1df04f3585ea501fda46c52086bb37814acc6bcc8a5e8168ce933a4815",
+            "currentSha256": "fbf4ea1df04f3585ea501fda46c52086bb37814acc6bcc8a5e8168ce933a4815",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/smalltalk.json",
+          "promotionBlobSha256": "ed4bdb161cc50303839c3e8f1330ca22f2d5f15981209688ff9d97b654bb67ff",
+          "currentBlobSha256": "c5cda7c6fb9339376a83863868adda173d669b1d0ee9ec7c792232a8ff6051ff",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c2_0027",
+            "promotionSha256": "40ec741df4d24c67e9053b1bff313db732c8cb1ba85268730dc36783ad846b4d",
+            "currentSha256": "88687e220fa66c32fc93e0e278e084818a02fd6e2c2693814517d785a474380d",
+            "transitions": [
+              {
+                "commit": "a1c6aa5de241307c7fa5c69a50ed105116af0f4d",
+                "beforeSha256": "40ec741df4d24c67e9053b1bff313db732c8cb1ba85268730dc36783ad846b4d",
+                "afterSha256": "88687e220fa66c32fc93e0e278e084818a02fd6e2c2693814517d785a474380d",
+                "fields": {
+                  "de": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Wie viel vom Grund erfährt man, wenn ein Konto automatisch gesperrt wird?",
+                    "after": "Wie ausführlich wird die Begründung mitgeteilt, wenn ein Konto automatisch gesperrt wird?"
+                  },
+                  "en": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "How much of the reason are you told when an account is suspended automatically?",
+                    "after": "How much explanation are you given when an account is suspended automatically?"
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      },
+      "currentCorrections": {
+        "followUp.ko": {
+          "before": "기한이 없으면 다투기가 훨씬 어렵죠.",
+          "after": "기한을 모르면 다투기가 훨씬 어렵죠."
+        },
+        "followUp.de": {
+          "before": "Ohne Frist wird das Anfechten deutlich schwerer.",
+          "after": "Wenn man die Frist nicht kennt, ist es deutlich schwerer, die Sperre anzufechten."
+        },
+        "followUp.en": {
+          "before": "With no deadline it's far harder to contest.",
+          "after": "If you don't know the deadline, it's much harder to challenge the suspension."
+        }
+      },
+      "revisionRegistered": true,
+      "reasonKo": "이의 제기 기한을 안내받지 못한 상황과 기한 자체가 없는 상황을 구분한다.",
+      "current": {
+        "id": "smalltalk_c2_0027",
+        "category": "hobby",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동으로 계정이 정지되면 사유를 어디까지 알려 주나요?",
+        "de": "Wie ausführlich wird die Begründung mitgeteilt, wenn ein Konto automatisch gesperrt wird?",
+        "en": "How much explanation are you given when an account is suspended automatically?",
+        "reply": {
+          "ko": "규정 위반이라는 문장 하나가 전부였어요.",
+          "de": "Ein Satz über einen Regelverstoß war alles.",
+          "en": "One line about a rule breach was all of it."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이의를 넣을 기한은 안내받으셨어요?",
+            "de": "Wurde Ihnen eine Frist für den Einspruch genannt?",
+            "en": "Were you told a deadline for appealing?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "기한을 모르면 다투기가 훨씬 어렵죠.",
+          "de": "Wenn man die Frist nicht kennt, ist es deutlich schwerer, die Sperre anzufechten.",
+          "en": "If you don't know the deadline, it's much harder to challenge the suspension."
+        }
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0029",
+      "beforeSha256": "d425af34af9a8413471752e19ceab23d240f120a65a7a60641eb746c73198e6b",
+      "initialPromotionDelta": {},
+      "originalPromotedSha256": "d425af34af9a8413471752e19ceab23d240f120a65a7a60641eb746c73198e6b",
+      "preCorrectionSha256": "8e361dcadb3d106e8bfcffd5dfbebe13d199ef758ac9239e4aea2edd4f941157",
+      "actualAfterSha256": "905ba76ed6ef62bb5002e96173312fc98e73aec2453a3fb3f238d99d098c3a39",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c2_batch12_smalltalk_c1_c2.json",
+          "promotionBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "currentBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c1_0029",
+            "promotionSha256": "d425af34af9a8413471752e19ceab23d240f120a65a7a60641eb746c73198e6b",
+            "currentSha256": "d425af34af9a8413471752e19ceab23d240f120a65a7a60641eb746c73198e6b",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/c2_batch12_smalltalk_c1_c2.csv",
+          "promotionBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "currentBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c1_0029",
+            "promotionSha256": "05ed61aa5c5cb9b5b8e4609781f7c0ae7e7cb3762e08ee14ff56d261df07b370",
+            "currentSha256": "05ed61aa5c5cb9b5b8e4609781f7c0ae7e7cb3762e08ee14ff56d261df07b370",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/smalltalk.json",
+          "promotionBlobSha256": "ed4bdb161cc50303839c3e8f1330ca22f2d5f15981209688ff9d97b654bb67ff",
+          "currentBlobSha256": "c5cda7c6fb9339376a83863868adda173d669b1d0ee9ec7c792232a8ff6051ff",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c1_0029",
+            "promotionSha256": "d425af34af9a8413471752e19ceab23d240f120a65a7a60641eb746c73198e6b",
+            "currentSha256": "8e361dcadb3d106e8bfcffd5dfbebe13d199ef758ac9239e4aea2edd4f941157",
+            "transitions": [
+              {
+                "commit": "a1c6aa5de241307c7fa5c69a50ed105116af0f4d",
+                "beforeSha256": "d425af34af9a8413471752e19ceab23d240f120a65a7a60641eb746c73198e6b",
+                "afterSha256": "8e361dcadb3d106e8bfcffd5dfbebe13d199ef758ac9239e4aea2edd4f941157",
+                "fields": {
+                  "de": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Zu wie vielt wechseln Sie sich bei den Übersetzungen für das Konto ab?",
+                    "after": "Wie viele Personen teilen sich die Übersetzungen für dieses Konto?"
+                  },
+                  "reply": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": {
+                      "ko": "요즘은 사실상 두 명이 다 하고 있어요.",
+                      "de": "Im Moment machen es faktisch zwei Personen allein.",
+                      "en": "Right now two people effectively do all of it."
+                    },
+                    "after": {
+                      "ko": "요즘은 사실상 두 명이 다 하고 있어요.",
+                      "de": "Im Moment erledigen praktisch zwei Personen alles.",
+                      "en": "Right now two people effectively do all of it."
+                    }
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      },
+      "currentCorrections": {
+        "de": {
+          "before": "Wie viele Personen teilen sich die Übersetzungen für dieses Konto?",
+          "after": "Wie viele von euch wechseln sich bei den Übersetzungen für diesen Account ab?"
+        },
+        "safeAlternativeQuestions.0.de": {
+          "before": "Stocken Sie in der Comeback-Zeit auf?",
+          "after": "Holt ihr während eines Comebacks noch mehr Leute dazu?"
+        },
+        "followUp.de": {
+          "before": "Gerade dann ballt es sich am meisten.",
+          "after": "Gerade dann dürfte am meisten Arbeit anfallen. Das macht mir Sorgen."
+        },
+        "followUp.en": {
+          "before": "That's exactly when it piles up most.",
+          "after": "That's probably when the workload is heaviest, so I'm worried."
+        }
+      },
+      "revisionRegistered": true,
+      "reasonKo": "교대 번역, 예상되는 업무 집중과 걱정을 보존한다. 친근한 또래 말투를 현지화 선택으로 사용하되 peer가 du를 입증한다고 주장하지 않는다.",
+      "current": {
+        "id": "smalltalk_c1_0029",
+        "category": "kpop",
+        "level": "c1",
+        "kind": "question",
+        "ko": "그 계정 번역은 몇 분이서 돌아가면서 하세요?",
+        "de": "Wie viele von euch wechseln sich bei den Übersetzungen für diesen Account ab?",
+        "en": "How many of you take turns on the translations for that account?",
+        "reply": {
+          "ko": "요즘은 사실상 두 명이 다 하고 있어요.",
+          "de": "Im Moment erledigen praktisch zwei Personen alles.",
+          "en": "Right now two people effectively do all of it."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "컴백 기간에는 인원을 더 늘리세요?",
+            "de": "Holt ihr während eines Comebacks noch mehr Leute dazu?",
+            "en": "Do you add more people during a comeback?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그때가 제일 몰릴 텐데 걱정이네요.",
+          "de": "Gerade dann dürfte am meisten Arbeit anfallen. Das macht mir Sorgen.",
+          "en": "That's probably when the workload is heaviest, so I'm worried."
+        }
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0030",
+      "beforeSha256": "f217eb08f30bc7cfe0b8af77842c0b448729483aec5639bc3aa79fcc8c6a08cd",
+      "initialPromotionDelta": {},
+      "originalPromotedSha256": "f217eb08f30bc7cfe0b8af77842c0b448729483aec5639bc3aa79fcc8c6a08cd",
+      "preCorrectionSha256": "bd4a97ecde401104ff38bccc0cecc378c0a6ee703e8d375420179cd0f5f1dbdc",
+      "actualAfterSha256": "63c1071d7c9ec39fe0f04908c45f0be02f1370a75fed7f7625d0796ad32f53f2",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c2_batch12_smalltalk_c1_c2.json",
+          "promotionBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "currentBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c1_0030",
+            "promotionSha256": "f217eb08f30bc7cfe0b8af77842c0b448729483aec5639bc3aa79fcc8c6a08cd",
+            "currentSha256": "f217eb08f30bc7cfe0b8af77842c0b448729483aec5639bc3aa79fcc8c6a08cd",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/c2_batch12_smalltalk_c1_c2.csv",
+          "promotionBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "currentBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c1_0030",
+            "promotionSha256": "901ecbafdc10706a712a2be48332e1e85dc0efc44a4cbb5cb39ab0ea515f8537",
+            "currentSha256": "901ecbafdc10706a712a2be48332e1e85dc0efc44a4cbb5cb39ab0ea515f8537",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/smalltalk.json",
+          "promotionBlobSha256": "ed4bdb161cc50303839c3e8f1330ca22f2d5f15981209688ff9d97b654bb67ff",
+          "currentBlobSha256": "c5cda7c6fb9339376a83863868adda173d669b1d0ee9ec7c792232a8ff6051ff",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c1_0030",
+            "promotionSha256": "f217eb08f30bc7cfe0b8af77842c0b448729483aec5639bc3aa79fcc8c6a08cd",
+            "currentSha256": "bd4a97ecde401104ff38bccc0cecc378c0a6ee703e8d375420179cd0f5f1dbdc",
+            "transitions": [
+              {
+                "commit": "a1c6aa5de241307c7fa5c69a50ed105116af0f4d",
+                "beforeSha256": "f217eb08f30bc7cfe0b8af77842c0b448729483aec5639bc3aa79fcc8c6a08cd",
+                "afterSha256": "bd4a97ecde401104ff38bccc0cecc378c0a6ee703e8d375420179cd0f5f1dbdc",
+                "fields": {
+                  "de": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Auch was man gern macht, hält nur mit festgelegtem Umfang lange.",
+                    "after": "Auch Arbeit, die man gern macht, lässt sich auf Dauer nur bewältigen, wenn der Umfang begrenzt ist."
+                  },
+                  "en": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Even work you enjoy only lasts if the amount is fixed.",
+                    "after": "Even work you enjoy is only sustainable if the workload is capped."
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      },
+      "currentCorrections": {
+        "de": {
+          "before": "Auch Arbeit, die man gern macht, lässt sich auf Dauer nur bewältigen, wenn der Umfang begrenzt ist.",
+          "after": "Ich habe gemerkt, dass auch Arbeit, die man gern macht, auf Dauer nur mit einem begrenzten Pensum machbar ist."
+        },
+        "en": {
+          "before": "Even work you enjoy is only sustainable if the workload is capped.",
+          "after": "I've found that even work you enjoy is only sustainable if the workload is capped."
+        },
+        "safeAlternativeQuestions.0.de": {
+          "before": "Auf wie viele Stunden pro Woche haben Sie sich festgelegt?",
+          "after": "Wie viele Stunden pro Woche sind dafür fest eingeplant?"
+        },
+        "followUp.de": {
+          "before": "So ist auch die Prüfungszeit zu schaffen.",
+          "after": "So dürfte auch die Prüfungszeit zu schaffen sein."
+        }
+      },
+      "revisionRegistered": true,
+      "reasonKo": "업무량 제한의 지속 가능성을 경험에서 얻었다는 말투와 시험 기간에 대한 전망을 보존한다. 시간 질문에 개인·팀을 새로 특정하지 않는다.",
+      "current": {
+        "id": "smalltalk_c1_0030",
+        "category": "kpop",
+        "level": "c1",
+        "kind": "reaction",
+        "ko": "좋아서 하는 일이라도 양이 정해져 있어야 오래 가더라고요.",
+        "de": "Ich habe gemerkt, dass auch Arbeit, die man gern macht, auf Dauer nur mit einem begrenzten Pensum machbar ist.",
+        "en": "I've found that even work you enjoy is only sustainable if the workload is capped.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "주당 몇 시간으로 정해 두셨어요?",
+            "de": "Wie viele Stunden pro Woche sind dafür fest eingeplant?",
+            "en": "How many hours a week did you settle on?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그 정도면 시험 기간에도 버티겠네요.",
+          "de": "So dürfte auch die Prüfungszeit zu schaffen sein.",
+          "en": "That should hold up even during exams."
+        }
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0029",
+      "beforeSha256": "a087b87b70424acfd5930bd1094e7dda665477d2f8ef20a215ef8f6137e3bba7",
+      "initialPromotionDelta": {},
+      "originalPromotedSha256": "a087b87b70424acfd5930bd1094e7dda665477d2f8ef20a215ef8f6137e3bba7",
+      "preCorrectionSha256": "07dce0c7817027f8dce263af00f4dd346ea072736ffc84e882119b4377b68899",
+      "actualAfterSha256": "526109e1201f36d7cf40116a566746820806dc827984b25ad12929cfbc4f7db2",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c2_batch12_smalltalk_c1_c2.json",
+          "promotionBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "currentBlobSha256": "e04337dc9e82940ba9bb2ff9baaafe116e44c7aa99b8dad06a35767fc11c24b6",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c2_0029",
+            "promotionSha256": "a087b87b70424acfd5930bd1094e7dda665477d2f8ef20a215ef8f6137e3bba7",
+            "currentSha256": "a087b87b70424acfd5930bd1094e7dda665477d2f8ef20a215ef8f6137e3bba7",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/c2_batch12_smalltalk_c1_c2.csv",
+          "promotionBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "currentBlobSha256": "708494a1536e1e2215a70eaaba4d5245f5375b43e3fb931bfd9e287102804d4b",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c2_0029",
+            "promotionSha256": "03ab1b4e881308ca08ae58678746424d33d62ac278d5f5eddcdc8fa0738924e0",
+            "currentSha256": "03ab1b4e881308ca08ae58678746424d33d62ac278d5f5eddcdc8fa0738924e0",
+            "transitions": []
+          }
+        },
+        "live": {
+          "path": "assets/data/smalltalk.json",
+          "promotionBlobSha256": "ed4bdb161cc50303839c3e8f1330ca22f2d5f15981209688ff9d97b654bb67ff",
+          "currentBlobSha256": "c5cda7c6fb9339376a83863868adda173d669b1d0ee9ec7c792232a8ff6051ff",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "smalltalk_c2_0029",
+            "promotionSha256": "a087b87b70424acfd5930bd1094e7dda665477d2f8ef20a215ef8f6137e3bba7",
+            "currentSha256": "07dce0c7817027f8dce263af00f4dd346ea072736ffc84e882119b4377b68899",
+            "transitions": [
+              {
+                "commit": "a1c6aa5de241307c7fa5c69a50ed105116af0f4d",
+                "beforeSha256": "a087b87b70424acfd5930bd1094e7dda665477d2f8ef20a215ef8f6137e3bba7",
+                "afterSha256": "07dce0c7817027f8dce263af00f4dd346ea072736ffc84e882119b4377b68899",
+                "fields": {
+                  "de": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Aus wessen Sicht ist die Geschichte inzwischen erzählt, würden Sie sagen?",
+                    "after": "Aus wessen Perspektive wird die Geschichte inzwischen erzählt?"
+                  },
+                  "en": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Whose side do you think the story is told from by now?",
+                    "after": "Whose perspective do you think shapes the way the story is being told now?"
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      },
+      "currentCorrections": {
+        "de": {
+          "before": "Aus wessen Perspektive wird die Geschichte inzwischen erzählt?",
+          "after": "Aus wessen Perspektive wird die Geschichte deiner Meinung nach inzwischen erzählt?"
+        },
+        "reply.de": {
+          "before": "Nur meine Version wurde mehrfach geglättet.",
+          "after": "Mir ist aufgefallen, dass nur meine Version mehrfach überarbeitet wurde."
+        },
+        "reply.en": {
+          "before": "Only my version got smoothed over several times.",
+          "after": "I realized that only my side of the story had been polished several times."
+        },
+        "safeAlternativeQuestions.0.de": {
+          "before": "Haben Sie auch die Darstellung der anderen Seite gehört?",
+          "after": "Hast du auch die Darstellung der anderen Seite gehört?"
+        }
+      },
+      "revisionRegistered": true,
+      "reasonKo": "관점에 대한 의견 요청과 말이 다듬어진 것을 발견한 경험을 복원하고 close_friend 관계에서 du를 사용한다.",
+      "current": {
+        "id": "smalltalk_c2_0029",
+        "category": "dating",
+        "level": "c2",
+        "kind": "question",
+        "ko": "그 이야기 지금은 누구 입장에서 정리돼 있는 것 같으세요?",
+        "de": "Aus wessen Perspektive wird die Geschichte deiner Meinung nach inzwischen erzählt?",
+        "en": "Whose perspective do you think shapes the way the story is being told now?",
+        "reply": {
+          "ko": "제 쪽 이야기만 여러 번 다듬어졌더라고요.",
+          "de": "Mir ist aufgefallen, dass nur meine Version mehrfach überarbeitet wurde.",
+          "en": "I realized that only my side of the story had been polished several times."
+        },
+        "relationshipContext": "close_friend",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "상대 쪽 설명도 들어 보셨어요?",
+            "de": "Hast du auch die Darstellung der anderen Seite gehört?",
+            "en": "Have you heard the other side's account too?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "양쪽을 붙여 보면 다르게 보일 수도 있겠어요.",
+          "de": "Nebeneinandergelegt sieht es vielleicht anders aus.",
+          "en": "Placed side by side it might look different."
+        }
+      }
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0219",
+      "beforeSha256": "76f0bccc4cb799f24d3a858008bc86cce641bacc7012312859db461b483ffda5",
+      "initialPromotionDelta": {},
+      "originalPromotedSha256": "76f0bccc4cb799f24d3a858008bc86cce641bacc7012312859db461b483ffda5",
+      "preCorrectionSha256": "5d929826d1b11cd9e92a87a28b45ecbdfe46a57c6bca1723df004101ff14db83",
+      "actualAfterSha256": "5d929826d1b11cd9e92a87a28b45ecbdfe46a57c6bca1723df004101ff14db83",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c2_batch12_cloze_c1_c2.json",
+          "promotionBlobSha256": "f5ac4f7818f626bafaccb0b6ff1f3086e68dab53531228904f460e9f5869a203",
+          "currentBlobSha256": "f5ac4f7818f626bafaccb0b6ff1f3086e68dab53531228904f460e9f5869a203",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "cloze_c2_0219",
+            "promotionSha256": "76f0bccc4cb799f24d3a858008bc86cce641bacc7012312859db461b483ffda5",
+            "currentSha256": "76f0bccc4cb799f24d3a858008bc86cce641bacc7012312859db461b483ffda5",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/c2_batch12_cloze_c1_c2.csv",
+          "promotionBlobSha256": "3da0ed43c5a2caa78636b2e18495049b5e50789c97b351f7c4738a83cfb4f676",
+          "currentBlobSha256": "8fe7e457fa973cdde981b6642c8362f04411ea24c90c1f3a02a3f7b516d51e97",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "cloze_c2_0219",
+            "promotionSha256": "e6a4bd3920546ae60c38b33b8b1cb74b19305ad2c75f77cd84e1dfac18596f2f",
+            "currentSha256": "8a4292db55f70fc572a75e6bb4ba66904b23b7c2a4992c6c19b93eedec5289da",
+            "transitions": [
+              {
+                "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+                "beforeSha256": "e6a4bd3920546ae60c38b33b8b1cb74b19305ad2c75f77cd84e1dfac18596f2f",
+                "afterSha256": "8a4292db55f70fc572a75e6bb4ba66904b23b7c2a4992c6c19b93eedec5289da",
+                "fields": {
+                  "de": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Beginnt die namentliche Benennung einer bestimmten Person, endet das Gespräch.",
+                    "after": "Wenn persönliche Vorwürfe gegen eine bestimmte Person die sachliche Auseinandersetzung verdrängen, wird ein produktives Gespräch schwierig."
+                  },
+                  "en": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Once calling out a specific person by name starts, the conversation stops.",
+                    "after": "When criticism of a specific individual begins to overshadow the issue itself, productive discussion becomes difficult."
+                  },
+                  "field_notes": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "rights: original; answer=호명; topic=Diskurs & Macht",
+                    "after": "rights: original; answer=비난; topic=Diskurs & Macht"
+                  },
+                  "ko": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "특정인을 향한 호명이 시작되면 대화가 멈춥니다.",
+                    "after": "논점보다 특정 개인에 대한 비난이 앞서기 시작하면 생산적인 대화가 어려워집니다."
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        },
+        "live": {
+          "path": "assets/data/cloze.json",
+          "promotionBlobSha256": "69a7fc47ff45c63d663c7b8b910314f8719eec5bd637783d365b7c46eed1513d",
+          "currentBlobSha256": "0533149a005e609b3f3ae9658765dbe81247b9a180e23e0fbfdd4e2464b08da7",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "cloze_c2_0219",
+            "promotionSha256": "76f0bccc4cb799f24d3a858008bc86cce641bacc7012312859db461b483ffda5",
+            "currentSha256": "5d929826d1b11cd9e92a87a28b45ecbdfe46a57c6bca1723df004101ff14db83",
+            "transitions": [
+              {
+                "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+                "beforeSha256": "76f0bccc4cb799f24d3a858008bc86cce641bacc7012312859db461b483ffda5",
+                "afterSha256": "bef6e7b0fef888ab5204c3e3d589d48b491c20c31ca3412042b6b9a1f78cf5a8",
+                "fields": {
+                  "answer": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "호명",
+                    "after": "비난"
+                  },
+                  "de": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Beginnt die namentliche Benennung einer bestimmten Person, endet das Gespräch.",
+                    "after": "Wenn persönliche Vorwürfe gegen eine bestimmte Person die sachliche Auseinandersetzung verdrängen, wird ein produktives Gespräch schwierig."
+                  },
+                  "en": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Once calling out a specific person by name starts, the conversation stops.",
+                    "after": "When criticism of a specific individual begins to overshadow the issue itself, productive discussion becomes difficult."
+                  },
+                  "fullKo": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "특정인을 향한 호명이 시작되면 대화가 멈춥니다.",
+                    "after": "논점보다 특정 개인에 대한 비난이 앞서기 시작하면 생산적인 대화가 어려워집니다."
+                  },
+                  "sentenceKo": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "특정인을 향한 ＿＿＿이 시작되면 대화가 멈춥니다.",
+                    "after": "논점보다 특정 개인에 대한 ＿＿＿이 앞서기 시작하면 생산적인 대화가 어려워집니다."
+                  }
+                },
+                "unparsedInterval": []
+              },
+              {
+                "commit": "aa0d932f69f6f738cb3ecd4847656edc0e7a09ff",
+                "beforeSha256": "bef6e7b0fef888ab5204c3e3d589d48b491c20c31ca3412042b6b9a1f78cf5a8",
+                "afterSha256": "5d929826d1b11cd9e92a87a28b45ecbdfe46a57c6bca1723df004101ff14db83",
+                "fields": {
+                  "distractors": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": [
+                      "배제",
+                      "결집",
+                      "동조"
+                    ],
+                    "after": [
+                      "결집",
+                      "시정",
+                      "소급"
+                    ]
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      },
+      "currentCorrections": {},
+      "revisionRegistered": true,
+      "reasonKo": "호명과 비난을 혼동하던 과거 수정 이력을 보존한다. 현재 비난 예문은 vocab 및 Satz와 일치하며 세 오답은 번역의 비난 의미를 충족하지 않는다.",
+      "current": {
+        "id": "cloze_c2_0219",
+        "level": "c2",
+        "sentenceKo": "논점보다 특정 개인에 대한 ＿＿＿이 앞서기 시작하면 생산적인 대화가 어려워집니다.",
+        "answer": "비난",
+        "fullKo": "논점보다 특정 개인에 대한 비난이 앞서기 시작하면 생산적인 대화가 어려워집니다.",
+        "de": "Wenn persönliche Vorwürfe gegen eine bestimmte Person die sachliche Auseinandersetzung verdrängen, wird ein produktives Gespräch schwierig.",
+        "en": "When criticism of a specific individual begins to overshadow the issue itself, productive discussion becomes difficult.",
+        "distractors": [
+          "결집",
+          "시정",
+          "소급"
+        ],
+        "topic": "Diskurs & Macht"
+      }
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0221",
+      "beforeSha256": "c326ab99d3fef52caf9df5cd8a49018a0eb1b06e508b5c9f9ebb44270e0a477f",
+      "initialPromotionDelta": {},
+      "originalPromotedSha256": "c326ab99d3fef52caf9df5cd8a49018a0eb1b06e508b5c9f9ebb44270e0a477f",
+      "preCorrectionSha256": "edc879bacc29a332d5a70708651b9f9ce677ab0592bad012cdfcd71c54d43490",
+      "actualAfterSha256": "edc879bacc29a332d5a70708651b9f9ce677ab0592bad012cdfcd71c54d43490",
+      "historyTracks": {
+        "draft": {
+          "path": "tools/content_factory/drafts/c2_batch12_satz_c1_c2.json",
+          "promotionBlobSha256": "a2fc7bdd2de706872b584ced93eaaa04f9da1d7e60f0a02accd8e25199ec4b4f",
+          "currentBlobSha256": "a2fc7bdd2de706872b584ced93eaaa04f9da1d7e60f0a02accd8e25199ec4b4f",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "satz_c2_0221",
+            "promotionSha256": "c326ab99d3fef52caf9df5cd8a49018a0eb1b06e508b5c9f9ebb44270e0a477f",
+            "currentSha256": "c326ab99d3fef52caf9df5cd8a49018a0eb1b06e508b5c9f9ebb44270e0a477f",
+            "transitions": []
+          }
+        },
+        "review": {
+          "path": "tools/content_factory/review/c2_batch12_satz_c1_c2.csv",
+          "promotionBlobSha256": "da75882088d7ba9f702ee1f14b2fe09c2e0b72216868f809ae443b8a0881c4f5",
+          "currentBlobSha256": "fc179dba56e3aceca71adc5efac200db6707dae552d5f3a2b7e6f6b21a15f56b",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "satz_c2_0221",
+            "promotionSha256": "7f6eb65a4c789a1f9f588c776bf90972cdd6512a3bf1aa33bbe2bdc183e7dc89",
+            "currentSha256": "8fcfda778d9bdcaec43a732304b4512edce2b1a353dfd2bd69978ab628642860",
+            "transitions": [
+              {
+                "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+                "beforeSha256": "7f6eb65a4c789a1f9f588c776bf90972cdd6512a3bf1aa33bbe2bdc183e7dc89",
+                "afterSha256": "8fcfda778d9bdcaec43a732304b4512edce2b1a353dfd2bd69978ab628642860",
+                "fields": {
+                  "de": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Beginnt die namentliche Benennung einer bestimmten Person, endet das Gespräch.",
+                    "after": "Wenn persönliche Vorwürfe gegen eine bestimmte Person die sachliche Auseinandersetzung verdrängen, wird ein produktives Gespräch schwierig."
+                  },
+                  "en": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Once calling out a specific person by name starts, the conversation stops.",
+                    "after": "When criticism of a specific individual begins to overshadow the issue itself, productive discussion becomes difficult."
+                  },
+                  "field_notes": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "rights: original; vocabKo=호명",
+                    "after": "rights: original; vocabKo=비난"
+                  },
+                  "ko": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "특정인을 향한 호명이 시작되면 대화가 멈춥니다.",
+                    "after": "논점보다 특정 개인에 대한 비난이 앞서기 시작하면 생산적인 대화가 어려워집니다."
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        },
+        "live": {
+          "path": "assets/data/satz_sentences.json",
+          "promotionBlobSha256": "42510e5e67de391d5b19d458c0107957d86397a8cf70b2c71cd3a42fb201310b",
+          "currentBlobSha256": "adb73b30df67bf09a1f79fd340c6d7e967706b1e8a345fcee38260511ff559ab",
+          "historyComplete": true,
+          "unparsedSnapshots": [],
+          "row": {
+            "id": "satz_c2_0221",
+            "promotionSha256": "c326ab99d3fef52caf9df5cd8a49018a0eb1b06e508b5c9f9ebb44270e0a477f",
+            "currentSha256": "edc879bacc29a332d5a70708651b9f9ce677ab0592bad012cdfcd71c54d43490",
+            "transitions": [
+              {
+                "commit": "49545be7bb1c5d5eb21635e29b42fe467e43328b",
+                "beforeSha256": "c326ab99d3fef52caf9df5cd8a49018a0eb1b06e508b5c9f9ebb44270e0a477f",
+                "afterSha256": "edc879bacc29a332d5a70708651b9f9ce677ab0592bad012cdfcd71c54d43490",
+                "fields": {
+                  "promptDe": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Beginnt die namentliche Benennung einer bestimmten Person, endet das Gespräch.",
+                    "after": "Wenn persönliche Vorwürfe gegen eine bestimmte Person die sachliche Auseinandersetzung verdrängen, wird ein produktives Gespräch schwierig."
+                  },
+                  "promptEn": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "Once calling out a specific person by name starts, the conversation stops.",
+                    "after": "When criticism of a specific individual begins to overshadow the issue itself, productive discussion becomes difficult."
+                  },
+                  "targetKo": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "특정인을 향한 호명이 시작되면 대화가 멈춥니다.",
+                    "after": "논점보다 특정 개인에 대한 비난이 앞서기 시작하면 생산적인 대화가 어려워집니다."
+                  },
+                  "vocabKo": {
+                    "beforePresent": true,
+                    "afterPresent": true,
+                    "before": "호명",
+                    "after": "비난"
+                  }
+                },
+                "unparsedInterval": []
+              }
+            ]
+          }
+        }
+      },
+      "currentCorrections": {},
+      "revisionRegistered": true,
+      "reasonKo": "현재 비난 예문을 유지하고 호명에서 바뀐 Git 이력을 기록한다. 관련 vocab CSV의 과거 파싱 공백을 별도로 남긴다.",
+      "current": {
+        "id": "satz_c2_0221",
+        "level": "c2",
+        "targetKo": "논점보다 특정 개인에 대한 비난이 앞서기 시작하면 생산적인 대화가 어려워집니다.",
+        "promptDe": "Wenn persönliche Vorwürfe gegen eine bestimmte Person die sachliche Auseinandersetzung verdrängen, wird ein produktives Gespräch schwierig.",
+        "promptEn": "When criticism of a specific individual begins to overshadow the issue itself, productive discussion becomes difficult.",
+        "distractors": [
+          "위계가",
+          "잣대를"
+        ],
+        "vocabKo": "비난"
+      }
+    }
+  ],
+  "curriculumReviewStatus": "unresolved",
+  "unresolvedCurriculum": [
+    {
+      "field": "courseUnits",
+      "id": "c1_03_media_evidence_literacy",
+      "before": {
+        "id": "c1_03_media_evidence_literacy",
+        "level": "c1",
+        "order": 3,
+        "title": {
+          "ko": "대중 매체의 근거 읽기",
+          "de": "Evidenz in populären Medien lesen",
+          "en": "Reading evidence in popular media"
+        },
+        "canDo": {
+          "ko": "널리 퍼진 주장의 표본과 방법을 확인해 그 근거가 어디까지 말할 수 있는지 한정할 수 있어요.",
+          "de": "Ich kann Stichprobe und Methode einer verbreiteten Behauptung prüfen und eingrenzen, was die Evidenz trägt.",
+          "en": "I can check the sample and method behind a widespread claim and bound what its evidence supports."
+        },
+        "requiredConceptIds": [
+          "concept_c1_media_evidence"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c1_limited_to"
+        ]
+      },
+      "current": {
+        "id": "c1_03_media_evidence_literacy",
+        "level": "c1",
+        "order": 3,
+        "title": {
+          "ko": "미디어 자료의 출처와 확정 수준 판단하기",
+          "de": "Quelle und Bestätigungsgrad von Medienmaterial beurteilen",
+          "en": "Assessing the source and confirmation level of media evidence"
+        },
+        "canDo": {
+          "ko": "미디어 자료의 출처·확정 수준·보도 가치를 구분해 신중한 표현을 선택할 수 있어요.",
+          "de": "Ich kann Quelle, Bestätigungsgrad und Nachrichtenwert von Medienmaterial unterscheiden und angemessene Formulierungen wählen.",
+          "en": "I can distinguish the source, confirmation level, and news value of media evidence and choose careful wording."
+        },
+        "requiredConceptIds": [
+          "concept_c1_media_evidence"
+        ],
+        "checkpointContentIds": [
+          "scenario:deepfake_verification"
+        ]
+      },
+      "beforeSha256": "1aa6511163c5dab4c2f7577b3141994d067a673e56a7d1c799d0a5b3cc5e2ad6",
+      "currentSha256": "67d2a015c9e4cd815d48df656355279c5b1ae6cd7cb581494f91cc3dc365f55c",
+      "changedFields": [
+        "canDo",
+        "checkpointContentIds",
+        "title"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "courseUnits",
+      "id": "c2_03_automation_redress",
+      "before": {
+        "id": "c2_03_automation_redress",
+        "level": "c2",
+        "order": 3,
+        "title": {
+          "ko": "자동 처리와 구제 절차",
+          "de": "Automatische Bearbeitung und Rechtsweg",
+          "en": "Automated processing and redress"
+        },
+        "canDo": {
+          "ko": "자동 처리로 생긴 손해의 구제 경로가 형식에 그치지 않도록 조건과 기한을 요구할 수 있어요.",
+          "de": "Ich kann Bedingungen und Fristen fordern, damit der Rechtsweg bei Schäden aus automatischer Bearbeitung nicht formal bleibt.",
+          "en": "I can demand conditions and deadlines so that redress for automated errors is more than a formality."
+        },
+        "requiredConceptIds": [
+          "concept_c2_automation_redress"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c2_no_more_than_doing"
+        ]
+      },
+      "current": {
+        "id": "c2_03_automation_redress",
+        "level": "c2",
+        "order": 3,
+        "title": {
+          "ko": "자동 판단의 이의 제기와 재심 설계하기",
+          "de": "Widerspruch und Überprüfung automatisierter Entscheidungen gestalten",
+          "en": "Designing appeals and review for automated decisions"
+        },
+        "canDo": {
+          "ko": "자동 판단의 오류 위험과 운영 비용을 고려해 설명·이의 제기·재심 절차를 설계할 수 있어요.",
+          "de": "Ich kann unter Berücksichtigung von Fehlerrisiko und Aufwand Verfahren für Erklärung, Widerspruch und Überprüfung automatisierter Entscheidungen gestalten.",
+          "en": "I can design explanation, appeal, and review processes for automated decisions while considering error risk and operational cost."
+        },
+        "requiredConceptIds": [
+          "concept_c2_automation_redress"
+        ],
+        "checkpointContentIds": [
+          "scenario:ai_hiring_appeal"
+        ]
+      },
+      "beforeSha256": "8fd73d02b5dd4f389c97520be245c64371d3494c310c05d41901a9f5236f577f",
+      "currentSha256": "07cb4188a1b4b41f568f18cb83de2c496eb7545855d5df9aa8d34031aab63c39",
+      "changedFields": [
+        "canDo",
+        "checkpointContentIds",
+        "title"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "courseUnits",
+      "id": "c1_04_play_time_policy",
+      "before": {
+        "id": "c1_04_play_time_policy",
+        "level": "c1",
+        "order": 4,
+        "title": {
+          "ko": "이용시간 규제안 검토",
+          "de": "Regulierungsvorschläge zur Spielzeit prüfen",
+          "en": "Reviewing play-time regulation"
+        },
+        "canDo": {
+          "ko": "이용시간 자료를 근거로 규제안의 효과와 부작용을 함께 놓고 검토할 수 있어요.",
+          "de": "Ich kann anhand von Spielzeitdaten Wirkung und Nebenwirkungen eines Regulierungsvorschlags nebeneinander prüfen.",
+          "en": "I can weigh a play-time rule's effect and its side effects together, using the usage data as grounds."
+        },
+        "requiredConceptIds": [
+          "concept_c1_play_time_policy"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c1_not_necessarily"
+        ]
+      },
+      "current": {
+        "id": "c1_04_play_time_policy",
+        "level": "c1",
+        "order": 4,
+        "title": {
+          "ko": "규제의 목적·예외·집행 설계하기",
+          "de": "Zweck, Ausnahmen und Umsetzung einer Regelung gestalten",
+          "en": "Designing a rule's purpose, exceptions, and enforcement"
+        },
+        "canDo": {
+          "ko": "규제 목적과 예외, 집행 부담을 연결해 조건부 정책을 설명할 수 있어요.",
+          "de": "Ich kann Ziel, Ausnahmen und Umsetzungsaufwand einer Regelung verbinden und eine bedingte Lösung erläutern.",
+          "en": "I can connect a regulation's purpose, exceptions, and enforcement burden to explain a conditional policy."
+        },
+        "requiredConceptIds": [
+          "concept_c1_play_time_policy"
+        ],
+        "checkpointContentIds": [
+          "scenario:school_phone_rule"
+        ]
+      },
+      "beforeSha256": "e84a317ccb13714c1901605da70c71b779b19d24a7358e9321a4691b7c1cc2a7",
+      "currentSha256": "9cb1bf3cb22a86c012df9442848d4d6acbda8d25c58baa2bc37ee838bc66a528",
+      "changedFields": [
+        "canDo",
+        "checkpointContentIds",
+        "title"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "courseUnits",
+      "id": "c2_04_sanction_accountability",
+      "before": {
+        "id": "c2_04_sanction_accountability",
+        "level": "c2",
+        "order": 4,
+        "title": {
+          "ko": "자동 제재와 책임",
+          "de": "Automatische Sanktionen und Rechenschaft",
+          "en": "Automated sanctions and accountability"
+        },
+        "canDo": {
+          "ko": "자동 제재가 딛고 선 전제를 드러내고 이의 절차가 갖춰야 할 조건을 규정할 수 있어요.",
+          "de": "Ich kann die Prämissen automatischer Sanktionen offenlegen und festlegen, welche Bedingungen ein Einspruchsverfahren erfüllen muss.",
+          "en": "I can surface the premises an automated sanction rests on and set the conditions an appeal process has to meet."
+        },
+        "requiredConceptIds": [
+          "concept_c2_sanction_accountability"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c2_merely_on_grounds"
+        ]
+      },
+      "current": {
+        "id": "c2_04_sanction_accountability",
+        "level": "c2",
+        "order": 4,
+        "title": {
+          "ko": "복합 시스템의 보상 책임과 원인 책임 구분하기",
+          "de": "Entschädigungs- und Ursachenverantwortung in komplexen Systemen unterscheiden",
+          "en": "Distinguishing remedy responsibility from causal responsibility in complex systems"
+        },
+        "canDo": {
+          "ko": "복합 사고에서 신속한 피해 구제와 다층 원인 책임을 분리해 논증할 수 있어요.",
+          "de": "Ich kann bei komplexen Schäden schnelle Wiedergutmachung von mehrstufiger Ursachenverantwortung unterscheiden.",
+          "en": "I can distinguish prompt remedy for harm from layered causal responsibility in complex incidents."
+        },
+        "requiredConceptIds": [
+          "concept_c2_sanction_accountability"
+        ],
+        "checkpointContentIds": [
+          "scenario:autonomous_delivery_liability"
+        ]
+      },
+      "beforeSha256": "93c4e2f3bf078f6fb76a549d9f338fee3c6bf7a03fd2355f21a03a4ed07a5f25",
+      "currentSha256": "64c9ae8a6cda1e2cba2d97da29d80d91f1c19aa1abf8affdc53c641ef8631dde",
+      "changedFields": [
+        "canDo",
+        "checkpointContentIds",
+        "title"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "courseUnits",
+      "id": "c1_05_fan_labor_sustainability",
+      "before": {
+        "id": "c1_05_fan_labor_sustainability",
+        "level": "c1",
+        "order": 5,
+        "title": {
+          "ko": "팬 활동의 지속 가능한 범위",
+          "de": "Nachhaltiger Umfang von Fanarbeit",
+          "en": "A sustainable scope for fan work"
+        },
+        "canDo": {
+          "ko": "무보수로 이뤄지는 참여 노동의 양과 분담을 지속 가능한 범위로 설계할 수 있어요.",
+          "de": "Ich kann Umfang und Aufteilung unbezahlter Mitarbeit so gestalten, dass sie nachhaltig bleiben.",
+          "en": "I can design the amount and sharing of unpaid participatory work so that it stays sustainable."
+        },
+        "requiredConceptIds": [
+          "concept_c1_fan_labor"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c1_insufficient_for"
+        ]
+      },
+      "current": {
+        "id": "c1_05_fan_labor_sustainability",
+        "level": "c1",
+        "order": 5,
+        "title": {
+          "ko": "문화 참여의 공로와 지속 가능성 협의하기",
+          "de": "Anerkennung und Nachhaltigkeit kultureller Beteiligung aushandeln",
+          "en": "Negotiating credit and sustainability in cultural participation"
+        },
+        "canDo": {
+          "ko": "자발적 문화 참여의 공로·권리·지속 가능성을 이해관계별로 협의할 수 있어요.",
+          "de": "Ich kann Anerkennung, Rechte und Nachhaltigkeit freiwilliger kultureller Beteiligung aushandeln.",
+          "en": "I can negotiate credit, rights, and sustainability in voluntary cultural participation."
+        },
+        "requiredConceptIds": [
+          "concept_c1_fan_labor"
+        ],
+        "checkpointContentIds": [
+          "scenario:fan_translation_credit"
+        ]
+      },
+      "beforeSha256": "89a9cccc14124199bc6d6dffe5ae3428f4de47c035b5d7b05c83b4ff9a4130e3",
+      "currentSha256": "ca1ae7b798715a2aa30f21800594daa53e0a2aaca88dfc466fdca65e3d8b4821",
+      "changedFields": [
+        "canDo",
+        "checkpointContentIds",
+        "title"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "courseUnits",
+      "id": "c2_05_relationship_narratives",
+      "before": {
+        "id": "c2_05_relationship_narratives",
+        "level": "c2",
+        "order": 5,
+        "title": {
+          "ko": "관계 서사와 관점",
+          "de": "Beziehungsnarrative und Perspektive",
+          "en": "Relationship narratives and perspective"
+        },
+        "canDo": {
+          "ko": "이야기의 짜임이 만들어 내는 관점 편향을 관계 자체와 분리해 분석할 수 있어요.",
+          "de": "Ich kann die Perspektivverzerrung, die eine Erzählweise erzeugt, von der Beziehung selbst trennen und analysieren.",
+          "en": "I can separate the perspective bias a narrative shape creates from the relationship itself and analyse it."
+        },
+        "requiredConceptIds": [
+          "concept_c2_relationship_narratives"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c2_as_if_framing"
+        ]
+      },
+      "current": {
+        "id": "c2_05_relationship_narratives",
+        "level": "c2",
+        "order": 5,
+        "title": {
+          "ko": "기억·관점·관계 서사 조정하기",
+          "de": "Erinnerung, Perspektive und Beziehungserzählungen aushandeln",
+          "en": "Negotiating memory, perspective, and relationship narratives"
+        },
+        "canDo": {
+          "ko": "충돌하는 기억과 관계 서사의 사실·관점·권력 차이를 구분해 조정할 수 있어요.",
+          "de": "Ich kann Fakten, Perspektiven und Machtunterschiede in widersprüchlichen Erinnerungs- und Beziehungserzählungen unterscheiden und aushandeln.",
+          "en": "I can distinguish and negotiate facts, perspectives, and power differences in conflicting memories and relationship narratives."
+        },
+        "requiredConceptIds": [
+          "concept_c2_relationship_narratives"
+        ],
+        "checkpointContentIds": [
+          "scenario:family_memory_conflict"
+        ]
+      },
+      "beforeSha256": "032b951653f20bb331300ce7dbe9e9796335757b283866e11e7bd731bbdb42c1",
+      "currentSha256": "0b79af45ec0f48695af4456ed086a32d859354b923824c1c2d05b3a923442637",
+      "changedFields": [
+        "canDo",
+        "checkpointContentIds",
+        "title"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "courseUnits",
+      "id": "c1_06_intimacy_safety_design",
+      "before": {
+        "id": "c1_06_intimacy_safety_design",
+        "level": "c1",
+        "order": 6,
+        "title": {
+          "ko": "만남의 안전 절차 설계",
+          "de": "Sicherheitsverfahren beim Kennenlernen gestalten",
+          "en": "Designing safety steps for meeting people"
+        },
+        "canDo": {
+          "ko": "안전과 표현의 자유 사이에서 신고와 차단 절차가 어디까지 가야 하는지 설계할 수 있어요.",
+          "de": "Ich kann zwischen Sicherheit und Meinungsfreiheit festlegen, wie weit Melde- und Sperrverfahren gehen sollen.",
+          "en": "I can set how far reporting and blocking steps should go between safety and freedom of expression."
+        },
+        "requiredConceptIds": [
+          "concept_c1_intimacy_safety"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c1_but_not"
+        ]
+      },
+      "current": {
+        "id": "c1_06_intimacy_safety_design",
+        "level": "c1",
+        "order": 6,
+        "title": {
+          "ko": "관계 속 숨은 기대와 경계 협의하기",
+          "de": "Unausgesprochene Erwartungen und Grenzen in Beziehungen aushandeln",
+          "en": "Negotiating unspoken expectations and boundaries"
+        },
+        "canDo": {
+          "ko": "업무나 관계에서 암묵적인 기대를 드러내고 현실적인 경계를 협의할 수 있어요.",
+          "de": "Ich kann unausgesprochene Erwartungen in Arbeit oder Beziehungen sichtbar machen und praktikable Grenzen aushandeln.",
+          "en": "I can surface unspoken expectations in work or relationships and negotiate practical boundaries."
+        },
+        "requiredConceptIds": [
+          "concept_c1_intimacy_safety"
+        ],
+        "checkpointContentIds": [
+          "scenario:after_hours_messages"
+        ]
+      },
+      "beforeSha256": "42540ffd1f79d41fcbb07ef2eef430a3f7d88beb9044299ecd351fd2c303b1d9",
+      "currentSha256": "4efe81516130f946b77b2bc95856136b7d76faf5a7b22502d6ab7359120a8405",
+      "changedFields": [
+        "canDo",
+        "checkpointContentIds",
+        "title"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "courseUnits",
+      "id": "c2_06_fandom_discourse_power",
+      "before": {
+        "id": "c2_06_fandom_discourse_power",
+        "level": "c2",
+        "order": 6,
+        "title": {
+          "ko": "팬덤 언어와 담론 권력",
+          "de": "Fandom-Sprache und Diskursmacht",
+          "en": "Fandom language and discursive power"
+        },
+        "canDo": {
+          "ko": "집단이 쓰는 말이 가진 담론 권력을 짚고 양보 구문으로 그 전제를 반박할 수 있어요.",
+          "de": "Ich kann die Diskursmacht kollektiver Sprache benennen und ihre Prämissen mit Konzessivkonstruktionen widerlegen.",
+          "en": "I can name the discursive power of a group's language and rebut its premises with concessive constructions."
+        },
+        "requiredConceptIds": [
+          "concept_c2_fandom_discourse"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c2_no_matter_how"
+        ]
+      },
+      "current": {
+        "id": "c2_06_fandom_discourse_power",
+        "level": "c2",
+        "order": 6,
+        "title": {
+          "ko": "미디어 프레이밍과 지역 영향 논증하기",
+          "de": "Medienframing und lokale Auswirkungen erörtern",
+          "en": "Arguing media framing and local impact"
+        },
+        "canDo": {
+          "ko": "미디어의 프레이밍과 확산이 지역·공동체에 미친 영향을 분석하고 후속 책임을 논증할 수 있어요.",
+          "de": "Ich kann analysieren, wie Medienframing und Reichweite lokale Gemeinschaften beeinflussen, und daraus Verantwortung ableiten.",
+          "en": "I can analyze how media framing and reach affect local communities and argue for follow-up responsibility."
+        },
+        "requiredConceptIds": [
+          "concept_c2_fandom_discourse"
+        ],
+        "checkpointContentIds": [
+          "scenario:hidden_gem_local_impact"
+        ]
+      },
+      "beforeSha256": "943a648ed662474a61e8579cdd2d348c77bde6e6e22d94fae903393426a67903",
+      "currentSha256": "4b687858385a3ddd9884a4cfec5637287b17742666d5fab3ca3b70959c635da2",
+      "changedFields": [
+        "canDo",
+        "checkpointContentIds",
+        "title"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "concepts",
+      "id": "concept_c1_media_evidence",
+      "before": {
+        "id": "concept_c1_media_evidence",
+        "level": "c1",
+        "title": {
+          "ko": "근거의 범위 한정",
+          "de": "Reichweite der Evidenz eingrenzen",
+          "en": "Bounding the reach of evidence"
+        }
+      },
+      "current": {
+        "id": "concept_c1_media_evidence",
+        "level": "c1",
+        "kind": "speechStyle",
+        "title": {
+          "ko": "근거의 범위 한정",
+          "de": "Reichweite der Evidenz eingrenzen",
+          "en": "Bounding the reach of evidence"
+        },
+        "explanation": {
+          "ko": "널리 퍼진 주장일수록 표본과 방법을 먼저 확인하고, 근거가 감당하는 범위까지만 말해요.",
+          "de": "Je verbreiteter eine Behauptung, desto wichtiger sind Stichprobe und Methode. Aussagen reichen nur so weit, wie die Evidenz trägt.",
+          "en": "The more widespread a claim, the more you check sample and method first, and say only as much as the evidence carries."
+        }
+      },
+      "beforeSha256": "89bea3f8b2a30aa291d1b063d7726b3c54455d409f9c7540a00751c3f160c4bf",
+      "currentSha256": "f76371b4cbf8ad5d61700c7c902a26bf5a31276404cf1189c80d34e067cfe160",
+      "changedFields": [
+        "explanation",
+        "kind"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "concepts",
+      "id": "concept_c2_automation_redress",
+      "before": {
+        "id": "concept_c2_automation_redress",
+        "level": "c2",
+        "title": {
+          "ko": "자동 처리의 구제 조건",
+          "de": "Bedingungen des Rechtswegs bei Automatisierung",
+          "en": "Conditions for redress under automation"
+        }
+      },
+      "current": {
+        "id": "concept_c2_automation_redress",
+        "level": "c2",
+        "kind": "situation",
+        "title": {
+          "ko": "자동 처리의 구제 조건",
+          "de": "Bedingungen des Rechtswegs bei Automatisierung",
+          "en": "Conditions for redress under automation"
+        },
+        "explanation": {
+          "ko": "자동 처리로 생긴 손해는 구제 창구가 있다는 말만으로 끝나지 않고, 조건과 기한을 물어야 실제로 열려요.",
+          "de": "Bei Schäden aus automatischer Bearbeitung reicht der Hinweis auf eine Stelle nicht. Erst Bedingungen und Fristen öffnen den Weg wirklich.",
+          "en": "For harm from automated processing, being told a desk exists is not enough. Conditions and deadlines are what actually open the way."
+        }
+      },
+      "beforeSha256": "fb8e11952f4c840ebdad3b98df6c76ab90921c999ffd60d5e9300b15373d74fc",
+      "currentSha256": "51358773b082c89f4a7c236206a57aacc24791d27ea4cf234d4f355778bf14a8",
+      "changedFields": [
+        "explanation",
+        "kind"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "concepts",
+      "id": "concept_c1_play_time_policy",
+      "before": {
+        "id": "concept_c1_play_time_policy",
+        "level": "c1",
+        "title": {
+          "ko": "효과와 부작용의 동시 검토",
+          "de": "Wirkung und Nebenwirkung zusammen prüfen",
+          "en": "Weighing effect and side effect together"
+        }
+      },
+      "current": {
+        "id": "concept_c1_play_time_policy",
+        "level": "c1",
+        "kind": "situation",
+        "title": {
+          "ko": "효과와 부작용의 동시 검토",
+          "de": "Wirkung und Nebenwirkung zusammen prüfen",
+          "en": "Weighing effect and side effect together"
+        },
+        "explanation": {
+          "ko": "이용시간 규제안은 효과와 부작용을 함께 놓고, 누가 부담을 지는지까지 봐야 검토가 돼요.",
+          "de": "Vorschläge zur Spielzeitregulierung prüft man mit Wirkung und Nebenwirkung zugleich, und mit der Frage, wer die Last trägt.",
+          "en": "Reviewing play-time regulation means weighing effect and side effect together, and asking who carries the burden."
+        }
+      },
+      "beforeSha256": "d9f7d49f54499d7df6b0e6c6590d9869eed5555afe4aaa62d46120ce049ed8b4",
+      "currentSha256": "9c56734fcf8ee2480ef4d426bdd9d4799c3671fc70e9a3fc7bb79e7a9101449d",
+      "changedFields": [
+        "explanation",
+        "kind"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "concepts",
+      "id": "concept_c2_sanction_accountability",
+      "before": {
+        "id": "concept_c2_sanction_accountability",
+        "level": "c2",
+        "title": {
+          "ko": "제재의 전제와 이의 조건",
+          "de": "Prämissen der Sanktion und Bedingungen des Einspruchs",
+          "en": "Premises of a sanction and conditions for appeal"
+        }
+      },
+      "current": {
+        "id": "concept_c2_sanction_accountability",
+        "level": "c2",
+        "kind": "situation",
+        "title": {
+          "ko": "제재의 전제와 이의 조건",
+          "de": "Prämissen der Sanktion und Bedingungen des Einspruchs",
+          "en": "Premises of a sanction and conditions for appeal"
+        },
+        "explanation": {
+          "ko": "자동 제재는 전제와 오탐 가능성을 밝히고 사유를 어디까지 알려 주는지가 책임의 크기를 정해요.",
+          "de": "Bei automatischen Sanktionen bestimmen offengelegte Annahmen, mögliche Fehlalarme und die Begründungstiefe das Maß der Verantwortung.",
+          "en": "With automated sanctions, stated premises, the chance of false positives, and how far reasons are disclosed set the scale of accountability."
+        }
+      },
+      "beforeSha256": "b3ba35294f1907be24497658c694d5647dcc02bf74c1d0f10878d74d4b09ce40",
+      "currentSha256": "bd6581787c4fae022696a35ce66a930a4d8e1b1b1a57e7be8cb9ee65c2cb190d",
+      "changedFields": [
+        "explanation",
+        "kind"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "concepts",
+      "id": "concept_c1_fan_labor",
+      "before": {
+        "id": "concept_c1_fan_labor",
+        "level": "c1",
+        "title": {
+          "ko": "참여 노동의 지속 가능 범위",
+          "de": "Nachhaltiger Rahmen für Mitarbeit",
+          "en": "A sustainable frame for participatory work"
+        }
+      },
+      "current": {
+        "id": "concept_c1_fan_labor",
+        "level": "c1",
+        "kind": "situation",
+        "title": {
+          "ko": "참여 노동의 지속 가능 범위",
+          "de": "Nachhaltiger Rahmen für Mitarbeit",
+          "en": "A sustainable frame for participatory work"
+        },
+        "explanation": {
+          "ko": "좋아서 하는 일도 양과 몫을 정해 두어야 오래 가고, 무상이라는 이름이 가리는 것을 봐요.",
+          "de": "Auch freiwillige Arbeit hält nur mit festgelegtem Umfang und Anteil. Dann sieht man auch, was das Etikett »unbezahlt« verdeckt.",
+          "en": "Even work done out of love lasts only with an agreed scope and share, and you look at what the label 'unpaid' hides."
+        }
+      },
+      "beforeSha256": "e0239a928b50a1ec25d47f7afd58860855cda9553b8509a4e157f6779779c8e3",
+      "currentSha256": "fa3c6b5b9e448574880499293c89297e2099606340e195561ca6f213a70927b5",
+      "changedFields": [
+        "explanation",
+        "kind"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "concepts",
+      "id": "concept_c2_relationship_narratives",
+      "before": {
+        "id": "concept_c2_relationship_narratives",
+        "level": "c2",
+        "title": {
+          "ko": "서사와 관계의 분리",
+          "de": "Erzählung und Beziehung trennen",
+          "en": "Separating narrative from relationship"
+        }
+      },
+      "current": {
+        "id": "concept_c2_relationship_narratives",
+        "level": "c2",
+        "kind": "speechStyle",
+        "title": {
+          "ko": "서사와 관계의 분리",
+          "de": "Erzählung und Beziehung trennen",
+          "en": "Separating narrative from relationship"
+        },
+        "explanation": {
+          "ko": "연애 이야기는 누구 입장에서 정리됐는지에 따라 기준이 달라지니, 서사의 시점을 드러내며 말해요.",
+          "de": "Beziehungsgeschichten setzen je nach Perspektive andere Maßstäbe. Deshalb macht man den Blickwinkel der Erzählung explizit.",
+          "en": "Relationship stories set different standards depending on whose view shaped them, so you make the narrative's vantage point explicit."
+        }
+      },
+      "beforeSha256": "7dbd7646128b1fb68bdc69e85d6a9f03b3b6ee44e671af274012bc9f5d529be1",
+      "currentSha256": "20a2ac29eed251b169c8d8e24da143e98027c3c28a6961ae52c0aed7758488f9",
+      "changedFields": [
+        "explanation",
+        "kind"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "concepts",
+      "id": "concept_c1_intimacy_safety",
+      "before": {
+        "id": "concept_c1_intimacy_safety",
+        "level": "c1",
+        "title": {
+          "ko": "안전과 표현 사이의 절차",
+          "de": "Verfahren zwischen Sicherheit und Ausdruck",
+          "en": "Procedure between safety and expression"
+        }
+      },
+      "current": {
+        "id": "concept_c1_intimacy_safety",
+        "level": "c1",
+        "kind": "situation",
+        "title": {
+          "ko": "안전과 표현 사이의 절차",
+          "de": "Verfahren zwischen Sicherheit und Ausdruck",
+          "en": "Procedure between safety and expression"
+        },
+        "explanation": {
+          "ko": "만남의 안전은 개인의 조심이 아니라 신고·확인 절차가 실제로 도는지로 설계해요.",
+          "de": "Sicherheit beim Kennenlernen gestaltet man nicht über individuelle Vorsicht, sondern darüber, ob Melde- und Rückmeldewege tatsächlich funktionieren.",
+          "en": "Safety in meeting people is designed not through individual caution but through whether reporting and follow-up actually work."
+        }
+      },
+      "beforeSha256": "5608d684d6fb22fd465a976568caaa547726eff0c88bc0eba2b67d63e5ec0c08",
+      "currentSha256": "1d34564f7b92e045490d08643155d3392d6cb6fe50b69402954d6621a55831b2",
+      "changedFields": [
+        "explanation",
+        "kind"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    },
+    {
+      "field": "concepts",
+      "id": "concept_c2_fandom_discourse",
+      "before": {
+        "id": "concept_c2_fandom_discourse",
+        "level": "c2",
+        "title": {
+          "ko": "집단 언어의 담론 권력",
+          "de": "Diskursmacht kollektiver Sprache",
+          "en": "Discursive power of collective language"
+        }
+      },
+      "current": {
+        "id": "concept_c2_fandom_discourse",
+        "level": "c2",
+        "kind": "speechStyle",
+        "title": {
+          "ko": "집단 언어의 담론 권력",
+          "de": "Diskursmacht kollektiver Sprache",
+          "en": "Discursive power of collective language"
+        },
+        "explanation": {
+          "ko": "집단이 크다고 그 표현이 기준이 되지는 않으니, 팬덤 용어가 누구를 밀어내는지 짚어 말해요.",
+          "de": "Größe macht eine Ausdrucksweise nicht zum Maßstab. Man benennt, wen die Fandom-Begriffe ausschließen.",
+          "en": "A group being large does not make its wording the standard, so you name whom the fandom's terms push out."
+        }
+      },
+      "beforeSha256": "cc3ca7b23815ec00e2d945c9199a90643d9b511db0093b92b58c9cfa4a23457b",
+      "currentSha256": "aaeb287601d22984e7b625b86f6705f9b1ec178a4c10af6abc9dee173bf1cbf0",
+      "changedFields": [
+        "explanation",
+        "kind"
+      ],
+      "historyReviewStatus": "not_assessed_in_this_pass"
+    }
+  ],
+  "reviewScope": "Two model review axes (language/spec and evidence/standards), limited to the rows and changes in this receipt. Native, CEFR, rights and historical human approval remain unverified."
+}

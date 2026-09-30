@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_character_media.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_shell.dart';
@@ -20,6 +22,58 @@ const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(loadSoriRealFonts);
+
+  testWidgets('step 02 gives Korean examples a separate Pad reading size', (
+    tester,
+  ) async {
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    for (final testCase in const <({Size size, double koreanSize})>[
+      (size: Size(390, 844), koreanSize: 28),
+      (size: Size(720, 1152), koreanSize: 52),
+      (size: Size(1152, 720), koreanSize: 52),
+    ]) {
+      _setViewport(tester, testCase.size, 1);
+      await tester.pumpWidget(
+        _app(
+          Builder(
+            builder: (context) => OnboardingStoryScreen(
+              copy: onboardingV2Copy(AppL10n.of(context)),
+              pageIndex: 0,
+              selectedLevel: LearnerLevel.a1,
+              beginner: true,
+              onContinue: (_) {},
+              onPrevious: (_) {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      for (final (choice, example) in [
+        (0, 'ㄱ  ㄴ  ㅏ'),
+        (1, '나무'),
+        (2, '안녕하세요.'),
+      ]) {
+        await tester.tap(find.byKey(ValueKey('onboarding-v3-path-$choice')));
+        await tester.pump();
+        expect(
+          find.text(example),
+          findsOneWidget,
+          reason:
+              '${testCase.size}: $example; visible=${tester.widgetList<Text>(find.byType(Text)).map((text) => text.data).whereType<String>().toList()}',
+        );
+        final reading = tester.widget<Text>(find.text(example));
+        expect(
+          reading.style!.fontSize,
+          testCase.koreanSize,
+          reason: '${testCase.size}: $example',
+        );
+        expect(reading.style!.fontFamily, 'NotoSansKR');
+        expect(tester.getRect(find.text(example)).width, greaterThan(0));
+      }
+      expect(tester.takeException(), isNull, reason: '${testCase.size}');
+    }
+  });
 
   testWidgets(
     'tablet screenshot geometry stays vertical in portrait and splits only '
@@ -99,7 +153,7 @@ void main() {
     'companion cards preserve visual order and the 30th rapid choice exactly',
     (tester) async {
       const size = Size(720, 1152);
-      _setViewport(tester, size, 2.5);
+      _setViewport(tester, size, 1);
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       final semantics = tester.ensureSemantics();
@@ -132,9 +186,10 @@ void main() {
         isTrue,
       );
       expect(
-        tester.getCenter(taegoTile).dx,
-        lessThan(tester.getCenter(joyTile).dx),
+        tester.getRect(taegoTile).right,
+        lessThan(tester.getRect(joyTile).left),
       );
+      expect(tester.getSize(taegoTile).height, lessThanOrEqualTo(440));
       for (final (tile, companion) in [(taegoTile, taego), (joyTile, joy)]) {
         final artwork = find.descendant(
           of: tile,
@@ -148,10 +203,6 @@ void main() {
           of: tile,
           matching: find.text(companion.rhythm),
         );
-        final body = find.descendant(
-          of: tile,
-          matching: find.text(companion.body),
-        );
         expect(
           tester.getRect(artwork).bottom,
           lessThan(tester.getRect(name).top),
@@ -162,13 +213,9 @@ void main() {
         );
         expect(
           tester.getRect(rhythm).bottom,
-          lessThan(tester.getRect(body).top),
-        );
-        expect(
-          tester.getRect(body).bottom,
           lessThanOrEqualTo(tester.getRect(tile).bottom),
         );
-        for (final textFinder in [name, rhythm, body]) {
+        for (final textFinder in [name, rhythm]) {
           expect(tester.widget<Text>(textFinder).textAlign, TextAlign.center);
         }
         expect(tester.getSize(tile).height, greaterThanOrEqualTo(48));
@@ -224,6 +271,56 @@ void main() {
       semantics.dispose();
     },
   );
+
+  testWidgets(
+    'Pad portrait with 200% text keeps companion choices and CTA reachable',
+    (tester) async {
+      const size = Size(720, 1152);
+      _setViewport(tester, size, 1);
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        _app(const _CompanionHarness(), textScaler: const TextScaler.linear(2)),
+      );
+      await _pumpFinite(tester);
+      final taego = find.byKey(const ValueKey('onboarding-v2-companion-taego'));
+      final joy = find.byKey(const ValueKey('onboarding-v2-companion-joy'));
+      expect(tester.getRect(taego).bottom, lessThan(tester.getRect(joy).top));
+      final cta = find.byKey(
+        const ValueKey('onboarding-v2-companion-continue'),
+      );
+      _expectLabeled48DpButton(tester, cta);
+      _expectInsideSafeViewport(tester, cta, size);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets('short Pad window scrolls both companion cards and details', (
+    tester,
+  ) async {
+    const size = Size(720, 520);
+    _setViewport(tester, size, 1);
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(_app(const _CompanionHarness()));
+    await _pumpFinite(tester);
+
+    final taego = find.byKey(const ValueKey('onboarding-v2-companion-taego'));
+    final joy = find.byKey(const ValueKey('onboarding-v2-companion-joy'));
+    final details = find.byKey(
+      const ValueKey('onboarding-v2-companion-details'),
+    );
+    expect(taego, findsOneWidget);
+    expect(joy, findsOneWidget);
+    expect(tester.getSize(taego).height, greaterThanOrEqualTo(48));
+    expect(tester.getSize(joy).height, greaterThanOrEqualTo(48));
+    await tester.ensureVisible(details);
+    await tester.pumpAndSettle();
+    _expectLabeled48DpButton(tester, details);
+    final cta = find.byKey(const ValueKey('onboarding-v2-companion-continue'));
+    _expectInsideSafeViewport(tester, cta, size);
+    expect(tester.takeException(), isNull);
+  });
 }
 
 class _GeometryScreen extends StatelessWidget {
@@ -282,22 +379,24 @@ class _CompanionHarnessState extends State<_CompanionHarness> {
   );
 }
 
-Widget _app(Widget home) => MaterialApp(
-  debugShowCheckedModeBanner: false,
-  theme: AppTheme.light,
-  locale: const Locale('en'),
-  supportedLocales: AppL10n.supportedLocales,
-  localizationsDelegates: AppL10n.localizationsDelegates,
-  builder: (context, child) => MediaQuery(
-    data: MediaQuery.of(context).copyWith(
-      padding: _safeInsets,
-      viewPadding: _safeInsets,
-      disableAnimations: true,
-    ),
-    child: child ?? const SizedBox.shrink(),
-  ),
-  home: home,
-);
+Widget _app(Widget home, {TextScaler textScaler = TextScaler.noScaling}) =>
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.light,
+      locale: const Locale('en'),
+      supportedLocales: AppL10n.supportedLocales,
+      localizationsDelegates: AppL10n.localizationsDelegates,
+      builder: (context, child) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(
+          padding: _safeInsets,
+          viewPadding: _safeInsets,
+          disableAnimations: true,
+          textScaler: textScaler,
+        ),
+        child: child ?? const SizedBox.shrink(),
+      ),
+      home: home,
+    );
 
 void _setViewport(WidgetTester tester, Size size, double dpr) {
   tester.view.physicalSize = Size(size.width * dpr, size.height * dpr);

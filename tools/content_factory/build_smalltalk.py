@@ -46,7 +46,7 @@ P = [
     ("weather", "b1", "opener", "이런 날씨엔 산책하기 딱 좋죠.", "Bei so einem Wetter geht man perfekt spazieren.", "This kind of weather is perfect for a walk."),
     ("weather", "b2", "opener", "요즘 일교차가 커서 감기 걸리기 쉽더라고요.", "Die Temperaturunterschiede sind gerade groß — da erkältet man sich leicht.", "The temperature swings lately make it easy to catch a cold."),
     # ── mood ──
-    ("mood", "a1", "opener", "오늘 기분 좋아요.", "Mir geht's heute gut.", "I'm in a good mood today."),
+    ("mood", "a1", "opener", "오늘 기분 좋아요.", "Ich bin heute gut gelaunt.", "I'm in a good mood today."),
     ("mood", "a2", "opener", "요즘 좀 피곤해요.", "In letzter Zeit bin ich etwas müde.", "I've been a bit tired lately."),
     ("mood", "b1", "question", "오늘 하루 어떠셨어요?", "Wie war Ihr Tag heute?", "How was your day today?"),
     ("mood", "b2", "opener", "요즘 정신없이 바빠서 시간이 어떻게 가는지 모르겠어요.", "Ich bin gerade so im Stress, dass ich gar nicht merke, wie die Zeit vergeht.", "I'm so busy lately I don't even notice time passing."),

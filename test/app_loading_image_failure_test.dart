@@ -8,19 +8,18 @@ import 'package:ko_lernen_app/widgets/app_loading.dart';
 
 import 'support/real_fonts.dart';
 
-const _logo = 'assets/icons/icon-192.png';
 const _bookAnalyzing = 'assets/illustrations/book/book_analyzing.png';
 
 void main() {
   setUpAll(loadSoriRealFonts);
 
   testWidgets(
-    'a real default-logo read failure keeps its 58px fallback bounded',
+    'default loading uses bounded dots without loading the app logo',
     (tester) async {
       for (final locale in const ['de', 'en']) {
         for (final brightness in Brightness.values) {
           for (final reducedMotion in [true, false]) {
-            final bundle = _FailingAssetBundle({_logo});
+            final bundle = _FailingAssetBundle(const {});
             await tester.pumpWidget(
               _host(
                 bundle: bundle,
@@ -32,7 +31,8 @@ void main() {
             );
             await _pumpImageError(tester, reducedMotion);
 
-            expect(bundle.failedKeys, contains(_logo));
+            expect(bundle.loadedKeys, isNot(contains(_bookAnalyzing)));
+            expect(bundle.failedKeys, isEmpty);
             _expectVisualBox(tester, 58);
             _expectDotFallbackFromImageError(tester);
             _expectOneLocalizedLiveRegion(tester, locale);
@@ -44,7 +44,7 @@ void main() {
   );
 
   testWidgets(
-    'a real custom illustration failure preserves the healthy-logo fallback at small sizes',
+    'a custom illustration failure falls back to dots at small sizes',
     (tester) async {
       for (final (size, locale, brightness, reducedMotion) in [
         (24.0, 'de', Brightness.light, true),
@@ -63,9 +63,9 @@ void main() {
         await _pumpImageError(tester, reducedMotion);
 
         expect(bundle.failedKeys, contains(_bookAnalyzing));
-        expect(bundle.loadedKeys, contains(_logo));
+        expect(bundle.loadedKeys, isNot(contains(_bookAnalyzing)));
         _expectVisualBox(tester, size);
-        expect(_dotFallbacks, findsNothing);
+        _expectDotFallbackFromImageError(tester);
         _expectOneLocalizedLiveRegion(tester, locale);
         expect(tester.takeException(), isNull);
       }
@@ -73,13 +73,13 @@ void main() {
   );
 
   testWidgets(
-    'custom image and logo read failures fit the real dot fallback at small sizes',
+    'a custom image failure fits the real dot fallback at small sizes',
     (tester) async {
       for (final (size, locale, brightness, reducedMotion) in [
         (24.0, 'en', Brightness.dark, true),
         (124.0, 'de', Brightness.light, false),
       ]) {
-        final bundle = _FailingAssetBundle({_bookAnalyzing, _logo});
+        final bundle = _FailingAssetBundle({_bookAnalyzing});
         await tester.pumpWidget(
           _host(
             bundle: bundle,
@@ -91,7 +91,7 @@ void main() {
         );
         await _pumpImageError(tester, reducedMotion);
 
-        expect(bundle.failedKeys, containsAll({_bookAnalyzing, _logo}));
+        expect(bundle.failedKeys, contains(_bookAnalyzing));
         _expectVisualBox(tester, size);
         _expectDotFallbackFromImageError(tester);
         _expectOneLocalizedLiveRegion(tester, locale);

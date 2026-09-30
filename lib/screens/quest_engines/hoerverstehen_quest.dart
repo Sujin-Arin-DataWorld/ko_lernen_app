@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
+import '../../models/scenario.dart';
 import '../../services/sound_service.dart';
 import '../../widgets/sori/speakable.dart';
 import '../../widgets/sori/tokens.dart';
+import 'quest_content.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
 import 'quest_models.dart';
@@ -67,7 +69,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted && widget.audioEnabled) {
+      if (mounted && widget.audioEnabled && _hasContent) {
         SoriSpeech.speak(_audioKo);
       }
     });
@@ -140,8 +142,14 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
     return SoriAnswerState.idle;
   }
 
+  bool get _hasContent =>
+      hasPlayableQuestContent(QuestType.hoerverstehen, widget.data);
+
   @override
   Widget build(BuildContext context) {
+    if (!_hasContent) {
+      return const SoriQuestEmptyState();
+    }
     final t = AppL10n.of(context);
     final languageCode = Localizations.localeOf(context).languageCode;
     final surfaces = SoriSurfaces.of(context);

@@ -931,7 +931,13 @@ class TestBatch34Packs(unittest.TestCase):
         drafted = set()
         for path in DRAFTS.glob("batch_*_rows.csv"):
             drafted |= {r["korean"] for r in _load_vocab_rows(path)}
-        self.assertEqual(len(g2 - live - drafted), 535)
+        # Preserve the authored manifest's historical 1085/599/535 receipt.
+        # The 2026-09-24 source correction removes two malformed joined
+        # headwords; it neither adds draft content nor grants human approval.
+        self.assertEqual(len(g2), 1083)
+        self.assertTrue({"셋째", "첫째"}.issubset(g2))
+        self.assertTrue({"셋째02‧셋째", "첫째02‧첫째"}.isdisjoint(g2))
+        self.assertEqual(len(g2 - live - drafted), 533)
 
     def test_raw_and_normalized_metrics_are_distinct_and_labeled(self):
         normalized = self.manifest["canonicalNormalizedLiveF2Coverage"]

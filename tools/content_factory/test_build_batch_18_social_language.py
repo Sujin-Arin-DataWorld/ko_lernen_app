@@ -8,6 +8,8 @@ import csv
 import json
 from pathlib import Path
 import sys
+import shutil
+import tempfile
 import unittest
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -34,14 +36,23 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 class Batch18BuildTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.counts = builder.build(ROOT)
-        cls.manifest = read_json(ROOT / builder.MANIFEST_PATH)
+        temporary = tempfile.TemporaryDirectory()
+        cls.addClassCleanup(temporary.cleanup)
+        cls.root = Path(temporary.name)
+        shutil.copytree(ROOT / "assets/data", cls.root / "assets/data")
+        for path in (builder.MANIFEST_PATH, *builder.REVIEW_PATHS.values()):
+            target = cls.root / path
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT / path, target)
+        (cls.root / builder.PACKET_PATH).parent.mkdir(parents=True, exist_ok=True)
+        cls.counts = builder.build(cls.root)
+        cls.manifest = read_json(cls.root / builder.MANIFEST_PATH)
         cls.records = {
-            "vocab": read_csv(ROOT / builder.DRAFT_PATHS["vocab"]),
-            "grammar": read_csv(ROOT / builder.DRAFT_PATHS["grammar"]),
-            "smalltalk": read_json(ROOT / builder.DRAFT_PATHS["smalltalk"])["phrases"],
-            "cloze": read_json(ROOT / builder.DRAFT_PATHS["cloze"])["items"],
-            "satz": read_json(ROOT / builder.DRAFT_PATHS["satz"])["items"],
+            "vocab": read_csv(cls.root / builder.DRAFT_PATHS["vocab"]),
+            "grammar": read_csv(cls.root / builder.DRAFT_PATHS["grammar"]),
+            "smalltalk": read_json(cls.root / builder.DRAFT_PATHS["smalltalk"])["phrases"],
+            "cloze": read_json(cls.root / builder.DRAFT_PATHS["cloze"])["items"],
+            "satz": read_json(cls.root / builder.DRAFT_PATHS["satz"])["items"],
         }
 
     def test_exact_counts_and_level_balance(self):
@@ -143,7 +154,7 @@ class Batch18BuildTest(unittest.TestCase):
             overlap = set(draft_ids) & live_ids
             expected_status = "approved" if self.manifest["status"] == "merged" else "draft"
             self.assertEqual(overlap, set(draft_ids) if expected_status == "approved" else set(), kind)
-            ledger = read_csv(ROOT / artifact["review"])
+            ledger = read_csv(self.root / artifact["review"])
             self.assertEqual([row["id"] for row in ledger], draft_ids)
             self.assertTrue(all(row["상태"] == expected_status for row in ledger))
 

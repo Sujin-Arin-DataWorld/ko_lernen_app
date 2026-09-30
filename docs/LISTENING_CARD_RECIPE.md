@@ -101,6 +101,12 @@ finish.sh {key} {url}
 일반 신규 카드의 `q84 + grain` 규칙을 이 11장에 소급 적용하지 않으며, 이 예외를 다른 카드로
 확장하려면 Jin의 명시적 승인과 STYLE_LOCK 갱신이 먼저다.
 
+2026-09-22에는 Jin이 직접 제공하며 교체 요청한 `activities/book_capture.webp`를 같은
+원본 보존 기법으로 반입했다. 1448×1086 PNG 전체를 800×600으로 줄이고 WebP quality 100,
+method 6으로 저장했으며 색 보정·크롭·추가 그레인을 적용하지 않았다. 이 단일 카드의 승인,
+원본·런타임 해시 및 이전 이미지 보존 근거는 `docs/assets/BOOK_CAPTURE_SOURCE_APPROVAL.json`에
+있다. 기존 C1·scenarios 및 8월 카드 승인 원본은 수정하지 않는다.
+
 ## 검수 체크리스트 (번들 전 매 장)
 
 1. 검은 윤곽선이 없는가

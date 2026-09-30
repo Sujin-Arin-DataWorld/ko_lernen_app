@@ -1,0 +1,998 @@
+{
+  "schemaVersion": 1,
+  "operation": "correct_batch07_grammar_and_related_honorific_quiz",
+  "sourceHead": "099f234ca4ef74335a398eb4016214d7385b378c",
+  "reviewStatus": "MODEL_QA_REVIEWED",
+  "humanReviewStatus": "pending",
+  "approvalAdded": false,
+  "rightsAdded": false,
+  "frozenDraftsModified": false,
+  "taskContract": "DE/EN example with highlighted focus -> one Korean grammar pattern among four. Korean example and notes appear after the answer.",
+  "historyReceipt": "tools/content_factory/review/batch_07_history_receipt_20260916.json",
+  "historyReportSha256": "d7e63732697ea6f2876f8809bf0cdc6bc3f134b8a2613d6e6e458dd86e51065d",
+  "originalPromotionCommit": "83b3865868ec5314de6884cb1f03d79adf947558",
+  "historySourceHead": "f2275489379393e7a3655dc8180e0a8b317696bb",
+  "references": [
+    {
+      "scope": "장인 and 장인어른",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=24887&nation=eng"
+    },
+    {
+      "scope": "시어머니",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=65293&nation=eng"
+    },
+    {
+      "scope": "보조 동사 드리다",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=59252&nation=eng&nationCode=6"
+    }
+  ],
+  "frozenFiles": [
+    {
+      "path": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "sha256": "f795295caa212eccf972d698e04812fc82492705939cf73694f44ae77432a172"
+    },
+    {
+      "path": "tools/content_factory/drafts/c4_batch07_grammar_partner_family.csv",
+      "sha256": "1a15ecff90429d99dac0b0ea27ed753bb926287c457be20d54570c11576b4d07"
+    },
+    {
+      "path": "tools/content_factory/review/c4_batch07_grammar_partner_family.csv",
+      "sha256": "0f918da7782191b2a6a3499a578a080c22368f5be2d68bfd3e9a84193e88bd17"
+    }
+  ],
+  "rows": [
+    {
+      "id": "grammar_a1_honorific_kke",
+      "kind": "grammar",
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "priorLiveSha256": "dd018f6a967ff6b8a1afbb7bb0acc28fb1f02bed15192d3111e6ba290366f232",
+      "actualAfterSha256": "35c5ac008a07f3cda45798e6327304364e993692c445e8ce85880ccb63dfca93",
+      "currentCorrectionFields": {
+        "type_de": {
+          "before": "Hoeftliche Empfaengerpartikel",
+          "after": "Höfliche Empfängerpartikel"
+        },
+        "explanation_de": {
+          "before": "Markiert eine ältere oder geachtete Person als Empfaenger einer Handlung oder Gabe.",
+          "after": "Markiert eine ältere oder geachtete Person als Empfänger einer Handlung oder Gabe."
+        },
+        "example_german": {
+          "before": "Ich habe an die geehrte Person Obst gegeben.",
+          "after": "Ich habe dem Vater meiner Frau Obst gegeben."
+        },
+        "note": {
+          "before": "Nach 께 folgt oft ein Hoeftlichkeitsverb wie 드리다.",
+          "after": "께 markiert den Empfänger; 드리다 drückt zusätzlich Respekt vor ihm aus."
+        },
+        "example_en": {
+          "before": "I gave fruit to the respected person.",
+          "after": "I gave fruit to my wife's father."
+        },
+        "note_en": {
+          "before": "께 is often followed by an honorific verb such as 드리다.",
+          "after": "께 marks the recipient; 드리다 also shows respect toward that person."
+        },
+        "quiz_focus_de": {
+          "before": "an die geehrte Person",
+          "after": "dem Vater meiner Frau"
+        },
+        "quiz_focus_en": {
+          "before": "to the respected person",
+          "after": "to my wife's father"
+        }
+      },
+      "reasonKo": "장인어른의 아내 쪽 아버지 관계를 DE/EN에도 유지한다. 께와 드리다의 높임 대상은 받는 사람이다.",
+      "current": {
+        "pattern": "N께",
+        "level": "A2",
+        "type_de": "Höfliche Empfängerpartikel",
+        "explanation_de": "Markiert eine ältere oder geachtete Person als Empfänger einer Handlung oder Gabe.",
+        "example_korean": "장인어른께 과일을 드렸어요.",
+        "example_german": "Ich habe dem Vater meiner Frau Obst gegeben.",
+        "note": "께 markiert den Empfänger; 드리다 drückt zusätzlich Respekt vor ihm aus.",
+        "type_en": "Honorific recipient particle",
+        "explanation_en": "Marks an elder or respected person as the recipient of an action or gift.",
+        "example_en": "I gave fruit to my wife's father.",
+        "note_en": "께 marks the recipient; 드리다 also shows respect toward that person.",
+        "id": "grammar_a1_honorific_kke",
+        "quiz_focus_de": "dem Vater meiner Frau",
+        "quiz_focus_en": "to my wife's father",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_a1_future_modifier|grammar_a1_or_particle|grammar_a1_past_modifier"
+      },
+      "distractors": [
+        {
+          "id": "grammar_a1_future_modifier",
+          "pattern": "V-(으)ㄹ N",
+          "level": "A2"
+        },
+        {
+          "id": "grammar_a1_or_particle",
+          "pattern": "N(이)나",
+          "level": "A2"
+        },
+        {
+          "id": "grammar_a1_past_modifier",
+          "pattern": "V-(으)ㄴ N",
+          "level": "A2"
+        }
+      ],
+      "history": {
+        "draft": {
+          "id": "grammar_a1_honorific_kke",
+          "promotionSha256": "ae09c49ef4221493cfa681e5aef5c710060a57769b0933a96778b19cbc0aed7d",
+          "currentSha256": "6f5b6589c54b7c74f87b1109df10f40e15baa06d70ee9d27f6add11160b94db1",
+          "transitions": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "beforeSha256": "ae09c49ef4221493cfa681e5aef5c710060a57769b0933a96778b19cbc0aed7d",
+              "afterSha256": "6f5b6589c54b7c74f87b1109df10f40e15baa06d70ee9d27f6add11160b94db1",
+              "fields": {
+                "explanation_de": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "Markiert eine aeltere oder geachtete Person als Empfaenger einer Handlung oder Gabe.",
+                  "after": "Markiert eine ältere oder geachtete Person als Empfaenger einer Handlung oder Gabe."
+                }
+              },
+              "unparsedInterval": []
+            }
+          ]
+        },
+        "review": {
+          "id": "grammar_a1_honorific_kke",
+          "promotionSha256": "17fdf5b79ce582a6595fba6cd8f263bfa69138ed3cfae66a3b8400f22f162c5c",
+          "currentSha256": "17fdf5b79ce582a6595fba6cd8f263bfa69138ed3cfae66a3b8400f22f162c5c",
+          "transitions": []
+        },
+        "live": {
+          "id": "grammar_a1_honorific_kke",
+          "promotionSha256": "ae09c49ef4221493cfa681e5aef5c710060a57769b0933a96778b19cbc0aed7d",
+          "currentSha256": "dd018f6a967ff6b8a1afbb7bb0acc28fb1f02bed15192d3111e6ba290366f232",
+          "transitions": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "beforeSha256": "ae09c49ef4221493cfa681e5aef5c710060a57769b0933a96778b19cbc0aed7d",
+              "afterSha256": "6f5b6589c54b7c74f87b1109df10f40e15baa06d70ee9d27f6add11160b94db1",
+              "fields": {
+                "explanation_de": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "Markiert eine aeltere oder geachtete Person als Empfaenger einer Handlung oder Gabe.",
+                  "after": "Markiert eine ältere oder geachtete Person als Empfaenger einer Handlung oder Gabe."
+                }
+              },
+              "unparsedInterval": []
+            },
+            {
+              "commit": "43769596687027ad85e637d2dd78443dc9c072fd",
+              "beforeSha256": "6f5b6589c54b7c74f87b1109df10f40e15baa06d70ee9d27f6add11160b94db1",
+              "afterSha256": "dd018f6a967ff6b8a1afbb7bb0acc28fb1f02bed15192d3111e6ba290366f232",
+              "fields": {
+                "level": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "A1",
+                  "after": "A2"
+                },
+                "quiz_distractor_ids": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "grammar_a1_topic_particle|grammar_a1_polite_request|grammar_a1_possessive_particle",
+                  "after": "grammar_a1_future_modifier|grammar_a1_or_particle|grammar_a1_past_modifier"
+                }
+              },
+              "unparsedInterval": []
+            }
+          ]
+        }
+      },
+      "beforeSha256": "6f5b6589c54b7c74f87b1109df10f40e15baa06d70ee9d27f6add11160b94db1",
+      "comparisonAfterSha256": "bf3734c3bd5f0d5c1560453f5da81ffbf93760826d885fd0d7a70d23ce290d98",
+      "levelNormalization": {
+        "id": "grammar_a1_honorific_kke",
+        "kind": "grammar",
+        "from": "a1",
+        "to": "a2",
+        "movedAt": "2026-09-07",
+        "batch": "L2b",
+        "reason": "MOVE-UP: NIKL 2급 조사 께 (F1b.md 2.3, brief-flagged). WARNING: referenced by A1 scenario a1_w10_partner (F1b.md S3) -- Fable must resolve before applying (co-move the scenario, hold this move, or drop the scenario's grammarIds reference)."
+      }
+    },
+    {
+      "id": "grammar_a2_humble_give",
+      "kind": "grammar",
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "priorLiveSha256": "8e4226ea1f6614c9ee8473e1311fe2465ad7d336c16bde2a7f3b917d1306229b",
+      "actualAfterSha256": "58bfb8567769f226b311ef534491e0ea9ad8016fd35da155feb6b03a63897b85",
+      "currentCorrectionFields": {
+        "type_de": {
+          "before": "Demütige Gabe oder Hilfe",
+          "after": "Eine Handlung respektvoll für jemanden ausführen"
+        },
+        "explanation_de": {
+          "before": "Drückt aus, dass die sprechende Person einer geehrten Person etwas gibt oder für sie handelt.",
+          "after": "Wird nach einem Verb verwendet und zeigt Respekt gegenüber der Person, für die man die Handlung ausführt."
+        },
+        "example_german": {
+          "before": "Ich habe für die geehrte Person Wasser eingeschenkt.",
+          "after": "Ich habe meiner Großmutter Wasser eingeschenkt."
+        },
+        "note": {
+          "before": "Nicht mit 주다 an Aeltere mischen.",
+          "after": "Hier ist 따라 드리다 die respektvolle Entsprechung von 따라 주다."
+        },
+        "type_en": {
+          "before": "Humble giving or helping",
+          "after": "Doing something for someone respectfully"
+        },
+        "explanation_en": {
+          "before": "Shows that the speaker gives something or acts for a respected person.",
+          "after": "Used after a verb to show respect toward the person for whom the action is done."
+        },
+        "example_en": {
+          "before": "I poured water for the respected person.",
+          "after": "I poured water for my grandmother."
+        },
+        "note_en": {
+          "before": "Do not mix this with 주다 toward elders.",
+          "after": "Here, 따라 드리다 is the respectful counterpart of 따라 주다."
+        },
+        "quiz_focus_de": {
+          "before": "für die geehrte Person",
+          "after": "meiner Großmutter Wasser eingeschenkt"
+        },
+        "quiz_focus_en": {
+          "before": "for the respected person",
+          "after": "poured water for my grandmother"
+        }
+      },
+      "reasonKo": "할머니 관계를 보존하고 보조 동사 -아/어 드리다를 화자만의 행동이나 연장자에게 주다 금지라는 규칙으로 설명하지 않는다.",
+      "current": {
+        "pattern": "V-아/어 드리다",
+        "level": "A2",
+        "type_de": "Eine Handlung respektvoll für jemanden ausführen",
+        "explanation_de": "Wird nach einem Verb verwendet und zeigt Respekt gegenüber der Person, für die man die Handlung ausführt.",
+        "example_korean": "할머니께 물을 따라 드렸어요.",
+        "example_german": "Ich habe meiner Großmutter Wasser eingeschenkt.",
+        "note": "Hier ist 따라 드리다 die respektvolle Entsprechung von 따라 주다.",
+        "type_en": "Doing something for someone respectfully",
+        "explanation_en": "Used after a verb to show respect toward the person for whom the action is done.",
+        "example_en": "I poured water for my grandmother.",
+        "note_en": "Here, 따라 드리다 is the respectful counterpart of 따라 주다.",
+        "id": "grammar_a2_humble_give",
+        "quiz_focus_de": "meiner Großmutter Wasser eingeschenkt",
+        "quiz_focus_en": "poured water for my grandmother",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_a2_gentle_question|grammar_a2_in_progress|grammar_a2_future_intention"
+      },
+      "distractors": [
+        {
+          "id": "grammar_a2_gentle_question",
+          "pattern": "A-(으)ㄴ가요? / V-나요?",
+          "level": "A2"
+        },
+        {
+          "id": "grammar_a2_in_progress",
+          "pattern": "N 중 / V-는 중",
+          "level": "A2"
+        },
+        {
+          "id": "grammar_a2_future_intention",
+          "pattern": "V-(으)ㄹ 거예요",
+          "level": "A2"
+        }
+      ],
+      "history": {
+        "draft": {
+          "id": "grammar_a2_humble_give",
+          "promotionSha256": "c645f90c664ecb85d26bcb14712d858b8ce74368b945f2f2c0ba4218ce9b8c30",
+          "currentSha256": "2f23b219ed544a43451048a1dfa6e2b92608c1d0d1c10ce3ce4ab9188bb00c01",
+          "transitions": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "beforeSha256": "c645f90c664ecb85d26bcb14712d858b8ce74368b945f2f2c0ba4218ce9b8c30",
+              "afterSha256": "2f23b219ed544a43451048a1dfa6e2b92608c1d0d1c10ce3ce4ab9188bb00c01",
+              "fields": {
+                "example_german": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "Ich habe fuer die geehrte Person Wasser eingeschenkt.",
+                  "after": "Ich habe für die geehrte Person Wasser eingeschenkt."
+                },
+                "explanation_de": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "Drueckt aus, dass die sprechende Person einer geehrten Person etwas gibt oder fuer sie handelt.",
+                  "after": "Drückt aus, dass die sprechende Person einer geehrten Person etwas gibt oder für sie handelt."
+                },
+                "note": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "Nicht mit 주다 an Aeltere mischen.",
+                  "after": "Nicht mit 주다 an Ältere mischen."
+                },
+                "quiz_focus_de": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "fuer die geehrte Person",
+                  "after": "für die geehrte Person"
+                },
+                "type_de": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "Demuetige Gabe oder Hilfe",
+                  "after": "Demütige Gabe oder Hilfe"
+                }
+              },
+              "unparsedInterval": []
+            }
+          ]
+        },
+        "review": {
+          "id": "grammar_a2_humble_give",
+          "promotionSha256": "4bf344d0574b839b59dd8af57a674f01492cf41a06fb29c2802954f48dac613e",
+          "currentSha256": "9ddfedad94bf29762ba81a7705872b0ca9907b294c64170065b93e3d50a7ecac",
+          "transitions": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "beforeSha256": "4bf344d0574b839b59dd8af57a674f01492cf41a06fb29c2802954f48dac613e",
+              "afterSha256": "9ddfedad94bf29762ba81a7705872b0ca9907b294c64170065b93e3d50a7ecac",
+              "fields": {
+                "de": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "Demuetige Gabe oder Hilfe",
+                  "after": "Demütige Gabe oder Hilfe"
+                }
+              },
+              "unparsedInterval": []
+            }
+          ]
+        },
+        "live": {
+          "id": "grammar_a2_humble_give",
+          "promotionSha256": "c645f90c664ecb85d26bcb14712d858b8ce74368b945f2f2c0ba4218ce9b8c30",
+          "currentSha256": "8e4226ea1f6614c9ee8473e1311fe2465ad7d336c16bde2a7f3b917d1306229b",
+          "transitions": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "beforeSha256": "c645f90c664ecb85d26bcb14712d858b8ce74368b945f2f2c0ba4218ce9b8c30",
+              "afterSha256": "070ddc645fc0919d10b2001e21690933dbf9c391da61af09f2fecca9c15f2732",
+              "fields": {
+                "example_german": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "Ich habe fuer die geehrte Person Wasser eingeschenkt.",
+                  "after": "Ich habe für die geehrte Person Wasser eingeschenkt."
+                },
+                "explanation_de": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "Drueckt aus, dass die sprechende Person einer geehrten Person etwas gibt oder fuer sie handelt.",
+                  "after": "Drückt aus, dass die sprechende Person einer geehrten Person etwas gibt oder für sie handelt."
+                },
+                "quiz_focus_de": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "fuer die geehrte Person",
+                  "after": "für die geehrte Person"
+                },
+                "type_de": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "Demuetige Gabe oder Hilfe",
+                  "after": "Demütige Gabe oder Hilfe"
+                }
+              },
+              "unparsedInterval": []
+            },
+            {
+              "commit": "43769596687027ad85e637d2dd78443dc9c072fd",
+              "beforeSha256": "070ddc645fc0919d10b2001e21690933dbf9c391da61af09f2fecca9c15f2732",
+              "afterSha256": "8e4226ea1f6614c9ee8473e1311fe2465ad7d336c16bde2a7f3b917d1306229b",
+              "fields": {
+                "quiz_distractor_ids": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "grammar_a2_favor|grammar_a2_polite_proposal|grammar_a2_permission",
+                  "after": "grammar_a2_gentle_question|grammar_a2_in_progress|grammar_a2_future_intention"
+                }
+              },
+              "unparsedInterval": []
+            }
+          ]
+        }
+      },
+      "beforeSha256": "2f23b219ed544a43451048a1dfa6e2b92608c1d0d1c10ce3ce4ab9188bb00c01",
+      "comparisonAfterSha256": "58bfb8567769f226b311ef534491e0ea9ad8016fd35da155feb6b03a63897b85",
+      "levelNormalization": null
+    },
+    {
+      "id": "grammar_b1_honorific_subject_kkeyseo",
+      "kind": "grammar",
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "priorLiveSha256": "399def70baf16b4a650aaad78d6c2054b12523e5c627a0e51788ddc4cea286c0",
+      "actualAfterSha256": "538bf59d008f1b30acffd1bfe03d10b4a5b123a202a32b068610e1952b18e381",
+      "currentCorrectionFields": {
+        "type_de": {
+          "before": "Hoeftliches Subjekt",
+          "after": "Höfliche Subjektpartikel"
+        },
+        "example_german": {
+          "before": "Die geehrte Person als Subjekt hat sich zuerst gesetzt.",
+          "after": "Die Mutter meines Mannes hat sich zuerst gesetzt."
+        },
+        "note": {
+          "before": "께는 Empfaenger, 께서 ist Subjekt.",
+          "after": "께 markiert den Empfänger, 께서 das Subjekt."
+        },
+        "example_en": {
+          "before": "The respected person as subject sat down first.",
+          "after": "My husband's mother sat down first."
+        },
+        "quiz_focus_de": {
+          "before": "Die geehrte Person als Subjekt",
+          "after": "Die Mutter meines Mannes"
+        },
+        "quiz_focus_en": {
+          "before": "The respected person as subject",
+          "after": "My husband's mother"
+        },
+        "quiz_distractor_ids": {
+          "before": "grammar_b1_honorific_si|grammar_b1_intention|grammar_b1_before",
+          "after": "grammar_b1_after|grammar_b1_intention|grammar_b1_before"
+        }
+      },
+      "reasonKo": "시어머니의 남편 쪽 어머니 관계를 보존한다. 실제 강조된 주체 높임과 양립하는 -시-를 오답에서 제외한다.",
+      "current": {
+        "pattern": "N께서",
+        "level": "A1",
+        "type_de": "Höfliche Subjektpartikel",
+        "explanation_de": "Markiert eine geehrte Person als Subjekt und passt oft zu Verben mit -시-.",
+        "example_korean": "시어머니께서 먼저 앉으셨어요.",
+        "example_german": "Die Mutter meines Mannes hat sich zuerst gesetzt.",
+        "note": "께 markiert den Empfänger, 께서 das Subjekt.",
+        "type_en": "Honorific subject",
+        "explanation_en": "Marks a respected person as the subject and often pairs with -시- verbs.",
+        "example_en": "My husband's mother sat down first.",
+        "note_en": "께 marks a recipient; 께서 marks a subject.",
+        "id": "grammar_b1_honorific_subject_kkeyseo",
+        "quiz_focus_de": "Die Mutter meines Mannes",
+        "quiz_focus_en": "My husband's mother",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_b1_after|grammar_b1_intention|grammar_b1_before"
+      },
+      "distractors": [
+        {
+          "id": "grammar_b1_after",
+          "pattern": "V-(으)ㄴ 후에",
+          "level": "A1"
+        },
+        {
+          "id": "grammar_b1_intention",
+          "pattern": "V-(으)려고",
+          "level": "A1"
+        },
+        {
+          "id": "grammar_b1_before",
+          "pattern": "V-기 전에",
+          "level": "A1"
+        }
+      ],
+      "history": {
+        "draft": {
+          "id": "grammar_b1_honorific_subject_kkeyseo",
+          "promotionSha256": "93411b9ced2097b8b2f71e06adc3a06af49943d10b1237e58a9bbd69a47b388b",
+          "currentSha256": "93411b9ced2097b8b2f71e06adc3a06af49943d10b1237e58a9bbd69a47b388b",
+          "transitions": []
+        },
+        "review": {
+          "id": "grammar_b1_honorific_subject_kkeyseo",
+          "promotionSha256": "03a182f448189bcc8b8ee276867f32ee2ba88fd38de07a2420da6d5acbccf47b",
+          "currentSha256": "03a182f448189bcc8b8ee276867f32ee2ba88fd38de07a2420da6d5acbccf47b",
+          "transitions": []
+        },
+        "live": {
+          "id": "grammar_b1_honorific_subject_kkeyseo",
+          "promotionSha256": "93411b9ced2097b8b2f71e06adc3a06af49943d10b1237e58a9bbd69a47b388b",
+          "currentSha256": "399def70baf16b4a650aaad78d6c2054b12523e5c627a0e51788ddc4cea286c0",
+          "transitions": [
+            {
+              "commit": "43769596687027ad85e637d2dd78443dc9c072fd",
+              "beforeSha256": "93411b9ced2097b8b2f71e06adc3a06af49943d10b1237e58a9bbd69a47b388b",
+              "afterSha256": "399def70baf16b4a650aaad78d6c2054b12523e5c627a0e51788ddc4cea286c0",
+              "fields": {
+                "level": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "B1",
+                  "after": "A1"
+                },
+                "quiz_distractor_ids": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "grammar_b1_soft_request|grammar_b1_indirect_speech|grammar_b1_honorific_si",
+                  "after": "grammar_b1_honorific_si|grammar_b1_intention|grammar_b1_before"
+                }
+              },
+              "unparsedInterval": []
+            }
+          ]
+        }
+      },
+      "beforeSha256": "93411b9ced2097b8b2f71e06adc3a06af49943d10b1237e58a9bbd69a47b388b",
+      "comparisonAfterSha256": "ba53d6d8e3879dba7448e86fad2b0c8749b05415d088166b94cf57d738de3d4a",
+      "levelNormalization": {
+        "id": "grammar_b1_honorific_subject_kkeyseo",
+        "kind": "grammar",
+        "from": "b1",
+        "to": "a1",
+        "movedAt": "2026-09-07",
+        "batch": "L2b",
+        "reason": "NIKL 1급 조사 께서 (F1b.md 1.3) -- bible SB.1(1) can-do, paired with grammar_b1_honorific_si."
+      }
+    },
+    {
+      "id": "grammar_b2_rather_than_direct",
+      "kind": "grammar",
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "priorLiveSha256": "217fc060c85e48472603f488b70b288278d6111b270ae4d9de467873d72b4136",
+      "actualAfterSha256": "0af9ea3be774b23a6d55280fa131971bef37c03d46c10b0f7a08847691480db6",
+      "currentCorrectionFields": {
+        "type_de": {
+          "before": "Sanftere Alternative zur direkten Aussage",
+          "after": "Zwei Handlungen vergleichen"
+        },
+        "explanation_de": {
+          "before": "Stellt eine weniger direkte Handlung als bessere Wahl gegenüber einer scharfen Antwort dar.",
+          "after": "Vergleicht zwei Handlungen; die zweite kann als bevorzugte Alternative dargestellt werden. Hier dient der Vergleich einer weniger direkten Antwort."
+        },
+        "example_korean": {
+          "before": "바로 거절하기보다 다음에 말씀드릴게요라고 했어요.",
+          "after": "바로 거절하기보다 “다음에 말씀드릴게요.”라고 했어요."
+        },
+        "example_german": {
+          "before": "Statt direkt abzulehnen, sagte ich, ich erklaere es später.",
+          "after": "Statt direkt abzulehnen, sagte ich: „Ich sage es Ihnen beim nächsten Mal.“"
+        },
+        "type_en": {
+          "before": "Softer alternative to a direct move",
+          "after": "Comparing two actions"
+        },
+        "explanation_en": {
+          "before": "Presents a less direct action as the better choice against a blunt reply.",
+          "after": "Compares two actions; the second can be presented as the preferred alternative. Here it is used for a less direct reply."
+        },
+        "example_en": {
+          "before": "Rather than directly refusing, I said I would explain later.",
+          "after": "Rather than directly refusing, I said, “I'll tell you next time.”"
+        },
+        "quiz_focus_de": {
+          "before": "Statt direkt",
+          "after": "Statt direkt abzulehnen"
+        },
+        "quiz_focus_en": {
+          "before": "Rather than directly",
+          "after": "Rather than directly refusing"
+        }
+      },
+      "reasonKo": "말씀드리다를 설명하다로 바꾸지 않고 다음에의 시점을 보존한다. 직접 인용의 경계를 표시하고 비교 대상인 거절 행위 전체를 강조한다. 덜 직접적인 답변은 이 예문의 쓰임이며 문법 전체의 유일한 뜻이 아니다.",
+      "current": {
+        "pattern": "V-기보다",
+        "level": "B2",
+        "type_de": "Zwei Handlungen vergleichen",
+        "explanation_de": "Vergleicht zwei Handlungen; die zweite kann als bevorzugte Alternative dargestellt werden. Hier dient der Vergleich einer weniger direkten Antwort.",
+        "example_korean": "바로 거절하기보다 “다음에 말씀드릴게요.”라고 했어요.",
+        "example_german": "Statt direkt abzulehnen, sagte ich: „Ich sage es Ihnen beim nächsten Mal.“",
+        "note": "Beide Seiten sollten echte Alternativen sein.",
+        "type_en": "Comparing two actions",
+        "explanation_en": "Compares two actions; the second can be presented as the preferred alternative. Here it is used for a less direct reply.",
+        "example_en": "Rather than directly refusing, I said, “I'll tell you next time.”",
+        "note_en": "Both sides should be real alternatives.",
+        "id": "grammar_b2_rather_than_direct",
+        "quiz_focus_de": "Statt direkt abzulehnen",
+        "quiz_focus_en": "Rather than directly refusing",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_b2_quoted_contractions|grammar_b2_reasoned_perspective|grammar_b2_pretense_contrast"
+      },
+      "distractors": [
+        {
+          "id": "grammar_b2_quoted_contractions",
+          "pattern": "-대요/-(이)래요/-냬요/-재요",
+          "level": "B2"
+        },
+        {
+          "id": "grammar_b2_reasoned_perspective",
+          "pattern": "A/V-기에",
+          "level": "B2"
+        },
+        {
+          "id": "grammar_b2_pretense_contrast",
+          "pattern": "V-는데도 V-는 척하다",
+          "level": "B2"
+        }
+      ],
+      "history": {
+        "draft": {
+          "id": "grammar_b2_rather_than_direct",
+          "promotionSha256": "f08136ccd3f447dc778b2606d413bd27434d608a2de90d64960eefe23d47774f",
+          "currentSha256": "8bf840a21cd9aa4b230549b1bc0524a895c7adc7c6ef75ee7c8aaf195d5d7a4d",
+          "transitions": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "beforeSha256": "f08136ccd3f447dc778b2606d413bd27434d608a2de90d64960eefe23d47774f",
+              "afterSha256": "8bf840a21cd9aa4b230549b1bc0524a895c7adc7c6ef75ee7c8aaf195d5d7a4d",
+              "fields": {
+                "example_german": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "Statt direkt abzulehnen, sagte ich, ich erklaere es spaeter.",
+                  "after": "Statt direkt abzulehnen, sagte ich, ich erklaere es später."
+                },
+                "explanation_de": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "Stellt eine weniger direkte Handlung als bessere Wahl gegenueber einer scharfen Antwort dar.",
+                  "after": "Stellt eine weniger direkte Handlung als bessere Wahl gegenüber einer scharfen Antwort dar."
+                }
+              },
+              "unparsedInterval": []
+            }
+          ]
+        },
+        "review": {
+          "id": "grammar_b2_rather_than_direct",
+          "promotionSha256": "2dfa815f4c69c1ab12fa9d877c7221299c5539912b57eb46b358432cc36eb326",
+          "currentSha256": "2dfa815f4c69c1ab12fa9d877c7221299c5539912b57eb46b358432cc36eb326",
+          "transitions": []
+        },
+        "live": {
+          "id": "grammar_b2_rather_than_direct",
+          "promotionSha256": "f08136ccd3f447dc778b2606d413bd27434d608a2de90d64960eefe23d47774f",
+          "currentSha256": "217fc060c85e48472603f488b70b288278d6111b270ae4d9de467873d72b4136",
+          "transitions": [
+            {
+              "commit": "c5d88db5be3a8199ad8dd52e6d33716291f4e026",
+              "beforeSha256": "f08136ccd3f447dc778b2606d413bd27434d608a2de90d64960eefe23d47774f",
+              "afterSha256": "8bf840a21cd9aa4b230549b1bc0524a895c7adc7c6ef75ee7c8aaf195d5d7a4d",
+              "fields": {
+                "example_german": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "Statt direkt abzulehnen, sagte ich, ich erklaere es spaeter.",
+                  "after": "Statt direkt abzulehnen, sagte ich, ich erklaere es später."
+                },
+                "explanation_de": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "Stellt eine weniger direkte Handlung als bessere Wahl gegenueber einer scharfen Antwort dar.",
+                  "after": "Stellt eine weniger direkte Handlung als bessere Wahl gegenüber einer scharfen Antwort dar."
+                }
+              },
+              "unparsedInterval": []
+            },
+            {
+              "commit": "8bc5ca314c62632df1cfd63c3ef9507264ef7471",
+              "beforeSha256": "8bf840a21cd9aa4b230549b1bc0524a895c7adc7c6ef75ee7c8aaf195d5d7a4d",
+              "afterSha256": "217fc060c85e48472603f488b70b288278d6111b270ae4d9de467873d72b4136",
+              "fields": {
+                "quiz_distractor_ids": {
+                  "beforePresent": true,
+                  "afterPresent": true,
+                  "before": "grammar_b2_formal_regarding|grammar_b2_instead_tradeoff|grammar_b2_not_automatic_conclusion",
+                  "after": "grammar_b2_quoted_contractions|grammar_b2_reasoned_perspective|grammar_b2_pretense_contrast"
+                }
+              },
+              "unparsedInterval": []
+            }
+          ]
+        }
+      },
+      "beforeSha256": "8bf840a21cd9aa4b230549b1bc0524a895c7adc7c6ef75ee7c8aaf195d5d7a4d",
+      "comparisonAfterSha256": "0af9ea3be774b23a6d55280fa131971bef37c03d46c10b0f7a08847691480db6",
+      "levelNormalization": null
+    },
+    {
+      "id": "grammar_c1_family_framing",
+      "kind": "grammar",
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "priorLiveSha256": "d2ca7992f273bd3aaa6895a6458421758240977484465c0235746565884c3b1f",
+      "actualAfterSha256": "a6be95c1193fccaeb6d5d553341a30477a184e08c340c12a71fd38133f81fcae",
+      "currentCorrectionFields": {
+        "pattern": {
+          "before": "N라는 점에서",
+          "after": "N(이)라는 점에서"
+        },
+        "type_de": {
+          "before": "Bewertung eines familiaren Rahmens",
+          "after": "Bewertung unter einem bestimmten Aspekt"
+        },
+        "explanation_de": {
+          "before": "Hebt den Rahmen oder die Rolle hervor, unter dem eine Familienaussage bewertet wird.",
+          "after": "Nennt einen bestimmten Aspekt, auf den sich die folgende Bewertung stützt."
+        },
+        "example_korean": {
+          "before": "우리 며느리라는 점에서 그 말은 환영이자 역할 부여예요.",
+          "after": "“우리 며느리”라는 말이 환영의 표현이라는 점에서 반갑지만, 제 역할까지 정하는 것 같아 부담스럽기도 해요."
+        },
+        "example_german": {
+          "before": "Insofern der Rahmen unsere Schwiegertochter sagt, ist das Willkommen und Rolle.",
+          "after": "Die Bezeichnung „unsere Schwiegertochter“ freut mich als Ausdruck des Willkommens, setzt mich aber auch unter Druck, weil es so klingt, als würde damit meine Rolle festgelegt."
+        },
+        "note": {
+          "before": "Nach der Form folgt die Bewertung des Rahmens.",
+          "after": "Nach einem Konsonanten steht 이라는 점에서, nach einem Vokal 라는 점에서."
+        },
+        "type_en": {
+          "before": "Evaluating a family frame",
+          "after": "Evaluating a particular aspect"
+        },
+        "explanation_en": {
+          "before": "Highlights the frame or role under which a family remark is judged.",
+          "after": "Names a particular aspect on which the following evaluation is based."
+        },
+        "example_en": {
+          "before": "In that the frame says our daughter-in-law, the remark is welcome and a role.",
+          "after": "Being called “our daughter-in-law” pleases me as an expression of welcome, but it also puts pressure on me because it seems to define my role."
+        },
+        "note_en": {
+          "before": "The evaluation of the frame follows the form.",
+          "after": "Use 이라는 점에서 after a consonant and 라는 점에서 after a vowel."
+        },
+        "quiz_focus_de": {
+          "before": "Insofern der Rahmen",
+          "after": "als Ausdruck des Willkommens"
+        },
+        "quiz_focus_en": {
+          "before": "In that the frame",
+          "after": "as an expression of welcome"
+        },
+        "quiz_distractor_ids": {
+          "before": "grammar_c1_taking_into_account|grammar_c1_two_sides|grammar_c1_rather_than",
+          "after": "grammar_c1_unless_condition|grammar_c1_two_sides|grammar_c1_rather_than"
+        }
+      },
+      "reasonKo": "KO에서 우리 며느리라는 실제 호칭을 명시하고, 환영의 표현이라는 평가 근거와 역할을 정하는 듯한 부담을 구별한다. DE/EN의 frame says라는 불명확한 행위자를 없앤다. -라는 점에서는 일반적인 평가 근거이며 가족으로 한정하지 않는다. 같은 평가 근거가 될 수 있는 감안하면을 오답에서 뺀다.",
+      "current": {
+        "pattern": "N(이)라는 점에서",
+        "level": "C1",
+        "type_de": "Bewertung unter einem bestimmten Aspekt",
+        "explanation_de": "Nennt einen bestimmten Aspekt, auf den sich die folgende Bewertung stützt.",
+        "example_korean": "“우리 며느리”라는 말이 환영의 표현이라는 점에서 반갑지만, 제 역할까지 정하는 것 같아 부담스럽기도 해요.",
+        "example_german": "Die Bezeichnung „unsere Schwiegertochter“ freut mich als Ausdruck des Willkommens, setzt mich aber auch unter Druck, weil es so klingt, als würde damit meine Rolle festgelegt.",
+        "note": "Nach einem Konsonanten steht 이라는 점에서, nach einem Vokal 라는 점에서.",
+        "type_en": "Evaluating a particular aspect",
+        "explanation_en": "Names a particular aspect on which the following evaluation is based.",
+        "example_en": "Being called “our daughter-in-law” pleases me as an expression of welcome, but it also puts pressure on me because it seems to define my role.",
+        "note_en": "Use 이라는 점에서 after a consonant and 라는 점에서 after a vowel.",
+        "id": "grammar_c1_family_framing",
+        "quiz_focus_de": "als Ausdruck des Willkommens",
+        "quiz_focus_en": "as an expression of welcome",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_c1_unless_condition|grammar_c1_two_sides|grammar_c1_rather_than"
+      },
+      "distractors": [
+        {
+          "id": "grammar_c1_unless_condition",
+          "pattern": "V-지 않는 한",
+          "level": "C1"
+        },
+        {
+          "id": "grammar_c1_two_sides",
+          "pattern": "A/V-(으)ㄴ/는 한편",
+          "level": "C1"
+        },
+        {
+          "id": "grammar_c1_rather_than",
+          "pattern": "V-(으)ㄹ 바에야",
+          "level": "C1"
+        }
+      ],
+      "history": {
+        "draft": {
+          "id": "grammar_c1_family_framing",
+          "promotionSha256": "d2ca7992f273bd3aaa6895a6458421758240977484465c0235746565884c3b1f",
+          "currentSha256": "d2ca7992f273bd3aaa6895a6458421758240977484465c0235746565884c3b1f",
+          "transitions": []
+        },
+        "review": {
+          "id": "grammar_c1_family_framing",
+          "promotionSha256": "0faca29a33c1a1f555854cb7c5f1240fd64f72ab3f716322cf07a0a910ddf918",
+          "currentSha256": "0faca29a33c1a1f555854cb7c5f1240fd64f72ab3f716322cf07a0a910ddf918",
+          "transitions": []
+        },
+        "live": {
+          "id": "grammar_c1_family_framing",
+          "promotionSha256": "d2ca7992f273bd3aaa6895a6458421758240977484465c0235746565884c3b1f",
+          "currentSha256": "d2ca7992f273bd3aaa6895a6458421758240977484465c0235746565884c3b1f",
+          "transitions": []
+        }
+      },
+      "beforeSha256": "d2ca7992f273bd3aaa6895a6458421758240977484465c0235746565884c3b1f",
+      "comparisonAfterSha256": "a6be95c1193fccaeb6d5d553341a30477a184e08c340c12a71fd38133f81fcae",
+      "levelNormalization": null
+    },
+    {
+      "id": "grammar_c2_regardless_of_kin",
+      "kind": "grammar",
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "priorLiveSha256": "704c0bfe8286e8779bde3dd0bc35f0a60dc76f455e63eb2de542828639ebaf55",
+      "actualAfterSha256": "ace8dedec47cda6fcffa7ebefd3aec532c65478b0cba70f1d916e7e23dd92a83",
+      "currentCorrectionFields": {
+        "type_de": {
+          "before": "Unabhaengig von Bluts- oder Machtbindung",
+          "after": "Unabhängigkeit von einem Umstand"
+        },
+        "explanation_de": {
+          "before": "Trennt eine Entscheidung oder ein Recht von Verwandtschaft oder stiller Autoritaet.",
+          "after": "Beschreibt, dass etwas unabhängig vom genannten Umstand gilt oder geschieht."
+        },
+        "example_german": {
+          "before": "Unabhaengig von der Blutsbindung schlug ich vor, das Verfahren festzuhalten.",
+          "after": "Unabhängig von der Blutsverwandtschaft schlug ich vor, das Verfahren zu dokumentieren."
+        },
+        "note": {
+          "before": "Der vorangestellte Bezug darf die folgende Forderung nicht heimlich ersetzen.",
+          "after": "Nach einem Konsonanten: 과 무관하게; nach einem Vokal: 와 무관하게."
+        },
+        "type_en": {
+          "before": "Independent of blood or quiet power",
+          "after": "Independence from a factor"
+        },
+        "explanation_en": {
+          "before": "Separates a decision or right from kinship or unspoken authority.",
+          "after": "Says that something applies or happens independently of the factor named."
+        },
+        "example_en": {
+          "before": "Regardless of blood ties, I asked to document the procedure.",
+          "after": "Regardless of blood ties, I suggested documenting the procedure."
+        },
+        "note_en": {
+          "before": "The fronted reference must not secretly replace the demand that follows.",
+          "after": "Use 과 무관하게 after a consonant and 와 무관하게 after a vowel."
+        },
+        "quiz_focus_de": {
+          "before": "Unabhaengig von",
+          "after": "Unabhängig von der Blutsverwandtschaft"
+        },
+        "quiz_focus_en": {
+          "before": "Regardless of",
+          "after": "Regardless of blood ties"
+        },
+        "quiz_distractor_ids": {
+          "before": "grammar_c2_regardless_of|grammar_c2_even_assuming|grammar_c2_nothing_more_than",
+          "after": "grammar_c2_expected_assumption|grammar_c2_even_assuming|grammar_c2_nothing_more_than"
+        }
+      },
+      "reasonKo": "혈연과 무관하게의 일반적인 독립 관계를 설명한다. 하자고 했어요의 제안을 DE/EN에 보존하고, 같은 뜻을 구현하는 불문하고를 오답에서 뺀다.",
+      "current": {
+        "pattern": "N와/과 무관하게",
+        "level": "C2",
+        "type_de": "Unabhängigkeit von einem Umstand",
+        "explanation_de": "Beschreibt, dass etwas unabhängig vom genannten Umstand gilt oder geschieht.",
+        "example_korean": "혈연과 무관하게 절차를 문서화하자고 했어요.",
+        "example_german": "Unabhängig von der Blutsverwandtschaft schlug ich vor, das Verfahren zu dokumentieren.",
+        "note": "Nach einem Konsonanten: 과 무관하게; nach einem Vokal: 와 무관하게.",
+        "type_en": "Independence from a factor",
+        "explanation_en": "Says that something applies or happens independently of the factor named.",
+        "example_en": "Regardless of blood ties, I suggested documenting the procedure.",
+        "note_en": "Use 과 무관하게 after a consonant and 와 무관하게 after a vowel.",
+        "id": "grammar_c2_regardless_of_kin",
+        "quiz_focus_de": "Unabhängig von der Blutsverwandtschaft",
+        "quiz_focus_en": "Regardless of blood ties",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_c2_expected_assumption|grammar_c2_even_assuming|grammar_c2_nothing_more_than"
+      },
+      "distractors": [
+        {
+          "id": "grammar_c2_expected_assumption",
+          "pattern": "V-(으)리라 여겨지다",
+          "level": "C2"
+        },
+        {
+          "id": "grammar_c2_even_assuming",
+          "pattern": "A/V-(으)ㄴ/는다고 치더라도",
+          "level": "C2"
+        },
+        {
+          "id": "grammar_c2_nothing_more_than",
+          "pattern": "N에 불과하다",
+          "level": "C2"
+        }
+      ],
+      "history": {
+        "draft": {
+          "id": "grammar_c2_regardless_of_kin",
+          "promotionSha256": "704c0bfe8286e8779bde3dd0bc35f0a60dc76f455e63eb2de542828639ebaf55",
+          "currentSha256": "704c0bfe8286e8779bde3dd0bc35f0a60dc76f455e63eb2de542828639ebaf55",
+          "transitions": []
+        },
+        "review": {
+          "id": "grammar_c2_regardless_of_kin",
+          "promotionSha256": "69bea6b83c3f90fb3e403a3aa2b5c86e7bf9ec8756ac879dbb0a00ede6b289fc",
+          "currentSha256": "69bea6b83c3f90fb3e403a3aa2b5c86e7bf9ec8756ac879dbb0a00ede6b289fc",
+          "transitions": []
+        },
+        "live": {
+          "id": "grammar_c2_regardless_of_kin",
+          "promotionSha256": "704c0bfe8286e8779bde3dd0bc35f0a60dc76f455e63eb2de542828639ebaf55",
+          "currentSha256": "704c0bfe8286e8779bde3dd0bc35f0a60dc76f455e63eb2de542828639ebaf55",
+          "transitions": []
+        }
+      },
+      "beforeSha256": "704c0bfe8286e8779bde3dd0bc35f0a60dc76f455e63eb2de542828639ebaf55",
+      "comparisonAfterSha256": "ace8dedec47cda6fcffa7ebefd3aec532c65478b0cba70f1d916e7e23dd92a83",
+      "levelNormalization": null
+    }
+  ],
+  "relatedCorrections": [
+    {
+      "id": "grammar_b1_honorific_si",
+      "kind": "grammar",
+      "manifest": null,
+      "priorLiveSha256": "db33a06cf0ed2e70ccd5e253af6f57e5b6c6ca096593cf58558f6c6515fefb79",
+      "actualAfterSha256": "90eab054426a0e993a1ad61823b739929f270259c6c6c42ed7adb874c8932e64",
+      "currentCorrectionFields": {
+        "explanation_de": {
+          "before": "Ehrt das Satzsubjekt: 가다→가시다 · 이/가→께서 · 에게→께",
+          "after": "Drückt Respekt gegenüber dem Subjekt des Satzes aus: 가다 → 가시다, 읽다 → 읽으시다."
+        },
+        "explanation_en": {
+          "before": "Honors the sentence subject: 가다→가시다 · 이/가→께서 · 에게→께",
+          "after": "Shows respect toward the subject of the sentence: 가다 → 가시다, 읽다 → 읽으시다."
+        },
+        "quiz_distractor_ids": {
+          "before": "grammar_b1_before|grammar_b1_honorific_subject_kkeyseo|grammar_b1_after",
+          "after": "grammar_b1_before|grammar_b1_intention|grammar_b1_after"
+        }
+      },
+      "reasonKo": "께서와 -시-가 같은 주체를 높이는 예문에서 서로 오답이 되지 않게 한다. 주체 높임 설명에서 객체 높임 에게→께를 분리한다.",
+      "current": {
+        "pattern": "V-(으)시-",
+        "level": "A1",
+        "type_de": "Ehrenform (Subjekt)",
+        "explanation_de": "Drückt Respekt gegenüber dem Subjekt des Satzes aus: 가다 → 가시다, 읽다 → 읽으시다.",
+        "example_korean": "할머니께서 신문을 읽으세요.",
+        "example_german": "Meine Großmutter liest Zeitung.",
+        "note": "Sonderverben: 먹다→드시다 · 자다→주무시다 · 있다→계시다",
+        "type_en": "Honorific (subject)",
+        "explanation_en": "Shows respect toward the subject of the sentence: 가다 → 가시다, 읽다 → 읽으시다.",
+        "example_en": "My grandmother is reading the newspaper.",
+        "note_en": "special verbs: 먹다→드시다 · 자다→주무시다 · 있다→계시다",
+        "id": "grammar_b1_honorific_si",
+        "quiz_focus_de": "Meine Großmutter",
+        "quiz_focus_en": "My grandmother",
+        "quiz_enabled": "true",
+        "quiz_distractor_ids": "grammar_b1_before|grammar_b1_intention|grammar_b1_after"
+      },
+      "distractors": [
+        {
+          "id": "grammar_b1_before",
+          "pattern": "V-기 전에",
+          "level": "A1"
+        },
+        {
+          "id": "grammar_b1_intention",
+          "pattern": "V-(으)려고",
+          "level": "A1"
+        },
+        {
+          "id": "grammar_b1_after",
+          "pattern": "V-(으)ㄴ 후에",
+          "level": "A1"
+        }
+      ]
+    }
+  ],
+  "reviewScope": {
+    "grammarCards": 7,
+    "distractorPositions": 21,
+    "axes": [
+      "Standards",
+      "Spec"
+    ],
+    "nativeReview": "pending",
+    "cefrApproval": "not_granted"
+  }
+}

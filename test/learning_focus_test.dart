@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -14,6 +15,9 @@ import 'package:ko_lernen_app/services/course_mission_navigation.dart';
 import 'package:ko_lernen_app/models/course_mission_brief.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/course_practice_context.dart';
+import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
+
+import 'support/real_fonts.dart';
 
 const unit = CourseUnit(
   id: 'a1',
@@ -41,6 +45,78 @@ const today = TodayLearningSnapshot(
   destination: TodayLearningDestination(route: '/course/mission'),
 );
 void main() {
+  setUpAll(() => loadSoriRealFonts(materialIcons: true));
+
+  testWidgets('Today start action follows content width and text scale', (
+    tester,
+  ) async {
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final brief = CourseMissionBrief.from(
+      unit: unit,
+      links: [link],
+      scenarios: [],
+      isCurrent: true,
+    );
+    final controller = LearningFocusController();
+    addTearDown(controller.dispose);
+    controller.value = LearningFocus(
+      today: today,
+      brief: brief,
+      destination: const TodayLearningDestination(route: '/vocab/pack'),
+    );
+    for (final viewport in const [
+      (size: Size(390, 844), scale: 1.0),
+      (size: Size(720, 1152), scale: 1.0),
+      (size: Size(720, 1152), scale: 2.0),
+    ]) {
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = viewport.size;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          locale: const Locale('de'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          builder: (context, appChild) => MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              textScaler: TextScaler.linear(viewport.scale),
+              disableAnimations: true,
+            ),
+            child: SoriTypeScale(
+              child: RepaintBoundary(
+                key: const ValueKey('today-evidence'),
+                child: appChild!,
+              ),
+            ),
+          ),
+          home: LearningFocusScope(
+            controller: controller,
+            open: (_, _, {focus, activityId}) async {},
+            child: const Scaffold(
+              body: SingleChildScrollView(
+                padding: EdgeInsets.all(20),
+                child: SoriLearningFocus(),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      final t = await AppL10n.delegate.load(const Locale('de'));
+      final start = find.byWidgetPredicate(
+        (widget) =>
+            widget is SoriButton && widget.label == t.learningFocusStart,
+      );
+      expect(start, findsOneWidget);
+      expect(tester.getSize(start).height, greaterThanOrEqualTo(48));
+      if (viewport.size.width == 720 && viewport.scale == 1) {
+        expect(tester.getSize(start).width, lessThanOrEqualTo(320));
+      }
+      expect(tester.takeException(), isNull);
+    }
+  });
+
   for (final state in [
     'loading',
     'error',
@@ -161,6 +237,14 @@ void main() {
         find.text(t.learningFocusStart),
         state == 'ready' ? findsOneWidget : findsNothing,
       );
+      if (state == 'ready') {
+        final start = find.byWidgetPredicate(
+          (widget) =>
+              widget is SoriButton && widget.label == t.learningFocusStart,
+        );
+        expect(tester.getSize(start).width, lessThanOrEqualTo(320));
+        expect(tester.getSize(start).height, greaterThanOrEqualTo(48));
+      }
       expect(opened, isEmpty);
       await tester.tap(overview);
       expect(opened, hasLength(1));

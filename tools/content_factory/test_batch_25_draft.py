@@ -40,6 +40,7 @@ from distractor_rules import (  # noqa: E402
     waived_distractor_ok,
 )
 import relevel_ledger  # noqa: E402
+import validate_promoted_batch  # noqa: E402
 DRAFTS = REPO_ROOT / "tools/content_factory/drafts"
 VOCAB_CSV = REPO_ROOT / "assets/data/korean_vocab.csv"
 
@@ -128,14 +129,18 @@ class TestBatch25PromotedToLiveAssets(unittest.TestCase):
                 f"{live_counts.get(row['korean'], 0)}, expected exactly 1",
             )
 
-    def test_every_id_is_live_with_matching_content(self):
-        """Every draft id must be present live with byte-identical content
-        (validate_promoted_batch.py's exact-equality contract)."""
-        draft_rows = {r["id"]: r for r in _load_vocab_rows(DRAFTS / "batch_25_a1_rows.csv")}
-        live_rows = {r["id"]: r for r in _load_vocab_rows(VOCAB_CSV)}
-        for vid, row in draft_rows.items():
-            self.assertIn(vid, live_rows, f"{vid} missing from live korean_vocab.csv")
-            self.assertEqual(row, live_rows[vid], f"{vid}: live row differs from reviewed draft")
+    def test_live_content_preserves_the_reviewed_revision_chain(self):
+        """Frozen drafts keep the before-copy; live edits need exact ledger hashes.
+
+        Requiring draft == live erases the evidence of later copy corrections.
+        The production validator also checks every cloze/satz row, approval,
+        rights, revision fingerprints, and unused (stale) ledger entries.
+        """
+        count, _ = validate_promoted_batch.validate(
+            DRAFTS / "batch_25_a1_reinforcement_manifest.json",
+            root=REPO_ROOT,
+        )
+        self.assertEqual(count, 192)
 
 
 class TestBatch25VocabRows(unittest.TestCase):

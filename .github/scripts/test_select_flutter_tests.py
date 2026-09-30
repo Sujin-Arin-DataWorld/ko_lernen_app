@@ -116,6 +116,15 @@ class SelectTestsTest(unittest.TestCase):
 
 
 class DecideTest(unittest.TestCase):
+    def test_unrelated_source_change_still_runs_icon_source_guard(self):
+        graph = {
+            "lib/unrelated.dart": set(),
+            "test/icon_button_tooltip_guard_test.dart": set(),
+            "test/other_test.dart": set(),
+        }
+        selected = selector.select_tests(["lib/unrelated.dart"], graph)
+        self.assertEqual(selected, ["test/icon_button_tooltip_guard_test.dart"])
+
     def test_non_pull_request_events_keep_the_full_suite(self):
         for env in (
             {"CI_EVENT_NAME": "push"},

@@ -17,10 +17,15 @@ void main() {
     await Storage.init();
   });
   test(
-    'all eleven practice entries belong to one catalog-owned group; course is separate',
+    'all twelve practice entries belong to one catalog-owned group; course is separate',
     () {
       final expected = {
-        SoriLearnSection.words: ['vocab_packs', 'grammar', 'word_web'],
+        SoriLearnSection.words: [
+          'vocab_packs',
+          'grammar',
+          'book_capture',
+          'word_web',
+        ],
         SoriLearnSection.listen: [
           'pronunciation',
           'listening',
@@ -68,7 +73,8 @@ void main() {
     final cards = tester
         .widgetList<SoriCatalogCard>(find.byType(SoriCatalogCard))
         .toList();
-    expect(cards.map((c) => c.entry.id).toSet(), hasLength(11));
+    expect(cards, hasLength(12));
+    expect(cards.map((c) => c.entry.id).toSet(), hasLength(12));
     expect(find.byType(ChoiceChip), findsNWidgets(4));
   });
   testWidgets('Games retains eight catalog entries without learning chips', (

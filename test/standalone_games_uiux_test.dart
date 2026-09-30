@@ -708,6 +708,17 @@ void main() {
       if (key == 'AssetManifest.bin') {
         return _assetManifest;
       }
+      if (key == 'assets/data/kkeunmari_nouns.json') {
+        return ByteData.sublistView(
+          Uint8List.fromList(
+            utf8.encode(
+              jsonEncode({
+                'words': _chainWords.map((word) => word.word).toList(),
+              }),
+            ),
+          ),
+        );
+      }
       if (key != 'assets/data/kkeunmari_pool.json') {
         return null;
       }
@@ -910,7 +921,7 @@ void main() {
     _expectButton(tester, find.byKey(const ValueKey('silben-cell-0-0')));
     final syllableTile = find.bySemanticsLabel('가');
     _expectButton(tester, syllableTile);
-    expect(tester.getSize(syllableTile), const Size(46, 46));
+    expect(tester.getSize(syllableTile), const Size(48, 48));
 
     await _pumpPhone(
       tester,

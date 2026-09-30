@@ -15,6 +15,19 @@ const assert = require("node:assert/strict");
 const deployed = require("./index");
 const { getFirestore } = require("firebase-admin/firestore");
 
+test("deleteCloudBackup preserves its deployed resource limits and secret", () => {
+  const endpoint = deployed.deleteCloudBackup.__endpoint;
+  assert.equal(endpoint.maxInstances, 20);
+  assert.equal(endpoint.timeoutSeconds, 60);
+  assert.equal(endpoint.availableMemoryMb, 256);
+  assert.equal(endpoint.cpu, 1);
+  assert.deepEqual(endpoint.region, ["europe-west3"]);
+  assert.deepEqual(
+    endpoint.secretEnvironmentVariables.map((secret) => secret.key),
+    ["DELETION_PROOF_HMAC_KEY"],
+  );
+});
+
 test("on_pack_cleared carries explicit resource limits", () => {
   const endpoint = deployed.on_pack_cleared.__endpoint;
   assert.equal(endpoint.maxInstances, 20);
@@ -31,13 +44,16 @@ test("on_course_mastery_checkpoint_written carries explicit resource limits", ()
   assert.equal(endpoint.eventTrigger.retry, true);
 });
 
-test("weekly_goal_rollover carries explicit resource limits and never overlaps", () => {
+test("weekly_goal_rollover bounds both instance count and per-instance concurrency", () => {
   const endpoint = deployed.weekly_goal_rollover.__endpoint;
-  assert.equal(endpoint.maxInstances, 1,
-    "the scheduler must never run two overlapping rollovers");
+  assert.equal(endpoint.maxInstances, 1);
+  assert.equal(endpoint.concurrency, 1,
+    "one instance must not accept the Gen2 default of 80 concurrent requests");
   assert.equal(endpoint.timeoutSeconds, 540);
   assert.equal(endpoint.availableMemoryMb, 512);
   assert.equal(endpoint.scheduleTrigger.schedule, "0 0 * * 1");
+  assert.equal(endpoint.scheduleTrigger.timeZone, "Asia/Seoul");
+  assert.equal(endpoint.scheduleTrigger.retryConfig.retryCount, 3);
 });
 
 function makeMemberDoc(uid) {

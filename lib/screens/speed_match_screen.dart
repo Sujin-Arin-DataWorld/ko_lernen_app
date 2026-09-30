@@ -11,6 +11,7 @@ import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
 import '../services/analytics_service.dart';
 import '../services/data_loader.dart';
+import '../services/vocab_deck_source.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_error.dart';
@@ -27,6 +28,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/game_layout.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// **Speed-Match** — gegen die Uhr Koreanisch ↔ Bedeutung paaren.
 ///
@@ -34,13 +36,21 @@ import '../widgets/sori/tokens.dart';
 /// die Mechanik (Aufwärm-/Geschwindigkeitsschicht), Abruf liefern die anderen
 /// Spiele. Selbst-Wettbewerb (persönliche Bestleistung) — keine Rangliste.
 class SpeedMatchScreen extends StatefulWidget {
-  /// Optional test fixture; production loads the curated vocabulary set.
-  final List<Vocab>? items;
+  /// Optional notebook subset; library play loads the curated vocabulary set.
+  final List<Vocab>? _items;
+  final VocabDeckSource? source;
+  List<Vocab>? get items => source?.vocabulary ?? _items;
 
   /// Optional deterministic seam. Production keeps [DataLoader.loadVocab].
   final Future<List<Vocab>> Function()? vocabLoader;
 
-  const SpeedMatchScreen({super.key, this.items, this.vocabLoader});
+  const SpeedMatchScreen({
+    super.key,
+    List<Vocab>? items,
+    this.source,
+    this.vocabLoader,
+  }) : assert(items == null || source == null),
+       _items = items;
 
   @override
   State<SpeedMatchScreen> createState() => _SpeedMatchScreenState();
@@ -694,7 +704,10 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
                   final tileHeight = soriFairTileHeight(
                     available: c.maxHeight,
                     count: _active.length,
-                    minimum: 44,
+                    minimum: 48,
+                    maximum: c.maxWidth >= SoriAdaptiveWidth.matchingTileWide
+                        ? SoriAdaptiveHeight.matchingTile
+                        : SoriAdaptiveHeight.matchingTilePhone,
                   );
                   final expandForText = _boardNeedsScroll(
                     context,
@@ -707,6 +720,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
                     children: [
                       Expanded(
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             for (final v in _active)
                               _MatchTile(
@@ -724,6 +738,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
                       const SizedBox(width: Spacing.md),
                       Expanded(
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             for (final v in _rightOrder)
                               _MatchTile(
@@ -744,7 +759,10 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
                   if (expandForText) {
                     return SingleChildScrollView(child: board);
                   }
-                  return board;
+                  // Wide tablets leave spare height once tiles reach their
+                  // touch-friendly cap. Keep the board in the study area's
+                  // center instead of stranding every pair at the top.
+                  return Center(child: board);
                 },
               ),
             ),

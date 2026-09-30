@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
@@ -11,17 +12,20 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'support/real_fonts.dart';
+
 const _firstKo = '오늘 저녁에 친구들이랑 홍대에서 만나서 노래해요';
 const _secondKo = '네 좋아요';
 
-Scenario _scenario() => Scenario(
+Scenario _scenario({LocalizedText? title}) => Scenario(
   id: 'play_layout',
   level: LearnerLevel.a1,
   emoji: '📻',
   register: Register.polite,
   shelf: 'a1_friends',
   backdrop: 'home',
-  title: const LocalizedText(ko: '약속', de: 'Verabredung', en: 'Meetup'),
+  title:
+      title ?? const LocalizedText(ko: '약속', de: 'Verabredung', en: 'Meetup'),
   intro: const LocalizedText(
     ko: '주말 약속을 정해요.',
     de: 'Ihr verabredet euch fürs Wochenende.',
@@ -46,19 +50,20 @@ Scenario _scenario() => Scenario(
   quests: const [],
 );
 
-Widget _app(Widget home, {double textScale = 1}) => MaterialApp(
-  theme: AppTheme.light,
-  locale: const Locale('de'),
-  supportedLocales: AppL10n.supportedLocales,
-  localizationsDelegates: AppL10n.localizationsDelegates,
-  builder: (context, child) => MediaQuery(
-    data: MediaQuery.of(
-      context,
-    ).copyWith(textScaler: TextScaler.linear(textScale)),
-    child: child!,
-  ),
-  home: home,
-);
+Widget _app(Widget home, {double textScale = 1, String language = 'de'}) =>
+    MaterialApp(
+      theme: AppTheme.light,
+      locale: Locale(language),
+      supportedLocales: AppL10n.supportedLocales,
+      localizationsDelegates: AppL10n.localizationsDelegates,
+      builder: (context, child) => MediaQuery(
+        data: MediaQuery.of(
+          context,
+        ).copyWith(textScaler: TextScaler.linear(textScale)),
+        child: child!,
+      ),
+      home: home,
+    );
 
 Future<void> _pumpUntil(WidgetTester tester, bool Function() condition) async {
   for (var attempt = 0; attempt < 30; attempt++) {
@@ -76,6 +81,8 @@ Future<void> _pumpUntil(WidgetTester tester, bool Function() condition) async {
 }
 
 void main() {
+  setUpAll(loadSoriRealFonts);
+
   setUp(() async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
@@ -84,6 +91,71 @@ void main() {
     });
     await Storage.init();
   });
+
+  for (final language in ['de', 'en']) {
+    for (final size in [const Size(320, 640), const Size(760, 360)]) {
+      for (final scale in [1.0, 2.0]) {
+        testWidgets('full scene title below controls $language $size $scale', (
+          tester,
+        ) async {
+          tester.view.physicalSize = size;
+          tester.view.devicePixelRatio = 1;
+          tester.view.padding = size.width > size.height
+              ? const FakeViewPadding(left: 44, right: 44, bottom: 21)
+              : FakeViewPadding.zero;
+          addTearDown(tester.view.resetPhysicalSize);
+          addTearDown(tester.view.resetDevicePixelRatio);
+          addTearDown(tester.view.resetPadding);
+          final semantics = tester.ensureSemantics();
+          const title = LocalizedText(
+            ko: '친구와 주말 여행 계획을 세워요',
+            de: 'Mit einer Freundin einen Wochenendausflug planen und einen Treffpunkt vereinbaren',
+            en: 'Planning a weekend trip with a friend and agreeing on a place to meet',
+          );
+          var spoken = 0;
+          await tester.pumpWidget(
+            _app(
+              ListeningPlayScreen(
+                scenario: _scenario(title: title),
+                speechPlayer: (_, {required voice}) async {
+                  spoken++;
+                  return true;
+                },
+                stopPlayer: () async {},
+              ),
+              language: language,
+              textScale: scale,
+            ),
+          );
+          await tester.pump();
+          final heading = find.text(title.pick(language));
+          final paragraph = tester.renderObject<RenderParagraph>(heading);
+          expect(paragraph.didExceedMaxLines, isFalse);
+          final titleSemantics = tester
+              .getSemantics(heading)
+              .getSemanticsData();
+          expect(titleSemantics.flagsCollection.isHeader, isTrue);
+          expect(titleSemantics.flagsCollection.namesRoute, isTrue);
+          expect(
+            tester.getRect(heading).top,
+            greaterThanOrEqualTo(kToolbarHeight),
+          );
+          expect(spoken, 0);
+          final t = AppL10n.of(
+            tester.element(find.byType(ListeningPlayScreen)),
+          );
+          await tester.ensureVisible(find.text(t.listeningDialogueStart));
+          await tester.tap(find.text(t.listeningDialogueStart));
+          await tester.pump();
+          expect(spoken, greaterThan(0));
+          expect(tester.takeException(), isNull);
+          await tester.pumpWidget(const SizedBox.shrink());
+          await tester.pump();
+          semantics.dispose();
+        });
+      }
+    }
+  }
 
   testWidgets('entry is silent, then bubbles accumulate in speaker order', (
     tester,

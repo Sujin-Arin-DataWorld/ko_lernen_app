@@ -11,8 +11,8 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 그저께,geujeokke,vorgestern,A1,Adverb,그저께 학교에 안 갔어요.,Vorgestern bin ich nicht zur Schule gegangen.,Zeit,a1_time_2,10,false,the day before yesterday,Adverb,I didn't go to school the day before yesterday.,vocab_a1_0468
 작년,jangnyeon,letztes Jahr,A1,Nomen,작년에 한국에 왔어요.,Letztes Jahr bin ich nach Korea gekommen.,Zeit,a1_time_2,11,false,last year,Noun,I came to Korea last year.,vocab_a1_0469
 내년,naenyeon,nächstes Jahr,A1,Nomen,내년에 독일에 가요.,Nächstes Jahr fahre ich nach Deutschland.,Zeit,a1_time_2,12,false,next year,Noun,Next year I'm going to Germany.,vocab_a1_0470
-한,han,ein(e) (Zählwort),A1,Adjektiv,오늘 친구를 한 명 만났어요.,Heute habe ich einen Freund getroffen.,Menge,a1_numbers_3,9,false,one (counter modifier),Adjective,I met one friend today.,vocab_a1_0471
-두,du,zwei (Zählwort),A1,Adjektiv,지난주에 친구를 두 명 만났어요.,Letzte Woche habe ich zwei Freunde getroffen.,Menge,a1_numbers_3,10,false,two (counter modifier),Adjective,I met two friends last week.,vocab_a1_0472
+한,han,ein(e) (Zählwort),A1,Adjektiv,친구가 한 명 있어요.,Ich habe einen Freund.,Menge,a1_numbers_3,9,false,one (counter modifier),Adjective,I have one friend.,vocab_a1_0471
+두,du,zwei (Zählwort),A1,Adjektiv,친구가 두 명 있어요.,Ich habe zwei Freunde.,Menge,a1_numbers_3,10,false,two (counter modifier),Adjective,I have two friends.,vocab_a1_0472
 세,se,drei (Zählwort),A1,Adjektiv,가족이 세 명이에요.,Meine Familie hat drei Personen.,Menge,a1_numbers_3,11,false,three (counter modifier),Adjective,My family has three people.,vocab_a1_0473
 어느,eoneu,welche(r/s),A1,Adjektiv,어느 나라에서 왔어요?,Aus welchem Land kommen Sie?,Menge,a1_numbers_3,12,false,which,Adjective,Which country are you from?,vocab_a1_0474
 이따가,ittaga,"später, gleich",A1,Adverb,이따가 학교에 가요.,Ich gehe später zur Schule.,Zeit,a1_time_3,9,false,"later, in a bit",Adverb,I'll go to school later.,vocab_a1_0475
@@ -21,7 +21,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 어서,eoseo,schnell; (어서 오세요) willkommen,A1,Adverb,저희 가게에 어서 오세요!,Herzlich willkommen in unserem Geschäft!,Zeit,a1_time_3,12,false,"quickly, please (go ahead)",Adverb,Welcome to our shop!,vocab_a1_0478
 예,ye,ja (formell),A1,Ausdruck,"예, 잘 알겠습니다.","Ja, ich habe es gut verstanden.",Höflichkeit,a1_greetings_2,9,false,yes (formal),Expression,"Yes, I understand well.",vocab_a1_0479
 글쎄요,geulsseyo,Na ja... (unsicher),A1,Ausdruck,"글쎄요, 저도 모르겠어요.","Na ja, ich weiß es auch nicht.",Höflichkeit,a1_greetings_2,10,false,well... (hedging),Expression,Well... I don't know either.,vocab_a1_0480
-와,wa,Wow!,A1,Ausdruck,"와, 이 가방 정말 예뻐요!","Wow, diese Tasche ist wirklich hübsch!",Höflichkeit,a1_greetings_2,11,false,wow,Expression,"Wow, this bag is really pretty!",vocab_a1_0481
+와,wa,Wow!,A1,Ausdruck,"와, 정말 좋아요!","Wow, das ist wirklich toll!",Höflichkeit,a1_greetings_2,11,false,wow,Expression,"Wow, that's really great!",vocab_a1_0481
 음,eum,Hm...,A1,Ausdruck,"음, 잘 모르겠어요.","Hm, ich weiß es nicht genau.",Höflichkeit,a1_greetings_2,12,false,hmm,Expression,"Hmm, I don't really know.",vocab_a1_0482
 다,da,"alle(s), ganz",A1,Adverb,밥을 다 먹었어요.,Ich habe alles aufgegessen.,Alltag,a1_daily_4,9,false,"all, entirely",Adverb,I ate everything.,vocab_a1_0483
 좀,jom,"ein bisschen, bitte",A1,Adverb,물 좀 주세요.,Bitte geben Sie mir etwas Wasser.,Alltag,a1_daily_4,10,false,"a bit, please",Adverb,Please give me some water.,vocab_a1_0484
@@ -57,8 +57,8 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 팔다,palda,verkaufen,A1,Verb,이 가게는 과일을 팔아요.,Dieser Laden verkauft Obst.,Einkaufen,a1_misc_2,12,false,to sell,Verb,This shop sells fruit.,vocab_a1_0514
 이십,isip,zwanzig,A1,Nomen,이 버스는 이십 번이에요.,Dieser Bus hat die Nummer zwanzig.,Zahlen,a1_numbers_1,10,false,twenty,Noun,This bus is number twenty.,vocab_a1_0515
 삼십,samsip,dreißig,A1,Nomen,제 방은 삼십 호예요.,Mein Zimmer ist Nummer dreißig.,Zahlen,a1_numbers_1,11,false,thirty,Noun,My room is number thirty.,vocab_a1_0516
-사십,sasip,vierzig,A1,Nomen,오늘 우리 학교에 학생이 사십 명 왔어요.,Heute sind vierzig Schüler in unsere Schule gekommen.,Zahlen,a1_numbers_1,12,false,forty,Noun,Forty students came to our school today.,vocab_a1_0517
-오십,osip,fünfzig,A1,Nomen,이 학교에서 선생님이 오십 명 일하세요.,An dieser Schule arbeiten fünfzig Lehrer.,Zahlen,a1_numbers_2,10,false,fifty,Noun,Fifty teachers work at this school.,vocab_a1_0518
+사십,sasip,vierzig,A1,Nomen,우리 학교에는 학생이 사십 명 있어요.,An unserer Schule gibt es vierzig Schüler.,Zahlen,a1_numbers_1,12,false,forty,Noun,There are forty students at our school.,vocab_a1_0517
+오십,osip,fünfzig,A1,Nomen,이 학교에는 선생님이 오십 명 있어요.,An dieser Schule gibt es fünfzig Lehrer.,Zahlen,a1_numbers_2,10,false,fifty,Noun,This school has fifty teachers.,vocab_a1_0518
 육십,yuksip,sechzig,A1,Nomen,제 방은 육십 층에 있어요.,Mein Zimmer ist im sechzigsten Stock.,Zahlen,a1_numbers_2,11,false,sixty,Noun,My room is on the sixtieth floor.,vocab_a1_0519
 칠십,chilsip,siebzig,A1,Nomen,이 버스는 칠십 번이에요.,Dieser Bus hat die Nummer siebzig.,Zahlen,a1_numbers_2,12,false,seventy,Noun,This bus is number seventy.,vocab_a1_0520
 목,mok,"Hals, Nacken",A1,Nomen,제 목이 길어요.,Mein Hals ist lang.,Körper,a1_body,11,false,"neck, throat",Noun,My neck is long.,vocab_a1_0521

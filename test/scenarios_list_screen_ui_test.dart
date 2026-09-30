@@ -17,6 +17,7 @@ import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 import 'support/scenario_fixtures.dart';
+import 'support/scenario_stock_fixtures.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -58,6 +59,93 @@ void main() {
     );
     await _scrollTo(tester, find.text('5 to 7 minutes · +120 XP'));
     expect(find.text('5 to 7 minutes · +120 XP'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('sparse catalog hides assessment and retains prior progress', (
+    tester,
+  ) async {
+    await Storage.setScenarioStars(scenarioAirportArrivalFixture.id, 2);
+    final preferences = await SharedPreferences.getInstance();
+    final before = {
+      for (final key in preferences.getKeys()) key: preferences.get(key),
+    };
+    await _pumpScenarios(
+      tester,
+      size: const Size(320, 640),
+      textScale: 2,
+      scenarios: const [scenarioAirportArrivalFixture],
+      completeFixtureStock: false,
+    );
+    expect(find.text('Einreise am Flughafen'), findsNothing);
+    expect(find.byType(ScenarioPlayerScreen), findsNothing);
+    expect(Storage.scenarioStars[scenarioAirportArrivalFixture.id], 2);
+    expect({
+      for (final key in preferences.getKeys()) key: preferences.get(key),
+    }, before);
+    expect(tester.takeException(), isNull);
+  });
+
+  for (final locale in ['de', 'en']) {
+    for (final selectedIds in <Set<String>>[
+      {},
+      {'unknown'},
+      {_b1Scenario.id},
+    ]) {
+      testWidgets(
+        '$locale notebook selection $selectedIds never opens unrelated lessons',
+        (tester) async {
+          await _pumpScenarios(
+            tester,
+            size: const Size(390, 844),
+            textScale: 1.3,
+            locale: Locale(locale),
+            scenarios: const [_b1Scenario, _b1OtherShelfScenario],
+            scenarioIds: selectedIds,
+          );
+          if (selectedIds.contains(_b1Scenario.id)) {
+            await _scrollTo(tester, find.text(_b1Scenario.title.pick(locale)));
+            expect(find.text(_b1Scenario.title.pick(locale)), findsWidgets);
+          } else {
+            expect(find.text(_b1Scenario.title.pick(locale)), findsNothing);
+            expect(
+              find.text(
+                locale == 'de'
+                    ? 'Alle Szenarien abgeschlossen'
+                    : 'All scenarios completed',
+              ),
+              findsNothing,
+            );
+            expect(find.byIcon(Icons.celebration_outlined), findsNothing);
+          }
+          expect(
+            find.text(_b1OtherShelfScenario.title.pick(locale)),
+            findsNothing,
+          );
+          expect(Storage.xp, 0);
+          expect(Storage.completedScenarios, isEmpty);
+          expect(tester.takeException(), isNull);
+        },
+      );
+    }
+  }
+
+  testWidgets('notebook selection cannot authorize a sparse corpus', (
+    tester,
+  ) async {
+    await _pumpScenarios(
+      tester,
+      size: const Size(390, 844),
+      textScale: 1.3,
+      scenarios: const [scenarioAirportArrivalFixture],
+      scenarioIds: {scenarioAirportArrivalFixture.id},
+      completeFixtureStock: false,
+    );
+    expect(find.text(scenarioAirportArrivalFixture.title.de), findsNothing);
+    expect(find.text('Alle Szenarien abgeschlossen'), findsNothing);
+    expect(find.byIcon(Icons.celebration_outlined), findsNothing);
+    expect(Storage.xp, 0);
+    expect(Storage.completedScenarios, isEmpty);
     expect(tester.takeException(), isNull);
   });
 
@@ -338,6 +426,8 @@ Future<void> _pumpScenarios(
   required List<Scenario> scenarios,
   Locale locale = const Locale('de'),
   ScenarioBrowseDestination? browseDestination,
+  bool completeFixtureStock = true,
+  Set<String>? scenarioIds,
 }) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
@@ -361,7 +451,10 @@ Future<void> _pumpScenarios(
         );
       },
       home: ScenariosListScreen(
-        loadScenarios: () async => scenarios,
+        scenarioIds: scenarioIds,
+        loadScenarios: () async => completeFixtureStock
+            ? scenarios.map(stockedCatalogLesson).toList()
+            : scenarios,
         browseDestination: browseDestination,
       ),
     ),

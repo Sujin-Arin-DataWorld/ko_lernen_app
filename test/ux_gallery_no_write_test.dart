@@ -17,6 +17,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
+import 'package:ko_lernen_app/widgets/sori/wordbook_add.dart';
 
 const _unit = CourseUnit(
   id: 'preview_unit',
@@ -199,6 +200,18 @@ void main() {
       );
 
       expect(find.byType(ScenarioPlayerScreen), findsOneWidget);
+      final bookmarkButtons = find.byType(AddToWordbookButton);
+      expect(bookmarkButtons, findsWidgets);
+      for (final bookmark in tester.widgetList<AddToWordbookButton>(
+        bookmarkButtons,
+      )) {
+        expect(bookmark.enabled, isFalse);
+        final action = find.descendant(
+          of: find.byWidget(bookmark),
+          matching: find.byType(IconButton),
+        );
+        expect(tester.widget<IconButton>(action).onPressed, isNull);
+      }
       await tester.tap(find.text('Next'));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));

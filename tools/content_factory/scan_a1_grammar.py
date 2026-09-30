@@ -284,11 +284,6 @@ EXACT_SENTENCE_ALLOWLIST = {
     #     하나 먹어요." above; "바나나가 노란색이에요." already allowlisted
     #     for the identical reason).
     "저는 바나나를 좋아해요.",
-    #   - "여보세요" (fixed A1 phone-greeting word) starts with the
-    #     -아/어 보다 connector char "여" + "보세요", a lexical coincidence
-    #     (아/어 보다 aux_try + 2 more grade-2 rules keying off the same
-    #     "어보"/"어보세요" substring), not a genuine 아/어 보다 "try" form.
-    "여보세요, 저는 크리스티안이에요.",
     #   - "가지고 있어요" (기본 소유, -고 있다 1급 진행형) coincidentally
     #     contains the substring "을 가지고", which nikl_kiiq_2017_grammar
     #     .csv grade 5 "를 가지고"/"을 가지고" (고급, "using N as a means",
@@ -297,6 +292,29 @@ EXACT_SENTENCE_ALLOWLIST = {
     #     possession) from "가지고" followed by another verb (the genuine
     #     advanced instrumental use).
     "저는 책을 가지고 있어요.",
+}
+
+
+# C7: exact reviewed sentences AND pattern IDs, rather than a global exemption
+# for 나/면/아보. 레나 is a name; 하나 a numeral; 얼마나/그러면 grade-1
+# adverbs. 찾아보다 is the grade-1 lexical verb 'look for', not 'try finding'.
+# Keep productive -(이)나, -(으)면 and -아/어 보다 detectable elsewhere.
+REVIEWED_HOMOGRAPH_HITS = {
+    **{text: {"grammar_a1_or_particle"} for text in (
+        "레나 씨, 우리 같이 춤을 출까요?",
+        "콜라 하나 더 주세요.",
+        "레나 씨, 저녁에 영화관에 갈까요?",
+        "레나 씨, 이 카메라로 찍어요!",
+        "레나 씨, 여기서 사진을 찍어요!",
+        "레나 씨, 친구랑 이야기해요?",
+        "레나 씨가 춤을 춰요.",
+        "레나 씨, 오늘 바빠요? 그럼 내일 만나요.",
+        "이 가방이 얼마나 비싸요?",
+    )},
+    "민호 씨, 배가 고파요? 그러면 같이 밥을 먹어요.": {"grammar_a2_conditional"},
+    "저는 학교를 찾아봐요.": {
+        "grammar_a2_try_experience", "nikl_g2_어_보다_v1", "aux_try_아어보다",
+    },
 }
 
 
@@ -314,13 +332,22 @@ def _id_prefix_level(item_id: str) -> str | None:
     return m.group(1) if m else None
 
 
+def grammar_scan_text(text: str) -> str:
+    # The standalone phone greeting is one lexical word, not productive
+    # -아/어 보다. Mask only that token before contraction expansion (여 -> 이어)
+    # so genuine higher-level grammar elsewhere in the same sentence survives.
+    return re.sub(r"(?<![가-힣])여보세요(?![가-힣])", "    ", text)
+
+
 def _grammar_hits_ge2(lexicon: CefrLexicon, grammar_index: GrammarIndex, text: str):
     if text in EXACT_SENTENCE_ALLOWLIST:
         return []
-    sp = lexicon.sentence_profile(text, grammar_index)
+    sp = lexicon.sentence_profile(grammar_scan_text(text), grammar_index)
     hits = []
     for h in sp.grammar_hits:
         if h.grade < 2:
+            continue
+        if h.pattern_id in REVIEWED_HOMOGRAPH_HITS.get(text, set()):
             continue
         if h.text in ALLOWLIST_MATCHED_TEXT:
             continue
@@ -353,6 +380,8 @@ def _contracted_aux_hits(text: str):
     주다, plus -는 법 and -는 게. See the module-level regex docstrings."""
     hits = []
     for m in AUX_TRY_RE.finditer(text):
+        if "aux_try_아어보다" in REVIEWED_HOMOGRAPH_HITS.get(text, set()):
+            continue
         if m.group(0) == "여보세요":
             # C2d-2 (2026-09-16): "여보세요" (fixed A1 phone-greeting word,
             # vocab_a1_0493) coincidentally starts with the connector char

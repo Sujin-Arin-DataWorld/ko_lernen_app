@@ -1,4 +1,7 @@
 import unittest
+from pathlib import Path
+
+import re
 
 from ci_scope import SCOPES, scopes_for_paths, scopes_for_task
 
@@ -40,6 +43,12 @@ class CiScopeTest(unittest.TestCase):
         self.assert_enabled(["assets/data/scenarios_a1.json"], "app", "tts", "content")
         self.assert_enabled(["assets/data/cloze.json"], "app", "tts", "content")
         self.assert_enabled(["assets/data/korean_vocab.csv"], "app", "tts", "content")
+
+    def test_log_metric_changes_include_auth_observer_contract(self):
+        for path in ["tool/ops/log_metrics.py", "tool/ops/log_metrics.sh",
+                     "tool/ops/log_metrics.ps1"]:
+            with self.subTest(path=path):
+                self.assert_enabled([path], "app", "gye")
 
     def test_unlisted_assets_data_file_selects_app_and_tts(self):
         self.assert_enabled(["assets/data/foo.json"], "app", "tts")
@@ -155,6 +164,22 @@ class CiScopeTest(unittest.TestCase):
         ]:
             with self.subTest(path=path):
                 self.assert_enabled([path], "app")
+
+    def test_scenario_report_only_edit_runs_its_freshness_gate(self):
+        path = "docs/data/scenario_quest_report.md"
+        self.assert_enabled([path], "app")
+        workflow_path = Path(__file__).resolve().parents[1] / "workflows/ci.yml"
+        workflow = workflow_path.read_text(encoding="utf-8")
+        event_blocks = dict(re.findall(
+            r"(?ms)^  (push|pull_request):\n(.*?)(?=^  [\w-]+:|\Z)", workflow,
+        ))
+        for event in ("push", "pull_request"):
+            with self.subTest(event=event):
+                self.assertIn(event, event_blocks)
+                paths = re.findall(r"(?m)^      - '([^']+)'$", event_blocks[event])
+                self.assertIn(path, paths)
+                self.assertGreater(paths.index(path), paths.index("!docs/**"))
+                self.assertGreater(paths.index(path), paths.index("!**/*.md"))
 
     def test_website_root_contracts_select_website(self):
         self.assert_enabled(["docs/CNAME"], "website")

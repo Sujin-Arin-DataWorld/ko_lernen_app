@@ -78,7 +78,6 @@ class SoriStageRootHeader extends StatelessWidget {
       eyebrow: eyebrow.toUpperCase(),
       title: title,
       body: body,
-      // §W-G G3: 프로필 진입 아이콘 → SoriAvatar (이니셜/마스코트 폴백).
       trailing: const SoriAvatar(),
     );
   }

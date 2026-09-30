@@ -22,7 +22,10 @@
 - `-을 것1`: 같은 NIKL 자료의 공식 의미 `명령/지시`만 적용했다.
   미래 추측·명사화 일반이나 모든 사용 설명서 문장으로 넓히지 않았다.
 - `-는 만큼`: `V2_grammar_gaps.csv`의 B1 항목과 대기열 결정을 따랐다.
-  이번 카드는 구어의 정도·비례만 다룬다.
+  이번 카드는 구어의 정도·비례만 다룬다. 대표 예문 `연습한 만큼`은
+  완료된 동작의 `V-(으)ㄴ 만큼`이므로 현재·일반 동작 `V-는 만큼`,
+  형용사 `A-(으)ㄴ 만큼`과 구별해 패턴·DE/EN 설명·note에 명시했다.
+  기존 예문·퀴즈 초점·ID·레벨은 유지했다. 이 교정은 모델 검토이며 사람 승인 주장이 아니다.
 
 ## 카드별 검토
 
@@ -33,7 +36,7 @@
 | `grammar_b1_indirect_command` · B1 · `b1_02_indirect_speech` | `V-(으)라고 하다` · 명령·요청 간접화법 | 의사 선생님이 물을 많이 마시라고 하셨습니다.<br>Die ärztliche Anweisung lautete, viel Wasser zu trinken.<br>The doctor told me to drink plenty of water. | 엄마가 일찍 오라고 했어.<br>Meine Mutter sagte, ich solle früh nach Hause kommen.<br>My mother told me to come home early. | `grammar_b1_indirect_speech`<br>`grammar_b1_indirect_question`<br>`grammar_b1_indirect_suggestion` |
 | `grammar_b1_indirect_suggestion` · B1 · `b1_02_indirect_speech` | `V-자고 하다` · 청유·제안 간접화법 | 팀장이 내일 다시 만나자고 제안했습니다.<br>Die Teamleitung schlug vor, uns morgen noch einmal zu treffen.<br>The team leader suggested meeting again tomorrow. | 친구가 같이 영화를 보자고 했어.<br>Jemand aus meinem Freundeskreis schlug vor, zusammen einen Film anzusehen.<br>A friend suggested watching a film together. | `grammar_b1_indirect_speech`<br>`grammar_b1_indirect_question`<br>`grammar_b1_indirect_command` |
 | `grammar_b1_conditional_geodeun` · B1 · `b1_03_work_softening` | `V-거든` · 뒤따르는 부탁·제안의 조건 | 서류가 준비되거든 연락해 주십시오.<br>Bitte kontaktieren Sie mich, sobald die Unterlagen fertig sind.<br>Please contact me once the documents are ready. | 집에 도착하거든 전화해 줘.<br>Ruf mich an, sobald du zu Hause ankommst.<br>Call me once you get home. | `grammar_b1_explanatory_reason`<br>`grammar_b1_expectation`<br>`grammar_b1_even_if_light` |
-| `grammar_b1_proportional_mankeum` · B1 · `b1_01_experience_reasons` | `V-는 만큼 / A-(으)ㄴ 만큼` · 대응하는 정도·비례 | 연습한 만큼 발음이 좋아졌습니다.<br>Je mehr ich übte, desto besser wurde meine Aussprache.<br>The more I practised, the better my pronunciation became. | 먹는 만큼 운동도 해야 해.<br>Je mehr du isst, desto mehr solltest du dich auch bewegen.<br>The more you eat, the more you should exercise. | `grammar_b1_tendency`<br>`grammar_b1_consequence`<br>`grammar_b1_takes_time` |
+| `grammar_b1_proportional_mankeum` · B1 · `b1_01_experience_reasons` | `V-는 만큼 / V-(으)ㄴ 만큼 / A-(으)ㄴ 만큼` · 대응하는 정도·비례 | 연습한 만큼 발음이 좋아졌습니다.<br>Je mehr ich übte, desto besser wurde meine Aussprache.<br>The more I practised, the better my pronunciation became. | 먹는 만큼 운동도 해야 해.<br>Je mehr du isst, desto mehr solltest du dich auch bewegen.<br>The more you eat, the more you should exercise. | `grammar_b1_tendency`<br>`grammar_b1_consequence`<br>`grammar_b1_takes_time` |
 | `grammar_a2_interrupted_action` · A2 · `a2_06_study_work` | `V-다가` · 진행 중 동작의 중단·전환 | 숙제를 하다가 텔레비전을 봤습니다.<br>Mitten in den Hausaufgaben begann ich fernzusehen.<br>I was doing homework and switched to watching television. | 집에 가다가 친구를 만났어.<br>Auf dem Heimweg traf ich jemanden aus meinem Freundeskreis.<br>I met a friend while I was going home. | `grammar_a2_busy_cause`<br>`grammar_a2_after_finishing`<br>`grammar_a2_simultaneous` |
 | `grammar_a2_toward_person` · A2 · `a2_03_chat_relationships` | `N에게로` · 사람·동물을 향한 이동 | 아이가 엄마에게로 걸어갔습니다.<br>Das Kind ging auf seine Mutter zu.<br>The child walked toward their mother. | 강아지가 내게로 왔어.<br>Der Hund kam auf mich zu.<br>The dog came toward me. | `grammar_a2_from_person`<br>`grammar_a2_additive_location`<br>`grammar_a2_starting_point` |
 | `grammar_a2_additive_location` · A2 · `a2_08_home_money` | `N에다가 / N에다` · 놓거나 더하는 위치 강조 | 냉장고에다가 우유를 넣었습니다.<br>Ich stellte die Milch in den Kühlschrank.<br>I put the milk in the fridge. | 여기다 이름을 써 줘.<br>Schreib bitte hier den Namen hin.<br>Write the name here for me. | `grammar_a2_toward_person`<br>`grammar_a2_starting_point`<br>`grammar_a2_from_person` |

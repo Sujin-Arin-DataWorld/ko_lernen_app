@@ -621,6 +621,15 @@ void main() {
     // selbst (das gerenderte Mascot) schon.
     final mascot = tester.widget<Mascot>(find.byType(Mascot));
     expect(mascot.kind, MascotKind.magpie);
+    expect(mascot.emotion, MascotEmotion.neutral);
+    expect(mascot.animate, isFalse);
+    expect(
+      find.descendant(
+        of: find.byKey(const ValueKey('profile_avatar_magpie')),
+        matching: find.byType(CharacterClipPlayer),
+      ),
+      findsNothing,
+    );
 
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pump();

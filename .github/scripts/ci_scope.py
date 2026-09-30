@@ -54,6 +54,7 @@ APP_DOC_FILES = {
     "docs/data/curriculum_matrix_report.md",
     "docs/data/cefr_curriculum_matrix.md",
     "docs/data/curriculum_completion_backlog.md",
+    "docs/data/scenario_quest_report.md",
     "docs/assets/STYLE_LOCK.json",
     "docs/assets/CARD_STYLE_BASELINE.json",
     "docs/assets/VOCAB_PACK_CARD_MANIFEST.json",
@@ -187,6 +188,13 @@ def scopes_for_paths(paths: Iterable[str]) -> dict[str, bool]:
             continue
 
         if path.startswith("functions/gye/"):
+            result["gye"] = True
+            continue
+
+        # The Auth observer contract checks the shared log metric definition.
+        if path in {"tool/ops/log_metrics.py", "tool/ops/log_metrics.sh",
+                    "tool/ops/log_metrics.ps1"}:
+            result["app"] = True
             result["gye"] = True
             continue
 

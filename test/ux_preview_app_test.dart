@@ -264,6 +264,7 @@ void main() {
   );
 
   testWidgets('02J paints the roleplay mockup frame', (tester) async {
+    final before = await _preferencesSnapshot();
     tester.view.physicalSize = const Size(390, 844);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
@@ -282,6 +283,7 @@ void main() {
       find.textContaining('Darf ich Ihnen meine Visitenkarte überreichen?'),
       findsOneWidget,
     );
+    expect(await _preferencesSnapshot(), before);
   });
 
   testWidgets(

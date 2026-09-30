@@ -51,9 +51,74 @@ void main() {
   Finder collapsedFinder() =>
       find.byKey(const ValueKey<String>('sori-collapsing-header-collapsed'));
 
-  testWidgets('스크롤 0에서 펼친 큰 제목이 보이고 접힌 크롬은 트리에서 빠져 있다', (
-    tester,
-  ) async {
+  for (final fraction in [.25, .5, .75]) {
+    testWidgets('trailing action stays operable at $fraction collapse', (
+      tester,
+    ) async {
+      final scroll = ScrollController();
+      addTearDown(scroll.dispose);
+      var taps = 0;
+      final semantics = tester.ensureSemantics();
+      try {
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: CustomScrollView(
+                controller: scroll,
+                slivers: [
+                  SoriCollapsingHeader(
+                    title: title,
+                    eyebrow: eyebrow,
+                    body: body,
+                    collapsedTitle: collapsedTitle,
+                    trailing: IconButton(
+                      tooltip: trailingTooltip,
+                      icon: const Icon(Icons.person_outline),
+                      onPressed: () => taps++,
+                    ),
+                  ),
+                  const SliverToBoxAdapter(child: SizedBox(height: 3000)),
+                ],
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        final header = tester.widget<SliverPersistentHeader>(
+          find.byType(SliverPersistentHeader),
+        );
+        scroll.jumpTo(
+          (header.delegate.maxExtent - header.delegate.minExtent) * fraction,
+        );
+        await tester.pumpAndSettle();
+        expect(
+          tester.widget<Opacity>(collapsedFinder()).opacity,
+          closeTo(fraction, .001),
+        );
+        final action = find.byTooltip(trailingTooltip).hitTestable();
+        expect(action, findsOneWidget);
+        expect(
+          tester.getSemantics(action),
+          matchesSemantics(
+            tooltip: trailingTooltip,
+            isButton: true,
+            hasEnabledState: true,
+            isEnabled: true,
+            hasTapAction: true,
+            isFocusable: true,
+            hasFocusAction: true,
+          ),
+        );
+        await tester.tap(action);
+        expect(taps, 1);
+        expect(tester.takeException(), isNull);
+      } finally {
+        semantics.dispose();
+      }
+    });
+  }
+
+  testWidgets('스크롤 0에서 펼친 큰 제목이 보이고 접힌 크롬은 트리에서 빠져 있다', (tester) async {
     await tester.pumpWidget(harness());
     await tester.pumpAndSettle();
 
@@ -66,9 +131,7 @@ void main() {
     expect(find.byTooltip(trailingTooltip), findsOneWidget);
   });
 
-  testWidgets('접힘 예산을 넘겨 스크롤하면 접힌 제목이 보이고 높이가 56이다', (
-    tester,
-  ) async {
+  testWidgets('접힘 예산을 넘겨 스크롤하면 접힌 제목이 보이고 높이가 56이다', (tester) async {
     await tester.pumpWidget(harness());
     await tester.pumpAndSettle();
 
@@ -112,9 +175,7 @@ void main() {
   // `trailingSlots: 2`가 헤더 텍스트 폭 예산에서 그만큼을 미리 뺀다. 접힌
   // 56dp 크롬 바에서 두 액션의 실제 렌더 사각형이 겹치지 않고, 접힌 제목도
   // (짧은 `collapsedTitle` 계약대로) 잘리지 않아야 한다.
-  testWidgets('trailingSlots=2: 두 액션이 겹치지 않고 접힌 제목이 잘리지 않는다', (
-    tester,
-  ) async {
+  testWidgets('trailingSlots=2: 두 액션이 겹치지 않고 접힌 제목이 잘리지 않는다', (tester) async {
     const tooltipA = 'Hilfe';
     const tooltipB = 'Profil';
 
