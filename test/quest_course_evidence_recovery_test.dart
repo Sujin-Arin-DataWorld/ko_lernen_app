@@ -108,7 +108,7 @@ void main() {
       );
       expect(find.byType(AppError), findsOneWidget);
       expect(
-        find.text(fixture.item.fullKo),
+        _clozeSentence(fixture.item.fullKo),
         findsNothing,
         reason: 'answer feedback must wait for confirmed course evidence',
       );
@@ -127,11 +127,11 @@ void main() {
       retry();
       await _pumpUntil(
         tester,
-        () => find.text(fixture.item.fullKo).evaluate().isNotEmpty,
+        () => _clozeSentence(fixture.item.fullKo).evaluate().isNotEmpty,
       );
 
       expect(find.byType(AppError), findsNothing);
-      expect(find.text(fixture.item.fullKo), findsOneWidget);
+      expect(_clozeSentence(fixture.item.fullKo), findsOneWidget);
       expect(Storage.srsCard(fixture.item.answer)?.reviewCount, 1);
       expect(
         platform.writes[Storage.courseMasterySnapshotPreferenceKey],
@@ -246,10 +246,10 @@ void main() {
     await tester.tap(find.text(item.answer));
     await _pumpUntil(
       tester,
-      () => find.text(item.fullKo).evaluate().isNotEmpty,
+      () => _clozeSentence(item.fullKo).evaluate().isNotEmpty,
     );
 
-    expect(find.text(item.fullKo), findsOneWidget);
+    expect(_clozeSentence(item.fullKo), findsOneWidget);
     expect(Storage.srsCard(item.answer)?.reviewCount, 1);
     expect(platform.writes[Storage.courseMasterySnapshotPreferenceKey], isNull);
     await tester.pump(const Duration(milliseconds: 1200));
@@ -1082,6 +1082,10 @@ Future<void> _tapText(WidgetTester tester, String text) async {
   await tester.tap(finder.last);
   await tester.pump(const Duration(milliseconds: 400));
 }
+
+Finder _clozeSentence(String sentence) => find.byWidgetPredicate(
+  (widget) => widget is Text && widget.semanticsLabel == sentence,
+);
 
 Future<void> _flush(WidgetTester tester) async {
   for (var i = 0; i < 12; i++) {

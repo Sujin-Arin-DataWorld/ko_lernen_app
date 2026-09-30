@@ -18,6 +18,7 @@ import 'package:ko_lernen_app/data/hangul_data.dart' as hangul;
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/tts_recorded_jamo.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
@@ -81,15 +82,19 @@ void main() {
   }
 
   group('② 음성 미리받기', () {
-    testWidgets('화면에 들어오면 낱자 34개를 미리 받는다', (tester) async {
+    testWidgets('화면에 들어오면 녹음이 없는 낱자만 미리 받는다', (tester) async {
       await pumpScreen(tester);
       for (final c in [...hangul.consonants, ...hangul.vowels]) {
+        if (TtsRecordedJamo.hasLetter(c.letter)) {
+          continue;
+        }
         expect(
           prefetched,
           contains(hangul.speakableJamo(c.letter)),
           reason: '${c.letter} 의 음가를 미리 받지 않았다',
         );
       }
+      expect(prefetched, isNot(contains('드')));
     });
 
     testWidgets('미리받는 건 예시어가 아니라 1음절 음가다', (tester) async {
@@ -157,9 +162,10 @@ void main() {
       expect(events.first, 'speak:${hangul.speakableJamo('ㄴ')}');
       expect(
         events,
-        contains('prefetch:${hangul.speakableJamo('ㄷ')}'),
-        reason: '새 현재 카드 재생과 동시에 다음 이웃도 계속 데워야 한다',
+        contains('prefetch:${hangul.speakableJamo('ㄱ')}'),
+        reason: '새 현재 카드 재생과 동시에 녹음이 없는 이웃도 계속 데워야 한다',
       );
+      expect(events, isNot(contains('prefetch:드')));
       await tester.pump();
       expect(find.text('2 / 19'), findsOneWidget);
     });

@@ -1088,9 +1088,16 @@ class TtsService {
           text,
         ).timeout(_diskTimeout);
         if (recorded != null) return TtsAudio.bytes(recorded);
-      } catch (_) {
+      } catch (error, stackTrace) {
         // The approved recording is unavailable. Do not substitute the
         // synthesized pronunciation that the learner explicitly rejected.
+        unawaited(
+          DiagnosticsService.reportSwallowed(
+            'tts_service.resolve_audio_recorded_jamo',
+            error,
+            stackTrace,
+          ),
+        );
       }
       return null;
     }

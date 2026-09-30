@@ -91,8 +91,7 @@ void main() {
 
         final koreanFinder = find.byWidgetPredicate(
           (widget) =>
-              widget is Text &&
-              widget.textSpan?.toPlainText() == _item.sentenceKo,
+              widget is Text && widget.semanticsLabel == _item.sentenceKo,
         );
         final translation = _item.meaning(locale.languageCode);
         final translationFinder = find.byWidgetPredicate(
@@ -386,16 +385,13 @@ void main() {
     final t = AppL10n.of(tester.element(find.byType(ClozeGameScreen)));
 
     final wrongSentence = find.byWidgetPredicate(
-      (widget) =>
-          widget is Text && widget.textSpan?.toPlainText() == '오늘은 운동을 합니다.',
+      (widget) => widget is Text && widget.semanticsLabel == '오늘은 운동을 합니다.',
     );
     final blankSentence = find.byWidgetPredicate(
-      (widget) =>
-          widget is Text && widget.textSpan?.toPlainText() == _item.sentenceKo,
+      (widget) => widget is Text && widget.semanticsLabel == _item.sentenceKo,
     );
     final correctSentence = find.byWidgetPredicate(
-      (widget) =>
-          widget is Text && widget.textSpan?.toPlainText() == _item.fullKo,
+      (widget) => widget is Text && widget.semanticsLabel == _item.fullKo,
     );
 
     await tester.tap(find.text(_item.distractors.first));
@@ -480,7 +476,9 @@ void main() {
       ),
     );
     await _pumpUntilVisible(tester, find.byType(ClozePromptCard));
-    final item = tester.widget<ClozePromptCard>(find.byType(ClozePromptCard)).item;
+    final item = tester
+        .widget<ClozePromptCard>(find.byType(ClozePromptCard))
+        .item;
     final feedbackSpeech = Completer<bool>();
     SoriSpeech.speakImpl = (text, voice) {
       speechStub.spoken.add(text);
@@ -533,11 +531,9 @@ void main() {
       await tester.tap(find.byType(ClozePromptCard));
       await tester.pump();
 
-      expect(
-        speechStub.spoken,
-        [_item.fullKo],
-        reason: '공개 전 카드 탭은 자동 재생에 추가 발화를 만들면 안 된다',
-      );
+      expect(speechStub.spoken, [
+        _item.fullKo,
+      ], reason: '공개 전 카드 탭은 자동 재생에 추가 발화를 만들면 안 된다');
       expect(tester.takeException(), isNull);
     },
   );
@@ -567,11 +563,10 @@ void main() {
         findsOneWidget,
         reason: '공개 후엔 인디케이터가 보여야 한다',
       );
-      expect(
-        speechStub.spoken,
-        [_item.fullKo, _item.fullKo],
-        reason: '첫 문제와 답 공개 시 각각 자동 재생한다',
-      );
+      expect(speechStub.spoken, [
+        _item.fullKo,
+        _item.fullKo,
+      ], reason: '첫 문제와 답 공개 시 각각 자동 재생한다');
 
       await tester.tap(find.byType(ClozePromptCard));
       await tester.pump();

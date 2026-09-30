@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../services/hangul_util.dart';
+import 'sori/pressable.dart';
 import 'sori/tokens.dart';
 
 /// The first consonants and vowels learners combine in the basic Hangul chart.
@@ -125,17 +126,17 @@ class _HangulSyllableTableState extends State<HangulSyllableTable> {
         hint: t.hangulPronounceBtn,
         onTap: () => _select(consonant, vowel),
         child: ExcludeSemantics(
-          child: Material(
-            color: selected ? SoriColors.primary : surfaces.surface,
-            shape: RoundedRectangleBorder(
-              borderRadius: SoriRadius.brSm,
-              side: BorderSide(
-                color: selected ? SoriColors.primaryDark : surfaces.border,
+          child: SoriPressable(
+            haptic: null,
+            onTap: () => _select(consonant, vowel),
+            child: Material(
+              color: selected ? SoriColors.primary : surfaces.surface,
+              shape: RoundedRectangleBorder(
+                borderRadius: SoriRadius.brSm,
+                side: BorderSide(
+                  color: selected ? SoriColors.primaryDark : surfaces.border,
+                ),
               ),
-            ),
-            child: InkWell(
-              borderRadius: SoriRadius.brSm,
-              onTap: () => _select(consonant, vowel),
               child: SizedBox(
                 width: extent,
                 height: extent,
