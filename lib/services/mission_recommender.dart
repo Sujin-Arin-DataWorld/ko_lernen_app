@@ -71,28 +71,48 @@ MissionPick? recommendMission({
   int reviewThreshold = 10,
 }) {
   // ① 현재 코스 미션.
-  if (courseUnits.isNotEmpty) {
-    final total = courseUnits.length;
-    CourseUnit? unit;
-    if (currentCourseUnitId != null) {
-      for (final u in courseUnits) {
-        if (u.id == currentCourseUnitId) {
-          unit = u;
-          break;
-        }
+  CourseUnit? currentUnit;
+  if (currentCourseUnitId != null) {
+    for (final candidate in courseUnits) {
+      final level = LearnerLevel.fromCode(candidate.level);
+      if (candidate.id == currentCourseUnitId &&
+          level != null &&
+          (level.rank == userLevel.rank ||
+              (level.rank > userLevel.rank &&
+                  courseUnits
+                      .where((unit) {
+                        final unitLevel = LearnerLevel.fromCode(unit.level);
+                        return unitLevel != null &&
+                            unitLevel.rank >= userLevel.rank &&
+                            unitLevel.rank < level.rank;
+                      })
+                      .every((unit) => completedUnitIds.contains(unit.id))))) {
+        currentUnit = candidate;
+        break;
       }
     }
-    if (unit == null && completedUnitIds.length < total) {
+  }
+  final courseLevel = currentUnit?.level ?? userLevel.code;
+  final levelUnits = courseUnits
+      .where((unit) => unit.level == courseLevel)
+      .toList(growable: false);
+  if (levelUnits.isNotEmpty) {
+    final total = levelUnits.length;
+    final completedInLevel = levelUnits
+        .where((unit) => completedUnitIds.contains(unit.id))
+        .length;
+    CourseUnit? unit = currentUnit;
+    if (unit == null && completedInLevel < total) {
       // 진단 전(스냅샷 비어 있음) — order 순 첫 미완 미션.
       final remaining =
-          courseUnits.where((u) => !completedUnitIds.contains(u.id)).toList()
+          levelUnits.where((u) => !completedUnitIds.contains(u.id)).toList()
             ..sort((a, b) => a.order.compareTo(b.order));
       if (remaining.isNotEmpty) {
         unit = remaining.first;
       }
     }
     if (unit != null) {
-      final done = completedUnitIds.length;
+      final done = completedInLevel;
       final n = done + 1 > total ? total : done + 1;
       return CoursePick(
         unit: unit,
@@ -105,7 +125,10 @@ MissionPick? recommendMission({
   }
   // ② 진행 중 팩 — 시작했고 아직 안 끝난 현재 노드.
   final node = nowNode;
+  final nodeLevel = LearnerLevel.fromCode(node?.pack.level);
   if (node != null &&
+      nodeLevel != null &&
+      nodeLevel.rank <= userLevel.rank &&
       node.progress.progressFraction > 0 &&
       node.progress.status != PackStatus.cleared) {
     return PackPick(pack: node.pack, fraction: node.progress.progressFraction);

@@ -5,6 +5,7 @@ import "./globals.css";
 import { CookiebotConsentScripts } from "./cookiebot";
 import { PrivacyConsentPanel } from "./privacy-consent-panel";
 import { CulturalGlossaryProvider } from "./cultural-glossary";
+import { AnalyticsPageViews } from "./analytics-page-views";
 
 export const metadata: Metadata = {
   title: {
@@ -40,5 +41,5 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   };
   return <html lang="de"><head>
     <CookiebotConsentScripts />
-  </head><body><CulturalGlossaryProvider>{children}</CulturalGlossaryProvider><PrivacyConsentPanel /><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(applicationJsonLd)}}/></body></html>;
+  </head><body><AnalyticsPageViews /><CulturalGlossaryProvider>{children}</CulturalGlossaryProvider><PrivacyConsentPanel /><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(applicationJsonLd)}}/></body></html>;
 }
