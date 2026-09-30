@@ -2532,9 +2532,9 @@
     "semantic_hash": ""
   },
   "lib/services/tts_service.dart": {
-    "mtime": 1790781543.5594087,
-    "seen": 1790791571.4467645,
-    "ast_hash": "990114edde857525c4454a1799b36852",
+    "mtime": 1790793235.0249453,
+    "seen": 1790793759.3208988,
+    "ast_hash": "e1cf96021c3f569f24f7ba8a1be71f04",
     "semantic_hash": ""
   },
   "lib/services/vocab_notebook_parser.dart": {
@@ -3708,9 +3708,9 @@
     "semantic_hash": ""
   },
   "test/cloze_game_screen_ui_test.dart": {
-    "mtime": 1790762317.8807132,
-    "seen": 1790791571.4471269,
-    "ast_hash": "ccbf7be67d96dbb0470a3b6fb65515d2",
+    "mtime": 1790793235.0539422,
+    "seen": 1790793759.4039862,
+    "ast_hash": "c3b75d720c8f695ac270a0d9f8cb782b",
     "semantic_hash": ""
   },
   "test/cloze_prompt_test.dart": {
@@ -4434,9 +4434,9 @@
     "semantic_hash": ""
   },
   "test/hangul_swipe_and_prefetch_test.dart": {
-    "mtime": 1790762318.1642902,
-    "seen": 1790791571.4473803,
-    "ast_hash": "2829a84f2f48b47143f3fe363a85bf5a",
+    "mtime": 1790793235.0610392,
+    "seen": 1790793759.4691446,
+    "ast_hash": "c0516ab13ab1ae469858933fadbf5a0d",
     "semantic_hash": ""
   },
   "test/hangul_write_gate_test.dart": {
@@ -12780,9 +12780,9 @@
     "semantic_hash": ""
   },
   "test/speakable_screen_lifecycle_test.dart": {
-    "mtime": 1790762318.6203065,
-    "seen": 1790791571.447914,
-    "ast_hash": "ecf3ce0affde6c2f7fd5e2b25c6f2206",
+    "mtime": 1790793235.0834203,
+    "seen": 1790793759.588688,
+    "ast_hash": "753573aa40cc161a87768416b2404140",
     "semantic_hash": ""
   },
   "test/study_home_escape_guard_test.dart": {
@@ -15678,9 +15678,9 @@
     "semantic_hash": ""
   },
   "test/quest_course_evidence_recovery_test.dart": {
-    "mtime": 1790762318.4353924,
-    "seen": 1790791571.447648,
-    "ast_hash": "2b8edef266877a660249ef2548fd05cb",
+    "mtime": 1790793235.0794213,
+    "seen": 1790793759.533094,
+    "ast_hash": "d1fb768074ca0648aced5d7056832640",
     "semantic_hash": ""
   },
   "test/grammar_smalltalk_evidence_recovery_test.dart": {
@@ -20670,9 +20670,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/hangul_syllable_table.dart": {
-    "mtime": 1790782802.5948415,
-    "seen": 1790791571.4467874,
-    "ast_hash": "ba1877996bc9be330a431390ad9ac086",
+    "mtime": 1790793384.9756713,
+    "seen": 1790793759.3259072,
+    "ast_hash": "bd3b0597331bf27b601492430e3ed611",
     "semantic_hash": ""
   },
   "test/cloze_prompt_wrap_test.dart": {
@@ -20694,9 +20694,9 @@
     "semantic_hash": ""
   },
   "docs/qa/device_feature_qa_20260930.md": {
-    "mtime": 1790783643.9779289,
-    "seen": 1790791571.4498627,
-    "ast_hash": "f85650daad8a93f0e6f8ea7d5d430188",
+    "mtime": 1790791705.9310844,
+    "seen": 1790793760.0317008,
+    "ast_hash": "4b4fe46c9fb7be92fa7e7a2e03741eaf",
     "semantic_hash": ""
   }
 }
