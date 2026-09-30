@@ -348,6 +348,7 @@ class _AddToWordbookButtonState extends State<AddToWordbookButton> {
       exampleKorean: widget.exampleKorean,
       exampleDe: widget.exampleDe,
       exampleEn: widget.exampleEn,
+      source: widget.source ?? 'manual',
     );
   }
 

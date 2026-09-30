@@ -10,6 +10,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../widgets/app_loading.dart';
 import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
+import '../features/study_library/study_library.dart';
 import '../services/analytics_service.dart';
 import '../services/cloze_loader.dart';
 import '../services/data_loader.dart';
@@ -25,6 +26,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
+import '../widgets/sori/wordbook_add.dart';
 
 /// **Tages-Challenge (오늘의 도전)** — ein datums-gesetztes Lückentext-Puzzle.
 ///
@@ -298,6 +300,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
     final s = SoriSurfaces.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final item = _round[_idx];
+    final reviewedWord = _vocabByKo[item.answer];
     final options = item.options(
       DailyChallengeScreen.dailySeed(DateTime.now()) + _idx,
     );
@@ -351,11 +354,35 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
               ),
               const SizedBox(height: Spacing.md),
             ],
-            Text(
-              t.clozeInstruction,
-              style: SoriTextTheme.of(
-                context,
-              ).meta.copyWith(color: s.textMuted),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    t.clozeInstruction,
+                    style: SoriTextTheme.of(
+                      context,
+                    ).meta.copyWith(color: s.textMuted),
+                  ),
+                ),
+                AddToWordbookButton(
+                  key: ValueKey('daily-save-${item.id}'),
+                  compact: true,
+                  coachEnabled: false,
+                  korean: reviewedWord?.korean ?? item.fullKo,
+                  translationDe: reviewedWord?.german ?? item.de,
+                  translationEn: reviewedWord?.english ?? item.en,
+                  romanization: reviewedWord?.romanization ?? '',
+                  posDe: reviewedWord?.posDe ?? '',
+                  exampleKorean: reviewedWord?.exampleKorean ?? '',
+                  exampleDe: reviewedWord?.exampleGerman ?? '',
+                  exampleEn: reviewedWord?.exampleEnglish ?? '',
+                  itemType: reviewedWord == null
+                      ? StudyLibraryItemType.sentence
+                      : null,
+                  itemId: reviewedWord == null ? item.id : null,
+                  source: 'daily_challenge',
+                ),
+              ],
             ),
             const SizedBox(height: Spacing.md),
             Flexible(

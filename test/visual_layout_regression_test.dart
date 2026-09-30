@@ -11,7 +11,6 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
-import 'package:ko_lernen_app/widgets/sori/ko_wrap.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'support/scenario_stock_fixtures.dart';
 
@@ -30,7 +29,7 @@ void main() {
   });
 
   testWidgets(
-    'grammar keeps the first German example fully inside its study card on a 360x780 phone',
+    'grammar keeps its front pattern fully inside the study card on a 360x780 phone',
     (tester) async {
       tester.view.physicalSize = const Size(360, 780);
       tester.view.devicePixelRatio = 1;
@@ -49,18 +48,16 @@ void main() {
       await tester.pump(const Duration(milliseconds: 100));
       await tester.pump(const Duration(milliseconds: 2000));
 
-      final example = find.byWidgetPredicate(
-        (w) => w is SoriPhraseWrap && w.text == 'Ich bin Student.',
-      );
-      final card = find.ancestor(of: example, matching: find.byType(SoriCard));
+      final pattern = find.text('N은/는');
+      final card = find.ancestor(of: pattern, matching: find.byType(SoriCard));
 
-      expect(example, findsOneWidget);
+      expect(pattern, findsOneWidget);
       expect(card, findsOneWidget);
 
-      final exampleRect = tester.getRect(example);
+      final patternRect = tester.getRect(pattern);
       final cardRect = tester.getRect(card);
-      expect(cardRect.contains(exampleRect.topLeft), isTrue);
-      expect(cardRect.contains(exampleRect.bottomRight), isTrue);
+      expect(cardRect.contains(patternRect.topLeft), isTrue);
+      expect(cardRect.contains(patternRect.bottomRight), isTrue);
       expect(tester.takeException(), isNull);
     },
   );

@@ -209,12 +209,12 @@ SoriRadius.brPill // BorderRadius.all(Radius.circular(999))
 
 | 토큰 | 폰트 | 번들 웨이트 | 용도 |
 |---|---|---|---|
-| `SoriFonts.sans` | IBM Plex Sans | variable | DE/EN UI, 제목·본문·숫자 |
+| `SoriFonts.sans` | Noto Sans KR | variable | KO/DE/EN UI, 제목·본문·숫자 |
 | `SoriFonts.korean` / `learningKorean` | Noto Sans KR | variable | 자모·어휘·문장 등 한국어 학습 글자 |
-| `SoriFonts.fallback` | Noto Sans KR | variable | DE/EN·한국어 혼합 문장의 한글 폴백 |
+| `SoriFonts.fallback` | 없음 | — | 공용 번들에 세 언어 글리프가 있어 별도 폴백이 필요 없음 |
 | `SoriFonts.culture` | Noto Sans KR | variable | 짧은 한국어 문화 제목 |
 
-> 문화 제목도 같은 한국어 폰트로 그려 서체 혼용을 줄인다. DE/EN은 IBM Plex Sans를 기본으로 하고, 한글은 Noto Sans KR로 폴백한다.
+> Noto Sans KR 한 파일에 한글 완성형·영어·독일어 글리프가 모두 들어 있다. 전체 앱에서 서체를 통일하고 역할별 굵기는 구분한다.
 
 #### SoriTextTheme 프리셋 (발췌, 2026-09-03 §A3 재정의)
 | 토큰 | 크기 | 굵기 | 폰트 | 용도 |
@@ -233,7 +233,7 @@ SoriRadius.brPill // BorderRadius.all(Radius.circular(999))
 | `tt.chromeTitle` | 20 | w600 | sans | 앱바 크롬 전용(`SoriAppBar`, §A4) |
 | `tt.numeral` | 30 | w500 | sans (tabular) | 스트릭·XP 큰 숫자 |
 
-> 2026-09-28: DE/EN 헤드라인은 IBM Plex Sans, 한국어 학습 글자와 문화 제목은 Noto Sans KR로 그린다.
+> 2026-09-30: KO/DE/EN 헤드라인과 학습 글자를 Noto Sans KR로 그린다.
 
 **가드 테스트** — 위반 재발 방지:
 - `test/typography_guard_test.dart` — `FontWeight.w800`/`w900` 래칫(내려가기만 한다), `fontFamily: '...'` 문자열 리터럴 0.

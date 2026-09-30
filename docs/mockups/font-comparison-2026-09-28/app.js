@@ -1,6 +1,6 @@
 const variants = [
-  { id: 'noto', label: 'Noto Sans KR 전체', note: '이전 적용안 · 굵은 위계' },
-  { id: 'plex', label: 'IBM Plex Sans + Noto Sans KR', note: '독일어·영어 + 한국어', recommended: true },
+  { id: 'noto', label: 'Noto Sans KR 전체', note: '현재 앱 적용 · 한 서체', recommended: true },
+  { id: 'plex', label: 'IBM Plex Sans + Noto Sans KR', note: '이전 적용안 · 언어별 조합' },
   { id: 'current', label: '기존', note: 'Paperlogy · 제목 Maru Buri' },
   { id: 'pretendard', label: 'Pretendard', note: '한국어 · 라틴어 한 서체' },
 ];

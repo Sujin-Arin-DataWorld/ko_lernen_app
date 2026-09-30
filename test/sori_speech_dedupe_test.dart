@@ -220,6 +220,30 @@ void main() {
     expect(startCount, 1);
   });
 
+  test(
+    'explicit replay restarts an in-flight sentence instead of joining it',
+    () async {
+      final firstCompletion = Completer<bool>();
+      var starts = 0;
+      var stops = 0;
+      SoriSpeech.speakImpl = (text, voice) {
+        starts++;
+        return starts == 1 ? firstCompletion.future : Future<bool>.value(true);
+      };
+      SoriSpeech.stopImpl = () async {
+        stops++;
+      };
+
+      final autoplay = SoriSpeech.speak('다시 들어요.');
+      final replay = SoriSpeech.replay('다시 들어요.');
+      expect(await replay, isTrue);
+      firstCompletion.complete(false);
+      expect(await autoplay, isFalse);
+      expect(starts, 2);
+      expect(stops, 1);
+    },
+  );
+
   test('서로 다른 텍스트는 이전 발화를 정지한 뒤 새 해석을 시작한다', () async {
     final calls = <String>[];
     final completers = <String, Completer<bool>>{};

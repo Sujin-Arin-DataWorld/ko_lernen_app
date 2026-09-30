@@ -204,13 +204,9 @@ flutter:
     - assets/video/home_hero/
     - assets/video/gye/
 
-  # ── IBM Plex Sans(라틴) + Noto Sans KR(한글) 가변 서체, OFL ──
-  # Plex Sans 라틴 파일은 한글이 없다. SoriFonts.fallback에 Noto Sans KR을
-  # 명시해 기기 기본 글꼴로 새지 않게 한다. test/font_bundle_guard_test.dart 검사.
+  # ── Noto Sans KR 단일 가변 서체, OFL ──
+  # 한글·영어·독일어 글리프를 모두 포함한다. test/font_bundle_guard_test.dart 검사.
   fonts:
-    - family: IBMPlexSans
-      fonts:
-        - asset: assets/fonts/IBMPlexSans/IBMPlexSans-Variable.ttf
     - family: NotoSansKR
       fonts:
         - asset: assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf

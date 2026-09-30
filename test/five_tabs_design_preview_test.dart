@@ -4,6 +4,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'support/real_fonts.dart';
 import 'support/five_tabs_preview/preview.dart';
 
@@ -126,7 +127,7 @@ Future<void> board(
     text: TextSpan(
       text: heading ?? name,
       style: const TextStyle(
-        fontFamily: 'NotoSansKR',
+        fontFamily: SoriFonts.sans,
         fontSize: 30,
         color: Color(0xFF1A1F1D),
       ),
@@ -139,7 +140,7 @@ Future<void> board(
       text:
           'DESIGN REVIEW · Real bundled art · Illustrative states · No account or reward writes',
       style: TextStyle(
-        fontFamily: 'IBMPlexSans',
+        fontFamily: 'NotoSansKR',
         fontSize: 14,
         color: Color(0xFF5C6660),
       ),
@@ -164,7 +165,7 @@ Future<void> board(
       text: TextSpan(
         text: files[i],
         style: const TextStyle(
-          fontFamily: 'IBMPlexSans',
+          fontFamily: SoriFonts.sans,
           fontSize: 15,
           color: Color(0xFF1A1F1D),
         ),
