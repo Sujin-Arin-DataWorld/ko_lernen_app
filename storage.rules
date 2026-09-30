@@ -31,6 +31,20 @@ service firebase.storage {
       allow read, write: if false;
     }
 
+    // Approved Hanok artwork is immutable and contains no learner data.
+    // Administrators publish exact-byte images and mark them canonical.
+    // The app independently verifies the bundled manifest's length/SHA-256.
+    match /learning-art/v1/{fileName} {
+      allow get: if 'canonical' in resource.metadata
+        && resource.metadata.canonical == 'true'
+        && resource.size > 0
+        && ((fileName.matches('^[a-f0-9]{64}\\.png$')
+            && resource.contentType == 'image/png')
+          || (fileName.matches('^[a-f0-9]{64}\\.webp$')
+            && resource.contentType == 'image/webp'));
+      allow list, write: if false;
+    }
+
     // 그 외 전부 차단
     match /{allPaths=**} {
       allow read, write: if false;

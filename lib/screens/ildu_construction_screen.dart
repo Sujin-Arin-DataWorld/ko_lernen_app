@@ -4,6 +4,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/ildu_construction_art.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/hanok_asset_image.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/standard_page.dart';
@@ -362,12 +363,13 @@ class _ConstructionImageState extends State<_ConstructionImage> {
             .clamp(1, stage.width);
         return SizedBox(
           height: height,
-          child: Image.asset(
+          child: HanokAssetImage(
             stage.asset,
-            key: ValueKey('${stage.id}-$_retry'),
+            key: ValueKey('${stage.id}-asset-$_retry'),
             cacheWidth: decodeWidth,
             fit: BoxFit.contain,
             semanticLabel: ilduArtText(stage.observe, widget.language),
+            prefetchPack: true,
             errorBuilder: (context, error, stackTrace) => AppError(
               message: AppL10n.of(context).loadErrorTryAgain,
               asset: null,

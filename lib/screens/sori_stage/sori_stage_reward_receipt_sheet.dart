@@ -5,6 +5,7 @@ import '../../models/sarangchae_construction.dart';
 import '../../models/ildu_construction_art.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../widgets/app_loading.dart';
+import '../../widgets/hanok_asset_image.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/hanok_v3_preview.dart';
 import '../../widgets/sori/reward_icon.dart';
@@ -288,10 +289,11 @@ class _ConstructionReceiptImage extends StatelessWidget {
               color: SoriSurfaces.of(context).surfaceAlt,
               child: const Center(child: Icon(Icons.home_work_outlined)),
             )
-          : Image.asset(
+          : HanokAssetImage(
               stage!.asset,
               fit: BoxFit.contain,
               semanticLabel: stage!.title['ko'],
+              prefetchPack: false,
               errorBuilder: (context, error, stackTrace) =>
                   const SizedBox.shrink(),
             ),

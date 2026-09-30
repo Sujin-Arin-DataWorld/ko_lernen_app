@@ -145,49 +145,15 @@ flutter:
     # Hanok routes use assets/illustrations/hanok/ildu_v3_preview.png until the
     # V3 world is promoted. Dormant V3 code and contract tests still load these
     # authored assets; bundling them does not expose the unfinished map.
-    - assets/illustrations/personal_hanok_v3/world/
-    - assets/illustrations/personal_hanok_v3/turnarounds/
+    - assets/illustrations/personal_hanok_v3/turnarounds/changgo_relocation.png
+    - assets/illustrations/personal_hanok_v3/turnarounds/사랑채
+    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문.png
+    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문1.png
+    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문2.png
+    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문6.png
+    - assets/illustrations/personal_hanok_v3/turnarounds/솟을대문8.png
     - assets/illustrations/personal_hanok_v3/sarangchae/
     - assets/illustrations/personal_hanok_v3/construction/hyeopmun/
-    - assets/illustrations/personal_hanok_v3/construction/changgo/
-    - assets/illustrations/personal_hanok_v3/construction/jungmunganchae/
-    - assets/illustrations/personal_hanok_v3/construction/araechae/
-    - assets/illustrations/personal_hanok_v3/construction/anchae/
-    - assets/illustrations/personal_hanok_v3/construction/anchae-store/
-    - assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_01_site.webp
-    - assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_02_foundation.webp
-    - assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_03_padstones.webp
-    - assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_04_posts.webp
-    - assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_05_beams.webp
-    - assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_06_rafters.webp
-    - assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_07_roof_bed.webp
-    - assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_08_tiles.webp
-    - assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_09_walls.webp
-    - assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_10_ondol.webp
-    - assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_11_maru_interior.webp
-    - assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_12_maru_porch.webp
-    - assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_13_doors.webp
-    - assets/illustrations/personal_hanok_v3/construction/ansarangchae/stage_14_complete.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_01_foundation.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_02_posts.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_03_beams.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_04_rafters.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_05_roof_bed.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_06_tiles.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_07_doors.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadangmun/stage_08_complete.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadang/stage_01_site.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadang/stage_02_foundation.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadang/stage_03_padstones.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadang/stage_04_posts.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadang/stage_05_brackets.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadang/stage_06_rafters.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadang/stage_07_roof_bed.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadang/stage_08_tiles.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadang/stage_09_maru_interior.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadang/stage_10_walls.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadang/stage_11_finish.webp
-    - assets/illustrations/personal_hanok_v3/construction/sadang/stage_12_complete.webp
     - assets/illustrations/personal_hanok_v3/construction/lessons/
     - assets/illustrations/decorations/
     - assets/illustrations/reward/

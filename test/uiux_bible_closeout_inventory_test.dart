@@ -109,8 +109,8 @@ void main() {
     }
 
     // Includes the shared finite-step content layout and Hanok preview owners.
-    expect(seen, hasLength(116));
-    expect(documented, hasLength(116));
+    expect(seen, hasLength(117));
+    expect(documented, hasLength(117));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });

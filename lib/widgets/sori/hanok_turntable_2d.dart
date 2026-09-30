@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../data/ildu_turntable_catalog.dart';
+import '../../services/hanok_assets/hanok_asset_delivery.dart';
+import '../hanok_asset_image.dart';
 import 'tokens.dart';
 
 /// Controlled, eight-direction 2.5D viewer for an authored Hanok turnaround.
@@ -16,6 +18,7 @@ class HanokTurntable2D extends StatefulWidget {
   final String zoomOutLabel;
   final String resetZoomLabel;
   final double dragPixelsPerStep;
+  final HanokAssetDelivery? delivery;
 
   const HanokTurntable2D({
     super.key,
@@ -27,6 +30,7 @@ class HanokTurntable2D extends StatefulWidget {
     required this.zoomOutLabel,
     required this.resetZoomLabel,
     this.dragPixelsPerStep = 28,
+    this.delivery,
   }) : assert(frames.length == 8),
        assert(direction >= 0 && direction < 8),
        assert(dragPixelsPerStep > 0);
@@ -148,6 +152,7 @@ class _HanokTurntable2DState extends State<HanokTurntable2D> {
                   key: ValueKey('hanok-turntable-frame-${widget.direction}'),
                   frame: frame,
                   cacheWidth: frame.sourceSize.width.round(),
+                  delivery: widget.delivery,
                 ),
               ),
               Positioned(
@@ -226,11 +231,13 @@ class _HanokTurntable2DState extends State<HanokTurntable2D> {
 class HanokTurntableFrameImage extends StatelessWidget {
   final IlDuTurntableFrame frame;
   final int cacheWidth;
+  final HanokAssetDelivery? delivery;
 
   const HanokTurntableFrameImage({
     super.key,
     required this.frame,
     required this.cacheWidth,
+    this.delivery,
   });
 
   @override
@@ -253,12 +260,14 @@ class HanokTurntableFrameImage extends StatelessWidget {
                   width: frame.sourceSize.width,
                   height: frame.sourceSize.height,
                   child: ExcludeSemantics(
-                    child: Image.asset(
+                    child: HanokAssetImage(
                       frame.assetPath,
                       fit: BoxFit.fill,
                       cacheWidth: cacheWidth,
                       filterQuality: FilterQuality.medium,
                       gaplessPlayback: true,
+                      prefetchPack: false,
+                      delivery: delivery,
                       errorBuilder: (_, _, _) => const Center(
                         child: Icon(Icons.broken_image_outlined),
                       ),
