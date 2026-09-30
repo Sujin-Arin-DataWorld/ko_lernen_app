@@ -76,10 +76,17 @@ void main() {
   );
 
   test('uses the existing priority once for every today surface', () {
+    const a2Course = CourseUnit(
+      id: 'a2_hello',
+      level: 'a2',
+      order: 1,
+      title: CurriculumText(ko: '인사', de: 'Begrüßung', en: 'Greetings'),
+      canDo: CurriculumText(ko: '인사해요', de: 'Ich grüße', en: 'I greet'),
+    );
     final snapshot = TodayLearningSnapshot.fromInputs(
       TodayLearningInputs(
-        courseUnits: [course],
-        currentCourseUnitId: 'a1_hello',
+        courseUnits: [a2Course],
+        currentCourseUnitId: 'a2_hello',
         nowNode: node,
         dueCount: 12,
         scenarioCompleted: false,
@@ -89,7 +96,7 @@ void main() {
     );
 
     expect(snapshot.pick, isA<CoursePick>());
-    expect((snapshot.pick as CoursePick).unit.id, 'a1_hello');
+    expect((snapshot.pick as CoursePick).unit.id, 'a2_hello');
     expect(
       snapshot.destination,
       const TodayLearningDestination(route: '/course/mission'),

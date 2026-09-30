@@ -113,6 +113,18 @@ void main() {
       expect((pick as CoursePick).unit.id, 'a1_first');
     });
 
+    test('C2로 변경하면 이전 A1 현재 ID를 추천하지 않는다', () {
+      final pick = _run(
+        units: [
+          _unit('a1_first', 1),
+          _unit('c2_first', 1, level: 'c2'),
+        ],
+        currentId: 'a1_first',
+        userLevel: LearnerLevel.c2,
+      );
+      expect((pick as CoursePick).unit.id, 'c2_first');
+    });
+
     test('A1을 모두 마친 뒤 자동 진급한 A2 현재 유닛은 유지한다', () {
       final pick = _run(
         units: [

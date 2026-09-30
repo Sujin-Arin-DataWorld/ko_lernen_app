@@ -77,15 +77,16 @@ MissionPick? recommendMission({
       final level = LearnerLevel.fromCode(candidate.level);
       if (candidate.id == currentCourseUnitId &&
           level != null &&
-          (level.rank <= userLevel.rank ||
-              courseUnits
-                  .where((unit) {
-                    final unitLevel = LearnerLevel.fromCode(unit.level);
-                    return unitLevel != null &&
-                        unitLevel.rank >= userLevel.rank &&
-                        unitLevel.rank < level.rank;
-                  })
-                  .every((unit) => completedUnitIds.contains(unit.id)))) {
+          (level.rank == userLevel.rank ||
+              (level.rank > userLevel.rank &&
+                  courseUnits
+                      .where((unit) {
+                        final unitLevel = LearnerLevel.fromCode(unit.level);
+                        return unitLevel != null &&
+                            unitLevel.rank >= userLevel.rank &&
+                            unitLevel.rank < level.rank;
+                      })
+                      .every((unit) => completedUnitIds.contains(unit.id))))) {
         currentUnit = candidate;
         break;
       }
