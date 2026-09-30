@@ -666,9 +666,9 @@
     "semantic_hash": ""
   },
   "hangul-sori-site-local/package.json": {
-    "mtime": 1790773337.6877854,
-    "seen": 1790784125.8453465,
-    "ast_hash": "4181ae6f071d6b92aa43494e93a53933",
+    "mtime": 1790787305.9626758,
+    "seen": 1790787708.4622467,
+    "ast_hash": "b8a2f4b99d903de0cb3e0dc44a19e95e",
     "semantic_hash": ""
   },
   "hangul-sori-site-local/postcss.config.mjs": {
