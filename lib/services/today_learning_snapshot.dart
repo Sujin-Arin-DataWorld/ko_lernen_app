@@ -241,6 +241,14 @@ class TodayLearningSnapshot {
   }
 }
 
+LearnerLevel todayRecommendationLevel({
+  required String? placementLevelCode,
+  required String? legacyLevelCode,
+}) =>
+    LearnerLevel.fromCode(placementLevelCode) ??
+    LearnerLevel.fromCode(legacyLevelCode) ??
+    LearnerLevel.a1;
+
 /// Loads the one shared read-only snapshot used by Home and the Sarangbang.
 ///
 /// A failed family keeps its neutral input so healthy readers can still finish,
@@ -249,12 +257,18 @@ class TodayLearningSnapshot {
 class TodayLearningSnapshotLoader {
   const TodayLearningSnapshotLoader._();
 
+  // The sequential course start is the level chosen during onboarding or in
+  // Settings. A legacy library level can lag behind that explicit placement.
+  static LearnerLevel get _recommendationLevel => todayRecommendationLevel(
+    placementLevelCode: Storage.dedicatedCoursePlacementLevelCode,
+    legacyLevelCode: Storage.userLevelCode,
+  );
+
   static Future<TodayLearningSnapshot> load({
     TodayLearningSourceReaders? readers,
     TodayNetworkStatusReader? networkStatusReader,
   }) async {
-    final userLevel =
-        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
+    final userLevel = _recommendationLevel;
     final completedScenarios = Storage.completedScenarios.toSet();
     final sourceReaders =
         readers ??
@@ -364,9 +378,7 @@ class TodayLearningSnapshotLoader {
   }
 
   static Future<TodayNowNodeSourceValue> _loadNowNode() async {
-    final level =
-        (LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1)
-            .display;
+    final level = _recommendationLevel.display;
     final view = await PackProgressService.loadLevelView(level);
     for (final entry in view) {
       if (entry.progress.status != PackStatus.cleared) {
@@ -377,8 +389,7 @@ class TodayLearningSnapshotLoader {
   }
 
   static Future<TodayScenarioSourceValue> _loadScenarioInput() async {
-    final userLevel =
-        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
+    final userLevel = _recommendationLevel;
     final completed = Storage.completedScenarios.toSet();
     final corpus = await ScenarioLoader.load();
     final stock = ScenarioQuestStock.fromCorpus(corpus);
@@ -432,7 +443,7 @@ class TodayLearningSnapshotLoader {
     final koreans = all.map((entry) => entry.korean);
     final today = ReviewDeckService.todaySelectionForLevel(
       all,
-      levelCode: Storage.userLevelCode,
+      levelCode: _recommendationLevel.code,
     );
     return (
       dueCount: today.words.length,
