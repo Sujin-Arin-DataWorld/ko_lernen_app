@@ -437,9 +437,9 @@
     {
       "id": "satz_a1_0469",
       "level": "a1",
-      "targetKo": "주말에 야구 좋아하세요?",
-      "promptDe": "Mögen Sie am Wochenende Baseball?",
-      "promptEn": "Do you like baseball on weekends?",
+      "targetKo": "주말에 야구 보러 갈래요?",
+      "promptDe": "Möchten Sie am Wochenende zu einem Baseballspiel gehen?",
+      "promptEn": "Would you like to go to a baseball game this weekend?",
       "distractors": [
         "안경",
         "모자"
