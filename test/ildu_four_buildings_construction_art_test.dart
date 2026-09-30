@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/ildu_construction_art.dart';
+
+import 'support/hanok_asset_delivery_test_support.dart';
 
 const approvedCounts = {
   'jungmunganchae': 12,
@@ -21,8 +23,10 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(
-    '49 adopted PNGs retain their approved bytes in the app and web',
+    '49 adopted PNGs retain their approved bytes through asset delivery',
     () async {
+      final assets = await HanokAssetDeliveryTestSupport.create();
+      addTearDown(assets.dispose);
       final catalog = await IlDuConstructionArtCatalog.load();
       expect(catalog.series.take(6).map((s) => s.stages.length), [
         6,
@@ -52,28 +56,26 @@ void main() {
         expect(series.stages, hasLength(approvedCounts[series.id]!));
         for (final stage in series.stages) {
           final record = records[stage.asset];
-          final bundled = Uint8List.sublistView(
-            await rootBundle.load(stage.asset),
-          );
+          final delivered = await assets.load(stage.asset);
           final original = File(
             record['approvedSource'] as String,
           ).readAsBytesSync();
           final public = File(
             record['publicAsset'] as String,
           ).readAsBytesSync();
-          expect(bundled, original, reason: stage.id);
+          expect(delivered, original, reason: stage.id);
           expect(public, original, reason: stage.id);
-          expect(bundled.take(8), [137, 80, 78, 71, 13, 10, 26, 10]);
-          final header = ByteData.sublistView(bundled);
+          expect(delivered.take(8), [137, 80, 78, 71, 13, 10, 26, 10]);
+          final header = ByteData.sublistView(delivered);
           expect(header.getUint32(16), 1536);
           expect(header.getUint32(20), 1024);
-          final hash = sha256.convert(bundled).toString();
+          final hash = sha256.convert(delivered).toString();
           expect(hash, record['sha256']);
           expect(hash, stage.sha256);
-          expect(bundled.length, record['bytes']);
+          expect(delivered.length, record['bytes']);
           hashes.add(hash);
           expectedFiles.add(stage.asset);
-          totalBytes += bundled.length;
+          totalBytes += delivered.length;
         }
       }
       expect(hashes, hasLength(49));
@@ -88,6 +90,7 @@ void main() {
       };
       expect(actualFiles, expectedFiles);
     },
+    timeout: const Timeout(Duration(minutes: 4)),
   );
 
   test('style registrations select the same four completed frames', () {
