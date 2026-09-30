@@ -570,11 +570,11 @@ class SoriMotion {
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// TEXT — IBM Plex Sans(EN/DE) + Noto Sans KR(KO) 중앙 TextStyle 토큰
+// TEXT — Noto Sans KR(KO/EN/DE) 중앙 TextStyle 토큰
 // ─────────────────────────────────────────────────────────────────────────
 /// 앱 폰트 패밀리 상수 — 역할로만 선택한다.
-/// - [sans] IBM Plex Sans: DE/EN UI와 라틴 문자의 기본 폰트.
-/// - [korean] Noto Sans KR: 같은 문장 안의 한글 폴백과 한국어 문화 제목.
+/// - [sans] Noto Sans KR: KO/DE/EN UI와 학습 문장의 공용 폰트.
+/// - [korean] Noto Sans KR: 한국어 학습 글자와 문화 제목.
 ///
 /// **2026-08-19 교체**: 이전 PretendardStd 는 라틴 전용 서브셋이라 한글 글리프가
 /// 0개였다. 한국어는 전부 OS 폴백(맑은 고딕·제조사 기본·Apple SD Gothic)으로
@@ -582,17 +582,16 @@ class SoriMotion {
 /// 한글에서 처음으로 성립한다. `test/font_bundle_guard_test.dart` 가 번들 폰트의
 /// 한글·독일어 글리프를 검사해 재발을 막는다.
 ///
-/// **2026-09-28**: KO는 Noto Sans KR, DE/EN은 IBM Plex Sans로 묶는다.
-/// Plex Sans 라틴 파일에 한글이 없으므로 폴백을 명시해야 기기 기본 서체로
-/// 새지 않는다.
+/// **2026-09-30**: Noto Sans KR 한 파일이 한글·영어·독일어 문자를 모두
+/// 포함하므로 세 언어를 같은 서체로 그린다.
 class SoriFonts {
   SoriFonts._();
-  static const String sans = 'IBMPlexSans';
+  static const String sans = 'NotoSansKR';
   static const String korean = 'NotoSansKR';
   // Learning cards name this role explicitly; both roles use the same face.
   static const String learningKorean = korean;
   static const String culture = korean;
-  static const List<String> fallback = [korean];
+  static const List<String> fallback = [];
 }
 
 /// Context-free type spec — size/weight/letterSpacing/height만, 색·family

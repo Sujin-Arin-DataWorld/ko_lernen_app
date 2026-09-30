@@ -3,7 +3,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/services.dart' show FontLoader;
 
-/// Loads Hangul Sori's real UI fonts (IBM Plex Sans + Noto Sans KR, with
+/// Loads Hangul Sori's real UI font (Noto Sans KR, with
 /// optional Material Icons) into the test binding.
 ///
 /// §W-F3 root cause: `flutter_test`'s default binding renders every glyph as
@@ -11,7 +11,7 @@ import 'package:flutter/services.dart' show FontLoader;
 /// every character, in every script, at the same width. For layout-budget
 /// assertions (fold checks, line-count checks) that inflates measured text
 /// width/height by roughly 2-3× versus the real, proportionally-spaced
-/// IBM Plex Sans / Noto Sans KR faces, which silently invent a taller header and
+/// Noto Sans KR face, which silently invents a taller header and
 /// wrongly implies the layout doesn't fit. Any test that measures rects or
 /// line counts against real copy must call this first — a rendering
 /// smoke/existence test (does it build, is a key present) does not need it.
@@ -51,7 +51,6 @@ Future<void> loadSoriRealFonts({bool materialIcons = false}) async {
 
 Future<void> _loadTextFonts() async {
   for (final (family, path) in const [
-    ('IBMPlexSans', 'assets/fonts/IBMPlexSans/IBMPlexSans-Variable.ttf'),
     ('NotoSansKR', 'assets/fonts/NotoSansKR/NotoSansKR-Variable.ttf'),
   ]) {
     final loader = FontLoader(family);

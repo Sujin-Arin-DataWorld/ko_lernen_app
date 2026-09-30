@@ -89,10 +89,10 @@ button { font: inherit; cursor: pointer; }
 .phone.pretendard { font-family: Pretendard, sans-serif; }
 .phone.noto { font-family: NotoSansKR, sans-serif; }
 .phone.plex { font-family: IBMPlexSans, NotoSansKR, sans-serif; }
-.phone.plex .hero-title { font-weight: 500; }
-.phone.plex .hero-description, .phone.plex .translation, .phone.plex .hint, .phone.plex .secondary-card .translated { font-weight: 400; }
-.phone.plex .phrase-korean, .phone.plex .secondary-card .ko, .phone.plex .section-heading strong, .phone.plex .app-brand { font-weight: 500; }
-.phone.plex .continue { font-weight: 600; }
+.phone:is(.plex, .noto) .hero-title { font-weight: 500; }
+.phone:is(.plex, .noto) .hero-description, .phone:is(.plex, .noto) .translation, .phone:is(.plex, .noto) .hint, .phone:is(.plex, .noto) .secondary-card .translated { font-weight: 400; }
+.phone:is(.plex, .noto) .phrase-korean, .phone:is(.plex, .noto) .secondary-card .ko, .phone:is(.plex, .noto) .section-heading strong, .phone:is(.plex, .noto) .app-brand { font-weight: 500; }
+.phone:is(.plex, .noto) .continue { font-weight: 600; }
 .phone.current .hero-title { font-family: MaruBuri, serif; }
 
 .status { height: 37px; display: flex; align-items: center; justify-content: space-between; padding: 0 26px; color: #273b34; font-size: 12px; font-weight: 700; }
