@@ -72,7 +72,9 @@ class _HangulSyllableTableState extends State<HangulSyllableTable> {
 
   void _select(String consonant, String vowel) {
     final syllable = composeHangulSyllable(consonant, vowel, '');
-    if (syllable == null) return;
+    if (syllable == null) {
+      return;
+    }
     HapticFeedback.selectionClick();
     setState(() {
       _consonant = consonant;
@@ -121,6 +123,7 @@ class _HangulSyllableTableState extends State<HangulSyllableTable> {
         selected: selected,
         label: '$consonant + $vowel = $syllable',
         hint: t.hangulPronounceBtn,
+        onTap: () => _select(consonant, vowel),
         child: ExcludeSemantics(
           child: Material(
             color: selected ? SoriColors.primary : surfaces.surface,

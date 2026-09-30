@@ -41,7 +41,9 @@ final class TtsRecordedJamo {
 
   static Future<Uint8List?> _load(String text) async {
     final entry = _assets[text];
-    if (entry == null) return null;
+    if (entry == null) {
+      return null;
+    }
     try {
       final data = await rootBundle.load(
         'assets/tts/recorded_jamo/${entry.$1}.mp3',
@@ -50,8 +52,12 @@ final class TtsRecordedJamo {
         data.offsetInBytes,
         data.lengthInBytes,
       );
-      if (!TtsCacheKey.isUsableAudio(bytes)) return null;
-      if (sha256.convert(bytes).toString() != entry.$2) return null;
+      if (!TtsCacheKey.isUsableAudio(bytes)) {
+        return null;
+      }
+      if (sha256.convert(bytes).toString() != entry.$2) {
+        return null;
+      }
       return bytes;
     } catch (_) {
       return null;

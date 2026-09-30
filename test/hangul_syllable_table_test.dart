@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
@@ -72,4 +74,43 @@ void main() {
       semantics.dispose();
     });
   }
+
+  testWidgets('chart cells expose and execute a screen-reader tap', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+    final spoken = <String>[];
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: Scaffold(
+          body: SingleChildScrollView(
+            child: HangulSyllableTable(
+              speak: (syllable) async {
+                spoken.add(syllable);
+                return true;
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+
+    final cell = find.byKey(const ValueKey('hangul-syllable-갸'));
+    await tester.ensureVisible(cell);
+    await tester.pumpAndSettle();
+    final node = tester.getSemantics(cell);
+    expect(node.getSemanticsData().hasAction(ui.SemanticsAction.tap), isTrue);
+    // ignore: deprecated_member_use
+    tester.binding.pipelineOwner.semanticsOwner!.performAction(
+      node.id,
+      ui.SemanticsAction.tap,
+    );
+    await tester.pump();
+    expect(spoken, ['갸']);
+    expect(find.text('갸'), findsWidgets);
+    semantics.dispose();
+  });
 }

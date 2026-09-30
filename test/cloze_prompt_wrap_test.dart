@@ -5,7 +5,10 @@ import 'package:ko_lernen_app/services/cloze_loader.dart';
 import 'package:ko_lernen_app/widgets/sori/cloze_prompt.dart';
 import 'package:ko_lernen_app/widgets/sori/ko_wrap.dart';
 
+import 'support/real_fonts.dart';
+
 void main() {
+  setUpAll(loadSoriRealFonts);
   const sentence = '저는 ＿＿＿을 자주 먹어요.';
   final item = ClozeItem(
     id: 'wrap-regression',

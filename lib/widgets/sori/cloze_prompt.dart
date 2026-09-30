@@ -219,7 +219,9 @@ class ClozePromptCard extends StatelessWidget {
 }
 
 String _joinClozeBoundary(String left, String right) {
-  if (left.isEmpty || right.isEmpty) return '';
+  if (left.isEmpty || right.isEmpty) {
+    return '';
+  }
   if (RegExp(r'\s$').hasMatch(left) || RegExp(r'^\s').hasMatch(right)) {
     return '';
   }
