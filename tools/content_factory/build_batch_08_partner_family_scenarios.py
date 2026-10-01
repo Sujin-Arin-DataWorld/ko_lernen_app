@@ -392,7 +392,7 @@ def variant_seeds() -> list[dict[str, Any]]:
          ["우리", "같이", "자리", "말", "다음", "제안"],
          "같이 온 사람이라고 불러 주세요.",
          ("Nennt mich die mitgekommene Person.", "Please call me the person who came along.")),
-        ("c2", "home", "document_the_place", "자리를 문서화하다", "Den Platz dokumentieren", "Documenting one's place",
+        ("c2", "home", "document_the_place", "절차를 기록하다", "Das Verfahren dokumentieren", "Documenting the process",
          "침묵이 동의처럼 쓰입니다. 절차를 기록하자고 하세요.",
          "Schweigen wird wie Zustimmung gelesen. Verlange ein festgehaltenes Verfahren.",
          "Silence is read as consent. Ask to record a procedure.",

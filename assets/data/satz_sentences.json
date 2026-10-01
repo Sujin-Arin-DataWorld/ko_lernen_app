@@ -10376,14 +10376,14 @@
     {
       "id": "satz_c2_0058",
       "level": "c2",
-      "targetKo": "체면 경제에서는 사실이 아니라 체면이 예산을 정했어요.",
-      "promptDe": "In der Gesichtsökonomie setzte das Gesicht das Budget, nicht die Tatsache.",
-      "promptEn": "In the economy of face, face set the budget, not the fact.",
+      "targetKo": "체면을 지키려고 가족 모임 예산보다 많은 돈을 쓰자는 말이 나왔어요.",
+      "promptDe": "Bei der Familienfeier schlug jemand vor, mehr als geplant auszugeben, um das Gesicht zu wahren.",
+      "promptEn": "At the family gathering, someone suggested spending more than budgeted to save face.",
       "distractors": [
         "연출을",
         "영원히"
       ],
-      "vocabKo": "체면 경제"
+      "vocabKo": "체면을 지키다"
     },
     {
       "id": "satz_c2_0059",
@@ -10472,14 +10472,14 @@
     {
       "id": "satz_c2_0066",
       "level": "c2",
-      "targetKo": "자리를 문서화하자 기억 싸움이 줄었어요.",
-      "promptDe": "Den Platz zu dokumentieren verringerte den Streit um Erinnerung.",
-      "promptEn": "Documenting my place reduced fights over memory.",
+      "targetKo": "가족 행사 비용을 정하는 절차를 기록하자 같은 다툼이 줄었어요.",
+      "promptDe": "Seit wir festgehalten haben, wie über die Kosten von Familienfeiern entschieden wird, gibt es darüber weniger Streit.",
+      "promptEn": "Once we documented how costs for family events would be decided, we had fewer repeat arguments.",
       "distractors": [
         "칭찬이",
         "투명해졌어요"
       ],
-      "vocabKo": "자리를 문서화하다"
+      "vocabKo": "절차를 기록하다"
     },
     {
       "id": "satz_c2_0067",
@@ -16916,14 +16916,14 @@
     {
       "id": "satz_c2_0123",
       "level": "c2",
-      "targetKo": "결정 불가역을 선언하기 전에 철회 경로를 보여요.",
-      "promptDe": "Vor der Unumkehrbarkeit zeige ich den Rückholweg.",
-      "promptEn": "Before claiming irreversibility I show the withdrawal path.",
+      "targetKo": "되돌릴 수 없는 결정을 내리기 전에 예상되는 영향을 먼저 설명해야 해요.",
+      "promptDe": "Bevor eine unumkehrbare Entscheidung getroffen wird, sollten die absehbaren Folgen erklärt werden.",
+      "promptEn": "Before making an irreversible decision, we need to explain its likely effects.",
       "distractors": [
         "명령형 공지",
         "전문 장벽"
       ],
-      "vocabKo": "결정 불가역"
+      "vocabKo": "되돌릴 수 없는 결정"
     },
     {
       "id": "satz_c2_0124",
@@ -16952,14 +16952,14 @@
     {
       "id": "satz_c2_0126",
       "level": "c2",
-      "targetKo": "발화의 자리가 훈시이면 질문은 뒤로 밀려요.",
-      "promptDe": "Sitzt der Äußerungsort in der Belehrung, rutscht die Frage nach hinten.",
-      "promptEn": "If the seat of the utterance is a lecture, questions are pushed back.",
+      "targetKo": "일방적인 훈시가 이어지자 참석자들은 질문할 기회를 잃었습니다.",
+      "promptDe": "Als die einseitige Belehrung immer länger dauerte, kamen die Teilnehmenden kaum noch dazu, Fragen zu stellen.",
+      "promptEn": "As the one-sided lecture went on, participants lost the chance to ask questions.",
       "distractors": [
         "명령형 공지",
         "전문 장벽"
       ],
-      "vocabKo": "발화의 자리"
+      "vocabKo": "일방적인 훈시"
     },
     {
       "id": "satz_c2_0127",
@@ -17504,14 +17504,14 @@
     {
       "id": "satz_c2_0172",
       "level": "c2",
-      "targetKo": "집단 소송점이 막히면 개인만 싸우게 돼요.",
-      "promptDe": "Ist der Sammelpunkt blockiert, kämpft nur die Einzelperson.",
-      "promptEn": "If the collective claim point is blocked, only individuals fight.",
+      "targetKo": "공동 대응 경로가 없으면 같은 피해를 입은 사람도 각자 문제를 제기해야 합니다.",
+      "promptDe": "Ohne einen gemeinsamen Weg, sich zu wehren, müssen Betroffene ihre Anliegen einzeln vorbringen.",
+      "promptEn": "Without a way to respond together, people affected by the same harm have to raise their concerns individually.",
       "distractors": [
         "차등 영향",
         "오류 비용"
       ],
-      "vocabKo": "집단 소송점"
+      "vocabKo": "공동 대응 경로"
     },
     {
       "id": "satz_c2_0173",
@@ -25856,9 +25856,9 @@
     {
       "id": "satz_c2_0180",
       "level": "c2",
-      "targetKo": "결과 통보는 3영업일 안에 서면으로 합니다.",
-      "promptDe": "Die Mitteilung des Ergebnisses erfolgt binnen drei Werktagen schriftlich.",
-      "promptEn": "Notification of the outcome is made in writing within three business days.",
+      "targetKo": "결과 통보를 언제 어떤 방식으로 받을 수 있는지 먼저 확인해요.",
+      "promptDe": "Ich frage zuerst nach, wann und auf welchem Weg ich über das Ergebnis informiert werde.",
+      "promptEn": "I first check when and how I'll be notified of the outcome.",
       "distractors": [
         "구제를",
         "시정이"

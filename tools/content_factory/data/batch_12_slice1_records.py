@@ -275,9 +275,9 @@ VOCAB_C2: list[dict[str, Any]] = [
     },
     {
         "korean": "통보", "rom": "tongbo", "de": "Mitteilung", "en": "notification",
-        "ex_ko": "결과 통보는 3영업일 안에 서면으로 합니다.",
-        "ex_de": "Die Mitteilung des Ergebnisses erfolgt binnen drei Werktagen schriftlich.",
-        "ex_en": "Notification of the outcome is made in writing within three business days.",
+        "ex_ko": "결과 통보를 언제 어떤 방식으로 받을 수 있는지 먼저 확인해요.",
+        "ex_de": "Ich frage zuerst nach, wann und auf welchem Weg ich über das Ergebnis informiert werde.",
+        "ex_en": "I first check when and how I'll be notified of the outcome.",
         "cloze_distractors": ["소명", "재검토", "처분"],
         "satz_distractors": ["구제를", "시정이"],
         "boss": False,
