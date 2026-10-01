@@ -1058,7 +1058,7 @@
           "korean": "축제 봉사 담당입니다. 무슨 일이세요?",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Hier ist die Einsatzplanung für das Fest. Worum geht es?",
+            "de": "Ich koordiniere die Freiwilligen beim Fest. Worum geht es?",
             "en": "This is the festival volunteer coordinator. How can I help?"
           }
         },
@@ -1126,7 +1126,7 @@
         {
           "speaker": "official",
           "ko": "축제 봉사 담당입니다. 무슨 일이세요?",
-          "de": "Hier ist die Einsatzplanung für das Fest. Worum geht es?",
+          "de": "Ich koordiniere die Freiwilligen beim Fest. Worum geht es?",
           "en": "This is the festival volunteer coordinator. How can I help?"
         },
         {
@@ -1168,7 +1168,7 @@
             "audioKo": "축제 봉사 담당입니다. 무슨 일이세요?",
             "options": [
               {
-                "de": "Hier ist die Einsatzplanung für das Fest. Worum geht es?",
+                "de": "Ich koordiniere die Freiwilligen beim Fest. Worum geht es?",
                 "en": "This is the festival volunteer coordinator. How can I help?"
               },
               {
@@ -1450,7 +1450,7 @@
       },
       "intro": {
         "ko": "친구가 둘이 데이트 중이냐고 물어 분위기가 어색해졌어요.",
-        "de": "Eine Freundin hat gefragt, ob ihr ein Date habt, und plötzlich wird es etwas unangenehm.",
+        "de": "Jemand aus eurem Freundeskreis hat gefragt, ob ihr ein Date habt, und plötzlich wird es etwas unangenehm.",
         "en": "A friend asked if you were on a date, and things suddenly got awkward."
       },
       "courseUnitId": "b1_04_relationships",
@@ -1468,7 +1468,7 @@
           "korean": "아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Vorhin hat eine Freundin gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.",
+            "de": "Vorhin hat jemand aus unserem Freundeskreis gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.",
             "en": "Earlier, a friend asked if this was a date. It caught me off guard."
           }
         },
@@ -1536,7 +1536,7 @@
         {
           "speaker": "sujin",
           "ko": "아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.",
-          "de": "Vorhin hat eine Freundin gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.",
+          "de": "Vorhin hat jemand aus unserem Freundeskreis gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.",
           "en": "Earlier, a friend asked if this was a date. It caught me off guard."
         },
         {
@@ -1578,7 +1578,7 @@
             "audioKo": "아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.",
             "options": [
               {
-                "de": "Vorhin hat eine Freundin gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.",
+                "de": "Vorhin hat jemand aus unserem Freundeskreis gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.",
                 "en": "Earlier, a friend asked if this was a date. It caught me off guard."
               },
               {
@@ -1878,7 +1878,7 @@
           "korean": "바람이 너무 세서 배가 취소됐대.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Die Fähre wurde wegen des starken Winds abgesagt.",
+            "de": "Ich habe gehört, dass die Fähre wegen des starken Winds abgesagt wurde.",
             "en": "They say the ferry was canceled because the wind is too strong."
           }
         },
@@ -1946,7 +1946,7 @@
         {
           "speaker": "user",
           "ko": "바람이 너무 세서 배가 취소됐대.",
-          "de": "Die Fähre wurde wegen des starken Winds abgesagt.",
+          "de": "Ich habe gehört, dass die Fähre wegen des starken Winds abgesagt wurde.",
           "en": "They say the ferry was canceled because the wind is too strong."
         },
         {
@@ -1992,7 +1992,7 @@
                 "en": "Then we won't be able to get to the island today."
               },
               {
-                "de": "Die Fähre wurde wegen des starken Winds abgesagt.",
+                "de": "Ich habe gehört, dass die Fähre wegen des starken Winds abgesagt wurde.",
                 "en": "They say the ferry was canceled because the wind is too strong."
               },
               {
@@ -2011,7 +2011,7 @@
           "id": "quest_jeju_rain_plan_change_02",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Die Fähre wurde wegen des starken Winds abgesagt.",
+            "promptDe": "Ich habe gehört, dass die Fähre wegen des starken Winds abgesagt wurde.",
             "promptEn": "They say the ferry was canceled because the wind is too strong.",
             "options": [
               {
@@ -2518,7 +2518,7 @@
           "note": {
             "ko": "장면 핵심 표현",
             "de": "Ja, alles gut.",
-            "en": "Yes, he's fine."
+            "en": "Yes, the dog is fine."
           }
         },
         {
@@ -2580,7 +2580,7 @@
           "speaker": "neighbor",
           "ko": "네, 괜찮아요.",
           "de": "Ja, alles gut.",
-          "en": "Yes, he's fine."
+          "en": "Yes, the dog is fine."
         },
         {
           "speaker": "user",
@@ -2616,7 +2616,7 @@
               },
               {
                 "de": "Ja, alles gut.",
-                "en": "Yes, he's fine."
+                "en": "Yes, the dog is fine."
               }
             ],
             "correctIndex": 0
@@ -3336,7 +3336,7 @@
           "note": {
             "ko": "장면 핵심 표현",
             "de": "Wie wäre es, wenn wir zunächst bei internen Meetings eigene Becher verwenden?",
-            "en": "How about starting with reusable cups for internal meetings?"
+            "en": "How about using our own cups at internal meetings to start?"
           }
         },
         {
@@ -3400,7 +3400,7 @@
           "speaker": "user",
           "ko": "그럼 내부 회의부터 개인 컵을 써 보면 어때요?",
           "de": "Wie wäre es, wenn wir zunächst bei internen Meetings eigene Becher verwenden?",
-          "en": "How about starting with reusable cups for internal meetings?"
+          "en": "How about using our own cups at internal meetings to start?"
         },
         {
           "speaker": "andrea",
@@ -3438,7 +3438,7 @@
               },
               {
                 "de": "Wie wäre es, wenn wir zunächst bei internen Meetings eigene Becher verwenden?",
-                "en": "How about starting with reusable cups for internal meetings?"
+                "en": "How about using our own cups at internal meetings to start?"
               },
               {
                 "de": "Ein Test ist besser als ein sofortiges Verbot.",
@@ -3524,7 +3524,7 @@
           "korean": "레나, 우리 이제 말 놓을까?",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Lena, wollen wir langsam zum Du-Ton auf Koreanisch wechseln?",
+            "de": "Lena, wollen wir auf Koreanisch langsam lockerer miteinander sprechen?",
             "en": "Lena, should we start speaking casually in Korean?"
           }
         },
@@ -3592,7 +3592,7 @@
         {
           "speaker": "maya",
           "ko": "레나, 우리 이제 말 놓을까?",
-          "de": "Lena, wollen wir langsam zum Du-Ton auf Koreanisch wechseln?",
+          "de": "Lena, wollen wir auf Koreanisch langsam lockerer miteinander sprechen?",
           "en": "Lena, should we start speaking casually in Korean?"
         },
         {
@@ -3634,7 +3634,7 @@
             "audioKo": "레나, 우리 이제 말 놓을까?",
             "options": [
               {
-                "de": "Lena, wollen wir langsam zum Du-Ton auf Koreanisch wechseln?",
+                "de": "Lena, wollen wir auf Koreanisch langsam lockerer miteinander sprechen?",
                 "en": "Lena, should we start speaking casually in Korean?"
               },
               {
@@ -3722,7 +3722,7 @@
       },
       "intro": {
         "ko": "구독 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.",
-        "de": "Obwohl du eine Kündigungsbestätigung gesehen hast, wurde der Monatsbetrag abgebucht.",
+        "de": "Obwohl dir die Kündigung auf dem Bildschirm als abgeschlossen angezeigt wurde, wurde der Monatsbetrag abgebucht.",
         "en": "You saw a cancellation confirmation, but this month's fee was still charged."
       },
       "courseUnitId": "b1_05_complaint_resolution",
@@ -3748,7 +3748,7 @@
           "korean": "지난주에 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Letzte Woche wurde mir die Kündigung bestätigt, trotzdem wurde der Monatsbeitrag abgebucht.",
+            "de": "Letzte Woche wurde mir die Kündigung auf dem Bildschirm als abgeschlossen angezeigt. Trotzdem wurde der Monatsbeitrag abgebucht.",
             "en": "I saw a cancellation confirmation last week, but this month's fee was charged."
           }
         },
@@ -3814,7 +3814,7 @@
         {
           "speaker": "user",
           "ko": "지난주에 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.",
-          "de": "Letzte Woche wurde mir die Kündigung bestätigt, trotzdem wurde der Monatsbeitrag abgebucht.",
+          "de": "Letzte Woche wurde mir die Kündigung auf dem Bildschirm als abgeschlossen angezeigt. Trotzdem wurde der Monatsbeitrag abgebucht.",
           "en": "I saw a cancellation confirmation last week, but this month's fee was charged."
         },
         {
@@ -3854,7 +3854,7 @@
                 "en": "Customer support. What can I check for you?"
               },
               {
-                "de": "Letzte Woche wurde mir die Kündigung bestätigt, trotzdem wurde der Monatsbeitrag abgebucht.",
+                "de": "Letzte Woche wurde mir die Kündigung auf dem Bildschirm als abgeschlossen angezeigt. Trotzdem wurde der Monatsbeitrag abgebucht.",
                 "en": "I saw a cancellation confirmation last week, but this month's fee was charged."
               },
               {
@@ -3873,7 +3873,7 @@
           "id": "quest_subscription_cancel_charge_02",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Letzte Woche wurde mir die Kündigung bestätigt, trotzdem wurde der Monatsbeitrag abgebucht.",
+            "promptDe": "Letzte Woche wurde mir die Kündigung auf dem Bildschirm als abgeschlossen angezeigt. Trotzdem wurde der Monatsbeitrag abgebucht.",
             "promptEn": "I saw a cancellation confirmation last week, but this month's fee was charged.",
             "options": [
               {
@@ -3927,7 +3927,7 @@
       },
       "intro": {
         "ko": "다른 팀에서 회의 시간이 바뀔 수 있다고 연락했어요.",
-        "de": "Ein anderes Team hat geschrieben, dass sich die Besprechungszeit möglicherweise ändert.",
+        "de": "Ein anderes Team hat sich gemeldet: Die Besprechungszeit könnte sich ändern.",
         "en": "Another team said the meeting time might change."
       },
       "courseUnitId": "b1_02_indirect_speech",
@@ -3945,7 +3945,7 @@
           "korean": "다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Das andere Team hat geschrieben, dass sich die Uhrzeit vielleicht ändert.",
+            "de": "Das andere Team hat sich gemeldet und gesagt, dass sich die Uhrzeit vielleicht ändert.",
             "en": "The other team contacted us to say the time might change."
           }
         },
@@ -4013,7 +4013,7 @@
         {
           "speaker": "user",
           "ko": "다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요.",
-          "de": "Das andere Team hat geschrieben, dass sich die Uhrzeit vielleicht ändert.",
+          "de": "Das andere Team hat sich gemeldet und gesagt, dass sich die Uhrzeit vielleicht ändert.",
           "en": "The other team contacted us to say the time might change."
         },
         {
@@ -4059,7 +4059,7 @@
                 "en": "Should we update the calendar now?"
               },
               {
-                "de": "Das andere Team hat geschrieben, dass sich die Uhrzeit vielleicht ändert.",
+                "de": "Das andere Team hat sich gemeldet und gesagt, dass sich die Uhrzeit vielleicht ändert.",
                 "en": "The other team contacted us to say the time might change."
               },
               {
@@ -4078,7 +4078,7 @@
           "id": "quest_team_update_indirect_speech_02",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Das andere Team hat geschrieben, dass sich die Uhrzeit vielleicht ändert.",
+            "promptDe": "Das andere Team hat sich gemeldet und gesagt, dass sich die Uhrzeit vielleicht ändert.",
             "promptEn": "The other team contacted us to say the time might change.",
             "options": [
               {
@@ -4899,8 +4899,8 @@
         {
           "speaker": "user",
           "ko": "그럼 한 잔 값은 취소해 주실 수 있을까요?",
-          "de": "Könnten Sie mir dann den zweiten Kaffee stornieren?",
-          "en": "Could you refund the second coffee, then?"
+          "de": "Könnten Sie den Betrag für den zweiten Kaffee bitte stornieren?",
+          "en": "Could you refund the extra charge, then?"
         },
         {
           "speaker": "clerk",
@@ -5365,8 +5365,8 @@
         {
           "speaker": "user",
           "ko": "전혀 아니야. 너랑 있는 시간은 항상 좋아.",
-          "de": "Überhaupt nicht. Die Zeit mit dir ist immer schön.",
-          "en": "Not at all. The time with you is always nice."
+          "de": "Überhaupt nicht. Ich verbringe immer gern Zeit mit dir.",
+          "en": "Not at all. I always enjoy spending time with you."
         },
         {
           "speaker": "sujin",
@@ -5395,8 +5395,8 @@
             "audioKo": "전혀 아니야. 너랑 있는 시간은 항상 좋아.",
             "options": [
               {
-                "de": "Überhaupt nicht. Die Zeit mit dir ist immer schön.",
-                "en": "Not at all. The time with you is always nice."
+                "de": "Überhaupt nicht. Ich verbringe immer gern Zeit mit dir.",
+                "en": "Not at all. I always enjoy spending time with you."
               },
               {
                 "de": "Ich will dich nicht mehr sehen.",
@@ -6399,8 +6399,8 @@
       },
       "intro": {
         "ko": "마야가 콘서트 티켓팅에 실패해서 레나와 함께 다음 방법을 찾습니다.",
-        "de": "Maya scheitert beim Konzert-Ticketing und sucht gemeinsam mit Lena nach einer Lösung.",
-        "en": "Maya fails at concert ticketing and looks for a next step together with Lena."
+        "de": "Maya hat keine Konzertkarten bekommen und sucht mit Lena nach einer anderen Möglichkeit.",
+        "en": "Maya couldn't get tickets for the concert, so she and Lena look for another option."
       },
       "courseUnitId": "b1_01_experience_reasons",
       "playerCharacterId": "maya",

@@ -9678,7 +9678,7 @@
           },
           "explanation": {
             "ko": "들은 말은 “축제 봉사 담당입니다. 무슨 일이세요?”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „축제 봉사 담당입니다. 무슨 일이세요?“: Hier ist die Einsatzplanung für das Fest. Worum geht es? Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "de": "Zu hören ist „축제 봉사 담당입니다. 무슨 일이세요?“: Ich koordiniere die Freiwilligen beim Fest. Worum geht es? Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
             "en": "The line is “축제 봉사 담당입니다. 무슨 일이세요?”: This is the festival volunteer coordinator. How can I help? The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
@@ -9689,7 +9689,7 @@
           "options": [
             {
               "ko": "축제 봉사 담당입니다. 무슨 일이세요?",
-              "de": "Hier ist die Einsatzplanung für das Fest. Worum geht es?",
+              "de": "Ich koordiniere die Freiwilligen beim Fest. Worum geht es?",
               "en": "This is the festival volunteer coordinator. How can I help?"
             },
             {
@@ -9933,7 +9933,7 @@
       },
       "intro": {
         "ko": "친구가 둘이 데이트 중이냐고 물어 분위기가 어색해졌어요.",
-        "de": "Eine Freundin hat gefragt, ob ihr ein Date habt, und plötzlich wird es etwas unangenehm.",
+        "de": "Jemand aus eurem Freundeskreis hat gefragt, ob ihr ein Date habt, und plötzlich wird es etwas unangenehm.",
         "en": "A friend asked if you were on a date, and things suddenly got awkward."
       },
       "contentIds": [
@@ -9951,7 +9951,7 @@
           },
           "explanation": {
             "ko": "“아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.”라는 말이 근거예요. 상황은 “친구가 둘이 데이트 중이냐고 물어 분위기가 어색해졌어요.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
-            "de": "Ein Beleg ist „아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.“ (Vorhin hat eine Freundin gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.). Dazu passt: Eine Freundin hat gefragt, ob ihr ein Date habt, und plötzlich wird es etwas unangenehm. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
+            "de": "Ein Beleg ist „아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.“ (Vorhin hat jemand aus unserem Freundeskreis gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.). Dazu passt: Jemand aus eurem Freundeskreis hat gefragt, ob ihr ein Date habt, und plötzlich wird es etwas unangenehm. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
             "en": "One supporting line is “아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.” (Earlier, a friend asked if this was a date. It caught me off guard.). The matching situation is: A friend asked if you were on a date, and things suddenly got awkward. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
           },
           "sourceIds": [
@@ -9961,7 +9961,7 @@
           "options": [
             {
               "ko": "친구가 둘이 데이트 중이냐고 물어 분위기가 어색해졌어요.",
-              "de": "Eine Freundin hat gefragt, ob ihr ein Date habt, und plötzlich wird es etwas unangenehm.",
+              "de": "Jemand aus eurem Freundeskreis hat gefragt, ob ihr ein Date habt, und plötzlich wird es etwas unangenehm.",
               "en": "A friend asked if you were on a date, and things suddenly got awkward."
             },
             {
@@ -9988,7 +9988,7 @@
           },
           "explanation": {
             "ko": "들은 말은 “아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.“: Vorhin hat eine Freundin gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "de": "Zu hören ist „아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.“: Vorhin hat jemand aus unserem Freundeskreis gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
             "en": "The line is “아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.”: Earlier, a friend asked if this was a date. It caught me off guard. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
@@ -9999,7 +9999,7 @@
           "options": [
             {
               "ko": "아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.",
-              "de": "Vorhin hat eine Freundin gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.",
+              "de": "Vorhin hat jemand aus unserem Freundeskreis gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.",
               "en": "Earlier, a friend asked if this was a date. It caught me off guard."
             },
             {
@@ -10261,7 +10261,7 @@
           },
           "explanation": {
             "ko": "“바람이 너무 세서 배가 취소됐대.”라는 말이 근거예요. 상황은 “강풍 때문에 섬으로 가는 배가 취소됐어요.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
-            "de": "Ein Beleg ist „바람이 너무 세서 배가 취소됐대.“ (Die Fähre wurde wegen des starken Winds abgesagt.). Dazu passt: Wegen des starken Windes wurde eure Fähre zu einer Insel abgesagt. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
+            "de": "Ein Beleg ist „바람이 너무 세서 배가 취소됐대.“ (Ich habe gehört, dass die Fähre wegen des starken Winds abgesagt wurde.). Dazu passt: Wegen des starken Windes wurde eure Fähre zu einer Insel abgesagt. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
             "en": "One supporting line is “바람이 너무 세서 배가 취소됐대.” (They say the ferry was canceled because the wind is too strong.). The matching situation is: Strong winds have canceled your ferry to an island. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
           },
           "sourceIds": [
@@ -10319,7 +10319,7 @@
             },
             {
               "ko": "바람이 너무 세서 배가 취소됐대.",
-              "de": "Die Fähre wurde wegen des starken Winds abgesagt.",
+              "de": "Ich habe gehört, dass die Fähre wegen des starken Winds abgesagt wurde.",
               "en": "They say the ferry was canceled because the wind is too strong."
             }
           ],
@@ -11443,7 +11443,7 @@
           "explanation": {
             "ko": "과제의 목적은 “외부 손님까지 전면 금지하지 말고 내부 회의부터 시험하자고 하세요.”예요. 원문 응답 “그럼 내부 회의부터 개인 컵을 써 보면 어때요?”가 이 목적을 이뤄요. “외부 손님도 있으니 모든 회의에서 바로 금지해요.”와 “시험하지 말고 지금처럼 계속 써요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
             "de": "Das Ziel lautet: Schlage einen Versuch bei internen Treffen statt eines Verbots auch für Gäste vor. Die Quelläußerung „그럼 내부 회의부터 개인 컵을 써 보면 어때요?“ (Wie wäre es, wenn wir zunächst bei internen Meetings eigene Becher verwenden?) erfüllt es. „Weil es Gäste gibt, verbieten wir es sofort bei jedem Treffen.“ und „Testen wir nichts und machen einfach weiter.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
-            "en": "The goal is: Suggest trying internal meetings first rather than banning cups for guests too. The source response “그럼 내부 회의부터 개인 컵을 써 보면 어때요?” (How about starting with reusable cups for internal meetings?) fulfills it. “Because there are guests, ban them immediately at every meeting.” and “Let us not test anything and keep using them as before.” change a requested action, fact, or condition. Such replies may be valid in other situations."
+            "en": "The goal is: Suggest trying internal meetings first rather than banning cups for guests too. The source response “그럼 내부 회의부터 개인 컵을 써 보면 어때요?” (How about using our own cups at internal meetings to start?) fulfills it. “Because there are guests, ban them immediately at every meeting.” and “Let us not test anything and keep using them as before.” change a requested action, fact, or condition. Such replies may be valid in other situations."
           },
           "sourceIds": [
             "shared_cup_recycling"
@@ -11454,7 +11454,7 @@
             {
               "ko": "그럼 내부 회의부터 개인 컵을 써 보면 어때요?",
               "de": "Wie wäre es, wenn wir zunächst bei internen Meetings eigene Becher verwenden?",
-              "en": "How about starting with reusable cups for internal meetings?"
+              "en": "How about using our own cups at internal meetings to start?"
             },
             {
               "ko": "외부 손님도 있으니 모든 회의에서 바로 금지해요.",
@@ -11501,7 +11501,7 @@
           },
           "explanation": {
             "ko": "“레나, 우리 이제 말 놓을까?”라는 말이 근거예요. 상황은 “친해졌지만 두 사람은 아직 계속 존댓말을 써요.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
-            "de": "Ein Beleg ist „레나, 우리 이제 말 놓을까?“ (Lena, wollen wir langsam zum Du-Ton auf Koreanisch wechseln?). Dazu passt: Ihr seid inzwischen befreundet, sprecht aber immer noch höflich miteinander. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
+            "de": "Ein Beleg ist „레나, 우리 이제 말 놓을까?“ (Lena, wollen wir auf Koreanisch langsam lockerer miteinander sprechen?). Dazu passt: Ihr seid inzwischen befreundet, sprecht aber immer noch höflich miteinander. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
             "en": "One supporting line is “레나, 우리 이제 말 놓을까?” (Lena, should we start speaking casually in Korean?). The matching situation is: You've become friends, but you still use polite speech with each other. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
           },
           "sourceIds": [
@@ -11538,7 +11538,7 @@
           },
           "explanation": {
             "ko": "들은 말은 “레나, 우리 이제 말 놓을까?”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „레나, 우리 이제 말 놓을까?“: Lena, wollen wir langsam zum Du-Ton auf Koreanisch wechseln? Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "de": "Zu hören ist „레나, 우리 이제 말 놓을까?“: Lena, wollen wir auf Koreanisch langsam lockerer miteinander sprechen? Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
             "en": "The line is “레나, 우리 이제 말 놓을까?”: Lena, should we start speaking casually in Korean? The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
@@ -11549,7 +11549,7 @@
           "options": [
             {
               "ko": "레나, 우리 이제 말 놓을까?",
-              "de": "Lena, wollen wir langsam zum Du-Ton auf Koreanisch wechseln?",
+              "de": "Lena, wollen wir auf Koreanisch langsam lockerer miteinander sprechen?",
               "en": "Lena, should we start speaking casually in Korean?"
             },
             {
@@ -11638,7 +11638,7 @@
       },
       "intro": {
         "ko": "구독 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.",
-        "de": "Obwohl du eine Kündigungsbestätigung gesehen hast, wurde der Monatsbetrag abgebucht.",
+        "de": "Obwohl dir die Kündigung auf dem Bildschirm als abgeschlossen angezeigt wurde, wurde der Monatsbetrag abgebucht.",
         "en": "You saw a cancellation confirmation, but this month's fee was still charged."
       },
       "contentIds": [
@@ -11656,7 +11656,7 @@
           },
           "explanation": {
             "ko": "“지난주에 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.”라는 말이 근거예요. 상황은 “구독 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
-            "de": "Ein Beleg ist „지난주에 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.“ (Letzte Woche wurde mir die Kündigung bestätigt, trotzdem wurde der Monatsbeitrag abgebucht.). Dazu passt: Obwohl du eine Kündigungsbestätigung gesehen hast, wurde der Monatsbetrag abgebucht. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
+            "de": "Ein Beleg ist „지난주에 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.“ (Letzte Woche wurde mir die Kündigung auf dem Bildschirm als abgeschlossen angezeigt. Trotzdem wurde der Monatsbeitrag abgebucht.). Dazu passt: Obwohl dir die Kündigung auf dem Bildschirm als abgeschlossen angezeigt wurde, wurde der Monatsbetrag abgebucht. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
             "en": "One supporting line is “지난주에 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.” (I saw a cancellation confirmation last week, but this month's fee was charged.). The matching situation is: You saw a cancellation confirmation, but this month's fee was still charged. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
           },
           "sourceIds": [
@@ -11666,7 +11666,7 @@
           "options": [
             {
               "ko": "구독 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.",
-              "de": "Obwohl du eine Kündigungsbestätigung gesehen hast, wurde der Monatsbetrag abgebucht.",
+              "de": "Obwohl dir die Kündigung auf dem Bildschirm als abgeschlossen angezeigt wurde, wurde der Monatsbetrag abgebucht.",
               "en": "You saw a cancellation confirmation, but this month's fee was still charged."
             },
             {
@@ -11793,7 +11793,7 @@
       },
       "intro": {
         "ko": "다른 팀에서 회의 시간이 바뀔 수 있다고 연락했어요.",
-        "de": "Ein anderes Team hat geschrieben, dass sich die Besprechungszeit möglicherweise ändert.",
+        "de": "Ein anderes Team hat sich gemeldet: Die Besprechungszeit könnte sich ändern.",
         "en": "Another team said the meeting time might change."
       },
       "contentIds": [
@@ -11811,7 +11811,7 @@
           },
           "explanation": {
             "ko": "“다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요.”라는 말이 근거예요. 상황은 “다른 팀에서 회의 시간이 바뀔 수 있다고 연락했어요.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
-            "de": "Ein Beleg ist „다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요.“ (Das andere Team hat geschrieben, dass sich die Uhrzeit vielleicht ändert.). Dazu passt: Ein anderes Team hat geschrieben, dass sich die Besprechungszeit möglicherweise ändert. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
+            "de": "Ein Beleg ist „다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요.“ (Das andere Team hat sich gemeldet und gesagt, dass sich die Uhrzeit vielleicht ändert.). Dazu passt: Ein anderes Team hat sich gemeldet: Die Besprechungszeit könnte sich ändern. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
             "en": "One supporting line is “다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요.” (The other team contacted us to say the time might change.). The matching situation is: Another team said the meeting time might change. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
           },
           "sourceIds": [
@@ -11821,7 +11821,7 @@
           "options": [
             {
               "ko": "다른 팀에서 회의 시간이 바뀔 수 있다고 연락했어요.",
-              "de": "Ein anderes Team hat geschrieben, dass sich die Besprechungszeit möglicherweise ändert.",
+              "de": "Ein anderes Team hat sich gemeldet: Die Besprechungszeit könnte sich ändern.",
               "en": "Another team said the meeting time might change."
             },
             {
@@ -12527,8 +12527,8 @@
           },
           "explanation": {
             "ko": "과제의 목적은 “중복 결제된 한 잔 값만 취소해 달라고 하세요.”예요. 원문 응답 “그럼 한 잔 값은 취소해 주실 수 있을까요?”가 이 목적을 이뤄요. “제가 마신 한 잔까지 전부 환불해 주세요.”와 “커피 두 잔 더 결제해 주세요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
-            "de": "Das Ziel lautet: Bitte um Stornierung nur des doppelt berechneten Kaffees. Die Quelläußerung „그럼 한 잔 값은 취소해 주실 수 있을까요?“ (Könnten Sie mir dann den zweiten Kaffee stornieren?) erfüllt es. „Erstatten Sie alles, auch meinen getrunkenen Kaffee.“ und „Berechnen Sie noch zwei Kaffees.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
-            "en": "The goal is: Ask to reverse only the duplicate coffee charge. The source response “그럼 한 잔 값은 취소해 주실 수 있을까요?” (Could you refund the second coffee, then?) fulfills it. “Refund everything, including the coffee I drank.” and “Charge me for two more coffees.” change a requested action, fact, or condition. Such replies may be valid in other situations."
+            "de": "Das Ziel lautet: Bitte um Stornierung nur des doppelt berechneten Kaffees. Die Quelläußerung „그럼 한 잔 값은 취소해 주실 수 있을까요?“ (Könnten Sie den Betrag für den zweiten Kaffee bitte stornieren?) erfüllt es. „Erstatten Sie alles, auch meinen getrunkenen Kaffee.“ und „Berechnen Sie noch zwei Kaffees.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
+            "en": "The goal is: Ask to reverse only the duplicate coffee charge. The source response “그럼 한 잔 값은 취소해 주실 수 있을까요?” (Could you refund the extra charge, then?) fulfills it. “Refund everything, including the coffee I drank.” and “Charge me for two more coffees.” change a requested action, fact, or condition. Such replies may be valid in other situations."
           },
           "sourceIds": [
             "b1_w10_bill"
@@ -12538,8 +12538,8 @@
           "options": [
             {
               "ko": "그럼 한 잔 값은 취소해 주실 수 있을까요?",
-              "de": "Könnten Sie mir dann den zweiten Kaffee stornieren?",
-              "en": "Could you refund the second coffee, then?"
+              "de": "Könnten Sie den Betrag für den zweiten Kaffee bitte stornieren?",
+              "en": "Could you refund the extra charge, then?"
             },
             {
               "ko": "제가 마신 한 잔까지 전부 환불해 주세요.",
@@ -12778,8 +12778,8 @@
           },
           "explanation": {
             "ko": "들은 말은 “전혀 아니야. 너랑 있는 시간은 항상 좋아.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „전혀 아니야. 너랑 있는 시간은 항상 좋아.“: Überhaupt nicht. Die Zeit mit dir ist immer schön. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “전혀 아니야. 너랑 있는 시간은 항상 좋아.”: Not at all. The time with you is always nice. The other options represent different turns in this scene, with different content or conversational functions."
+            "de": "Zu hören ist „전혀 아니야. 너랑 있는 시간은 항상 좋아.“: Überhaupt nicht. Ich verbringe immer gern Zeit mit dir. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “전혀 아니야. 너랑 있는 시간은 항상 좋아.”: Not at all. I always enjoy spending time with you. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "b1_w10_partner"
@@ -12789,8 +12789,8 @@
           "options": [
             {
               "ko": "전혀 아니야. 너랑 있는 시간은 항상 좋아.",
-              "de": "Überhaupt nicht. Die Zeit mit dir ist immer schön.",
-              "en": "Not at all. The time with you is always nice."
+              "de": "Überhaupt nicht. Ich verbringe immer gern Zeit mit dir.",
+              "en": "Not at all. I always enjoy spending time with you."
             },
             {
               "ko": "알겠어. 혼자 있는 시간 잘 보내.",
@@ -13498,8 +13498,8 @@
       },
       "intro": {
         "ko": "마야가 콘서트 티켓팅에 실패해서 레나와 함께 다음 방법을 찾습니다.",
-        "de": "Maya scheitert beim Konzert-Ticketing und sucht gemeinsam mit Lena nach einer Lösung.",
-        "en": "Maya fails at concert ticketing and looks for a next step together with Lena."
+        "de": "Maya hat keine Konzertkarten bekommen und sucht mit Lena nach einer anderen Möglichkeit.",
+        "en": "Maya couldn't get tickets for the concert, so she and Lena look for another option."
       },
       "contentIds": [
         "b1_w10_fandom"
@@ -13516,8 +13516,8 @@
           },
           "explanation": {
             "ko": "“큰일 났어. 티켓팅 시작하자마자 서버가 다운됐어.”라는 말이 근거예요. 상황은 “마야가 콘서트 티켓팅에 실패해서 레나와 함께 다음 방법을 찾습니다.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
-            "de": "Ein Beleg ist „큰일 났어. 티켓팅 시작하자마자 서버가 다운됐어.“ (Oh nein. Kaum hatte der Ticketverkauf begonnen, ist der Server abgestürzt.). Dazu passt: Maya scheitert beim Konzert-Ticketing und sucht gemeinsam mit Lena nach einer Lösung. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
-            "en": "One supporting line is “큰일 났어. 티켓팅 시작하자마자 서버가 다운됐어.” (This is bad. The server crashed as soon as ticket sales opened.). The matching situation is: Maya fails at concert ticketing and looks for a next step together with Lena. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
+            "de": "Ein Beleg ist „큰일 났어. 티켓팅 시작하자마자 서버가 다운됐어.“ (Oh nein. Kaum hatte der Ticketverkauf begonnen, ist der Server abgestürzt.). Dazu passt: Maya hat keine Konzertkarten bekommen und sucht mit Lena nach einer anderen Möglichkeit. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
+            "en": "One supporting line is “큰일 났어. 티켓팅 시작하자마자 서버가 다운됐어.” (This is bad. The server crashed as soon as ticket sales opened.). The matching situation is: Maya couldn't get tickets for the concert, so she and Lena look for another option. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
           },
           "sourceIds": [
             "b1_w10_fandom"
@@ -13526,8 +13526,8 @@
           "options": [
             {
               "ko": "마야가 콘서트 티켓팅에 실패해서 레나와 함께 다음 방법을 찾습니다.",
-              "de": "Maya scheitert beim Konzert-Ticketing und sucht gemeinsam mit Lena nach einer Lösung.",
-              "en": "Maya fails at concert ticketing and looks for a next step together with Lena."
+              "de": "Maya hat keine Konzertkarten bekommen und sucht mit Lena nach einer anderen Möglichkeit.",
+              "en": "Maya couldn't get tickets for the concert, so she and Lena look for another option."
             },
             {
               "ko": "티켓을 산 뒤 콘서트가 취소돼 환불받으려 합니다.",

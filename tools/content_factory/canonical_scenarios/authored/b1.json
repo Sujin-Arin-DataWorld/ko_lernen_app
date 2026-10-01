@@ -8,7 +8,7 @@
       "title": {"de": "Den Jeju-Plan wegen Sturm ändern", "en": "Changing plans on Jeju because of strong winds"},
       "intro": {"ko": "강풍 때문에 섬으로 가는 배가 취소됐어요.", "de": "Wegen des starken Windes wurde eure Fähre zu einer Insel abgesagt.", "en": "Strong winds have canceled your ferry to an island."},
       "dialog": [
-        {"speaker": "lena", "ko": "바람이 너무 세서 배가 취소됐대.", "de": "Die Fähre wurde wegen des starken Winds abgesagt.", "en": "They say the ferry was canceled because the wind is too strong."},
+        {"speaker": "lena", "ko": "바람이 너무 세서 배가 취소됐대.", "de": "Ich habe gehört, dass die Fähre wegen des starken Winds abgesagt wurde.", "en": "They say the ferry was canceled because the wind is too strong."},
         {"speaker": "daniel", "ko": "그럼 오늘 섬에는 못 가겠네.", "de": "Dann kommen wir heute nicht auf die Insel.", "en": "Then we won't be able to get to the island today."},
         {"speaker": "lena", "ko": "비 오는 날에도 괜찮은 곳을 찾아볼까?", "de": "Sollen wir etwas suchen, das auch bei Regen gut ist?", "en": "Should we find somewhere that's good even in the rain?"},
         {"speaker": "daniel", "ko": "근처에 작은 박물관이 있어.", "de": "In der Nähe gibt es ein kleines Museum.", "en": "There's a small museum nearby."},
@@ -19,9 +19,9 @@
     {
       "id": "team_update_indirect_speech",
       "title": {"de": "Eine mögliche Terminänderung weitergeben", "en": "Passing on a possible schedule change"},
-      "intro": {"ko": "다른 팀에서 회의 시간이 바뀔 수 있다고 연락했어요.", "de": "Ein anderes Team hat geschrieben, dass sich die Besprechungszeit möglicherweise ändert.", "en": "Another team said the meeting time might change."},
+      "intro": {"ko": "다른 팀에서 회의 시간이 바뀔 수 있다고 연락했어요.", "de": "Ein anderes Team hat sich gemeldet: Die Besprechungszeit könnte sich ändern.", "en": "Another team said the meeting time might change."},
       "dialog": [
-        {"speaker": "maya", "ko": "다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요.", "de": "Das andere Team hat geschrieben, dass sich die Uhrzeit vielleicht ändert.", "en": "The other team contacted us to say the time might change."},
+        {"speaker": "maya", "ko": "다른 팀에서 시간이 바뀔 수도 있다고 연락이 왔어요.", "de": "Das andere Team hat sich gemeldet und gesagt, dass sich die Uhrzeit vielleicht ändert.", "en": "The other team contacted us to say the time might change."},
         {"speaker": "coworker", "ko": "그럼 캘린더부터 바꿀까요?", "de": "Sollen wir den Kalendereintrag gleich ändern?", "en": "Should we update the calendar now?"},
         {"speaker": "maya", "ko": "아직 확정된 건 아니에요.", "de": "Es ist noch nicht bestätigt.", "en": "It hasn't been confirmed yet."},
         {"speaker": "coworker", "ko": "그럼 팀에는 어떻게 알리죠?", "de": "Wie informieren wir dann das Team?", "en": "How should we tell the team, then?"},
@@ -45,9 +45,9 @@
     {
       "id": "date_or_friendly_coffee",
       "title": {"de": "War das ein Date oder nur ein Kaffee?", "en": "Was that a date or just coffee?"},
-      "intro": {"ko": "친구가 둘이 데이트 중이냐고 물어 분위기가 어색해졌어요.", "de": "Eine Freundin hat gefragt, ob ihr ein Date habt, und plötzlich wird es etwas unangenehm.", "en": "A friend asked if you were on a date, and things suddenly got awkward."},
+      "intro": {"ko": "친구가 둘이 데이트 중이냐고 물어 분위기가 어색해졌어요.", "de": "Jemand aus eurem Freundeskreis hat gefragt, ob ihr ein Date habt, und plötzlich wird es etwas unangenehm.", "en": "A friend asked if you were on a date, and things suddenly got awkward."},
       "dialog": [
-        {"speaker": "sujin", "ko": "아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.", "de": "Vorhin hat eine Freundin gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.", "en": "Earlier, a friend asked if this was a date. It caught me off guard."},
+        {"speaker": "sujin", "ko": "아까 친구가 우리 데이트하냐고 물어서 좀 당황했어요.", "de": "Vorhin hat jemand aus unserem Freundeskreis gefragt, ob das hier ein Date ist. Das hat mich kurz überrascht.", "en": "Earlier, a friend asked if this was a date. It caught me off guard."},
         {"speaker": "christian", "ko": "저도요. 갑자기 어색해졌네요.", "de": "Mich auch. Plötzlich war es irgendwie komisch.", "en": "Me too. It suddenly got awkward."},
         {"speaker": "sujin", "ko": "오늘은 그냥 커피 약속이었죠?", "de": "Heute war es einfach nur ein Kaffee, oder?", "en": "Today was just coffee, right?"},
         {"speaker": "christian", "ko": "처음에는 그렇게 생각했어요.", "de": "Am Anfang habe ich das auch so gesehen.", "en": "That's how I thought of it at first."},
@@ -86,7 +86,7 @@
       "title": {"de": "Nach einiger Zeit zum Banmal wechseln", "en": "Switching to casual speech after becoming friends"},
       "intro": {"ko": "친해졌지만 두 사람은 아직 계속 존댓말을 써요.", "de": "Ihr seid inzwischen befreundet, sprecht aber immer noch höflich miteinander.", "en": "You've become friends, but you still use polite speech with each other."},
       "dialog": [
-        {"speaker": "maya", "ko": "레나, 우리 이제 말 놓을까?", "de": "Lena, wollen wir langsam zum Du-Ton auf Koreanisch wechseln?", "en": "Lena, should we start speaking casually in Korean?"},
+        {"speaker": "maya", "ko": "레나, 우리 이제 말 놓을까?", "de": "Lena, wollen wir auf Koreanisch langsam lockerer miteinander sprechen?", "en": "Lena, should we start speaking casually in Korean?"},
         {"speaker": "lena", "ko": "좋아요. 그런데 갑자기 바꾸면 조금 어색할 것 같아요.", "de": "Gern. Aber wenn wir sofort alles umstellen, fühlt es sich vielleicht etwas komisch an.", "en": "Sure. But changing all at once might feel a little awkward."},
         {"speaker": "maya", "ko": "그럼 오늘부터 조금씩 해 보자.", "de": "Dann probieren wir es ab heute nach und nach.", "en": "Then let's ease into it starting today."},
         {"speaker": "lena", "ko": "응… 이렇게 말하면 돼?", "de": "Ja … klingt es so richtig?", "en": "Yeah… is this how I say it?"},
@@ -166,10 +166,10 @@
     {
       "id": "subscription_cancel_charge",
       "title": {"de": "Trotz Kündigung erneut belastet", "en": "Charged after canceling a subscription"},
-      "intro": {"ko": "구독 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.", "de": "Obwohl du eine Kündigungsbestätigung gesehen hast, wurde der Monatsbetrag abgebucht.", "en": "You saw a cancellation confirmation, but this month's fee was still charged."},
+      "intro": {"ko": "구독 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.", "de": "Obwohl dir die Kündigung auf dem Bildschirm als abgeschlossen angezeigt wurde, wurde der Monatsbetrag abgebucht.", "en": "You saw a cancellation confirmation, but this month's fee was still charged."},
       "dialog": [
         {"speaker": "clerk", "ko": "고객센터입니다. 무엇을 확인해 드릴까요?", "de": "Kundenservice. Was kann ich für Sie prüfen?", "en": "Customer support. What can I check for you?"},
-        {"speaker": "lena", "ko": "지난주에 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.", "de": "Letzte Woche wurde mir die Kündigung bestätigt, trotzdem wurde der Monatsbeitrag abgebucht.", "en": "I saw a cancellation confirmation last week, but this month's fee was charged."},
+        {"speaker": "lena", "ko": "지난주에 해지 완료 화면을 봤는데 이번 달 요금이 결제됐어요.", "de": "Letzte Woche wurde mir die Kündigung auf dem Bildschirm als abgeschlossen angezeigt. Trotzdem wurde der Monatsbeitrag abgebucht.", "en": "I saw a cancellation confirmation last week, but this month's fee was charged."},
         {"speaker": "clerk", "ko": "해지한 날짜가 화면에 남아 있나요?", "de": "Ist das Kündigungsdatum auf dem Bildschirm zu sehen?", "en": "Does the screen show the cancellation date?"},
         {"speaker": "lena", "ko": "네, 지난주 화요일로 되어 있어요.", "de": "Ja, dort steht letzter Dienstag.", "en": "Yes, it shows last Tuesday."},
         {"speaker": "clerk", "ko": "그 날짜와 결제 내역을 먼저 확인해 보겠습니다.", "de": "Ich prüfe zuerst dieses Datum und die Abbuchung.", "en": "I'll first check that date against the payment record."},
@@ -236,7 +236,7 @@
       "dialog": [
         {"speaker": "maya", "ko": "회의가 끝날 때마다 일회용 컵이 너무 많이 남아요.", "de": "Nach jedem Meeting bleiben sehr viele Einwegbecher übrig.", "en": "Too many disposable cups are left after every meeting."},
         {"speaker": "andrea", "ko": "외부 손님이 있을 때는 컵이 필요할 수도 있어요.", "de": "Bei externen Gästen brauchen wir sie vielleicht weiterhin.", "en": "We may still need them when we have outside guests."},
-        {"speaker": "maya", "ko": "그럼 내부 회의부터 개인 컵을 써 보면 어때요?", "de": "Wie wäre es, wenn wir zunächst bei internen Meetings eigene Becher verwenden?", "en": "How about starting with reusable cups for internal meetings?"},
+        {"speaker": "maya", "ko": "그럼 내부 회의부터 개인 컵을 써 보면 어때요?", "de": "Wie wäre es, wenn wir zunächst bei internen Meetings eigene Becher verwenden?", "en": "How about using our own cups at internal meetings to start?"},
         {"speaker": "andrea", "ko": "전면 금지보다 시험해 보는 편이 낫겠네요.", "de": "Ein Test ist besser als ein sofortiges Verbot.", "en": "A trial sounds better than an outright ban."},
         {"speaker": "maya", "ko": "한 달 동안 해 보고 남는 컵 수를 비교해요.", "de": "Wir testen es einen Monat und vergleichen, wie viele Becher übrig bleiben.", "en": "Let's try it for a month and compare how many cups are left."},
         {"speaker": "andrea", "ko": "좋아요. 다음 내부 회의부터 시작해 보죠.", "de": "Gut. Dann fangen wir beim nächsten internen Meeting damit an.", "en": "Good. Let's start with the next internal meeting."}
@@ -250,7 +250,7 @@
         {"speaker": "daniel", "ko": "죄송한데, 줄이 길어서 넘어질 뻔했어요.", "de": "Entschuldigung, die Leine war so lang, dass ich fast gestürzt wäre.", "en": "Excuse me, the leash was so long that I almost tripped."},
         {"speaker": "neighbor", "ko": "아, 죄송해요. 사람이 오는 걸 못 봤어요.", "de": "Oh, tut mir leid. Ich habe Sie nicht kommen sehen.", "en": "Oh, I'm sorry. I didn't see you coming."},
         {"speaker": "daniel", "ko": "저도 너무 빨리 달렸네요. 강아지는 괜찮아요?", "de": "Ich war auch ziemlich schnell. Geht es dem Hund gut?", "en": "I was running pretty fast too. Is the dog okay?"},
-        {"speaker": "neighbor", "ko": "네, 괜찮아요.", "de": "Ja, alles gut.", "en": "Yes, he's fine."},
+        {"speaker": "neighbor", "ko": "네, 괜찮아요.", "de": "Ja, alles gut.", "en": "Yes, the dog is fine."},
         {"speaker": "daniel", "ko": "사람 많은 구간에서는 줄을 조금 짧게 잡아 주세요.", "de": "Bitte halten Sie die Leine in den vollen Abschnitten etwas kürzer.", "en": "Please keep the leash a little shorter in crowded sections."},
         {"speaker": "neighbor", "ko": "네, 앞으로 조심할게요.", "de": "Ja, ich passe künftig auf.", "en": "Yes, I'll be more careful."}
       ]
@@ -260,7 +260,7 @@
       "title": {"de": "Eine Schicht beim Nachbarschaftsfest tauschen", "en": "Changing a volunteer shift at a neighborhood festival"},
       "intro": {"ko": "수업 시간이 바뀌어 맡은 봉사 시간에 갈 수 없어요.", "de": "Deine Kurszeit hat sich geändert, deshalb kannst du deine Schicht beim Fest nicht übernehmen.", "en": "Your class time changed, so you can't make your volunteer shift."},
       "dialog": [
-        {"speaker": "official", "ko": "축제 봉사 담당입니다. 무슨 일이세요?", "de": "Hier ist die Einsatzplanung für das Fest. Worum geht es?", "en": "This is the festival volunteer coordinator. How can I help?"},
+        {"speaker": "official", "ko": "축제 봉사 담당입니다. 무슨 일이세요?", "de": "Ich koordiniere die Freiwilligen beim Fest. Worum geht es?", "en": "This is the festival volunteer coordinator. How can I help?"},
         {"speaker": "lena", "ko": "수업 시간이 바뀌는 바람에 그 시간에는 못 갈 것 같아요.", "de": "Meine Kurszeit wurde geändert, deshalb schaffe ich meine Schicht wahrscheinlich nicht.", "en": "My class time changed, so I don't think I can make that shift."},
         {"speaker": "official", "ko": "토요일 두 시 안내 부스 맞으시죠?", "de": "Es geht um den Infostand am Samstag um zwei, richtig?", "en": "That's the information booth at two on Saturday, right?"},
         {"speaker": "lena", "ko": "네. 혹시 네 시로 바꿀 수 있을까요?", "de": "Ja. Könnte ich vielleicht auf vier Uhr wechseln?", "en": "Yes. Could I possibly switch to four?"},

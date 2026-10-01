@@ -142,6 +142,18 @@ B1 650행·B2 560행의 표제어와 삼언어 예문을 행별로 읽었다. �
 | B2 `0288 → 0125 → 0141` | KO `서로 다른 두 출처`는 DE `zwei voneinander unabhängigen Quellen`처럼 **독립성**을 보증하지 않는다. DE `zwei verschiedenen Quellen`. |
 | B2 `0595 → 0320 → 0334` | 공개의 **내부·외부 범위**를 DE `Öffnungsgrad`로 옮기면 공개 정도로 뜻이 바뀐다. EN `I record the scope of internal and external disclosure separately.` / DE `Ich halte den Umfang der internen und externen Veröffentlichung getrennt fest.` |
 | B2 `0602 → 0327 → 0341` | `보상 한도`를 goodwill/Kulanz로 옮겨 보상이 호의적이라는 속성을 덧붙였다. KO `보상 한도를 먼저 밝히면 기대치를 맞출 수 있어요.` / EN `Stating the compensation limit up front helps set expectations.` / DE `Wenn man die Obergrenze der Entschädigung gleich nennt, lassen sich Erwartungen besser abstimmen.` |
+**B1 후속 수정 묶음:** `vocab_b1_0065`의 중복된 `다운로드를
+받다`를 자연스러운 동사형으로 바꾸고, `0283`의 인용 구문과
+독일어 직접화법을 바로잡았다. `0294`는 통역 행위를 하지 않는다는
+뜻 대신 통역사 없이 직접 말할 문장을 준비했다는 뜻으로 세 언어를
+맞췄다. `0430`의 학부모 상담 시간과 `0470`의 한국식 자기소개서도
+영미·독일 제도 문서에 성급히 등치하지 않도록 고쳤다. `0457`의
+탑승 마감 예문은 체크인 카운터가 아니라 탑승구에 도착하는 상황으로
+수정했다. 연결된 Satz·Cloze와 승인 초안 대비 후속 카피 지문을
+갱신했다. 한국어가 바뀐 네 발화의 TTS를 합성·Storage에
+업로드한 뒤 정본 12,646개 기준 누락 0개를 확인했다. 실제 발음과
+억양의 사람 청취 평가는 아직 없다.
+
 
 장면·제도 확인 우선: B1 `0179 → 0392 → —`(`조카`를 niece/Nichte로 성별 지정), `0200 → 0411 → —`(`동생`을 여동생으로 지정), `0318 → 0126 → 0130`(`술을 물로 받다`의 대체·희석·동시 제공 불명), `0378 → 0186 → 0190`(이메일 끝인사의 실제 화행), `0457 → 0265 → 0269`(`탑승 마감`인데 카운터/체크인 마감으로 번역); B2 `0406 → 0495 → —`(장애 자체를 `이겨 냈다`고 단정), `0539 → 0264 → 0278`(한국 내용증명과 독일 제도 오등치), `0547 → 0272 → 0286`(근거 없는 법정 퇴거 기한), `0581 → 0306 → 0320`(`시간 상자` 조어·품사 재설계). B2 `0485`와 `0500`은 위의 장면 확인 표에도 있다.
 

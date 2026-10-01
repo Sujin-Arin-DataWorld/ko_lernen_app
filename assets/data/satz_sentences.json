@@ -7880,9 +7880,9 @@
     {
       "id": "satz_b1_0091",
       "level": "b1",
-      "targetKo": "다음에 말씀드릴게요 하고 시간을 버니 분위기도 안 깨졌어요.",
-      "promptDe": "Mit einem später sage ich mehr gewann ich Zeit, ohne die Stimmung zu stören.",
-      "promptEn": "Saying I'd tell them later bought time without spoiling the mood.",
+      "targetKo": "“다음에 말씀드릴게요”라고 하니 시간을 벌면서도 분위기를 해치지 않았어요.",
+      "promptDe": "Mit „Ich erzähle es Ihnen ein andermal“ gewann ich Zeit, ohne die Stimmung zu verderben.",
+      "promptEn": "Saying “I’ll tell you another time” bought me time without spoiling the mood.",
       "distractors": [
         "쉬운",
         "스스로"
@@ -8012,9 +8012,9 @@
     {
       "id": "satz_b1_0102",
       "level": "b1",
-      "targetKo": "통역 없이 세 문장만 준비해 갔어요.",
-      "promptDe": "Ohne Dolmetschen hatte ich nur drei Sätze vorbereitet.",
-      "promptEn": "Without interpreting I prepared only three sentences.",
+      "targetKo": "통역 없이 직접 말할 문장 세 개만 준비해 갔어요.",
+      "promptDe": "Ich hatte nur drei Sätze vorbereitet, die ich ohne Dolmetscher selbst sagen wollte.",
+      "promptEn": "I prepared just three sentences to say myself, without an interpreter.",
       "distractors": [
         "건강부터",
         "건배"
@@ -13677,8 +13677,8 @@
       "id": "satz_b1_0238",
       "level": "b1",
       "targetKo": "상담 시간이 십오 분이라 질문을 미리 적어요.",
-      "promptDe": "Die Sprechzeit beträgt fünfzehn Minuten, deshalb schreibe ich Fragen vorher auf.",
-      "promptEn": "The office hour is fifteen minutes, so I write questions in advance.",
+      "promptDe": "Das Elterngespräch dauert fünfzehn Minuten, deshalb notiere ich mir meine Fragen vorher.",
+      "promptEn": "The parent-teacher meeting is fifteen minutes long, so I write down my questions beforehand.",
       "distractors": [
         "학부모 면담",
         "알림장"
@@ -14000,9 +14000,9 @@
     {
       "id": "satz_b1_0265",
       "level": "b1",
-      "targetKo": "탑승 마감 삼십 분 전에는 카운터에 있어야 해요.",
-      "promptDe": "Dreißig Minuten vor Check-in-Schluss muss ich am Schalter sein.",
-      "promptEn": "I must be at the counter thirty minutes before boarding cutoff.",
+      "targetKo": "탑승 마감 삼십 분 전에는 탑승구에 있어야 해요.",
+      "promptDe": "Dreißig Minuten vor Ende des Boardings muss ich am Gate sein.",
+      "promptEn": "I need to be at the gate thirty minutes before boarding closes.",
       "distractors": [
         "일정 변경",
         "환불 규정"
@@ -20036,7 +20036,7 @@
     {
       "id": "satz_b1_0306",
       "level": "b1",
-      "targetKo": "앱 다운로드부터 받으셔야 해요.",
+      "targetKo": "먼저 앱을 다운로드하셔야 해요.",
       "promptDe": "Zuerst müssen Sie die App herunterladen.",
       "promptEn": "First you need to download the app.",
       "distractors": [
