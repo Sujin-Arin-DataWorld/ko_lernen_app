@@ -1,8 +1,8 @@
+import '../services/haptic_service.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../services/hangul_util.dart';
@@ -76,7 +76,7 @@ class _HangulSyllableTableState extends State<HangulSyllableTable> {
     if (syllable == null) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _consonant = consonant;
       _vowel = vowel;

@@ -44,6 +44,9 @@ class SoriButton extends StatelessWidget {
   /// 구분 — "처리 중"이지 "못 누름"이 아니다).
   final bool loading;
 
+  /// Result and purchase actions emit feedback after confirmation.
+  final bool feedbackOnTap;
+
   const SoriButton({
     super.key,
     required this.label,
@@ -58,6 +61,7 @@ class SoriButton extends StatelessWidget {
     this.destructive = false,
     this.maxLines,
     this.loading = false,
+    this.feedbackOnTap = true,
   }) : assert(maxLines == null || maxLines > 0);
 
   const SoriButton.filled({
@@ -73,6 +77,7 @@ class SoriButton extends StatelessWidget {
     this.destructive = false,
     this.maxLines,
     this.loading = false,
+    this.feedbackOnTap = true,
   }) : variant = SoriButtonVariant.filled,
        assert(maxLines == null || maxLines > 0);
 
@@ -89,6 +94,7 @@ class SoriButton extends StatelessWidget {
     this.destructive = false,
     this.maxLines,
     this.loading = false,
+    this.feedbackOnTap = true,
   }) : variant = SoriButtonVariant.outlined,
        assert(maxLines == null || maxLines > 0);
 
@@ -105,6 +111,7 @@ class SoriButton extends StatelessWidget {
     this.destructive = false,
     this.maxLines,
     this.loading = false,
+    this.feedbackOnTap = true,
   }) : variant = SoriButtonVariant.ghost,
        assert(maxLines == null || maxLines > 0);
 
@@ -282,9 +289,7 @@ class SoriButton extends StatelessWidget {
       label: semanticLabel ?? label,
       child: SoriPressable(
         onTap: loading ? null : onTap,
-        haptic: variant == SoriButtonVariant.filled
-            ? SoriHaptic.light
-            : SoriHaptic.selection,
+        haptic: feedbackOnTap ? SoriHaptic.selection : null,
         child: wrapped,
       ),
     );

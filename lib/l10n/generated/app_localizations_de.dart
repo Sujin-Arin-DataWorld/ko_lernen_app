@@ -9,6 +9,78 @@ class AppL10nDe extends AppL10n {
   AppL10nDe([String locale = 'de']) : super(locale);
 
   @override
+  String get settingsHaptics => 'Vibrationsfeedback';
+
+  @override
+  String get settingsHapticsDesc =>
+      'Sanfte Impulse bei Auswahl, richtigen Antworten und neuen Versuchen. Unabhängig vom Ton.';
+
+  @override
+  String get settingsReducedMotion => 'Bewegungen reduzieren';
+
+  @override
+  String get settingsReducedMotionDesc =>
+      'Feedback bleibt sichtbar, mit weniger Bewegung. Die Geräteeinstellung wird ebenfalls beachtet.';
+
+  @override
+  String get yeopjeonTitle => 'Meine Yeopjeon';
+
+  @override
+  String yeopjeonBalance(int count) {
+    return '$count Yeopjeon';
+  }
+
+  @override
+  String yeopjeonEarned(int count) {
+    return '+$count Yeopjeon verdient!';
+  }
+
+  @override
+  String get yeopjeonIntro =>
+      'Lerne Koreanisch, sammle Yeopjeon und baue dein Hanok.';
+
+  @override
+  String yeopjeonBuild(int cost) {
+    return 'Nächste Bauphase · $cost Yeopjeon';
+  }
+
+  @override
+  String yeopjeonProgress(int owned, int eligible) {
+    return '$owned / $eligible freigeschaltete Bauphasen gebaut';
+  }
+
+  @override
+  String get yeopjeonNeedLearning =>
+      'Schließe eine Einheit im Lernpfad ab, um die nächste Bauphase freizuschalten.';
+
+  @override
+  String yeopjeonNeedCoins(int count) {
+    return 'Noch $count Yeopjeon bis zum Bauen. Lerne weiter!';
+  }
+
+  @override
+  String get yeopjeonBuilt => 'Ein neuer Teil deines Hanok ist fertig!';
+
+  @override
+  String get yeopjeonSaveFailed =>
+      'Die Transaktion konnte nicht bestätigt werden. Prüfe deinen gespeicherten Kontostand mit einem neuen Versuch.';
+
+  @override
+  String get yeopjeonRules =>
+      'Erste abgeschlossene Lektion des Tages: 20 Yeopjeon. Eine zweite andere Lektion: 10. Neue Bauphasen bringen zusätzlich Baumittel. Wiederholungen bereits abgeschlossener Lektionen werden nicht erneut vergütet.';
+
+  @override
+  String get yeopjeonSarangchae => 'Sarangchae';
+
+  @override
+  String get yeopjeonB2 => 'Innerer Hof';
+
+  @override
+  String yeopjeonConstructionGoal(int cost) {
+    return 'Nächste Bauphase: $cost Yeopjeon';
+  }
+
+  @override
   String get packCompletionRetired =>
       'Dieses Ergebnis ist nicht mehr aktiv. Kehre zu deinen Wortpaketen zurück.';
 
@@ -8815,6 +8887,7 @@ class AppL10nDe extends AppL10n {
       'rewardHanokPiece': 'Neues Hanok-Bauteil',
       'rewardBojagi': 'Bojagi',
       'rewardGyeLantern': 'Gye-Laterne',
+      'rewardYeopjeon': 'Yeopjeon',
       'other': 'Belohnung',
     });
     return '$_temp0';
@@ -11275,4 +11348,7 @@ class AppL10nDe extends AppL10n {
   @override
   String get hanokDownloadsSettingsSubtitle =>
       'In der App enthaltene und nach Gebäude heruntergeladene Bilder verwalten';
+
+  @override
+  String get yeopjeonConstructionComplete => 'Dieses Gebäude ist fertig!';
 }

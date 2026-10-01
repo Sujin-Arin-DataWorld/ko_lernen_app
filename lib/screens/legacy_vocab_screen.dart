@@ -1,7 +1,7 @@
+import '../services/haptic_service.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../models/vocab.dart';
 import '../models/feedback_completion.dart';
@@ -280,7 +280,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       return;
     }
     if (_mode == m) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     _dueFeedback.reset();
     setState(() {
       _mode = m;
@@ -389,9 +389,9 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       return;
     }
     if (gotIt) {
-      HapticFeedback.lightImpact();
+      HapticService.lightImpact();
     } else {
-      HapticFeedback.mediumImpact();
+      HapticService.mediumImpact();
     }
     setState(() {
       _correct = nextCorrect;
@@ -429,7 +429,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         !_isCurrentCard(presentation, current)) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _flipped = false;
       _cardRevealed = false;
@@ -502,7 +502,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     if (current == null || !_isCurrentCard(presentation, current)) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       if (!_flipped) {
         _cardRevealed = true;
@@ -1368,7 +1368,8 @@ class _Back extends StatelessWidget {
                                   button: true,
                                   label: t.ttsListenTarget(v.exampleKorean),
                                   hint: t.vocabSlowHint,
-                                  onTap: () => SoriSpeech.speak(v.exampleKorean),
+                                  onTap: () =>
+                                      SoriSpeech.speak(v.exampleKorean),
                                   onLongPress: () =>
                                       SoriSpeech.speakSlow(v.exampleKorean),
                                   child: ExcludeSemantics(
@@ -1397,7 +1398,12 @@ class _Back extends StatelessWidget {
                                             child: Icon(
                                               Icons.volume_up_rounded,
                                               color: SoriColors.info,
-                                              size: soriFillSize(h, 0.075, 24, 48),
+                                              size: soriFillSize(
+                                                h,
+                                                0.075,
+                                                24,
+                                                48,
+                                              ),
                                             ),
                                           ),
                                         ),

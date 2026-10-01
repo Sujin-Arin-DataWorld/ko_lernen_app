@@ -1,5 +1,5 @@
+import '../../services/haptic_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/scenario.dart';
@@ -346,7 +346,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
 
   void _addToken(String token) {
     if (_completed) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _selectedTokens.add(token);
       _feedback = _Feedback.none;
@@ -411,7 +411,6 @@ class _DiktatQuestState extends State<DiktatQuest> {
       return;
     }
 
-    HapticFeedback.mediumImpact();
     SoundService.wrong();
     _tries++;
     final diag = DiktatQuest.diagnoseAgainstAccepted(input, _acceptedTargets);
@@ -437,7 +436,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
 
   void _revealAnswer() {
     if (_completed) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _ctrl.text = _targetKo;
       _ctrl.selection = TextSelection.collapsed(offset: _ctrl.text.length);

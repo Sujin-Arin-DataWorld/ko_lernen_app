@@ -1,10 +1,10 @@
+import '../services/haptic_service.dart';
 import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
-import 'package:flutter/services.dart';
 
 import '../features/study_library/study_library_models.dart';
 import '../motion/transitions.dart';
@@ -608,7 +608,7 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   void _next() {
     if (!_canNavigateDeck) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _flipped = false;
       _idx = (_idx + 1) % _filtered.length;
@@ -618,7 +618,7 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   void _prev() {
     if (!_canNavigateDeck) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _flipped = false;
       _idx = (_idx - 1 + _filtered.length) % _filtered.length;
@@ -1357,7 +1357,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   void _onFlip() {
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     final revealsAnswer = !_flipped;
     setState(() {
       _flipped = !_flipped;

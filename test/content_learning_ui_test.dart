@@ -7,6 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 import 'package:ko_lernen_app/features/content_learning/content_learning_hub.dart';
+import 'package:ko_lernen_app/features/content_learning/content_learning_catalog.dart';
 import 'package:ko_lernen_app/features/content_learning/content_learning_models.dart';
 import 'package:ko_lernen_app/features/content_learning/content_learning_service.dart';
 import 'package:ko_lernen_app/features/content_learning/content_learning_widgets.dart';
@@ -16,6 +17,7 @@ import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/smalltalk.dart';
 import 'package:ko_lernen_app/services/audio_policy.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/smalltalk_loader.dart';
 import 'package:ko_lernen_app/services/local_data_lifetime.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -152,6 +154,12 @@ void main() {
   setUpAll(() async {
     await loadSoriRealFonts(materialIcons: true);
     await SmalltalkLoader.load();
+    // Production boot loads these before routes are opened. Keep asset I/O
+    // outside widget fakeAsync; pumpAndSettle only waits for scheduled frames.
+    await CurriculumCatalog.load();
+    for (final kind in LearningContentKind.values) {
+      await ContentLearningCatalog.load(kind);
+    }
   });
   setUp(() async {
     stubSoriSpeech();

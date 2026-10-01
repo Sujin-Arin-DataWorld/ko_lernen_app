@@ -1,3 +1,4 @@
+import '../widgets/sori/yeopjeon_wallet_card.dart';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -11,7 +12,7 @@ import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
-/// Browsing and practice only. This screen never writes construction progress.
+/// Approved construction lessons, with saved building purchases in the wallet.
 class IlDuConstructionScreen extends StatefulWidget {
   const IlDuConstructionScreen({super.key, this.loader});
 
@@ -99,6 +100,8 @@ class _IlDuConstructionScreenState extends State<IlDuConstructionScreen> {
       key: const ValueKey('ildu-construction-content'),
       padding: padding,
       children: [
+        const YeopjeonWalletCard(),
+        const SizedBox(height: Spacing.lg),
         Text(t.ilduConstructionIntro, style: type.body),
         const SizedBox(height: Spacing.md),
         Align(

@@ -1,3 +1,4 @@
+import '../services/haptic_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -48,7 +49,7 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
 
   Future<void> _advance() async {
     if (_page < _total - 1) {
-      HapticFeedback.selectionClick();
+      HapticService.selectionClick();
       if (SoriMotion.reduceMotion(context)) {
         _controller.jumpToPage(_page + 1);
       } else {
@@ -64,7 +65,7 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
   }
 
   Future<void> _done() async {
-    HapticFeedback.mediumImpact();
+    HapticService.mediumImpact();
     await Storage.setIntroPreviewSeen();
     if (!mounted) {
       return;
@@ -77,7 +78,7 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
   }
 
   Future<void> _skip() async {
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     await Storage.setIntroPreviewSeen();
     if (!mounted) {
       return;

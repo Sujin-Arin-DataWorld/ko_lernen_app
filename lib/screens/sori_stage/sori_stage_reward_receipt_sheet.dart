@@ -1,3 +1,4 @@
+import '../../widgets/sori/yeopjeon_wallet_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
@@ -128,6 +129,25 @@ class _SoriStageRewardReceiptSheetState
                   ),
                 ),
                 const SizedBox(height: Spacing.lg),
+                if (receipt.items.any(
+                  (item) => item.kind == SoriRewardKind.yeopjeon,
+                )) ...[
+                  Text(
+                    t.yeopjeonEarned(
+                      receipt.items
+                          .where((item) => item.kind == SoriRewardKind.yeopjeon)
+                          .fold<int>(
+                            0,
+                            (sum, item) => sum + (item.amount ?? 0),
+                          ),
+                    ),
+                    style: tt.h2,
+                    key: const ValueKey('receipt-yeopjeon-earned'),
+                  ),
+                  const SizedBox(height: Spacing.md),
+                  const YeopjeonWalletCard(compact: true),
+                  const SizedBox(height: Spacing.lg),
+                ],
                 if (receipt.hasSarangchaeUpgrade) ...[
                   Text(
                     t.sarangchaeNewStages(

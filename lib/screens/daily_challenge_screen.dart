@@ -4,7 +4,6 @@ import 'dart:math';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../widgets/app_loading.dart';
@@ -183,7 +182,6 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
     });
 
     if (ok) {
-      HapticFeedback.lightImpact();
       SoundService.correct();
       Future.delayed(const Duration(milliseconds: 1100), () {
         if (!_isCurrentQuestion(judgment, item) || _picked != option) {
@@ -204,7 +202,6 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen>
 
     // 오답 — 빈칸에 빨갛게 들어갔다가 되돌아오고 계속 고를 수 있다
     // (Jin 2026-08-07 지시: 재시도 허용).
-    HapticFeedback.mediumImpact();
     SoundService.wrong();
     Future.delayed(const Duration(milliseconds: 700), () {
       if (!_isCurrentQuestion(judgment, item) || _picked != option) {

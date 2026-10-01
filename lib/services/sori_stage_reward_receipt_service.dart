@@ -1,4 +1,6 @@
+import 'yeopjeon_learning_checkpoint.dart';
 import 'storage_service.dart';
+import 'diagnostics_service.dart';
 import 'dart:async';
 
 import '../models/quest.dart';
@@ -24,6 +26,7 @@ abstract final class SoriStageRewardReceiptService {
     Duration measurementTimeout = const Duration(seconds: 5),
     SoriStageLocalBeforeFields Function()? captureLocalBefore,
     Future<SoriStageNetworkBeforeFields> Function()? loadNetworkBefore,
+    Future<YeopjeonLearningCheckpoint> Function()? captureCheckpoint,
   }) async {
     final captureLocal =
         captureLocalBefore ??
@@ -32,6 +35,26 @@ abstract final class SoriStageRewardReceiptService {
         loadNetworkBefore ??
         SoriStageProgressionService.loadNetworkBeforeFields;
 
+    // Start the durable money baseline before navigation without awaiting it.
+    // A stalled optional reward read must never block the learning route.
+    final checkpointFuture =
+        Future<YeopjeonLearningCheckpoint>.sync(
+              captureCheckpoint ?? YeopjeonLearningCheckpoint.capture,
+            )
+            .timeout(measurementTimeout)
+            .then<YeopjeonLearningCheckpoint?>(
+              (value) => value,
+              onError: (Object error, StackTrace stack) {
+                unawaited(
+                  DiagnosticsService.reportSwallowed(
+                    'yeopjeon.checkpoint',
+                    StateError(error.runtimeType.toString()),
+                    stack,
+                  ),
+                );
+                return null;
+              },
+            );
     Set<String>? stampIds;
     SoriStageLocalBeforeFields local;
     Future<SoriStageNetworkBeforeFields> networkFuture;
@@ -62,8 +85,22 @@ abstract final class SoriStageRewardReceiptService {
     await openActivity();
 
     try {
+      final checkpoint = await checkpointFuture;
+      try {
+        await checkpoint?.settle().timeout(measurementTimeout);
+      } catch (error, stack) {
+        // A failed money write cannot hide confirmed XP/stamp rewards.
+        unawaited(
+          DiagnosticsService.reportSwallowed(
+            'yeopjeon.settle',
+            StateError(error.runtimeType.toString()),
+            stack,
+          ),
+        );
+      }
       final network = await networkFuture;
       final before = SoriStageProgressionSnapshot(
+        wallet: checkpoint?.wallet,
         today: const TodayLearningSnapshot(pick: null),
         hanokCompetence: network.hanokCompetence,
         quests: network.quests,
@@ -94,6 +131,26 @@ abstract final class SoriStageRewardReceiptService {
     String? receiptId,
   }) {
     final items = <RewardReceiptItem>[];
+    final beforeWallet = before.wallet;
+    final afterWallet = after.wallet;
+    if (beforeWallet != null && afterWallet != null) {
+      for (final claim in afterWallet.claims.entries) {
+        if (!beforeWallet.claims.containsKey(claim.key) && claim.value > 0) {
+          items.add(
+            RewardReceiptItem(
+              kind: SoriRewardKind.yeopjeon,
+              identity: claim.key,
+              amount: claim.value,
+              label: const SoriLocalizedCopy(
+                de: 'Yeopjeon',
+                en: 'Yeopjeon',
+                key: SoriCopyKey.rewardYeopjeon,
+              ),
+            ),
+          );
+        }
+      }
+    }
     _appendDelta(
       items,
       kind: SoriRewardKind.xp,
@@ -144,9 +201,7 @@ abstract final class SoriStageRewardReceiptService {
     _appendDelta(
       items,
       kind: SoriRewardKind.hanokProgress,
-      delta:
-          after.hanokCompetence.sarangchaeConstructionStage -
-          before.hanokCompetence.sarangchaeConstructionStage,
+      delta: after.ownedSarangchaeStage - before.ownedSarangchaeStage,
       label: const SoriLocalizedCopy(
         de: 'Neues Hanok-Bauteil',
         en: 'New Hanok building piece',
@@ -194,10 +249,10 @@ abstract final class SoriStageRewardReceiptService {
       activityId: activityId,
       receiptId: stableId,
       items: List.unmodifiable(items),
-      sarangchaeStageBefore: before.hanokCompetence.sarangchaeConstructionStage,
-      sarangchaeStageAfter: after.hanokCompetence.sarangchaeConstructionStage,
-      b2ConstructionStageBefore: before.hanokCompetence.b2ConstructionStage,
-      b2ConstructionStageAfter: after.hanokCompetence.b2ConstructionStage,
+      sarangchaeStageBefore: before.ownedSarangchaeStage,
+      sarangchaeStageAfter: after.ownedSarangchaeStage,
+      b2ConstructionStageBefore: before.ownedB2Stage,
+      b2ConstructionStageAfter: after.ownedB2Stage,
     );
   }
 
@@ -231,6 +286,9 @@ abstract final class SoriStageRewardReceiptService {
       activityId,
       before.xp,
       after.xp,
+      before.wallet?.balance,
+      after.wallet?.balance,
+      ...?after.wallet?.claims.keys,
       before.stampCount,
       after.stampCount,
       before.pendingBojagiCount,

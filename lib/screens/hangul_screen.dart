@@ -1,9 +1,9 @@
+import '../services/haptic_service.dart';
 import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
-import 'package:flutter/services.dart';
 
 import '../models/feedback_completion.dart';
 import '../models/guide_contract.dart';
@@ -377,7 +377,7 @@ class _CharGrid extends StatelessWidget {
   }
 
   void _showDetail(BuildContext ctx, HangulChar c, Color color) {
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     // 낱자를 누르는 행위 자체가 발음 학습이다. 상세 창 안의 스피커를 다시
     // 눌러야만 들리는 구조로 만들지 않는다.
     unawaited(speak(c.letter));
@@ -777,7 +777,7 @@ class _CardsTabState extends State<_CardsTab> {
   }
 
   void _toggleHardOnly() {
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     _likeSourceGeneration++;
     _choiceOwner.replaceSource();
     setState(() {
@@ -816,7 +816,7 @@ class _CardsTabState extends State<_CardsTab> {
   }
 
   void _next() {
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _sessionInteractions++;
       _flipped = false;
@@ -826,7 +826,7 @@ class _CardsTabState extends State<_CardsTab> {
   }
 
   void _prev() {
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _sessionInteractions++;
       _flipped = false;
@@ -838,7 +838,7 @@ class _CardsTabState extends State<_CardsTab> {
   void _random() {
     final candidate = widget.random.nextInt(_pool.length);
     if (candidate == _idx) return;
-    HapticFeedback.lightImpact();
+    HapticService.lightImpact();
     setState(() {
       _sessionInteractions++;
       _flipped = false;
@@ -848,7 +848,7 @@ class _CardsTabState extends State<_CardsTab> {
   }
 
   void _onFlip() {
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _sessionInteractions++;
       _flipped = !_flipped;
@@ -881,7 +881,7 @@ class _CardsTabState extends State<_CardsTab> {
 
   void _setMode(int m) {
     if (_mode == m) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     _likeSourceGeneration++;
     _choiceOwner.replaceSource();
     setState(() {
@@ -1463,14 +1463,14 @@ class _WriteTabState extends State<_WriteTab> {
   }
 
   void _next() {
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() => _idx = (_idx + 1) % _pool.length);
     _resetLetter();
     _speakCurrent();
   }
 
   void _prev() {
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() => _idx = (_idx - 1 + _pool.length) % _pool.length);
     _resetLetter();
     _speakCurrent();
@@ -1480,7 +1480,7 @@ class _WriteTabState extends State<_WriteTab> {
     if (_mode == m) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _mode = m;
       _idx = 0;
@@ -1493,7 +1493,7 @@ class _WriteTabState extends State<_WriteTab> {
     if (_strict == strict) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() => _strict = strict);
     // 판정 규칙이 바뀌면 진행 중인 글자는 무효다.
     _resetLetter();
@@ -1501,7 +1501,7 @@ class _WriteTabState extends State<_WriteTab> {
   }
 
   void _clearPractice() {
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     _resetLetter();
   }
 
@@ -1548,7 +1548,7 @@ class _WriteTabState extends State<_WriteTab> {
     });
     if (_acceptedStrokes < total) {
       // 중간 획은 햅틱만 — ㅃ(8획)마다 효과음이 나면 소리가 의미를 잃는다.
-      HapticFeedback.selectionClick();
+      HapticService.selectionClick();
       return;
     }
     _completeLetter();
@@ -1560,7 +1560,6 @@ class _WriteTabState extends State<_WriteTab> {
       _completedLetters++;
     });
     SoundService.correct();
-    HapticFeedback.mediumImpact();
     _advanceTimer?.cancel();
     // 방금 그린 게 맞았는지 눈으로 볼 틈을 준 뒤 넘어간다.
     _advanceTimer = Timer(_advanceDelay, () {
@@ -1578,7 +1577,6 @@ class _WriteTabState extends State<_WriteTab> {
       return;
     }
     SoundService.wrong();
-    HapticFeedback.heavyImpact();
     // 틀린 획은 **동기적으로** 판정 대상에서 빼고 잔상만 잠깐 남긴다.
     // 타이머가 _strokes 를 건드리지 않으므로, 잔상이 남은 동안 빠르게 다시
     // 그려도 엉뚱한 획이 지워지지 않는다.

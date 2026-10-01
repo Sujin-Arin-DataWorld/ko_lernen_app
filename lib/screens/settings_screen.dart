@@ -1,3 +1,4 @@
+import '../services/haptic_service.dart';
 import 'dart:async';
 
 import 'package:audioplayers/audioplayers.dart';
@@ -1645,7 +1646,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Future<void> _openPublicPage(String url) async {
     // Im Browser öffnen; bei Fehler (kein Browser/Web-Sandbox) Fallback auf
     // Zwischenablage + Snackbar (in [openExternalUrl]).
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     await openExternalUrl(context, url);
   }
 
@@ -1805,7 +1806,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       syncBrowseLevel: false,
     );
     if (mounted) {
-      HapticFeedback.selectionClick();
+      HapticService.selectionClick();
       setState(() {});
     }
   }
@@ -1825,7 +1826,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
     await Storage.setBrowseLevelCode(picked.code);
     if (mounted) {
-      HapticFeedback.selectionClick();
+      HapticService.selectionClick();
       setState(() {});
     }
   }
@@ -1910,7 +1911,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         soriToast(context, t.settingsCloudDeleteDataFailed);
         return;
       }
-      HapticFeedback.heavyImpact();
+      HapticService.heavyImpact();
       soriNotice(
         context,
         t.settingsCloudDeleteDataSuccess,
@@ -1938,7 +1939,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (!mounted) {
         return;
       }
-      HapticFeedback.heavyImpact();
+      HapticService.heavyImpact();
       soriNotice(
         context,
         t.settingsAccountDeleteSuccess,
@@ -2059,7 +2060,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
     final t = AppL10n.of(context);
     final nav = Navigator.of(context);
-    HapticFeedback.lightImpact();
+    HapticService.lightImpact();
     soriNotice(
       context,
       t.settingsTutorialResetDone,
@@ -2075,7 +2076,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (!mounted) {
       return;
     }
-    HapticFeedback.lightImpact();
+    HapticService.lightImpact();
     soriNotice(
       context,
       AppL10n.of(context).settingsResetCulturalHintsDone,
@@ -2116,7 +2117,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 DataLoader.reset();
                 if (!mounted || !ctx.mounted) return;
                 dialogNav.pop();
-                HapticFeedback.heavyImpact();
+                HapticService.heavyImpact();
                 // A complete local reset removes consent and the V2 journal.
                 // Always restart through the single first-run resolver instead
                 // of leaving an unconsented AppShell alive in memory.
@@ -2323,7 +2324,7 @@ class _DataSourceCard extends StatelessWidget {
 
   Future<void> _copy(BuildContext context) async {
     await Clipboard.setData(ClipboardData(text: url));
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     if (!context.mounted) return;
     soriNotice(context, url, duration: const Duration(seconds: 2));
   }
@@ -2457,12 +2458,31 @@ class _SoundSettings extends StatelessWidget {
     final t = AppL10n.of(context);
     final policy = AudioPolicy.instance;
     return ListenableBuilder(
-      listenable: policy,
+      listenable: Listenable.merge([policy, HapticService.preferencesChanged]),
       builder: (context, _) {
         final master = policy.masterOn;
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            SwitchListTile(
+              key: const ValueKey('settings-haptics'),
+              secondary: const Icon(Icons.vibration, color: SoriColors.primary),
+              title: Text(t.settingsHaptics),
+              subtitle: Text(t.settingsHapticsDesc),
+              value: Storage.hapticsEnabled,
+              onChanged: HapticService.setEnabled,
+            ),
+            SwitchListTile(
+              key: const ValueKey('settings-reduced-motion'),
+              secondary: const Icon(
+                Icons.motion_photos_off_outlined,
+                color: SoriColors.primary,
+              ),
+              title: Text(t.settingsReducedMotion),
+              subtitle: Text(t.settingsReducedMotionDesc),
+              value: Storage.reducedMotion,
+              onChanged: HapticService.setReducedMotion,
+            ),
             SwitchListTile(
               secondary: const Icon(
                 Icons.volume_up_outlined,
@@ -2472,7 +2492,7 @@ class _SoundSettings extends StatelessWidget {
               subtitle: Text(t.settingsSoundMasterDesc),
               value: master,
               onChanged: (v) {
-                HapticFeedback.selectionClick();
+                HapticService.selectionClick();
                 policy.setMasterOn(v);
               },
             ),
@@ -2611,7 +2631,7 @@ class _SoundChannelTile extends StatelessWidget {
               value: on,
               onChanged: master
                   ? (v) {
-                      HapticFeedback.selectionClick();
+                      HapticService.selectionClick();
                       policy.setChannelOn(channel, v);
                     }
                   : null,

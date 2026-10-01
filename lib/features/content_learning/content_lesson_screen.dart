@@ -1,3 +1,7 @@
+import '../../services/yeopjeon_service.dart';
+import '../../widgets/sori/yeopjeon_wallet_card.dart';
+import '../../services/sound_service.dart';
+import '../../services/haptic_service.dart';
 import '../../models/grammar.dart';
 import '../../services/data_loader.dart';
 import '../../services/local_data_lifetime.dart';
@@ -5,7 +9,6 @@ import '../../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../motion/transitions.dart';
@@ -61,6 +64,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
         ContentLearningDayRefresh<ContentLessonScreen> {
   final _speechLifecycle = ContentSpeechController();
   final _lifetime = LocalDataLifetime.capture();
+  Future<void>? _walletReady;
   bool _loading = true;
   bool _loadError = false;
   bool _busy = false;
@@ -77,6 +81,8 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
   List<SmalltalkPhrase> _phrases = [];
   Scenario? _scenario;
   ContentLessonQuestion? _feedback;
+  int _earnedYeopjeon = 0;
+  bool _claimPending = false;
   bool? _correct;
   String? _selectionId;
   int? _choice;
@@ -166,6 +172,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
       _loadError = false;
     });
     try {
+      _lifetime.assertCurrent();
       if (widget.lesson.kind == LearningContentKind.smalltalk) {
         if (widget.phrases == null) {
           if (SmalltalkLoader.lastError != null) {
@@ -208,6 +215,20 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
           _loadError = true;
         });
       }
+    }
+  }
+
+  Future<void> _prepareWallet({bool recover = false}) async {
+    try {
+      await YeopjeonService.loadCurrent();
+      if (recover) {
+        await YeopjeonService.recoverConfirmedLearningRewards();
+        _lifetime.assertCurrent();
+        // Recovered money belongs to its earlier completion, not this lesson.
+      }
+    } catch (_) {
+      // Money remains unconfirmed; learning can continue independently.
+      _lifetime.assertCurrent();
     }
   }
 
@@ -506,20 +527,49 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
           _correct = correct;
         });
         if (correct) {
-          unawaited(HapticFeedback.lightImpact());
+          SoundService.correct();
           SoriCelebration.burst(context, particles: 16);
+        } else {
+          SoundService.wrong();
         }
       }
     },
   );
   Future<void> _finish() => _run(() async {
+    // Reading and answering need no wallet I/O. Establish ownership and settle
+    // earlier proof immediately before this lesson produces completion proof.
+    await (_walletReady ??= _prepareWallet(recover: true));
+    _lifetime.assertCurrent();
+    await _prepareWallet();
+    _lifetime.assertCurrent();
     await ContentLearningService.startLesson(widget.lesson, widget.scope);
     _lifetime.assertCurrent();
+    final alreadyCompleted = _progress.completed;
     await ContentLearningService.finish(widget.lesson);
+    _earnedYeopjeon = 0;
+    if (!alreadyCompleted || _claimPending) {
+      _claimPending = true;
+      try {
+        final reward = await YeopjeonService.grantConfirmedLesson(
+          lessonId: widget.lesson.id,
+        );
+        _lifetime.assertCurrent();
+        _claimPending =
+            reward.status == YeopjeonTransactionStatus.failed ||
+            reward.status == YeopjeonTransactionStatus.unknown;
+        if (reward.amount > 0) {
+          _earnedYeopjeon = reward.amount;
+        }
+      } catch (_) {
+        _lifetime.assertCurrent();
+        // Persisted learning is successful. The ledger recovers its proof later.
+      }
+    }
     if (mounted) {
       setState(() {
         _feedback = null;
       });
+      SoundService.complete();
       SoriCelebration.burst(context, particles: 26);
     }
   });
@@ -1074,7 +1124,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
                   onTap: _busy
                       ? null
                       : () {
-                          unawaited(HapticFeedback.selectionClick());
+                          unawaited(HapticService.selectionClick());
                           setState(() => _choice = options[displayIndex]);
                         },
                   child: Row(
@@ -1146,6 +1196,7 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
       actions: [
         SoriButton.filled(
           key: const ValueKey('content-check'),
+          feedbackOnTap: false,
           label: t.contentLearningCheck,
           onTap:
               _busy ||
@@ -1201,6 +1252,19 @@ class _ContentLessonScreenState extends State<ContentLessonScreen>
         : t.contentLearningDone;
     return _LessonContent(
       body: [
+        if (_earnedYeopjeon > 0) ...[
+          Semantics(
+            liveRegion: true,
+            child: Text(
+              t.yeopjeonEarned(_earnedYeopjeon),
+              key: const ValueKey('content-yeopjeon-earned'),
+              style: SoriTextTheme.of(context).h2,
+            ),
+          ),
+          const SizedBox(height: Spacing.md),
+          const YeopjeonWalletCard(compact: true),
+          const SizedBox(height: Spacing.md),
+        ],
         SoriEntrance(
           duration: SoriAnimation.entranceDuration,
           child: SoriCard(

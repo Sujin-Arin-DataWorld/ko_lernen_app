@@ -1,10 +1,10 @@
+import '../services/haptic_service.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/game_result_recovery.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
@@ -185,7 +185,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       return;
     }
     _presentation++;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _selLeft = i;
       _wrongRight = null;
@@ -231,7 +231,6 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       return;
     }
     if (meaning == expected) {
-      HapticFeedback.lightImpact();
       SoundService.correct();
       // Eine spätere Korrektur darf XP und den Spielfortschritt abschließen,
       // aber keine positive SRS-Evidenz über den vorherigen Fehlversuch legen.
@@ -245,7 +244,6 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         _finish();
       }
     } else {
-      HapticFeedback.mediumImpact();
       SoundService.wrong();
       _misses++;
       // Pro Wort/Runde genau ein negativer Lernnachweis. Wiederholte Taps auf

@@ -82,6 +82,7 @@ void main() {
       await tester.pump();
     });
     await pumpSoriStage(tester);
+    await pumpUntilFound(tester, find.text('Complete activity'));
     await tester.tap(find.text('Complete activity'));
     // §W2 후속: 여기서 기다리는 것은 capture() 의 나머지 절반이다 — pop 으로
     // openActivity() 가 끝난 뒤 진짜 존에 묶인 networkFuture 가 풀리고,

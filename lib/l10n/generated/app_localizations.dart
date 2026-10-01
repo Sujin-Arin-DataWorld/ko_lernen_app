@@ -97,6 +97,114 @@ abstract class AppL10n {
     Locale('en'),
   ];
 
+  /// No description provided for @settingsHaptics.
+  ///
+  /// In de, this message translates to:
+  /// **'Vibrationsfeedback'**
+  String get settingsHaptics;
+
+  /// No description provided for @settingsHapticsDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Sanfte Impulse bei Auswahl, richtigen Antworten und neuen Versuchen. Unabhängig vom Ton.'**
+  String get settingsHapticsDesc;
+
+  /// No description provided for @settingsReducedMotion.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewegungen reduzieren'**
+  String get settingsReducedMotion;
+
+  /// No description provided for @settingsReducedMotionDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Feedback bleibt sichtbar, mit weniger Bewegung. Die Geräteeinstellung wird ebenfalls beachtet.'**
+  String get settingsReducedMotionDesc;
+
+  /// No description provided for @yeopjeonTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Yeopjeon'**
+  String get yeopjeonTitle;
+
+  /// No description provided for @yeopjeonBalance.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Yeopjeon'**
+  String yeopjeonBalance(int count);
+
+  /// No description provided for @yeopjeonEarned.
+  ///
+  /// In de, this message translates to:
+  /// **'+{count} Yeopjeon verdient!'**
+  String yeopjeonEarned(int count);
+
+  /// No description provided for @yeopjeonIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Lerne Koreanisch, sammle Yeopjeon und baue dein Hanok.'**
+  String get yeopjeonIntro;
+
+  /// No description provided for @yeopjeonBuild.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächste Bauphase · {cost} Yeopjeon'**
+  String yeopjeonBuild(int cost);
+
+  /// No description provided for @yeopjeonProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{owned} / {eligible} freigeschaltete Bauphasen gebaut'**
+  String yeopjeonProgress(int owned, int eligible);
+
+  /// No description provided for @yeopjeonNeedLearning.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließe eine Einheit im Lernpfad ab, um die nächste Bauphase freizuschalten.'**
+  String get yeopjeonNeedLearning;
+
+  /// No description provided for @yeopjeonNeedCoins.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch {count} Yeopjeon bis zum Bauen. Lerne weiter!'**
+  String yeopjeonNeedCoins(int count);
+
+  /// No description provided for @yeopjeonBuilt.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein neuer Teil deines Hanok ist fertig!'**
+  String get yeopjeonBuilt;
+
+  /// No description provided for @yeopjeonSaveFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Transaktion konnte nicht bestätigt werden. Prüfe deinen gespeicherten Kontostand mit einem neuen Versuch.'**
+  String get yeopjeonSaveFailed;
+
+  /// No description provided for @yeopjeonRules.
+  ///
+  /// In de, this message translates to:
+  /// **'Erste abgeschlossene Lektion des Tages: 20 Yeopjeon. Eine zweite andere Lektion: 10. Neue Bauphasen bringen zusätzlich Baumittel. Wiederholungen bereits abgeschlossener Lektionen werden nicht erneut vergütet.'**
+  String get yeopjeonRules;
+
+  /// No description provided for @yeopjeonSarangchae.
+  ///
+  /// In de, this message translates to:
+  /// **'Sarangchae'**
+  String get yeopjeonSarangchae;
+
+  /// No description provided for @yeopjeonB2.
+  ///
+  /// In de, this message translates to:
+  /// **'Innerer Hof'**
+  String get yeopjeonB2;
+
+  /// No description provided for @yeopjeonConstructionGoal.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächste Bauphase: {cost} Yeopjeon'**
+  String yeopjeonConstructionGoal(int cost);
+
   /// No description provided for @packCompletionRetired.
   ///
   /// In de, this message translates to:
@@ -15147,7 +15255,7 @@ abstract class AppL10n {
   /// No description provided for @soriStageCatalogCopy.
   ///
   /// In de, this message translates to:
-  /// **'{copyKey, select, firstCompletion{Beim ersten Abschluss} finishSession{Wenn du die Runde abschließt} verifiedLearning{Nach einem bestätigten Lernerfolg} rewardXp{Lern-XP} rewardQuest{Quest} rewardHanok{Hanok-Bauteil} rewardStamp{Dojang-Stempel} rewardBest{Persönliche Bestleistung} rewardNone{Keine direkte Belohnung} rewardQuestProgress{Quest-Fortschritt} rewardHanokPiece{Neues Hanok-Bauteil} rewardBojagi{Bojagi} rewardGyeLantern{Gye-Laterne} other{Belohnung}}}'**
+  /// **'{copyKey, select, firstCompletion{Beim ersten Abschluss} finishSession{Wenn du die Runde abschließt} verifiedLearning{Nach einem bestätigten Lernerfolg} rewardXp{Lern-XP} rewardQuest{Quest} rewardHanok{Hanok-Bauteil} rewardStamp{Dojang-Stempel} rewardBest{Persönliche Bestleistung} rewardNone{Keine direkte Belohnung} rewardQuestProgress{Quest-Fortschritt} rewardHanokPiece{Neues Hanok-Bauteil} rewardBojagi{Bojagi} rewardGyeLantern{Gye-Laterne} rewardYeopjeon{Yeopjeon} other{Belohnung}}}'**
   String soriStageCatalogCopy(String copyKey);
 
   /// No description provided for @questActionLabel.
@@ -19055,6 +19163,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'In der App enthaltene und nach Gebäude heruntergeladene Bilder verwalten'**
   String get hanokDownloadsSettingsSubtitle;
+
+  /// No description provided for @yeopjeonConstructionComplete.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Gebäude ist fertig!'**
+  String get yeopjeonConstructionComplete;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

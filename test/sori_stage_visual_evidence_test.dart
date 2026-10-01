@@ -1,3 +1,6 @@
+import 'package:ko_lernen_app/models/yeopjeon_wallet.dart';
+import 'package:ko_lernen_app/widgets/sori/yeopjeon_wallet_card.dart';
+import 'package:ko_lernen_app/services/yeopjeon_service.dart';
 import 'dart:convert';
 import 'dart:io';
 
@@ -42,12 +45,70 @@ late LearningFocus _bookCardFocus;
 /// already on disk — not the capture command; see AGENTS.md's UI 루트 증거
 /// bullet for the exact regeneration command.
 void main() {
+  for (final language in ['de', 'en']) {
+    testWidgets(
+      'capture yeopjeon construction wallet $language',
+      skip: !_captureEvidence,
+      (tester) async {
+        tester.view.physicalSize = const Size(390, 844);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        final wallet = YeopjeonWallet(
+          balance: 60,
+          sarangchaeEligibleStage: 1,
+          b2EligibleStage: 0,
+          sarangchaeOwnedStage: 0,
+          b2OwnedStage: 0,
+          grandfatheredSarangchaeStage: 0,
+          grandfatheredB2Stage: 0,
+          claims: const {'milestone:s:1': 40, 'daily:2026-10-01:first': 20},
+          completedSourceIds: const {'unit:a1_01'},
+          reviewedSourceIds: const {},
+        );
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: AppTheme.light,
+            locale: Locale(language),
+            supportedLocales: AppL10n.supportedLocales,
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            home: Scaffold(
+              body: SafeArea(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(16),
+                  child: YeopjeonWalletCard(
+                    loader: () async => wallet,
+                    builder: (_) async => const YeopjeonTransactionResult(
+                      status: YeopjeonTransactionStatus.locked,
+                      amount: 0,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+        await _settleHanok(tester);
+        await _awaitImageDecode(tester);
+        expect(tester.takeException(), isNull);
+        await expectLater(
+          find.byType(Scaffold),
+          matchesGoldenFile(
+            '../docs/screenshots/sori-stage-hanok-390-wallet$language.png',
+          ),
+        );
+      },
+    );
+  }
+
   late CulturalGlossary glossary;
   late SarangchaeConstruction construction;
 
   setUpAll(() => loadSoriRealFonts(materialIcons: true));
   setUpAll(() async {
     _bookCardFocus = await catalog.loadFirstCatalogFocus();
+    // Wallet art uses the real bundle; warm it outside widget fake async.
+    await SarangchaeConstruction.load();
     glossary = CulturalGlossary.fromJsonString(
       await File(CulturalGlossaryRepository.assetPath).readAsString(),
     );
@@ -69,6 +130,12 @@ void main() {
       GuideProgressService.todayCardDismissedKey: true,
     });
     await Storage.init();
+    // Production boot prepares the legacy ownership baseline before routes.
+    // Capture the ordinary saved-wallet UI rather than a missing-ledger error.
+    await YeopjeonService.loadCurrent(
+      competenceLoader: () async => const HanokCompetenceProjection.empty(),
+      evidenceScanner: () async => {},
+    );
     _focusController = LearningFocusController(
       loader: () =>
           LearningFocus.load(loadToday: () async => _snapshot().today),
@@ -193,6 +260,9 @@ void main() {
   testWidgets('capture Hanok at 390dp', skip: !_captureEvidence, (
     tester,
   ) async {
+    await Storage.writeYeopjeonRawJsonStrict(
+      YeopjeonWallet.grandfather(sarangchaeStage: 8, b2Stage: 0).encode(),
+    );
     _setViewport(tester, const Size(390, 844));
     await tester.pumpWidget(
       _app(
@@ -236,6 +306,9 @@ void main() {
   testWidgets('capture Hanok at 390dp scrolled 600', skip: !_captureEvidence, (
     tester,
   ) async {
+    await Storage.writeYeopjeonRawJsonStrict(
+      YeopjeonWallet.grandfather(sarangchaeStage: 8, b2Stage: 0).encode(),
+    );
     _setViewport(tester, const Size(390, 844));
     await tester.pumpWidget(
       _app(

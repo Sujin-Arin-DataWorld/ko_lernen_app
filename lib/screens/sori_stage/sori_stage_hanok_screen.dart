@@ -1,3 +1,4 @@
+import '../../widgets/sori/yeopjeon_wallet_card.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -237,6 +238,18 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                     ),
                   ),
                 ),
+                SliverPadding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: padding.left,
+                    vertical: Spacing.md,
+                  ),
+                  sliver: SliverToBoxAdapter(
+                    child: YeopjeonWalletCard(
+                      key: ObjectKey(_future),
+                      onBuilt: _refresh,
+                    ),
+                  ),
+                ),
                 _SarangchaeConstructionSliver(
                   progressionFuture: _future,
                   constructionFuture: _constructionFuture,
@@ -386,16 +399,15 @@ class _CurrentSarangchaeArtwork extends StatelessWidget {
       return FutureBuilder<SoriStageProgressionSnapshot>(
         future: progressionFuture,
         builder: (context, progressionSnapshot) {
-          if (progressionSnapshot.hasError) {
+          if (progressionSnapshot.hasError ||
+              (progressionSnapshot.data?.walletUnavailable ?? false)) {
             return Semantics(
               label: AppL10n.of(context).loadErrorTryAgain,
               child: const Center(child: Icon(Icons.error_outline_rounded)),
             );
           }
-          final earned = progressionSnapshot
-              .data
-              ?.hanokCompetence
-              .sarangchaeConstructionStage;
+          final data = progressionSnapshot.data;
+          final earned = data?.ownedSarangchaeStage;
           if (earned == null && progressionFuture != null) {
             return const AppLoading();
           }
@@ -436,7 +448,8 @@ class _SarangchaeConstructionSliver extends StatelessWidget {
               future: progressionFuture,
               builder: (context, progressionSnapshot) {
                 if (constructionSnapshot.hasError ||
-                    progressionSnapshot.hasError) {
+                    progressionSnapshot.hasError ||
+                    (progressionSnapshot.data?.walletUnavailable ?? false)) {
                   final t = AppL10n.of(context);
                   return SoriCard(
                     child: Column(
@@ -462,11 +475,7 @@ class _SarangchaeConstructionSliver extends StatelessWidget {
                   key: ObjectKey(progressionFuture),
                   construction: constructionSnapshot.data!,
                   earnedStageCount:
-                      progressionSnapshot
-                          .data
-                          ?.hanokCompetence
-                          .sarangchaeConstructionStage ??
-                      0,
+                      progressionSnapshot.data?.ownedSarangchaeStage ?? 0,
                   showArtwork: false,
                   onStageSelected: onStageSelected,
                 );

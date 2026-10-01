@@ -1,9 +1,9 @@
+import '../services/haptic_service.dart';
 import '../widgets/sori/game_reward.dart';
 import '../services/learning_journey.dart';
 import '../models/sori_stage_progression.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../widgets/app_error.dart';
@@ -496,7 +496,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         );
         return;
       }
-      HapticFeedback.mediumImpact();
+      HapticService.mediumImpact();
       setState(() {
         // Do not make learners lose a turn because our dictionary is down.
         // Keep this turn paused until a valid answer advances the game.
@@ -521,7 +521,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
   void _showValidationError(String reason) {
     final t = AppL10n.of(context);
-    HapticFeedback.mediumImpact();
+    HapticService.mediumImpact();
     setState(() {
       _errorMsg = switch (reason) {
         'not_korean' => t.kkeunmariNotKorean,
@@ -566,7 +566,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         return;
       }
     }
-    HapticFeedback.lightImpact();
+    HapticService.lightImpact();
     // 정답을 또렷한 긍정 신호로 알린다 — 예전엔 햅틱만 있어 곧바로 뜨는
     // 호랑이 '생각 중' 클립이 오답 플래시처럼 읽혔다 (Jin 2026-08-11 실기기).
     SoundService.correct();
@@ -648,7 +648,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     _newBest = outcome.isNewBest;
     _learningAttempt = outcome.attempt;
     _persistedXp = outcome.xpGained;
-    HapticFeedback.heavyImpact();
+    HapticService.heavyImpact();
     _feedbackCompletion.complete(
       () => FeedbackCompletion.kkeunmari(
         contentLabel: AppL10n.of(context).kkeunmariTitle,

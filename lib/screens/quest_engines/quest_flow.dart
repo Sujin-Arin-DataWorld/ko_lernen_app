@@ -1,5 +1,5 @@
+import '../../services/haptic_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
@@ -33,7 +33,7 @@ class SoriQuestCorrectFeedback {
   const SoriQuestCorrectFeedback({
     this.burst = _playDancheongQuestBurst,
     this.sound = SoundService.correct,
-    this.haptic = HapticFeedback.lightImpact,
+    this.haptic = HapticService.lightImpact,
   });
 
   final SoriQuestBurstEffect burst;

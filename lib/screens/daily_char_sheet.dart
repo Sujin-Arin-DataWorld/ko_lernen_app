@@ -1,9 +1,9 @@
+import '../services/haptic_service.dart';
 import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../data/hangul_data.dart';
 import '../data/hangul_strokes.dart';
@@ -138,7 +138,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
     if (_finishing || _phase == _DailyCharPhase.complete || !_canFinish) {
       return;
     }
-    HapticFeedback.heavyImpact();
+    HapticService.heavyImpact();
     final today = DateTime.now();
     _feedbackCompletion.complete(
       () => FeedbackCompletion.dailyHangul(
@@ -199,11 +199,11 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
       ..clearErrorGhost()
       ..clearHint();
     setState(() => _acceptedStrokes++);
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
   }
 
   void _rejectStroke(int expectedIndex) {
-    HapticFeedback.heavyImpact();
+    HapticService.heavyImpact();
     _traceController.rejectLastStroke();
     final failures = (_failureCounts[expectedIndex] ?? 0) + 1;
     _failureCounts[expectedIndex] = failures;

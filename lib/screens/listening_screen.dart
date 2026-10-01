@@ -1,5 +1,5 @@
+import '../services/haptic_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../data/chaekgado_shelf.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -153,7 +153,7 @@ class _ListeningScreenState extends State<ListeningScreen>
     if (level == _shelfLevel) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     await Storage.setBrowseLevelCode(level.code);
     if (!mounted) {
       return;
@@ -189,7 +189,7 @@ class _ListeningScreenState extends State<ListeningScreen>
 
   Future<void> _openShelf(ChaekgadoCompartment compartment) async {
     final matching = _scenariosForSlug(compartment.slug);
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     await Navigator.of(context).push(
       SoriTransitions.page<void>(
         (_) => ListeningShelfScreen(

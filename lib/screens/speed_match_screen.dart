@@ -1,10 +1,10 @@
+import '../services/haptic_service.dart';
 import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
 import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/feedback_completion.dart';
@@ -388,7 +388,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
         !_active.any((word) => word.korean == ko)) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _presentation++;
       _selLeftKo = ko;
@@ -436,7 +436,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     }
     _resumeTimerAfterEvidence();
     if (correct) {
-      HapticFeedback.lightImpact();
+      HapticService.lightImpact();
       _score++;
       _combo++;
       if (_combo > _bestCombo) {
@@ -461,7 +461,6 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
         unawaited(_end(generation)); // Vorrat erschöpft → früh beenden
       }
     } else {
-      HapticFeedback.mediumImpact();
       SoundService.wrong();
       _combo = 0;
       if (firstMiss) {
@@ -514,7 +513,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     _timer = null;
     _running = false;
 
-    HapticFeedback.heavyImpact();
+    HapticService.heavyImpact();
     final outcome = await saveGameResult(
       gameId: 'speed_match',
       xp: _score * 3,

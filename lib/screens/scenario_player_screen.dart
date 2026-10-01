@@ -1,10 +1,10 @@
+import '../services/haptic_service.dart';
 import '../services/learning_journey.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:uuid/uuid.dart';
 
 import '../features/study_library/study_library_models.dart';
@@ -1442,7 +1442,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         );
         _abandonTracker?.markCompleted();
       }
-      HapticFeedback.heavyImpact();
+      HapticService.heavyImpact();
       setState(() {
         _resultSaving = false;
         _resultPersisted = true;
@@ -1696,7 +1696,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                             height: Spacing.xxxl,
                           ),
                           onPressed: () {
-                            HapticFeedback.selectionClick();
+                            HapticService.selectionClick();
                             SoriSpeech.speak(v.korean);
                           },
                           icon: const Icon(
@@ -1893,7 +1893,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                   // 중이면 정지 — WCAG 1.4.2). SoriCard.onTap
                                   // 이 SoriPressable+버튼 시맨틱으로 감싼다.
                                   onTap: () {
-                                    HapticFeedback.selectionClick();
+                                    HapticService.selectionClick();
                                     if (isActive) {
                                       SoriSpeech.stop();
                                     } else {

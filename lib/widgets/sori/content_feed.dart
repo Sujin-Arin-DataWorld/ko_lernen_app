@@ -1,8 +1,8 @@
+import '../../services/haptic_service.dart';
 import 'dart:async';
 import '../../services/custom_pack_service.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import 'deck_action_bar.dart';
@@ -234,7 +234,7 @@ class _SoriContentFeedState extends State<SoriContentFeed>
       _springBack();
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     if (!widget.judgmentsEnabled) {
       if (widget.onSkip != null && widget.skipEnabled) {
         _commit(velocity, widget.onSkip!);

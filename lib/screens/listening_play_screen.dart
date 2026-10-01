@@ -1,10 +1,10 @@
+import '../services/haptic_service.dart';
 import '../widgets/sori/game_reward.dart';
 import '../services/learning_journey.dart';
 import '../models/sori_stage_progression.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../controllers/listening_playback_controller.dart';
 import '../data/chaekgado_shelf.dart';
@@ -235,7 +235,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
       return;
     }
     _completionPersisted = true;
-    HapticFeedback.heavyImpact();
+    HapticService.heavyImpact();
     setState(() {});
   }
 

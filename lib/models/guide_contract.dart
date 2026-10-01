@@ -795,7 +795,7 @@ final class RewardPreviewSpec {
 }
 
 RewardPreviewKind? _rewardPreviewKind(SoriRewardKind kind) => switch (kind) {
-  SoriRewardKind.none => null,
+  SoriRewardKind.none || SoriRewardKind.yeopjeon => null,
   SoriRewardKind.xp => RewardPreviewKind.xp,
   SoriRewardKind.stamp => RewardPreviewKind.stamp,
   SoriRewardKind.questProgress => RewardPreviewKind.quest,

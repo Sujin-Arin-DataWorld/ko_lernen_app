@@ -1,5 +1,5 @@
+import '../../services/haptic_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/scenario.dart';
@@ -138,7 +138,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
   Future<void> _onChipTap(int idx) async {
     if (_completed) return;
 
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() => _selected = idx);
   }
 
@@ -171,7 +171,6 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
       if (mounted) setState(() => _showExplanation = true);
       _report(true);
     } else {
-      HapticFeedback.mediumImpact();
       SoundService.wrong();
       setState(() {
         _selected = idx;
@@ -202,7 +201,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
 
   void _revealAnswer() {
     if (_completed) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _selected = _correctIndex;
       _completed = true;
@@ -455,7 +454,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
   }
 
   void _playAudio() {
-    HapticFeedback.lightImpact();
+    HapticService.lightImpact();
     SoriSpeech.speak(_audioKo);
   }
 }
