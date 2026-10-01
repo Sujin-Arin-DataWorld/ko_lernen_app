@@ -6832,9 +6832,9 @@
         "en": "Texting that you're running late"
       },
       "intro": {
-        "ko": "지하철이 멈춰서 약속에 늦게 됐어요.",
-        "de": "Die U-Bahn steht, deshalb kommst du später zu eurer Verabredung.",
-        "en": "The subway has stopped, so you're running late."
+        "ko": "지하철이 늦어서 약속에 늦게 됐어요.",
+        "de": "Die U-Bahn hat Verspätung, deshalb kommst du zu eurer Verabredung zu spät.",
+        "en": "The subway is delayed, so you're running late."
       },
       "contentIds": [
         "running_late"
@@ -6850,9 +6850,9 @@
             "en": "Which situation matches the whole conversation?"
           },
           "explanation": {
-            "ko": "“지하철이 늦어서 십 분쯤 늦을 것 같아.”라는 말이 근거예요. 상황은 “지하철이 멈춰서 약속에 늦게 됐어요.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
-            "de": "Ein Beleg ist „지하철이 늦어서 십 분쯤 늦을 것 같아.“ (Die U-Bahn hat Verspätung. Ich komme wohl etwa zehn Minuten später.). Dazu passt: Die U-Bahn steht, deshalb kommst du später zu eurer Verabredung. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
-            "en": "One supporting line is “지하철이 늦어서 십 분쯤 늦을 것 같아.” (The subway is delayed. I think I'll be about ten minutes late.). The matching situation is: The subway has stopped, so you're running late. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
+            "ko": "“지하철이 늦어서 십 분쯤 늦을 것 같아.”라는 말이 근거예요. 상황은 “지하철이 늦어서 약속에 늦게 됐어요.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
+            "de": "Ein Beleg ist „지하철이 늦어서 십 분쯤 늦을 것 같아.“ (Die U-Bahn hat Verspätung. Ich komme wohl etwa zehn Minuten später.). Dazu passt: Die U-Bahn hat Verspätung, deshalb kommst du zu eurer Verabredung zu spät. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
+            "en": "One supporting line is “지하철이 늦어서 십 분쯤 늦을 것 같아.” (The subway is delayed. I think I'll be about ten minutes late.). The matching situation is: The subway is delayed, so you're running late. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
           },
           "sourceIds": [
             "running_late"
@@ -6860,9 +6860,9 @@
           "evidenceKo": "지하철이 늦어서 십 분쯤 늦을 것 같아.",
           "options": [
             {
-              "ko": "지하철이 멈춰서 약속에 늦게 됐어요.",
-              "de": "Die U-Bahn steht, deshalb kommst du später zu eurer Verabredung.",
-              "en": "The subway has stopped, so you're running late."
+              "ko": "지하철이 늦어서 약속에 늦게 됐어요.",
+              "de": "Die U-Bahn hat Verspätung, deshalb kommst du zu eurer Verabredung zu spät.",
+              "en": "The subway is delayed, so you're running late."
             },
             {
               "ko": "지하철은 정상이지만 일찍 도착해서 기다리고 있어요.",
@@ -7877,7 +7877,7 @@
           },
           "explanation": {
             "ko": "과제의 목적은 “두 봉지 할인 제안을 받아들이고 계란 한 판도 주문하세요.”예요. 원문 응답 “좋아요. 계란도 한 판 주세요.”가 이 목적을 이뤄요. “한 봉지만 사고 계란은 안 살게요.”와 “두 봉지에 만 원이면 살게요. 계란은 빼 주세요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
-            "de": "Das Ziel lautet: Nimm das Angebot für zwei Beutel an und bestelle einen Karton Eier dazu. Die Quelläußerung „좋아요. 계란도 한 판 주세요.“ (Gut. Und eine Packung Eier, bitte.) erfüllt es. „Ich nehme nur einen Beutel und keine Eier.“ und „Für zehntausend Won nehme ich zwei Beutel, aber keine Eier.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
+            "de": "Das Ziel lautet: Nimm das Angebot für zwei Beutel an und bestelle einen Karton Eier dazu. Die Quelläußerung „좋아요. 계란도 한 판 주세요.“ (Gut. Und bitte noch eine Packung mit 30 Eiern.) erfüllt es. „Ich nehme nur einen Beutel und keine Eier.“ und „Für zehntausend Won nehme ich zwei Beutel, aber keine Eier.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
             "en": "The goal is: Accept the two-bag discount and add a tray of eggs. The source response “좋아요. 계란도 한 판 주세요.” (Great. And a tray of eggs, please.) fulfills it. “I will buy one bag and no eggs.” and “I will take two bags for ten thousand won. Leave out the eggs.” change a requested action, fact, or condition. Such replies may be valid in other situations."
           },
           "sourceIds": [
@@ -7888,7 +7888,7 @@
           "options": [
             {
               "ko": "좋아요. 계란도 한 판 주세요.",
-              "de": "Gut. Und eine Packung Eier, bitte.",
+              "de": "Gut. Und bitte noch eine Packung mit 30 Eiern.",
               "en": "Great. And a tray of eggs, please."
             },
             {
@@ -7918,7 +7918,7 @@
       },
       "intro": {
         "ko": "크리스티안이 이사 온 지 얼마 안 돼서 분리수거 요일을 몰라요.",
-        "de": "Christian ist erst kürzlich eingezogen und kennt die Tage zum Mülltrennen noch nicht.",
+        "de": "Christian ist erst kürzlich eingezogen und kennt die Abgabetage für getrennten Müll noch nicht.",
         "en": "Christian just moved in recently and doesn't know the recycling days yet."
       },
       "contentIds": [
@@ -7936,7 +7936,7 @@
           },
           "explanation": {
             "ko": "“네. 분리수거는 무슨 요일에 하면 돼요?”라는 말이 근거예요. 상황은 “크리스티안이 이사 온 지 얼마 안 돼서 분리수거 요일을 몰라요.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
-            "de": "Ein Beleg ist „네. 분리수거는 무슨 요일에 하면 돼요?“ (Ja. An welchen Tagen kann ich den Recyclingmüll rausbringen?). Dazu passt: Christian ist erst kürzlich eingezogen und kennt die Tage zum Mülltrennen noch nicht. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
+            "de": "Ein Beleg ist „네. 분리수거는 무슨 요일에 하면 돼요?“ (Ja. An welchen Tagen kann ich den Recyclingmüll rausbringen?). Dazu passt: Christian ist erst kürzlich eingezogen und kennt die Abgabetage für getrennten Müll noch nicht. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
             "en": "One supporting line is “네. 분리수거는 무슨 요일에 하면 돼요?” (Yes. Which days can I take out the recycling?). The matching situation is: Christian just moved in recently and doesn't know the recycling days yet. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
           },
           "sourceIds": [
@@ -7946,7 +7946,7 @@
           "options": [
             {
               "ko": "크리스티안이 이사 온 지 얼마 안 돼서 분리수거 요일을 몰라요.",
-              "de": "Christian ist erst kürzlich eingezogen und kennt die Tage zum Mülltrennen noch nicht.",
+              "de": "Christian ist erst kürzlich eingezogen und kennt die Abgabetage für getrennten Müll noch nicht.",
               "en": "Christian just moved in recently and doesn't know the recycling days yet."
             },
             {
@@ -8072,9 +8072,9 @@
         "en": "Before greeting the family at Chuseok"
       },
       "intro": {
-        "ko": "크리스티안이 추석에 수진이네 부모님을 처음 뵙기 전에 예절을 물어봐요.",
-        "de": "Christian fragt Sujin nach den Manieren, bevor er zum ersten Mal ihre Eltern zu Chuseok trifft.",
-        "en": "Before meeting Sujin's parents for the first time at Chuseok, Christian asks about manners."
+        "ko": "크리스티안이 추석에 수진이네 부모님을 뵙기 전에 예절을 물어봐요.",
+        "de": "Christian fragt Sujin vor dem Chuseok-Besuch bei ihren Eltern, wie er sich höflich verhält.",
+        "en": "Before visiting Sujin's parents at Chuseok, Christian asks about manners."
       },
       "contentIds": [
         "a2_w10_partner"
@@ -8090,9 +8090,9 @@
             "en": "Which situation matches the whole conversation?"
           },
           "explanation": {
-            "ko": "“수진아, 나 좀 떨려. 추석인데 부모님께 뭐라고 인사해야 돼?”라는 말이 근거예요. 상황은 “크리스티안이 추석에 수진이네 부모님을 처음 뵙기 전에 예절을 물어봐요.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
-            "de": "Ein Beleg ist „수진아, 나 좀 떨려. 추석인데 부모님께 뭐라고 인사해야 돼?“ (Sujin, ich bin etwas nervös. Es ist Chuseok. Was soll ich zu deinen Eltern sagen, wenn ich sie begrüße?). Dazu passt: Christian fragt Sujin nach den Manieren, bevor er zum ersten Mal ihre Eltern zu Chuseok trifft. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
-            "en": "One supporting line is “수진아, 나 좀 떨려. 추석인데 부모님께 뭐라고 인사해야 돼?” (Sujin, I'm a bit nervous. It's Chuseok. What should I say when I greet your parents?). The matching situation is: Before meeting Sujin's parents for the first time at Chuseok, Christian asks about manners. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
+            "ko": "“수진아, 나 좀 떨려. 추석인데 부모님께 뭐라고 인사해야 돼?”라는 말이 근거예요. 상황은 “크리스티안이 추석에 수진이네 부모님을 뵙기 전에 예절을 물어봐요.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
+            "de": "Ein Beleg ist „수진아, 나 좀 떨려. 추석인데 부모님께 뭐라고 인사해야 돼?“ (Sujin, ich bin etwas nervös. Es ist Chuseok. Was soll ich zu deinen Eltern sagen, wenn ich sie begrüße?). Dazu passt: Christian fragt Sujin vor dem Chuseok-Besuch bei ihren Eltern, wie er sich höflich verhält. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
+            "en": "One supporting line is “수진아, 나 좀 떨려. 추석인데 부모님께 뭐라고 인사해야 돼?” (Sujin, I'm a bit nervous. It's Chuseok. What should I say when I greet your parents?). The matching situation is: Before visiting Sujin's parents at Chuseok, Christian asks about manners. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
           },
           "sourceIds": [
             "a2_w10_partner"
@@ -8100,9 +8100,9 @@
           "evidenceKo": "수진아, 나 좀 떨려. 추석인데 부모님께 뭐라고 인사해야 돼?",
           "options": [
             {
-              "ko": "크리스티안이 추석에 수진이네 부모님을 처음 뵙기 전에 예절을 물어봐요.",
-              "de": "Christian fragt Sujin nach den Manieren, bevor er zum ersten Mal ihre Eltern zu Chuseok trifft.",
-              "en": "Before meeting Sujin's parents for the first time at Chuseok, Christian asks about manners."
+              "ko": "크리스티안이 추석에 수진이네 부모님을 뵙기 전에 예절을 물어봐요.",
+              "de": "Christian fragt Sujin vor dem Chuseok-Besuch bei ihren Eltern, wie er sich höflich verhält.",
+              "en": "Before visiting Sujin's parents at Chuseok, Christian asks about manners."
             },
             {
               "ko": "추석 방문이 끝난 뒤 선물을 환불받으려 해요.",
@@ -8316,20 +8316,20 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Gut zu wissen. Wie hoch ist die Anmeldegebühr?",
-            "en": "Put the words in the same order as the recording. Meaning: That's good to know. How much is the registration fee?"
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Gut zu wissen. Was kostet der Kurs?",
+            "en": "Put the words in the same order as the recording. Meaning: That's good to know. How much does the class cost?"
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “다행이에요. 등록비는 얼마예요?”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „다행이에요. 등록비는 얼마예요?“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “다행이에요. 등록비는 얼마예요?”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “다행이에요. 수강료는 얼마예요?”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „다행이에요. 수강료는 얼마예요?“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “다행이에요. 수강료는 얼마예요?”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "a2_w10_enrolment"
           ],
-          "evidenceKo": "다행이에요. 등록비는 얼마예요?",
-          "audioKo": "다행이에요. 등록비는 얼마예요?",
-          "targetKo": "다행이에요. 등록비는 얼마예요?"
+          "evidenceKo": "다행이에요. 수강료는 얼마예요?",
+          "audioKo": "다행이에요. 수강료는 얼마예요?",
+          "targetKo": "다행이에요. 수강료는 얼마예요?"
         },
         {
           "id": "listening.a2.a2_w10_enrolment.response",
@@ -8614,7 +8614,7 @@
             },
             {
               "ko": "수진이한테도 연락해 볼까? 근처에 있을 것 같은데.",
-              "de": "Sollen wir Sujin auch schreiben? Sie ist bestimmt in der Nähe.",
+              "de": "Sollen wir Sujin auch schreiben? Ich glaube, sie ist in der Nähe.",
               "en": "Should we text Sujin too? I think she's nearby."
             }
           ],
@@ -8626,7 +8626,7 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Sollen wir Sujin auch schreiben? Sie ist bestimmt in der Nähe.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Sollen wir Sujin auch schreiben? Ich glaube, sie ist in der Nähe.",
             "en": "Put the words in the same order as the recording. Meaning: Should we text Sujin too? I think she's nearby."
           },
           "explanation": {

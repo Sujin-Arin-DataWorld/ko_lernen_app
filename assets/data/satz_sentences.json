@@ -10905,7 +10905,7 @@
       "id": "satz_a1_0183",
       "level": "a2",
       "targetKo": "속이 쓰려서 제산제를 샀어요.",
-      "promptDe": "Mir ist übel, deshalb habe ich ein Antazidum gekauft.",
+      "promptDe": "Ich habe Sodbrennen, deshalb habe ich ein Antazidum gekauft.",
       "promptEn": "I have heartburn, so I bought an antacid.",
       "distractors": [
         "연고",
@@ -12116,9 +12116,9 @@
     {
       "id": "satz_a2_0163",
       "level": "a2",
-      "targetKo": "이 동작은 횟수를 열 번으로 해요.",
-      "promptDe": "Diese Übung mache ich mit zehn Wiederholungen.",
-      "promptEn": "I do this move with ten reps.",
+      "targetKo": "이 동작의 반복 횟수는 열 번이에요.",
+      "promptDe": "Diese Bewegung wird zehnmal wiederholt.",
+      "promptEn": "This movement is repeated ten times.",
       "distractors": [
         "헬스장",
         "운동복"
@@ -12188,7 +12188,7 @@
     {
       "id": "satz_a2_0169",
       "level": "a2",
-      "targetKo": "근력 운동은 주 이 번만 해요.",
+      "targetKo": "근력 운동은 일주일에 두 번만 해요.",
       "promptDe": "Krafttraining mache ich nur zweimal pro Woche.",
       "promptEn": "I do strength training only twice a week.",
       "distractors": [
@@ -19664,9 +19664,9 @@
     {
       "id": "satz_a2_0309",
       "level": "a2",
-      "targetKo": "이 집 김치찌개 맛이 진짜예요.",
-      "promptDe": "Der Kimchi-Eintopf hier schmeckt einfach unglaublich.",
-      "promptEn": "The kimchi stew at this place is the real deal.",
+      "targetKo": "이 집 김치찌개는 맛이 정말 좋아요.",
+      "promptDe": "Der Kimchi-Eintopf hier schmeckt wirklich gut.",
+      "promptEn": "The kimchi stew here tastes really good.",
       "distractors": [
         "회사",
         "직업"
@@ -35354,8 +35354,8 @@
         "짧아요"
       ],
       "level": "a2",
-      "promptDe": "Meine kleine Schwester hat wirklich einen guten Charakter.",
-      "promptEn": "My little sibling has a really kind personality.",
+      "promptDe": "Mein jüngeres Geschwisterkind ist wirklich lieb.",
+      "promptEn": "My younger sibling is really kind.",
       "courseUnitId": "a2_01_haeyo_transition"
     },
     {

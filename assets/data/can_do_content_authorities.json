@@ -41492,7 +41492,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_pharmacy_ask_1",
         "sourceVocabId": "vocab_a1_0331",
-        "sourceVocabFingerprintSha256": "4fed31ebc87f74dda9bbaa83e6e10565c1af49a43e5768bd74988178bcd791fa",
+        "sourceVocabFingerprintSha256": "f6558d47dc58fbb891396337845880edeaf369ec71a2c3ff33fa8394bc35bcef",
         "level": "a2",
         "canDoSegmentId": "segment_a2_pharmacy_headache",
         "courseUnitId": "a2_04_feelings_health"
@@ -42592,7 +42592,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_gym_class_1",
         "sourceVocabId": "vocab_a2_0393",
-        "sourceVocabFingerprintSha256": "eb8a0cd59ab754b59509efc3d4565942d16f183d53e5ca82f86c454c5479c804",
+        "sourceVocabFingerprintSha256": "3e101555abf56cfd15d73b350014d661dae41660fbb1ce607a5e87272d1957db",
         "level": "a2",
         "canDoSegmentId": "segment_a2_feeling_sick",
         "courseUnitId": "a2_04_feelings_health"
@@ -42658,7 +42658,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_gym_class_1",
         "sourceVocabId": "vocab_a2_0399",
-        "sourceVocabFingerprintSha256": "61a73d9656f407e44fd0daa61b0de2bd34c3a11b0efe995094d71db2f60e9e53",
+        "sourceVocabFingerprintSha256": "95d1382db4b31660a06a1159b1a965d70c322aa93861c5b76df5d599e1becfe1",
         "level": "a2",
         "canDoSegmentId": "segment_a2_feeling_sick",
         "courseUnitId": "a2_04_feelings_health"
@@ -43340,7 +43340,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_descriptions_1",
         "sourceVocabId": "vocab_a2_0522",
-        "sourceVocabFingerprintSha256": "ded8800dee29c24990034ad92b68d037be532d1178a668bfceef589df014ef57",
+        "sourceVocabFingerprintSha256": "7a9539f97baefe4bcedc8cea91a9e1dac404c9aa7370f59016995fae4b599c70",
         "level": "a2",
         "canDoSegmentId": "segment_a2_haeyo_register_transition",
         "courseUnitId": "a2_01_haeyo_transition"
@@ -44341,7 +44341,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_pharmacy_ask_1",
         "sourceVocabId": "vocab_a1_0331",
-        "sourceVocabFingerprintSha256": "4fed31ebc87f74dda9bbaa83e6e10565c1af49a43e5768bd74988178bcd791fa",
+        "sourceVocabFingerprintSha256": "f6558d47dc58fbb891396337845880edeaf369ec71a2c3ff33fa8394bc35bcef",
         "level": "a2",
         "canDoSegmentId": "segment_a2_pharmacy_headache",
         "courseUnitId": "a2_04_feelings_health"
@@ -45804,7 +45804,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_gym_class_1",
         "sourceVocabId": "vocab_a2_0393",
-        "sourceVocabFingerprintSha256": "eb8a0cd59ab754b59509efc3d4565942d16f183d53e5ca82f86c454c5479c804",
+        "sourceVocabFingerprintSha256": "3e101555abf56cfd15d73b350014d661dae41660fbb1ce607a5e87272d1957db",
         "level": "a2",
         "canDoSegmentId": "segment_a2_feeling_sick",
         "courseUnitId": "a2_04_feelings_health"
@@ -45870,7 +45870,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_gym_class_1",
         "sourceVocabId": "vocab_a2_0399",
-        "sourceVocabFingerprintSha256": "61a73d9656f407e44fd0daa61b0de2bd34c3a11b0efe995094d71db2f60e9e53",
+        "sourceVocabFingerprintSha256": "95d1382db4b31660a06a1159b1a965d70c322aa93861c5b76df5d599e1becfe1",
         "level": "a2",
         "canDoSegmentId": "segment_a2_feeling_sick",
         "courseUnitId": "a2_04_feelings_health"
@@ -46838,7 +46838,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_food_2",
         "sourceVocabId": "vocab_a2_0090",
-        "sourceVocabFingerprintSha256": "bd23c036a2fc4c8016843b6c55684a3c38f90c4862d63780553f26e3189ace09",
+        "sourceVocabFingerprintSha256": "b55f48b43e7b76bbf0c743cd96ef73fd0e4c1c6105983254afcb17182a87cca8",
         "level": "a2",
         "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
         "courseUnitId": "a2_05_delivery_services"
@@ -48983,7 +48983,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_descriptions_1",
         "sourceVocabId": "vocab_a2_0522",
-        "sourceVocabFingerprintSha256": "ded8800dee29c24990034ad92b68d037be532d1178a668bfceef589df014ef57",
+        "sourceVocabFingerprintSha256": "7a9539f97baefe4bcedc8cea91a9e1dac404c9aa7370f59016995fae4b599c70",
         "level": "a2",
         "canDoSegmentId": "segment_a2_haeyo_register_transition",
         "courseUnitId": "a2_01_haeyo_transition"
@@ -72508,13 +72508,17 @@
         },
         {
           "phraseId": "smalltalk_a2_0032",
-          "phraseFingerprintSha256": "a1f0f050c707ba5137c78639bfec61cbf3bdf53f9f420f9dc96b6891f1d7eddc",
+          "phraseFingerprintSha256": "7556676e291578360b5e15c06f54c066b7c72168431a72b14e69b2cfd83041d7",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a2_cafe_study",
           "canDoFingerprintSha256": "285e2e12eccad1778367e0ad24cb1f5a3c6ca51118c7a268ef333009b310a515",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 1
+          "reviewRevision": 1,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_translation_corrections_20260922.json",
+          "previousPhraseFingerprintSha256": "a1f0f050c707ba5137c78639bfec61cbf3bdf53f9f420f9dc96b6891f1d7eddc"
         },
         {
           "phraseId": "smalltalk_a2_0033",

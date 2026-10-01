@@ -92,6 +92,22 @@
       "before": "The more I think about it, the more I understand why people love coming to amusement parks. The place is full of laughter, and everyone looks excited and happy.",
       "after": "Thinking it over, I feel I can understand why people like coming to amusement parks. There is laughter everywhere, and everyone looks excited and happy.",
       "issueClass": "meaning"
+    },
+    {
+      "id": "smalltalk_a2_0032",
+      "level": "a2",
+      "field": "de",
+      "before": "Bist du mit dem Anschreiben fertig?",
+      "after": "Hast du deine Selbstvorstellung für die Bewerbung schon fertig?",
+      "issueClass": "meaning"
+    },
+    {
+      "id": "smalltalk_a2_0032",
+      "level": "a2",
+      "field": "en",
+      "before": "Did you finish your cover letter?",
+      "after": "Have you finished your personal statement for the job application?",
+      "issueClass": "meaning"
     }
   ]
 }

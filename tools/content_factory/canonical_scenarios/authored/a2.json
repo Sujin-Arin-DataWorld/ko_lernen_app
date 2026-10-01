@@ -32,7 +32,7 @@
     {
       "id": "running_late",
       "title": {"de": "Per KakaoTalk Bescheid sagen, dass man später kommt", "en": "Texting that you're running late"},
-      "intro": {"ko": "지하철이 멈춰서 약속에 늦게 됐어요.", "de": "Die U-Bahn steht, deshalb kommst du später zu eurer Verabredung.", "en": "The subway has stopped, so you're running late."},
+      "intro": {"ko": "지하철이 늦어서 약속에 늦게 됐어요.", "de": "Die U-Bahn hat Verspätung, deshalb kommst du zu eurer Verabredung zu spät.", "en": "The subway is delayed, so you're running late."},
       "dialog": [
         {"speaker": "lena", "ko": "지하철이 늦어서 십 분쯤 늦을 것 같아.", "de": "Die U-Bahn hat Verspätung. Ich komme wohl etwa zehn Minuten später.", "en": "The subway is delayed. I think I'll be about ten minutes late."},
         {"speaker": "maya", "ko": "괜찮아. 나도 아직 가는 중이야.", "de": "Kein Problem. Ich bin auch noch unterwegs.", "en": "No problem. I'm still on my way too."},
@@ -131,7 +131,7 @@
       "dialog": [
         {"speaker": "christian", "ko": "이제 먹어도 돼요?", "de": "Kann man das jetzt schon essen?", "en": "Can we eat it now?"},
         {"speaker": "sujin", "ko": "조금만 더 구워야 돼요. 여기 아직 빨개요.", "de": "Es muss noch ein bisschen länger grillen. Hier ist es noch rot.", "en": "It needs a little longer. It's still red here."},
-        {"speaker": "christian", "ko": "이쪽은 괜찮아요?", "de": "Ist dieses Stück fertig?", "en": "Is this side okay?"},
+        {"speaker": "christian", "ko": "이쪽은 괜찮아요?", "de": "Ist diese Seite schon durch?", "en": "Is this side okay?"},
         {"speaker": "sujin", "ko": "네, 이건 먹어도 돼요.", "de": "Ja, das kannst du essen.", "en": "Yes, this one is ready."},
         {"speaker": "christian", "ko": "마늘도 불판에 올릴까요?", "de": "Sollen wir auch Knoblauch auf den Grill legen?", "en": "Shall we put garlic on the grill too?"},
         {"speaker": "sujin", "ko": "저는 생마늘이 좋아요. 반만 구워요.", "de": "Ich mag Knoblauch roh. Grillen wir nur die Hälfte.", "en": "I like raw garlic. Let's grill only half."}

@@ -16,8 +16,8 @@ class SmalltalkTranslationCopyHistoryTest(unittest.TestCase):
             row["id"]: row
             for row in builder._read_json(builder.DATA / "smalltalk.json")["phrases"]
         }
-        self.assertEqual(11, len(ledger["changes"]))
-        self.assertEqual(7, len({change["id"] for change in ledger["changes"]}))
+        self.assertEqual(13, len(ledger["changes"]))
+        self.assertEqual(8, len({change["id"] for change in ledger["changes"]}))
         for change in ledger["changes"]:
             with self.subTest(change=change["id"], field=change["field"]):
                 self.assertIn(change["field"], {"de", "en"})

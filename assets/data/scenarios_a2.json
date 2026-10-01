@@ -3118,9 +3118,9 @@
         "en": "Texting that you're running late"
       },
       "intro": {
-        "ko": "지하철이 멈춰서 약속에 늦게 됐어요.",
-        "de": "Die U-Bahn steht, deshalb kommst du später zu eurer Verabredung.",
-        "en": "The subway has stopped, so you're running late."
+        "ko": "지하철이 늦어서 약속에 늦게 됐어요.",
+        "de": "Die U-Bahn hat Verspätung, deshalb kommst du zu eurer Verabredung zu spät.",
+        "en": "The subway is delayed, so you're running late."
       },
       "courseUnitId": "a2_03_chat_relationships",
       "playerCharacterId": "lena",
@@ -3358,7 +3358,7 @@
           "korean": "이쪽은 괜찮아요?",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Ist dieses Stück fertig?",
+            "de": "Ist diese Seite schon durch?",
             "en": "Is this side okay?"
           }
         },
@@ -3423,7 +3423,7 @@
         {
           "speaker": "user",
           "ko": "이쪽은 괜찮아요?",
-          "de": "Ist dieses Stück fertig?",
+          "de": "Ist diese Seite schon durch?",
           "en": "Is this side okay?"
         },
         {
@@ -4549,7 +4549,7 @@
         {
           "speaker": "user",
           "ko": "좋아요. 계란도 한 판 주세요.",
-          "de": "Gut. Und eine Packung Eier, bitte.",
+          "de": "Gut. Und bitte noch eine Packung mit 30 Eiern.",
           "en": "Great. And a tray of eggs, please."
         },
         {
@@ -4673,7 +4673,7 @@
       },
       "intro": {
         "ko": "크리스티안이 이사 온 지 얼마 안 돼서 분리수거 요일을 몰라요.",
-        "de": "Christian ist erst kürzlich eingezogen und kennt die Tage zum Mülltrennen noch nicht.",
+        "de": "Christian ist erst kürzlich eingezogen und kennt die Abgabetage für getrennten Müll noch nicht.",
         "en": "Christian just moved in recently and doesn't know the recycling days yet."
       },
       "vocab": [
@@ -4766,7 +4766,7 @@
         {
           "speaker": "neighbor",
           "ko": "잘 오셨어요. 그런데 분리수거 하시려고요?",
-          "de": "Schön, dass Sie da sind. Wollen Sie gerade den Müll trennen?",
+          "de": "Schön, dass Sie da sind. Wollen Sie gerade den getrennten Müll rausbringen?",
           "en": "Welcome. Are you about to do the recycling?"
         },
         {
@@ -4913,9 +4913,9 @@
         "en": "Before greeting the family at Chuseok"
       },
       "intro": {
-        "ko": "크리스티안이 추석에 수진이네 부모님을 처음 뵙기 전에 예절을 물어봐요.",
-        "de": "Christian fragt Sujin nach den Manieren, bevor er zum ersten Mal ihre Eltern zu Chuseok trifft.",
-        "en": "Before meeting Sujin's parents for the first time at Chuseok, Christian asks about manners."
+        "ko": "크리스티안이 추석에 수진이네 부모님을 뵙기 전에 예절을 물어봐요.",
+        "de": "Christian fragt Sujin vor dem Chuseok-Besuch bei ihren Eltern, wie er sich höflich verhält.",
+        "en": "Before visiting Sujin's parents at Chuseok, Christian asks about manners."
       },
       "vocab": [
         {
@@ -5210,11 +5210,11 @@
           }
         },
         {
-          "korean": "등록비",
+          "korean": "수강료",
           "note": {
             "ko": "등록할 때 내는 돈",
-            "de": "die Anmeldegebühr",
-            "en": "registration fee"
+            "de": "die Kursgebühr",
+            "en": "course fee"
           }
         }
       ],
@@ -5279,9 +5279,9 @@
         },
         {
           "speaker": "user",
-          "ko": "다행이에요. 등록비는 얼마예요?",
-          "de": "Gut zu wissen. Wie hoch ist die Anmeldegebühr?",
-          "en": "That's good to know. How much is the registration fee?"
+          "ko": "다행이에요. 수강료는 얼마예요?",
+          "de": "Gut zu wissen. Was kostet der Kurs?",
+          "en": "That's good to know. How much does the class cost?"
         },
         {
           "speaker": "instructor",
@@ -5353,9 +5353,9 @@
             "concept_a2_feelings"
           ],
           "data": {
-            "targetKo": "다행이에요. 등록비는 얼마예요?",
+            "targetKo": "다행이에요. 수강료는 얼마예요?",
             "promptDe": "Zum Glück. Wie viel kostet die Anmeldung?",
-            "promptEn": "That's a relief. How much is the registration fee?",
+            "promptEn": "That's good to know. How much does the class cost?",
             "distractors": [
               "매트는",
               "저녁에"
@@ -5744,7 +5744,7 @@
         {
           "speaker": "user",
           "ko": "수진이한테도 연락해 볼까? 근처에 있을 것 같은데.",
-          "de": "Sollen wir Sujin auch schreiben? Sie ist bestimmt in der Nähe.",
+          "de": "Sollen wir Sujin auch schreiben? Ich glaube, sie ist in der Nähe.",
           "en": "Should we text Sujin too? I think she's nearby."
         },
         {

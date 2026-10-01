@@ -14878,7 +14878,7 @@
       "sentenceKo": "속이 쓰려서 ＿＿＿를 샀어요.",
       "answer": "제산제",
       "fullKo": "속이 쓰려서 제산제를 샀어요.",
-      "de": "Mir ist übel, deshalb habe ich ein Antazidum gekauft.",
+      "de": "Ich habe Sodbrennen, deshalb habe ich ein Antazidum gekauft.",
       "en": "I have heartburn, so I bought an antacid.",
       "distractors": [
         "연고",
@@ -16390,11 +16390,11 @@
     {
       "id": "cloze_a2_0200",
       "level": "a2",
-      "sentenceKo": "이 동작은 ＿＿＿를 열 번으로 해요.",
+      "sentenceKo": "이 동작의 반복 ＿＿＿는 열 번이에요.",
       "answer": "횟수",
-      "fullKo": "이 동작은 횟수를 열 번으로 해요.",
-      "de": "Diese Übung mache ich mit zehn Wiederholungen.",
-      "en": "I do this move with ten reps.",
+      "fullKo": "이 동작의 반복 횟수는 열 번이에요.",
+      "de": "Diese Bewegung wird zehnmal wiederholt.",
+      "en": "This movement is repeated ten times.",
       "distractors": [
         "비타민제",
         "비행기",
@@ -16480,9 +16480,9 @@
     {
       "id": "cloze_a2_0206",
       "level": "a2",
-      "sentenceKo": "＿＿＿ 운동은 주 이 번만 해요.",
+      "sentenceKo": "＿＿＿ 운동은 일주일에 두 번만 해요.",
       "answer": "근력",
-      "fullKo": "근력 운동은 주 이 번만 해요.",
+      "fullKo": "근력 운동은 일주일에 두 번만 해요.",
       "de": "Krafttraining mache ich nur zweimal pro Woche.",
       "en": "I do strength training only twice a week.",
       "distractors": [
@@ -36019,8 +36019,8 @@
       ],
       "level": "a2",
       "topic": "Beschreibung",
-      "de": "Meine kleine Schwester hat wirklich einen guten Charakter.",
-      "en": "My little sibling has a really kind personality.",
+      "de": "Mein jüngeres Geschwisterkind ist wirklich lieb.",
+      "en": "My younger sibling is really kind.",
       "courseUnitId": "a2_01_haeyo_transition"
     },
     {
