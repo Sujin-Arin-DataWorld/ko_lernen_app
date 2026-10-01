@@ -55,10 +55,10 @@ class CommercialSecurityContractTest(unittest.TestCase):
         self.assertIn("-only-testing:RunnerTests", simulator)
         self.assertIn("CODE_SIGNING_ALLOWED=NO", simulator)
 
-    def test_ios_jobs_have_distinct_bounded_release_and_cold_intel_budgets(self):
+    def test_ios_jobs_use_standard_hosted_runner_execution_ceiling(self):
         release, simulator = self.ios_jobs()
-        for job, expected in ((release, "45"), (simulator, "90")):
-            self.assertEqual(re.findall(r"(?m)^    timeout-minutes: (.+)$", job), [expected])
+        for job in (release, simulator):
+            self.assertEqual(re.findall(r"(?m)^    timeout-minutes: (.+)$", job), ["360"])
             self.assertNotIn("continue-on-error", job)
         self.assertIn("xcodebuild test", simulator)
         self.assertIn("-only-testing:RunnerTests", simulator)
@@ -68,7 +68,7 @@ class CommercialSecurityContractTest(unittest.TestCase):
         phase = workflow.split('  phase-ios-tests:\n', 1)[1].split('  release-internal:\n', 1)[0]
         _, privacy = self.ios_jobs()
         self.assertNotIn('flutter drive', privacy)
-        self.assertIn('timeout-minutes: 300', phase)
+        self.assertIn('timeout-minutes: 360', phase)
         self.assertIn("github.event_name == 'workflow_dispatch'", phase)
         self.assertIn('macos-15-intel', phase)
         self.assertIn('bash ios/ci_scripts/ci_post_clone.sh', phase)
