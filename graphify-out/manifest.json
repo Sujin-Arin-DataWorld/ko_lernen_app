@@ -4236,9 +4236,9 @@
     "semantic_hash": ""
   },
   "test/goldens/screen_layout_golden_test.dart": {
-    "mtime": 1790841788.7836452,
-    "seen": 1790845384.5919912,
-    "ast_hash": "db1dc530df18d9302478e6efb4358f3b",
+    "mtime": 1790855000.9103818,
+    "seen": 1790855373.737261,
+    "ast_hash": "782d68ff98340f5b34685e2a1e376a1c",
     "semantic_hash": ""
   },
   "test/grammar_choice_quiz_screen_test.dart": {
@@ -10050,15 +10050,15 @@
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_expanded.png": {
-    "mtime": 1790841788.7529662,
-    "seen": 1790845384.6038082,
-    "ast_hash": "54f8af2b3b1b4bfd37f83678afe73c87",
+    "mtime": 1790855187.1717293,
+    "seen": 1790855374.196744,
+    "ast_hash": "28814629adc64748e9c93bb86d63a09b",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_sori_today_medium.png": {
-    "mtime": 1790841788.7539637,
-    "seen": 1790845384.603813,
-    "ast_hash": "c5b635c2739274be4ab48b7084dc1b2c",
+    "mtime": 1790855187.1738944,
+    "seen": 1790855374.1967468,
+    "ast_hash": "d76dfa37c98b211b50b657a1b2ce6573",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_vocab_packs_compact.png": {
