@@ -714,7 +714,7 @@
       "jsonPointer": "/scenarios/24/dialog/2/ko",
       "sourceLevel": "A2",
       "quote": "오전 반이랑 저녁 반이 있는데 어느 게 편하세요?",
-      "contextSha256": "358a1097132d1ba3d74e68797222966930dc3751d1b91616ff08db6b89c5c4b4",
+      "contextSha256": "ed5506692c7a4267c06b1ba402f2e0db291b39b1508878763c0c6508afb8af35",
       "decision": "accepted",
       "mode": "R",
       "status": "MODEL_QA_PASS",
