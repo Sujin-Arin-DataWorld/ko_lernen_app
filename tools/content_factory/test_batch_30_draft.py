@@ -159,13 +159,13 @@ class TestBatch30PromotedToLiveAssets(unittest.TestCase):
             )
 
     def test_every_id_is_live_with_matching_content(self):
-        """Every draft id must be present live with byte-identical content
-        (validate_promoted_batch.py's exact-equality contract)."""
-        draft_rows = {r["id"]: r for r in _load_vocab_rows(DRAFTS / "batch_30_a1_rows.csv")}
-        live_rows = {r["id"]: r for r in _load_vocab_rows(VOCAB_CSV)}
-        for vid, row in draft_rows.items():
-            self.assertIn(vid, live_rows, f"{vid} missing from live korean_vocab.csv")
-            self.assertEqual(row, live_rows[vid], f"{vid}: live row differs from reviewed draft")
+        """Require frozen reviewed copy or an exact recorded copy revision."""
+        from validate_promoted_batch import validate
+
+        count, _ = validate(
+            DRAFTS / "batch_30_a1_reinforcement_manifest.json", root=REPO_ROOT
+        )
+        self.assertEqual(count, 186)
 
     def test_no_overlap_with_prior_batch_words(self):
         draft_rows = _load_vocab_rows(DRAFTS / "batch_30_a1_rows.csv")
