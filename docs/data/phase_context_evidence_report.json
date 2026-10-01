@@ -6836,23 +6836,6 @@
       "provenance": "legacy_scenario_or_media"
     },
     {
-      "phaseId": "KP25",
-      "grammarKey": "G6:를 막론하고",
-      "sourcePath": "assets/data/scenarios_c2.json",
-      "recordId": "c2_w10_fandom",
-      "jsonPointer": "/scenarios/29/dialog/3/ko",
-      "sourceLevel": "C2",
-      "quote": "장르나 팬덤 규모를 불문하고",
-      "contextSha256": "aa9bd3f6eea4a81fcfde8b2545298b1869f2eb0eb32dd46b7d2e7c6b886ea93e",
-      "decision": "rejected",
-      "mode": "R",
-      "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
-      "rationaleKo": "배제하지 않는 의미는 유사하지만 불문하고는 막론하고의 실제 형태 용례가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.",
-      "sameLevel": true,
-      "provenance": "legacy_scenario_or_media"
-    },
-    {
       "phaseId": "KP26",
       "grammarKey": "G6:마는",
       "sourcePath": "assets/data/scenarios_c2.json",
@@ -6877,7 +6860,7 @@
       "jsonPointer": "/scenarios/26/dialog/5/ko",
       "sourceLevel": "C2",
       "quote": "남아 있었기에 망정이지",
-      "contextSha256": "bc7618cde656ef09b423163de1806168a0fe847691d0e5a8538a25b16dbf57c1",
+      "contextSha256": "27f490cdc262bae5a0baf775bef0f44a35cc1cbb6c540f62fb8e58cf84f7615a",
       "decision": "rejected",
       "mode": "R",
       "status": "MODEL_QA_PASS",
@@ -6985,6 +6968,23 @@
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
       "rationaleKo": "설문 청자를 찬성하다의 주어로 높이는 시가 격식 질문에 결합했다. 설문 평가 전제의 타당성을 인정하는 것은 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.",
+      "sameLevel": true,
+      "provenance": "legacy_scenario_or_media"
+    },
+    {
+      "phaseId": "KP25",
+      "grammarKey": "G6:를 막론하고",
+      "sourcePath": "assets/data/scenarios_c2.json",
+      "recordId": "c2_w10_fandom",
+      "jsonPointer": "/scenarios/29/dialog/3/ko",
+      "sourceLevel": "C2",
+      "quote": "장르나 팬덤 규모를 불문하고",
+      "contextSha256": "f86d7fd5b67c084ec15bbfe69c6fecfeecdf5f7ecc80ba76b495cbac95e829e6",
+      "decision": "rejected",
+      "mode": "R",
+      "status": "MODEL_QA_PASS",
+      "reviewer": "Astra",
+      "rationaleKo": "배제하지 않는 의미는 유사하지만 불문하고는 막론하고의 실제 형태 용례가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.",
       "sameLevel": true,
       "provenance": "legacy_scenario_or_media"
     }

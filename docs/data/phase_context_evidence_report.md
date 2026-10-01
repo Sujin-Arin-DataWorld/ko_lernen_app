@@ -782,7 +782,6 @@
 - KP25 / G6:-되 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/2/dialog/4/ko` — “단일화하되”. 대외 보상 책임의 단일화는 유지하면서 내부 원인은 각각 추적한다는 제한·병행 조건이다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP25 / G6:-되 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/19/dialog/3/ko` — “정확히 쓰되”. 의무·처벌의 정확성을 유지하며 수정·도움 요청도 함께 안내하자는 단서다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP25 / G2:-기 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/27/dialog/3/ko` — “떠넘기기”. 책임 떠넘기기 행위를 명사화해 십상이다의 대상으로 삼는다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
-- KP25 / G6:를 막론하고 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/29/dialog/3/ko` — “장르나 팬덤 규모를 불문하고”. 배제하지 않는 의미는 유사하지만 불문하고는 막론하고의 실제 형태 용례가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.
 - KP26 / G6:마는 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/11/dialog/1/ko` — “부분은 있지만”. 대조 의미가 있어도 지만은 마는과 다른 형식이므로 정확한 문법 용례로 세지 않는다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP27 / G6:-을망정 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/26/dialog/5/ko` — “남아 있었기에 망정이지”. 다행이라는 기에 망정이지 구성이다. 불리함을 감수하는 을망정 구성과 구별한다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP27 / G4:-더라도 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/20/dialog/4/ko` — “길다고 치더라도”. 기다림이 길다고 가정하더라도 기대가 사라지는 것은 아니라는 양보이다. 다고 치다 안에 실현된 더라도만 인정한다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
@@ -791,3 +790,4 @@
 - KP30 / G6:-네1 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/28/dialog/2/ko` — “그 부분을 놓쳤네”. 해체 대화에서 뒤늦게 깨닫는 네이다. 하게체 종결 네1을 재사용한 근거가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP30 / G2:-네 / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/28/dialog/2/ko` — “그 부분을 놓쳤네”. 친한 공동 대표 대화에서 상대의 말을 듣고 자신의 누락을 새로 깨닫는다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
 - KP30 / G1:-으시- / accepted / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/14/dialog/0/ko` — “찬성하십니까?”. 설문 청자를 찬성하다의 주어로 높이는 시가 격식 질문에 결합했다. 설문 평가 전제의 타당성을 인정하는 것은 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다.
+- KP25 / G6:를 막론하고 / rejected / legacy_scenario_or_media: `assets/data/scenarios_c2.json/scenarios/29/dialog/3/ko` — “장르나 팬덤 규모를 불문하고”. 배제하지 않는 의미는 유사하지만 불문하고는 막론하고의 실제 형태 용례가 아니다. 원문의 앞뒤 대화를 직접 읽었으며 산출 평가나 장르 전체 숙달로 확대하지 않는다. 2026-09-15 재검수: 인접 대사 자연화(Jin 판정) 반영, 인용 구절·해당 대사 불변.

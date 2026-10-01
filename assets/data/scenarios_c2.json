@@ -4389,9 +4389,9 @@
         "en": "Proving ownership when the land register has a gap"
       },
       "intro": {
-        "ko": "다니엘은 할아버지 땅의 등기부가 화재로 일부 사라진 시기를 증명하려고 구청 기록관을 찾았습니다.",
-        "de": "Daniel sucht das Bezirksarchiv auf, um Eigentum aus einer Zeit zu belegen, in der das Grundbuch durch einen Brand teilweise verloren ging.",
-        "en": "Daniel visits the district archive to prove ownership from a period when part of the land register was lost in a fire."
+        "ko": "다니엘은 할아버지 땅의 오래된 등기 자료 일부가 화재로 사라져, 남아 있는 기록을 어디서 찾을 수 있는지 구청 기록관에 묻습니다.",
+        "de": "Ein Teil der alten Grundbuchunterlagen zum Grundstück von Daniels Großvater ging bei einem Brand verloren. Daniel fragt im Bezirksarchiv, wo noch Unterlagen zu finden sind.",
+        "en": "Some older land records for Daniel's grandfather were lost in a fire, so he asks the district archive where he can look for surviving records."
       },
       "courseUnitId": "c2_01_interpretation_institutions",
       "playerCharacterId": "daniel",
@@ -4497,33 +4497,33 @@
         },
         {
           "speaker": "official",
-          "ko": "아무리 자료가 부족하다 한들 세금 고지서나 이웃 증언 같은 간접 자료로 재구성할 여지가 있습니다.",
-          "de": "Auch wenn die Unterlagen lückenhaft sind, lässt sich der Sachverhalt möglicherweise anhand indirekter Nachweise wie Steuerbescheiden oder Aussagen von Nachbarn rekonstruieren.",
-          "en": "Even if the records are incomplete, we may still be able to reconstruct what happened using indirect evidence such as tax notices or testimony from neighbors."
+          "ko": "아무리 자료가 부족하다 한들, 남아 있는 세금 고지서나 당시 행정 기록은 찾아볼 수 있습니다.",
+          "de": "Auch wenn die Unterlagen knapp sind, können wir noch nach erhaltenen Steuerbescheiden und damaligen Verwaltungsunterlagen suchen.",
+          "en": "Even if records are scarce, we can still look for surviving tax notices and administrative records from that time."
         },
         {
           "speaker": "user",
-          "ko": "기록이 일부 사라졌다는 이유만으로 소유권 자체를 부정할 수는 없는 거죠?",
-          "de": "Nur weil ein Teil der Aufzeichnungen verloren ging, kann man das Eigentum selbst doch nicht bestreiten, oder?",
-          "en": "Just because part of the record disappeared doesn't mean the ownership itself can be denied, right?"
+          "ko": "등기 기록이 일부 사라졌다는 이유만으로 다른 단서까지 없다고 볼 수는 없겠죠?",
+          "de": "Nur weil ein Teil der Grundbuchunterlagen fehlt, können wir andere Hinweise doch nicht ausschließen, oder?",
+          "en": "We can't assume there are no other clues just because some registry records are missing, can we?"
         },
         {
           "speaker": "official",
-          "ko": "맞습니다. 다만 입증 책임이 신청인에게 있다는 점은 유념하셔야 합니다.",
-          "de": "Das stimmt. Allerdings müssen Sie bedenken, dass die Beweislast beim Antragsteller liegt.",
-          "en": "That's right. However, you should keep in mind that the burden of proof lies with the applicant."
+          "ko": "그럴 수 있습니다. 다만 여기서는 소유권을 판단하지 않고 남아 있는 기록을 확인해 드릴 수 있습니다.",
+          "de": "Das ist möglich. Über das Eigentum können wir hier nicht entscheiden, aber wir können prüfen, welche Unterlagen noch vorhanden sind.",
+          "en": "Possibly. We can't determine ownership here, but we can help you check which records survive."
         },
         {
           "speaker": "user",
-          "ko": "그럼 어떤 자료부터 준비해서 제출하면 될까요?",
-          "de": "Welche Unterlagen sollte ich dann zuerst vorbereiten und einreichen?",
-          "en": "Then which documents should I prepare and submit first?"
+          "ko": "그럼 어떤 기록부터 찾아보면 될까요?",
+          "de": "Nach welchen Unterlagen sollte ich dann zuerst suchen?",
+          "en": "Which records should I look for first, then?"
         },
         {
           "speaker": "official",
-          "ko": "가장 오래된 세금 고지서부터 연도순으로 내시면 검토가 훨씬 빨라집니다.",
-          "de": "Wenn Sie mit den ältesten Steuerbescheiden beginnen und sie der Reihe nach vorlegen, geht die Prüfung viel schneller.",
-          "en": "If you submit the oldest tax notices first and then work forward by year, the review will go much faster."
+          "ko": "먼저 보관 중인 자료 목록을 살펴보고, 다른 기관에 남은 기록도 안내해 드리겠습니다.",
+          "de": "Wir sehen zuerst in unserem Bestandsverzeichnis nach. Ich kann Ihnen auch sagen, bei welchen anderen Stellen noch Unterlagen liegen könnten.",
+          "en": "Let's check our holdings first. I can also tell you which other offices may have records."
         },
         {
           "speaker": "user",
@@ -4537,15 +4537,15 @@
           "id": "quest_c2_w10_record_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "맞습니다. 다만 입증 책임이 신청인에게 있다는 점은 유념하셔야 합니다.",
+            "audioKo": "그럴 수 있습니다. 다만 여기서는 소유권을 판단하지 않고 남아 있는 기록을 확인해 드릴 수 있습니다.",
             "options": [
               {
-                "de": "Das stimmt. Allerdings müssen Sie bedenken, dass die Beweislast beim Antragsteller liegt.",
-                "en": "That's right. However, you should keep in mind that the burden of proof lies with the applicant."
+                "de": "Das ist möglich. Über das Eigentum können wir hier nicht entscheiden, aber wir können prüfen, welche Unterlagen noch vorhanden sind.",
+                "en": "Possibly. We can't determine ownership here, but we can help you check which records survive."
               },
               {
-                "de": "Das stimmt nicht, die Beweislast liegt bei der Behörde.",
-                "en": "That's not true, the burden of proof lies with the agency."
+                "de": "Nein, das Archiv kann das Eigentum ohne weitere Prüfung rechtsverbindlich feststellen.",
+                "en": "No, the archive can conclusively determine ownership without any further review."
               },
               {
                 "de": "Leider wurde der gesamte Antrag abgelehnt.",
@@ -4563,14 +4563,14 @@
           "id": "quest_c2_w10_record_translate",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Nur weil ein Teil der Aufzeichnungen verloren ging, kann man das Eigentum selbst doch nicht bestreiten, oder?",
-            "promptEn": "Just because part of the record disappeared doesn't mean the ownership itself can be denied, right?",
+            "promptDe": "Nur weil ein Teil der Grundbuchunterlagen fehlt, können wir andere Hinweise doch nicht ausschließen, oder?",
+            "promptEn": "We can't assume there are no other clues just because some registry records are missing, can we?",
             "options": [
               {
-                "ko": "기록이 일부 사라졌다는 이유만으로 소유권 자체를 부정할 수는 없는 거죠?"
+                "ko": "등기 기록이 일부 사라졌다는 이유만으로 다른 단서까지 없다고 볼 수는 없겠죠?"
               },
               {
-                "ko": "아무리 자료가 부족하다 한들 세금 고지서나 이웃 증언 같은 간접 자료로 재구성할 여지가 있습니다."
+                "ko": "아무리 자료가 부족하다 한들, 남아 있는 세금 고지서나 당시 행정 기록은 찾아볼 수 있습니다."
               },
               {
                 "ko": "그럼 할아버지 명의였다는 사실을 어떻게 입증할 수 있을까요?"
@@ -4586,9 +4586,9 @@
           "id": "quest_c2_w10_record_build",
           "type": "satzBauen",
           "data": {
-            "targetKo": "아무리 자료가 부족하다 한들 세금 고지서나 이웃 증언 같은 간접 자료로 재구성할 여지가 있습니다.",
-            "promptDe": "Wie unzureichend die Unterlagen auch sein mögen, es gibt Spielraum, sie mit indirekten Nachweisen wie Steuerbescheiden oder Zeugenaussagen von Nachbarn zu rekonstruieren.",
-            "promptEn": "No matter how insufficient the materials may be, there's room to reconstruct it using indirect materials like tax notices or neighbor testimony.",
+            "targetKo": "아무리 자료가 부족하다 한들, 남아 있는 세금 고지서나 당시 행정 기록은 찾아볼 수 있습니다.",
+            "promptDe": "Auch wenn die Unterlagen knapp sind, können wir noch nach erhaltenen Steuerbescheiden und damaligen Verwaltungsunterlagen suchen.",
+            "promptEn": "Even if records are scarce, we can still look for surviving tax notices and administrative records from that time.",
             "distractors": [
               "등기부",
               "화재로"
@@ -4611,9 +4611,9 @@
         "en": "How far a power of attorney actually reaches"
       },
       "intro": {
-        "ko": "안드레아는 어머니를 대신해 통장 업무를 볼 위임장을 준비하면서 대리인이 할 수 있는 일의 범위를 확인합니다.",
-        "de": "Andrea bereitet eine Vollmacht vor, um Bankgeschäfte für ihre Mutter zu erledigen, und lässt sich den genauen Umfang der Befugnisse erklären.",
-        "en": "Andrea is preparing a power of attorney to handle banking for her mother and checks exactly what the representative is allowed to do."
+        "ko": "어머니의 은행 위임장 초안을 준비하는 안드레아는 거래 범위와 본인 확인 절차를 묻습니다.",
+        "de": "Andrea bereitet einen Entwurf für eine Bankvollmacht ihrer Mutter vor und fragt nach dem Umfang und der Prüfung der Identität.",
+        "en": "Andrea is preparing a draft bank power of attorney for her mother and asks about its scope and identity checks."
       },
       "courseUnitId": "c2_01_interpretation_institutions",
       "playerCharacterId": "andrea",
@@ -4707,9 +4707,9 @@
       "dialog": [
         {
           "speaker": "official",
-          "ko": "이 위임장은 예금 인출과 이체 업무를 대리하는 것을 전제로 작성돼 있습니다.",
-          "de": "Diese Vollmacht wurde für die Vertretung bei Abhebungen und Überweisungen ausgestellt.",
-          "en": "This power of attorney authorizes someone to make withdrawals and transfers on the account holder's behalf."
+          "ko": "이 초안은 예금 인출과 이체를 전제로 작성돼 있습니다.",
+          "de": "Dieser Entwurf ist auf Abhebungen und Überweisungen ausgelegt.",
+          "en": "This draft is intended for withdrawals and transfers only."
         },
         {
           "speaker": "user",
@@ -4719,21 +4719,21 @@
         },
         {
           "speaker": "official",
-          "ko": "아니요, 그건 이 위임장만으로는 처리할 수 없고 별도 동의가 필요합니다.",
-          "de": "Nein, das lässt sich nicht allein mit dieser Vollmacht erledigen, dafür ist eine gesonderte Zustimmung nötig.",
-          "en": "No, that can't be handled with this power of attorney alone. A separate consent is required for that."
+          "ko": "그 거래는 이 초안에 포함되지 않습니다. 필요한 동의와 서류는 별도로 확인해야 합니다.",
+          "de": "Dieses Geschäft ist vom Entwurf nicht erfasst. Welche Zustimmung und Unterlagen dafür nötig sind, müssen wir gesondert prüfen.",
+          "en": "That transaction isn't covered by this draft. We'd need to check the consent and documents required for it separately."
         },
         {
           "speaker": "user",
-          "ko": "어머니가 나중에 판단이 어려워지시면 범위를 넓힐 방법이 있을까요?",
-          "de": "Falls es meiner Mutter später schwerfällt, Entscheidungen zu treffen, gibt es dann eine Möglichkeit, den Umfang zu erweitern?",
-          "en": "If it becomes hard for my mother to make decisions later, is there a way to broaden the scope?"
+          "ko": "어머니가 나중에 범위를 바꾸고 싶어 하시면 어떻게 해야 하나요?",
+          "de": "Was ist, wenn meine Mutter den Umfang später ändern möchte?",
+          "en": "What if my mother wants to change the scope later?"
         },
         {
           "speaker": "official",
-          "ko": "그런 경우에는 성년후견 절차를 먼저 밟으셔야 합니다.",
-          "de": "In einem solchen Fall müssen Sie zunächst das Betreuungsverfahren durchlaufen.",
-          "en": "In that case, you would need to go through the adult guardianship process first."
+          "ko": "어머니의 의사를 다시 확인하고, 그때 필요한 절차를 은행에서 안내해 드리겠습니다.",
+          "de": "Dann klären wir erneut, was Ihre Mutter möchte, und erläutern Ihnen die erforderlichen Schritte.",
+          "en": "We'd confirm your mother's wishes again and explain the steps needed at that point."
         },
         {
           "speaker": "user",
@@ -4743,15 +4743,15 @@
         },
         {
           "speaker": "official",
-          "ko": "네, 그 범위라면 오늘 바로 작성해 드릴 수 있습니다.",
-          "de": "Ja, in diesem Umfang kann ich die Vollmacht heute gleich für Sie ausstellen.",
-          "en": "Yes, within that scope I can draw up the power of attorney for you today."
+          "ko": "오늘은 이 범위에 필요한 서류와 본인 확인 절차를 안내해 드리겠습니다.",
+          "de": "Heute kann ich Ihnen erklären, welche Unterlagen und Identitätsprüfungen für diesen Umfang nötig sind.",
+          "en": "Today I can explain which documents and identity checks are needed for this scope."
         },
         {
           "speaker": "user",
-          "ko": "감사해요. 나중에 범위를 넓힐 때는 다시 방문하면 되죠?",
-          "de": "Danke. Wenn ich den Umfang später erweitern möchte, komme ich dann einfach noch einmal vorbei?",
-          "en": "Thank you. If I want to broaden the scope later, I can just come back again, right?"
+          "ko": "감사해요. 범위를 바꾸려면 어머니의 뜻을 다시 확인해야겠네요.",
+          "de": "Danke. Wenn sich der Umfang ändert, müssen wir also erneut klären, was meine Mutter möchte.",
+          "en": "Thank you. If the scope changes, we'll need to confirm what my mother wants again."
         }
       ],
       "quests": [
@@ -4759,11 +4759,11 @@
           "id": "quest_c2_w10_mandate_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "아니요, 그건 이 위임장만으로는 처리할 수 없고 별도 동의가 필요합니다.",
+            "audioKo": "그 거래는 이 초안에 포함되지 않습니다. 필요한 동의와 서류는 별도로 확인해야 합니다.",
             "options": [
               {
-                "de": "Nein, das lässt sich nicht allein mit dieser Vollmacht erledigen, dafür ist eine gesonderte Zustimmung nötig.",
-                "en": "No, that can't be handled with this power of attorney alone. A separate consent is required for that."
+                "de": "Dieses Geschäft ist vom Entwurf nicht erfasst. Welche Zustimmung und Unterlagen dafür nötig sind, müssen wir gesondert prüfen.",
+                "en": "That transaction isn't covered by this draft. We'd need to check the consent and documents required for it separately."
               },
               {
                 "de": "Ja, das ist bereits in der Vollmacht enthalten.",
@@ -4785,14 +4785,14 @@
           "id": "quest_c2_w10_mandate_translate",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "In einem solchen Fall müssen Sie zunächst das Betreuungsverfahren durchlaufen.",
-            "promptEn": "In that case, you would need to go through the adult guardianship process first.",
+            "promptDe": "Dann klären wir erneut, was Ihre Mutter möchte, und erläutern Ihnen die erforderlichen Schritte.",
+            "promptEn": "We'd confirm your mother's wishes again and explain the steps needed at that point.",
             "options": [
               {
-                "ko": "그런 경우에는 성년후견 절차를 먼저 밟으셔야 합니다."
+                "ko": "어머니의 의사를 다시 확인하고, 그때 필요한 절차를 은행에서 안내해 드리겠습니다."
               },
               {
-                "ko": "이 위임장은 예금 인출과 이체 업무를 대리하는 것을 전제로 작성돼 있습니다."
+                "ko": "이 초안은 예금 인출과 이체를 전제로 작성돼 있습니다."
               },
               {
                 "ko": "그럼 예금을 다른 상품으로 옮기는 것도 포함되나요?"
@@ -4808,9 +4808,9 @@
           "id": "quest_c2_w10_mandate_build",
           "type": "satzBauen",
           "data": {
-            "targetKo": "네, 그 범위라면 오늘 바로 작성해 드릴 수 있습니다.",
-            "promptDe": "Ja, in diesem Umfang kann ich die Vollmacht heute gleich für Sie ausstellen.",
-            "promptEn": "Yes, within that scope I can draw up the power of attorney for you today.",
+            "targetKo": "오늘은 이 범위에 필요한 서류와 본인 확인 절차를 안내해 드리겠습니다.",
+            "promptDe": "Heute kann ich Ihnen erklären, welche Unterlagen und Identitätsprüfungen für diesen Umfang nötig sind.",
+            "promptEn": "Today I can explain which documents and identity checks are needed for this scope.",
             "distractors": [
               "위임장은",
               "성년후견"
@@ -4844,9 +4844,9 @@
         "en": "Whose experience does the average hide?"
       },
       "intro": {
-        "ko": "현아는 출퇴근 지원 정책이 평균적으로는 효과가 있지만 야간 근무자에게는 오히려 불리하다는 자료를 발표합니다.",
-        "de": "Hyuna stellt Daten vor, wonach ein Pendlerzuschuss im Schnitt wirkt, Nachtschichtarbeiter aber benachteiligt.",
-        "en": "Hyuna presents data showing a commuting subsidy works on average but disadvantages night-shift workers."
+        "ko": "현아는 통근 셔틀 지원으로 평균 통근 시간이 줄었지만, 셔틀이 야간에는 운행하지 않아 야간 근무자는 혜택을 받지 못한다는 자료를 발표합니다.",
+        "de": "Hyuna stellt Daten vor: Ein geförderter Pendelbus verkürzt die durchschnittliche Fahrzeit, doch Nachtschichtbeschäftigte profitieren nicht, weil er nachts nicht fährt.",
+        "en": "Hyuna presents data showing that a commuter shuttle reduced average travel time, but night-shift workers did not benefit because it does not run at night."
       },
       "courseUnitId": "c2_02_technology_public_ethics",
       "playerCharacterId": "hyuna",
@@ -4940,9 +4940,9 @@
       "dialog": [
         {
           "speaker": "moderator",
-          "ko": "이번 지원책은 평균 통근 시간을 15분 줄인 것으로 나옵니다.",
-          "de": "Den Zahlen zufolge hat diese Maßnahme die durchschnittliche Pendelzeit um 15 Minuten verkürzt.",
-          "en": "According to the figures, this measure reduced the average commute time by 15 minutes."
+          "ko": "이번 셔틀 지원책은 평균 통근 시간을 15분 줄인 것으로 나옵니다.",
+          "de": "Den Zahlen zufolge hat das geförderte Shuttle die durchschnittliche Pendelzeit um 15 Minuten verkürzt.",
+          "en": "The figures show that this shuttle programme cut the average commute by 15 minutes."
         },
         {
           "speaker": "user",
@@ -4958,9 +4958,9 @@
         },
         {
           "speaker": "user",
-          "ko": "인원 비율만 보면 작은 문제에 불과하지만 그들에게는 통근 자체가 불가능해집니다.",
-          "de": "Sieht man nur ihren Anteil an der Gesamtzahl, wirkt es wie ein kleines Problem, aber für sie wird das Pendeln überhaupt unmöglich.",
-          "en": "If you only look at their share of the total, it seems like a small problem, but for them commuting becomes impossible."
+          "ko": "인원 비율만 보면 작은 문제에 불과해 보일 수 있지만, 셔틀이 야간에는 운행하지 않아 그분들은 단축 혜택을 받지 못합니다.",
+          "de": "Betrachtet man nur ihren Anteil, mag das Problem gering erscheinen. Doch nachts fährt der Shuttlebus nicht, sodass sie nicht von der kürzeren Pendelzeit profitieren.",
+          "en": "It may look like a minor issue if we consider only their share, but the shuttle doesn't run at night, so they don't benefit from the shorter commute."
         },
         {
           "speaker": "moderator",
@@ -4976,9 +4976,9 @@
         },
         {
           "speaker": "moderator",
-          "ko": "그렇다면 야간 근무자를 위한 별도 지원 시간대를 검토해 보겠습니다.",
-          "de": "Dann prüfen wir gesonderte Unterstützungszeiten für Nachtschichtbeschäftigte.",
-          "en": "Then we'll look into separate support hours for night-shift workers."
+          "ko": "그렇다면 야간에도 셔틀을 운행할 수 있는지 검토해 보겠습니다.",
+          "de": "Dann prüfen wir, ob der Shuttlebus auch nachts fahren kann.",
+          "en": "Then we'll look into whether the shuttle can run at night too."
         },
         {
           "speaker": "user",
@@ -4992,19 +4992,19 @@
           "id": "quest_c2_w10_impact_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "인원 비율만 보면 작은 문제에 불과하지만 그들에게는 통근 자체가 불가능해집니다.",
+            "audioKo": "인원 비율만 보면 작은 문제에 불과해 보일 수 있지만, 셔틀이 야간에는 운행하지 않아 그분들은 단축 혜택을 받지 못합니다.",
             "options": [
               {
-                "de": "Sieht man nur den Anteil, ist es nichts weiter als ein kleines Problem, aber für sie wird das Pendeln selbst unmöglich.",
-                "en": "Looking only at the head-count ratio, it's nothing more than a minor issue, but for them, commuting itself becomes impossible."
+                "de": "Betrachtet man nur ihren Anteil, mag das Problem gering erscheinen. Doch nachts fährt der Shuttlebus nicht, sodass sie nicht von der kürzeren Pendelzeit profitieren.",
+                "en": "It may look like a minor issue if we consider only their share, but the shuttle doesn't run at night, so they don't benefit from the shorter commute."
               },
               {
                 "de": "Der Anteil ist so groß, dass die gesamte Politik gestoppt werden muss.",
                 "en": "The share is so large that the entire policy must be stopped."
               },
               {
-                "de": "Für diese Gruppe hat sich überhaupt nichts verändert.",
-                "en": "Nothing has changed for this group at all."
+                "de": "Für diese Gruppe verkürzt der Shuttlebus die Pendelzeit sogar noch stärker.",
+                "en": "The shuttle cuts this group’s commute even more."
               },
               {
                 "de": "Nachtschichtarbeiter nutzen die Förderung inzwischen am meisten.",
@@ -5025,13 +5025,13 @@
                 "ko": "맞습니다. 다수의 평균과 소수의 생활, 둘 다 같은 무게로 봐야 합니다."
               },
               {
-                "ko": "이번 지원책은 평균 통근 시간을 15분 줄인 것으로 나옵니다."
+                "ko": "이번 셔틀 지원책은 평균 통근 시간을 15분 줄인 것으로 나옵니다."
               },
               {
                 "ko": "그 인원은 전체의 오 퍼센트도 안 되는데 정책 전체를 흔들 필요가 있을까요?"
               },
               {
-                "ko": "그렇다면 야간 근무자를 위한 별도 지원 시간대를 검토해 보겠습니다."
+                "ko": "그렇다면 야간에도 셔틀을 운행할 수 있는지 검토해 보겠습니다."
               }
             ],
             "correctIndex": 0
@@ -5041,9 +5041,9 @@
           "id": "quest_c2_w10_impact_build",
           "type": "satzBauen",
           "data": {
-            "targetKo": "그렇다면 야간 근무자를 위한 별도 지원 시간대를 검토해 보겠습니다.",
-            "promptDe": "Dann werden wir ein gesondertes Förderzeitfenster für Nachtschichtarbeiter prüfen.",
-            "promptEn": "Then we'll look into a separate support time window for night-shift workers.",
+            "targetKo": "그렇다면 야간에도 셔틀을 운행할 수 있는지 검토해 보겠습니다.",
+            "promptDe": "Dann prüfen wir, ob der Shuttlebus auch nachts fahren kann.",
+            "promptEn": "Then we'll look into whether the shuttle can run at night too.",
             "distractors": [
               "평균은",
               "비율만"
@@ -5510,9 +5510,9 @@
         "en": "Once the limitation period passes, is it really over?"
       },
       "intro": {
-        "ko": "수진은 몇 년 전 피해에 대한 배상을 청구하려 하지만 담당자는 소멸시효가 이미 지났다고 설명합니다.",
-        "de": "Sujin möchte Schadensersatz für einen Vorfall vor einigen Jahren fordern, doch der Sachbearbeiter erklärt, die Verjährungsfrist sei bereits abgelaufen.",
-        "en": "Sujin wants to file a compensation claim for something that happened a few years ago, but the official explains the statute of limitations has already expired."
+        "ko": "수진은 3년 전 사고의 배상 청구 가능성을 묻고, 상담 담당자는 사고 날짜만으로 소멸시효를 단정할 수 없다고 설명합니다.",
+        "de": "Sujin fragt, ob sie wegen eines Unfalls vor drei Jahren noch Schadensersatz verlangen kann. Die Beratungsperson erklärt, dass das Unfalldatum allein die Verjährungsfrage nicht klärt.",
+        "en": "Sujin asks whether she can claim compensation for an accident three years ago. The adviser explains that the accident date alone does not settle the limitation question."
       },
       "courseUnitId": "c2_04_sanction_accountability",
       "playerCharacterId": "sujin",
@@ -5612,45 +5612,45 @@
         },
         {
           "speaker": "official",
-          "ko": "안타깝게도 소멸시효가 이미 지나서 청구권 자체가 사라진 상태입니다.",
-          "de": "Leider ist die Verjährungsfrist bereits abgelaufen, sodass der Anspruch selbst erloschen ist.",
-          "en": "Unfortunately the limitation period has already passed, so the claim itself has expired."
+          "ko": "사고가 3년 전이라고 해서 소멸시효가 지났다고 바로 단정할 수는 없습니다.",
+          "de": "Allein weil der Unfall drei Jahre zurückliegt, lässt sich nicht sagen, dass der Anspruch verjährt ist.",
+          "en": "We can't conclude that the claim is time-barred simply because the accident was three years ago."
         },
         {
           "speaker": "user",
-          "ko": "아무리 시간이 지났다 한들 제가 몰랐던 사실은 감안해 주셔야 하는 거 아닌가요?",
-          "de": "Wie viel Zeit auch vergangen sein mag, müssten Sie nicht berücksichtigen, dass ich davon nichts wusste?",
-          "en": "No matter how much time has passed, shouldn't the fact that I didn't know be taken into account?"
+          "ko": "아무리 시간이 지났다 한들, 제가 손해를 언제 알았는지도 봐야 하는 거죠?",
+          "de": "Auch wenn Zeit vergangen ist, müssen wir doch prüfen, wann ich vom Schaden erfahren habe, oder?",
+          "en": "Even if time has passed, we also need to look at when I learned of the harm, right?"
         },
         {
           "speaker": "official",
-          "ko": "맞습니다. 그래서 기산일을 나중에 알게 된 시점부터 계산하는 예외 조항이 있습니다.",
-          "de": "Das stimmt. Deshalb gibt es eine Ausnahmeregelung, nach der die Frist erst ab dem Zeitpunkt läuft, an dem man davon erfährt.",
-          "en": "That's right. There's an exception under which the limitation period starts from the date you became aware of the facts."
+          "ko": "네. 청구의 종류와 손해 및 상대방을 안 시점 등을 확인해야 판단할 수 있습니다.",
+          "de": "Ja. Wir müssen unter anderem klären, um welchen Anspruch es geht und wann Sie vom Schaden und der verantwortlichen Person erfahren haben.",
+          "en": "Yes. We need to establish the type of claim and when you learned of the harm and the responsible party before assessing it."
         },
         {
           "speaker": "user",
-          "ko": "그럼 제가 사실을 알게 된 날짜를 증명하면 되는 거죠? 다행히 그날 병원 진단서를 받았어요.",
-          "de": "Dann muss ich also nur das Datum nachweisen, an dem ich davon erfahren habe, oder? Zum Glück habe ich an dem Tag ein ärztliches Attest bekommen.",
-          "en": "So I just need to prove the date when I found out, right? Luckily, I got a medical certificate from the hospital that day."
+          "ko": "그날 병원 진단서를 받았는데, 당시 상황을 확인하는 데 도움이 될까요?",
+          "de": "Ich habe an dem Tag ein ärztliches Attest bekommen. Könnte es helfen, die damaligen Umstände zu belegen?",
+          "en": "I got a medical certificate that day. Could it help establish what happened then?"
         },
         {
           "speaker": "official",
-          "ko": "그 진단서가 남아 있었기에 망정이지, 안 그랬으면 신청 자체가 어려웠을 거예요.",
-          "de": "Gut, dass Sie dieses Attest noch haben. Sonst wäre der Antrag kaum möglich gewesen.",
-          "en": "It's fortunate that you still have that certificate. Otherwise, filing the claim would have been difficult."
+          "ko": "진단서가 남아 있었기에 망정이지, 당시 상태를 확인할 자료가 없을 뻔했네요.",
+          "de": "Gut, dass Sie es aufgehoben haben. Sonst hätten wir womöglich keinen Beleg für Ihren damaligen Zustand.",
+          "en": "It's fortunate you kept it; otherwise we might have had no record of your condition at the time."
         },
         {
           "speaker": "user",
-          "ko": "그럼 그 서류부터 다시 찾아볼게요.",
-          "de": "Dann suche ich zuerst dieses Dokument wieder heraus.",
-          "en": "Then I'll look for that document first."
+          "ko": "다른 기록도 함께 찾아볼게요.",
+          "de": "Ich suche auch nach weiteren Unterlagen.",
+          "en": "I'll look for other records too."
         },
         {
           "speaker": "official",
-          "ko": "네, 준비되시면 신청서와 같이 제출해 주세요.",
-          "de": "Ja, wenn Sie es haben, reichen Sie es bitte zusammen mit dem Antrag ein.",
-          "en": "Yes, once you have it, please submit it together with the application."
+          "ko": "자료를 모아 전문가에게 청구 가능성을 확인해 보세요.",
+          "de": "Sammeln Sie die Unterlagen und lassen Sie die Möglichkeit eines Anspruchs rechtlich prüfen.",
+          "en": "Gather the records and ask a legal professional to assess whether you can bring the claim."
         }
       ],
       "quests": [
@@ -5658,11 +5658,11 @@
           "id": "quest_c2_w10_limitation_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "맞습니다. 그래서 기산일을 나중에 알게 된 시점부터 계산하는 예외 조항이 있습니다.",
+            "audioKo": "네. 청구의 종류와 손해 및 상대방을 안 시점 등을 확인해야 판단할 수 있습니다.",
             "options": [
               {
-                "de": "Das stimmt. Deshalb gibt es eine Ausnahmeregelung, nach der die Frist erst ab dem Zeitpunkt läuft, an dem man davon erfährt.",
-                "en": "That's right. That's why there's an exception clause that calculates the period from when you actually found out."
+                "de": "Ja. Wir müssen unter anderem klären, um welchen Anspruch es geht und wann Sie vom Schaden und der verantwortlichen Person erfahren haben.",
+                "en": "Yes. We need to establish the type of claim and when you learned of the harm and the responsible party before assessing it."
               },
               {
                 "de": "Nein, für diesen Fall gibt es keine Ausnahme.",
@@ -5684,20 +5684,20 @@
           "id": "quest_c2_w10_limitation_translate",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Zum Glück ist dieses Attest erhalten geblieben. Sonst wäre der Antrag selbst kaum möglich gewesen.",
-            "promptEn": "It's a good thing that certificate was kept. Otherwise, filing at all would have been difficult.",
+            "promptDe": "Gut, dass Sie das Attest aufgehoben haben. Sonst hätten wir womöglich keinen Beleg für Ihren damaligen Zustand.",
+            "promptEn": "It's fortunate you kept the certificate; otherwise we might have had no record of your condition at the time.",
             "options": [
               {
-                "ko": "그 진단서가 남아 있었기에 망정이지, 안 그랬으면 신청 자체가 어려웠을 거예요."
+                "ko": "진단서가 남아 있었기에 망정이지, 당시 상태를 확인할 자료가 없을 뻔했네요."
               },
               {
                 "ko": "삼 년 전 사고에 대한 배상을 이제라도 청구할 수 있을까요?"
               },
               {
-                "ko": "안타깝게도 소멸시효가 이미 지나서 청구권 자체가 사라진 상태입니다."
+                "ko": "사고가 3년 전이라고 해서 소멸시효가 지났다고 바로 단정할 수는 없습니다."
               },
               {
-                "ko": "그럼 제가 사실을 알게 된 날짜를 증명하면 되는 거죠? 다행히 그날 병원 진단서를 받았어요."
+                "ko": "그날 병원 진단서를 받았는데, 당시 상황을 확인하는 데 도움이 될까요?"
               }
             ],
             "correctIndex": 0
@@ -5707,9 +5707,9 @@
           "id": "quest_c2_w10_limitation_build",
           "type": "satzBauen",
           "data": {
-            "targetKo": "그럼 그 서류부터 다시 찾아볼게요.",
-            "promptDe": "Dann suche ich zuerst dieses Dokument wieder heraus.",
-            "promptEn": "Then I'll go find that document again first.",
+            "targetKo": "다른 기록도 함께 찾아볼게요.",
+            "promptDe": "Ich suche auch nach weiteren Unterlagen.",
+            "promptEn": "I'll look for other records too.",
             "distractors": [
               "소멸시효가",
               "진단서에"
@@ -6302,9 +6302,9 @@
         },
         {
           "speaker": "moderator",
-          "ko": "장르나 팬덤 규모를 불문하고 상업적 이용은 계정 정지 대상이 맞습니다.",
-          "de": "Unabhängig von Genre oder Größe des Fandoms ist kommerzielle Nutzung ein Grund für eine Kontosperrung.",
-          "en": "Regardless of genre or fandom size, commercial use is in fact grounds for suspension."
+          "ko": "이 커뮤니티 규정에 따르면 장르나 팬덤 규모를 불문하고 타인의 창작물을 허락 없이 상업적으로 이용하면 계정 정지를 검토합니다.",
+          "de": "Nach den Regeln dieser Community prüfen wir eine Kontosperrung, wenn jemand fremde Werke ohne Erlaubnis kommerziell nutzt – unabhängig von Genre oder Größe des Fandoms.",
+          "en": "Under this community's rules, we consider suspending accounts that use someone else's work commercially without permission, regardless of genre or fandom size."
         },
         {
           "speaker": "user",
@@ -6314,21 +6314,21 @@
         },
         {
           "speaker": "moderator",
-          "ko": "판정 실수였습니다. 다시 검토해서 정지 조치로 올리겠습니다.",
-          "de": "Das war ein Beurteilungsfehler. Wir prüfen den Fall erneut und leiten eine Kontosperrung ein.",
-          "en": "That was a mistake in our review. We'll reassess the case and escalate it to a suspension."
+          "ko": "판정 실수였습니다. 규정과 판매 내역을 다시 확인해 정지 여부를 판단하겠습니다.",
+          "de": "Das war ein Fehler bei der Prüfung. Wir sehen uns die Regeln und die Verkaufsbelege erneut an, bevor wir über eine Sperrung entscheiden.",
+          "en": "We made a mistake in the review. We'll check the rules and sales records again before deciding whether to suspend the account."
         },
         {
           "speaker": "user",
-          "ko": "감사해요. 그리고 이견이 있는 분들도 신고 대신 댓글로 의견을 남겨 주셨으면 해요.",
-          "de": "Danke. Und ich würde mir wünschen, dass Leute mit anderer Meinung ihre Sicht in den Kommentaren äußern, statt den Beitrag zu melden.",
-          "en": "Thank you. And I'd also like people who disagree to leave their views in comments instead of reporting."
+          "ko": "감사해요. 단순한 해석 차이는 댓글로 이야기하되, 규정 위반이 의심되면 신고할 수 있다는 점도 안내해 주세요.",
+          "de": "Danke. Bitte erklären Sie, dass man unterschiedliche Auslegungen in den Kommentaren besprechen und vermutete Regelverstöße weiterhin melden kann.",
+          "en": "Thank you. Please explain that people can discuss differences of interpretation in the comments and still report suspected rule violations."
         },
         {
           "speaker": "moderator",
-          "ko": "좋은 제안입니다. 커뮤니티 안내문에 그 내용도 추가하겠습니다.",
-          "de": "Das ist ein guter Vorschlag. Wir nehmen das auch in die Community-Richtlinien mit auf.",
-          "en": "That's a good suggestion. We'll add that to the community guidelines as well."
+          "ko": "네, 토론과 신고 기준을 나눠 안내하겠습니다.",
+          "de": "Ja. Wir erläutern getrennt, wann eine Diskussion und wann eine Meldung angebracht ist.",
+          "en": "Yes. We'll explain the difference between discussion and reporting."
         }
       ],
       "quests": [
@@ -6336,11 +6336,11 @@
           "id": "quest_c2_w10_fandom_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "장르나 팬덤 규모를 불문하고 상업적 이용은 계정 정지 대상이 맞습니다.",
+            "audioKo": "이 커뮤니티 규정에 따르면 장르나 팬덤 규모를 불문하고 타인의 창작물을 허락 없이 상업적으로 이용하면 계정 정지를 검토합니다.",
             "options": [
               {
-                "de": "Unabhängig von Genre oder Fandom-Größe führt kommerzielle Nutzung eigentlich zur Kontosperrung.",
-                "en": "Regardless of genre or fandom size, commercial use is in fact grounds for suspension."
+                "de": "Nach den Regeln dieser Community prüfen wir eine Kontosperrung, wenn jemand fremde Werke ohne Erlaubnis kommerziell nutzt – unabhängig von Genre oder Größe des Fandoms.",
+                "en": "Under this community's rules, we consider suspending accounts that use someone else's work commercially without permission, regardless of genre or fandom size."
               },
               {
                 "de": "Nur bei sehr großen Fandoms gilt diese Regel.",
@@ -6375,7 +6375,7 @@
                 "ko": "판매까지 한 계정인데 경고만으로 끝내는 건 너무 약한 대응 아닌가요?"
               },
               {
-                "ko": "판정 실수였습니다. 다시 검토해서 정지 조치로 올리겠습니다."
+                "ko": "판정 실수였습니다. 규정과 판매 내역을 다시 확인해 정지 여부를 판단하겠습니다."
               }
             ],
             "correctIndex": 0
@@ -6385,9 +6385,9 @@
           "id": "quest_c2_w10_fandom_build",
           "type": "satzBauen",
           "data": {
-            "targetKo": "판정 실수였습니다. 다시 검토해서 정지 조치로 올리겠습니다.",
-            "promptDe": "Das war ein Beurteilungsfehler. Wir prüfen es erneut und stufen es zur Sperrung hoch.",
-            "promptEn": "That was a misjudgment. We'll review it again and escalate it to a suspension.",
+            "targetKo": "판정 실수였습니다. 규정과 판매 내역을 다시 확인해 정지 여부를 판단하겠습니다.",
+            "promptDe": "Das war ein Fehler bei der Prüfung. Wir sehen uns die Regeln und die Verkaufsbelege erneut an, bevor wir über eine Sperrung entscheiden.",
+            "promptEn": "We made a mistake in the review. We'll check the rules and sales records again before deciding whether to suspend the account.",
             "distractors": [
               "계정을",
               "경고만으로"
