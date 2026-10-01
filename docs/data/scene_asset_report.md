@@ -61,7 +61,7 @@ SHA-256 바이트를 요구하며 런타임 폴백으로 사용한다.
 - `assets/data/scenarios_a2.json`: `1a42f350eda096d60bcaa09f8208ca578897e9aa9b87ea4227cecc6ec1353a07`
 - `assets/data/scenarios_b1.json`: `1cb331247f58ba3bbf5761d1400eab56bd29f46b288efdf6dc60b3b4151d14cf`
 - `assets/data/scenarios_b2.json`: `20b0647a3f1177d14836fb44ed54904a6d59d54c60b2f6460d52b71fc29c946b`
-- `assets/data/scenarios_c1.json`: `4d23c9c75a5bb2832732f7cc4e4165ddf1f0b0b0e8a3091368902edf07cdc9cf`
+- `assets/data/scenarios_c1.json`: `2ce503d593db72d1e78209ea4b6f85a56f2f53b8d2bddcffdb4b40580d94a1cc`
 - `assets/data/scenarios_c2.json`: `3c45c3313f919970cbb16bac40095cf916441bfcf0a05de57f5a7949c7eaa899`
 - `docs/data/scene_category_poster_lock.json`: `1036664f6008281cfcd8f969cad46953c0ed291e5047b1ad48a02555ec1432db`
 - `lib/services/scene_asset_resolver.dart`: `7f5a940853c25aaf4fbb81e8ccb7c1fcd951ea1570559c658b61d9e77aa185be`

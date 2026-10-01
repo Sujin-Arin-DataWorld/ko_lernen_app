@@ -13900,11 +13900,11 @@
     {
       "id": "cloze_c1_0059",
       "level": "c1",
-      "sentenceKo": "＿＿＿에 제가 갑자기 주인공이 되어 부담됐어요.",
+      "sentenceKo": "＿＿＿에서 제가 갑자기 주인공이 되자 부담스러웠어요.",
       "answer": "가족 서사",
-      "fullKo": "가족 서사에 제가 갑자기 주인공이 되어 부담됐어요.",
-      "de": "In der Familienerzählung plötzlich Hauptfigur zu sein druckte.",
-      "en": "Suddenly becoming the lead in the family narrative felt heavy.",
+      "fullKo": "가족 서사에서 제가 갑자기 주인공이 되자 부담스러웠어요.",
+      "de": "Als ich in der Familiengeschichte plötzlich zur Hauptfigur wurde, setzte mich das unter Druck.",
+      "en": "I felt overwhelmed when I suddenly became the main character in the family's story.",
       "distractors": [
         "돌봄 부담",
         "말의 자리",
@@ -20545,15 +20545,15 @@
     {
       "id": "cloze_c1_0094",
       "level": "c1",
-      "sentenceKo": "＿＿＿가 필요할 때는 확인 시각을 밝히고 기다려요.",
-      "answer": "속보 절제",
-      "fullKo": "속보 절제가 필요할 때는 확인 시각을 밝히고 기다려요.",
-      "de": "Bei Eilzurückhaltung nenne ich die Prüfzeit und warte.",
-      "en": "When holding a flash update I state the check time and wait.",
+      "sentenceKo": "확인 전에는 ＿＿＿가 필요하며, 다음 확인 시각을 안내해야 합니다.",
+      "answer": "속보 자제",
+      "fullKo": "확인 전에는 속보 자제가 필요하며, 다음 확인 시각을 안내해야 합니다.",
+      "de": "Vor der Prüfung sollten Eilmeldungen zurückgehalten und der Zeitpunkt der nächsten Überprüfung genannt werden.",
+      "en": "Before verification, breaking updates should be held back and the next check time made clear.",
       "distractors": [
-        "임산부",
-        "성과",
-        "고객센터"
+        "즉시 보도",
+        "자료 삭제",
+        "논점 확대"
       ],
       "topic": "Öffentliche Lage"
     },
@@ -21025,11 +21025,11 @@
     {
       "id": "cloze_c1_0126",
       "level": "c1",
-      "sentenceKo": "＿＿＿을 초기 설치비와 따로 적어요.",
-      "answer": "유지 부담",
-      "fullKo": "유지 부담을 초기 설치비와 따로 적어요.",
-      "de": "Die Folgelast schreibe ich getrennt von den Installationskosten.",
-      "en": "I write the upkeep burden separately from install cost.",
+      "sentenceKo": "초기 설치비와 ＿＿＿을 구분해서 적습니다.",
+      "answer": "유지·관리 비용",
+      "fullKo": "초기 설치비와 유지·관리 비용을 구분해서 적습니다.",
+      "de": "Ich führe die anfänglichen Installationskosten und die laufenden Wartungskosten getrennt auf.",
+      "en": "I list initial installation costs and ongoing maintenance costs separately.",
       "distractors": [
         "공휴일",
         "인터넷",
@@ -21160,11 +21160,11 @@
     {
       "id": "cloze_c1_0135",
       "level": "c1",
-      "sentenceKo": "＿＿＿에 인력 교대를 넣지 않으면 서비스가 끊겨요.",
-      "answer": "지속 가능 조건",
-      "fullKo": "지속 가능 조건에 인력 교대를 넣지 않으면 서비스가 끊겨요.",
-      "de": "Ohne Personalwechsel in der Dauerbedingung bricht der Dienst.",
-      "en": "Without staff rotation in the condition for staying viable, the service breaks.",
+      "sentenceKo": "＿＿＿에 인력 교대 계획이 빠지면 서비스가 중단될 수 있어요.",
+      "answer": "지속 운영 조건",
+      "fullKo": "지속 운영 조건에 인력 교대 계획이 빠지면 서비스가 중단될 수 있어요.",
+      "de": "Fehlt ein Plan für den Personalwechsel in den Bedingungen für einen dauerhaften Betrieb, kann der Dienst ausfallen.",
+      "en": "If staff rotation is left out of the conditions for keeping the service running, the service may be interrupted.",
       "distractors": [
         "접근 비용",
         "유지 부담",
@@ -21340,11 +21340,11 @@
     {
       "id": "cloze_c1_0147",
       "level": "c1",
-      "sentenceKo": "＿＿＿가 늦으면 다음 참여율이 떨어져요.",
-      "answer": "결정 환류",
-      "fullKo": "결정 환류가 늦으면 다음 참여율이 떨어져요.",
-      "de": "Kommt die Beschlussrückgabe spät, sinkt die nächste Beteiligung.",
-      "en": "If the decision return is late, the next turnout drops.",
+      "sentenceKo": "＿＿＿가 늦어지면 다음 참여율이 낮아질 수 있어요.",
+      "answer": "결정 결과 공유",
+      "fullKo": "결정 결과 공유가 늦어지면 다음 참여율이 낮아질 수 있어요.",
+      "de": "Wenn die Beteiligten erst spät über die Entscheidung informiert werden, beteiligen sie sich beim nächsten Mal möglicherweise seltener.",
+      "en": "If participants are told about the decision too late, they may be less likely to take part next time.",
       "distractors": [
         "제산제",
         "온실가스",
@@ -21505,11 +21505,11 @@
     {
       "id": "cloze_c1_0158",
       "level": "c1",
-      "sentenceKo": "＿＿＿을 높이면 안전은 오르고 수면은 나빠져요.",
+      "sentenceKo": "＿＿＿을 늘릴 때는 보행 안전과 주변 주민의 수면에 미칠 영향을 함께 살펴요.",
       "answer": "야간 조명",
-      "fullKo": "야간 조명을 높이면 안전은 오르고 수면은 나빠져요.",
-      "de": "Mehr Nachtlicht hebt die Sicherheit und senkt den Schlaf.",
-      "en": "More night lighting raises safety and worsens sleep.",
+      "fullKo": "야간 조명을 늘릴 때는 보행 안전과 주변 주민의 수면에 미칠 영향을 함께 살펴요.",
+      "de": "Bei zusätzlicher Nachtbeleuchtung prüfen wir sowohl die Sicherheit von Fußgängern als auch mögliche Auswirkungen auf den Schlaf der Anwohnenden.",
+      "en": "When adding night lighting, we consider both pedestrian safety and possible effects on nearby residents’ sleep.",
       "distractors": [
         "시행",
         "넷",
@@ -21640,15 +21640,15 @@
     {
       "id": "cloze_c1_0167",
       "level": "c1",
-      "sentenceKo": "＿＿＿가 길면 대체 수단을 같이 설계해요.",
-      "answer": "고장 대기",
-      "fullKo": "고장 대기가 길면 대체 수단을 같이 설계해요.",
-      "de": "Bei langer Störwartezeit plane ich den Ersatzweg mit.",
-      "en": "If outage wait is long, I design the fallback with it.",
+      "sentenceKo": "＿＿＿이 길어질 수 있다면 대체 수단도 마련해야 해요.",
+      "answer": "복구 소요 시간",
+      "fullKo": "복구 소요 시간이 길어질 수 있다면 대체 수단도 마련해야 해요.",
+      "de": "Wenn die Wiederherstellung länger dauern könnte, müssen wir auch eine Alternative bereitstellen.",
+      "en": "If restoring service could take longer, we need a fallback as well.",
       "distractors": [
-        "우비",
-        "몸매",
-        "숙제"
+        "회의 시간",
+        "신청 기간",
+        "교육 시간"
       ],
       "topic": "Betriebslast"
     },
@@ -23455,11 +23455,11 @@
     {
       "id": "cloze_c1_0192",
       "level": "c1",
-      "sentenceKo": "밤에 몰아서 하는 ＿＿＿가 보고됐습니다.",
+      "sentenceKo": "게임 이용이 밤에 몰리는 ＿＿＿가 나타났는지 확인해야 합니다.",
       "answer": "역효과",
-      "fullKo": "밤에 몰아서 하는 역효과가 보고됐습니다.",
-      "de": "Ein Gegeneffekt mit nächtlichem Nachholen wurde berichtet.",
-      "en": "A backfire of cramming play at night has been reported.",
+      "fullKo": "게임 이용이 밤에 몰리는 역효과가 나타났는지 확인해야 합니다.",
+      "de": "Wir müssen prüfen, ob sich das Spielen als unerwünschter Effekt in die Nacht verlagert hat.",
+      "en": "We need to check whether gaming shifted into the night as an unintended effect.",
       "distractors": [
         "우회",
         "완화",

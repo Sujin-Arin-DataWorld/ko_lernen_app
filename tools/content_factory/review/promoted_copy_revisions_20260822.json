@@ -851,10 +851,15 @@
       "id": "vocab_c1_0090",
       "level": "c1",
       "fields": [
-        "german"
+        "english",
+        "example_english",
+        "example_german",
+        "example_korean",
+        "german",
+        "korean"
       ],
       "beforeSha256": "244006af157c6e5d073505eed17f8357fd9577536603eeb19faef0c19747bf57",
-      "afterSha256": "84e83ecd00dc5700ac766921d1dafae057dd989da956e40c801a1acc3a2d8421"
+      "afterSha256": "4ad30587dec699acde854b094895070f24a6b7059094fdc304f4d2b5302c301d"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -8516,6 +8521,352 @@
       ],
       "beforeSha256": "70e6a60af27198bf6f058033dfc100807d9c498555b0b81c52e2d08a8a3ec480",
       "afterSha256": "ba27ca0f10302f59946142ebfc66d13675cc1c6652414bb83b9efe96ad1a64fa"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_c1_0122",
+      "level": "c1",
+      "fields": [
+        "english",
+        "example_english",
+        "example_german",
+        "example_korean",
+        "german",
+        "korean",
+        "romanization"
+      ],
+      "beforeSha256": "6cd72fa3932febce887c39c21af4923ea6c154d9559a191a5294e2d27e629b81",
+      "afterSha256": "37abbbdd21bbb6404f1558ade69cfba0b6212595ad6bf91136d971467d99e761"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_c1_0131",
+      "level": "c1",
+      "fields": [
+        "english",
+        "example_english",
+        "example_german",
+        "example_korean",
+        "german",
+        "korean",
+        "romanization"
+      ],
+      "beforeSha256": "8f51383b5bf1ce55cd5240a30940a90e542514ea4e9a7a7232d45b8297e622f1",
+      "afterSha256": "7e99f151b31b8ef08d8b00873ef743e664ba7737c5e1553b199686d85bb240db"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_c1_0143",
+      "level": "c1",
+      "fields": [
+        "english",
+        "example_english",
+        "example_german",
+        "example_korean",
+        "german",
+        "korean",
+        "romanization"
+      ],
+      "beforeSha256": "11f77723a1d5bc7fb1fe42458a2e18eeedddf72db5d11f73be8cc13f7962a86f",
+      "afterSha256": "321caffce07592113830af958aae8360ee6569f40823835d164bf5bdebf341d7"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_c1_0154",
+      "level": "c1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean",
+        "german"
+      ],
+      "beforeSha256": "33a6c04328f0f358292dd2741d76cc0e0f59a5e8ed2060d166349ff3ad1df64e",
+      "afterSha256": "12a34971468bd4cf51f3e38e88b8f811e6b76f0b6afe5b159cbcb39825312178"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_c1_0163",
+      "level": "c1",
+      "fields": [
+        "english",
+        "example_english",
+        "example_german",
+        "example_korean",
+        "german",
+        "korean",
+        "romanization"
+      ],
+      "beforeSha256": "caededd320126db5bc7ab4d155a081cabe38be0f4ab2a6cfdc0409a4174fbaf4",
+      "afterSha256": "d5a9fe040fcdb1b9cc2adfed77eb7320fe572165c12aecc19c09f06926019bc0"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c1_0094",
+      "level": "c1",
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "25d489e51aee2415a43532119542cb70baccf5ee1d351b8bb716a495c669ceff",
+      "afterSha256": "2e9973a0f9e3c5bddde75d8b2bd317ace06fec24a70d7a72d31d02c9e1ae417e"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c1_0126",
+      "level": "c1",
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "ebc55be331c5bb433a6c11a3a459f3fa31aaebebee83ff88e642fef09d1308a2",
+      "afterSha256": "4db7da645c9e0ce47c0f5626e953f070b5f4e9da63f4615e779e1901596e2a1e"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c1_0135",
+      "level": "c1",
+      "fields": [
+        "answer",
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "4e82723c8034f529ecdea0e18a64e5bf173f5b5f9fad83ab683e61c9a9d5f19a",
+      "afterSha256": "54bf867cf273aa6203876542859426ff872566da76fcb1b9cd9beb91c39e8da5"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c1_0147",
+      "level": "c1",
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "5d56e1915d262a14495ab9ae9898e6b411b6540db97403785e2c53bc0c547f55",
+      "afterSha256": "294d37509c22e6ca5a79bdb3e8d485bde238054a6156496b2ca7d33b1e540534"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c1_0158",
+      "level": "c1",
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "059c83a90daff486c3c8c592bb5e2de6471136f2e1e19410be86c846b614f94d",
+      "afterSha256": "8591f1921993788a145fa623db6dce11f75b6aa90f6cf9ddea280e7655d4b6c3"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c1_0167",
+      "level": "c1",
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "7357e60b863dc26627af2aa31cb40b1ef444d71826fe17a6245541d8862d3666",
+      "afterSha256": "992b62192d6035bf19a2ad307ca8705c3ecd652acd752d4e5de33f70dc45d931"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_c1_0096",
+      "level": "c1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo",
+        "vocabKo"
+      ],
+      "beforeSha256": "5ac02af0600d364bf7f16d9bb5ebc39d5e3b465ed36dcfb51ef231913aabf0de",
+      "afterSha256": "b1b44c00d6ccebbccf9c87f8315fb7692c0b66b3af22448c28787f27e076c9e5"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_c1_0128",
+      "level": "c1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo",
+        "vocabKo"
+      ],
+      "beforeSha256": "033b04554f382e80b13db8b6a161792431baeb1a88c2caffd15078f2904dedf7",
+      "afterSha256": "9bf88ee3ffbf03be3949964d04d8b0baf4867a6cc0b32d55fc535d9dab9d5aef"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_c1_0137",
+      "level": "c1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo",
+        "vocabKo"
+      ],
+      "beforeSha256": "a36d7e89152a66119633c15148a50899b2cfe5159dee6fa7a37e3619f3c4e9ab",
+      "afterSha256": "7ea5cbacdefe7277a4ba9a563371dc43a96ed4cbb2273c46971b1aa8a8f1b287"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_c1_0149",
+      "level": "c1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo",
+        "vocabKo"
+      ],
+      "beforeSha256": "96050d28e49d1bbeee258a877fd119f82e71f1ed853d61ef71e4247fe5fa1036",
+      "afterSha256": "76fcc196ac812fc1c9f9d5112c983a1bebf3e2aa440713cf7293441af7d71ee2"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_c1_0160",
+      "level": "c1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "166e7049c71773bf695b5ab47a34c2710ddaf44e89769f0c668d68b3f221ff5a",
+      "afterSha256": "e7f53b104ece28410d572b65dcad2fa8188004f18836969c621649684662c5ef"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "satz",
+      "id": "satz_c1_0169",
+      "level": "c1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo",
+        "vocabKo"
+      ],
+      "beforeSha256": "24ef264a3a2585af0acc55e78952e46ce3fbd8f2dfa422ab7df6780061b620ab",
+      "afterSha256": "3b5c46b2bc7d840ca74c318c8a5d385691bb5565d93eaa45feab0296b0b8edd0"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_c1_0055",
+      "level": "c1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean",
+        "romanization"
+      ],
+      "beforeSha256": "afaab99e0ef71391f54095345dbcef43207304b21366f01502e98e8aafb6ab81",
+      "afterSha256": "a7bde3bacf019404d2033640c0334299dccfd22dfd57e4d2469e22caf7cc15d6"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c1_0059",
+      "level": "c1",
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "92eb4fc158e3e951c5587392ac785dbb4767f072590d32e4919cc8271efe6be7",
+      "afterSha256": "0721e4d88b85c4c99c64887e24399a6fee6310031a842aa4dda24dd1b77e83b1"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "satz",
+      "id": "satz_c1_0061",
+      "level": "c1",
+      "fields": [
+        "distractors",
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "4e732565f18e5a46d8affffc7cd0ec16853d68402544fd3b3d0c0a5f774a2b20",
+      "afterSha256": "4cf8cc8679d1537b7c47954df4a85b4290e02d10284f2b69eaea354e685cd205"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_c1_0188",
+      "level": "c1",
+      "fields": [
+        "english",
+        "example_english",
+        "example_german",
+        "example_korean",
+        "german",
+        "romanization"
+      ],
+      "beforeSha256": "e83bd4a958b3457b33fb5bc184659e52bc8c20249e429a4dfb66c6f015ed5b0b",
+      "afterSha256": "b649bf7132ed80f37ea3cb364c46f51665d9632684a4c2d692c590dec3974dd2"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_c1_0192",
+      "level": "c1",
+      "fields": [
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "8d931254c8c6a91db30e64b5444f8e3fec53e9cefcc6d48097dcc56c540c2b14",
+      "afterSha256": "8b13b8309f1ea4bc0ccd9aee8eee107f374cb951556e0ea31e14a28f2253321a"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "satz",
+      "id": "satz_c1_0194",
+      "level": "c1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "c6286129a8a6f98a6beabeb648208422a54c28ebd94aec144de70f732f55892f",
+      "afterSha256": "fa1db5b39ca0b177c96e0d946784fd19b2ea43eef9c54fb38f89fb5e652b7fd6"
     }
   ],
   "routingEntries": [
@@ -8763,6 +9114,20 @@
       "method": "Frozen Jin-approved drafts retained; model-reviewed live-copy fingerprints recorded. Human native-language approval remains required.",
       "added": 0,
       "updated": 25
+    },
+    {
+      "date": "2026-10-01",
+      "scope": "C1 learner examples, Satz and Cloze post-promotion copy corrections",
+      "method": "Frozen Jin-approved drafts retained; model-reviewed live-copy fingerprints recorded. Human native-language approval remains required.",
+      "added": 23,
+      "updated": 1
+    },
+    {
+      "date": "2026-10-01",
+      "scope": "C1 learner examples, Satz and Cloze post-promotion copy corrections",
+      "method": "Frozen Jin-approved drafts retained; model-reviewed live-copy fingerprints recorded. Human native-language approval remains required.",
+      "added": 0,
+      "updated": 24
     }
   ],
   "batchFieldRevisions": [

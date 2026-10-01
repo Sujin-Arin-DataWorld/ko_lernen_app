@@ -10124,9 +10124,9 @@
     {
       "id": "satz_c1_0061",
       "level": "c1",
-      "targetKo": "가족 서사에 제가 갑자기 주인공이 되어 부담됐어요.",
-      "promptDe": "In der Familienerzählung plötzlich Hauptfigur zu sein druckte.",
-      "promptEn": "Suddenly becoming the lead in the family narrative felt heavy.",
+      "targetKo": "가족 서사에서 제가 갑자기 주인공이 되자 부담스러웠어요.",
+      "promptDe": "Als ich in der Familiengeschichte plötzlich zur Hauptfigur wurde, setzte mich das unter Druck.",
+      "promptEn": "I felt overwhelmed when I suddenly became the main character in the family's story.",
       "distractors": [
         "말은",
         "말의"
@@ -15440,14 +15440,14 @@
     {
       "id": "satz_c1_0096",
       "level": "c1",
-      "targetKo": "속보 절제가 필요할 때는 확인 시각을 밝히고 기다려요.",
-      "promptDe": "Bei Eilzurückhaltung nenne ich die Prüfzeit und warte.",
-      "promptEn": "When holding a flash update I state the check time and wait.",
+      "targetKo": "확인 전에는 속보 자제가 필요하며, 다음 확인 시각을 안내해야 합니다.",
+      "promptDe": "Vor der Prüfung sollten Eilmeldungen zurückgehalten und der Zeitpunkt der nächsten Überprüfung genannt werden.",
+      "promptEn": "Before verification, breaking updates should be held back and the next check time made clear.",
       "distractors": [
         "브리핑 문안",
         "위험 등급"
       ],
-      "vocabKo": "속보 절제"
+      "vocabKo": "속보 자제"
     },
     {
       "id": "satz_c1_0097",
@@ -15824,14 +15824,14 @@
     {
       "id": "satz_c1_0128",
       "level": "c1",
-      "targetKo": "유지 부담을 초기 설치비와 따로 적어요.",
-      "promptDe": "Die Folgelast schreibe ich getrennt von den Installationskosten.",
-      "promptEn": "I write the upkeep burden separately from install cost.",
+      "targetKo": "초기 설치비와 유지·관리 비용을 구분해서 적습니다.",
+      "promptDe": "Ich führe die anfänglichen Installationskosten und die laufenden Wartungskosten getrennt auf.",
+      "promptEn": "I list initial installation costs and ongoing maintenance costs separately.",
       "distractors": [
         "접근 비용",
         "선택권 축소"
       ],
-      "vocabKo": "유지 부담"
+      "vocabKo": "유지·관리 비용"
     },
     {
       "id": "satz_c1_0129",
@@ -15932,14 +15932,14 @@
     {
       "id": "satz_c1_0137",
       "level": "c1",
-      "targetKo": "지속 가능 조건에 인력 교대를 넣지 않으면 서비스가 끊겨요.",
-      "promptDe": "Ohne Personalwechsel in der Dauerbedingung bricht der Dienst.",
-      "promptEn": "Without staff rotation in the condition for staying viable, the service breaks.",
+      "targetKo": "지속 운영 조건에 인력 교대 계획이 빠지면 서비스가 중단될 수 있어요.",
+      "promptDe": "Fehlt ein Plan für den Personalwechsel in den Bedingungen für einen dauerhaften Betrieb, kann der Dienst ausfallen.",
+      "promptEn": "If staff rotation is left out of the conditions for keeping the service running, the service may be interrupted.",
       "distractors": [
         "접근 비용",
         "유지 부담"
       ],
-      "vocabKo": "지속 가능 조건"
+      "vocabKo": "지속 운영 조건"
     },
     {
       "id": "satz_c1_0138",
@@ -16076,14 +16076,14 @@
     {
       "id": "satz_c1_0149",
       "level": "c1",
-      "targetKo": "결정 환류가 늦으면 다음 참여율이 떨어져요.",
-      "promptDe": "Kommt die Beschlussrückgabe spät, sinkt die nächste Beteiligung.",
-      "promptEn": "If the decision return is late, the next turnout drops.",
+      "targetKo": "결정 결과 공유가 늦어지면 다음 참여율이 낮아질 수 있어요.",
+      "promptDe": "Wenn die Beteiligten erst spät über die Entscheidung informiert werden, beteiligen sie sich beim nächsten Mal möglicherweise seltener.",
+      "promptEn": "If participants are told about the decision too late, they may be less likely to take part next time.",
       "distractors": [
         "참여 장벽",
         "발언 할당"
       ],
-      "vocabKo": "결정 환류"
+      "vocabKo": "결정 결과 공유"
     },
     {
       "id": "satz_c1_0150",
@@ -16208,9 +16208,9 @@
     {
       "id": "satz_c1_0160",
       "level": "c1",
-      "targetKo": "야간 조명을 높이면 안전은 오르고 수면은 나빠져요.",
-      "promptDe": "Mehr Nachtlicht hebt die Sicherheit und senkt den Schlaf.",
-      "promptEn": "More night lighting raises safety and worsens sleep.",
+      "targetKo": "야간 조명을 늘릴 때는 보행 안전과 주변 주민의 수면에 미칠 영향을 함께 살펴요.",
+      "promptDe": "Bei zusätzlicher Nachtbeleuchtung prüfen wir sowohl die Sicherheit von Fußgängern als auch mögliche Auswirkungen auf den Schlaf der Anwohnenden.",
+      "promptEn": "When adding night lighting, we consider both pedestrian safety and possible effects on nearby residents’ sleep.",
       "distractors": [
         "지역 여건",
         "야간 소음 한도"
@@ -16316,14 +16316,14 @@
     {
       "id": "satz_c1_0169",
       "level": "c1",
-      "targetKo": "고장 대기가 길면 대체 수단을 같이 설계해요.",
-      "promptDe": "Bei langer Störwartezeit plane ich den Ersatzweg mit.",
-      "promptEn": "If outage wait is long, I design the fallback with it.",
+      "targetKo": "복구 소요 시간이 길어질 수 있다면 대체 수단도 마련해야 해요.",
+      "promptDe": "Wenn die Wiederherstellung länger dauern könnte, müssen wir auch eine Alternative bereitstellen.",
+      "promptEn": "If restoring service could take longer, we need a fallback as well.",
       "distractors": [
         "운영 인력",
         "교체 주기"
       ],
-      "vocabKo": "고장 대기"
+      "vocabKo": "복구 소요 시간"
     },
     {
       "id": "satz_c1_0170",
@@ -25448,9 +25448,9 @@
     {
       "id": "satz_c1_0194",
       "level": "c1",
-      "targetKo": "밤에 몰아서 하는 역효과가 보고됐습니다.",
-      "promptDe": "Ein Gegeneffekt mit nächtlichem Nachholen wurde berichtet.",
-      "promptEn": "A backfire of cramming play at night has been reported.",
+      "targetKo": "게임 이용이 밤에 몰리는 역효과가 나타났는지 확인해야 합니다.",
+      "promptDe": "Wir müssen prüfen, ob sich das Spielen als unerwünschter Effekt in die Nacht verlagert hat.",
+      "promptEn": "We need to check whether gaming shifted into the night as an unintended effect.",
       "distractors": [
         "지표가",
         "권고를"
@@ -26739,7 +26739,7 @@
         "인원만",
         "늘리면"
       ],
-      "vocabKo": "지속 가능 조건",
+      "vocabKo": "지속 운영 조건",
       "sourceSeedId": "seed_batch17_c1_migration_demography",
       "courseUnitId": "c1_02_inclusive_sustainable_systems",
       "conceptIds": [

@@ -18,7 +18,7 @@
     ["통역 지원", "Dolmetschhilfe", "interpreting support", "Ausdruck", "Expression", "통역 지원을 행사 예산의 기본 항목으로 넣어요.", "Dolmetschhilfe steht als Grundposten im Etat.", "I put interpreting support as a basic budget line."],
     ["사전 자료", "Unterlagen zur Vorbereitung", "background materials", "Ausdruck", "Expression", "사전 자료를 회의 사흘 전에 보내면 참석자가 쟁점을 미리 검토할 수 있어요.", "Wenn die Unterlagen drei Tage vor der Sitzung verschickt werden, können die Teilnehmenden die Themen vorab prüfen.", "Sending the background materials three days before the meeting gives participants time to review the issues."],
     ["참여 피로", "Beteiligungsmüdigkeit", "engagement fatigue", "Ausdruck", "Expression", "참여 피로를 줄이려고 회의를 겹치지 않게 잡아요.", "Gegen Beteiligungsmüdigkeit lege ich Sitzungen nicht übereinander.", "To reduce engagement fatigue I do not stack meetings."],
-    ["결정 환류", "Beschlussrückgabe", "decision return", "Ausdruck", "Expression", "결정 환류가 늦으면 다음 참여율이 떨어져요.", "Kommt die Beschlussrückgabe spät, sinkt die nächste Beteiligung.", "If the decision return is late, the next turnout drops."],
+    ["결정 결과 공유", "Mitteilung der Entscheidung", "sharing the decision", "Ausdruck", "Expression", "결정 결과 공유가 늦어지면 다음 참여율이 낮아질 수 있어요.", "Wenn die Beteiligten erst spät über die Entscheidung informiert werden, beteiligen sie sich beim nächsten Mal möglicherweise seltener.", "If participants are told about the decision too late, they may be less likely to take part next time."],
     ["공동 설계", "Mitgestaltung", "co-design", "Nomen", "Noun", "공동 설계는 취향 투표가 아니라 제약 공유에서 시작해요.", "Mitgestaltung beginnt mit geteilten Grenzen, nicht mit Geschmacksabstimmung.", "Co-design starts from shared constraints, not a taste vote."]
   ]
 }

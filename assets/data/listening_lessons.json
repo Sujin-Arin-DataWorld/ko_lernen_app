@@ -18445,7 +18445,7 @@
           },
           "explanation": {
             "ko": "근거는 “좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.”예요. 따라서 “기술 홍보보다 지원자의 판단에 필요한 정보를 우선해요.”가 맞아요. “모델 구조 전체를 공개해야만 평가를 설명할 수 있어요.”와 “설명이 혼란스러우므로 평가 항목은 알려 주지 않아요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.“ (Gut. Wir stellen die Informationen für Entscheidung und Rückfrage vor die technische Selbstdarstellung.). Daraus folgt: Informationen für die Entscheidung der Bewerber haben Vorrang vor Technikwerbung. Die Alternativen „Die Bewertung lässt sich nur erklären, wenn die gesamte Modellstruktur offenliegt.“ und „Weil Erklärungen verwirren, werden Bewertungskriterien nicht genannt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "de": "Der Beleg lautet: „좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.“ (Gut. Wir stellen Informationen für die Entscheidung und mögliche Einwände gegen die Bewertung vor die technische Selbstdarstellung.). Daraus folgt: Informationen für die Entscheidung der Bewerber haben Vorrang vor Technikwerbung. Die Alternativen „Die Bewertung lässt sich nur erklären, wenn die gesamte Modellstruktur offenliegt.“ und „Weil Erklärungen verwirren, werden Bewertungskriterien nicht genannt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
             "en": "The evidence is “좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.” (Good. Let's prioritize what applicants need for choice and appeal over technical promotion.). This supports: Information applicants need to make decisions takes priority over promoting the technology. The alternatives “The assessment can only be explained by disclosing the entire model structure.” and “Assessment criteria are withheld because explanations are confusing.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
@@ -18498,7 +18498,7 @@
             },
             {
               "ko": "좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.",
-              "de": "Gut. Wir stellen die Informationen für Entscheidung und Rückfrage vor die technische Selbstdarstellung.",
+              "de": "Gut. Wir stellen Informationen für die Entscheidung und mögliche Einwände gegen die Bewertung vor die technische Selbstdarstellung.",
               "en": "Good. Let's prioritize what applicants need for choice and appeal over technical promotion."
             },
             {
@@ -18515,7 +18515,7 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Gut. Wir stellen die Informationen für Entscheidung und Rückfrage vor die technische Selbstdarstellung.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Gut. Wir stellen Informationen für die Entscheidung und mögliche Einwände gegen die Bewertung vor die technische Selbstdarstellung.",
             "en": "Put the words in the same order as the recording. Meaning: Good. Let's prioritize what applicants need for choice and appeal over technical promotion."
           },
           "explanation": {
@@ -18541,7 +18541,7 @@
           },
           "explanation": {
             "ko": "근거는 “좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.”예요. 따라서 “기술 홍보보다 지원자의 판단에 필요한 정보를 우선해요.”가 맞아요. “모델 구조 전체를 공개해야만 평가를 설명할 수 있어요.”와 “설명이 혼란스러우므로 평가 항목은 알려 주지 않아요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.“ (Gut. Wir stellen die Informationen für Entscheidung und Rückfrage vor die technische Selbstdarstellung.). Daraus folgt: Informationen für die Entscheidung der Bewerber haben Vorrang vor Technikwerbung. Die Alternativen „Die Bewertung lässt sich nur erklären, wenn die gesamte Modellstruktur offenliegt.“ und „Weil Erklärungen verwirren, werden Bewertungskriterien nicht genannt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "de": "Der Beleg lautet: „좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.“ (Gut. Wir stellen Informationen für die Entscheidung und mögliche Einwände gegen die Bewertung vor die technische Selbstdarstellung.). Daraus folgt: Informationen für die Entscheidung der Bewerber haben Vorrang vor Technikwerbung. Die Alternativen „Die Bewertung lässt sich nur erklären, wenn die gesamte Modellstruktur offenliegt.“ und „Weil Erklärungen verwirren, werden Bewertungskriterien nicht genannt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
             "en": "The evidence is “좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.” (Good. Let's prioritize what applicants need for choice and appeal over technical promotion.). This supports: Information applicants need to make decisions takes priority over promoting the technology. The alternatives “The assessment can only be explained by disclosing the entire model structure.” and “Assessment criteria are withheld because explanations are confusing.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
@@ -19098,8 +19098,8 @@
           },
           "explanation": {
             "ko": "들은 말은 “‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.“: Das Label ‚Schnelle Lieferung‘ hilft Kunden, sich schneller für ein Restaurant zu entscheiden, und hat die Bestellungen erhöht. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.”: The 'fast delivery' badge helps customers choose a restaurant quickly and has increased orders. The other options represent different turns in this scene, with different content or conversational functions."
+            "de": "Zu hören ist „‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.“: Das Label ‚Schnelle Lieferung‘ hilft Kunden, sich schneller für ein Geschäft zu entscheiden, und hat die Bestellungen erhöht. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.”: The 'fast delivery' badge helps customers choose a shop quickly and has increased orders. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "delivery_rider_safety_tradeoff"
@@ -19109,13 +19109,13 @@
           "options": [
             {
               "ko": "‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.",
-              "de": "Das Label ‚Schnelle Lieferung‘ hilft Kunden, sich schneller für ein Restaurant zu entscheiden, und hat die Bestellungen erhöht.",
-              "en": "The 'fast delivery' badge helps customers choose a restaurant quickly and has increased orders."
+              "de": "Das Label ‚Schnelle Lieferung‘ hilft Kunden, sich schneller für ein Geschäft zu entscheiden, und hat die Bestellungen erhöht.",
+              "en": "The 'fast delivery' badge helps customers choose a shop quickly and has increased orders."
             },
             {
               "ko": "배지를 없애면 가게와 고객 모두 불편해질 수 있습니다.",
               "de": "Ohne das Badge könnten sowohl Geschäfte als auch Kunden Nachteile haben.",
-              "en": "Removing the badge could inconvenience both restaurants and customers."
+              "en": "Removing the badge could inconvenience both shops and customers."
             },
             {
               "ko": "안전 문제를 개인의 주의만으로 설명하면 배달 시간을 압박하는 구조가 보이지 않습니다.",
@@ -19422,7 +19422,7 @@
             },
             {
               "ko": "홍보를 중단하느냐로만 좁힐 문제가 아니라 임대 변화와 점포 이탈을 함께 추적해야 합니다.",
-              "de": "Die Frage lässt sich nicht darauf verengen, ob die Werbung gestoppt wird; wir müssen Mietentwicklung und Geschäftsaufgaben mitverfolgen.",
+              "de": "Die Frage lässt sich nicht darauf verengen, ob die Werbung gestoppt wird; wir müssen Mietentwicklung und die Abwanderung von Geschäften mitverfolgen.",
               "en": "The issue can't be narrowed to whether promotion stops. We need to track rent changes and business turnover together."
             },
             {
@@ -19439,7 +19439,7 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Die Frage lässt sich nicht darauf verengen, ob die Werbung gestoppt wird; wir müssen Mietentwicklung und Geschäftsaufgaben mitverfolgen.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Die Frage lässt sich nicht darauf verengen, ob die Werbung gestoppt wird; wir müssen Mietentwicklung und die Abwanderung von Geschäften mitverfolgen.",
             "en": "Put the words in the same order as the recording. Meaning: The issue can't be narrowed to whether promotion stops. We need to track rent changes and business turnover together."
           },
           "explanation": {
@@ -19560,8 +19560,8 @@
           },
           "explanation": {
             "ko": "들은 말은 “이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.“: In diesem Gebiet gibt es mehr Hitzeschutzräume als vorgeschrieben. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.”: This area operates more heat shelters than the benchmark requires. The other options represent different turns in this scene, with different content or conversational functions."
+            "de": "Zu hören ist „이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.“: In diesem Gebiet gibt es mehr Hitzeschutzräume, als der Richtwert vorsieht. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.”: This area operates more heat shelters than the benchmark number. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "heatwave_shelter_access"
@@ -19571,8 +19571,8 @@
           "options": [
             {
               "ko": "이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.",
-              "de": "In diesem Gebiet gibt es mehr Hitzeschutzräume als vorgeschrieben.",
-              "en": "This area operates more heat shelters than the benchmark requires."
+              "de": "In diesem Gebiet gibt es mehr Hitzeschutzräume, als der Richtwert vorsieht.",
+              "en": "This area operates more heat shelters than the benchmark number."
             },
             {
               "ko": "시설 수에 국한하면 지금 막히는 시간과 이동 경로가 보이지 않습니다.",
@@ -20022,7 +20022,7 @@
           },
           "explanation": {
             "ko": "들은 말은 “야간 영업 이후 매출과 고용이 늘어 영업시간을 줄이기는 어렵습니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „야간 영업 이후 매출과 고용이 늘어 영업시간을 줄이기는 어렵습니다.“: Seit den längeren Öffnungszeiten sind Umsatz und Beschäftigung gestiegen; eine Verkürzung ist daher schwierig. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "de": "Zu hören ist „야간 영업 이후 매출과 고용이 늘어 영업시간을 줄이기는 어렵습니다.“: Seit die Geschäfte auch nachts öffnen, sind Umsatz und Beschäftigung gestiegen; die Öffnungszeiten zu kürzen ist daher schwierig. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
             "en": "The line is “야간 영업 이후 매출과 고용이 늘어 영업시간을 줄이기는 어렵습니다.”: Revenue and employment increased after late-night hours, so cutting hours is difficult. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
@@ -20033,7 +20033,7 @@
           "options": [
             {
               "ko": "야간 영업 이후 매출과 고용이 늘어 영업시간을 줄이기는 어렵습니다.",
-              "de": "Seit den längeren Öffnungszeiten sind Umsatz und Beschäftigung gestiegen; eine Verkürzung ist daher schwierig.",
+              "de": "Seit die Geschäfte auch nachts öffnen, sind Umsatz und Beschäftigung gestiegen; die Öffnungszeiten zu kürzen ist daher schwierig.",
               "en": "Revenue and employment increased after late-night hours, so cutting hours is difficult."
             },
             {
@@ -20484,7 +20484,7 @@
           },
           "explanation": {
             "ko": "들은 말은 “‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.“: Der Titel „Wie sich die Wohnwahrnehmung junger Städter verändert“ weckt durchaus Interesse. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "de": "Zu hören ist „‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.“: Der Titel „Die Wohnvorstellungen junger Menschen in der Stadt haben sich verändert“ weckt durchaus Interesse. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
             "en": "The line is “‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.”: The title 'Young Urban Residents' Housing Views Have Changed' is certainly attention-grabbing. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
@@ -20495,7 +20495,7 @@
           "options": [
             {
               "ko": "‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.",
-              "de": "Der Titel „Wie sich die Wohnwahrnehmung junger Städter verändert“ weckt durchaus Interesse.",
+              "de": "Der Titel „Die Wohnvorstellungen junger Menschen in der Stadt haben sich verändert“ weckt durchaus Interesse.",
               "en": "The title 'Young Urban Residents' Housing Views Have Changed' is certainly attention-grabbing."
             },
             {
@@ -20891,7 +20891,7 @@
       },
       "intro": {
         "ko": "생성 이미지가 특정 작가의 화풍과 매우 비슷하지만 학습 데이터와 권리 상태를 몰라요.",
-        "de": "Ein generiertes Bild ähnelt stark dem Stil einer bestimmten Künstlerin, doch Datengrundlage und Rechte sind unklar.",
+        "de": "Ein generiertes Bild ähnelt stark dem Stil eines bestimmten Kunstschaffenden, doch Datengrundlage und Rechte sind unklar.",
         "en": "A generated image closely resembles a particular artist's style, but the training data and rights status are unknown."
       },
       "contentIds": [
@@ -20967,7 +20967,7 @@
             },
             {
               "ko": "특정 작가의 최근 작품과 너무 비슷하다는 의견이 있습니다.",
-              "de": "Es gibt Hinweise, dass es den jüngsten Arbeiten einer bestimmten Künstlerin sehr ähnelt.",
+              "de": "Es gibt Hinweise, dass es den jüngsten Arbeiten eines bestimmten Kunstschaffenden sehr ähnelt.",
               "en": "There are concerns that it looks very similar to a particular artist's recent work."
             }
           ],

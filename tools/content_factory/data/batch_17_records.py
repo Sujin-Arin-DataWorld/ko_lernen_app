@@ -55,7 +55,7 @@ SATZ_VOCAB_BY_SCENE = {
     "b2_kpop_local_festival_program": ["관객", "평가하다", "지속하다"],
     "c1_moving_rent_relief_roundtable": ["부담을 고르게 나누다", "참여 장벽을 낮추다", "보여 주기식 대책에 그치다"],
     "c1_work_ai_hiring_pilot_review": ["결론을 유보하다", "자료를 대조하다", "불확실성을 명시하다"],
-    "c1_daily_migration_demography_policy_forum": ["당사자의 의견을 듣다", "지역 여건에 맞추다", "지속 가능 조건"],
+    "c1_daily_migration_demography_policy_forum": ["당사자의 의견을 듣다", "지역 여건에 맞추다", "지속 운영 조건"],
     "c1_kpop_platform_localization_review": ["무보수", "지속성", "분담"],
     "c2_moving_affordability_definition_hearing": ["기준을 명문화하다", "전제를 숨기다", "기준을 명문화하다"],
     "c2_work_ai_accountability_board": ["이의 제기 절차를 마련하다", "책임을 시스템 탓으로 돌리다", "결정 과정을 추적하다"],

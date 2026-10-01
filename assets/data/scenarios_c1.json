@@ -279,7 +279,7 @@
           "korean": "좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Gut. Wir stellen die Informationen für Entscheidung und Rückfrage vor die technische Selbstdarstellung.",
+            "de": "Gut. Wir stellen Informationen für die Entscheidung und mögliche Einwände gegen die Bewertung vor die technische Selbstdarstellung.",
             "en": "Good. Let's prioritize what applicants need for choice and appeal over technical promotion."
           }
         }
@@ -337,7 +337,7 @@
         {
           "speaker": "user",
           "ko": "좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.",
-          "de": "Gut. Wir stellen die Informationen für Entscheidung und Rückfrage vor die technische Selbstdarstellung.",
+          "de": "Gut. Wir stellen Informationen für die Entscheidung und mögliche Einwände gegen die Bewertung vor die technische Selbstdarstellung.",
           "en": "Good. Let's prioritize what applicants need for choice and appeal over technical promotion."
         }
       ],
@@ -400,7 +400,7 @@
           "data": {
             "targetKo": "좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.",
             "audioKo": "좋습니다. 기술 홍보보다 지원자의 선택과 이의 제기에 필요한 정보부터 보여 줍시다.",
-            "promptDe": "Gut. Wir stellen die Informationen für Entscheidung und Rückfrage vor die technische Selbstdarstellung.",
+            "promptDe": "Gut. Wir stellen Informationen für die Entscheidung und mögliche Einwände gegen die Bewertung vor die technische Selbstdarstellung.",
             "promptEn": "Good. Let's prioritize what applicants need for choice and appeal over technical promotion.",
             "distractors": [
               "기술 설명을 길게 넣으면 지원자가 더 혼란스러울 수 있어요.",
@@ -684,7 +684,7 @@
           "korean": "작은 팀은 여러 팀을 묶어서 보고 근속연수도 넓은 구간으로 바꿀 수 있어요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Kleine Teams können zusammengefasst und Dienstzeiten in breitere Kategorien eingeteilt werden.",
+            "de": "Kleine Teams können zusammengefasst und die Dauer der Betriebszugehörigkeit in breitere Kategorien eingeteilt werden.",
             "en": "We can group small teams together and use broader tenure ranges."
           }
         },
@@ -746,7 +746,7 @@
         {
           "speaker": "user",
           "ko": "작은 팀은 여러 팀을 묶어서 보고 근속연수도 넓은 구간으로 바꿀 수 있어요.",
-          "de": "Kleine Teams können zusammengefasst und Dienstzeiten in breitere Kategorien eingeteilt werden.",
+          "de": "Kleine Teams können zusammengefasst und die Dauer der Betriebszugehörigkeit in breitere Kategorien eingeteilt werden.",
           "en": "We can group small teams together and use broader tenure ranges."
         },
         {
@@ -782,7 +782,7 @@
                 "en": "But role and tenure are important for the analysis. What should we do?"
               },
               {
-                "de": "Kleine Teams können zusammengefasst und Dienstzeiten in breitere Kategorien eingeteilt werden.",
+                "de": "Kleine Teams können zusammengefasst und die Dauer der Betriebszugehörigkeit in breitere Kategorien eingeteilt werden.",
                 "en": "We can group small teams together and use broader tenure ranges."
               }
             ],
@@ -1071,8 +1071,8 @@
           "korean": "‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Das Label ‚Schnelle Lieferung‘ hilft Kunden, sich schneller für ein Restaurant zu entscheiden, und hat die Bestellungen erhöht.",
-            "en": "The 'fast delivery' badge helps customers choose a restaurant quickly and has increased orders."
+            "de": "Das Label ‚Schnelle Lieferung‘ hilft Kunden, sich schneller für ein Geschäft zu entscheiden, und hat die Bestellungen erhöht.",
+            "en": "The 'fast delivery' badge helps customers choose a shop quickly and has increased orders."
           }
         },
         {
@@ -1096,7 +1096,7 @@
           "note": {
             "ko": "장면 핵심 표현",
             "de": "Ohne das Badge könnten sowohl Geschäfte als auch Kunden Nachteile haben.",
-            "en": "Removing the badge could inconvenience both restaurants and customers."
+            "en": "Removing the badge could inconvenience both shops and customers."
           }
         },
         {
@@ -1139,8 +1139,8 @@
         {
           "speaker": "official",
           "ko": "‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.",
-          "de": "Das Label ‚Schnelle Lieferung‘ hilft Kunden, sich schneller für ein Restaurant zu entscheiden, und hat die Bestellungen erhöht.",
-          "en": "The 'fast delivery' badge helps customers choose a restaurant quickly and has increased orders."
+          "de": "Das Label ‚Schnelle Lieferung‘ hilft Kunden, sich schneller für ein Geschäft zu entscheiden, und hat die Bestellungen erhöht.",
+          "en": "The 'fast delivery' badge helps customers choose a shop quickly and has increased orders."
         },
         {
           "speaker": "resident",
@@ -1158,7 +1158,7 @@
           "speaker": "official",
           "ko": "배지를 없애면 가게와 고객 모두 불편해질 수 있습니다.",
           "de": "Ohne das Badge könnten sowohl Geschäfte als auch Kunden Nachteile haben.",
-          "en": "Removing the badge could inconvenience both restaurants and customers."
+          "en": "Removing the badge could inconvenience both shops and customers."
         },
         {
           "speaker": "user",
@@ -1181,8 +1181,8 @@
             "audioKo": "‘빠른 배달’ 배지는 고객이 가게를 빨리 고르게 하고 주문도 늘렸습니다.",
             "options": [
               {
-                "de": "Das Label ‚Schnelle Lieferung‘ hilft Kunden, sich schneller für ein Restaurant zu entscheiden, und hat die Bestellungen erhöht.",
-                "en": "The 'fast delivery' badge helps customers choose a restaurant quickly and has increased orders."
+                "de": "Das Label ‚Schnelle Lieferung‘ hilft Kunden, sich schneller für ein Geschäft zu entscheiden, und hat die Bestellungen erhöht.",
+                "en": "The 'fast delivery' badge helps customers choose a shop quickly and has increased orders."
               },
               {
                 "de": "Ich sehe häufig Motorräder auf dem Gehweg, offenbar um die Zeitvorgabe zu schaffen.",
@@ -1194,7 +1194,7 @@
               },
               {
                 "de": "Ohne das Badge könnten sowohl Geschäfte als auch Kunden Nachteile haben.",
-                "en": "Removing the badge could inconvenience both restaurants and customers."
+                "en": "Removing the badge could inconvenience both shops and customers."
               }
             ],
             "correctIndex": 0
@@ -1490,7 +1490,7 @@
           "korean": "매출은 늘었지만 옆 가게는 임대료를 못 견디고 지난달에 나갔어요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Der Umsatz stieg, aber das Nachbargeschäft musste letzten Monat wegen der Miete schließen.",
+            "de": "Der Umsatz stieg, aber das Nachbargeschäft musste wegen der Miete letzten Monat die Räume verlassen.",
             "en": "Sales went up, but the shop next door left last month because it couldn't afford the rent."
           }
         },
@@ -1514,7 +1514,7 @@
           "korean": "홍보를 중단하느냐로만 좁힐 문제가 아니라 임대 변화와 점포 이탈을 함께 추적해야 합니다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Die Frage lässt sich nicht darauf verengen, ob die Werbung gestoppt wird; wir müssen Mietentwicklung und Geschäftsaufgaben mitverfolgen.",
+            "de": "Die Frage lässt sich nicht darauf verengen, ob die Werbung gestoppt wird; wir müssen Mietentwicklung und die Abwanderung von Geschäften mitverfolgen.",
             "en": "The issue can't be narrowed to whether promotion stops. We need to track rent changes and business turnover together."
           }
         },
@@ -1556,7 +1556,7 @@
         {
           "speaker": "resident",
           "ko": "매출은 늘었지만 옆 가게는 임대료를 못 견디고 지난달에 나갔어요.",
-          "de": "Der Umsatz stieg, aber das Nachbargeschäft musste letzten Monat wegen der Miete schließen.",
+          "de": "Der Umsatz stieg, aber das Nachbargeschäft musste wegen der Miete letzten Monat die Räume verlassen.",
           "en": "Sales went up, but the shop next door left last month because it couldn't afford the rent."
         },
         {
@@ -1574,7 +1574,7 @@
         {
           "speaker": "user",
           "ko": "홍보를 중단하느냐로만 좁힐 문제가 아니라 임대 변화와 점포 이탈을 함께 추적해야 합니다.",
-          "de": "Die Frage lässt sich nicht darauf verengen, ob die Werbung gestoppt wird; wir müssen Mietentwicklung und Geschäftsaufgaben mitverfolgen.",
+          "de": "Die Frage lässt sich nicht darauf verengen, ob die Werbung gestoppt wird; wir müssen Mietentwicklung und die Abwanderung von Geschäften mitverfolgen.",
           "en": "The issue can't be narrowed to whether promotion stops. We need to track rent changes and business turnover together."
         },
         {
@@ -1596,7 +1596,7 @@
                 "en": "Since the promotion, both visitors and card sales have increased."
               },
               {
-                "de": "Der Umsatz stieg, aber das Nachbargeschäft musste letzten Monat wegen der Miete schließen.",
+                "de": "Der Umsatz stieg, aber das Nachbargeschäft musste wegen der Miete letzten Monat die Räume verlassen.",
                 "en": "Sales went up, but the shop next door left last month because it couldn't afford the rent."
               },
               {
@@ -1643,7 +1643,7 @@
           "data": {
             "targetKo": "홍보를 중단하느냐로만 좁힐 문제가 아니라 임대 변화와 점포 이탈을 함께 추적해야 합니다.",
             "audioKo": "홍보를 중단하느냐로만 좁힐 문제가 아니라 임대 변화와 점포 이탈을 함께 추적해야 합니다.",
-            "promptDe": "Die Frage lässt sich nicht darauf verengen, ob die Werbung gestoppt wird; wir müssen Mietentwicklung und Geschäftsaufgaben mitverfolgen.",
+            "promptDe": "Die Frage lässt sich nicht darauf verengen, ob die Werbung gestoppt wird; wir müssen Mietentwicklung und die Abwanderung von Geschäften mitverfolgen.",
             "promptEn": "The issue can't be narrowed to whether promotion stops. We need to track rent changes and business turnover together.",
             "distractors": [
               "홍보 이후 방문객과 카드 매출이 모두 늘었습니다.",
@@ -1688,8 +1688,8 @@
           "korean": "이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "In diesem Gebiet gibt es mehr Hitzeschutzräume als vorgeschrieben.",
-            "en": "This area operates more heat shelters than the benchmark requires."
+            "de": "In diesem Gebiet gibt es mehr Hitzeschutzräume, als der Richtwert vorsieht.",
+            "en": "This area operates more heat shelters than the benchmark number."
           }
         },
         {
@@ -1756,8 +1756,8 @@
         {
           "speaker": "official",
           "ko": "이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.",
-          "de": "In diesem Gebiet gibt es mehr Hitzeschutzräume als vorgeschrieben.",
-          "en": "This area operates more heat shelters than the benchmark requires."
+          "de": "In diesem Gebiet gibt es mehr Hitzeschutzräume, als der Richtwert vorsieht.",
+          "en": "This area operates more heat shelters than the benchmark number."
         },
         {
           "speaker": "resident",
@@ -1798,8 +1798,8 @@
             "audioKo": "이 지역은 기준보다 많은 폭염 쉼터를 운영하고 있습니다.",
             "options": [
               {
-                "de": "In diesem Gebiet gibt es mehr Hitzeschutzräume als vorgeschrieben.",
-                "en": "This area operates more heat shelters than the benchmark requires."
+                "de": "In diesem Gebiet gibt es mehr Hitzeschutzräume, als der Richtwert vorsieht.",
+                "en": "This area operates more heat shelters than the benchmark number."
               },
               {
                 "de": "Der nahe Raum ist nur über Treppen erreichbar, und der barrierefreie schließt, bevor ich dort sein kann.",
@@ -2304,7 +2304,7 @@
           "korean": "야간 영업 이후 매출과 고용이 늘어 영업시간을 줄이기는 어렵습니다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Seit den längeren Öffnungszeiten sind Umsatz und Beschäftigung gestiegen; eine Verkürzung ist daher schwierig.",
+            "de": "Seit die Geschäfte auch nachts öffnen, sind Umsatz und Beschäftigung gestiegen; die Öffnungszeiten zu kürzen ist daher schwierig.",
             "en": "Revenue and employment increased after late-night hours, so cutting hours is difficult."
           }
         },
@@ -2372,7 +2372,7 @@
         {
           "speaker": "official",
           "ko": "야간 영업 이후 매출과 고용이 늘어 영업시간을 줄이기는 어렵습니다.",
-          "de": "Seit den längeren Öffnungszeiten sind Umsatz und Beschäftigung gestiegen; eine Verkürzung ist daher schwierig.",
+          "de": "Seit die Geschäfte auch nachts öffnen, sind Umsatz und Beschäftigung gestiegen; die Öffnungszeiten zu kürzen ist daher schwierig.",
           "en": "Revenue and employment increased after late-night hours, so cutting hours is difficult."
         },
         {
@@ -2414,7 +2414,7 @@
             "audioKo": "야간 영업 이후 매출과 고용이 늘어 영업시간을 줄이기는 어렵습니다.",
             "options": [
               {
-                "de": "Seit den längeren Öffnungszeiten sind Umsatz und Beschäftigung gestiegen; eine Verkürzung ist daher schwierig.",
+                "de": "Seit die Geschäfte auch nachts öffnen, sind Umsatz und Beschäftigung gestiegen; die Öffnungszeiten zu kürzen ist daher schwierig.",
                 "en": "Revenue and employment increased after late-night hours, so cutting hours is difficult."
               },
               {
@@ -2920,7 +2920,7 @@
           "korean": "‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Der Titel „Wie sich die Wohnwahrnehmung junger Städter verändert“ weckt durchaus Interesse.",
+            "de": "Der Titel „Die Wohnvorstellungen junger Menschen in der Stadt haben sich verändert“ weckt durchaus Interesse.",
             "en": "The title 'Young Urban Residents' Housing Views Have Changed' is certainly attention-grabbing."
           }
         },
@@ -2988,7 +2988,7 @@
         {
           "speaker": "professor",
           "ko": "‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.",
-          "de": "Der Titel „Wie sich die Wohnwahrnehmung junger Städter verändert“ weckt durchaus Interesse.",
+          "de": "Der Titel „Die Wohnvorstellungen junger Menschen in der Stadt haben sich verändert“ weckt durchaus Interesse.",
           "en": "The title 'Young Urban Residents' Housing Views Have Changed' is certainly attention-grabbing."
         },
         {
@@ -3030,7 +3030,7 @@
             "audioKo": "‘도시 청년의 주거 인식이 바뀌었다’는 제목이 관심을 끌기는 합니다.",
             "options": [
               {
-                "de": "Der Titel „Wie sich die Wohnwahrnehmung junger Städter verändert“ weckt durchaus Interesse.",
+                "de": "Der Titel „Die Wohnvorstellungen junger Menschen in der Stadt haben sich verändert“ weckt durchaus Interesse.",
                 "en": "The title 'Young Urban Residents' Housing Views Have Changed' is certainly attention-grabbing."
               },
               {
@@ -3135,7 +3135,7 @@
           "note": {
             "ko": "장면 핵심 표현",
             "de": "Ich brauche mein Handy für eine App zur Blutzuckerkontrolle.",
-            "en": "I need my phone for an app that monitors my blood sugar."
+            "en": "I need my phone for an app I use to check my blood sugar."
           }
         },
         {
@@ -3201,7 +3201,7 @@
           "speaker": "student",
           "ko": "저는 혈당을 확인하는 앱을 써서 휴대폰이 필요해요.",
           "de": "Ich brauche mein Handy für eine App zur Blutzuckerkontrolle.",
-          "en": "I need my phone for an app that monitors my blood sugar."
+          "en": "I need my phone for an app I use to check my blood sugar."
         },
         {
           "speaker": "user",
@@ -3241,7 +3241,7 @@
               },
               {
                 "de": "Ich brauche mein Handy für eine App zur Blutzuckerkontrolle.",
-                "en": "I need my phone for an app that monitors my blood sugar."
+                "en": "I need my phone for an app I use to check my blood sugar."
               },
               {
                 "de": "Das Ziel ist nachvollziehbar, aber eine pauschale Abgabe ist nicht zwingend die einzige Lösung.",
@@ -3518,7 +3518,7 @@
       },
       "intro": {
         "ko": "생성 이미지가 특정 작가의 화풍과 매우 비슷하지만 학습 데이터와 권리 상태를 몰라요.",
-        "de": "Ein generiertes Bild ähnelt stark dem Stil einer bestimmten Künstlerin, doch Datengrundlage und Rechte sind unklar.",
+        "de": "Ein generiertes Bild ähnelt stark dem Stil eines bestimmten Kunstschaffenden, doch Datengrundlage und Rechte sind unklar.",
         "en": "A generated image closely resembles a particular artist's style, but the training data and rights status are unknown."
       },
       "courseUnitId": "c1_03_media_evidence_literacy",
@@ -3545,7 +3545,7 @@
           "korean": "특정 작가의 최근 작품과 너무 비슷하다는 의견이 있습니다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Es gibt Hinweise, dass es den jüngsten Arbeiten einer bestimmten Künstlerin sehr ähnelt.",
+            "de": "Es gibt Hinweise, dass es den jüngsten Arbeiten eines bestimmten Kunstschaffenden sehr ähnelt.",
             "en": "There are concerns that it looks very similar to a particular artist's recent work."
           }
         },
@@ -3611,7 +3611,7 @@
         {
           "speaker": "user",
           "ko": "특정 작가의 최근 작품과 너무 비슷하다는 의견이 있습니다.",
-          "de": "Es gibt Hinweise, dass es den jüngsten Arbeiten einer bestimmten Künstlerin sehr ähnelt.",
+          "de": "Es gibt Hinweise, dass es den jüngsten Arbeiten eines bestimmten Kunstschaffenden sehr ähnelt.",
           "en": "There are concerns that it looks very similar to a particular artist's recent work."
         },
         {
@@ -3651,7 +3651,7 @@
                 "en": "The draft is getting a good response, so we'd like to use this image in the final campaign."
               },
               {
-                "de": "Es gibt Hinweise, dass es den jüngsten Arbeiten einer bestimmten Künstlerin sehr ähnelt.",
+                "de": "Es gibt Hinweise, dass es den jüngsten Arbeiten eines bestimmten Kunstschaffenden sehr ähnelt.",
                 "en": "There are concerns that it looks very similar to a particular artist's recent work."
               },
               {
@@ -3670,7 +3670,7 @@
           "id": "quest_training_data_copyright_02",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Es gibt Hinweise, dass es den jüngsten Arbeiten einer bestimmten Künstlerin sehr ähnelt.",
+            "promptDe": "Es gibt Hinweise, dass es den jüngsten Arbeiten eines bestimmten Kunstschaffenden sehr ähnelt.",
             "promptEn": "There are concerns that it looks very similar to a particular artist's recent work.",
             "options": [
               {
