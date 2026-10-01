@@ -14191,7 +14191,7 @@
             },
             {
               "ko": "처음부터 여러 차례 열기보다 주말 하루만 시험해 볼 수 있습니다.",
-              "de": "Statt gleich mehrere Termine anzusetzen, könnten wir zunächst einen Samstag testen.",
+              "de": "Statt gleich mehrere Termine anzusetzen, könnten wir es zunächst an einem Tag am Wochenende testen.",
               "en": "Rather than schedule several events right away, we could test it on one weekend day."
             }
           ],
@@ -14577,7 +14577,7 @@
       },
       "intro": {
         "ko": "‘더 주도적으로 하라’는 피드백이 무엇을 뜻하는지 분명하지 않아요.",
-        "de": "Die Rückmeldung, du solltest „proaktiver sein“, ist nicht konkret genug.",
+        "de": "Die Rückmeldung, Sie sollten „mehr Eigeninitiative zeigen“, ist nicht konkret genug.",
         "en": "The feedback to 'be more proactive' isn't specific enough."
       },
       "contentIds": [
@@ -14632,7 +14632,7 @@
           },
           "explanation": {
             "ko": "들은 말은 “다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.“: Beim nächsten Projekt wünsche ich mir etwas mehr Eigeninitiative von dir. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "de": "Zu hören ist „다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.“: Beim nächsten Projekt wünsche ich mir etwas mehr Eigeninitiative von Ihnen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
             "en": "The line is “다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.”: I'd like you to take more initiative on the next project. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
@@ -14643,12 +14643,12 @@
           "options": [
             {
               "ko": "다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.",
-              "de": "Beim nächsten Projekt wünsche ich mir etwas mehr Eigeninitiative von dir.",
+              "de": "Beim nächsten Projekt wünsche ich mir etwas mehr Eigeninitiative von Ihnen.",
               "en": "I'd like you to take more initiative on the next project."
             },
             {
               "ko": "맞아요. 다음 회의에서는 첫 안건의 자료 정리를 맡아 볼래요?",
-              "de": "Genau. Möchtest du für den ersten Punkt im nächsten Meeting die Unterlagen vorbereiten?",
+              "de": "Genau. Möchten Sie für den ersten Punkt im nächsten Meeting die Unterlagen vorbereiten?",
               "en": "Right. Would you prepare the materials for the first item at the next meeting?"
             },
             {
@@ -15039,7 +15039,7 @@
       },
       "intro": {
         "ko": "마야가 라이브 방송에서 직원에게 갑자기 춤을 부탁했어요.",
-        "de": "Maya hat in einem Livestream einen Mitarbeiter spontan zum Tanzen aufgefordert.",
+        "de": "Maya hat in einem Livestream eine Person vom Personal spontan zum Tanzen aufgefordert.",
         "en": "During a livestream, Maya suddenly asked an employee to dance."
       },
       "contentIds": [
@@ -15057,8 +15057,8 @@
           },
           "explanation": {
             "ko": "근거는 “맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.”예요. 따라서 “직원의 웃음만으로 춤 요청에 동의했다고 단정할 수 없어요.”가 맞아요. “직원이 웃었으므로 춤을 부탁해도 괜찮았다는 게 확정돼요.”와 “방송을 살리려는 의도면 먼저 물어볼 필요가 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.“ (Stimmt. Nur weil er gelacht hat, heißt das nicht, dass er einverstanden war.). Daraus folgt: Dass die Person gelächelt hat, heißt nicht, dass sie dem Tanz zugestimmt hat. Die Alternativen „Das Lächeln bestätigt eindeutig, dass der Tanzwunsch in Ordnung war.“ und „Die Absicht, die Sendung zu beleben, macht vorheriges Fragen unnötig.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.” (You're right. He smiled, but that may not have meant he agreed.). This supports: The employee's smile doesn't mean they agreed to dance. The alternatives “The smile conclusively proves the dance request was acceptable.” and “Trying to improve the broadcast removes the need to ask first.” change the distinction or condition in the dialogue."
+            "de": "Der Beleg lautet: „맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.“ (Stimmt. Nur weil die Person gelächelt hat, heißt das nicht, dass sie einverstanden war.). Daraus folgt: Dass die Person gelächelt hat, heißt nicht, dass sie dem Tanz zugestimmt hat. Die Alternativen „Das Lächeln bestätigt eindeutig, dass der Tanzwunsch in Ordnung war.“ und „Die Absicht, die Sendung zu beleben, macht vorheriges Fragen unnötig.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "en": "The evidence is “맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.” (You're right. They smiled, but that may not have meant they agreed.). This supports: The employee's smile doesn't mean they agreed to dance. The alternatives “The smile conclusively proves the dance request was acceptable.” and “Trying to improve the broadcast removes the need to ask first.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "fremdschaemen_live"
@@ -15153,8 +15153,8 @@
           },
           "explanation": {
             "ko": "근거는 “맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.”예요. 따라서 “직원의 웃음만으로 춤 요청에 동의했다고 단정할 수 없어요.”가 맞아요. “직원이 웃었으므로 춤을 부탁해도 괜찮았다는 게 확정돼요.”와 “방송을 살리려는 의도면 먼저 물어볼 필요가 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.“ (Stimmt. Nur weil er gelacht hat, heißt das nicht, dass er einverstanden war.). Daraus folgt: Dass die Person gelächelt hat, heißt nicht, dass sie dem Tanz zugestimmt hat. Die Alternativen „Das Lächeln bestätigt eindeutig, dass der Tanzwunsch in Ordnung war.“ und „Die Absicht, die Sendung zu beleben, macht vorheriges Fragen unnötig.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.” (You're right. He smiled, but that may not have meant he agreed.). This supports: The employee's smile doesn't mean they agreed to dance. The alternatives “The smile conclusively proves the dance request was acceptable.” and “Trying to improve the broadcast removes the need to ask first.” change the distinction or condition in the dialogue."
+            "de": "Der Beleg lautet: „맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.“ (Stimmt. Nur weil die Person gelächelt hat, heißt das nicht, dass sie einverstanden war.). Daraus folgt: Dass die Person gelächelt hat, heißt nicht, dass sie dem Tanz zugestimmt hat. Die Alternativen „Das Lächeln bestätigt eindeutig, dass der Tanzwunsch in Ordnung war.“ und „Die Absicht, die Sendung zu beleben, macht vorheriges Fragen unnötig.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "en": "The evidence is “맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.” (You're right. They smiled, but that may not have meant they agreed.). This supports: The employee's smile doesn't mean they agreed to dance. The alternatives “The smile conclusively proves the dance request was acceptable.” and “Trying to improve the broadcast removes the need to ask first.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "fremdschaemen_live"
@@ -15193,8 +15193,8 @@
       },
       "intro": {
         "ko": "통화 가능 구역 표시를 못 보고 온라인 회의를 하다 항의를 받아요.",
-        "de": "Du führst ein Online-Meeting, weil du die kleine Kennzeichnung der Telefonzone übersehen hast.",
-        "en": "You're in an online meeting after missing the small sign for the call zone."
+        "de": "Du übersiehst die Kennzeichnung des Telefonbereichs und hältst gerade ein Online-Meeting ab, als sich jemand beschwert.",
+        "en": "You missed the sign for the call zone and are in an online meeting when someone objects."
       },
       "contentIds": [
         "library_quiet_zone_conflict"
@@ -15519,7 +15519,7 @@
           },
           "explanation": {
             "ko": "근거는 “예산은 필요한 자료를 더 모아서 다음 회의에서 정하죠.”예요. 따라서 “오늘 결정할 방향·대상과 다음 회의의 예산을 구분해요.”가 맞아요. “캠페인 방향과 예산을 모두 오늘 확정해요.”와 “예산이 미정이므로 오늘은 어떤 결정도 하지 않아요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „예산은 필요한 자료를 더 모아서 다음 회의에서 정하죠.“ (Für das Budget sammeln wir noch die nötigen Zahlen und entscheiden beim nächsten Termin.). Daraus folgt: Richtung und Zielgruppe werden heute, das Budget später entschieden. Die Alternativen „Ausrichtung und Budget werden beide heute festgelegt.“ und „Weil das Budget offen ist, wird heute nichts entschieden.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "de": "Der Beleg lautet: „예산은 필요한 자료를 더 모아서 다음 회의에서 정하죠.“ (Für das Budget sammeln wir noch die nötigen Unterlagen und entscheiden beim nächsten Termin.). Daraus folgt: Richtung und Zielgruppe werden heute, das Budget später entschieden. Die Alternativen „Ausrichtung und Budget werden beide heute festgelegt.“ und „Weil das Budget offen ist, wird heute nichts entschieden.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
             "en": "The evidence is “예산은 필요한 자료를 더 모아서 다음 회의에서 정하죠.” (Let's gather the information we need for the budget and decide at the next meeting.). This supports: Direction and audience are decided today, with budget deferred to the next meeting. The alternatives “Campaign direction and budget are both finalized today.” and “The unsettled budget means no decision will be made today.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
@@ -15615,7 +15615,7 @@
           },
           "explanation": {
             "ko": "근거는 “예산은 필요한 자료를 더 모아서 다음 회의에서 정하죠.”예요. 따라서 “오늘 결정할 방향·대상과 다음 회의의 예산을 구분해요.”가 맞아요. “캠페인 방향과 예산을 모두 오늘 확정해요.”와 “예산이 미정이므로 오늘은 어떤 결정도 하지 않아요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „예산은 필요한 자료를 더 모아서 다음 회의에서 정하죠.“ (Für das Budget sammeln wir noch die nötigen Zahlen und entscheiden beim nächsten Termin.). Daraus folgt: Richtung und Zielgruppe werden heute, das Budget später entschieden. Die Alternativen „Ausrichtung und Budget werden beide heute festgelegt.“ und „Weil das Budget offen ist, wird heute nichts entschieden.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "de": "Der Beleg lautet: „예산은 필요한 자료를 더 모아서 다음 회의에서 정하죠.“ (Für das Budget sammeln wir noch die nötigen Unterlagen und entscheiden beim nächsten Termin.). Daraus folgt: Richtung und Zielgruppe werden heute, das Budget später entschieden. Die Alternativen „Ausrichtung und Budget werden beide heute festgelegt.“ und „Weil das Budget offen ist, wird heute nichts entschieden.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
             "en": "The evidence is “예산은 필요한 자료를 더 모아서 다음 회의에서 정하죠.” (Let's gather the information we need for the budget and decide at the next meeting.). This supports: Direction and audience are decided today, with budget deferred to the next meeting. The alternatives “Campaign direction and budget are both finalized today.” and “The unsettled budget means no decision will be made today.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
@@ -16117,8 +16117,8 @@
       },
       "intro": {
         "ko": "새 배출 기기는 냄새를 줄이지만 사용이 어렵다는 주민도 있어요.",
-        "de": "Das neue Biomüllgerät reduziert Gerüche, ist aber für manche Bewohner schwer zu bedienen.",
-        "en": "The new food-waste machine reduces odors, but some residents find it difficult to use."
+        "de": "Das neue Gerät für die Abfallentsorgung reduziert Gerüche, ist aber für manche Bewohner schwer zu bedienen.",
+        "en": "The new waste disposal machine reduces odors, but some residents find it difficult to use."
       },
       "contentIds": [
         "recycling_policy_pilot"
@@ -16597,8 +16597,8 @@
           },
           "explanation": {
             "ko": "근거는 “맞아요. 초대 방식과 관계를 보고 직접 축하할지 따로 인사할지 정하면 돼요.”예요. 따라서 “초대받았다는 사실만으로 참석 의무를 단정하지 않아요.”가 맞아요. “청첩장을 받으면 다른 약속은 반드시 취소해야 해요.”와 “가까운 사이가 아니면 축하 메시지도 보내면 안 돼요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „맞아요. 초대 방식과 관계를 보고 직접 축하할지 따로 인사할지 정하면 돼요.“ (Genau. Entscheide nach eurer Beziehung, ob du hingehst oder auf andere Weise gratulierst.). Daraus folgt: Eine Einladung allein begründet keine feste Teilnahmepflicht. Die Alternativen „Nach einer Einladung müssen andere Termine zwingend abgesagt werden.“ und „Ohne enge Beziehung darf auch kein Glückwunsch geschickt werden.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “맞아요. 초대 방식과 관계를 보고 직접 축하할지 따로 인사할지 정하면 돼요.” (Right. Based on your relationship, you can attend or congratulate her another way.). This supports: An invitation alone does not establish an obligation to attend. The alternatives “Receiving a wedding invitation requires cancelling other plans.” and “Without a close relationship, even sending congratulations is forbidden.” change the distinction or condition in the dialogue."
+            "de": "Der Beleg lautet: „맞아요. 초대 방식과 관계를 보고 직접 축하할지 따로 인사할지 정하면 돼요.“ (Genau. Entscheide je nach Art der Einladung und eurer Beziehung, ob du hingehst oder auf andere Weise gratulierst.). Daraus folgt: Eine Einladung allein begründet keine feste Teilnahmepflicht. Die Alternativen „Nach einer Einladung müssen andere Termine zwingend abgesagt werden.“ und „Ohne enge Beziehung darf auch kein Glückwunsch geschickt werden.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "en": "The evidence is “맞아요. 초대 방식과 관계를 보고 직접 축하할지 따로 인사할지 정하면 돼요.” (Right. Based on the invitation and your relationship, you can attend or congratulate them another way.). This supports: An invitation alone does not establish an obligation to attend. The alternatives “Receiving a wedding invitation requires cancelling other plans.” and “Without a close relationship, even sending congratulations is forbidden.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "wedding_invitation_expectation"
@@ -16634,7 +16634,7 @@
           },
           "explanation": {
             "ko": "들은 말은 “두 사람이 평소에 얼마나 가까워요?”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „두 사람이 평소에 얼마나 가까워요?“: Wie eng arbeitet ihr normalerweise zusammen? Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "de": "Zu hören ist „두 사람이 평소에 얼마나 가까워요?“: Wie nah steht ihr euch normalerweise? Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
             "en": "The line is “두 사람이 평소에 얼마나 가까워요?”: How close are the two of you normally? The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
@@ -16645,7 +16645,7 @@
           "options": [
             {
               "ko": "두 사람이 평소에 얼마나 가까워요?",
-              "de": "Wie eng arbeitet ihr normalerweise zusammen?",
+              "de": "Wie nah steht ihr euch normalerweise?",
               "en": "How close are the two of you normally?"
             },
             {
@@ -16655,8 +16655,8 @@
             },
             {
               "ko": "그럼 원래 약속은 지키고 따로 축하 메시지를 보낼게요.",
-              "de": "Dann halte ich meine ursprüngliche Verabredung ein und gratuliere ihr persönlich per Nachricht.",
-              "en": "Then I'll keep my original plans and send her a personal congratulations message."
+              "de": "Dann halte ich meine ursprüngliche Verabredung ein und schicke eine persönliche Glückwunschnachricht.",
+              "en": "Then I'll keep my original plans and send them a personal congratulations message."
             }
           ],
           "correctIndex": 0
@@ -16667,8 +16667,8 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Dann halte ich meine ursprüngliche Verabredung ein und gratuliere ihr persönlich per Nachricht.",
-            "en": "Put the words in the same order as the recording. Meaning: Then I'll keep my original plans and send her a personal congratulations message."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Dann halte ich meine ursprüngliche Verabredung ein und schicke eine persönliche Glückwunschnachricht.",
+            "en": "Put the words in the same order as the recording. Meaning: Then I'll keep my original plans and send them a personal congratulations message."
           },
           "explanation": {
             "ko": "이 과제는 들은 어순을 재현해요: “그럼 원래 약속은 지키고 따로 축하 메시지를 보낼게요.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
@@ -16693,8 +16693,8 @@
           },
           "explanation": {
             "ko": "근거는 “맞아요. 초대 방식과 관계를 보고 직접 축하할지 따로 인사할지 정하면 돼요.”예요. 따라서 “초대받았다는 사실만으로 참석 의무를 단정하지 않아요.”가 맞아요. “청첩장을 받으면 다른 약속은 반드시 취소해야 해요.”와 “가까운 사이가 아니면 축하 메시지도 보내면 안 돼요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „맞아요. 초대 방식과 관계를 보고 직접 축하할지 따로 인사할지 정하면 돼요.“ (Genau. Entscheide nach eurer Beziehung, ob du hingehst oder auf andere Weise gratulierst.). Daraus folgt: Eine Einladung allein begründet keine feste Teilnahmepflicht. Die Alternativen „Nach einer Einladung müssen andere Termine zwingend abgesagt werden.“ und „Ohne enge Beziehung darf auch kein Glückwunsch geschickt werden.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “맞아요. 초대 방식과 관계를 보고 직접 축하할지 따로 인사할지 정하면 돼요.” (Right. Based on your relationship, you can attend or congratulate her another way.). This supports: An invitation alone does not establish an obligation to attend. The alternatives “Receiving a wedding invitation requires cancelling other plans.” and “Without a close relationship, even sending congratulations is forbidden.” change the distinction or condition in the dialogue."
+            "de": "Der Beleg lautet: „맞아요. 초대 방식과 관계를 보고 직접 축하할지 따로 인사할지 정하면 돼요.“ (Genau. Entscheide je nach Art der Einladung und eurer Beziehung, ob du hingehst oder auf andere Weise gratulierst.). Daraus folgt: Eine Einladung allein begründet keine feste Teilnahmepflicht. Die Alternativen „Nach einer Einladung müssen andere Termine zwingend abgesagt werden.“ und „Ohne enge Beziehung darf auch kein Glückwunsch geschickt werden.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "en": "The evidence is “맞아요. 초대 방식과 관계를 보고 직접 축하할지 따로 인사할지 정하면 돼요.” (Right. Based on the invitation and your relationship, you can attend or congratulate them another way.). This supports: An invitation alone does not establish an obligation to attend. The alternatives “Receiving a wedding invitation requires cancelling other plans.” and “Without a close relationship, even sending congratulations is forbidden.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "wedding_invitation_expectation"

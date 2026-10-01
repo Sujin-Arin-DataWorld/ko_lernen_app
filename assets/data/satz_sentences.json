@@ -3161,8 +3161,8 @@
       "id": "satz_b2_0090",
       "level": "b2",
       "targetKo": "같은 뜻이라도 '부탁'과 '요구'는 어감이 달라요.",
-      "promptDe": "Auch wenn beide Wörter Ähnliches bedeuten, haben 부탁 und 요구 eine andere Klangwirkung.",
-      "promptEn": "Even though they have a similar meaning, 부탁 and 요구 carry different connotations.",
+      "promptDe": "Auch wenn „부탁“ und „요구“ Ähnliches bedeuten, unterscheiden sie sich in ihrer Wirkung.",
+      "promptEn": "Even though they have similar meanings, 부탁 and 요구 carry different connotations.",
       "distractors": [
         "용례가",
         "같아요"
@@ -3581,7 +3581,7 @@
       "id": "satz_b2_0125",
       "level": "b2",
       "targetKo": "중요한 소식은 서로 다른 두 출처에서 교차 확인한 뒤에 전달했어요.",
-      "promptDe": "Eine wichtige Nachricht habe ich erst weitergegeben, nachdem ich sie mit zwei voneinander unabhängigen Quellen abgeglichen hatte.",
+      "promptDe": "Eine wichtige Nachricht habe ich erst weitergegeben, nachdem ich sie mit zwei verschiedenen Quellen abgeglichen hatte.",
       "promptEn": "I shared the important news only after cross-checking it against two different sources.",
       "distractors": [
         "한 출처만 믿고",
@@ -9225,8 +9225,8 @@
       "id": "satz_b2_0183",
       "level": "b2",
       "targetKo": "같은 나이인데 높여 부르니 오히려 거리가 생겼어요.",
-      "promptDe": "Gleichaltrig zu höflich anreden schuf Distanz.",
-      "promptEn": "Addressing a same-age sibling too highly created distance.",
+      "promptDe": "Obwohl wir gleich alt sind, wirkte die betont höfliche Anrede eher distanzierend.",
+      "promptEn": "Although we're the same age, addressing them so formally made us feel more distant.",
       "distractors": [
         "음식",
         "음식을"
@@ -9548,9 +9548,9 @@
     {
       "id": "satz_b2_0210",
       "level": "b2",
-      "targetKo": "집 장만 질문을 범위만 말하고 숫자를 피했어요.",
-      "promptDe": "Die Wohnungskauffrage beantwortete ich mit einem Rahmen, ohne Zahlen.",
-      "promptEn": "I answered the home-buying question with a range and avoided numbers.",
+      "targetKo": "집 장만 비용을 묻길래 대략적인 범위만 말했어요.",
+      "promptDe": "Als man mich nach den Kosten für den Wohnungskauf fragte, nannte ich nur eine grobe Spanne.",
+      "promptEn": "When they asked how much I spent on a home, I only gave a rough range.",
       "distractors": [
         "아팠어요",
         "악수"
@@ -9728,9 +9728,9 @@
     {
       "id": "satz_b2_0225",
       "level": "b2",
-      "targetKo": "도와드리겠습니다를 큰 소리로 하니 자리가 열렸어요.",
-      "promptDe": "Ich werde helfen laut zu sagen öffnete einen Platz.",
-      "promptEn": "Saying I will help out loud opened a place.",
+      "targetKo": "제가 “도와드리겠습니다”라고 큰 소리로 말했어요.",
+      "promptDe": "Ich sagte laut: „Ich helfe Ihnen.“",
+      "promptEn": "I said aloud, “I’ll help.”",
       "distractors": [
         "쓰기는",
         "쓰기로"
@@ -14901,8 +14901,8 @@
       "id": "satz_b2_0320",
       "level": "b2",
       "targetKo": "공개 범위를 내부와 외부로 나눠 적어요.",
-      "promptDe": "Den Öffnungsgrad teile ich in intern und extern.",
-      "promptEn": "I split the disclosure scope into internal and external.",
+      "promptDe": "Ich halte den Umfang der internen und externen Veröffentlichung getrennt fest.",
+      "promptEn": "I record the scope of internal and external disclosure separately.",
       "distractors": [
         "한 장 요약",
         "선택지 비교"
@@ -14984,9 +14984,9 @@
     {
       "id": "satz_b2_0327",
       "level": "b2",
-      "targetKo": "보상 한도를 먼저 밝히면 기대가 맞춰져요.",
-      "promptDe": "Nennt man den Kulanzrahmen zuerst, passen die Erwartungen.",
-      "promptEn": "If you state the goodwill limit first, expectations align.",
+      "targetKo": "보상 한도를 먼저 밝히면 기대치를 맞출 수 있어요.",
+      "promptDe": "Wenn man die Obergrenze der Entschädigung gleich nennt, lassen sich Erwartungen besser abstimmen.",
+      "promptEn": "Stating the compensation limit up front helps set expectations.",
       "distractors": [
         "상위 담당",
         "사건 번호"
@@ -22509,8 +22509,8 @@
       "id": "satz_b2_0407",
       "level": "b2",
       "targetKo": "사회생활에서는 예의가 중요해요.",
-      "promptDe": "Im Berufsleben ist Höflichkeit wichtig.",
-      "promptEn": "Manners matter in social life.",
+      "promptDe": "Im Umgang mit anderen Menschen ist Höflichkeit wichtig.",
+      "promptEn": "Manners matter when dealing with others.",
       "distractors": [
         "갈등",
         "관점"
@@ -22845,8 +22845,8 @@
       "id": "satz_b2_0427",
       "level": "b2",
       "targetKo": "에어컨 온도를 조절했어요.",
-      "promptDe": "Ich habe die Klimaanlage eingestellt.",
-      "promptEn": "I adjusted the air conditioner.",
+      "promptDe": "Ich habe die Temperatur an der Klimaanlage eingestellt.",
+      "promptEn": "I adjusted the temperature setting on the air conditioner.",
       "distractors": [
         "갈등",
         "관점"
@@ -23241,8 +23241,8 @@
       "id": "satz_b2_0458",
       "level": "b2",
       "targetKo": "설날은 음력 1월 1일이에요.",
-      "promptDe": "Seollal ist der erste Tag des Mondkalenders.",
-      "promptEn": "Seollal is the first day of the lunar calendar.",
+      "promptDe": "Seollal fällt auf den ersten Tag des ersten Monats im Mondkalender.",
+      "promptEn": "Seollal falls on the first day of the first lunar month.",
       "distractors": [
         "갈등",
         "관점"
@@ -23529,7 +23529,7 @@
       "id": "satz_b2_0482",
       "level": "b2",
       "targetKo": "성함이 어떻게 되세요?",
-      "promptDe": "Wie ist Ihr werter Name?",
+      "promptDe": "Wie heißen Sie?",
       "promptEn": "May I ask your name?",
       "distractors": [
         "갈등",

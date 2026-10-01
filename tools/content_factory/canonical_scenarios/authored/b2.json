@@ -12,7 +12,7 @@
         {"speaker": "maya", "ko": "오늘 회의에서 어디까지 결정하면 될까요?", "de": "Was genau sollen wir heute entscheiden?", "en": "How far do we need to get in today's meeting?"},
         {"speaker": "andrea", "ko": "오늘은 캠페인 방향과 대상만 정하면 돼요.", "de": "Heute legen wir nur die Richtung und die Zielgruppe der Kampagne fest.", "en": "Today, we only need to decide the campaign direction and audience."},
         {"speaker": "maya", "ko": "예산도 오늘 확정하는 줄 알았어요.", "de": "Ich dachte, wir würden heute auch das Budget festlegen.", "en": "I thought we were finalizing the budget today too."},
-        {"speaker": "andrea", "ko": "예산은 필요한 자료를 더 모아서 다음 회의에서 정하죠.", "de": "Für das Budget sammeln wir noch die nötigen Zahlen und entscheiden beim nächsten Termin.", "en": "Let's gather the information we need for the budget and decide at the next meeting."},
+        {"speaker": "andrea", "ko": "예산은 필요한 자료를 더 모아서 다음 회의에서 정하죠.", "de": "Für das Budget sammeln wir noch die nötigen Unterlagen und entscheiden beim nächsten Termin.", "en": "Let's gather the information we need for the budget and decide at the next meeting."},
         {"speaker": "maya", "ko": "알겠습니다. 오늘 결정할 범위부터 메모할게요.", "de": "Verstanden. Dann halte ich zuerst den heutigen Entscheidungsrahmen fest.", "en": "Understood. I'll note the scope of today's decision first."}
       ]
     },
@@ -61,7 +61,7 @@
       "intro": {"ko": "면접관이 포트폴리오의 6개월 공백을 물어요.", "de": "Im Gespräch wirst du nach einer sechsmonatigen Lücke im Portfolio gefragt.", "en": "The interviewer asks about a six-month gap in your portfolio."},
       "dialog": [
         {"speaker": "interviewer", "ko": "이 기간에는 등록된 프로젝트가 없는데, 어떤 일을 하셨나요?", "de": "Für diesen Zeitraum ist kein Projekt aufgeführt. Woran haben Sie damals gearbeitet?", "en": "There are no listed projects for this period. What were you working on then?"},
-        {"speaker": "maya", "ko": "정규직으로 일한 기간은 아니지만 프리랜서 협업을 했습니다.", "de": "Ich war in dieser Zeit nicht fest angestellt, habe aber an freien Kooperationen gearbeitet.", "en": "I wasn't employed full-time during that period, but I did freelance collaborations."},
+        {"speaker": "maya", "ko": "정규직으로 일한 기간은 아니지만 프리랜서 협업을 했습니다.", "de": "Ich war in dieser Zeit nicht fest angestellt, habe aber freiberuflich an gemeinsamen Projekten gearbeitet.", "en": "I wasn't employed full-time during that period, but I worked on collaborative projects as a freelancer."},
         {"speaker": "interviewer", "ko": "구체적으로 어떤 역할을 맡으셨나요?", "de": "Welche Aufgaben haben Sie dabei konkret übernommen?", "en": "What did you specifically handle?"},
         {"speaker": "maya", "ko": "캠페인 문구와 일정 조율을 맡았습니다. 전체 프로젝트를 이끈 건 아닙니다.", "de": "Ich war für die Kampagnentexte und die Terminabstimmung zuständig, nicht für die Leitung des gesamten Projekts.", "en": "I handled the campaign copy and scheduling. I didn't lead the entire project."},
         {"speaker": "interviewer", "ko": "결과물을 보여 주실 수 있나요?", "de": "Können Sie Arbeitsproben davon zeigen?", "en": "Can you show us any of the work?"},
@@ -76,7 +76,7 @@
         {"speaker": "official", "ko": "영화제가 골목 상권에는 도움이 된다는 의견이 많습니다.", "de": "Viele sehen einen Nutzen für die Geschäfte in der Straße.", "en": "Many people say the festival helps businesses in the neighborhood."},
         {"speaker": "resident", "ko": "취지는 좋지만 영화가 끝난 뒤까지 소음이 이어질까 걱정돼요.", "de": "Die Idee ist gut, aber ich fürchte, dass der Lärm nach dem Film weitergeht.", "en": "I like the idea, but I'm worried the noise will continue after the film."},
         {"speaker": "hyuna", "ko": "행사 취지는 살리되 야외 음향은 아홉 시에 끝내는 게 어떨까요?", "de": "Wie wäre es, die Veranstaltung beizubehalten, aber den Außenton um neun zu beenden?", "en": "How about keeping the event but ending outdoor sound at nine?"},
-        {"speaker": "official", "ko": "처음부터 여러 차례 열기보다 주말 하루만 시험해 볼 수 있습니다.", "de": "Statt gleich mehrere Termine anzusetzen, könnten wir zunächst einen Samstag testen.", "en": "Rather than schedule several events right away, we could test it on one weekend day."},
+        {"speaker": "official", "ko": "처음부터 여러 차례 열기보다 주말 하루만 시험해 볼 수 있습니다.", "de": "Statt gleich mehrere Termine anzusetzen, könnten wir es zunächst an einem Tag am Wochenende testen.", "en": "Rather than schedule several events right away, we could test it on one weekend day."},
         {"speaker": "resident", "ko": "문제가 생겼을 때 바로 알릴 연락 창구도 필요해요.", "de": "Wir brauchen auch eine Kontaktstelle, die während der Veranstaltung erreichbar ist.", "en": "We also need a contact point for problems during the event."},
         {"speaker": "hyuna", "ko": "좋아요. 시험 운영 뒤 주민과 상인의 의견을 같이 확인하죠.", "de": "Gut. Nach dem Test hören wir sowohl Anwohner als auch Geschäftsleute an.", "en": "Good. After the trial, let's review feedback from residents and businesses."}
       ]
@@ -84,13 +84,13 @@
     {
       "id": "feedback_specific_example",
       "title": {"de": "Vages Feedback in eine konkrete Aufgabe übersetzen", "en": "Turning vague feedback into a concrete action"},
-      "intro": {"ko": "‘더 주도적으로 하라’는 피드백이 무엇을 뜻하는지 분명하지 않아요.", "de": "Die Rückmeldung, du solltest „proaktiver sein“, ist nicht konkret genug.", "en": "The feedback to 'be more proactive' isn't specific enough."},
+      "intro": {"ko": "‘더 주도적으로 하라’는 피드백이 무엇을 뜻하는지 분명하지 않아요.", "de": "Die Rückmeldung, Sie sollten „mehr Eigeninitiative zeigen“, ist nicht konkret genug.", "en": "The feedback to 'be more proactive' isn't specific enough."},
       "dialog": [
-        {"speaker": "andrea", "ko": "다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.", "de": "Beim nächsten Projekt wünsche ich mir etwas mehr Eigeninitiative von dir.", "en": "I'd like you to take more initiative on the next project."},
-        {"speaker": "maya", "ko": "주도적으로 하라는 말이 어떤 행동을 뜻하는지 예를 들어 주실 수 있을까요?", "de": "Könntest du an einem Beispiel erklären, welches Verhalten du damit meinst?", "en": "Could you give me an example of what behavior you mean by that?"},
+        {"speaker": "andrea", "ko": "다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.", "de": "Beim nächsten Projekt wünsche ich mir etwas mehr Eigeninitiative von Ihnen.", "en": "I'd like you to take more initiative on the next project."},
+        {"speaker": "maya", "ko": "주도적으로 하라는 말이 어떤 행동을 뜻하는지 예를 들어 주실 수 있을까요?", "de": "Könnten Sie mir an einem Beispiel erklären, welches Verhalten Sie damit meinen?", "en": "Could you give me an example of what behavior you mean by that?"},
         {"speaker": "andrea", "ko": "회의 전에 필요한 자료를 먼저 모으고 안건을 제안하는 거예요.", "de": "Zum Beispiel vor dem Meeting die nötigen Unterlagen sammeln und einen Tagesordnungspunkt vorschlagen.", "en": "For example, gathering the needed materials before a meeting and proposing an agenda item."},
         {"speaker": "maya", "ko": "모든 일을 혼자 결정하라는 뜻은 아니군요.", "de": "Es bedeutet also nicht, dass ich alles allein entscheiden soll.", "en": "So it doesn't mean I should decide everything alone."},
-        {"speaker": "andrea", "ko": "맞아요. 다음 회의에서는 첫 안건의 자료 정리를 맡아 볼래요?", "de": "Genau. Möchtest du für den ersten Punkt im nächsten Meeting die Unterlagen vorbereiten?", "en": "Right. Would you prepare the materials for the first item at the next meeting?"},
+        {"speaker": "andrea", "ko": "맞아요. 다음 회의에서는 첫 안건의 자료 정리를 맡아 볼래요?", "de": "Genau. Möchten Sie für den ersten Punkt im nächsten Meeting die Unterlagen vorbereiten?", "en": "Right. Would you prepare the materials for the first item at the next meeting?"},
         {"speaker": "maya", "ko": "네. 그 역할을 기준으로 준비해 보겠습니다.", "de": "Ja. Daran orientiere ich meine Vorbereitung.", "en": "Yes. I'll use that role as my concrete target."}
       ]
     },
@@ -114,13 +114,13 @@
     {
       "id": "fremdschaemen_live",
       "title": {"de": "Sich bei einem übertriebenen Livestream fremdschämen", "en": "Feeling embarrassed by a friend's over-the-top livestream"},
-      "intro": {"ko": "마야가 라이브 방송에서 직원에게 갑자기 춤을 부탁했어요.", "de": "Maya hat in einem Livestream einen Mitarbeiter spontan zum Tanzen aufgefordert.", "en": "During a livestream, Maya suddenly asked an employee to dance."},
+      "intro": {"ko": "마야가 라이브 방송에서 직원에게 갑자기 춤을 부탁했어요.", "de": "Maya hat in einem Livestream eine Person vom Personal spontan zum Tanzen aufgefordert.", "en": "During a livestream, Maya suddenly asked an employee to dance."},
       "dialog": [
         {"speaker": "maya", "ko": "오늘 라이브 어땠어? 분위기 좋았지?", "de": "Wie fandest du den Livestream? Die Stimmung war doch gut, oder?", "en": "How was the livestream? The energy was good, right?"},
-        {"speaker": "lena", "ko": "솔직히 직원한테 춤춰 달라고 할 때는 내가 다 민망하더라.", "de": "Ehrlich gesagt habe ich mich richtig fremdgeschämt, als du den Mitarbeiter zum Tanzen aufgefordert hast.", "en": "Honestly, I felt embarrassed for everyone when you asked the employee to dance."},
+        {"speaker": "lena", "ko": "솔직히 직원한테 춤춰 달라고 할 때는 내가 다 민망하더라.", "de": "Ehrlich gesagt habe ich mich richtig fremdgeschämt, als du die Person vom Personal zum Tanzen aufgefordert hast.", "en": "Honestly, I felt embarrassed for everyone when you asked the employee to dance."},
         {"speaker": "maya", "ko": "그 정도였어? 방송을 살리려고 한 건데.", "de": "So schlimm? Ich wollte den Stream nur lebendiger machen.", "en": "Was it that bad? I was trying to liven up the stream."},
-        {"speaker": "lena", "ko": "직원이 거절도 못 하고 웃는 것 같아서, 보는 내가 다 부끄러웠어.", "de": "Der Mitarbeiter wirkte, als könne er nicht Nein sagen und lächle nur deshalb. Mir war das Zuschauen richtig unangenehm.", "en": "The employee looked like he couldn't say no and was just smiling through it. I felt embarrassed just watching."},
-        {"speaker": "maya", "ko": "맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.", "de": "Stimmt. Nur weil er gelacht hat, heißt das nicht, dass er einverstanden war.", "en": "You're right. He smiled, but that may not have meant he agreed."},
+        {"speaker": "lena", "ko": "직원이 거절도 못 하고 웃는 것 같아서, 보는 내가 다 부끄러웠어.", "de": "Die Person vom Personal wirkte, als könne sie nicht Nein sagen, und lächelte dabei. Mir war das Zuschauen richtig unangenehm.", "en": "The employee seemed unable to say no and kept smiling. I felt embarrassed just watching."},
+        {"speaker": "maya", "ko": "맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.", "de": "Stimmt. Nur weil die Person gelächelt hat, heißt das nicht, dass sie einverstanden war.", "en": "You're right. They smiled, but that may not have meant they agreed."},
         {"speaker": "lena", "ko": "다음에는 카메라를 켜기 전에 먼저 물어봐.", "de": "Frag beim nächsten Mal, bevor die Kamera läuft.", "en": "Next time, ask before the camera is rolling."},
         {"speaker": "maya", "ko": "응. 다음부터는 재미보다 괜찮은지 먼저 물어볼게.", "de": "Ja. Nächstes Mal frage ich zuerst, ob es für die Person in Ordnung ist, bevor ich an die Unterhaltung denke.", "en": "Okay. Next time, I'll ask if the person is okay with it before trying to make it entertaining."}
       ],
@@ -203,12 +203,12 @@
       "title": {"de": "Was eine Hochzeitseinladung bedeutet", "en": "What a wedding invitation means"},
       "intro": {"ko": "청첩장을 받고 반드시 가야 한다고 생각해 다른 일정을 취소하려 해요.", "de": "Nach einer Hochzeitseinladung willst du andere Pläne absagen, weil du die Teilnahme für verpflichtend hältst.", "en": "After receiving a wedding invitation, you plan to cancel other plans because you think attendance is required."},
       "dialog": [
-        {"speaker": "maya", "ko": "동료한테 청첩장을 받았어요. 그날 약속을 취소해야겠죠?", "de": "Eine Kollegin hat mich zu ihrer Hochzeit eingeladen. Ich muss wohl meine anderen Pläne absagen, oder?", "en": "A coworker invited me to her wedding. I guess I need to cancel my other plans, right?"},
-        {"speaker": "andrea", "ko": "두 사람이 평소에 얼마나 가까워요?", "de": "Wie eng arbeitet ihr normalerweise zusammen?", "en": "How close are the two of you normally?"},
+        {"speaker": "maya", "ko": "동료한테 청첩장을 받았어요. 그날 약속을 취소해야겠죠?", "de": "Jemand aus dem Kollegenkreis hat mich zur Hochzeit eingeladen. Ich muss wohl meine anderen Pläne absagen, oder?", "en": "A coworker invited me to their wedding. I guess I need to cancel my other plans, right?"},
+        {"speaker": "andrea", "ko": "두 사람이 평소에 얼마나 가까워요?", "de": "Wie nah steht ihr euch normalerweise?", "en": "How close are the two of you normally?"},
         {"speaker": "maya", "ko": "같은 층이지만 같이 일한 적은 많지 않아요.", "de": "Wir arbeiten auf derselben Etage, aber kaum direkt miteinander.", "en": "We're on the same floor, but we haven't worked together much."},
         {"speaker": "maya", "ko": "초대받았다고 꼭 가야 하는 건 아니죠?", "de": "Nur weil ich eingeladen bin, muss ich nicht unbedingt hingehen, oder?", "en": "Being invited doesn't mean I absolutely have to go, right?"},
-        {"speaker": "andrea", "ko": "맞아요. 초대 방식과 관계를 보고 직접 축하할지 따로 인사할지 정하면 돼요.", "de": "Genau. Entscheide nach eurer Beziehung, ob du hingehst oder auf andere Weise gratulierst.", "en": "Right. Based on your relationship, you can attend or congratulate her another way."},
-        {"speaker": "maya", "ko": "그럼 원래 약속은 지키고 따로 축하 메시지를 보낼게요.", "de": "Dann halte ich meine ursprüngliche Verabredung ein und gratuliere ihr persönlich per Nachricht.", "en": "Then I'll keep my original plans and send her a personal congratulations message."}
+        {"speaker": "andrea", "ko": "맞아요. 초대 방식과 관계를 보고 직접 축하할지 따로 인사할지 정하면 돼요.", "de": "Genau. Entscheide je nach Art der Einladung und eurer Beziehung, ob du hingehst oder auf andere Weise gratulierst.", "en": "Right. Based on the invitation and your relationship, you can attend or congratulate them another way."},
+        {"speaker": "maya", "ko": "그럼 원래 약속은 지키고 따로 축하 메시지를 보낼게요.", "de": "Dann halte ich meine ursprüngliche Verabredung ein und schicke eine persönliche Glückwunschnachricht.", "en": "Then I'll keep my original plans and send them a personal congratulations message."}
       ]
     },
     {
@@ -227,7 +227,7 @@
     {
       "id": "library_quiet_zone_conflict",
       "title": {"de": "Ein Missverständnis in der Telefonzone der Bibliothek", "en": "A misunderstanding in the library call zone"},
-      "intro": {"ko": "통화 가능 구역 표시를 못 보고 온라인 회의를 하다 항의를 받아요.", "de": "Du führst ein Online-Meeting, weil du die kleine Kennzeichnung der Telefonzone übersehen hast.", "en": "You're in an online meeting after missing the small sign for the call zone."},
+      "intro": {"ko": "통화 가능 구역 표시를 못 보고 온라인 회의를 하다 항의를 받아요.", "de": "Du übersiehst die Kennzeichnung des Telefonbereichs und hältst gerade ein Online-Meeting ab, als sich jemand beschwert.", "en": "You missed the sign for the call zone and are in an online meeting when someone objects."},
       "dialog": [
         {"speaker": "student", "ko": "죄송한데 여기서는 계속 통화하시면 안 돼요.", "de": "Entschuldigung, hier können Sie nicht weiter telefonieren.", "en": "Excuse me, you can't continue your call here."},
         {"speaker": "lena", "ko": "통화 가능한 구역인 줄 알았는데 표시를 제가 못 봤어요.", "de": "Ich dachte, das wäre der Telefonbereich. Ich habe die Kennzeichnung übersehen.", "en": "I thought this was the call zone, but I missed the sign."},
@@ -253,7 +253,7 @@
     {
       "id": "recycling_policy_pilot",
       "title": {"de": "Ein neues Biomüllsystem zunächst testen", "en": "Piloting a new food-waste system"},
-      "intro": {"ko": "새 배출 기기는 냄새를 줄이지만 사용이 어렵다는 주민도 있어요.", "de": "Das neue Biomüllgerät reduziert Gerüche, ist aber für manche Bewohner schwer zu bedienen.", "en": "The new food-waste machine reduces odors, but some residents find it difficult to use."},
+      "intro": {"ko": "새 배출 기기는 냄새를 줄이지만 사용이 어렵다는 주민도 있어요.", "de": "Das neue Gerät für die Abfallentsorgung reduziert Gerüche, ist aber für manche Bewohner schwer zu bedienen.", "en": "The new waste disposal machine reduces odors, but some residents find it difficult to use."},
       "dialog": [
         {"speaker": "sujin", "ko": "새 기기를 쓰면 냄새는 줄지만 화면이 복잡하다는 의견도 있어요.", "de": "Das neue Gerät reduziert Gerüche, aber einige finden den Bildschirm zu kompliziert.", "en": "The new machine reduces odors, but some people find the screen too complicated."},
         {"speaker": "resident", "ko": "저는 카드 찍는 순서를 몰라서 뒤에 사람이 오면 더 급해져요.", "de": "Ich kenne die Reihenfolge beim Scannen nicht und werde nervös, wenn jemand hinter mir wartet.", "en": "I don't know the scanning steps, and I get flustered when someone is waiting behind me."},
