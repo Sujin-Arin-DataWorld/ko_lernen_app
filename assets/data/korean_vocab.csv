@@ -52,7 +52,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 다리,dari,Bein,A1,Nomen,다리가 길어요.,Die Beine sind lang.,Körper,a1_body,8,false,leg,Noun,The legs are long.,vocab_a1_0051
 몸,mom,Körper,A1,Nomen,몸이 좀 안 좋아요.,Ich fühle mich nicht so wohl.,Körper,a1_body,9,true,body,Noun,I'm not feeling so well.,vocab_a1_0052
 빨간색,ppalgansaek,rot,A1,Nomen,저는 빨간색을 제일 좋아해요.,Ich mag Rot am liebsten.,Farben,a1_colors,1,false,red,Noun,Red is my favorite.,vocab_a1_0053
-파란색,paransaek,blau,A1,Nomen,오늘 하늘이 정말 파래요.,Der Himmel ist heute richtig blau.,Farben,a1_colors,2,false,blue,Noun,The sky is really blue today.,vocab_a1_0054
+파란색,paransaek,blau,A1,Nomen,이 가방은 파란색이에요.,Diese Tasche ist blau.,Farben,a1_colors,2,false,blue,Noun,This bag is blue.,vocab_a1_0054
 초록색,choroksaek,grün,A1,Nomen,이 초록색 옷이 예뻐요.,Dieses grüne Outfit ist hübsch.,Farben,a1_colors,3,false,green,Noun,This green outfit is pretty.,vocab_a1_0055
 노란색,noransaek,gelb,A1,Nomen,노란색 우산을 새로 샀어요.,Ich habe einen neuen gelben Regenschirm gekauft.,Farben,a1_colors,4,false,yellow,Noun,I bought a new yellow umbrella.,vocab_a1_0056
 흰색,huinsaek,weiß,A1,Nomen,흰색 옷을 입어요.,Ich trage weiße Kleidung.,Farben,a1_colors,5,true,white,Noun,I wear white clothes.,vocab_a1_0057
@@ -67,7 +67,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 계란,gyeran,Ei,A1,Nomen,아침에 계란 두 개 먹었어요.,Ich habe heute Morgen zwei Eier gegessen.,Essen & Trinken,a1_food_2,3,false,egg,Noun,I ate two eggs this morning.,vocab_a1_0066
 차,cha,Tee,A1,Nomen,자기 전에 따뜻한 차 마셔요.,Vor dem Schlafengehen trinke ich warmen Tee.,Essen & Trinken,a1_food_2,4,false,tea,Noun,I drink warm tea before bed.,vocab_a1_0067
 화장실,hwajangsil,Toilette / Badezimmer,A1,Nomen,화장실이 어디예요?,Wo ist die Toilette?,Alltag,a1_daily_1,5,false,toilet / bathroom,Noun,Where is the bathroom?,vocab_a1_0068
-편의점,pyeonuijeom,Spätkauf / Mini-Markt,A1,Nomen,편의점에서 사요.,Ich kaufe im Spätkauf.,Alltag,a1_daily_1,6,false,convenience store,Noun,I buy it at the convenience store.,vocab_a1_0069
+편의점,pyeonuijeom,Convenience-Store,A1,Nomen,편의점에서 사요.,Ich kaufe es im Convenience-Store.,Alltag,a1_daily_1,6,false,convenience store,Noun,I buy it at the convenience store.,vocab_a1_0069
 공원,gongwon,Park,A1,Nomen,공원에서 산책해요.,Ich gehe im Park spazieren.,Freizeit,a1_misc_1,5,false,park,Noun,I take a walk in the park.,vocab_a1_0070
 도서관,doseogwan,Bibliothek,A1,Nomen,도서관에서 공부해요.,Ich lerne in der Bibliothek.,Bildung,a1_misc_1,6,false,library,Noun,I study at the library.,vocab_a1_0071
 방,bang,Zimmer / Raum,A1,Nomen,제 방이 작아요.,Mein Zimmer ist klein.,Alltag,a1_daily_1,7,false,room,Noun,My room is small.,vocab_a1_0072
@@ -1629,7 +1629,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 받는 사람,banneun saram,Empfänger,A1,Nomen,받는 사람 전화번호를 적으세요.,Bitte notieren Sie die Telefonnummer des Empfängers.,Postamt,a1_post_office_1,9,false,recipient,Noun,Please write the recipient's phone number.,vocab_a1_0316
 며칠,myeochil,wie viele Tage,A1,Nomen,독일까지 며칠 걸려요?,Wie viele Tage dauert es bis Deutschland?,Postamt,a1_post_office_1,10,true,how many days,Noun,How many days does it take to Germany?,vocab_a1_0317
 가격,gagyeok,Preis,A1,Nomen,우표 가격이 얼마예요?,Was kostet die Briefmarke?,Postamt,a1_post_office_1,11,true,price,Noun,How much is the stamp?,vocab_a1_0318
-창구,changgu,Schalter,A1,Nomen,삼 번 창구에서 기다리세요.,Bitte warten Sie am Schalter drei.,Postamt,a1_post_office_1,12,true,counter,Noun,Please wait at counter number three.,vocab_a1_0319
+창구,changgu,Schalter,A1,Nomen,3번 창구에서 기다리세요.,Bitte warten Sie am Schalter drei.,Postamt,a1_post_office_1,12,true,counter,Noun,Please wait at counter number three.,vocab_a1_0319
 연고,yeongo,Salbe,A2,Nomen,이 연고를 하루에 두 번 발라요.,Ich trage diese Salbe zweimal am Tag auf.,Apotheke,a2_pharmacy_ask_1,1,false,ointment,Noun,I apply this ointment twice a day.,vocab_a1_0320
 마스크,maseukeu,Maske,A2,Nomen,약국에서 마스크를 한 통 샀어요.,In der Apotheke habe ich eine Packung Masken gekauft.,Apotheke,a2_pharmacy_ask_1,2,false,mask,Noun,I bought a pack of masks at the pharmacy.,vocab_a1_0321
 계산대,gyesandae,Kasse,A2,Nomen,계산대 앞에서 카드를 꺼냈어요.,Vor der Kasse habe ich meine Karte herausgenommen.,Apotheke,a2_pharmacy_ask_1,3,false,checkout,Noun,I took out my card in front of the checkout.,vocab_a1_0322
@@ -1710,7 +1710,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 문제없어요,munjeeopseoyo,kein Problem,A1,Ausdruck,실수해도 문제없어요.,"Wenn du einen Fehler machst, ist das kein Problem.",Entschuldigung,a1_sorry_thanks_1,6,false,no problem,Expression,"If you make a mistake, no problem.",vocab_a1_0397
 제가 더요,jega deoyo,ich habe zu danken,A1,Ausdruck,정말 고마워요! 제가 더요!,Danke schön! Ich habe zu danken.,Entschuldigung,a1_sorry_thanks_1,7,false,I should thank you,Expression,Thank you! I should thank you.,vocab_a1_0398
 잠깐만요,jamkkanmanyo,einen Moment,A1,Ausdruck,계산 전에 잠깐만요.,"Vor dem Bezahlen, einen Moment bitte.",Entschuldigung,a1_sorry_thanks_1,8,false,just a moment,Expression,Just a moment before paying.,vocab_a1_0399
-다시 말하다,dasi malhada,noch einmal sagen,A1,Ausdruck,잘 못 들었어요. 다시 말하세요.,Ich habe es nicht gut verstanden. Sagen Sie es bitte noch einmal.,Entschuldigung,a1_sorry_thanks_1,9,false,to say again,Expression,I didn't catch that. Please say it again.,vocab_a1_0400
+다시 말하다,dasi malhada,noch einmal sagen,A1,Ausdruck,잘 못 들었어요. 다시 말해 주세요.,Ich habe es nicht gut verstanden. Sagen Sie es bitte noch einmal.,Entschuldigung,a1_sorry_thanks_1,9,false,to say again,Expression,I didn't catch that. Please say it again.,vocab_a1_0400
 천천히 말하다,cheoncheonhi malhada,langsam sprechen,A1,Ausdruck,한국어를 천천히 말해서 이해가 돼요.,"Weil du langsam Koreanisch sprichst, verstehe ich es.",Entschuldigung,a1_sorry_thanks_1,10,true,to speak slowly,Expression,"Because you speak Korean slowly, I understand.",vocab_a1_0401
 정말 감사해요,jeongmal gamsahaeyo,vielen Dank,A1,Ausdruck,자리를 양보하셔서 정말 감사해요.,"Vielen Dank, dass Sie den Platz überlassen haben.",Entschuldigung,a1_sorry_thanks_1,11,true,thank you so much,Expression,Thank you so much for giving up the seat.,vocab_a1_0402
 정말 죄송해요,jeongmal joesonghaeyo,es tut mir sehr leid,A1,Ausdruck,발을 밟아서 정말 죄송해요.,"Es tut mir sehr leid, dass ich auf Ihren Fuß getreten bin.",Entschuldigung,a1_sorry_thanks_1,12,true,I am very sorry,Expression,I am very sorry I stepped on your foot.,vocab_a1_0403
@@ -2732,7 +2732,7 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 방학,banghak,(Schul-)Ferien,A1,Nomen,이번 방학이 언제예요?,Wann sind die Ferien dieses Mal?,Bildung,a1_school_work_1,1,false,school vacation,Noun,When is the vacation this time?,vocab_a1_0691
 졸업,joreop,"Abschluss, Graduation",A1,Nomen,저는 올해 졸업해요.,Ich mache dieses Jahr meinen Abschluss.,Bildung,a1_school_work_1,2,false,graduation,Noun,I graduate this year.,vocab_a1_0692
 외국어,oegugeo,Fremdsprache,A1,Nomen,저는 외국어를 가르쳐요.,Ich unterrichte eine Fremdsprache.,Bildung,a1_school_work_1,3,false,foreign language,Noun,I teach a foreign language.,vocab_a1_0693
-아르바이트,areubaiteu,"Nebenjob, Teilzeitarbeit",A1,Nomen,저는 편의점에서 아르바이트를 해요.,Ich habe einen Nebenjob im Supermarkt.,Beruf,a1_school_work_1,4,false,part-time job,Noun,I have a part-time job at a convenience store.,vocab_a1_0694
+아르바이트,areubaiteu,"Nebenjob, Teilzeitarbeit",A1,Nomen,저는 편의점에서 아르바이트를 해요.,Ich habe einen Nebenjob in einem Convenience-Store.,Beruf,a1_school_work_1,4,false,part-time job,Noun,I have a part-time job at a convenience store.,vocab_a1_0694
 직원,jigwon,Angestellte(r),A1,Nomen,저는 회사 직원이에요.,Ich bin Angestellter einer Firma.,Beruf,a1_school_work_1,5,false,employee,Noun,I'm an employee of a company.,vocab_a1_0695
 종업원,jongeobwon,"Bedienung, Angestellte(r)",A1,Nomen,여기 종업원이 친절해요.,Hier ist die Bedienung freundlich.,Beruf,a1_school_work_1,6,false,"staff, waiter/waitress",Noun,The staff here is kind.,vocab_a1_0696
 안내,annae,"Auskunft, Information",A1,Nomen,직원이 안내해요. 저기로 가세요.,Der Angestellte gibt Auskunft. Gehen Sie dorthin.,Kommunikation,a1_school_work_1,7,false,"information, guidance",Noun,The employee gives information. Go over there.,vocab_a1_0697
@@ -2819,8 +2819,8 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 힘들다,himdeulda,anstrengend sein,A1,Adjektiv,요즘 일이 힘들어요.,Die Arbeit ist zurzeit anstrengend.,Beruf,a1_misc_3,12,true,"to be hard, to be tiring",Adjective,Work has been hard these days.,vocab_a1_0778
 가장,gajang,am meisten,A1,Adverb,이 케이크가 가장 맛있어요.,Dieser Kuchen ist am leckersten.,Alltag,a1_adverbs_1,1,false,most,Adverb,This cake is the tastiest.,vocab_a1_0779
 그래서,geuraeseo,deshalb,A1,Adverb,저는 배가 아파요. 그래서 병원에 가요.,Mein Bauch tut weh. Deshalb gehe ich ins Krankenhaus.,Gesundheit,a1_adverbs_1,2,false,"so, therefore",Adverb,My stomach hurts. So I'm going to the hospital.,vocab_a1_0780
-그러니까,geureonikka,deswegen,A1,Adverb,저는 시간이 없어요. 그러니까 빨리 가요.,Ich habe keine Zeit. Deswegen gehe ich schnell.,Alltag,a1_adverbs_1,3,false,"so, that's why",Adverb,I have no time. So let's go quickly.,vocab_a1_0781
-그러면,geureomyeon,dann,A1,Adverb,"민호 씨, 배가 고파요? 그러면 같이 밥을 먹어요.","Minho, hast du Hunger? Dann lasst uns zusammen essen.",Essen & Trinken,a1_adverbs_1,4,false,"then, if so",Adverb,"Minho, are you hungry? Then let's eat together.",vocab_a1_0782
+그러니까,geureonikka,deswegen,A1,Adverb,저는 시간이 없어요. 그러니까 빨리 가요.,Ich habe keine Zeit. Deswegen sollten wir schnell los.,Alltag,a1_adverbs_1,3,false,"so, that's why",Adverb,I have no time. So let's go quickly.,vocab_a1_0781
+그러면,geureomyeon,dann,A1,Adverb,"민호 씨, 배가 고파요? 그러면 같이 밥을 먹어요.","Minho, hast du Hunger? Dann essen wir zusammen.",Essen & Trinken,a1_adverbs_1,4,false,"then, if so",Adverb,"Minho, are you hungry? Then let's eat together.",vocab_a1_0782
 그런데,geureonde,aber,A1,Adverb,이 가방이 예뻐요. 그런데 너무 비싸요.,Diese Tasche ist hübsch. Aber sie ist zu teuer.,Einkaufen,a1_adverbs_1,5,false,"but, by the way",Adverb,This bag is pretty. But it's too expensive.,vocab_a1_0783
 그럼,geureom,dann,A1,Adverb,"레나 씨, 오늘 바빠요? 그럼 내일 만나요.","Lena, bist du heute beschäftigt? Dann treffen wir uns morgen.",Alltag,a1_adverbs_1,6,false,then,Adverb,"Lena, are you busy today? Then let's meet tomorrow.",vocab_a1_0784
 그렇지만,geureochiman,"aber, dennoch",A1,Adverb,이 음식이 매워요. 그렇지만 맛있어요.,Dieses Essen ist scharf. Aber es ist lecker.,Essen & Trinken,a1_adverbs_1,7,false,"but, however",Adverb,This food is spicy. But it's delicious.,vocab_a1_0785
@@ -2840,7 +2840,7 @@ A/S 센터,A/S senteo,Kundendienststelle,B1,Ausdruck,무거운 기기는 A/S 센
 그것,geugeot,das (da),A1,Pronomen,그것은 안 비싸요.,Das ist nicht teuer.,Einkaufen,a1_pronouns_1,2,false,that (thing),Pronoun,That is not expensive.,vocab_a1_0799
 그쪽,geujjok,die Richtung,A1,Pronomen,이 지하철은 그쪽으로 안 가요.,Diese U-Bahn fährt nicht in die Richtung.,Verkehr,a1_pronouns_1,3,false,that way,Pronoun,This subway doesn't go that way.,vocab_a1_0800
 내,nae,mein,A1,Pronomen,내 이름은 준이에요.,Mein Name ist Jun.,Selbstvorstellung,a1_pronouns_1,4,false,my,Pronoun,My name is Jun.,vocab_a1_0801
-무엇,mueot,was (formell),A1,Pronomen,이것은 정말 무엇이에요?,Was ist das eigentlich?,Alltag,a1_pronouns_1,5,false,what (formal),Pronoun,What on earth is this?,vocab_a1_0802
+무엇,mueot,was (formell),A1,Pronomen,이 가방 안에는 무엇이 있어요?,Was ist in dieser Tasche?,Alltag,a1_pronouns_1,5,false,what (formal),Pronoun,What's in this bag?,vocab_a1_0802
 뭐,mwo,was,A1,Pronomen,저 사람은 이름이 뭐예요?,Wie heißt diese Person?,Selbstvorstellung,a1_pronouns_1,6,false,what,Pronoun,What is that person's name?,vocab_a1_0803
 어디,eodi,wo,A1,Pronomen,지금 화장실이 어디예요?,Wo ist jetzt die Toilette?,Alltag,a1_pronouns_1,7,false,where,Pronoun,Where is the bathroom right now?,vocab_a1_0804
 언제,eonje,wann,A1,Pronomen,선생님 생일이 언제예요?,Wann ist der Geburtstag des Lehrers?,Alltag,a1_pronouns_1,8,false,when,Pronoun,When is the teacher's birthday?,vocab_a1_0805

@@ -10760,7 +10760,7 @@
     {
       "id": "satz_a1_0171",
       "level": "a1",
-      "targetKo": "삼 번 창구에서 기다리세요.",
+      "targetKo": "3번 창구에서 기다리세요.",
       "promptDe": "Bitte warten Sie am Schalter drei.",
       "promptEn": "Please wait at counter number three.",
       "distractors": [
@@ -11732,7 +11732,7 @@
     {
       "id": "satz_a1_0252",
       "level": "a1",
-      "targetKo": "잘 못 들었어요. 다시 말하세요.",
+      "targetKo": "잘 못 들었어요. 다시 말해 주세요.",
       "promptDe": "Ich habe es nicht gut verstanden. Sagen Sie es bitte noch einmal.",
       "promptEn": "I didn't catch that. Please say it again.",
       "distractors": [
@@ -17684,9 +17684,9 @@
     {
       "id": "satz_a1_0268",
       "level": "a1",
-      "targetKo": "오늘 하늘이 정말 파래요.",
-      "promptDe": "Der Himmel ist heute richtig blau.",
-      "promptEn": "The sky is really blue today.",
+      "targetKo": "이 가방은 파란색이에요.",
+      "promptDe": "Diese Tasche ist blau.",
+      "promptEn": "This bag is blue.",
       "distractors": [
         "안녕하세요",
         "안녕"
@@ -33038,7 +33038,7 @@
       "id": "satz_a1_0609",
       "level": "a1",
       "targetKo": "저는 편의점에서 아르바이트를 해요.",
-      "promptDe": "Ich habe einen Nebenjob im Supermarkt.",
+      "promptDe": "Ich habe einen Nebenjob in einem Convenience-Store.",
       "promptEn": "I have a part-time job at a convenience store.",
       "distractors": [
         "곳",
@@ -34262,7 +34262,7 @@
         "보다"
       ],
       "level": "a1",
-      "promptDe": "Ich habe keine Zeit. Deswegen gehe ich schnell.",
+      "promptDe": "Ich habe keine Zeit. Deswegen sollten wir schnell los.",
       "promptEn": "I have no time. So let's go quickly.",
       "courseUnitId": "a1_13_register_switching"
     },
@@ -34276,7 +34276,7 @@
         "쓰다"
       ],
       "level": "a1",
-      "promptDe": "Minho, hast du Hunger? Dann lasst uns zusammen essen.",
+      "promptDe": "Minho, hast du Hunger? Dann essen wir zusammen.",
       "promptEn": "Minho, are you hungry? Then let's eat together.",
       "courseUnitId": "a1_13_register_switching"
     },
@@ -34550,14 +34550,14 @@
       "id": "satz_a1_0717",
       "sourceVocabId": "vocab_a1_0802",
       "vocabKo": "무엇",
-      "targetKo": "이것은 정말 무엇이에요?",
+      "targetKo": "이 가방 안에는 무엇이 있어요?",
       "distractors": [
         "언제예요",
         "어디예요"
       ],
       "level": "a1",
-      "promptDe": "Was ist das eigentlich?",
-      "promptEn": "What on earth is this?",
+      "promptDe": "Was ist in dieser Tasche?",
+      "promptEn": "What's in this bag?",
       "courseUnitId": "a1_08_clarify_repair"
     },
     {

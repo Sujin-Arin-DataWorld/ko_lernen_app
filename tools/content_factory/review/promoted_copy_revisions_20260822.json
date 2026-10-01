@@ -13,7 +13,8 @@
     "tools/content_factory/drafts/batch_03_manifest.json",
     "tools/content_factory/drafts/batch_05_manifest.json",
     "tools/content_factory/drafts/batch_12_manifest.json",
-    "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json"
+    "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+    "tools/content_factory/drafts/batch_28_a1_reinforcement_manifest.json"
   ],
   "method": "Beyond Humanizer promoted-copy reconciliation",
   "humanReviewStatus": "required_before_native-quality-claim",
@@ -115,7 +116,7 @@
         "example_korean"
       ],
       "beforeSha256": "3c2ceebcc3c60fa62f0bc365de698dea456a393bf631f1d517cc3690118365e0",
-      "afterSha256": "f76d4d844c1041a134309087707b80f5c260d201b736644cdebf97118bc4256b"
+      "afterSha256": "0bcf09d7544a665a1e5dbb7c66e148967faa0a0ed368d6f37a35a82a040599a5"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -467,7 +468,7 @@
         "example_korean"
       ],
       "beforeSha256": "2d311728bb5cf4e00510fce73a34349ec978d57fec6fb2cdc0c73389fe6c3bd4",
-      "afterSha256": "37cd4898bf228962de7117e92c4350cd11a7f22a7c28ffa02de8ecb8bc9f40a7"
+      "afterSha256": "ca19e3ffb3a86515abe28a12dfde7012247aafc4bbe90c6a99fe61d8381d319f"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -1631,7 +1632,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "db5db75582344bb591cce9012a13f829dd5f7a2a12bccb86cd4065d24b26b185",
-      "afterSha256": "b950c80d3f921e096d850207105d594b2f46b3cfb8cd45e4dfbc5869f33d92e5"
+      "afterSha256": "8c86a5cb654c6bdd0360f5fb6975cac77780f13d23a85af00c5f99d60dea8b43"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -2166,7 +2167,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "639bd659318e3eec8608e321bcf21855972c60d997ef924bbcbd0105449052b6",
-      "afterSha256": "20e8cffaf8f522c8845106d24830319c225dafe92e54d664272fbb15a6c99264"
+      "afterSha256": "0aa94c2f7ccb6756e9f019a3fd9908a5c73b47c4a12d99193a981500989d826d"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -3867,7 +3868,7 @@
         "targetKo"
       ],
       "beforeSha256": "61000e086f45415f3555b27888de6c44a19d637b4b075aeef75b235fe3e0b73e",
-      "afterSha256": "b7aec3b0096984c088ae1b327a3d63893c1b583ff54018aec217a4d9a561297c"
+      "afterSha256": "96c24f081be676de382a3467a0a387abcd9f1b3b8ccd47fc04c2995c10e0a1a2"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -4186,7 +4187,7 @@
         "targetKo"
       ],
       "beforeSha256": "7f3cc3bdc1fbdc6a225741727a6a51003d2488c81aa1d340443d048839824812",
-      "afterSha256": "3472cbc53f2b9717b86c353b5b2d8739aab7c02929622954ac4f68891b246d20"
+      "afterSha256": "8a629860ed1d61d7eb8ec8d2643a7bc14d806d8248f7023c4e4451c8fe56bd29"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -7710,6 +7711,147 @@
       ],
       "beforeSha256": "14e4104e273943faf1a2f6bb7de7a7f2bf8381db5ad66ffc010849d7b235392e",
       "afterSha256": "08a503c3b1c91e9a632c1589672805c37660d72daa47f56cc2dc92c2bede2eb9"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0781",
+      "level": "a1",
+      "fields": [
+        "example_german"
+      ],
+      "beforeSha256": "6a290de3b8e363e44d18ade15fdec96b4e264bbd371b3f35f7c7680dd206a870",
+      "afterSha256": "218b701973eafbc29370f25e3b31c7d8a4624ecc4b80c02c6595ffd98565c16b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0696",
+      "level": "a1",
+      "fields": [
+        "promptDe"
+      ],
+      "beforeSha256": "116d2e8c334d740f15ba0bc4a71c629432bd456a31c01c2505011a37b7273fe3",
+      "afterSha256": "587579b83401b2307daa1e6909bdc990d2921d6fac4d05f8efd5e854b72b43b5"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0715",
+      "level": "a1",
+      "fields": [
+        "de"
+      ],
+      "beforeSha256": "6da7c1eece5c80050623055cac4440348a104173f99565e675186200e1a674c7",
+      "afterSha256": "b5ab96ffdd7720d02b5ecef9fa8cec524fadc481a533a39ad670c74b8bc3dd73"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_28_a1_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0694",
+      "level": "a1",
+      "fields": [
+        "example_german"
+      ],
+      "beforeSha256": "af05c0a1d054b1710dbf02ae535ee85cfd658f683564d74e186c31aee47ca509",
+      "afterSha256": "5f148931a20036f1499338fc408d85e8240dd4c52aea20241d06546cf33e9df0"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_28_a1_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0609",
+      "level": "a1",
+      "fields": [
+        "promptDe"
+      ],
+      "beforeSha256": "ec8259b70b2930c235f8aec814495a91ac116b227aeb5b37c47066bfb08c8311",
+      "afterSha256": "7a7b3f654e642323f739590fe438a0bc61f129e83c49dbc22b8f98e74725818a"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_28_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0628",
+      "level": "a1",
+      "fields": [
+        "de"
+      ],
+      "beforeSha256": "45b8ab841c661fb03ff81131a7ad1c50721bd8b5469530a3c5e285084e7781c5",
+      "afterSha256": "05cd73b112cde3c67f16736b60bccc27a21372b8a05dc17cf12496d3ab13858f"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0782",
+      "level": "a1",
+      "fields": [
+        "example_german"
+      ],
+      "beforeSha256": "104d24a7d8f49a640575090f549343f1228b5e1655422d04d4c919b212f062dd",
+      "afterSha256": "463d87ff3f31e6c41809bcfed4d9d7ab814e7583f7dd2e6acfc353ed021af4ae"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0802",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "4b3d2566b97aed3477c94a4d31cfeba33102d4f55d76cdcefd8e0ae96f82488a",
+      "afterSha256": "db53ec00737a1ce42a7cedd2a547c072c749fd6fa1d4c37a577f044ad22d3c24"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0697",
+      "level": "a1",
+      "fields": [
+        "promptDe"
+      ],
+      "beforeSha256": "fe7c542554f61c3df56f57fe81ef86ae5575eeb53f8cea4fbd710cbd8e9018a9",
+      "afterSha256": "903252a365e05c686153928c3bab5bdd27ffef1160b98958909fb8d4e63828a9"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0717",
+      "level": "a1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "4384d0093c04aea62f79fb79a2d6c18f9677ff18350662f105ba6b47a6a48825",
+      "afterSha256": "b305aaf5cae2b7af2923baf8df1ef5e181d255600b15bc14fb264caa989f504d"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0716",
+      "level": "a1",
+      "fields": [
+        "de"
+      ],
+      "beforeSha256": "d8395eff1c8682c634d1175a688bb731ef220a049eaedeec6c8220d54d9123e6",
+      "afterSha256": "1921644147fd1d2e2347f713f981c7d2b747a66dfe44d5b57ac1535c521c3034"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0736",
+      "level": "a1",
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "11e632841f2c555290f6a9a7ba1bca1ae9da60f89a7120d2cc10052c81fce264",
+      "afterSha256": "e9637479d89bad90a279c0b124fc64ae589f178c9f19d9b2f2add15f95a73af4"
     }
   ],
   "routingEntries": [

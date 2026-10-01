@@ -694,7 +694,7 @@
       "sentenceKo": "＿＿＿에서 사요.",
       "answer": "편의점",
       "fullKo": "편의점에서 사요.",
-      "de": "Ich kaufe im Spätkauf.",
+      "de": "Ich kaufe es im Convenience-Store.",
       "en": "I buy it at the convenience store.",
       "distractors": [
         "버스",
@@ -14695,9 +14695,9 @@
     {
       "id": "cloze_a1_0207",
       "level": "a1",
-      "sentenceKo": "삼 번 ＿＿＿에서 기다리세요.",
+      "sentenceKo": "3번 ＿＿＿에서 기다리세요.",
       "answer": "창구",
-      "fullKo": "삼 번 창구에서 기다리세요.",
+      "fullKo": "3번 창구에서 기다리세요.",
       "de": "Bitte warten Sie am Schalter drei.",
       "en": "Please wait at counter number three.",
       "distractors": [
@@ -15911,8 +15911,8 @@
       "id": "cloze_a1_0288",
       "level": "a1",
       "sentenceKo": "잘 못 들었어요. ＿＿＿.",
-      "answer": "다시 말하세요",
-      "fullKo": "잘 못 들었어요. 다시 말하세요.",
+      "answer": "다시 말해 주세요",
+      "fullKo": "잘 못 들었어요. 다시 말해 주세요.",
       "de": "Ich habe es nicht gut verstanden. Sagen Sie es bitte noch einmal.",
       "en": "I didn't catch that. Please say it again.",
       "distractors": [
@@ -33207,7 +33207,7 @@
       "sentenceKo": "저는 편의점에서 ＿＿＿ 해요.",
       "answer": "아르바이트를",
       "fullKo": "저는 편의점에서 아르바이트를 해요.",
-      "de": "Ich habe einen Nebenjob im Supermarkt.",
+      "de": "Ich habe einen Nebenjob in einem Convenience-Store.",
       "en": "I have a part-time job at a convenience store.",
       "distractors": [
         "주를",
@@ -34693,7 +34693,7 @@
       ],
       "level": "a1",
       "topic": "Alltag",
-      "de": "Ich habe keine Zeit. Deswegen gehe ich schnell.",
+      "de": "Ich habe keine Zeit. Deswegen sollten wir schnell los.",
       "en": "I have no time. So let's go quickly.",
       "courseUnitId": "a1_13_register_switching"
     },
@@ -34710,7 +34710,7 @@
       ],
       "level": "a1",
       "topic": "Essen & Trinken",
-      "de": "Minho, hast du Hunger? Dann lasst uns zusammen essen.",
+      "de": "Minho, hast du Hunger? Dann essen wir zusammen.",
       "en": "Minho, are you hungry? Then let's eat together.",
       "courseUnitId": "a1_13_register_switching"
     },
@@ -35040,18 +35040,18 @@
     {
       "id": "cloze_a1_0736",
       "sourceVocabId": "vocab_a1_0802",
-      "fullKo": "이것은 정말 무엇이에요?",
-      "sentenceKo": "이것은 정말 ＿＿＿?",
-      "answer": "무엇이에요",
+      "fullKo": "이 가방 안에는 무엇이 있어요?",
+      "sentenceKo": "이 가방 안에는 ＿＿＿ 있어요?",
+      "answer": "무엇이",
       "distractors": [
-        "언제예요",
-        "어디예요",
-        "그쪽이에요"
+        "누가",
+        "언제",
+        "어디에"
       ],
       "level": "a1",
       "topic": "Alltag",
-      "de": "Was ist das eigentlich?",
-      "en": "What on earth is this?",
+      "de": "Was ist in dieser Tasche?",
+      "en": "What's in this bag?",
       "courseUnitId": "a1_08_clarify_repair"
     },
     {

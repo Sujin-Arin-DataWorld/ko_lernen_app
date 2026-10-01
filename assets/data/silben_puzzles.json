@@ -57,9 +57,9 @@
       "row": 1,
       "col": 0,
       "answer": "편의점",
-      "german": "Spätkauf / Mini-Markt",
+      "german": "Convenience-Store",
       "exampleKo": "◯◯◯에서 사요.",
-      "exampleDe": "Ich kaufe im Spätkauf."
+      "exampleDe": "Ich kaufe es im Convenience-Store."
      },
      {
       "dir": "v",
