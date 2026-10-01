@@ -262,7 +262,7 @@
           "korean": "처리 속도가 빨라졌다는 성과가 잘못 거절된 사람의 구제 책임을 없애지는 않습니다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Kürzere Bearbeitungszeiten beseitigen nicht die Verantwortung, fehlerhaft abgelehnte Personen wirksam zu schützen.",
+            "de": "Kürzere Bearbeitungszeiten entbinden nicht von der Verantwortung, fehlerhafte Ablehnungen zu korrigieren.",
             "en": "Faster processing does not remove responsibility for remedying wrongful denials."
           }
         },
@@ -326,7 +326,7 @@
         {
           "speaker": "user",
           "ko": "처리 속도가 빨라졌다는 성과가 잘못 거절된 사람의 구제 책임을 없애지는 않습니다.",
-          "de": "Kürzere Bearbeitungszeiten beseitigen nicht die Verantwortung, fehlerhaft abgelehnte Personen wirksam zu schützen.",
+          "de": "Kürzere Bearbeitungszeiten entbinden nicht von der Verantwortung, fehlerhafte Ablehnungen zu korrigieren.",
           "en": "Faster processing does not remove responsibility for remedying wrongful denials."
         },
         {
@@ -370,7 +370,7 @@
                 "en": "Automated screening has significantly reduced processing time."
               },
               {
-                "de": "Kürzere Bearbeitungszeiten beseitigen nicht die Verantwortung, fehlerhaft abgelehnte Personen wirksam zu schützen.",
+                "de": "Kürzere Bearbeitungszeiten entbinden nicht von der Verantwortung, fehlerhafte Ablehnungen zu korrigieren.",
                 "en": "Faster processing does not remove responsibility for remedying wrongful denials."
               },
               {
@@ -385,7 +385,7 @@
           "id": "quest_automated_benefit_denial_02",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Kürzere Bearbeitungszeiten beseitigen nicht die Verantwortung, fehlerhaft abgelehnte Personen wirksam zu schützen.",
+            "promptDe": "Kürzere Bearbeitungszeiten entbinden nicht von der Verantwortung, fehlerhafte Ablehnungen zu korrigieren.",
             "promptEn": "Faster processing does not remove responsibility for remedying wrongful denials.",
             "options": [
               {
@@ -458,7 +458,7 @@
           "korean": "가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Als Geschäftsinhaber möchte ich schnell entschädigt werden, unabhängig davon, welches Unternehmen intern verantwortlich ist.",
+            "de": "Für unser Geschäft möchte ich schnell eine Entschädigung erhalten, unabhängig davon, welches Unternehmen intern verantwortlich ist.",
             "en": "As the shop owner, I want prompt compensation from one place, regardless of who is responsible internally."
           }
         },
@@ -466,8 +466,8 @@
           "korean": "현장 배치 담당자의 판단 실수로 정리하면 책임자가 명확해집니다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Wenn wir den Fall als Fehlentscheidung beim Einsatz einordnen, hätten wir einen klaren Verantwortlichen.",
-            "en": "If we classify this as a deployment error, we'd have a clear responsible party."
+            "de": "Wenn wir den Fall auf eine Fehlentscheidung der für den Einsatz zuständigen Person zurückführen, hätten wir eine klar benannte verantwortliche Person.",
+            "en": "If we attribute this to a mistake by the person in charge of deployment, we'd have a clearly identified responsible party."
           }
         },
         {
@@ -526,14 +526,14 @@
         {
           "speaker": "resident",
           "ko": "가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.",
-          "de": "Als Geschäftsinhaber möchte ich schnell entschädigt werden, unabhängig davon, welches Unternehmen intern verantwortlich ist.",
+          "de": "Für unser Geschäft möchte ich schnell eine Entschädigung erhalten, unabhängig davon, welches Unternehmen intern verantwortlich ist.",
           "en": "As the shop owner, I want prompt compensation from one place, regardless of who is responsible internally."
         },
         {
           "speaker": "official",
           "ko": "현장 배치 담당자의 판단 실수로 정리하면 책임자가 명확해집니다.",
-          "de": "Wenn wir den Fall als Fehlentscheidung beim Einsatz einordnen, hätten wir einen klaren Verantwortlichen.",
-          "en": "If we classify this as a deployment error, we'd have a clear responsible party."
+          "de": "Wenn wir den Fall auf eine Fehlentscheidung der für den Einsatz zuständigen Person zurückführen, hätten wir eine klar benannte verantwortliche Person.",
+          "en": "If we attribute this to a mistake by the person in charge of deployment, we'd have a clearly identified responsible party."
         },
         {
           "speaker": "user",
@@ -574,12 +574,12 @@
             "audioKo": "가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.",
             "options": [
               {
-                "de": "Als Geschäftsinhaber möchte ich schnell entschädigt werden, unabhängig davon, welches Unternehmen intern verantwortlich ist.",
+                "de": "Für unser Geschäft möchte ich schnell eine Entschädigung erhalten, unabhängig davon, welches Unternehmen intern verantwortlich ist.",
                 "en": "As the shop owner, I want prompt compensation from one place, regardless of who is responsible internally."
               },
               {
-                "de": "Wenn wir den Fall als Fehlentscheidung beim Einsatz einordnen, hätten wir einen klaren Verantwortlichen.",
-                "en": "If we classify this as a deployment error, we'd have a clear responsible party."
+                "de": "Wenn wir den Fall auf eine Fehlentscheidung der für den Einsatz zuständigen Person zurückführen, hätten wir eine klar benannte verantwortliche Person.",
+                "en": "If we attribute this to a mistake by the person in charge of deployment, we'd have a clearly identified responsible party."
               },
               {
                 "de": "Eine zentrale Entschädigungsstelle ist etwas anderes als die gesamte Ursachenverantwortung einer Stelle zuzuschreiben.",
@@ -1301,8 +1301,8 @@
           "korean": "아니요. 본문에는 ‘준희’를 쓰고, 발음이 어려우면 도움말만 붙이고 싶어요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Nein. Im Haupttext soll „Junhee“ stehen; bei Bedarf möchte ich nur eine Aussprachehilfe ergänzen.",
-            "en": "No. I want 'Junhee' in the main text, with a pronunciation guide if needed."
+            "de": "Nein. Im Haupttext soll „준희“ stehen; bei Bedarf möchte ich nur eine Aussprachehilfe ergänzen.",
+            "en": "No. I want '준희' in the main text, with a pronunciation guide if needed."
           }
         },
         {
@@ -1365,8 +1365,8 @@
         {
           "speaker": "resident",
           "ko": "아니요. 본문에는 ‘준희’를 쓰고, 발음이 어려우면 도움말만 붙이고 싶어요.",
-          "de": "Nein. Im Haupttext soll „Junhee“ stehen; bei Bedarf möchte ich nur eine Aussprachehilfe ergänzen.",
-          "en": "No. I want 'Junhee' in the main text, with a pronunciation guide if needed."
+          "de": "Nein. Im Haupttext soll „준희“ stehen; bei Bedarf möchte ich nur eine Aussprachehilfe ergänzen.",
+          "en": "No. I want '준희' in the main text, with a pronunciation guide if needed."
         },
         {
           "speaker": "user",
@@ -1403,8 +1403,8 @@
                 "en": "Do you want people to call you that in everyday life too?"
               },
               {
-                "de": "Nein. Im Haupttext soll „Junhee“ stehen; bei Bedarf möchte ich nur eine Aussprachehilfe ergänzen.",
-                "en": "No. I want 'Junhee' in the main text, with a pronunciation guide if needed."
+                "de": "Nein. Im Haupttext soll „준희“ stehen; bei Bedarf möchte ich nur eine Aussprachehilfe ergänzen.",
+                "en": "No. I want '준희' in the main text, with a pronunciation guide if needed."
               },
               {
                 "de": "Die suchfreundliche Schreibweise und der Name, mit dem jemand angesprochen werden möchte, müssen nicht in dasselbe Feld gezwungen werden.",
@@ -1473,7 +1473,7 @@
       "intro": {
         "ko": "폭우 뒤 생수 가격 상한제가 제안됐지만 공급 감소와 사재기 우려도 있어요.",
         "de": "Nach Starkregen wird eine Preisobergrenze für Wasser vorgeschlagen, zugleich drohen Lieferengpässe und Hamsterkäufe.",
-        "en": "After severe flooding, a bottled-water price cap is proposed, with concerns about reduced supply and hoarding."
+        "en": "After heavy rainfall, a bottled-water price cap is proposed, with concerns about reduced supply and hoarding."
       },
       "courseUnitId": "c2_04_sanction_accountability",
       "playerCharacterId": "andrea",
@@ -2314,11 +2314,11 @@
       "backdrop": "office",
       "vocab": [
         {
-          "korean": "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.",
+          "korean": "오늘 토론은 집을 소유하지 않은 청년과 주택을 소유한 노년층의 갈등을 중심으로 보겠습니다.",
           "note": {
             "ko": "장면 핵심 표현",
             "de": "Heute betrachten wir den Konflikt zwischen jungen Menschen ohne Wohneigentum und älteren Eigentümern.",
-            "en": "Today's debate will focus on young people without homes versus older homeowners."
+            "en": "Today's debate will focus on young people who do not own homes and older homeowners."
           }
         },
         {
@@ -2384,9 +2384,9 @@
       "dialog": [
         {
           "speaker": "moderator",
-          "ko": "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.",
+          "ko": "오늘 토론은 집을 소유하지 않은 청년과 주택을 소유한 노년층의 갈등을 중심으로 보겠습니다.",
           "de": "Heute betrachten wir den Konflikt zwischen jungen Menschen ohne Wohneigentum und älteren Eigentümern.",
-          "en": "Today's debate will focus on young people without homes versus older homeowners."
+          "en": "Today's debate will focus on young people who do not own homes and older homeowners."
         },
         {
           "speaker": "user",
@@ -2424,11 +2424,11 @@
           "id": "quest_housing_tax_intergenerational_01",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.",
+            "audioKo": "오늘 토론은 집을 소유하지 않은 청년과 주택을 소유한 노년층의 갈등을 중심으로 보겠습니다.",
             "options": [
               {
                 "de": "Heute betrachten wir den Konflikt zwischen jungen Menschen ohne Wohneigentum und älteren Eigentümern.",
-                "en": "Today's debate will focus on young people without homes versus older homeowners."
+                "en": "Today's debate will focus on young people who do not own homes and older homeowners."
               },
               {
                 "de": "Die Generationenkategorie erklärt einen Teil des Konflikts, ersetzt aber nicht die Unterschiede bei Vermögen und Einkommen.",
@@ -2457,7 +2457,7 @@
                 "ko": "세대라는 구분이 설명력을 갖는 부분은 있지만 자산과 소득의 차이까지 대신 설명하지는 못합니다."
               },
               {
-                "ko": "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다."
+                "ko": "오늘 토론은 집을 소유하지 않은 청년과 주택을 소유한 노년층의 갈등을 중심으로 보겠습니다."
               },
               {
                 "ko": "그래도 시청자가 이해하기에는 세대 구도가 가장 분명하지 않나요?"
@@ -2481,7 +2481,7 @@
             "promptDe": "Wir können das Alter beibehalten, aber Vermögenshöhe, laufendes Einkommen und Eigennutzung mitzeigen.",
             "promptEn": "Keep age, but also show asset size, current income, and whether the home is owner-occupied.",
             "distractors": [
-              "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.",
+              "오늘 토론은 집을 소유하지 않은 청년과 주택을 소유한 노년층의 갈등을 중심으로 보겠습니다.",
               "세대라는 구분이 설명력을 갖는 부분은 있지만 자산과 소득의 차이까지 대신 설명하지는 못합니다.",
               "그래도 시청자가 이해하기에는 세대 구도가 가장 분명하지 않나요?"
             ]
@@ -3140,7 +3140,7 @@
           "note": {
             "ko": "장면 핵심 표현",
             "de": "Nach der langen Verkehrsblockade bei der letzten Demonstration brauchen wir strengere Beschränkungen für Kundgebungen in der Innenstadt.",
-            "en": "After the last protest blocked roads for hours, we need tighter restrictions on downtown demonstrations."
+            "en": "After roads were blocked for a long time during the last protest, we need tighter restrictions on downtown demonstrations."
           }
         },
         {
@@ -3208,7 +3208,7 @@
           "speaker": "official",
           "ko": "지난 집회 때 도로가 오래 막혔으니 앞으로는 도심 집회를 더 엄격하게 제한해야 합니다.",
           "de": "Nach der langen Verkehrsblockade bei der letzten Demonstration brauchen wir strengere Beschränkungen für Kundgebungen in der Innenstadt.",
-          "en": "After the last protest blocked roads for hours, we need tighter restrictions on downtown demonstrations."
+          "en": "After roads were blocked for a long time during the last protest, we need tighter restrictions on downtown demonstrations."
         },
         {
           "speaker": "resident",
@@ -3256,7 +3256,7 @@
             "options": [
               {
                 "de": "Nach der langen Verkehrsblockade bei der letzten Demonstration brauchen wir strengere Beschränkungen für Kundgebungen in der Innenstadt.",
-                "en": "After the last protest blocked roads for hours, we need tighter restrictions on downtown demonstrations."
+                "en": "After roads were blocked for a long time during the last protest, we need tighter restrictions on downtown demonstrations."
               },
               {
                 "de": "Ich sorge mich nicht nur um den Berufsverkehr, sondern auch um Rettungswege.",
@@ -3594,7 +3594,7 @@
           "korean": "이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen mögliche Moderatoren.",
+            "de": "Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen Bedingungen, die den Unterschied erklären könnten.",
             "en": "State that the effect wasn't found in this sample under these conditions, then compare what conditions may account for the difference."
           }
         },
@@ -3654,7 +3654,7 @@
         {
           "speaker": "user",
           "ko": "이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.",
-          "de": "Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen mögliche Moderatoren.",
+          "de": "Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen Bedingungen, die den Unterschied erklären könnten.",
           "en": "State that the effect wasn't found in this sample under these conditions, then compare what conditions may account for the difference."
         },
         {
@@ -3723,7 +3723,7 @@
           "data": {
             "targetKo": "이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.",
             "audioKo": "이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.",
-            "promptDe": "Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen mögliche Moderatoren.",
+            "promptDe": "Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen Bedingungen, die den Unterschied erklären könnten.",
             "promptEn": "State that the effect wasn't found in this sample under these conditions, then compare what conditions may account for the difference.",
             "distractors": [
               "같은 절차를 썼는데 효과가 없었으니 원 연구는 틀렸다고 발표해야 합니다.",
@@ -3965,7 +3965,7 @@
       },
       "intro": {
         "ko": "강한 부정 수급 경고가 모든 신청자를 잠재적 위반자로 대한다는 지적이 나와요.",
-        "de": "Eine scharfe Betrugswarnung behandelt alle Antragsteller wie potenzielle Täter.",
+        "de": "Eine scharfe Betrugswarnung behandelt alle Antragsteller wie potenziell Regelverletzende.",
         "en": "A harsh benefits-fraud warning treats every applicant as a potential offender."
       },
       "courseUnitId": "c2_01_interpretation_institutions",
@@ -6098,9 +6098,9 @@
         },
         {
           "speaker": "user",
-          "ko": "다음 작품에도 네 이름 크게 넣을게. 그건 진심이야.",
-          "de": "Beim nächsten Projekt wird dein Name genauso prominent stehen. Das meine ich ernst.",
-          "en": "I'll make sure your name is just as prominent on the next project. I mean that."
+          "ko": "함께 만든 작품의 크레딧부터 네 기여가 제대로 보이도록 바로잡을게. 그건 진심이야.",
+          "de": "Bei unseren gemeinsamen Arbeiten werde ich zuerst die Namensnennung so ändern, dass dein Beitrag sichtbar wird. Das meine ich ernst.",
+          "en": "I'll start by fixing the credits on the work we made together so your contribution is clear. I mean that."
         },
         {
           "speaker": "daniel",
@@ -6163,7 +6163,7 @@
           "id": "quest_c2_w10_friends_build",
           "type": "satzBauen",
           "data": {
-            "targetKo": "다음 작품에도 네 이름 크게 넣을게. 그건 진심이야.",
+            "targetKo": "함께 만든 작품의 크레딧부터 네 기여가 제대로 보이도록 바로잡을게. 그건 진심이야.",
             "promptDe": "Ich werde deinen Namen auch beim nächsten Projekt groß mit reinnehmen. Das meine ich ernst.",
             "promptEn": "I'll put your name prominently on the next project too. I mean that sincerely.",
             "distractors": [

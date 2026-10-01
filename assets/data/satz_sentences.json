@@ -16628,9 +16628,9 @@
     {
       "id": "satz_c2_0099",
       "level": "c2",
-      "targetKo": "책임 분산이 심하면 서명란을 한 줄로 줄여요.",
-      "promptDe": "Bei starker Verantwortungsstreuung kürze ich die Unterschriftszeile auf eine.",
-      "promptEn": "If diffused ownership is severe, I cut the signature line to one.",
+      "targetKo": "책임 분산이 심하면 최종 책임자를 서명란에 명시해요.",
+      "promptDe": "Wenn die Verantwortung stark verteilt ist, halte ich im Unterschriftsfeld fest, wer letztlich verantwortlich ist.",
+      "promptEn": "If responsibility is widely dispersed, I name the person ultimately responsible in the signature field.",
       "distractors": [
         "제도적 권한",
         "공식 어조"
@@ -16652,9 +16652,9 @@
     {
       "id": "satz_c2_0101",
       "level": "c2",
-      "targetKo": "권한 위임장 없이 대행하면 결정을 되돌릴 수 있어요.",
-      "promptDe": "Ohne Übertragungsakt ist die Vertretung später rückholbar.",
-      "promptEn": "Acting without a delegation instrument makes the decision reversible.",
+      "targetKo": "권한 위임장 없이 대행하면 그 결정의 권한 근거가 불분명해질 수 있어요.",
+      "promptDe": "Ohne schriftliche Vollmacht kann unklar bleiben, auf welcher Grundlage diese Entscheidung getroffen wurde.",
+      "promptEn": "Without a written delegation of authority, the basis for that decision may be unclear.",
       "distractors": [
         "제도적 권한",
         "공식 어조"
@@ -16712,14 +16712,14 @@
     {
       "id": "satz_c2_0106",
       "level": "c2",
-      "targetKo": "연대기 절단은 원인보다 결말만 남기어요.",
-      "promptDe": "Ein Chronikbruch lässt das Ende und nimmt die Ursache.",
-      "promptEn": "A cut in the timeline keeps the ending and drops the cause.",
+      "targetKo": "맥락 생략은 결말만 남기고 사건의 원인을 가릴 수 있어요.",
+      "promptDe": "Wenn der Kontext ausgelassen wird, bleibt nur das Ergebnis sichtbar; die Ursachen können in den Hintergrund treten.",
+      "promptEn": "Omitting context can leave only the outcome visible and obscure what led to it.",
       "distractors": [
         "서술 시점",
         "선택적 기억"
       ],
-      "vocabKo": "연대기 절단"
+      "vocabKo": "맥락 생략"
     },
     {
       "id": "satz_c2_0107",
@@ -16892,14 +16892,14 @@
     {
       "id": "satz_c2_0121",
       "level": "c2",
-      "targetKo": "완곡 금지로 '정리' 대신 '해고'를 적어요.",
-      "promptDe": "Mit Euphemismusstopp schreibe ich Entlassung statt Ordnung.",
-      "promptEn": "With no softening label I write 'dismissal' instead of 'tidying'.",
+      "targetKo": "해고를 ‘정리’라는 완곡어법으로만 표현하면 일자리를 잃는 사람이 가려져요.",
+      "promptDe": "Wenn eine Entlassung nur als „Umstrukturierung“ umschrieben wird, gerät aus dem Blick, dass jemand seine Stelle verliert.",
+      "promptEn": "Calling a dismissal merely a “restructuring” can obscure that someone is losing their job.",
       "distractors": [
         "명령형 공지",
         "전문 장벽"
       ],
-      "vocabKo": "완곡 금지"
+      "vocabKo": "완곡어법"
     },
     {
       "id": "satz_c2_0122",
@@ -17204,9 +17204,9 @@
     {
       "id": "satz_c2_0147",
       "level": "c2",
-      "targetKo": "로그 변조를 탐지하는 서명을 같이 설계해요.",
-      "promptDe": "Gegen Protokollbruch entwerfe ich eine Mit-Signatur.",
-      "promptEn": "I design a co-signature that detects log tampering.",
+      "targetKo": "로그 변조를 탐지하려면 로그의 무결성을 검증할 방법이 필요해요.",
+      "promptDe": "Um Manipulationen an Protokollen zu erkennen, brauchen wir eine Möglichkeit, ihre Integrität zu prüfen.",
+      "promptEn": "To detect log tampering, we need a way to verify the integrity of the logs.",
       "distractors": [
         "추적 가능성",
         "변경 이력"
@@ -17300,9 +17300,9 @@
     {
       "id": "satz_c2_0155",
       "level": "c2",
-      "targetKo": "처리 정지가 이의 기간에 자동으로 걸려야 해요.",
-      "promptDe": "Der Verarbeitungsstopp muss in der Einspruchsfrist automatisch greifen.",
-      "promptEn": "A processing pause must engage automatically during the appeal period.",
+      "targetKo": "이의 제기 기간에 처리 정지를 자동으로 적용할지 검토해야 해요.",
+      "promptDe": "Wir müssen prüfen, ob die Verarbeitung während der Einspruchsfrist automatisch ausgesetzt werden sollte.",
+      "promptEn": "We need to consider whether processing should pause automatically during the appeal period.",
       "distractors": [
         "철회권",
         "동의 철회"
@@ -17420,9 +17420,9 @@
     {
       "id": "satz_c2_0165",
       "level": "c2",
-      "targetKo": "피드백 왜곡으로 과거 거절이 미래 거절을 만들어요.",
-      "promptDe": "Durch Rückkopplungskrümmung erzeugt die alte Ablehnung die nächste.",
-      "promptEn": "Feedback warp makes past refusals produce future refusals.",
+      "targetKo": "피드백 왜곡이 생기면 과거의 거절이 이후 판단에도 반복해서 반영될 수 있어요.",
+      "promptDe": "Wenn Rückkopplungen verzerrt sind, können frühere Ablehnungen spätere Entscheidungen erneut beeinflussen.",
+      "promptEn": "If a feedback loop is distorted, past rejections can keep influencing later decisions.",
       "distractors": [
         "차등 영향",
         "오류 비용"
@@ -26012,9 +26012,9 @@
     {
       "id": "satz_c2_0193",
       "level": "c2",
-      "targetKo": "처벌의 무게가 비례에 맞는지 따로 봅니다.",
-      "promptDe": "Ob das Gewicht der Strafe der Verhältnismäßigkeit entspricht, prüfen wir gesondert.",
-      "promptEn": "Whether the weight of the penalty meets proportionality is checked separately.",
+      "targetKo": "처벌의 무게가 위반의 정도에 비례하는지 따로 봅니다.",
+      "promptDe": "Wir prüfen gesondert, ob die Schwere der Sanktion im Verhältnis zum Verstoß steht.",
+      "promptEn": "We separately examine whether the severity of the penalty is proportionate to the violation.",
       "distractors": [
         "오탐이",
         "재량을"

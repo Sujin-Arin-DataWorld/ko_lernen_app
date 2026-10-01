@@ -286,9 +286,9 @@ VOCAB_C2: list[dict[str, Any]] = [
     },
     {
         "korean": "비례", "rom": "birye", "de": "Verhältnismäßigkeit", "en": "proportionality",
-        "ex_ko": "처벌의 무게가 비례에 맞는지 따로 봅니다.",
-        "ex_de": "Ob das Gewicht der Strafe der Verhältnismäßigkeit entspricht, prüfen wir gesondert.",
-        "ex_en": "Whether the weight of the penalty meets proportionality is checked separately.",
+        "ex_ko": "처벌의 무게가 위반의 정도에 비례하는지 따로 봅니다.",
+        "ex_de": "Wir prüfen gesondert, ob die Schwere der Sanktion im Verhältnis zum Verstoß steht.",
+        "ex_en": "We separately examine whether the severity of the penalty is proportionate to the violation.",
         "cloze_distractors": ["일관성", "소급", "귀책"],
         "satz_distractors": ["오탐이", "재량을"],
         "boss": False,

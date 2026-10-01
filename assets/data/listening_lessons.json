@@ -23256,7 +23256,7 @@
           },
           "explanation": {
             "ko": "들은 말은 “가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.“: Als Geschäftsinhaber möchte ich schnell entschädigt werden, unabhängig davon, welches Unternehmen intern verantwortlich ist. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "de": "Zu hören ist „가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.“: Für unser Geschäft möchte ich schnell eine Entschädigung erhalten, unabhängig davon, welches Unternehmen intern verantwortlich ist. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
             "en": "The line is “가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.”: As the shop owner, I want prompt compensation from one place, regardless of who is responsible internally. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
@@ -23267,7 +23267,7 @@
           "options": [
             {
               "ko": "가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.",
-              "de": "Als Geschäftsinhaber möchte ich schnell entschädigt werden, unabhängig davon, welches Unternehmen intern verantwortlich ist.",
+              "de": "Für unser Geschäft möchte ich schnell eine Entschädigung erhalten, unabhängig davon, welches Unternehmen intern verantwortlich ist.",
               "en": "As the shop owner, I want prompt compensation from one place, regardless of who is responsible internally."
             },
             {
@@ -23277,8 +23277,8 @@
             },
             {
               "ko": "현장 배치 담당자의 판단 실수로 정리하면 책임자가 명확해집니다.",
-              "de": "Wenn wir den Fall als Fehlentscheidung beim Einsatz einordnen, hätten wir einen klaren Verantwortlichen.",
-              "en": "If we classify this as a deployment error, we'd have a clear responsible party."
+              "de": "Wenn wir den Fall auf eine Fehlentscheidung der für den Einsatz zuständigen Person zurückführen, hätten wir eine klar benannte verantwortliche Person.",
+              "en": "If we attribute this to a mistake by the person in charge of deployment, we'd have a clearly identified responsible party."
             }
           ],
           "correctIndex": 0
@@ -23972,7 +23972,7 @@
       "intro": {
         "ko": "폭우 뒤 생수 가격 상한제가 제안됐지만 공급 감소와 사재기 우려도 있어요.",
         "de": "Nach Starkregen wird eine Preisobergrenze für Wasser vorgeschlagen, zugleich drohen Lieferengpässe und Hamsterkäufe.",
-        "en": "After severe flooding, a bottled-water price cap is proposed, with concerns about reduced supply and hoarding."
+        "en": "After heavy rainfall, a bottled-water price cap is proposed, with concerns about reduced supply and hoarding."
       },
       "contentIds": [
         "emergency_price_controls"
@@ -24641,30 +24641,30 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.“: Heute betrachten wir den Konflikt zwischen jungen Menschen ohne Wohneigentum und älteren Eigentümern. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.”: Today's debate will focus on young people without homes versus older homeowners. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “오늘 토론은 집을 소유하지 않은 청년과 주택을 소유한 노년층의 갈등을 중심으로 보겠습니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „오늘 토론은 집을 소유하지 않은 청년과 주택을 소유한 노년층의 갈등을 중심으로 보겠습니다.“: Heute betrachten wir den Konflikt zwischen jungen Menschen ohne Wohneigentum und älteren Eigentümern. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “오늘 토론은 집을 소유하지 않은 청년과 주택을 소유한 노년층의 갈등을 중심으로 보겠습니다.”: Today's debate will focus on young people who do not own homes and older homeowners. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "housing_tax_intergenerational"
           ],
-          "evidenceKo": "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.",
-          "audioKo": "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.",
+          "evidenceKo": "오늘 토론은 집을 소유하지 않은 청년과 주택을 소유한 노년층의 갈등을 중심으로 보겠습니다.",
+          "audioKo": "오늘 토론은 집을 소유하지 않은 청년과 주택을 소유한 노년층의 갈등을 중심으로 보겠습니다.",
           "options": [
             {
-              "ko": "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.",
+              "ko": "오늘 토론은 집을 소유하지 않은 청년과 주택을 소유한 노년층의 갈등을 중심으로 보겠습니다.",
               "de": "Heute betrachten wir den Konflikt zwischen jungen Menschen ohne Wohneigentum und älteren Eigentümern.",
-              "en": "Today's debate will focus on young people without homes versus older homeowners."
+              "en": "Today's debate will focus on young people who do not own homes and older homeowners."
             },
             {
-              "ko": "연령은 유지하되 자산 규모, 현재 소득, 실거주 여부를 함께 보여 주면 프레임의 한계도 드러납니다.",
-              "de": "Wir können das Alter beibehalten, aber Vermögenshöhe, laufendes Einkommen und Eigennutzung mitzeigen.",
-              "en": "Keep age, but also show asset size, current income, and whether the home is owner-occupied."
+              "ko": "세대라는 구분이 설명력을 갖는 부분은 있지만 자산과 소득의 차이까지 대신 설명하지는 못합니다.",
+              "de": "Die Generationenkategorie erklärt einen Teil des Konflikts, ersetzt aber nicht die Unterschiede bei Vermögen und Einkommen.",
+              "en": "Generational categories explain part of the conflict, but cannot stand in for differences in wealth and income."
             },
             {
-              "ko": "그래도 시청자가 이해하기에는 세대 구도가 가장 분명하지 않나요?",
-              "de": "Ist der Generationenrahmen für das Publikum nicht am verständlichsten?",
-              "en": "Isn't the generational frame clearest for viewers?"
+              "ko": "도입에는 쓸 수 있지만 사례까지 그 틀에 맞추면 저소득 고령자와 다주택 청년 같은 집단이 지워집니다.",
+              "de": "Als Einstieg mag er funktionieren, doch bei den Fällen verschwinden dann etwa einkommensarme Ältere und junge Mehrfacheigentümer.",
+              "en": "It may work as an opening, but applying it to every case erases groups like low-income seniors and young multiple-property owners."
             }
           ],
           "correctIndex": 0
@@ -25259,7 +25259,7 @@
           "explanation": {
             "ko": "들은 말은 “지난 집회 때 도로가 오래 막혔으니 앞으로는 도심 집회를 더 엄격하게 제한해야 합니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
             "de": "Zu hören ist „지난 집회 때 도로가 오래 막혔으니 앞으로는 도심 집회를 더 엄격하게 제한해야 합니다.“: Nach der langen Verkehrsblockade bei der letzten Demonstration brauchen wir strengere Beschränkungen für Kundgebungen in der Innenstadt. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “지난 집회 때 도로가 오래 막혔으니 앞으로는 도심 집회를 더 엄격하게 제한해야 합니다.”: After the last protest blocked roads for hours, we need tighter restrictions on downtown demonstrations. The other options represent different turns in this scene, with different content or conversational functions."
+            "en": "The line is “지난 집회 때 도로가 오래 막혔으니 앞으로는 도심 집회를 더 엄격하게 제한해야 합니다.”: After roads were blocked for a long time during the last protest, we need tighter restrictions on downtown demonstrations. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "protest_order_and_rights"
@@ -25270,7 +25270,7 @@
             {
               "ko": "지난 집회 때 도로가 오래 막혔으니 앞으로는 도심 집회를 더 엄격하게 제한해야 합니다.",
               "de": "Nach der langen Verkehrsblockade bei der letzten Demonstration brauchen wir strengere Beschränkungen für Kundgebungen in der Innenstadt.",
-              "en": "After the last protest blocked roads for hours, we need tighter restrictions on downtown demonstrations."
+              "en": "After roads were blocked for a long time during the last protest, we need tighter restrictions on downtown demonstrations."
             },
             {
               "ko": "집회 허용 여부와 구체적인 시간·동선·응급 통로를 어떻게 조정할지는 분리해서 봐야 합니다.",
@@ -25529,7 +25529,7 @@
           },
           "explanation": {
             "ko": "근거는 “이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.”예요. 따라서 “이번 조건에서 효과가 확인되지 않았다고 범위를 한정해 말해요.”가 맞아요. “한 번 재현에 실패하면 원 논문의 모든 주장이 거짓이에요.”와 “표본이 다를 수 있으므로 재현 실패는 의미가 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.“ (Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen mögliche Moderatoren.). Daraus folgt: Es wird eingegrenzt gesagt, dass sich der Effekt unter diesen Bedingungen nicht bestätigte. Die Alternativen „Ein gescheiterter Replikationsversuch widerlegt jede Aussage der Originalstudie.“ und „Mögliche Stichprobenunterschiede machen das Scheitern bedeutungslos.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "de": "Der Beleg lautet: „이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.“ (Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen Bedingungen, die den Unterschied erklären könnten.). Daraus folgt: Es wird eingegrenzt gesagt, dass sich der Effekt unter diesen Bedingungen nicht bestätigte. Die Alternativen „Ein gescheiterter Replikationsversuch widerlegt jede Aussage der Originalstudie.“ und „Mögliche Stichprobenunterschiede machen das Scheitern bedeutungslos.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
             "en": "The evidence is “이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.” (State that the effect wasn't found in this sample under these conditions, then compare what conditions may account for the difference.). This supports: The claim is limited to not finding the effect under these conditions. The alternatives “One failed replication makes every claim in the original paper false.” and “Possible sample differences make the failed replication meaningless.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
@@ -25587,7 +25587,7 @@
             },
             {
               "ko": "이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.",
-              "de": "Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen mögliche Moderatoren.",
+              "de": "Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen Bedingungen, die den Unterschied erklären könnten.",
               "en": "State that the effect wasn't found in this sample under these conditions, then compare what conditions may account for the difference."
             }
           ],
@@ -25599,7 +25599,7 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen mögliche Moderatoren.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen Bedingungen, die den Unterschied erklären könnten.",
             "en": "Put the words in the same order as the recording. Meaning: State that the effect wasn't found in this sample under these conditions, then compare what conditions may account for the difference."
           },
           "explanation": {
@@ -25625,7 +25625,7 @@
           },
           "explanation": {
             "ko": "근거는 “이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.”예요. 따라서 “이번 조건에서 효과가 확인되지 않았다고 범위를 한정해 말해요.”가 맞아요. “한 번 재현에 실패하면 원 논문의 모든 주장이 거짓이에요.”와 “표본이 다를 수 있으므로 재현 실패는 의미가 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.“ (Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen mögliche Moderatoren.). Daraus folgt: Es wird eingegrenzt gesagt, dass sich der Effekt unter diesen Bedingungen nicht bestätigte. Die Alternativen „Ein gescheiterter Replikationsversuch widerlegt jede Aussage der Originalstudie.“ und „Mögliche Stichprobenunterschiede machen das Scheitern bedeutungslos.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "de": "Der Beleg lautet: „이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.“ (Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen Bedingungen, die den Unterschied erklären könnten.). Daraus folgt: Es wird eingegrenzt gesagt, dass sich der Effekt unter diesen Bedingungen nicht bestätigte. Die Alternativen „Ein gescheiterter Replikationsversuch widerlegt jede Aussage der Originalstudie.“ und „Mögliche Stichprobenunterschiede machen das Scheitern bedeutungslos.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
             "en": "The evidence is “이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.” (State that the effect wasn't found in this sample under these conditions, then compare what conditions may account for the difference.). This supports: The claim is limited to not finding the effect under these conditions. The alternatives “One failed replication makes every claim in the original paper false.” and “Possible sample differences make the failed replication meaningless.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
@@ -25819,7 +25819,7 @@
       },
       "intro": {
         "ko": "강한 부정 수급 경고가 모든 신청자를 잠재적 위반자로 대한다는 지적이 나와요.",
-        "de": "Eine scharfe Betrugswarnung behandelt alle Antragsteller wie potenzielle Täter.",
+        "de": "Eine scharfe Betrugswarnung behandelt alle Antragsteller wie potenziell Regelverletzende.",
         "en": "A harsh benefits-fraud warning treats every applicant as a potential offender."
       },
       "contentIds": [
@@ -27293,20 +27293,20 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Beim nächsten Projekt wird dein Name genauso prominent stehen. Das meine ich ernst.",
-            "en": "Put the words in the same order as the recording. Meaning: I'll make sure your name is just as prominent on the next project. I mean that."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Bei unseren gemeinsamen Arbeiten werde ich zuerst die Namensnennung so ändern, dass dein Beitrag sichtbar wird. Das meine ich ernst.",
+            "en": "Put the words in the same order as the recording. Meaning: I'll start by fixing the credits on the work we made together so your contribution is clear. I mean that."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “다음 작품에도 네 이름 크게 넣을게. 그건 진심이야.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „다음 작품에도 네 이름 크게 넣을게. 그건 진심이야.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “다음 작품에도 네 이름 크게 넣을게. 그건 진심이야.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “함께 만든 작품의 크레딧부터 네 기여가 제대로 보이도록 바로잡을게. 그건 진심이야.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „함께 만든 작품의 크레딧부터 네 기여가 제대로 보이도록 바로잡을게. 그건 진심이야.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “함께 만든 작품의 크레딧부터 네 기여가 제대로 보이도록 바로잡을게. 그건 진심이야.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "c2_w10_friends"
           ],
-          "evidenceKo": "다음 작품에도 네 이름 크게 넣을게. 그건 진심이야.",
-          "audioKo": "다음 작품에도 네 이름 크게 넣을게. 그건 진심이야.",
-          "targetKo": "다음 작품에도 네 이름 크게 넣을게. 그건 진심이야."
+          "evidenceKo": "함께 만든 작품의 크레딧부터 네 기여가 제대로 보이도록 바로잡을게. 그건 진심이야.",
+          "audioKo": "함께 만든 작품의 크레딧부터 네 기여가 제대로 보이도록 바로잡을게. 그건 진심이야.",
+          "targetKo": "함께 만든 작품의 크레딧부터 네 기여가 제대로 보이도록 바로잡을게. 그건 진심이야."
         },
         {
           "id": "listening.c2.c2_w10_friends.response",
