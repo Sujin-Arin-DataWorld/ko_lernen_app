@@ -1,10 +1,10 @@
+import '../services/haptic_service.dart';
 import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/game_reward.dart';
 import '../models/sori_stage_progression.dart';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../models/vocab.dart';
 import '../models/feedback_completion.dart';
 import '../models/learner_level.dart';
@@ -463,7 +463,6 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     SoriSpeech.speak(card.korean);
     // Persistenz + Haptik
     if (ok) {
-      HapticFeedback.lightImpact();
       SoundService.correct();
       Storage.incChosungCorrect();
       _combo++;
@@ -476,7 +475,6 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
         );
       }
     } else {
-      HapticFeedback.mediumImpact();
       SoundService.wrong();
       Storage.incChosungWrong();
       _combo = 0;
@@ -514,7 +512,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       _wrong++;
       _state = _State.wrong;
     });
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     // 2.9 잔여 — 스킵도 정답 공개이므로 동일하게 1회 자동으로 읽는다.
     SoriSpeech.speak(card.korean);
     Storage.incChosungWrong();
@@ -608,7 +606,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
         _feedbackCompletion.current == null) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     _roundOutcome = null;
     _feedbackCompletion.reset();
     resetGameResult();

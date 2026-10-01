@@ -3,7 +3,6 @@ import 'dart:async';
 import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../data/cloze_topic_groups.dart';
 import '../l10n/cloze_topic_group_localizations.dart';
@@ -440,7 +439,6 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
     final speech = SoriSpeech.speak(item.fullKo);
 
     if (ok) {
-      HapticFeedback.lightImpact();
       SoundService.correct();
       await Future.wait<void>([
         speech.then<void>((_) {}),
@@ -466,7 +464,6 @@ class _ClozeGameScreenState extends State<ClozeGameScreen>
     // 오답 — Jin 2026-08-07 지시: 빈칸에 빨갛게 들어갔다가 되돌아오고 계속
     // 고를 수 있다(재시도 허용). 예전에는 오답도 그대로 다음 문제로 넘어가
     // 무엇이 맞는 답이었는지 손으로 확인할 기회가 없었다.
-    HapticFeedback.mediumImpact();
     SoundService.wrong();
     await Future.wait<void>([
       speech.then<void>((_) {}),

@@ -1,4 +1,67 @@
 {
+  "settingsHaptics": "Vibrationsfeedback",
+  "settingsHapticsDesc": "Sanfte Impulse bei Auswahl, richtigen Antworten und neuen Versuchen. Unabhängig vom Ton.",
+  "settingsReducedMotion": "Bewegungen reduzieren",
+  "settingsReducedMotionDesc": "Feedback bleibt sichtbar, mit weniger Bewegung. Die Geräteeinstellung wird ebenfalls beachtet.",
+  "yeopjeonTitle": "Meine Yeopjeon",
+  "yeopjeonBalance": "{count} Yeopjeon",
+  "@yeopjeonBalance": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "yeopjeonEarned": "+{count} Yeopjeon verdient!",
+  "@yeopjeonEarned": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "yeopjeonIntro": "Lerne Koreanisch, sammle Yeopjeon und baue dein Hanok.",
+  "yeopjeonBuild": "Nächste Bauphase · {cost} Yeopjeon",
+  "@yeopjeonBuild": {
+    "placeholders": {
+      "cost": {
+        "type": "int"
+      }
+    }
+  },
+  "yeopjeonProgress": "{owned} / {eligible} freigeschaltete Bauphasen gebaut",
+  "@yeopjeonProgress": {
+    "placeholders": {
+      "owned": {
+        "type": "int"
+      },
+      "eligible": {
+        "type": "int"
+      }
+    }
+  },
+  "yeopjeonNeedLearning": "Schließe eine Einheit im Lernpfad ab, um die nächste Bauphase freizuschalten.",
+  "yeopjeonNeedCoins": "Noch {count} Yeopjeon bis zum Bauen. Lerne weiter!",
+  "@yeopjeonNeedCoins": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "yeopjeonBuilt": "Ein neuer Teil deines Hanok ist fertig!",
+  "yeopjeonSaveFailed": "Die Transaktion konnte nicht bestätigt werden. Prüfe deinen gespeicherten Kontostand mit einem neuen Versuch.",
+  "yeopjeonRules": "Erste abgeschlossene Lektion des Tages: 20 Yeopjeon. Eine zweite andere Lektion: 10. Neue Bauphasen bringen zusätzlich Baumittel. Wiederholungen bereits abgeschlossener Lektionen werden nicht erneut vergütet.",
+  "yeopjeonSarangchae": "Sarangchae",
+  "yeopjeonB2": "Innerer Hof",
+  "yeopjeonConstructionGoal": "Nächste Bauphase: {cost} Yeopjeon",
+  "@yeopjeonConstructionGoal": {
+    "placeholders": {
+      "cost": {
+        "type": "int"
+      }
+    }
+  },
   "packCompletionRetired": "Dieses Ergebnis ist nicht mehr aktiv. Kehre zu deinen Wortpaketen zurück.",
   "packCompletionPending": "Dein Pack-Ergebnis wird noch gespeichert. Du kannst das Speichern erneut versuchen.",
   "packCompletionSaved": "Dein Pack-Ergebnis ist gespeichert.",
@@ -1031,7 +1094,11 @@
   "bookResultAmbiguousWord": "Dieses Wort kann mehrere Bedeutungen haben. Prüfe, welche zum Satz passt.",
   "bookResultAlternativeWord": "Auch {word} ist möglich. Prüfe, welche Bedeutung zum Satz passt.",
   "@bookResultAlternativeWord": {
-    "placeholders": {"word": {"type": "String"}}
+    "placeholders": {
+      "word": {
+        "type": "String"
+      }
+    }
   },
   "bookResultTranslationUnavailable": "Der Übersetzungsdienst hat nicht alle Bedeutungen geliefert. Prüfe das Ergebnis vor dem Speichern oder versuche es erneut.",
   "bookResultNoKoreanNotice": "Es blieb kein verlässlicher koreanischer Text übrig. Bitte prüfe den Text oder nimm die Seite neu auf.",
@@ -4256,7 +4323,7 @@
       }
     }
   },
-  "soriStageCatalogCopy": "{copyKey, select, firstCompletion{Beim ersten Abschluss} finishSession{Wenn du die Runde abschließt} verifiedLearning{Nach einem bestätigten Lernerfolg} rewardXp{Lern-XP} rewardQuest{Quest} rewardHanok{Hanok-Bauteil} rewardStamp{Dojang-Stempel} rewardBest{Persönliche Bestleistung} rewardNone{Keine direkte Belohnung} rewardQuestProgress{Quest-Fortschritt} rewardHanokPiece{Neues Hanok-Bauteil} rewardBojagi{Bojagi} rewardGyeLantern{Gye-Laterne} other{Belohnung}}}",
+  "soriStageCatalogCopy": "{copyKey, select, firstCompletion{Beim ersten Abschluss} finishSession{Wenn du die Runde abschließt} verifiedLearning{Nach einem bestätigten Lernerfolg} rewardXp{Lern-XP} rewardQuest{Quest} rewardHanok{Hanok-Bauteil} rewardStamp{Dojang-Stempel} rewardBest{Persönliche Bestleistung} rewardNone{Keine direkte Belohnung} rewardQuestProgress{Quest-Fortschritt} rewardHanokPiece{Neues Hanok-Bauteil} rewardBojagi{Bojagi} rewardGyeLantern{Gye-Laterne} rewardYeopjeon{Yeopjeon} other{Belohnung}}}",
   "@soriStageCatalogCopy": {
     "placeholders": {
       "copyKey": {
@@ -5403,5 +5470,6 @@
   "hanokDownloadsRemoveFailed": "Die heruntergeladenen Daten konnten nicht entfernt werden. Versuche es erneut.",
   "hanokDownloadsSettingsSection": "Offline-Bilder",
   "hanokDownloadsSettingsTitle": "Hanok-Downloads",
-  "hanokDownloadsSettingsSubtitle": "In der App enthaltene und nach Gebäude heruntergeladene Bilder verwalten"
+  "hanokDownloadsSettingsSubtitle": "In der App enthaltene und nach Gebäude heruntergeladene Bilder verwalten",
+  "yeopjeonConstructionComplete": "Dieses Gebäude ist fertig!"
 }

@@ -1,3 +1,4 @@
+import '../services/haptic_service.dart';
 import '../widgets/sori/game_reward.dart';
 import '../services/learning_journey.dart';
 import '../models/sori_stage_progression.dart';
@@ -5,7 +6,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
-import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/feedback_completion.dart';
@@ -368,7 +368,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         !queue.canDefer) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _presentation++;
       queue.defer();
@@ -383,7 +383,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     if (!_acceptsInput || queue == null || !queue.canGoPrevious) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _presentation++;
       queue.previous();
@@ -398,7 +398,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     if (!_acceptsInput || queue == null || !queue.canGoForward) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _presentation++;
       queue.nextHistory();
@@ -436,7 +436,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       return;
     }
     _presentation++;
-    gotIt ? HapticFeedback.mediumImpact() : HapticFeedback.lightImpact();
+    gotIt ? HapticService.mediumImpact() : HapticService.lightImpact();
     _pendingJudgment = _ReviewJudgment(
       id: _card.korean,
       gotIt: gotIt,

@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:ko_lernen_app/models/yeopjeon_wallet.dart';
+import 'package:ko_lernen_app/services/yeopjeon_learning_checkpoint.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
@@ -10,6 +12,108 @@ import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'support/hanok_competence_fixture.dart';
 
 void main() {
+  test(
+    'a stalled money baseline never delays learning or hides proven XP',
+    () async {
+      final checkpoint = Completer<YeopjeonLearningCheckpoint>();
+      final returned = Completer<void>();
+      var opened = false;
+      final result = SoriStageRewardReceiptService.capture(
+        activityId: 'course',
+        captureCheckpoint: () => checkpoint.future,
+        captureLocalBefore: () => (
+          xp: 0,
+          stamps: 0,
+          pendingBojagiCount: 0,
+          streakDays: 0,
+          gameBests: const {},
+        ),
+        loadNetworkBefore: () async => (
+          hanokCompetence: _snapshot().hanokCompetence,
+          quests: const <QuestProgress>[],
+          gyeLanternCount: 0,
+        ),
+        loadSnapshot: () async => _snapshot(xp: 20),
+        measurementTimeout: const Duration(milliseconds: 20),
+        openActivity: () {
+          opened = true;
+          return returned.future;
+        },
+      );
+      expect(opened, isTrue);
+      expect(checkpoint.isCompleted, isFalse);
+      returned.complete();
+      final receipt = await result;
+      expect(receipt?.items.single.kind, SoriRewardKind.xp);
+      expect(receipt?.items.single.amount, 20);
+      expect(checkpoint.isCompleted, isFalse);
+    },
+  );
+
+  test(
+    'learning qualification pays coins but does not claim an unbuilt piece',
+    () {
+      final before = _snapshot(
+        wallet: YeopjeonWallet.grandfather(sarangchaeStage: 0, b2Stage: 0),
+      );
+      final afterWallet = YeopjeonWallet(
+        balance: 60,
+        sarangchaeEligibleStage: 1,
+        b2EligibleStage: 0,
+        sarangchaeOwnedStage: 0,
+        b2OwnedStage: 0,
+        grandfatheredSarangchaeStage: 0,
+        grandfatheredB2Stage: 0,
+        claims: const {'milestone:s:1': 40, 'daily:2026-10-01:first': 20},
+        completedSourceIds: const {'unit:a1_01'},
+        reviewedSourceIds: const {},
+      );
+      final after = _snapshot(
+        wallet: afterWallet,
+        hanokCompetence: hanokCompetenceFixture(a1Completed: 1, a1Total: 16),
+      );
+      final receipt = SoriStageRewardReceiptService.compare(
+        activityId: 'course',
+        before: before,
+        after: after,
+      );
+      expect(
+        receipt.items
+            .where((item) => item.kind == SoriRewardKind.yeopjeon)
+            .fold<int>(0, (sum, item) => sum + item.amount!),
+        60,
+      );
+      expect(
+        receipt.items.where(
+          (item) => item.kind == SoriRewardKind.hanokProgress,
+        ),
+        isEmpty,
+      );
+      expect(receipt.hasSarangchaeUpgrade, isFalse);
+      final purchase = SoriStageRewardReceiptService.compare(
+        activityId: 'build',
+        before: after,
+        after: _snapshot(
+          wallet: afterWallet.copyWith(balance: 20, sarangchaeOwnedStage: 1),
+        ),
+      );
+      expect(purchase.hasSarangchaeUpgrade, isTrue);
+      expect(
+        purchase.items.where((item) => item.kind == SoriRewardKind.yeopjeon),
+        isEmpty,
+      );
+    },
+  );
+
+  test('unreadable ownership never substitutes learning eligibility', () {
+    final snapshot = _snapshot(
+      walletUnavailable: true,
+      hanokCompetence: hanokCompetenceFixture(a1Completed: 8, a1Total: 16),
+    );
+    expect(snapshot.ownedSarangchaeStage, 0);
+    expect(snapshot.ownedB2Stage, 0);
+  });
+
   test('receipt contains only positive changes observed after an activity', () {
     final before = _snapshot(
       xp: 100,
@@ -296,7 +400,11 @@ SoriStageProgressionSnapshot _snapshot({
   int questCurrent = 0,
   QuestProgress? extraQuest,
   HanokCompetenceProjection? hanokCompetence,
+  YeopjeonWallet? wallet,
+  bool walletUnavailable = false,
 }) => SoriStageProgressionSnapshot(
+  wallet: wallet,
+  walletUnavailable: walletUnavailable,
   today: const TodayLearningSnapshot(pick: null),
   hanokCompetence:
       hanokCompetence ??

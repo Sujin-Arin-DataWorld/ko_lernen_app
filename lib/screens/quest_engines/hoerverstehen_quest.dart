@@ -1,5 +1,5 @@
+import '../../services/haptic_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/scenario.dart';
@@ -77,13 +77,13 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
 
   Future<void> _playTts() async {
     if (!widget.audioEnabled) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     await SoriSpeech.speak(_audioKo);
   }
 
   void _select(int index) {
     if (_resolved != null) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _selected = index;
       _lastWrong = null;
@@ -107,7 +107,6 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
       _report(true);
       return;
     }
-    HapticFeedback.mediumImpact();
     SoundService.wrong();
     _tries++;
     if (_tries >= 2) {
@@ -124,7 +123,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
 
   void _revealAnswer() {
     if (_resolved != null) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _selected = _correctIndex;
       _lastWrong = null;

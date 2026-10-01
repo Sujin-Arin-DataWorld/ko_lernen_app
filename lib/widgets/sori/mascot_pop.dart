@@ -1,7 +1,7 @@
+import '../../services/haptic_service.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../services/sound_service.dart';
 import 'dancheong_burst.dart';
@@ -140,6 +140,8 @@ class _MascotPartnerState extends State<MascotPartner>
 
     if (widget.playSound) {
       SoundService.correct();
+    } else {
+      HapticService.lightImpact();
     }
 
     // 포즈 전환은 reduce-motion에서도 유지 — 정답 신호 자체는 남아야 한다.
@@ -149,7 +151,6 @@ class _MascotPartnerState extends State<MascotPartner>
     });
 
     if (reduced) {
-      HapticFeedback.lightImpact();
       return;
     }
 
@@ -167,10 +168,6 @@ class _MascotPartnerState extends State<MascotPartner>
       intensity: 2.4,
       postFitScale: widget.burstScale,
     );
-
-    // 햅틱은 시트 두 장의 타이밍에 맞춰 두 번 — 파박을 촉각으로 완성한다.
-    HapticFeedback.lightImpact();
-    _schedule(70, HapticFeedback.lightImpact);
   }
 
   @override

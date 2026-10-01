@@ -1,3 +1,5 @@
+import 'services/yeopjeon_service.dart';
+import 'services/haptic_service.dart';
 import 'features/content_learning/content_learning_hub.dart';
 import 'features/content_learning/content_learning_models.dart';
 import 'features/content_learning/content_learning_widgets.dart';
@@ -171,6 +173,19 @@ Future<void> _startProductionApplication(
   // the splash screen's adaptive wait: min 600ms, cap 1500ms — and
   // MascotPreference.load() below) need this done first.
   await Storage.init();
+  // Preserve existing construction ownership before the learner starts.
+  try {
+    await YeopjeonService.loadCurrent();
+    await YeopjeonService.recoverConfirmedLearningRewards();
+  } catch (error, stack) {
+    unawaited(
+      DiagnosticsService.reportSwallowed(
+        'yeopjeon.bootstrap',
+        StateError(error.runtimeType.toString()),
+        stack,
+      ),
+    );
+  }
 
   // 시스템바: edge-to-edge(Flutter 권장) + 화면별 SafeArea가 inset 담당.
   // MediaQuery가 상태바/네비바 inset을 정확히 보고 → SafeArea가 콘텐츠를 그 위로
@@ -677,7 +692,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
-      listenable: Listenable.merge([localeNotifier, paletteVariantNotifier]),
+      listenable: Listenable.merge([
+        localeNotifier,
+        paletteVariantNotifier,
+        HapticService.preferencesChanged,
+      ]),
       builder: (_, __) => MaterialApp(
         navigatorKey: _packRecoveryNavigator,
         title: 'Hangul Sori',
@@ -706,37 +725,45 @@ class _KoLernenAppState extends State<KoLernenApp> {
         // nichts darunter. Es muss unter MaterialApp hängen, damit sein
         // context ScaffoldMessenger/Localizations erreicht (siehe
         // ai_voice_notice_host.dart).
-        builder: (context, child) => AiVoiceNoticeHost(
-          child: SoriTypeScale(
-            child: ContentFeedbackControllerScope(
-              featureGate: _contentFeedbackLifecycle.featureGate,
-              submitFeedback: _contentFeedbackLifecycle.submit,
-              resumePending: _contentFeedbackLifecycle.resumePending,
-              resumeDeliveryNotifier: _resumeDeliveryNotifier,
-              readPassportState: _contentFeedbackLifecycle.readPassportState,
-              child: ContentFeedbackLifecycleObserver(
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            disableAnimations:
+                MediaQuery.of(context).disableAnimations ||
+                Storage.reducedMotion,
+          ),
+          child: AiVoiceNoticeHost(
+            child: SoriTypeScale(
+              child: ContentFeedbackControllerScope(
+                featureGate: _contentFeedbackLifecycle.featureGate,
+                submitFeedback: _contentFeedbackLifecycle.submit,
                 resumePending: _contentFeedbackLifecycle.resumePending,
-                onResumeResult: _resumeDeliveryNotifier.report,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.opaque,
-                  onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-                  // 발음이 안 나올 때 이유를 한 줄로 띄운다. OS 음성 폴백을
-                  // 지운 뒤로 서버 오디오를 못 받으면 무음인데, 이유 없는 무음은
-                  // 고장과 구분이 안 된다.
-                  child: PackCompletionRecoveryBanner(
-                    onViewResult: () {
-                      final record = PackCompletionStorage.result;
-                      if (record != null) {
-                        _packRecoveryNavigator.currentState?.push(
-                          SoriTransitions.page(
-                            (_) => VocabPackResultScreen.fromRecovered(record),
-                          ),
-                        );
-                      }
-                    },
-                    child: SrsRecoveryBanner(
-                      child: TtsUnavailableBanner(
-                        child: child ?? const SizedBox(),
+                resumeDeliveryNotifier: _resumeDeliveryNotifier,
+                readPassportState: _contentFeedbackLifecycle.readPassportState,
+                child: ContentFeedbackLifecycleObserver(
+                  resumePending: _contentFeedbackLifecycle.resumePending,
+                  onResumeResult: _resumeDeliveryNotifier.report,
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+                    // 발음이 안 나올 때 이유를 한 줄로 띄운다. OS 음성 폴백을
+                    // 지운 뒤로 서버 오디오를 못 받으면 무음인데, 이유 없는 무음은
+                    // 고장과 구분이 안 된다.
+                    child: PackCompletionRecoveryBanner(
+                      onViewResult: () {
+                        final record = PackCompletionStorage.result;
+                        if (record != null) {
+                          _packRecoveryNavigator.currentState?.push(
+                            SoriTransitions.page(
+                              (_) =>
+                                  VocabPackResultScreen.fromRecovered(record),
+                            ),
+                          );
+                        }
+                      },
+                      child: SrsRecoveryBanner(
+                        child: TtsUnavailableBanner(
+                          child: child ?? const SizedBox(),
+                        ),
                       ),
                     ),
                   ),

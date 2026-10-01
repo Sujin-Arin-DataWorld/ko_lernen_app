@@ -84,7 +84,9 @@ class _HanokPreviewScreenState extends State<HanokPreviewScreen> {
                   future: _snapshotFuture,
                   builder: (context, progressionSnapshot) {
                     if (constructionSnapshot.hasError ||
-                        progressionSnapshot.hasError) {
+                        progressionSnapshot.hasError ||
+                        (progressionSnapshot.data?.walletUnavailable ??
+                            false)) {
                       return Center(
                         child: Padding(
                           padding: const EdgeInsets.all(Spacing.xl),
@@ -122,8 +124,7 @@ class _HanokPreviewScreenState extends State<HanokPreviewScreen> {
                                 construction: constructionSnapshot.data!,
                                 earnedStageCount: progressionSnapshot
                                     .data!
-                                    .hanokCompetence
-                                    .sarangchaeConstructionStage,
+                                    .ownedSarangchaeStage,
                               ),
                               const SizedBox(height: Spacing.xl),
                               SoriButton.filled(

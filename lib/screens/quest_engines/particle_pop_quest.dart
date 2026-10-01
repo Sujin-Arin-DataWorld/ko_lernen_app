@@ -1,5 +1,5 @@
+import '../../services/haptic_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/scenario.dart';
@@ -97,7 +97,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
   Future<void> _onAccept(int idx) async {
     if (_completed) return;
 
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _droppedIndex = idx;
       _lastWrong = null;
@@ -145,7 +145,6 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
       }
       _report(true);
     } else {
-      HapticFeedback.mediumImpact();
       SoundService.wrong();
       _tries++;
       setState(() {
@@ -181,7 +180,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
 
   void _revealAnswer() {
     if (_completed) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _droppedIndex = _correctIndex;
       _completed = true;

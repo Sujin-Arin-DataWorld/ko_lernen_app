@@ -1,7 +1,7 @@
+import '../services/haptic_service.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../features/onboarding_v2/first_run_coordinator.dart';
 import '../widgets/sori/tokens.dart';
@@ -51,7 +51,7 @@ class _ConsentScreenState extends State<ConsentScreen> {
 
   void _openDemo() {
     if (_saving) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     Navigator.of(context).push<void>(
       SoriTransitions.firstRun(
         context,
@@ -64,7 +64,7 @@ class _ConsentScreenState extends State<ConsentScreen> {
   Future<void> _accept() async {
     if (_saving) return;
     setState(() => _saving = true);
-    HapticFeedback.mediumImpact();
+    HapticService.mediumImpact();
     final previewAccepted = widget.onPreviewAccepted;
     if (previewAccepted != null) {
       try {

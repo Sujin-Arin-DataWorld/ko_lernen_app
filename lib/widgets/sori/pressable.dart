@@ -1,3 +1,4 @@
+import '../../services/haptic_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -107,16 +108,16 @@ class _SoriPressableState extends State<SoriPressable>
   void _doHaptic() {
     switch (widget.haptic) {
       case SoriHaptic.light:
-        HapticFeedback.lightImpact();
+        HapticService.lightImpact();
         break;
       case SoriHaptic.medium:
-        HapticFeedback.mediumImpact();
+        HapticService.mediumImpact();
         break;
       case SoriHaptic.heavy:
-        HapticFeedback.heavyImpact();
+        HapticService.heavyImpact();
         break;
       case SoriHaptic.selection:
-        HapticFeedback.selectionClick();
+        HapticService.selectionClick();
         break;
       case null:
         break;
@@ -131,7 +132,7 @@ class _SoriPressableState extends State<SoriPressable>
 
   void _onLongPress() {
     if (widget.onLongPress == null) return;
-    HapticFeedback.mediumImpact();
+    HapticService.mediumImpact();
     widget.onLongPress!();
   }
 

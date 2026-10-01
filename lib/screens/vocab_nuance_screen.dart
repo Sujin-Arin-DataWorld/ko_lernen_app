@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
@@ -57,10 +56,8 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
     final correct = korean == question.correctKorean;
     if (correct) {
       SoundService.correct();
-      HapticFeedback.lightImpact();
     } else {
       SoundService.wrong();
-      HapticFeedback.selectionClick();
     }
     setState(() {
       _picked = korean;

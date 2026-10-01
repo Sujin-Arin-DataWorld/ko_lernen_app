@@ -1,3 +1,4 @@
+import '../services/haptic_service.dart';
 import '../widgets/sori/game_reward.dart';
 import '../services/learning_journey.dart';
 import '../models/sori_stage_progression.dart';
@@ -5,7 +6,6 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/learner_level.dart';
@@ -327,7 +327,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     if (_solved || _locked.contains(cell)) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _selected = cell;
       _activeWord = _wordThrough(cell);
@@ -342,7 +342,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     }
     for (final c in w.cells) {
       if (!_locked.contains(c)) {
-        HapticFeedback.selectionClick();
+        HapticService.selectionClick();
         setState(() {
           _selected = c;
           _activeWord = w;
@@ -384,7 +384,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         _selected = _nextInActiveWord() ?? _firstEmpty();
         _activeWord = _selected == null ? null : _wordThrough(_selected!);
       });
-      HapticFeedback.lightImpact();
+      HapticService.lightImpact();
       // 방금 잠긴 칸으로 완성된 단어 → 발음 + 정답음 (교차가 "물리는" 순간).
       for (final w in p.words) {
         if (_spoken.contains(w.answer)) {
@@ -401,7 +401,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         _onSolved();
       }
     } else {
-      HapticFeedback.mediumImpact();
+      HapticService.mediumImpact();
       _wrongFeedbackTimer?.cancel();
       setState(() {
         _selected = sel;

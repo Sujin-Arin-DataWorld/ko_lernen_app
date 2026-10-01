@@ -1,7 +1,7 @@
+import '../../services/haptic_service.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/scenario.dart';
@@ -316,7 +316,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     if (_completed) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _bank.remove(t);
       _answer.add(t);
@@ -330,7 +330,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     if (_completed) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _answer.remove(t);
       _bank.add(t);
@@ -363,7 +363,6 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     }
 
     // Falsch.
-    HapticFeedback.mediumImpact();
     SoundService.wrong();
     _tries++;
     final punctuationIndex = assembled.indexWhere(
@@ -404,7 +403,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
   void _revealAnswer() {
     if (_completed) return;
     widget.onAttempt?.call();
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     final target = SatzBauenQuest.tokenize(_targetKo);
     setState(() {
       _answer

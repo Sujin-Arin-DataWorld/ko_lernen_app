@@ -1,4 +1,67 @@
 {
+  "settingsHaptics": "Touch feedback",
+  "settingsHapticsDesc": "Gentle pulses for choices, correct answers and retries. Independent of sound.",
+  "settingsReducedMotion": "Reduce movement",
+  "settingsReducedMotionDesc": "Keep feedback visible with fewer moving effects. Your device setting is also respected.",
+  "yeopjeonTitle": "My yeopjeon",
+  "yeopjeonBalance": "{count} yeopjeon",
+  "@yeopjeonBalance": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "yeopjeonEarned": "+{count} yeopjeon earned!",
+  "@yeopjeonEarned": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "yeopjeonIntro": "Learn Korean, collect yeopjeon and build your hanok.",
+  "yeopjeonBuild": "Build next stage · {cost} yeopjeon",
+  "@yeopjeonBuild": {
+    "placeholders": {
+      "cost": {
+        "type": "int"
+      }
+    }
+  },
+  "yeopjeonProgress": "Built {owned} / {eligible} unlocked stages",
+  "@yeopjeonProgress": {
+    "placeholders": {
+      "owned": {
+        "type": "int"
+      },
+      "eligible": {
+        "type": "int"
+      }
+    }
+  },
+  "yeopjeonNeedLearning": "Complete a learning path unit to unlock the next construction stage.",
+  "yeopjeonNeedCoins": "{count} more yeopjeon to build. Continue learning!",
+  "@yeopjeonNeedCoins": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "yeopjeonBuilt": "A new part of your hanok is ready!",
+  "yeopjeonSaveFailed": "Could not confirm this transaction. Retry to check your saved balance.",
+  "yeopjeonRules": "First completed lesson of the day: 20 yeopjeon. A second different lesson: 10. New construction unlocks also bring building funds. Repeating a completed lesson does not pay again.",
+  "yeopjeonSarangchae": "Sarangchae",
+  "yeopjeonB2": "Inner estate",
+  "yeopjeonConstructionGoal": "Next construction stage: {cost} yeopjeon",
+  "@yeopjeonConstructionGoal": {
+    "placeholders": {
+      "cost": {
+        "type": "int"
+      }
+    }
+  },
   "packCompletionRetired": "This result is no longer active. Return to your vocabulary packs.",
   "packCompletionPending": "Your pack result is still being saved. You can retry saving it.",
   "packCompletionSaved": "Your pack result is saved.",
@@ -1022,7 +1085,11 @@
   "bookResultAmbiguousWord": "This word can have more than one meaning. Check which one fits the sentence.",
   "bookResultAlternativeWord": "{word} is also possible. Check which meaning fits the sentence.",
   "@bookResultAlternativeWord": {
-    "placeholders": {"word": {"type": "String"}}
+    "placeholders": {
+      "word": {
+        "type": "String"
+      }
+    }
   },
   "bookResultTranslationUnavailable": "The translation service did not return every meaning. Check the result before saving or try again.",
   "bookResultNoKoreanNotice": "No reliable Korean text remained. Check the text or retake the page.",
@@ -4075,7 +4142,7 @@
       }
     }
   },
-  "soriStageCatalogCopy": "{copyKey, select, firstCompletion{On first completion} finishSession{When you finish the session} verifiedLearning{After verified learning} rewardXp{XP} rewardQuest{Quest} rewardHanok{Hanok piece} rewardStamp{Dojang stamp} rewardBest{Personal best} rewardNone{No direct reward} rewardQuestProgress{Quest progress} rewardHanokPiece{New Hanok building piece} rewardBojagi{Bojagi} rewardGyeLantern{Gye lantern} other{Reward}}}",
+  "soriStageCatalogCopy": "{copyKey, select, firstCompletion{On first completion} finishSession{When you finish the session} verifiedLearning{After verified learning} rewardXp{XP} rewardQuest{Quest} rewardHanok{Hanok piece} rewardStamp{Dojang stamp} rewardBest{Personal best} rewardNone{No direct reward} rewardQuestProgress{Quest progress} rewardHanokPiece{New Hanok building piece} rewardBojagi{Bojagi} rewardGyeLantern{Gye lantern} rewardYeopjeon{Yeopjeon} other{Reward}}}",
   "@soriStageCatalogCopy": {
     "placeholders": {
       "copyKey": {
@@ -5221,5 +5288,6 @@
   "hanokDownloadsRemoveFailed": "Downloaded data could not be removed. Try again.",
   "hanokDownloadsSettingsSection": "Offline artwork",
   "hanokDownloadsSettingsTitle": "Hanok downloads",
-  "hanokDownloadsSettingsSubtitle": "Manage artwork included in the app and downloaded by building"
+  "hanokDownloadsSettingsSubtitle": "Manage artwork included in the app and downloaded by building",
+  "yeopjeonConstructionComplete": "This building is complete!"
 }

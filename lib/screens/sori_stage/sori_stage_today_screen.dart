@@ -1,3 +1,4 @@
+import '../../widgets/sori/yeopjeon_wallet_card.dart';
 import '../../features/content_learning/content_learning_widgets.dart';
 import '../../widgets/sori/learning_focus.dart';
 import 'package:flutter/foundation.dart';
@@ -546,6 +547,8 @@ class _TodayContent extends StatelessWidget {
               ],
               const SizedBox(height: Spacing.xl),
               stagger(_HanokProgress(snapshot: snapshot)),
+              const SizedBox(height: Spacing.md),
+              YeopjeonWalletCard(key: ObjectKey(snapshot), compact: true),
               if (nearlyComplete.isNotEmpty) ...[
                 const SizedBox(height: Spacing.xl),
                 stagger(

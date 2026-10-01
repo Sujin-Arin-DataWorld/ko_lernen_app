@@ -23,6 +23,20 @@ void main() {
         expect(Storage.consentAccepted, isTrue);
       },
     );
+
+    testWidgets('an idle wallet queue starts in the current widget zone', (
+      tester,
+    ) async {
+      await Storage.init();
+      var completed = false;
+      final write = Storage.runYeopjeonMutation(() async {
+        completed = true;
+      });
+      await tester.pump();
+      expect(completed, isTrue);
+      await write;
+      expect(Storage.captureYeopjeonReadRevision(), greaterThan(0));
+    });
   });
 
   group('completed active drain zone isolation', () {

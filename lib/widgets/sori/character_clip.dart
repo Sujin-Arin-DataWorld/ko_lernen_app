@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../services/audio_policy.dart';
+import '../../services/haptic_service.dart';
+import '../../services/storage_service.dart';
 import 'mascot.dart';
 import 'mascot_preference.dart';
 import 'tiger_video.dart';
@@ -336,11 +338,13 @@ class CharacterClipPlayer extends StatefulWidget {
   /// 뜨고, 어두운 blendColor 로 바꾸면 이번엔 캐릭터가 새까매진다. 즉 다크는
   /// 색 조정으로 못 고치고 영상 경로 자체가 불가 → 정적 [Mascot] 로 간다.
   /// (현재 `main.dart` 가 `themeMode.light` 고정이라 잠복 상태의 지뢰다.)
-  /// ⚠️ **reduce-motion 은 여기 포함하지 않는다** (Jin 2026-08-06, 샤오미 패드).
+  /// OS reduce-motion 플래그는 샤오미 배터리 절약 예외를 유지한다.
+  /// 앱의 명시적인 동작 줄이기 설정은 정적 캐릭터로 전환한다.
   /// MIUI 배터리 절약·개발자 옵션 애니메이션 배율 0 이 접근성 의도와 같은
   /// 플래그로 나와, 캐릭터가 통째로 정적 PNG 로 고정되는 사고가 났다.
   /// 근거와 되돌리는 법은 `video_lease.dart` 의 `isEligible` 주석 참고.
   static bool videoUnavailable(BuildContext context) =>
+      Storage.reducedMotion ||
       !TigerStageVideo.videoReady ||
       Theme.of(context).brightness == Brightness.dark;
   final VoidCallback? onCompleted;
@@ -393,6 +397,7 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
   void initState() {
     super.initState();
     _eligibility = VideoLeaseEligibilityBinding(onChanged: _syncEligibility);
+    HapticService.preferencesChanged.addListener(_onPreferencesChanged);
     _completion = widget.loop
         ? null
         : OneShotVideoLeaseCompletion(
@@ -432,6 +437,13 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
     }
     if (CharacterClipPlayer.videoUnavailable(context)) {
       _completion?.fallbackNeeded();
+    }
+  }
+
+  void _onPreferencesChanged() {
+    _syncEligibility();
+    if (mounted) {
+      setState(() {});
     }
   }
 
@@ -584,6 +596,7 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
 
   @override
   void dispose() {
+    HapticService.preferencesChanged.removeListener(_onPreferencesChanged);
     _completion?.dispose();
     _video?.removeListener(_onTick);
     _eligibility.disposeBinding();

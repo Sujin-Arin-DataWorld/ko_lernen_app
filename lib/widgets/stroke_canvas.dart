@@ -1,7 +1,7 @@
+import '../services/haptic_service.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import '../data/hangul_strokes.dart';
 import 'sori/tokens.dart';
 
@@ -136,7 +136,7 @@ class _StrokeCanvasState extends State<StrokeCanvas>
   }
 
   void _restart() {
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     if (_reduceMotion) {
       _completeWithoutMotion(notifyIfAlreadyComplete: true);
     } else {

@@ -1,8 +1,8 @@
+import '../../services/haptic_service.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
-import 'package:flutter/services.dart';
 
 import 'swipe_rails.dart';
 import 'tokens.dart';
@@ -419,7 +419,7 @@ class _SoriSwipeCardState extends State<SoriSwipeCard>
     }
     if (dir != null && _thresholdFired.add(dir)) {
       // ignore: discarded_futures
-      HapticFeedback.selectionClick();
+      HapticService.selectionClick();
     }
   }
 
@@ -450,14 +450,14 @@ class _SoriSwipeCardState extends State<SoriSwipeCard>
         _commitExit(
           to: Offset(width * 1.3, 0),
           speed: v,
-          haptic: HapticFeedback.mediumImpact,
+          haptic: HapticService.mediumImpact,
           callback: widget.onSwipeRight!,
         );
       } else if (left && widget.onSwipeLeft != null) {
         _commitExit(
           to: Offset(-width * 1.3, 0),
           speed: v,
-          haptic: HapticFeedback.lightImpact,
+          haptic: HapticService.lightImpact,
           callback: widget.onSwipeLeft!,
         );
       } else {
@@ -474,7 +474,7 @@ class _SoriSwipeCardState extends State<SoriSwipeCard>
         _commitExit(
           to: Offset(0, height * 1.1),
           speed: vy,
-          haptic: HapticFeedback.selectionClick,
+          haptic: HapticService.selectionClick,
           callback: widget.onSwipeDown!,
         );
       } else if (up && widget.onSwipeUp != null) {
@@ -535,7 +535,7 @@ class _SoriSwipeCardState extends State<SoriSwipeCard>
   /// 이유다(중단 가능한 애니메이션). `_onPanStart` 가 드라이버를 멈춘다.
   void _commitSaveInPlace(VoidCallback callback) {
     // ignore: discarded_futures
-    HapticFeedback.mediumImpact();
+    HapticService.mediumImpact();
     callback();
     if (SoriMotion.reduceMotion(context)) {
       _resetOffset();

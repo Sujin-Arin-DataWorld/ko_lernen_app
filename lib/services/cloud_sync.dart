@@ -23,6 +23,8 @@ import 'pack_progress_service.dart';
 import 'storage_service.dart';
 import 'privacy_consent_service.dart';
 import 'stamp_entitlement_reconciler.dart';
+import 'yeopjeon_service.dart';
+import '../models/yeopjeon_wallet.dart';
 
 /// 1-Weg-Sync: Storage (lokal) ↔ Firestore (Cloud, `users/{uid}`).
 ///
@@ -56,6 +58,7 @@ class CloudSync {
     'study_log_json',
     'gram_plan_json',
     'content_learning_json',
+    'yeopjeon_wallet_json',
   };
   static Future<CloudWriteResult> Function()? _backupWithResultForTesting;
   static Future<CloudRestoreResult> Function()? _restoreWithResultForTesting;
@@ -129,6 +132,10 @@ class CloudSync {
     if (contentLearningJson.isNotEmpty) {
       ContentLearningState.decode(contentLearningJson);
       payload['content_learning_json'] = contentLearningJson;
+    }
+    final walletJson = await YeopjeonService.captureBackupJson();
+    if (walletJson != null) {
+      payload['yeopjeon_wallet_json'] = walletJson;
     }
     final studyLog = <String, List<String>>{
       for (final dateIso in Storage.studyLogDates())
@@ -368,6 +375,14 @@ class CloudSync {
     })?
     ilduWorldStateMerger,
   }) async {
+    final rawWallet = data['yeopjeon_wallet_json'];
+    if (data.containsKey('yeopjeon_wallet_json')) {
+      if (rawWallet is! String || rawWallet.isEmpty) {
+        throw const FormatException('Invalid Yeopjeon wallet backup.');
+      }
+      YeopjeonWallet.decode(rawWallet);
+      await YeopjeonService.assertRestoreCompatible(rawWallet);
+    }
     await PackCompletionStorage.retire(beforeRetire: beforeWrite);
     PackCompletionStorage.assertSnapshotReady();
     Storage.assertSrsSnapshotReady();
@@ -719,6 +734,22 @@ class CloudSync {
           beforeWrite: beforeWrite,
         );
       }
+    }
+    if (rawWallet is String) {
+      await _guardedWrite(
+        beforeWrite,
+        () => YeopjeonService.restoreFromCloudJson(
+          rawWallet,
+          beforeWrite: beforeWrite,
+        ),
+      );
+    } else if (data.containsKey('course_mastery_json')) {
+      await _guardedWrite(
+        beforeWrite,
+        () => YeopjeonService.grandfatherLegacyCloudProgress(
+          beforeWrite: beforeWrite,
+        ),
+      );
     }
   }
 

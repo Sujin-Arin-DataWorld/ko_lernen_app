@@ -17,6 +17,7 @@ import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
+import 'package:ko_lernen_app/services/yeopjeon_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 import 'package:ko_lernen_app/widgets/sori/learning_focus.dart';
@@ -59,6 +60,8 @@ void main() {
       'kl_xp': 40,
     });
     await Storage.init();
+    // Match the production bootstrap before mounting the saved-wallet reader.
+    await YeopjeonService.loadCurrent();
     DataLoader.reset();
     ScenarioLoader.reset();
   });
@@ -202,6 +205,12 @@ void main() {
                     context,
                   ),
                   precacheImage(const AssetImage(kIlDuV3PreviewAsset), context),
+                  precacheImage(
+                    const AssetImage(
+                      'assets/illustrations/stamps/stamp_yeopjeon.png',
+                    ),
+                    context,
+                  ),
                 ]);
               });
               await tester.pump();

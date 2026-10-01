@@ -1,3 +1,4 @@
+import 'haptic_service.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 
@@ -13,7 +14,7 @@ import 'audio_policy.dart';
 /// 숫자를 다시 넣지 말 것 (`audio_policy_guard_test` 래칫).
 ///
 /// 사운드는 "도파민 루프"의 한 레이어일 뿐이다 — 햅틱·콤보 카운터·XP 팝업·confetti는
-/// 사운드와 무관하게 동작한다. 이 서비스는 청각 피드백만 담당한다.
+/// 사운드와 무관하게 동작한다. 결과 이벤트는 독립된 햅틱 정책에도 전달한다.
 class SoundService {
   SoundService._();
 
@@ -62,9 +63,24 @@ class SoundService {
     }
   }
 
-  static void correct() => _play('sfx/correct.wav');
-  static void wrong() => _play('sfx/wrong.wav');
+  static void correct() {
+    HapticService.lightImpact();
+    _play('sfx/correct.wav');
+  }
+
+  static void wrong() {
+    HapticService.mediumImpact();
+    _play('sfx/wrong.wav');
+  }
+
   static void combo() => _play('sfx/combo.wav');
-  static void levelUp() => _play('sfx/levelup.wav');
-  static void complete() => _play('sfx/complete.wav');
+  static void levelUp() {
+    HapticService.heavyImpact();
+    _play('sfx/levelup.wav');
+  }
+
+  static void complete() {
+    HapticService.heavyImpact();
+    _play('sfx/complete.wav');
+  }
 }

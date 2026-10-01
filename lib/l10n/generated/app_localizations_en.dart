@@ -9,6 +9,78 @@ class AppL10nEn extends AppL10n {
   AppL10nEn([String locale = 'en']) : super(locale);
 
   @override
+  String get settingsHaptics => 'Touch feedback';
+
+  @override
+  String get settingsHapticsDesc =>
+      'Gentle pulses for choices, correct answers and retries. Independent of sound.';
+
+  @override
+  String get settingsReducedMotion => 'Reduce movement';
+
+  @override
+  String get settingsReducedMotionDesc =>
+      'Keep feedback visible with fewer moving effects. Your device setting is also respected.';
+
+  @override
+  String get yeopjeonTitle => 'My yeopjeon';
+
+  @override
+  String yeopjeonBalance(int count) {
+    return '$count yeopjeon';
+  }
+
+  @override
+  String yeopjeonEarned(int count) {
+    return '+$count yeopjeon earned!';
+  }
+
+  @override
+  String get yeopjeonIntro =>
+      'Learn Korean, collect yeopjeon and build your hanok.';
+
+  @override
+  String yeopjeonBuild(int cost) {
+    return 'Build next stage · $cost yeopjeon';
+  }
+
+  @override
+  String yeopjeonProgress(int owned, int eligible) {
+    return 'Built $owned / $eligible unlocked stages';
+  }
+
+  @override
+  String get yeopjeonNeedLearning =>
+      'Complete a learning path unit to unlock the next construction stage.';
+
+  @override
+  String yeopjeonNeedCoins(int count) {
+    return '$count more yeopjeon to build. Continue learning!';
+  }
+
+  @override
+  String get yeopjeonBuilt => 'A new part of your hanok is ready!';
+
+  @override
+  String get yeopjeonSaveFailed =>
+      'Could not confirm this transaction. Retry to check your saved balance.';
+
+  @override
+  String get yeopjeonRules =>
+      'First completed lesson of the day: 20 yeopjeon. A second different lesson: 10. New construction unlocks also bring building funds. Repeating a completed lesson does not pay again.';
+
+  @override
+  String get yeopjeonSarangchae => 'Sarangchae';
+
+  @override
+  String get yeopjeonB2 => 'Inner estate';
+
+  @override
+  String yeopjeonConstructionGoal(int cost) {
+    return 'Next construction stage: $cost yeopjeon';
+  }
+
+  @override
   String get packCompletionRetired =>
       'This result is no longer active. Return to your vocabulary packs.';
 
@@ -8770,6 +8842,7 @@ class AppL10nEn extends AppL10n {
       'rewardHanokPiece': 'New Hanok building piece',
       'rewardBojagi': 'Bojagi',
       'rewardGyeLantern': 'Gye lantern',
+      'rewardYeopjeon': 'Yeopjeon',
       'other': 'Reward',
     });
     return '$_temp0';
@@ -11222,4 +11295,7 @@ class AppL10nEn extends AppL10n {
   @override
   String get hanokDownloadsSettingsSubtitle =>
       'Manage artwork included in the app and downloaded by building';
+
+  @override
+  String get yeopjeonConstructionComplete => 'This building is complete!';
 }

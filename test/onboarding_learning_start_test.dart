@@ -21,6 +21,9 @@ import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/learning_journey.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
+import 'package:ko_lernen_app/features/content_learning/content_learning_catalog.dart';
+import 'package:ko_lernen_app/features/content_learning/content_learning_models.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 
@@ -103,6 +106,14 @@ Future<LearningFocus> _focus() => LearningFocus.load(
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(() async {
+    // The production wallet bootstrap loads these before opening a route.
+    // Keep bundle I/O outside the widget's fake clock in this route fixture.
+    await CurriculumCatalog.load();
+    for (final kind in LearningContentKind.values) {
+      await ContentLearningCatalog.load(kind);
+    }
+  });
   setUp(() async {
     stubSoriSpeech();
     LearningJourneyObserver.shared.cancel();

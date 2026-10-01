@@ -3,7 +3,6 @@ import '../widgets/sori/game_result_recovery.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/book_page.dart';
@@ -189,10 +188,8 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     setState(() => _picked = option);
     if (isRight) {
       _score++;
-      HapticFeedback.lightImpact();
       SoundService.correct();
     } else {
-      HapticFeedback.mediumImpact();
       SoundService.wrong();
     }
     if (SoriMotion.reduceMotion(context)) {

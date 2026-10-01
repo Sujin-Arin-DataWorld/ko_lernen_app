@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/grammar.dart';
@@ -180,11 +179,9 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
     });
     _revealFeedback();
     if (isCorrect) {
-      HapticFeedback.lightImpact();
       SoundService.correct();
       return;
     }
-    HapticFeedback.mediumImpact();
     SoundService.wrong();
     setState(() {
       _savingHard = true;

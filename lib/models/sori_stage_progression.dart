@@ -1,3 +1,4 @@
+import 'yeopjeon_wallet.dart';
 import 'package:flutter/foundation.dart';
 
 import 'hanok_competence.dart';
@@ -22,6 +23,7 @@ enum SoriActivityColorRole {
 enum SoriRewardKind {
   none,
   xp,
+  yeopjeon,
   stamp,
   questProgress,
   hanokProgress,
@@ -37,6 +39,7 @@ enum SoriCopyKey {
   finishSession,
   verifiedLearning,
   rewardXp,
+  rewardYeopjeon,
   rewardQuest,
   rewardHanok,
   rewardStamp,
@@ -218,12 +221,25 @@ class SoriStageProgressionSnapshot {
     Map<String, SoriActivityProgress> activityProgress = const {},
     Map<String, int> gameBests = const {},
     this.gyeLanternCount = 0,
+    this.wallet,
+    this.walletUnavailable = false,
   }) : quests = List.unmodifiable(quests),
        activityProgress = Map.unmodifiable(activityProgress),
        gameBests = Map.unmodifiable(gameBests);
 
   final TodayLearningSnapshot today;
   final HanokCompetenceProjection hanokCompetence;
+  final YeopjeonWallet? wallet;
+  final bool walletUnavailable;
+
+  // Before ledger migration, completed stages are grandfathered ownership.
+  // An unreadable existing ledger must never fall back to learning eligibility.
+  int get ownedSarangchaeStage =>
+      wallet?.sarangchaeOwnedStage ??
+      (walletUnavailable ? 0 : hanokCompetence.sarangchaeConstructionStage);
+  int get ownedB2Stage =>
+      wallet?.b2OwnedStage ??
+      (walletUnavailable ? 0 : hanokCompetence.b2ConstructionStage);
   final List<QuestProgress> quests;
   final int pendingBojagiCount;
   final int stampCount;

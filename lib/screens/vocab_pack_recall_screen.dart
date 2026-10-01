@@ -1,7 +1,7 @@
+import '../services/haptic_service.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/vocab.dart';
@@ -175,10 +175,8 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen>
       }
     });
     if (grade.isCorrect) {
-      HapticFeedback.lightImpact();
       SoundService.correct();
     } else {
-      HapticFeedback.mediumImpact();
       SoundService.wrong();
     }
   }
@@ -201,7 +199,6 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen>
       _feedback = _RecallFeedback.revealed;
       _missedWordIds.add(word.korean);
     });
-    HapticFeedback.mediumImpact();
     SoundService.wrong();
   }
 
@@ -235,7 +232,7 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen>
         _hintUsed) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() => _hintUsed = true);
   }
 

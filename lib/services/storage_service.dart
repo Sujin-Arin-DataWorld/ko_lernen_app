@@ -1213,6 +1213,7 @@ class Storage {
   static const String _consentedFirstLearningActionClaimValue = 'claimed';
   static const String scenarioCorpusGenerationPreferenceKey =
       'kl_scenario_corpus_generation_v1';
+  static const String yeopjeonWalletPreferenceKey = 'kl_yeopjeon_wallet_v1';
 
   static SharedPreferences? _prefs;
   static Future<void> _recoveredBookMutation = Future<void>.value();
@@ -1228,6 +1229,10 @@ class Storage {
   static int _catalogHistoryResetting = 0;
   static final catalogHistoryChanges = ValueNotifier<int>(0);
   static Future<void> _xpRewardMutation = Future<void>.value();
+  static Future<void> _yeopjeonMutation = Future<void>.value();
+  static int _yeopjeonMutationCount = 0;
+  static int _yeopjeonMutationGeneration = 0;
+  static int _yeopjeonMutationRevision = 0;
   static Future<void> _packProgressMutation = Future<void>.value();
   static Future<void> _srsReviewMutation = Future<void>.value();
   static Future<void> _vocabProgressMutation = Future<void>.value();
@@ -1759,6 +1764,9 @@ class Storage {
     if (_xpRewardMutationCount > 0) {
       drains.add(_xpRewardMutation);
     }
+    if (_yeopjeonMutationCount > 0) {
+      drains.add(_yeopjeonMutation);
+    }
     if (_vocabProgressMutationCount > 0) {
       drains.add(_vocabProgressMutation);
     }
@@ -1824,6 +1832,9 @@ class Storage {
     _catalogHistoryMutationCount = 0;
     _catalogHistoryResetting = 0;
     _xpRewardMutation = Future<void>.value();
+    _yeopjeonMutation = Future<void>.value();
+    _yeopjeonMutationCount = 0;
+    _yeopjeonMutationGeneration++;
     _srsReviewMutation = Future<void>.value();
     _vocabProgressMutation = Future<void>.value();
     _grammarPlanMutation = null;
@@ -2250,6 +2261,148 @@ class Storage {
       beforeState: beforeState,
     ),
   );
+
+  /// Serializes every wallet read-modify-write with reset admission. The
+  /// closure must re-read the document after entering this queue.
+  static Future<T> runYeopjeonMutation<T>(Future<T> Function() action) {
+    if (_learningResetCount > 0) {
+      return Future<T>.error(const StaleLocalDataLifetimeException());
+    }
+    final idle = _yeopjeonMutationCount == 0;
+    _yeopjeonMutationCount++;
+    _yeopjeonMutationRevision++;
+    final generation = _yeopjeonMutationGeneration;
+    final previous = _yeopjeonMutation;
+    Future<T> admittedAction() async {
+      if (_learningResetCount > 0) {
+        throw const StaleLocalDataLifetimeException();
+      }
+      return action();
+    }
+
+    // An idle queue has no writer to await. Starting in the caller's zone
+    // also avoids retaining an already-retired test/application zone.
+    final result =
+        (idle
+                ? Future<T>.microtask(admittedAction)
+                : previous.then((_) => admittedAction()))
+            .whenComplete(() {
+              if (generation == _yeopjeonMutationGeneration) {
+                _yeopjeonMutationCount--;
+              }
+            });
+    _yeopjeonMutation = result.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    return result;
+  }
+
+  /// A read is not a reset-drained writer. Revision checks prevent a native
+  /// read from publishing an optimistic cache while a wallet write overlaps it.
+  static int captureYeopjeonReadRevision() {
+    if (_yeopjeonMutationCount > 0 || _learningResetCount > 0) {
+      throw StateError('Yeopjeon wallet is changing.');
+    }
+    return _yeopjeonMutationRevision;
+  }
+
+  static void assertYeopjeonReadRevision(int revision) {
+    if (revision != _yeopjeonMutationRevision ||
+        _yeopjeonMutationCount > 0 ||
+        _learningResetCount > 0) {
+      throw StateError('Yeopjeon wallet changed during read.');
+    }
+  }
+
+  /// Freeze a confirmed in-process baseline before a learning route opens.
+  /// This is never a minting authority; callers must verify the same bytes
+  /// through the strict native read before using it as a reward baseline.
+  static String? captureConfirmedYeopjeonRawJson() {
+    captureYeopjeonReadRevision();
+    if (_prefs == null ||
+        _unknownStrictKeys.contains(yeopjeonWalletPreferenceKey)) {
+      throw StateError('Yeopjeon baseline is unavailable.');
+    }
+    if (!_prefs!.containsKey(yeopjeonWalletPreferenceKey)) {
+      return null;
+    }
+    final raw = _prefs!.getString(yeopjeonWalletPreferenceKey);
+    if (raw == null || raw.isEmpty) {
+      throw const FormatException('Invalid Yeopjeon wallet preference.');
+    }
+    return raw;
+  }
+
+  /// Always reload native preferences before reading the money document.
+  /// A wrong-typed or malformed document remains a hard error, never zero.
+  static Future<String?> readYeopjeonRawJsonStrict({
+    PreferenceStringStore? preferences,
+  }) async {
+    if (_learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    final store =
+        preferences ??
+        (_prefs == null ? null : _SharedPreferenceStringStore(_prefs!));
+    if (store == null) {
+      throw StateError('Storage has not been initialized.');
+    }
+    await _refreshUnknownStringKeys(store, [yeopjeonWalletPreferenceKey]);
+    await store.reload();
+    if (_learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    if (!store.containsKey(yeopjeonWalletPreferenceKey)) {
+      return null;
+    }
+    final raw = store.getString(yeopjeonWalletPreferenceKey);
+    if (raw == null || raw.isEmpty) {
+      throw const FormatException('Invalid Yeopjeon wallet preference.');
+    }
+    return raw;
+  }
+
+  /// A native `true` is not sufficient: read back the exact document after a
+  /// reload. A false/throw is also resolved by readback before retry is safe.
+  static Future<void> writeYeopjeonRawJsonStrict(
+    String raw, {
+    PreferenceStringStore? preferences,
+    void Function()? assertCurrentWrite,
+  }) async {
+    if (_learningResetCount > 0) {
+      throw const StaleLocalDataLifetimeException();
+    }
+    final store =
+        preferences ??
+        (_prefs == null ? null : _SharedPreferenceStringStore(_prefs!));
+    if (store == null) {
+      throw StateError('Storage has not been initialized.');
+    }
+    await _ssStrict(
+      yeopjeonWalletPreferenceKey,
+      raw,
+      preferences: store,
+      assertCurrentWrite: () {
+        if (_learningResetCount > 0) {
+          throw const StaleLocalDataLifetimeException();
+        }
+        assertCurrentWrite?.call();
+      },
+    );
+    try {
+      await store.reload();
+      if (store.getString(yeopjeonWalletPreferenceKey) != raw) {
+        throw const FormatException('Yeopjeon wallet readback mismatch.');
+      }
+    } on Object catch (error) {
+      _unknownStrictKeys.add(yeopjeonWalletPreferenceKey);
+      throw PreferenceOutcomeUnknownException(
+        yeopjeonWalletPreferenceKey,
+        cause: error,
+      );
+    }
+  }
 
   static Future<void> _ssStrictImpl(
     String key,
@@ -4865,6 +5018,11 @@ class Storage {
   // ── 사운드 (ADR-002 §3-4 확정 키 스킴 — 임의 키명 금지) ──────────────
   // 기본값은 AudioPolicy 가 인자로 넘긴다. 여기서 기본을 박으면 채널 기본값
   // 표(ADR §3-1)와 이중 진실이 된다.
+  static bool get hapticsEnabled => _b('kl_haptics_enabled', true);
+  static Future<void> setHapticsEnabled(bool v) => _sb('kl_haptics_enabled', v);
+  static bool get reducedMotion => _b('kl_reduced_motion', false);
+  static Future<void> setReducedMotion(bool v) => _sb('kl_reduced_motion', v);
+
   static bool get sndMaster => _b('kl_snd_master', true);
   static Future<void> setSndMaster(bool v) => _sb('kl_snd_master', v);
   static double get sndMasterVol => _d('kl_snd_master_vol', 1.0);
@@ -8011,6 +8169,7 @@ class Storage {
           if (PackCompletionStorage.hasNativeWrites)
             PackCompletionStorage.drainNative(),
           if (_xpRewardMutationCount > 0) _xpRewardMutation,
+          if (_yeopjeonMutationCount > 0) _yeopjeonMutation,
           if (_srsReviewMutationCount > 0) _srsReviewMutation,
           if (_vocabProgressMutationCount > 0) _vocabProgressMutation,
           if (_grammarPlanMutationCount > 0 && _grammarPlanMutation != null)

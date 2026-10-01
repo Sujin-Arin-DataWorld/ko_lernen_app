@@ -1,3 +1,5 @@
+import '../models/yeopjeon_wallet.dart';
+import 'yeopjeon_service.dart';
 import 'dart:async';
 
 import '../data/sori_activity_catalog.dart';
@@ -56,7 +58,20 @@ abstract final class SoriStageProgressionService {
       _loadActivityProgress,
     );
 
+    YeopjeonWallet? wallet;
+    var walletUnavailable = false;
+    try {
+      final raw = await YeopjeonService.captureBackupJson();
+      if (raw != null) {
+        wallet = YeopjeonWallet.decode(raw);
+      }
+    } catch (_) {
+      walletUnavailable = true;
+      // Money is independently unavailable; never invent a zero balance.
+    }
     return SoriStageProgressionSnapshot(
+      wallet: wallet,
+      walletUnavailable: walletUnavailable,
       today: today,
       hanokCompetence: hanok,
       quests: quests,

@@ -1,6 +1,5 @@
 import '../services/learning_journey.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/word_relation.dart';
@@ -86,10 +85,8 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
     });
     if (isCorrect) {
       _score++;
-      HapticFeedback.lightImpact();
       SoundService.correct();
     } else {
-      HapticFeedback.mediumImpact();
       SoundService.wrong();
     }
     TtsService.speak(cur.answerKo);

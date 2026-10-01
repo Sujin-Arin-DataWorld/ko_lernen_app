@@ -1,8 +1,8 @@
+import '../services/haptic_service.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
 import 'dart:async';
 import '../services/learning_journey.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../data/hanja_lexicon.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -229,7 +229,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         !_canUseCard(presentation)) {
       return;
     }
-    HapticFeedback.lightImpact();
+    HapticService.lightImpact();
     _learned++;
     _advance();
   }
@@ -251,14 +251,14 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         !_canUseCard(presentation)) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     _advance();
   }
 
   /// Deferring advances without creating learning evidence.
   void _defer(int presentation) {
     if (!_canUseCard(presentation)) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     _advance();
   }
 
@@ -335,7 +335,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
 
   void _toggleFlip(int presentation) {
     if (!_canUseCard(presentation)) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       if (!_flipped) {
         _cardRevealed = true;

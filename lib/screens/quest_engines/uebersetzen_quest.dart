@@ -1,5 +1,5 @@
+import '../../services/haptic_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/scenario.dart';
@@ -72,7 +72,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
 
   void _select(int index) {
     if (_resolved != null) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _selected = index;
       _lastWrong = null;
@@ -102,7 +102,6 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
       return;
     }
 
-    HapticFeedback.mediumImpact();
     SoundService.wrong();
     _tries++;
     if (_tries >= 2) {
@@ -122,7 +121,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
 
   void _revealAnswer() {
     if (_resolved != null) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       _selected = _correctIndex;
       _lastWrong = null;

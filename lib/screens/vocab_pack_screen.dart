@@ -1,3 +1,4 @@
+import '../services/haptic_service.dart';
 import '../services/learning_journey.dart';
 import 'vocab_pack_result_screen.dart';
 import '../services/pack_completion_record.dart';
@@ -6,7 +7,6 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/course_mission_step_plan.dart';
@@ -538,7 +538,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     if (!studyEvidenceAcceptsInput) {
       return;
     }
-    HapticFeedback.lightImpact();
+    HapticService.lightImpact();
     _learnQueue?.markKnown();
     _advanceLearn();
   }
@@ -570,7 +570,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     if (!studyEvidenceAcceptsInput) {
       return;
     }
-    HapticFeedback.mediumImpact();
+    HapticService.mediumImpact();
     // 오답 카운터는 SRS 와 달리 **모든** 인출 실패를 센다 — 한 세션에서
     // 3번 틀리면 그 자리에서 Extra-Lernset 임계치(3)에 도달한다.
     _sessionMissedWordIds.add(cur.korean);
@@ -641,7 +641,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     if (!studyEvidenceAcceptsInput || presentation != _presentation) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     setState(() {
       if (!_flipped) {
         _learnCardRevealed = true;
@@ -717,7 +717,7 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     if (queue == null || queue.isDone) {
       return;
     }
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     queue.defer();
     _advanceLearn();
   }
@@ -967,7 +967,6 @@ class _VocabPackScreenState extends State<VocabPackScreen>
     }
     if (isCorrect) {
       // 정답 순간 보상 — 햅틱 + 효과음 + 색종이 burst + 콤보.
-      HapticFeedback.lightImpact();
       SoundService.correct();
       SoriCelebration.burst(context);
       _combo++;
@@ -988,7 +987,6 @@ class _VocabPackScreenState extends State<VocabPackScreen>
       }
     } else {
       // 오답 — 더 강한 햅틱 + 부드러운 효과음, 콤보 리셋.
-      HapticFeedback.mediumImpact();
       SoundService.wrong();
       _combo = 0;
       _sessionMissedWordIds.add(cur.korean);

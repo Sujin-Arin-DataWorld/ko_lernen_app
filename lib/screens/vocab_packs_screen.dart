@@ -1,5 +1,5 @@
+import '../services/haptic_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/course_mission_step_plan.dart';
@@ -181,7 +181,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   Future<void> _switchLevel(String level) async {
     if (_courseUnitId != null) return;
     if (level == _level) return;
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     await Storage.setBrowseLevelCode(
       (LearnerLevel.fromCode(level) ?? LearnerLevel.a1).code,
     );
@@ -219,7 +219,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
   /// 스코프 뷰 → 전체 라이브러리. 같은 레벨을 보여주도록 browse 레벨을 맞춘 뒤
   /// 인자 없이 `/vocab` 재진입(unrestricted). 뒤로가기 하면 미션 스코프로 복귀.
   Future<void> _browseAllPacks() async {
-    HapticFeedback.selectionClick();
+    HapticService.selectionClick();
     await Storage.setBrowseLevelCode(
       (LearnerLevel.fromCode(_level) ?? LearnerLevel.a1).code,
     );
