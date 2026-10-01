@@ -71156,13 +71156,17 @@
         },
         {
           "phraseId": "smalltalk_a1_0004",
-          "phraseFingerprintSha256": "85cd88ddd4b477d9ad66ec54881bfe9fee289b514e26c1aedc1ff2b0a5c816a6",
+          "phraseFingerprintSha256": "fd498a598e5adaeb4e0fc897599b3bde8053ee09a70d065f8cd6205a339e30ed",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a1_09_home_daily_life",
           "canDoFingerprintSha256": "bc299bc52558e0f926332ffd2476226a6fb0f30c8bd73fd8c346c5cc83e57fc3",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_translation_corrections_20260922.json",
+          "previousPhraseFingerprintSha256": "85cd88ddd4b477d9ad66ec54881bfe9fee289b514e26c1aedc1ff2b0a5c816a6"
         },
         {
           "phraseId": "smalltalk_a1_0005",
@@ -73156,13 +73160,17 @@
         },
         {
           "phraseId": "smalltalk_b1_0001",
-          "phraseFingerprintSha256": "b6f63c294e5d8fdfb10838b4ea950be095b73c10585100720272ffb843aa1cc0",
+          "phraseFingerprintSha256": "ed18c330f12209f4b2c9bea9568691431db591c1364b90b9a890a69fb413f5b3",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_b1_plans_with_reasons",
           "canDoFingerprintSha256": "94fc5a228818e26c760738f32fd0a61021013e0e1732ec0af2d8fe87edbc07e9",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_translation_corrections_20260922.json",
+          "previousPhraseFingerprintSha256": "b6f63c294e5d8fdfb10838b4ea950be095b73c10585100720272ffb843aa1cc0"
         },
         {
           "phraseId": "smalltalk_b1_0002",

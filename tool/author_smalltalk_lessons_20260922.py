@@ -27,7 +27,7 @@ def tri(text):
 ROWS = '''
 a1|weather|outside|1,2,14|밖의 날씨~Das Wetter draußen~The weather outside|밖에 나왔어요. 날씨가 좋아서 그 느낌으로 대화를 시작해요.~Du kommst nach draußen. Das angenehme Wetter bietet einen Gesprächseinstieg.~You step outside and start a conversation by commenting on the pleasant weather.
 a1|mood|today|3,15|지금 기분~Wie es gerade geht~How you feel now|오늘 기분이 좋아요. 그 기분을 말해요.~Du bist heute gut gelaunt und möchtest das sagen.~You are in a good mood today and want to say so.
-a1|weekend|plans|4,16|주말 이야기~Über das Wochenende sprechen~Talking about the weekend|주말에 보통 무엇을 하는지 궁금해요.~Du möchtest wissen, was die andere Person am Wochenende macht.~You want to know what the other person does on weekends.
+a1|weekend|plans|4,16|주말 이야기~Über das Wochenende sprechen~Talking about the weekend|주말에 보통 무엇을 하는지 궁금해요.~Du möchtest wissen, was die andere Person normalerweise am Wochenende macht.~You want to know what the other person does on weekends.
 a1|food|meal|5,17,63,64,82|함께 먹기~Gemeinsam essen~Eating together|음식을 먹었어요. 정말 맛있다고 말해요.~Du probierst das Essen und findest es wirklich lecker.~You taste the food and want to say it is really delicious.
 a1|daily|routine|6,18,81|하루의 일상~Alltag zu Hause~Everyday routines|커피 이야기를 해요. 상대가 커피를 마셨는지 물어봐요.~Ihr sprecht über Kaffee. Du fragst, ob die andere Person Kaffee getrunken hat.~You are talking about coffee and ask whether the other person has had any.
 a1|daily|turn|90|내 차례~Wann bin ich dran?~Waiting your turn|순서를 기다리고 있어요. 내 차례가 언제인지 물어봐요.~Du wartest und möchtest wissen, wann du an der Reihe bist.~You are waiting and want to know when your turn is.

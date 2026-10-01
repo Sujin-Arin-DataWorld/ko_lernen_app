@@ -303,8 +303,8 @@
       "level": "b1",
       "kind": "opener",
       "ko": "이런 날씨엔 산책하기 딱 좋죠.",
-      "de": "So ein Wetter ist perfekt für einen Spaziergang.",
-      "en": "This kind of weather is perfect for a walk.",
+      "de": "So ein Wetter ist perfekt für einen Spaziergang, oder?",
+      "en": "This kind of weather is perfect for a walk, isn't it?",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
@@ -452,7 +452,7 @@
       "level": "a1",
       "kind": "question",
       "ko": "주말에 뭐 해요?",
-      "de": "Was machst du am Wochenende?",
+      "de": "Was machst du normalerweise am Wochenende?",
       "en": "What do you do on weekends?",
       "reply": {
         "ko": "보통 집에서 쉬어요.",

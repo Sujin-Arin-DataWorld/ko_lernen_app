@@ -5236,12 +5236,12 @@
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "상대의 말: “좋아하는 드라마 있어요?” 과제: 보는 드라마를 말하고 자연스러운 대화가 좋은 이유라고 하세요. 이 목적에 맞는 응답을 고르세요.",
+            "ko": "상대의 말: “좋아하는 드라마 있어요?” 과제: 보고 있는 드라마를 말하고 대사가 자연스러워서 좋다고 하세요. 이 목적에 맞는 응답을 고르세요.",
             "de": "Dein Gegenüber sagt: „좋아하는 드라마 있어요?“ (Hast du eine Lieblingsserie?). Aufgabe: Nenne die Serie und begründe deine Vorliebe mit den natürlichen Gesprächen. Welche Antwort erfüllt dieses Ziel?",
             "en": "The other person says: “좋아하는 드라마 있어요?” (Do you have a favorite show?). Task: Name the drama and say you like its natural dialogue. Which response fulfills this goal?"
           },
           "explanation": {
-            "ko": "과제의 목적은 “보는 드라마를 말하고 자연스러운 대화가 좋은 이유라고 하세요.”예요. 원문 응답 “네, ‘봄밤’을 보고 있어요. 대화가 자연스러워서 좋아요.”가 이 목적을 이뤄요. “드라마는 안 봐요. 대화가 어려워서요.”와 “봄밤은 아직 못 봤어요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
+            "ko": "과제의 목적은 “보고 있는 드라마를 말하고 대사가 자연스러워서 좋다고 하세요.”예요. 원문 응답 “네, ‘봄밤’을 보고 있어요. 대화가 자연스러워서 좋아요.”가 이 목적을 이뤄요. “드라마는 안 봐요. 대화가 어려워서요.”와 “봄밤은 아직 못 봤어요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
             "de": "Das Ziel lautet: Nenne die Serie und begründe deine Vorliebe mit den natürlichen Gesprächen. Die Quelläußerung „네, ‘봄밤’을 보고 있어요. 대화가 자연스러워서 좋아요.“ (Ja, ich schaue gerade „Frühlingsnacht“. Ich mag sie, weil die Dialoge natürlich klingen.) erfüllt es. „Ich schaue keine Serien, die Gespräche sind zu schwierig.“ und „Ich habe One Spring Night noch nicht gesehen.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
             "en": "The goal is: Name the drama and say you like its natural dialogue. The source response “네, ‘봄밤’을 보고 있어요. 대화가 자연스러워서 좋아요.” (Yes, I'm watching 'One Spring Night.' I like it because the dialogue sounds natural.) fulfills it. “I do not watch dramas; the dialogue is too difficult.” and “I have not watched One Spring Night yet.” change a requested action, fact, or condition. Such replies may be valid in other situations."
           },

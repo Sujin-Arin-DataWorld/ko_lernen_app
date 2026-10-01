@@ -26,9 +26,9 @@
 | ID | 확인한 차이와 조치 |
 | --- | --- |
 | `smalltalk_a1_0001` | KO `날씨 좋네요.`는 진술, DE·EN은 동의를 구하는 꼬리 질문이다. KO에 `그렇죠?`를 더할지, 번역의 `oder?/huh?`를 뺄지 lesson 목적과 함께 결정. |
-| `smalltalk_a1_0004` | KO `주말에 뭐 해요?` / DE 단일 주말 / EN 반복 습관 `on weekends`가 다르다. 답 `보통 집에서 쉬어요`와 맞추려면 KO `주말에 보통 뭐 해요?`, DE `Was machst du normalerweise am Wochenende?`, EN 유지가 자연스럽다. KO TTS 갱신 필요. |
+| `smalltalk_a1_0004` | KO `주말에 뭐 해요?`는 문맥상 습관 질문으로 읽을 수 있고 답도 `보통 집에서 쉬어요`다. DE 단일 주말 해석을 피하려고 `Was machst du normalerweise am Wochenende?`로 교정했다. KO·EN 및 TTS는 유지. **앱 반영.** |
 | `smalltalk_a2_0032` | KO `자소서`는 지원자의 자기소개서, DE `Anschreiben`·EN `cover letter`와 문서 유형이 다르다. 한국 취업 맥락을 유지한다면 `personal statement`와 독일어 설명적 표현을 검토하고 문화 메모를 붙인다. |
-| `smalltalk_b1_0001` | KO `딱 좋죠`는 동의를 청하지만 번역은 단정. DE `..., oder?`, EN `..., isn't it?`처럼 화행을 맞춘다. |
+| `smalltalk_b1_0001` | KO `딱 좋죠`는 동의를 청하지만 기존 번역은 단정이었다. DE `..., oder?`, EN `..., isn't it?`로 화행을 맞췄다. **앱 반영.** |
 | `smalltalk_c2_0029` | `close_friend`인데 DE는 `du`, KO는 질문·대답에 `-세요`/`제`가 섞여 있다. 친한 관계가 정본이면 KO 말투를 장면 전체에서 맞추고 TTS 갱신. |
 | `media_001` | `오늘 하루도 수고했어`의 위로·노고 인정이 EN `long day`, DE 문장 조각으로 사라졌다. 위로하는 발화로 다시 쓴다. |
 | `media_084` | `확정 대기`는 대기명단 `Warteliste/waitlist`가 아니다. 승인/확정 결과를 기다리는 상태로 DE·EN을 고치고 연결된 B1 어휘·Satz·Cloze를 확인. |
@@ -40,7 +40,74 @@
 | `pronunciation_c1_0006` | KO `월세`가 DE `Kaltmiete`·EN `base rent`로 좁아졌다. 해당 시나리오·Satz/Cloze에서 실제 순수 임대료를 뜻하는지 확인. |
 | `pronunciation_c2_0003` | KO `인간 검토자`는 한 사람, DE `menschliche Prüfstelle`는 기관이다. `eine menschliche prüfende Person` 또는 문맥에 맞는 `eine Person`으로 바로잡는다. |
 
-## 적용 순서
+## 추가 직접 검수
+
+### A1 시나리오·듣기 직접 검수 1–2차 묶음 (2026-10-01)
+
+승인된 A1 정본 시나리오 20개를 대사별 KO·EN·DE로 읽고 연결된 듣기
+80문항의 근거 발화, 정답 선택지와 오답 선택지를 대조했다. 80문항에서
+정답 인덱스가 대사의 내용·지정된 응답 과제와 어긋나는 사례는 찾지 못했다.
+이는 **이 20개 장면의 모델 검수**이며 나머지 158개 듣기 lesson의 의미
+검수나 사람 승인이 아니다. 응답 문항이 첫 대사만 제시하는 경우는 장면의
+후속 대사와 별개로 해당 과제에 맞춰 판단했다.
+
+| 장면·대사 | 직접 확인한 차이와 다음 조치 |
+| --- | --- |
+| A1 `bakery_payment_bag` 2 | KO `빵 두 개`는 빵 종류를 특정하지 않는데 EN `two pastries`, DE `zwei Brötchen`은 각각 페이스트리·브뢰첸으로 좁힌다. 장면에 품목 정보가 없으므로 `That's two, right?` / `Zwei Stück, richtig?`처럼 계산대 문맥에서 중립적으로 말할 수 있다. 듣기 뜻 문항의 이 대사 오답 선택지도 함께 바꿔야 한다. |
+| A1 `bakery_payment_bag` 5 | KO `그럼 이건 따로 드릴게요`의 점원이 따로 **건네는** 동작을 EN `I'll keep this one separate`가 보관하는 동작으로 바꾼다. `Then I'll give you this one separately.`가 의미를 보존한다. DE도 점원 발화로 자연스럽게 다듬을 여지가 있다. |
+| A1 `favorite_korean_music` 5 | KO `그 노래만 들어요`의 `-만`은 배타적이다. EN `almost all`, DE `fast nur`는 이를 약화한다. EN `Yes, that's the only song I've been listening to lately.` / DE `Ja, zurzeit höre ich nur dieses Lied.`가 발화와 듣기 응답 과제의 뜻에 맞는다. |
+| A1 `break_glass_apology` 5 | `큰 것만 모아 주세요`는 깨진 잔 조각을 어떻게 안전하게 치울지 명시하지 않는다. 문항 정답 자체는 앞말에 맞지만 실제 행동 안내처럼 오해될 수 있어 저자에게 도구·처리 방법을 확인할 **FLAG**로 남긴다. |
+| A1 `home_morning_routine` 소개·0 | KO `교통카드`와 EN `transit card`는 충전식 교통카드인데 DE `Fahrkarte`는 대개 승차권으로 읽힌다. 소개의 `verschwunden`도 KO `안 보여요`보다 분실을 강하게 시사한다. 독일어에 카드 성격과 찾는 중이라는 상황을 살려, 연결된 듣기 상황 정답·해설도 함께 고친다. |
+| A1 `mart_grocery` 1 | KO `냉장고 옆`은 위치 기준이 냉장고인데 EN `refrigerated section`, DE `Kühlregal`은 매장 구역·진열대로 달라진다. 실제 매장 그림/배경의 지시 대상을 확인한 뒤 세 언어의 위치 기준을 통일한다. |
+| A1 `subway_step_apology` 4 | KO `제가 못 봤어요`와 EN `I didn't see you`는 상대를 보지 못했다는 사과인데 DE `Ich habe nicht aufgepasst`는 부주의를 인정하는 다른 진술이다. DE `Ich habe Sie nicht gesehen. Ich passe künftig besser auf.`처럼 뜻과 존칭을 함께 유지할 수 있다. |
+| A1 `survival_day_capstone` 5 | DE `Wir nehmen meinen zusammen`은 우산을 함께 쓰자는 말로 어색하다. `Wir können meinen Schirm zusammen benutzen.`처럼 완결된 제안으로 다듬는다. 앞서 상대에게 우산이 없다고 들었으므로 화자의 우산을 제안한다는 추론은 장면에 맞는다. |
+| A1 `taxi_kakao` 소개 | KO `앱에 찍은 곳 근처에 도착했어요`는 목적지 근처에 이미 도착한 상태다. EN/DE `almost at the destination`/`fast am Ziel angekommen`은 아직 도착 전이다. `You've reached the area near the destination you entered in the app.`와 그에 맞는 DE 표현으로 시점을 맞추고 듣기 상황 정답도 동기화한다. |
+
+이 20개 장면은 승인된 canonical 후보에 속한다. 위 제안은 모델의 카피
+교정 후보이며 기존 Jin 승인 해시를 수정하거나 승인된 저작 원본을 덮지 않았다.
+실제 문구를 바꾸려면 canonical 카피 변경 이력, 런타임 시나리오, 듣기 선택지,
+필요한 경우 TTS 키를 같은 변경으로 검증해야 한다.
+
+### A1 나머지 런타임 장면·듣기 직접 검수 (2026-10-01)
+
+정본 20개 밖에 있는 A1 런타임 장면 9개와 연결된 듣기 36문항도 대사,
+정답·오답, 응답 과제를 직접 대조했다. 이로써 A1 런타임 29개와 듣기
+116문항을 모두 한 번씩 읽었다. 36문항의 정답 선택지가 대사와 어긋나는
+사례는 찾지 못했으며, 기존 표의 `a1_w10_eat`·`a1_w10_fandom` 후보는
+그대로 유효하다. 이는 문장 의미와 문항 논리를 살핀 모델 검수이며 실제
+음성의 발음·억양 또는 학습자 이해도 검증은 아니다.
+
+| 장면·대사 | 직접 확인한 차이와 다음 조치 |
+| --- | --- |
+| A1 `a1_w10_repeat` 소개 | KO `잘 못 들어서`와 대사 `잘 못 들었어요`는 청취 실패인데 DE `nicht ganz verstanden`는 말을 들었지만 이해하지 못한 상태일 수 있다. `Du hast die Apothekerin nicht richtig gehört und bittest sie, es langsam zu wiederholen.`처럼 청취 상황을 유지하고 듣기 상황 정답도 같이 고친다. 약사 성별은 캐릭터 설정을 확인한다. |
+| A1 `a1_w10_partner` 5–6 | 크리스티안이 처음 뵙는 수진의 어머니께 인사하지만 어머니는 발화하지 않고, 수진이 곧바로 `엄마도 정말 반가워하세요`라며 어머니의 반응을 전달한다. 어머니의 실제 응답·몸짓이 없는 상태라 대화 연결이 부자연스럽다. 캐릭터 관계를 확인한 뒤 어머니의 짧은 응답이나 서술을 넣을지 결정한다. 화자·대사를 바꾸면 TTS도 다시 만든다. |
+| A1 `a1_w10_wayfinding` 소개 | KO `지나가는 사람`, EN `passerby`는 성별을 정하지 않는데 DE `einen Passanten`은 남성 보행자를 가정한다. 오답 선택지에서 이미 쓰는 `eine vorbeigehende Person`을 소개와 듣기 상황 정답에도 쓰면 중립성이 맞는다. |
+
+### A2 시나리오·듣기 직접 검수 1차 묶음 (2026-10-01)
+
+`clothing_refund_size`부터 `gym_class_cancel`까지 A2 런타임 장면 10개를
+KO·EN·DE 대사별로 읽고 연결된 듣기 40문항의 근거 발화, 정답과 오답,
+응답 과제를 대조했다. 정답 선택지가 대사·과제와 어긋난 사례는 없었다.
+아래 두 항목은 문장 자체와 수업 운영 의미를 별도로 확인한 결과다.
+
+| 장면·대사 | 직접 확인한 차이와 다음 조치 |
+| --- | --- |
+| A2 `favorite_drama_chat` 듣기 응답 과제 | KO `자연스러운 대화가 좋은 이유라고 하세요`는 수식 관계가 어색해 학습자에게 무엇을 답하라는지 흐려진다. 저작 원본의 과제를 `보고 있는 드라마를 말하고 대사가 자연스러워서 좋다고 하세요`로 고치고, 생성된 듣기 문제·해설을 갱신했다. DE·EN 과제와 한국어 대사·TTS는 유지. **앱 반영.** |
+| A2 `gym_class_cancel` 2 | KO `오늘 수업을 취소할까요?`, EN `cancel today's class`, DE `den heutigen Kurs stornieren`은 강사나 운영자가 전체 수업을 취소하는 말처럼 들린다. 발목이 아픈 학습자 **한 명의 예약**을 옮기는 상황이므로, 예약 취소·변경을 뜻하도록 세 언어를 다듬어야 한다. 수업 자체가 취소된다는 인상을 주는 듣기 번역·선택지도 함께 확인한다. |
+
+### 적용된 스몰토크 번역 교정 (2026-10-01)
+
+`smalltalk_a1_0004`의 독일어 질문을 `Was machst du normalerweise am
+Wochenende?`로 고쳐 수업 목표와 답변의 **평소 주말 습관**을 드러냈다.
+`smalltalk_b1_0001`은 KO `-죠`가 청하는 동의를 DE `oder?`, EN `isn't it?`로
+옮겼다. 두 행 모두 한국어 발화와 기존 ID·레벨·관계 설정을 유지했고,
+`smalltalk_translation_corrections_20260922.json`에 원문과 변경문을 기록했다.
+파생 학습 문항과 코스 지문을 재생성했다. 한국어 TTS 키는 바뀌지 않는다.
+`author_smalltalk_lessons_20260922.py --check`, 코스 지문 검사, 콘텐츠 테스트
+1,303건(20건 건너뜀), 관련 Flutter 테스트 21건이 통과했다. 듣기 첫 대사
+음원 176개는 로컬 `assets/tts/v3/`에 이미 있어 추가 다운로드는 0개였다.
+
+## 다음 적용 순서
 
 1. 정본 시나리오·페르소나와 단어장 표제어/예문을 먼저 확정한다. 연결된 듣기 정답·해설, smalltalk lesson, Satz·Cloze, 발음·미디어를 같은 의미로 갱신한다.
 2. 한국어 발화가 바뀐 행만 TTS manifest를 다시 생성해 새 v3 키의 MP3를 합성·다운로드하고 누락 0을 확인한다. 키 완전성은 실제 발음·억양 청취와 별개다.

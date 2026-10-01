@@ -43,7 +43,7 @@ P = [
     ("weather", "a1", "opener", "날씨 좋네요.", "Schönes Wetter, oder?", "Nice weather, huh?"),
     ("weather", "a1", "opener", "오늘 좀 덥네요.", "Heute ist es etwas heiß.", "It's a bit hot today."),
     ("weather", "a2", "question", "주말에 날씨 좋을까요?", "Ob das Wetter am Wochenende gut wird?", "Will the weather be nice this weekend?"),
-    ("weather", "b1", "opener", "이런 날씨엔 산책하기 딱 좋죠.", "Bei so einem Wetter geht man perfekt spazieren.", "This kind of weather is perfect for a walk."),
+    ("weather", "b1", "opener", "이런 날씨엔 산책하기 딱 좋죠.", "So ein Wetter ist perfekt für einen Spaziergang, oder?", "This kind of weather is perfect for a walk, isn't it?"),
     ("weather", "b2", "opener", "요즘 일교차가 커서 감기 걸리기 쉽더라고요.", "Die Temperaturunterschiede sind gerade groß — da erkältet man sich leicht.", "The temperature swings lately make it easy to catch a cold."),
     # ── mood ──
     ("mood", "a1", "opener", "오늘 기분 좋아요.", "Ich bin heute gut gelaunt.", "I'm in a good mood today."),
@@ -51,7 +51,7 @@ P = [
     ("mood", "b1", "question", "오늘 하루 어떠셨어요?", "Wie war Ihr Tag heute?", "How was your day today?"),
     ("mood", "b2", "opener", "요즘 정신없이 바빠서 시간이 어떻게 가는지 모르겠어요.", "Ich bin gerade so im Stress, dass ich gar nicht merke, wie die Zeit vergeht.", "I'm so busy lately I don't even notice time passing."),
     # ── weekend ──
-    ("weekend", "a1", "question", "주말에 뭐 해요?", "Was machst du am Wochenende?", "What do you do on weekends?"),
+    ("weekend", "a1", "question", "주말에 뭐 해요?", "Was machst du normalerweise am Wochenende?", "What do you do on weekends?"),
     ("weekend", "a2", "question", "이번 주말에 뭐 할 거예요?", "Was machst du dieses Wochenende?", "What are you doing this weekend?"),
     ("weekend", "b1", "question", "보통 쉬는 날엔 어떻게 시간 보내세요?", "Wie verbringen Sie normalerweise Ihre freien Tage?", "How do you usually spend your days off?"),
     ("weekend", "b2", "question", "주말에 별 계획 없으면 같이 바람이나 쐬러 갈까요?", "Wenn Sie am Wochenende nichts vorhaben, sollen wir mal zusammen rauskommen?", "If you have no plans this weekend, shall we go out for some fresh air?"),

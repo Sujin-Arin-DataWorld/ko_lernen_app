@@ -327,7 +327,7 @@
       },
       "intro": {
         "ko": "주말에 보통 무엇을 하는지 궁금해요. 이어지는 표현도 함께 익혀 보세요.",
-        "de": "Du möchtest wissen, was die andere Person am Wochenende macht. Lerne auch die weiteren Ausdrücke dieser Lektion kennen.",
+        "de": "Du möchtest wissen, was die andere Person normalerweise am Wochenende macht. Lerne auch die weiteren Ausdrücke dieser Lektion kennen.",
         "en": "You want to know what the other person does on weekends. Explore the other expressions in this lesson too."
       },
       "contentIds": [
@@ -357,14 +357,14 @@
             },
             {
               "ko": "주말에 뭐 해요?",
-              "de": "Was machst du am Wochenende?",
+              "de": "Was machst du normalerweise am Wochenende?",
               "en": "What do you do on weekends?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “주말에 뭐 해요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Was machst du am Wochenende? Achte auch auf Zeit, Bezug und darauf, ob gefragt oder etwas ausgesagt wird.",
+            "de": "Gemeint ist: Was machst du normalerweise am Wochenende? Achte auch auf Zeit, Bezug und darauf, ob gefragt oder etwas ausgesagt wird.",
             "en": "The meaning is: What do you do on weekends? Keep the time, referents and whether this is a question or a statement."
           },
           "sourceIds": [
@@ -385,7 +385,7 @@
           "options": [
             {
               "ko": "주말에 뭐 해요?",
-              "de": "Was machst du am Wochenende?",
+              "de": "Was machst du normalerweise am Wochenende?",
               "en": "What do you do on weekends?"
             },
             {
@@ -417,7 +417,7 @@
           "skill": "situation",
           "prompt": {
             "ko": "주말에 보통 무엇을 하는지 궁금해요.\n이 뜻을 가장 정확히 전하는 표현은 무엇인가요?",
-            "de": "Du möchtest wissen, was die andere Person am Wochenende macht.\nWelche Äußerung drückt genau diese Absicht aus?",
+            "de": "Du möchtest wissen, was die andere Person normalerweise am Wochenende macht.\nWelche Äußerung drückt genau diese Absicht aus?",
             "en": "You want to know what the other person does on weekends.\nWhich expression conveys this precise intention?"
           },
           "options": [
@@ -440,7 +440,7 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "“주말에 뭐 해요?” — 주말에 보통 무엇을 하는지 궁금해요.",
-            "de": "„주말에 뭐 해요?“ bedeutet: Was machst du am Wochenende?",
+            "de": "„주말에 뭐 해요?“ bedeutet: Was machst du normalerweise am Wochenende?",
             "en": "“주말에 뭐 해요?” means: What do you do on weekends?"
           },
           "sourceIds": [
@@ -11297,15 +11297,15 @@
             },
             {
               "ko": "이런 날씨엔 산책하기 딱 좋죠.",
-              "de": "So ein Wetter ist perfekt für einen Spaziergang.",
-              "en": "This kind of weather is perfect for a walk."
+              "de": "So ein Wetter ist perfekt für einen Spaziergang, oder?",
+              "en": "This kind of weather is perfect for a walk, isn't it?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “이런 날씨엔 산책하기 딱 좋죠.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: So ein Wetter ist perfekt für einen Spaziergang. Achte auch auf Zeit, Bezug und darauf, ob gefragt oder etwas ausgesagt wird.",
-            "en": "The meaning is: This kind of weather is perfect for a walk. Keep the time, referents and whether this is a question or a statement."
+            "de": "Gemeint ist: So ein Wetter ist perfekt für einen Spaziergang, oder? Achte auch auf Zeit, Bezug und darauf, ob gefragt oder etwas ausgesagt wird.",
+            "en": "The meaning is: This kind of weather is perfect for a walk, isn't it? Keep the time, referents and whether this is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0001"
@@ -11325,8 +11325,8 @@
           "options": [
             {
               "ko": "이런 날씨엔 산책하기 딱 좋죠.",
-              "de": "So ein Wetter ist perfekt für einen Spaziergang.",
-              "en": "This kind of weather is perfect for a walk."
+              "de": "So ein Wetter ist perfekt für einen Spaziergang, oder?",
+              "en": "This kind of weather is perfect for a walk, isn't it?"
             },
             {
               "ko": "요즘 일교차가 커서 감기 걸리기 쉽더라고요.",
@@ -11380,8 +11380,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "“이런 날씨엔 산책하기 딱 좋죠.” — 산책하기 좋은 날씨라며 상대의 공감을 구해요.",
-            "de": "„이런 날씨엔 산책하기 딱 좋죠.“ bedeutet: So ein Wetter ist perfekt für einen Spaziergang.",
-            "en": "“이런 날씨엔 산책하기 딱 좋죠.” means: This kind of weather is perfect for a walk."
+            "de": "„이런 날씨엔 산책하기 딱 좋죠.“ bedeutet: So ein Wetter ist perfekt für einen Spaziergang, oder?",
+            "en": "“이런 날씨엔 산책하기 딱 좋죠.” means: This kind of weather is perfect for a walk, isn't it?"
           },
           "sourceIds": [
             "smalltalk_b1_0001",
@@ -11609,8 +11609,8 @@
             },
             {
               "ko": "이런 날씨엔 산책하기 딱 좋죠.",
-              "de": "So ein Wetter ist perfekt für einen Spaziergang.",
-              "en": "This kind of weather is perfect for a walk."
+              "de": "So ein Wetter ist perfekt für einen Spaziergang, oder?",
+              "en": "This kind of weather is perfect for a walk, isn't it?"
             }
           ],
           "correctIndex": 0,

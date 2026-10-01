@@ -6,6 +6,30 @@
   "semanticRoutePolicy": "Preserve existing semantic routing decisions and review revisions. This ledger records copy corrections, not new human approval.",
   "changes": [
     {
+      "id": "smalltalk_a1_0004",
+      "level": "a1",
+      "field": "de",
+      "before": "Was machst du am Wochenende?",
+      "after": "Was machst du normalerweise am Wochenende?",
+      "issueClass": "meaning"
+    },
+    {
+      "id": "smalltalk_b1_0001",
+      "level": "b1",
+      "field": "de",
+      "before": "So ein Wetter ist perfekt für einen Spaziergang.",
+      "after": "So ein Wetter ist perfekt für einen Spaziergang, oder?",
+      "issueClass": "pragmatics"
+    },
+    {
+      "id": "smalltalk_b1_0001",
+      "level": "b1",
+      "field": "en",
+      "before": "This kind of weather is perfect for a walk.",
+      "after": "This kind of weather is perfect for a walk, isn't it?",
+      "issueClass": "pragmatics"
+    },
+    {
       "id": "smalltalk_a1_0003",
       "level": "a1",
       "field": "de",

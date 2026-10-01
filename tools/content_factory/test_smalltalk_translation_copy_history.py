@@ -10,14 +10,14 @@ import build_can_do_segments as builder
 
 
 class SmalltalkTranslationCopyHistoryTest(unittest.TestCase):
-    def test_all_eight_corrections_match_live_copy_without_changing_korean(self):
+    def test_all_translation_corrections_match_live_copy_without_changing_korean(self):
         ledger = builder._read_json(builder.SMALLTALK_TRANSLATION_LEDGER_PATH)
         rows = {
             row["id"]: row
             for row in builder._read_json(builder.DATA / "smalltalk.json")["phrases"]
         }
-        self.assertEqual(8, len(ledger["changes"]))
-        self.assertEqual(5, len({change["id"] for change in ledger["changes"]}))
+        self.assertEqual(11, len(ledger["changes"]))
+        self.assertEqual(7, len({change["id"] for change in ledger["changes"]}))
         for change in ledger["changes"]:
             with self.subTest(change=change["id"], field=change["field"]):
                 self.assertIn(change["field"], {"de", "en"})
