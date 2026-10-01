@@ -60,7 +60,7 @@ W = {
  "a2_education": [
   ("학년","hangnyeon","Schuljahr; Studienjahr","Nomen","저는 지금 대학교 이 학년이에요.","Ich bin jetzt im zweiten Studienjahr.","I'm in my second year of university now.","학년"),
   ("복습","bokseup","Wiederholung (des Gelernten)","Nomen","수업 후에 꼭 복습을 해요.","Nach dem Unterricht wiederhole ich den Stoff auf jeden Fall.","I always review after class.","복습"),
-  ("예습","yeseup","Vorbereitung auf den Unterricht","Nomen","내일 수업 예습은 벌써 끝냈어요.","Die Vorbereitung für den Unterricht morgen habe ich schon fertig.","I've already finished preparing for tomorrow's class.","예습"),
+  ("예습","yeseup","Vorbereitung auf den Unterricht","Nomen","내일 수업 예습은 벌써 끝냈어요.","Mit der Vorbereitung für den Unterricht morgen bin ich schon fertig.","I've already finished preparing for tomorrow's class.","예습"),
  ],
  "a2_food_1": [
   ("국","guk","Suppe","Nomen","국이 좀 식었네요.","Die Suppe ist etwas kalt geworden.","The soup has gotten a bit cold.","식었네요"),

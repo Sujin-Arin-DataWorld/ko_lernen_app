@@ -11288,7 +11288,7 @@
     {
       "id": "satz_a1_0215",
       "level": "a2",
-      "targetKo": "숙제를 제출하다 전에 이름을 써요.",
+      "targetKo": "숙제를 제출하기 전에 이름을 써요.",
       "promptDe": "Bevor ich die Hausaufgaben abgebe, schreibe ich meinen Namen.",
       "promptEn": "Before I submit the homework, I write my name.",
       "distractors": [
@@ -11900,8 +11900,8 @@
     {
       "id": "satz_a2_0145",
       "level": "b1",
-      "targetKo": "새 번호를 개통하다 전에 신분증이 필요해요.",
-      "promptDe": "Bevor ich eine neue Nummer freischalte, brauche ich den Ausweis.",
+      "targetKo": "새 번호를 개통하기 전에 신분증이 필요해요.",
+      "promptDe": "Bevor ich eine neue Nummer freischalte, brauche ich einen Ausweis.",
       "promptEn": "Before I activate a new number, I need ID.",
       "distractors": [
         "요금제",
@@ -11924,9 +11924,9 @@
     {
       "id": "satz_a2_0147",
       "level": "b1",
-      "targetKo": "월세를 오늘 이체하다 전에 잔고를 봐요.",
-      "promptDe": "Bevor ich die Miete überweise, schaue ich auf den Kontostand.",
-      "promptEn": "Before I transfer the rent, I check the balance.",
+      "targetKo": "오늘 월세를 이체하기 전에 잔고를 확인해요.",
+      "promptDe": "Bevor ich heute die Miete überweise, prüfe ich meinen Kontostand.",
+      "promptEn": "Before I transfer the rent today, I check my balance.",
       "distractors": [
         "인증서",
         "보안카드"
@@ -11997,8 +11997,8 @@
       "id": "satz_a2_0153",
       "level": "b1",
       "targetKo": "창구에서 통장정리를 부탁했어요.",
-      "promptDe": "Am Schalter habe ich um einen Kontoauszug gebeten.",
-      "promptEn": "I asked for a passbook update at the counter.",
+      "promptDe": "Am Schalter habe ich darum gebeten, mein Sparbuch zu aktualisieren.",
+      "promptEn": "I asked for my bankbook to be updated at the counter.",
       "distractors": [
         "이체하다",
         "인증서"
@@ -12620,8 +12620,8 @@
     {
       "id": "satz_a2_0205",
       "level": "b1",
-      "targetKo": "가게를 마감하다 전에 바닥을 닦아요.",
-      "promptDe": "Bevor ich den Laden abschließe, wische ich den Boden.",
+      "targetKo": "가게를 마감하기 전에 바닥을 닦아요.",
+      "promptDe": "Bevor ich den Laden schließe, wische ich den Boden.",
       "promptEn": "Before I close up the shop, I mop the floor.",
       "distractors": [
         "시급",
@@ -12656,9 +12656,9 @@
     {
       "id": "satz_a2_0208",
       "level": "b1",
-      "targetKo": "우산을 습득하다 바로 안내데스크에 맡겼어요.",
-      "promptDe": "Als ich den Schirm gefunden habe, habe ich ihn sofort an den Infoschalter gegeben.",
-      "promptEn": "When I found the umbrella, I took it straight to the information desk.",
+      "targetKo": "습득한 우산을 바로 안내데스크에 맡겼어요.",
+      "promptDe": "Den gefundenen Schirm habe ich sofort am Infoschalter abgegeben.",
+      "promptEn": "I took the umbrella I found straight to the information desk.",
       "distractors": [
         "분실물",
         "보관함"
@@ -12692,9 +12692,9 @@
     {
       "id": "satz_a2_0211",
       "level": "b1",
-      "targetKo": "우산을 찾아가다 전에 전화로 확인해요.",
-      "promptDe": "Bevor ich den Schirm abhole, rufe ich zur Bestätigung an.",
-      "promptEn": "Before I pick up the umbrella, I confirm by phone.",
+      "targetKo": "우산을 찾아가기 전에 전화로 확인해요.",
+      "promptDe": "Bevor ich den Schirm abhole, frage ich telefonisch nach.",
+      "promptEn": "Before I pick up the umbrella, I check by phone.",
       "distractors": [
         "분실물",
         "습득하다"
@@ -12704,9 +12704,9 @@
     {
       "id": "satz_a2_0212",
       "level": "b1",
-      "targetKo": "가방을 잃어버려서 바로 신고하다 했어요.",
-      "promptDe": "Ich habe die Tasche verloren und sie sofort gemeldet.",
-      "promptEn": "I lost the bag and reported it right away.",
+      "targetKo": "가방을 잃어버려서 바로 신고했어요.",
+      "promptDe": "Ich habe meine Tasche verloren und den Verlust sofort gemeldet.",
+      "promptEn": "I lost my bag and reported it right away.",
       "distractors": [
         "분실물",
         "습득하다"
@@ -12812,9 +12812,9 @@
     {
       "id": "satz_a2_0221",
       "level": "b1",
-      "targetKo": "한지를 체험하다 전에 줄을 서요.",
-      "promptDe": "Bevor ich Hanji ausprobiere, stelle ich mich an.",
-      "promptEn": "Before I try Hanji, I stand in line.",
+      "targetKo": "한지 만들기를 체험하기 전에 줄을 서요.",
+      "promptDe": "Bevor ich das Herstellen von Hanji-Papier ausprobiere, stelle ich mich an.",
+      "promptEn": "I line up before trying my hand at making hanji paper.",
       "distractors": [
         "축제",
         "부스"
@@ -12980,9 +12980,9 @@
     {
       "id": "satz_b1_0180",
       "level": "b1",
-      "targetKo": "이 메일을 전달하다 전에 개인 정보를 지워요.",
-      "promptDe": "Bevor ich die Mail weiterleite, lösche ich persönliche Daten.",
-      "promptEn": "Before I forward this mail, I remove personal data.",
+      "targetKo": "이 메일을 전달하기 전에 개인 정보를 지워요.",
+      "promptDe": "Bevor ich diese E-Mail weiterleite, entferne ich persönliche Daten.",
+      "promptEn": "Before forwarding this email, I remove personal information.",
       "distractors": [
         "참조",
         "숨은참조"
@@ -14541,8 +14541,8 @@
       "id": "satz_b2_0290",
       "level": "b2",
       "targetKo": "발언권을 받은 뒤에만 자료를 나눠 줘요.",
-      "promptDe": "Erst nach dem Rederecht verteile ich Unterlagen.",
-      "promptEn": "I hand out papers only after I have the floor.",
+      "promptDe": "Ich verteile die Unterlagen erst, nachdem ich das Wort erhalten habe.",
+      "promptEn": "I hand out the materials only after I've been given the floor.",
       "distractors": [
         "주민 의견",
         "안건 순서"
@@ -14576,9 +14576,9 @@
     {
       "id": "satz_b2_0293",
       "level": "b2",
-      "targetKo": "반대 이유는 감정 대신 비용으로 말해요.",
-      "promptDe": "Den Gegengrund nenne ich mit Kosten statt mit Gefühl.",
-      "promptEn": "I state the reason against with cost, not emotion.",
+      "targetKo": "반대 이유를 감정이 아니라 비용에 근거해 설명해요.",
+      "promptDe": "Ich begründe meinen Einwand mit den Kosten statt mit Gefühlen.",
+      "promptEn": "I explain my objection in terms of cost rather than emotion.",
       "distractors": [
         "주민 의견",
         "안건 순서"
@@ -14588,9 +14588,9 @@
     {
       "id": "satz_b2_0294",
       "level": "b2",
-      "targetKo": "수정안을 문구 단위로 읽어 달라고 했어요.",
-      "promptDe": "Ich habe gebeten, den Änderungsantrag satzweise vorzulesen.",
-      "promptEn": "I asked them to read the amendment sentence by sentence.",
+      "targetKo": "수정안의 문구를 하나씩 읽어 달라고 했어요.",
+      "promptDe": "Ich habe darum gebeten, den Wortlaut des Änderungsvorschlags Stück für Stück vorzulesen.",
+      "promptEn": "I asked them to read the wording of the amendment bit by bit.",
       "distractors": [
         "주민 의견",
         "안건 순서"
@@ -14600,9 +14600,9 @@
     {
       "id": "satz_b2_0295",
       "level": "b2",
-      "targetKo": "표결 방식이 거수인지 비밀인지 확인해요.",
-      "promptDe": "Ich prüfe, ob die Abstimmungsform per Hand oder geheim ist.",
-      "promptEn": "I check whether the voting method is a show of hands or secret.",
+      "targetKo": "표결 방식이 거수인지 비밀투표인지 확인해요.",
+      "promptDe": "Ich prüfe, ob per Handzeichen oder geheim abgestimmt wird.",
+      "promptEn": "I check whether the vote will be by a show of hands or secret ballot.",
       "distractors": [
         "주민 의견",
         "안건 순서"
@@ -14612,9 +14612,9 @@
     {
       "id": "satz_b2_0296",
       "level": "b2",
-      "targetKo": "방청만 하는 자리에서는 발언하지 않아요.",
-      "promptDe": "Auf dem Platz nur zum Zuhören spreche ich nicht.",
-      "promptEn": "In the public gallery seat I do not speak.",
+      "targetKo": "방청만 할 때는 발언하지 않아요.",
+      "promptDe": "Wenn ich bei der Sitzung nur zuhöre, ergreife ich nicht das Wort.",
+      "promptEn": "When I'm only observing the meeting, I don't speak.",
       "distractors": [
         "주민 의견",
         "안건 순서"
@@ -14708,9 +14708,9 @@
     {
       "id": "satz_b2_0304",
       "level": "b2",
-      "targetKo": "공동 초안을 화면에 띄우고 문장마다 확인해요.",
-      "promptDe": "Den Gemeinentwurf zeigen wir und prüfen Satz für Satz.",
-      "promptEn": "We put the joint draft on screen and check sentence by sentence.",
+      "targetKo": "공동 초안을 화면에 띄우고 문장마다 함께 확인해요.",
+      "promptDe": "Wir zeigen den gemeinsamen Entwurf auf dem Bildschirm und gehen ihn Satz für Satz durch.",
+      "promptEn": "We display the joint draft on screen and review it sentence by sentence.",
       "distractors": [
         "양보 범위",
         "핵심 조건"
@@ -14756,9 +14756,9 @@
     {
       "id": "satz_b2_0308",
       "level": "b2",
-      "targetKo": "기록 담당을 정해야 합의가 흐려지지 않아요.",
-      "promptDe": "Ohne Protokollführung verwässert die Einigung.",
-      "promptEn": "Without a note owner the agreement blurs.",
+      "targetKo": "기록 담당을 정해 두어야 합의 내용이 흐려지지 않아요.",
+      "promptDe": "Wir müssen festlegen, wer mitschreibt, damit klar bleibt, worauf wir uns geeinigt haben.",
+      "promptEn": "We need to decide who will take notes so the agreement stays clear.",
       "distractors": [
         "양보 범위",
         "핵심 조건"
@@ -15068,9 +15068,9 @@
     {
       "id": "satz_b2_0334",
       "level": "b2",
-      "targetKo": "합의 조건을 구두로만 듣지 않고 글로 받아요.",
-      "promptDe": "Die Vergleichsklausel höre ich nicht nur mündlich, ich lasse sie schreiben.",
-      "promptEn": "I do not take the settlement term only verbally; I get it in writing.",
+      "targetKo": "합의 조건은 말로만 듣지 않고 서면으로 받아요.",
+      "promptDe": "Ich lasse mir die vereinbarten Bedingungen schriftlich geben, statt mich nur auf mündliche Aussagen zu verlassen.",
+      "promptEn": "I get the agreed terms in writing instead of relying only on what I'm told.",
       "distractors": [
         "상위 담당",
         "사건 번호"
@@ -15104,9 +15104,9 @@
     {
       "id": "satz_b2_0337",
       "level": "b2",
-      "targetKo": "표본 크기가 작으면 일반화를 낮춰 말해요.",
-      "promptDe": "Ist der Stichprobenumfang klein, formuliere ich die Verallgemeinerung schwächer.",
-      "promptEn": "If the sample size is small, I weaken the generalization.",
+      "targetKo": "표본 크기가 작으면 일반화할 때 단정적인 표현을 피해요.",
+      "promptDe": "Bei einer kleinen Stichprobe formuliere ich Verallgemeinerungen vorsichtiger.",
+      "promptEn": "If the sample is small, I qualify any generalizations.",
       "distractors": [
         "연구 질문",
         "한계 문장"
@@ -15248,9 +15248,9 @@
     {
       "id": "satz_c1_0080",
       "level": "c1",
-      "targetKo": "표본 편향을 인정해야 비교가 정직해져요.",
-      "promptDe": "Erst mit der Stichprobenverzerrung wird der Vergleich ehrlich.",
-      "promptEn": "Only after naming sample bias is the comparison honest.",
+      "targetKo": "가능한 표본 편향을 먼저 밝혀야 비교 결과를 신중하게 해석할 수 있어요.",
+      "promptDe": "Wenn wir mögliche Verzerrungen in der Stichprobe offenlegen, können wir den Vergleich vorsichtiger interpretieren.",
+      "promptEn": "Identifying possible sampling bias first helps us interpret the comparison cautiously.",
       "distractors": [
         "불확실성 구간",
         "과잉 일반화"
@@ -15272,9 +15272,9 @@
     {
       "id": "satz_c1_0082",
       "level": "c1",
-      "targetKo": "신뢰 구간이 넓으면 순위 주장을 내려요.",
-      "promptDe": "Ist das Konfidenzintervall breit, senke ich die Rangbehauptung.",
-      "promptEn": "If the confidence interval is wide, I lower the ranking claim.",
+      "targetKo": "신뢰 구간이 넓다면 집단 간 순위 차이를 단정하기 어려워요.",
+      "promptDe": "Bei breiten Konfidenzintervallen lässt sich die Rangfolge der Gruppen nur schwer eindeutig bestimmen.",
+      "promptEn": "With wide confidence intervals, it is hard to make a firm claim about how the groups rank.",
       "distractors": [
         "불확실성 구간",
         "표본 편향"
@@ -15284,26 +15284,26 @@
     {
       "id": "satz_c1_0083",
       "level": "c1",
-      "targetKo": "공개 한계문을 첫 문단에 두면 오해가 줄어요.",
-      "promptDe": "Steht der Grenzhinweis im ersten Absatz, sinken Missverständnisse.",
-      "promptEn": "A public limitation note in the first paragraph reduces misunderstanding.",
+      "targetKo": "자료의 한계를 첫 문단에 밝혀 결과를 과대해석하지 않도록 해요.",
+      "promptDe": "Ich nenne die Grenzen der Daten gleich im ersten Absatz, damit die Ergebnisse nicht überinterpretiert werden.",
+      "promptEn": "I state the data's limitations in the opening paragraph to discourage overinterpretation.",
       "distractors": [
         "불확실성 구간",
         "표본 편향"
       ],
-      "vocabKo": "공개 한계문"
+      "vocabKo": "자료의 한계"
     },
     {
       "id": "satz_c1_0084",
       "level": "c1",
-      "targetKo": "설명 강도를 자료가 감당하는 만큼만 올려요.",
-      "promptDe": "Die Erklärstärke hebe ich nur so weit, wie die Daten tragen.",
-      "promptEn": "I raise explanatory strength only as far as the data can carry.",
+      "targetKo": "주장의 강도는 자료가 뒷받침하는 수준에 맞춰요.",
+      "promptDe": "Ich passe die Stärke der Aussage daran an, was die Daten tatsächlich belegen.",
+      "promptEn": "I calibrate the strength of the claim to what the data can support.",
       "distractors": [
         "불확실성 구간",
         "표본 편향"
       ],
-      "vocabKo": "설명 강도"
+      "vocabKo": "주장의 강도"
     },
     {
       "id": "satz_c1_0085",
@@ -15368,9 +15368,9 @@
     {
       "id": "satz_c1_0090",
       "level": "c1",
-      "targetKo": "잠정 결론이라고 쓰면 청자가 여지를 남겨 둬요.",
-      "promptDe": "Nennt man es ein vorläufiges Fazit, bleibt für die Hörenden Spielraum.",
-      "promptEn": "Calling it a provisional conclusion leaves listeners room.",
+      "targetKo": "잠정 결론이라고 명시하면 추가 자료에 따라 해석이 바뀔 수 있음을 알릴 수 있어요.",
+      "promptDe": "Wenn wir das Fazit als vorläufig kennzeichnen, machen wir deutlich, dass weitere Daten die Deutung verändern können.",
+      "promptEn": "Calling the conclusion provisional signals that further evidence may change the interpretation.",
       "distractors": [
         "불확실성 구간",
         "표본 편향"
@@ -15452,9 +15452,9 @@
     {
       "id": "satz_c1_0097",
       "level": "c1",
-      "targetKo": "공동 발표는 기관마다 다른 수치를 먼저 맞추어요.",
-      "promptDe": "Vor der Gemeinerklärung gleichen wir abweichende Zahlen ab.",
-      "promptEn": "Before a joint statement we align numbers that differ by office.",
+      "targetKo": "공동 발표 전에 기관별 수치가 다른 이유와 집계 기준을 확인해요.",
+      "promptDe": "Vor einer gemeinsamen Erklärung prüfen wir, warum die Zahlen der beteiligten Stellen voneinander abweichen und wie sie jeweils berechnet wurden.",
+      "promptEn": "Before a joint statement, we check why the agencies report different figures and how each figure was calculated.",
       "distractors": [
         "브리핑 문안",
         "위험 등급"
@@ -15464,9 +15464,9 @@
     {
       "id": "satz_c1_0098",
       "level": "c1",
-      "targetKo": "시각 자료의 축을 읽지 않으면 설명을 시작하지 않아요.",
-      "promptDe": "Ohne gelesene Achsen beginne ich das Schaubild nicht.",
-      "promptEn": "I do not start the visual aid until the axes have been read.",
+      "targetKo": "시각 자료를 설명하기 전에 축의 의미부터 확인해요.",
+      "promptDe": "Bevor ich die Grafik erkläre, prüfe ich, was die Achsen bedeuten.",
+      "promptEn": "Before explaining the chart, I check what its axes mean.",
       "distractors": [
         "브리핑 문안",
         "위험 등급"
@@ -15524,9 +15524,9 @@
     {
       "id": "satz_c1_0103",
       "level": "c1",
-      "targetKo": "문항 유도를 줄이려고 선택지를 대칭으로 만들어요.",
-      "promptDe": "Gegen Suggestivfragen mache ich die Optionen symmetrisch.",
-      "promptEn": "To reduce a leading item I make the options symmetrical.",
+      "targetKo": "문항 유도를 줄이려면 질문과 선택지가 특정 답을 암시하는지 확인해요.",
+      "promptDe": "Um Suggestion zu vermeiden, prüfe ich, ob Frage und Antwortoptionen eine bestimmte Antwort nahelegen.",
+      "promptEn": "To reduce leading questions, I check whether the wording or answer options suggest a particular response.",
       "distractors": [
         "무응답 처리",
         "가중치 부여"
@@ -15536,9 +15536,9 @@
     {
       "id": "satz_c1_0104",
       "level": "c1",
-      "targetKo": "무응답 처리를 밝히지 않으면 비율이 부풀어 보여요.",
-      "promptDe": "Ohne Item-Nonresponse wirkt der Anteil aufgebläht.",
-      "promptEn": "Without missing-answer handling the share looks inflated.",
+      "targetKo": "무응답 처리 방식을 밝히지 않으면 비율의 산출 근거를 확인하기 어려워요.",
+      "promptDe": "Ohne Angabe zum Umgang mit fehlenden Antworten lässt sich schwer prüfen, wie der Anteil berechnet wurde.",
+      "promptEn": "Without an explanation of how missing responses were handled, it is hard to verify how the percentage was calculated.",
       "distractors": [
         "문항 유도",
         "가중치 부여"
@@ -15584,9 +15584,9 @@
     {
       "id": "satz_c1_0108",
       "level": "c1",
-      "targetKo": "응답 부담이 길면 뒷부분 품질이 떨어져요.",
-      "promptDe": "Bei hoher Antwortlast sinkt die Qualität am Ende.",
-      "promptEn": "If respondent burden is long, later quality drops.",
+      "targetKo": "설문이 길어 응답 부담이 커지면 뒤쪽 문항의 응답 품질이 떨어질 수 있어요.",
+      "promptDe": "Wenn ein Fragebogen lang ist und die Antwortlast steigt, kann die Qualität der Antworten auf spätere Fragen sinken.",
+      "promptEn": "If a survey is long and responding becomes burdensome, the quality of answers to later questions may decline.",
       "distractors": [
         "문항 유도",
         "무응답 처리"
@@ -15632,9 +15632,9 @@
     {
       "id": "satz_c1_0112",
       "level": "c1",
-      "targetKo": "문항이 바뀌면 비교 가능성을 포기한다고 적어요.",
-      "promptDe": "Ändert sich das Item, schreibe ich, dass die Vergleichbarkeit entfällt.",
-      "promptEn": "If the item changes, I write that comparability is dropped.",
+      "targetKo": "문항이 바뀌면 이전 결과와의 비교 가능성이 낮아질 수 있다고 적어요.",
+      "promptDe": "Wenn sich die Frage ändert, vermerke ich, dass die Vergleichbarkeit mit früheren Ergebnissen eingeschränkt sein kann.",
+      "promptEn": "If the question changes, I note that comparability with earlier results may be limited.",
       "distractors": [
         "문항 유도",
         "무응답 처리"
@@ -15656,9 +15656,9 @@
     {
       "id": "satz_c1_0114",
       "level": "c1",
-      "targetKo": "설계 메모를 공개해야 나중에 재해석이 가능해요.",
-      "promptDe": "Ohne öffentliche Designnotiz ist eine spätere Neuinterpretation schwer.",
-      "promptEn": "A public design memo is needed for later reinterpretation.",
+      "targetKo": "설계 메모를 공개하면 나중에 조사 결과를 재해석하는 데 도움이 돼요.",
+      "promptDe": "Eine veröffentlichte Notiz zum Untersuchungsdesign kann helfen, die Ergebnisse später neu einzuordnen.",
+      "promptEn": "Publishing the design memo can help others reassess the survey results later.",
       "distractors": [
         "문항 유도",
         "무응답 처리"
@@ -15680,9 +15680,9 @@
     {
       "id": "satz_c1_0116",
       "level": "c1",
-      "targetKo": "절대 건수를 옆에 두면 공포가 줄어들어요.",
-      "promptDe": "Steht die Absolutenzahl daneben, sinkt die Angst.",
-      "promptEn": "Putting the absolute count beside it reduces fear.",
+      "targetKo": "비율의 변화를 실제 규모와 연결해 해석하려면 절대 건수도 함께 제시해야 해요.",
+      "promptDe": "Um eine Veränderung der Quote in ihrer tatsächlichen Größenordnung einzuordnen, müssen wir auch die absolute Fallzahl angeben.",
+      "promptEn": "To relate a change in rates to its actual scale, we also need to report the absolute number of cases.",
       "distractors": [
         "상대 위험",
         "잔여 위험"
@@ -15752,9 +15752,9 @@
     {
       "id": "satz_c1_0122",
       "level": "c1",
-      "targetKo": "행동 문턱을 숫자로 정해야 현장 판단이 흔들리지 않아요.",
-      "promptDe": "Eine zahlenfeste Handlungsschwelle hält die Entscheidung vor Ort stabil.",
-      "promptEn": "A numeric action threshold keeps on-site judgment from wobbling.",
+      "targetKo": "행동 문턱을 수치로 정해 두면 현장 판단의 기준이 더 분명해져요.",
+      "promptDe": "Ein numerischer Schwellenwert für Maßnahmen macht die Entscheidungsgrundlage vor Ort klarer.",
+      "promptEn": "A numeric threshold for action makes the basis for decisions on site clearer.",
       "distractors": [
         "상대 위험",
         "절대 건수"
@@ -15872,9 +15872,9 @@
     {
       "id": "satz_c1_0132",
       "level": "c1",
-      "targetKo": "예약 장벽이 앱 전용이면 창구 대안을 남겨요.",
-      "promptDe": "Ist die Buchungshürde nur die App, bleibt ein Schalterweg.",
-      "promptEn": "If the booking barrier is app-only, I keep a counter option.",
+      "targetKo": "예약 장벽이 앱 전용 절차라면 창구에서도 예약할 수 있게 해요.",
+      "promptDe": "Wenn die Buchung nur per App möglich ist und dadurch eine Hürde entsteht, ermögliche ich auch Reservierungen am Schalter.",
+      "promptEn": "If requiring an app creates a booking barrier, I also allow reservations at a service desk.",
       "distractors": [
         "접근 비용",
         "유지 부담"
@@ -15908,9 +15908,9 @@
     {
       "id": "satz_c1_0135",
       "level": "c1",
-      "targetKo": "정보 접근이 한글만이면 다른 언어 요약을 붙여요.",
-      "promptDe": "Ist der Informationszugang nur auf Koreanisch, hänge ich eine andere Kurzfassung an.",
-      "promptEn": "If information access is Korean-only, I add a short version in another language.",
+      "targetKo": "정보 접근이 한국어 안내로 제한된다면 다른 언어로 된 요약도 덧붙여요.",
+      "promptDe": "Wenn die Informationen nur auf Koreanisch zugänglich sind, ergänze ich eine Zusammenfassung in einer weiteren Sprache.",
+      "promptEn": "If access to the information is limited to Korean, I add a summary in another language.",
       "distractors": [
         "접근 비용",
         "유지 부담"
@@ -15980,9 +15980,9 @@
     {
       "id": "satz_c1_0141",
       "level": "c1",
-      "targetKo": "대리 참여를 허용하면 위임 범위를 짧게 적어요.",
-      "promptDe": "Erlaubt man Stellvertretung, steht der Auftrag kurz.",
-      "promptEn": "If proxy participation is allowed, I write a short mandate.",
+      "targetKo": "대리 참여를 허용한다면 위임 범위를 짧고 명확하게 적어요.",
+      "promptDe": "Wenn eine Vertretung zulässig ist, halte ich den Umfang der Bevollmächtigung knapp und klar fest.",
+      "promptEn": "If proxy participation is allowed, I state the scope of authorization briefly and clearly.",
       "distractors": [
         "참여 장벽",
         "발언 할당"
@@ -16004,9 +16004,9 @@
     {
       "id": "satz_c1_0143",
       "level": "c1",
-      "targetKo": "의제 설정권을 주최 측만 가지면 결과가 기울어요.",
-      "promptDe": "Liegt die Agendahoheit nur beim Gastgeber, kippt das Ergebnis.",
-      "promptEn": "If only the host has agenda power, the outcome tilts.",
+      "targetKo": "의제 설정권을 주최 측만 가지면 논의 결과가 한쪽으로 기울 수 있어요.",
+      "promptDe": "Wenn nur die veranstaltende Seite die Tagesordnung bestimmt, kann das Ergebnis der Diskussion einseitig ausfallen.",
+      "promptEn": "If only the organizers set the agenda, the outcome of the discussion may be one-sided.",
       "distractors": [
         "참여 장벽",
         "발언 할당"
@@ -16052,9 +16052,9 @@
     {
       "id": "satz_c1_0147",
       "level": "c1",
-      "targetKo": "사전 자료를 삼 일 전에 보내야 질문이 깊어져요.",
-      "promptDe": "Vorabunterlagen drei Tage vorher machen Fragen tiefer.",
-      "promptEn": "Sending the advance packet three days earlier deepens questions.",
+      "targetKo": "사전 자료를 회의 사흘 전에 보내면 참석자가 쟁점을 미리 검토할 수 있어요.",
+      "promptDe": "Wenn die Unterlagen drei Tage vor der Sitzung verschickt werden, können die Teilnehmenden die Themen vorab prüfen.",
+      "promptEn": "Sending the background materials three days before the meeting gives participants time to review the issues.",
       "distractors": [
         "참여 장벽",
         "발언 할당"
@@ -16508,14 +16508,14 @@
     {
       "id": "satz_c2_0089",
       "level": "c2",
-      "targetKo": "청자 위치를 '우리'로 묶으면 반대가 외부인처럼 보여요.",
-      "promptDe": "Setzt der Adressatenort alle ins Wir, wirkt Widerspruch wie Außen.",
-      "promptEn": "If where the listener is put is 'we', dissent looks like an outsider.",
+      "targetKo": "\"우리\"라는 청자 설정은 반대 의견을 외부자의 목소리처럼 들리게 할 수 있어요.",
+      "promptDe": "Wer das Publikum als „wir“ anspricht, kann abweichende Stimmen wie Äußerungen von Außenstehenden wirken lassen.",
+      "promptEn": "Framing the audience as 'us' can make dissent sound like an outsider's view.",
       "distractors": [
         "담론 전제",
         "은유 체계"
       ],
-      "vocabKo": "청자 위치"
+      "vocabKo": "청자 설정"
     },
     {
       "id": "satz_c2_0090",
@@ -16568,9 +16568,9 @@
     {
       "id": "satz_c2_0094",
       "level": "c2",
-      "targetKo": "기록 의무가 약하면 나중에 기억을 고를 수 있어요.",
-      "promptDe": "Ist die Dokumentationspflicht schwach, lässt sich Erinnerung später wählen.",
-      "promptEn": "If the duty to record is weak, memory can be selected later.",
+      "targetKo": "기록 의무가 느슨하면 나중에 기억을 선택적으로 제시할 여지가 생겨요.",
+      "promptDe": "Bei einer laxen Dokumentationspflicht entsteht Spielraum, Erinnerungen später selektiv darzustellen.",
+      "promptEn": "If record-keeping requirements are lax, there is room to present recollections selectively later.",
       "distractors": [
         "제도적 권한",
         "공식 어조"
@@ -16580,9 +16580,9 @@
     {
       "id": "satz_c2_0095",
       "level": "c2",
-      "targetKo": "재량 공간을 인정하되 기준표를 같이 공개해요.",
-      "promptDe": "Ich erkenne den Ermessensraum an und lege die Tabelle offen.",
-      "promptEn": "I admit discretion space and publish the criteria table with it.",
+      "targetKo": "재량 공간을 인정하되 그 판단 기준도 함께 공개해요.",
+      "promptDe": "Ich erkenne den Ermessensspielraum an und lege zugleich die Entscheidungskriterien offen.",
+      "promptEn": "I acknowledge the room for discretion while also making the decision criteria public.",
       "distractors": [
         "제도적 권한",
         "공식 어조"
@@ -16616,14 +16616,14 @@
     {
       "id": "satz_c2_0098",
       "level": "c2",
-      "targetKo": "관행 인용은 근거가 아니라 습관의 이름이에요.",
-      "promptDe": "Ein Üblichkeitszitat ist kein Beleg, sondern der Name einer Gewohnheit.",
-      "promptEn": "An appeal to custom is not evidence; it is the name of a habit.",
+      "targetKo": "관행에 대한 호소만으로는 결정의 타당성을 입증할 수 없어요.",
+      "promptDe": "Die bloße Berufung auf eine gängige Praxis belegt noch nicht, dass eine Entscheidung gerechtfertigt ist.",
+      "promptEn": "An appeal to established practice alone does not establish that a decision is justified.",
       "distractors": [
         "제도적 권한",
         "공식 어조"
       ],
-      "vocabKo": "관행 인용"
+      "vocabKo": "관행에 대한 호소"
     },
     {
       "id": "satz_c2_0099",
@@ -16676,12 +16676,12 @@
     {
       "id": "satz_c2_0103",
       "level": "c2",
-      "targetKo": "서술 시점을 바꾸면 같은 사건도 다른 도덕이 돼요.",
-      "promptDe": "Ein anderer Erzählstandort macht aus demselben Ereignis eine andere Moral.",
-      "promptEn": "A changed narrative standpoint turns the same event into a different moral.",
+      "targetKo": "서술 시점이 바뀌면 같은 사건도 다르게 평가될 수 있어요.",
+      "promptDe": "Wechselt die Erzählperspektive, kann dasselbe Ereignis anders bewertet werden.",
+      "promptEn": "A shift in narrative perspective can change how the same event is judged.",
       "distractors": [
         "선택적 기억",
-        "증언 위치"
+        "증언의 배치"
       ],
       "vocabKo": "서술 시점"
     },
@@ -16693,21 +16693,21 @@
       "promptEn": "If selective memory is fixed only to a memorial day, the rest is erased.",
       "distractors": [
         "서술 시점",
-        "증언 위치"
+        "증언의 배치"
       ],
       "vocabKo": "선택적 기억"
     },
     {
       "id": "satz_c2_0105",
       "level": "c2",
-      "targetKo": "증언 위치를 무대 가장자리에 두면 목소리가 작아져요.",
-      "promptDe": "Liegt der Zeugenort am Bühnenrand, wird die Stimme klein.",
-      "promptEn": "If where testimony sits is the edge of the stage, the voice shrinks.",
+      "targetKo": "전시에서 증언의 배치가 주변부에 치우치면 일부 경험이 덜 주목받을 수 있어요.",
+      "promptDe": "Werden Zeugnisse in einer Ausstellung am Rand platziert, können manche Erfahrungen weniger Beachtung finden.",
+      "promptEn": "If testimony is placed at the margins of an exhibition, some experiences may receive less attention.",
       "distractors": [
         "서술 시점",
         "선택적 기억"
       ],
-      "vocabKo": "증언 위치"
+      "vocabKo": "증언의 배치"
     },
     {
       "id": "satz_c2_0106",
@@ -16760,9 +16760,9 @@
     {
       "id": "satz_c2_0110",
       "level": "c2",
-      "targetKo": "기록 공백을 없다고 메우지 않고 빈칸으로 표시해요.",
-      "promptDe": "Eine Archivlücke fülle ich nicht, ich markiere die Leerstelle.",
-      "promptEn": "I do not fill an archive gap; I mark the blank.",
+      "targetKo": "기록 공백을 추측으로 메우지 않고 빈칸으로 표시해요.",
+      "promptDe": "Eine Lücke in den Aufzeichnungen fülle ich nicht mit Vermutungen, sondern markiere sie als Leerstelle.",
+      "promptEn": "I do not fill a gap in the record with guesses; I mark it as a gap.",
       "distractors": [
         "서술 시점",
         "선택적 기억"
@@ -16784,9 +16784,9 @@
     {
       "id": "satz_c2_0112",
       "level": "c2",
-      "targetKo": "복수 서사를 나란히 두면 승자 역사가 약해져요.",
-      "promptDe": "Mehrfacherzählung nebeneinander schwächt die Siegergeschichte.",
-      "promptEn": "Plural narrative side by side weakens winner history.",
+      "targetKo": "복수 서사를 나란히 두면 승자의 관점만으로 사건을 설명하기 어려워져요.",
+      "promptDe": "Wenn mehrere Erzählungen nebeneinanderstehen, lässt sich das Ereignis schwerer allein aus Sicht der Sieger erklären.",
+      "promptEn": "Putting multiple narratives side by side makes it harder to explain the event solely from the winners' perspective.",
       "distractors": [
         "서술 시점",
         "선택적 기억"
@@ -16964,9 +16964,9 @@
     {
       "id": "satz_c2_0127",
       "level": "c2",
-      "targetKo": "이의 경로가 챗봇뿐이면 사람이 없는 것과 같아요.",
-      "promptDe": "Ist der Einspruchsweg nur der Chatbot, fehlt der Mensch.",
-      "promptEn": "If the appeal path is only a chatbot, it is as if no person is there.",
+      "targetKo": "이의 경로가 챗봇뿐이라면 담당자에게 직접 설명할 길이 없어요.",
+      "promptDe": "Wenn Einwände nur über einen Chatbot vorgebracht werden können, fehlt ein direkter Weg zu einer zuständigen Person.",
+      "promptEn": "If objections can be raised only through a chatbot, there is no direct way to explain them to a person in charge.",
       "distractors": [
         "자동 결정",
         "인간 재심"
@@ -16988,9 +16988,9 @@
     {
       "id": "satz_c2_0129",
       "level": "c2",
-      "targetKo": "인간 재심이 같은 점수를 다시 누르면 재심이 아니에요.",
-      "promptDe": "Drückt die menschliche Nachprüfung dieselbe Note, ist es keine Prüfung.",
-      "promptEn": "If human review just presses the same score, it is not a review.",
+      "targetKo": "인간 재심에서 같은 점수만 다시 확인한다면 실질적인 재검토라고 보기 어려워요.",
+      "promptDe": "Wenn bei der menschlichen Nachprüfung nur derselbe Punktwert bestätigt wird, ist das kaum eine inhaltliche Überprüfung.",
+      "promptEn": "If human review only confirms the same score, it is hard to call it a substantive review.",
       "distractors": [
         "이의 경로",
         "자동 결정"
@@ -17012,9 +17012,9 @@
     {
       "id": "satz_c2_0131",
       "level": "c2",
-      "targetKo": "증거 제출란이 글자 수만 받으면 사진 소명이 막혀요.",
-      "promptDe": "Nimmt das Belegfeld nur Zeichen, bleibt der Fotobeleg draußen.",
-      "promptEn": "If the evidence field takes only characters, photo proof is blocked.",
+      "targetKo": "증거 제출란에 글만 입력할 수 있다면 사진으로는 소명할 수 없어요.",
+      "promptDe": "Wenn im Feld für Belege nur Text eingegeben werden kann, lässt sich ein Foto nicht als Beleg einreichen.",
+      "promptEn": "If the evidence field accepts only text, a photo cannot be submitted as evidence.",
       "distractors": [
         "이의 경로",
         "자동 결정"
@@ -17024,9 +17024,9 @@
     {
       "id": "satz_c2_0132",
       "level": "c2",
-      "targetKo": "결정 요약을 점수 없이 이유 세 줄로 적어요.",
-      "promptDe": "Den Bescheidkern schreibe ich in drei Gründen ohne Punktzahl.",
-      "promptEn": "I write the decision core as three reasons without a score.",
+      "targetKo": "결정 요약에는 점수만 나열하지 말고 판단 이유를 간결하게 적어요.",
+      "promptDe": "In der Zusammenfassung der Entscheidung nenne ich die Gründe knapp, statt nur Punktzahlen aufzulisten.",
+      "promptEn": "In the decision summary, I give the reasons briefly instead of listing only scores.",
       "distractors": [
         "이의 경로",
         "자동 결정"
@@ -17036,9 +17036,9 @@
     {
       "id": "satz_c2_0133",
       "level": "c2",
-      "targetKo": "항소 비용이 시간으로만 커도 포기는 강요예요.",
-      "promptDe": "Wird der Beschwerdeaufwand nur als Zeit groß, ist der Verzicht erzwungen.",
-      "promptEn": "If the cost of appealing grows only as time, giving up is coerced.",
+      "targetKo": "항소 비용이 금전적 부담이 아니라 시간 부담이어도 권리 행사가 어려워질 수 있어요.",
+      "promptDe": "Auch wenn eine Beschwerde vor allem Zeit statt Geld kostet, kann das die Ausübung des Rechts erschweren.",
+      "promptEn": "Even when the cost of an appeal is time rather than money, it can make the right harder to exercise.",
       "distractors": [
         "이의 경로",
         "자동 결정"
@@ -17048,9 +17048,9 @@
     {
       "id": "satz_c2_0134",
       "level": "c2",
-      "targetKo": "회신 의무 날짜가 없으면 이의는 사라져요.",
-      "promptDe": "Ohne Datum der Antwortpflicht verschwindet der Einspruch.",
-      "promptEn": "Without a duty-to-reply date the appeal disappears.",
+      "targetKo": "회신 의무에 기한이 없으면 이의 제기의 진행 상태를 예측하기 어려워요.",
+      "promptDe": "Ohne Frist für die Antwortpflicht ist schwer abzusehen, wann mit einer Reaktion auf den Einwand zu rechnen ist.",
+      "promptEn": "Without a deadline for a required reply, it is hard to know when to expect a response to an objection.",
       "distractors": [
         "이의 경로",
         "자동 결정"
@@ -17132,9 +17132,9 @@
     {
       "id": "satz_c2_0141",
       "level": "c2",
-      "targetKo": "접근 기록을 당사자도 볼 수 있어야 감사가 성립해요.",
-      "promptDe": "Nur wenn Betroffene das Zugriffsprotokoll sehen, trägt die Prüfung.",
-      "promptEn": "An audit holds only if the affected person can also see the access log.",
+      "targetKo": "당사자가 접근 기록을 열람할 수 있으면 검증 과정의 투명성이 높아져요.",
+      "promptDe": "Kann die betroffene Person das Zugriffsprotokoll einsehen, wird das Prüfverfahren transparenter.",
+      "promptEn": "Allowing the affected person to inspect the access log makes the review process more transparent.",
       "distractors": [
         "추적 가능성",
         "변경 이력"
@@ -17168,9 +17168,9 @@
     {
       "id": "satz_c2_0144",
       "level": "c2",
-      "targetKo": "모델 버전을 결정문에 적어야 재현이 가능해요.",
-      "promptDe": "Ohne Modellstand im Bescheid ist keine Wiederholung möglich.",
-      "promptEn": "Without the model version on the decision, reproduction is impossible.",
+      "targetKo": "모델 버전이 결정문에 없으면 나중에 판단 과정을 재현하기 어려워요.",
+      "promptDe": "Fehlt die Modellversion im Bescheid, lässt sich der Entscheidungsprozess später nur schwer nachvollziehen oder reproduzieren.",
+      "promptEn": "Without the model version in the decision notice, it may be difficult to reproduce the decision process later.",
       "distractors": [
         "추적 가능성",
         "변경 이력"
@@ -17180,9 +17180,9 @@
     {
       "id": "satz_c2_0145",
       "level": "c2",
-      "targetKo": "입력 스냅샷을 남기지 않으면 나중에 다른 자료로 변명해요.",
-      "promptDe": "Ohne Eingabestand erklärt man später andere Daten.",
-      "promptEn": "Without an input snapshot, later excuses use different data.",
+      "targetKo": "입력 스냅샷이 없으면 당시 어떤 자료를 바탕으로 판단했는지 확인하기 어려워요.",
+      "promptDe": "Ohne Momentaufnahme der Eingabedaten lässt sich später schwer feststellen, auf welcher Datengrundlage die Entscheidung getroffen wurde.",
+      "promptEn": "Without a snapshot of the input data, it is hard to establish what information informed the decision at the time.",
       "distractors": [
         "추적 가능성",
         "변경 이력"
@@ -17192,9 +17192,9 @@
     {
       "id": "satz_c2_0146",
       "level": "c2",
-      "targetKo": "감사 독립이 계약으로 막히면 공개 감사가 아니에요.",
-      "promptDe": "Ist Prüfunabhängigkeit vertraglich blockiert, ist es keine öffentliche Prüfung.",
-      "promptEn": "If audit independence is blocked by contract, it is not a public audit.",
+      "targetKo": "감사 독립이 계약으로 제한된다면 공개 감사의 신뢰성을 확보하기 어려워요.",
+      "promptDe": "Wenn vertragliche Vorgaben die Unabhängigkeit der Prüfung einschränken, lässt sich Vertrauen in eine öffentliche Prüfung nur schwer herstellen.",
+      "promptEn": "If contractual terms limit audit independence, it is difficult to establish confidence in a public audit.",
       "distractors": [
         "추적 가능성",
         "변경 이력"
@@ -17240,9 +17240,9 @@
     {
       "id": "satz_c2_0150",
       "level": "c2",
-      "targetKo": "책임 매핑이 없으면 오류가 시스템 탓으로만 가요.",
-      "promptDe": "Ohne Zuständigkeitskarte wird jeder Fehler nur das System.",
-      "promptEn": "Without an accountability map, every error is blamed only on the system.",
+      "targetKo": "책임 매핑이 없으면 오류가 발생했을 때 어떤 주체가 어떤 결정을 내렸는지 확인하기 어려워요.",
+      "promptDe": "Ohne Zuordnung der Verantwortlichkeiten lässt sich bei einem Fehler schwer nachvollziehen, wer welche Entscheidung getroffen hat.",
+      "promptEn": "Without a map of responsibilities, it is hard to trace who made which decision when an error occurs.",
       "distractors": [
         "추적 가능성",
         "변경 이력"
@@ -24633,7 +24633,7 @@
       "id": "satz_a2_0436",
       "level": "a2",
       "targetKo": "선생님이 칠판에 써요.",
-      "promptDe": "Der Lehrer schreibt an die Tafel.",
+      "promptDe": "Die Lehrkraft schreibt an die Tafel.",
       "promptEn": "The teacher writes on the blackboard.",
       "distractors": [
         "회사",
@@ -24656,9 +24656,9 @@
     {
       "id": "satz_a2_0438",
       "level": "a2",
-      "targetKo": "중학생 때 한국어를 시작했어요.",
-      "promptDe": "Als Mittelschüler habe ich mit Koreanisch angefangen.",
-      "promptEn": "I started Korean in middle school.",
+      "targetKo": "중학생 때 한국어 공부를 시작했어요.",
+      "promptDe": "In der Mittelstufe habe ich angefangen, Koreanisch zu lernen.",
+      "promptEn": "I started learning Korean in middle school.",
       "distractors": [
         "회사",
         "직업"
@@ -24705,8 +24705,8 @@
       "id": "satz_a2_0442",
       "level": "a2",
       "targetKo": "우리 학교에 유학생이 많아요.",
-      "promptDe": "An unserer Schule gibt es viele Auslandsstudenten.",
-      "promptEn": "There are many international students at our school.",
+      "promptDe": "An unserer Hochschule gibt es viele internationale Studierende.",
+      "promptEn": "There are many international students at our university.",
       "distractors": [
         "회사",
         "직업"
@@ -24729,8 +24729,8 @@
       "id": "satz_a2_0444",
       "level": "a2",
       "targetKo": "바람에 창문이 닫혔어요.",
-      "promptDe": "Das Fenster schloss sich durch den Wind.",
-      "promptEn": "The window closed from the wind.",
+      "promptDe": "Der Wind hat das Fenster zugedrückt.",
+      "promptEn": "The wind blew the window shut.",
       "distractors": [
         "회사",
         "직업"
@@ -26391,13 +26391,13 @@
       "id": "satz_b2_0521",
       "level": "b2",
       "targetKo": "월세가 낮아도 난방비를 더하면 총주거비가 높아질 수 있어요.",
-      "promptDe": "Auch bei niedriger Kaltmiete können die gesamten Wohnkosten mit der Heizung hoch sein.",
-      "promptEn": "Even with low base rent, heating can make the total housing cost high.",
+      "promptDe": "Auch bei niedriger Miete können die gesamten Wohnkosten einschließlich Heizkosten hoch sein.",
+      "promptEn": "Even if the rent is low, adding heating costs can make total housing costs high.",
       "distractors": [
         "광고에는",
         "계약부터"
       ],
-      "vocabKo": "당사자",
+      "vocabKo": "총주거비",
       "sourceSeedId": "seed_batch17_b2_housing",
       "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
@@ -27479,9 +27479,9 @@
     {
       "id": "satz_c2_0238",
       "level": "c2",
-      "targetKo": "보조 도구와 자동 결정의 정의의 경계를 분명히 해야 책임도 나눌 수 있습니다.",
-      "promptDe": "Erst klare Grenzen einer Definition zwischen Hilfsmittel und automatischer Entscheidung ermöglichen eine sinnvolle Verantwortungsverteilung.",
-      "promptEn": "Responsibility can be allocated only when the boundaries of a definition between support tools and automated decisions are clear.",
+      "targetKo": "보조 도구와 자동 결정을 나누는 정의의 경계를 분명히 해야 책임을 구분할 수 있습니다.",
+      "promptDe": "Um Verantwortlichkeiten zu unterscheiden, müssen wir zunächst klar definieren, wo ein Hilfsmittel endet und eine automatisierte Entscheidung beginnt.",
+      "promptEn": "To distinguish responsibilities, we first need a clear definition of where a support tool ends and an automated decision begins.",
       "distractors": [
         "무심코",
         "단순히"
@@ -28333,8 +28333,8 @@
       "id": "satz_b1_0469",
       "level": "b1",
       "targetKo": "담당자에게 업무와 체류 자격의 관계를 문의했어요.",
-      "promptDe": "Ich habe die zuständige Stelle gefragt, wie die Tätigkeit mit meinem Aufenthaltsstatus zusammenhängt.",
-      "promptEn": "I asked the responsible office how the job relates to my residence status.",
+      "promptDe": "Ich habe die zuständige Person gefragt, wie die Tätigkeit mit meinem Aufenthaltsstatus zusammenhängt.",
+      "promptEn": "I asked the person in charge how the job relates to my residence status.",
       "vocabKo": "체류 자격",
       "distractors": [
         "채용 공고",
@@ -29150,7 +29150,7 @@
       "id": "satz_a2_0471",
       "level": "a2",
       "targetKo": "내일 수업 예습은 벌써 끝냈어요.",
-      "promptDe": "Die Vorbereitung für den Unterricht morgen habe ich schon fertig.",
+      "promptDe": "Mit der Vorbereitung für den Unterricht morgen bin ich schon fertig.",
       "promptEn": "I've already finished preparing for tomorrow's class.",
       "vocabKo": "예습",
       "distractors": [
@@ -30895,9 +30895,9 @@
     {
       "id": "satz_a1_0456",
       "level": "a1",
-      "targetKo": "마야 씨, 저는 일본을 찍고 싶어요!",
-      "promptDe": "Maya, ich möchte Japan filmen!",
-      "promptEn": "Maya, I want to film Japan!",
+      "targetKo": "마야 씨, 일본에서 영상을 찍고 싶어요!",
+      "promptDe": "Maya, ich möchte in Japan ein Video drehen!",
+      "promptEn": "Maya, I want to shoot a video in Japan!",
       "distractors": [
         "안경",
         "모자"
@@ -31147,7 +31147,7 @@
     {
       "id": "satz_a1_0474",
       "level": "a1",
-      "targetKo": "현아 씨, 저는 주말에 등산을 합니다.",
+      "targetKo": "현아 씨, 저는 주말에 등산해요.",
       "promptDe": "Hyuna, ich gehe am Wochenende wandern.",
       "promptEn": "Hyuna, I go hiking on weekends.",
       "distractors": [
@@ -31372,8 +31372,8 @@
       "id": "satz_a1_0490",
       "level": "a1",
       "targetKo": "여기 사이다 있어요?",
-      "promptDe": "Haben Sie hier eine Zitronenlimonade?",
-      "promptEn": "Do you have a cider here?",
+      "promptDe": "Haben Sie Zitronenlimonade?",
+      "promptEn": "Do you have lemon-lime soda?",
       "distractors": [
         "설날",
         "월요일"
@@ -31455,7 +31455,7 @@
     {
       "id": "satz_a1_0496",
       "level": "a1",
-      "targetKo": "다니엘 씨, 남대문 같이 구경 갈까요?",
+      "targetKo": "다니엘 씨, 같이 남대문 구경 갈까요?",
       "promptDe": "Daniel, sollen wir uns zusammen Namdaemun ansehen?",
       "promptEn": "Daniel, shall we go see Namdaemun together?",
       "distractors": [
@@ -31597,7 +31597,7 @@
       "level": "a1",
       "targetKo": "와! 아기가 정말 많이 웃어요.",
       "promptDe": "Wow! Das Baby lacht wirklich viel.",
-      "promptEn": "Wow! The baby laughs a lot, really.",
+      "promptEn": "Wow, the baby laughs so much!",
       "distractors": [
         "티셔츠",
         "바지"
@@ -35312,8 +35312,8 @@
         "팔다"
       ],
       "level": "a2",
-      "promptDe": "Meine Eltern haben sich über die Erfolgsnachricht sehr gefreut.",
-      "promptEn": "My parents were really pleased about the news that I passed.",
+      "promptDe": "Meine Eltern haben sich sehr über die Nachricht gefreut, dass ich bestanden habe.",
+      "promptEn": "My parents were really happy to hear that I passed.",
       "courseUnitId": "a2_04_feelings_health"
     },
     {
@@ -35368,7 +35368,7 @@
         "두껍네요"
       ],
       "level": "a2",
-      "promptDe": "Wahnsinn, Sujin, Sie sind wirklich klug!",
+      "promptDe": "Wow, Sujin, du bist echt clever!",
       "promptEn": "Wow, Sujin, you're really smart!",
       "courseUnitId": "a2_01_haeyo_transition"
     },
@@ -35620,8 +35620,8 @@
         "모자"
       ],
       "level": "a2",
-      "promptDe": "Entschuldigung, machen Sie das bitte fertig.",
-      "promptEn": "Excuse me, could you total it up, please.",
+      "promptDe": "Entschuldigung, ich würde gern bezahlen.",
+      "promptEn": "Excuse me, I would like to pay, please.",
       "courseUnitId": "a2_05_delivery_services"
     },
     {
@@ -35928,8 +35928,8 @@
         "먹다"
       ],
       "level": "a2",
-      "promptDe": "Daniel, ich habe dir eine Nachricht geschickt, hast du sie gesehen?",
-      "promptEn": "Daniel, I sent you a message, did you check it?",
+      "promptDe": "Daniel, ich habe dir eine Nachricht geschickt. Hast du sie gesehen?",
+      "promptEn": "Daniel, I sent you a message. Have you seen it?",
       "courseUnitId": "a2_03_chat_relationships"
     },
     {

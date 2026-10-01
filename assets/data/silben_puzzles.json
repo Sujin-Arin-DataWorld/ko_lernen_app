@@ -1102,7 +1102,7 @@
       "answer": "유학생",
       "german": "Auslandsstudent",
       "exampleKo": "우리 학교에 ◯◯◯이 많아요.",
-      "exampleDe": "An unserer Schule gibt es viele Auslandsstudenten."
+      "exampleDe": "An unserer Hochschule gibt es viele internationale Studierende."
      },
      {
       "dir": "h",
@@ -1111,7 +1111,7 @@
       "answer": "중학생",
       "german": "Mittelschüler",
       "exampleKo": "◯◯◯ 때 한국어를 시작했어요.",
-      "exampleDe": "Als Mittelschüler habe ich mit Koreanisch angefangen."
+      "exampleDe": "In der Mittelstufe habe ich angefangen, Koreanisch zu lernen."
      }
     ],
     "pool": [
@@ -1389,7 +1389,7 @@
       "answer": "닫히다",
       "german": "sich schließen",
       "exampleKo": "바람에 창문이 닫혔어요.",
-      "exampleDe": "Das Fenster schloss sich durch den Wind."
+      "exampleDe": "Der Wind hat das Fenster zugedrückt."
      },
      {
       "dir": "v",

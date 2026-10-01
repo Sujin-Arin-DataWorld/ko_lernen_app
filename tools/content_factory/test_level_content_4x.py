@@ -106,7 +106,17 @@ class PackSourceTest(unittest.TestCase):
             by_level[pack["level"]] = by_level.get(pack["level"], 0) + 1
             for row in words:
                 korean, _german, _english, _pos_de, _pos_en, example_ko, _de, _en = row
-                self.assertIn(korean, example_ko, pack["packId"])
+                # -하다 headwords inflect naturally: 제출하기, 습득한, etc.
+                # Requiring the dictionary form would reward unnatural Korean
+                # such as "제출하다 전에" instead of "제출하기 전에".
+                appears = korean in example_ko or (
+                    _pos_de == "Verb" and korean.endswith("다") and len(korean) > 2
+                    and (
+                        korean[:-1] in example_ko
+                        or (korean.endswith("하다") and korean[:-2] in example_ko)
+                    )
+                )
+                self.assertTrue(appears, f"{pack['packId']}: {korean} absent from {example_ko}")
                 self.assertNotIn(korean, other_live_korean, pack["packId"])
                 self.assertIn(korean, live_korean, pack["packId"])
                 headwords.append(korean)

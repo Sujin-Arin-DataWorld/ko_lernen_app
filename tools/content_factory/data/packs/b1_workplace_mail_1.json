@@ -12,7 +12,7 @@
     ["숨은참조", "Blindkopie", "bcc", "Nomen", "Noun", "외부 주소는 숨은참조로 넣어요.", "Externe Adressen setze ich in Blindkopie.", "I put external addresses in bcc."],
     ["회신 기한", "Antwortfrist", "reply deadline", "Ausdruck", "Expression", "회신 기한을 금요일 낮으로 적었어요.", "Ich habe die Antwortfrist auf Freitagmittag gesetzt.", "I wrote the reply deadline as Friday noon."],
     ["첨부 누락", "fehlender Anhang", "missing attachment", "Ausdruck", "Expression", "첨부 누락이 있어서 바로 다시 보냈어요.", "Wegen eines fehlenden Anhangs habe ich die Mail sofort noch einmal geschickt.", "There was a missing attachment, so I sent it again right away."],
-    ["전달하다", "weiterleiten", "to forward", "Verb", "Verb", "이 메일을 전달하다 전에 개인 정보를 지워요.", "Bevor ich die Mail weiterleite, lösche ich persönliche Daten.", "Before I forward this mail, I remove personal data."],
+    ["전달하다", "weiterleiten", "to forward", "Verb", "Verb", "이 메일을 전달하기 전에 개인 정보를 지워요.", "Bevor ich diese E-Mail weiterleite, entferne ich persönliche Daten.", "Before forwarding this email, I remove personal information."],
     ["정정 메일", "Korrekturmail", "correction email", "Ausdruck", "Expression", "숫자 오류를 정정 메일로 알렸어요.", "Den Zahlenfehler habe ich per Korrekturmail mitgeteilt.", "I reported the number error in a correction email."],
     ["읽음 확인", "Lesebestätigung", "read receipt", "Ausdruck", "Expression", "급한 요청에만 읽음 확인을 켜요.", "Lesebestätigung schalte ich nur bei dringenden Bitten ein.", "I turn on read receipt only for urgent requests."],
     ["제목을 고치다", "den Betreff ändern", "to fix the subject", "Ausdruck", "Expression", "전달할 때 제목을 고치다 보니 내용이 분명해졌어요.", "Als ich beim Weiterleiten den Betreff geändert habe, wurde der Inhalt klarer.", "When I fixed the subject while forwarding, the content became clearer."],

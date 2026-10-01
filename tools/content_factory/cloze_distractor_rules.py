@@ -701,7 +701,6 @@ OPEN_SLOT_WAIVER: dict[str, str] = {
     'cloze_b2_0292': 'R8-3 tier B (2026-09-15): truly bare frame with no selectional restriction, confirmed by the R8-2/R8-3 read (docs/data/cloze_distractor_audit_2026-09-15.md)',
     'cloze_b2_0361': 'R8-3 tier B (2026-09-15): truly bare frame with no selectional restriction, confirmed by the R8-2/R8-3 read (docs/data/cloze_distractor_audit_2026-09-15.md)',
     'cloze_b2_0393': 'R8-3 tier B (2026-09-15): truly bare frame with no selectional restriction, confirmed by the R8-2/R8-3 read (docs/data/cloze_distractor_audit_2026-09-15.md)',
-    'cloze_c1_0114': 'R8-3 tier B (2026-09-15): truly bare frame with no selectional restriction, confirmed by the R8-2/R8-3 read (docs/data/cloze_distractor_audit_2026-09-15.md)',
     'cloze_c2_0221': 'R8-3 tier B (2026-09-15): truly bare frame with no selectional restriction, confirmed by the R8-2/R8-3 read (docs/data/cloze_distractor_audit_2026-09-15.md)',
     # C3-T5 (2026-09-16): Batch 30 A1 reinforcement (function words) -- a
     # sentence-initial discourse-connective slot (그래서/그러니까/그러면/

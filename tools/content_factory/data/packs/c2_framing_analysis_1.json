@@ -18,7 +18,7 @@
     ["인용 권위", "Zitatautorität", "quoted authority", "Ausdruck", "Expression", "인용 권위가 직함만이면 근거를 다시 물어요.", "Ist die Zitatautorität nur der Titel, frage ich nach dem Beleg.", "If quoted authority is only a title, I ask for the evidence again."],
     ["침묵 지점", "Schweigestelle", "what is left unsaid", "Ausdruck", "Expression", "침묵 지점을 표로 만들면 빠진 집단이 보여요.", "Eine Tabelle der Schweigestellen zeigt die fehlende Gruppe.", "A table of what is left unsaid shows the missing group."],
     ["재명명", "Umbenennung", "renaming", "Nomen", "Noun", "재명명이 부담을 덜어 주면 누구의 부담인지 물어요.", "Mildert die Umbenennung die Last, frage ich, wessen Last das war.", "If renaming lightens a burden, I ask whose burden it was."],
-    ["청자 위치", "Adressatenort", "where the listener is put", "Ausdruck", "Expression", "청자 위치를 '우리'로 묶으면 반대가 외부인처럼 보여요.", "Setzt der Adressatenort alle ins Wir, wirkt Widerspruch wie Außen.", "If where the listener is put is 'we', dissent looks like an outsider."],
+    ["청자 설정", "Adressierung des Publikums", "audience framing", "Ausdruck", "Expression", "\"우리\"라는 청자 설정은 반대 의견을 외부자의 목소리처럼 들리게 할 수 있어요.", "Wer das Publikum als „wir“ anspricht, kann abweichende Stimmen wie Äußerungen von Außenstehenden wirken lassen.", "Framing the audience as 'us' can make dissent sound like an outsider's view."],
     ["해석 경쟁", "Deutungskonkurrenz", "competing readings", "Ausdruck", "Expression", "해석 경쟁을 하나로 닫지 않고 근거를 나란히 둬요.", "Die Deutungskonkurrenz schließe ich nicht, ich lege Belege nebeneinander.", "I do not close competing readings; I set the evidence side by side."]
   ]
 }

@@ -378,6 +378,13 @@
       ],
       "textSha256": "129662faaf0396a5c2e94fadeae9df50b893b4c4a946d8e3964323f6788b04df",
       "reason": "Subject and explicit causal connection require more tokens; strong headache motivating coming to the pharmacy is preserved."
+    },
+    "vocab_a2_0519": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "080da9ce5e2b687e433d3c7006b1a7431ae7fd19df11b3887473e04ea7d92b10",
+      "reason": "The German subordinate clause spells out the news that the speaker passed, which Korean compresses into 합격 소식에. The parents, emotion, outcome and information timing match; the 13-to-5 word count is a length heuristic false positive, not a meaning change."
     }
   }
 }

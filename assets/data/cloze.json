@@ -15356,14 +15356,14 @@
       "id": "cloze_a1_0251",
       "level": "a2",
       "sentenceKo": "숙제를 ＿＿＿ 전에 이름을 써요.",
-      "answer": "제출하다",
-      "fullKo": "숙제를 제출하다 전에 이름을 써요.",
+      "answer": "제출하기",
+      "fullKo": "숙제를 제출하기 전에 이름을 써요.",
       "de": "Bevor ich die Hausaufgaben abgebe, schreibe ich meinen Namen.",
       "en": "Before I submit the homework, I write my name.",
       "distractors": [
-        "쌀쌀하다",
-        "습하다",
-        "타다"
+        "확인하기",
+        "시작하기",
+        "잃어버리기"
       ],
       "topic": "Schultasche"
     },
@@ -16121,14 +16121,14 @@
       "id": "cloze_a2_0182",
       "level": "b1",
       "sentenceKo": "새 번호를 ＿＿＿ 전에 신분증이 필요해요.",
-      "answer": "개통하다",
-      "fullKo": "새 번호를 개통하다 전에 신분증이 필요해요.",
-      "de": "Bevor ich eine neue Nummer freischalte, brauche ich den Ausweis.",
+      "answer": "개통하기",
+      "fullKo": "새 번호를 개통하기 전에 신분증이 필요해요.",
+      "de": "Bevor ich eine neue Nummer freischalte, brauche ich einen Ausweis.",
       "en": "Before I activate a new number, I need ID.",
       "distractors": [
-        "이모티콘 과다",
-        "이체하다",
-        "마감하다"
+        "변경하기",
+        "저장하기",
+        "해지하기"
       ],
       "topic": "Handytarif"
     },
@@ -16150,15 +16150,15 @@
     {
       "id": "cloze_a2_0184",
       "level": "b1",
-      "sentenceKo": "월세를 오늘 ＿＿＿ 전에 잔고를 봐요.",
-      "answer": "이체하다",
-      "fullKo": "월세를 오늘 이체하다 전에 잔고를 봐요.",
-      "de": "Bevor ich die Miete überweise, schaue ich auf den Kontostand.",
-      "en": "Before I transfer the rent, I check the balance.",
+      "sentenceKo": "오늘 월세를 ＿＿＿ 전에 잔고를 확인해요.",
+      "answer": "이체하기",
+      "fullKo": "오늘 월세를 이체하기 전에 잔고를 확인해요.",
+      "de": "Bevor ich heute die Miete überweise, prüfe ich meinen Kontostand.",
+      "en": "Before I transfer the rent today, I check my balance.",
       "distractors": [
-        "이모티콘 과다",
-        "마감하다",
-        "사양하다"
+        "계산하기",
+        "받기",
+        "모으기"
       ],
       "topic": "Bankschalter"
     },
@@ -16243,8 +16243,8 @@
       "sentenceKo": "창구에서 ＿＿＿를 부탁했어요.",
       "answer": "통장정리",
       "fullKo": "창구에서 통장정리를 부탁했어요.",
-      "de": "Am Schalter habe ich um einen Kontoauszug gebeten.",
-      "en": "I asked for a passbook update at the counter.",
+      "de": "Am Schalter habe ich darum gebeten, mein Sparbuch zu aktualisieren.",
+      "en": "I asked for my bankbook to be updated at the counter.",
       "distractors": [
         "이체하다",
         "인증서",
@@ -17021,14 +17021,14 @@
       "id": "cloze_a2_0242",
       "level": "b1",
       "sentenceKo": "가게를 ＿＿＿ 전에 바닥을 닦아요.",
-      "answer": "마감하다",
-      "fullKo": "가게를 마감하다 전에 바닥을 닦아요.",
-      "de": "Bevor ich den Laden abschließe, wische ich den Boden.",
+      "answer": "마감하기",
+      "fullKo": "가게를 마감하기 전에 바닥을 닦아요.",
+      "de": "Bevor ich den Laden schließe, wische ich den Boden.",
       "en": "Before I close up the shop, I mop the floor.",
       "distractors": [
-        "신고하다",
-        "체험하다",
-        "줄서다"
+        "열기",
+        "꾸미기",
+        "옮기기"
       ],
       "topic": "Nebenjob"
     },
@@ -17065,15 +17065,15 @@
     {
       "id": "cloze_a2_0245",
       "level": "b1",
-      "sentenceKo": "우산을 ＿＿＿ 바로 안내데스크에 맡겼어요.",
-      "answer": "습득하다",
-      "fullKo": "우산을 습득하다 바로 안내데스크에 맡겼어요.",
-      "de": "Als ich den Schirm gefunden habe, habe ich ihn sofort an den Infoschalter gegeben.",
-      "en": "When I found the umbrella, I took it straight to the information desk.",
+      "sentenceKo": "＿＿＿ 우산을 바로 안내데스크에 맡겼어요.",
+      "answer": "습득한",
+      "fullKo": "습득한 우산을 바로 안내데스크에 맡겼어요.",
+      "de": "Den gefundenen Schirm habe ich sofort am Infoschalter abgegeben.",
+      "en": "I took the umbrella I found straight to the information desk.",
       "distractors": [
-        "이모티콘 과다",
-        "제목을 고치다",
-        "사양하다"
+        "빌린",
+        "구입한",
+        "잃어버린"
       ],
       "topic": "Fundsachen"
     },
@@ -17111,29 +17111,29 @@
       "id": "cloze_a2_0248",
       "level": "b1",
       "sentenceKo": "우산을 ＿＿＿ 전에 전화로 확인해요.",
-      "answer": "찾아가다",
-      "fullKo": "우산을 찾아가다 전에 전화로 확인해요.",
-      "de": "Bevor ich den Schirm abhole, rufe ich zur Bestätigung an.",
-      "en": "Before I pick up the umbrella, I confirm by phone.",
+      "answer": "찾아가기",
+      "fullKo": "우산을 찾아가기 전에 전화로 확인해요.",
+      "de": "Bevor ich den Schirm abhole, frage ich telefonisch nach.",
+      "en": "Before I pick up the umbrella, I check by phone.",
       "distractors": [
-        "이모티콘 과다",
-        "습하다",
-        "제목을 고치다"
+        "사기",
+        "버리기",
+        "빌리기"
       ],
       "topic": "Fundsachen"
     },
     {
       "id": "cloze_a2_0249",
       "level": "b1",
-      "sentenceKo": "가방을 잃어버려서 바로 ＿＿＿ 했어요.",
-      "answer": "신고하다",
-      "fullKo": "가방을 잃어버려서 바로 신고하다 했어요.",
-      "de": "Ich habe die Tasche verloren und sie sofort gemeldet.",
-      "en": "I lost the bag and reported it right away.",
+      "sentenceKo": "가방을 잃어버려서 바로 ＿＿＿.",
+      "answer": "신고했어요",
+      "fullKo": "가방을 잃어버려서 바로 신고했어요.",
+      "de": "Ich habe meine Tasche verloren und den Verlust sofort gemeldet.",
+      "en": "I lost my bag and reported it right away.",
       "distractors": [
-        "이모티콘 과다",
-        "같이 웃다",
-        "쌀쌀하다"
+        "찾았어요",
+        "숨겼어요",
+        "샀어요"
       ],
       "topic": "Fundsachen"
     },
@@ -17260,15 +17260,15 @@
     {
       "id": "cloze_a2_0258",
       "level": "b1",
-      "sentenceKo": "한지를 ＿＿＿ 전에 줄을 서요.",
-      "answer": "체험하다",
-      "fullKo": "한지를 체험하다 전에 줄을 서요.",
-      "de": "Bevor ich Hanji ausprobiere, stelle ich mich an.",
-      "en": "Before I try Hanji, I stand in line.",
+      "sentenceKo": "한지 만들기를 ＿＿＿ 전에 줄을 서요.",
+      "answer": "체험하기",
+      "fullKo": "한지 만들기를 체험하기 전에 줄을 서요.",
+      "de": "Bevor ich das Herstellen von Hanji-Papier ausprobiere, stelle ich mich an.",
+      "en": "I line up before trying my hand at making hanji paper.",
       "distractors": [
-        "신고하다",
-        "마감하다",
-        "사양하다"
+        "배우기",
+        "포기하기",
+        "예약하기"
       ],
       "topic": "Feststand"
     },
@@ -17471,14 +17471,14 @@
       "id": "cloze_b1_0184",
       "level": "b1",
       "sentenceKo": "이 메일을 ＿＿＿ 전에 개인 정보를 지워요.",
-      "answer": "전달하다",
-      "fullKo": "이 메일을 전달하다 전에 개인 정보를 지워요.",
-      "de": "Bevor ich die Mail weiterleite, lösche ich persönliche Daten.",
-      "en": "Before I forward this mail, I remove personal data.",
+      "answer": "전달하기",
+      "fullKo": "이 메일을 전달하기 전에 개인 정보를 지워요.",
+      "de": "Bevor ich diese E-Mail weiterleite, entferne ich persönliche Daten.",
+      "en": "Before forwarding this email, I remove personal information.",
       "distractors": [
-        "습득하다",
-        "이체하다",
-        "찾아가다"
+        "저장하기",
+        "삭제하기",
+        "출력하기"
       ],
       "topic": "Dienstmail"
     },
@@ -19423,8 +19423,8 @@
       "sentenceKo": "＿＿＿을 받은 뒤에만 자료를 나눠 줘요.",
       "answer": "발언권",
       "fullKo": "발언권을 받은 뒤에만 자료를 나눠 줘요.",
-      "de": "Erst nach dem Rederecht verteile ich Unterlagen.",
-      "en": "I hand out papers only after I have the floor.",
+      "de": "Ich verteile die Unterlagen erst, nachdem ich das Wort erhalten habe.",
+      "en": "I hand out the materials only after I've been given the floor.",
       "distractors": [
         "주민 의견",
         "회의 기록문",
@@ -19465,11 +19465,11 @@
     {
       "id": "cloze_b2_0307",
       "level": "b2",
-      "sentenceKo": "＿＿＿는 감정 대신 비용으로 말해요.",
+      "sentenceKo": "＿＿＿를 감정이 아니라 비용에 근거해 설명해요.",
       "answer": "반대 이유",
-      "fullKo": "반대 이유는 감정 대신 비용으로 말해요.",
-      "de": "Den Gegengrund nenne ich mit Kosten statt mit Gefühl.",
-      "en": "I state the reason against with cost, not emotion.",
+      "fullKo": "반대 이유를 감정이 아니라 비용에 근거해 설명해요.",
+      "de": "Ich begründe meinen Einwand mit den Kosten statt mit Gefühlen.",
+      "en": "I explain my objection in terms of cost rather than emotion.",
       "distractors": [
         "앞머리",
         "청구서",
@@ -19480,11 +19480,11 @@
     {
       "id": "cloze_b2_0308",
       "level": "b2",
-      "sentenceKo": "＿＿＿을 문구 단위로 읽어 달라고 했어요.",
+      "sentenceKo": "＿＿＿의 문구를 하나씩 읽어 달라고 했어요.",
       "answer": "수정안",
-      "fullKo": "수정안을 문구 단위로 읽어 달라고 했어요.",
-      "de": "Ich habe gebeten, den Änderungsantrag satzweise vorzulesen.",
-      "en": "I asked them to read the amendment sentence by sentence.",
+      "fullKo": "수정안의 문구를 하나씩 읽어 달라고 했어요.",
+      "de": "Ich habe darum gebeten, den Wortlaut des Änderungsvorschlags Stück für Stück vorzulesen.",
+      "en": "I asked them to read the wording of the amendment bit by bit.",
       "distractors": [
         "주민 의견",
         "발언권",
@@ -19495,11 +19495,11 @@
     {
       "id": "cloze_b2_0309",
       "level": "b2",
-      "sentenceKo": "＿＿＿이 거수인지 비밀인지 확인해요.",
+      "sentenceKo": "＿＿＿이 거수인지 비밀투표인지 확인해요.",
       "answer": "표결 방식",
-      "fullKo": "표결 방식이 거수인지 비밀인지 확인해요.",
-      "de": "Ich prüfe, ob die Abstimmungsform per Hand oder geheim ist.",
-      "en": "I check whether the voting method is a show of hands or secret.",
+      "fullKo": "표결 방식이 거수인지 비밀투표인지 확인해요.",
+      "de": "Ich prüfe, ob per Handzeichen oder geheim abgestimmt wird.",
+      "en": "I check whether the vote will be by a show of hands or secret ballot.",
       "distractors": [
         "지갑",
         "여권",
@@ -19510,11 +19510,11 @@
     {
       "id": "cloze_b2_0310",
       "level": "b2",
-      "sentenceKo": "＿＿＿만 하는 자리에서는 발언하지 않아요.",
+      "sentenceKo": "＿＿＿만 할 때는 발언하지 않아요.",
       "answer": "방청",
-      "fullKo": "방청만 하는 자리에서는 발언하지 않아요.",
-      "de": "Auf dem Platz nur zum Zuhören spreche ich nicht.",
-      "en": "In the public gallery seat I do not speak.",
+      "fullKo": "방청만 할 때는 발언하지 않아요.",
+      "de": "Wenn ich bei der Sitzung nur zuhöre, ergreife ich nicht das Wort.",
+      "en": "When I'm only observing the meeting, I don't speak.",
       "distractors": [
         "주민 의견",
         "안건 순서",
@@ -19630,11 +19630,11 @@
     {
       "id": "cloze_b2_0318",
       "level": "b2",
-      "sentenceKo": "＿＿＿을 화면에 띄우고 문장마다 확인해요.",
+      "sentenceKo": "＿＿＿을 화면에 띄우고 문장마다 함께 확인해요.",
       "answer": "공동 초안",
-      "fullKo": "공동 초안을 화면에 띄우고 문장마다 확인해요.",
-      "de": "Den Gemeinentwurf zeigen wir und prüfen Satz für Satz.",
-      "en": "We put the joint draft on screen and check sentence by sentence.",
+      "fullKo": "공동 초안을 화면에 띄우고 문장마다 함께 확인해요.",
+      "de": "Wir zeigen den gemeinsamen Entwurf auf dem Bildschirm und gehen ihn Satz für Satz durch.",
+      "en": "We display the joint draft on screen and review it sentence by sentence.",
       "distractors": [
         "스트레칭",
         "출발",
@@ -19690,11 +19690,11 @@
     {
       "id": "cloze_b2_0322",
       "level": "b2",
-      "sentenceKo": "＿＿＿을 정해야 합의가 흐려지지 않아요.",
+      "sentenceKo": "＿＿＿을 정해 두어야 합의 내용이 흐려지지 않아요.",
       "answer": "기록 담당",
-      "fullKo": "기록 담당을 정해야 합의가 흐려지지 않아요.",
-      "de": "Ohne Protokollführung verwässert die Einigung.",
-      "en": "Without a note owner the agreement blurs.",
+      "fullKo": "기록 담당을 정해 두어야 합의 내용이 흐려지지 않아요.",
+      "de": "Wir müssen festlegen, wer mitschreibt, damit klar bleibt, worauf wir uns geeinigt haben.",
+      "en": "We need to decide who will take notes so the agreement stays clear.",
       "distractors": [
         "손질",
         "수건",
@@ -20080,11 +20080,11 @@
     {
       "id": "cloze_b2_0348",
       "level": "b2",
-      "sentenceKo": "＿＿＿을 구두로만 듣지 않고 글로 받아요.",
+      "sentenceKo": "＿＿＿은 말로만 듣지 않고 서면으로 받아요.",
       "answer": "합의 조건",
-      "fullKo": "합의 조건을 구두로만 듣지 않고 글로 받아요.",
-      "de": "Die Vergleichsklausel höre ich nicht nur mündlich, ich lasse sie schreiben.",
-      "en": "I do not take the settlement term only verbally; I get it in writing.",
+      "fullKo": "합의 조건은 말로만 듣지 않고 서면으로 받아요.",
+      "de": "Ich lasse mir die vereinbarten Bedingungen schriftlich geben, statt mich nur auf mündliche Aussagen zu verlassen.",
+      "en": "I get the agreed terms in writing instead of relying only on what I'm told.",
       "distractors": [
         "과일",
         "회색",
@@ -20125,11 +20125,11 @@
     {
       "id": "cloze_b2_0351",
       "level": "b2",
-      "sentenceKo": "＿＿＿가 작으면 일반화를 낮춰 말해요.",
+      "sentenceKo": "＿＿＿가 작으면 일반화할 때 단정적인 표현을 피해요.",
       "answer": "표본 크기",
-      "fullKo": "표본 크기가 작으면 일반화를 낮춰 말해요.",
-      "de": "Ist der Stichprobenumfang klein, formuliere ich die Verallgemeinerung schwächer.",
-      "en": "If the sample size is small, I weaken the generalization.",
+      "fullKo": "표본 크기가 작으면 일반화할 때 단정적인 표현을 피해요.",
+      "de": "Bei einer kleinen Stichprobe formuliere ich Verallgemeinerungen vorsichtiger.",
+      "en": "If the sample is small, I qualify any generalizations.",
       "distractors": [
         "가위",
         "락커",
@@ -20305,11 +20305,11 @@
     {
       "id": "cloze_c1_0078",
       "level": "c1",
-      "sentenceKo": "＿＿＿을 인정해야 비교가 정직해져요.",
+      "sentenceKo": "가능한 ＿＿＿을 먼저 밝혀야 비교 결과를 신중하게 해석할 수 있어요.",
       "answer": "표본 편향",
-      "fullKo": "표본 편향을 인정해야 비교가 정직해져요.",
-      "de": "Erst mit der Stichprobenverzerrung wird der Vergleich ehrlich.",
-      "en": "Only after naming sample bias is the comparison honest.",
+      "fullKo": "가능한 표본 편향을 먼저 밝혀야 비교 결과를 신중하게 해석할 수 있어요.",
+      "de": "Wenn wir mögliche Verzerrungen in der Stichprobe offenlegen, können wir den Vergleich vorsichtiger interpretieren.",
+      "en": "Identifying possible sampling bias first helps us interpret the comparison cautiously.",
       "distractors": [
         "가방",
         "우산",
@@ -20335,11 +20335,11 @@
     {
       "id": "cloze_c1_0080",
       "level": "c1",
-      "sentenceKo": "＿＿＿이 넓으면 순위 주장을 내려요.",
+      "sentenceKo": "＿＿＿이 넓다면 집단 간 순위 차이를 단정하기 어려워요.",
       "answer": "신뢰 구간",
-      "fullKo": "신뢰 구간이 넓으면 순위 주장을 내려요.",
-      "de": "Ist das Konfidenzintervall breit, senke ich die Rangbehauptung.",
-      "en": "If the confidence interval is wide, I lower the ranking claim.",
+      "fullKo": "신뢰 구간이 넓다면 집단 간 순위 차이를 단정하기 어려워요.",
+      "de": "Bei breiten Konfidenzintervallen lässt sich die Rangfolge der Gruppen nur schwer eindeutig bestimmen.",
+      "en": "With wide confidence intervals, it is hard to make a firm claim about how the groups rank.",
       "distractors": [
         "방청",
         "계획",
@@ -20350,26 +20350,26 @@
     {
       "id": "cloze_c1_0081",
       "level": "c1",
-      "sentenceKo": "＿＿＿을 첫 문단에 두면 오해가 줄어요.",
-      "answer": "공개 한계문",
-      "fullKo": "공개 한계문을 첫 문단에 두면 오해가 줄어요.",
-      "de": "Steht der Grenzhinweis im ersten Absatz, sinken Missverständnisse.",
-      "en": "A public limitation note in the first paragraph reduces misunderstanding.",
+      "sentenceKo": "＿＿＿를 첫 문단에 밝혀 결과를 과대해석하지 않도록 해요.",
+      "answer": "자료의 한계",
+      "fullKo": "자료의 한계를 첫 문단에 밝혀 결과를 과대해석하지 않도록 해요.",
+      "de": "Ich nenne die Grenzen der Daten gleich im ersten Absatz, damit die Ergebnisse nicht überinterpretiert werden.",
+      "en": "I state the data's limitations in the opening paragraph to discourage overinterpretation.",
       "distractors": [
-        "디자인",
-        "해석",
-        "관광"
+        "조사 범위",
+        "측정 오차",
+        "자료 수집 시기"
       ],
       "topic": "Evidenzvorbehalt"
     },
     {
       "id": "cloze_c1_0082",
       "level": "c1",
-      "sentenceKo": "＿＿＿를 자료가 감당하는 만큼만 올려요.",
-      "answer": "설명 강도",
-      "fullKo": "설명 강도를 자료가 감당하는 만큼만 올려요.",
-      "de": "Die Erklärstärke hebe ich nur so weit, wie die Daten tragen.",
-      "en": "I raise explanatory strength only as far as the data can carry.",
+      "sentenceKo": "＿＿＿는 자료가 뒷받침하는 수준에 맞춰요.",
+      "answer": "주장의 강도",
+      "fullKo": "주장의 강도는 자료가 뒷받침하는 수준에 맞춰요.",
+      "de": "Ich passe die Stärke der Aussage daran an, was die Daten tatsächlich belegen.",
+      "en": "I calibrate the strength of the claim to what the data can support.",
       "distractors": [
         "소화제",
         "락커",
@@ -20455,11 +20455,11 @@
     {
       "id": "cloze_c1_0088",
       "level": "c1",
-      "sentenceKo": "＿＿＿이라고 쓰면 청자가 여지를 남겨 둬요.",
+      "sentenceKo": "＿＿＿이라고 명시하면 추가 자료에 따라 해석이 바뀔 수 있음을 알릴 수 있어요.",
       "answer": "잠정 결론",
-      "fullKo": "잠정 결론이라고 쓰면 청자가 여지를 남겨 둬요.",
-      "de": "Nennt man es ein vorläufiges Fazit, bleibt für die Hörenden Spielraum.",
-      "en": "Calling it a provisional conclusion leaves listeners room.",
+      "fullKo": "잠정 결론이라고 명시하면 추가 자료에 따라 해석이 바뀔 수 있음을 알릴 수 있어요.",
+      "de": "Wenn wir das Fazit als vorläufig kennzeichnen, machen wir deutlich, dass weitere Daten die Deutung verändern können.",
+      "en": "Calling the conclusion provisional signals that further evidence may change the interpretation.",
       "distractors": [
         "최신식",
         "밑반찬",
@@ -20560,11 +20560,11 @@
     {
       "id": "cloze_c1_0095",
       "level": "c1",
-      "sentenceKo": "＿＿＿는 기관마다 다른 수치를 먼저 맞추어요.",
+      "sentenceKo": "＿＿＿ 전에 기관별 수치가 다른 이유와 집계 기준을 확인해요.",
       "answer": "공동 발표",
-      "fullKo": "공동 발표는 기관마다 다른 수치를 먼저 맞추어요.",
-      "de": "Vor der Gemeinerklärung gleichen wir abweichende Zahlen ab.",
-      "en": "Before a joint statement we align numbers that differ by office.",
+      "fullKo": "공동 발표 전에 기관별 수치가 다른 이유와 집계 기준을 확인해요.",
+      "de": "Vor einer gemeinsamen Erklärung prüfen wir, warum die Zahlen der beteiligten Stellen voneinander abweichen und wie sie jeweils berechnet wurden.",
+      "en": "Before a joint statement, we check why the agencies report different figures and how each figure was calculated.",
       "distractors": [
         "광고",
         "접시",
@@ -20575,15 +20575,15 @@
     {
       "id": "cloze_c1_0096",
       "level": "c1",
-      "sentenceKo": "＿＿＿의 축을 읽지 않으면 설명을 시작하지 않아요.",
+      "sentenceKo": "＿＿＿를 설명하기 전에 축의 의미부터 확인해요.",
       "answer": "시각 자료",
-      "fullKo": "시각 자료의 축을 읽지 않으면 설명을 시작하지 않아요.",
-      "de": "Ohne gelesene Achsen beginne ich das Schaubild nicht.",
-      "en": "I do not start the visual aid until the axes have been read.",
+      "fullKo": "시각 자료를 설명하기 전에 축의 의미부터 확인해요.",
+      "de": "Bevor ich die Grafik erkläre, prüfe ich, was die Achsen bedeuten.",
+      "en": "Before explaining the chart, I check what its axes mean.",
       "distractors": [
-        "브리핑 문안",
-        "위험 등급",
-        "비전문가 설명"
+        "참가 안내",
+        "발표 순서",
+        "행사 안내"
       ],
       "topic": "Öffentliche Lage"
     },
@@ -20650,11 +20650,11 @@
     {
       "id": "cloze_c1_0101",
       "level": "c1",
-      "sentenceKo": "＿＿＿를 줄이려고 선택지를 대칭으로 만들어요.",
+      "sentenceKo": "＿＿＿를 줄이려면 질문과 선택지가 특정 답을 암시하는지 확인해요.",
       "answer": "문항 유도",
-      "fullKo": "문항 유도를 줄이려고 선택지를 대칭으로 만들어요.",
-      "de": "Gegen Suggestivfragen mache ich die Optionen symmetrisch.",
-      "en": "To reduce a leading item I make the options symmetrical.",
+      "fullKo": "문항 유도를 줄이려면 질문과 선택지가 특정 답을 암시하는지 확인해요.",
+      "de": "Um Suggestion zu vermeiden, prüfe ich, ob Frage und Antwortoptionen eine bestimmte Antwort nahelegen.",
+      "en": "To reduce leading questions, I check whether the wording or answer options suggest a particular response.",
       "distractors": [
         "총주거비",
         "권고",
@@ -20665,11 +20665,11 @@
     {
       "id": "cloze_c1_0102",
       "level": "c1",
-      "sentenceKo": "＿＿＿를 밝히지 않으면 비율이 부풀어 보여요.",
+      "sentenceKo": "＿＿＿ 방식을 밝히지 않으면 비율의 산출 근거를 확인하기 어려워요.",
       "answer": "무응답 처리",
-      "fullKo": "무응답 처리를 밝히지 않으면 비율이 부풀어 보여요.",
-      "de": "Ohne Item-Nonresponse wirkt der Anteil aufgebläht.",
-      "en": "Without missing-answer handling the share looks inflated.",
+      "fullKo": "무응답 처리 방식을 밝히지 않으면 비율의 산출 근거를 확인하기 어려워요.",
+      "de": "Ohne Angabe zum Umgang mit fehlenden Antworten lässt sich schwer prüfen, wie der Anteil berechnet wurde.",
+      "en": "Without an explanation of how missing responses were handled, it is hard to verify how the percentage was calculated.",
       "distractors": [
         "식비",
         "카드",
@@ -20725,11 +20725,11 @@
     {
       "id": "cloze_c1_0106",
       "level": "c1",
-      "sentenceKo": "＿＿＿이 길면 뒷부분 품질이 떨어져요.",
+      "sentenceKo": "설문이 길어 ＿＿＿이 커지면 뒤쪽 문항의 응답 품질이 떨어질 수 있어요.",
       "answer": "응답 부담",
-      "fullKo": "응답 부담이 길면 뒷부분 품질이 떨어져요.",
-      "de": "Bei hoher Antwortlast sinkt die Qualität am Ende.",
-      "en": "If respondent burden is long, later quality drops.",
+      "fullKo": "설문이 길어 응답 부담이 커지면 뒤쪽 문항의 응답 품질이 떨어질 수 있어요.",
+      "de": "Wenn ein Fragebogen lang ist und die Antwortlast steigt, kann die Qualität der Antworten auf spätere Fragen sinken.",
+      "en": "If a survey is long and responding becomes burdensome, the quality of answers to later questions may decline.",
       "distractors": [
         "귀성길",
         "동전",
@@ -20785,11 +20785,11 @@
     {
       "id": "cloze_c1_0110",
       "level": "c1",
-      "sentenceKo": "문항이 바뀌면 ＿＿＿을 포기한다고 적어요.",
+      "sentenceKo": "문항이 바뀌면 이전 결과와의 ＿＿＿이 낮아질 수 있다고 적어요.",
       "answer": "비교 가능성",
-      "fullKo": "문항이 바뀌면 비교 가능성을 포기한다고 적어요.",
-      "de": "Ändert sich das Item, schreibe ich, dass die Vergleichbarkeit entfällt.",
-      "en": "If the item changes, I write that comparability is dropped.",
+      "fullKo": "문항이 바뀌면 이전 결과와의 비교 가능성이 낮아질 수 있다고 적어요.",
+      "de": "Wenn sich die Frage ändert, vermerke ich, dass die Vergleichbarkeit mit früheren Ergebnissen eingeschränkt sein kann.",
+      "en": "If the question changes, I note that comparability with earlier results may be limited.",
       "distractors": [
         "상한",
         "자발성",
@@ -20815,11 +20815,11 @@
     {
       "id": "cloze_c1_0112",
       "level": "c1",
-      "sentenceKo": "＿＿＿를 공개해야 나중에 재해석이 가능해요.",
+      "sentenceKo": "＿＿＿를 공개하면 나중에 조사 결과를 재해석하는 데 도움이 돼요.",
       "answer": "설계 메모",
-      "fullKo": "설계 메모를 공개해야 나중에 재해석이 가능해요.",
-      "de": "Ohne öffentliche Designnotiz ist eine spätere Neuinterpretation schwer.",
-      "en": "A public design memo is needed for later reinterpretation.",
+      "fullKo": "설계 메모를 공개하면 나중에 조사 결과를 재해석하는 데 도움이 돼요.",
+      "de": "Eine veröffentlichte Notiz zum Untersuchungsdesign kann helfen, die Ergebnisse später neu einzuordnen.",
+      "en": "Publishing the design memo can help others reassess the survey results later.",
       "distractors": [
         "문항 유도",
         "무응답 처리",
@@ -20845,15 +20845,15 @@
     {
       "id": "cloze_c1_0114",
       "level": "c1",
-      "sentenceKo": "＿＿＿를 옆에 두면 공포가 줄어들어요.",
+      "sentenceKo": "비율의 변화를 실제 규모와 연결해 해석하려면 ＿＿＿도 함께 제시해야 해요.",
       "answer": "절대 건수",
-      "fullKo": "절대 건수를 옆에 두면 공포가 줄어들어요.",
-      "de": "Steht die Absolutenzahl daneben, sinkt die Angst.",
-      "en": "Putting the absolute count beside it reduces fear.",
+      "fullKo": "비율의 변화를 실제 규모와 연결해 해석하려면 절대 건수도 함께 제시해야 해요.",
+      "de": "Um eine Veränderung der Quote in ihrer tatsächlichen Größenordnung einzuordnen, müssen wir auch die absolute Fallzahl angeben.",
+      "en": "To relate a change in rates to its actual scale, we also need to report the absolute number of cases.",
       "distractors": [
-        "오다",
-        "팔다",
-        "으로"
+        "신뢰 구간",
+        "관측 공백",
+        "노출 시간"
       ],
       "topic": "Risikosprache"
     },
@@ -20935,11 +20935,11 @@
     {
       "id": "cloze_c1_0120",
       "level": "c1",
-      "sentenceKo": "＿＿＿을 숫자로 정해야 현장 판단이 흔들리지 않아요.",
+      "sentenceKo": "＿＿＿을 수치로 정해 두면 현장 판단의 기준이 더 분명해져요.",
       "answer": "행동 문턱",
-      "fullKo": "행동 문턱을 숫자로 정해야 현장 판단이 흔들리지 않아요.",
-      "de": "Eine zahlenfeste Handlungsschwelle hält die Entscheidung vor Ort stabil.",
-      "en": "A numeric action threshold keeps on-site judgment from wobbling.",
+      "fullKo": "행동 문턱을 수치로 정해 두면 현장 판단의 기준이 더 분명해져요.",
+      "de": "Ein numerischer Schwellenwert für Maßnahmen macht die Entscheidungsgrundlage vor Ort klarer.",
+      "en": "A numeric threshold for action makes the basis for decisions on site clearer.",
       "distractors": [
         "모임",
         "제사상",
@@ -21085,11 +21085,11 @@
     {
       "id": "cloze_c1_0130",
       "level": "c1",
-      "sentenceKo": "＿＿＿이 앱 전용이면 창구 대안을 남겨요.",
+      "sentenceKo": "＿＿＿이 앱 전용 절차라면 창구에서도 예약할 수 있게 해요.",
       "answer": "예약 장벽",
-      "fullKo": "예약 장벽이 앱 전용이면 창구 대안을 남겨요.",
-      "de": "Ist die Buchungshürde nur die App, bleibt ein Schalterweg.",
-      "en": "If the booking barrier is app-only, I keep a counter option.",
+      "fullKo": "예약 장벽이 앱 전용 절차라면 창구에서도 예약할 수 있게 해요.",
+      "de": "Wenn die Buchung nur per App möglich ist und dadurch eine Hürde entsteht, ermögliche ich auch Reservierungen am Schalter.",
+      "en": "If requiring an app creates a booking barrier, I also allow reservations at a service desk.",
       "distractors": [
         "군인",
         "밖",
@@ -21130,11 +21130,11 @@
     {
       "id": "cloze_c1_0133",
       "level": "c1",
-      "sentenceKo": "＿＿＿이 한글만이면 다른 언어 요약을 붙여요.",
+      "sentenceKo": "＿＿＿이 한국어 안내로 제한된다면 다른 언어로 된 요약도 덧붙여요.",
       "answer": "정보 접근",
-      "fullKo": "정보 접근이 한글만이면 다른 언어 요약을 붙여요.",
-      "de": "Ist der Informationszugang nur auf Koreanisch, hänge ich eine andere Kurzfassung an.",
-      "en": "If information access is Korean-only, I add a short version in another language.",
+      "fullKo": "정보 접근이 한국어 안내로 제한된다면 다른 언어로 된 요약도 덧붙여요.",
+      "de": "Wenn die Informationen nur auf Koreanisch zugänglich sind, ergänze ich eine Zusammenfassung in einer weiteren Sprache.",
+      "en": "If access to the information is limited to Korean, I add a summary in another language.",
       "distractors": [
         "주인",
         "셋",
@@ -21220,11 +21220,11 @@
     {
       "id": "cloze_c1_0139",
       "level": "c1",
-      "sentenceKo": "＿＿＿를 허용하면 위임 범위를 짧게 적어요.",
+      "sentenceKo": "＿＿＿를 허용한다면 위임 범위를 짧고 명확하게 적어요.",
       "answer": "대리 참여",
-      "fullKo": "대리 참여를 허용하면 위임 범위를 짧게 적어요.",
-      "de": "Erlaubt man Stellvertretung, steht der Auftrag kurz.",
-      "en": "If proxy participation is allowed, I write a short mandate.",
+      "fullKo": "대리 참여를 허용한다면 위임 범위를 짧고 명확하게 적어요.",
+      "de": "Wenn eine Vertretung zulässig ist, halte ich den Umfang der Bevollmächtigung knapp und klar fest.",
+      "en": "If proxy participation is allowed, I state the scope of authorization briefly and clearly.",
       "distractors": [
         "코",
         "편지",
@@ -21250,11 +21250,11 @@
     {
       "id": "cloze_c1_0141",
       "level": "c1",
-      "sentenceKo": "＿＿＿을 주최 측만 가지면 결과가 기울어요.",
+      "sentenceKo": "＿＿＿을 주최 측만 가지면 논의 결과가 한쪽으로 기울 수 있어요.",
       "answer": "의제 설정권",
-      "fullKo": "의제 설정권을 주최 측만 가지면 결과가 기울어요.",
-      "de": "Liegt die Agendahoheit nur beim Gastgeber, kippt das Ergebnis.",
-      "en": "If only the host has agenda power, the outcome tilts.",
+      "fullKo": "의제 설정권을 주최 측만 가지면 논의 결과가 한쪽으로 기울 수 있어요.",
+      "de": "Wenn nur die veranstaltende Seite die Tagesordnung bestimmt, kann das Ergebnis der Diskussion einseitig ausfallen.",
+      "en": "If only the organizers set the agenda, the outcome of the discussion may be one-sided.",
       "distractors": [
         "재활용",
         "동물원",
@@ -21310,11 +21310,11 @@
     {
       "id": "cloze_c1_0145",
       "level": "c1",
-      "sentenceKo": "＿＿＿를 삼 일 전에 보내야 질문이 깊어져요.",
+      "sentenceKo": "＿＿＿를 회의 사흘 전에 보내면 참석자가 쟁점을 미리 검토할 수 있어요.",
       "answer": "사전 자료",
-      "fullKo": "사전 자료를 삼 일 전에 보내야 질문이 깊어져요.",
-      "de": "Vorabunterlagen drei Tage vorher machen Fragen tiefer.",
-      "en": "Sending the advance packet three days earlier deepens questions.",
+      "fullKo": "사전 자료를 회의 사흘 전에 보내면 참석자가 쟁점을 미리 검토할 수 있어요.",
+      "de": "Wenn die Unterlagen drei Tage vor der Sitzung verschickt werden, können die Teilnehmenden die Themen vorab prüfen.",
+      "en": "Sending the background materials three days before the meeting gives participants time to review the issues.",
       "distractors": [
         "세탁기",
         "관리비",
@@ -21880,15 +21880,15 @@
     {
       "id": "cloze_c2_0087",
       "level": "c2",
-      "sentenceKo": "＿＿＿를 '우리'로 묶으면 반대가 외부인처럼 보여요.",
-      "answer": "청자 위치",
-      "fullKo": "청자 위치를 '우리'로 묶으면 반대가 외부인처럼 보여요.",
-      "de": "Setzt der Adressatenort alle ins Wir, wirkt Widerspruch wie Außen.",
-      "en": "If where the listener is put is 'we', dissent looks like an outsider.",
+      "sentenceKo": "\"우리\"라는 ＿＿＿은 반대 의견을 외부자의 목소리처럼 들리게 할 수 있어요.",
+      "answer": "청자 설정",
+      "fullKo": "\"우리\"라는 청자 설정은 반대 의견을 외부자의 목소리처럼 들리게 할 수 있어요.",
+      "de": "Wer das Publikum als „wir“ anspricht, kann abweichende Stimmen wie Äußerungen von Außenstehenden wirken lassen.",
+      "en": "Framing the audience as 'us' can make dissent sound like an outsider's view.",
       "distractors": [
-        "목도리",
-        "문화",
-        "컴퓨터"
+        "기술 기준",
+        "예산 편성",
+        "회의 일정"
       ],
       "topic": "Framinganalyse"
     },
@@ -21955,11 +21955,11 @@
     {
       "id": "cloze_c2_0092",
       "level": "c2",
-      "sentenceKo": "＿＿＿가 약하면 나중에 기억을 고를 수 있어요.",
+      "sentenceKo": "＿＿＿가 느슨하면 나중에 기억을 선택적으로 제시할 여지가 생겨요.",
       "answer": "기록 의무",
-      "fullKo": "기록 의무가 약하면 나중에 기억을 고를 수 있어요.",
-      "de": "Ist die Dokumentationspflicht schwach, lässt sich Erinnerung später wählen.",
-      "en": "If the duty to record is weak, memory can be selected later.",
+      "fullKo": "기록 의무가 느슨하면 나중에 기억을 선택적으로 제시할 여지가 생겨요.",
+      "de": "Bei einer laxen Dokumentationspflicht entsteht Spielraum, Erinnerungen später selektiv darzustellen.",
+      "en": "If record-keeping requirements are lax, there is room to present recollections selectively later.",
       "distractors": [
         "양극화",
         "양보",
@@ -21970,11 +21970,11 @@
     {
       "id": "cloze_c2_0093",
       "level": "c2",
-      "sentenceKo": "＿＿＿을 인정하되 기준표를 같이 공개해요.",
+      "sentenceKo": "＿＿＿을 인정하되 그 판단 기준도 함께 공개해요.",
       "answer": "재량 공간",
-      "fullKo": "재량 공간을 인정하되 기준표를 같이 공개해요.",
-      "de": "Ich erkenne den Ermessensraum an und lege die Tabelle offen.",
-      "en": "I admit discretion space and publish the criteria table with it.",
+      "fullKo": "재량 공간을 인정하되 그 판단 기준도 함께 공개해요.",
+      "de": "Ich erkenne den Ermessensspielraum an und lege zugleich die Entscheidungskriterien offen.",
+      "en": "I acknowledge the room for discretion while also making the decision criteria public.",
       "distractors": [
         "우회전",
         "책",
@@ -22015,11 +22015,11 @@
     {
       "id": "cloze_c2_0096",
       "level": "c2",
-      "sentenceKo": "＿＿＿은 근거가 아니라 습관의 이름이에요.",
-      "answer": "관행 인용",
-      "fullKo": "관행 인용은 근거가 아니라 습관의 이름이에요.",
-      "de": "Ein Üblichkeitszitat ist kein Beleg, sondern der Name einer Gewohnheit.",
-      "en": "An appeal to custom is not evidence; it is the name of a habit.",
+      "sentenceKo": "＿＿＿만으로는 결정의 타당성을 입증할 수 없어요.",
+      "answer": "관행에 대한 호소",
+      "fullKo": "관행에 대한 호소만으로는 결정의 타당성을 입증할 수 없어요.",
+      "de": "Die bloße Berufung auf eine gängige Praxis belegt noch nicht, dass eine Entscheidung gerechtfertigt ist.",
+      "en": "An appeal to established practice alone does not establish that a decision is justified.",
       "distractors": [
         "왼쪽",
         "사생활",
@@ -22090,11 +22090,11 @@
     {
       "id": "cloze_c2_0101",
       "level": "c2",
-      "sentenceKo": "＿＿＿을 바꾸면 같은 사건도 다른 도덕이 돼요.",
+      "sentenceKo": "＿＿＿이 바뀌면 같은 사건도 다르게 평가될 수 있어요.",
       "answer": "서술 시점",
-      "fullKo": "서술 시점을 바꾸면 같은 사건도 다른 도덕이 돼요.",
-      "de": "Ein anderer Erzählstandort macht aus demselben Ereignis eine andere Moral.",
-      "en": "A changed narrative standpoint turns the same event into a different moral.",
+      "fullKo": "서술 시점이 바뀌면 같은 사건도 다르게 평가될 수 있어요.",
+      "de": "Wechselt die Erzählperspektive, kann dasselbe Ereignis anders bewertet werden.",
+      "en": "A shift in narrative perspective can change how the same event is judged.",
       "distractors": [
         "용",
         "꽃다발",
@@ -22120,11 +22120,11 @@
     {
       "id": "cloze_c2_0103",
       "level": "c2",
-      "sentenceKo": "＿＿＿를 무대 가장자리에 두면 목소리가 작아져요.",
-      "answer": "증언 위치",
-      "fullKo": "증언 위치를 무대 가장자리에 두면 목소리가 작아져요.",
-      "de": "Liegt der Zeugenort am Bühnenrand, wird die Stimme klein.",
-      "en": "If where testimony sits is the edge of the stage, the voice shrinks.",
+      "sentenceKo": "전시에서 ＿＿＿가 주변부에 치우치면 일부 경험이 덜 주목받을 수 있어요.",
+      "answer": "증언의 배치",
+      "fullKo": "전시에서 증언의 배치가 주변부에 치우치면 일부 경험이 덜 주목받을 수 있어요.",
+      "de": "Werden Zeugnisse in einer Ausstellung am Rand platziert, können manche Erfahrungen weniger Beachtung finden.",
+      "en": "If testimony is placed at the margins of an exhibition, some experiences may receive less attention.",
       "distractors": [
         "변호사",
         "우비",
@@ -22195,11 +22195,11 @@
     {
       "id": "cloze_c2_0108",
       "level": "c2",
-      "sentenceKo": "＿＿＿을 없다고 메우지 않고 빈칸으로 표시해요.",
+      "sentenceKo": "＿＿＿을 추측으로 메우지 않고 빈칸으로 표시해요.",
       "answer": "기록 공백",
-      "fullKo": "기록 공백을 없다고 메우지 않고 빈칸으로 표시해요.",
-      "de": "Eine Archivlücke fülle ich nicht, ich markiere die Leerstelle.",
-      "en": "I do not fill an archive gap; I mark the blank.",
+      "fullKo": "기록 공백을 추측으로 메우지 않고 빈칸으로 표시해요.",
+      "de": "Eine Lücke in den Aufzeichnungen fülle ich nicht mit Vermutungen, sondern markiere sie als Leerstelle.",
+      "en": "I do not fill a gap in the record with guesses; I mark it as a gap.",
       "distractors": [
         "거스름돈",
         "보험금",
@@ -22225,11 +22225,11 @@
     {
       "id": "cloze_c2_0110",
       "level": "c2",
-      "sentenceKo": "＿＿＿를 나란히 두면 승자 역사가 약해져요.",
+      "sentenceKo": "＿＿＿를 나란히 두면 승자의 관점만으로 사건을 설명하기 어려워져요.",
       "answer": "복수 서사",
-      "fullKo": "복수 서사를 나란히 두면 승자 역사가 약해져요.",
-      "de": "Mehrfacherzählung nebeneinander schwächt die Siegergeschichte.",
-      "en": "Plural narrative side by side weakens winner history.",
+      "fullKo": "복수 서사를 나란히 두면 승자의 관점만으로 사건을 설명하기 어려워져요.",
+      "de": "Wenn mehrere Erzählungen nebeneinanderstehen, lässt sich das Ereignis schwerer allein aus Sicht der Sieger erklären.",
+      "en": "Putting multiple narratives side by side makes it harder to explain the event solely from the winners' perspective.",
       "distractors": [
         "어머니",
         "미세먼지",
@@ -22450,11 +22450,11 @@
     {
       "id": "cloze_c2_0125",
       "level": "c2",
-      "sentenceKo": "＿＿＿가 챗봇뿐이면 사람이 없는 것과 같아요.",
+      "sentenceKo": "＿＿＿가 챗봇뿐이라면 담당자에게 직접 설명할 길이 없어요.",
       "answer": "이의 경로",
-      "fullKo": "이의 경로가 챗봇뿐이면 사람이 없는 것과 같아요.",
-      "de": "Ist der Einspruchsweg nur der Chatbot, fehlt der Mensch.",
-      "en": "If the appeal path is only a chatbot, it is as if no person is there.",
+      "fullKo": "이의 경로가 챗봇뿐이라면 담당자에게 직접 설명할 길이 없어요.",
+      "de": "Wenn Einwände nur über einen Chatbot vorgebracht werden können, fehlt ein direkter Weg zu einer zuständigen Person.",
+      "en": "If objections can be raised only through a chatbot, there is no direct way to explain them to a person in charge.",
       "distractors": [
         "민주주의",
         "시어머니",
@@ -22480,11 +22480,11 @@
     {
       "id": "cloze_c2_0127",
       "level": "c2",
-      "sentenceKo": "＿＿＿이 같은 점수를 다시 누르면 재심이 아니에요.",
+      "sentenceKo": "＿＿＿에서 같은 점수만 다시 확인한다면 실질적인 재검토라고 보기 어려워요.",
       "answer": "인간 재심",
-      "fullKo": "인간 재심이 같은 점수를 다시 누르면 재심이 아니에요.",
-      "de": "Drückt die menschliche Nachprüfung dieselbe Note, ist es keine Prüfung.",
-      "en": "If human review just presses the same score, it is not a review.",
+      "fullKo": "인간 재심에서 같은 점수만 다시 확인한다면 실질적인 재검토라고 보기 어려워요.",
+      "de": "Wenn bei der menschlichen Nachprüfung nur derselbe Punktwert bestätigt wird, ist das kaum eine inhaltliche Überprüfung.",
+      "en": "If human review only confirms the same score, it is hard to call it a substantive review.",
       "distractors": [
         "모음",
         "자식",
@@ -22510,11 +22510,11 @@
     {
       "id": "cloze_c2_0129",
       "level": "c2",
-      "sentenceKo": "＿＿＿이 글자 수만 받으면 사진 소명이 막혀요.",
+      "sentenceKo": "＿＿＿에 글만 입력할 수 있다면 사진으로는 소명할 수 없어요.",
       "answer": "증거 제출란",
-      "fullKo": "증거 제출란이 글자 수만 받으면 사진 소명이 막혀요.",
-      "de": "Nimmt das Belegfeld nur Zeichen, bleibt der Fotobeleg draußen.",
-      "en": "If the evidence field takes only characters, photo proof is blocked.",
+      "fullKo": "증거 제출란에 글만 입력할 수 있다면 사진으로는 소명할 수 없어요.",
+      "de": "Wenn im Feld für Belege nur Text eingegeben werden kann, lässt sich ein Foto nicht als Beleg einreichen.",
+      "en": "If the evidence field accepts only text, a photo cannot be submitted as evidence.",
       "distractors": [
         "연결편",
         "전형",
@@ -22525,11 +22525,11 @@
     {
       "id": "cloze_c2_0130",
       "level": "c2",
-      "sentenceKo": "＿＿＿을 점수 없이 이유 세 줄로 적어요.",
+      "sentenceKo": "＿＿＿에는 점수만 나열하지 말고 판단 이유를 간결하게 적어요.",
       "answer": "결정 요약",
-      "fullKo": "결정 요약을 점수 없이 이유 세 줄로 적어요.",
-      "de": "Den Bescheidkern schreibe ich in drei Gründen ohne Punktzahl.",
-      "en": "I write the decision core as three reasons without a score.",
+      "fullKo": "결정 요약에는 점수만 나열하지 말고 판단 이유를 간결하게 적어요.",
+      "de": "In der Zusammenfassung der Entscheidung nenne ich die Gründe knapp, statt nur Punktzahlen aufzulisten.",
+      "en": "In the decision summary, I give the reasons briefly instead of listing only scores.",
       "distractors": [
         "봄",
         "회의실",
@@ -22540,11 +22540,11 @@
     {
       "id": "cloze_c2_0131",
       "level": "c2",
-      "sentenceKo": "＿＿＿이 시간으로만 커도 포기는 강요예요.",
+      "sentenceKo": "＿＿＿이 금전적 부담이 아니라 시간 부담이어도 권리 행사가 어려워질 수 있어요.",
       "answer": "항소 비용",
-      "fullKo": "항소 비용이 시간으로만 커도 포기는 강요예요.",
-      "de": "Wird der Beschwerdeaufwand nur als Zeit groß, ist der Verzicht erzwungen.",
-      "en": "If the cost of appealing grows only as time, giving up is coerced.",
+      "fullKo": "항소 비용이 금전적 부담이 아니라 시간 부담이어도 권리 행사가 어려워질 수 있어요.",
+      "de": "Auch wenn eine Beschwerde vor allem Zeit statt Geld kostet, kann das die Ausübung des Rechts erschweren.",
+      "en": "Even when the cost of an appeal is time rather than money, it can make the right harder to exercise.",
       "distractors": [
         "처분",
         "지속성",
@@ -22555,11 +22555,11 @@
     {
       "id": "cloze_c2_0132",
       "level": "c2",
-      "sentenceKo": "＿＿＿ 날짜가 없으면 이의는 사라져요.",
+      "sentenceKo": "＿＿＿에 기한이 없으면 이의 제기의 진행 상태를 예측하기 어려워요.",
       "answer": "회신 의무",
-      "fullKo": "회신 의무 날짜가 없으면 이의는 사라져요.",
-      "de": "Ohne Datum der Antwortpflicht verschwindet der Einspruch.",
-      "en": "Without a duty-to-reply date the appeal disappears.",
+      "fullKo": "회신 의무에 기한이 없으면 이의 제기의 진행 상태를 예측하기 어려워요.",
+      "de": "Ohne Frist für die Antwortpflicht ist schwer abzusehen, wann mit einer Reaktion auf den Einwand zu rechnen ist.",
+      "en": "Without a deadline for a required reply, it is hard to know when to expect a response to an objection.",
       "distractors": [
         "이의 경로",
         "자동 결정",
@@ -22660,11 +22660,11 @@
     {
       "id": "cloze_c2_0139",
       "level": "c2",
-      "sentenceKo": "＿＿＿을 당사자도 볼 수 있어야 감사가 성립해요.",
+      "sentenceKo": "당사자가 ＿＿＿을 열람할 수 있으면 검증 과정의 투명성이 높아져요.",
       "answer": "접근 기록",
-      "fullKo": "접근 기록을 당사자도 볼 수 있어야 감사가 성립해요.",
-      "de": "Nur wenn Betroffene das Zugriffsprotokoll sehen, trägt die Prüfung.",
-      "en": "An audit holds only if the affected person can also see the access log.",
+      "fullKo": "당사자가 접근 기록을 열람할 수 있으면 검증 과정의 투명성이 높아져요.",
+      "de": "Kann die betroffene Person das Zugriffsprotokoll einsehen, wird das Prüfverfahren transparenter.",
+      "en": "Allowing the affected person to inspect the access log makes the review process more transparent.",
       "distractors": [
         "추적 가능성",
         "변경 이력",
@@ -22705,11 +22705,11 @@
     {
       "id": "cloze_c2_0142",
       "level": "c2",
-      "sentenceKo": "＿＿＿을 결정문에 적어야 재현이 가능해요.",
+      "sentenceKo": "＿＿＿이 결정문에 없으면 나중에 판단 과정을 재현하기 어려워요.",
       "answer": "모델 버전",
-      "fullKo": "모델 버전을 결정문에 적어야 재현이 가능해요.",
-      "de": "Ohne Modellstand im Bescheid ist keine Wiederholung möglich.",
-      "en": "Without the model version on the decision, reproduction is impossible.",
+      "fullKo": "모델 버전이 결정문에 없으면 나중에 판단 과정을 재현하기 어려워요.",
+      "de": "Fehlt die Modellversion im Bescheid, lässt sich der Entscheidungsprozess später nur schwer nachvollziehen oder reproduzieren.",
+      "en": "Without the model version in the decision notice, it may be difficult to reproduce the decision process later.",
       "distractors": [
         "추적 가능성",
         "변경 이력",
@@ -22720,11 +22720,11 @@
     {
       "id": "cloze_c2_0143",
       "level": "c2",
-      "sentenceKo": "＿＿＿을 남기지 않으면 나중에 다른 자료로 변명해요.",
+      "sentenceKo": "＿＿＿이 없으면 당시 어떤 자료를 바탕으로 판단했는지 확인하기 어려워요.",
       "answer": "입력 스냅샷",
-      "fullKo": "입력 스냅샷을 남기지 않으면 나중에 다른 자료로 변명해요.",
-      "de": "Ohne Eingabestand erklärt man später andere Daten.",
-      "en": "Without an input snapshot, later excuses use different data.",
+      "fullKo": "입력 스냅샷이 없으면 당시 어떤 자료를 바탕으로 판단했는지 확인하기 어려워요.",
+      "de": "Ohne Momentaufnahme der Eingabedaten lässt sich später schwer feststellen, auf welcher Datengrundlage die Entscheidung getroffen wurde.",
+      "en": "Without a snapshot of the input data, it is hard to establish what information informed the decision at the time.",
       "distractors": [
         "추적 가능성",
         "변경 이력",
@@ -22735,11 +22735,11 @@
     {
       "id": "cloze_c2_0144",
       "level": "c2",
-      "sentenceKo": "＿＿＿이 계약으로 막히면 공개 감사가 아니에요.",
+      "sentenceKo": "＿＿＿이 계약으로 제한된다면 공개 감사의 신뢰성을 확보하기 어려워요.",
       "answer": "감사 독립",
-      "fullKo": "감사 독립이 계약으로 막히면 공개 감사가 아니에요.",
-      "de": "Ist Prüfunabhängigkeit vertraglich blockiert, ist es keine öffentliche Prüfung.",
-      "en": "If audit independence is blocked by contract, it is not a public audit.",
+      "fullKo": "감사 독립이 계약으로 제한된다면 공개 감사의 신뢰성을 확보하기 어려워요.",
+      "de": "Wenn vertragliche Vorgaben die Unabhängigkeit der Prüfung einschränken, lässt sich Vertrauen in eine öffentliche Prüfung nur schwer herstellen.",
+      "en": "If contractual terms limit audit independence, it is difficult to establish confidence in a public audit.",
       "distractors": [
         "추적 가능성",
         "변경 이력",
@@ -22795,11 +22795,11 @@
     {
       "id": "cloze_c2_0148",
       "level": "c2",
-      "sentenceKo": "＿＿＿이 없으면 오류가 시스템 탓으로만 가요.",
+      "sentenceKo": "＿＿＿이 없으면 오류가 발생했을 때 어떤 주체가 어떤 결정을 내렸는지 확인하기 어려워요.",
       "answer": "책임 매핑",
-      "fullKo": "책임 매핑이 없으면 오류가 시스템 탓으로만 가요.",
-      "de": "Ohne Zuständigkeitskarte wird jeder Fehler nur das System.",
-      "en": "Without an accountability map, every error is blamed only on the system.",
+      "fullKo": "책임 매핑이 없으면 오류가 발생했을 때 어떤 주체가 어떤 결정을 내렸는지 확인하기 어려워요.",
+      "de": "Ohne Zuordnung der Verantwortlichkeiten lässt sich bei einem Fehler schwer nachvollziehen, wer welche Entscheidung getroffen hat.",
+      "en": "Without a map of responsibilities, it is hard to trace who made which decision when an error occurs.",
       "distractors": [
         "추적 가능성",
         "변경 이력",
@@ -24634,8 +24634,8 @@
       "sentenceKo": "월세가 낮아도 난방비를 더하면 ＿＿＿가 높아질 수 있어요.",
       "answer": "총주거비",
       "fullKo": "월세가 낮아도 난방비를 더하면 총주거비가 높아질 수 있어요.",
-      "de": "Auch bei niedriger Kaltmiete können die gesamten Wohnkosten mit der Heizung hoch sein.",
-      "en": "Even with low base rent, heating can make the total housing cost high.",
+      "de": "Auch bei niedriger Miete können die gesamten Wohnkosten einschließlich Heizkosten hoch sein.",
+      "en": "Even if the rent is low, adding heating costs can make total housing costs high.",
       "distractors": [
         "중개료",
         "오류",
@@ -25906,11 +25906,11 @@
     {
       "id": "cloze_c2_0236",
       "level": "c2",
-      "sentenceKo": "보조 도구와 자동 결정의 ＿＿＿를 분명히 해야 책임도 나눌 수 있습니다.",
+      "sentenceKo": "보조 도구와 자동 결정을 나누는 ＿＿＿를 분명히 해야 책임을 구분할 수 있습니다.",
       "answer": "정의의 경계",
-      "fullKo": "보조 도구와 자동 결정의 정의의 경계를 분명히 해야 책임도 나눌 수 있습니다.",
-      "de": "Erst klare Grenzen einer Definition zwischen Hilfsmittel und automatischer Entscheidung ermöglichen eine sinnvolle Verantwortungsverteilung.",
-      "en": "Responsibility can be allocated only when the boundaries of a definition between support tools and automated decisions are clear.",
+      "fullKo": "보조 도구와 자동 결정을 나누는 정의의 경계를 분명히 해야 책임을 구분할 수 있습니다.",
+      "de": "Um Verantwortlichkeiten zu unterscheiden, müssen wir zunächst klar definieren, wo ein Hilfsmittel endet und eine automatisierte Entscheidung beginnt.",
+      "en": "To distinguish responsibilities, we first need a clear definition of where a support tool ends and an automated decision begins.",
       "distractors": [
         "정당화",
         "유예",
@@ -28477,7 +28477,7 @@
       "fullKo": "내일 수업 예습은 벌써 끝냈어요.",
       "answer": "예습",
       "sentenceKo": "내일 수업 ＿＿＿은 벌써 끝냈어요.",
-      "de": "Die Vorbereitung für den Unterricht morgen habe ich schon fertig.",
+      "de": "Mit der Vorbereitung für den Unterricht morgen bin ich schon fertig.",
       "en": "I've already finished preparing for tomorrow's class.",
       "distractors": [
         "주황색",
@@ -35968,8 +35968,8 @@
       ],
       "level": "a2",
       "topic": "Gefühle",
-      "de": "Meine Eltern haben sich über die Erfolgsnachricht sehr gefreut.",
-      "en": "My parents were really pleased about the news that I passed.",
+      "de": "Meine Eltern haben sich sehr über die Nachricht gefreut, dass ich bestanden habe.",
+      "en": "My parents were really happy to hear that I passed.",
       "courseUnitId": "a2_04_feelings_health"
     },
     {
@@ -36036,7 +36036,7 @@
       ],
       "level": "a2",
       "topic": "Beschreibung",
-      "de": "Wahnsinn, Sujin, Sie sind wirklich klug!",
+      "de": "Wow, Sujin, du bist echt clever!",
       "en": "Wow, Sujin, you're really smart!",
       "courseUnitId": "a2_01_haeyo_transition"
     },
@@ -36342,8 +36342,8 @@
       ],
       "level": "a2",
       "topic": "Einkaufen",
-      "de": "Entschuldigung, machen Sie das bitte fertig.",
-      "en": "Excuse me, could you total it up, please.",
+      "de": "Entschuldigung, ich würde gern bezahlen.",
+      "en": "Excuse me, I would like to pay, please.",
       "courseUnitId": "a2_05_delivery_services"
     },
     {
@@ -36716,8 +36716,8 @@
       ],
       "level": "a2",
       "topic": "Kommunikation",
-      "de": "Daniel, ich habe dir eine Nachricht geschickt, hast du sie gesehen?",
-      "en": "Daniel, I sent you a message, did you check it?",
+      "de": "Daniel, ich habe dir eine Nachricht geschickt. Hast du sie gesehen?",
+      "en": "Daniel, I sent you a message. Have you seen it?",
       "courseUnitId": "a2_03_chat_relationships"
     },
     {
