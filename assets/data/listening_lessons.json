@@ -7406,12 +7406,12 @@
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "상대의 말: “A는 창가 쪽이에요.” 과제: 자리를 잘못 본 것을 인정하고 바로 옮기겠다고 하세요. 이 목적에 맞는 응답을 고르세요.",
+            "ko": "상대의 말: “A는 창가 쪽이에요.” 과제: 자리를 알려 준 사람에게 감사하고 바로 옮기겠다고 하세요. 이 목적에 맞는 응답을 고르세요.",
             "de": "Dein Gegenüber sagt: „A는 창가 쪽이에요.“ (A ist am Fenster.). Aufgabe: Bedanke dich und kündige den sofortigen Platzwechsel an. Welche Antwort erfüllt dieses Ziel?",
             "en": "The other person says: “A는 창가 쪽이에요.” (A is the window seat.). Task: Thank the person and say you will move immediately. Which response fulfills this goal?"
           },
           "explanation": {
-            "ko": "과제의 목적은 “자리를 잘못 본 것을 인정하고 바로 옮기겠다고 하세요.”예요. 원문 응답 “알려 주셔서 감사합니다. 바로 옮길게요.”가 이 목적을 이뤄요. “번호는 틀렸지만 그냥 여기 앉을게요.”와 “12B가 제 자리니까 옮기지 않을게요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
+            "ko": "과제의 목적은 “자리를 알려 준 사람에게 감사하고 바로 옮기겠다고 하세요.”예요. 원문 응답 “알려 주셔서 감사합니다. 바로 옮길게요.”가 이 목적을 이뤄요. “번호는 틀렸지만 그냥 여기 앉을게요.”와 “12B가 제 자리니까 옮기지 않을게요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
             "de": "Das Ziel lautet: Bedanke dich und kündige den sofortigen Platzwechsel an. Die Quelläußerung „알려 주셔서 감사합니다. 바로 옮길게요.“ (Danke für den Hinweis. Ich setze mich sofort um.) erfüllt es. „Die Nummer ist falsch, aber ich bleibe hier.“ und „12B ist mein Platz, ich wechsle nicht.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
             "en": "The goal is: Thank the person and say you will move immediately. The source response “알려 주셔서 감사합니다. 바로 옮길게요.” (Thanks for letting me know. I'll move right away.) fulfills it. “The number is wrong, but I will stay here.” and “12B is my seat, so I will not move.” change a requested action, fact, or condition. Such replies may be valid in other situations."
           },
@@ -9421,14 +9421,14 @@
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "상대의 말: “저는 제 계획이 싫다는 뜻인 줄 알았어요.” 과제: 큰 모임과는 달리 수진과 저녁 먹는 것은 좋다고 안심시키세요. 이 목적에 맞는 응답을 고르세요.",
-            "de": "Dein Gegenüber sagt: „저는 제 계획이 싫다는 뜻인 줄 알았어요.“ (Ich dachte, du wolltest sagen, dass dir mein Plan nicht gefällt.). Aufgabe: Versichere, dass ein Abendessen mit Sujin im Gegensatz zur großen Feier willkommen ist. Welche Antwort erfüllt dieses Ziel?",
-            "en": "The other person says: “저는 제 계획이 싫다는 뜻인 줄 알았어요.” (I thought you specifically didn't like my plan.). Task: Reassure Sujin that dinner together is welcome, unlike a large gathering. Which response fulfills this goal?"
+            "ko": "상대의 말: “저는 제 계획이 싫다는 뜻인 줄 알았어요.” 과제: 수진과 저녁 먹는 것은 좋다고 안심시키세요. 이 목적에 맞는 응답을 고르세요.",
+            "de": "Dein Gegenüber sagt: „저는 제 계획이 싫다는 뜻인 줄 알았어요.“ (Ich dachte, du wolltest sagen, dass dir mein Plan nicht gefällt.). Aufgabe: Versichere Sujin, dass du gern mit ihr zu Abend essen möchtest. Welche Antwort erfüllt dieses Ziel?",
+            "en": "The other person says: “저는 제 계획이 싫다는 뜻인 줄 알았어요.” (I thought you specifically didn't like my plan.). Task: Reassure Sujin that you'd like to have dinner with her. Which response fulfills this goal?"
           },
           "explanation": {
-            "ko": "과제의 목적은 “큰 모임과는 달리 수진과 저녁 먹는 것은 좋다고 안심시키세요.”예요. 원문 응답 “수진이랑 저녁 먹는 건 정말 좋아요.”가 이 목적을 이뤄요. “수진이랑 저녁 먹는 것도 싫어요.”와 “사람이 많을수록 좋으니까 큰 파티로 해요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
-            "de": "Das Ziel lautet: Versichere, dass ein Abendessen mit Sujin im Gegensatz zur großen Feier willkommen ist. Die Quelläußerung „수진이랑 저녁 먹는 건 정말 좋아요.“ (Mit dir zu Abend zu essen fände ich wirklich schön.) erfüllt es. „Auch mit Sujin möchte ich nicht essen.“ und „Je mehr Leute, desto besser. Machen wir eine große Feier.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
-            "en": "The goal is: Reassure Sujin that dinner together is welcome, unlike a large gathering. The source response “수진이랑 저녁 먹는 건 정말 좋아요.” (I'd really like to have dinner with you.) fulfills it. “I do not want dinner with Sujin either.” and “The more people, the better; let us have a large party.” change a requested action, fact, or condition. Such replies may be valid in other situations."
+            "ko": "과제의 목적은 “수진과 저녁 먹는 것은 좋다고 안심시키세요.”예요. 원문 응답 “수진이랑 저녁 먹는 건 정말 좋아요.”가 이 목적을 이뤄요. “수진이랑 저녁 먹는 것도 싫어요.”와 “사람이 많을수록 좋으니까 큰 파티로 해요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
+            "de": "Das Ziel lautet: Versichere Sujin, dass du gern mit ihr zu Abend essen möchtest. Die Quelläußerung „수진이랑 저녁 먹는 건 정말 좋아요.“ (Mit dir zu Abend zu essen fände ich wirklich schön.) erfüllt es. „Auch mit Sujin möchte ich nicht essen.“ und „Je mehr Leute, desto besser. Machen wir eine große Feier.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
+            "en": "The goal is: Reassure Sujin that you'd like to have dinner with her. The source response “수진이랑 저녁 먹는 건 정말 좋아요.” (I'd really like to have dinner with you.) fulfills it. “I do not want dinner with Sujin either.” and “The more people, the better; let us have a large party.” change a requested action, fact, or condition. Such replies may be valid in other situations."
           },
           "sourceIds": [
             "birthday_expectation_gap"
@@ -15056,9 +15056,9 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.”예요. 따라서 “직원의 웃음만으로 촬영 요청에 동의했다고 단정할 수 없어요.”가 맞아요. “직원이 웃었으므로 춤을 부탁해도 괜찮았다는 게 확정돼요.”와 “방송을 살리려는 의도면 먼저 물어볼 필요가 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.“ (Stimmt. Nur weil er gelacht hat, heißt das nicht, dass er einverstanden war.). Daraus folgt: Das Lächeln des Mitarbeiters beweist keine Zustimmung zur Aufnahme. Die Alternativen „Das Lächeln bestätigt eindeutig, dass der Tanzwunsch in Ordnung war.“ und „Die Absicht, die Sendung zu beleben, macht vorheriges Fragen unnötig.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.” (You're right. He smiled, but that may not have meant he agreed.). This supports: The employee's smile does not establish consent to the filming request. The alternatives “The smile conclusively proves the dance request was acceptable.” and “Trying to improve the broadcast removes the need to ask first.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.”예요. 따라서 “직원의 웃음만으로 춤 요청에 동의했다고 단정할 수 없어요.”가 맞아요. “직원이 웃었으므로 춤을 부탁해도 괜찮았다는 게 확정돼요.”와 “방송을 살리려는 의도면 먼저 물어볼 필요가 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
+            "de": "Der Beleg lautet: „맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.“ (Stimmt. Nur weil er gelacht hat, heißt das nicht, dass er einverstanden war.). Daraus folgt: Dass die Person gelächelt hat, heißt nicht, dass sie dem Tanz zugestimmt hat. Die Alternativen „Das Lächeln bestätigt eindeutig, dass der Tanzwunsch in Ordnung war.“ und „Die Absicht, die Sendung zu beleben, macht vorheriges Fragen unnötig.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "en": "The evidence is “맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.” (You're right. He smiled, but that may not have meant he agreed.). This supports: The employee's smile doesn't mean they agreed to dance. The alternatives “The smile conclusively proves the dance request was acceptable.” and “Trying to improve the broadcast removes the need to ask first.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "fremdschaemen_live"
@@ -15066,9 +15066,9 @@
           "evidenceKo": "맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.",
           "options": [
             {
-              "ko": "직원의 웃음만으로 촬영 요청에 동의했다고 단정할 수 없어요.",
-              "de": "Das Lächeln des Mitarbeiters beweist keine Zustimmung zur Aufnahme.",
-              "en": "The employee's smile does not establish consent to the filming request."
+              "ko": "직원의 웃음만으로 춤 요청에 동의했다고 단정할 수 없어요.",
+              "de": "Dass die Person gelächelt hat, heißt nicht, dass sie dem Tanz zugestimmt hat.",
+              "en": "The employee's smile doesn't mean they agreed to dance."
             },
             {
               "ko": "직원이 웃었으므로 춤을 부탁해도 괜찮았다는 게 확정돼요.",
@@ -15152,9 +15152,9 @@
             "en": "Imagine someone summarizes the conversation as follows: “The smile conclusively proves the dance request was acceptable.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.”예요. 따라서 “직원의 웃음만으로 촬영 요청에 동의했다고 단정할 수 없어요.”가 맞아요. “직원이 웃었으므로 춤을 부탁해도 괜찮았다는 게 확정돼요.”와 “방송을 살리려는 의도면 먼저 물어볼 필요가 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.“ (Stimmt. Nur weil er gelacht hat, heißt das nicht, dass er einverstanden war.). Daraus folgt: Das Lächeln des Mitarbeiters beweist keine Zustimmung zur Aufnahme. Die Alternativen „Das Lächeln bestätigt eindeutig, dass der Tanzwunsch in Ordnung war.“ und „Die Absicht, die Sendung zu beleben, macht vorheriges Fragen unnötig.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.” (You're right. He smiled, but that may not have meant he agreed.). This supports: The employee's smile does not establish consent to the filming request. The alternatives “The smile conclusively proves the dance request was acceptable.” and “Trying to improve the broadcast removes the need to ask first.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.”예요. 따라서 “직원의 웃음만으로 춤 요청에 동의했다고 단정할 수 없어요.”가 맞아요. “직원이 웃었으므로 춤을 부탁해도 괜찮았다는 게 확정돼요.”와 “방송을 살리려는 의도면 먼저 물어볼 필요가 없어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
+            "de": "Der Beleg lautet: „맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.“ (Stimmt. Nur weil er gelacht hat, heißt das nicht, dass er einverstanden war.). Daraus folgt: Dass die Person gelächelt hat, heißt nicht, dass sie dem Tanz zugestimmt hat. Die Alternativen „Das Lächeln bestätigt eindeutig, dass der Tanzwunsch in Ordnung war.“ und „Die Absicht, die Sendung zu beleben, macht vorheriges Fragen unnötig.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "en": "The evidence is “맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.” (You're right. He smiled, but that may not have meant he agreed.). This supports: The employee's smile doesn't mean they agreed to dance. The alternatives “The smile conclusively proves the dance request was acceptable.” and “Trying to improve the broadcast removes the need to ask first.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "fremdschaemen_live"
@@ -15162,9 +15162,9 @@
           "evidenceKo": "맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.",
           "options": [
             {
-              "ko": "직원의 웃음만으로 촬영 요청에 동의했다고 단정할 수 없어요.",
-              "de": "Das Lächeln des Mitarbeiters beweist keine Zustimmung zur Aufnahme.",
-              "en": "The employee's smile does not establish consent to the filming request."
+              "ko": "직원의 웃음만으로 춤 요청에 동의했다고 단정할 수 없어요.",
+              "de": "Dass die Person gelächelt hat, heißt nicht, dass sie dem Tanz zugestimmt hat.",
+              "en": "The employee's smile doesn't mean they agreed to dance."
             },
             {
               "ko": "직원이 웃었으므로 춤을 부탁해도 괜찮았다는 게 확정돼요.",

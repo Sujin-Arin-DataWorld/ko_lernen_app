@@ -22,6 +22,17 @@
 | C2 `0093` / `0099` / `0097` | 책임 분산과 서명란 길이가 논리적으로 연결되지 않음. | `책임 분산이 심하면 최종 책임자를 서명란에 명시해요.` / `If responsibility is widely dispersed, I name the person ultimately responsible in the signature field.` / `Wenn die Verantwortung stark verteilt ist, halte ich im Unterschriftsfeld fest, wer letztlich verantwortlich ist.` 표제어 `책임 분산` 유지. |
 | C2 `0095` / `0101` / `0099` | 위임장 부재가 자동으로 결정 취소 가능성을 만든다는 법적 단정은 근거 없음. | `권한 위임장 없이 대행하면 그 결정의 권한 근거가 불분명해질 수 있어요.` / `Without a written delegation of authority, the basis for that decision may be unclear.` / `Ohne schriftliche Übertragung der Befugnis kann unklar bleiben, auf welcher Grundlage diese Entscheidung getroffen wurde.` 실제 법적 효력 설명으로 사용하지 않음. |
 
+### 적용된 단어·게임 번역 교정 (2026-10-01)
+
+A1 `vocab_a1_0826`의 한국어 예문은 **자전거** 가격을 묻는데 영어만
+`watch`라고 했다. 영어를 `This bicycle costs one million won.`으로 고치고
+연결된 `satz_a1_0741`·`cloze_a1_0760`의 영어 문제도 같은 뜻으로 맞췄다.
+기존 승인 초안은 보존하고 `promoted_copy_revisions_20260822.json`에
+세 행의 변경 필드와 전후 지문을 후속 카피 수정으로 기록했다.
+`validate_promoted_batch.py --manifest ...batch_30_a1_reinforcement_manifest.json`
+검증은 186개 레코드에 대해 통과했다. 한국어 발화는 바뀌지 않아 새 TTS
+키가 필요하지 않다.
+
 ## 장면·표제어를 먼저 잠가야 하는 묶음
 
 | 레벨·ID (`vocab → Satz → Cloze`) | 확인한 문제와 다음 판단 |

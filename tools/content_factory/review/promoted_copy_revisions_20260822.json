@@ -12,7 +12,8 @@
     "tools/content_factory/drafts/batch_20_manifest.json",
     "tools/content_factory/drafts/batch_03_manifest.json",
     "tools/content_factory/drafts/batch_05_manifest.json",
-    "tools/content_factory/drafts/batch_12_manifest.json"
+    "tools/content_factory/drafts/batch_12_manifest.json",
+    "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json"
   ],
   "method": "Beyond Humanizer promoted-copy reconciliation",
   "humanReviewStatus": "required_before_native-quality-claim",
@@ -7676,6 +7677,39 @@
       "beforeSha256": "60c377bac4868d79b5c5e021310b07844137cfd439dc9bb13c4824716cb78d2d",
       "afterSha256": "5b288361812f5218405f18a64ec3f75abc602d4a3f24462ef30c398c97ae7c62",
       "reviewReceipt": "tools/content_factory/review/batch_25_release_reconciliation_20260922.json"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0826",
+      "level": "a1",
+      "fields": [
+        "example_english"
+      ],
+      "beforeSha256": "515f68f77e66d0255e6faa58facd894d86d38f5a8b5f5519af4850c2b1d2a2dd",
+      "afterSha256": "887551f81076c63cffdf6dcd6588985801b70cf8182c3f054edb414052eebe5d"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0760",
+      "level": "a1",
+      "fields": [
+        "en"
+      ],
+      "beforeSha256": "18ad8ffc1cd875f29334720c8370cfb4b29fe4efc19d54bc6c99c550dde514cd",
+      "afterSha256": "6ffe8456e47c666121ac652c02e330cd07c11dfcd5f82a6547bc2a13a2db3eb7"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0741",
+      "level": "a1",
+      "fields": [
+        "promptEn"
+      ],
+      "beforeSha256": "14e4104e273943faf1a2f6bb7de7a7f2bf8381db5ad66ffc010849d7b235392e",
+      "afterSha256": "08a503c3b1c91e9a632c1589672805c37660d72daa47f56cc2dc92c2bede2eb9"
     }
   ],
   "routingEntries": [
