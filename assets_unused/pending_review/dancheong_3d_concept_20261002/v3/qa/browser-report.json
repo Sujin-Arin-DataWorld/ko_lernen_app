@@ -1,0 +1,2637 @@
+{
+  "date": "2026-10-02",
+  "scope": "review prototype; not Flutter runtime",
+  "browser": "Codex in-app browser",
+  "cases": [
+    {
+      "case": "de-home-390",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "today",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "de-learn-390",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "learn",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "de-listen-390",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "listen",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      },
+      "checkInitiallyDisabled": true
+    },
+    {
+      "case": "de-wrong-listening",
+      "feedback": [
+        "Tippe auf Play und hör zu.",
+        "Hör auf die Einladung am Satzende. Es geht darum, gemeinsam auszugehen."
+      ]
+    },
+    {
+      "case": "keyboard-arrow",
+      "selected": "true"
+    },
+    {
+      "case": "tts-availability",
+      "audioState": [
+        "Tippe auf Play und hör zu."
+      ]
+    },
+    {
+      "case": "hint-escape",
+      "closed": true
+    },
+    {
+      "case": "de-conversation-390",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "conversation",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "natural-decline-feedback",
+      "text": "Das ist eine natürliche Absage. In dieser Aufgabe möchtest du dem Treffen zustimmen."
+    },
+    {
+      "case": "translation-hidden",
+      "translationNodes": 0
+    },
+    {
+      "case": "de-dialogue-second-turn",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "conversation",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "de-result-completed",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "result",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      },
+      "earned": 1,
+      "sampleBadge": 0
+    },
+    {
+      "case": "five-tab-Spiele",
+      "measure": {
+        "brokenImages": [
+          "assets/speaker.png",
+          "assets/book.png",
+          "assets/conversation.png",
+          "assets/speaker.png"
+        ],
+        "font": "loaded",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "games",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "five-tab-Hanok",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "hanok",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "five-tab-Gye",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "gye",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "en-today-390",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "en",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "today",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "en-learn-390",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "en",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "learn",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "en-listen-390",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "en",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "listen",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "en-conversation-390",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "en",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "conversation",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "ko-today-390",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "ko",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "today",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "ko-learn-390",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "ko",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "learn",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "ko-listen-390",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "ko",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "listen",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "ko-conversation-390",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "ko",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "conversation",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "en-result-completed-390",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "en",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "result",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      },
+      "earned": 1
+    },
+    {
+      "case": "ko-result-completed-390",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "ko",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "result",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      },
+      "earned": 1
+    },
+    {
+      "case": "de-listen-large-reduced-375",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "listen",
+        "viewport": {
+          "h": 812,
+          "w": 375
+        }
+      },
+      "motion": {
+        "pageAnimation": "none",
+        "transition": "0s"
+      }
+    },
+    {
+      "case": "touch-preview-state",
+      "state": "true"
+    },
+    {
+      "case": "touch-press-state",
+      "measure": {
+        "cardTransform": "matrix(1, 0, 0, 1, 0, 3)",
+        "objectTransform": "matrix3d(0.977017, -0.0342015, 0.0683197, -0.000151822, 0.0341182, 0.979403, 0.00238578, -5.30173e-06, -0.0697565, 0, 0.997564, -0.00221681, 0.0348145, 0.999391, 0.00243447, 0.999995)"
+      }
+    },
+    {
+      "case": "touch-motion-reduced",
+      "styles": {
+        "animation": "none",
+        "card": "none",
+        "object": "none"
+      }
+    },
+    {
+      "case": "de-landscape-844",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "conversation",
+        "viewport": {
+          "h": 390,
+          "w": 844
+        }
+      }
+    },
+    {
+      "case": "tts-unavailable-truthful",
+      "status": [
+        "Die koreanische Wiedergabe ist hier nicht verfügbar. Du kannst den Satz lesen und weiterüben."
+      ],
+      "animated": 0
+    },
+    {
+      "case": "text-fallback",
+      "sentence": "커피 마시러 갈래?"
+    },
+    {
+      "case": "post-touch-motion-navigation",
+      "measure": {
+        "brokenImages": [],
+        "font": "loaded",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "listen",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      },
+      "stuckPress": 0
+    }
+  ],
+  "limits": [
+    "Native mobile touch proximity is unavailable; preview uses hover/focus and touch contact.",
+    "OS TTS playback unavailable in this test environment; text fallback observed, sound animation stayed stopped.",
+    "No ASR, pronunciation score, actual progress/reward, native haptics, or production device performance verified."
+  ],
+  "liveCatalogSourceHead": "797160b0664172b2956be0e202bb5df9b246b65c",
+  "catalogCases": [
+    {
+      "case": "catalog-packs-de-A1-390",
+      "measure": {
+        "broken": [],
+        "cards": 62,
+        "font": true,
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-A2",
+      "measure": {
+        "broken": [],
+        "cards": 44,
+        "font": true,
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-B1",
+      "measure": {
+        "broken": [],
+        "cards": 56,
+        "font": true,
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-B2",
+      "measure": {
+        "broken": [],
+        "cards": 50,
+        "font": true,
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-C1",
+      "measure": {
+        "broken": [],
+        "cards": 20,
+        "font": true,
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-C2",
+      "measure": {
+        "broken": [],
+        "cards": 20,
+        "font": true,
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-search-Korean",
+      "measure": {
+        "broken": [],
+        "cards": 1,
+        "font": true,
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-source-crop-comparison",
+      "measure": {
+        "broken": [],
+        "dialog": true,
+        "sizes": [
+          {
+            "h": 213,
+            "w": 284
+          },
+          {
+            "h": 177.5,
+            "w": 284
+          },
+          {
+            "h": 62.5,
+            "w": 100
+          }
+        ]
+      }
+    },
+    {
+      "case": "catalog-empty-search",
+      "measure": {
+        "broken": [],
+        "cards": 0,
+        "font": true,
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      },
+      "text": true
+    },
+    {
+      "case": "catalog-filter-words",
+      "measure": {
+        "broken": [],
+        "cards": 4,
+        "font": true,
+        "heading": "Lernen",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-filter-listen",
+      "measure": {
+        "broken": [],
+        "cards": 4,
+        "font": true,
+        "heading": "Lernen",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-filter-hangul",
+      "measure": {
+        "broken": [],
+        "cards": 2,
+        "font": true,
+        "heading": "Lernen",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-filter-review",
+      "measure": {
+        "broken": [],
+        "cards": 2,
+        "font": true,
+        "heading": "Lernen",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-filter-all",
+      "measure": {
+        "broken": [],
+        "cards": 12,
+        "font": true,
+        "heading": "Lernen",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-learn-de",
+      "measure": {
+        "broken": [],
+        "cards": 12,
+        "font": true,
+        "heading": "Lernen",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-games-de",
+      "measure": {
+        "broken": [],
+        "cards": 7,
+        "font": true,
+        "heading": "Spiele",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-learn-en",
+      "measure": {
+        "broken": [],
+        "cards": 12,
+        "font": true,
+        "heading": "Learn",
+        "locale": "en",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-games-en",
+      "measure": {
+        "broken": [],
+        "cards": 7,
+        "font": true,
+        "heading": "Games",
+        "locale": "en",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-learn-ko",
+      "measure": {
+        "broken": [],
+        "cards": 12,
+        "font": true,
+        "heading": "학습",
+        "locale": "ko",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-games-ko",
+      "measure": {
+        "broken": [],
+        "cards": 7,
+        "font": true,
+        "heading": "게임",
+        "locale": "ko",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-activity-to-packs-ko",
+      "measure": {
+        "broken": [],
+        "cards": 62,
+        "font": true,
+        "heading": "단어 팩",
+        "locale": "ko",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-packs-en",
+      "measure": {
+        "broken": [],
+        "cards": 62,
+        "font": true,
+        "heading": "Vocabulary packs",
+        "locale": "en",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "catalog-empty-search-en",
+      "measure": {
+        "broken": [],
+        "cards": 0,
+        "font": true,
+        "heading": "Vocabulary packs",
+        "locale": "en",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      },
+      "message": true
+    },
+    {
+      "case": "catalog-packs-large-reduced-375",
+      "measure": {
+        "broken": [],
+        "cards": 62,
+        "font": true,
+        "heading": "Wortpakete",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 844,
+          "w": 375
+        }
+      },
+      "motion": {
+        "transform": "none",
+        "transition": "0s"
+      }
+    },
+    {
+      "case": "catalog-games-landscape",
+      "measure": {
+        "broken": [],
+        "cards": 7,
+        "font": true,
+        "heading": "Spiele",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 390,
+          "w": 844
+        }
+      }
+    },
+    {
+      "case": "catalog-studio-desktop-1280",
+      "measure": {
+        "broken": [],
+        "cards": 62,
+        "font": true,
+        "heading": "Wortpakete",
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "viewport": {
+          "h": 960,
+          "w": 1280
+        }
+      }
+    },
+    {
+      "case": "catalog-example-completion-outside-image",
+      "measure": {
+        "completion": "✓ Abgeschlossen",
+        "insideArt": false
+      }
+    },
+    {
+      "case": "catalog-comparison-desktop",
+      "measure": {
+        "broken": [],
+        "dialog": true,
+        "sizes": [
+          {
+            "h": 326.25,
+            "w": 435
+          },
+          {
+            "h": 271.875,
+            "w": 435
+          },
+          {
+            "h": 62.5,
+            "w": 100
+          }
+        ]
+      }
+    },
+    {
+      "case": "five-screen-gallery",
+      "measure": {
+        "broken": [],
+        "images": 5,
+        "overflow": false
+      }
+    },
+    {
+      "case": "catalog-board-desktop",
+      "measure": {
+        "broken": [],
+        "images": 3,
+        "overflow": false
+      }
+    }
+  ],
+  "embeddedLiveContentCases": [
+    {
+      "case": "main-learn-live-13-de",
+      "measure": {
+        "broken": [],
+        "heading": "Lernen",
+        "items": [
+          "course",
+          "hangul",
+          "calligraphy",
+          "pronunciation",
+          "vocab_packs",
+          "srs",
+          "my_words",
+          "grammar",
+          "book_capture",
+          "listening",
+          "scenarios",
+          "smalltalk",
+          "word_web"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "main-learn-to-real-packs",
+      "measure": {
+        "broken": [],
+        "heading": "Wortpakete",
+        "items": [
+          "a1_greetings_1",
+          "a1_greetings_2",
+          "a1_self_intro",
+          "a1_family_1",
+          "a1_family_2",
+          "a1_numbers_1",
+          "a1_numbers_2",
+          "a1_numbers_3",
+          "a1_time_1",
+          "a1_time_2",
+          "a1_time_3",
+          "a1_body",
+          "a1_colors",
+          "a1_food_1",
+          "a1_food_2",
+          "a1_position",
+          "a1_daily_1",
+          "a1_daily_2",
+          "a1_daily_3",
+          "a1_daily_4",
+          "a1_descriptions",
+          "a1_transport",
+          "a1_misc_1",
+          "a1_misc_2",
+          "a1_misc_3",
+          "a1_misc_4",
+          "a1_partner_meet_names_1",
+          "a1_partner_table_basic_1",
+          "a1_partner_seollal_basic_1",
+          "a1_post_office_1",
+          "a1_weekend_promise_1",
+          "a1_sorry_thanks_1",
+          "a1_city_services_2026_1",
+          "a1_first_class_1",
+          "a1_hobbies_1",
+          "a1_nature_people_1",
+          "a1_repair_language_1",
+          "a1_time_family_1",
+          "a1_home_daily_1",
+          "a1_particles_in_use_1",
+          "a1_payment_delivery_1",
+          "a1_months_1",
+          "a1_countries_1",
+          "a1_korean_food_1",
+          "a1_korean_places_1",
+          "a1_belongings_1",
+          "a1_places_buildings_1",
+          "a1_time_expressions_1",
+          "a1_feelings_talk_1",
+          "a1_culture_hobbies_1",
+          "a1_health_food_1",
+          "a1_school_work_1",
+          "a1_verbs_daily_1",
+          "a1_adjectives_1",
+          "a1_adverbs_1",
+          "a1_pronouns_1",
+          "a1_counters_1",
+          "a1_determiners_1",
+          "a1_verbs_daily_2",
+          "a1_adjectives_2",
+          "a1_adverbs_2",
+          "a1_verbs_daily_3"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "main-games-live-8-de",
+      "measure": {
+        "broken": [],
+        "heading": "Spiele",
+        "items": [
+          "daily_game",
+          "chosung",
+          "syllable_cross",
+          "cloze",
+          "speed_match",
+          "sentence_arcade",
+          "kkeunmari",
+          "custom_practice"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "main-learn-live-13-en",
+      "measure": {
+        "broken": [],
+        "heading": "Learn",
+        "items": [
+          "course",
+          "hangul",
+          "calligraphy",
+          "pronunciation",
+          "vocab_packs",
+          "srs",
+          "my_words",
+          "grammar",
+          "book_capture",
+          "listening",
+          "scenarios",
+          "smalltalk",
+          "word_web"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "main-games-live-8-en",
+      "measure": {
+        "broken": [],
+        "heading": "Games",
+        "items": [
+          "daily_game",
+          "chosung",
+          "syllable_cross",
+          "cloze",
+          "speed_match",
+          "sentence_arcade",
+          "kkeunmari",
+          "custom_practice"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "main-learn-live-13-ko",
+      "measure": {
+        "broken": [],
+        "heading": "학습",
+        "items": [
+          "course",
+          "hangul",
+          "calligraphy",
+          "pronunciation",
+          "vocab_packs",
+          "srs",
+          "my_words",
+          "grammar",
+          "book_capture",
+          "listening",
+          "scenarios",
+          "smalltalk",
+          "word_web"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "main-games-live-8-ko",
+      "measure": {
+        "broken": [],
+        "heading": "게임",
+        "items": [
+          "daily_game",
+          "chosung",
+          "syllable_cross",
+          "cloze",
+          "speed_match",
+          "sentence_arcade",
+          "kkeunmari",
+          "custom_practice"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "main-catalog-to-listening",
+      "heading": "Was meint Sujin?"
+    },
+    {
+      "case": "main-packs-390",
+      "measure": {
+        "broken": [],
+        "heading": "Wortpakete",
+        "items": [
+          "a1_greetings_1",
+          "a1_greetings_2",
+          "a1_self_intro",
+          "a1_family_1",
+          "a1_family_2",
+          "a1_numbers_1",
+          "a1_numbers_2",
+          "a1_numbers_3",
+          "a1_time_1",
+          "a1_time_2",
+          "a1_time_3",
+          "a1_body",
+          "a1_colors",
+          "a1_food_1",
+          "a1_food_2",
+          "a1_position",
+          "a1_daily_1",
+          "a1_daily_2",
+          "a1_daily_3",
+          "a1_daily_4",
+          "a1_descriptions",
+          "a1_transport",
+          "a1_misc_1",
+          "a1_misc_2",
+          "a1_misc_3",
+          "a1_misc_4",
+          "a1_partner_meet_names_1",
+          "a1_partner_table_basic_1",
+          "a1_partner_seollal_basic_1",
+          "a1_post_office_1",
+          "a1_weekend_promise_1",
+          "a1_sorry_thanks_1",
+          "a1_city_services_2026_1",
+          "a1_first_class_1",
+          "a1_hobbies_1",
+          "a1_nature_people_1",
+          "a1_repair_language_1",
+          "a1_time_family_1",
+          "a1_home_daily_1",
+          "a1_particles_in_use_1",
+          "a1_payment_delivery_1",
+          "a1_months_1",
+          "a1_countries_1",
+          "a1_korean_food_1",
+          "a1_korean_places_1",
+          "a1_belongings_1",
+          "a1_places_buildings_1",
+          "a1_time_expressions_1",
+          "a1_feelings_talk_1",
+          "a1_culture_hobbies_1",
+          "a1_health_food_1",
+          "a1_school_work_1",
+          "a1_verbs_daily_1",
+          "a1_adjectives_1",
+          "a1_adverbs_1",
+          "a1_pronouns_1",
+          "a1_counters_1",
+          "a1_determiners_1",
+          "a1_verbs_daily_2",
+          "a1_adjectives_2",
+          "a1_adverbs_2",
+          "a1_verbs_daily_3"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "main-actual-learn-large-reduced-375",
+      "measure": {
+        "broken": [],
+        "heading": "Lernen",
+        "items": [
+          "course",
+          "hangul",
+          "calligraphy",
+          "pronunciation",
+          "vocab_packs",
+          "srs",
+          "my_words",
+          "grammar",
+          "book_capture",
+          "listening",
+          "scenarios",
+          "smalltalk",
+          "word_web"
+        ],
+        "smallControls": []
+      },
+      "motion": {
+        "transform": "none",
+        "transition": "0s"
+      }
+    },
+    {
+      "case": "embedded-page-no-extra-scrollbar",
+      "measure": {
+        "bodyTop": 0,
+        "clientHeight": 722,
+        "scrollHeight": 722
+      }
+    }
+  ],
+  "note": "Initial cases predate integration of the live catalog. Embedded live-content cases verify the final Lernen, Spiele and Packs entries. Artwork captures were regenerated after image decode and font readiness. This is browser review QA, not Flutter/native-device QA.",
+  "finalScreenCases": [
+    {
+      "case": "final-today-de",
+      "measure": {
+        "brokenImages": [],
+        "font": true,
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "today",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "final-listen-de",
+      "measure": {
+        "brokenImages": [],
+        "font": true,
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "listen",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "final-conversation-de",
+      "measure": {
+        "brokenImages": [],
+        "font": true,
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "conversation",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "final-earned-result-de",
+      "measure": {
+        "brokenImages": [],
+        "font": true,
+        "locale": "de",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "result",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      },
+      "earned": 1
+    },
+    {
+      "case": "final-today-en",
+      "measure": {
+        "brokenImages": [],
+        "font": true,
+        "locale": "en",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "today",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "final-listen-en",
+      "measure": {
+        "brokenImages": [],
+        "font": true,
+        "locale": "en",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "listen",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "final-conversation-en",
+      "measure": {
+        "brokenImages": [],
+        "font": true,
+        "locale": "en",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "conversation",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "final-earned-result-en",
+      "measure": {
+        "brokenImages": [],
+        "font": true,
+        "locale": "en",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "result",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      },
+      "earned": 1
+    },
+    {
+      "case": "final-today-ko",
+      "measure": {
+        "brokenImages": [],
+        "font": true,
+        "locale": "ko",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "today",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "final-listen-ko",
+      "measure": {
+        "brokenImages": [],
+        "font": true,
+        "locale": "ko",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "listen",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "final-conversation-ko",
+      "measure": {
+        "brokenImages": [],
+        "font": true,
+        "locale": "ko",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "conversation",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      }
+    },
+    {
+      "case": "final-earned-result-ko",
+      "measure": {
+        "brokenImages": [],
+        "font": true,
+        "locale": "ko",
+        "navCount": 5,
+        "overflow": false,
+        "smallControls": [],
+        "view": "result",
+        "viewport": {
+          "h": 844,
+          "w": 390
+        }
+      },
+      "earned": 1
+    }
+  ],
+  "materialCtaAndCompositionCases": [
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "today",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": null
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "listen",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": null
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "result",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": null
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "learn",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": {
+        "broken": [],
+        "heading": "Lernen",
+        "items": [
+          "course",
+          "hangul",
+          "calligraphy",
+          "pronunciation",
+          "vocab_packs",
+          "srs",
+          "my_words",
+          "grammar",
+          "book_capture",
+          "listening",
+          "scenarios",
+          "smalltalk",
+          "word_web"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "games",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": {
+        "broken": [],
+        "heading": "Spiele",
+        "items": [
+          "daily_game",
+          "chosung",
+          "syllable_cross",
+          "cloze",
+          "speed_match",
+          "sentence_arcade",
+          "kkeunmari",
+          "custom_practice"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "packs",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": {
+        "broken": [],
+        "heading": "Wortpakete",
+        "items": [
+          "a1_greetings_1",
+          "a1_greetings_2",
+          "a1_self_intro",
+          "a1_family_1",
+          "a1_family_2",
+          "a1_numbers_1",
+          "a1_numbers_2",
+          "a1_numbers_3",
+          "a1_time_1",
+          "a1_time_2",
+          "a1_time_3",
+          "a1_body",
+          "a1_colors",
+          "a1_food_1",
+          "a1_food_2",
+          "a1_position",
+          "a1_daily_1",
+          "a1_daily_2",
+          "a1_daily_3",
+          "a1_daily_4",
+          "a1_descriptions",
+          "a1_transport",
+          "a1_misc_1",
+          "a1_misc_2",
+          "a1_misc_3",
+          "a1_misc_4",
+          "a1_partner_meet_names_1",
+          "a1_partner_table_basic_1",
+          "a1_partner_seollal_basic_1",
+          "a1_post_office_1",
+          "a1_weekend_promise_1",
+          "a1_sorry_thanks_1",
+          "a1_city_services_2026_1",
+          "a1_first_class_1",
+          "a1_hobbies_1",
+          "a1_nature_people_1",
+          "a1_repair_language_1",
+          "a1_time_family_1",
+          "a1_home_daily_1",
+          "a1_particles_in_use_1",
+          "a1_payment_delivery_1",
+          "a1_months_1",
+          "a1_countries_1",
+          "a1_korean_food_1",
+          "a1_korean_places_1",
+          "a1_belongings_1",
+          "a1_places_buildings_1",
+          "a1_time_expressions_1",
+          "a1_feelings_talk_1",
+          "a1_culture_hobbies_1",
+          "a1_health_food_1",
+          "a1_school_work_1",
+          "a1_verbs_daily_1",
+          "a1_adjectives_1",
+          "a1_adverbs_1",
+          "a1_pronouns_1",
+          "a1_counters_1",
+          "a1_determiners_1",
+          "a1_verbs_daily_2",
+          "a1_adjectives_2",
+          "a1_adverbs_2",
+          "a1_verbs_daily_3"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "reward",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": null
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "en",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "today",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": null
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "en",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "listen",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": null
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "en",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "result",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": null
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "en",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "learn",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": {
+        "broken": [],
+        "heading": "Learn",
+        "items": [
+          "course",
+          "hangul",
+          "calligraphy",
+          "pronunciation",
+          "vocab_packs",
+          "srs",
+          "my_words",
+          "grammar",
+          "book_capture",
+          "listening",
+          "scenarios",
+          "smalltalk",
+          "word_web"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "en",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "games",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": {
+        "broken": [],
+        "heading": "Games",
+        "items": [
+          "daily_game",
+          "chosung",
+          "syllable_cross",
+          "cloze",
+          "speed_match",
+          "sentence_arcade",
+          "kkeunmari",
+          "custom_practice"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "en",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "packs",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": {
+        "broken": [],
+        "heading": "Vocabulary packs",
+        "items": [
+          "a1_greetings_1",
+          "a1_greetings_2",
+          "a1_self_intro",
+          "a1_family_1",
+          "a1_family_2",
+          "a1_numbers_1",
+          "a1_numbers_2",
+          "a1_numbers_3",
+          "a1_time_1",
+          "a1_time_2",
+          "a1_time_3",
+          "a1_body",
+          "a1_colors",
+          "a1_food_1",
+          "a1_food_2",
+          "a1_position",
+          "a1_daily_1",
+          "a1_daily_2",
+          "a1_daily_3",
+          "a1_daily_4",
+          "a1_descriptions",
+          "a1_transport",
+          "a1_misc_1",
+          "a1_misc_2",
+          "a1_misc_3",
+          "a1_misc_4",
+          "a1_partner_meet_names_1",
+          "a1_partner_table_basic_1",
+          "a1_partner_seollal_basic_1",
+          "a1_post_office_1",
+          "a1_weekend_promise_1",
+          "a1_sorry_thanks_1",
+          "a1_city_services_2026_1",
+          "a1_first_class_1",
+          "a1_hobbies_1",
+          "a1_nature_people_1",
+          "a1_repair_language_1",
+          "a1_time_family_1",
+          "a1_home_daily_1",
+          "a1_particles_in_use_1",
+          "a1_payment_delivery_1",
+          "a1_months_1",
+          "a1_countries_1",
+          "a1_korean_food_1",
+          "a1_korean_places_1",
+          "a1_belongings_1",
+          "a1_places_buildings_1",
+          "a1_time_expressions_1",
+          "a1_feelings_talk_1",
+          "a1_culture_hobbies_1",
+          "a1_health_food_1",
+          "a1_school_work_1",
+          "a1_verbs_daily_1",
+          "a1_adjectives_1",
+          "a1_adverbs_1",
+          "a1_pronouns_1",
+          "a1_counters_1",
+          "a1_determiners_1",
+          "a1_verbs_daily_2",
+          "a1_adjectives_2",
+          "a1_adverbs_2",
+          "a1_verbs_daily_3"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "en",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "reward",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": null
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "ko",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "today",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": null
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "ko",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "listen",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": null
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "ko",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "result",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": null
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "ko",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "learn",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": {
+        "broken": [],
+        "heading": "학습",
+        "items": [
+          "course",
+          "hangul",
+          "calligraphy",
+          "pronunciation",
+          "vocab_packs",
+          "srs",
+          "my_words",
+          "grammar",
+          "book_capture",
+          "listening",
+          "scenarios",
+          "smalltalk",
+          "word_web"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "ko",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "games",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": {
+        "broken": [],
+        "heading": "게임",
+        "items": [
+          "daily_game",
+          "chosung",
+          "syllable_cross",
+          "cloze",
+          "speed_match",
+          "sentence_arcade",
+          "kkeunmari",
+          "custom_practice"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "ko",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "packs",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": {
+        "broken": [],
+        "heading": "단어 팩",
+        "items": [
+          "a1_greetings_1",
+          "a1_greetings_2",
+          "a1_self_intro",
+          "a1_family_1",
+          "a1_family_2",
+          "a1_numbers_1",
+          "a1_numbers_2",
+          "a1_numbers_3",
+          "a1_time_1",
+          "a1_time_2",
+          "a1_time_3",
+          "a1_body",
+          "a1_colors",
+          "a1_food_1",
+          "a1_food_2",
+          "a1_position",
+          "a1_daily_1",
+          "a1_daily_2",
+          "a1_daily_3",
+          "a1_daily_4",
+          "a1_descriptions",
+          "a1_transport",
+          "a1_misc_1",
+          "a1_misc_2",
+          "a1_misc_3",
+          "a1_misc_4",
+          "a1_partner_meet_names_1",
+          "a1_partner_table_basic_1",
+          "a1_partner_seollal_basic_1",
+          "a1_post_office_1",
+          "a1_weekend_promise_1",
+          "a1_sorry_thanks_1",
+          "a1_city_services_2026_1",
+          "a1_first_class_1",
+          "a1_hobbies_1",
+          "a1_nature_people_1",
+          "a1_repair_language_1",
+          "a1_time_family_1",
+          "a1_home_daily_1",
+          "a1_particles_in_use_1",
+          "a1_payment_delivery_1",
+          "a1_months_1",
+          "a1_countries_1",
+          "a1_korean_food_1",
+          "a1_korean_places_1",
+          "a1_belongings_1",
+          "a1_places_buildings_1",
+          "a1_time_expressions_1",
+          "a1_feelings_talk_1",
+          "a1_culture_hobbies_1",
+          "a1_health_food_1",
+          "a1_school_work_1",
+          "a1_verbs_daily_1",
+          "a1_adjectives_1",
+          "a1_adverbs_1",
+          "a1_pronouns_1",
+          "a1_counters_1",
+          "a1_determiners_1",
+          "a1_verbs_daily_2",
+          "a1_adjectives_2",
+          "a1_adverbs_2",
+          "a1_verbs_daily_3"
+        ],
+        "smallControls": []
+      }
+    },
+    {
+      "case": "composition-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "ko",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "reward",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "embedded": null
+    }
+  ],
+  "rewardPreviewCases": [
+    {
+      "case": "gift-closed",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "bojagi",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      }
+    },
+    {
+      "case": "gift-open",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "bojagi",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "choices": 3
+    },
+    {
+      "case": "gift-chosen",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "bojagi",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "text": "BOJAGI · SARANGBANG\nEin neues Stück für dein Sarangbang\nSeoan · Schreibpult\n\nDu hast dieses Stück in der Vorschau gewählt. Deine echte Sammlung bleibt unverändert."
+    },
+    {
+      "case": "gift-closed",
+      "brokenImages": [],
+      "font": true,
+      "locale": "en",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "bojagi",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      }
+    },
+    {
+      "case": "gift-open",
+      "brokenImages": [],
+      "font": true,
+      "locale": "en",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "bojagi",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "choices": 3
+    },
+    {
+      "case": "gift-chosen",
+      "brokenImages": [],
+      "font": true,
+      "locale": "en",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "bojagi",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "text": "BOJAGI · SARANGBANG\nA new piece for your Sarangbang\nSeoan · writing desk\n\nYou chose this decoration in the preview. Your real collection stays unchanged."
+    },
+    {
+      "case": "gift-closed",
+      "brokenImages": [],
+      "font": true,
+      "locale": "ko",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "bojagi",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      }
+    },
+    {
+      "case": "gift-open",
+      "brokenImages": [],
+      "font": true,
+      "locale": "ko",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "bojagi",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "choices": 3
+    },
+    {
+      "case": "gift-chosen",
+      "brokenImages": [],
+      "font": true,
+      "locale": "ko",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "bojagi",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "text": "BOJAGI · SARANGBANG\n사랑방에 놓을 장식을 골랐어요\n서안\n\n시안에서 선택한 장식이에요. 실제 소유 목록은 바뀌지 않아요."
+    },
+    {
+      "case": "receipt-once",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "reward",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "balance": "40"
+    },
+    {
+      "case": "receipt-repeat-no-increase",
+      "balance": "40"
+    },
+    {
+      "case": "wallet-after-receipt",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "wallet",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "goal": "40"
+    }
+  ],
+  "largeTextReducedMotionCases": [
+    {
+      "case": "375-large-reduced",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "today",
+      "viewport": {
+        "h": 812,
+        "w": 375
+      },
+      "embedded": null,
+      "surface": {
+        "animation": "none",
+        "canScroll": true,
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "case": "375-large-reduced",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "listen",
+      "viewport": {
+        "h": 812,
+        "w": 375
+      },
+      "embedded": null,
+      "surface": {
+        "animation": "none",
+        "canScroll": true,
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "case": "375-large-reduced",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "result",
+      "viewport": {
+        "h": 812,
+        "w": 375
+      },
+      "embedded": null,
+      "surface": {
+        "animation": "none",
+        "canScroll": true,
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "case": "375-large-reduced",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "learn",
+      "viewport": {
+        "h": 812,
+        "w": 375
+      },
+      "embedded": {
+        "broken": [],
+        "heading": "Lernen",
+        "items": [
+          "course",
+          "hangul",
+          "calligraphy",
+          "pronunciation",
+          "vocab_packs",
+          "srs",
+          "my_words",
+          "grammar",
+          "book_capture",
+          "listening",
+          "scenarios",
+          "smalltalk",
+          "word_web"
+        ],
+        "smallControls": []
+      },
+      "surface": {
+        "animation": "none",
+        "canScroll": false,
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "case": "375-large-reduced",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "games",
+      "viewport": {
+        "h": 812,
+        "w": 375
+      },
+      "embedded": {
+        "broken": [],
+        "heading": "Spiele",
+        "items": [
+          "daily_game",
+          "chosung",
+          "syllable_cross",
+          "cloze",
+          "speed_match",
+          "sentence_arcade",
+          "kkeunmari",
+          "custom_practice"
+        ],
+        "smallControls": []
+      },
+      "surface": {
+        "animation": "none",
+        "canScroll": false,
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "case": "375-large-reduced",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "packs",
+      "viewport": {
+        "h": 812,
+        "w": 375
+      },
+      "embedded": {
+        "broken": [],
+        "heading": "Wortpakete",
+        "items": [
+          "a1_greetings_1",
+          "a1_greetings_2",
+          "a1_self_intro",
+          "a1_family_1",
+          "a1_family_2",
+          "a1_numbers_1",
+          "a1_numbers_2",
+          "a1_numbers_3",
+          "a1_time_1",
+          "a1_time_2",
+          "a1_time_3",
+          "a1_body",
+          "a1_colors",
+          "a1_food_1",
+          "a1_food_2",
+          "a1_position",
+          "a1_daily_1",
+          "a1_daily_2",
+          "a1_daily_3",
+          "a1_daily_4",
+          "a1_descriptions",
+          "a1_transport",
+          "a1_misc_1",
+          "a1_misc_2",
+          "a1_misc_3",
+          "a1_misc_4",
+          "a1_partner_meet_names_1",
+          "a1_partner_table_basic_1",
+          "a1_partner_seollal_basic_1",
+          "a1_post_office_1",
+          "a1_weekend_promise_1",
+          "a1_sorry_thanks_1",
+          "a1_city_services_2026_1",
+          "a1_first_class_1",
+          "a1_hobbies_1",
+          "a1_nature_people_1",
+          "a1_repair_language_1",
+          "a1_time_family_1",
+          "a1_home_daily_1",
+          "a1_particles_in_use_1",
+          "a1_payment_delivery_1",
+          "a1_months_1",
+          "a1_countries_1",
+          "a1_korean_food_1",
+          "a1_korean_places_1",
+          "a1_belongings_1",
+          "a1_places_buildings_1",
+          "a1_time_expressions_1",
+          "a1_feelings_talk_1",
+          "a1_culture_hobbies_1",
+          "a1_health_food_1",
+          "a1_school_work_1",
+          "a1_verbs_daily_1",
+          "a1_adjectives_1",
+          "a1_adverbs_1",
+          "a1_pronouns_1",
+          "a1_counters_1",
+          "a1_determiners_1",
+          "a1_verbs_daily_2",
+          "a1_adjectives_2",
+          "a1_adverbs_2",
+          "a1_verbs_daily_3"
+        ],
+        "smallControls": []
+      },
+      "surface": {
+        "animation": "none",
+        "canScroll": false,
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "case": "375-large-reduced",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "reward",
+      "viewport": {
+        "h": 812,
+        "w": 375
+      },
+      "embedded": null,
+      "surface": {
+        "animation": "none",
+        "canScroll": true,
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "case": "375-large-reduced",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "wallet",
+      "viewport": {
+        "h": 812,
+        "w": 375
+      },
+      "embedded": null,
+      "surface": {
+        "animation": "none",
+        "canScroll": true,
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "case": "375-large-reduced",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "quests",
+      "viewport": {
+        "h": 812,
+        "w": 375
+      },
+      "embedded": null,
+      "surface": {
+        "animation": "none",
+        "canScroll": false,
+        "horizontalOverflow": false
+      }
+    },
+    {
+      "case": "375-large-reduced",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "bojagi",
+      "viewport": {
+        "h": 812,
+        "w": 375
+      },
+      "embedded": null,
+      "surface": {
+        "animation": "none",
+        "canScroll": true,
+        "horizontalOverflow": false
+      }
+    }
+  ],
+  "updatedInteractionCases": [
+    {
+      "case": "completed-dialogue-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "result",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "earned": true
+    },
+    {
+      "case": "completed-dialogue-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "en",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "result",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "earned": true
+    },
+    {
+      "case": "completed-dialogue-and-cta",
+      "brokenImages": [],
+      "font": true,
+      "locale": "ko",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "result",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      },
+      "earned": true
+    },
+    {
+      "case": "audio-honest-state",
+      "label": "Anhören",
+      "status": "Die koreanische Wiedergabe ist hier nicht verfügbar. Du kannst den Satz lesen und weiterüben.",
+      "brokenImages": [],
+      "font": true,
+      "locale": "de",
+      "navCount": 5,
+      "overflow": false,
+      "smallControls": [],
+      "view": "listen",
+      "viewport": {
+        "h": 844,
+        "w": 390
+      }
+    }
+  ],
+  "tactileStateCases": [
+    {
+      "case": "motion-state",
+      "phase": "rest",
+      "classes": "primary tactile-cta scene-start",
+      "color": "rgb(245, 207, 120)",
+      "emblemTransform": "matrix(0.996195, -0.0871557, 0.0871557, 0.996195, 0, 0)",
+      "shadow": "rgb(169, 129, 53) 0px 4px 0px 0px, rgb(255, 242, 203) 0px 1px 0px 0px inset",
+      "transform": "none"
+    },
+    {
+      "case": "motion-state",
+      "phase": "preview",
+      "classes": "primary tactile-cta scene-start demo-preview",
+      "color": "rgb(245, 207, 120)",
+      "emblemTransform": "matrix(0.992546, -0.121869, 0.121869, 0.992546, -0.243739, -1.98509)",
+      "shadow": "rgb(16, 63, 54) 0px 4px 0px 0px, rgba(255, 255, 255, 0.208) 0px 1px 0px 0px inset, rgba(20, 56, 44, 0.094) 0px 8px 16px 0px",
+      "transform": "none"
+    },
+    {
+      "case": "motion-state",
+      "phase": "press",
+      "classes": "primary tactile-cta scene-start demo-press",
+      "color": "rgb(245, 207, 120)",
+      "emblemTransform": "matrix(1, 0, 0, 1, 0, 1)",
+      "shadow": "rgb(169, 129, 53) 0px 1px 0px 0px, rgba(169, 129, 53, 0.125) 0px 1px 2px 0px inset",
+      "transform": "matrix(1, 0, 0, 1, 0, 3)"
+    },
+    {
+      "case": "motion-state",
+      "phase": "release",
+      "classes": "primary tactile-cta scene-start demo-release",
+      "color": "rgb(245, 207, 120)",
+      "emblemTransform": "matrix(0.996193, -0.0871727, 0.0871727, 0.996193, -8.49172e-05, -0.000970418)",
+      "shadow": "rgb(169, 129, 53) 0px 4px 0px 0px, rgb(255, 242, 203) 0px 1px 0px 0px inset",
+      "transform": "none"
+    },
+    {
+      "case": "reduced-press",
+      "measure": {
+        "animation": "none",
+        "transform": "none"
+      }
+    }
+  ],
+  "tactileStateCorrection": "Yellow start CTA retains its brass edge in preview and focus; verified after correction.",
+  "newConsoleErrors": [],
+  "boundary": "Browser review only. Native Flutter audio, haptics, frame timing, account economy and learning outcomes not verified."
+}

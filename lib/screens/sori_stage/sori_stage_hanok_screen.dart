@@ -11,7 +11,7 @@ import '../../services/storage_service.dart';
 import '../../widgets/app_loading.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/button.dart';
-import '../../widgets/sori/avatar.dart';
+import '../../widgets/sori/settings_button.dart';
 import '../../widgets/sori/collapsing_header.dart';
 import '../../widgets/sori/cultural_help.dart';
 import '../../widgets/sori/dancheong_stamp.dart';
@@ -135,7 +135,7 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
                           children: [
                             const CulturalHelpButton(termId: 'hanok'),
                             const SizedBox(width: Spacing.xs),
-                            const SoriAvatar(),
+                            const SoriSettingsButton(),
                           ],
                         ),
                       );

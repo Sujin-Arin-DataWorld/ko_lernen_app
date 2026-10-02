@@ -1,0 +1,9 @@
+{
+  "tool": "native image_gen",
+  "reference": "assets/nav-games.png",
+  "asset": "assets/nav-settings.png",
+  "flutterAsset": "assets/icons/tactile_settings.png",
+  "source": "C:/Users/vjinn/.codex/generated_images/01a0fe3b-10c5-7f92-b892-941566d5f6c1/exec-05498f3d-5155-4ae2-a84b-147e724e66b6.png",
+  "sha256": "7db025816a5225d92a58a642f5ecc5085369c0838085173cd54bba0fd9ce59e4",
+  "prompt": "Use case: stylized-concept. Asset type: ONE settings cog icon for the existing Hangul Sori tactile handcrafted mobile navigation set. Single isolated tactile hand-carved wooden three-dimensional cogwheel, genuinely transparent background. Match the referenced game controller ONLY for rough painted-wood texture, visible directional grain, worn ochre edges, confident muted dancheong palette, slight 3/4 form depth and soft upper-left diffuse light. Do NOT copy its game-controller subject. The only subject is one clearly recognizable settings gear: eight broad evenly spaced substantial teeth and one large open circular centre hole, a restrained matte verdigris #247567 main body with natural muted warm ochre #F5CF78 wood visible along bevels. Near front view, almost no tilt, robust simple symmetrical cog silhouette legible at 30px. Subject fills 85-90% of square frame, centred, safe margin, all eight teeth visible. Visible carved wood pores, slightly weathered mineral paint, crisp hand-cut bevels. No glossy plastic, no glass, no smooth clay, no jelly, no neon, no faces, no text, no logo, no other objects, no badge, no ground, no floor, no outer cast shadow, no haze, no halo. Fully transparent exterior AND fully transparent central opening. Match existing nav scale, tactile material and saturated but muted wood paint. Keep original generated alpha; no background."
+}

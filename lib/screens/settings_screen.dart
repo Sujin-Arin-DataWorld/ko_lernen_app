@@ -791,6 +791,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
       maxWidth: SoriMaxWidth.form,
       padding: const EdgeInsets.fromLTRB(0, Spacing.sm, 0, Spacing.xxxl),
       children: [
+        ListTile(
+          leading: const Icon(Icons.person_outline_rounded),
+          title: Text(t.profileTitle),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => Navigator.of(context).pushNamed('/profile'),
+        ),
         // ── 서재 헤더 (한옥 학자방 일러스트) ──
         Padding(
           padding: const EdgeInsets.fromLTRB(

@@ -1,0 +1,10 @@
+{
+  "status": "REVIEW_ONLY",
+  "id": "yeopjeon",
+  "source": "C:/Users/vjinn/.codex/generated_images/01a0fcf4-681f-7c21-8c3a-bd5dff48c05f/exec-555c1c76-6917-4a38-9000-c0301926f3da.png",
+  "copy": "assets/yeopjeon.png",
+  "sha256": "8f40bcf5c47279ee43a9f8700c68378d2df12cb953e69bc7d13b8a846b940100",
+  "reference": "C:/dev/hangulsori/ko_lernen_app/assets/illustrations/stamps/stamp_yeopjeon.png",
+  "method": "native image_gen with reference; transparent output; byte copy only, no pixel post-processing",
+  "prompt": "Create a single transparent-background 3D UI reward object for the Korean-learning app Hangul Sori, using the supplied existing Yeopjeon stamp as the identity reference. Depict three Korean traditional round cast-brass yeopjeon coins with clearly square central holes, one upright coin leaning slightly against two overlapping coins below, linked by a restrained sage green and deep blue woven cord. Preserve the traditional square-hole silhouette and dancheong gold/green/blue identity. Remove the red round stamp border and all background paper: isolate ONLY the coins and short cord. No people, no faces, no text, no numbers, no lettering. Mature heritage craft material: finely pitted matte brass, subtle edge wear, warm patina in crevices, realistic woven fibres, visible tiny casting imperfections. Soft daylight from upper left, readable silhouette, dimensional sculpted edges but not glossy, not jelly, not polished vector, not luxury gold bullion. Calm friendly premium material illustration, not photoreal excessive dramatic rendering. Centered compact composition suitable for a 200px reward object or small wallet badge. True alpha background, no pedestal and no scene."
+}

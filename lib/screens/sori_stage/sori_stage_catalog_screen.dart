@@ -13,7 +13,7 @@ import '../../services/storage_service.dart';
 import '../../services/today_learning_snapshot.dart';
 import '../../widgets/sori/activity_sheet.dart';
 import '../../widgets/sori/activity_illustration.dart';
-import '../../widgets/sori/avatar.dart';
+import '../../widgets/sori/settings_button.dart';
 import '../../widgets/sori/catalog_card.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/collapsing_header.dart';
@@ -353,7 +353,7 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                           height: 1.35,
                         ),
                         collapsedTitle: title,
-                        trailing: const SoriAvatar(),
+                        trailing: const SoriSettingsButton(),
                       );
                     },
                   ),
