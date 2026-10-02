@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "approval": "User adoption of textured review assets on 2026-10-02; 2026-10-03 correction: wooden Hahoe mask object and soft textured Dokkaebi matching latest approved persona references. Latest user request: one horn, Dancheong-patterned linen headband and gold hoop earrings.",
+  "version": 4,
+  "approval": "User adoption of textured review assets on 2026-10-02; 2026-10-03 correction: wooden Hahoe mask object and soft textured Dokkaebi matching latest approved persona references. Final user direction: two small forehead horns, slightly blue-grey eyes, Dancheong-patterned linen headband and gold hoop earrings.",
   "method": "Native image_gen; original PNG bytes copied without pixel processing",
   "materials": [
     "hand-thrown ceramic",
@@ -125,9 +125,9 @@
     {
       "id": "dokkaebi",
       "path": "assets/illustrations/tactile/dokkaebi.png",
-      "sha256": "883b1d4b2e3f447b69f9300a3c1cf0ad21bf06afbaa5038eba162fe4344419a5",
-      "source": "exec-2fb9ebe5-d97b-4e8a-ab1c-6bf9f2a09445.png",
-      "bytes": 2360682
+      "sha256": "813a1c01ba475017bc74d38b807dba8d330990b723926cc66a06545a13587443",
+      "source": "exec-7cf7e920-158a-43a9-8e5f-ee32bcba0527.png",
+      "bytes": 2391032
     },
     {
       "id": "hangul",
@@ -159,6 +159,10 @@
     {
       "path": "assets_unused/approved_texture_originals/dokkaebi-soft-base-v2.png",
       "sha256": "b594084a2c4475243db1cb777617fceb6aa466f6e090e18f2439566299f32ba9"
+    },
+    {
+      "path": "assets_unused/approved_texture_originals/dokkaebi-one-horn-v3.png",
+      "sha256": "883b1d4b2e3f447b69f9300a3c1cf0ad21bf06afbaa5038eba162fe4344419a5"
     }
   ]
 }

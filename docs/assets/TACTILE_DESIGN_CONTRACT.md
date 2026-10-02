@@ -22,8 +22,9 @@ matte skin, textured hair, linen and a wooden bangmangi. Keep wood grain on the
 club, not the face or hands. Fine material texture and broad soft light connect
 the figure and mask without forcing every material into carved wood. This is
 an original modern folk-spirit interpretation. Its requested identity details
-are exactly one small textured horn, a Dancheong-embroidered linen headband and
-circular brushed-gold hoop earrings. Do not add paired horns, fangs, a scary
+are exactly two small textured forehead horns, subtly blue-grey small oval eyes,
+a Dancheong-embroidered linen headband and circular brushed-gold hoop earrings.
+Do not add more horns, fangs, a scary
 expression or tiger-skin costume. Reference bytes and exact prompts are preserved in
 `TACTILE_CULTURAL_PROMPTS.json`; the earlier faceted performer is archived.
 
