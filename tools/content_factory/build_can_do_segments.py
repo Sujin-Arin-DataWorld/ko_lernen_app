@@ -21,6 +21,7 @@ from typing import Any, Iterable
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import scenario_store
 from copy_field_path import text_field
+import smalltalk_editorial_revisions
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -1297,6 +1298,9 @@ def _at_nested_field(record: dict[str, Any], field_path: str) -> tuple[dict[str,
 
 
 def _copy_revision_metadata(row: dict[str, Any]) -> dict[str, Any] | None:
+    editorial = smalltalk_editorial_revisions.copy_revision_metadata(row)
+    if editorial:
+        return editorial
     changes = _humanization_changes_by_id().get(row["id"])
     ledger_ref = CONTENT_HUMANIZATION_LEDGER_REF
     ledger = _read_json(SMALLTALK_TRANSLATION_LEDGER_PATH)
@@ -4352,6 +4356,7 @@ def _validate_smalltalk_review_history(
             if decision.get("copyRevisionLedger") not in {
                 CONTENT_HUMANIZATION_LEDGER_REF,
                 SMALLTALK_TRANSLATION_LEDGER_REF,
+                smalltalk_editorial_revisions.LEDGER_REF,
             }:
                 raise ValueError(f"smalltalk {phrase_id!r} copy revision ledger is invalid")
             previous_fingerprint = decision.get("previousPhraseFingerprintSha256")
@@ -4373,7 +4378,10 @@ def _validate_smalltalk_review_history(
             }
             keys = set(old) | set(decision)
             if any(old.get(key) != decision.get(key) for key in keys - ignored):
-                if decision["copyRevisionLedger"] == SMALLTALK_TRANSLATION_LEDGER_REF:
+                if decision["copyRevisionLedger"] in {
+                    SMALLTALK_TRANSLATION_LEDGER_REF,
+                    smalltalk_editorial_revisions.LEDGER_REF,
+                }:
                     raise ValueError(
                         f"smalltalk {phrase_id!r} translation correction changed "
                         "its semantic route"

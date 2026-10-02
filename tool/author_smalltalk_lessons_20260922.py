@@ -50,11 +50,11 @@ a1|transport|public|40,41,42,85,87|버스와 지하철~Bus und U-Bahn~Bus and su
 a1|shopping|choose|44,45,46,47,48|물건 고르기~Etwas aussuchen~Choosing what to buy|여러 물건을 골랐어요. 모두 합쳐 얼마인지 물어봐요.~Du hast mehrere Dinge ausgesucht und fragst nach dem Gesamtpreis.~You have picked several items and ask for the total price.
 a1|shopping|service|49,83,84,88|가게와 주문 정보~Informationen zur Bestellung~Shop and order details|나중에 다시 오려고 해요. 가게가 문을 닫는 시간을 물어봐요.~Du möchtest später wiederkommen und fragst nach der Schließzeit.~You plan to return later and ask when the shop closes.
 a1|phone|call|50,51,52,53|전화 받기~Ans Telefon gehen~Answering the phone|전화가 왔어요. 전화를 받으며 첫마디를 해요.~Das Telefon klingelt. Du meldest dich am Telefon.~The phone rings. You answer with the usual opening greeting.
-a1|phone|card|89|전화로 충전 장소 묻기~Nach einer Aufladestelle fragen~Asking where to top up|교통카드를 충전할 곳을 물어봐요.~Du möchtest wissen, wo du deine Fahrkarte aufladen kannst.~You ask where you can top up your transport card.
+a1|phone|card|89|교통카드 충전 장소 묻기~Nach einer Aufladestelle fragen~Asking where to top up|교통카드를 충전할 곳을 물어봐요.~Du möchtest wissen, wo du deine Verkehrskarte aufladen kannst.~You ask where you can top up your transport card.
 a1|emergency|help|54,55,56,57,58|도움 요청과 분실~Hilfe und verlorene Sachen~Help and lost belongings|급히 다른 사람의 도움이 필요해요. 먼저 도와 달라고 말해요.~Du brauchst dringend Unterstützung und rufst nach Hilfe.~You urgently need assistance and call for help.
 a1|partner_family|arrival|65,66,67,68,69,70|가족 집 첫 방문~Der erste Familienbesuch~First visit to the family home|처음 방문한 집에서 상대를 어머님이라고 불러도 되는지 확인해요.~Beim ersten Besuch fragst du, ob du die Anrede 어머님 verwenden darfst.~On a first visit, you ask whether it is all right to use the address 어머님.
 a1|partner_family|holiday|71,72,73,74,75,76|식사와 명절 준비~Essen und Festvorbereitungen~Meals and holiday preparations|아버님께 진지를 드셨는지 여쭤봐요.~Du sprichst den Vater mit 아버님 an und fragst respektvoll, ob er gegessen hat.~Addressing the father as 아버님, you respectfully ask whether he has eaten.
-a1|partner_family|photos|77,78,79,80|호칭과 사진~Anreden und Fotos~Names and photos|현우의 동생을 어떻게 불러야 할지 몰라서 물어봐요.~Du bist unsicher, wie du Hyunwoos jüngeres Geschwister ansprechen sollst.~You are unsure how to address Hyunwoo's younger sibling and ask.
+a1|partner_family|photos|77,78,79,80|호칭과 사진~Anreden und Fotos~Names and photos|현우의 남동생을 어떻게 불러야 할지 몰라서 물어봐요.~Du bist unsicher, wie du Hyunwoos jüngeren Bruder ansprechen sollst.~You are unsure how to address Hyunwoo's younger brother and ask.
 a1|theme_park_date|rides|91,92,93,94|놀이기구 고르기~Eine Attraktion auswählen~Choosing a ride|함께 탈 놀이기구를 가리키며 타 볼지 물어봐요.~Du zeigst auf eine Attraktion und schlägst vor, gemeinsam damit zu fahren.~You point to a ride and suggest going on it together.
 a1|theme_park_date|break|95,96,97,98|앉아서 간식 먹기~Sitzen und etwas essen~Sitting down for a snack|빈자리가 보여요. 그곳에 앉자고 제안해요.~Du entdeckst freie Plätze und schlägst vor, sich dort hinzusetzen.~You spot some empty seats and suggest sitting there.
 a1|theme_park_date|memory|99,100|사진과 하루의 소감~Fotos und Tagesrückblick~Photos and the day's memories|사진 찍기 좋은 곳이에요. 여기서 함께 사진을 찍자고 해요.~Hier ist ein guter Fotoplatz. Du schlägst ein gemeinsames Foto vor.~This is a good spot for a photo. You suggest taking one together here.
@@ -250,7 +250,7 @@ a1.daily.turn|제 차례가 끝났어요?|다음에는 어디로 가요?
 a1.screen.taste|그 드라마 너무 지루해요.|그 드라마 언제 시작해요?
 a1.music.song|이 노래 제목이 뭐예요?|이 노래는 별로예요.
 a1.hobby.drawing|취미 생활 자주 해요?|그림은 어디에서 배워요?
-a1.travel.preferences|저 여행 별로 안 좋아해요.|저 여행이 끝났어요.
+a1.travel.preferences|저 여행 별로 안 좋아해요.|제 여행은 끝났어요.
 a1.travel.outing|여기서 사진 찍어도 돼요?|사진을 같이 볼까요?
 a1.work_study.busy|일이 언제 끝나요?|일이 재미있어요?
 a1.family.checkin|가족이 어디 살아요?|가족을 자주 만나요?
@@ -629,8 +629,8 @@ def build():
                 'correctIndex': options.index(p),
                 'explanation': {
                     'ko': f'이 표현의 내용은 “{p["ko"]}”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.',
-                    'de': f'Gemeint ist: {pm["de"]} Achte auch auf Zeit, Bezug und darauf, ob gefragt oder etwas ausgesagt wird.',
-                    'en': f'The meaning is: {pm["en"]} Keep the time, referents and whether this is a question or a statement.',
+                    'de': f'Gemeint ist: {pm["de"]} Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.',
+                    'en': f'The meaning is: {pm["en"]} Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement.',
                 },
                 'sourceIds': [p['id']], 'audioKo': p['ko'], 'evidenceKo': p['ko'],
             })

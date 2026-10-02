@@ -11,6 +11,7 @@
 import json
 import os
 import sys
+from smalltalk_editorial_revisions import revise_authored_phrase
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(ROOT, "assets/data/smalltalk.json")
@@ -292,7 +293,7 @@ def _phrase(cat, lvl, kind, ko, de, en):
     if ko in REPLIES:
         r = REPLIES[ko]
         p["reply"] = {"ko": r[0], "de": r[1], "en": r[2]}
-    return p
+    return revise_authored_phrase(p)
 
 
 def main():

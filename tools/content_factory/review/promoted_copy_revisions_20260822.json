@@ -18,7 +18,8 @@
     "tools/content_factory/drafts/batch_01_manifest.json",
     "tools/content_factory/drafts/batch_02_manifest.json",
     "tools/content_factory/drafts/batch_06_manifest.json",
-    "tools/content_factory/drafts/batch_17_manifest.json"
+    "tools/content_factory/drafts/batch_17_manifest.json",
+    "tools/content_factory/drafts/batch_21_theme_park_date_manifest.json"
   ],
   "method": "Beyond Humanizer promoted-copy reconciliation",
   "humanReviewStatus": "required_before_native-quality-claim",
@@ -1415,10 +1416,12 @@
       "fields": [
         "de",
         "en",
+        "followUp",
+        "ko",
         "reply"
       ],
       "beforeSha256": "2ecc74ecdef9b3a4b8bddbb053fa827aa86711eec05d884041a024bdeb9a8e0a",
-      "afterSha256": "6210610af78fe92b870c3e75443e9c5a72d685eaa55797eb0d893c5c2537a516"
+      "afterSha256": "66f4707438ec443ce2263a5e970168cf24177780842e03d53d5a60ef3abd0cd2"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
@@ -11321,6 +11324,387 @@
       ],
       "beforeSha256": "63039dcaa37c2367766bb2f793c1bebe7a0f3f1b5e19523b150f104087ca497d",
       "afterSha256": "a75757b7306c4eef82bb8013fe97410b5a300a2c1bef954586a8b8c403611810"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0082",
+      "level": "a1",
+      "fields": [
+        "followUp"
+      ],
+      "beforeSha256": "c544d93960617e4d7311e28e556ab77aa8f62f144d89680cb9d78f109edf58d3",
+      "afterSha256": "1585d28c2e6ed0078db0873dedaef5dce21e59279df43d7daaa8bf283ab583ff"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0085",
+      "level": "a1",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "cf974cd2f2b6d732b885e5dd13d0b576c5bb2bec192be08cfabc23410d2aca1a",
+      "afterSha256": "19a0c5499a66ae17719e7adabe4133cebaabcfeaad7481d62f7f594c8d34fbf1"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0086",
+      "level": "a1",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "17e10fcfca224198cae0189c1c611e81a8716f4f40d298c2d5d2bc645de97e7e",
+      "afterSha256": "446b90d2a0ff76a0c91e68c2d39e755d0cb460525a6485d6f66626312f794ea8"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0087",
+      "level": "a1",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "be5c098564b6d10b4842462f37db8bd86ff0b5d7d04509dd683b316ff5a8affa",
+      "afterSha256": "968fb8141292779b740a2c9c4928e7351aa46ab778e94a310f3ee200ee3fa18e"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0088",
+      "level": "a1",
+      "fields": [
+        "de",
+        "followUp",
+        "ko",
+        "relationshipContext",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "f99f21b30a114883b1dcb53ddf908ce2d0684e4990f34c141622de0f2fab9688",
+      "afterSha256": "36b3d7bf9910ba32ceae45bbb863c85b865f02dca0fcad6dba389b614bedeabe"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0089",
+      "level": "a1",
+      "fields": [
+        "de",
+        "followUp",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "578acf2f8cc4684af0d05e5865bade5cb2abbeefaf9f2da372a94abf0e52ba1a",
+      "afterSha256": "61dfef5ee379d2b335caecc1a983728b918c4e987e90c18f8868f28648247d53"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0090",
+      "level": "a1",
+      "fields": [
+        "followUp",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "e0ec98c677d90ca5bfeb53226621f951f02f3a255ae347736f8cd10d80be4cb3",
+      "afterSha256": "f4f23d2dc630a5b4f64431a218e9eeb5ee1778b815aadf32389f1167ae78fc0f"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0083",
+      "level": "a1",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "b2c01466b0c489dd274cb494eb8bee136c757aa738321f2490a01ea2fe5bff5f",
+      "afterSha256": "0ecf1c059f37465414a0e50ac0ac0ae03a2eaec7cc6a2e9f6ee61d96175681cd"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0084",
+      "level": "a1",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "7e0f1d7b0fd71b43221ccbec8d40cbcfe67438db5435fbc8f32ad0648a49092f",
+      "afterSha256": "a6ffbcc3c18dfa1a0126a915d7c9bbe5b0a88da8ddacba31de2f6b4ba74a3916"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0065",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "8635bbff4d17d5b0daf6700ec76a6a16d2ce64f70d6945c46cfe564014209f13",
+      "afterSha256": "7ca42d1d9483ec0dfcc448b89759370d1e80a70b49c8d4b5f6e41f7ff2b77852"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0066",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "72b4110857220083056bd42c7c6fc171db3cd16ecdeefbe592336b9cc80c6f67",
+      "afterSha256": "220d253642508513f10af8912b9811dfdd7018eb1e096738962e4253b9818f92"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0067",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "1df5d37f01311eb9044013686fe3d66fe7e49013f33b746d3858e82386e76143",
+      "afterSha256": "3e01a48f20bc55bf86e53eb855f42bebf9365212d477bf9390a7d17045aa22e0"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0068",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "4dc30c7b199f680cf3604e329ea28e2390d413953858cbad7e4c633210448d8b",
+      "afterSha256": "08b0812e7c8ef9fb081bad18276e10f14fcb5e8b8bb3cffed4ddd633283015db"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0069",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "fd5bf8213d86d894df797224a0d02eafcb536c5da1bd283f589ffb5a54cbfe6e",
+      "afterSha256": "d013c4b160c10a491022756073e6334e19e04cb545194bf7e0f50d2e0c2af29a"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0070",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "e1a5a0a290ae8b8122ecbcea0fd7b9c3cddec2472be863b24395353fa72b6fa5",
+      "afterSha256": "2b27bf6d4b9bf486b104f8232e9a2e97c5c249d6422563bc5db84ab52dfcc30b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0071",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "9d82c319df10e7863c7953c45a89ee38c0d014eedeca12395027f347d0e12639",
+      "afterSha256": "a746145e0b44759b42cba661ee5e2231f7baee007fd388136b71c2bc49075198"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0072",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "4f076ea8431cd6a43546544849549a7f78156e654f017d0e6d46f138f838f56a",
+      "afterSha256": "8e49151070f97133f7b54375124ac2a1df304bc66b7a0567495f8bd947613715"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0073",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "b0fef5f7ab9be820a93b51794235c9e22b3b1fa9150b46bb2f2f1510bf57ff89",
+      "afterSha256": "f9ec02d912787737d4fdfc61f4a0639e25ae8a936eb3683246042bbe97aa09ea"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0074",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "417b305288fbd4c58366a679026fa0fcce4925355bc1be2a28ac81c7bbea6dd8",
+      "afterSha256": "c4f9a545493718d765962a153fa49486a23203a9d8636ef3d345af8ba56b56e3"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0075",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "a5b2f42bd349db91cd9cc0c4f91b86f87ca63ff49a90aa928e30e958089d31bb",
+      "afterSha256": "3563afbda1a7444252f9f153bbd092948179a70aa4964d903e512559f3bc6ca6"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0076",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "8d545dccbc37de0baaa52c7a39fb20bf40827b7ac502b1a6d47d4f7b5aa091f9",
+      "afterSha256": "de98f096829264e8739991ce5cdb1dc7cd6f6a8d02072976a62b4bb50b103282"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0077",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "72a685ee5cce28b0075d8c0baa7383919b2b71d9adc63d2eea7f84454af3bb05",
+      "afterSha256": "e7cba05d9784aff6cddfd32070ce8303e2c3af4bff93609582ec6e937bc27f8a"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0078",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "22089011bd9eb7193cf46a52dd2bcafbb939b9752900bd274afb491ca4068fe5",
+      "afterSha256": "ae1a2a75a2b63583d4017dab05d31e2412a84e830f35d33be45b0a5030f98799"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0079",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "8aa52781044de24831549c099fe2305312a0a02bdfed920f3af5134c6a66c807",
+      "afterSha256": "9cc2d6f722ed433ac1b6753c0d899d9bb0ca13fc1fcb105ea60e45e6ad1f88f2"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0080",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "beforeSha256": "cc0ff93027a9d3975769bc4a4fc43acc58d56e5f816332558ffbe0b8aecc9bbe",
+      "afterSha256": "fc9f5b98b21dae210888a08746ae7bd11023460b9428bf382695c7e44108fc40"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_21_theme_park_date_manifest.json",
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0097",
+      "level": "a1",
+      "fields": [
+        "followUp",
+        "reply"
+      ],
+      "beforeSha256": "e451b06be52de4ba17e2c234f2cd5e287f0a1de4e730bf4310681ae317fc280b",
+      "afterSha256": "29efa65fae0766b793cba63aac47c45db7a5324a9ec4dbd9b3d4ebbf844bad2c"
     }
   ],
   "routingEntries": [

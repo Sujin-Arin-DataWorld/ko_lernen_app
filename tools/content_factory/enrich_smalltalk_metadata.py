@@ -14,6 +14,7 @@ import argparse
 import json
 from pathlib import Path
 from typing import Any
+from smalltalk_editorial_revisions import revise_authored_phrase
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -23,6 +24,7 @@ RELATIONSHIP_CONTEXTS = {
     "classmate",
     "coworker",
     "close_friend",
+    "romantic_partner",
     "family",
     "service",
 }
@@ -41,6 +43,10 @@ DEFAULT_CONTEXT_BY_CATEGORY = {
 }
 
 DEFAULT_TURNS = {
+    "romantic_partner": {
+        "alternative": turn("question", "오늘은 어때?", "Wie geht's dir heute?", "How are you today?"),
+        "follow_up": turn("reaction", "응, 같이 생각해 보자.", "Ja, lass uns gemeinsam überlegen.", "Yes, let's think about it together."),
+    },
     "peer": {
         "alternative": turn(
             "question",
@@ -237,12 +243,14 @@ def enrich_phrase(phrase: dict[str, Any]) -> None:
 
     override = REGISTER_OVERRIDES.get(phrase["id"])
     if override is None:
+        revise_authored_phrase(phrase)
         return
     for key, value in override.items():
         if key == "reply" and value is None:
             phrase.pop("reply", None)
         else:
             phrase[key] = value
+    revise_authored_phrase(phrase)
 
 
 def load_source() -> dict[str, Any]:

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from typing import Any
+from smalltalk_editorial_revisions import revise_authored_phrase
 
 
 Triad = tuple[str, str, str]
@@ -68,7 +69,7 @@ def _record(
     }
     if reply is not None:
         record["reply"] = _turn(reply)
-    return record
+    return revise_authored_phrase(record)
 
 
 RECORDS: list[dict[str, Any]] = [

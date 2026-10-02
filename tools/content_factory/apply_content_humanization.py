@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from copy_field_path import text_field
+import smalltalk_editorial_revisions
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -69,6 +70,9 @@ def _sync_route_fingerprints(
             "copyRevisionLedger": LEDGER_REF,
             "previousPhraseFingerprintSha256": previous_fingerprint,
         }
+        editorial_metadata = smalltalk_editorial_revisions.copy_revision_metadata(row)
+        if editorial_metadata:
+            expected.update(editorial_metadata)
         if check_only:
             for key, value in expected.items():
                 if decision.get(key) != value:
@@ -111,6 +115,8 @@ def apply(*, check_only: bool) -> int:
         levels_seen.add(change["level"])
         parent, key = _at_path(record, change["field"])
         actual = parent.get(key)
+        if smalltalk_editorial_revisions.verify_successor(record, change, smalltalk_editorial_revisions.revisions()):
+            continue
         if actual == change["after"]:
             continue
         if actual != change["before"]:

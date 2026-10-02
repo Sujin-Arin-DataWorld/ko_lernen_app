@@ -13,6 +13,7 @@ Idempotent über Phrase-Text (ko). Nutzung: ... --write
 import json
 import os
 import sys
+from smalltalk_editorial_revisions import revise_authored_phrase, revisions
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 PATH = os.path.join(ROOT, "assets", "data", "smalltalk.json")
@@ -258,6 +259,10 @@ def main():
             data["categories"].append(cat)
 
     existing_ko = {p["ko"] for p in data["phrases"]}
+    existing_ids = {p["id"] for p in data["phrases"]}
+    # A published phrase keeps its ID when editorial copy changes its wording.
+    existing_ko.update(entry['before']['ko'] for ident, entry in revisions().items()
+                       if ident in existing_ids)
     seq = {}
     for p in data["phrases"]:
         lvl = p["level"]
@@ -296,7 +301,7 @@ def main():
             phrase["followUp"] = {
                 "turnKind": "reaction", "ko": fko, "de": fde, "en": fen,
             }
-        data["phrases"].append(phrase)
+        data["phrases"].append(revise_authored_phrase(phrase))
         existing_ko.add(ko)
         added += 1
 

@@ -34,7 +34,9 @@ class SmalltalkTranslationCopyHistoryTest(unittest.TestCase):
             row for row in builder._read_json(builder.DATA / "smalltalk.json")["phrases"]
             if row["id"] == "smalltalk_a1_0003"
         )
-        before = {**row, "de": "Mir geht's heute gut."}
+        entry = builder.smalltalk_editorial_revisions.revisions().get(row['id'])
+        published = copy.deepcopy(entry['before'] if entry else row)
+        before = {**published, "de": "Mir geht's heute gut."}
         approval = builder.SMALLTALK_REVIEW_APPROVALS[row["id"]]
         self.assertEqual(builder._json_fingerprint(before), approval["phraseFingerprintSha256"])
         old = {
@@ -42,6 +44,7 @@ class SmalltalkTranslationCopyHistoryTest(unittest.TestCase):
             "phraseId": row["id"],
             "routingSource": "courseUnitFallback",
             "reasonCode": "topicAndFunctionMatch",
+            "phraseFingerprintSha256": builder._json_fingerprint(published),
         }
         new = {
             **old,

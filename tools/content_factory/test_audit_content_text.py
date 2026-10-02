@@ -11,6 +11,7 @@ from audit_content_text import (
     find_incomplete_language_triplets,
 )
 from apply_content_humanization import apply as verify_humanized_copy
+from smalltalk_editorial_revisions import LEDGER_REF, revisions, verify_successor
 
 
 class ContentTextAuditTest(unittest.TestCase):
@@ -50,6 +51,7 @@ class ContentTextAuditTest(unittest.TestCase):
             self.assertEqual(decision["copyReviewStatus"], "nativeReviewRequired")
             self.assertEqual(
                 decision["copyRevisionLedger"],
+                LEDGER_REF if record_id in revisions() else
                 "tools/content_factory/review/content_humanization_20260821.json",
             )
 
@@ -104,7 +106,10 @@ class ContentTextAuditTest(unittest.TestCase):
                 actual = row
                 for part in field_path.split("."):
                     actual = actual[part]
-                self.assertEqual(actual, value, f"{record_id}.{field_path}")
+                if record_id in revisions():
+                    self.assertTrue(verify_successor(row, {'field': field_path, 'after': value}, revisions()))
+                else:
+                    self.assertEqual(actual, value, f"{record_id}.{field_path}")
 
     def test_every_shipped_data_file_has_an_explicit_content_classification(self) -> None:
         inventory = build_inventory()

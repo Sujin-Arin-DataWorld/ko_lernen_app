@@ -25,6 +25,7 @@ from typing import Any, Iterable
 
 import relevel_ledger
 import scenario_store
+import smalltalk_editorial_revisions
 from copy_field_path import text_field
 from shelf_assignment import ALL_SHELVES
 
@@ -288,6 +289,14 @@ class ContentValidator:
             if isinstance(row, dict) and isinstance(row.get("id"), str)
         }
         levels: set[str] = set()
+        try:
+            editorial = smalltalk_editorial_revisions.load_revisions(self.root)
+            for ident, entry in editorial.items():
+                if smalltalk_editorial_revisions.fingerprint(by_id.get(ident)) != entry['afterSha256']:
+                    self.issue(source, f'{ident}: live copy does not match editorial revision ledger')
+        except (ValueError, KeyError) as error:
+            self.issue(source, str(error))
+            return
         changes = ledger.get("changes")
         if not isinstance(changes, list):
             self.issue(source, "changes must be a list")
@@ -316,7 +325,13 @@ class ContentValidator:
                 self.issue(source, str(error))
                 continue
             if parent[key] != after:
-                self.issue(source, f"{record_id}.{field_path} does not match approved overlay")
+                try:
+                    successor = smalltalk_editorial_revisions.verify_successor(row, change, editorial)
+                except ValueError as error:
+                    self.issue(source, str(error))
+                    continue
+                if not successor:
+                    self.issue(source, f"{record_id}.{field_path} does not match approved overlay")
         if levels != LOWER_LEVELS:
             self.issue(source, f"ledger must cover A1-C2, got {sorted(levels)!r}")
 
