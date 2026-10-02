@@ -2650,7 +2650,7 @@
             },
             {
               "ko": "자소서 다 썼어요?",
-              "de": "Hast du deine Selbstvorstellung für die Bewerbung schon fertig?",
+              "de": "Hast du den Text über dich selbst für die Bewerbung schon fertig?",
               "en": "Have you finished your personal statement for the job application?"
             }
           ],
@@ -6200,7 +6200,7 @@
               "en": "Shall we meet Saturday afternoon if you're free?"
             },
             {
-              "ko": "토요일 오전에 시장 갈 건데 같이 하실래요?",
+              "ko": "토요일 오전에 시장 갈 건데 같이 가실래요?",
               "de": "Ich gehe Samstagvormittag auf den Markt. Kommen Sie mit?",
               "en": "I'm going to the market on Saturday morning. Would you like to come?"
             }
@@ -6233,7 +6233,7 @@
               "en": "What do you want to do together this weekend?"
             },
             {
-              "ko": "토요일 오전에 시장 갈 건데 같이 하실래요?",
+              "ko": "토요일 오전에 시장 갈 건데 같이 가실래요?",
               "de": "Ich gehe Samstagvormittag auf den Markt. Kommen Sie mit?",
               "en": "I'm going to the market on Saturday morning. Would you like to come?"
             },
@@ -6260,9 +6260,9 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“토요일 오전에 시장 갈 건데 같이 하실래요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„토요일 오전에 시장 갈 건데 같이 하실래요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“토요일 오전에 시장 갈 건데 같이 하실래요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“토요일 오전에 시장 갈 건데 같이 가실래요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„토요일 오전에 시장 갈 건데 같이 가실래요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“토요일 오전에 시장 갈 건데 같이 가실래요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
@@ -6271,7 +6271,7 @@
               "en": "Shall we go for a walk together this weekend?"
             },
             {
-              "ko": "토요일 오전에 시장 갈 건데 같이 하실래요?",
+              "ko": "토요일 오전에 시장 갈 건데 같이 가실래요?",
               "de": "Ich gehe Samstagvormittag auf den Markt. Kommen Sie mit?",
               "en": "I'm going to the market on Saturday morning. Would you like to come?"
             },
@@ -6283,15 +6283,15 @@
           ],
           "correctIndex": 1,
           "explanation": {
-            "ko": "이 표현의 내용은 “토요일 오전에 시장 갈 건데 같이 하실래요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "ko": "이 표현의 내용은 “토요일 오전에 시장 갈 건데 같이 가실래요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: Ich gehe Samstagvormittag auf den Markt. Kommen Sie mit? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: I'm going to the market on Saturday morning. Would you like to come? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0074"
           ],
-          "audioKo": "토요일 오전에 시장 갈 건데 같이 하실래요?",
-          "evidenceKo": "토요일 오전에 시장 갈 건데 같이 하실래요?"
+          "audioKo": "토요일 오전에 시장 갈 건데 같이 가실래요?",
+          "evidenceKo": "토요일 오전에 시장 갈 건데 같이 가실래요?"
         },
         {
           "id": "smalltalk.a2.weekend.arrange.smalltalk_a2_0076.meaning",
@@ -6304,7 +6304,7 @@
           },
           "options": [
             {
-              "ko": "토요일 오전에 시장 갈 건데 같이 하실래요?",
+              "ko": "토요일 오전에 시장 갈 건데 같이 가실래요?",
               "de": "Ich gehe Samstagvormittag auf den Markt. Kommen Sie mit?",
               "en": "I'm going to the market on Saturday morning. Would you like to come?"
             },
@@ -6774,7 +6774,7 @@
       "topicId": "screen",
       "title": {
         "ko": "요즘 보는 작품",
-        "de": "Was gerade läuft",
+        "de": "Was du gerade schaust",
         "en": "What you are watching"
       },
       "intro": {
@@ -7351,9 +7351,9 @@
               "en": "Let's study here together today."
             },
             {
-              "ko": "국제 전화는 어떻게 해요?",
-              "de": "Wie telefoniere ich ins Ausland?",
-              "en": "How do I make an international call?"
+              "ko": "일 많아요?",
+              "de": "Hast du viel zu tun?",
+              "en": "Are you busy with work?"
             },
             {
               "ko": "요즘 무슨 일 해요?",
@@ -7569,9 +7569,9 @@
               "en": "주말에 가족이랑 뭐 해요?"
             },
             {
-              "ko": "주말에 가족이랑 어디 살아요?",
-              "de": "주말에 가족이랑 어디 살아요?",
-              "en": "주말에 가족이랑 어디 살아요?"
+              "ko": "가족은 어디에 살아요?",
+              "de": "가족은 어디에 살아요?",
+              "en": "가족은 어디에 살아요?"
             }
           ],
           "correctIndex": 1,
@@ -8209,7 +8209,7 @@
           "options": [
             {
               "ko": "자소서 다 썼어요?",
-              "de": "Hast du deine Selbstvorstellung für die Bewerbung schon fertig?",
+              "de": "Hast du den Text über dich selbst für die Bewerbung schon fertig?",
               "en": "Have you finished your personal statement for the job application?"
             },
             {
@@ -8219,15 +8219,15 @@
             },
             {
               "ko": "어떤 회사 가고 싶어요?",
-              "de": "Bei welcher Firma möchtest du arbeiten?",
-              "en": "What company do you want to work for?"
+              "de": "Bei was für einer Firma möchtest du arbeiten?",
+              "en": "What kind of company do you want to work for?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “어떤 회사 가고 싶어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Bei welcher Firma möchtest du arbeiten? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: What company do you want to work for? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Bei was für einer Firma möchtest du arbeiten? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: What kind of company do you want to work for? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0031"
@@ -8252,19 +8252,19 @@
             },
             {
               "ko": "자소서 다 썼어요?",
-              "de": "Hast du deine Selbstvorstellung für die Bewerbung schon fertig?",
+              "de": "Hast du den Text über dich selbst für die Bewerbung schon fertig?",
               "en": "Have you finished your personal statement for the job application?"
             },
             {
               "ko": "어떤 회사 가고 싶어요?",
-              "de": "Bei welcher Firma möchtest du arbeiten?",
-              "en": "What company do you want to work for?"
+              "de": "Bei was für einer Firma möchtest du arbeiten?",
+              "en": "What kind of company do you want to work for?"
             }
           ],
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “자소서 다 썼어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Hast du deine Selbstvorstellung für die Bewerbung schon fertig? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Hast du den Text über dich selbst für die Bewerbung schon fertig? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Have you finished your personal statement for the job application? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -8302,8 +8302,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "“어떤 회사 가고 싶어요?” — 어떤 회사에 취업하고 싶은지 물어봐요.",
-            "de": "„어떤 회사 가고 싶어요?“ bedeutet: Bei welcher Firma möchtest du arbeiten?",
-            "en": "“어떤 회사 가고 싶어요?” means: What company do you want to work for?"
+            "de": "„어떤 회사 가고 싶어요?“ bedeutet: Bei was für einer Firma möchtest du arbeiten?",
+            "en": "“어떤 회사 가고 싶어요?” means: What kind of company do you want to work for?"
           },
           "sourceIds": [
             "smalltalk_a2_0031",
@@ -8353,8 +8353,8 @@
             },
             {
               "ko": "반려동물과 같이 살아도 돼요?",
-              "de": "Darf ich mit einem Haustier einziehen?",
-              "en": "May I move in with a pet?"
+              "de": "Darf ich hier mit einem Haustier wohnen?",
+              "en": "May I live here with a pet?"
             },
             {
               "ko": "보증금은 언제 보내요?",
@@ -8391,19 +8391,19 @@
             },
             {
               "ko": "반려동물과 같이 살아도 돼요?",
-              "de": "Darf ich mit einem Haustier einziehen?",
-              "en": "May I move in with a pet?"
+              "de": "Darf ich hier mit einem Haustier wohnen?",
+              "en": "May I live here with a pet?"
             },
             {
               "ko": "이삿짐 많아요?",
-              "de": "Hast du viel Umzugsgut?",
+              "de": "Hast du viele Sachen für den Umzug?",
               "en": "Do you have a lot of stuff to move?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “이삿짐 많아요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Hast du viel Umzugsgut? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Hast du viele Sachen für den Umzug? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Do you have a lot of stuff to move? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -8462,7 +8462,7 @@
           "options": [
             {
               "ko": "이삿짐 많아요?",
-              "de": "Hast du viel Umzugsgut?",
+              "de": "Hast du viele Sachen für den Umzug?",
               "en": "Do you have a lot of stuff to move?"
             },
             {
@@ -8570,8 +8570,8 @@
             },
             {
               "ko": "반려동물과 같이 살아도 돼요?",
-              "de": "Darf ich mit einem Haustier einziehen?",
-              "en": "May I move in with a pet?"
+              "de": "Darf ich hier mit einem Haustier wohnen?",
+              "en": "May I live here with a pet?"
             },
             {
               "ko": "계약서를 집에서 읽어 봐도 괜찮아요?",
@@ -8608,8 +8608,8 @@
             },
             {
               "ko": "반려동물과 같이 살아도 돼요?",
-              "de": "Darf ich mit einem Haustier einziehen?",
-              "en": "May I move in with a pet?"
+              "de": "Darf ich hier mit einem Haustier wohnen?",
+              "en": "May I live here with a pet?"
             },
             {
               "ko": "계약서를 집에서 읽어 봐도 괜찮아요?",
@@ -8646,8 +8646,8 @@
             },
             {
               "ko": "반려동물과 같이 살아도 돼요?",
-              "de": "Darf ich mit einem Haustier einziehen?",
-              "en": "May I move in with a pet?"
+              "de": "Darf ich hier mit einem Haustier wohnen?",
+              "en": "May I live here with a pet?"
             },
             {
               "ko": "관리비에 인터넷도 포함돼요?",
@@ -8658,8 +8658,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “반려동물과 같이 살아도 돼요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Darf ich mit einem Haustier einziehen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: May I move in with a pet? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Darf ich hier mit einem Haustier wohnen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: May I live here with a pet? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0080"
@@ -8689,7 +8689,7 @@
             },
             {
               "ko": "이삿짐 많아요?",
-              "de": "Hast du viel Umzugsgut?",
+              "de": "Hast du viele Sachen für den Umzug?",
               "en": "Do you have a lot of stuff to move?"
             }
           ],
@@ -8779,25 +8779,25 @@
           },
           "options": [
             {
-              "ko": "이 근처에 약국이 있어요?",
-              "de": "Gibt es hier in der Nähe eine Apotheke?",
-              "en": "Is there a pharmacy near here?"
-            },
-            {
-              "ko": "예약했어요?",
-              "de": "Hast du einen Termin?",
-              "en": "Do you have an appointment?"
-            },
-            {
               "ko": "어디 아파요?",
               "de": "Wo tut es Ihnen weh?",
               "en": "Where does it hurt?"
+            },
+            {
+              "ko": "예약했어요?",
+              "de": "Haben Sie einen Termin?",
+              "en": "Do you have an appointment?"
+            },
+            {
+              "ko": "보험 있어요?",
+              "de": "Sind Sie krankenversichert?",
+              "en": "Do you have health insurance?"
             }
           ],
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “예약했어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Hast du einen Termin? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Haben Sie einen Termin? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Do you have an appointment? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -8818,25 +8818,25 @@
           "options": [
             {
               "ko": "보험 있어요?",
-              "de": "Hast du eine Versicherung?",
-              "en": "Do you have insurance?"
+              "de": "Sind Sie krankenversichert?",
+              "en": "Do you have health insurance?"
+            },
+            {
+              "ko": "예약했어요?",
+              "de": "Haben Sie einen Termin?",
+              "en": "Do you have an appointment?"
             },
             {
               "ko": "처방전 받았어요?",
               "de": "Hast du ein Rezept bekommen?",
               "en": "Did you get a prescription?"
-            },
-            {
-              "ko": "이 근처에 약국이 있어요?",
-              "de": "Gibt es hier in der Nähe eine Apotheke?",
-              "en": "Is there a pharmacy near here?"
             }
           ],
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “보험 있어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Hast du eine Versicherung? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Do you have insurance? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Sind Sie krankenversichert? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Do you have health insurance? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0036"
@@ -8873,7 +8873,7 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "“예약했어요?” — 진료 이야기를 하며 예약 여부를 물어봐요.",
-            "de": "„예약했어요?“ bedeutet: Hast du einen Termin?",
+            "de": "„예약했어요?“ bedeutet: Haben Sie einen Termin?",
             "en": "“예약했어요?” means: Do you have an appointment?"
           },
           "sourceIds": [
@@ -9028,9 +9028,9 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“우회전 해 주세요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„우회전 해 주세요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“우회전 해 주세요.”\nWhich meaning matches the whole utterance?"
+            "ko": "“우회전해 주세요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„우회전해 주세요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“우회전해 주세요.”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
@@ -9044,22 +9044,22 @@
               "en": "Where is the ticket counter?"
             },
             {
-              "ko": "우회전 해 주세요.",
+              "ko": "우회전해 주세요.",
               "de": "Biegen Sie bitte rechts ab.",
               "en": "Please make a right turn."
             }
           ],
           "correctIndex": 2,
           "explanation": {
-            "ko": "이 표현의 내용은 “우회전 해 주세요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "ko": "이 표현의 내용은 “우회전해 주세요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: Biegen Sie bitte rechts ab. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Please make a right turn. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0040"
           ],
-          "audioKo": "우회전 해 주세요.",
-          "evidenceKo": "우회전 해 주세요."
+          "audioKo": "우회전해 주세요.",
+          "evidenceKo": "우회전해 주세요."
         },
         {
           "id": "smalltalk.a2.transport.route.smalltalk_a2_0041.meaning",
@@ -9082,7 +9082,7 @@
               "en": "Please open the door."
             },
             {
-              "ko": "우회전 해 주세요.",
+              "ko": "우회전해 주세요.",
               "de": "Biegen Sie bitte rechts ab.",
               "en": "Please make a right turn."
             }
@@ -9153,9 +9153,9 @@
               "en": "코엑스에 가려면 지하철 몇 호선을 타야 돼요?"
             },
             {
-              "ko": "코엑스역은 몇 번 출구로 나가요?",
-              "de": "코엑스역은 몇 번 출구로 나가요?",
-              "en": "코엑스역은 몇 번 출구로 나가요?"
+              "ko": "코엑스 근처 역에서는 몇 번 출구로 나가요?",
+              "de": "코엑스 근처 역에서는 몇 번 출구로 나가요?",
+              "en": "코엑스 근처 역에서는 몇 번 출구로 나가요?"
             },
             {
               "ko": "코엑스에서 지하철은 몇 시에 끊겨요?",
@@ -9223,8 +9223,8 @@
             },
             {
               "ko": "포장해 주세요.",
-              "de": "Packen Sie es bitte als Geschenk ein.",
-              "en": "Please gift-wrap it."
+              "de": "Packen Sie es bitte ein.",
+              "en": "Please wrap it up."
             },
             {
               "ko": "조금 비싸요. 깎아 주세요.",
@@ -9257,7 +9257,7 @@
             {
               "ko": "한국 치수를 잘 몰라요.",
               "de": "Ich kenne die koreanischen Größen nicht gut.",
-              "en": "I don't know my Korean size."
+              "en": "I'm not familiar with Korean sizes."
             },
             {
               "ko": "치수가 안 맞아요. 교환할 수 있어요?",
@@ -9266,8 +9266,8 @@
             },
             {
               "ko": "기념품은 어디에서 팔아요?",
-              "de": "Wo werden Souvenirs verkauft?",
-              "en": "Where can I find souvenirs?"
+              "de": "Wo kann ich Souvenirs kaufen?",
+              "en": "Where can I buy souvenirs?"
             }
           ],
           "correctIndex": 1,
@@ -9295,7 +9295,7 @@
             {
               "ko": "한국 치수를 잘 몰라요.",
               "de": "Ich kenne die koreanischen Größen nicht gut.",
-              "en": "I don't know my Korean size."
+              "en": "I'm not familiar with Korean sizes."
             },
             {
               "ko": "좋은 선물을 추천해 주세요.",
@@ -9304,15 +9304,15 @@
             },
             {
               "ko": "포장해 주세요.",
-              "de": "Packen Sie es bitte als Geschenk ein.",
-              "en": "Please gift-wrap it."
+              "de": "Packen Sie es bitte ein.",
+              "en": "Please wrap it up."
             }
           ],
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “한국 치수를 잘 몰라요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: Ich kenne die koreanischen Größen nicht gut. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: I don't know my Korean size. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "en": "The meaning is: I'm not familiar with Korean sizes. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0045"
@@ -9332,8 +9332,8 @@
           "options": [
             {
               "ko": "포장해 주세요.",
-              "de": "Packen Sie es bitte als Geschenk ein.",
-              "en": "Please gift-wrap it."
+              "de": "Packen Sie es bitte ein.",
+              "en": "Please wrap it up."
             },
             {
               "ko": "조금 비싸요. 깎아 주세요.",
@@ -9375,8 +9375,8 @@
             },
             {
               "ko": "기념품은 어디에서 팔아요?",
-              "de": "Wo werden Souvenirs verkauft?",
-              "en": "Where can I find souvenirs?"
+              "de": "Wo kann ich Souvenirs kaufen?",
+              "en": "Where can I buy souvenirs?"
             },
             {
               "ko": "치수가 안 맞아요. 교환할 수 있어요?",
@@ -9387,8 +9387,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “기념품은 어디에서 팔아요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wo werden Souvenirs verkauft? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Where can I find souvenirs? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Wo kann ich Souvenirs kaufen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Where can I buy souvenirs? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0047"
@@ -9408,8 +9408,8 @@
           "options": [
             {
               "ko": "포장해 주세요.",
-              "de": "Packen Sie es bitte als Geschenk ein.",
-              "en": "Please gift-wrap it."
+              "de": "Packen Sie es bitte ein.",
+              "en": "Please wrap it up."
             },
             {
               "ko": "좋은 선물을 추천해 주세요.",
@@ -9425,8 +9425,8 @@
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “포장해 주세요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Packen Sie es bitte als Geschenk ein. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Please gift-wrap it. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Packen Sie es bitte ein. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Please wrap it up. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0048"
@@ -9455,9 +9455,9 @@
               "en": "비싸도 괜찮아요. 그냥 살게요."
             },
             {
-              "ko": "조금 비싸니까 포장만 해 주세요.",
-              "de": "조금 비싸니까 포장만 해 주세요.",
-              "en": "조금 비싸니까 포장만 해 주세요."
+              "ko": "조금 비싸니까 다른 걸 보여 주세요.",
+              "de": "조금 비싸니까 다른 걸 보여 주세요.",
+              "en": "조금 비싸니까 다른 걸 보여 주세요."
             }
           ],
           "correctIndex": 0,
@@ -9544,9 +9544,9 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“국제 전화는 어떻게 해요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„국제 전화는 어떻게 해요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“국제 전화는 어떻게 해요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“휴대전화로 국제전화는 어떻게 해요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„휴대전화로 국제전화는 어떻게 해요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“휴대전화로 국제전화는 어떻게 해요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
@@ -9555,9 +9555,9 @@
               "en": "Can you put someone who speaks English on the phone?"
             },
             {
-              "ko": "국제 전화는 어떻게 해요?",
-              "de": "Wie telefoniere ich ins Ausland?",
-              "en": "How do I make an international call?"
+              "ko": "휴대전화로 국제전화는 어떻게 해요?",
+              "de": "Wie mache ich mit dem Handy einen Anruf ins Ausland?",
+              "en": "How do I make an international call on my mobile phone?"
             },
             {
               "ko": "문자 메시지 보냈어요.",
@@ -9567,15 +9567,15 @@
           ],
           "correctIndex": 1,
           "explanation": {
-            "ko": "이 표현의 내용은 “국제 전화는 어떻게 해요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wie telefoniere ich ins Ausland? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: How do I make an international call? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “휴대전화로 국제전화는 어떻게 해요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Wie mache ich mit dem Handy einen Anruf ins Ausland? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: How do I make an international call on my mobile phone? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0050"
           ],
-          "audioKo": "국제 전화는 어떻게 해요?",
-          "evidenceKo": "국제 전화는 어떻게 해요?"
+          "audioKo": "휴대전화로 국제전화는 어떻게 해요?",
+          "evidenceKo": "휴대전화로 국제전화는 어떻게 해요?"
         },
         {
           "id": "smalltalk.a2.phone.contact.smalltalk_a2_0051.meaning",
@@ -9776,7 +9776,7 @@
               "en": "I want to report a theft."
             },
             {
-              "ko": "우회전 해 주세요.",
+              "ko": "우회전해 주세요.",
               "de": "Biegen Sie bitte rechts ab.",
               "en": "Please make a right turn."
             }
@@ -9950,8 +9950,8 @@
               "en": "When should I do the New Year bow?"
             },
             {
-              "ko": "동생한테는 반말로 해도 돼요?",
-              "de": "Darf ich mit dem jüngeren Bruder die vertrauliche Form benutzen?",
+              "ko": "남동생한테는 반말로 해도 돼요?",
+              "de": "Darf ich mit dem jüngeren Bruder die informelle Sprachform benutzen?",
               "en": "Can I use casual speech with the younger brother?"
             },
             {
@@ -9984,8 +9984,8 @@
           "options": [
             {
               "ko": "추석 연휴에는 저희도 하루는 쉬려고요.",
-              "de": "Über die Chuseok-Feiertage nehmen wir uns auch einen Tag frei.",
-              "en": "We're taking one day off over the Chuseok holiday too."
+              "de": "Über die Chuseok-Feiertage wollen wir uns auch einen Tag frei nehmen.",
+              "en": "We are planning to take a day off over the Chuseok holiday too."
             },
             {
               "ko": "아직 분위기를 잘 못 읽어서 조용히 있었어요.",
@@ -9994,14 +9994,14 @@
             },
             {
               "ko": "올해는 한국어를 더 열심히 하려고요.",
-              "de": "Dieses Jahr will ich mehr Koreanisch lernen.",
+              "de": "Dieses Jahr will ich intensiver an meinem Koreanisch arbeiten.",
               "en": "This year I want to work harder on my Korean."
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “올해는 한국어를 더 열심히 하려고요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Dieses Jahr will ich mehr Koreanisch lernen. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Dieses Jahr will ich intensiver an meinem Koreanisch arbeiten. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: This year I want to work harder on my Korean. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -10022,8 +10022,8 @@
           "options": [
             {
               "ko": "반찬을 이렇게 많이 싸 주셔도 돼요?",
-              "de": "Ist das nicht zu viel, was Sie mir da einpacken?",
-              "en": "Are you sure you want to pack me this much?"
+              "de": "Ist es wirklich in Ordnung, dass Sie mir so viele Beilagen einpacken?",
+              "en": "Are you sure it's okay to give me this many side dishes?"
             },
             {
               "ko": "귀성길에 차가 많이 막혀요?",
@@ -10060,25 +10060,25 @@
           "options": [
             {
               "ko": "추석 연휴에는 저희도 하루는 쉬려고요.",
-              "de": "Über die Chuseok-Feiertage nehmen wir uns auch einen Tag frei.",
-              "en": "We're taking one day off over the Chuseok holiday too."
+              "de": "Über die Chuseok-Feiertage wollen wir uns auch einen Tag frei nehmen.",
+              "en": "We are planning to take a day off over the Chuseok holiday too."
             },
             {
               "ko": "올해는 한국어를 더 열심히 하려고요.",
-              "de": "Dieses Jahr will ich mehr Koreanisch lernen.",
+              "de": "Dieses Jahr will ich intensiver an meinem Koreanisch arbeiten.",
               "en": "This year I want to work harder on my Korean."
             },
             {
               "ko": "반찬 봉투는 제가 들게요.",
-              "de": "Die Tüte mit den Beilagen nehme ich.",
+              "de": "Ich trage die Tüte mit den Beilagen.",
               "en": "I'll carry the bag of side dishes."
             }
           ],
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “추석 연휴에는 저희도 하루는 쉬려고요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Über die Chuseok-Feiertage nehmen wir uns auch einen Tag frei. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: We're taking one day off over the Chuseok holiday too. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Über die Chuseok-Feiertage wollen wir uns auch einen Tag frei nehmen. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: We are planning to take a day off over the Chuseok holiday too. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0063"
@@ -10165,7 +10165,7 @@
           "options": [
             {
               "ko": "올해는 한국어를 더 열심히 하려고요.",
-              "de": "Dieses Jahr will ich mehr Koreanisch lernen.",
+              "de": "Dieses Jahr will ich intensiver an meinem Koreanisch arbeiten.",
               "en": "This year I want to work harder on my Korean."
             },
             {
@@ -10175,7 +10175,7 @@
             },
             {
               "ko": "반말은 아직 현우한테만 연습하고 있어요.",
-              "de": "Die vertrauliche Form übe ich bisher nur mit Hyunwoo.",
+              "de": "Die informelle Sprachform übe ich bisher nur mit Hyunwoo.",
               "en": "I'm only practicing casual speech with Hyunwoo so far."
             }
           ],
@@ -10196,38 +10196,38 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“현우를 이렇게 놀려도 괜찮아요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„현우를 이렇게 놀려도 괜찮아요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“현우를 이렇게 놀려도 괜찮아요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“현우가 이런 농담을 불편해할까요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„현우가 이런 농담을 불편해할까요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“현우가 이런 농담을 불편해할까요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
-              "ko": "반찬을 이렇게 많이 싸 주셔도 돼요?",
-              "de": "Ist das nicht zu viel, was Sie mir da einpacken?",
-              "en": "Are you sure you want to pack me this much?"
+              "ko": "귀성길에 차가 많이 막혀요?",
+              "de": "Ist auf der Fahrt in die Heimat viel Verkehr?",
+              "en": "Is the traffic bad heading home for the holiday?"
             },
             {
-              "ko": "동생한테는 반말로 해도 돼요?",
-              "de": "Darf ich mit dem jüngeren Bruder die vertrauliche Form benutzen?",
-              "en": "Can I use casual speech with the younger brother?"
+              "ko": "손님방에서 자면 될까요?",
+              "de": "Kann ich im Gästezimmer schlafen?",
+              "en": "Can I sleep in the guest room?"
             },
             {
-              "ko": "현우를 이렇게 놀려도 괜찮아요?",
-              "de": "Darf ich Hyunwoo so aufziehen?",
-              "en": "Is it okay to tease Hyunwoo like this?"
+              "ko": "현우가 이런 농담을 불편해할까요?",
+              "de": "Könnte sich Hyunwoo mit solchen Scherzen unwohl fühlen?",
+              "en": "Could jokes like this make Hyunwoo uncomfortable?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
-            "ko": "이 표현의 내용은 “현우를 이렇게 놀려도 괜찮아요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Darf ich Hyunwoo so aufziehen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Is it okay to tease Hyunwoo like this? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “현우가 이런 농담을 불편해할까요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Könnte sich Hyunwoo mit solchen Scherzen unwohl fühlen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Could jokes like this make Hyunwoo uncomfortable? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0064"
           ],
-          "audioKo": "현우를 이렇게 놀려도 괜찮아요?",
-          "evidenceKo": "현우를 이렇게 놀려도 괜찮아요?"
+          "audioKo": "현우가 이런 농담을 불편해할까요?",
+          "evidenceKo": "현우가 이런 농담을 불편해할까요?"
         },
         {
           "id": "smalltalk.a2.partner_family.speech.smalltalk_a2_0065.meaning",
@@ -10241,12 +10241,12 @@
           "options": [
             {
               "ko": "반찬 봉투는 제가 들게요.",
-              "de": "Die Tüte mit den Beilagen nehme ich.",
+              "de": "Ich trage die Tüte mit den Beilagen.",
               "en": "I'll carry the bag of side dishes."
             },
             {
               "ko": "아까 반말이 나와서 죄송해요.",
-              "de": "Entschuldigung, vorhin ist mir die vertrauliche Form rausgerutscht.",
+              "de": "Entschuldigung, vorhin ist mir die informelle Sprachform herausgerutscht.",
               "en": "Sorry, casual speech slipped out earlier."
             },
             {
@@ -10258,7 +10258,7 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “아까 반말이 나와서 죄송해요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Entschuldigung, vorhin ist mir die vertrauliche Form rausgerutscht. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Entschuldigung, vorhin ist mir die informelle Sprachform herausgerutscht. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Sorry, casual speech slipped out earlier. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -10272,14 +10272,14 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“동생한테는 반말로 해도 돼요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„동생한테는 반말로 해도 돼요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“동생한테는 반말로 해도 돼요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“남동생한테는 반말로 해도 돼요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„남동생한테는 반말로 해도 돼요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“남동생한테는 반말로 해도 돼요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
-              "ko": "동생한테는 반말로 해도 돼요?",
-              "de": "Darf ich mit dem jüngeren Bruder die vertrauliche Form benutzen?",
+              "ko": "남동생한테는 반말로 해도 돼요?",
+              "de": "Darf ich mit dem jüngeren Bruder die informelle Sprachform benutzen?",
               "en": "Can I use casual speech with the younger brother?"
             },
             {
@@ -10289,21 +10289,21 @@
             },
             {
               "ko": "반찬을 이렇게 많이 싸 주셔도 돼요?",
-              "de": "Ist das nicht zu viel, was Sie mir da einpacken?",
-              "en": "Are you sure you want to pack me this much?"
+              "de": "Ist es wirklich in Ordnung, dass Sie mir so viele Beilagen einpacken?",
+              "en": "Are you sure it's okay to give me this many side dishes?"
             }
           ],
           "correctIndex": 0,
           "explanation": {
-            "ko": "이 표현의 내용은 “동생한테는 반말로 해도 돼요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Darf ich mit dem jüngeren Bruder die vertrauliche Form benutzen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "ko": "이 표현의 내용은 “남동생한테는 반말로 해도 돼요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Darf ich mit dem jüngeren Bruder die informelle Sprachform benutzen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Can I use casual speech with the younger brother? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0072"
           ],
-          "audioKo": "동생한테는 반말로 해도 돼요?",
-          "evidenceKo": "동생한테는 반말로 해도 돼요?"
+          "audioKo": "남동생한테는 반말로 해도 돼요?",
+          "evidenceKo": "남동생한테는 반말로 해도 돼요?"
         },
         {
           "id": "smalltalk.a2.partner_family.speech.smalltalk_a2_0073.meaning",
@@ -10322,19 +10322,19 @@
             },
             {
               "ko": "올해는 한국어를 더 열심히 하려고요.",
-              "de": "Dieses Jahr will ich mehr Koreanisch lernen.",
+              "de": "Dieses Jahr will ich intensiver an meinem Koreanisch arbeiten.",
               "en": "This year I want to work harder on my Korean."
             },
             {
               "ko": "반말은 아직 현우한테만 연습하고 있어요.",
-              "de": "Die vertrauliche Form übe ich bisher nur mit Hyunwoo.",
+              "de": "Die informelle Sprachform übe ich bisher nur mit Hyunwoo.",
               "en": "I'm only practicing casual speech with Hyunwoo so far."
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “반말은 아직 현우한테만 연습하고 있어요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Die vertrauliche Form übe ich bisher nur mit Hyunwoo. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Die informelle Sprachform übe ich bisher nur mit Hyunwoo. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: I'm only practicing casual speech with Hyunwoo so far. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -10466,8 +10466,8 @@
             },
             {
               "ko": "반찬을 이렇게 많이 싸 주셔도 돼요?",
-              "de": "Ist das nicht zu viel, was Sie mir da einpacken?",
-              "en": "Are you sure you want to pack me this much?"
+              "de": "Ist es wirklich in Ordnung, dass Sie mir so viele Beilagen einpacken?",
+              "en": "Are you sure it's okay to give me this many side dishes?"
             },
             {
               "ko": "안녕히 주무셨어요?",
@@ -10498,26 +10498,26 @@
           },
           "options": [
             {
-              "ko": "귀성길에 차가 많이 막혀요?",
-              "de": "Ist auf der Fahrt in die Heimat viel Verkehr?",
-              "en": "Is the traffic bad heading home for the holiday?"
+              "ko": "남동생한테는 반말로 해도 돼요?",
+              "de": "Darf ich mit dem jüngeren Bruder die informelle Sprachform benutzen?",
+              "en": "Can I use casual speech with the younger brother?"
             },
             {
               "ko": "반찬을 이렇게 많이 싸 주셔도 돼요?",
-              "de": "Ist das nicht zu viel, was Sie mir da einpacken?",
-              "en": "Are you sure you want to pack me this much?"
+              "de": "Ist es wirklich in Ordnung, dass Sie mir so viele Beilagen einpacken?",
+              "en": "Are you sure it's okay to give me this many side dishes?"
             },
             {
-              "ko": "현우를 이렇게 놀려도 괜찮아요?",
-              "de": "Darf ich Hyunwoo so aufziehen?",
-              "en": "Is it okay to tease Hyunwoo like this?"
+              "ko": "귀성길에 차가 많이 막혀요?",
+              "de": "Ist auf der Fahrt in die Heimat viel Verkehr?",
+              "en": "Is the traffic bad heading home for the holiday?"
             }
           ],
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “반찬을 이렇게 많이 싸 주셔도 돼요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Ist das nicht zu viel, was Sie mir da einpacken? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Are you sure you want to pack me this much? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Ist es wirklich in Ordnung, dass Sie mir so viele Beilagen einpacken? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Are you sure it's okay to give me this many side dishes? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0068"
@@ -10537,24 +10537,24 @@
           "options": [
             {
               "ko": "반찬 봉투는 제가 들게요.",
-              "de": "Die Tüte mit den Beilagen nehme ich.",
+              "de": "Ich trage die Tüte mit den Beilagen.",
               "en": "I'll carry the bag of side dishes."
             },
             {
               "ko": "도착하면 바로 전화드릴게요.",
-              "de": "Ich rufe an, sobald wir da sind.",
-              "en": "I'll call as soon as we get there."
+              "de": "Ich rufe an, sobald ich da bin.",
+              "en": "I'll call as soon as I get there."
             },
             {
               "ko": "추석 연휴에는 저희도 하루는 쉬려고요.",
-              "de": "Über die Chuseok-Feiertage nehmen wir uns auch einen Tag frei.",
-              "en": "We're taking one day off over the Chuseok holiday too."
+              "de": "Über die Chuseok-Feiertage wollen wir uns auch einen Tag frei nehmen.",
+              "en": "We are planning to take a day off over the Chuseok holiday too."
             }
           ],
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “반찬 봉투는 제가 들게요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Die Tüte mit den Beilagen nehme ich. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Ich trage die Tüte mit den Beilagen. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: I'll carry the bag of side dishes. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -10574,14 +10574,14 @@
           },
           "options": [
             {
-              "ko": "동생한테는 반말로 해도 돼요?",
-              "de": "Darf ich mit dem jüngeren Bruder die vertrauliche Form benutzen?",
+              "ko": "남동생한테는 반말로 해도 돼요?",
+              "de": "Darf ich mit dem jüngeren Bruder die informelle Sprachform benutzen?",
               "en": "Can I use casual speech with the younger brother?"
             },
             {
-              "ko": "현우를 이렇게 놀려도 괜찮아요?",
-              "de": "Darf ich Hyunwoo so aufziehen?",
-              "en": "Is it okay to tease Hyunwoo like this?"
+              "ko": "손님방에서 자면 될까요?",
+              "de": "Kann ich im Gästezimmer schlafen?",
+              "en": "Can I sleep in the guest room?"
             },
             {
               "ko": "고속버스로 얼마나 걸려요?",
@@ -10613,25 +10613,25 @@
           "options": [
             {
               "ko": "추석 연휴에는 저희도 하루는 쉬려고요.",
-              "de": "Über die Chuseok-Feiertage nehmen wir uns auch einen Tag frei.",
-              "en": "We're taking one day off over the Chuseok holiday too."
+              "de": "Über die Chuseok-Feiertage wollen wir uns auch einen Tag frei nehmen.",
+              "en": "We are planning to take a day off over the Chuseok holiday too."
             },
             {
               "ko": "도착하면 바로 전화드릴게요.",
-              "de": "Ich rufe an, sobald wir da sind.",
-              "en": "I'll call as soon as we get there."
+              "de": "Ich rufe an, sobald ich da bin.",
+              "en": "I'll call as soon as I get there."
             },
             {
               "ko": "반찬 봉투는 제가 들게요.",
-              "de": "Die Tüte mit den Beilagen nehme ich.",
+              "de": "Ich trage die Tüte mit den Beilagen.",
               "en": "I'll carry the bag of side dishes."
             }
           ],
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “도착하면 바로 전화드릴게요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Ich rufe an, sobald wir da sind. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: I'll call as soon as we get there. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Ich rufe an, sobald ich da bin. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I'll call as soon as I get there. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0071"
@@ -11120,15 +11120,15 @@
             },
             {
               "ko": "후룸라이드는 얼마나 젖을지 몰라서 더 두근거려!",
-              "de": "Bei der Wasserbahn weiß man nie, wie nass man wird. Das macht es noch aufregender!",
-              "en": "You never know how wet you'll get on the flume ride. That makes it even more exciting!"
+              "de": "Ich weiß nicht, wie nass ich bei der Wasserbahn werde. Das macht es noch aufregender!",
+              "en": "I don't know how wet I'll get on the flume ride, so I'm even more excited!"
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “후룸라이드는 얼마나 젖을지 몰라서 더 두근거려!”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Bei der Wasserbahn weiß man nie, wie nass man wird. Das macht es noch aufregender! Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: You never know how wet you'll get on the flume ride. That makes it even more exciting! Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Ich weiß nicht, wie nass ich bei der Wasserbahn werde. Das macht es noch aufregender! Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I don't know how wet I'll get on the flume ride, so I'm even more excited! Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0091"
@@ -14153,8 +14153,8 @@
           "options": [
             {
               "ko": "보험 있어요?",
-              "de": "Hast du eine Versicherung?",
-              "en": "Do you have insurance?"
+              "de": "Sind Sie krankenversichert?",
+              "en": "Do you have health insurance?"
             },
             {
               "ko": "증상이 언제부터 있었어요?",
@@ -14201,8 +14201,8 @@
             },
             {
               "ko": "보험 있어요?",
-              "de": "Hast du eine Versicherung?",
-              "en": "Do you have insurance?"
+              "de": "Sind Sie krankenversichert?",
+              "en": "Do you have health insurance?"
             }
           ],
           "correctIndex": 0,

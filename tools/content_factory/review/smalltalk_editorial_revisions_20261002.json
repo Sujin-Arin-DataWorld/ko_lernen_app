@@ -4641,6 +4641,4572 @@
         "en"
       ],
       "afterSha256": "5aa8418d4fbf7576c360e57bb877825e4c8d1f19d434ab4a2416883077a7f374"
+    },
+    {
+      "id": "smalltalk_a2_0001",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0001",
+        "category": "weather",
+        "level": "a2",
+        "kind": "question",
+        "ko": "주말에 날씨 좋을까요?",
+        "de": "Wird das Wetter am Wochenende wohl schön?",
+        "en": "Will the weather be nice this weekend?",
+        "reply": {
+          "ko": "네, 맑을 것 같아요.",
+          "de": "Ja, es wird wohl sonnig.",
+          "en": "Yeah, looks like it'll be sunny."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0001",
+        "category": "weather",
+        "level": "a2",
+        "kind": "question",
+        "ko": "주말에 날씨 좋을까요?",
+        "de": "Wird das Wetter am Wochenende wohl schön?",
+        "en": "Will the weather be nice this weekend?",
+        "reply": {
+          "ko": "네, 맑을 것 같아요.",
+          "de": "Ja, es wird wohl sonnig.",
+          "en": "Yeah, looks like it'll be sunny."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "맑으면 밖에 나가고 싶어요.",
+          "de": "Wenn es schön wird, würde ich gern rausgehen.",
+          "en": "If it's clear, I'd like to go out."
+        }
+      },
+      "beforeSha256": "d68f9dfa954bd5b192dbf9d19bbbac5bff6b384062b6ae6cd1c50644b961128a",
+      "afterSha256": "4c143bb2dbd4992594a18f7b669fe257aaf77cffb8612fb1d2d03eec251c3a56"
+    },
+    {
+      "id": "smalltalk_a2_0002",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0002",
+        "category": "mood",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "요즘 좀 피곤해요.",
+        "de": "In letzter Zeit bin ich etwas müde.",
+        "en": "I've been a bit tired lately.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0002",
+        "category": "mood",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "요즘 좀 피곤해요.",
+        "de": "In letzter Zeit bin ich etwas müde.",
+        "en": "I've been a bit tired lately.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "오늘은 좀 쉬어요.",
+          "de": "Ruh dich heute ein bisschen aus.",
+          "en": "Get some rest today."
+        }
+      },
+      "beforeSha256": "f92f9d0c78608b409f3a52c568fca335c6fcf00a050efae1fd35fd18a3726eec",
+      "afterSha256": "ee76147752d93088b826c6ced949485b1e7f7956bd6f8b16e40ff1f904ade65f"
+    },
+    {
+      "id": "smalltalk_a2_0003",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0003",
+        "category": "weekend",
+        "level": "a2",
+        "kind": "question",
+        "ko": "이번 주말에 같이 산책할까요?",
+        "de": "Wollen wir dieses Wochenende zusammen spazieren gehen?",
+        "en": "Shall we go for a walk together this weekend?",
+        "reply": {
+          "ko": "네, 좋아요. 같이 걸어요.",
+          "de": "Ja, gern. Gehen wir zusammen.",
+          "en": "Yes, sounds good. Let's go for a walk."
+        },
+        "relationshipContext": "classmate",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이번 주말에 시간 괜찮으세요?",
+            "de": "Haben Sie dieses Wochenende Zeit?",
+            "en": "Do you have time this weekend?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아요. 시간 정해 봐요.",
+          "de": "Gerne. Lassen wir uns eine Zeit ausmachen.",
+          "en": "Great. Let's pick a time."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0003",
+        "category": "weekend",
+        "level": "a2",
+        "kind": "question",
+        "ko": "이번 주말에 같이 산책할까요?",
+        "de": "Wollen wir dieses Wochenende zusammen spazieren gehen?",
+        "en": "Shall we go for a walk together this weekend?",
+        "reply": {
+          "ko": "네, 좋아요. 같이 걸어요.",
+          "de": "Ja, gern. Gehen wir zusammen.",
+          "en": "Yes, sounds good. Let's go for a walk."
+        },
+        "relationshipContext": "classmate",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이번 주말에 시간 괜찮으세요?",
+            "de": "Haben Sie dieses Wochenende Zeit?",
+            "en": "Do you have time this weekend?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "question",
+          "ko": "그럼 몇 시에 만날까요?",
+          "de": "Wann wollen wir uns dann treffen?",
+          "en": "What time shall we meet, then?"
+        }
+      },
+      "beforeSha256": "7e00aee1886b9f4eb47d6affb86b842bec43a4bd6bb479cc8d516ff8616f3db5",
+      "afterSha256": "15c872bf589b867a1d6638a3909f633bc67dd129a5c18b2ebe04b914eb8d7dad"
+    },
+    {
+      "id": "smalltalk_a2_0004",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0004",
+        "category": "food",
+        "level": "a2",
+        "kind": "question",
+        "ko": "점심 같이 먹을래요?",
+        "de": "Wollen wir zusammen Mittag essen?",
+        "en": "Want to grab lunch?",
+        "reply": {
+          "ko": "좋아요. 같이 먹어요.",
+          "de": "Gerne. Essen wir zusammen.",
+          "en": "Sure. Let's eat together."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "점심 시간 괜찮으세요?",
+            "de": "Passt Ihnen die Mittagspause?",
+            "en": "Does lunchtime work for you?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아요. 어디로 갈까요?",
+          "de": "Gut. Wohin gehen wir?",
+          "en": "Great. Where should we go?"
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0004",
+        "category": "food",
+        "level": "a2",
+        "kind": "question",
+        "ko": "점심 같이 먹을래요?",
+        "de": "Wollen wir zusammen Mittag essen?",
+        "en": "Want to grab lunch?",
+        "reply": {
+          "ko": "좋아요. 같이 먹어요.",
+          "de": "Gerne. Essen wir zusammen.",
+          "en": "Sure. Let's eat together."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "점심 시간 괜찮으세요?",
+            "de": "Passt Ihnen die Mittagspause?",
+            "en": "Does lunchtime work for you?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "question",
+          "ko": "좋아요. 어디서 만날까요?",
+          "de": "Gern. Wo treffen wir uns?",
+          "en": "Sure. Where shall we meet?"
+        }
+      },
+      "beforeSha256": "01c15d7e3b7cb35055086e8c326e14dbdfbe01f8a7b9ce30f308763604e94543",
+      "afterSha256": "67cf8632f4307cfebf03a7d92ab42073efcdef575f98767ee62d58e9a0f3eb53"
+    },
+    {
+      "id": "smalltalk_a2_0005",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0005",
+        "category": "daily",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "오늘 아침에 일찍 일어났어요.",
+        "de": "Ich bin heute früh aufgestanden.",
+        "en": "I got up early this morning.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0005",
+        "category": "daily",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "오늘 아침에 일찍 일어났어요.",
+        "de": "Ich bin heute früh aufgestanden.",
+        "en": "I got up early this morning.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "question",
+          "ko": "일찍 일어나니까 어때요?",
+          "de": "Wie ist es für dich, so früh aufzustehen?",
+          "en": "How does getting up early feel?"
+        }
+      },
+      "beforeSha256": "c6ba32e27e9bc090a7d7dd778ed235842eb4eaf661fcf4e0779651ba0b37cfac",
+      "afterSha256": "04a804c2c1923adc22048a1544ecb71cfd26400699b01407b1fde34135d45ebb"
+    },
+    {
+      "id": "smalltalk_a2_0006",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0006",
+        "category": "screen",
+        "level": "a2",
+        "kind": "question",
+        "ko": "요즘 무슨 드라마 봐요?",
+        "de": "Welche Serie schaust du gerade?",
+        "en": "What drama are you watching these days?",
+        "reply": {
+          "ko": "요즘 한국 드라마 보고 있어요.",
+          "de": "Gerade eine koreanische Serie.",
+          "en": "I'm watching a Korean drama these days."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0006",
+        "category": "screen",
+        "level": "a2",
+        "kind": "question",
+        "ko": "요즘 무슨 드라마 봐요?",
+        "de": "Welche Serie schaust du gerade?",
+        "en": "What drama are you watching these days?",
+        "reply": {
+          "ko": "요즘 한국 드라마 보고 있어요.",
+          "de": "Gerade eine koreanische Serie.",
+          "en": "I'm watching a Korean drama these days."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "question",
+          "ko": "어떤 내용이에요?",
+          "de": "Worum geht es?",
+          "en": "What is it about?"
+        }
+      },
+      "beforeSha256": "0e212b5fbf9f425dd1a726c002495877d08d094f16b453cf6fea553af15e31a2",
+      "afterSha256": "4278dcb0450073d33390c21e0f67e7d9d1d15b6a84072363ee2d738f90dd3bb7"
+    },
+    {
+      "id": "smalltalk_a2_0011",
+      "level": "a2",
+      "fields": [
+        "followUp",
+        "relationshipContext",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0011",
+        "category": "family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "주말에 가족이랑 뭐 해요?",
+        "de": "Was machst du am Wochenende mit der Familie?",
+        "en": "What do you do with your family on weekends?",
+        "reply": {
+          "ko": "같이 밥 먹고 산책해요.",
+          "de": "Wir essen und spazieren zusammen.",
+          "en": "We eat and take walks together."
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 잘 지내?",
+            "de": "Läuft's bei dir?",
+            "en": "You doing alright?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇구나.",
+          "de": "Ach so.",
+          "en": "Oh, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0011",
+        "category": "family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "주말에 가족이랑 뭐 해요?",
+        "de": "Was machst du am Wochenende mit der Familie?",
+        "en": "What do you do with your family on weekends?",
+        "reply": {
+          "ko": "같이 밥 먹고 산책해요.",
+          "de": "Wir essen und spazieren zusammen.",
+          "en": "We eat and take walks together."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft’s bei dir in letzter Zeit?",
+            "en": "How have you been lately?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "같이 보내는 시간이 좋겠어요.",
+          "de": "Die gemeinsame Zeit ist bestimmt schön.",
+          "en": "It must be nice to spend that time together."
+        }
+      },
+      "beforeSha256": "c56a2d39927fae7302b1266eebc234f01318e31f3351e672f7526e73ced66917",
+      "afterSha256": "968477813bd5cda366a98323f010fe59a504ab5d9303a5ed84ee72b8c02c7694"
+    },
+    {
+      "id": "smalltalk_a2_0013",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0013",
+        "category": "weather",
+        "level": "a2",
+        "kind": "question",
+        "ko": "우산 가져왔어요?",
+        "de": "Hast du einen Schirm dabei?",
+        "en": "Did you bring an umbrella?",
+        "reply": {
+          "ko": "네, 챙겨 왔어요.",
+          "de": "Ja, hab ich dabei.",
+          "en": "Yes, I brought one."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0013",
+        "category": "weather",
+        "level": "a2",
+        "kind": "question",
+        "ko": "우산 가져왔어요?",
+        "de": "Hast du einen Schirm dabei?",
+        "en": "Did you bring an umbrella?",
+        "reply": {
+          "ko": "네, 챙겨 왔어요.",
+          "de": "Ja, hab ich dabei.",
+          "en": "Yes, I brought one."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "잘 챙겨 오셨네요.",
+          "de": "Gut, dass du einen mitgebracht hast.",
+          "en": "Good thing you brought one."
+        }
+      },
+      "beforeSha256": "3be35be9fcb7cbf7af034555e351d177df396006240ee12f035204c4bc14042c",
+      "afterSha256": "e58f14b07efda34de5a8316f7bd48b26d421bd424a3a74e92d1bfe1bf1955214"
+    },
+    {
+      "id": "smalltalk_a2_0014",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0014",
+        "category": "mood",
+        "level": "a2",
+        "kind": "question",
+        "ko": "오늘 컨디션 어때요?",
+        "de": "Wie fühlst du dich heute?",
+        "en": "How are you feeling today?",
+        "reply": {
+          "ko": "좀 피곤하지만 괜찮아요.",
+          "de": "Etwas müde, aber okay.",
+          "en": "A bit tired, but okay."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0014",
+        "category": "mood",
+        "level": "a2",
+        "kind": "question",
+        "ko": "오늘 컨디션 어때요?",
+        "de": "Wie fühlst du dich heute?",
+        "en": "How are you feeling today?",
+        "reply": {
+          "ko": "좀 피곤하지만 괜찮아요.",
+          "de": "Etwas müde, aber okay.",
+          "en": "A bit tired, but okay."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "오늘은 좀 쉬세요.",
+          "de": "Ruh dich heute ein bisschen aus.",
+          "en": "Get some rest today."
+        }
+      },
+      "beforeSha256": "178d6407e8f3c8be0a44df9c085ab81a34d9bb19a1a864380bd6f0bb4f92d4e6",
+      "afterSha256": "124daa9a024e5a7d48b47696ac8d60ff68797c3308159ec0029b260bf994419b"
+    },
+    {
+      "id": "smalltalk_a2_0016",
+      "level": "a2",
+      "fields": [
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0016",
+        "category": "food",
+        "level": "a2",
+        "kind": "question",
+        "ko": "매운 거 잘 먹어요?",
+        "de": "Verträgst du Scharfes gut?",
+        "en": "Can you handle spicy food?",
+        "reply": {
+          "ko": "네, 매운 거 좋아해요.",
+          "de": "Ja, ich mag scharfes Essen.",
+          "en": "Yes, I love spicy food."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0016",
+        "category": "food",
+        "level": "a2",
+        "kind": "question",
+        "ko": "매운 거 잘 먹어요?",
+        "de": "Verträgst du Scharfes gut?",
+        "en": "Can you handle spicy food?",
+        "reply": {
+          "ko": "네, 매운 거 좋아해요.",
+          "de": "Ja, ich mag scharfes Essen.",
+          "en": "Yes, I like spicy food."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "beforeSha256": "af174c897d60466f3c1a38962d3729a3b3a66f423bf27ced0ed9314bed78c790",
+      "afterSha256": "0cd85280c550bde4dbbd699500cf434914f7d47758808c7b33d94bdb76881221"
+    },
+    {
+      "id": "smalltalk_a2_0017",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0017",
+        "category": "daily",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "오늘 좀 늦었어요.",
+        "de": "Ich bin heute etwas spät dran.",
+        "en": "I'm running a bit late today.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0017",
+        "category": "daily",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "오늘 좀 늦었어요.",
+        "de": "Ich bin heute etwas spät dran.",
+        "en": "I'm running a bit late today.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "괜찮아요. 조심해서 오세요.",
+          "de": "Schon gut. Komm vorsichtig her.",
+          "en": "It's okay. Take care on your way here."
+        }
+      },
+      "beforeSha256": "71fc72d6abdc6ef33a7c8a9bc65d4da78d85c6cf4f5f72091915addab08f4b62",
+      "afterSha256": "77bedff89e818466c9d4e1cd6e5094044506e294a886e765d221650636dc26bb"
+    },
+    {
+      "id": "smalltalk_a2_0018",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0018",
+        "category": "screen",
+        "level": "a2",
+        "kind": "question",
+        "ko": "주말에 영화 봤어요?",
+        "de": "Hast du am Wochenende einen Film gesehen?",
+        "en": "Did you watch a movie over the weekend?",
+        "reply": {
+          "ko": "네, 한 편 봤어요.",
+          "de": "Ja, einen Film.",
+          "en": "Yes, I watched one."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0018",
+        "category": "screen",
+        "level": "a2",
+        "kind": "question",
+        "ko": "주말에 영화 봤어요?",
+        "de": "Hast du am Wochenende einen Film gesehen?",
+        "en": "Did you watch a movie over the weekend?",
+        "reply": {
+          "ko": "네, 한 편 봤어요.",
+          "de": "Ja, einen Film.",
+          "en": "Yes, I watched one."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "question",
+          "ko": "재미있었어요?",
+          "de": "Hat er dir gefallen?",
+          "en": "Did you enjoy it?"
+        }
+      },
+      "beforeSha256": "6fbb525cfa17576e95ed8b605aace69518cdf4d15f4556fdde97e3d2726f1c32",
+      "afterSha256": "cd42e802b034efde107917614d8e5ce8c031a73614522093445c08c2f37535e0"
+    },
+    {
+      "id": "smalltalk_a2_0019",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0019",
+        "category": "music",
+        "level": "a2",
+        "kind": "question",
+        "ko": "콘서트 가 본 적 있어요?",
+        "de": "Warst du schon mal auf einem Konzert?",
+        "en": "Have you ever been to a concert?",
+        "reply": {
+          "ko": "네, 작년에 가 봤어요.",
+          "de": "Ja, letztes Jahr.",
+          "en": "Yes, last year."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0019",
+        "category": "music",
+        "level": "a2",
+        "kind": "question",
+        "ko": "콘서트 가 본 적 있어요?",
+        "de": "Warst du schon mal auf einem Konzert?",
+        "en": "Have you ever been to a concert?",
+        "reply": {
+          "ko": "네, 작년에 가 봤어요.",
+          "de": "Ja, letztes Jahr.",
+          "en": "Yes, last year."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "question",
+          "ko": "어떤 콘서트였어요?",
+          "de": "Was für ein Konzert war das?",
+          "en": "What concert was it?"
+        }
+      },
+      "beforeSha256": "7be498002442d94d2d5afd3bd6dd433aa8e6a746509c9bdf8f3e5d13533b81d1",
+      "afterSha256": "cc5c78e3873ca408ddd8c5c53fbddb88096704d151ba587f2af3a5f775c41b3e"
+    },
+    {
+      "id": "smalltalk_a2_0020",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0020",
+        "category": "hobby",
+        "level": "a2",
+        "kind": "question",
+        "ko": "요즘 새로 배우는 거 있어요?",
+        "de": "Lernst du gerade etwas Neues?",
+        "en": "Are you learning anything new lately?",
+        "reply": {
+          "ko": "요즘 기타 배워요.",
+          "de": "Ich lerne gerade Gitarre.",
+          "en": "I'm learning guitar these days."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0020",
+        "category": "hobby",
+        "level": "a2",
+        "kind": "question",
+        "ko": "요즘 새로 배우는 거 있어요?",
+        "de": "Lernst du gerade etwas Neues?",
+        "en": "Are you learning anything new lately?",
+        "reply": {
+          "ko": "요즘 기타 배워요.",
+          "de": "Ich lerne gerade Gitarre.",
+          "en": "I'm learning guitar these days."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "question",
+          "ko": "기타 배우는 건 어때요?",
+          "de": "Wie ist es, Gitarre zu lernen?",
+          "en": "What's learning guitar like?"
+        }
+      },
+      "beforeSha256": "d3429e7081c9f89306feebc024692971acdc878c37b4efc8abdedd9e9d8b299c",
+      "afterSha256": "75c9a143eb6819a28c701a7b0530f2f0a2ecff83f3a110c73315d9532b74a29d"
+    },
+    {
+      "id": "smalltalk_a2_0021",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0021",
+        "category": "travel",
+        "level": "a2",
+        "kind": "question",
+        "ko": "휴가 때 어디 갔어요?",
+        "de": "Wohin bist du im Urlaub gefahren?",
+        "en": "Where did you go on your vacation?",
+        "reply": {
+          "ko": "바다에 다녀왔어요.",
+          "de": "Ans Meer.",
+          "en": "I went to the beach."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0021",
+        "category": "travel",
+        "level": "a2",
+        "kind": "question",
+        "ko": "휴가 때 어디 갔어요?",
+        "de": "Wohin bist du im Urlaub gefahren?",
+        "en": "Where did you go on your vacation?",
+        "reply": {
+          "ko": "바다에 다녀왔어요.",
+          "de": "Ans Meer.",
+          "en": "I went to the beach."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "question",
+          "ko": "바다에서 잘 쉬었어요?",
+          "de": "Hast du dich am Meer gut erholt?",
+          "en": "Did you get a good rest by the sea?"
+        }
+      },
+      "beforeSha256": "c5c3131bea54b2222696eba3e07c34d10f08128e6c0c65db801ca2e1b240482c",
+      "afterSha256": "0568d69bed78067253aa11163377b940e0eed63d495122634b5bcb48001c0fcb"
+    },
+    {
+      "id": "smalltalk_a2_0023",
+      "level": "a2",
+      "fields": [
+        "followUp",
+        "relationshipContext",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0023",
+        "category": "family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "형제 있어요?",
+        "de": "Hast du Geschwister?",
+        "en": "Do you have any siblings?",
+        "reply": {
+          "ko": "네, 동생 한 명 있어요.",
+          "de": "Ja, ich habe ein jüngeres Geschwisterkind.",
+          "en": "Yes, I have one younger sibling."
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 잘 지내?",
+            "de": "Läuft's bei dir?",
+            "en": "You doing alright?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇구나.",
+          "de": "Ach so.",
+          "en": "Oh, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0023",
+        "category": "family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "형제 있어요?",
+        "de": "Hast du Geschwister?",
+        "en": "Do you have any siblings?",
+        "reply": {
+          "ko": "네, 동생 한 명 있어요.",
+          "de": "Ja, ich habe ein jüngeres Geschwisterkind.",
+          "en": "Yes, I have one younger sibling."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft’s bei dir in letzter Zeit?",
+            "en": "How have you been lately?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 동생이 있으시군요.",
+          "de": "Du hast also ein jüngeres Geschwisterkind.",
+          "en": "So you have a younger sibling."
+        }
+      },
+      "beforeSha256": "aa340e23500a65a65486d95cd8f94f1ce64d1d5ff7d5a7eb1832295c854651ad",
+      "afterSha256": "3e7dbc1345aebeefb04fadb1c12751cc600befcb28857c1e06604018e38b5167"
+    },
+    {
+      "id": "smalltalk_a2_0024",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0024",
+        "category": "health",
+        "level": "a2",
+        "kind": "question",
+        "ko": "요즘 잘 자요?",
+        "de": "Schläfst du in letzter Zeit gut?",
+        "en": "Are you sleeping well these days?",
+        "reply": {
+          "ko": "네, 잘 자요.",
+          "de": "Ja, ganz gut.",
+          "en": "Yes, pretty well."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0024",
+        "category": "health",
+        "level": "a2",
+        "kind": "question",
+        "ko": "요즘 잘 자요?",
+        "de": "Schläfst du in letzter Zeit gut?",
+        "en": "Are you sleeping well these days?",
+        "reply": {
+          "ko": "네, 잘 자요.",
+          "de": "Ja, ganz gut.",
+          "en": "Yes, pretty well."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "잘 자고 있다니 다행이에요.",
+          "de": "Schön, dass du gut schläfst.",
+          "en": "I'm glad you're sleeping well."
+        }
+      },
+      "beforeSha256": "e52ff80eb918bf64c03c51ed23a34fd3983574e3cef34cc93007d4679b7a38e8",
+      "afterSha256": "442441c84ce04748f26d422efd2e93500b5ca390cfa4a69f784df39201e9c512"
+    },
+    {
+      "id": "smalltalk_a2_0025",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0025",
+        "category": "kpop",
+        "level": "a2",
+        "kind": "question",
+        "ko": "어떤 아이돌 좋아해요?",
+        "de": "Welche Idols magst du?",
+        "en": "Which idols do you like?",
+        "reply": {
+          "ko": "저는 이 그룹 좋아해요.",
+          "de": "Ich mag diese Gruppe.",
+          "en": "I like this group."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0025",
+        "category": "kpop",
+        "level": "a2",
+        "kind": "question",
+        "ko": "어떤 아이돌 좋아해요?",
+        "de": "Welche Idols magst du?",
+        "en": "Which idols do you like?",
+        "reply": {
+          "ko": "저는 이 그룹 좋아해요.",
+          "de": "Ich mag diese Gruppe.",
+          "en": "I like this group."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "이 그룹 노래 하나 추천해 주세요.",
+          "de": "Empfiehl mir bitte ein Lied von dieser Gruppe.",
+          "en": "Please recommend a song by this group."
+        }
+      },
+      "beforeSha256": "270d112e0095a3fc4877c876218c1184e678550d0b712392a8981cea57b367fe",
+      "afterSha256": "b01f8b4c16303fee93fd2b9c98871c9668b932d6c785ee1fea25c7ef337a07c7"
+    },
+    {
+      "id": "smalltalk_a2_0026",
+      "level": "a2",
+      "fields": [
+        "followUp",
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0026",
+        "category": "kpop",
+        "level": "a2",
+        "kind": "question",
+        "ko": "콘서트 표 구했어요?",
+        "de": "Hast du eine Konzertkarte bekommen?",
+        "en": "Did you get a concert ticket?",
+        "reply": {
+          "ko": "네, 겨우 구했어요!",
+          "de": "Ja, gerade noch!",
+          "en": "Yes, I just managed to get one!"
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0026",
+        "category": "kpop",
+        "level": "a2",
+        "kind": "question",
+        "ko": "콘서트 표 구했어요?",
+        "de": "Hast du eine Konzertkarte bekommen?",
+        "en": "Did you get a concert ticket?",
+        "reply": {
+          "ko": "네, 겨우 구했어요!",
+          "de": "Ja, mit Mühe habe ich noch eine bekommen!",
+          "en": "Yes, I just managed to get one!"
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "표를 구해서 다행이네요!",
+          "de": "Schön, dass du eine Karte bekommen hast!",
+          "en": "I'm glad you managed to get a ticket!"
+        }
+      },
+      "beforeSha256": "736f0acc2a775b595c0a2ece238ca93c360d34ce825d1a8a81b82dec6b382481",
+      "afterSha256": "359514c4f41e8ec6b495e7d5a135fae99fc41e4e080b5a3c3b44f5d6332acdaa"
+    },
+    {
+      "id": "smalltalk_a2_0027",
+      "level": "a2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0027",
+        "category": "dating",
+        "level": "a2",
+        "kind": "question",
+        "ko": "어떤 사람 좋아해요?",
+        "de": "Was für Menschen magst du?",
+        "en": "What kind of person do you like?",
+        "reply": {
+          "ko": "유머 있는 사람이 좋아요.",
+          "de": "Ich mag humorvolle Menschen.",
+          "en": "I like people with a sense of humor."
+        },
+        "relationshipContext": "close_friend",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇구나.",
+          "de": "Ach so.",
+          "en": "Oh, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0027",
+        "category": "dating",
+        "level": "a2",
+        "kind": "question",
+        "ko": "어떤 사람 좋아해요?",
+        "de": "Was für Menschen magst du?",
+        "en": "What kind of person do you like?",
+        "reply": {
+          "ko": "유머 있는 사람이 좋아요.",
+          "de": "Ich mag humorvolle Menschen.",
+          "en": "I like people with a sense of humor."
+        },
+        "relationshipContext": "close_friend",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내요?",
+            "de": "Wie läuft’s bei dir in letzter Zeit?",
+            "en": "How have you been lately?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Oh, I see."
+        }
+      },
+      "beforeSha256": "3da3f3801f9ce86c2e24f02be523d2a37c10b5474b7948b7e15bf490f9aec7d2",
+      "afterSha256": "020de6fdc526425e27c5cd5cdc99b80e09f9fb314a87e1b9dc325742790d4abf"
+    },
+    {
+      "id": "smalltalk_a2_0028",
+      "level": "a2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0028",
+        "category": "dating",
+        "level": "a2",
+        "kind": "question",
+        "ko": "소개팅 해 봤어요?",
+        "de": "Warst du schon mal bei einem Blind Date?",
+        "en": "Have you ever been on a blind date?",
+        "reply": {
+          "ko": "네, 몇 번 해 봤어요.",
+          "de": "Ja, ein paar Mal.",
+          "en": "Yes, a few times."
+        },
+        "relationshipContext": "close_friend",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇구나.",
+          "de": "Ach so.",
+          "en": "Oh, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0028",
+        "category": "dating",
+        "level": "a2",
+        "kind": "question",
+        "ko": "소개팅 해 봤어요?",
+        "de": "Warst du schon mal bei einem Blind Date?",
+        "en": "Have you ever been on a blind date?",
+        "reply": {
+          "ko": "네, 몇 번 해 봤어요.",
+          "de": "Ja, ein paar Mal.",
+          "en": "Yes, a few times."
+        },
+        "relationshipContext": "close_friend",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내요?",
+            "de": "Wie läuft’s bei dir in letzter Zeit?",
+            "en": "How have you been lately?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Oh, I see."
+        }
+      },
+      "beforeSha256": "b6938dddc20431e7118d8a53b179f35d7459d6de43462a4d7bc5c5c58536c3f7",
+      "afterSha256": "7322bc307faad4c601230dcca4918a585edf2e4c6fff559adf0f329c19ca99ae"
+    },
+    {
+      "id": "smalltalk_a2_0029",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0029",
+        "category": "interview",
+        "level": "a2",
+        "kind": "question",
+        "ko": "면접 언제예요?",
+        "de": "Wann ist dein Vorstellungsgespräch?",
+        "en": "When is your interview?",
+        "reply": {
+          "ko": "다음 주 월요일이에요.",
+          "de": "Nächsten Montag.",
+          "en": "Next Monday."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0029",
+        "category": "interview",
+        "level": "a2",
+        "kind": "question",
+        "ko": "면접 언제예요?",
+        "de": "Wann ist dein Vorstellungsgespräch?",
+        "en": "When is your interview?",
+        "reply": {
+          "ko": "다음 주 월요일이에요.",
+          "de": "Nächsten Montag.",
+          "en": "Next Monday."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "면접 잘 보세요. 응원할게요.",
+          "de": "Viel Erfolg beim Vorstellungsgespräch. Ich drücke dir die Daumen.",
+          "en": "Good luck with your interview. I'll be rooting for you."
+        }
+      },
+      "beforeSha256": "f737403f2220f3bc5e7a908a6aa6df136bcd1882310835692b527c51f8dbbaff",
+      "afterSha256": "c9c1476cdf7ac2cb26d5bb7770ac62297b5ef5c17ab686fa95b256940b6f8e7d"
+    },
+    {
+      "id": "smalltalk_a2_0030",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0030",
+        "category": "interview",
+        "level": "a2",
+        "kind": "question",
+        "ko": "어디 지원했어요?",
+        "de": "Wo hast du dich beworben?",
+        "en": "Where did you apply?",
+        "reply": {
+          "ko": "IT 회사에 지원했어요.",
+          "de": "Bei einer IT-Firma.",
+          "en": "I applied to an IT company."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0030",
+        "category": "interview",
+        "level": "a2",
+        "kind": "question",
+        "ko": "어디 지원했어요?",
+        "de": "Wo hast du dich beworben?",
+        "en": "Where did you apply?",
+        "reply": {
+          "ko": "IT 회사에 지원했어요.",
+          "de": "Bei einer IT-Firma.",
+          "en": "I applied to an IT company."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋은 결과 있길 바라요.",
+          "de": "Ich hoffe, du bekommst eine gute Nachricht.",
+          "en": "I hope you get good news."
+        }
+      },
+      "beforeSha256": "f9262c9a3ef6e0815546031bff3872d6316ea20d8cfd0b3cd0633506c5945ab3",
+      "afterSha256": "483c1a5fbf35bd69b51dbe93fa12f58d51b686ac2a733e03fcc6a68bfb0e5358"
+    },
+    {
+      "id": "smalltalk_a2_0031",
+      "level": "a2",
+      "fields": [
+        "de",
+        "en",
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0031",
+        "category": "job_hunting",
+        "level": "a2",
+        "kind": "question",
+        "ko": "어떤 회사 가고 싶어요?",
+        "de": "Bei welcher Firma möchtest du arbeiten?",
+        "en": "What company do you want to work for?",
+        "reply": {
+          "ko": "IT 회사에 가고 싶어요.",
+          "de": "Bei einer IT-Firma.",
+          "en": "I'd like to join an IT company."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0031",
+        "category": "job_hunting",
+        "level": "a2",
+        "kind": "question",
+        "ko": "어떤 회사 가고 싶어요?",
+        "de": "Bei was für einer Firma möchtest du arbeiten?",
+        "en": "What kind of company do you want to work for?",
+        "reply": {
+          "ko": "IT 회사에 가고 싶어요.",
+          "de": "Bei einer IT-Firma.",
+          "en": "I'd like to join an IT company."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그 분야에 관심이 있으시군요.",
+          "de": "Du interessierst dich also für diesen Bereich.",
+          "en": "So you're interested in that field."
+        }
+      },
+      "beforeSha256": "628a8da4809c8bd17a2a7f5a90367e9239f8b504e38c65de77f31299057a68fb",
+      "afterSha256": "f7453e142399d8672a5bfb26c84036cefcf40edbbdf544f821b8ca283d1f0e1a"
+    },
+    {
+      "id": "smalltalk_a2_0032",
+      "level": "a2",
+      "fields": [
+        "de",
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0032",
+        "category": "job_hunting",
+        "level": "a2",
+        "kind": "question",
+        "ko": "자소서 다 썼어요?",
+        "de": "Hast du deine Selbstvorstellung für die Bewerbung schon fertig?",
+        "en": "Have you finished your personal statement for the job application?",
+        "reply": {
+          "ko": "아직 반밖에 못 썼어요.",
+          "de": "Erst die Hälfte.",
+          "en": "Only halfway done so far."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0032",
+        "category": "job_hunting",
+        "level": "a2",
+        "kind": "question",
+        "ko": "자소서 다 썼어요?",
+        "de": "Hast du den Text über dich selbst für die Bewerbung schon fertig?",
+        "en": "Have you finished your personal statement for the job application?",
+        "reply": {
+          "ko": "아직 반밖에 못 썼어요.",
+          "de": "Erst die Hälfte.",
+          "en": "Only halfway done so far."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아직 쓰는 중이시군요.",
+          "de": "Du bist also noch dabei, den Text zu schreiben.",
+          "en": "So you're still working on it."
+        }
+      },
+      "beforeSha256": "7556676e291578360b5e15c06f54c066b7c72168431a72b14e69b2cfd83041d7",
+      "afterSha256": "1cd9da87106ce35e7ebad85e638a10c1683aa2c3168fd61564b2dde304c981f7"
+    },
+    {
+      "id": "smalltalk_a2_0033",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0033",
+        "category": "moving",
+        "level": "a2",
+        "kind": "question",
+        "ko": "어디로 이사 가요?",
+        "de": "Wohin ziehst du um?",
+        "en": "Where are you moving to?",
+        "reply": {
+          "ko": "회사 근처로 가요.",
+          "de": "In die Nähe der Firma.",
+          "en": "Near my office."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0033",
+        "category": "moving",
+        "level": "a2",
+        "kind": "question",
+        "ko": "어디로 이사 가요?",
+        "de": "Wohin ziehst du um?",
+        "en": "Where are you moving to?",
+        "reply": {
+          "ko": "회사 근처로 가요.",
+          "de": "In die Nähe der Firma.",
+          "en": "Near my office."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "출근하기 편하겠어요.",
+          "de": "Dann ist dein Arbeitsweg bestimmt einfacher.",
+          "en": "That should make commuting easier."
+        }
+      },
+      "beforeSha256": "3a2cd93c5c413a88a57f245f7ce853369f8bd29e059ed2b58b65156c445c66fb",
+      "afterSha256": "05b38098adc7fad24e5123e7df19b5d9e58092e5a76e75eb910774f0e2042a05"
+    },
+    {
+      "id": "smalltalk_a2_0034",
+      "level": "a2",
+      "fields": [
+        "de",
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0034",
+        "category": "moving",
+        "level": "a2",
+        "kind": "question",
+        "ko": "이삿짐 많아요?",
+        "de": "Hast du viel Umzugsgut?",
+        "en": "Do you have a lot of stuff to move?",
+        "reply": {
+          "ko": "생각보다 많아요.",
+          "de": "Mehr als gedacht.",
+          "en": "More than I thought."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇군요.",
+          "de": "Ach so.",
+          "en": "I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0034",
+        "category": "moving",
+        "level": "a2",
+        "kind": "question",
+        "ko": "이삿짐 많아요?",
+        "de": "Hast du viele Sachen für den Umzug?",
+        "en": "Do you have a lot of stuff to move?",
+        "reply": {
+          "ko": "생각보다 많아요.",
+          "de": "Mehr als gedacht.",
+          "en": "More than I thought."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "요즘 어떻게 지내세요?",
+            "de": "Wie läuft's bei dir so?",
+            "en": "How've you been?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "생각보다 짐이 많으시군요.",
+          "de": "Du hast also mehr Sachen als gedacht.",
+          "en": "So you have more stuff than expected."
+        }
+      },
+      "beforeSha256": "9d7308ed1ac715e7f7de0c830de23a8bfbe8b424e80f597bb29d2f39ed97895c",
+      "afterSha256": "36cebf04420f8ca672145623199601e5ff6d5178a8da6d6b292e6162c5716022"
+    },
+    {
+      "id": "smalltalk_a2_0035",
+      "level": "a2",
+      "fields": [
+        "de"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0035",
+        "category": "hospital",
+        "level": "a2",
+        "kind": "question",
+        "ko": "예약했어요?",
+        "de": "Hast du einen Termin?",
+        "en": "Do you have an appointment?",
+        "reply": {
+          "ko": "네, 두 시로 했어요.",
+          "de": "Ja, um zwei Uhr.",
+          "en": "Yes, at two o'clock."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "필요하신 점이 있으세요?",
+            "de": "Kann ich Ihnen bei etwas helfen?",
+            "en": "Is there anything I can help you with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "response",
+          "ko": "네, 알겠습니다.",
+          "de": "Ja, verstanden.",
+          "en": "Yes, I understand."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0035",
+        "category": "hospital",
+        "level": "a2",
+        "kind": "question",
+        "ko": "예약했어요?",
+        "de": "Haben Sie einen Termin?",
+        "en": "Do you have an appointment?",
+        "reply": {
+          "ko": "네, 두 시로 했어요.",
+          "de": "Ja, um zwei Uhr.",
+          "en": "Yes, at two o'clock."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "필요하신 점이 있으세요?",
+            "de": "Kann ich Ihnen bei etwas helfen?",
+            "en": "Is there anything I can help you with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "response",
+          "ko": "네, 알겠습니다.",
+          "de": "Ja, verstanden.",
+          "en": "Yes, I understand."
+        }
+      },
+      "beforeSha256": "a91fbe66f50f433a625c6a5f0465ca6229d1cd8a024c4686d04fc78b28226bd6",
+      "afterSha256": "a1f25da612b3899e49aa3bc17f36397fe3f6fe90170d7883a1d21642b0840a20"
+    },
+    {
+      "id": "smalltalk_a2_0036",
+      "level": "a2",
+      "fields": [
+        "de",
+        "en"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0036",
+        "category": "hospital",
+        "level": "a2",
+        "kind": "question",
+        "ko": "보험 있어요?",
+        "de": "Hast du eine Versicherung?",
+        "en": "Do you have insurance?",
+        "reply": {
+          "ko": "네, 있어요.",
+          "de": "Ja, hab ich.",
+          "en": "Yes, I do."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "필요하신 점이 있으세요?",
+            "de": "Kann ich Ihnen bei etwas helfen?",
+            "en": "Is there anything I can help you with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "response",
+          "ko": "네, 알겠습니다.",
+          "de": "Ja, verstanden.",
+          "en": "Yes, I understand."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0036",
+        "category": "hospital",
+        "level": "a2",
+        "kind": "question",
+        "ko": "보험 있어요?",
+        "de": "Sind Sie krankenversichert?",
+        "en": "Do you have health insurance?",
+        "reply": {
+          "ko": "네, 있어요.",
+          "de": "Ja, hab ich.",
+          "en": "Yes, I do."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "필요하신 점이 있으세요?",
+            "de": "Kann ich Ihnen bei etwas helfen?",
+            "en": "Is there anything I can help you with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "response",
+          "ko": "네, 알겠습니다.",
+          "de": "Ja, verstanden.",
+          "en": "Yes, I understand."
+        }
+      },
+      "beforeSha256": "e020b1b2f1f1afa7e5b4248f8580da905549af89816b4c00f8ff8a1a5b5a278a",
+      "afterSha256": "0cea421087f4f0ba6acdd77fb84b4f5d0a8b9c73dc37c8a5db1ad0a21e7bff4a"
+    },
+    {
+      "id": "smalltalk_a2_0039",
+      "level": "a2",
+      "fields": [
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0039",
+        "category": "transport",
+        "level": "a2",
+        "kind": "question",
+        "ko": "인사동에 가려면 어디에서 내려요?",
+        "de": "Wo steige ich für Insa-dong aus?",
+        "en": "Where should I get off to go to Insa-dong?",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "안내 방송이 나와요?",
+            "de": "Gibt es eine Durchsage?",
+            "en": "Is there an announcement?"
+          }
+        ],
+        "reply": {
+          "ko": "종로에서 내리세요.",
+          "de": "Steigen Sie in Jongno aus.",
+          "en": "Get off at Jongno."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0039",
+        "category": "transport",
+        "level": "a2",
+        "kind": "question",
+        "ko": "인사동에 가려면 어디에서 내려요?",
+        "de": "Wo steige ich für Insa-dong aus?",
+        "en": "Where should I get off to go to Insa-dong?",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "안내 방송이 나와요?",
+            "de": "Gibt es eine Durchsage?",
+            "en": "Is there an announcement?"
+          }
+        ],
+        "reply": {
+          "ko": "종각역에서 내리세요.",
+          "de": "Steigen Sie an der Station Jonggak aus.",
+          "en": "Get off at Jonggak Station."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "beforeSha256": "19e1670fcf2e163e41efb67572e0db2130963631bc7da275ddfc61132b3e885e",
+      "afterSha256": "ca86f93be1e61318743f14ecd4910a979afcea45061016ea082e82c7f3164345"
+    },
+    {
+      "id": "smalltalk_a2_0040",
+      "level": "a2",
+      "fields": [
+        "ko",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0040",
+        "category": "transport",
+        "level": "a2",
+        "kind": "question",
+        "ko": "우회전 해 주세요.",
+        "de": "Biegen Sie bitte rechts ab.",
+        "en": "Please make a right turn.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "직진 해 주세요.",
+            "de": "Fahren Sie bitte geradeaus.",
+            "en": "Please go straight."
+          }
+        ],
+        "reply": {
+          "ko": "네 알겠습니다.",
+          "de": "Ja, verstanden.",
+          "en": "Yes, understood."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0040",
+        "category": "transport",
+        "level": "a2",
+        "kind": "question",
+        "ko": "우회전해 주세요.",
+        "de": "Biegen Sie bitte rechts ab.",
+        "en": "Please make a right turn.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "직진해 주실 수 있어요?",
+            "de": "Können Sie bitte geradeaus fahren?",
+            "en": "Could you please go straight?"
+          }
+        ],
+        "reply": {
+          "ko": "네 알겠습니다.",
+          "de": "Ja, verstanden.",
+          "en": "Yes, understood."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "beforeSha256": "995e653629a11086033d0ff4aa1ce59555ab0096826ce37c3b1e540a52d7904f",
+      "afterSha256": "77d3309a1e38a63a5f0994c74d8df8a681c745f99409cb88ce661607cf3ae71b"
+    },
+    {
+      "id": "smalltalk_a2_0041",
+      "level": "a2",
+      "fields": [
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0041",
+        "category": "transport",
+        "level": "a2",
+        "kind": "question",
+        "ko": "문 좀 열어 주세요.",
+        "de": "Öffnen Sie bitte die Tür.",
+        "en": "Please open the door.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "여기에서 내려 주세요.",
+            "de": "Lassen Sie mich bitte hier raus.",
+            "en": "Please let me out here."
+          }
+        ],
+        "reply": {
+          "ko": "네.",
+          "de": "Ja.",
+          "en": "Okay."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0041",
+        "category": "transport",
+        "level": "a2",
+        "kind": "question",
+        "ko": "문 좀 열어 주세요.",
+        "de": "Öffnen Sie bitte die Tür.",
+        "en": "Please open the door.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "여기에서 내려도 돼요?",
+            "de": "Darf ich hier aussteigen?",
+            "en": "Can I get out here?"
+          }
+        ],
+        "reply": {
+          "ko": "네.",
+          "de": "Ja.",
+          "en": "Okay."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "beforeSha256": "59df51422fa8628ca8c1b1e764813450fce6445d2cd13e65ade99533a2bc08ed",
+      "afterSha256": "72a049f15bb12f5f18bfe5319e5be1e446921555923856b355fbbfa88975b052"
+    },
+    {
+      "id": "smalltalk_a2_0042",
+      "level": "a2",
+      "fields": [
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0042",
+        "category": "transport",
+        "level": "a2",
+        "kind": "question",
+        "ko": "표 파는 곳이 어디예요?",
+        "de": "Wo ist der Ticketschalter?",
+        "en": "Where is the ticket counter?",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "타는 곳이 어디예요?",
+            "de": "Wo ist der Bahnsteig?",
+            "en": "Where is the platform?"
+          }
+        ],
+        "reply": {
+          "ko": "2층에 있어요.",
+          "de": "Im zweiten Stock.",
+          "en": "On the second floor."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0042",
+        "category": "transport",
+        "level": "a2",
+        "kind": "question",
+        "ko": "표 파는 곳이 어디예요?",
+        "de": "Wo ist der Ticketschalter?",
+        "en": "Where is the ticket counter?",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "타는 곳이 어디예요?",
+            "de": "Wo ist der Bahnsteig?",
+            "en": "Where is the platform?"
+          }
+        ],
+        "reply": {
+          "ko": "2층에 있어요.",
+          "de": "Auf Ebene 2.",
+          "en": "On the second floor."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "beforeSha256": "eee57b846c53fb9aeedf1fea21ad643d35db4b4758247cf1e2ec48f71d27868a",
+      "afterSha256": "f2d540f83f5bf0cb88fa176f4c954f9fd837fb7a2cfaa2303012a9bb25cf1372"
+    },
+    {
+      "id": "smalltalk_a2_0043",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0043",
+        "category": "shopping",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "조금 비싸요. 깎아 주세요.",
+        "de": "Das ist etwas teuer. Können Sie es etwas günstiger machen?",
+        "en": "That's a bit expensive. Could you lower the price a little?",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "현금으로 하면 깎아 줘요?",
+            "de": "Gibt es Rabatt bei Barzahlung?",
+            "en": "Is there a discount for cash?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그럼 만 팔천 원만 내세요.",
+          "de": "Dann zahlen Sie nur 18000 Won.",
+          "en": "Then give me just 18000 won."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0043",
+        "category": "shopping",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "조금 비싸요. 깎아 주세요.",
+        "de": "Das ist etwas teuer. Können Sie es etwas günstiger machen?",
+        "en": "That's a bit expensive. Could you lower the price a little?",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "현금으로 하면 깎아 줘요?",
+            "de": "Gibt es Rabatt bei Barzahlung?",
+            "en": "Is there a discount for cash?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그럼 만 팔천 원만 내세요.",
+          "de": "Dann zahlen Sie nur 18000 Won.",
+          "en": "Then it's just 18,000 won."
+        }
+      },
+      "beforeSha256": "8e85934c6c559d376b05627ee833314e4957f93bc8dc3a645c2e2a19eeed9724",
+      "afterSha256": "824c46be3829e60de17e35fa25c2f341ae0fc80029891ff64e5b4615a39c5452"
+    },
+    {
+      "id": "smalltalk_a2_0044",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0044",
+        "category": "shopping",
+        "level": "a2",
+        "kind": "question",
+        "ko": "치수가 안 맞아요. 교환할 수 있어요?",
+        "de": "Die Größe passt nicht. Kann ich es umtauschen?",
+        "en": "This size doesn't fit me. Can I exchange it?",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "환불할 수 있어요?",
+            "de": "Kann ich es zurückgeben?",
+            "en": "Can I get a refund?"
+          }
+        ],
+        "reply": {
+          "ko": "영수증 있으세요?",
+          "de": "Haben Sie den Kassenbon?",
+          "en": "Do you have the receipt?"
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0044",
+        "category": "shopping",
+        "level": "a2",
+        "kind": "question",
+        "ko": "치수가 안 맞아요. 교환할 수 있어요?",
+        "de": "Die Größe passt nicht. Kann ich es umtauschen?",
+        "en": "This size doesn't fit me. Can I exchange it?",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "환불할 수 있어요?",
+            "de": "Kann ich es zurückgeben?",
+            "en": "Can I get a refund?"
+          }
+        ],
+        "reply": {
+          "ko": "영수증 있으세요?",
+          "de": "Haben Sie den Kassenbon?",
+          "en": "Do you have the receipt?"
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "영수증을 확인해 볼게요.",
+          "de": "Ich schaue nach dem Kassenbon.",
+          "en": "I'll check for the receipt."
+        }
+      },
+      "beforeSha256": "e2db6270ae51c8db48ba7f3ee5d7d5e1ac148cd0d6d161edc3a2a37c23ccc394",
+      "afterSha256": "3daee073f0f1683432c88e40d7567de46f0ad81c1d17fd33087270fb9b7bc077"
+    },
+    {
+      "id": "smalltalk_a2_0045",
+      "level": "a2",
+      "fields": [
+        "en"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0045",
+        "category": "shopping",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "한국 치수를 잘 몰라요.",
+        "de": "Ich kenne die koreanischen Größen nicht gut.",
+        "en": "I don't know my Korean size.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이거 입어 봐도 돼요?",
+            "de": "Darf ich das anprobieren?",
+            "en": "May I try this on?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "제가 봐 드릴게요.",
+          "de": "Ich helfe Ihnen kurz.",
+          "en": "Let me help you."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0045",
+        "category": "shopping",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "한국 치수를 잘 몰라요.",
+        "de": "Ich kenne die koreanischen Größen nicht gut.",
+        "en": "I'm not familiar with Korean sizes.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이거 입어 봐도 돼요?",
+            "de": "Darf ich das anprobieren?",
+            "en": "May I try this on?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "제가 봐 드릴게요.",
+          "de": "Ich helfe Ihnen kurz.",
+          "en": "Let me help you."
+        }
+      },
+      "beforeSha256": "012919e2d367e0c6c3d2f75d946c3b253978883e93b65f630a42616ac20ca73e",
+      "afterSha256": "ddc63d3f8dfe60cb18e31c531a09cd1e9af54d8b188c197a5abc2c813cdd9f31"
+    },
+    {
+      "id": "smalltalk_a2_0047",
+      "level": "a2",
+      "fields": [
+        "de",
+        "en",
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0047",
+        "category": "shopping",
+        "level": "a2",
+        "kind": "question",
+        "ko": "기념품은 어디에서 팔아요?",
+        "de": "Wo werden Souvenirs verkauft?",
+        "en": "Where can I find souvenirs?",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "인사동이 어디예요?",
+            "de": "Wo ist Insa-dong?",
+            "en": "Where is Insa-dong?"
+          }
+        ],
+        "reply": {
+          "ko": "지하 1층에 있어요.",
+          "de": "Im Untergeschoss.",
+          "en": "In the basement."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0047",
+        "category": "shopping",
+        "level": "a2",
+        "kind": "question",
+        "ko": "기념품은 어디에서 팔아요?",
+        "de": "Wo kann ich Souvenirs kaufen?",
+        "en": "Where can I buy souvenirs?",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "인사동이 어디예요?",
+            "de": "Wo ist Insa-dong?",
+            "en": "Where is Insa-dong?"
+          }
+        ],
+        "reply": {
+          "ko": "지하 1층에 있어요.",
+          "de": "Im ersten Untergeschoss.",
+          "en": "On the first basement level."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "beforeSha256": "ba2a78f09ec1d23f66c6bc3109b744591b3b60cd7617fc3f2a5fe5046ae9f308",
+      "afterSha256": "0615d95cbb4aef96eef0839c3e15f4536a0956c015b92d5872ddc8c1b2595915"
+    },
+    {
+      "id": "smalltalk_a2_0048",
+      "level": "a2",
+      "fields": [
+        "de",
+        "en",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0048",
+        "category": "shopping",
+        "level": "a2",
+        "kind": "question",
+        "ko": "포장해 주세요.",
+        "de": "Packen Sie es bitte als Geschenk ein.",
+        "en": "Please gift-wrap it.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "봉투 하나 주세요.",
+            "de": "Eine Tüte bitte.",
+            "en": "One bag, please."
+          }
+        ],
+        "reply": {
+          "ko": "네 잠시만요.",
+          "de": "Ja, einen Moment.",
+          "en": "Sure, one moment."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0048",
+        "category": "shopping",
+        "level": "a2",
+        "kind": "question",
+        "ko": "포장해 주세요.",
+        "de": "Packen Sie es bitte ein.",
+        "en": "Please wrap it up.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "봉투 하나 주실 수 있어요?",
+            "de": "Können Sie mir eine Tüte geben?",
+            "en": "Could I have a bag, please?"
+          }
+        ],
+        "reply": {
+          "ko": "네 잠시만요.",
+          "de": "Ja, einen Moment.",
+          "en": "Sure, one moment."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "beforeSha256": "11b40d85e848f7af5d2c9474a77a3844f2334a5e28c7bb9dd50d2aa9f5bffdf9",
+      "afterSha256": "b179fcf68351a680f4eb685e80d359bd4da8a057a69b2097792a90fbff2266e4"
+    },
+    {
+      "id": "smalltalk_a2_0050",
+      "level": "a2",
+      "fields": [
+        "de",
+        "en",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0050",
+        "category": "phone",
+        "level": "a2",
+        "kind": "question",
+        "ko": "국제 전화는 어떻게 해요?",
+        "de": "Wie telefoniere ich ins Ausland?",
+        "en": "How do I make an international call?",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "전화카드는 어디에서 사요?",
+            "de": "Wo kauft man Telefonkarten?",
+            "en": "Where can I buy a phone card?"
+          }
+        ],
+        "reply": {
+          "ko": "편의점에서 팔아요.",
+          "de": "Wählen Sie zuerst die Landesvorwahl.",
+          "en": "Dial the country code first."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0050",
+        "category": "phone",
+        "level": "a2",
+        "kind": "question",
+        "ko": "휴대전화로 국제전화는 어떻게 해요?",
+        "de": "Wie mache ich mit dem Handy einen Anruf ins Ausland?",
+        "en": "How do I make an international call on my mobile phone?",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "해외로 전화하면 요금이 얼마예요?",
+            "de": "Wie viel kostet ein Anruf ins Ausland?",
+            "en": "How much does an international call cost?"
+          }
+        ],
+        "reply": {
+          "ko": "번호 앞에 플러스 기호와 국가번호를 입력하세요.",
+          "de": "Geben Sie vor der Rufnummer ein Pluszeichen und die Ländervorwahl ein.",
+          "en": "Enter a plus sign and the country code before the phone number."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "beforeSha256": "d4988f0831cb155f137add6d12c09f2cd9255cbd47ab7832344e88415733422f",
+      "afterSha256": "f098009a3e91cba0a036c34cba016364a021aef6e1c10bcd35018c8da6a94b7c"
+    },
+    {
+      "id": "smalltalk_a2_0054",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0054",
+        "category": "emergency",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "휴대전화를 잃어버렸어요.",
+        "de": "Ich habe mein Handy verloren.",
+        "en": "I lost my cell phone.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "전화 좀 빌릴 수 있어요?",
+            "de": "Darf ich kurz Ihr Telefon benutzen?",
+            "en": "May I borrow your phone?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "네 쓰세요.",
+          "de": "Ja, bitte.",
+          "en": "Sure, go ahead."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0054",
+        "category": "emergency",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "휴대전화를 잃어버렸어요.",
+        "de": "Ich habe mein Handy verloren.",
+        "en": "I lost my cell phone.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "전화 좀 빌릴 수 있어요?",
+            "de": "Darf ich kurz Ihr Telefon benutzen?",
+            "en": "May I borrow your phone?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "question",
+          "ko": "제 전화 쓰실래요?",
+          "de": "Möchten Sie mein Telefon benutzen?",
+          "en": "Would you like to use my phone?"
+        }
+      },
+      "beforeSha256": "fa8b325aaba8ede56f759bf9a3d53fc8a61b0f9ca8f51dbf6c85185d9121d29c",
+      "afterSha256": "53f4fd2fcd1b5b9bc33771cbb86898303ba2a94c7034ee655036a2a6ae7d042b"
+    },
+    {
+      "id": "smalltalk_a2_0055",
+      "level": "a2",
+      "fields": [
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0055",
+        "category": "emergency",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "도난 신고를 하고 싶어요.",
+        "de": "Ich möchte einen Diebstahl melden.",
+        "en": "I want to report a theft.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "여행자 보험이 있어요.",
+            "de": "Ich habe eine Reiseversicherung.",
+            "en": "I have traveler's insurance."
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "서류를 작성해 주세요.",
+          "de": "Füllen Sie bitte das Formular aus.",
+          "en": "Please fill out the form."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0055",
+        "category": "emergency",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "도난 신고를 하고 싶어요.",
+        "de": "Ich möchte einen Diebstahl melden.",
+        "en": "I want to report a theft.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "도난 신고는 어디에서 해요?",
+            "de": "Wo kann ich einen Diebstahl melden?",
+            "en": "Where can I report a theft?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "서류를 작성해 주세요.",
+          "de": "Füllen Sie bitte das Formular aus.",
+          "en": "Please fill out the form."
+        }
+      },
+      "beforeSha256": "c2bf17a76ef93a2a0d3dd23d972b8d4a706719ba9b38b1d0c42da816ee080cf4",
+      "afterSha256": "8d363f9321234366a9f010501756e059756cab768bdf9cac9195b22e3c7bb7af"
+    },
+    {
+      "id": "smalltalk_a2_0056",
+      "level": "a2",
+      "fields": [
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0056",
+        "category": "food",
+        "level": "a2",
+        "kind": "question",
+        "ko": "고추장 빼 주세요.",
+        "de": "Bitte ohne Gochujang.",
+        "en": "Please leave out the gochujang.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "안 맵게 해 주세요.",
+            "de": "Bitte nicht scharf.",
+            "en": "Not spicy, please."
+          }
+        ],
+        "reply": {
+          "ko": "네 그렇게 해 드릴게요.",
+          "de": "Machen wir so.",
+          "en": "We'll do that."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0056",
+        "category": "food",
+        "level": "a2",
+        "kind": "question",
+        "ko": "고추장 빼 주세요.",
+        "de": "Bitte ohne Gochujang.",
+        "en": "Please leave out the gochujang.",
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "안 맵게 해 주실 수 있어요?",
+            "de": "Können Sie es bitte ohne Schärfe zubereiten?",
+            "en": "Could you make it without any spice?"
+          }
+        ],
+        "reply": {
+          "ko": "네 그렇게 해 드릴게요.",
+          "de": "Machen wir so.",
+          "en": "We'll do that."
+        },
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "감사합니다.",
+          "de": "Danke schön.",
+          "en": "Thank you."
+        }
+      },
+      "beforeSha256": "c4f9d8050d73dc3500018d6787d2831c9e7396c94737993b190f9dd115e0f996",
+      "afterSha256": "51d7fdb6939ffb138ac010ac40606027356fe2967a7e1005f41ec81e47caa8f0"
+    },
+    {
+      "id": "smalltalk_a2_0059",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0059",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "아직 분위기를 잘 못 읽어서 조용히 있었어요.",
+        "de": "Ich konnte die Stimmung noch nicht einschätzen und war deshalb still.",
+        "en": "I couldn't read the room yet, so I stayed quiet.",
+        "reply": {
+          "ko": "편하게 얘기해도 돼요.",
+          "de": "Sie dürfen ruhig mitreden.",
+          "en": "Feel free to join in.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Ah, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0059",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "아직 분위기를 잘 못 읽어서 조용히 있었어요.",
+        "de": "Ich konnte die Stimmung noch nicht einschätzen und war deshalb still.",
+        "en": "I couldn't read the room yet, so I stayed quiet.",
+        "reply": {
+          "ko": "편하게 얘기해도 돼요.",
+          "de": "Sie dürfen ruhig mitreden.",
+          "en": "Feel free to join in.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "ko": "감사해요. 저도 얘기할게요.",
+          "de": "Danke, ich rede auch mit.",
+          "en": "Thank you. I will join in too.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "cbcd214df4f40c327fc7b1e6e7fe64a493638b300dd5fbeb0037f29ea6801ff4",
+      "afterSha256": "8f9fbc094a73ec24eba2e947f17fdca992a2da3e69dbbbed51c30ccb233408cb"
+    },
+    {
+      "id": "smalltalk_a2_0060",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0060",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "세배는 언제 드리면 돼요?",
+        "de": "Wann mache ich die Neujahrsverbeugung?",
+        "en": "When should I do the New Year bow?",
+        "reply": {
+          "ko": "아침 먹기 전에 다 같이 해요.",
+          "de": "Vor dem Frühstück, alle zusammen.",
+          "en": "Before breakfast, all together.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Ah, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0060",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "세배는 언제 드리면 돼요?",
+        "de": "Wann mache ich die Neujahrsverbeugung?",
+        "en": "When should I do the New Year bow?",
+        "reply": {
+          "ko": "아침 먹기 전에 다 같이 해요.",
+          "de": "Vor dem Frühstück, alle zusammen.",
+          "en": "Before breakfast, all together.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 아침 먹기 전에 하겠습니다.",
+          "de": "Gut, dann mache ich es vor dem Frühstück.",
+          "en": "Okay, I will do it before breakfast.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "fc80d41205da48f1db1b17a2be3cd0885f7c5f90b0783fe0fbeb5c88b4d2b4f8",
+      "afterSha256": "56379c3760f1d344e7d0ec9f169d0213bdc5a95fa44baf8ffe2ddbf2e4ecc59c"
+    },
+    {
+      "id": "smalltalk_a2_0061",
+      "level": "a2",
+      "fields": [
+        "de",
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0061",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "올해는 한국어를 더 열심히 하려고요.",
+        "de": "Dieses Jahr will ich mehr Koreanisch lernen.",
+        "en": "This year I want to work harder on my Korean.",
+        "reply": {
+          "ko": "벌써 많이 늘었어요.",
+          "de": "Sie sind schon viel besser geworden.",
+          "en": "You've already improved a lot.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Ah, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0061",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "올해는 한국어를 더 열심히 하려고요.",
+        "de": "Dieses Jahr will ich intensiver an meinem Koreanisch arbeiten.",
+        "en": "This year I want to work harder on my Korean.",
+        "reply": {
+          "ko": "벌써 많이 늘었어요.",
+          "de": "Sie sind schon viel besser geworden.",
+          "en": "You've already improved a lot.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "ko": "고마워요. 더 열심히 할게요.",
+          "de": "Danke. Ich werde mich noch mehr bemühen.",
+          "en": "Thank you. I will work harder.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "3b2a02b5e508b7f599f4bc277a7b4263d8bf672e9a03c7b2b1a3acc035fe9795",
+      "afterSha256": "b1cfaa8948ab09f4a1fe80f1215368ef7861f598f44b46983269f105f0b48dc3"
+    },
+    {
+      "id": "smalltalk_a2_0062",
+      "level": "a2",
+      "fields": [
+        "followUp",
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0062",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "귀성길에 차가 많이 막혀요?",
+        "de": "Ist auf der Fahrt in die Heimat viel Verkehr?",
+        "en": "Is the traffic bad heading home for the holiday?",
+        "reply": {
+          "ko": "새벽에 나가면 좀 나아요.",
+          "de": "Wenn man früh losfährt, geht es.",
+          "en": "If you leave at dawn it's not too bad.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Ah, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0062",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "귀성길에 차가 많이 막혀요?",
+        "de": "Ist auf der Fahrt in die Heimat viel Verkehr?",
+        "en": "Is the traffic bad heading home for the holiday?",
+        "reply": {
+          "ko": "새벽에 나가면 좀 나아요.",
+          "de": "Wenn man frühmorgens losfährt, ist es etwas besser.",
+          "en": "It is a little better if you leave at dawn.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 출발 시간을 다시 생각해 볼게요.",
+          "de": "Dann überlege ich mir noch einmal, wann ich losfahre.",
+          "en": "Then I will think again about when to leave.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "d5e8e61399b5d3b5eda941c56ccff8a7af7f890023065d34d769e497933b9cff",
+      "afterSha256": "decf1c8de0ce6569947d5064236fe68108368fb5e00b04c28f737c58767f1f4b"
+    },
+    {
+      "id": "smalltalk_a2_0063",
+      "level": "a2",
+      "fields": [
+        "de",
+        "en",
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0063",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "추석 연휴에는 저희도 하루는 쉬려고요.",
+        "de": "Über die Chuseok-Feiertage nehmen wir uns auch einen Tag frei.",
+        "en": "We're taking one day off over the Chuseok holiday too.",
+        "reply": {
+          "ko": "그래요. 쉬는 것도 중요해요.",
+          "de": "Gut so. Ausruhen gehört auch dazu.",
+          "en": "Good. Resting matters too.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Ah, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0063",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "추석 연휴에는 저희도 하루는 쉬려고요.",
+        "de": "Über die Chuseok-Feiertage wollen wir uns auch einen Tag frei nehmen.",
+        "en": "We are planning to take a day off over the Chuseok holiday too.",
+        "reply": {
+          "ko": "그래요. 쉬는 것도 중요해요.",
+          "de": "Gut so. Ausruhen gehört auch dazu.",
+          "en": "Good. Resting matters too.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 푹 쉬고 올게요.",
+          "de": "Ja, ich werde mich gut erholen.",
+          "en": "Yes, I will get a good rest.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "85b3f05c829727ce9e4293b5669fe10f73dc8db557e7c649f246db8611d28dc2",
+      "afterSha256": "ba0bdd4c080003483e8c732f53fce28fe3c70004cf12e41dd1930b9f30207f4f"
+    },
+    {
+      "id": "smalltalk_a2_0064",
+      "level": "a2",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0064",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "현우를 이렇게 놀려도 괜찮아요?",
+        "de": "Darf ich Hyunwoo so aufziehen?",
+        "en": "Is it okay to tease Hyunwoo like this?",
+        "reply": {
+          "ko": "그럼요. 우리도 매일 놀려요.",
+          "de": "Klar, wir ziehen ihn auch jeden Tag auf.",
+          "en": "Of course, we tease him every day.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Ah, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0064",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "현우가 이런 농담을 불편해할까요?",
+        "de": "Könnte sich Hyunwoo mit solchen Scherzen unwohl fühlen?",
+        "en": "Could jokes like this make Hyunwoo uncomfortable?",
+        "reply": {
+          "ko": "현우한테 직접 물어보는 게 좋겠어요.",
+          "de": "Am besten fragen Sie Hyunwoo selbst.",
+          "en": "It would be best to ask Hyunwoo himself.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 현우한테 먼저 물어볼게요.",
+          "de": "Ja, ich frage ihn zuerst.",
+          "en": "Yes, I will ask him first.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "b835e8d835c375cf023fb4d70823fbccf1ab41134d1b75e67f7e0ca508883519",
+      "afterSha256": "1c26f06f3bb589f4b3aab30eb99e72401171931dd435f3c7fb63e0a2c40ca9ad"
+    },
+    {
+      "id": "smalltalk_a2_0065",
+      "level": "a2",
+      "fields": [
+        "de",
+        "followUp",
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0065",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "아까 반말이 나와서 죄송해요.",
+        "de": "Entschuldigung, vorhin ist mir die vertrauliche Form rausgerutscht.",
+        "en": "Sorry, casual speech slipped out earlier.",
+        "reply": {
+          "ko": "괜찮아요. 아무도 신경 안 써요.",
+          "de": "Nicht schlimm, das stört niemanden.",
+          "en": "It's fine, nobody minds.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Ah, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0065",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "아까 반말이 나와서 죄송해요.",
+        "de": "Entschuldigung, vorhin ist mir die informelle Sprachform herausgerutscht.",
+        "en": "Sorry, casual speech slipped out earlier.",
+        "reply": {
+          "ko": "저는 괜찮아요. 천천히 연습해요.",
+          "de": "Mich stört es nicht. Üben Sie in Ruhe weiter.",
+          "en": "I don't mind. Take your time practicing.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "ko": "이해해 주셔서 감사해요.",
+          "de": "Vielen Dank für Ihr Verständnis.",
+          "en": "Thank you for understanding.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "4e8ac453afa50fa2ab2b9994a0f06e150998795aad388e94854d915ad7b23948",
+      "afterSha256": "f2bb14175cc8f53ac642e38b52826be155d21212fbfa29b8776b3f3fa6ed5cd5"
+    },
+    {
+      "id": "smalltalk_a2_0066",
+      "level": "a2",
+      "fields": [
+        "followUp",
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0066",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "손님방에서 자면 될까요?",
+        "de": "Kann ich im Gästezimmer schlafen?",
+        "en": "Can I sleep in the guest room?",
+        "reply": {
+          "ko": "네, 이불 새로 깔아 놨어요.",
+          "de": "Ja, ich habe frische Bettwäsche hingelegt.",
+          "en": "Yes, I put out fresh bedding.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Ah, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0066",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "손님방에서 자면 될까요?",
+        "de": "Kann ich im Gästezimmer schlafen?",
+        "en": "Can I sleep in the guest room?",
+        "reply": {
+          "ko": "네, 이불 새로 깔아 놨어요.",
+          "de": "Ja, ich habe frisches Bettzeug hergerichtet.",
+          "en": "Yes, I have prepared fresh bedding.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "ko": "준비해 주셔서 감사해요.",
+          "de": "Danke, dass Sie alles vorbereitet haben.",
+          "en": "Thank you for getting it ready.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "eb9491cafc31ef5766b412d1ee39ae296b758bc3666070d2bb86f228d6985d70",
+      "afterSha256": "c0c1c5a155483652962988c758af6c5dc1b03216cc07b0a0fb6ee64cc1974839"
+    },
+    {
+      "id": "smalltalk_a2_0067",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0067",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "안녕히 주무셨어요?",
+        "de": "Guten Morgen, haben Sie gut geschlafen?",
+        "en": "Good morning, did you sleep well?",
+        "reply": {
+          "ko": "잘 잤어요. 아침 먹어요.",
+          "de": "Ja, danke. Kommen Sie frühstücken.",
+          "en": "I did. Come have breakfast.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Ah, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0067",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "안녕히 주무셨어요?",
+        "de": "Guten Morgen, haben Sie gut geschlafen?",
+        "en": "Good morning, did you sleep well?",
+        "reply": {
+          "ko": "잘 잤어요. 아침 먹어요.",
+          "de": "Ja, danke. Kommen Sie frühstücken.",
+          "en": "I did. Come have breakfast.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 잘 먹겠습니다.",
+          "de": "Danke, ich freue mich aufs Frühstück.",
+          "en": "Thank you, I look forward to breakfast.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "e17a16c91ec0cf61acab06a2f598979c9ce04f389470ff5b1ba7769aae720f47",
+      "afterSha256": "f135b4036bb53a6a94e52fd4e30c5f5fe53c01df910120ed149df5d91ee34bed"
+    },
+    {
+      "id": "smalltalk_a2_0068",
+      "level": "a2",
+      "fields": [
+        "de",
+        "en",
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0068",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "반찬을 이렇게 많이 싸 주셔도 돼요?",
+        "de": "Ist das nicht zu viel, was Sie mir da einpacken?",
+        "en": "Are you sure you want to pack me this much?",
+        "reply": {
+          "ko": "가져가서 먹어요. 금방 없어져요.",
+          "de": "Nehmen Sie es mit, das ist schneller aufgegessen, als Sie denken.",
+          "en": "Take it. You'll finish it in no time.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Ah, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0068",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "반찬을 이렇게 많이 싸 주셔도 돼요?",
+        "de": "Ist es wirklich in Ordnung, dass Sie mir so viele Beilagen einpacken?",
+        "en": "Are you sure it's okay to give me this many side dishes?",
+        "reply": {
+          "ko": "가져가서 먹어요. 금방 없어져요.",
+          "de": "Nehmen Sie es mit, das ist schneller aufgegessen, als Sie denken.",
+          "en": "Take it. You'll finish it in no time.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "ko": "감사해요. 집에서 맛있게 먹을게요.",
+          "de": "Danke. Ich werde sie mir zu Hause schmecken lassen.",
+          "en": "Thank you. I will enjoy them at home.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "c842410a36208ced07c63e2de38e926c2ec63cb96c9d358b5745dff897118abf",
+      "afterSha256": "9b10593d3e96b49d6b1aa315cc3e365d37713602ab7b0c9579b24e4398220a87"
+    },
+    {
+      "id": "smalltalk_a2_0069",
+      "level": "a2",
+      "fields": [
+        "de",
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0069",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "반찬 봉투는 제가 들게요.",
+        "de": "Die Tüte mit den Beilagen nehme ich.",
+        "en": "I'll carry the bag of side dishes.",
+        "reply": {
+          "ko": "무거우니까 조심해요.",
+          "de": "Vorsicht, die ist schwer.",
+          "en": "Careful, it's heavy.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Ah, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0069",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "반찬 봉투는 제가 들게요.",
+        "de": "Ich trage die Tüte mit den Beilagen.",
+        "en": "I'll carry the bag of side dishes.",
+        "reply": {
+          "ko": "무거우니까 조심해요.",
+          "de": "Vorsicht, die ist schwer.",
+          "en": "Careful, it's heavy.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 조심해서 들게요.",
+          "de": "Ja, ich passe beim Tragen auf.",
+          "en": "Yes, I will be careful carrying it.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "c168ce2920a04dc081325efeaa57e859ba0e1c264d62d4b5d0549cbf4e535d3e",
+      "afterSha256": "ac5cd1346a34f88b3b8591e65306bdd73bf1167d39c9825fea67c7f89fceba19"
+    },
+    {
+      "id": "smalltalk_a2_0071",
+      "level": "a2",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0071",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "도착하면 바로 전화드릴게요.",
+        "de": "Ich rufe an, sobald wir da sind.",
+        "en": "I'll call as soon as we get there.",
+        "reply": {
+          "ko": "그래요. 조심히 가요.",
+          "de": "Gut. Kommen Sie sicher an.",
+          "en": "Okay. Have a safe trip.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Ah, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0071",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "도착하면 바로 전화드릴게요.",
+        "de": "Ich rufe an, sobald ich da bin.",
+        "en": "I'll call as soon as I get there.",
+        "reply": {
+          "ko": "그래요. 조심히 가요.",
+          "de": "Gut. Gute Fahrt und passen Sie auf sich auf.",
+          "en": "Okay. Have a safe trip.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 안녕히 계세요.",
+          "de": "Danke, auf Wiedersehen.",
+          "en": "Thank you. Goodbye.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "aad3be4e2d162ad8efcb92e7d70720c0f00c29e48a39b8ddbe214ae5172dc9b3",
+      "afterSha256": "4dabca64ade41f117e14dd0a529339d628b93e25a2e0e43a96da6dbfa0ef2920"
+    },
+    {
+      "id": "smalltalk_a2_0072",
+      "level": "a2",
+      "fields": [
+        "de",
+        "followUp",
+        "ko",
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0072",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "동생한테는 반말로 해도 돼요?",
+        "de": "Darf ich mit dem jüngeren Bruder die vertrauliche Form benutzen?",
+        "en": "Can I use casual speech with the younger brother?",
+        "reply": {
+          "ko": "네, 편하게 해요.",
+          "de": "Ja, ganz locker.",
+          "en": "Yeah, keep it casual.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Ah, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0072",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "question",
+        "ko": "남동생한테는 반말로 해도 돼요?",
+        "de": "Darf ich mit dem jüngeren Bruder die informelle Sprachform benutzen?",
+        "en": "Can I use casual speech with the younger brother?",
+        "reply": {
+          "ko": "동생한테 먼저 물어보는 게 좋아요.",
+          "de": "Am besten fragen Sie den jüngeren Bruder zuerst.",
+          "en": "It is best to ask the younger brother first.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 먼저 물어보고 할게요.",
+          "de": "Gut, ich frage ihn zuerst.",
+          "en": "Okay, I will ask him first.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "9e06834b9907fbe1ecb3e726bca21af18b752f79e7e539b86c556b913b1f15d1",
+      "afterSha256": "0db53d613c9d574074fa76dc475dd86a3ea99202dbbf20ed61b4d19627aacec9"
+    },
+    {
+      "id": "smalltalk_a2_0073",
+      "level": "a2",
+      "fields": [
+        "de",
+        "followUp",
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0073",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "반말은 아직 현우한테만 연습하고 있어요.",
+        "de": "Die vertrauliche Form übe ich bisher nur mit Hyunwoo.",
+        "en": "I'm only practicing casual speech with Hyunwoo so far.",
+        "reply": {
+          "ko": "그게 제일 안전해요.",
+          "de": "Das ist am sichersten.",
+          "en": "That's the safest way.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "아, 그렇군요.",
+          "de": "Ach so.",
+          "en": "Ah, I see."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0073",
+        "category": "partner_family",
+        "level": "a2",
+        "kind": "opener",
+        "ko": "반말은 아직 현우한테만 연습하고 있어요.",
+        "de": "Die informelle Sprachform übe ich bisher nur mit Hyunwoo.",
+        "en": "I'm only practicing casual speech with Hyunwoo so far.",
+        "reply": {
+          "ko": "서로 편한 말투로 천천히 연습하면 돼요.",
+          "de": "Üben Sie in Ruhe mit einer Sprachform, mit der Sie sich beide wohlfühlen.",
+          "en": "Take your time practicing with a style of speech you both feel comfortable with.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "제가 뭘 도와드릴까요?",
+            "de": "Wie kann ich helfen?",
+            "en": "What can I help with?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 서로 편한지 확인할게요.",
+          "de": "Ja, ich achte darauf, dass wir uns beide damit wohlfühlen.",
+          "en": "Yes, I will check that we both feel comfortable with it.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "7a874861240db7f0c301964f334a8e48a4ae64c30154880b7522195417a14f85",
+      "afterSha256": "a5e10b2690adcd85003823a00637fbea4601631a7c3f0495c6f7cd8e38c5a1d3"
+    },
+    {
+      "id": "smalltalk_a2_0074",
+      "level": "a2",
+      "fields": [
+        "followUp",
+        "ko",
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0074",
+        "category": "weekend",
+        "level": "a2",
+        "kind": "question",
+        "ko": "토요일 오전에 시장 갈 건데 같이 하실래요?",
+        "de": "Ich gehe Samstagvormittag auf den Markt. Kommen Sie mit?",
+        "en": "I'm going to the market on Saturday morning. Would you like to come?",
+        "reply": {
+          "ko": "좋아요. 열 시에 입구에서 만나요.",
+          "de": "Gern. Treffen wir uns um zehn am Eingang?",
+          "en": "Sure. Shall we meet at the entrance at ten?"
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "지금은 짧게만 확인할까요?",
+            "de": "Wollen wir es jetzt nur kurz klären?",
+            "en": "Shall we just check this briefly for now?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그러면 다음에 이어서 이야기해요.",
+          "de": "Dann sprechen wir später weiter.",
+          "en": "Then we can continue later."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0074",
+        "category": "weekend",
+        "level": "a2",
+        "kind": "question",
+        "ko": "토요일 오전에 시장 갈 건데 같이 가실래요?",
+        "de": "Ich gehe Samstagvormittag auf den Markt. Kommen Sie mit?",
+        "en": "I'm going to the market on Saturday morning. Would you like to come?",
+        "reply": {
+          "ko": "좋아요. 열 시에 입구에서 만나요.",
+          "de": "Gern. Treffen wir uns um zehn am Eingang.",
+          "en": "Sure. Let us meet at the entrance at ten.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "지금은 짧게만 확인할까요?",
+            "de": "Wollen wir es jetzt nur kurz klären?",
+            "en": "Shall we just check this briefly for now?"
+          }
+        ],
+        "followUp": {
+          "ko": "좋아요. 토요일 열 시에 입구에서 봐요.",
+          "de": "Gern. Bis Samstag um zehn am Eingang.",
+          "en": "Great. See you at the entrance at ten on Saturday.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "b3de808e994ff2436088c3ae6cb7a5e988e43d06a77b59f4e17256d4be0048d1",
+      "afterSha256": "dce1c3458bca9f028cbddabaf05d40063a290c94d8d2962f6da23e77d7b5e521"
+    },
+    {
+      "id": "smalltalk_a2_0075",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0075",
+        "category": "health",
+        "level": "a2",
+        "kind": "question",
+        "ko": "목이 좀 잠겼는데 오늘은 짧게만 이야기할까요?",
+        "de": "Meine Stimme ist heiser. Sollen wir heute nur kurz sprechen?",
+        "en": "My voice is hoarse. Shall we keep it short today?",
+        "reply": {
+          "ko": "그럼 문자가 나을 것 같아요.",
+          "de": "Dann ist eine Nachricht besser.",
+          "en": "Then a text is better."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "지금은 짧게만 확인할까요?",
+            "de": "Wollen wir es jetzt nur kurz klären?",
+            "en": "Shall we just check this briefly for now?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그러면 다음에 이어서 이야기해요.",
+          "de": "Dann sprechen wir später weiter.",
+          "en": "Then we can continue later."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0075",
+        "category": "health",
+        "level": "a2",
+        "kind": "question",
+        "ko": "목이 좀 잠겼는데 오늘은 짧게만 이야기할까요?",
+        "de": "Meine Stimme ist heiser. Sollen wir heute nur kurz sprechen?",
+        "en": "My voice is hoarse. Shall we keep it short today?",
+        "reply": {
+          "ko": "그럼 문자가 나을 것 같아요.",
+          "de": "Dann ist eine Nachricht besser.",
+          "en": "Then a text is better."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "지금은 짧게만 확인할까요?",
+            "de": "Wollen wir es jetzt nur kurz klären?",
+            "en": "Shall we just check this briefly for now?"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 문자로 이야기할게요.",
+          "de": "Dann schreibe ich Ihnen.",
+          "en": "Then I will text you.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "73c27bd3105e8da5f9a3a0828aecd6095d7df6f93288432fa4b4df46a4da1219",
+      "afterSha256": "b85ff73a8834f80f08cdd1eaf6aee91eb4e8e347d3075e9544bb572150be3cea"
+    },
+    {
+      "id": "smalltalk_a2_0076",
+      "level": "a2",
+      "fields": [
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0076",
+        "level": "a2",
+        "category": "weekend",
+        "kind": "question",
+        "ko": "토요일 오후에 시간이 되면 만날까요?",
+        "de": "Sollen wir uns am Samstagnachmittag treffen, wenn du Zeit hast?",
+        "en": "Shall we meet Saturday afternoon if you're free?",
+        "reply": {
+          "ko": "좋아요. 세 시 이후가 편해요.",
+          "de": "Gern. Nach drei passt es mir.",
+          "en": "Sure. Any time after three works for me."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아요. 그럼 시간과 장소를 다시 확인해요.",
+          "de": "Gut. Dann prüfen wir Zeit und Ort noch einmal.",
+          "en": "Great. Then let's check the time and place again."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0076",
+        "level": "a2",
+        "category": "weekend",
+        "kind": "question",
+        "ko": "토요일 오후에 시간이 되면 만날까요?",
+        "de": "Sollen wir uns am Samstagnachmittag treffen, wenn du Zeit hast?",
+        "en": "Shall we meet Saturday afternoon if you're free?",
+        "reply": {
+          "ko": "좋아요. 세 시 이후가 편해요.",
+          "de": "Gern. Nach drei passt es mir.",
+          "en": "Sure. Any time after three works for me."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "토요일에는 몇 시가 편해요?",
+            "de": "Wann passt es dir am Samstag?",
+            "en": "What time works for you on Saturday?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아요. 그럼 시간과 장소를 다시 확인해요.",
+          "de": "Gut. Dann prüfen wir Zeit und Ort noch einmal.",
+          "en": "Great. Then let's check the time and place again."
+        }
+      },
+      "beforeSha256": "64f181f5b51375b05ba0384497c8a2cadc0a3a78b6a95ae7dfa5849b984bb629",
+      "afterSha256": "f23ea037a6d63fc0122463dadcc6eab7acc541d6d24a835be735f038739247dc"
+    },
+    {
+      "id": "smalltalk_a2_0077",
+      "level": "a2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0077",
+        "level": "a2",
+        "category": "weekend",
+        "kind": "question",
+        "ko": "비가 오면 약속 장소를 바꿀까요?",
+        "de": "Sollen wir den Treffpunkt ändern, wenn es regnet?",
+        "en": "Shall we change the meeting place if it rains?",
+        "reply": {
+          "ko": "네, 역 안 카페로 정해요.",
+          "de": "Ja, nehmen wir das Café im Bahnhof.",
+          "en": "Yes, let's choose the cafe inside the station."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아요. 그럼 시간과 장소를 다시 확인해요.",
+          "de": "Gut. Dann prüfen wir Zeit und Ort noch einmal.",
+          "en": "Great. Then let's check the time and place again."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0077",
+        "level": "a2",
+        "category": "weekend",
+        "kind": "question",
+        "ko": "비가 오면 약속 장소를 바꿀까요?",
+        "de": "Sollen wir den Treffpunkt ändern, wenn es regnet?",
+        "en": "Shall we change the meeting place if it rains?",
+        "reply": {
+          "ko": "네, 역 안 카페로 정해요.",
+          "de": "Ja, nehmen wir das Café im Bahnhof.",
+          "en": "Yes, let's choose the cafe inside the station."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "역 안 카페에서 만날까요?",
+            "de": "Sollen wir uns im Café im Bahnhof treffen?",
+            "en": "Shall we meet at the cafe inside the station?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "좋아요. 비가 오면 역 안 카페에서 봐요.",
+          "de": "Gern. Bei Regen sehen wir uns im Café im Bahnhof.",
+          "en": "Great. If it rains, we will meet at the cafe inside the station.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "f71aa47c63ef2fad2090527b24ff16021ef8f4476698cb4b9545644b9d1d930c",
+      "afterSha256": "5145123b65942be2a5d3ae095b873d41d394bf20076f1c2cf27e70fc7e5d3237"
+    },
+    {
+      "id": "smalltalk_a2_0078",
+      "level": "a2",
+      "fields": [
+        "followUp",
+        "relationshipContext",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0078",
+        "level": "a2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "관리비에 인터넷도 포함돼요?",
+        "de": "Ist Internet in den Nebenkosten enthalten?",
+        "en": "Is internet included in the maintenance fee?",
+        "reply": {
+          "ko": "아니요, 인터넷은 따로 신청해야 해요.",
+          "de": "Nein, Internet müssen Sie separat anmelden.",
+          "en": "No, you need to arrange internet separately."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "시간이나 조건을 다시 확인할까요?",
+            "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+            "en": "Shall we check the time or conditions again?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+          "de": "Gut. Ich notiere die nötigen Informationen.",
+          "en": "Great. I'll note the information we need."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0078",
+        "level": "a2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "관리비에 인터넷도 포함돼요?",
+        "de": "Ist Internet in den Nebenkosten enthalten?",
+        "en": "Is internet included in the maintenance fee?",
+        "reply": {
+          "ko": "아니요, 인터넷은 따로 신청해야 해요.",
+          "de": "Nein, Internet müssen Sie separat anmelden.",
+          "en": "No, you need to arrange internet separately."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "인터넷은 따로 신청해야 해요?",
+            "de": "Muss ich Internet separat anmelden?",
+            "en": "Do I need to arrange internet separately?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 인터넷은 따로 신청할게요.",
+          "de": "Dann melde ich Internet separat an.",
+          "en": "Then I will arrange internet separately.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "75b5aec219c07c1c64c2d01e5adf3c2a708c5409f323853f0eb49772dd7f62cb",
+      "afterSha256": "f2998408f4303b1ac3e97f47fff1b727c4a1f7a2ce308ef466afdbb87257419d"
+    },
+    {
+      "id": "smalltalk_a2_0079",
+      "level": "a2",
+      "fields": [
+        "followUp",
+        "relationshipContext",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0079",
+        "level": "a2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "계약서를 집에서 읽어 봐도 괜찮아요?",
+        "de": "Ist es in Ordnung, wenn ich den Vertrag zu Hause lese?",
+        "en": "Is it okay if I read the contract at home?",
+        "reply": {
+          "ko": "네, 내일까지 읽고 연락 주세요.",
+          "de": "Ja, lesen Sie ihn bis morgen und melden Sie sich dann.",
+          "en": "Yes, read it by tomorrow and contact me."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "시간이나 조건을 다시 확인할까요?",
+            "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+            "en": "Shall we check the time or conditions again?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+          "de": "Gut. Ich notiere die nötigen Informationen.",
+          "en": "Great. I'll note the information we need."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0079",
+        "level": "a2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "계약서를 집에서 읽어 봐도 괜찮아요?",
+        "de": "Ist es in Ordnung, wenn ich den Vertrag zu Hause lese?",
+        "en": "Is it okay if I read the contract at home?",
+        "reply": {
+          "ko": "네, 내일까지 읽고 연락 주세요.",
+          "de": "Ja, lesen Sie ihn bis morgen und melden Sie sich dann.",
+          "en": "Yes, read it by tomorrow and contact me."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "내일까지 읽고 연락드려도 될까요?",
+            "de": "Darf ich ihn bis morgen lesen und mich dann melden?",
+            "en": "May I read it by tomorrow and contact you then?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 읽어 보고 내일 연락드릴게요.",
+          "de": "Gut, ich lese ihn durch und melde mich morgen.",
+          "en": "Okay, I will read it and contact you tomorrow.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "a6fa27d5870ff1c4999fb2371d51750a7981648de740a787e9f795c9bfb2fb47",
+      "afterSha256": "adeab30dc2f39179cd6b7d49e9825511b6c0ba2f8b947c1bfb720226ba518fe3"
+    },
+    {
+      "id": "smalltalk_a2_0080",
+      "level": "a2",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "relationshipContext",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0080",
+        "level": "a2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "반려동물과 같이 살아도 돼요?",
+        "de": "Darf ich mit einem Haustier einziehen?",
+        "en": "May I move in with a pet?",
+        "reply": {
+          "ko": "작은 동물은 가능하지만 계약서에 적어야 해요.",
+          "de": "Kleine Tiere sind möglich, müssen aber im Vertrag stehen.",
+          "en": "Small pets are allowed, but they need to be listed in the contract."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "시간이나 조건을 다시 확인할까요?",
+            "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+            "en": "Shall we check the time or conditions again?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+          "de": "Gut. Ich notiere die nötigen Informationen.",
+          "en": "Great. I'll note the information we need."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0080",
+        "level": "a2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "반려동물과 같이 살아도 돼요?",
+        "de": "Darf ich hier mit einem Haustier wohnen?",
+        "en": "May I live here with a pet?",
+        "reply": {
+          "ko": "작은 동물은 가능하지만 계약서에 적어야 해요.",
+          "de": "Kleine Tiere sind möglich, müssen aber im Vertrag stehen.",
+          "en": "Small pets are allowed, but they need to be listed in the contract."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "반려동물에 관한 조건이 계약서에 나와 있어요?",
+            "de": "Stehen die Bedingungen für Haustiere im Vertrag?",
+            "en": "Are the conditions for pets stated in the contract?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 반려동물 조건을 계약서에서 확인할게요.",
+          "de": "Dann prüfe ich die Haustierbedingungen im Vertrag.",
+          "en": "Then I will check the pet conditions in the contract.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "c5f20249ab6a9213c28e0ca188b415809eef0c861ba89097846188fc54dcfe9e",
+      "afterSha256": "86d17da0e835fc57b5beb13a1cc64f2990e987a5542be9d73f1b42c5ceafa8e3"
+    },
+    {
+      "id": "smalltalk_a2_0081",
+      "level": "a2",
+      "fields": [
+        "followUp",
+        "relationshipContext",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0081",
+        "level": "a2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "보증금은 언제 보내요?",
+        "de": "Wann überweise ich die Kaution?",
+        "en": "When do I send the deposit?",
+        "reply": {
+          "ko": "계약서에 서명한 뒤에 보내 주세요.",
+          "de": "Bitte überweisen Sie sie nach der Vertragsunterzeichnung.",
+          "en": "Please send it after signing the contract."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "시간이나 조건을 다시 확인할까요?",
+            "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+            "en": "Shall we check the time or conditions again?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+          "de": "Gut. Ich notiere die nötigen Informationen.",
+          "en": "Great. I'll note the information we need."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0081",
+        "level": "a2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "보증금은 언제 보내요?",
+        "de": "Wann überweise ich die Kaution?",
+        "en": "When do I send the deposit?",
+        "reply": {
+          "ko": "계약서에 서명한 뒤에 보내 주세요.",
+          "de": "Bitte überweisen Sie sie nach der Vertragsunterzeichnung.",
+          "en": "Please send it after signing the contract."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "보증금 보내는 날짜가 계약서에 나와 있어요?",
+            "de": "Steht im Vertrag, wann die Kaution überwiesen werden soll?",
+            "en": "Does the contract state when the deposit should be sent?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 서명한 뒤에 보내겠습니다.",
+          "de": "Gut, ich überweise sie nach der Unterschrift.",
+          "en": "Okay, I will send it after signing.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "e8525f906dd6610ca98877fa0256920a7bd6ae086e8004c011533418661be8bf",
+      "afterSha256": "62193064fa0cb8ecf1a433e9252f365cac0331b9fe34f27865a1e92d22519aad"
+    },
+    {
+      "id": "smalltalk_a2_0082",
+      "level": "a2",
+      "fields": [
+        "followUp",
+        "relationshipContext",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0082",
+        "level": "a2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "오늘 저녁에 방을 볼 수 있어요?",
+        "de": "Kann ich das Zimmer heute Abend besichtigen?",
+        "en": "Can I view the room this evening?",
+        "reply": {
+          "ko": "일곱 시는 괜찮지만 먼저 예약해 주세요.",
+          "de": "Sieben Uhr passt, aber vereinbaren Sie bitte vorher einen Termin.",
+          "en": "Seven works, but please make an appointment first."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "시간이나 조건을 다시 확인할까요?",
+            "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+            "en": "Shall we check the time or conditions again?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+          "de": "Gut. Ich notiere die nötigen Informationen.",
+          "en": "Great. I'll note the information we need."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0082",
+        "level": "a2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "오늘 저녁에 방을 볼 수 있어요?",
+        "de": "Kann ich das Zimmer heute Abend besichtigen?",
+        "en": "Can I view the room this evening?",
+        "reply": {
+          "ko": "일곱 시는 괜찮지만 먼저 예약해 주세요.",
+          "de": "Sieben Uhr passt, aber vereinbaren Sie bitte vorher einen Termin.",
+          "en": "Seven works, but please make an appointment first."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "오늘 저녁 일곱 시로 예약할 수 있어요?",
+            "de": "Kann ich einen Termin für heute Abend um sieben vereinbaren?",
+            "en": "Can I make an appointment for seven this evening?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 오늘 저녁 일곱 시로 예약하고 싶어요.",
+          "de": "Dann würde ich gern einen Termin für heute Abend um sieben vereinbaren.",
+          "en": "Then I would like to make an appointment for seven this evening.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "b51af6c8ae1aa660a600f1c8fc318ef1ba51696994d2e42ed0f9900bafa0c2d5",
+      "afterSha256": "69e16c719b7f14e2bbfa2c861afd6ce1fc3060d129ead1d2b8720f2023db173f"
+    },
+    {
+      "id": "smalltalk_a2_0083",
+      "level": "a2",
+      "fields": [
+        "followUp",
+        "relationshipContext",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0083",
+        "level": "a2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "이사 날짜를 일주일 늦춰도 괜찮아요?",
+        "de": "Ist es in Ordnung, den Umzug um eine Woche zu verschieben?",
+        "en": "Is it okay to move the date back by one week?",
+        "reply": {
+          "ko": "네, 새 날짜를 계약서에 함께 적어요.",
+          "de": "Ja, wir tragen das neue Datum gemeinsam in den Vertrag ein.",
+          "en": "Yes, let us add the new date to the contract."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "시간이나 조건을 다시 확인할까요?",
+            "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+            "en": "Shall we check the time or conditions again?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+          "de": "Gut. Ich notiere die nötigen Informationen.",
+          "en": "Great. I'll note the information we need."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0083",
+        "level": "a2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "이사 날짜를 일주일 늦춰도 괜찮아요?",
+        "de": "Ist es in Ordnung, den Umzug um eine Woche zu verschieben?",
+        "en": "Is it okay to move the date back by one week?",
+        "reply": {
+          "ko": "네, 새 날짜를 계약서에 함께 적어요.",
+          "de": "Ja, wir tragen das neue Datum gemeinsam in den Vertrag ein.",
+          "en": "Yes, let us add the new date to the contract."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "새 이사 날짜를 계약서에도 적을까요?",
+            "de": "Sollen wir das neue Umzugsdatum auch im Vertrag festhalten?",
+            "en": "Shall we put the new moving date in the contract too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 새 날짜를 함께 확인해요.",
+          "de": "Gut, prüfen wir das neue Datum gemeinsam.",
+          "en": "Okay, let us confirm the new date together.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "7b540833d55b3c63412405759fb39b12fbba9fe55d79633d4be58a0288157d5c",
+      "afterSha256": "d1b59f03e9841773060ec6937cf82bb6bed9d3d4a069f88667af5b305232436e"
+    },
+    {
+      "id": "smalltalk_a2_0089",
+      "level": "a2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0089",
+        "category": "theme_park_date",
+        "level": "a2",
+        "kind": "question",
+        "ko": "와, 저기 봐봐. 너무 귀여워! 같이 사진 찍을까?",
+        "de": "Wow, schau mal da. Wie süß! Wollen wir zusammen ein Foto machen?",
+        "en": "Wow, look over there. So cute! Want to take a picture together?",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "멀리서 사진만 찍을까?",
+            "de": "Wollen wir nur aus der Entfernung ein Foto machen?",
+            "en": "Should we just take a photo from a distance?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그래, 캐릭터 옆에 서자.",
+          "de": "Okay, stellen wir uns neben die Figur.",
+          "en": "Okay, let's stand next to the character."
+        },
+        "reply": {
+          "ko": "좋아. 먼저 사진 찍어도 되는지 물어보자.",
+          "de": "Gerne. Fragen wir zuerst, ob das okay ist.",
+          "en": "Sure. Let's ask if it's okay first."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0089",
+        "category": "theme_park_date",
+        "level": "a2",
+        "kind": "question",
+        "ko": "와, 저기 봐봐. 너무 귀여워! 같이 사진 찍을까?",
+        "de": "Wow, schau mal da. Wie süß! Wollen wir zusammen ein Foto machen?",
+        "en": "Wow, look over there. So cute! Want to take a picture together?",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "멀리서 사진만 찍을까?",
+            "de": "Wollen wir nur aus der Entfernung ein Foto machen?",
+            "en": "Should we just take a photo from a distance?"
+          }
+        ],
+        "followUp": {
+          "ko": "사진을 찍어도 된다고 하면 캐릭터 옆에 서자.",
+          "de": "Wenn wir ein Foto machen dürfen, stellen wir uns neben die Figur.",
+          "en": "If we are allowed to take a photo, let us stand next to the character.",
+          "turnKind": "reaction"
+        },
+        "reply": {
+          "ko": "좋아. 먼저 사진 찍어도 되는지 물어보자.",
+          "de": "Gerne. Fragen wir zuerst, ob das okay ist.",
+          "en": "Sure. Let's ask if it's okay first."
+        }
+      },
+      "beforeSha256": "cb9ebeb79fcb574965816120dedf3a770d469d6daac37fc081b6612ced5b18bf",
+      "afterSha256": "3fb9d8d3881c787f8475f3eeef5ea4092c60d063ef8090a2a4bd5ffdd50cdc0e"
+    },
+    {
+      "id": "smalltalk_a2_0091",
+      "level": "a2",
+      "fields": [
+        "de",
+        "en"
+      ],
+      "before": {
+        "id": "smalltalk_a2_0091",
+        "category": "theme_park_date",
+        "level": "a2",
+        "kind": "reaction",
+        "ko": "후룸라이드는 얼마나 젖을지 몰라서 더 두근거려!",
+        "de": "Bei der Wasserbahn weiß man nie, wie nass man wird. Das macht es noch aufregender!",
+        "en": "You never know how wet you'll get on the flume ride. That makes it even more exciting!",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "맨 앞자리는 피할까?",
+            "de": "Wollen wir die erste Reihe lieber vermeiden?",
+            "en": "Should we avoid the front row?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그래도 물 맞는 재미로 타는 거지.",
+          "de": "Aber das Nasswerden gehört ja gerade zum Spaß dazu.",
+          "en": "Still, getting splashed is part of the fun."
+        }
+      },
+      "after": {
+        "id": "smalltalk_a2_0091",
+        "category": "theme_park_date",
+        "level": "a2",
+        "kind": "reaction",
+        "ko": "후룸라이드는 얼마나 젖을지 몰라서 더 두근거려!",
+        "de": "Ich weiß nicht, wie nass ich bei der Wasserbahn werde. Das macht es noch aufregender!",
+        "en": "I don't know how wet I'll get on the flume ride, so I'm even more excited!",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "맨 앞자리는 피할까?",
+            "de": "Wollen wir die erste Reihe lieber vermeiden?",
+            "en": "Should we avoid the front row?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그래도 물 맞는 재미로 타는 거지.",
+          "de": "Aber das Nasswerden gehört ja gerade zum Spaß dazu.",
+          "en": "Still, getting splashed is part of the fun."
+        }
+      },
+      "beforeSha256": "46c683b7bf9a3288b2129884fcda762dbfbb03def957f1f032616ef99be09082",
+      "afterSha256": "7e1b880b3bf6fbcc73dbb7da3a4f7ebf09264a244ed96ab335513ebccdea563f"
     }
   ]
 }

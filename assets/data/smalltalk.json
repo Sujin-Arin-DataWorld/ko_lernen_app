@@ -292,9 +292,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "ko": "맑으면 밖에 나가고 싶어요.",
+        "de": "Wenn es schön wird, würde ich gern rausgehen.",
+        "en": "If it's clear, I'd like to go out."
       }
     },
     {
@@ -388,9 +388,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "ko": "오늘은 좀 쉬어요.",
+        "de": "Ruh dich heute ein bisschen aus.",
+        "en": "Get some rest today."
       }
     },
     {
@@ -498,10 +498,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "좋아요. 시간 정해 봐요.",
-        "de": "Gerne. Lassen wir uns eine Zeit ausmachen.",
-        "en": "Great. Let's pick a time."
+        "turnKind": "question",
+        "ko": "그럼 몇 시에 만날까요?",
+        "de": "Wann wollen wir uns dann treffen?",
+        "en": "What time shall we meet, then?"
       }
     },
     {
@@ -609,10 +609,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "좋아요. 어디로 갈까요?",
-        "de": "Gut. Wohin gehen wir?",
-        "en": "Great. Where should we go?"
+        "turnKind": "question",
+        "ko": "좋아요. 어디서 만날까요?",
+        "de": "Gern. Wo treffen wir uns?",
+        "en": "Sure. Where shall we meet?"
       }
     },
     {
@@ -715,10 +715,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "turnKind": "question",
+        "ko": "일찍 일어나니까 어때요?",
+        "de": "Wie ist es für dich, so früh aufzustehen?",
+        "en": "How does getting up early feel?"
       }
     },
     {
@@ -816,10 +816,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "turnKind": "question",
+        "ko": "어떤 내용이에요?",
+        "de": "Worum geht es?",
+        "en": "What is it about?"
       }
     },
     {
@@ -1361,20 +1361,20 @@
         "de": "Wir essen und spazieren zusammen.",
         "en": "We eat and take walks together."
       },
-      "relationshipContext": "family",
+      "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "요즘 잘 지내?",
-          "de": "Läuft's bei dir?",
-          "en": "You doing alright?"
+          "ko": "요즘 어떻게 지내세요?",
+          "de": "Wie läuft’s bei dir in letzter Zeit?",
+          "en": "How have you been lately?"
         }
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "아, 그렇구나.",
-        "de": "Ach so.",
-        "en": "Oh, I see."
+        "ko": "같이 보내는 시간이 좋겠어요.",
+        "de": "Die gemeinsame Zeit ist bestimmt schön.",
+        "en": "It must be nice to spend that time together."
       }
     },
     {
@@ -1589,9 +1589,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "ko": "잘 챙겨 오셨네요.",
+        "de": "Gut, dass du einen mitgebracht hast.",
+        "en": "Good thing you brought one."
       }
     },
     {
@@ -1690,9 +1690,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "ko": "오늘은 좀 쉬세요.",
+        "de": "Ruh dich heute ein bisschen aus.",
+        "en": "Get some rest today."
       }
     },
     {
@@ -1879,7 +1879,7 @@
       "reply": {
         "ko": "네, 매운 거 좋아해요.",
         "de": "Ja, ich mag scharfes Essen.",
-        "en": "Yes, I love spicy food."
+        "en": "Yes, I like spicy food."
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -1998,9 +1998,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "ko": "괜찮아요. 조심해서 오세요.",
+        "de": "Schon gut. Komm vorsichtig her.",
+        "en": "It's okay. Take care on your way here."
       }
     },
     {
@@ -2098,10 +2098,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "turnKind": "question",
+        "ko": "재미있었어요?",
+        "de": "Hat er dir gefallen?",
+        "en": "Did you enjoy it?"
       }
     },
     {
@@ -2204,10 +2204,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "turnKind": "question",
+        "ko": "어떤 콘서트였어요?",
+        "de": "Was für ein Konzert war das?",
+        "en": "What concert was it?"
       }
     },
     {
@@ -2310,10 +2310,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "turnKind": "question",
+        "ko": "기타 배우는 건 어때요?",
+        "de": "Wie ist es, Gitarre zu lernen?",
+        "en": "What's learning guitar like?"
       }
     },
     {
@@ -2411,10 +2411,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "turnKind": "question",
+        "ko": "바다에서 잘 쉬었어요?",
+        "de": "Hast du dich am Meer gut erholt?",
+        "en": "Did you get a good rest by the sea?"
       }
     },
     {
@@ -2608,20 +2608,20 @@
         "de": "Ja, ich habe ein jüngeres Geschwisterkind.",
         "en": "Yes, I have one younger sibling."
       },
-      "relationshipContext": "family",
+      "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "요즘 잘 지내?",
-          "de": "Läuft's bei dir?",
-          "en": "You doing alright?"
+          "ko": "요즘 어떻게 지내세요?",
+          "de": "Wie läuft’s bei dir in letzter Zeit?",
+          "en": "How have you been lately?"
         }
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "아, 그렇구나.",
-        "de": "Ach so.",
-        "en": "Oh, I see."
+        "ko": "아, 동생이 있으시군요.",
+        "de": "Du hast also ein jüngeres Geschwisterkind.",
+        "en": "So you have a younger sibling."
       }
     },
     {
@@ -2725,9 +2725,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "ko": "잘 자고 있다니 다행이에요.",
+        "de": "Schön, dass du gut schläfst.",
+        "en": "I'm glad you're sleeping well."
       }
     },
     {
@@ -2850,9 +2850,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "ko": "이 그룹 노래 하나 추천해 주세요.",
+        "de": "Empfiehl mir bitte ein Lied von dieser Gruppe.",
+        "en": "Please recommend a song by this group."
       }
     },
     {
@@ -2865,7 +2865,7 @@
       "en": "Did you get a concert ticket?",
       "reply": {
         "ko": "네, 겨우 구했어요!",
-        "de": "Ja, gerade noch!",
+        "de": "Ja, mit Mühe habe ich noch eine bekommen!",
         "en": "Yes, I just managed to get one!"
       },
       "relationshipContext": "peer",
@@ -2879,9 +2879,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "ko": "표를 구해서 다행이네요!",
+        "de": "Schön, dass du eine Karte bekommen hast!",
+        "en": "I'm glad you managed to get a ticket!"
       }
     },
     {
@@ -3065,14 +3065,14 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "요즘 어떻게 지내?",
-          "de": "Wie läuft's bei dir so?",
-          "en": "How've you been?"
+          "ko": "요즘 어떻게 지내요?",
+          "de": "Wie läuft’s bei dir in letzter Zeit?",
+          "en": "How have you been lately?"
         }
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "아, 그렇구나.",
+        "ko": "아, 그렇군요.",
         "de": "Ach so.",
         "en": "Oh, I see."
       }
@@ -3094,14 +3094,14 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "요즘 어떻게 지내?",
-          "de": "Wie läuft's bei dir so?",
-          "en": "How've you been?"
+          "ko": "요즘 어떻게 지내요?",
+          "de": "Wie läuft’s bei dir in letzter Zeit?",
+          "en": "How have you been lately?"
         }
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "아, 그렇구나.",
+        "ko": "아, 그렇군요.",
         "de": "Ach so.",
         "en": "Oh, I see."
       }
@@ -3284,9 +3284,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "ko": "면접 잘 보세요. 응원할게요.",
+        "de": "Viel Erfolg beim Vorstellungsgespräch. Ich drücke dir die Daumen.",
+        "en": "Good luck with your interview. I'll be rooting for you."
       }
     },
     {
@@ -3313,9 +3313,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "ko": "좋은 결과 있길 바라요.",
+        "de": "Ich hoffe, du bekommst eine gute Nachricht.",
+        "en": "I hope you get good news."
       }
     },
     {
@@ -3483,8 +3483,8 @@
       "level": "a2",
       "kind": "question",
       "ko": "어떤 회사 가고 싶어요?",
-      "de": "Bei welcher Firma möchtest du arbeiten?",
-      "en": "What company do you want to work for?",
+      "de": "Bei was für einer Firma möchtest du arbeiten?",
+      "en": "What kind of company do you want to work for?",
       "reply": {
         "ko": "IT 회사에 가고 싶어요.",
         "de": "Bei einer IT-Firma.",
@@ -3501,9 +3501,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "ko": "그 분야에 관심이 있으시군요.",
+        "de": "Du interessierst dich also für diesen Bereich.",
+        "en": "So you're interested in that field."
       }
     },
     {
@@ -3512,7 +3512,7 @@
       "level": "a2",
       "kind": "question",
       "ko": "자소서 다 썼어요?",
-      "de": "Hast du deine Selbstvorstellung für die Bewerbung schon fertig?",
+      "de": "Hast du den Text über dich selbst für die Bewerbung schon fertig?",
       "en": "Have you finished your personal statement for the job application?",
       "reply": {
         "ko": "아직 반밖에 못 썼어요.",
@@ -3530,9 +3530,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "ko": "아직 쓰는 중이시군요.",
+        "de": "Du bist also noch dabei, den Text zu schreiben.",
+        "en": "So you're still working on it."
       }
     },
     {
@@ -3718,9 +3718,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "ko": "출근하기 편하겠어요.",
+        "de": "Dann ist dein Arbeitsweg bestimmt einfacher.",
+        "en": "That should make commuting easier."
       }
     },
     {
@@ -3729,7 +3729,7 @@
       "level": "a2",
       "kind": "question",
       "ko": "이삿짐 많아요?",
-      "de": "Hast du viel Umzugsgut?",
+      "de": "Hast du viele Sachen für den Umzug?",
       "en": "Do you have a lot of stuff to move?",
       "reply": {
         "ko": "생각보다 많아요.",
@@ -3747,9 +3747,9 @@
       ],
       "followUp": {
         "turnKind": "reaction",
-        "ko": "그렇군요.",
-        "de": "Ach so.",
-        "en": "I see."
+        "ko": "생각보다 짐이 많으시군요.",
+        "de": "Du hast also mehr Sachen als gedacht.",
+        "en": "So you have more stuff than expected."
       }
     },
     {
@@ -3917,7 +3917,7 @@
       "level": "a2",
       "kind": "question",
       "ko": "예약했어요?",
-      "de": "Hast du einen Termin?",
+      "de": "Haben Sie einen Termin?",
       "en": "Do you have an appointment?",
       "reply": {
         "ko": "네, 두 시로 했어요.",
@@ -3946,8 +3946,8 @@
       "level": "a2",
       "kind": "question",
       "ko": "보험 있어요?",
-      "de": "Hast du eine Versicherung?",
-      "en": "Do you have insurance?",
+      "de": "Sind Sie krankenversichert?",
+      "en": "Do you have health insurance?",
       "reply": {
         "ko": "네, 있어요.",
         "de": "Ja, hab ich.",
@@ -4325,9 +4325,9 @@
         }
       ],
       "reply": {
-        "ko": "종로에서 내리세요.",
-        "de": "Steigen Sie in Jongno aus.",
-        "en": "Get off at Jongno."
+        "ko": "종각역에서 내리세요.",
+        "de": "Steigen Sie an der Station Jonggak aus.",
+        "en": "Get off at Jonggak Station."
       },
       "followUp": {
         "turnKind": "reaction",
@@ -4341,16 +4341,16 @@
       "category": "transport",
       "level": "a2",
       "kind": "question",
-      "ko": "우회전 해 주세요.",
+      "ko": "우회전해 주세요.",
       "de": "Biegen Sie bitte rechts ab.",
       "en": "Please make a right turn.",
       "relationshipContext": "service",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "직진 해 주세요.",
-          "de": "Fahren Sie bitte geradeaus.",
-          "en": "Please go straight."
+          "ko": "직진해 주실 수 있어요?",
+          "de": "Können Sie bitte geradeaus fahren?",
+          "en": "Could you please go straight?"
         }
       ],
       "reply": {
@@ -4377,9 +4377,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "여기에서 내려 주세요.",
-          "de": "Lassen Sie mich bitte hier raus.",
-          "en": "Please let me out here."
+          "ko": "여기에서 내려도 돼요?",
+          "de": "Darf ich hier aussteigen?",
+          "en": "Can I get out here?"
         }
       ],
       "reply": {
@@ -4413,7 +4413,7 @@
       ],
       "reply": {
         "ko": "2층에 있어요.",
-        "de": "Im zweiten Stock.",
+        "de": "Auf Ebene 2.",
         "en": "On the second floor."
       },
       "followUp": {
@@ -4613,7 +4613,7 @@
         "turnKind": "reaction",
         "ko": "그럼 만 팔천 원만 내세요.",
         "de": "Dann zahlen Sie nur 18000 Won.",
-        "en": "Then give me just 18000 won."
+        "en": "Then it's just 18,000 won."
       }
     },
     {
@@ -4640,9 +4640,9 @@
       },
       "followUp": {
         "turnKind": "reaction",
-        "ko": "감사합니다.",
-        "de": "Danke schön.",
-        "en": "Thank you."
+        "ko": "영수증을 확인해 볼게요.",
+        "de": "Ich schaue nach dem Kassenbon.",
+        "en": "I'll check for the receipt."
       }
     },
     {
@@ -4652,7 +4652,7 @@
       "kind": "opener",
       "ko": "한국 치수를 잘 몰라요.",
       "de": "Ich kenne die koreanischen Größen nicht gut.",
-      "en": "I don't know my Korean size.",
+      "en": "I'm not familiar with Korean sizes.",
       "relationshipContext": "service",
       "safeAlternativeQuestions": [
         {
@@ -4704,8 +4704,8 @@
       "level": "a2",
       "kind": "question",
       "ko": "기념품은 어디에서 팔아요?",
-      "de": "Wo werden Souvenirs verkauft?",
-      "en": "Where can I find souvenirs?",
+      "de": "Wo kann ich Souvenirs kaufen?",
+      "en": "Where can I buy souvenirs?",
       "relationshipContext": "service",
       "safeAlternativeQuestions": [
         {
@@ -4717,8 +4717,8 @@
       ],
       "reply": {
         "ko": "지하 1층에 있어요.",
-        "de": "Im Untergeschoss.",
-        "en": "In the basement."
+        "de": "Im ersten Untergeschoss.",
+        "en": "On the first basement level."
       },
       "followUp": {
         "turnKind": "reaction",
@@ -4733,15 +4733,15 @@
       "level": "a2",
       "kind": "question",
       "ko": "포장해 주세요.",
-      "de": "Packen Sie es bitte als Geschenk ein.",
-      "en": "Please gift-wrap it.",
+      "de": "Packen Sie es bitte ein.",
+      "en": "Please wrap it up.",
       "relationshipContext": "service",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "봉투 하나 주세요.",
-          "de": "Eine Tüte bitte.",
-          "en": "One bag, please."
+          "ko": "봉투 하나 주실 수 있어요?",
+          "de": "Können Sie mir eine Tüte geben?",
+          "en": "Could I have a bag, please?"
         }
       ],
       "reply": {
@@ -4891,22 +4891,22 @@
       "category": "phone",
       "level": "a2",
       "kind": "question",
-      "ko": "국제 전화는 어떻게 해요?",
-      "de": "Wie telefoniere ich ins Ausland?",
-      "en": "How do I make an international call?",
+      "ko": "휴대전화로 국제전화는 어떻게 해요?",
+      "de": "Wie mache ich mit dem Handy einen Anruf ins Ausland?",
+      "en": "How do I make an international call on my mobile phone?",
       "relationshipContext": "service",
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "전화카드는 어디에서 사요?",
-          "de": "Wo kauft man Telefonkarten?",
-          "en": "Where can I buy a phone card?"
+          "ko": "해외로 전화하면 요금이 얼마예요?",
+          "de": "Wie viel kostet ein Anruf ins Ausland?",
+          "en": "How much does an international call cost?"
         }
       ],
       "reply": {
-        "ko": "편의점에서 팔아요.",
-        "de": "Wählen Sie zuerst die Landesvorwahl.",
-        "en": "Dial the country code first."
+        "ko": "번호 앞에 플러스 기호와 국가번호를 입력하세요.",
+        "de": "Geben Sie vor der Rufnummer ein Pluszeichen und die Ländervorwahl ein.",
+        "en": "Enter a plus sign and the country code before the phone number."
       },
       "followUp": {
         "turnKind": "reaction",
@@ -5135,10 +5135,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "네 쓰세요.",
-        "de": "Ja, bitte.",
-        "en": "Sure, go ahead."
+        "turnKind": "question",
+        "ko": "제 전화 쓰실래요?",
+        "de": "Möchten Sie mein Telefon benutzen?",
+        "en": "Would you like to use my phone?"
       }
     },
     {
@@ -5153,9 +5153,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "여행자 보험이 있어요.",
-          "de": "Ich habe eine Reiseversicherung.",
-          "en": "I have traveler's insurance."
+          "ko": "도난 신고는 어디에서 해요?",
+          "de": "Wo kann ich einen Diebstahl melden?",
+          "en": "Where can I report a theft?"
         }
       ],
       "followUp": {
@@ -5346,9 +5346,9 @@
       "safeAlternativeQuestions": [
         {
           "turnKind": "question",
-          "ko": "안 맵게 해 주세요.",
-          "de": "Bitte nicht scharf.",
-          "en": "Not spicy, please."
+          "ko": "안 맵게 해 주실 수 있어요?",
+          "de": "Können Sie es bitte ohne Schärfe zubereiten?",
+          "en": "Could you make it without any spice?"
         }
       ],
       "reply": {
@@ -8736,10 +8736,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "아, 그렇군요.",
-        "de": "Ach so.",
-        "en": "Ah, I see."
+        "ko": "감사해요. 저도 얘기할게요.",
+        "de": "Danke, ich rede auch mit.",
+        "en": "Thank you. I will join in too.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -8766,10 +8766,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "아, 그렇군요.",
-        "de": "Ach so.",
-        "en": "Ah, I see."
+        "ko": "네, 아침 먹기 전에 하겠습니다.",
+        "de": "Gut, dann mache ich es vor dem Frühstück.",
+        "en": "Okay, I will do it before breakfast.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -8778,7 +8778,7 @@
       "level": "a2",
       "kind": "opener",
       "ko": "올해는 한국어를 더 열심히 하려고요.",
-      "de": "Dieses Jahr will ich mehr Koreanisch lernen.",
+      "de": "Dieses Jahr will ich intensiver an meinem Koreanisch arbeiten.",
       "en": "This year I want to work harder on my Korean.",
       "reply": {
         "ko": "벌써 많이 늘었어요.",
@@ -8796,10 +8796,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "아, 그렇군요.",
-        "de": "Ach so.",
-        "en": "Ah, I see."
+        "ko": "고마워요. 더 열심히 할게요.",
+        "de": "Danke. Ich werde mich noch mehr bemühen.",
+        "en": "Thank you. I will work harder.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -8812,8 +8812,8 @@
       "en": "Is the traffic bad heading home for the holiday?",
       "reply": {
         "ko": "새벽에 나가면 좀 나아요.",
-        "de": "Wenn man früh losfährt, geht es.",
-        "en": "If you leave at dawn it's not too bad.",
+        "de": "Wenn man frühmorgens losfährt, ist es etwas besser.",
+        "en": "It is a little better if you leave at dawn.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -8826,10 +8826,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "아, 그렇군요.",
-        "de": "Ach so.",
-        "en": "Ah, I see."
+        "ko": "그럼 출발 시간을 다시 생각해 볼게요.",
+        "de": "Dann überlege ich mir noch einmal, wann ich losfahre.",
+        "en": "Then I will think again about when to leave.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -8838,8 +8838,8 @@
       "level": "a2",
       "kind": "opener",
       "ko": "추석 연휴에는 저희도 하루는 쉬려고요.",
-      "de": "Über die Chuseok-Feiertage nehmen wir uns auch einen Tag frei.",
-      "en": "We're taking one day off over the Chuseok holiday too.",
+      "de": "Über die Chuseok-Feiertage wollen wir uns auch einen Tag frei nehmen.",
+      "en": "We are planning to take a day off over the Chuseok holiday too.",
       "reply": {
         "ko": "그래요. 쉬는 것도 중요해요.",
         "de": "Gut so. Ausruhen gehört auch dazu.",
@@ -8856,10 +8856,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "아, 그렇군요.",
-        "de": "Ach so.",
-        "en": "Ah, I see."
+        "ko": "네, 푹 쉬고 올게요.",
+        "de": "Ja, ich werde mich gut erholen.",
+        "en": "Yes, I will get a good rest.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -8867,13 +8867,13 @@
       "category": "partner_family",
       "level": "a2",
       "kind": "question",
-      "ko": "현우를 이렇게 놀려도 괜찮아요?",
-      "de": "Darf ich Hyunwoo so aufziehen?",
-      "en": "Is it okay to tease Hyunwoo like this?",
+      "ko": "현우가 이런 농담을 불편해할까요?",
+      "de": "Könnte sich Hyunwoo mit solchen Scherzen unwohl fühlen?",
+      "en": "Could jokes like this make Hyunwoo uncomfortable?",
       "reply": {
-        "ko": "그럼요. 우리도 매일 놀려요.",
-        "de": "Klar, wir ziehen ihn auch jeden Tag auf.",
-        "en": "Of course, we tease him every day.",
+        "ko": "현우한테 직접 물어보는 게 좋겠어요.",
+        "de": "Am besten fragen Sie Hyunwoo selbst.",
+        "en": "It would be best to ask Hyunwoo himself.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -8886,10 +8886,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "아, 그렇군요.",
-        "de": "Ach so.",
-        "en": "Ah, I see."
+        "ko": "네, 현우한테 먼저 물어볼게요.",
+        "de": "Ja, ich frage ihn zuerst.",
+        "en": "Yes, I will ask him first.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -8898,12 +8898,12 @@
       "level": "a2",
       "kind": "opener",
       "ko": "아까 반말이 나와서 죄송해요.",
-      "de": "Entschuldigung, vorhin ist mir die vertrauliche Form rausgerutscht.",
+      "de": "Entschuldigung, vorhin ist mir die informelle Sprachform herausgerutscht.",
       "en": "Sorry, casual speech slipped out earlier.",
       "reply": {
-        "ko": "괜찮아요. 아무도 신경 안 써요.",
-        "de": "Nicht schlimm, das stört niemanden.",
-        "en": "It's fine, nobody minds.",
+        "ko": "저는 괜찮아요. 천천히 연습해요.",
+        "de": "Mich stört es nicht. Üben Sie in Ruhe weiter.",
+        "en": "I don't mind. Take your time practicing.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -8916,10 +8916,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "아, 그렇군요.",
-        "de": "Ach so.",
-        "en": "Ah, I see."
+        "ko": "이해해 주셔서 감사해요.",
+        "de": "Vielen Dank für Ihr Verständnis.",
+        "en": "Thank you for understanding.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -8932,8 +8932,8 @@
       "en": "Can I sleep in the guest room?",
       "reply": {
         "ko": "네, 이불 새로 깔아 놨어요.",
-        "de": "Ja, ich habe frische Bettwäsche hingelegt.",
-        "en": "Yes, I put out fresh bedding.",
+        "de": "Ja, ich habe frisches Bettzeug hergerichtet.",
+        "en": "Yes, I have prepared fresh bedding.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -8946,10 +8946,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "아, 그렇군요.",
-        "de": "Ach so.",
-        "en": "Ah, I see."
+        "ko": "준비해 주셔서 감사해요.",
+        "de": "Danke, dass Sie alles vorbereitet haben.",
+        "en": "Thank you for getting it ready.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -8976,10 +8976,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "아, 그렇군요.",
-        "de": "Ach so.",
-        "en": "Ah, I see."
+        "ko": "네, 잘 먹겠습니다.",
+        "de": "Danke, ich freue mich aufs Frühstück.",
+        "en": "Thank you, I look forward to breakfast.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -8988,8 +8988,8 @@
       "level": "a2",
       "kind": "question",
       "ko": "반찬을 이렇게 많이 싸 주셔도 돼요?",
-      "de": "Ist das nicht zu viel, was Sie mir da einpacken?",
-      "en": "Are you sure you want to pack me this much?",
+      "de": "Ist es wirklich in Ordnung, dass Sie mir so viele Beilagen einpacken?",
+      "en": "Are you sure it's okay to give me this many side dishes?",
       "reply": {
         "ko": "가져가서 먹어요. 금방 없어져요.",
         "de": "Nehmen Sie es mit, das ist schneller aufgegessen, als Sie denken.",
@@ -9006,10 +9006,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "아, 그렇군요.",
-        "de": "Ach so.",
-        "en": "Ah, I see."
+        "ko": "감사해요. 집에서 맛있게 먹을게요.",
+        "de": "Danke. Ich werde sie mir zu Hause schmecken lassen.",
+        "en": "Thank you. I will enjoy them at home.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -9018,7 +9018,7 @@
       "level": "a2",
       "kind": "opener",
       "ko": "반찬 봉투는 제가 들게요.",
-      "de": "Die Tüte mit den Beilagen nehme ich.",
+      "de": "Ich trage die Tüte mit den Beilagen.",
       "en": "I'll carry the bag of side dishes.",
       "reply": {
         "ko": "무거우니까 조심해요.",
@@ -9036,10 +9036,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "아, 그렇군요.",
-        "de": "Ach so.",
-        "en": "Ah, I see."
+        "ko": "네, 조심해서 들게요.",
+        "de": "Ja, ich passe beim Tragen auf.",
+        "en": "Yes, I will be careful carrying it.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -9078,11 +9078,11 @@
       "level": "a2",
       "kind": "opener",
       "ko": "도착하면 바로 전화드릴게요.",
-      "de": "Ich rufe an, sobald wir da sind.",
-      "en": "I'll call as soon as we get there.",
+      "de": "Ich rufe an, sobald ich da bin.",
+      "en": "I'll call as soon as I get there.",
       "reply": {
         "ko": "그래요. 조심히 가요.",
-        "de": "Gut. Kommen Sie sicher an.",
+        "de": "Gut. Gute Fahrt und passen Sie auf sich auf.",
         "en": "Okay. Have a safe trip.",
         "turnKind": "response"
       },
@@ -9096,10 +9096,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "아, 그렇군요.",
-        "de": "Ach so.",
-        "en": "Ah, I see."
+        "ko": "네, 안녕히 계세요.",
+        "de": "Danke, auf Wiedersehen.",
+        "en": "Thank you. Goodbye.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -9107,13 +9107,13 @@
       "category": "partner_family",
       "level": "a2",
       "kind": "question",
-      "ko": "동생한테는 반말로 해도 돼요?",
-      "de": "Darf ich mit dem jüngeren Bruder die vertrauliche Form benutzen?",
+      "ko": "남동생한테는 반말로 해도 돼요?",
+      "de": "Darf ich mit dem jüngeren Bruder die informelle Sprachform benutzen?",
       "en": "Can I use casual speech with the younger brother?",
       "reply": {
-        "ko": "네, 편하게 해요.",
-        "de": "Ja, ganz locker.",
-        "en": "Yeah, keep it casual.",
+        "ko": "동생한테 먼저 물어보는 게 좋아요.",
+        "de": "Am besten fragen Sie den jüngeren Bruder zuerst.",
+        "en": "It is best to ask the younger brother first.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -9126,10 +9126,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "아, 그렇군요.",
-        "de": "Ach so.",
-        "en": "Ah, I see."
+        "ko": "네, 먼저 물어보고 할게요.",
+        "de": "Gut, ich frage ihn zuerst.",
+        "en": "Okay, I will ask him first.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -9138,12 +9138,12 @@
       "level": "a2",
       "kind": "opener",
       "ko": "반말은 아직 현우한테만 연습하고 있어요.",
-      "de": "Die vertrauliche Form übe ich bisher nur mit Hyunwoo.",
+      "de": "Die informelle Sprachform übe ich bisher nur mit Hyunwoo.",
       "en": "I'm only practicing casual speech with Hyunwoo so far.",
       "reply": {
-        "ko": "그게 제일 안전해요.",
-        "de": "Das ist am sichersten.",
-        "en": "That's the safest way.",
+        "ko": "서로 편한 말투로 천천히 연습하면 돼요.",
+        "de": "Üben Sie in Ruhe mit einer Sprachform, mit der Sie sich beide wohlfühlen.",
+        "en": "Take your time practicing with a style of speech you both feel comfortable with.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -9156,10 +9156,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "아, 그렇군요.",
-        "de": "Ach so.",
-        "en": "Ah, I see."
+        "ko": "네, 서로 편한지 확인할게요.",
+        "de": "Ja, ich achte darauf, dass wir uns beide damit wohlfühlen.",
+        "en": "Yes, I will check that we both feel comfortable with it.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -10426,13 +10426,14 @@
       "category": "weekend",
       "level": "a2",
       "kind": "question",
-      "ko": "토요일 오전에 시장 갈 건데 같이 하실래요?",
+      "ko": "토요일 오전에 시장 갈 건데 같이 가실래요?",
       "de": "Ich gehe Samstagvormittag auf den Markt. Kommen Sie mit?",
       "en": "I'm going to the market on Saturday morning. Would you like to come?",
       "reply": {
         "ko": "좋아요. 열 시에 입구에서 만나요.",
-        "de": "Gern. Treffen wir uns um zehn am Eingang?",
-        "en": "Sure. Shall we meet at the entrance at ten?"
+        "de": "Gern. Treffen wir uns um zehn am Eingang.",
+        "en": "Sure. Let us meet at the entrance at ten.",
+        "turnKind": "response"
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -10444,10 +10445,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그러면 다음에 이어서 이야기해요.",
-        "de": "Dann sprechen wir später weiter.",
-        "en": "Then we can continue later."
+        "ko": "좋아요. 토요일 열 시에 입구에서 봐요.",
+        "de": "Gern. Bis Samstag um zehn am Eingang.",
+        "en": "Great. See you at the entrance at ten on Saturday.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -10473,10 +10474,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그러면 다음에 이어서 이야기해요.",
-        "de": "Dann sprechen wir später weiter.",
-        "en": "Then we can continue later."
+        "ko": "그럼 문자로 이야기할게요.",
+        "de": "Dann schreibe ich Ihnen.",
+        "en": "Then I will text you.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -12253,10 +12254,10 @@
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
-          "de": "Welche Perspektive fehlt in diesem Maßstab?",
-          "en": "Which perspective is missing from that standard?"
+          "ko": "토요일에는 몇 시가 편해요?",
+          "de": "Wann passt es dir am Samstag?",
+          "en": "What time works for you on Saturday?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
@@ -12282,17 +12283,17 @@
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
-          "de": "Welche Perspektive fehlt in diesem Maßstab?",
-          "en": "Which perspective is missing from that standard?"
+          "ko": "역 안 카페에서 만날까요?",
+          "de": "Sollen wir uns im Café im Bahnhof treffen?",
+          "en": "Shall we meet at the cafe inside the station?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "좋아요. 그럼 시간과 장소를 다시 확인해요.",
-        "de": "Gut. Dann prüfen wir Zeit und Ort noch einmal.",
-        "en": "Great. Then let's check the time and place again."
+        "ko": "좋아요. 비가 오면 역 안 카페에서 봐요.",
+        "de": "Gern. Bei Regen sehen wir uns im Café im Bahnhof.",
+        "en": "Great. If it rains, we will meet at the cafe inside the station.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -14021,20 +14022,20 @@
         "de": "Nein, Internet müssen Sie separat anmelden.",
         "en": "No, you need to arrange internet separately."
       },
-      "relationshipContext": "peer",
+      "relationshipContext": "service",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "시간이나 조건을 다시 확인할까요?",
-          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
-          "en": "Shall we check the time or conditions again?"
+          "ko": "인터넷은 따로 신청해야 해요?",
+          "de": "Muss ich Internet separat anmelden?",
+          "en": "Do I need to arrange internet separately?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
-        "de": "Gut. Ich notiere die nötigen Informationen.",
-        "en": "Great. I'll note the information we need."
+        "ko": "그럼 인터넷은 따로 신청할게요.",
+        "de": "Dann melde ich Internet separat an.",
+        "en": "Then I will arrange internet separately.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -14050,20 +14051,20 @@
         "de": "Ja, lesen Sie ihn bis morgen und melden Sie sich dann.",
         "en": "Yes, read it by tomorrow and contact me."
       },
-      "relationshipContext": "peer",
+      "relationshipContext": "service",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "시간이나 조건을 다시 확인할까요?",
-          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
-          "en": "Shall we check the time or conditions again?"
+          "ko": "내일까지 읽고 연락드려도 될까요?",
+          "de": "Darf ich ihn bis morgen lesen und mich dann melden?",
+          "en": "May I read it by tomorrow and contact you then?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
-        "de": "Gut. Ich notiere die nötigen Informationen.",
-        "en": "Great. I'll note the information we need."
+        "ko": "네, 읽어 보고 내일 연락드릴게요.",
+        "de": "Gut, ich lese ihn durch und melde mich morgen.",
+        "en": "Okay, I will read it and contact you tomorrow.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -14072,27 +14073,27 @@
       "category": "moving",
       "kind": "question",
       "ko": "반려동물과 같이 살아도 돼요?",
-      "de": "Darf ich mit einem Haustier einziehen?",
-      "en": "May I move in with a pet?",
+      "de": "Darf ich hier mit einem Haustier wohnen?",
+      "en": "May I live here with a pet?",
       "reply": {
         "ko": "작은 동물은 가능하지만 계약서에 적어야 해요.",
         "de": "Kleine Tiere sind möglich, müssen aber im Vertrag stehen.",
         "en": "Small pets are allowed, but they need to be listed in the contract."
       },
-      "relationshipContext": "peer",
+      "relationshipContext": "service",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "시간이나 조건을 다시 확인할까요?",
-          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
-          "en": "Shall we check the time or conditions again?"
+          "ko": "반려동물에 관한 조건이 계약서에 나와 있어요?",
+          "de": "Stehen die Bedingungen für Haustiere im Vertrag?",
+          "en": "Are the conditions for pets stated in the contract?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
-        "de": "Gut. Ich notiere die nötigen Informationen.",
-        "en": "Great. I'll note the information we need."
+        "ko": "그럼 반려동물 조건을 계약서에서 확인할게요.",
+        "de": "Dann prüfe ich die Haustierbedingungen im Vertrag.",
+        "en": "Then I will check the pet conditions in the contract.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -14108,20 +14109,20 @@
         "de": "Bitte überweisen Sie sie nach der Vertragsunterzeichnung.",
         "en": "Please send it after signing the contract."
       },
-      "relationshipContext": "peer",
+      "relationshipContext": "service",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "시간이나 조건을 다시 확인할까요?",
-          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
-          "en": "Shall we check the time or conditions again?"
+          "ko": "보증금 보내는 날짜가 계약서에 나와 있어요?",
+          "de": "Steht im Vertrag, wann die Kaution überwiesen werden soll?",
+          "en": "Does the contract state when the deposit should be sent?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
-        "de": "Gut. Ich notiere die nötigen Informationen.",
-        "en": "Great. I'll note the information we need."
+        "ko": "네, 서명한 뒤에 보내겠습니다.",
+        "de": "Gut, ich überweise sie nach der Unterschrift.",
+        "en": "Okay, I will send it after signing.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -14137,20 +14138,20 @@
         "de": "Sieben Uhr passt, aber vereinbaren Sie bitte vorher einen Termin.",
         "en": "Seven works, but please make an appointment first."
       },
-      "relationshipContext": "peer",
+      "relationshipContext": "service",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "시간이나 조건을 다시 확인할까요?",
-          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
-          "en": "Shall we check the time or conditions again?"
+          "ko": "오늘 저녁 일곱 시로 예약할 수 있어요?",
+          "de": "Kann ich einen Termin für heute Abend um sieben vereinbaren?",
+          "en": "Can I make an appointment for seven this evening?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
-        "de": "Gut. Ich notiere die nötigen Informationen.",
-        "en": "Great. I'll note the information we need."
+        "ko": "그럼 오늘 저녁 일곱 시로 예약하고 싶어요.",
+        "de": "Dann würde ich gern einen Termin für heute Abend um sieben vereinbaren.",
+        "en": "Then I would like to make an appointment for seven this evening.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -14166,20 +14167,20 @@
         "de": "Ja, wir tragen das neue Datum gemeinsam in den Vertrag ein.",
         "en": "Yes, let us add the new date to the contract."
       },
-      "relationshipContext": "peer",
+      "relationshipContext": "service",
       "safeAlternativeQuestions": [
         {
-          "turnKind": "question",
-          "ko": "시간이나 조건을 다시 확인할까요?",
-          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
-          "en": "Shall we check the time or conditions again?"
+          "ko": "새 이사 날짜를 계약서에도 적을까요?",
+          "de": "Sollen wir das neue Umzugsdatum auch im Vertrag festhalten?",
+          "en": "Shall we put the new moving date in the contract too?",
+          "turnKind": "question"
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
-        "de": "Gut. Ich notiere die nötigen Informationen.",
-        "en": "Great. I'll note the information we need."
+        "ko": "네, 새 날짜를 함께 확인해요.",
+        "de": "Gut, prüfen wir das neue Datum gemeinsam.",
+        "en": "Okay, let us confirm the new date together.",
+        "turnKind": "reaction"
       }
     },
     {
@@ -15312,10 +15313,10 @@
         }
       ],
       "followUp": {
-        "turnKind": "reaction",
-        "ko": "그래, 캐릭터 옆에 서자.",
-        "de": "Okay, stellen wir uns neben die Figur.",
-        "en": "Okay, let's stand next to the character."
+        "ko": "사진을 찍어도 된다고 하면 캐릭터 옆에 서자.",
+        "de": "Wenn wir ein Foto machen dürfen, stellen wir uns neben die Figur.",
+        "en": "If we are allowed to take a photo, let us stand next to the character.",
+        "turnKind": "reaction"
       },
       "reply": {
         "ko": "좋아. 먼저 사진 찍어도 되는지 물어보자.",
@@ -15353,8 +15354,8 @@
       "level": "a2",
       "kind": "reaction",
       "ko": "후룸라이드는 얼마나 젖을지 몰라서 더 두근거려!",
-      "de": "Bei der Wasserbahn weiß man nie, wie nass man wird. Das macht es noch aufregender!",
-      "en": "You never know how wet you'll get on the flume ride. That makes it even more exciting!",
+      "de": "Ich weiß nicht, wie nass ich bei der Wasserbahn werde. Das macht es noch aufregender!",
+      "en": "I don't know how wet I'll get on the flume ride, so I'm even more excited!",
       "relationshipContext": "romantic_partner",
       "safeAlternativeQuestions": [
         {

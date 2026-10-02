@@ -22,7 +22,12 @@ class SmalltalkTranslationCopyHistoryTest(unittest.TestCase):
             with self.subTest(change=change["id"], field=change["field"]):
                 self.assertIn(change["field"], {"de", "en"})
                 self.assertEqual(change["level"], rows[change["id"]]["level"])
-                self.assertEqual(change["after"], rows[change["id"]][change["field"]])
+                row = rows[change['id']]
+                if row[change['field']] != change['after']:
+                    self.assertTrue(builder.smalltalk_editorial_revisions.verify_successor(
+                        row, change, builder.smalltalk_editorial_revisions.revisions()))
+                else:
+                    self.assertEqual(change['after'], row[change['field']])
                 self.assertNotEqual(change["before"], change["after"])
                 self.assertEqual(
                     "nativeReviewRequired",

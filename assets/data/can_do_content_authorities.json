@@ -72430,7 +72430,7 @@
         },
         {
           "phraseId": "smalltalk_a2_0001",
-          "phraseFingerprintSha256": "d68f9dfa954bd5b192dbf9d19bbbac5bff6b384062b6ae6cd1c50644b961128a",
+          "phraseFingerprintSha256": "4c143bb2dbd4992594a18f7b669fe257aaf77cffb8612fb1d2d03eec251c3a56",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
@@ -72439,58 +72439,78 @@
           "reviewRevision": 1,
           "copyRevision": 1,
           "copyReviewStatus": "nativeReviewRequired",
-          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
-          "previousPhraseFingerprintSha256": "4afe392a7bbdbd8ace84bf804a9c4ac7fc6bec1f73141fef967f522cdc3c3c55"
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "d68f9dfa954bd5b192dbf9d19bbbac5bff6b384062b6ae6cd1c50644b961128a"
         },
         {
           "phraseId": "smalltalk_a2_0002",
-          "phraseFingerprintSha256": "f92f9d0c78608b409f3a52c568fca335c6fcf00a050efae1fd35fd18a3726eec",
+          "phraseFingerprintSha256": "ee76147752d93088b826c6ced949485b1e7f7956bd6f8b16e40ff1f904ade65f",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_feeling_sick",
           "canDoFingerprintSha256": "c063f6602f0aa7dac6d1128268a6820c655feb8b2f1a40edc1c3bc3aadae5f12",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "f92f9d0c78608b409f3a52c568fca335c6fcf00a050efae1fd35fd18a3726eec"
         },
         {
           "phraseId": "smalltalk_a2_0003",
-          "phraseFingerprintSha256": "7e00aee1886b9f4eb47d6affb86b842bec43a4bd6bb479cc8d516ff8616f3db5",
+          "phraseFingerprintSha256": "15c872bf589b867a1d6638a3909f633bc67dd129a5c18b2ebe04b914eb8d7dad",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "7e00aee1886b9f4eb47d6affb86b842bec43a4bd6bb479cc8d516ff8616f3db5"
         },
         {
           "phraseId": "smalltalk_a2_0004",
-          "phraseFingerprintSha256": "01c15d7e3b7cb35055086e8c326e14dbdfbe01f8a7b9ce30f308763604e94543",
+          "phraseFingerprintSha256": "67cf8632f4307cfebf03a7d92ab42073efcdef575f98767ee62d58e9a0f3eb53",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "01c15d7e3b7cb35055086e8c326e14dbdfbe01f8a7b9ce30f308763604e94543"
         },
         {
           "phraseId": "smalltalk_a2_0005",
-          "phraseFingerprintSha256": "c6ba32e27e9bc090a7d7dd778ed235842eb4eaf661fcf4e0779651ba0b37cfac",
+          "phraseFingerprintSha256": "04a804c2c1923adc22048a1544ecb71cfd26400699b01407b1fde34135d45ebb",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a2_haeyo_register_transition",
           "canDoFingerprintSha256": "234bc7fd236eb78c08b80ff7bddfdc9e7f9506aec46cecc9a867c13704f59dcb",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 1
+          "reviewRevision": 1,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "c6ba32e27e9bc090a7d7dd778ed235842eb4eaf661fcf4e0779651ba0b37cfac"
         },
         {
           "phraseId": "smalltalk_a2_0006",
-          "phraseFingerprintSha256": "0e212b5fbf9f425dd1a726c002495877d08d094f16b453cf6fea553af15e31a2",
+          "phraseFingerprintSha256": "4278dcb0450073d33390c21e0f67e7d9d1d15b6a84072363ee2d738f90dd3bb7",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "0e212b5fbf9f425dd1a726c002495877d08d094f16b453cf6fea553af15e31a2"
         },
         {
           "phraseId": "smalltalk_a2_0007",
@@ -72534,13 +72554,17 @@
         },
         {
           "phraseId": "smalltalk_a2_0011",
-          "phraseFingerprintSha256": "c56a2d39927fae7302b1266eebc234f01318e31f3351e672f7526e73ced66917",
+          "phraseFingerprintSha256": "968477813bd5cda366a98323f010fe59a504ab5d9303a5ed84ee72b8c02c7694",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "c56a2d39927fae7302b1266eebc234f01318e31f3351e672f7526e73ced66917"
         },
         {
           "phraseId": "smalltalk_a2_0012",
@@ -72554,23 +72578,31 @@
         },
         {
           "phraseId": "smalltalk_a2_0013",
-          "phraseFingerprintSha256": "3be35be9fcb7cbf7af034555e351d177df396006240ee12f035204c4bc14042c",
+          "phraseFingerprintSha256": "e58f14b07efda34de5a8316f7bd48b26d421bd424a3a74e92d1bfe1bf1955214",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "3be35be9fcb7cbf7af034555e351d177df396006240ee12f035204c4bc14042c"
         },
         {
           "phraseId": "smalltalk_a2_0014",
-          "phraseFingerprintSha256": "178d6407e8f3c8be0a44df9c085ab81a34d9bb19a1a864380bd6f0bb4f92d4e6",
+          "phraseFingerprintSha256": "124daa9a024e5a7d48b47696ac8d60ff68797c3308159ec0029b260bf994419b",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_feeling_sick",
           "canDoFingerprintSha256": "c063f6602f0aa7dac6d1128268a6820c655feb8b2f1a40edc1c3bc3aadae5f12",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "178d6407e8f3c8be0a44df9c085ab81a34d9bb19a1a864380bd6f0bb4f92d4e6"
         },
         {
           "phraseId": "smalltalk_a2_0015",
@@ -72588,7 +72620,7 @@
         },
         {
           "phraseId": "smalltalk_a2_0016",
-          "phraseFingerprintSha256": "af174c897d60466f3c1a38962d3729a3b3a66f423bf27ced0ed9314bed78c790",
+          "phraseFingerprintSha256": "0cd85280c550bde4dbbd699500cf434914f7d47758808c7b33d94bdb76881221",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
           "canDoFingerprintSha256": "23de0a68ee5e7803e95b6fbe7ee50cddd6fa66cf56a7b8feac41f1d8f430bd8c",
@@ -72597,58 +72629,78 @@
           "reviewRevision": 1,
           "copyRevision": 1,
           "copyReviewStatus": "nativeReviewRequired",
-          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
-          "previousPhraseFingerprintSha256": "92d45b813204ffec6cda60a13dd8a10a9c9be4a261a1adaa5936d714aafef644"
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "af174c897d60466f3c1a38962d3729a3b3a66f423bf27ced0ed9314bed78c790"
         },
         {
           "phraseId": "smalltalk_a2_0017",
-          "phraseFingerprintSha256": "71fc72d6abdc6ef33a7c8a9bc65d4da78d85c6cf4f5f72091915addab08f4b62",
+          "phraseFingerprintSha256": "77bedff89e818466c9d4e1cd6e5094044506e294a886e765d221650636dc26bb",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "71fc72d6abdc6ef33a7c8a9bc65d4da78d85c6cf4f5f72091915addab08f4b62"
         },
         {
           "phraseId": "smalltalk_a2_0018",
-          "phraseFingerprintSha256": "6fbb525cfa17576e95ed8b605aace69518cdf4d15f4556fdde97e3d2726f1c32",
+          "phraseFingerprintSha256": "cd42e802b034efde107917614d8e5ce8c031a73614522093445c08c2f37535e0",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "6fbb525cfa17576e95ed8b605aace69518cdf4d15f4556fdde97e3d2726f1c32"
         },
         {
           "phraseId": "smalltalk_a2_0019",
-          "phraseFingerprintSha256": "7be498002442d94d2d5afd3bd6dd433aa8e6a746509c9bdf8f3e5d13533b81d1",
+          "phraseFingerprintSha256": "cc5c78e3873ca408ddd8c5c53fbddb88096704d151ba587f2af3a5f775c41b3e",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "7be498002442d94d2d5afd3bd6dd433aa8e6a746509c9bdf8f3e5d13533b81d1"
         },
         {
           "phraseId": "smalltalk_a2_0020",
-          "phraseFingerprintSha256": "d3429e7081c9f89306feebc024692971acdc878c37b4efc8abdedd9e9d8b299c",
+          "phraseFingerprintSha256": "75c9a143eb6819a28c701a7b0530f2f0a2ecff83f3a110c73315d9532b74a29d",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "d3429e7081c9f89306feebc024692971acdc878c37b4efc8abdedd9e9d8b299c"
         },
         {
           "phraseId": "smalltalk_a2_0021",
-          "phraseFingerprintSha256": "c5c3131bea54b2222696eba3e07c34d10f08128e6c0c65db801ca2e1b240482c",
+          "phraseFingerprintSha256": "0568d69bed78067253aa11163377b940e0eed63d495122634b5bcb48001c0fcb",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "c5c3131bea54b2222696eba3e07c34d10f08128e6c0c65db801ca2e1b240482c"
         },
         {
           "phraseId": "smalltalk_a2_0022",
@@ -72662,7 +72714,7 @@
         },
         {
           "phraseId": "smalltalk_a2_0023",
-          "phraseFingerprintSha256": "aa340e23500a65a65486d95cd8f94f1ce64d1d5ff7d5a7eb1832295c854651ad",
+          "phraseFingerprintSha256": "3e7dbc1345aebeefb04fadb1c12751cc600befcb28857c1e06604018e38b5167",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
@@ -72671,32 +72723,40 @@
           "reviewRevision": 1,
           "copyRevision": 1,
           "copyReviewStatus": "nativeReviewRequired",
-          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
-          "previousPhraseFingerprintSha256": "2b6c97dff551935ac67a24861b07e083f43cd0421a63c788b7f485e92bee7234"
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "aa340e23500a65a65486d95cd8f94f1ce64d1d5ff7d5a7eb1832295c854651ad"
         },
         {
           "phraseId": "smalltalk_a2_0024",
-          "phraseFingerprintSha256": "e52ff80eb918bf64c03c51ed23a34fd3983574e3cef34cc93007d4679b7a38e8",
+          "phraseFingerprintSha256": "442441c84ce04748f26d422efd2e93500b5ca390cfa4a69f784df39201e9c512",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_feeling_sick",
           "canDoFingerprintSha256": "c063f6602f0aa7dac6d1128268a6820c655feb8b2f1a40edc1c3bc3aadae5f12",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "e52ff80eb918bf64c03c51ed23a34fd3983574e3cef34cc93007d4679b7a38e8"
         },
         {
           "phraseId": "smalltalk_a2_0025",
-          "phraseFingerprintSha256": "270d112e0095a3fc4877c876218c1184e678550d0b712392a8981cea57b367fe",
+          "phraseFingerprintSha256": "b01f8b4c16303fee93fd2b9c98871c9668b932d6c785ee1fea25c7ef337a07c7",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "270d112e0095a3fc4877c876218c1184e678550d0b712392a8981cea57b367fe"
         },
         {
           "phraseId": "smalltalk_a2_0026",
-          "phraseFingerprintSha256": "736f0acc2a775b595c0a2ece238ca93c360d34ce825d1a8a81b82dec6b382481",
+          "phraseFingerprintSha256": "359514c4f41e8ec6b495e7d5a135fae99fc41e4e080b5a3c3b44f5d6332acdaa",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
@@ -72705,52 +72765,68 @@
           "reviewRevision": 1,
           "copyRevision": 1,
           "copyReviewStatus": "nativeReviewRequired",
-          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
-          "previousPhraseFingerprintSha256": "11b5acbe4b2d03c52bc9d10883ce76478a5193d554e2be2dd612d3b887cc1fec"
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "736f0acc2a775b595c0a2ece238ca93c360d34ce825d1a8a81b82dec6b382481"
         },
         {
           "phraseId": "smalltalk_a2_0027",
-          "phraseFingerprintSha256": "3da3f3801f9ce86c2e24f02be523d2a37c10b5474b7948b7e15bf490f9aec7d2",
+          "phraseFingerprintSha256": "020de6fdc526425e27c5cd5cdc99b80e09f9fb314a87e1b9dc325742790d4abf",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "3da3f3801f9ce86c2e24f02be523d2a37c10b5474b7948b7e15bf490f9aec7d2"
         },
         {
           "phraseId": "smalltalk_a2_0028",
-          "phraseFingerprintSha256": "b6938dddc20431e7118d8a53b179f35d7459d6de43462a4d7bc5c5c58536c3f7",
+          "phraseFingerprintSha256": "7322bc307faad4c601230dcca4918a585edf2e4c6fff559adf0f329c19ca99ae",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "b6938dddc20431e7118d8a53b179f35d7459d6de43462a4d7bc5c5c58536c3f7"
         },
         {
           "phraseId": "smalltalk_a2_0029",
-          "phraseFingerprintSha256": "f737403f2220f3bc5e7a908a6aa6df136bcd1882310835692b527c51f8dbbaff",
+          "phraseFingerprintSha256": "c9c1476cdf7ac2cb26d5bb7770ac62297b5ef5c17ab686fa95b256940b6f8e7d",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a2_cafe_study",
           "canDoFingerprintSha256": "285e2e12eccad1778367e0ad24cb1f5a3c6ca51118c7a268ef333009b310a515",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 1
+          "reviewRevision": 1,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "f737403f2220f3bc5e7a908a6aa6df136bcd1882310835692b527c51f8dbbaff"
         },
         {
           "phraseId": "smalltalk_a2_0030",
-          "phraseFingerprintSha256": "f9262c9a3ef6e0815546031bff3872d6316ea20d8cfd0b3cd0633506c5945ab3",
+          "phraseFingerprintSha256": "483c1a5fbf35bd69b51dbe93fa12f58d51b686ac2a733e03fcc6a68bfb0e5358",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a2_cafe_study",
           "canDoFingerprintSha256": "285e2e12eccad1778367e0ad24cb1f5a3c6ca51118c7a268ef333009b310a515",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 1
+          "reviewRevision": 1,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "f9262c9a3ef6e0815546031bff3872d6316ea20d8cfd0b3cd0633506c5945ab3"
         },
         {
           "phraseId": "smalltalk_a2_0031",
-          "phraseFingerprintSha256": "628a8da4809c8bd17a2a7f5a90367e9239f8b504e38c65de77f31299057a68fb",
+          "phraseFingerprintSha256": "f7453e142399d8672a5bfb26c84036cefcf40edbbdf544f821b8ca283d1f0e1a",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a2_cafe_study",
           "canDoFingerprintSha256": "285e2e12eccad1778367e0ad24cb1f5a3c6ca51118c7a268ef333009b310a515",
@@ -72759,12 +72835,12 @@
           "reviewRevision": 1,
           "copyRevision": 1,
           "copyReviewStatus": "nativeReviewRequired",
-          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
-          "previousPhraseFingerprintSha256": "64de1c0381eb2a6332ae00be4e839bdbc9eeeadae22fdecc7f4e889d48dc85e7"
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "628a8da4809c8bd17a2a7f5a90367e9239f8b504e38c65de77f31299057a68fb"
         },
         {
           "phraseId": "smalltalk_a2_0032",
-          "phraseFingerprintSha256": "7556676e291578360b5e15c06f54c066b7c72168431a72b14e69b2cfd83041d7",
+          "phraseFingerprintSha256": "1cd9da87106ce35e7ebad85e638a10c1683aa2c3168fd61564b2dde304c981f7",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a2_cafe_study",
           "canDoFingerprintSha256": "285e2e12eccad1778367e0ad24cb1f5a3c6ca51118c7a268ef333009b310a515",
@@ -72773,48 +72849,64 @@
           "reviewRevision": 1,
           "copyRevision": 1,
           "copyReviewStatus": "nativeReviewRequired",
-          "copyRevisionLedger": "tools/content_factory/review/smalltalk_translation_corrections_20260922.json",
-          "previousPhraseFingerprintSha256": "a1f0f050c707ba5137c78639bfec61cbf3bdf53f9f420f9dc96b6891f1d7eddc"
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "7556676e291578360b5e15c06f54c066b7c72168431a72b14e69b2cfd83041d7"
         },
         {
           "phraseId": "smalltalk_a2_0033",
-          "phraseFingerprintSha256": "3a2cd93c5c413a88a57f245f7ce853369f8bd29e059ed2b58b65156c445c66fb",
+          "phraseFingerprintSha256": "05b38098adc7fad24e5123e7df19b5d9e58092e5a76e75eb910774f0e2042a05",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_rent_bank_transfer",
           "canDoFingerprintSha256": "44f037f3b53b77f475f0cd4d14f8f9c676c899a908c6b32e6b47687cb3625c13",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "3a2cd93c5c413a88a57f245f7ce853369f8bd29e059ed2b58b65156c445c66fb"
         },
         {
           "phraseId": "smalltalk_a2_0034",
-          "phraseFingerprintSha256": "9d7308ed1ac715e7f7de0c830de23a8bfbe8b424e80f597bb29d2f39ed97895c",
+          "phraseFingerprintSha256": "36cebf04420f8ca672145623199601e5ff6d5178a8da6d6b292e6162c5716022",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_rent_bank_transfer",
           "canDoFingerprintSha256": "44f037f3b53b77f475f0cd4d14f8f9c676c899a908c6b32e6b47687cb3625c13",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "9d7308ed1ac715e7f7de0c830de23a8bfbe8b424e80f597bb29d2f39ed97895c"
         },
         {
           "phraseId": "smalltalk_a2_0035",
-          "phraseFingerprintSha256": "a91fbe66f50f433a625c6a5f0465ca6229d1cd8a024c4686d04fc78b28226bd6",
+          "phraseFingerprintSha256": "a1f25da612b3899e49aa3bc17f36397fe3f6fe90170d7883a1d21642b0840a20",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_pharmacy_headache",
           "canDoFingerprintSha256": "d81c0c13ce917cdea14a5b791888382b3f6573102a97609e99e280ad800f0817",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "a91fbe66f50f433a625c6a5f0465ca6229d1cd8a024c4686d04fc78b28226bd6"
         },
         {
           "phraseId": "smalltalk_a2_0036",
-          "phraseFingerprintSha256": "e020b1b2f1f1afa7e5b4248f8580da905549af89816b4c00f8ff8a1a5b5a278a",
+          "phraseFingerprintSha256": "0cea421087f4f0ba6acdd77fb84b4f5d0a8b9c73dc37c8a5db1ad0a21e7bff4a",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_pharmacy_headache",
           "canDoFingerprintSha256": "d81c0c13ce917cdea14a5b791888382b3f6573102a97609e99e280ad800f0817",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "e020b1b2f1f1afa7e5b4248f8580da905549af89816b4c00f8ff8a1a5b5a278a"
         },
         {
           "phraseId": "smalltalk_a2_0037",
@@ -72838,47 +72930,63 @@
         },
         {
           "phraseId": "smalltalk_a2_0039",
-          "phraseFingerprintSha256": "19e1670fcf2e163e41efb67572e0db2130963631bc7da275ddfc61132b3e885e",
+          "phraseFingerprintSha256": "ca86f93be1e61318743f14ecd4910a979afcea45061016ea082e82c7f3164345",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_subway_directions",
           "canDoFingerprintSha256": "7c4a12d5fadd31dcc1df848d07151ba0de412e98ab038833387297225ca65931",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "19e1670fcf2e163e41efb67572e0db2130963631bc7da275ddfc61132b3e885e"
         },
         {
           "phraseId": "smalltalk_a2_0040",
-          "phraseFingerprintSha256": "995e653629a11086033d0ff4aa1ce59555ab0096826ce37c3b1e540a52d7904f",
+          "phraseFingerprintSha256": "77d3309a1e38a63a5f0994c74d8df8a681c745f99409cb88ce661607cf3ae71b",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_taxi_street",
           "canDoFingerprintSha256": "47133178b1c055bdf21f2bc83e853b77df7c5ba6c7e46ca70754df80baa1d6ea",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "995e653629a11086033d0ff4aa1ce59555ab0096826ce37c3b1e540a52d7904f"
         },
         {
           "phraseId": "smalltalk_a2_0041",
-          "phraseFingerprintSha256": "59df51422fa8628ca8c1b1e764813450fce6445d2cd13e65ade99533a2bc08ed",
+          "phraseFingerprintSha256": "72a049f15bb12f5f18bfe5319e5be1e446921555923856b355fbbfa88975b052",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_taxi_street",
           "canDoFingerprintSha256": "47133178b1c055bdf21f2bc83e853b77df7c5ba6c7e46ca70754df80baa1d6ea",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "59df51422fa8628ca8c1b1e764813450fce6445d2cd13e65ade99533a2bc08ed"
         },
         {
           "phraseId": "smalltalk_a2_0042",
-          "phraseFingerprintSha256": "eee57b846c53fb9aeedf1fea21ad643d35db4b4758247cf1e2ec48f71d27868a",
+          "phraseFingerprintSha256": "f2d540f83f5bf0cb88fa176f4c954f9fd837fb7a2cfaa2303012a9bb25cf1372",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_ktx_ticket",
           "canDoFingerprintSha256": "afdf8dfd33b5c441510d4221f75ca05adc579d14c8c49ee1681d9935065e87b8",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "eee57b846c53fb9aeedf1fea21ad643d35db4b4758247cf1e2ec48f71d27868a"
         },
         {
           "phraseId": "smalltalk_a2_0043",
-          "phraseFingerprintSha256": "8e85934c6c559d376b05627ee833314e4957f93bc8dc3a645c2e2a19eeed9724",
+          "phraseFingerprintSha256": "824c46be3829e60de17e35fa25c2f341ae0fc80029891ff64e5b4615a39c5452",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_myeongdong_shopping",
           "canDoFingerprintSha256": "c82ee1b27476bd9d495fa5e42b09f7739c3b7fa4ddf084734003a8d0504cb064",
@@ -72887,28 +72995,36 @@
           "reviewRevision": 1,
           "copyRevision": 1,
           "copyReviewStatus": "nativeReviewRequired",
-          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
-          "previousPhraseFingerprintSha256": "efd7d95f2032f2730abdb361c89cf5fbfa062e36753db8a76c0349e399297512"
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "8e85934c6c559d376b05627ee833314e4957f93bc8dc3a645c2e2a19eeed9724"
         },
         {
           "phraseId": "smalltalk_a2_0044",
-          "phraseFingerprintSha256": "e2db6270ae51c8db48ba7f3ee5d7d5e1ac148cd0d6d161edc3a2a37c23ccc394",
+          "phraseFingerprintSha256": "3daee073f0f1683432c88e40d7567de46f0ad81c1d17fd33087270fb9b7bc077",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_myeongdong_shopping",
           "canDoFingerprintSha256": "c82ee1b27476bd9d495fa5e42b09f7739c3b7fa4ddf084734003a8d0504cb064",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "e2db6270ae51c8db48ba7f3ee5d7d5e1ac148cd0d6d161edc3a2a37c23ccc394"
         },
         {
           "phraseId": "smalltalk_a2_0045",
-          "phraseFingerprintSha256": "012919e2d367e0c6c3d2f75d946c3b253978883e93b65f630a42616ac20ca73e",
+          "phraseFingerprintSha256": "ddc63d3f8dfe60cb18e31c531a09cd1e9af54d8b188c197a5abc2c813cdd9f31",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_myeongdong_shopping",
           "canDoFingerprintSha256": "c82ee1b27476bd9d495fa5e42b09f7739c3b7fa4ddf084734003a8d0504cb064",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "012919e2d367e0c6c3d2f75d946c3b253978883e93b65f630a42616ac20ca73e"
         },
         {
           "phraseId": "smalltalk_a2_0046",
@@ -72922,23 +73038,31 @@
         },
         {
           "phraseId": "smalltalk_a2_0047",
-          "phraseFingerprintSha256": "ba2a78f09ec1d23f66c6bc3109b744591b3b60cd7617fc3f2a5fe5046ae9f308",
+          "phraseFingerprintSha256": "0615d95cbb4aef96eef0839c3e15f4536a0956c015b92d5872ddc8c1b2595915",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_myeongdong_shopping",
           "canDoFingerprintSha256": "c82ee1b27476bd9d495fa5e42b09f7739c3b7fa4ddf084734003a8d0504cb064",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "ba2a78f09ec1d23f66c6bc3109b744591b3b60cd7617fc3f2a5fe5046ae9f308"
         },
         {
           "phraseId": "smalltalk_a2_0048",
-          "phraseFingerprintSha256": "11b40d85e848f7af5d2c9474a77a3844f2334a5e28c7bb9dd50d2aa9f5bffdf9",
+          "phraseFingerprintSha256": "b179fcf68351a680f4eb685e80d359bd4da8a057a69b2097792a90fbff2266e4",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_myeongdong_shopping",
           "canDoFingerprintSha256": "c82ee1b27476bd9d495fa5e42b09f7739c3b7fa4ddf084734003a8d0504cb064",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "11b40d85e848f7af5d2c9474a77a3844f2334a5e28c7bb9dd50d2aa9f5bffdf9"
         },
         {
           "phraseId": "smalltalk_a2_0049",
@@ -72956,7 +73080,7 @@
         },
         {
           "phraseId": "smalltalk_a2_0050",
-          "phraseFingerprintSha256": "d4988f0831cb155f137add6d12c09f2cd9255cbd47ab7832344e88415733422f",
+          "phraseFingerprintSha256": "f098009a3e91cba0a036c34cba016364a021aef6e1c10bcd35018c8da6a94b7c",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
@@ -72965,8 +73089,8 @@
           "reviewRevision": 1,
           "copyRevision": 1,
           "copyReviewStatus": "nativeReviewRequired",
-          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
-          "previousPhraseFingerprintSha256": "6d11f5786d5315fc3053d5e9a947a9ad387d5c261c5f1ec08c31ee227c335cd6"
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "d4988f0831cb155f137add6d12c09f2cd9255cbd47ab7832344e88415733422f"
         },
         {
           "phraseId": "smalltalk_a2_0051",
@@ -73000,33 +73124,45 @@
         },
         {
           "phraseId": "smalltalk_a2_0054",
-          "phraseFingerprintSha256": "fa8b325aaba8ede56f759bf9a3d53fc8a61b0f9ca8f51dbf6c85185d9121d29c",
+          "phraseFingerprintSha256": "53f4fd2fcd1b5b9bc33771cbb86898303ba2a94c7034ee655036a2a6ae7d042b",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_lost_phone",
           "canDoFingerprintSha256": "01bf7e9ccc20bfa16204c44e4dc6cf8a6a1f6022bec3484a68bd9e42fcf56ad2",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 1
+          "reviewRevision": 1,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "fa8b325aaba8ede56f759bf9a3d53fc8a61b0f9ca8f51dbf6c85185d9121d29c"
         },
         {
           "phraseId": "smalltalk_a2_0055",
-          "phraseFingerprintSha256": "c2bf17a76ef93a2a0d3dd23d972b8d4a706719ba9b38b1d0c42da816ee080cf4",
+          "phraseFingerprintSha256": "8d363f9321234366a9f010501756e059756cab768bdf9cac9195b22e3c7bb7af",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_lost_phone",
           "canDoFingerprintSha256": "01bf7e9ccc20bfa16204c44e4dc6cf8a6a1f6022bec3484a68bd9e42fcf56ad2",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 1
+          "reviewRevision": 1,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "c2bf17a76ef93a2a0d3dd23d972b8d4a706719ba9b38b1d0c42da816ee080cf4"
         },
         {
           "phraseId": "smalltalk_a2_0056",
-          "phraseFingerprintSha256": "c4f9d8050d73dc3500018d6787d2831c9e7396c94737993b190f9dd115e0f996",
+          "phraseFingerprintSha256": "51d7fdb6939ffb138ac010ac40606027356fe2967a7e1005f41ec81e47caa8f0",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
           "canDoFingerprintSha256": "23de0a68ee5e7803e95b6fbe7ee50cddd6fa66cf56a7b8feac41f1d8f430bd8c",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 2
+          "reviewRevision": 2,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "c4f9d8050d73dc3500018d6787d2831c9e7396c94737993b190f9dd115e0f996"
         },
         {
           "phraseId": "smalltalk_a2_0057",
@@ -73050,37 +73186,49 @@
         },
         {
           "phraseId": "smalltalk_a2_0059",
-          "phraseFingerprintSha256": "cbcd214df4f40c327fc7b1e6e7fe64a493638b300dd5fbeb0037f29ea6801ff4",
+          "phraseFingerprintSha256": "8f9fbc094a73ec24eba2e947f17fdca992a2da3e69dbbbed51c30ccb233408cb",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 4
+          "reviewRevision": 4,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "cbcd214df4f40c327fc7b1e6e7fe64a493638b300dd5fbeb0037f29ea6801ff4"
         },
         {
           "phraseId": "smalltalk_a2_0060",
-          "phraseFingerprintSha256": "fc80d41205da48f1db1b17a2be3cd0885f7c5f90b0783fe0fbeb5c88b4d2b4f8",
+          "phraseFingerprintSha256": "56379c3760f1d344e7d0ec9f169d0213bdc5a95fa44baf8ffe2ddbf2e4ecc59c",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 4
+          "reviewRevision": 4,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "fc80d41205da48f1db1b17a2be3cd0885f7c5f90b0783fe0fbeb5c88b4d2b4f8"
         },
         {
           "phraseId": "smalltalk_a2_0061",
-          "phraseFingerprintSha256": "3b2a02b5e508b7f599f4bc277a7b4263d8bf672e9a03c7b2b1a3acc035fe9795",
+          "phraseFingerprintSha256": "b1cfaa8948ab09f4a1fe80f1215368ef7861f598f44b46983269f105f0b48dc3",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 4
+          "reviewRevision": 4,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "3b2a02b5e508b7f599f4bc277a7b4263d8bf672e9a03c7b2b1a3acc035fe9795"
         },
         {
           "phraseId": "smalltalk_a2_0062",
-          "phraseFingerprintSha256": "d5e8e61399b5d3b5eda941c56ccff8a7af7f890023065d34d769e497933b9cff",
+          "phraseFingerprintSha256": "decf1c8de0ce6569947d5064236fe68108368fb5e00b04c28f737c58767f1f4b",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
@@ -73089,42 +73237,54 @@
           "reviewRevision": 2,
           "copyRevision": 1,
           "copyReviewStatus": "nativeReviewRequired",
-          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
-          "previousPhraseFingerprintSha256": "7d32de42fab5307f1b4230468a535fd224e208422f5c5960e6610977610a2b24"
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "d5e8e61399b5d3b5eda941c56ccff8a7af7f890023065d34d769e497933b9cff"
         },
         {
           "phraseId": "smalltalk_a2_0063",
-          "phraseFingerprintSha256": "85b3f05c829727ce9e4293b5669fe10f73dc8db557e7c649f246db8611d28dc2",
+          "phraseFingerprintSha256": "ba0bdd4c080003483e8c732f53fce28fe3c70004cf12e41dd1930b9f30207f4f",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 4
+          "reviewRevision": 4,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "85b3f05c829727ce9e4293b5669fe10f73dc8db557e7c649f246db8611d28dc2"
         },
         {
           "phraseId": "smalltalk_a2_0064",
-          "phraseFingerprintSha256": "b835e8d835c375cf023fb4d70823fbccf1ab41134d1b75e67f7e0ca508883519",
+          "phraseFingerprintSha256": "1c26f06f3bb589f4b3aab30eb99e72401171931dd435f3c7fb63e0a2c40ca9ad",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 4
+          "reviewRevision": 4,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "b835e8d835c375cf023fb4d70823fbccf1ab41134d1b75e67f7e0ca508883519"
         },
         {
           "phraseId": "smalltalk_a2_0065",
-          "phraseFingerprintSha256": "4e8ac453afa50fa2ab2b9994a0f06e150998795aad388e94854d915ad7b23948",
+          "phraseFingerprintSha256": "f2bb14175cc8f53ac642e38b52826be155d21212fbfa29b8776b3f3fa6ed5cd5",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 4
+          "reviewRevision": 4,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "4e8ac453afa50fa2ab2b9994a0f06e150998795aad388e94854d915ad7b23948"
         },
         {
           "phraseId": "smalltalk_a2_0066",
-          "phraseFingerprintSha256": "eb9491cafc31ef5766b412d1ee39ae296b758bc3666070d2bb86f228d6985d70",
+          "phraseFingerprintSha256": "c0c1c5a155483652962988c758af6c5dc1b03216cc07b0a0fb6ee64cc1974839",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
@@ -73133,22 +73293,26 @@
           "reviewRevision": 2,
           "copyRevision": 1,
           "copyReviewStatus": "nativeReviewRequired",
-          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
-          "previousPhraseFingerprintSha256": "2fb1315d0b91dc73643b7d7fecedcef8ddbd4765acceee0ed31dc031aee0efed"
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "eb9491cafc31ef5766b412d1ee39ae296b758bc3666070d2bb86f228d6985d70"
         },
         {
           "phraseId": "smalltalk_a2_0067",
-          "phraseFingerprintSha256": "e17a16c91ec0cf61acab06a2f598979c9ce04f389470ff5b1ba7769aae720f47",
+          "phraseFingerprintSha256": "f135b4036bb53a6a94e52fd4e30c5f5fe53c01df910120ed149df5d91ee34bed",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 4
+          "reviewRevision": 4,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "e17a16c91ec0cf61acab06a2f598979c9ce04f389470ff5b1ba7769aae720f47"
         },
         {
           "phraseId": "smalltalk_a2_0068",
-          "phraseFingerprintSha256": "c842410a36208ced07c63e2de38e926c2ec63cb96c9d358b5745dff897118abf",
+          "phraseFingerprintSha256": "9b10593d3e96b49d6b1aa315cc3e365d37713602ab7b0c9579b24e4398220a87",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
@@ -73157,18 +73321,22 @@
           "reviewRevision": 2,
           "copyRevision": 1,
           "copyReviewStatus": "nativeReviewRequired",
-          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
-          "previousPhraseFingerprintSha256": "0f8583a34547c9d3b871ce2ada40a742b5d06c5ba56d6decc29b518a1c399254"
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "c842410a36208ced07c63e2de38e926c2ec63cb96c9d358b5745dff897118abf"
         },
         {
           "phraseId": "smalltalk_a2_0069",
-          "phraseFingerprintSha256": "c168ce2920a04dc081325efeaa57e859ba0e1c264d62d4b5d0549cbf4e535d3e",
+          "phraseFingerprintSha256": "ac5cd1346a34f88b3b8591e65306bdd73bf1167d39c9825fea67c7f89fceba19",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 4
+          "reviewRevision": 4,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "c168ce2920a04dc081325efeaa57e859ba0e1c264d62d4b5d0549cbf4e535d3e"
         },
         {
           "phraseId": "smalltalk_a2_0070",
@@ -73182,7 +73350,7 @@
         },
         {
           "phraseId": "smalltalk_a2_0071",
-          "phraseFingerprintSha256": "aad3be4e2d162ad8efcb92e7d70720c0f00c29e48a39b8ddbe214ae5172dc9b3",
+          "phraseFingerprintSha256": "4dabca64ade41f117e14dd0a529339d628b93e25a2e0e43a96da6dbfa0ef2920",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
@@ -73191,32 +73359,40 @@
           "reviewRevision": 2,
           "copyRevision": 1,
           "copyReviewStatus": "nativeReviewRequired",
-          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
-          "previousPhraseFingerprintSha256": "333b40ad3f00d0a0f2d474e2c74f027ffc6101bf97a20d123f16b742d4c8f88a"
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "aad3be4e2d162ad8efcb92e7d70720c0f00c29e48a39b8ddbe214ae5172dc9b3"
         },
         {
           "phraseId": "smalltalk_a2_0072",
-          "phraseFingerprintSha256": "9e06834b9907fbe1ecb3e726bca21af18b752f79e7e539b86c556b913b1f15d1",
+          "phraseFingerprintSha256": "0db53d613c9d574074fa76dc475dd86a3ea99202dbbf20ed61b4d19627aacec9",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 4
+          "reviewRevision": 4,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "9e06834b9907fbe1ecb3e726bca21af18b752f79e7e539b86c556b913b1f15d1"
         },
         {
           "phraseId": "smalltalk_a2_0073",
-          "phraseFingerprintSha256": "7a874861240db7f0c301964f334a8e48a4ae64c30154880b7522195417a14f85",
+          "phraseFingerprintSha256": "a5e10b2690adcd85003823a00637fbea4601631a7c3f0495c6f7cd8e38c5a1d3",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 4
+          "reviewRevision": 4,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "7a874861240db7f0c301964f334a8e48a4ae64c30154880b7522195417a14f85"
         },
         {
           "phraseId": "smalltalk_a2_0074",
-          "phraseFingerprintSha256": "b3de808e994ff2436088c3ae6cb7a5e988e43d06a77b59f4e17256d4be0048d1",
+          "phraseFingerprintSha256": "dce1c3458bca9f028cbddabaf05d40063a290c94d8d2962f6da23e77d7b5e521",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
@@ -73225,98 +73401,134 @@
           "reviewRevision": 1,
           "copyRevision": 1,
           "copyReviewStatus": "nativeReviewRequired",
-          "copyRevisionLedger": "tools/content_factory/review/content_humanization_20260821.json",
-          "previousPhraseFingerprintSha256": "f021f82bf5eb34a069ea09d7808deaaacbd13a469f74722ca566f7e38b49c3c9"
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "b3de808e994ff2436088c3ae6cb7a5e988e43d06a77b59f4e17256d4be0048d1"
         },
         {
           "phraseId": "smalltalk_a2_0075",
-          "phraseFingerprintSha256": "73c27bd3105e8da5f9a3a0828aecd6095d7df6f93288432fa4b4df46a4da1219",
+          "phraseFingerprintSha256": "b85ff73a8834f80f08cdd1eaf6aee91eb4e8e347d3075e9544bb572150be3cea",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_a2_feeling_sick",
           "canDoFingerprintSha256": "c063f6602f0aa7dac6d1128268a6820c655feb8b2f1a40edc1c3bc3aadae5f12",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "73c27bd3105e8da5f9a3a0828aecd6095d7df6f93288432fa4b4df46a4da1219"
         },
         {
           "phraseId": "smalltalk_a2_0076",
-          "phraseFingerprintSha256": "64f181f5b51375b05ba0384497c8a2cadc0a3a78b6a95ae7dfa5849b984bb629",
+          "phraseFingerprintSha256": "f23ea037a6d63fc0122463dadcc6eab7acc541d6d24a835be735f038739247dc",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "64f181f5b51375b05ba0384497c8a2cadc0a3a78b6a95ae7dfa5849b984bb629"
         },
         {
           "phraseId": "smalltalk_a2_0077",
-          "phraseFingerprintSha256": "f71aa47c63ef2fad2090527b24ff16021ef8f4476698cb4b9545644b9d1d930c",
+          "phraseFingerprintSha256": "5145123b65942be2a5d3ae095b873d41d394bf20076f1c2cf27e70fc7e5d3237",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a2_plans_with_friend",
           "canDoFingerprintSha256": "592f94001e11a3849742dfa720ba17eac39cc9d45f2024882c8bd3d6eb18e33e",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "f71aa47c63ef2fad2090527b24ff16021ef8f4476698cb4b9545644b9d1d930c"
         },
         {
           "phraseId": "smalltalk_a2_0078",
-          "phraseFingerprintSha256": "75b5aec219c07c1c64c2d01e5adf3c2a708c5409f323853f0eb49772dd7f62cb",
+          "phraseFingerprintSha256": "f2998408f4303b1ac3e97f47fff1b727c4a1f7a2ce308ef466afdbb87257419d",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_rent_bank_transfer",
           "canDoFingerprintSha256": "44f037f3b53b77f475f0cd4d14f8f9c676c899a908c6b32e6b47687cb3625c13",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "75b5aec219c07c1c64c2d01e5adf3c2a708c5409f323853f0eb49772dd7f62cb"
         },
         {
           "phraseId": "smalltalk_a2_0079",
-          "phraseFingerprintSha256": "a6fa27d5870ff1c4999fb2371d51750a7981648de740a787e9f795c9bfb2fb47",
+          "phraseFingerprintSha256": "adeab30dc2f39179cd6b7d49e9825511b6c0ba2f8b947c1bfb720226ba518fe3",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_rent_bank_transfer",
           "canDoFingerprintSha256": "44f037f3b53b77f475f0cd4d14f8f9c676c899a908c6b32e6b47687cb3625c13",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "a6fa27d5870ff1c4999fb2371d51750a7981648de740a787e9f795c9bfb2fb47"
         },
         {
           "phraseId": "smalltalk_a2_0080",
-          "phraseFingerprintSha256": "c5f20249ab6a9213c28e0ca188b415809eef0c861ba89097846188fc54dcfe9e",
+          "phraseFingerprintSha256": "86d17da0e835fc57b5beb13a1cc64f2990e987a5542be9d73f1b42c5ceafa8e3",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_rent_bank_transfer",
           "canDoFingerprintSha256": "44f037f3b53b77f475f0cd4d14f8f9c676c899a908c6b32e6b47687cb3625c13",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "c5f20249ab6a9213c28e0ca188b415809eef0c861ba89097846188fc54dcfe9e"
         },
         {
           "phraseId": "smalltalk_a2_0081",
-          "phraseFingerprintSha256": "e8525f906dd6610ca98877fa0256920a7bd6ae086e8004c011533418661be8bf",
+          "phraseFingerprintSha256": "62193064fa0cb8ecf1a433e9252f365cac0331b9fe34f27865a1e92d22519aad",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_rent_bank_transfer",
           "canDoFingerprintSha256": "44f037f3b53b77f475f0cd4d14f8f9c676c899a908c6b32e6b47687cb3625c13",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "e8525f906dd6610ca98877fa0256920a7bd6ae086e8004c011533418661be8bf"
         },
         {
           "phraseId": "smalltalk_a2_0082",
-          "phraseFingerprintSha256": "b51af6c8ae1aa660a600f1c8fc318ef1ba51696994d2e42ed0f9900bafa0c2d5",
+          "phraseFingerprintSha256": "69e16c719b7f14e2bbfa2c861afd6ce1fc3060d129ead1d2b8720f2023db173f",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_rent_bank_transfer",
           "canDoFingerprintSha256": "44f037f3b53b77f475f0cd4d14f8f9c676c899a908c6b32e6b47687cb3625c13",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "b51af6c8ae1aa660a600f1c8fc318ef1ba51696994d2e42ed0f9900bafa0c2d5"
         },
         {
           "phraseId": "smalltalk_a2_0083",
-          "phraseFingerprintSha256": "7b540833d55b3c63412405759fb39b12fbba9fe55d79633d4be58a0288157d5c",
+          "phraseFingerprintSha256": "d1b59f03e9841773060ec6937cf82bb6bed9d3d4a069f88667af5b305232436e",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_a2_rent_bank_transfer",
           "canDoFingerprintSha256": "44f037f3b53b77f475f0cd4d14f8f9c676c899a908c6b32e6b47687cb3625c13",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "7b540833d55b3c63412405759fb39b12fbba9fe55d79633d4be58a0288157d5c"
         },
         {
           "phraseId": "smalltalk_a2_0084",
@@ -73370,13 +73582,17 @@
         },
         {
           "phraseId": "smalltalk_a2_0089",
-          "phraseFingerprintSha256": "cb9ebeb79fcb574965816120dedf3a770d469d6daac37fc081b6612ced5b18bf",
+          "phraseFingerprintSha256": "3fb9d8d3881c787f8475f3eeef5ea4092c60d063ef8090a2a4bd5ffdd50cdc0e",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "cb9ebeb79fcb574965816120dedf3a770d469d6daac37fc081b6612ced5b18bf"
         },
         {
           "phraseId": "smalltalk_a2_0090",
@@ -73390,13 +73606,17 @@
         },
         {
           "phraseId": "smalltalk_a2_0091",
-          "phraseFingerprintSha256": "46c683b7bf9a3288b2129884fcda762dbfbb03def957f1f032616ef99be09082",
+          "phraseFingerprintSha256": "7e1b880b3bf6fbcc73dbb7da3a4f7ebf09264a244ed96ab335513ebccdea563f",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "8d77321e597225b4d499225f11d639025bd1ed432dfdb9ecc3c90dcba211f8aa",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
-          "reviewRevision": 3
+          "reviewRevision": 3,
+          "copyRevision": 1,
+          "copyReviewStatus": "nativeReviewRequired",
+          "copyRevisionLedger": "tools/content_factory/review/smalltalk_editorial_revisions_20261002.json",
+          "previousPhraseFingerprintSha256": "46c683b7bf9a3288b2129884fcda762dbfbb03def957f1f032616ef99be09082"
         },
         {
           "phraseId": "smalltalk_a2_0092",

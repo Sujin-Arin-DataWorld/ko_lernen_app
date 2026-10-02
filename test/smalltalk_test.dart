@@ -99,6 +99,7 @@ void main() {
         'question',
       }, '${entry.key} safe alternative');
       _expectCompleteTurn(phrase['followUp'], const {
+        'question',
         'response',
         'reaction',
       }, '${entry.key} follow-up');

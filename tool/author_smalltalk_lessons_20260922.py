@@ -63,7 +63,7 @@ a2|mood|condition|2,14|요즘 컨디션~Wie es in letzter Zeit geht~How you have
 a2|weekend|arrange|3,15,74,76,77|주말 약속 잡기~Sich fürs Wochenende verabreden~Making weekend plans|이번 주말에 함께 산책하자고 제안해요.~Du schlägst einen gemeinsamen Spaziergang dieses Wochenende vor.~You suggest going for a walk together this weekend.
 a2|food|preferences|4,16,56,57|함께 먹을 음식~Gemeinsam Essen auswählen~Choosing a meal together|점심을 함께 먹고 싶어서 초대해요.~Du lädst die andere Person zum gemeinsamen Mittagessen ein.~You invite the other person to have lunch together.
 a2|daily|morning|5,17|아침과 시간~Der Morgen und die Zeit~Mornings and timing|오늘 아침 일찍 일어났다는 이야기를 해요.~Du erzählst, dass du heute Morgen früh aufgestanden bist.~You say that you got up early this morning.
-a2|screen|watching|6,18|요즘 보는 작품~Was gerade läuft~What you are watching|상대가 요즘 어떤 드라마를 보는지 물어봐요.~Du fragst, welche Serie die andere Person gerade schaut.~You ask which drama the other person is watching these days.
+a2|screen|watching|6,18|요즘 보는 작품~Was du gerade schaust~What you are watching|상대가 요즘 어떤 드라마를 보는지 물어봐요.~Du fragst, welche Serie die andere Person gerade schaut.~You ask which drama the other person is watching these days.
 a2|music|preferences|7,19|음악 취향과 공연~Musikgeschmack und Konzerte~Music tastes and concerts|좋아하는 음악이 무엇인지 물어봐요.~Du fragst nach dem Musikgeschmack.~You ask what kind of music the other person likes.
 a2|hobby|freetime|8,20|여가와 새로운 취미~Freizeit und neue Hobbys~Free time and new hobbies|시간이 날 때 보통 무엇을 하는지 궁금해요.~Du möchtest wissen, was die andere Person gewöhnlich in ihrer Freizeit macht.~You want to know what the other person usually does in their free time.
 a2|travel|pastfuture|9,21|가고 싶은 곳과 다녀온 곳~Reiseziele und Urlaubserinnerungen~Travel wishes and past trips|다음에 여행하고 싶은 곳이 어디인지 물어봐요.~Du fragst, wohin die andere Person gern reisen würde.~You ask where the other person would like to travel.
@@ -284,7 +284,7 @@ a2.music.preferences|음악 언제 들어요?|음악 소리 너무 커요?
 a2.hobby.freetime|오늘 몇 시에 시간 있어요?|시간이 없을 때 어떻게 해요?
 a2.travel.pastfuture|어디로 여행 다녀왔어요?|여행 언제 끝나요?
 a2.work_study.activity|요즘 일을 어디에서 배워요?|지금 하는 일을 좋아해요?
-a2.family.time|주말에 가족이랑 어디 살아요?|주중에 혼자 뭐 해요?
+a2.family.time|가족은 어디에 살아요?|주중에 혼자 뭐 해요?
 a2.health.habits|보통 운동은 몇 시에 해요?|운동 좋아하게 됐어요?
 a2.kpop.fan|그 아이돌은 언제 데뷔했어요?|아이돌 콘서트 언제 가요?
 a2.dating.experience|그 사람을 어디서 만났어요?|그 사람은 무슨 일 해요?
@@ -293,8 +293,8 @@ a2.job_hunting.applications|어떤 회사에 다녔어요?|그 회사는 어디�
 a2.moving.logistics|언제 이사 가요?|누구랑 이사 가요?
 a2.moving.contract|인터넷 요금은 언제 내요?|관리비는 매달 달라져요?
 a2.hospital.appointment|진료 다 받았어요?|예약을 취소할 거예요?
-a2.transport.route|코엑스역은 몇 번 출구로 나가요?|코엑스에서 지하철은 몇 시에 끊겨요?
-a2.shopping.purchase|비싸도 괜찮아요. 그냥 살게요.|조금 비싸니까 포장만 해 주세요.
+a2.transport.route|코엑스 근처 역에서는 몇 번 출구로 나가요?|코엑스에서 지하철은 몇 시에 끊겨요?
+a2.shopping.purchase|비싸도 괜찮아요. 그냥 살게요.|조금 비싸니까 다른 걸 보여 주세요.
 a2.phone.contact|현우 씨가 전화하셨나요?|현우 씨에게 제 번호를 알려 주세요.
 a2.emergency.report|여권을 다시 찾았어요.|여권을 새로 신청했어요.
 a2.partner_family.holiday|두 분은 지금 어디 사세요?|두 분은 언제 처음 만나셨어요?
