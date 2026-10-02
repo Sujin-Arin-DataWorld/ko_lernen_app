@@ -13,14 +13,14 @@
       "c11DepthRows": 5,
       "c18RequirementReferences": 85,
       "c18WarningRows": 72,
-      "matrixRows": 518,
+      "matrixRows": 516,
       "missingSampleWordEntries": 196,
       "otherPhaseFindingRows": 113
     },
     "modeRequirements": {
       "P": 25,
       "R": 30,
-      "unassigned": 786
+      "unassigned": 784
     },
     "sampleWordContextOccurrences": 312,
     "sampleWordContextsByLevel": {
@@ -32,7 +32,7 @@
       "C2": 76
     },
     "uniqueMissingSampleWords": 196,
-    "uniqueWorkItems": 841,
+    "uniqueWorkItems": 839,
     "warningRequirementReferencesMerged": 85,
     "warningsInformational": 5,
     "warningsMerged": 72
@@ -60,7 +60,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 518,
+          "csvRow": 516,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -92,7 +92,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 519,
+          "csvRow": 517,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23129,38 +23129,6 @@
       "axis": "grammar_brief",
       "classificationStatus": "needs_review",
       "classifications": [],
-      "id": "-건대",
-      "koreanGuidance": "진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.",
-      "labels": [
-        "Jin brief highlight"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "assessment_missing",
-        "content_missing",
-        "existing_unlinked"
-      ],
-      "reasons": [
-        "missing: nikl=C2;app_levels=;ids="
-      ],
-      "sourceReferences": [
-        {
-          "csvRow": 443,
-          "path": "tool/curriculum_matrix_gaps.csv"
-        }
-      ],
-      "suggestedActions": [
-        "add_grammar_row"
-      ],
-      "warningChecks": [],
-      "workKey": "C2|grammar_brief|-건대|unassigned"
-    },
-    {
-      "axis": "grammar_brief",
-      "classificationStatus": "needs_review",
-      "classifications": [],
       "id": "-기는 고사하고",
       "koreanGuidance": "진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.",
       "labels": [
@@ -23179,7 +23147,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 444,
+          "csvRow": 443,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23211,7 +23179,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 445,
+          "csvRow": 444,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23243,7 +23211,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 446,
+          "csvRow": 445,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23275,7 +23243,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 447,
+          "csvRow": 446,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23307,7 +23275,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 448,
+          "csvRow": 447,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23316,38 +23284,6 @@
       ],
       "warningChecks": [],
       "workKey": "C2|grammar_nikl|G6:-거들랑2|unassigned"
-    },
-    {
-      "axis": "grammar_nikl",
-      "classificationStatus": "needs_review",
-      "classifications": [],
-      "id": "G6:-건대",
-      "koreanGuidance": "자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.",
-      "labels": [
-        "연결어미"
-      ],
-      "level": "C2",
-      "mode": "unassigned",
-      "phaseIds": [],
-      "provisionalClassifications": [
-        "content_missing",
-        "existing_unlinked",
-        "matching_error"
-      ],
-      "reasons": [
-        "missing_in_app: nikl_kiiq_2017"
-      ],
-      "sourceReferences": [
-        {
-          "csvRow": 449,
-          "path": "tool/curriculum_matrix_gaps.csv"
-        }
-      ],
-      "suggestedActions": [
-        "add_grammar_row"
-      ],
-      "warningChecks": [],
-      "workKey": "C2|grammar_nikl|G6:-건대|unassigned"
     },
     {
       "axis": "grammar_nikl",
@@ -23371,7 +23307,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 450,
+          "csvRow": 448,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23401,7 +23337,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 451,
+          "csvRow": 449,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23431,7 +23367,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 452,
+          "csvRow": 450,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23463,7 +23399,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 453,
+          "csvRow": 451,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23495,7 +23431,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 454,
+          "csvRow": 452,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23527,7 +23463,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 455,
+          "csvRow": 453,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23559,7 +23495,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 456,
+          "csvRow": 454,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23589,7 +23525,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 457,
+          "csvRow": 455,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23619,7 +23555,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 458,
+          "csvRow": 456,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23651,7 +23587,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 459,
+          "csvRow": 457,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23683,7 +23619,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 460,
+          "csvRow": 458,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23715,7 +23651,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 461,
+          "csvRow": 459,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23745,7 +23681,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 462,
+          "csvRow": 460,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23777,7 +23713,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 463,
+          "csvRow": 461,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23809,7 +23745,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 464,
+          "csvRow": 462,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23841,7 +23777,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 465,
+          "csvRow": 463,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23873,7 +23809,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 466,
+          "csvRow": 464,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23905,7 +23841,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 467,
+          "csvRow": 465,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23935,7 +23871,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 468,
+          "csvRow": 466,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23967,7 +23903,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 469,
+          "csvRow": 467,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -23997,7 +23933,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 470,
+          "csvRow": 468,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24029,7 +23965,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 471,
+          "csvRow": 469,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24061,7 +23997,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 472,
+          "csvRow": 470,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24093,7 +24029,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 473,
+          "csvRow": 471,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24125,7 +24061,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 474,
+          "csvRow": 472,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24157,7 +24093,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 475,
+          "csvRow": 473,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24189,7 +24125,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 476,
+          "csvRow": 474,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24221,7 +24157,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 477,
+          "csvRow": 475,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24253,7 +24189,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 478,
+          "csvRow": 476,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24285,7 +24221,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 479,
+          "csvRow": 477,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24317,7 +24253,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 480,
+          "csvRow": 478,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24349,7 +24285,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 481,
+          "csvRow": 479,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24381,7 +24317,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 482,
+          "csvRow": 480,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24413,7 +24349,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 483,
+          "csvRow": 481,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24445,7 +24381,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 484,
+          "csvRow": 482,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24477,7 +24413,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 485,
+          "csvRow": 483,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24509,7 +24445,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 486,
+          "csvRow": 484,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24541,7 +24477,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 487,
+          "csvRow": 485,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24573,7 +24509,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 488,
+          "csvRow": 486,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24605,7 +24541,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 489,
+          "csvRow": 487,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24637,7 +24573,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 490,
+          "csvRow": 488,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24669,7 +24605,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 491,
+          "csvRow": 489,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24701,7 +24637,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 492,
+          "csvRow": 490,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24733,7 +24669,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 493,
+          "csvRow": 491,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24765,7 +24701,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 494,
+          "csvRow": 492,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24795,7 +24731,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 495,
+          "csvRow": 493,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24825,7 +24761,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 496,
+          "csvRow": 494,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24857,7 +24793,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 497,
+          "csvRow": 495,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24887,7 +24823,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 498,
+          "csvRow": 496,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24919,7 +24855,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 499,
+          "csvRow": 497,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -24951,7 +24887,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 500,
+          "csvRow": 498,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -25683,7 +25619,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 501,
+          "csvRow": 499,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -25715,7 +25651,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 502,
+          "csvRow": 500,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -25747,7 +25683,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 503,
+          "csvRow": 501,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -25779,7 +25715,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 504,
+          "csvRow": 502,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -28775,7 +28711,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 505,
+          "csvRow": 503,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -28807,7 +28743,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 506,
+          "csvRow": 504,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -28839,7 +28775,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 507,
+          "csvRow": 505,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -28874,7 +28810,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 508,
+          "csvRow": 506,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -28928,7 +28864,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 508,
+          "csvRow": 506,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -28982,7 +28918,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 509,
+          "csvRow": 507,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29037,7 +28973,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 510,
+          "csvRow": 508,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29098,7 +29034,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 510,
+          "csvRow": 508,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29144,7 +29080,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 511,
+          "csvRow": 509,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29200,7 +29136,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 512,
+          "csvRow": 510,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29270,7 +29206,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 513,
+          "csvRow": 511,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29321,7 +29257,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 514,
+          "csvRow": 512,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -29356,7 +29292,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 515,
+          "csvRow": 513,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29410,7 +29346,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 516,
+          "csvRow": 514,
           "path": "tool/curriculum_matrix_gaps.csv"
         },
         {
@@ -29461,7 +29397,7 @@
       ],
       "sourceReferences": [
         {
-          "csvRow": 517,
+          "csvRow": 515,
           "path": "tool/curriculum_matrix_gaps.csv"
         }
       ],
@@ -29476,7 +29412,7 @@
   "schemaVersion": 1,
   "sourceHashConvention": "UTF-8 bytes with CRLF normalized to LF",
   "sourceSha256": {
-    "tool/curriculum_matrix_gaps.csv": "55f3912419ed14dfcf99b4ceaca0abcf378a6e94575969d0c3cd7ff966731391",
+    "tool/curriculum_matrix_gaps.csv": "c9fc73c0132f479e533488cf3a4dafcd7bc65d9c09d780a2e9a44c5235fb4f7c",
     "tool/learning_phase_findings.csv": "292b2c66122451c329a9801ec88a2e054031cde8a4841e2e8466df21ad2a76de",
     "tool/learning_phase_summary.json": "ae37ca748f434e72438d28f6b9316bcb896be343af3364f3b417a569a1e79824",
     "tools/content_factory/cefr_matrix/ko.json": "c642d91721753ea990a5b7c0373b9cb1da8923ae984e0c583de2825fc26cb4cf",

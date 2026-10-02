@@ -2,7 +2,7 @@
 
 > 이 목록은 W0b3의 검토용 분류 큐입니다. 완료된 교육과정, 확정된 카드 누락 수, 전체 요구 분모를 뜻하지 않습니다.
 
-- 고유 작업 항목: 841
+- 고유 작업 항목: 839
 - 고유 sampleLexis 후보: 196 (Phase×단어 맥락 312)
 - Phase C18 병합 경고 참조: 72; C11 정보성 참조: 5
 - 자동 문법 진단은 의미·원 급·기존 연결 검토 전 확정 결손이 아닙니다.
@@ -11,7 +11,7 @@
 
 SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체크아웃의 줄바꿈 차이는 내용 변경으로 세지 않습니다.
 
-- `tool/curriculum_matrix_gaps.csv`: `55f3912419ed14dfcf99b4ceaca0abcf378a6e94575969d0c3cd7ff966731391`
+- `tool/curriculum_matrix_gaps.csv`: `c9fc73c0132f479e533488cf3a4dafcd7bc65d9c09d780a2e9a44c5235fb4f7c`
 - `tool/learning_phase_findings.csv`: `292b2c66122451c329a9801ec88a2e054031cde8a4841e2e8466df21ad2a76de`
 - `tool/learning_phase_summary.json`: `ae37ca748f434e72438d28f6b9316bcb896be343af3364f3b417a569a1e79824`
 - `tools/content_factory/cefr_matrix/phases.json`: `b61c70b52e7f773c76336c5ab65638ca4c1af2d39fcf2f26f6793d06333a64d9`
@@ -5348,14 +5348,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 - 조치: add_grammar_row
 - 근거: missing: nikl=B2;app_levels=;ids=
 
-### `C2|grammar_brief|-건대|unassigned`
-
-- 항목: Jin brief highlight
-- 상태: needs_review; 확정 분류: 없음; 후보: assessment_missing, content_missing, existing_unlinked
-- 안내: 진단은 후보입니다. 실제 자료·연습·평가·런타임 근거를 확인해 분류합니다.
-- 조치: add_grammar_row
-- 근거: missing: nikl=C2;app_levels=;ids=
-
 ### `C2|grammar_brief|-기는 고사하고|unassigned`
 
 - 항목: Jin brief highlight
@@ -5391,14 +5383,6 @@ SHA-256 입력은 UTF-8 바이트의 CRLF를 LF로 정규화합니다. Git 체�
 ### `C2|grammar_nikl|G6:-거들랑2|unassigned`
 
 - 항목: 종결어미 -걸랑2
-- 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked, matching_error
-- 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
-- 조치: add_grammar_row
-- 근거: missing_in_app: nikl_kiiq_2017
-
-### `C2|grammar_nikl|G6:-건대|unassigned`
-
-- 항목: 연결어미
 - 상태: needs_review; 확정 분류: 없음; 후보: content_missing, existing_unlinked, matching_error
 - 안내: 자동 문법 대조 결과입니다. 형태·원 급·의미 대응과 기존 카드/맥락 연결을 검토한 뒤에만 결손을 확정합니다.
 - 조치: add_grammar_row
