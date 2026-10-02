@@ -39,7 +39,7 @@ import '../widgets/sori/window_class.dart';
 ///
 /// - 칸 탭 → 아래 풀에서 음절 탭 → 배치
 /// - 정답 칸은 **즉시 녹색 잠김**(교차 단어가 "물리는" 게 보임), 오답은 흔들림
-/// - 힌트 = 독일어 뜻 + 독일어 예문 + 정답이 ◯로 가려진 한국어 예문
+/// - 힌트 = 선택한 UI 언어의 뜻·예문 + 정답이 ◯로 가려진 한국어 예문
 /// - 진행: 레벨별 20퍼즐, `Storage.recordGameBest('skz_<level>')` 에 저장
 class SilbenKreuzScreen extends StatefulWidget {
   const SilbenKreuzScreen({super.key, this.puzzleLoader});
@@ -715,13 +715,14 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
           final direction = word.isHorizontal
               ? t.silbenDirectionHorizontal
               : t.silbenDirectionVertical;
-          return '$direction: ${word.german}';
+          return '$direction: ${word.meaningFor(_hintLanguage)}';
         })
         .join('; ');
     final semanticsParts = <String>[
       t.silbenCellPosition(cell.$1 + 1, cell.$2 + 1),
       t.silbenCellMembership(membershipLabel),
-      if (inActiveWord) t.silbenCellActiveWord(_activeWord!.german),
+      if (inActiveWord)
+        t.silbenCellActiveWord(_activeWord!.meaningFor(_hintLanguage)),
       if (locked) t.wordleAnswerLabel(syllable),
       if (wrong)
         t.silbenCellWrong
@@ -835,9 +836,11 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     final presentation = _presentation;
     final done = _spoken.contains(w.answer);
     final active = _activeWord == w;
+    final meaning = w.meaningFor(_hintLanguage);
+    final localizedExample = w.exampleFor(_hintLanguage);
     final label = done
-        ? '${w.answer} · ${w.german}. ${w.exampleDe} ${w.exampleKo}'
-        : '${w.german}. ${w.exampleDe} ${w.exampleKo}';
+        ? '${w.answer} · $meaning. $localizedExample ${w.exampleKo}'
+        : '$meaning. $localizedExample ${w.exampleKo}';
     void onTap() => _onClueTap(w, presentation);
     return Semantics(
       key: ValueKey('silben-clue-$declaredIndex'),
@@ -886,7 +889,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      done ? '${w.answer} · ${w.german}' : w.german,
+                      done ? '${w.answer} · $meaning' : meaning,
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 15,
@@ -898,7 +901,10 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                       ),
                     ),
                     const SizedBox(height: 2),
-                    Text(w.exampleDe, style: SoriTextTheme.of(context).caption),
+                    Text(
+                      localizedExample,
+                      style: SoriTextTheme.of(context).caption,
+                    ),
                     Text(
                       w.exampleKo,
                       style: SoriTextTheme.of(
@@ -914,6 +920,8 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       ),
     );
   }
+
+  String get _hintLanguage => Localizations.localeOf(context).languageCode;
 
   Widget _solvedCard(AppL10n t) {
     final next = _nextAction;

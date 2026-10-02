@@ -897,7 +897,13 @@ class ContentValidator:
                     if type(row) is not int or type(col) is not int:
                         self.issue(name, f"{ident}:{answer} needs integer row/col")
                         continue
-                    for field in ("german", "exampleKo", "exampleDe"):
+                    for field in (
+                        "german",
+                        "english",
+                        "exampleKo",
+                        "exampleDe",
+                        "exampleEn",
+                    ):
                         if not self._is_nonempty_string(word.get(field)):
                             self.issue(
                                 name,

@@ -9,8 +9,10 @@ class SilbenWord {
   final int col;
   final String answer;
   final String german;
+  final String english;
   final String exampleKo; // 정답이 ◯로 가려진 한국어 예문
   final String exampleDe;
+  final String exampleEn;
 
   const SilbenWord({
     required this.dir,
@@ -18,8 +20,10 @@ class SilbenWord {
     required this.col,
     required this.answer,
     required this.german,
+    this.english = '',
     required this.exampleKo,
     required this.exampleDe,
+    this.exampleEn = '',
   });
 
   bool get isHorizontal => dir == 'h';
@@ -28,6 +32,19 @@ class SilbenWord {
   /// tool/generate_tts.py 의 silben 수집 규칙과 동일해야 TTS 캐시가 맞는다.
   String get exampleKoSpoken =>
       exampleKo.isEmpty ? '' : exampleKo.replaceAll(RegExp('◯+'), answer);
+
+  /// EN 데이터가 없는 기존 번들은 독일어를 유지해 빈 힌트를 만들지 않는다.
+  String meaningFor(String languageCode) =>
+      languageCode.toLowerCase().split(RegExp('[-_]')).first == 'en' &&
+          english.trim().isNotEmpty
+      ? english
+      : german;
+
+  String exampleFor(String languageCode) =>
+      languageCode.toLowerCase().split(RegExp('[-_]')).first == 'en' &&
+          exampleEn.trim().isNotEmpty
+      ? exampleEn
+      : exampleDe;
 
   /// 이 단어가 차지하는 칸 좌표들 (배치 순서).
   List<(int, int)> get cells => [
@@ -41,8 +58,10 @@ class SilbenWord {
     col: json['col'] as int,
     answer: json['answer'] as String,
     german: json['german'] as String,
+    english: json['english'] as String? ?? '',
     exampleKo: json['exampleKo'] as String? ?? '',
     exampleDe: json['exampleDe'] as String? ?? '',
+    exampleEn: json['exampleEn'] as String? ?? '',
   );
 }
 

@@ -15,7 +15,9 @@
       "answer": "어제",
       "german": "gestern",
       "exampleKo": "◯◯ 어디 갔어요?",
-      "exampleDe": "Wo bist du gestern hingegangen?"
+      "exampleDe": "Wo bist du gestern hingegangen?",
+      "english": "yesterday",
+      "exampleEn": "Where did you go yesterday?"
      },
      {
       "dir": "v",
@@ -24,7 +26,9 @@
       "answer": "어렵다",
       "german": "schwierig / schwer",
       "exampleKo": "한국어가 어려워요.",
-      "exampleDe": "Koreanisch ist schwierig."
+      "exampleDe": "Koreanisch ist schwierig.",
+      "english": "difficult / hard",
+      "exampleEn": "Korean is difficult."
      },
      {
       "dir": "h",
@@ -33,7 +37,9 @@
       "answer": "다섯",
       "german": "fünf (rein-koreanisch)",
       "exampleKo": "◯◯ 시에 만나요.",
-      "exampleDe": "Wir treffen uns um fünf."
+      "exampleDe": "Wir treffen uns um fünf.",
+      "english": "five (native Korean)",
+      "exampleEn": "We meet at five."
      }
     ],
     "pool": [
@@ -59,7 +65,9 @@
       "answer": "편의점",
       "german": "Convenience-Store",
       "exampleKo": "◯◯◯에서 사요.",
-      "exampleDe": "Ich kaufe es im Convenience-Store."
+      "exampleDe": "Ich kaufe es im Convenience-Store.",
+      "english": "convenience store",
+      "exampleEn": "I buy it at the convenience store."
      },
      {
       "dir": "v",
@@ -68,7 +76,9 @@
       "answer": "의자",
       "german": "Stuhl",
       "exampleKo": "◯◯에 앉아요.",
-      "exampleDe": "Ich sitze auf dem Stuhl."
+      "exampleDe": "Ich sitze auf dem Stuhl.",
+      "english": "chair",
+      "exampleEn": "I sit on the chair."
      },
      {
       "dir": "v",
@@ -77,7 +87,9 @@
       "answer": "남편",
       "german": "Ehemann",
       "exampleKo": "우리 ◯◯은 요리를 잘해요.",
-      "exampleDe": "Mein Mann kocht gut."
+      "exampleDe": "Mein Mann kocht gut.",
+      "english": "husband",
+      "exampleEn": "My husband cooks well."
      }
     ],
     "pool": [
@@ -103,7 +115,9 @@
       "answer": "맛있다",
       "german": "lecker",
       "exampleKo": "이 음식은 맛있어요.",
-      "exampleDe": "Dieses Essen ist lecker."
+      "exampleDe": "Dieses Essen ist lecker.",
+      "english": "delicious",
+      "exampleEn": "This food is delicious."
      },
      {
       "dir": "v",
@@ -112,7 +126,9 @@
       "answer": "먹다",
       "german": "essen",
       "exampleKo": "밥을 먹어요.",
-      "exampleDe": "Ich esse."
+      "exampleDe": "Ich esse.",
+      "english": "to eat",
+      "exampleEn": "I'm eating."
      },
      {
       "dir": "v",
@@ -121,7 +137,9 @@
       "answer": "있다",
       "german": "da sein / haben",
       "exampleKo": "집에 있어요.",
-      "exampleDe": "Ich bin zu Hause."
+      "exampleDe": "Ich bin zu Hause.",
+      "english": "to be there / to have",
+      "exampleEn": "I'm at home."
      }
     ],
     "pool": [
@@ -147,7 +165,9 @@
       "answer": "일곱",
       "german": "sieben (rein-koreanisch)",
       "exampleKo": "◯◯ 시에 출발해요.",
-      "exampleDe": "Wir starten um sieben."
+      "exampleDe": "Wir starten um sieben.",
+      "english": "seven (native Korean)",
+      "exampleEn": "We leave at seven."
      },
      {
       "dir": "v",
@@ -156,7 +176,9 @@
       "answer": "화요일",
       "german": "Dienstag",
       "exampleKo": "◯◯◯에 만나요.",
-      "exampleDe": "Wir treffen uns am Dienstag."
+      "exampleDe": "Wir treffen uns am Dienstag.",
+      "english": "Tuesday",
+      "exampleEn": "We meet on Tuesday."
      },
      {
       "dir": "h",
@@ -165,7 +187,9 @@
       "answer": "화장실",
       "german": "Toilette / Badezimmer",
       "exampleKo": "◯◯◯이 어디예요?",
-      "exampleDe": "Wo ist die Toilette?"
+      "exampleDe": "Wo ist die Toilette?",
+      "english": "toilet / bathroom",
+      "exampleEn": "Where is the bathroom?"
      },
      {
       "dir": "h",
@@ -173,8 +197,10 @@
       "col": 0,
       "answer": "아니요",
       "german": "Nein",
-      "exampleKo": "◯◯◯, 저는 안 갈래요.",
-      "exampleDe": "Nein, ich möchte nicht gehen."
+      "exampleKo": "◯◯◯, 저는 안 가요.",
+      "exampleDe": "Nein, ich gehe nicht.",
+      "english": "No",
+      "exampleEn": "No, I'm not going."
      }
     ],
     "pool": [
@@ -203,7 +229,9 @@
       "answer": "일찍",
       "german": "früh",
       "exampleKo": "오늘 ◯◯ 자고 싶어요.",
-      "exampleDe": "Ich möchte heute früh schlafen gehen."
+      "exampleDe": "Ich möchte heute früh schlafen gehen.",
+      "english": "early",
+      "exampleEn": "I want to go to bed early tonight."
      },
      {
       "dir": "v",
@@ -212,7 +240,9 @@
       "answer": "내일",
       "german": "morgen",
       "exampleKo": "◯◯ 만나요.",
-      "exampleDe": "Wir treffen uns morgen."
+      "exampleDe": "Wir treffen uns morgen.",
+      "english": "tomorrow",
+      "exampleEn": "See you tomorrow."
      },
      {
       "dir": "h",
@@ -221,7 +251,9 @@
       "answer": "아내",
       "german": "Ehefrau",
       "exampleKo": "제 ◯◯는 회사에 다녀요.",
-      "exampleDe": "Meine Frau arbeitet in einer Firma."
+      "exampleDe": "Meine Frau arbeitet in einer Firma.",
+      "english": "wife",
+      "exampleEn": "My wife works at a company."
      }
     ],
     "pool": [
@@ -246,7 +278,9 @@
       "answer": "학교",
       "german": "Schule",
       "exampleKo": "◯◯에 가요.",
-      "exampleDe": "Ich gehe zur Schule."
+      "exampleDe": "Ich gehe zur Schule.",
+      "english": "school",
+      "exampleEn": "I go to school."
      },
      {
       "dir": "v",
@@ -255,7 +289,9 @@
       "answer": "학생",
       "german": "Student/Schüler",
       "exampleKo": "저는 ◯◯이에요.",
-      "exampleDe": "Ich bin Student."
+      "exampleDe": "Ich bin Student.",
+      "english": "student / pupil",
+      "exampleEn": "I'm a student."
      },
      {
       "dir": "h",
@@ -264,7 +300,9 @@
       "answer": "여동생",
       "german": "jüngere Schwester",
       "exampleKo": "제 ◯◯◯이 정말 귀여워요.",
-      "exampleDe": "Meine jüngere Schwester ist wirklich süß."
+      "exampleDe": "Meine jüngere Schwester ist wirklich süß.",
+      "english": "younger sister",
+      "exampleEn": "My younger sister is really cute."
      },
      {
       "dir": "v",
@@ -273,7 +311,9 @@
       "answer": "여기",
       "german": "hier",
       "exampleKo": "◯◯ 앉으세요.",
-      "exampleDe": "Setzen Sie sich bitte hier hin."
+      "exampleDe": "Setzen Sie sich bitte hier hin.",
+      "english": "here",
+      "exampleEn": "Please sit here."
      }
     ],
     "pool": [
@@ -300,7 +340,9 @@
       "answer": "수요일",
       "german": "Mittwoch",
       "exampleKo": "이번 주 ◯◯◯에 만날까요?",
-      "exampleDe": "Wollen wir uns diesen Mittwoch treffen?"
+      "exampleDe": "Wollen wir uns diesen Mittwoch treffen?",
+      "english": "Wednesday",
+      "exampleEn": "Should we meet this Wednesday?"
      },
      {
       "dir": "v",
@@ -309,7 +351,9 @@
       "answer": "일하다",
       "german": "arbeiten",
       "exampleKo": "회사에서 일해요.",
-      "exampleDe": "Ich arbeite in einer Firma."
+      "exampleDe": "Ich arbeite in einer Firma.",
+      "english": "to work",
+      "exampleEn": "I work at a company."
      },
      {
       "dir": "h",
@@ -318,7 +362,9 @@
       "answer": "받다",
       "german": "bekommen / empfangen",
       "exampleKo": "선물을 받았어요.",
-      "exampleDe": "Ich habe ein Geschenk bekommen."
+      "exampleDe": "Ich habe ein Geschenk bekommen.",
+      "english": "to receive / to get",
+      "exampleEn": "I received a gift."
      },
      {
       "dir": "v",
@@ -326,8 +372,10 @@
       "col": 1,
       "answer": "아니요",
       "german": "Nein",
-      "exampleKo": "◯◯◯, 저는 안 갈래요.",
-      "exampleDe": "Nein, ich möchte nicht gehen."
+      "exampleKo": "◯◯◯, 저는 안 가요.",
+      "exampleDe": "Nein, ich gehe nicht.",
+      "english": "No",
+      "exampleEn": "No, I'm not going."
      }
     ],
     "pool": [
@@ -356,7 +404,9 @@
       "answer": "읽다",
       "german": "lesen",
       "exampleKo": "책을 읽어요.",
-      "exampleDe": "Ich lese ein Buch."
+      "exampleDe": "Ich lese ein Buch.",
+      "english": "to read",
+      "exampleEn": "I read a book."
      },
      {
       "dir": "v",
@@ -365,7 +415,9 @@
       "answer": "말하다",
       "german": "sprechen / sagen",
       "exampleKo": "한국어로 말해요.",
-      "exampleDe": "Ich spreche auf Koreanisch."
+      "exampleDe": "Ich spreche auf Koreanisch.",
+      "english": "to speak / to say",
+      "exampleEn": "I speak in Korean."
      },
      {
       "dir": "h",
@@ -374,7 +426,9 @@
       "answer": "하나",
       "german": "eins (rein-koreanisch)",
       "exampleKo": "◯◯만 주세요.",
-      "exampleDe": "Nur eins bitte."
+      "exampleDe": "Nur eins bitte.",
+      "english": "one (native Korean)",
+      "exampleEn": "Just one, please."
      }
     ],
     "pool": [
@@ -400,7 +454,9 @@
       "answer": "서다",
       "german": "stehen",
       "exampleKo": "여기 잠깐 서 있어요.",
-      "exampleDe": "Bleiben Sie hier bitte kurz stehen."
+      "exampleDe": "Bleiben Sie hier bitte kurz stehen.",
+      "english": "to stand",
+      "exampleEn": "Please stay here a moment."
      },
      {
       "dir": "v",
@@ -409,7 +465,9 @@
       "answer": "사다",
       "german": "kaufen",
       "exampleKo": "옷을 사요.",
-      "exampleDe": "Ich kaufe Kleidung."
+      "exampleDe": "Ich kaufe Kleidung.",
+      "english": "to buy",
+      "exampleEn": "I buy clothes."
      },
      {
       "dir": "h",
@@ -418,7 +476,9 @@
       "answer": "사과",
       "german": "Apfel",
       "exampleKo": "매일 아침 ◯◯ 하나 먹어요.",
-      "exampleDe": "Ich esse jeden Morgen einen Apfel."
+      "exampleDe": "Ich esse jeden Morgen einen Apfel.",
+      "english": "apple",
+      "exampleEn": "I eat an apple every morning."
      }
     ],
     "pool": [
@@ -443,7 +503,9 @@
       "answer": "빨간색",
       "german": "rot",
       "exampleKo": "저는 ◯◯◯을 제일 좋아해요.",
-      "exampleDe": "Ich mag Rot am liebsten."
+      "exampleDe": "Ich mag Rot am liebsten.",
+      "english": "red",
+      "exampleEn": "Red is my favorite."
      },
      {
       "dir": "v",
@@ -452,7 +514,9 @@
       "answer": "시간",
       "german": "Zeit / Stunde",
       "exampleKo": "◯◯이 없어요.",
-      "exampleDe": "Ich habe keine Zeit."
+      "exampleDe": "Ich habe keine Zeit.",
+      "english": "time / hour",
+      "exampleEn": "I have no time."
      },
      {
       "dir": "v",
@@ -461,7 +525,9 @@
       "answer": "빨리",
       "german": "schnell",
       "exampleKo": "늦었어요, ◯◯ 가요!",
-      "exampleDe": "Wir sind spät dran, gehen wir schnell!"
+      "exampleDe": "Wir sind spät dran, gehen wir schnell!",
+      "english": "quickly",
+      "exampleEn": "We're late, let's hurry!"
      },
      {
       "dir": "h",
@@ -470,7 +536,9 @@
       "answer": "우리",
       "german": "wir",
       "exampleKo": "◯◯ 같이 가요.",
-      "exampleDe": "Lass uns zusammen gehen."
+      "exampleDe": "Lass uns zusammen gehen.",
+      "english": "we",
+      "exampleEn": "Let's go together."
      }
     ],
     "pool": [
@@ -497,7 +565,9 @@
       "answer": "아버지",
       "german": "Vater (formell)",
       "exampleKo": "◯◯◯가 집에 있어요.",
-      "exampleDe": "Mein Vater ist zu Hause."
+      "exampleDe": "Mein Vater ist zu Hause.",
+      "english": "father (formal)",
+      "exampleEn": "My father is at home."
      },
      {
       "dir": "v",
@@ -505,8 +575,10 @@
       "col": 2,
       "answer": "아니요",
       "german": "Nein",
-      "exampleKo": "◯◯◯, 저는 안 갈래요.",
-      "exampleDe": "Nein, ich möchte nicht gehen."
+      "exampleKo": "◯◯◯, 저는 안 가요.",
+      "exampleDe": "Nein, ich gehe nicht.",
+      "english": "No",
+      "exampleEn": "No, I'm not going."
      },
      {
       "dir": "h",
@@ -515,7 +587,9 @@
       "answer": "요일",
       "german": "Wochentag",
       "exampleKo": "무슨 ◯◯이에요?",
-      "exampleDe": "Welcher Wochentag ist heute?"
+      "exampleDe": "Welcher Wochentag ist heute?",
+      "english": "day of the week",
+      "exampleEn": "What day of the week is it?"
      },
      {
       "dir": "h",
@@ -524,7 +598,9 @@
       "answer": "어머니",
       "german": "Mutter (formell)",
       "exampleKo": "◯◯◯한테 전화해요.",
-      "exampleDe": "Ich rufe meine Mutter an."
+      "exampleDe": "Ich rufe meine Mutter an.",
+      "english": "mother (formal)",
+      "exampleEn": "I call my mother."
      }
     ],
     "pool": [
@@ -553,7 +629,9 @@
       "answer": "왼쪽",
       "german": "links",
       "exampleKo": "◯◯으로 가세요.",
-      "exampleDe": "Gehen Sie nach links."
+      "exampleDe": "Gehen Sie nach links.",
+      "english": "left",
+      "exampleEn": "Go to the left."
      },
      {
       "dir": "v",
@@ -562,7 +640,9 @@
       "answer": "오른쪽",
       "german": "rechts",
       "exampleKo": "◯◯◯에 화장실이 있어요.",
-      "exampleDe": "Rechts ist die Toilette."
+      "exampleDe": "Rechts ist die Toilette.",
+      "english": "right",
+      "exampleEn": "The bathroom is on the right."
      },
      {
       "dir": "h",
@@ -571,7 +651,9 @@
       "answer": "오늘",
       "german": "heute",
       "exampleKo": "◯◯ 뭐 해요?",
-      "exampleDe": "Was machst du heute?"
+      "exampleDe": "Was machst du heute?",
+      "english": "today",
+      "exampleEn": "What are you doing today?"
      }
     ],
     "pool": [
@@ -597,7 +679,9 @@
       "answer": "지금",
       "german": "jetzt / gerade",
       "exampleKo": "◯◯ 뭐 해요?",
-      "exampleDe": "Was machst du gerade?"
+      "exampleDe": "Was machst du gerade?",
+      "english": "now / right now",
+      "exampleEn": "What are you doing now?"
      },
      {
       "dir": "v",
@@ -606,7 +690,9 @@
       "answer": "아버지",
       "german": "Vater (formell)",
       "exampleKo": "◯◯◯가 집에 있어요.",
-      "exampleDe": "Mein Vater ist zu Hause."
+      "exampleDe": "Mein Vater ist zu Hause.",
+      "english": "father (formal)",
+      "exampleEn": "My father is at home."
      },
      {
       "dir": "h",
@@ -615,7 +701,9 @@
       "answer": "아빠",
       "german": "Papa (informell)",
       "exampleKo": "◯◯ 사랑해요.",
-      "exampleDe": "Ich liebe dich, Papa."
+      "exampleDe": "Ich liebe dich, Papa.",
+      "english": "dad (informal)",
+      "exampleEn": "I love you, Dad."
      },
      {
       "dir": "v",
@@ -624,7 +712,9 @@
       "answer": "금요일",
       "german": "Freitag",
       "exampleKo": "◯◯◯ 저녁에 만나요.",
-      "exampleDe": "Wir treffen uns Freitagabend."
+      "exampleDe": "Wir treffen uns Freitagabend.",
+      "english": "Friday",
+      "exampleEn": "We meet on Friday evening."
      }
     ],
     "pool": [
@@ -652,7 +742,9 @@
       "answer": "일요일",
       "german": "Sonntag",
       "exampleKo": "◯◯◯에는 늦잠 자요.",
-      "exampleDe": "Sonntags schlafe ich aus."
+      "exampleDe": "Sonntags schlafe ich aus.",
+      "english": "Sunday",
+      "exampleEn": "I sleep in on Sundays."
      },
      {
       "dir": "v",
@@ -661,7 +753,9 @@
       "answer": "일하다",
       "german": "arbeiten",
       "exampleKo": "회사에서 일해요.",
-      "exampleDe": "Ich arbeite in einer Firma."
+      "exampleDe": "Ich arbeite in einer Firma.",
+      "english": "to work",
+      "exampleEn": "I work at a company."
      },
      {
       "dir": "v",
@@ -670,7 +764,9 @@
       "answer": "매일",
       "german": "jeden Tag / täglich",
       "exampleKo": "저는 ◯◯ 아침 운동해요.",
-      "exampleDe": "Ich mache jeden Morgen Sport."
+      "exampleDe": "Ich mache jeden Morgen Sport.",
+      "english": "every day / daily",
+      "exampleEn": "I exercise every morning."
      },
      {
       "dir": "h",
@@ -679,7 +775,9 @@
       "answer": "서다",
       "german": "stehen",
       "exampleKo": "여기 잠깐 서 있어요.",
-      "exampleDe": "Bleiben Sie hier bitte kurz stehen."
+      "exampleDe": "Bleiben Sie hier bitte kurz stehen.",
+      "english": "to stand",
+      "exampleEn": "Please stay here a moment."
      }
     ],
     "pool": [
@@ -707,7 +805,9 @@
       "answer": "사이",
       "german": "Verhältnis / dazwischen",
       "exampleKo": "우리 ◯◯는 좋아요.",
-      "exampleDe": "Wir verstehen uns gut."
+      "exampleDe": "Wir verstehen uns gut.",
+      "english": "relationship / between",
+      "exampleEn": "We get along well."
      },
      {
       "dir": "v",
@@ -716,7 +816,9 @@
       "answer": "화이팅",
       "german": "Du schaffst das! / Viel Erfolg!",
       "exampleKo": "우리 팀 ◯◯◯!",
-      "exampleDe": "Auf geht's, unser Team!"
+      "exampleDe": "Auf geht's, unser Team!",
+      "english": "You can do it! / Good luck!",
+      "exampleEn": "Let's go, team!"
      },
      {
       "dir": "h",
@@ -725,7 +827,9 @@
       "answer": "화장실",
       "german": "Toilette / Badezimmer",
       "exampleKo": "◯◯◯이 어디예요?",
-      "exampleDe": "Wo ist die Toilette?"
+      "exampleDe": "Wo ist die Toilette?",
+      "english": "toilet / bathroom",
+      "exampleEn": "Where is the bathroom?"
      }
     ],
     "pool": [
@@ -752,7 +856,9 @@
       "answer": "과일",
       "german": "Obst",
       "exampleKo": "◯◯이 맛있어요.",
-      "exampleDe": "Das Obst ist lecker."
+      "exampleDe": "Das Obst ist lecker.",
+      "english": "fruit",
+      "exampleEn": "The fruit is delicious."
      },
      {
       "dir": "v",
@@ -761,7 +867,9 @@
       "answer": "수요일",
       "german": "Mittwoch",
       "exampleKo": "이번 주 ◯◯◯에 만날까요?",
-      "exampleDe": "Wollen wir uns diesen Mittwoch treffen?"
+      "exampleDe": "Wollen wir uns diesen Mittwoch treffen?",
+      "english": "Wednesday",
+      "exampleEn": "Should we meet this Wednesday?"
      },
      {
       "dir": "h",
@@ -770,7 +878,9 @@
       "answer": "요일",
       "german": "Wochentag",
       "exampleKo": "무슨 ◯◯이에요?",
-      "exampleDe": "Welcher Wochentag ist heute?"
+      "exampleDe": "Welcher Wochentag ist heute?",
+      "english": "day of the week",
+      "exampleEn": "What day of the week is it?"
      }
     ],
     "pool": [
@@ -796,7 +906,9 @@
       "answer": "자다",
       "german": "schlafen",
       "exampleKo": "일찍 자요.",
-      "exampleDe": "Ich schlafe früh."
+      "exampleDe": "Ich gehe früh schlafen.",
+      "english": "to sleep",
+      "exampleEn": "I go to bed early."
      },
      {
       "dir": "v",
@@ -805,7 +917,9 @@
       "answer": "귀엽다",
       "german": "niedlich / süß",
       "exampleKo": "강아지가 귀여워요.",
-      "exampleDe": "Der Hund ist süß."
+      "exampleDe": "Der Hund ist süß.",
+      "english": "cute",
+      "exampleEn": "The puppy is cute."
      },
      {
       "dir": "v",
@@ -814,7 +928,9 @@
       "answer": "자주",
       "german": "oft",
       "exampleKo": "저는 커피를 ◯◯ 마셔요.",
-      "exampleDe": "Ich trinke oft Kaffee."
+      "exampleDe": "Ich trinke oft Kaffee.",
+      "english": "often",
+      "exampleEn": "I drink coffee often."
      }
     ],
     "pool": [
@@ -840,7 +956,9 @@
       "answer": "닫다",
       "german": "schließen",
       "exampleKo": "창문을 닫아요.",
-      "exampleDe": "Ich schließe das Fenster."
+      "exampleDe": "Ich schließe das Fenster.",
+      "english": "to close",
+      "exampleEn": "I close the window."
      },
      {
       "dir": "v",
@@ -849,7 +967,9 @@
       "answer": "마시다",
       "german": "trinken",
       "exampleKo": "커피를 마셔요.",
-      "exampleDe": "Ich trinke Kaffee."
+      "exampleDe": "Ich trinke Kaffee.",
+      "english": "to drink",
+      "exampleEn": "I drink coffee."
      },
      {
       "dir": "h",
@@ -858,7 +978,9 @@
       "answer": "엄마",
       "german": "Mama (informell)",
       "exampleKo": "◯◯ 어디 있어요?",
-      "exampleDe": "Wo bist du, Mama?"
+      "exampleDe": "Wo bist du, Mama?",
+      "english": "mom (informal)",
+      "exampleEn": "Where are you, Mom?"
      },
      {
       "dir": "h",
@@ -867,7 +989,9 @@
       "answer": "시간",
       "german": "Zeit / Stunde",
       "exampleKo": "◯◯이 없어요.",
-      "exampleDe": "Ich habe keine Zeit."
+      "exampleDe": "Ich habe keine Zeit.",
+      "english": "time / hour",
+      "exampleEn": "I have no time."
      }
     ],
     "pool": [
@@ -894,7 +1018,9 @@
       "answer": "목요일",
       "german": "Donnerstag",
       "exampleKo": "이번 주 ◯◯◯에 봐요.",
-      "exampleDe": "Wir sehen uns diesen Donnerstag."
+      "exampleDe": "Wir sehen uns diesen Donnerstag.",
+      "english": "Thursday",
+      "exampleEn": "See you this Thursday."
      },
      {
       "dir": "v",
@@ -903,7 +1029,9 @@
       "answer": "요일",
       "german": "Wochentag",
       "exampleKo": "무슨 ◯◯이에요?",
-      "exampleDe": "Welcher Wochentag ist heute?"
+      "exampleDe": "Welcher Wochentag ist heute?",
+      "english": "day of the week",
+      "exampleEn": "What day of the week is it?"
      },
      {
       "dir": "v",
@@ -912,7 +1040,9 @@
       "answer": "과일",
       "german": "Obst",
       "exampleKo": "◯◯이 맛있어요.",
-      "exampleDe": "Das Obst ist lecker."
+      "exampleDe": "Das Obst ist lecker.",
+      "english": "fruit",
+      "exampleEn": "The fruit is delicious."
      }
     ],
     "pool": [
@@ -938,7 +1068,9 @@
       "answer": "여섯",
       "german": "sechs (rein-koreanisch)",
       "exampleKo": "◯◯ 명이 와요.",
-      "exampleDe": "Sechs Leute kommen."
+      "exampleDe": "Sechs Leute kommen.",
+      "english": "six (native Korean)",
+      "exampleEn": "Six people are coming."
      },
      {
       "dir": "v",
@@ -947,7 +1079,9 @@
       "answer": "여동생",
       "german": "jüngere Schwester",
       "exampleKo": "제 ◯◯◯이 정말 귀여워요.",
-      "exampleDe": "Meine jüngere Schwester ist wirklich süß."
+      "exampleDe": "Meine jüngere Schwester ist wirklich süß.",
+      "english": "younger sister",
+      "exampleEn": "My younger sister is really cute."
      },
      {
       "dir": "h",
@@ -956,7 +1090,9 @@
       "answer": "남동생",
       "german": "jüngerer Bruder",
       "exampleKo": "◯◯◯은 학생이에요.",
-      "exampleDe": "Mein jüngerer Bruder ist Schüler."
+      "exampleDe": "Mein jüngerer Bruder ist Schüler.",
+      "english": "younger brother",
+      "exampleEn": "My younger brother is a student."
      },
      {
       "dir": "v",
@@ -965,7 +1101,9 @@
       "answer": "다섯",
       "german": "fünf (rein-koreanisch)",
       "exampleKo": "◯◯ 시에 만나요.",
-      "exampleDe": "Wir treffen uns um fünf."
+      "exampleDe": "Wir treffen uns um fünf.",
+      "english": "five (native Korean)",
+      "exampleEn": "We meet at five."
      }
     ],
     "pool": [
@@ -995,7 +1133,9 @@
       "answer": "호텔",
       "german": "Hotel",
       "exampleKo": "이번 ◯◯ 진짜 좋았어요.",
-      "exampleDe": "Das Hotel war diesmal richtig gut."
+      "exampleDe": "Das Hotel war diesmal richtig gut.",
+      "english": "hotel",
+      "exampleEn": "The hotel this time was really nice."
      },
      {
       "dir": "v",
@@ -1004,7 +1144,9 @@
       "answer": "변호사",
       "german": "Anwalt",
       "exampleKo": "언니는 ◯◯◯예요.",
-      "exampleDe": "Meine große Schwester ist Anwältin."
+      "exampleDe": "Meine große Schwester ist Anwältin.",
+      "english": "lawyer",
+      "exampleEn": "My older sister is a lawyer."
      },
      {
       "dir": "h",
@@ -1013,7 +1155,9 @@
       "answer": "상사",
       "german": "Vorgesetzte/r",
       "exampleKo": "저희 ◯◯ 분은 좀 까다로우세요.",
-      "exampleDe": "Unser Vorgesetzter ist ein bisschen anspruchsvoll."
+      "exampleDe": "Unser Vorgesetzter ist ein bisschen anspruchsvoll.",
+      "english": "superior / supervisor",
+      "exampleEn": "Our supervisor is a bit picky."
      }
     ],
     "pool": [
@@ -1039,7 +1183,9 @@
       "answer": "쇠고기",
       "german": "Rindfleisch",
       "exampleKo": "◯◯◯로 국을 끓였어요.",
-      "exampleDe": "Ich habe Suppe mit Rindfleisch gekocht."
+      "exampleDe": "Ich habe Suppe mit Rindfleisch gekocht.",
+      "english": "beef",
+      "exampleEn": "I made soup with beef."
      },
      {
       "dir": "v",
@@ -1048,7 +1194,9 @@
       "answer": "기차",
       "german": "Zug / Bahn",
       "exampleKo": "◯◯ 시간에 늦었어요.",
-      "exampleDe": "Ich war zu spät für den Zug."
+      "exampleDe": "Ich war zu spät für den Zug.",
+      "english": "train",
+      "exampleEn": "I was late for the train."
      },
      {
       "dir": "v",
@@ -1057,7 +1205,9 @@
       "answer": "열쇠",
       "german": "Schlüssel",
       "exampleKo": "◯◯를 잃어버렸어요.",
-      "exampleDe": "Ich habe den Schlüssel verloren."
+      "exampleDe": "Ich habe den Schlüssel verloren.",
+      "english": "key",
+      "exampleEn": "I lost the key."
      },
      {
       "dir": "h",
@@ -1066,7 +1216,9 @@
       "answer": "차다",
       "german": "umlegen (Uhr)",
       "exampleKo": "새 시계를 차고 있어요.",
-      "exampleDe": "Ich trage eine neue Uhr."
+      "exampleDe": "Ich trage eine neue Uhr.",
+      "english": "to wear (watch)",
+      "exampleEn": "I am wearing a new watch."
      }
     ],
     "pool": [
@@ -1093,7 +1245,9 @@
       "answer": "유학",
       "german": "Auslandsstudium",
       "exampleKo": "내년에 한국으로 ◯◯을 가요.",
-      "exampleDe": "Nächstes Jahr gehe ich zum Studium nach Korea."
+      "exampleDe": "Nächstes Jahr gehe ich zum Studium nach Korea.",
+      "english": "studying abroad",
+      "exampleEn": "I am going to study in Korea next year."
      },
      {
       "dir": "v",
@@ -1102,7 +1256,9 @@
       "answer": "유학생",
       "german": "Auslandsstudent",
       "exampleKo": "우리 학교에 ◯◯◯이 많아요.",
-      "exampleDe": "An unserer Hochschule gibt es viele internationale Studierende."
+      "exampleDe": "An unserer Hochschule gibt es viele internationale Studierende.",
+      "english": "international student",
+      "exampleEn": "There are many international students at our university."
      },
      {
       "dir": "h",
@@ -1110,8 +1266,10 @@
       "col": 0,
       "answer": "중학생",
       "german": "Mittelschüler",
-      "exampleKo": "◯◯◯ 때 한국어를 시작했어요.",
-      "exampleDe": "In der Mittelstufe habe ich angefangen, Koreanisch zu lernen."
+      "exampleKo": "◯◯◯ 때 한국어 공부를 시작했어요.",
+      "exampleDe": "In der Mittelstufe habe ich angefangen, Koreanisch zu lernen.",
+      "english": "middle school student",
+      "exampleEn": "I started learning Korean in middle school."
      }
     ],
     "pool": [
@@ -1138,7 +1296,9 @@
       "answer": "찾다",
       "german": "suchen / finden",
       "exampleKo": "지금 열쇠를 찾고 있어요.",
-      "exampleDe": "Ich suche gerade den Schlüssel."
+      "exampleDe": "Ich suche gerade den Schlüssel.",
+      "english": "to look for / to find",
+      "exampleEn": "I'm looking for the key right now."
      },
      {
       "dir": "v",
@@ -1147,7 +1307,9 @@
       "answer": "열리다",
       "german": "sich öffnen",
       "exampleKo": "문이 저절로 열렸어요.",
-      "exampleDe": "Die Tür öffnete sich von selbst."
+      "exampleDe": "Die Tür öffnete sich von selbst.",
+      "english": "to be opened",
+      "exampleEn": "The door opened by itself."
      },
      {
       "dir": "h",
@@ -1156,7 +1318,9 @@
       "answer": "열쇠",
       "german": "Schlüssel",
       "exampleKo": "◯◯를 잃어버렸어요.",
-      "exampleDe": "Ich habe den Schlüssel verloren."
+      "exampleDe": "Ich habe den Schlüssel verloren.",
+      "english": "key",
+      "exampleEn": "I lost the key."
      }
     ],
     "pool": [
@@ -1182,7 +1346,9 @@
       "answer": "영화",
       "german": "Film",
       "exampleKo": "주말에 ◯◯ 한 편 봤어요.",
-      "exampleDe": "Am Wochenende habe ich einen Film gesehen."
+      "exampleDe": "Am Wochenende habe ich einen Film gesehen.",
+      "english": "movie / film",
+      "exampleEn": "I watched a movie over the weekend."
      },
      {
       "dir": "v",
@@ -1191,7 +1357,9 @@
       "answer": "영수증",
       "german": "Quittung / Kassenbon",
       "exampleKo": "◯◯◯ 좀 주시겠어요?",
-      "exampleDe": "Könnten Sie mir bitte die Quittung geben?"
+      "exampleDe": "Könnten Sie mir bitte die Quittung geben?",
+      "english": "receipt",
+      "exampleEn": "Could I get the receipt, please?"
      },
      {
       "dir": "h",
@@ -1200,7 +1368,9 @@
       "answer": "보증금",
       "german": "Kaution",
       "exampleKo": "◯◯◯은 얼마 정도예요?",
-      "exampleDe": "Wie hoch ist ungefähr die Kaution?"
+      "exampleDe": "Wie hoch ist ungefähr die Kaution?",
+      "english": "deposit",
+      "exampleEn": "About how much is the deposit?"
      },
      {
       "dir": "v",
@@ -1209,7 +1379,9 @@
       "answer": "전화",
       "german": "Telefon / Anruf",
       "exampleKo": "아까 부재중 ◯◯ 왔어요.",
-      "exampleDe": "Vorhin gab es einen verpassten Anruf."
+      "exampleDe": "Vorhin gab es einen verpassten Anruf.",
+      "english": "phone / call",
+      "exampleEn": "There was a missed call earlier."
      }
     ],
     "pool": [
@@ -1237,7 +1409,9 @@
       "answer": "주황색",
       "german": "orange",
       "exampleKo": "가을엔 ◯◯◯이 예뻐요.",
-      "exampleDe": "Im Herbst sieht Orange schön aus."
+      "exampleDe": "Im Herbst sieht Orange schön aus.",
+      "english": "orange",
+      "exampleEn": "Orange looks pretty in the fall."
      },
      {
       "dir": "v",
@@ -1246,7 +1420,9 @@
       "answer": "색깔",
       "german": "Farbe",
       "exampleKo": "다른 ◯◯도 있어요?",
-      "exampleDe": "Gibt es auch andere Farben?"
+      "exampleDe": "Gibt es auch andere Farben?",
+      "english": "color",
+      "exampleEn": "Are there other colors too?"
      },
      {
       "dir": "v",
@@ -1255,7 +1431,9 @@
       "answer": "공주",
       "german": "Prinzessin",
       "exampleKo": "아이가 ◯◯ 그림을 그렸어요.",
-      "exampleDe": "Das Kind hat eine Prinzessin gemalt."
+      "exampleDe": "Das Kind hat eine Prinzessin gemalt.",
+      "english": "princess",
+      "exampleEn": "The child drew a princess."
      }
     ],
     "pool": [
@@ -1281,7 +1459,9 @@
       "answer": "대학교",
       "german": "Universität",
       "exampleKo": "누나는 ◯◯◯에 다녀요.",
-      "exampleDe": "Meine Schwester geht zur Universität."
+      "exampleDe": "Meine Schwester geht zur Universität.",
+      "english": "university",
+      "exampleEn": "My sister attends university."
      },
      {
       "dir": "v",
@@ -1290,7 +1470,9 @@
       "answer": "교수",
       "german": "Professor",
       "exampleKo": "◯◯님 수업이 재미있어요.",
-      "exampleDe": "Die Vorlesung des Professors ist interessant."
+      "exampleDe": "Die Vorlesung des Professors ist interessant.",
+      "english": "professor",
+      "exampleEn": "The professor's lecture is interesting."
      },
      {
       "dir": "h",
@@ -1299,7 +1481,9 @@
       "answer": "수수료",
       "german": "Gebühr",
       "exampleKo": "송금 ◯◯◯ 얼마예요?",
-      "exampleDe": "Wie hoch ist die Überweisungsgebühr?"
+      "exampleDe": "Wie hoch ist die Überweisungsgebühr?",
+      "english": "fee",
+      "exampleEn": "How much is the transfer fee?"
      },
      {
       "dir": "v",
@@ -1308,7 +1492,9 @@
       "answer": "수박",
       "german": "Wassermelone",
       "exampleKo": "여름에는 ◯◯이 최고예요.",
-      "exampleDe": "Im Sommer ist Wassermelone das Beste."
+      "exampleDe": "Im Sommer ist Wassermelone das Beste.",
+      "english": "watermelon",
+      "exampleEn": "Watermelon is the best in summer."
      }
     ],
     "pool": [
@@ -1336,7 +1522,9 @@
       "answer": "사원",
       "german": "Angestellter",
       "exampleKo": "저는 회사 ◯◯이에요.",
-      "exampleDe": "Ich bin Angestellter in einer Firma."
+      "exampleDe": "Ich bin Angestellter in einer Firma.",
+      "english": "employee",
+      "exampleEn": "I am a company employee."
      },
      {
       "dir": "v",
@@ -1345,7 +1533,9 @@
       "answer": "점원",
       "german": "Verkäufer/in",
       "exampleKo": "◯◯분이 진짜 친절했어요.",
-      "exampleDe": "Der Verkäufer war wirklich freundlich."
+      "exampleDe": "Der Verkäufer war wirklich freundlich.",
+      "english": "shop assistant / clerk",
+      "exampleEn": "The clerk was really friendly."
      },
      {
       "dir": "v",
@@ -1354,7 +1544,9 @@
       "answer": "사장",
       "german": "Chef / Firmeninhaber",
       "exampleKo": "◯◯님이 진짜 좋으신 분이세요.",
-      "exampleDe": "Unser Chef ist wirklich ein guter Mensch."
+      "exampleDe": "Unser Chef ist wirklich ein guter Mensch.",
+      "english": "boss / company owner",
+      "exampleEn": "The boss is a really good person."
      },
      {
       "dir": "h",
@@ -1362,8 +1554,10 @@
       "col": 0,
       "answer": "곧장",
       "german": "geradeaus",
-      "exampleKo": "여기서 ◯◯ 가시면 돼요.",
-      "exampleDe": "Gehen Sie von hier einfach geradeaus."
+      "exampleKo": "여기서 ◯◯ 가세요.",
+      "exampleDe": "Gehen Sie von hier einfach geradeaus.",
+      "english": "straight ahead",
+      "exampleEn": "Just go straight from here."
      }
     ],
     "pool": [
@@ -1389,7 +1583,9 @@
       "answer": "닫히다",
       "german": "sich schließen",
       "exampleKo": "바람에 창문이 닫혔어요.",
-      "exampleDe": "Der Wind hat das Fenster zugedrückt."
+      "exampleDe": "Der Wind hat das Fenster zugedrückt.",
+      "english": "to be closed",
+      "exampleEn": "The wind blew the window shut."
      },
      {
       "dir": "v",
@@ -1398,7 +1594,9 @@
       "answer": "걸리다",
       "german": "hängen (dauern)",
       "exampleKo": "벽에 그림이 걸려 있어요.",
-      "exampleDe": "An der Wand hängt ein Bild."
+      "exampleDe": "An der Wand hängt ein Bild.",
+      "english": "to hang",
+      "exampleEn": "A picture hangs on the wall."
      },
      {
       "dir": "h",
@@ -1407,7 +1605,9 @@
       "answer": "옷걸이",
       "german": "Kleiderbügel",
       "exampleKo": "코트를 ◯◯◯에 걸었어요.",
-      "exampleDe": "Ich habe den Mantel auf den Bügel gehängt."
+      "exampleDe": "Ich habe den Mantel auf den Bügel gehängt.",
+      "english": "coat hanger",
+      "exampleEn": "I hung the coat on the hanger."
      },
      {
       "dir": "v",
@@ -1416,7 +1616,9 @@
       "answer": "귀걸이",
       "german": "Ohrringe",
       "exampleKo": "새 ◯◯◯를 하고 나갔어요.",
-      "exampleDe": "Ich bin mit neuen Ohrringen ausgegangen."
+      "exampleDe": "Ich bin mit neuen Ohrringen ausgegangen.",
+      "english": "earrings",
+      "exampleEn": "I went out wearing new earrings."
      }
     ],
     "pool": [
@@ -1446,7 +1648,9 @@
       "answer": "정말",
       "german": "wirklich / tatsächlich",
       "exampleKo": "이거 ◯◯ 맛있네요.",
-      "exampleDe": "Das ist wirklich lecker!"
+      "exampleDe": "Das ist wirklich lecker!",
+      "english": "really / truly",
+      "exampleEn": "It's really delicious!"
      },
      {
       "dir": "v",
@@ -1455,7 +1659,9 @@
       "answer": "양말",
       "german": "Socken",
       "exampleKo": "따뜻한 ◯◯을 신었어요.",
-      "exampleDe": "Ich habe warme Socken angezogen."
+      "exampleDe": "Ich habe warme Socken angezogen.",
+      "english": "socks",
+      "exampleEn": "I put on warm socks."
      },
      {
       "dir": "h",
@@ -1464,7 +1670,9 @@
       "answer": "양복",
       "german": "Anzug",
       "exampleKo": "아버지는 ◯◯을 입고 출근해요.",
-      "exampleDe": "Mein Vater geht im Anzug zur Arbeit."
+      "exampleDe": "Mein Vater geht im Anzug zur Arbeit.",
+      "english": "suit",
+      "exampleEn": "My father goes to work in a suit."
      }
     ],
     "pool": [
@@ -1489,7 +1697,9 @@
       "answer": "세우다",
       "german": "aufstellen (parken)",
       "exampleKo": "차를 여기에 세워 주세요.",
-      "exampleDe": "Stellen Sie das Auto bitte hier ab."
+      "exampleDe": "Stellen Sie das Auto bitte hier ab.",
+      "english": "to park",
+      "exampleEn": "Please park the car here."
      },
      {
       "dir": "v",
@@ -1498,7 +1708,9 @@
       "answer": "신다",
       "german": "anziehen (Schuhe)",
       "exampleKo": "운동화를 신고 뛰어요.",
-      "exampleDe": "Ich laufe in Turnschuhen."
+      "exampleDe": "Ich laufe in Turnschuhen.",
+      "english": "to wear (feet)",
+      "exampleEn": "I run wearing sneakers."
      },
      {
       "dir": "h",
@@ -1507,7 +1719,9 @@
       "answer": "신호등",
       "german": "Ampel",
       "exampleKo": "저 ◯◯◯에서 오른쪽으로 가세요.",
-      "exampleDe": "Biegen Sie an der Ampel dort rechts ab."
+      "exampleDe": "Biegen Sie an der Ampel dort rechts ab.",
+      "english": "traffic light",
+      "exampleEn": "Turn right at that traffic light."
      },
      {
       "dir": "v",
@@ -1516,7 +1730,9 @@
       "answer": "월세",
       "german": "Monatsmiete",
       "exampleKo": "이 동네 ◯◯가 좀 비싸요.",
-      "exampleDe": "Die Monatsmiete in dieser Gegend ist etwas teuer."
+      "exampleDe": "Die Monatsmiete in dieser Gegend ist etwas teuer.",
+      "english": "monthly rent",
+      "exampleEn": "The monthly rent in this area is a bit expensive."
      }
     ],
     "pool": [
@@ -1544,7 +1760,9 @@
       "answer": "인분",
       "german": "Portion",
       "exampleKo": "불고기 2◯◯ 주세요.",
-      "exampleDe": "Zwei Portionen Bulgogi bitte."
+      "exampleDe": "Zwei Portionen Bulgogi bitte.",
+      "english": "serving",
+      "exampleEn": "Two servings of bulgogi please."
      },
      {
       "dir": "v",
@@ -1553,7 +1771,9 @@
       "answer": "분홍색",
       "german": "rosa",
       "exampleKo": "저 ◯◯◯ 진짜 잘 어울리네요.",
-      "exampleDe": "Das Rosa steht dir echt gut."
+      "exampleDe": "Das Rosa steht dir echt gut.",
+      "english": "pink",
+      "exampleEn": "That pink really suits you."
      },
      {
       "dir": "h",
@@ -1562,7 +1782,9 @@
       "answer": "보라색",
       "german": "lila / violett",
       "exampleKo": "◯◯◯ 옷은 잘 안 입어요.",
-      "exampleDe": "Lila Sachen trage ich eher selten."
+      "exampleDe": "Lila Sachen trage ich eher selten.",
+      "english": "purple / violet",
+      "exampleEn": "I don't really wear purple."
      },
      {
       "dir": "v",
@@ -1571,7 +1793,9 @@
       "answer": "보내다",
       "german": "schicken / senden",
       "exampleKo": "방금 사진 보냈어요.",
-      "exampleDe": "Ich habe gerade das Foto geschickt."
+      "exampleDe": "Ich habe gerade das Foto geschickt.",
+      "english": "to send",
+      "exampleEn": "I just sent the photo."
      }
     ],
     "pool": [
@@ -1600,7 +1824,9 @@
       "answer": "회사",
       "german": "Firma / Unternehmen",
       "exampleKo": "요즘 ◯◯ 일이 좀 많아요.",
-      "exampleDe": "Zurzeit habe ich ziemlich viel Arbeit in der Firma."
+      "exampleDe": "Zurzeit habe ich ziemlich viel Arbeit in der Firma.",
+      "english": "company / firm",
+      "exampleEn": "I've got a lot of work at the company these days."
      },
      {
       "dir": "v",
@@ -1609,7 +1835,9 @@
       "answer": "눈사람",
       "german": "Schneemann",
       "exampleKo": "아이들이 ◯◯◯을 만들어요.",
-      "exampleDe": "Die Kinder bauen einen Schneemann."
+      "exampleDe": "Die Kinder bauen einen Schneemann.",
+      "english": "snowman",
+      "exampleEn": "The children are building a snowman."
      },
      {
       "dir": "h",
@@ -1618,7 +1846,9 @@
       "answer": "눈싸움",
       "german": "Schneeballschlacht",
       "exampleKo": "친구들과 ◯◯◯을 했어요.",
-      "exampleDe": "Ich habe mit Freunden eine Schneeballschlacht gemacht."
+      "exampleDe": "Ich habe mit Freunden eine Schneeballschlacht gemacht.",
+      "english": "snowball fight",
+      "exampleEn": "I had a snowball fight with friends."
      }
     ],
     "pool": [
@@ -1645,7 +1875,9 @@
       "answer": "원피스",
       "german": "Kleid",
       "exampleKo": "파티에 ◯◯◯를 입고 갔어요.",
-      "exampleDe": "Ich bin im Kleid zur Party gegangen."
+      "exampleDe": "Ich bin im Kleid zur Party gegangen.",
+      "english": "dress",
+      "exampleEn": "I went to the party in a dress."
      },
      {
       "dir": "v",
@@ -1654,7 +1886,9 @@
       "answer": "병원",
       "german": "Arzt / Klinik",
       "exampleKo": "감기가 심해서 ◯◯에 다녀왔어요.",
-      "exampleDe": "Die Erkältung war so schlimm, ich war beim Arzt."
+      "exampleDe": "Die Erkältung war so schlimm, ich war beim Arzt.",
+      "english": "doctor's / clinic",
+      "exampleEn": "My cold was so bad I went to the doctor."
      },
      {
       "dir": "v",
@@ -1663,7 +1897,9 @@
       "answer": "스타킹",
       "german": "Strumpfhose",
       "exampleKo": "◯◯◯에 구멍이 났어요.",
-      "exampleDe": "Meine Strumpfhose hat ein Loch."
+      "exampleDe": "Meine Strumpfhose hat ein Loch.",
+      "english": "stockings",
+      "exampleEn": "My stockings have a hole."
      }
     ],
     "pool": [
@@ -1690,7 +1926,9 @@
       "answer": "집주인",
       "german": "Vermieter",
       "exampleKo": "◯◯◯ 아저씨한테 연락해 볼게요.",
-      "exampleDe": "Ich versuche mal, den Vermieter zu erreichen."
+      "exampleDe": "Ich versuche mal, den Vermieter zu erreichen.",
+      "english": "landlord",
+      "exampleEn": "I'll try getting in touch with the landlord."
      },
      {
       "dir": "v",
@@ -1699,7 +1937,9 @@
       "answer": "주인",
       "german": "Besitzer",
       "exampleKo": "가게 ◯◯이 친절해요.",
-      "exampleDe": "Der Ladenbesitzer ist freundlich."
+      "exampleDe": "Der Ladenbesitzer ist freundlich.",
+      "english": "owner",
+      "exampleEn": "The shop owner is friendly."
      },
      {
       "dir": "v",
@@ -1708,7 +1948,9 @@
       "answer": "할인",
       "german": "Rabatt / Ermäßigung",
       "exampleKo": "학생 ◯◯ 되나요?",
-      "exampleDe": "Gibt es Studentenrabatt?"
+      "exampleDe": "Gibt es Studentenrabatt?",
+      "english": "discount",
+      "exampleEn": "Is there a student discount?"
      }
     ],
     "pool": [
@@ -1734,7 +1976,9 @@
       "answer": "가볍다",
       "german": "leicht sein",
       "exampleKo": "이 노트북 진짜 가벼워요.",
-      "exampleDe": "Dieser Laptop ist echt leicht."
+      "exampleDe": "Dieser Laptop ist echt leicht.",
+      "english": "to be light",
+      "exampleEn": "This laptop is really light."
      },
      {
       "dir": "v",
@@ -1743,7 +1987,9 @@
       "answer": "춥다",
       "german": "kalt (sein)",
       "exampleKo": "밖에 날씨가 많이 추워요.",
-      "exampleDe": "Draußen ist es sehr kalt."
+      "exampleDe": "Draußen ist es sehr kalt.",
+      "english": "to be cold (weather)",
+      "exampleEn": "It's very cold outside."
      },
      {
       "dir": "v",
@@ -1752,7 +1998,9 @@
       "answer": "가수",
       "german": "Sänger",
       "exampleKo": "저 ◯◯는 노래를 정말 잘해요.",
-      "exampleDe": "Dieser Sänger singt wirklich gut."
+      "exampleDe": "Dieser Sänger singt wirklich gut.",
+      "english": "singer",
+      "exampleEn": "That singer sings really well."
      },
      {
       "dir": "h",
@@ -1761,7 +2009,9 @@
       "answer": "교수",
       "german": "Professor",
       "exampleKo": "◯◯님 수업이 재미있어요.",
-      "exampleDe": "Die Vorlesung des Professors ist interessant."
+      "exampleDe": "Die Vorlesung des Professors ist interessant.",
+      "english": "professor",
+      "exampleEn": "The professor's lecture is interesting."
      }
     ],
     "pool": [
@@ -1788,7 +2038,9 @@
       "answer": "그릇",
       "german": "Schüssel",
       "exampleKo": "◯◯을 씻어서 정리했어요.",
-      "exampleDe": "Ich habe die Schüsseln gespült und weggeräumt."
+      "exampleDe": "Ich habe die Schüsseln gespült und weggeräumt.",
+      "english": "bowl",
+      "exampleEn": "I washed and put away the bowls."
      },
      {
       "dir": "v",
@@ -1797,7 +2049,9 @@
       "answer": "그립다",
       "german": "vermissen / sich sehnen",
       "exampleKo": "요즘 고향이 많이 그리워요.",
-      "exampleDe": "Zurzeit vermisse ich meine Heimat sehr."
+      "exampleDe": "Zurzeit vermisse ich meine Heimat sehr.",
+      "english": "to miss / to long for",
+      "exampleEn": "I really miss my hometown these days."
      },
      {
       "dir": "h",
@@ -1806,7 +2060,9 @@
       "answer": "만들다",
       "german": "machen / herstellen",
       "exampleKo": "친구 생일에 케이크를 만들었어요.",
-      "exampleDe": "Ich habe zum Geburtstag meines Freundes einen Kuchen gemacht."
+      "exampleDe": "Ich habe zum Geburtstag meines Freundes einen Kuchen gemacht.",
+      "english": "to make",
+      "exampleEn": "I made a cake for my friend's birthday."
      }
     ],
     "pool": [
@@ -1833,7 +2089,9 @@
       "answer": "지갑",
       "german": "Geldbörse / Portemonnaie",
       "exampleKo": "아, ◯◯을 집에 두고 왔어요.",
-      "exampleDe": "Ach, ich habe meine Geldbörse zu Hause gelassen."
+      "exampleDe": "Ach, ich habe meine Geldbörse zu Hause gelassen.",
+      "english": "wallet / purse",
+      "exampleEn": "Oh no, I left my wallet at home."
      },
      {
       "dir": "v",
@@ -1842,7 +2100,9 @@
       "answer": "장갑",
       "german": "Handschuhe",
       "exampleKo": "◯◯을 어디에 뒀지요?",
-      "exampleDe": "Wo habe ich meine Handschuhe hingelegt?"
+      "exampleDe": "Wo habe ich meine Handschuhe hingelegt?",
+      "english": "gloves",
+      "exampleEn": "Where did I put my gloves?"
      },
      {
       "dir": "v",
@@ -1851,7 +2111,9 @@
       "answer": "지구",
       "german": "Erde",
       "exampleKo": "◯◯는 둥글어요.",
-      "exampleDe": "Die Erde ist rund."
+      "exampleDe": "Die Erde ist rund.",
+      "english": "Earth",
+      "exampleEn": "The Earth is round."
      }
     ],
     "pool": [
@@ -1876,7 +2138,9 @@
       "answer": "넥타이",
       "german": "Krawatte",
       "exampleKo": "파란 ◯◯◯가 잘 어울려요.",
-      "exampleDe": "Die blaue Krawatte steht dir gut."
+      "exampleDe": "Die blaue Krawatte steht dir gut.",
+      "english": "necktie",
+      "exampleEn": "The blue tie suits you well."
      },
      {
       "dir": "v",
@@ -1885,7 +2149,9 @@
       "answer": "귀걸이",
       "german": "Ohrringe",
       "exampleKo": "새 ◯◯◯를 하고 나갔어요.",
-      "exampleDe": "Ich bin mit neuen Ohrringen ausgegangen."
+      "exampleDe": "Ich bin mit neuen Ohrringen ausgegangen.",
+      "english": "earrings",
+      "exampleEn": "I went out wearing new earrings."
      },
      {
       "dir": "h",
@@ -1894,7 +2160,9 @@
       "answer": "걸리다",
       "german": "hängen (dauern)",
       "exampleKo": "벽에 그림이 걸려 있어요.",
-      "exampleDe": "An der Wand hängt ein Bild."
+      "exampleDe": "An der Wand hängt ein Bild.",
+      "english": "to hang",
+      "exampleEn": "A picture hangs on the wall."
      },
      {
       "dir": "v",
@@ -1903,7 +2171,9 @@
       "answer": "걷다",
       "german": "zu Fuß gehen / laufen",
       "exampleKo": "회사까지 30분 걸어요.",
-      "exampleDe": "Bis zur Firma laufe ich 30 Minuten."
+      "exampleDe": "Bis zur Firma laufe ich 30 Minuten.",
+      "english": "to walk",
+      "exampleEn": "I walk 30 minutes to work."
      }
     ],
     "pool": [
@@ -1932,7 +2202,9 @@
       "answer": "차림표",
       "german": "Speisekarte",
       "exampleKo": "◯◯◯ 좀 볼 수 있을까요?",
-      "exampleDe": "Könnte ich die Speisekarte sehen?"
+      "exampleDe": "Könnte ich die Speisekarte sehen?",
+      "english": "menu",
+      "exampleEn": "Could I see the menu?"
      },
      {
       "dir": "v",
@@ -1941,7 +2213,9 @@
       "answer": "차다",
       "german": "umlegen (Uhr)",
       "exampleKo": "새 시계를 차고 있어요.",
-      "exampleDe": "Ich trage eine neue Uhr."
+      "exampleDe": "Ich trage eine neue Uhr.",
+      "english": "to wear (watch)",
+      "exampleEn": "I am wearing a new watch."
      },
      {
       "dir": "h",
@@ -1950,7 +2224,9 @@
       "answer": "느리다",
       "german": "langsam sein",
       "exampleKo": "오늘따라 인터넷이 좀 느리네요.",
-      "exampleDe": "Heute ist das Internet irgendwie langsam."
+      "exampleDe": "Heute ist das Internet irgendwie langsam.",
+      "english": "to be slow",
+      "exampleEn": "The internet is somehow slow today."
      }
     ],
     "pool": [
@@ -1979,7 +2255,9 @@
       "answer": "결국",
       "german": "schließlich / letztendlich",
       "exampleKo": "◯◯ 오늘도 야근이네요.",
-      "exampleDe": "Am Ende mache ich heute also doch wieder Überstunden."
+      "exampleDe": "Am Ende mache ich heute also doch wieder Überstunden.",
+      "english": "in the end / eventually",
+      "exampleEn": "In the end, I'm working overtime again today."
      },
      {
       "dir": "v",
@@ -1988,7 +2266,9 @@
       "answer": "결혼식",
       "german": "Hochzeit",
       "exampleKo": "주말에 ◯◯◯에 가요.",
-      "exampleDe": "Am Wochenende gehe ich zu einer Hochzeit."
+      "exampleDe": "Am Wochenende gehe ich zu einer Hochzeit.",
+      "english": "wedding",
+      "exampleEn": "I am going to a wedding this weekend."
      },
      {
       "dir": "h",
@@ -1997,7 +2277,9 @@
       "answer": "휴식",
       "german": "Erholung / Pause",
       "exampleKo": "잠깐이라도 ◯◯이 필요해요.",
-      "exampleDe": "Ich brauche eine Pause, auch wenn sie nur kurz ist."
+      "exampleDe": "Ich brauche eine Pause, auch wenn sie nur kurz ist.",
+      "english": "rest / break",
+      "exampleEn": "I need a break, even just a short one."
      },
      {
       "dir": "v",
@@ -2006,7 +2288,9 @@
       "answer": "우체국",
       "german": "Post",
       "exampleKo": "◯◯◯에서 소포를 보냈어요.",
-      "exampleDe": "Ich habe bei der Post ein Paket verschickt."
+      "exampleDe": "Ich habe bei der Post ein Paket verschickt.",
+      "english": "post office",
+      "exampleEn": "I sent a package at the post office."
      }
     ],
     "pool": [
@@ -2034,7 +2318,9 @@
       "answer": "문장",
       "german": "Satz",
       "exampleKo": "이 ◯◯은 조금 어려워요.",
-      "exampleDe": "Dieser Satz ist etwas schwierig."
+      "exampleDe": "Dieser Satz ist etwas schwierig.",
+      "english": "sentence",
+      "exampleEn": "This sentence is a bit difficult."
      },
      {
       "dir": "v",
@@ -2043,7 +2329,9 @@
       "answer": "공연장",
       "german": "Konzerthalle",
       "exampleKo": "◯◯◯ 입구가 복잡해요.",
-      "exampleDe": "Der Eingang der Konzerthalle ist voll."
+      "exampleDe": "Der Eingang der Konzerthalle ist voll.",
+      "english": "concert hall",
+      "exampleEn": "The concert hall entrance is crowded."
      },
      {
       "dir": "h",
@@ -2052,7 +2340,9 @@
       "answer": "공연",
       "german": "Aufführung",
       "exampleKo": "주말에 ◯◯을 보러 가요.",
-      "exampleDe": "Am Wochenende gehe ich zu einer Aufführung."
+      "exampleDe": "Am Wochenende gehe ich zu einer Aufführung.",
+      "english": "performance",
+      "exampleEn": "I am going to see a performance this weekend."
      },
      {
       "dir": "v",
@@ -2061,7 +2351,9 @@
       "answer": "문학",
       "german": "Literatur",
       "exampleKo": "한국 ◯◯에 관심이 있어요.",
-      "exampleDe": "Ich interessiere mich für koreanische Literatur."
+      "exampleDe": "Ich interessiere mich für koreanische Literatur.",
+      "english": "literature",
+      "exampleEn": "I am interested in Korean literature."
      }
     ],
     "pool": [
@@ -2088,7 +2380,9 @@
       "answer": "식비",
       "german": "Essenskosten",
       "exampleKo": "이번 달 ◯◯가 많이 나왔어요.",
-      "exampleDe": "Diesen Monat waren die Essenskosten hoch."
+      "exampleDe": "Diesen Monat waren die Essenskosten hoch.",
+      "english": "food expenses",
+      "exampleEn": "Food expenses were high this month."
      },
      {
       "dir": "v",
@@ -2097,7 +2391,9 @@
       "answer": "비상구",
       "german": "Notausgang",
       "exampleKo": "◯◯◯는 어디에 있어요?",
-      "exampleDe": "Wo ist der Notausgang?"
+      "exampleDe": "Wo ist der Notausgang?",
+      "english": "emergency exit",
+      "exampleEn": "Where is the emergency exit?"
      },
      {
       "dir": "h",
@@ -2106,7 +2402,9 @@
       "answer": "상가",
       "german": "Einkaufszeile",
       "exampleKo": "집 근처에 ◯◯가 있어요.",
-      "exampleDe": "In der Nähe meiner Wohnung gibt es eine Einkaufszeile."
+      "exampleDe": "In der Nähe meiner Wohnung gibt es eine Einkaufszeile.",
+      "english": "shopping street",
+      "exampleEn": "There is a shopping street near my home."
      },
      {
       "dir": "v",
@@ -2115,7 +2413,9 @@
       "answer": "외식",
       "german": "Essengehen",
       "exampleKo": "오늘은 가족과 ◯◯을 해요.",
-      "exampleDe": "Heute gehen wir mit der Familie essen."
+      "exampleDe": "Heute gehen wir mit der Familie essen.",
+      "english": "eating out",
+      "exampleEn": "We are eating out with the family today."
      }
     ],
     "pool": [
@@ -2142,7 +2442,9 @@
       "answer": "처방전",
       "german": "Rezept",
       "exampleKo": "의사가 ◯◯◯을 써 줬어요.",
-      "exampleDe": "Der Arzt hat mir ein Rezept ausgestellt."
+      "exampleDe": "Der Arzt hat mir ein Rezept ausgestellt.",
+      "english": "prescription",
+      "exampleEn": "The doctor wrote me a prescription."
      },
      {
       "dir": "v",
@@ -2151,7 +2453,9 @@
       "answer": "책방",
       "german": "Buchladen",
       "exampleKo": "동네 ◯◯에서 책을 샀어요.",
-      "exampleDe": "Ich habe im Buchladen im Viertel ein Buch gekauft."
+      "exampleDe": "Ich habe im Buchladen im Viertel ein Buch gekauft.",
+      "english": "bookstore",
+      "exampleEn": "I bought a book at the local bookstore."
      },
      {
       "dir": "v",
@@ -2160,7 +2464,9 @@
       "answer": "전통",
       "german": "Tradition",
       "exampleKo": "이 마을은 ◯◯을 지켜요.",
-      "exampleDe": "Dieses Dorf bewahrt seine Tradition."
+      "exampleDe": "Dieses Dorf bewahrt seine Tradition.",
+      "english": "tradition",
+      "exampleEn": "This village keeps its tradition."
      },
      {
       "dir": "h",
@@ -2169,7 +2475,9 @@
       "answer": "통역",
       "german": "Dolmetschen",
       "exampleKo": "친구가 ◯◯을 해 줬어요.",
-      "exampleDe": "Ein Freund hat für mich gedolmetscht."
+      "exampleDe": "Ein Freund hat für mich gedolmetscht.",
+      "english": "interpretation",
+      "exampleEn": "A friend interpreted for me."
      }
     ],
     "pool": [
@@ -2196,7 +2504,9 @@
       "answer": "책임",
       "german": "Verantwortung",
       "exampleKo": "이번 일은 제 ◯◯이에요.",
-      "exampleDe": "Das hier ist meine Verantwortung."
+      "exampleDe": "Das hier ist meine Verantwortung.",
+      "english": "responsibility",
+      "exampleEn": "This is my responsibility."
      },
      {
       "dir": "v",
@@ -2205,7 +2515,9 @@
       "answer": "책임감",
       "german": "Verantwortungsbewusstsein",
       "exampleKo": "그 사람은 ◯◯◯이 정말 강해요.",
-      "exampleDe": "Diese Person hat ein wirklich starkes Verantwortungsbewusstsein."
+      "exampleDe": "Diese Person hat ein wirklich starkes Verantwortungsbewusstsein.",
+      "english": "sense of responsibility",
+      "exampleEn": "That person has a really strong sense of responsibility."
      },
      {
       "dir": "h",
@@ -2214,7 +2526,9 @@
       "answer": "감기약",
       "german": "Erkältungsmedizin",
       "exampleKo": "약국에서 ◯◯◯을 샀어요.",
-      "exampleDe": "Ich habe in der Apotheke Erkältungsmedizin gekauft."
+      "exampleDe": "Ich habe in der Apotheke Erkältungsmedizin gekauft.",
+      "english": "cold medicine",
+      "exampleEn": "I bought cold medicine at the pharmacy."
      },
      {
       "dir": "v",
@@ -2223,7 +2537,9 @@
       "answer": "기쁨",
       "german": "Freude",
       "exampleKo": "합격 소식은 큰 ◯◯이었어요.",
-      "exampleDe": "Die Nachricht vom Bestehen war eine große Freude."
+      "exampleDe": "Die Nachricht vom Bestehen war eine große Freude.",
+      "english": "joy",
+      "exampleEn": "The news of passing was a great joy."
      }
     ],
     "pool": [
@@ -2251,7 +2567,9 @@
       "answer": "차이",
       "german": "Unterschied",
       "exampleKo": "한국이랑 독일 문화 ◯◯가 진짜 커요.",
-      "exampleDe": "Der kulturelle Unterschied zwischen Korea und Deutschland ist echt groß."
+      "exampleDe": "Der kulturelle Unterschied zwischen Korea und Deutschland ist echt groß.",
+      "english": "difference",
+      "exampleEn": "The cultural differences between Korea and Germany are really big."
      },
      {
       "dir": "v",
@@ -2260,7 +2578,9 @@
       "answer": "집들이",
       "german": "Einweihungsfeier",
       "exampleKo": "토요일에 ◯◯◯를 해요.",
-      "exampleDe": "Am Samstag machen wir eine Einweihungsfeier."
+      "exampleDe": "Am Samstag machen wir eine Einweihungsfeier.",
+      "english": "housewarming party",
+      "exampleEn": "We are having a housewarming party on Saturday."
      },
      {
       "dir": "h",
@@ -2269,7 +2589,9 @@
       "answer": "하숙집",
       "german": "Studentenpension",
       "exampleKo": "대학교 근처 ◯◯◯에 살아요.",
-      "exampleDe": "Ich wohne in einer Studentenpension nahe der Uni."
+      "exampleDe": "Ich wohne in einer Studentenpension nahe der Uni.",
+      "english": "boarding house",
+      "exampleEn": "I live in a boarding house near the university."
      }
     ],
     "pool": [
@@ -2296,7 +2618,9 @@
       "answer": "안내문",
       "german": "Hinweisblatt",
       "exampleKo": "입구에 ◯◯◯이 붙어 있어요.",
-      "exampleDe": "Am Eingang hängt ein Hinweisblatt."
+      "exampleDe": "Am Eingang hängt ein Hinweisblatt.",
+      "english": "notice",
+      "exampleEn": "A notice is posted at the entrance."
      },
      {
       "dir": "v",
@@ -2305,7 +2629,9 @@
       "answer": "질문",
       "german": "Frage",
       "exampleKo": "◯◯이 하나 있어요.",
-      "exampleDe": "Ich habe eine Frage."
+      "exampleDe": "Ich habe eine Frage.",
+      "english": "question",
+      "exampleEn": "I have a question."
      },
      {
       "dir": "v",
@@ -2314,7 +2640,9 @@
       "answer": "안약",
       "german": "Augentropfen",
       "exampleKo": "눈이 건조해서 ◯◯을 넣어요.",
-      "exampleDe": "Meine Augen sind trocken und ich benutze Augentropfen."
+      "exampleDe": "Meine Augen sind trocken und ich benutze Augentropfen.",
+      "english": "eye drops",
+      "exampleEn": "My eyes are dry so I use eye drops."
      },
      {
       "dir": "h",
@@ -2323,7 +2651,9 @@
       "answer": "두통약",
       "german": "Kopfschmerztablette",
       "exampleKo": "◯◯◯ 있어요?",
-      "exampleDe": "Haben Sie Kopfschmerztabletten?"
+      "exampleDe": "Haben Sie Kopfschmerztabletten?",
+      "english": "headache medicine",
+      "exampleEn": "Do you have headache medicine?"
      }
     ],
     "pool": [
@@ -2351,7 +2681,9 @@
       "answer": "존댓말",
       "german": "Höflichkeitssprache",
       "exampleKo": "어른에게는 ◯◯◯을 써요.",
-      "exampleDe": "Gegenüber Älteren benutzt man die Höflichkeitssprache."
+      "exampleDe": "Gegenüber Älteren benutzt man die Höflichkeitssprache.",
+      "english": "honorific speech",
+      "exampleEn": "You use honorific speech with elders."
      },
      {
       "dir": "v",
@@ -2360,7 +2692,9 @@
       "answer": "댓글",
       "german": "Kommentar (online)",
       "exampleKo": "제 ◯◯에 답장 달아 주셔서 감사해요.",
-      "exampleDe": "Danke, dass Sie auf meinen Kommentar geantwortet haben."
+      "exampleDe": "Danke, dass Sie auf meinen Kommentar geantwortet haben.",
+      "english": "comment (online)",
+      "exampleEn": "Thanks for replying to my comment."
      },
      {
       "dir": "v",
@@ -2369,7 +2703,9 @@
       "answer": "반말",
       "german": "informelle Sprache",
       "exampleKo": "친한 친구와는 ◯◯을 해요.",
-      "exampleDe": "Mit engen Freunden spricht man informell."
+      "exampleDe": "Mit engen Freunden spricht man informell.",
+      "english": "casual speech",
+      "exampleEn": "You speak casually with close friends."
      }
     ],
     "pool": [
@@ -2395,7 +2731,9 @@
       "answer": "한계",
       "german": "Grenze / Limit",
       "exampleKo": "이제 정말 제 ◯◯인 것 같아요.",
-      "exampleDe": "Ich glaube, ich bin jetzt wirklich an meiner Grenze."
+      "exampleDe": "Ich glaube, ich bin jetzt wirklich an meiner Grenze.",
+      "english": "limit",
+      "exampleEn": "I think I've really hit my limit."
      },
      {
       "dir": "v",
@@ -2404,7 +2742,9 @@
       "answer": "관계",
       "german": "Beziehung / Verhältnis",
       "exampleKo": "사람 ◯◯가 제일 어려운 것 같아요.",
-      "exampleDe": "Zwischenmenschliche Beziehungen sind wohl das Schwierigste."
+      "exampleDe": "Zwischenmenschliche Beziehungen sind wohl das Schwierigste.",
+      "english": "relationship",
+      "exampleEn": "I think relationships with people are the hardest thing."
      },
      {
       "dir": "h",
@@ -2413,7 +2753,9 @@
       "answer": "관심",
       "german": "Interesse",
       "exampleKo": "역사에 ◯◯이 많아요.",
-      "exampleDe": "Ich habe großes Interesse an Geschichte."
+      "exampleDe": "Ich habe großes Interesse an Geschichte.",
+      "english": "interest",
+      "exampleEn": "I am very interested in history."
      }
     ],
     "pool": [
@@ -2438,7 +2780,9 @@
       "answer": "보고서",
       "german": "Bericht",
       "exampleKo": "내일까지 ◯◯◯를 써야 해요.",
-      "exampleDe": "Bis morgen muss ich den Bericht schreiben."
+      "exampleDe": "Bis morgen muss ich den Bericht schreiben.",
+      "english": "report",
+      "exampleEn": "I have to write the report by tomorrow."
      },
      {
       "dir": "v",
@@ -2447,7 +2791,9 @@
       "answer": "고치다",
       "german": "reparieren",
       "exampleKo": "컴퓨터를 고쳐야 해요.",
-      "exampleDe": "Der Computer muss repariert werden."
+      "exampleDe": "Der Computer muss repariert werden.",
+      "english": "to fix",
+      "exampleEn": "The computer needs to be fixed."
      },
      {
       "dir": "h",
@@ -2456,7 +2802,9 @@
       "answer": "게다가",
       "german": "außerdem / darüber hinaus",
       "exampleKo": "일도 힘든데 ◯◯◯ 몸까지 안 좋네요.",
-      "exampleDe": "Die Arbeit ist schon anstrengend, und dazu geht es mir auch noch schlecht."
+      "exampleDe": "Die Arbeit ist schon anstrengend, und dazu geht es mir auch noch schlecht.",
+      "english": "moreover / on top of that",
+      "exampleEn": "Work is tough enough, and on top of that I'm not feeling well."
      },
      {
       "dir": "v",
@@ -2465,7 +2813,9 @@
       "answer": "정보",
       "german": "Information",
       "exampleKo": "인터넷에 ◯◯가 너무 많아서 헷갈려요.",
-      "exampleDe": "Im Internet gibt es so viele Informationen, dass ich durcheinanderkomme."
+      "exampleDe": "Im Internet gibt es so viele Informationen, dass ich durcheinanderkomme.",
+      "english": "information",
+      "exampleEn": "There's so much information online that it's confusing."
      }
     ],
     "pool": [
@@ -2494,7 +2844,9 @@
       "answer": "심하다",
       "german": "schlimm",
       "exampleKo": "감기가 심해요.",
-      "exampleDe": "Die Erkältung ist schlimm."
+      "exampleDe": "Die Erkältung ist schlimm.",
+      "english": "severe",
+      "exampleEn": "The cold is severe."
      },
      {
       "dir": "v",
@@ -2503,7 +2855,9 @@
       "answer": "줍다",
       "german": "aufheben",
       "exampleKo": "길에서 지갑을 주웠어요.",
-      "exampleDe": "Ich habe auf der Straße einen Geldbeutel aufgehoben."
+      "exampleDe": "Ich habe auf der Straße einen Geldbeutel aufgehoben.",
+      "english": "to pick up",
+      "exampleEn": "I picked up a wallet on the street."
      },
      {
       "dir": "v",
@@ -2512,7 +2866,9 @@
       "answer": "관심",
       "german": "Interesse",
       "exampleKo": "역사에 ◯◯이 많아요.",
-      "exampleDe": "Ich habe großes Interesse an Geschichte."
+      "exampleDe": "Ich habe großes Interesse an Geschichte.",
+      "english": "interest",
+      "exampleEn": "I am very interested in history."
      },
      {
       "dir": "h",
@@ -2521,7 +2877,9 @@
       "answer": "미술관",
       "german": "Kunstmuseum",
       "exampleKo": "◯◯◯이 어디에 있어요?",
-      "exampleDe": "Wo ist das Kunstmuseum?"
+      "exampleDe": "Wo ist das Kunstmuseum?",
+      "english": "art museum",
+      "exampleEn": "Where is the art museum?"
      }
     ],
     "pool": [
@@ -2549,7 +2907,9 @@
       "answer": "과정",
       "german": "Prozess / Vorgang",
       "exampleKo": "결과보다 ◯◯이 더 중요하다고 생각해요.",
-      "exampleDe": "Ich finde, der Prozess ist wichtiger als das Ergebnis."
+      "exampleDe": "Ich finde, der Prozess ist wichtiger als das Ergebnis.",
+      "english": "process",
+      "exampleEn": "I think the process matters more than the result."
      },
      {
       "dir": "v",
@@ -2558,7 +2918,9 @@
       "answer": "결과",
       "german": "Ergebnis / Folge",
       "exampleKo": "◯◯가 생각보다 잘 나왔어요.",
-      "exampleDe": "Das Ergebnis ist besser ausgefallen als gedacht."
+      "exampleDe": "Das Ergebnis ist besser ausgefallen als gedacht.",
+      "english": "result / outcome",
+      "exampleEn": "The results came out better than expected."
      },
      {
       "dir": "v",
@@ -2567,7 +2929,9 @@
       "answer": "정보",
       "german": "Information",
       "exampleKo": "인터넷에 ◯◯가 너무 많아서 헷갈려요.",
-      "exampleDe": "Im Internet gibt es so viele Informationen, dass ich durcheinanderkomme."
+      "exampleDe": "Im Internet gibt es so viele Informationen, dass ich durcheinanderkomme.",
+      "english": "information",
+      "exampleEn": "There's so much information online that it's confusing."
      },
      {
       "dir": "h",
@@ -2576,7 +2940,9 @@
       "answer": "보고서",
       "german": "Bericht",
       "exampleKo": "내일까지 ◯◯◯를 써야 해요.",
-      "exampleDe": "Bis morgen muss ich den Bericht schreiben."
+      "exampleDe": "Bis morgen muss ich den Bericht schreiben.",
+      "english": "report",
+      "exampleEn": "I have to write the report by tomorrow."
      }
     ],
     "pool": [
@@ -2603,7 +2969,9 @@
       "answer": "가능성",
       "german": "Möglichkeit",
       "exampleKo": "성공 ◯◯◯이 없진 않아요.",
-      "exampleDe": "Ganz ohne Erfolgschancen ist es nicht."
+      "exampleDe": "Ganz ohne Erfolgschancen ist es nicht.",
+      "english": "possibility",
+      "exampleEn": "It's not like there's no chance of success."
      },
      {
       "dir": "v",
@@ -2611,8 +2979,10 @@
       "col": 3,
       "answer": "성격",
       "german": "Charakter",
-      "exampleKo": "제 동생은 ◯◯이 밝아요.",
-      "exampleDe": "Meine kleine Schwester hat einen fröhlichen Charakter."
+      "exampleKo": "제 여동생은 ◯◯이 밝아요.",
+      "exampleDe": "Meine kleine Schwester hat einen fröhlichen Charakter.",
+      "english": "personality",
+      "exampleEn": "My younger sister has a cheerful personality."
      },
      {
       "dir": "v",
@@ -2621,7 +2991,9 @@
       "answer": "상가",
       "german": "Einkaufszeile",
       "exampleKo": "집 근처에 ◯◯가 있어요.",
-      "exampleDe": "In der Nähe meiner Wohnung gibt es eine Einkaufszeile."
+      "exampleDe": "In der Nähe meiner Wohnung gibt es eine Einkaufszeile.",
+      "english": "shopping street",
+      "exampleEn": "There is a shopping street near my home."
      },
      {
       "dir": "h",
@@ -2630,7 +3002,9 @@
       "answer": "명상",
       "german": "Meditation",
       "exampleKo": "매일 아침 10분씩 ◯◯해요.",
-      "exampleDe": "Ich meditiere jeden Morgen zehn Minuten."
+      "exampleDe": "Ich meditiere jeden Morgen zehn Minuten.",
+      "english": "meditation",
+      "exampleEn": "I meditate for ten minutes every morning."
      }
     ],
     "pool": [
@@ -2657,7 +3031,9 @@
       "answer": "기간",
       "german": "Zeitraum",
       "exampleKo": "시험 ◯◯에는 바빠요.",
-      "exampleDe": "In der Prüfungszeit bin ich beschäftigt."
+      "exampleDe": "In der Prüfungszeit bin ich beschäftigt.",
+      "english": "period",
+      "exampleEn": "I am busy during exam period."
      },
      {
       "dir": "v",
@@ -2666,7 +3042,9 @@
       "answer": "감기약",
       "german": "Erkältungsmedizin",
       "exampleKo": "약국에서 ◯◯◯을 샀어요.",
-      "exampleDe": "Ich habe in der Apotheke Erkältungsmedizin gekauft."
+      "exampleDe": "Ich habe in der Apotheke Erkältungsmedizin gekauft.",
+      "english": "cold medicine",
+      "exampleEn": "I bought cold medicine at the pharmacy."
      },
      {
       "dir": "h",
@@ -2675,7 +3053,9 @@
       "answer": "두통약",
       "german": "Kopfschmerztablette",
       "exampleKo": "◯◯◯ 있어요?",
-      "exampleDe": "Haben Sie Kopfschmerztabletten?"
+      "exampleDe": "Haben Sie Kopfschmerztabletten?",
+      "english": "headache medicine",
+      "exampleEn": "Do you have headache medicine?"
      },
      {
       "dir": "h",
@@ -2684,7 +3064,9 @@
       "answer": "마감",
       "german": "Deadline / Abgabefrist",
       "exampleKo": "◯◯이 이번 주 금요일이에요.",
-      "exampleDe": "Die Deadline ist diesen Freitag."
+      "exampleDe": "Die Deadline ist diesen Freitag.",
+      "english": "deadline",
+      "exampleEn": "The deadline is this Friday."
      }
     ],
     "pool": [
@@ -2712,7 +3094,9 @@
       "answer": "사회",
       "german": "Gesellschaft",
       "exampleKo": "요즘 ◯◯ 문제에 관심이 많아요.",
-      "exampleDe": "Ich interessiere mich zurzeit sehr für gesellschaftliche Probleme."
+      "exampleDe": "Ich interessiere mich zurzeit sehr für gesellschaftliche Probleme.",
+      "english": "society",
+      "exampleEn": "I'm very interested in social issues these days."
      },
      {
       "dir": "v",
@@ -2721,7 +3105,9 @@
       "answer": "사귀다",
       "german": "sich anfreunden",
       "exampleKo": "한국 친구를 많이 사귀었어요.",
-      "exampleDe": "Ich habe viele koreanische Freunde gefunden."
+      "exampleDe": "Ich habe viele koreanische Freunde gefunden.",
+      "english": "to make friends",
+      "exampleEn": "I made many Korean friends."
      },
      {
       "dir": "h",
@@ -2730,7 +3116,9 @@
       "answer": "굵다",
       "german": "dick (grob)",
       "exampleKo": "굵은 펜으로 써 주세요.",
-      "exampleDe": "Schreiben Sie bitte mit einem dicken Stift."
+      "exampleDe": "Schreiben Sie bitte mit einem dicken Stift.",
+      "english": "thick",
+      "exampleEn": "Please write with a thick pen."
      },
      {
       "dir": "v",
@@ -2739,7 +3127,9 @@
       "answer": "송별회",
       "german": "Abschiedsfeier",
       "exampleKo": "부장님 ◯◯◯가 금요일이에요.",
-      "exampleDe": "Die Abschiedsfeier des Abteilungsleiters ist am Freitag."
+      "exampleDe": "Die Abschiedsfeier des Abteilungsleiters ist am Freitag.",
+      "english": "farewell party",
+      "exampleEn": "The manager's farewell party is on Friday."
      }
     ],
     "pool": [
@@ -2767,7 +3157,9 @@
       "answer": "기회",
       "german": "Gelegenheit / Chance",
       "exampleKo": "이건 정말 좋은 ◯◯ 같아요.",
-      "exampleDe": "Das scheint eine wirklich gute Gelegenheit zu sein."
+      "exampleDe": "Das scheint eine wirklich gute Gelegenheit zu sein.",
+      "english": "opportunity / chance",
+      "exampleEn": "This seems like a really good opportunity."
      },
      {
       "dir": "v",
@@ -2776,7 +3168,9 @@
       "answer": "회비",
       "german": "Mitgliedsbeitrag",
       "exampleKo": "모임 ◯◯는 만 원이에요.",
-      "exampleDe": "Der Beitrag für das Treffen beträgt 10.000 Won."
+      "exampleDe": "Der Beitrag für das Treffen beträgt 10.000 Won.",
+      "english": "membership fee",
+      "exampleEn": "The meeting fee is 10000 won."
      },
      {
       "dir": "v",
@@ -2785,7 +3179,9 @@
       "answer": "갑자기",
       "german": "plötzlich",
       "exampleKo": "◯◯◯ 비가 쏟아졌어요.",
-      "exampleDe": "Plötzlich hat es angefangen zu schütten."
+      "exampleDe": "Plötzlich hat es angefangen zu schütten.",
+      "english": "suddenly",
+      "exampleEn": "Suddenly it started pouring."
      },
      {
       "dir": "h",
@@ -2794,7 +3190,9 @@
       "answer": "비상구",
       "german": "Notausgang",
       "exampleKo": "◯◯◯는 어디에 있어요?",
-      "exampleDe": "Wo ist der Notausgang?"
+      "exampleDe": "Wo ist der Notausgang?",
+      "english": "emergency exit",
+      "exampleEn": "Where is the emergency exit?"
      }
     ],
     "pool": [
@@ -2822,7 +3220,9 @@
       "answer": "모으다",
       "german": "sammeln",
       "exampleKo": "취미로 우표를 모아요.",
-      "exampleDe": "Als Hobby sammle ich Briefmarken."
+      "exampleDe": "Als Hobby sammle ich Briefmarken.",
+      "english": "to collect",
+      "exampleEn": "I collect stamps as a hobby."
      },
      {
       "dir": "v",
@@ -2831,7 +3231,9 @@
       "answer": "사귀다",
       "german": "sich anfreunden",
       "exampleKo": "한국 친구를 많이 사귀었어요.",
-      "exampleDe": "Ich habe viele koreanische Freunde gefunden."
+      "exampleDe": "Ich habe viele koreanische Freunde gefunden.",
+      "english": "to make friends",
+      "exampleEn": "I made many Korean friends."
      },
      {
       "dir": "v",
@@ -2840,7 +3242,9 @@
       "answer": "모임",
       "german": "Treffen",
       "exampleKo": "오늘 저녁에 ◯◯이 있어요.",
-      "exampleDe": "Heute Abend habe ich ein Treffen."
+      "exampleDe": "Heute Abend habe ich ein Treffen.",
+      "english": "gathering",
+      "exampleEn": "I have a gathering this evening."
      },
      {
       "dir": "h",
@@ -2849,7 +3253,9 @@
       "answer": "주사",
       "german": "Spritze",
       "exampleKo": "◯◯를 맞았어요.",
-      "exampleDe": "Ich habe eine Spritze bekommen."
+      "exampleDe": "Ich habe eine Spritze bekommen.",
+      "english": "injection",
+      "exampleEn": "I got an injection."
      }
     ],
     "pool": [
@@ -2877,7 +3283,9 @@
       "answer": "외로움",
       "german": "Einsamkeit",
       "exampleKo": "혼자 살면 가끔 ◯◯◯을 느껴요.",
-      "exampleDe": "Beim Alleinleben fühlt man manchmal Einsamkeit."
+      "exampleDe": "Beim Alleinleben fühlt man manchmal Einsamkeit.",
+      "english": "loneliness",
+      "exampleEn": "Living alone you sometimes feel loneliness."
      },
      {
       "dir": "v",
@@ -2886,7 +3294,9 @@
       "answer": "외식",
       "german": "Essengehen",
       "exampleKo": "오늘은 가족과 ◯◯을 해요.",
-      "exampleDe": "Heute gehen wir mit der Familie essen."
+      "exampleDe": "Heute gehen wir mit der Familie essen.",
+      "english": "eating out",
+      "exampleEn": "We are eating out with the family today."
      },
      {
       "dir": "h",
@@ -2895,7 +3305,9 @@
       "answer": "휴식",
       "german": "Erholung / Pause",
       "exampleKo": "잠깐이라도 ◯◯이 필요해요.",
-      "exampleDe": "Ich brauche eine Pause, auch wenn sie nur kurz ist."
+      "exampleDe": "Ich brauche eine Pause, auch wenn sie nur kurz ist.",
+      "english": "rest / break",
+      "exampleEn": "I need a break, even just a short one."
      }
     ],
     "pool": [
@@ -2921,7 +3333,9 @@
       "answer": "해결",
       "german": "Lösung",
       "exampleKo": "이 문제는 빨리 ◯◯해야 해요.",
-      "exampleDe": "Dieses Problem müssen wir schnell lösen."
+      "exampleDe": "Dieses Problem müssen wir schnell lösen.",
+      "english": "solution",
+      "exampleEn": "We need to solve this problem quickly."
      },
      {
       "dir": "v",
@@ -2930,7 +3344,9 @@
       "answer": "결과",
       "german": "Ergebnis / Folge",
       "exampleKo": "◯◯가 생각보다 잘 나왔어요.",
-      "exampleDe": "Das Ergebnis ist besser ausgefallen als gedacht."
+      "exampleDe": "Das Ergebnis ist besser ausgefallen als gedacht.",
+      "english": "result / outcome",
+      "exampleEn": "The results came out better than expected."
      },
      {
       "dir": "h",
@@ -2939,7 +3355,9 @@
       "answer": "과정",
       "german": "Prozess / Vorgang",
       "exampleKo": "결과보다 ◯◯이 더 중요하다고 생각해요.",
-      "exampleDe": "Ich finde, der Prozess ist wichtiger als das Ergebnis."
+      "exampleDe": "Ich finde, der Prozess ist wichtiger als das Ergebnis.",
+      "english": "process",
+      "exampleEn": "I think the process matters more than the result."
      }
     ],
     "pool": [
@@ -2964,7 +3382,9 @@
       "answer": "습관",
       "german": "Gewohnheit",
       "exampleKo": "일찍 자는 ◯◯을 들이려고 해요.",
-      "exampleDe": "Ich versuche, mir anzugewöhnen, früh ins Bett zu gehen."
+      "exampleDe": "Ich versuche, mir anzugewöhnen, früh ins Bett zu gehen.",
+      "english": "habit",
+      "exampleEn": "I'm trying to get into the habit of going to bed early."
      },
      {
       "dir": "v",
@@ -2973,7 +3393,9 @@
       "answer": "관심",
       "german": "Interesse",
       "exampleKo": "역사에 ◯◯이 많아요.",
-      "exampleDe": "Ich habe großes Interesse an Geschichte."
+      "exampleDe": "Ich habe großes Interesse an Geschichte.",
+      "english": "interest",
+      "exampleEn": "I am very interested in history."
      },
      {
       "dir": "h",
@@ -2982,7 +3404,9 @@
       "answer": "심하다",
       "german": "schlimm",
       "exampleKo": "감기가 심해요.",
-      "exampleDe": "Die Erkältung ist schlimm."
+      "exampleDe": "Die Erkältung ist schlimm.",
+      "english": "severe",
+      "exampleEn": "The cold is severe."
      },
      {
       "dir": "v",
@@ -2991,7 +3415,9 @@
       "answer": "깎다",
       "german": "schälen",
       "exampleKo": "사과를 깎아서 먹었어요.",
-      "exampleDe": "Ich habe den Apfel geschält und gegessen."
+      "exampleDe": "Ich habe den Apfel geschält und gegessen.",
+      "english": "to peel",
+      "exampleEn": "I peeled the apple and ate it."
      }
     ],
     "pool": [
@@ -3020,7 +3446,9 @@
       "answer": "모이다",
       "german": "sich versammeln",
       "exampleKo": "주말에 가족이 다 모여요.",
-      "exampleDe": "Am Wochenende kommt die ganze Familie zusammen."
+      "exampleDe": "Am Wochenende kommt die ganze Familie zusammen.",
+      "english": "to gather",
+      "exampleEn": "The whole family gathers on weekends."
      },
      {
       "dir": "v",
@@ -3029,7 +3457,9 @@
       "answer": "쌍둥이",
       "german": "Zwillinge",
       "exampleKo": "제 동생들은 ◯◯◯예요.",
-      "exampleDe": "Meine jüngeren Geschwister sind Zwillinge."
+      "exampleDe": "Meine jüngeren Geschwister sind Zwillinge.",
+      "english": "twins",
+      "exampleEn": "My younger siblings are twins."
      },
      {
       "dir": "v",
@@ -3038,7 +3468,9 @@
       "answer": "모음",
       "german": "Vokal",
       "exampleKo": "◯◯부터 배웠어요.",
-      "exampleDe": "Ich habe zuerst die Vokale gelernt."
+      "exampleDe": "Ich habe zuerst die Vokale gelernt.",
+      "english": "vowel",
+      "exampleEn": "I learned the vowels first."
      },
      {
       "dir": "h",
@@ -3047,7 +3479,9 @@
       "answer": "자음",
       "german": "Konsonant",
       "exampleKo": "한글에는 ◯◯이 열아홉 개 있어요.",
-      "exampleDe": "Hangul hat neunzehn Konsonanten."
+      "exampleDe": "Hangul hat neunzehn Konsonanten.",
+      "english": "consonant",
+      "exampleEn": "Hangul has nineteen consonants."
      }
     ],
     "pool": [
@@ -3075,7 +3509,9 @@
       "answer": "말리다",
       "german": "trocknen",
       "exampleKo": "머리를 말리고 나갈게요.",
-      "exampleDe": "Ich trockne mir die Haare und gehe dann los."
+      "exampleDe": "Ich trockne mir die Haare und gehe dann los.",
+      "english": "to dry",
+      "exampleEn": "I will dry my hair and then leave."
      },
      {
       "dir": "v",
@@ -3084,7 +3520,9 @@
       "answer": "섞이다",
       "german": "sich vermischen",
       "exampleKo": "물과 기름은 잘 안 섞여요.",
-      "exampleDe": "Wasser und Öl vermischen sich nicht gut."
+      "exampleDe": "Wasser und Öl vermischen sich nicht gut.",
+      "english": "to be mixed",
+      "exampleEn": "Water and oil do not mix well."
      },
      {
       "dir": "v",
@@ -3093,7 +3531,9 @@
       "answer": "말씀",
       "german": "Worte (ehrerbietig)",
       "exampleKo": "선생님 ◯◯ 잘 들었어요.",
-      "exampleDe": "Ich habe Ihre Worte aufmerksam gehört."
+      "exampleDe": "Ich habe Ihre Worte aufmerksam gehört.",
+      "english": "words (honorific)",
+      "exampleEn": "I listened carefully to your words."
      },
      {
       "dir": "h",
@@ -3102,7 +3542,9 @@
       "answer": "이론",
       "german": "Theorie",
       "exampleKo": "◯◯과 실제는 좀 다르더라고요.",
-      "exampleDe": "Theorie und Praxis sind eben doch etwas verschieden."
+      "exampleDe": "Theorie und Praxis sind eben doch etwas verschieden.",
+      "english": "theory",
+      "exampleEn": "Theory and practice turned out to be a bit different."
      }
     ],
     "pool": [
@@ -3130,7 +3572,9 @@
       "answer": "동창",
       "german": "Schulfreund",
       "exampleKo": "어제 고등학교 ◯◯을 만났어요.",
-      "exampleDe": "Gestern habe ich einen alten Schulfreund getroffen."
+      "exampleDe": "Gestern habe ich einen alten Schulfreund getroffen.",
+      "english": "schoolmate",
+      "exampleEn": "I met a high school classmate yesterday."
      },
      {
       "dir": "v",
@@ -3139,7 +3583,9 @@
       "answer": "동사",
       "german": "Verb",
       "exampleKo": "◯◯는 문장 끝에 와요.",
-      "exampleDe": "Das Verb steht am Satzende."
+      "exampleDe": "Das Verb steht am Satzende.",
+      "english": "verb",
+      "exampleEn": "The verb comes at the end of the sentence."
      },
      {
       "dir": "h",
@@ -3148,7 +3594,9 @@
       "answer": "명사",
       "german": "Substantiv",
       "exampleKo": "이 단어는 ◯◯예요.",
-      "exampleDe": "Dieses Wort ist ein Substantiv."
+      "exampleDe": "Dieses Wort ist ein Substantiv.",
+      "english": "noun",
+      "exampleEn": "This word is a noun."
      }
     ],
     "pool": [
@@ -3173,7 +3621,9 @@
       "answer": "생산성",
       "german": "Produktivität",
       "exampleKo": "재택근무 이후로 ◯◯◯이 오히려 올랐어요.",
-      "exampleDe": "Seit dem Homeoffice ist die Produktivität sogar gestiegen."
+      "exampleDe": "Seit dem Homeoffice ist die Produktivität sogar gestiegen.",
+      "english": "productivity",
+      "exampleEn": "Since working from home, productivity has actually gone up."
      },
      {
       "dir": "v",
@@ -3182,7 +3632,9 @@
       "answer": "성함",
       "german": "Name (ehrerbietig)",
       "exampleKo": "◯◯이 어떻게 되세요?",
-      "exampleDe": "Wie ist Ihr werter Name?"
+      "exampleDe": "Wie heißen Sie?",
+      "english": "name (honorific)",
+      "exampleEn": "May I ask your name?"
      },
      {
       "dir": "v",
@@ -3191,7 +3643,9 @@
       "answer": "생신",
       "german": "Geburtstag (ehrerbietig)",
       "exampleKo": "내일이 할머니 ◯◯이에요.",
-      "exampleDe": "Morgen hat meine Großmutter Geburtstag."
+      "exampleDe": "Morgen hat meine Großmutter Geburtstag.",
+      "english": "birthday (honorific)",
+      "exampleEn": "Tomorrow is my grandmother's birthday."
      }
     ],
     "pool": [
@@ -3217,7 +3671,9 @@
       "answer": "담다",
       "german": "hineintun",
       "exampleKo": "과일을 바구니에 담았어요.",
-      "exampleDe": "Ich habe das Obst in den Korb getan."
+      "exampleDe": "Ich habe das Obst in den Korb getan.",
+      "english": "to put in",
+      "exampleEn": "I put the fruit in the basket."
      },
      {
       "dir": "v",
@@ -3226,7 +3682,9 @@
       "answer": "전하다",
       "german": "übermitteln",
       "exampleKo": "가족에게 안부를 전해 주세요.",
-      "exampleDe": "Richten Sie Ihrer Familie Grüße aus."
+      "exampleDe": "Richten Sie Ihrer Familie Grüße aus.",
+      "english": "to convey",
+      "exampleEn": "Please give my regards to your family."
      },
      {
       "dir": "v",
@@ -3235,7 +3693,9 @@
       "answer": "담그다",
       "german": "einlegen",
       "exampleKo": "가을에 김치를 담가요.",
-      "exampleDe": "Im Herbst legen wir Kimchi ein."
+      "exampleDe": "Im Herbst legen wir Kimchi ein.",
+      "english": "to pickle",
+      "exampleEn": "We make kimchi in autumn."
      },
      {
       "dir": "h",
@@ -3244,7 +3704,9 @@
       "answer": "말리다",
       "german": "trocknen",
       "exampleKo": "머리를 말리고 나갈게요.",
-      "exampleDe": "Ich trockne mir die Haare und gehe dann los."
+      "exampleDe": "Ich trockne mir die Haare und gehe dann los.",
+      "english": "to dry",
+      "exampleEn": "I will dry my hair and then leave."
      }
     ],
     "pool": [
@@ -3273,7 +3735,9 @@
       "answer": "인기",
       "german": "Beliebtheit",
       "exampleKo": "이 가수는 ◯◯가 많아요.",
-      "exampleDe": "Dieser Sänger ist sehr beliebt."
+      "exampleDe": "Dieser Sänger ist sehr beliebt.",
+      "english": "popularity",
+      "exampleEn": "This singer is very popular."
      },
      {
       "dir": "v",
@@ -3282,7 +3746,9 @@
       "answer": "애인",
       "german": "Partner",
       "exampleKo": "◯◯과 영화를 봤어요.",
-      "exampleDe": "Ich habe mit meinem Partner einen Film gesehen."
+      "exampleDe": "Ich habe mit meinem Partner einen Film gesehen.",
+      "english": "romantic partner",
+      "exampleEn": "I watched a movie with my partner."
      },
      {
       "dir": "v",
@@ -3291,7 +3757,9 @@
       "answer": "기계",
       "german": "Maschine",
       "exampleKo": "이 ◯◯는 사용법이 간단해요.",
-      "exampleDe": "Diese Maschine ist einfach zu bedienen."
+      "exampleDe": "Diese Maschine ist einfach zu bedienen.",
+      "english": "machine",
+      "exampleEn": "This machine is easy to use."
      },
      {
       "dir": "h",
@@ -3300,7 +3768,9 @@
       "answer": "계시다",
       "german": "sich befinden (ehrerbietig)",
       "exampleKo": "어머니는 지금 집에 계세요.",
-      "exampleDe": "Meine Mutter ist gerade zu Hause."
+      "exampleDe": "Meine Mutter ist gerade zu Hause.",
+      "english": "to be (honorific)",
+      "exampleEn": "My mother is at home right now."
      }
     ],
     "pool": [
@@ -3327,7 +3797,9 @@
       "answer": "음력",
       "german": "Mondkalender",
       "exampleKo": "설날은 ◯◯ 1월 1일이에요.",
-      "exampleDe": "Seollal fällt auf den ersten Tag des ersten Monats im Mondkalender."
+      "exampleDe": "Seollal fällt auf den ersten Tag des ersten Monats im Mondkalender.",
+      "english": "lunar calendar",
+      "exampleEn": "Seollal falls on the first day of the first lunar month."
      },
      {
       "dir": "v",
@@ -3336,7 +3808,9 @@
       "answer": "경쟁력",
       "german": "Wettbewerbsfähigkeit",
       "exampleKo": "우리 팀은 ◯◯◯이 확실해요.",
-      "exampleDe": "Unser Team ist eindeutig wettbewerbsfähig."
+      "exampleDe": "Unser Team ist eindeutig wettbewerbsfähig.",
+      "english": "competitiveness",
+      "exampleEn": "Our team is definitely competitive."
      },
      {
       "dir": "h",
@@ -3345,7 +3819,9 @@
       "answer": "경우",
       "german": "Fall",
       "exampleKo": "비가 올 ◯◯에는 취소돼요.",
-      "exampleDe": "Im Fall von Regen wird es abgesagt."
+      "exampleDe": "Im Fall von Regen wird es abgesagt.",
+      "english": "case",
+      "exampleEn": "In case of rain it is canceled."
      }
     ],
     "pool": [
@@ -3371,7 +3847,9 @@
       "answer": "인권",
       "german": "Menschenrechte",
       "exampleKo": "◯◯은 절대 양보할 수 없는 가치예요.",
-      "exampleDe": "Menschenrechte sind ein Wert, bei dem es keine Kompromisse geben darf."
+      "exampleDe": "Menschenrechte sind ein Wert, bei dem es keine Kompromisse geben darf.",
+      "english": "human rights",
+      "exampleEn": "Human rights are a value we can never compromise on."
      },
      {
       "dir": "v",
@@ -3380,7 +3858,9 @@
       "answer": "인기",
       "german": "Beliebtheit",
       "exampleKo": "이 가수는 ◯◯가 많아요.",
-      "exampleDe": "Dieser Sänger ist sehr beliebt."
+      "exampleDe": "Dieser Sänger ist sehr beliebt.",
+      "english": "popularity",
+      "exampleEn": "This singer is very popular."
      },
      {
       "dir": "h",
@@ -3389,7 +3869,9 @@
       "answer": "가습기",
       "german": "Luftbefeuchter",
       "exampleKo": "방에 ◯◯◯를 켰어요.",
-      "exampleDe": "Ich habe den Luftbefeuchter im Zimmer angemacht."
+      "exampleDe": "Ich habe den Luftbefeuchter im Zimmer angemacht.",
+      "english": "humidifier",
+      "exampleEn": "I turned on the humidifier in the room."
      },
      {
       "dir": "v",
@@ -3398,7 +3880,9 @@
       "answer": "습도",
       "german": "Luftfeuchtigkeit",
       "exampleKo": "여름에는 ◯◯가 높아요.",
-      "exampleDe": "Im Sommer ist die Luftfeuchtigkeit hoch."
+      "exampleDe": "Im Sommer ist die Luftfeuchtigkeit hoch.",
+      "english": "humidity",
+      "exampleEn": "Humidity is high in summer."
      }
     ],
     "pool": [
@@ -3425,7 +3909,9 @@
       "answer": "관객",
       "german": "Zuschauer",
       "exampleKo": "공연장에 ◯◯이 가득해요.",
-      "exampleDe": "Die Halle ist voller Zuschauer."
+      "exampleDe": "Die Halle ist voller Zuschauer.",
+      "english": "audience",
+      "exampleEn": "The hall is full of spectators."
      },
      {
       "dir": "v",
@@ -3434,7 +3920,9 @@
       "answer": "관점",
       "german": "Standpunkt / Perspektive",
       "exampleKo": "이 문제는 다양한 ◯◯에서 봐야 해요.",
-      "exampleDe": "Man muss dieses Problem aus verschiedenen Perspektiven betrachten."
+      "exampleDe": "Man muss dieses Problem aus verschiedenen Perspektiven betrachten.",
+      "english": "viewpoint / perspective",
+      "exampleEn": "You have to look at this issue from different perspectives."
      },
      {
       "dir": "h",
@@ -3443,7 +3931,9 @@
       "answer": "약점",
       "german": "Schwäche",
       "exampleKo": "◯◯은 오히려 인정하는 게 나아요.",
-      "exampleDe": "Seine Schwächen gibt man besser offen zu."
+      "exampleDe": "Seine Schwächen gibt man besser offen zu.",
+      "english": "weakness",
+      "exampleEn": "It's actually better to admit your weaknesses."
      }
     ],
     "pool": [
@@ -3468,7 +3958,9 @@
       "answer": "주의",
       "german": "Vorsicht",
       "exampleKo": "계단에서는 ◯◯가 필요해요.",
-      "exampleDe": "Auf der Treppe ist Vorsicht nötig."
+      "exampleDe": "Auf der Treppe ist Vorsicht nötig.",
+      "english": "caution",
+      "exampleEn": "Caution is needed on the stairs."
      },
      {
       "dir": "v",
@@ -3477,7 +3969,9 @@
       "answer": "주제",
       "german": "Thema",
       "exampleKo": "오늘 회의 ◯◯가 뭐예요?",
-      "exampleDe": "Was ist das Thema der heutigen Sitzung?"
+      "exampleDe": "Was ist das Thema der heutigen Sitzung?",
+      "english": "topic",
+      "exampleEn": "What is the topic of today's meeting?"
      },
      {
       "dir": "h",
@@ -3486,7 +3980,9 @@
       "answer": "전제",
       "german": "Voraussetzung / Prämisse",
       "exampleKo": "이 ◯◯ 자체가 잘못됐다고 생각해요.",
-      "exampleDe": "Ich denke, diese Voraussetzung ist an sich schon falsch."
+      "exampleDe": "Ich denke, diese Voraussetzung ist an sich schon falsch.",
+      "english": "premise / precondition",
+      "exampleEn": "I think the premise itself is wrong."
      },
      {
       "dir": "v",
@@ -3494,8 +3990,10 @@
       "col": 0,
       "answer": "전공",
       "german": "Hauptfach / Studienfach",
-      "exampleKo": "대학교 때 무슨 ◯◯이셨어요?",
-      "exampleDe": "Was haben Sie an der Uni studiert?"
+      "exampleKo": "제 ◯◯은 음악이에요.",
+      "exampleDe": "Mein Studienfach ist Musik.",
+      "english": "major / field of study",
+      "exampleEn": "My major is music."
      }
     ],
     "pool": [
@@ -3521,7 +4019,9 @@
       "answer": "현대",
       "german": "Gegenwart",
       "exampleKo": "◯◯ 사회는 변화가 빨라요.",
-      "exampleDe": "Die moderne Gesellschaft verändert sich schnell."
+      "exampleDe": "Die moderne Gesellschaft verändert sich schnell.",
+      "english": "modern times",
+      "exampleEn": "Modern society changes fast."
      },
      {
       "dir": "v",
@@ -3530,7 +4030,9 @@
       "answer": "현대인",
       "german": "moderner Mensch",
       "exampleKo": "◯◯◯은 스트레스가 많아요.",
-      "exampleDe": "Moderne Menschen haben viel Stress."
+      "exampleDe": "Moderne Menschen haben viel Stress.",
+      "english": "modern person",
+      "exampleEn": "Modern people have a lot of stress."
      },
      {
       "dir": "h",
@@ -3539,7 +4041,9 @@
       "answer": "인기",
       "german": "Beliebtheit",
       "exampleKo": "이 가수는 ◯◯가 많아요.",
-      "exampleDe": "Dieser Sänger ist sehr beliebt."
+      "exampleDe": "Dieser Sänger ist sehr beliebt.",
+      "english": "popularity",
+      "exampleEn": "This singer is very popular."
      },
      {
       "dir": "v",
@@ -3548,7 +4052,9 @@
       "answer": "기계",
       "german": "Maschine",
       "exampleKo": "이 ◯◯는 사용법이 간단해요.",
-      "exampleDe": "Diese Maschine ist einfach zu bedienen."
+      "exampleDe": "Diese Maschine ist einfach zu bedienen.",
+      "english": "machine",
+      "exampleEn": "This machine is easy to use."
      }
     ],
     "pool": [
@@ -3575,7 +4081,9 @@
       "answer": "온난화",
       "german": "Erwärmung",
       "exampleKo": "지구 ◯◯◯가 생각보다 심각해요.",
-      "exampleDe": "Die globale Erwärmung ist schlimmer, als man denkt."
+      "exampleDe": "Die globale Erwärmung ist schlimmer, als man denkt.",
+      "english": "global warming",
+      "exampleEn": "Global warming is more serious than you'd think."
      },
      {
       "dir": "v",
@@ -3584,7 +4092,9 @@
       "answer": "양극화",
       "german": "Polarisierung / Spaltung",
       "exampleKo": "빈부 ◯◯◯가 점점 심해지고 있어요.",
-      "exampleDe": "Die Polarisierung zwischen Arm und Reich wird immer schlimmer."
+      "exampleDe": "Die Polarisierung zwischen Arm und Reich wird immer schlimmer.",
+      "english": "polarization",
+      "exampleEn": "The polarization between rich and poor keeps getting worse."
      },
      {
       "dir": "v",
@@ -3593,7 +4103,9 @@
       "answer": "온도",
       "german": "Temperatur",
       "exampleKo": "방 ◯◯가 너무 높아요.",
-      "exampleDe": "Die Zimmertemperatur ist zu hoch."
+      "exampleDe": "Die Zimmertemperatur ist zu hoch.",
+      "english": "temperature",
+      "exampleEn": "The room temperature is too high."
      },
      {
       "dir": "h",
@@ -3601,8 +4113,10 @@
       "col": 1,
       "answer": "태양광",
       "german": "Solarenergie",
-      "exampleKo": "◯◯◯ 에너지가 점점 늘고 있어요.",
-      "exampleDe": "Solarenergie nimmt immer mehr zu."
+      "exampleKo": "◯◯◯ 발전이 계속 늘고 있어요.",
+      "exampleDe": "Die Solarstromerzeugung nimmt weiter zu.",
+      "english": "solar power",
+      "exampleEn": "Solar power generation keeps increasing."
      }
     ],
     "pool": [
@@ -3631,7 +4145,9 @@
       "answer": "자료",
       "german": "Material",
       "exampleKo": "발표 ◯◯를 준비했어요.",
-      "exampleDe": "Ich habe die Präsentationsunterlagen vorbereitet."
+      "exampleDe": "Ich habe die Präsentationsunterlagen vorbereitet.",
+      "english": "material",
+      "exampleEn": "I prepared the presentation materials."
      },
      {
       "dir": "v",
@@ -3640,7 +4156,9 @@
       "answer": "투자",
       "german": "Investition",
       "exampleKo": "이 분야는 ◯◯ 가치가 충분해요.",
-      "exampleDe": "Dieser Bereich ist eine Investition auf jeden Fall wert."
+      "exampleDe": "Dieser Bereich ist eine Investition auf jeden Fall wert.",
+      "english": "investment",
+      "exampleEn": "This field is definitely worth investing in."
      },
      {
       "dir": "h",
@@ -3649,7 +4167,9 @@
       "answer": "봉투",
       "german": "Umschlag",
       "exampleKo": "편지를 ◯◯에 넣었어요.",
-      "exampleDe": "Ich habe den Brief in den Umschlag gesteckt."
+      "exampleDe": "Ich habe den Brief in den Umschlag gesteckt.",
+      "english": "envelope",
+      "exampleEn": "I put the letter in the envelope."
      }
     ],
     "pool": [
@@ -3674,7 +4194,9 @@
       "answer": "진정한",
       "german": "wahr / echt",
       "exampleKo": "◯◯◯ 친구는 힘들 때 알아봐요.",
-      "exampleDe": "Wahre Freunde erkennt man in schweren Zeiten."
+      "exampleDe": "Wahre Freunde erkennt man in schweren Zeiten.",
+      "english": "true / genuine",
+      "exampleEn": "You know who your true friends are when times get tough."
      },
      {
       "dir": "v",
@@ -3683,7 +4205,9 @@
       "answer": "정하다",
       "german": "festlegen",
       "exampleKo": "약속 시간을 정합시다.",
-      "exampleDe": "Legen wir die Uhrzeit fest."
+      "exampleDe": "Legen wir die Uhrzeit fest.",
+      "english": "to decide",
+      "exampleEn": "Let us set the meeting time."
      },
      {
       "dir": "h",
@@ -3692,7 +4216,9 @@
       "answer": "닮다",
       "german": "ähneln",
       "exampleKo": "저는 아버지를 닮았어요.",
-      "exampleDe": "Ich ähnele meinem Vater."
+      "exampleDe": "Ich ähnele meinem Vater.",
+      "english": "to resemble",
+      "exampleEn": "I resemble my father."
      }
     ],
     "pool": [
@@ -3719,7 +4245,9 @@
       "answer": "고지서",
       "german": "Gebührenbescheid",
       "exampleKo": "전기 요금 ◯◯◯가 왔어요.",
-      "exampleDe": "Die Stromrechnung ist gekommen."
+      "exampleDe": "Die Stromrechnung ist gekommen.",
+      "english": "bill notice",
+      "exampleEn": "The electricity bill has arrived."
      },
      {
       "dir": "v",
@@ -3728,7 +4256,9 @@
       "answer": "서랍",
       "german": "Schublade",
       "exampleKo": "◯◯에 열쇠가 있어요.",
-      "exampleDe": "Der Schlüssel ist in der Schublade."
+      "exampleDe": "Der Schlüssel ist in der Schublade.",
+      "english": "drawer",
+      "exampleEn": "The key is in the drawer."
      },
      {
       "dir": "v",
@@ -3737,7 +4267,9 @@
       "answer": "사고",
       "german": "Unfall",
       "exampleKo": "어제 길에서 ◯◯가 났어요.",
-      "exampleDe": "Gestern gab es auf der Straße einen Unfall."
+      "exampleDe": "Gestern gab es auf der Straße einen Unfall.",
+      "english": "accident",
+      "exampleEn": "There was an accident on the road yesterday."
      },
      {
       "dir": "h",
@@ -3746,7 +4278,9 @@
       "answer": "부사",
       "german": "Adverb",
       "exampleKo": "◯◯는 동사를 꾸며요.",
-      "exampleDe": "Adverbien beschreiben das Verb."
+      "exampleDe": "Adverbien beschreiben das Verb.",
+      "english": "adverb",
+      "exampleEn": "Adverbs modify the verb."
      }
     ],
     "pool": [
@@ -3773,7 +4307,9 @@
       "answer": "생태계",
       "german": "Ökosystem",
       "exampleKo": "◯◯◯ 보호는 우리 모두의 몫이에요.",
-      "exampleDe": "Der Schutz des Ökosystems ist Aufgabe von uns allen."
+      "exampleDe": "Der Schutz des Ökosystems ist Aufgabe von uns allen.",
+      "english": "ecosystem",
+      "exampleEn": "Protecting the ecosystem is on all of us."
      },
      {
       "dir": "v",
@@ -3782,7 +4318,9 @@
       "answer": "계약",
       "german": "Vertrag",
       "exampleKo": "◯◯서 다시 한번 확인해 주세요.",
-      "exampleDe": "Prüfen Sie den Vertrag bitte noch einmal."
+      "exampleDe": "Prüfen Sie den Vertrag bitte noch einmal.",
+      "english": "contract",
+      "exampleEn": "Please check the contract one more time."
      },
      {
       "dir": "h",
@@ -3791,7 +4329,9 @@
       "answer": "약점",
       "german": "Schwäche",
       "exampleKo": "◯◯은 오히려 인정하는 게 나아요.",
-      "exampleDe": "Seine Schwächen gibt man besser offen zu."
+      "exampleDe": "Seine Schwächen gibt man besser offen zu.",
+      "english": "weakness",
+      "exampleEn": "It's actually better to admit your weaknesses."
      },
      {
       "dir": "v",
@@ -3800,7 +4340,9 @@
       "answer": "생신",
       "german": "Geburtstag (ehrerbietig)",
       "exampleKo": "내일이 할머니 ◯◯이에요.",
-      "exampleDe": "Morgen hat meine Großmutter Geburtstag."
+      "exampleDe": "Morgen hat meine Großmutter Geburtstag.",
+      "english": "birthday (honorific)",
+      "exampleEn": "Tomorrow is my grandmother's birthday."
      }
     ],
     "pool": [
@@ -3827,7 +4369,9 @@
       "answer": "자신감",
       "german": "Selbstvertrauen",
       "exampleKo": "요즘 조금씩 ◯◯◯이 붙고 있어요.",
-      "exampleDe": "In letzter Zeit gewinne ich langsam an Selbstvertrauen."
+      "exampleDe": "In letzter Zeit gewinne ich langsam an Selbstvertrauen.",
+      "english": "self-confidence",
+      "exampleEn": "I'm slowly building confidence these days."
      },
      {
       "dir": "v",
@@ -3836,7 +4380,9 @@
       "answer": "생신",
       "german": "Geburtstag (ehrerbietig)",
       "exampleKo": "내일이 할머니 ◯◯이에요.",
-      "exampleDe": "Morgen hat meine Großmutter Geburtstag."
+      "exampleDe": "Morgen hat meine Großmutter Geburtstag.",
+      "english": "birthday (honorific)",
+      "exampleEn": "Tomorrow is my grandmother's birthday."
      },
      {
       "dir": "v",
@@ -3845,7 +4391,9 @@
       "answer": "자격증",
       "german": "Zertifikat / Qualifikation",
       "exampleKo": "이 분야는 ◯◯◯이 꼭 필요해요.",
-      "exampleDe": "In diesem Bereich braucht man unbedingt ein Zertifikat."
+      "exampleDe": "In diesem Bereich braucht man unbedingt ein Zertifikat.",
+      "english": "certificate / qualification",
+      "exampleEn": "You definitely need a certification in this field."
      }
     ],
     "pool": [
@@ -3872,7 +4420,9 @@
       "answer": "친환경",
       "german": "umweltfreundlich",
       "exampleKo": "요즘은 ◯◯◯ 제품이 많이 나와요.",
-      "exampleDe": "Heutzutage kommen viele umweltfreundliche Produkte auf den Markt."
+      "exampleDe": "Heutzutage kommen viele umweltfreundliche Produkte auf den Markt.",
+      "english": "eco-friendly",
+      "exampleEn": "There are a lot of eco-friendly products coming out these days."
      },
      {
       "dir": "v",
@@ -3881,7 +4431,9 @@
       "answer": "친척",
       "german": "Verwandte",
       "exampleKo": "명절에 ◯◯들이 모여요.",
-      "exampleDe": "An Feiertagen kommen die Verwandten zusammen."
+      "exampleDe": "An Feiertagen kommen die Verwandten zusammen.",
+      "english": "relatives",
+      "exampleEn": "Relatives gather on holidays."
      },
      {
       "dir": "v",
@@ -3890,7 +4442,9 @@
       "answer": "야경",
       "german": "Nachtansicht",
       "exampleKo": "서울의 ◯◯이 아름다워요.",
-      "exampleDe": "Die nächtliche Skyline von Seoul ist wunderschön."
+      "exampleDe": "Die nächtliche Skyline von Seoul ist wunderschön.",
+      "english": "night view",
+      "exampleEn": "Seoul's night view is beautiful."
      }
     ],
     "pool": [
@@ -3916,7 +4470,9 @@
       "answer": "협업",
       "german": "Zusammenarbeit",
       "exampleKo": "다른 회사와의 ◯◯도 검토 중이에요.",
-      "exampleDe": "Wir prüfen auch eine Zusammenarbeit mit anderen Firmen."
+      "exampleDe": "Wir prüfen auch eine Zusammenarbeit mit anderen Firmen.",
+      "english": "collaboration",
+      "exampleEn": "We're also looking into collaborating with other companies."
      },
      {
       "dir": "v",
@@ -3925,7 +4481,9 @@
       "answer": "협상",
       "german": "Verhandlung",
       "exampleKo": "이번 ◯◯이 생각보다 잘 풀렸어요.",
-      "exampleDe": "Die Verhandlung ist besser gelaufen als gedacht."
+      "exampleDe": "Die Verhandlung ist besser gelaufen als gedacht.",
+      "english": "negotiation",
+      "exampleEn": "The negotiation went better than expected."
      },
      {
       "dir": "h",
@@ -3934,7 +4492,9 @@
       "answer": "현상",
       "german": "Phänomen / Erscheinung",
       "exampleKo": "이건 요즘 사회에서 흔한 ◯◯이에요.",
-      "exampleDe": "Das ist heutzutage ein häufiges Phänomen in unserer Gesellschaft."
+      "exampleDe": "Das ist heutzutage ein häufiges Phänomen in unserer Gesellschaft.",
+      "english": "phenomenon",
+      "exampleEn": "That's a common phenomenon in society these days."
      },
      {
       "dir": "v",
@@ -3943,7 +4503,9 @@
       "answer": "현대인",
       "german": "moderner Mensch",
       "exampleKo": "◯◯◯은 스트레스가 많아요.",
-      "exampleDe": "Moderne Menschen haben viel Stress."
+      "exampleDe": "Moderne Menschen haben viel Stress.",
+      "english": "modern person",
+      "exampleEn": "Modern people have a lot of stress."
      }
     ],
     "pool": [
@@ -3970,7 +4532,9 @@
       "answer": "내용",
       "german": "Inhalt",
       "exampleKo": "책 ◯◯이 어려워요.",
-      "exampleDe": "Der Inhalt des Buches ist schwierig."
+      "exampleDe": "Der Inhalt des Buches ist schwierig.",
+      "english": "content",
+      "exampleEn": "The content of the book is difficult."
      },
      {
       "dir": "v",
@@ -3979,7 +4543,9 @@
       "answer": "재활용",
       "german": "Recycling",
       "exampleKo": "저희 집에서는 ◯◯◯ 철저히 해요.",
-      "exampleDe": "Bei uns zu Hause recyceln wir ganz konsequent."
+      "exampleDe": "Bei uns zu Hause recyceln wir ganz konsequent.",
+      "english": "recycling",
+      "exampleEn": "We're really strict about recycling at home."
      },
      {
       "dir": "h",
@@ -3988,7 +4554,9 @@
       "answer": "잠재력",
       "german": "Potenzial",
       "exampleKo": "이 팀의 ◯◯◯이 무궁무진해요.",
-      "exampleDe": "Das Potenzial dieses Teams ist grenzenlos."
+      "exampleDe": "Das Potenzial dieses Teams ist grenzenlos.",
+      "english": "potential",
+      "exampleEn": "This team's potential is limitless."
      }
     ],
     "pool": [
@@ -4016,8 +4584,10 @@
       "col": 2,
       "answer": "부작용",
       "german": "Nebenwirkung",
-      "exampleKo": "규제의 ◯◯◯을 함께 적어야 판단이 공정합니다.",
-      "exampleDe": "Nur wenn die Nebenwirkungen mitnotiert werden, ist das Urteil fair."
+      "exampleKo": "규제의 ◯◯◯도 함께 살펴야 공정하게 판단할 수 있습니다.",
+      "exampleDe": "Auch die Nebenwirkungen einer Regulierung müssen wir berücksichtigen, um sie fair beurteilen zu können.",
+      "english": "side effect",
+      "exampleEn": "We need to consider the side effects of a regulation as well to assess it fairly."
      },
      {
       "dir": "v",
@@ -4026,16 +4596,20 @@
       "answer": "과부하",
       "german": "Überlastung",
       "exampleKo": "행사 직전에 ◯◯◯가 한쪽으로 몰립니다.",
-      "exampleDe": "Kurz vor dem Event ballt sich die Überlastung auf einer Seite."
+      "exampleDe": "Kurz vor dem Event ballt sich die Überlastung auf einer Seite.",
+      "english": "overload",
+      "exampleEn": "Just before an event the overload piles onto one side."
      },
      {
       "dir": "h",
       "row": 0,
       "col": 0,
       "answer": "역효과",
-      "german": "Gegeneffekt",
-      "exampleKo": "밤에 몰아서 하는 ◯◯◯가 보고됐습니다.",
-      "exampleDe": "Ein Gegeneffekt mit nächtlichem Nachholen wurde berichtet."
+      "german": "unerwünschter Effekt",
+      "exampleKo": "게임 이용이 밤에 몰리는 ◯◯◯가 나타났는지 확인해야 합니다.",
+      "exampleDe": "Wir müssen prüfen, ob sich das Spielen als unerwünschter Effekt in die Nacht verlagert hat.",
+      "english": "unintended effect",
+      "exampleEn": "We need to check whether gaming shifted into the night as an unintended effect."
      },
      {
       "dir": "v",
@@ -4043,8 +4617,10 @@
       "col": 4,
       "answer": "인용",
       "german": "Zitat",
-      "exampleKo": "◯◯을 할 때는 논문 번호를 함께 적습니다.",
-      "exampleDe": "Beim Zitieren notieren wir die Studiennummer mit."
+      "exampleKo": "◯◯할 때는 출처를 함께 밝힙니다.",
+      "exampleDe": "Beim Zitieren geben wir die Quelle an.",
+      "english": "citation",
+      "exampleEn": "When we cite, we name the source."
      }
     ],
     "pool": [
@@ -4073,7 +4649,9 @@
       "answer": "완화",
       "german": "Lockerung",
       "exampleKo": "◯◯ 이후 이용시간이 어떻게 달라졌는지 봅니다.",
-      "exampleDe": "Wir sehen uns an, wie sich die Spielzeit nach der Lockerung verändert hat."
+      "exampleDe": "Wir sehen uns an, wie sich die Spielzeit nach der Lockerung verändert hat.",
+      "english": "easing",
+      "exampleEn": "We look at how play time changed after the easing."
      },
      {
       "dir": "v",
@@ -4082,7 +4660,9 @@
       "answer": "일반화",
       "german": "Verallgemeinerung",
       "exampleKo": "성급한 ◯◯◯는 오해를 만듭니다.",
-      "exampleDe": "Eine vorschnelle Verallgemeinerung erzeugt Missverständnisse."
+      "exampleDe": "Eine vorschnelle Verallgemeinerung erzeugt Missverständnisse.",
+      "english": "generalisation",
+      "exampleEn": "A hasty generalisation creates misunderstandings."
      },
      {
       "dir": "v",
@@ -4091,7 +4671,9 @@
       "answer": "완충",
       "german": "Puffer",
       "exampleKo": "차단 전에 ◯◯ 단계를 하나 두면 오해가 줄어듭니다.",
-      "exampleDe": "Eine Pufferstufe vor der Sperrung verringert Missverständnisse."
+      "exampleDe": "Eine Pufferstufe vor der Sperrung verringert Missverständnisse.",
+      "english": "buffer",
+      "exampleEn": "One buffer step before blocking cuts down misunderstandings."
      }
     ],
     "pool": [
@@ -4117,7 +4699,9 @@
       "answer": "자발성",
       "german": "Freiwilligkeit",
       "exampleKo": "◯◯◯을 이유로 부담을 늘리면 안 됩니다.",
-      "exampleDe": "Mit Freiwilligkeit zu begründen, dass die Last steigt, geht nicht."
+      "exampleDe": "Mit Freiwilligkeit zu begründen, dass die Last steigt, geht nicht.",
+      "english": "voluntariness",
+      "exampleEn": "Voluntariness is no reason to raise the load."
      },
      {
       "dir": "v",
@@ -4126,7 +4710,9 @@
       "answer": "성과물",
       "german": "Arbeitsergebnis",
       "exampleKo": "◯◯◯의 권리를 누가 갖는지 정해 두지 않았습니다.",
-      "exampleDe": "Wem die Rechte am Arbeitsergebnis gehören, wurde nie festgelegt."
+      "exampleDe": "Wem die Rechte am Arbeitsergebnis gehören, wurde nie festgelegt.",
+      "english": "output",
+      "exampleEn": "Who owns the rights to the output was never settled."
      },
      {
       "dir": "v",
@@ -4134,8 +4720,10 @@
       "col": 1,
       "answer": "타자화",
       "german": "Othering",
-      "exampleKo": "◯◯◯가 웃음을 타고 와서 바로 지적하기 어려웠어요.",
-      "exampleDe": "Othering kam auf einem Lachen und war schwer sofort zu benennen."
+      "exampleKo": "◯◯◯가 농담 속에 섞여 있어서 바로 지적하기 어려웠어요.",
+      "exampleDe": "Das Othering steckte in einem Witz, deshalb war es schwer, es sofort anzusprechen.",
+      "english": "othering",
+      "exampleEn": "The othering was woven into a joke, so it was hard to call it out right away."
      },
      {
       "dir": "h",
@@ -4144,7 +4732,9 @@
       "answer": "완화",
       "german": "Lockerung",
       "exampleKo": "◯◯ 이후 이용시간이 어떻게 달라졌는지 봅니다.",
-      "exampleDe": "Wir sehen uns an, wie sich die Spielzeit nach der Lockerung verändert hat."
+      "exampleDe": "Wir sehen uns an, wie sich die Spielzeit nach der Lockerung verändert hat.",
+      "english": "easing",
+      "exampleEn": "We look at how play time changed after the easing."
      }
     ],
     "pool": [
@@ -4173,7 +4763,9 @@
       "answer": "지속성",
       "german": "Nachhaltigkeit",
       "exampleKo": "◯◯◯을 기준으로 삼으면 일의 양부터 줄여야 합니다.",
-      "exampleDe": "Nimmt man Nachhaltigkeit als Maßstab, muss zuerst die Menge sinken."
+      "exampleDe": "Nimmt man Nachhaltigkeit als Maßstab, muss zuerst die Menge sinken.",
+      "english": "sustainability",
+      "exampleEn": "With sustainability as the standard, the amount of work has to fall first."
      },
      {
       "dir": "v",
@@ -4182,7 +4774,9 @@
       "answer": "지표",
       "german": "Kennzahl",
       "exampleKo": "◯◯를 하나만 쓰면 그림이 좁아집니다.",
-      "exampleDe": "Wird nur eine Kennzahl verwendet, wird das Bild eng."
+      "exampleDe": "Wird nur eine Kennzahl verwendet, wird das Bild eng.",
+      "english": "indicator",
+      "exampleEn": "Using a single indicator narrows the picture."
      },
      {
       "dir": "v",
@@ -4191,7 +4785,9 @@
       "answer": "재현성",
       "german": "Reproduzierbarkeit",
       "exampleKo": "◯◯◯이 확인되기 전에는 결과가 잠정적입니다.",
-      "exampleDe": "Vor bestätigter Reproduzierbarkeit bleibt das Ergebnis vorläufig."
+      "exampleDe": "Vor bestätigter Reproduzierbarkeit bleibt das Ergebnis vorläufig.",
+      "english": "reproducibility",
+      "exampleEn": "Until reproducibility is confirmed the result stays provisional."
      }
     ],
     "pool": [
@@ -4218,16 +4814,20 @@
       "answer": "인과",
       "german": "Kausalität",
       "exampleKo": "◯◯를 말하려면 시간 순서가 분명해야 합니다.",
-      "exampleDe": "Für Kausalität muss die zeitliche Reihenfolge klar sein."
+      "exampleDe": "Für Kausalität muss die zeitliche Reihenfolge klar sein.",
+      "english": "causation",
+      "exampleEn": "Claiming causation needs a clear order in time."
      },
      {
       "dir": "v",
       "row": 0,
       "col": 3,
       "answer": "역효과",
-      "german": "Gegeneffekt",
-      "exampleKo": "밤에 몰아서 하는 ◯◯◯가 보고됐습니다.",
-      "exampleDe": "Ein Gegeneffekt mit nächtlichem Nachholen wurde berichtet."
+      "german": "unerwünschter Effekt",
+      "exampleKo": "게임 이용이 밤에 몰리는 ◯◯◯가 나타났는지 확인해야 합니다.",
+      "exampleDe": "Wir müssen prüfen, ob sich das Spielen als unerwünschter Effekt in die Nacht verlagert hat.",
+      "english": "unintended effect",
+      "exampleEn": "We need to check whether gaming shifted into the night as an unintended effect."
      },
      {
       "dir": "v",
@@ -4235,8 +4835,10 @@
       "col": 2,
       "answer": "인용",
       "german": "Zitat",
-      "exampleKo": "◯◯을 할 때는 논문 번호를 함께 적습니다.",
-      "exampleDe": "Beim Zitieren notieren wir die Studiennummer mit."
+      "exampleKo": "◯◯할 때는 출처를 함께 밝힙니다.",
+      "exampleDe": "Beim Zitieren geben wir die Quelle an.",
+      "english": "citation",
+      "exampleEn": "When we cite, we name the source."
      },
      {
       "dir": "h",
@@ -4244,8 +4846,10 @@
       "col": 0,
       "answer": "부작용",
       "german": "Nebenwirkung",
-      "exampleKo": "규제의 ◯◯◯을 함께 적어야 판단이 공정합니다.",
-      "exampleDe": "Nur wenn die Nebenwirkungen mitnotiert werden, ist das Urteil fair."
+      "exampleKo": "규제의 ◯◯◯도 함께 살펴야 공정하게 판단할 수 있습니다.",
+      "exampleDe": "Auch die Nebenwirkungen einer Regulierung müssen wir berücksichtigen, um sie fair beurteilen zu können.",
+      "english": "side effect",
+      "exampleEn": "We need to consider the side effects of a regulation as well to assess it fairly."
      }
     ],
     "pool": [
@@ -4273,7 +4877,9 @@
       "answer": "동원",
       "german": "Mobilisierung",
       "exampleKo": "투표 기간의 ◯◯이 끝나면 사람들이 사라집니다.",
-      "exampleDe": "Endet die Mobilisierung der Abstimmungsphase, verschwinden die Leute."
+      "exampleDe": "Endet die Mobilisierung der Abstimmungsphase, verschwinden die Leute.",
+      "english": "mobilisation",
+      "exampleEn": "When the voting-period mobilisation ends, people disappear."
      },
      {
       "dir": "v",
@@ -4282,7 +4888,9 @@
       "answer": "신원",
       "german": "Identität",
       "exampleKo": "◯◯ 확인을 강제하면 쓰기 어려워하는 사람이 생깁니다.",
-      "exampleDe": "Erzwungene Identitätsprüfung schreckt manche von der Nutzung ab."
+      "exampleDe": "Erzwungene Identitätsprüfung schreckt manche von der Nutzung ab.",
+      "english": "identity",
+      "exampleEn": "Forcing identity checks makes the app hard to use for some people."
      },
      {
       "dir": "h",
@@ -4291,7 +4899,9 @@
       "answer": "신고",
       "german": "Meldung",
       "exampleKo": "◯◯ 처리 기한을 화면에 적어 두면 신뢰가 생깁니다.",
-      "exampleDe": "Steht die Bearbeitungsfrist für Meldungen auf dem Bildschirm, entsteht Vertrauen."
+      "exampleDe": "Steht die Bearbeitungsfrist für Meldungen auf dem Bildschirm, entsteht Vertrauen.",
+      "english": "report",
+      "exampleEn": "Putting the handling deadline for reports on screen builds trust."
      }
     ],
     "pool": [
@@ -4316,7 +4926,9 @@
       "answer": "경위",
       "german": "Hergang",
       "exampleKo": "신고서에 ◯◯를 시간 순서로 적게 합니다.",
-      "exampleDe": "Im Meldeformular soll der Hergang in zeitlicher Reihenfolge stehen."
+      "exampleDe": "Im Meldeformular soll der Hergang in zeitlicher Reihenfolge stehen.",
+      "english": "sequence of events",
+      "exampleEn": "The report form asks for the sequence of events in time order."
      },
      {
       "dir": "v",
@@ -4325,7 +4937,9 @@
       "answer": "경계",
       "german": "Grenze",
       "exampleKo": "서로의 ◯◯를 먼저 말해 두면 갈등이 줄어듭니다.",
-      "exampleDe": "Werden die eigenen Grenzen vorab benannt, sinkt das Konfliktrisiko."
+      "exampleDe": "Werden die eigenen Grenzen vorab benannt, sinkt das Konfliktrisiko.",
+      "english": "boundary",
+      "exampleEn": "Naming each other's boundaries early lowers conflict."
      },
      {
       "dir": "v",
@@ -4334,7 +4948,9 @@
       "answer": "수위",
       "german": "Grad",
       "exampleKo": "표현의 ◯◯를 단계로 나눠 두면 판단이 빨라집니다.",
-      "exampleDe": "Wird der Grad einer Äußerung in Stufen geteilt, geht die Entscheidung schneller."
+      "exampleDe": "Wird der Grad einer Äußerung in Stufen geteilt, geht die Entscheidung schneller.",
+      "english": "severity level",
+      "exampleEn": "Splitting the severity level of a message into tiers speeds up the call."
      }
     ],
     "pool": [
@@ -4359,7 +4975,9 @@
       "answer": "실효성",
       "german": "Wirksamkeit",
       "exampleKo": "◯◯◯을 따지려면 비교 집단이 필요합니다.",
-      "exampleDe": "Um die Wirksamkeit zu beurteilen, braucht es eine Vergleichsgruppe."
+      "exampleDe": "Um die Wirksamkeit zu beurteilen, braucht es eine Vergleichsgruppe.",
+      "english": "effectiveness",
+      "exampleEn": "Judging effectiveness requires a comparison group."
      },
      {
       "dir": "v",
@@ -4368,7 +4986,9 @@
       "answer": "성과물",
       "german": "Arbeitsergebnis",
       "exampleKo": "◯◯◯의 권리를 누가 갖는지 정해 두지 않았습니다.",
-      "exampleDe": "Wem die Rechte am Arbeitsergebnis gehören, wurde nie festgelegt."
+      "exampleDe": "Wem die Rechte am Arbeitsergebnis gehören, wurde nie festgelegt.",
+      "english": "output",
+      "exampleEn": "Who owns the rights to the output was never settled."
      },
      {
       "dir": "h",
@@ -4377,7 +4997,9 @@
       "answer": "과장",
       "german": "Übertreibung",
       "exampleKo": "제목의 ◯◯이 본문 내용과 어긋납니다.",
-      "exampleDe": "Die Übertreibung im Titel passt nicht zum Text."
+      "exampleDe": "Die Übertreibung im Titel passt nicht zum Text.",
+      "english": "exaggeration",
+      "exampleEn": "The headline's exaggeration doesn't match the body."
      }
     ],
     "pool": [
@@ -4404,7 +5026,9 @@
       "answer": "임계치",
       "german": "Schwellenwert",
       "exampleKo": "◯◯◯를 낮추면 억울한 정지가 늘어납니다.",
-      "exampleDe": "Wird der Schwellenwert gesenkt, häufen sich ungerechte Sperren."
+      "exampleDe": "Wird der Schwellenwert gesenkt, häufen sich ungerechte Sperren.",
+      "english": "threshold",
+      "exampleEn": "Lowering the threshold multiplies unfair suspensions."
      },
      {
       "dir": "v",
@@ -4413,7 +5037,9 @@
       "answer": "위임",
       "german": "Delegation",
       "exampleKo": "◯◯ 없이 한 사람이 계정을 다 맡고 있습니다.",
-      "exampleDe": "Ohne Delegation betreut eine Person alle Konten."
+      "exampleDe": "Ohne Delegation betreut eine Person alle Konten.",
+      "english": "delegation",
+      "exampleEn": "With no delegation one person runs every account."
      },
      {
       "dir": "h",
@@ -4422,7 +5048,9 @@
       "answer": "경위",
       "german": "Hergang",
       "exampleKo": "신고서에 ◯◯를 시간 순서로 적게 합니다.",
-      "exampleDe": "Im Meldeformular soll der Hergang in zeitlicher Reihenfolge stehen."
+      "exampleDe": "Im Meldeformular soll der Hergang in zeitlicher Reihenfolge stehen.",
+      "english": "sequence of events",
+      "exampleEn": "The report form asks for the sequence of events in time order."
      }
     ],
     "pool": [
@@ -4448,7 +5076,9 @@
       "answer": "자율",
       "german": "Selbstregulierung",
       "exampleKo": "◯◯에 맡기는 방안도 같은 기준으로 재 봅니다.",
-      "exampleDe": "Auch der Weg über Selbstregulierung wird am selben Maßstab gemessen."
+      "exampleDe": "Auch der Weg über Selbstregulierung wird am selben Maßstab gemessen.",
+      "english": "self-regulation",
+      "exampleEn": "The self-regulation option is measured by the same standard."
      },
      {
       "dir": "v",
@@ -4457,7 +5087,9 @@
       "answer": "자발성",
       "german": "Freiwilligkeit",
       "exampleKo": "◯◯◯을 이유로 부담을 늘리면 안 됩니다.",
-      "exampleDe": "Mit Freiwilligkeit zu begründen, dass die Last steigt, geht nicht."
+      "exampleDe": "Mit Freiwilligkeit zu begründen, dass die Last steigt, geht nicht.",
+      "english": "voluntariness",
+      "exampleEn": "Voluntariness is no reason to raise the load."
      },
      {
       "dir": "h",
@@ -4466,7 +5098,9 @@
       "answer": "실효성",
       "german": "Wirksamkeit",
       "exampleKo": "◯◯◯을 따지려면 비교 집단이 필요합니다.",
-      "exampleDe": "Um die Wirksamkeit zu beurteilen, braucht es eine Vergleichsgruppe."
+      "exampleDe": "Um die Wirksamkeit zu beurteilen, braucht es eine Vergleichsgruppe.",
+      "english": "effectiveness",
+      "exampleEn": "Judging effectiveness requires a comparison group."
      }
     ],
     "pool": [
@@ -4493,7 +5127,9 @@
       "answer": "반박",
       "german": "Einwand",
       "exampleKo": "제조사의 ◯◯에도 표본 문제는 남습니다.",
-      "exampleDe": "Trotz des Einwands des Herstellers bleibt das Stichprobenproblem."
+      "exampleDe": "Trotz des Einwands des Herstellers bleibt das Stichprobenproblem.",
+      "english": "rebuttal",
+      "exampleEn": "Even after the maker's rebuttal the sampling problem remains."
      },
      {
       "dir": "v",
@@ -4502,7 +5138,9 @@
       "answer": "일반화",
       "german": "Verallgemeinerung",
       "exampleKo": "성급한 ◯◯◯는 오해를 만듭니다.",
-      "exampleDe": "Eine vorschnelle Verallgemeinerung erzeugt Missverständnisse."
+      "exampleDe": "Eine vorschnelle Verallgemeinerung erzeugt Missverständnisse.",
+      "english": "generalisation",
+      "exampleEn": "A hasty generalisation creates misunderstandings."
      },
      {
       "dir": "h",
@@ -4511,7 +5149,9 @@
       "answer": "완화",
       "german": "Lockerung",
       "exampleKo": "◯◯ 이후 이용시간이 어떻게 달라졌는지 봅니다.",
-      "exampleDe": "Wir sehen uns an, wie sich die Spielzeit nach der Lockerung verändert hat."
+      "exampleDe": "Wir sehen uns an, wie sich die Spielzeit nach der Lockerung verändert hat.",
+      "english": "easing",
+      "exampleEn": "We look at how play time changed after the easing."
      }
     ],
     "pool": [
@@ -4537,7 +5177,9 @@
       "answer": "위임",
       "german": "Delegation",
       "exampleKo": "◯◯ 없이 한 사람이 계정을 다 맡고 있습니다.",
-      "exampleDe": "Ohne Delegation betreut eine Person alle Konten."
+      "exampleDe": "Ohne Delegation betreut eine Person alle Konten.",
+      "english": "delegation",
+      "exampleEn": "With no delegation one person runs every account."
      },
      {
       "dir": "v",
@@ -4546,7 +5188,9 @@
       "answer": "수위",
       "german": "Grad",
       "exampleKo": "표현의 ◯◯를 단계로 나눠 두면 판단이 빨라집니다.",
-      "exampleDe": "Wird der Grad einer Äußerung in Stufen geteilt, geht die Entscheidung schneller."
+      "exampleDe": "Wird der Grad einer Äußerung in Stufen geteilt, geht die Entscheidung schneller.",
+      "english": "severity level",
+      "exampleEn": "Splitting the severity level of a message into tiers speeds up the call."
      },
      {
       "dir": "h",
@@ -4555,7 +5199,9 @@
       "answer": "무보수",
       "german": "unbezahlte Arbeit",
       "exampleKo": "번역은 오래전부터 ◯◯◯로 돌아갔습니다.",
-      "exampleDe": "Die Übersetzung lief seit Langem als unbezahlte Arbeit."
+      "exampleDe": "Die Übersetzung lief seit Langem als unbezahlte Arbeit.",
+      "english": "unpaid work",
+      "exampleEn": "Translation has long run as unpaid work."
      },
      {
       "dir": "v",
@@ -4564,7 +5210,9 @@
       "answer": "임계치",
       "german": "Schwellenwert",
       "exampleKo": "◯◯◯를 낮추면 억울한 정지가 늘어납니다.",
-      "exampleDe": "Wird der Schwellenwert gesenkt, häufen sich ungerechte Sperren."
+      "exampleDe": "Wird der Schwellenwert gesenkt, häufen sich ungerechte Sperren.",
+      "english": "threshold",
+      "exampleEn": "Lowering the threshold multiplies unfair suspensions."
      }
     ],
     "pool": [
@@ -4592,16 +5240,20 @@
       "answer": "인과",
       "german": "Kausalität",
       "exampleKo": "◯◯를 말하려면 시간 순서가 분명해야 합니다.",
-      "exampleDe": "Für Kausalität muss die zeitliche Reihenfolge klar sein."
+      "exampleDe": "Für Kausalität muss die zeitliche Reihenfolge klar sein.",
+      "english": "causation",
+      "exampleEn": "Claiming causation needs a clear order in time."
      },
      {
       "dir": "v",
       "row": 0,
       "col": 1,
       "answer": "역효과",
-      "german": "Gegeneffekt",
-      "exampleKo": "밤에 몰아서 하는 ◯◯◯가 보고됐습니다.",
-      "exampleDe": "Ein Gegeneffekt mit nächtlichem Nachholen wurde berichtet."
+      "german": "unerwünschter Effekt",
+      "exampleKo": "게임 이용이 밤에 몰리는 ◯◯◯가 나타났는지 확인해야 합니다.",
+      "exampleDe": "Wir müssen prüfen, ob sich das Spielen als unerwünschter Effekt in die Nacht verlagert hat.",
+      "english": "unintended effect",
+      "exampleEn": "We need to check whether gaming shifted into the night as an unintended effect."
      },
      {
       "dir": "v",
@@ -4609,8 +5261,10 @@
       "col": 0,
       "answer": "인용",
       "german": "Zitat",
-      "exampleKo": "◯◯을 할 때는 논문 번호를 함께 적습니다.",
-      "exampleDe": "Beim Zitieren notieren wir die Studiennummer mit."
+      "exampleKo": "◯◯할 때는 출처를 함께 밝힙니다.",
+      "exampleDe": "Beim Zitieren geben wir die Quelle an.",
+      "english": "citation",
+      "exampleEn": "When we cite, we name the source."
      }
     ],
     "pool": [
@@ -4636,7 +5290,9 @@
       "answer": "신원",
       "german": "Identität",
       "exampleKo": "◯◯ 확인을 강제하면 쓰기 어려워하는 사람이 생깁니다.",
-      "exampleDe": "Erzwungene Identitätsprüfung schreckt manche von der Nutzung ab."
+      "exampleDe": "Erzwungene Identitätsprüfung schreckt manche von der Nutzung ab.",
+      "english": "identity",
+      "exampleEn": "Forcing identity checks makes the app hard to use for some people."
      },
      {
       "dir": "v",
@@ -4645,7 +5301,9 @@
       "answer": "동원",
       "german": "Mobilisierung",
       "exampleKo": "투표 기간의 ◯◯이 끝나면 사람들이 사라집니다.",
-      "exampleDe": "Endet die Mobilisierung der Abstimmungsphase, verschwinden die Leute."
+      "exampleDe": "Endet die Mobilisierung der Abstimmungsphase, verschwinden die Leute.",
+      "english": "mobilisation",
+      "exampleEn": "When the voting-period mobilisation ends, people disappear."
      },
      {
       "dir": "v",
@@ -4654,7 +5312,9 @@
       "answer": "신고",
       "german": "Meldung",
       "exampleKo": "◯◯ 처리 기한을 화면에 적어 두면 신뢰가 생깁니다.",
-      "exampleDe": "Steht die Bearbeitungsfrist für Meldungen auf dem Bildschirm, entsteht Vertrauen."
+      "exampleDe": "Steht die Bearbeitungsfrist für Meldungen auf dem Bildschirm, entsteht Vertrauen.",
+      "english": "report",
+      "exampleEn": "Putting the handling deadline for reports on screen builds trust."
      },
      {
       "dir": "h",
@@ -4662,8 +5322,10 @@
       "col": 0,
       "answer": "권고",
       "german": "Empfehlung",
-      "exampleKo": "강제 대신 ◯◯로 두면 지키는 비율이 떨어집니다.",
-      "exampleDe": "Als Empfehlung statt als Pflicht sinkt die Befolgungsquote."
+      "exampleKo": "강제 대신 ◯◯를 택할 때는 실제로 얼마나 지켜지는지 살펴봐야 합니다.",
+      "exampleDe": "Wenn etwas nur empfohlen statt verbindlich vorgeschrieben wird, müssen wir prüfen, wie gut die Empfehlung tatsächlich befolgt wird.",
+      "english": "recommendation",
+      "exampleEn": "When something is recommended rather than required, we need to examine how well it is actually followed."
      }
     ],
     "pool": [
@@ -4689,7 +5351,9 @@
       "answer": "과부하",
       "german": "Überlastung",
       "exampleKo": "행사 직전에 ◯◯◯가 한쪽으로 몰립니다.",
-      "exampleDe": "Kurz vor dem Event ballt sich die Überlastung auf einer Seite."
+      "exampleDe": "Kurz vor dem Event ballt sich die Überlastung auf einer Seite.",
+      "english": "overload",
+      "exampleEn": "Just before an event the overload piles onto one side."
      },
      {
       "dir": "v",
@@ -4697,8 +5361,10 @@
       "col": 1,
       "answer": "부작용",
       "german": "Nebenwirkung",
-      "exampleKo": "규제의 ◯◯◯을 함께 적어야 판단이 공정합니다.",
-      "exampleDe": "Nur wenn die Nebenwirkungen mitnotiert werden, ist das Urteil fair."
+      "exampleKo": "규제의 ◯◯◯도 함께 살펴야 공정하게 판단할 수 있습니다.",
+      "exampleDe": "Auch die Nebenwirkungen einer Regulierung müssen wir berücksichtigen, um sie fair beurteilen zu können.",
+      "english": "side effect",
+      "exampleEn": "We need to consider the side effects of a regulation as well to assess it fairly."
      },
      {
       "dir": "v",
@@ -4707,7 +5373,9 @@
       "answer": "인과",
       "german": "Kausalität",
       "exampleKo": "◯◯를 말하려면 시간 순서가 분명해야 합니다.",
-      "exampleDe": "Für Kausalität muss die zeitliche Reihenfolge klar sein."
+      "exampleDe": "Für Kausalität muss die zeitliche Reihenfolge klar sein.",
+      "english": "causation",
+      "exampleEn": "Claiming causation needs a clear order in time."
      }
     ],
     "pool": [
@@ -4733,8 +5401,10 @@
       "col": 1,
       "answer": "타자화",
       "german": "Othering",
-      "exampleKo": "◯◯◯가 웃음을 타고 와서 바로 지적하기 어려웠어요.",
-      "exampleDe": "Othering kam auf einem Lachen und war schwer sofort zu benennen."
+      "exampleKo": "◯◯◯가 농담 속에 섞여 있어서 바로 지적하기 어려웠어요.",
+      "exampleDe": "Das Othering steckte in einem Witz, deshalb war es schwer, es sofort anzusprechen.",
+      "english": "othering",
+      "exampleEn": "The othering was woven into a joke, so it was hard to call it out right away."
      },
      {
       "dir": "v",
@@ -4743,7 +5413,9 @@
       "answer": "자발성",
       "german": "Freiwilligkeit",
       "exampleKo": "◯◯◯을 이유로 부담을 늘리면 안 됩니다.",
-      "exampleDe": "Mit Freiwilligkeit zu begründen, dass die Last steigt, geht nicht."
+      "exampleDe": "Mit Freiwilligkeit zu begründen, dass die Last steigt, geht nicht.",
+      "english": "voluntariness",
+      "exampleEn": "Voluntariness is no reason to raise the load."
      },
      {
       "dir": "v",
@@ -4752,7 +5424,9 @@
       "answer": "일반화",
       "german": "Verallgemeinerung",
       "exampleKo": "성급한 ◯◯◯는 오해를 만듭니다.",
-      "exampleDe": "Eine vorschnelle Verallgemeinerung erzeugt Missverständnisse."
+      "exampleDe": "Eine vorschnelle Verallgemeinerung erzeugt Missverständnisse.",
+      "english": "generalisation",
+      "exampleEn": "A hasty generalisation creates misunderstandings."
      },
      {
       "dir": "h",
@@ -4761,7 +5435,9 @@
       "answer": "지속성",
       "german": "Nachhaltigkeit",
       "exampleKo": "◯◯◯을 기준으로 삼으면 일의 양부터 줄여야 합니다.",
-      "exampleDe": "Nimmt man Nachhaltigkeit als Maßstab, muss zuerst die Menge sinken."
+      "exampleDe": "Nimmt man Nachhaltigkeit als Maßstab, muss zuerst die Menge sinken.",
+      "english": "sustainability",
+      "exampleEn": "With sustainability as the standard, the amount of work has to fall first."
      }
     ],
     "pool": [
@@ -4790,8 +5466,10 @@
       "col": 0,
       "answer": "권고",
       "german": "Empfehlung",
-      "exampleKo": "강제 대신 ◯◯로 두면 지키는 비율이 떨어집니다.",
-      "exampleDe": "Als Empfehlung statt als Pflicht sinkt die Befolgungsquote."
+      "exampleKo": "강제 대신 ◯◯를 택할 때는 실제로 얼마나 지켜지는지 살펴봐야 합니다.",
+      "exampleDe": "Wenn etwas nur empfohlen statt verbindlich vorgeschrieben wird, müssen wir prüfen, wie gut die Empfehlung tatsächlich befolgt wird.",
+      "english": "recommendation",
+      "exampleEn": "When something is recommended rather than required, we need to examine how well it is actually followed."
      },
      {
       "dir": "v",
@@ -4800,7 +5478,9 @@
       "answer": "신고",
       "german": "Meldung",
       "exampleKo": "◯◯ 처리 기한을 화면에 적어 두면 신뢰가 생깁니다.",
-      "exampleDe": "Steht die Bearbeitungsfrist für Meldungen auf dem Bildschirm, entsteht Vertrauen."
+      "exampleDe": "Steht die Bearbeitungsfrist für Meldungen auf dem Bildschirm, entsteht Vertrauen.",
+      "english": "report",
+      "exampleEn": "Putting the handling deadline for reports on screen builds trust."
      },
      {
       "dir": "h",
@@ -4809,7 +5489,9 @@
       "answer": "신원",
       "german": "Identität",
       "exampleKo": "◯◯ 확인을 강제하면 쓰기 어려워하는 사람이 생깁니다.",
-      "exampleDe": "Erzwungene Identitätsprüfung schreckt manche von der Nutzung ab."
+      "exampleDe": "Erzwungene Identitätsprüfung schreckt manche von der Nutzung ab.",
+      "english": "identity",
+      "exampleEn": "Forcing identity checks makes the app hard to use for some people."
      }
     ],
     "pool": [
@@ -4834,7 +5516,9 @@
       "answer": "지표",
       "german": "Kennzahl",
       "exampleKo": "◯◯를 하나만 쓰면 그림이 좁아집니다.",
-      "exampleDe": "Wird nur eine Kennzahl verwendet, wird das Bild eng."
+      "exampleDe": "Wird nur eine Kennzahl verwendet, wird das Bild eng.",
+      "english": "indicator",
+      "exampleEn": "Using a single indicator narrows the picture."
      },
      {
       "dir": "v",
@@ -4843,7 +5527,9 @@
       "answer": "지속성",
       "german": "Nachhaltigkeit",
       "exampleKo": "◯◯◯을 기준으로 삼으면 일의 양부터 줄여야 합니다.",
-      "exampleDe": "Nimmt man Nachhaltigkeit als Maßstab, muss zuerst die Menge sinken."
+      "exampleDe": "Nimmt man Nachhaltigkeit als Maßstab, muss zuerst die Menge sinken.",
+      "english": "sustainability",
+      "exampleEn": "With sustainability as the standard, the amount of work has to fall first."
      },
      {
       "dir": "h",
@@ -4852,7 +5538,9 @@
       "answer": "실효성",
       "german": "Wirksamkeit",
       "exampleKo": "◯◯◯을 따지려면 비교 집단이 필요합니다.",
-      "exampleDe": "Um die Wirksamkeit zu beurteilen, braucht es eine Vergleichsgruppe."
+      "exampleDe": "Um die Wirksamkeit zu beurteilen, braucht es eine Vergleichsgruppe.",
+      "english": "effectiveness",
+      "exampleEn": "Judging effectiveness requires a comparison group."
      }
     ],
     "pool": [
@@ -4879,7 +5567,9 @@
       "answer": "재현성",
       "german": "Reproduzierbarkeit",
       "exampleKo": "◯◯◯이 확인되기 전에는 결과가 잠정적입니다.",
-      "exampleDe": "Vor bestätigter Reproduzierbarkeit bleibt das Ergebnis vorläufig."
+      "exampleDe": "Vor bestätigter Reproduzierbarkeit bleibt das Ergebnis vorläufig.",
+      "english": "reproducibility",
+      "exampleEn": "Until reproducibility is confirmed the result stays provisional."
      },
      {
       "dir": "v",
@@ -4888,7 +5578,9 @@
       "answer": "성과물",
       "german": "Arbeitsergebnis",
       "exampleKo": "◯◯◯의 권리를 누가 갖는지 정해 두지 않았습니다.",
-      "exampleDe": "Wem die Rechte am Arbeitsergebnis gehören, wurde nie festgelegt."
+      "exampleDe": "Wem die Rechte am Arbeitsergebnis gehören, wurde nie festgelegt.",
+      "english": "output",
+      "exampleEn": "Who owns the rights to the output was never settled."
      },
      {
       "dir": "h",
@@ -4897,7 +5589,9 @@
       "answer": "과부하",
       "german": "Überlastung",
       "exampleKo": "행사 직전에 ◯◯◯가 한쪽으로 몰립니다.",
-      "exampleDe": "Kurz vor dem Event ballt sich die Überlastung auf einer Seite."
+      "exampleDe": "Kurz vor dem Event ballt sich die Überlastung auf einer Seite.",
+      "english": "overload",
+      "exampleEn": "Just before an event the overload piles onto one side."
      }
     ],
     "pool": [
@@ -4925,7 +5619,9 @@
       "answer": "무보수",
       "german": "unbezahlte Arbeit",
       "exampleKo": "번역은 오래전부터 ◯◯◯로 돌아갔습니다.",
-      "exampleDe": "Die Übersetzung lief seit Langem als unbezahlte Arbeit."
+      "exampleDe": "Die Übersetzung lief seit Langem als unbezahlte Arbeit.",
+      "english": "unpaid work",
+      "exampleEn": "Translation has long run as unpaid work."
      },
      {
       "dir": "v",
@@ -4934,7 +5630,9 @@
       "answer": "수위",
       "german": "Grad",
       "exampleKo": "표현의 ◯◯를 단계로 나눠 두면 판단이 빨라집니다.",
-      "exampleDe": "Wird der Grad einer Äußerung in Stufen geteilt, geht die Entscheidung schneller."
+      "exampleDe": "Wird der Grad einer Äußerung in Stufen geteilt, geht die Entscheidung schneller.",
+      "english": "severity level",
+      "exampleEn": "Splitting the severity level of a message into tiers speeds up the call."
      },
      {
       "dir": "h",
@@ -4943,7 +5641,9 @@
       "answer": "위임",
       "german": "Delegation",
       "exampleKo": "◯◯ 없이 한 사람이 계정을 다 맡고 있습니다.",
-      "exampleDe": "Ohne Delegation betreut eine Person alle Konten."
+      "exampleDe": "Ohne Delegation betreut eine Person alle Konten.",
+      "english": "delegation",
+      "exampleEn": "With no delegation one person runs every account."
      }
     ],
     "pool": [
@@ -4971,7 +5671,9 @@
       "answer": "정당화",
       "german": "Rechtfertigung",
       "exampleKo": "규모를 근거로 삼는 ◯◯◯는 오래가지 못합니다.",
-      "exampleDe": "Eine Rechtfertigung über die schiere Größe hält nicht lange."
+      "exampleDe": "Eine Rechtfertigung über die schiere Größe hält nicht lange.",
+      "english": "justification",
+      "exampleEn": "Justification by sheer numbers doesn't last."
      },
      {
       "dir": "v",
@@ -4980,7 +5682,9 @@
       "answer": "발화",
       "german": "Äußerung",
       "exampleKo": "같은 ◯◯라도 누가 했느냐로 무게가 달라집니다.",
-      "exampleDe": "Dieselbe Äußerung wiegt je nach sprechender Person anders."
+      "exampleDe": "Dieselbe Äußerung wiegt je nach sprechender Person anders.",
+      "english": "utterance",
+      "exampleEn": "The same utterance carries different weight depending on who said it."
      },
      {
       "dir": "v",
@@ -4989,7 +5693,9 @@
       "answer": "단정",
       "german": "kategorisches Urteil",
       "exampleKo": "한 장면만 보고 ◯◯을 내리기는 이릅니다.",
-      "exampleDe": "Nach nur einer Szene ein kategorisches Urteil zu fällen, ist verfrüht."
+      "exampleDe": "Nach nur einer Szene ein kategorisches Urteil zu fällen, ist verfrüht.",
+      "english": "flat assertion",
+      "exampleEn": "A flat assertion after a single scene is premature."
      }
     ],
     "pool": [
@@ -5015,7 +5721,9 @@
       "answer": "화자",
       "german": "Erzählstimme",
       "exampleKo": "◯◯가 누구인지에 따라 같은 장면이 달라집니다.",
-      "exampleDe": "Je nach Erzählstimme sieht dieselbe Szene anders aus."
+      "exampleDe": "Je nach Erzählstimme sieht dieselbe Szene anders aus.",
+      "english": "narrator",
+      "exampleEn": "Depending on the narrator the same scene looks different."
      },
      {
       "dir": "v",
@@ -5024,7 +5732,9 @@
       "answer": "자의적",
       "german": "willkürlich",
       "exampleKo": "◯◯◯인 판단이 끼어들 여지를 줄여야 합니다.",
-      "exampleDe": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden."
+      "exampleDe": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden.",
+      "english": "arbitrary",
+      "exampleEn": "The room for arbitrary decisions has to shrink."
      },
      {
       "dir": "v",
@@ -5033,7 +5743,9 @@
       "answer": "발화",
       "german": "Äußerung",
       "exampleKo": "같은 ◯◯라도 누가 했느냐로 무게가 달라집니다.",
-      "exampleDe": "Dieselbe Äußerung wiegt je nach sprechender Person anders."
+      "exampleDe": "Dieselbe Äußerung wiegt je nach sprechender Person anders.",
+      "english": "utterance",
+      "exampleEn": "The same utterance carries different weight depending on who said it."
      },
      {
       "dir": "h",
@@ -5042,7 +5754,9 @@
       "answer": "적발",
       "german": "Aufdeckung",
       "exampleKo": "◯◯ 기준이 공개되지 않아 다툼이 생깁니다.",
-      "exampleDe": "Weil die Kriterien der Aufdeckung nicht offenliegen, entsteht Streit."
+      "exampleDe": "Weil die Kriterien der Aufdeckung nicht offenliegen, entsteht Streit.",
+      "english": "detection",
+      "exampleEn": "Because the detection criteria aren't published, disputes arise."
      }
     ],
     "pool": [
@@ -5069,7 +5783,9 @@
       "answer": "이상화",
       "german": "Idealisierung",
       "exampleKo": "초반의 ◯◯◯가 나중 판단을 어렵게 합니다.",
-      "exampleDe": "Die frühe Idealisierung erschwert das spätere Urteil."
+      "exampleDe": "Die frühe Idealisierung erschwert das spätere Urteil.",
+      "english": "idealisation",
+      "exampleEn": "Early idealisation makes later judgement harder."
      },
      {
       "dir": "v",
@@ -5078,7 +5794,9 @@
       "answer": "화자",
       "german": "Erzählstimme",
       "exampleKo": "◯◯가 누구인지에 따라 같은 장면이 달라집니다.",
-      "exampleDe": "Je nach Erzählstimme sieht dieselbe Szene anders aus."
+      "exampleDe": "Je nach Erzählstimme sieht dieselbe Szene anders aus.",
+      "english": "narrator",
+      "exampleEn": "Depending on the narrator the same scene looks different."
      },
      {
       "dir": "h",
@@ -5087,7 +5805,9 @@
       "answer": "자의적",
       "german": "willkürlich",
       "exampleKo": "◯◯◯인 판단이 끼어들 여지를 줄여야 합니다.",
-      "exampleDe": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden."
+      "exampleDe": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden.",
+      "english": "arbitrary",
+      "exampleEn": "The room for arbitrary decisions has to shrink."
      }
     ],
     "pool": [
@@ -5114,7 +5834,9 @@
       "answer": "재검토",
       "german": "Neuprüfung",
       "exampleKo": "같은 시스템이 ◯◯◯를 맡으면 형식에 불과합니다.",
-      "exampleDe": "Prüft dasselbe System erneut, bleibt es eine Formalie."
+      "exampleDe": "Prüft dasselbe System erneut, bleibt es eine Formalie.",
+      "english": "re-review",
+      "exampleEn": "If the same system handles the re-review, it is only a formality."
      },
      {
       "dir": "v",
@@ -5123,7 +5845,9 @@
       "answer": "제재",
       "german": "Sanktion",
       "exampleKo": "◯◯ 근거를 사후에 붙이는 관행이 문제입니다.",
-      "exampleDe": "Problematisch ist die Praxis, die Grundlage der Sanktion nachträglich zu ergänzen."
+      "exampleDe": "Problematisch ist die Praxis, die Grundlage der Sanktion nachträglich zu ergänzen.",
+      "english": "sanction",
+      "exampleEn": "The practice of attaching the basis for a sanction after the fact is the problem."
      },
      {
       "dir": "h",
@@ -5132,7 +5856,9 @@
       "answer": "구제",
       "german": "Abhilfe",
       "exampleKo": "◯◯ 절차가 접수 확인에 그치면 실효가 없습니다.",
-      "exampleDe": "Bleibt das Abhilfeverfahren bei einer Eingangsbestätigung, wirkt es nicht."
+      "exampleDe": "Bleibt das Abhilfeverfahren bei einer Eingangsbestätigung, wirkt es nicht.",
+      "english": "remedy",
+      "exampleEn": "If the remedy process stops at an acknowledgement, it has no effect."
      }
     ],
     "pool": [
@@ -5158,7 +5884,9 @@
       "answer": "재구성",
       "german": "Rekonstruktion",
       "exampleKo": "기억의 ◯◯◯은 감정 상태를 따라갑니다.",
-      "exampleDe": "Die Rekonstruktion der Erinnerung folgt der Gefühlslage."
+      "exampleDe": "Die Rekonstruktion der Erinnerung folgt der Gefühlslage.",
+      "english": "reconstruction",
+      "exampleEn": "Reconstruction of memory follows one's emotional state."
      },
      {
       "dir": "v",
@@ -5167,7 +5895,9 @@
       "answer": "일관성",
       "german": "Konsistenz",
       "exampleKo": "같은 행위에 다른 결과가 나오면 ◯◯◯이 깨집니다.",
-      "exampleDe": "Führt dieselbe Handlung zu anderen Ergebnissen, bricht die Konsistenz."
+      "exampleDe": "Führt dieselbe Handlung zu anderen Ergebnissen, bricht die Konsistenz.",
+      "english": "consistency",
+      "exampleEn": "If the same act yields different outcomes, consistency breaks."
      },
      {
       "dir": "v",
@@ -5176,7 +5906,9 @@
       "answer": "구제",
       "german": "Abhilfe",
       "exampleKo": "◯◯ 절차가 접수 확인에 그치면 실효가 없습니다.",
-      "exampleDe": "Bleibt das Abhilfeverfahren bei einer Eingangsbestätigung, wirkt es nicht."
+      "exampleDe": "Bleibt das Abhilfeverfahren bei einer Eingangsbestätigung, wirkt es nicht.",
+      "english": "remedy",
+      "exampleEn": "If the remedy process stops at an acknowledgement, it has no effect."
      },
      {
       "dir": "v",
@@ -5185,7 +5917,9 @@
       "answer": "제재",
       "german": "Sanktion",
       "exampleKo": "◯◯ 근거를 사후에 붙이는 관행이 문제입니다.",
-      "exampleDe": "Problematisch ist die Praxis, die Grundlage der Sanktion nachträglich zu ergänzen."
+      "exampleDe": "Problematisch ist die Praxis, die Grundlage der Sanktion nachträglich zu ergänzen.",
+      "english": "sanction",
+      "exampleEn": "The practice of attaching the basis for a sanction after the fact is the problem."
      }
     ],
     "pool": [
@@ -5213,7 +5947,9 @@
       "answer": "오작동",
       "german": "Fehlfunktion",
       "exampleKo": "검침기 ◯◯◯으로 요금이 세 배 청구됐습니다.",
-      "exampleDe": "Wegen einer Fehlfunktion des Zählers wurde der dreifache Betrag berechnet."
+      "exampleDe": "Wegen einer Fehlfunktion des Zählers wurde der dreifache Betrag berechnet.",
+      "english": "malfunction",
+      "exampleEn": "A meter malfunction billed three times the amount."
      },
      {
       "dir": "v",
@@ -5222,7 +5958,9 @@
       "answer": "오탐",
       "german": "Fehlalarm",
       "exampleKo": "◯◯이 났을 때 되돌리는 절차가 없습니다.",
-      "exampleDe": "Für den Fall eines Fehlalarms fehlt ein Verfahren zur Rücknahme."
+      "exampleDe": "Für den Fall eines Fehlalarms fehlt ein Verfahren zur Rücknahme.",
+      "english": "false positive",
+      "exampleEn": "There is no procedure to reverse a false positive."
      },
      {
       "dir": "v",
@@ -5231,7 +5969,9 @@
       "answer": "동조",
       "german": "Mitgehen",
       "exampleKo": "반박이 없는 자리에서는 ◯◯가 의견처럼 보입니다.",
-      "exampleDe": "Wo kein Widerspruch fällt, sieht Mitgehen wie eine Meinung aus."
+      "exampleDe": "Wo kein Widerspruch fällt, sieht Mitgehen wie eine Meinung aus.",
+      "english": "going along",
+      "exampleEn": "Where nothing is contested, going along looks like an opinion."
      }
     ],
     "pool": [
@@ -5257,7 +5997,9 @@
       "answer": "개연성",
       "german": "Plausibilität",
       "exampleKo": "이야기의 ◯◯◯과 사실 여부는 다른 문제입니다.",
-      "exampleDe": "Die Plausibilität der Geschichte und ihre Faktenlage sind zweierlei."
+      "exampleDe": "Die Plausibilität der Geschichte und ihre Faktenlage sind zweierlei.",
+      "english": "plausibility",
+      "exampleEn": "The plausibility of a story and whether it is true are separate questions."
      },
      {
       "dir": "v",
@@ -5266,7 +6008,9 @@
       "answer": "재구성",
       "german": "Rekonstruktion",
       "exampleKo": "기억의 ◯◯◯은 감정 상태를 따라갑니다.",
-      "exampleDe": "Die Rekonstruktion der Erinnerung folgt der Gefühlslage."
+      "exampleDe": "Die Rekonstruktion der Erinnerung folgt der Gefühlslage.",
+      "english": "reconstruction",
+      "exampleEn": "Reconstruction of memory follows one's emotional state."
      },
      {
       "dir": "h",
@@ -5275,7 +6019,9 @@
       "answer": "재명명",
       "german": "Umbenennung",
       "exampleKo": "◯◯◯이 부담을 덜어 주면 누구의 부담인지 물어요.",
-      "exampleDe": "Mildert die Umbenennung die Last, frage ich, wessen Last das war."
+      "exampleDe": "Mildert die Umbenennung die Last, frage ich, wessen Last das war.",
+      "english": "renaming",
+      "exampleEn": "If renaming lightens a burden, I ask whose burden it was."
      }
     ],
     "pool": [
@@ -5303,7 +6049,9 @@
       "answer": "해제",
       "german": "Aufhebung",
       "exampleKo": "◯◯ 조건을 미리 적어야 예측이 가능합니다.",
-      "exampleDe": "Die Bedingungen der Aufhebung müssen vorab feststehen, damit es vorhersehbar bleibt."
+      "exampleDe": "Die Bedingungen der Aufhebung müssen vorab feststehen, damit es vorhersehbar bleibt.",
+      "english": "lifting",
+      "exampleEn": "The conditions for lifting have to be written in advance to stay predictable."
      },
      {
       "dir": "v",
@@ -5312,7 +6060,9 @@
       "answer": "제재",
       "german": "Sanktion",
       "exampleKo": "◯◯ 근거를 사후에 붙이는 관행이 문제입니다.",
-      "exampleDe": "Problematisch ist die Praxis, die Grundlage der Sanktion nachträglich zu ergänzen."
+      "exampleDe": "Problematisch ist die Praxis, die Grundlage der Sanktion nachträglich zu ergänzen.",
+      "english": "sanction",
+      "exampleEn": "The practice of attaching the basis for a sanction after the fact is the problem."
      },
      {
       "dir": "h",
@@ -5321,7 +6071,9 @@
       "answer": "재검토",
       "german": "Neuprüfung",
       "exampleKo": "같은 시스템이 ◯◯◯를 맡으면 형식에 불과합니다.",
-      "exampleDe": "Prüft dasselbe System erneut, bleibt es eine Formalie."
+      "exampleDe": "Prüft dasselbe System erneut, bleibt es eine Formalie.",
+      "english": "re-review",
+      "exampleEn": "If the same system handles the re-review, it is only a formality."
      }
     ],
     "pool": [
@@ -5347,7 +6099,9 @@
       "answer": "시정",
       "german": "Behebung",
       "exampleKo": "◯◯ 기한을 정하지 않으면 재발을 막지 못합니다.",
-      "exampleDe": "Ohne Frist zur Behebung lässt sich eine Wiederholung nicht verhindern."
+      "exampleDe": "Ohne Frist zur Behebung lässt sich eine Wiederholung nicht verhindern.",
+      "english": "correction",
+      "exampleEn": "With no deadline for correction, recurrence isn't prevented."
      },
      {
       "dir": "v",
@@ -5356,7 +6110,9 @@
       "answer": "정당화",
       "german": "Rechtfertigung",
       "exampleKo": "규모를 근거로 삼는 ◯◯◯는 오래가지 못합니다.",
-      "exampleDe": "Eine Rechtfertigung über die schiere Größe hält nicht lange."
+      "exampleDe": "Eine Rechtfertigung über die schiere Größe hält nicht lange.",
+      "english": "justification",
+      "exampleEn": "Justification by sheer numbers doesn't last."
      },
      {
       "dir": "h",
@@ -5365,7 +6121,9 @@
       "answer": "미화",
       "german": "Beschönigung",
       "exampleKo": "지난 관계의 ◯◯는 다음 선택을 흐립니다.",
-      "exampleDe": "Die Beschönigung der alten Beziehung trübt die nächste Wahl."
+      "exampleDe": "Die Beschönigung der alten Beziehung trübt die nächste Wahl.",
+      "english": "glossing over",
+      "exampleEn": "Glossing over the past relationship clouds the next choice."
      }
     ],
     "pool": [
@@ -5391,7 +6149,9 @@
       "answer": "누적",
       "german": "Kumulierung",
       "exampleKo": "경미한 위반의 ◯◯을 중대한 위반과 같이 다룹니다.",
-      "exampleDe": "Die Kumulierung leichter Verstöße wird wie ein schwerer behandelt."
+      "exampleDe": "Die Kumulierung leichter Verstöße wird wie ein schwerer behandelt.",
+      "english": "accumulation",
+      "exampleEn": "The accumulation of minor breaches is treated like a serious one."
      },
      {
       "dir": "v",
@@ -5400,7 +6160,9 @@
       "answer": "적발",
       "german": "Aufdeckung",
       "exampleKo": "◯◯ 기준이 공개되지 않아 다툼이 생깁니다.",
-      "exampleDe": "Weil die Kriterien der Aufdeckung nicht offenliegen, entsteht Streit."
+      "exampleDe": "Weil die Kriterien der Aufdeckung nicht offenliegen, entsteht Streit.",
+      "english": "detection",
+      "exampleEn": "Because the detection criteria aren't published, disputes arise."
      },
      {
       "dir": "h",
@@ -5409,7 +6171,9 @@
       "answer": "발화",
       "german": "Äußerung",
       "exampleKo": "같은 ◯◯라도 누가 했느냐로 무게가 달라집니다.",
-      "exampleDe": "Dieselbe Äußerung wiegt je nach sprechender Person anders."
+      "exampleDe": "Dieselbe Äußerung wiegt je nach sprechender Person anders.",
+      "english": "utterance",
+      "exampleEn": "The same utterance carries different weight depending on who said it."
      }
     ],
     "pool": [
@@ -5434,16 +6198,20 @@
       "answer": "형식적",
       "german": "bloß formal",
       "exampleKo": "◯◯◯인 이의 창구는 신뢰를 깎습니다.",
-      "exampleDe": "Ein bloß formaler Beschwerdeweg kostet Vertrauen."
+      "exampleDe": "Ein bloß formaler Beschwerdeweg kostet Vertrauen.",
+      "english": "merely formal",
+      "exampleEn": "A merely formal appeals desk costs trust."
      },
      {
       "dir": "v",
       "row": 0,
       "col": 0,
       "answer": "전형",
-      "german": "Typisierung",
-      "exampleKo": "◯◯에 맞추면 사람이 납작해집니다.",
-      "exampleDe": "Wer in eine Typisierung gepresst wird, wird flach."
+      "german": "Typus / Stereotyp",
+      "exampleKo": "사람을 하나의 ◯◯에 가두면 그 사람의 복잡성이 사라집니다.",
+      "exampleDe": "Wenn wir einen Menschen in einen einzigen Typus pressen, geht seine Vielschichtigkeit verloren.",
+      "english": "type / stereotype",
+      "exampleEn": "When we force people into a single type, we lose their complexity."
      },
      {
       "dir": "v",
@@ -5452,7 +6220,9 @@
       "answer": "적발",
       "german": "Aufdeckung",
       "exampleKo": "◯◯ 기준이 공개되지 않아 다툼이 생깁니다.",
-      "exampleDe": "Weil die Kriterien der Aufdeckung nicht offenliegen, entsteht Streit."
+      "exampleDe": "Weil die Kriterien der Aufdeckung nicht offenliegen, entsteht Streit.",
+      "english": "detection",
+      "exampleEn": "Because the detection criteria aren't published, disputes arise."
      }
     ],
     "pool": [
@@ -5478,7 +6248,9 @@
       "answer": "소명",
       "german": "Stellungnahme",
       "exampleKo": "◯◯ 기회를 주지 않은 결정은 다시 봐야 합니다.",
-      "exampleDe": "Eine Entscheidung ohne Gelegenheit zur Stellungnahme muss neu geprüft werden."
+      "exampleDe": "Eine Entscheidung ohne Gelegenheit zur Stellungnahme muss neu geprüft werden.",
+      "english": "statement of grounds",
+      "exampleEn": "A decision that allowed no statement of grounds has to be reviewed again."
      },
      {
       "dir": "v",
@@ -5487,7 +6259,9 @@
       "answer": "소급",
       "german": "Rückwirkung",
       "exampleKo": "새 기준을 ◯◯ 적용하면 신뢰가 무너집니다.",
-      "exampleDe": "Wird der neue Maßstab mit Rückwirkung angewandt, bricht das Vertrauen."
+      "exampleDe": "Wird der neue Maßstab mit Rückwirkung angewandt, bricht das Vertrauen.",
+      "english": "retroactivity",
+      "exampleEn": "Applying the new standard with retroactivity breaks trust."
      },
      {
       "dir": "v",
@@ -5496,7 +6270,9 @@
       "answer": "재명명",
       "german": "Umbenennung",
       "exampleKo": "◯◯◯이 부담을 덜어 주면 누구의 부담인지 물어요.",
-      "exampleDe": "Mildert die Umbenennung die Last, frage ich, wessen Last das war."
+      "exampleDe": "Mildert die Umbenennung die Last, frage ich, wessen Last das war.",
+      "english": "renaming",
+      "exampleEn": "If renaming lightens a burden, I ask whose burden it was."
      }
     ],
     "pool": [
@@ -5522,7 +6298,9 @@
       "answer": "잣대",
       "german": "Maßstab",
       "exampleKo": "안팎에 다른 ◯◯를 대면 설득력이 사라집니다.",
-      "exampleDe": "Wer nach innen und außen verschiedene Maßstäbe anlegt, verliert an Überzeugungskraft."
+      "exampleDe": "Wer nach innen und außen verschiedene Maßstäbe anlegt, verliert an Überzeugungskraft.",
+      "english": "yardstick",
+      "exampleEn": "Applying different yardsticks inside and outside destroys credibility."
      },
      {
       "dir": "v",
@@ -5531,7 +6309,9 @@
       "answer": "대표성",
       "german": "Repräsentativität",
       "exampleKo": "한 단체의 발언을 모든 이주민의 의견으로 읽기 전에 ◯◯◯을 물어야 합니다.",
-      "exampleDe": "Bevor die Aussage eines Verbands als Meinung aller Zugewanderten gilt, muss seine Repräsentativität geprüft werden."
+      "exampleDe": "Bevor die Aussage eines Verbands als Meinung aller Zugewanderten gilt, muss seine Repräsentativität geprüft werden.",
+      "english": "representativeness",
+      "exampleEn": "Before treating one association's statement as the view of all migrants, its representativeness must be examined."
      },
      {
       "dir": "h",
@@ -5540,7 +6320,9 @@
       "answer": "일관성",
       "german": "Konsistenz",
       "exampleKo": "같은 행위에 다른 결과가 나오면 ◯◯◯이 깨집니다.",
-      "exampleDe": "Führt dieselbe Handlung zu anderen Ergebnissen, bricht die Konsistenz."
+      "exampleDe": "Führt dieselbe Handlung zu anderen Ergebnissen, bricht die Konsistenz.",
+      "english": "consistency",
+      "exampleEn": "If the same act yields different outcomes, consistency breaks."
      }
     ],
     "pool": [
@@ -5567,16 +6349,20 @@
       "answer": "형식적",
       "german": "bloß formal",
       "exampleKo": "◯◯◯인 이의 창구는 신뢰를 깎습니다.",
-      "exampleDe": "Ein bloß formaler Beschwerdeweg kostet Vertrauen."
+      "exampleDe": "Ein bloß formaler Beschwerdeweg kostet Vertrauen.",
+      "english": "merely formal",
+      "exampleEn": "A merely formal appeals desk costs trust."
      },
      {
       "dir": "v",
       "row": 1,
       "col": 0,
       "answer": "전형",
-      "german": "Typisierung",
-      "exampleKo": "◯◯에 맞추면 사람이 납작해집니다.",
-      "exampleDe": "Wer in eine Typisierung gepresst wird, wird flach."
+      "german": "Typus / Stereotyp",
+      "exampleKo": "사람을 하나의 ◯◯에 가두면 그 사람의 복잡성이 사라집니다.",
+      "exampleDe": "Wenn wir einen Menschen in einen einzigen Typus pressen, geht seine Vielschichtigkeit verloren.",
+      "english": "type / stereotype",
+      "exampleEn": "When we force people into a single type, we lose their complexity."
      },
      {
       "dir": "v",
@@ -5585,7 +6371,9 @@
       "answer": "자의적",
       "german": "willkürlich",
       "exampleKo": "◯◯◯인 판단이 끼어들 여지를 줄여야 합니다.",
-      "exampleDe": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden."
+      "exampleDe": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden.",
+      "english": "arbitrary",
+      "exampleEn": "The room for arbitrary decisions has to shrink."
      },
      {
       "dir": "h",
@@ -5594,7 +6382,9 @@
       "answer": "화자",
       "german": "Erzählstimme",
       "exampleKo": "◯◯가 누구인지에 따라 같은 장면이 달라집니다.",
-      "exampleDe": "Je nach Erzählstimme sieht dieselbe Szene anders aus."
+      "exampleDe": "Je nach Erzählstimme sieht dieselbe Szene anders aus.",
+      "english": "narrator",
+      "exampleEn": "Depending on the narrator the same scene looks different."
      }
     ],
     "pool": [
@@ -5622,7 +6412,9 @@
       "answer": "소급",
       "german": "Rückwirkung",
       "exampleKo": "새 기준을 ◯◯ 적용하면 신뢰가 무너집니다.",
-      "exampleDe": "Wird der neue Maßstab mit Rückwirkung angewandt, bricht das Vertrauen."
+      "exampleDe": "Wird der neue Maßstab mit Rückwirkung angewandt, bricht das Vertrauen.",
+      "english": "retroactivity",
+      "exampleEn": "Applying the new standard with retroactivity breaks trust."
      },
      {
       "dir": "v",
@@ -5631,7 +6423,9 @@
       "answer": "소명",
       "german": "Stellungnahme",
       "exampleKo": "◯◯ 기회를 주지 않은 결정은 다시 봐야 합니다.",
-      "exampleDe": "Eine Entscheidung ohne Gelegenheit zur Stellungnahme muss neu geprüft werden."
+      "exampleDe": "Eine Entscheidung ohne Gelegenheit zur Stellungnahme muss neu geprüft werden.",
+      "english": "statement of grounds",
+      "exampleEn": "A decision that allowed no statement of grounds has to be reviewed again."
      },
      {
       "dir": "h",
@@ -5640,7 +6434,9 @@
       "answer": "재명명",
       "german": "Umbenennung",
       "exampleKo": "◯◯◯이 부담을 덜어 주면 누구의 부담인지 물어요.",
-      "exampleDe": "Mildert die Umbenennung die Last, frage ich, wessen Last das war."
+      "exampleDe": "Mildert die Umbenennung die Last, frage ich, wessen Last das war.",
+      "english": "renaming",
+      "exampleEn": "If renaming lightens a burden, I ask whose burden it was."
      },
      {
       "dir": "v",
@@ -5649,7 +6445,9 @@
       "answer": "재구성",
       "german": "Rekonstruktion",
       "exampleKo": "기억의 ◯◯◯은 감정 상태를 따라갑니다.",
-      "exampleDe": "Die Rekonstruktion der Erinnerung folgt der Gefühlslage."
+      "exampleDe": "Die Rekonstruktion der Erinnerung folgt der Gefühlslage.",
+      "english": "reconstruction",
+      "exampleEn": "Reconstruction of memory follows one's emotional state."
      }
     ],
     "pool": [
@@ -5677,7 +6475,9 @@
       "answer": "누적",
       "german": "Kumulierung",
       "exampleKo": "경미한 위반의 ◯◯을 중대한 위반과 같이 다룹니다.",
-      "exampleDe": "Die Kumulierung leichter Verstöße wird wie ein schwerer behandelt."
+      "exampleDe": "Die Kumulierung leichter Verstöße wird wie ein schwerer behandelt.",
+      "english": "accumulation",
+      "exampleEn": "The accumulation of minor breaches is treated like a serious one."
      },
      {
       "dir": "v",
@@ -5686,16 +6486,20 @@
       "answer": "형식적",
       "german": "bloß formal",
       "exampleKo": "◯◯◯인 이의 창구는 신뢰를 깎습니다.",
-      "exampleDe": "Ein bloß formaler Beschwerdeweg kostet Vertrauen."
+      "exampleDe": "Ein bloß formaler Beschwerdeweg kostet Vertrauen.",
+      "english": "merely formal",
+      "exampleEn": "A merely formal appeals desk costs trust."
      },
      {
       "dir": "h",
       "row": 0,
       "col": 0,
       "answer": "전형",
-      "german": "Typisierung",
-      "exampleKo": "◯◯에 맞추면 사람이 납작해집니다.",
-      "exampleDe": "Wer in eine Typisierung gepresst wird, wird flach."
+      "german": "Typus / Stereotyp",
+      "exampleKo": "사람을 하나의 ◯◯에 가두면 그 사람의 복잡성이 사라집니다.",
+      "exampleDe": "Wenn wir einen Menschen in einen einzigen Typus pressen, geht seine Vielschichtigkeit verloren.",
+      "english": "type / stereotype",
+      "exampleEn": "When we force people into a single type, we lose their complexity."
      }
     ],
     "pool": [
@@ -5721,7 +6525,9 @@
       "answer": "이상화",
       "german": "Idealisierung",
       "exampleKo": "초반의 ◯◯◯가 나중 판단을 어렵게 합니다.",
-      "exampleDe": "Die frühe Idealisierung erschwert das spätere Urteil."
+      "exampleDe": "Die frühe Idealisierung erschwert das spätere Urteil.",
+      "english": "idealisation",
+      "exampleEn": "Early idealisation makes later judgement harder."
      },
      {
       "dir": "v",
@@ -5730,7 +6536,9 @@
       "answer": "정당화",
       "german": "Rechtfertigung",
       "exampleKo": "규모를 근거로 삼는 ◯◯◯는 오래가지 못합니다.",
-      "exampleDe": "Eine Rechtfertigung über die schiere Größe hält nicht lange."
+      "exampleDe": "Eine Rechtfertigung über die schiere Größe hält nicht lange.",
+      "english": "justification",
+      "exampleEn": "Justification by sheer numbers doesn't last."
      },
      {
       "dir": "h",
@@ -5739,7 +6547,9 @@
       "answer": "단정",
       "german": "kategorisches Urteil",
       "exampleKo": "한 장면만 보고 ◯◯을 내리기는 이릅니다.",
-      "exampleDe": "Nach nur einer Szene ein kategorisches Urteil zu fällen, ist verfrüht."
+      "exampleDe": "Nach nur einer Szene ein kategorisches Urteil zu fällen, ist verfrüht.",
+      "english": "flat assertion",
+      "exampleEn": "A flat assertion after a single scene is premature."
      }
     ],
     "pool": [
@@ -5766,7 +6576,9 @@
       "answer": "대표성",
       "german": "Repräsentativität",
       "exampleKo": "한 단체의 발언을 모든 이주민의 의견으로 읽기 전에 ◯◯◯을 물어야 합니다.",
-      "exampleDe": "Bevor die Aussage eines Verbands als Meinung aller Zugewanderten gilt, muss seine Repräsentativität geprüft werden."
+      "exampleDe": "Bevor die Aussage eines Verbands als Meinung aller Zugewanderten gilt, muss seine Repräsentativität geprüft werden.",
+      "english": "representativeness",
+      "exampleEn": "Before treating one association's statement as the view of all migrants, its representativeness must be examined."
      },
      {
       "dir": "v",
@@ -5775,7 +6587,9 @@
       "answer": "개연성",
       "german": "Plausibilität",
       "exampleKo": "이야기의 ◯◯◯과 사실 여부는 다른 문제입니다.",
-      "exampleDe": "Die Plausibilität der Geschichte und ihre Faktenlage sind zweierlei."
+      "exampleDe": "Die Plausibilität der Geschichte und ihre Faktenlage sind zweierlei.",
+      "english": "plausibility",
+      "exampleEn": "The plausibility of a story and whether it is true are separate questions."
      },
      {
       "dir": "v",
@@ -5784,7 +6598,9 @@
       "answer": "잣대",
       "german": "Maßstab",
       "exampleKo": "안팎에 다른 ◯◯를 대면 설득력이 사라집니다.",
-      "exampleDe": "Wer nach innen und außen verschiedene Maßstäbe anlegt, verliert an Überzeugungskraft."
+      "exampleDe": "Wer nach innen und außen verschiedene Maßstäbe anlegt, verliert an Überzeugungskraft.",
+      "english": "yardstick",
+      "exampleEn": "Applying different yardsticks inside and outside destroys credibility."
      }
     ],
     "pool": [
@@ -5811,7 +6627,9 @@
       "answer": "재량",
       "german": "Ermessen",
       "exampleKo": "운영자 ◯◯이 넓을수록 기준을 더 적어야 합니다.",
-      "exampleDe": "Je weiter das Ermessen der Betreibenden reicht, desto mehr Kriterien braucht es."
+      "exampleDe": "Je weiter das Ermessen der Betreibenden reicht, desto mehr Kriterien braucht es.",
+      "english": "discretion",
+      "exampleEn": "The wider the operator's discretion, the more criteria have to be written down."
      },
      {
       "dir": "v",
@@ -5820,7 +6638,9 @@
       "answer": "재구성",
       "german": "Rekonstruktion",
       "exampleKo": "기억의 ◯◯◯은 감정 상태를 따라갑니다.",
-      "exampleDe": "Die Rekonstruktion der Erinnerung folgt der Gefühlslage."
+      "exampleDe": "Die Rekonstruktion der Erinnerung folgt der Gefühlslage.",
+      "english": "reconstruction",
+      "exampleEn": "Reconstruction of memory follows one's emotional state."
      },
      {
       "dir": "h",
@@ -5829,7 +6649,9 @@
       "answer": "대표성",
       "german": "Repräsentativität",
       "exampleKo": "한 단체의 발언을 모든 이주민의 의견으로 읽기 전에 ◯◯◯을 물어야 합니다.",
-      "exampleDe": "Bevor die Aussage eines Verbands als Meinung aller Zugewanderten gilt, muss seine Repräsentativität geprüft werden."
+      "exampleDe": "Bevor die Aussage eines Verbands als Meinung aller Zugewanderten gilt, muss seine Repräsentativität geprüft werden.",
+      "english": "representativeness",
+      "exampleEn": "Before treating one association's statement as the view of all migrants, its representativeness must be examined."
      }
     ],
     "pool": [
@@ -5856,7 +6678,9 @@
       "answer": "함의",
       "german": "Implikation",
       "exampleKo": "짧은 문장의 ◯◯를 두고 며칠씩 다툽니다.",
-      "exampleDe": "Über die Implikation eines kurzen Satzes wird tagelang gestritten."
+      "exampleDe": "Über die Implikation eines kurzen Satzes wird tagelang gestritten.",
+      "english": "implication",
+      "exampleEn": "The implication of one short sentence is argued over for days."
      },
      {
       "dir": "v",
@@ -5865,7 +6689,9 @@
       "answer": "자의적",
       "german": "willkürlich",
       "exampleKo": "◯◯◯인 판단이 끼어들 여지를 줄여야 합니다.",
-      "exampleDe": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden."
+      "exampleDe": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden.",
+      "english": "arbitrary",
+      "exampleEn": "The room for arbitrary decisions has to shrink."
      },
      {
       "dir": "h",
@@ -5874,7 +6700,9 @@
       "answer": "적발",
       "german": "Aufdeckung",
       "exampleKo": "◯◯ 기준이 공개되지 않아 다툼이 생깁니다.",
-      "exampleDe": "Weil die Kriterien der Aufdeckung nicht offenliegen, entsteht Streit."
+      "exampleDe": "Weil die Kriterien der Aufdeckung nicht offenliegen, entsteht Streit.",
+      "english": "detection",
+      "exampleEn": "Because the detection criteria aren't published, disputes arise."
      },
      {
       "dir": "v",
@@ -5883,7 +6711,9 @@
       "answer": "발화",
       "german": "Äußerung",
       "exampleKo": "같은 ◯◯라도 누가 했느냐로 무게가 달라집니다.",
-      "exampleDe": "Dieselbe Äußerung wiegt je nach sprechender Person anders."
+      "exampleDe": "Dieselbe Äußerung wiegt je nach sprechender Person anders.",
+      "english": "utterance",
+      "exampleEn": "The same utterance carries different weight depending on who said it."
      }
     ],
     "pool": [

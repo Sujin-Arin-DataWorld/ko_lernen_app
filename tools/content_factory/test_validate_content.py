@@ -262,6 +262,7 @@ class ContentValidatorTest(unittest.TestCase):
         silben = copy.deepcopy(self._asset_json("silben_puzzles.json"))
         puzzle = silben["levels"]["A1"][0]
         puzzle["words"][0].pop("german")
+        puzzle["words"][0].pop("english")
         puzzle["pool"] = ["절대없는음절"]
 
         validator = self._with_json_override(**{"silben_puzzles.json": silben})
@@ -269,6 +270,7 @@ class ContentValidatorTest(unittest.TestCase):
 
         messages = self._messages(validator)
         self.assertTrue(any("german must be a nonempty string" in m for m in messages))
+        self.assertTrue(any("english must be a nonempty string" in m for m in messages))
         self.assertTrue(any("pool is missing solution syllable" in m for m in messages))
 
     def test_empty_kkeunmari_word_is_reported_without_an_index_error(self) -> None:

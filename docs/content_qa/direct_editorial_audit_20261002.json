@@ -36347,12 +36347,49 @@
       ]
     }
   },
+  "latestEditorialBatch": {
+    "scope": "Silben-Kreuz tri-language localization and linked vocabulary, cloze and Satz copy",
+    "modelReviewStatus": "MODEL_REVIEWED",
+    "humanApprovalClaim": false,
+    "repairedVocabularyIds": [
+      "vocab_a1_0097",
+      "vocab_b1_0200",
+      "vocab_b2_0081",
+      "vocab_c1_0054",
+      "vocab_c1_0180",
+      "vocab_c1_0183",
+      "vocab_c1_0191",
+      "vocab_c2_0199"
+    ],
+    "decisionNotes": [
+      "German and English now say that an early sleeper goes to bed early, rather than merely sleeping early.",
+      "The solar-power sentence names generation, not energy itself as the thing that grows.",
+      "The sibling's gender is explicit in Korean where both translations are gendered.",
+      "The C1 and C2 revisions preserve the academic targets while replacing a wrong citation practice, an ungrounded policy claim and strained metaphors."
+    ],
+    "silbenCopyRefresh": {
+      "puzzleCount": 120,
+      "placementCount": 415,
+      "geometryChanged": false,
+      "answerPoolChanged": false,
+      "englishGlossAndExampleComplete": true
+    },
+    "ttsStorageReceipt": {
+      "expected": 12960,
+      "remote": 21842,
+      "missing": 0,
+      "stale": 8882,
+      "uploadedForThisBatch": 25,
+      "uploadRuns": 2,
+      "auditoryHumanReviewClaim": false
+    }
+  },
   "remainingWork": {
     "overallStatus": "in_progress",
     "scopeNote": "Completed direct review of a named surface does not mean all app content is reviewed or native-approved. Earlier first-pass batches are distinct from the requested second deep review.",
     "smalltalk": "44 level/category/persona findings need a routing/relevel bundle; copy review is complete.",
     "kkeunmari": "1757 remaining runtime-visible entries; English coverage and frequency-derived levels remain incomplete. Independent dictionary index is unchanged.",
-    "silben": "301 unique word/level pairs read in KO/DE; copy correction and EN localization remain pending.",
+    "silben": "301 unique word/level pairs were directly read. The live bundle now carries EN glosses and examples for every one of its 415 placements; eight tri-language copy repairs were propagated from the vocabulary source, while the stable puzzle geometry and answer pool remain unchanged. A second deep pass and independent native/educator review remain open.",
     "deepSecondPassSources": {
       "vocab": 2944,
       "scenario": 178,

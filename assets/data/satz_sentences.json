@@ -2248,9 +2248,9 @@
     {
       "id": "satz_b2_0038",
       "level": "b2",
-      "targetKo": "태양광 에너지가 늘고 있어요.",
-      "promptDe": "Solarenergie nimmt zu.",
-      "promptEn": "Solar energy is increasing.",
+      "targetKo": "태양광 발전이 계속 늘고 있어요.",
+      "promptDe": "Die Solarstromerzeugung nimmt weiter zu.",
+      "promptEn": "Solar power generation keeps increasing.",
       "distractors": [
         "주에",
         "평등이"
@@ -10112,9 +10112,9 @@
     {
       "id": "satz_c1_0060",
       "level": "c1",
-      "targetKo": "타자화가 웃음을 타고 와서 바로 지적하기 어려웠어요.",
-      "promptDe": "Othering kam auf einem Lachen und war schwer sofort zu benennen.",
-      "promptEn": "Othering arrived on a laugh and was hard to name at once.",
+      "targetKo": "타자화가 농담 속에 섞여 있어서 바로 지적하기 어려웠어요.",
+      "promptDe": "Das Othering steckte in einem Witz, deshalb war es schwer, es sofort anzusprechen.",
+      "promptEn": "The othering was woven into a joke, so it was hard to call it out right away.",
       "distractors": [
         "감정이",
         "갑자기"
@@ -21740,7 +21740,7 @@
     {
       "id": "satz_b1_0411",
       "level": "b1",
-      "targetKo": "제 동생은 성격이 밝아요.",
+      "targetKo": "제 여동생은 성격이 밝아요.",
       "promptDe": "Meine kleine Schwester hat einen fröhlichen Charakter.",
       "promptEn": "My younger sister has a cheerful personality.",
       "distractors": [
@@ -25352,9 +25352,9 @@
     {
       "id": "satz_c1_0186",
       "level": "c1",
-      "targetKo": "인용을 할 때는 논문 번호를 함께 적습니다.",
-      "promptDe": "Beim Zitieren notieren wir die Studiennummer mit.",
-      "promptEn": "When citing we note the study number as well.",
+      "targetKo": "인용할 때는 출처를 함께 밝힙니다.",
+      "promptDe": "Beim Zitieren geben wir die Quelle an.",
+      "promptEn": "When we cite, we name the source.",
       "distractors": [
         "편향이",
         "과장을"
@@ -25388,9 +25388,9 @@
     {
       "id": "satz_c1_0189",
       "level": "c1",
-      "targetKo": "규제의 부작용을 함께 적어야 판단이 공정합니다.",
-      "promptDe": "Nur wenn die Nebenwirkungen mitnotiert werden, ist das Urteil fair.",
-      "promptEn": "The judgement is fair only when the side effects are written down too.",
+      "targetKo": "규제의 부작용도 함께 살펴야 공정하게 판단할 수 있습니다.",
+      "promptDe": "Auch die Nebenwirkungen einer Regulierung müssen wir berücksichtigen, um sie fair beurteilen zu können.",
+      "promptEn": "We need to consider the side effects of a regulation as well to assess it fairly.",
       "distractors": [
         "자율이",
         "우회를"
@@ -25484,9 +25484,9 @@
     {
       "id": "satz_c1_0197",
       "level": "c1",
-      "targetKo": "강제 대신 권고로 두면 지키는 비율이 떨어집니다.",
-      "promptDe": "Als Empfehlung statt als Pflicht sinkt die Befolgungsquote.",
-      "promptEn": "Left as a recommendation rather than a duty, compliance drops.",
+      "targetKo": "강제 대신 권고를 택할 때는 실제로 얼마나 지켜지는지 살펴봐야 합니다.",
+      "promptDe": "Wenn etwas nur empfohlen statt verbindlich vorgeschrieben wird, müssen wir prüfen, wie gut die Empfehlung tatsächlich befolgt wird.",
+      "promptEn": "When something is recommended rather than required, we need to examine how well it is actually followed.",
       "distractors": [
         "지표가",
         "우회를"
@@ -26156,9 +26156,9 @@
     {
       "id": "satz_c2_0205",
       "level": "c2",
-      "targetKo": "전형에 맞추면 사람이 납작해집니다.",
-      "promptDe": "Wer in eine Typisierung gepresst wird, wird flach.",
-      "promptEn": "Forced into a stock type, a person goes flat.",
+      "targetKo": "사람을 하나의 전형에 가두면 그 사람의 복잡성이 사라집니다.",
+      "promptDe": "Wenn wir einen Menschen in einen einzigen Typus pressen, geht seine Vielschichtigkeit verloren.",
+      "promptEn": "When we force people into a single type, we lose their complexity.",
       "distractors": [
         "각색이",
         "이상화를"

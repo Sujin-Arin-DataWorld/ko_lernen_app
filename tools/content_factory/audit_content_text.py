@@ -343,7 +343,6 @@ MULTILINGUAL_KEY_GROUPS = (
 MULTILINGUAL_EXEMPT_FILES = frozenset({
     "ildu_world_manifest_v1.json",
     "kkeunmari_pool.json",
-    "silben_puzzles.json",
     "tts_first_line_manifest.json",
     "tts_canonical_manifest.json",
 })

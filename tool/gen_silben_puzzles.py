@@ -16,7 +16,12 @@ Wordle식 6줄 보드("줄끼리 연결이 안 보인다" — Jin 2026-08-11)를
 - 시드 고정 → 결정적 재생성 가능
 
 검증(생성 시 강제): 연결성, 좌표 정합, 풀에 해답 음절 전부 포함, id 유일.
-사용: python tool/gen_silben_puzzles.py --write
+사용:
+  python tool/gen_silben_puzzles.py --write
+  python tool/gen_silben_puzzles.py --refresh-copy --write
+
+`--refresh-copy`는 이미 승인된 퍼즐의 격자·타일·ID는 보존하고, 어휘
+원본에서 파생한 KO/DE/EN 힌트만 최신화한다.
 """
 import csv
 import json
@@ -49,8 +54,10 @@ def load_words():
             by_level[r["level"]].append({
                 "answer": k,
                 "german": r["german"].strip(),
+                "english": r["english"].strip(),
                 "exampleKo": r["example_korean"].strip(),
                 "exampleDe": r["example_german"].strip(),
+                "exampleEn": r["example_english"].strip(),
             })
     return by_level
 
@@ -60,6 +67,58 @@ def mask_example(example, answer):
     if answer in example:
         return example.replace(answer, "◯" * len(answer))
     return example
+
+
+def refresh_existing_copy(existing_levels, by_level):
+    """Keep approved puzzle geometry while refreshing learner-facing copies.
+
+    The crossword layout is deliberately stable.  A vocabulary correction or
+    an EN field added after the layout was approved must nevertheless reach
+    the already-bundled clue, so this explicit mode replaces only the five
+    source-derived copy fields for existing placements.
+    """
+    all_sources = {}
+    for words in by_level.values():
+        for source in words:
+            answer = source["answer"]
+            if answer in all_sources:
+                raise ValueError(f"duplicate crossword source answer {answer!r}")
+            all_sources[answer] = source
+    refreshed = {}
+    for level in LEVELS:
+        puzzles = existing_levels.get(level)
+        if not isinstance(puzzles, list) or len(puzzles) != PUZZLES_PER_LEVEL:
+            raise ValueError(
+                f"{level}: --refresh-copy needs {PUZZLES_PER_LEVEL} existing puzzles"
+            )
+        by_answer = {word["answer"]: word for word in by_level[level]}
+        if len(by_answer) != len(by_level[level]):
+            raise ValueError(f"{level}: duplicate crossword source answers")
+        refreshed_puzzles = []
+        for puzzle in puzzles:
+            refreshed_words = []
+            for word in puzzle["words"]:
+                source = by_answer.get(word["answer"]) or all_sources.get(
+                    word["answer"]
+                )
+                if source is None:
+                    raise ValueError(
+                        f"{level}:{puzzle.get('id')}: missing source {word['answer']!r}"
+                    )
+                refreshed_word = dict(word)
+                refreshed_word.update(
+                    german=source["german"],
+                    english=source["english"],
+                    exampleKo=mask_example(source["exampleKo"], source["answer"]),
+                    exampleDe=source["exampleDe"],
+                    exampleEn=source["exampleEn"],
+                )
+                refreshed_words.append(refreshed_word)
+            refreshed_puzzle = dict(puzzle)
+            refreshed_puzzle["words"] = refreshed_words
+            refreshed_puzzles.append(refreshed_puzzle)
+        refreshed[level] = refreshed_puzzles
+    return refreshed
 
 
 def try_place(grid, word, placed):
@@ -156,10 +215,14 @@ def main():
     rng = random.Random(SEED)
     by_level = load_words()
     preserve_existing = "--preserve-existing" in sys.argv
+    refresh_copy = "--refresh-copy" in sys.argv
     existing_levels = {}
-    if preserve_existing and os.path.isfile(OUT):
+    if (preserve_existing or refresh_copy) and os.path.isfile(OUT):
         with open(OUT, encoding="utf-8") as handle:
             existing_levels = json.load(handle).get("levels", {})
+    if refresh_copy:
+        existing_levels = refresh_existing_copy(existing_levels, by_level)
+        preserve_existing = True
     out = {"version": 1,
            "_comment": "Silben-Kreuz 퍼즐 — tool/gen_silben_puzzles.py 가 생성. "
                        "직접 편집 금지, 스크립트 재실행으로 갱신.",
@@ -171,7 +234,8 @@ def main():
         if preserve_existing and isinstance(existing, list) and len(existing) == PUZZLES_PER_LEVEL:
             out["levels"][level] = existing
             all_ids.update(puzzle["id"] for puzzle in existing)
-            print(f"{level}: {len(existing)} Rätsel (기존 승인 퍼즐 보존)")
+            suffix = "힌트 사본 갱신" if refresh_copy else "기존 승인 퍼즐 보존"
+            print(f"{level}: {len(existing)} Rätsel ({suffix})")
             continue
         words = by_level[level]
         usage = {w["answer"]: 0 for w in words}
@@ -208,8 +272,10 @@ def main():
                 "words": [{
                     "dir": p["dir"], "row": p["row"], "col": p["col"],
                     "answer": p["answer"], "german": p["german"],
+                    "english": p["english"],
                     "exampleKo": mask_example(p["exampleKo"], p["answer"]),
                     "exampleDe": p["exampleDe"],
+                    "exampleEn": p["exampleEn"],
                 } for p in placed],
                 "pool": tiles,
             })

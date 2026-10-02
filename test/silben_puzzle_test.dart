@@ -40,7 +40,9 @@ void main() {
         final cells = <(int, int), String>{};
         for (final w in p.words) {
           expect(w.german, isNotEmpty, reason: '${p.id} ${w.answer}');
+          expect(w.english, isNotEmpty, reason: '${p.id} ${w.answer}');
           expect(w.exampleDe, isNotEmpty, reason: '${p.id} ${w.answer}');
+          expect(w.exampleEn, isNotEmpty, reason: '${p.id} ${w.answer}');
           expect(w.exampleKo, isNotEmpty, reason: '${p.id} ${w.answer}');
           final cs = w.cells;
           for (var j = 0; j < cs.length; j++) {
@@ -122,5 +124,45 @@ void main() {
     expect(memberships[(1, 1)]!.map((word) => word.dir), ['h', 'v']);
     expect(memberships[(1, 0)], orderedEquals([horizontal]));
     expect(memberships[(0, 1)], orderedEquals([vertical]));
+  });
+
+  test('영어 힌트는 채워진 영어 사본을 쓰고, 구형 번들은 독일어로 폴백한다', () {
+    const localized = SilbenWord(
+      dir: 'h',
+      row: 0,
+      col: 0,
+      answer: '가나다',
+      german: 'Deutsch',
+      english: 'English',
+      exampleKo: '◯◯◯',
+      exampleDe: 'Deutscher Beispielsatz.',
+      exampleEn: 'English example sentence.',
+    );
+    const legacy = SilbenWord(
+      dir: 'h',
+      row: 0,
+      col: 0,
+      answer: '가나다',
+      german: 'Deutsch',
+      exampleKo: '◯◯◯',
+      exampleDe: 'Deutscher Beispielsatz.',
+    );
+
+    expect(localized.meaningFor('en-US'), 'English');
+    expect(localized.exampleFor('en'), 'English example sentence.');
+    expect(localized.meaningFor('de'), 'Deutsch');
+    expect(legacy.meaningFor('en'), 'Deutsch');
+    expect(legacy.exampleFor('en'), 'Deutscher Beispielsatz.');
+  });
+
+  test('화면은 언어별 접근자를 거치므로 영어 힌트를 독일어로 고정하지 않는다', () {
+    final source = File(
+      'lib/screens/silben_kreuz_screen.dart',
+    ).readAsStringSync();
+
+    expect(source.contains('meaningFor(_hintLanguage)'), isTrue);
+    expect(source.contains('exampleFor(_hintLanguage)'), isTrue);
+    expect(source.contains('w.german'), isFalse);
+    expect(source.contains('w.exampleDe'), isFalse);
   });
 }
