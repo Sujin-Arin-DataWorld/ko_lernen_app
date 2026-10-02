@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import relevel_ledger
 import validate_promoted_batch as promoted
+import smalltalk_editorial_revisions as editorial
 
 MANIFEST = ROOT / "tools/content_factory/drafts/batch_18_manifest.json"
 RECEIPT = ROOT / "tools/content_factory/review/batch_18_routing_reconciliation_20260917.json"
@@ -54,7 +55,11 @@ class Batch18RoutingReconciliationTest(unittest.TestCase):
         for item in receipt["currentCategoryMembers"]:
             ident = item["id"]
             with self.subTest(id=ident):
-                self.assertEqual(item["phraseSha256"], promoted._fingerprint(phrases[ident]))
+                entry = editorial.revisions().get(ident)
+                historical = entry["before"] if entry else phrases[ident]
+                if entry:
+                    self.assertEqual(entry["afterSha256"], promoted._fingerprint(phrases[ident]))
+                self.assertEqual(item["phraseSha256"], promoted._fingerprint(historical))
                 reference = next(r for r in authority["contentReferences"]
                                  if r["kind"] == "smalltalk" and r["id"] == ident)
                 self.assertEqual(item["publishedAuthority"], reference)

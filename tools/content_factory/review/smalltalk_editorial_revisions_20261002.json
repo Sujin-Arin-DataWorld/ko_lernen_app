@@ -23047,6 +23047,4168 @@
       },
       "beforeSha256": "14e3225928ffc71bbf12d910771372b34d202177922de8d0d9b3e0eb02b62ea6",
       "afterSha256": "ae97b6be70837b2b7d56cdd08fb9b41a8b0c6f2c4b10cb984c5db0a690edad53"
+    },
+    {
+      "id": "smalltalk_c2_0001",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0001",
+        "category": "work_study",
+        "level": "c2",
+        "kind": "question",
+        "ko": "다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?",
+        "de": "Sollten Minderheitspositionen im Protokoll bleiben, auch wenn die Mehrheit entscheidet?",
+        "en": "Should minority views remain in the minutes even when the majority decides?",
+        "reply": {
+          "ko": "결정의 전제와 놓친 위험을 나중에 검토하려면 남겨야 해요.",
+          "de": "Ja, damit wir später die Voraussetzungen der Entscheidung und übersehene Risiken prüfen können.",
+          "en": "Yes. We need them to review the assumptions behind the decision and any overlooked risks later."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "의견뿐 아니라 채택되지 않은 이유도 기록할까요?",
+            "de": "Sollen wir neben der Position auch festhalten, warum sie nicht übernommen wurde?",
+            "en": "Shall we record not only the view but also why it was not adopted?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그 기록이 있으면 결과가 달라졌을 때 책임 있게 되짚을 수 있겠네요.",
+          "de": "Dann lässt sich die Entscheidung verantwortungsvoll nachvollziehen, falls das Ergebnis anders ausfällt.",
+          "en": "That record would let us revisit the decision responsibly if the outcome changes."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0001",
+        "category": "work_study",
+        "level": "c2",
+        "kind": "question",
+        "ko": "다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?",
+        "de": "Sollten Minderheitspositionen im Protokoll festgehalten werden, auch wenn der Mehrheitsvorschlag angenommen wird?",
+        "en": "Should minority views be recorded in the minutes even when the majority's proposal is adopted?",
+        "reply": {
+          "ko": "결정의 전제와 놓친 위험을 나중에 검토하려면 남겨야 해요.",
+          "de": "Ja, damit wir später die Voraussetzungen der Entscheidung und übersehene Risiken prüfen können.",
+          "en": "Yes. We need them to review the assumptions behind the decision and any overlooked risks later."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "의견뿐 아니라 채택되지 않은 이유도 기록할까요?",
+            "de": "Sollen wir neben der Position auch festhalten, warum sie nicht übernommen wurde?",
+            "en": "Shall we record not only the view but also why it was not adopted?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그 기록이 있으면 결과가 달라졌을 때 책임 있게 되짚을 수 있겠네요.",
+          "de": "Dann lässt sich die Entscheidung verantwortungsvoll nachvollziehen, falls das Ergebnis anders ausfällt.",
+          "en": "That record would let us revisit the decision responsibly if the outcome changes."
+        }
+      },
+      "beforeSha256": "caec6a07ef2974d3423a8e405632b8ecb394898a9ef46d1bad9c7dfa57a6b774",
+      "afterSha256": "c8e8f2640766f05a307b03b9f3c3b8b2360a876d737aacfd1a9f6429126142fc"
+    },
+    {
+      "id": "smalltalk_c2_0002",
+      "level": "c2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0002",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "결과가 좋아도 절차가 불공정했다면 그 결정을 받아들여야 할까요?",
+        "de": "Sollte eine Entscheidung akzeptiert werden, wenn das Ergebnis gut, das Verfahren aber unfair war?",
+        "en": "Should we accept a decision when the result is good but the process was unfair?",
+        "reply": {
+          "ko": "한 번의 좋은 결과가 다음 결정의 불공정한 절차를 정당화하지는 못해요.",
+          "de": "Ein gutes Ergebnis rechtfertigt kein unfaires Verfahren für künftige Entscheidungen.",
+          "en": "One good outcome does not justify an unfair process for future decisions."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "누가 발언하고 이의를 제기할 수 있었는지 살펴볼까요?",
+            "de": "Sollen wir prüfen, wer sprechen und Einwände erheben konnte?",
+            "en": "Shall we examine who was able to speak and raise objections?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "절차를 보면 운이 좋았던 결과인지도 구분할 수 있겠네요.",
+          "de": "Der Blick auf das Verfahren zeigt auch, ob das gute Ergebnis nur Glück war.",
+          "en": "Examining the process may show whether the good outcome was merely luck."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0002",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "결과가 좋아도 절차가 불공정했다면 그 결정을 받아들여야 할까요?",
+        "de": "Sollte eine Entscheidung akzeptiert werden, wenn das Ergebnis gut, das Verfahren aber unfair war?",
+        "en": "Should we accept a decision when the result is good but the process was unfair?",
+        "reply": {
+          "ko": "한 번의 좋은 결과가 다음 결정의 불공정한 절차를 정당화하지는 못해요.",
+          "de": "Ein gutes Ergebnis rechtfertigt kein unfaires Verfahren für künftige Entscheidungen.",
+          "en": "One good outcome does not justify an unfair process for future decisions."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "누가 발언하고 이의를 제기할 수 있었는지 살펴볼까요?",
+            "de": "Sollen wir prüfen, wer sprechen und Einwände erheben konnte?",
+            "en": "Shall we examine who was able to speak and raise objections?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "절차를 검토하면 결과가 좋았다는 이유만으로 문제를 넘기지 않을 수 있겠네요.",
+          "de": "Die Prüfung des Verfahrens hilft uns, Probleme nicht bloß deshalb zu übergehen, weil das Ergebnis gut war.",
+          "en": "Examining the process would help us avoid overlooking problems just because the outcome was good."
+        }
+      },
+      "beforeSha256": "c2153af25ed223609dec7a1c7a9dfe56c60ad182c67313a8905e9a306ec357a8",
+      "afterSha256": "335f1f2beaac7f8e4c8c8a8b61b54609f2e9e34c3666e0e4ea4385f22494d272"
+    },
+    {
+      "id": "smalltalk_c2_0006",
+      "level": "c2",
+      "fields": [
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0006",
+        "category": "work_study",
+        "level": "c2",
+        "kind": "question",
+        "ko": "결말을 열어 둔 작품은 해석을 어디까지 허용한다고 봐야 할까요?",
+        "de": "Wie weit darf eine Deutung bei einem offenen Ende gehen?",
+        "en": "How far can interpretation go when a work leaves the ending open?",
+        "reply": {
+          "ko": "본문의 단서와 충돌하지 않는 범위라면 여러 해석이 가능하다고 봐요.",
+          "de": "Mehrere Deutungen sind möglich, solange sie den Hinweisen im Text nicht widersprechen.",
+          "en": "Multiple readings are possible as long as they do not conflict with clues in the text."
+        },
+        "relationshipContext": "classmate",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "각 해석이 설명하지 못하는 장면도 찾아볼까요?",
+            "de": "Sollen wir auch Szenen suchen, die jede Deutung nicht erklären kann?",
+            "en": "Shall we also identify scenes each interpretation fails to explain?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "반례까지 보면 더 설득력 있는 해석을 가릴 수 있겠네요.",
+          "de": "Gegenbeispiele helfen, die überzeugendere Lesart zu erkennen.",
+          "en": "Considering counterexamples could help us identify the stronger reading."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0006",
+        "category": "work_study",
+        "level": "c2",
+        "kind": "question",
+        "ko": "결말을 열어 둔 작품은 해석을 어디까지 허용한다고 봐야 할까요?",
+        "de": "Wie weit darf eine Deutung bei einem offenen Ende gehen?",
+        "en": "How far can interpretation go when a work leaves the ending open?",
+        "reply": {
+          "ko": "본문의 단서와 충돌하지 않는 범위라면 여러 해석이 가능하다고 봐요.",
+          "de": "Mehrere Deutungen sind möglich, solange sie den Hinweisen im Text nicht widersprechen.",
+          "en": "Multiple readings are possible as long as they do not conflict with clues in the text."
+        },
+        "relationshipContext": "classmate",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "각 해석이 설명하지 못하는 장면도 찾아볼까요?",
+            "de": "Sollen wir für jede Deutung auch die Szenen suchen, die sie nicht erklären kann?",
+            "en": "Shall we also identify scenes each interpretation fails to explain?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "반례까지 보면 더 설득력 있는 해석을 가릴 수 있겠네요.",
+          "de": "Gegenbeispiele helfen, die überzeugendere Lesart zu erkennen.",
+          "en": "Considering counterexamples could help us identify the stronger reading."
+        }
+      },
+      "beforeSha256": "fd1426d83316045af56b590806c5f6d7efcbf11ffc77a72f3ff6a48852635c99",
+      "afterSha256": "1b87b091db63ca8ce7e185b20cbb00fab79ba8cefbae02fbbe5ab558721137bd"
+    },
+    {
+      "id": "smalltalk_c2_0009",
+      "level": "c2",
+      "fields": [
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0009",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "어떤 상태를 문제라고 부를 권한은 누구에게 있어야 할까요?",
+        "de": "Wer sollte das Recht haben, einen Zustand als Problem zu benennen?",
+        "en": "Who should have the authority to define a situation as a problem?",
+        "reply": {
+          "ko": "영향을 받는 사람의 언어와 전문적인 기준이 함께 논의돼야 해요.",
+          "de": "Die Sprache der Betroffenen und fachliche Kriterien müssen gemeinsam verhandelt werden.",
+          "en": "The language of affected people and professional criteria should be discussed together."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "당사자가 쓰는 표현부터 들어 볼까요?",
+            "de": "Sollen wir zuerst hören, welche Begriffe die Betroffenen selbst verwenden?",
+            "en": "Shall we first listen to the words affected people use themselves?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "이름을 정하기 전부터 권력 관계를 살필 수 있겠네요.",
+          "de": "So können wir die Machtverhältnisse prüfen, bevor überhaupt ein Begriff feststeht.",
+          "en": "That would let us examine the power relationship before choosing a label."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0009",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "어떤 상태를 문제라고 부를 권한은 누구에게 있어야 할까요?",
+        "de": "Wer sollte das Recht haben, einen Zustand als Problem zu benennen?",
+        "en": "Who should have the authority to define a situation as a problem?",
+        "reply": {
+          "ko": "영향을 받는 사람의 언어와 전문적인 기준이 함께 논의돼야 해요.",
+          "de": "Die Sprache der Betroffenen und fachliche Kriterien müssen gemeinsam verhandelt werden.",
+          "en": "The language of affected people and professional criteria need to be discussed together."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "당사자가 쓰는 표현부터 들어 볼까요?",
+            "de": "Sollen wir zuerst hören, welche Begriffe die Betroffenen selbst verwenden?",
+            "en": "Shall we first listen to the words affected people use themselves?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "이름을 정하기 전부터 권력 관계를 살필 수 있겠네요.",
+          "de": "So können wir die Machtverhältnisse prüfen, bevor überhaupt ein Begriff feststeht.",
+          "en": "That would let us examine the power relationship before choosing a label."
+        }
+      },
+      "beforeSha256": "7507d07ed082ff880c133eea5490035cfcd0f0fb15c245768b2198441a5d6c48",
+      "afterSha256": "432b807ed5fafefef101de499035f77b957176c9a5f7185c5c548b2e38479ecd"
+    },
+    {
+      "id": "smalltalk_c2_0010",
+      "level": "c2",
+      "fields": [
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0010",
+        "category": "screen",
+        "level": "c2",
+        "kind": "question",
+        "ko": "짧은 영상에 나온 한 문장만으로 발언자의 뜻을 판단해도 될까요?",
+        "de": "Kann man die Absicht einer Person anhand eines einzigen Satzes in einem kurzen Clip beurteilen?",
+        "en": "Can we judge a speaker's intent from one sentence in a short clip?",
+        "reply": {
+          "ko": "앞뒤 질문과 발언이 나온 상황을 확인하기 전에는 판단을 미루겠어요.",
+          "de": "Ich würde das Urteil zurückstellen, bis die Fragen davor und die Gesprächssituation bekannt sind.",
+          "en": "I would withhold judgment until I know the preceding questions and the setting."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "전체 영상이나 원문 기록을 찾아볼까요?",
+            "de": "Sollen wir nach dem vollständigen Video oder Protokoll suchen?",
+            "en": "Shall we look for the full video or transcript?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "맥락을 되찾으면 잘린 문장이 만든 인상도 달라질 수 있겠네요.",
+          "de": "Mit dem Kontext kann sich auch der Eindruck des Ausschnitts verändern.",
+          "en": "Restoring context may change the impression created by the clip."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0010",
+        "category": "screen",
+        "level": "c2",
+        "kind": "question",
+        "ko": "짧은 영상에 나온 한 문장만으로 발언자의 뜻을 판단해도 될까요?",
+        "de": "Kann man die Absicht einer Person anhand eines einzigen Satzes in einem kurzen Clip beurteilen?",
+        "en": "Can we judge a speaker's intent from one sentence in a short clip?",
+        "reply": {
+          "ko": "앞뒤 질문과 발언이 나온 상황을 확인하기 전에는 판단을 미루겠어요.",
+          "de": "Ich würde mein Urteil zurückstellen, bis ich die Fragen davor und danach sowie den Kontext der Äußerung kenne.",
+          "en": "I would withhold judgment until I know the questions before and after it, and the context in which the remark was made."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "전체 영상이나 원문 기록을 찾아볼까요?",
+            "de": "Sollen wir nach dem vollständigen Video oder Protokoll suchen?",
+            "en": "Shall we look for the full video or transcript?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "맥락을 되찾으면 잘린 문장이 만든 인상도 달라질 수 있겠네요.",
+          "de": "Mit dem Kontext kann sich auch der Eindruck des Ausschnitts verändern.",
+          "en": "Restoring context may change the impression created by the clip."
+        }
+      },
+      "beforeSha256": "a429e2d53dcbbc306a6e58c3f46fd0653945ed6a603f337918695cdb7890a462",
+      "afterSha256": "e30b05c540fbfe8bee213306a612173b3b71fe7b2f4b26af851ed96246aee669"
+    },
+    {
+      "id": "smalltalk_c2_0011",
+      "level": "c2",
+      "fields": [
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0011",
+        "category": "work_study",
+        "level": "c2",
+        "kind": "question",
+        "ko": "회의에서 아무 말도 하지 않은 사람을 동의한 것으로 봐도 될까요?",
+        "de": "Dürfen wir Schweigen in einer Besprechung als Zustimmung werten?",
+        "en": "Can we treat someone who stayed silent in a meeting as having agreed?",
+        "reply": {
+          "ko": "발언하기 어려운 이유가 있을 수 있어서 의사를 따로 확인해야 해요.",
+          "de": "Es kann Gründe geben, nicht zu sprechen. Die Zustimmung sollte daher gesondert geprüft werden.",
+          "en": "There may be reasons someone could not speak, so we should confirm their view separately."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "익명으로 의견을 낼 방법도 열어 둘까요?",
+            "de": "Sollen wir auch eine anonyme Rückmeldung ermöglichen?",
+            "en": "Shall we also offer a way to respond anonymously?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "여러 통로가 있으면 침묵에 의미를 억지로 붙이지 않아도 되겠네요.",
+          "de": "Mit mehreren Wegen müssen wir dem Schweigen keine Bedeutung aufzwingen.",
+          "en": "With multiple channels, we would not need to force meaning onto silence."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0011",
+        "category": "work_study",
+        "level": "c2",
+        "kind": "question",
+        "ko": "회의에서 아무 말도 하지 않은 사람을 동의한 것으로 봐도 될까요?",
+        "de": "Dürfen wir Schweigen in einer Besprechung als Zustimmung werten?",
+        "en": "Can we treat someone who stayed silent in a meeting as having agreed?",
+        "reply": {
+          "ko": "발언하기 어려운 이유가 있을 수 있어서 의사를 따로 확인해야 해요.",
+          "de": "Es kann Gründe geben, warum jemand nicht sprechen konnte. Daher müssen wir die Meinung dieser Person gesondert erfragen.",
+          "en": "There may be reasons someone found it difficult to speak, so we need to ask for their view separately."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "익명으로 의견을 낼 방법도 열어 둘까요?",
+            "de": "Sollen wir auch eine anonyme Rückmeldung ermöglichen?",
+            "en": "Shall we also offer a way to respond anonymously?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "여러 통로가 있으면 침묵에 의미를 억지로 붙이지 않아도 되겠네요.",
+          "de": "Mit mehreren Wegen müssen wir dem Schweigen keine Bedeutung aufzwingen.",
+          "en": "With multiple channels, we would not need to force meaning onto silence."
+        }
+      },
+      "beforeSha256": "c6af48acd53b1d1f47318f9fe42e1c4695d9b2d65efda72be2a3b73bb6e74c85",
+      "afterSha256": "7bc38650c8034ba102a1ce3774feb07abef338ac21ff5bbfda6782a5875d038f"
+    },
+    {
+      "id": "smalltalk_c2_0013",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0013",
+        "category": "work_study",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동 결정이 왜 나왔는지 나중에 추적하려면 지금 무엇을 남겨야 할까요?",
+        "de": "Was müssen wir jetzt dokumentieren, um eine automatische Entscheidung später nachvollziehen zu können?",
+        "en": "What should we record now so an automated decision can be traced later?",
+        "reply": {
+          "ko": "사용한 데이터 버전과 기준, 사람의 개입 시점을 함께 남겨야 해요.",
+          "de": "Wir müssen Datenversion, Kriterien und den Zeitpunkt menschlicher Eingriffe festhalten.",
+          "en": "We should record the data version, the criteria, and when a person intervened."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "결과가 바뀐 수정 이력도 보존할까요?",
+            "de": "Sollen wir auch Änderungen speichern, die das Ergebnis beeinflusst haben?",
+            "en": "Shall we preserve the revision history that changed the result?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그 기록이 있어야 책임 소재와 오류의 시작점을 나눠 볼 수 있겠네요.",
+          "de": "Nur mit diesen Spuren lassen sich Verantwortung und Fehlerursprung unterscheiden.",
+          "en": "Those records would help separate accountability from the point where an error began."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0013",
+        "category": "work_study",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동 결정이 왜 나왔는지 나중에 추적하려면 지금 무엇을 남겨야 할까요?",
+        "de": "Was müssen wir jetzt dokumentieren, um eine automatische Entscheidung später nachvollziehen zu können?",
+        "en": "What should we record now so an automated decision can be traced later?",
+        "reply": {
+          "ko": "사용한 데이터 버전과 기준, 사람의 개입 시점을 함께 남겨야 해요.",
+          "de": "Wir müssen Datenversion, Kriterien und den Zeitpunkt menschlicher Eingriffe festhalten.",
+          "en": "We need to record the data version, the criteria, and when a person intervened."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "결과가 바뀐 수정 이력도 보존할까요?",
+            "de": "Sollen wir auch Änderungen speichern, die das Ergebnis beeinflusst haben?",
+            "en": "Shall we preserve the revision history that changed the result?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그 기록이 있어야 책임 소재와 오류의 시작점을 나눠 볼 수 있겠네요.",
+          "de": "Nur mit diesen Spuren lassen sich Verantwortung und Fehlerursprung unterscheiden.",
+          "en": "Only with those records can we distinguish accountability from the point where an error began."
+        }
+      },
+      "beforeSha256": "053238b8d7f66a47d47debc1cbf3e545fcfcdaee8ea6b74a85a3e0b0830b4b67",
+      "afterSha256": "19af9569603b97f56a96539ffce6c8cafd245c3ee2dc986ab0201ac7d5bba378"
+    },
+    {
+      "id": "smalltalk_c2_0014",
+      "level": "c2",
+      "fields": [
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0014",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동 심사 결과에 이의를 제기하려는 사람에게 어떤 절차가 보여야 할까요?",
+        "de": "Welches Verfahren muss für jemanden sichtbar sein, der eine automatische Entscheidung anfechten will?",
+        "en": "What process should be visible to someone who wants to challenge an automated decision?",
+        "reply": {
+          "ko": "담당자, 처리 기한, 제출할 자료와 결과를 다시 검토하는 기준이 보여야 해요.",
+          "de": "Es muss klar sein, wer zuständig ist, welche Bearbeitungsfrist gilt, was einzureichen ist und nach welchen Kriterien das Ergebnis erneut geprüft wird.",
+          "en": "The person responsible, the processing deadline, what to submit, and the criteria for reassessing the result should all be clear."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "기계가 아닌 사람에게 설명을 요청할 수 있게 할까요?",
+            "de": "Soll eine Erklärung durch eine Person verlangt werden können?",
+            "en": "Should they be able to request an explanation from a human?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "사람의 검토가 보장돼야 이의 제기가 형식에 그치지 않겠네요.",
+          "de": "Erst eine garantierte menschliche Prüfung macht den Einspruch mehr als bloße Formsache.",
+          "en": "So human review needs to be guaranteed if the appeal is to be more than a formality."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0014",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동 심사 결과에 이의를 제기하려는 사람에게 어떤 절차가 보여야 할까요?",
+        "de": "Welches Verfahren muss für jemanden sichtbar sein, der eine automatische Entscheidung anfechten will?",
+        "en": "What process should be visible to someone who wants to challenge an automated decision?",
+        "reply": {
+          "ko": "담당자, 처리 기한, 제출할 자료와 결과를 다시 검토하는 기준이 보여야 해요.",
+          "de": "Es muss klar sein, wer zuständig ist, welche Bearbeitungsfrist gilt, was einzureichen ist und nach welchen Kriterien das Ergebnis erneut geprüft wird.",
+          "en": "The person responsible, the processing deadline, what to submit, and the criteria for reassessing the result all need to be clear."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "기계가 아닌 사람에게 설명을 요청할 수 있게 할까요?",
+            "de": "Soll eine Erklärung durch eine Person verlangt werden können?",
+            "en": "Should they be able to request an explanation from a human?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "사람의 검토가 보장돼야 이의 제기가 형식에 그치지 않겠네요.",
+          "de": "Erst eine garantierte menschliche Prüfung macht den Einspruch mehr als bloße Formsache.",
+          "en": "So human review needs to be guaranteed if the appeal is to be more than a formality."
+        }
+      },
+      "beforeSha256": "a00791c1320d6d71162564dd3a78369539904a0453beacd3a79a71f0b1c107c2",
+      "afterSha256": "199e9017f0332dce410c04ab1200f7fc098a2b9b839bbea2c0d5781e3351b07f"
+    },
+    {
+      "id": "smalltalk_c2_0016",
+      "level": "c2",
+      "fields": [
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0016",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "안전을 위한 감시라면 어느 범위까지 허용할 수 있을까요?",
+        "de": "Wie weit darf Überwachung gehen, wenn sie der Sicherheit dienen soll?",
+        "en": "How far should surveillance be allowed to go when it is intended for safety?",
+        "reply": {
+          "ko": "목적과 기간, 접근 권한을 좁히고 필요가 끝나면 기록을 지워야 해요.",
+          "de": "Zweck, Dauer und Zugriffsrechte müssen begrenzt und die Daten nach Wegfall des Bedarfs gelöscht werden.",
+          "en": "The purpose, duration, and access rights should be limited, and records deleted once the need ends."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "수집에 동의하지 않을 대안도 마련할까요?",
+            "de": "Sollen wir auch eine Alternative für Menschen ohne Einwilligung anbieten?",
+            "en": "Shall we provide an alternative for people who do not consent to collection?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "선택권이 있어야 안전이라는 목적이 무제한 감시로 번지지 않겠네요.",
+          "de": "Wahlmöglichkeiten verhindern, dass Sicherheit zur unbegrenzten Überwachung wird.",
+          "en": "Choice would keep a safety goal from expanding into unlimited surveillance."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0016",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "안전을 위한 감시라면 어느 범위까지 허용할 수 있을까요?",
+        "de": "Wie weit darf Überwachung gehen, wenn sie der Sicherheit dienen soll?",
+        "en": "How far should surveillance be allowed to go when it is intended for safety?",
+        "reply": {
+          "ko": "목적과 기간, 접근 권한을 좁히고 필요가 끝나면 기록을 지워야 해요.",
+          "de": "Zweck, Dauer und Zugriffsrechte müssen begrenzt und die Daten nach Wegfall des Bedarfs gelöscht werden.",
+          "en": "The purpose, duration, and access rights need to be limited, and records must be deleted once the need ends."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "수집에 동의하지 않을 대안도 마련할까요?",
+            "de": "Sollen wir auch eine Alternative für Menschen ohne Einwilligung anbieten?",
+            "en": "Shall we provide an alternative for people who do not consent to collection?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "선택권이 있어야 안전이라는 목적이 무제한 감시로 번지지 않겠네요.",
+          "de": "Wahlmöglichkeiten verhindern, dass Sicherheit zur unbegrenzten Überwachung wird.",
+          "en": "Choice would keep a safety goal from expanding into unlimited surveillance."
+        }
+      },
+      "beforeSha256": "69a65bbfdf49effb1b4780251dabdc1402e9a36ae30a5a6c7063a6f0f1498490",
+      "afterSha256": "b27ea7af1b96bc07a1e8ae1caa5f8b0db108c515be2c622f9d28b42ac1d3e9d5"
+    },
+    {
+      "id": "smalltalk_c2_0017",
+      "level": "c2",
+      "fields": [
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0017",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동 심사에 이의를 제기할 때 어떤 판단 근거까지 확인할 수 있어야 할까요?",
+        "de": "Welche Entscheidungsgrundlagen müssen bei einem Einspruch gegen eine automatische Prüfung einsehbar sein?",
+        "en": "What grounds for the decision should be available when someone appeals an automated review?",
+        "reply": {
+          "ko": "사용된 기준과 핵심 데이터, 인간 검토자가 결론을 바꿀 조건은 확인할 수 있어야 합니다.",
+          "de": "Die verwendeten Kriterien, die zentralen Daten und die Bedingungen für eine Änderung durch menschliche Prüfung müssen einsehbar sein.",
+          "en": "The criteria used, the key data, and the conditions under which a human reviewer may change the outcome should be visible."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "설명에 오류가 있으면 어느 담당자에게 정정을 요청할 수 있나요?",
+            "de": "Bei welcher Stelle kann eine Korrektur verlangt werden, wenn die Erklärung fehlerhaft ist?",
+            "en": "Which contact can correct the explanation if it contains an error?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "결정과 정정 절차가 함께 보여야 이의 제기가 실제 권리가 되겠네요.",
+          "de": "Erst wenn Entscheidung und Korrekturweg sichtbar sind, wird der Einspruch zu einem echten Recht.",
+          "en": "The appeal becomes a real right only when both the decision and the correction process are visible."
+        },
+        "sourceSeedId": "seed_c2_automated_appeal",
+        "courseUnitId": "c2_02_technology_public_ethics",
+        "conceptIds": [
+          "concept_c2_accountable_systems"
+        ]
+      },
+      "after": {
+        "id": "smalltalk_c2_0017",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동 심사에 이의를 제기할 때 어떤 판단 근거까지 확인할 수 있어야 할까요?",
+        "de": "Welche Entscheidungsgrundlagen müssen bei einem Einspruch gegen eine automatische Prüfung einsehbar sein?",
+        "en": "What grounds for the decision should be available when someone appeals an automated review?",
+        "reply": {
+          "ko": "사용된 기준과 핵심 데이터, 인간 검토자가 결론을 바꿀 조건은 확인할 수 있어야 합니다.",
+          "de": "Die verwendeten Kriterien, die zentralen Daten und die Bedingungen für eine Änderung durch menschliche Prüfung müssen einsehbar sein.",
+          "en": "The criteria used, the key data, and the conditions under which a human reviewer can change the outcome need to be visible."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "설명에 오류가 있으면 어느 담당자에게 정정을 요청할 수 있나요?",
+            "de": "Bei welcher zuständigen Person kann ich eine Korrektur beantragen, wenn die Erklärung fehlerhaft ist?",
+            "en": "Which person in charge can I ask to correct the explanation if it contains an error?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "결정과 정정 절차가 함께 보여야 이의 제기가 실제 권리가 되겠네요.",
+          "de": "Erst wenn Entscheidung und Korrekturweg sichtbar sind, wird der Einspruch zu einem echten Recht.",
+          "en": "The appeal becomes a real right only when both the decision and the correction process are visible."
+        },
+        "sourceSeedId": "seed_c2_automated_appeal",
+        "courseUnitId": "c2_02_technology_public_ethics",
+        "conceptIds": [
+          "concept_c2_accountable_systems"
+        ]
+      },
+      "beforeSha256": "edfa2f6c5b3d295eb1b89066318a3ed88fb4a56624ac308efd5d57db148de423",
+      "afterSha256": "22edccbfa6d6b9795d9ba3b7aaf8494ac5ede5baf494537544f9d5b200f59495"
+    },
+    {
+      "id": "smalltalk_c2_0019",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0019",
+        "category": "partner_family",
+        "level": "c2",
+        "kind": "question",
+        "ko": "결정을 내리는 사람과 그 결정을 말로 옮기는 사람이 다른 것 같은데, 어떻게 보세요?",
+        "de": "Wer entscheidet und wer die Entscheidung ausspricht, scheint mir nicht dieselbe Person zu sein. Wie sehen Sie das?",
+        "en": "Who decides and who voices the decision seem to be different people. How do you see it?",
+        "reply": {
+          "ko": "말하는 사람이 정하는 사람인 척할 때가 많죠.",
+          "de": "Oft tut die sprechende Person so, als wäre sie die entscheidende.",
+          "en": "Often the one speaking acts as if they're the one deciding.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이 얘기를 계속해도 괜찮을까요?",
+            "de": "Ist es in Ordnung, wenn wir dabeibleiben?",
+            "en": "Is it alright if we stay on this?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "네, 더 듣고 싶어요.",
+          "de": "Ja, ich höre gern weiter zu.",
+          "en": "Yes, I would like to hear more."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0019",
+        "category": "partner_family",
+        "level": "c2",
+        "kind": "question",
+        "ko": "결정을 내리는 사람과 그 결정을 말로 옮기는 사람이 다른 것 같은데, 어떻게 보세요?",
+        "de": "Wer entscheidet und wer die Entscheidung ausspricht, scheint mir nicht dieselbe Person zu sein. Wie sehen Sie das?",
+        "en": "Who decides and who voices the decision seem to be different people. How do you see it?",
+        "reply": {
+          "ko": "직접 결정에 참여한 사람인지, 정해진 내용을 전달하는 사람인지 구분해 볼 필요가 있겠죠.",
+          "de": "Wir sollten unterscheiden, ob jemand selbst an der Entscheidung beteiligt war oder nur das Ergebnis weitergibt.",
+          "en": "We should distinguish between someone who took part in the decision and someone who is only passing it on.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이 얘기를 계속해도 괜찮을까요?",
+            "de": "Ist es in Ordnung, wenn wir dabeibleiben?",
+            "en": "Is it alright if we stay on this?"
+          }
+        ],
+        "followUp": {
+          "ko": "그 구분이 있어야 누구에게 의견을 전할지도 알 수 있겠네요.",
+          "de": "Erst mit dieser Unterscheidung wissen wir, an wen wir unsere Anliegen richten können.",
+          "en": "That distinction would help us know whom to raise our concerns with.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "6e238b372345a48c7507c2e15ab263ce806d108e26f09fd99265fe3effed7c3d",
+      "afterSha256": "381df428cd5ddc910655b05cde346a144bbb29258a18aac309096d935250af30"
+    },
+    {
+      "id": "smalltalk_c2_0020",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en",
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0020",
+        "category": "partner_family",
+        "level": "c2",
+        "kind": "opener",
+        "ko": "말로만 정한 건 시간이 지나면 서로 다르게 기억하더라고요.",
+        "de": "Was nur mündlich vereinbart wurde, erinnert später jeder anders.",
+        "en": "When an agreement stays verbal, people remember it differently over time.",
+        "reply": {
+          "ko": "그래서 적어 두자는 거군요.",
+          "de": "Deshalb also aufschreiben.",
+          "en": "So that's why you want it written down.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이 얘기를 계속해도 괜찮을까요?",
+            "de": "Ist es in Ordnung, wenn wir dabeibleiben?",
+            "en": "Is it alright if we stay on this?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "네, 더 듣고 싶어요.",
+          "de": "Ja, ich höre gern weiter zu.",
+          "en": "Yes, I would like to hear more."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0020",
+        "category": "partner_family",
+        "level": "c2",
+        "kind": "opener",
+        "ko": "말로만 정한 건 시간이 지나면 서로 다르게 기억하더라고요.",
+        "de": "Mir ist aufgefallen, dass sich die Beteiligten später unterschiedlich an rein mündliche Absprachen erinnern.",
+        "en": "I have noticed that people remember purely verbal agreements differently over time.",
+        "reply": {
+          "ko": "그래서 적어 두자는 거군요.",
+          "de": "Deshalb also aufschreiben.",
+          "en": "So that's why you want it written down.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이 얘기를 계속해도 괜찮을까요?",
+            "de": "Ist es in Ordnung, wenn wir dabeibleiben?",
+            "en": "Is it alright if we stay on this?"
+          }
+        ],
+        "followUp": {
+          "ko": "네, 합의한 내용만 짧게라도 남겨 두고 싶어요.",
+          "de": "Ja, ich möchte wenigstens kurz festhalten, was wir vereinbart haben.",
+          "en": "Yes, I would like to keep at least a brief record of what we agreed.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "5a60162dfd2cbbead568a93502f7de72b9920cfd740a56c0fa27345291aa4dbd",
+      "afterSha256": "7e5e43992a7c5382043756d7849a921e74576aea3f2f8f195c675b5735d2eb9e"
+    },
+    {
+      "id": "smalltalk_c2_0021",
+      "level": "c2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0021",
+        "category": "partner_family",
+        "level": "c2",
+        "kind": "question",
+        "ko": "제 이름 대신 역할로만 불리면, 몇 년 뒤에 저는 어떻게 기억될까요?",
+        "de": "Wenn man mich nur nach meiner Rolle bezeichnet und nicht beim Namen nennt, wie werde ich dann in ein paar Jahren erinnert?",
+        "en": "If I'm only ever called by my role and not my name, how will I be remembered in a few years?",
+        "reply": {
+          "ko": "이름을 불러 주는 사람이 한 명은 있어야죠.",
+          "de": "Wenigstens eine Person sollte Sie beim Namen nennen.",
+          "en": "At least one person should call you by your name.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이 얘기를 계속해도 괜찮을까요?",
+            "de": "Ist es in Ordnung, wenn wir dabeibleiben?",
+            "en": "Is it alright if we stay on this?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "네, 더 듣고 싶어요.",
+          "de": "Ja, ich höre gern weiter zu.",
+          "en": "Yes, I would like to hear more."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0021",
+        "category": "partner_family",
+        "level": "c2",
+        "kind": "question",
+        "ko": "제 이름 대신 역할로만 불리면, 몇 년 뒤에 저는 어떻게 기억될까요?",
+        "de": "Wenn man mich nur nach meiner Rolle bezeichnet und nicht beim Namen nennt, wie werde ich dann in ein paar Jahren erinnert?",
+        "en": "If I'm only ever called by my role and not my name, how will I be remembered in a few years?",
+        "reply": {
+          "ko": "이름을 불러 주는 사람이 한 명은 있어야죠.",
+          "de": "Wenigstens eine Person sollte Sie beim Namen nennen.",
+          "en": "At least one person should call you by your name.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이 얘기를 계속해도 괜찮을까요?",
+            "de": "Ist es in Ordnung, wenn wir dabeibleiben?",
+            "en": "Is it alright if we stay on this?"
+          }
+        ],
+        "followUp": {
+          "ko": "이름을 불러 달라는 제 뜻부터 이야기해 봐야겠네요.",
+          "de": "Dann sollte ich zuerst sagen, dass ich mit meinem Namen angesprochen werden möchte.",
+          "en": "Then I should start by saying that I would like to be addressed by my name.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "23c9e288799b70376151c8e01bccb84eb70938dc4e4ca1f857746f185e3fd14c",
+      "afterSha256": "a1bfa22f652e463412a270d557b54c31db3f9cf2e0911e4608b88b0140e1a964"
+    },
+    {
+      "id": "smalltalk_c2_0022",
+      "level": "c2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0022",
+        "category": "partner_family",
+        "level": "c2",
+        "kind": "opener",
+        "ko": "이 집 이야기에 저도 한 줄쯤은 쓰는 사람이고 싶어요.",
+        "de": "In der Geschichte dieser Familie möchte ich auch eine Zeile mitschreiben dürfen.",
+        "en": "In this family's story, I'd like to be someone who gets to write a line too.",
+        "reply": {
+          "ko": "이미 쓰고 있어요.",
+          "de": "Das tun Sie längst.",
+          "en": "You already are.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이 얘기를 계속해도 괜찮을까요?",
+            "de": "Ist es in Ordnung, wenn wir dabeibleiben?",
+            "en": "Is it alright if we stay on this?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "네, 더 듣고 싶어요.",
+          "de": "Ja, ich höre gern weiter zu.",
+          "en": "Yes, I would like to hear more."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0022",
+        "category": "partner_family",
+        "level": "c2",
+        "kind": "opener",
+        "ko": "이 집 이야기에 저도 한 줄쯤은 쓰는 사람이고 싶어요.",
+        "de": "In der Geschichte dieser Familie möchte ich auch eine Zeile mitschreiben dürfen.",
+        "en": "In this family's story, I'd like to be someone who gets to write a line too.",
+        "reply": {
+          "ko": "이미 쓰고 있어요.",
+          "de": "Das tun Sie längst.",
+          "en": "You already are.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "family",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이 얘기를 계속해도 괜찮을까요?",
+            "de": "Ist es in Ordnung, wenn wir dabeibleiben?",
+            "en": "Is it alright if we stay on this?"
+          }
+        ],
+        "followUp": {
+          "ko": "그렇게 말씀해 주시니 제 자리도 실감이 나요.",
+          "de": "Wenn Sie das sagen, spüre ich meinen Platz in der Familie deutlicher.",
+          "en": "Hearing you say that makes my place in the family feel more real.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "c842fa6ee355cbb3ce7b3bcdc84eaacf25a8a36ff4374f322a1f40843446ffe0",
+      "afterSha256": "64d4abb70945b543b68e40b53e6858a9837424b796689070f159e453e1b70215"
+    },
+    {
+      "id": "smalltalk_c2_0023",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "reply"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0023",
+        "category": "work_study",
+        "level": "c2",
+        "kind": "question",
+        "ko": "이 문장이 권한을 절차 뒤에 숨기는 것 같지 않아요?",
+        "de": "Versteckt dieser Satz die Befugnis nicht hinter dem Verfahren?",
+        "en": "Does this sentence hide authority behind procedure?",
+        "reply": {
+          "ko": "행위자를 주어로 올리고 이유를 한 줄 붙입시다.",
+          "de": "Setzen wir die handelnde Stelle als Subjekt und hängen einen Grund an.",
+          "en": "Let's make the actor the subject and add one line of reason."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "지금은 짧게만 확인할까요?",
+            "de": "Wollen wir es jetzt nur kurz klären?",
+            "en": "Shall we just check this briefly for now?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그러면 다음에 이어서 이야기해요.",
+          "de": "Dann sprechen wir später weiter.",
+          "en": "Then we can continue later."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0023",
+        "category": "work_study",
+        "level": "c2",
+        "kind": "question",
+        "ko": "이 문장이 권한을 절차 뒤에 숨기는 것 같지 않아요?",
+        "de": "Versteckt dieser Satz die Befugnis nicht hinter dem Verfahren?",
+        "en": "Does this sentence hide authority behind procedure?",
+        "reply": {
+          "ko": "실제로 결정하는 주체를 밝히고, 그 결정의 근거를 한 줄 덧붙입시다.",
+          "de": "Benennen wir, wer tatsächlich entscheidet, und ergänzen wir einen Satz zur Begründung der Entscheidung.",
+          "en": "Let us identify who actually makes the decision and add a sentence explaining its basis.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "지금은 짧게만 확인할까요?",
+            "de": "Wollen wir es jetzt nur kurz klären?",
+            "en": "Shall we just check this briefly for now?"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 절차를 설명하면서도 책임의 주체를 드러낼 수 있겠네요.",
+          "de": "So können wir das Verfahren erklären und zugleich sichtbar machen, wer verantwortlich ist.",
+          "en": "Then we can explain the procedure while making it clear who is responsible.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "87bdba6d5222bc51e1fe2b08458c87432fb0e4a33fcb2bb6c3d18084885dad37",
+      "afterSha256": "269239373d1995fbf12c3833c72f8a0c5fe7d10effb88f11dd6a27ad3462694f"
+    },
+    {
+      "id": "smalltalk_c2_0024",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0024",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "이 앱이 철회를 설정 깊숙이 숨긴 것 같아서 경로를 적어 두려고요.",
+        "de": "Die Möglichkeit zum Widerruf scheint tief in den Einstellungen versteckt zu sein; deshalb möchte ich den Weg dorthin festhalten.",
+        "en": "The option to withdraw seems buried deep in the settings, so I want to record how to find it.",
+        "reply": {
+          "ko": "스크린샷과 날짜를 같이 남기면 나중에 증명하기 쉬워요.",
+          "de": "Mit Screenshot und Datum ist der Nachweis später leichter.",
+          "en": "A screenshot and a date make later proof easier."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "지금은 짧게만 확인할까요?",
+            "de": "Wollen wir es jetzt nur kurz klären?",
+            "en": "Shall we just check this briefly for now?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그러면 다음에 이어서 이야기해요.",
+          "de": "Dann sprechen wir später weiter.",
+          "en": "Then we can continue later."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0024",
+        "category": "daily",
+        "level": "c2",
+        "kind": "question",
+        "ko": "이 앱이 동의 철회 기능을 설정 깊숙이 숨겨 놓은 것 같아서, 찾아가는 경로를 적어 두려고요.",
+        "de": "Die Funktion zum Widerruf der Einwilligung scheint tief in den Einstellungen dieser App versteckt zu sein; deshalb möchte ich den Weg dorthin festhalten.",
+        "en": "The option to withdraw consent seems buried deep in this app’s settings, so I want to record how to find it.",
+        "reply": {
+          "ko": "스크린샷과 날짜를 같이 남기면 나중에 증명하기 쉬워요.",
+          "de": "Mit Screenshot und Datum ist der Nachweis später leichter.",
+          "en": "A screenshot and a date make later proof easier."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "지금은 짧게만 확인할까요?",
+            "de": "Wollen wir es jetzt nur kurz klären?",
+            "en": "Shall we just check this briefly for now?"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 경로와 확인한 날짜를 함께 기록할게요.",
+          "de": "Dann notiere ich den Weg und das Datum, an dem ich ihn geprüft habe.",
+          "en": "Then I will record the steps and the date I checked them.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "079539745a42eecfa7a1b7dd98f1e32aa6c4706064f5c24c8ca2922f75eaee9b",
+      "afterSha256": "31fceb9230085aca1f0bb04f10bc9a8a4768442b532f9fc574a49aef522f80d7"
+    },
+    {
+      "id": "smalltalk_c2_0025",
+      "level": "c2",
+      "fields": [
+        "ko",
+        "relationshipContext"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0025",
+        "category": "phone",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?",
+        "de": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt?",
+        "en": "If you challenge an automatically calculated charge, does a person review it?",
+        "reply": {
+          "ko": "같은 시스템이 다시 돌린다고만 안내받았어요.",
+          "de": "Mir wurde nur gesagt, dasselbe System rechne erneut.",
+          "en": "I was only told the same system runs it again."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "결과는 며칠 안에 통보되나요?",
+            "de": "In wie vielen Tagen kommt die Mitteilung?",
+            "en": "Within how many days does the notification come?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그러면 서면으로 남겨 두는 편이 낫겠네요.",
+          "de": "Dann ist es besser, das schriftlich festzuhalten.",
+          "en": "Then it's better to put it in writing."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0025",
+        "category": "phone",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?",
+        "de": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt?",
+        "en": "If you challenge an automatically calculated charge, does a person review it?",
+        "reply": {
+          "ko": "같은 시스템이 다시 돌린다고만 안내받았어요.",
+          "de": "Mir wurde nur gesagt, dasselbe System rechne erneut.",
+          "en": "I was only told the same system runs it again."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "결과는 며칠 안에 통보되나요?",
+            "de": "In wie vielen Tagen kommt die Mitteilung?",
+            "en": "Within how many days does the notification come?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그러면 서면으로 남겨 두는 편이 낫겠네요.",
+          "de": "Dann ist es besser, das schriftlich festzuhalten.",
+          "en": "Then it's better to put it in writing."
+        }
+      },
+      "beforeSha256": "1e677bc32a63e09cb6c16a45284c5367f65d806481091901b1a989e85ac5e59e",
+      "afterSha256": "0009f62db993753178226c553e47047df9dab30693c5aae57d063de9c54814da"
+    },
+    {
+      "id": "smalltalk_c2_0027",
+      "level": "c2",
+      "fields": [
+        "relationshipContext"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0027",
+        "category": "hobby",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동으로 계정이 정지되면 사유를 어디까지 알려 주나요?",
+        "de": "Wie ausführlich wird die Begründung mitgeteilt, wenn ein Konto automatisch gesperrt wird?",
+        "en": "How much explanation are you given when an account is suspended automatically?",
+        "reply": {
+          "ko": "규정 위반이라는 문장 하나가 전부였어요.",
+          "de": "Ein Satz über einen Regelverstoß war alles.",
+          "en": "One line about a rule breach was all of it."
+        },
+        "relationshipContext": "service",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이의를 넣을 기한은 안내받으셨어요?",
+            "de": "Wurde Ihnen eine Frist für den Einspruch genannt?",
+            "en": "Were you told a deadline for appealing?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "기한을 모르면 다투기가 훨씬 어렵죠.",
+          "de": "Wenn man die Frist nicht kennt, ist es deutlich schwerer, die Sperre anzufechten.",
+          "en": "If you don't know the deadline, it's much harder to challenge the suspension."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0027",
+        "category": "hobby",
+        "level": "c2",
+        "kind": "question",
+        "ko": "자동으로 계정이 정지되면 사유를 어디까지 알려 주나요?",
+        "de": "Wie ausführlich wird die Begründung mitgeteilt, wenn ein Konto automatisch gesperrt wird?",
+        "en": "How much explanation are you given when an account is suspended automatically?",
+        "reply": {
+          "ko": "규정 위반이라는 문장 하나가 전부였어요.",
+          "de": "Ein Satz über einen Regelverstoß war alles.",
+          "en": "One line about a rule breach was all of it."
+        },
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "이의를 넣을 기한은 안내받으셨어요?",
+            "de": "Wurde Ihnen eine Frist für den Einspruch genannt?",
+            "en": "Were you told a deadline for appealing?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "기한을 모르면 다투기가 훨씬 어렵죠.",
+          "de": "Wenn man die Frist nicht kennt, ist es deutlich schwerer, die Sperre anzufechten.",
+          "en": "If you don't know the deadline, it's much harder to challenge the suspension."
+        }
+      },
+      "beforeSha256": "fc5f2a3ff6295c1f18fd10f7eeeab6011e37ecb44223497298bbe6f2d9c06e33",
+      "afterSha256": "91d8634779fa18977423412122786ffcc96fcf82b1903a583b8621ca15c7c93f"
+    },
+    {
+      "id": "smalltalk_c2_0028",
+      "level": "c2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0028",
+        "category": "hobby",
+        "level": "c2",
+        "kind": "reaction",
+        "ko": "신고가 여러 건이라는 것만으로 정지하면 오탐을 걸러낼 수가 없어요.",
+        "de": "Sperrt man allein wegen mehrerer Meldungen, lassen sich Fehlalarme nicht aussortieren.",
+        "en": "Suspending on report count alone leaves no way to filter out false positives.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "사람이 다시 보는 단계는 있나요?",
+            "de": "Gibt es eine Stufe, in der ein Mensch nachprüft?",
+            "en": "Is there a step where a person re-checks?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그 단계가 있어야 기준이 쌓이겠죠.",
+          "de": "Erst mit dieser Stufe entstehen Maßstäbe.",
+          "en": "Only with that step do standards build up."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0028",
+        "category": "hobby",
+        "level": "c2",
+        "kind": "reaction",
+        "ko": "신고가 여러 건이라는 것만으로 정지하면 오탐을 걸러낼 수가 없어요.",
+        "de": "Sperrt man allein wegen mehrerer Meldungen, lassen sich Fehlalarme nicht aussortieren.",
+        "en": "Suspending on report count alone leaves no way to filter out false positives.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "사람이 다시 보는 단계는 있나요?",
+            "de": "Gibt es eine Stufe, in der ein Mensch nachprüft?",
+            "en": "Is there a step where a person re-checks?"
+          }
+        ],
+        "followUp": {
+          "ko": "사람의 검토가 있어야 잘못된 정지도 바로잡을 수 있겠죠.",
+          "de": "Eine menschliche Prüfung ist nötig, um auch fehlerhafte Sperren korrigieren zu können.",
+          "en": "Human review is needed to correct mistaken suspensions too.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "83d1f4caba37755c8a04985637c7848a81e68c9a1d6a1557c465bf849cee39bb",
+      "afterSha256": "a2f06f441bfff59abc61c2dc81a63a3a373ca70a6fa1c0dbf0936102023338cc"
+    },
+    {
+      "id": "smalltalk_c2_0032",
+      "level": "c2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0032",
+        "category": "kpop",
+        "level": "c2",
+        "kind": "reaction",
+        "ko": "사람이 많다고 그 말이 기준이 되는 건 아니잖아요.",
+        "de": "Dass viele es sagen, macht es noch nicht zum Maßstab.",
+        "en": "Many people saying it doesn't make it the standard.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그럼 기준은 어디서 정해지는 걸까요?",
+            "de": "Wo wird der Maßstab dann festgelegt?",
+            "en": "So where does the standard get set?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "적어 둔 규칙이 있어야 다툴 수 있겠네요.",
+          "de": "Erst mit schriftlichen Regeln lässt sich streiten.",
+          "en": "Only written rules give you something to argue with."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0032",
+        "category": "kpop",
+        "level": "c2",
+        "kind": "reaction",
+        "ko": "사람이 많다고 그 말이 기준이 되는 건 아니잖아요.",
+        "de": "Dass viele es sagen, macht es noch nicht zum Maßstab.",
+        "en": "Many people saying it doesn't make it the standard.",
+        "relationshipContext": "peer",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그럼 기준은 어디서 정해지는 걸까요?",
+            "de": "Wo wird der Maßstab dann festgelegt?",
+            "en": "So where does the standard get set?"
+          }
+        ],
+        "followUp": {
+          "ko": "기준을 분명히 적어 두면 다른 의견도 논의하기 쉬워지겠네요.",
+          "de": "Mit klar formulierten Kriterien lassen sich auch abweichende Ansichten leichter besprechen.",
+          "en": "Clearly stated criteria would make it easier to discuss differing views too.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "72d8b3b2b4da4027e73265507e5957f6d814d3dd48f66605b3711f2abce6bcc6",
+      "afterSha256": "4eec84df712805d330a053b37e619b916357e1a760cdc906c2b8fd7e5d710ad7"
+    },
+    {
+      "id": "smalltalk_c2_0033",
+      "level": "c2",
+      "fields": [
+        "reply"
+      ],
+      "before": {
+        "category": "mood",
+        "kind": "question",
+        "relationshipContext": "coworker",
+        "ko": "‘월세가 안정됐다’는 문장에서 기존 계약과 신규 계약을 나눴어요?",
+        "de": "Trennt der Satz ‚Die Mieten sind stabil‘ zwischen bestehenden und neuen Verträgen?",
+        "en": "Does the statement 'rents are stable' separate existing from new leases?",
+        "reply": {
+          "ko": "본문은 평균만 쓰고 신규 호가는 각주에 뒀어요.",
+          "de": "Im Text steht nur der Mittelwert; Angebotsmieten stehen in der Fußnote.",
+          "en": "The body uses only the average; asking rents are in a footnote."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "소득별 부담 분포는 공개했어요?",
+            "de": "Wurde die Belastung nach Einkommen veröffentlicht?",
+            "en": "Did it publish burden by income?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇다면 ‘안정’의 범위를 본문에서 한정해야겠네요.",
+          "de": "Dann muss der Geltungsbereich von ‚stabil‘ im Text begrenzt werden.",
+          "en": "Then the scope of 'stable' needs to be bounded in the main text."
+        },
+        "id": "smalltalk_c2_0033",
+        "level": "c2"
+      },
+      "after": {
+        "category": "mood",
+        "kind": "question",
+        "relationshipContext": "coworker",
+        "ko": "‘월세가 안정됐다’는 문장에서 기존 계약과 신규 계약을 나눴어요?",
+        "de": "Trennt der Satz ‚Die Mieten sind stabil‘ zwischen bestehenden und neuen Verträgen?",
+        "en": "Does the statement 'rents are stable' separate existing from new leases?",
+        "reply": {
+          "ko": "본문은 평균만 쓰고 신규 호가는 각주에 뒀어요.",
+          "de": "Im Text steht nur der Mittelwert; neue Angebotsmieten stehen in der Fußnote.",
+          "en": "The body uses only the average; new asking rents are in a footnote."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "소득별 부담 분포는 공개했어요?",
+            "de": "Wurde die Belastung nach Einkommen veröffentlicht?",
+            "en": "Did it publish burden by income?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇다면 ‘안정’의 범위를 본문에서 한정해야겠네요.",
+          "de": "Dann muss der Geltungsbereich von ‚stabil‘ im Text begrenzt werden.",
+          "en": "Then the scope of 'stable' needs to be bounded in the main text."
+        },
+        "id": "smalltalk_c2_0033",
+        "level": "c2"
+      },
+      "beforeSha256": "68c223ff4b4417dbe2a3aa687801301273cbf0628c42aa6c1238bb3e58c0b31b",
+      "afterSha256": "91a7ce5ecd11fdf08c6f0e18ef4f31e52b3844a7edfe19f76f4cc1d8f9a6a894"
+    },
+    {
+      "id": "smalltalk_c2_0034",
+      "level": "c2",
+      "fields": [
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "category": "mood",
+        "kind": "reaction",
+        "relationshipContext": "peer",
+        "ko": "‘감당 가능’이라는 말은 기준선을 숨기면 정책 구호에 머물러요.",
+        "de": "‚Bezahlbar‘ bleibt eine Parole, wenn die Schwelle verborgen ist.",
+        "en": "'Affordable' remains a slogan if its threshold is hidden.",
+        "reply": {
+          "ko": "소득, 총주거비와 지역 차이를 함께 적어야 해요.",
+          "de": "Einkommen, Gesamtwohnkosten und regionale Unterschiede müssen genannt werden.",
+          "en": "Income, total housing costs and regional differences need to be stated together."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "퇴거 위험도 지표에 들어가요?",
+            "de": "Geht auch das Verdrängungsrisiko in die Kennzahl ein?",
+            "en": "Does the measure include displacement risk?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "정의와 측정이 붙어 있어야 책임을 물을 수 있겠네요.",
+          "de": "Definition und Messung müssen verbunden sein, damit Verantwortung prüfbar wird.",
+          "en": "Definition and measurement need to stay linked for accountability."
+        },
+        "id": "smalltalk_c2_0034",
+        "level": "c2"
+      },
+      "after": {
+        "category": "mood",
+        "kind": "reaction",
+        "relationshipContext": "peer",
+        "ko": "‘감당 가능’이라는 말은 기준선을 숨기면 정책 구호에 머물러요.",
+        "de": "‚Bezahlbar‘ bleibt eine Parole, wenn die Schwelle verborgen ist.",
+        "en": "'Affordable' remains a slogan if its threshold is hidden.",
+        "reply": {
+          "ko": "소득, 총주거비와 지역 차이를 함께 적어야 해요.",
+          "de": "Einkommen, Gesamtwohnkosten und regionale Unterschiede müssen genannt werden.",
+          "en": "Income, total housing costs and regional differences need to be stated together."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "ko": "퇴거 위험도 지표에 들어가요?",
+            "de": "Geht auch das Räumungsrisiko in die Kennzahl ein?",
+            "en": "Does the measure include the risk of eviction?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "정의와 측정이 붙어 있어야 책임을 물을 수 있겠네요.",
+          "de": "Definition und Messung müssen verbunden sein, damit Verantwortung prüfbar wird.",
+          "en": "Definition and measurement need to stay linked for accountability."
+        },
+        "id": "smalltalk_c2_0034",
+        "level": "c2"
+      },
+      "beforeSha256": "b37509242c2c58c9688ea2f7469b9f49c8f2491094bd534c3920a1c9d1d18faa",
+      "afterSha256": "113e66ddc2dc8562b82b35e3ffa967d0eb24857f1dfe66c20b5436e65b73003f"
+    },
+    {
+      "id": "smalltalk_c2_0036",
+      "level": "c2",
+      "fields": [
+        "followUp"
+      ],
+      "before": {
+        "category": "daily",
+        "kind": "reaction",
+        "relationshipContext": "coworker",
+        "ko": "평균 정확도는 피해를 본 한 사람의 구제 가능성을 말해 주지 않아요.",
+        "de": "Durchschnittsgenauigkeit sagt nichts darüber, ob eine betroffene Person Abhilfe erhält.",
+        "en": "Average accuracy says nothing about whether one affected person can obtain redress.",
+        "reply": {
+          "ko": "이의 처리 시간과 결과 변경률을 따로 공개합시다.",
+          "de": "Veröffentlichen wir Einspruchsdauer und Änderungsquote getrennt.",
+          "en": "Let's publish appeal time and the rate of changed results separately."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "사람이 다시 본 비율도 알 수 있어요?",
+            "de": "Ist auch der Anteil menschlicher Nachprüfungen bekannt?",
+            "en": "Do we know the share of cases reviewed by a person?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "효율과 권리 보호를 같은 화면에서 비교할 수 있겠네요.",
+          "de": "Dann lassen sich Effizienz und Rechtsschutz gemeinsam vergleichen.",
+          "en": "Then efficiency and rights protection can be compared on one screen."
+        },
+        "id": "smalltalk_c2_0036",
+        "level": "c2"
+      },
+      "after": {
+        "category": "daily",
+        "kind": "reaction",
+        "relationshipContext": "coworker",
+        "ko": "평균 정확도는 피해를 본 한 사람의 구제 가능성을 말해 주지 않아요.",
+        "de": "Durchschnittsgenauigkeit sagt nichts darüber, ob eine betroffene Person Abhilfe erhält.",
+        "en": "Average accuracy says nothing about whether one affected person can obtain redress.",
+        "reply": {
+          "ko": "이의 처리 시간과 결과 변경률을 따로 공개합시다.",
+          "de": "Veröffentlichen wir Einspruchsdauer und Änderungsquote getrennt.",
+          "en": "Let's publish appeal time and the rate of changed results separately."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "사람이 다시 본 비율도 알 수 있어요?",
+            "de": "Ist auch der Anteil menschlicher Nachprüfungen bekannt?",
+            "en": "Do we know the share of cases reviewed by a person?"
+          }
+        ],
+        "followUp": {
+          "ko": "효율과 권리 보호를 같은 화면에서 비교할 수 있겠네요.",
+          "de": "Dann lassen sich Effizienz und Rechtsschutz auf demselben Bildschirm vergleichen.",
+          "en": "Then efficiency and rights protection can be compared on the same screen.",
+          "turnKind": "reaction"
+        },
+        "id": "smalltalk_c2_0036",
+        "level": "c2"
+      },
+      "beforeSha256": "406c809fe9e8139f76328a1f8bccfe382d47c8c87a82adc9dd7f89213f244405",
+      "afterSha256": "668b4126d4d56a210255bf2879a2208f0e79aed34abde1fdfc6fb1a1e23cae62"
+    },
+    {
+      "id": "smalltalk_c2_0037",
+      "level": "c2",
+      "fields": [
+        "reply"
+      ],
+      "before": {
+        "category": "work_study",
+        "kind": "question",
+        "relationshipContext": "coworker",
+        "ko": "그 기사에서 ‘통합 성공’을 무엇으로 측정했어요?",
+        "de": "Woran misst der Artikel ‚gelungene Integration‘?",
+        "en": "How does the article measure 'successful integration'?",
+        "reply": {
+          "ko": "취업률 하나뿐이라 자격에 맞는 일인지는 안 보여요.",
+          "de": "Nur an Beschäftigung; ob die Arbeit zur Qualifikation passt, bleibt unsichtbar.",
+          "en": "By employment alone; it does not show whether the job matches the person's qualifications."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "장기 정착이나 지역 참여도 다뤘어요?",
+            "de": "Werden langfristiges Ankommen oder lokale Teilhabe behandelt?",
+            "en": "Does it cover long-term settlement or local participation?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇다면 지표 이름부터 더 좁게 써야겠네요.",
+          "de": "Dann muss schon die Bezeichnung der Kennzahl enger gefasst werden.",
+          "en": "Then the name of the measure itself needs to be narrower."
+        },
+        "id": "smalltalk_c2_0037",
+        "level": "c2"
+      },
+      "after": {
+        "category": "work_study",
+        "kind": "question",
+        "relationshipContext": "coworker",
+        "ko": "그 기사에서 ‘통합 성공’을 무엇으로 측정했어요?",
+        "de": "Woran misst der Artikel ‚gelungene Integration‘?",
+        "en": "How does the article measure 'successful integration'?",
+        "reply": {
+          "ko": "취업률 하나뿐이라 자격에 맞는 일인지는 안 보여요.",
+          "de": "Nur an der Beschäftigungsquote; ob die Arbeit zur Qualifikation passt, bleibt unsichtbar.",
+          "en": "By the employment rate alone; it does not show whether the job matches the person's qualifications.",
+          "turnKind": "response"
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "장기 정착이나 지역 참여도 다뤘어요?",
+            "de": "Werden langfristiges Ankommen oder lokale Teilhabe behandelt?",
+            "en": "Does it cover long-term settlement or local participation?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그렇다면 지표 이름부터 더 좁게 써야겠네요.",
+          "de": "Dann muss schon die Bezeichnung der Kennzahl enger gefasst werden.",
+          "en": "Then the name of the measure itself needs to be narrower."
+        },
+        "id": "smalltalk_c2_0037",
+        "level": "c2"
+      },
+      "beforeSha256": "c02461fddc97e9b5b4d66555506543eb059069eba5a952d4a95dbfb0383b640d",
+      "afterSha256": "1e07ea65edae06d63f33e5f283afa17c9f39daac260fae21773e406b8aa0d0f0"
+    },
+    {
+      "id": "smalltalk_c2_0038",
+      "level": "c2",
+      "fields": [
+        "reply"
+      ],
+      "before": {
+        "category": "work_study",
+        "kind": "reaction",
+        "relationshipContext": "coworker",
+        "ko": "사람을 인력 부족의 해답으로만 쓰면 선택권과 생활 조건이 문장에서 사라져요.",
+        "de": "Wer Menschen nur als Antwort auf Personalmangel beschreibt, löscht Wahlmöglichkeiten und Lebensbedingungen aus dem Satz.",
+        "en": "When people are described only as the answer to labor shortages, their choices and living conditions vanish from the sentence.",
+        "reply": {
+          "ko": "당사자가 선택하고 판단한 내용을 주어로 다시 써 봐요.",
+          "de": "Schreiben wir die Entscheidungen der Betroffenen wieder als handelndes Subjekt.",
+          "en": "Let's rewrite the choices made by the people concerned as the active subject."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "인용된 당사자 목소리는 몇 명이에요?",
+            "de": "Wie viele Betroffene werden selbst zitiert?",
+            "en": "How many people concerned are quoted directly?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "정책 설명과 삶의 서사를 분리하지 않는 편집이 필요하겠네요.",
+          "de": "Die Redaktion sollte Politik und Lebensgeschichten nicht voneinander trennen.",
+          "en": "The editing needs to keep policy and lived experience connected."
+        },
+        "id": "smalltalk_c2_0038",
+        "level": "c2"
+      },
+      "after": {
+        "category": "work_study",
+        "kind": "reaction",
+        "relationshipContext": "coworker",
+        "ko": "사람을 인력 부족의 해답으로만 쓰면 선택권과 생활 조건이 문장에서 사라져요.",
+        "de": "Wer Menschen nur als Antwort auf Personalmangel beschreibt, löscht Wahlmöglichkeiten und Lebensbedingungen aus dem Satz.",
+        "en": "When people are described only as the answer to labor shortages, their choices and living conditions vanish from the sentence.",
+        "reply": {
+          "ko": "당사자가 무엇을 선택했고 어떻게 판단했는지를 문장에 다시 담아 봅시다.",
+          "de": "Halten wir im Satz wieder fest, was die Betroffenen selbst gewählt und wie sie entschieden haben.",
+          "en": "Let us put back into the sentence what the people concerned chose and how they made their decisions.",
+          "turnKind": "response"
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "인용된 당사자 목소리는 몇 명이에요?",
+            "de": "Wie viele Betroffene werden selbst zitiert?",
+            "en": "How many people concerned are quoted directly?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "정책 설명과 삶의 서사를 분리하지 않는 편집이 필요하겠네요.",
+          "de": "Die Redaktion sollte Politik und Lebensgeschichten nicht voneinander trennen.",
+          "en": "The editing needs to keep policy and lived experience connected."
+        },
+        "id": "smalltalk_c2_0038",
+        "level": "c2"
+      },
+      "beforeSha256": "27e1dffc78e65367c84435780fdb7d4f474d5e203f412f55c25c94fe7af7fc0b",
+      "afterSha256": "342142418c5140e40cfa28fcc2afe3a10737df12d2236adeccd89f58f2d7842a"
+    },
+    {
+      "id": "smalltalk_c2_0039",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en",
+        "reply"
+      ],
+      "before": {
+        "category": "kpop",
+        "kind": "question",
+        "relationshipContext": "coworker",
+        "ko": "그 발표에서 ‘진짜 팬’의 기준을 누가 정했어요?",
+        "de": "Wer legt in dem Vortrag fest, was ein ‚echter Fan‘ ist?",
+        "en": "Who sets the standard for a 'real fan' in that talk?",
+        "reply": {
+          "ko": "언어 능력과 유료 참여를 자연스럽게 기준처럼 썼어요.",
+          "de": "Sprachkenntnisse und bezahlte Teilnahme wurden stillschweigend als Maßstab verwendet.",
+          "en": "It quietly treated language ability and paid participation as the standard."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠지는 팬의 경험도 다뤘어요?",
+            "de": "Wurden auch Erfahrungen von Fans außerhalb dieses Maßstabs behandelt?",
+            "en": "Did it include fans whose experience falls outside that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "기준을 만든 주체와 이익부터 드러내야겠네요.",
+          "de": "Dann müssen zuerst Urheber und Nutzen dieses Maßstabs sichtbar werden.",
+          "en": "Then we need to reveal who created the standard and who benefits from it."
+        },
+        "id": "smalltalk_c2_0039",
+        "level": "c2"
+      },
+      "after": {
+        "category": "kpop",
+        "kind": "question",
+        "relationshipContext": "coworker",
+        "ko": "그 발표에서 ‘진짜 팬’의 기준을 누가 정했어요?",
+        "de": "Wer hat in dem Vortrag festgelegt, was ein „echter Fan“ ist?",
+        "en": "Who defined a 'real fan' in that talk?",
+        "reply": {
+          "ko": "언어 능력과 유료 참여를 자연스럽게 기준처럼 썼어요.",
+          "de": "Sprachkenntnisse und bezahlte Teilnahme wurden wie selbstverständlich als Maßstab verwendet.",
+          "en": "It treated language ability and paid participation as if they were self-evident standards.",
+          "turnKind": "response"
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠지는 팬의 경험도 다뤘어요?",
+            "de": "Wurden auch Erfahrungen von Fans außerhalb dieses Maßstabs behandelt?",
+            "en": "Did it include fans whose experience falls outside that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "기준을 만든 주체와 이익부터 드러내야겠네요.",
+          "de": "Dann müssen zuerst Urheber und Nutzen dieses Maßstabs sichtbar werden.",
+          "en": "Then we need to reveal who created the standard and who benefits from it."
+        },
+        "id": "smalltalk_c2_0039",
+        "level": "c2"
+      },
+      "beforeSha256": "86f9a6e8f4d4d94f4222c19e6ea2f4efdade37192f150830e7d17358bc561952",
+      "afterSha256": "0ca2798ab9439ec1543928c08c31ad7119f5cd177426bce9ba49af6b4daf76eb"
+    },
+    {
+      "id": "smalltalk_c2_0040",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en"
+      ],
+      "before": {
+        "category": "kpop",
+        "kind": "reaction",
+        "relationshipContext": "peer",
+        "ko": "현지 재해석을 변형이라고만 부르면 문화가 오가는 과정을 한쪽에서만 보게 돼요.",
+        "de": "Wer lokale Neuinterpretation nur ‚Verfälschung‘ nennt, betrachtet kulturellen Austausch einseitig.",
+        "en": "Calling local reinterpretation merely a distortion makes cultural exchange one-sided.",
+        "reply": {
+          "ko": "원작자의 권리와 현지의 응답을 함께 놓고 봐야 해요.",
+          "de": "Rechte der Urheber und lokale Antwort müssen zusammen betrachtet werden.",
+          "en": "We need to consider creator rights and the local response together."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "플랫폼 추천이 어떤 형태를 키웠는지도 봤어요?",
+            "de": "Wurde geprüft, welche Formen die Plattformempfehlung verstärkt hat?",
+            "en": "Did they examine which forms the platform recommendation amplified?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "진정성만 묻지 말고 유통 조건까지 보자는 뜻이군요.",
+          "de": "Es geht also darum, neben Authentizität auch Vertriebsbedingungen zu prüfen.",
+          "en": "So the point is to examine distribution conditions, not authenticity alone."
+        },
+        "id": "smalltalk_c2_0040",
+        "level": "c2"
+      },
+      "after": {
+        "category": "kpop",
+        "kind": "reaction",
+        "relationshipContext": "peer",
+        "ko": "현지 재해석을 변형이라고만 부르면 문화가 오가는 과정을 한쪽에서만 보게 돼요.",
+        "de": "Wer lokale Neuinterpretationen nur als Veränderungen des Originals bezeichnet, betrachtet kulturellen Austausch einseitig.",
+        "en": "Calling local reinterpretations merely alterations of the original means viewing cultural exchange from only one side.",
+        "reply": {
+          "ko": "원작자의 권리와 현지의 응답을 함께 놓고 봐야 해요.",
+          "de": "Rechte der Urheber und lokale Antwort müssen zusammen betrachtet werden.",
+          "en": "We need to consider creator rights and the local response together."
+        },
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "플랫폼 추천이 어떤 형태를 키웠는지도 봤어요?",
+            "de": "Wurde geprüft, welche Formen die Plattformempfehlung verstärkt hat?",
+            "en": "Did they examine which forms the platform recommendation amplified?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "진정성만 묻지 말고 유통 조건까지 보자는 뜻이군요.",
+          "de": "Es geht also darum, neben Authentizität auch Vertriebsbedingungen zu prüfen.",
+          "en": "So the point is to examine distribution conditions, not authenticity alone."
+        },
+        "id": "smalltalk_c2_0040",
+        "level": "c2"
+      },
+      "beforeSha256": "9950477e3671beb525d52c39cfc2ceb6d55b8bf3d00c3856e53f17b71032326f",
+      "afterSha256": "af73d7e9ec20337a6239a6bf8a56426e767175e830d3e9b930321421255f5398"
+    },
+    {
+      "id": "smalltalk_c2_0041",
+      "level": "c2",
+      "fields": [
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0041",
+        "category": "moving",
+        "level": "c2",
+        "kind": "question",
+        "ko": "‘감당 가능한 집’은 누구의 지출 구조를 전제로 정의했나요?",
+        "de": "Wessen Ausgabenstruktur liegt der Definition von bezahlbarem Wohnraum zugrunde?",
+        "en": "Whose spending structure underlies the definition of affordable housing?",
+        "reply": {
+          "ko": "중간 소득 1인 가구를 기준으로 삼아 다른 가구 유형은 빠졌습니다.",
+          "de": "Als Maßstab diente ein Einpersonenhaushalt mit mittlerem Einkommen; andere Haushaltstypen fehlen.",
+          "en": "A middle-income single-person household was used as the benchmark, leaving out other household types."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "돌봄비와 이동비를 포함하면 정의의 경계가 달라지나요?",
+            "de": "Verschieben sich die Grenzen der Definition, wenn Betreuung und Mobilität einbezogen werden?",
+            "en": "Do the boundaries of the definition change when care and transport costs are included?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그 숨은 전제를 드러낸 뒤 대안을 비교해야겠네요.",
+          "de": "Dann sollte diese verdeckte Prämisse offengelegt werden, bevor Alternativen verglichen werden.",
+          "en": "Then that hidden premise should be made explicit before comparing alternatives."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0041",
+        "category": "moving",
+        "level": "c2",
+        "kind": "question",
+        "ko": "‘감당 가능한 집’은 누구의 지출 구조를 전제로 정의했나요?",
+        "de": "Wessen Ausgabenstruktur liegt der Definition von bezahlbarem Wohnraum zugrunde?",
+        "en": "Whose spending structure underlies the definition of affordable housing?",
+        "reply": {
+          "ko": "중간 소득 1인 가구를 기준으로 삼아 다른 가구 유형은 빠졌습니다.",
+          "de": "Als Maßstab diente ein Einpersonenhaushalt mit mittlerem Einkommen; andere Haushaltstypen fehlen.",
+          "en": "A middle-income single-person household was used as the benchmark, leaving out other household types."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "돌봄비와 이동비를 포함하면 정의의 경계가 달라지나요?",
+            "de": "Verschieben sich die Grenzen der Definition, wenn Betreuungs- und Mobilitätskosten einbezogen werden?",
+            "en": "Do the boundaries of the definition change when care and transport costs are included?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "그 숨은 전제를 드러낸 뒤 대안을 비교해야겠네요.",
+          "de": "Dann sollte diese verdeckte Prämisse offengelegt werden, bevor Alternativen verglichen werden.",
+          "en": "Then that hidden premise should be made explicit before comparing alternatives."
+        }
+      },
+      "beforeSha256": "d3eb000357f0eb605c669e47bebe7deb1f23e4b3d1cef2f00ce0a7dade29d44e",
+      "afterSha256": "1ea5cef4f981730330e72cddc6f6ca130446a58fda7b8e33a420f69790961230"
+    },
+    {
+      "id": "smalltalk_c2_0045",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0045",
+        "level": "c2",
+        "category": "weather",
+        "kind": "question",
+        "ko": "‘기후 적응 성공’이라는 표현은 어떤 손실을 정상 범위로 두나요?",
+        "de": "Welche Verluste gelten im Ausdruck erfolgreiche Klimaanpassung als normal?",
+        "en": "Which losses are treated as normal in the phrase successful climate adaptation?",
+        "reply": {
+          "ko": "성과 정의에 재산 피해만 있고 건강과 이주 비용은 빠져 있어요.",
+          "de": "Die Erfolgsdefinition erfasst Sachschäden, nicht aber Gesundheit und Verdrängungskosten.",
+          "en": "The success definition includes property damage but omits health and displacement costs."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0045",
+        "level": "c2",
+        "category": "weather",
+        "kind": "question",
+        "ko": "‘기후 적응 성공’이라는 표현은 어떤 손실을 정상 범위로 두나요?",
+        "de": "Welche Verluste gelten im Ausdruck erfolgreiche Klimaanpassung als normal?",
+        "en": "Which losses are treated as normal in the phrase successful climate adaptation?",
+        "reply": {
+          "ko": "성과 정의에 재산 피해만 있고 건강과 이주 비용은 빠져 있어요.",
+          "de": "Die Erfolgsdefinition erfasst Sachschäden, nicht aber Gesundheitsschäden und Umzugskosten.",
+          "en": "The definition of success includes property damage but omits health impacts and relocation costs.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "건강 피해와 이주 비용을 포함하면 평가는 어떻게 달라지나요?",
+            "de": "Wie verändert sich die Bewertung, wenn Gesundheitsschäden und Umzugskosten einbezogen werden?",
+            "en": "How does the assessment change if health impacts and relocation costs are included?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 성공이라고 부르기 전에 누락된 손실부터 확인해야겠네요.",
+          "de": "Dann sollten wir die ausgelassenen Verluste prüfen, bevor wir von Erfolg sprechen.",
+          "en": "Then we should examine the omitted losses before calling it a success.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "ca49fe99a613c07bf51db0bc168093b1d61d0f058f1f074f234ea248cc1cb847",
+      "afterSha256": "77f4cdc508c46c0258cf874c27ead538427697f00eb4cc7ae028cb3e28b87ed0"
+    },
+    {
+      "id": "smalltalk_c2_0046",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0046",
+        "level": "c2",
+        "category": "weather",
+        "kind": "question",
+        "ko": "위험 지도의 경계가 바뀌면 보상 책임도 함께 바뀌나요?",
+        "de": "Ändert sich mit den Grenzen der Risikokarte auch die Entschädigungsverantwortung?",
+        "en": "When risk-map boundaries change, does responsibility for compensation change too?",
+        "reply": {
+          "ko": "기술적 재분류와 법적 책임을 분리해 검토해야 해요.",
+          "de": "Technische Neuklassifizierung und rechtliche Verantwortung müssen getrennt geprüft werden.",
+          "en": "Technical reclassification and legal responsibility need separate review."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0046",
+        "level": "c2",
+        "category": "weather",
+        "kind": "question",
+        "ko": "위험 지도의 경계가 바뀌면 보상 책임도 함께 바뀌나요?",
+        "de": "Ändert sich mit den Grenzen der Risikokarte auch die Entschädigungsverantwortung?",
+        "en": "When risk-map boundaries change, does responsibility for compensation change too?",
+        "reply": {
+          "ko": "기술적 재분류와 법적 책임을 분리해 검토해야 해요.",
+          "de": "Technische Neuklassifizierung und rechtliche Verantwortung müssen getrennt geprüft werden.",
+          "en": "Technical reclassification and legal responsibility need separate review."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "지도 변경에 따른 책임의 근거도 명시돼 있나요?",
+            "de": "Ist auch die Grundlage für die Verantwortung nach einer Kartenänderung angegeben?",
+            "en": "Is the basis for responsibility after a map change stated too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 지도상의 분류와 책임의 근거를 각각 확인해야겠네요.",
+          "de": "Dann sollten wir die Kartenklassifizierung und die Grundlage der Verantwortung getrennt prüfen.",
+          "en": "Then we should check the map classification and the basis for responsibility separately.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "909f3cc56cee77261318bf63a99f3de8cef7ce7c5f2873d8e26fadd38c359b5e",
+      "afterSha256": "db4f4d96e2f7c70f8950cfbee90c7abb4df0a8e74cb531c052937bf520207fd6"
+    },
+    {
+      "id": "smalltalk_c2_0047",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0047",
+        "level": "c2",
+        "category": "weekend",
+        "kind": "question",
+        "ko": "‘자율적 주말 노동’이라는 말에서 거절 비용은 보이나요?",
+        "de": "Wird im Ausdruck freiwillige Wochenendarbeit der Preis einer Ablehnung sichtbar?",
+        "en": "Does the phrase voluntary weekend work reveal the cost of refusing?",
+        "reply": {
+          "ko": "승진과 계약 연장의 압박이 있으면 선택의 의미가 달라져요.",
+          "de": "Druck durch Beförderung oder Vertragsverlängerung verändert die Bedeutung der Wahl.",
+          "en": "Pressure tied to promotion or contract renewal changes what choice means."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0047",
+        "level": "c2",
+        "category": "weekend",
+        "kind": "question",
+        "ko": "‘자율적 주말 노동’이라는 말에서 거절 비용은 보이나요?",
+        "de": "Wird im Ausdruck freiwillige Wochenendarbeit der Preis einer Ablehnung sichtbar?",
+        "en": "Does the phrase voluntary weekend work reveal the cost of refusing?",
+        "reply": {
+          "ko": "승진과 계약 연장의 압박이 있으면 선택의 의미가 달라져요.",
+          "de": "Druck durch Beförderung oder Vertragsverlängerung verändert die Bedeutung der Wahl.",
+          "en": "Pressure tied to promotion or contract renewal changes what choice means."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "주말 근무를 거절한 사람에게 불이익이 있었나요?",
+            "de": "Gab es Nachteile für Personen, die Wochenendarbeit abgelehnt haben?",
+            "en": "Were there adverse consequences for people who declined weekend work?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 자율적이라는 표현과 실제로 거절할 수 있는 조건을 함께 봐야겠네요.",
+          "de": "Dann sollten wir die Bezeichnung als freiwillig mit den tatsächlichen Ablehnungsbedingungen vergleichen.",
+          "en": "Then we should consider the word voluntary alongside the practical conditions for refusing.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "3decb819ccc53da750b9afbed99748d1c2e051583759add63ef10fe1e7a45658",
+      "afterSha256": "c471e4fc677455eee25c270da287b5684bae8728140731d9b88adfb5c55c57c5"
+    },
+    {
+      "id": "smalltalk_c2_0048",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0048",
+        "level": "c2",
+        "category": "weekend",
+        "kind": "question",
+        "ko": "도시의 야간 경제 전략은 소음 비용을 누구에게 넘기나요?",
+        "de": "Auf wen verlagert die Strategie für die Nachtökonomie die Lärmkosten?",
+        "en": "Onto whom does the night-economy strategy shift noise costs?",
+        "reply": {
+          "ko": "매출 수혜자와 생활 부담을 지는 주민이 다를 수 있어요.",
+          "de": "Von den Einnahmen profitieren womöglich andere als diejenigen, die die Belastung tragen.",
+          "en": "Those who benefit from revenue may differ from residents carrying the burden."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0048",
+        "level": "c2",
+        "category": "weekend",
+        "kind": "question",
+        "ko": "도시의 야간 경제 전략은 소음 비용을 누구에게 넘기나요?",
+        "de": "Auf wen verlagert die Strategie für die Nachtökonomie die Lärmkosten?",
+        "en": "Onto whom does the night-economy strategy shift noise costs?",
+        "reply": {
+          "ko": "매출 수혜자와 생활 부담을 지는 주민이 다를 수 있어요.",
+          "de": "Von den Einnahmen profitieren womöglich andere als diejenigen, die die Belastung tragen.",
+          "en": "Those who benefit from revenue may differ from residents carrying the burden."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "소음 부담을 지는 주민의 의견도 들었나요?",
+            "de": "Wurden auch die Anwohnenden gehört, die die Lärmbelastung tragen?",
+            "en": "Were residents who bear the noise burden consulted too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 매출 효과와 주민의 생활 부담을 따로 제시해야겠네요.",
+          "de": "Dann sollten wir Umsatzwirkungen und Alltagsbelastungen der Anwohnenden getrennt darstellen.",
+          "en": "Then we should present the revenue effects and residents’ everyday burdens separately.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "13ecbdd44b7f71fd2945c6092b749962c78e7738e928b817cfd801a72c2b27f1",
+      "afterSha256": "50f5438b6a449f6486b749d46e6c6673d9a2db920b201360e12342030ca63f40"
+    },
+    {
+      "id": "smalltalk_c2_0049",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0049",
+        "level": "c2",
+        "category": "food",
+        "kind": "question",
+        "ko": "‘합리적 가격’은 누구의 소득과 시간 비용을 전제로 하나요?",
+        "de": "Wessen Einkommen und Zeitkosten setzt ein als angemessen bezeichneter Preis voraus?",
+        "en": "Whose income and time costs does a price described as reasonable assume?",
+        "reply": {
+          "ko": "소비자 가격만 보면 배달 노동과 조리 노동이 지워질 수 있어요.",
+          "de": "Ein Blick nur auf Verbraucherpreise kann Liefer- und Küchenarbeit unsichtbar machen.",
+          "en": "Looking only at consumer prices can erase delivery and kitchen labor."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0049",
+        "level": "c2",
+        "category": "food",
+        "kind": "question",
+        "ko": "‘합리적 가격’은 누구의 소득과 시간 비용을 전제로 하나요?",
+        "de": "Wessen Einkommen und Zeitkosten setzt ein als angemessen bezeichneter Preis voraus?",
+        "en": "Whose income and time costs does a price described as reasonable assume?",
+        "reply": {
+          "ko": "소비자 가격만 보면 배달 노동과 조리 노동이 지워질 수 있어요.",
+          "de": "Ein Blick nur auf Verbraucherpreise kann Liefer- und Küchenarbeit unsichtbar machen.",
+          "en": "Looking only at consumer prices can erase delivery and kitchen labor."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "배달과 조리에 드는 노동 비용도 포함했나요?",
+            "de": "Wurden auch die Arbeitskosten für Lieferung und Zubereitung einbezogen?",
+            "en": "Were the labor costs of delivery and preparation included too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 소비자가 내는 가격과 노동에 대한 보상을 함께 봐야겠네요.",
+          "de": "Dann sollten wir Verbraucherpreise und die Vergütung der Arbeit gemeinsam betrachten.",
+          "en": "Then we should consider what consumers pay alongside compensation for the labor.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "48bb5f356923adfb62ebd4f9292cbae40af101e424413982ef5d865339a3a4d3",
+      "afterSha256": "e13efedc5b9670ce321bbf4a22e126a63b573a2c6d21e2e3714bcfa587635dda"
+    },
+    {
+      "id": "smalltalk_c2_0050",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0050",
+        "level": "c2",
+        "category": "food",
+        "kind": "question",
+        "ko": "지역 음식의 표준화가 다양성을 보존한다는 주장은 성립하나요?",
+        "de": "Trägt die Behauptung, Standardisierung bewahre die Vielfalt regionaler Küche?",
+        "en": "Does the claim that standardization preserves regional food diversity hold up?",
+        "reply": {
+          "ko": "유통은 쉬워져도 지역별 변형과 주체는 주변화될 수 있어요.",
+          "de": "Der Vertrieb wird leichter, während lokale Varianten und Akteure an den Rand geraten können.",
+          "en": "Distribution may get easier while local variants and actors are marginalized."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0050",
+        "level": "c2",
+        "category": "food",
+        "kind": "question",
+        "ko": "지역 음식의 표준화가 다양성을 보존한다는 주장은 성립하나요?",
+        "de": "Trägt die Behauptung, Standardisierung bewahre die Vielfalt regionaler Küche?",
+        "en": "Does the claim that standardization preserves regional food diversity hold up?",
+        "reply": {
+          "ko": "유통은 쉬워져도 지역별 변형과 주체는 주변화될 수 있어요.",
+          "de": "Der Vertrieb wird leichter, während lokale Varianten und Akteure an den Rand geraten können.",
+          "en": "Distribution may get easier while local variants and actors are marginalized."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "지역별 조리 방식의 차이도 기록했나요?",
+            "de": "Wurden auch Unterschiede in den regionalen Zubereitungsweisen dokumentiert?",
+            "en": "Were differences in regional preparation methods recorded too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 유통의 편의와 지역의 다양성을 같은 성과로 볼 수는 없겠네요.",
+          "de": "Dann können wir einfacheren Vertrieb und regionale Vielfalt nicht als denselben Erfolg werten.",
+          "en": "Then we cannot treat easier distribution and regional diversity as the same achievement.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "390985aea9d7bc36b6cb7b2be0b3eebce8e7081b34de7e2026450108e58ea3b7",
+      "afterSha256": "2ef6a14ec7be2877a6fc11876b6eb8793f412935b6eb3241ca84d877617938c5"
+    },
+    {
+      "id": "smalltalk_c2_0051",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0051",
+        "level": "c2",
+        "category": "music",
+        "kind": "question",
+        "ko": "플랫폼이 ‘발견 가능성’을 제공한다는 말은 추천 권력을 가리지 않나요?",
+        "de": "Verdeckt das Versprechen von Entdeckbarkeit die Empfehlungsmacht der Plattform?",
+        "en": "Does the promise of discoverability hide the platform's recommendation power?",
+        "reply": {
+          "ko": "노출 조건과 수익 배분을 함께 보지 않으면 관계가 지워져요.",
+          "de": "Ohne Sichtbarkeitsbedingungen und Erlösverteilung verschwinden die Machtbeziehungen.",
+          "en": "Power relations disappear unless exposure rules and revenue sharing are examined together."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0051",
+        "level": "c2",
+        "category": "music",
+        "kind": "question",
+        "ko": "플랫폼이 ‘발견 가능성’을 제공한다는 말은 추천 권력을 가리지 않나요?",
+        "de": "Verdeckt das Versprechen von Entdeckbarkeit die Empfehlungsmacht der Plattform?",
+        "en": "Does the promise of discoverability hide the platform's recommendation power?",
+        "reply": {
+          "ko": "노출 조건과 수익 배분을 함께 살펴보지 않으면 권력 관계가 논의에서 가려질 수 있어요.",
+          "de": "Wenn Sichtbarkeitsbedingungen und Erlösverteilung nicht gemeinsam betrachtet werden, können Machtbeziehungen in der Diskussion verdeckt bleiben.",
+          "en": "Unless exposure conditions and revenue sharing are examined together, power relations can be obscured in the discussion.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "노출 기준과 수익 배분 방식도 공개돼 있나요?",
+            "de": "Sind auch Sichtbarkeitskriterien und die Erlösverteilung offengelegt?",
+            "en": "Are the exposure criteria and revenue-sharing arrangements public too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 발견을 돕는 기능과 추천을 통제하는 권한을 함께 분석해야겠네요.",
+          "de": "Dann sollten wir Entdeckungshilfen und die Kontrolle über Empfehlungen gemeinsam analysieren.",
+          "en": "Then we should analyze discovery features alongside the power to control recommendations.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "7bacadb6570e1b5d5ffdac0430763026f2a2fab26f5b91b7958eb3886c5a894b",
+      "afterSha256": "9ec1948465dc6312284d7aea74f993a969b2e1f21e547d45a2aed40b4b6041d3"
+    },
+    {
+      "id": "smalltalk_c2_0052",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0052",
+        "level": "c2",
+        "category": "music",
+        "kind": "question",
+        "ko": "‘진정한 팬덤’이라는 기준은 어떤 참여를 배제하나요?",
+        "de": "Welche Beteiligungsformen schließt der Maßstab eines echten Fandoms aus?",
+        "en": "Which forms of participation does the standard of real fandom exclude?",
+        "reply": {
+          "ko": "구매와 스트리밍만 중심에 두면 번역과 지역 활동이 밀려나요.",
+          "de": "Wenn Kauf und Streaming im Zentrum stehen, geraten Übersetzung und lokale Arbeit an den Rand.",
+          "en": "Centering purchases and streams pushes translation and local work aside."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0052",
+        "level": "c2",
+        "category": "music",
+        "kind": "question",
+        "ko": "‘진정한 팬덤’이라는 기준은 어떤 참여를 배제하나요?",
+        "de": "Welche Beteiligungsformen schließt der Maßstab eines echten Fandoms aus?",
+        "en": "Which forms of participation does the standard of real fandom exclude?",
+        "reply": {
+          "ko": "구매와 스트리밍만 중심에 두면 번역과 지역 활동이 밀려나요.",
+          "de": "Wenn Kauf und Streaming im Zentrum stehen, geraten Übersetzung und lokale Arbeit an den Rand.",
+          "en": "Centering purchases and streams pushes translation and local work aside."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "번역과 지역 활동을 하는 팬의 경험도 다뤘나요?",
+            "de": "Wurden auch die Erfahrungen von Fans behandelt, die übersetzen oder lokal aktiv sind?",
+            "en": "Did they include the experiences of fans who translate or participate locally?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 소비량만으로 팬의 참여를 평가해서는 안 되겠네요.",
+          "de": "Dann sollten wir die Beteiligung von Fans nicht allein nach Konsummengen bewerten.",
+          "en": "Then we should not judge fan participation by consumption alone.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "440cd2272ea3a3deea53de37e1d67d737cc5c7fdf8c21ccfcef5be3a7d4443a0",
+      "afterSha256": "9c3615ac0ad00cafe535de5800a9e9f98ce04aae9e9e07eaf27ce41568d7b075"
+    },
+    {
+      "id": "smalltalk_c2_0053",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0053",
+        "level": "c2",
+        "category": "travel",
+        "kind": "question",
+        "ko": "관광지의 ‘수용력’은 주민의 생활권을 포함해 정의됐나요?",
+        "de": "Wurde touristische Tragfähigkeit unter Einbeziehung des Lebensraums der Bewohner definiert?",
+        "en": "Was tourism capacity defined to include residents' living space?",
+        "reply": {
+          "ko": "방문객 안전만으로 정의하면 일상 이동과 임대료 영향이 빠져요.",
+          "de": "Eine Definition nur über Besuchersicherheit lässt Alltag und Mietfolgen aus.",
+          "en": "A definition based only on visitor safety omits daily mobility and rent effects."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0053",
+        "level": "c2",
+        "category": "travel",
+        "kind": "question",
+        "ko": "관광지의 ‘수용력’은 주민의 생활권을 포함해 정의됐나요?",
+        "de": "Wurde die touristische Tragfähigkeit unter Einbeziehung der Alltagsbedingungen der Anwohnenden definiert?",
+        "en": "Was tourism carrying capacity defined to include the conditions of residents’ everyday lives?",
+        "reply": {
+          "ko": "방문객 안전만으로 정의하면 일상 이동과 임대료 영향이 빠져요.",
+          "de": "Eine Definition nur über Besuchersicherheit lässt Alltag und Mietfolgen aus.",
+          "en": "A definition based only on visitor safety omits daily mobility and rent effects."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "주민의 일상 이동과 임대료 변화도 포함했나요?",
+            "de": "Wurden auch Alltagsmobilität und Mietveränderungen der Anwohnenden berücksichtigt?",
+            "en": "Were residents’ everyday mobility and changes in rent included too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 관광객 안전과 주민의 생활 조건을 함께 반영해야겠네요.",
+          "de": "Dann sollten wir Besuchersicherheit und die Lebensbedingungen der Anwohnenden gemeinsam berücksichtigen.",
+          "en": "Then we should account for visitor safety and residents’ living conditions together.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "ea39b28b3b46cbd71f84fa56881c8b6bb589722c0081898409894ad5afcfebae",
+      "afterSha256": "97362c2ce87703604c7f024f60507d3993f59fb44ab9fc49c8b1aa428d12167b"
+    },
+    {
+      "id": "smalltalk_c2_0054",
+      "level": "c2",
+      "fields": [
+        "de",
+        "followUp",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0054",
+        "level": "c2",
+        "category": "travel",
+        "kind": "question",
+        "ko": "탄소 상쇄가 이동 감축을 대신할 수 있다는 전제는 타당한가요?",
+        "de": "Ist die Prämisse tragfähig, Kompensation könne weniger Verkehr ersetzen?",
+        "en": "Is the premise that offsets can replace travel reduction defensible?",
+        "reply": {
+          "ko": "상쇄의 불확실성과 실제 감축의 시점을 구분해야 해요.",
+          "de": "Unsicherheit der Kompensation und Zeitpunkt realer Minderung müssen getrennt werden.",
+          "en": "We need to distinguish offset uncertainty from the timing of real reductions."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0054",
+        "level": "c2",
+        "category": "travel",
+        "kind": "question",
+        "ko": "탄소 상쇄가 이동 감축을 대신할 수 있다는 전제는 타당한가요?",
+        "de": "Ist die Prämisse tragfähig, dass CO₂-Kompensation eine Verringerung des Reiseaufkommens ersetzen kann?",
+        "en": "Is the premise that offsets can replace travel reduction defensible?",
+        "reply": {
+          "ko": "상쇄 효과가 불확실하다는 점과 실제 배출량이 줄어드는 시점을 따로 살펴봐야 해요.",
+          "de": "Wir müssen die Unsicherheit der Kompensationswirkung und den Zeitpunkt tatsächlicher Emissionsminderungen gesondert prüfen.",
+          "en": "We need to examine uncertainty in offset benefits and the timing of actual emission reductions separately.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "상쇄 효과가 언제 발생하는지도 비교했나요?",
+            "de": "Wurde auch verglichen, wann die Kompensationswirkung eintritt?",
+            "en": "Did they also compare when the offset benefits would occur?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 상쇄 약속과 실제 감축을 같은 시점의 성과로 볼 수는 없겠네요.",
+          "de": "Dann können wir Kompensationsversprechen und tatsächliche Minderungen nicht als zeitgleiche Erfolge werten.",
+          "en": "Then we cannot count offset promises and actual reductions as benefits occurring at the same time.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "59bf4a01c76a98baa00400a6fdf090aed9fc07be915a32a13bf4f1b38f840f4b",
+      "afterSha256": "1ac60d57b962070c15c461756b748327791905c945bd01a352ef29e1231f12d0"
+    },
+    {
+      "id": "smalltalk_c2_0055",
+      "level": "c2",
+      "fields": [
+        "de",
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0055",
+        "level": "c2",
+        "category": "family",
+        "kind": "question",
+        "ko": "저출생을 ‘국가 경쟁력 위기’로만 부르면 누구의 삶이 수단이 되나요?",
+        "de": "Wessen Leben wird zum Mittel, wenn niedrige Geburtenzahlen nur als Wettbewerbsrisiko gelten?",
+        "en": "Whose lives become instruments when low birth rates are framed only as a competitiveness crisis?",
+        "reply": {
+          "ko": "당사자의 선택과 돌봄 조건이 정책 목표 뒤로 밀릴 수 있어요.",
+          "de": "Eigene Entscheidungen und Sorgebedingungen können hinter Staatszielen verschwinden.",
+          "en": "People's choices and care conditions can be pushed behind state goals."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0055",
+        "level": "c2",
+        "category": "family",
+        "kind": "question",
+        "ko": "저출생을 ‘국가 경쟁력 위기’로만 부르면 누구의 삶이 수단이 되나요?",
+        "de": "Wessen Leben wird zum Mittel, wenn niedrige Geburtenzahlen nur als Krise der nationalen Wettbewerbsfähigkeit bezeichnet werden?",
+        "en": "Whose lives become instruments when low birth rates are framed only as a competitiveness crisis?",
+        "reply": {
+          "ko": "당사자의 선택과 돌봄 조건이 정책 목표 뒤로 밀릴 수 있어요.",
+          "de": "Eigene Entscheidungen und Sorgebedingungen können hinter Staatszielen verschwinden.",
+          "en": "People's choices and care conditions can be pushed behind state goals."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "당사자의 선택을 정책 평가에 어떻게 반영했나요?",
+            "de": "Wie wurden die Entscheidungen der Betroffenen in der Politikbewertung berücksichtigt?",
+            "en": "How were the choices of the people concerned reflected in the policy evaluation?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 경쟁력 지표와 당사자의 삶을 분리해서 단정할 수는 없겠네요.",
+          "de": "Dann können wir aus Wettbewerbskennzahlen allein keine abschließenden Urteile über das Leben der Betroffenen ableiten.",
+          "en": "Then competitiveness metrics alone cannot support definitive judgments about people’s lives.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "c5028746a88a5f0b5f91ec3c8660646bd416e36761219449cd879c5b305792ee",
+      "afterSha256": "3195abb0a30657184bc889da66b648651a5f03f3166c5a260c2951f744373e17"
+    },
+    {
+      "id": "smalltalk_c2_0056",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0056",
+        "level": "c2",
+        "category": "family",
+        "kind": "question",
+        "ko": "돌봄을 가족 책임으로 규정하는 순간 공공 책임은 어떻게 바뀌나요?",
+        "de": "Wie verändert sich öffentliche Verantwortung, sobald Sorge als Familienpflicht definiert wird?",
+        "en": "How does public responsibility change when care is defined as a family duty?",
+        "reply": {
+          "ko": "지원 부족이 사적 희생으로 재명명될 위험이 있어요.",
+          "de": "Fehlende Unterstützung droht als privates Opfer umbenannt zu werden.",
+          "en": "A lack of support risks being renamed as private sacrifice."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0056",
+        "level": "c2",
+        "category": "family",
+        "kind": "question",
+        "ko": "돌봄을 가족 책임으로 규정하는 순간 공공 책임은 어떻게 바뀌나요?",
+        "de": "Wie verändert sich öffentliche Verantwortung, sobald Sorge als Familienpflicht definiert wird?",
+        "en": "How does public responsibility change when care is defined as a family duty?",
+        "reply": {
+          "ko": "공공 지원의 부족으로 생긴 부담이 가족의 자발적 희생으로 포장될 위험이 있어요.",
+          "de": "Belastungen durch fehlende öffentliche Unterstützung könnten als freiwilliges Opfer der Familie dargestellt werden.",
+          "en": "Burdens caused by a lack of public support risk being presented as a family’s voluntary sacrifice.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "지원 부족으로 가족이 부담한 시간도 계산했나요?",
+            "de": "Wurde auch die Zeit erfasst, die Familien wegen fehlender Unterstützung aufbringen mussten?",
+            "en": "Did they also count the time families had to provide because support was lacking?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 가족의 희생으로 설명된 부분에 공공 지원의 공백이 있는지도 봐야겠네요.",
+          "de": "Dann sollten wir prüfen, ob sich hinter dem familiären Opfer eine Lücke öffentlicher Unterstützung verbirgt.",
+          "en": "Then we should examine whether a gap in public support lies behind what is described as family sacrifice.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "172c29609a4aa2a8dd65591dc73ff2dc38741f713ba9bf4de8197632f12e80d2",
+      "afterSha256": "31615b6e044a7e1738720a4a93d792096254e098b477bfdb13efae110d91ce8e"
+    },
+    {
+      "id": "smalltalk_c2_0057",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "ko",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0057",
+        "level": "c2",
+        "category": "health",
+        "kind": "question",
+        "ko": "건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?",
+        "de": "Wer kann der Risikogruppen-Einstufung einer Gesundheits-App widersprechen?",
+        "en": "Who can challenge a health app's high-risk classification?",
+        "reply": {
+          "ko": "분류 근거와 수정 권한, 불이익 중지 절차가 필요해요.",
+          "de": "Es braucht Begründung, Korrekturbefugnis und ein Verfahren zum Aussetzen von Nachteilen.",
+          "en": "There must be reasons, correction authority, and a process to suspend adverse effects."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0057",
+        "level": "c2",
+        "category": "health",
+        "kind": "question",
+        "ko": "건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?",
+        "de": "Wer kann der Risikogruppen-Einstufung einer Gesundheits-App widersprechen?",
+        "en": "Who can challenge a health app's high-risk classification?",
+        "reply": {
+          "ko": "분류 근거와 수정 권한, 불이익 중지 절차가 필요해요.",
+          "de": "Es braucht Begründung, Korrekturbefugnis und ein Verfahren zum Aussetzen von Nachteilen.",
+          "en": "There must be reasons, correction authority, and a process to suspend adverse effects."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "분류를 수정할 권한은 누구에게 있나요?",
+            "de": "Wer ist befugt, die Einstufung zu korrigieren?",
+            "en": "Who has authority to correct the classification?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 분류 기준과 이의 제기 후의 처리 절차를 함께 확인해야겠네요.",
+          "de": "Dann sollten wir die Einstufungskriterien und das Verfahren nach einem Einwand gemeinsam prüfen.",
+          "en": "Then we should examine the classification criteria alongside the procedure after a challenge.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "65239fa689cb0e0ad5c9cb63c185193867e5b5b901e3c64ebc39b83afa04e38d",
+      "afterSha256": "a8ac86eaae0ca96f81d3dae1aac71727b968a9314e839cd2c1a750dabd51dcda"
+    },
+    {
+      "id": "smalltalk_c2_0058",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0058",
+        "level": "c2",
+        "category": "health",
+        "kind": "question",
+        "ko": "예방 정책의 비용 효율성은 누구의 고통을 비용으로 계산하나요?",
+        "de": "Wessen Belastung wird in der Kosteneffizienz von Prävention als Kosten erfasst?",
+        "en": "Whose suffering is counted as a cost in preventive-policy efficiency?",
+        "reply": {
+          "ko": "평균 비용만으로는 취약 집단의 집중된 피해를 설명할 수 없어요.",
+          "de": "Durchschnittskosten erklären keine konzentrierten Schäden bei vulnerablen Gruppen.",
+          "en": "Average costs cannot explain concentrated harms among vulnerable groups."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0058",
+        "level": "c2",
+        "category": "health",
+        "kind": "question",
+        "ko": "예방 정책의 비용 효율성은 누구의 고통을 비용으로 계산하나요?",
+        "de": "Wessen Leiden wird bei der Bewertung der Kosteneffizienz von Präventionsmaßnahmen als Kosten erfasst?",
+        "en": "Whose suffering is counted as a cost when evaluating the cost efficiency of preventive policy?",
+        "reply": {
+          "ko": "평균 비용만으로는 취약 집단의 집중된 피해를 설명할 수 없어요.",
+          "de": "Durchschnittskosten erklären keine konzentrierten Schäden bei vulnerablen Gruppen.",
+          "en": "Average costs cannot explain concentrated harms among vulnerable groups."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "취약 집단에 집중된 피해도 따로 평가했나요?",
+            "de": "Wurden auch die Schäden gesondert bewertet, die sich auf vulnerable Gruppen konzentrieren?",
+            "en": "Did they separately assess harms concentrated among vulnerable groups?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 평균 비용과 피해의 분포를 나눠서 제시해야겠네요.",
+          "de": "Dann sollten wir Durchschnittskosten und Schadensverteilung getrennt darstellen.",
+          "en": "Then we should present average costs and the distribution of harm separately.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "07881ebc56e8d2515ffadedde6daea8763cd4c48ab46577e3b68b4ab9da6b69e",
+      "afterSha256": "9fc4b2a080862dbec4858b23b79083d78baadb2999702ccc3770e4fe6c0a888b"
+    },
+    {
+      "id": "smalltalk_c2_0059",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0059",
+        "level": "c2",
+        "category": "interview",
+        "kind": "question",
+        "ko": "‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?",
+        "de": "Verdeckt das Interviewkriterium Potenzial eine Ähnlichkeitsverzerrung der Bewertenden?",
+        "en": "Does the interview criterion potential hide evaluators' similarity bias?",
+        "reply": {
+          "ko": "관찰 근거와 반증 가능성을 남기지 않으면 자의적 판단이 돼요.",
+          "de": "Ohne Beobachtungsgrundlage und Widerlegbarkeit wird das Urteil willkürlich.",
+          "en": "Without observable evidence and room for disconfirmation, the judgment becomes arbitrary."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0059",
+        "level": "c2",
+        "category": "interview",
+        "kind": "question",
+        "ko": "‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?",
+        "de": "Verdeckt das Interviewkriterium „Potenzial“ die Neigung der Bewertenden, ihnen ähnliche Personen zu bevorzugen?",
+        "en": "Does the interview criterion “potential” hide evaluators’ tendency to favor people similar to themselves?",
+        "reply": {
+          "ko": "관찰 근거와 판단을 반박할 수 있는 조건을 남기지 않으면 자의적 평가가 될 위험이 있어요.",
+          "de": "Wenn weder Beobachtungsgrundlagen noch Bedingungen zur Widerlegung des Urteils festgehalten werden, besteht die Gefahr einer willkürlichen Bewertung.",
+          "en": "If neither the observational evidence nor the conditions for challenging the judgment are recorded, the assessment risks becoming arbitrary.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "판단과 맞지 않는 관찰도 기록돼 있나요?",
+            "de": "Sind auch Beobachtungen dokumentiert, die dem Urteil widersprechen?",
+            "en": "Are observations that contradict the judgment recorded too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 평가자의 인상과 확인 가능한 근거를 구분해 볼 수 있겠네요.",
+          "de": "Dann können wir Eindrücke der Bewertenden und überprüfbare Belege unterscheiden.",
+          "en": "Then we can distinguish evaluators’ impressions from verifiable evidence.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "d92d826ad36c48250cde9098bec96e7fb26cd65a3ef030ed69a203e1fc306e2a",
+      "afterSha256": "a6832440887b20a5424691aae0ffa9d13e2c7ed39f44952810bdeab57451b4bf"
+    },
+    {
+      "id": "smalltalk_c2_0060",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0060",
+        "level": "c2",
+        "category": "interview",
+        "kind": "question",
+        "ko": "자동 점수를 ‘참고’라고 부르면 책임이 줄어드나요?",
+        "de": "Verringert die Bezeichnung als bloßer Hinweis die Verantwortung für einen automatischen Wert?",
+        "en": "Does calling an automated score advisory reduce responsibility?",
+        "reply": {
+          "ko": "실제로 결과를 바꿀 권한이 누구에게 있는지가 더 중요해요.",
+          "de": "Entscheidend ist, wer das Ergebnis tatsächlich ändern darf.",
+          "en": "What matters is who actually has authority to change the outcome."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0060",
+        "level": "c2",
+        "category": "interview",
+        "kind": "question",
+        "ko": "자동 점수를 ‘참고’라고 부르면 책임이 줄어드나요?",
+        "de": "Verringert die Bezeichnung als bloßer Hinweis die Verantwortung für einen automatischen Wert?",
+        "en": "Does calling an automated score advisory reduce responsibility?",
+        "reply": {
+          "ko": "실제로 결과를 바꿀 권한이 누구에게 있는지가 더 중요해요.",
+          "de": "Entscheidend ist, wer das Ergebnis tatsächlich ändern darf.",
+          "en": "What matters is who actually has authority to change the outcome."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "평가자가 자동 점수를 바꾼 사례도 볼 수 있나요?",
+            "de": "Lassen sich auch Fälle ansehen, in denen Bewertende den automatischen Wert geändert haben?",
+            "en": "Can we see cases where assessors changed the automated score too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 참고라는 명칭보다 실제 결정에 미친 영향을 확인해야겠네요.",
+          "de": "Dann sollten wir den tatsächlichen Einfluss auf die Entscheidung prüfen, statt uns auf die Bezeichnung als Hinweis zu verlassen.",
+          "en": "Then we should examine its actual influence on the decision rather than rely on the advisory label.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "1458e29b5ba007ea97f803fef6cbeb393b5b40b6212a57a0388cc6c860e8e70d",
+      "afterSha256": "4c79b0be111aefb0a345fbef49acd73cd934e360758993e03e04025eb45a71bc"
+    },
+    {
+      "id": "smalltalk_c2_0061",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0061",
+        "level": "c2",
+        "category": "job_hunting",
+        "kind": "question",
+        "ko": "이의 절차가 원래 결정을 내린 부서와 독립돼 있나요?",
+        "de": "Ist das Widerspruchsverfahren von der ursprünglich entscheidenden Stelle unabhängig?",
+        "en": "Is the appeal process independent of the original decision-maker?",
+        "reply": {
+          "ko": "같은 기준과 책임 구조라면 재검토가 형식에 그칠 수 있어요.",
+          "de": "Bei denselben Kriterien und Verantwortlichkeiten kann die Nachprüfung bloß formal bleiben.",
+          "en": "With the same criteria and accountability structure, review may be merely formal."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0061",
+        "level": "c2",
+        "category": "job_hunting",
+        "kind": "question",
+        "ko": "이의 절차가 원래 결정을 내린 부서와 독립돼 있나요?",
+        "de": "Ist das Widerspruchsverfahren von der ursprünglich entscheidenden Stelle unabhängig?",
+        "en": "Is the appeal process independent of the original decision-maker?",
+        "reply": {
+          "ko": "같은 기준과 책임 구조라면 재검토가 형식에 그칠 수 있어요.",
+          "de": "Bei denselben Kriterien und Verantwortlichkeiten kann die Nachprüfung bloß formal bleiben.",
+          "en": "With the same criteria and accountability structure, review may be merely formal."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "재검토를 맡은 사람이 원결정에 참여했나요?",
+            "de": "War die nachprüfende Person an der ursprünglichen Entscheidung beteiligt?",
+            "en": "Did the person handling the review participate in the original decision?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 재검토 담당자의 독립성과 결과를 바꿀 권한을 함께 봐야겠네요.",
+          "de": "Dann sollten wir die Unabhängigkeit der prüfenden Person und ihre Änderungsbefugnis gemeinsam betrachten.",
+          "en": "Then we should examine the reviewer’s independence alongside their authority to change the outcome.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "9f39e5644df4265477cddf2e62ce9291eaaed53577cbe1839961108e51352320",
+      "afterSha256": "874c1757cb6c6ee97b7024163e37b93f293aae4eebbedbeb830545458121a63d"
+    },
+    {
+      "id": "smalltalk_c2_0062",
+      "level": "c2",
+      "fields": [
+        "de",
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0062",
+        "level": "c2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "‘감당 가능한 월세’는 어떤 가구의 지출 구조를 표준으로 삼나요?",
+        "de": "Welche Haushaltsausgaben gelten als Standard für eine bezahlbare Miete?",
+        "en": "Whose household spending pattern defines affordable rent?",
+        "reply": {
+          "ko": "돌봄비와 이동비가 빠지면 같은 소득도 다르게 보일 수 있어요.",
+          "de": "Ohne Sorge- und Mobilitätskosten kann dasselbe Einkommen ganz anders erscheinen.",
+          "en": "The same income can look very different when care and transport costs are omitted."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0062",
+        "level": "c2",
+        "category": "moving",
+        "kind": "question",
+        "ko": "‘감당 가능한 월세’는 어떤 가구의 지출 구조를 표준으로 삼나요?",
+        "de": "Die Ausgabenstruktur welcher Haushalte dient als Maßstab für eine bezahlbare Miete?",
+        "en": "Whose household spending pattern defines affordable rent?",
+        "reply": {
+          "ko": "돌봄비와 이동비가 빠지면 같은 소득도 다르게 보일 수 있어요.",
+          "de": "Ohne Sorge- und Mobilitätskosten kann dasselbe Einkommen ganz anders erscheinen.",
+          "en": "The same income can look very different when care and transport costs are omitted."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "돌봄비와 교통비를 포함한 가구별 비교도 있나요?",
+            "de": "Gibt es auch einen Haushaltsvergleich einschließlich Betreuungs- und Fahrtkosten?",
+            "en": "Is there a comparison across household types including care and transport costs?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 소득이 같다는 이유만으로 주거 부담도 같다고 볼 수는 없겠네요.",
+          "de": "Dann können wir aus gleichem Einkommen nicht auf gleiche Wohnkostenbelastung schließen.",
+          "en": "Then equal income does not mean an equal housing-cost burden.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "2818f02c288c67736644298c98200a1a9aa95487b9752b7fde9582d31d2dd8e1",
+      "afterSha256": "a2873638408dad85b845f3edfa388aa079b98ff91f8a30bc603a42c1d1f69ee7"
+    },
+    {
+      "id": "smalltalk_c2_0063",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0063",
+        "level": "c2",
+        "category": "hospital",
+        "kind": "question",
+        "ko": "진료 우선순위 알고리즘의 오류 책임은 병원과 공급자 중 누구에게 있나요?",
+        "de": "Wer trägt Fehlerverantwortung beim Triage-Algorithmus: Klinik oder Anbieter?",
+        "en": "Who is accountable for errors in a triage algorithm: the hospital or the vendor?",
+        "reply": {
+          "ko": "업무 위임과 최종 결정 권한을 구분해 기록해야 해요.",
+          "de": "Delegation und endgültige Entscheidungsbefugnis müssen getrennt dokumentiert werden.",
+          "en": "Delegation and final decision authority need separate documentation."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0063",
+        "level": "c2",
+        "category": "hospital",
+        "kind": "question",
+        "ko": "진료 우선순위 알고리즘의 오류 책임은 병원과 공급자 중 누구에게 있나요?",
+        "de": "Wer trägt Fehlerverantwortung beim Triage-Algorithmus: Klinik oder Anbieter?",
+        "en": "Who is accountable for errors in a triage algorithm: the hospital or the vendor?",
+        "reply": {
+          "ko": "업무 위임과 최종 결정 권한을 구분해 기록해야 해요.",
+          "de": "Delegation und endgültige Entscheidungsbefugnis müssen getrennt dokumentiert werden.",
+          "en": "Delegation and final decision authority need separate documentation."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "최종 결정권과 오류 수정 권한은 같은 기관에 있나요?",
+            "de": "Liegen endgültige Entscheidungsbefugnis und Fehlerkorrektur bei derselben Stelle?",
+            "en": "Does the same institution have final decision-making and error-correction authority?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 위임받은 업무와 최종 책임을 각각 확인해야겠네요.",
+          "de": "Dann sollten wir delegierte Aufgaben und endgültige Verantwortung getrennt prüfen.",
+          "en": "Then we should examine delegated tasks and ultimate responsibility separately.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "4811c1474fca75ffbfce690d3cbe0bec976f1290059446ba01099d8804a42f79",
+      "afterSha256": "de8695dbae743852386f106235889ac2027d44249c7d39010f710161453c3619"
+    },
+    {
+      "id": "smalltalk_c2_0064",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0064",
+        "level": "c2",
+        "category": "hospital",
+        "kind": "question",
+        "ko": "환자 동의가 치료를 포기하지 않고도 철회 가능한가요?",
+        "de": "Kann die Einwilligung widerrufen werden, ohne auf Behandlung verzichten zu müssen?",
+        "en": "Can consent be withdrawn without giving up treatment?",
+        "reply": {
+          "ko": "거절의 불이익이 크면 동의의 자발성을 다시 봐야 해요.",
+          "de": "Bei hohen Nachteilen einer Ablehnung muss die Freiwilligkeit neu geprüft werden.",
+          "en": "If refusal carries major harm, the voluntariness of consent needs reexamination."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0064",
+        "level": "c2",
+        "category": "hospital",
+        "kind": "question",
+        "ko": "진료 외 목적으로 자료를 활용하는 데 동의했다가, 치료를 포기하지 않고도 그 동의를 철회할 수 있나요?",
+        "de": "Kann eine Einwilligung zur Datennutzung außerhalb der Behandlung widerrufen werden, ohne auf die Behandlung verzichten zu müssen?",
+        "en": "Can consent to data use for purposes beyond treatment be withdrawn without giving up treatment?",
+        "reply": {
+          "ko": "거절의 불이익이 크면 동의의 자발성을 다시 봐야 해요.",
+          "de": "Bei hohen Nachteilen einer Ablehnung muss die Freiwilligkeit neu geprüft werden.",
+          "en": "If refusal carries major harm, the voluntariness of consent needs reexamination."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "철회했을 때 진료에 어떤 영향이 있는지도 안내됐나요?",
+            "de": "Wurde auch erklärt, welche Auswirkungen ein Widerruf auf die Behandlung hätte?",
+            "en": "Were the effects that withdrawal would have on treatment explained too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 동의 내용과 철회에 따른 실제 영향을 함께 확인해야겠네요.",
+          "de": "Dann sollten wir Inhalt der Einwilligung und tatsächliche Widerrufsfolgen gemeinsam prüfen.",
+          "en": "Then we should examine the scope of consent and the actual effects of withdrawal together.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "f92ffa369b8fe3029eb2be04a9c63eca0fa1a6836f3407ba6d3cfe319859c187",
+      "afterSha256": "c25ef1455e65e63464588e38805ab66ff2e61c761146bf22857ace954d8ce018"
+    },
+    {
+      "id": "smalltalk_c2_0065",
+      "level": "c2",
+      "fields": [
+        "de",
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0065",
+        "level": "c2",
+        "category": "transport",
+        "kind": "question",
+        "ko": "혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?",
+        "de": "Welche Last verlagert eine Staugebühr auf Menschen mit wenig Mobilitätswahl?",
+        "en": "What burden does congestion pricing shift to people with few transport choices?",
+        "reply": {
+          "ko": "대체 교통의 접근성이 없으면 가격 신호가 제재처럼 작동해요.",
+          "de": "Ohne zugängliche Alternativen wirkt das Preissignal wie eine Sanktion.",
+          "en": "Without accessible alternatives, the price signal functions like a penalty."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0065",
+        "level": "c2",
+        "category": "transport",
+        "kind": "question",
+        "ko": "혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?",
+        "de": "Welche Belastung verlagert eine Staugebühr auf Menschen mit wenigen Verkehrsalternativen?",
+        "en": "What burden does congestion pricing shift to people with few transport choices?",
+        "reply": {
+          "ko": "대체 교통의 접근성이 없으면 가격 신호가 제재처럼 작동해요.",
+          "de": "Ohne zugängliche Alternativen wirkt das Preissignal wie eine Sanktion.",
+          "en": "Without accessible alternatives, the price signal functions like a penalty."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "대체 교통수단을 실제로 이용할 수 있는지도 조사했나요?",
+            "de": "Wurde geprüft, ob alternative Verkehrsmittel tatsächlich nutzbar sind?",
+            "en": "Did they examine whether alternative transport options are actually usable?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 가격에 반응할 수 있는 사람과 대안이 없는 사람을 구분해야겠네요.",
+          "de": "Dann sollten wir zwischen Menschen unterscheiden, die auf Preise reagieren können, und denen ohne Alternativen.",
+          "en": "Then we should distinguish people who can respond to prices from those with no alternatives.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "8b7a4f5249a082f601c11e284729df92045648ecacfe8d1bfe8fb7b52e288f58",
+      "afterSha256": "a0958d6b68861f178e9bfbecd96da9c44f56c4826cb621d90e9ce7520ccdcd3e"
+    },
+    {
+      "id": "smalltalk_c2_0066",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0066",
+        "level": "c2",
+        "category": "transport",
+        "kind": "question",
+        "ko": "자율주행의 ‘안전 개선’은 어떤 비교 기준에서 나온 말인가요?",
+        "de": "Auf welchem Vergleichsmaßstab beruht die Aussage mehr Sicherheit durch autonomes Fahren?",
+        "en": "What comparison standard supports the claim that autonomous driving improves safety?",
+        "reply": {
+          "ko": "평균 사고율과 예외 상황의 책임을 같은 문장에 섞으면 안 돼요.",
+          "de": "Durchschnittliche Unfallrate und Verantwortung im Ausnahmefall dürfen nicht vermischt werden.",
+          "en": "Average crash rates and accountability in exceptional cases should not be conflated."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0066",
+        "level": "c2",
+        "category": "transport",
+        "kind": "question",
+        "ko": "자율주행의 ‘안전 개선’은 어떤 비교 기준에서 나온 말인가요?",
+        "de": "Auf welchem Vergleichsmaßstab beruht die Aussage mehr Sicherheit durch autonomes Fahren?",
+        "en": "What comparison standard supports the claim that autonomous driving improves safety?",
+        "reply": {
+          "ko": "평균 사고율과 예외 상황의 책임을 같은 문장에 섞으면 안 돼요.",
+          "de": "Durchschnittliche Unfallrate und Verantwortung im Ausnahmefall dürfen nicht vermischt werden.",
+          "en": "Average crash rates and accountability in exceptional cases should not be conflated."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "같은 주행 조건에서 사고율을 비교했나요?",
+            "de": "Wurden die Unfallraten unter denselben Fahrbedingungen verglichen?",
+            "en": "Were the crash rates compared under the same driving conditions?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 안전성의 비교 조건과 예외 상황의 책임을 따로 정리해야겠네요.",
+          "de": "Dann sollten wir die Vergleichsbedingungen der Sicherheit und die Verantwortung in Ausnahmefällen getrennt darstellen.",
+          "en": "Then we should set out the conditions for comparing safety separately from accountability in exceptional cases.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "7564573ced6598cea46b9ab481491306ed93e595ac7141df3efdd0fbf1424abd",
+      "afterSha256": "84f076c9fa0547446208fe65fb5693c336c1bb791b0f8a110c3b85d5112d2511"
+    },
+    {
+      "id": "smalltalk_c2_0067",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0067",
+        "level": "c2",
+        "category": "shopping",
+        "kind": "question",
+        "ko": "개인화 가격을 ‘맞춤 혜택’이라 부르면 차별 가능성이 사라지나요?",
+        "de": "Verschwindet die Möglichkeit von Diskriminierung, wenn personalisierte Preise als maßgeschneiderte Vorteile bezeichnet werden?",
+        "en": "Does the possibility of discrimination disappear when personalized pricing is called a tailored benefit?",
+        "reply": {
+          "ko": "명칭과 무관하게 누가 더 비싸게 사는지 검증해야 해요.",
+          "de": "Unabhängig vom Namen muss geprüft werden, wer mehr bezahlt.",
+          "en": "Regardless of the label, we need to test who pays more."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0067",
+        "level": "c2",
+        "category": "shopping",
+        "kind": "question",
+        "ko": "개인화 가격을 ‘맞춤 혜택’이라 부르면 차별 가능성이 사라지나요?",
+        "de": "Verschwindet die Möglichkeit von Diskriminierung, wenn personalisierte Preise als maßgeschneiderte Vorteile bezeichnet werden?",
+        "en": "Does the possibility of discrimination disappear when personalized pricing is called a tailored benefit?",
+        "reply": {
+          "ko": "명칭과 무관하게 누가 더 비싸게 사는지 검증해야 해요.",
+          "de": "Unabhängig vom Namen muss geprüft werden, wer mehr bezahlt.",
+          "en": "Regardless of the label, we need to test who pays more."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "같은 상품의 가격 차이를 집단별로 확인했나요?",
+            "de": "Wurden Preisunterschiede beim selben Produkt nach Gruppen geprüft?",
+            "en": "Did they examine price differences for the same product across groups?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 혜택이라는 표현과 실제 가격 분포를 대조해 봐야겠네요.",
+          "de": "Dann sollten wir die Bezeichnung als Vorteil mit der tatsächlichen Preisverteilung vergleichen.",
+          "en": "Then we should compare the benefit label with the actual distribution of prices.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "14b93a4193c5035a76cee1863bd6fe0adeade8e4cce331b277b28cdfa4c75356",
+      "afterSha256": "d6843400f2cac10f7519dd1b55e62f2c99f89f26e64501f44602f08c36c14d50"
+    },
+    {
+      "id": "smalltalk_c2_0068",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0068",
+        "level": "c2",
+        "category": "shopping",
+        "kind": "question",
+        "ko": "구독 해지를 어렵게 만든 설계는 어디까지 소비자 선택인가요?",
+        "de": "Inwiefern ist eine durch Design erschwerte Kündigung noch Verbraucherwahl?",
+        "en": "How far is a cancellation made difficult by design still consumer choice?",
+        "reply": {
+          "ko": "정보 제공과 조작적 마찰을 구분하는 기준이 필요해요.",
+          "de": "Es braucht einen Maßstab zwischen Information und manipulativer Reibung.",
+          "en": "We need a standard that distinguishes information from manipulative friction."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0068",
+        "level": "c2",
+        "category": "shopping",
+        "kind": "question",
+        "ko": "구독 해지를 어렵게 만든 설계에서도 소비자에게 실질적인 선택권이 있다고 볼 수 있나요?",
+        "de": "Kann man bei einem Design, das die Kündigung erschwert, noch von einer echten Wahlmöglichkeit für Verbraucher sprechen?",
+        "en": "Can consumers still be said to have a meaningful choice when the design makes cancellation difficult?",
+        "reply": {
+          "ko": "필요한 정보를 제공하는 단계와 해지를 방해하는 절차를 구분할 기준이 필요해요.",
+          "de": "Wir brauchen Kriterien, die nötige Informationsschritte von Verfahren unterscheiden, die eine Kündigung behindern.",
+          "en": "We need criteria that distinguish steps providing necessary information from procedures that obstruct cancellation.",
+          "turnKind": "response"
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "가입할 때와 해지할 때 필요한 단계를 비교했나요?",
+            "de": "Wurden die Schritte für Anmeldung und Kündigung verglichen?",
+            "en": "Did they compare the steps required to sign up and to cancel?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 해지를 돕는 정보와 해지를 방해하는 설계를 나눠서 봐야겠네요.",
+          "de": "Dann sollten wir kündigungsrelevante Informationen und kündigungserschwerendes Design getrennt betrachten.",
+          "en": "Then we should distinguish information that helps cancellation from design that obstructs it.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "c9b398660e01deaa1229838576127f38d6519cd0272e70c23adb044c694b93c2",
+      "afterSha256": "aeedc7953f3016b2dae9c5201af58a8d7065f27f5e69c6f8f53ec97eeb1fe5a9"
+    },
+    {
+      "id": "smalltalk_c2_0069",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0069",
+        "level": "c2",
+        "category": "emergency",
+        "kind": "question",
+        "ko": "비상 권한의 종료 조건이 없으면 예외가 어떻게 상시 제도가 되나요?",
+        "de": "Wie wird eine Ausnahme zur Dauereinrichtung, wenn Notstandsbefugnisse kein Endkriterium haben?",
+        "en": "How does an exception become permanent when emergency powers lack an end condition?",
+        "reply": {
+          "ko": "기간뿐 아니라 연장 권한과 사후 심사도 명문화해야 해요.",
+          "de": "Neben der Dauer müssen Verlängerungsbefugnis und nachträgliche Kontrolle geregelt sein.",
+          "en": "Duration, extension authority, and retrospective review all need explicit rules."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0069",
+        "level": "c2",
+        "category": "emergency",
+        "kind": "question",
+        "ko": "비상 권한의 종료 조건이 없으면 예외가 어떻게 상시 제도가 되나요?",
+        "de": "Wie wird eine Ausnahme zur Dauereinrichtung, wenn Notstandsbefugnisse kein Endkriterium haben?",
+        "en": "How does an exception become permanent when emergency powers lack an end condition?",
+        "reply": {
+          "ko": "기간뿐 아니라 연장 권한과 사후 심사도 명문화해야 해요.",
+          "de": "Neben der Dauer müssen Verlängerungsbefugnis und nachträgliche Kontrolle geregelt sein.",
+          "en": "Duration, extension authority, and retrospective review all need explicit rules."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "비상 권한을 연장할 때 누가 심사하나요?",
+            "de": "Wer prüft die Verlängerung von Notstandsbefugnissen?",
+            "en": "Who reviews an extension of emergency powers?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 종료 시점뿐 아니라 연장을 통제하는 절차도 확인해야겠네요.",
+          "de": "Dann sollten wir nicht nur den Endzeitpunkt, sondern auch das Verfahren zur Kontrolle einer Verlängerung prüfen.",
+          "en": "Then we should examine both the end date and the process for overseeing extensions.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "2bccfbcb77aaaa917fee5bd20f191bfda29554c0e0ff3bbba81d8ab7e1d65c6e",
+      "afterSha256": "030505f097102306102303e10f3ce8fbc3024f47549ef18d4f9f68be3cc4cc23"
+    },
+    {
+      "id": "smalltalk_c2_0070",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0070",
+        "level": "c2",
+        "category": "emergency",
+        "kind": "question",
+        "ko": "자동 경보가 틀렸을 때 누가 설명하고 피해를 시정하나요?",
+        "de": "Wer erklärt und behebt Schäden, wenn ein automatischer Alarm falsch liegt?",
+        "en": "Who explains and remedies harm when an automated alert is wrong?",
+        "reply": {
+          "ko": "공급자와 운영 기관 사이의 책임 공백을 막아야 해요.",
+          "de": "Eine Verantwortungslücke zwischen Anbieter und Betreiber muss verhindert werden.",
+          "en": "There must be no accountability gap between the vendor and operating institution."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+            "de": "Welche Perspektive fehlt in diesem Maßstab?",
+            "en": "Which perspective is missing from that standard?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+          "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+          "en": "Separating the evidence from its scope will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0070",
+        "level": "c2",
+        "category": "emergency",
+        "kind": "question",
+        "ko": "자동 경보가 틀렸을 때 누가 설명하고 피해를 시정하나요?",
+        "de": "Wer erklärt und behebt Schäden, wenn ein automatischer Alarm falsch liegt?",
+        "en": "Who explains and remedies harm when an automated alert is wrong?",
+        "reply": {
+          "ko": "공급자와 운영 기관 사이의 책임 공백을 막아야 해요.",
+          "de": "Eine Verantwortungslücke zwischen Anbieter und Betreiber muss verhindert werden.",
+          "en": "There must be no accountability gap between the vendor and operating institution."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "오류 신고를 받는 기관과 피해 시정 담당이 명시돼 있나요?",
+            "de": "Sind die Stelle für Fehlermeldungen und die Zuständigkeit für die Schadensbehebung angegeben?",
+            "en": "Are the institution receiving error reports and the party responsible for remedying harm identified?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 오류를 설명하는 역할과 피해를 시정하는 책임을 함께 명시해야겠네요.",
+          "de": "Dann sollten wir Erklärungsaufgabe und Verantwortung für die Schadensbehebung gemeinsam festlegen.",
+          "en": "Then we should specify both the role of explaining the error and the responsibility for remedying harm.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "2649ee609621fc441f1ad412dee88f7bfac00b15224b8a0fd53f916e08f85473",
+      "afterSha256": "dbb62591501365eac368b198eba303e9aa34187749dda9ad9911e2cd32a3a93e"
+    },
+    {
+      "id": "smalltalk_c2_0071",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0071",
+        "level": "c2",
+        "category": "daily",
+        "kind": "question",
+        "ko": "저출산 담론이 개인의 가치관만을 원인으로 제시하나요?",
+        "de": "Stellt der Diskurs über niedrige Geburtenraten individuelle Werte als einzige Ursache dar?",
+        "en": "Does low-birth-rate discourse present individual values as the sole cause?",
+        "reply": {
+          "ko": "주거, 고용, 돌봄과 성별 분업이 분석에서 빠졌는지 확인해야 합니다.",
+          "de": "Es ist zu prüfen, ob Wohnen, Arbeit, Betreuung und geschlechtliche Arbeitsteilung fehlen.",
+          "en": "Check whether housing, employment, care, and gendered labor are missing."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+            "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+            "en": "Shall we check one more condition needed for that assessment?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+          "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+          "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0071",
+        "level": "c2",
+        "category": "daily",
+        "kind": "question",
+        "ko": "저출산 담론이 개인의 가치관만을 원인으로 제시하나요?",
+        "de": "Stellt der Diskurs über niedrige Geburtenraten individuelle Werte als einzige Ursache dar?",
+        "en": "Does low-birth-rate discourse present individual values as the sole cause?",
+        "reply": {
+          "ko": "주거, 고용, 돌봄과 성별 분업이 분석에서 빠졌는지 확인해야 합니다.",
+          "de": "Es ist zu prüfen, ob Wohnen, Arbeit, Betreuung und geschlechtliche Arbeitsteilung fehlen.",
+          "en": "Check whether housing, employment, care, and gendered labor are missing."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "주거와 고용, 돌봄을 함께 다룬 분석도 있나요?",
+            "de": "Gibt es auch eine Analyse, die Wohnen, Beschäftigung und Betreuung gemeinsam betrachtet?",
+            "en": "Is there also an analysis that examines housing, employment and care together?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 개인의 가치관과 구조적 조건을 함께 놓고 해석해야겠네요.",
+          "de": "Dann sollten wir individuelle Werte und strukturelle Bedingungen gemeinsam interpretieren.",
+          "en": "Then we should interpret personal values alongside structural conditions.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "e9d6f4fd2d6481303f38f52b7bfe281f64d2c40d1611f889dfcd32f51dc7879c",
+      "afterSha256": "802090c3977bc6551a994e25f63f46d6441a1b107dea290cc8570b3b7304be87"
+    },
+    {
+      "id": "smalltalk_c2_0072",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0072",
+        "level": "c2",
+        "category": "daily",
+        "kind": "question",
+        "ko": "세대 간 형평성을 비용 분담으로만 정의해도 될까요?",
+        "de": "Darf Generationengerechtigkeit nur als Kostenteilung definiert werden?",
+        "en": "Should intergenerational equity be defined only as cost sharing?",
+        "reply": {
+          "ko": "결정권과 위험 노출, 혜택이 나타나는 시점도 함께 포함해야 합니다.",
+          "de": "Auch Entscheidungsrechte, Risikoexposition und der Zeitpunkt von Vorteilen gehören dazu.",
+          "en": "Decision rights, exposure to risk, and the timing of benefits also belong in the analysis."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+            "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+            "en": "Shall we check one more condition needed for that assessment?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+          "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+          "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0072",
+        "level": "c2",
+        "category": "daily",
+        "kind": "question",
+        "ko": "세대 간 형평성을 비용 분담으로만 정의해도 될까요?",
+        "de": "Darf Generationengerechtigkeit nur als Kostenteilung definiert werden?",
+        "en": "Should intergenerational equity be defined only as cost sharing?",
+        "reply": {
+          "ko": "결정권과 위험 노출, 혜택이 나타나는 시점도 함께 포함해야 합니다.",
+          "de": "Auch Entscheidungsrechte, Risikoexposition und der Zeitpunkt von Vorteilen gehören dazu.",
+          "en": "Decision rights, exposure to risk, and the timing of benefits also belong in the analysis."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "결정권과 위험 부담도 세대별로 비교했나요?",
+            "de": "Wurden auch Entscheidungsrechte und Risikobelastung nach Generationen verglichen?",
+            "en": "Were decision-making rights and exposure to risk compared across generations too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 비용을 나누는 방식과 혜택을 누리는 시점을 함께 봐야겠네요.",
+          "de": "Dann sollten wir Kostenteilung und den Zeitpunkt der Vorteile gemeinsam betrachten.",
+          "en": "Then we should examine how costs are shared alongside when the benefits are received.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "6102d9e3c3dca98a01a8eb8a97bcd259ae84bb622c45b0228ec1c94ec7c935f4",
+      "afterSha256": "85dec94f640a4914e4ebbea1672fc0532bc43ae2016184f3fea36a438ff11931"
+    },
+    {
+      "id": "smalltalk_c2_0073",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0073",
+        "level": "c2",
+        "category": "work_study",
+        "kind": "question",
+        "ko": "정책 효과와 단순한 시기적 동시성을 구분했나요?",
+        "de": "Wurde Politikwirkung von bloßer zeitlicher Gleichzeitigkeit getrennt?",
+        "en": "Was the policy effect separated from mere timing?",
+        "reply": {
+          "ko": "비교 집단과 다른 변화 요인을 제시해야 인과 주장을 평가할 수 있습니다.",
+          "de": "Vergleichsgruppe und andere Veränderungen sind nötig, um den Kausalschluss zu bewerten.",
+          "en": "A comparison group and other changes are needed to assess the causal claim."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+            "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+            "en": "Shall we check one more condition needed for that assessment?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+          "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+          "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0073",
+        "level": "c2",
+        "category": "work_study",
+        "kind": "question",
+        "ko": "정책 효과와 단순한 시기적 동시성을 구분했나요?",
+        "de": "Wurde die Wirkung der Politik von bloß zeitlich zusammenfallenden Veränderungen unterschieden?",
+        "en": "Did they distinguish the effect of the policy from changes that merely coincided in time?",
+        "reply": {
+          "ko": "비교 집단과 다른 변화 요인을 제시해야 인과 주장을 평가할 수 있습니다.",
+          "de": "Vergleichsgruppe und andere Veränderungen sind nötig, um den Kausalschluss zu bewerten.",
+          "en": "A comparison group and other changes are needed to assess the causal claim."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "같은 시기에 달라진 다른 요인도 검토했나요?",
+            "de": "Wurden auch andere Faktoren geprüft, die sich zur selben Zeit verändert haben?",
+            "en": "Did they examine other factors that changed at the same time too?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 동시에 일어난 변화와 정책 때문에 일어난 변화를 구분해야겠네요.",
+          "de": "Dann sollten wir gleichzeitige Veränderungen von politisch verursachten Veränderungen unterscheiden.",
+          "en": "Then we should distinguish changes occurring at the same time from changes caused by the policy.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "206307630440d80439a21df470fd5d5b4e9d3bafe76d0254efb997f68b79e848",
+      "afterSha256": "113bf4aea0cf8fec1e75d9339f580fc7fd9ed067437c3cc0d98019c1971dc8d3"
+    },
+    {
+      "id": "smalltalk_c2_0074",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0074",
+        "level": "c2",
+        "category": "screen",
+        "kind": "question",
+        "ko": "자동 제재에 이의 제기 경로가 실제로 열려 있나요?",
+        "de": "Ist bei einer automatischen Sanktion tatsächlich ein Einspruchsweg offen?",
+        "en": "Is there a real appeal path for an automated sanction?",
+        "reply": {
+          "ko": "기한, 담당 기관, 필요한 자료와 집행 정지 여부를 확인해야 합니다.",
+          "de": "Frist, zuständige Stelle, erforderliche Unterlagen und aufschiebende Wirkung müssen geklärt sein.",
+          "en": "Check the deadline, responsible body, required evidence, and whether enforcement pauses."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+            "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+            "en": "Shall we check one more condition needed for that assessment?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+          "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+          "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0074",
+        "level": "c2",
+        "category": "screen",
+        "kind": "question",
+        "ko": "자동 제재에 이의 제기 경로가 실제로 열려 있나요?",
+        "de": "Ist bei einer automatischen Sanktion tatsächlich ein Einspruchsweg offen?",
+        "en": "Is there a real appeal path for an automated sanction?",
+        "reply": {
+          "ko": "기한, 담당 기관, 필요한 자료와 집행 정지 여부를 확인해야 합니다.",
+          "de": "Frist, zuständige Stelle, erforderliche Unterlagen und aufschiebende Wirkung müssen geklärt sein.",
+          "en": "Check the deadline, responsible body, required evidence, and whether enforcement pauses."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "이의 제기 중에도 제재가 계속되는지 안내돼 있나요?",
+            "de": "Ist angegeben, ob die Sanktion während des Einspruchs weiter gilt?",
+            "en": "Does the guidance say whether the sanction continues during an appeal?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 신청 방법과 처리 중의 제재 상태를 함께 확인해야겠네요.",
+          "de": "Dann sollten wir den Antragsweg und den Sanktionsstatus während der Prüfung gemeinsam klären.",
+          "en": "Then we should check both how to submit the appeal and the status of the sanction while it is reviewed.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "d1bfaaeffcb89abcf09fdbcd9206996ac772807ba942692186f2b251ae0a1f61",
+      "afterSha256": "ada1538bb57bdaf25304dad1746b5c3dc16f7cca38bd033a72ddbd0a5433cfd1"
+    },
+    {
+      "id": "smalltalk_c2_0075",
+      "level": "c2",
+      "fields": [
+        "followUp",
+        "reply",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0075",
+        "level": "c2",
+        "category": "daily",
+        "kind": "question",
+        "ko": "담론 프레임이 책임 소재를 개인에게 옮기고 있나요?",
+        "de": "Verschiebt der diskursive Rahmen Verantwortung auf Einzelne?",
+        "en": "Does the discourse frame shift responsibility onto individuals?",
+        "reply": {
+          "ko": "문제의 이름과 행위 주체, 생략된 제도 조건을 나눠 읽어야 합니다.",
+          "de": "Problembezeichnung, handelnde Akteure und ausgelassene institutionelle Bedingungen sollten getrennt gelesen werden.",
+          "en": "Read the problem label, acting institutions, and omitted conditions separately."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+            "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+            "en": "Shall we check one more condition needed for that assessment?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+          "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+          "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0075",
+        "level": "c2",
+        "category": "daily",
+        "kind": "question",
+        "ko": "담론 프레임이 책임 소재를 개인에게 옮기고 있나요?",
+        "de": "Verschiebt der diskursive Rahmen Verantwortung auf Einzelne?",
+        "en": "Does the discourse frame shift responsibility onto individuals?",
+        "reply": {
+          "ko": "문제의 이름과 행위 주체, 생략된 제도 조건을 나눠 읽어야 합니다.",
+          "de": "Wir müssen die Problembezeichnung, die handelnden Akteure und die ausgelassenen institutionellen Bedingungen getrennt analysieren.",
+          "en": "We need to analyze the label given to the problem, the actors involved and the omitted institutional conditions separately."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "문장에서 생략된 기관의 역할도 확인해 볼까요?",
+            "de": "Sollen wir auch die im Satz ausgelassenen Rollen der Institutionen prüfen?",
+            "en": "Shall we also examine the institutional roles omitted from the sentence?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 표현을 바꾸기 전에 누가 행동했고 무엇이 생략됐는지부터 확인할게요.",
+          "de": "Dann prüfe ich zuerst, wer gehandelt hat und was ausgelassen wurde, bevor ich umformuliere.",
+          "en": "Then I will check who acted and what was omitted before rewording it.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "44d30c8a06dd9c2aa5297fc4d015a5642d37701f2e9027af203ae67ab78bdce0",
+      "afterSha256": "7c7798c7b67b1052858a76c6d4516f30b6f0c49187d6baaabf9708e8ca9bdae8"
+    },
+    {
+      "id": "smalltalk_c2_0076",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en",
+        "followUp",
+        "ko",
+        "safeAlternativeQuestions"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0076",
+        "level": "c2",
+        "category": "work_study",
+        "kind": "question",
+        "ko": "동의가 있어도 권력 비대칭 때문에 거절하기 어려운가요?",
+        "de": "Ist eine Ablehnung trotz Einwilligungsverfahren wegen Machtasymmetrie schwierig?",
+        "en": "Can power asymmetry make refusal difficult even when consent is requested?",
+        "reply": {
+          "ko": "계약 연장과 평가, 생계에 미치는 거절 비용을 따로 확인해야 합니다.",
+          "de": "Die Kosten einer Ablehnung für Vertrag, Bewertung und Lebensunterhalt müssen gesondert geprüft werden.",
+          "en": "Examine the cost of refusal for contract renewal, evaluation, and livelihood."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+            "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+            "en": "Shall we check one more condition needed for that assessment?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+          "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+          "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0076",
+        "level": "c2",
+        "category": "work_study",
+        "kind": "question",
+        "ko": "동의했다는 표시가 있어도 권력의 불균형 때문에 실제로는 거절하기 어려웠을 수 있나요?",
+        "de": "Kann eine Machtasymmetrie die tatsächliche Ablehnung erschwert haben, auch wenn eine Zustimmung dokumentiert ist?",
+        "en": "Could a power imbalance have made refusal difficult in practice even if consent was recorded?",
+        "reply": {
+          "ko": "계약 연장과 평가, 생계에 미치는 거절 비용을 따로 확인해야 합니다.",
+          "de": "Die Kosten einer Ablehnung für Vertrag, Bewertung und Lebensunterhalt müssen gesondert geprüft werden.",
+          "en": "Examine the cost of refusal for contract renewal, evaluation, and livelihood."
+        },
+        "relationshipContext": "coworker",
+        "safeAlternativeQuestions": [
+          {
+            "ko": "동의를 거절했을 때 계약이나 평가에 영향이 있었나요?",
+            "de": "Hatte eine verweigerte Einwilligung Auswirkungen auf Vertrag oder Bewertung?",
+            "en": "Did declining consent affect the contract or assessment?",
+            "turnKind": "question"
+          }
+        ],
+        "followUp": {
+          "ko": "그럼 동의 표시와 실제로 거절할 수 있었던 조건을 함께 봐야겠네요.",
+          "de": "Dann sollten wir die dokumentierte Zustimmung und die tatsächlichen Ablehnungsbedingungen gemeinsam betrachten.",
+          "en": "Then we should examine the indication of consent alongside the practical conditions for refusing.",
+          "turnKind": "reaction"
+        }
+      },
+      "beforeSha256": "9bfa3ed6db22aa2520571e8735bb26c9f2bdd1411d3f6050454b313b189c25bf",
+      "afterSha256": "a17c6cbc77b7bdaa430667ba9a940b0440b837e04ede4eebb482d1882c335a64"
+    },
+    {
+      "id": "smalltalk_c2_0085",
+      "level": "c2",
+      "fields": [
+        "de",
+        "en"
+      ],
+      "before": {
+        "id": "smalltalk_c2_0085",
+        "category": "theme_park_date",
+        "level": "c2",
+        "kind": "reaction",
+        "ko": "잘 나온 사진만 남기고 싶어 했는데, 오늘처럼 망가진 표정이 오히려 그날의 감정을 가장 솔직하게 보여 주는 기록일 수도 있겠어.",
+        "de": "Eigentlich wollte ich nur gelungene Fotos behalten. Aber vielleicht zeigt gerade so ein chaotischer Gesichtsausdruck wie heute die Gefühle dieses Tages am ehrlichsten.",
+        "en": "I used to want to keep only flattering photos, but a chaotic expression like today's might actually be the most honest record of how the day felt.",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그럼 사진을 뽑되 아무에게도 보여 주지 않을까?",
+            "de": "Sollen wir das Foto ausdrucken, aber niemandem zeigen?",
+            "en": "Should we print it but keep it just for us?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "우리끼리만 보면 웃을 수 있는 사진도 필요하지.",
+          "de": "Wir brauchen auch Fotos, über die nur wir beide lachen.",
+          "en": "We need photos that only the two of us can laugh at too."
+        }
+      },
+      "after": {
+        "id": "smalltalk_c2_0085",
+        "category": "theme_park_date",
+        "level": "c2",
+        "kind": "reaction",
+        "ko": "잘 나온 사진만 남기고 싶어 했는데, 오늘처럼 망가진 표정이 오히려 그날의 감정을 가장 솔직하게 보여 주는 기록일 수도 있겠어.",
+        "de": "Eigentlich wollte ich nur gelungene Fotos behalten. Aber vielleicht zeigt gerade so ein entgleister Gesichtsausdruck wie heute die Gefühle dieses Tages am ehrlichsten.",
+        "en": "I used to want to keep only flattering photos, but a ridiculous expression like today's might actually be the most honest record of how the day felt.",
+        "relationshipContext": "romantic_partner",
+        "safeAlternativeQuestions": [
+          {
+            "turnKind": "question",
+            "ko": "그럼 사진을 뽑되 아무에게도 보여 주지 않을까?",
+            "de": "Sollen wir das Foto ausdrucken, aber niemandem zeigen?",
+            "en": "Should we print it but keep it just for us?"
+          }
+        ],
+        "followUp": {
+          "turnKind": "reaction",
+          "ko": "우리끼리만 보면 웃을 수 있는 사진도 필요하지.",
+          "de": "Wir brauchen auch Fotos, über die nur wir beide lachen.",
+          "en": "We need photos that only the two of us can laugh at too."
+        }
+      },
+      "beforeSha256": "6bec0c76492b7eff9720808df51699c3b63eb0728e67ec144071ac3fced71673",
+      "afterSha256": "b3906dc897ad97c513682537f85ddb5767d01d4330d0a0cb25693a43cfaaeac2"
     }
   ]
 }

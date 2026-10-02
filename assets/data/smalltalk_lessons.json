@@ -26074,7 +26074,7 @@
             },
             {
               "ko": "탄소 상쇄가 이동 감축을 대신할 수 있다는 전제는 타당한가요?",
-              "de": "Ist die Prämisse tragfähig, Kompensation könne weniger Verkehr ersetzen?",
+              "de": "Ist die Prämisse tragfähig, dass CO₂-Kompensation eine Verringerung des Reiseaufkommens ersetzen kann?",
               "en": "Is the premise that offsets can replace travel reduction defensible?"
             },
             {
@@ -26107,8 +26107,8 @@
           "options": [
             {
               "ko": "관광지의 ‘수용력’은 주민의 생활권을 포함해 정의됐나요?",
-              "de": "Wurde touristische Tragfähigkeit unter Einbeziehung des Lebensraums der Bewohner definiert?",
-              "en": "Was tourism capacity defined to include residents' living space?"
+              "de": "Wurde die touristische Tragfähigkeit unter Einbeziehung der Alltagsbedingungen der Anwohnenden definiert?",
+              "en": "Was tourism carrying capacity defined to include the conditions of residents’ everyday lives?"
             },
             {
               "ko": "혼잡 대책이 주민의 이동권을 제한하지 않는지도 검토했나요?",
@@ -26917,7 +26917,7 @@
             },
             {
               "ko": "저출생을 ‘국가 경쟁력 위기’로만 부르면 누구의 삶이 수단이 되나요?",
-              "de": "Wessen Leben wird zum Mittel, wenn niedrige Geburtenzahlen nur als Wettbewerbsrisiko gelten?",
+              "de": "Wessen Leben wird zum Mittel, wenn niedrige Geburtenzahlen nur als Krise der nationalen Wettbewerbsfähigkeit bezeichnet werden?",
               "en": "Whose lives become instruments when low birth rates are framed only as a competitiveness crisis?"
             },
             {
@@ -27678,9 +27678,9 @@
           },
           "options": [
             {
-              "ko": "‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?",
-              "de": "Verdeckt das Interviewkriterium Potenzial eine Ähnlichkeitsverzerrung der Bewertenden?",
-              "en": "Does the interview criterion potential hide evaluators' similarity bias?"
+              "ko": "설명 가능성은 누구에게 설명되는지를 포함하나요?",
+              "de": "Umfasst Erklärbarkeit auch, für wen die Erklärung bestimmt ist?",
+              "en": "Does explainability include who the explanation is for?"
             },
             {
               "ko": "면접 평가표의 ‘문화 적합성’은 어떤 행동으로 측정하나요?",
@@ -29299,8 +29299,8 @@
           "skill": "meaning",
           "prompt": {
             "ko": "“앞자리는 시야가 탁 트여서 더 무서울 것 같기도 하고, 오히려 상황이 잘 보여서 덜 무서울 것 같기도 해.”\n앞자리에 대한 판단은 어떻게 열려 있나요?",
-            "de": "“앞자리는 시야가 탁 트여서 더 무서울 것 같기도 하고, 오히려 상황이 잘 보여서 덜 무서울 것 같기도 해.”\nWie bleibt die Einschätzung der ersten Reihe offen?",
-            "en": "“앞자리는 시야가 탁 트여서 더 무서울 것 같기도 하고, 오히려 상황이 잘 보여서 덜 무서울 것 같기도 해.”\nHow does the assessment of the front row remain open?"
+            "de": "“앞자리는 시야가 탁 트여서 더 무서울 것 같기도 하고, 오히려 상황이 잘 보여서 덜 무서울 것 같기도 해.”\nWelche Möglichkeiten lässt die Person bei ihrer Einschätzung der ersten Reihe offen?",
+            "en": "“앞자리는 시야가 탁 트여서 더 무서울 것 같기도 하고, 오히려 상황이 잘 보여서 덜 무서울 것 같기도 해.”\nWhat possibilities does the speaker leave open about the front row?"
           },
           "options": [
             {
@@ -29695,9 +29695,9 @@
           },
           "options": [
             {
-              "ko": "기후 적응에 실패한 지역만 조사하면 성공 기준은 따로 정하지 않아도 될까요?",
-              "de": "기후 적응에 실패한 지역만 조사하면 성공 기준은 따로 정하지 않아도 될까요?",
-              "en": "기후 적응에 실패한 지역만 조사하면 성공 기준은 따로 정하지 않아도 될까요?"
+              "ko": "기후 적응의 성공 기준을 정할 때 어떤 지역을 비교 대상으로 삼았나요?",
+              "de": "기후 적응의 성공 기준을 정할 때 어떤 지역을 비교 대상으로 삼았나요?",
+              "en": "기후 적응의 성공 기준을 정할 때 어떤 지역을 비교 대상으로 삼았나요?"
             },
             {
               "ko": "‘기후 적응 성공’이라는 표현은 어떤 손실을 정상 범위로 두나요?",
@@ -29705,9 +29705,9 @@
               "en": "‘기후 적응 성공’이라는 표현은 어떤 손실을 정상 범위로 두나요?"
             },
             {
-              "ko": "기후 적응 성공이라는 표현을 쓰면 앞으로 어떤 손실도 없다는 뜻인가요?",
-              "de": "기후 적응 성공이라는 표현을 쓰면 앞으로 어떤 손실도 없다는 뜻인가요?",
-              "en": "기후 적응 성공이라는 표현을 쓰면 앞으로 어떤 손실도 없다는 뜻인가요?"
+              "ko": "기후 적응에 성공한 지역에서는 손실 규모가 얼마나 줄었나요?",
+              "de": "기후 적응에 성공한 지역에서는 손실 규모가 얼마나 줄었나요?",
+              "en": "기후 적응에 성공한 지역에서는 손실 규모가 얼마나 줄었나요?"
             }
           ],
           "correctIndex": 1,
@@ -29793,14 +29793,14 @@
           },
           "options": [
             {
-              "ko": "상대의 선택을 바꾸려면 어떤 근거를 제시해야 할까요?",
-              "de": "상대의 선택을 바꾸려면 어떤 근거를 제시해야 할까요?",
-              "en": "상대의 선택을 바꾸려면 어떤 근거를 제시해야 할까요?"
+              "ko": "상대의 마음을 이해하면 그 선택에도 동의하게 되는 걸까요?",
+              "de": "상대의 마음을 이해하면 그 선택에도 동의하게 되는 걸까요?",
+              "en": "상대의 마음을 이해하면 그 선택에도 동의하게 되는 걸까요?"
             },
             {
-              "ko": "제 선택에 찬성하는 사람만 만나도 괜찮을까요?",
-              "de": "제 선택에 찬성하는 사람만 만나도 괜찮을까요?",
-              "en": "제 선택에 찬성하는 사람만 만나도 괜찮을까요?"
+              "ko": "상대의 선택에 동의하지 않는 이유를 어떻게 설명하면 좋을까요?",
+              "de": "상대의 선택에 동의하지 않는 이유를 어떻게 설명하면 좋을까요?",
+              "en": "상대의 선택에 동의하지 않는 이유를 어떻게 설명하면 좋을까요?"
             },
             {
               "ko": "상대의 선택에 동의하지 않아도 그 마음에는 공감할 수 있을까요?",
@@ -29929,9 +29929,9 @@
           },
           "options": [
             {
-              "ko": "기존 계약과 신규 계약의 차이는 월세가 오를 때만 생긴다는 뜻인가요?",
-              "de": "기존 계약과 신규 계약의 차이는 월세가 오를 때만 생긴다는 뜻인가요?",
-              "en": "기존 계약과 신규 계약의 차이는 월세가 오를 때만 생긴다는 뜻인가요?"
+              "ko": "기존 계약과 신규 계약의 차이가 월세 안정에 어떤 영향을 주었어요?",
+              "de": "기존 계약과 신규 계약의 차이가 월세 안정에 어떤 영향을 주었어요?",
+              "en": "기존 계약과 신규 계약의 차이가 월세 안정에 어떤 영향을 주었어요?"
             },
             {
               "ko": "‘월세가 안정됐다’는 문장에서 기존 계약과 신규 계약을 나눴어요?",
@@ -29939,9 +29939,9 @@
               "en": "‘월세가 안정됐다’는 문장에서 기존 계약과 신규 계약을 나눴어요?"
             },
             {
-              "ko": "기존 계약과 신규 계약은 조건이 같으니 월세 자료에서 구분하지 않아도 돼요.",
-              "de": "기존 계약과 신규 계약은 조건이 같으니 월세 자료에서 구분하지 않아도 돼요.",
-              "en": "기존 계약과 신규 계약은 조건이 같으니 월세 자료에서 구분하지 않아도 돼요."
+              "ko": "월세가 안정됐다는 결론을 기존 계약에만 한정해서 내렸어요?",
+              "de": "월세가 안정됐다는 결론을 기존 계약에만 한정해서 내렸어요?",
+              "en": "월세가 안정됐다는 결론을 기존 계약에만 한정해서 내렸어요?"
             }
           ],
           "correctIndex": 1,
@@ -30066,9 +30066,9 @@
           },
           "options": [
             {
-              "ko": "주말 노동의 거절 비용 대신 주말 교통비만 계산하면 충분할까요?",
-              "de": "주말 노동의 거절 비용 대신 주말 교통비만 계산하면 충분할까요?",
-              "en": "주말 노동의 거절 비용 대신 주말 교통비만 계산하면 충분할까요?"
+              "ko": "주말 노동을 자율적으로 선택한 사람의 비용은 어떻게 보상하나요?",
+              "de": "주말 노동을 자율적으로 선택한 사람의 비용은 어떻게 보상하나요?",
+              "en": "주말 노동을 자율적으로 선택한 사람의 비용은 어떻게 보상하나요?"
             },
             {
               "ko": "‘자율적 주말 노동’이라는 말에서 거절 비용은 보이나요?",
@@ -30076,9 +30076,9 @@
               "en": "‘자율적 주말 노동’이라는 말에서 거절 비용은 보이나요?"
             },
             {
-              "ko": "주말 노동에 자율적이라는 이름을 붙이면 거절의 불이익도 사라지나요?",
-              "de": "주말 노동에 자율적이라는 이름을 붙이면 거절의 불이익도 사라지나요?",
-              "en": "주말 노동에 자율적이라는 이름을 붙이면 거절의 불이익도 사라지나요?"
+              "ko": "주말 노동을 거절한 사람에게 실제로 어떤 불이익이 있었나요?",
+              "de": "주말 노동을 거절한 사람에게 실제로 어떤 불이익이 있었나요?",
+              "en": "주말 노동을 거절한 사람에게 실제로 어떤 불이익이 있었나요?"
             }
           ],
           "correctIndex": 1,
@@ -30203,9 +30203,9 @@
           },
           "options": [
             {
-              "ko": "소득과 시간 비용을 빼고 가격 숫자만 비교하면 누구에게나 합리적인가요?",
-              "de": "소득과 시간 비용을 빼고 가격 숫자만 비교하면 누구에게나 합리적인가요?",
-              "en": "소득과 시간 비용을 빼고 가격 숫자만 비교하면 누구에게나 합리적인가요?"
+              "ko": "같은 소득이라도 시간 비용에 따라 가격 평가가 얼마나 달라지나요?",
+              "de": "같은 소득이라도 시간 비용에 따라 가격 평가가 얼마나 달라지나요?",
+              "en": "같은 소득이라도 시간 비용에 따라 가격 평가가 얼마나 달라지나요?"
             },
             {
               "ko": "‘합리적 가격’은 누구의 소득과 시간 비용을 전제로 하나요?",
@@ -30213,9 +30213,9 @@
               "en": "‘합리적 가격’은 누구의 소득과 시간 비용을 전제로 하나요?"
             },
             {
-              "ko": "합리적 가격이라는 말은 소득과 시간 비용이 누구에게나 같다는 사실을 보여 주나요?",
-              "de": "합리적 가격이라는 말은 소득과 시간 비용이 누구에게나 같다는 사실을 보여 주나요?",
-              "en": "합리적 가격이라는 말은 소득과 시간 비용이 누구에게나 같다는 사실을 보여 주나요?"
+              "ko": "합리적인 가격을 정할 때 소득과 시간 비용에 어떤 비중을 두었나요?",
+              "de": "합리적인 가격을 정할 때 소득과 시간 비용에 어떤 비중을 두었나요?",
+              "en": "합리적인 가격을 정할 때 소득과 시간 비용에 어떤 비중을 두었나요?"
             }
           ],
           "correctIndex": 1,
@@ -30384,14 +30384,14 @@
               "en": "결과가 좋아도 절차가 불공정했다면 그 결정을 받아들여야 할까요?"
             },
             {
-              "ko": "결과가 좋으므로 절차가 불공정해도 그 결정을 그대로 받아들여야 해요.",
-              "de": "결과가 좋으므로 절차가 불공정해도 그 결정을 그대로 받아들여야 해요.",
-              "en": "결과가 좋으므로 절차가 불공정해도 그 결정을 그대로 받아들여야 해요."
+              "ko": "절차가 공정했더라도 결과가 나쁘면 그 결정을 다시 검토해야 할까요?",
+              "de": "절차가 공정했더라도 결과가 나쁘면 그 결정을 다시 검토해야 할까요?",
+              "en": "절차가 공정했더라도 결과가 나쁘면 그 결정을 다시 검토해야 할까요?"
             },
             {
-              "ko": "절차가 공정하면 어떤 결과가 나와도 평가할 필요가 없을까요?",
-              "de": "절차가 공정하면 어떤 결과가 나와도 평가할 필요가 없을까요?",
-              "en": "절차가 공정하면 어떤 결과가 나와도 평가할 필요가 없을까요?"
+              "ko": "결과가 좋은 결정의 절차를 사후에 개선할 방법은 무엇일까요?",
+              "de": "결과가 좋은 결정의 절차를 사후에 개선할 방법은 무엇일까요?",
+              "en": "결과가 좋은 결정의 절차를 사후에 개선할 방법은 무엇일까요?"
             }
           ],
           "correctIndex": 0,
@@ -30561,14 +30561,14 @@
               "en": "자동 심사 결과에 이의를 제기하려는 사람에게 어떤 절차가 보여야 할까요?"
             },
             {
-              "ko": "자동 심사에 이의를 제기하려는 사람에게 결과를 다시 읽어 주기만 하면 될까요?",
-              "de": "자동 심사에 이의를 제기하려는 사람에게 결과를 다시 읽어 주기만 하면 될까요?",
-              "en": "자동 심사에 이의를 제기하려는 사람에게 결과를 다시 읽어 주기만 하면 될까요?"
+              "ko": "자동 심사 결과에 이의를 제기한 사람에게 처리 결과를 어떻게 설명해야 할까요?",
+              "de": "자동 심사 결과에 이의를 제기한 사람에게 처리 결과를 어떻게 설명해야 할까요?",
+              "en": "자동 심사 결과에 이의를 제기한 사람에게 처리 결과를 어떻게 설명해야 할까요?"
             },
             {
-              "ko": "자동 심사 결과를 바꾸지 않으려면 이의 절차를 어디에 숨겨야 할까요?",
-              "de": "자동 심사 결과를 바꾸지 않으려면 이의 절차를 어디에 숨겨야 할까요?",
-              "en": "자동 심사 결과를 바꾸지 않으려면 이의 절차를 어디에 숨겨야 할까요?"
+              "ko": "자동 심사 결과에 이의를 제기하려는 사람은 어떤 자료를 먼저 준비해야 할까요?",
+              "de": "자동 심사 결과에 이의를 제기하려는 사람은 어떤 자료를 먼저 준비해야 할까요?",
+              "en": "자동 심사 결과에 이의를 제기하려는 사람은 어떤 자료를 먼저 준비해야 할까요?"
             }
           ],
           "correctIndex": 0,
@@ -30650,15 +30650,15 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“이 앱이 철회를 설정 깊숙이 숨긴 것 같아서 경로를 적어 두려고요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„이 앱이 철회를 설정 깊숙이 숨긴 것 같아서 경로를 적어 두려고요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“이 앱이 철회를 설정 깊숙이 숨긴 것 같아서 경로를 적어 두려고요.”\nWhich meaning matches the whole utterance?"
+            "ko": "“이 앱이 동의 철회 기능을 설정 깊숙이 숨겨 놓은 것 같아서, 찾아가는 경로를 적어 두려고요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„이 앱이 동의 철회 기능을 설정 깊숙이 숨겨 놓은 것 같아서, 찾아가는 경로를 적어 두려고요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“이 앱이 동의 철회 기능을 설정 깊숙이 숨겨 놓은 것 같아서, 찾아가는 경로를 적어 두려고요.”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
-              "ko": "이 앱이 철회를 설정 깊숙이 숨긴 것 같아서 경로를 적어 두려고요.",
-              "de": "Die Möglichkeit zum Widerruf scheint tief in den Einstellungen versteckt zu sein; deshalb möchte ich den Weg dorthin festhalten.",
-              "en": "The option to withdraw seems buried deep in the settings, so I want to record how to find it."
+              "ko": "이 앱이 동의 철회 기능을 설정 깊숙이 숨겨 놓은 것 같아서, 찾아가는 경로를 적어 두려고요.",
+              "de": "Die Funktion zum Widerruf der Einwilligung scheint tief in den Einstellungen dieser App versteckt zu sein; deshalb möchte ich den Weg dorthin festhalten.",
+              "en": "The option to withdraw consent seems buried deep in this app’s settings, so I want to record how to find it."
             },
             {
               "ko": "평균 정확도는 피해를 본 한 사람의 구제 가능성을 말해 주지 않아요.",
@@ -30673,15 +30673,15 @@
           ],
           "correctIndex": 0,
           "explanation": {
-            "ko": "이 표현의 내용은 “이 앱이 철회를 설정 깊숙이 숨긴 것 같아서 경로를 적어 두려고요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Die Möglichkeit zum Widerruf scheint tief in den Einstellungen versteckt zu sein; deshalb möchte ich den Weg dorthin festhalten. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: The option to withdraw seems buried deep in the settings, so I want to record how to find it. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “이 앱이 동의 철회 기능을 설정 깊숙이 숨겨 놓은 것 같아서, 찾아가는 경로를 적어 두려고요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Die Funktion zum Widerruf der Einwilligung scheint tief in den Einstellungen dieser App versteckt zu sein; deshalb möchte ich den Weg dorthin festhalten. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: The option to withdraw consent seems buried deep in this app’s settings, so I want to record how to find it. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_c2_0024"
           ],
-          "audioKo": "이 앱이 철회를 설정 깊숙이 숨긴 것 같아서 경로를 적어 두려고요.",
-          "evidenceKo": "이 앱이 철회를 설정 깊숙이 숨긴 것 같아서 경로를 적어 두려고요."
+          "audioKo": "이 앱이 동의 철회 기능을 설정 깊숙이 숨겨 놓은 것 같아서, 찾아가는 경로를 적어 두려고요.",
+          "evidenceKo": "이 앱이 동의 철회 기능을 설정 깊숙이 숨겨 놓은 것 같아서, 찾아가는 경로를 적어 두려고요."
         },
         {
           "id": "smalltalk.c2.daily.autonomy.situation",
@@ -30694,9 +30694,9 @@
           },
           "options": [
             {
-              "ko": "감시를 시작했다는 이유만으로 안전이 확보됐다고 발표해도 될까요?",
-              "de": "감시를 시작했다는 이유만으로 안전이 확보됐다고 발표해도 될까요?",
-              "en": "감시를 시작했다는 이유만으로 안전이 확보됐다고 발표해도 될까요?"
+              "ko": "감시 범위를 정한 뒤 그 기준을 누구에게 설명해야 할까요?",
+              "de": "감시 범위를 정한 뒤 그 기준을 누구에게 설명해야 할까요?",
+              "en": "감시 범위를 정한 뒤 그 기준을 누구에게 설명해야 할까요?"
             },
             {
               "ko": "안전을 위한 감시라면 어느 범위까지 허용할 수 있을까요?",
@@ -30704,9 +30704,9 @@
               "en": "안전을 위한 감시라면 어느 범위까지 허용할 수 있을까요?"
             },
             {
-              "ko": "안전을 위한 감시라면 범위를 제한하는 기준은 필요 없겠죠?",
-              "de": "안전을 위한 감시라면 범위를 제한하는 기준은 필요 없겠죠?",
-              "en": "안전을 위한 감시라면 범위를 제한하는 기준은 필요 없겠죠?"
+              "ko": "감시가 실제로 안전을 높였는지는 어떤 지표로 판단할 수 있을까요?",
+              "de": "감시가 실제로 안전을 높였는지는 어떤 지표로 판단할 수 있을까요?",
+              "en": "감시가 실제로 안전을 높였는지는 어떤 지표로 판단할 수 있을까요?"
             }
           ],
           "correctIndex": 1,
@@ -30798,14 +30798,14 @@
               "en": "Average accuracy says nothing about whether one affected person can obtain redress."
             },
             {
-              "ko": "이 앱이 철회를 설정 깊숙이 숨긴 것 같아서 경로를 적어 두려고요.",
-              "de": "Die Möglichkeit zum Widerruf scheint tief in den Einstellungen versteckt zu sein; deshalb möchte ich den Weg dorthin festhalten.",
-              "en": "The option to withdraw seems buried deep in the settings, so I want to record how to find it."
-            },
-            {
               "ko": "처리 속도가 빠르다는 이유만으로 인간의 재검토를 생략해서는 안 됩니다.",
               "de": "Eine schnelle Bearbeitung allein rechtfertigt es nicht, auf eine menschliche Überprüfung zu verzichten.",
               "en": "Fast processing alone does not justify skipping human review."
+            },
+            {
+              "ko": "이 앱이 동의 철회 기능을 설정 깊숙이 숨겨 놓은 것 같아서, 찾아가는 경로를 적어 두려고요.",
+              "de": "Die Funktion zum Widerruf der Einwilligung scheint tief in den Einstellungen dieser App versteckt zu sein; deshalb möchte ich den Weg dorthin festhalten.",
+              "en": "The option to withdraw consent seems buried deep in this app’s settings, so I want to record how to find it."
             }
           ],
           "correctIndex": 0,
@@ -30831,9 +30831,9 @@
           },
           "options": [
             {
-              "ko": "AI가 자동으로 판단했으니 회사와 공급업체 모두 설명할 필요는 없겠죠?",
-              "de": "AI가 자동으로 판단했으니 회사와 공급업체 모두 설명할 필요는 없겠죠?",
-              "en": "AI가 자동으로 판단했으니 회사와 공급업체 모두 설명할 필요는 없겠죠?"
+              "ko": "AI 오류에 대해 회사가 이미 답했다면 공급업체에도 같은 설명을 요구해야 해요?",
+              "de": "AI 오류에 대해 회사가 이미 답했다면 공급업체에도 같은 설명을 요구해야 해요?",
+              "en": "AI 오류에 대해 회사가 이미 답했다면 공급업체에도 같은 설명을 요구해야 해요?"
             },
             {
               "ko": "AI가 틀렸을 때 회사와 공급업체 중 누가 답해야 해요?",
@@ -30841,9 +30841,9 @@
               "en": "AI가 틀렸을 때 회사와 공급업체 중 누가 답해야 해요?"
             },
             {
-              "ko": "AI가 틀렸을 때 회사와 공급업체 중 누가 더 빠르게 계산했는지 비교할까요?",
-              "de": "AI가 틀렸을 때 회사와 공급업체 중 누가 더 빠르게 계산했는지 비교할까요?",
-              "en": "AI가 틀렸을 때 회사와 공급업체 중 누가 더 빠르게 계산했는지 비교할까요?"
+              "ko": "AI가 틀렸을 때 회사와 공급업체의 대응 속도는 어떻게 비교해요?",
+              "de": "AI가 틀렸을 때 회사와 공급업체의 대응 속도는 어떻게 비교해요?",
+              "en": "AI가 틀렸을 때 회사와 공급업체의 대응 속도는 어떻게 비교해요?"
             }
           ],
           "correctIndex": 1,
@@ -31046,14 +31046,14 @@
           },
           "options": [
             {
-              "ko": "취업률만 높으면 통합의 다른 조건도 모두 충족됐다고 봐야 할까요?",
-              "de": "취업률만 높으면 통합의 다른 조건도 모두 충족됐다고 봐야 할까요?",
-              "en": "취업률만 높으면 통합의 다른 조건도 모두 충족됐다고 봐야 할까요?"
+              "ko": "통합에 성공한 뒤 취업률이 높아졌다는 해석에는 어떤 근거가 있나요?",
+              "de": "통합에 성공한 뒤 취업률이 높아졌다는 해석에는 어떤 근거가 있나요?",
+              "en": "통합에 성공한 뒤 취업률이 높아졌다는 해석에는 어떤 근거가 있나요?"
             },
             {
-              "ko": "통합의 성공 여부와 관계없이 취업률 발표 시기만 앞당길까요?",
-              "de": "통합의 성공 여부와 관계없이 취업률 발표 시기만 앞당길까요?",
-              "en": "통합의 성공 여부와 관계없이 취업률 발표 시기만 앞당길까요?"
+              "ko": "통합의 성공을 취업률 외의 지표로 평가하려면 어떤 자료가 더 필요할까요?",
+              "de": "통합의 성공을 취업률 외의 지표로 평가하려면 어떤 자료가 더 필요할까요?",
+              "en": "통합의 성공을 취업률 외의 지표로 평가하려면 어떤 자료가 더 필요할까요?"
             },
             {
               "ko": "취업률이 높으면 통합이 성공했다는 전제가 왜 문제일까요?",
@@ -31263,14 +31263,14 @@
           },
           "options": [
             {
-              "ko": "두 기사가 같은 사건을 다뤘으니 관점과 인상도 같아야 하는 거죠?",
-              "de": "두 기사가 같은 사건을 다뤘으니 관점과 인상도 같아야 하는 거죠?",
-              "en": "두 기사가 같은 사건을 다뤘으니 관점과 인상도 같아야 하는 거죠?"
+              "ko": "같은 사건을 다룬 두 기사의 사실관계가 다른지 어떻게 확인할까요?",
+              "de": "같은 사건을 다룬 두 기사의 사실관계가 다른지 어떻게 확인할까요?",
+              "en": "같은 사건을 다룬 두 기사의 사실관계가 다른지 어떻게 확인할까요?"
             },
             {
-              "ko": "두 기사의 제목을 같게 바꾸면 보도 내용의 차이도 없어질까요?",
-              "de": "두 기사의 제목을 같게 바꾸면 보도 내용의 차이도 없어질까요?",
-              "en": "두 기사의 제목을 같게 바꾸면 보도 내용의 차이도 없어질까요?"
+              "ko": "두 기사가 다르게 느껴진다는 독자 반응을 어떤 방식으로 조사했나요?",
+              "de": "두 기사가 다르게 느껴진다는 독자 반응을 어떤 방식으로 조사했나요?",
+              "en": "두 기사가 다르게 느껴진다는 독자 반응을 어떤 방식으로 조사했나요?"
             },
             {
               "ko": "같은 사건을 다룬 두 기사가 완전히 다르게 느껴지는 이유가 뭘까요?",
@@ -31402,9 +31402,9 @@
           },
           "options": [
             {
-              "ko": "추천 권력을 설명하려면 발견 가능성이라는 말만 반복하면 충분할까요?",
-              "de": "추천 권력을 설명하려면 발견 가능성이라는 말만 반복하면 충분할까요?",
-              "en": "추천 권력을 설명하려면 발견 가능성이라는 말만 반복하면 충분할까요?"
+              "ko": "발견 가능성을 높이려면 플랫폼의 추천 기준을 어떻게 바꿔야 할까요?",
+              "de": "발견 가능성을 높이려면 플랫폼의 추천 기준을 어떻게 바꿔야 할까요?",
+              "en": "발견 가능성을 높이려면 플랫폼의 추천 기준을 어떻게 바꿔야 할까요?"
             },
             {
               "ko": "플랫폼이 ‘발견 가능성’을 제공한다는 말은 추천 권력을 가리지 않나요?",
@@ -31412,9 +31412,9 @@
               "en": "플랫폼이 ‘발견 가능성’을 제공한다는 말은 추천 권력을 가리지 않나요?"
             },
             {
-              "ko": "플랫폼이 발견 기회를 제공하면 추천에 대한 권력은 더 이상 없는 걸까요?",
-              "de": "플랫폼이 발견 기회를 제공하면 추천에 대한 권력은 더 이상 없는 걸까요?",
-              "en": "플랫폼이 발견 기회를 제공하면 추천에 대한 권력은 더 이상 없는 걸까요?"
+              "ko": "플랫폼의 추천 권력이 새로운 음악의 발견에 어떤 도움을 주나요?",
+              "de": "플랫폼의 추천 권력이 새로운 음악의 발견에 어떤 도움을 주나요?",
+              "en": "플랫폼의 추천 권력이 새로운 음악의 발견에 어떤 도움을 주나요?"
             }
           ],
           "correctIndex": 1,
@@ -31539,9 +31539,9 @@
           },
           "options": [
             {
-              "ko": "자동 계정 정지의 사유를 공개하지 않기로 이미 결정한 건가요?",
-              "de": "자동 계정 정지의 사유를 공개하지 않기로 이미 결정한 건가요?",
-              "en": "자동 계정 정지의 사유를 공개하지 않기로 이미 결정한 건가요?"
+              "ko": "자동 계정 정지의 사유를 확인하려면 어떤 자료를 제출해야 하나요?",
+              "de": "자동 계정 정지의 사유를 확인하려면 어떤 자료를 제출해야 하나요?",
+              "en": "자동 계정 정지의 사유를 확인하려면 어떤 자료를 제출해야 하나요?"
             },
             {
               "ko": "자동으로 계정이 정지되면 사유를 어디까지 알려 주나요?",
@@ -31549,9 +31549,9 @@
               "en": "자동으로 계정이 정지되면 사유를 어디까지 알려 주나요?"
             },
             {
-              "ko": "계정이 자동으로 정지되면 다시 가입하는 데 돈이 얼마나 드나요?",
-              "de": "계정이 자동으로 정지되면 다시 가입하는 데 돈이 얼마나 드나요?",
-              "en": "계정이 자동으로 정지되면 다시 가입하는 데 돈이 얼마나 드나요?"
+              "ko": "계정이 자동으로 정지된 뒤 이의를 제기할 기한은 얼마나 되나요?",
+              "de": "계정이 자동으로 정지된 뒤 이의를 제기할 기한은 얼마나 되나요?",
+              "en": "계정이 자동으로 정지된 뒤 이의를 제기할 기한은 얼마나 되나요?"
             }
           ],
           "correctIndex": 1,
@@ -31606,20 +31606,20 @@
             },
             {
               "ko": "관광지의 ‘수용력’은 주민의 생활권을 포함해 정의됐나요?",
-              "de": "Wurde touristische Tragfähigkeit unter Einbeziehung des Lebensraums der Bewohner definiert?",
-              "en": "Was tourism capacity defined to include residents' living space?"
+              "de": "Wurde die touristische Tragfähigkeit unter Einbeziehung der Alltagsbedingungen der Anwohnenden definiert?",
+              "en": "Was tourism carrying capacity defined to include the conditions of residents’ everyday lives?"
             },
             {
               "ko": "탄소 상쇄가 이동 감축을 대신할 수 있다는 전제는 타당한가요?",
-              "de": "Ist die Prämisse tragfähig, Kompensation könne weniger Verkehr ersetzen?",
+              "de": "Ist die Prämisse tragfähig, dass CO₂-Kompensation eine Verringerung des Reiseaufkommens ersetzen kann?",
               "en": "Is the premise that offsets can replace travel reduction defensible?"
             }
           ],
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “관광지의 ‘수용력’은 주민의 생활권을 포함해 정의됐나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wurde touristische Tragfähigkeit unter Einbeziehung des Lebensraums der Bewohner definiert? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Was tourism capacity defined to include residents' living space? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Wurde die touristische Tragfähigkeit unter Einbeziehung der Alltagsbedingungen der Anwohnenden definiert? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Was tourism carrying capacity defined to include the conditions of residents’ everyday lives? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_c2_0053"
@@ -31639,13 +31639,13 @@
           "options": [
             {
               "ko": "탄소 상쇄가 이동 감축을 대신할 수 있다는 전제는 타당한가요?",
-              "de": "Ist die Prämisse tragfähig, Kompensation könne weniger Verkehr ersetzen?",
+              "de": "Ist die Prämisse tragfähig, dass CO₂-Kompensation eine Verringerung des Reiseaufkommens ersetzen kann?",
               "en": "Is the premise that offsets can replace travel reduction defensible?"
             },
             {
               "ko": "관광지의 ‘수용력’은 주민의 생활권을 포함해 정의됐나요?",
-              "de": "Wurde touristische Tragfähigkeit unter Einbeziehung des Lebensraums der Bewohner definiert?",
-              "en": "Was tourism capacity defined to include residents' living space?"
+              "de": "Wurde die touristische Tragfähigkeit unter Einbeziehung der Alltagsbedingungen der Anwohnenden definiert?",
+              "en": "Was tourism carrying capacity defined to include the conditions of residents’ everyday lives?"
             },
             {
               "ko": "관광객 수가 늘었다는 사실만으로 지역 경제 효과를 말할 수 있을까요?",
@@ -31656,7 +31656,7 @@
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “탄소 상쇄가 이동 감축을 대신할 수 있다는 전제는 타당한가요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Ist die Prämisse tragfähig, Kompensation könne weniger Verkehr ersetzen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Ist die Prämisse tragfähig, dass CO₂-Kompensation eine Verringerung des Reiseaufkommens ersetzen kann? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Is the premise that offsets can replace travel reduction defensible? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -31676,9 +31676,9 @@
           },
           "options": [
             {
-              "ko": "주민 생활권을 고려했다면 관광객 수에는 제한을 둘 수 없는 건가요?",
-              "de": "주민 생활권을 고려했다면 관광객 수에는 제한을 둘 수 없는 건가요?",
-              "en": "주민 생활권을 고려했다면 관광객 수에는 제한을 둘 수 없는 건가요?"
+              "ko": "주민 생활권을 고려해 관광지 수용력을 다시 정할 계획이 있나요?",
+              "de": "주민 생활권을 고려해 관광지 수용력을 다시 정할 계획이 있나요?",
+              "en": "주민 생활권을 고려해 관광지 수용력을 다시 정할 계획이 있나요?"
             },
             {
               "ko": "관광지의 ‘수용력’은 주민의 생활권을 포함해 정의됐나요?",
@@ -31686,16 +31686,16 @@
               "en": "관광지의 ‘수용력’은 주민의 생활권을 포함해 정의됐나요?"
             },
             {
-              "ko": "관광지 수용력은 방문객 숫자만으로 정하면 되고 주민 생활권은 고려할 필요가 없어요.",
-              "de": "관광지 수용력은 방문객 숫자만으로 정하면 되고 주민 생활권은 고려할 필요가 없어요.",
-              "en": "관광지 수용력은 방문객 숫자만으로 정하면 되고 주민 생활권은 고려할 필요가 없어요."
+              "ko": "관광지 수용력을 넘었을 때 주민 생활권에 미친 영향을 따로 조사했나요?",
+              "de": "관광지 수용력을 넘었을 때 주민 생활권에 미친 영향을 따로 조사했나요?",
+              "en": "관광지 수용력을 넘었을 때 주민 생활권에 미친 영향을 따로 조사했나요?"
             }
           ],
           "correctIndex": 1,
           "explanation": {
             "ko": "“관광지의 ‘수용력’은 주민의 생활권을 포함해 정의됐나요?” — 관광지 수용력을 정의할 때 주민 생활권까지 포함했는지 확인해요.",
-            "de": "„관광지의 ‘수용력’은 주민의 생활권을 포함해 정의됐나요?“ bedeutet: Wurde touristische Tragfähigkeit unter Einbeziehung des Lebensraums der Bewohner definiert?",
-            "en": "“관광지의 ‘수용력’은 주민의 생활권을 포함해 정의됐나요?” means: Was tourism capacity defined to include residents' living space?"
+            "de": "„관광지의 ‘수용력’은 주민의 생활권을 포함해 정의됐나요?“ bedeutet: Wurde die touristische Tragfähigkeit unter Einbeziehung der Alltagsbedingungen der Anwohnenden definiert?",
+            "en": "“관광지의 ‘수용력’은 주민의 생활권을 포함해 정의됐나요?” means: Was tourism carrying capacity defined to include the conditions of residents’ everyday lives?"
           },
           "sourceIds": [
             "smalltalk_c2_0053",
@@ -31750,15 +31750,15 @@
             },
             {
               "ko": "다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?",
-              "de": "Sollten Minderheitspositionen im Protokoll bleiben, auch wenn die Mehrheit entscheidet?",
-              "en": "Should minority views remain in the minutes even when the majority decides?"
+              "de": "Sollten Minderheitspositionen im Protokoll festgehalten werden, auch wenn der Mehrheitsvorschlag angenommen wird?",
+              "en": "Should minority views be recorded in the minutes even when the majority's proposal is adopted?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Sollten Minderheitspositionen im Protokoll bleiben, auch wenn die Mehrheit entscheidet? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Should minority views remain in the minutes even when the majority decides? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Sollten Minderheitspositionen im Protokoll festgehalten werden, auch wenn der Mehrheitsvorschlag angenommen wird? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Should minority views be recorded in the minutes even when the majority's proposal is adopted? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_c2_0001"
@@ -31816,8 +31816,8 @@
           "options": [
             {
               "ko": "다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?",
-              "de": "Sollten Minderheitspositionen im Protokoll bleiben, auch wenn die Mehrheit entscheidet?",
-              "en": "Should minority views remain in the minutes even when the majority decides?"
+              "de": "Sollten Minderheitspositionen im Protokoll festgehalten werden, auch wenn der Mehrheitsvorschlag angenommen wird?",
+              "en": "Should minority views be recorded in the minutes even when the majority's proposal is adopted?"
             },
             {
               "ko": "결정을 빨리 내려야 할 때 이견을 어디까지 보존해야 할까요?",
@@ -31891,14 +31891,14 @@
           },
           "options": [
             {
-              "ko": "다수안이 채택됐으니 회의록에서 소수 의견은 삭제하는 게 좋겠죠?",
-              "de": "다수안이 채택됐으니 회의록에서 소수 의견은 삭제하는 게 좋겠죠?",
-              "en": "다수안이 채택됐으니 회의록에서 소수 의견은 삭제하는 게 좋겠죠?"
+              "ko": "다수안이 채택된 이유를 회의록에 어디까지 남겨야 할까요?",
+              "de": "다수안이 채택된 이유를 회의록에 어디까지 남겨야 할까요?",
+              "en": "다수안이 채택된 이유를 회의록에 어디까지 남겨야 할까요?"
             },
             {
-              "ko": "소수 의견을 남기려면 다수안 채택부터 무효로 해야 할까요?",
-              "de": "소수 의견을 남기려면 다수안 채택부터 무효로 해야 할까요?",
-              "en": "소수 의견을 남기려면 다수안 채택부터 무효로 해야 할까요?"
+              "ko": "소수 의견을 회의록에 남긴 뒤 다음 회의에서 다시 표결해야 할까요?",
+              "de": "소수 의견을 회의록에 남긴 뒤 다음 회의에서 다시 표결해야 할까요?",
+              "en": "소수 의견을 회의록에 남긴 뒤 다음 회의에서 다시 표결해야 할까요?"
             },
             {
               "ko": "다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?",
@@ -31909,8 +31909,8 @@
           "correctIndex": 2,
           "explanation": {
             "ko": "“다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?” — 다수의 안이 채택됐어도 소수 의견을 회의록에 남겨야 할지 물어봐요.",
-            "de": "„다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?“ bedeutet: Sollten Minderheitspositionen im Protokoll bleiben, auch wenn die Mehrheit entscheidet?",
-            "en": "“다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?” means: Should minority views remain in the minutes even when the majority decides?"
+            "de": "„다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?“ bedeutet: Sollten Minderheitspositionen im Protokoll festgehalten werden, auch wenn der Mehrheitsvorschlag angenommen wird?",
+            "en": "“다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?” means: Should minority views be recorded in the minutes even when the majority's proposal is adopted?"
           },
           "sourceIds": [
             "smalltalk_c2_0001",
@@ -31992,9 +31992,9 @@
           },
           "options": [
             {
-              "ko": "다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?",
-              "de": "Sollten Minderheitspositionen im Protokoll bleiben, auch wenn die Mehrheit entscheidet?",
-              "en": "Should minority views remain in the minutes even when the majority decides?"
+              "ko": "결정을 빨리 내려야 할 때 이견을 어디까지 보존해야 할까요?",
+              "de": "Wie viel Dissens sollten wir bewahren, wenn eine schnelle Entscheidung nötig ist?",
+              "en": "How much disagreement should we preserve when a decision must be made quickly?"
             },
             {
               "ko": "이 문장이 권한을 절차 뒤에 숨기는 것 같지 않아요?",
@@ -32002,9 +32002,9 @@
               "en": "Does this sentence hide authority behind procedure?"
             },
             {
-              "ko": "동의가 있어도 권력 비대칭 때문에 거절하기 어려운가요?",
-              "de": "Ist eine Ablehnung trotz Einwilligungsverfahren wegen Machtasymmetrie schwierig?",
-              "en": "Can power asymmetry make refusal difficult even when consent is requested?"
+              "ko": "다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?",
+              "de": "Sollten Minderheitspositionen im Protokoll festgehalten werden, auch wenn der Mehrheitsvorschlag angenommen wird?",
+              "en": "Should minority views be recorded in the minutes even when the majority's proposal is adopted?"
             }
           ],
           "correctIndex": 1,
@@ -32030,9 +32030,9 @@
           },
           "options": [
             {
-              "ko": "결말이 열려 있는 작품은 해석을 전혀 해서는 안 되는 걸까요?",
-              "de": "결말이 열려 있는 작품은 해석을 전혀 해서는 안 되는 걸까요?",
-              "en": "결말이 열려 있는 작품은 해석을 전혀 해서는 안 되는 걸까요?"
+              "ko": "작가가 결말을 열어 둔 이유는 어떤 자료로 확인할 수 있을까요?",
+              "de": "작가가 결말을 열어 둔 이유는 어떤 자료로 확인할 수 있을까요?",
+              "en": "작가가 결말을 열어 둔 이유는 어떤 자료로 확인할 수 있을까요?"
             },
             {
               "ko": "결말을 열어 둔 작품은 해석을 어디까지 허용한다고 봐야 할까요?",
@@ -32040,9 +32040,9 @@
               "en": "결말을 열어 둔 작품은 해석을 어디까지 허용한다고 봐야 할까요?"
             },
             {
-              "ko": "결말이 열려 있으면 어떤 해석이든 작품의 근거와 관계없이 옳을까요?",
-              "de": "결말이 열려 있으면 어떤 해석이든 작품의 근거와 관계없이 옳을까요?",
-              "en": "결말이 열려 있으면 어떤 해석이든 작품의 근거와 관계없이 옳을까요?"
+              "ko": "결말을 열어 둔 작품에서 어떤 해석이 가장 설득력 있다고 봐야 할까요?",
+              "de": "결말을 열어 둔 작품에서 어떤 해석이 가장 설득력 있다고 봐야 할까요?",
+              "en": "결말을 열어 둔 작품에서 어떤 해석이 가장 설득력 있다고 봐야 할까요?"
             }
           ],
           "correctIndex": 1,
@@ -32092,8 +32092,8 @@
           "options": [
             {
               "ko": "다수안이 채택돼도 소수 의견을 회의록에 남겨야 할까요?",
-              "de": "Sollten Minderheitspositionen im Protokoll bleiben, auch wenn die Mehrheit entscheidet?",
-              "en": "Should minority views remain in the minutes even when the majority decides?"
+              "de": "Sollten Minderheitspositionen im Protokoll festgehalten werden, auch wenn der Mehrheitsvorschlag angenommen wird?",
+              "en": "Should minority views be recorded in the minutes even when the majority's proposal is adopted?"
             },
             {
               "ko": "결정을 빨리 내려야 할 때 이견을 어디까지 보존해야 할까요?",
@@ -32167,9 +32167,9 @@
           },
           "options": [
             {
-              "ko": "자동 결정이 빨랐다는 사실만 남기면 그 판단 이유도 추적할 수 있을까요?",
-              "de": "자동 결정이 빨랐다는 사실만 남기면 그 판단 이유도 추적할 수 있을까요?",
-              "en": "자동 결정이 빨랐다는 사실만 남기면 그 판단 이유도 추적할 수 있을까요?"
+              "ko": "자동 결정이 이루어진 뒤에는 기록을 어느 기간까지 보관해야 할까요?",
+              "de": "자동 결정이 이루어진 뒤에는 기록을 어느 기간까지 보관해야 할까요?",
+              "en": "자동 결정이 이루어진 뒤에는 기록을 어느 기간까지 보관해야 할까요?"
             },
             {
               "ko": "자동 결정이 왜 나왔는지 나중에 추적하려면 지금 무엇을 남겨야 할까요?",
@@ -32177,9 +32177,9 @@
               "en": "자동 결정이 왜 나왔는지 나중에 추적하려면 지금 무엇을 남겨야 할까요?"
             },
             {
-              "ko": "자동 결정의 근거는 지금 지워 두고 나중에 결과만 기록하면 될까요?",
-              "de": "자동 결정의 근거는 지금 지워 두고 나중에 결과만 기록하면 될까요?",
-              "en": "자동 결정의 근거는 지금 지워 두고 나중에 결과만 기록하면 될까요?"
+              "ko": "자동 결정의 근거가 이미 기록돼 있다면 나중에 어떤 절차로 열람할 수 있을까요?",
+              "de": "자동 결정의 근거가 이미 기록돼 있다면 나중에 어떤 절차로 열람할 수 있을까요?",
+              "en": "자동 결정의 근거가 이미 기록돼 있다면 나중에 어떤 절차로 열람할 수 있을까요?"
             }
           ],
           "correctIndex": 1,
@@ -32236,8 +32236,8 @@
             },
             {
               "ko": "정책 효과와 단순한 시기적 동시성을 구분했나요?",
-              "de": "Wurde Politikwirkung von bloßer zeitlicher Gleichzeitigkeit getrennt?",
-              "en": "Was the policy effect separated from mere timing?"
+              "de": "Wurde die Wirkung der Politik von bloß zeitlich zusammenfallenden Veränderungen unterschieden?",
+              "en": "Did they distinguish the effect of the policy from changes that merely coincided in time?"
             },
             {
               "ko": "그 기사에서 ‘통합 성공’을 무엇으로 측정했어요?",
@@ -32317,15 +32317,15 @@
             },
             {
               "ko": "정책 효과와 단순한 시기적 동시성을 구분했나요?",
-              "de": "Wurde Politikwirkung von bloßer zeitlicher Gleichzeitigkeit getrennt?",
-              "en": "Was the policy effect separated from mere timing?"
+              "de": "Wurde die Wirkung der Politik von bloß zeitlich zusammenfallenden Veränderungen unterschieden?",
+              "en": "Did they distinguish the effect of the policy from changes that merely coincided in time?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “정책 효과와 단순한 시기적 동시성을 구분했나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wurde Politikwirkung von bloßer zeitlicher Gleichzeitigkeit getrennt? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Was the policy effect separated from mere timing? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Wurde die Wirkung der Politik von bloß zeitlich zusammenfallenden Veränderungen unterschieden? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Did they distinguish the effect of the policy from changes that merely coincided in time? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_c2_0073"
@@ -32338,9 +32338,9 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“동의가 있어도 권력 비대칭 때문에 거절하기 어려운가요?”\n동의와 관련해 어떤 문제를 살피고 있나요?",
-            "de": "“동의가 있어도 권력 비대칭 때문에 거절하기 어려운가요?”\nWelches Problem wird trotz Einwilligung untersucht?",
-            "en": "“동의가 있어도 권력 비대칭 때문에 거절하기 어려운가요?”\nWhat concern is examined even where consent exists?"
+            "ko": "“동의했다는 표시가 있어도 권력의 불균형 때문에 실제로는 거절하기 어려웠을 수 있나요?”\n동의와 관련해 어떤 문제를 살피고 있나요?",
+            "de": "“동의했다는 표시가 있어도 권력의 불균형 때문에 실제로는 거절하기 어려웠을 수 있나요?”\nWelches Problem wird trotz Einwilligung untersucht?",
+            "en": "“동의했다는 표시가 있어도 권력의 불균형 때문에 실제로는 거절하기 어려웠을 수 있나요?”\nWhat concern is examined even where consent exists?"
           },
           "options": [
             {
@@ -32368,8 +32368,8 @@
           "sourceIds": [
             "smalltalk_c2_0076"
           ],
-          "audioKo": "동의가 있어도 권력 비대칭 때문에 거절하기 어려운가요?",
-          "evidenceKo": "동의가 있어도 권력 비대칭 때문에 거절하기 어려운가요?"
+          "audioKo": "동의했다는 표시가 있어도 권력의 불균형 때문에 실제로는 거절하기 어려웠을 수 있나요?",
+          "evidenceKo": "동의했다는 표시가 있어도 권력의 불균형 때문에 실제로는 거절하기 어려웠을 수 있나요?"
         },
         {
           "id": "smalltalk.c2.work_study.policy.situation",
@@ -32382,14 +32382,14 @@
           },
           "options": [
             {
-              "ko": "그 기사에서 통합 성공을 측정했다는 이유만으로 지표는 더 볼 필요 없겠죠?",
-              "de": "그 기사에서 통합 성공을 측정했다는 이유만으로 지표는 더 볼 필요 없겠죠?",
-              "en": "그 기사에서 통합 성공을 측정했다는 이유만으로 지표는 더 볼 필요 없겠죠?"
+              "ko": "그 기사에서 통합 성공을 측정한 지표는 누가 정했어요?",
+              "de": "그 기사에서 통합 성공을 측정한 지표는 누가 정했어요?",
+              "en": "그 기사에서 통합 성공을 측정한 지표는 누가 정했어요?"
             },
             {
-              "ko": "통합에 성공했다는 기사의 제목을 누가 먼저 공유했어요?",
-              "de": "통합에 성공했다는 기사의 제목을 누가 먼저 공유했어요?",
-              "en": "통합에 성공했다는 기사의 제목을 누가 먼저 공유했어요?"
+              "ko": "그 기사에 나온 통합 정책의 효과는 언제부터 나타났어요?",
+              "de": "그 기사에 나온 통합 정책의 효과는 언제부터 나타났어요?",
+              "en": "그 기사에 나온 통합 정책의 효과는 언제부터 나타났어요?"
             },
             {
               "ko": "그 기사에서 ‘통합 성공’을 무엇으로 측정했어요?",
@@ -32456,14 +32456,14 @@
             },
             {
               "ko": "저출생을 ‘국가 경쟁력 위기’로만 부르면 누구의 삶이 수단이 되나요?",
-              "de": "Wessen Leben wird zum Mittel, wenn niedrige Geburtenzahlen nur als Wettbewerbsrisiko gelten?",
+              "de": "Wessen Leben wird zum Mittel, wenn niedrige Geburtenzahlen nur als Krise der nationalen Wettbewerbsfähigkeit bezeichnet werden?",
               "en": "Whose lives become instruments when low birth rates are framed only as a competitiveness crisis?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “저출생을 ‘국가 경쟁력 위기’로만 부르면 누구의 삶이 수단이 되나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wessen Leben wird zum Mittel, wenn niedrige Geburtenzahlen nur als Wettbewerbsrisiko gelten? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Wessen Leben wird zum Mittel, wenn niedrige Geburtenzahlen nur als Krise der nationalen Wettbewerbsfähigkeit bezeichnet werden? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Whose lives become instruments when low birth rates are framed only as a competitiveness crisis? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -32494,7 +32494,7 @@
             },
             {
               "ko": "저출생을 ‘국가 경쟁력 위기’로만 부르면 누구의 삶이 수단이 되나요?",
-              "de": "Wessen Leben wird zum Mittel, wenn niedrige Geburtenzahlen nur als Wettbewerbsrisiko gelten?",
+              "de": "Wessen Leben wird zum Mittel, wenn niedrige Geburtenzahlen nur als Krise der nationalen Wettbewerbsfähigkeit bezeichnet werden?",
               "en": "Whose lives become instruments when low birth rates are framed only as a competitiveness crisis?"
             }
           ],
@@ -32521,9 +32521,9 @@
           },
           "options": [
             {
-              "ko": "경쟁력 수치가 높아지면 저출생 논의에 개인의 삶을 포함할 필요가 없을까요?",
-              "de": "경쟁력 수치가 높아지면 저출생 논의에 개인의 삶을 포함할 필요가 없을까요?",
-              "en": "경쟁력 수치가 높아지면 저출생 논의에 개인의 삶을 포함할 필요가 없을까요?"
+              "ko": "저출생 담론에서 개인의 삶을 목적 그 자체로 다룬 사례는 무엇인가요?",
+              "de": "저출생 담론에서 개인의 삶을 목적 그 자체로 다룬 사례는 무엇인가요?",
+              "en": "저출생 담론에서 개인의 삶을 목적 그 자체로 다룬 사례는 무엇인가요?"
             },
             {
               "ko": "저출생을 ‘국가 경쟁력 위기’로만 부르면 누구의 삶이 수단이 되나요?",
@@ -32531,15 +32531,15 @@
               "en": "저출생을 ‘국가 경쟁력 위기’로만 부르면 누구의 삶이 수단이 되나요?"
             },
             {
-              "ko": "저출생을 경쟁력 위기로만 부르면 개인의 삶은 어떤 목적에서도 자유로워지나요?",
-              "de": "저출생을 경쟁력 위기로만 부르면 개인의 삶은 어떤 목적에서도 자유로워지나요?",
-              "en": "저출생을 경쟁력 위기로만 부르면 개인의 삶은 어떤 목적에서도 자유로워지나요?"
+              "ko": "저출생을 국가 경쟁력 위기로 설명하면 어떤 정책이 우선될까요?",
+              "de": "저출생을 국가 경쟁력 위기로 설명하면 어떤 정책이 우선될까요?",
+              "en": "저출생을 국가 경쟁력 위기로 설명하면 어떤 정책이 우선될까요?"
             }
           ],
           "correctIndex": 1,
           "explanation": {
             "ko": "“저출생을 ‘국가 경쟁력 위기’로만 부르면 누구의 삶이 수단이 되나요?” — 저출생을 국가 경쟁력의 위기로만 말할 때 누구의 삶이 수단이 되는지 질문해요.",
-            "de": "„저출생을 ‘국가 경쟁력 위기’로만 부르면 누구의 삶이 수단이 되나요?“ bedeutet: Wessen Leben wird zum Mittel, wenn niedrige Geburtenzahlen nur als Wettbewerbsrisiko gelten?",
+            "de": "„저출생을 ‘국가 경쟁력 위기’로만 부르면 누구의 삶이 수단이 되나요?“ bedeutet: Wessen Leben wird zum Mittel, wenn niedrige Geburtenzahlen nur als Krise der nationalen Wettbewerbsfähigkeit bezeichnet werden?",
             "en": "“저출생을 ‘국가 경쟁력 위기’로만 부르면 누구의 삶이 수단이 되나요?” means: Whose lives become instruments when low birth rates are framed only as a competitiveness crisis?"
           },
           "sourceIds": [
@@ -32576,20 +32576,20 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
-              "ko": "건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?",
+              "ko": "건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?",
               "de": "Wer kann der Risikogruppen-Einstufung einer Gesundheits-App widersprechen?",
               "en": "Who can challenge a health app's high-risk classification?"
             },
             {
               "ko": "예방 정책의 비용 효율성은 누구의 고통을 비용으로 계산하나요?",
-              "de": "Wessen Belastung wird in der Kosteneffizienz von Prävention als Kosten erfasst?",
-              "en": "Whose suffering is counted as a cost in preventive-policy efficiency?"
+              "de": "Wessen Leiden wird bei der Bewertung der Kosteneffizienz von Präventionsmaßnahmen als Kosten erfasst?",
+              "en": "Whose suffering is counted as a cost when evaluating the cost efficiency of preventive policy?"
             },
             {
               "ko": "자동 심사에 이의를 제기할 때 어떤 판단 근거까지 확인할 수 있어야 할까요?",
@@ -32599,15 +32599,15 @@
           ],
           "correctIndex": 0,
           "explanation": {
-            "ko": "이 표현의 내용은 “건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "ko": "이 표현의 내용은 “건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: Wer kann der Risikogruppen-Einstufung einer Gesundheits-App widersprechen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Who can challenge a health app's high-risk classification? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_c2_0057"
           ],
-          "audioKo": "건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?",
-          "evidenceKo": "건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?"
+          "audioKo": "건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?",
+          "evidenceKo": "건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?"
         },
         {
           "id": "smalltalk.c2.health.classification.smalltalk_c2_0058.meaning",
@@ -32620,7 +32620,7 @@
           },
           "options": [
             {
-              "ko": "건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?",
+              "ko": "건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?",
               "de": "Wer kann der Risikogruppen-Einstufung einer Gesundheits-App widersprechen?",
               "en": "Who can challenge a health app's high-risk classification?"
             },
@@ -32631,15 +32631,15 @@
             },
             {
               "ko": "예방 정책의 비용 효율성은 누구의 고통을 비용으로 계산하나요?",
-              "de": "Wessen Belastung wird in der Kosteneffizienz von Prävention als Kosten erfasst?",
-              "en": "Whose suffering is counted as a cost in preventive-policy efficiency?"
+              "de": "Wessen Leiden wird bei der Bewertung der Kosteneffizienz von Präventionsmaßnahmen als Kosten erfasst?",
+              "en": "Whose suffering is counted as a cost when evaluating the cost efficiency of preventive policy?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “예방 정책의 비용 효율성은 누구의 고통을 비용으로 계산하나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wessen Belastung wird in der Kosteneffizienz von Prävention als Kosten erfasst? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Whose suffering is counted as a cost in preventive-policy efficiency? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Wessen Leiden wird bei der Bewertung der Kosteneffizienz von Präventionsmaßnahmen als Kosten erfasst? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Whose suffering is counted as a cost when evaluating the cost efficiency of preventive policy? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_c2_0058"
@@ -32658,33 +32658,33 @@
           },
           "options": [
             {
-              "ko": "위험군 분류를 받은 사람은 언제 앱을 설치했는지만 확인하면 되나요?",
-              "de": "위험군 분류를 받은 사람은 언제 앱을 설치했는지만 확인하면 되나요?",
-              "en": "위험군 분류를 받은 사람은 언제 앱을 설치했는지만 확인하면 되나요?"
+              "ko": "건강 앱의 위험군 분류를 검토하는 사람은 어떤 전문성을 갖춰야 하나요?",
+              "de": "건강 앱의 위험군 분류를 검토하는 사람은 어떤 전문성을 갖춰야 하나요?",
+              "en": "건강 앱의 위험군 분류를 검토하는 사람은 어떤 전문성을 갖춰야 하나요?"
             },
             {
-              "ko": "건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?",
-              "de": "건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?",
-              "en": "건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?"
+              "ko": "건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?",
+              "de": "건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?",
+              "en": "건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?"
             },
             {
-              "ko": "건강 앱이 위험군으로 분류했으니 누구도 그 판단을 검토할 수 없나요?",
-              "de": "건강 앱이 위험군으로 분류했으니 누구도 그 판단을 검토할 수 없나요?",
-              "en": "건강 앱이 위험군으로 분류했으니 누구도 그 판단을 검토할 수 없나요?"
+              "ko": "건강 앱의 위험군 분류에 이의를 제기하면 어떤 근거를 확인할 수 있나요?",
+              "de": "건강 앱의 위험군 분류에 이의를 제기하면 어떤 근거를 확인할 수 있나요?",
+              "en": "건강 앱의 위험군 분류에 이의를 제기하면 어떤 근거를 확인할 수 있나요?"
             }
           ],
           "correctIndex": 1,
           "explanation": {
-            "ko": "“건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?” — 건강 앱에서 위험군으로 분류되었을 때 누가 이의를 제기할 수 있는지 물어봐요.",
-            "de": "„건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?“ bedeutet: Wer kann der Risikogruppen-Einstufung einer Gesundheits-App widersprechen?",
-            "en": "“건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?” means: Who can challenge a health app's high-risk classification?"
+            "ko": "“건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?” — 건강 앱에서 위험군으로 분류되었을 때 누가 이의를 제기할 수 있는지 물어봐요.",
+            "de": "„건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?“ bedeutet: Wer kann der Risikogruppen-Einstufung einer Gesundheits-App widersprechen?",
+            "en": "“건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?” means: Who can challenge a health app's high-risk classification?"
           },
           "sourceIds": [
             "smalltalk_c2_0057",
             "smalltalk_c2_0058"
           ],
-          "audioKo": "건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?",
-          "evidenceKo": "건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?"
+          "audioKo": "건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?",
+          "evidenceKo": "건강 앱의 ‘위험군’ 분류에 누가 이의를 제기할 수 있나요?"
         }
       ]
     },
@@ -32720,13 +32720,13 @@
           "options": [
             {
               "ko": "그 발표에서 ‘진짜 팬’의 기준을 누가 정했어요?",
-              "de": "Wer legt in dem Vortrag fest, was ein ‚echter Fan‘ ist?",
-              "en": "Who sets the standard for a 'real fan' in that talk?"
+              "de": "Wer hat in dem Vortrag festgelegt, was ein „echter Fan“ ist?",
+              "en": "Who defined a 'real fan' in that talk?"
             },
             {
               "ko": "현지 재해석을 변형이라고만 부르면 문화가 오가는 과정을 한쪽에서만 보게 돼요.",
-              "de": "Wer lokale Neuinterpretation nur ‚Verfälschung‘ nennt, betrachtet kulturellen Austausch einseitig.",
-              "en": "Calling local reinterpretation merely a distortion makes cultural exchange one-sided."
+              "de": "Wer lokale Neuinterpretationen nur als Veränderungen des Originals bezeichnet, betrachtet kulturellen Austausch einseitig.",
+              "en": "Calling local reinterpretations merely alterations of the original means viewing cultural exchange from only one side."
             },
             {
               "ko": "그 표현이 왜 문제인지 안에서 설명된 적 있어요?",
@@ -32768,8 +32768,8 @@
             },
             {
               "ko": "현지 재해석을 변형이라고만 부르면 문화가 오가는 과정을 한쪽에서만 보게 돼요.",
-              "de": "Wer lokale Neuinterpretation nur ‚Verfälschung‘ nennt, betrachtet kulturellen Austausch einseitig.",
-              "en": "Calling local reinterpretation merely a distortion makes cultural exchange one-sided."
+              "de": "Wer lokale Neuinterpretationen nur als Veränderungen des Originals bezeichnet, betrachtet kulturellen Austausch einseitig.",
+              "en": "Calling local reinterpretations merely alterations of the original means viewing cultural exchange from only one side."
             }
           ],
           "correctIndex": 1,
@@ -32795,9 +32795,9 @@
           },
           "options": [
             {
-              "ko": "그 표현이 문제라는 설명 없이도 사람들이 같은 이유로 반대한다고 보면 될까요?",
-              "de": "그 표현이 문제라는 설명 없이도 사람들이 같은 이유로 반대한다고 보면 될까요?",
-              "en": "그 표현이 문제라는 설명 없이도 사람들이 같은 이유로 반대한다고 보면 될까요?"
+              "ko": "그 표현의 문제를 공동체 안에서 누가 먼저 제기했어요?",
+              "de": "그 표현의 문제를 공동체 안에서 누가 먼저 제기했어요?",
+              "en": "그 표현의 문제를 공동체 안에서 누가 먼저 제기했어요?"
             },
             {
               "ko": "그 표현이 왜 문제인지 안에서 설명된 적 있어요?",
@@ -32805,9 +32805,9 @@
               "en": "그 표현이 왜 문제인지 안에서 설명된 적 있어요?"
             },
             {
-              "ko": "그 표현을 많이 쓰니까 공동체 안에서도 문제가 없다고 확정된 건가요?",
-              "de": "그 표현을 많이 쓰니까 공동체 안에서도 문제가 없다고 확정된 건가요?",
-              "en": "그 표현을 많이 쓰니까 공동체 안에서도 문제가 없다고 확정된 건가요?"
+              "ko": "그 표현이 왜 문제인지 공동체 밖에서도 설명된 적 있어요?",
+              "de": "그 표현이 왜 문제인지 공동체 밖에서도 설명된 적 있어요?",
+              "en": "그 표현이 왜 문제인지 공동체 밖에서도 설명된 적 있어요?"
             }
           ],
           "correctIndex": 1,
@@ -32858,8 +32858,8 @@
           "options": [
             {
               "ko": "그 발표에서 ‘진짜 팬’의 기준을 누가 정했어요?",
-              "de": "Wer legt in dem Vortrag fest, was ein ‚echter Fan‘ ist?",
-              "en": "Who sets the standard for a 'real fan' in that talk?"
+              "de": "Wer hat in dem Vortrag festgelegt, was ein „echter Fan“ ist?",
+              "en": "Who defined a 'real fan' in that talk?"
             },
             {
               "ko": "그 표현이 왜 문제인지 안에서 설명된 적 있어요?",
@@ -32875,8 +32875,8 @@
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “그 발표에서 ‘진짜 팬’의 기준을 누가 정했어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wer legt in dem Vortrag fest, was ein ‚echter Fan‘ ist? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Who sets the standard for a 'real fan' in that talk? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Wer hat in dem Vortrag festgelegt, was ein „echter Fan“ ist? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Who defined a 'real fan' in that talk? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_c2_0039"
@@ -32906,15 +32906,15 @@
             },
             {
               "ko": "현지 재해석을 변형이라고만 부르면 문화가 오가는 과정을 한쪽에서만 보게 돼요.",
-              "de": "Wer lokale Neuinterpretation nur ‚Verfälschung‘ nennt, betrachtet kulturellen Austausch einseitig.",
-              "en": "Calling local reinterpretation merely a distortion makes cultural exchange one-sided."
+              "de": "Wer lokale Neuinterpretationen nur als Veränderungen des Originals bezeichnet, betrachtet kulturellen Austausch einseitig.",
+              "en": "Calling local reinterpretations merely alterations of the original means viewing cultural exchange from only one side."
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “현지 재해석을 변형이라고만 부르면 문화가 오가는 과정을 한쪽에서만 보게 돼요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wer lokale Neuinterpretation nur ‚Verfälschung‘ nennt, betrachtet kulturellen Austausch einseitig. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Calling local reinterpretation merely a distortion makes cultural exchange one-sided. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Wer lokale Neuinterpretationen nur als Veränderungen des Originals bezeichnet, betrachtet kulturellen Austausch einseitig. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Calling local reinterpretations merely alterations of the original means viewing cultural exchange from only one side. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_c2_0040"
@@ -32934,8 +32934,8 @@
           "options": [
             {
               "ko": "현지 재해석을 변형이라고만 부르면 문화가 오가는 과정을 한쪽에서만 보게 돼요.",
-              "de": "Wer lokale Neuinterpretation nur ‚Verfälschung‘ nennt, betrachtet kulturellen Austausch einseitig.",
-              "en": "Calling local reinterpretation merely a distortion makes cultural exchange one-sided."
+              "de": "Wer lokale Neuinterpretationen nur als Veränderungen des Originals bezeichnet, betrachtet kulturellen Austausch einseitig.",
+              "en": "Calling local reinterpretations merely alterations of the original means viewing cultural exchange from only one side."
             },
             {
               "ko": "‘진짜 팬’이라는 말은 어떤 참여를 중심에 놓고 있나요?",
@@ -32976,21 +32976,21 @@
               "en": "그 발표에서 ‘진짜 팬’의 기준을 누가 정했어요?"
             },
             {
-              "ko": "그 발표에서 진짜 팬이라는 기준에 맞는 사람은 모두 같은 나이였어요?",
-              "de": "그 발표에서 진짜 팬이라는 기준에 맞는 사람은 모두 같은 나이였어요?",
-              "en": "그 발표에서 진짜 팬이라는 기준에 맞는 사람은 모두 같은 나이였어요?"
+              "ko": "그 발표에서 진짜 팬의 기준은 어떤 참여 방식으로 구체화됐어요?",
+              "de": "그 발표에서 진짜 팬의 기준은 어떤 참여 방식으로 구체화됐어요?",
+              "en": "그 발표에서 진짜 팬의 기준은 어떤 참여 방식으로 구체화됐어요?"
             },
             {
-              "ko": "진짜 팬이라는 말을 쓴 이상 누가 정했는지는 따질 필요 없겠죠?",
-              "de": "진짜 팬이라는 말을 쓴 이상 누가 정했는지는 따질 필요 없겠죠?",
-              "en": "진짜 팬이라는 말을 쓴 이상 누가 정했는지는 따질 필요 없겠죠?"
+              "ko": "그 발표에서 정한 진짜 팬의 기준에 누가 이의를 제기했어요?",
+              "de": "그 발표에서 정한 진짜 팬의 기준에 누가 이의를 제기했어요?",
+              "en": "그 발표에서 정한 진짜 팬의 기준에 누가 이의를 제기했어요?"
             }
           ],
           "correctIndex": 0,
           "explanation": {
             "ko": "“그 발표에서 ‘진짜 팬’의 기준을 누가 정했어요?” — 발표에서 사용한 진짜 팬이라는 기준을 누가 정했는지 물어봐요.",
-            "de": "„그 발표에서 ‘진짜 팬’의 기준을 누가 정했어요?“ bedeutet: Wer legt in dem Vortrag fest, was ein ‚echter Fan‘ ist?",
-            "en": "“그 발표에서 ‘진짜 팬’의 기준을 누가 정했어요?” means: Who sets the standard for a 'real fan' in that talk?"
+            "de": "„그 발표에서 ‘진짜 팬’의 기준을 누가 정했어요?“ bedeutet: Wer hat in dem Vortrag festgelegt, was ein „echter Fan“ ist?",
+            "en": "“그 발표에서 ‘진짜 팬’의 기준을 누가 정했어요?” means: Who defined a 'real fan' in that talk?"
           },
           "sourceIds": [
             "smalltalk_c2_0039",
@@ -33109,9 +33109,9 @@
           },
           "options": [
             {
-              "ko": "그 이야기는 누구의 관점과도 관계없는 완전히 중립적인 기록이라고 확정됐나요?",
-              "de": "그 이야기는 누구의 관점과도 관계없는 완전히 중립적인 기록이라고 확정됐나요?",
-              "en": "그 이야기는 누구의 관점과도 관계없는 완전히 중립적인 기록이라고 확정됐나요?"
+              "ko": "그 이야기에서 빠진 사람의 입장을 어떻게 확인할 수 있을까요?",
+              "de": "그 이야기에서 빠진 사람의 입장을 어떻게 확인할 수 있을까요?",
+              "en": "그 이야기에서 빠진 사람의 입장을 어떻게 확인할 수 있을까요?"
             },
             {
               "ko": "그 이야기 지금은 누구 입장에서 정리돼 있는 것 같으세요?",
@@ -33119,9 +33119,9 @@
               "en": "그 이야기 지금은 누구 입장에서 정리돼 있는 것 같으세요?"
             },
             {
-              "ko": "그 이야기를 가장 먼저 들은 사람은 누구였다고 하세요?",
-              "de": "그 이야기를 가장 먼저 들은 사람은 누구였다고 하세요?",
-              "en": "그 이야기를 가장 먼저 들은 사람은 누구였다고 하세요?"
+              "ko": "그 이야기를 다른 사람 입장에서 다시 정리하면 어떤 점이 달라질까요?",
+              "de": "그 이야기를 다른 사람 입장에서 다시 정리하면 어떤 점이 달라질까요?",
+              "en": "그 이야기를 다른 사람 입장에서 다시 정리하면 어떤 점이 달라질까요?"
             }
           ],
           "correctIndex": 1,
@@ -33164,20 +33164,20 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
-              "ko": "이 문장이 권한을 절차 뒤에 숨기는 것 같지 않아요?",
-              "de": "Versteckt dieser Satz die Befugnis nicht hinter dem Verfahren?",
-              "en": "Does this sentence hide authority behind procedure?"
+              "ko": "동의했다는 표시가 있어도 권력의 불균형 때문에 실제로는 거절하기 어려웠을 수 있나요?",
+              "de": "Kann eine Machtasymmetrie die tatsächliche Ablehnung erschwert haben, auch wenn eine Zustimmung dokumentiert ist?",
+              "en": "Could a power imbalance have made refusal difficult in practice even if consent was recorded?"
             },
             {
-              "ko": "‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?",
-              "de": "Verdeckt das Interviewkriterium Potenzial eine Ähnlichkeitsverzerrung der Bewertenden?",
-              "en": "Does the interview criterion potential hide evaluators' similarity bias?"
+              "ko": "‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?",
+              "de": "Verdeckt das Interviewkriterium „Potenzial“ die Neigung der Bewertenden, ihnen ähnliche Personen zu bevorzugen?",
+              "en": "Does the interview criterion “potential” hide evaluators’ tendency to favor people similar to themselves?"
             },
             {
               "ko": "자동 점수를 ‘참고’라고 부르면 책임이 줄어드나요?",
@@ -33187,15 +33187,15 @@
           ],
           "correctIndex": 1,
           "explanation": {
-            "ko": "이 표현의 내용은 “‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Verdeckt das Interviewkriterium Potenzial eine Ähnlichkeitsverzerrung der Bewertenden? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Does the interview criterion potential hide evaluators' similarity bias? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Verdeckt das Interviewkriterium „Potenzial“ die Neigung der Bewertenden, ihnen ähnliche Personen zu bevorzugen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Does the interview criterion “potential” hide evaluators’ tendency to favor people similar to themselves? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_c2_0059"
           ],
-          "audioKo": "‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?",
-          "evidenceKo": "‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?"
+          "audioKo": "‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?",
+          "evidenceKo": "‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?"
         },
         {
           "id": "smalltalk.c2.interview.bias.smalltalk_c2_0060.meaning",
@@ -33213,9 +33213,9 @@
               "en": "Does calling an automated score advisory reduce responsibility?"
             },
             {
-              "ko": "‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?",
-              "de": "Verdeckt das Interviewkriterium Potenzial eine Ähnlichkeitsverzerrung der Bewertenden?",
-              "en": "Does the interview criterion potential hide evaluators' similarity bias?"
+              "ko": "‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?",
+              "de": "Verdeckt das Interviewkriterium „Potenzial“ die Neigung der Bewertenden, ihnen ähnliche Personen zu bevorzugen?",
+              "en": "Does the interview criterion “potential” hide evaluators’ tendency to favor people similar to themselves?"
             },
             {
               "ko": "자동 결정이 아니라 보조 도구라고 부르면 책임 귀속도 달라지나요?",
@@ -33246,33 +33246,33 @@
           },
           "options": [
             {
-              "ko": "평가자와 지원자가 닮았는지는 묻지 말고 잠재력 점수만 높일까요?",
-              "de": "평가자와 지원자가 닮았는지는 묻지 말고 잠재력 점수만 높일까요?",
-              "en": "평가자와 지원자가 닮았는지는 묻지 말고 잠재력 점수만 높일까요?"
+              "ko": "평가자의 선호를 배제하려면 잠재력이라는 기준을 없애야 할까요?",
+              "de": "평가자의 선호를 배제하려면 잠재력이라는 기준을 없애야 할까요?",
+              "en": "평가자의 선호를 배제하려면 잠재력이라는 기준을 없애야 할까요?"
             },
             {
-              "ko": "‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?",
-              "de": "‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?",
-              "en": "‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?"
+              "ko": "‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?",
+              "de": "‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?",
+              "en": "‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?"
             },
             {
-              "ko": "잠재력이라는 기준이 있으면 평가자와 닮은 사람을 선호할 가능성은 없어지나요?",
-              "de": "잠재력이라는 기준이 있으면 평가자와 닮은 사람을 선호할 가능성은 없어지나요?",
-              "en": "잠재력이라는 기준이 있으면 평가자와 닮은 사람을 선호할 가능성은 없어지나요?"
+              "ko": "잠재력 평가에서 평가자와 비슷한 지원자가 높은 점수를 받은 이유를 어떻게 설명하나요?",
+              "de": "잠재력 평가에서 평가자와 비슷한 지원자가 높은 점수를 받은 이유를 어떻게 설명하나요?",
+              "en": "잠재력 평가에서 평가자와 비슷한 지원자가 높은 점수를 받은 이유를 어떻게 설명하나요?"
             }
           ],
           "correctIndex": 1,
           "explanation": {
-            "ko": "“‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?” — 잠재력이라는 기준에 평가자와 닮은 사람을 선호하는 편향이 숨어 있을 수 있다고 질문해요.",
-            "de": "„‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?“ bedeutet: Verdeckt das Interviewkriterium Potenzial eine Ähnlichkeitsverzerrung der Bewertenden?",
-            "en": "“‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?” means: Does the interview criterion potential hide evaluators' similarity bias?"
+            "ko": "“‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?” — 잠재력이라는 기준에 평가자와 닮은 사람을 선호하는 편향이 숨어 있을 수 있다고 질문해요.",
+            "de": "„‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?“ bedeutet: Verdeckt das Interviewkriterium „Potenzial“ die Neigung der Bewertenden, ihnen ähnliche Personen zu bevorzugen?",
+            "en": "“‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?” means: Does the interview criterion “potential” hide evaluators’ tendency to favor people similar to themselves?"
           },
           "sourceIds": [
             "smalltalk_c2_0059",
             "smalltalk_c2_0060"
           ],
-          "audioKo": "‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?",
-          "evidenceKo": "‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?"
+          "audioKo": "‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?",
+          "evidenceKo": "‘잠재력’이라는 면접 기준이 평가자와 비슷한 지원자를 선호하는 편향을 가리고 있지는 않나요?"
         }
       ]
     },
@@ -33383,9 +33383,9 @@
           },
           "options": [
             {
-              "ko": "자동 결정이 보조 도구로 바뀌면 처리 속도만 달라지는지 측정할까요?",
-              "de": "자동 결정이 보조 도구로 바뀌면 처리 속도만 달라지는지 측정할까요?",
-              "en": "자동 결정이 보조 도구로 바뀌면 처리 속도만 달라지는지 측정할까요?"
+              "ko": "자동 결정의 책임을 보조 도구 공급업체에만 맡겨도 될까요?",
+              "de": "자동 결정의 책임을 보조 도구 공급업체에만 맡겨도 될까요?",
+              "en": "자동 결정의 책임을 보조 도구 공급업체에만 맡겨도 될까요?"
             },
             {
               "ko": "자동 결정이 아니라 보조 도구라고 부르면 책임 귀속도 달라지나요?",
@@ -33393,9 +33393,9 @@
               "en": "자동 결정이 아니라 보조 도구라고 부르면 책임 귀속도 달라지나요?"
             },
             {
-              "ko": "보조 도구라고 부르기만 하면 책임을 지는 주체도 없어지는 건가요?",
-              "de": "보조 도구라고 부르기만 하면 책임을 지는 주체도 없어지는 건가요?",
-              "en": "보조 도구라고 부르기만 하면 책임을 지는 주체도 없어지는 건가요?"
+              "ko": "보조 도구라고 부르는 자동 결정의 처리 속도도 달라졌나요?",
+              "de": "보조 도구라고 부르는 자동 결정의 처리 속도도 달라졌나요?",
+              "en": "보조 도구라고 부르는 자동 결정의 처리 속도도 달라졌나요?"
             }
           ],
           "correctIndex": 1,
@@ -33488,7 +33488,7 @@
             },
             {
               "ko": "‘감당 가능한 월세’는 어떤 가구의 지출 구조를 표준으로 삼나요?",
-              "de": "Welche Haushaltsausgaben gelten als Standard für eine bezahlbare Miete?",
+              "de": "Die Ausgabenstruktur welcher Haushalte dient als Maßstab für eine bezahlbare Miete?",
               "en": "Whose household spending pattern defines affordable rent?"
             },
             {
@@ -33500,7 +33500,7 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “‘감당 가능한 월세’는 어떤 가구의 지출 구조를 표준으로 삼나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Welche Haushaltsausgaben gelten als Standard für eine bezahlbare Miete? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Die Ausgabenstruktur welcher Haushalte dient als Maßstab für eine bezahlbare Miete? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Whose household spending pattern defines affordable rent? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -33520,9 +33520,9 @@
           },
           "options": [
             {
-              "ko": "감당 가능한 집이라는 이름이 있으면 실제 지출은 확인하지 않아도 될까요?",
-              "de": "감당 가능한 집이라는 이름이 있으면 실제 지출은 확인하지 않아도 될까요?",
-              "en": "감당 가능한 집이라는 이름이 있으면 실제 지출은 확인하지 않아도 될까요?"
+              "ko": "감당 가능한 집으로 분류된 뒤에도 가구의 지출 구조를 다시 조사했나요?",
+              "de": "감당 가능한 집으로 분류된 뒤에도 가구의 지출 구조를 다시 조사했나요?",
+              "en": "감당 가능한 집으로 분류된 뒤에도 가구의 지출 구조를 다시 조사했나요?"
             },
             {
               "ko": "‘감당 가능한 집’은 누구의 지출 구조를 전제로 정의했나요?",
@@ -33530,9 +33530,9 @@
               "en": "‘감당 가능한 집’은 누구의 지출 구조를 전제로 정의했나요?"
             },
             {
-              "ko": "감당 가능한 집은 모든 가구의 지출 구조가 같다는 뜻으로 정의됐나요?",
-              "de": "감당 가능한 집은 모든 가구의 지출 구조가 같다는 뜻으로 정의됐나요?",
-              "en": "감당 가능한 집은 모든 가구의 지출 구조가 같다는 뜻으로 정의됐나요?"
+              "ko": "감당 가능한 집을 정의할 때 지출 항목별 비중은 어떻게 정했나요?",
+              "de": "감당 가능한 집을 정의할 때 지출 항목별 비중은 어떻게 정했나요?",
+              "en": "감당 가능한 집을 정의할 때 지출 항목별 비중은 어떻게 정했나요?"
             }
           ],
           "correctIndex": 1,
@@ -33586,9 +33586,9 @@
               "en": "Who is accountable for errors in a triage algorithm: the hospital or the vendor?"
             },
             {
-              "ko": "환자 동의가 치료를 포기하지 않고도 철회 가능한가요?",
-              "de": "Kann die Einwilligung widerrufen werden, ohne auf Behandlung verzichten zu müssen?",
-              "en": "Can consent be withdrawn without giving up treatment?"
+              "ko": "진료 외 목적으로 자료를 활용하는 데 동의했다가, 치료를 포기하지 않고도 그 동의를 철회할 수 있나요?",
+              "de": "Kann eine Einwilligung zur Datennutzung außerhalb der Behandlung widerrufen werden, ohne auf die Behandlung verzichten zu müssen?",
+              "en": "Can consent to data use for purposes beyond treatment be withdrawn without giving up treatment?"
             },
             {
               "ko": "어떤 상태를 문제라고 부를 권한은 누구에게 있어야 할까요?",
@@ -33613,9 +33613,9 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“환자 동의가 치료를 포기하지 않고도 철회 가능한가요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„환자 동의가 치료를 포기하지 않고도 철회 가능한가요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“환자 동의가 치료를 포기하지 않고도 철회 가능한가요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“진료 외 목적으로 자료를 활용하는 데 동의했다가, 치료를 포기하지 않고도 그 동의를 철회할 수 있나요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„진료 외 목적으로 자료를 활용하는 데 동의했다가, 치료를 포기하지 않고도 그 동의를 철회할 수 있나요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“진료 외 목적으로 자료를 활용하는 데 동의했다가, 치료를 포기하지 않고도 그 동의를 철회할 수 있나요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
@@ -33629,22 +33629,22 @@
               "en": "Can we empathize with someone's feelings without agreeing with their decision?"
             },
             {
-              "ko": "환자 동의가 치료를 포기하지 않고도 철회 가능한가요?",
-              "de": "Kann die Einwilligung widerrufen werden, ohne auf Behandlung verzichten zu müssen?",
-              "en": "Can consent be withdrawn without giving up treatment?"
+              "ko": "진료 외 목적으로 자료를 활용하는 데 동의했다가, 치료를 포기하지 않고도 그 동의를 철회할 수 있나요?",
+              "de": "Kann eine Einwilligung zur Datennutzung außerhalb der Behandlung widerrufen werden, ohne auf die Behandlung verzichten zu müssen?",
+              "en": "Can consent to data use for purposes beyond treatment be withdrawn without giving up treatment?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
-            "ko": "이 표현의 내용은 “환자 동의가 치료를 포기하지 않고도 철회 가능한가요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Kann die Einwilligung widerrufen werden, ohne auf Behandlung verzichten zu müssen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Can consent be withdrawn without giving up treatment? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “진료 외 목적으로 자료를 활용하는 데 동의했다가, 치료를 포기하지 않고도 그 동의를 철회할 수 있나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Kann eine Einwilligung zur Datennutzung außerhalb der Behandlung widerrufen werden, ohne auf die Behandlung verzichten zu müssen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Can consent to data use for purposes beyond treatment be withdrawn without giving up treatment? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_c2_0064"
           ],
-          "audioKo": "환자 동의가 치료를 포기하지 않고도 철회 가능한가요?",
-          "evidenceKo": "환자 동의가 치료를 포기하지 않고도 철회 가능한가요?"
+          "audioKo": "진료 외 목적으로 자료를 활용하는 데 동의했다가, 치료를 포기하지 않고도 그 동의를 철회할 수 있나요?",
+          "evidenceKo": "진료 외 목적으로 자료를 활용하는 데 동의했다가, 치료를 포기하지 않고도 그 동의를 철회할 수 있나요?"
         },
         {
           "id": "smalltalk.c2.hospital.consent.situation",
@@ -33657,9 +33657,9 @@
           },
           "options": [
             {
-              "ko": "알고리즘이 자동으로 판단했으니 병원과 공급자 모두 오류를 설명하지 않아도 되나요?",
-              "de": "알고리즘이 자동으로 판단했으니 병원과 공급자 모두 오류를 설명하지 않아도 되나요?",
-              "en": "알고리즘이 자동으로 판단했으니 병원과 공급자 모두 오류를 설명하지 않아도 되나요?"
+              "ko": "진료 우선순위 알고리즘의 오류를 줄이기 위해 병원과 공급자는 어떤 검증을 하나요?",
+              "de": "진료 우선순위 알고리즘의 오류를 줄이기 위해 병원과 공급자는 어떤 검증을 하나요?",
+              "en": "진료 우선순위 알고리즘의 오류를 줄이기 위해 병원과 공급자는 어떤 검증을 하나요?"
             },
             {
               "ko": "진료 우선순위 알고리즘의 오류 책임은 병원과 공급자 중 누구에게 있나요?",
@@ -33667,9 +33667,9 @@
               "en": "진료 우선순위 알고리즘의 오류 책임은 병원과 공급자 중 누구에게 있나요?"
             },
             {
-              "ko": "진료 우선순위 알고리즘의 오류가 났을 때 병원과 공급자는 누가 더 빨랐는지만 비교하나요?",
-              "de": "진료 우선순위 알고리즘의 오류가 났을 때 병원과 공급자는 누가 더 빨랐는지만 비교하나요?",
-              "en": "진료 우선순위 알고리즘의 오류가 났을 때 병원과 공급자는 누가 더 빨랐는지만 비교하나요?"
+              "ko": "진료 우선순위 알고리즘에 오류가 났을 때 병원은 어떤 자료를 공급자에게 요청하나요?",
+              "de": "진료 우선순위 알고리즘에 오류가 났을 때 병원은 어떤 자료를 공급자에게 요청하나요?",
+              "en": "진료 우선순위 알고리즘에 오류가 났을 때 병원은 어떤 자료를 공급자에게 요청하나요?"
             }
           ],
           "correctIndex": 1,
@@ -33724,7 +33724,7 @@
             },
             {
               "ko": "혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?",
-              "de": "Welche Last verlagert eine Staugebühr auf Menschen mit wenig Mobilitätswahl?",
+              "de": "Welche Belastung verlagert eine Staugebühr auf Menschen mit wenigen Verkehrsalternativen?",
               "en": "What burden does congestion pricing shift to people with few transport choices?"
             },
             {
@@ -33736,7 +33736,7 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Welche Last verlagert eine Staugebühr auf Menschen mit wenig Mobilitätswahl? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Welche Belastung verlagert eine Staugebühr auf Menschen mit wenigen Verkehrsalternativen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: What burden does congestion pricing shift to people with few transport choices? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -33762,7 +33762,7 @@
             },
             {
               "ko": "혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?",
-              "de": "Welche Last verlagert eine Staugebühr auf Menschen mit wenig Mobilitätswahl?",
+              "de": "Welche Belastung verlagert eine Staugebühr auf Menschen mit wenigen Verkehrsalternativen?",
               "en": "What burden does congestion pricing shift to people with few transport choices?"
             },
             {
@@ -33794,9 +33794,9 @@
           },
           "options": [
             {
-              "ko": "혼잡 요금이 걷혔다는 사실만으로 교통 부담은 모두 해소됐다고 볼까요?",
-              "de": "혼잡 요금이 걷혔다는 사실만으로 교통 부담은 모두 해소됐다고 볼까요?",
-              "en": "혼잡 요금이 걷혔다는 사실만으로 교통 부담은 모두 해소됐다고 볼까요?"
+              "ko": "이동 대안이 적은 사람에게 혼잡 요금을 돌려주면 어떤 효과가 있나요?",
+              "de": "이동 대안이 적은 사람에게 혼잡 요금을 돌려주면 어떤 효과가 있나요?",
+              "en": "이동 대안이 적은 사람에게 혼잡 요금을 돌려주면 어떤 효과가 있나요?"
             },
             {
               "ko": "혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?",
@@ -33804,15 +33804,15 @@
               "en": "혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?"
             },
             {
-              "ko": "혼잡 요금은 이동 대안이 적은 사람에게도 언제나 같은 선택권을 보장하나요?",
-              "de": "혼잡 요금은 이동 대안이 적은 사람에게도 언제나 같은 선택권을 보장하나요?",
-              "en": "혼잡 요금은 이동 대안이 적은 사람에게도 언제나 같은 선택권을 보장하나요?"
+              "ko": "혼잡 요금이 이동 선택권이 많은 사람의 이동량을 얼마나 줄이나요?",
+              "de": "혼잡 요금이 이동 선택권이 많은 사람의 이동량을 얼마나 줄이나요?",
+              "en": "혼잡 요금이 이동 선택권이 많은 사람의 이동량을 얼마나 줄이나요?"
             }
           ],
           "correctIndex": 1,
           "explanation": {
             "ko": "“혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?” — 혼잡 요금이 이동 대안이 적은 사람에게 어떤 부담을 넘기는지 질문해요.",
-            "de": "„혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?“ bedeutet: Welche Last verlagert eine Staugebühr auf Menschen mit wenig Mobilitätswahl?",
+            "de": "„혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?“ bedeutet: Welche Belastung verlagert eine Staugebühr auf Menschen mit wenigen Verkehrsalternativen?",
             "en": "“혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?” means: What burden does congestion pricing shift to people with few transport choices?"
           },
           "sourceIds": [
@@ -33855,9 +33855,9 @@
           },
           "options": [
             {
-              "ko": "구독 해지를 어렵게 만든 설계는 어디까지 소비자 선택인가요?",
-              "de": "Inwiefern ist eine durch Design erschwerte Kündigung noch Verbraucherwahl?",
-              "en": "How far is a cancellation made difficult by design still consumer choice?"
+              "ko": "구독 해지를 어렵게 만든 설계에서도 소비자에게 실질적인 선택권이 있다고 볼 수 있나요?",
+              "de": "Kann man bei einem Design, das die Kündigung erschwert, noch von einer echten Wahlmöglichkeit für Verbraucher sprechen?",
+              "en": "Can consumers still be said to have a meaningful choice when the design makes cancellation difficult?"
             },
             {
               "ko": "할인 안내에 기준 가격을 어떻게 정했는지 나와 있나요?",
@@ -33887,20 +33887,20 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“구독 해지를 어렵게 만든 설계는 어디까지 소비자 선택인가요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„구독 해지를 어렵게 만든 설계는 어디까지 소비자 선택인가요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“구독 해지를 어렵게 만든 설계는 어디까지 소비자 선택인가요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“구독 해지를 어렵게 만든 설계에서도 소비자에게 실질적인 선택권이 있다고 볼 수 있나요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„구독 해지를 어렵게 만든 설계에서도 소비자에게 실질적인 선택권이 있다고 볼 수 있나요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“구독 해지를 어렵게 만든 설계에서도 소비자에게 실질적인 선택권이 있다고 볼 수 있나요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
-              "ko": "할인 안내에 기준 가격을 어떻게 정했는지 나와 있나요?",
-              "de": "Wird erklärt, wie der Referenzpreis für den Rabatt festgelegt wurde?",
-              "en": "Does it explain how the reference price for the discount was set?"
+              "ko": "혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?",
+              "de": "Welche Belastung verlagert eine Staugebühr auf Menschen mit wenigen Verkehrsalternativen?",
+              "en": "What burden does congestion pricing shift to people with few transport choices?"
             },
             {
-              "ko": "구독 해지를 어렵게 만든 설계는 어디까지 소비자 선택인가요?",
-              "de": "Inwiefern ist eine durch Design erschwerte Kündigung noch Verbraucherwahl?",
-              "en": "How far is a cancellation made difficult by design still consumer choice?"
+              "ko": "구독 해지를 어렵게 만든 설계에서도 소비자에게 실질적인 선택권이 있다고 볼 수 있나요?",
+              "de": "Kann man bei einem Design, das die Kündigung erschwert, noch von einer echten Wahlmöglichkeit für Verbraucher sprechen?",
+              "en": "Can consumers still be said to have a meaningful choice when the design makes cancellation difficult?"
             },
             {
               "ko": "개인화 가격을 ‘맞춤 혜택’이라 부르면 차별 가능성이 사라지나요?",
@@ -33910,15 +33910,15 @@
           ],
           "correctIndex": 1,
           "explanation": {
-            "ko": "이 표현의 내용은 “구독 해지를 어렵게 만든 설계는 어디까지 소비자 선택인가요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Inwiefern ist eine durch Design erschwerte Kündigung noch Verbraucherwahl? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: How far is a cancellation made difficult by design still consumer choice? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “구독 해지를 어렵게 만든 설계에서도 소비자에게 실질적인 선택권이 있다고 볼 수 있나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Kann man bei einem Design, das die Kündigung erschwert, noch von einer echten Wahlmöglichkeit für Verbraucher sprechen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Can consumers still be said to have a meaningful choice when the design makes cancellation difficult? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_c2_0068"
           ],
-          "audioKo": "구독 해지를 어렵게 만든 설계는 어디까지 소비자 선택인가요?",
-          "evidenceKo": "구독 해지를 어렵게 만든 설계는 어디까지 소비자 선택인가요?"
+          "audioKo": "구독 해지를 어렵게 만든 설계에서도 소비자에게 실질적인 선택권이 있다고 볼 수 있나요?",
+          "evidenceKo": "구독 해지를 어렵게 만든 설계에서도 소비자에게 실질적인 선택권이 있다고 볼 수 있나요?"
         },
         {
           "id": "smalltalk.c2.shopping.choice.situation",
@@ -33931,9 +33931,9 @@
           },
           "options": [
             {
-              "ko": "맞춤 혜택이라는 이름을 유지하려면 개인화 가격의 비교 기준은 숨겨도 될까요?",
-              "de": "맞춤 혜택이라는 이름을 유지하려면 개인화 가격의 비교 기준은 숨겨도 될까요?",
-              "en": "맞춤 혜택이라는 이름을 유지하려면 개인화 가격의 비교 기준은 숨겨도 될까요?"
+              "ko": "개인화 가격을 같은 가격으로 바꾸면 고객의 혜택도 줄어들까요?",
+              "de": "개인화 가격을 같은 가격으로 바꾸면 고객의 혜택도 줄어들까요?",
+              "en": "개인화 가격을 같은 가격으로 바꾸면 고객의 혜택도 줄어들까요?"
             },
             {
               "ko": "개인화 가격을 ‘맞춤 혜택’이라 부르면 차별 가능성이 사라지나요?",
@@ -33941,9 +33941,9 @@
               "en": "개인화 가격을 ‘맞춤 혜택’이라 부르면 차별 가능성이 사라지나요?"
             },
             {
-              "ko": "개인화 가격을 맞춤 혜택이라고 부르는 대신 모든 고객에게 같은 가격을 적용할까요?",
-              "de": "개인화 가격을 맞춤 혜택이라고 부르는 대신 모든 고객에게 같은 가격을 적용할까요?",
-              "en": "개인화 가격을 맞춤 혜택이라고 부르는 대신 모든 고객에게 같은 가격을 적용할까요?"
+              "ko": "개인화 가격이 맞춤 혜택인지 판단하려면 어떤 비교 기준이 필요할까요?",
+              "de": "개인화 가격이 맞춤 혜택인지 판단하려면 어떤 비교 기준이 필요할까요?",
+              "en": "개인화 가격이 맞춤 혜택인지 판단하려면 어떤 비교 기준이 필요할까요?"
             }
           ],
           "correctIndex": 1,
@@ -33986,9 +33986,9 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
@@ -33998,26 +33998,26 @@
             },
             {
               "ko": "혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?",
-              "de": "Welche Last verlagert eine Staugebühr auf Menschen mit wenig Mobilitätswahl?",
+              "de": "Welche Belastung verlagert eine Staugebühr auf Menschen mit wenigen Verkehrsalternativen?",
               "en": "What burden does congestion pricing shift to people with few transport choices?"
             },
             {
-              "ko": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?",
+              "ko": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?",
               "de": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt?",
               "en": "If you challenge an automatically calculated charge, does a person review it?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
-            "ko": "이 표현의 내용은 “자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "ko": "이 표현의 내용은 “자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: If you challenge an automatically calculated charge, does a person review it? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_c2_0025"
           ],
-          "audioKo": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?",
-          "evidenceKo": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?"
+          "audioKo": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?",
+          "evidenceKo": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?"
         },
         {
           "id": "smalltalk.c2.phone.remedy.smalltalk_c2_0026.meaning",
@@ -34040,7 +34040,7 @@
               "en": "I've found that having an appeals channel doesn't necessarily mean you get redress."
             },
             {
-              "ko": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?",
+              "ko": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?",
               "de": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt?",
               "en": "If you challenge an automatically calculated charge, does a person review it?"
             }
@@ -34068,33 +34068,33 @@
           },
           "options": [
             {
-              "ko": "자동 계산된 요금은 사람이 검토하지 않기로 이미 합의한 건가요?",
-              "de": "자동 계산된 요금은 사람이 검토하지 않기로 이미 합의한 건가요?",
-              "en": "자동 계산된 요금은 사람이 검토하지 않기로 이미 합의한 건가요?"
+              "ko": "사람이 다시 검토한 요금에 이의를 제기하면 자동으로 재계산하나요?",
+              "de": "사람이 다시 검토한 요금에 이의를 제기하면 자동으로 재계산하나요?",
+              "en": "사람이 다시 검토한 요금에 이의를 제기하면 자동으로 재계산하나요?"
             },
             {
-              "ko": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?",
-              "de": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?",
-              "en": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?"
+              "ko": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?",
+              "de": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?",
+              "en": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?"
             },
             {
-              "ko": "자동으로 계산된 요금에 이의를 넣으면 결과를 자동으로 한 번 더 보내나요?",
-              "de": "자동으로 계산된 요금에 이의를 넣으면 결과를 자동으로 한 번 더 보내나요?",
-              "en": "자동으로 계산된 요금에 이의를 넣으면 결과를 자동으로 한 번 더 보내나요?"
+              "ko": "자동 계산된 요금에 이의를 제기한 뒤 재검토 결과는 어떻게 전달되나요?",
+              "de": "자동 계산된 요금에 이의를 제기한 뒤 재검토 결과는 어떻게 전달되나요?",
+              "en": "자동 계산된 요금에 이의를 제기한 뒤 재검토 결과는 어떻게 전달되나요?"
             }
           ],
           "correctIndex": 1,
           "explanation": {
-            "ko": "“자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?” — 자동 계산된 요금에 이의를 제기하면 사람이 재검토하는지 물어봐요.",
-            "de": "„자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?“ bedeutet: Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt?",
-            "en": "“자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?” means: If you challenge an automatically calculated charge, does a person review it?"
+            "ko": "“자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?” — 자동 계산된 요금에 이의를 제기하면 사람이 재검토하는지 물어봐요.",
+            "de": "„자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?“ bedeutet: Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt?",
+            "en": "“자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?” means: If you challenge an automatically calculated charge, does a person review it?"
           },
           "sourceIds": [
             "smalltalk_c2_0025",
             "smalltalk_c2_0026"
           ],
-          "audioKo": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?",
-          "evidenceKo": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?"
+          "audioKo": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?",
+          "evidenceKo": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?"
         }
       ]
     },
@@ -34139,9 +34139,9 @@
               "en": "Who explains and remedies harm when an automated alert is wrong?"
             },
             {
-              "ko": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?",
-              "de": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt?",
-              "en": "If you challenge an automatically calculated charge, does a person review it?"
+              "ko": "혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?",
+              "de": "Welche Belastung verlagert eine Staugebühr auf Menschen mit wenigen Verkehrsalternativen?",
+              "en": "What burden does congestion pricing shift to people with few transport choices?"
             }
           ],
           "correctIndex": 0,
@@ -34172,7 +34172,7 @@
               "en": "How does an exception become permanent when emergency powers lack an end condition?"
             },
             {
-              "ko": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?",
+              "ko": "자동으로 계산된 요금에 이의를 제기하면 사람이 다시 검토하나요?",
               "de": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt?",
               "en": "If you challenge an automatically calculated charge, does a person review it?"
             },
@@ -34205,9 +34205,9 @@
           },
           "options": [
             {
-              "ko": "비상 권한이 오래 유지돼도 상시 제도가 될 가능성은 없는 건가요?",
-              "de": "비상 권한이 오래 유지돼도 상시 제도가 될 가능성은 없는 건가요?",
-              "en": "비상 권한이 오래 유지돼도 상시 제도가 될 가능성은 없는 건가요?"
+              "ko": "상시 제도로 바뀐 비상 권한을 종료하려면 어떤 조건이 필요할까요?",
+              "de": "상시 제도로 바뀐 비상 권한을 종료하려면 어떤 조건이 필요할까요?",
+              "en": "상시 제도로 바뀐 비상 권한을 종료하려면 어떤 조건이 필요할까요?"
             },
             {
               "ko": "비상 권한의 종료 조건이 없으면 예외가 어떻게 상시 제도가 되나요?",
@@ -34215,9 +34215,9 @@
               "en": "비상 권한의 종료 조건이 없으면 예외가 어떻게 상시 제도가 되나요?"
             },
             {
-              "ko": "비상 권한에 종료 조건이 없으면 예외는 어떻게 저절로 사라지나요?",
-              "de": "비상 권한에 종료 조건이 없으면 예외는 어떻게 저절로 사라지나요?",
-              "en": "비상 권한에 종료 조건이 없으면 예외는 어떻게 저절로 사라지나요?"
+              "ko": "비상 권한의 종료 조건을 정한 뒤에도 예외가 계속 적용되는 이유는 무엇인가요?",
+              "de": "비상 권한의 종료 조건을 정한 뒤에도 예외가 계속 적용되는 이유는 무엇인가요?",
+              "en": "비상 권한의 종료 조건을 정한 뒤에도 예외가 계속 적용되는 이유는 무엇인가요?"
             }
           ],
           "correctIndex": 1,
@@ -34310,8 +34310,8 @@
             },
             {
               "ko": "말로만 정한 건 시간이 지나면 서로 다르게 기억하더라고요.",
-              "de": "Was nur mündlich vereinbart wurde, erinnert später jeder anders.",
-              "en": "When an agreement stays verbal, people remember it differently over time."
+              "de": "Mir ist aufgefallen, dass sich die Beteiligten später unterschiedlich an rein mündliche Absprachen erinnern.",
+              "en": "I have noticed that people remember purely verbal agreements differently over time."
             },
             {
               "ko": "이 집 이야기에 저도 한 줄쯤은 쓰는 사람이고 싶어요.",
@@ -34322,8 +34322,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “말로만 정한 건 시간이 지나면 서로 다르게 기억하더라고요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Was nur mündlich vereinbart wurde, erinnert später jeder anders. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: When an agreement stays verbal, people remember it differently over time. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Mir ist aufgefallen, dass sich die Beteiligten später unterschiedlich an rein mündliche Absprachen erinnern. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I have noticed that people remember purely verbal agreements differently over time. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_c2_0020"
@@ -34342,9 +34342,9 @@
           },
           "options": [
             {
-              "ko": "결정을 전달한 사람이 언제나 혼자 결정했다고 보는 데 동의하시나요?",
-              "de": "결정을 전달한 사람이 언제나 혼자 결정했다고 보는 데 동의하시나요?",
-              "en": "결정을 전달한 사람이 언제나 혼자 결정했다고 보는 데 동의하시나요?"
+              "ko": "결정을 전달하는 사람도 결정 과정에 참여하는지 확인해 볼까요?",
+              "de": "결정을 전달하는 사람도 결정 과정에 참여하는지 확인해 볼까요?",
+              "en": "결정을 전달하는 사람도 결정 과정에 참여하는지 확인해 볼까요?"
             },
             {
               "ko": "결정을 내리는 사람과 그 결정을 말로 옮기는 사람이 다른 것 같은데, 어떻게 보세요?",
@@ -34352,9 +34352,9 @@
               "en": "결정을 내리는 사람과 그 결정을 말로 옮기는 사람이 다른 것 같은데, 어떻게 보세요?"
             },
             {
-              "ko": "결정을 내리는 사람과 발표하는 사람이 같다는 게 확실한데, 그대로 기록할까요?",
-              "de": "결정을 내리는 사람과 발표하는 사람이 같다는 게 확실한데, 그대로 기록할까요?",
-              "en": "결정을 내리는 사람과 발표하는 사람이 같다는 게 확실한데, 그대로 기록할까요?"
+              "ko": "결정을 내린 사람이 직접 말로 옮기는 편이 더 낫다고 보세요?",
+              "de": "결정을 내린 사람이 직접 말로 옮기는 편이 더 낫다고 보세요?",
+              "en": "결정을 내린 사람이 직접 말로 옮기는 편이 더 낫다고 보세요?"
             }
           ],
           "correctIndex": 1,
@@ -34414,8 +34414,8 @@
             },
             {
               "ko": "말로만 정한 건 시간이 지나면 서로 다르게 기억하더라고요.",
-              "de": "Was nur mündlich vereinbart wurde, erinnert später jeder anders.",
-              "en": "When an agreement stays verbal, people remember it differently over time."
+              "de": "Mir ist aufgefallen, dass sich die Beteiligten später unterschiedlich an rein mündliche Absprachen erinnern.",
+              "en": "I have noticed that people remember purely verbal agreements differently over time."
             }
           ],
           "correctIndex": 0,
@@ -34442,8 +34442,8 @@
           "options": [
             {
               "ko": "말로만 정한 건 시간이 지나면 서로 다르게 기억하더라고요.",
-              "de": "Was nur mündlich vereinbart wurde, erinnert später jeder anders.",
-              "en": "When an agreement stays verbal, people remember it differently over time."
+              "de": "Mir ist aufgefallen, dass sich die Beteiligten später unterschiedlich an rein mündliche Absprachen erinnern.",
+              "en": "I have noticed that people remember purely verbal agreements differently over time."
             },
             {
               "ko": "결정을 내리는 사람과 그 결정을 말로 옮기는 사람이 다른 것 같은데, 어떻게 보세요?",
@@ -34479,9 +34479,9 @@
           },
           "options": [
             {
-              "ko": "몇 년 뒤에 역할을 바꾸면 지금까지 쓴 제 이름도 반드시 사라질까요?",
-              "de": "몇 년 뒤에 역할을 바꾸면 지금까지 쓴 제 이름도 반드시 사라질까요?",
-              "en": "몇 년 뒤에 역할을 바꾸면 지금까지 쓴 제 이름도 반드시 사라질까요?"
+              "ko": "제 이름으로 불릴 때와 역할로 불릴 때 어느 쪽이 더 편할까요?",
+              "de": "제 이름으로 불릴 때와 역할로 불릴 때 어느 쪽이 더 편할까요?",
+              "en": "제 이름으로 불릴 때와 역할로 불릴 때 어느 쪽이 더 편할까요?"
             },
             {
               "ko": "제 이름 대신 역할로만 불리면, 몇 년 뒤에 저는 어떻게 기억될까요?",
@@ -34489,9 +34489,9 @@
               "en": "제 이름 대신 역할로만 불리면, 몇 년 뒤에 저는 어떻게 기억될까요?"
             },
             {
-              "ko": "제 이름 대신 역할로만 불려도 제 경험이 모두 똑같이 기억될까요?",
-              "de": "제 이름 대신 역할로만 불려도 제 경험이 모두 똑같이 기억될까요?",
-              "en": "제 이름 대신 역할로만 불려도 제 경험이 모두 똑같이 기억될까요?"
+              "ko": "가족 안에서 제 역할이 바뀌면 저를 기억하는 방식도 달라질까요?",
+              "de": "가족 안에서 제 역할이 바뀌면 저를 기억하는 방식도 달라질까요?",
+              "en": "가족 안에서 제 역할이 바뀌면 저를 기억하는 방식도 달라질까요?"
             }
           ],
           "correctIndex": 1,
@@ -34660,14 +34660,14 @@
               "en": "곰곰이 생각해 보니까 사람들이 왜 놀이공원에 오는 걸 좋아하는지 알 것 같아. 여기는 웃음이 가득하잖아. 다들 설레고 신나 보이고."
             },
             {
-              "ko": "곰곰이 생각해 보니 사람들은 웃음과 설렘보다 놀이기구의 수만 보고 오는 게 확실해.",
-              "de": "곰곰이 생각해 보니 사람들은 웃음과 설렘보다 놀이기구의 수만 보고 오는 게 확실해.",
-              "en": "곰곰이 생각해 보니 사람들은 웃음과 설렘보다 놀이기구의 수만 보고 오는 게 확실해."
+              "ko": "사람들이 즐거워 보이기는 하는데, 내가 왜 이곳을 좋아하는지는 아직 잘 모르겠어.",
+              "de": "사람들이 즐거워 보이기는 하는데, 내가 왜 이곳을 좋아하는지는 아직 잘 모르겠어.",
+              "en": "사람들이 즐거워 보이기는 하는데, 내가 왜 이곳을 좋아하는지는 아직 잘 모르겠어."
             },
             {
-              "ko": "사람들이 설레 보이기는 해도 웃음이 없으니 놀이공원을 좋아할 이유가 전혀 없는 것 같아.",
-              "de": "사람들이 설레 보이기는 해도 웃음이 없으니 놀이공원을 좋아할 이유가 전혀 없는 것 같아.",
-              "en": "사람들이 설레 보이기는 해도 웃음이 없으니 놀이공원을 좋아할 이유가 전혀 없는 것 같아."
+              "ko": "사람들이 웃고 신나 보이는 건 오늘 행사가 특별해서인 것 같아. 평소에도 이런지는 궁금하네.",
+              "de": "사람들이 웃고 신나 보이는 건 오늘 행사가 특별해서인 것 같아. 평소에도 이런지는 궁금하네.",
+              "en": "사람들이 웃고 신나 보이는 건 오늘 행사가 특별해서인 것 같아. 평소에도 이런지는 궁금하네."
             }
           ],
           "correctIndex": 0,
@@ -34837,14 +34837,14 @@
               "en": "무서운 줄 알면서도 다시 타고 싶은 걸 보면, 우리는 공포 자체보다 공포가 지나간 뒤의 해방감을 즐기는지도 모르겠어."
             },
             {
-              "ko": "무서운 줄 알면서 다시 타고 싶은 걸 보면, 공포가 끝난 뒤보다 공포 자체만 즐기는 게 확실해.",
-              "de": "무서운 줄 알면서 다시 타고 싶은 걸 보면, 공포가 끝난 뒤보다 공포 자체만 즐기는 게 확실해.",
-              "en": "무서운 줄 알면서 다시 타고 싶은 걸 보면, 공포가 끝난 뒤보다 공포 자체만 즐기는 게 확실해."
+              "ko": "다시 타고 싶은 건 공포가 끝난 뒤의 해방감보다 공포를 느끼는 순간 자체가 좋아서일지도 모르겠어.",
+              "de": "다시 타고 싶은 건 공포가 끝난 뒤의 해방감보다 공포를 느끼는 순간 자체가 좋아서일지도 모르겠어.",
+              "en": "다시 타고 싶은 건 공포가 끝난 뒤의 해방감보다 공포를 느끼는 순간 자체가 좋아서일지도 모르겠어."
             },
             {
-              "ko": "다시 타고 싶은 마음은 있지만, 공포가 끝난 뒤의 해방감과는 전혀 관계없다는 걸 이미 확인했어.",
-              "de": "다시 타고 싶은 마음은 있지만, 공포가 끝난 뒤의 해방감과는 전혀 관계없다는 걸 이미 확인했어.",
-              "en": "다시 타고 싶은 마음은 있지만, 공포가 끝난 뒤의 해방감과는 전혀 관계없다는 걸 이미 확인했어."
+              "ko": "다시 타고 싶은 건 무서움을 즐겨서라기보다 이번에는 덜 무서울지 확인하고 싶어서인 것 같아.",
+              "de": "다시 타고 싶은 건 무서움을 즐겨서라기보다 이번에는 덜 무서울지 확인하고 싶어서인 것 같아.",
+              "en": "다시 타고 싶은 건 무서움을 즐겨서라기보다 이번에는 덜 무서울지 확인하고 싶어서인 것 같아."
             }
           ],
           "correctIndex": 0,
@@ -35048,14 +35048,14 @@
           },
           "options": [
             {
-              "ko": "유령의 집을 포기한 게 아쉬우니까, 네가 싫어해도 억지로 같이 가야 데이트가 의미 있을 것 같아.",
-              "de": "유령의 집을 포기한 게 아쉬우니까, 네가 싫어해도 억지로 같이 가야 데이트가 의미 있을 것 같아.",
-              "en": "유령의 집을 포기한 게 아쉬우니까, 네가 싫어해도 억지로 같이 가야 데이트가 의미 있을 것 같아."
+              "ko": "유령의 집은 혼자 다녀올 걸 그랬어. 각자 하고 싶은 걸 충분히 즐기는 것도 데이트에 중요하니까.",
+              "de": "유령의 집은 혼자 다녀올 걸 그랬어. 각자 하고 싶은 걸 충분히 즐기는 것도 데이트에 중요하니까.",
+              "en": "유령의 집은 혼자 다녀올 걸 그랬어. 각자 하고 싶은 걸 충분히 즐기는 것도 데이트에 중요하니까."
             },
             {
-              "ko": "서로 즐길 것을 고르는 건 중요하지 않고, 내가 가고 싶은 곳을 다 가야 좋은 데이트라고 생각해.",
-              "de": "서로 즐길 것을 고르는 건 중요하지 않고, 내가 가고 싶은 곳을 다 가야 좋은 데이트라고 생각해.",
-              "en": "서로 즐길 것을 고르는 건 중요하지 않고, 내가 가고 싶은 곳을 다 가야 좋은 데이트라고 생각해."
+              "ko": "같이 즐길 수 있는 걸 골랐는데도 유령의 집을 포기한 아쉬움이 커서, 오늘 선택에는 아직 만족하지 못하겠어.",
+              "de": "같이 즐길 수 있는 걸 골랐는데도 유령의 집을 포기한 아쉬움이 커서, 오늘 선택에는 아직 만족하지 못하겠어.",
+              "en": "같이 즐길 수 있는 걸 골랐는데도 유령의 집을 포기한 아쉬움이 커서, 오늘 선택에는 아직 만족하지 못하겠어."
             },
             {
               "ko": "내가 유령의 집을 포기한 게 아쉽기는 하지만, 네가 싫어하는 걸 억지로 같이 하는 것보다 서로 즐길 수 있는 걸 고르는 게 데이트에는 더 중요한 것 같아.",

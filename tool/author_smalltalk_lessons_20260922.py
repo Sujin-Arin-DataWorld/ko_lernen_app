@@ -418,42 +418,42 @@ c1.theme_park_date.reflection|놀이공원에 오면 스트레스가 풀리기�
 '''
 
 SCENE_OPTIONS += '''
-c2.weather.framing|기후 적응 성공이라는 표현을 쓰면 앞으로 어떤 손실도 없다는 뜻인가요?|기후 적응에 실패한 지역만 조사하면 성공 기준은 따로 정하지 않아도 될까요?
-c2.mood.empathy|상대의 선택을 바꾸려면 어떤 근거를 제시해야 할까요?|제 선택에 찬성하는 사람만 만나도 괜찮을까요?
-c2.mood.housing|기존 계약과 신규 계약은 조건이 같으니 월세 자료에서 구분하지 않아도 돼요.|기존 계약과 신규 계약의 차이는 월세가 오를 때만 생긴다는 뜻인가요?
-c2.weekend.costs|주말 노동에 자율적이라는 이름을 붙이면 거절의 불이익도 사라지나요?|주말 노동의 거절 비용 대신 주말 교통비만 계산하면 충분할까요?
-c2.food.assumptions|합리적 가격이라는 말은 소득과 시간 비용이 누구에게나 같다는 사실을 보여 주나요?|소득과 시간 비용을 빼고 가격 숫자만 비교하면 누구에게나 합리적인가요?
-c2.daily.fairness|결과가 좋으므로 절차가 불공정해도 그 결정을 그대로 받아들여야 해요.|절차가 공정하면 어떤 결과가 나와도 평가할 필요가 없을까요?
-c2.daily.appeal|자동 심사에 이의를 제기하려는 사람에게 결과를 다시 읽어 주기만 하면 될까요?|자동 심사 결과를 바꾸지 않으려면 이의 절차를 어디에 숨겨야 할까요?
-c2.daily.autonomy|안전을 위한 감시라면 범위를 제한하는 기준은 필요 없겠죠?|감시를 시작했다는 이유만으로 안전이 확보됐다고 발표해도 될까요?
-c2.daily.accountability|AI가 틀렸을 때 회사와 공급업체 중 누가 더 빠르게 계산했는지 비교할까요?|AI가 자동으로 판단했으니 회사와 공급업체 모두 설명할 필요는 없겠죠?
-c2.daily.framing|취업률만 높으면 통합의 다른 조건도 모두 충족됐다고 봐야 할까요?|통합의 성공 여부와 관계없이 취업률 발표 시기만 앞당길까요?
-c2.screen.context|두 기사가 같은 사건을 다뤘으니 관점과 인상도 같아야 하는 거죠?|두 기사의 제목을 같게 바꾸면 보도 내용의 차이도 없어질까요?
-c2.music.power|플랫폼이 발견 기회를 제공하면 추천에 대한 권력은 더 이상 없는 걸까요?|추천 권력을 설명하려면 발견 가능성이라는 말만 반복하면 충분할까요?
-c2.hobby.sanctions|계정이 자동으로 정지되면 다시 가입하는 데 돈이 얼마나 드나요?|자동 계정 정지의 사유를 공개하지 않기로 이미 결정한 건가요?
-c2.travel.limits|관광지 수용력은 방문객 숫자만으로 정하면 되고 주민 생활권은 고려할 필요가 없어요.|주민 생활권을 고려했다면 관광객 수에는 제한을 둘 수 없는 건가요?
-c2.work_study.dissent|다수안이 채택됐으니 회의록에서 소수 의견은 삭제하는 게 좋겠죠?|소수 의견을 남기려면 다수안 채택부터 무효로 해야 할까요?
-c2.work_study.interpretation|결말이 열려 있으면 어떤 해석이든 작품의 근거와 관계없이 옳을까요?|결말이 열려 있는 작품은 해석을 전혀 해서는 안 되는 걸까요?
-c2.work_study.automation|자동 결정의 근거는 지금 지워 두고 나중에 결과만 기록하면 될까요?|자동 결정이 빨랐다는 사실만 남기면 그 판단 이유도 추적할 수 있을까요?
-c2.work_study.policy|그 기사에서 통합 성공을 측정했다는 이유만으로 지표는 더 볼 필요 없겠죠?|통합에 성공했다는 기사의 제목을 누가 먼저 공유했어요?
-c2.family.responsibility|저출생을 경쟁력 위기로만 부르면 개인의 삶은 어떤 목적에서도 자유로워지나요?|경쟁력 수치가 높아지면 저출생 논의에 개인의 삶을 포함할 필요가 없을까요?
-c2.health.classification|건강 앱이 위험군으로 분류했으니 누구도 그 판단을 검토할 수 없나요?|위험군 분류를 받은 사람은 언제 앱을 설치했는지만 확인하면 되나요?
-c2.kpop.norms|그 표현을 많이 쓰니까 공동체 안에서도 문제가 없다고 확정된 건가요?|그 표현이 문제라는 설명 없이도 사람들이 같은 이유로 반대한다고 보면 될까요?
-c2.kpop.boundaries|그 발표에서 진짜 팬이라는 기준에 맞는 사람은 모두 같은 나이였어요?|진짜 팬이라는 말을 쓴 이상 누가 정했는지는 따질 필요 없겠죠?
-c2.dating.perspective|그 이야기를 가장 먼저 들은 사람은 누구였다고 하세요?|그 이야기는 누구의 관점과도 관계없는 완전히 중립적인 기록이라고 확정됐나요?
-c2.interview.bias|잠재력이라는 기준이 있으면 평가자와 닮은 사람을 선호할 가능성은 없어지나요?|평가자와 지원자가 닮았는지는 묻지 말고 잠재력 점수만 높일까요?
-c2.job_hunting.accountability|보조 도구라고 부르기만 하면 책임을 지는 주체도 없어지는 건가요?|자동 결정이 보조 도구로 바뀌면 처리 속도만 달라지는지 측정할까요?
-c2.moving.affordability|감당 가능한 집은 모든 가구의 지출 구조가 같다는 뜻으로 정의됐나요?|감당 가능한 집이라는 이름이 있으면 실제 지출은 확인하지 않아도 될까요?
-c2.hospital.consent|진료 우선순위 알고리즘의 오류가 났을 때 병원과 공급자는 누가 더 빨랐는지만 비교하나요?|알고리즘이 자동으로 판단했으니 병원과 공급자 모두 오류를 설명하지 않아도 되나요?
-c2.transport.distribution|혼잡 요금은 이동 대안이 적은 사람에게도 언제나 같은 선택권을 보장하나요?|혼잡 요금이 걷혔다는 사실만으로 교통 부담은 모두 해소됐다고 볼까요?
-c2.shopping.choice|개인화 가격을 맞춤 혜택이라고 부르는 대신 모든 고객에게 같은 가격을 적용할까요?|맞춤 혜택이라는 이름을 유지하려면 개인화 가격의 비교 기준은 숨겨도 될까요?
-c2.phone.remedy|자동으로 계산된 요금에 이의를 넣으면 결과를 자동으로 한 번 더 보내나요?|자동 계산된 요금은 사람이 검토하지 않기로 이미 합의한 건가요?
-c2.emergency.power|비상 권한에 종료 조건이 없으면 예외는 어떻게 저절로 사라지나요?|비상 권한이 오래 유지돼도 상시 제도가 될 가능성은 없는 건가요?
-c2.partner_family.decisions|결정을 내리는 사람과 발표하는 사람이 같다는 게 확실한데, 그대로 기록할까요?|결정을 전달한 사람이 언제나 혼자 결정했다고 보는 데 동의하시나요?
-c2.partner_family.authorship|제 이름 대신 역할로만 불려도 제 경험이 모두 똑같이 기억될까요?|몇 년 뒤에 역할을 바꾸면 지금까지 쓴 제 이름도 반드시 사라질까요?
-c2.theme_park_date.sharedjoy|곰곰이 생각해 보니 사람들은 웃음과 설렘보다 놀이기구의 수만 보고 오는 게 확실해.|사람들이 설레 보이기는 해도 웃음이 없으니 놀이공원을 좋아할 이유가 전혀 없는 것 같아.
-c2.theme_park_date.anticipation|무서운 줄 알면서 다시 타고 싶은 걸 보면, 공포가 끝난 뒤보다 공포 자체만 즐기는 게 확실해.|다시 타고 싶은 마음은 있지만, 공포가 끝난 뒤의 해방감과는 전혀 관계없다는 걸 이미 확인했어.
-c2.theme_park_date.sharedmemory|유령의 집을 포기한 게 아쉬우니까, 네가 싫어해도 억지로 같이 가야 데이트가 의미 있을 것 같아.|서로 즐길 것을 고르는 건 중요하지 않고, 내가 가고 싶은 곳을 다 가야 좋은 데이트라고 생각해.
+c2.weather.framing|기후 적응에 성공한 지역에서는 손실 규모가 얼마나 줄었나요?|기후 적응의 성공 기준을 정할 때 어떤 지역을 비교 대상으로 삼았나요?
+c2.mood.empathy|상대의 마음을 이해하면 그 선택에도 동의하게 되는 걸까요?|상대의 선택에 동의하지 않는 이유를 어떻게 설명하면 좋을까요?
+c2.mood.housing|월세가 안정됐다는 결론을 기존 계약에만 한정해서 내렸어요?|기존 계약과 신규 계약의 차이가 월세 안정에 어떤 영향을 주었어요?
+c2.weekend.costs|주말 노동을 거절한 사람에게 실제로 어떤 불이익이 있었나요?|주말 노동을 자율적으로 선택한 사람의 비용은 어떻게 보상하나요?
+c2.food.assumptions|합리적인 가격을 정할 때 소득과 시간 비용에 어떤 비중을 두었나요?|같은 소득이라도 시간 비용에 따라 가격 평가가 얼마나 달라지나요?
+c2.daily.fairness|절차가 공정했더라도 결과가 나쁘면 그 결정을 다시 검토해야 할까요?|결과가 좋은 결정의 절차를 사후에 개선할 방법은 무엇일까요?
+c2.daily.appeal|자동 심사 결과에 이의를 제기한 사람에게 처리 결과를 어떻게 설명해야 할까요?|자동 심사 결과에 이의를 제기하려는 사람은 어떤 자료를 먼저 준비해야 할까요?
+c2.daily.autonomy|감시가 실제로 안전을 높였는지는 어떤 지표로 판단할 수 있을까요?|감시 범위를 정한 뒤 그 기준을 누구에게 설명해야 할까요?
+c2.daily.accountability|AI가 틀렸을 때 회사와 공급업체의 대응 속도는 어떻게 비교해요?|AI 오류에 대해 회사가 이미 답했다면 공급업체에도 같은 설명을 요구해야 해요?
+c2.daily.framing|통합에 성공한 뒤 취업률이 높아졌다는 해석에는 어떤 근거가 있나요?|통합의 성공을 취업률 외의 지표로 평가하려면 어떤 자료가 더 필요할까요?
+c2.screen.context|같은 사건을 다룬 두 기사의 사실관계가 다른지 어떻게 확인할까요?|두 기사가 다르게 느껴진다는 독자 반응을 어떤 방식으로 조사했나요?
+c2.music.power|플랫폼의 추천 권력이 새로운 음악의 발견에 어떤 도움을 주나요?|발견 가능성을 높이려면 플랫폼의 추천 기준을 어떻게 바꿔야 할까요?
+c2.hobby.sanctions|계정이 자동으로 정지된 뒤 이의를 제기할 기한은 얼마나 되나요?|자동 계정 정지의 사유를 확인하려면 어떤 자료를 제출해야 하나요?
+c2.travel.limits|관광지 수용력을 넘었을 때 주민 생활권에 미친 영향을 따로 조사했나요?|주민 생활권을 고려해 관광지 수용력을 다시 정할 계획이 있나요?
+c2.work_study.dissent|다수안이 채택된 이유를 회의록에 어디까지 남겨야 할까요?|소수 의견을 회의록에 남긴 뒤 다음 회의에서 다시 표결해야 할까요?
+c2.work_study.interpretation|결말을 열어 둔 작품에서 어떤 해석이 가장 설득력 있다고 봐야 할까요?|작가가 결말을 열어 둔 이유는 어떤 자료로 확인할 수 있을까요?
+c2.work_study.automation|자동 결정의 근거가 이미 기록돼 있다면 나중에 어떤 절차로 열람할 수 있을까요?|자동 결정이 이루어진 뒤에는 기록을 어느 기간까지 보관해야 할까요?
+c2.work_study.policy|그 기사에서 통합 성공을 측정한 지표는 누가 정했어요?|그 기사에 나온 통합 정책의 효과는 언제부터 나타났어요?
+c2.family.responsibility|저출생을 국가 경쟁력 위기로 설명하면 어떤 정책이 우선될까요?|저출생 담론에서 개인의 삶을 목적 그 자체로 다룬 사례는 무엇인가요?
+c2.health.classification|건강 앱의 위험군 분류에 이의를 제기하면 어떤 근거를 확인할 수 있나요?|건강 앱의 위험군 분류를 검토하는 사람은 어떤 전문성을 갖춰야 하나요?
+c2.kpop.norms|그 표현이 왜 문제인지 공동체 밖에서도 설명된 적 있어요?|그 표현의 문제를 공동체 안에서 누가 먼저 제기했어요?
+c2.kpop.boundaries|그 발표에서 진짜 팬의 기준은 어떤 참여 방식으로 구체화됐어요?|그 발표에서 정한 진짜 팬의 기준에 누가 이의를 제기했어요?
+c2.dating.perspective|그 이야기를 다른 사람 입장에서 다시 정리하면 어떤 점이 달라질까요?|그 이야기에서 빠진 사람의 입장을 어떻게 확인할 수 있을까요?
+c2.interview.bias|잠재력 평가에서 평가자와 비슷한 지원자가 높은 점수를 받은 이유를 어떻게 설명하나요?|평가자의 선호를 배제하려면 잠재력이라는 기준을 없애야 할까요?
+c2.job_hunting.accountability|보조 도구라고 부르는 자동 결정의 처리 속도도 달라졌나요?|자동 결정의 책임을 보조 도구 공급업체에만 맡겨도 될까요?
+c2.moving.affordability|감당 가능한 집을 정의할 때 지출 항목별 비중은 어떻게 정했나요?|감당 가능한 집으로 분류된 뒤에도 가구의 지출 구조를 다시 조사했나요?
+c2.hospital.consent|진료 우선순위 알고리즘에 오류가 났을 때 병원은 어떤 자료를 공급자에게 요청하나요?|진료 우선순위 알고리즘의 오류를 줄이기 위해 병원과 공급자는 어떤 검증을 하나요?
+c2.transport.distribution|혼잡 요금이 이동 선택권이 많은 사람의 이동량을 얼마나 줄이나요?|이동 대안이 적은 사람에게 혼잡 요금을 돌려주면 어떤 효과가 있나요?
+c2.shopping.choice|개인화 가격이 맞춤 혜택인지 판단하려면 어떤 비교 기준이 필요할까요?|개인화 가격을 같은 가격으로 바꾸면 고객의 혜택도 줄어들까요?
+c2.phone.remedy|자동 계산된 요금에 이의를 제기한 뒤 재검토 결과는 어떻게 전달되나요?|사람이 다시 검토한 요금에 이의를 제기하면 자동으로 재계산하나요?
+c2.emergency.power|비상 권한의 종료 조건을 정한 뒤에도 예외가 계속 적용되는 이유는 무엇인가요?|상시 제도로 바뀐 비상 권한을 종료하려면 어떤 조건이 필요할까요?
+c2.partner_family.decisions|결정을 내린 사람이 직접 말로 옮기는 편이 더 낫다고 보세요?|결정을 전달하는 사람도 결정 과정에 참여하는지 확인해 볼까요?
+c2.partner_family.authorship|가족 안에서 제 역할이 바뀌면 저를 기억하는 방식도 달라질까요?|제 이름으로 불릴 때와 역할로 불릴 때 어느 쪽이 더 편할까요?
+c2.theme_park_date.sharedjoy|사람들이 즐거워 보이기는 하는데, 내가 왜 이곳을 좋아하는지는 아직 잘 모르겠어.|사람들이 웃고 신나 보이는 건 오늘 행사가 특별해서인 것 같아. 평소에도 이런지는 궁금하네.
+c2.theme_park_date.anticipation|다시 타고 싶은 건 공포가 끝난 뒤의 해방감보다 공포를 느끼는 순간 자체가 좋아서일지도 모르겠어.|다시 타고 싶은 건 무서움을 즐겨서라기보다 이번에는 덜 무서울지 확인하고 싶어서인 것 같아.
+c2.theme_park_date.sharedmemory|유령의 집은 혼자 다녀올 걸 그랬어. 각자 하고 싶은 걸 충분히 즐기는 것도 데이트에 중요하니까.|같이 즐길 수 있는 걸 골랐는데도 유령의 집을 포기한 아쉬움이 커서, 오늘 선택에는 아직 만족하지 못하겠어.
 '''
 
 # These are semantic neighbors, not alternatives judged wrong merely because of
@@ -560,7 +560,7 @@ NUANCE = '''
 smalltalk_c1_0078|운행 여부에 대한 화자의 근거는 어떻게 표현되나요?~Wie stellt die Person ihr Wissen über den Betrieb dar?~How does the speaker present their knowledge about the ride's operation?|상황을 보고 운행하지 않는 듯하다고 추측해요.~Sie schließt aus der Situation, dass die Attraktion wohl nicht fährt.~They infer from the situation that the ride seems not to be running.|직원에게 들은 공식 발표를 인용해요.~Sie zitiert eine offizielle Mitteilung des Personals.~They quote an official announcement from staff.|직접 운행 중단을 결정했다고 말해요.~Sie sagt, sie habe die Stilllegung selbst beschlossen.~They say they personally decided to stop the ride.|‘-나 봐’는 여기서 추측을 나타내요. 직원에게 들었다거나 운행을 결정했다는 내용은 없어요.~Mit -나 봐 wird hier eine Vermutung ausgedrückt. Eine Auskunft des Personals oder eine eigene Entscheidung wird nicht genannt.~Here, -나 봐 marks an inference. The speaker does not mention being told by staff or deciding to close the ride.
 smalltalk_c1_0080|크리스마스 마켓이 예쁘다는 정보는 어디서 왔나요?~Woher stammt die Aussage über den schönen Weihnachtsmarkt?~Where does the information about the Christmas market being beautiful come from?|다른 데서 들은 말을 전해요.~Die Person gibt etwas Gehörtes weiter.~The speaker passes on something they have heard.|화자가 직접 본 경험을 말해요.~Die Person berichtet von einem eigenen Besuch.~The speaker describes seeing it personally.|겨울에 예뻐질 거라는 예측만 해요.~Die Person sagt nur voraus, dass er im Winter schön werden wird.~The speaker only predicts that it will become beautiful in winter.|‘예쁘대’는 전언이고, 뒤의 말은 겨울에 다시 오자는 제안이에요. 직접 봤다고 단정하지 않아요.~예쁘대 kennzeichnet eine fremde Aussage. Danach folgt der Vorschlag, im Winter wiederzukommen; ein eigener Besuch wird nicht behauptet.~예쁘대 marks reported information, followed by an invitation to return in winter. It does not claim firsthand observation.
 smalltalk_c1_0082|직원들 커피값 이야기는 어떤 기능을 하나요?~Welche Funktion hat die Bemerkung über Kaffee fürs Personal?~What is the function of the remark about coffee for the staff?|가정으로 웃음을 유도하고 농담이라고 밝혀요.~Eine hypothetische Bemerkung soll amüsieren und wird als Witz markiert.~It uses a hypothetical idea for humor and explicitly marks it as a joke.|동전을 모으겠다는 약속을 해요.~Die Person verspricht, die Münzen einzusammeln.~It promises to collect the coins.|동전이 직원들 소유라고 확인해요.~Die Person bestätigt, dass die Münzen dem Personal gehören.~It confirms that the coins belong to the staff.|‘모으면’이라는 가정과 ‘농담이야’가 있어요. 수집 계획이나 소유권 확인으로 읽으면 의미가 달라져요.~Die Bedingung 모으면 und die Kennzeichnung als Witz schließen eine feste Zusage oder Eigentumsfeststellung aus.~The conditional 모으면 and explicit joke marker make this neither a firm undertaking nor a statement of ownership.
-smalltalk_c1_0083|앞자리에 대한 판단은 어떻게 열려 있나요?~Wie bleibt die Einschätzung der ersten Reihe offen?~How does the assessment of the front row remain open?|잘 보이는 점이 더 무섭게도, 덜 무섭게도 느껴질 수 있어요.~Die freie Sicht könnte mehr oder weniger Angst auslösen.~The clear view could make it feel either more or less frightening.|앞자리는 반드시 더 무섭다고 결론 내려요.~Die erste Reihe wird eindeutig als beängstigender bewertet.~The speaker concludes that the front is definitely scarier.|잘 보이므로 두려움이 완전히 사라진다고 말해요.~Die freie Sicht beseitigt nach dieser Aussage jede Angst.~The speaker says the view removes fear completely.|두 개의 ‘-것 같기도’가 상반된 가능성을 함께 남겨요. 어느 쪽도 확정하지 않아요.~Die beiden Formulierungen mit -것 같기도 lassen gegensätzliche Möglichkeiten nebeneinander stehen.~The two -것 같기도 clauses keep contrasting possibilities open rather than settling on either.
+smalltalk_c1_0083|앞자리에 대한 판단은 어떻게 열려 있나요?~Welche Möglichkeiten lässt die Person bei ihrer Einschätzung der ersten Reihe offen?~What possibilities does the speaker leave open about the front row?|잘 보이는 점이 더 무섭게도, 덜 무섭게도 느껴질 수 있어요.~Die freie Sicht könnte mehr oder weniger Angst auslösen.~The clear view could make it feel either more or less frightening.|앞자리는 반드시 더 무섭다고 결론 내려요.~Die erste Reihe wird eindeutig als beängstigender bewertet.~The speaker concludes that the front is definitely scarier.|잘 보이므로 두려움이 완전히 사라진다고 말해요.~Die freie Sicht beseitigt nach dieser Aussage jede Angst.~The speaker says the view removes fear completely.|두 개의 ‘-것 같기도’가 상반된 가능성을 함께 남겨요. 어느 쪽도 확정하지 않아요.~Die beiden Formulierungen mit -것 같기도 lassen gegensätzliche Möglichkeiten nebeneinander stehen.~The two -것 같기도 clauses keep contrasting possibilities open rather than settling on either.
 smalltalk_c1_0085|스트레스가 풀리는 이유를 얼마나 확신하나요?~Wie sicher wird die Erklärung für den Stressabbau dargestellt?~How certain is the explanation for stress relief?|크게 웃고 소리칠 수 있어서일지도 모른다고 추측해요.~Lautes Lachen und Schreien werden als mögliche Erklärung vermutet.~Laughing and screaming freely are proposed as a possible explanation.|큰 소리가 스트레스를 없앤다는 연구를 인용해요.~Eine Studie wird als Nachweis für die Wirkung lauter Geräusche zitiert.~A study is cited as proof that loud sounds remove stress.|모든 방문객에게 같은 효과가 있다고 단정해요.~Die Wirkung wird für alle Besucher als gleich dargestellt.~The speaker asserts the same effect for every visitor.|‘-는지도 모르겠어’는 이유에 대한 추측이에요. 연구 근거나 모든 사람에 대한 보장은 말하지 않아요.~Die Wendung -는지도 모르겠어 markiert eine Vermutung über den Grund, keinen Forschungsbeleg und keine Garantie für alle.~-는지도 모르겠어 makes the causal explanation tentative; it does not cite research or guarantee the effect for everyone.
 smalltalk_c1_0087|나이 탓을 하는 자신을 어떻게 해석하나요?~Wie deutet die Person ihre eigene Erklärung mit dem Alter?~How does the speaker interpret their own tendency to blame age?|놀랐다는 사실을 인정하기 싫어서일 수 있다고 봐요.~Vielleicht möchte sie nicht zugeben, wie erschrocken sie war.~They think they may be reluctant to admit being scared.|나이 때문에 어지럽다는 의학적 진단을 확인해요.~Sie bestätigt eine medizinische Diagnose für altersbedingten Schwindel.~They confirm a medical diagnosis of age-related dizziness.|상대가 나이를 비난해서 화났다고 말해요.~Sie sagt, sie sei wegen einer Altersbemerkung der anderen Person wütend.~They say they are angry because the other person criticized their age.|‘인정하기 싫은가 봐’는 자기 태도에 대한 추측이에요. 어지럼증의 원인을 의학적으로 확정하지 않아요.~인정하기 싫은가 봐 deutet die eigene Haltung vorsichtig; eine medizinische Ursache wird nicht festgestellt.~인정하기 싫은가 봐 is a tentative interpretation of the speaker's attitude, not a medical explanation of dizziness.
 smalltalk_c2_0078|놀이공원에 오는 이유를 어떻게 제시하나요?~Wie wird der mögliche Grund für einen Parkbesuch formuliert?~How is the possible reason for visiting the park presented?|놀이기구 외에 일상과 다른 모습을 경험하려는 이유도 있을 수 있다고 봐요.~Neben den Fahrgeschäften könnte auch das Erleben einer anderen Seite des eigenen Ichs eine Rolle spielen.~Besides rides, experiencing a different side of oneself might also be a reason.|모든 사람이 자기 삶을 싫어해서 온다고 단정해요.~Alle kämen eindeutig deshalb, weil sie ihr Leben ablehnten.~Everyone is said to come because they dislike their life.|놀이기구는 방문 이유가 전혀 아니라고 확정해요.~Fahrgeschäfte werden als Besuchsgrund vollständig ausgeschlossen.~Rides are completely ruled out as a reason to visit.|‘만’과 ‘아닐까’가 중요해요. 기존 이유에 다른 가능성을 더하며, 모든 사람의 동기를 단정하지 않아요.~만 und 아닐까 erweitern eine Erklärung um eine Möglichkeit. Sie legen nicht die Motive aller Besucher fest.~만 and 아닐까 add a possible explanation without claiming to know every visitor's motives.
