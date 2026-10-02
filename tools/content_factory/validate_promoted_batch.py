@@ -13,7 +13,8 @@ import argparse
 import csv
 import hashlib
 import json
-from pathlib import Path
+import re
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 import relevel_ledger
@@ -62,6 +63,19 @@ LEDGER_TOLERANT_KINDS = frozenset(("vocab", "cloze", "satz", "smalltalk", "pronu
 COPY_REVISION_LEDGER = Path(
     "tools/content_factory/review/promoted_copy_revisions_20260822.json"
 )
+EDITORIAL_SUCCESSOR_LEDGER = Path(
+    "tools/content_factory/review/promoted_editorial_successors_20261003.json"
+)
+EDITORIAL_COPY_FIELDS = {
+    "vocab": {"korean", "romanization", "german", "english", "pos_de", "pos_en",
+        "example_korean", "example_german", "example_english"},
+    "cloze": {"fullKo", "sentenceKo", "answer", "distractors", "de", "en"},
+    "satz": {"targetKo", "promptDe", "promptEn", "distractors", "vocabKo"},
+    "scenario": {"title", "intro", "intent", "vocab", "dialog", "quests"},
+    "smalltalk": {"ko", "de", "en", "romanization", "reply", "followUp",
+        "safeAlternativeQuestions"},
+    "pronunciation": {"ko", "de", "en", "romanization"},
+}
 
 
 class PromotedBatchError(ValueError):
@@ -107,6 +121,131 @@ def _fingerprint(value: Any) -> str:
         separators=(",", ":"),
     ).encode("utf-8")
     return hashlib.sha256(canonical).hexdigest()
+
+
+def _editorial_successors(*, root: Path, manifest_path: Path) -> dict:
+    root = root.resolve()
+    manifest_path = manifest_path.resolve()
+    path = root / EDITORIAL_SUCCESSOR_LEDGER
+    if not path.exists():
+        return {}
+    payload = _json(path)
+    if (not isinstance(payload, dict)
+            or payload.get("schemaVersion") != 1
+            or payload.get("reviewStatus") != "MODEL_REVIEW_ONLY"
+            or payload.get("humanApprovalClaim") is not False
+            or payload.get("humanReviewStatus") != "required_before_native-quality-claim"):
+        raise PromotedBatchError("editorial successors must retain human review gates")
+    entries = payload.get("entries")
+    if not isinstance(entries, list):
+        raise PromotedBatchError("editorial successor entries must be an array")
+    try:
+        relative = manifest_path.relative_to(root).as_posix()
+    except ValueError as error:
+        raise PromotedBatchError("editorial manifest path escapes repository") from error
+    manifest = _json(manifest_path)
+    if not isinstance(manifest, dict) or not isinstance(manifest.get("artifacts"), list):
+        raise PromotedBatchError("editorial successor manifest must have artifacts")
+    drafts: dict[str, set[str]] = {}
+    for artifact in manifest["artifacts"]:
+        if (not isinstance(artifact, dict)
+                or not isinstance(artifact.get("kind"), str)
+                or not isinstance(artifact.get("draft"), str)):
+            raise PromotedBatchError("editorial successor manifest artifact is malformed")
+        drafts.setdefault(artifact["kind"], set()).add(artifact["draft"])
+    result = {}
+    for entry in entries:
+        if not isinstance(entry, dict):
+            raise PromotedBatchError("editorial successor entries must be objects")
+        if entry.get("manifest") != relative:
+            continue
+        kind, ident = entry.get("kind"), entry.get("id")
+        if (not isinstance(kind, str) or kind not in EDITORIAL_COPY_FIELDS
+                or not isinstance(ident, str)
+                or re.fullmatch(r"[a-z][a-z0-9_]*", ident) is None
+                or (kind != "scenario" and not ident.startswith(f"{kind}_"))
+                or kind not in drafts):
+            raise PromotedBatchError("editorial successor has invalid kind or id")
+        key = (kind, ident)
+        if key in result:
+            raise PromotedBatchError(f"duplicate editorial successor {key}")
+        before, after = entry.get("before"), entry.get("after")
+        if (not isinstance(before, dict) or not isinstance(after, dict)
+                or before.keys() != after.keys()
+                or before.get("id") != key[1] or after.get("id") != key[1]):
+            raise PromotedBatchError(f"{key}: editorial record identity or shape changed")
+        fields = sorted(field for field in before if before[field] != after[field])
+        if (not fields or entry.get("fields") != fields
+                or not set(fields) <= EDITORIAL_COPY_FIELDS.get(key[0], set())):
+            raise PromotedBatchError(f"{key}: editorial successor is not copy-only")
+        if _editorial_route_identity(before) != _editorial_route_identity(after):
+            raise PromotedBatchError(f"{key}: editorial successor changed routing identity")
+        commit, source = entry.get("sourceGitCommit"), entry.get("sourceGitPath")
+        reason = entry.get("reason")
+        if (entry.get("beforeSha256") != _fingerprint(before)
+                or entry.get("afterSha256") != _fingerprint(after)
+                or not isinstance(commit, str)
+                or re.fullmatch(r"[0-9a-fA-F]{40}", commit) is None
+                or not isinstance(reason, str) or not reason.strip()):
+            raise PromotedBatchError(f"{key}: invalid editorial successor provenance")
+        if (not isinstance(source, str) or "\\" in source or ":" in source
+                or PurePosixPath(source).is_absolute()
+                or PurePosixPath(source).as_posix() != source
+                or ".." in PurePosixPath(source).parts):
+            raise PromotedBatchError(f"{key}: sourceGitPath must be canonical repo-relative")
+        allowed_sources = set(drafts[kind])
+        if kind == "scenario":
+            try:
+                target = scenario_store.shard_name(before.get("level"))
+            except ValueError:
+                target = None
+        else:
+            target = TARGETS[kind][0]
+        if target:
+            allowed_sources.add(f"assets/data/{target}")
+        if source not in allowed_sources:
+            raise PromotedBatchError(f"{key}: sourceGitPath is not this kind's target or manifest draft")
+        if not _resolve(source, root).is_file():
+            raise PromotedBatchError(f"{key}: sourceGitPath does not exist")
+        result[key] = entry
+    return result
+
+
+def _editorial_route_identity(value: Any, path: tuple = ()) -> dict:
+    result = {}
+    if isinstance(value, dict):
+        result[(*path, "#keys")] = tuple(sorted(value))
+        for key, child in value.items():
+            next_path = (*path, key)
+            if key.endswith(("Id", "Ids")) or key in {
+                "id", "level", "type", "voice", "speaker", "evidenceMode",
+                "role", "who", "character", "mode", "category", "courseUnitId",
+                "sourceSeedId", "route", "correctIndex", "correctAnswer",
+                "correctOption", "answerIndex", "reward", "xp", "unlock",
+            }:
+                result[next_path] = child
+            else:
+                result.update(_editorial_route_identity(child, next_path))
+    elif isinstance(value, list):
+        result[(*path, "#length")] = len(value)
+        for index, child in enumerate(value):
+            result.update(_editorial_route_identity(child, (*path, index)))
+    elif not isinstance(value, str):
+        # Scores, answer indices, switches, grants and null state cannot be
+        # reclassified as wording, even inside an otherwise copy-only field.
+        result[path] = value
+    return result
+
+
+def _editorial_predecessor(kind: str, ident: str, live: dict, successors: dict) -> dict:
+    entry = successors.get((kind, ident))
+    if entry is None:
+        return live
+    if entry["afterSha256"] != _fingerprint(live):
+        raise PromotedBatchError(f"{kind}:{ident}: stale editorial successor")
+    # The original frozen-draft/revision checks below must validate this exact
+    # predecessor. A new live hash alone cannot replace previous review evidence.
+    return entry["before"]
 
 
 def _copy_revisions(
@@ -349,6 +488,8 @@ def validate(
         raise PromotedBatchError(f"{manifest_path}: artifacts must be a nonempty array")
     seen_kinds: set[str] = set()
     revisions = _copy_revisions(root=root, manifest_path=manifest_path)
+    successors = _editorial_successors(root=root, manifest_path=manifest_path)
+    used_successors: set[tuple[str, str]] = set()
     used_revisions: set[tuple[str, str]] = set()
     batch_revisions = _batch_field_revisions(root=root)
     routing_revisions = _routing_revisions(root=root, manifest_path=manifest_path)
@@ -452,6 +593,9 @@ def validate(
             live_projection = _relevel_normalized_live(
                 kind, ident, live_projection, draft_projection, ledger
             )
+            if (kind, ident) in successors:
+                live_projection = _editorial_predecessor(kind, ident, live_projection, successors)
+                used_successors.add((kind, ident))
             if live_projection != draft_projection:
                 if not _require_reviewed_copy_revision(
                     kind=kind,
@@ -616,6 +760,10 @@ def validate(
             "copy revision ledger contains stale routing entries: "
             f"{sorted(unused_routing_revisions)[:5]}"
         )
+
+    unused_successors = set(successors) - used_successors
+    if unused_successors:
+        raise PromotedBatchError(f"stale editorial successor entries: {sorted(unused_successors)}")
 
     issues = ContentValidator(root).validate()
     if issues:

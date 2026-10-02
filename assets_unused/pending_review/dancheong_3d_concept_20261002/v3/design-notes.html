@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>한글소리 V3 · 참조와 적용 명세</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="notes.css"></head>
+<body class="notes">
+<a class="back-link" href="index.html">← 인터랙티브 시안</a>
+<span class="pill green">REVIEW ONLY</span><span class="pill">2026.10.02</span>
+<h1>한글소리의 색과 말투,<br>손에 반응하는 입체감.</h1>
+<p class="key">현재 앱의 NotoSansKR·녹청색·5탭을 바탕으로, 이미지에는 재질을 더하고 조작에는 깊이를 더했습니다. 캐릭터의 수보다 학습 문장과 다음 행동을 먼저 보여줍니다.</p>
+<a class="back-link" href="gallery.html">홈 · 학습 · 듣기 · 대화 · 결과 나란히 보기 →</a>
+
+<h2>구체적으로 참고한 디자인</h2>
+<div class="reference-grid">
+<article class="reference-card"><h3>Duolingo · 탭마다 목적을 살리는 일관성</h3><p>공식 리디자인 글은 모든 헤더에 그림을 쓰면 의미 없이 공간을 차지할 수 있다는 문제를 다룹니다. 글자 위계와 간격을 통일하면서 화면의 목적에 따라 구성을 달리했습니다. <a href="https://blog.duolingo.com/core-tabs-redesign/">공식 글</a></p><p><strong>한글소리 적용:</strong> 홈에는 커피 두 잔으로 상황을 소개하고, 듣기에는 스피커 하나, 대화에는 작은 상대 프로필만 사용합니다. 모든 화면에 같은 큰 마스코트를 반복하지 않습니다.</p></article>
+<article class="reference-card"><h3>Pinterest · 다음 행동과 완료를 구분하는 흐름</h3><p>사용자가 준 Duolingo UI 검색 결과에서 학습 경로·완료 화면·목표와 보상 흐름을 시각적으로 비교했습니다. Pinterest 게시물의 출처와 버전은 불확실하므로 공식 제품의 현행 명세로 취급하지 않았습니다. <a href="https://de.pinterest.com/search/pins/?q=%EB%93%80%EC%98%A4%EB%A7%81%EA%B3%A0%20ui&amp;rs=rs&amp;source_id=rs_ZuMw2do4&amp;top_pin_ids=518406607129042021&amp;eq=&amp;etslf=1331">사용자 제공 검색</a></p><p><strong>한글소리 적용:</strong> 장면별 주 CTA, 현재 단계가 드러나는 짧은 경로, 수행 내용을 보여주는 결과. 별·경험치 대신 ‘초대를 이해하고 약속을 잡았는가’를 보여줍니다.</p></article>
+<article class="reference-card"><h3>Linear · 배경 요소가 물러나는 화면</h3><p>2026년 3월의 디자인 글은 부드러운 경계와 차분한 색으로 주요 콘텐츠가 눈에 들어오도록 조정한 과정을 설명합니다. <a href="https://linear.app/now/behind-the-latest-design-refresh">공식 글</a></p><p><strong>한글소리 적용:</strong> 반복되는 장식과 두꺼운 프레임을 줄이고, 얕은 그림자와 실제 재질의 오브젝트를 사용합니다. 한국어 문장과 선택지가 중심에 남습니다.</p></article>
+<article class="reference-card"><h3>Emil Kowalski · 짧고 중단 가능한 반응</h3><p>사용자의 행동에 목적 있게 반응하고, 빠르게 끝나며, 도중에 바꾼 행동에도 대응하는 모션 원칙을 참고했습니다. <a href="https://emilkowal.ski/ui/great-animations">원저자 글</a></p><p><strong>한글소리 적용:</strong> 100ms 누름, 220ms 화면 진입, 150ms 피드백, 280ms 완료 표시. 재생·화면 전환·숨김 시 음성을 중단하고, 움직임 감소 설정에서도 상태는 텍스트와 아이콘으로 읽힙니다.</p></article>
+</div>
+<p>위 자료에서 확인한 원칙과 한글소리에 맞춘 판단을 구분했습니다. 도자기·직물·황동의 재질 조합과 단청색 적용은 이번 시안에서 만든 아트 방향입니다. 이 시안만으로 학습 효과나 재방문율이 개선됐다고 주장하지 않습니다.</p>
+
+<h2 id="composition">승인한 구도 · 중심 장면과 다음 행동</h2>
+<p>추가 <a href="https://de.pinterest.com/pin/988399449468030095/">Pinterest 핀</a>은 Emote Agency의 <a href="https://dribbble.com/shots/25320436-Planner-mobile-app">Fun Design for Planner</a>입니다. 실제 영상에서 노란 색면, 중심 오브젝트, 짧은 과제 제목, 완료 후 코인 피드백을 확인했습니다. 어린이·부모 대상 플래너라는 원작 설명과 한글소리의 성인 학습 맥락은 구분했습니다. 이 자료를 최신 언어앱의 효과나 3D 구현 사례로 제시하지 않습니다.</p>
+<p><strong>승인한 적용:</strong> 홈은 큰 녹청 장면과 단청 황색 CTA, Lernen은 큰 학습 경로와 13개 실제 활동, Spiele는 밝은 황색 추천과 8개 실제 게임으로 구성했습니다. 전체 활동은 4:3 원본 그림이 붙은 목록으로, 252개 Packs는 전체 그림과 제목이 분리된 2열 카드로 유지했습니다. 엽전 화면은 황색 색면·승인한 황동 그림·획득량·잔액·다음 행동 순서입니다.</p>
+<table><thead><tr><th>역할</th><th>값</th><th>적용</th></tr></thead><tbody><tr><td>한지</td><td>#FBF8F1</td><td>기본 화면, 학습 문장의 배경</td></tr><tr><td>녹청</td><td>#247567</td><td>홈·Lernen의 중심 영역</td></tr><tr><td>단청 황색</td><td>#F5CF78</td><td>홈 CTA, Spiele·보상 색면</td></tr><tr><td>청금석 연색</td><td>#DFEBF3</td><td>듣기·보자기 보조 영역</td></tr><tr><td>석간주</td><td>#A0524A</td><td>오류 피드백</td></tr><tr><td>먹색</td><td>#182C29</td><td>문장·제목</td></tr></tbody></table>
+<p>현재 NotoSansKR를 그대로 사용합니다. 홈 제목 29px·650, 목록 제목 16px·600, 보조 문구 11–14px, 한국어 대화 21px·500입니다. 큰 글자 모드는 별도 크기를 적용하고 스크롤을 허용합니다. 화면 여백 20px, 목록 간격 12px, 추천 영역 26–28px 곡률, CTA 64px 이상과 조작 영역 48px 이상을 유지합니다.</p>
+<p><strong>선택한 기존 스킬:</strong> find-skills로 <a href="https://skills.sh/anthropics/skills/frontend-design">frontend-design</a>의 내용·작성자·설치 지표와 원저장소를 확인하고 이미 설치된 스킬을 사용했습니다. 중심 장면과 소재에 맞는 구도를 적용했고, microinteractions의 Trigger → Rules → Feedback → Loops 기준으로 반복 탭·취소·현재 상태를 검수했습니다. 새 스킬이나 제품 의존성을 설치하지 않았습니다.</p>
+<p><strong>마이크로인터랙션 검토: 9/10 (진단 8개 중 7개).</strong> 명확한 버튼·상태·단순한 규칙·즉시 피드백·행동에 맞는 모션·드러나는 시안 모드·첫 사용의 이해를 확인했습니다. 미충족 항목은 반복 사용에 따라 도움 표시가 줄어드는 장기 루프입니다. 실제 앱 적용 시 도움을 확인했는지에 따라 첫 사용 안내를 줄이고, 다시 듣기·힌트 버튼은 유지해야 합니다. 이 시안의 점수는 사용성 실험이나 기기 성능 측정 결과가 아닙니다.</p>
+<p>접촉 전 손가락의 위치를 일반 스마트폰에서 감지한다고 주장하지 않습니다. 마우스·키보드의 hover·focus, 터치의 접촉·누름·놓음·취소를 구분했습니다. 엽전·보자기는 짧게 한 번 반응하며 다음 버튼을 애니메이션이 막지 않습니다. 실제 잔액을 지급·소비하거나 장식의 소유권을 바꾸지 않습니다.</p>
+
+<h2>실제 재질이 느껴지는 3D</h2>
+<article class="reference-card"><h3>추가 Pinterest · 색 면적과 비대칭 구성</h3><p>사용자가 추가한 <a href="https://de.pinterest.com/pin/12736811443914048/">핀</a>의 실제 화면을 확인했습니다. 노랑·핑크·연녹색의 넓은 면, 비대칭 배치, 짧은 제목, 또렷한 조작 영역을 참고했습니다. 검은 내비게이션이나 원래의 파스텔 팔레트를 제품 규칙으로 채택하지 않았습니다.</p><p><strong>한글소리 적용:</strong> Lernen의 학습 경로는 녹청 면과 약간 기울어진 실제 그림, Spiele의 도전 영역은 황토 면으로 구분했습니다. 다른 그림은 차분한 인쇄 카드에 담았습니다. 참조의 게시 시점·제품 버전·효과 수치는 확인하지 않았습니다.</p></article>
+<div class="material-grid">
+<figure><img src="assets/coffee.png" alt="녹청과 한지색 도자기 컵 두 잔, 원목 쟁반"><figcaption><strong>약속 · 도자기와 원목</strong><br>고운 점토 표면, 유약의 차이, 나뭇결. 컵 두 잔이 함께 나가는 상황을 알려줍니다.</figcaption></figure>
+<figure><img src="assets/speaker.png" alt="청색 직물과 도자기 그릴의 스피커"><figcaption><strong>듣기 · 직물과 도자기</strong><br>천의 결, 구멍이 있는 그릴, 황동 테두리. 작은 크기에서도 스피커의 형태가 읽힙니다.</figcaption></figure>
+<figure><img src="assets/book.png" alt="청색과 녹청색 천 표지의 책"><figcaption><strong>단어 · 천과 종이</strong><br>직물 표지, 종이 단면, 리본. 무광 표면에 빛이 부드럽게 닿습니다.</figcaption></figure>
+<figure><img src="assets/conversation.png" alt="녹청과 한지색 도자기 말풍선"><figcaption><strong>대화 · 점토와 황동</strong><br>얼굴 없는 말풍선 오브젝트. 인물 대신 기능을 알려주는 작은 소재입니다.</figcaption></figure>
+</div>
+<div class="object100"><img src="assets/coffee.png" alt="커피 오브젝트 100px"><img src="assets/speaker.png" alt="스피커 오브젝트 100px"><img src="assets/book.png" alt="책 오브젝트 100px"><img src="assets/conversation.png" alt="말풍선 오브젝트 100px"></div>
+<p class="card-label">100 CSS px 크기 비교. 원본 파일을 수정하지 않고 표시 크기만 바꿉니다. 기능명은 항상 읽을 수 있는 글자로 함께 표시합니다.</p>
+<ul><li>빛은 좌측 위에서. 미세한 결은 재질을 구분할 정도로 두고, 거친 노이즈를 UI 전체에 덮지 않습니다.</li><li>넓고 매끈한 플라스틱 광택, 젤리 같은 재질, 오브젝트 주변의 큰 발광은 사용하지 않습니다.</li><li>수호 캐릭터는 현재 정본을 작게 사용합니다. 이번 UI에는 새 대형 호랑이·까치·해태를 반복 배치하지 않습니다.</li><li>인물은 상대를 알려주는 프로필입니다. 수진의 짧은 다크브라운 머리, 크리스티안의 금발·세이지 다크블루 눈을 담은 이전 검토 에셋을 보존해 사용했습니다.</li></ul>
+
+<h2>직접 쓴 한국어 · 영어 · 독일어</h2>
+<p>번역 스킬을 적용하지 않고 한국어 문장을 먼저 쓰고, 영어와 독일어를 각각 직접 옮겼습니다. 성인 친구 수진과 크리스티안이 대학교 근처에서 오후에 만날 약속을 잡는 검토 장면입니다. 반말·독일어 du·일상 영어를 맞췄습니다.</p>
+<div class="table-scroll"><table><thead><tr><th>화행</th><th>한국어</th><th>English</th><th>Deutsch</th></tr></thead><tbody id="turn-table"></tbody></table></div>
+<p><strong>“커피 마시러 갈래?”</strong>는 함께 나가자는 초대입니다. “커피 좀 사다 줄래?”는 가져다 달라는 부탁이므로 같은 학습 문장으로 바꾸어 쓰지 않습니다. 영어의 <span lang="en">grab a coffee</span>는 친구끼리의 자연스러운 표현으로 옮겼고, 장면과 두 잔의 컵이 함께 가자는 뜻을 뒷받침합니다.</p>
+<p><strong>학교 → university / Uni:</strong> 이 장면의 장소를 대학교 근처로 명시했습니다. ‘학교’가 모든 맥락에서 대학교라는 뜻이라고 가르치지 않습니다. 세 시는 장면의 오후 시간에 따라 15:00를 뜻합니다.</p>
+<p><strong>자연스러운 거절:</strong> “미안. 오늘은 좀 어려워.” / <span lang="en">Sorry, today doesn't work for me.</span> / <span lang="de">Tut mir leid, heute passt es bei mir nicht.</span>는 자연스럽습니다. 과제가 ‘초대를 받아들이고 장소를 묻기’이므로 과제 의도와 다르다고 안내합니다. 문법 오류나 잘못된 말투로 평가하지 않습니다.</p>
+<p>UI 문장은 글자 수보다 의미를 기준으로 현지화했습니다. 예를 들어 독일어 카드 제목은 <span lang="de">Auf einen Kaffee</span>, 영어는 <span lang="en">Make plans for coffee</span>입니다. 세 언어의 설명문에서 장소와 시간을 정하는 목표를 동일하게 전달합니다. 자연스러운 다른 답변도 의미가 맞을 수 있으며, 메타데이터에 대안을 남겼습니다. 자유 발화 채점 기능은 연결하지 않았습니다.</p>
+
+<h2>표면 · 글자 · 간격</h2>
+<div class="swatches"><span style="--swatch:#FAF6EC">한지 #FAF6EC</span><span style="--swatch:#1F7A6B">녹청 #1F7A6B</span><span style="--swatch:#A0524A">석간주 #A0524A</span><span style="--swatch:#C99A2E">황색 #C99A2E</span><span style="--swatch:#5A7BA0">청색 #5A7BA0</span></div>
+<table><tbody>
+<tr><th>서체</th><td>현재 앱의 NotoSansKR Variable 파일을 바이트 그대로 복사. 새 서체를 제안하지 않습니다. 정본 라이선스도 함께 보관합니다.</td></tr>
+<tr><th>글자</th><td>화면 제목 25–28px / 학습 문장 21px / 본문·선택지 14–17px / 보조 설명 12–13px. 실제 Flutter 적용은 dp와 앱 TextScaler를 기준으로 검증해야 합니다.</td></tr>
+<tr><th>간격</th><td>화면 좌우 20px / 카드 안쪽 16–20px / 선택지 사이 10px / 기능 카드 사이 12px / 큰 문단 사이 24px.</td></tr>
+<tr><th>조작</th><td>주 CTA 최소 64px / 듣기 CTA 최소 58px / 아이콘과 보조 버튼 최소 48×48px / 5탭은 각각 폭과 높이 48px 이상. 엠블럼·화살표는 큰 버튼 안의 장식으로, 독립된 작은 조작 영역이 아닙니다.</td></tr>
+<tr><th>깊이</th><td>주 CTA의 3px 짙은 녹청 아래면, 눌릴 때 3px 이동. 기능 카드의 2–3px 낮은 아래면. 문장을 담은 카드에는 읽기를 방해할 광택을 넣지 않습니다.</td></tr>
+<tr><th>위계</th><td>큰 그림은 홈에서 하나. 듣기에서는 기능 오브젝트, 대화에서는 상대와 한국어 문장. 길어진 문장은 줄바꿈하고 세로 스크롤합니다.</td></tr>
+</tbody></table>
+
+<h2>모션과 상태 연결</h2>
+<p><strong>CTA:</strong> 홈의 책은 실제 생성한 직물·종이 재질의 작은 입체 오브젝트입니다. 주요 버튼에는 밝은 도자기색 엠블럼과 짙은 녹청 아래면, 보조 화살표를 넣었습니다. Hören 재생에는 아이콘과 Anhören / Listen / 듣기를 함께 표시하고 실제 음성이 시작하면 정지 아이콘·라벨로 바뀝니다. 비활성 CTA는 글자를 흐리지 않는 차분한 표면으로 구분합니다.</p>
+<p><a href="cta-review.html">CTA 3종을 직접 눌러 비교 →</a> 새 사용자 Pinterest 핀은 Eddie Luong의 <a href="https://de.pinterest.com/pin/844493671298625/">Chatbot Concept App</a>이며 원작은 <a href="https://dribbble.com/shots/13971536-Chatbot-Concept-Book-A-Nutritionist">Book A Nutritionist</a>입니다. 실제 영상의 대화 → 일정 선택 → 확인 버튼 흐름을 확인했습니다. 2020년 콘셉트이므로 2026년 실사용 앱 트렌드의 증거로 부르지 않습니다. 한글소리에는 상황과 다음 행동을 같은 영역에 묶는 원칙을 적용해, 시작 CTA 안에 ‘듣고 대답하기’를 짧게 보여줍니다.</p>
+<p><a href="https://developer.apple.com/design/human-interface-guidelines/buttons">Apple 버튼 지침</a>에서는 선명한 주 행동·아이콘과 텍스트 결합·누름 상태를, <a href="https://emilkowal.ski/ui/train-your-judgement">Emil의 실제 인터랙션 비교</a>에서는 작은 누름 변화와 반복 조작의 속도를 참고했습니다. 시작형은 입체 책+방향, 재생형은 한 덩어리의 플레이 컨트롤, 보상형은 현재 보자기+열기 행동으로 구분했습니다. 새 엽전 이미지는 이번 승인 버전을 유지합니다.</p>
+<h2 id="rewards">밝은 엽전 · 보자기 복원</h2>
+<p><a href="reward-board.html">엽전 획득 · 보자기 열기 비교 →</a> 홈 잔액 배지·지갑·학습 완료 보상·한옥 건축 목표를 시안에 다시 연결했습니다. 전체 화면은 밝은 한지·단청 황색·옅은 청색이며 다크 모드를 추가하지 않았습니다. Duolingo 첨부에서는 큰 보상 오브젝트 → 탭해서 열기 → 확인의 순서만 참고했습니다.</p>
+<p>현재 main의 YeopjeonService·YeopjeonWallet을 확인했습니다. 확인된 첫 레슨 20엽전, 다른 두 번째 레슨 10엽전, 이미 완료된 레슨 재개 0엽전, 건축 단계 비용 40엽전입니다. 학습으로 건축 단계가 해금된 뒤에 지을 수 있다는 조건도 보존했습니다. 복습 목표는 실제 확인 경로가 아직 없어서 앱에서 지급하지 않는 상태이므로 시안에도 보상을 추가하지 않았습니다.</p>
+<p>보자기는 현재 원본을 바이트 그대로 사용합니다. 탭으로 매듭을 푼 뒤 기존 장식 셋 중 하나를 고르며, 고르지 않은 장식도 다음 보자기에서 다시 만날 수 있다는 안내를 남겼습니다. 이 시안의 후보는 실제 보유 여부를 읽지 않는 고정 예시입니다. 엽전은 원본의 네모 구멍·단청 분할·청색 끈을 참고해 무광 주조 황동으로 새로 생성했습니다. 원본 도장도 함께 보관했습니다.</p>
+<p><strong>검토 경계:</strong> 예시 잔액 20 → 40은 브라우저 메모리 안에서만 표시되며 반복해서 보아도 40입니다. 실제 엽전 지급·소비·장식 소유권·퀘스트 기록을 변경하지 않습니다. 그림과 선택 모션은 220–480ms 한 번만 재생하고 움직임 감소 설정에서는 즉시 정적 상태를 보여줍니다.</p>
+<p><a href="motion-lab.html">Hören 카드와 재생 버튼의 4단계 모션 비교 →</a></p>
+<p>누르기 전에는 hover·focus에서 카드가 2px 들리고, 오브젝트는 작게 기울며 빛이 이동합니다. 터치가 닿으면 100ms 동안 3px 눌리고, 놓으면 240–280ms 동안 복귀합니다. 실제 화면에는 pointerdown·up·cancel과 12px 이상의 이동 취소를 연결했습니다. 눌림 효과 때문에 탐색 실행을 지연하지 않습니다. 일반 터치 화면의 손가락 접근 감지를 구현했다고 주장하지 않습니다.</p>
+<table><thead><tr><th>상태</th><th>시안의 반응</th><th>움직임 감소</th></tr></thead><tbody>
+<tr><td>누름 / 취소</td><td>100ms 표면 깊이 변화. 손을 떼면 원래 깊이로 복귀. 추가 지연 없이 클릭 처리.</td><td>위치 변화 제거. 선택 결과와 버튼 상태 유지.</td></tr>
+<tr><td>화면 진입</td><td>220ms, 7px 이동과 투명도. 이전 음성은 먼저 중단.</td><td>즉시 표시.</td></tr>
+<tr><td>듣는 중</td><td>실제 브라우저 TTS onstart 후에만 소리 표시가 움직임. 종료·오류·화면 숨김·전환 시 정지. 파형은 음압 분석값이 아닌 재생 상태 표시.</td><td>정적인 소리 표시와 ‘말하는 중’ 텍스트.</td></tr>
+<tr><td>선택 / 확인</td><td>선택 테두리와 라디오 표시. 확인 후 150ms 안내. 오답에서 화면을 흔들지 않음.</td><td>아이콘·텍스트·테두리로 동일한 정보.</td></tr>
+<tr><td>내 차례</td><td>번역과 한국어 문장의 위계, 행동 목표, 선택지가 명확히 나타남. 대기 중 반복적으로 깜박이지 않음.</td><td>같은 정적 위계.</td></tr>
+<tr><td>완료</td><td>두 답변이 확인된 뒤 완료 화면. 확인 표시가 280ms 한 번 정착. 수행한 학습 내용과 다음 행동을 보여줌.</td><td>확인 표시 즉시 표시.</td></tr>
+</tbody></table>
+<p>현재 Flutter에도 누름·진도 모션이 있습니다. 적용 단계에서는 이를 확장합니다. 햅틱은 기존 버튼 확인 반응과 합쳐 한 번만 호출하고, 읽기·대기 상태에서 반복하지 않는 것을 제안합니다. 이 웹 시안은 네이티브 햅틱을 구현하지 않습니다.</p>
+
+<h2>학습 카드 비교 · 원본 보존</h2>
+<p>이전 단계에서 만든 두 3D 카드 후보를 원본과 함께 보관했습니다. 기존 단원 ID의 의미를 바꾸지 않습니다. 아래는 CSS 표시 비교이며 원본 픽셀을 자르거나 재압축하지 않았습니다.</p>
+<div id="card-comparisons"></div>
+
+<h2>실제 앱에 적용할 때의 연결점</h2>
+<section id="packs">
+<h2>Lernen · Spiele · 252개 Packs를 가져가는 방법</h2>
+<p><a href="catalog-board.html">세 화면 비교 →</a> · <a href="catalog-review.html">실제 252개 Packs 탐색 →</a></p>
+<p>2026.10.02 현재 CSV·Dart 카탈로그·실제 WebP를 함께 확인했습니다. Packs는 <strong>252개</strong>, 전용 그림은 <strong>184종</strong>이며 나머지 68개 팩은 기존 모티프 그림을 공유합니다. 레벨별 팩 수는 A1 62 / A2 44 / B1 56 / B2 50 / C1 20 / C2 20입니다. 학습 활동 13개와 게임 활동 8개도 기존 ID와 그림으로 연결했습니다. 그림 228개 파일을 원본 바이트 그대로 복사했고, 라이브 원본 해시와 모두 일치합니다.</p>
+<p><strong>현재 그림의 장점:</strong> a1_greetings_2의 도자기·천, a2_shopping_1의 직조·황동, chosung의 나무, C1Access의 금속·목재에는 이미 실제 재질과 깊이가 있습니다. PACKS 디자인 바이블의 Premium Heritage Editorial Still Life와 C1Access 기준도 이 방향입니다. 이 자산을 보기 좋게 담는 화면이 먼저 필요합니다.</p>
+<table><thead><tr><th>영역</th><th>이번 시안</th><th>다음 적용 기준</th></tr></thead><tbody>
+<tr><td>활동 카테고리</td><td>녹청색 학습 경로, 황토색 게임 도전 영역과 차분한 카드의 강약. 기존 그림·활동명·시간 유지.</td><td>기존 SoriLearnSection 필터, 현재 13·8개 활동 ID·경로·보상 계약을 그대로 연결.</td></tr>
+<tr><td>Pack 그림</td><td>4:3 원본을 전체 표시. 제목·단어 수·완료 상태는 그림 아래. 한지·직물·도자기의 픽셀 그대로 보존.</td><td>현재 PackCard는 16:10 cover, 활동 SoriCatalogCard는 4:3 contain. 각각 비교해서 표시 비율을 결정. 무조건 같은 crop을 적용하지 않음.</td></tr>
+<tr><td>탐색</td><td>레벨별 수량, 한국어·독일어·영어 단어 검색, 실제 팩 상세 내용. 전체 목록은 지연 로딩.</td><td>실제 진도·이어하기·완료·복습 상태를 서비스에서 받고, 장식에 가리지 않는 위치에 표시.</td></tr>
+<tr><td>조작</td><td>카드 전체 2px 들림 / 2px 누름 / 짧은 복귀. 글자와 원본 그림은 함께 움직임.</td><td>평면 카드에서 내부 물체의 입체 회전·관점 변화는 만들지 않음. 개별 레이어 또는 3D 원본이 있을 때만 물체 모션을 확장.</td></tr>
+<tr><td>새 그림이 필요한 곳</td><td>현재 원본을 그대로 보여주며 의미를 확인하는 비교 도구 제공.</td><td>공유 모티프로 주제가 흐려지는 팩, 100px에서 소재를 읽기 어려운 팩부터 전용 그림을 제작. 한국어 의미·핵심 물체 2–4개·재질·안전 구도 먼저 확정.</td></tr>
+</tbody></table>
+<p><strong>재질 방향:</strong> 종이 결은 그림 속에, 도자기 유약과 직물 짜임은 물체에, 그림자는 한 방향으로 둡니다. 화면 전체에 강한 종이 노이즈를 덮으면 작은 글자가 흐려지므로 UI 면은 차분하게 유지합니다. 3D 표현을 더할 때도 기존 단청 코너·점 장식·학습 소재를 보존합니다. 캐릭터는 Packs 탐색 카드에 추가하지 않았습니다.</p>
+<p><strong>검수의 범위:</strong> 252개 팩의 파일 연결·표시 제목·원본 해시·크기를 확인했습니다. 일부 대표 그림을 직접 보고 원본·16:10·100px 비교 화면을 제공했습니다. 모든 252개 그림이 이름 없는 100px 의미 인식 검수를 통과했다고 주장하지 않습니다. 추상 개념은 제목과 실제 한국어 예시가 함께 의미를 알려야 합니다.</p>
+<p><strong>언어 처리:</strong> 새 화면의 안내문은 한국어·독일어·영어로 직접 작성했습니다. 현재 팩 이름과 단어·번역은 원래 코퍼스를 그대로 보여주며, 2,944개 단어 전체를 이번 UI 작업에서 다시 번역했다고 주장하지 않습니다. 한국어 검토 화면의 팩 제목은 핵심 한국어 단어를 사용합니다. 코퍼스의 뜻·상황·말투 검수는 원본을 보존하며 별도로 수행해야 합니다.</p>
+<p><strong>현재 콘텐츠와 연결:</strong> 메인 시안의 Lernen·Spiele 탭도 아래 실제 카탈로그를 사용합니다. 활동의 DE·EN 이름과 설명은 현재 ARB에서, ID·분류·시간·하위 경로는 현재 Dart 카탈로그에서 가져왔습니다. 디자인용 가상 게임을 나열하지 않습니다. 학습 경로·듣기·대화의 예시 체험과 실제 게임 엔진의 연결은 구분합니다.</p>
+<p class="detail-note">카탈로그를 확인한 메인 HEAD: <code id="catalog-head"></code>. 홈 원본 비교 캡처는 작업 시작 시점 5ab701bc의 화면입니다.</p>
+<div class="table-scroll"><table><thead><tr><th>탭</th><th>현재 독일어 이름</th><th>현재 영어 이름</th><th>기존 활동 ID · 경로</th></tr></thead><tbody id="activity-inventory"></tbody></table></div>
+<p><strong>관련 스킬:</strong> frontend-design-direction·ui-ux-pro-max의 실제 자산·타이포그래피·조작 상태 원칙을 적용했습니다. ui-styling의 React 도구는 설치하지 않고 간격·토큰·접근성 원칙을 적용했습니다. Google Skills 카탈로그 150개 항목에서 직접 맞는 Flutter UI 스킬을 찾지 못했습니다. ecc:taste는 음악 영상용으로, 이 작업에는 일관된 재질·조명·색감 원칙만 사용했습니다.</p>
+<a class="back-link" href="qa/catalog-source-copies.json">228개 원본 이미지 복사·해시 증거 →</a>
+</section>
+<table><thead><tr><th>현재 기반</th><th>적용할 변경</th><th>검증해야 할 계약</th></tr></thead><tbody>
+<tr><td>Sori 색·글자 토큰</td><td>현재 NotoSansKR와 색상에 표면·그림자·간격 토큰 추가</td><td>독일어 줄바꿈, 한국어 문장 우선, TextScaler, 대비</td></tr>
+<tr><td>SoriButton</td><td>기존 누름 모션에 얕은 아래면과 상태 시각 표현 연결</td><td>48dp, 중복 실행 차단, 햅틱 한 번, disabled</td></tr>
+<tr><td>Heute / Lernen</td><td>기존 추천·학습 경로에 큰 추천 영역과 그림이 있는 목록 적용</td><td>실제 추천 데이터·레벨·진도와 현재 5탭 유지</td></tr>
+<tr><td>듣기·시나리오 플레이어</td><td>재생·내 차례·선택·확인·도움 상태를 공통 표현으로 연결</td><td>실제 TTS 이벤트·화자 ID·Du/You·중단 처리</td></tr>
+<tr><td>결과·한옥·보자기</td><td>확인된 수행 내용 뒤에 정적인 성취와 절제된 완료 반응</td><td>실제 진도·보상 확인 후 표시. 가짜 점수와 선행 지급 금지</td></tr>
+</tbody></table>
+<p><strong>이번 작업의 경계:</strong> 별도 검토 폴더에 HTML 인터랙션·이미지·문장·명세를 만들었습니다. 앱 코드, ARB, 커리큘럼 정본, 실사용 이미지, 계정·진도·보상은 변경하지 않았습니다. 실제 Flutter 성능·기기 음성·햅틱 검증은 앱 적용 단계에서 해야 합니다.</p>
+<a class="back-link" href="qa/browser-report.json">브라우저 검수 기록 →</a>
+<script>
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+fetch('catalog-data.json').then(r=>r.json()).then(d=>{document.querySelector('#catalog-head').textContent=d.head;document.querySelector('#activity-inventory').innerHTML=d.activities.map(a=>`<tr><td>${a.tab==='learn'?'Lernen':'Spiele'}</td><td>${esc(a.title.de)}</td><td>${esc(a.title.en)}</td><td><code>${esc(a.id)}</code><br>${esc([a.route,...a.detailRouteAliases].join(' · '))}</td></tr>`).join('');});
+fetch('content.json').then(r=>r.json()).then(d=>{
+const acts=['함께 나가자고 제안','초대 수락·장소 질문','장소·시간 제안','시간 확인'];
+document.querySelector('#turn-table').innerHTML=d.scene.turns.map((t,i)=>`<tr><td>${acts[i]}</td><td lang="ko">${esc(t.ko)}</td><td lang="en">${esc(t.en)}</td><td lang="de">${esc(t.de)}</td></tr>`).join('');
+});
+document.querySelector('#card-comparisons').innerHTML=['a1_greetings_2','A1Arrival'].map(id=>`<article class="card-pair"><h3>${id}</h3><div class="pair"><div><p class="card-label">4:3 원본</p><img src="assets/${id}-original.webp" alt="${id} 원본"></div><div><p class="card-label">4:3 · 이전 3D 후보</p><img src="assets/${id}-3d.png" alt="${id} 3D 후보"></div></div><div class="pair"><div><p class="card-label">16:10 표시</p><img class="card-crop" src="assets/${id}-original.webp" alt="${id} 원본 16:10"><p class="card-label">100px</p><img class="thumb100" src="assets/${id}-original.webp" alt="${id} 원본 100px"></div><div><p class="card-label">16:10 표시</p><img class="card-crop" src="assets/${id}-3d.png" alt="${id} 3D 16:10"><p class="card-label">100px</p><img class="thumb100" src="assets/${id}-3d.png" alt="${id} 3D 100px"></div></div></article>`).join('');
+</script>
+</body></html>

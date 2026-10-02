@@ -1,0 +1,116 @@
+[
+  {
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0fcf4-681f-7c21-8c3a-bd5dff48c05f\\exec-82b468a4-702c-4e11-ac57-a90bdc8a1a17.png",
+    "path": "assets/coffee.png",
+    "bytes": 1705464,
+    "sha256": "fa6008b67cc5a0670ef64edffd3ebc0b5f56657f2fb9bc08f56c4912b3ddc7c6"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0fcf4-681f-7c21-8c3a-bd5dff48c05f\\exec-7478cfad-6e5e-43c3-b8b6-913fe2843a4d.png",
+    "path": "iterations/coffee-initial.png",
+    "bytes": 1583728,
+    "sha256": "a6d9c3bf0eaa647608d0624791552b79da730e2c39597275dba00aeefe506832"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0fcf4-681f-7c21-8c3a-bd5dff48c05f\\exec-784a1bcf-dda0-4ffe-9f38-6263d04f1cc1.png",
+    "path": "assets/speaker.png",
+    "bytes": 1754130,
+    "sha256": "0fe547bd137c4dd504474ee6d2a3176058366175b7a039405f2f7169a87c974a"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0fcf4-681f-7c21-8c3a-bd5dff48c05f\\exec-16120da9-7798-4680-b471-e857c21649ac.png",
+    "path": "iterations/speaker-initial.png",
+    "bytes": 1740951,
+    "sha256": "eb5972ba49cd30e73e7f811c0fa37cb60b9b293c71b36a34c4a5393765885530"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0fcf4-681f-7c21-8c3a-bd5dff48c05f\\exec-6f28c175-6361-4fad-b2d3-2c520504fb8d.png",
+    "path": "assets/book.png",
+    "bytes": 1512411,
+    "sha256": "58b15aa67c40c541124425d3b750fc59990664b4ee4e2f16f5d82b17966d6696"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0fcf4-681f-7c21-8c3a-bd5dff48c05f\\exec-d6ad6c67-364d-4e91-8fc1-b11ad358ad89.png",
+    "path": "iterations/book-initial.png",
+    "bytes": 1915383,
+    "sha256": "c575fc1eba41c3dc34047f29fb5374f5910c562aa9d91dbed2050d8ac014f3b8"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0fcf4-681f-7c21-8c3a-bd5dff48c05f\\exec-0eac2606-7366-4ea6-a399-f49e1497c801.png",
+    "path": "assets/conversation.png",
+    "bytes": 1192378,
+    "sha256": "afe6efb3e70ba88e13b165fb365b805fc4d83ea7f04d2b9f7455c22175c3f614"
+  },
+  {
+    "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0fcf4-681f-7c21-8c3a-bd5dff48c05f\\exec-ba48a955-d968-4282-af42-5c83f47f437c.png",
+    "path": "iterations/conversation-initial.png",
+    "bytes": 1400745,
+    "sha256": "525c7e860efc7f17b446c80a46c6f33015eeebe520f18fb728099ff40fef62e5"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets\\fonts\\NotoSansKR\\NotoSansKR-Variable.ttf",
+    "path": "assets/NotoSansKR-Variable.ttf",
+    "bytes": 10414588,
+    "sha256": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets\\fonts\\NotoSansKR\\OFL.txt",
+    "path": "assets/OFL.txt",
+    "bytes": 4480,
+    "sha256": "7accca2f29220c9ab44e4950799b821f36ebf5bbe6b5fb5342724b32228a8daf"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets\\illustrations\\mascot\\tiger_front.png",
+    "path": "assets/tiger.png",
+    "bytes": 510150,
+    "sha256": "c1e9976e398e92e03cfdc69e91415530a5780b3a38d5ac6c7e13f66249ad18fb"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets\\illustrations\\hanok\\estate_overview.webp",
+    "path": "assets/hanok.webp",
+    "bytes": 344926,
+    "sha256": "778024829ef0fc1557505610568dc2e7c7c82363f5825bbf60bf3649fc9ff066"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets_unused\\pending_review\\dancheong_3d_concept_20261002\\characters\\sujin_v2_short_bob.png",
+    "path": "assets/sujin.png",
+    "bytes": 555923,
+    "sha256": "d8b54abb44c4de062470ee2ba392f6eea6d8e8817cdad161dc6091456a4093fe"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets_unused\\pending_review\\dancheong_3d_concept_20261002\\characters\\christian.png",
+    "path": "assets/christian.png",
+    "bytes": 610893,
+    "sha256": "7aafb4ba6304d3512859748fff0404b5839252165e2a937a41892e2d02c0d1e5"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets_unused\\pending_review\\dancheong_3d_concept_20261002\\references\\current_today_390.png",
+    "path": "assets/current-today.png",
+    "bytes": 119605,
+    "sha256": "1c9975c346722823cd36fbb0dad9eb70f66dfe0a974eb2cec2619f0db05bacaa"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets_unused\\pending_review\\dancheong_3d_concept_20261002\\originals\\a1_greetings_2_original.webp",
+    "path": "assets/a1_greetings_2-original.webp",
+    "bytes": 97834,
+    "sha256": "4ebe42c7ab3b04bbdb3494d972e841710afa041fb025ded7b6ea8a1cca4429d2"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets_unused\\pending_review\\dancheong_3d_concept_20261002\\originals\\A1Arrival_original.webp",
+    "path": "assets/A1Arrival-original.webp",
+    "bytes": 89654,
+    "sha256": "8f9f2a3539b216a86ff5c6d06b1eee7ebc3e1b0cc3456670f95ed145ee068787"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets_unused\\pending_review\\dancheong_3d_concept_20261002\\cards\\a1_greetings_2_3d.png",
+    "path": "assets/a1_greetings_2-3d.png",
+    "bytes": 1890051,
+    "sha256": "a877a568d1d6761e1aa0a214820275343e080664ff8c8c50ed5c140effd1ccd0"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets_unused\\pending_review\\dancheong_3d_concept_20261002\\cards\\A1Arrival_3d.png",
+    "path": "assets/A1Arrival-3d.png",
+    "bytes": 1477900,
+    "sha256": "4f66eb4aae6b8a57a6429f623a440778aa251ba7fdf3ce8710d4c938336e3a1b"
+  }
+]

@@ -148,9 +148,10 @@ void main() {
     }).toList();
     // Integrated recovery/privacy widgets plus the five-tab catalog surfaces.
     // 2026-09-15 (C8): +1 — ai_voice_notice_host joins Study and evidence.
-    expect(actual, hasLength(144));
+    // 2026-10-02: +1 — tactile settings entry keeps existing account routes.
+    expect(actual, hasLength(149));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(144));
+    expect(listed, hasLength(149));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

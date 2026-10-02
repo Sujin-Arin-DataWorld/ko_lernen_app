@@ -1,0 +1,50 @@
+{
+  "sourceHead": "797160b0664172b2956be0e202bb5df9b246b65c",
+  "copies": [
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets\\illustrations\\stamps\\stamp_yeopjeon.png",
+      "review": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets_unused\\pending_review\\dancheong_3d_concept_20261002\\v3\\assets\\yeopjeon-original.png",
+      "sha256": "312ed43c4c847ea9901c61b1298fa67b821db30cf0cd61b0d604f68a520f14d6"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets\\illustrations\\reward\\reward_bojagi_closed.png",
+      "review": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets_unused\\pending_review\\dancheong_3d_concept_20261002\\v3\\assets\\bojagi-closed.png",
+      "sha256": "d6dbc4121a5b2cdc96607824663b992a5e762ea2030a809430be1b2a2b46446a"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets\\illustrations\\reward\\reward_bojagi_open.png",
+      "review": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets_unused\\pending_review\\dancheong_3d_concept_20261002\\v3\\assets\\bojagi-open.png",
+      "sha256": "9fac814f411c84025e09954e4f5ca20b311a6e7be49a26d250316bc030a25064"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets\\illustrations\\decorations\\decoration_seoan.png",
+      "review": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets_unused\\pending_review\\dancheong_3d_concept_20261002\\v3\\assets\\decoration-seoan.png",
+      "sha256": "59e488f8cf212911439f7d73818d809a0667ad9c06361ddc08571a331b96f4e7"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets\\illustrations\\decorations\\decoration_munbangsau.png",
+      "review": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets_unused\\pending_review\\dancheong_3d_concept_20261002\\v3\\assets\\decoration-munbangsau.png",
+      "sha256": "c426659dd57457a3318703a6a45b4abba777abaddde1f7e199581712b3481ce2"
+    },
+    {
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app\\assets\\illustrations\\decorations\\decoration_soban.png",
+      "review": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dancheong-3d-concept-20261002\\assets_unused\\pending_review\\dancheong_3d_concept_20261002\\v3\\assets\\decoration-soban.png",
+      "sha256": "b58b85ae4eecad72509834e7d9db6b634e28d75b9d4b2f914f3ca539f7ed2c91"
+    }
+  ],
+  "sourceHashes": {
+    "lib/models/yeopjeon_wallet.dart": "c8a9bbc237ba8bec532e6b2f2d27442e362ae3d43370436fc5b123487458d828",
+    "lib/services/yeopjeon_service.dart": "8f827063ab636a25d9844bd320b94a24d7ade8ebf07a8d36a4298def132f9161",
+    "lib/services/decoration_reward_service.dart": "324997ce8696108d23ac74e5df709e5d7ef8c4dc418503638842a2e7ee7d7ef2",
+    "lib/screens/bojagi_screen.dart": "78d86f35e20cb08fd17a4601b8239bc48ef3413e7e93cd2fda3de3cfb3c6ea0e",
+    "lib/screens/sori_stage/sori_stage_today_screen.dart": "fb1dd9be18e0f046625375c5f1527a2473cd98c1f901ba215dab505a72799a89"
+  },
+  "rules": {
+    "firstDistinctConfirmedLesson": 20,
+    "secondDistinctConfirmedLesson": 10,
+    "constructionStage": 40,
+    "repeatCompletion": 0,
+    "bojagi": "tap to untie; choose one of three existing decoration candidates; separate from coin income"
+  },
+  "boundary": "REVIEW_ONLY. In-memory example balance and selection. No account read, award, spend or ownership mutation."
+}

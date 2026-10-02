@@ -49,6 +49,22 @@ void main() {
 
   tearDown(() => cloudJournalState.dispose());
 
+  testWidgets('settings keeps the complete profile reachable', (tester) async {
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text(_l10n.profileTitle));
+    await tester.pumpAndSettle();
+    expect(find.text('Profile target'), findsOneWidget);
+  });
+
   testWidgets('course preview from settings is read-only and reachable', (
     tester,
   ) async {
@@ -2175,6 +2191,7 @@ Widget _wrapForLocale(
       child: appChild!,
     ),
     routes: {
+      '/profile': (_) => const Scaffold(body: Text('Profile target')),
       '/splash': (_) => const Scaffold(body: Text('consent-restart-test')),
       '/course/phases': (_) =>
           const Scaffold(body: Text('Course preview target')),
