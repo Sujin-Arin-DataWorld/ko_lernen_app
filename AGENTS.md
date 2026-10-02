@@ -441,10 +441,10 @@ flutter run -d <android-id>   # 안드로이드
   그려 05~10 계보를 새로 만든다. BBANANA ledger는 이관하지 않음.
 - [ ] **다음 콘텐츠**: 다음 번호는 Batch 11. `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`.
   review 승인 전에는 앱 데이터, TTS, Firebase에 쓰지 않는다. 4× 단어 목표(4752)까지 잔량.
-- [ ] **KO–EN–DE 문장 후속 검수**: 2026-09-30 교정 범위, TTS·코스 지문 검증,
-  다음 B1–C2 문항·페르소나 대사 검수 순서는
-  `docs/content_qa/trilingual_sentence_review_20260930.md`를 본다. 이번 배치는
-  전수 검수나 원어민 승인이 아니다.
+- [ ] **KO–EN–DE 콘텐츠 후속 검수**: 현재 범위·레코드 지문·검증 결과는
+  `docs/content_qa/direct_editorial_audit_20261002.json`이 정본이다. 단어·예문,
+  시나리오·듣기·게임의 미검수 범위와 스몰토크 레벨·페르소나·라우팅 소견을
+  계속 검수한다. 원어민 승인·전 음성 청취·실기기 재생은 별도 미확인이다.
 - [ ] **레벨 정본화 프로그램(LCP)**: PR-L1(바이블·사전·감사기·CI) → PR-L2(번들
   재분류+배포) → A1/A2 보강 배치 23+. 진행은 `.claude/handoffs/` 최신 파일.
 - [ ] **TTS·Rules 배포 (Jin)**: 빈 캐시 거절·환급·12초 timeout·7초 deadline·

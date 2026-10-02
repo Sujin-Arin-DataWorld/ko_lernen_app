@@ -19,6 +19,8 @@ import json
 import os
 import sys
 
+from kkeunmari_editorial_revisions import apply_review
+
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 POOL = os.path.join(ROOT, "assets/data/kkeunmari_pool.json")
 VOCAB = os.path.join(ROOT, "assets/data/korean_vocab.csv")
@@ -67,6 +69,9 @@ def main():
     write = "--write" in sys.argv
     with open(POOL, encoding="utf-8") as f:
         data = json.load(f)
+
+    data["words"] = apply_review(data["words"])
+    data["meta"]["total"] = len(data["words"])
 
     vocab = {}
     with open(VOCAB, encoding="utf-8") as f:

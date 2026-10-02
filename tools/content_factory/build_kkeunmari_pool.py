@@ -47,6 +47,8 @@ import time
 import urllib.parse
 import urllib.request
 
+from kkeunmari_editorial_revisions import apply_review
+
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 POOL = os.path.join(ROOT, "assets/data/kkeunmari_pool.json")
 VOCAB = os.path.join(ROOT, "assets/data/korean_vocab.csv")
@@ -199,7 +201,7 @@ def assemble_pool(nouns: list[str], gloss: dict[str, tuple[str, str, str]],
             "level": level, "german": german, "topic": topic,
             "next_count": nc, "is_dead_end": nc == 0,
         })
-    return entries
+    return apply_review(entries)
 
 
 def write_pool(entries: list[dict], deepl_used: bool, out_path: str) -> None:

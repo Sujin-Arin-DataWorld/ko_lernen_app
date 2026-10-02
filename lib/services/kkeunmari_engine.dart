@@ -21,6 +21,7 @@ class KkeunmariWord {
   final String last;
   final String level;
   final String german;
+  final String english;
   final String topic;
   final int nextCount;
   final bool isDeadEnd;
@@ -31,6 +32,7 @@ class KkeunmariWord {
     required this.last,
     required this.level,
     required this.german,
+    this.english = '',
     required this.topic,
     required this.nextCount,
     required this.isDeadEnd,
@@ -42,10 +44,16 @@ class KkeunmariWord {
     last: (j['last'] as String?) ?? '',
     level: (j['level'] as String?) ?? 'A1',
     german: (j['german'] as String?) ?? '',
+    english: (j['english'] as String?) ?? '',
     topic: (j['topic'] as String?) ?? '',
     nextCount: (j['next_count'] as num?)?.toInt() ?? 0,
     isDeadEnd: (j['is_dead_end'] as bool?) ?? false,
   );
+
+  String meaning(String languageCode) =>
+      languageCode.toLowerCase().split(RegExp('[-_]')).first == 'en'
+      ? english
+      : german;
 
   /// A verified dictionary word that is not yet represented in the bundled
   /// game pool. The tiger still takes its next turn from the curated pool.

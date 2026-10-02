@@ -2,7 +2,7 @@
   "meta": {
     "source": "표준국어대사전(stdict) 명사 검증 + hermitdave/FrequencyWords ko_50k(빈도) + korean_vocab.csv 글로스 + DeepL DE",
     "generated_by": "tools/content_factory/build_kkeunmari_pool.py",
-    "total": 2640,
+    "total": 2705,
     "license": "CC BY-SA 2.0 KR (국립국어원 표준국어대사전) / CC BY-SA 4.0 (hermitdave FrequencyWords)",
     "attribution": [
       "국립국어원 표준국어대사전 (stdict.korean.go.kr) — CC BY-SA 2.0 KR",
@@ -11,7 +11,14 @@
     ],
     "share_alike_notice": "Derivative work distributed under CC BY-SA 2.0 KR per NIKL ShareAlike.",
     "note": "Nur stdict-verifizierte Nomen (Fragmente/Flexionsformen ausgeschlossen). next_count/is_dead_end auf dieser Menge berechnet.",
-    "merge_2026_07_vocab": "korean_vocab.csv Nomen (geprüfte de/en-Glossen) gemergt: +134 → 2634. Keine neue Übersetzung (§0). next_count/is_dead_end über die Gesamtmenge neu berechnet."
+    "merge_2026_07_vocab": "korean_vocab.csv Nomen (geprüfte de/en-Glossen) gemergt: +134 → 2634. Keine neue Übersetzung (§0). next_count/is_dead_end über die Gesamtmenge neu berechnet.",
+    "editorialReview": {
+      "ledger": "tools/content_factory/review/kkeunmari_editorial_revisions_20261002.json",
+      "reviewedRuntimeEntries": 120,
+      "quarantinedEntries": 23,
+      "englishCoverage": "partial; missing English glosses stay hidden in English UI",
+      "humanApprovalClaim": false
+    }
   },
   "words": [
     {
@@ -21,7 +28,7 @@
       "level": "A1",
       "german": "Ich",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -32,16 +39,6 @@
       "german": "Das ist es",
       "topic": "",
       "next_count": 6,
-      "is_dead_end": false
-    },
-    {
-      "word": "우리",
-      "first": "우",
-      "last": "리",
-      "level": "A1",
-      "german": "wir",
-      "topic": "Person",
-      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -71,7 +68,7 @@
       "level": "A1",
       "german": "Ich",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -115,16 +112,6 @@
       "is_dead_end": false
     },
     {
-      "word": "이건",
-      "first": "이",
-      "last": "건",
-      "level": "A1",
-      "german": "Das ist",
-      "topic": "",
-      "next_count": 8,
-      "is_dead_end": false
-    },
-    {
       "word": "나도",
       "first": "나",
       "last": "도",
@@ -141,7 +128,7 @@
       "level": "A1",
       "german": "du",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -171,7 +158,7 @@
       "level": "A1",
       "german": "Wer",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -181,7 +168,7 @@
       "level": "A1",
       "german": "sehr",
       "topic": "",
-      "next_count": 30,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -241,17 +228,7 @@
       "level": "A1",
       "german": "Arbeit",
       "topic": "",
-      "next_count": 51,
-      "is_dead_end": false
-    },
-    {
-      "word": "하지",
-      "first": "하",
-      "last": "지",
-      "level": "A1",
-      "german": "Beine",
-      "topic": "",
-      "next_count": 28,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -261,8 +238,9 @@
       "level": "A1",
       "german": "Mama (informell)",
       "topic": "Familie",
-      "next_count": 38,
-      "is_dead_end": false
+      "next_count": 37,
+      "is_dead_end": false,
+      "english": "mom"
     },
     {
       "word": "바로",
@@ -271,7 +249,7 @@
       "level": "A1",
       "german": "Genau",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -335,16 +313,6 @@
       "is_dead_end": true
     },
     {
-      "word": "대해",
-      "first": "대",
-      "last": "해",
-      "level": "A1",
-      "german": "In Bezug auf",
-      "topic": "",
-      "next_count": 20,
-      "is_dead_end": false
-    },
-    {
       "word": "아빠",
       "first": "아",
       "last": "빠",
@@ -352,7 +320,8 @@
       "german": "Papa (informell)",
       "topic": "Familie",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "dad"
     },
     {
       "word": "사람",
@@ -362,7 +331,8 @@
       "german": "Mensch",
       "topic": "",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "person"
     },
     {
       "word": "수도",
@@ -372,7 +342,8 @@
       "german": "Hauptstadt",
       "topic": "",
       "next_count": 16,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "capital city"
     },
     {
       "word": "거지",
@@ -382,7 +353,8 @@
       "german": "Bettler",
       "topic": "",
       "next_count": 28,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "beggar"
     },
     {
       "word": "만약",
@@ -429,10 +401,11 @@
       "first": "가",
       "last": "장",
       "level": "A1",
-      "german": "am meisten",
+      "german": "Familienoberhaupt",
       "topic": "",
       "next_count": 17,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "head of a household"
     },
     {
       "word": "가자",
@@ -441,7 +414,7 @@
       "level": "A1",
       "german": "Los geht’s",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -452,7 +425,8 @@
       "german": "Bericht",
       "topic": "",
       "next_count": 23,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "report"
     },
     {
       "word": "이미",
@@ -471,7 +445,7 @@
       "level": "A1",
       "german": "auf keinen Fall",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -482,17 +456,8 @@
       "german": "sofort",
       "topic": "",
       "next_count": 17,
-      "is_dead_end": false
-    },
-    {
-      "word": "대한",
-      "first": "대",
-      "last": "한",
-      "level": "A1",
-      "german": "Korea",
-      "topic": "",
-      "next_count": 14,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "right now; immediately"
     },
     {
       "word": "말은",
@@ -525,16 +490,6 @@
       "is_dead_end": false
     },
     {
-      "word": "자기",
-      "first": "자",
-      "last": "기",
-      "level": "A1",
-      "german": "Magnet",
-      "topic": "",
-      "next_count": 25,
-      "is_dead_end": false
-    },
-    {
       "word": "하면",
       "first": "하",
       "last": "면",
@@ -561,7 +516,7 @@
       "level": "A1",
       "german": "Wahrscheinlich",
       "topic": "",
-      "next_count": 38,
+      "next_count": 37,
       "is_dead_end": false
     },
     {
@@ -572,17 +527,8 @@
       "german": "Geschichte",
       "topic": "",
       "next_count": 25,
-      "is_dead_end": false
-    },
-    {
-      "word": "저도",
-      "first": "저",
-      "last": "도",
-      "level": "A1",
-      "german": "Ich auch",
-      "topic": "",
-      "next_count": 16,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "story; conversation"
     },
     {
       "word": "시간",
@@ -601,7 +547,7 @@
       "level": "A1",
       "german": "Zunächst",
       "topic": "",
-      "next_count": 7,
+      "next_count": 6,
       "is_dead_end": false
     },
     {
@@ -611,7 +557,7 @@
       "level": "A1",
       "german": "Anzahl",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -625,24 +571,15 @@
       "is_dead_end": false
     },
     {
-      "word": "완전",
-      "first": "완",
-      "last": "전",
-      "level": "A1",
-      "german": "Völlig",
-      "topic": "",
-      "next_count": 30,
-      "is_dead_end": false
-    },
-    {
       "word": "동안",
       "first": "동",
       "last": "안",
       "level": "A1",
-      "german": "während dieser Zeit",
+      "german": "Zeitraum / Dauer",
       "topic": "",
       "next_count": 14,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "period of time; duration"
     },
     {
       "word": "일은",
@@ -662,7 +599,8 @@
       "german": "Freund/Freundin",
       "topic": "Beziehungen",
       "next_count": 11,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "friend"
     },
     {
       "word": "자네",
@@ -679,20 +617,22 @@
       "first": "사",
       "last": "실",
       "level": "A1",
-      "german": "Tatsächlich",
+      "german": "Tatsache / Wahrheit",
       "topic": "",
       "next_count": 13,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "fact; truth"
     },
     {
       "word": "대체",
       "first": "대",
       "last": "체",
       "level": "A1",
-      "german": "Stattdessen",
+      "german": "Ersatz / Austausch",
       "topic": "",
       "next_count": 5,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "replacement; substitution"
     },
     {
       "word": "혼자",
@@ -701,7 +641,7 @@
       "level": "A2",
       "german": "alleine",
       "topic": "Alltag",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -709,10 +649,11 @@
       "first": "다",
       "last": "음",
       "level": "A1",
-      "german": "Weiter",
+      "german": "das Nächste / danach",
       "topic": "",
       "next_count": 5,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "next; what follows"
     },
     {
       "word": "물론",
@@ -745,16 +686,6 @@
       "is_dead_end": false
     },
     {
-      "word": "이리",
-      "first": "이",
-      "last": "리",
-      "level": "A1",
-      "german": "Hierher",
-      "topic": "",
-      "next_count": 11,
-      "is_dead_end": false
-    },
-    {
       "word": "내일",
       "first": "내",
       "last": "일",
@@ -765,34 +696,26 @@
       "is_dead_end": false
     },
     {
-      "word": "이상",
-      "first": "이",
-      "last": "상",
-      "level": "A1",
-      "german": "Das war's",
-      "topic": "",
-      "next_count": 13,
-      "is_dead_end": false
-    },
-    {
       "word": "여자",
       "first": "여",
       "last": "자",
       "level": "A1",
       "german": "Frau",
       "topic": "",
-      "next_count": 42,
-      "is_dead_end": false
+      "next_count": 40,
+      "is_dead_end": false,
+      "english": "woman"
     },
     {
       "word": "가지",
       "first": "가",
       "last": "지",
       "level": "A1",
-      "german": "Aubergine",
+      "german": "Aubergine / Art, Sorte",
       "topic": "",
       "next_count": 28,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "eggplant; kind, type"
     },
     {
       "word": "필요",
@@ -802,7 +725,8 @@
       "german": "Notwendigkeit",
       "topic": "",
       "next_count": 9,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "need; necessity"
     },
     {
       "word": "가요",
@@ -812,7 +736,8 @@
       "german": "Popmusik",
       "topic": "",
       "next_count": 9,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "popular song"
     },
     {
       "word": "알지",
@@ -862,7 +787,8 @@
       "german": "Vater (formell)",
       "topic": "Familie",
       "next_count": 28,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "father"
     },
     {
       "word": "언제",
@@ -882,7 +808,8 @@
       "german": "Gedanke / Meinung",
       "topic": "Kommunikation",
       "next_count": 4,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "thought; opinion"
     },
     {
       "word": "해서",
@@ -902,17 +829,8 @@
       "german": "Das Ende",
       "topic": "",
       "next_count": 2,
-      "is_dead_end": false
-    },
-    {
-      "word": "오래",
-      "first": "오",
-      "last": "래",
-      "level": "A1",
-      "german": "lange",
-      "topic": "",
-      "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": false,
+      "english": "end; last part"
     },
     {
       "word": "제일",
@@ -951,8 +869,9 @@
       "level": "A1",
       "german": "Mann",
       "topic": "",
-      "next_count": 42,
-      "is_dead_end": false
+      "next_count": 40,
+      "is_dead_end": false,
+      "english": "man"
     },
     {
       "word": "보여",
@@ -972,7 +891,8 @@
       "german": "Ton",
       "topic": "",
       "next_count": 11,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "sound"
     },
     {
       "word": "처음",
@@ -982,7 +902,8 @@
       "german": "Zum ersten Mal",
       "topic": "",
       "next_count": 5,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "beginning; first time"
     },
     {
       "word": "와서",
@@ -1012,7 +933,8 @@
       "german": "ein bisschen / etwas",
       "topic": "Alltag",
       "next_count": 7,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "a small amount; a little"
     },
     {
       "word": "서로",
@@ -1021,7 +943,7 @@
       "level": "A1",
       "german": "untereinander",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -1031,17 +953,7 @@
       "level": "A1",
       "german": "sehr",
       "topic": "",
-      "next_count": 11,
-      "is_dead_end": false
-    },
-    {
-      "word": "단지",
-      "first": "단",
-      "last": "지",
-      "level": "A1",
-      "german": "nur",
-      "topic": "",
-      "next_count": 28,
+      "next_count": 10,
       "is_dead_end": false
     },
     {
@@ -1049,10 +961,11 @@
       "first": "미",
       "last": "안",
       "level": "A1",
-      "german": "Entschuldigung",
+      "german": "Bedauern (anderen gegenüber)",
       "topic": "",
       "next_count": 14,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "feeling sorry toward someone"
     },
     {
       "word": "가고",
@@ -1081,7 +994,7 @@
       "level": "A1",
       "german": "nicht besonders",
       "topic": "Alltag",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -1092,7 +1005,8 @@
       "german": "Geschichte",
       "topic": "",
       "next_count": 25,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "story; conversation"
     },
     {
       "word": "부인",
@@ -1102,7 +1016,8 @@
       "german": "Ehefrau",
       "topic": "",
       "next_count": 31,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "wife; married woman"
     },
     {
       "word": "수술",
@@ -1112,7 +1027,8 @@
       "german": "Operation",
       "topic": "",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "surgery; operation"
     },
     {
       "word": "준비",
@@ -1122,7 +1038,8 @@
       "german": "Vorbereitung",
       "topic": "",
       "next_count": 19,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "preparation"
     },
     {
       "word": "전화",
@@ -1132,7 +1049,8 @@
       "german": "Telefon / Anruf",
       "topic": "Kommunikation",
       "next_count": 11,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "phone; phone call"
     },
     {
       "word": "이번",
@@ -1142,7 +1060,8 @@
       "german": "Dieses Mal",
       "topic": "",
       "next_count": 6,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "this time"
     },
     {
       "word": "후에",
@@ -1162,7 +1081,8 @@
       "german": "Nerven",
       "topic": "",
       "next_count": 17,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "nerve"
     },
     {
       "word": "일단",
@@ -1171,7 +1091,7 @@
       "level": "A1",
       "german": "Zunächst einmal",
       "topic": "",
-      "next_count": 5,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -1182,7 +1102,8 @@
       "german": "Gaya",
       "topic": "",
       "next_count": 6,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "Gaya (ancient Korean confederacy)"
     },
     {
       "word": "걱정",
@@ -1192,7 +1113,8 @@
       "german": "Sorgen",
       "topic": "",
       "next_count": 19,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "worry"
     },
     {
       "word": "보자",
@@ -1201,7 +1123,7 @@
       "level": "A1",
       "german": "Mal sehen",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -1222,27 +1144,19 @@
       "german": "Morgen / Frühstück",
       "topic": "Zeit",
       "next_count": 3,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "morning; breakfast"
     },
     {
       "word": "대신",
       "first": "대",
       "last": "신",
       "level": "A1",
-      "german": "stattdessen",
+      "german": "Ersatz / Vertretung",
       "topic": "",
-      "next_count": 21,
-      "is_dead_end": false
-    },
-    {
-      "word": "마치",
-      "first": "마",
-      "last": "치",
-      "level": "A1",
-      "german": "als ob",
-      "topic": "",
-      "next_count": 7,
-      "is_dead_end": false
+      "next_count": 20,
+      "is_dead_end": false,
+      "english": "replacement; substitute"
     },
     {
       "word": "금방",
@@ -1272,7 +1186,8 @@
       "german": "Stimmung",
       "topic": "",
       "next_count": 12,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "mood"
     },
     {
       "word": "하게",
@@ -1292,7 +1207,8 @@
       "german": "Maske",
       "topic": "",
       "next_count": 5,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "mask"
     },
     {
       "word": "저희",
@@ -1321,7 +1237,7 @@
       "level": "A1",
       "german": "Kind",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -1331,8 +1247,9 @@
       "level": "A1",
       "german": "Kind",
       "topic": "",
-      "next_count": 51,
-      "is_dead_end": false
+      "next_count": 48,
+      "is_dead_end": false,
+      "english": "child"
     },
     {
       "word": "아들",
@@ -1342,7 +1259,8 @@
       "german": "Sohn",
       "topic": "",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "son"
     },
     {
       "word": "스스로",
@@ -1351,7 +1269,7 @@
       "level": "A1",
       "german": "von selbst",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -1362,7 +1280,8 @@
       "german": "Kopf / Haare",
       "topic": "Körper",
       "next_count": 11,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "head; hair"
     },
     {
       "word": "앉아",
@@ -1381,8 +1300,9 @@
       "level": "A1",
       "german": "Patient",
       "topic": "",
-      "next_count": 42,
-      "is_dead_end": false
+      "next_count": 40,
+      "is_dead_end": false,
+      "english": "patient"
     },
     {
       "word": "건가",
@@ -1391,7 +1311,7 @@
       "level": "A1",
       "german": "Stimmt das?",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -1425,24 +1345,15 @@
       "is_dead_end": true
     },
     {
-      "word": "대로",
-      "first": "대",
-      "last": "로",
-      "level": "A1",
-      "german": "wie es ist",
-      "topic": "",
-      "next_count": 14,
-      "is_dead_end": false
-    },
-    {
       "word": "아저씨",
       "first": "아",
       "last": "씨",
       "level": "A1",
-      "german": "Herr",
+      "german": "Mann mittleren Alters (auch als Anrede)",
       "topic": "",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "middle-aged man; form of address for a man"
     },
     {
       "word": "평생",
@@ -1452,7 +1363,8 @@
       "german": "ein Leben lang",
       "topic": "",
       "next_count": 12,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "one's entire life"
     },
     {
       "word": "아까",
@@ -1485,16 +1397,6 @@
       "is_dead_end": false
     },
     {
-      "word": "너와",
-      "first": "너",
-      "last": "와",
-      "level": "A1",
-      "german": "mit dir",
-      "topic": "",
-      "next_count": 8,
-      "is_dead_end": false
-    },
-    {
       "word": "문제",
       "first": "문",
       "last": "제",
@@ -1502,7 +1404,8 @@
       "german": "Problem / Aufgabe",
       "topic": "Alltag",
       "next_count": 19,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "problem; question"
     },
     {
       "word": "조지",
@@ -1522,7 +1425,8 @@
       "german": "Abend / Abendessen",
       "topic": "Zeit",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "evening; dinner"
     },
     {
       "word": "잠시",
@@ -1541,17 +1445,7 @@
       "level": "A1",
       "german": "Grau",
       "topic": "",
-      "next_count": 51,
-      "is_dead_end": false
-    },
-    {
-      "word": "하자",
-      "first": "하",
-      "last": "자",
-      "level": "A1",
-      "german": "Los geht’s",
-      "topic": "",
-      "next_count": 42,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -1562,7 +1456,8 @@
       "german": "Maß",
       "topic": "",
       "next_count": 16,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "degree; extent"
     },
     {
       "word": "정신",
@@ -1571,8 +1466,9 @@
       "level": "A1",
       "german": "Geist",
       "topic": "",
-      "next_count": 21,
-      "is_dead_end": false
+      "next_count": 20,
+      "is_dead_end": false,
+      "english": "mind; spirit"
     },
     {
       "word": "미국",
@@ -1582,7 +1478,8 @@
       "german": "USA",
       "topic": "",
       "next_count": 5,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "the United States"
     },
     {
       "word": "입고",
@@ -1611,7 +1508,7 @@
       "level": "A1",
       "german": "Hey",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -1622,7 +1519,8 @@
       "german": "Mutter (formell)",
       "topic": "Familie",
       "next_count": 2,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "mother"
     },
     {
       "word": "관한",
@@ -1642,7 +1540,8 @@
       "german": "ältere Schwester (Sicht der Frau)",
       "topic": "Familie",
       "next_count": 2,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "older sister (used by a female); form of address for an older woman"
     },
     {
       "word": "하루",
@@ -1652,7 +1551,8 @@
       "german": "Ein Tag",
       "topic": "",
       "next_count": 4,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "one day"
     },
     {
       "word": "사랑",
@@ -1662,7 +1562,8 @@
       "german": "Liebe",
       "topic": "",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "love"
     },
     {
       "word": "일도",
@@ -1692,7 +1593,8 @@
       "german": "Laden",
       "topic": "",
       "next_count": 6,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "shop; store"
     },
     {
       "word": "이름",
@@ -1702,7 +1604,8 @@
       "german": "Name",
       "topic": "Person",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "name"
     },
     {
       "word": "건지",
@@ -1731,7 +1634,7 @@
       "level": "A1",
       "german": "Hey",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -1752,7 +1655,8 @@
       "german": "älterer Bruder (Sicht der Frau)",
       "topic": "Familie",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "older brother (used by a female); form of address for an older man"
     },
     {
       "word": "오고",
@@ -1762,16 +1666,6 @@
       "german": "und",
       "topic": "",
       "next_count": 23,
-      "is_dead_end": false
-    },
-    {
-      "word": "어린",
-      "first": "어",
-      "last": "린",
-      "level": "A1",
-      "german": "jung",
-      "topic": "",
-      "next_count": 1,
       "is_dead_end": false
     },
     {
@@ -1802,17 +1696,19 @@
       "german": "Schule",
       "topic": "Bildung",
       "next_count": 9,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "school"
     },
     {
       "word": "아가씨",
       "first": "아",
       "last": "씨",
       "level": "A1",
-      "german": "Fräulein",
+      "german": "junge Frau",
       "topic": "",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "young woman"
     },
     {
       "word": "죽인",
@@ -1832,7 +1728,8 @@
       "german": "Erinnerung",
       "topic": "",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "memory"
     },
     {
       "word": "경찰",
@@ -1842,7 +1739,8 @@
       "german": "Polizei",
       "topic": "",
       "next_count": 1,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "police; police officer"
     },
     {
       "word": "제이",
@@ -1851,7 +1749,7 @@
       "level": "A1",
       "german": "J",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -1862,7 +1760,8 @@
       "german": "Baby",
       "topic": "",
       "next_count": 25,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "baby"
     },
     {
       "word": "영화",
@@ -1872,7 +1771,8 @@
       "german": "Film",
       "topic": "Freizeit",
       "next_count": 11,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "film; movie"
     },
     {
       "word": "가족",
@@ -1882,7 +1782,8 @@
       "german": "Familie",
       "topic": "Familie",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "family"
     },
     {
       "word": "마이크",
@@ -1892,7 +1793,8 @@
       "german": "Mikrofon",
       "topic": "",
       "next_count": 6,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "microphone"
     },
     {
       "word": "얼마",
@@ -1901,8 +1803,9 @@
       "level": "A2",
       "german": "wie viel (Geld)",
       "topic": "Einkaufen",
-      "next_count": 38,
-      "is_dead_end": false
+      "next_count": 37,
+      "is_dead_end": false,
+      "english": "how much; an amount"
     },
     {
       "word": "사진",
@@ -1912,7 +1815,8 @@
       "german": "Foto",
       "topic": "",
       "next_count": 10,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "photo"
     },
     {
       "word": "바보",
@@ -1922,7 +1826,8 @@
       "german": "Dummkopf",
       "topic": "",
       "next_count": 30,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "fool"
     },
     {
       "word": "열어",
@@ -1931,7 +1836,7 @@
       "level": "A1",
       "german": "Öffnen",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -1942,26 +1847,6 @@
       "german": "Derzeit",
       "topic": "",
       "next_count": 10,
-      "is_dead_end": false
-    },
-    {
-      "word": "주지",
-      "first": "주",
-      "last": "지",
-      "level": "A1",
-      "german": "Anmerkung",
-      "topic": "",
-      "next_count": 28,
-      "is_dead_end": false
-    },
-    {
-      "word": "자주",
-      "first": "자",
-      "last": "주",
-      "level": "A1",
-      "german": "oft",
-      "topic": "Alltag",
-      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -1982,7 +1867,8 @@
       "german": "Lied",
       "topic": "",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "song"
     },
     {
       "word": "오지",
@@ -1992,7 +1878,8 @@
       "german": "Abgelegene Gegend",
       "topic": "",
       "next_count": 28,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "remote area"
     },
     {
       "word": "잡고",
@@ -2091,7 +1978,7 @@
       "level": "A1",
       "german": "Wow",
       "topic": "",
-      "next_count": 11,
+      "next_count": 10,
       "is_dead_end": false
     },
     {
@@ -2099,10 +1986,11 @@
       "first": "상",
       "last": "관",
       "level": "A1",
-      "german": "Vorgesetzter",
+      "german": "Zusammenhang / Vorgesetzter",
       "topic": "",
       "next_count": 7,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "connection; superior"
     },
     {
       "word": "사건",
@@ -2112,7 +2000,8 @@
       "german": "Vorfall",
       "topic": "",
       "next_count": 8,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "incident; case"
     },
     {
       "word": "커피",
@@ -2122,7 +2011,8 @@
       "german": "Kaffee",
       "topic": "Essen & Trinken",
       "next_count": 14,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "coffee"
     },
     {
       "word": "다신",
@@ -2131,7 +2021,7 @@
       "level": "A1",
       "german": "Wieder",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -2142,7 +2032,8 @@
       "german": "Arzt",
       "topic": "",
       "next_count": 41,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "doctor"
     },
     {
       "word": "얼굴",
@@ -2152,7 +2043,8 @@
       "german": "Gesicht",
       "topic": "",
       "next_count": 1,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "face"
     },
     {
       "word": "설마",
@@ -2161,7 +2053,7 @@
       "level": "A1",
       "german": "Das kann doch nicht sein",
       "topic": "",
-      "next_count": 38,
+      "next_count": 37,
       "is_dead_end": false
     },
     {
@@ -2182,17 +2074,19 @@
       "german": "Heirat",
       "topic": "",
       "next_count": 1,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "marriage"
     },
     {
       "word": "말씀",
       "first": "말",
       "last": "씀",
       "level": "A1",
-      "german": "Wort",
+      "german": "Worte / Äußerung (höflich)",
       "topic": "",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "words; speech (honorific)"
     },
     {
       "word": "자식",
@@ -2222,7 +2116,8 @@
       "german": "Herz",
       "topic": "",
       "next_count": 5,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "heart; mind"
     },
     {
       "word": "원해",
@@ -2242,7 +2137,8 @@
       "german": "Musik",
       "topic": "Freizeit",
       "next_count": 5,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "music"
     },
     {
       "word": "만한",
@@ -2261,7 +2157,7 @@
       "level": "A1",
       "german": "Arbeit",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -2272,7 +2168,8 @@
       "german": "Augenblick",
       "topic": "",
       "next_count": 4,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "moment"
     },
     {
       "word": "할머니",
@@ -2282,7 +2179,8 @@
       "german": "Oma",
       "topic": "",
       "next_count": 2,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "grandmother"
     },
     {
       "word": "화가",
@@ -2291,8 +2189,9 @@
       "level": "A1",
       "german": "Maler",
       "topic": "",
-      "next_count": 46,
-      "is_dead_end": false
+      "next_count": 45,
+      "is_dead_end": false,
+      "english": "painter"
     },
     {
       "word": "이지",
@@ -2311,17 +2210,7 @@
       "level": "A1",
       "german": "Minute",
       "topic": "",
-      "next_count": 51,
-      "is_dead_end": false
-    },
-    {
-      "word": "로스",
-      "first": "로",
-      "last": "스",
-      "level": "A1",
-      "german": "Ross",
-      "topic": "",
-      "next_count": 25,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -2332,7 +2221,8 @@
       "german": "Geheimnis",
       "topic": "",
       "next_count": 4,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "secret"
     },
     {
       "word": "데릭",
@@ -2349,20 +2239,11 @@
       "first": "병",
       "last": "원",
       "level": "A2",
-      "german": "Arzt / Klinik",
+      "german": "Krankenhaus / Klinik",
       "topic": "Gesundheit",
       "next_count": 7,
-      "is_dead_end": false
-    },
-    {
-      "word": "가도",
-      "first": "가",
-      "last": "도",
-      "level": "A1",
-      "german": "Straße",
-      "topic": "",
-      "next_count": 16,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "hospital; clinic"
     },
     {
       "word": "아가",
@@ -2371,7 +2252,7 @@
       "level": "A1",
       "german": "Baby",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -2381,8 +2262,9 @@
       "level": "A1",
       "german": "Okay",
       "topic": "",
-      "next_count": 51,
-      "is_dead_end": false
+      "next_count": 48,
+      "is_dead_end": false,
+      "english": "okay; agreement"
     },
     {
       "word": "이해",
@@ -2392,7 +2274,8 @@
       "german": "Verständnis",
       "topic": "",
       "next_count": 20,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "understanding"
     },
     {
       "word": "이래",
@@ -2415,24 +2298,15 @@
       "is_dead_end": false
     },
     {
-      "word": "죽지",
-      "first": "죽",
-      "last": "지",
-      "level": "A1",
-      "german": "nicht sterben",
-      "topic": "",
-      "next_count": 28,
-      "is_dead_end": false
-    },
-    {
       "word": "박사",
       "first": "박",
       "last": "사",
       "level": "A1",
-      "german": "Doktor",
+      "german": "Doktorgrad / promovierte Person",
       "topic": "",
       "next_count": 41,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "doctoral degree; person with a doctorate"
     },
     {
       "word": "적은",
@@ -2451,7 +2325,7 @@
       "level": "A1",
       "german": "Gott",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -2462,7 +2336,8 @@
       "german": "Interesse",
       "topic": "",
       "next_count": 5,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "interest"
     },
     {
       "word": "오직",
@@ -2492,7 +2367,8 @@
       "german": "Mensch",
       "topic": "",
       "next_count": 4,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "human being"
     },
     {
       "word": "제임스",
@@ -2512,27 +2388,19 @@
       "german": "Weihnachten",
       "topic": "",
       "next_count": 25,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "Christmas"
     },
     {
       "word": "보기",
       "first": "보",
       "last": "기",
       "level": "A1",
-      "german": "Anzeigen",
+      "german": "Beispiel / Muster",
       "topic": "",
       "next_count": 25,
-      "is_dead_end": false
-    },
-    {
-      "word": "신의",
-      "first": "신",
-      "last": "의",
-      "level": "A1",
-      "german": "Gott",
-      "topic": "",
-      "next_count": 17,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "example; sample"
     },
     {
       "word": "착한",
@@ -2552,7 +2420,8 @@
       "german": "Verabredung",
       "topic": "",
       "next_count": 4,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "date; romantic outing"
     },
     {
       "word": "사고",
@@ -2562,7 +2431,8 @@
       "german": "Unfall",
       "topic": "",
       "next_count": 23,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "accident"
     },
     {
       "word": "세상",
@@ -2572,7 +2442,8 @@
       "german": "Die Welt",
       "topic": "",
       "next_count": 13,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "world"
     },
     {
       "word": "세계",
@@ -2582,7 +2453,8 @@
       "german": "Welt",
       "topic": "",
       "next_count": 11,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "world"
     },
     {
       "word": "죽여",
@@ -2601,7 +2473,7 @@
       "level": "A1",
       "german": "Auto",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -2632,17 +2504,19 @@
       "german": "Drogen",
       "topic": "",
       "next_count": 8,
-      "is_dead_end": false
+      "is_dead_end": false,
+      "english": "narcotic drug"
     },
     {
       "word": "며칠",
       "first": "며",
       "last": "칠",
       "level": "A1",
-      "german": "ein paar Tage",
+      "german": "wie viele Tage / einige Tage",
       "topic": "",
       "next_count": 0,
-      "is_dead_end": true
+      "is_dead_end": true,
+      "english": "how many days; a few days"
     },
     {
       "word": "배가",
@@ -2651,7 +2525,7 @@
       "level": "A1",
       "german": "Bauch",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -2731,7 +2605,7 @@
       "level": "A1",
       "german": "Nach oben",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -2751,7 +2625,7 @@
       "level": "A1",
       "german": "Anzahl",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -2831,7 +2705,7 @@
       "level": "A1",
       "german": "Katze",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -3181,7 +3055,7 @@
       "level": "A1",
       "german": "Eure Hoheit",
       "topic": "",
-      "next_count": 31,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -3201,7 +3075,7 @@
       "level": "A1",
       "german": "Wasser",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -3221,7 +3095,7 @@
       "level": "A1",
       "german": "Ray",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -3261,7 +3135,7 @@
       "level": "A1",
       "german": "Riga",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -3381,7 +3255,7 @@
       "level": "A1",
       "german": "Eure Majestät",
       "topic": "",
-      "next_count": 31,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -3411,7 +3285,7 @@
       "level": "A1",
       "german": "Fall",
       "topic": "",
-      "next_count": 11,
+      "next_count": 10,
       "is_dead_end": false
     },
     {
@@ -3451,7 +3325,7 @@
       "level": "A1",
       "german": "Hand",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -3561,7 +3435,7 @@
       "level": "A1",
       "german": "Ankunft",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -3571,7 +3445,7 @@
       "level": "A1",
       "german": "mit Worten",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -3591,7 +3465,7 @@
       "level": "A1",
       "german": "Der Hund",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -3661,7 +3535,7 @@
       "level": "A1",
       "german": "anwesend",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -3681,7 +3555,7 @@
       "level": "A1",
       "german": "Selbst",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -3871,7 +3745,7 @@
       "level": "A1",
       "german": "Bier",
       "topic": "",
-      "next_count": 30,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -3991,7 +3865,7 @@
       "level": "A1",
       "german": "Bett",
       "topic": "Alltag",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -4141,7 +4015,7 @@
       "level": "A1",
       "german": "Kleiner",
       "topic": "",
-      "next_count": 38,
+      "next_count": 37,
       "is_dead_end": false
     },
     {
@@ -4241,7 +4115,7 @@
       "level": "A1",
       "german": "Alter",
       "topic": "Person",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -4261,7 +4135,7 @@
       "level": "A1",
       "german": "Pause",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -4281,7 +4155,7 @@
       "level": "A1",
       "german": "Äh",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -4331,7 +4205,7 @@
       "level": "A1",
       "german": "jeweils",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -4351,7 +4225,7 @@
       "level": "A1",
       "german": "mit einem Sieb",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -4371,7 +4245,7 @@
       "level": "A2",
       "german": "Nachricht (SMS)",
       "topic": "Kommunikation",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -4401,7 +4275,7 @@
       "level": "A1",
       "german": "mit dem Auto",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -4471,7 +4345,7 @@
       "level": "A1",
       "german": "Video",
       "topic": "",
-      "next_count": 35,
+      "next_count": 34,
       "is_dead_end": false
     },
     {
@@ -4511,7 +4385,7 @@
       "level": "A1",
       "german": "Mütze",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -4581,7 +4455,7 @@
       "level": "A1",
       "german": "Joy",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -4691,7 +4565,7 @@
       "level": "A1",
       "german": "Weltraum",
       "topic": "",
-      "next_count": 30,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -4711,7 +4585,7 @@
       "level": "A1",
       "german": "Regen",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -4821,8 +4695,8 @@
       "level": "A1",
       "german": "Ecke",
       "topic": "",
-      "next_count": 1,
-      "is_dead_end": false
+      "next_count": 0,
+      "is_dead_end": true
     },
     {
       "word": "마리",
@@ -4891,7 +4765,7 @@
       "level": "A1",
       "german": "Tante",
       "topic": "",
-      "next_count": 38,
+      "next_count": 37,
       "is_dead_end": false
     },
     {
@@ -4931,7 +4805,7 @@
       "level": "A1",
       "german": "Die Sonne",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -5011,7 +4885,7 @@
       "level": "A1",
       "german": "Hintern",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -5051,7 +4925,7 @@
       "level": "A1",
       "german": "Straße",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -5081,7 +4955,7 @@
       "level": "A1",
       "german": "Hals",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -5111,7 +4985,7 @@
       "level": "A1",
       "german": "danach",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -5261,7 +5135,7 @@
       "level": "A1",
       "german": "schwul",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -5301,7 +5175,7 @@
       "level": "A1",
       "german": "zu mir",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -5311,7 +5185,7 @@
       "level": "A1",
       "german": "Seine Heiligkeit",
       "topic": "",
-      "next_count": 31,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -5461,7 +5335,7 @@
       "level": "A1",
       "german": "Yang-i",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -5491,7 +5365,7 @@
       "level": "A1",
       "german": "Bequemlichkeit",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -5591,7 +5465,7 @@
       "level": "A1",
       "german": "Schwangerschaft",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -5811,7 +5685,7 @@
       "level": "A1",
       "german": "Eure Exzellenz",
       "topic": "",
-      "next_count": 31,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -5951,7 +5825,7 @@
       "level": "A1",
       "german": "vor allem",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -5981,8 +5855,8 @@
       "level": "A1",
       "german": "Partner",
       "topic": "",
-      "next_count": 1,
-      "is_dead_end": false
+      "next_count": 0,
+      "is_dead_end": true
     },
     {
       "word": "감시",
@@ -6021,7 +5895,7 @@
       "level": "A1",
       "german": "Punkt",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -6101,7 +5975,7 @@
       "level": "A1",
       "german": "zwischen / Zwischenraum",
       "topic": "Beziehungen",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -6121,7 +5995,7 @@
       "level": "A1",
       "german": "Maximal",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -6161,7 +6035,7 @@
       "level": "A1",
       "german": "ein Schlag",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -6221,7 +6095,7 @@
       "level": "A1",
       "german": "sich selbst",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -6291,7 +6165,7 @@
       "level": "A1",
       "german": "Zusammenfassung",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -6351,7 +6225,7 @@
       "level": "A1",
       "german": "Krankheit",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -6511,7 +6385,7 @@
       "level": "A1",
       "german": "Lass es sein",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -6571,7 +6445,7 @@
       "level": "A1",
       "german": "Teufel",
       "topic": "",
-      "next_count": 38,
+      "next_count": 37,
       "is_dead_end": false
     },
     {
@@ -6581,7 +6455,7 @@
       "level": "A1",
       "german": "Lass uns essen",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -6601,7 +6475,7 @@
       "level": "A1",
       "german": "Hasin",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -6651,7 +6525,7 @@
       "level": "A1",
       "german": "innerlich",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -6691,7 +6565,7 @@
       "level": "A1",
       "german": "Medikamente",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -6751,7 +6625,7 @@
       "level": "A1",
       "german": "Das Gehirn",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -6771,7 +6645,7 @@
       "level": "A1",
       "german": "Anziehen",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -7061,7 +6935,7 @@
       "level": "A1",
       "german": "Louis",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -7151,7 +7025,7 @@
       "level": "A1",
       "german": "Hallo",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -7331,7 +7205,7 @@
       "level": "A1",
       "german": "Ziga",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -7341,7 +7215,7 @@
       "level": "A1",
       "german": "Pizza",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -7351,7 +7225,7 @@
       "level": "A2",
       "german": "Urlaub / Freizeit",
       "topic": "Beruf",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -7371,7 +7245,7 @@
       "level": "A1",
       "german": "Moore",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -7391,7 +7265,7 @@
       "level": "A1",
       "german": "gegeben",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -7401,7 +7275,7 @@
       "level": "A1",
       "german": "Telekommunikation",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -7431,7 +7305,7 @@
       "level": "A1",
       "german": "Radio",
       "topic": "",
-      "next_count": 35,
+      "next_count": 34,
       "is_dead_end": false
     },
     {
@@ -7671,7 +7545,7 @@
       "level": "A1",
       "german": "mit den Füßen",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -7751,7 +7625,7 @@
       "level": "A1",
       "german": "Fuß",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -7761,7 +7635,7 @@
       "level": "A1",
       "german": "Antike",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -7961,7 +7835,7 @@
       "level": "A1",
       "german": "Mensch",
       "topic": "",
-      "next_count": 38,
+      "next_count": 37,
       "is_dead_end": false
     },
     {
@@ -8081,7 +7955,7 @@
       "level": "A1",
       "german": "Schieben",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -8091,7 +7965,7 @@
       "level": "A1",
       "german": "Land",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -8111,7 +7985,7 @@
       "level": "A1",
       "german": "Wolf",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -8181,7 +8055,7 @@
       "level": "A1",
       "german": "Englisch",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -8201,7 +8075,7 @@
       "level": "A1",
       "german": "Papier",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -8421,7 +8295,7 @@
       "level": "A1",
       "german": "Oh",
       "topic": "",
-      "next_count": 11,
+      "next_count": 10,
       "is_dead_end": false
     },
     {
@@ -8451,7 +8325,7 @@
       "level": "A1",
       "german": "Zusatz",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -8541,7 +8415,7 @@
       "level": "A1",
       "german": "mit dem Messer",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -8571,7 +8445,7 @@
       "level": "A1",
       "german": "Militär",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -8601,7 +8475,7 @@
       "level": "A1",
       "german": "Heimweg",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -8631,7 +8505,7 @@
       "level": "A1",
       "german": "Affe",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -8641,7 +8515,7 @@
       "level": "A1",
       "german": "Roy",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -8791,7 +8665,7 @@
       "level": "A1",
       "german": "Kiste",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -8891,7 +8765,7 @@
       "level": "A1",
       "german": "Müdigkeit",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -8911,7 +8785,7 @@
       "level": "A1",
       "german": "Handan",
       "topic": "",
-      "next_count": 5,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -8931,7 +8805,7 @@
       "level": "A1",
       "german": "Das Gesetz",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -9001,7 +8875,7 @@
       "level": "A1",
       "german": "Guten Nachmittag",
       "topic": "",
-      "next_count": 35,
+      "next_count": 34,
       "is_dead_end": false
     },
     {
@@ -9031,7 +8905,7 @@
       "level": "A1",
       "german": "mit dem Schiff",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -9131,7 +9005,7 @@
       "level": "A1",
       "german": "Giga",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -9241,7 +9115,7 @@
       "level": "A1",
       "german": "Rom",
       "topic": "",
-      "next_count": 38,
+      "next_count": 37,
       "is_dead_end": false
     },
     {
@@ -9251,7 +9125,7 @@
       "level": "A1",
       "german": "Der Mund",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -9281,7 +9155,7 @@
       "level": "A1",
       "german": "Treppe",
       "topic": "",
-      "next_count": 5,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -9391,7 +9265,7 @@
       "level": "A1",
       "german": "Prinzessin",
       "topic": "",
-      "next_count": 30,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -9401,7 +9275,7 @@
       "level": "A1",
       "german": "Bühne",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -9511,7 +9385,7 @@
       "level": "A1",
       "german": "Zahn",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -9561,7 +9435,7 @@
       "level": "A1",
       "german": "Ach",
       "topic": "",
-      "next_count": 11,
+      "next_count": 10,
       "is_dead_end": false
     },
     {
@@ -9571,7 +9445,7 @@
       "level": "A1",
       "german": "jede Woche",
       "topic": "",
-      "next_count": 30,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -9591,7 +9465,7 @@
       "level": "A1",
       "german": "Anka",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -9971,7 +9845,7 @@
       "level": "A1",
       "german": "Na, na",
       "topic": "",
-      "next_count": 41,
+      "next_count": 39,
       "is_dead_end": false
     },
     {
@@ -10111,7 +9985,7 @@
       "level": "A1",
       "german": "Georo",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -10161,7 +10035,7 @@
       "level": "A1",
       "german": "Einladung",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -10211,7 +10085,7 @@
       "level": "A1",
       "german": "Untergeschoss",
       "topic": "",
-      "next_count": 31,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -10391,7 +10265,7 @@
       "level": "A1",
       "german": "Motorrad",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -10411,7 +10285,7 @@
       "level": "A1",
       "german": "Löwe",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -10511,7 +10385,7 @@
       "level": "A1",
       "german": "Jo Ga",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -10561,7 +10435,7 @@
       "level": "A1",
       "german": "Französisch",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -10651,7 +10525,7 @@
       "level": "A1",
       "german": "Kartoffel",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -10691,7 +10565,7 @@
       "level": "A1",
       "german": "Pi",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -10701,8 +10575,8 @@
       "level": "A1",
       "german": "auf die andere Seite",
       "topic": "",
-      "next_count": 1,
-      "is_dead_end": false
+      "next_count": 0,
+      "is_dead_end": true
     },
     {
       "word": "소린",
@@ -10751,7 +10625,7 @@
       "level": "A1",
       "german": "Haha",
       "topic": "",
-      "next_count": 30,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -10931,7 +10805,7 @@
       "level": "A1",
       "german": "Herkunft",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -11021,7 +10895,7 @@
       "level": "A1",
       "german": "Nervosität",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -11061,7 +10935,7 @@
       "level": "A1",
       "german": "Kleiner",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -11131,7 +11005,7 @@
       "level": "A1",
       "german": "Profi",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -11261,7 +11135,7 @@
       "level": "A1",
       "german": "Stuhl",
       "topic": "Alltag",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -11461,7 +11335,7 @@
       "level": "A1",
       "german": "Zahlen",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -11611,7 +11485,7 @@
       "level": "A1",
       "german": "Schatten",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -11731,7 +11605,7 @@
       "level": "A1",
       "german": "Herzlichen Glückwunsch",
       "topic": "",
-      "next_count": 31,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -11821,7 +11695,7 @@
       "level": "A1",
       "german": "Fernsehserie",
       "topic": "",
-      "next_count": 38,
+      "next_count": 37,
       "is_dead_end": false
     },
     {
@@ -11901,7 +11775,7 @@
       "level": "A1",
       "german": "Spion",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -11911,7 +11785,7 @@
       "level": "A1",
       "german": "Wort",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -11941,7 +11815,7 @@
       "level": "A1",
       "german": "Geist",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -11981,7 +11855,7 @@
       "level": "A1",
       "german": "bald",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -11991,7 +11865,7 @@
       "level": "A1",
       "german": "Erwartung",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -12031,7 +11905,7 @@
       "level": "A1",
       "german": "Schauspieler",
       "topic": "",
-      "next_count": 11,
+      "next_count": 10,
       "is_dead_end": false
     },
     {
@@ -12091,7 +11965,7 @@
       "level": "A1",
       "german": "Yoga",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -12301,7 +12175,7 @@
       "level": "A1",
       "german": "Dagegen",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -12351,7 +12225,7 @@
       "level": "A1",
       "german": "Einheit",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -12421,7 +12295,7 @@
       "level": "A1",
       "german": "Clay",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -12591,7 +12465,7 @@
       "level": "A1",
       "german": "Spiel",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -12611,7 +12485,7 @@
       "level": "A1",
       "german": "unbefugt",
       "topic": "",
-      "next_count": 5,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -12761,7 +12635,7 @@
       "level": "A1",
       "german": "Reporter",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -12781,7 +12655,7 @@
       "level": "A1",
       "german": "Schreib es auf",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -13041,7 +12915,7 @@
       "level": "A1",
       "german": "Elektronik",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -13531,7 +13405,7 @@
       "level": "A1",
       "german": "Leder",
       "topic": "",
-      "next_count": 6,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -13571,7 +13445,7 @@
       "level": "A1",
       "german": "Gott",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -13741,7 +13615,7 @@
       "level": "A1",
       "german": "Autor",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -13811,7 +13685,7 @@
       "level": "A1",
       "german": "Genehmigung",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -13971,7 +13845,7 @@
       "level": "A1",
       "german": "Verfallenes Haus",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -14071,7 +13945,7 @@
       "level": "A1",
       "german": "Japanisch",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -14131,7 +14005,7 @@
       "level": "A1",
       "german": "Nachname",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -14141,7 +14015,7 @@
       "level": "A1",
       "german": "Cowboy",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -14281,7 +14155,7 @@
       "level": "A1",
       "german": "Monroe",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -14341,7 +14215,7 @@
       "level": "A1",
       "german": "Junge",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -14361,7 +14235,7 @@
       "level": "A1",
       "german": "Lolo",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -14471,7 +14345,7 @@
       "level": "A1",
       "german": "Caesar",
       "topic": "",
-      "next_count": 7,
+      "next_count": 6,
       "is_dead_end": false
     },
     {
@@ -14541,7 +14415,7 @@
       "level": "A1",
       "german": "Zuma",
       "topic": "",
-      "next_count": 38,
+      "next_count": 37,
       "is_dead_end": false
     },
     {
@@ -14651,7 +14525,7 @@
       "level": "A1",
       "german": "Clown",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -14771,7 +14645,7 @@
       "level": "A1",
       "german": "Krawatte",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -14841,7 +14715,7 @@
       "level": "A1",
       "german": "Gift",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -14911,7 +14785,7 @@
       "level": "A1",
       "german": "Thai",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -14921,7 +14795,7 @@
       "level": "A1",
       "german": "Hawaii",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -14971,7 +14845,7 @@
       "level": "A1",
       "german": "Es ist lang",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -15251,7 +15125,7 @@
       "level": "A2",
       "german": "Getriebe",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -15261,7 +15135,7 @@
       "level": "A2",
       "german": "Gegner",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -15291,7 +15165,7 @@
       "level": "A2",
       "german": "Aktienkurs",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -15331,7 +15205,7 @@
       "level": "A2",
       "german": "Verwandlung",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -15341,7 +15215,7 @@
       "level": "A2",
       "german": "Boshim",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -15411,7 +15285,7 @@
       "level": "A2",
       "german": "Galaxie",
       "topic": "",
-      "next_count": 31,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -15661,7 +15535,7 @@
       "level": "A2",
       "german": "Riesig",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -15781,7 +15655,7 @@
       "level": "A2",
       "german": "Reifen",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -15791,7 +15665,7 @@
       "level": "A2",
       "german": "Aktuell",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -15891,7 +15765,7 @@
       "level": "A2",
       "german": "Aufführung",
       "topic": "",
-      "next_count": 30,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -15911,7 +15785,7 @@
       "level": "A2",
       "german": "Weiter",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -15921,7 +15795,7 @@
       "level": "A2",
       "german": "Verloren",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -16151,7 +16025,7 @@
       "level": "A2",
       "german": "Der Ball",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -16201,7 +16075,7 @@
       "level": "A2",
       "german": "Süßigkeiten",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -16351,7 +16225,7 @@
       "level": "A2",
       "german": "Idee",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -16441,7 +16315,7 @@
       "level": "A2",
       "german": "Oh je",
       "topic": "",
-      "next_count": 11,
+      "next_count": 10,
       "is_dead_end": false
     },
     {
@@ -16461,7 +16335,7 @@
       "level": "A2",
       "german": "Leber",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -16531,7 +16405,7 @@
       "level": "A2",
       "german": "K",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -16591,7 +16465,7 @@
       "level": "A2",
       "german": "Gegenleistung",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -16601,7 +16475,7 @@
       "level": "A2",
       "german": "Fluch",
       "topic": "",
-      "next_count": 30,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -16611,7 +16485,7 @@
       "level": "A2",
       "german": "Laser",
       "topic": "",
-      "next_count": 7,
+      "next_count": 6,
       "is_dead_end": false
     },
     {
@@ -16671,7 +16545,7 @@
       "level": "A2",
       "german": "Gefühl",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -16791,7 +16665,7 @@
       "level": "A2",
       "german": "Maja",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -16981,7 +16855,7 @@
       "level": "A2",
       "german": "Prinz",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -17041,7 +16915,7 @@
       "level": "A2",
       "german": "Sprache",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -17071,7 +16945,7 @@
       "level": "A2",
       "german": "Junior",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -17141,7 +17015,7 @@
       "level": "A2",
       "german": "Solo",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -17261,7 +17135,7 @@
       "level": "A2",
       "german": "Tour",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -17271,7 +17145,7 @@
       "level": "A2",
       "german": "Wasserweg",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -17321,7 +17195,7 @@
       "level": "A2",
       "german": "Untergebener",
       "topic": "",
-      "next_count": 31,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -17441,7 +17315,7 @@
       "level": "A2",
       "german": "Reich",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -17451,7 +17325,7 @@
       "level": "A2",
       "german": "Tätowierung",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -17521,7 +17395,7 @@
       "level": "A2",
       "german": "Medizinische Fakultät",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -17531,7 +17405,7 @@
       "level": "A2",
       "german": "Hyundai",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -17601,7 +17475,7 @@
       "level": "A2",
       "german": "Majestät",
       "topic": "",
-      "next_count": 37,
+      "next_count": 36,
       "is_dead_end": false
     },
     {
@@ -18121,8 +17995,8 @@
       "level": "A2",
       "german": "Turner",
       "topic": "",
-      "next_count": 1,
-      "is_dead_end": false
+      "next_count": 0,
+      "is_dead_end": true
     },
     {
       "word": "회색",
@@ -18241,7 +18115,7 @@
       "level": "A2",
       "german": "Senioren",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -18361,7 +18235,7 @@
       "level": "A2",
       "german": "Ist das so?",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -18401,7 +18275,7 @@
       "level": "A2",
       "german": "Bani",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -18471,7 +18345,7 @@
       "level": "A2",
       "german": "Nilpferd",
       "topic": "",
-      "next_count": 38,
+      "next_count": 37,
       "is_dead_end": false
     },
     {
@@ -18771,7 +18645,7 @@
       "level": "A2",
       "german": "Farbe",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -18831,7 +18705,7 @@
       "level": "A2",
       "german": "Manager",
       "topic": "",
-      "next_count": 7,
+      "next_count": 6,
       "is_dead_end": false
     },
     {
@@ -18861,7 +18735,7 @@
       "level": "A2",
       "german": "usw.",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -19011,7 +18885,7 @@
       "level": "A2",
       "german": "sogar",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -19081,7 +18955,7 @@
       "level": "A2",
       "german": "Verteidigung",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -19131,7 +19005,7 @@
       "level": "A2",
       "german": "Diagnose",
       "topic": "",
-      "next_count": 5,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -19241,7 +19115,7 @@
       "level": "A2",
       "german": "Rollstuhl",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -19381,7 +19255,7 @@
       "level": "A2",
       "german": "Linie",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -19581,7 +19455,7 @@
       "level": "A2",
       "german": "Null",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -19601,7 +19475,7 @@
       "level": "A2",
       "german": "Kapitel",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -19641,7 +19515,7 @@
       "level": "A2",
       "german": "gemäßigtes Klima",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -19731,7 +19605,7 @@
       "level": "A2",
       "german": "Partikel",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -19781,7 +19655,7 @@
       "level": "A2",
       "german": "Gruppe",
       "topic": "",
-      "next_count": 5,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -19791,7 +19665,7 @@
       "level": "A2",
       "german": "Marktpreis",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -19841,7 +19715,7 @@
       "level": "A2",
       "german": "Wunder",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -19861,7 +19735,7 @@
       "level": "A2",
       "german": "Empfänger",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -19871,7 +19745,7 @@
       "level": "A2",
       "german": "Hai",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -20011,7 +19885,7 @@
       "level": "A2",
       "german": "Rio",
       "topic": "",
-      "next_count": 35,
+      "next_count": 34,
       "is_dead_end": false
     },
     {
@@ -20031,7 +19905,7 @@
       "level": "A2",
       "german": "Vampir",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -20071,7 +19945,7 @@
       "level": "A2",
       "german": "Oh!",
       "topic": "",
-      "next_count": 34,
+      "next_count": 33,
       "is_dead_end": false
     },
     {
@@ -20081,7 +19955,7 @@
       "level": "A2",
       "german": "Amateur",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -20381,7 +20255,7 @@
       "level": "A2",
       "german": "Schnauze",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -20831,7 +20705,7 @@
       "level": "B2",
       "german": "Investition",
       "topic": "Gesellschaft",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -20921,7 +20795,7 @@
       "level": "A2",
       "german": "Bär",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -21041,7 +20915,7 @@
       "level": "A2",
       "german": "Rock",
       "topic": "",
-      "next_count": 38,
+      "next_count": 37,
       "is_dead_end": false
     },
     {
@@ -21171,7 +21045,7 @@
       "level": "A2",
       "german": "Oben",
       "topic": "",
-      "next_count": 46,
+      "next_count": 45,
       "is_dead_end": false
     },
     {
@@ -21271,7 +21145,7 @@
       "level": "A2",
       "german": "Stein",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -21431,7 +21305,7 @@
       "level": "A2",
       "german": "Zwerg",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -21461,7 +21335,7 @@
       "level": "A2",
       "german": "Vorlage",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -21571,7 +21445,7 @@
       "level": "A2",
       "german": "Bio",
       "topic": "",
-      "next_count": 35,
+      "next_count": 34,
       "is_dead_end": false
     },
     {
@@ -21681,7 +21555,7 @@
       "level": "A2",
       "german": "Verband",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -21761,7 +21635,7 @@
       "level": "A2",
       "german": "Gardenie",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -22031,7 +21905,7 @@
       "level": "A2",
       "german": "Studio",
       "topic": "",
-      "next_count": 35,
+      "next_count": 34,
       "is_dead_end": false
     },
     {
@@ -22041,7 +21915,7 @@
       "level": "A2",
       "german": "San-i",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -22111,7 +21985,7 @@
       "level": "A2",
       "german": "Pfad",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -22211,7 +22085,7 @@
       "level": "A2",
       "german": "Liste",
       "topic": "",
-      "next_count": 5,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -22221,7 +22095,7 @@
       "level": "A2",
       "german": "Quanten",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -22261,7 +22135,7 @@
       "level": "A2",
       "german": "Danke",
       "topic": "",
-      "next_count": 38,
+      "next_count": 37,
       "is_dead_end": false
     },
     {
@@ -22391,7 +22265,7 @@
       "level": "A2",
       "german": "Leiche",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -22421,7 +22295,7 @@
       "level": "A2",
       "german": "Jeong-i",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -22741,7 +22615,7 @@
       "level": "A2",
       "german": "Samurai",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -22831,7 +22705,7 @@
       "level": "A2",
       "german": "Alkoholkonsum",
       "topic": "",
-      "next_count": 30,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -22861,7 +22735,7 @@
       "level": "A2",
       "german": "Guy",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -22941,7 +22815,7 @@
       "level": "A2",
       "german": "Lied",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -23131,7 +23005,7 @@
       "level": "A2",
       "german": "Quer",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -23241,7 +23115,7 @@
       "level": "A2",
       "german": "Blockieren",
       "topic": "",
-      "next_count": 5,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -23711,7 +23585,7 @@
       "level": "A2",
       "german": "Argument",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -24021,7 +23895,7 @@
       "level": "A2",
       "german": "Mann",
       "topic": "",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -24061,7 +23935,7 @@
       "level": "A2",
       "german": "Enkel",
       "topic": "",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -24311,7 +24185,7 @@
       "level": "A2",
       "german": "Sturz",
       "topic": "",
-      "next_count": 31,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -24361,7 +24235,7 @@
       "level": "A2",
       "german": "Überzeugung",
       "topic": "",
-      "next_count": 21,
+      "next_count": 20,
       "is_dead_end": false
     },
     {
@@ -24431,7 +24305,7 @@
       "level": "A2",
       "german": "Jiro",
       "topic": "",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -24541,7 +24415,7 @@
       "level": "A2",
       "german": "Beurteilung",
       "topic": "",
-      "next_count": 5,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -24551,7 +24425,7 @@
       "level": "A2",
       "german": "Bier",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -24631,7 +24505,7 @@
       "level": "A2",
       "german": "Ingwer",
       "topic": "",
-      "next_count": 7,
+      "next_count": 6,
       "is_dead_end": false
     },
     {
@@ -24721,7 +24595,7 @@
       "level": "A2",
       "german": "Bisher",
       "topic": "",
-      "next_count": 32,
+      "next_count": 29,
       "is_dead_end": false
     },
     {
@@ -25691,7 +25565,7 @@
       "level": "A2",
       "german": "Kreuzung",
       "topic": "Verkehr",
-      "next_count": 14,
+      "next_count": 13,
       "is_dead_end": false
     },
     {
@@ -25811,7 +25685,7 @@
       "level": "B1",
       "german": "Ernährungsplan",
       "topic": "Gesundheit",
-      "next_count": 5,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -25851,7 +25725,7 @@
       "level": "B1",
       "german": "Unterschied",
       "topic": "Beschreibung",
-      "next_count": 51,
+      "next_count": 48,
       "is_dead_end": false
     },
     {
@@ -26411,7 +26285,7 @@
       "level": "B2",
       "german": "Neologismus / neues Wort",
       "topic": "",
-      "next_count": 13,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -26961,7 +26835,7 @@
       "level": "A2",
       "german": "Mieterin oder Mieter",
       "topic": "집 구하기",
-      "next_count": 42,
+      "next_count": 40,
       "is_dead_end": false
     },
     {
@@ -27201,7 +27075,7 @@
       "level": "C1",
       "german": "automatisierte Entscheidung",
       "topic": "AI 투명성과 문화 노동",
-      "next_count": 5,
+      "next_count": 4,
       "is_dead_end": false
     },
     {

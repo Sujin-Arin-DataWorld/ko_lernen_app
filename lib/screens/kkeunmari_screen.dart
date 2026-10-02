@@ -1111,7 +1111,8 @@ class _LastWordCard extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
     final chars = word.word.split('');
-    final gloss = meaning ?? word.german;
+    final gloss =
+        meaning ?? word.meaning(Localizations.localeOf(context).languageCode);
     void onListen() => unawaited(TtsService.speak(word.word));
     return SoriCard(
       variant: SoriCardVariant.hero,

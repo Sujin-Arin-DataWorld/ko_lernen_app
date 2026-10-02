@@ -10043,6 +10043,1452 @@
           "publishedSha256": "0c4ea453fa5fc3861c53baa77580f42ff379ab43c3cb758e560c3cb8eb5a4bb1"
         }
       ]
+    },
+    {
+      "path": "assets/data/kkeunmari_pool.json",
+      "totalRecordsBeforeReview": 2728,
+      "runtimeVisibleRecordsBeforeReview": 1877,
+      "directlyReadRuntimeRecords": 120,
+      "reviewStatus": "in_progress",
+      "reviewedWords": [
+        "우리",
+        "이건",
+        "하지",
+        "엄마",
+        "대해",
+        "아빠",
+        "사람",
+        "수도",
+        "거지",
+        "가장",
+        "보고",
+        "당장",
+        "대한",
+        "자기",
+        "얘기",
+        "저도",
+        "완전",
+        "동안",
+        "친구",
+        "사실",
+        "대체",
+        "다음",
+        "이리",
+        "이상",
+        "여자",
+        "가지",
+        "필요",
+        "가요",
+        "아버지",
+        "생각",
+        "마지막",
+        "오래",
+        "남자",
+        "소리",
+        "처음",
+        "조금",
+        "단지",
+        "미안",
+        "이야기",
+        "부인",
+        "수술",
+        "준비",
+        "전화",
+        "이번",
+        "신경",
+        "가야",
+        "걱정",
+        "아침",
+        "대신",
+        "마치",
+        "기분",
+        "가면",
+        "아이",
+        "아들",
+        "머리",
+        "환자",
+        "대로",
+        "아저씨",
+        "평생",
+        "너와",
+        "문제",
+        "저녁",
+        "하자",
+        "정도",
+        "정신",
+        "미국",
+        "어머니",
+        "언니",
+        "하루",
+        "사랑",
+        "가게",
+        "이름",
+        "오빠",
+        "어린",
+        "학교",
+        "아가씨",
+        "기억",
+        "경찰",
+        "아기",
+        "영화",
+        "가족",
+        "마이크",
+        "얼마",
+        "사진",
+        "바보",
+        "주지",
+        "자주",
+        "노래",
+        "오지",
+        "상관",
+        "사건",
+        "커피",
+        "의사",
+        "얼굴",
+        "결혼",
+        "말씀",
+        "마음",
+        "음악",
+        "순간",
+        "할머니",
+        "화가",
+        "로스",
+        "비밀",
+        "병원",
+        "가도",
+        "오케이",
+        "이해",
+        "죽지",
+        "박사",
+        "관심",
+        "인간",
+        "크리스마스",
+        "보기",
+        "신의",
+        "데이트",
+        "사고",
+        "세상",
+        "세계",
+        "마약",
+        "며칠"
+      ],
+      "quarantinedWords": [
+        "가도",
+        "너와",
+        "단지",
+        "대로",
+        "대한",
+        "대해",
+        "로스",
+        "마치",
+        "신의",
+        "어린",
+        "오래",
+        "완전",
+        "우리",
+        "이건",
+        "이리",
+        "이상",
+        "자기",
+        "자주",
+        "저도",
+        "주지",
+        "죽지",
+        "하자",
+        "하지"
+      ],
+      "changedBilingualCopies": 97,
+      "nextUnreadRuntimeWord": "할아버지",
+      "levelReview": "pending; frequency-only labels and rare homonyms need separate review",
+      "englishCoverage": "partial; pending unreviewed runtime entries",
+      "publishedSha256": "f907d106b59d76b8311ac4b7d713c9f9228cf2c0b238f8fd9a4714b87d192116",
+      "runtimeVisibleRecordsAfterReview": 1854,
+      "remainingRuntimeEntries": 1757,
+      "reviewLedger": "tools/content_factory/review/kkeunmari_editorial_revisions_20261002.json",
+      "validation": {
+        "contentFactoryTestsTotal": 1311,
+        "contentFactoryTestsSkipped": 20,
+        "targetedFlutterTestsPassed": 63,
+        "flutterAnalyze": {
+          "errors": 0,
+          "warnings": 0,
+          "preexistingInfos": 3
+        },
+        "releaseWebBuild": "passed",
+        "tts": {
+          "expected": 12961,
+          "remote": 21817,
+          "missing": 0,
+          "stale": 8856,
+          "newClips": 0
+        },
+        "generators": "Pool assembly, vocabulary merge and missing-gloss fill preserve reviewed copies and quarantine. Existing legacy noun-only export is not the canonical generator.",
+        "humanListeningClaim": false
+      }
+    },
+    {
+      "path": "assets/data/silben_puzzles.json",
+      "reviewStatus": "in_progress",
+      "puzzles": 120,
+      "directlyReadUniqueWordLevelPairs": 301,
+      "uniqueExampleVariants": 301,
+      "directReadFields": [
+        "answer",
+        "german",
+        "exampleKo",
+        "exampleDe"
+      ],
+      "reviewedWordLevelPairs": [
+        {
+          "level": "A1",
+          "word": "어제"
+        },
+        {
+          "level": "A1",
+          "word": "어렵다"
+        },
+        {
+          "level": "A1",
+          "word": "다섯"
+        },
+        {
+          "level": "A1",
+          "word": "편의점"
+        },
+        {
+          "level": "A1",
+          "word": "의자"
+        },
+        {
+          "level": "A1",
+          "word": "남편"
+        },
+        {
+          "level": "A1",
+          "word": "맛있다"
+        },
+        {
+          "level": "A1",
+          "word": "먹다"
+        },
+        {
+          "level": "A1",
+          "word": "있다"
+        },
+        {
+          "level": "A1",
+          "word": "일곱"
+        },
+        {
+          "level": "A1",
+          "word": "화요일"
+        },
+        {
+          "level": "A1",
+          "word": "화장실"
+        },
+        {
+          "level": "A1",
+          "word": "아니요"
+        },
+        {
+          "level": "A1",
+          "word": "일찍"
+        },
+        {
+          "level": "A1",
+          "word": "내일"
+        },
+        {
+          "level": "A1",
+          "word": "아내"
+        },
+        {
+          "level": "A1",
+          "word": "학교"
+        },
+        {
+          "level": "A1",
+          "word": "학생"
+        },
+        {
+          "level": "A1",
+          "word": "여동생"
+        },
+        {
+          "level": "A1",
+          "word": "여기"
+        },
+        {
+          "level": "A1",
+          "word": "수요일"
+        },
+        {
+          "level": "A1",
+          "word": "일하다"
+        },
+        {
+          "level": "A1",
+          "word": "받다"
+        },
+        {
+          "level": "A1",
+          "word": "읽다"
+        },
+        {
+          "level": "A1",
+          "word": "말하다"
+        },
+        {
+          "level": "A1",
+          "word": "하나"
+        },
+        {
+          "level": "A1",
+          "word": "서다"
+        },
+        {
+          "level": "A1",
+          "word": "사다"
+        },
+        {
+          "level": "A1",
+          "word": "사과"
+        },
+        {
+          "level": "A1",
+          "word": "빨간색"
+        },
+        {
+          "level": "A1",
+          "word": "시간"
+        },
+        {
+          "level": "A1",
+          "word": "빨리"
+        },
+        {
+          "level": "A1",
+          "word": "우리"
+        },
+        {
+          "level": "A1",
+          "word": "아버지"
+        },
+        {
+          "level": "A1",
+          "word": "요일"
+        },
+        {
+          "level": "A1",
+          "word": "어머니"
+        },
+        {
+          "level": "A1",
+          "word": "왼쪽"
+        },
+        {
+          "level": "A1",
+          "word": "오른쪽"
+        },
+        {
+          "level": "A1",
+          "word": "오늘"
+        },
+        {
+          "level": "A1",
+          "word": "지금"
+        },
+        {
+          "level": "A1",
+          "word": "아빠"
+        },
+        {
+          "level": "A1",
+          "word": "금요일"
+        },
+        {
+          "level": "A1",
+          "word": "일요일"
+        },
+        {
+          "level": "A1",
+          "word": "매일"
+        },
+        {
+          "level": "A1",
+          "word": "사이"
+        },
+        {
+          "level": "A1",
+          "word": "화이팅"
+        },
+        {
+          "level": "A1",
+          "word": "과일"
+        },
+        {
+          "level": "A1",
+          "word": "자다"
+        },
+        {
+          "level": "A1",
+          "word": "귀엽다"
+        },
+        {
+          "level": "A1",
+          "word": "자주"
+        },
+        {
+          "level": "A1",
+          "word": "닫다"
+        },
+        {
+          "level": "A1",
+          "word": "마시다"
+        },
+        {
+          "level": "A1",
+          "word": "엄마"
+        },
+        {
+          "level": "A1",
+          "word": "목요일"
+        },
+        {
+          "level": "A1",
+          "word": "여섯"
+        },
+        {
+          "level": "A1",
+          "word": "남동생"
+        },
+        {
+          "level": "A2",
+          "word": "호텔"
+        },
+        {
+          "level": "A2",
+          "word": "변호사"
+        },
+        {
+          "level": "A2",
+          "word": "상사"
+        },
+        {
+          "level": "A2",
+          "word": "쇠고기"
+        },
+        {
+          "level": "A2",
+          "word": "기차"
+        },
+        {
+          "level": "A2",
+          "word": "열쇠"
+        },
+        {
+          "level": "A2",
+          "word": "차다"
+        },
+        {
+          "level": "A2",
+          "word": "유학"
+        },
+        {
+          "level": "A2",
+          "word": "유학생"
+        },
+        {
+          "level": "A2",
+          "word": "중학생"
+        },
+        {
+          "level": "A2",
+          "word": "찾다"
+        },
+        {
+          "level": "A2",
+          "word": "열리다"
+        },
+        {
+          "level": "A2",
+          "word": "영화"
+        },
+        {
+          "level": "A2",
+          "word": "영수증"
+        },
+        {
+          "level": "A2",
+          "word": "보증금"
+        },
+        {
+          "level": "A2",
+          "word": "전화"
+        },
+        {
+          "level": "A2",
+          "word": "주황색"
+        },
+        {
+          "level": "A2",
+          "word": "색깔"
+        },
+        {
+          "level": "A2",
+          "word": "공주"
+        },
+        {
+          "level": "A2",
+          "word": "대학교"
+        },
+        {
+          "level": "A2",
+          "word": "교수"
+        },
+        {
+          "level": "A2",
+          "word": "수수료"
+        },
+        {
+          "level": "A2",
+          "word": "수박"
+        },
+        {
+          "level": "A2",
+          "word": "사원"
+        },
+        {
+          "level": "A2",
+          "word": "점원"
+        },
+        {
+          "level": "A2",
+          "word": "사장"
+        },
+        {
+          "level": "A2",
+          "word": "곧장"
+        },
+        {
+          "level": "A2",
+          "word": "닫히다"
+        },
+        {
+          "level": "A2",
+          "word": "걸리다"
+        },
+        {
+          "level": "A2",
+          "word": "옷걸이"
+        },
+        {
+          "level": "A2",
+          "word": "귀걸이"
+        },
+        {
+          "level": "A2",
+          "word": "정말"
+        },
+        {
+          "level": "A2",
+          "word": "양말"
+        },
+        {
+          "level": "A2",
+          "word": "양복"
+        },
+        {
+          "level": "A2",
+          "word": "세우다"
+        },
+        {
+          "level": "A2",
+          "word": "신다"
+        },
+        {
+          "level": "A2",
+          "word": "신호등"
+        },
+        {
+          "level": "A2",
+          "word": "월세"
+        },
+        {
+          "level": "A2",
+          "word": "인분"
+        },
+        {
+          "level": "A2",
+          "word": "분홍색"
+        },
+        {
+          "level": "A2",
+          "word": "보라색"
+        },
+        {
+          "level": "A2",
+          "word": "보내다"
+        },
+        {
+          "level": "A2",
+          "word": "회사"
+        },
+        {
+          "level": "A2",
+          "word": "눈사람"
+        },
+        {
+          "level": "A2",
+          "word": "눈싸움"
+        },
+        {
+          "level": "A2",
+          "word": "원피스"
+        },
+        {
+          "level": "A2",
+          "word": "병원"
+        },
+        {
+          "level": "A2",
+          "word": "스타킹"
+        },
+        {
+          "level": "A2",
+          "word": "집주인"
+        },
+        {
+          "level": "A2",
+          "word": "주인"
+        },
+        {
+          "level": "A2",
+          "word": "할인"
+        },
+        {
+          "level": "A2",
+          "word": "가볍다"
+        },
+        {
+          "level": "A2",
+          "word": "춥다"
+        },
+        {
+          "level": "A2",
+          "word": "가수"
+        },
+        {
+          "level": "A2",
+          "word": "그릇"
+        },
+        {
+          "level": "A2",
+          "word": "그립다"
+        },
+        {
+          "level": "A2",
+          "word": "만들다"
+        },
+        {
+          "level": "A2",
+          "word": "지갑"
+        },
+        {
+          "level": "A2",
+          "word": "장갑"
+        },
+        {
+          "level": "A2",
+          "word": "지구"
+        },
+        {
+          "level": "A2",
+          "word": "넥타이"
+        },
+        {
+          "level": "A2",
+          "word": "걷다"
+        },
+        {
+          "level": "A2",
+          "word": "차림표"
+        },
+        {
+          "level": "A2",
+          "word": "느리다"
+        },
+        {
+          "level": "B1",
+          "word": "결국"
+        },
+        {
+          "level": "B1",
+          "word": "결혼식"
+        },
+        {
+          "level": "B1",
+          "word": "휴식"
+        },
+        {
+          "level": "B1",
+          "word": "우체국"
+        },
+        {
+          "level": "B1",
+          "word": "문장"
+        },
+        {
+          "level": "B1",
+          "word": "공연장"
+        },
+        {
+          "level": "B1",
+          "word": "공연"
+        },
+        {
+          "level": "B1",
+          "word": "문학"
+        },
+        {
+          "level": "B1",
+          "word": "식비"
+        },
+        {
+          "level": "B1",
+          "word": "비상구"
+        },
+        {
+          "level": "B1",
+          "word": "상가"
+        },
+        {
+          "level": "B1",
+          "word": "외식"
+        },
+        {
+          "level": "B1",
+          "word": "처방전"
+        },
+        {
+          "level": "B1",
+          "word": "책방"
+        },
+        {
+          "level": "B1",
+          "word": "전통"
+        },
+        {
+          "level": "B1",
+          "word": "통역"
+        },
+        {
+          "level": "B1",
+          "word": "책임"
+        },
+        {
+          "level": "B1",
+          "word": "책임감"
+        },
+        {
+          "level": "B1",
+          "word": "감기약"
+        },
+        {
+          "level": "B1",
+          "word": "기쁨"
+        },
+        {
+          "level": "B1",
+          "word": "차이"
+        },
+        {
+          "level": "B1",
+          "word": "집들이"
+        },
+        {
+          "level": "B1",
+          "word": "하숙집"
+        },
+        {
+          "level": "B1",
+          "word": "안내문"
+        },
+        {
+          "level": "B1",
+          "word": "질문"
+        },
+        {
+          "level": "B1",
+          "word": "안약"
+        },
+        {
+          "level": "B1",
+          "word": "두통약"
+        },
+        {
+          "level": "B1",
+          "word": "존댓말"
+        },
+        {
+          "level": "B1",
+          "word": "댓글"
+        },
+        {
+          "level": "B1",
+          "word": "반말"
+        },
+        {
+          "level": "B1",
+          "word": "한계"
+        },
+        {
+          "level": "B1",
+          "word": "관계"
+        },
+        {
+          "level": "B1",
+          "word": "관심"
+        },
+        {
+          "level": "B1",
+          "word": "보고서"
+        },
+        {
+          "level": "B1",
+          "word": "고치다"
+        },
+        {
+          "level": "B1",
+          "word": "게다가"
+        },
+        {
+          "level": "B1",
+          "word": "정보"
+        },
+        {
+          "level": "B1",
+          "word": "심하다"
+        },
+        {
+          "level": "B1",
+          "word": "줍다"
+        },
+        {
+          "level": "B1",
+          "word": "미술관"
+        },
+        {
+          "level": "B1",
+          "word": "과정"
+        },
+        {
+          "level": "B1",
+          "word": "결과"
+        },
+        {
+          "level": "B1",
+          "word": "가능성"
+        },
+        {
+          "level": "B1",
+          "word": "성격"
+        },
+        {
+          "level": "B1",
+          "word": "명상"
+        },
+        {
+          "level": "B1",
+          "word": "기간"
+        },
+        {
+          "level": "B1",
+          "word": "마감"
+        },
+        {
+          "level": "B1",
+          "word": "사회"
+        },
+        {
+          "level": "B1",
+          "word": "사귀다"
+        },
+        {
+          "level": "B1",
+          "word": "굵다"
+        },
+        {
+          "level": "B1",
+          "word": "송별회"
+        },
+        {
+          "level": "B1",
+          "word": "기회"
+        },
+        {
+          "level": "B1",
+          "word": "회비"
+        },
+        {
+          "level": "B1",
+          "word": "갑자기"
+        },
+        {
+          "level": "B1",
+          "word": "모으다"
+        },
+        {
+          "level": "B1",
+          "word": "모임"
+        },
+        {
+          "level": "B1",
+          "word": "주사"
+        },
+        {
+          "level": "B1",
+          "word": "외로움"
+        },
+        {
+          "level": "B1",
+          "word": "해결"
+        },
+        {
+          "level": "B1",
+          "word": "습관"
+        },
+        {
+          "level": "B1",
+          "word": "깎다"
+        },
+        {
+          "level": "B2",
+          "word": "모이다"
+        },
+        {
+          "level": "B2",
+          "word": "쌍둥이"
+        },
+        {
+          "level": "B2",
+          "word": "모음"
+        },
+        {
+          "level": "B2",
+          "word": "자음"
+        },
+        {
+          "level": "B2",
+          "word": "말리다"
+        },
+        {
+          "level": "B2",
+          "word": "섞이다"
+        },
+        {
+          "level": "B2",
+          "word": "말씀"
+        },
+        {
+          "level": "B2",
+          "word": "이론"
+        },
+        {
+          "level": "B2",
+          "word": "동창"
+        },
+        {
+          "level": "B2",
+          "word": "동사"
+        },
+        {
+          "level": "B2",
+          "word": "명사"
+        },
+        {
+          "level": "B2",
+          "word": "생산성"
+        },
+        {
+          "level": "B2",
+          "word": "성함"
+        },
+        {
+          "level": "B2",
+          "word": "생신"
+        },
+        {
+          "level": "B2",
+          "word": "담다"
+        },
+        {
+          "level": "B2",
+          "word": "전하다"
+        },
+        {
+          "level": "B2",
+          "word": "담그다"
+        },
+        {
+          "level": "B2",
+          "word": "인기"
+        },
+        {
+          "level": "B2",
+          "word": "애인"
+        },
+        {
+          "level": "B2",
+          "word": "기계"
+        },
+        {
+          "level": "B2",
+          "word": "계시다"
+        },
+        {
+          "level": "B2",
+          "word": "음력"
+        },
+        {
+          "level": "B2",
+          "word": "경쟁력"
+        },
+        {
+          "level": "B2",
+          "word": "경우"
+        },
+        {
+          "level": "B2",
+          "word": "인권"
+        },
+        {
+          "level": "B2",
+          "word": "가습기"
+        },
+        {
+          "level": "B2",
+          "word": "습도"
+        },
+        {
+          "level": "B2",
+          "word": "관객"
+        },
+        {
+          "level": "B2",
+          "word": "관점"
+        },
+        {
+          "level": "B2",
+          "word": "약점"
+        },
+        {
+          "level": "B2",
+          "word": "주의"
+        },
+        {
+          "level": "B2",
+          "word": "주제"
+        },
+        {
+          "level": "B2",
+          "word": "전제"
+        },
+        {
+          "level": "B2",
+          "word": "전공"
+        },
+        {
+          "level": "B2",
+          "word": "현대"
+        },
+        {
+          "level": "B2",
+          "word": "현대인"
+        },
+        {
+          "level": "B2",
+          "word": "온난화"
+        },
+        {
+          "level": "B2",
+          "word": "양극화"
+        },
+        {
+          "level": "B2",
+          "word": "온도"
+        },
+        {
+          "level": "B2",
+          "word": "태양광"
+        },
+        {
+          "level": "B2",
+          "word": "자료"
+        },
+        {
+          "level": "B2",
+          "word": "투자"
+        },
+        {
+          "level": "B2",
+          "word": "봉투"
+        },
+        {
+          "level": "B2",
+          "word": "진정한"
+        },
+        {
+          "level": "B2",
+          "word": "정하다"
+        },
+        {
+          "level": "B2",
+          "word": "닮다"
+        },
+        {
+          "level": "B2",
+          "word": "고지서"
+        },
+        {
+          "level": "B2",
+          "word": "서랍"
+        },
+        {
+          "level": "B2",
+          "word": "사고"
+        },
+        {
+          "level": "B2",
+          "word": "부사"
+        },
+        {
+          "level": "B2",
+          "word": "생태계"
+        },
+        {
+          "level": "B2",
+          "word": "계약"
+        },
+        {
+          "level": "B2",
+          "word": "자신감"
+        },
+        {
+          "level": "B2",
+          "word": "자격증"
+        },
+        {
+          "level": "B2",
+          "word": "친환경"
+        },
+        {
+          "level": "B2",
+          "word": "친척"
+        },
+        {
+          "level": "B2",
+          "word": "야경"
+        },
+        {
+          "level": "B2",
+          "word": "협업"
+        },
+        {
+          "level": "B2",
+          "word": "협상"
+        },
+        {
+          "level": "B2",
+          "word": "현상"
+        },
+        {
+          "level": "B2",
+          "word": "내용"
+        },
+        {
+          "level": "B2",
+          "word": "재활용"
+        },
+        {
+          "level": "B2",
+          "word": "잠재력"
+        },
+        {
+          "level": "C1",
+          "word": "부작용"
+        },
+        {
+          "level": "C1",
+          "word": "과부하"
+        },
+        {
+          "level": "C1",
+          "word": "역효과"
+        },
+        {
+          "level": "C1",
+          "word": "인용"
+        },
+        {
+          "level": "C1",
+          "word": "완화"
+        },
+        {
+          "level": "C1",
+          "word": "일반화"
+        },
+        {
+          "level": "C1",
+          "word": "완충"
+        },
+        {
+          "level": "C1",
+          "word": "자발성"
+        },
+        {
+          "level": "C1",
+          "word": "성과물"
+        },
+        {
+          "level": "C1",
+          "word": "타자화"
+        },
+        {
+          "level": "C1",
+          "word": "지속성"
+        },
+        {
+          "level": "C1",
+          "word": "지표"
+        },
+        {
+          "level": "C1",
+          "word": "재현성"
+        },
+        {
+          "level": "C1",
+          "word": "인과"
+        },
+        {
+          "level": "C1",
+          "word": "동원"
+        },
+        {
+          "level": "C1",
+          "word": "신원"
+        },
+        {
+          "level": "C1",
+          "word": "신고"
+        },
+        {
+          "level": "C1",
+          "word": "경위"
+        },
+        {
+          "level": "C1",
+          "word": "경계"
+        },
+        {
+          "level": "C1",
+          "word": "수위"
+        },
+        {
+          "level": "C1",
+          "word": "실효성"
+        },
+        {
+          "level": "C1",
+          "word": "과장"
+        },
+        {
+          "level": "C1",
+          "word": "임계치"
+        },
+        {
+          "level": "C1",
+          "word": "위임"
+        },
+        {
+          "level": "C1",
+          "word": "자율"
+        },
+        {
+          "level": "C1",
+          "word": "반박"
+        },
+        {
+          "level": "C1",
+          "word": "무보수"
+        },
+        {
+          "level": "C1",
+          "word": "권고"
+        },
+        {
+          "level": "C2",
+          "word": "정당화"
+        },
+        {
+          "level": "C2",
+          "word": "발화"
+        },
+        {
+          "level": "C2",
+          "word": "단정"
+        },
+        {
+          "level": "C2",
+          "word": "화자"
+        },
+        {
+          "level": "C2",
+          "word": "자의적"
+        },
+        {
+          "level": "C2",
+          "word": "적발"
+        },
+        {
+          "level": "C2",
+          "word": "이상화"
+        },
+        {
+          "level": "C2",
+          "word": "재검토"
+        },
+        {
+          "level": "C2",
+          "word": "제재"
+        },
+        {
+          "level": "C2",
+          "word": "구제"
+        },
+        {
+          "level": "C2",
+          "word": "재구성"
+        },
+        {
+          "level": "C2",
+          "word": "일관성"
+        },
+        {
+          "level": "C2",
+          "word": "오작동"
+        },
+        {
+          "level": "C2",
+          "word": "오탐"
+        },
+        {
+          "level": "C2",
+          "word": "동조"
+        },
+        {
+          "level": "C2",
+          "word": "개연성"
+        },
+        {
+          "level": "C2",
+          "word": "재명명"
+        },
+        {
+          "level": "C2",
+          "word": "해제"
+        },
+        {
+          "level": "C2",
+          "word": "시정"
+        },
+        {
+          "level": "C2",
+          "word": "미화"
+        },
+        {
+          "level": "C2",
+          "word": "누적"
+        },
+        {
+          "level": "C2",
+          "word": "형식적"
+        },
+        {
+          "level": "C2",
+          "word": "전형"
+        },
+        {
+          "level": "C2",
+          "word": "소명"
+        },
+        {
+          "level": "C2",
+          "word": "소급"
+        },
+        {
+          "level": "C2",
+          "word": "잣대"
+        },
+        {
+          "level": "C2",
+          "word": "대표성"
+        },
+        {
+          "level": "C2",
+          "word": "재량"
+        },
+        {
+          "level": "C2",
+          "word": "함의"
+        }
+      ],
+      "sourceSha256": "7ce9e3ad55f5f346ce0f40d7e77c2d445b1384b2fc19cd82d16340093d40d15b",
+      "englishReview": "pending; current model and UI contain German-only fields",
+      "remainingReview": "Read any additional per-word example variants; resolve vocabulary source sense and EN bridge; refresh copy without changing puzzle IDs or layouts.",
+      "findings": [
+        {
+          "word": "성격",
+          "issue": "DE assigns a younger sister although KO 동생 does not specify gender."
+        },
+        {
+          "word": "성함",
+          "issue": "Wie ist Ihr werter Name sounds archaic; honorific nuance needs idiomatic German."
+        },
+        {
+          "word": "자다",
+          "issue": "Ich schlafe früh is less natural than early bedtime wording."
+        },
+        {
+          "word": "곧장",
+          "issue": "geradeaus omits directly/straight-away sense; compare actual example."
+        },
+        {
+          "word": "태양광",
+          "issue": "Solarenergie gloss and 태양광 에너지가 늘다 example need a clear light/energy sense."
+        },
+        {
+          "word": "인용",
+          "issue": "논문 번호 is not a universally suitable citation identifier; citation example needs bibliographic context."
+        },
+        {
+          "word": "타자화",
+          "issue": "웃음을 타고 와서 and German kam auf einem Lachen are strained metaphors."
+        },
+        {
+          "word": "전형",
+          "issue": "Typisierung does not match all meanings of 전형; the dehumanizing example needs concrete academic phrasing."
+        },
+        {
+          "word": "부작용",
+          "issue": "DE omits the regulation context and may sound medical."
+        },
+        {
+          "word": "권고",
+          "issue": "Compliance decline is stated categorically; preserve fictional observation or qualify inference."
+        }
+      ]
     }
   ],
   "changes": [
@@ -33989,7 +35435,15 @@
         "stale": 8835,
         "humanListeningClaim": false
       },
-      "sourceSha256": "08450d012037013b577129cf32190582c1d59a7b294bd396dfaa6ed39f36c494"
+      "sourceSha256": "08450d012037013b577129cf32190582c1d59a7b294bd396dfaa6ed39f36c494",
+      "publication": {
+        "commit": "4c5fd6486abe1befd48b8e3e99ddfeb8c207d194",
+        "originMainVerified": true,
+        "ci": "pending_at_checkpoint",
+        "playwright": "success",
+        "ciRun": 37025294233,
+        "playwrightRun": 37025294000
+      }
     }
   },
   "smalltalkLessonReview": {
@@ -34892,5 +36346,25 @@
         "No universal legal entitlement or human approval is added. Native/persona/routing flags remain open."
       ]
     }
+  },
+  "remainingWork": {
+    "overallStatus": "in_progress",
+    "scopeNote": "Completed direct review of a named surface does not mean all app content is reviewed or native-approved. Earlier first-pass batches are distinct from the requested second deep review.",
+    "smalltalk": "44 level/category/persona findings need a routing/relevel bundle; copy review is complete.",
+    "kkeunmari": "1757 remaining runtime-visible entries; English coverage and frequency-derived levels remain incomplete. Independent dictionary index is unchanged.",
+    "silben": "301 unique word/level pairs read in KO/DE; copy correction and EN localization remain pending.",
+    "deepSecondPassSources": {
+      "vocab": 2944,
+      "scenario": 178,
+      "scenarioQuest": 547,
+      "cloze": 2341,
+      "satz": 2861
+    },
+    "otherSurfaces": [
+      "can_do_segments.json",
+      "phase_tasks.json",
+      "learning_phases.json"
+    ],
+    "ttsBoundary": "Storage keys are complete; individual clip listening and device playback are not claimed."
   }
 }

@@ -48,7 +48,10 @@ echo "graphify-out 정리 ($([ "$APPLY" = 1 ] && echo 실행 || echo dry-run))"
 
 # 1) 날짜 스냅샷 — 40MB 짜리 graph.json 전체 사본이라 git 히스토리와 역할이 겹친다.
 echo "[1] 날짜 스냅샷 (최근 ${KEEP}개 유지)"
-mapfile -t snaps < <(find "$OUT" -maxdepth 1 -type d -name '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]' | sort)
+snaps=()
+while IFS= read -r snapshot; do
+  snaps+=("$snapshot")
+done < <(find "$OUT" -maxdepth 1 -type d -name '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]' | sort)
 total=${#snaps[@]}
 if [ "$total" -gt "$KEEP" ]; then
   for p in "${snaps[@]:0:$((total - KEEP))}"; do kill_path "$p"; done
@@ -61,7 +64,7 @@ echo "[2] AST 캐시 (${MAX_AGE}일 미접근분)"
 if [ -d "$OUT/cache/ast" ]; then
   n=$(find "$OUT/cache/ast" -type f -name '*.json' -mtime "+$MAX_AGE" | wc -l)
   if [ "$n" -gt 0 ]; then
-    sz=$(find "$OUT/cache/ast" -type f -name '*.json' -mtime "+$MAX_AGE" -printf '%k\n' | awk '{s+=$1} END {print s+0}')
+    sz=$(find "$OUT/cache/ast" -type f -name '*.json' -mtime "+$MAX_AGE" -exec du -k {} + | awk '{s+=$1} END {print s+0}')
     freed=$((freed + sz))
     [ "$APPLY" = 1 ] && find "$OUT/cache/ast" -type f -name '*.json' -mtime "+$MAX_AGE" -delete
     note "${n}개 ($((sz / 1024)) MB)"

@@ -1,0 +1,2406 @@
+{
+  "schemaVersion": 1,
+  "scope": "assets/data/kkeunmari_pool.json",
+  "method": "Primary model directly read the first 120 runtime-visible word/gloss pairs; bilingual noun-sense edits are authored, not claimed as native-human approval. No new dictionary evidence or lexical sense is inferred from exclusion. Level review remains pending.",
+  "sourceSha256": "73e59ee78d6585a4f8c71a2124b4db2cf7d47aca6bd531b4090529a1c343e3e9",
+  "entries": [
+    {
+      "word": "우리",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "우리",
+        "first": "우",
+        "last": "리",
+        "level": "A1",
+        "german": "wir",
+        "topic": "Person",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "이건",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "이건",
+        "first": "이",
+        "last": "건",
+        "level": "A1",
+        "german": "Das ist",
+        "topic": "",
+        "next_count": 8,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "하지",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "하지",
+        "first": "하",
+        "last": "지",
+        "level": "A1",
+        "german": "Beine",
+        "topic": "",
+        "next_count": 28,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "엄마",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "엄마",
+        "first": "엄",
+        "last": "마",
+        "level": "A1",
+        "german": "Mama (informell)",
+        "topic": "Familie",
+        "next_count": 38,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Mama (informell)",
+        "english": "mom"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "대해",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "대해",
+        "first": "대",
+        "last": "해",
+        "level": "A1",
+        "german": "In Bezug auf",
+        "topic": "",
+        "next_count": 20,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "아빠",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "아빠",
+        "first": "아",
+        "last": "빠",
+        "level": "A1",
+        "german": "Papa (informell)",
+        "topic": "Familie",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Papa (informell)",
+        "english": "dad"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "사람",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "사람",
+        "first": "사",
+        "last": "람",
+        "level": "A1",
+        "german": "Mensch",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Mensch",
+        "english": "person"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "수도",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "수도",
+        "first": "수",
+        "last": "도",
+        "level": "A1",
+        "german": "Hauptstadt",
+        "topic": "",
+        "next_count": 16,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Hauptstadt",
+        "english": "capital city"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "거지",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "거지",
+        "first": "거",
+        "last": "지",
+        "level": "A1",
+        "german": "Bettler",
+        "topic": "",
+        "next_count": 28,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Bettler",
+        "english": "beggar"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "가장",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "가장",
+        "first": "가",
+        "last": "장",
+        "level": "A1",
+        "german": "am meisten",
+        "topic": "",
+        "next_count": 17,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Familienoberhaupt",
+        "english": "head of a household"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "보고",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "보고",
+        "first": "보",
+        "last": "고",
+        "level": "A1",
+        "german": "Bericht",
+        "topic": "",
+        "next_count": 23,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Bericht",
+        "english": "report"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "당장",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "당장",
+        "first": "당",
+        "last": "장",
+        "level": "A1",
+        "german": "sofort",
+        "topic": "",
+        "next_count": 17,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "sofort",
+        "english": "right now; immediately"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "대한",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "대한",
+        "first": "대",
+        "last": "한",
+        "level": "A1",
+        "german": "Korea",
+        "topic": "",
+        "next_count": 14,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "자기",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "자기",
+        "first": "자",
+        "last": "기",
+        "level": "A1",
+        "german": "Magnet",
+        "topic": "",
+        "next_count": 25,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "얘기",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "얘기",
+        "first": "얘",
+        "last": "기",
+        "level": "A1",
+        "german": "Geschichte",
+        "topic": "",
+        "next_count": 25,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Geschichte",
+        "english": "story; conversation"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "저도",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "저도",
+        "first": "저",
+        "last": "도",
+        "level": "A1",
+        "german": "Ich auch",
+        "topic": "",
+        "next_count": 16,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "완전",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "완전",
+        "first": "완",
+        "last": "전",
+        "level": "A1",
+        "german": "Völlig",
+        "topic": "",
+        "next_count": 30,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "동안",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "동안",
+        "first": "동",
+        "last": "안",
+        "level": "A1",
+        "german": "während dieser Zeit",
+        "topic": "",
+        "next_count": 14,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Zeitraum / Dauer",
+        "english": "period of time; duration"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "친구",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "친구",
+        "first": "친",
+        "last": "구",
+        "level": "A1",
+        "german": "Freund/Freundin",
+        "topic": "Beziehungen",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Freund/Freundin",
+        "english": "friend"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "사실",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "사실",
+        "first": "사",
+        "last": "실",
+        "level": "A1",
+        "german": "Tatsächlich",
+        "topic": "",
+        "next_count": 13,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Tatsache / Wahrheit",
+        "english": "fact; truth"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "대체",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "대체",
+        "first": "대",
+        "last": "체",
+        "level": "A1",
+        "german": "Stattdessen",
+        "topic": "",
+        "next_count": 5,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Ersatz / Austausch",
+        "english": "replacement; substitution"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "다음",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "다음",
+        "first": "다",
+        "last": "음",
+        "level": "A1",
+        "german": "Weiter",
+        "topic": "",
+        "next_count": 5,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "das Nächste / danach",
+        "english": "next; what follows"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "이리",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "이리",
+        "first": "이",
+        "last": "리",
+        "level": "A1",
+        "german": "Hierher",
+        "topic": "",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "이상",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "이상",
+        "first": "이",
+        "last": "상",
+        "level": "A1",
+        "german": "Das war's",
+        "topic": "",
+        "next_count": 13,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "여자",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "여자",
+        "first": "여",
+        "last": "자",
+        "level": "A1",
+        "german": "Frau",
+        "topic": "",
+        "next_count": 42,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Frau",
+        "english": "woman"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "가지",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "가지",
+        "first": "가",
+        "last": "지",
+        "level": "A1",
+        "german": "Aubergine",
+        "topic": "",
+        "next_count": 28,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Aubergine / Art, Sorte",
+        "english": "eggplant; kind, type"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "필요",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "필요",
+        "first": "필",
+        "last": "요",
+        "level": "A1",
+        "german": "Notwendigkeit",
+        "topic": "",
+        "next_count": 9,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Notwendigkeit",
+        "english": "need; necessity"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "가요",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "가요",
+        "first": "가",
+        "last": "요",
+        "level": "A1",
+        "german": "Popmusik",
+        "topic": "",
+        "next_count": 9,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Popmusik",
+        "english": "popular song"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "아버지",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "아버지",
+        "first": "아",
+        "last": "지",
+        "level": "A1",
+        "german": "Vater (formell)",
+        "topic": "Familie",
+        "next_count": 28,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Vater (formell)",
+        "english": "father"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "생각",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "생각",
+        "first": "생",
+        "last": "각",
+        "level": "B1",
+        "german": "Gedanke / Meinung",
+        "topic": "Kommunikation",
+        "next_count": 4,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Gedanke / Meinung",
+        "english": "thought; opinion"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "마지막",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "마지막",
+        "first": "마",
+        "last": "막",
+        "level": "A1",
+        "german": "Das Ende",
+        "topic": "",
+        "next_count": 2,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Das Ende",
+        "english": "end; last part"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "오래",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "오래",
+        "first": "오",
+        "last": "래",
+        "level": "A1",
+        "german": "lange",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "남자",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "남자",
+        "first": "남",
+        "last": "자",
+        "level": "A1",
+        "german": "Mann",
+        "topic": "",
+        "next_count": 42,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Mann",
+        "english": "man"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "소리",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "소리",
+        "first": "소",
+        "last": "리",
+        "level": "A1",
+        "german": "Ton",
+        "topic": "",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Ton",
+        "english": "sound"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "처음",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "처음",
+        "first": "처",
+        "last": "음",
+        "level": "A1",
+        "german": "Zum ersten Mal",
+        "topic": "",
+        "next_count": 5,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Zum ersten Mal",
+        "english": "beginning; first time"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "조금",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "조금",
+        "first": "조",
+        "last": "금",
+        "level": "A2",
+        "german": "ein bisschen / etwas",
+        "topic": "Alltag",
+        "next_count": 7,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "ein bisschen / etwas",
+        "english": "a small amount; a little"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "단지",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "단지",
+        "first": "단",
+        "last": "지",
+        "level": "A1",
+        "german": "nur",
+        "topic": "",
+        "next_count": 28,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "미안",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "미안",
+        "first": "미",
+        "last": "안",
+        "level": "A1",
+        "german": "Entschuldigung",
+        "topic": "",
+        "next_count": 14,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Bedauern (anderen gegenüber)",
+        "english": "feeling sorry toward someone"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "이야기",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "이야기",
+        "first": "이",
+        "last": "기",
+        "level": "A1",
+        "german": "Geschichte",
+        "topic": "",
+        "next_count": 25,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Geschichte",
+        "english": "story; conversation"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "부인",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "부인",
+        "first": "부",
+        "last": "인",
+        "level": "A1",
+        "german": "Ehefrau",
+        "topic": "",
+        "next_count": 31,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Ehefrau",
+        "english": "wife; married woman"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "수술",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "수술",
+        "first": "수",
+        "last": "술",
+        "level": "A1",
+        "german": "Operation",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Operation",
+        "english": "surgery; operation"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "준비",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "준비",
+        "first": "준",
+        "last": "비",
+        "level": "A1",
+        "german": "Vorbereitung",
+        "topic": "",
+        "next_count": 19,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Vorbereitung",
+        "english": "preparation"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "전화",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "전화",
+        "first": "전",
+        "last": "화",
+        "level": "A2",
+        "german": "Telefon / Anruf",
+        "topic": "Kommunikation",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Telefon / Anruf",
+        "english": "phone; phone call"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "이번",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "이번",
+        "first": "이",
+        "last": "번",
+        "level": "A1",
+        "german": "Dieses Mal",
+        "topic": "",
+        "next_count": 6,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Dieses Mal",
+        "english": "this time"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "신경",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "신경",
+        "first": "신",
+        "last": "경",
+        "level": "A1",
+        "german": "Nerven",
+        "topic": "",
+        "next_count": 17,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Nerven",
+        "english": "nerve"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "가야",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "가야",
+        "first": "가",
+        "last": "야",
+        "level": "A1",
+        "german": "Gaya",
+        "topic": "",
+        "next_count": 6,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Gaya",
+        "english": "Gaya (ancient Korean confederacy)"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "걱정",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "걱정",
+        "first": "걱",
+        "last": "정",
+        "level": "A1",
+        "german": "Sorgen",
+        "topic": "",
+        "next_count": 19,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Sorgen",
+        "english": "worry"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "아침",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "아침",
+        "first": "아",
+        "last": "침",
+        "level": "A1",
+        "german": "Morgen / Frühstück",
+        "topic": "Zeit",
+        "next_count": 3,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Morgen / Frühstück",
+        "english": "morning; breakfast"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "대신",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "대신",
+        "first": "대",
+        "last": "신",
+        "level": "A1",
+        "german": "stattdessen",
+        "topic": "",
+        "next_count": 21,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Ersatz / Vertretung",
+        "english": "replacement; substitute"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "마치",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "마치",
+        "first": "마",
+        "last": "치",
+        "level": "A1",
+        "german": "als ob",
+        "topic": "",
+        "next_count": 7,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "기분",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "기분",
+        "first": "기",
+        "last": "분",
+        "level": "A1",
+        "german": "Stimmung",
+        "topic": "",
+        "next_count": 12,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Stimmung",
+        "english": "mood"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "가면",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "가면",
+        "first": "가",
+        "last": "면",
+        "level": "A1",
+        "german": "Maske",
+        "topic": "",
+        "next_count": 5,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Maske",
+        "english": "mask"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "아이",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "아이",
+        "first": "아",
+        "last": "이",
+        "level": "A1",
+        "german": "Kind",
+        "topic": "",
+        "next_count": 51,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Kind",
+        "english": "child"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "아들",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "아들",
+        "first": "아",
+        "last": "들",
+        "level": "A1",
+        "german": "Sohn",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Sohn",
+        "english": "son"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "머리",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "머리",
+        "first": "머",
+        "last": "리",
+        "level": "A1",
+        "german": "Kopf / Haare",
+        "topic": "Körper",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Kopf / Haare",
+        "english": "head; hair"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "환자",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "환자",
+        "first": "환",
+        "last": "자",
+        "level": "A1",
+        "german": "Patient",
+        "topic": "",
+        "next_count": 42,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Patient",
+        "english": "patient"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "대로",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "대로",
+        "first": "대",
+        "last": "로",
+        "level": "A1",
+        "german": "wie es ist",
+        "topic": "",
+        "next_count": 14,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "아저씨",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "아저씨",
+        "first": "아",
+        "last": "씨",
+        "level": "A1",
+        "german": "Herr",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Mann mittleren Alters (auch als Anrede)",
+        "english": "middle-aged man; form of address for a man"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "평생",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "평생",
+        "first": "평",
+        "last": "생",
+        "level": "A1",
+        "german": "ein Leben lang",
+        "topic": "",
+        "next_count": 12,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "ein Leben lang",
+        "english": "one's entire life"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "너와",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "너와",
+        "first": "너",
+        "last": "와",
+        "level": "A1",
+        "german": "mit dir",
+        "topic": "",
+        "next_count": 8,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "문제",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "문제",
+        "first": "문",
+        "last": "제",
+        "level": "B1",
+        "german": "Problem / Aufgabe",
+        "topic": "Alltag",
+        "next_count": 19,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Problem / Aufgabe",
+        "english": "problem; question"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "저녁",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "저녁",
+        "first": "저",
+        "last": "녁",
+        "level": "A1",
+        "german": "Abend / Abendessen",
+        "topic": "Zeit",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Abend / Abendessen",
+        "english": "evening; dinner"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "하자",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "하자",
+        "first": "하",
+        "last": "자",
+        "level": "A1",
+        "german": "Los geht’s",
+        "topic": "",
+        "next_count": 42,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "정도",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "정도",
+        "first": "정",
+        "last": "도",
+        "level": "A1",
+        "german": "Maß",
+        "topic": "",
+        "next_count": 16,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Maß",
+        "english": "degree; extent"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "정신",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "정신",
+        "first": "정",
+        "last": "신",
+        "level": "A1",
+        "german": "Geist",
+        "topic": "",
+        "next_count": 21,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Geist",
+        "english": "mind; spirit"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "미국",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "미국",
+        "first": "미",
+        "last": "국",
+        "level": "A1",
+        "german": "USA",
+        "topic": "",
+        "next_count": 5,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "USA",
+        "english": "the United States"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "어머니",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "어머니",
+        "first": "어",
+        "last": "니",
+        "level": "A1",
+        "german": "Mutter (formell)",
+        "topic": "Familie",
+        "next_count": 2,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Mutter (formell)",
+        "english": "mother"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "언니",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "언니",
+        "first": "언",
+        "last": "니",
+        "level": "A1",
+        "german": "ältere Schwester (Sicht der Frau)",
+        "topic": "Familie",
+        "next_count": 2,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "ältere Schwester (Sicht der Frau)",
+        "english": "older sister (used by a female); form of address for an older woman"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "하루",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "하루",
+        "first": "하",
+        "last": "루",
+        "level": "A1",
+        "german": "Ein Tag",
+        "topic": "",
+        "next_count": 4,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Ein Tag",
+        "english": "one day"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "사랑",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "사랑",
+        "first": "사",
+        "last": "랑",
+        "level": "A1",
+        "german": "Liebe",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Liebe",
+        "english": "love"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "가게",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "가게",
+        "first": "가",
+        "last": "게",
+        "level": "A1",
+        "german": "Laden",
+        "topic": "",
+        "next_count": 6,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Laden",
+        "english": "shop; store"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "이름",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "이름",
+        "first": "이",
+        "last": "름",
+        "level": "A1",
+        "german": "Name",
+        "topic": "Person",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Name",
+        "english": "name"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "오빠",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "오빠",
+        "first": "오",
+        "last": "빠",
+        "level": "A1",
+        "german": "älterer Bruder (Sicht der Frau)",
+        "topic": "Familie",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "älterer Bruder (Sicht der Frau)",
+        "english": "older brother (used by a female); form of address for an older man"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "어린",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "어린",
+        "first": "어",
+        "last": "린",
+        "level": "A1",
+        "german": "jung",
+        "topic": "",
+        "next_count": 1,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "학교",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "학교",
+        "first": "학",
+        "last": "교",
+        "level": "A1",
+        "german": "Schule",
+        "topic": "Bildung",
+        "next_count": 9,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Schule",
+        "english": "school"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "아가씨",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "아가씨",
+        "first": "아",
+        "last": "씨",
+        "level": "A1",
+        "german": "Fräulein",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "junge Frau",
+        "english": "young woman"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "기억",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "기억",
+        "first": "기",
+        "last": "억",
+        "level": "A1",
+        "german": "Erinnerung",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Erinnerung",
+        "english": "memory"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "경찰",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "경찰",
+        "first": "경",
+        "last": "찰",
+        "level": "A1",
+        "german": "Polizei",
+        "topic": "",
+        "next_count": 1,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Polizei",
+        "english": "police; police officer"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "아기",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "아기",
+        "first": "아",
+        "last": "기",
+        "level": "A1",
+        "german": "Baby",
+        "topic": "",
+        "next_count": 25,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Baby",
+        "english": "baby"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "영화",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "영화",
+        "first": "영",
+        "last": "화",
+        "level": "A2",
+        "german": "Film",
+        "topic": "Freizeit",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Film",
+        "english": "film; movie"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "가족",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "가족",
+        "first": "가",
+        "last": "족",
+        "level": "A1",
+        "german": "Familie",
+        "topic": "Familie",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Familie",
+        "english": "family"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "마이크",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "마이크",
+        "first": "마",
+        "last": "크",
+        "level": "A1",
+        "german": "Mikrofon",
+        "topic": "",
+        "next_count": 6,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Mikrofon",
+        "english": "microphone"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "얼마",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "얼마",
+        "first": "얼",
+        "last": "마",
+        "level": "A2",
+        "german": "wie viel (Geld)",
+        "topic": "Einkaufen",
+        "next_count": 38,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "wie viel (Geld)",
+        "english": "how much; an amount"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "사진",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "사진",
+        "first": "사",
+        "last": "진",
+        "level": "A1",
+        "german": "Foto",
+        "topic": "",
+        "next_count": 10,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Foto",
+        "english": "photo"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "바보",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "바보",
+        "first": "바",
+        "last": "보",
+        "level": "A1",
+        "german": "Dummkopf",
+        "topic": "",
+        "next_count": 30,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Dummkopf",
+        "english": "fool"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "주지",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "주지",
+        "first": "주",
+        "last": "지",
+        "level": "A1",
+        "german": "Anmerkung",
+        "topic": "",
+        "next_count": 28,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "자주",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "자주",
+        "first": "자",
+        "last": "주",
+        "level": "A1",
+        "german": "oft",
+        "topic": "Alltag",
+        "next_count": 30,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "노래",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "노래",
+        "first": "노",
+        "last": "래",
+        "level": "A1",
+        "german": "Lied",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Lied",
+        "english": "song"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "오지",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "오지",
+        "first": "오",
+        "last": "지",
+        "level": "A1",
+        "german": "Abgelegene Gegend",
+        "topic": "",
+        "next_count": 28,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Abgelegene Gegend",
+        "english": "remote area"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "상관",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "상관",
+        "first": "상",
+        "last": "관",
+        "level": "A1",
+        "german": "Vorgesetzter",
+        "topic": "",
+        "next_count": 7,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Zusammenhang / Vorgesetzter",
+        "english": "connection; superior"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "사건",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "사건",
+        "first": "사",
+        "last": "건",
+        "level": "A1",
+        "german": "Vorfall",
+        "topic": "",
+        "next_count": 8,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Vorfall",
+        "english": "incident; case"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "커피",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "커피",
+        "first": "커",
+        "last": "피",
+        "level": "A1",
+        "german": "Kaffee",
+        "topic": "Essen & Trinken",
+        "next_count": 14,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Kaffee",
+        "english": "coffee"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "의사",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "의사",
+        "first": "의",
+        "last": "사",
+        "level": "A1",
+        "german": "Arzt",
+        "topic": "",
+        "next_count": 41,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Arzt",
+        "english": "doctor"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "얼굴",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "얼굴",
+        "first": "얼",
+        "last": "굴",
+        "level": "A1",
+        "german": "Gesicht",
+        "topic": "",
+        "next_count": 1,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Gesicht",
+        "english": "face"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "결혼",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "결혼",
+        "first": "결",
+        "last": "혼",
+        "level": "A1",
+        "german": "Heirat",
+        "topic": "",
+        "next_count": 1,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Heirat",
+        "english": "marriage"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "말씀",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "말씀",
+        "first": "말",
+        "last": "씀",
+        "level": "A1",
+        "german": "Wort",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "Worte / Äußerung (höflich)",
+        "english": "words; speech (honorific)"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "마음",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "마음",
+        "first": "마",
+        "last": "음",
+        "level": "A1",
+        "german": "Herz",
+        "topic": "",
+        "next_count": 5,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Herz",
+        "english": "heart; mind"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "음악",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "음악",
+        "first": "음",
+        "last": "악",
+        "level": "A2",
+        "german": "Musik",
+        "topic": "Freizeit",
+        "next_count": 5,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Musik",
+        "english": "music"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "순간",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "순간",
+        "first": "순",
+        "last": "간",
+        "level": "A1",
+        "german": "Augenblick",
+        "topic": "",
+        "next_count": 4,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Augenblick",
+        "english": "moment"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "할머니",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "할머니",
+        "first": "할",
+        "last": "니",
+        "level": "A1",
+        "german": "Oma",
+        "topic": "",
+        "next_count": 2,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Oma",
+        "english": "grandmother"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "화가",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "화가",
+        "first": "화",
+        "last": "가",
+        "level": "A1",
+        "german": "Maler",
+        "topic": "",
+        "next_count": 46,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Maler",
+        "english": "painter"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "로스",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "로스",
+        "first": "로",
+        "last": "스",
+        "level": "A1",
+        "german": "Ross",
+        "topic": "",
+        "next_count": 25,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "비밀",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "비밀",
+        "first": "비",
+        "last": "밀",
+        "level": "A1",
+        "german": "Geheimnis",
+        "topic": "",
+        "next_count": 4,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Geheimnis",
+        "english": "secret"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "병원",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "병원",
+        "first": "병",
+        "last": "원",
+        "level": "A2",
+        "german": "Arzt / Klinik",
+        "topic": "Gesundheit",
+        "next_count": 7,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Krankenhaus / Klinik",
+        "english": "hospital; clinic"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "가도",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "가도",
+        "first": "가",
+        "last": "도",
+        "level": "A1",
+        "german": "Straße",
+        "topic": "",
+        "next_count": 16,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "오케이",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "오케이",
+        "first": "오",
+        "last": "이",
+        "level": "A1",
+        "german": "Okay",
+        "topic": "",
+        "next_count": 51,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Okay",
+        "english": "okay; agreement"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "이해",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "이해",
+        "first": "이",
+        "last": "해",
+        "level": "A1",
+        "german": "Verständnis",
+        "topic": "",
+        "next_count": 20,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Verständnis",
+        "english": "understanding"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "죽지",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "죽지",
+        "first": "죽",
+        "last": "지",
+        "level": "A1",
+        "german": "nicht sterben",
+        "topic": "",
+        "next_count": 28,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "박사",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "박사",
+        "first": "박",
+        "last": "사",
+        "level": "A1",
+        "german": "Doktor",
+        "topic": "",
+        "next_count": 41,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Doktorgrad / promovierte Person",
+        "english": "doctoral degree; person with a doctorate"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "관심",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "관심",
+        "first": "관",
+        "last": "심",
+        "level": "A1",
+        "german": "Interesse",
+        "topic": "",
+        "next_count": 5,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Interesse",
+        "english": "interest"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "인간",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "인간",
+        "first": "인",
+        "last": "간",
+        "level": "A1",
+        "german": "Mensch",
+        "topic": "",
+        "next_count": 4,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Mensch",
+        "english": "human being"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "크리스마스",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "크리스마스",
+        "first": "크",
+        "last": "스",
+        "level": "A1",
+        "german": "Weihnachten",
+        "topic": "",
+        "next_count": 25,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Weihnachten",
+        "english": "Christmas"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "보기",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "보기",
+        "first": "보",
+        "last": "기",
+        "level": "A1",
+        "german": "Anzeigen",
+        "topic": "",
+        "next_count": 25,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Beispiel / Muster",
+        "english": "example; sample"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    },
+    {
+      "word": "신의",
+      "result": "quarantined_wrong_or_unresolved_noun_sense",
+      "before": {
+        "word": "신의",
+        "first": "신",
+        "last": "의",
+        "level": "A1",
+        "german": "Gott",
+        "topic": "",
+        "next_count": 17,
+        "is_dead_end": false
+      },
+      "reason": "The displayed gloss refers to a pronoun, inflected fragment, adverb or a different homonymous sense; no context or reviewed noun gloss supports using this entry as a tiger prompt. Spelling may remain valid in the independent dictionary."
+    },
+    {
+      "word": "데이트",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "데이트",
+        "first": "데",
+        "last": "트",
+        "level": "A1",
+        "german": "Verabredung",
+        "topic": "",
+        "next_count": 4,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Verabredung",
+        "english": "date; romantic outing"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "사고",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "사고",
+        "first": "사",
+        "last": "고",
+        "level": "A1",
+        "german": "Unfall",
+        "topic": "",
+        "next_count": 23,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Unfall",
+        "english": "accident"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "세상",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "세상",
+        "first": "세",
+        "last": "상",
+        "level": "A1",
+        "german": "Die Welt",
+        "topic": "",
+        "next_count": 13,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Die Welt",
+        "english": "world"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "세계",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "세계",
+        "first": "세",
+        "last": "계",
+        "level": "A1",
+        "german": "Welt",
+        "topic": "",
+        "next_count": 11,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Welt",
+        "english": "world"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "마약",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "마약",
+        "first": "마",
+        "last": "약",
+        "level": "A1",
+        "german": "Drogen",
+        "topic": "",
+        "next_count": 8,
+        "is_dead_end": false
+      },
+      "copy": {
+        "german": "Drogen",
+        "english": "narcotic drug"
+      },
+      "changedFields": [
+        "english"
+      ]
+    },
+    {
+      "word": "며칠",
+      "result": "reviewed_bilingual_copy",
+      "before": {
+        "word": "며칠",
+        "first": "며",
+        "last": "칠",
+        "level": "A1",
+        "german": "ein paar Tage",
+        "topic": "",
+        "next_count": 0,
+        "is_dead_end": true
+      },
+      "copy": {
+        "german": "wie viele Tage / einige Tage",
+        "english": "how many days; a few days"
+      },
+      "changedFields": [
+        "german",
+        "english"
+      ]
+    }
+  ]
+}

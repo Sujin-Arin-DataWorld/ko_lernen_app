@@ -18,6 +18,8 @@ import os
 import sys
 from collections import Counter
 
+from kkeunmari_editorial_revisions import apply_review
+
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 POOL = os.path.join(ROOT, "assets", "data", "kkeunmari_pool.json")
 VOCAB = os.path.join(ROOT, "assets", "data", "korean_vocab.csv")
@@ -75,12 +77,11 @@ def main():
         })
         added += 1
 
-    recompute(entries)
+    entries = apply_review(entries)
 
     dead = sum(1 for e in entries if e["is_dead_end"])
     start = sum(1 for e in entries if e["next_count"] >= 2)
-    from collections import Counter as C
-    by_level = C(e["level"] for e in entries)
+    by_level = Counter(e["level"] for e in entries)
     print(f"기존 {len(entries) - added} + 추가 {added} = 총 {len(entries)}")
     print(f"  레벨: {dict(sorted(by_level.items()))}")
     print(f"  dead-end {dead} ({dead * 100 // len(entries)}%) · startable(≥2) {start}")
