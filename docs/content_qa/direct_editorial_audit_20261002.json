@@ -36560,7 +36560,7 @@
       "learning_phases.json"
     ],
     "ttsBoundary": "Storage keys are complete; individual clip listening and device playback are not claimed.",
-    "scenarioPersonaReview": "A1: 29, A2: 28, and B1: 31 live scenarios directly reviewed. B2-C2: 90 live scenarios remain."
+    "scenarioPersonaReview": "A1: 29, A2: 28, B1: 31, and B2: 30 live scenarios directly reviewed. C1-C2: 60 live scenarios remain."
   },
   "scenarioPersonaReviewProgress": {
     "reviewReference": "GitHub PR #438 merged as 797160b0664172b2956be0e202bb5df9b246b65c",
@@ -36790,6 +36790,98 @@
           "remoteObjects": 21900,
           "missingObjects": 0,
           "staleObjects": 8980,
+          "humanListeningClaim": false
+        }
+      },
+      {
+        "level": "B2",
+        "status": "directly_reviewed",
+        "scenarioCount": 30,
+        "scenarioIds": [
+          "accessible_festival_route",
+          "ai_image_disclosure",
+          "brand_private_account_boundary",
+          "community_event_compromise",
+          "delivery_refund_evidence",
+          "direct_feedback_misread",
+          "feedback_specific_example",
+          "filming_permission",
+          "freelance_scope_change",
+          "fremdschaemen_live",
+          "library_quiet_zone_conflict",
+          "meeting_disagreement_evidence",
+          "meeting_opening_context",
+          "neighborhood_filming_notice",
+          "partner_family_titles",
+          "portfolio_interview_gap",
+          "recycling_policy_pilot",
+          "rental_repair_deposit",
+          "train_delay_connection",
+          "wedding_invitation_expectation",
+          "b2_theme_park_date_safety",
+          "b2_w10_negotiate",
+          "b2_w10_notice",
+          "b2_w10_travel",
+          "b2_w10_health",
+          "b2_w10_partner",
+          "b2_w10_hiring",
+          "b2_w10_authorities",
+          "b2_w10_privacy",
+          "b2_w10_fandom"
+        ],
+        "reviewedFields": [
+          "Korean dialogue and tone",
+          "German and English localization",
+          "speaker relationship and register",
+          "vocabulary extraction",
+          "listening/translation/sentence-building answer alignment",
+          "linked listening-lesson prompt, evidence, answer, and explanation",
+          "institutional, health, contract, privacy, and cultural claims"
+        ],
+        "findingsApplied": [
+          {
+            "scenarioId": "train_delay_connection",
+            "decision": "The clerk now separates an immediate answer from a joint check of the two bookings; no compensation, ticket change, or seat outcome is implied."
+          },
+          {
+            "scenarioId": "b2_w10_negotiate",
+            "decision": "The freelancer makes a counteroffer and the manager accepts it before the contract is revised; the scene quest and linked listening target use the same German sentence."
+          },
+          {
+            "scenarioId": "b2_w10_notice",
+            "decision": "The parking-fine scene asks the decision notice and responsible office which steps may be available, without inventing a review route, deadline, or cancellation outcome."
+          },
+          {
+            "scenarioId": "b2_w10_travel",
+            "decision": "Maya acknowledges the weather constraint and asks for a check of partner seats or alternatives; the manager reports availability only after that check."
+          },
+          {
+            "scenarioId": "b2_w10_health",
+            "decision": "The pharmacist does not alter a prescription or promise equivalent effects. Lena asks for confirmation with the prescriber and keeps the current prescription until the result is clear."
+          },
+          {
+            "scenarioId": "b2_w10_partner",
+            "decision": "Sujin frames advance notice for family visits as a shared household boundary, not a rule about Korean families; the culture note is likewise situational."
+          },
+          {
+            "scenarioId": "b2_w10_authorities",
+            "decision": "Visa timing, documents, and next steps are checked against the learner’s residence status and current guidance, with no universal deadline, document list, or consequence."
+          },
+          {
+            "scenarioId": "b2_w10_privacy",
+            "decision": "The scene separates a deletion request, retention assessment, identity check, and notice of outcome; it does not promise deletion of every record."
+          }
+        ],
+        "retained": "The other 22 B2 scenes keep their current wording because their speaker goal, relationship, register, and KO-DE-EN meaning are appropriate to B2.",
+        "notClaimed": "This is a direct editorial read, not independent native-speaker approval or individual audio listening.",
+        "tts": {
+          "canonicalManifestRebuilt": true,
+          "firstLineManifestRebuilt": true,
+          "newStorageObjectsUploaded": 32,
+          "expectedCanonicalClips": 12925,
+          "remoteObjects": 21932,
+          "missingObjects": 0,
+          "staleObjects": 9007,
           "humanListeningClaim": false
         }
       }

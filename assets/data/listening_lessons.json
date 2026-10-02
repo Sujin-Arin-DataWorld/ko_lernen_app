@@ -16442,19 +16442,19 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “그 경우 보상은 바로 말씀드리기 어렵지만 좌석 변경은 확인할 수 있어요.”예요. 따라서 “보상 확답과 좌석 변경 확인은 별개로 진행할 수 있어요.”가 맞아요. “같은 앱에서 샀으므로 보상이 이미 확정됐어요.”와 “보상을 확답할 수 없으면 좌석 변경도 확인하지 않아요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „그 경우 보상은 바로 말씀드리기 어렵지만 좌석 변경은 확인할 수 있어요.“ (In diesem Fall kann ich keine Erstattung zusagen, aber ich kann eine Umbuchung des Sitzplatzes prüfen.). Daraus folgt: Eine Entschädigungszusage und die Prüfung einer Umbuchung sind getrennte Schritte. Die Alternativen „Der Kauf in derselben App garantiert bereits Entschädigung.“ und „Ohne Entschädigungszusage wird auch keine Umbuchung geprüft.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “그 경우 보상은 바로 말씀드리기 어렵지만 좌석 변경은 확인할 수 있어요.” (In that case, I can't promise compensation, but I can check whether the seat can be changed.). This supports: Confirming compensation and checking a seat change are separate steps. The alternatives “Buying through the same app already guarantees compensation.” and “Without confirmed compensation, a seat change will not be checked either.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “그 경우 보상 여부와 변경 가능 여부를 바로 말씀드리기는 어렵지만, 두 예약을 함께 확인해 볼 수 있어요.”예요. 따라서 “보상 여부와 변경 가능 여부는 바로 확정하지 않고 두 예약을 함께 확인해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „그 경우 보상 여부와 변경 가능 여부를 바로 말씀드리기는 어렵지만, 두 예약을 함께 확인해 볼 수 있어요.“ (In diesem Fall kann ich weder eine Erstattung noch eine Umbuchung sofort zusagen, aber ich kann beide Buchungen gemeinsam prüfen.). Deshalb ist „Eine Erstattung oder Umbuchung wird nicht sofort zugesagt; beide Buchungen werden gemeinsam geprüft.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “그 경우 보상 여부와 변경 가능 여부를 바로 말씀드리기는 어렵지만, 두 예약을 함께 확인해 볼 수 있어요.” (In that case, I can't confirm compensation or a change right away, but I can check both bookings together.). This supports: “They do not confirm compensation or a change immediately; they check both bookings together..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "train_delay_connection"
           ],
-          "evidenceKo": "그 경우 보상은 바로 말씀드리기 어렵지만 좌석 변경은 확인할 수 있어요.",
+          "evidenceKo": "그 경우 보상 여부와 변경 가능 여부를 바로 말씀드리기는 어렵지만, 두 예약을 함께 확인해 볼 수 있어요.",
           "options": [
             {
-              "ko": "보상 확답과 좌석 변경 확인은 별개로 진행할 수 있어요.",
-              "de": "Eine Entschädigungszusage und die Prüfung einer Umbuchung sind getrennte Schritte.",
-              "en": "Confirming compensation and checking a seat change are separate steps."
+              "ko": "보상 여부와 변경 가능 여부는 바로 확정하지 않고 두 예약을 함께 확인해요.",
+              "de": "Eine Erstattung oder Umbuchung wird nicht sofort zugesagt; beide Buchungen werden gemeinsam geprüft.",
+              "en": "They do not confirm compensation or a change immediately; they check both bookings together."
             },
             {
               "ko": "같은 앱에서 샀으므로 보상이 이미 확정됐어요.",
@@ -16462,9 +16462,9 @@
               "en": "Buying through the same app already guarantees compensation."
             },
             {
-              "ko": "보상을 확답할 수 없으면 좌석 변경도 확인하지 않아요.",
-              "de": "Ohne Entschädigungszusage wird auch keine Umbuchung geprüft.",
-              "en": "Without confirmed compensation, a seat change will not be checked either."
+              "ko": "보상 여부를 바로 알 수 없으면 두 예약도 확인하지 않아요.",
+              "de": "Wenn eine Entschädigung nicht sofort geklärt werden kann, werden auch die beiden Buchungen nicht geprüft.",
+              "en": "If compensation cannot be confirmed immediately, they will not check the two bookings either."
             }
           ],
           "correctIndex": 0
@@ -16480,8 +16480,8 @@
           },
           "explanation": {
             "ko": "들은 말은 “다음 표는 따로 예약하신 건가요?”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „다음 표는 따로 예약하신 건가요?“: Wurde der Anschluss separat gebucht? Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “다음 표는 따로 예약하신 건가요?”: Was the next ticket booked separately? The other options represent different turns in this scene, with different content or conversational functions."
+            "de": "Zu hören ist „다음 표는 따로 예약하신 건가요?“: Wurde der Anschluss separat gebucht?. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “다음 표는 따로 예약하신 건가요?”: Was the next ticket booked separately?. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "train_delay_connection"
@@ -16538,19 +16538,19 @@
             "en": "Imagine someone summarizes the conversation as follows: “Buying through the same app already guarantees compensation.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “그 경우 보상은 바로 말씀드리기 어렵지만 좌석 변경은 확인할 수 있어요.”예요. 따라서 “보상 확답과 좌석 변경 확인은 별개로 진행할 수 있어요.”가 맞아요. “같은 앱에서 샀으므로 보상이 이미 확정됐어요.”와 “보상을 확답할 수 없으면 좌석 변경도 확인하지 않아요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „그 경우 보상은 바로 말씀드리기 어렵지만 좌석 변경은 확인할 수 있어요.“ (In diesem Fall kann ich keine Erstattung zusagen, aber ich kann eine Umbuchung des Sitzplatzes prüfen.). Daraus folgt: Eine Entschädigungszusage und die Prüfung einer Umbuchung sind getrennte Schritte. Die Alternativen „Der Kauf in derselben App garantiert bereits Entschädigung.“ und „Ohne Entschädigungszusage wird auch keine Umbuchung geprüft.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “그 경우 보상은 바로 말씀드리기 어렵지만 좌석 변경은 확인할 수 있어요.” (In that case, I can't promise compensation, but I can check whether the seat can be changed.). This supports: Confirming compensation and checking a seat change are separate steps. The alternatives “Buying through the same app already guarantees compensation.” and “Without confirmed compensation, a seat change will not be checked either.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “그 경우 보상 여부와 변경 가능 여부를 바로 말씀드리기는 어렵지만, 두 예약을 함께 확인해 볼 수 있어요.”예요. 따라서 “보상 여부와 변경 가능 여부는 바로 확정하지 않고 두 예약을 함께 확인해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „그 경우 보상 여부와 변경 가능 여부를 바로 말씀드리기는 어렵지만, 두 예약을 함께 확인해 볼 수 있어요.“ (In diesem Fall kann ich weder eine Erstattung noch eine Umbuchung sofort zusagen, aber ich kann beide Buchungen gemeinsam prüfen.). Deshalb ist „Eine Erstattung oder Umbuchung wird nicht sofort zugesagt; beide Buchungen werden gemeinsam geprüft.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “그 경우 보상 여부와 변경 가능 여부를 바로 말씀드리기는 어렵지만, 두 예약을 함께 확인해 볼 수 있어요.” (In that case, I can't confirm compensation or a change right away, but I can check both bookings together.). This supports: “They do not confirm compensation or a change immediately; they check both bookings together..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "train_delay_connection"
           ],
-          "evidenceKo": "그 경우 보상은 바로 말씀드리기 어렵지만 좌석 변경은 확인할 수 있어요.",
+          "evidenceKo": "그 경우 보상 여부와 변경 가능 여부를 바로 말씀드리기는 어렵지만, 두 예약을 함께 확인해 볼 수 있어요.",
           "options": [
             {
-              "ko": "보상 확답과 좌석 변경 확인은 별개로 진행할 수 있어요.",
-              "de": "Eine Entschädigungszusage und die Prüfung einer Umbuchung sind getrennte Schritte.",
-              "en": "Confirming compensation and checking a seat change are separate steps."
+              "ko": "보상 여부와 변경 가능 여부는 바로 확정하지 않고 두 예약을 함께 확인해요.",
+              "de": "Eine Erstattung oder Umbuchung wird nicht sofort zugesagt; beide Buchungen werden gemeinsam geprüft.",
+              "en": "They do not confirm compensation or a change immediately; they check both bookings together."
             },
             {
               "ko": "같은 앱에서 샀으므로 보상이 이미 확정됐어요.",
@@ -16558,9 +16558,9 @@
               "en": "Buying through the same app already guarantees compensation."
             },
             {
-              "ko": "보상을 확답할 수 없으면 좌석 변경도 확인하지 않아요.",
-              "de": "Ohne Entschädigungszusage wird auch keine Umbuchung geprüft.",
-              "en": "Without confirmed compensation, a seat change will not be checked either."
+              "ko": "보상 여부를 바로 알 수 없으면 두 예약도 확인하지 않아요.",
+              "de": "Wenn eine Entschädigung nicht sofort geklärt werden kann, werden auch die beiden Buchungen nicht geprüft.",
+              "en": "If compensation cannot be confirmed immediately, they will not check the two bookings either."
             }
           ],
           "correctIndex": 0
@@ -16904,29 +16904,29 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “그럼 일정은 그대로 두는 대신 수정은 세 번, 단가는 백사십만 원으로 하겠습니다.”예요. 따라서 “일정은 유지하고 수정 횟수와 단가를 함께 조정해요.”가 맞아요. “단가를 지키기 위해 둘째 날 촬영을 반나절로 줄이기로 확정해요.”와 “원래 단가를 받는 대신 수정 횟수를 무제한으로 유지해요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „그럼 일정은 그대로 두는 대신 수정은 세 번, 단가는 백사십만 원으로 하겠습니다.“ (Dann lassen wir den Zeitplan wie er ist und vereinbaren drei Korrekturrunden bei einem Honorar von 1,4 Millionen Won.). Daraus folgt: Der Zeitplan bleibt; Korrekturzahl und Honorar werden angepasst. Die Alternativen „Zur Beibehaltung des Honorars wird der zweite Drehtag verbindlich verkürzt.“ und „Für das ursprüngliche Honorar bleiben Korrekturen unbegrenzt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “그럼 일정은 그대로 두는 대신 수정은 세 번, 단가는 백사십만 원으로 하겠습니다.” (Then let's keep the schedule as it is, limit revisions to three rounds, and set the fee at 1.4 million won.). This supports: The schedule stays while the revision limit and fee are adjusted. The alternatives “They finalize shortening the second day to preserve the fee.” and “They keep unlimited revisions in exchange for the original fee.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “그럼 일정은 그대로 두고, 수정은 세 번으로 제한하는 조건에서 단가를 백사십만 원으로 조정할 수 있을까요?”예요. 따라서 “일정은 유지하고 수정 횟수와 단가를 함께 조정할지 제안해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „그럼 일정은 그대로 두고, 수정은 세 번으로 제한하는 조건에서 단가를 백사십만 원으로 조정할 수 있을까요?“ (Dann würden wir den Zeitplan beibehalten, die Korrekturen auf drei begrenzen und das Honorar auf 1,4 Millionen Won anpassen. Wäre das möglich?). Deshalb ist „Der Zeitplan bleibt, und eine gemeinsame Anpassung von Korrekturrunden und Honorar wird vorgeschlagen.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “그럼 일정은 그대로 두고, 수정은 세 번으로 제한하는 조건에서 단가를 백사십만 원으로 조정할 수 있을까요?” (Then could we keep the schedule, limit revisions to three rounds, and adjust the fee to 1.4 million won?). This supports: “They propose keeping the schedule while adjusting the revision limit and fee together..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "b2_w10_negotiate"
           ],
-          "evidenceKo": "그럼 일정은 그대로 두는 대신 수정은 세 번, 단가는 백사십만 원으로 하겠습니다.",
+          "evidenceKo": "그럼 일정은 그대로 두고, 수정은 세 번으로 제한하는 조건에서 단가를 백사십만 원으로 조정할 수 있을까요?",
           "options": [
             {
-              "ko": "일정은 유지하고 수정 횟수와 단가를 함께 조정해요.",
-              "de": "Der Zeitplan bleibt; Korrekturzahl und Honorar werden angepasst.",
-              "en": "The schedule stays while the revision limit and fee are adjusted."
+              "ko": "일정은 유지하고 수정 횟수와 단가를 함께 조정할지 제안해요.",
+              "de": "Der Zeitplan bleibt, und eine gemeinsame Anpassung von Korrekturrunden und Honorar wird vorgeschlagen.",
+              "en": "They propose keeping the schedule while adjusting the revision limit and fee together."
             },
             {
               "ko": "단가를 지키기 위해 둘째 날 촬영을 반나절로 줄이기로 확정해요.",
-              "de": "Zur Beibehaltung des Honorars wird der zweite Drehtag verbindlich verkürzt.",
-              "en": "They finalize shortening the second day to preserve the fee."
+              "de": "Um das Honorar zu halten, wird der zweite Drehtag verbindlich auf einen halben Tag gekürzt.",
+              "en": "They decide to cut the second shoot day to a half-day in order to keep the fee."
             },
             {
               "ko": "원래 단가를 받는 대신 수정 횟수를 무제한으로 유지해요.",
-              "de": "Für das ursprüngliche Honorar bleiben Korrekturen unbegrenzt.",
-              "en": "They keep unlimited revisions in exchange for the original fee."
+              "de": "Das ursprüngliche Honorar bleibt bestehen, dafür bleiben die Korrekturen unbegrenzt.",
+              "en": "They keep the original fee and leave revisions unlimited."
             }
           ],
           "correctIndex": 0
@@ -16942,8 +16942,8 @@
           },
           "explanation": {
             "ko": "들은 말은 “그럼 수정을 세 번으로 제한하는 대신 단가를 조금 낮출 수 있을까요?”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „그럼 수정을 세 번으로 제한하는 대신 단가를 조금 낮출 수 있을까요?“: Wenn wir dann die Korrekturen auf drei begrenzen, könnten wir im Gegenzug das Honorar etwas senken? Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “그럼 수정을 세 번으로 제한하는 대신 단가를 조금 낮출 수 있을까요?”: If we cap the revisions at three, then, could we lower the rate a bit in exchange? The other options represent different turns in this scene, with different content or conversational functions."
+            "de": "Zu hören ist „그럼 수정을 세 번으로 제한하는 대신 단가를 조금 낮출 수 있을까요?“: Wenn wir dann die Korrekturen auf drei begrenzen, könnten wir im Gegenzug das Honorar etwas senken?. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “그럼 수정을 세 번으로 제한하는 대신 단가를 조금 낮출 수 있을까요?”: If we cap the revisions at three, then, could we lower the rate a bit in exchange?. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "b2_w10_negotiate"
@@ -16957,14 +16957,14 @@
               "en": "If we cap the revisions at three, then, could we lower the rate a bit in exchange?"
             },
             {
-              "ko": "그럼 일정은 그대로 두는 대신 수정은 세 번, 단가는 백사십만 원으로 하겠습니다.",
-              "de": "Dann lassen wir den Zeitplan wie er ist und vereinbaren drei Korrekturrunden bei einem Honorar von 1,4 Millionen Won.",
-              "en": "Then let's keep the schedule as it is, limit revisions to three rounds, and set the fee at 1.4 million won."
+              "ko": "그럼 일정은 그대로 두고, 수정은 세 번으로 제한하는 조건에서 단가를 백사십만 원으로 조정할 수 있을까요?",
+              "de": "Dann würden wir den Zeitplan beibehalten, die Korrekturen auf drei begrenzen und das Honorar auf 1,4 Millionen Won anpassen. Wäre das möglich?",
+              "en": "Then could we keep the schedule, limit revisions to three rounds, and adjust the fee to 1.4 million won?"
             },
             {
               "ko": "그래도 미리 정해 두는 게 나을 것 같은데요. 수정은 세 번까지로 하면 어떨까요?",
               "de": "Trotzdem wäre es wahrscheinlich besser, das vorher festzulegen. Wie wäre es, die Korrekturen auf drei zu begrenzen?",
-              "en": "Still, it'd probably be better to set that in advance. How about capping revisions at three?"
+              "en": "Still, it would probably be better to set that in advance. How about capping revisions at three?"
             }
           ],
           "correctIndex": 0
@@ -16975,20 +16975,20 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Gut. Ich passe den Vertrag an diese Bedingungen an.",
-            "en": "Put the words in the same order as the recording. Meaning: Sounds good. I'll revise the contract to reflect those terms."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Gut. Ich überarbeite den Vertrag und nehme diese Bedingungen auf.",
+            "en": "Put the words in the same order as the recording. Meaning: Sounds good. I'll revise the contract to include those terms."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “좋습니다. 그 조건으로 계약서를 다시 정리하겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „좋습니다. 그 조건으로 계약서를 다시 정리하겠습니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “좋습니다. 그 조건으로 계약서를 다시 정리하겠습니다.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “좋습니다. 그 조건을 반영해서 계약서를 다시 정리하겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „좋습니다. 그 조건을 반영해서 계약서를 다시 정리하겠습니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “좋습니다. 그 조건을 반영해서 계약서를 다시 정리하겠습니다.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "b2_w10_negotiate"
           ],
-          "evidenceKo": "좋습니다. 그 조건으로 계약서를 다시 정리하겠습니다.",
-          "audioKo": "좋습니다. 그 조건으로 계약서를 다시 정리하겠습니다.",
-          "targetKo": "좋습니다. 그 조건으로 계약서를 다시 정리하겠습니다."
+          "evidenceKo": "좋습니다. 그 조건을 반영해서 계약서를 다시 정리하겠습니다.",
+          "audioKo": "좋습니다. 그 조건을 반영해서 계약서를 다시 정리하겠습니다.",
+          "targetKo": "좋습니다. 그 조건을 반영해서 계약서를 다시 정리하겠습니다."
         },
         {
           "id": "listening.b2.b2_w10_negotiate.response",
@@ -16996,33 +16996,33 @@
           "skill": "response",
           "prompt": {
             "ko": "대화를 들은 사람이 “단가를 지키기 위해 둘째 날 촬영을 반나절로 줄이기로 확정해요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
-            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Zur Beibehaltung des Honorars wird der zweite Drehtag verbindlich verkürzt.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
-            "en": "Imagine someone summarizes the conversation as follows: “They finalize shortening the second day to preserve the fee.” Which response corrects this while preserving the original conditions and intentions?"
+            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Um das Honorar zu halten, wird der zweite Drehtag verbindlich auf einen halben Tag gekürzt.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
+            "en": "Imagine someone summarizes the conversation as follows: “They decide to cut the second shoot day to a half-day in order to keep the fee.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “그럼 일정은 그대로 두는 대신 수정은 세 번, 단가는 백사십만 원으로 하겠습니다.”예요. 따라서 “일정은 유지하고 수정 횟수와 단가를 함께 조정해요.”가 맞아요. “단가를 지키기 위해 둘째 날 촬영을 반나절로 줄이기로 확정해요.”와 “원래 단가를 받는 대신 수정 횟수를 무제한으로 유지해요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „그럼 일정은 그대로 두는 대신 수정은 세 번, 단가는 백사십만 원으로 하겠습니다.“ (Dann lassen wir den Zeitplan wie er ist und vereinbaren drei Korrekturrunden bei einem Honorar von 1,4 Millionen Won.). Daraus folgt: Der Zeitplan bleibt; Korrekturzahl und Honorar werden angepasst. Die Alternativen „Zur Beibehaltung des Honorars wird der zweite Drehtag verbindlich verkürzt.“ und „Für das ursprüngliche Honorar bleiben Korrekturen unbegrenzt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “그럼 일정은 그대로 두는 대신 수정은 세 번, 단가는 백사십만 원으로 하겠습니다.” (Then let's keep the schedule as it is, limit revisions to three rounds, and set the fee at 1.4 million won.). This supports: The schedule stays while the revision limit and fee are adjusted. The alternatives “They finalize shortening the second day to preserve the fee.” and “They keep unlimited revisions in exchange for the original fee.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “그럼 일정은 그대로 두고, 수정은 세 번으로 제한하는 조건에서 단가를 백사십만 원으로 조정할 수 있을까요?”예요. 따라서 “일정은 유지하고 수정 횟수와 단가를 함께 조정할지 제안해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „그럼 일정은 그대로 두고, 수정은 세 번으로 제한하는 조건에서 단가를 백사십만 원으로 조정할 수 있을까요?“ (Dann würden wir den Zeitplan beibehalten, die Korrekturen auf drei begrenzen und das Honorar auf 1,4 Millionen Won anpassen. Wäre das möglich?). Deshalb ist „Der Zeitplan bleibt, und eine gemeinsame Anpassung von Korrekturrunden und Honorar wird vorgeschlagen.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “그럼 일정은 그대로 두고, 수정은 세 번으로 제한하는 조건에서 단가를 백사십만 원으로 조정할 수 있을까요?” (Then could we keep the schedule, limit revisions to three rounds, and adjust the fee to 1.4 million won?). This supports: “They propose keeping the schedule while adjusting the revision limit and fee together..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "b2_w10_negotiate"
           ],
-          "evidenceKo": "그럼 일정은 그대로 두는 대신 수정은 세 번, 단가는 백사십만 원으로 하겠습니다.",
+          "evidenceKo": "그럼 일정은 그대로 두고, 수정은 세 번으로 제한하는 조건에서 단가를 백사십만 원으로 조정할 수 있을까요?",
           "options": [
             {
-              "ko": "일정은 유지하고 수정 횟수와 단가를 함께 조정해요.",
-              "de": "Der Zeitplan bleibt; Korrekturzahl und Honorar werden angepasst.",
-              "en": "The schedule stays while the revision limit and fee are adjusted."
+              "ko": "일정은 유지하고 수정 횟수와 단가를 함께 조정할지 제안해요.",
+              "de": "Der Zeitplan bleibt, und eine gemeinsame Anpassung von Korrekturrunden und Honorar wird vorgeschlagen.",
+              "en": "They propose keeping the schedule while adjusting the revision limit and fee together."
             },
             {
               "ko": "단가를 지키기 위해 둘째 날 촬영을 반나절로 줄이기로 확정해요.",
-              "de": "Zur Beibehaltung des Honorars wird der zweite Drehtag verbindlich verkürzt.",
-              "en": "They finalize shortening the second day to preserve the fee."
+              "de": "Um das Honorar zu halten, wird der zweite Drehtag verbindlich auf einen halben Tag gekürzt.",
+              "en": "They decide to cut the second shoot day to a half-day in order to keep the fee."
             },
             {
               "ko": "원래 단가를 받는 대신 수정 횟수를 무제한으로 유지해요.",
-              "de": "Für das ursprüngliche Honorar bleiben Korrekturen unbegrenzt.",
-              "en": "They keep unlimited revisions in exchange for the original fee."
+              "de": "Das ursprüngliche Honorar bleibt bestehen, dafür bleiben die Korrekturen unbegrenzt.",
+              "en": "They keep the original fee and leave revisions unlimited."
             }
           ],
           "correctIndex": 0
@@ -17035,14 +17035,14 @@
       "level": "b2",
       "topicId": "b2_notice",
       "title": {
-        "ko": "과태료 이의신청, 다시 접수하기",
-        "de": "Einspruch gegen das Bußgeld erneut einreichen",
-        "en": "Resubmitting an objection to a fine"
+        "ko": "과태료 이의신청, 절차 다시 확인하기",
+        "de": "Das Verfahren nach einem abgelehnten Bußgeld-Einspruch klären",
+        "en": "Clarifying the procedure after a rejected fine appeal"
       },
       "intro": {
-        "ko": "다니엘이 제출한 주정차 위반 이의신청이 기각되자 사진 증거를 들어 다시 이의를 제기합니다.",
-        "de": "Nachdem Daniels eingereichter Einspruch gegen den Parkverstoß abgelehnt wurde, legt er mit Fotobeweisen erneut Einspruch ein.",
-        "en": "After Daniel's submitted objection to a parking violation is rejected, he raises the objection again using photo evidence."
+        "ko": "다니엘은 주정차 위반 이의신청 결과를 받고, 사진을 포함해 어떤 절차를 다시 확인할 수 있는지 문의합니다.",
+        "de": "Daniel hat die Entscheidung zu seinem Einspruch gegen einen Parkverstoß erhalten und fragt, welche Schritte er mit den Fotos noch klären kann.",
+        "en": "Daniel receives the decision on his parking-violation appeal and asks which steps he can still clarify with the photos."
       },
       "contentIds": [
         "b2_w10_notice"
@@ -17058,29 +17058,29 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “네, 이의신청서에 사진과 이번 통화 내용을 함께 적어서 다시 접수하시면 됩니다.”예요. 따라서 “한 번 기각됐어도 사진과 통화 내용을 담아 다시 검토를 요청해요.”가 맞아요. “한 번 기각됐으므로 다른 부서에 검토를 요청할 방법도 없어요.”와 “사진을 보냈으므로 이 통화에서 과태료 취소가 확정됐어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „네, 이의신청서에 사진과 이번 통화 내용을 함께 적어서 다시 접수하시면 됩니다.“ (Ja. Reichen Sie den Einspruch erneut ein, fügen Sie das Foto bei und verweisen Sie auf unser heutiges Gespräch.). Daraus folgt: Trotz Ablehnung wird mit Foto und Gesprächsinhalt eine erneute Prüfung beantragt. Die Alternativen „Nach einer Ablehnung gibt es keinen Weg zur Prüfung durch eine andere Stelle.“ und „Das Foto hat in diesem Gespräch die Aufhebung des Bußgelds bewirkt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “네, 이의신청서에 사진과 이번 통화 내용을 함께 적어서 다시 접수하시면 됩니다.” (Yes. Resubmit the objection, attach the photo, and refer to what we discussed on this call.). This supports: Despite the rejection, they seek another review with the photo and call details. The alternatives “After one rejection, no route to review by another department exists.” and “Sending the photo has secured cancellation of the fine in this call.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.”예요. 따라서 “결과 안내문과 담당 기관을 통해 가능한 절차를 다시 확인해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.“ (Welche Schritte auf Grundlage des bereits erhaltenen Bescheids und der Fotos möglich sind, müssen Sie noch einmal anhand der Mitteilung und bei der zuständigen Stelle klären.). Deshalb ist „Sie klären über die Mitteilung und die zuständige Stelle, welche Schritte noch möglich sind.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.” (You need to check the decision notice and the responsible office again to find out which steps may be available based on the decision and photos.). This supports: “They use the decision notice and responsible office to clarify which steps may still be available..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "b2_w10_notice"
           ],
-          "evidenceKo": "네, 이의신청서에 사진과 이번 통화 내용을 함께 적어서 다시 접수하시면 됩니다.",
+          "evidenceKo": "이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.",
           "options": [
             {
-              "ko": "한 번 기각됐어도 사진과 통화 내용을 담아 다시 검토를 요청해요.",
-              "de": "Trotz Ablehnung wird mit Foto und Gesprächsinhalt eine erneute Prüfung beantragt.",
-              "en": "Despite the rejection, they seek another review with the photo and call details."
+              "ko": "결과 안내문과 담당 기관을 통해 가능한 절차를 다시 확인해요.",
+              "de": "Sie klären über die Mitteilung und die zuständige Stelle, welche Schritte noch möglich sind.",
+              "en": "They use the decision notice and responsible office to clarify which steps may still be available."
             },
             {
-              "ko": "한 번 기각됐으므로 다른 부서에 검토를 요청할 방법도 없어요.",
-              "de": "Nach einer Ablehnung gibt es keinen Weg zur Prüfung durch eine andere Stelle.",
-              "en": "After one rejection, no route to review by another department exists."
+              "ko": "사진을 냈으니 이 통화에서 과태료 취소가 확정돼요.",
+              "de": "Weil Fotos eingereicht wurden, ist die Aufhebung des Bußgelds in diesem Gespräch bereits sicher.",
+              "en": "Because photos were submitted, this call has already confirmed that the fine will be cancelled."
             },
             {
-              "ko": "사진을 보냈으므로 이 통화에서 과태료 취소가 확정됐어요.",
-              "de": "Das Foto hat in diesem Gespräch die Aufhebung des Bußgelds bewirkt.",
-              "en": "Sending the photo has secured cancellation of the fine in this call."
+              "ko": "한 번 결과가 나왔으므로 어떤 절차가 가능한지 더 문의할 수 없어요.",
+              "de": "Weil bereits eine Entscheidung vorliegt, kann man nicht mehr nach möglichen Schritten fragen.",
+              "en": "Because a decision has already been issued, they cannot ask which steps may still be available."
             }
           ],
           "correctIndex": 0
@@ -17095,27 +17095,30 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “민원이 한 번 기각된 이상 같은 근거로는 재심사가 어렵습니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „민원이 한 번 기각된 이상 같은 근거로는 재심사가 어렵습니다.“: Da der Einspruch bereits einmal abgelehnt wurde, ist eine erneute Prüfung mit derselben Begründung schwierig. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “민원이 한 번 기각된 이상 같은 근거로는 재심사가 어렵습니다.”: Since the objection has already been rejected once, it's difficult to review it again on the same grounds. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.“: Welche Schritte auf Grundlage des bereits erhaltenen Bescheids und der Fotos möglich sind, müssen Sie noch einmal anhand der Mitteilung und bei der zuständigen Stelle klären.. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.”: You need to check the decision notice and the responsible office again to find out which steps may be available based on the decision and photos.. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "b2_w10_notice"
           ],
-          "evidenceKo": "민원이 한 번 기각된 이상 같은 근거로는 재심사가 어렵습니다.",
-          "audioKo": "민원이 한 번 기각된 이상 같은 근거로는 재심사가 어렵습니다.",
+          "evidenceKo": "이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.",
+          "audioKo": "이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.",
           "options": [
             {
-              "ko": "민원이 한 번 기각된 이상 같은 근거로는 재심사가 어렵습니다.",
-              "de": "Da der Einspruch bereits einmal abgelehnt wurde, ist eine erneute Prüfung mit derselben Begründung schwierig.",
-              "en": "Since the objection has already been rejected once, it's difficult to review it again on the same grounds."
+              "speaker": "official",
+              "ko": "이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.",
+              "de": "Welche Schritte auf Grundlage des bereits erhaltenen Bescheids und der Fotos möglich sind, müssen Sie noch einmal anhand der Mitteilung und bei der zuständigen Stelle klären.",
+              "en": "You need to check the decision notice and the responsible office again to find out which steps may be available based on the decision and photos."
             },
             {
+              "speaker": "user",
               "ko": "지난주에 제출한 이의신청이 기각됐다는 문자를 받아서 다시 연락드렸습니다.",
               "de": "Ich habe letzte Woche eine SMS bekommen, dass mein eingereichter Einspruch abgelehnt wurde, deshalb melde ich mich noch einmal.",
               "en": "I got a text last week saying my submitted objection was rejected, so I'm calling again."
             },
             {
+              "speaker": "user",
               "ko": "그런데 그 표지판이 나뭇가지에 가려서 안 보였다는 사진을 이미 첨부했습니다.",
               "de": "Aber ich habe bereits ein Foto beigefügt, das zeigt, dass das Schild von Ästen verdeckt und deshalb nicht sichtbar war.",
               "en": "But I already attached a photo showing that sign was hidden behind a tree branch and wasn't visible."
@@ -17129,54 +17132,54 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Verstanden. Ich werde noch heute einen neuen Einspruch formulieren und einreichen.",
-            "en": "Put the words in the same order as the recording. Meaning: Understood. I'll fill out a new appeal and submit it today."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Verstanden. Ich prüfe die Mitteilung und erkundige mich dann nach dem nötigen Verfahren.",
+            "en": "Put the words in the same order as the recording. Meaning: Understood. I'll review the decision notice and then ask about the required procedure."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “알겠습니다. 오늘 안에 새 신청서를 작성해서 보내겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „알겠습니다. 오늘 안에 새 신청서를 작성해서 보내겠습니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “알겠습니다. 오늘 안에 새 신청서를 작성해서 보내겠습니다.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “알겠습니다. 결과 안내문을 확인한 뒤 필요한 절차를 문의하겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „알겠습니다. 결과 안내문을 확인한 뒤 필요한 절차를 문의하겠습니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “알겠습니다. 결과 안내문을 확인한 뒤 필요한 절차를 문의하겠습니다.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "b2_w10_notice"
           ],
-          "evidenceKo": "알겠습니다. 오늘 안에 새 신청서를 작성해서 보내겠습니다.",
-          "audioKo": "알겠습니다. 오늘 안에 새 신청서를 작성해서 보내겠습니다.",
-          "targetKo": "알겠습니다. 오늘 안에 새 신청서를 작성해서 보내겠습니다."
+          "evidenceKo": "알겠습니다. 결과 안내문을 확인한 뒤 필요한 절차를 문의하겠습니다.",
+          "audioKo": "알겠습니다. 결과 안내문을 확인한 뒤 필요한 절차를 문의하겠습니다.",
+          "targetKo": "알겠습니다. 결과 안내문을 확인한 뒤 필요한 절차를 문의하겠습니다."
         },
         {
           "id": "listening.b2.b2_w10_notice.response",
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "대화를 들은 사람이 “한 번 기각됐으므로 다른 부서에 검토를 요청할 방법도 없어요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
-            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Nach einer Ablehnung gibt es keinen Weg zur Prüfung durch eine andere Stelle.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
-            "en": "Imagine someone summarizes the conversation as follows: “After one rejection, no route to review by another department exists.” Which response corrects this while preserving the original conditions and intentions?"
+            "ko": "대화를 들은 사람이 “사진을 냈으니 이 통화에서 과태료 취소가 확정돼요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
+            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Weil Fotos eingereicht wurden, ist die Aufhebung des Bußgelds in diesem Gespräch bereits sicher.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
+            "en": "Imagine someone summarizes the conversation as follows: “Because photos were submitted, this call has already confirmed that the fine will be cancelled.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “네, 이의신청서에 사진과 이번 통화 내용을 함께 적어서 다시 접수하시면 됩니다.”예요. 따라서 “한 번 기각됐어도 사진과 통화 내용을 담아 다시 검토를 요청해요.”가 맞아요. “한 번 기각됐으므로 다른 부서에 검토를 요청할 방법도 없어요.”와 “사진을 보냈으므로 이 통화에서 과태료 취소가 확정됐어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „네, 이의신청서에 사진과 이번 통화 내용을 함께 적어서 다시 접수하시면 됩니다.“ (Ja. Reichen Sie den Einspruch erneut ein, fügen Sie das Foto bei und verweisen Sie auf unser heutiges Gespräch.). Daraus folgt: Trotz Ablehnung wird mit Foto und Gesprächsinhalt eine erneute Prüfung beantragt. Die Alternativen „Nach einer Ablehnung gibt es keinen Weg zur Prüfung durch eine andere Stelle.“ und „Das Foto hat in diesem Gespräch die Aufhebung des Bußgelds bewirkt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “네, 이의신청서에 사진과 이번 통화 내용을 함께 적어서 다시 접수하시면 됩니다.” (Yes. Resubmit the objection, attach the photo, and refer to what we discussed on this call.). This supports: Despite the rejection, they seek another review with the photo and call details. The alternatives “After one rejection, no route to review by another department exists.” and “Sending the photo has secured cancellation of the fine in this call.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.”예요. 따라서 “결과 안내문과 담당 기관을 통해 가능한 절차를 다시 확인해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.“ (Welche Schritte auf Grundlage des bereits erhaltenen Bescheids und der Fotos möglich sind, müssen Sie noch einmal anhand der Mitteilung und bei der zuständigen Stelle klären.). Deshalb ist „Sie klären über die Mitteilung und die zuständige Stelle, welche Schritte noch möglich sind.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.” (You need to check the decision notice and the responsible office again to find out which steps may be available based on the decision and photos.). This supports: “They use the decision notice and responsible office to clarify which steps may still be available..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "b2_w10_notice"
           ],
-          "evidenceKo": "네, 이의신청서에 사진과 이번 통화 내용을 함께 적어서 다시 접수하시면 됩니다.",
+          "evidenceKo": "이미 받은 결과와 사진을 바탕으로 어떤 절차가 가능한지는 결과 안내문과 담당 기관에 다시 확인하셔야 합니다.",
           "options": [
             {
-              "ko": "한 번 기각됐어도 사진과 통화 내용을 담아 다시 검토를 요청해요.",
-              "de": "Trotz Ablehnung wird mit Foto und Gesprächsinhalt eine erneute Prüfung beantragt.",
-              "en": "Despite the rejection, they seek another review with the photo and call details."
+              "ko": "결과 안내문과 담당 기관을 통해 가능한 절차를 다시 확인해요.",
+              "de": "Sie klären über die Mitteilung und die zuständige Stelle, welche Schritte noch möglich sind.",
+              "en": "They use the decision notice and responsible office to clarify which steps may still be available."
             },
             {
-              "ko": "한 번 기각됐으므로 다른 부서에 검토를 요청할 방법도 없어요.",
-              "de": "Nach einer Ablehnung gibt es keinen Weg zur Prüfung durch eine andere Stelle.",
-              "en": "After one rejection, no route to review by another department exists."
+              "ko": "사진을 냈으니 이 통화에서 과태료 취소가 확정돼요.",
+              "de": "Weil Fotos eingereicht wurden, ist die Aufhebung des Bußgelds in diesem Gespräch bereits sicher.",
+              "en": "Because photos were submitted, this call has already confirmed that the fine will be cancelled."
             },
             {
-              "ko": "사진을 보냈으므로 이 통화에서 과태료 취소가 확정됐어요.",
-              "de": "Das Foto hat in diesem Gespräch die Aufhebung des Bußgelds bewirkt.",
-              "en": "Sending the photo has secured cancellation of the fine in this call."
+              "ko": "한 번 결과가 나왔으므로 어떤 절차가 가능한지 더 문의할 수 없어요.",
+              "de": "Weil bereits eine Entscheidung vorliegt, kann man nicht mehr nach möglichen Schritten fragen.",
+              "en": "Because a decision has already been issued, they cannot ask which steps may still be available."
             }
           ],
           "correctIndex": 0
@@ -17212,29 +17215,29 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “제휴 항공사 좌석을 확인해서 가능하면 오늘 중으로 연결해 드리도록 하겠습니다.”예요. 따라서 “오늘 갈 대안을 확인하겠다는 말이지 좌석을 보장한 것은 아니에요.”가 맞아요. “다른 항공사의 오늘 좌석이 이미 확정됐어요.”와 “책임자와 이야기해도 제휴 항공사 좌석은 확인하지 않기로 해요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „제휴 항공사 좌석을 확인해서 가능하면 오늘 중으로 연결해 드리도록 하겠습니다.“ (Ich prüfe die Plätze bei der Partnerfluggesellschaft und werde versuchen, Sie noch heute umzubuchen.). Daraus folgt: Es wird eine heutige Alternative geprüft, aber kein Platz garantiert. Die Alternativen „Ein heutiger Platz bei einer anderen Fluglinie ist bereits bestätigt.“ und „Auch nach dem Gespräch mit dem Manager wird keine Partnerverbindung geprüft.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “제휴 항공사 좌석을 확인해서 가능하면 오늘 중으로 연결해 드리도록 하겠습니다.” (I'll check availability with our partner airline and, if possible, rebook you for a flight today.). This supports: They will check an option for today, without guaranteeing a seat. The alternatives “A seat on another airline today is already confirmed.” and “Even after speaking to the manager, partner-airline seats will not be checked.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “제휴 항공사 좌석과 가능한 대체 경로를 확인해 보고, 가능 여부를 안내해 드리겠습니다.”예요. 따라서 “관리자는 좌석과 대체 경로를 확인한 뒤 가능 여부를 안내하겠다고 해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „제휴 항공사 좌석과 가능한 대체 경로를 확인해 보고, 가능 여부를 안내해 드리겠습니다.“ (Ich prüfe Plätze bei der Partnerfluggesellschaft und mögliche Alternativverbindungen und informiere Sie dann über die Möglichkeiten.). Deshalb ist „Der Manager prüft Plätze und Alternativverbindungen und informiert anschließend über die Möglichkeiten.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “제휴 항공사 좌석과 가능한 대체 경로를 확인해 보고, 가능 여부를 안내해 드리겠습니다.” (I'll check seats with partner airlines and possible alternative routes, then let you know what is available.). This supports: “The manager will check seats and alternative routes, then explain what is available..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "b2_w10_travel"
           ],
-          "evidenceKo": "제휴 항공사 좌석을 확인해서 가능하면 오늘 중으로 연결해 드리도록 하겠습니다.",
+          "evidenceKo": "제휴 항공사 좌석과 가능한 대체 경로를 확인해 보고, 가능 여부를 안내해 드리겠습니다.",
           "options": [
             {
-              "ko": "오늘 갈 대안을 확인하겠다는 말이지 좌석을 보장한 것은 아니에요.",
-              "de": "Es wird eine heutige Alternative geprüft, aber kein Platz garantiert.",
-              "en": "They will check an option for today, without guaranteeing a seat."
+              "ko": "관리자는 좌석과 대체 경로를 확인한 뒤 가능 여부를 안내하겠다고 해요.",
+              "de": "Der Manager prüft Plätze und Alternativverbindungen und informiert anschließend über die Möglichkeiten.",
+              "en": "The manager will check seats and alternative routes, then explain what is available."
             },
             {
               "ko": "다른 항공사의 오늘 좌석이 이미 확정됐어요.",
-              "de": "Ein heutiger Platz bei einer anderen Fluglinie ist bereits bestätigt.",
-              "en": "A seat on another airline today is already confirmed."
+              "de": "Ein Sitzplatz bei einer anderen Fluggesellschaft ist für heute bereits bestätigt.",
+              "en": "A seat with another airline has already been confirmed for today."
             },
             {
-              "ko": "책임자와 이야기해도 제휴 항공사 좌석은 확인하지 않기로 해요.",
-              "de": "Auch nach dem Gespräch mit dem Manager wird keine Partnerverbindung geprüft.",
-              "en": "Even after speaking to the manager, partner-airline seats will not be checked."
+              "ko": "책임자와 이야기해도 대체 경로는 확인하지 않기로 해요.",
+              "de": "Auch nach dem Gespräch mit der verantwortlichen Person sollen keine Alternativverbindungen geprüft werden.",
+              "en": "Even after speaking with the person in charge, they will not check alternative routes."
             }
           ],
           "correctIndex": 0
@@ -17249,27 +17252,29 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “기상 상황에도 불구하고 오늘 안에 다른 항공사 편으로라도 갈 방법이 있는지 궁금합니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „기상 상황에도 불구하고 오늘 안에 다른 항공사 편으로라도 갈 방법이 있는지 궁금합니다.“: Ich frage mich, ob es trotz der Wetterlage eine Möglichkeit gibt, heute notfalls mit einer anderen Fluggesellschaft zu fliegen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “기상 상황에도 불구하고 오늘 안에 다른 항공사 편으로라도 갈 방법이 있는지 궁금합니다.”: I'm wondering whether, despite the weather situation, there's a way to fly with another airline today, even if that's what it takes. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “기상 상황 때문에 오늘 이동이 어려울 수 있다는 건 이해합니다. 다른 항공사나 대체 경로가 가능한지 확인해 주실 수 있을까요?”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „기상 상황 때문에 오늘 이동이 어려울 수 있다는 건 이해합니다. 다른 항공사나 대체 경로가 가능한지 확인해 주실 수 있을까요?“: Ich verstehe, dass die Wetterlage eine Reise heute erschweren kann. Könnten Sie prüfen, ob eine andere Fluggesellschaft oder eine alternative Verbindung möglich ist?. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “기상 상황 때문에 오늘 이동이 어려울 수 있다는 건 이해합니다. 다른 항공사나 대체 경로가 가능한지 확인해 주실 수 있을까요?”: I understand that the weather may make travel today difficult. Could you check whether another airline or an alternative route is possible?. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "b2_w10_travel"
           ],
-          "evidenceKo": "기상 상황에도 불구하고 오늘 안에 다른 항공사 편으로라도 갈 방법이 있는지 궁금합니다.",
-          "audioKo": "기상 상황에도 불구하고 오늘 안에 다른 항공사 편으로라도 갈 방법이 있는지 궁금합니다.",
+          "evidenceKo": "기상 상황 때문에 오늘 이동이 어려울 수 있다는 건 이해합니다. 다른 항공사나 대체 경로가 가능한지 확인해 주실 수 있을까요?",
+          "audioKo": "기상 상황 때문에 오늘 이동이 어려울 수 있다는 건 이해합니다. 다른 항공사나 대체 경로가 가능한지 확인해 주실 수 있을까요?",
           "options": [
             {
-              "ko": "기상 상황에도 불구하고 오늘 안에 다른 항공사 편으로라도 갈 방법이 있는지 궁금합니다.",
-              "de": "Ich frage mich, ob es trotz der Wetterlage eine Möglichkeit gibt, heute notfalls mit einer anderen Fluggesellschaft zu fliegen.",
-              "en": "I'm wondering whether, despite the weather situation, there's a way to fly with another airline today, even if that's what it takes."
+              "ko": "기상 상황 때문에 오늘 이동이 어려울 수 있다는 건 이해합니다. 다른 항공사나 대체 경로가 가능한지 확인해 주실 수 있을까요?",
+              "de": "Ich verstehe, dass die Wetterlage eine Reise heute erschweren kann. Könnten Sie prüfen, ob eine andere Fluggesellschaft oder eine alternative Verbindung möglich ist?",
+              "en": "I understand that the weather may make travel today difficult. Could you check whether another airline or an alternative route is possible?"
             },
             {
+              "speaker": "clerk",
               "ko": "죄송하지만 오늘 항공편이 전부 결항됐습니다.",
               "de": "Es tut mir leid, aber alle heutigen Flüge sind ausgefallen.",
               "en": "I'm sorry, but all of today's flights have been cancelled."
             },
             {
+              "speaker": "clerk",
               "ko": "저희 쪽에서는 더 드릴 수 있는 옵션이 없습니다.",
               "de": "Mehr können wir Ihnen von unserer Seite leider nicht anbieten.",
               "en": "There aren't any further options we can offer on our end."
@@ -17304,33 +17309,33 @@
           "skill": "response",
           "prompt": {
             "ko": "대화를 들은 사람이 “다른 항공사의 오늘 좌석이 이미 확정됐어요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
-            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Ein heutiger Platz bei einer anderen Fluglinie ist bereits bestätigt.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
-            "en": "Imagine someone summarizes the conversation as follows: “A seat on another airline today is already confirmed.” Which response corrects this while preserving the original conditions and intentions?"
+            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Ein Sitzplatz bei einer anderen Fluggesellschaft ist für heute bereits bestätigt.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
+            "en": "Imagine someone summarizes the conversation as follows: “A seat with another airline has already been confirmed for today.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “제휴 항공사 좌석을 확인해서 가능하면 오늘 중으로 연결해 드리도록 하겠습니다.”예요. 따라서 “오늘 갈 대안을 확인하겠다는 말이지 좌석을 보장한 것은 아니에요.”가 맞아요. “다른 항공사의 오늘 좌석이 이미 확정됐어요.”와 “책임자와 이야기해도 제휴 항공사 좌석은 확인하지 않기로 해요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „제휴 항공사 좌석을 확인해서 가능하면 오늘 중으로 연결해 드리도록 하겠습니다.“ (Ich prüfe die Plätze bei der Partnerfluggesellschaft und werde versuchen, Sie noch heute umzubuchen.). Daraus folgt: Es wird eine heutige Alternative geprüft, aber kein Platz garantiert. Die Alternativen „Ein heutiger Platz bei einer anderen Fluglinie ist bereits bestätigt.“ und „Auch nach dem Gespräch mit dem Manager wird keine Partnerverbindung geprüft.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “제휴 항공사 좌석을 확인해서 가능하면 오늘 중으로 연결해 드리도록 하겠습니다.” (I'll check availability with our partner airline and, if possible, rebook you for a flight today.). This supports: They will check an option for today, without guaranteeing a seat. The alternatives “A seat on another airline today is already confirmed.” and “Even after speaking to the manager, partner-airline seats will not be checked.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “제휴 항공사 좌석과 가능한 대체 경로를 확인해 보고, 가능 여부를 안내해 드리겠습니다.”예요. 따라서 “관리자는 좌석과 대체 경로를 확인한 뒤 가능 여부를 안내하겠다고 해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „제휴 항공사 좌석과 가능한 대체 경로를 확인해 보고, 가능 여부를 안내해 드리겠습니다.“ (Ich prüfe Plätze bei der Partnerfluggesellschaft und mögliche Alternativverbindungen und informiere Sie dann über die Möglichkeiten.). Deshalb ist „Der Manager prüft Plätze und Alternativverbindungen und informiert anschließend über die Möglichkeiten.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “제휴 항공사 좌석과 가능한 대체 경로를 확인해 보고, 가능 여부를 안내해 드리겠습니다.” (I'll check seats with partner airlines and possible alternative routes, then let you know what is available.). This supports: “The manager will check seats and alternative routes, then explain what is available..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "b2_w10_travel"
           ],
-          "evidenceKo": "제휴 항공사 좌석을 확인해서 가능하면 오늘 중으로 연결해 드리도록 하겠습니다.",
+          "evidenceKo": "제휴 항공사 좌석과 가능한 대체 경로를 확인해 보고, 가능 여부를 안내해 드리겠습니다.",
           "options": [
             {
-              "ko": "오늘 갈 대안을 확인하겠다는 말이지 좌석을 보장한 것은 아니에요.",
-              "de": "Es wird eine heutige Alternative geprüft, aber kein Platz garantiert.",
-              "en": "They will check an option for today, without guaranteeing a seat."
+              "ko": "관리자는 좌석과 대체 경로를 확인한 뒤 가능 여부를 안내하겠다고 해요.",
+              "de": "Der Manager prüft Plätze und Alternativverbindungen und informiert anschließend über die Möglichkeiten.",
+              "en": "The manager will check seats and alternative routes, then explain what is available."
             },
             {
               "ko": "다른 항공사의 오늘 좌석이 이미 확정됐어요.",
-              "de": "Ein heutiger Platz bei einer anderen Fluglinie ist bereits bestätigt.",
-              "en": "A seat on another airline today is already confirmed."
+              "de": "Ein Sitzplatz bei einer anderen Fluggesellschaft ist für heute bereits bestätigt.",
+              "en": "A seat with another airline has already been confirmed for today."
             },
             {
-              "ko": "책임자와 이야기해도 제휴 항공사 좌석은 확인하지 않기로 해요.",
-              "de": "Auch nach dem Gespräch mit dem Manager wird keine Partnerverbindung geprüft.",
-              "en": "Even after speaking to the manager, partner-airline seats will not be checked."
+              "ko": "책임자와 이야기해도 대체 경로는 확인하지 않기로 해요.",
+              "de": "Auch nach dem Gespräch mit der verantwortlichen Person sollen keine Alternativverbindungen geprüft werden.",
+              "en": "Even after speaking with the person in charge, they will not check alternative routes."
             }
           ],
           "correctIndex": 0
@@ -17343,14 +17348,14 @@
       "level": "b2",
       "topicId": "b2_health",
       "title": {
-        "ko": "약 부작용, 미리 확인하기",
-        "de": "Nebenwirkungen vorab abklären",
-        "en": "Checking medication side effects in advance"
+        "ko": "약 부작용, 복용 방법 확인하기",
+        "de": "Nebenwirkungen und Einnahme abklären",
+        "en": "Checking side effects and how to take a medication"
       },
       "intro": {
-        "ko": "레나가 처방약을 받으러 약국에 갔다가 졸림 부작용이 걱정돼서 대안을 물어봅니다.",
-        "de": "Lena geht in die Apotheke, um ihr verschriebenes Medikament abzuholen, und fragt wegen der Sorge vor der Nebenwirkung Müdigkeit nach einer Alternative.",
-        "en": "Lena goes to the pharmacy to pick up her prescribed medicine and asks about an alternative because she's worried about the drowsiness side effect."
+        "ko": "레나는 처방약을 받으러 약국에 갔다가 졸림이 걱정돼, 복용 방법이나 대체 약을 바꾸기 전에 무엇을 확인해야 하는지 묻습니다.",
+        "de": "Lena holt ein verschriebenes Medikament ab. Weil sie Müdigkeit befürchtet, fragt sie, was vor einer Änderung der Einnahme oder eines Ersatzmedikaments geklärt werden muss.",
+        "en": "Lena picks up a prescribed medicine. Worried about drowsiness, she asks what needs to be checked before changing how she takes it or switching medicines."
       },
       "contentIds": [
         "b2_w10_health"
@@ -17366,29 +17371,29 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “효과가 늦게 나타난다고 해서 안 듣는 것은 아니죠?”예요. 따라서 “효과가 늦게 나타나는 것과 효과가 없는 것을 구분해요.”가 맞아요. “효과가 늦으면 그 약은 듣지 않는다고 결론 내려요.”와 “덜 졸린 약은 어떤 부작용도 없다고 확인했어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „효과가 늦게 나타난다고 해서 안 듣는 것은 아니죠?“ (Nur weil die Wirkung später einsetzt, heißt das doch nicht, dass es nicht wirkt, oder?). Daraus folgt: Ein späterer Wirkungseintritt wird von fehlender Wirkung unterschieden. Die Alternativen „Spätere Wirkung wird als völlige Wirkungslosigkeit verstanden.“ und „Für das weniger müde machende Mittel wurde jede Nebenwirkung ausgeschlossen.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “효과가 늦게 나타난다고 해서 안 듣는 것은 아니죠?” (Just because the effect kicks in later doesn't mean it won't work, right?). This supports: A slower onset is distinguished from having no effect. The alternatives “A slower onset is taken to mean the medicine does not work.” and “The less drowsy medicine was confirmed to have no side effects at all.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.”예요. 따라서 “복용 방법이나 대체 약을 바꾸기 전에 처방의와 확인하고, 그전까지는 처방대로 복용해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.“ (Ich kläre mit der verschreibenden Praxis, ob eine andere Einnahmeweise oder ein Ersatzmedikament möglich ist. Bis das geklärt ist, nehmen Sie das Medikament bitte wie verordnet ein.). Deshalb ist „Vor einer Änderung der Einnahme oder eines Ersatzmedikaments wird mit der verschreibenden Praxis Rücksprache gehalten; bis dahin wird das Medikament wie verordnet eingenommen.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.” (I will check with the prescribing clinician whether another way of taking it or an alternative medicine is possible. Until that is clarified, please take it as prescribed.). This supports: “Before changing how the medicine is taken or switching medicines, they check with the prescriber and continue taking it as prescribed until then..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "b2_w10_health"
           ],
-          "evidenceKo": "효과가 늦게 나타난다고 해서 안 듣는 것은 아니죠?",
+          "evidenceKo": "가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.",
           "options": [
             {
-              "ko": "효과가 늦게 나타나는 것과 효과가 없는 것을 구분해요.",
-              "de": "Ein späterer Wirkungseintritt wird von fehlender Wirkung unterschieden.",
-              "en": "A slower onset is distinguished from having no effect."
+              "ko": "복용 방법이나 대체 약을 바꾸기 전에 처방의와 확인하고, 그전까지는 처방대로 복용해요.",
+              "de": "Vor einer Änderung der Einnahme oder eines Ersatzmedikaments wird mit der verschreibenden Praxis Rücksprache gehalten; bis dahin wird das Medikament wie verordnet eingenommen.",
+              "en": "Before changing how the medicine is taken or switching medicines, they check with the prescriber and continue taking it as prescribed until then."
             },
             {
-              "ko": "효과가 늦으면 그 약은 듣지 않는다고 결론 내려요.",
-              "de": "Spätere Wirkung wird als völlige Wirkungslosigkeit verstanden.",
-              "en": "A slower onset is taken to mean the medicine does not work."
+              "ko": "졸림이 걱정되면 약사와 확인하지 않고 바로 복용 방법을 바꿔요.",
+              "de": "Bei Sorge wegen Müdigkeit wird die Einnahmeweise sofort und ohne Rücksprache geändert.",
+              "en": "If drowsiness is a concern, they change how the medicine is taken immediately without checking."
             },
             {
-              "ko": "덜 졸린 약은 어떤 부작용도 없다고 확인했어요.",
-              "de": "Für das weniger müde machende Mittel wurde jede Nebenwirkung ausgeschlossen.",
-              "en": "The less drowsy medicine was confirmed to have no side effects at all."
+              "ko": "졸릴 수 있는 약은 모두 같은 방법으로 바꾸면 돼요.",
+              "de": "Alle Medikamente, die müde machen können, lassen sich auf dieselbe Weise umstellen.",
+              "en": "All medicines that can cause drowsiness can be changed in the same way."
             }
           ],
           "correctIndex": 0
@@ -17403,30 +17408,33 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “네, 처방 범위 안에서 졸림이 덜한 종류로 바꿔 드리겠습니다. 다만 효과가 조금 늦게 나타날 수 있습니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „네, 처방 범위 안에서 졸림이 덜한 종류로 바꿔 드리겠습니다. 다만 효과가 조금 늦게 나타날 수 있습니다.“: Ja, im Rahmen der Verordnung kann ich es gegen eine Variante austauschen, die weniger müde macht. Allerdings kann die Wirkung etwas später einsetzen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “네, 처방 범위 안에서 졸림이 덜한 종류로 바꿔 드리겠습니다. 다만 효과가 조금 늦게 나타날 수 있습니다.”: Yes, within the prescription, I can switch it to one that causes less drowsiness. The effect may take a little longer to kick in, though. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “처방전은 확인했습니다. 이 약은 졸릴 수 있으니, 복용 시간이나 다른 선택지는 처방 내용과 현재 상태를 확인한 뒤 안내해 드릴게요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „처방전은 확인했습니다. 이 약은 졸릴 수 있으니, 복용 시간이나 다른 선택지는 처방 내용과 현재 상태를 확인한 뒤 안내해 드릴게요.“: Ich habe das Rezept geprüft. Dieses Medikament kann müde machen; zu Einnahmezeit oder anderen Möglichkeiten kann ich Sie beraten, nachdem wir die Verordnung und Ihre aktuelle Situation geklärt haben.. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “처방전은 확인했습니다. 이 약은 졸릴 수 있으니, 복용 시간이나 다른 선택지는 처방 내용과 현재 상태를 확인한 뒤 안내해 드릴게요.”: I have checked the prescription. This medicine can cause drowsiness, so I can advise you on timing or other options after we check the prescription and your current situation.. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "b2_w10_health"
           ],
-          "evidenceKo": "네, 처방 범위 안에서 졸림이 덜한 종류로 바꿔 드리겠습니다. 다만 효과가 조금 늦게 나타날 수 있습니다.",
-          "audioKo": "네, 처방 범위 안에서 졸림이 덜한 종류로 바꿔 드리겠습니다. 다만 효과가 조금 늦게 나타날 수 있습니다.",
+          "evidenceKo": "처방전은 확인했습니다. 이 약은 졸릴 수 있으니, 복용 시간이나 다른 선택지는 처방 내용과 현재 상태를 확인한 뒤 안내해 드릴게요.",
+          "audioKo": "처방전은 확인했습니다. 이 약은 졸릴 수 있으니, 복용 시간이나 다른 선택지는 처방 내용과 현재 상태를 확인한 뒤 안내해 드릴게요.",
           "options": [
             {
-              "ko": "네, 처방 범위 안에서 졸림이 덜한 종류로 바꿔 드리겠습니다. 다만 효과가 조금 늦게 나타날 수 있습니다.",
-              "de": "Ja, im Rahmen der Verordnung kann ich es gegen eine Variante austauschen, die weniger müde macht. Allerdings kann die Wirkung etwas später einsetzen.",
-              "en": "Yes, within the prescription, I can switch it to one that causes less drowsiness. The effect may take a little longer to kick in, though."
+              "speaker": "pharmacist",
+              "ko": "처방전은 확인했습니다. 이 약은 졸릴 수 있으니, 복용 시간이나 다른 선택지는 처방 내용과 현재 상태를 확인한 뒤 안내해 드릴게요.",
+              "de": "Ich habe das Rezept geprüft. Dieses Medikament kann müde machen; zu Einnahmezeit oder anderen Möglichkeiten kann ich Sie beraten, nachdem wir die Verordnung und Ihre aktuelle Situation geklärt haben.",
+              "en": "I have checked the prescription. This medicine can cause drowsiness, so I can advise you on timing or other options after we check the prescription and your current situation."
             },
             {
-              "ko": "처방전 확인했습니다. 하루 세 번, 식후에 드시면 됩니다.",
-              "de": "Ich habe das Rezept geprüft. Nehmen Sie es dreimal täglich nach dem Essen ein.",
-              "en": "I've checked the prescription. Take it three times a day after meals."
+              "speaker": "user",
+              "ko": "이 약 중에 부작용으로 졸릴 수 있는 게 있을까요? 오후에 수업이 있어서요.",
+              "de": "Kann eines dieser Medikamente müde machen? Ich habe nämlich nachmittags Unterricht.",
+              "en": "Can any of these medicines make me drowsy? I have class in the afternoon."
             },
             {
-              "ko": "네, 시간이 조금 더 걸릴 뿐이고 효과는 똑같습니다.",
-              "de": "Richtig, es dauert nur etwas länger, die Wirkung ist dieselbe.",
-              "en": "Right, it just takes a bit longer, but the effect is the same."
+              "speaker": "pharmacist",
+              "ko": "네. 확인 결과와 주의할 점을 함께 안내해 드릴게요.",
+              "de": "Ja. Ich erkläre Ihnen dann sowohl das Ergebnis als auch die Punkte, auf die Sie achten sollten.",
+              "en": "Yes. I will explain both the result and what to watch out for."
             }
           ],
           "correctIndex": 0
@@ -17437,54 +17445,54 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Verstanden. Dann nehme ich bitte dieses Medikament.",
-            "en": "Put the words in the same order as the recording. Meaning: Got it. Then I'll go with that medicine, please."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Ein Medikament kann müde machen. Bevor Sie die Einnahmezeit ändern oder auf ein anderes Medikament wechseln, müssen wir aber zuerst die Verordnung und Ihre aktuelle Situation prüfen.",
+            "en": "Put the words in the same order as the recording. Meaning: One of the medicines can cause drowsiness. Before changing the timing or switching medicines, we need to check the prescription and your current situation first."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “알겠습니다. 그럼 그 약으로 부탁드립니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „알겠습니다. 그럼 그 약으로 부탁드립니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “알겠습니다. 그럼 그 약으로 부탁드립니다.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “졸릴 수 있는 약이 있습니다. 다만 복용 시간을 바꾸거나 다른 약으로 바꾸기 전에는 처방 내용과 현재 상태를 먼저 확인해야 해요.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „졸릴 수 있는 약이 있습니다. 다만 복용 시간을 바꾸거나 다른 약으로 바꾸기 전에는 처방 내용과 현재 상태를 먼저 확인해야 해요.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “졸릴 수 있는 약이 있습니다. 다만 복용 시간을 바꾸거나 다른 약으로 바꾸기 전에는 처방 내용과 현재 상태를 먼저 확인해야 해요.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "b2_w10_health"
           ],
-          "evidenceKo": "알겠습니다. 그럼 그 약으로 부탁드립니다.",
-          "audioKo": "알겠습니다. 그럼 그 약으로 부탁드립니다.",
-          "targetKo": "알겠습니다. 그럼 그 약으로 부탁드립니다."
+          "evidenceKo": "졸릴 수 있는 약이 있습니다. 다만 복용 시간을 바꾸거나 다른 약으로 바꾸기 전에는 처방 내용과 현재 상태를 먼저 확인해야 해요.",
+          "audioKo": "졸릴 수 있는 약이 있습니다. 다만 복용 시간을 바꾸거나 다른 약으로 바꾸기 전에는 처방 내용과 현재 상태를 먼저 확인해야 해요.",
+          "targetKo": "졸릴 수 있는 약이 있습니다. 다만 복용 시간을 바꾸거나 다른 약으로 바꾸기 전에는 처방 내용과 현재 상태를 먼저 확인해야 해요."
         },
         {
           "id": "listening.b2.b2_w10_health.response",
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "대화를 들은 사람이 “효과가 늦으면 그 약은 듣지 않는다고 결론 내려요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
-            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Spätere Wirkung wird als völlige Wirkungslosigkeit verstanden.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
-            "en": "Imagine someone summarizes the conversation as follows: “A slower onset is taken to mean the medicine does not work.” Which response corrects this while preserving the original conditions and intentions?"
+            "ko": "대화를 들은 사람이 “졸림이 걱정되면 약사와 확인하지 않고 바로 복용 방법을 바꿔요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
+            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Bei Sorge wegen Müdigkeit wird die Einnahmeweise sofort und ohne Rücksprache geändert.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
+            "en": "Imagine someone summarizes the conversation as follows: “If drowsiness is a concern, they change how the medicine is taken immediately without checking.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “효과가 늦게 나타난다고 해서 안 듣는 것은 아니죠?”예요. 따라서 “효과가 늦게 나타나는 것과 효과가 없는 것을 구분해요.”가 맞아요. “효과가 늦으면 그 약은 듣지 않는다고 결론 내려요.”와 “덜 졸린 약은 어떤 부작용도 없다고 확인했어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „효과가 늦게 나타난다고 해서 안 듣는 것은 아니죠?“ (Nur weil die Wirkung später einsetzt, heißt das doch nicht, dass es nicht wirkt, oder?). Daraus folgt: Ein späterer Wirkungseintritt wird von fehlender Wirkung unterschieden. Die Alternativen „Spätere Wirkung wird als völlige Wirkungslosigkeit verstanden.“ und „Für das weniger müde machende Mittel wurde jede Nebenwirkung ausgeschlossen.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “효과가 늦게 나타난다고 해서 안 듣는 것은 아니죠?” (Just because the effect kicks in later doesn't mean it won't work, right?). This supports: A slower onset is distinguished from having no effect. The alternatives “A slower onset is taken to mean the medicine does not work.” and “The less drowsy medicine was confirmed to have no side effects at all.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.”예요. 따라서 “복용 방법이나 대체 약을 바꾸기 전에 처방의와 확인하고, 그전까지는 처방대로 복용해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.“ (Ich kläre mit der verschreibenden Praxis, ob eine andere Einnahmeweise oder ein Ersatzmedikament möglich ist. Bis das geklärt ist, nehmen Sie das Medikament bitte wie verordnet ein.). Deshalb ist „Vor einer Änderung der Einnahme oder eines Ersatzmedikaments wird mit der verschreibenden Praxis Rücksprache gehalten; bis dahin wird das Medikament wie verordnet eingenommen.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.” (I will check with the prescribing clinician whether another way of taking it or an alternative medicine is possible. Until that is clarified, please take it as prescribed.). This supports: “Before changing how the medicine is taken or switching medicines, they check with the prescriber and continue taking it as prescribed until then..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "b2_w10_health"
           ],
-          "evidenceKo": "효과가 늦게 나타난다고 해서 안 듣는 것은 아니죠?",
+          "evidenceKo": "가능한 복용 방법이나 대체 약이 있는지 처방의와 확인해 보겠습니다. 확인하기 전까지는 처방대로 복용해 주세요.",
           "options": [
             {
-              "ko": "효과가 늦게 나타나는 것과 효과가 없는 것을 구분해요.",
-              "de": "Ein späterer Wirkungseintritt wird von fehlender Wirkung unterschieden.",
-              "en": "A slower onset is distinguished from having no effect."
+              "ko": "복용 방법이나 대체 약을 바꾸기 전에 처방의와 확인하고, 그전까지는 처방대로 복용해요.",
+              "de": "Vor einer Änderung der Einnahme oder eines Ersatzmedikaments wird mit der verschreibenden Praxis Rücksprache gehalten; bis dahin wird das Medikament wie verordnet eingenommen.",
+              "en": "Before changing how the medicine is taken or switching medicines, they check with the prescriber and continue taking it as prescribed until then."
             },
             {
-              "ko": "효과가 늦으면 그 약은 듣지 않는다고 결론 내려요.",
-              "de": "Spätere Wirkung wird als völlige Wirkungslosigkeit verstanden.",
-              "en": "A slower onset is taken to mean the medicine does not work."
+              "ko": "졸림이 걱정되면 약사와 확인하지 않고 바로 복용 방법을 바꿔요.",
+              "de": "Bei Sorge wegen Müdigkeit wird die Einnahmeweise sofort und ohne Rücksprache geändert.",
+              "en": "If drowsiness is a concern, they change how the medicine is taken immediately without checking."
             },
             {
-              "ko": "덜 졸린 약은 어떤 부작용도 없다고 확인했어요.",
-              "de": "Für das weniger müde machende Mittel wurde jede Nebenwirkung ausgeschlossen.",
-              "en": "The less drowsy medicine was confirmed to have no side effects at all."
+              "ko": "졸릴 수 있는 약은 모두 같은 방법으로 바꾸면 돼요.",
+              "de": "Alle Medikamente, die müde machen können, lassen sich auf dieselbe Weise umstellen.",
+              "en": "All medicines that can cause drowsiness can be changed in the same way."
             }
           ],
           "correctIndex": 0
@@ -17810,9 +17818,9 @@
         "en": "Visa extension: asking before it's too late"
       },
       "intro": {
-        "ko": "레나가 체류 기간이 끝나기 전에 출입국사무소에서 연장 신청 기한과 필요 서류를 확인합니다.",
-        "de": "Bevor ihr Aufenthalt endet, erkundigt sich Lena bei der Ausländerbehörde nach der Frist und den nötigen Unterlagen für die Verlängerung.",
-        "en": "Before her stay period ends, Lena asks at the immigration office about the deadline and documents needed for an extension."
+        "ko": "레나는 체류 기간이 끝나기 전에 출입국사무소에서 자신의 체류 자격에 맞는 신청 시기와 필요 서류를 확인합니다.",
+        "de": "Bevor ihr Aufenthalt endet, erkundigt sich Lena bei der Ausländerbehörde nach Antragszeitpunkt und Unterlagen, die zu ihrem Aufenthaltsstatus passen.",
+        "en": "Before her stay ends, Lena asks the immigration office which timing and documents apply to her residence status."
       },
       "contentIds": [
         "b2_w10_authorities"
@@ -17828,29 +17836,29 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “만료일 네 달 전부터 신청하실 수 있고, 만료일 전까지는 꼭 접수하셔야 합니다.”예요. 따라서 “이 장면에서는 신청 시작 시점과 최종 접수 기한을 구분해요.”가 맞아요. “만료일 전이면 아무 때나 준비 없이 자동 연장돼요.”와 “만료일 네 달 전에 반드시 접수를 끝내야 한다고 해요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „만료일 네 달 전부터 신청하실 수 있고, 만료일 전까지는 꼭 접수하셔야 합니다.“ (Sie können den Antrag ab vier Monaten vor dem Ablaufdatum stellen, müssen ihn aber unbedingt vor dem Ablaufdatum einreichen.). Daraus folgt: In dieser Szene werden frühester Antragstermin und späteste Einreichung unterschieden. Die Alternativen „Vor Ablauf erfolgt die Verlängerung ohne Vorbereitung automatisch.“ und „Der Antrag muss genau vier Monate vor Ablauf vollständig eingereicht sein.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “만료일 네 달 전부터 신청하실 수 있고, 만료일 전까지는 꼭 접수하셔야 합니다.” (You can apply starting four months before the expiration date, but you must be sure to submit it before the expiration date.). This supports: This scene distinguishes when applications open from the submission deadline. The alternatives “Before expiry, extension is automatic without preparation.” and “They say submission must be completed four months before expiry.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.”예요. 따라서 “개별 조건을 확인한 뒤 필요한 서류와 다음 절차를 안내해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.“ (Nachdem wir das geprüft haben, erkläre ich Ihnen die nötigen Unterlagen und die nächsten Schritte.). Deshalb ist „Nach der Prüfung der individuellen Voraussetzungen werden die nötigen Unterlagen und die nächsten Schritte erklärt.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.” (After we check that, I will explain the documents needed and the next steps.). This supports: “After the individual requirements are checked, they explain the documents needed and next steps..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "b2_w10_authorities"
           ],
-          "evidenceKo": "만료일 네 달 전부터 신청하실 수 있고, 만료일 전까지는 꼭 접수하셔야 합니다.",
+          "evidenceKo": "확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.",
           "options": [
             {
-              "ko": "이 장면에서는 신청 시작 시점과 최종 접수 기한을 구분해요.",
-              "de": "In dieser Szene werden frühester Antragstermin und späteste Einreichung unterschieden.",
-              "en": "This scene distinguishes when applications open from the submission deadline."
+              "ko": "개별 조건을 확인한 뒤 필요한 서류와 다음 절차를 안내해요.",
+              "de": "Nach der Prüfung der individuellen Voraussetzungen werden die nötigen Unterlagen und die nächsten Schritte erklärt.",
+              "en": "After the individual requirements are checked, they explain the documents needed and next steps."
             },
             {
-              "ko": "만료일 전이면 아무 때나 준비 없이 자동 연장돼요.",
-              "de": "Vor Ablauf erfolgt die Verlängerung ohne Vorbereitung automatisch.",
-              "en": "Before expiry, extension is automatic without preparation."
+              "ko": "체류 기간 연장은 만료일 전이면 준비 없이 자동으로 돼요.",
+              "de": "Eine Aufenthaltsverlängerung erfolgt vor Ablauf automatisch und ohne Vorbereitung.",
+              "en": "A stay extension happens automatically before expiry without preparation."
             },
             {
-              "ko": "만료일 네 달 전에 반드시 접수를 끝내야 한다고 해요.",
-              "de": "Der Antrag muss genau vier Monate vor Ablauf vollständig eingereicht sein.",
-              "en": "They say submission must be completed four months before expiry."
+              "ko": "모든 사람에게 같은 서류와 신청 시기가 적용돼요.",
+              "de": "Für alle gelten dieselben Unterlagen und derselbe Antragszeitpunkt.",
+              "en": "The same documents and timing apply to everyone."
             }
           ],
           "correctIndex": 0
@@ -17865,30 +17873,33 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “기한을 놓치다가는 불법체류로 처리되어서 벌금은 물론 앞으로 비자 발급에도 불이익이 있을 수 있습니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „기한을 놓치다가는 불법체류로 처리되어서 벌금은 물론 앞으로 비자 발급에도 불이익이 있을 수 있습니다.“: Wenn Sie die Frist verpassen, kann das als illegaler Aufenthalt gewertet werden, wodurch nicht nur eine Geldstrafe, sondern auch Nachteile bei künftigen Visa entstehen können. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “기한을 놓치다가는 불법체류로 처리되어서 벌금은 물론 앞으로 비자 발급에도 불이익이 있을 수 있습니다.”: If you miss the deadline, it may be treated as an illegal stay. That can lead to a fine and may also affect future visa applications. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.“: Antragszeitpunkt und Unterlagen können je nach Aufenthaltsstatus und aktueller Situation unterschiedlich sein. Wir sehen uns zuerst Ihren Pass und Ihre aktuellen Aufenthaltsdaten an.. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.”: The timing and documents can vary by residence status and current situation. Let's first check your passport and current stay information.. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "b2_w10_authorities"
           ],
-          "evidenceKo": "기한을 놓치다가는 불법체류로 처리되어서 벌금은 물론 앞으로 비자 발급에도 불이익이 있을 수 있습니다.",
-          "audioKo": "기한을 놓치다가는 불법체류로 처리되어서 벌금은 물론 앞으로 비자 발급에도 불이익이 있을 수 있습니다.",
+          "evidenceKo": "신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.",
+          "audioKo": "신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.",
           "options": [
             {
-              "ko": "기한을 놓치다가는 불법체류로 처리되어서 벌금은 물론 앞으로 비자 발급에도 불이익이 있을 수 있습니다.",
-              "de": "Wenn Sie die Frist verpassen, kann das als illegaler Aufenthalt gewertet werden, wodurch nicht nur eine Geldstrafe, sondern auch Nachteile bei künftigen Visa entstehen können.",
-              "en": "If you miss the deadline, it may be treated as an illegal stay. That can lead to a fine and may also affect future visa applications."
+              "speaker": "official",
+              "ko": "신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.",
+              "de": "Antragszeitpunkt und Unterlagen können je nach Aufenthaltsstatus und aktueller Situation unterschiedlich sein. Wir sehen uns zuerst Ihren Pass und Ihre aktuellen Aufenthaltsdaten an.",
+              "en": "The timing and documents can vary by residence status and current situation. Let's first check your passport and current stay information."
             },
             {
-              "ko": "재학증명서와 통장 잔고 증명서가 필요합니다. 잔고가 부족하면 등록금 납부 영수증으로 대체할 수 있습니다.",
-              "de": "Sie benötigen eine Immatrikulationsbescheinigung und einen Kontostandsnachweis. Sollte der Kontostand zu niedrig sein, können Sie stattdessen einen Nachweis über die Zahlung der Studiengebühren einreichen.",
-              "en": "You need proof of enrollment and a bank balance statement. If your balance is too low, you can submit proof of tuition payment instead."
+              "speaker": "user",
+              "ko": "체류 기간을 연장하려고 하는데, 제 경우에 신청 시기와 필요한 서류를 확인하고 싶습니다.",
+              "de": "Ich möchte meinen Aufenthalt verlängern und möchte wissen, welcher Antragstermin und welche Unterlagen in meinem Fall gelten.",
+              "en": "I would like to extend my stay and want to know which timing and documents apply in my case."
             },
             {
-              "ko": "체류 기간 연장 신청 때문에 왔는데요, 언제까지 신청해야 하나요?",
-              "de": "Ich bin wegen der Verlängerung meines Aufenthalts hier. Bis wann muss ich den Antrag stellen?",
-              "en": "I'm here about extending my stay. By when do I need to apply?"
+              "speaker": "official",
+              "ko": "기한과 절차는 관련 안내문이나 공식 웹사이트에서 다시 확인하셔야 합니다. 가능한 빨리 신청 가능 여부를 확인해 보세요.",
+              "de": "Fristen und Verfahren sollten Sie noch einmal in den einschlägigen Hinweisen oder auf der offiziellen Website prüfen. Klären Sie möglichst bald, ob ein Antrag möglich ist.",
+              "en": "You should check the deadlines and procedure again in the relevant guidance or on the official website. Confirm as soon as possible whether an application is possible."
             }
           ],
           "correctIndex": 0
@@ -17899,54 +17910,54 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Verstanden. Ich bereite die Unterlagen diese Woche vor und komme dann wieder.",
-            "en": "Put the words in the same order as the recording. Meaning: Understood. I'll prepare the documents this week and come back."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Verstanden. Sobald geklärt ist, was nötig ist, bereite ich alles entsprechend vor.",
+            "en": "Put the words in the same order as the recording. Meaning: Understood. Once it is clear what is needed, I will prepare accordingly."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “알겠습니다. 서류는 이번 주 안에 준비해서 다시 오겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „알겠습니다. 서류는 이번 주 안에 준비해서 다시 오겠습니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “알겠습니다. 서류는 이번 주 안에 준비해서 다시 오겠습니다.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “알겠습니다. 필요한 내용이 확인되면 그에 맞춰 준비하겠습니다.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „알겠습니다. 필요한 내용이 확인되면 그에 맞춰 준비하겠습니다.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “알겠습니다. 필요한 내용이 확인되면 그에 맞춰 준비하겠습니다.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "b2_w10_authorities"
           ],
-          "evidenceKo": "알겠습니다. 서류는 이번 주 안에 준비해서 다시 오겠습니다.",
-          "audioKo": "알겠습니다. 서류는 이번 주 안에 준비해서 다시 오겠습니다.",
-          "targetKo": "알겠습니다. 서류는 이번 주 안에 준비해서 다시 오겠습니다."
+          "evidenceKo": "알겠습니다. 필요한 내용이 확인되면 그에 맞춰 준비하겠습니다.",
+          "audioKo": "알겠습니다. 필요한 내용이 확인되면 그에 맞춰 준비하겠습니다.",
+          "targetKo": "알겠습니다. 필요한 내용이 확인되면 그에 맞춰 준비하겠습니다."
         },
         {
           "id": "listening.b2.b2_w10_authorities.response",
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "대화를 들은 사람이 “만료일 전이면 아무 때나 준비 없이 자동 연장돼요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
-            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Vor Ablauf erfolgt die Verlängerung ohne Vorbereitung automatisch.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
-            "en": "Imagine someone summarizes the conversation as follows: “Before expiry, extension is automatic without preparation.” Which response corrects this while preserving the original conditions and intentions?"
+            "ko": "대화를 들은 사람이 “체류 기간 연장은 만료일 전이면 준비 없이 자동으로 돼요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
+            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Eine Aufenthaltsverlängerung erfolgt vor Ablauf automatisch und ohne Vorbereitung.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
+            "en": "Imagine someone summarizes the conversation as follows: “A stay extension happens automatically before expiry without preparation.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “만료일 네 달 전부터 신청하실 수 있고, 만료일 전까지는 꼭 접수하셔야 합니다.”예요. 따라서 “이 장면에서는 신청 시작 시점과 최종 접수 기한을 구분해요.”가 맞아요. “만료일 전이면 아무 때나 준비 없이 자동 연장돼요.”와 “만료일 네 달 전에 반드시 접수를 끝내야 한다고 해요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „만료일 네 달 전부터 신청하실 수 있고, 만료일 전까지는 꼭 접수하셔야 합니다.“ (Sie können den Antrag ab vier Monaten vor dem Ablaufdatum stellen, müssen ihn aber unbedingt vor dem Ablaufdatum einreichen.). Daraus folgt: In dieser Szene werden frühester Antragstermin und späteste Einreichung unterschieden. Die Alternativen „Vor Ablauf erfolgt die Verlängerung ohne Vorbereitung automatisch.“ und „Der Antrag muss genau vier Monate vor Ablauf vollständig eingereicht sein.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “만료일 네 달 전부터 신청하실 수 있고, 만료일 전까지는 꼭 접수하셔야 합니다.” (You can apply starting four months before the expiration date, but you must be sure to submit it before the expiration date.). This supports: This scene distinguishes when applications open from the submission deadline. The alternatives “Before expiry, extension is automatic without preparation.” and “They say submission must be completed four months before expiry.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.”예요. 따라서 “개별 조건을 확인한 뒤 필요한 서류와 다음 절차를 안내해요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.“ (Nachdem wir das geprüft haben, erkläre ich Ihnen die nötigen Unterlagen und die nächsten Schritte.). Deshalb ist „Nach der Prüfung der individuellen Voraussetzungen werden die nötigen Unterlagen und die nächsten Schritte erklärt.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.” (After we check that, I will explain the documents needed and the next steps.). This supports: “After the individual requirements are checked, they explain the documents needed and next steps..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "b2_w10_authorities"
           ],
-          "evidenceKo": "만료일 네 달 전부터 신청하실 수 있고, 만료일 전까지는 꼭 접수하셔야 합니다.",
+          "evidenceKo": "확인한 뒤 필요한 서류와 다음 절차를 안내해 드리겠습니다.",
           "options": [
             {
-              "ko": "이 장면에서는 신청 시작 시점과 최종 접수 기한을 구분해요.",
-              "de": "In dieser Szene werden frühester Antragstermin und späteste Einreichung unterschieden.",
-              "en": "This scene distinguishes when applications open from the submission deadline."
+              "ko": "개별 조건을 확인한 뒤 필요한 서류와 다음 절차를 안내해요.",
+              "de": "Nach der Prüfung der individuellen Voraussetzungen werden die nötigen Unterlagen und die nächsten Schritte erklärt.",
+              "en": "After the individual requirements are checked, they explain the documents needed and next steps."
             },
             {
-              "ko": "만료일 전이면 아무 때나 준비 없이 자동 연장돼요.",
-              "de": "Vor Ablauf erfolgt die Verlängerung ohne Vorbereitung automatisch.",
-              "en": "Before expiry, extension is automatic without preparation."
+              "ko": "체류 기간 연장은 만료일 전이면 준비 없이 자동으로 돼요.",
+              "de": "Eine Aufenthaltsverlängerung erfolgt vor Ablauf automatisch und ohne Vorbereitung.",
+              "en": "A stay extension happens automatically before expiry without preparation."
             },
             {
-              "ko": "만료일 네 달 전에 반드시 접수를 끝내야 한다고 해요.",
-              "de": "Der Antrag muss genau vier Monate vor Ablauf vollständig eingereicht sein.",
-              "en": "They say submission must be completed four months before expiry."
+              "ko": "모든 사람에게 같은 서류와 신청 시기가 적용돼요.",
+              "de": "Für alle gelten dieselben Unterlagen und derselbe Antragszeitpunkt.",
+              "en": "The same documents and timing apply to everyone."
             }
           ],
           "correctIndex": 0
@@ -17959,14 +17970,14 @@
       "level": "b2",
       "topicId": "b2_privacy",
       "title": {
-        "ko": "안 쓰는 계정, 정보까지 삭제 요청하기",
-        "de": "Ungenutztes Konto: auch die Daten löschen lassen",
-        "en": "An unused account: requesting the data be deleted too"
+        "ko": "안 쓰는 계정, 삭제 범위 확인하기",
+        "de": "Ungenutztes Konto: Umfang der Löschung klären",
+        "en": "An unused account: clarifying the deletion scope"
       },
       "intro": {
-        "ko": "안드레아가 오래전에 만든 계정에 남은 개인 정보를 확인하고 삭제를 요청합니다.",
-        "de": "Andrea prüft, welche persönlichen Daten in einem lange nicht genutzten Konto noch gespeichert sind, und lässt sie löschen.",
-        "en": "Andrea checks what personal data remains in an account she made long ago and requests that it be deleted."
+        "ko": "안드레아는 오래전에 만든 계정에 남은 개인 정보를 확인하고, 삭제할 수 있는 정보와 보관해야 하는 정보가 무엇인지 묻습니다.",
+        "de": "Andrea prüft, welche persönlichen Daten in einem lange nicht genutzten Konto noch gespeichert sind, und fragt, was gelöscht werden kann und was aufbewahrt werden muss.",
+        "en": "Andrea checks what personal data remains in an account she made long ago and asks what can be deleted and what must be retained."
       },
       "contentIds": [
         "b2_w10_privacy"
@@ -17982,29 +17993,29 @@
             "en": "Which interpretation preserves the conditions and intentions in the conversation?"
           },
           "explanation": {
-            "ko": "근거는 “그럼 본인 확인 후에 삭제 처리를 진행하겠습니다.”예요. 따라서 “삭제 의사를 확인한 뒤에도 본인 확인 절차가 필요해요.”가 맞아요. “삭제를 말로 요청한 순간 모든 정보가 이미 지워졌어요.”와 “복구가 불가능하므로 삭제 요청은 거절됐어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „그럼 본인 확인 후에 삭제 처리를 진행하겠습니다.“ (Dann werden wir nach der Identitätsprüfung mit der Löschung fortfahren.). Daraus folgt: Auch nach bestätigtem Löschwunsch ist eine Identitätsprüfung nötig. Die Alternativen „Mit der mündlichen Bitte wurden alle Daten bereits gelöscht.“ und „Wegen der Unwiederherstellbarkeit wurde der Löschwunsch abgelehnt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “그럼 본인 확인 후에 삭제 처리를 진행하겠습니다.” (Then we'll proceed with the deletion after identity verification.). This supports: Identity verification is still required after confirming the wish to delete. The alternatives “All information was already deleted at the moment of the verbal request.” and “The deletion request was refused because recovery would be impossible.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “네. 본인 확인 후 요청을 접수하고, 처리 결과를 등록된 이메일로 보내 드리겠습니다.”예요. 따라서 “본인 확인 뒤 요청을 접수하고 처리 결과를 등록된 이메일로 보내요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „네. 본인 확인 후 요청을 접수하고, 처리 결과를 등록된 이메일로 보내 드리겠습니다.“ (Ja. Nach der Identitätsprüfung nehmen wir Ihren Antrag auf und senden das Ergebnis an die hinterlegte E-Mail-Adresse.). Deshalb ist „Nach der Identitätsprüfung wird die Anfrage aufgenommen und das Ergebnis an die hinterlegte E-Mail-Adresse gesendet.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “네. 본인 확인 후 요청을 접수하고, 처리 결과를 등록된 이메일로 보내 드리겠습니다.” (Yes. After identity verification, we will record your request and send the outcome to the email address on file.). This supports: “After identity verification, the request is recorded and the outcome is sent to the email address on file..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "b2_w10_privacy"
           ],
-          "evidenceKo": "그럼 본인 확인 후에 삭제 처리를 진행하겠습니다.",
+          "evidenceKo": "네. 본인 확인 후 요청을 접수하고, 처리 결과를 등록된 이메일로 보내 드리겠습니다.",
           "options": [
             {
-              "ko": "삭제 의사를 확인한 뒤에도 본인 확인 절차가 필요해요.",
-              "de": "Auch nach bestätigtem Löschwunsch ist eine Identitätsprüfung nötig.",
-              "en": "Identity verification is still required after confirming the wish to delete."
+              "ko": "본인 확인 뒤 요청을 접수하고 처리 결과를 등록된 이메일로 보내요.",
+              "de": "Nach der Identitätsprüfung wird die Anfrage aufgenommen und das Ergebnis an die hinterlegte E-Mail-Adresse gesendet.",
+              "en": "After identity verification, the request is recorded and the outcome is sent to the email address on file."
             },
             {
-              "ko": "삭제를 말로 요청한 순간 모든 정보가 이미 지워졌어요.",
-              "de": "Mit der mündlichen Bitte wurden alle Daten bereits gelöscht.",
-              "en": "All information was already deleted at the moment of the verbal request."
+              "ko": "삭제를 요청한 순간 모든 정보가 이미 지워져요.",
+              "de": "Mit dem Löschwunsch werden alle Daten sofort gelöscht.",
+              "en": "All information is deleted as soon as the request is made."
             },
             {
-              "ko": "복구가 불가능하므로 삭제 요청은 거절됐어요.",
-              "de": "Wegen der Unwiederherstellbarkeit wurde der Löschwunsch abgelehnt.",
-              "en": "The deletion request was refused because recovery would be impossible."
+              "ko": "보관 여부는 확인하지 않아도 되고 이메일로 결과도 받지 않아요.",
+              "de": "Ob Daten aufbewahrt werden müssen, wird nicht geprüft, und es wird kein Ergebnis per E-Mail mitgeteilt.",
+              "en": "They do not need to check retention and will not send an outcome by email."
             }
           ],
           "correctIndex": 0
@@ -18019,30 +18030,33 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “삭제하면 이전 주문 내역도 복구가 불가능한데 괜찮으신가요?”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „삭제하면 이전 주문 내역도 복구가 불가능한데 괜찮으신가요?“: Wenn wir die Daten löschen, lässt sich auch Ihre frühere Bestellhistorie nicht wiederherstellen. Ist das für Sie in Ordnung? Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “삭제하면 이전 주문 내역도 복구가 불가능한데 괜찮으신가요?”: If we delete the data, your past order history can't be restored either. Is that okay with you? The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “네, 확인해 보니 이름과 연락처, 결제 내역이 남아 있습니다. 다만 법적 또는 계약상 보관해야 하는 정보가 있는지 먼저 확인해야 합니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „네, 확인해 보니 이름과 연락처, 결제 내역이 남아 있습니다. 다만 법적 또는 계약상 보관해야 하는 정보가 있는지 먼저 확인해야 합니다.“: Ja, ich sehe hier Ihren Namen, Ihre Kontaktdaten und Zahlungsvorgänge. Zuerst müssen wir aber prüfen, ob Daten aus rechtlichen oder vertraglichen Gründen aufbewahrt werden müssen.. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “네, 확인해 보니 이름과 연락처, 결제 내역이 남아 있습니다. 다만 법적 또는 계약상 보관해야 하는 정보가 있는지 먼저 확인해야 합니다.”: Yes. I can see your name, contact information, and payment history. First, though, we need to check whether any information must be retained for legal or contractual reasons.. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "b2_w10_privacy"
           ],
-          "evidenceKo": "삭제하면 이전 주문 내역도 복구가 불가능한데 괜찮으신가요?",
-          "audioKo": "삭제하면 이전 주문 내역도 복구가 불가능한데 괜찮으신가요?",
+          "evidenceKo": "네, 확인해 보니 이름과 연락처, 결제 내역이 남아 있습니다. 다만 법적 또는 계약상 보관해야 하는 정보가 있는지 먼저 확인해야 합니다.",
+          "audioKo": "네, 확인해 보니 이름과 연락처, 결제 내역이 남아 있습니다. 다만 법적 또는 계약상 보관해야 하는 정보가 있는지 먼저 확인해야 합니다.",
           "options": [
             {
-              "ko": "삭제하면 이전 주문 내역도 복구가 불가능한데 괜찮으신가요?",
-              "de": "Wenn wir die Daten löschen, lässt sich auch Ihre frühere Bestellhistorie nicht wiederherstellen. Ist das für Sie in Ordnung?",
-              "en": "If we delete the data, your past order history can't be restored either. Is that okay with you?"
+              "speaker": "official",
+              "ko": "네, 확인해 보니 이름과 연락처, 결제 내역이 남아 있습니다. 다만 법적 또는 계약상 보관해야 하는 정보가 있는지 먼저 확인해야 합니다.",
+              "de": "Ja, ich sehe hier Ihren Namen, Ihre Kontaktdaten und Zahlungsvorgänge. Zuerst müssen wir aber prüfen, ob Daten aus rechtlichen oder vertraglichen Gründen aufbewahrt werden müssen.",
+              "en": "Yes. I can see your name, contact information, and payment history. First, though, we need to check whether any information must be retained for legal or contractual reasons."
             },
             {
-              "ko": "그 정보를 결제 내역까지 포함해서 전부 삭제해 주시기를 요청드립니다.",
-              "de": "Ich bitte darum, diese Daten einschließlich des Zahlungsverlaufs vollständig zu löschen.",
-              "en": "I'd like to request that all of that information, including the payment history, be deleted."
+              "speaker": "user",
+              "ko": "몇 년 전에 가입한 계정인데 지금 어떤 정보가 저장되어 있는지와 보관해야 하는 정보가 있는지 확인하고 싶습니다.",
+              "de": "Ich habe dieses Konto vor einigen Jahren angelegt und möchte wissen, welche Daten noch gespeichert sind und ob etwas aufbewahrt werden muss.",
+              "en": "I signed up for this account a few years ago and would like to know what information is still stored and whether anything needs to be retained."
             },
             {
-              "ko": "네, 확인해 보니 이름과 연락처, 결제 내역이 남아 있습니다.",
-              "de": "Ja, ich sehe hier, dass Ihr Name, Ihre Kontaktdaten und Ihre Zahlungshistorie noch gespeichert sind.",
-              "en": "Yes. I can see that your name, contact information, and payment history are still on file."
+              "speaker": "official",
+              "ko": "먼저 확인한 뒤 삭제할 수 있는 정보와 계속 보관되는 정보를 안내해 드리겠습니다.",
+              "de": "Nach der Prüfung erläutere ich Ihnen, welche Daten gelöscht werden können und welche weiter aufbewahrt werden.",
+              "en": "After checking, I will explain which information can be deleted and which will continue to be retained."
             }
           ],
           "correctIndex": 0
@@ -18053,54 +18067,54 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Wie läuft die Prüfung ab?",
-            "en": "Put the words in the same order as the recording. Meaning: How does the verification process work?"
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Dann teilen Sie mir bitte mit, welche Daten gelöscht werden können und welche weiter aufbewahrt werden.",
+            "en": "Put the words in the same order as the recording. Meaning: Then please tell me which information can be deleted and which will continue to be retained."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “확인 절차는 어떻게 하면 되나요?”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „확인 절차는 어떻게 하면 되나요?“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “확인 절차는 어떻게 하면 되나요?”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “그럼 삭제할 수 있는 정보와 계속 보관되는 정보가 무엇인지 알려 주세요.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „그럼 삭제할 수 있는 정보와 계속 보관되는 정보가 무엇인지 알려 주세요.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “그럼 삭제할 수 있는 정보와 계속 보관되는 정보가 무엇인지 알려 주세요.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "b2_w10_privacy"
           ],
-          "evidenceKo": "확인 절차는 어떻게 하면 되나요?",
-          "audioKo": "확인 절차는 어떻게 하면 되나요?",
-          "targetKo": "확인 절차는 어떻게 하면 되나요?"
+          "evidenceKo": "그럼 삭제할 수 있는 정보와 계속 보관되는 정보가 무엇인지 알려 주세요.",
+          "audioKo": "그럼 삭제할 수 있는 정보와 계속 보관되는 정보가 무엇인지 알려 주세요.",
+          "targetKo": "그럼 삭제할 수 있는 정보와 계속 보관되는 정보가 무엇인지 알려 주세요."
         },
         {
           "id": "listening.b2.b2_w10_privacy.response",
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "대화를 들은 사람이 “삭제를 말로 요청한 순간 모든 정보가 이미 지워졌어요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
-            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Mit der mündlichen Bitte wurden alle Daten bereits gelöscht.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
-            "en": "Imagine someone summarizes the conversation as follows: “All information was already deleted at the moment of the verbal request.” Which response corrects this while preserving the original conditions and intentions?"
+            "ko": "대화를 들은 사람이 “삭제를 요청한 순간 모든 정보가 이미 지워져요.”라고 정리했다고 해 보세요. 원래 대화의 조건과 의도를 지키며 바로잡는 응답은 무엇인가요?",
+            "de": "Stell dir vor, jemand fasst das Gespräch so zusammen: „Mit dem Löschwunsch werden alle Daten sofort gelöscht.“ Welche Antwort korrigiert das und wahrt die ursprünglichen Bedingungen und Absichten?",
+            "en": "Imagine someone summarizes the conversation as follows: “All information is deleted as soon as the request is made.” Which response corrects this while preserving the original conditions and intentions?"
           },
           "explanation": {
-            "ko": "근거는 “그럼 본인 확인 후에 삭제 처리를 진행하겠습니다.”예요. 따라서 “삭제 의사를 확인한 뒤에도 본인 확인 절차가 필요해요.”가 맞아요. “삭제를 말로 요청한 순간 모든 정보가 이미 지워졌어요.”와 “복구가 불가능하므로 삭제 요청은 거절됐어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „그럼 본인 확인 후에 삭제 처리를 진행하겠습니다.“ (Dann werden wir nach der Identitätsprüfung mit der Löschung fortfahren.). Daraus folgt: Auch nach bestätigtem Löschwunsch ist eine Identitätsprüfung nötig. Die Alternativen „Mit der mündlichen Bitte wurden alle Daten bereits gelöscht.“ und „Wegen der Unwiederherstellbarkeit wurde der Löschwunsch abgelehnt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “그럼 본인 확인 후에 삭제 처리를 진행하겠습니다.” (Then we'll proceed with the deletion after identity verification.). This supports: Identity verification is still required after confirming the wish to delete. The alternatives “All information was already deleted at the moment of the verbal request.” and “The deletion request was refused because recovery would be impossible.” change the distinction or condition in the dialogue."
+            "ko": "근거는 “네. 본인 확인 후 요청을 접수하고, 처리 결과를 등록된 이메일로 보내 드리겠습니다.”예요. 따라서 “본인 확인 뒤 요청을 접수하고 처리 결과를 등록된 이메일로 보내요.”가 맞아요. 다른 선택지는 대화의 조건이나 다음 행동을 바꿔요.",
+            "de": "Der Beleg lautet: „네. 본인 확인 후 요청을 접수하고, 처리 결과를 등록된 이메일로 보내 드리겠습니다.“ (Ja. Nach der Identitätsprüfung nehmen wir Ihren Antrag auf und senden das Ergebnis an die hinterlegte E-Mail-Adresse.). Deshalb ist „Nach der Identitätsprüfung wird die Anfrage aufgenommen und das Ergebnis an die hinterlegte E-Mail-Adresse gesendet.“ richtig. Die anderen Optionen verändern Bedingungen oder den nächsten Schritt im Gespräch.",
+            "en": "The evidence is “네. 본인 확인 후 요청을 접수하고, 처리 결과를 등록된 이메일로 보내 드리겠습니다.” (Yes. After identity verification, we will record your request and send the outcome to the email address on file.). This supports: “After identity verification, the request is recorded and the outcome is sent to the email address on file..” The other options change a condition or the next step in the conversation."
           },
           "sourceIds": [
             "b2_w10_privacy"
           ],
-          "evidenceKo": "그럼 본인 확인 후에 삭제 처리를 진행하겠습니다.",
+          "evidenceKo": "네. 본인 확인 후 요청을 접수하고, 처리 결과를 등록된 이메일로 보내 드리겠습니다.",
           "options": [
             {
-              "ko": "삭제 의사를 확인한 뒤에도 본인 확인 절차가 필요해요.",
-              "de": "Auch nach bestätigtem Löschwunsch ist eine Identitätsprüfung nötig.",
-              "en": "Identity verification is still required after confirming the wish to delete."
+              "ko": "본인 확인 뒤 요청을 접수하고 처리 결과를 등록된 이메일로 보내요.",
+              "de": "Nach der Identitätsprüfung wird die Anfrage aufgenommen und das Ergebnis an die hinterlegte E-Mail-Adresse gesendet.",
+              "en": "After identity verification, the request is recorded and the outcome is sent to the email address on file."
             },
             {
-              "ko": "삭제를 말로 요청한 순간 모든 정보가 이미 지워졌어요.",
-              "de": "Mit der mündlichen Bitte wurden alle Daten bereits gelöscht.",
-              "en": "All information was already deleted at the moment of the verbal request."
+              "ko": "삭제를 요청한 순간 모든 정보가 이미 지워져요.",
+              "de": "Mit dem Löschwunsch werden alle Daten sofort gelöscht.",
+              "en": "All information is deleted as soon as the request is made."
             },
             {
-              "ko": "복구가 불가능하므로 삭제 요청은 거절됐어요.",
-              "de": "Wegen der Unwiederherstellbarkeit wurde der Löschwunsch abgelehnt.",
-              "en": "The deletion request was refused because recovery would be impossible."
+              "ko": "보관 여부는 확인하지 않아도 되고 이메일로 결과도 받지 않아요.",
+              "de": "Ob Daten aufbewahrt werden müssen, wird nicht geprüft, und es wird kein Ergebnis per E-Mail mitgeteilt.",
+              "en": "They do not need to check retention and will not send an outcome by email."
             }
           ],
           "correctIndex": 0
