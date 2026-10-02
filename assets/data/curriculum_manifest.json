@@ -2573,7 +2573,8 @@
     "a1_pronouns": "a1_08_clarify_repair",
     "a1_counters": "a1_05_numbers_time",
     "a1_determiners": "a1_05_numbers_time",
-    "a2_messenger_phone": "a2_03_chat_relationships"
+    "a2_messenger_phone": "a2_03_chat_relationships",
+    "c2_honorific_context": "c2_01_interpretation_institutions"
   },
   "contentLinks": [
     {
@@ -6110,6 +6111,18 @@
       "conceptIds": [
         "concept_a2_work_study"
       ]
+    },
+    "grammar_c2_often_ends_badly": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "grammar_c2_rather_than_assume": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
     }
   },
   "smalltalkCategoryUnitMap": {
@@ -7180,7 +7193,8 @@
     "a1:selbstvorstellung": "a1_08_clarify_repair",
     "a1:tiere": "a1_05_numbers_time",
     "a2:natur & draußen": "a2_03_chat_relationships",
-    "a2:menschen & berufe": "a2_06_study_work"
+    "a2:menschen & berufe": "a2_06_study_work",
+    "c2:ehrensprache": "c2_01_interpretation_institutions"
   },
   "scenarioCorpusGeneration": "canonical_120_v1",
   "scenarioCorpusSupplements": [

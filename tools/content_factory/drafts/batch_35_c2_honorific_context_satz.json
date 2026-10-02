@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "satz_c2_0253",
+      "sourceVocabId": "vocab_c2_0241",
+      "level": "c2",
+      "vocabKo": "호칭어",
+      "targetKo": "처음 만난 자리에서는 호칭어를 정하기 전에 어떤 호칭이 편한지 물어볼 수 있습니다.",
+      "promptDe": "Bei einem ersten Treffen kann man fragen, welche Anrede die andere Person bevorzugt, bevor man sich auf eine festlegt.",
+      "promptEn": "At a first meeting, you can ask which form of address the other person prefers before settling on one.",
+      "distractors": ["말없이", "정해 놓고"]
+    },
+    {
+      "id": "satz_c2_0254",
+      "sourceVocabId": "vocab_c2_0242",
+      "level": "c2",
+      "vocabKo": "호칭 관습",
+      "targetKo": "호칭 관습은 같은 조직 안에서도 팀의 역사와 관계에 따라 다를 수 있으니, 추측하기보다 확인하는 편이 낫습니다.",
+      "promptDe": "Anredekonventionen können selbst innerhalb derselben Organisation unterschiedlich sein, je nachdem, wie ein Team zusammengewachsen ist und welche Beziehungen darin bestehen. Deshalb ist Nachfragen besser als Raten.",
+      "promptEn": "Address conventions can differ even within the same organization depending on a team's history and relationships, so checking is better than guessing.",
+      "distractors": ["모두 같으니", "정해진 대로"]
+    },
+    {
+      "id": "satz_c2_0255",
+      "sourceVocabId": "vocab_c2_0243",
+      "level": "c2",
+      "vocabKo": "높임법",
+      "targetKo": "높임법은 단어 하나만 바꾸는 문제가 아니라, 누구와 어떤 자리에서 말하는지 함께 살피는 방식입니다.",
+      "promptDe": "Höflichkeitsformen im Koreanischen bestehen nicht nur darin, ein einzelnes Wort zu ersetzen. Entscheidend sind auch Gesprächspartner und Situation.",
+      "promptEn": "Korean honorifics are not just a matter of replacing one word. Who you are speaking with and the setting matter too.",
+      "distractors": ["규칙 하나를", "혼자서만"]
+    },
+    {
+      "id": "satz_c2_0256",
+      "sourceVocabId": "vocab_c2_0244",
+      "level": "c2",
+      "vocabKo": "주체 높임",
+      "targetKo": "‘선생님께서 오신다’에서 주체 높임은 선생님을 높이는 기능을 합니다.",
+      "promptDe": "In ‘선생님께서 오신다’ bezieht sich die Höflichkeitsform auf die Lehrkraft als Subjekt.",
+      "promptEn": "In ‘선생님께서 오신다,’ the honorific form applies to the teacher as the subject.",
+      "distractors": ["듣는 사람을", "말하는 사람을"]
+    },
+    {
+      "id": "satz_c2_0257",
+      "sourceVocabId": "vocab_c2_0245",
+      "level": "c2",
+      "vocabKo": "상대 높임법",
+      "targetKo": "상대 높임법은 문장 속 주체가 아니라 말을 듣는 사람에게 맞추어 선택합니다.",
+      "promptDe": "Die Höflichkeitsform gegenüber der angesprochenen Person richtet sich nicht nach dem Satzsubjekt, sondern nach der Person, die zuhört.",
+      "promptEn": "Addressee honorification is chosen for the person listening rather than for the subject in the sentence.",
+      "distractors": ["문장 끝을", "글쓴이를"]
+    },
+    {
+      "id": "satz_c2_0258",
+      "sourceVocabId": "vocab_c2_0246",
+      "level": "c2",
+      "vocabKo": "종결 표현",
+      "targetKo": "같은 요청이라도 종결 표현을 바꾸면 단정, 제안, 또는 확인으로 들릴 수 있습니다.",
+      "promptDe": "Dieselbe Bitte kann je nach Satzschluss bestimmt, wie ein Vorschlag oder wie eine Rückfrage klingen.",
+      "promptEn": "The same request can sound firm, like a suggestion, or like a check-in when its sentence-final expression changes.",
+      "distractors": ["단어 순서를", "말의 속도를"]
+    },
+    {
+      "id": "satz_c2_0259",
+      "sourceVocabId": "vocab_c2_0247",
+      "level": "c2",
+      "vocabKo": "격식체",
+      "targetKo": "격식체가 필요한 자리라도, 지나치게 먼 말투가 질문을 막지 않는지 살필 필요가 있습니다.",
+      "promptDe": "Auch in einem formellen Rahmen lohnt es sich zu prüfen, ob eine allzu distanzierte Sprechweise Fragen erschwert.",
+      "promptEn": "Even in a formal setting, it is worth checking whether an overly distant speech style makes questions harder.",
+      "distractors": ["대화가 길어도", "목소리가 커도"]
+    },
+    {
+      "id": "satz_c2_0260",
+      "sourceVocabId": "vocab_c2_0248",
+      "level": "c2",
+      "vocabKo": "발화 의도",
+      "targetKo": "발화 의도를 분명히 하면 같은 문장이라도 부탁인지 결정 통보인지 구분하기 쉬워집니다.",
+      "promptDe": "Wenn die Sprechabsicht klar ist, lässt sich auch bei demselben Satz leichter erkennen, ob er eine Bitte oder die Mitteilung einer Entscheidung ist.",
+      "promptEn": "When the communicative intent is clear, it is easier to tell whether the same sentence is a request or notice of a decision.",
+      "distractors": ["문장 길이를", "목소리 크기를"]
+    },
+    {
+      "id": "satz_c2_0261",
+      "sourceVocabId": "vocab_c2_0249",
+      "level": "c2",
+      "vocabKo": "화용론",
+      "targetKo": "화용론에서는 문법이 맞는 문장도 상황에 따라 다른 뜻으로 해석될 수 있다고 봅니다.",
+      "promptDe": "Die Pragmatik zeigt, dass selbst grammatisch korrekte Sätze je nach Situation unterschiedlich verstanden werden können.",
+      "promptEn": "Pragmatics shows that even grammatically correct sentences can be understood differently depending on the situation.",
+      "distractors": ["맞춤법에서는", "사전에서는"]
+    },
+    {
+      "id": "satz_c2_0262",
+      "sourceVocabId": "vocab_c2_0250",
+      "level": "c2",
+      "vocabKo": "간접성",
+      "targetKo": "간접성은 상황에 따라 배려로 들릴 수도, 책임을 흐리는 말로 들릴 수도 있습니다.",
+      "promptDe": "Indirektheit kann je nach Situation rücksichtsvoll wirken oder Verantwortung verschleiern.",
+      "promptEn": "Depending on the situation, indirectness can sound considerate or can blur responsibility.",
+      "distractors": ["정확한 표현은", "직접적인 말은"]
+    },
+    {
+      "id": "satz_c2_0263",
+      "sourceVocabId": "vocab_c2_0251",
+      "level": "c2",
+      "vocabKo": "발화 전략",
+      "targetKo": "반대 의견을 말할 때는 결론부터 단정하기보다, 무엇을 우려하는지 먼저 밝히는 발화 전략을 쓸 수 있습니다.",
+      "promptDe": "Bei einer abweichenden Meinung kann man zuerst benennen, worüber man sich sorgt, statt sich sofort auf ein Fazit festzulegen.",
+      "promptEn": "When voicing a different view, you can first name the concern rather than present a conclusion as final.",
+      "distractors": ["침묵하는", "동의하는"]
+    },
+    {
+      "id": "satz_c2_0264",
+      "sourceVocabId": "vocab_c2_0252",
+      "level": "c2",
+      "vocabKo": "상황 의존성",
+      "targetKo": "상황 의존성 때문에 같은 표현도 말하는 사람과 듣는 사람의 관계에 따라 다르게 읽힐 수 있습니다.",
+      "promptDe": "Wegen der Situationsabhängigkeit kann derselbe Ausdruck je nach Beziehung zwischen der Person, die spricht, und der Person, die zuhört, unterschiedlich verstanden werden.",
+      "promptEn": "Because meaning depends on the situation, the same expression can be understood differently depending on the relationship between speaker and listener.",
+      "distractors": ["문법 규칙만", "사전 뜻만"]
+    }
+  ]
+}

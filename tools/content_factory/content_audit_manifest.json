@@ -4,13 +4,13 @@
   "sources": [
     {
       "kind": "vocab",
-      "count": 2944,
+      "count": 2956,
       "source": "korean_vocab.csv",
       "requiresExplicitId": true
     },
     {
       "kind": "grammar",
-      "count": 261,
+      "count": 263,
       "source": "grammar.csv",
       "requiresExplicitId": true
     },
@@ -28,19 +28,19 @@
     },
     {
       "kind": "smalltalk",
-      "count": 582,
+      "count": 586,
       "source": "smalltalk.json",
       "requiresExplicitId": true
     },
     {
       "kind": "cloze",
-      "count": 2341,
+      "count": 2353,
       "source": "cloze.json",
       "requiresExplicitId": true
     },
     {
       "kind": "satz",
-      "count": 2861,
+      "count": 2873,
       "source": "satz_sentences.json",
       "requiresExplicitId": true
     },
