@@ -4,26 +4,26 @@
     {
       "ko": "오빠",
       "kind": "kpop",
-      "de": "„Oppa“ verwendet eine jüngere Frau für einen älteren Mann, zu dem sie eine persönliche Beziehung hat. In Fan-Kontexten kann der Ausdruck auch für Idole vorkommen.",
-      "en": "A younger woman uses “oppa” for an older man she knows well. Fans may also use it for idols."
+      "de": "Eine Frau nennt ihren älteren Bruder „Oppa“. Auch für einen älteren Mann in einer vertrauten Beziehung kann sie die Anrede verwenden. Fans verwenden sie manchmal für ältere männliche Idole.",
+      "en": "A woman calls her older brother “oppa.” She may also use it for an older man she has a close relationship with. Fans sometimes use it for older male idols."
     },
     {
       "ko": "누나",
       "kind": "kpop",
-      "de": "Ein jüngerer Mann sagt „Noona“ zu einer älteren Frau. Der Ausdruck kommt auch oft in K-Pop- und Fan-Kontexten vor.",
-      "en": "A younger man uses “noona” for an older woman. You will also hear it in K-pop and fan contexts."
+      "de": "Ein Mann nennt seine ältere Schwester „Noona“. Auch für eine ältere Frau in einer vertrauten Beziehung kann er die Anrede verwenden, etwa im Freundeskreis oder unter Bandmitgliedern.",
+      "en": "A man calls his older sister “noona.” He may also use it for an older woman he has a close relationship with, for example among friends or bandmates."
     },
     {
       "ko": "언니",
       "kind": "culture",
-      "de": "Eine jüngere Frau sagt „Unnie“ zu einer älteren Frau. Der Ausdruck ist in K-Dramas und unter Fans häufig zu hören.",
-      "en": "A younger woman uses “unnie” for an older woman. It is common in K-dramas and among fans."
+      "de": "Eine Frau nennt ihre ältere Schwester „Unnie“. Auch für eine ältere Frau in einer vertrauten Beziehung ist die Anrede möglich. Sie ist keine allgemeine Anrede für jede ältere Frau.",
+      "en": "A woman calls her older sister “unnie.” She may also use it for an older woman she has a close relationship with. It is not a general way to address every older woman."
     },
     {
       "ko": "형",
       "kind": "culture",
-      "de": "Ein jüngerer Mann nennt einen älteren Mann „Hyung“. Auch Idole verwenden das für ältere Bandkollegen.",
-      "en": "A younger man uses “hyung” for an older man. Idols use it for older bandmates too."
+      "de": "Ein Mann nennt seinen älteren Bruder „Hyung“. Auch für einen älteren Mann in einer vertrauten Beziehung ist die Anrede möglich, etwa unter Freunden oder Bandkollegen.",
+      "en": "A man calls his older brother “hyung.” He may also use it for an older man he has a close relationship with, for example among friends or bandmates."
     },
     {
       "ko": "화이팅",
@@ -40,8 +40,8 @@
     {
       "ko": "괜찮아요",
       "kind": "drama",
-      "de": "„Gwaenchana“ („Alles okay“) ist eine der häufigsten Trost-Zeilen in K-Dramas.",
-      "en": "“Gwaenchana” (“It's okay”) is one of the most common comforting lines in K-dramas."
+      "de": "„Gwaenchanayo“ (괜찮아요) kann „Es ist okay“ heißen und Trost ausdrücken. Ohne „-yo“ ist 괜찮아 die vertraute, informelle Form.",
+      "en": "“Gwaenchanayo” (괜찮아요) can mean “It’s okay” and offer reassurance. Without “-yo,” 괜찮아 is the familiar, informal form."
     },
     {
       "ko": "맛있다",
@@ -106,14 +106,14 @@
     {
       "ko": "선생님",
       "kind": "culture",
-      "de": "„Seonsaengnim“ sagt man nicht nur zu Lehrern, sondern höflich zu vielen Fachleuten.",
-      "en": "“Seonsaengnim” isn't only for teachers. It's a polite title for many professionals."
+      "de": "„Seonsaengnim“ ist die respektvolle Anrede für Lehrkräfte. Auch Ärzte oder andere Personen, denen man Respekt zeigt, können so angesprochen werden; die Situation entscheidet.",
+      "en": "“Seonsaengnim” is a respectful title for teachers. It may also be used for doctors or other people being addressed respectfully, depending on the situation."
     },
     {
       "ko": "시험",
       "kind": "culture",
-      "de": "Beim „Suneung“ (Uni-Aufnahmeprüfung) starten sogar keine Flugzeuge, damit der Hörtest ruhig bleibt.",
-      "en": "During the “Suneung” (college entrance exam), even planes are grounded so the listening test stays quiet."
+      "de": "Beim Suneung, der koreanischen Hochschulaufnahmeprüfung, werden während des Englisch-Hörtests Starts und Landungen vorübergehend ausgesetzt. Die Einschränkung betrifft diesen Prüfungsteil, nicht die gesamte Prüfung.",
+      "en": "During the English listening section of the Suneung, Korea’s college entrance exam, takeoffs and landings are temporarily suspended. This restriction applies to that section, not the entire exam."
     },
     {
       "ko": "안녕",
@@ -136,8 +136,8 @@
     {
       "ko": "봄",
       "kind": "culture",
-      "de": "Im Frühling feiert Korea die Kirschblüte (벚꽃) mit Festivals und unzähligen Fotos.",
-      "en": "In spring Korea celebrates the cherry blossoms (beotkkot) with festivals and endless photos."
+      "de": "Im Frühling finden in Korea Kirschblütenfeste statt. 벚꽃 bedeutet „Kirschblüte“; die kurze Blütezeit ist auch ein beliebtes Fotomotiv.",
+      "en": "Cherry-blossom festivals take place in Korea in spring. 벚꽃 means “cherry blossom”; the brief flowering season is also a popular subject for photos."
     },
     {
       "ko": "음악",
@@ -154,8 +154,8 @@
     {
       "ko": "인터넷",
       "kind": "culture",
-      "de": "Südkorea hat eines der schnellsten und am dichtesten ausgebauten Internet-Netze der Welt.",
-      "en": "South Korea has one of the fastest, most widely wired internet networks in the world."
+      "de": "인터넷 ist ein englisches Lehnwort im Koreanischen. Im Alltag kannst du bei einem Verbindungsproblem sagen: 인터넷이 안 돼요: „Das Internet funktioniert nicht.“",
+      "en": "인터넷 is an English loanword in Korean. In everyday conversation, you can report a connection problem with 인터넷이 안 돼요: “The internet isn’t working.”"
     },
     {
       "ko": "집",
@@ -166,8 +166,8 @@
     {
       "ko": "친구",
       "kind": "culture",
-      "de": "„Chingu“ bedeutet meist Freund oder Freundin im gleichen Alter. Das Alter beeinflusst im Koreanischen oft die Anredeform.",
-      "en": "“Chingu” usually means a friend of the same age. Age often affects the form of address in Korean."
+      "de": "„Chingu“ bedeutet Freund oder Freundin. Bei der Anrede unter Gleichaltrigen spielt das Wort eine besondere Rolle, aber Freundschaft ist nicht auf dasselbe Alter beschränkt. Alter und Vertrautheit beeinflussen die Anrede.",
+      "en": "“Chingu” means a friend. The word has a particular role in addressing people of the same age, but friendship is not limited to same-age relationships. Age and closeness affect forms of address."
     },
     {
       "ko": "컴퓨터",
@@ -196,8 +196,8 @@
     {
       "ko": "수습 기간",
       "kind": "culture",
-      "de": "Bei einer Probezeit lohnt es sich, Aufgaben, Bewertung, Rückmeldung und Vertragsbedingungen ausdrücklich zu klären; die konkrete Regelung hängt vom Vertrag ab.",
-      "en": "During probation, clarify duties, evaluation, feedback, and contract terms; the exact arrangement depends on the contract."
+      "de": "Während einer Probezeit ist es sinnvoll, Aufgaben, Bewertung, Rückmeldung und Vertragsbedingungen ausdrücklich zu klären. Die Ausgestaltung hängt vom Vertrag und den geltenden rechtlichen Vorgaben ab.",
+      "en": "During probation, it is useful to clarify duties, evaluation, feedback, and contract terms. The arrangement depends on the contract and applicable legal requirements."
     },
     {
       "ko": "이주 배경",

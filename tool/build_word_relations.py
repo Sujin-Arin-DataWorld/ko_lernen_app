@@ -108,8 +108,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "안녕",
                     "Hallo / Tschüss (informell)",
                     "Hi / Bye (informal)",
-                    "Nur mit Freundinnen und Freunden. Zu Lehrerinnen oder Älteren wirkt es zu locker.",
-                    "Only with friends. With teachers or older people it sounds too casual.",
+                    "Informelle Begrüßung oder Verabschiedung in vertrauten Beziehungen. Bei Unbekannten und in förmlichen Situationen ist 안녕하세요 angemessener.",
+                    "An informal greeting or goodbye in close relationships. Use 안녕하세요 with strangers and in formal situations.",
                     "vocab_a1_0002",
                 )
             ],
@@ -151,8 +151,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "고마워요",
                     "Danke (höflich-informell)",
                     "Thank you (polite informal)",
-                    "Alltag mit Bekannten. In einem Geschäft oder vor Älteren bleibt 감사합니다 sicherer.",
-                    "Everyday thanks with people you know. In a shop or with older people, 감사합니다 is safer.",
+                    "Höflich und weniger förmlich als 감사합니다. Passt oft auch im Alltag mit Personen, die du nicht gut kennst; der Umgangston entscheidet.",
+                    "Polite and less formal than 감사합니다. It can also suit everyday exchanges with people you do not know well, depending on the tone of the interaction.",
                     "vocab_a1_0004",
                 )
             ],
@@ -186,8 +186,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "미안해요",
                     "Es tut mir leid",
                     "I'm sorry",
-                    "Für Freunde und Alltag. Vor Unbekannten oder in einem Laden bleibt 죄송합니다 höflicher.",
-                    "For friends and everyday talk. With strangers or in a shop, 죄송합니다 stays more polite.",
+                    "Eine höfliche, weniger förmliche Entschuldigung. 죄송합니다 zeigt mehr Respekt und passt besonders in förmlichen Situationen.",
+                    "A polite, less formal apology. 죄송합니다 conveys greater deference and is especially useful in formal situations.",
                     "vocab_a1_0006",
                 )
             ],
@@ -196,8 +196,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "실례합니다",
                     "Entschuldigen Sie",
                     "Excuse me",
-                    "Bevor du fragst oder vorbeigehst, nicht nach einem Fehler.",
-                    "Before you ask or pass by, not after a mistake.",
+                    "Zum höflichen Unterbrechen, Ansprechen oder Vorbeigehen; auch nach einer kleinen Störung, etwa wenn man jemanden anstößt.",
+                    "For politely interrupting, getting attention, or passing by; also after a minor intrusion, such as bumping into someone.",
                     "vocab_a1_0174",
                 )
             ],
@@ -264,8 +264,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "알겠어요",
                     "Verstanden",
                     "I see / Got it",
-                    "Nach einer Erklärung, nicht als Ja/Nein-Antwort.",
-                    "After an explanation, not as a yes/no answer.",
+                    "Bestätigt, dass du etwas verstanden hast oder einer Bitte nachkommen wirst. Kann auch auf eine entsprechende Frage antworten.",
+                    "Confirms that you have understood or will follow a request. It can also answer a question asking for that confirmation.",
                 )
             ],
             expressions=[
@@ -288,8 +288,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "아빠",
                     "Papa",
                     "dad",
-                    "Zuhause und mit der Familie. In der Schule oder auf Formularen bleibt 아버지.",
-                    "At home and with family. At school or on forms, keep 아버지.",
+                    "Vertraute Bezeichnung für den eigenen Vater, auch unter Erwachsenen. 아버지 ist förmlicher und passt eher in offizielle Texte.",
+                    "A familiar word for your own father, also used by adults. 아버지 is more formal and more suitable for official writing.",
                     "vocab_a1_0034",
                 )
             ],
@@ -484,8 +484,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "조그맣다",
                     "winzig / sehr klein",
                     "tiny / very small",
-                    "Kleiner und niedlicher als 작다.",
-                    "Smaller and cuter than 작다.",
+                    "Betont die geringe Größe; kann liebevoll klingen, muss aber nicht niedlich gemeint sein.",
+                    "Emphasizes small size; it can sound affectionate without necessarily implying cuteness.",
                 )
             ],
             antonyms=[
@@ -546,8 +546,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "좋아하다",
                     "mögen",
                     "to like",
-                    "Die aktive Form: jemand mag etwas.",
-                    "The active form: someone likes something.",
+                    "Ein Verb für die Vorliebe einer Person, etwa 커피를 좋아해요. 좋다 beschreibt eine Eigenschaft oder ein Gefühl, etwa 커피가 좋아요.",
+                    "A verb expressing someone’s preference, as in 커피를 좋아해요. 좋다 describes a quality or feeling, as in 커피가 좋아요.",
                     "vocab_a1_0099",
                 )
             ],
@@ -605,8 +605,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "저렴하다",
                     "preiswert",
                     "inexpensive / reasonably priced",
-                    "Höflicher als 싸다. In Läden klingt es weniger nach billig.",
-                    "More polite than 싸다. In shops it sounds less like cheap.",
+                    "Etwas förmlicher; betont einen günstigen Preis, ohne die negative Qualitätsbewertung anzudeuten, die 싸다 je nach Kontext haben kann.",
+                    "Somewhat more formal; emphasizes a low price without the suggestion of poor quality that 싸다 can carry in context.",
                 )
             ],
             antonyms=[
@@ -786,8 +786,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "간단하다",
                     "einfach / unkompliziert",
                     "simple / straightforward",
-                    "Betont Klarheit, nicht nur fehlende Schwierigkeit.",
-                    "Stresses clarity, not just a lack of difficulty.",
+                    "Wenig Schritte oder Bestandteile, unkompliziert. Eine einfache Struktur ist nicht automatisch leicht auszuführen.",
+                    "Few steps or parts; uncomplicated. A simple structure is not necessarily easy to carry out.",
                 )
             ],
             antonyms=[
@@ -976,8 +976,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "밥",
                     "Reis / Mahlzeit",
                     "rice / meal",
-                    "Das häufigste Objekt von 먹다.",
-                    "The most common object of 먹다.",
+                    "밥을 먹다 bedeutet je nach Kontext Reis essen oder eine Mahlzeit einnehmen.",
+                    "밥을 먹다 means eating rice or having a meal, depending on context.",
                     "vocab_a1_0022",
                 ),
             ],
@@ -1161,8 +1161,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "Ich kenne das gut",
                     "I know that well",
                     "이 길은 잘 알아요. 제가 안내할게요.",
-                    "Diesen Weg kenne ich gut. Ich führe.",
-                    "I know this road well. I'll show the way.",
+                    "Diesen Weg kenne ich gut. Ich zeige Ihnen den Weg.",
+                    "I know this route well. I'll show you the way.",
                 )
             ],
         ),
@@ -1277,8 +1277,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "이야기하다",
                     "sich unterhalten / erzählen",
                     "to talk / to tell",
-                    "Länger und weicher als 말하다. Ein Gespräch, kein einzelner Satz.",
-                    "Longer and softer than 말하다. A conversation, not a single line.",
+                    "Für Gespräche und Erzählungen, aber auch für eine kurze Mitteilung. Nicht automatisch länger oder freundlicher als 말하다.",
+                    "Used for conversations and stories, but also for a brief remark. It does not automatically mean speaking longer or more gently than 말하다.",
                 )
             ],
             related=[
@@ -1394,7 +1394,7 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "Was hast du gestern gemacht?",
                     "What did you do yesterday?",
                     "어제 뭐 했어요? 집에서 쉬었어요?",
-                    "Was hast du gestern gemacht? Hast du zu Hause ausgeruht?",
+                    "Was hast du gestern gemacht? Hast du dich zu Hause ausgeruht?",
                     "What did you do yesterday? Did you rest at home?",
                 )
             ],
@@ -1496,8 +1496,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
             expressions=[
                 expression(
                     "항상 고마워요",
-                    "Danke, immer",
-                    "Thank you, always",
+                    "Ich bin dir immer dankbar",
+                    "I'm always grateful to you",
                     "항상 도와줘서 고마워요.",
                     "Danke, dass du immer hilfst.",
                     "Thank you for always helping.",
@@ -1521,8 +1521,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "가족",
                     "Familie",
                     "family",
-                    "Die Menschen im Haus.",
-                    "The people in the house.",
+                    "Menschen, die durch Verwandtschaft oder Partnerschaft verbunden sind; sie müssen nicht zusammenwohnen.",
+                    "People connected by kinship or partnership; they do not have to live together.",
                     "vocab_a1_0018",
                 ),
             ],
@@ -1595,12 +1595,12 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
             ],
             expressions=[
                 expression(
-                    "한국어 학생이에요",
-                    "Ich bin Koreanischlernende/r",
-                    "I'm a Korean student",
-                    "안녕하세요. 저는 한국어 학생이에요.",
-                    "Guten Tag. Ich lerne Koreanisch.",
-                    "Hello. I'm a Korean-language student.",
+                    "학생이에요",
+                    "Ich bin Schüler/in oder Student/in",
+                    "I'm a student",
+                    "안녕하세요. 저는 학생이에요. 한국어를 배워요.",
+                    "Guten Tag. Ich bin Schüler/in oder Student/in und lerne Koreanisch.",
+                    "Hello. I'm a student. I'm learning Korean.",
                 )
             ],
         ),
@@ -1632,9 +1632,9 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "오늘 정말 행복해요",
                     "Heute bin ich wirklich glücklich",
                     "I'm really happy today",
-                    "친구를 오래만에 만나서 오늘 정말 행복해요.",
-                    "Ich habe eine Freundin nach langer Zeit getroffen. Heute bin ich wirklich glücklich.",
-                    "I met a friend after a long time. I'm really happy today.",
+                    "친구를 오랜만에 만나서 오늘 정말 행복해요.",
+                    "Heute bin ich wirklich glücklich, weil ich nach langer Zeit jemanden aus meinem Freundeskreis wiedergesehen habe.",
+                    "I'm really happy today because I saw a friend for the first time in a long while.",
                 )
             ],
         ),
@@ -1725,8 +1725,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "공부하다",
                     "lernen / studieren",
                     "to study",
-                    "Lernen als Arbeit. 배우다 betont das Neue.",
-                    "Learning as work. 배우다 stresses something new.",
+                    "공부하다 beschreibt das Lernen als Tätigkeit; 배우다 den Erwerb von Wissen oder Fähigkeiten.",
+                    "공부하다 describes studying as an activity; 배우다 describes acquiring knowledge or skills.",
                     "vocab_a2_0039",
                 )
             ],
@@ -1760,8 +1760,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "외롭다",
                     "einsam sein",
                     "to be lonely",
-                    "Alleinsein als Gefühl, nicht nur als Tatsache.",
-                    "Being alone as a feeling, not just a fact.",
+                    "Das Gefühl, dass Nähe oder Gesellschaft fehlt. Man kann sich auch unter anderen Menschen einsam fühlen.",
+                    "The feeling of lacking closeness or companionship. You can also feel lonely among other people.",
                     "vocab_a2_0079",
                 )
             ],
@@ -1805,7 +1805,7 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "Willst du mitkommen?",
                     "Want to go together?",
                     "커피 마시러 같이 갈래요?",
-                    "Willst du mitkommen, einen Kaffee trinken?",
+                    "Möchtest du mit mir einen Kaffee trinken gehen?",
                     "Want to go get coffee together?",
                 )
             ],
@@ -1819,8 +1819,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "졸리다",
                     "schläfrig sein",
                     "to be sleepy",
-                    "Augen fallen zu. 피곤하다 ist der Körper nach Arbeit.",
-                    "The eyes want to close. 피곤하다 is the body after work.",
+                    "Betont das Bedürfnis zu schlafen. 피곤하다 bezeichnet körperliche oder geistige Müdigkeit, auch ohne Schläfrigkeit.",
+                    "Emphasizes wanting to sleep. 피곤하다 describes physical or mental tiredness, which need not include sleepiness.",
                 )
             ],
             related=[
@@ -1932,8 +1932,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "난해하다",
                     "schwer verständlich sein",
                     "to be hard to follow",
-                    "Mehr Kopf als Alltag. 복잡하다 kann auch ein voller Terminkalender sein.",
-                    "More about the mind than daily mess. 복잡하다 can also be a packed schedule.",
+                    "Schwer zu verstehen, etwa ein Text oder Gedankengang. 복잡하다 beschreibt viele verknüpfte Teile und kann auch eine unübersichtliche Lage bezeichnen.",
+                    "Hard to understand, for example a text or line of reasoning. 복잡하다 describes many interconnected parts and can also describe a confusing situation.",
                 )
             ],
             antonyms=[
@@ -1976,8 +1976,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "능동적이다",
                     "aktiv / initiativ sein",
                     "to be proactive",
-                    "Man wartet nicht. 적극적이다 klingt im Alltag etwas wärmer.",
-                    "You do not wait. 적극적이다 sounds a bit warmer in daily talk.",
+                    "Betont selbstständiges Handeln, statt nur auf Anweisungen zu reagieren. 적극적이다 betont entschlossenes oder engagiertes Mitwirken.",
+                    "Emphasizes acting on your own initiative rather than only responding to instructions. 적극적이다 emphasizes determined or engaged participation.",
                 )
             ],
             antonyms=[
@@ -2003,11 +2003,11 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
             expressions=[
                 expression(
                     "적극적으로 나서다",
-                    "aktiv vorangehen",
-                    "to step forward actively",
+                    "sich engagiert einbringen",
+                    "to take an active part",
                     "회의에서 적극적으로 나섰어요.",
-                    "In der Besprechung bin ich aktiv vorangegangen.",
-                    "I stepped forward actively in the meeting.",
+                    "In der Besprechung habe ich mich engagiert eingebracht.",
+                    "I took an active part in the meeting.",
                 )
             ],
         ),
@@ -2050,8 +2050,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "Das Zimmer ist hell",
                     "The room is bright",
                     "커튼을 여니 방이 밝아요.",
-                    "Als ich den Vorhang öffnete, war das Zimmer hell.",
-                    "When I opened the curtain, the room was bright.",
+                    "Seit ich den Vorhang geöffnet habe, ist das Zimmer hell.",
+                    "Now that I've opened the curtain, the room is bright.",
                 )
             ],
         ),
@@ -2093,8 +2093,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "eine wichtige Sache",
                     "an important matter",
                     "오늘은 중요한 일이 있어요.",
-                    "Heute habe ich eine wichtige Sache.",
-                    "I have something important today.",
+                    "Heute steht etwas Wichtiges an.",
+                    "I have something important to do today.",
                 )
             ],
         ),
@@ -2212,19 +2212,19 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "습관",
                     "Gewohnheit",
                     "habit",
-                    "Fleiß wird oft zur täglichen Spur.",
-                    "Diligence often becomes a daily track.",
+                    "Regelmäßige Gewohnheiten können helfen, Tätigkeiten konsequent auszuführen.",
+                    "Regular habits can help you carry out activities consistently.",
                     "vocab_b1_0016",
                 )
             ],
             expressions=[
                 expression(
                     "부지런히 살다",
-                    "fleißig leben",
-                    "to live diligently",
+                    "ein arbeitsames Leben führen",
+                    "to lead a hard-working life",
                     "할머니는 평생 부지런히 사셨어요.",
-                    "Oma hat ihr Leben lang fleißig gelebt.",
-                    "Grandma lived diligently her whole life.",
+                    "Meine Großmutter war ihr Leben lang fleißig.",
+                    "My grandmother was hard-working throughout her life.",
                 )
             ],
         ),
@@ -2246,8 +2246,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "구체적이다",
                     "konkret sein",
                     "to be concrete",
-                    "Man kann es zeigen, zählen oder anfassen.",
-                    "You can point to it, count it, or touch it.",
+                    "Nennt bestimmte Einzelheiten oder Beispiele; muss nicht etwas körperlich Greifbares sein.",
+                    "Gives specific details or examples; it need not refer to something physically tangible.",
                     "vocab_b2_0030",
                 )
             ],
@@ -2264,11 +2264,11 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
             expressions=[
                 expression(
                     "구체적으로 말하다",
-                    "konkret sprechen",
-                    "to speak concretely",
+                    "sich konkret ausdrücken",
+                    "to be specific",
                     "추상적으로 말고 구체적으로 말해 주세요.",
-                    "Nicht abstrakt, sprich bitte konkret.",
-                    "Don't stay abstract, please speak concretely.",
+                    "Bitte drück dich konkret aus, nicht abstrakt.",
+                    "Please be specific rather than abstract.",
                 )
             ],
         ),
@@ -2344,19 +2344,19 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "사고",
                     "Unfall",
                     "accident",
-                    "Was passiert, wenn Sicherheit fehlt.",
-                    "What happens when safety is missing.",
+                    "Ein unerwünschtes Ereignis, etwa ein Verkehrsunfall. Sicherheitsmaßnahmen können das Risiko verringern.",
+                    "An unwanted event, such as a traffic accident. Safety measures can reduce the risk.",
                     "vocab_b2_0164",
                 )
             ],
             expressions=[
                 expression(
-                    "안전하게 지내다",
-                    "sicher bleiben",
-                    "to stay safe",
-                    "길에서 안전하게 지내세요.",
-                    "Bleib unterwegs sicher.",
-                    "Stay safe on the way.",
+                    "안전한 길로 가다",
+                    "einen sicheren Weg nehmen",
+                    "to take a safe route",
+                    "밤에는 안전한 길로 가세요.",
+                    "Nimm nachts einen sicheren Weg.",
+                    "Take a safe route at night.",
                 )
             ],
         ),
@@ -2517,8 +2517,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "계약",
                     "Vertrag",
                     "contract",
-                    "Das Papier, das man kündigt oder erneuert.",
-                    "The paper you cancel or renew.",
+                    "Eine Vereinbarung mit festgelegten Rechten und Pflichten; nicht zwingend ein Papierdokument.",
+                    "An agreement setting out rights and obligations; not necessarily a paper document.",
                     "vocab_b2_0034",
                 )
             ],
@@ -2561,8 +2561,8 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "신념",
                     "Überzeugung",
                     "conviction",
-                    "Was man manchmal ruhig hält, obwohl es wackelt.",
-                    "What you sometimes hold still even when it shakes.",
+                    "Eine feste Überzeugung kann helfen, in einer schwierigen Lage ruhig zu bleiben.",
+                    "A firm conviction can help someone stay composed in a difficult situation.",
                     "vocab_b2_0233",
                 )
             ],
@@ -2572,7 +2572,7 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                     "so tun, als sei nichts",
                     "to pretend to be unfazed",
                     "걱정돼도 태연한 척했어요.",
-                    "Obwohl ich unsicher war, tat ich, als sei nichts.",
+                    "Obwohl ich besorgt war, tat ich, als sei nichts.",
                     "Even though I was worried, I pretended to be unfazed.",
                 )
             ],
@@ -2623,10 +2623,10 @@ def enrich(clusters: list[dict[str, object]]) -> list[dict[str, object]]:
             "synonyms": [
                 neighbor(
                     "값이 나가다",
-                    "teuer zu stehen kommen",
-                    "to cost a lot",
-                    "Mehr gesprochen. 비싸다 ist das klare Lehrwort.",
-                    "More spoken. 비싸다 is the clear classroom word.",
+                    "einen hohen Preis haben / viel wert sein",
+                    "to fetch a high price / to be worth a lot",
+                    "Betont einen beachtlichen Preis oder Wert. Anders als 비싸다 kann es auch den Wert eines Gegenstands loben.",
+                    "Emphasizes a substantial price or value. Unlike 비싸다, it can also express appreciation of an item’s value.",
                 )
             ]
         },
@@ -2669,8 +2669,8 @@ def enrich(clusters: list[dict[str, object]]) -> list[dict[str, object]]:
                     "힘들다",
                     "anstrengend sein",
                     "to be hard / tiring",
-                    "Körper oder Tag. 어렵다 sitzt näher am Verstehen.",
-                    "Body or day. 어렵다 sits closer to understanding.",
+                    "Betont Anstrengung oder Belastung, körperlich wie seelisch. 어렵다 bezeichnet eine Schwierigkeit, etwa beim Verstehen oder Ausführen einer Aufgabe.",
+                    "Emphasizes physical or emotional effort or strain. 어렵다 describes difficulty, for example in understanding or carrying out a task.",
                 )
             ]
         },
@@ -2688,11 +2688,11 @@ def enrich(clusters: list[dict[str, object]]) -> list[dict[str, object]]:
         "rel_a1_0021": {
             "synonyms": [
                 neighbor(
-                    "짧막하다",
-                    "ein wenig kurz sein",
-                    "to be on the short side",
-                    "Leicht umgangssprachlich. 짧다 ist die klare Grundform.",
-                    "Slightly colloquial. 짧다 is the clear base form.",
+                    "짤막하다",
+                    "recht kurz sein",
+                    "to be fairly short",
+                    "Betont, dass etwas ziemlich kurz ist, etwa eine Nachricht oder ein Text. 짧다 ist die allgemeinere Grundform.",
+                    "Emphasizes that something is fairly short, such as a message or text. 짧다 is the more general form.",
                 )
             ]
         },
@@ -2702,8 +2702,8 @@ def enrich(clusters: list[dict[str, object]]) -> list[dict[str, object]]:
                     "이동하다",
                     "sich bewegen / wechseln",
                     "to move / to transfer",
-                    "Förmlicher und weiter: Ort, Job, Datei. 가다 bleibt der Schritt.",
-                    "More formal and wider: place, job, file. 가다 stays the step.",
+                    "Bezeichnet das Wechseln von einem Ort zu einem anderen, auch bei Fahrzeugen oder Gegenständen. Förmlicher als 가다.",
+                    "Means moving from one place to another, including vehicles or objects. More formal than 가다.",
                 )
             ]
         },
@@ -2756,10 +2756,10 @@ def enrich(clusters: list[dict[str, object]]) -> list[dict[str, object]]:
             "synonyms": [
                 neighbor(
                     "아끼다",
-                    "gernhaben / schonen",
-                    "to cherish / to spare",
-                    "Näher und vorsichtiger. 좋아하다 kann auch Eis oder Sport sein.",
-                    "Closer and more careful. 좋아하다 can also be ice cream or sport.",
+                    "schätzen / liebhaben",
+                    "to cherish / to care about",
+                    "Hier: jemanden oder etwas wertschätzen und sorgsam behandeln. Kein allgemeiner Ersatz für 좋아하다 bei Essen oder Hobbys.",
+                    "Here: valuing and taking care of someone or something. Not a general substitute for 좋아하다 when talking about food or hobbies.",
                 )
             ]
         },
@@ -2803,8 +2803,8 @@ def enrich(clusters: list[dict[str, object]]) -> list[dict[str, object]]:
                     "드리다",
                     "geben (demütig)",
                     "to give (humble)",
-                    "Nach oben. Über dich zu einem Freund bleibt 주다.",
-                    "Toward someone above you. To a friend, keep 주다.",
+                    "Bescheidene Form von 주다, die der empfangenden Person Respekt zeigt. Zu vertrauten Freunden ist meist 주다 passend.",
+                    "A humble form of 주다 that shows respect for the recipient. 주다 usually suits close friends.",
                     "vocab_b2_0198",
                 )
             ]
@@ -2815,8 +2815,8 @@ def enrich(clusters: list[dict[str, object]]) -> list[dict[str, object]]:
                     "얻다",
                     "bekommen / erlangen",
                     "to obtain / to get",
-                    "Man kommt zu etwas. 받다 betont, dass es gereicht wird.",
-                    "You come to have it. 받다 stresses that it is handed over.",
+                    "Betont, dass man etwas erlangt, etwa Wissen oder eine Gelegenheit. 받다 betont das Empfangen, auch von Nachrichten oder Hilfe.",
+                    "Emphasizes obtaining something, such as knowledge or an opportunity. 받다 emphasizes receiving, including messages or help.",
                 )
             ]
         },
@@ -2892,8 +2892,8 @@ def enrich(clusters: list[dict[str, object]]) -> list[dict[str, object]]:
                     "댁",
                     "Haus (ehrerbietig)",
                     "house (honorific)",
-                    "Das Haus einer älteren Person. Über dein Zimmer bleibt 집.",
-                    "An elder's house. About your own room, keep 집.",
+                    "Respektvolle Bezeichnung für das Zuhause einer anderen Person, nicht nur bei älteren Menschen. Für das eigene Zuhause meist 집.",
+                    "A respectful word for another person’s home, not limited to older people. Usually use 집 for your own home.",
                     "vocab_b2_0197",
                 )
             ]
@@ -2915,8 +2915,8 @@ def enrich(clusters: list[dict[str, object]]) -> list[dict[str, object]]:
                     "즐겁다",
                     "fröhlich / angenehm sein",
                     "to be glad / enjoyable",
-                    "Ein Moment oder ein Fest. 행복하다 sitzt tiefer und länger.",
-                    "A moment or a gathering. 행복하다 sits deeper and longer.",
+                    "Betont Freude an einem Erlebnis oder einer Tätigkeit. 행복하다 bezeichnet Glück oder Zufriedenheit; beides kann kurz oder länger anhalten.",
+                    "Emphasizes enjoyment of an experience or activity. 행복하다 describes happiness or contentment; either feeling can be brief or lasting.",
                 )
             ]
         },
@@ -2926,8 +2926,8 @@ def enrich(clusters: list[dict[str, object]]) -> list[dict[str, object]]:
                     "우울하다",
                     "niedergeschlagen sein",
                     "to be down / gloomy",
-                    "Länger und flacher. 슬프다 kann ein klarer Anlass sein.",
-                    "Longer and flatter. 슬프다 can have a clear cause.",
+                    "Beschreibt eine gedrückte Stimmung; 슬프다 betont Traurigkeit. Im Alltag ist 우울하다 für sich genommen keine medizinische Diagnose.",
+                    "Describes a low mood, while 슬프다 emphasizes sadness. In everyday speech, 우울하다 by itself is not a medical diagnosis.",
                 )
             ]
         },
@@ -2948,8 +2948,8 @@ def enrich(clusters: list[dict[str, object]]) -> list[dict[str, object]]:
                     "공부하다",
                     "lernen / studieren",
                     "to study",
-                    "Schreibtisch und Wiederholen. 배우다 betont, dass etwas neu hereinkommt.",
-                    "Desk and review. 배우다 stresses that something new comes in.",
+                    "Betont die Beschäftigung mit einem Lernstoff. 배우다 betont den Erwerb von Wissen oder Fähigkeiten, auch über längere Zeit.",
+                    "Emphasizes studying a subject. 배우다 emphasizes acquiring knowledge or skills, including over a longer period.",
                     "vocab_a2_0039",
                 )
             ]
@@ -2993,8 +2993,8 @@ def enrich(clusters: list[dict[str, object]]) -> list[dict[str, object]]:
                     "고통스럽다",
                     "schmerzhaft sein",
                     "to be painful",
-                    "Stärker und weiter. 아프다 bleibt der einfache Körpersatz.",
-                    "Stronger and wider. 아프다 stays the simple body sentence.",
+                    "Betont starkes körperliches oder seelisches Leiden. Auch 아프다 kann je nach Kontext körperlichen oder seelischen Schmerz beschreiben.",
+                    "Emphasizes intense physical or emotional suffering. 아프다 can also describe physical or emotional pain, depending on context.",
                 )
             ]
         },

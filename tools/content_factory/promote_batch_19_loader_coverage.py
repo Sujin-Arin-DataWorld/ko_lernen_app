@@ -72,9 +72,9 @@ VOCAB = [
     vocab("a2", "약속을 잡다", "yaksogeul japda", "sich verabreden", "make plans", "금요일 저녁으로 약속을 잡았어요.", "Wir haben uns für Freitagabend verabredet.", "We made plans for Friday evening.", "약속과 일정", "a2_plans_proposals", pos_de="Verb", pos_en="Verb"),
     vocab("a2", "일정을 바꾸다", "iljeongeul bakkuda", "einen Termin ändern", "change a schedule", "비가 와서 일정을 바꿨어요.", "Wegen des Regens haben wir den Termin geändert.", "We changed the schedule because it rained.", "약속과 일정", "a2_plans_proposals", pos_de="Verb", pos_en="Verb"),
     vocab("a2", "시간이 되다", "sigani doeda", "Zeit haben", "be available", "토요일 오후에 시간이 돼요.", "Am Samstagnachmittag habe ich Zeit.", "I'm available on Saturday afternoon.", "약속과 일정", "a2_plans_proposals", pos_de="Verb", pos_en="Verb"),
-    vocab("a2", "만날 곳을 정하다", "mannal goseul jeonghada", "einen Treffpunkt festlegen", "choose a meeting place", "역 앞을 만날 곳으로 정했어요.", "Wir haben den Bahnhofsvorplatz als Treffpunkt gewählt.", "We chose the front of the station as our meeting place.", "약속과 일정", "a2_plans_proposals", pos_de="Verb", pos_en="Verb"),
-    vocab("b1", "사정을 설명하다", "sajeongeul seolmyeonghada", "die Umstände erklären", "explain the situation", "마감이 늦어지는 사정을 먼저 설명했어요.", "Ich habe zuerst erklärt, warum sich die Abgabe verzögert.", "I first explained why the deadline would be missed.", "직장 소통", "b1_work_softening", pos_de="Verb", pos_en="Verb"),
-    vocab("b1", "의견을 조율하다", "uigyeoneul joyulhada", "Meinungen abstimmen", "align opinions", "회의에서 서로 다른 의견을 조율했어요.", "In der Besprechung haben wir unterschiedliche Meinungen abgestimmt.", "We aligned different opinions in the meeting.", "직장 소통", "b1_work_softening", pos_de="Verb", pos_en="Verb"),
+    vocab("a2", "만날 곳을 정하다", "mannal goseul jeonghada", "einen Treffpunkt festlegen", "choose a meeting place", "역 앞을 만날 곳으로 정했어요.", "Wir haben vereinbart, uns vor dem Bahnhof zu treffen.", "We agreed to meet in front of the station.", "약속과 일정", "a2_plans_proposals", pos_de="Verb", pos_en="Verb"),
+    vocab("b1", "사정을 설명하다", "sajeongeul seolmyeonghada", "die Umstände erklären", "explain the situation", "제출이 늦어지는 사정을 먼저 설명했어요.", "Ich habe zuerst erklärt, warum sich die Abgabe verzögert.", "I first explained why the submission was delayed.", "직장 소통", "b1_work_softening", pos_de="Verb", pos_en="Verb"),
+    vocab("b1", "의견을 조율하다", "uigyeoneul joyulhada", "Meinungen abstimmen", "align opinions", "회의에서 서로 다른 의견을 조율했어요.", "In der Besprechung haben wir die unterschiedlichen Standpunkte aufeinander abgestimmt.", "We reconciled differing views during the meeting.", "직장 소통", "b1_work_softening", pos_de="Verb", pos_en="Verb"),
     vocab("b1", "대안을 찾다", "daeaneul chatda", "eine Alternative finden", "find an alternative", "예산 안에서 가능한 대안을 찾아볼게요.", "Ich suche nach einer Alternative innerhalb des Budgets.", "I'll look for an alternative within the budget.", "직장 소통", "b1_work_softening", pos_de="Verb", pos_en="Verb"),
     vocab("b1", "미리 알리다", "miri allida", "vorher Bescheid geben", "give advance notice", "일정이 바뀌면 미리 알려 주세요.", "Bitte geben Sie vorher Bescheid, wenn sich der Termin ändert.", "Please let me know in advance if the schedule changes.", "직장 소통", "b1_work_softening", pos_de="Verb", pos_en="Verb"),
 ]
@@ -260,7 +260,7 @@ CORE_CLOZE = [
     gap("a2_02_plans_proposals", "약속과 일정", "금요일 저녁으로 약속을 잡았어요.", "약속을 잡았어요", "Wir haben uns für Freitagabend verabredet.", "We made plans for Friday evening.", ["주소를 적었어요", "결제를 했어요", "사진을 찍었어요"]),
     gap("a2_02_plans_proposals", "약속과 일정", "비가 와서 일정을 바꿨어요.", "일정을 바꿨어요", "Wegen des Regens haben wir den Termin geändert.", "We changed the schedule because it rained.", ["약속을 지켰어요", "장소를 찾았어요", "시간을 물었어요"]),
     gap("a2_02_plans_proposals", "약속과 일정", "토요일 오후에 시간이 돼요.", "시간이 돼요", "Am Samstagnachmittag habe ich Zeit.", "I'm available on Saturday afternoon.", ["비가 와요", "집이 멀어요", "가격이 싸요"]),
-    gap("a2_02_plans_proposals", "약속과 일정", "역 앞을 만날 곳으로 정했어요.", "만날 곳", "Wir haben den Bahnhofsvorplatz als Treffpunkt gewählt.", "We chose the front of the station as our meeting place.", ["먹을 것", "살 물건", "읽을 책"]),
+    gap("a2_02_plans_proposals", "약속과 일정", "역 앞을 만날 곳으로 정했어요.", "만날 곳", "Wir haben vereinbart, uns vor dem Bahnhof zu treffen.", "We agreed to meet in front of the station.", ["먹을 것", "살 물건", "읽을 책"]),
     gap("a2_02_plans_proposals", "약속과 일정", "시간이 되면 같이 점심을 먹어요.", "되면", "Wenn du Zeit hast, essen wir zusammen zu Mittag.", "If you have time, let's have lunch together.", ["되지만", "되려고", "되거나"]),
     gap("a2_02_plans_proposals", "약속과 일정", "몇 시가 편해요?", "편해요", "Welche Uhrzeit passt dir?", "What time works for you?", ["멀어요", "비싸요", "매워요"]),
     gap("a2_02_plans_proposals", "약속과 일정", "약속 시간보다 십 분 일찍 갈게요.", "일찍", "Ich komme zehn Minuten vor der vereinbarten Zeit.", "I'll arrive ten minutes before our meeting time.", ["늦게", "자주", "아직"]),
@@ -309,7 +309,7 @@ CORE_SATZ = [
     sentence("a2_02_plans_proposals", "금요일 저녁으로 약속을 잡았어요.", "Wir haben uns für Freitagabend verabredet.", "We made plans for Friday evening.", "약속을 잡다", ["주소를", "갑자기"]),
     sentence("a2_02_plans_proposals", "비가 와서 일정을 바꿨어요.", "Wegen des Regens haben wir den Termin geändert.", "We changed the schedule because it rained.", "일정을 바꾸다", ["결제를", "아직"]),
     sentence("a2_02_plans_proposals", "토요일 오후에 시간이 돼요.", "Am Samstagnachmittag habe ich Zeit.", "I'm available on Saturday afternoon.", "시간이 되다", ["배달비", "자주"]),
-    sentence("a2_02_plans_proposals", "역 앞을 만날 곳으로 정했어요.", "Wir haben den Bahnhofsvorplatz als Treffpunkt gewählt.", "We chose the front of the station as our meeting place.", "만날 곳을 정하다", ["발음을", "어제"]),
+    sentence("a2_02_plans_proposals", "역 앞을 만날 곳으로 정했어요.", "Wir haben vereinbart, uns vor dem Bahnhof zu treffen.", "We agreed to meet in front of the station.", "만날 곳을 정하다", ["발음을", "어제"]),
     sentence("a2_02_plans_proposals", "약속을 잡기 전에 서로 시간을 물어요.", "Bevor wir uns verabreden, fragen wir nach der verfügbaren Zeit.", "Before making plans, we ask when each person is available.", "약속을 잡다", ["영수증", "매우"]),
     sentence("a2_02_plans_proposals", "친구가 아파서 일정을 바꿨어요.", "Weil meine Freundin krank ist, haben wir den Termin geändert.", "We changed the schedule because my friend is sick.", "일정을 바꾸다", ["모국어", "빨리"]),
     sentence("a2_02_plans_proposals", "저녁 여섯 시 이후에 시간이 돼요.", "Nach sechs Uhr abends habe ich Zeit.", "I'm available after six in the evening.", "시간이 되다", ["고향", "하지만"]),
@@ -328,19 +328,19 @@ BASE_SMALLTALK = [
 PRONUNCIATION = [
     ("a1", "제 국적은 독일이에요.", "Meine Staatsangehörigkeit ist deutsch.", "My nationality is German.", "국적은의 받침과 조사 연결"),
     ("a1", "제 모국어는 독일어예요.", "Meine Muttersprache ist Deutsch.", "My first language is German.", "모국어는의 모음 연결"),
-    ("a1", "이 단어 발음을 다시 들려주세요.", "Bitte spielen Sie die Aussprache noch einmal ab.", "Please play the pronunciation again.", "발음을의 연음"),
+    ("a1", "이 단어 발음을 다시 들려주세요.", "Bitte lassen Sie mich die Aussprache dieses Wortes noch einmal hören.", "Please let me hear this word's pronunciation again.", "발음을의 연음"),
     ("a1", "주소를 천천히 적어 주세요.", "Bitte schreiben Sie die Adresse langsam auf.", "Please write the address down slowly.", "천천히의 호흡과 요청 억양"),
     ("a1", "카드로 결제할게요.", "Ich bezahle mit Karte.", "I'll pay by card.", "결제할게요의 된소리와 약속 억양"),
     ("a1", "도착 시간은 여섯 시예요.", "Die Ankunftszeit ist sechs Uhr.", "The arrival time is six o'clock.", "도착 시간의 받침과 단위 끊기"),
     ("a2", "토요일 세 시에 만날까요?", "Sollen wir uns am Samstag um drei treffen?", "Shall we meet at three on Saturday?", "제안 의문문의 올라가는 억양"),
     ("a2", "비가 오면 일정을 바꿔요.", "Wenn es regnet, ändern wir den Termin.", "If it rains, we change the schedule.", "조건절 뒤 짧은 쉼"),
     ("a2", "금요일 저녁으로 약속을 잡았어요.", "Wir haben uns für Freitagabend verabredet.", "We made plans for Friday evening.", "약속을의 연음"),
-    ("a2", "몇 시가 편해요?", "Welche Uhrzeit passt dir?", "What time works for you?", "편해요의 자연스러운 축약"),
-    ("a2", "역 앞을 만날 곳으로 정했어요.", "Wir haben den Bahnhofsvorplatz als Treffpunkt gewählt.", "We chose the front of the station as our meeting place.", "만날 곳의 ㄹ 받침 연결"),
+    ("a2", "몇 시가 편해요?", "Welche Uhrzeit passt dir?", "What time works for you?", "의문사의 초점과 해요체 질문 억양"),
+    ("a2", "역 앞에서 만나기로 했어요.", "Wir haben vereinbart, uns vor dem Bahnhof zu treffen.", "We agreed to meet in front of the station.", "역 앞에서의 받침 연결과 계획을 말하는 억양"),
     ("a2", "늦으면 미리 연락해 주세요.", "Bitte melden Sie sich vorher, wenn Sie sich verspäten.", "Please contact me in advance if you'll be late.", "늦으면의 받침 발음"),
     ("b1", "변경된 일정을 오늘 안에 알려 주실 수 있을까요?", "Könnten Sie mir den geänderten Termin noch heute mitteilen?", "Could you let me know the revised schedule today?", "긴 완곡 요청의 의미 단위 끊기"),
-    ("b1", "마감이 늦어지는 사정을 먼저 설명했어요.", "Ich habe zuerst erklärt, warum sich die Abgabe verzögert.", "I first explained why the deadline would be missed.", "사정을의 연음"),
-    ("b1", "회의에서 서로 다른 의견을 조율했어요.", "In der Besprechung haben wir unterschiedliche Meinungen abgestimmt.", "We aligned different opinions in the meeting.", "의견을 조율하다의 모음 연결"),
+    ("b1", "제출이 늦어지는 사정을 먼저 설명했어요.", "Ich habe zuerst erklärt, warum sich die Abgabe verzögert.", "I first explained why the submission was delayed.", "사정을의 연음"),
+    ("b1", "회의에서 서로 다른 의견을 조율했어요.", "In der Besprechung haben wir die unterschiedlichen Standpunkte aufeinander abgestimmt.", "We reconciled differing views during the meeting.", "의견을 조율하다의 모음 연결"),
     ("b1", "일정이 바뀌면 미리 알려 주세요.", "Bitte geben Sie vorher Bescheid, wenn sich der Termin ändert.", "Please let me know in advance if the schedule changes.", "조건절과 요청절의 억양 대비"),
 ]
 
@@ -679,7 +679,7 @@ GRAMMAR_PATTERNS = [
 RELATION_SYNONYMS = {
     "결제하다": tri("값을 치르다", "bezahlen", "pay"),
     "배달비": tri("배송비", "Lieferkosten", "delivery charge"),
-    "주소를 확인하다": tri("주소를 점검하다", "die Adresse überprüfen", "verify the address"),
+    "주소를 확인하다": tri("주소가 맞는지 확인하다", "prüfen, ob die Adresse stimmt", "to check whether the address is correct"),
     "도착 시간": tri("도착 시각", "Ankunftszeit", "arrival time"),
     "약속을 잡다": tri("만날 시간을 정하다", "eine Zeit zum Treffen vereinbaren", "arrange a time to meet"),
     "일정을 바꾸다": tri("계획을 변경하다", "den Plan ändern", "change the plan"),
@@ -698,8 +698,8 @@ RELATION_SYNONYMS = {
     "무급 노동": tri("보수 없는 노동", "Arbeit ohne Bezahlung", "work without pay"),
     "맥락 번역": tri("문맥을 살린 번역", "kontextgerechte Übersetzung", "context-sensitive translation"),
     "범주 혼동": tri("서로 다른 범주를 섞기", "Vermischung verschiedener Kategorien", "mixing distinct categories"),
-    "문화적 진정성": tri("문화가 진짜답다는 판단", "Urteil über kulturelle Authentizität", "judgment of cultural authenticity"),
-    "문지기 담론": tri("참여 자격을 가르는 담론", "Diskurs über Teilnahmeberechtigung", "discourse that polices participation"),
+    "문화적 진정성": tri("문화의 진정성", "Authentizität einer Kultur", "the authenticity of a culture"),
+    "문지기 담론": tri("참여 자격을 가르는 담론", "Diskurs, der die Teilnahmeberechtigung festlegt oder begrenzt", "discourse that polices participation"),
     "플랫폼 권력": tri("플랫폼의 영향력", "Einflussmacht der Plattform", "platform influence"),
 }
 
@@ -753,6 +753,10 @@ def add_media_and_relations(root: Path, curriculum: dict[str, Any]) -> tuple[lis
                     "exampleEn": row["example_english"],
                 }],
             })
+    # Context-specific word-web distinctions from direct editorial review.
+    neighbor_context = {'rel_batch19_a1_02': {'nuanceDe': '배송비 eher für den Versand von Waren oder Paketen; 배달비 etwa für eine Essenslieferung. Die Begriffe überschneiden sich je nach Angebot.', 'nuanceEn': '배송비 is often used for shipping goods or parcels; 배달비 for deliveries such as food. The terms can overlap depending on the service.'}, 'rel_batch19_c2_02': {'nuanceDe': 'Authentizität ist eine Bewertung, deren Kriterien umstritten sein können; kein Beweis für einen einzigen unveränderlichen Ursprung.', 'nuanceEn': 'Authenticity is a judgment whose criteria can be contested, not proof of a single unchanging origin.'}}
+    for record in relations:
+        record["synonyms"][0].update(neighbor_context.get(record["id"], {}))
     return media, relations
 
 

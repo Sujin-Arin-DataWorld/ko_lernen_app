@@ -36,7 +36,7 @@ SCENES = [
             t("jieun", "총액을 기준으로 보면 싼 광고에 서두를 필요가 없겠네요.", "Wenn die Gesamtkosten zählen, müssen Sie sich von einer niedrigen Anzeige nicht drängen lassen.", "If you judge by the total, there is no need to rush because the advertised rent looks low."),
         ],
         "exercises": [
-            ex("최근 관리비에 비추어 볼 때 이 집은 예산을 넘습니다.", "Im Licht der letzten Nebenkosten überschreitet diese Wohnung das Budget.", "In light of the latest service charges, this flat exceeds the budget.", answer="비추어 볼 때", distractors=["계기로", "대신에", "따름이라"], satz_distractors=["광고만", "서두르면"], focus="근거 구절 뒤 의미 단위 끊기"),
+            ex("최근 월세와 관리비 수준에 비추어 볼 때 이 집의 월 주거비는 예산을 초과합니다.", "Gemessen an der aktuellen Miete und den Nebenkosten liegen die monatlichen Wohnkosten für diese Wohnung über dem Budget.", "Judging by the current rent and service charges, the monthly housing costs for this flat exceed the budget.", answer="비추어 볼 때", distractors=["계기로", "대신에", "따름이라"], satz_distractors=["광고만", "서두르면"], focus="근거 구절 뒤 끊기와 주거비 판단의 핵심어 강조"),
             ex("월세가 낮아도 난방비를 더하면 총주거비가 높아질 수 있어요.", "Auch bei niedriger Kaltmiete können die gesamten Wohnkosten mit der Heizung hoch sein.", "Even with low base rent, heating can make the total housing cost high.", answer="총주거비", distractors=["보증금", "통근", "중개료"], satz_distractors=["광고에는", "계약부터"], focus="조건절과 결과절의 대비"),
             ex("계약 전에 추가 비용을 서면으로 확인해 주세요.", "Bitte lassen Sie sich die Zusatzkosten vor Vertragsabschluss schriftlich bestätigen.", "Please confirm the additional costs in writing before signing.", answer="추가 비용", distractors=["입주 날짜", "방문 시간", "가구 배치"], satz_distractors=["월세만", "서둘러"], focus="공식 요청의 문장 끝 억양"),
         ],
@@ -70,7 +70,7 @@ SCENES = [
         ],
         "exercises": [
             ex("자동 점수가 낮다고 해서 역량이 부족한 것은 아닙니다.", "Ein niedriger automatischer Wert bedeutet nicht zwangsläufig fehlende Kompetenz.", "A low automated score does not necessarily mean a lack of ability.", answer="낮다고 해서", distractors=["낮기에", "낮은 대신", "낮다는 점에서"], satz_distractors=["기준만", "면접부터"], focus="인정과 반박의 억양 분리"),
-            ex("정형화된 항목 밖의 경험은 맥락과 역할을 함께 설명해야 합니다.", "Erfahrung außerhalb standardisierter Felder sollte mit Kontext und eigener Rolle erklärt werden.", "Experience outside standard fields should be explained with context and role.", answer="맥락과 역할", distractors=["점수와 순위", "학력과 나이", "사진과 주소"], satz_distractors=["자동으로", "삭제하면"], focus="병렬 명사구의 리듬"),
+            ex("정형화된 항목 밖의 경험은 맥락과 역할을 함께 설명해야 합니다.", "Erfahrungen, die nicht in standardisierte Kategorien passen, müssen mit ihrem Kontext und der jeweiligen Rolle erläutert werden.", "Experience that does not fit standard categories needs to be explained with its context and the role involved.", answer="맥락과 역할", distractors=["점수와 순위", "학력과 나이", "사진과 주소"], satz_distractors=["자동으로", "삭제하면"], focus="병렬 명사구의 리듬"),
             ex("지원자는 사람의 재검토를 요청할 수 있어야 합니다.", "Bewerbende sollten eine menschliche Nachprüfung verlangen können.", "Applicants should be able to request human review.", answer="사람의 재검토", distractors=["빠른 탈락", "비공개 순위", "자동 답장"], satz_distractors=["점수만", "기다리면"], focus="긴 목적어 뒤 호흡"),
         ],
         "smalltalk": [

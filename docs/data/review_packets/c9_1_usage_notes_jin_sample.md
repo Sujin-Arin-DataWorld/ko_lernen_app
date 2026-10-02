@@ -262,9 +262,9 @@
     - EN: to decide what to eat when dining out
 - 대조어:
   - 배달음식 [vocabId: null]
-    - KO: 외식은 식당에 직접 가서 밥을 먹는 것이고, 배달음식은 집에서 음식을 시켜 먹는 반대되는 방식이다.
-    - DE: 외식 heißt, im Restaurant zu essen, 배달음식 ist umgekehrt, sich Essen nach Hause liefern zu lassen.
-    - EN: 외식 means eating at a restaurant, while 배달음식 is the opposite: having food delivered home.
+    - KO: 외식은 식당 등 집 밖에서 사 먹는 식사를, 배달음식은 주문한 곳으로 가져다주는 음식을 뜻한다. 배달받는 곳은 집 외에 직장 등일 수도 있다.
+    - DE: 외식 bezeichnet Essen außer Haus, etwa im Restaurant. 배달음식 ist geliefertes Essen; es kann auch an einen Arbeitsplatz statt nach Hause geliefert werden.
+    - EN: 외식 means eating out, for example at a restaurant. 배달음식 is delivered food, which can be delivered to a workplace as well as a home.
 - 예문 2개:
   - [formal]
     - KO: 오늘 저녁은 팀원들과 외식을 하기로 했습니다.
@@ -281,9 +281,9 @@
 
 - 레벨: B1 / register: neutral
 - 뉘앙스:
-  - KO: 부동산은 원래 주택이나 토지 같은 재산 자체를 뜻하지만, 일상에서는 그런 재산의 매매·임대를 중개하는 사무실인 '부동산 중개소'의 줄임말로 더 많이 쓰인다.
-  - DE: 부동산 bedeutet ursprünglich das Eigentum selbst, etwa ein Haus oder ein Grundstück, wird aber im Alltag meist als Kurzform von '부동산 중개소' für das Maklerbüro verwendet, das Kauf, Verkauf oder Vermietung solcher Immobilien vermittelt.
-  - EN: 부동산 originally means the property itself, such as a house or a plot of land, but in everyday use it more often functions as a short form of '부동산 중개소,' the brokerage office that handles buying, selling, or renting such property.
+  - KO: 부동산은 주택이나 토지 같은 재산을 뜻한다. 집을 구하는 일상 대화에서는 매매·임대를 중개하는 '부동산 중개소'를 줄여 부르는 말로도 쓴다.
+  - DE: 부동산 bedeutet Immobilien wie Häuser oder Grundstücke. Bei der Wohnungssuche wird es auch als Kurzform von 부동산 중개소 für ein Maklerbüro verwendet.
+  - EN: 부동산 means real estate, such as houses or land. In everyday conversation about finding a home, it can also be short for 부동산 중개소, a real estate agency.
 - 전형 상황:
   - KO: 이사나 집을 구할 때 중개소를 찾아가는 상황에서 쓴다.
   - DE: Man benutzt es, wenn man beim Umzug oder der Wohnungssuche ein Maklerbüro aufsucht.

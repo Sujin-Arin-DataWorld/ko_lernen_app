@@ -14,8 +14,8 @@
           "ko": "안녕",
           "de": "Hallo / Tschüss (informell)",
           "en": "Hi / Bye (informal)",
-          "nuanceDe": "Nur mit Freundinnen und Freunden. Zu Lehrerinnen oder Älteren wirkt es zu locker.",
-          "nuanceEn": "Only with friends. With teachers or older people it sounds too casual.",
+          "nuanceDe": "Informelle Begrüßung oder Verabschiedung in vertrauten Beziehungen. Bei Unbekannten und in förmlichen Situationen ist 안녕하세요 angemessener.",
+          "nuanceEn": "An informal greeting or goodbye in close relationships. Use 안녕하세요 with strangers and in formal situations.",
           "vocabId": "vocab_a1_0002"
         }
       ],
@@ -61,8 +61,8 @@
           "ko": "고마워요",
           "de": "Danke (höflich-informell)",
           "en": "Thank you (polite informal)",
-          "nuanceDe": "Alltag mit Bekannten. In einem Geschäft oder vor Älteren bleibt 감사합니다 sicherer.",
-          "nuanceEn": "Everyday thanks with people you know. In a shop or with older people, 감사합니다 is safer.",
+          "nuanceDe": "Höflich und weniger förmlich als 감사합니다. Passt oft auch im Alltag mit Personen, die du nicht gut kennst; der Umgangston entscheidet.",
+          "nuanceEn": "Polite and less formal than 감사합니다. It can also suit everyday exchanges with people you do not know well, depending on the tone of the interaction.",
           "vocabId": "vocab_a1_0004"
         }
       ],
@@ -100,8 +100,8 @@
           "ko": "미안해요",
           "de": "Es tut mir leid",
           "en": "I'm sorry",
-          "nuanceDe": "Für Freunde und Alltag. Vor Unbekannten oder in einem Laden bleibt 죄송합니다 höflicher.",
-          "nuanceEn": "For friends and everyday talk. With strangers or in a shop, 죄송합니다 stays more polite.",
+          "nuanceDe": "Eine höfliche, weniger förmliche Entschuldigung. 죄송합니다 zeigt mehr Respekt und passt besonders in förmlichen Situationen.",
+          "nuanceEn": "A polite, less formal apology. 죄송합니다 conveys greater deference and is especially useful in formal situations.",
           "vocabId": "vocab_a1_0006"
         }
       ],
@@ -111,8 +111,8 @@
           "ko": "실례합니다",
           "de": "Entschuldigen Sie",
           "en": "Excuse me",
-          "nuanceDe": "Bevor du fragst oder vorbeigehst, nicht nach einem Fehler.",
-          "nuanceEn": "Before you ask or pass by, not after a mistake.",
+          "nuanceDe": "Zum höflichen Unterbrechen, Ansprechen oder Vorbeigehen; auch nach einer kleinen Störung, etwa wenn man jemanden anstößt.",
+          "nuanceEn": "For politely interrupting, getting attention, or passing by; also after a minor intrusion, such as bumping into someone.",
           "vocabId": "vocab_a1_0174"
         }
       ],
@@ -198,8 +198,8 @@
           "ko": "알겠어요",
           "de": "Verstanden",
           "en": "I see / Got it",
-          "nuanceDe": "Nach einer Erklärung, nicht als Ja/Nein-Antwort.",
-          "nuanceEn": "After an explanation, not as a yes/no answer.",
+          "nuanceDe": "Bestätigt, dass du etwas verstanden hast oder einer Bitte nachkommen wirst. Kann auch auf eine entsprechende Frage antworten.",
+          "nuanceEn": "Confirms that you have understood or will follow a request. It can also answer a question asking for that confirmation.",
           "vocabId": ""
         }
       ],
@@ -226,8 +226,8 @@
           "ko": "아빠",
           "de": "Papa",
           "en": "dad",
-          "nuanceDe": "Zuhause und mit der Familie. In der Schule oder auf Formularen bleibt 아버지.",
-          "nuanceEn": "At home and with family. At school or on forms, keep 아버지.",
+          "nuanceDe": "Vertraute Bezeichnung für den eigenen Vater, auch unter Erwachsenen. 아버지 ist förmlicher und passt eher in offizielle Texte.",
+          "nuanceEn": "A familiar word for your own father, also used by adults. 아버지 is more formal and more suitable for official writing.",
           "vocabId": "vocab_a1_0034"
         }
       ],
@@ -462,8 +462,8 @@
           "ko": "조그맣다",
           "de": "winzig / sehr klein",
           "en": "tiny / very small",
-          "nuanceDe": "Kleiner und niedlicher als 작다.",
-          "nuanceEn": "Smaller and cuter than 작다.",
+          "nuanceDe": "Betont die geringe Größe; kann liebevoll klingen, muss aber nicht niedlich gemeint sein.",
+          "nuanceEn": "Emphasizes small size; it can sound affectionate without necessarily implying cuteness.",
           "vocabId": ""
         }
       ],
@@ -530,8 +530,8 @@
           "ko": "좋아하다",
           "de": "mögen",
           "en": "to like",
-          "nuanceDe": "Die aktive Form: jemand mag etwas.",
-          "nuanceEn": "The active form: someone likes something.",
+          "nuanceDe": "Ein Verb für die Vorliebe einer Person, etwa 커피를 좋아해요. 좋다 beschreibt eine Eigenschaft oder ein Gefühl, etwa 커피가 좋아요.",
+          "nuanceEn": "A verb expressing someone’s preference, as in 커피를 좋아해요. 좋다 describes a quality or feeling, as in 커피가 좋아요.",
           "vocabId": "vocab_a1_0099"
         }
       ],
@@ -556,10 +556,10 @@
       "synonyms": [
         {
           "ko": "값이 나가다",
-          "de": "teuer zu stehen kommen",
-          "en": "to cost a lot",
-          "nuanceDe": "Mehr gesprochen. 비싸다 ist das klare Lehrwort.",
-          "nuanceEn": "More spoken. 비싸다 is the clear classroom word.",
+          "de": "einen hohen Preis haben / viel wert sein",
+          "en": "to fetch a high price / to be worth a lot",
+          "nuanceDe": "Betont einen beachtlichen Preis oder Wert. Anders als 비싸다 kann es auch den Wert eines Gegenstands loben.",
+          "nuanceEn": "Emphasizes a substantial price or value. Unlike 비싸다, it can also express appreciation of an item’s value.",
           "vocabId": ""
         }
       ],
@@ -606,8 +606,8 @@
           "ko": "저렴하다",
           "de": "preiswert",
           "en": "inexpensive / reasonably priced",
-          "nuanceDe": "Höflicher als 싸다. In Läden klingt es weniger nach billig.",
-          "nuanceEn": "More polite than 싸다. In shops it sounds less like cheap.",
+          "nuanceDe": "Etwas förmlicher; betont einen günstigen Preis, ohne die negative Qualitätsbewertung anzudeuten, die 싸다 je nach Kontext haben kann.",
+          "nuanceEn": "Somewhat more formal; emphasizes a low price without the suggestion of poor quality that 싸다 can carry in context.",
           "vocabId": ""
         }
       ],
@@ -798,8 +798,8 @@
           "ko": "힘들다",
           "de": "anstrengend sein",
           "en": "to be hard / tiring",
-          "nuanceDe": "Körper oder Tag. 어렵다 sitzt näher am Verstehen.",
-          "nuanceEn": "Body or day. 어렵다 sits closer to understanding.",
+          "nuanceDe": "Betont Anstrengung oder Belastung, körperlich wie seelisch. 어렵다 bezeichnet eine Schwierigkeit, etwa beim Verstehen oder Ausführen einer Aufgabe.",
+          "nuanceEn": "Emphasizes physical or emotional effort or strain. 어렵다 describes difficulty, for example in understanding or carrying out a task.",
           "vocabId": ""
         }
       ],
@@ -846,8 +846,8 @@
           "ko": "간단하다",
           "de": "einfach / unkompliziert",
           "en": "simple / straightforward",
-          "nuanceDe": "Betont Klarheit, nicht nur fehlende Schwierigkeit.",
-          "nuanceEn": "Stresses clarity, not just a lack of difficulty.",
+          "nuanceDe": "Wenig Schritte oder Bestandteile, unkompliziert. Eine einfache Struktur ist nicht automatisch leicht auszuführen.",
+          "nuanceEn": "Few steps or parts; uncomplicated. A simple structure is not necessarily easy to carry out.",
           "vocabId": ""
         }
       ],
@@ -939,11 +939,11 @@
       "level": "A1",
       "synonyms": [
         {
-          "ko": "짧막하다",
-          "de": "ein wenig kurz sein",
-          "en": "to be on the short side",
-          "nuanceDe": "Leicht umgangssprachlich. 짧다 ist die klare Grundform.",
-          "nuanceEn": "Slightly colloquial. 짧다 is the clear base form.",
+          "ko": "짤막하다",
+          "de": "recht kurz sein",
+          "en": "to be fairly short",
+          "nuanceDe": "Betont, dass etwas ziemlich kurz ist, etwa eine Nachricht oder ein Text. 짧다 ist die allgemeinere Grundform.",
+          "nuanceEn": "Emphasizes that something is fairly short, such as a message or text. 짧다 is the more general form.",
           "vocabId": ""
         }
       ],
@@ -990,8 +990,8 @@
           "ko": "이동하다",
           "de": "sich bewegen / wechseln",
           "en": "to move / to transfer",
-          "nuanceDe": "Förmlicher und weiter: Ort, Job, Datei. 가다 bleibt der Schritt.",
-          "nuanceEn": "More formal and wider: place, job, file. 가다 stays the step.",
+          "nuanceDe": "Bezeichnet das Wechseln von einem Ort zu einem anderen, auch bei Fahrzeugen oder Gegenständen. Förmlicher als 가다.",
+          "nuanceEn": "Means moving from one place to another, including vehicles or objects. More formal than 가다.",
           "vocabId": ""
         }
       ],
@@ -1105,8 +1105,8 @@
           "ko": "밥",
           "de": "Reis / Mahlzeit",
           "en": "rice / meal",
-          "nuanceDe": "Das häufigste Objekt von 먹다.",
-          "nuanceEn": "The most common object of 먹다.",
+          "nuanceDe": "밥을 먹다 bedeutet je nach Kontext Reis essen oder eine Mahlzeit einnehmen.",
+          "nuanceEn": "밥을 먹다 means eating rice or having a meal, depending on context.",
           "vocabId": "vocab_a1_0022"
         }
       ],
@@ -1227,10 +1227,10 @@
       "synonyms": [
         {
           "ko": "아끼다",
-          "de": "gernhaben / schonen",
-          "en": "to cherish / to spare",
-          "nuanceDe": "Näher und vorsichtiger. 좋아하다 kann auch Eis oder Sport sein.",
-          "nuanceEn": "Closer and more careful. 좋아하다 can also be ice cream or sport.",
+          "de": "schätzen / liebhaben",
+          "en": "to cherish / to care about",
+          "nuanceDe": "Hier: jemanden oder etwas wertschätzen und sorgsam behandeln. Kein allgemeiner Ersatz für 좋아하다 bei Essen oder Hobbys.",
+          "nuanceEn": "Here: valuing and taking care of someone or something. Not a general substitute for 좋아하다 when talking about food or hobbies.",
           "vocabId": ""
         }
       ],
@@ -1356,8 +1356,8 @@
           "de": "Ich kenne das gut",
           "en": "I know that well",
           "exampleKo": "이 길은 잘 알아요. 제가 안내할게요.",
-          "exampleDe": "Diesen Weg kenne ich gut. Ich führe.",
-          "exampleEn": "I know this road well. I'll show the way."
+          "exampleDe": "Diesen Weg kenne ich gut. Ich zeige Ihnen den Weg.",
+          "exampleEn": "I know this route well. I'll show you the way."
         }
       ]
     },
@@ -1421,8 +1421,8 @@
           "ko": "드리다",
           "de": "geben (demütig)",
           "en": "to give (humble)",
-          "nuanceDe": "Nach oben. Über dich zu einem Freund bleibt 주다.",
-          "nuanceEn": "Toward someone above you. To a friend, keep 주다.",
+          "nuanceDe": "Bescheidene Form von 주다, die der empfangenden Person Respekt zeigt. Zu vertrauten Freunden ist meist 주다 passend.",
+          "nuanceEn": "A humble form of 주다 that shows respect for the recipient. 주다 usually suits close friends.",
           "vocabId": "vocab_b2_0198"
         }
       ],
@@ -1469,8 +1469,8 @@
           "ko": "얻다",
           "de": "bekommen / erlangen",
           "en": "to obtain / to get",
-          "nuanceDe": "Man kommt zu etwas. 받다 betont, dass es gereicht wird.",
-          "nuanceEn": "You come to have it. 받다 stresses that it is handed over.",
+          "nuanceDe": "Betont, dass man etwas erlangt, etwa Wissen oder eine Gelegenheit. 받다 betont das Empfangen, auch von Nachrichten oder Hilfe.",
+          "nuanceEn": "Emphasizes obtaining something, such as knowledge or an opportunity. 받다 emphasizes receiving, including messages or help.",
           "vocabId": ""
         }
       ],
@@ -1517,8 +1517,8 @@
           "ko": "이야기하다",
           "de": "sich unterhalten / erzählen",
           "en": "to talk / to tell",
-          "nuanceDe": "Länger und weicher als 말하다. Ein Gespräch, kein einzelner Satz.",
-          "nuanceEn": "Longer and softer than 말하다. A conversation, not a single line.",
+          "nuanceDe": "Für Gespräche und Erzählungen, aber auch für eine kurze Mitteilung. Nicht automatisch länger oder freundlicher als 말하다.",
+          "nuanceEn": "Used for conversations and stories, but also for a brief remark. It does not automatically mean speaking longer or more gently than 말하다.",
           "vocabId": ""
         }
       ],
@@ -1680,7 +1680,7 @@
           "de": "Was hast du gestern gemacht?",
           "en": "What did you do yesterday?",
           "exampleKo": "어제 뭐 했어요? 집에서 쉬었어요?",
-          "exampleDe": "Was hast du gestern gemacht? Hast du zu Hause ausgeruht?",
+          "exampleDe": "Was hast du gestern gemacht? Hast du dich zu Hause ausgeruht?",
           "exampleEn": "What did you do yesterday? Did you rest at home?"
         }
       ]
@@ -1821,8 +1821,8 @@
       "expressions": [
         {
           "ko": "항상 고마워요",
-          "de": "Danke, immer",
-          "en": "Thank you, always",
+          "de": "Ich bin dir immer dankbar",
+          "en": "I'm always grateful to you",
           "exampleKo": "항상 도와줘서 고마워요.",
           "exampleDe": "Danke, dass du immer hilfst.",
           "exampleEn": "Thank you for always helping."
@@ -1841,8 +1841,8 @@
           "ko": "댁",
           "de": "Haus (ehrerbietig)",
           "en": "house (honorific)",
-          "nuanceDe": "Das Haus einer älteren Person. Über dein Zimmer bleibt 집.",
-          "nuanceEn": "An elder's house. About your own room, keep 집.",
+          "nuanceDe": "Respektvolle Bezeichnung für das Zuhause einer anderen Person, nicht nur bei älteren Menschen. Für das eigene Zuhause meist 집.",
+          "nuanceEn": "A respectful word for another person’s home, not limited to older people. Usually use 집 for your own home.",
           "vocabId": "vocab_b2_0197"
         }
       ],
@@ -1860,8 +1860,8 @@
           "ko": "가족",
           "de": "Familie",
           "en": "family",
-          "nuanceDe": "Die Menschen im Haus.",
-          "nuanceEn": "The people in the house.",
+          "nuanceDe": "Menschen, die durch Verwandtschaft oder Partnerschaft verbunden sind; sie müssen nicht zusammenwohnen.",
+          "nuanceEn": "People connected by kinship or partnership; they do not have to live together.",
           "vocabId": "vocab_a1_0018"
         }
       ],
@@ -1953,12 +1953,12 @@
       ],
       "expressions": [
         {
-          "ko": "한국어 학생이에요",
-          "de": "Ich bin Koreanischlernende/r",
-          "en": "I'm a Korean student",
-          "exampleKo": "안녕하세요. 저는 한국어 학생이에요.",
-          "exampleDe": "Guten Tag. Ich lerne Koreanisch.",
-          "exampleEn": "Hello. I'm a Korean-language student."
+          "ko": "학생이에요",
+          "de": "Ich bin Schüler/in oder Student/in",
+          "en": "I'm a student",
+          "exampleKo": "안녕하세요. 저는 학생이에요. 한국어를 배워요.",
+          "exampleDe": "Guten Tag. Ich bin Schüler/in oder Student/in und lerne Koreanisch.",
+          "exampleEn": "Hello. I'm a student. I'm learning Korean."
         }
       ]
     },
@@ -1974,8 +1974,8 @@
           "ko": "즐겁다",
           "de": "fröhlich / angenehm sein",
           "en": "to be glad / enjoyable",
-          "nuanceDe": "Ein Moment oder ein Fest. 행복하다 sitzt tiefer und länger.",
-          "nuanceEn": "A moment or a gathering. 행복하다 sits deeper and longer.",
+          "nuanceDe": "Betont Freude an einem Erlebnis oder einer Tätigkeit. 행복하다 bezeichnet Glück oder Zufriedenheit; beides kann kurz oder länger anhalten.",
+          "nuanceEn": "Emphasizes enjoyment of an experience or activity. 행복하다 describes happiness or contentment; either feeling can be brief or lasting.",
           "vocabId": ""
         }
       ],
@@ -2004,9 +2004,9 @@
           "ko": "오늘 정말 행복해요",
           "de": "Heute bin ich wirklich glücklich",
           "en": "I'm really happy today",
-          "exampleKo": "친구를 오래만에 만나서 오늘 정말 행복해요.",
-          "exampleDe": "Ich habe eine Freundin nach langer Zeit getroffen. Heute bin ich wirklich glücklich.",
-          "exampleEn": "I met a friend after a long time. I'm really happy today."
+          "exampleKo": "친구를 오랜만에 만나서 오늘 정말 행복해요.",
+          "exampleDe": "Heute bin ich wirklich glücklich, weil ich nach langer Zeit jemanden aus meinem Freundeskreis wiedergesehen habe.",
+          "exampleEn": "I'm really happy today because I saw a friend for the first time in a long while."
         }
       ]
     },
@@ -2022,8 +2022,8 @@
           "ko": "우울하다",
           "de": "niedergeschlagen sein",
           "en": "to be down / gloomy",
-          "nuanceDe": "Länger und flacher. 슬프다 kann ein klarer Anlass sein.",
-          "nuanceEn": "Longer and flatter. 슬프다 can have a clear cause.",
+          "nuanceDe": "Beschreibt eine gedrückte Stimmung; 슬프다 betont Traurigkeit. Im Alltag ist 우울하다 für sich genommen keine medizinische Diagnose.",
+          "nuanceEn": "Describes a low mood, while 슬프다 emphasizes sadness. In everyday speech, 우울하다 by itself is not a medical diagnosis.",
           "vocabId": ""
         }
       ],
@@ -2118,8 +2118,8 @@
           "ko": "공부하다",
           "de": "lernen / studieren",
           "en": "to study",
-          "nuanceDe": "Schreibtisch und Wiederholen. 배우다 betont, dass etwas neu hereinkommt.",
-          "nuanceEn": "Desk and review. 배우다 stresses that something new comes in.",
+          "nuanceDe": "Betont die Beschäftigung mit einem Lernstoff. 배우다 betont den Erwerb von Wissen oder Fähigkeiten, auch über längere Zeit.",
+          "nuanceEn": "Emphasizes studying a subject. 배우다 emphasizes acquiring knowledge or skills, including over a longer period.",
           "vocabId": "vocab_a2_0039"
         }
       ],
@@ -2138,8 +2138,8 @@
           "ko": "공부하다",
           "de": "lernen / studieren",
           "en": "to study",
-          "nuanceDe": "Lernen als Arbeit. 배우다 betont das Neue.",
-          "nuanceEn": "Learning as work. 배우다 stresses something new.",
+          "nuanceDe": "공부하다 beschreibt das Lernen als Tätigkeit; 배우다 den Erwerb von Wissen oder Fähigkeiten.",
+          "nuanceEn": "공부하다 describes studying as an activity; 배우다 describes acquiring knowledge or skills.",
           "vocabId": "vocab_a2_0039"
         }
       ],
@@ -2186,8 +2186,8 @@
           "ko": "외롭다",
           "de": "einsam sein",
           "en": "to be lonely",
-          "nuanceDe": "Alleinsein als Gefühl, nicht nur als Tatsache.",
-          "nuanceEn": "Being alone as a feeling, not just a fact.",
+          "nuanceDe": "Das Gefühl, dass Nähe oder Gesellschaft fehlt. Man kann sich auch unter anderen Menschen einsam fühlen.",
+          "nuanceEn": "The feeling of lacking closeness or companionship. You can also feel lonely among other people.",
           "vocabId": "vocab_a2_0079"
         }
       ],
@@ -2245,7 +2245,7 @@
           "de": "Willst du mitkommen?",
           "en": "Want to go together?",
           "exampleKo": "커피 마시러 같이 갈래요?",
-          "exampleDe": "Willst du mitkommen, einen Kaffee trinken?",
+          "exampleDe": "Möchtest du mit mir einen Kaffee trinken gehen?",
           "exampleEn": "Want to go get coffee together?"
         }
       ]
@@ -2262,8 +2262,8 @@
           "ko": "졸리다",
           "de": "schläfrig sein",
           "en": "to be sleepy",
-          "nuanceDe": "Augen fallen zu. 피곤하다 ist der Körper nach Arbeit.",
-          "nuanceEn": "The eyes want to close. 피곤하다 is the body after work.",
+          "nuanceDe": "Betont das Bedürfnis zu schlafen. 피곤하다 bezeichnet körperliche oder geistige Müdigkeit, auch ohne Schläfrigkeit.",
+          "nuanceEn": "Emphasizes wanting to sleep. 피곤하다 describes physical or mental tiredness, which need not include sleepiness.",
           "vocabId": ""
         }
       ],
@@ -2310,8 +2310,8 @@
           "ko": "고통스럽다",
           "de": "schmerzhaft sein",
           "en": "to be painful",
-          "nuanceDe": "Stärker und weiter. 아프다 bleibt der einfache Körpersatz.",
-          "nuanceEn": "Stronger and wider. 아프다 stays the simple body sentence.",
+          "nuanceDe": "Betont starkes körperliches oder seelisches Leiden. Auch 아프다 kann je nach Kontext körperlichen oder seelischen Schmerz beschreiben.",
+          "nuanceEn": "Emphasizes intense physical or emotional suffering. 아프다 can also describe physical or emotional pain, depending on context.",
           "vocabId": ""
         }
       ],
@@ -2406,8 +2406,8 @@
           "ko": "난해하다",
           "de": "schwer verständlich sein",
           "en": "to be hard to follow",
-          "nuanceDe": "Mehr Kopf als Alltag. 복잡하다 kann auch ein voller Terminkalender sein.",
-          "nuanceEn": "More about the mind than daily mess. 복잡하다 can also be a packed schedule.",
+          "nuanceDe": "Schwer zu verstehen, etwa ein Text oder Gedankengang. 복잡하다 beschreibt viele verknüpfte Teile und kann auch eine unübersichtliche Lage bezeichnen.",
+          "nuanceEn": "Hard to understand, for example a text or line of reasoning. 복잡하다 describes many interconnected parts and can also describe a confusing situation.",
           "vocabId": ""
         }
       ],
@@ -2454,8 +2454,8 @@
           "ko": "능동적이다",
           "de": "aktiv / initiativ sein",
           "en": "to be proactive",
-          "nuanceDe": "Man wartet nicht. 적극적이다 klingt im Alltag etwas wärmer.",
-          "nuanceEn": "You do not wait. 적극적이다 sounds a bit warmer in daily talk.",
+          "nuanceDe": "Betont selbstständiges Handeln, statt nur auf Anweisungen zu reagieren. 적극적이다 betont entschlossenes oder engagiertes Mitwirken.",
+          "nuanceEn": "Emphasizes acting on your own initiative rather than only responding to instructions. 적극적이다 emphasizes determined or engaged participation.",
           "vocabId": ""
         }
       ],
@@ -2482,11 +2482,11 @@
       "expressions": [
         {
           "ko": "적극적으로 나서다",
-          "de": "aktiv vorangehen",
-          "en": "to step forward actively",
+          "de": "sich engagiert einbringen",
+          "en": "to take an active part",
           "exampleKo": "회의에서 적극적으로 나섰어요.",
-          "exampleDe": "In der Besprechung bin ich aktiv vorangegangen.",
-          "exampleEn": "I stepped forward actively in the meeting."
+          "exampleDe": "In der Besprechung habe ich mich engagiert eingebracht.",
+          "exampleEn": "I took an active part in the meeting."
         }
       ]
     },
@@ -2533,8 +2533,8 @@
           "de": "Das Zimmer ist hell",
           "en": "The room is bright",
           "exampleKo": "커튼을 여니 방이 밝아요.",
-          "exampleDe": "Als ich den Vorhang öffnete, war das Zimmer hell.",
-          "exampleEn": "When I opened the curtain, the room was bright."
+          "exampleDe": "Seit ich den Vorhang geöffnet habe, ist das Zimmer hell.",
+          "exampleEn": "Now that I've opened the curtain, the room is bright."
         }
       ]
     },
@@ -2581,8 +2581,8 @@
           "de": "eine wichtige Sache",
           "en": "an important matter",
           "exampleKo": "오늘은 중요한 일이 있어요.",
-          "exampleDe": "Heute habe ich eine wichtige Sache.",
-          "exampleEn": "I have something important today."
+          "exampleDe": "Heute steht etwas Wichtiges an.",
+          "exampleEn": "I have something important to do today."
         }
       ]
     },
@@ -2714,19 +2714,19 @@
           "ko": "습관",
           "de": "Gewohnheit",
           "en": "habit",
-          "nuanceDe": "Fleiß wird oft zur täglichen Spur.",
-          "nuanceEn": "Diligence often becomes a daily track.",
+          "nuanceDe": "Regelmäßige Gewohnheiten können helfen, Tätigkeiten konsequent auszuführen.",
+          "nuanceEn": "Regular habits can help you carry out activities consistently.",
           "vocabId": "vocab_b1_0016"
         }
       ],
       "expressions": [
         {
           "ko": "부지런히 살다",
-          "de": "fleißig leben",
-          "en": "to live diligently",
+          "de": "ein arbeitsames Leben führen",
+          "en": "to lead a hard-working life",
           "exampleKo": "할머니는 평생 부지런히 사셨어요.",
-          "exampleDe": "Oma hat ihr Leben lang fleißig gelebt.",
-          "exampleEn": "Grandma lived diligently her whole life."
+          "exampleDe": "Meine Großmutter war ihr Leben lang fleißig.",
+          "exampleEn": "My grandmother was hard-working throughout her life."
         }
       ]
     },
@@ -2752,8 +2752,8 @@
           "ko": "구체적이다",
           "de": "konkret sein",
           "en": "to be concrete",
-          "nuanceDe": "Man kann es zeigen, zählen oder anfassen.",
-          "nuanceEn": "You can point to it, count it, or touch it.",
+          "nuanceDe": "Nennt bestimmte Einzelheiten oder Beispiele; muss nicht etwas körperlich Greifbares sein.",
+          "nuanceEn": "Gives specific details or examples; it need not refer to something physically tangible.",
           "vocabId": "vocab_b2_0030"
         }
       ],
@@ -2770,11 +2770,11 @@
       "expressions": [
         {
           "ko": "구체적으로 말하다",
-          "de": "konkret sprechen",
-          "en": "to speak concretely",
+          "de": "sich konkret ausdrücken",
+          "en": "to be specific",
           "exampleKo": "추상적으로 말고 구체적으로 말해 주세요.",
-          "exampleDe": "Nicht abstrakt, sprich bitte konkret.",
-          "exampleEn": "Don't stay abstract, please speak concretely."
+          "exampleDe": "Bitte drück dich konkret aus, nicht abstrakt.",
+          "exampleEn": "Please be specific rather than abstract."
         }
       ]
     },
@@ -2858,19 +2858,19 @@
           "ko": "사고",
           "de": "Unfall",
           "en": "accident",
-          "nuanceDe": "Was passiert, wenn Sicherheit fehlt.",
-          "nuanceEn": "What happens when safety is missing.",
+          "nuanceDe": "Ein unerwünschtes Ereignis, etwa ein Verkehrsunfall. Sicherheitsmaßnahmen können das Risiko verringern.",
+          "nuanceEn": "An unwanted event, such as a traffic accident. Safety measures can reduce the risk.",
           "vocabId": "vocab_b2_0164"
         }
       ],
       "expressions": [
         {
-          "ko": "안전하게 지내다",
-          "de": "sicher bleiben",
-          "en": "to stay safe",
-          "exampleKo": "길에서 안전하게 지내세요.",
-          "exampleDe": "Bleib unterwegs sicher.",
-          "exampleEn": "Stay safe on the way."
+          "ko": "안전한 길로 가다",
+          "de": "einen sicheren Weg nehmen",
+          "en": "to take a safe route",
+          "exampleKo": "밤에는 안전한 길로 가세요.",
+          "exampleDe": "Nimm nachts einen sicheren Weg.",
+          "exampleEn": "Take a safe route at night."
         }
       ]
     },
@@ -3050,8 +3050,8 @@
           "ko": "계약",
           "de": "Vertrag",
           "en": "contract",
-          "nuanceDe": "Das Papier, das man kündigt oder erneuert.",
-          "nuanceEn": "The paper you cancel or renew.",
+          "nuanceDe": "Eine Vereinbarung mit festgelegten Rechten und Pflichten; nicht zwingend ein Papierdokument.",
+          "nuanceEn": "An agreement setting out rights and obligations; not necessarily a paper document.",
           "vocabId": "vocab_b2_0034"
         }
       ],
@@ -3098,8 +3098,8 @@
           "ko": "신념",
           "de": "Überzeugung",
           "en": "conviction",
-          "nuanceDe": "Was man manchmal ruhig hält, obwohl es wackelt.",
-          "nuanceEn": "What you sometimes hold still even when it shakes.",
+          "nuanceDe": "Eine feste Überzeugung kann helfen, in einer schwierigen Lage ruhig zu bleiben.",
+          "nuanceEn": "A firm conviction can help someone stay composed in a difficult situation.",
           "vocabId": "vocab_b2_0233"
         }
       ],
@@ -3109,7 +3109,7 @@
           "de": "so tun, als sei nichts",
           "en": "to pretend to be unfazed",
           "exampleKo": "걱정돼도 태연한 척했어요.",
-          "exampleDe": "Obwohl ich unsicher war, tat ich, als sei nichts.",
+          "exampleDe": "Obwohl ich besorgt war, tat ich, als sei nichts.",
           "exampleEn": "Even though I was worried, I pretended to be unfazed."
         }
       ]
@@ -3152,7 +3152,9 @@
         {
           "ko": "배송비",
           "de": "Lieferkosten",
-          "en": "delivery charge"
+          "en": "delivery charge",
+          "nuanceDe": "배송비 eher für den Versand von Waren oder Paketen; 배달비 etwa für eine Essenslieferung. Die Begriffe überschneiden sich je nach Angebot.",
+          "nuanceEn": "배송비 is often used for shipping goods or parcels; 배달비 for deliveries such as food. The terms can overlap depending on the service."
         }
       ],
       "antonyms": [],
@@ -3177,9 +3179,9 @@
       "level": "A1",
       "synonyms": [
         {
-          "ko": "주소를 점검하다",
-          "de": "die Adresse überprüfen",
-          "en": "verify the address"
+          "ko": "주소가 맞는지 확인하다",
+          "de": "prüfen, ob die Adresse stimmt",
+          "en": "to check whether the address is correct"
         }
       ],
       "antonyms": [],
@@ -3325,8 +3327,8 @@
           "de": "einen Treffpunkt festlegen",
           "en": "choose a meeting place",
           "exampleKo": "역 앞을 만날 곳으로 정했어요.",
-          "exampleDe": "Wir haben den Bahnhofsvorplatz als Treffpunkt gewählt.",
-          "exampleEn": "We chose the front of the station as our meeting place."
+          "exampleDe": "Wir haben vereinbart, uns vor dem Bahnhof zu treffen.",
+          "exampleEn": "We agreed to meet in front of the station."
         }
       ]
     },
@@ -3351,9 +3353,9 @@
           "ko": "사정을 설명하다",
           "de": "die Umstände erklären",
           "en": "explain the situation",
-          "exampleKo": "마감이 늦어지는 사정을 먼저 설명했어요.",
+          "exampleKo": "제출이 늦어지는 사정을 먼저 설명했어요.",
           "exampleDe": "Ich habe zuerst erklärt, warum sich die Abgabe verzögert.",
-          "exampleEn": "I first explained why the deadline would be missed."
+          "exampleEn": "I first explained why the submission was delayed."
         }
       ]
     },
@@ -3379,8 +3381,8 @@
           "de": "Meinungen abstimmen",
           "en": "align opinions",
           "exampleKo": "회의에서 서로 다른 의견을 조율했어요.",
-          "exampleDe": "In der Besprechung haben wir unterschiedliche Meinungen abgestimmt.",
-          "exampleEn": "We aligned different opinions in the meeting."
+          "exampleDe": "In der Besprechung haben wir die unterschiedlichen Standpunkte aufeinander abgestimmt.",
+          "exampleEn": "We reconciled differing views during the meeting."
         }
       ]
     },
@@ -3514,8 +3516,8 @@
           "de": "Fanübersetzung",
           "en": "fan translation",
           "exampleKo": "팬 번역을 쓸 때는 만든 사람의 이름과 수정 책임을 분명히 해야 합니다.",
-          "exampleDe": "Bei Fanübersetzungen sollten Urheberschaft und Verantwortung für Korrekturen klar sein.",
-          "exampleEn": "When using a fan translation, credit and responsibility for corrections should be clear."
+          "exampleDe": "Bei Fanübersetzungen müssen der Name der übersetzenden Person und die Verantwortung für Korrekturen klar sein.",
+          "exampleEn": "When using a fan translation, the translator's name and responsibility for corrections need to be made clear."
         }
       ]
     },
@@ -3542,7 +3544,7 @@
           "en": "form of participation",
           "exampleKo": "조회수가 같아도 댓글과 행사 참여 방식은 지역마다 다를 수 있습니다.",
           "exampleDe": "Bei gleichen Aufrufzahlen kann sich die Form der Beteiligung je nach Region unterscheiden.",
-          "exampleEn": "Even with similar view counts, the form of participation can vary by region."
+          "exampleEn": "Even with the same view counts, the form of participation can vary by region."
         }
       ]
     },
@@ -3568,7 +3570,7 @@
           "de": "Betreuungslücke",
           "en": "care gap",
           "exampleKo": "교대 근무 가정의 돌봄 공백은 취업 지속성에 직접 영향을 줍니다.",
-          "exampleDe": "Eine Betreuungslücke in Schichtarbeiterfamilien wirkt sich direkt auf die Beschäftigungsdauer aus.",
+          "exampleDe": "Fehlende Betreuung in Familien mit Schichtarbeit wirkt sich direkt darauf aus, ob die Betroffenen dauerhaft berufstätig bleiben können.",
           "exampleEn": "A care gap in shift-working families directly affects job retention."
         }
       ]
@@ -3676,7 +3678,7 @@
           "de": "Kategorienvermischung",
           "en": "category confusion",
           "exampleKo": "난민과 유학생을 같은 정책 대상으로 묶는 범주 혼동은 권리 차이를 지웁니다.",
-          "exampleDe": "Die Kategorienvermischung von Geflüchteten und Studierenden als eine Zielgruppe verwischt unterschiedliche Rechte.",
+          "exampleDe": "Die Vermischung von Geflüchteten und internationalen Studierenden zu einer politischen Zielgruppe verwischt Unterschiede bei ihren Rechten.",
           "exampleEn": "Category confusion that treats refugees and international students as one policy group erases differences in rights."
         }
       ]
@@ -3690,9 +3692,11 @@
       "level": "C2",
       "synonyms": [
         {
-          "ko": "문화가 진짜답다는 판단",
-          "de": "Urteil über kulturelle Authentizität",
-          "en": "judgment of cultural authenticity"
+          "ko": "문화의 진정성",
+          "de": "Authentizität einer Kultur",
+          "en": "the authenticity of a culture",
+          "nuanceDe": "Authentizität ist eine Bewertung, deren Kriterien umstritten sein können; kein Beweis für einen einzigen unveränderlichen Ursprung.",
+          "nuanceEn": "Authenticity is a judgment whose criteria can be contested, not proof of a single unchanging origin."
         }
       ],
       "antonyms": [],
@@ -3718,7 +3722,7 @@
       "synonyms": [
         {
           "ko": "참여 자격을 가르는 담론",
-          "de": "Diskurs über Teilnahmeberechtigung",
+          "de": "Diskurs, der die Teilnahmeberechtigung festlegt oder begrenzt",
           "en": "discourse that polices participation"
         }
       ],
@@ -3799,8 +3803,10 @@
       "synonyms": [
         {
           "ko": "전철역",
-          "de": "U-Bahn-Haltestelle",
-          "en": "metro station"
+          "de": "Station einer elektrischen Bahn",
+          "en": "electric railway station",
+          "nuanceDe": "전철 kann auch oberirdisch fahren. Deshalb ist 전철역 weiter gefasst als 지하철역.",
+          "nuanceEn": "전철 can also run above ground, so 전철역 is broader than 지하철역."
         }
       ],
       "antonyms": [],
@@ -3865,8 +3871,8 @@
           "de": "Reihenfolge",
           "en": "turn",
           "exampleKo": "제 순서는 다섯 번째예요.",
-          "exampleDe": "Ich bin als Fünfte an der Reihe.",
-          "exampleEn": "My turn is fifth."
+          "exampleDe": "Ich bin an fünfter Stelle an der Reihe.",
+          "exampleEn": "I'm fifth in line."
         }
       ]
     },
@@ -3946,8 +3952,8 @@
           "de": "Versorgungskostenaufstellung",
           "en": "utility-bill breakdown",
           "exampleKo": "공과금 내역에서 전기와 가스 요금을 확인해요.",
-          "exampleDe": "In der Kostenaufstellung prüfe ich Strom und Gas.",
-          "exampleEn": "I check electricity and gas in the utility-bill breakdown."
+          "exampleDe": "In der Aufstellung der Nebenkosten prüfe ich die Strom- und Gaskosten.",
+          "exampleEn": "I check the electricity and gas charges in the utility-bill breakdown."
         }
       ]
     },
@@ -3962,7 +3968,9 @@
         {
           "ko": "집을 둘러보다",
           "de": "eine Wohnung besichtigen",
-          "en": "inspect a home"
+          "en": "to view a home",
+          "nuanceDe": "Besichtigung eines ganzen Zuhauses, nicht nur eines einzelnen Zimmers.",
+          "nuanceEn": "Viewing a whole home, not just a single room."
         }
       ],
       "antonyms": [],
@@ -4189,8 +4197,8 @@
           "de": "Arbeitskräftemangel",
           "en": "labor shortage",
           "exampleKo": "노동력 부족 대책에는 채용뿐 아니라 근무 조건 개선도 포함돼야 합니다.",
-          "exampleDe": "Maßnahmen gegen Arbeitskräftemangel sollten neben Anwerbung auch bessere Arbeitsbedingungen umfassen.",
-          "exampleEn": "Responses to labor shortages should include better working conditions as well as recruitment."
+          "exampleDe": "Maßnahmen gegen Arbeitskräftemangel müssen neben der Anwerbung auch Verbesserungen der Arbeitsbedingungen umfassen.",
+          "exampleEn": "Responses to labor shortages need to include better working conditions as well as recruitment."
         }
       ]
     },
@@ -4352,7 +4360,7 @@
           "en": "policy effect",
           "exampleKo": "정책 효과를 말하려면 대상 집단과 비교 기준을 먼저 밝혀야 합니다.",
           "exampleDe": "Wer von Politikwirkung spricht, muss Zielgruppe und Vergleichsmaßstab zuerst benennen.",
-          "exampleEn": "Claims about policy effects should first identify the target group and comparison standard."
+          "exampleEn": "To discuss policy effects, we first need to identify the target group and comparison standard."
         }
       ]
     },
@@ -4406,7 +4414,7 @@
           "en": "automated sanction",
           "exampleKo": "자동 제재는 근거와 재검토 경로를 동시에 제시해야 합니다.",
           "exampleDe": "Eine automatische Sanktion muss zugleich Begründung und Überprüfungsweg nennen.",
-          "exampleEn": "An automated sanction should provide both grounds and a review path."
+          "exampleEn": "An automated sanction must provide both grounds and a review path."
         }
       ]
     }

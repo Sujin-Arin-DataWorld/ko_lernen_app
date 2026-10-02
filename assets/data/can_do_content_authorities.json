@@ -41910,7 +41910,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_subway_card_1",
         "sourceVocabId": "vocab_a1_0420",
-        "sourceVocabFingerprintSha256": "8bd77436e915a0df2f055aa2a2de2e298bcde858a4378951782a5a493a201b8a",
+        "sourceVocabFingerprintSha256": "59a47473afdeb2127cb596713f783099cb6b6ead92468851294c49631edd0fa9",
         "level": "a2",
         "canDoSegmentId": "segment_a2_subway_transfer",
         "courseUnitId": "a2_07_travel_repair"
@@ -42845,7 +42845,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_plans_proposals_1",
         "sourceVocabId": "vocab_a2_0464",
-        "sourceVocabFingerprintSha256": "b40a577f1c779cde8700a4b41762481a7e6aeea5eedfabf684e7a7d89c2ee100",
+        "sourceVocabFingerprintSha256": "fc09ffb325f1ec9d08112617d936c6f9dc7d0779ad418bb14d761c339049be87",
         "level": "a2",
         "canDoSegmentId": "segment_a2_plans_with_friend",
         "courseUnitId": "a2_02_plans_proposals"
@@ -48433,7 +48433,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_plans_proposals_1",
         "sourceVocabId": "vocab_a2_0464",
-        "sourceVocabFingerprintSha256": "b40a577f1c779cde8700a4b41762481a7e6aeea5eedfabf684e7a7d89c2ee100",
+        "sourceVocabFingerprintSha256": "fc09ffb325f1ec9d08112617d936c6f9dc7d0779ad418bb14d761c339049be87",
         "level": "a2",
         "canDoSegmentId": "segment_a2_plans_with_friend",
         "courseUnitId": "a2_02_plans_proposals"
@@ -48477,7 +48477,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a2_plans_proposals_1",
         "sourceVocabId": "vocab_a2_0464",
-        "sourceVocabFingerprintSha256": "b40a577f1c779cde8700a4b41762481a7e6aeea5eedfabf684e7a7d89c2ee100",
+        "sourceVocabFingerprintSha256": "fc09ffb325f1ec9d08112617d936c6f9dc7d0779ad418bb14d761c339049be87",
         "level": "a2",
         "canDoSegmentId": "segment_a2_plans_with_friend",
         "courseUnitId": "a2_02_plans_proposals"
@@ -51194,7 +51194,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_housing_search_2026_1",
         "sourceVocabId": "vocab_a2_0469",
-        "sourceVocabFingerprintSha256": "d80123780626e1a4a6252ed3f3051c7ba44f7cd7e60a72d07d8a4afacda537f4",
+        "sourceVocabFingerprintSha256": "ebc80607785eb6dc10a7eeecaee87551d1bb40a6425b7a0d075906310a494b1a",
         "level": "b1",
         "canDoSegmentId": "segment_b1_housing_contract",
         "courseUnitId": "b1_05_complaint_resolution"
@@ -53416,7 +53416,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_travel_change_1",
         "sourceVocabId": "vocab_b1_0460",
-        "sourceVocabFingerprintSha256": "2a6d550cf1e1f4a473d59a473ea9e043ab63d0d60182b82566f9cf1fd2695fad",
+        "sourceVocabFingerprintSha256": "2ec4a0cd5a04a12819389d64ac547e4e055548e284e1eafaf7fef106c74e9427",
         "level": "b1",
         "canDoSegmentId": "segment_b1_plans_with_reasons",
         "courseUnitId": "b1_01_experience_reasons"
@@ -53427,7 +53427,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_travel_change_1",
         "sourceVocabId": "vocab_b1_0461",
-        "sourceVocabFingerprintSha256": "4b1f474ac084b676e8339426d1b099f28314b6baf9373b0b3a0d71b0ef6e04aa",
+        "sourceVocabFingerprintSha256": "5c446c28dd911cbc3fd3cd8cd856715402878a0630c0fef4885528f7cbec2fb5",
         "level": "b1",
         "canDoSegmentId": "segment_b1_plans_with_reasons",
         "courseUnitId": "b1_01_experience_reasons"
@@ -53449,7 +53449,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_travel_change_1",
         "sourceVocabId": "vocab_b1_0463",
-        "sourceVocabFingerprintSha256": "0e8b8d5dccd4a9cbf7f11ba710496cc9d0a6162750b83fb5f87c640da163cfcc",
+        "sourceVocabFingerprintSha256": "8d8209ac66034f951e2c8f24c32a8d69a796afe0b37614521a088a49cd0cf108",
         "level": "b1",
         "canDoSegmentId": "segment_b1_plans_with_reasons",
         "courseUnitId": "b1_01_experience_reasons"
@@ -55363,7 +55363,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_housing_search_2026_1",
         "sourceVocabId": "vocab_a2_0471",
-        "sourceVocabFingerprintSha256": "1774ea97aaf52c328128d5927f87540aab72a194a69a26ae19fc1566ed079ff0",
+        "sourceVocabFingerprintSha256": "90e3319d237b1badf2d3dee18502878b39bb0721db53eabc33e9301f84380871",
         "level": "b1",
         "canDoSegmentId": "segment_b1_housing_contract",
         "courseUnitId": "b1_05_complaint_resolution"
@@ -55407,7 +55407,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_housing_search_2026_1",
         "sourceVocabId": "vocab_a2_0475",
-        "sourceVocabFingerprintSha256": "1e0b7054b8f3e35e29e1b9e187a12a8c530865ed984057906942be207319b5c9",
+        "sourceVocabFingerprintSha256": "4b5536c067deed5bdf60e8f3506f73d5115f2b1935522e71b5f2512956dc8fdf",
         "level": "b1",
         "canDoSegmentId": "segment_b1_housing_contract",
         "courseUnitId": "b1_05_complaint_resolution"
@@ -58168,7 +58168,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_travel_change_1",
         "sourceVocabId": "vocab_b1_0460",
-        "sourceVocabFingerprintSha256": "2a6d550cf1e1f4a473d59a473ea9e043ab63d0d60182b82566f9cf1fd2695fad",
+        "sourceVocabFingerprintSha256": "2ec4a0cd5a04a12819389d64ac547e4e055548e284e1eafaf7fef106c74e9427",
         "level": "b1",
         "canDoSegmentId": "segment_b1_plans_with_reasons",
         "courseUnitId": "b1_01_experience_reasons"
@@ -58179,7 +58179,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_travel_change_1",
         "sourceVocabId": "vocab_b1_0461",
-        "sourceVocabFingerprintSha256": "4b1f474ac084b676e8339426d1b099f28314b6baf9373b0b3a0d71b0ef6e04aa",
+        "sourceVocabFingerprintSha256": "5c446c28dd911cbc3fd3cd8cd856715402878a0630c0fef4885528f7cbec2fb5",
         "level": "b1",
         "canDoSegmentId": "segment_b1_plans_with_reasons",
         "courseUnitId": "b1_01_experience_reasons"
@@ -58201,7 +58201,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_travel_change_1",
         "sourceVocabId": "vocab_b1_0463",
-        "sourceVocabFingerprintSha256": "0e8b8d5dccd4a9cbf7f11ba710496cc9d0a6162750b83fb5f87c640da163cfcc",
+        "sourceVocabFingerprintSha256": "8d8209ac66034f951e2c8f24c32a8d69a796afe0b37614521a088a49cd0cf108",
         "level": "b1",
         "canDoSegmentId": "segment_b1_plans_with_reasons",
         "courseUnitId": "b1_01_experience_reasons"
@@ -60368,7 +60368,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b1_work_entry_2026_1",
         "sourceVocabId": "vocab_b1_0478",
-        "sourceVocabFingerprintSha256": "449ca7d5ee6c3b320777c05c808c2a13088598f97108dcdbe29fb6c9e86a9a66",
+        "sourceVocabFingerprintSha256": "cc15cf3410eb939988cec263dbdb0de924854f5e56fa3dc1c9ce3a6aacd847c5",
         "level": "b1",
         "canDoSegmentId": "segment_b1_team_role_coordination",
         "courseUnitId": "b1_03_work_softening"
@@ -63998,7 +63998,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b2_2026_social_topics_1",
         "sourceVocabId": "vocab_b2_0629",
-        "sourceVocabFingerprintSha256": "0fbcbe31b0ae119a3f7cef0a1ad6e3669828ff60e8521c2fcd24e510a193a6d2",
+        "sourceVocabFingerprintSha256": "9442560ad6abc2e76f44cd25db6528a4292bb9b5eee974ac920e4e753056285e",
         "level": "b2",
         "canDoSegmentId": "segment_b2_formal_soft_reformulation",
         "courseUnitId": "b2_06_advanced_capstone"
@@ -64042,7 +64042,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b2_2026_social_topics_1",
         "sourceVocabId": "vocab_b2_0633",
-        "sourceVocabFingerprintSha256": "85a8f8176edf2d5a56f38ed14cc9cef3d6883a350a7bf8877f12790164142445",
+        "sourceVocabFingerprintSha256": "c481761da1b5650f5d0f6a9015f78fac4b824e1ab609d0a751a35be9276338a5",
         "level": "b2",
         "canDoSegmentId": "segment_b2_formal_soft_reformulation",
         "courseUnitId": "b2_06_advanced_capstone"
@@ -64053,7 +64053,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b2_2026_social_topics_1",
         "sourceVocabId": "vocab_b2_0634",
-        "sourceVocabFingerprintSha256": "2894c115abe926fe7d86f85a9170b5ebbbc9ae0c01e9cbe723f825a182e123c1",
+        "sourceVocabFingerprintSha256": "606615b13fbb7a61c8df1319a08c682bf6d9e8bd01ed1c32b05a90c16fd7ac98",
         "level": "b2",
         "canDoSegmentId": "segment_b2_formal_soft_reformulation",
         "courseUnitId": "b2_06_advanced_capstone"
@@ -70136,7 +70136,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b2_2026_social_topics_1",
         "sourceVocabId": "vocab_b2_0629",
-        "sourceVocabFingerprintSha256": "0fbcbe31b0ae119a3f7cef0a1ad6e3669828ff60e8521c2fcd24e510a193a6d2",
+        "sourceVocabFingerprintSha256": "9442560ad6abc2e76f44cd25db6528a4292bb9b5eee974ac920e4e753056285e",
         "level": "b2",
         "canDoSegmentId": "segment_b2_formal_soft_reformulation",
         "courseUnitId": "b2_06_advanced_capstone"
@@ -70180,7 +70180,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b2_2026_social_topics_1",
         "sourceVocabId": "vocab_b2_0633",
-        "sourceVocabFingerprintSha256": "85a8f8176edf2d5a56f38ed14cc9cef3d6883a350a7bf8877f12790164142445",
+        "sourceVocabFingerprintSha256": "c481761da1b5650f5d0f6a9015f78fac4b824e1ab609d0a751a35be9276338a5",
         "level": "b2",
         "canDoSegmentId": "segment_b2_formal_soft_reformulation",
         "courseUnitId": "b2_06_advanced_capstone"
@@ -70191,7 +70191,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b2_2026_social_topics_1",
         "sourceVocabId": "vocab_b2_0634",
-        "sourceVocabFingerprintSha256": "2894c115abe926fe7d86f85a9170b5ebbbc9ae0c01e9cbe723f825a182e123c1",
+        "sourceVocabFingerprintSha256": "606615b13fbb7a61c8df1319a08c682bf6d9e8bd01ed1c32b05a90c16fd7ac98",
         "level": "b2",
         "canDoSegmentId": "segment_b2_formal_soft_reformulation",
         "courseUnitId": "b2_06_advanced_capstone"
@@ -70246,7 +70246,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "b2_housing_migration_2026_1",
         "sourceVocabId": "vocab_b2_0645",
-        "sourceVocabFingerprintSha256": "66ad4ee1b275c46a12b686e845a3ea76de69c1550a44e249715de3b68bb3c7f5",
+        "sourceVocabFingerprintSha256": "9c3d1477ae81daf7ed0c18b4ea2fed1d0b54c1d246f99411917024c7e1987657",
         "level": "b2",
         "canDoSegmentId": "segment_b2_decision_criteria",
         "courseUnitId": "b2_02_professional_opinion"

@@ -5,7 +5,7 @@
       "over1": 166,
       "over2": 28,
       "total": 2341,
-      "under2": 452,
+      "under2": 453,
       "unknown": 0
     },
     "grammar": {
@@ -18,7 +18,7 @@
     },
     "media": {
       "fallback_over2": 1,
-      "over1": 22,
+      "over1": 23,
       "over2": 6,
       "total": 136,
       "under2": 13,
@@ -29,7 +29,7 @@
       "over1": 7,
       "over2": 0,
       "total": 84,
-      "under2": 17,
+      "under2": 18,
       "unknown": 0
     },
     "satz": {
@@ -37,7 +37,7 @@
       "over1": 163,
       "over2": 19,
       "total": 2861,
-      "under2": 643,
+      "under2": 644,
       "unknown": 0
     },
     "scenario": {
