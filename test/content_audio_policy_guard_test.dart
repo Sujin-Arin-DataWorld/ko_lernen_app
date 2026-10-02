@@ -113,7 +113,7 @@ void main() {
   });
 
   test(
-    'first-line bundle tier bundles the immutable first-dialog corpus',
+    'first-line bundle tier retains the reviewed corpus and explicit fallbacks',
     () {
       final manifestFile = File('assets/data/tts_first_line_manifest.json');
       final loaderSource = File(
@@ -126,11 +126,36 @@ void main() {
       expect(manifest['scenarioCount'], 178);
       expect(
         manifest['bundledCount'],
-        178,
+        171,
         reason:
-            'bundledCount는 시나리오(항목) 단위 합계라 178 — 그중 2개 시나리오가 같은 '
-            '(voice,text) 첫 대사를 공유해 실제 고유 mp3 파일 수는 176개뿐이다',
+            'The current persona-reviewed main declares 171 bundled scenes '
+            'and seven explicit first-line fallbacks; UI adoption changes neither.',
       );
+      final items = (manifest['items'] as List).cast<Map<String, dynamic>>();
+      expect(
+        items
+            .where((item) => item['bundled'] != true)
+            .map((item) => item['scenarioId'])
+            .toSet(),
+        {
+          'a1_w10_partner',
+          'a2_w10_partner',
+          'b1_w10_form',
+          'b2_w10_health',
+          'b2_w10_privacy',
+          'c1_theme_park_date_next_time',
+          'c2_w10_jurisdiction',
+        },
+      );
+      final bundled = items.where((item) => item['bundled'] == true).toList();
+      expect(bundled, hasLength(171));
+      expect(
+        bundled.map((item) => item['bundledAssetPath']).toSet(),
+        hasLength(169),
+      );
+      for (final item in bundled) {
+        expect(File(item['bundledAssetPath'] as String).existsSync(), isTrue);
+      }
       expect(pubspec, contains('- assets/data/'));
       expect(pubspec, contains('- assets/tts/v3/female/'));
       expect(pubspec, contains('- assets/tts/v3/male/'));

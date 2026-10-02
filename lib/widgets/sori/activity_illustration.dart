@@ -15,8 +15,82 @@ bool isActivityLocked(
 
 /// 활동 카드 일러스트 경로 — 규약: `assets/illustrations/activities/{id}.webp`.
 /// 파일을 넣기만 하면 뜬다 (errorBuilder 폴백 계약).
-String activityIllustrationAsset(String activityId) =>
-    'assets/illustrations/activities/$activityId.webp';
+String activityIllustrationAsset(String activityId) => switch (activityId) {
+  'hangul' => SoriArtwork.hangul,
+  'grammar' => SoriArtwork.grammar,
+  _ => 'assets/illustrations/activities/$activityId.webp',
+};
+
+/// Approved material artwork. The original card files remain available.
+abstract final class SoriArtwork {
+  static const root = 'assets/illustrations/tactile';
+  static const coffee = '$root/coffee.png';
+  static const speaker = '$root/speaker.png';
+  static const book = '$root/book.png';
+  static const conversation = '$root/conversation.png';
+  static const hangul = '$root/hangul.png';
+  static const grammar = '$root/grammar.png';
+  static const yeopjeon = '$root/yeopjeon.png';
+  static const haechi = '$root/haechi.png';
+  static const yangban = '$root/yangban.png';
+  static const dokkaebi = '$root/dokkaebi.png';
+
+  static String? person(String id) => switch (id) {
+    'sujin' ||
+    'christian' ||
+    'dongsun' ||
+    'byeongcheol' ||
+    'jun' => '$root/$id.png',
+    _ => null,
+  };
+
+  static String? action(String activityId) => switch (activityId) {
+    'listening' || 'pronunciation' => speaker,
+    'scenarios' || 'smalltalk' => conversation,
+    'grammar' => grammar,
+    'hangul' => hangul,
+    'course' || 'vocab_packs' || 'srs' || 'my_words' => book,
+    _ => null,
+  };
+
+  static String card(String original) => original.endsWith('/A1Arrival.webp')
+      ? '$root/A1Arrival-3d.png'
+      : original;
+}
+
+/// An actual scene participant, composed once in the introduction.
+class SoriPersonPortrait extends StatelessWidget {
+  const SoriPersonPortrait({super.key, required this.id, required this.label});
+  final String id;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final asset = SoriArtwork.person(id);
+    if (asset == null) {
+      return const SizedBox.shrink();
+    }
+    return SizedBox(
+      width: 96,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset(
+            asset,
+            height: 88,
+            fit: BoxFit.contain,
+            excludeFromSemantics: true,
+          ),
+          Text(
+            label,
+            textAlign: TextAlign.center,
+            style: SoriTextTheme.of(context).meta,
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 // ─── §C-1-10: 레이어 역전 수리 ──────────────────────────────
 // soriActivityColor / soriActivityIcon 을 widget 층(여기)으로 이동.

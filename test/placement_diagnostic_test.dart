@@ -67,8 +67,9 @@ void main() {
             for (var j = 1; j < choices.length; j++) {
               if (shortest
                   ? choices[j].length < choices[guessed].length
-                  : choices[j].length > choices[guessed].length)
+                  : choices[j].length > choices[guessed].length) {
                 guessed = j;
+              }
             }
             answers.add(
               i < band * 3

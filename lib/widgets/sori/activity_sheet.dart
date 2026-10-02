@@ -8,6 +8,7 @@ import 'localized_copy.dart';
 import 'reward_icon.dart';
 import 'sheet.dart';
 import 'tokens.dart';
+import 'mascot.dart';
 
 /// §C-2: 활동 카드 상세 시트 — 카드 규율(4기둥 ④)의 대가로 버린 정보를
 /// 여기에 **강등**한다. 설명(entry.description) + 보상 계약(reward.condition
@@ -107,6 +108,20 @@ class _ActivitySheetContent extends StatelessWidget {
         ),
 
         // 잠금 설명 (잠긴 항목만)
+        if (entry.id == 'cloze' || entry.id == 'smalltalk') ...[
+          const SizedBox(height: Spacing.md),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: Spacing.lg),
+            child: SoriCultureComment(role: SoriCulturalRole.yangban),
+          ),
+        ] else if (entry.id == 'daily_game' ||
+            entry.id == 'syllable_cross') ...[
+          const SizedBox(height: Spacing.md),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: Spacing.lg),
+            child: SoriCultureComment(role: SoriCulturalRole.dokkaebi),
+          ),
+        ],
         if (isLocked && entry.unlock.explanation != null) ...[
           const SizedBox(height: Spacing.md),
           Padding(

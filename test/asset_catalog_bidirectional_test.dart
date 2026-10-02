@@ -315,7 +315,7 @@ void main() {
         expect(entry['rewardMotif'], motif.name, reason: packId);
         expect(
           primaryAsset,
-          PackArtworkCatalog.assetFor(packId, motif),
+          PackArtworkCatalog.originalAssetFor(packId, motif),
           reason: packId,
         );
         expect(file.existsSync(), isTrue, reason: primaryAsset);

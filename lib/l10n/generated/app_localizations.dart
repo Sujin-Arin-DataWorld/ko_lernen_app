@@ -19169,6 +19169,78 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Dieses Gebäude ist fertig!'**
   String get yeopjeonConstructionComplete;
+
+  /// No description provided for @cultureHaechiName.
+  ///
+  /// In de, this message translates to:
+  /// **'Haechi'**
+  String get cultureHaechiName;
+
+  /// No description provided for @cultureYangbanName.
+  ///
+  /// In de, this message translates to:
+  /// **'Yangban · Hahoe-Maske'**
+  String get cultureYangbanName;
+
+  /// No description provided for @cultureDokkaebiName.
+  ///
+  /// In de, this message translates to:
+  /// **'Dokkaebi'**
+  String get cultureDokkaebiName;
+
+  /// No description provided for @cultureHaechiLineKo.
+  ///
+  /// In de, this message translates to:
+  /// **'차근차근 쌓아 가자.'**
+  String get cultureHaechiLineKo;
+
+  /// No description provided for @cultureHaechiLine.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Schritt nach dem anderen.'**
+  String get cultureHaechiLine;
+
+  /// No description provided for @cultureYangbanLineKo.
+  ///
+  /// In de, this message translates to:
+  /// **'문장을 끝까지 읽어 보자.'**
+  String get cultureYangbanLineKo;
+
+  /// No description provided for @cultureYangbanLine.
+  ///
+  /// In de, this message translates to:
+  /// **'Lesen wir erst den ganzen Satz.'**
+  String get cultureYangbanLine;
+
+  /// No description provided for @cultureDokkaebiLineKo.
+  ///
+  /// In de, this message translates to:
+  /// **'한 문제씩 풀어 볼까?'**
+  String get cultureDokkaebiLineKo;
+
+  /// No description provided for @cultureDokkaebiLine.
+  ///
+  /// In de, this message translates to:
+  /// **'Wollen wir eine Aufgabe nach der anderen lösen?'**
+  String get cultureDokkaebiLine;
+
+  /// No description provided for @catalogQuickStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Direkt loslegen'**
+  String get catalogQuickStart;
+
+  /// No description provided for @catalogDiscover.
+  ///
+  /// In de, this message translates to:
+  /// **'Schon ausprobiert?'**
+  String get catalogDiscover;
+
+  /// No description provided for @catalogNotNow.
+  ///
+  /// In de, this message translates to:
+  /// **'Später'**
+  String get catalogNotNow;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

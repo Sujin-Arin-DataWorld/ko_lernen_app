@@ -36,6 +36,7 @@ import '../services/tts_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/app_bar.dart';
+import '../widgets/sori/activity_illustration.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/button.dart';
@@ -1584,6 +1585,30 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                       height: 1.5,
                     ),
                   ),
+                  if (s.dialog.any(
+                    (line) =>
+                        line.speaker != 'user' &&
+                        SoriArtwork.person(line.speaker) != null,
+                  )) ...[
+                    const SizedBox(height: Spacing.lg),
+                    Wrap(
+                      spacing: Spacing.md,
+                      runSpacing: Spacing.md,
+                      children: [
+                        for (final id
+                            in s.dialog.map((line) => line.speaker).toSet())
+                          if (id != 'user' && SoriArtwork.person(id) != null)
+                            SoriPersonPortrait(
+                              id: id,
+                              label: s.speakerDisplayName(
+                                id,
+                                fallbackYou: t.listeningSpeakerYou,
+                                fallbackNarrator: t.listeningNarrator,
+                              ),
+                            ),
+                      ],
+                    ),
+                  ],
                   if (s.playerCharacterId.isNotEmpty) ...[
                     const SizedBox(height: Spacing.lg),
                     Text.rich(

@@ -391,7 +391,9 @@ abstract final class SoriActivityColors {
   static const Color reward = SoriColors.gold;
   static const Color collaboration = SoriColors.highlight;
   static const Color hanji = SoriColors.lightBg;
-  static const Color hanokStage = Color(0xFF173D36);
+  static const Color hanokStage = Color(0xFF247567);
+  static const Color actionGold = Color(0xFFF5CF78);
+  static const Color giftSurface = Color(0xFFDFEBF3);
 
   static const Color onListening = SoriColors.lightText;
   static const Color onSpeaking = SoriColors.onTigerFill;

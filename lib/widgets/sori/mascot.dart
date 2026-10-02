@@ -3,6 +3,8 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import 'tokens.dart';
+import 'activity_illustration.dart';
+import '../../l10n/generated/app_localizations.dart';
 
 /// Sori mascot widget backed by separated tiger and magpie pose PNGs.
 ///
@@ -107,19 +109,6 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   // 자세다. 화풍이 아니라 자세만 바꿨다.
   static const _tigerAsset = Mascot.kTigerAsset;
 
-  static const _magpieWingUp = 'assets/illustrations/mascot/magpie_wingup.png';
-  static const _magpieWingDown =
-      'assets/illustrations/mascot/magpie_wingdown.png';
-  static const _magpieCelebrate =
-      'assets/illustrations/mascot/magpie_celebrate.png';
-  static const _magpieWorry = 'assets/illustrations/mascot/magpie_worry.png';
-  static const _magpieDance = 'assets/illustrations/mascot/magpie_dance.png';
-  static const _magpieEncourage =
-      'assets/illustrations/mascot/magpie_encourage.png';
-  static const _magpieSing = 'assets/illustrations/mascot/magpie_sing.png';
-  static const _magpieSleep = 'assets/illustrations/mascot/magpie_sleep.png';
-  static const _magpieWave = 'assets/illustrations/mascot/magpie_wave.png';
-
   /// 조이 정면 — 태고의 `tiger_neutral`(정면)과 짝을 맞추는 중립 자세.
   /// 기존 중립 정지는 `magpie_perched`(측면)이라 태고는 사용자를 보고
   /// 조이는 옆을 보는 비대칭이 있었다.
@@ -178,41 +167,8 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   }
 
   String _assetFor(double t, {required bool animating}) {
-    if (_isMagpie) {
-      switch (widget.emotion) {
-        case MascotEmotion.celebrate:
-          // animate 시 축하↔춤 교대로 신나는 분위기, 정지 시 축하 포즈.
-          if (animating) {
-            return math.sin(t * math.pi * 4) >= 0
-                ? _magpieCelebrate
-                : _magpieDance;
-          }
-          return _magpieCelebrate;
-        case MascotEmotion.worry:
-          return _magpieWorry;
-        case MascotEmotion.sleepy:
-          return _magpieSleep;
-        case MascotEmotion.thinking:
-          return _magpieEncourage;
-        case MascotEmotion.surprised:
-          return _magpieSing;
-        case MascotEmotion.neutral:
-          if (animating) {
-            final flap = math.sin(t * math.pi * 10);
-            return flap >= 0 ? _magpieWingUp : _magpieWingDown;
-          }
-          return _magpieFront;
-        case MascotEmotion.smile:
-          if (animating) {
-            final flap = math.sin(t * math.pi * 10);
-            return flap >= 0 ? _magpieWingUp : _magpieWingDown;
-          }
-          return _magpieWave;
-      }
-    }
-
-    // 호랑이는 감정·애니메이션 무관 정지 한 장(Jin 2026-08-06, 자산 교체 08-25).
-    return _tigerAsset;
+    // Approved mature silhouettes remain consistent across every state.
+    return _isMagpie ? _magpieFront : _tigerAsset;
   }
 
   String get _semanticsLabel {
@@ -262,7 +218,7 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
 
   Widget _buildPose(double t, {required bool animating}) {
     final wave = math.sin(t * math.pi * 2);
-    final bob = _isMagpie && animating ? wave * widget.size * 0.035 : 0.0;
+    final bob = _isMagpie && animating ? wave * widget.size * 0.006 : 0.0;
     final scale = animating && !_isMagpie ? 1.0 + (wave + 1) * 0.018 : 1.0;
     final asset = _assetFor(t, animating: animating);
 
@@ -330,4 +286,67 @@ enum MascotEmotion {
   sleepy,
   surprised,
   thinking,
+}
+
+enum SoriCulturalRole { haechi, yangban, dokkaebi }
+
+/// One small cultural speaker in a meaningful context, separate from the
+/// human dialogue cast and their TTS identity. No selection or reward logic.
+class SoriCultureComment extends StatelessWidget {
+  const SoriCultureComment({super.key, required this.role});
+  final SoriCulturalRole role;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final type = SoriTextTheme.of(context);
+    final (asset, name, korean, translation) = switch (role) {
+      SoriCulturalRole.haechi => (
+        SoriArtwork.haechi,
+        t.cultureHaechiName,
+        t.cultureHaechiLineKo,
+        t.cultureHaechiLine,
+      ),
+      SoriCulturalRole.yangban => (
+        SoriArtwork.yangban,
+        t.cultureYangbanName,
+        t.cultureYangbanLineKo,
+        t.cultureYangbanLine,
+      ),
+      SoriCulturalRole.dokkaebi => (
+        SoriArtwork.dokkaebi,
+        t.cultureDokkaebiName,
+        t.cultureDokkaebiLineKo,
+        t.cultureDokkaebiLine,
+      ),
+    };
+    return Row(
+      key: ValueKey('culture-comment-${role.name}'),
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Image.asset(
+          asset,
+          width: 64,
+          height: 88,
+          fit: BoxFit.contain,
+          excludeFromSemantics: true,
+        ),
+        const SizedBox(width: Spacing.md),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(name, style: type.meta),
+              Text(
+                korean,
+                style: type.body.copyWith(fontWeight: FontWeight.w500),
+              ),
+              const SizedBox(height: Spacing.xs),
+              Text(translation, style: type.bodySmall),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
 }

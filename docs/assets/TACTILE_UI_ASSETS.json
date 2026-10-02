@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "approval": "User adoption of textured review assets on 2026-10-02; new Hahoe/Dokkaebi commissioned in the same request",
+  "method": "Native image_gen; original PNG bytes copied without pixel processing",
+  "materials": [
+    "hand-thrown ceramic",
+    "linen weave",
+    "wood grain",
+    "pitted brass",
+    "carved stone",
+    "horsehair gat"
+  ],
+  "assetPolicy": "Original card WebP, Hanok and Bojagi remain intact. Jun adopts the reviewed 16-year-old high-school first-year profile with unchanged parents and male voice.",
+  "assets": [
+    {
+      "id": "tiger",
+      "path": "assets/illustrations/mascot/tiger_front.png",
+      "sha256": "ff9b1a585d7a80cefdc151bd263ff4f3b83db9b9e4626d3ff30fe2cda2b5e3c9",
+      "source": "approved-review/characters/tiger.png"
+    },
+    {
+      "id": "magpie",
+      "path": "assets/illustrations/mascot/magpie_front.png",
+      "sha256": "a701054ff5fafe95f9e9cf32d51af3f227a3c3c22f89819e9cdf67bfd708f1bb",
+      "source": "approved-review/characters/magpie.png"
+    },
+    {
+      "id": "coffee",
+      "path": "assets/illustrations/tactile/coffee.png",
+      "sha256": "fa6008b67cc5a0670ef64edffd3ebc0b5f56657f2fb9bc08f56c4912b3ddc7c6",
+      "source": "coffee.png",
+      "bytes": 1705464
+    },
+    {
+      "id": "speaker",
+      "path": "assets/illustrations/tactile/speaker.png",
+      "sha256": "0fe547bd137c4dd504474ee6d2a3176058366175b7a039405f2f7169a87c974a",
+      "source": "speaker.png",
+      "bytes": 1754130
+    },
+    {
+      "id": "book",
+      "path": "assets/illustrations/tactile/book.png",
+      "sha256": "58b15aa67c40c541124425d3b750fc59990664b4ee4e2f16f5d82b17966d6696",
+      "source": "book.png",
+      "bytes": 1512411
+    },
+    {
+      "id": "conversation",
+      "path": "assets/illustrations/tactile/conversation.png",
+      "sha256": "afe6efb3e70ba88e13b165fb365b805fc4d83ea7f04d2b9f7455c22175c3f614",
+      "source": "conversation.png",
+      "bytes": 1192378
+    },
+    {
+      "id": "yeopjeon",
+      "path": "assets/illustrations/tactile/yeopjeon.png",
+      "sha256": "8f40bcf5c47279ee43a9f8700c68378d2df12cb953e69bc7d13b8a846b940100",
+      "source": "yeopjeon.png",
+      "bytes": 1525570
+    },
+    {
+      "id": "sujin",
+      "path": "assets/illustrations/tactile/sujin.png",
+      "sha256": "d8b54abb44c4de062470ee2ba392f6eea6d8e8817cdad161dc6091456a4093fe",
+      "source": "sujin.png",
+      "bytes": 555923
+    },
+    {
+      "id": "christian",
+      "path": "assets/illustrations/tactile/christian.png",
+      "sha256": "7aafb4ba6304d3512859748fff0404b5839252165e2a937a41892e2d02c0d1e5",
+      "source": "christian.png",
+      "bytes": 610893
+    },
+    {
+      "id": "a1_greetings_2-3d",
+      "path": "assets/illustrations/tactile/a1_greetings_2-3d.png",
+      "sha256": "a877a568d1d6761e1aa0a214820275343e080664ff8c8c50ed5c140effd1ccd0",
+      "source": "a1_greetings_2-3d.png",
+      "bytes": 1890051
+    },
+    {
+      "id": "A1Arrival-3d",
+      "path": "assets/illustrations/tactile/A1Arrival-3d.png",
+      "sha256": "4f66eb4aae6b8a57a6429f623a440778aa251ba7fdf3ce8710d4c938336e3a1b",
+      "source": "A1Arrival-3d.png",
+      "bytes": 1477900
+    },
+    {
+      "id": "dongsun",
+      "path": "assets/illustrations/tactile/dongsun.png",
+      "sha256": "18dce3c9454ddc504b3626062a87ba8bedf2db54b98d3d0f4bc0004ebe6f6809",
+      "source": "dongsun.png",
+      "bytes": 631086
+    },
+    {
+      "id": "byeongcheol",
+      "path": "assets/illustrations/tactile/byeongcheol.png",
+      "sha256": "183e3741c79c6946d21e56bdbbac7c0b57e6315b83e2b3c401028650b29b1954",
+      "source": "byeongcheol.png",
+      "bytes": 679574
+    },
+    {
+      "id": "jun",
+      "path": "assets/illustrations/tactile/jun.png",
+      "sha256": "89e10a9abf67662b5c3b559142d615fe2af9f16474364898d463167cf81a85e1",
+      "source": "jun.png",
+      "bytes": 668670
+    },
+    {
+      "id": "haechi",
+      "path": "assets/illustrations/tactile/haechi.png",
+      "sha256": "cc5fb7293e3e532e1f17804407a328736c367204450f85d58b267dbf9fe50a92",
+      "source": "haetae.png",
+      "bytes": 1522896
+    },
+    {
+      "id": "yangban",
+      "path": "assets/illustrations/tactile/yangban.png",
+      "sha256": "83aa8e95bac147b57447ae2363e074310e07c970a757aebc602a64ccf8a1c1d7",
+      "source": "exec-1594fd90-b452-40a1-8f73-4ef74d582e4e.png",
+      "bytes": 2141069
+    },
+    {
+      "id": "dokkaebi",
+      "path": "assets/illustrations/tactile/dokkaebi.png",
+      "sha256": "e7afeb6c127f614751ccb16d4299d4afa764a26c7baf12f763edbe74cef46a76",
+      "source": "exec-565ff554-fcff-4cb6-8558-03681136e606.png",
+      "bytes": 2316957
+    },
+    {
+      "id": "hangul",
+      "path": "assets/illustrations/tactile/hangul.png",
+      "sha256": "234de0b865ce72a4052541d32abebc9743d8906fbd7f316b4c8a6362c33d2029",
+      "source": "16de196e55d4a3b0c45521d1e8d83d36b569b41d:assets_unused/pending_review/content_grid_recommendations_20261002/assets/hangul.png"
+    },
+    {
+      "id": "grammar",
+      "path": "assets/illustrations/tactile/grammar.png",
+      "sha256": "da3232e17af967fef0395965c86fadace006226f15796ee3aa6d83a9763bcd3f",
+      "source": "16de196e55d4a3b0c45521d1e8d83d36b569b41d:assets_unused/pending_review/content_grid_recommendations_20261002/assets/grammar.png"
+    }
+  ],
+  "references": [
+    "https://www.nfm.go.kr/site/home/temp/exhibit/2023/mask/en_part1.html",
+    "https://www.kh.or.kr/cms/content/view/1252",
+    "https://www.museum.go.kr/dryplate/search_more.do?keyWord=%EA%B4%91%ED%99%94%EB%AC%B8&page=3&sepatator=all"
+  ]
+}
