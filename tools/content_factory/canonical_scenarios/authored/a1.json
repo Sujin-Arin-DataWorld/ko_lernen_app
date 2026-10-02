@@ -23,9 +23,9 @@
       "dialog": [
         {"speaker": "sujin", "ko": "안녕하세요. 저는 수진이에요.", "de": "Hallo. Ich bin Sujin.", "en": "Hi. I'm Sujin."},
         {"speaker": "christian", "ko": "안녕하세요. 저는 크리스티안이에요.", "de": "Hallo. Ich bin Christian.", "en": "Hi. I'm Christian."},
-        {"speaker": "sujin", "ko": "어디에서 왔어요?", "de": "Woher kommst du?", "en": "Where are you from?"},
+        {"speaker": "sujin", "ko": "어디에서 오셨어요?", "de": "Woher kommen Sie?", "en": "Where are you from?"},
         {"speaker": "christian", "ko": "독일에서 왔어요.", "de": "Ich komme aus Deutschland.", "en": "I'm from Germany."},
-        {"speaker": "christian", "ko": "죄송해요. 이름을 다시 말해 주세요.", "de": "Entschuldigung, sag deinen Namen bitte noch einmal.", "en": "Sorry, please say your name again."},
+        {"speaker": "christian", "ko": "죄송해요. 이름을 다시 말해 주세요.", "de": "Entschuldigung, können Sie Ihren Namen bitte noch einmal sagen?", "en": "Sorry, could you say your name again, please?"},
         {"speaker": "sujin", "ko": "네, 수진이에요. 수진.", "de": "Ja, Sujin. Su-jin.", "en": "Yes, Sujin. Su-jin."}
       ]
     },

@@ -36559,6 +36559,77 @@
       "phase_tasks.json",
       "learning_phases.json"
     ],
-    "ttsBoundary": "Storage keys are complete; individual clip listening and device playback are not claimed."
+    "ttsBoundary": "Storage keys are complete; individual clip listening and device playback are not claimed.",
+    "scenarioPersonaReview": "A1: 29 live scenarios directly reviewed and two scenes revised against PR #438. A2-C2: 149 live scenarios remain."
+  },
+  "scenarioPersonaReviewProgress": {
+    "reviewReference": "GitHub PR #438 merged as 797160b0664172b2956be0e202bb5df9b246b65c",
+    "levels": [
+      {
+        "level": "A1",
+        "status": "directly_reviewed",
+        "scenarioCount": 29,
+        "scenarioIds": [
+          "airport_arrival",
+          "bakery_payment_bag",
+          "bakery_queue",
+          "break_glass_apology",
+          "bunshik_tteokbokki",
+          "cafe_dessert_sold_out",
+          "clarify_repeat",
+          "dance_class_register",
+          "favorite_korean_music",
+          "first_class_meeting",
+          "home_morning_routine",
+          "introduce_yourself",
+          "kakao_contact_after_class",
+          "korea_stay_smalltalk",
+          "mart_grocery",
+          "meeting_time",
+          "subway_step_apology",
+          "survival_day_capstone",
+          "taxi_kakao",
+          "umbrella_weather",
+          "a1_theme_park_date_choices",
+          "a1_w10_taxi_stay",
+          "a1_w10_eat",
+          "a1_w10_repeat",
+          "a1_w10_partner",
+          "a1_w10_numbers",
+          "a1_w10_phone",
+          "a1_w10_wayfinding",
+          "a1_w10_fandom"
+        ],
+        "reviewedFields": [
+          "Korean dialogue and tone",
+          "German and English localization",
+          "speaker relationship and register",
+          "vocabulary extraction",
+          "listening/translation/sentence-building answer alignment",
+          "linked listening-lesson prompt, evidence, answer, and explanation"
+        ],
+        "findingsApplied": [
+          {
+            "scenarioId": "introduce_yourself",
+            "decision": "First-meeting dialogue now keeps Korean honorifics and German Sie consistently; the canonical authored source and all derived live-learning fields match."
+          },
+          {
+            "scenarioId": "a1_w10_partner",
+            "decision": "Dongsun now speaks in the scene as Sujin’s mother, welcomes Christian directly, and receives the gift. Her first-meeting German uses Sie, while Sujin uses familiar Korean with her partner. The scenario, vocabulary, all quest answers, and linked listening lesson were aligned with that exchange."
+          }
+        ],
+        "retained": "The other 27 A1 scenes keep their current wording because their speaker goal, relationship, register, and KO-DE-EN meaning are appropriate to A1.",
+        "notClaimed": "This is a direct editorial read, not independent native-speaker approval or individual audio listening.",
+        "tts": {
+          "canonicalManifestRebuilt": true,
+          "newStorageObjectsUploaded": 6,
+          "expectedCanonicalClips": 12919,
+          "remoteObjects": 21848,
+          "missingObjects": 0,
+          "staleObjects": 8929,
+          "humanListeningClaim": false
+        }
+      }
+    ]
   }
 }

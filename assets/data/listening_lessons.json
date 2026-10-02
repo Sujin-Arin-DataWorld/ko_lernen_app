@@ -3727,14 +3727,14 @@
       "level": "a1",
       "topicId": "a1_partner",
       "title": {
-        "ko": "여자친구 집에 처음 인사드리러 가기",
-        "de": "Zum ersten Mal die Familie der Freundin besuchen",
-        "en": "Visiting your girlfriend's family for the first time"
+        "ko": "여자친구의 부모님께 처음 인사드리기",
+        "de": "Die Eltern deiner Freundin zum ersten Mal treffen",
+        "en": "Meeting your girlfriend's parents for the first time"
       },
       "intro": {
-        "ko": "수진의 집에 처음 가서 수진 어머니께 인사드려요.",
-        "de": "Du besuchst Sujins Zuhause zum ersten Mal und begrüßt ihre Mutter.",
-        "en": "You visit Sujin's home for the first time and greet her mother."
+        "ko": "수진의 집에서 어머니 동순에게 처음 인사드려요.",
+        "de": "Bei Sujin zu Hause begrüßt du ihre Mutter Dongsun zum ersten Mal.",
+        "en": "At Sujin's home, you meet her mother Dongsun for the first time."
       },
       "contentIds": [
         "a1_w10_partner"
@@ -3750,29 +3750,29 @@
             "en": "Which situation matches the whole conversation?"
           },
           "explanation": {
-            "ko": "“여기예요. 우리 집은 처음이죠?”라는 말이 근거예요. 상황은 “수진의 집에 처음 가서 수진 어머니께 인사드려요.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
-            "de": "Ein Beleg ist „여기예요. 우리 집은 처음이죠?“ (Da sind wir. Du bist zum ersten Mal bei mir zu Hause, oder?). Dazu passt: Du besuchst Sujins Zuhause zum ersten Mal und begrüßt ihre Mutter. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
-            "en": "One supporting line is “여기예요. 우리 집은 처음이죠?” (Here it is. This is your first time at my home, right?). The matching situation is: You visit Sujin's home for the first time and greet her mother. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
+            "ko": "“여기야. 우리 집은 처음이지?”라는 말이 근거예요. 상황은 “수진의 집에서 어머니 동순에게 처음 인사드려요.”예요. 다른 두 선택지는 인물이나 만남의 상태를 바꿨으므로 이 대화와 맞지 않아요.",
+            "de": "Ein Beleg ist „여기야. 우리 집은 처음이지?“ (Hier ist es. Du bist zum ersten Mal bei mir zu Hause, oder?). Dazu passt: Bei Sujin zu Hause begrüßt du ihre Mutter Dongsun zum ersten Mal. Die anderen Optionen verändern die Personen oder die Situation des Kennenlernens und passen deshalb nicht zum Gespräch.",
+            "en": "One supporting line is “여기야. 우리 집은 처음이지?” (Here it is. This is your first time at my home, right?). The matching situation is: At Sujin's home, you meet her mother Dongsun for the first time. The other options change the people or whether they have met before, so they do not match the conversation."
           },
           "sourceIds": [
             "a1_w10_partner"
           ],
-          "evidenceKo": "여기예요. 우리 집은 처음이죠?",
+          "evidenceKo": "여기야. 우리 집은 처음이지?",
           "options": [
             {
-              "ko": "수진의 집에 처음 가서 수진 어머니께 인사드려요.",
-              "de": "Du besuchst Sujins Zuhause zum ersten Mal und begrüßt ihre Mutter.",
-              "en": "You visit Sujin's home for the first time and greet her mother."
+              "ko": "수진의 집에서 어머니 동순에게 처음 인사드려요.",
+              "de": "Bei Sujin zu Hause begrüßt du ihre Mutter Dongsun zum ersten Mal.",
+              "en": "At Sujin's home, you meet her mother Dongsun for the first time."
             },
             {
-              "ko": "수진의 어머니가 크리스티안의 집에 처음 방문해요.",
-              "de": "Sujins Mutter besucht Christian zum ersten Mal zu Hause.",
-              "en": "Sujin's mother visits Christian's home for the first time."
+              "ko": "동순이 크리스티안의 집에 처음 방문해요.",
+              "de": "Dongsun besucht Christian zum ersten Mal zu Hause.",
+              "en": "Dongsun visits Christian's home for the first time."
             },
             {
-              "ko": "수진의 집에서 이미 아는 어머니께 작별 인사를 해요.",
-              "de": "Bei Sujin verabschiedest du dich von ihrer bereits bekannten Mutter.",
-              "en": "At Sujin's home, you say goodbye to her mother, whom you already know."
+              "ko": "수진의 집에서 이미 아는 동순에게 작별 인사를 해요.",
+              "de": "Bei Sujin verabschiedest du dich von Dongsun, die du schon kennst.",
+              "en": "At Sujin's home, you say goodbye to Dongsun, whom you already know."
             }
           ],
           "correctIndex": 0
@@ -3787,23 +3787,23 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “와, 감사해요. 엄마가 안에서 기다리세요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „와, 감사해요. 엄마가 안에서 기다리세요.“: Wow, danke. Meine Mutter wartet drinnen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “와, 감사해요. 엄마가 안에서 기다리세요.”: Wow, thanks. My mom is waiting inside. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “어서 와요, 크리스티안 씨.”예요. 동순이 크리스티안을 집 안으로 맞이하는 말이에요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „어서 와요, 크리스티안 씨.“: Kommen Sie doch rein, Christian. Dongsun heißt Christian im Haus willkommen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “어서 와요, 크리스티안 씨.”: Come on in, Christian. Dongsun is welcoming Christian into the home. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "a1_w10_partner"
           ],
-          "evidenceKo": "와, 감사해요. 엄마가 안에서 기다리세요.",
-          "audioKo": "와, 감사해요. 엄마가 안에서 기다리세요.",
+          "evidenceKo": "어서 와요, 크리스티안 씨.",
+          "audioKo": "어서 와요, 크리스티안 씨.",
           "options": [
             {
-              "ko": "와, 감사해요. 엄마가 안에서 기다리세요.",
-              "de": "Wow, danke. Meine Mutter wartet drinnen.",
-              "en": "Wow, thanks. My mom is waiting inside."
+              "ko": "어서 와요, 크리스티안 씨.",
+              "de": "Kommen Sie doch rein, Christian.",
+              "en": "Come on in, Christian."
             },
             {
-              "ko": "괜찮아요. 신발은 여기서 벗으세요.",
+              "ko": "괜찮아. 신발은 여기서 벗어.",
               "de": "Alles gut. Zieh die Schuhe hier aus.",
               "en": "It's fine. Take off your shoes here."
             },
@@ -3825,36 +3825,36 @@
             "en": "Put the words in the same order as the recording. Meaning: It's fine. Take off your shoes here."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “괜찮아요. 신발은 여기서 벗으세요.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „괜찮아요. 신발은 여기서 벗으세요.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “괜찮아요. 신발은 여기서 벗으세요.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “괜찮아. 신발은 여기서 벗어.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „괜찮아. 신발은 여기서 벗어.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “괜찮아. 신발은 여기서 벗어.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "a1_w10_partner"
           ],
-          "evidenceKo": "괜찮아요. 신발은 여기서 벗으세요.",
-          "audioKo": "괜찮아요. 신발은 여기서 벗으세요.",
-          "targetKo": "괜찮아요. 신발은 여기서 벗으세요."
+          "evidenceKo": "괜찮아. 신발은 여기서 벗어.",
+          "audioKo": "괜찮아. 신발은 여기서 벗어.",
+          "targetKo": "괜찮아. 신발은 여기서 벗어."
         },
         {
           "id": "listening.a1.a1_w10_partner.response",
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "상대의 말: “와, 감사해요. 엄마가 안에서 기다리세요.” 과제: 처음 뵙는 어머니께 첫 인사를 드리세요. 이 목적에 맞는 응답을 고르세요.",
-            "de": "Dein Gegenüber sagt: „와, 감사해요. 엄마가 안에서 기다리세요.“ (Wow, danke. Meine Mutter wartet drinnen.). Aufgabe: Begrüße die Mutter beim ersten Kennenlernen. Welche Antwort erfüllt dieses Ziel?",
-            "en": "The other person says: “와, 감사해요. 엄마가 안에서 기다리세요.” (Wow, thanks. My mom is waiting inside.). Task: Greet the mother you are meeting for the first time. Which response fulfills this goal?"
+            "ko": "상대의 말: “어서 와요, 크리스티안 씨.” 과제: 처음 뵙는 동순 어머니께 첫 인사를 드리세요. 이 목적에 맞는 응답을 고르세요.",
+            "de": "Dein Gegenüber sagt: „어서 와요, 크리스티안 씨.“ (Kommen Sie doch rein, Christian.). Aufgabe: Begrüße Dongsun, die Mutter deiner Freundin, beim ersten Kennenlernen. Welche Antwort erfüllt dieses Ziel?",
+            "en": "The other person says: “어서 와요, 크리스티안 씨.” (Come on in, Christian.). Task: Greet Dongsun, your girlfriend’s mother, when meeting her for the first time. Which response fulfills this goal?"
           },
           "explanation": {
-            "ko": "과제의 목적은 “처음 뵙는 어머니께 첫 인사를 드리세요.”예요. 원문 응답 “처음 뵙겠습니다.”가 이 목적을 이뤄요. “어머님, 지난번에 뵈었죠?”와 “저는 이제 가겠습니다. 다음에 인사드릴게요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
-            "de": "Das Ziel lautet: Begrüße die Mutter beim ersten Kennenlernen. Die Quelläußerung „처음 뵙겠습니다.“ (Es freut mich, Sie kennenzulernen.) erfüllt es. „Wir haben uns letztes Mal schon getroffen, oder?“ und „Ich gehe jetzt. Ich begrüße Sie ein anderes Mal.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
-            "en": "The goal is: Greet the mother you are meeting for the first time. The source response “처음 뵙겠습니다.” (It's nice to meet you.) fulfills it. “We met last time, didn't we?” and “I am leaving now. I will introduce myself another time.” change a requested action, fact, or condition. Such replies may be valid in other situations."
+            "ko": "과제의 목적은 “처음 뵙는 동순 어머니께 첫 인사를 드리세요.”예요. 원문 응답 “처음 뵙겠습니다.”가 이 목적을 이뤄요. “어머님, 지난번에 뵈었죠?”와 “저는 이제 가겠습니다. 다음에 인사드릴게요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
+            "de": "Das Ziel lautet: Begrüße Dongsun, die Mutter deiner Freundin, beim ersten Kennenlernen. Die Quelläußerung „처음 뵙겠습니다.“ (Es freut mich, Sie kennenzulernen.) erfüllt es. „Wir haben uns letztes Mal schon getroffen, oder?“ und „Ich gehe jetzt. Ich begrüße Sie ein anderes Mal.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
+            "en": "The goal is: Greet Dongsun, your girlfriend’s mother, when meeting her for the first time. The source response “처음 뵙겠습니다.” (It’s nice to meet you.) fulfills it. “We met last time, didn’t we?” and “I am leaving now. I will introduce myself another time.” change a requested action, fact, or condition. Such replies may be valid in other situations."
           },
           "sourceIds": [
             "a1_w10_partner"
           ],
           "evidenceKo": "처음 뵙겠습니다.",
-          "audioKo": "와, 감사해요. 엄마가 안에서 기다리세요.",
+          "audioKo": "어서 와요, 크리스티안 씨.",
           "options": [
             {
               "ko": "처음 뵙겠습니다.",

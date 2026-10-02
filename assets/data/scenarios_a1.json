@@ -2346,10 +2346,10 @@
           }
         },
         {
-          "korean": "어디에서 왔어요?",
+          "korean": "어디에서 오셨어요?",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Woher kommst du?",
+            "de": "Woher kommen Sie?",
             "en": "Where are you from?"
           }
         },
@@ -2365,8 +2365,8 @@
           "korean": "죄송해요. 이름을 다시 말해 주세요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Entschuldigung, sag deinen Namen bitte noch einmal.",
-            "en": "Sorry, please say your name again."
+            "de": "Entschuldigung, können Sie Ihren Namen bitte noch einmal sagen?",
+            "en": "Sorry, could you say your name again, please?"
           }
         },
         {
@@ -2414,8 +2414,8 @@
         },
         {
           "speaker": "sujin",
-          "ko": "어디에서 왔어요?",
-          "de": "Woher kommst du?",
+          "ko": "어디에서 오셨어요?",
+          "de": "Woher kommen Sie?",
           "en": "Where are you from?"
         },
         {
@@ -2427,8 +2427,8 @@
         {
           "speaker": "user",
           "ko": "죄송해요. 이름을 다시 말해 주세요.",
-          "de": "Entschuldigung, sag deinen Namen bitte noch einmal.",
-          "en": "Sorry, please say your name again."
+          "de": "Entschuldigung, können Sie Ihren Namen bitte noch einmal sagen?",
+          "en": "Sorry, could you say your name again, please?"
         },
         {
           "speaker": "sujin",
@@ -2453,7 +2453,7 @@
                 "en": "Hi. I'm Christian."
               },
               {
-                "de": "Woher kommst du?",
+                "de": "Woher kommen Sie?",
                 "en": "Where are you from?"
               },
               {
@@ -2478,7 +2478,7 @@
                 "ko": "안녕하세요. 저는 수진이에요."
               },
               {
-                "ko": "어디에서 왔어요?"
+                "ko": "어디에서 오셨어요?"
               },
               {
                 "ko": "독일에서 왔어요."
@@ -2498,8 +2498,8 @@
           "data": {
             "targetKo": "죄송해요. 이름을 다시 말해 주세요.",
             "audioKo": "죄송해요. 이름을 다시 말해 주세요.",
-            "promptDe": "Entschuldigung, sag deinen Namen bitte noch einmal.",
-            "promptEn": "Sorry, please say your name again.",
+            "promptDe": "Entschuldigung, können Sie Ihren Namen bitte noch einmal sagen?",
+            "promptEn": "Sorry, could you say your name again, please?",
             "distractors": [
               "안녕하세요. 저는 수진이에요.",
               "안녕하세요. 저는 크리스티안이에요.",
@@ -5144,56 +5144,57 @@
       "register": "polite",
       "speechStyle": "polite",
       "title": {
-        "ko": "여자친구 집에 처음 인사드리러 가기",
-        "de": "Zum ersten Mal die Familie der Freundin besuchen",
-        "en": "Visiting your girlfriend's family for the first time"
+        "ko": "여자친구의 부모님께 처음 인사드리기",
+        "de": "Die Eltern deiner Freundin zum ersten Mal treffen",
+        "en": "Meeting your girlfriend's parents for the first time"
       },
       "intro": {
-        "ko": "수진의 집에 처음 가서 수진 어머니께 인사드려요.",
-        "de": "Du besuchst Sujins Zuhause zum ersten Mal und begrüßt ihre Mutter.",
-        "en": "You visit Sujin's home for the first time and greet her mother."
+        "ko": "수진의 집에서 어머니 동순에게 처음 인사드려요.",
+        "de": "Bei Sujin zu Hause begrüßt du ihre Mutter Dongsun zum ersten Mal.",
+        "en": "At Sujin's home, you meet her mother Dongsun for the first time."
       },
       "courseUnitId": "a1_11_titles_relationships",
       "playerCharacterId": "christian",
       "participantIds": [
         "christian",
-        "sujin"
+        "sujin",
+        "dongsun"
       ],
-      "relationshipContext": "romantic_partner",
-      "intent": "greet_partners_family_politely",
+      "relationshipContext": "수진의 어머니 동순에게 처음 인사드리는 크리스티안",
+      "intent": "수진의 어머니에게 선물을 건네고 정중히 인사한다",
       "shelf": "a1_partner",
       "backdrop": "home",
       "vocab": [
         {
-          "korean": "떨려요.",
+          "korean": "네, 좀 떨려요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Ich bin nervös.",
-            "en": "I'm nervous."
+            "de": "Ja, ich bin ein bisschen nervös.",
+            "en": "Yeah, I'm a little nervous."
           }
         },
         {
-          "korean": "신발은 여기서 벗으세요.",
+          "korean": "괜찮아. 신발은 여기서 벗어.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Zieh die Schuhe hier aus.",
-            "en": "Take off your shoes here."
+            "de": "Alles gut. Zieh die Schuhe hier aus.",
+            "en": "It's fine. Take off your shoes here."
           }
         },
         {
-          "korean": "어머니께 드리는 거예요.",
+          "korean": "이거 어머니께 드리는 거예요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Das ist für deine Mutter.",
+            "de": "Das hier ist für deine Mutter.",
             "en": "This is for your mom."
           }
         },
         {
-          "korean": "감사해요.",
+          "korean": "어서 와요, 크리스티안 씨.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Danke.",
-            "en": "Thanks."
+            "de": "Kommen Sie doch rein, Christian.",
+            "en": "Come on in, Christian."
           }
         },
         {
@@ -5205,27 +5206,11 @@
           }
         },
         {
-          "korean": "안에서 기다리세요.",
+          "korean": "반가워요. 선물 고마워요. 편하게 있어요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Sie wartet drinnen.",
-            "en": "She's waiting inside."
-          }
-        },
-        {
-          "korean": "아주 좋아하세요.",
-          "note": {
-            "ko": "장면 핵심 표현",
-            "de": "Sie freut sich sehr.",
-            "en": "She's very happy."
-          }
-        },
-        {
-          "korean": "편하게 계세요.",
-          "note": {
-            "ko": "장면 핵심 표현",
-            "de": "Mach es dir bequem.",
-            "en": "Make yourself at home."
+            "de": "Freut mich. Danke für das Geschenk. Machen Sie es sich bequem.",
+            "en": "It's nice to meet you. Thank you for the gift. Make yourself at home."
           }
         }
       ],
@@ -5253,7 +5238,7 @@
       "dialog": [
         {
           "speaker": "sujin",
-          "ko": "여기예요. 우리 집은 처음이죠?",
+          "ko": "여기야. 우리 집은 처음이지?",
           "de": "Da sind wir. Du bist zum ersten Mal bei mir zu Hause, oder?",
           "en": "Here it is. This is your first time at my home, right?"
         },
@@ -5265,7 +5250,7 @@
         },
         {
           "speaker": "sujin",
-          "ko": "괜찮아요. 신발은 여기서 벗으세요.",
+          "ko": "괜찮아. 신발은 여기서 벗어.",
           "de": "Alles gut. Zieh die Schuhe hier aus.",
           "en": "It's fine. Take off your shoes here."
         },
@@ -5276,10 +5261,10 @@
           "en": "This is for your mom."
         },
         {
-          "speaker": "sujin",
-          "ko": "와, 감사해요. 엄마가 안에서 기다리세요.",
-          "de": "Wow, danke. Meine Mutter wartet drinnen.",
-          "en": "Wow, thanks. My mom is waiting inside."
+          "speaker": "dongsun",
+          "ko": "어서 와요, 크리스티안 씨.",
+          "de": "Kommen Sie doch rein, Christian.",
+          "en": "Come on in, Christian."
         },
         {
           "speaker": "user",
@@ -5288,10 +5273,10 @@
           "en": "It's nice to meet you."
         },
         {
-          "speaker": "sujin",
-          "ko": "엄마도 정말 반가워하세요. 편하게 계세요.",
-          "de": "Meine Mutter freut sich auch sehr, dich kennenzulernen. Mach es dir bequem.",
-          "en": "My mom's really happy to meet you too. Make yourself at home."
+          "speaker": "dongsun",
+          "ko": "반가워요. 선물 고마워요. 편하게 있어요.",
+          "de": "Freut mich. Danke für das Geschenk. Machen Sie es sich bequem.",
+          "en": "It's nice to meet you. Thank you for the gift. Make yourself at home."
         },
         {
           "speaker": "user",
@@ -5305,11 +5290,11 @@
           "id": "quest_a1_w10_partner_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "와, 감사해요. 엄마가 안에서 기다리세요.",
+            "audioKo": "어서 와요, 크리스티안 씨.",
             "options": [
               {
-                "de": "Wow, danke. Meine Mutter wartet drinnen.",
-                "en": "Wow, thanks. My mom is waiting inside."
+                "de": "Kommen Sie doch rein, Christian.",
+                "en": "Come on in, Christian."
               },
               {
                 "de": "Ja, ich bin ein bisschen nervös.",
@@ -5320,8 +5305,8 @@
                 "en": "It's fine. Take off your shoes here."
               },
               {
-                "de": "Meine Mutter freut sich sehr. Mach es dir bequem.",
-                "en": "My mom is very happy. Make yourself at home."
+                "de": "Freut mich. Danke für das Geschenk. Mach es dir bequem.",
+                "en": "It's nice to meet you. Thank you for the gift. Make yourself at home."
               }
             ],
             "correctIndex": 0
@@ -5358,7 +5343,7 @@
           ],
           "type": "satzBauen",
           "data": {
-            "targetKo": "괜찮아요. 신발은 여기서 벗으세요.",
+            "targetKo": "괜찮아. 신발은 여기서 벗어.",
             "promptDe": "Alles gut. Zieh die Schuhe hier aus.",
             "promptEn": "It's fine. Take off your shoes here.",
             "distractors": [
@@ -5376,9 +5361,9 @@
           "en": "First-visit etiquette"
         },
         "body": {
-          "ko": "여자친구·남자친구 부모님을 처음 뵐 때는 작은 선물을 가져가고, 집에 들어가기 전에 현관에서 신발을 벗어요.",
-          "de": "Beim ersten Treffen mit den Eltern des Partners bringt man ein kleines Geschenk mit und zieht vor dem Betreten der Wohnung die Schuhe im Eingang aus.",
-          "en": "When meeting a partner's parents for the first time, it's common to bring a small gift and take off your shoes at the entrance before stepping inside."
+          "ko": "여자친구나 남자친구의 부모님을 처음 뵐 때 작은 선물을 준비하는 경우가 많고, 집에 따라 현관에서 신발을 벗어요.",
+          "de": "Beim ersten Treffen mit den Eltern der Partnerin oder des Partners bringen viele Menschen ein kleines Geschenk mit. Je nach Haushalt zieht man die Schuhe im Eingang aus.",
+          "en": "When meeting a partner's parents for the first time, many people bring a small gift. Depending on the home, you take off your shoes at the entrance."
         }
       },
       "xpReward": 120,

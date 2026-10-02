@@ -11502,9 +11502,9 @@
     "semantic_hash": ""
   },
   "tools/content_factory/canonical_scenarios/authored/a1.json": {
-    "mtime": 1790779245.8826652,
-    "seen": 1790954514.469544,
-    "ast_hash": "07277fb38450430553f17af497eabd34",
+    "mtime": 1790963820.2017303,
+    "seen": 1790965145.038581,
+    "ast_hash": "32f8fe15106143901d91904834f6b379",
     "semantic_hash": ""
   },
   "tools/content_factory/canonical_scenarios/authored/a2.json": {
@@ -13164,8 +13164,8 @@
     "semantic_hash": ""
   },
   "tools/content_factory/content_audit_manifest.json": {
-    "mtime": 1790961674.9930847,
-    "seen": 1790963302.295712,
+    "mtime": 1790963366.5088112,
+    "seen": 1790965145.040746,
     "ast_hash": "65977890e5f8c9a6ec9aec4427a99438",
     "semantic_hash": ""
   },
@@ -13326,9 +13326,9 @@
     "semantic_hash": ""
   },
   "functions/tts/canonical_manifest.json": {
-    "mtime": 1790961612.0489528,
-    "seen": 1790963302.2584739,
-    "ast_hash": "16630c9db6af046a0205d491cf31fbd5",
+    "mtime": 1790965293.9301353,
+    "seen": 1790965403.3720052,
+    "ast_hash": "e1587769ba7c2bee06ca764e17c14e03",
     "semantic_hash": ""
   },
   "functions/tts/privacy_migration.js": {
@@ -20802,8 +20802,8 @@
     "semantic_hash": ""
   },
   "tools/content_factory/review/kkeunmari_editorial_revisions_20261002.json": {
-    "mtime": 1790961549.752641,
-    "seen": 1790963302.306227,
+    "mtime": 1790963366.509309,
+    "seen": 1790965145.05212,
     "ast_hash": "ba515a4145145d9b27a753ed115f5ffd",
     "semantic_hash": ""
   },
