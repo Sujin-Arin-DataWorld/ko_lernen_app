@@ -7662,20 +7662,20 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “휴대폰 번호도 필요해요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „휴대폰 번호도 필요해요.“: Ich brauche auch Ihre Handynummer. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “휴대폰 번호도 필요해요.”: I also need your phone number. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “휴대폰 번호도 확인할게요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „휴대폰 번호도 확인할게요.“: Ich prüfe auch Ihre Handynummer. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “휴대폰 번호도 확인할게요.”: I’ll check your phone number too. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "a2_w10_money"
           ],
-          "evidenceKo": "휴대폰 번호도 필요해요.",
-          "audioKo": "휴대폰 번호도 필요해요.",
+          "evidenceKo": "휴대폰 번호도 확인할게요.",
+          "audioKo": "휴대폰 번호도 확인할게요.",
           "options": [
             {
-              "ko": "휴대폰 번호도 필요해요.",
-              "de": "Ich brauche auch Ihre Handynummer.",
-              "en": "I also need your phone number."
+              "ko": "휴대폰 번호도 확인할게요.",
+              "de": "Ich prüfe auch Ihre Handynummer.",
+              "en": "I'll check your phone number too."
             },
             {
               "ko": "여기 제 번호 적을게요.",
@@ -7716,25 +7716,25 @@
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "상대의 말: “체크카드도 신청하시겠어요?” 과제: 계좌와 함께 체크카드도 신청하겠다고 답하세요. 이 목적에 맞는 응답을 고르세요.",
-            "de": "Dein Gegenüber sagt: „체크카드도 신청하시겠어요?“ (Möchten Sie auch eine Debitkarte beantragen?). Aufgabe: Sage, dass du zum Konto auch eine Debitkarte möchtest. Welche Antwort erfüllt dieses Ziel?",
-            "en": "The other person says: “체크카드도 신청하시겠어요?” (Would you like to apply for a debit card too?). Task: Say you want a debit card along with the account. Which response fulfills this goal?"
+            "ko": "상대의 말: “체크카드도 신청할 수 있는지 확인해 볼까요?” 과제: 계좌와 함께 체크카드도 신청하고 싶다고 답하세요. 이 목적에 맞는 응답을 고르세요.",
+            "de": "Dein Gegenüber sagt: „체크카드도 신청할 수 있는지 확인해 볼까요?“ (Sollen wir auch prüfen, ob Sie eine Debitkarte beantragen können?). Aufgabe: Sage, dass du zusammen mit dem Konto auch eine Debitkarte beantragen möchtest. Welche Antwort erfüllt dieses Ziel?",
+            "en": "The other person says: “체크카드도 신청할 수 있는지 확인해 볼까요?” (Shall we check whether you can apply for a debit card too?). Task: Say that you would also like to apply for a debit card with the account. Which response fulfills this goal?"
           },
           "explanation": {
-            "ko": "과제의 목적은 “계좌와 함께 체크카드도 신청하겠다고 답하세요.”예요. 원문 응답 “네, 체크카드도 만들고 싶어요.”가 이 목적을 이뤄요. “체크카드는 필요 없고 계좌도 만들지 않을게요.”와 “계좌는 닫고 신용카드만 만들게요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
-            "de": "Das Ziel lautet: Sage, dass du zum Konto auch eine Debitkarte möchtest. Die Quelläußerung „네, 체크카드도 만들고 싶어요.“ (Ja, ich möchte auch eine Debitkarte beantragen.) erfüllt es. „Ich brauche keine Karte und eröffne auch kein Konto.“ und „Ich schließe das Konto und nehme nur eine Kreditkarte.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
-            "en": "The goal is: Say you want a debit card along with the account. The source response “네, 체크카드도 만들고 싶어요.” (Yes, I'd like to get a debit card too.) fulfills it. “I need no card and will not open an account.” and “I will close the account and only get a credit card.” change a requested action, fact, or condition. Such replies may be valid in other situations."
+            "ko": "과제의 목적은 “계좌와 함께 체크카드도 신청하겠다고 답하세요.”예요. 원문 응답 “네, 체크카드도 신청하고 싶어요.”가 이 목적을 이뤄요. “체크카드는 필요 없고 계좌도 만들지 않을게요.”와 “계좌는 닫고 신용카드만 만들게요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
+            "de": "Das Ziel lautet: Sage, dass du zum Konto auch eine Debitkarte möchtest. Die Quelläußerung „네, 체크카드도 신청하고 싶어요.“ (Ja, ich möchte auch eine Debitkarte beantragen.) erfüllt es. „Ich brauche keine Karte und eröffne auch kein Konto.“ und „Ich schließe das Konto und nehme nur eine Kreditkarte.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
+            "en": "The goal is: Say you want a debit card along with the account. The source response “네, 체크카드도 신청하고 싶어요.” (Yes, I'd like to get a debit card too.) fulfills it. “I need no card and will not open an account.” and “I will close the account and only get a credit card.” change a requested action, fact, or condition. Such replies may be valid in other situations."
           },
           "sourceIds": [
             "a2_w10_money"
           ],
-          "evidenceKo": "네, 체크카드도 만들고 싶어요.",
-          "audioKo": "체크카드도 신청하시겠어요?",
+          "evidenceKo": "네, 체크카드도 신청하고 싶어요.",
+          "audioKo": "체크카드도 신청할 수 있는지 확인해 볼까요?",
           "options": [
             {
-              "ko": "네, 체크카드도 만들고 싶어요.",
+              "ko": "네, 체크카드도 신청하고 싶어요.",
               "de": "Ja, ich möchte auch eine Debitkarte beantragen.",
-              "en": "Yes, I'd like to get a debit card too."
+              "en": "Yes, I'd like to apply for a debit card too."
             },
             {
               "ko": "체크카드는 필요 없고 계좌도 만들지 않을게요.",
@@ -7972,20 +7972,20 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “월요일하고 목요일에 하시면 돼요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „월요일하고 목요일에 하시면 돼요.“: Montags und donnerstags. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “월요일하고 목요일에 하시면 돼요.”: Mondays and Thursdays. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “이 건물은 월요일하고 목요일에 하시면 돼요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „이 건물은 월요일하고 목요일에 하시면 돼요.“: In diesem Gebäude können Sie das montags und donnerstags machen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “이 건물은 월요일하고 목요일에 하시면 돼요.”: In this building, you can do it on Mondays and Thursdays. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "a2_w10_apt"
           ],
-          "evidenceKo": "월요일하고 목요일에 하시면 돼요.",
-          "audioKo": "월요일하고 목요일에 하시면 돼요.",
+          "evidenceKo": "이 건물은 월요일하고 목요일에 하시면 돼요.",
+          "audioKo": "이 건물은 월요일하고 목요일에 하시면 돼요.",
           "options": [
             {
-              "ko": "월요일하고 목요일에 하시면 돼요.",
-              "de": "Montags und donnerstags.",
-              "en": "Mondays and Thursdays."
+              "ko": "이 건물은 월요일하고 목요일에 하시면 돼요.",
+              "de": "In diesem Gebäude können Sie das montags und donnerstags machen.",
+              "en": "In this building, you can do it on Mondays and Thursdays."
             },
             {
               "ko": "네. 분리수거는 무슨 요일에 하면 돼요?",
@@ -8026,9 +8026,9 @@
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "상대의 말: “월요일하고 목요일에 하시면 돼요.” 과제: 요일을 확인한 뒤 종이 상자를 둘 곳을 물으세요. 이 목적에 맞는 응답을 고르세요.",
-            "de": "Dein Gegenüber sagt: „월요일하고 목요일에 하시면 돼요.“ (Montags und donnerstags.). Aufgabe: Frage nach dem Termin nach dem Ablageort für Kartons. Welche Antwort erfüllt dieses Ziel?",
-            "en": "The other person says: “월요일하고 목요일에 하시면 돼요.” (Mondays and Thursdays.). Task: After confirming the days, ask where to put cardboard boxes. Which response fulfills this goal?"
+            "ko": "상대의 말: “이 건물은 월요일하고 목요일에 하시면 돼요.” 과제: 요일을 확인한 뒤 종이 상자를 둘 곳을 물으세요. 이 목적에 맞는 응답을 고르세요.",
+            "de": "Dein Gegenüber sagt: „이 건물은 월요일하고 목요일에 하시면 돼요.“ (In diesem Gebäude können Sie das montags und donnerstags machen.). Aufgabe: Frage nach dem Termin nach dem Ablageort für Kartons. Welche Antwort erfüllt dieses Ziel?",
+            "en": "The other person says: “이 건물은 월요일하고 목요일에 하시면 돼요.” (In this building, you can do it on Mondays and Thursdays.). Task: After confirming the days, ask where to put cardboard boxes. Which response fulfills this goal?"
           },
           "explanation": {
             "ko": "과제의 목적은 “요일을 확인한 뒤 종이 상자를 둘 곳을 물으세요.”예요. 원문 응답 “아, 그렇군요. 종이 상자는 어디에 놓아요?”가 이 목적을 이뤄요. “그럼 화요일에 버리면 되겠네요.”와 “종이 상자는 어디서 살 수 있어요?”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
@@ -8039,7 +8039,7 @@
             "a2_w10_apt"
           ],
           "evidenceKo": "아, 그렇군요. 종이 상자는 어디에 놓아요?",
-          "audioKo": "월요일하고 목요일에 하시면 돼요.",
+          "audioKo": "이 건물은 월요일하고 목요일에 하시면 돼요.",
           "options": [
             {
               "ko": "아, 그렇군요. 종이 상자는 어디에 놓아요?",
@@ -8072,9 +8072,9 @@
         "en": "Before greeting the family at Chuseok"
       },
       "intro": {
-        "ko": "크리스티안이 추석에 수진이네 부모님을 뵙기 전에 예절을 물어봐요.",
-        "de": "Christian fragt Sujin vor dem Chuseok-Besuch bei ihren Eltern, wie er sich höflich verhält.",
-        "en": "Before visiting Sujin's parents at Chuseok, Christian asks about manners."
+        "ko": "크리스티안이 추석에 수진이네 부모님을 뵙기 전에 첫 인사와 작은 선물을 물어봐요.",
+        "de": "Vor dem Chuseok-Besuch bei Sujins Eltern fragt Christian, wie er sie begrüßen und welches kleine Geschenk er mitbringen könnte.",
+        "en": "Before visiting Sujin's parents at Chuseok, Christian asks how to greet them and what small gift he could bring."
       },
       "contentIds": [
         "a2_w10_partner"
@@ -8090,19 +8090,19 @@
             "en": "Which situation matches the whole conversation?"
           },
           "explanation": {
-            "ko": "“수진아, 나 좀 떨려. 추석인데 부모님께 뭐라고 인사해야 돼?”라는 말이 근거예요. 상황은 “크리스티안이 추석에 수진이네 부모님을 뵙기 전에 예절을 물어봐요.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
-            "de": "Ein Beleg ist „수진아, 나 좀 떨려. 추석인데 부모님께 뭐라고 인사해야 돼?“ (Sujin, ich bin etwas nervös. Es ist Chuseok. Was soll ich zu deinen Eltern sagen, wenn ich sie begrüße?). Dazu passt: Christian fragt Sujin vor dem Chuseok-Besuch bei ihren Eltern, wie er sich höflich verhält. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
-            "en": "One supporting line is “수진아, 나 좀 떨려. 추석인데 부모님께 뭐라고 인사해야 돼?” (Sujin, I'm a bit nervous. It's Chuseok. What should I say when I greet your parents?). The matching situation is: Before visiting Sujin's parents at Chuseok, Christian asks about manners. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
+            "ko": "“수진아, 나 좀 떨려. 추석이라 부모님께 뭐라고 인사하면 좋을까?”라는 말이 근거예요. 상황은 “크리스티안이 추석에 수진이네 부모님을 뵙기 전에 첫 인사와 작은 선물을 물어봐요.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
+            "de": "Ein Beleg ist „수진아, 나 좀 떨려. 추석이라 부모님께 뭐라고 인사하면 좋을까?“ (Sujin, ich bin etwas nervös. Weil Chuseok ist: Was könnte ich zu deinen Eltern zur Begrüßung sagen?). Dazu passt: Vor dem Chuseok-Besuch bei Sujins Eltern fragt Christian, wie er sie begrüßen und welches kleine Geschenk er mitbringen könnte. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
+            "en": "One supporting line is “수진아, 나 좀 떨려. 추석이라 부모님께 뭐라고 인사하면 좋을까?” (Sujin, I'm a little nervous. Since it's Chuseok, what would be good to say when I greet your parents?). The matching situation is: Before visiting Sujin's parents at Chuseok, Christian asks how to greet them and what small gift he could bring. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
           },
           "sourceIds": [
             "a2_w10_partner"
           ],
-          "evidenceKo": "수진아, 나 좀 떨려. 추석인데 부모님께 뭐라고 인사해야 돼?",
+          "evidenceKo": "수진아, 나 좀 떨려. 추석이라 부모님께 뭐라고 인사하면 좋을까?",
           "options": [
             {
-              "ko": "크리스티안이 추석에 수진이네 부모님을 뵙기 전에 예절을 물어봐요.",
-              "de": "Christian fragt Sujin vor dem Chuseok-Besuch bei ihren Eltern, wie er sich höflich verhält.",
-              "en": "Before visiting Sujin's parents at Chuseok, Christian asks about manners."
+              "ko": "크리스티안이 추석에 수진이네 부모님을 뵙기 전에 첫 인사와 작은 선물을 물어봐요.",
+              "de": "Vor dem Chuseok-Besuch bei Sujins Eltern fragt Christian, wie er sie begrüßen und welches kleine Geschenk er mitbringen könnte.",
+              "en": "Before visiting Sujin's parents at Chuseok, Christian asks how to greet them and what small gift he could bring."
             },
             {
               "ko": "추석 방문이 끝난 뒤 선물을 환불받으려 해요.",
@@ -8127,30 +8127,30 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “맞아. 어른 앞에서는 반말도 하면 안 돼.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „맞아. 어른 앞에서는 반말도 하면 안 돼.“: Genau. Vor Älteren solltest du außerdem nicht informell sprechen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “맞아. 어른 앞에서는 반말도 하면 안 돼.”: Right. You also shouldn't use casual speech in front of the elders. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “응, 우리 부모님도 작은 선물 좋아하세요. 반말은 피하고 존댓말로 인사해.”예요. 수진이 자기 부모님의 선호와 첫 인사에 맞는 말투를 알려 주고 있어요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „응, 우리 부모님도 작은 선물 좋아하세요. 반말은 피하고 존댓말로 인사해.“: Ja, meine Eltern mögen auch kleine Geschenke. Begrüß sie lieber in der Höflichkeitsform. Sujin beschreibt die Vorlieben ihrer Eltern und eine passende Anrede für das erste Treffen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “응, 우리 부모님도 작은 선물 좋아하세요. 반말은 피하고 존댓말로 인사해.”: Yes, my parents like small gifts too. Better greet them in polite speech. Sujin is describing her parents’ preferences and a suitable register for the first meeting. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "a2_w10_partner"
           ],
-          "evidenceKo": "맞아. 어른 앞에서는 반말도 하면 안 돼.",
-          "audioKo": "맞아. 어른 앞에서는 반말도 하면 안 돼.",
+          "evidenceKo": "응, 우리 부모님도 작은 선물 좋아하세요. 반말은 피하고 존댓말로 인사해.",
+          "audioKo": "응, 우리 부모님도 작은 선물 좋아하세요. 반말은 피하고 존댓말로 인사해.",
           "options": [
             {
-              "ko": "맞아. 어른 앞에서는 반말도 하면 안 돼.",
-              "de": "Genau. Vor Älteren solltest du außerdem nicht informell sprechen.",
-              "en": "Right. You also shouldn't use casual speech in front of the elders."
+              "ko": "응, 우리 부모님도 작은 선물 좋아하세요. 반말은 피하고 존댓말로 인사해.",
+              "de": "Ja, meine Eltern mögen auch kleine Geschenke. Begrüß sie lieber in der Höflichkeitsform.",
+              "en": "Yes, my parents like small gifts too. Better greet them in polite speech."
             },
             {
-              "ko": "아, 두 손으로. 알겠어. 그럼 빈손으로 가면 안 되는 거지?",
-              "de": "Ah, mit beiden Händen. Verstanden. Man darf also nicht mit leeren Händen kommen, oder?",
-              "en": "Ah, with both hands. Got it. So I can't come empty-handed, right?"
+              "ko": "아, 두 손으로. 알겠어. 그럼 작은 선물을 준비하면 좋겠지?",
+              "de": "Ah, mit beiden Händen. Verstanden. Dann wäre ein kleines Geschenk eine gute Idee, oder?",
+              "en": "Ah, with both hands. Got it. Then a small gift would be a good idea, right?"
             },
             {
-              "ko": "응, 좋아. 근데 한 손으로 드리지 말고 두 손으로 드려.",
-              "de": "Ja, gut. Aber gib es nicht mit einer Hand, sondern mit beiden Händen.",
-              "en": "Yes, good. But don't give it with one hand, give it with both hands."
+              "ko": "응, 좋아. 두 손으로 드리면 더 정중해 보여.",
+              "de": "Ja, gut. Mit beiden Händen wirkt es noch höflicher.",
+              "en": "Yeah, that works. Offering it with both hands comes across as more polite."
             }
           ],
           "correctIndex": 0
@@ -8161,50 +8161,50 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Alles klar. Dann spreche ich nur höflich.",
-            "en": "Put the words in the same order as the recording. Meaning: Got it. I'll make sure to speak politely."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Alles klar. Ich begrüße sie in der Höflichkeitsform.",
+            "en": "Put the words in the same order as the recording. Meaning: Got it. I'll greet them in polite speech."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “알았어. 존댓말로만 말할게.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „알았어. 존댓말로만 말할게.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “알았어. 존댓말로만 말할게.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “알았어. 존댓말로 인사할게.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „알았어. 존댓말로 인사할게.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “알았어. 존댓말로 인사할게.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "a2_w10_partner"
           ],
-          "evidenceKo": "알았어. 존댓말로만 말할게.",
-          "audioKo": "알았어. 존댓말로만 말할게.",
-          "targetKo": "알았어. 존댓말로만 말할게."
+          "evidenceKo": "알았어. 존댓말로 인사할게.",
+          "audioKo": "알았어. 존댓말로 인사할게.",
+          "targetKo": "알았어. 존댓말로 인사할게."
         },
         {
           "id": "listening.a2.a2_w10_partner.response",
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "상대의 말: “맞아. 어른 앞에서는 반말도 하면 안 돼.” 과제: 어른 앞에서는 존댓말을 쓰겠다고 답하세요. 이 목적에 맞는 응답을 고르세요.",
-            "de": "Dein Gegenüber sagt: „맞아. 어른 앞에서는 반말도 하면 안 돼.“ (Genau. Vor Älteren solltest du außerdem nicht informell sprechen.). Aufgabe: Sage, dass du vor den Älteren höfliche Sprache verwenden wirst. Welche Antwort erfüllt dieses Ziel?",
-            "en": "The other person says: “맞아. 어른 앞에서는 반말도 하면 안 돼.” (Right. You also shouldn't use casual speech in front of the elders.). Task: Say you will use polite speech with the elders. Which response fulfills this goal?"
+            "ko": "상대의 말: “응, 우리 부모님도 작은 선물 좋아하세요. 반말은 피하고 존댓말로 인사해.” 과제: 수진의 부모님께 존댓말로 인사하겠다고 답하세요. 이 목적에 맞는 응답을 고르세요.",
+            "de": "Dein Gegenüber sagt: „응, 우리 부모님도 작은 선물 좋아하세요. 반말은 피하고 존댓말로 인사해.“ (Ja, meine Eltern mögen auch kleine Geschenke. Begrüß sie lieber in der Höflichkeitsform.). Aufgabe: Sage, dass du Sujins Eltern in der Höflichkeitsform begrüßen wirst. Welche Antwort erfüllt dieses Ziel?",
+            "en": "The other person says: “응, 우리 부모님도 작은 선물 좋아하세요. 반말은 피하고 존댓말로 인사해.” (Yes, my parents like small gifts too. Better greet them in polite speech.). Task: Say that you will greet Sujin’s parents in polite speech. Which response fulfills this goal?"
           },
           "explanation": {
-            "ko": "과제의 목적은 “어른 앞에서는 존댓말을 쓰겠다고 답하세요.”예요. 원문 응답 “알았어. 존댓말로만 말할게.”가 이 목적을 이뤄요. “알았어. 어른 앞에서도 반말할게.”와 “존댓말은 안 쓰고 선물만 줄게.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
-            "de": "Das Ziel lautet: Sage, dass du vor den Älteren höfliche Sprache verwenden wirst. Die Quelläußerung „알았어. 존댓말로만 말할게.“ (Alles klar. Dann spreche ich nur höflich.) erfüllt es. „Verstanden, auch vor den Älteren spreche ich informell.“ und „Ich lasse höfliche Sprache weg und gebe nur das Geschenk.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
-            "en": "The goal is: Say you will use polite speech with the elders. The source response “알았어. 존댓말로만 말할게.” (Got it. I'll make sure to speak politely.) fulfills it. “Okay, I will use informal speech with the elders too.” and “I will skip polite speech and just give the gift.” change a requested action, fact, or condition. Such replies may be valid in other situations."
+            "ko": "과제의 목적은 “수진의 부모님께 존댓말로 인사하겠다고 답하세요.”예요. 원문 응답 “알았어. 존댓말로 인사할게.”가 이 목적을 이뤄요. 다른 선택지는 수진 부모님의 선호나 요청한 말투를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
+            "de": "Das Ziel lautet: Sage, dass du Sujins Eltern in der Höflichkeitsform begrüßen wirst. Die Quelläußerung „알았어. 존댓말로 인사할게.“ (Alles klar. Ich begrüße sie in der Höflichkeitsform.) erfüllt es. Die anderen Optionen verändern die Vorlieben von Sujins Eltern oder die verlangte Anrede. In anderen Situationen können solche Antworten durchaus passen.",
+            "en": "The goal is: Say that you will greet Sujin’s parents in polite speech. The source response “알았어. 존댓말로 인사할게.” (Got it. I’ll greet them in polite speech.) fulfills it. The other options change Sujin’s parents’ preferences or the requested register. Such replies may be valid in other situations."
           },
           "sourceIds": [
             "a2_w10_partner"
           ],
-          "evidenceKo": "알았어. 존댓말로만 말할게.",
-          "audioKo": "맞아. 어른 앞에서는 반말도 하면 안 돼.",
+          "evidenceKo": "알았어. 존댓말로 인사할게.",
+          "audioKo": "응, 우리 부모님도 작은 선물 좋아하세요. 반말은 피하고 존댓말로 인사해.",
           "options": [
             {
-              "ko": "알았어. 존댓말로만 말할게.",
-              "de": "Alles klar. Dann spreche ich nur höflich.",
-              "en": "Got it. I'll make sure to speak politely."
+              "ko": "알았어. 존댓말로 인사할게.",
+              "de": "Alles klar. Ich begrüße sie in der Höflichkeitsform.",
+              "en": "Got it. I'll greet them in polite speech."
             },
             {
-              "ko": "알았어. 어른 앞에서도 반말할게.",
-              "de": "Verstanden, auch vor den Älteren spreche ich informell.",
-              "en": "Okay, I will use informal speech with the elders too."
+              "ko": "알았어. 부모님 앞에서도 반말할게.",
+              "de": "Verstanden, auch vor deinen Eltern spreche ich informell.",
+              "en": "Okay, I'll use casual speech with your parents too."
             },
             {
               "ko": "존댓말은 안 쓰고 선물만 줄게.",

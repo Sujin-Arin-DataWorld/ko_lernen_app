@@ -36560,7 +36560,7 @@
       "learning_phases.json"
     ],
     "ttsBoundary": "Storage keys are complete; individual clip listening and device playback are not claimed.",
-    "scenarioPersonaReview": "A1: 29 live scenarios directly reviewed and two scenes revised against PR #438. A2-C2: 149 live scenarios remain."
+    "scenarioPersonaReview": "A1: 29 and A2: 28 live scenarios directly reviewed. B1-C2: 121 live scenarios remain."
   },
   "scenarioPersonaReviewProgress": {
     "reviewReference": "GitHub PR #438 merged as 797160b0664172b2956be0e202bb5df9b246b65c",
@@ -36628,6 +36628,80 @@
           "missingObjects": 0,
           "staleObjects": 8929,
           "humanListeningClaim": false
+        }
+      },
+      {
+        "level": "A2",
+        "status": "directly_reviewed",
+        "scenarioCount": 28,
+        "scenarioIds": [
+          "clothing_refund_size",
+          "convenience_parcel_pickup",
+          "delivery_dinner_spicy",
+          "email_attachment_twice",
+          "favorite_drama_chat",
+          "forgot_house_key",
+          "forgot_presentation_cable",
+          "friend_cancelled_plan",
+          "group_chat_photo_permission",
+          "gym_class_cancel",
+          "jeju_bus_missed",
+          "library_card_problem",
+          "package_wrong_door",
+          "pharmacy_cold_medicine",
+          "plans_with_friend",
+          "running_late",
+          "samgyeopsal_first_time",
+          "taxi_slow_down",
+          "train_seat_swap",
+          "a2_theme_park_date_break",
+          "a2_w10_money",
+          "a2_w10_buy",
+          "a2_w10_apt",
+          "a2_w10_partner",
+          "a2_w10_enrolment",
+          "a2_w10_booking",
+          "a2_w10_friends",
+          "a2_w10_fandom"
+        ],
+        "reviewedFields": [
+          "Korean dialogue and tone",
+          "German and English localization",
+          "speaker relationship and register",
+          "vocabulary extraction",
+          "listening/translation/sentence-building answer alignment",
+          "linked listening-lesson prompt, evidence, answer, and explanation",
+          "institutional or building-specific claims"
+        ],
+        "findingsApplied": [
+          {
+            "scenarioId": "a2_theme_park_date_break",
+            "decision": "The dialogue now refers to a person wearing a mascot costume rather than reducing them to a temporary job; Korean, German, English, and the translation quest match."
+          },
+          {
+            "scenarioId": "a2_w10_money",
+            "decision": "The clerk checks required documents and debit-card eligibility instead of guaranteeing a fixed document list or delivery time. The vocabulary, scene quests, linked listening evidence, and response exercise match the conditional process."
+          },
+          {
+            "scenarioId": "a2_w10_apt",
+            "decision": "The recycling timetable is explicitly this building’s rule. Two stale scene-quest targets were corrected, and the linked listening meaning and response exercises now cite the same source line."
+          },
+          {
+            "scenarioId": "a2_w10_partner",
+            "decision": "Sujin describes her own parents’ preference for a small gift and polite greeting rather than prescribing universal Chuseok rules. Christian asks, chooses, and confirms; all scene and listening exercises use the revised turns."
+          }
+        ],
+        "retained": "The other 24 A2 scenes keep their current wording because their speaker goal, relationship, register, and KO-DE-EN meaning are appropriate to A2.",
+        "notClaimed": "This is a direct editorial read, not independent native-speaker approval or individual audio listening.",
+        "tts": {
+          "canonicalManifestRebuilt": true,
+          "newStorageObjectsUploaded": 17,
+          "expectedCanonicalClips": 12919,
+          "remoteObjects": 21865,
+          "missingObjects": 0,
+          "staleObjects": 8946,
+          "humanListeningClaim": false,
+          "firstLineManifestRebuilt": true
         }
       }
     ]

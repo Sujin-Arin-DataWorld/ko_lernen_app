@@ -4048,9 +4048,9 @@
         },
         {
           "speaker": "user",
-          "ko": "좋아. 그런데 저 인형탈 알바생은 더워서 힘들 것 같아.",
-          "de": "Gern. Aber der Mensch im Maskottchenkostüm hat es bei der Hitze bestimmt schwer.",
-          "en": "Sure. But the worker in that mascot costume must be struggling in this heat."
+          "ko": "좋아. 그런데 저 인형탈 쓴 분은 더워서 힘들 것 같아.",
+          "de": "Gern. Aber die Person im Maskottchenkostüm hat es bei der Hitze bestimmt schwer.",
+          "en": "Sure. But the person in that mascot costume must be struggling in this heat."
         },
         {
           "speaker": "christian",
@@ -4102,20 +4102,20 @@
             "concept_a2_relationships"
           ],
           "data": {
-            "promptDe": "Der Mensch im Maskottchenkostüm hat es bei der Hitze bestimmt schwer.",
-            "promptEn": "The worker in that mascot costume must be struggling in this heat.",
+            "promptDe": "Die Person im Maskottchenkostüm hat es bei der Hitze bestimmt schwer.",
+            "promptEn": "The person in that mascot costume must be struggling in this heat.",
             "options": [
               {
-                "ko": "저 인형탈 알바생은 더워서 힘들 것 같아."
+                "ko": "저 인형탈 쓴 분은 더워서 힘들 것 같아."
               },
               {
-                "ko": "저 인형탈 알바생은 지금 쉬고 있어."
+                "ko": "저 인형탈 쓴 분은 지금 쉬고 있어."
               },
               {
-                "ko": "저 인형탈 알바생은 춥다고 했어."
+                "ko": "저 인형탈 쓴 분은 춥다고 했어."
               },
               {
-                "ko": "저 인형탈 알바생은 사진을 싫어해."
+                "ko": "저 인형탈 쓴 분은 사진을 싫어해."
               }
             ],
             "correctIndex": 0
@@ -4218,11 +4218,11 @@
           }
         },
         {
-          "korean": "외국인등록증",
+          "korean": "필요한 서류",
           "note": {
-            "ko": "한국에 사는 외국인의 신분증",
-            "de": "die Ausländerkarte",
-            "en": "alien registration card"
+            "ko": "업무에 따라 확인하거나 제출해야 하는 서류",
+            "de": "die erforderlichen Unterlagen",
+            "en": "required documents"
           }
         },
         {
@@ -4242,11 +4242,11 @@
           }
         },
         {
-          "korean": "신청하시겠어요?",
+          "korean": "신청할 수 있는지 확인해 볼까요?",
           "note": {
-            "ko": "무엇을 하고 싶은지 정중히 묻는 말",
-            "de": "Möchten Sie beantragen?",
-            "en": "would you like to apply?"
+            "ko": "신청 가능 여부를 함께 확인하자는 정중한 제안",
+            "de": "Sollen wir prüfen, ob Sie es beantragen können?",
+            "en": "Shall we check whether you can apply for it?"
           }
         },
         {
@@ -4289,9 +4289,9 @@
         },
         {
           "speaker": "clerk",
-          "ko": "여권하고 외국인등록증 좀 보여 주세요.",
-          "de": "Zeigen Sie mir bitte Ihren Pass und Ihre Ausländerregistrierungskarte.",
-          "en": "Please show me your passport and foreign resident registration card."
+          "ko": "여권하고 필요한 서류를 먼저 확인할게요.",
+          "de": "Ich prüfe zuerst Ihren Pass und die erforderlichen Unterlagen.",
+          "en": "I'll check your passport and the required documents first."
         },
         {
           "speaker": "user",
@@ -4301,9 +4301,9 @@
         },
         {
           "speaker": "clerk",
-          "ko": "휴대폰 번호도 필요해요.",
-          "de": "Ich brauche auch Ihre Handynummer.",
-          "en": "I also need your phone number."
+          "ko": "휴대폰 번호도 확인할게요.",
+          "de": "Ich prüfe auch Ihre Handynummer.",
+          "en": "I'll check your phone number too."
         },
         {
           "speaker": "user",
@@ -4313,21 +4313,21 @@
         },
         {
           "speaker": "clerk",
-          "ko": "체크카드도 신청하시겠어요?",
-          "de": "Möchten Sie auch eine Debitkarte beantragen?",
-          "en": "Would you like to apply for a debit card too?"
+          "ko": "체크카드도 신청할 수 있는지 확인해 볼까요?",
+          "de": "Sollen wir auch prüfen, ob Sie eine Debitkarte beantragen können?",
+          "en": "Shall we check whether you can apply for a debit card too?"
         },
         {
           "speaker": "user",
-          "ko": "네, 체크카드도 만들고 싶어요.",
+          "ko": "네, 체크카드도 신청하고 싶어요.",
           "de": "Ja, ich möchte auch eine Debitkarte beantragen.",
-          "en": "Yes, I'd like to get a debit card too."
+          "en": "Yes, I'd like to apply for a debit card too."
         },
         {
           "speaker": "clerk",
-          "ko": "그럼 카드는 일주일 후에 집으로 보내 드릴게요.",
-          "de": "Dann schicke ich Ihnen die Karte in einer Woche nach Hause.",
-          "en": "Then I'll send the card to your home in a week."
+          "ko": "신청하실 수 있으면 카드 받는 방법을 안내해 드릴게요.",
+          "de": "Wenn Sie die Karte beantragen können, erkläre ich Ihnen, wie Sie sie erhalten.",
+          "en": "If you can apply for one, I'll explain how you can receive it."
         }
       ],
       "quests": [
@@ -4338,23 +4338,23 @@
             "concept_a2_home_money"
           ],
           "data": {
-            "audioKo": "휴대폰 번호도 필요해요.",
+            "audioKo": "휴대폰 번호도 확인할게요.",
             "options": [
               {
-                "de": "Ich brauche auch Ihre Handynummer.",
-                "en": "I also need your phone number."
+                "de": "Ich prüfe auch Ihre Handynummer.",
+                "en": "I'll check your phone number too."
               },
               {
-                "de": "Zeigen Sie mir bitte Ihren Pass und Ihre Ausländerkarte.",
-                "en": "Please show me your passport and alien registration card."
+                "de": "Ich prüfe zuerst Ihren Pass und die erforderlichen Unterlagen.",
+                "en": "I'll check your passport and the required documents first."
               },
               {
-                "de": "Möchten Sie auch eine Debitkarte beantragen?",
-                "en": "Would you like to apply for a debit card too?"
+                "de": "Sollen wir auch prüfen, ob Sie eine Debitkarte beantragen können?",
+                "en": "Shall we check whether you can apply for a debit card too?"
               },
               {
-                "de": "Dann kommt die Karte in einer Woche nach Hause.",
-                "en": "Then the card will arrive at your home in a week."
+                "de": "Wenn Sie die Karte beantragen können, erkläre ich Ihnen, wie Sie sie erhalten.",
+                "en": "If you can apply for one, I'll explain how you can receive it."
               }
             ],
             "correctIndex": 0
@@ -4777,9 +4777,9 @@
         },
         {
           "speaker": "neighbor",
-          "ko": "월요일하고 목요일에 하시면 돼요.",
-          "de": "Montags und donnerstags.",
-          "en": "Mondays and Thursdays."
+          "ko": "이 건물은 월요일하고 목요일에 하시면 돼요.",
+          "de": "In diesem Gebäude können Sie das montags und donnerstags machen.",
+          "en": "In this building, you can do it on Mondays and Thursdays."
         },
         {
           "speaker": "user",
@@ -4814,11 +4814,11 @@
             "concept_a2_services"
           ],
           "data": {
-            "audioKo": "월요일하고 목요일에 하시면 돼요.",
+            "audioKo": "이 건물은 월요일하고 목요일에 하시면 돼요.",
             "options": [
               {
-                "de": "Montags und donnerstags können Sie es machen.",
-                "en": "You can do it on Mondays and Thursdays."
+                "de": "In diesem Gebäude können Sie das montags und donnerstags machen.",
+                "en": "In this building, you can do it on Mondays and Thursdays."
               },
               {
                 "de": "Wollen Sie gerade den Müll trennen?",
@@ -4843,11 +4843,11 @@
             "concept_a2_services"
           ],
           "data": {
-            "promptDe": "Ja. An welchem Tag macht man die Mülltrennung?",
-            "promptEn": "Yes. What day do you do the recycling?",
+            "promptDe": "Ja. An welchen Tagen kann ich den Recyclingmüll rausbringen?",
+            "promptEn": "Yes. Which days can I take out the recycling?",
             "options": [
               {
-                "ko": "네. 분리수거는 무슨 요일에 해요?"
+                "ko": "네. 분리수거는 무슨 요일에 하면 돼요?"
               },
               {
                 "ko": "네. 쓰레기는 무슨 요일에 해요?"
@@ -4869,9 +4869,9 @@
             "concept_a2_services"
           ],
           "data": {
-            "targetKo": "감사해요. 모르는 게 있으면 또 여쭤볼게요.",
-            "promptDe": "Danke. Wenn ich etwas nicht weiß, frage ich noch mal.",
-            "promptEn": "Thank you. If there's something I don't know, I'll ask again.",
+            "targetKo": "감사해요. 궁금한 게 있으면 또 여쭤볼게요.",
+            "promptDe": "Danke. Wenn ich noch Fragen habe, frage ich Sie noch einmal.",
+            "promptEn": "Thank you. I'll ask again if I have any more questions.",
             "distractors": [
               "구석에",
               "월요일에"
@@ -4894,7 +4894,7 @@
       "register": "intimate",
       "speechStyle": "intimate",
       "relationshipContext": "romantic_partner",
-      "intent": "learn_chuseok_greeting_manners",
+      "intent": "ask_sujin_about_a_greeting_and_small_gift_for_her_parents",
       "courseUnitId": "a2_03_chat_relationships",
       "conceptIds": [
         "concept_a2_relationships"
@@ -4913,9 +4913,9 @@
         "en": "Before greeting the family at Chuseok"
       },
       "intro": {
-        "ko": "크리스티안이 추석에 수진이네 부모님을 뵙기 전에 예절을 물어봐요.",
-        "de": "Christian fragt Sujin vor dem Chuseok-Besuch bei ihren Eltern, wie er sich höflich verhält.",
-        "en": "Before visiting Sujin's parents at Chuseok, Christian asks about manners."
+        "ko": "크리스티안이 추석에 수진이네 부모님을 뵙기 전에 첫 인사와 작은 선물을 물어봐요.",
+        "de": "Vor dem Chuseok-Besuch bei Sujins Eltern fragt Christian, wie er sie begrüßen und welches kleine Geschenk er mitbringen könnte.",
+        "en": "Before visiting Sujin's parents at Chuseok, Christian asks how to greet them and what small gift he could bring."
       },
       "vocab": [
         {
@@ -4943,11 +4943,11 @@
           }
         },
         {
-          "korean": "인사하면 돼",
+          "korean": "인사하면 자연스러워",
           "note": {
-            "ko": "그렇게 인사하면 된다는 말",
-            "de": "so kann man grüßen",
-            "en": "that's how you can greet them"
+            "ko": "그렇게 인사하면 자연스럽다는 말",
+            "de": "so klingt die Begrüßung natürlich",
+            "en": "that greeting sounds natural"
           }
         },
         {
@@ -5002,15 +5002,15 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "수진아, 나 좀 떨려. 추석인데 부모님께 뭐라고 인사해야 돼?",
-          "de": "Sujin, ich bin etwas nervös. Es ist Chuseok. Was soll ich zu deinen Eltern sagen, wenn ich sie begrüße?",
-          "en": "Sujin, I'm a bit nervous. It's Chuseok. What should I say when I greet your parents?"
+          "ko": "수진아, 나 좀 떨려. 추석이라 부모님께 뭐라고 인사하면 좋을까?",
+          "de": "Sujin, ich bin etwas nervös. Weil Chuseok ist: Was könnte ich zu deinen Eltern zur Begrüßung sagen?",
+          "en": "Sujin, I'm a little nervous. Since it's Chuseok, what would be good to say when I greet your parents?"
         },
         {
           "speaker": "sujin",
-          "ko": "'안녕하세요, 추석 잘 보내세요.' 하고 웃으면서 인사하면 돼.",
-          "de": "Sag einfach: „Hallo, ich wünsche Ihnen ein schönes Chuseok“, und lächle dabei.",
-          "en": "Just say, \"Hello, I hope you have a nice Chuseok,\" and smile."
+          "ko": "'안녕하세요, 추석 잘 보내세요.' 하고 인사하면 자연스러워.",
+          "de": "„안녕하세요, 추석 잘 보내세요.“ wäre eine natürliche Begrüßung.",
+          "en": "“안녕하세요, 추석 잘 보내세요.” would be a natural greeting."
         },
         {
           "speaker": "user",
@@ -5020,27 +5020,27 @@
         },
         {
           "speaker": "sujin",
-          "ko": "응, 좋아. 근데 한 손으로 드리지 말고 두 손으로 드려.",
-          "de": "Ja, gut. Aber gib es nicht mit einer Hand, sondern mit beiden Händen.",
-          "en": "Yes, good. But don't give it with one hand, give it with both hands."
+          "ko": "응, 좋아. 두 손으로 드리면 더 정중해 보여.",
+          "de": "Ja, gut. Mit beiden Händen wirkt es noch höflicher.",
+          "en": "Yeah, that works. Offering it with both hands comes across as more polite."
         },
         {
           "speaker": "user",
-          "ko": "아, 두 손으로. 알겠어. 그럼 빈손으로 가면 안 되는 거지?",
-          "de": "Ah, mit beiden Händen. Verstanden. Man darf also nicht mit leeren Händen kommen, oder?",
-          "en": "Ah, with both hands. Got it. So I can't come empty-handed, right?"
+          "ko": "아, 두 손으로. 알겠어. 그럼 작은 선물을 준비하면 좋겠지?",
+          "de": "Ah, mit beiden Händen. Verstanden. Dann wäre ein kleines Geschenk eine gute Idee, oder?",
+          "en": "Ah, with both hands. Got it. Then a small gift would be a good idea, right?"
         },
         {
           "speaker": "sujin",
-          "ko": "맞아. 어른 앞에서는 반말도 하면 안 돼.",
-          "de": "Genau. Vor Älteren solltest du außerdem nicht informell sprechen.",
-          "en": "Right. You also shouldn't use casual speech in front of the elders."
+          "ko": "응, 우리 부모님도 작은 선물 좋아하세요. 반말은 피하고 존댓말로 인사해.",
+          "de": "Ja, meine Eltern mögen auch kleine Geschenke. Begrüß sie lieber in der Höflichkeitsform.",
+          "en": "Yes, my parents like small gifts too. Better greet them in polite speech."
         },
         {
           "speaker": "user",
-          "ko": "알았어. 존댓말로만 말할게.",
-          "de": "Alles klar. Dann spreche ich nur höflich.",
-          "en": "Got it. I'll make sure to speak politely."
+          "ko": "알았어. 존댓말로 인사할게.",
+          "de": "Alles klar. Ich begrüße sie in der Höflichkeitsform.",
+          "en": "Got it. I'll greet them in polite speech."
         },
         {
           "speaker": "sujin",
@@ -5057,19 +5057,19 @@
             "concept_a2_relationships"
           ],
           "data": {
-            "audioKo": "맞아. 어른 앞에서는 반말도 하면 안 돼.",
+            "audioKo": "응, 우리 부모님도 작은 선물 좋아하세요. 반말은 피하고 존댓말로 인사해.",
             "options": [
               {
                 "de": "Kann ich ihnen dieses Geschenk geben?",
                 "en": "Can I give them this gift?"
               },
               {
-                "de": "Genau. Vor den Älteren darfst du auch nicht Banmal sprechen.",
-                "en": "Right. You also shouldn't use casual speech in front of the elders."
+                "de": "Ja, meine Eltern mögen auch kleine Geschenke. Begrüß sie lieber in der Höflichkeitsform.",
+                "en": "Yes, my parents like small gifts too. Better greet them in polite speech."
               },
               {
-                "de": "Verstanden. Ich spreche nur in der Höflichkeitsform.",
-                "en": "Got it. I'll only speak politely."
+                "de": "Ja, gut. Mit beiden Händen wirkt es noch höflicher.",
+                "en": "Yeah, that works. Offering it with both hands comes across as more polite."
               },
               {
                 "de": "Du machst das gut. Lass uns reingehen.",
@@ -5086,20 +5086,20 @@
             "concept_a2_relationships"
           ],
           "data": {
-            "promptDe": "Ah, mit beiden Händen. Verstanden. Man darf also nicht mit leeren Händen kommen, oder?",
-            "promptEn": "Ah, with both hands. Got it. So I can't come empty-handed, right?",
+            "promptDe": "Ah, mit beiden Händen. Verstanden. Dann wäre ein kleines Geschenk eine gute Idee, oder?",
+            "promptEn": "Ah, with both hands. Got it. Then a small gift would be a good idea, right?",
             "options": [
               {
-                "ko": "아, 두 손으로. 알겠어. 그럼 빈손으로 가면 안 되는 거지?"
+                "ko": "아, 두 손으로. 알겠어. 그럼 작은 선물을 준비하면 좋겠지?"
               },
               {
-                "ko": "아, 두 손으로. 알겠어. 그럼 늦게 가면 안 되는 거지?"
+                "ko": "아, 두 손으로. 알겠어. 그럼 선물은 안 준비해도 되겠지?"
               },
               {
-                "ko": "아, 두 손으로. 알겠어. 그럼 혼자 가면 안 되는 거지?"
+                "ko": "아, 두 손으로. 알겠어. 그럼 반말로 인사하면 좋겠지?"
               },
               {
-                "ko": "아, 두 손으로. 알겠어. 그럼 차 없이 가면 안 되는 거지?"
+                "ko": "아, 두 손으로. 알겠어. 그럼 부모님께 인사 안 해도 되겠지?"
               }
             ],
             "correctIndex": 0
@@ -5112,9 +5112,9 @@
             "concept_a2_relationships"
           ],
           "data": {
-            "targetKo": "알았어. 존댓말로만 말할게.",
-            "promptDe": "Verstanden. Ich spreche nur in der Höflichkeitsform.",
-            "promptEn": "Got it. I'll only speak politely.",
+            "targetKo": "알았어. 존댓말로 인사할게.",
+            "promptDe": "Alles klar. Ich begrüße sie in der Höflichkeitsform.",
+            "promptEn": "Got it. I'll greet them in polite speech.",
             "distractors": [
               "반말로만",
               "인사만"
