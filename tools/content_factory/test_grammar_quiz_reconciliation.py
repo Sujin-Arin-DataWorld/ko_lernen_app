@@ -46,6 +46,21 @@ class GrammarQuizReconciliationTest(unittest.TestCase):
 
     def test_semantic_alternatives_are_not_graded_as_wrong(self):
         forbidden = {
+            # A learner-language sentence cannot distinguish synonymous
+            # nominalizers or speech levels without a Korean form prompt.
+            "grammar_b1_nominalization": {"grammar_b1_nominalizer_gi"},
+            "grammar_b1_nominalizer_gi": {"grammar_b1_nominalization"},
+            "grammar_b1_self_prompt": {"grammar_b1_self_should"},
+            "grammar_b2_indirect_speech": {"grammar_b2_quoted_contractions"},
+            "grammar_a1_topic_contrast": {"grammar_a1_topic_particle"},
+            "grammar_a1_subject_new": {"grammar_a1_subject_particle"},
+            "grammar_a1_formal_statement": {"grammar_a1_polite_present"},
+            "grammar_a1_formal_question": {
+                "grammar_a1_service_location_question", "grammar_a1_copula_polite",
+            },
+            "grammar_a1_formal_command": {
+                "grammar_a1_polite_request", "grammar_a1_service_request",
+            },
             "grammar_a2_permission_check_batch20": {"grammar_a2_permission"},
             "grammar_b1_conceded_context_batch20": {"grammar_b1_concede_but"},
             "grammar_b2_instead_supplement": {"grammar_b2_instead_tradeoff"},

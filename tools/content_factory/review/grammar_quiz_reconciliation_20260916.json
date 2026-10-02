@@ -34,7 +34,7 @@
       ],
       "beforeSha256": "10b449ace488bc21a75abaaf1b7cc3346a1ed4909825cefffd15ea1fabcbd80b",
       "priorLiveSha256": "e0cf376c91e87bac731c3e86180f1f464456a933caad37138fef69ccb8aaaf9c",
-      "afterSha256": "faf16e9337cf93bc5c033e3226b8e4525463d75155d8ba7bead7737cdc1e9557",
+      "afterSha256": "6fe0f26d4aa7d802fd6862fe8010cccb3c620a4f564c106679b60ad5205344bc",
       "currentCorrectionFields": [
         "quiz_distractor_ids"
       ],
@@ -63,6 +63,15 @@
           "id": "grammar_b2_impression_appearance",
           "pattern": "A/V-(으)ㄴ/는 듯하다",
           "rationaleKo": "불확실한 인상은 포함 조건에 따른 비교 단정과 다르다."
+        }
+      ],
+      "subsequentCopyRevisions": [
+        {
+          "date": "2026-10-02",
+          "previousAfterSha256": "faf16e9337cf93bc5c033e3226b8e4525463d75155d8ba7bead7737cdc1e9557",
+          "afterSha256": "6fe0f26d4aa7d802fd6862fe8010cccb3c620a4f564c106679b60ad5205344bc",
+          "reviewEvidence": "docs/content_qa/direct_editorial_audit_20261002.json",
+          "reason": "Corrected the German note; historical draft and original quiz reconciliation remain intact."
         }
       ]
     },

@@ -27414,7 +27414,7 @@
           },
           "explanation": {
             "ko": "들은 말은 “이 커뮤니티 규정에 따르면 장르나 팬덤 규모를 불문하고 타인의 창작물을 허락 없이 상업적으로 이용하면 계정 정지를 검토합니다.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „이 커뮤니티 규정에 따르면 장르나 팬덤 규모를 불문하고 타인의 창작물을 허락 없이 상업적으로 이용하면 계정 정지를 검토합니다.“: Nach den Regeln dieser Community prüfen wir eine Kontosperrung, wenn jemand fremde Werke ohne Erlaubnis kommerziell nutzt – unabhängig von Genre oder Größe des Fandoms. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "de": "Zu hören ist „이 커뮤니티 규정에 따르면 장르나 팬덤 규모를 불문하고 타인의 창작물을 허락 없이 상업적으로 이용하면 계정 정지를 검토합니다.“: Nach den Regeln dieser Community prüfen wir eine Kontosperrung, wenn jemand fremde Werke ohne Erlaubnis kommerziell nutzt, unabhängig von Genre oder Größe des Fandoms. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
             "en": "The line is “이 커뮤니티 규정에 따르면 장르나 팬덤 규모를 불문하고 타인의 창작물을 허락 없이 상업적으로 이용하면 계정 정지를 검토합니다.”: Under this community's rules, we consider suspending accounts that use someone else's work commercially without permission, regardless of genre or fandom size. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
@@ -27425,7 +27425,7 @@
           "options": [
             {
               "ko": "이 커뮤니티 규정에 따르면 장르나 팬덤 규모를 불문하고 타인의 창작물을 허락 없이 상업적으로 이용하면 계정 정지를 검토합니다.",
-              "de": "Nach den Regeln dieser Community prüfen wir eine Kontosperrung, wenn jemand fremde Werke ohne Erlaubnis kommerziell nutzt – unabhängig von Genre oder Größe des Fandoms.",
+              "de": "Nach den Regeln dieser Community prüfen wir eine Kontosperrung, wenn jemand fremde Werke ohne Erlaubnis kommerziell nutzt, unabhängig von Genre oder Größe des Fandoms.",
               "en": "Under this community's rules, we consider suspending accounts that use someone else's work commercially without permission, regardless of genre or fandom size."
             },
             {

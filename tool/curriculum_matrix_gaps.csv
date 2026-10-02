@@ -440,13 +440,11 @@ C2,grammar_anchor,grammar_c2_take_as_premise,grammar.csv row never shown in a sc
 C2,grammar_anchor,grammar_c2_wishing_to,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 C2,grammar_brief,-(으)ㄹ망정,Jin brief highlight,missing,nikl=C2;app_levels=;ids=,add_grammar_row
 C2,grammar_brief,-거니와,Jin brief highlight,missing,nikl=B2;app_levels=;ids=,add_grammar_row
-C2,grammar_brief,-건대,Jin brief highlight,missing,nikl=C2;app_levels=;ids=,add_grammar_row
 C2,grammar_brief,-기는 고사하고,Jin brief highlight,missing,nikl=;app_levels=;ids=,add_grammar_row
 C2,grammar_brief,-기는커녕,Jin brief highlight,missing,nikl=;app_levels=;ids=,add_grammar_row
 C2,grammar_brief,-시겠습니까,Jin brief highlight,missing,nikl=;app_levels=;ids=,add_grammar_row
 C2,grammar_nikl,-거들랑1,연결어미 -걸랑1,missing_in_app,nikl_kiiq_2017,add_grammar_row
 C2,grammar_nikl,-거들랑2,종결어미 -걸랑2,missing_in_app,nikl_kiiq_2017,add_grammar_row
-C2,grammar_nikl,-건대,연결어미,missing_in_app,nikl_kiiq_2017,add_grammar_row
 C2,grammar_nikl,-건만,연결어미 -건마는,missing_in_app,nikl_kiiq_2017,add_grammar_row
 C2,grammar_nikl,-게3,종결어미,level_mismatch,app_levels=A2;ids=grammar_a2_adverbial,relevel_or_add_same_level_row
 C2,grammar_nikl,-게4,종결어미,level_mismatch,app_levels=A2;ids=grammar_a2_adverbial,relevel_or_add_same_level_row

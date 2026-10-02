@@ -14,7 +14,9 @@
     "tools/content_factory/drafts/batch_05_manifest.json",
     "tools/content_factory/drafts/batch_12_manifest.json",
     "tools/content_factory/drafts/batch_30_a1_reinforcement_manifest.json",
-    "tools/content_factory/drafts/batch_28_a1_reinforcement_manifest.json"
+    "tools/content_factory/drafts/batch_28_a1_reinforcement_manifest.json",
+    "tools/content_factory/drafts/batch_01_manifest.json",
+    "tools/content_factory/drafts/batch_02_manifest.json"
   ],
   "method": "Beyond Humanizer promoted-copy reconciliation",
   "humanReviewStatus": "required_before_native-quality-claim",
@@ -6998,10 +7000,11 @@
       "id": "grammar_b2_include_total_scope",
       "level": "b2",
       "fields": [
+        "note",
         "quiz_distractor_ids"
       ],
       "beforeSha256": "10b449ace488bc21a75abaaf1b7cc3346a1ed4909825cefffd15ea1fabcbd80b",
-      "afterSha256": "faf16e9337cf93bc5c033e3226b8e4525463d75155d8ba7bead7737cdc1e9557"
+      "afterSha256": "6fe0f26d4aa7d802fd6862fe8010cccb3c620a4f564c106679b60ad5205344bc"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_18_manifest.json",
@@ -9487,6 +9490,489 @@
       ],
       "beforeSha256": "7df1ee53cd5377578d1109750e99cf151c6e3edc162eeebe7e2138f9c9787b2f",
       "afterSha256": "0192e7e7aa900185935acaf5988c9114334d95a322f58f8c5a2696aa82aeab9e"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_02_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b2_formal_written_request",
+      "level": "b2",
+      "fields": [
+        "example_en",
+        "explanation_de",
+        "explanation_en"
+      ],
+      "beforeSha256": "f45e938cb83323bdd5b626d96b1834f1d95622754eae44a508c1d154f11b7666",
+      "afterSha256": "daefc3950868d9c42667a71138758d87795d7e5f092a6b9f0effaf6529d1f057"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_01_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b1_state_while",
+      "level": "b1",
+      "fields": [
+        "example_german",
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "e48b19d179643b9b493762620caac0443a176f19c75050b8ccba5720b5217baf",
+      "afterSha256": "de3402c9d808013c56a4d4fa8e5fad9d71a23e38940f8fc78bc4f24b0e57913b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_01_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b2_formal_arrangement",
+      "level": "b2",
+      "fields": [
+        "example_en",
+        "example_german",
+        "example_korean",
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "d9b9104b90e3a36db96b7904aff7aa5e012c369794f0dd6e3f33944d7996603f",
+      "afterSha256": "d920f29bc022117d67362010bff1b5eb9a991d1f0aea7e49247b9d04e2718be9"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c1_limited_to",
+      "level": "c1",
+      "fields": [
+        "explanation_de",
+        "explanation_en"
+      ],
+      "beforeSha256": "e933ee2f647d0f8a8b209f1dd1a71458b67044b3640ad296a8fe685fd0c072d9",
+      "afterSha256": "5d8e748a46213f7185028db9077f4790255526229b684ca643d7f6b60f30feb9"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c2_no_more_than_doing",
+      "level": "c2",
+      "fields": [
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "0f8902769cbb461aead077f371e2f30f1f931e9f3daa5282327404746c6acd87",
+      "afterSha256": "356272806d1a8fbff16be32b638ae7bf04e4a40b87bb49192782d10a3fad3cac"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c1_not_necessarily",
+      "level": "c1",
+      "fields": [
+        "example_en",
+        "example_german",
+        "note",
+        "note_en",
+        "pattern"
+      ],
+      "beforeSha256": "b2009def4fde5d4abb372995073d29c52615bf4002aa944bc90c9b48cfdba042",
+      "afterSha256": "02ff2c32bdc455075f2a6039314476e7350c6c82d216e27d14fb40f831a17c70"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c1_insufficient_for",
+      "level": "c1",
+      "fields": [
+        "example_en",
+        "note",
+        "note_en",
+        "quiz_focus_en"
+      ],
+      "beforeSha256": "4587158325850c8281374770ae05ea0d1ffff2d732ec0c525ed9b949db073905",
+      "afterSha256": "edf66587b7e553e5e87fc7fdf06abd8ffabf7e541acb146cae4cd542a2da073f"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c2_as_if_framing",
+      "level": "c2",
+      "fields": [
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "749eda50aafc7621db62d8cdbc26722c913ac5b89bf0f88dff3f4996f7178af0",
+      "afterSha256": "cae85487127913d3edd953c4ed87120030d7f5e4648a729e9dbec2cc3cad0f8a"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c2_no_matter_how",
+      "level": "c2",
+      "fields": [
+        "example_en",
+        "example_german",
+        "note",
+        "note_en",
+        "quiz_focus_de"
+      ],
+      "beforeSha256": "46540b8bc6bf590d5005d6a80ab7d1f6fbfef7b4f4e2c833ff10d8c0180e061f",
+      "afterSha256": "6669bdd368aee83ff7f46c65ed417cffbd3a6e56f7c2b239af0cd48712be071b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b2_turning_point",
+      "level": "b2",
+      "fields": [
+        "example_en",
+        "quiz_focus_en"
+      ],
+      "beforeSha256": "58c85b3df877778a91cab5fc81347ad4fd9f625c63c4a78639af2f22f1d59449",
+      "afterSha256": "f9be888e4837cb5e15becd59eb1b655550b11910a32c33db7921d4019f6fe16a"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b2_only_course",
+      "level": "b2",
+      "fields": [
+        "example_en"
+      ],
+      "beforeSha256": "cd623091ae02b2d3585d187d149665df214d0bb9562b8431ef76b4bc579efea7",
+      "afterSha256": "40d99c98e2db7b2452744a2d62da38df61134268f98383c47e8297dc4814a66a"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c1_excessive_result",
+      "level": "c1",
+      "fields": [
+        "explanation_en"
+      ],
+      "beforeSha256": "3dbb98785fd74732074ec3259560b28ff5ed2078a92bff422a39d24c4bc90d1a",
+      "afterSha256": "16b2006a132133cb7680b0eedbe477358916e1e3a59d81c742dea753d020cc6d"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c1_room_for",
+      "level": "c1",
+      "fields": [
+        "example_en",
+        "example_german",
+        "example_korean",
+        "quiz_focus_de"
+      ],
+      "beforeSha256": "0a2e3cdb8f17af8354b19db12544158e0954d0a8156d19552906fa7913711eda",
+      "afterSha256": "5cd62a41429d3e29b293540a2b79c5504ecbf3a16727012e1e1b093a5ccc347e"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c2_regardless_of",
+      "level": "c2",
+      "fields": [
+        "example_en"
+      ],
+      "beforeSha256": "d3111a78ae20fbbc1ab6cf6f99ca01fe6efe82ce64c2598fcc57943442c96208",
+      "afterSha256": "57bfbd838a52f05854f847a5c97c5f72273ddaf3e828571e61a2cb842a122791"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c2_nothing_more_than",
+      "level": "c2",
+      "fields": [
+        "example_german"
+      ],
+      "beforeSha256": "706e592eefcc40e5c0db2864b60c23e7fd6925a9e8f882edd5ddd1803a074103",
+      "afterSha256": "c6f4b1934ffce0c1d18b0460b5ca571a8ca60277b3524fd786727a78fa740f10"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c2_likely_negative",
+      "level": "c2",
+      "fields": [
+        "explanation_en"
+      ],
+      "beforeSha256": "070a95d7f51f1db6d455bc13816cc2805ee2169081d302513845f0499e8d0b6e",
+      "afterSha256": "c5e8176d74566bf48975a6d20048f60e665ec6de519c33dbf3633c385b23fbcb"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_18_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c2_take_as_premise",
+      "level": "c2",
+      "fields": [
+        "note"
+      ],
+      "beforeSha256": "8a1af2478e47993695774393a805f166812c891e06ea25daf91c5d7e697cbad1",
+      "afterSha256": "397ebd9a5d5219ba2f275c5a3bff3de3e77d00a1024c53b4f7fb2455bf3be815"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_18_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c2_definition_by_viewpoint",
+      "level": "c2",
+      "fields": [
+        "example_en",
+        "quiz_focus_en"
+      ],
+      "beforeSha256": "5193c5ed844b92366c0b198de992a6bedcaef46f2f7f7170a9b54fe3670a77ae",
+      "afterSha256": "c9ccb7242b67f50fffa5969812a9cb5738e45f45bb9a2aec78ecd4cb002622c4"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_a1_spoken_dative",
+      "level": "a1",
+      "fields": [
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "f7ce966ce02702b514d02e816a636c7e3f5393b0556921d5107e37bb57684f84",
+      "afterSha256": "10c6fe227d3aadc3dfb95efe7bad8cbd2efaaea5d3b843370e6aedccde4cdf8d"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_a1_duration_span",
+      "level": "a1",
+      "fields": [
+        "example_en",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "e89d623f2c50d1cdb8f70776561bfddb9f404a39a93037416bcc75939e7b332f",
+      "afterSha256": "7295832a470f2c87e84d1e188346958426ebdc616a11762155a75f217419d31f"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_a1_in_front",
+      "level": "a1",
+      "fields": [
+        "example_korean",
+        "pattern"
+      ],
+      "beforeSha256": "22e5357c64947840fdece27332600056e0545cfe9432325502e3f30294aeace6",
+      "afterSha256": "14c0d4d64c373da4942d65fae1e01cfcaff67e3ea82036e8696b09c62a0deb2c"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b1_as_kept_doing",
+      "level": "b1",
+      "fields": [
+        "example_en",
+        "example_german",
+        "example_korean",
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "2a73093f59d22b8b371d8c6d7a3adc830fdf01b3bfd64b68a118e5e0b84bcd81",
+      "afterSha256": "f5538b9827c3ed80acc35fe65ac1bea54e18e9d06e3854bbadab470c114b8fdf"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c1_regardless_noun",
+      "level": "c1",
+      "fields": [
+        "example_german",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "9e13c431f7c865383e96189b102ce2666f56e006b46ebb54d6728522eb1b4d31",
+      "afterSha256": "f2ac4c3ed079f0513839f3c19f9a6fb73c63bcafee657eda8e201b188afe6b78"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c1_given_situation",
+      "level": "c1",
+      "fields": [
+        "example_en",
+        "example_german",
+        "quiz_focus_de",
+        "quiz_focus_en"
+      ],
+      "beforeSha256": "5a4c7f4971ce2aa75bb6978249e8bec76c9deee1638e8b686913e5e4c579e091",
+      "afterSha256": "a52ae0d0a4a2d2d123e3297c1b5824cedc5903632d71c5d33cc26220e6700981"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c1_leaning_on",
+      "level": "c1",
+      "fields": [
+        "example_en",
+        "example_german",
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "quiz_focus_de",
+        "quiz_focus_en"
+      ],
+      "beforeSha256": "f833d6d1234a8611aa88f1e30b10183f4032654f606ff43fd8ce82006a95320d",
+      "afterSha256": "9f5e9e87e851c363d43f7b752eb2ca215f4a151a6b7615286c7c7e96eedf4f9d"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c1_even_if_doing",
+      "level": "c1",
+      "fields": [
+        "example_en",
+        "example_german",
+        "quiz_focus_de",
+        "quiz_focus_en"
+      ],
+      "beforeSha256": "248a4692ec1ca7a0ae33b4c0d742bb9f151ea047839c7959234e9cf017925d11",
+      "afterSha256": "93329dd97fc8b2ba53ab89d5adfcd620e282b61426772a40a8e5beae703d78d9"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c2_defined_as",
+      "level": "c2",
+      "fields": [
+        "example_en",
+        "example_german",
+        "example_korean",
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "quiz_focus_de",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "f5617738ad74825a78ba7292d1e4356ded9cfa95eaf2a110ed996de441a6d97e",
+      "afterSha256": "6c28a8f58046ce736f3314f557c46b6583edc20b8b3a334c743292cd9d75ed2b"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c2_as_already_set",
+      "level": "c2",
+      "fields": [
+        "example_en",
+        "example_german",
+        "example_korean",
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "pattern"
+      ],
+      "beforeSha256": "3730fc8a3376509d6a5eb6529e3f66f7f29799eb59826a450e132981b9d4c819",
+      "afterSha256": "cf5f31e07719568d6fa1c11430204452c2ac21f09c1d6526ff4cdbc3989637fc"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c2_on_the_premise",
+      "level": "c2",
+      "fields": [
+        "example_german",
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en"
+      ],
+      "beforeSha256": "2ab0c0ba5f56ff86cedc7c54fe46f8573ab0aced604d6c6551cba7bdec571a9c",
+      "afterSha256": "d810c9613aa6dcdb9d10764c9a7e997003be021884e8c8a51ef31930bee675af"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_c2_wishing_to",
+      "level": "c2",
+      "fields": [
+        "example_en",
+        "example_german",
+        "example_korean",
+        "explanation_de",
+        "explanation_en",
+        "note",
+        "note_en",
+        "pattern",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "type_de",
+        "type_en"
+      ],
+      "beforeSha256": "c093c5e580628c8ccdbc635abebeb96c30cecd3ccdd43df142ae88cef1cbfee8",
+      "afterSha256": "d3ee91cecf2d19b18775151a124d76440ae903ed65cab44d4af59696b70d0e50"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b2_considering_fact_batch20",
+      "level": "b2",
+      "fields": [
+        "example_en",
+        "example_german",
+        "quiz_focus_de"
+      ],
+      "beforeSha256": "8839a5a48fddb8a7e2f8a1d8549d8df277695fa7c08a5fc77cb6d2a3386b2be2",
+      "afterSha256": "2e2d3f076f9eec8ab39f2606075ee8f5f24327b9defea66cbdb7cd471029cf51"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_a1_topic_contrast",
+      "level": "a1",
+      "fields": [
+        "example_en",
+        "example_german",
+        "example_korean",
+        "quiz_distractor_ids",
+        "quiz_focus_de",
+        "quiz_focus_en"
+      ],
+      "beforeSha256": "efa8b0d97fd97a8349c082bdcd75f3ab71025d38d5b8e8d5537de54da5f44bf7",
+      "afterSha256": "40d9a4a5bf0735cbe1ffffd5b8a44943eb9f98f62377edc72aca69d64b5f74a5"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_a1_subject_new",
+      "level": "a1",
+      "fields": [
+        "quiz_distractor_ids"
+      ],
+      "beforeSha256": "f5299d1e8748fdb1a988e07b6fcb7ebf5dd1b25c587c2f5a69d2944529673cfd",
+      "afterSha256": "68e819e860a37d21307adc2918158281ec12bfa7155d90819733e9930bd424a1"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "kind": "grammar",
+      "id": "grammar_b2_only_after",
+      "level": "b2",
+      "fields": [
+        "example_en",
+        "example_german"
+      ],
+      "beforeSha256": "572814c73fc4fc84518b58c093fcbda415eb9a46302c6d03bc8c253e1e489f13",
+      "afterSha256": "fbaa5c9bf7366748f1fd47e59e867832f831ff3be721e788a6885d94c13ddfdd"
     }
   ],
   "routingEntries": [

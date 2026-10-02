@@ -531,6 +531,35 @@ def _legacy_recovery(root: Path) -> tuple[list[dict[str, str]], list[dict[str, s
         row["quiz_focus_de"] = focus_de
         row["quiz_focus_en"] = focus_en
         row["quiz_distractor_ids"] = distractors
+    # Keep recovered historical rows aligned with the directly reviewed live copy.
+    editorial_copy = {'grammar_b2_addition_even': {'example_german': 'Mir gefällt es hier: Die Anlage ist sauber, und '
+                                                    'es sind obendrein nur wenige Leute da.',
+                                  'example_en': 'I like it here: the facilities are clean, and there '
+                                                "aren't many people around either.",
+                                  'quiz_focus_de': 'obendrein nur wenige Leute',
+                                  'quiz_focus_en': "there aren't many people around either"},
+     'grammar_b2_indirect_speech': {'example_korean': '레나가 내일 온다고 했어.',
+                                    'example_german': 'Lena hat gesagt, dass sie morgen kommt.',
+                                    'example_en': "Lena said she's coming tomorrow.",
+                                    'quiz_focus_de': 'dass sie morgen kommt',
+                                    'quiz_focus_en': "said she's coming",
+                                    'quiz_distractor_ids': 'grammar_b2_even_if|grammar_b2_pretense_contrast|grammar_b2_addition_even'},
+     'grammar_b2_practically': {'example_korean': '일주일에 여섯 번 운동하니까 거의 매일 운동하는 셈이지.',
+                                'example_german': 'Da ich sechsmal pro Woche Sport mache, trainiere '
+                                                  'ich praktisch jeden Tag.',
+                                'example_en': "Since I exercise six times a week, I'm exercising "
+                                              'practically every day.',
+                                'quiz_focus_de': 'praktisch jeden Tag',
+                                'quiz_focus_en': 'practically every day'},
+     'grammar_b2_pretense_contrast': {'example_korean': '나는 다 아는데도 모르는 척했어.',
+                                      'example_german': 'Obwohl ich alles wusste, tat ich so, als '
+                                                        'wüsste ich nichts.',
+                                      'example_en': 'Even though I knew everything, I pretended not '
+                                                    'to.',
+                                      'quiz_focus_de': 'tat ich so, als wüsste ich nichts',
+                                      'type_de': 'Gegensatz und vorgetäuschtes Verhalten'}}
+    for row in grammar:
+        row.update(editorial_copy.get(row["id"], {}))
     return vocab, grammar, kkeunmari
 
 

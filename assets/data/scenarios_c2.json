@@ -6303,7 +6303,7 @@
         {
           "speaker": "moderator",
           "ko": "이 커뮤니티 규정에 따르면 장르나 팬덤 규모를 불문하고 타인의 창작물을 허락 없이 상업적으로 이용하면 계정 정지를 검토합니다.",
-          "de": "Nach den Regeln dieser Community prüfen wir eine Kontosperrung, wenn jemand fremde Werke ohne Erlaubnis kommerziell nutzt – unabhängig von Genre oder Größe des Fandoms.",
+          "de": "Nach den Regeln dieser Community prüfen wir eine Kontosperrung, wenn jemand fremde Werke ohne Erlaubnis kommerziell nutzt, unabhängig von Genre oder Größe des Fandoms.",
           "en": "Under this community's rules, we consider suspending accounts that use someone else's work commercially without permission, regardless of genre or fandom size."
         },
         {
@@ -6339,7 +6339,7 @@
             "audioKo": "이 커뮤니티 규정에 따르면 장르나 팬덤 규모를 불문하고 타인의 창작물을 허락 없이 상업적으로 이용하면 계정 정지를 검토합니다.",
             "options": [
               {
-                "de": "Nach den Regeln dieser Community prüfen wir eine Kontosperrung, wenn jemand fremde Werke ohne Erlaubnis kommerziell nutzt – unabhängig von Genre oder Größe des Fandoms.",
+                "de": "Nach den Regeln dieser Community prüfen wir eine Kontosperrung, wenn jemand fremde Werke ohne Erlaubnis kommerziell nutzt, unabhängig von Genre oder Größe des Fandoms.",
                 "en": "Under this community's rules, we consider suspending accounts that use someone else's work commercially without permission, regardless of genre or fandom size."
               },
               {

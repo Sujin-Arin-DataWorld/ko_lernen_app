@@ -215,7 +215,7 @@
 
 - 콘텐츠 규모: 어휘 2944 · 문법 261 · 시나리오 178 · 코스유닛 48 · cloze 2341 · satz 2861 · 스몰토크 582 · 미디어 136 · 발음 84 · 문화노트 36
 - 매트릭스 규모: 주제 32 · 기능 39 · 텍스트 유형 31 · 어휘 영역 26 · 기능 문법 34 · 국제통용 문법 336
-- 갭 행 합계: **518** (`tool/curriculum_matrix_gaps.csv`)
+- 갭 행 합계: **516** (`tool/curriculum_matrix_gaps.csv`)
 
 | 레벨 | 주제(필수) ✅/🟡/❌ | 국제통용 문법 match/mismatch/missing | 브리프 하이라이트 ✅/🟡/❌ | 담화 특징 ✅/❌ | 기능(산출) ✅/🟡/❌ | 텍스트 유형 ✅/🟡/❌/⛔ | 어휘 영역 ✅/🟡/❌ | 문체 ✅/❌ | 시나리오 미연결 문법/전체 |
 |---|---|---|---|---|---|---|---|---|---|
@@ -224,7 +224,7 @@
 | B1 | 18/0/0 | 14/9/44 (of 67) | 7/10/4 | 4/0 | 11/3/1 | 1/0/2/6 | 8/1/0 | 4/0 | 28/39 |
 | B2 | 17/0/0 | 15/9/43 (of 67) | 5/3/9 | 3/1 | 12/1/1 | 1/0/1/7 | 7/0/0 | 4/0 | 38/53 |
 | C1 | 12/0/0 | 6/6/44 (of 56) | 1/9/4 | 3/1 | 9/2/1 | 2/0/0/7 | 4/0/2 | 3/1 | 8/28 |
-| C2 | 12/0/0 | 2/10/44 (of 56) | 2/0/6 | 3/0 | 9/1/2 | 1/0/1/8 | 5/0/1 | 3/4 | 9/23 |
+| C2 | 12/0/0 | 3/10/43 (of 56) | 3/0/5 | 3/0 | 9/1/2 | 1/0/1/8 | 5/0/1 | 3/4 | 9/23 |
 
 ### 1.1 구조적 결손(레벨 무관)
 
@@ -318,7 +318,7 @@
 
 | 상태 | 담화 특징 | 앱 id | 앱 레벨 |
 |---|---|---|---|
-| ✅ covered | ≤8어절·절 ≤2(-고/-지만/-어서) | grammar_a1_sequence_connector, grammar_a1_want, grammar_a2_after_finishing, grammar_a2_cause_sequence … | A1/A2/B2/C1/C2 |
+| ✅ covered | ≤8어절·절 ≤2(-고/-지만/-어서) | grammar_a1_sequence_connector, grammar_a1_want, grammar_a2_after_finishing, grammar_a2_cause_sequence … | A1/A2/B2/C1 |
 | ✅ covered | 해요체 기본 + 합쇼체 자기소개 산출 | grammar_a1_formal_statement, grammar_a1_polite_present | A1 |
 
 **⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 A1 문법 (31/55):** `grammar_a1_action_location_particle`, `grammar_a1_approx`, `grammar_a1_cannot_short`, `grammar_a1_copula_negation`, `grammar_a1_duration_span`, `grammar_a1_formal_command`, `grammar_a1_formal_question`, `grammar_a1_formal_statement`, `grammar_a1_from_until`, `grammar_a1_long_negation`, `grammar_a1_motion_purpose`, `grammar_a1_polite_present`, `grammar_a1_possessive_particle`, `grammar_a1_sequence_connector`, `grammar_a1_service_location_question`, `grammar_a1_spoken_dative`, `grammar_a1_subject_new`, `grammar_a1_subject_particle`, `grammar_a1_topic_contrast`, `grammar_a1_topic_particle`, `grammar_a1_which_question`, `grammar_a1_with_connector`, `grammar_a2_ability`, `grammar_a2_cause_nikka`, `grammar_a2_comparative`, `grammar_a2_contrast`, `grammar_a2_dative_person`, `grammar_a2_inability`, `grammar_a2_lets_formal`, `grammar_b1_after`, `grammar_b1_honorific_subject_kkeyseo`
@@ -588,7 +588,7 @@
 | ✅ match | -냐고/자고/으라고 하다 | — | grammar_b1_indirect_command, grammar_b1_indirect_question, grammar_b1_indirect_suggestion, grammar_b2_indirect_speech | B1/B2 |
 | ❌ missing | -는다고 하다 | — |  |  |
 | 🟡 level_mismatch | -(으)ㄴ/는 것 같다 | A2 | grammar_a2_probability | A2 |
-| ✅ match | -(으)ㄹ 것 같다 | A2 | grammar_b1_future_probability | B1 |
+| ✅ match | -(으)ㄹ 것 같다 | A2 | grammar_a2_probability, grammar_b1_future_probability | A2/B1 |
 | ❌ missing | -나 보다 | B1 |  |  |
 | 🟡 level_mismatch | -게 되다 | A2 | grammar_a2_change | A2 |
 | 🟡 level_mismatch | -기로 하다 | A2 | grammar_b1_decision | A2 |
@@ -891,7 +891,7 @@
 | ✅ covered | 명사화(정부가 지원을 확대했다 → 정부의 지원 확대) | grammar_a2_nominalizer_eum, grammar_a2_purpose, grammar_a2_reason_because, grammar_a2_written_directive … | A1/A2/B1/B2/C1/C2 |
 | ❌ missing | 객관화(-는 것으로 나타나다/-는 것으로 보아) |  |  |
 | ✅ covered | hedging(타당성이 다소 부족한 것으로 보인다/-을 수도 있다/단정하기 어렵다) | grammar_c1_difficult_to_conclude_batch20, grammar_c1_room_for | C1 |
-| ✅ covered | 격식 연결(-기에 앞서/-고자/-(으)며/-(으)므로/-는 데 비해) | grammar_b2_compared_with, grammar_b2_formal_intention, grammar_b2_formal_reason, grammar_c2_wishing_to | B2/C2 |
+| ✅ covered | 격식 연결(-기에 앞서/-고자/-(으)며/-(으)므로/-는 데 비해) | grammar_b2_compared_with, grammar_b2_formal_intention, grammar_b2_formal_reason | B2 |
 
 **⚠️ 문법 화면에만 있고 어떤 시나리오·미디어 대사에도 연결되지 않은 C1 문법 (8/28):** `grammar_b2_formal_regarding`, `grammar_b2_inevitability`, `grammar_b2_method_dependent`, `grammar_c1_burden_recipient_batch20`, `grammar_c1_even_if_doing`, `grammar_c1_insufficient_for`, `grammar_c1_not_necessarily`, `grammar_c1_while_also_consider`
 
@@ -989,9 +989,9 @@
 | ➕ beyond_matrix | `travel_accommodation` 여행·숙박 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `weather_nature_climate` 날씨·계절·자연 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 
-### C2 문법 — 국제통용 56항목: match 2 · level_mismatch 10 · missing 44 (앱 C2 문법 23개)
+### C2 문법 — 국제통용 56항목: match 3 · level_mismatch 10 · missing 43 (앱 C2 문법 23개)
 
-**앱에 없는 국제통용 항목:** -거들랑1(연결어미) · -건대(연결어미) · -건만(연결어미) · -노라면(연결어미) · -느니만큼(연결어미) · -는다고1(연결어미) · -되(연결어미) · -디1(연결어미) · -으련마는(연결어미) · -은들(연결어미) · -을라치면(연결어미) · -이라야(연결어미) · -자니3(연결어미) · -자면1(연결어미) · 깨나(조사) · 을랑(조사) · 이라면(조사) · -거들랑2(종결어미) · -구려2(종결어미) · -그려(종결어미) · -네1(종결어미) · -는가2(종결어미) · -는구려(종결어미) · -는구만(종결어미) · -는구먼(종결어미) · -던가1(종결어미) · -던가2(종결어미) · -라2(종결어미) · -소(종결어미) · -으니4(종결어미) · -으리라(종결어미) · -으리오(종결어미) · -으오(종결어미) · -기 일쑤이다(표현) · -기 짝이 없다(표현) · -는다던가1(표현) · -어 치우다(표현) · -으래서야(표현) · -으려도(표현) · -으리라고(표현) · -으리라는(표현) · -을 바에(표현) · -자면2(표현) · 이라고는(표현)
+**앱에 없는 국제통용 항목:** -거들랑1(연결어미) · -건만(연결어미) · -노라면(연결어미) · -느니만큼(연결어미) · -는다고1(연결어미) · -되(연결어미) · -디1(연결어미) · -으련마는(연결어미) · -은들(연결어미) · -을라치면(연결어미) · -이라야(연결어미) · -자니3(연결어미) · -자면1(연결어미) · 깨나(조사) · 을랑(조사) · 이라면(조사) · -거들랑2(종결어미) · -구려2(종결어미) · -그려(종결어미) · -네1(종결어미) · -는가2(종결어미) · -는구려(종결어미) · -는구만(종결어미) · -는구먼(종결어미) · -던가1(종결어미) · -던가2(종결어미) · -라2(종결어미) · -소(종결어미) · -으니4(종결어미) · -으리라(종결어미) · -으리오(종결어미) · -으오(종결어미) · -기 일쑤이다(표현) · -기 짝이 없다(표현) · -는다던가1(표현) · -어 치우다(표현) · -으래서야(표현) · -으려도(표현) · -으리라고(표현) · -으리라는(표현) · -을 바에(표현) · -자면2(표현) · 이라고는(표현)
 
 **레벨 불일치(앱은 다른 레벨에 둠):** -기로서니→B2 · 마는→A1 · 이라고2→B1 · -게3→A2 · -게4→A2 · -나2→A2 · -던2→B1 · -는 한이 있어도→C1 · -는다는→B2 · 는 마당에→C1
 
@@ -1002,13 +1002,13 @@
 | ❌ missing | -(으)ㄹ망정 | C2 |  |  |
 | ✅ match | -(으)ㄹ지언정 | C2 | grammar_c2_even_if_concession | C2 |
 | ❌ missing | -거니와 | B2 |  |  |
-| ❌ missing | -건대 | C2 |  |  |
+| ✅ match | -건대 | C2 | grammar_c2_wishing_to | C2 |
 | ✅ match | -는 바입니다 | — | grammar_b2_formal_reference, grammar_c2_as_already_set | B2/C2 |
 | ❌ missing | -시겠습니까 | — |  |  |
 
 | 상태 | 담화 특징 | 앱 id | 앱 레벨 |
 |---|---|---|---|
-| ✅ covered | 문체 전환 사다리(해 주세요 → 해 주시겠습니까 → 협조해 주시면 감사하겠습니다 → 협조를 부탁드리는 바입니다) | grammar_b1_reason_context, grammar_b2_unexpected_cause, grammar_c2_as_already_set | B2/C2 |
+| ✅ covered | 문체 전환 사다리(해 주세요 → 해 주시겠습니까 → 협조해 주시면 감사하겠습니다 → 협조를 부탁드리는 바입니다) | grammar_b1_reason_context, grammar_b2_unexpected_cause | B2 |
 | ✅ covered | 태도 차이(-기는커녕/-기는 고사하고/-(으)ㄹ망정/-(으)ㄹ지언정/-거니와/-건대) | grammar_c2_even_if_concession, grammar_c2_wishing_to | C2 |
 | ✅ covered | 함축·완곡·아이러니·거리두기·문어/구어 조절 | grammar_c2_as_if_framing, grammar_c2_even_assuming, grammar_c2_expected_assumption, grammar_c2_merely_on_grounds … | C2 |
 
@@ -1055,7 +1055,7 @@
 | ✅ covered | `arts_history_memory_lexis` 예술·역사·기억 담화 어휘 | 36 |
 | ✅ covered | `language_metalanguage` 언어·문법·화법 메타언어 | 24 |
 | ❌ missing | `etiquette_honorific_lexis` 예절·높임·호칭 어휘 | 0 |
-| ✅ covered | `fixed_expressions_collocations` 관용 표현·연어·담화 표지(품사=표현) | 101 |
+| ✅ covered | `fixed_expressions_collocations` 관용 표현·연어·담화 표지(품사=표현) | 103 |
 | ➕ beyond_matrix | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 24 |
 | ➕ beyond_matrix | `media_pop_culture_vocab` 미디어·대중문화 어휘 | 12 |
 | ➕ beyond_matrix | `money_prices_banking` 돈·가격·금융·계약 어휘 | 12 |

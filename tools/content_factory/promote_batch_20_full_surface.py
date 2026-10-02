@@ -365,10 +365,10 @@ GRAMMAR_SPECS = [
         "einen relevanten Umstand einbeziehen", "taking a relevant fact into account",
         "Bindet eine Schlussfolgerung ausdrücklich an einen zuvor genannten Umstand.",
         "Explicitly ties a conclusion to a relevant fact already stated.",
-        "생활비 부담이 가구마다 다르다는 점을 고려하면 지원 기준도 세분화해야 합니다.", "Da die Belastung durch Lebenshaltungskosten je nach Haushalt variiert, sollten auch die Förderkriterien differenziert werden.", "Considering that living-cost burdens vary by household, support criteria should be more specific.",
+        "생활비 부담이 가구마다 다르다는 점을 고려하면 지원 기준도 세분화해야 합니다.", "Wenn man berücksichtigt, dass die Belastung durch Lebenshaltungskosten je nach Haushalt variiert, müssen auch die Förderkriterien stärker differenziert werden.", "Considering that living-cost burdens vary by household, support criteria need to be more specific.",
         "Die Konstruktion liefert einen Grund, beweist aber nicht automatisch Kausalität.",
         "The form supplies a reason but does not automatically prove causality.",
-        "Da die Belastung", "Considering that",
+        "Wenn man berücksichtigt", "Considering that",
     ),
     grammar(
         "grammar_c1_difficult_to_conclude_batch20", "c1", "A/V-다고 단정하기 어렵다",

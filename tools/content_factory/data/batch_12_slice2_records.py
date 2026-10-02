@@ -342,17 +342,17 @@ VOCAB_C2: list[dict[str, Any]] = [
 
 GRAMMAR: list[dict[str, str]] = [
     {
-        "pattern": "V-ㄴ/는다고 해서 N인 것은 아니다",
+        "pattern": "A/V-다고 해서 A/V-(으)ㄴ/는 것은 아니다",
         "level": "C1",
         "type_de": "Fehlschluss zurückweisen",
         "explanation_de": "Weist den Schluss von einer Beobachtung auf die erhoffte Wirkung zurück, ohne die Beobachtung selbst zu bestreiten.",
         "example_korean": "이용시간이 줄었다고 해서 수면이 늘어난 것은 아닙니다.",
-        "example_german": "Dass die Spielzeit gesunken ist, heißt nicht, dass der Schlaf zugenommen hat.",
-        "note": "Der zweite Teil steht verneint. Für einen offenen Widerspruch ist die Form zu vorsichtig.",
+        "example_german": "Dass die Nutzungsdauer gesunken ist, heißt nicht, dass die Schlafdauer zugenommen hat.",
+        "note": "Verneint einen zwingenden Schluss; die erste Beobachtung muss dadurch nicht bestritten werden.",
         "type_en": "Rejecting a false inference",
         "explanation_en": "Rejects the leap from an observation to a hoped-for effect without denying the observation itself.",
-        "example_en": "That play time fell does not mean sleep increased.",
-        "note_en": "The second half is negated. For an outright contradiction the form is too cautious.",
+        "example_en": "A reduction in usage time does not mean that sleep duration has increased.",
+        "note_en": "Denies that a conclusion necessarily follows; it need not dispute the first observation.",
         "id": "grammar_c1_not_necessarily",
         "quiz_focus_de": "heißt nicht, dass",
         "quiz_focus_en": "does not mean",

@@ -1,0 +1,3615 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-10-02",
+  "method": "Primary assistant directly read each displayed row and made editorial judgments; no agent verdicts used.",
+  "status": "in_progress",
+  "humanApprovalClaim": false,
+  "files": [
+    {
+      "path": "assets/data/grammar.csv",
+      "totalRecords": 261,
+      "directlyReadRecords": 261,
+      "reviewedFields": [
+        "pattern",
+        "level",
+        "type_de",
+        "explanation_de",
+        "example_korean",
+        "example_german",
+        "note",
+        "type_en",
+        "explanation_en",
+        "example_en",
+        "note_en",
+        "id",
+        "quiz_focus_de",
+        "quiz_focus_en",
+        "quiz_enabled",
+        "quiz_distractor_ids"
+      ],
+      "records": [
+        {
+          "id": "grammar_a1_topic_particle",
+          "contentSha256": "0eeeb54580a840e339335bf83127aaf84e147e4731a671bf14cf785de879e1dc",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_subject_particle",
+          "contentSha256": "9c7179334bb0a327770c4916c65eb8cfe11272268791f7e4069254090bd9819f",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_object_particle",
+          "contentSha256": "b894745c7fb7a9cc3f273faf31d8cd35cc08572faf36426f813f5373efbecec6",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_direction_time_particle",
+          "contentSha256": "c5078e4b3b2d7a38eede7654cd153888cf1c44f22f12db4b61fef6fe574d54cc",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_action_location_particle",
+          "contentSha256": "a7e104314e2a041457f2882be3a62f7ae97b8c7125a5505e075574fa2008dc52",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_copula_polite",
+          "contentSha256": "af4bb47676e3d89393de80da88cec640b02548afadf6ed2a172f57c7341be6c5",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_copula_negation",
+          "contentSha256": "2dbe76ed209ec5a874975896ddb68c0baf2896886eac8a5253dbdbc0e19a38d0",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_polite_present",
+          "contentSha256": "f31abe1a88e1ce68d3fe08bcc2725c4f8164b3759d8407da60c4be54815eb61e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_polite_past",
+          "contentSha256": "c29e7ace3a0f8a1d2fe60769aaf770c891e93b549848089aaba826b16bd9b375",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_short_negation",
+          "contentSha256": "7d739c76d2f2bfd7075469e6e3957b1a2771c29066001e935781863ee1241456",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_long_negation",
+          "contentSha256": "75dc4fdba1092614908c38faac07a5397a862d7057f0030c7e28fdd72e1c8817",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_want",
+          "contentSha256": "061a2ef8c1c5330c9c5fff9488d609270a0b2c6d254d0ab9a3e9d088e4466c08",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_polite_request",
+          "contentSha256": "0d4de970169e4a8ff68dc4d1ba8b32d0afd62a9dd8a16d978d5215a02c1f6595",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_polite_prohibition",
+          "contentSha256": "357bdb89c4399044cf901b819c4a52fed60d5412f55e957f08f4d24ef8cb1ca6",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_sequence_connector",
+          "contentSha256": "6c1ba65f1de377c8ddeda7a360a4608dba8e9587529fd85390a5c122417244f8",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_from_to",
+          "contentSha256": "a42bee11a6cff99358c2c18c634b5b1f755afbb7ef88afb4a46c50946cc5d01a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_which_question",
+          "contentSha256": "a1005ecc145e285470d4160f7daa4880cc8c1ba5c14b2cd23940fe028e48938f",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_degree_question",
+          "contentSha256": "5dfce06748ce6e2ea2e492d69cad0eaddd06c6bbfc679c7fbc80786dcea2f8dd",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_also_particle",
+          "contentSha256": "ca7b7519db78d8b7e958ff2c16c9d1997cfd013ec6553d2b497ac71a2ca77d7e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_possessive_particle",
+          "contentSha256": "8c0dc19808994d9322eb5e1a1aa51fe8e419e4358968369d53744e1ab97b6070",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_future_intention",
+          "contentSha256": "cf05dfc5adfda2679aea254989cfbc67ca39b12bd139d456f7204953fa30a2c3",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_conditional",
+          "contentSha256": "1464b74e02af4b2695c5050249794eb431a35eb2c58ac62acbeb285a769c4832",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_contrast",
+          "contentSha256": "cf96a00a6761f1db289e8cf1d388c052d2478ab2469ebe4fdc1985347a282987",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_cause_sequence",
+          "contentSha256": "70b41794bf6e5e161de6ce571feb646a12036950e3a8f022105e611a5fe76c34",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_progressive",
+          "contentSha256": "e3d412a0b2b6f7b04b008d092dd79d6f8d72d659b588138a8839352328858e50",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_dative_person",
+          "contentSha256": "a10b1d5c12b0f8211d2a99217f4fcf87babcf29bf381604d48ca556a5cf41b02",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_ability",
+          "contentSha256": "140551df931103f3eae151e3c23e0d159f8fd04db541ba84282b4c9b877fdd11",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_try_experience",
+          "contentSha256": "39c0b835660239a9bbd5eaa70d0a66e5006e2c0da8ab181f305750c3d03a7e70",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_polite_proposal",
+          "contentSha256": "97dacbffc13dc631c1d4f7ee7501808b9d565a2b372524780e80a81d38488db4",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_reason_because",
+          "contentSha256": "1c0faa4f3fd0da41be8c18821cf9753472078c211daa839cf8355e74f0650b1a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_probability",
+          "contentSha256": "2ccf1162e03c821624573bf9328ea68b81311b455f764858899c25f31a658017",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_permission",
+          "contentSha256": "e7087acea86f3929307398323f08efc15e6bf10e946709b16c87321a9de10180",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_prohibition",
+          "contentSha256": "ecb2d7bd8c51b8d0ced61b52d9d9ef2e2796c9b3dd6277a19e235986d6c250d3",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_inability",
+          "contentSha256": "9fb36e545385e9d47af8543d4f53f37efa1b4e4bea87e8ccb74be90a8d5dc785",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_each",
+          "contentSha256": "b3c73325749a898898a742d2b8a197344045792f988d6ba1d1ebbb44ffe1c7ec",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_purpose",
+          "contentSha256": "92447abe84ef3de75eb88f3fa8c101d950a98f5f6e2e9668db7c7756fe27b3d3",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_nominalization",
+          "contentSha256": "2cd77f6f7fb9e13e60f1a7cde1268af4126f38d2b4133d4cbbe148e59af2c2a8",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_after",
+          "contentSha256": "649005c3a60d3a60e089412b976377ab51cacec82cf51d6f6ca6e614f15a7277",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_before",
+          "contentSha256": "d43b269ed03be9b0f91e1c377f328e5d79e01ca9c89c37a592dd7961f48b127c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_intention",
+          "contentSha256": "aabef5f86dd9369fa66d50f25fbe6dfb3fb973576c68046efb57c2ea20b66bca",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_obligation",
+          "contentSha256": "7d65dcd3484ac7723943cebd75acc0c3583f3d7723da664c09b98f58bcf320a2",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_background_contrast",
+          "contentSha256": "de8d693eb0ec576e24bc3957ae676cd5750290d7a71dd4c1c4e5ba0c07c5544c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_decision",
+          "contentSha256": "64e1261dc681832225bb184c6b25d8194b52c74fb8974cc277f8fe8de0e6ff4c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_future_probability",
+          "contentSha256": "29ba92e53851da88d25b83259ec967b85611a855638b5347eb11b35fe41e046c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_about",
+          "contentSha256": "5b51433ccf76b10b65b91c4aff5c2a06fe7b26c71155687b53353400956e2dfa",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_immediate_sequence",
+          "contentSha256": "0df69eca613fdd84e3eca7c7d5dc0ce16eb83f75ec027b7ccab7700650c55cd4",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_more_more",
+          "contentSha256": "c5ac645c9e3b3618daa5125640156a6e40742f542b7eff730bfba295dff8873c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_consequence",
+          "contentSha256": "8fa8f353a1b7ab1d17c4ae2c7a4564cc542dedd45e452b541fba1be7ad861101",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_expectation",
+          "contentSha256": "f5c53d979ce3a1d772ec18eb5430666b72ca836f6b5e2ed7ef02697f167c44d4",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_recalled_past",
+          "contentSha256": "6a4ce2d74354888d696a5aec7360a1c5d76d3c0f774a2feb72f3ab52a47b62a0",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_even_if",
+          "contentSha256": "0abbb9533e4cc72addb46799f9a0ca6b8526a29054d47b7ea99ef94314ba9e17",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_not_only",
+          "contentSha256": "1a9b614a3dd1b547622b149fc4ff81327c798f977acb05e1513da10c22bc0411",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_as_long_as",
+          "contentSha256": "04df93f25309a27d25e3f7cce618ea52a4a99dc3b7217432293eb5bdff55b6a3",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_according_to",
+          "contentSha256": "76936a0cc9794802ea84b8994c7738153f57fda51ad55853a49ea36638b5283e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_formal_concession",
+          "contentSha256": "d70a258b2953c61e307cd0c55133e6f9cf57f6c02396e5d1f16873e9ba01f2a0",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_contrast",
+          "contentSha256": "efdc7d8d4a84432732b08388e99d18be3d193d5bd318c8f9adb0df435674a92d",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_formal_intention",
+          "contentSha256": "581eb6c9a99cac982af2bee15b06f94fcc60925ea0b65e8e4fd376d065e4bc03",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_formal_cause",
+          "contentSha256": "8d0cf4b097b9f933997873101d2ddee636b671cd62712339a93c550ea7b12d7e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_despite",
+          "contentSha256": "146ac386c6683ef070e302e16720304f9ec8ad092fb829d2ef8ce9a02c4a3360",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_only",
+          "contentSha256": "cc06b3555202afa79ff31f878cb0ac8d797badb858963ca29ebc83ce664de258",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_motion_purpose",
+          "contentSha256": "cd4bbad5bb179cb02e1b94495c4448ac542ed7247cd68e506b9572d3b93427e2",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_past_modifier",
+          "contentSha256": "93937245cb9026ccff11a95b44623266553c90a782e3bc5a784a185cb2dcc06a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_present_modifier",
+          "contentSha256": "6e872231e9be9f0d012f47c9c2c931a58958158ac34de54b464023611133c669",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_future_modifier",
+          "contentSha256": "066beb1542c24d759f16d328d978220e837db2434f8658f8b2b76cebda32c6e4",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_or_particle",
+          "contentSha256": "0dc610c3ed8deb6f1b6a72fb23adc9fc3725ec995ca06fddf93c8d6c456bc9a8",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_please_particle",
+          "contentSha256": "3ac6327baa14b62d94a2d5ba3cf8cd1a8e4112bace9559611f5ee03352f09074",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_with_connector",
+          "contentSha256": "18c85a08d2cedaa10ab75c1b2a263368020d2aeed5c050c96ee115ed3b2e1819",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_change",
+          "contentSha256": "6dc01dc38bf8463922cd6ebc54ec21b2594301586f9a468dcbb92dcf27c3281e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_favor",
+          "contentSha256": "15d14ae82fa9fd47f4eb98f5166db90a39664f0267f1052a95a96f658a809b88",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_simultaneous",
+          "contentSha256": "5e45f1715f8a903222f0a7831dac6f409c45e403ddbc81246d840c37025d202a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_recommendation",
+          "contentSha256": "99e0fbf1b35ddfeb070a72781a4cbb121105fa165bef3258bd740b6fdc1403cf",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_promise",
+          "contentSha256": "6ed9aaf2b8c62d980ae9c5b128c20e8313b35eb66ad289138ac6982229967506",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_preference_question",
+          "contentSha256": "e721fc1e7cbf0423deace22ab2adc2a8099971eed1cb8f08cc6ac74fc5a45b99",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_comparative",
+          "contentSha256": "f6580936714e15cf23e6ea9a7918cf3f0bf5467b334b5cade834bf555e8f6224",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_experience",
+          "contentSha256": "3e22899535e8992563e46d52bebfc5ef19be6d39f1c71abe2530e79c4222ba2e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_duration",
+          "contentSha256": "27af0f010efc1ee7f670d38a3788619531c22e589413618cf83e402efb6123d5",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_skill",
+          "contentSha256": "c3e6258d0c3b18c97c0af0ae590b80934ac3f8899c374be68912ee444bde6393",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_negative_cause",
+          "contentSha256": "71a5683d09f208aff04115dd2e3c4548c05f4c9657497eef3c781e4c0c0952b9",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_explanatory_reason",
+          "contentSha256": "7b2d353b495202a1cc5de8960d5426dc6e812a2cbec0518d76cf4932b785d91a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_self_prompt",
+          "contentSha256": "f4eee46ca89cf81fa4dc78b24bb951a883864d951403bfb99be45de98ea2f24d",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_indirect_speech",
+          "contentSha256": "9be79354fb77d6bf46ba02e98a73a1caafbfbcdeba2156deb07dab513776bf2b",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_realization",
+          "contentSha256": "db91aa2f7aef6791cd0f120b576712bdd919acd3fdf70b4baa5ac214942e4696",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_counterfactual_past",
+          "contentSha256": "a32bbf7423d13d82206f39dad586e503bffc70e6d988d20192998664a147b9ab",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_worry",
+          "contentSha256": "06b89e5ec0fc2769d4a398169ae778d9006ebf72ecb70ea4d2d52835b99e22a8",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_as_if",
+          "contentSha256": "04f966eb84fe70cd7e021775c85ab838a1c897158471553e15ff6f209ecc3122",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_definition",
+          "contentSha256": "11fe8a3d8a64f12f8c69e2ac88483b311df455e2321f20fc6ee8d6c008e7185f",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_summary_judgment",
+          "contentSha256": "8faed9fcf776690a3e13b5d7b20a24d3f104ec8241112edc458587cedbeafc24",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_inevitability",
+          "contentSha256": "aa39c23a9b4cf0fc80a3f167bc8ad5602756cde157f9149f2402880c33b8af3d",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_from_until",
+          "contentSha256": "3218df251d6433366e2aaa1fbcfb94f75ec374da7c745d83a599a7c6768b6f4b",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_only_particle",
+          "contentSha256": "9c5e4a07ad4f9eed6cbaa12ee774d53a3c85c4a6b4d7a5362065b8811bc80d27",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_direction_means",
+          "contentSha256": "0e7b43b2583504d82c3854c4cc37f70d6ac342f60b5152c771f142178bc89b54",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_cannot_short",
+          "contentSha256": "dd45c3441b361e09ad14e2835088308c3725a6fc30e18cbab2ad14a7aa72b4dc",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_approx",
+          "contentSha256": "880d5981b2df9dff27a4cf7291c26dbf02810fd644c00be972f18d5b449717f1",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_only_negative",
+          "contentSha256": "6a778da21e88bbeaa8eda20b2ace198d0b09c565f296147f58bc0d8efc770e69",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_like",
+          "contentSha256": "7f56147d5b43d67565c0cb3b7f93c7c2832be5f2c8715b39f73ffe6f5a385a1f",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_or_verbs",
+          "contentSha256": "a4b22c083c323cb7992318973d413708536d9b4100b958ac91882d58ea00f96b",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_cause_nikka",
+          "contentSha256": "7732d45b46476e56f48061499eb29f9ec87174e0fdbfae158e5adf7e0a2578d2",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_after_finishing",
+          "contentSha256": "7a88b61143471115a1710c94ae931c29089e0f777c41a90bf0117ff750f43d77",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_when",
+          "contentSha256": "d34c8099f21c3f2ffc7d2ed9bce6ada1936a2998923d9a123eab1df003c8ed31",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_in_progress",
+          "contentSha256": "3d9b7ec25ecb99c5634e8315cdfbd166f58f56b2237c014594f8181125f5996e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_lets_formal",
+          "contentSha256": "a2667b49678e43c95ddf63bc442ce223fd1e0bf75a798912886637a95139f659",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_intention_guess",
+          "contentSha256": "8705bda1cd40b8fa427eb09b92bef79ccee29b07ab733c26b457e8696aad5694",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_adverbial",
+          "contentSha256": "ca10ab92acf2fc6b1d3d18584d9e840d17e339a75b3dd626fdf85129fdd70622",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_tag_confirmation",
+          "contentSha256": "c572296fda6a7bd6199b7487ea6696b01e41a550684c526172c9622be591a594",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_exclamation",
+          "contentSha256": "572e9d3cda366671ec6373d7ce4651976f9965c4e43a4371468451d8d4667c0e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_gentle_question",
+          "contentSha256": "1d58a8a7b30a2e83806e6f734b867636d209a4e1bdc3885122aa9173efbc5dde",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_become",
+          "contentSha256": "6086c9ba0778b6d265efdcd162458c749ba26fc1430113dd769f6d58fa2b46d9",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_irregular_eu",
+          "contentSha256": "60e0027f69ea37d8d6ee15b08be278684b9f14eadf5498bf865f55b274576b2e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_irregular_bieup",
+          "contentSha256": "98ce53cfb708fb6be3d63be4bd07b0551d5e2f690bd689b7076f3527bf220add",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_irregular_digeut",
+          "contentSha256": "d02ddbd70ec4c40d04b9d38772529f24e71f776bae9d81075fcbe51dadb8be5f",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_irregular_rieul",
+          "contentSha256": "0c152488f45898cd6b549ef56079fedc37b9f77d62383a77ab1d3561644e2a17",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_whether",
+          "contentSha256": "22b1fb63460a520409638650742b76a45e9c0d028e8142929ef46a02604d9606",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_since",
+          "contentSha256": "a34fe26bfb47927284c3d9d6e6e8761d143a35a0e1b8f12bd8e9327f96d88e8c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_wish",
+          "contentSha256": "d05c605e6fccdedce95a17fe0198fa9542c84c0e10f1bdb15cc23f4174e45460",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_even_if_light",
+          "contentSha256": "4a56f6994ee336d9d971f60b9d994dfec0d19a886762e4d0ed50264acf5d7f86",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_resultant_state",
+          "contentSha256": "01e14805be505482c592e37527ef45f2874aebffe1380e2e5ca278025e6fb218",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_takes_time",
+          "contentSha256": "3eeb059149377913db8f5133101bbce684f0e18948d704b1726c8cc504bd68a0",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_honorific_si",
+          "contentSha256": "90eab054426a0e993a1ad61823b739929f270259c6c6c42ed7adb874c8932e64",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_nominalizer_gi",
+          "contentSha256": "395a4462aac4d71c32973490fed9fe44cf16c06647ce1dc68dc298513f948a32",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_irregular_reu",
+          "contentSha256": "b68ad06536d3a02e37f297a45ba35f8de8ae0ed3b78b0dbb30b22b203cb1eb82",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_irregular_siot",
+          "contentSha256": "af285ab55917c6dc30e4ef70c692297ee27eb67b7a9583f0bc659ec162e1152f",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_irregular_hieut",
+          "contentSha256": "855d3a285d08b62be2a42384c45e47828d0199a16819209c29f99e758e48c4b9",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_quoted_contractions",
+          "contentSha256": "ac16e1512309530d092899bf4cd041580cc7280990caee76b3663cc16553f207",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_tendency",
+          "contentSha256": "2f8a141d6293b09c574762a42c2be99b767892e22a8a2b5044a664ffbf2ed0c5",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_prepared_state",
+          "contentSha256": "2e9d7939f03f6db9efb0459102cf0665baf83f602c1ebd9b16c569aad156d2dd",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_near_miss",
+          "contentSha256": "b231efbaf2f9ae4fcec9d8d9225ea5ffd70427115b392f921d96528c5b8e01ba",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_state_while",
+          "contentSha256": "de3402c9d808013c56a4d4fa8e5fad9d71a23e38940f8fc78bc4f24b0e57913b",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_formal_reason",
+          "contentSha256": "f9ff69aa415b8c9b9df4ae23a65f76832c948c1bc2ffd8f510a8d77f79085077",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_formal_arrangement",
+          "contentSha256": "2cdb37a9e0f18fb441c0eea00c0da0db68be5077c23171714c311aa9445e5ff2",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_formal_reference",
+          "contentSha256": "86d14e48007ca4ba4b123b1e048d8f400668e74e9a9d0bc37eaa4560d4251852",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_inclusion",
+          "contentSha256": "73c356dffe5162dd9ad3b353c2a829372bb39065ce7d234e11562ea0f257fd5c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_scheduled_arrangement",
+          "contentSha256": "d74a21ca472910b0783de548420554d5ceb3d87d4e3b796de68c6dbf90676ee0",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_as_soon_as",
+          "contentSha256": "8caee2ca9dd1b6989adb56b5156e75c64f7ae96474eea0d9d46218fcbad81cb0",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_planned_future",
+          "contentSha256": "6cca55dea37e25fae10c189054c8b1d23e146746e9ab292ab5b3ed46515df412",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_soft_request",
+          "contentSha256": "5eb2de3c3ba3eb0a50095cb9bc00657e482efa500a48a530b5fdf60233ec20f0",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_formal_written_request",
+          "contentSha256": "daefc3950868d9c42667a71138758d87795d7e5f092a6b9f0effaf6529d1f057",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_explicit_formal_request",
+          "contentSha256": "64b500259a5d82625f81f934dd666adf7fc35a2e818775df70892d4ac7fe98e1",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_formal_regarding",
+          "contentSha256": "e9debdce8dda9ddf5af3f5b36668587fea82ce05b91289eebb7a0d5174d297c6",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_established_premise",
+          "contentSha256": "d9f2ee24aae9dffc2acbda0beaae2697743ba966d9b6085bc3a543b375752793",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_reasoned_perspective",
+          "contentSha256": "8929060194a1b467f6e2ee570646425d17f49d2f424cac834d86aeba1ee3f93c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_method_dependent",
+          "contentSha256": "3c1e91198561e94aca557f0956cf60c374466740a8d04b85208d63544b17339c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_impression_appearance",
+          "contentSha256": "be05cac6923f9014e16920fe0f7d4bc7765a5f30db4818a081d3e7dc408c9161",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_only_after",
+          "contentSha256": "fbaa5c9bf7366748f1fd47e59e867832f831ff3be721e788a6885d94c13ddfdd",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_topic_debate",
+          "contentSha256": "8c3cdae70d852876a75e4c48442df404c008db0a0304aa12c8399e6b2928f5bc",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_negative_consequence",
+          "contentSha256": "79ec628b4d1db8ebb8bb928761cd00a7fda5790dead60aaf3a582ce705855e05",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_pretense_contrast",
+          "contentSha256": "6b3de3315b7420fff115d584dd697c265158e933238a523e5c2089ba2e352886",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_addition_even",
+          "contentSha256": "26d4330d457687684209b5056ae85da301b44b8610809835478af00925f476d0",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_indirect_speech",
+          "contentSha256": "635c2a25866ed7586154b5bc37338a764f88a2cf3dc89a28f5e36a6b74e18825",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_futility",
+          "contentSha256": "3d9f54d559073649eb52c059b428882d5348f2aaf63791f92b66121cced1b32f",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_unexpected_cause",
+          "contentSha256": "2774d7dd0dea47efc77dd396b5fec9ef10684a54c5fe0e02df944fcd7d300eb1",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_worth_doing",
+          "contentSha256": "090b28c1b3185a065ac635b34aee9caa9daee08bc1ea39b8d59c4c57ee161e12",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_practically",
+          "contentSha256": "22b909208bac89471ef2e24a7f94db58193bff1d87eae1b7040384d49678992a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_not_automatic_conclusion",
+          "contentSha256": "7efbb40d27921fcfc797527de358b1e910b933f96255d322b4db34e28ececc3b",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_outcome_depends",
+          "contentSha256": "ddf427b2af5868d7cb69ba57ea39127b5bb0465641cffac609abb125011b94ab",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_turning_point",
+          "contentSha256": "f9be888e4837cb5e15becd59eb1b655550b11910a32c33db7921d4019f6fe16a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_shared_merit",
+          "contentSha256": "0f94b93b36f88c5fc0de94d1e1cebe3b24302dbf3ccdff40fc53fc81db56e246",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_in_light_of",
+          "contentSha256": "10c03753198f633dfb38119c808fd8313912e44538e67bc90170799adab27d91",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_compared_with",
+          "contentSha256": "1849388e0e9f915ccff375088e3d8255cec3b5c1137d9d51fd74c7454e012bdf",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_only_course",
+          "contentSha256": "40d99c98e2db7b2452744a2d62da38df61134268f98383c47e8297dc4814a66a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_instead_tradeoff",
+          "contentSha256": "145d4e61e5d73d50e9495bcef6f0bc7f46cb9e9006028b507476aec3bc775961",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_rather_than",
+          "contentSha256": "65a39ede62fe917853c5e6077534502e573a5eec2ec027323fe1e83d64f1921a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_even_at_cost",
+          "contentSha256": "c65ff59c654c09ddd6c7e9da7a749d5c70c5d8bd88823836cfa59302ab124f80",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_no_exaggeration",
+          "contentSha256": "f302b73c3f8d6f4ba9b44aa7ffcfe79a8f6b53cdedac9814dc645862143b34a3",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_unless_condition",
+          "contentSha256": "f20a59e0753778ca4fe1c0e39073dac2452df2f3dc57a24167452fd0dc043a9c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_two_sides",
+          "contentSha256": "49650ba50a12bd5f56afc2db328bf4fe3e575243d903986aece98136fc38be8f",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_excessive_result",
+          "contentSha256": "16b2006a132133cb7680b0eedbe477358916e1e3a59d81c742dea753d020cc6d",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_room_for",
+          "contentSha256": "5cd62a41429d3e29b293540a2b79c5504ecbf3a16727012e1e1b093a5ccc347e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_taking_into_account",
+          "contentSha256": "87826db08ea3f516d47cdd79188cd2dbeb858c5f3cbad8beb08a2e900042747b",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_regardless_of",
+          "contentSha256": "57bfbd838a52f05854f847a5c97c5f72273ddaf3e828571e61a2cb842a122791",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_even_if_concession",
+          "contentSha256": "52bb69938a13d669003beb5d675a3ddcfa2dab51db0f226e376bac0721469eb5",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_expected_assumption",
+          "contentSha256": "31234060103aa227a52bba68785d34141e83a439c5a03d91e71b051f89ea86f4",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_fortunate_counterfactual",
+          "contentSha256": "dff9fbb38b0dde077cc7c0f8c858717fbc59d204c17991be18aaf17c8c77fb8c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_even_assuming",
+          "contentSha256": "e4da1ac0bf38993d0363cea000c2809e6171e3d5b720621addadb0fedc4c3496",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_if_indeed",
+          "contentSha256": "01cd2ec5105026b10e8eb23d5a7af92f8add35c2562d657fc3cc4ef4b138190d",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_nothing_more_than",
+          "contentSha256": "c6f4b1934ffce0c1d18b0460b5ca571a8ca60277b3524fd786727a78fa740f10",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_likely_negative",
+          "contentSha256": "c5e8176d74566bf48975a6d20048f60e665ec6de519c33dbf3633c385b23fbcb",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_honorific_kke",
+          "contentSha256": "35c5ac008a07f3cda45798e6327304364e993692c445e8ce85880ccb63dfca93",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_humble_give",
+          "contentSha256": "58bfb8567769f226b311ef534491e0ea9ad8016fd35da155feb6b03a63897b85",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_honorific_subject_kkeyseo",
+          "contentSha256": "538bf59d008f1b30acffd1bfe03d10b4a5b123a202a32b068610e1952b18e381",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_rather_than_direct",
+          "contentSha256": "0af9ea3be774b23a6d55280fa131971bef37c03d46c10b0f7a08847691480db6",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_family_framing",
+          "contentSha256": "a6be95c1193fccaeb6d5d553341a30477a184e08c340c12a71fd38133f81fcae",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_regardless_of_kin",
+          "contentSha256": "ace8dedec47cda6fcffa7ebefd3aec532c65478b0cba70f1d916e7e23dd92a83",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_spoken_dative",
+          "contentSha256": "10c6fe227d3aadc3dfb95efe7bad8cbd2efaaea5d3b843370e6aedccde4cdf8d",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_duration_span",
+          "contentSha256": "7295832a470f2c87e84d1e188346958426ebdc616a11762155a75f217419d31f",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_come_purpose",
+          "contentSha256": "efff7220441ba47d7fc610239592289d9d45d3777a5a96efb84ceaa1093da940",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_in_front",
+          "contentSha256": "14c0d4d64c373da4942d65fae1e01cfcaff67e3ea82036e8696b09c62a0deb2c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_noun_cause",
+          "contentSha256": "e1eeafc8a16400fa912c0993c654ae4df79fcaae07cebce9655d7d5754418ffb",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_busy_cause",
+          "contentSha256": "50473c76d0b275da9616a2f0c3cbd59c714994b785d9567b305195201bf4d53d",
+          "status": "FLAG",
+          "issue": "V-느라고 appears at A2 despite the other B1 card; assess bundle-level correspondence."
+        },
+        {
+          "id": "grammar_a2_among_set",
+          "contentSha256": "e18ebb62c19030f599e905db7e41da9a769c2f8e4bd006b2b4d0427109cc403c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_spoken_result",
+          "contentSha256": "dc7c0a6a1f627082a5361d5aa777bdc29c7f95ec4f91120a1c3294464306b561",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_concede_but",
+          "contentSha256": "c5170b7274320724eafb6f43ebb30b51effdc1509263ea03e11de1866dae7bf3",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_as_kept_doing",
+          "contentSha256": "f5538b9827c3ed80acc35fe65ac1bea54e18e9d06e3854bbadab470c114b8fdf",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_while_already",
+          "contentSha256": "76345b9ad0505a4ed4d13c4e8e3284a44d5d3318300ce39f31057b1e31e52641",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_self_should",
+          "contentSha256": "e8beb66dc5049db454f804231bf0f1593e078e1a72f11aee355f88d242669b42",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_as_you_see",
+          "contentSha256": "cf46b951a18abab898b6a0e31c313e1ed3076d52e90130c4f91b83c02f6b1fcb",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_including_start",
+          "contentSha256": "d0feecd7670535c78ca069a5e5e844f4b28a978d2ba1f97ee9a407e62b1b2b96",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_whether_or_not",
+          "contentSha256": "7cb434eb4375316c58b8afe2b338e273f9e8edce28e9630ebb6afc2d1a250052",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_granted_limit",
+          "contentSha256": "674d931d909db3180198ed68ab9767b0e975817821aaddcb0329f09574cc2994",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_regardless_noun",
+          "contentSha256": "f2ac4c3ed079f0513839f3c19f9a6fb73c63bcafee657eda8e201b188afe6b78",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_given_situation",
+          "contentSha256": "a52ae0d0a4a2d2d123e3297c1b5824cedc5903632d71c5d33cc26220e6700981",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_leaning_on",
+          "contentSha256": "9f5e9e87e851c363d43f7b752eb2ca215f4a151a6b7615286c7c7e96eedf4f9d",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_even_if_doing",
+          "contentSha256": "93329dd97fc8b2ba53ab89d5adfcd620e282b61426772a40a8e5beae703d78d9",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_defined_as",
+          "contentSha256": "6c28a8f58046ce736f3314f557c46b6583edc20b8b3a334c743292cd9d75ed2b",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_as_already_set",
+          "contentSha256": "cf5f31e07719568d6fa1c11430204452c2ac21f09c1d6526ff4cdbc3989637fc",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_on_the_premise",
+          "contentSha256": "d810c9613aa6dcdb9d10764c9a7e997003be021884e8c8a51ef31930bee675af",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_wishing_to",
+          "contentSha256": "d3ee91cecf2d19b18775151a124d76440ae903ed65cab44d4af59696b70d0e50",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_limited_to",
+          "contentSha256": "5d8e748a46213f7185028db9077f4790255526229b684ca643d7f6b60f30feb9",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_no_more_than_doing",
+          "contentSha256": "356272806d1a8fbff16be32b638ae7bf04e4a40b87bb49192782d10a3fad3cac",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_not_necessarily",
+          "contentSha256": "02ff2c32bdc455075f2a6039314476e7350c6c82d216e27d14fb40f831a17c70",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_merely_on_grounds",
+          "contentSha256": "0d61061ca76a999b13768b59544b8719f17e9fb73033972c854143a8443f5b56",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_insufficient_for",
+          "contentSha256": "edf66587b7e553e5e87fc7fdf06abd8ffabf7e541acb146cae4cd542a2da073f",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_as_if_framing",
+          "contentSha256": "cae85487127913d3edd953c4ed87120030d7f5e4648a729e9dbec2cc3cad0f8a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_but_not",
+          "contentSha256": "8ac9f867d4a740f5a6b685f003d8583706efa018ea92f6aa9187df434b9c8845",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_no_matter_how",
+          "contentSha256": "6669bdd368aee83ff7f46c65ed417cffbd3a6e56f7c2b239af0cd48712be071b",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_include_total_scope",
+          "contentSha256": "6fe0f26d4aa7d802fd6862fe8010cccb3c620a4f564c106679b60ad5205344bc",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_verify_human_review",
+          "contentSha256": "73fa2fc2d13807a2c93832b7ea84fc2e655592cd1749fbad8f571db27b267f79",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_not_by_one_metric",
+          "contentSha256": "e1f07714c82e74dfa8c3e47e17e2466ccd1f8c4b9fd9b722ada9ae15b62a845e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_instead_supplement",
+          "contentSha256": "03102e36986eecd57c1e1a67f760f510a30c073ce62e9c02dd16bdf2934f2540",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_even_accounting_for",
+          "contentSha256": "90b960e363cf69abd2dc0501b8e248bb2db9ffa4d277b877ed6ea2c337556852",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_while_also_consider",
+          "contentSha256": "99a5e6f99ede5be9ebf95b389d4ea82e1e6560760e1ab5b1bb1c433fc7a60819",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_effect_varies_by",
+          "contentSha256": "9bbb158317cf613120282bb2186f4c1d81e151e350e2f65efeef0822e350da1a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_excluded_in_process",
+          "contentSha256": "a09ba85babc3bd32d17a34ed133f12aa720b72cc7d8231ae38f71964a0168916",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_take_as_premise",
+          "contentSha256": "397ebd9a5d5219ba2f275c5a3bff3de3e77d00a1024c53b4f7fb2455bf3be815",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_definition_by_viewpoint",
+          "contentSha256": "c9ccb7242b67f50fffa5969812a9cb5738e45f45bb9a2aec78ecd4cb002622c4",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_responsibility_remains",
+          "contentSha256": "1f2f9a113619bfe7c5390abe61700f1e57b0c95d70c1b12407708bc2a50eb338",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_cannot_reduce_to",
+          "contentSha256": "db50ae3f51a544789410ce749600a903b14c08474e9346035de380102e8b6800",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_topic_contrast",
+          "contentSha256": "40d9a4a5bf0735cbe1ffffd5b8a44943eb9f98f62377edc72aca69d64b5f74a5",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_subject_new",
+          "contentSha256": "68e819e860a37d21307adc2918158281ec12bfa7155d90819733e9930bd424a1",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_shall_we_time",
+          "contentSha256": "b8c92ed4254f07372536ee4e5ad08c9a0e7bec7cb67d778b7b421e2114217dd7",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_available_if",
+          "contentSha256": "b27bfb1f3bd36def592816c5f2a86b89ca2cc5afc8e8bccfcb7bb7b975002a1c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_soft_request_batch19",
+          "contentSha256": "3577d879af9ee8ec07f75175b54e33843f4d1b3950c170d423ae360c1664cd3a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_reason_context",
+          "contentSha256": "0ebd732a24e5999de7fb217995efc937d7d0e8d55b16c3371e3936265643f23f",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_service_location_question",
+          "contentSha256": "85425f151cbeaf7a44dd29fd8adf169008deda3d3ecb2973060c073cbc8222cd",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_service_request",
+          "contentSha256": "f9ab96eb5d9aa2c97f34c08b1c1b653c10b0c55955c8bca27c8afbcd6b887f00",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_permission_check_batch20",
+          "contentSha256": "f226414ad21280b33c8b1cf521b1cd769036931d745eacb050878206c3bf08fb",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_preference_soft_batch20",
+          "contentSha256": "fadefe3ce85f475ec1700247ecc5535dcf9ae25238e08f093c00d79be4c0f703",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_tentative_plan_batch20",
+          "contentSha256": "374c25f365c8a94269939ae4a2436b34c0b378d570bd4fce3c4849af62eceb4e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_conceded_context_batch20",
+          "contentSha256": "1e2dad8b3070bd265cdb6eeb667703f7bc39a4a69507c354f30eb459c9fd4322",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_criterion_view_batch20",
+          "contentSha256": "6adc5eaf897c972e9d1279232abfbcb960f765819990dd7212548a0e6123d7b5",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b2_considering_fact_batch20",
+          "contentSha256": "2e2d3f076f9eec8ab39f2606075ee8f5f24327b9defea66cbdb7cd471029cf51",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_difficult_to_conclude_batch20",
+          "contentSha256": "4e01fadc9f5b4c9415673403701da8de294cd26c2727b270c0e8ee8345fd7832",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c1_burden_recipient_batch20",
+          "contentSha256": "e04206b7f933f12db101a4a83fa5e403fa3016845cb753c60715027c1c83502e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_no_reduction_batch20",
+          "contentSha256": "1be284880dcc4cd2b496676a8fc8abc354bd16777b9a42213cb0fdb9d8bb2f9a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_c2_premise_review_batch20",
+          "contentSha256": "98a8e53d1f781e9d7bb1b8149003258726f94d741006215a27cc8c35cc3d5705",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_formal_statement",
+          "contentSha256": "28ccbf109f71e0768dcbb4f5ee9b8591c1d9863ec2bf865c7004ebbc2779c0db",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_formal_question",
+          "contentSha256": "a5c9d7b85bfd5a2d40457cb0507f706dd61e291a95c11c8db8414fa09a605682",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_interrupted_action",
+          "contentSha256": "d7c01abfa532e232aa7fef824f94f98bde901f02567d8f915b7ff9825342cfb2",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_nominalizer_eum",
+          "contentSha256": "cdbf268fb1b371519647c9895e89c84ef4785232257602023326ba57bd2d894f",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_from_person",
+          "contentSha256": "532f85586e2a86837d8e4d5884bbc04e50615e1a60d5e7024f9f7daf8080f0f5",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_no_choice_but",
+          "contentSha256": "929dc677fd7921e789d5354fbb2913549b140fbcca1ef5ece64639963b3e99e3",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_tentative_intention",
+          "contentSha256": "45ac1e2eca6c0ac2876b9d847ba839f38f53de71998282e8a0ffeb2569e9ac28",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a1_formal_command",
+          "contentSha256": "3282d269518ba5910f241633e97ecf51265b2d90ff353301334614157a8b34f8",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_indirect_question",
+          "contentSha256": "0334540b021bcdcb41c76bb82f77daac67e565041dd90cbee616e27aab0e973b",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_indirect_command",
+          "contentSha256": "3d4ae131b3bfea0032ab9643dcb24041f3aff69b44c75b08be8ee5c7b3389761",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_indirect_suggestion",
+          "contentSha256": "3e3e9fd0c90a7ff09fd6c4b87e345c113c8bc5fad8c5255e66993cc4f31dfaf5",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_conditional_geodeun",
+          "contentSha256": "8c3493d9c3f85e5836417bf434d504610070e3289e8cb88060d8992f6de2f414",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_b1_proportional_mankeum",
+          "contentSha256": "e2274287270ad94a912a09420d6a3a63155386cb5b1a0877ff48bd2c90d6296a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_toward_person",
+          "contentSha256": "ba17070445b6da21a0013c7006aff6d3f00a8f3a9725b3f73be40e48664ad7cd",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_additive_location",
+          "contentSha256": "f49ea2f8ba4d206fb71c8e456712bbffe4e160c9943cb96b507287e47312c11e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_starting_point",
+          "contentSha256": "fdc903e489910faa74c0c7e9eda50f4d0d7fcf3639c21a8f94ec0f4f12974897",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "grammar_a2_written_directive",
+          "contentSha256": "dc585427f6f4491e76dee4fa8e20d94467c92d60f49e78ada04ffc7ba12e0a76",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        }
+      ]
+    },
+    {
+      "path": "assets/data/grammar_patterns.json",
+      "totalRecords": 43,
+      "directlyReadRecords": 43,
+      "reviewedFields": [
+        "id",
+        "regex",
+        "name_de",
+        "name_en",
+        "level",
+        "explanation_de",
+        "explanation_en"
+      ],
+      "changes": [
+        {
+          "id": "g_progressive",
+          "fields": {
+            "level": {
+              "before": "A2",
+              "after": "A1"
+            }
+          }
+        },
+        {
+          "id": "g_reason",
+          "fields": {
+            "level": {
+              "before": "A2",
+              "after": "A1"
+            }
+          }
+        },
+        {
+          "id": "g_reason_nikka",
+          "fields": {
+            "level": {
+              "before": "A2",
+              "after": "A1"
+            }
+          }
+        },
+        {
+          "id": "g_intent_ryeogo",
+          "fields": {
+            "level": {
+              "before": "B1",
+              "after": "A1"
+            }
+          }
+        },
+        {
+          "id": "g_can",
+          "fields": {
+            "level": {
+              "before": "A2",
+              "after": "A1"
+            }
+          }
+        },
+        {
+          "id": "g_cannot",
+          "fields": {
+            "level": {
+              "before": "A2",
+              "after": "A1"
+            }
+          }
+        },
+        {
+          "id": "g_must",
+          "fields": {
+            "level": {
+              "before": "A2",
+              "after": "A1"
+            }
+          }
+        },
+        {
+          "id": "g_neg_ji_anhda",
+          "fields": {
+            "level": {
+              "before": "A2",
+              "after": "A1"
+            },
+            "explanation_de": {
+              "before": "Längere/formellere Verneinungsform.",
+              "after": "Lange Verneinung mit -지 않다; sie wird in Gesprächen und geschriebenen Texten verwendet."
+            },
+            "explanation_en": {
+              "before": "Uses a longer, often more formal, negative construction.",
+              "after": "Long-form negation with -지 않다, used in both conversation and writing."
+            }
+          }
+        },
+        {
+          "id": "g_too_much",
+          "fields": {
+            "name_de": {
+              "before": "Zu sehr (너무 …)",
+              "after": "Zu / sehr (너무 …)"
+            },
+            "explanation_de": {
+              "before": "'(zu) sehr', oft negativ konnotiert.",
+              "after": "Bedeutet je nach Kontext „zu“ oder „sehr“. Der Grad kann als übermäßig oder als positive Verstärkung gemeint sein."
+            }
+          }
+        },
+        {
+          "id": "g_change_dwaeda",
+          "fields": {
+            "level": {
+              "before": "B1",
+              "after": "A2"
+            }
+          }
+        },
+        {
+          "id": "g_since_time",
+          "fields": {
+            "level": {
+              "before": "B1",
+              "after": "A2"
+            }
+          }
+        }
+      ],
+      "records": [
+        {
+          "id": "g_progressive",
+          "contentSha256": "52aa971d4ed3b8bde06585b045c48b4954cf117e415ad8bb9d611b2ec4826a40",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_progressive_past",
+          "contentSha256": "2c53e7971b6d65d8d0ebd5831ced3d37121ccd7fa632f5890ccb1ce8bac3c8a5",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_reason",
+          "contentSha256": "248ad34bc0a3e8e926b346c43c99acb7c7ef773f9a0fcc7dc6ccceb6d1a49aba",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_reason_nikka",
+          "contentSha256": "e531a2611814c323a4db1f06a792054d73e79457e9e9f9edb879e17ac81cd39b",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_future_will",
+          "contentSha256": "34568ec7b92b24899a34234c441f34072cb881b25d70906ee8b15be770b8297c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_future_kkeyo",
+          "contentSha256": "3bdfb51a8cb929f43f965760b60368fa3556589c656940dc7bf9422d186d3e53",
+          "status": "FLAG",
+          "issue": "Bare 게요 detector may match endings outside the target; boundary and negative examples needed."
+        },
+        {
+          "id": "g_future_kkayo",
+          "contentSha256": "d19272bf3a94e5cab98b90379be257784573bca6d7710375036e85f978da4ecf",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_concessive",
+          "contentSha256": "44dec860b5a483c6d75cc39b43c2b275d82120d0ad591cae04af20ac56b94e01",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_sequence",
+          "contentSha256": "ee4ac655a1f61f438118177c1aeae65b9b77fbb7d1abf16da38d4c0986246160",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_intent_ryeogo",
+          "contentSha256": "3a1f16b476b5fa6845c82e13521fa784a6d4a04e595490be060f84e508a10a1f",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_can",
+          "contentSha256": "d8f38572937ca24f3afdb9849e91c3e431e8fd49800fc9f433188c3d9e70fc2e",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_cannot",
+          "contentSha256": "84fc5dad3cc11ae2fe834b7f29572f55d74b0ce1a6e6ff6daf5e9e8194e859ca",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_must",
+          "contentSha256": "84ddb097e37bc4885d648395c46dc2828b31bea821a3c98c3b60e4484ebab777",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_request",
+          "contentSha256": "b3f18de458eee336f17336a966d43227e094729f0003db50bf4a46935b16b12f",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_neg_an",
+          "contentSha256": "43720a94bec2d573b30ff2260947085034dabb1e9407047b907965f13e8c68da",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_neg_ji_anhda",
+          "contentSha256": "67c69c8f70c5e8e7ffea6be900c6bb6eb62afe6be568244d5741282d725bddce",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_have_to_have_to_see",
+          "contentSha256": "e1976f39bbd9958a2cfd7fec08fe12788f6f867686cb221cc1879f839330de08",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_attribute_present",
+          "contentSha256": "27d52720eea0ffd811f1f8f3cb74cd64add1a3f8e0069c09faf0287609f81a3b",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_attribute_past",
+          "contentSha256": "f1426480f668a12d7ecd5135813a11280408e8da293716efc63fd6fbdfc6eeba",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_attribute_future",
+          "contentSha256": "c9083a724e7f69fb7897521cf5a59835b33d068fa9bf0b028e7359f9c961f95c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_too_much",
+          "contentSha256": "58f2e550fdb09600a1098ce313e57592a99cf763616a54d21aa3aeb8c0bfddb7",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_conditional",
+          "contentSha256": "94b1224ddbc956bc943dc6b97466dd5c4a7baa87b4525da0fbe113a39928b0b4",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_conditional_seasonal",
+          "contentSha256": "e742f5d9772657f0d4b70b409b89f9780bba497289ade817a7bf0aff58abb55b",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_quote_indirect",
+          "contentSha256": "4019742ff6ae87c54de3ced8b0fd177f46a6277966b83ac1d373c964850164ff",
+          "status": "FLAG",
+          "issue": "Detector regex does not cover 냐고 questions and all statement forms; separate detection repair needed."
+        },
+        {
+          "id": "g_change_dwaeda",
+          "contentSha256": "f13a78080d073b507e4f3c77bb7271655e66b0d5e614c79d3d3af72e1172f314",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_while",
+          "contentSha256": "005ac7707400e13e0b4cc44e5da83d7d8354651b6c901f919341549cb094ba97",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_since_time",
+          "contentSha256": "62c902781670e3fc4bb5bccc6768f6a4394a287a2c89bbcad3c0cd6883292bcc",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_only_man",
+          "contentSha256": "842c5f60a88d2fa4e88ab962ae1689648cb0d27597cac60be690875322f0f522",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_with_hago",
+          "contentSha256": "511d958825272f9713039acd0f0238cab4bce265760f2db1dc4f95e392aacb79",
+          "status": "FLAG",
+          "issue": "Detector cannot distinguish noun 하고 from verb 하고 without context."
+        },
+        {
+          "id": "g_to_eseo",
+          "contentSha256": "77d77a207451e81d9d4180c35d0c9317a6ffe9e5056e40464d80e042d11bbd43",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_to_e",
+          "contentSha256": "00333a9b52afeca3828a482cda45607b72866c404be171b0edccbdeaef05c7e5",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_b2_not_automatic",
+          "contentSha256": "f92a7f9096ea0d10842accfec07248e26dea7c11afa4309f343554c37c54bacc",
+          "status": "FLAG",
+          "issue": "Detector matches 다고 해서 without checking a negative consequent."
+        },
+        {
+          "id": "g_b2_instead_of",
+          "contentSha256": "d66e9970d1a0caf386b10537825d3d97979b69ce76e7cce12e388c841add83a5",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_c1_in_process",
+          "contentSha256": "a7f240f343d9c5a4d2dffe4e3141e0de141264b1ec382fb355e7037fff2b1bb3",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_c1_varies_by",
+          "contentSha256": "ae810ac6dc2f56fa5855f806c1bfbeb16a4144df408378138e8daa688c728bca",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_c2_cannot_reduce",
+          "contentSha256": "bef44bf504a657de76699422b443a4deecb916de5cbea463dd65fd9da43c07a0",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_c2_premise",
+          "contentSha256": "7139c7690bef1baff0a8d8a18553125cf0b0c1bf7499834b12f5b3c06e90b619",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_a1_where_is_batch20",
+          "contentSha256": "53ae703b52968cc4bec8a58dfbab67526821335643a75c278cecb5a4a860fc97",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_a2_permission_ok_batch20",
+          "contentSha256": "e5a160e26a1bdd3655047dde23ccd38f948f6073b8f097e439b14fe7ff49c34c",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_b1_tentative_plan_batch20",
+          "contentSha256": "eb687df1ce247f6240f0b09dca5b898d7265b31b168f9e14073c316a973ba75a",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_b2_criterion_batch20",
+          "contentSha256": "c5fa277b14b73d3d33430ba190e3be54488d3152b967a92d5d481f5c9fb1b020",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_c1_conclusion_limit_batch20",
+          "contentSha256": "3ecc7c324d783c611b1796cbb05ae10708b67ae7eac6275580824a35526c8876",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        },
+        {
+          "id": "g_c2_premise_review_batch20",
+          "contentSha256": "2dabadc51d063cf6aa3546783daf8514a9e0f8aaafecd1acb75fc9d5f7318c62",
+          "status": "MODEL_REVIEWED",
+          "issue": null
+        }
+      ]
+    }
+  ],
+  "changes": [
+    {
+      "id": "grammar_a1_polite_past",
+      "level": "A1",
+      "fields": {
+        "example_german": {
+          "before": "Ich bin gegangen. / Ich habe gegessen. / Ich habe gemacht.",
+          "after": "Ich bin gegangen. / Ich habe gegessen. / Ich habe es gemacht."
+        },
+        "example_en": {
+          "before": "I went. / I ate. / I did.",
+          "after": "I went. / I ate. / I did it."
+        }
+      }
+    },
+    {
+      "id": "grammar_a1_long_negation",
+      "level": "A1",
+      "fields": {
+        "explanation_de": {
+          "before": "Formellere Verneinung: Verbstamm + 지 않아요",
+          "after": "Lange Verneinung: Verbstamm + 지 않아요. Sie wird sowohl in Gesprächen als auch in geschriebenen Texten verwendet."
+        },
+        "explanation_en": {
+          "before": "More formal negation: verb stem + 지 않아요",
+          "after": "Long-form negation: verb stem + 지 않아요. Used in both conversation and writing."
+        },
+        "note": {
+          "before": "Formeller als 안 + Verb · Verbstamm + 지 않아요",
+          "after": "Lange Form von 안 + Verb; nicht automatisch höflicher."
+        },
+        "note_en": {
+          "before": "More formal than 안 + verb · verb stem + 지 않아요",
+          "after": "The long form of 안 + verb; it is not automatically more polite."
+        }
+      }
+    },
+    {
+      "id": "grammar_a1_sequence_connector",
+      "level": "A1",
+      "fields": {
+        "note": {
+          "before": "Kein Tempuswechsel beim ersten Verb möglich",
+          "after": "Bei einer einfachen Handlungsfolge steht die Zeitangabe meist am letzten Verb. Beim bloßen Aufzählen sind auch Formen wie -았/었고 möglich."
+        },
+        "note_en": {
+          "before": "The first verb can't carry tense",
+          "after": "In a simple sequence, tense is usually marked on the last verb. When listing events, forms such as -았/었고 are also possible."
+        }
+      }
+    },
+    {
+      "id": "grammar_a1_from_to",
+      "level": "A1",
+      "fields": {
+        "explanation_de": {
+          "before": "Von einem Ausgangspunkt bis zu einem Ziel. Auch zeitlich verwendbar",
+          "after": "Markiert den räumlichen Ausgangspunkt und das Ziel: von einem Ort bis zu einem anderen."
+        },
+        "explanation_en": {
+          "before": "From a starting point to a destination. Also used for time",
+          "after": "Marks the starting point and destination in space: from one place to another."
+        },
+        "note": {
+          "before": "Ort · Zeit: 월요일부터 금요일까지",
+          "after": "Orte: 서울에서 부산까지 · Zeiten: 월요일부터 금요일까지"
+        },
+        "note_en": {
+          "before": "Place · time: 월요일부터 금요일까지",
+          "after": "Places: 서울에서 부산까지 · times: 월요일부터 금요일까지"
+        },
+        "type_de": {
+          "before": "Von-bis (Ort und Zeit)",
+          "after": "Von-bis (Orte)"
+        },
+        "type_en": {
+          "before": "From/to (place and time)",
+          "after": "From/to (places)"
+        }
+      }
+    },
+    {
+      "id": "grammar_a2_dative_person",
+      "level": "A1",
+      "fields": {
+        "explanation_de": {
+          "before": "Jemandem (Dativ). 한테 = informell · 에게 = formell",
+          "after": "Markiert die Person, an die sich eine Handlung richtet. 한테 ist vor allem gesprochen; 에게 ist in Gesprächen und Texten möglich."
+        },
+        "explanation_en": {
+          "before": "To someone (dative). 한테 = informal · 에게 = formal",
+          "after": "Marks the person an action is directed toward. 한테 is mainly spoken; 에게 is used in both speech and writing."
+        },
+        "note": {
+          "before": "한테 umgangssprachlich · 에게 formell",
+          "after": "한테 und 에게 zeigen für sich genommen keinen Respekt gegenüber dem Empfänger; dafür kann 께 verwendet werden."
+        },
+        "note_en": {
+          "before": "한테 colloquial · 에게 formal",
+          "after": "Neither 한테 nor 에게 by itself honors the recipient; 께 can serve that function."
+        }
+      }
+    },
+    {
+      "id": "grammar_a2_reason_because",
+      "level": "A2",
+      "fields": {
+        "explanation_de": {
+          "before": "Weil / Da: formellere Begründung als -아/어서. Kann im Haupt- und Nebensatz stehen",
+          "after": "Nennt einen Grund: weil oder da. Wirkt häufig schriftlicher als -아/어서."
+        },
+        "explanation_en": {
+          "before": "Because / since: a more formal reason than -아/어서. Can stand in the main or subordinate clause",
+          "after": "Gives a reason: because or since. Often sounds more written than -아/어서."
+        },
+        "note": {
+          "before": "Formeller als -아/어서 · Tempuswechsel möglich",
+          "after": "Verbstamm + 기 때문에; eine vergangene Ursache kann mit -았/었기 때문에 ausgedrückt werden."
+        },
+        "note_en": {
+          "before": "More formal than -아/어서 · tense change possible",
+          "after": "Verb stem + 기 때문에; use -았/었기 때문에 for a past cause."
+        }
+      }
+    },
+    {
+      "id": "grammar_a2_inability",
+      "level": "A1",
+      "fields": {
+        "explanation_de": {
+          "before": "Nicht können aufgrund äußerer Umstände · kein eigenes Unvermögen",
+          "after": "Drückt aus, dass eine Handlung wegen fehlender Fähigkeit oder ungünstiger Umstände nicht möglich ist."
+        },
+        "explanation_en": {
+          "before": "Cannot due to external circumstances · not a personal lack of skill",
+          "after": "Expresses that an action is not possible because of a lack of ability or unfavorable circumstances."
+        }
+      }
+    },
+    {
+      "id": "grammar_b1_after",
+      "level": "A1",
+      "fields": {
+        "note": {
+          "before": "Vergangenheit + 후에",
+          "after": "Verbstamm + (으)ㄴ 후에: Die erste Handlung ist vor der zweiten abgeschlossen, auch bei einem zukünftigen Plan."
+        },
+        "note_en": {
+          "before": "Past + 후에",
+          "after": "Verb stem + (으)ㄴ 후에: the first action is complete before the second, including in a future plan."
+        }
+      }
+    },
+    {
+      "id": "grammar_b1_before",
+      "level": "A1",
+      "fields": {
+        "note": {
+          "before": "Infinitiv + 전에",
+          "after": "Verbstamm + 기 전에"
+        },
+        "note_en": {
+          "before": "Infinitive + 전에",
+          "after": "Verb stem + 기 전에"
+        }
+      }
+    },
+    {
+      "id": "grammar_b1_obligation",
+      "level": "A1",
+      "fields": {
+        "explanation_de": {
+          "before": "Müssen / Sollen (Pflicht oder Notwendigkeit)",
+          "after": "Müssen: eine Pflicht oder Notwendigkeit ausdrücken."
+        },
+        "explanation_en": {
+          "before": "Must / should (duty or necessity)",
+          "after": "Must or have to: expresses obligation or necessity."
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_even_if",
+      "level": "B2",
+      "fields": {
+        "note": {
+          "before": "Stärker als -지만",
+          "after": "Die Folge bleibt auch unter der genannten, möglicherweise nur angenommenen Bedingung bestehen."
+        },
+        "note_en": {
+          "before": "Stronger than -지만",
+          "after": "The main clause still holds under the stated condition, which may be hypothetical."
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_formal_concession",
+      "level": "B2",
+      "fields": {
+        "explanation_de": {
+          "before": "Auch wenn / Selbst wenn (sehr formal): stärker und formeller als -더라도",
+          "after": "Räumt in gehobenem oder schriftlichem Ton eine Möglichkeit ein, ohne die folgende Aussage zurückzunehmen."
+        },
+        "explanation_en": {
+          "before": "Even if / even though (very formal): stronger and more formal than -더라도",
+          "after": "Concedes a possibility in an elevated or written register without withdrawing the following claim."
+        },
+        "note": {
+          "before": "Sehr formell · Stärker als -더라도",
+          "after": "Gehobene Konzession; nicht pauschal stärker als -더라도."
+        },
+        "note_en": {
+          "before": "Very formal · stronger than -더라도",
+          "after": "An elevated concessive form; it is not always stronger than -더라도."
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_formal_intention",
+      "level": "B2",
+      "fields": {
+        "example_en": {
+          "before": "I strive in order to learn more.",
+          "after": "I am making an effort to learn more."
+        },
+        "quiz_focus_en": {
+          "before": "strive",
+          "after": "to learn more"
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_despite",
+      "level": "C1",
+      "fields": {
+        "example_german": {
+          "before": "Trotz der Schwierigkeiten hat er Erfolg gehabt.",
+          "after": "Trotz der Schwierigkeiten war es ein Erfolg."
+        },
+        "example_en": {
+          "before": "Despite the difficulties, he succeeded.",
+          "after": "Despite the difficulties, it was a success."
+        },
+        "explanation_de": {
+          "before": "Trotz / Obwohl: Handlung findet trotz einem Hindernis statt",
+          "after": "Trotz eines Hindernisses geschieht etwas. N에도 불구하고 steht nach einem Nomen."
+        }
+      }
+    },
+    {
+      "id": "grammar_a2_change",
+      "level": "A2",
+      "fields": {
+        "explanation_de": {
+          "before": "Es kommt dazu dass / Es ergibt sich dass: passive oder unbeabsichtigte Veränderung",
+          "after": "Beschreibt, wie sich durch Umstände eine neue Situation ergibt. Die Veränderung muss nicht zufällig oder unerwünscht sein."
+        },
+        "explanation_en": {
+          "before": "It comes about that / it turns out that: a passive or unintended change",
+          "after": "Describes how circumstances lead to a new situation. The change need not be accidental or unwanted."
+        },
+        "note": {
+          "before": "Drückt eine zufällige oder ungewollte Entwicklung aus",
+          "after": "Betont die entstandene Situation, nicht allein den Entschluss des Sprechers."
+        },
+        "note_en": {
+          "before": "Expresses an accidental or unintended development",
+          "after": "Focuses on the resulting situation rather than only on the speaker's decision."
+        }
+      }
+    },
+    {
+      "id": "grammar_a2_favor",
+      "level": "A2",
+      "fields": {
+        "note": {
+          "before": "Verbstamm + 아/어 주다 · 드리다 = höflicher",
+          "after": "Verbstamm + 아/어 주다; 드리다 zeigt Respekt gegenüber der Person, für die etwas getan wird."
+        },
+        "note_en": {
+          "before": "Verb stem + 아/어 주다 · 드리다 = more polite",
+          "after": "Verb stem + 아/어 주다; 드리다 shows respect toward the person the action is done for."
+        }
+      }
+    },
+    {
+      "id": "grammar_b1_duration",
+      "level": "A2",
+      "fields": {
+        "note": {
+          "before": "동안 = Zeitraum · 그동안 = die ganze Zeit",
+          "after": "동안 bezeichnet einen Zeitraum; 그동안 kann inzwischen oder in dieser Zeit bedeuten."
+        },
+        "note_en": {
+          "before": "동안 = period · 그동안 = the whole time",
+          "after": "동안 denotes a period; 그동안 can mean meanwhile or during that time."
+        }
+      }
+    },
+    {
+      "id": "grammar_b1_explanatory_reason",
+      "level": "B1",
+      "fields": {
+        "explanation_de": {
+          "before": "Weißt du / nämlich: Begründung dem Gegenüber gegenüber",
+          "after": "Gibt nachträglich einen Grund oder Hintergrund an, der dem Gegenüber noch nicht bekannt sein muss."
+        },
+        "explanation_en": {
+          "before": "You see / you know: giving a reason to the listener",
+          "after": "Adds a reason or background information that the listener may not yet know."
+        }
+      }
+    },
+    {
+      "id": "grammar_a2_only_negative",
+      "level": "A2",
+      "fields": {
+        "example_german": {
+          "before": "Ich habe nichts außer tausend Won.",
+          "after": "Ich habe nur tausend Won."
+        },
+        "example_en": {
+          "before": "I have nothing but 1,000 won.",
+          "after": "I only have 1,000 won."
+        },
+        "quiz_focus_de": {
+          "before": "nichts außer",
+          "after": "nur"
+        },
+        "quiz_focus_en": {
+          "before": "nothing but",
+          "after": "only"
+        }
+      }
+    },
+    {
+      "id": "grammar_a2_cause_nikka",
+      "level": "A1",
+      "fields": {
+        "example_german": {
+          "before": "Da es regnet nehmen Sie einen Schirm mit.",
+          "after": "Da es regnet, nehmen Sie einen Schirm mit."
+        },
+        "example_en": {
+          "before": "Since it's raining take an umbrella.",
+          "after": "Since it's raining, take an umbrella."
+        }
+      }
+    },
+    {
+      "id": "grammar_a2_after_finishing",
+      "level": "A2",
+      "fields": {
+        "note": {
+          "before": "Bewegungsverben (가다/오다) nehmen 아/어서 statt 고 나서",
+          "after": "-고 나서 betont den Abschluss der ersten Handlung. -아/어서 verbindet dagegen oft eine Bewegung mit der anschließenden Handlung am Ziel."
+        },
+        "note_en": {
+          "before": "motion verbs (가다/오다) take 아/어서 instead of 고 나서",
+          "after": "-고 나서 emphasizes completion of the first action. -아/어서 often connects movement with the action performed at the destination."
+        }
+      }
+    },
+    {
+      "id": "grammar_a2_gentle_question",
+      "level": "A2",
+      "fields": {
+        "example_en": {
+          "before": "How is this outfit?",
+          "after": "What do you think of this outfit?"
+        },
+        "quiz_focus_en": {
+          "before": "How is",
+          "after": "What do you think"
+        }
+      }
+    },
+    {
+      "id": "grammar_b1_wish",
+      "level": "B1",
+      "fields": {
+        "example_german": {
+          "before": "Ich wünschte die Ferien wären schon da.",
+          "after": "Ich wünschte, die Ferien würden bald anfangen."
+        },
+        "example_en": {
+          "before": "I wish vacation would come soon.",
+          "after": "I wish the holidays would start soon."
+        }
+      }
+    },
+    {
+      "id": "grammar_b1_even_if_light",
+      "level": "B1",
+      "fields": {
+        "example_german": {
+          "before": "Auch wenn ich noch so beschäftigt bin frühstücke ich.",
+          "after": "Auch wenn ich noch so beschäftigt bin, frühstücke ich."
+        },
+        "example_en": {
+          "before": "No matter how busy I am I eat breakfast.",
+          "after": "No matter how busy I am, I eat breakfast."
+        }
+      }
+    },
+    {
+      "id": "grammar_b1_state_while",
+      "level": "B1",
+      "fields": {
+        "example_german": {
+          "before": "Wenn man ausgeht und die Heizung eingeschaltet lässt wird Energie verschwendet.",
+          "after": "Wenn man ausgeht und die Heizung eingeschaltet lässt, wird Energie verschwendet."
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_formal_written_request",
+      "level": "B2",
+      "fields": {
+        "explanation_de": {
+          "before": "Formuliert eine höfliche, aber verbindliche Aufforderung in offiziellen Mitteilungen, Formularen oder formellen E-Mails.",
+          "after": "Formuliert eine höfliche, formelle Aufforderung in offiziellen Mitteilungen, Formularen oder E-Mails."
+        },
+        "explanation_en": {
+          "before": "Forms a polite but binding request in official notices, forms, or formal emails.",
+          "after": "Forms a polite, formal request in official notices, forms or emails."
+        },
+        "example_en": {
+          "before": "Please supplement the relevant documents and resubmit them within the deadline.",
+          "after": "Please complete the relevant documents and resubmit them before the deadline."
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_only_after",
+      "level": "B2",
+      "fields": {
+        "example_german": {
+          "before": "Erst nachdem ich den Text zu Ende gelesen hatte, verstand ich, warum sich der Anfang wiederholt.",
+          "after": "Erst nachdem ich den Text zu Ende gelesen hatte, verstand ich, warum die Wiederholung im ersten Teil nötig ist."
+        },
+        "example_en": {
+          "before": "Only after I had read the text to the end did I understand why the opening repeats.",
+          "after": "Only after I had read the text to the end did I understand why the repetition in the opening was necessary."
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_addition_even",
+      "level": "B2",
+      "fields": {
+        "example_german": {
+          "before": "Die Einrichtung ist sauber und es sind sogar wenig Leute da.",
+          "after": "Mir gefällt es hier: Die Anlage ist sauber, und es sind obendrein nur wenige Leute da."
+        },
+        "example_en": {
+          "before": "The facilities are clean and there are even few people.",
+          "after": "I like it here: the facilities are clean, and there aren't many people around either."
+        },
+        "quiz_focus_de": {
+          "before": "sogar wenig Leute da",
+          "after": "obendrein nur wenige Leute"
+        },
+        "quiz_focus_en": {
+          "before": "there are even few people",
+          "after": "there aren't many people around either"
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_practically",
+      "level": "B2",
+      "fields": {
+        "example_korean": {
+          "before": "거의 매일 운동하니까 건강한 셈이지.",
+          "after": "일주일에 여섯 번 운동하니까 거의 매일 운동하는 셈이지."
+        },
+        "example_german": {
+          "before": "Da ich fast jeden Tag Sport mache, bin ich quasi gesund.",
+          "after": "Da ich sechsmal pro Woche Sport mache, trainiere ich praktisch jeden Tag."
+        },
+        "example_en": {
+          "before": "Since I exercise almost every day, I'm practically healthy.",
+          "after": "Since I exercise six times a week, I'm exercising practically every day."
+        },
+        "quiz_focus_de": {
+          "before": "quasi gesund",
+          "after": "praktisch jeden Tag"
+        },
+        "quiz_focus_en": {
+          "before": "practically healthy",
+          "after": "practically every day"
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_turning_point",
+      "level": "B2",
+      "fields": {
+        "example_en": {
+          "before": "Our conversation with the neighbors about noise became the turning point for rewriting the shared-space rules.",
+          "after": "Talking to the neighbors about noise prompted us to revise the shared-space rules."
+        },
+        "quiz_focus_en": {
+          "before": "turning point",
+          "after": "prompted us to"
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_only_course",
+      "level": "B2",
+      "fields": {
+        "example_en": {
+          "before": "Rather than blame each other for the inconvenience, all we can do is decide together how to prevent it next time.",
+          "after": "Rather than dwell on the inconvenience that has already occurred, all we can do is decide together how to prevent it next time."
+        }
+      }
+    },
+    {
+      "id": "grammar_c1_excessive_result",
+      "level": "C1",
+      "fields": {
+        "explanation_en": {
+          "before": "Links an excessive action or strongly felt state to an usually unintended negative result.",
+          "after": "Links an excessive action or strongly felt state to a usually unintended negative result."
+        }
+      }
+    },
+    {
+      "id": "grammar_c2_regardless_of",
+      "level": "C2",
+      "fields": {
+        "example_en": {
+          "before": "An appeals process should be open to everyone, regardless of access route or decision outcome.",
+          "after": "An appeals process must be open to everyone, regardless of access route or decision outcome."
+        }
+      }
+    },
+    {
+      "id": "grammar_c2_nothing_more_than",
+      "level": "C2",
+      "fields": {
+        "example_german": {
+          "before": "Ein hoher, nicht erklärbarer Wert ist bis zur Prüfung nichts weiter als eine Systemausgabe.",
+          "after": "Ein hoher, nicht erklärbarer Wert ist bis zum Abschluss der Überprüfung nichts weiter als eine Systemausgabe."
+        }
+      }
+    },
+    {
+      "id": "grammar_c2_likely_negative",
+      "level": "C2",
+      "fields": {
+        "explanation_en": {
+          "before": "Warns that the stated conditions are very likely to produce an usually undesirable result.",
+          "after": "Warns that the stated conditions are very likely to produce a usually undesirable result."
+        }
+      }
+    },
+    {
+      "id": "grammar_a1_spoken_dative",
+      "level": "A1",
+      "fields": {
+        "explanation_de": {
+          "before": "Gesprochene Richtung zu einer Person. Nach Konsonant oft 한테.",
+          "after": "Markiert in der gesprochenen Sprache die Person, an die sich eine Handlung richtet. 한테 bleibt nach Vokalen und Konsonanten gleich."
+        },
+        "explanation_en": {
+          "before": "Spoken direction to a person. After a consonant, 한테 is common.",
+          "after": "Marks the person an action is directed toward in speech. 한테 is the same after vowels and consonants."
+        },
+        "note": {
+          "before": "Nach Konsonant oft 한테.",
+          "after": "한테 nach Vokal und Konsonant: 친구한테 / 선생님한테."
+        },
+        "note_en": {
+          "before": "After a consonant, 한테 is common.",
+          "after": "Use 한테 after vowels and consonants: 친구한테 / 선생님한테."
+        },
+        "type_de": {
+          "before": "Gesprochene Richtung zu einer Person",
+          "after": "Gesprochene Dativpartikel"
+        },
+        "type_en": {
+          "before": "Spoken direction to a person",
+          "after": "Spoken dative particle"
+        }
+      }
+    },
+    {
+      "id": "grammar_a1_in_front",
+      "level": "A1",
+      "fields": {
+        "example_korean": {
+          "before": "역앞에 잠시 기다려 주세요.",
+          "after": "역 앞에서 잠시 기다려 주세요."
+        },
+        "pattern": {
+          "before": "N앞에",
+          "after": "N앞에(서)"
+        }
+      }
+    },
+    {
+      "id": "grammar_b1_as_kept_doing",
+      "level": "B1",
+      "fields": {
+        "example_korean": {
+          "before": "설명을 듣다 보니  핵심이 보였어요.",
+          "after": "설명을 듣다 보니 핵심이 이해됐어요."
+        },
+        "example_german": {
+          "before": "Beim wiederholten Zuhören wurde der Kern sichtbar.",
+          "after": "Während ich der Erklärung zuhörte, wurde mir der Kern klar."
+        },
+        "example_en": {
+          "before": "As I kept listening, the core became visible.",
+          "after": "As I listened to the explanation, I began to understand the main point."
+        },
+        "quiz_focus_de": {
+          "before": "Beim wiederholten Zuhören",
+          "after": "Während ich der Erklärung zuhörte"
+        },
+        "quiz_focus_en": {
+          "before": "As I kept listening",
+          "after": "As I listened"
+        },
+        "explanation_de": {
+          "before": "Ergebnis durch Wiederholung. Kein einmaliger Zufall.",
+          "after": "Während man eine Handlung fortsetzt oder wiederholt, bemerkt man etwas oder gelangt zu einem Ergebnis."
+        },
+        "explanation_en": {
+          "before": "Result through repetition. Not a one-off accident.",
+          "after": "While continuing or repeating an action, the speaker notices something or arrives at a result."
+        },
+        "note": {
+          "before": "Kein einmaliger Zufall.",
+          "after": "Fortgesetzte Handlung oder wiederholte Erfahrung; Wiederholung ist nicht in jedem Fall nötig."
+        },
+        "note_en": {
+          "before": "Not a one-off accident.",
+          "after": "An ongoing action or repeated experience; repetition is not always required."
+        },
+        "type_de": {
+          "before": "Ergebnis durch Wiederholung",
+          "after": "Ergebnis im Verlauf einer Handlung"
+        },
+        "type_en": {
+          "before": "Result through repetition",
+          "after": "Result emerging during an action"
+        }
+      }
+    },
+    {
+      "id": "grammar_c1_regardless_noun",
+      "level": "C1",
+      "fields": {
+        "example_german": {
+          "before": "Unabhängig vom Rang gilt derselbe Öffentlichkeitsmaßstab.",
+          "after": "Unabhängig vom Rang gelten dieselben Kriterien für die Offenlegung."
+        },
+        "type_de": {
+          "before": "Ohne Ausnahme nach N",
+          "after": "Unabhängig von einer Kategorie"
+        },
+        "type_en": {
+          "before": "Without exception after N",
+          "after": "Regardless of category"
+        }
+      }
+    },
+    {
+      "id": "grammar_c1_given_situation",
+      "level": "C1",
+      "fields": {
+        "example_german": {
+          "before": "Angesichts fehlender Daten können wir keine Rangfolge festlegen.",
+          "after": "Angesichts unzureichender Daten können wir die Rangfolge nicht mit Sicherheit bestimmen."
+        },
+        "example_en": {
+          "before": "Given the missing data, we cannot fix a ranking.",
+          "after": "Given the insufficient data, we cannot state the ranking with certainty."
+        },
+        "quiz_focus_de": {
+          "before": "Angesichts fehlender Daten",
+          "after": "Angesichts unzureichender Daten"
+        },
+        "quiz_focus_en": {
+          "before": "Given the missing data",
+          "after": "Given the insufficient data"
+        }
+      }
+    },
+    {
+      "id": "grammar_c1_leaning_on",
+      "level": "C1",
+      "fields": {
+        "example_german": {
+          "before": "Gestützt auf eine einzelne Umfrage werde ich das System nicht ändern.",
+          "after": "Ich werde das System nicht auf der Grundlage einer einzelnen Umfrage ändern."
+        },
+        "example_en": {
+          "before": "I will not change the system leaning on a single survey.",
+          "after": "I won't change the system on the basis of a single survey."
+        },
+        "quiz_focus_de": {
+          "before": "Gestützt auf eine einzelne Umfrage",
+          "after": "auf der Grundlage einer einzelnen Umfrage"
+        },
+        "quiz_focus_en": {
+          "before": "leaning on a single survey",
+          "after": "on the basis of a single survey"
+        },
+        "explanation_de": {
+          "before": "Sich auf eine Grundlage stützen. Die Grundlage ist schmal oder vorläufig.",
+          "after": "Nennt die Grundlage, auf die sich eine Handlung oder Aussage stützt. Wie verlässlich sie ist, ergibt sich aus dem Kontext."
+        },
+        "explanation_en": {
+          "before": "Leaning on a basis. The basis is narrow or provisional.",
+          "after": "Names the basis an action or claim relies on. Its reliability depends on context."
+        },
+        "note": {
+          "before": "Die Grundlage ist schmal oder vorläufig.",
+          "after": "Die Grundlage muss nicht schmal oder vorläufig sein."
+        },
+        "note_en": {
+          "before": "The basis is narrow or provisional.",
+          "after": "The basis need not be narrow or provisional."
+        }
+      }
+    },
+    {
+      "id": "grammar_c1_even_if_doing",
+      "level": "C1",
+      "fields": {
+        "example_german": {
+          "before": "Selbst wenn wir den Termin verschieben, schließe ich die Prüfung ab.",
+          "after": "Ich werde die Prüfung abschließen, selbst wenn ich dafür den Termin verschieben muss."
+        },
+        "example_en": {
+          "before": "Even if we postpone the schedule, I will finish the review.",
+          "after": "I will finish the review, even if it means pushing back the schedule."
+        },
+        "quiz_focus_de": {
+          "before": "Selbst wenn wir den Termin verschieben",
+          "after": "selbst wenn ich dafür den Termin verschieben muss"
+        },
+        "quiz_focus_en": {
+          "before": "Even if we postpone the schedule",
+          "after": "even if it means pushing back the schedule"
+        }
+      }
+    },
+    {
+      "id": "grammar_c2_on_the_premise",
+      "level": "C2",
+      "fields": {
+        "example_german": {
+          "before": "Unter der Voraussetzung der Erklärbarkeit legen wir den Ausrollkreis fest.",
+          "after": "Unter der Voraussetzung der Erklärbarkeit legen wir den Umfang der Einführung fest."
+        },
+        "explanation_de": {
+          "before": "Unter einer gesetzten Bedingung. Die Bedingung ist nicht verhandelbar.",
+          "after": "Nennt eine Annahme oder Bedingung, auf der die folgende Aussage oder Entscheidung beruht."
+        },
+        "explanation_en": {
+          "before": "On a stated premise. The condition is not optional.",
+          "after": "Names an assumption or condition on which the following claim or decision rests."
+        },
+        "note": {
+          "before": "Die Bedingung ist nicht verhandelbar.",
+          "after": "Eine Prämisse ist nicht automatisch eine unverhandelbare Anforderung."
+        },
+        "note_en": {
+          "before": "The condition is not optional.",
+          "after": "A premise is not automatically a nonnegotiable requirement."
+        }
+      }
+    },
+    {
+      "id": "grammar_c1_limited_to",
+      "level": "C1",
+      "fields": {
+        "explanation_de": {
+          "before": "Grenzt eine Aussage auf einen bestimmten Ausschnitt ein und zeigt, dass sie darüber hinaus nicht gilt.",
+          "after": "Beschränkt eine Aussage auf einen bestimmten Ausschnitt, ohne damit ihre Gültigkeit außerhalb dieses Bereichs festzustellen."
+        },
+        "explanation_en": {
+          "before": "Restricts a claim to one slice of the data and signals that it does not hold beyond it.",
+          "after": "Limits a claim to a particular scope without establishing whether it holds outside that scope."
+        }
+      }
+    },
+    {
+      "id": "grammar_c2_no_more_than_doing",
+      "level": "C2",
+      "fields": {
+        "explanation_de": {
+          "before": "Sagt, dass ein Vorgehen bei einem ersten Schritt stehen bleibt und die eigentliche Wirkung ausbleibt.",
+          "after": "Zeigt, dass eine Handlung oder Entwicklung bei dem genannten Umfang stehen bleibt."
+        },
+        "explanation_en": {
+          "before": "States that an action stopped at a first step and fell short of real effect.",
+          "after": "Shows that an action or development goes no further than the stated extent."
+        },
+        "note": {
+          "before": "Der Satz bewertet den Schritt als zu wenig, für eine neutrale Beschreibung passt er nicht.",
+          "after": "Je nach Kontext kann die Grenze als unzureichend bewertet werden; die Form ist nicht immer wertend."
+        },
+        "note_en": {
+          "before": "It judges the step as insufficient, so it does not fit neutral description.",
+          "after": "The limit may be judged insufficient in context, but the form is not always evaluative."
+        },
+        "type_de": {
+          "before": "Beschränkung auf einen Minimalschritt",
+          "after": "Über eine Handlung nicht hinausgehen"
+        },
+        "type_en": {
+          "before": "Doing no more than",
+          "after": "Going no further than an action"
+        }
+      }
+    },
+    {
+      "id": "grammar_c1_not_necessarily",
+      "level": "C1",
+      "fields": {
+        "example_german": {
+          "before": "Dass die Spielzeit gesunken ist, heißt nicht, dass der Schlaf zugenommen hat.",
+          "after": "Dass die Nutzungsdauer gesunken ist, heißt nicht, dass die Schlafdauer zugenommen hat."
+        },
+        "example_en": {
+          "before": "That play time fell does not mean sleep increased.",
+          "after": "A reduction in usage time does not mean that sleep duration has increased."
+        },
+        "note": {
+          "before": "Der zweite Teil steht verneint. Für einen offenen Widerspruch ist die Form zu vorsichtig.",
+          "after": "Verneint einen zwingenden Schluss; die erste Beobachtung muss dadurch nicht bestritten werden."
+        },
+        "note_en": {
+          "before": "The second half is negated. For an outright contradiction the form is too cautious.",
+          "after": "Denies that a conclusion necessarily follows; it need not dispute the first observation."
+        },
+        "pattern": {
+          "before": "V-ㄴ/는다고 해서 N인 것은 아니다",
+          "after": "A/V-다고 해서 A/V-(으)ㄴ/는 것은 아니다"
+        }
+      }
+    },
+    {
+      "id": "grammar_c1_insufficient_for",
+      "level": "C1",
+      "fields": {
+        "example_en": {
+          "before": "The current team is not enough to prepare the comeback.",
+          "after": "We don't have enough people to prepare for the comeback."
+        },
+        "quiz_focus_en": {
+          "before": "is not enough to",
+          "after": "don't have enough people"
+        },
+        "note": {
+          "before": "Vor der Form steht das Ziel, danach das fehlende Mittel. Die Reihenfolge lässt sich nicht tauschen.",
+          "after": "-기에는 nennt die Aufgabe, 모자라다 die unzureichenden Mittel. Die Satzteile können je nach Fokus umgestellt werden."
+        },
+        "note_en": {
+          "before": "The goal comes before the form and the missing means after it. The order cannot be swapped.",
+          "after": "-기에는 names the task; 모자라다 identifies the insufficient resources. Word order can vary with the focus."
+        }
+      }
+    },
+    {
+      "id": "grammar_c2_as_if_framing",
+      "level": "C2",
+      "fields": {
+        "explanation_de": {
+          "before": "Schreibt einer Darstellung eine Haltung zu, die die erzählende Person nur vorgibt, und markiert sie als nicht gedeckt.",
+          "after": "Beschreibt, dass jemand spricht oder handelt, als wäre ein bestimmter Sachverhalt gegeben."
+        },
+        "explanation_en": {
+          "before": "Attributes to an account a stance the teller only pretends to hold and marks it as unsupported.",
+          "after": "Describes someone speaking or acting as if a particular situation were true."
+        },
+        "note": {
+          "before": "Die Form enthält ein Urteil der sprechenden Person. Für neutrale Wiedergabe ist sie ungeeignet.",
+          "after": "Der Kontext kann Skepsis ausdrücken; die Form allein beweist keine Täuschungsabsicht."
+        },
+        "note_en": {
+          "before": "The form carries the speaker's judgement, so it does not fit neutral reporting.",
+          "after": "Context may convey skepticism; the form alone does not establish an intent to deceive."
+        },
+        "type_de": {
+          "before": "Vorgetäuschte Haltung",
+          "after": "Verhalten wie in einer angenommenen Lage"
+        },
+        "type_en": {
+          "before": "Feigned stance",
+          "after": "Acting as if in an imagined situation"
+        }
+      }
+    },
+    {
+      "id": "grammar_c2_no_matter_how",
+      "level": "C2",
+      "fields": {
+        "example_german": {
+          "before": "Wie viele Fans es auch sein mögen, ihr Wort wird dadurch keine Regel.",
+          "after": "Wie viele Fans es auch gibt: Diese Aussage wird dadurch nicht zu einer Regel."
+        },
+        "example_en": {
+          "before": "No matter how many fans there are, their word does not become a rule.",
+          "after": "No matter how many fans there are, that statement does not become a rule."
+        },
+        "note": {
+          "before": "Der Hauptsatz steht verneint. Ohne Verneinung wirkt der Satz unfertig.",
+          "after": "Die Hauptaussage bleibt trotz des eingeräumten Ausmaßes bestehen; eine grammatische Verneinung ist nicht zwingend."
+        },
+        "note_en": {
+          "before": "The main clause is negated. Without the negation the sentence sounds unfinished.",
+          "after": "The main claim holds despite the conceded degree; grammatical negation is not required."
+        },
+        "quiz_focus_de": {
+          "before": "Wie viele Fans es auch sein mögen",
+          "after": "Wie viele Fans es auch gibt"
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_include_total_scope",
+      "level": "B2",
+      "fields": {
+        "note": {
+          "before": "Nach 까지 steht der zusätzlich einbezogene Posten.",
+          "after": "Das Nomen vor 까지 bezeichnet den zusätzlich einbezogenen Posten."
+        }
+      }
+    },
+    {
+      "id": "grammar_c2_take_as_premise",
+      "level": "C2",
+      "fields": {
+        "note": {
+          "before": "전제는 이후의 논증을 떠받치는 Annahme, nicht das Ergebnis.",
+          "after": "Eine Prämisse trägt die folgende Argumentation; sie ist nicht deren Ergebnis."
+        }
+      }
+    },
+    {
+      "id": "grammar_c2_definition_by_viewpoint",
+      "level": "C2",
+      "fields": {
+        "example_en": {
+          "before": "Depending on whose perspective defines efficiency, the assessment of automation changes.",
+          "after": "The assessment of automation changes depending on whose perspective is used to define efficiency."
+        },
+        "quiz_focus_en": {
+          "before": "Depending on whose perspective",
+          "after": "depending on whose perspective"
+        }
+      }
+    },
+    {
+      "id": "grammar_a2_from_person",
+      "level": "A2",
+      "fields": {
+        "explanation_de": {
+          "before": "Von jemandem (Herkunft, nicht Ort). 한테서 = umgangssprachlich, 에게서 = formell. Gegenstück zu N한테/에게.",
+          "after": "Markiert eine Person als Quelle: von jemandem. 한테서 ist vor allem gesprochen; 에게서 ist in Gesprächen und Texten möglich."
+        },
+        "explanation_en": {
+          "before": "From someone (source, not location). 한테서 = colloquial, 에게서 = formal. Counterpart of N한테/에게.",
+          "after": "Marks a person as the source: from someone. 한테서 is mainly spoken; 에게서 is used in speech and writing."
+        },
+        "note": {
+          "before": "한테서 구어 · 에게서 격식 · N한테/에게의 대응짝",
+          "after": "한테서 und 에게서 unterscheiden sich im Gebrauch, nicht automatisch im Respekt gegenüber der Person."
+        },
+        "note_en": {
+          "before": "한테서 = colloquial · 에게서 = formal · counterpart of N한테/에게",
+          "after": "한테서 and 에게서 differ in usage, not automatically in respect toward the person."
+        }
+      }
+    },
+    {
+      "id": "grammar_a2_probability",
+      "level": "A2",
+      "fields": {
+        "pattern": {
+          "before": "V-(으)ㄴ/는 것 같다",
+          "after": "V-(으)ㄴ/는/(으)ㄹ 것 같다"
+        },
+        "explanation_de": {
+          "before": "Es scheint als ob / Es sieht aus als: persönliche Einschätzung oder Vermutung",
+          "after": "Drückt einen Eindruck oder eine Vermutung aus: es scheint, als ob …"
+        },
+        "explanation_en": {
+          "before": "It seems / it looks like: a personal impression or guess",
+          "after": "Expresses an impression or a guess: it seems as if …"
+        }
+      }
+    },
+    {
+      "id": "grammar_a2_purpose",
+      "level": "A2",
+      "fields": {
+        "example_korean": {
+          "before": "건강을 위해서 운동해요.",
+          "after": "건강하게 살기 위해서 운동해요."
+        },
+        "example_german": {
+          "before": "Ich mache Sport, um gesund zu bleiben.",
+          "after": "Ich mache Sport, um gesund zu leben."
+        },
+        "example_en": {
+          "before": "I exercise to stay healthy.",
+          "after": "I exercise to live a healthy life."
+        },
+        "quiz_focus_de": {
+          "before": "um gesund zu bleiben",
+          "after": "um gesund zu leben"
+        },
+        "quiz_focus_en": {
+          "before": "to stay healthy",
+          "after": "to live a healthy life"
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_not_only",
+      "level": "B2",
+      "fields": {
+        "example_korean": {
+          "before": "예쁠 뿐만 아니라 똑똑해요.",
+          "after": "이 자료는 이해하기 쉬울 뿐만 아니라 실제 사례도 풍부해요."
+        },
+        "example_german": {
+          "before": "Sie ist nicht nur hübsch, sondern auch klug.",
+          "after": "Dieses Material ist nicht nur leicht verständlich, sondern enthält auch viele Beispiele aus der Praxis."
+        },
+        "example_en": {
+          "before": "She's not only pretty but also smart.",
+          "after": "This material is not only easy to understand but also full of real-world examples."
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_contrast",
+      "level": "B1",
+      "fields": {
+        "example_korean": {
+          "before": "한국은 발전한 반면에 환경 문제가 있어요.",
+          "after": "이 식당은 음식이 맛있는 반면에 가격이 비싸요."
+        },
+        "example_german": {
+          "before": "Korea hat sich entwickelt, jedoch gibt es Umweltprobleme.",
+          "after": "Das Essen in diesem Restaurant ist gut, jedoch sind die Preise hoch."
+        },
+        "example_en": {
+          "before": "Korea has developed, but on the other hand it has environmental problems.",
+          "after": "The food at this restaurant is good; on the other hand, the prices are high."
+        }
+      }
+    },
+    {
+      "id": "grammar_b1_whether",
+      "level": "B2",
+      "fields": {
+        "example_korean": {
+          "before": "어디에 사는지 알아요?",
+          "after": "수진 씨가 어디에 사는지 알아요?"
+        },
+        "example_german": {
+          "before": "Weißt du wo er wohnt?",
+          "after": "Weißt du, wo Sujin wohnt?"
+        },
+        "example_en": {
+          "before": "Do you know where he lives?",
+          "after": "Do you know where Sujin lives?"
+        },
+        "quiz_focus_de": {
+          "before": "wo er wohnt",
+          "after": "wo Sujin wohnt"
+        },
+        "quiz_focus_en": {
+          "before": "where he lives",
+          "after": "where Sujin lives"
+        },
+        "type_en": {
+          "before": "Indirect question (whether)",
+          "after": "Indirect question (whether or wh-question)"
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_quoted_contractions",
+      "level": "B2",
+      "fields": {
+        "example_korean": {
+          "before": "내일 온대요.",
+          "after": "현아 씨가 내일 온대요."
+        },
+        "example_german": {
+          "before": "Er sagt er kommt morgen.",
+          "after": "Ich habe gehört, dass Hyuna morgen kommt."
+        },
+        "example_en": {
+          "before": "He says he's coming tomorrow.",
+          "after": "I hear Hyuna is coming tomorrow."
+        },
+        "quiz_focus_de": {
+          "before": "Er sagt",
+          "after": "Ich habe gehört"
+        },
+        "quiz_focus_en": {
+          "before": "He says",
+          "after": "I hear"
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_formal_arrangement",
+      "level": "B1",
+      "fields": {
+        "example_korean": {
+          "before": "양측이 합의한 일정에 맞춰 업무를 진행하도록 하겠습니다.",
+          "after": "오늘 안에 일을 마치도록 하겠습니다."
+        },
+        "example_german": {
+          "before": "Wir werden dafür sorgen, dass die Arbeiten nach dem von beiden Seiten vereinbarten Zeitplan ausgeführt werden.",
+          "after": "Ich werde dafür sorgen, dass ich die Arbeit noch heute abschließe."
+        },
+        "example_en": {
+          "before": "We will make sure that the work proceeds according to the schedule agreed by both sides.",
+          "after": "I will make sure that I finish the work today."
+        },
+        "explanation_de": {
+          "before": "Drückt eine formelle Absicht Anweisung oder Vereinbarung darüber aus wie etwas geschehen soll.",
+          "after": "Drückt eine Absicht, Anweisung oder Vereinbarung darüber aus, wie eine Handlung ausgeführt werden soll."
+        },
+        "explanation_en": {
+          "before": "States a formal intention instruction or arrangement about how something should be done.",
+          "after": "Expresses an intention, instruction, or agreement about how an action is to be carried out."
+        },
+        "note": {
+          "before": "Häufig in Geschäfts- und Verwaltungssprache wenn man eine Verfahrensregel festlegt.",
+          "after": "Je nach Kontext eine eigene Absicht oder eine Anweisung; nicht auf Verwaltungssprache beschränkt."
+        },
+        "note_en": {
+          "before": "Common in business and administrative language when setting a procedure.",
+          "after": "Depending on context, it expresses an intention or an instruction; it is not limited to administrative language."
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_pretense_contrast",
+      "level": "B2",
+      "fields": {
+        "example_korean": {
+          "before": "다 알면서 모르는 척했어.",
+          "after": "나는 다 아는데도 모르는 척했어."
+        },
+        "example_german": {
+          "before": "Er wusste alles und tat so, als wüsste er nichts.",
+          "after": "Obwohl ich alles wusste, tat ich so, als wüsste ich nichts."
+        },
+        "example_en": {
+          "before": "He knew everything but pretended not to.",
+          "after": "Even though I knew everything, I pretended not to."
+        },
+        "quiz_focus_de": {
+          "before": "tat so, als wüsste er nichts",
+          "after": "tat ich so, als wüsste ich nichts"
+        },
+        "type_de": {
+          "before": "Gegensatz + Heuchelei",
+          "after": "Gegensatz und vorgetäuschtes Verhalten"
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_indirect_speech",
+      "level": "B2",
+      "fields": {
+        "example_korean": {
+          "before": "내일 온다고 했어.",
+          "after": "레나가 내일 온다고 했어."
+        },
+        "example_german": {
+          "before": "Er hat gesagt, dass er morgen kommt.",
+          "after": "Lena hat gesagt, dass sie morgen kommt."
+        },
+        "example_en": {
+          "before": "He said he's coming tomorrow.",
+          "after": "Lena said she's coming tomorrow."
+        },
+        "quiz_focus_de": {
+          "before": "dass er morgen kommt",
+          "after": "dass sie morgen kommt"
+        },
+        "quiz_focus_en": {
+          "before": "said he's coming",
+          "after": "said she's coming"
+        },
+        "quiz_distractor_ids": {
+          "before": "grammar_b2_quoted_contractions|grammar_b2_pretense_contrast|grammar_b2_addition_even",
+          "after": "grammar_b2_even_if|grammar_b2_pretense_contrast|grammar_b2_addition_even"
+        }
+      }
+    },
+    {
+      "id": "grammar_c1_room_for",
+      "level": "C1",
+      "fields": {
+        "example_korean": {
+          "before": "현재 수요만 보면 규모가 작아 보이지만 이용 시간이 늘면 다시 검토할 여지가 있어요.",
+          "after": "현재 자료만으로는 효과를 단정하기 어렵지만, 추가 조사 결과에 따라 다시 검토할 여지가 있어요."
+        },
+        "example_german": {
+          "before": "Nach der aktuellen Nachfrage wirkt der Umfang klein, doch bei längeren Nutzungszeiten besteht Spielraum für eine erneute Prüfung.",
+          "after": "Aus den bisherigen Daten lässt sich die Wirkung nicht eindeutig beurteilen; weitere Untersuchungsergebnisse könnten jedoch Spielraum für eine erneute Prüfung eröffnen."
+        },
+        "example_en": {
+          "before": "Current demand makes the scale look small, but longer opening hours would leave room to reconsider it.",
+          "after": "The current data do not support a firm conclusion about the effect, but further findings could leave room to reconsider it."
+        },
+        "quiz_focus_de": {
+          "before": "besteht Spielraum",
+          "after": "Spielraum für eine erneute Prüfung"
+        }
+      }
+    },
+    {
+      "id": "grammar_a1_duration_span",
+      "level": "A1",
+      "fields": {
+        "example_korean": {
+          "before": "수업 동안 전화를 꺼 두어요.",
+          "after": "수업 동안 전화를 쓰지 않아요."
+        },
+        "example_german": {
+          "before": "Während des Unterrichts lasse ich das Telefon aus.",
+          "after": "Während des Unterrichts benutze ich das Telefon nicht."
+        },
+        "example_en": {
+          "before": "I leave the phone off during class.",
+          "after": "I do not use the phone during class."
+        }
+      }
+    },
+    {
+      "id": "grammar_c2_defined_as",
+      "level": "C2",
+      "fields": {
+        "example_korean": {
+          "before": "공개라 함은 원문과 한계를 함께 내는 일을 말합니다.",
+          "after": "이 보고서에서 공개라 함은 조사 결과뿐 아니라 자료 수집 방법과 분석의 한계까지 밝히는 것을 말합니다."
+        },
+        "example_german": {
+          "before": "Mit Veröffentlichung ist gemeint, Ursprungstext und Grenze gemeinsam vorzulegen.",
+          "after": "Mit Veröffentlichung ist in diesem Bericht gemeint, nicht nur die Untersuchungsergebnisse, sondern auch die Erhebungsmethode und die Grenzen der Analyse offenzulegen."
+        },
+        "example_en": {
+          "before": "By disclosure we mean releasing the source text together with its limits.",
+          "after": "By disclosure we mean, in this report, making not only the findings but also the data collection method and the limitations of the analysis available."
+        },
+        "type_de": {
+          "before": "Institutionelle Definition",
+          "after": "Begriff ausdrücklich definieren"
+        },
+        "type_en": {
+          "before": "Institutional definition",
+          "after": "Explicitly defining a term"
+        },
+        "explanation_de": {
+          "before": "Institutionelle Definition. Definiert einen Amtsbegriff.",
+          "after": "Definiert ausdrücklich, was mit einem Begriff im jeweiligen Text gemeint ist."
+        },
+        "explanation_en": {
+          "before": "Institutional definition. Defines an official term.",
+          "after": "Explicitly defines what a term means in the text at hand."
+        },
+        "note": {
+          "before": "Definiert einen Amtsbegriff.",
+          "after": "Formelle Definition; sie gilt zunächst im genannten Kontext und ist nicht automatisch eine amtliche Begriffsbestimmung."
+        },
+        "note_en": {
+          "before": "Defines an official term.",
+          "after": "A formal definition within the stated context; it is not automatically an official definition."
+        },
+        "quiz_focus_de": {
+          "before": "Mit Veröffentlichung ist gemeint",
+          "after": "Mit Veröffentlichung ist in diesem Bericht gemeint"
+        }
+      }
+    },
+    {
+      "id": "grammar_c2_as_already_set",
+      "level": "C2",
+      "fields": {
+        "pattern": {
+          "before": "V-는 바",
+          "after": "V-(으)ㄴ/는 바"
+        },
+        "example_korean": {
+          "before": "앞서 밝힌 바, 자동 결정에는 이의 경로가 있어야 합니다.",
+          "after": "앞서 밝힌 바와 같이, 자동 결정에는 이의 제기 절차가 있어야 합니다."
+        },
+        "example_german": {
+          "before": "Wie bereits dargelegt, braucht eine automatisierte Entscheidung einen Einspruchsweg.",
+          "after": "Wie bereits dargelegt, muss es für automatisierte Entscheidungen ein Verfahren geben, um Widerspruch einzulegen."
+        },
+        "example_en": {
+          "before": "As already set out, an automated decision needs an appeal path.",
+          "after": "As already set out, there must be a procedure for challenging automated decisions."
+        },
+        "explanation_de": {
+          "before": "Bereits festgestellter Inhalt. Verweist auf eine festgehaltene Lage.",
+          "after": "Das gebundene Nomen 바 verweist auf einen beschriebenen Inhalt. In -(으)ㄴ 바와 같이 bedeutet es „wie bereits …“."
+        },
+        "explanation_en": {
+          "before": "Already established content. Refers to a recorded position.",
+          "after": "The bound noun 바 refers to something stated or described. In -(으)ㄴ 바와 같이, it means “as previously …”."
+        },
+        "note": {
+          "before": "Verweist auf eine festgehaltene Lage.",
+          "after": "Das Nomen 바 wird getrennt geschrieben: 밝힌 바. Nicht mit der verbindenden Endung -는바 verwechseln."
+        },
+        "note_en": {
+          "before": "Refers to a recorded position.",
+          "after": "Write the bound noun 바 separately: 밝힌 바. Do not confuse it with the connective ending -는바."
+        }
+      }
+    },
+    {
+      "id": "grammar_c2_wishing_to",
+      "level": "C2",
+      "fields": {
+        "pattern": {
+          "before": "V-고자 하건대",
+          "after": "V-건대"
+        },
+        "type_de": {
+          "before": "Formelle Absichtseröffnung",
+          "after": "Eine Hoffnung oder Einschätzung förmlich einleiten"
+        },
+        "type_en": {
+          "before": "Formal intent opening",
+          "after": "Formally introducing a hope or judgment"
+        },
+        "example_korean": {
+          "before": "기록을 남기고자 하건대 결정 요약을 먼저 읽겠습니다.",
+          "after": "바라건대, 이번 논의가 서로의 입장을 확인하는 데 그치지 않고 실질적인 개선으로 이어지기를 바랍니다."
+        },
+        "example_german": {
+          "before": "Indem ich das Protokoll sichern will, lese ich zuerst die Entscheidungszusammenfassung.",
+          "after": "Ich hoffe, dass diese Diskussion nicht beim Austausch unserer Positionen stehen bleibt, sondern zu konkreten Verbesserungen führt."
+        },
+        "example_en": {
+          "before": "Wishing to keep a record, I will read the decision summary first.",
+          "after": "I hope this discussion goes beyond stating our respective positions and leads to concrete improvements."
+        },
+        "quiz_focus_de": {
+          "before": "Indem ich das Protokoll sichern will",
+          "after": "Ich hoffe"
+        },
+        "quiz_focus_en": {
+          "before": "Wishing to keep a record",
+          "after": "I hope"
+        },
+        "explanation_de": {
+          "before": "Formelle Absichtseröffnung. Schriftlicher, förmlicher Auftakt.",
+          "after": "Leitet mit bestimmten Verben eine Hoffnung oder Einschätzung ein, etwa 바라건대, 보건대 oder 짐작하건대."
+        },
+        "explanation_en": {
+          "before": "Formal intent opening. A written, formal opening.",
+          "after": "Introduces a hope or judgment with certain verbs, as in 바라건대, 보건대, or 짐작하건대."
+        },
+        "note": {
+          "before": "Schriftlicher, förmlicher Auftakt.",
+          "after": "Gehobene, vor allem schriftliche Ausdrucksweise; keine Endung, die beliebig an jedes Verb angehängt wird."
+        },
+        "note_en": {
+          "before": "A written, formal opening.",
+          "after": "An elevated form used mainly in writing; it cannot freely attach to every verb."
+        }
+      }
+    },
+    {
+      "id": "grammar_a1_topic_contrast",
+      "level": "A1",
+      "fields": {
+        "example_korean": {
+          "before": "저는 학생이고 제 친구는 회사원이에요.",
+          "after": "레나는 학생이고 수진은 회사원이에요."
+        },
+        "example_german": {
+          "before": "Ich bin Studentin, und mein Freund arbeitet in einer Firma.",
+          "after": "Lena ist Studentin, und Sujin arbeitet in einer Firma."
+        },
+        "example_en": {
+          "before": "I am a student, and my friend is an office worker.",
+          "after": "Lena is a student, and Sujin is an office worker."
+        },
+        "quiz_focus_de": {
+          "before": "Ich bin Studentin",
+          "after": "Lena ist Studentin"
+        },
+        "quiz_focus_en": {
+          "before": "I am a student",
+          "after": "Lena is a student"
+        },
+        "quiz_distractor_ids": {
+          "before": "grammar_a1_topic_particle|grammar_a1_subject_particle|grammar_a1_object_particle",
+          "after": "grammar_a1_possessive_particle|grammar_a1_degree_question|grammar_a1_approx"
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_considering_fact_batch20",
+      "level": "B2",
+      "fields": {
+        "example_german": {
+          "before": "Da die Belastung durch Lebenshaltungskosten je nach Haushalt variiert, sollten auch die Förderkriterien differenziert werden.",
+          "after": "Wenn man berücksichtigt, dass die Belastung durch Lebenshaltungskosten je nach Haushalt variiert, müssen auch die Förderkriterien stärker differenziert werden."
+        },
+        "example_en": {
+          "before": "Considering that living-cost burdens vary by household, support criteria should be more specific.",
+          "after": "Considering that living-cost burdens vary by household, support criteria need to be more specific."
+        },
+        "quiz_focus_de": {
+          "before": "Da die Belastung",
+          "after": "Wenn man berücksichtigt"
+        }
+      }
+    },
+    {
+      "id": "grammar_b1_proportional_mankeum",
+      "level": "B1",
+      "fields": {
+        "example_german": {
+          "before": "Je mehr ich übte, desto besser wurde meine Aussprache. / Je mehr du isst, desto mehr solltest du dich auch bewegen.",
+          "after": "Je mehr ich übte, desto besser wurde meine Aussprache. / Je mehr du isst, desto mehr musst du dich auch bewegen."
+        },
+        "example_en": {
+          "before": "The more I practised, the better my pronunciation became. / The more you eat, the more you should exercise.",
+          "after": "The more I practised, the better my pronunciation became. / The more you eat, the more you need to exercise."
+        }
+      }
+    },
+    {
+      "id": "grammar_b1_nominalization",
+      "level": "A2",
+      "fields": {
+        "quiz_distractor_ids": {
+          "before": "grammar_b1_experience|grammar_b1_nominalizer_gi|grammar_b1_duration",
+          "after": "grammar_b1_experience|grammar_a2_permission|grammar_b1_duration"
+        }
+      }
+    },
+    {
+      "id": "grammar_b1_self_prompt",
+      "level": "B1",
+      "fields": {
+        "quiz_distractor_ids": {
+          "before": "grammar_b1_scheduled_arrangement|grammar_b1_self_should|grammar_b1_recalled_past",
+          "after": "grammar_b1_scheduled_arrangement|grammar_b1_indirect_speech|grammar_b1_recalled_past"
+        }
+      }
+    },
+    {
+      "id": "grammar_b2_inevitability",
+      "level": "C1",
+      "fields": {
+        "type_de": {
+          "before": "Naturgesetzmäßigkeit",
+          "after": "Typische oder erwartbare Folge"
+        },
+        "type_en": {
+          "before": "Inevitability",
+          "after": "Typical or expected outcome"
+        }
+      }
+    },
+    {
+      "id": "grammar_b1_nominalizer_gi",
+      "level": "A2",
+      "fields": {
+        "quiz_distractor_ids": {
+          "before": "grammar_b1_nominalization|grammar_b1_realization|grammar_b1_experience",
+          "after": "grammar_a2_permission|grammar_b1_realization|grammar_b1_experience"
+        }
+      }
+    },
+    {
+      "id": "grammar_a1_subject_new",
+      "level": "A1",
+      "fields": {
+        "quiz_distractor_ids": {
+          "before": "grammar_a1_topic_particle|grammar_a1_subject_particle|grammar_a1_object_particle",
+          "after": "grammar_a1_possessive_particle|grammar_a1_degree_question|grammar_a1_approx"
+        }
+      }
+    },
+    {
+      "id": "grammar_a1_formal_statement",
+      "level": "A1",
+      "fields": {
+        "quiz_distractor_ids": {
+          "before": "grammar_a1_polite_present|grammar_a1_polite_request|grammar_a1_copula_polite",
+          "after": "grammar_a1_possessive_particle|grammar_a1_degree_question|grammar_a1_approx"
+        }
+      }
+    },
+    {
+      "id": "grammar_a1_formal_question",
+      "level": "A1",
+      "fields": {
+        "quiz_distractor_ids": {
+          "before": "grammar_a1_service_location_question|grammar_a1_which_question|grammar_a1_copula_polite",
+          "after": "grammar_a1_possessive_particle|grammar_a1_from_until|grammar_a1_only_particle"
+        }
+      }
+    },
+    {
+      "id": "grammar_a1_formal_command",
+      "level": "A1",
+      "fields": {
+        "quiz_distractor_ids": {
+          "before": "grammar_a1_polite_request|grammar_a1_formal_statement|grammar_a1_service_request",
+          "after": "grammar_a1_formal_statement|grammar_a1_from_until|grammar_a1_cannot_short"
+        }
+      }
+    }
+  ],
+  "references": [
+    {
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=78410&nation=eng",
+      "use": "Verified restricted attachment and meaning of -건대 before replacing the artificial -고자 하건대."
+    }
+  ],
+  "verification": {
+    "contentValidation": "PASS",
+    "unicode": "PASS",
+    "flutterGrammarTests": {
+      "passed": 48
+    },
+    "contentFactoryTests": {
+      "run": 1303,
+      "skipped": 20,
+      "result": "PASS"
+    },
+    "tts": {
+      "generatedUploaded": 17,
+      "expected": 12650,
+      "remote": 21338,
+      "missing": 0,
+      "stale": 8688,
+      "actualAudioListeningPerformed": false
+    },
+    "promotedBatchChecks": [
+      {
+        "manifest": "tools/content_factory/drafts/batch_01_manifest.json",
+        "baseline": "vocab:vocab_b1_0248 lacks original-rights provenance",
+        "current": "vocab:vocab_b1_0248 lacks original-rights provenance"
+      },
+      {
+        "manifest": "tools/content_factory/drafts/batch_02_manifest.json",
+        "baseline": "vocab:vocab_b1_0260 lacks original-rights provenance",
+        "current": "vocab:vocab_b1_0260 lacks original-rights provenance"
+      },
+      {
+        "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+        "baseline": "PASS",
+        "current": "PASS"
+      },
+      {
+        "manifest": "tools/content_factory/drafts/batch_05_manifest.json",
+        "baseline": "curriculum courseUnits:c1_01_evidence_public_reasoning: promoted value differs from reviewed draft",
+        "current": "curriculum courseUnits:c1_01_evidence_public_reasoning: promoted value differs from reviewed draft"
+      },
+      {
+        "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+        "baseline": "PASS",
+        "current": "PASS"
+      },
+      {
+        "manifest": "tools/content_factory/drafts/batch_12_manifest.json",
+        "baseline": "smalltalk:smalltalk_c2_0025: promoted value differs from reviewed draft",
+        "current": "smalltalk:smalltalk_c2_0025: promoted value differs from reviewed draft"
+      },
+      {
+        "manifest": "tools/content_factory/drafts/batch_18_manifest.json",
+        "baseline": "PASS",
+        "current": "PASS"
+      },
+      {
+        "manifest": "tools/content_factory/drafts/batch_19_manifest.json",
+        "baseline": "scenario: 'a1_register_first_day_choice' is missing from live assets",
+        "current": "scenario: 'a1_register_first_day_choice' is missing from live assets"
+      },
+      {
+        "manifest": "tools/content_factory/drafts/batch_20_manifest.json",
+        "baseline": "vocab:vocab_b1_0474: promoted value differs from reviewed draft",
+        "current": "vocab:vocab_b1_0474: promoted value differs from reviewed draft"
+      }
+    ],
+    "fullFlutterSuite": {
+      "passed": 8243,
+      "skipped": 55,
+      "result": "PASS"
+    },
+    "staticAnalysis": {
+      "result": "PASS with CI flags",
+      "errors": 0,
+      "warnings": 0,
+      "preExistingInfos": 3
+    },
+    "releaseWebBuild": "PASS"
+  },
+  "validationRepairs": [
+    {
+      "scenarioId": "c2_w10_fandom",
+      "field": "dialog[3].de and linked quest/listening options",
+      "before": "Nach den Regeln dieser Community prüfen wir eine Kontosperrung, wenn jemand fremde Werke ohne Erlaubnis kommerziell nutzt – unabhängig von Genre oder Größe des Fandoms.",
+      "after": "Nach den Regeln dieser Community prüfen wir eine Kontosperrung, wenn jemand fremde Werke ohne Erlaubnis kommerziell nutzt, unabhängig von Genre oder Größe des Fandoms.",
+      "reason": "Project learner-copy guard disallows en/em dashes; punctuation keeps the same meaning."
+    }
+  ]
+}

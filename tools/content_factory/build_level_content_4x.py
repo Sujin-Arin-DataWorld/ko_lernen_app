@@ -391,20 +391,20 @@ def build_vocab_games(packs: list[dict[str, Any]]) -> tuple[list[dict[str, str]]
 
 def grammar_records() -> list[dict[str, str]]:
     rows = [
-        ("N한테", "A1", "Gesprochene Richtung zu einer Person", "Spoken direction to a person",
+        ("N한테", "A1", "Gesprochene Dativpartikel", "Spoken dative particle",
          "친구한테 이 주소를 물어봤어요.", "Ich habe eine Freundin nach dieser Adresse gefragt.",
          "I asked a friend for this address.", "eine Freundin", "a friend",
-         "grammar_a1_spoken_dative", "Nach Konsonant oft 한테.", "After a consonant, 한테 is common."),
+         "grammar_a1_spoken_dative", "한테 nach Vokal und Konsonant: 친구한테 / 선생님한테.", "Use 한테 after vowels and consonants: 친구한테 / 선생님한테."),
         ("N동안", "A1", "Zeitspanne", "Duration span",
-         "수업 동안 전화를 꺼 두어요.", "Während des Unterrichts lasse ich das Telefon aus.",
-         "I leave the phone off during class.", "Während des Unterrichts", "during class",
+         "수업 동안 전화를 쓰지 않아요.", "Während des Unterrichts benutze ich das Telefon nicht.",
+         "I do not use the phone during class.", "Während des Unterrichts", "during class",
          "grammar_a1_duration_span", "Nennt eine begrenzte Zeit.", "Names a bounded time."),
         ("V-(으)러 오다", "A1", "Kommen um zu handeln", "Come in order to act",
          "서류를 받으러 왔어요.", "Ich bin gekommen, um die Unterlagen abzuholen.",
          "I came to pick up the papers.", "gekommen, um", "came to",
          "grammar_a1_come_purpose", "Bewegung zum Sprecher.", "Motion toward the speaker."),
-        ("N앞에", "A1", "Ort vor etwas", "Place in front",
-         "역앞에 잠시 기다려 주세요.", "Bitte warten Sie kurz vor dem Bahnhof.",
+        ("N앞에(서)", "A1", "Ort vor etwas", "Place in front",
+         "역 앞에서 잠시 기다려 주세요.", "Bitte warten Sie kurz vor dem Bahnhof.",
          "Please wait a moment in front of the station.", "vor dem Bahnhof", "in front of the station",
          "grammar_a1_in_front", "Konkreter Ort, nicht Zeit.", "A concrete place, not time."),
         ("N때문에", "A2", "Grund als Nomen", "Noun cause",
@@ -427,10 +427,10 @@ def grammar_records() -> list[dict[str, str]]:
          "늦기는 하지만 오늘은 끝까지 할게요.", "Es ist zwar spät, aber ich mache es heute zu Ende.",
          "It is late, but I will finish it today.", "zwar spät, aber", "late, but",
          "grammar_b1_concede_but", "Erste Handlung wird anerkannt.", "The first action is granted."),
-        ("V-다 보니", "B1", "Ergebnis durch Wiederholung", "Result through repetition",
-         "설명을 듣다 보니  indessen 핵심이 보였어요.", "Beim wiederholten Zuhören wurde der Kern sichtbar.",
-         "As I kept listening, the core became visible.", "Beim wiederholten Zuhören", "As I kept listening",
-         "grammar_b1_as_kept_doing", "Kein einmaliger Zufall.", "Not a one-off accident."),
+        ("V-다 보니", "B1", "Ergebnis im Verlauf einer Handlung", "Result emerging during an action",
+         "설명을 듣다 보니 핵심이 이해됐어요.", "Während ich der Erklärung zuhörte, wurde mir der Kern klar.",
+         "As I listened to the explanation, I began to understand the main point.", "Während ich der Erklärung zuhörte", "As I listened",
+         "grammar_b1_as_kept_doing", "Fortgesetzte Handlung oder wiederholte Erfahrung; Wiederholung ist nicht in jedem Fall nötig.", "An ongoing action or repeated experience; repetition is not always required."),
         ("V-(으)ㄴ 김에", "B1", "Gelegenheit mitnehmen", "While already doing",
          "우체국에 간 김에 우표도 샀어요.", "Da ich schon auf der Post war, habe ich auch Briefmarken gekauft.",
          "Since I was already at the post office, I also bought stamps.", "Da ich schon", "Since I was already",
@@ -455,38 +455,38 @@ def grammar_records() -> list[dict[str, str]]:
          "설명이 짧기로서니 결정을 숨긴 것은 아닙니다.", "Mag die Erklärung kurz sein, die Entscheidung wurde nicht verborgen.",
          "Granted the explanation is short, the decision was not hidden.", "Mag die Erklärung kurz sein", "Granted the explanation is short",
          "grammar_b2_granted_limit", "Räumt etwas ein und begrenzt die Schlussfolgerung.", "Grants a point and limits the conclusion."),
-        ("N을/를 불문하고", "C1", "Ohne Ausnahme nach N", "Without exception after N",
-         "직급을 불문하고 같은 공개 기준을 적용합니다.", "Unabhängig vom Rang gilt derselbe Öffentlichkeitsmaßstab.",
+        ("N을/를 불문하고", "C1", "Unabhängig von einer Kategorie", "Regardless of category",
+         "직급을 불문하고 같은 공개 기준을 적용합니다.", "Unabhängig vom Rang gelten dieselben Kriterien für die Offenlegung.",
          "Regardless of rank, the same disclosure standard applies.", "Unabhängig vom Rang", "Regardless of rank",
          "grammar_c1_regardless_noun", "Schließt Statusunterschiede aus.", "Rules out status differences."),
         ("V-는 마당에", "C1", "In einer bereits laufenden Lage", "In an already unfolding situation",
-         "자료가 부족한 마당에 순위를 단정할 수 없습니다.", "Angesichts fehlender Daten können wir keine Rangfolge festlegen.",
-         "Given the missing data, we cannot fix a ranking.", "Angesichts fehlender Daten", "Given the missing data",
+         "자료가 부족한 마당에 순위를 단정할 수 없습니다.", "Angesichts unzureichender Daten können wir die Rangfolge nicht mit Sicherheit bestimmen.",
+         "Given the insufficient data, we cannot state the ranking with certainty.", "Angesichts unzureichender Daten", "Given the insufficient data",
          "grammar_c1_given_situation", "Die Lage ist schon da.", "The situation is already there."),
         ("N에 기대어", "C1", "Sich auf eine Grundlage stützen", "Leaning on a basis",
-         "한 설문에 기대어 제도를 바꾸지는 않겠습니다.", "Gestützt auf eine einzelne Umfrage werde ich das System nicht ändern.",
-         "I will not change the system leaning on a single survey.", "Gestützt auf eine einzelne Umfrage", "leaning on a single survey",
-         "grammar_c1_leaning_on", "Die Grundlage ist schmal oder vorläufig.", "The basis is narrow or provisional."),
+         "한 설문에 기대어 제도를 바꾸지는 않겠습니다.", "Ich werde das System nicht auf der Grundlage einer einzelnen Umfrage ändern.",
+         "I won't change the system on the basis of a single survey.", "auf der Grundlage einer einzelnen Umfrage", "on the basis of a single survey",
+         "grammar_c1_leaning_on", "Die Grundlage muss nicht schmal oder vorläufig sein.", "The basis need not be narrow or provisional."),
         ("V-고서라도", "C1", "Selbst um den Preis der Handlung", "Even at the cost of the action",
-         "일정을 미루고서라도 검수를 마치겠습니다.", "Selbst wenn wir den Termin verschieben, schließe ich die Prüfung ab.",
-         "Even if we postpone the schedule, I will finish the review.", "Selbst wenn wir den Termin verschieben", "Even if we postpone the schedule",
+         "일정을 미루고서라도 검수를 마치겠습니다.", "Ich werde die Prüfung abschließen, selbst wenn ich dafür den Termin verschieben muss.",
+         "I will finish the review, even if it means pushing back the schedule.", "selbst wenn ich dafür den Termin verschieben muss", "even if it means pushing back the schedule",
          "grammar_c1_even_if_doing", "Die Handlung ist der Preis.", "The action is the price."),
-        ("N이라 함은", "C2", "Institutionelle Definition", "Institutional definition",
-         "공개라 함은 원문과 한계를 함께 내는 일을 말합니다.", "Mit Veröffentlichung ist gemeint, Ursprungstext und Grenze gemeinsam vorzulegen.",
-         "By disclosure we mean releasing the source text together with its limits.", "Mit Veröffentlichung ist gemeint", "By disclosure we mean",
-         "grammar_c2_defined_as", "Definiert einen Amtsbegriff.", "Defines an official term."),
-        ("V-는 바", "C2", "Bereits festgestellter Inhalt", "Already established content",
-         "앞서 밝힌 바, 자동 결정에는 이의 경로가 있어야 합니다.", "Wie bereits dargelegt, braucht eine automatisierte Entscheidung einen Einspruchsweg.",
-         "As already set out, an automated decision needs an appeal path.", "Wie bereits dargelegt", "As already set out",
-         "grammar_c2_as_already_set", "Verweist auf eine festgehaltene Lage.", "Refers to a recorded position."),
+        ("N이라 함은", "C2", "Begriff ausdrücklich definieren", "Explicitly defining a term",
+         "이 보고서에서 공개라 함은 조사 결과뿐 아니라 자료 수집 방법과 분석의 한계까지 밝히는 것을 말합니다.", "Mit Veröffentlichung ist in diesem Bericht gemeint, nicht nur die Untersuchungsergebnisse, sondern auch die Erhebungsmethode und die Grenzen der Analyse offenzulegen.",
+         "By disclosure we mean, in this report, making not only the findings but also the data collection method and the limitations of the analysis available.", "Mit Veröffentlichung ist in diesem Bericht gemeint", "By disclosure we mean",
+         "grammar_c2_defined_as", "Formelle Definition; sie gilt zunächst im genannten Kontext und ist nicht automatisch eine amtliche Begriffsbestimmung.", "A formal definition within the stated context; it is not automatically an official definition."),
+        ("V-(으)ㄴ/는 바", "C2", "Bereits festgestellter Inhalt", "Already established content",
+         "앞서 밝힌 바와 같이, 자동 결정에는 이의 제기 절차가 있어야 합니다.", "Wie bereits dargelegt, muss es für automatisierte Entscheidungen ein Verfahren geben, um Widerspruch einzulegen.",
+         "As already set out, there must be a procedure for challenging automated decisions.", "Wie bereits dargelegt", "As already set out",
+         "grammar_c2_as_already_set", "Das Nomen 바 wird getrennt geschrieben: 밝힌 바. Nicht mit der verbindenden Endung -는바 verwechseln.", "Write the bound noun 바 separately: 밝힌 바. Do not confuse it with the connective ending -는바."),
         ("N을/를 전제로", "C2", "Unter einer gesetzten Bedingung", "On a stated premise",
-         "설명 가능성을 전제로 배포 범위를 정합니다.", "Unter der Voraussetzung der Erklärbarkeit legen wir den Ausrollkreis fest.",
+         "설명 가능성을 전제로 배포 범위를 정합니다.", "Unter der Voraussetzung der Erklärbarkeit legen wir den Umfang der Einführung fest.",
          "On the premise of explainability we set the rollout scope.", "Unter der Voraussetzung der Erklärbarkeit", "On the premise of explainability",
-         "grammar_c2_on_the_premise", "Die Bedingung ist nicht verhandelbar.", "The condition is not optional."),
-        ("V-고자 하건대", "C2", "Formelle Absichtseröffnung", "Formal intent opening",
-         "기록을 남기고자 하건대 결정 요약을 먼저 읽겠습니다.", "Indem ich das Protokoll sichern will, lese ich zuerst die Entscheidungszusammenfassung.",
-         "Wishing to keep a record, I will read the decision summary first.", "Indem ich das Protokoll sichern will", "Wishing to keep a record",
-         "grammar_c2_wishing_to", "Schriftlicher, förmlicher Auftakt.", "A written, formal opening."),
+         "grammar_c2_on_the_premise", "Eine Prämisse ist nicht automatisch eine unverhandelbare Anforderung.", "A premise is not automatically a nonnegotiable requirement."),
+        ("V-건대", "C2", "Eine Hoffnung oder Einschätzung förmlich einleiten", "Formally introducing a hope or judgment",
+         "바라건대, 이번 논의가 서로의 입장을 확인하는 데 그치지 않고 실질적인 개선으로 이어지기를 바랍니다.", "Ich hoffe, dass diese Diskussion nicht beim Austausch unserer Positionen stehen bleibt, sondern zu konkreten Verbesserungen führt.",
+         "I hope this discussion goes beyond stating our respective positions and leads to concrete improvements.", "Ich hoffe", "I hope",
+         "grammar_c2_wishing_to", "Gehobene, vor allem schriftliche Ausdrucksweise; keine Endung, die beliebig an jedes Verb angehängt wird.", "An elevated form used mainly in writing; it cannot freely attach to every verb."),
     ]
     # Fix the accidental German leftover in B1 example if present
     cleaned: list[dict[str, str]] = []
@@ -525,6 +525,48 @@ def grammar_records() -> list[dict[str, str]]:
             "quiz_enabled": "true",
             "quiz_distractor_ids": "|".join(same[:3]),
         })
+    # Direct editorial corrections preserve reviewed explanations and option sets.
+    editorial_copy = {'grammar_a1_spoken_dative': {'explanation_de': 'Markiert in der gesprochenen Sprache die Person, '
+                                                    'an die sich eine Handlung richtet. 한테 bleibt nach '
+                                                    'Vokalen und Konsonanten gleich.',
+                                  'explanation_en': 'Marks the person an action is directed toward in '
+                                                    'speech. 한테 is the same after vowels and '
+                                                    'consonants.'},
+     'grammar_b1_as_kept_doing': {'explanation_de': 'Während man eine Handlung fortsetzt oder '
+                                                    'wiederholt, bemerkt man etwas oder gelangt zu '
+                                                    'einem Ergebnis.',
+                                  'explanation_en': 'While continuing or repeating an action, the '
+                                                    'speaker notices something or arrives at a '
+                                                    'result.'},
+     'grammar_c1_regardless_noun': {'explanation_de': 'Ohne Ausnahme nach N. Schließt '
+                                                      'Statusunterschiede aus.',
+                                    'explanation_en': 'Without exception after N. Rules out status '
+                                                      'differences.'},
+     'grammar_c1_leaning_on': {'explanation_de': 'Nennt die Grundlage, auf die sich eine Handlung oder '
+                                                 'Aussage stützt. Wie verlässlich sie ist, ergibt sich '
+                                                 'aus dem Kontext.',
+                               'explanation_en': 'Names the basis an action or claim relies on. Its '
+                                                 'reliability depends on context.'},
+     'grammar_c2_defined_as': {'explanation_de': 'Definiert ausdrücklich, was mit einem Begriff im '
+                                                 'jeweiligen Text gemeint ist.',
+                               'explanation_en': 'Explicitly defines what a term means in the text at '
+                                                 'hand.'},
+     'grammar_c2_as_already_set': {'explanation_de': 'Das gebundene Nomen 바 verweist auf einen '
+                                                     'beschriebenen Inhalt. In -(으)ㄴ 바와 같이 bedeutet es '
+                                                     '„wie bereits …“.',
+                                   'explanation_en': 'The bound noun 바 refers to something stated or '
+                                                     'described. In -(으)ㄴ 바와 같이, it means “as '
+                                                     'previously …”.'},
+     'grammar_c2_on_the_premise': {'explanation_de': 'Nennt eine Annahme oder Bedingung, auf der die '
+                                                     'folgende Aussage oder Entscheidung beruht.',
+                                   'explanation_en': 'Names an assumption or condition on which the '
+                                                     'following claim or decision rests.'},
+     'grammar_c2_wishing_to': {'explanation_de': 'Leitet mit bestimmten Verben eine Hoffnung oder '
+                                                 'Einschätzung ein, etwa 바라건대, 보건대 oder 짐작하건대.',
+                               'explanation_en': 'Introduces a hope or judgment with certain verbs, as '
+                                                 'in 바라건대, 보건대, or 짐작하건대.'}}
+    for record in cleaned:
+        record.update(editorial_copy.get(record["id"], {}))
     return cleaned
 
 

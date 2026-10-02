@@ -4,7 +4,7 @@
     "regex": "고 있[다어어요습니다습니까]",
     "name_de": "Progressiv (-고 있다)",
     "name_en": "Progressive aspect (-고 있다)",
-    "level": "A2",
+    "level": "A1",
     "explanation_de": "Beschreibt eine gerade ablaufende Handlung. Entspricht 'gerade … tun / am … sein'.",
     "explanation_en": "Describes an action currently in progress, equivalent to 'be doing'."
   },
@@ -22,7 +22,7 @@
     "regex": "[아어해]서",
     "name_de": "Begründung (-아/어/해서)",
     "name_en": "Reason or cause (-아/어/해서)",
-    "level": "A2",
+    "level": "A1",
     "explanation_de": "Verknüpft Ursache und Folge: 'weil …, deswegen …'.",
     "explanation_en": "Links a cause to its result, meaning 'because' or 'so'."
   },
@@ -31,7 +31,7 @@
     "regex": "니까",
     "name_de": "Begründung (-(으)니까)",
     "name_en": "Reason (-(으)니까)",
-    "level": "A2",
+    "level": "A1",
     "explanation_de": "Subjektive Begründung. Vor Befehlen/Vorschlägen statt -아/어서.",
     "explanation_en": "Gives a reason that often reflects the speaker's judgment and can precede commands or suggestions."
   },
@@ -85,7 +85,7 @@
     "regex": "려고",
     "name_de": "Absicht (-(으)려고)",
     "name_en": "Intention or purpose (-(으)려고)",
-    "level": "B1",
+    "level": "A1",
     "explanation_de": "'Um zu …': Zweck einer Handlung.",
     "explanation_en": "Expresses an intention or the purpose 'in order to'."
   },
@@ -94,7 +94,7 @@
     "regex": "수 있",
     "name_de": "Können (-(으)ㄹ 수 있다)",
     "name_en": "Ability (-(으)ㄹ 수 있다)",
-    "level": "A2",
+    "level": "A1",
     "explanation_de": "'Können / kann …'.",
     "explanation_en": "Expresses that someone can do something."
   },
@@ -103,7 +103,7 @@
     "regex": "수 없",
     "name_de": "Nicht können (-(으)ㄹ 수 없다)",
     "name_en": "Inability (-(으)ㄹ 수 없다)",
-    "level": "A2",
+    "level": "A1",
     "explanation_de": "Verneinte Fähigkeit.",
     "explanation_en": "Expresses that someone cannot do something."
   },
@@ -112,7 +112,7 @@
     "regex": "야 하|야 해|야 되|야 돼|야겠",
     "name_de": "Müssen (-아/어야 하다)",
     "name_en": "Obligation (-아/어야 하다)",
-    "level": "A2",
+    "level": "A1",
     "explanation_de": "Notwendigkeit / Pflicht.",
     "explanation_en": "Expresses necessity or obligation: 'must' or 'have to'."
   },
@@ -139,9 +139,9 @@
     "regex": "지 않",
     "name_de": "Verneinung (-지 않다)",
     "name_en": "Long-form negation (-지 않다)",
-    "level": "A2",
-    "explanation_de": "Längere/formellere Verneinungsform.",
-    "explanation_en": "Uses a longer, often more formal, negative construction."
+    "level": "A1",
+    "explanation_de": "Lange Verneinung mit -지 않다; sie wird in Gesprächen und geschriebenen Texten verwendet.",
+    "explanation_en": "Long-form negation with -지 않다, used in both conversation and writing."
   },
   {
     "id": "g_have_to_have_to_see",
@@ -185,10 +185,10 @@
   {
     "id": "g_too_much",
     "regex": "너무 ",
-    "name_de": "Zu sehr (너무 …)",
+    "name_de": "Zu / sehr (너무 …)",
     "name_en": "Too / very (너무 …)",
     "level": "A1",
-    "explanation_de": "'(zu) sehr', oft negativ konnotiert.",
+    "explanation_de": "Bedeutet je nach Kontext „zu“ oder „sehr“. Der Grad kann als übermäßig oder als positive Verstärkung gemeint sein.",
     "explanation_en": "Means 'too' or 'very'; context determines whether the degree is excessive."
   },
   {
@@ -226,7 +226,7 @@
     "regex": "게 [되됐]",
     "name_de": "Werden (-게 되다)",
     "name_en": "Change of state (-게 되다)",
-    "level": "B1",
+    "level": "A2",
     "explanation_de": "Eine Situation entsteht / wird zu etwas.",
     "explanation_en": "Shows that circumstances lead to a new state or outcome."
   },
@@ -244,7 +244,7 @@
     "regex": "지 [0-9]+|지가 |지 오래",
     "name_de": "Seit (-(으)ㄴ 지)",
     "name_en": "Time since (-(으)ㄴ 지)",
-    "level": "B1",
+    "level": "A2",
     "explanation_de": "'Es ist X her, dass …'.",
     "explanation_en": "States how much time has passed since an action."
   },
