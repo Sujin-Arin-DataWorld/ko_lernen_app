@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "id": "hangul-sori-guardian-family-20261003",
+  "status": "approved-canonical",
+  "approvedAt": "2026-10-03",
+  "approval": {
+    "decision": "User approved the final volumetric Haechi and requested canonical registration, commit and push.",
+    "quote": "오케이 맘에 들어. 이대로 승인! 이걸로 정본 등록해서 커밋푸시하고",
+    "scope": "Artwork identity and rendering masters. Runtime pose/media production is a separate design task."
+  },
+  "authority": {
+    "scope": "New tiger, magpie and Haechi guardian artwork",
+    "precedence": "This approved family overrides older mascot generation styles in ASSET_GENERATION_BIBLE.md section 2 for future derivatives.",
+    "runtimeStatus": "Source masters registered; existing app assets and companion IDs are unchanged."
+  },
+  "assets": [
+    {
+      "id": "haechi",
+      "file": "haechi.png",
+      "role": "Haechi / Haetae guardian master",
+      "nativeOutput": "exec-3afdeb46-c615-458a-a5c7-7f4a779c7753.png",
+      "reviewRevision": "volumetric-25d",
+      "sha256": "26d5862d1985a5b7702f05e3e09fac323403d9c10951cdd0f88c5bbfde654553",
+      "bytes": 1444143,
+      "width": 1194,
+      "height": 1317,
+      "mode": "RGBA",
+      "copyPolicy": "Exact native bytes; no resizing, recoloring or alpha cleanup."
+    },
+    {
+      "id": "tiger",
+      "file": "tiger.png",
+      "role": "Approved tiger family reference; existing companion Taego",
+      "nativeOutput": "exec-aea72123-f978-477b-bb2c-7f0b2fb028e5.png",
+      "sha256": "fcded9335421f13754d97c856ce55de71557556f58da6a7772ccd282b64beeaf",
+      "bytes": 2112357,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "copyPolicy": "Exact native bytes; no resizing, recoloring or alpha cleanup."
+    },
+    {
+      "id": "magpie",
+      "file": "magpie.png",
+      "role": "Approved long-wing magpie with guardian emblem; existing companion Joy",
+      "nativeOutput": "exec-c401ca56-6642-4088-91c8-5c539fdbdab1.png",
+      "sha256": "9e7dc653ea04ae9202addf63c22af5e28da5670c6071325d3586f4bf80717bb4",
+      "bytes": 1811242,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "copyPolicy": "Exact native bytes; no resizing, recoloring or alpha cleanup."
+    }
+  ],
+  "familyRendering": [
+    "Tactile matte hand-painted materials with fine organic brush grain.",
+    "Living 2.5D volume from curved planes, warm soft key light and natural occlusion.",
+    "No graphic black contour strokes, glossy plastic finish or flat outlined redraws.",
+    "Small restrained cloud emblems relate the family without merging their species or silhouettes.",
+    "Transparent composable character masters; preserve each native aspect ratio."
+  ],
+  "haechiIdentity": {
+    "body": "Lean elongated blue-green body; narrow waist; low-forward pose; all four paws visible.",
+    "face": "Compact folk-mask facial structure with short vermilion nose; no long canine muzzle.",
+    "eyes": "Fully open modest amber eyes, centered dark pupils looking forward, one small catchlight each; thin cloud brows separated from the eyes.",
+    "markings": "Large charcoal spots only. No tiny dots or freckles.",
+    "ornament": "Emerald and warm-orange grooved head locks and layered leaf-fan tail, red flame crests, small gold cloud shoulder emblem.",
+    "necklace": "Gold bell and red leaf pendant beneath the chin.",
+    "paws": "Ivory paws with short dark claws on all four paws.",
+    "avoid": [
+      "Bulky barrel torso or bodybuilder muscles",
+      "Dog, wolf or tiger anatomy",
+      "Sleepy eyelid overlap or exaggerated staring eyes",
+      "Wide human grin, lashes, makeup or heavy eyeliner",
+      "Literal tracing of a third-party reference composition"
+    ]
+  },
+  "runtimeIdentity": {
+    "tiger": {
+      "companionName": "Taego",
+      "storedId": "tiger"
+    },
+    "magpie": {
+      "companionName": "Joy",
+      "storedId": "magpie"
+    },
+    "haechi": {
+      "storedId": null,
+      "introduction": "Role and integration to be designed; not an existing selectable companion."
+    },
+    "none": "Preserve the current no-companion choice and visibility preferences."
+  },
+  "productionRules": [
+    "Use these PNGs as visual identity references for derivative poses, crops, posters and animation.",
+    "Keep these source masters immutable; add separately named derivatives with provenance.",
+    "Design against actual runtime consumers, enum/emotion mapping, dimensions and fallback contracts.",
+    "Do not replace current runtime files by copying a full-body master into every slot.",
+    "Do not register the source directory in pubspec.yaml as an app bundle.",
+    "Recheck live code, Git state and assets before designing or implementing replacement media."
+  ]
+}

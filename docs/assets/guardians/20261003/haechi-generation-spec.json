@@ -1,0 +1,35 @@
+{
+  "id": "haechi-volumetric-25d",
+  "references": [
+    "C:/dev/hangulsori/_codex_artifacts/character-refinement-20261002-01a0fe3b/guardian-set-v1/revisions/awake-eyes-claws/haechi.png",
+    "C:/dev/hangulsori/_codex_artifacts/character-refinement-20261002-01a0fe3b/guardian-set-v1/tiger.png",
+    "C:/dev/hangulsori/_codex_artifacts/character-refinement-20261002-01a0fe3b/guardian-set-v1/magpie.png"
+  ],
+  "prompt": "Use case: style-transfer.\nAsset: sophisticated tactile 2.5D character artwork for the same Korean guardian family.\n\nINPUT ROLES:\nImage 1 is the ONLY subject/identity/pose authority: our original lean Korean Haechi, emerald/orange ornamental locks and tail plume, blue-green hide with large dark spots, small gold bell/red leaf necklace, thin separated cloud eyebrows, fully open forward-looking amber eyes, ivory paws and short dark claws.\nImages 2 (tiger) and 3 (magpie) are ONLY references for volumetric rendering, material texture, natural lighting and craft quality. DO NOT borrow their anatomy, animal species, face, pose, fur, feathers, clothes or objects. Render ONLY the Haechi from image 1.\n\nMAIN USER REQUEST:\nThe Haechi currently still looks like an outlined flat illustration, unlike the living tactile 2.5D depth of the tiger and magpie. Re-render this SAME design with convincing continuous three-dimensional form, rich carefully modeled planes and light. Completely eliminate illustrative contour strokes. It should belong beside the two reference renders.\n\nIDENTITY LOCK:\nKeep the exact existing lean elongated body, narrow waist, low-forward pose, four leg positions, head-to-body proportions, front-facing compact folk-mask face, vermilion short nose, small fang tips, emerald/warm-orange grooved ornamental cap and cheek curls, two red flame crests, raised leaf-fan tail, blue-green/ivory/gold/charcoal palette, large spot locations, shoulder cloud emblem, gold bell and red leaf pendant. Do not make it fatter, muscular, shorter, taller, furrier, or change it into a dog, wolf, tiger, lion or unicorn. Same silhouette and camera angle. No added adornments. No small dots or freckles.\n\nVOLUMETRIC FORM:\nRebuild the existing shapes as a cohesive sculpted living character, not a flat vector drawing with embossed edges. The broad folk-mask forehead and cheeks have subtly round curved volume and believable shallow eye sockets. The small short red bridge nose has modeled side planes and soft self-shadow, without adding a long animal muzzle. Hair-cap layers wrap around the rounded skull; their curved grooved sections have believable thickness, overlap and soft cast shadows. Emerald cheek-scrolls curve away from the cheek rather than lying as flat stickers. The red flame crests keep their folk silhouette with softly chamfered side planes. Neck, lean shoulder, torso, hip and paw knuckles catch light on their curved surfaces. Back and belly form a continuous lean volume, never a swollen barrel. Far legs sit slightly deeper in soft shadow; near legs remain clearly modeled. The existing tail leaf fan has thin sculpted layers with directionally carved grain.\n\nNO GRAPHIC OUTLINES:\nNO drawn black outlines anywhere on the face, eyes, brows, mouth, hair, ornamental scrolls, spots, toes or exterior silhouette. Do not simulate illustration linework with thick dark rims or ink-like grooves. Let form boundaries arise from colored surfaces, light falloff and small natural occlusion shadows. Retain legitimately dark painted spots, dark pupils and dark horn claws as solid material/color, not as outlines. Spots are pigment painted directly ON the body's curved surface, gently varying with its lighting, not outlined discs or raised decals. Mouth is a short subtle physical crease, not a heavy black horizontal stroke. The small cloud eyebrows are softly modeled little sculptural forms with restrained gold pigment, not outlined clip-art.\n\nEYES AND CLAWS MUST SURVIVE:\nFully OPEN amber eyes, round modest size, both medium round dark-brown pupils centered and looking straight forward. No eyelid overlap covering the top of the iris and no sleepy upper fold. The thin cloud brows stay clearly separated from the eye by a strip of face material. One tiny natural catchlight each, bright and intelligent but not staring, baby-like, feminine or glossy. No lashes, eyeliner, makeup or giant white glints. Keep short charcoal horn claws on each existing toe on all four paws. Claws have rounded bases and fine tapered tips, not huge talons.\n\nMATERIAL AND LIGHT:\nMatch the tiger and magpie's sophisticated MATTE tactile hand-painted material and modeled depth. Fine directional brush fibers, subtle mineral-pigment variations and carefully carved grooves. Remove the repeated embossed pebbly/crazed tile texture of image 1; replace with refined organic fine paint grain like the two references. Clearly readable surfaces without glossy enamel, wet plastic, toy-like smoothness, rough gritty clay or fake coarse noise. Soft warm key light from upper-left and broad gentle fill. Rich nuanced soft shadow below cheeks, under the chin, between cap layers, on the far shoulder and inner legs. Delicate rim separation if necessary, never a thick contour stroke. Colored soft shadows rather than flat black graphics.\n\nOUTPUT:\nONE complete Haechi character alone. All four paws/claws, both crests and full tail fan stay inside frame with generous transparent margins. TRUE TRANSPARENT background. No black backdrop, gradient halo, scenic background, pedestal, text, signature, watermark or extra character. This is a depth/material re-render of the existing original guardian, not a redesign or an animal transformation.",
+  "skillsUsed": [
+    "design",
+    "find-skills",
+    "brand",
+    "canvas-design",
+    "imagegen",
+    "ui-styling",
+    "ui-ux-pro-max"
+  ],
+  "skillUse": {
+    "design": "Brand route, consistent character family rendering",
+    "findSkills": "Read-only directory and official imagegen guidance lookup; no installation",
+    "uiStyling": "Visual philosophy, simple responsive comparison and visible keyboard focus",
+    "uiUxProMax": "Verified local style result skeuomorphism: tactile material and volumetric shadows; accessible preview controls",
+    "imagegen": "Built-in style transfer; reference roles and invariant preservation"
+  },
+  "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a0fe3b-6574-76e2-94b4-69df3de7c3f6\\exec-3afdeb46-c615-458a-a5c7-7f4a779c7753.png",
+  "target": "docs/assets/guardians/20261003/haechi.png",
+  "tool": "image_gen built-in",
+  "status": "approved-canonical",
+  "sourcesConsulted": [
+    "https://www.skills.sh/",
+    "https://github.com/openai/skills/blob/main/skills/.system/imagegen/references/prompting.md"
+  ],
+  "approvedAt": "2026-10-03",
+  "referencePathMeaning": "Original local generation inputs retained as provenance; approved portable masters are recorded in CANONICAL_LOCK.json."
+}

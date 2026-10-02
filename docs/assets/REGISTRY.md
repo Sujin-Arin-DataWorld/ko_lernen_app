@@ -9,7 +9,29 @@
 > fallback). A missing file degrades to icon/gradient — it does not crash.
 >
 > Stylistic baseline + generation prompts for **new** illustrations: see
-> `docs/ASSET_GENERATION_BIBLE.md` (Faceted Minhwa — 최종 단일 소스).
+> `docs/ASSET_GENERATION_BIBLE.md`. New guardian derivatives use the approved
+> [2026-10-03 guardian masters](guardians/20261003/README.md).
+
+## 2026-10-03 Approved Guardian Masters
+
+The approved tiger, long-wing magpie and final volumetric Haechi are registered
+in [guardians/20261003/](guardians/20261003/README.md). The
+[canonical lock](guardians/20261003/CANONICAL_LOCK.json) records native PNG
+hashes, sizes, identity constraints and rendering authority. The three source
+images are exact native copies; they are production references rather than
+runtime slot replacements.
+
+| Master | Native size | App identity / purpose |
+|---|---|---|
+| [tiger.png](guardians/20261003/tiger.png) | 1024 × 1536 RGBA | Tiger family master; Taego maps to stored ID `tiger` |
+| [magpie.png](guardians/20261003/magpie.png) | 1536 × 1024 RGBA | Long-wing magpie with cloud emblem; Joy maps to stored ID `magpie` |
+| [haechi.png](guardians/20261003/haechi.png) | 1194 × 1317 RGBA | Final approved `volumetric-25d` Haechi; role and runtime integration require the guardian asset design |
+
+The approved matte brush texture, unoutlined 2.5D volume and individual character
+anatomy govern future guardian production. Earlier mascot source/style rules
+below are historical. Current PNG/WebP/video/poster/fallback paths continue to
+be governed by their live consumers; this registration does not alter the app
+bundle, companion preferences or deployed app.
 
 ## 2026-06-01 Jongga Import
 

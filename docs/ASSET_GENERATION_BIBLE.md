@@ -192,10 +192,18 @@ must look like part of the same illustrated set.
 
 # §2. 마스코트 시스템 (확장 v2 — Jongga Guardian)
 
+> **새 수호신 정본 채택(2026-10-03):**
+> [호랑이·까치·최종 해치 정본](assets/guardians/20261003/README.md)과
+> [CANONICAL_LOCK.json](assets/guardians/20261003/CANONICAL_LOCK.json)을 새 파생
+> 제작의 우선 기준으로 삼는다. 승인된 무광 붓결·검은 윤곽선 없는 2.5D 입체감,
+> 각 신수의 형태와 문양을 유지한다. 아래 2026-06-02 원화·화풍 규칙과 충돌하면
+> 새 정본이 우선한다. 이 등록은 기존 앱 포즈·영상·폴백의 교체나 배포를 뜻하지
+> 않는다. 실제 소비 코드와 감정 매핑·저장 ID를 확인해 파생 에셋을 설계한다.
+
 > 목표: 256px 채팅 스티커가 아니라, 한옥/장식 자산과 같은 결의 **웅장한 수호 마스코트**.
-> **마스터 채택(2026-06-02)**: 업로드된 고품질 **앉은(upper-body) 호랑이 = `tiger_idle.png`**,
+> **이전 마스터 채택(2026-06-02)**: 업로드된 고품질 **앉은(upper-body) 호랑이 = `tiger_idle.png`**,
 > 갓 까치 비행 2프레임 = `magpie_wingup.png` / `magpie_wingdown.png`.
-> 이 3장이 캐릭터 디자인의 **source of truth**다. 나머지는 여기서 파생.
+> 이 3장은 이전 런타임 세트의 기준이었다. 새 제작의 source of truth는 위 2026-10-03 정본이다.
 
 ## 2.0 현재 파일 상태 (2026-06-02)
 
