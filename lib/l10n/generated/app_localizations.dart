@@ -19176,11 +19176,11 @@ abstract class AppL10n {
   /// **'Haechi'**
   String get cultureHaechiName;
 
-  /// No description provided for @cultureYangbanName.
+  /// No description provided for @cultureHahoeMaskName.
   ///
   /// In de, this message translates to:
-  /// **'Yangban · Hahoe-Maske'**
-  String get cultureYangbanName;
+  /// **'Hahoe-Maske'**
+  String get cultureHahoeMaskName;
 
   /// No description provided for @cultureDokkaebiName.
   ///
@@ -19200,17 +19200,17 @@ abstract class AppL10n {
   /// **'Ein Schritt nach dem anderen.'**
   String get cultureHaechiLine;
 
-  /// No description provided for @cultureYangbanLineKo.
+  /// No description provided for @cultureHahoeMaskHintKo.
   ///
   /// In de, this message translates to:
-  /// **'문장을 끝까지 읽어 보자.'**
-  String get cultureYangbanLineKo;
+  /// **'상대와 상황에 맞는 말투를 골라 보세요.'**
+  String get cultureHahoeMaskHintKo;
 
-  /// No description provided for @cultureYangbanLine.
+  /// No description provided for @cultureHahoeMaskHint.
   ///
   /// In de, this message translates to:
-  /// **'Lesen wir erst den ganzen Satz.'**
-  String get cultureYangbanLine;
+  /// **'Wähle einen Ton, der zur Person und zur Situation passt.'**
+  String get cultureHahoeMaskHint;
 
   /// No description provided for @cultureDokkaebiLineKo.
   ///

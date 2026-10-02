@@ -24,6 +24,17 @@ void main() {
         reason: file.path,
       );
     }
+    final archived = (record['supersededCulturalAssets'] as List)
+        .cast<Map<String, dynamic>>();
+    for (final asset in archived) {
+      final file = File(asset['path'] as String);
+      expect(
+        sha256.convert(file.readAsBytesSync()).toString(),
+        asset['sha256'],
+        reason:
+            'Replaced cultural source must remain recoverable: ${file.path}',
+      );
+    }
   });
   test('approved display variants preserve the canonical WebP sources', () {
     expect(

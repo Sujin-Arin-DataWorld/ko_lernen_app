@@ -32,7 +32,7 @@ abstract final class SoriArtwork {
   static const grammar = '$root/grammar.png';
   static const yeopjeon = '$root/yeopjeon.png';
   static const haechi = '$root/haechi.png';
-  static const yangban = '$root/yangban.png';
+  static const hahoeMask = '$root/hahoe_mask.png';
   static const dokkaebi = '$root/dokkaebi.png';
 
   static String? person(String id) => switch (id) {

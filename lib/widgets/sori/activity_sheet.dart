@@ -107,12 +107,12 @@ class _ActivitySheetContent extends StatelessWidget {
           child: Text(description, style: tt.body),
         ),
 
-        // 잠금 설명 (잠긴 항목만)
-        if (entry.id == 'cloze' || entry.id == 'smalltalk') ...[
+        // A small culture object accompanies the conversation-tone hint.
+        if (entry.id == 'smalltalk') ...[
           const SizedBox(height: Spacing.md),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: Spacing.lg),
-            child: SoriCultureComment(role: SoriCulturalRole.yangban),
+            child: SoriCultureComment(role: SoriCulturalRole.hahoeMask),
           ),
         ] else if (entry.id == 'daily_game' ||
             entry.id == 'syllable_cross') ...[
@@ -122,6 +122,7 @@ class _ActivitySheetContent extends StatelessWidget {
             child: SoriCultureComment(role: SoriCulturalRole.dokkaebi),
           ),
         ],
+        // 잠금 설명 (잠긴 항목만)
         if (isLocked && entry.unlock.explanation != null) ...[
           const SizedBox(height: Spacing.md),
           Padding(

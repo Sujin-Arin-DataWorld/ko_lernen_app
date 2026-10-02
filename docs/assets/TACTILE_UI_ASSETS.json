@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "approval": "User adoption of textured review assets on 2026-10-02; new Hahoe/Dokkaebi commissioned in the same request",
+  "version": 3,
+  "approval": "User adoption of textured review assets on 2026-10-02; 2026-10-03 correction: wooden Hahoe mask object and soft textured Dokkaebi matching latest approved persona references. Latest user request: one horn, Dancheong-patterned linen headband and gold hoop earrings.",
   "method": "Native image_gen; original PNG bytes copied without pixel processing",
   "materials": [
     "hand-thrown ceramic",
@@ -116,18 +116,18 @@
       "bytes": 1522896
     },
     {
-      "id": "yangban",
-      "path": "assets/illustrations/tactile/yangban.png",
-      "sha256": "83aa8e95bac147b57447ae2363e074310e07c970a757aebc602a64ccf8a1c1d7",
-      "source": "exec-1594fd90-b452-40a1-8f73-4ef74d582e4e.png",
-      "bytes": 2141069
+      "id": "hahoe_mask",
+      "path": "assets/illustrations/tactile/hahoe_mask.png",
+      "sha256": "1c4c6f36053bf7a60a468d0e43a643c551ba1aa8542f2390f9196c37fd180ead",
+      "source": "exec-fb58b415-98c0-4d69-9e81-17f72326612f.png",
+      "bytes": 2545038
     },
     {
       "id": "dokkaebi",
       "path": "assets/illustrations/tactile/dokkaebi.png",
-      "sha256": "e7afeb6c127f614751ccb16d4299d4afa764a26c7baf12f763edbe74cef46a76",
-      "source": "exec-565ff554-fcff-4cb6-8558-03681136e606.png",
-      "bytes": 2316957
+      "sha256": "883b1d4b2e3f447b69f9300a3c1cf0ad21bf06afbaa5038eba162fe4344419a5",
+      "source": "exec-2fb9ebe5-d97b-4e8a-ab1c-6bf9f2a09445.png",
+      "bytes": 2360682
     },
     {
       "id": "hangul",
@@ -146,5 +146,19 @@
     "https://www.nfm.go.kr/site/home/temp/exhibit/2023/mask/en_part1.html",
     "https://www.kh.or.kr/cms/content/view/1252",
     "https://www.museum.go.kr/dryplate/search_more.do?keyWord=%EA%B4%91%ED%99%94%EB%AC%B8&page=3&sepatator=all"
+  ],
+  "supersededCulturalAssets": [
+    {
+      "path": "assets_unused/approved_texture_originals/yangban-performer-v1.png",
+      "sha256": "83aa8e95bac147b57447ae2363e074310e07c970a757aebc602a64ccf8a1c1d7"
+    },
+    {
+      "path": "assets_unused/approved_texture_originals/dokkaebi-carved-v1.png",
+      "sha256": "e7afeb6c127f614751ccb16d4299d4afa764a26c7baf12f763edbe74cef46a76"
+    },
+    {
+      "path": "assets_unused/approved_texture_originals/dokkaebi-soft-base-v2.png",
+      "sha256": "b594084a2c4475243db1cb777617fceb6aa466f6e090e18f2439566299f32ba9"
+    }
   ]
 }

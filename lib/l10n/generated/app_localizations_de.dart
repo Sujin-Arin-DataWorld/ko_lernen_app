@@ -11356,7 +11356,7 @@ class AppL10nDe extends AppL10n {
   String get cultureHaechiName => 'Haechi';
 
   @override
-  String get cultureYangbanName => 'Yangban · Hahoe-Maske';
+  String get cultureHahoeMaskName => 'Hahoe-Maske';
 
   @override
   String get cultureDokkaebiName => 'Dokkaebi';
@@ -11368,10 +11368,11 @@ class AppL10nDe extends AppL10n {
   String get cultureHaechiLine => 'Ein Schritt nach dem anderen.';
 
   @override
-  String get cultureYangbanLineKo => '문장을 끝까지 읽어 보자.';
+  String get cultureHahoeMaskHintKo => '상대와 상황에 맞는 말투를 골라 보세요.';
 
   @override
-  String get cultureYangbanLine => 'Lesen wir erst den ganzen Satz.';
+  String get cultureHahoeMaskHint =>
+      'Wähle einen Ton, der zur Person und zur Situation passt.';
 
   @override
   String get cultureDokkaebiLineKo => '한 문제씩 풀어 볼까?';

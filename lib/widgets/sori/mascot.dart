@@ -288,10 +288,11 @@ enum MascotEmotion {
   thinking,
 }
 
-enum SoriCulturalRole { haechi, yangban, dokkaebi }
+enum SoriCulturalRole { haechi, hahoeMask, dokkaebi }
 
-/// One small cultural speaker in a meaningful context, separate from the
-/// human dialogue cast and their TTS identity. No selection or reward logic.
+/// One small cultural figure or object in a meaningful context, separate from
+/// the human dialogue cast and their TTS identity. No selection or reward logic.
+/// The Hahoe mask is an object beside a neutral activity hint, not a speaker.
 class SoriCultureComment extends StatelessWidget {
   const SoriCultureComment({super.key, required this.role});
   final SoriCulturalRole role;
@@ -307,11 +308,11 @@ class SoriCultureComment extends StatelessWidget {
         t.cultureHaechiLineKo,
         t.cultureHaechiLine,
       ),
-      SoriCulturalRole.yangban => (
-        SoriArtwork.yangban,
-        t.cultureYangbanName,
-        t.cultureYangbanLineKo,
-        t.cultureYangbanLine,
+      SoriCulturalRole.hahoeMask => (
+        SoriArtwork.hahoeMask,
+        t.cultureHahoeMaskName,
+        t.cultureHahoeMaskHintKo,
+        t.cultureHahoeMaskHint,
       ),
       SoriCulturalRole.dokkaebi => (
         SoriArtwork.dokkaebi,
@@ -327,7 +328,7 @@ class SoriCultureComment extends StatelessWidget {
         Image.asset(
           asset,
           width: 64,
-          height: 88,
+          height: role == SoriCulturalRole.hahoeMask ? 64 : 88,
           fit: BoxFit.contain,
           excludeFromSemantics: true,
         ),

@@ -14,11 +14,18 @@ original Hanok or card art. No plastic, jelly, gummy limbs or toy-like guardians
 
 Tiger retains mature proportions, muscular chest, forceful paws and sober
 gaze. Magpie remains upright in its gat with readable black-white feathers.
-Haechi has a weighty seated body and carved-stone relief. Yangban is an adult
-wearing a visibly wooden Hahoe mask, including its separate jaw. Dokkaebi uses
-carved wood, coarse hair, linen and a wooden bangmangi. This is an original
-modern interpretation, not an assertion that either fictional person is a
-historical character. Do not borrow Japanese oni horns or tiger-skin costume.
+Haechi has a weighty seated body and carved-stone relief. Hahoe is a standalone
+wooden Yangban mask with a separate jaw, visible grain and gently carved curves;
+it has no wearer, body or speaking persona. Dokkaebi follows the newly approved
+soft persona references: small dark oval eyes, a simple adult smile, rounded
+matte skin, textured hair, linen and a wooden bangmangi. Keep wood grain on the
+club, not the face or hands. Fine material texture and broad soft light connect
+the figure and mask without forcing every material into carved wood. This is
+an original modern folk-spirit interpretation. Its requested identity details
+are exactly one small textured horn, a Dancheong-embroidered linen headband and
+circular brushed-gold hoop earrings. Do not add paired horns, fangs, a scary
+expression or tiger-skin costume. Reference bytes and exact prompts are preserved in
+`TACTILE_CULTURAL_PROMPTS.json`; the earlier faceted performer is archived.
 
 Sujin, Christian, Dongsun, Byeongcheol and Jun appear only when the real scenario
 names them. Show a single small participant group in the introduction; do not
@@ -34,10 +41,12 @@ parents and male voice remain the same; no university/workplace role is added.
 | Tiger | Proud, loyal, competitive; Magpie's friendly rival | Small home greeting and existing selected-mascot slots |
 | Magpie | Quick observer who checks Tiger's eagerness | Existing selected-mascot slots; gentle movement |
 | Haechi | Steady mediator with quiet humour | One compact result comment |
-| Yangban | Unhurried and conscious of appearances, occasionally absent-minded | Compact sentence/cultural-practice introduction |
-| Dokkaebi | Curious, playful and warm; asks Yangban unexpected questions | Compact puzzle introduction |
+| Hahoe mask | Wooden cultural object, no dialogue identity | Smalltalk introduction beside a neutral hint about tone and context |
+| Dokkaebi | Curious, playful and warm | Compact puzzle introduction |
 
-A culture comment is 64 by 88 logical pixels plus readable text. It is never a
+A culture figure is 64 by 88 logical pixels and the mask object is 64 by 64,
+both with readable text. The mask does not appear in generic cloze practice.
+A culture comment is never a
 new reward, opponent, selectable role or substitute for the actual dialogue
 partner. The small commentary uses directly written Korean with English and
 German meaning, without transliteration or literal word-for-word copy.

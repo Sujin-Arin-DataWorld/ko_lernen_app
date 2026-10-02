@@ -936,21 +936,21 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1790973860.2913084,
-    "seen": 1790976295.8737571,
-    "ast_hash": "82cd4e7b2928383e96aca9cc262c55a6",
+    "mtime": 1790980588.391239,
+    "seen": 1790980887.120426,
+    "ast_hash": "c6d33bfaac60d045db8c0cce2833cc20",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1790973860.0220687,
-    "seen": 1790976295.8737612,
-    "ast_hash": "3a4dcf370f0c0d087b0216e507b33b34",
+    "mtime": 1790980588.062644,
+    "seen": 1790980887.1204293,
+    "ast_hash": "d367c14c27e326cfbd1bb59ac1155084",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1790973860.1430943,
-    "seen": 1790976295.8737648,
-    "ast_hash": "6dfa779195360764a5a81e40279428c7",
+    "mtime": 1790980588.2474566,
+    "seen": 1790980887.1204314,
+    "ast_hash": "b44d491e5343fd32f67c96573f5f9930",
     "semantic_hash": ""
   },
   "lib/l10n/gye_error_text.dart": {
@@ -2622,15 +2622,15 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/activity_illustration.dart": {
-    "mtime": 1790975790.9204538,
-    "seen": 1790976295.8755531,
-    "ast_hash": "ad6dc0b689343976af0229f320ff0679",
+    "mtime": 1790980252.746269,
+    "seen": 1790980887.2079222,
+    "ast_hash": "9d0d37902135bea5386aa3ad9d5814bb",
     "semantic_hash": ""
   },
   "lib/widgets/sori/activity_sheet.dart": {
-    "mtime": 1790972193.6304996,
-    "seen": 1790976295.8755565,
-    "ast_hash": "f7b23dce4f657de82e2fa96dbce3f6c4",
+    "mtime": 1790980252.7608137,
+    "seen": 1790980887.2079256,
+    "ast_hash": "8adc66281c84b83189a95507d4a5da11",
     "semantic_hash": ""
   },
   "lib/widgets/sori/adaptive_navigation.dart": {
@@ -2976,9 +2976,9 @@
     "semantic_hash": ""
   },
   "lib/widgets/sori/mascot.dart": {
-    "mtime": 1790972193.7204218,
-    "seen": 1790976295.8759043,
-    "ast_hash": "66f9920671865ccce3bce8543c33219e",
+    "mtime": 1790980252.7733524,
+    "seen": 1790980887.22687,
+    "ast_hash": "02306c1653e83e3f76a2d1fa124d9e76",
     "semantic_hash": ""
   },
   "lib/widgets/sori/mascot_pop.dart": {
@@ -20856,15 +20856,21 @@
     "semantic_hash": ""
   },
   "test/tactile_asset_provenance_test.dart": {
-    "mtime": 1790975787.4486413,
-    "seen": 1790976295.8789952,
-    "ast_hash": "c45631f7919b4367f41125d62b59fcdf",
+    "mtime": 1790980252.79539,
+    "seen": 1790980887.4186826,
+    "ast_hash": "5d85c21f80ce9f7b8d9a7b421b138149",
     "semantic_hash": ""
   },
   "test/tactile_ui_interaction_test.dart": {
     "mtime": 1790972471.1734774,
     "seen": 1790976295.878998,
     "ast_hash": "ad4b32fb63f88e1bb8de29ea8f1577ef",
+    "semantic_hash": ""
+  },
+  "test/sori_culture_activity_sheet_test.dart": {
+    "mtime": 1790980265.9963124,
+    "seen": 1790980887.394927,
+    "ast_hash": "5207ba75329435c7b2fe56513f512a38",
     "semantic_hash": ""
   }
 }
