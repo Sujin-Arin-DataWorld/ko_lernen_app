@@ -456,11 +456,11 @@
           }
         },
         {
-          "korean": "안쪽이 코팅돼 있어서 여기서는 일반 쓰레기로 버려요.",
+          "korean": "안쪽이 코팅돼 있어서 이 건물에서는 일반 쓰레기로 버려요.",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Die Innenseite ist beschichtet, deshalb gehört es hier in den Restmüll.",
-            "en": "The inside is coated, so it goes in general waste here."
+            "de": "Die Innenseite ist beschichtet, deshalb gehört es in diesem Gebäude in den Restmüll.",
+            "en": "Because the inside is coated, it goes in general waste in this building."
           }
         },
         {
@@ -522,9 +522,9 @@
         },
         {
           "speaker": "neighbor",
-          "ko": "안쪽이 코팅돼 있어서 여기서는 일반 쓰레기로 버려요.",
-          "de": "Die Innenseite ist beschichtet, deshalb gehört es hier in den Restmüll.",
-          "en": "The inside is coated, so it goes in general waste here."
+          "ko": "안쪽이 코팅돼 있어서 이 건물에서는 일반 쓰레기로 버려요.",
+          "de": "Die Innenseite ist beschichtet, deshalb gehört es in diesem Gebäude in den Restmüll.",
+          "en": "Because the inside is coated, it goes in general waste in this building."
         },
         {
           "speaker": "user",
@@ -561,8 +561,8 @@
                 "en": "I thought it was paper, so I put it here."
               },
               {
-                "de": "Die Innenseite ist beschichtet, deshalb gehört es hier in den Restmüll.",
-                "en": "The inside is coated, so it goes in general waste here."
+                "de": "Die Innenseite ist beschichtet, deshalb gehört es in diesem Gebäude in den Restmüll.",
+                "en": "Because the inside is coated, it goes in general waste in this building."
               },
               {
                 "de": "Das Zeichen war so klein, dass ich es übersehen habe. Ich nehme es wieder heraus.",
@@ -586,7 +586,7 @@
                 "ko": "죄송한데, 그건 종이류가 아닌 것 같아요."
               },
               {
-                "ko": "안쪽이 코팅돼 있어서 여기서는 일반 쓰레기로 버려요."
+                "ko": "안쪽이 코팅돼 있어서 이 건물에서는 일반 쓰레기로 버려요."
               },
               {
                 "ko": "표시가 작아서 못 봤네요. 다시 꺼낼게요."
@@ -609,7 +609,7 @@
             "distractors": [
               "죄송한데, 그건 종이류가 아닌 것 같아요.",
               "종이인 줄 알고 여기 넣었어요.",
-              "안쪽이 코팅돼 있어서 여기서는 일반 쓰레기로 버려요."
+              "안쪽이 코팅돼 있어서 이 건물에서는 일반 쓰레기로 버려요."
             ]
           }
         }
@@ -2932,11 +2932,11 @@
           }
         },
         {
-          "korean": "오늘은 걷고, 통증이 계속되면 진료를 받아 봐.",
+          "korean": "오늘은 훈련 대신 가볍게 걷고, 통증이 계속되면 진료를 받아 보는 게 어때?",
           "note": {
             "ko": "장면 핵심 표현",
-            "de": "Geh heute nur spazieren. Wenn der Schmerz bleibt, lass es untersuchen.",
-            "en": "Walk today, and get it checked if the pain continues."
+            "de": "Lass heute das Training aus und geh nur locker spazieren. Wenn die Schmerzen bleiben, wie wäre es, das abklären zu lassen?",
+            "en": "Skip training today and take an easy walk. If the pain continues, how about getting it checked?"
           }
         },
         {
@@ -2994,9 +2994,9 @@
         },
         {
           "speaker": "hyuna",
-          "ko": "오늘은 걷고, 통증이 계속되면 진료를 받아 봐.",
-          "de": "Geh heute nur spazieren. Wenn der Schmerz bleibt, lass es untersuchen.",
-          "en": "Walk today, and get it checked if the pain continues."
+          "ko": "오늘은 훈련 대신 가볍게 걷고, 통증이 계속되면 진료를 받아 보는 게 어때?",
+          "de": "Lass heute das Training aus und geh nur locker spazieren. Wenn die Schmerzen bleiben, wie wäre es, das abklären zu lassen?",
+          "en": "Skip training today and take an easy walk. If the pain continues, how about getting it checked?"
         },
         {
           "speaker": "user",
@@ -4688,9 +4688,9 @@
         },
         {
           "speaker": "clerk",
-          "ko": "부품을 바꿔야 하면 출장비 포함해서 오만 원 정도 나와요.",
-          "de": "Wenn ein Teil ausgetauscht werden muss, kostet es inklusive Anfahrt etwa 50.000 Won.",
-          "en": "If a part needs to be replaced, it costs about 50,000 won including the callout fee."
+          "ko": "부품을 바꿔야 하면 비용이 달라질 수 있어요. 기사님이 확인한 뒤에 안내해 드릴게요.",
+          "de": "Wenn ein Teil ersetzt werden muss, können die Kosten unterschiedlich ausfallen. Der Techniker erklärt sie Ihnen nach der Prüfung.",
+          "en": "If a part needs replacing, the cost can vary. The technician will explain it after checking."
         },
         {
           "speaker": "user",
@@ -4730,11 +4730,11 @@
           "id": "quest_b1_w10_repair_translate",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Wenn ein Teil ausgetauscht werden muss, kostet es inklusive Anfahrt etwa 50.000 Won.",
-            "promptEn": "If a part needs to be replaced, it costs about 50,000 won including the callout fee.",
+            "promptDe": "Wenn ein Teil ersetzt werden muss, können die Kosten unterschiedlich ausfallen. Der Techniker erklärt sie Ihnen nach der Prüfung.",
+            "promptEn": "If a part needs replacing, the cost can vary. The technician will explain it after checking.",
             "options": [
               {
-                "ko": "부품을 바꿔야 하면 출장비 포함해서 오만 원 정도 나와요."
+                "ko": "부품을 바꿔야 하면 비용이 달라질 수 있어요. 기사님이 확인한 뒤에 안내해 드릴게요."
               },
               {
                 "ko": "세탁기가 탈수 중에 갑자기 멈추는데 이유를 모르겠어요."
@@ -4743,7 +4743,7 @@
                 "ko": "그러셨군요. 전원을 껐다가 다시 켜 보셨어요?"
               },
               {
-                "ko": "알겠어요. 그럼 내일 오후로 예약할게요."
+                "ko": "알겠어요. 그럼 내일 오후로 예약해 주세요."
               }
             ],
             "correctIndex": 0
@@ -4753,9 +4753,9 @@
           "id": "quest_b1_w10_repair_build",
           "type": "satzBauen",
           "data": {
-            "targetKo": "알겠어요. 그럼 내일 오후로 예약할게요.",
-            "promptDe": "Verstanden. Dann buche ich für morgen Nachmittag.",
-            "promptEn": "Got it. Then I'll book it for tomorrow afternoon.",
+            "targetKo": "알겠어요. 그럼 내일 오후로 예약해 주세요.",
+            "promptDe": "Verstanden. Dann hätte ich gern einen Termin für morgen Nachmittag.",
+            "promptEn": "Got it. Then I'd like to schedule it for tomorrow afternoon.",
             "distractors": [
               "세탁기가",
               "출장비"
@@ -5006,14 +5006,14 @@
       "register": "polite",
       "speechStyle": "polite",
       "title": {
-        "ko": "빠뜨린 서류와 마감일",
-        "de": "Ein fehlendes Dokument und die Frist",
-        "en": "A missing document and the deadline"
+        "ko": "주소 변경에 필요한 서류와 마감일",
+        "de": "Unterlagen und Frist für eine Adressänderung",
+        "en": "Documents and deadline for an address change"
       },
       "intro": {
-        "ko": "레나가 외국인등록증 주소를 바꾸러 왔는데 계약서 사본을 안 가져왔습니다.",
-        "de": "Lena will ihre Adresse im Ausländerregistrierungsausweis ändern, hat aber die Kopie des Mietvertrags vergessen.",
-        "en": "Lena has come to update her address on her foreign resident card but forgot the copy of her lease."
+        "ko": "레나가 주소 변경 관련 문의를 하러 왔는데, 가져갈 서류를 다시 확인합니다.",
+        "de": "Lena kommt wegen einer Adressänderung vorbei und prüft noch einmal, welche Unterlagen sie mitbringen muss.",
+        "en": "Lena is asking about an address change and checking the documents she needs again."
       },
       "courseUnitId": "b1_06_life_capstone",
       "playerCharacterId": "lena",
@@ -5022,16 +5022,16 @@
         "official"
       ],
       "relationshipContext": "service",
-      "intent": "ask_about_a_missing_document_and_deadline",
+      "intent": "ask_about_required_documents_and_deadline",
       "shelf": "b1_form",
       "backdrop": "office",
       "vocab": [
         {
-          "korean": "외국인등록증",
+          "korean": "주소 변경",
           "note": {
-            "ko": "외국인이 한국에서 받는 신분증",
-            "de": "Ausländerregistrierungsausweis",
-            "en": "foreign resident registration card"
+            "ko": "등록된 주소를 새 주소로 바꾸는 절차",
+            "de": "die Adressänderung",
+            "en": "address change"
           }
         },
         {
@@ -5107,51 +5107,51 @@
       "dialog": [
         {
           "speaker": "official",
-          "ko": "어서 오세요. 어떤 서류 때문에 오셨어요?",
-          "de": "Guten Tag. Wegen welcher Unterlagen sind Sie hier?",
-          "en": "Hello. What paperwork are you here about?"
+          "ko": "어서 오세요. 주소 변경에 필요한 서류를 확인해 드릴게요.",
+          "de": "Guten Tag. Ich prüfe gern, welche Unterlagen Sie für die Adressänderung brauchen.",
+          "en": "Hello. I'll check which documents you need for the address change."
         },
         {
           "speaker": "user",
-          "ko": "외국인등록증 주소 변경하러 왔는데요.",
-          "de": "Ich bin gekommen, um die Adresse auf meiner Ausländerregistrierungskarte ändern zu lassen.",
-          "en": "I've come to change the address on my foreign resident registration card."
+          "ko": "주소 변경을 문의드리러 왔는데요.",
+          "de": "Ich bin gekommen, um mich nach einer Adressänderung zu erkundigen.",
+          "en": "I've come to ask about changing my address."
         },
         {
           "speaker": "official",
-          "ko": "여권이랑 계약서 사본 가져오셨어요?",
-          "de": "Haben Sie Ihren Pass und eine Kopie des Mietvertrags dabei?",
-          "en": "Did you bring your passport and a copy of the lease?"
+          "ko": "여권과 계약서 사본이 필요한지 먼저 확인해 볼게요.",
+          "de": "Ich prüfe zuerst, ob wir Ihren Pass und eine Kopie des Mietvertrags brauchen.",
+          "en": "I'll first check whether we need your passport and a copy of the lease."
         },
         {
           "speaker": "user",
-          "ko": "여권은 있는데 계약서 사본은 안 가져왔어요.",
-          "de": "Meinen Pass habe ich dabei, aber die Kopie des Mietvertrags nicht.",
-          "en": "I have my passport, but I don't have a copy of the lease with me."
+          "ko": "여권은 있는데 계약서 사본은 지금 없어요.",
+          "de": "Meinen Pass habe ich dabei, aber die Kopie des Mietvertrags habe ich gerade nicht.",
+          "en": "I have my passport, but I don't have a copy of the lease with me right now."
         },
         {
           "speaker": "official",
-          "ko": "그럼 그건 나중에 우편이나 이메일로 보내 주셔도 돼요.",
-          "de": "Dann können Sie das später per Post oder E-Mail nachreichen.",
-          "en": "Then you can send that later by mail or email."
+          "ko": "추가로 필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.",
+          "de": "Ich prüfe die weiteren Unterlagen und die Einreichungsmethode und erkläre sie Ihnen dann.",
+          "en": "I'll check what else is needed and how to submit it, then explain it to you."
         },
         {
           "speaker": "user",
-          "ko": "언제까지 보내야 돼요?",
-          "de": "Bis wann muss ich es schicken?",
-          "en": "By when do I need to send it?"
+          "ko": "언제까지 제출하면 될까요?",
+          "de": "Bis wann kann ich es einreichen?",
+          "en": "By when can I submit it?"
         },
         {
           "speaker": "official",
-          "ko": "마감일은 이번 달 말이에요. 그때까지 보내 주시면 돼요.",
-          "de": "Die Frist ist Ende dieses Monats. Es reicht, wenn Sie es bis dahin schicken.",
-          "en": "The deadline is the end of this month. It's fine if you send it by then."
+          "ko": "마감일도 함께 확인해 드릴게요.",
+          "de": "Ich prüfe auch die Frist für Sie.",
+          "en": "I'll check the deadline for you as well."
         },
         {
           "speaker": "user",
-          "ko": "알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요.",
-          "de": "Verstanden. Ich scanne es noch heute und schicke es per E-Mail.",
-          "en": "Got it. I'll scan it today and send it by email."
+          "ko": "알겠어요. 필요한 서류를 확인한 뒤에 제출할게요.",
+          "de": "Verstanden. Ich reiche es ein, nachdem ich die erforderlichen Unterlagen geprüft habe.",
+          "en": "Got it. I'll submit it after I confirm the required documents."
         }
       ],
       "quests": [
@@ -5159,11 +5159,11 @@
           "id": "quest_b1_w10_form_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "그럼 그건 나중에 우편이나 이메일로 보내 주셔도 돼요.",
+            "audioKo": "추가로 필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.",
             "options": [
               {
-                "de": "Dann können Sie das später per Post oder E-Mail nachreichen.",
-                "en": "Then you can send that later by mail or email."
+                "de": "Ich prüfe die weiteren Unterlagen und die Einreichungsmethode und erkläre sie Ihnen dann.",
+                "en": "I'll check what else is needed and how to submit it, then explain it to you."
               },
               {
                 "de": "Sie müssen heute alle Dokumente abgeben.",
@@ -5185,20 +5185,20 @@
           "id": "quest_b1_w10_form_translate",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Die Frist ist Ende dieses Monats. Es reicht, wenn Sie es bis dahin schicken.",
-            "promptEn": "The deadline is the end of this month. It's fine if you send it by then.",
+            "promptDe": "Ich prüfe auch die Frist für Sie.",
+            "promptEn": "I'll check the deadline for you as well.",
             "options": [
               {
-                "ko": "마감일은 이번 달 말이에요. 그때까지 보내 주시면 돼요."
+                "ko": "마감일도 함께 확인해 드릴게요."
               },
               {
-                "ko": "외국인등록증 주소 변경하러 왔는데요."
+                "ko": "주소 변경을 문의드리러 왔는데요."
               },
               {
-                "ko": "여권은 있는데 계약서 사본은 안 가져왔어요."
+                "ko": "여권은 있는데 계약서 사본은 지금 없어요."
               },
               {
-                "ko": "알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요."
+                "ko": "알겠어요. 필요한 서류를 확인한 뒤에 제출할게요."
               }
             ],
             "correctIndex": 0
@@ -5208,9 +5208,9 @@
           "id": "quest_b1_w10_form_build",
           "type": "satzBauen",
           "data": {
-            "targetKo": "알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요.",
-            "promptDe": "Verstanden. Ich scanne es noch heute und schicke es per E-Mail.",
-            "promptEn": "Got it. I'll scan it today and send it by email.",
+            "targetKo": "알겠어요. 필요한 서류를 확인한 뒤에 제출할게요.",
+            "promptDe": "Verstanden. Ich reiche es ein, nachdem ich die erforderlichen Unterlagen geprüft habe.",
+            "promptEn": "Got it. I'll submit it after I confirm the required documents.",
             "distractors": [
               "계약서",
               "마감일은"
@@ -5525,11 +5525,11 @@
           }
         },
         {
-          "korean": "진단서",
+          "korean": "가입하신 보험 내용",
           "note": {
-            "ko": "의사가 병명을 적어 주는 서류",
-            "de": "Diagnosebescheinigung",
-            "en": "diagnosis certificate"
+            "ko": "보험에서 정한 보장 내용",
+            "de": "der Versicherungsumfang",
+            "en": "coverage terms"
           }
         },
         {
@@ -5591,9 +5591,9 @@
         },
         {
           "speaker": "clerk",
-          "ko": "진단서랑 영수증만 있으면 대부분 보장돼요.",
-          "de": "Mit einem ärztlichen Attest und der Quittung werden die Kosten in der Regel übernommen.",
-          "en": "With a medical certificate and the receipt, it's usually covered."
+          "ko": "보장 여부는 가입하신 보험 내용과 받은 진료를 확인해 봐야 해요.",
+          "de": "Ob es gedeckt ist, müssen wir anhand Ihres Tarifs und der Behandlung prüfen.",
+          "en": "We need to check your coverage and the treatment you received before we can tell."
         },
         {
           "speaker": "user",
@@ -5603,21 +5603,21 @@
         },
         {
           "speaker": "clerk",
-          "ko": "앱에서 사진 찍어서 올리시면 처리해 드려요.",
-          "de": "Wenn Sie die Unterlagen in der App fotografieren und hochladen, bearbeiten wir den Antrag.",
-          "en": "Take photos of the documents and upload them in the app, and we'll process the claim."
+          "ko": "필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.",
+          "de": "Ich prüfe die erforderlichen Unterlagen und die Einreichungsmethode und erkläre sie Ihnen dann.",
+          "en": "I'll check the required documents and how to submit them, then explain it to you."
         },
         {
           "speaker": "user",
-          "ko": "처리하는 데 시간이 얼마나 걸려요?",
-          "de": "Wie lange dauert die Bearbeitung?",
-          "en": "How long does the processing take?"
+          "ko": "처리 기간도 확인할 수 있을까요?",
+          "de": "Können Sie auch die voraussichtliche Bearbeitungszeit prüfen?",
+          "en": "Could you also check the expected processing time?"
         },
         {
           "speaker": "clerk",
-          "ko": "보통 삼 일 정도 걸려요.",
-          "de": "Normalerweise dauert es etwa drei Tage.",
-          "en": "It usually takes about three days."
+          "ko": "접수한 뒤에 예상 처리 기간을 확인해 드릴게요.",
+          "de": "Nach der Einreichung prüfe ich die voraussichtliche Bearbeitungszeit für Sie.",
+          "en": "After you submit it, I'll check the expected processing time for you."
         }
       ],
       "quests": [
@@ -5625,7 +5625,7 @@
           "id": "quest_b1_w10_insurance_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "진단서랑 영수증만 있으면 대부분 보장돼요.",
+            "audioKo": "보장 여부는 가입하신 보험 내용과 받은 진료를 확인해 봐야 해요.",
             "options": [
               {
                 "de": "Wenn Sie nur die Diagnosebescheinigung und die Quittung haben, ist das meiste gedeckt.",
@@ -5664,7 +5664,7 @@
                 "ko": "서류는 어떻게 보내면 돼요?"
               },
               {
-                "ko": "처리하는 데 시간이 얼마나 걸려요?"
+                "ko": "처리 기간도 확인할 수 있을까요?"
               }
             ],
             "correctIndex": 0
@@ -5674,9 +5674,9 @@
           "id": "quest_b1_w10_insurance_build",
           "type": "satzBauen",
           "data": {
-            "targetKo": "처리하는 데 시간이 얼마나 걸려요?",
-            "promptDe": "Wie lange dauert die Bearbeitung?",
-            "promptEn": "How long does the processing take?",
+            "targetKo": "처리 기간도 확인할 수 있을까요?",
+            "promptDe": "Können Sie auch die voraussichtliche Bearbeitungszeit prüfen?",
+            "promptEn": "Could you also check the expected processing time?",
             "distractors": [
               "진단서랑",
               "청구"
@@ -5758,11 +5758,11 @@
           }
         },
         {
-          "korean": "소독약",
+          "korean": "약국에서 물어보다",
           "note": {
-            "ko": "상처를 깨끗하게 하는 약",
-            "de": "Desinfektionsmittel",
-            "en": "antiseptic"
+            "ko": "약사에게 상처 처리 방법을 질문하다",
+            "de": "in der Apotheke nachfragen",
+            "en": "ask at the pharmacy"
           }
         },
         {
@@ -5836,9 +5836,9 @@
         },
         {
           "speaker": "user",
-          "ko": "감사해요. 그런데 상처에 소독약을 좀 발라야 할 것 같아요.",
-          "de": "Danke. Aber ich sollte die Wunde wohl desinfizieren.",
-          "en": "Thanks. But I should probably clean the scrape with some antiseptic."
+          "ko": "감사해요. 그런데 약국에서 상처를 어떻게 처리하면 좋을지 물어봐야 할 것 같아요.",
+          "de": "Danke. Aber ich sollte in der Apotheke fragen, wie ich die Wunde am besten versorge.",
+          "en": "Thanks. But I should ask at the pharmacy how best to care for the scrape."
         },
         {
           "speaker": "resident",
@@ -5888,7 +5888,7 @@
             "promptEn": "Thanks. But I should probably put some antiseptic on the wound.",
             "options": [
               {
-                "ko": "감사해요. 그런데 상처에 소독약을 좀 발라야 할 것 같아요."
+                "ko": "감사해요. 그런데 약국에서 상처를 어떻게 처리하면 좋을지 물어봐야 할 것 같아요."
               },
               {
                 "ko": "어, 죄송해요! 못 봤어요, 괜찮으세요?"
@@ -6057,9 +6057,9 @@
         },
         {
           "speaker": "clerk",
-          "ko": "그러시군요. 해지는 한 달 전에 미리 신청하셔야 해요.",
-          "de": "Ach so. Die Kündigung müssen Sie mindestens einen Monat im Voraus einreichen.",
-          "en": "I see. You need to submit your cancellation at least one month in advance."
+          "ko": "그러시군요. 해지 가능 시점은 계약 내용을 확인한 뒤 안내해 드릴게요.",
+          "de": "Ich prüfe erst die Vertragsbedingungen und sage Ihnen dann, ab wann eine Kündigung möglich ist.",
+          "en": "I'll check the contract terms first and let you know when cancellation is possible."
         },
         {
           "speaker": "user",
@@ -6091,7 +6091,7 @@
           "id": "quest_b1_w10_cancellation_hear",
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "그러시군요. 해지는 한 달 전에 미리 신청하셔야 해요.",
+            "audioKo": "그러시군요. 해지 가능 시점은 계약 내용을 확인한 뒤 안내해 드릴게요.",
             "options": [
               {
                 "de": "Ach so. Die Kündigung müssen Sie mindestens einen Monat im Voraus beantragen.",

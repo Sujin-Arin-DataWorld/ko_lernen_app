@@ -9266,9 +9266,9 @@
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "상대의 말: “안쪽이 코팅돼 있어서 여기서는 일반 쓰레기로 버려요.” 과제: 표시를 못 본 점을 인정하고 잘못 넣은 것을 꺼내겠다고 하세요. 이 목적에 맞는 응답을 고르세요.",
-            "de": "Dein Gegenüber sagt: „안쪽이 코팅돼 있어서 여기서는 일반 쓰레기로 버려요.“ (Die Innenseite ist beschichtet, deshalb gehört es hier in den Restmüll.). Aufgabe: Gib zu, das Zeichen übersehen zu haben, und nimm das falsch sortierte Teil heraus. Welche Antwort erfüllt dieses Ziel?",
-            "en": "The other person says: “안쪽이 코팅돼 있어서 여기서는 일반 쓰레기로 버려요.” (The inside is coated, so it goes in general waste here.). Task: Acknowledge missing the label and say you will remove the wrongly sorted item. Which response fulfills this goal?"
+            "ko": "상대의 말: “안쪽이 코팅돼 있어서 이 건물에서는 일반 쓰레기로 버려요.” 과제: 표시를 못 본 점을 인정하고 잘못 넣은 것을 꺼내겠다고 하세요. 이 목적에 맞는 응답을 고르세요.",
+            "de": "Dein Gegenüber sagt: „안쪽이 코팅돼 있어서 이 건물에서는 일반 쓰레기로 버려요.“ (Die Innenseite ist beschichtet, deshalb gehört es in diesem Gebäude in den Restmüll.). Aufgabe: Gib zu, das Zeichen übersehen zu haben, und nimm das falsch sortierte Teil heraus. Welche Antwort erfüllt dieses Ziel?",
+            "en": "The other person says: “안쪽이 코팅돼 있어서 이 건물에서는 일반 쓰레기로 버려요.” (Because the inside is coated, it goes in general waste in this building.). Task: Acknowledge missing the label and say you will remove the wrongly sorted item. Which response fulfills this goal?"
           },
           "explanation": {
             "ko": "과제의 목적은 “표시를 못 본 점을 인정하고 잘못 넣은 것을 꺼내겠다고 하세요.”예요. 원문 응답 “표시가 작아서 못 봤네요. 다시 꺼낼게요.”가 이 목적을 이뤄요. “코팅돼 있어도 여기 종이류에 그대로 둘게요.”와 “표시를 봤지만 일부러 잘못 넣었어요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
@@ -9279,7 +9279,7 @@
             "apartment_recycling_mixup"
           ],
           "evidenceKo": "표시가 작아서 못 봤네요. 다시 꺼낼게요.",
-          "audioKo": "안쪽이 코팅돼 있어서 여기서는 일반 쓰레기로 버려요.",
+          "audioKo": "안쪽이 코팅돼 있어서 이 건물에서는 일반 쓰레기로 버려요.",
           "options": [
             {
               "ko": "표시가 작아서 못 봤네요. 다시 꺼낼게요.",
@@ -11088,9 +11088,9 @@
               "en": "Daniel, you've been limping for a while. Are you okay?"
             },
             {
-              "ko": "오늘은 걷고, 통증이 계속되면 진료를 받아 봐.",
-              "de": "Geh heute nur spazieren. Wenn der Schmerz bleibt, lass es untersuchen.",
-              "en": "Walk today, and get it checked if the pain continues."
+              "ko": "오늘은 훈련 대신 가볍게 걷고, 통증이 계속되면 진료를 받아 보는 게 어때?",
+              "de": "Lass heute das Training aus und geh nur locker spazieren. Wenn die Schmerzen bleiben, wie wäre es, das abklären zu lassen?",
+              "en": "Skip training today and take an easy walk. If the pain continues, how about getting it checked?"
             },
             {
               "ko": "그럼 이번 주 훈련은 어떻게 하지?",
@@ -11126,9 +11126,9 @@
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "상대의 말: “오늘은 걷고, 통증이 계속되면 진료를 받아 봐.” 과제: 기록보다 무릎 상태를 먼저 살피겠다고 하세요. 이 목적에 맞는 응답을 고르세요.",
-            "de": "Dein Gegenüber sagt: „오늘은 걷고, 통증이 계속되면 진료를 받아 봐.“ (Geh heute nur spazieren. Wenn der Schmerz bleibt, lass es untersuchen.). Aufgabe: Sage, dass das Knie vor der Bestzeit Vorrang hat. Welche Antwort erfüllt dieses Ziel?",
-            "en": "The other person says: “오늘은 걷고, 통증이 계속되면 진료를 받아 봐.” (Walk today, and get it checked if the pain continues.). Task: Say that checking the knee takes priority over a fast time. Which response fulfills this goal?"
+            "ko": "상대의 말: “오늘은 훈련 대신 가볍게 걷고, 통증이 계속되면 진료를 받아 보는 게 어때?” 과제: 기록보다 무릎 상태를 먼저 살피겠다고 하세요. 이 목적에 맞는 응답을 고르세요.",
+            "de": "Dein Gegenüber sagt: „오늘은 훈련 대신 가볍게 걷고, 통증이 계속되면 진료를 받아 보는 게 어때?“ (Lass heute das Training aus und geh nur locker spazieren. Wenn die Schmerzen bleiben, wie wäre es, das abklären zu lassen?). Aufgabe: Sage, dass das Knie vor der Bestzeit Vorrang hat. Welche Antwort erfüllt dieses Ziel?",
+            "en": "The other person says: “오늘은 훈련 대신 가볍게 걷고, 통증이 계속되면 진료를 받아 보는 게 어때?” (Skip training today and take an easy walk. If the pain continues, how about getting it checked?). Task: Say that checking the knee takes priority over a fast time. Which response fulfills this goal?"
           },
           "explanation": {
             "ko": "과제의 목적은 “기록보다 무릎 상태를 먼저 살피겠다고 하세요.”예요. 원문 응답 “알겠어. 기록보다 무릎부터 봐야겠어.”가 이 목적을 이뤄요. “무릎이 아파도 기록 훈련을 더 늘릴게.”와 “통증이 없으니까 쉬지 않아도 되겠어.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
@@ -11139,7 +11139,7 @@
             "running_injury_training_plan"
           ],
           "evidenceKo": "알겠어. 기록보다 무릎부터 봐야겠어.",
-          "audioKo": "오늘은 걷고, 통증이 계속되면 진료를 받아 봐.",
+          "audioKo": "오늘은 훈련 대신 가볍게 걷고, 통증이 계속되면 진료를 받아 보는 게 어때?",
           "options": [
             {
               "ko": "알겠어. 기록보다 무릎부터 봐야겠어.",
@@ -12366,9 +12366,9 @@
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "상대의 말: “부품을 바꿔야 하면 출장비 포함해서 오만 원 정도 나와요.” 과제: 기사 방문을 내일 오후로 예약해 달라고 요청하세요. 이 목적에 맞는 응답을 고르세요.",
-            "de": "Dein Gegenüber sagt: „부품을 바꿔야 하면 출장비 포함해서 오만 원 정도 나와요.“ (Wenn ein Teil ausgetauscht werden muss, kostet es inklusive Anfahrt etwa 50.000 Won.). Aufgabe: Bitte um einen Technikertermin morgen Nachmittag. Welche Antwort erfüllt dieses Ziel?",
-            "en": "The other person says: “부품을 바꿔야 하면 출장비 포함해서 오만 원 정도 나와요.” (If a part needs to be replaced, it costs about 50,000 won including the callout fee.). Task: Ask to book the technician for tomorrow afternoon. Which response fulfills this goal?"
+            "ko": "상대의 말: “부품을 바꿔야 하면 비용이 달라질 수 있어요. 기사님이 확인한 뒤에 안내해 드릴게요.” 과제: 기사 방문을 내일 오후로 예약해 달라고 요청하세요. 이 목적에 맞는 응답을 고르세요.",
+            "de": "Dein Gegenüber sagt: „부품을 바꿔야 하면 비용이 달라질 수 있어요. 기사님이 확인한 뒤에 안내해 드릴게요.“ (Wenn ein Teil ersetzt werden muss, können die Kosten unterschiedlich ausfallen. Der Techniker erklärt sie Ihnen nach der Prüfung.). Aufgabe: Bitte um einen Technikertermin morgen Nachmittag. Welche Antwort erfüllt dieses Ziel?",
+            "en": "The other person says: “부품을 바꿔야 하면 비용이 달라질 수 있어요. 기사님이 확인한 뒤에 안내해 드릴게요.” (If a part needs replacing, the cost can vary. The technician will explain it after checking.). Task: Ask to book the technician for tomorrow afternoon. Which response fulfills this goal?"
           },
           "explanation": {
             "ko": "과제의 목적은 “기사 방문을 내일 오후로 예약해 달라고 요청하세요.”예요. 원문 응답 “알겠어요. 그럼 내일 오후로 예약해 주세요.”가 이 목적을 이뤄요. “그럼 오늘 오전으로 예약해 주세요.”와 “기사님 방문은 취소하고 제가 그냥 쓸게요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
@@ -12379,7 +12379,7 @@
             "b1_w10_repair"
           ],
           "evidenceKo": "알겠어요. 그럼 내일 오후로 예약해 주세요.",
-          "audioKo": "부품을 바꿔야 하면 출장비 포함해서 오만 원 정도 나와요.",
+          "audioKo": "부품을 바꿔야 하면 비용이 달라질 수 있어요. 기사님이 확인한 뒤에 안내해 드릴게요.",
           "options": [
             {
               "ko": "알겠어요. 그럼 내일 오후로 예약해 주세요.",
@@ -12562,14 +12562,14 @@
       "level": "b1",
       "topicId": "b1_form",
       "title": {
-        "ko": "빠뜨린 서류와 마감일",
-        "de": "Ein fehlendes Dokument und die Frist",
-        "en": "A missing document and the deadline"
+        "ko": "주소 변경에 필요한 서류와 마감일",
+        "de": "Unterlagen und Frist für eine Adressänderung",
+        "en": "Documents and deadline for an address change"
       },
       "intro": {
-        "ko": "레나가 외국인등록증 주소를 바꾸러 왔는데 계약서 사본을 안 가져왔습니다.",
-        "de": "Lena will ihre Adresse im Ausländerregistrierungsausweis ändern, hat aber die Kopie des Mietvertrags vergessen.",
-        "en": "Lena has come to update her address on her foreign resident card but forgot the copy of her lease."
+        "ko": "레나가 주소 변경 관련 문의를 하러 왔는데, 가져갈 서류를 다시 확인합니다.",
+        "de": "Lena kommt wegen einer Adressänderung vorbei und prüft noch einmal, welche Unterlagen sie mitbringen muss.",
+        "en": "Lena is asking about an address change and checking the documents she needs again."
       },
       "contentIds": [
         "b1_w10_form"
@@ -12585,19 +12585,19 @@
             "en": "Which situation matches the whole conversation?"
           },
           "explanation": {
-            "ko": "“여권은 있는데 계약서 사본은 안 가져왔어요.”라는 말이 근거예요. 상황은 “레나가 외국인등록증 주소를 바꾸러 왔는데 계약서 사본을 안 가져왔습니다.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
-            "de": "Ein Beleg ist „여권은 있는데 계약서 사본은 안 가져왔어요.“ (Meinen Pass habe ich dabei, aber die Kopie des Mietvertrags nicht.). Dazu passt: Lena will ihre Adresse im Ausländerregistrierungsausweis ändern, hat aber die Kopie des Mietvertrags vergessen. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
-            "en": "One supporting line is “여권은 있는데 계약서 사본은 안 가져왔어요.” (I have my passport, but I don't have a copy of the lease with me.). The matching situation is: Lena has come to update her address on her foreign resident card but forgot the copy of her lease. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
+            "ko": "“여권은 있는데 계약서 사본은 지금 없어요.”라는 말이 근거예요. 상황은 “레나가 주소 변경 관련 문의를 하러 왔는데, 가져갈 서류를 다시 확인합니다.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
+            "de": "Ein Beleg ist „여권은 있는데 계약서 사본은 지금 없어요.“ (Meinen Pass habe ich dabei, aber die Kopie des Mietvertrags habe ich gerade nicht.). Dazu passt: Lena kommt wegen einer Adressänderung vorbei und prüft noch einmal, welche Unterlagen sie mitbringen muss. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
+            "en": "One supporting line is “여권은 있는데 계약서 사본은 지금 없어요.” (I have my passport, but I don't have a copy of the lease with me right now.). The matching situation is: Lena is asking about an address change and checking the documents she needs again. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
           },
           "sourceIds": [
             "b1_w10_form"
           ],
-          "evidenceKo": "여권은 있는데 계약서 사본은 안 가져왔어요.",
+          "evidenceKo": "여권은 있는데 계약서 사본은 지금 없어요.",
           "options": [
             {
-              "ko": "레나가 외국인등록증 주소를 바꾸러 왔는데 계약서 사본을 안 가져왔습니다.",
-              "de": "Lena will ihre Adresse im Ausländerregistrierungsausweis ändern, hat aber die Kopie des Mietvertrags vergessen.",
-              "en": "Lena has come to update her address on her foreign resident card but forgot the copy of her lease."
+              "ko": "레나가 주소 변경 관련 문의를 하러 왔는데, 가져갈 서류를 다시 확인합니다.",
+              "de": "Lena kommt wegen einer Adressänderung vorbei und prüft noch einmal, welche Unterlagen sie mitbringen muss.",
+              "en": "Lena is asking about an address change and checking the documents she needs again."
             },
             {
               "ko": "계약서 사본은 있지만 바꿀 주소를 아직 모릅니다.",
@@ -12622,30 +12622,30 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “그럼 그건 나중에 우편이나 이메일로 보내 주셔도 돼요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „그럼 그건 나중에 우편이나 이메일로 보내 주셔도 돼요.“: Dann können Sie das später per Post oder E-Mail nachreichen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “그럼 그건 나중에 우편이나 이메일로 보내 주셔도 돼요.”: Then you can send that later by mail or email. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “추가로 필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „추가로 필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.“: Ich prüfe die weiteren Unterlagen und die Einreichungsmethode und erkläre sie Ihnen dann. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “추가로 필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.”: I'll check what else is needed and how to submit it, then explain it to you. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "b1_w10_form"
           ],
-          "evidenceKo": "그럼 그건 나중에 우편이나 이메일로 보내 주셔도 돼요.",
-          "audioKo": "그럼 그건 나중에 우편이나 이메일로 보내 주셔도 돼요.",
+          "evidenceKo": "추가로 필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.",
+          "audioKo": "추가로 필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.",
           "options": [
             {
-              "ko": "그럼 그건 나중에 우편이나 이메일로 보내 주셔도 돼요.",
-              "de": "Dann können Sie das später per Post oder E-Mail nachreichen.",
-              "en": "Then you can send that later by mail or email."
+              "ko": "추가로 필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.",
+              "de": "Ich prüfe die weiteren Unterlagen und die Einreichungsmethode und erkläre sie Ihnen dann.",
+              "en": "I'll check what else is needed and how to submit it, then explain it to you."
             },
             {
-              "ko": "알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요.",
-              "de": "Verstanden. Ich scanne es noch heute und schicke es per E-Mail.",
-              "en": "Got it. I'll scan it today and send it by email."
+              "ko": "알겠어요. 필요한 서류를 확인한 뒤에 제출할게요.",
+              "de": "Verstanden. Ich reiche es ein, nachdem ich die erforderlichen Unterlagen geprüft habe.",
+              "en": "Got it. I'll submit it after I confirm the required documents."
             },
             {
-              "ko": "마감일은 이번 달 말이에요. 그때까지 보내 주시면 돼요.",
-              "de": "Die Frist ist Ende dieses Monats. Es reicht, wenn Sie es bis dahin schicken.",
-              "en": "The deadline is the end of this month. It's fine if you send it by then."
+              "ko": "마감일도 함께 확인해 드릴게요.",
+              "de": "Ich prüfe auch die Frist für Sie.",
+              "en": "I'll check the deadline for you as well."
             }
           ],
           "correctIndex": 0
@@ -12656,45 +12656,45 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Verstanden. Ich scanne es noch heute und schicke es per E-Mail.",
-            "en": "Put the words in the same order as the recording. Meaning: Got it. I'll scan it today and send it by email."
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Verstanden. Ich reiche es ein, nachdem ich die erforderlichen Unterlagen geprüft habe.",
+            "en": "Put the words in the same order as the recording. Meaning: Got it. I'll submit it after I confirm the required documents."
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요.”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “알겠어요. 필요한 서류를 확인한 뒤에 제출할게요.”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „알겠어요. 필요한 서류를 확인한 뒤에 제출할게요.“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “알겠어요. 필요한 서류를 확인한 뒤에 제출할게요.”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "b1_w10_form"
           ],
-          "evidenceKo": "알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요.",
-          "audioKo": "알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요.",
-          "targetKo": "알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요."
+          "evidenceKo": "알겠어요. 필요한 서류를 확인한 뒤에 제출할게요.",
+          "audioKo": "알겠어요. 필요한 서류를 확인한 뒤에 제출할게요.",
+          "targetKo": "알겠어요. 필요한 서류를 확인한 뒤에 제출할게요."
         },
         {
           "id": "listening.b1.b1_w10_form.response",
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "상대의 말: “마감일은 이번 달 말이에요. 그때까지 보내 주시면 돼요.” 과제: 빠뜨린 사본을 오늘 스캔해 이메일로 보내겠다고 하세요. 이 목적에 맞는 응답을 고르세요.",
-            "de": "Dein Gegenüber sagt: „마감일은 이번 달 말이에요. 그때까지 보내 주시면 돼요.“ (Die Frist ist Ende dieses Monats. Es reicht, wenn Sie es bis dahin schicken.). Aufgabe: Sage, dass du die fehlende Kopie heute scannst und per Mail schickst. Welche Antwort erfüllt dieses Ziel?",
-            "en": "The other person says: “마감일은 이번 달 말이에요. 그때까지 보내 주시면 돼요.” (The deadline is the end of this month. It's fine if you send it by then.). Task: Say you will scan the missing copy and email it today. Which response fulfills this goal?"
+            "ko": "상대의 말: “마감일도 함께 확인해 드릴게요.” 과제: 빠뜨린 사본을 오늘 스캔해 이메일로 보내겠다고 하세요. 이 목적에 맞는 응답을 고르세요.",
+            "de": "Dein Gegenüber sagt: „마감일도 함께 확인해 드릴게요.“ (Ich prüfe auch die Frist für Sie.). Aufgabe: Sage, dass du die fehlende Kopie heute scannst und per Mail schickst. Welche Antwort erfüllt dieses Ziel?",
+            "en": "The other person says: “마감일도 함께 확인해 드릴게요.” (I'll check the deadline for you as well.). Task: Say you will scan the missing copy and email it today. Which response fulfills this goal?"
           },
           "explanation": {
-            "ko": "과제의 목적은 “빠뜨린 사본을 오늘 스캔해 이메일로 보내겠다고 하세요.”예요. 원문 응답 “알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요.”가 이 목적을 이뤄요. “마감이 지나고 다음 달에 보낼게요.”와 “계약서 사본은 필요 없으니까 안 보낼게요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
-            "de": "Das Ziel lautet: Sage, dass du die fehlende Kopie heute scannst und per Mail schickst. Die Quelläußerung „알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요.“ (Verstanden. Ich scanne es noch heute und schicke es per E-Mail.) erfüllt es. „Ich sende sie nächsten Monat nach der Frist.“ und „Die Vertragskopie ist unnötig, ich sende sie nicht.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
-            "en": "The goal is: Say you will scan the missing copy and email it today. The source response “알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요.” (Got it. I'll scan it today and send it by email.) fulfills it. “I will send it next month after the deadline.” and “The contract copy is unnecessary, so I will not send it.” change a requested action, fact, or condition. Such replies may be valid in other situations."
+            "ko": "과제의 목적은 “빠뜨린 사본을 오늘 스캔해 이메일로 보내겠다고 하세요.”예요. 원문 응답 “알겠어요. 필요한 서류를 확인한 뒤에 제출할게요.”가 이 목적을 이뤄요. “마감이 지나고 다음 달에 보낼게요.”와 “계약서 사본은 필요 없으니까 안 보낼게요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
+            "de": "Das Ziel lautet: Sage, dass du die fehlende Kopie heute scannst und per Mail schickst. Die Quelläußerung „알겠어요. 필요한 서류를 확인한 뒤에 제출할게요.“ (Verstanden. Ich reiche es ein, nachdem ich die erforderlichen Unterlagen geprüft habe.) erfüllt es. „Ich sende sie nächsten Monat nach der Frist.“ und „Die Vertragskopie ist unnötig, ich sende sie nicht.“ ändern eine verlangte Handlung, Tatsache oder Bedingung. In anderen Situationen können solche Antworten durchaus passen.",
+            "en": "The goal is: Say you will scan the missing copy and email it today. The source response “알겠어요. 필요한 서류를 확인한 뒤에 제출할게요.” (Got it. I'll submit it after I confirm the required documents.) fulfills it. “I will send it next month after the deadline.” and “The contract copy is unnecessary, so I will not send it.” change a requested action, fact, or condition. Such replies may be valid in other situations."
           },
           "sourceIds": [
             "b1_w10_form"
           ],
-          "evidenceKo": "알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요.",
-          "audioKo": "마감일은 이번 달 말이에요. 그때까지 보내 주시면 돼요.",
+          "evidenceKo": "알겠어요. 필요한 서류를 확인한 뒤에 제출할게요.",
+          "audioKo": "마감일도 함께 확인해 드릴게요.",
           "options": [
             {
-              "ko": "알겠어요. 오늘 안에 스캔해서 이메일로 보낼게요.",
-              "de": "Verstanden. Ich scanne es noch heute und schicke es per E-Mail.",
-              "en": "Got it. I'll scan it today and send it by email."
+              "ko": "알겠어요. 필요한 서류를 확인한 뒤에 제출할게요.",
+              "de": "Verstanden. Ich reiche es ein, nachdem ich die erforderlichen Unterlagen geprüft habe.",
+              "en": "Got it. I'll submit it after I confirm the required documents."
             },
             {
               "ko": "마감이 지나고 다음 달에 보낼게요.",
@@ -12932,25 +12932,25 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “진단서랑 영수증만 있으면 대부분 보장돼요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „진단서랑 영수증만 있으면 대부분 보장돼요.“: Mit einem ärztlichen Attest und der Quittung werden die Kosten in der Regel übernommen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “진단서랑 영수증만 있으면 대부분 보장돼요.”: With a medical certificate and the receipt, it's usually covered. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “보장 여부는 가입하신 보험 내용과 받은 진료를 확인해 봐야 해요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „보장 여부는 가입하신 보험 내용과 받은 진료를 확인해 봐야 해요.“: Ob es gedeckt ist, müssen wir anhand Ihres Tarifs und der Behandlung prüfen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “보장 여부는 가입하신 보험 내용과 받은 진료를 확인해 봐야 해요.”: We need to check your coverage and the treatment you received before we can tell. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "b1_w10_insurance"
           ],
-          "evidenceKo": "진단서랑 영수증만 있으면 대부분 보장돼요.",
-          "audioKo": "진단서랑 영수증만 있으면 대부분 보장돼요.",
+          "evidenceKo": "보장 여부는 가입하신 보험 내용과 받은 진료를 확인해 봐야 해요.",
+          "audioKo": "보장 여부는 가입하신 보험 내용과 받은 진료를 확인해 봐야 해요.",
           "options": [
             {
-              "ko": "진단서랑 영수증만 있으면 대부분 보장돼요.",
-              "de": "Mit einem ärztlichen Attest und der Quittung werden die Kosten in der Regel übernommen.",
-              "en": "With a medical certificate and the receipt, it's usually covered."
+              "ko": "보장 여부는 가입하신 보험 내용과 받은 진료를 확인해 봐야 해요.",
+              "de": "Ob es gedeckt ist, müssen wir anhand Ihres Tarifs und der Behandlung prüfen.",
+              "en": "We need to check your coverage and the treatment you received before we can tell."
             },
             {
-              "ko": "앱에서 사진 찍어서 올리시면 처리해 드려요.",
-              "de": "Wenn Sie die Unterlagen in der App fotografieren und hochladen, bearbeiten wir den Antrag.",
-              "en": "Take photos of the documents and upload them in the app, and we'll process the claim."
+              "ko": "필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.",
+              "de": "Ich prüfe die erforderlichen Unterlagen und die Einreichungsmethode und erkläre sie Ihnen dann.",
+              "en": "I'll check the required documents and how to submit them, then explain it to you."
             },
             {
               "ko": "서류는 어떻게 보내면 돼요?",
@@ -12966,29 +12966,29 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Wie lange dauert die Bearbeitung?",
-            "en": "Put the words in the same order as the recording. Meaning: How long does the processing take?"
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Können Sie auch die voraussichtliche Bearbeitungszeit prüfen?",
+            "en": "Put the words in the same order as the recording. Meaning: Could you also check the expected processing time?"
           },
           "explanation": {
-            "ko": "이 과제는 들은 어순을 재현해요: “처리하는 데 시간이 얼마나 걸려요?”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
-            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „처리하는 데 시간이 얼마나 걸려요?“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
-            "en": "This task reconstructs the recorded word order: “처리하는 데 시간이 얼마나 걸려요?”. Other ways to express a similar meaning are not the target of this listening task."
+            "ko": "이 과제는 들은 어순을 재현해요: “처리 기간도 확인할 수 있을까요?”. 뜻이 비슷한 다른 문장을 만드는 과제는 아니에요.",
+            "de": "Hier wird die gehörte Wortfolge rekonstruiert: „처리 기간도 확인할 수 있을까요?“. Andere sinngleiche Formulierungen sind nicht das Ziel dieser Hörübung.",
+            "en": "This task reconstructs the recorded word order: “처리 기간도 확인할 수 있을까요?”. Other ways to express a similar meaning are not the target of this listening task."
           },
           "sourceIds": [
             "b1_w10_insurance"
           ],
-          "evidenceKo": "처리하는 데 시간이 얼마나 걸려요?",
-          "audioKo": "처리하는 데 시간이 얼마나 걸려요?",
-          "targetKo": "처리하는 데 시간이 얼마나 걸려요?"
+          "evidenceKo": "처리 기간도 확인할 수 있을까요?",
+          "audioKo": "처리 기간도 확인할 수 있을까요?",
+          "targetKo": "처리 기간도 확인할 수 있을까요?"
         },
         {
           "id": "listening.b1.b1_w10_insurance.response",
           "type": "choice",
           "skill": "response",
           "prompt": {
-            "ko": "상대의 말: “진단서랑 영수증만 있으면 대부분 보장돼요.” 과제: 필요한 서류를 어떤 방식으로 보내는지 물으세요. 이 목적에 맞는 응답을 고르세요.",
-            "de": "Dein Gegenüber sagt: „진단서랑 영수증만 있으면 대부분 보장돼요.“ (Mit einem ärztlichen Attest und der Quittung werden die Kosten in der Regel übernommen.). Aufgabe: Frage, wie die erforderlichen Unterlagen einzureichen sind. Welche Antwort erfüllt dieses Ziel?",
-            "en": "The other person says: “진단서랑 영수증만 있으면 대부분 보장돼요.” (With a medical certificate and the receipt, it's usually covered.). Task: Ask how to submit the required documents. Which response fulfills this goal?"
+            "ko": "상대의 말: “보장 여부는 가입하신 보험 내용과 받은 진료를 확인해 봐야 해요.” 과제: 필요한 서류를 어떤 방식으로 보내는지 물으세요. 이 목적에 맞는 응답을 고르세요.",
+            "de": "Dein Gegenüber sagt: „보장 여부는 가입하신 보험 내용과 받은 진료를 확인해 봐야 해요.“ (Ob es gedeckt ist, müssen wir anhand Ihres Tarifs und der Behandlung prüfen.). Aufgabe: Frage, wie die erforderlichen Unterlagen einzureichen sind. Welche Antwort erfüllt dieses Ziel?",
+            "en": "The other person says: “보장 여부는 가입하신 보험 내용과 받은 진료를 확인해 봐야 해요.” (We need to check your coverage and the treatment you received before we can tell.). Task: Ask how to submit the required documents. Which response fulfills this goal?"
           },
           "explanation": {
             "ko": "과제의 목적은 “필요한 서류를 어떤 방식으로 보내는지 물으세요.”예요. 원문 응답 “서류는 어떻게 보내면 돼요?”가 이 목적을 이뤄요. “서류 없이도 되니까 그냥 처리해 주세요.”와 “보장은 원하지 않으니 청구를 취소할게요.”는 요청한 행동·사실·조건 중 하나를 바꿔요. 다른 상황에서도 모두 틀린 말이라는 뜻은 아니에요.",
@@ -12999,7 +12999,7 @@
             "b1_w10_insurance"
           ],
           "evidenceKo": "서류는 어떻게 보내면 돼요?",
-          "audioKo": "진단서랑 영수증만 있으면 대부분 보장돼요.",
+          "audioKo": "보장 여부는 가입하신 보험 내용과 받은 진료를 확인해 봐야 해요.",
           "options": [
             {
               "ko": "서류는 어떻게 보내면 돼요?",
@@ -13242,20 +13242,20 @@
             "en": "What does the spoken line mean?"
           },
           "explanation": {
-            "ko": "들은 말은 “그러시군요. 해지는 한 달 전에 미리 신청하셔야 해요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
-            "de": "Zu hören ist „그러시군요. 해지는 한 달 전에 미리 신청하셔야 해요.“: Ach so. Die Kündigung müssen Sie mindestens einen Monat im Voraus einreichen. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
-            "en": "The line is “그러시군요. 해지는 한 달 전에 미리 신청하셔야 해요.”: I see. You need to submit your cancellation at least one month in advance. The other options represent different turns in this scene, with different content or conversational functions."
+            "ko": "들은 말은 “그러시군요. 해지 가능 시점은 계약 내용을 확인한 뒤 안내해 드릴게요.”예요. 다른 선택지는 이 장면의 다른 대사로, 지금 들은 말과 내용이나 화행이 달라요.",
+            "de": "Zu hören ist „그러시군요. 해지 가능 시점은 계약 내용을 확인한 뒤 안내해 드릴게요.“: Ich prüfe erst die Vertragsbedingungen und sage Ihnen dann, ab wann eine Kündigung möglich ist. Die anderen Optionen geben andere Äußerungen dieser Szene wieder, mit anderem Inhalt oder anderer Gesprächsfunktion.",
+            "en": "The line is “그러시군요. 해지 가능 시점은 계약 내용을 확인한 뒤 안내해 드릴게요.”: I'll check the contract terms first and let you know when cancellation is possible. The other options represent different turns in this scene, with different content or conversational functions."
           },
           "sourceIds": [
             "b1_w10_cancellation"
           ],
-          "evidenceKo": "그러시군요. 해지는 한 달 전에 미리 신청하셔야 해요.",
-          "audioKo": "그러시군요. 해지는 한 달 전에 미리 신청하셔야 해요.",
+          "evidenceKo": "그러시군요. 해지 가능 시점은 계약 내용을 확인한 뒤 안내해 드릴게요.",
+          "audioKo": "그러시군요. 해지 가능 시점은 계약 내용을 확인한 뒤 안내해 드릴게요.",
           "options": [
             {
-              "ko": "그러시군요. 해지는 한 달 전에 미리 신청하셔야 해요.",
-              "de": "Ach so. Die Kündigung müssen Sie mindestens einen Monat im Voraus einreichen.",
-              "en": "I see. You need to submit your cancellation at least one month in advance."
+              "ko": "그러시군요. 해지 가능 시점은 계약 내용을 확인한 뒤 안내해 드릴게요.",
+              "de": "Ich prüfe erst die Vertragsbedingungen und sage Ihnen dann, ab wann eine Kündigung möglich ist.",
+              "en": "I'll check the contract terms first and let you know when cancellation is possible."
             },
             {
               "ko": "다음 달에 이사를 가게 돼서요.",

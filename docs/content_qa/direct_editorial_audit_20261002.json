@@ -36560,7 +36560,7 @@
       "learning_phases.json"
     ],
     "ttsBoundary": "Storage keys are complete; individual clip listening and device playback are not claimed.",
-    "scenarioPersonaReview": "A1: 29 and A2: 28 live scenarios directly reviewed. B1-C2: 121 live scenarios remain."
+    "scenarioPersonaReview": "A1: 29, A2: 28, and B1: 31 live scenarios directly reviewed. B2-C2: 90 live scenarios remain."
   },
   "scenarioPersonaReviewProgress": {
     "reviewReference": "GitHub PR #438 merged as 797160b0664172b2956be0e202bb5df9b246b65c",
@@ -36702,6 +36702,95 @@
           "staleObjects": 8946,
           "humanListeningClaim": false,
           "firstLineManifestRebuilt": true
+        }
+      },
+      {
+        "level": "B1",
+        "status": "directly_reviewed",
+        "scenarioCount": 31,
+        "scenarioIds": [
+          "shared_document_old_version",
+          "ai_summary_wrong_fact",
+          "apartment_recycling_mixup",
+          "birthday_expectation_gap",
+          "cancelled_trip_hurt_feelings",
+          "community_festival_shift",
+          "company_instagram_wrong_account",
+          "date_or_friendly_coffee",
+          "food_delivery_wrong_order",
+          "jeju_rain_plan_change",
+          "ktx_sold_out_alternative",
+          "noisy_neighbor_evening",
+          "park_pet_manners",
+          "reel_caption_misunderstanding",
+          "running_injury_training_plan",
+          "secondhand_hidden_defect",
+          "shared_cup_recycling",
+          "speech_level_after_friendship",
+          "subscription_cancel_charge",
+          "team_update_indirect_speech",
+          "work_message_too_direct",
+          "b1_theme_park_date_thrill",
+          "b1_w10_repair",
+          "b1_w10_bill",
+          "b1_w10_form",
+          "b1_w10_partner",
+          "b1_w10_insurance",
+          "b1_w10_incident",
+          "b1_w10_cancellation",
+          "b1_w10_friends",
+          "b1_w10_fandom"
+        ],
+        "reviewedFields": [
+          "Korean dialogue and tone",
+          "German and English localization",
+          "speaker relationship and register",
+          "vocabulary extraction",
+          "listening/translation/sentence-building answer alignment",
+          "linked listening-lesson prompt, evidence, answer, and explanation",
+          "institutional, health, and building-specific claims"
+        ],
+        "findingsApplied": [
+          {
+            "scenarioId": "apartment_recycling_mixup",
+            "decision": "The disposal instruction is explicitly the rule in this building, and the revised source line and listening response match."
+          },
+          {
+            "scenarioId": "running_injury_training_plan",
+            "decision": "Hyuna proposes pausing training and seeking an assessment if pain continues rather than giving a fixed medical instruction."
+          },
+          {
+            "scenarioId": "b1_w10_repair",
+            "decision": "The service center explains that a replacement part can change the cost and that the technician will confirm it after inspection; no fixed quote is promised."
+          },
+          {
+            "scenarioId": "b1_w10_form",
+            "decision": "The address-change scene now checks which documents and deadline apply instead of asserting a particular residence document, submission channel, or deadline."
+          },
+          {
+            "scenarioId": "b1_w10_insurance",
+            "decision": "Insurance coverage, required documents, submission, and processing time are all checked against the individual policy and claim rather than guaranteed."
+          },
+          {
+            "scenarioId": "b1_w10_incident",
+            "decision": "After a minor collision, Daniel asks a pharmacy how to care for the scrape rather than self-prescribing treatment; the quest and listening wording follow the revised line."
+          },
+          {
+            "scenarioId": "b1_w10_cancellation",
+            "decision": "Gym cancellation timing is checked against the contract instead of being stated as a universal one-month rule."
+          }
+        ],
+        "retained": "The other 24 B1 scenes keep their current wording because their speaker goal, relationship, register, and KO-DE-EN meaning are appropriate to B1.",
+        "notClaimed": "This is a direct editorial read, not independent native-speaker approval or individual audio listening.",
+        "tts": {
+          "canonicalManifestRebuilt": true,
+          "firstLineManifestRebuilt": true,
+          "newStorageObjectsUploaded": 22,
+          "expectedCanonicalClips": 12920,
+          "remoteObjects": 21900,
+          "missingObjects": 0,
+          "staleObjects": 8980,
+          "humanListeningClaim": false
         }
       }
     ]
