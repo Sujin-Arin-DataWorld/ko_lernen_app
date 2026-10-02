@@ -6051,7 +6051,7 @@
           "options": [
             {
               "ko": "요즘 일이 많아서 좀 지쳤어요.",
-              "de": "Wegen viel Arbeit bin ich in letzter Zeit etwas erschöpft.",
+              "de": "Ich habe in letzter Zeit viel zu tun und bin etwas erschöpft.",
               "en": "I'm a bit worn out from all the work lately."
             },
             {
@@ -8072,7 +8072,7 @@
           "options": [
             {
               "ko": "면접 준비 많이 했어요?",
-              "de": "Hast du dich gut auf das Interview vorbereitet?",
+              "de": "Hast du dich gründlich auf das Vorstellungsgespräch vorbereitet?",
               "en": "Did you prepare a lot for the interview?"
             },
             {
@@ -11362,9 +11362,9 @@
           },
           "options": [
             {
-              "ko": "산책하면 내일 날씨가 좋아지겠죠.",
-              "de": "산책하면 내일 날씨가 좋아지겠죠.",
-              "en": "산책하면 내일 날씨가 좋아지겠죠."
+              "ko": "어제는 산책하기 딱 좋은 날씨였죠.",
+              "de": "어제는 산책하기 딱 좋은 날씨였죠.",
+              "en": "어제는 산책하기 딱 좋은 날씨였죠."
             },
             {
               "ko": "이런 날씨엔 산책하기 딱 좋죠.",
@@ -11434,7 +11434,7 @@
             },
             {
               "ko": "요즘 일이 많아서 좀 지쳤어요.",
-              "de": "Wegen viel Arbeit bin ich in letzter Zeit etwas erschöpft.",
+              "de": "Ich habe in letzter Zeit viel zu tun und bin etwas erschöpft.",
               "en": "I'm a bit worn out from all the work lately."
             }
           ],
@@ -11467,7 +11467,7 @@
             },
             {
               "ko": "요즘 일이 많아서 좀 지쳤어요.",
-              "de": "Wegen viel Arbeit bin ich in letzter Zeit etwas erschöpft.",
+              "de": "Ich habe in letzter Zeit viel zu tun und bin etwas erschöpft.",
               "en": "I'm a bit worn out from all the work lately."
             },
             {
@@ -11479,7 +11479,7 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “요즘 일이 많아서 좀 지쳤어요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wegen viel Arbeit bin ich in letzter Zeit etwas erschöpft. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Ich habe in letzter Zeit viel zu tun und bin etwas erschöpft. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: I'm a bit worn out from all the work lately. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -11741,8 +11741,8 @@
             },
             {
               "ko": "이 상품은 교환이나 환불이 가능한가요?",
-              "de": "Kann ich diesen Artikel umtauschen oder zurückgeben?",
-              "en": "Can I exchange or return this item?"
+              "de": "Kann ich diesen Artikel umtauschen oder mein Geld zurückbekommen?",
+              "en": "Can I exchange this item or get a refund?"
             },
             {
               "ko": "이 근처에 맛집 좀 아세요?",
@@ -12256,7 +12256,7 @@
             },
             {
               "ko": "취미로 시작했는데 점점 진심이 됐어요.",
-              "de": "Hab's als Hobby angefangen, aber es wird immer ernster.",
+              "de": "Ich habe als Hobby damit angefangen, aber inzwischen nehme ich es immer ernster.",
               "en": "I started it as a hobby but I'm getting more serious about it."
             }
           ],
@@ -12289,7 +12289,7 @@
             },
             {
               "ko": "취미로 시작했는데 점점 진심이 됐어요.",
-              "de": "Hab's als Hobby angefangen, aber es wird immer ernster.",
+              "de": "Ich habe als Hobby damit angefangen, aber inzwischen nehme ich es immer ernster.",
               "en": "I started it as a hobby but I'm getting more serious about it."
             },
             {
@@ -12301,7 +12301,7 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “취미로 시작했는데 점점 진심이 됐어요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Hab's als Hobby angefangen, aber es wird immer ernster. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Ich habe als Hobby damit angefangen, aber inzwischen nehme ich es immer ernster. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: I started it as a hobby but I'm getting more serious about it. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -12527,9 +12527,9 @@
               "en": "What should I document for a handover before leave?"
             },
             {
-              "ko": "이 초안을 오늘 안에 보려면 어디부터 고치면 될까요?",
-              "de": "Wenn wir den Entwurf heute noch durchsehen wollen, womit sollten wir anfangen?",
-              "en": "If we want to look over the draft today, where should we start?"
+              "ko": "마감일을 하루 미뤄도 괜찮을까요?",
+              "de": "Wäre es in Ordnung, die Frist um einen Tag zu verschieben?",
+              "en": "Would it be all right to postpone the deadline by one day?"
             },
             {
               "ko": "일하면서 가장 보람 있을 때가 언제예요?",
@@ -12561,8 +12561,8 @@
           "options": [
             {
               "ko": "이번 주 업무 우선순위를 다시 조율해야 할 것 같아요.",
-              "de": "Ich glaube, wir sollten die Prioritäten für diese Woche noch einmal abstimmen.",
-              "en": "I think we should coordinate this week's work priorities again."
+              "de": "Ich glaube, wir müssen die Arbeitsprioritäten für diese Woche noch einmal abstimmen.",
+              "en": "I think we need to coordinate this week's work priorities again."
             },
             {
               "ko": "회의실이 바뀌면 바로 알려 드릴게요.",
@@ -12572,14 +12572,14 @@
             {
               "ko": "새 프로젝트 때문에 요즘 좀 바빠요.",
               "de": "Wegen eines neuen Projekts hab ich gerade viel zu tun.",
-              "en": "I'm pretty busy lately because of a new project."
+              "en": "I've been quite busy lately because of a new project."
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “새 프로젝트 때문에 요즘 좀 바빠요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: Wegen eines neuen Projekts hab ich gerade viel zu tun. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: I'm pretty busy lately because of a new project. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "en": "The meaning is: I've been quite busy lately because of a new project. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0022"
@@ -12646,9 +12646,9 @@
               "en": "Can I ask for flexible work because of care responsibilities?"
             },
             {
-              "ko": "이 초안을 오늘 안에 보려면 어디부터 고치면 될까요?",
+              "ko": "이 초안을 오늘 안에 검토하려면 어디부터 시작하면 될까요?",
               "de": "Wenn wir den Entwurf heute noch durchsehen wollen, womit sollten wir anfangen?",
-              "en": "If we want to look over the draft today, where should we start?"
+              "en": "If we want to review the draft today, where should we start?"
             }
           ],
           "correctIndex": 1,
@@ -12819,7 +12819,7 @@
             {
               "ko": "새 프로젝트 때문에 요즘 좀 바빠요.",
               "de": "Wegen eines neuen Projekts hab ich gerade viel zu tun.",
-              "en": "I'm pretty busy lately because of a new project."
+              "en": "I've been quite busy lately because of a new project."
             },
             {
               "ko": "회의실이 바뀌면 바로 알려 드릴게요.",
@@ -12828,15 +12828,15 @@
             },
             {
               "ko": "이번 주 업무 우선순위를 다시 조율해야 할 것 같아요.",
-              "de": "Ich glaube, wir sollten die Prioritäten für diese Woche noch einmal abstimmen.",
-              "en": "I think we should coordinate this week's work priorities again."
+              "de": "Ich glaube, wir müssen die Arbeitsprioritäten für diese Woche noch einmal abstimmen.",
+              "en": "I think we need to coordinate this week's work priorities again."
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “이번 주 업무 우선순위를 다시 조율해야 할 것 같아요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Ich glaube, wir sollten die Prioritäten für diese Woche noch einmal abstimmen. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: I think we should coordinate this week's work priorities again. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Ich glaube, wir müssen die Arbeitsprioritäten für diese Woche noch einmal abstimmen. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I think we need to coordinate this week's work priorities again. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0046"
@@ -12855,9 +12855,9 @@
           },
           "options": [
             {
-              "ko": "일하면서 가장 보람 있을 때가 언제예요?",
-              "de": "Wann ist Ihre Arbeit am erfüllendsten?",
-              "en": "When do you find your work most rewarding?"
+              "ko": "이 초안을 오늘 안에 검토하려면 어디부터 시작하면 될까요?",
+              "de": "Wenn wir den Entwurf heute noch durchsehen wollen, womit sollten wir anfangen?",
+              "en": "If we want to review the draft today, where should we start?"
             },
             {
               "ko": "마감일을 하루 미뤄도 괜찮을까요?",
@@ -12899,13 +12899,13 @@
             },
             {
               "ko": "이번 주 업무 우선순위를 다시 조율해야 할 것 같아요.",
-              "de": "Ich glaube, wir sollten die Prioritäten für diese Woche noch einmal abstimmen.",
-              "en": "I think we should coordinate this week's work priorities again."
+              "de": "Ich glaube, wir müssen die Arbeitsprioritäten für diese Woche noch einmal abstimmen.",
+              "en": "I think we need to coordinate this week's work priorities again."
             },
             {
               "ko": "새 프로젝트 때문에 요즘 좀 바빠요.",
               "de": "Wegen eines neuen Projekts hab ich gerade viel zu tun.",
-              "en": "I'm pretty busy lately because of a new project."
+              "en": "I've been quite busy lately because of a new project."
             }
           ],
           "correctIndex": 0,
@@ -12925,9 +12925,9 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“이 초안을 오늘 안에 보려면 어디부터 고치면 될까요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„이 초안을 오늘 안에 보려면 어디부터 고치면 될까요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“이 초안을 오늘 안에 보려면 어디부터 고치면 될까요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“이 초안을 오늘 안에 검토하려면 어디부터 시작하면 될까요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„이 초안을 오늘 안에 검토하려면 어디부터 시작하면 될까요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“이 초안을 오늘 안에 검토하려면 어디부터 시작하면 될까요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
@@ -12936,9 +12936,9 @@
               "en": "What criteria are used during probation?"
             },
             {
-              "ko": "이 초안을 오늘 안에 보려면 어디부터 고치면 될까요?",
+              "ko": "이 초안을 오늘 안에 검토하려면 어디부터 시작하면 될까요?",
               "de": "Wenn wir den Entwurf heute noch durchsehen wollen, womit sollten wir anfangen?",
-              "en": "If we want to look over the draft today, where should we start?"
+              "en": "If we want to review the draft today, where should we start?"
             },
             {
               "ko": "돌봄 때문에 유연 근무를 요청해도 될까요?",
@@ -12948,15 +12948,15 @@
           ],
           "correctIndex": 1,
           "explanation": {
-            "ko": "이 표현의 내용은 “이 초안을 오늘 안에 보려면 어디부터 고치면 될까요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "ko": "이 표현의 내용은 “이 초안을 오늘 안에 검토하려면 어디부터 시작하면 될까요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: Wenn wir den Entwurf heute noch durchsehen wollen, womit sollten wir anfangen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: If we want to look over the draft today, where should we start? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "en": "The meaning is: If we want to review the draft today, where should we start? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0071"
           ],
-          "audioKo": "이 초안을 오늘 안에 보려면 어디부터 고치면 될까요?",
-          "evidenceKo": "이 초안을 오늘 안에 보려면 어디부터 고치면 될까요?"
+          "audioKo": "이 초안을 오늘 안에 검토하려면 어디부터 시작하면 될까요?",
+          "evidenceKo": "이 초안을 오늘 안에 검토하려면 어디부터 시작하면 될까요?"
         },
         {
           "id": "smalltalk.b1.work_study.coordination.situation",
@@ -13119,9 +13119,9 @@
               "en": "가족이랑 자주 연락하는 편이세요?"
             },
             {
-              "ko": "가족과 한집에서 사는 편이세요?",
-              "de": "가족과 한집에서 사는 편이세요?",
-              "en": "가족과 한집에서 사는 편이세요?"
+              "ko": "가족과 같이 살고 계세요?",
+              "de": "가족과 같이 살고 계세요?",
+              "en": "가족과 같이 살고 계세요?"
             }
           ],
           "correctIndex": 1,
@@ -13171,13 +13171,13 @@
           "options": [
             {
               "ko": "건강을 위해 따로 하는 운동 있으세요?",
-              "de": "Machen Sie etwas Bestimmtes für Ihre Gesundheit?",
-              "en": "Do you do anything specific for your health?"
+              "de": "Machen Sie einen bestimmten Sport für Ihre Gesundheit?",
+              "en": "Do you do any particular kind of exercise for your health?"
             },
             {
-              "ko": "건강 챙기려고 물을 많이 마시려고 해요.",
-              "de": "Um gesund zu bleiben, versuche ich viel Wasser zu trinken.",
-              "en": "I try to drink lots of water to stay healthy."
+              "ko": "건강을 챙기려고 물을 충분히 마시려 해요.",
+              "de": "Ich versuche, genug Wasser zu trinken, um auf meine Gesundheit zu achten.",
+              "en": "I'm trying to drink enough water to look after my health."
             },
             {
               "ko": "보통 무슨 운동 해요?",
@@ -13188,8 +13188,8 @@
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “건강을 위해 따로 하는 운동 있으세요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Machen Sie etwas Bestimmtes für Ihre Gesundheit? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Do you do anything specific for your health? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Machen Sie einen bestimmten Sport für Ihre Gesundheit? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Do you do any particular kind of exercise for your health? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0012"
@@ -13202,38 +13202,38 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“건강 챙기려고 물을 많이 마시려고 해요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„건강 챙기려고 물을 많이 마시려고 해요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“건강 챙기려고 물을 많이 마시려고 해요.”\nWhich meaning matches the whole utterance?"
+            "ko": "“건강을 챙기려고 물을 충분히 마시려 해요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„건강을 챙기려고 물을 충분히 마시려 해요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“건강을 챙기려고 물을 충분히 마시려 해요.”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
-              "ko": "건강 챙기려고 물을 많이 마시려고 해요.",
-              "de": "Um gesund zu bleiben, versuche ich viel Wasser zu trinken.",
-              "en": "I try to drink lots of water to stay healthy."
+              "ko": "건강을 챙기려고 물을 충분히 마시려 해요.",
+              "de": "Ich versuche, genug Wasser zu trinken, um auf meine Gesundheit zu achten.",
+              "en": "I'm trying to drink enough water to look after my health."
             },
             {
               "ko": "건강을 위해 따로 하는 운동 있으세요?",
-              "de": "Machen Sie etwas Bestimmtes für Ihre Gesundheit?",
-              "en": "Do you do anything specific for your health?"
+              "de": "Machen Sie einen bestimmten Sport für Ihre Gesundheit?",
+              "en": "Do you do any particular kind of exercise for your health?"
             },
             {
-              "ko": "요즘 일이 많아서 좀 지쳤어요.",
-              "de": "Wegen viel Arbeit bin ich in letzter Zeit etwas erschöpft.",
-              "en": "I'm a bit worn out from all the work lately."
+              "ko": "요즘 하루가 너무 빨리 가는 것 같아요.",
+              "de": "Die Tage vergehen gerade so schnell.",
+              "en": "The days feel like they're flying by lately."
             }
           ],
           "correctIndex": 0,
           "explanation": {
-            "ko": "이 표현의 내용은 “건강 챙기려고 물을 많이 마시려고 해요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Um gesund zu bleiben, versuche ich viel Wasser zu trinken. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: I try to drink lots of water to stay healthy. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “건강을 챙기려고 물을 충분히 마시려 해요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Ich versuche, genug Wasser zu trinken, um auf meine Gesundheit zu achten. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I'm trying to drink enough water to look after my health. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0024"
           ],
-          "audioKo": "건강 챙기려고 물을 많이 마시려고 해요.",
-          "evidenceKo": "건강 챙기려고 물을 많이 마시려고 해요."
+          "audioKo": "건강을 챙기려고 물을 충분히 마시려 해요.",
+          "evidenceKo": "건강을 챙기려고 물을 충분히 마시려 해요."
         },
         {
           "id": "smalltalk.b1.health.habits.situation",
@@ -13264,8 +13264,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "“건강을 위해 따로 하는 운동 있으세요?” — 건강을 위해 따로 하는 운동이 있는지 물어봐요.",
-            "de": "„건강을 위해 따로 하는 운동 있으세요?“ bedeutet: Machen Sie etwas Bestimmtes für Ihre Gesundheit?",
-            "en": "“건강을 위해 따로 하는 운동 있으세요?” means: Do you do anything specific for your health?"
+            "de": "„건강을 위해 따로 하는 운동 있으세요?“ bedeutet: Machen Sie einen bestimmten Sport für Ihre Gesundheit?",
+            "en": "“건강을 위해 따로 하는 운동 있으세요?” means: Do you do any particular kind of exercise for your health?"
           },
           "sourceIds": [
             "smalltalk_b1_0012",
@@ -13588,7 +13588,7 @@
             },
             {
               "ko": "면접 준비 많이 했어요?",
-              "de": "Hast du dich gut auf das Interview vorbereitet?",
+              "de": "Hast du dich gründlich auf das Vorstellungsgespräch vorbereitet?",
               "en": "Did you prepare a lot for the interview?"
             },
             {
@@ -13600,7 +13600,7 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “면접 준비 많이 했어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Hast du dich gut auf das Interview vorbereitet? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Hast du dich gründlich auf das Vorstellungsgespräch vorbereitet? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Did you prepare a lot for the interview? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -13626,7 +13626,7 @@
             },
             {
               "ko": "면접 준비 많이 했어요?",
-              "de": "Hast du dich gut auf das Interview vorbereitet?",
+              "de": "Hast du dich gründlich auf das Vorstellungsgespräch vorbereitet?",
               "en": "Did you prepare a lot for the interview?"
             },
             {
@@ -13669,7 +13669,7 @@
             },
             {
               "ko": "면접 준비 많이 했어요?",
-              "de": "Hast du dich gut auf das Interview vorbereitet?",
+              "de": "Hast du dich gründlich auf das Vorstellungsgespräch vorbereitet?",
               "en": "Did you prepare a lot for the interview?"
             }
           ],
@@ -13714,7 +13714,7 @@
           "correctIndex": 0,
           "explanation": {
             "ko": "“면접 준비 많이 했어요?” — 면접을 많이 준비했는지 물어봐요.",
-            "de": "„면접 준비 많이 했어요?“ bedeutet: Hast du dich gut auf das Interview vorbereitet?",
+            "de": "„면접 준비 많이 했어요?“ bedeutet: Hast du dich gründlich auf das Vorstellungsgespräch vorbereitet?",
             "en": "“면접 준비 많이 했어요?” means: Did you prepare a lot for the interview?"
           },
           "sourceIds": [
@@ -14158,8 +14158,8 @@
             },
             {
               "ko": "증상이 언제부터 있었어요?",
-              "de": "Seit wann hast du die Symptome?",
-              "en": "Since when have you had the symptoms?"
+              "de": "Seit wann haben Sie diese Beschwerden?",
+              "en": "How long have you had these symptoms?"
             },
             {
               "ko": "처방전 받았어요?",
@@ -14170,8 +14170,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “증상이 언제부터 있었어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Seit wann hast du die Symptome? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Since when have you had the symptoms? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Seit wann haben Sie diese Beschwerden? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: How long have you had these symptoms? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0035"
@@ -14196,8 +14196,8 @@
             },
             {
               "ko": "증상이 언제부터 있었어요?",
-              "de": "Seit wann hast du die Symptome?",
-              "en": "Since when have you had the symptoms?"
+              "de": "Seit wann haben Sie diese Beschwerden?",
+              "en": "How long have you had these symptoms?"
             },
             {
               "ko": "보험 있어요?",
@@ -14246,8 +14246,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "“증상이 언제부터 있었어요?” — 증상이 시작된 시점을 물어봐요.",
-            "de": "„증상이 언제부터 있었어요?“ bedeutet: Seit wann hast du die Symptome?",
-            "en": "“증상이 언제부터 있었어요?” means: Since when have you had the symptoms?"
+            "de": "„증상이 언제부터 있었어요?“ bedeutet: Seit wann haben Sie diese Beschwerden?",
+            "en": "“증상이 언제부터 있었어요?” means: How long have you had these symptoms?"
           },
           "sourceIds": [
             "smalltalk_b1_0035",
@@ -14269,7 +14269,7 @@
         "en": "Bus routes and commuting"
       },
       "intro": {
-        "ko": "이 버스가 시청역에 가는지 아는지 물어봐요. 이어지는 표현도 함께 익혀 보세요.",
+        "ko": "시청역에 가려고 해요. 이 버스가 그곳에 가는지 물어봐요. 이어지는 표현도 함께 익혀 보세요.",
         "de": "Du fragst jemanden, ob dieser Bus zur Station City Hall fährt. Lerne auch die weiteren Ausdrücke dieser Lektion kennen.",
         "en": "You ask whether someone knows if this bus goes to City Hall Station. Explore the other expressions in this lesson too."
       },
@@ -14290,8 +14290,8 @@
           "options": [
             {
               "ko": "출근 시간에는 지하철이 너무 붐비는 편이에요.",
-              "de": "Zur Pendelzeit ist die U-Bahn ziemlich voll.",
-              "en": "The subway is fairly crowded during rush hour."
+              "de": "Zur Hauptverkehrszeit ist die U-Bahn meist sehr voll.",
+              "en": "The subway is usually very crowded during rush hour."
             },
             {
               "ko": "지갑을 잃어버렸는데 어디에 신고해야 하나요?",
@@ -14333,8 +14333,8 @@
             },
             {
               "ko": "출근 시간에는 지하철이 너무 붐비는 편이에요.",
-              "de": "Zur Pendelzeit ist die U-Bahn ziemlich voll.",
-              "en": "The subway is fairly crowded during rush hour."
+              "de": "Zur Hauptverkehrszeit ist die U-Bahn meist sehr voll.",
+              "en": "The subway is usually very crowded during rush hour."
             },
             {
               "ko": "이 버스가 시청역에 가는지 아세요?",
@@ -14345,8 +14345,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “출근 시간에는 지하철이 너무 붐비는 편이에요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Zur Pendelzeit ist die U-Bahn ziemlich voll. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: The subway is fairly crowded during rush hour. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Zur Hauptverkehrszeit ist die U-Bahn meist sehr voll. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: The subway is usually very crowded during rush hour. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0038"
@@ -14359,7 +14359,7 @@
           "type": "choice",
           "skill": "situation",
           "prompt": {
-            "ko": "이 버스가 시청역에 가는지 아는지 물어봐요.\n이 뜻을 가장 정확히 전하는 표현은 무엇인가요?",
+            "ko": "시청역에 가려고 해요. 이 버스가 그곳에 가는지 물어봐요.\n이 뜻을 가장 정확히 전하는 표현은 무엇인가요?",
             "de": "Du fragst jemanden, ob dieser Bus zur Station City Hall fährt.\nWelche Äußerung drückt genau diese Absicht aus?",
             "en": "You ask whether someone knows if this bus goes to City Hall Station.\nWhich expression conveys this precise intention?"
           },
@@ -14382,7 +14382,7 @@
           ],
           "correctIndex": 1,
           "explanation": {
-            "ko": "“이 버스가 시청역에 가는지 아세요?” — 이 버스가 시청역에 가는지 아는지 물어봐요.",
+            "ko": "“이 버스가 시청역에 가는지 아세요?” — 시청역에 가려고 해요. 이 버스가 그곳에 가는지 물어봐요.",
             "de": "„이 버스가 시청역에 가는지 아세요?“ bedeutet: Wissen Sie, ob dieser Bus zur Station City Hall fährt?",
             "en": "“이 버스가 시청역에 가는지 아세요?” means: Do you know whether this bus goes to City Hall Station?"
           },
@@ -14427,8 +14427,8 @@
           "options": [
             {
               "ko": "이 상품은 교환이나 환불이 가능한가요?",
-              "de": "Kann ich diesen Artikel umtauschen oder zurückgeben?",
-              "en": "Can I exchange or return this item?"
+              "de": "Kann ich diesen Artikel umtauschen oder mein Geld zurückbekommen?",
+              "en": "Can I exchange this item or get a refund?"
             },
             {
               "ko": "수리 기사님의 방문 시간을 오늘 안에 확인할 수 있을까요?",
@@ -14444,8 +14444,8 @@
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “이 상품은 교환이나 환불이 가능한가요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Kann ich diesen Artikel umtauschen oder zurückgeben? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Can I exchange or return this item? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Kann ich diesen Artikel umtauschen oder mein Geld zurückbekommen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Can I exchange this item or get a refund? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0039"
@@ -14470,8 +14470,8 @@
             },
             {
               "ko": "이 상품은 교환이나 환불이 가능한가요?",
-              "de": "Kann ich diesen Artikel umtauschen oder zurückgeben?",
-              "en": "Can I exchange or return this item?"
+              "de": "Kann ich diesen Artikel umtauschen oder mein Geld zurückbekommen?",
+              "en": "Can I exchange this item or get a refund?"
             },
             {
               "ko": "요즘은 필요한 것만 사려고 노력해요.",
@@ -14520,8 +14520,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "“이 상품은 교환이나 환불이 가능한가요?” — 물건을 사기 전에 교환이나 환불이 가능한지 확인해요.",
-            "de": "„이 상품은 교환이나 환불이 가능한가요?“ bedeutet: Kann ich diesen Artikel umtauschen oder zurückgeben?",
-            "en": "“이 상품은 교환이나 환불이 가능한가요?” means: Can I exchange or return this item?"
+            "de": "„이 상품은 교환이나 환불이 가능한가요?“ bedeutet: Kann ich diesen Artikel umtauschen oder mein Geld zurückbekommen?",
+            "en": "“이 상품은 교환이나 환불이 가능한가요?” means: Can I exchange this item or get a refund?"
           },
           "sourceIds": [
             "smalltalk_b1_0039",
@@ -14574,8 +14574,8 @@
             },
             {
               "ko": "이 상품은 교환이나 환불이 가능한가요?",
-              "de": "Kann ich diesen Artikel umtauschen oder zurückgeben?",
-              "en": "Can I exchange or return this item?"
+              "de": "Kann ich diesen Artikel umtauschen oder mein Geld zurückbekommen?",
+              "en": "Can I exchange this item or get a refund?"
             }
           ],
           "correctIndex": 1,
@@ -15232,13 +15232,13 @@
           "options": [
             {
               "ko": "이번엔 제가 직접 대답해 볼게요.",
-              "de": "Diesmal antworte ich selbst.",
-              "en": "I'll answer this one myself."
+              "de": "Diesmal versuche ich, selbst zu antworten.",
+              "en": "I'll try answering this one myself."
             },
             {
               "ko": "그 얘기는 다음에 말씀드릴게요.",
-              "de": "Darüber sprechen wir ein andermal.",
-              "en": "I'll tell you more about that another time."
+              "de": "Darüber erzähle ich Ihnen ein andermal.",
+              "en": "I'll tell you about that another time."
             },
             {
               "ko": "같은 방을 쓰는 게 불편하시면 말씀해 주세요.",
@@ -15249,8 +15249,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “그 얘기는 다음에 말씀드릴게요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Darüber sprechen wir ein andermal. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: I'll tell you more about that another time. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Darüber erzähle ich Ihnen ein andermal. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I'll tell you about that another time. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0056"
@@ -15275,7 +15275,7 @@
             },
             {
               "ko": "가족 단톡방에 들어가면 먼저 인사해야 해요?",
-              "de": "Soll ich mich vorstellen, wenn ich dem Familienchat beitrete?",
+              "de": "Soll ich zuerst kurz grüßen, wenn ich dem Familienchat beitrete?",
               "en": "Should I say hello first when I join the family group chat?"
             },
             {
@@ -15449,25 +15449,25 @@
           "options": [
             {
               "ko": "이번엔 제가 직접 대답해 볼게요.",
-              "de": "Diesmal antworte ich selbst.",
-              "en": "I'll answer this one myself."
+              "de": "Diesmal versuche ich, selbst zu antworten.",
+              "en": "I'll try answering this one myself."
             },
             {
               "ko": "다음 명절엔 제가 먼저 준비할게요.",
-              "de": "Beim nächsten Fest kümmere ich mich zuerst um die Vorbereitungen.",
-              "en": "Next holiday, I'll take care of the preparations first."
+              "de": "Beim nächsten Fest ergreife ich bei den Vorbereitungen die Initiative.",
+              "en": "Next holiday, I'll take the initiative with the preparations."
             },
             {
-              "ko": "저는 술을 못 해서 잠깐 자리를 비울게요.",
-              "de": "Ich vertrage keinen Alkohol, ich gehe kurz raus.",
-              "en": "I can't drink, so I'll step out for a bit."
+              "ko": "그 얘기는 다음에 말씀드릴게요.",
+              "de": "Darüber erzähle ich Ihnen ein andermal.",
+              "en": "I'll tell you about that another time."
             }
           ],
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “이번엔 제가 직접 대답해 볼게요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Diesmal antworte ich selbst. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: I'll answer this one myself. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Diesmal versuche ich, selbst zu antworten. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I'll try answering this one myself. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0060"
@@ -15518,38 +15518,38 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“저는 술을 못 해서 잠깐 자리를 비울게요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„저는 술을 못 해서 잠깐 자리를 비울게요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“저는 술을 못 해서 잠깐 자리를 비울게요.”\nWhich meaning matches the whole utterance?"
+            "ko": "“저는 술을 잘 못 마셔서 잠깐 자리를 비울게요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„저는 술을 잘 못 마셔서 잠깐 자리를 비울게요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“저는 술을 잘 못 마셔서 잠깐 자리를 비울게요.”\nWhich meaning matches the whole utterance?"
           },
           "options": [
+            {
+              "ko": "이번엔 제가 직접 대답해 볼게요.",
+              "de": "Diesmal versuche ich, selbst zu antworten.",
+              "en": "I'll try answering this one myself."
+            },
+            {
+              "ko": "저는 술을 잘 못 마셔서 잠깐 자리를 비울게요.",
+              "de": "Ich vertrage Alkohol nicht gut und gehe kurz raus.",
+              "en": "I can't handle alcohol very well, so I'll step away for a bit."
+            },
             {
               "ko": "죄송하지만 올해는 저희가 못 갈 것 같아요.",
               "de": "Es tut mir leid, dieses Jahr schaffen wir es wohl nicht.",
               "en": "I'm sorry, I don't think we can make it this year."
-            },
-            {
-              "ko": "저는 술을 못 해서 잠깐 자리를 비울게요.",
-              "de": "Ich vertrage keinen Alkohol, ich gehe kurz raus.",
-              "en": "I can't drink, so I'll step out for a bit."
-            },
-            {
-              "ko": "이번엔 제가 직접 대답해 볼게요.",
-              "de": "Diesmal antworte ich selbst.",
-              "en": "I'll answer this one myself."
             }
           ],
           "correctIndex": 1,
           "explanation": {
-            "ko": "이 표현의 내용은 “저는 술을 못 해서 잠깐 자리를 비울게요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Ich vertrage keinen Alkohol, ich gehe kurz raus. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: I can't drink, so I'll step out for a bit. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “저는 술을 잘 못 마셔서 잠깐 자리를 비울게요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Ich vertrage Alkohol nicht gut und gehe kurz raus. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I can't handle alcohol very well, so I'll step away for a bit. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0062"
           ],
-          "audioKo": "저는 술을 못 해서 잠깐 자리를 비울게요.",
-          "evidenceKo": "저는 술을 못 해서 잠깐 자리를 비울게요."
+          "audioKo": "저는 술을 잘 못 마셔서 잠깐 자리를 비울게요.",
+          "evidenceKo": "저는 술을 잘 못 마셔서 잠깐 자리를 비울게요."
         },
         {
           "id": "smalltalk.b1.partner_family.voice.situation",
@@ -15666,8 +15666,8 @@
           "options": [
             {
               "ko": "그 얘기는 다음에 말씀드릴게요.",
-              "de": "Darüber sprechen wir ein andermal.",
-              "en": "I'll tell you more about that another time."
+              "de": "Darüber erzähle ich Ihnen ein andermal.",
+              "en": "I'll tell you about that another time."
             },
             {
               "ko": "못 읽었으면서 읽은 척하는 게 더 어색하더라고요.",
@@ -15741,14 +15741,14 @@
           },
           "options": [
             {
-              "ko": "저는 술을 못 해서 잠깐 자리를 비울게요.",
-              "de": "Ich vertrage keinen Alkohol, ich gehe kurz raus.",
-              "en": "I can't drink, so I'll step out for a bit."
+              "ko": "저는 술을 잘 못 마셔서 잠깐 자리를 비울게요.",
+              "de": "Ich vertrage Alkohol nicht gut und gehe kurz raus.",
+              "en": "I can't handle alcohol very well, so I'll step away for a bit."
             },
             {
               "ko": "이번엔 제가 직접 대답해 볼게요.",
-              "de": "Diesmal antworte ich selbst.",
-              "en": "I'll answer this one myself."
+              "de": "Diesmal versuche ich, selbst zu antworten.",
+              "en": "I'll try answering this one myself."
             },
             {
               "ko": "죄송하지만 올해는 저희가 못 갈 것 같아요.",
@@ -15850,8 +15850,8 @@
             },
             {
               "ko": "오늘 제가 실수한 거 있으면 말해 줄래요?",
-              "de": "Sag mir bitte, wenn ich heute etwas falsch gemacht habe.",
-              "en": "Tell me if I got anything wrong today."
+              "de": "Könntest du mir sagen, ob ich heute etwas falsch gemacht habe?",
+              "en": "Could you tell me if I got anything wrong today?"
             },
             {
               "ko": "잔을 받을 때 두 손으로 받는 게 맞죠?",
@@ -15862,8 +15862,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “오늘 제가 실수한 거 있으면 말해 줄래요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Sag mir bitte, wenn ich heute etwas falsch gemacht habe. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Tell me if I got anything wrong today. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Könntest du mir sagen, ob ich heute etwas falsch gemacht habe? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Could you tell me if I got anything wrong today? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0065"
@@ -15883,25 +15883,25 @@
           "options": [
             {
               "ko": "다음 명절엔 제가 먼저 준비할게요.",
-              "de": "Beim nächsten Fest kümmere ich mich zuerst um die Vorbereitungen.",
-              "en": "Next holiday, I'll take care of the preparations first."
+              "de": "Beim nächsten Fest ergreife ich bei den Vorbereitungen die Initiative.",
+              "en": "Next holiday, I'll take the initiative with the preparations."
             },
             {
               "ko": "이번엔 제가 직접 대답해 볼게요.",
-              "de": "Diesmal antworte ich selbst.",
-              "en": "I'll answer this one myself."
+              "de": "Diesmal versuche ich, selbst zu antworten.",
+              "en": "I'll try answering this one myself."
             },
             {
-              "ko": "저는 술을 못 해서 잠깐 자리를 비울게요.",
-              "de": "Ich vertrage keinen Alkohol, ich gehe kurz raus.",
-              "en": "I can't drink, so I'll step out for a bit."
+              "ko": "저는 술을 잘 못 마셔서 잠깐 자리를 비울게요.",
+              "de": "Ich vertrage Alkohol nicht gut und gehe kurz raus.",
+              "en": "I can't handle alcohol very well, so I'll step away for a bit."
             }
           ],
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “다음 명절엔 제가 먼저 준비할게요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Beim nächsten Fest kümmere ich mich zuerst um die Vorbereitungen. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Next holiday, I'll take care of the preparations first. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Beim nächsten Fest ergreife ich bei den Vorbereitungen die Initiative. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Next holiday, I'll take the initiative with the preparations. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0066"
@@ -15931,14 +15931,14 @@
             },
             {
               "ko": "가족 단톡방에 들어가면 먼저 인사해야 해요?",
-              "de": "Soll ich mich vorstellen, wenn ich dem Familienchat beitrete?",
+              "de": "Soll ich zuerst kurz grüßen, wenn ich dem Familienchat beitrete?",
               "en": "Should I say hello first when I join the family group chat?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “가족 단톡방에 들어가면 먼저 인사해야 해요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Soll ich mich vorstellen, wenn ich dem Familienchat beitrete? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Soll ich zuerst kurz grüßen, wenn ich dem Familienchat beitrete? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Should I say hello first when I join the family group chat? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -15958,9 +15958,9 @@
           },
           "options": [
             {
-              "ko": "지금 일은 안정적으로 하고 있어요.",
-              "de": "Beruflich läuft es gerade stabil bei mir.",
-              "en": "Work is steady for me right now."
+              "ko": "같은 방을 쓰는 게 불편하시면 말씀해 주세요.",
+              "de": "Wenn ein gemeinsames Zimmer unangenehm ist, sagen Sie es bitte.",
+              "en": "If sharing a room is uncomfortable, please say so."
             },
             {
               "ko": "못 읽었으면서 읽은 척하는 게 더 어색하더라고요.",
@@ -15968,9 +15968,9 @@
               "en": "Pretending I'd read it was even more awkward."
             },
             {
-              "ko": "저는 술을 못 해서 잠깐 자리를 비울게요.",
-              "de": "Ich vertrage keinen Alkohol, ich gehe kurz raus.",
-              "en": "I can't drink, so I'll step out for a bit."
+              "ko": "지금 일은 안정적으로 하고 있어요.",
+              "de": "Beruflich läuft es gerade stabil bei mir.",
+              "en": "Work is steady for me right now."
             }
           ],
           "correctIndex": 1,
@@ -16014,8 +16014,8 @@
           "correctIndex": 2,
           "explanation": {
             "ko": "“오늘 제가 실수한 거 있으면 말해 줄래요?” — 방문 뒤 오늘 실수한 것이 있었는지 솔직하게 알려 달라고 해요.",
-            "de": "„오늘 제가 실수한 거 있으면 말해 줄래요?“ bedeutet: Sag mir bitte, wenn ich heute etwas falsch gemacht habe.",
-            "en": "“오늘 제가 실수한 거 있으면 말해 줄래요?” means: Tell me if I got anything wrong today."
+            "de": "„오늘 제가 실수한 거 있으면 말해 줄래요?“ bedeutet: Könntest du mir sagen, ob ich heute etwas falsch gemacht habe?",
+            "en": "“오늘 제가 실수한 거 있으면 말해 줄래요?” means: Could you tell me if I got anything wrong today?"
           },
           "sourceIds": [
             "smalltalk_b1_0065",

@@ -108,7 +108,7 @@ b1|interview|prepare|29,30,74|면접 준비와 일정 변경~Vorbereitung und Te
 b1|job_hunting|requirements|31,32,73,75|지원 분야와 자격~Bewerbungsfelder und Voraussetzungen~Application fields and requirements|취업 시장이 요즘 어떤지 의견을 물어봐요.~Du fragst nach der aktuellen Lage auf dem Arbeitsmarkt.~You ask what the job market is like these days.
 b1|moving|settling|33,34,72|이사 준비와 새집~Umzugsplanung und neues Zuhause~Moving plans and a new home|이사한 사람에게 새집이 어떤지 물어봐요.~Nach einem Umzug fragst du, wie das neue Zuhause ist.~After someone moves, you ask what their new home is like.
 b1|hospital|symptoms|35,36|증상과 처방전~Symptome und Rezept~Symptoms and prescriptions|증상이 시작된 시점을 물어봐요.~Du fragst, seit wann die Beschwerden bestehen.~You ask when the symptoms began.
-b1|transport|commute|37,38|노선 확인과 출근길~Busroute und Arbeitsweg~Bus routes and commuting|이 버스가 시청역에 가는지 아는지 물어봐요.~Du fragst jemanden, ob dieser Bus zur Station City Hall fährt.~You ask whether someone knows if this bus goes to City Hall Station.
+b1|transport|commute|37,38|노선 확인과 출근길~Busroute und Arbeitsweg~Bus routes and commuting|시청역에 가려고 해요. 이 버스가 그곳에 가는지 물어봐요.~Du fragst jemanden, ob dieser Bus zur Station City Hall fährt.~You ask whether someone knows if this bus goes to City Hall Station.
 b1|shopping|purchase|39,40|구매와 환불 조건~Kaufen und Rückgabe~Purchases and refunds|물건을 사기 전에 교환이나 환불이 가능한지 확인해요.~Vor dem Kauf fragst du nach Umtausch oder Erstattung.~Before buying, you check whether exchange or refund is possible.
 b1|shopping|repair|53,54|수리 일정과 비용~Reparaturtermin und Kosten~Repair scheduling and costs|수리 기사 방문 시간을 오늘 안에 확인하고 싶어요.~Du möchtest den Besuchstermin des Reparaturdienstes noch heute klären.~You want to confirm the repair technician's visit time by the end of today.
 b1|phone|availability|41,42|통화 시간 배려하기~Auf die Gesprächszeit achten~Checking availability for a call|지금 통화해도 되는지 묻고, 어렵다면 나중에 연락하겠다고 해요.~Du fragst, ob ein Gespräch gerade passt, und bietest einen späteren Rückruf an.~You ask whether now is a good time to talk and offer to call later.
@@ -303,7 +303,7 @@ a2.partner_family.stay|손님방은 누가 청소했어요?|손님방에 짐만 
 a2.theme_park_date.snack|오래 앉아 있어서 허리가 아파.|금방 일어나서 발은 하나도 안 아파.
 a2.theme_park_date.photos|인형 탈 안은 시원해서 일하기 편하겠다.|저 직원은 오늘 일을 쉬는 게 분명해.
 a2.theme_park_date.waterqueue|바지가 하나도 안 젖었어. 다행이다.|바지가 젖었어. 오늘 안에는 안 마를 거야.
-b1.weather.season|이런 날씨엔 산책하기 어렵겠죠.|산책하면 내일 날씨가 좋아지겠죠.
+b1.weather.season|이런 날씨엔 산책하기 어렵겠죠.|어제는 산책하기 딱 좋은 날씨였죠.
 b1.mood.day|내일은 하루를 어떻게 보내실 거예요?|오늘 하루 종일 어디 계셨어요?
 b1.weekend.rest|이번 한 번만 쉬는 날을 바꿀까요?|보통 일하는 날에는 몇 시에 출근하세요?
 b1.food.recommend|요즘 피하고 싶은 음식 있어요?|다음 주에 먹어 보고 싶은 음식 있어요?
@@ -314,7 +314,7 @@ b1.hobby.afterwork|퇴근할 때는 주로 어떤 교통편을 쓰세요?|출근
 b1.travel.experience|가장 저렴했던 여행지는 어디예요?|다음에 꼭 가야 하는 여행지는 어디예요?
 b1.work_study.working|일하면서 가장 피곤할 때가 언제예요?|일하면서 보통 몇 시에 쉬세요?
 b1.work_study.coordination|회의 시간이 그대로인데 장소를 바꿔도 될까요?|회의가 취소됐는데 다음 주에 새로 잡을까요?
-b1.family.contact|가족과 한집에서 사는 편이세요?|가족에게 먼저 선물을 보내는 편이세요?
+b1.family.contact|가족과 같이 살고 계세요?|가족에게 먼저 선물을 보내는 편이세요?
 b1.health.habits|건강 때문에 운동을 모두 그만두셨어요?|운동할 때 주로 어떤 옷을 입으세요?
 b1.kpop.favorites|요즘 어떤 그룹이 새로 데뷔했어요?|요즘 어떤 그룹의 춤을 연습해요?
 b1.dating.gettingtoknow|지금 만나는 사람과 어디서 만났어요?|이상형을 만나면 언제 결혼할 거예요?
