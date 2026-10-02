@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import relevel_ledger
 import validate_promoted_batch as promoted
+import smalltalk_editorial_revisions as editorial
 
 MANIFEST = ROOT / "tools/content_factory/drafts/batch_03_manifest.json"
 RECEIPT = ROOT / "tools/content_factory/review/batch_03_reconciliation_20260916.json"
@@ -41,8 +42,14 @@ class Batch03ReconciliationTest(unittest.TestCase):
                 live = next(r for r in current if r["id"] == ident)
                 normalized = promoted._relevel_normalized_live(kind, ident, live, draft, self.levels)
                 self.assertEqual(item["beforeSha256"], promoted._fingerprint(draft))
-                self.assertEqual(item["actualAfterSha256"], promoted._fingerprint(live))
-                self.assertEqual(item["comparisonAfterSha256"], promoted._fingerprint(normalized))
+                entry = editorial.revisions().get(ident) if kind == "smalltalk" else None
+                historical = entry["before"] if entry else live
+                if entry:
+                    self.assertEqual(entry["afterSha256"], promoted._fingerprint(live))
+                self.assertEqual(item["actualAfterSha256"], promoted._fingerprint(historical))
+                historical_normalized = promoted._relevel_normalized_live(
+                    kind, ident, historical, draft, self.levels)
+                self.assertEqual(item["comparisonAfterSha256"], promoted._fingerprint(historical_normalized))
                 self.assertTrue(promoted._require_reviewed_copy_revision(
                     kind=kind, ident=ident, draft=draft, live=normalized,
                     revisions=revisions, batch_revisions={},
@@ -89,7 +96,15 @@ class Batch03ReconciliationTest(unittest.TestCase):
             if key != "phraseFingerprintSha256":
                 self.assertEqual(before[key], current[key], key)
         self.assertEqual("nativeReviewRequired", current["copyReviewStatus"])
-        self.assertEqual(before["phraseFingerprintSha256"], current["previousPhraseFingerprintSha256"])
+        entry = editorial.revisions().get(evidence["id"])
+        if entry:
+            historical = next(r for r in self.receipt["rows"] if r["id"] == evidence["id"])
+            self.assertEqual(historical["actualAfterSha256"], entry["beforeSha256"])
+            self.assertEqual(entry["beforeSha256"], current["previousPhraseFingerprintSha256"])
+            self.assertEqual(entry["afterSha256"], current["phraseFingerprintSha256"])
+            self.assertEqual(editorial.LEDGER_REF, current["copyRevisionLedger"])
+        else:
+            self.assertEqual(before["phraseFingerprintSha256"], current["previousPhraseFingerprintSha256"])
         self.assertNotEqual(before["phraseFingerprintSha256"], current["phraseFingerprintSha256"])
         self.assertEqual("pending", evidence["humanReviewStatus"])
 

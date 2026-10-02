@@ -121,7 +121,7 @@ b1|partner_family|reflection|65,66,67,68|방문 뒤 소통하기~Nach dem Besuch
 b1|theme_park_date|arrival|79,80,81|날씨와 방문 준비~Wetter und Vorbereitung~Weather and preparation|날씨가 정말 좋아요. 놀이공원에 오기 좋은 날이라고 말해요.~Das Wetter ist herrlich. Du findest den Tag ideal für den Freizeitpark.~The weather is lovely. You say it is a perfect day to visit the theme park.
 b1|theme_park_date|thrill|82,83,84,85,86|놀이기구의 스릴~Der Nervenkitzel einer Fahrt~The thrill of a ride|롤러코스터가 올라갈 때 나는 소리를 좋아한다고 말해요.~Du magst das Klackern der Achterbahn beim Hochfahren.~You say you love the clicking sound as the roller coaster climbs.
 b1|theme_park_date|afterride|87,88|타고 난 뒤 소감~Nach der Fahrt~After the ride|사진을 봤어요. 내 표정이 이상해서 사진이 웃기다고 말해요.~Auf dem Foto findest du deinen eigenen Gesichtsausdruck seltsam und lustig.~You look at the photo and find it funny because your own expression looks strange.
-b2|weather|precautions|1,13|날씨 변화에 대비하기~Auf Wetterwechsel reagieren~Preparing for changing weather|최근 낮과 밤의 기온 차 때문에 감기에 걸리기 쉽다고 느꼈어요.~Dir ist aufgefallen, dass die großen Temperaturunterschiede Erkältungen begünstigen.~You have noticed that large temperature swings make it easy to catch a cold.
+b2|weather|precautions|1,13|날씨 변화에 대비하기~Auf Wetterwechsel reagieren~Preparing for changing weather|최근 낮과 밤의 기온 차 때문에 감기에 걸리기 쉽다고 느꼈어요.~Du hast den Eindruck, dich bei den großen Temperaturunterschieden leichter zu erkälten.~You have the impression that you catch colds more easily when temperatures swing a lot.
 b2|mood|feelings|2,14,71,77,79|바쁨과 감정 조절~Stress und Gefühle~Busyness and managing feelings|너무 바빠서 시간이 어떻게 지나는지 모른다고 말해요.~Du bist so beschäftigt, dass du kaum merkst, wie die Zeit vergeht.~You say you have been so busy that you hardly notice time passing.
 b2|mood|reading|57,58,59,60|글을 읽고 나눈 감상~Über einen Text sprechen~Discussing a text|글을 읽은 뒤 어떤 부분이 가장 오래 마음에 남았는지 물어봐요.~Du fragst, welche Textstelle nach dem Lesen am längsten nachgewirkt hat.~You ask which part of the text stayed with the other person longest after reading.
 b2|weekend|plans|3,15|계획과 실제 주말~Pläne und das wirkliche Wochenende~Plans and actual weekends|주말에 다른 계획이 없다는 조건으로 함께 바람 쐬러 가자고 해요.~Du schlägst einen gemeinsamen Ausflug vor, falls am Wochenende noch nichts geplant ist.~You suggest going out for fresh air together if there are no other weekend plans.
@@ -338,7 +338,7 @@ b1.theme_park_date.afterride|우리 사진은 너무 평범해서 하나도 안 
 '''
 
 SCENE_OPTIONS += '''
-b2.weather.precautions|요즘 일교차가 작아서 감기 걱정은 전혀 없더라고요.|감기에 걸린 뒤로 일교차가 더 커졌다고 하더라고요.
+b2.weather.precautions|요즘 일교차가 작아서 감기 걱정은 전혀 없더라고요.|요즘 일교차가 큰데도 저는 별다른 변화를 못 느끼겠어요.
 b2.mood.feelings|요즘 너무 한가해서 시간이 안 가는 것 같아요.|요즘 바쁘기는 해도 시간이 늘 남아서 지루해요.
 b2.mood.reading|이 글을 읽는 데 시간이 얼마나 걸렸어요?|이 글에서 가장 먼저 고쳐야 할 문장은 무엇이었어요?
 b2.weekend.plans|주말 약속을 모두 취소하고 꼭 같이 나가야 해요.|주말에 이미 같이 나갔으니 다음에는 혼자 갈게요.
@@ -348,37 +348,37 @@ b2.daily.decisions|중요한 결정은 이미 끝났는데 결과에 만족하�
 b2.daily.sharedspace|세탁기 시간이 겹쳤으니 이번에는 제가 먼저 쓰겠습니다.|공용 세탁기를 언제 샀는지 확인해 주실 수 있을까요?
 b2.daily.settling|새로 이사 온 분들에게 가장 필요할 거라고 우리가 예상한 정보는 뭐였어요?|새로 이사 온 분들이 가장 늦게 제출한 서류가 뭐였어요?
 b2.daily.access|언어 시험 점수만 높으면 사회 통합은 모두 성공한 거겠죠?|사회 통합과 관계없이 시험 문항 수만 줄여 볼까요?
-b2.screen.watching|요즘 볼 만한 게 너무 많아서 추천은 필요 없어요.|추천해 주신 작품은 다 봤는데 결말을 바꿀 수 있을까요?
-b2.screen.language|이 표현은 누구에게나 편하니 이유를 따져 볼 필요가 없어요.|이 표현이 불편하다는 사람의 배경을 우리가 정해 볼까요?
+b2.screen.watching|요즘 볼 만한 게 너무 많아서 추천은 필요 없어요.|추천해 주신 작품은 다 봤는데 줄거리를 다시 알려 주실래요?
+b2.screen.language|이 표현은 누구에게나 편하니 이유를 따져 볼 필요가 없어요.|이 표현이 불편하다는 의견은 그냥 넘겨도 될까요?
 b2.screen.sharing|제목이 자극적이니 내용은 확인하지 말고 바로 공유할까요?|내용이 충분히 확인됐으니 제목만 더 자극적으로 바꿀까요?
-b2.music.routine|일할 때 음악을 들으면 오히려 집중이 흐트러지는 편이에요.|집중이 잘될 때만 음악 듣는 일을 시작할 수 있어요.
-b2.hobby.balance|스트레스를 받으면 취미는 반드시 그만두시나요?|스트레스를 주는 방법 중 가장 효과적인 게 뭔가요?
+b2.music.routine|일할 때 음악을 들으면 오히려 집중이 흐트러지는 편이에요.|집중이 필요한 일을 마친 뒤에 음악을 듣는 편이에요.
+b2.hobby.balance|스트레스를 받을 때는 보통 어떤 일을 미루게 되세요?|요즘 어떤 일 때문에 스트레스를 가장 많이 받으세요?
 b2.travel.memories|시간이 생겨도 다시는 가고 싶지 않은 나라가 있어요.|가보고 싶은 나라는 이미 이번 여행에서 모두 다녀왔어요.
-b2.work_study.balance|요즘 일이 줄어서 여유롭지만 배울 게 하나도 없어요.|요즘 일이 몰리니 배우는 건 전혀 불가능하다고 생각해요.
+b2.work_study.balance|요즘 일이 줄어서 여유롭지만 배울 게 하나도 없어요.|요즘 새로 배우는 건 많은데 일이 별로 없어서 한가해요.
 b2.work_study.meeting|회의가 주제를 벗어나도 끝날 때까지 그대로 두는 게 낫겠죠?|회의가 예정대로 끝났는데 참석자 수를 어떻게 늘릴까요?
-b2.family.distance|멀리 떨어져 사니 가족의 소중함을 오히려 덜 느끼게 됐어요.|가족이 소중해서 이제부터는 반드시 같이 살아야 해요.
-b2.health.body|운동을 시작했지만 컨디션은 더 나빠진 게 확실해요.|컨디션이 좋아졌으니 운동을 시작할 필요가 없어졌어요.
-b2.kpop.participation|컴백 무대는 관심 없어서 음악방송도 안 보게 돼요.|음악방송을 보지 않으려고 컴백 무대만 기다리고 있어요.
-b2.dating.timing|사귀기 전에는 아무 설렘도 없고 연애가 끝난 뒤에만 설레요.|썸을 타기만 하면 누구나 바로 결혼을 결정해야 해요.
+b2.family.distance|멀리 떨어져 사니 가족의 소중함을 오히려 덜 느끼게 됐어요.|멀리 떨어져 살아도 가족과 연락하는 횟수는 그대로예요.
+b2.health.body|운동을 시작했지만 컨디션은 더 나빠진 게 확실해요.|컨디션이 좋아지면 다음 달부터 운동을 시작하려고 해요.
+b2.kpop.participation|컴백 무대는 관심 없어서 음악방송도 안 보게 돼요.|컴백 무대는 나중에 따로 보고 음악방송은 챙겨 보지 않아요.
+b2.dating.timing|썸 탈 때보다는 사귀기 시작한 뒤가 더 설레는 것 같아요.|서로 마음을 확인하기 전에는 오히려 불안한 편이에요.
 b2.interview.presentation|편안한 면접이라 긴장이 전혀 되지 않았어요.|면접이 끝나고 합격한 뒤에야 처음 긴장됐어요.
 b2.job_hunting.experience|서류는 계속 떨어지는데 면접만 보면 꼭 합격해요.|서류와 면접에 모두 합격해서 입사 날짜만 기다려요.
 b2.job_hunting.systems|그 회사는 AI 선별 결과가 나온 뒤 면접 날짜만 알려 줘요?|그 회사는 지원자가 AI를 썼는지만 확인해요?
-b2.moving.costs|이사 전에 다 정리해서 이제 남은 일이 하나도 없어요.|정리할 게 너무 적어서 이사를 취소하려고 해요.
-b2.hospital.waiting|환절기인데도 병원에 사람이 거의 없더라고요.|병원에 사람이 많아서 계절이 바뀐 것이 확실해요.
+b2.moving.costs|이사 전에 다 정리해서 이제 남은 일이 하나도 없어요.|아직 이사 전인데 짐 정리보다 새집 계약이 더 걱정이에요.
+b2.hospital.waiting|환절기인데도 병원에 사람이 거의 없더라고요.|요즘 병원에 사람이 많다는데 저는 아직 가보지 못했어요.
 b2.transport.timing|이 열차가 공항까지 가장 싼 경로인지 확인해 주시겠습니까?|이 열차가 공항에서 출발하는 마지막 열차인지 확인해 주시겠습니까?
 b2.transport.housingtradeoff|그 집은 월세를 어느 날짜에 내야 해요?|그 집은 월세에 모든 비용이 포함된 게 확실하죠?
 b2.shopping.terms|구매 조건은 기록 없이 전화로만 설명해 주실 수 있을까요?|구매 조건과 관계없이 영수증만 다시 보내 주실 수 있을까요?
-b2.shopping.defect|제품의 결함은 검토하지 말고 같은 상품을 바로 더 보내 주시겠습니까?|담당 부서의 검토가 끝났으니 더 이상 결함을 기록하지 않겠습니다.
-b2.phone.calltime|지금 통화가 어려워도 이 시간에 반드시 답해 주셔야 합니다.|가능한 시간은 알려 주지 마시고 다음 연락을 기다려 주세요.
+b2.shopping.defect|제품에 결함이 없다는 검사 결과를 서면으로 보내 주시겠습니까?|담당 부서의 검토가 끝났으니 결과를 설명해 주시겠습니까?
+b2.phone.calltime|지금 통화가 어려워도 이 시간에 반드시 답해 주셔야 합니다.|지금 제가 통화하기 어려우니 나중에 다시 연락드리겠습니다.
 b2.phone.complaint|아직 접수하지 않은 민원을 전화로 처음 설명드리겠습니다.|접수된 민원의 처리 현황은 서면으로 남기지 말아 주십시오.
 b2.emergency.information|긴급한 상황은 아니니 도움을 받을 부서로 연결하지 않으셔도 됩니다.|담당 부서와 이미 연결됐으니 이제 도움 요청을 취소하겠습니다.
 b2.partner_family.schedule|올해는 한쪽 집에만 가기로 했으니 일정은 더 나누지 맙시다.|시댁과 친정이 같은 지역에 사는지 먼저 주소만 확인할까요?
 b2.partner_family.etiquette|호칭을 잘못 써도 그냥 넘어가 주시겠어요?|어떤 호칭을 쓰실지는 제가 대신 정해 드려도 될까요?
-b2.partner_family.labor|용돈은 보통 어느 은행으로 보내 드려요?|용돈을 드린 뒤에는 반드시 돌려받아야 하나요?
-b2.partner_family.boundaries|관계가 나빠지더라도 상대가 불편하도록 거절하려면 어떻게 말할까요?|거절하지 않고 언제나 모두 받아들이겠다고 어떻게 약속할까요?
+b2.partner_family.labor|용돈은 보통 어느 은행으로 보내 드려요?|용돈은 명절에만 드리는 편인가요, 아니면 매달 드리나요?
+b2.partner_family.boundaries|이미 거절한 뒤로 사이가 어색한데 먼저 사과하는 게 좋을까요?|이번 부탁은 받아들이려고 하는데 어떻게 답하면 좋을까요?
 b2.theme_park_date.preferences|너도 유령의 집을 좋아해서 결국 둘이 즐겁게 다녀왔지.|나는 유령의 집이 싫었는데 네가 억지로 데려가서 결국 들어갔지.
 b2.theme_park_date.belongings|안녕하세요. 갈색 지갑을 주웠는데 분실물로 맡길 수 있을까요?|안녕하세요. 갈색 지갑을 새로 사고 싶은데 기념품점에 있나요?
-b2.theme_park_date.afterwards|소리를 전혀 지르지 않아서 목은 편한데 스트레스가 더 쌓였어.|소리를 크게 질렀더니 목도 전혀 안 아프고 앞으로 스트레스는 절대 없을 거야.
+b2.theme_park_date.afterwards|소리를 전혀 지르지 않아서 목은 편한데 스트레스가 더 쌓였어.|오늘은 소리를 많이 질렀는데 목은 괜찮고 스트레스는 그대로야.
 c1.weather.coverage|폭염 대책의 효과는 평균 기온만 낮아지면 충분히 확인된 거겠죠?|폭염 대책을 평가할 때 평균 기온 자료는 전혀 볼 필요가 없겠죠?
 c1.mood.responsibility|업무량과 통제감은 같은 개념이므로 설문에서 구별할 필요가 없어요.|번아웃 설문 결과만으로 업무량을 모두 줄이기로 이미 결정했나요?
 c1.weekend.access|주말 행사는 입장료가 없으니 다른 접근 장벽도 모두 사라졌어요.|주말 행사에 무료로 온 사람은 참여 이유를 따로 물을 수 없죠?

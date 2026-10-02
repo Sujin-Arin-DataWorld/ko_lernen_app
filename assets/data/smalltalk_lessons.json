@@ -11330,8 +11330,8 @@
             },
             {
               "ko": "요즘 일교차가 커서 감기 걸리기 쉽더라고요.",
-              "de": "Die Temperaturunterschiede sind gerade groß. Da erkältet man sich leicht.",
-              "en": "The temperature swings lately make it easy to catch a cold."
+              "de": "Bei den großen Temperaturunterschieden in letzter Zeit habe ich den Eindruck, mich leichter zu erkälten.",
+              "en": "I've noticed that I seem to catch colds more easily with the big temperature swings lately."
             },
             {
               "ko": "날씨가 점점 추워지네요.",
@@ -11873,8 +11873,8 @@
           "options": [
             {
               "ko": "요즘 출근길이 너무 막혀서 평소보다 일찍 나서게 되더라고요.",
-              "de": "Der Weg zur Arbeit ist gerade so verstopft, dass ich früher losgehe als sonst.",
-              "en": "The commute's so jammed lately that I end up leaving earlier than usual."
+              "de": "Auf dem Weg zur Arbeit gibt es zurzeit so viel Stau, dass ich mich früher als sonst auf den Weg mache.",
+              "en": "There's been so much traffic on my way to work lately that I leave earlier than usual."
             },
             {
               "ko": "요즘 하루가 너무 빨리 가는 것 같아요.",
@@ -16611,8 +16611,8 @@
       },
       "intro": {
         "ko": "최근 낮과 밤의 기온 차 때문에 감기에 걸리기 쉽다고 느꼈어요. 이어지는 표현도 함께 익혀 보세요.",
-        "de": "Dir ist aufgefallen, dass die großen Temperaturunterschiede Erkältungen begünstigen. Lerne auch die weiteren Ausdrücke dieser Lektion kennen.",
-        "en": "You have noticed that large temperature swings make it easy to catch a cold. Explore the other expressions in this lesson too."
+        "de": "Du hast den Eindruck, dich bei den großen Temperaturunterschieden leichter zu erkälten. Lerne auch die weiteren Ausdrücke dieser Lektion kennen.",
+        "en": "You have the impression that you catch colds more easily when temperatures swing a lot. Explore the other expressions in this lesson too."
       },
       "contentIds": [
         "smalltalk_b2_0001",
@@ -16631,25 +16631,25 @@
           "options": [
             {
               "ko": "미세먼지가 심한 날엔 마스크를 챙기게 되더라고요.",
-              "de": "An Tagen mit viel Feinstaub nehme ich immer eine Maske mit.",
-              "en": "On heavy fine-dust days I always end up grabbing a mask."
+              "de": "An Tagen mit viel Feinstaub nehme ich inzwischen meist eine Maske mit.",
+              "en": "I've found myself taking a mask with me on days with high fine-particle pollution."
             },
             {
               "ko": "계획 없이 떠나는 여행이 의외로 더 기억에 남더라고요.",
-              "de": "Reisen ohne Plan bleiben einem überraschend besser in Erinnerung.",
-              "en": "Somehow it's the unplanned trips that end up the most memorable."
+              "de": "Reisen ohne festen Plan bleiben mir überraschenderweise besser in Erinnerung.",
+              "en": "I've found that unplanned trips are surprisingly more memorable."
             },
             {
               "ko": "요즘 일교차가 커서 감기 걸리기 쉽더라고요.",
-              "de": "Die Temperaturunterschiede sind gerade groß. Da erkältet man sich leicht.",
-              "en": "The temperature swings lately make it easy to catch a cold."
+              "de": "Bei den großen Temperaturunterschieden in letzter Zeit habe ich den Eindruck, mich leichter zu erkälten.",
+              "en": "I've noticed that I seem to catch colds more easily with the big temperature swings lately."
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “요즘 일교차가 커서 감기 걸리기 쉽더라고요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Die Temperaturunterschiede sind gerade groß. Da erkältet man sich leicht. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: The temperature swings lately make it easy to catch a cold. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Bei den großen Temperaturunterschieden in letzter Zeit habe ich den Eindruck, mich leichter zu erkälten. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I've noticed that I seem to catch colds more easily with the big temperature swings lately. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0001"
@@ -16669,25 +16669,25 @@
           "options": [
             {
               "ko": "요즘 일교차가 커서 감기 걸리기 쉽더라고요.",
-              "de": "Die Temperaturunterschiede sind gerade groß. Da erkältet man sich leicht.",
-              "en": "The temperature swings lately make it easy to catch a cold."
+              "de": "Bei den großen Temperaturunterschieden in letzter Zeit habe ich den Eindruck, mich leichter zu erkälten.",
+              "en": "I've noticed that I seem to catch colds more easily with the big temperature swings lately."
             },
             {
               "ko": "계획 없이 떠나는 여행이 의외로 더 기억에 남더라고요.",
-              "de": "Reisen ohne Plan bleiben einem überraschend besser in Erinnerung.",
-              "en": "Somehow it's the unplanned trips that end up the most memorable."
+              "de": "Reisen ohne festen Plan bleiben mir überraschenderweise besser in Erinnerung.",
+              "en": "I've found that unplanned trips are surprisingly more memorable."
             },
             {
               "ko": "미세먼지가 심한 날엔 마스크를 챙기게 되더라고요.",
-              "de": "An Tagen mit viel Feinstaub nehme ich immer eine Maske mit.",
-              "en": "On heavy fine-dust days I always end up grabbing a mask."
+              "de": "An Tagen mit viel Feinstaub nehme ich inzwischen meist eine Maske mit.",
+              "en": "I've found myself taking a mask with me on days with high fine-particle pollution."
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “미세먼지가 심한 날엔 마스크를 챙기게 되더라고요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: An Tagen mit viel Feinstaub nehme ich immer eine Maske mit. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: On heavy fine-dust days I always end up grabbing a mask. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: An Tagen mit viel Feinstaub nehme ich inzwischen meist eine Maske mit. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I've found myself taking a mask with me on days with high fine-particle pollution. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0013"
@@ -16701,14 +16701,14 @@
           "skill": "situation",
           "prompt": {
             "ko": "최근 낮과 밤의 기온 차 때문에 감기에 걸리기 쉽다고 느꼈어요.\n이 뜻을 가장 정확히 전하는 표현은 무엇인가요?",
-            "de": "Dir ist aufgefallen, dass die großen Temperaturunterschiede Erkältungen begünstigen.\nWelche Äußerung drückt genau diese Absicht aus?",
-            "en": "You have noticed that large temperature swings make it easy to catch a cold.\nWhich expression conveys this precise intention?"
+            "de": "Du hast den Eindruck, dich bei den großen Temperaturunterschieden leichter zu erkälten.\nWelche Äußerung drückt genau diese Absicht aus?",
+            "en": "You have the impression that you catch colds more easily when temperatures swing a lot.\nWhich expression conveys this precise intention?"
           },
           "options": [
             {
-              "ko": "감기에 걸린 뒤로 일교차가 더 커졌다고 하더라고요.",
-              "de": "감기에 걸린 뒤로 일교차가 더 커졌다고 하더라고요.",
-              "en": "감기에 걸린 뒤로 일교차가 더 커졌다고 하더라고요."
+              "ko": "요즘 일교차가 큰데도 저는 별다른 변화를 못 느끼겠어요.",
+              "de": "요즘 일교차가 큰데도 저는 별다른 변화를 못 느끼겠어요.",
+              "en": "요즘 일교차가 큰데도 저는 별다른 변화를 못 느끼겠어요."
             },
             {
               "ko": "요즘 일교차가 커서 감기 걸리기 쉽더라고요.",
@@ -16724,8 +16724,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "“요즘 일교차가 커서 감기 걸리기 쉽더라고요.” — 최근 낮과 밤의 기온 차 때문에 감기에 걸리기 쉽다고 느꼈어요.",
-            "de": "„요즘 일교차가 커서 감기 걸리기 쉽더라고요.“ bedeutet: Die Temperaturunterschiede sind gerade groß. Da erkältet man sich leicht.",
-            "en": "“요즘 일교차가 커서 감기 걸리기 쉽더라고요.” means: The temperature swings lately make it easy to catch a cold."
+            "de": "„요즘 일교차가 커서 감기 걸리기 쉽더라고요.“ bedeutet: Bei den großen Temperaturunterschieden in letzter Zeit habe ich den Eindruck, mich leichter zu erkälten.",
+            "en": "“요즘 일교차가 커서 감기 걸리기 쉽더라고요.” means: I've noticed that I seem to catch colds more easily with the big temperature swings lately."
           },
           "sourceIds": [
             "smalltalk_b2_0001",
@@ -16777,7 +16777,7 @@
             {
               "ko": "요즘 정신없이 바빠서 시간이 어떻게 가는지 모르겠어요.",
               "de": "Ich bin gerade so im Stress, dass ich gar nicht merke, wie die Zeit vergeht.",
-              "en": "I'm so busy lately I don't even notice time passing."
+              "en": "I've been so busy lately that I barely notice time passing."
             },
             {
               "ko": "요즘 답장이 느린데 제가 너무 무심해 보일까 봐 걱정돼요.",
@@ -16789,7 +16789,7 @@
           "explanation": {
             "ko": "이 표현의 내용은 “요즘 정신없이 바빠서 시간이 어떻게 가는지 모르겠어요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: Ich bin gerade so im Stress, dass ich gar nicht merke, wie die Zeit vergeht. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: I'm so busy lately I don't even notice time passing. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "en": "The meaning is: I've been so busy lately that I barely notice time passing. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0002"
@@ -16810,12 +16810,12 @@
             {
               "ko": "요즘 정신없이 바빠서 시간이 어떻게 가는지 모르겠어요.",
               "de": "Ich bin gerade so im Stress, dass ich gar nicht merke, wie die Zeit vergeht.",
-              "en": "I'm so busy lately I don't even notice time passing."
+              "en": "I've been so busy lately that I barely notice time passing."
             },
             {
               "ko": "별일 없는데도 괜히 마음이 싱숭생숭하네요.",
-              "de": "Obwohl nichts los ist, bin ich grundlos unruhig.",
-              "en": "Nothing's really wrong, yet I feel oddly restless."
+              "de": "Eigentlich ist nichts Besonderes passiert, aber ich fühle mich irgendwie unruhig.",
+              "en": "Nothing in particular has happened, yet I feel oddly restless."
             },
             {
               "ko": "마지막 문장의 여운 때문에 글을 다 읽고도 한동안 생각이 났어요.",
@@ -16826,8 +16826,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “별일 없는데도 괜히 마음이 싱숭생숭하네요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Obwohl nichts los ist, bin ich grundlos unruhig. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Nothing's really wrong, yet I feel oddly restless. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Eigentlich ist nichts Besonderes passiert, aber ich fühle mich irgendwie unruhig. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Nothing in particular has happened, yet I feel oddly restless. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0014"
@@ -16852,19 +16852,19 @@
             },
             {
               "ko": "제 의견에 반대하는 말을 들으면 표정부터 굳어요. 어떻게 반응하면 좋을까요?",
-              "de": "Wenn jemand meiner Meinung widerspricht, werde ich sofort ernst. Wie könnte ich reagieren?",
+              "de": "Wenn jemand meiner Meinung widerspricht, spannt sich mein Gesicht sofort an. Wie könnte ich reagieren?",
               "en": "When someone disagrees with me, my expression stiffens right away. How could I respond?"
             },
             {
               "ko": "작가의 시선에 공감하셨나요, 아니면 다른 해석이 더 설득력 있었나요?",
-              "de": "Konnten Sie den Blickwinkel der Autorin nachvollziehen, oder fanden Sie eine andere Deutung überzeugender?",
+              "de": "Konnten Sie die Autorenperspektive nachvollziehen, oder fanden Sie eine andere Deutung überzeugender?",
               "en": "Did you relate to the author's perspective, or did another interpretation seem more convincing?"
             }
           ],
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “제 의견에 반대하는 말을 들으면 표정부터 굳어요. 어떻게 반응하면 좋을까요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wenn jemand meiner Meinung widerspricht, werde ich sofort ernst. Wie könnte ich reagieren? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Wenn jemand meiner Meinung widerspricht, spannt sich mein Gesicht sofort an. Wie könnte ich reagieren? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: When someone disagrees with me, my expression stiffens right away. How could I respond? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -16896,7 +16896,7 @@
             {
               "ko": "요즘 정신없이 바빠서 시간이 어떻게 가는지 모르겠어요.",
               "de": "Ich bin gerade so im Stress, dass ich gar nicht merke, wie die Zeit vergeht.",
-              "en": "I'm so busy lately I don't even notice time passing."
+              "en": "I've been so busy lately that I barely notice time passing."
             }
           ],
           "correctIndex": 1,
@@ -16922,14 +16922,14 @@
           },
           "options": [
             {
-              "ko": "이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?",
-              "de": "Welcher Teil dieses Textes ist Ihnen nach dem Lesen am längsten nachgegangen?",
-              "en": "Which part of this text stayed with you the longest after reading?"
+              "ko": "제 의견에 반대하는 말을 들으면 표정부터 굳어요. 어떻게 반응하면 좋을까요?",
+              "de": "Wenn jemand meiner Meinung widerspricht, spannt sich mein Gesicht sofort an. Wie könnte ich reagieren?",
+              "en": "When someone disagrees with me, my expression stiffens right away. How could I respond?"
             },
             {
-              "ko": "제 의견에 반대하는 말을 들으면 표정부터 굳어요. 어떻게 반응하면 좋을까요?",
-              "de": "Wenn jemand meiner Meinung widerspricht, werde ich sofort ernst. Wie könnte ich reagieren?",
-              "en": "When someone disagrees with me, my expression stiffens right away. How could I respond?"
+              "ko": "이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?",
+              "de": "Welcher Teil dieses Textes ist Ihnen nach dem Lesen am längsten nachgegangen?",
+              "en": "Which part of this text stayed with you the longest after reading?"
             },
             {
               "ko": "둘 다 화가 난 상태인데 지금 끝까지 이야기하는 게 좋을까요?",
@@ -16979,7 +16979,7 @@
           "explanation": {
             "ko": "“요즘 정신없이 바빠서 시간이 어떻게 가는지 모르겠어요.” — 너무 바빠서 시간이 어떻게 지나는지 모른다고 말해요.",
             "de": "„요즘 정신없이 바빠서 시간이 어떻게 가는지 모르겠어요.“ bedeutet: Ich bin gerade so im Stress, dass ich gar nicht merke, wie die Zeit vergeht.",
-            "en": "“요즘 정신없이 바빠서 시간이 어떻게 가는지 모르겠어요.” means: I'm so busy lately I don't even notice time passing."
+            "en": "“요즘 정신없이 바빠서 시간이 어떻게 가는지 모르겠어요.” means: I've been so busy lately that I barely notice time passing."
           },
           "sourceIds": [
             "smalltalk_b2_0002",
@@ -17020,13 +17020,13 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
-              "ko": "이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?",
+              "ko": "이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?",
               "de": "Welcher Teil dieses Textes ist Ihnen nach dem Lesen am längsten nachgegangen?",
               "en": "Which part of this text stayed with you the longest after reading?"
             },
@@ -17037,21 +17037,21 @@
             },
             {
               "ko": "제 의견에 반대하는 말을 들으면 표정부터 굳어요. 어떻게 반응하면 좋을까요?",
-              "de": "Wenn jemand meiner Meinung widerspricht, werde ich sofort ernst. Wie könnte ich reagieren?",
+              "de": "Wenn jemand meiner Meinung widerspricht, spannt sich mein Gesicht sofort an. Wie könnte ich reagieren?",
               "en": "When someone disagrees with me, my expression stiffens right away. How could I respond?"
             }
           ],
           "correctIndex": 0,
           "explanation": {
-            "ko": "이 표현의 내용은 “이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "ko": "이 표현의 내용은 “이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: Welcher Teil dieses Textes ist Ihnen nach dem Lesen am längsten nachgegangen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Which part of this text stayed with you the longest after reading? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0057"
           ],
-          "audioKo": "이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?",
-          "evidenceKo": "이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?"
+          "audioKo": "이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?",
+          "evidenceKo": "이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?"
         },
         {
           "id": "smalltalk.b2.mood.reading.smalltalk_b2_0058.meaning",
@@ -17066,7 +17066,7 @@
             {
               "ko": "요즘 정신없이 바빠서 시간이 어떻게 가는지 모르겠어요.",
               "de": "Ich bin gerade so im Stress, dass ich gar nicht merke, wie die Zeit vergeht.",
-              "en": "I'm so busy lately I don't even notice time passing."
+              "en": "I've been so busy lately that I barely notice time passing."
             },
             {
               "ko": "요즘 답장이 느린데 제가 너무 무심해 보일까 봐 걱정돼요.",
@@ -17102,25 +17102,25 @@
           },
           "options": [
             {
-              "ko": "둘 다 화가 난 상태인데 지금 끝까지 이야기하는 게 좋을까요?",
-              "de": "Wir sind beide aufgebracht. Sollten wir das Gespräch trotzdem jetzt zu Ende führen?",
-              "en": "We're both upset. Should we still finish the conversation right now?"
+              "ko": "이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?",
+              "de": "Welcher Teil dieses Textes ist Ihnen nach dem Lesen am längsten nachgegangen?",
+              "en": "Which part of this text stayed with you the longest after reading?"
             },
             {
               "ko": "작가의 시선에 공감하셨나요, 아니면 다른 해석이 더 설득력 있었나요?",
-              "de": "Konnten Sie den Blickwinkel der Autorin nachvollziehen, oder fanden Sie eine andere Deutung überzeugender?",
+              "de": "Konnten Sie die Autorenperspektive nachvollziehen, oder fanden Sie eine andere Deutung überzeugender?",
               "en": "Did you relate to the author's perspective, or did another interpretation seem more convincing?"
             },
             {
               "ko": "제 의견에 반대하는 말을 들으면 표정부터 굳어요. 어떻게 반응하면 좋을까요?",
-              "de": "Wenn jemand meiner Meinung widerspricht, werde ich sofort ernst. Wie könnte ich reagieren?",
+              "de": "Wenn jemand meiner Meinung widerspricht, spannt sich mein Gesicht sofort an. Wie könnte ich reagieren?",
               "en": "When someone disagrees with me, my expression stiffens right away. How could I respond?"
             }
           ],
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “작가의 시선에 공감하셨나요, 아니면 다른 해석이 더 설득력 있었나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Konnten Sie den Blickwinkel der Autorin nachvollziehen, oder fanden Sie eine andere Deutung überzeugender? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Konnten Sie die Autorenperspektive nachvollziehen, oder fanden Sie eine andere Deutung überzeugender? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Did you relate to the author's perspective, or did another interpretation seem more convincing? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -17151,8 +17151,8 @@
             },
             {
               "ko": "별일 없는데도 괜히 마음이 싱숭생숭하네요.",
-              "de": "Obwohl nichts los ist, bin ich grundlos unruhig.",
-              "en": "Nothing's really wrong, yet I feel oddly restless."
+              "de": "Eigentlich ist nichts Besonderes passiert, aber ich fühle mich irgendwie unruhig.",
+              "en": "Nothing in particular has happened, yet I feel oddly restless."
             }
           ],
           "correctIndex": 0,
@@ -17188,16 +17188,16 @@
               "en": "이 글에서 가장 먼저 고쳐야 할 문장은 무엇이었어요?"
             },
             {
-              "ko": "이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?",
-              "de": "이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?",
-              "en": "이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?"
+              "ko": "이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?",
+              "de": "이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?",
+              "en": "이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
-            "ko": "“이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?” — 글을 읽은 뒤 어떤 부분이 가장 오래 마음에 남았는지 물어봐요.",
-            "de": "„이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?“ bedeutet: Welcher Teil dieses Textes ist Ihnen nach dem Lesen am längsten nachgegangen?",
-            "en": "“이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?” means: Which part of this text stayed with you the longest after reading?"
+            "ko": "“이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?” — 글을 읽은 뒤 어떤 부분이 가장 오래 마음에 남았는지 물어봐요.",
+            "de": "„이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?“ bedeutet: Welcher Teil dieses Textes ist Ihnen nach dem Lesen am längsten nachgegangen?",
+            "en": "“이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?” means: Which part of this text stayed with you the longest after reading?"
           },
           "sourceIds": [
             "smalltalk_b2_0057",
@@ -17205,8 +17205,8 @@
             "smalltalk_b2_0059",
             "smalltalk_b2_0060"
           ],
-          "audioKo": "이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?",
-          "evidenceKo": "이 글에서 읽고 난 뒤에도 가장 오래 남은 부분은 무엇이었어요?"
+          "audioKo": "이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?",
+          "evidenceKo": "이 글을 읽고 난 뒤 가장 오래 기억에 남은 부분은 무엇이었어요?"
         }
       ]
     },
@@ -17290,8 +17290,8 @@
             },
             {
               "ko": "계획 없이 떠나는 여행이 의외로 더 기억에 남더라고요.",
-              "de": "Reisen ohne Plan bleiben einem überraschend besser in Erinnerung.",
-              "en": "Somehow it's the unplanned trips that end up the most memorable."
+              "de": "Reisen ohne festen Plan bleiben mir überraschenderweise besser in Erinnerung.",
+              "en": "I've found that unplanned trips are surprisingly more memorable."
             }
           ],
           "correctIndex": 0,
@@ -17379,13 +17379,13 @@
           "options": [
             {
               "ko": "혼자 밥 먹는 것도 익숙해지니까 나름 편하더라고요.",
-              "de": "Allein zu essen wird mit der Zeit ganz angenehm.",
-              "en": "Eating alone becomes quite comfortable once you get used to it."
+              "de": "Seit ich mich daran gewöhnt habe, finde ich es eigentlich ganz angenehm, allein zu essen.",
+              "en": "Now that I'm used to it, I find eating alone quite comfortable."
             },
             {
               "ko": "값보다 환불 조건을 먼저 확인하는 편이에요.",
-              "de": "Ich prüfe meist zuerst die Rückgabebedingungen und nicht nur den Preis.",
-              "en": "I tend to check the return conditions before the price."
+              "de": "Ich prüfe meist die Bedingungen für eine Rückerstattung, bevor ich auf den Preis schaue.",
+              "en": "I tend to check the refund conditions before the price."
             },
             {
               "ko": "가보고 싶은 맛집 있으면 다음에 같이 가요.",
@@ -17422,20 +17422,20 @@
             },
             {
               "ko": "값보다 환불 조건을 먼저 확인하는 편이에요.",
-              "de": "Ich prüfe meist zuerst die Rückgabebedingungen und nicht nur den Preis.",
-              "en": "I tend to check the return conditions before the price."
+              "de": "Ich prüfe meist die Bedingungen für eine Rückerstattung, bevor ich auf den Preis schaue.",
+              "en": "I tend to check the refund conditions before the price."
             },
             {
               "ko": "혼자 밥 먹는 것도 익숙해지니까 나름 편하더라고요.",
-              "de": "Allein zu essen wird mit der Zeit ganz angenehm.",
-              "en": "Eating alone becomes quite comfortable once you get used to it."
+              "de": "Seit ich mich daran gewöhnt habe, finde ich es eigentlich ganz angenehm, allein zu essen.",
+              "en": "Now that I'm used to it, I find eating alone quite comfortable."
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “혼자 밥 먹는 것도 익숙해지니까 나름 편하더라고요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Allein zu essen wird mit der Zeit ganz angenehm. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Eating alone becomes quite comfortable once you get used to it. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Seit ich mich daran gewöhnt habe, finde ich es eigentlich ganz angenehm, allein zu essen. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Now that I'm used to it, I find eating alone quite comfortable. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0016"
@@ -17523,8 +17523,8 @@
             },
             {
               "ko": "요즘 출근길이 너무 막혀서 평소보다 일찍 나서게 되더라고요.",
-              "de": "Der Weg zur Arbeit ist gerade so verstopft, dass ich früher losgehe als sonst.",
-              "en": "The commute's so jammed lately that I end up leaving earlier than usual."
+              "de": "Auf dem Weg zur Arbeit gibt es zurzeit so viel Stau, dass ich mich früher als sonst auf den Weg mache.",
+              "en": "There's been so much traffic on my way to work lately that I leave earlier than usual."
             },
             {
               "ko": "퇴근하고 나면 아무것도 하기 싫어지더라고요.",
@@ -17535,8 +17535,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “요즘 출근길이 너무 막혀서 평소보다 일찍 나서게 되더라고요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Der Weg zur Arbeit ist gerade so verstopft, dass ich früher losgehe als sonst. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: The commute's so jammed lately that I end up leaving earlier than usual. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Auf dem Weg zur Arbeit gibt es zurzeit so viel Stau, dass ich mich früher als sonst auf den Weg mache. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: There's been so much traffic on my way to work lately that I leave earlier than usual. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0005"
@@ -17566,8 +17566,8 @@
             },
             {
               "ko": "요즘 출근길이 너무 막혀서 평소보다 일찍 나서게 되더라고요.",
-              "de": "Der Weg zur Arbeit ist gerade so verstopft, dass ich früher losgehe als sonst.",
-              "en": "The commute's so jammed lately that I end up leaving earlier than usual."
+              "de": "Auf dem Weg zur Arbeit gibt es zurzeit so viel Stau, dass ich mich früher als sonst auf den Weg mache.",
+              "en": "There's been so much traffic on my way to work lately that I leave earlier than usual."
             }
           ],
           "correctIndex": 1,
@@ -17594,8 +17594,8 @@
           "options": [
             {
               "ko": "이견이 있을 때는 어느 선까지 양보할 수 있다고 보세요?",
-              "de": "Wo wäre bei unterschiedlichen Meinungen für Sie ein vertretbares Zugeständnis?",
-              "en": "When people disagree, where do you think a reasonable concession is possible?"
+              "de": "Wie weit können Sie bei Meinungsverschiedenheiten Ihrer Ansicht nach nachgeben?",
+              "en": "When there is a disagreement, how far do you think you can compromise?"
             },
             {
               "ko": "온라인 신청이 오히려 접근 장벽이 되는 사람도 있을까요?",
@@ -17687,8 +17687,8 @@
           "correctIndex": 2,
           "explanation": {
             "ko": "“요즘 출근길이 너무 막혀서 평소보다 일찍 나서게 되더라고요.” — 요즘 출근길이 막혀서 평소보다 일찍 출발하게 됐다고 말해요.",
-            "de": "„요즘 출근길이 너무 막혀서 평소보다 일찍 나서게 되더라고요.“ bedeutet: Der Weg zur Arbeit ist gerade so verstopft, dass ich früher losgehe als sonst.",
-            "en": "“요즘 출근길이 너무 막혀서 평소보다 일찍 나서게 되더라고요.” means: The commute's so jammed lately that I end up leaving earlier than usual."
+            "de": "„요즘 출근길이 너무 막혀서 평소보다 일찍 나서게 되더라고요.“ bedeutet: Auf dem Weg zur Arbeit gibt es zurzeit so viel Stau, dass ich mich früher als sonst auf den Weg mache.",
+            "en": "“요즘 출근길이 너무 막혀서 평소보다 일찍 나서게 되더라고요.” means: There's been so much traffic on my way to work lately that I leave earlier than usual."
           },
           "sourceIds": [
             "smalltalk_b2_0005",
@@ -17735,13 +17735,13 @@
           "options": [
             {
               "ko": "출입문 변경 안내를 붙였는데 사람들이 계속 지나쳐요. 뭐가 문제일까요?",
-              "de": "Wir haben den Hinweis zum neuen Eingang aufgehängt, aber alle laufen daran vorbei. Woran könnte es liegen?",
+              "de": "Wir haben einen Hinweis zum geänderten Eingang aufgehängt, aber die Leute übersehen ihn immer wieder. Woran könnte es liegen?",
               "en": "We posted a notice about the entrance change, but people keep missing it. What might be wrong?"
             },
             {
               "ko": "중요한 결정을 앞두고 있는데, 어떤 기준을 가장 우선시하세요?",
-              "de": "Sie stehen vor einer wichtigen Entscheidung. Was ist Ihnen dabei am wichtigsten?",
-              "en": "You are facing an important decision. What matters most to you as you decide?"
+              "de": "Ich stehe vor einer wichtigen Entscheidung. Welche Kriterien haben für Sie dabei Vorrang?",
+              "en": "I'm facing an important decision. What criteria do you tend to prioritize?"
             },
             {
               "ko": "이번 주에 일이 너무 겹쳤는데, 어느 약속부터 조정하는 게 나을까요?",
@@ -17752,8 +17752,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “중요한 결정을 앞두고 있는데, 어떤 기준을 가장 우선시하세요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Sie stehen vor einer wichtigen Entscheidung. Was ist Ihnen dabei am wichtigsten? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: You are facing an important decision. What matters most to you as you decide? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Ich stehe vor einer wichtigen Entscheidung. Welche Kriterien haben für Sie dabei Vorrang? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I'm facing an important decision. What criteria do you tend to prioritize? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0053"
@@ -17816,20 +17816,20 @@
             },
             {
               "ko": "사회 통합을 언어 시험 점수로만 평가할 수 있을까요?",
-              "de": "Lässt sich gesellschaftliche Teilhabe nur über Sprachtestergebnisse bewerten?",
-              "en": "Can social inclusion be judged only by language-test scores?"
+              "de": "Lässt sich gesellschaftliche Integration allein über Sprachtestergebnisse bewerten?",
+              "en": "Can social integration be assessed solely by language-test scores?"
             },
             {
               "ko": "이견이 있을 때는 어느 선까지 양보할 수 있다고 보세요?",
-              "de": "Wo wäre bei unterschiedlichen Meinungen für Sie ein vertretbares Zugeständnis?",
-              "en": "When people disagree, where do you think a reasonable concession is possible?"
+              "de": "Wie weit können Sie bei Meinungsverschiedenheiten Ihrer Ansicht nach nachgeben?",
+              "en": "When there is a disagreement, how far do you think you can compromise?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “이견이 있을 때는 어느 선까지 양보할 수 있다고 보세요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wo wäre bei unterschiedlichen Meinungen für Sie ein vertretbares Zugeständnis? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: When people disagree, where do you think a reasonable concession is possible? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Wie weit können Sie bei Meinungsverschiedenheiten Ihrer Ansicht nach nachgeben? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: When there is a disagreement, how far do you think you can compromise? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0055"
@@ -17849,8 +17849,8 @@
           "options": [
             {
               "ko": "요즘 출근길이 너무 막혀서 평소보다 일찍 나서게 되더라고요.",
-              "de": "Der Weg zur Arbeit ist gerade so verstopft, dass ich früher losgehe als sonst.",
-              "en": "The commute's so jammed lately that I end up leaving earlier than usual."
+              "de": "Auf dem Weg zur Arbeit gibt es zurzeit so viel Stau, dass ich mich früher als sonst auf den Weg mache.",
+              "en": "There's been so much traffic on my way to work lately that I leave earlier than usual."
             },
             {
               "ko": "결단을 내리기 전에 이 선택이 누구에게 어떤 영향을 주는지 되돌아보고 있어요.",
@@ -17904,8 +17904,8 @@
           "correctIndex": 2,
           "explanation": {
             "ko": "“중요한 결정을 앞두고 있는데, 어떤 기준을 가장 우선시하세요?” — 중요한 결정을 앞두고 어떤 기준을 가장 중요하게 보는지 물어봐요.",
-            "de": "„중요한 결정을 앞두고 있는데, 어떤 기준을 가장 우선시하세요?“ bedeutet: Sie stehen vor einer wichtigen Entscheidung. Was ist Ihnen dabei am wichtigsten?",
-            "en": "“중요한 결정을 앞두고 있는데, 어떤 기준을 가장 우선시하세요?” means: You are facing an important decision. What matters most to you as you decide?"
+            "de": "„중요한 결정을 앞두고 있는데, 어떤 기준을 가장 우선시하세요?“ bedeutet: Ich stehe vor einer wichtigen Entscheidung. Welche Kriterien haben für Sie dabei Vorrang?",
+            "en": "“중요한 결정을 앞두고 있는데, 어떤 기준을 가장 우선시하세요?” means: I'm facing an important decision. What criteria do you tend to prioritize?"
           },
           "sourceIds": [
             "smalltalk_b2_0053",
@@ -17990,7 +17990,7 @@
           "options": [
             {
               "ko": "새로 온 이웃에게 행정 정보는 어디서 찾는다고 알려 주면 좋을까요?",
-              "de": "Wo findet ein neuer Nachbar am besten Informationen zu Behördengängen?",
+              "de": "Wo sollte man neuen Nachbarn empfehlen, nach Informationen zu Behördengängen zu suchen?",
               "en": "Where should we tell a new neighbor to find administrative information?"
             },
             {
@@ -18000,8 +18000,8 @@
             },
             {
               "ko": "이견이 있을 때는 어느 선까지 양보할 수 있다고 보세요?",
-              "de": "Wo wäre bei unterschiedlichen Meinungen für Sie ein vertretbares Zugeständnis?",
-              "en": "When people disagree, where do you think a reasonable concession is possible?"
+              "de": "Wie weit können Sie bei Meinungsverschiedenheiten Ihrer Ansicht nach nachgeben?",
+              "en": "When there is a disagreement, how far do you think you can compromise?"
             }
           ],
           "correctIndex": 1,
@@ -18028,7 +18028,7 @@
           "options": [
             {
               "ko": "출입문 변경 안내를 붙였는데 사람들이 계속 지나쳐요. 뭐가 문제일까요?",
-              "de": "Wir haben den Hinweis zum neuen Eingang aufgehängt, aber alle laufen daran vorbei. Woran könnte es liegen?",
+              "de": "Wir haben einen Hinweis zum geänderten Eingang aufgehängt, aber die Leute übersehen ihn immer wieder. Woran könnte es liegen?",
               "en": "We posted a notice about the entrance change, but people keep missing it. What might be wrong?"
             },
             {
@@ -18045,7 +18045,7 @@
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “출입문 변경 안내를 붙였는데 사람들이 계속 지나쳐요. 뭐가 문제일까요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wir haben den Hinweis zum neuen Eingang aufgehängt, aber alle laufen daran vorbei. Woran könnte es liegen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Wir haben einen Hinweis zum geänderten Eingang aufgehängt, aber die Leute übersehen ihn immer wieder. Woran könnte es liegen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: We posted a notice about the entrance change, but people keep missing it. What might be wrong? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -18174,7 +18174,7 @@
             },
             {
               "ko": "새로 온 이웃에게 행정 정보는 어디서 찾는다고 알려 주면 좋을까요?",
-              "de": "Wo findet ein neuer Nachbar am besten Informationen zu Behördengängen?",
+              "de": "Wo sollte man neuen Nachbarn empfehlen, nach Informationen zu Behördengängen zu suchen?",
               "en": "Where should we tell a new neighbor to find administrative information?"
             },
             {
@@ -18212,8 +18212,8 @@
             },
             {
               "ko": "요즘 출근길이 너무 막혀서 평소보다 일찍 나서게 되더라고요.",
-              "de": "Der Weg zur Arbeit ist gerade so verstopft, dass ich früher losgehe als sonst.",
-              "en": "The commute's so jammed lately that I end up leaving earlier than usual."
+              "de": "Auf dem Weg zur Arbeit gibt es zurzeit so viel Stau, dass ich mich früher als sonst auf den Weg mache.",
+              "en": "There's been so much traffic on my way to work lately that I leave earlier than usual."
             },
             {
               "ko": "집이 부족한 문제를 어느 한 집단의 탓으로만 말하면 해결이 멀어져요.",
@@ -18245,7 +18245,7 @@
           "options": [
             {
               "ko": "새로 온 이웃에게 행정 정보는 어디서 찾는다고 알려 주면 좋을까요?",
-              "de": "Wo findet ein neuer Nachbar am besten Informationen zu Behördengängen?",
+              "de": "Wo sollte man neuen Nachbarn empfehlen, nach Informationen zu Behördengängen zu suchen?",
               "en": "Where should we tell a new neighbor to find administrative information?"
             },
             {
@@ -18262,7 +18262,7 @@
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “새로 온 이웃에게 행정 정보는 어디서 찾는다고 알려 주면 좋을까요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wo findet ein neuer Nachbar am besten Informationen zu Behördengängen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Wo sollte man neuen Nachbarn empfehlen, nach Informationen zu Behördengängen zu suchen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Where should we tell a new neighbor to find administrative information? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -18288,13 +18288,13 @@
             },
             {
               "ko": "이견이 있을 때는 어느 선까지 양보할 수 있다고 보세요?",
-              "de": "Wo wäre bei unterschiedlichen Meinungen für Sie ein vertretbares Zugeständnis?",
-              "en": "When people disagree, where do you think a reasonable concession is possible?"
+              "de": "Wie weit können Sie bei Meinungsverschiedenheiten Ihrer Ansicht nach nachgeben?",
+              "en": "When there is a disagreement, how far do you think you can compromise?"
             },
             {
               "ko": "사회 통합을 언어 시험 점수로만 평가할 수 있을까요?",
-              "de": "Lässt sich gesellschaftliche Teilhabe nur über Sprachtestergebnisse bewerten?",
-              "en": "Can social inclusion be judged only by language-test scores?"
+              "de": "Lässt sich gesellschaftliche Integration allein über Sprachtestergebnisse bewerten?",
+              "en": "Can social integration be assessed solely by language-test scores?"
             }
           ],
           "correctIndex": 0,
@@ -18384,13 +18384,13 @@
           "options": [
             {
               "ko": "사회 통합을 언어 시험 점수로만 평가할 수 있을까요?",
-              "de": "Lässt sich gesellschaftliche Teilhabe nur über Sprachtestergebnisse bewerten?",
-              "en": "Can social inclusion be judged only by language-test scores?"
+              "de": "Lässt sich gesellschaftliche Integration allein über Sprachtestergebnisse bewerten?",
+              "en": "Can social integration be assessed solely by language-test scores?"
             },
             {
               "ko": "이견이 있을 때는 어느 선까지 양보할 수 있다고 보세요?",
-              "de": "Wo wäre bei unterschiedlichen Meinungen für Sie ein vertretbares Zugeständnis?",
-              "en": "When people disagree, where do you think a reasonable concession is possible?"
+              "de": "Wie weit können Sie bei Meinungsverschiedenheiten Ihrer Ansicht nach nachgeben?",
+              "en": "When there is a disagreement, how far do you think you can compromise?"
             },
             {
               "ko": "공공 주택 대기 기간은 지역마다 비교할 수 있나요?",
@@ -18401,8 +18401,8 @@
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “사회 통합을 언어 시험 점수로만 평가할 수 있을까요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Lässt sich gesellschaftliche Teilhabe nur über Sprachtestergebnisse bewerten? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Can social inclusion be judged only by language-test scores? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Lässt sich gesellschaftliche Integration allein über Sprachtestergebnisse bewerten? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Can social integration be assessed solely by language-test scores? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0117"
@@ -18422,8 +18422,8 @@
           "options": [
             {
               "ko": "사회 통합을 언어 시험 점수로만 평가할 수 있을까요?",
-              "de": "Lässt sich gesellschaftliche Teilhabe nur über Sprachtestergebnisse bewerten?",
-              "en": "Can social inclusion be judged only by language-test scores?"
+              "de": "Lässt sich gesellschaftliche Integration allein über Sprachtestergebnisse bewerten?",
+              "en": "Can social integration be assessed solely by language-test scores?"
             },
             {
               "ko": "이번 주에 일이 너무 겹쳤는데, 어느 약속부터 조정하는 게 나을까요?",
@@ -18477,8 +18477,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "“사회 통합을 언어 시험 점수로만 평가할 수 있을까요?” — 사회 통합을 언어 시험 점수 하나로 평가할 수 있는지 의문을 제기해요.",
-            "de": "„사회 통합을 언어 시험 점수로만 평가할 수 있을까요?“ bedeutet: Lässt sich gesellschaftliche Teilhabe nur über Sprachtestergebnisse bewerten?",
-            "en": "“사회 통합을 언어 시험 점수로만 평가할 수 있을까요?” means: Can social inclusion be judged only by language-test scores?"
+            "de": "„사회 통합을 언어 시험 점수로만 평가할 수 있을까요?“ bedeutet: Lässt sich gesellschaftliche Integration allein über Sprachtestergebnisse bewerten?",
+            "en": "“사회 통합을 언어 시험 점수로만 평가할 수 있을까요?” means: Can social integration be assessed solely by language-test scores?"
           },
           "sourceIds": [
             "smalltalk_b2_0117",
@@ -18561,24 +18561,24 @@
             {
               "ko": "요즘은 드라마 정주행하느라 밤을 새우기 일쑤예요.",
               "de": "In letzter Zeit binge ich Serien und mache oft die Nacht durch.",
-              "en": "Lately I binge dramas and often end up pulling all-nighters."
+              "en": "I've been binge-watching dramas lately and often end up staying up all night."
+            },
+            {
+              "ko": "영상이 많이 퍼져도 신청 방법이 복잡하면 참여를 포기하는 사람이 생겨요.",
+              "de": "Auch wenn ein Video weit verbreitet ist, geben manche die Anmeldung auf, wenn sie zu kompliziert ist.",
+              "en": "Even if a video is widely shared, some people give up on registering when it is too complicated."
             },
             {
               "ko": "온라인에서는 같은 말도 말투와 어감에 따라 전혀 다르게 받아들여질 수 있어요.",
               "de": "Online kann dieselbe Aussage je nach Tonfall und Nuance ganz unterschiedlich ankommen.",
               "en": "Online, the same words can be received very differently depending on tone and connotation."
-            },
-            {
-              "ko": "상대의 배경을 모른 채 비속어를 가볍게 쓰다가는 오해를 낳기 쉬워요.",
-              "de": "Wenn man ohne Kenntnis des Gegenübers leichtfertig derbe Sprache benutzt, entstehen schnell Missverständnisse.",
-              "en": "Using slang carelessly without knowing the other person's background can easily cause misunderstandings."
             }
           ],
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “요즘은 드라마 정주행하느라 밤을 새우기 일쑤예요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: In letzter Zeit binge ich Serien und mache oft die Nacht durch. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Lately I binge dramas and often end up pulling all-nighters. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "en": "The meaning is: I've been binge-watching dramas lately and often end up staying up all night. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0018"
@@ -18645,9 +18645,9 @@
               "en": "요즘 볼 만한 게 너무 많아서 추천은 필요 없어요."
             },
             {
-              "ko": "추천해 주신 작품은 다 봤는데 결말을 바꿀 수 있을까요?",
-              "de": "추천해 주신 작품은 다 봤는데 결말을 바꿀 수 있을까요?",
-              "en": "추천해 주신 작품은 다 봤는데 결말을 바꿀 수 있을까요?"
+              "ko": "추천해 주신 작품은 다 봤는데 줄거리를 다시 알려 주실래요?",
+              "de": "추천해 주신 작품은 다 봤는데 줄거리를 다시 알려 주실래요?",
+              "en": "추천해 주신 작품은 다 봤는데 줄거리를 다시 알려 주실래요?"
             }
           ],
           "correctIndex": 0,
@@ -18739,7 +18739,7 @@
             {
               "ko": "상대의 배경을 모른 채 비속어를 가볍게 쓰다가는 오해를 낳기 쉬워요.",
               "de": "Wenn man ohne Kenntnis des Gegenübers leichtfertig derbe Sprache benutzt, entstehen schnell Missverständnisse.",
-              "en": "Using slang carelessly without knowing the other person's background can easily cause misunderstandings."
+              "en": "Using vulgar language carelessly without knowing the other person's background can easily cause misunderstandings."
             },
             {
               "ko": "온라인에서는 같은 말도 말투와 어감에 따라 전혀 다르게 받아들여질 수 있어요.",
@@ -18749,7 +18749,7 @@
             {
               "ko": "요즘은 드라마 정주행하느라 밤을 새우기 일쑤예요.",
               "de": "In letzter Zeit binge ich Serien und mache oft die Nacht durch.",
-              "en": "Lately I binge dramas and often end up pulling all-nighters."
+              "en": "I've been binge-watching dramas lately and often end up staying up all night."
             }
           ],
           "correctIndex": 1,
@@ -18813,26 +18813,26 @@
           },
           "options": [
             {
+              "ko": "영상이 많이 퍼져도 신청 방법이 복잡하면 참여를 포기하는 사람이 생겨요.",
+              "de": "Auch wenn ein Video weit verbreitet ist, geben manche die Anmeldung auf, wenn sie zu kompliziert ist.",
+              "en": "Even if a video is widely shared, some people give up on registering when it is too complicated."
+            },
+            {
               "ko": "온라인에서는 같은 말도 말투와 어감에 따라 전혀 다르게 받아들여질 수 있어요.",
               "de": "Online kann dieselbe Aussage je nach Tonfall und Nuance ganz unterschiedlich ankommen.",
               "en": "Online, the same words can be received very differently depending on tone and connotation."
             },
             {
-              "ko": "영상이 많이 퍼져도 신청 방법이 복잡하면 사람들은 멈춰요.",
-              "de": "Auch ein verbreitetes Video hilft wenig, wenn die Anmeldung kompliziert ist.",
-              "en": "Even a widely shared video will not help if registration is complicated."
-            },
-            {
               "ko": "상대의 배경을 모른 채 비속어를 가볍게 쓰다가는 오해를 낳기 쉬워요.",
               "de": "Wenn man ohne Kenntnis des Gegenübers leichtfertig derbe Sprache benutzt, entstehen schnell Missverständnisse.",
-              "en": "Using slang carelessly without knowing the other person's background can easily cause misunderstandings."
+              "en": "Using vulgar language carelessly without knowing the other person's background can easily cause misunderstandings."
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “상대의 배경을 모른 채 비속어를 가볍게 쓰다가는 오해를 낳기 쉬워요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: Wenn man ohne Kenntnis des Gegenübers leichtfertig derbe Sprache benutzt, entstehen schnell Missverständnisse. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Using slang carelessly without knowing the other person's background can easily cause misunderstandings. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "en": "The meaning is: Using vulgar language carelessly without knowing the other person's background can easily cause misunderstandings. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0064"
@@ -18856,9 +18856,9 @@
               "en": "이 표현은 누구에게나 편하니 이유를 따져 볼 필요가 없어요."
             },
             {
-              "ko": "이 표현이 불편하다는 사람의 배경을 우리가 정해 볼까요?",
-              "de": "이 표현이 불편하다는 사람의 배경을 우리가 정해 볼까요?",
-              "en": "이 표현이 불편하다는 사람의 배경을 우리가 정해 볼까요?"
+              "ko": "이 표현이 불편하다는 의견은 그냥 넘겨도 될까요?",
+              "de": "이 표현이 불편하다는 의견은 그냥 넘겨도 될까요?",
+              "en": "이 표현이 불편하다는 의견은 그냥 넘겨도 될까요?"
             },
             {
               "ko": "이 표현이 왜 불편하게 들릴 수 있는지 함께 생각해 볼까요?",
@@ -18946,38 +18946,38 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“영상이 많이 퍼져도 신청 방법이 복잡하면 사람들은 멈춰요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„영상이 많이 퍼져도 신청 방법이 복잡하면 사람들은 멈춰요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“영상이 많이 퍼져도 신청 방법이 복잡하면 사람들은 멈춰요.”\nWhich meaning matches the whole utterance?"
+            "ko": "“영상이 많이 퍼져도 신청 방법이 복잡하면 참여를 포기하는 사람이 생겨요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„영상이 많이 퍼져도 신청 방법이 복잡하면 참여를 포기하는 사람이 생겨요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“영상이 많이 퍼져도 신청 방법이 복잡하면 참여를 포기하는 사람이 생겨요.”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
-              "ko": "영상이 많이 퍼져도 신청 방법이 복잡하면 사람들은 멈춰요.",
-              "de": "Auch ein verbreitetes Video hilft wenig, wenn die Anmeldung kompliziert ist.",
-              "en": "Even a widely shared video will not help if registration is complicated."
+              "ko": "영상이 많이 퍼져도 신청 방법이 복잡하면 참여를 포기하는 사람이 생겨요.",
+              "de": "Auch wenn ein Video weit verbreitet ist, geben manche die Anmeldung auf, wenn sie zu kompliziert ist.",
+              "en": "Even if a video is widely shared, some people give up on registering when it is too complicated."
+            },
+            {
+              "ko": "상대의 배경을 모른 채 비속어를 가볍게 쓰다가는 오해를 낳기 쉬워요.",
+              "de": "Wenn man ohne Kenntnis des Gegenübers leichtfertig derbe Sprache benutzt, entstehen schnell Missverständnisse.",
+              "en": "Using vulgar language carelessly without knowing the other person's background can easily cause misunderstandings."
             },
             {
               "ko": "온라인에서는 같은 말도 말투와 어감에 따라 전혀 다르게 받아들여질 수 있어요.",
               "de": "Online kann dieselbe Aussage je nach Tonfall und Nuance ganz unterschiedlich ankommen.",
               "en": "Online, the same words can be received very differently depending on tone and connotation."
-            },
-            {
-              "ko": "상대의 배경을 모른 채 비속어를 가볍게 쓰다가는 오해를 낳기 쉬워요.",
-              "de": "Wenn man ohne Kenntnis des Gegenübers leichtfertig derbe Sprache benutzt, entstehen schnell Missverständnisse.",
-              "en": "Using slang carelessly without knowing the other person's background can easily cause misunderstandings."
             }
           ],
           "correctIndex": 0,
           "explanation": {
-            "ko": "이 표현의 내용은 “영상이 많이 퍼져도 신청 방법이 복잡하면 사람들은 멈춰요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Auch ein verbreitetes Video hilft wenig, wenn die Anmeldung kompliziert ist. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Even a widely shared video will not help if registration is complicated. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “영상이 많이 퍼져도 신청 방법이 복잡하면 참여를 포기하는 사람이 생겨요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Auch wenn ein Video weit verbreitet ist, geben manche die Anmeldung auf, wenn sie zu kompliziert ist. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Even if a video is widely shared, some people give up on registering when it is too complicated. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0108"
           ],
-          "audioKo": "영상이 많이 퍼져도 신청 방법이 복잡하면 사람들은 멈춰요.",
-          "evidenceKo": "영상이 많이 퍼져도 신청 방법이 복잡하면 사람들은 멈춰요."
+          "audioKo": "영상이 많이 퍼져도 신청 방법이 복잡하면 참여를 포기하는 사람이 생겨요.",
+          "evidenceKo": "영상이 많이 퍼져도 신청 방법이 복잡하면 참여를 포기하는 사람이 생겨요."
         },
         {
           "id": "smalltalk.b2.screen.sharing.situation",
@@ -19127,9 +19127,9 @@
           },
           "options": [
             {
-              "ko": "집중이 잘될 때만 음악 듣는 일을 시작할 수 있어요.",
-              "de": "집중이 잘될 때만 음악 듣는 일을 시작할 수 있어요.",
-              "en": "집중이 잘될 때만 음악 듣는 일을 시작할 수 있어요."
+              "ko": "집중이 필요한 일을 마친 뒤에 음악을 듣는 편이에요.",
+              "de": "집중이 필요한 일을 마친 뒤에 음악을 듣는 편이에요.",
+              "en": "집중이 필요한 일을 마친 뒤에 음악을 듣는 편이에요."
             },
             {
               "ko": "일할 때 음악을 들으면 집중이 더 잘되는 편이에요.",
@@ -19264,9 +19264,9 @@
           },
           "options": [
             {
-              "ko": "스트레스를 주는 방법 중 가장 효과적인 게 뭔가요?",
-              "de": "스트레스를 주는 방법 중 가장 효과적인 게 뭔가요?",
-              "en": "스트레스를 주는 방법 중 가장 효과적인 게 뭔가요?"
+              "ko": "요즘 어떤 일 때문에 스트레스를 가장 많이 받으세요?",
+              "de": "요즘 어떤 일 때문에 스트레스를 가장 많이 받으세요?",
+              "en": "요즘 어떤 일 때문에 스트레스를 가장 많이 받으세요?"
             },
             {
               "ko": "스트레스 받을 때 푸는 본인만의 방법이 있으세요?",
@@ -19274,9 +19274,9 @@
               "en": "스트레스 받을 때 푸는 본인만의 방법이 있으세요?"
             },
             {
-              "ko": "스트레스를 받으면 취미는 반드시 그만두시나요?",
-              "de": "스트레스를 받으면 취미는 반드시 그만두시나요?",
-              "en": "스트레스를 받으면 취미는 반드시 그만두시나요?"
+              "ko": "스트레스를 받을 때는 보통 어떤 일을 미루게 되세요?",
+              "de": "스트레스를 받을 때는 보통 어떤 일을 미루게 되세요?",
+              "en": "스트레스를 받을 때는 보통 어떤 일을 미루게 되세요?"
             }
           ],
           "correctIndex": 1,
@@ -19331,8 +19331,8 @@
             },
             {
               "ko": "계획 없이 떠나는 여행이 의외로 더 기억에 남더라고요.",
-              "de": "Reisen ohne Plan bleiben einem überraschend besser in Erinnerung.",
-              "en": "Somehow it's the unplanned trips that end up the most memorable."
+              "de": "Reisen ohne festen Plan bleiben mir überraschenderweise besser in Erinnerung.",
+              "en": "I've found that unplanned trips are surprisingly more memorable."
             },
             {
               "ko": "출근 시간이 줄어도 난방비가 크면 절약이 아니겠네요.",
@@ -19364,8 +19364,8 @@
           "options": [
             {
               "ko": "계획 없이 떠나는 여행이 의외로 더 기억에 남더라고요.",
-              "de": "Reisen ohne Plan bleiben einem überraschend besser in Erinnerung.",
-              "en": "Somehow it's the unplanned trips that end up the most memorable."
+              "de": "Reisen ohne festen Plan bleiben mir überraschenderweise besser in Erinnerung.",
+              "en": "I've found that unplanned trips are surprisingly more memorable."
             },
             {
               "ko": "나중에 시간 되면 꼭 한번 가보고 싶은 나라가 있어요.",
@@ -19374,15 +19374,15 @@
             },
             {
               "ko": "요즘 일교차가 커서 감기 걸리기 쉽더라고요.",
-              "de": "Die Temperaturunterschiede sind gerade groß. Da erkältet man sich leicht.",
-              "en": "The temperature swings lately make it easy to catch a cold."
+              "de": "Bei den großen Temperaturunterschieden in letzter Zeit habe ich den Eindruck, mich leichter zu erkälten.",
+              "en": "I've noticed that I seem to catch colds more easily with the big temperature swings lately."
             }
           ],
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “계획 없이 떠나는 여행이 의외로 더 기억에 남더라고요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Reisen ohne Plan bleiben einem überraschend besser in Erinnerung. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Somehow it's the unplanned trips that end up the most memorable. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Reisen ohne festen Plan bleiben mir überraschenderweise besser in Erinnerung. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I've found that unplanned trips are surprisingly more memorable. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0021"
@@ -19546,8 +19546,8 @@
             },
             {
               "ko": "피드백을 받을 때 바로 말해 주는 게 좋아요, 아니면 먼저 좋은 점을 듣는 게 좋아요?",
-              "de": "Magst du Feedback lieber direkt, oder möchtest du erst mal hören, was schon gut läuft?",
-              "en": "When you get feedback, do you want it straight, or the good parts first?"
+              "de": "Wie bekommst du Feedback am liebsten: direkt zu den Kritikpunkten oder zuerst zu den positiven Aspekten?",
+              "en": "How do you prefer to get feedback: the criticism straight away, or the positives first?"
             },
             {
               "ko": "지금 표결할까요, 아니면 의견 차이를 조금 더 이야기할까요?",
@@ -19558,8 +19558,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “피드백을 받을 때 바로 말해 주는 게 좋아요, 아니면 먼저 좋은 점을 듣는 게 좋아요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Magst du Feedback lieber direkt, oder möchtest du erst mal hören, was schon gut läuft? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: When you get feedback, do you want it straight, or the good parts first? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Wie bekommst du Feedback am liebsten: direkt zu den Kritikpunkten oder zuerst zu den positiven Aspekten? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: How do you prefer to get feedback: the criticism straight away, or the positives first? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0065"
@@ -19621,9 +19621,9 @@
               "en": "요즘 일이 줄어서 여유롭지만 배울 게 하나도 없어요."
             },
             {
-              "ko": "요즘 일이 몰리니 배우는 건 전혀 불가능하다고 생각해요.",
-              "de": "요즘 일이 몰리니 배우는 건 전혀 불가능하다고 생각해요.",
-              "en": "요즘 일이 몰리니 배우는 건 전혀 불가능하다고 생각해요."
+              "ko": "요즘 새로 배우는 건 많은데 일이 별로 없어서 한가해요.",
+              "de": "요즘 새로 배우는 건 많은데 일이 별로 없어서 한가해요.",
+              "en": "요즘 새로 배우는 건 많은데 일이 별로 없어서 한가해요."
             },
             {
               "ko": "요즘 일이 몰려서 좀 정신없는데, 그래도 배우는 게 많아요.",
@@ -19691,8 +19691,8 @@
             },
             {
               "ko": "피드백을 받을 때 바로 말해 주는 게 좋아요, 아니면 먼저 좋은 점을 듣는 게 좋아요?",
-              "de": "Magst du Feedback lieber direkt, oder möchtest du erst mal hören, was schon gut läuft?",
-              "en": "When you get feedback, do you want it straight, or the good parts first?"
+              "de": "Wie bekommst du Feedback am liebsten: direkt zu den Kritikpunkten oder zuerst zu den positiven Aspekten?",
+              "en": "How do you prefer to get feedback: the criticism straight away, or the positives first?"
             }
           ],
           "correctIndex": 0,
@@ -19762,8 +19762,8 @@
             },
             {
               "ko": "피드백을 받을 때 바로 말해 주는 게 좋아요, 아니면 먼저 좋은 점을 듣는 게 좋아요?",
-              "de": "Magst du Feedback lieber direkt, oder möchtest du erst mal hören, was schon gut läuft?",
-              "en": "When you get feedback, do you want it straight, or the good parts first?"
+              "de": "Wie bekommst du Feedback am liebsten: direkt zu den Kritikpunkten oder zuerst zu den positiven Aspekten?",
+              "en": "How do you prefer to get feedback: the criticism straight away, or the positives first?"
             },
             {
               "ko": "이번 주 부탁은 맡기 어려운데 너무 차갑지 않게 거절하려면 어떻게 말할까요?",
@@ -19857,7 +19857,7 @@
           "options": [
             {
               "ko": "연애는 타이밍이 정말 중요한 것 같더라고요.",
-              "de": "Beim Dating ist Timing wirklich entscheidend.",
+              "de": "Ich habe den Eindruck, dass beim Dating das Timing wirklich wichtig ist.",
               "en": "In dating, timing really does seem to matter."
             },
             {
@@ -19895,7 +19895,7 @@
           "options": [
             {
               "ko": "순서를 다 몰라도 예는 갖추고 싶어요.",
-              "de": "Auch wenn ich den Ablauf nicht kenne, möchte ich die Form wahren.",
+              "de": "Auch wenn ich den Ablauf nicht vollständig kenne, möchte ich mich respektvoll verhalten.",
               "en": "Even if I don't know the order, I want to show proper respect."
             },
             {
@@ -19932,9 +19932,9 @@
           },
           "options": [
             {
-              "ko": "가족이 소중해서 이제부터는 반드시 같이 살아야 해요.",
-              "de": "가족이 소중해서 이제부터는 반드시 같이 살아야 해요.",
-              "en": "가족이 소중해서 이제부터는 반드시 같이 살아야 해요."
+              "ko": "멀리 떨어져 살아도 가족과 연락하는 횟수는 그대로예요.",
+              "de": "멀리 떨어져 살아도 가족과 연락하는 횟수는 그대로예요.",
+              "en": "멀리 떨어져 살아도 가족과 연락하는 횟수는 그대로예요."
             },
             {
               "ko": "멀리 떨어져 살다 보니 가족이 더 소중하게 느껴지더라고요.",
@@ -19994,25 +19994,25 @@
           "options": [
             {
               "ko": "요즘 운동을 시작했는데, 확실히 컨디션이 좋아진 것 같아요.",
-              "de": "Ich hab neulich mit Sport angefangen und fühle mich deutlich fitter.",
-              "en": "I started working out recently and I definitely feel in better shape."
+              "de": "Ich habe vor Kurzem mit Sport angefangen und glaube, dass ich mich deutlich fitter fühle.",
+              "en": "I started exercising recently, and I think I feel noticeably better."
             },
             {
-              "ko": "나이 드니까 조금만 무리해도 몸이 바로 티가 나더라고요.",
-              "de": "Mit dem Alter merkt der Körper jede kleine Überanstrengung sofort.",
+              "ko": "나이가 드니까 조금만 무리해도 몸에 바로 티가 나더라고요.",
+              "de": "Seit ich älter werde, merke ich sofort, wenn ich mich auch nur ein wenig überanstrenge.",
               "en": "As I get older, my body shows it right away if I overdo it even a little."
             },
             {
               "ko": "별일 없는데도 괜히 마음이 싱숭생숭하네요.",
-              "de": "Obwohl nichts los ist, bin ich grundlos unruhig.",
-              "en": "Nothing's really wrong, yet I feel oddly restless."
+              "de": "Eigentlich ist nichts Besonderes passiert, aber ich fühle mich irgendwie unruhig.",
+              "en": "Nothing in particular has happened, yet I feel oddly restless."
             }
           ],
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “요즘 운동을 시작했는데, 확실히 컨디션이 좋아진 것 같아요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Ich hab neulich mit Sport angefangen und fühle mich deutlich fitter. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: I started working out recently and I definitely feel in better shape. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Ich habe vor Kurzem mit Sport angefangen und glaube, dass ich mich deutlich fitter fühle. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I started exercising recently, and I think I feel noticeably better. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0012"
@@ -20025,20 +20025,20 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“나이 드니까 조금만 무리해도 몸이 바로 티가 나더라고요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„나이 드니까 조금만 무리해도 몸이 바로 티가 나더라고요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“나이 드니까 조금만 무리해도 몸이 바로 티가 나더라고요.”\nWhich meaning matches the whole utterance?"
+            "ko": "“나이가 드니까 조금만 무리해도 몸에 바로 티가 나더라고요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„나이가 드니까 조금만 무리해도 몸에 바로 티가 나더라고요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“나이가 드니까 조금만 무리해도 몸에 바로 티가 나더라고요.”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
-              "ko": "나이 드니까 조금만 무리해도 몸이 바로 티가 나더라고요.",
-              "de": "Mit dem Alter merkt der Körper jede kleine Überanstrengung sofort.",
+              "ko": "나이가 드니까 조금만 무리해도 몸에 바로 티가 나더라고요.",
+              "de": "Seit ich älter werde, merke ich sofort, wenn ich mich auch nur ein wenig überanstrenge.",
               "en": "As I get older, my body shows it right away if I overdo it even a little."
             },
             {
               "ko": "요즘 운동을 시작했는데, 확실히 컨디션이 좋아진 것 같아요.",
-              "de": "Ich hab neulich mit Sport angefangen und fühle mich deutlich fitter.",
-              "en": "I started working out recently and I definitely feel in better shape."
+              "de": "Ich habe vor Kurzem mit Sport angefangen und glaube, dass ich mich deutlich fitter fühle.",
+              "en": "I started exercising recently, and I think I feel noticeably better."
             },
             {
               "ko": "퇴근하고 나면 아무것도 하기 싫어지더라고요.",
@@ -20048,15 +20048,15 @@
           ],
           "correctIndex": 0,
           "explanation": {
-            "ko": "이 표현의 내용은 “나이 드니까 조금만 무리해도 몸이 바로 티가 나더라고요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Mit dem Alter merkt der Körper jede kleine Überanstrengung sofort. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "ko": "이 표현의 내용은 “나이가 드니까 조금만 무리해도 몸에 바로 티가 나더라고요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Seit ich älter werde, merke ich sofort, wenn ich mich auch nur ein wenig überanstrenge. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: As I get older, my body shows it right away if I overdo it even a little. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0024"
           ],
-          "audioKo": "나이 드니까 조금만 무리해도 몸이 바로 티가 나더라고요.",
-          "evidenceKo": "나이 드니까 조금만 무리해도 몸이 바로 티가 나더라고요."
+          "audioKo": "나이가 드니까 조금만 무리해도 몸에 바로 티가 나더라고요.",
+          "evidenceKo": "나이가 드니까 조금만 무리해도 몸에 바로 티가 나더라고요."
         },
         {
           "id": "smalltalk.b2.health.body.situation",
@@ -20069,9 +20069,9 @@
           },
           "options": [
             {
-              "ko": "컨디션이 좋아졌으니 운동을 시작할 필요가 없어졌어요.",
-              "de": "컨디션이 좋아졌으니 운동을 시작할 필요가 없어졌어요.",
-              "en": "컨디션이 좋아졌으니 운동을 시작할 필요가 없어졌어요."
+              "ko": "컨디션이 좋아지면 다음 달부터 운동을 시작하려고 해요.",
+              "de": "컨디션이 좋아지면 다음 달부터 운동을 시작하려고 해요.",
+              "en": "컨디션이 좋아지면 다음 달부터 운동을 시작하려고 해요."
             },
             {
               "ko": "요즘 운동을 시작했는데, 확실히 컨디션이 좋아진 것 같아요.",
@@ -20087,8 +20087,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "“요즘 운동을 시작했는데, 확실히 컨디션이 좋아진 것 같아요.” — 운동을 시작한 뒤 컨디션이 좋아진 것 같다고 말해요.",
-            "de": "„요즘 운동을 시작했는데, 확실히 컨디션이 좋아진 것 같아요.“ bedeutet: Ich hab neulich mit Sport angefangen und fühle mich deutlich fitter.",
-            "en": "“요즘 운동을 시작했는데, 확실히 컨디션이 좋아진 것 같아요.” means: I started working out recently and I definitely feel in better shape."
+            "de": "„요즘 운동을 시작했는데, 확실히 컨디션이 좋아진 것 같아요.“ bedeutet: Ich habe vor Kurzem mit Sport angefangen und glaube, dass ich mich deutlich fitter fühle.",
+            "en": "“요즘 운동을 시작했는데, 확실히 컨디션이 좋아진 것 같아요.” means: I started exercising recently, and I think I feel noticeably better."
           },
           "sourceIds": [
             "smalltalk_b2_0012",
@@ -20289,9 +20289,9 @@
               "en": "컴백 무대는 관심 없어서 음악방송도 안 보게 돼요."
             },
             {
-              "ko": "음악방송을 보지 않으려고 컴백 무대만 기다리고 있어요.",
-              "de": "음악방송을 보지 않으려고 컴백 무대만 기다리고 있어요.",
-              "en": "음악방송을 보지 않으려고 컴백 무대만 기다리고 있어요."
+              "ko": "컴백 무대는 나중에 따로 보고 음악방송은 챙겨 보지 않아요.",
+              "de": "컴백 무대는 나중에 따로 보고 음악방송은 챙겨 보지 않아요.",
+              "en": "컴백 무대는 나중에 따로 보고 음악방송은 챙겨 보지 않아요."
             },
             {
               "ko": "컴백 무대 보려고 음악방송까지 챙겨 보게 되더라고요.",
@@ -20348,12 +20348,12 @@
           "options": [
             {
               "ko": "썸 타는 단계가 제일 설레는 것 같아요.",
-              "de": "Die 'Kennenlern-Phase' ist wohl am aufregendsten.",
-              "en": "The 'talking' stage is probably the most exciting."
+              "de": "Ich glaube, die Phase, in der man sich näherkommt, ohne schon ein Paar zu sein, ist am aufregendsten.",
+              "en": "I think the stage when you're getting closer but aren't a couple yet is the most exciting."
             },
             {
               "ko": "연애는 타이밍이 정말 중요한 것 같더라고요.",
-              "de": "Beim Dating ist Timing wirklich entscheidend.",
+              "de": "Ich habe den Eindruck, dass beim Dating das Timing wirklich wichtig ist.",
               "en": "In dating, timing really does seem to matter."
             },
             {
@@ -20365,8 +20365,8 @@
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “썸 타는 단계가 제일 설레는 것 같아요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Die 'Kennenlern-Phase' ist wohl am aufregendsten. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: The 'talking' stage is probably the most exciting. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Ich glaube, die Phase, in der man sich näherkommt, ohne schon ein Paar zu sein, ist am aufregendsten. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I think the stage when you're getting closer but aren't a couple yet is the most exciting. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0027"
@@ -20386,8 +20386,8 @@
           "options": [
             {
               "ko": "썸 타는 단계가 제일 설레는 것 같아요.",
-              "de": "Die 'Kennenlern-Phase' ist wohl am aufregendsten.",
-              "en": "The 'talking' stage is probably the most exciting."
+              "de": "Ich glaube, die Phase, in der man sich näherkommt, ohne schon ein Paar zu sein, ist am aufregendsten.",
+              "en": "I think the stage when you're getting closer but aren't a couple yet is the most exciting."
             },
             {
               "ko": "액수는 서로 말하지 않는 게 좋을 것 같아요.",
@@ -20396,14 +20396,14 @@
             },
             {
               "ko": "연애는 타이밍이 정말 중요한 것 같더라고요.",
-              "de": "Beim Dating ist Timing wirklich entscheidend.",
+              "de": "Ich habe den Eindruck, dass beim Dating das Timing wirklich wichtig ist.",
               "en": "In dating, timing really does seem to matter."
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “연애는 타이밍이 정말 중요한 것 같더라고요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Beim Dating ist Timing wirklich entscheidend. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Ich habe den Eindruck, dass beim Dating das Timing wirklich wichtig ist. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: In dating, timing really does seem to matter. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -20423,9 +20423,9 @@
           },
           "options": [
             {
-              "ko": "썸을 타기만 하면 누구나 바로 결혼을 결정해야 해요.",
-              "de": "썸을 타기만 하면 누구나 바로 결혼을 결정해야 해요.",
-              "en": "썸을 타기만 하면 누구나 바로 결혼을 결정해야 해요."
+              "ko": "서로 마음을 확인하기 전에는 오히려 불안한 편이에요.",
+              "de": "서로 마음을 확인하기 전에는 오히려 불안한 편이에요.",
+              "en": "서로 마음을 확인하기 전에는 오히려 불안한 편이에요."
             },
             {
               "ko": "썸 타는 단계가 제일 설레는 것 같아요.",
@@ -20433,16 +20433,16 @@
               "en": "썸 타는 단계가 제일 설레는 것 같아요."
             },
             {
-              "ko": "사귀기 전에는 아무 설렘도 없고 연애가 끝난 뒤에만 설레요.",
-              "de": "사귀기 전에는 아무 설렘도 없고 연애가 끝난 뒤에만 설레요.",
-              "en": "사귀기 전에는 아무 설렘도 없고 연애가 끝난 뒤에만 설레요."
+              "ko": "썸 탈 때보다는 사귀기 시작한 뒤가 더 설레는 것 같아요.",
+              "de": "썸 탈 때보다는 사귀기 시작한 뒤가 더 설레는 것 같아요.",
+              "en": "썸 탈 때보다는 사귀기 시작한 뒤가 더 설레는 것 같아요."
             }
           ],
           "correctIndex": 1,
           "explanation": {
             "ko": "“썸 타는 단계가 제일 설레는 것 같아요.” — 정식으로 사귀기 전 서로 마음을 알아가는 단계가 가장 설렌다고 말해요.",
-            "de": "„썸 타는 단계가 제일 설레는 것 같아요.“ bedeutet: Die 'Kennenlern-Phase' ist wohl am aufregendsten.",
-            "en": "“썸 타는 단계가 제일 설레는 것 같아요.” means: The 'talking' stage is probably the most exciting."
+            "de": "„썸 타는 단계가 제일 설레는 것 같아요.“ bedeutet: Ich glaube, die Phase, in der man sich näherkommt, ohne schon ein Paar zu sein, ist am aufregendsten.",
+            "en": "“썸 타는 단계가 제일 설레는 것 같아요.” means: I think the stage when you're getting closer but aren't a couple yet is the most exciting."
           },
           "sourceIds": [
             "smalltalk_b2_0027",
@@ -20492,11 +20492,11 @@
             {
               "ko": "압박 면접이라 너무 긴장됐어요.",
               "de": "Es war ein Stressinterview, ich war total angespannt.",
-              "en": "It was a pressure interview, so I was really tense."
+              "en": "It was a stress interview, so I was really nervous."
             },
             {
               "ko": "면접에선 솔직하면서도 자신감 있는 태도가 중요한 것 같아요.",
-              "de": "Im Interview ist eine ehrliche und zugleich selbstbewusste Haltung wichtig.",
+              "de": "Ich finde, im Vorstellungsgespräch ist es wichtig, ehrlich und zugleich selbstbewusst aufzutreten.",
               "en": "In interviews, an honest yet confident attitude seems to matter."
             }
           ],
@@ -20504,7 +20504,7 @@
           "explanation": {
             "ko": "이 표현의 내용은 “압박 면접이라 너무 긴장됐어요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: Es war ein Stressinterview, ich war total angespannt. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: It was a pressure interview, so I was really tense. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "en": "The meaning is: It was a stress interview, so I was really nervous. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0029"
@@ -20524,13 +20524,13 @@
           "options": [
             {
               "ko": "면접에선 솔직하면서도 자신감 있는 태도가 중요한 것 같아요.",
-              "de": "Im Interview ist eine ehrliche und zugleich selbstbewusste Haltung wichtig.",
+              "de": "Ich finde, im Vorstellungsgespräch ist es wichtig, ehrlich und zugleich selbstbewusst aufzutreten.",
               "en": "In interviews, an honest yet confident attitude seems to matter."
             },
             {
               "ko": "압박 면접이라 너무 긴장됐어요.",
               "de": "Es war ein Stressinterview, ich war total angespannt.",
-              "en": "It was a pressure interview, so I was really tense."
+              "en": "It was a stress interview, so I was really nervous."
             },
             {
               "ko": "이 경험을 성과로 말할지, 과정으로 말할지 고민이에요.",
@@ -20541,7 +20541,7 @@
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “면접에선 솔직하면서도 자신감 있는 태도가 중요한 것 같아요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Im Interview ist eine ehrliche und zugleich selbstbewusste Haltung wichtig. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Ich finde, im Vorstellungsgespräch ist es wichtig, ehrlich und zugleich selbstbewusst aufzutreten. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: In interviews, an honest yet confident attitude seems to matter. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -20567,13 +20567,13 @@
             },
             {
               "ko": "면접에선 솔직하면서도 자신감 있는 태도가 중요한 것 같아요.",
-              "de": "Im Interview ist eine ehrliche und zugleich selbstbewusste Haltung wichtig.",
+              "de": "Ich finde, im Vorstellungsgespräch ist es wichtig, ehrlich und zugleich selbstbewusst aufzutreten.",
               "en": "In interviews, an honest yet confident attitude seems to matter."
             },
             {
               "ko": "압박 면접이라 너무 긴장됐어요.",
               "de": "Es war ein Stressinterview, ich war total angespannt.",
-              "en": "It was a pressure interview, so I was really tense."
+              "en": "It was a stress interview, so I was really nervous."
             }
           ],
           "correctIndex": 0,
@@ -20618,7 +20618,7 @@
           "explanation": {
             "ko": "“압박 면접이라 너무 긴장됐어요.” — 압박 면접 때문에 매우 긴장했던 경험을 말해요.",
             "de": "„압박 면접이라 너무 긴장됐어요.“ bedeutet: Es war ein Stressinterview, ich war total angespannt.",
-            "en": "“압박 면접이라 너무 긴장됐어요.” means: It was a pressure interview, so I was really tense."
+            "en": "“압박 면접이라 너무 긴장됐어요.” means: It was a stress interview, so I was really nervous."
           },
           "sourceIds": [
             "smalltalk_b2_0029",
@@ -20673,15 +20673,15 @@
             },
             {
               "ko": "서류는 붙었는데 면접에서 자꾸 떨어지네요.",
-              "de": "Die Unterlagen kommen durch, aber im Interview falle ich immer wieder durch.",
-              "en": "I get past the resume screening but keep failing the interviews."
+              "de": "Mit meinen Bewerbungsunterlagen komme ich weiter, aber im Vorstellungsgespräch scheitere ich immer wieder.",
+              "en": "I get past the application screening, but keep getting rejected after interviews."
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “서류는 붙었는데 면접에서 자꾸 떨어지네요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Die Unterlagen kommen durch, aber im Interview falle ich immer wieder durch. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: I get past the resume screening but keep failing the interviews. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Mit meinen Bewerbungsunterlagen komme ich weiter, aber im Vorstellungsgespräch scheitere ich immer wieder. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I get past the application screening, but keep getting rejected after interviews. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0031"
@@ -20701,8 +20701,8 @@
           "options": [
             {
               "ko": "서류는 붙었는데 면접에서 자꾸 떨어지네요.",
-              "de": "Die Unterlagen kommen durch, aber im Interview falle ich immer wieder durch.",
-              "en": "I get past the resume screening but keep failing the interviews."
+              "de": "Mit meinen Bewerbungsunterlagen komme ich weiter, aber im Vorstellungsgespräch scheitere ich immer wieder.",
+              "en": "I get past the application screening, but keep getting rejected after interviews."
             },
             {
               "ko": "취준 기간이 길어지니까 좀 지치더라고요.",
@@ -20739,8 +20739,8 @@
           "options": [
             {
               "ko": "서류는 붙었는데 면접에서 자꾸 떨어지네요.",
-              "de": "Die Unterlagen kommen durch, aber im Interview falle ich immer wieder durch.",
-              "en": "I get past the resume screening but keep failing the interviews."
+              "de": "Mit meinen Bewerbungsunterlagen komme ich weiter, aber im Vorstellungsgespräch scheitere ich immer wieder.",
+              "en": "I get past the application screening, but keep getting rejected after interviews."
             },
             {
               "ko": "안정성만큼 일과 삶의 균형을 보는 지원자도 많아졌어요.",
@@ -20794,8 +20794,8 @@
           "correctIndex": 0,
           "explanation": {
             "ko": "“서류는 붙었는데 면접에서 자꾸 떨어지네요.” — 서류 심사는 통과하지만 면접에서는 반복해서 떨어진다고 말해요.",
-            "de": "„서류는 붙었는데 면접에서 자꾸 떨어지네요.“ bedeutet: Die Unterlagen kommen durch, aber im Interview falle ich immer wieder durch.",
-            "en": "“서류는 붙었는데 면접에서 자꾸 떨어지네요.” means: I get past the resume screening but keep failing the interviews."
+            "de": "„서류는 붙었는데 면접에서 자꾸 떨어지네요.“ bedeutet: Mit meinen Bewerbungsunterlagen komme ich weiter, aber im Vorstellungsgespräch scheitere ich immer wieder.",
+            "en": "“서류는 붙었는데 면접에서 자꾸 떨어지네요.” means: I get past the application screening, but keep getting rejected after interviews."
           },
           "sourceIds": [
             "smalltalk_b2_0031",
@@ -20845,7 +20845,7 @@
             },
             {
               "ko": "AI가 지원서를 먼저 봤다면 사람의 재검토도 요청할 수 있어요?",
-              "de": "Kann man eine menschliche Nachprüfung verlangen, wenn zuerst eine KI die Bewerbung prüft?",
+              "de": "Kann man eine menschliche Nachprüfung beantragen, wenn zuerst eine KI die Bewerbung prüft?",
               "en": "Can you request human review if AI screens the application first?"
             },
             {
@@ -20883,7 +20883,7 @@
             },
             {
               "ko": "AI가 지원서를 먼저 봤다면 사람의 재검토도 요청할 수 있어요?",
-              "de": "Kann man eine menschliche Nachprüfung verlangen, wenn zuerst eine KI die Bewerbung prüft?",
+              "de": "Kann man eine menschliche Nachprüfung beantragen, wenn zuerst eine KI die Bewerbung prüft?",
               "en": "Can you request human review if AI screens the application first?"
             },
             {
@@ -20895,7 +20895,7 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “AI가 지원서를 먼저 봤다면 사람의 재검토도 요청할 수 있어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Kann man eine menschliche Nachprüfung verlangen, wenn zuerst eine KI die Bewerbung prüft? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Kann man eine menschliche Nachprüfung beantragen, wenn zuerst eine KI die Bewerbung prüft? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Can you request human review if AI screens the application first? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -20916,7 +20916,7 @@
           "options": [
             {
               "ko": "AI가 지원서를 먼저 봤다면 사람의 재검토도 요청할 수 있어요?",
-              "de": "Kann man eine menschliche Nachprüfung verlangen, wenn zuerst eine KI die Bewerbung prüft?",
+              "de": "Kann man eine menschliche Nachprüfung beantragen, wenn zuerst eine KI die Bewerbung prüft?",
               "en": "Can you request human review if AI screens the application first?"
             },
             {
@@ -21100,8 +21100,8 @@
             },
             {
               "ko": "임대료 인상률만 보면 실제 주거 부담을 알 수 있을까요?",
-              "de": "Zeigt die Mieterhöhung allein die tatsächliche Wohnbelastung?",
-              "en": "Does the rent increase alone show the actual housing burden?"
+              "de": "Zeigt die Mieterhöhungsrate allein die tatsächliche Wohnkostenbelastung?",
+              "en": "Does the rate of rent increase alone show the actual housing-cost burden?"
             },
             {
               "ko": "새집을 볼 때 월세 말고 어떤 비용을 먼저 물어봐요?",
@@ -21138,8 +21138,8 @@
             },
             {
               "ko": "임대료 인상률만 보면 실제 주거 부담을 알 수 있을까요?",
-              "de": "Zeigt die Mieterhöhung allein die tatsächliche Wohnbelastung?",
-              "en": "Does the rent increase alone show the actual housing burden?"
+              "de": "Zeigt die Mieterhöhungsrate allein die tatsächliche Wohnkostenbelastung?",
+              "en": "Does the rate of rent increase alone show the actual housing-cost burden?"
             },
             {
               "ko": "공급 부족만으로 월세 상승을 설명해도 될까요?",
@@ -21150,8 +21150,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “임대료 인상률만 보면 실제 주거 부담을 알 수 있을까요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Zeigt die Mieterhöhung allein die tatsächliche Wohnbelastung? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Does the rent increase alone show the actual housing burden? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Zeigt die Mieterhöhungsrate allein die tatsächliche Wohnkostenbelastung? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Does the rate of rent increase alone show the actual housing-cost burden? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0113"
@@ -21176,8 +21176,8 @@
             },
             {
               "ko": "임대료 인상률만 보면 실제 주거 부담을 알 수 있을까요?",
-              "de": "Zeigt die Mieterhöhung allein die tatsächliche Wohnbelastung?",
-              "en": "Does the rent increase alone show the actual housing burden?"
+              "de": "Zeigt die Mieterhöhungsrate allein die tatsächliche Wohnkostenbelastung?",
+              "en": "Does the rate of rent increase alone show the actual housing-cost burden?"
             },
             {
               "ko": "공급 부족만으로 월세 상승을 설명해도 될까요?",
@@ -21208,9 +21208,9 @@
           },
           "options": [
             {
-              "ko": "정리할 게 너무 적어서 이사를 취소하려고 해요.",
-              "de": "정리할 게 너무 적어서 이사를 취소하려고 해요.",
-              "en": "정리할 게 너무 적어서 이사를 취소하려고 해요."
+              "ko": "아직 이사 전인데 짐 정리보다 새집 계약이 더 걱정이에요.",
+              "de": "아직 이사 전인데 짐 정리보다 새집 계약이 더 걱정이에요.",
+              "en": "아직 이사 전인데 짐 정리보다 새집 계약이 더 걱정이에요."
             },
             {
               "ko": "이사하고 나니까 정리할 게 산더미예요.",
@@ -21273,8 +21273,8 @@
           "options": [
             {
               "ko": "요즘 출근길이 너무 막혀서 평소보다 일찍 나서게 되더라고요.",
-              "de": "Der Weg zur Arbeit ist gerade so verstopft, dass ich früher losgehe als sonst.",
-              "en": "The commute's so jammed lately that I end up leaving earlier than usual."
+              "de": "Auf dem Weg zur Arbeit gibt es zurzeit so viel Stau, dass ich mich früher als sonst auf den Weg mache.",
+              "en": "There's been so much traffic on my way to work lately that I leave earlier than usual."
             },
             {
               "ko": "요즘 환절기라 병원에 사람이 너무 많더라고요.",
@@ -21348,9 +21348,9 @@
           },
           "options": [
             {
-              "ko": "병원에 사람이 많아서 계절이 바뀐 것이 확실해요.",
-              "de": "병원에 사람이 많아서 계절이 바뀐 것이 확실해요.",
-              "en": "병원에 사람이 많아서 계절이 바뀐 것이 확실해요."
+              "ko": "요즘 병원에 사람이 많다는데 저는 아직 가보지 못했어요.",
+              "de": "요즘 병원에 사람이 많다는데 저는 아직 가보지 못했어요.",
+              "en": "요즘 병원에 사람이 많다는데 저는 아직 가보지 못했어요."
             },
             {
               "ko": "요즘 환절기라 병원에 사람이 너무 많더라고요.",
@@ -21414,9 +21414,9 @@
               "en": "How much do you pay each month on top of the base rent?"
             },
             {
-              "ko": "교통 상황이 불확실할 때는 약속 시간보다 일찍 출발하는 편입니다.",
-              "de": "Wenn die Verkehrslage unsicher ist, fahre ich lieber früher los als verabredet.",
-              "en": "When traffic is uncertain, I tend to leave earlier than the meeting time requires."
+              "ko": "교통 상황을 예측하기 어려울 때는 평소보다 일찍 출발하는 편입니다.",
+              "de": "Wenn die Verkehrslage schwer einzuschätzen ist, mache ich mich meist früher als üblich auf den Weg.",
+              "en": "When traffic is hard to predict, I tend to leave earlier than usual."
             },
             {
               "ko": "이 열차가 공항까지 가는 가장 빠른 경로인지 확인해 주시겠습니까?",
@@ -21441,9 +21441,9 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“교통 상황이 불확실할 때는 약속 시간보다 일찍 출발하는 편입니다.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„교통 상황이 불확실할 때는 약속 시간보다 일찍 출발하는 편입니다.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“교통 상황이 불확실할 때는 약속 시간보다 일찍 출발하는 편입니다.”\nWhich meaning matches the whole utterance?"
+            "ko": "“교통 상황을 예측하기 어려울 때는 평소보다 일찍 출발하는 편입니다.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„교통 상황을 예측하기 어려울 때는 평소보다 일찍 출발하는 편입니다.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“교통 상황을 예측하기 어려울 때는 평소보다 일찍 출발하는 편입니다.”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
@@ -21452,9 +21452,9 @@
               "en": "Could you confirm whether this train is the fastest route to the airport?"
             },
             {
-              "ko": "교통 상황이 불확실할 때는 약속 시간보다 일찍 출발하는 편입니다.",
-              "de": "Wenn die Verkehrslage unsicher ist, fahre ich lieber früher los als verabredet.",
-              "en": "When traffic is uncertain, I tend to leave earlier than the meeting time requires."
+              "ko": "교통 상황을 예측하기 어려울 때는 평소보다 일찍 출발하는 편입니다.",
+              "de": "Wenn die Verkehrslage schwer einzuschätzen ist, mache ich mich meist früher als üblich auf den Weg.",
+              "en": "When traffic is hard to predict, I tend to leave earlier than usual."
             },
             {
               "ko": "출근 시간이 줄어도 난방비가 크면 절약이 아니겠네요.",
@@ -21464,15 +21464,15 @@
           ],
           "correctIndex": 1,
           "explanation": {
-            "ko": "이 표현의 내용은 “교통 상황이 불확실할 때는 약속 시간보다 일찍 출발하는 편입니다.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wenn die Verkehrslage unsicher ist, fahre ich lieber früher los als verabredet. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: When traffic is uncertain, I tend to leave earlier than the meeting time requires. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “교통 상황을 예측하기 어려울 때는 평소보다 일찍 출발하는 편입니다.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Wenn die Verkehrslage schwer einzuschätzen ist, mache ich mich meist früher als üblich auf den Weg. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: When traffic is hard to predict, I tend to leave earlier than usual. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0038"
           ],
-          "audioKo": "교통 상황이 불확실할 때는 약속 시간보다 일찍 출발하는 편입니다.",
-          "evidenceKo": "교통 상황이 불확실할 때는 약속 시간보다 일찍 출발하는 편입니다."
+          "audioKo": "교통 상황을 예측하기 어려울 때는 평소보다 일찍 출발하는 편입니다.",
+          "evidenceKo": "교통 상황을 예측하기 어려울 때는 평소보다 일찍 출발하는 편입니다."
         },
         {
           "id": "smalltalk.b2.transport.timing.situation",
@@ -21546,9 +21546,9 @@
           },
           "options": [
             {
-              "ko": "교통 상황이 불확실할 때는 약속 시간보다 일찍 출발하는 편입니다.",
-              "de": "Wenn die Verkehrslage unsicher ist, fahre ich lieber früher los als verabredet.",
-              "en": "When traffic is uncertain, I tend to leave earlier than the meeting time requires."
+              "ko": "교통 상황을 예측하기 어려울 때는 평소보다 일찍 출발하는 편입니다.",
+              "de": "Wenn die Verkehrslage schwer einzuschätzen ist, mache ich mich meist früher als üblich auf den Weg.",
+              "en": "When traffic is hard to predict, I tend to leave earlier than usual."
             },
             {
               "ko": "그 집은 월세 말고 매달 더 내는 돈이 얼마나 돼요?",
@@ -21589,9 +21589,9 @@
               "en": "A shorter commute is not a saving if the heating bill is high."
             },
             {
-              "ko": "교통 상황이 불확실할 때는 약속 시간보다 일찍 출발하는 편입니다.",
-              "de": "Wenn die Verkehrslage unsicher ist, fahre ich lieber früher los als verabredet.",
-              "en": "When traffic is uncertain, I tend to leave earlier than the meeting time requires."
+              "ko": "교통 상황을 예측하기 어려울 때는 평소보다 일찍 출발하는 편입니다.",
+              "de": "Wenn die Verkehrslage schwer einzuschätzen ist, mache ich mich meist früher als üblich auf den Weg.",
+              "en": "When traffic is hard to predict, I tend to leave earlier than usual."
             },
             {
               "ko": "이 열차가 공항까지 가는 가장 빠른 경로인지 확인해 주시겠습니까?",
@@ -21733,15 +21733,15 @@
             },
             {
               "ko": "값보다 환불 조건을 먼저 확인하는 편이에요.",
-              "de": "Ich prüfe meist zuerst die Rückgabebedingungen und nicht nur den Preis.",
-              "en": "I tend to check the return conditions before the price."
+              "de": "Ich prüfe meist die Bedingungen für eine Rückerstattung, bevor ich auf den Preis schaue.",
+              "en": "I tend to check the refund conditions before the price."
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “값보다 환불 조건을 먼저 확인하는 편이에요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Ich prüfe meist zuerst die Rückgabebedingungen und nicht nur den Preis. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: I tend to check the return conditions before the price. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Ich prüfe meist die Bedingungen für eine Rückerstattung, bevor ich auf den Preis schaue. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I tend to check the refund conditions before the price. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0040"
@@ -21766,8 +21766,8 @@
             },
             {
               "ko": "값보다 환불 조건을 먼저 확인하는 편이에요.",
-              "de": "Ich prüfe meist zuerst die Rückgabebedingungen und nicht nur den Preis.",
-              "en": "I tend to check the return conditions before the price."
+              "de": "Ich prüfe meist die Bedingungen für eine Rückerstattung, bevor ich auf den Preis schaue.",
+              "en": "I tend to check the refund conditions before the price."
             },
             {
               "ko": "재부팅은 임시 조치일 뿐이라서 근본 원인을 따로 확인해야 합니다.",
@@ -21982,8 +21982,8 @@
             },
             {
               "ko": "값보다 환불 조건을 먼저 확인하는 편이에요.",
-              "de": "Ich prüfe meist zuerst die Rückgabebedingungen und nicht nur den Preis.",
-              "en": "I tend to check the return conditions before the price."
+              "de": "Ich prüfe meist die Bedingungen für eine Rückerstattung, bevor ich auf den Preis schaue.",
+              "en": "I tend to check the refund conditions before the price."
             },
             {
               "ko": "재부팅은 임시 조치일 뿐이라서 근본 원인을 따로 확인해야 합니다.",
@@ -22014,14 +22014,14 @@
           },
           "options": [
             {
-              "ko": "제품의 결함은 검토하지 말고 같은 상품을 바로 더 보내 주시겠습니까?",
-              "de": "제품의 결함은 검토하지 말고 같은 상품을 바로 더 보내 주시겠습니까?",
-              "en": "제품의 결함은 검토하지 말고 같은 상품을 바로 더 보내 주시겠습니까?"
+              "ko": "제품에 결함이 없다는 검사 결과를 서면으로 보내 주시겠습니까?",
+              "de": "제품에 결함이 없다는 검사 결과를 서면으로 보내 주시겠습니까?",
+              "en": "제품에 결함이 없다는 검사 결과를 서면으로 보내 주시겠습니까?"
             },
             {
-              "ko": "담당 부서의 검토가 끝났으니 더 이상 결함을 기록하지 않겠습니다.",
-              "de": "담당 부서의 검토가 끝났으니 더 이상 결함을 기록하지 않겠습니다.",
-              "en": "담당 부서의 검토가 끝났으니 더 이상 결함을 기록하지 않겠습니다."
+              "ko": "담당 부서의 검토가 끝났으니 결과를 설명해 주시겠습니까?",
+              "de": "담당 부서의 검토가 끝났으니 결과를 설명해 주시겠습니까?",
+              "en": "담당 부서의 검토가 끝났으니 결과를 설명해 주시겠습니까?"
             },
             {
               "ko": "제품의 결함에 대해 담당 부서의 검토를 요청드려도 되겠습니까?",
@@ -22084,7 +22084,7 @@
             },
             {
               "ko": "지금 통화가 어려우시면 가능한 시간을 알려 주시겠습니까?",
-              "de": "Wenn ein Gespräch jetzt schwierig ist, könnten Sie mir bitte eine mögliche Uhrzeit nennen?",
+              "de": "Wenn Sie jetzt nicht telefonieren können, könnten Sie mir bitte einen passenden Zeitpunkt nennen?",
               "en": "If it is difficult to talk now, could you please let me know a suitable time?"
             },
             {
@@ -22096,7 +22096,7 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “지금 통화가 어려우시면 가능한 시간을 알려 주시겠습니까?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wenn ein Gespräch jetzt schwierig ist, könnten Sie mir bitte eine mögliche Uhrzeit nennen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Wenn Sie jetzt nicht telefonieren können, könnten Sie mir bitte einen passenden Zeitpunkt nennen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: If it is difficult to talk now, could you please let me know a suitable time? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -22148,9 +22148,9 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“지금 통화가 괜찮으신지, 아니면 오후에 다시 걸까요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„지금 통화가 괜찮으신지, 아니면 오후에 다시 걸까요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“지금 통화가 괜찮으신지, 아니면 오후에 다시 걸까요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“지금 통화 괜찮으세요, 아니면 오후에 다시 걸까요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„지금 통화 괜찮으세요, 아니면 오후에 다시 걸까요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“지금 통화 괜찮으세요, 아니면 오후에 다시 걸까요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
@@ -22159,27 +22159,27 @@
               "en": "What procedure should I follow if I want to appeal the decision?"
             },
             {
-              "ko": "언제까지 어떤 보완 조치를 완료하실 예정인지 알려 주시겠습니까?",
-              "de": "Könnten Sie mir mitteilen, welche ergänzenden Maßnahmen Sie bis wann abschließen wollen?",
-              "en": "Could you let me know which additional corrective measures you plan to complete and by when?"
+              "ko": "접수된 민원의 처리 현황을 서면으로 안내해 주시겠습니까?",
+              "de": "Könnten Sie mich schriftlich über den Bearbeitungsstand der eingereichten Beschwerde informieren?",
+              "en": "Could you provide a written update on the status of the complaint that was submitted?"
             },
             {
-              "ko": "지금 통화가 괜찮으신지, 아니면 오후에 다시 걸까요?",
+              "ko": "지금 통화 괜찮으세요, 아니면 오후에 다시 걸까요?",
               "de": "Passt das Gespräch jetzt, oder soll ich nachmittags noch einmal anrufen?",
               "en": "Is now a good time to talk, or should I call again this afternoon?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
-            "ko": "이 표현의 내용은 “지금 통화가 괜찮으신지, 아니면 오후에 다시 걸까요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "ko": "이 표현의 내용은 “지금 통화 괜찮으세요, 아니면 오후에 다시 걸까요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: Passt das Gespräch jetzt, oder soll ich nachmittags noch einmal anrufen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Is now a good time to talk, or should I call again this afternoon? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0100"
           ],
-          "audioKo": "지금 통화가 괜찮으신지, 아니면 오후에 다시 걸까요?",
-          "evidenceKo": "지금 통화가 괜찮으신지, 아니면 오후에 다시 걸까요?"
+          "audioKo": "지금 통화 괜찮으세요, 아니면 오후에 다시 걸까요?",
+          "evidenceKo": "지금 통화 괜찮으세요, 아니면 오후에 다시 걸까요?"
         },
         {
           "id": "smalltalk.b2.phone.calltime.situation",
@@ -22202,15 +22202,15 @@
               "en": "지금 통화가 어려워도 이 시간에 반드시 답해 주셔야 합니다."
             },
             {
-              "ko": "가능한 시간은 알려 주지 마시고 다음 연락을 기다려 주세요.",
-              "de": "가능한 시간은 알려 주지 마시고 다음 연락을 기다려 주세요.",
-              "en": "가능한 시간은 알려 주지 마시고 다음 연락을 기다려 주세요."
+              "ko": "지금 제가 통화하기 어려우니 나중에 다시 연락드리겠습니다.",
+              "de": "지금 제가 통화하기 어려우니 나중에 다시 연락드리겠습니다.",
+              "en": "지금 제가 통화하기 어려우니 나중에 다시 연락드리겠습니다."
             }
           ],
           "correctIndex": 0,
           "explanation": {
             "ko": "“지금 통화가 어려우시면 가능한 시간을 알려 주시겠습니까?” — 지금 통화가 어려우면 가능한 시간을 알려 달라고 정중하게 요청해요.",
-            "de": "„지금 통화가 어려우시면 가능한 시간을 알려 주시겠습니까?“ bedeutet: Wenn ein Gespräch jetzt schwierig ist, könnten Sie mir bitte eine mögliche Uhrzeit nennen?",
+            "de": "„지금 통화가 어려우시면 가능한 시간을 알려 주시겠습니까?“ bedeutet: Wenn Sie jetzt nicht telefonieren können, könnten Sie mir bitte einen passenden Zeitpunkt nennen?",
             "en": "“지금 통화가 어려우시면 가능한 시간을 알려 주시겠습니까?” means: If it is difficult to talk now, could you please let me know a suitable time?"
           },
           "sourceIds": [
@@ -22268,7 +22268,7 @@
             },
             {
               "ko": "지금 통화가 어려우시면 가능한 시간을 알려 주시겠습니까?",
-              "de": "Wenn ein Gespräch jetzt schwierig ist, könnten Sie mir bitte eine mögliche Uhrzeit nennen?",
+              "de": "Wenn Sie jetzt nicht telefonieren können, könnten Sie mir bitte einen passenden Zeitpunkt nennen?",
               "en": "If it is difficult to talk now, could you please let me know a suitable time?"
             }
           ],
@@ -22296,7 +22296,7 @@
           "options": [
             {
               "ko": "지금 통화가 어려우시면 가능한 시간을 알려 주시겠습니까?",
-              "de": "Wenn ein Gespräch jetzt schwierig ist, könnten Sie mir bitte eine mögliche Uhrzeit nennen?",
+              "de": "Wenn Sie jetzt nicht telefonieren können, könnten Sie mir bitte einen passenden Zeitpunkt nennen?",
               "en": "If it is difficult to talk now, could you please let me know a suitable time?"
             },
             {
@@ -22377,7 +22377,7 @@
             },
             {
               "ko": "지금 통화가 어려우시면 가능한 시간을 알려 주시겠습니까?",
-              "de": "Wenn ein Gespräch jetzt schwierig ist, könnten Sie mir bitte eine mögliche Uhrzeit nennen?",
+              "de": "Wenn Sie jetzt nicht telefonieren können, könnten Sie mir bitte einen passenden Zeitpunkt nennen?",
               "en": "If it is difficult to talk now, could you please let me know a suitable time?"
             },
             {
@@ -22549,9 +22549,9 @@
           },
           "options": [
             {
-              "ko": "교통 상황이 불확실할 때는 약속 시간보다 일찍 출발하는 편입니다.",
-              "de": "Wenn die Verkehrslage unsicher ist, fahre ich lieber früher los als verabredet.",
-              "en": "When traffic is uncertain, I tend to leave earlier than the meeting time requires."
+              "ko": "요즘 환절기라 병원에 사람이 너무 많더라고요.",
+              "de": "Wegen des Jahreszeitenwechsels ist beim Arzt gerade viel los.",
+              "en": "With the season changing, the clinic's been packed lately."
             },
             {
               "ko": "비상 상황에서는 정확한 위치와 상황을 먼저 설명하는 것이 중요하더라고요.",
@@ -22656,8 +22656,8 @@
             },
             {
               "ko": "시댁하고 친정 일정을 어떻게 나누는 게 공평할까요?",
-              "de": "Wie teilen wir die Besuche bei beiden Familien gerecht auf?",
-              "en": "How do we split visits between both families fairly?"
+              "de": "Wie teilen wir die Besuche bei der Familie meines Mannes und bei meiner eigenen Familie gerecht auf?",
+              "en": "How can we fairly split visits between my husband's family and my own?"
             },
             {
               "ko": "밖에서는 저를 어떻게 소개하시는 게 편하세요?",
@@ -22668,8 +22668,8 @@
           "correctIndex": 1,
           "explanation": {
             "ko": "이 표현의 내용은 “시댁하고 친정 일정을 어떻게 나누는 게 공평할까요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wie teilen wir die Besuche bei beiden Familien gerecht auf? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: How do we split visits between both families fairly? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Wie teilen wir die Besuche bei der Familie meines Mannes und bei meiner eigenen Familie gerecht auf? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: How can we fairly split visits between my husband's family and my own? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0083"
@@ -22689,8 +22689,8 @@
           "options": [
             {
               "ko": "한쪽 집에만 자주 가면 나중에 서운해하실 것 같아요.",
-              "de": "Wenn wir immer nur zu einer Seite fahren, ist die andere irgendwann gekränkt.",
-              "en": "If we only ever visit one side, the other will end up hurt."
+              "de": "Wenn wir häufig nur eine Seite besuchen, könnte die andere mit der Zeit enttäuscht sein.",
+              "en": "If we keep visiting only one side of the family, the other might feel hurt over time."
             },
             {
               "ko": "액수는 서로 말하지 않는 게 좋을 것 같아요.",
@@ -22699,15 +22699,15 @@
             },
             {
               "ko": "순서를 다 몰라도 예는 갖추고 싶어요.",
-              "de": "Auch wenn ich den Ablauf nicht kenne, möchte ich die Form wahren.",
+              "de": "Auch wenn ich den Ablauf nicht vollständig kenne, möchte ich mich respektvoll verhalten.",
               "en": "Even if I don't know the order, I want to show proper respect."
             }
           ],
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “한쪽 집에만 자주 가면 나중에 서운해하실 것 같아요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wenn wir immer nur zu einer Seite fahren, ist die andere irgendwann gekränkt. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: If we only ever visit one side, the other will end up hurt. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Wenn wir häufig nur eine Seite besuchen, könnte die andere mit der Zeit enttäuscht sein. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: If we keep visiting only one side of the family, the other might feel hurt over time. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0084"
@@ -22732,20 +22732,20 @@
             },
             {
               "ko": "시댁하고 친정 일정을 어떻게 나누는 게 공평할까요?",
-              "de": "Wie teilen wir die Besuche bei beiden Familien gerecht auf?",
-              "en": "How do we split visits between both families fairly?"
+              "de": "Wie teilen wir die Besuche bei der Familie meines Mannes und bei meiner eigenen Familie gerecht auf?",
+              "en": "How can we fairly split visits between my husband's family and my own?"
             },
             {
               "ko": "상견례는 양쪽이 준비됐을 때 하는 게 맞겠죠?",
               "de": "Das formelle Treffen der Eltern sollte erst stattfinden, wenn beide Seiten so weit sind, oder?",
-              "en": "The formal meeting between both parents should wait until both sides are ready, right?"
+              "en": "The formal meeting between both families should wait until both sides are ready, right?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “상견례는 양쪽이 준비됐을 때 하는 게 맞겠죠?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: Das formelle Treffen der Eltern sollte erst stattfinden, wenn beide Seiten so weit sind, oder? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: The formal meeting between both parents should wait until both sides are ready, right? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "en": "The meaning is: The formal meeting between both families should wait until both sides are ready, right? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0085"
@@ -22820,8 +22820,8 @@
           "correctIndex": 2,
           "explanation": {
             "ko": "“시댁하고 친정 일정을 어떻게 나누는 게 공평할까요?” — 배우자 쪽과 내 쪽 가족 방문 시간을 공평하게 나눌 방법을 물어봐요.",
-            "de": "„시댁하고 친정 일정을 어떻게 나누는 게 공평할까요?“ bedeutet: Wie teilen wir die Besuche bei beiden Familien gerecht auf?",
-            "en": "“시댁하고 친정 일정을 어떻게 나누는 게 공평할까요?” means: How do we split visits between both families fairly?"
+            "de": "„시댁하고 친정 일정을 어떻게 나누는 게 공평할까요?“ bedeutet: Wie teilen wir die Besuche bei der Familie meines Mannes und bei meiner eigenen Familie gerecht auf?",
+            "en": "“시댁하고 친정 일정을 어떻게 나누는 게 공평할까요?” means: How can we fairly split visits between my husband's family and my own?"
           },
           "sourceIds": [
             "smalltalk_b2_0083",
@@ -22868,7 +22868,7 @@
           "options": [
             {
               "ko": "호칭을 잘못 쓰면 바로 알려 주시겠어요?",
-              "de": "Sagen Sie mir bitte gleich, wenn ich die falsche Anrede benutze?",
+              "de": "Würden Sie mir bitte gleich sagen, wenn ich die falsche Anrede benutze?",
               "en": "Would you tell me right away if I use the wrong term of address?"
             },
             {
@@ -22885,7 +22885,7 @@
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “호칭을 잘못 쓰면 바로 알려 주시겠어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Sagen Sie mir bitte gleich, wenn ich die falsche Anrede benutze? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Würden Sie mir bitte gleich sagen, wenn ich die falsche Anrede benutze? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Would you tell me right away if I use the wrong term of address? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -22906,7 +22906,7 @@
           "options": [
             {
               "ko": "순서를 다 몰라도 예는 갖추고 싶어요.",
-              "de": "Auch wenn ich den Ablauf nicht kenne, möchte ich die Form wahren.",
+              "de": "Auch wenn ich den Ablauf nicht vollständig kenne, möchte ich mich respektvoll verhalten.",
               "en": "Even if I don't know the order, I want to show proper respect."
             },
             {
@@ -22945,7 +22945,7 @@
             {
               "ko": "상견례는 양쪽이 준비됐을 때 하는 게 맞겠죠?",
               "de": "Das formelle Treffen der Eltern sollte erst stattfinden, wenn beide Seiten so weit sind, oder?",
-              "en": "The formal meeting between both parents should wait until both sides are ready, right?"
+              "en": "The formal meeting between both families should wait until both sides are ready, right?"
             },
             {
               "ko": "제사상 차릴 때 제가 도울 수 있는 일이 있을까요?",
@@ -22954,8 +22954,8 @@
             },
             {
               "ko": "시댁하고 친정 일정을 어떻게 나누는 게 공평할까요?",
-              "de": "Wie teilen wir die Besuche bei beiden Familien gerecht auf?",
-              "en": "How do we split visits between both families fairly?"
+              "de": "Wie teilen wir die Besuche bei der Familie meines Mannes und bei meiner eigenen Familie gerecht auf?",
+              "en": "How can we fairly split visits between my husband's family and my own?"
             }
           ],
           "correctIndex": 1,
@@ -22982,7 +22982,7 @@
           "options": [
             {
               "ko": "순서를 다 몰라도 예는 갖추고 싶어요.",
-              "de": "Auch wenn ich den Ablauf nicht kenne, möchte ich die Form wahren.",
+              "de": "Auch wenn ich den Ablauf nicht vollständig kenne, möchte ich mich respektvoll verhalten.",
               "en": "Even if I don't know the order, I want to show proper respect."
             },
             {
@@ -22999,7 +22999,7 @@
           "correctIndex": 0,
           "explanation": {
             "ko": "이 표현의 내용은 “순서를 다 몰라도 예는 갖추고 싶어요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Auch wenn ich den Ablauf nicht kenne, möchte ich die Form wahren. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "de": "Gemeint ist: Auch wenn ich den Ablauf nicht vollständig kenne, möchte ich mich respektvoll verhalten. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Even if I don't know the order, I want to show proper respect. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
@@ -23037,7 +23037,7 @@
           "correctIndex": 2,
           "explanation": {
             "ko": "“호칭을 잘못 쓰면 바로 알려 주시겠어요?” — 호칭을 잘못 사용하면 바로 알려 달라고 부탁해요.",
-            "de": "„호칭을 잘못 쓰면 바로 알려 주시겠어요?“ bedeutet: Sagen Sie mir bitte gleich, wenn ich die falsche Anrede benutze?",
+            "de": "„호칭을 잘못 쓰면 바로 알려 주시겠어요?“ bedeutet: Würden Sie mir bitte gleich sagen, wenn ich die falsche Anrede benutze?",
             "en": "“호칭을 잘못 쓰면 바로 알려 주시겠어요?” means: Would you tell me right away if I use the wrong term of address?"
           },
           "sourceIds": [
@@ -23090,20 +23090,20 @@
             },
             {
               "ko": "시댁하고 친정 일정을 어떻게 나누는 게 공평할까요?",
-              "de": "Wie teilen wir die Besuche bei beiden Familien gerecht auf?",
-              "en": "How do we split visits between both families fairly?"
+              "de": "Wie teilen wir die Besuche bei der Familie meines Mannes und bei meiner eigenen Familie gerecht auf?",
+              "en": "How can we fairly split visits between my husband's family and my own?"
             },
             {
               "ko": "용돈은 얼마나 드리는 게 보통이에요?",
-              "de": "Wie viel Taschengeld gibt man üblicherweise?",
-              "en": "How much do people usually give as spending money?"
+              "de": "Wie viel Geld schenkt man den Eltern üblicherweise zur freien Verfügung?",
+              "en": "How much spending money do people usually give their parents?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
             "ko": "이 표현의 내용은 “용돈은 얼마나 드리는 게 보통이에요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wie viel Taschengeld gibt man üblicherweise? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: How much do people usually give as spending money? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "de": "Gemeint ist: Wie viel Geld schenkt man den Eltern üblicherweise zur freien Verfügung? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: How much spending money do people usually give their parents? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b2_0091"
@@ -23171,8 +23171,8 @@
             },
             {
               "ko": "용돈은 얼마나 드리는 게 보통이에요?",
-              "de": "Wie viel Taschengeld gibt man üblicherweise?",
-              "en": "How much do people usually give as spending money?"
+              "de": "Wie viel Geld schenkt man den Eltern üblicherweise zur freien Verfügung?",
+              "en": "How much spending money do people usually give their parents?"
             }
           ],
           "correctIndex": 0,
@@ -23241,9 +23241,9 @@
               "en": "용돈은 보통 어느 은행으로 보내 드려요?"
             },
             {
-              "ko": "용돈을 드린 뒤에는 반드시 돌려받아야 하나요?",
-              "de": "용돈을 드린 뒤에는 반드시 돌려받아야 하나요?",
-              "en": "용돈을 드린 뒤에는 반드시 돌려받아야 하나요?"
+              "ko": "용돈은 명절에만 드리는 편인가요, 아니면 매달 드리나요?",
+              "de": "용돈은 명절에만 드리는 편인가요, 아니면 매달 드리나요?",
+              "en": "용돈은 명절에만 드리는 편인가요, 아니면 매달 드리나요?"
             },
             {
               "ko": "용돈은 얼마나 드리는 게 보통이에요?",
@@ -23254,8 +23254,8 @@
           "correctIndex": 2,
           "explanation": {
             "ko": "“용돈은 얼마나 드리는 게 보통이에요?” — 용돈으로 보통 얼마를 드리는지 물어봐요.",
-            "de": "„용돈은 얼마나 드리는 게 보통이에요?“ bedeutet: Wie viel Taschengeld gibt man üblicherweise?",
-            "en": "“용돈은 얼마나 드리는 게 보통이에요?” means: How much do people usually give as spending money?"
+            "de": "„용돈은 얼마나 드리는 게 보통이에요?“ bedeutet: Wie viel Geld schenkt man den Eltern üblicherweise zur freien Verfügung?",
+            "en": "“용돈은 얼마나 드리는 게 보통이에요?” means: How much spending money do people usually give their parents?"
           },
           "sourceIds": [
             "smalltalk_b2_0091",
@@ -23312,8 +23312,8 @@
             },
             {
               "ko": "시댁하고 친정 일정을 어떻게 나누는 게 공평할까요?",
-              "de": "Wie teilen wir die Besuche bei beiden Familien gerecht auf?",
-              "en": "How do we split visits between both families fairly?"
+              "de": "Wie teilen wir die Besuche bei der Familie meines Mannes und bei meiner eigenen Familie gerecht auf?",
+              "en": "How can we fairly split visits between my husband's family and my own?"
             }
           ],
           "correctIndex": 1,
@@ -23345,7 +23345,7 @@
             },
             {
               "ko": "순서를 다 몰라도 예는 갖추고 싶어요.",
-              "de": "Auch wenn ich den Ablauf nicht kenne, möchte ich die Form wahren.",
+              "de": "Auch wenn ich den Ablauf nicht vollständig kenne, möchte ich mich respektvoll verhalten.",
               "en": "Even if I don't know the order, I want to show proper respect."
             },
             {
@@ -23378,13 +23378,13 @@
           "options": [
             {
               "ko": "시댁하고 친정 일정을 어떻게 나누는 게 공평할까요?",
-              "de": "Wie teilen wir die Besuche bei beiden Familien gerecht auf?",
-              "en": "How do we split visits between both families fairly?"
+              "de": "Wie teilen wir die Besuche bei der Familie meines Mannes und bei meiner eigenen Familie gerecht auf?",
+              "en": "How can we fairly split visits between my husband's family and my own?"
             },
             {
               "ko": "상견례는 양쪽이 준비됐을 때 하는 게 맞겠죠?",
               "de": "Das formelle Treffen der Eltern sollte erst stattfinden, wenn beide Seiten so weit sind, oder?",
-              "en": "The formal meeting between both parents should wait until both sides are ready, right?"
+              "en": "The formal meeting between both families should wait until both sides are ready, right?"
             },
             {
               "ko": "밖에서는 저를 어떻게 소개하시는 게 편하세요?",
@@ -23453,14 +23453,14 @@
           },
           "options": [
             {
-              "ko": "관계가 나빠지더라도 상대가 불편하도록 거절하려면 어떻게 말할까요?",
-              "de": "관계가 나빠지더라도 상대가 불편하도록 거절하려면 어떻게 말할까요?",
-              "en": "관계가 나빠지더라도 상대가 불편하도록 거절하려면 어떻게 말할까요?"
+              "ko": "이미 거절한 뒤로 사이가 어색한데 먼저 사과하는 게 좋을까요?",
+              "de": "이미 거절한 뒤로 사이가 어색한데 먼저 사과하는 게 좋을까요?",
+              "en": "이미 거절한 뒤로 사이가 어색한데 먼저 사과하는 게 좋을까요?"
             },
             {
-              "ko": "거절하지 않고 언제나 모두 받아들이겠다고 어떻게 약속할까요?",
-              "de": "거절하지 않고 언제나 모두 받아들이겠다고 어떻게 약속할까요?",
-              "en": "거절하지 않고 언제나 모두 받아들이겠다고 어떻게 약속할까요?"
+              "ko": "이번 부탁은 받아들이려고 하는데 어떻게 답하면 좋을까요?",
+              "de": "이번 부탁은 받아들이려고 하는데 어떻게 답하면 좋을까요?",
+              "en": "이번 부탁은 받아들이려고 하는데 어떻게 답하면 좋을까요?"
             },
             {
               "ko": "선을 긋고도 사이가 나빠지지 않으려면 어떻게 말해야 할까요?",
@@ -24026,9 +24026,9 @@
           },
           "options": [
             {
-              "ko": "소리를 크게 질렀더니 목도 전혀 안 아프고 앞으로 스트레스는 절대 없을 거야.",
-              "de": "소리를 크게 질렀더니 목도 전혀 안 아프고 앞으로 스트레스는 절대 없을 거야.",
-              "en": "소리를 크게 질렀더니 목도 전혀 안 아프고 앞으로 스트레스는 절대 없을 거야."
+              "ko": "오늘은 소리를 많이 질렀는데 목은 괜찮고 스트레스는 그대로야.",
+              "de": "오늘은 소리를 많이 질렀는데 목은 괜찮고 스트레스는 그대로야.",
+              "en": "오늘은 소리를 많이 질렀는데 목은 괜찮고 스트레스는 그대로야."
             },
             {
               "ko": "맞아. 오늘 소리를 마음껏 질렀더니 스트레스가 다 풀린 것 같아. 그런데 목은 아파.",
@@ -27580,8 +27580,8 @@
           "options": [
             {
               "ko": "썸 타는 단계가 제일 설레는 것 같아요.",
-              "de": "Die 'Kennenlern-Phase' ist wohl am aufregendsten.",
-              "en": "The 'talking' stage is probably the most exciting."
+              "de": "Ich glaube, die Phase, in der man sich näherkommt, ohne schon ein Paar zu sein, ist am aufregendsten.",
+              "en": "I think the stage when you're getting closer but aren't a couple yet is the most exciting."
             },
             {
               "ko": "처음 만날 때는 장소를 제가 정하는 편이 마음이 편해요.",
