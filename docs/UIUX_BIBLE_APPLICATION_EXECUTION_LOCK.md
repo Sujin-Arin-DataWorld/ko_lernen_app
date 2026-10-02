@@ -197,7 +197,7 @@ current ratchet:
 |---|---:|---|
 | Registered route cases | 74 | Every case is inventoried below |
 | `lib/screens` Dart files | 97 | Includes route, embedded, preview, and quest surfaces |
-| `lib/widgets/sori` Dart files | 128 | Existing system; no parallel system permitted |
+| `lib/widgets/sori` Dart files | 149 | Existing system; no parallel system permitted |
 | Test files | 470 | Includes the permanent full-closeout inventory guard |
 | Raw screen `TextStyle` | 131 lexical; clean-code guard ≤217 | Must not increase; migrate by touched surface |
 | Raw screen `fontSize` | 159; `FontWeight.w800` 28 and `w900` 10 | Reduce through tokens, never raise ratchets |
@@ -355,6 +355,8 @@ use it rather than reproduce it locally.
 | Family | Files | Audit decision |
 | Catalog practice cards | `catalog_card` | Original 4:3 art, natural height, independent launch and Details targets. |
 | Shared learning focus | `learning_focus` | Shell-owned read-only goal and exact activity start, shared by Today and Learn. |
+| Learning auxiliary entrances | `book_capture_choice`, `study_library_button`, `media_phrase_link` | Existing capture/notebook chooser, saved library, and media-expression routes; opening or cancelling makes no learning write. |
+| Confirmed cloth reveal | `bojagi_reveal` | One finite cloth-opening animation; actual decoration appears only after a successful service receipt. Reduced motion shows its final state immediately. |
 | Learning companion | `learning_companion` | Compact sitting2 or Joy video grounded to the next activity card, with hidden and large-text layouts. |
 |---|---|---|
 | Foundations and frames | `tokens`, `type_scale`, `window_class`, `responsive`, `screen_background`, `standard_page`, `study_frame`, `app_bar`, `adaptive_navigation`, `page_header`, `section_header`, `scroll_if_needed`, `lazy_scroll_reveal`, `motion`, `pressable`, `chrome_row`, `level_filter_bar`, `home_action`, `collapsing_header`, `avatar`, `settings_button` | Retain. Phase 1A removes appbar truncation and strengthens frame/reduced-motion tests. No new token layer. `chrome_row` (W3 §17) adds the single post-app-bar chrome row; it composes `tokens`/`pressable` and introduces no new primitive family. `level_filter_bar` (W3 §17/검수#5) adds the single-row horizontal level filter that replaces the smalltalk/listening raw Wrap/Row level chips; it composes `chip`/`hanok_tokens`/`tokens` and introduces no new primitive family. `home_action` (W3 §4.16) adds the single AppBar-leading home escape hatch (`pushNamedAndRemoveUntil('/', …)` with an optional round-active leave-confirmation sheet); it composes `button`/`pressable`/`sheet`/`tokens` and introduces no new primitive family. `collapsing_header` (W-E §E3, 2026-09-03) adds the single pinned/collapsing `SliverPersistentHeader` wrapper used by Sori Stage catalog-style screens; it composes `page_header`/`tokens` (via `SoriMotion`) and introduces no new primitive family. `avatar` (W-G §G3, 2026-09-03) adds the single 40dp profile-entry circle (initials or `Mascot.tiger` fallback) that replaces the raw profile `IconButton` in every Sori Stage root header; it composes `pressable`/`mascot`/`tokens` and introduces no new primitive family. |

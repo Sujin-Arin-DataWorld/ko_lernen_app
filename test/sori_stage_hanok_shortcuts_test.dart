@@ -212,8 +212,18 @@ void main() {
       240,
       scrollable: find.byType(Scrollable).first,
     );
+    await Scrollable.ensureVisible(
+      tester.element(find.byKey(const ValueKey('sarangchae-stage-choice-5'))),
+      alignment: .5,
+    );
+    await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('sarangchae-stage-choice-5')));
     await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('sarangchae-stage-artwork-5')),
+      -240,
+      scrollable: find.byType(Scrollable).first,
+    );
 
     expect(
       find.byKey(const ValueKey('sarangchae-stage-artwork-5')),
@@ -230,6 +240,11 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Return from history test'));
     await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('sarangchae-stage-artwork-8')),
+      -240,
+      scrollable: find.byType(Scrollable).first,
+    );
 
     expect(
       find.byKey(const ValueKey('sarangchae-stage-artwork-8')),
@@ -328,7 +343,7 @@ void main() {
     );
     await tester.pump();
 
-    for (final id in const ['quests', 'dojang', 'bojagi']) {
+    for (final id in const ['furnish', 'quests', 'dojang', 'bojagi']) {
       final tile = find.byKey(ValueKey('hanok-shortcut-$id'));
       final label = tester.widget<Text>(
         find.byKey(ValueKey('hanok-shortcut-label-$id')),

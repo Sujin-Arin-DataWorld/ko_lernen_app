@@ -64,7 +64,9 @@ sys.path.insert(0, str(ROOT / "tool"))
 sys.path.insert(0, str(ROOT / "tools" / "content_factory"))
 
 from cefr_lexicon import CefrLexicon, GrammarIndex, GRADE_TO_CEFR  # noqa: E402
-from scan_a1_grammar import REVIEWED_HOMOGRAPH_HITS, grammar_scan_text  # noqa: E402
+from scan_a1_grammar import (  # noqa: E402
+    REVIEWED_HOMOGRAPH_HITS, grammar_scan_text, is_volitional_quoted_homograph,
+)
 
 VOCAB_CSV = ROOT / "assets" / "data" / "korean_vocab.csv"
 CLOZE_JSON = ROOT / "assets" / "data" / "cloze.json"
@@ -204,6 +206,8 @@ def _grammar_hits_ge(lexicon: CefrLexicon, grammar_index: GrammarIndex, text: st
     hits = []
     for h in sp.grammar_hits:
         if h.grade < threshold:
+            continue
+        if is_volitional_quoted_homograph(h, text):
             continue
         if h.text in ALLOWLIST_MATCHED_TEXT:
             continue

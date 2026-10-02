@@ -124,16 +124,16 @@
 | B2 | speechAct | `B2:speechAct:persuade_argue_justify:P` | P | scenario:accessible_festival_route, scenario:meeting_disagreement_evidence, unit:b2_02_professional_opinion, unit:b2_04_complaint_resolution | no_approved_semantic_binding | `phase_task_path_connected` | KP16:writing:01, KP18:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:negotiate_compromise_conditions:P` | P | scenario:ai_image_disclosure, scenario:b2_w10_hiring, scenario:b2_w10_negotiate, scenario:b2_w10_partner, scenario:community_event_compromise, scenario:delivery_refund_evidence … | no_approved_semantic_binding | `phase_task_path_connected` | KP16:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:complain_object_appeal:P` | P | scenario:b2_w10_notice, scenario:b2_w10_travel, scenario:rental_repair_deposit, unit:b2_04_complaint_resolution | no_approved_semantic_binding | `phase_task_path_connected` | KP15:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| B2 | speechAct | `B2:speechAct:structure_discourse_open_close_scope:P` | P | scenario:delivery_refund_evidence, scenario:filming_permission, scenario:freelance_scope_change, scenario:meeting_opening_context, scenario:neighborhood_filming_notice, unit:b2_01_formal_opening … | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01, KP15:writing:01, KP18:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| B2 | speechAct | `B2:speechAct:structure_discourse_open_close_scope:P` | P | scenario:b2_w10_privacy, scenario:delivery_refund_evidence, scenario:filming_permission, scenario:freelance_scope_change, scenario:meeting_opening_context, scenario:neighborhood_filming_notice … | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01, KP15:writing:01, KP18:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:manage_turns_interrupt_hold_floor:P` | P | scenario:meeting_opening_context | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:mediate_between_parties:P` | P | scenario:neighborhood_filming_notice, unit:b2_02_professional_opinion | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:evaluate_assess_critique:P` | P | scenario:b2_w10_hiring, scenario:meeting_disagreement_evidence, unit:b2_05_interview | no_approved_semantic_binding | `phase_task_path_connected` | KP15:writing:01, KP18:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:define_distinguish_terms:P` | P | scenario:brand_private_account_boundary, unit:b2_03_precise_requests | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| B2 | speechAct | `B2:speechAct:express_opinion_agree_disagree:P` | P | scenario:b2_w10_fandom, scenario:brand_private_account_boundary, scenario:meeting_disagreement_evidence, unit:b2_02_professional_opinion, unit:b2_03_precise_requests, unit:b2_05_interview | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| B2 | speechAct | `B2:speechAct:express_opinion_agree_disagree:P` | P | scenario:b2_w10_fandom, scenario:b2_w10_notice, scenario:brand_private_account_boundary, scenario:meeting_disagreement_evidence, unit:b2_02_professional_opinion, unit:b2_03_precise_requests … | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:express_certainty_doubt_hedging:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP15:speaking:01, KP18:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| B2 | speechAct | `B2:speechAct:compare_contrast_alternatives:P` | P | scenario:b2_w10_health, scenario:freelance_scope_change, scenario:rental_repair_deposit, unit:b2_04_complaint_resolution, unit:b2_06_advanced_capstone | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01, KP16:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| B2 | speechAct | `B2:speechAct:compare_contrast_alternatives:P` | P | scenario:freelance_scope_change, scenario:rental_repair_deposit, unit:b2_04_complaint_resolution, unit:b2_06_advanced_capstone | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01, KP16:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:request_ask_someone_to_do:P` | P | scenario:b2_w10_privacy, scenario:b2_w10_travel, scenario:freelance_scope_change, unit:b2_03_precise_requests | no_approved_semantic_binding | `phase_task_path_connected` | KP14:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| B2 | speechAct | `B2:speechAct:adjust_register_speech_style:P` | P | scenario:b2_w10_notice, scenario:partner_family_titles, unit:b2_01_formal_opening | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| B2 | speechAct | `B2:speechAct:adjust_register_speech_style:P` | P | scenario:partner_family_titles, unit:b2_01_formal_opening | no_approved_semantic_binding | `phase_task_path_connected` | KP17:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:refuse_set_boundaries:P` | P | scenario:accessible_festival_route, scenario:b2_w10_partner, scenario:brand_private_account_boundary | no_approved_semantic_binding | `phase_task_path_connected` | KP16:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | speechAct | `B2:speechAct:analyse_framing_implicature_presupposition:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP15:listening:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | B2 | textType | `B2:textType:essay_opinion_argumentative:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP16:reading:01, KP18:reading:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
@@ -160,10 +160,10 @@
 | C1 | speechAct | `C1:speechAct:evaluate_assess_critique:P` | P | scenario:ai_interview_screening_transparency, scenario:c1_w10_facework, scenario:c1_w10_methodology, scenario:research_limits_presentation, scenario:youth_housing_plain_language, unit:c1_03_media_evidence_literacy | no_approved_semantic_binding | `phase_task_path_connected` | KP20:writing:01, KP22:writing:01, KP24:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | speechAct | `C1:speechAct:persuade_argue_justify:P` | P | scenario:ai_interview_screening_transparency, scenario:anonymous_survey_trust, scenario:heatwave_shelter_access, unit:c1_01_evidence_public_reasoning, unit:c1_03_media_evidence_literacy | no_approved_semantic_binding | `phase_task_path_connected` | KP21:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | speechAct | `C1:speechAct:summarise_reconstruct:P` | P | — | no_approved_semantic_binding | `phase_task_path_connected` | KP19:writing:01, KP23:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| C1 | speechAct | `C1:speechAct:structure_discourse_open_close_scope:P` | P | scenario:ai_interview_screening_transparency, scenario:research_limits_presentation, unit:c1_01_evidence_public_reasoning | no_approved_semantic_binding | `phase_task_path_connected` | KP19:writing:01, KP22:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| C1 | speechAct | `C1:speechAct:structure_discourse_open_close_scope:P` | P | scenario:ai_interview_screening_transparency, scenario:c1_w10_conflict_interest, scenario:research_limits_presentation, unit:c1_01_evidence_public_reasoning | no_approved_semantic_binding | `phase_task_path_connected` | KP19:writing:01, KP22:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | speechAct | `C1:speechAct:negotiate_compromise_conditions:P` | P | scenario:fan_translation_credit, scenario:heatwave_shelter_access, unit:c1_02_inclusive_sustainable_systems, unit:c1_04_play_time_policy, unit:c1_05_fan_labor_sustainability, unit:c1_06_intimacy_safety_design | no_approved_semantic_binding | `phase_task_path_connected` | KP22:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | speechAct | `C1:speechAct:refuse_set_boundaries:P` | P | scenario:after_hours_messages, scenario:c1_w10_fandom, unit:c1_06_intimacy_safety_design | no_approved_semantic_binding | `phase_task_path_connected` | KP21:speaking:01, KP22:speaking:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
-| C1 | speechAct | `C1:speechAct:compare_contrast_alternatives:P` | P | scenario:anonymous_survey_trust, scenario:c1_w10_clinical, scenario:c1_w10_friends, scenario:nightlife_noise_balance | no_approved_semantic_binding | `phase_task_path_connected` | KP20:writing:01, KP21:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
+| C1 | speechAct | `C1:speechAct:compare_contrast_alternatives:P` | P | scenario:anonymous_survey_trust, scenario:c1_w10_friends, scenario:nightlife_noise_balance | no_approved_semantic_binding | `phase_task_path_connected` | KP20:writing:01, KP21:writing:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | textType | `C1:textType:academic_specialised_text:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP19:reading:01, KP20:reading:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | textType | `C1:textType:lecture_speech_monologue:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP21:listening:02, KP23:listening:02, KP24:listening:02 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
 | C1 | textType | `C1:textType:literary_text:R` | R | — | no_approved_semantic_binding | `phase_task_path_connected` | KP24:reading:01 · 문항/경로 계약 연결 · 전체 숙달 미검증 |
@@ -764,16 +764,16 @@
 | ✅ covered | `persuade_argue_justify` 설득·논증·정당화하기 | suasion | production | 2 | 2 |
 | ✅ covered | `negotiate_compromise_conditions` 협상·절충·조건 조율하기 | suasion | production | 10 | 4 |
 | ✅ covered | `complain_object_appeal` 불만 제기·이의 신청하기 | suasion | production | 3 | 1 |
-| ✅ covered | `structure_discourse_open_close_scope` 대화 열고 닫기·범위 정하기 | discourse | production | 5 | 3 |
+| ✅ covered | `structure_discourse_open_close_scope` 대화 열고 닫기·범위 정하기 | discourse | production | 6 | 3 |
 | 🟡 thin | `manage_turns_interrupt_hold_floor` 발언권 관리·끼어들기 | discourse | production | 1 | 0 |
 | ✅ covered | `mediate_between_parties` 당사자 사이 중재·조정하기 | discourse | production | 1 | 1 |
 | ✅ covered | `evaluate_assess_critique` 평가·비판·한계 지적하기 | attitude | production | 2 | 1 |
 | ✅ covered | `define_distinguish_terms` 용어 정의·개념 구분하기 | discourse | production | 1 | 1 |
-| ✅ covered | `express_opinion_agree_disagree` 의견 말하고 동의·반대하기 | attitude | production | 3 | 3 |
+| ✅ covered | `express_opinion_agree_disagree` 의견 말하고 동의·반대하기 | attitude | production | 4 | 3 |
 | ❌ missing | `express_certainty_doubt_hedging` 확신·의심·완곡 표현하기 | attitude | production | 0 | 0 |
-| ✅ covered | `compare_contrast_alternatives` 비교·대조·대안 검토하기 | information | production | 3 | 2 |
+| ✅ covered | `compare_contrast_alternatives` 비교·대조·대안 검토하기 | information | production | 2 | 2 |
 | ✅ covered | `request_ask_someone_to_do` 요청·부탁하기 | suasion | production | 3 | 1 |
-| ✅ covered | `adjust_register_speech_style` 말투·존댓말·호칭 조절하기 | discourse | production | 2 | 1 |
+| ✅ covered | `adjust_register_speech_style` 말투·존댓말·호칭 조절하기 | discourse | production | 1 | 1 |
 | ✅ covered | `refuse_set_boundaries` 거절하고 경계 정하기 | suasion | production | 3 | 0 |
 | ❌ recognition_missing | `analyse_framing_implicature_presupposition` 프레임·함축·전제 분석하기 | discourse | recognition | 0 | 0 |
 
@@ -837,7 +837,7 @@
 | ✅ covered | `ethics_philosophy_abstract` 윤리·철학·추상적 논쟁 | 윤리·문화비평·이해관계 공개 | 0 | 0 | 6 | 0 | 0 | 0 | model_knowledge |
 | ✅ covered | `health_body` 건강·신체·병원·약국 | 임상 연구·위험 소통 | 12 | 1 | 1 | 0 | 6 | 12 | model_knowledge |
 | ✅ covered | `media_entertainment_culture_pop` 미디어·대중문화(K-pop·드라마·SNS) | 미디어 담론·보도 검증·팬 노동 | 24 | 2 | 8 | 1 | 14 | 27 | model_knowledge |
-| ✅ covered | `politics_law_institutions` 정치·법·제도·행정 | 사회정책·정치/행정·교육정책·규제 설계 | 48 | 4 | 9 | 1 | 0 | 48 | model_knowledge |
+| ✅ covered | `politics_law_institutions` 정치·법·제도·행정 | 사회정책·정치/행정·교육정책·규제 설계 | 48 | 4 | 8 | 1 | 0 | 48 | model_knowledge |
 | ✅ covered | `professional_specialised_fields` 전문 분야·학술·직무 언어 | 전문분야·학술적 논의·임상 동의 | 0 | 0 | 7 | 0 | 0 | 0 | model_knowledge |
 | ✅ covered | `science_research_evidence` 과학·연구·근거·통계 | 과학기술·연구 한계·표본·근거 평가 | 72 | 6 | 9 | 2 | 0 | 79 | model_knowledge |
 | ✅ covered | `society_current_affairs` 사회 문제·시사·공동체 | 세계화·인구·불평등·접근성 | 48 | 5 | 8 | 2 | 0 | 51 | model_knowledge |
@@ -907,10 +907,10 @@
 | ✅ covered | `evaluate_assess_critique` 평가·비판·한계 지적하기 | attitude | production | 5 | 1 |
 | ✅ covered | `persuade_argue_justify` 설득·논증·정당화하기 | suasion | production | 3 | 2 |
 | ❌ missing | `summarise_reconstruct` 요약·재구성하기 | information | production | 0 | 0 |
-| ✅ covered | `structure_discourse_open_close_scope` 대화 열고 닫기·범위 정하기 | discourse | production | 2 | 1 |
+| ✅ covered | `structure_discourse_open_close_scope` 대화 열고 닫기·범위 정하기 | discourse | production | 3 | 1 |
 | ✅ covered | `negotiate_compromise_conditions` 협상·절충·조건 조율하기 | suasion | production | 2 | 4 |
 | ✅ covered | `refuse_set_boundaries` 거절하고 경계 정하기 | suasion | production | 2 | 1 |
-| ✅ covered | `compare_contrast_alternatives` 비교·대조·대안 검토하기 | information | production | 4 | 0 |
+| ✅ covered | `compare_contrast_alternatives` 비교·대조·대안 검토하기 | information | production | 3 | 0 |
 
 ### C1 텍스트 유형
 

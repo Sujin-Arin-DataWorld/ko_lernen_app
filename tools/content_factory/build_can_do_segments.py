@@ -3736,6 +3736,9 @@ class SourceIndex:
     def __init__(self) -> None:
         self.curriculum = _read_json(DATA / "curriculum_manifest.json")
         published_catalog = _read_json(DATA / "can_do_segments.json")
+        self.published_segments = {
+            row["id"]: row for row in published_catalog.get("segments", [])
+        }
         self.published_content_routes: dict[tuple[str, str], str] = {}
         for cluster in published_catalog.get("contentClusters", []):
             match = re.fullmatch(r"cluster_(.+)_v\d+", str(cluster.get("id", "")))
@@ -5107,6 +5110,21 @@ def _segment_text(
 ) -> tuple[dict[str, str], dict[str, str]]:
     if spec.title is not None and spec.can_do is not None:
         return dict(spec.title), dict(spec.can_do)
+    # Published learning constructs have their own canonical wording. Editing
+    # a practice scene title must not silently change an approved Can-do hash.
+    # Explicit authored specs above still require the existing migration gates.
+    segment_id = f"segment_{spec.key}"
+    published = getattr(source, "published_segments", {}).get(segment_id)
+    if published is not None:
+        expected = {
+            "constructLineageId": segment_id,
+            "parentCourseUnitId": spec.parent,
+            "level": spec.level,
+            "contentClusterIds": [f"cluster_{spec.key}_v1"],
+        }
+        if any(published.get(key) != value for key, value in expected.items()):
+            raise ValueError(f"{segment_id}: published construct identity changed")
+        return dict(published["title"]), dict(published["canDo"])
     scenario_ref = next((ref for ref in spec.refs if ref.kind == "scenario"), None)
     if scenario_ref is None:
         raise ValueError(f"{spec.key} has no localized segment text")

@@ -18,6 +18,7 @@ import '../widgets/sori/pressable.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/media_phrase_link.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -228,6 +229,7 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
       description: t.scenariosListSubtitle,
       maxWidth: SoriMaxWidth.hub,
       children: [
+        const SoriMediaPhraseLink(),
         // 모듈 헤더 — 16:9 원본 영상과 같은 비율을 유지한다.
         // 마당 포스터 위로 종가 앰비언트 루프(굴뚝 연기·감 흔들림) 페이드인.
         // §15: 좁은 화면에서 heroMaxShare/heroMaxHeight 예산을 넘으면

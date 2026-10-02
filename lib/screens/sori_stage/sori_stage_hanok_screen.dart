@@ -563,6 +563,18 @@ class _ShortcutTiles extends StatelessWidget {
         ),
         onTap: () => onOpen('/bojagi'),
       ),
+      _ShortcutTile(
+        id: 'furnish',
+        label: t.sarangbangStudyFurnish,
+        count: null,
+        thumb: const SoriRewardThumb(
+          slug: 'decoration_soban',
+          earned: true,
+          size: 40,
+          semantic: '',
+        ),
+        onTap: () => onOpen('/sarangbang/furnish'),
+      ),
     ];
 
     return LayoutBuilder(
@@ -587,17 +599,22 @@ class _ShortcutTiles extends StatelessWidget {
         // while its siblings stay on 1 — without a shared height the middle
         // tile alone grows taller. `IntrinsicHeight` + a stretch cross-axis
         // makes all three tiles match the tallest one instead.
-        return IntrinsicHeight(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              for (var index = 0; index < tiles.length; index++) ...[
-                Expanded(child: tiles[index]),
-                if (index != tiles.length - 1)
-                  const SizedBox(width: Spacing.md),
-              ],
+        return Column(
+          children: [
+            for (var start = 0; start < tiles.length; start += 2) ...[
+              IntrinsicHeight(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(child: tiles[start]),
+                    const SizedBox(width: Spacing.md),
+                    Expanded(child: tiles[start + 1]),
+                  ],
+                ),
+              ),
+              if (start + 2 < tiles.length) const SizedBox(height: Spacing.sm),
             ],
-          ),
+          ],
         );
       },
     );

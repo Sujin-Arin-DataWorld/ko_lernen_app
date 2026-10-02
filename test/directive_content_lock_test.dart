@@ -125,8 +125,8 @@ void main() {
     });
   });
 
-  group('cloze_a1_0154 — 절하는 타이밍 문장 정정 고정 (2.8, T1)', () {
-    const fixed = '절하는 타이밍이 한 박자 늦었어요.';
+  group('cloze_a1_0154 — A1 절하다 예문과 파생 문제 동기화', () {
+    const fixed = '저는 지금 절해요.';
 
     test('cloze_a1_0154 fullKo', () {
       expect(clozeById['cloze_a1_0154']!['fullKo'], fixed);
