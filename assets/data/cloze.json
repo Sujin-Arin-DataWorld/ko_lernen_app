@@ -4384,8 +4384,8 @@
       "sentenceKo": "집주인과 상의해서 계약 기간을 1년 더 ＿＿＿.",
       "answer": "연장했어요",
       "fullKo": "집주인과 상의해서 계약 기간을 1년 더 연장했어요.",
-      "de": "Nach Rücksprache mit dem Vermieter habe ich die Vertragslaufzeit um ein Jahr verlängert.",
-      "en": "After talking with the landlord I extended the contract term by another year.",
+      "de": "Nach Rücksprache mit der Vermieterseite habe ich die Vertragslaufzeit um ein Jahr verlängert.",
+      "en": "After talking with the landlord, I extended the contract by another year.",
       "distractors": [
         "퇴거했어요",
         "입주했어요",
@@ -5674,7 +5674,7 @@
       "sentenceKo": "사용자 반응이 예상과 달라서 기획 방향을 중간에 ＿＿＿.",
       "answer": "틀었어요",
       "fullKo": "사용자 반응이 예상과 달라서 기획 방향을 중간에 틀었어요.",
-      "de": "Die Reaktionen der Nutzer fielen anders aus als erwartet, deshalb änderten wir mitten im Prozess die Richtung.",
+      "de": "Das Feedback aus der Nutzerschaft fiel anders aus als erwartet, deshalb haben wir die Richtung mitten im Prozess geändert.",
       "en": "User reactions differed from what we expected, so we changed direction halfway through.",
       "distractors": [
         "고정했어요",
@@ -5839,8 +5839,8 @@
       "sentenceKo": "기사를 읽을 때 확인된 사실과 기자의 해석을 ＿＿＿.",
       "answer": "구분해 봐요",
       "fullKo": "기사를 읽을 때 확인된 사실과 기자의 해석을 구분해 봐요.",
-      "de": "Versuchen wir beim Lesen eines Artikels, bestätigte Fakten von der Deutung des Verfassers zu unterscheiden.",
-      "en": "When reading an article, let's distinguish verified facts from the writer's interpretation.",
+      "de": "Versuchen wir beim Lesen eines Artikels, bestätigte Fakten von der journalistischen Einordnung zu unterscheiden.",
+      "en": "When reading an article, let's distinguish verified facts from the journalist's interpretation.",
       "distractors": [
         "합쳐 봐요",
         "외워 봐요",
@@ -9253,8 +9253,8 @@
       "sentenceKo": "남편이 ＿＿＿을 소개했어요. 악수를 해도 될까요?",
       "answer": "동생",
       "fullKo": "남편이 동생을 소개했어요. 악수를 해도 될까요?",
-      "de": "Mein Mann hat mir seinen jüngeren Bruder vorgestellt. Darf ich ihm die Hand geben?",
-      "en": "My husband introduced me to his younger brother. Is it okay to shake his hand?",
+      "de": "Mein Mann hat mir einen jüngeren Bruder oder eine jüngere Schwester vorgestellt. Darf ich dieser Person zur Begrüßung die Hand geben?",
+      "en": "My husband introduced me to a younger sibling. Would it be okay to shake their hand?",
       "distractors": [
         "처남",
         "매형",
@@ -9523,8 +9523,8 @@
       "sentenceKo": "＿＿＿ 하시길래 디자이너라고 짧게 답했어요.",
       "answer": "직업이 뭐예요",
       "fullKo": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-      "de": "Auf die Frage nach dem Beruf antwortete ich knapp: Designerin.",
-      "en": "When they asked what I do, I answered briefly: designer.",
+      "de": "Auf die Frage nach meinem Beruf antwortete ich kurz: Ich arbeite im Design.",
+      "en": "When they asked what I do, I just said I’m a designer.",
       "distractors": [
         "한국어 잘하시네요",
         "맛있어요",
@@ -11668,8 +11668,8 @@
       "sentenceKo": "＿＿＿와 한 방은 아직 이르다고 하셨어요.",
       "answer": "이성 친구",
       "fullKo": "이성 친구와 한 방은 아직 이르다고 하셨어요.",
-      "de": "Ein Zimmer mit einem Freund des anderen Geschlechts sei noch zu früh, hieß es.",
-      "en": "They said sharing a room with a partner of the other sex is still too early.",
+      "de": "Ein Zimmer mit einer befreundeten Person des anderen Geschlechts zu teilen, sei noch zu früh, hieß es.",
+      "en": "They said sharing a room with a friend of the opposite sex was still too soon.",
       "distractors": [
         "연봉 공개",
         "연휴 근무",
@@ -21508,8 +21508,8 @@
       "sentenceKo": "＿＿＿을 늘릴 때는 보행 안전과 주변 주민의 수면에 미칠 영향을 함께 살펴요.",
       "answer": "야간 조명",
       "fullKo": "야간 조명을 늘릴 때는 보행 안전과 주변 주민의 수면에 미칠 영향을 함께 살펴요.",
-      "de": "Bei zusätzlicher Nachtbeleuchtung prüfen wir sowohl die Sicherheit von Fußgängern als auch mögliche Auswirkungen auf den Schlaf der Anwohnenden.",
-      "en": "When adding night lighting, we consider both pedestrian safety and possible effects on nearby residents’ sleep.",
+      "de": "Bei zusätzlicher Nachtbeleuchtung prüfen wir sowohl die Sicherheit der zu Fuß Gehenden als auch mögliche Auswirkungen auf den Schlaf der Anwohnenden.",
+      "en": "When adding night lighting, we consider both the safety of people walking and possible effects on nearby residents’ sleep.",
       "distractors": [
         "시행",
         "넷",
@@ -21673,8 +21673,8 @@
       "sentenceKo": "＿＿＿ 창구가 어려우면 고장이 늦게 보여요.",
       "answer": "사용자 신고",
       "fullKo": "사용자 신고 창구가 어려우면 고장이 늦게 보여요.",
-      "de": "Ist die Nutzermeldung schwer, erscheint die Störung spät.",
-      "en": "If the user-report channel is hard, outages appear late.",
+      "de": "Wenn sich eine Störung nur schwer melden lässt, wird sie oft zu spät bemerkt.",
+      "en": "If it is hard to report an outage, it often goes unnoticed for too long.",
       "distractors": [
         "홍보물",
         "배달",
@@ -28941,7 +28941,7 @@
       "fullKo": "힘들 때마다 친구가 저를 격려해 줬어요.",
       "answer": "격려해",
       "sentenceKo": "힘들 때마다 친구가 저를 ＿＿＿ 줬어요.",
-      "de": "Immer wenn es schwer war, hat mich meine Freundin ermutigt.",
+      "de": "Wenn es mir schwerfiel, hat mich jedes Mal jemand aus meinem Freundeskreis ermutigt.",
       "en": "Whenever things were hard, my friend encouraged me.",
       "distractors": [
         "협력해",
@@ -28957,7 +28957,7 @@
       "fullKo": "슬퍼하는 친구를 위로했어요.",
       "answer": "위로했어요",
       "sentenceKo": "슬퍼하는 친구를 ＿＿＿.",
-      "de": "Ich habe meinen traurigen Freund getröstet.",
+      "de": "Ich habe eine traurige Person aus meinem Freundeskreis getröstet.",
       "en": "I comforted my sad friend.",
       "distractors": [
         "다양했어요",

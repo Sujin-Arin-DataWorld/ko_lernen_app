@@ -2357,8 +2357,8 @@
       "id": "satz_b1_0055",
       "level": "b1",
       "targetKo": "집주인과 상의해서 계약 기간을 1년 더 연장했어요.",
-      "promptDe": "Nach Rücksprache mit dem Vermieter habe ich die Vertragslaufzeit um ein Jahr verlängert.",
-      "promptEn": "After talking with the landlord I extended the contract term by another year.",
+      "promptDe": "Nach Rücksprache mit der Vermieterseite habe ich die Vertragslaufzeit um ein Jahr verlängert.",
+      "promptEn": "After talking with the landlord, I extended the contract by another year.",
       "distractors": [
         "퇴거해야",
         "누수가"
@@ -3389,7 +3389,7 @@
       "id": "satz_b2_0109",
       "level": "b2",
       "targetKo": "사용자 반응이 예상과 달라서 기획 방향을 중간에 틀었어요.",
-      "promptDe": "Die Reaktionen der Nutzer fielen anders aus als erwartet, deshalb änderten wir mitten im Prozess die Richtung.",
+      "promptDe": "Das Feedback aus der Nutzerschaft fiel anders aus als erwartet, deshalb haben wir die Richtung mitten im Prozess geändert.",
       "promptEn": "User reactions differed from what we expected, so we changed direction halfway through.",
       "distractors": [
         "처음 계획을 그대로",
@@ -3521,8 +3521,8 @@
       "id": "satz_b2_0120",
       "level": "b2",
       "targetKo": "기사를 읽을 때 확인된 사실과 기자의 해석을 구분해 봐요.",
-      "promptDe": "Versuchen wir beim Lesen eines Artikels, bestätigte Fakten von der Deutung des Verfassers zu unterscheiden.",
-      "promptEn": "When reading an article, let's distinguish verified facts from the writer's interpretation.",
+      "promptDe": "Versuchen wir beim Lesen eines Artikels, bestätigte Fakten von der journalistischen Einordnung zu unterscheiden.",
+      "promptEn": "When reading an article, let's distinguish verified facts from the journalist's interpretation.",
       "distractors": [
         "모든 문장을 사실로",
         "기자의 해석만 읽고"
@@ -6405,8 +6405,8 @@
       "id": "satz_a1_0144",
       "level": "b1",
       "targetKo": "남편이 동생을 소개했어요. 악수를 해도 될까요?",
-      "promptDe": "Mein Mann hat mir seinen jüngeren Bruder vorgestellt. Darf ich ihm die Hand geben?",
-      "promptEn": "My husband introduced me to his younger brother. Is it okay to shake his hand?",
+      "promptDe": "Mein Mann hat mir einen jüngeren Bruder oder eine jüngere Schwester vorgestellt. Darf ich dieser Person zur Begrüßung die Hand geben?",
+      "promptEn": "My husband introduced me to a younger sibling. Would it be okay to shake their hand?",
       "distractors": [
         "처음",
         "처음에는"
@@ -6621,8 +6621,8 @@
       "id": "satz_a2_0041",
       "level": "a2",
       "targetKo": "직업이 뭐예요 하시길래 디자이너라고 짧게 답했어요.",
-      "promptDe": "Auf die Frage nach dem Beruf antwortete ich knapp: Designerin.",
-      "promptEn": "When they asked what I do, I answered briefly: designer.",
+      "promptDe": "Auf die Frage nach meinem Beruf antwortete ich kurz: Ich arbeite im Design.",
+      "promptEn": "When they asked what I do, I just said I’m a designer.",
       "distractors": [
         "맞장구를",
         "맞추기는"
@@ -8337,8 +8337,8 @@
       "id": "satz_b1_0129",
       "level": "b1",
       "targetKo": "이성 친구와 한 방은 아직 이르다고 하셨어요.",
-      "promptDe": "Ein Zimmer mit einem Freund des anderen Geschlechts sei noch zu früh, hieß es.",
-      "promptEn": "They said sharing a room with a partner of the other sex is still too early.",
+      "promptDe": "Ein Zimmer mit einer befreundeten Person des anderen Geschlechts zu teilen, sei noch zu früh, hieß es.",
+      "promptEn": "They said sharing a room with a friend of the opposite sex was still too soon.",
       "distractors": [
         "정하니",
         "정했어요"
@@ -16209,7 +16209,7 @@
       "id": "satz_c1_0160",
       "level": "c1",
       "targetKo": "야간 조명을 늘릴 때는 보행 안전과 주변 주민의 수면에 미칠 영향을 함께 살펴요.",
-      "promptDe": "Bei zusätzlicher Nachtbeleuchtung prüfen wir sowohl die Sicherheit von Fußgängern als auch mögliche Auswirkungen auf den Schlaf der Anwohnenden.",
+      "promptDe": "Bei zusätzlicher Nachtbeleuchtung prüfen wir sowohl die Sicherheit der zu Fuß Gehenden als auch mögliche Auswirkungen auf den Schlaf der Anwohnenden.",
       "promptEn": "When adding night lighting, we consider both pedestrian safety and possible effects on nearby residents’ sleep.",
       "distractors": [
         "지역 여건",
@@ -16341,8 +16341,8 @@
       "id": "satz_c1_0171",
       "level": "c1",
       "targetKo": "사용자 신고 창구가 어려우면 고장이 늦게 보여요.",
-      "promptDe": "Ist die Nutzermeldung schwer, erscheint die Störung spät.",
-      "promptEn": "If the user-report channel is hard, outages appear late.",
+      "promptDe": "Wenn sich eine Störung nur schwer melden lässt, wird sie oft zu spät bemerkt.",
+      "promptEn": "If it is hard to report an outage, it often goes unnoticed for too long.",
       "distractors": [
         "운영 인력",
         "교체 주기"
@@ -17997,8 +17997,8 @@
       "id": "satz_a2_0238",
       "level": "a2",
       "targetKo": "감기가 심해서 병원에 다녀왔어요.",
-      "promptDe": "Die Erkältung war so schlimm, ich war beim Arzt.",
-      "promptEn": "My cold was so bad I went to the doctor.",
+      "promptDe": "Meine Erkältung war schlimm. Ich war in der Praxis.",
+      "promptEn": "My cold was bad. I went to the doctor.",
       "distractors": [
         "회사",
         "직업"
@@ -19773,7 +19773,7 @@
       "id": "satz_a2_0318",
       "level": "a2",
       "targetKo": "점원분이 진짜 친절했어요.",
-      "promptDe": "Der Verkäufer war wirklich freundlich.",
+      "promptDe": "Die Verkaufskraft war sehr freundlich.",
       "promptEn": "The clerk was really friendly.",
       "distractors": [
         "회사",
@@ -19881,7 +19881,7 @@
       "id": "satz_a2_0327",
       "level": "a2",
       "targetKo": "사장님이 진짜 좋으신 분이세요.",
-      "promptDe": "Unser Chef ist wirklich ein guter Mensch.",
+      "promptDe": "Unsere Chefin oder unser Chef ist wirklich nett.",
       "promptEn": "The boss is a really good person.",
       "distractors": [
         "회사",
@@ -19893,7 +19893,7 @@
       "id": "satz_a2_0328",
       "level": "b1",
       "targetKo": "저희 상사 분은 좀 까다로우세요.",
-      "promptDe": "Unser Vorgesetzter ist ein bisschen anspruchsvoll.",
+      "promptDe": "Unsere Führungskraft ist ein bisschen anspruchsvoll.",
       "promptEn": "Our supervisor is a bit picky.",
       "distractors": [
         "회사",
@@ -20613,7 +20613,7 @@
       "id": "satz_a2_0345",
       "level": "a2",
       "targetKo": "친구한테 십만 원 송금했어요.",
-      "promptDe": "Ich habe einem Freund hunderttausend Won überwiesen.",
+      "promptDe": "Ich habe jemandem aus meinem Freundeskreis 100.000 Won überwiesen.",
       "promptEn": "I transferred a hundred thousand won to a friend.",
       "distractors": [
         "회사",
@@ -20709,7 +20709,7 @@
       "id": "satz_b1_0327",
       "level": "b1",
       "targetKo": "제가 좋아하는 배우가 나와요.",
-      "promptDe": "Mein Lieblingsschauspieler tritt auf.",
+      "promptDe": "Meine Lieblingsschauspielerin oder mein Lieblingsschauspieler ist dabei.",
       "promptEn": "My favorite actor appears.",
       "distractors": [
         "경험",
@@ -20733,7 +20733,7 @@
       "id": "satz_b1_0329",
       "level": "b1",
       "targetKo": "가수가 무대에 올라갔어요.",
-      "promptDe": "Der Sänger ging auf die Bühne.",
+      "promptDe": "Die Sängerin oder der Sänger ist auf die Bühne gegangen.",
       "promptEn": "The singer went on stage.",
       "distractors": [
         "경험",
@@ -21213,7 +21213,7 @@
       "id": "satz_b1_0369",
       "level": "b1",
       "targetKo": "병원에 환자가 많아요.",
-      "promptDe": "Im Krankenhaus sind viele Patienten.",
+      "promptDe": "Im Krankenhaus sind viele Patientinnen und Patienten.",
       "promptEn": "There are many patients in the hospital.",
       "distractors": [
         "경험",
@@ -21225,7 +21225,7 @@
       "id": "satz_b1_0370",
       "level": "b1",
       "targetKo": "의사가 처방전을 써 줬어요.",
-      "promptDe": "Der Arzt hat mir ein Rezept ausgestellt.",
+      "promptDe": "Die Ärztin oder der Arzt hat mir ein Rezept ausgestellt.",
       "promptEn": "The doctor wrote me a prescription.",
       "distractors": [
         "경험",
@@ -21357,7 +21357,7 @@
       "id": "satz_b1_0381",
       "level": "b1",
       "targetKo": "신입사원 교육이 있어요.",
-      "promptDe": "Es gibt eine Schulung für neue Mitarbeiter.",
+      "promptDe": "Für neue Mitarbeitende gibt es eine Schulung.",
       "promptEn": "There is training for new employees.",
       "distractors": [
         "경험",
@@ -21429,8 +21429,8 @@
       "id": "satz_b1_0387",
       "level": "b1",
       "targetKo": "회사가 새 직원을 모집해요.",
-      "promptDe": "Die Firma rekrutiert neue Mitarbeiter.",
-      "promptEn": "The company is recruiting new employees.",
+      "promptDe": "Das Unternehmen sucht neue Mitarbeitende.",
+      "promptEn": "The company is hiring new employees.",
       "distractors": [
         "경험",
         "문화"
@@ -21465,7 +21465,7 @@
       "id": "satz_b1_0390",
       "level": "b1",
       "targetKo": "친구를 집에 초대했어요.",
-      "promptDe": "Ich habe einen Freund nach Hause eingeladen.",
+      "promptDe": "Ich habe jemanden aus meinem Freundeskreis nach Hause eingeladen.",
       "promptEn": "I invited a friend to my home.",
       "distractors": [
         "경험",
@@ -21669,7 +21669,7 @@
       "id": "satz_b1_0406",
       "level": "b1",
       "targetKo": "친구가 통역을 해 줬어요.",
-      "promptDe": "Ein Freund hat für mich gedolmetscht.",
+      "promptDe": "Jemand aus meinem Freundeskreis hat für mich gedolmetscht.",
       "promptEn": "A friend interpreted for me.",
       "distractors": [
         "경험",
@@ -21705,7 +21705,7 @@
       "id": "satz_b1_0408",
       "level": "b1",
       "targetKo": "친구를 소개해 줄게요.",
-      "promptDe": "Ich stelle dir einen Freund vor.",
+      "promptDe": "Ich stelle dir jemanden aus meinem Freundeskreis vor.",
       "promptEn": "I will introduce a friend to you.",
       "distractors": [
         "경험",
@@ -22389,7 +22389,7 @@
       "id": "satz_b1_0458",
       "level": "b1",
       "targetKo": "이 가수는 인기가 많아요.",
-      "promptDe": "Dieser Sänger ist sehr beliebt.",
+      "promptDe": "Diese Sängerin oder dieser Sänger ist sehr beliebt.",
       "promptEn": "This singer is very popular.",
       "distractors": [
         "경험",
@@ -22557,7 +22557,7 @@
       "id": "satz_b1_0460",
       "level": "b1",
       "targetKo": "학생 전체가 참여했어요.",
-      "promptDe": "Alle Schüler haben teilgenommen.",
+      "promptDe": "Alle Lernenden haben teilgenommen.",
       "promptEn": "All the students participated.",
       "distractors": [
         "경험",
@@ -23001,7 +23001,7 @@
       "id": "satz_b2_0438",
       "level": "b2",
       "targetKo": "어제 고등학교 동창을 만났어요.",
-      "promptDe": "Gestern habe ich einen alten Schulfreund getroffen.",
+      "promptDe": "Gestern habe ich jemanden aus meiner alten Schulklasse getroffen.",
       "promptEn": "I met a high school classmate yesterday.",
       "distractors": [
         "갈등",
@@ -23073,8 +23073,8 @@
       "id": "satz_b2_0444",
       "level": "b2",
       "targetKo": "동생을 울리지 마!",
-      "promptDe": "Bring deine kleine Schwester nicht zum Weinen!",
-      "promptEn": "Do not make your little sister cry!",
+      "promptDe": "Bring deinen jüngeren Bruder oder deine jüngere Schwester nicht zum Weinen!",
+      "promptEn": "Don't make your younger sibling cry!",
       "distractors": [
         "갈등",
         "관점"
@@ -23577,8 +23577,8 @@
       "id": "satz_b2_0486",
       "level": "b2",
       "targetKo": "선생님께 여쭤 볼게요.",
-      "promptDe": "Ich werde den Lehrer ehrerbietig fragen.",
-      "promptEn": "I will ask the teacher politely.",
+      "promptDe": "Ich werde die Lehrkraft fragen.",
+      "promptEn": "I'll ask the teacher.",
       "distractors": [
         "갈등",
         "관점"
@@ -24465,7 +24465,7 @@
       "id": "satz_a2_0422",
       "level": "a2",
       "targetKo": "저 가수는 노래를 정말 잘해요.",
-      "promptDe": "Dieser Sänger singt wirklich gut.",
+      "promptDe": "Diese Sängerin oder dieser Sänger singt wirklich gut.",
       "promptEn": "That singer sings really well.",
       "distractors": [
         "회사",
@@ -24477,7 +24477,7 @@
       "id": "satz_a2_0423",
       "level": "a2",
       "targetKo": "경찰이 길을 안내해 줬어요.",
-      "promptDe": "Ein Polizist hat mir den Weg gezeigt.",
+      "promptDe": "Jemand von der Polizei hat mir den Weg gezeigt.",
       "promptEn": "A police officer showed me the way.",
       "distractors": [
         "회사",
@@ -24501,7 +24501,7 @@
       "id": "satz_a2_0425",
       "level": "b1",
       "targetKo": "저는 회사 사원이에요.",
-      "promptDe": "Ich bin Angestellter in einer Firma.",
+      "promptDe": "Ich bin bei einem Unternehmen angestellt.",
       "promptEn": "I am a company employee.",
       "distractors": [
         "직업",
@@ -24513,7 +24513,7 @@
       "id": "satz_a2_0426",
       "level": "a2",
       "targetKo": "가게 주인이 친절해요.",
-      "promptDe": "Der Ladenbesitzer ist freundlich.",
+      "promptDe": "Die Ladenbesitzerin oder der Ladenbesitzer ist freundlich.",
       "promptEn": "The shop owner is friendly.",
       "distractors": [
         "회사",
@@ -24669,7 +24669,7 @@
       "id": "satz_a2_0439",
       "level": "a2",
       "targetKo": "우리 반은 학생이 스무 명이에요.",
-      "promptDe": "Unsere Klasse hat zwanzig Schüler.",
+      "promptDe": "In unserer Klasse sind zwanzig Lernende.",
       "promptEn": "Our class has twenty students.",
       "distractors": [
         "회사",
@@ -24681,8 +24681,8 @@
       "id": "satz_a2_0440",
       "level": "a2",
       "targetKo": "교수님 수업이 재미있어요.",
-      "promptDe": "Die Vorlesung des Professors ist interessant.",
-      "promptEn": "The professor's lecture is interesting.",
+      "promptDe": "Die Vorlesung war wirklich interessant.",
+      "promptEn": "The lecture was really interesting.",
       "distractors": [
         "회사",
         "직업"
@@ -29527,7 +29527,7 @@
       "id": "satz_b1_0479",
       "level": "b1",
       "targetKo": "힘들 때마다 친구가 저를 격려해 줬어요.",
-      "promptDe": "Immer wenn es schwer war, hat mich meine Freundin ermutigt.",
+      "promptDe": "Wenn es mir schwerfiel, hat mich jedes Mal jemand aus meinem Freundeskreis ermutigt.",
       "promptEn": "Whenever things were hard, my friend encouraged me.",
       "vocabKo": "격려하다",
       "distractors": [
@@ -29540,7 +29540,7 @@
       "id": "satz_b1_0480",
       "level": "b1",
       "targetKo": "슬퍼하는 친구를 위로했어요.",
-      "promptDe": "Ich habe meinen traurigen Freund getröstet.",
+      "promptDe": "Ich habe eine traurige Person aus meinem Freundeskreis getröstet.",
       "promptEn": "I comforted my sad friend.",
       "vocabKo": "위로하다",
       "distractors": [
