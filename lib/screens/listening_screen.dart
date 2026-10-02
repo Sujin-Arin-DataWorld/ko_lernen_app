@@ -95,6 +95,7 @@ class _ListeningScreenState extends State<ListeningScreen>
     with ScreenCoachMixin<ListeningScreen> {
   List<Scenario> _scenarios = const [];
   bool _loading = true;
+  String? _loadError;
   LearnerLevel _shelfLevel =
       LearnerLevel.fromCode(SoriLevelFilterBar.resolveStartLevel()) ??
       LearnerLevel.a1;
@@ -131,19 +132,34 @@ class _ListeningScreenState extends State<ListeningScreen>
   }
 
   Future<void> _load() async {
-    final providedLoader = widget.scenariosLoader;
-    final list = providedLoader != null
-        ? await providedLoader()
-        : await ScenarioLoader.load();
-    if (!mounted) {
-      return;
-    }
     setState(() {
-      _scenarios = list
-          .where((scenario) => scenario.dialog.isNotEmpty)
-          .toList();
-      _loading = false;
+      _loading = true;
+      _loadError = null;
     });
+    try {
+      final providedLoader = widget.scenariosLoader;
+      final list = providedLoader != null
+          ? await providedLoader()
+          : await ScenarioLoader.load();
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _scenarios = list
+            .where((scenario) => scenario.dialog.isNotEmpty)
+            .toList();
+        _loading = false;
+      });
+    } catch (error, stackTrace) {
+      debugPrint('Listening scenarios failed to load: $error\n$stackTrace');
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _loadError = AppL10n.of(context).loadErrorTryAgain;
+        _loading = false;
+      });
+    }
   }
 
   /// `SoriLevelFilterBar`의 다른 호출부(`vocab_packs_screen.dart`)와 같은
@@ -273,6 +289,25 @@ class _ListeningScreenState extends State<ListeningScreen>
       return SoriStandardFrame(
         appBarTitle: t.listeningTitle,
         builder: (context, padding) => const AppLoading(),
+      );
+    }
+    if (_loadError != null) {
+      return SoriStandardFrame(
+        appBarTitle: t.listeningTitle,
+        padding: const EdgeInsets.all(Spacing.lg),
+        builder: (context, padding) => Center(
+          child: Padding(
+            padding: padding,
+            child: SoriEmptyState(
+              asset: 'assets/illustrations/error/lost_magpie.png',
+              icon: Icons.signal_wifi_statusbar_null_rounded,
+              title: t.listeningTitle,
+              body: _loadError,
+              ctaLabel: t.btnRetry,
+              onCta: () => _load(),
+            ),
+          ),
+        ),
       );
     }
     if (_scenarios.isEmpty) {
